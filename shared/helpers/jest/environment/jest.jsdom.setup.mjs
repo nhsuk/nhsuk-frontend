@@ -10,7 +10,7 @@ Object.defineProperties(Element.prototype, {
 })
 
 /**
- * Polyfill `window.matchMedia()` for GOV.UK Frontend
+ * Polyfill `window.matchMedia()` for NHS.UK frontend
  */
 Object.defineProperty(window, 'matchMedia', {
   writable: true,
@@ -18,13 +18,23 @@ Object.defineProperty(window, 'matchMedia', {
     matches: true,
     media: query,
     onchange: null,
+    addListener: jest.fn(),
     addEventListener: jest.fn(),
+    removeListener: jest.fn(),
     removeEventListener: jest.fn(),
     dispatchEvent: jest.fn()
   }))
 })
 
-beforeEach(async () => {
+beforeEach(() => {
+  const { style } = document.documentElement
+
+  // Add styles for NHS.UK frontend checks
+  style.setProperty('--nhsuk-breakpoint-mobile', '20rem')
+  style.setProperty('--nhsuk-breakpoint-tablet', '40.0625rem')
+  style.setProperty('--nhsuk-breakpoint-desktop', '48.0625rem')
+  style.setProperty('--nhsuk-breakpoint-large-desktop', '61.875rem')
+
   // Flag NHS.UK frontend as supported
   document.body.classList.add('nhsuk-frontend-supported')
 })

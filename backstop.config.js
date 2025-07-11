@@ -10,7 +10,7 @@ const {
 /**
  * Default viewport sizes
  *
- * @type {Map<string, Viewport>}
+ * @type {Map<string, Partial<ViewportNext>>}
  */
 const viewports = new Map([
   [
@@ -1530,5 +1530,5 @@ module.exports = {
 }
 
 /**
- * @import { PlaywrightEngineConfig, Viewport } from 'backstopjs'
+ * @import { PlaywrightEngineConfig, ViewportNext } from 'backstopjs'
  */

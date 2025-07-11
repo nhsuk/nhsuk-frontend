@@ -8,10 +8,10 @@ describe('Checkboxes', () => {
   /** @type {HTMLElement} */
   let $root
 
-  /** @type {HTMLDivElement[]} */
+  /** @type {HTMLElement[]} */
   let $conditionals
 
-  /** @type {HTMLInputElement[]} */
+  /** @type {HTMLElement[]} */
   let $inputs
 
   beforeEach(() => {
@@ -92,11 +92,13 @@ describe('Checkboxes', () => {
       </form>
     `
 
-    $root = document.querySelector('.nhsuk-checkboxes')
+    $root = /** @type {HTMLElement} */ (
+      document.querySelector(`[data-module="${Checkboxes.moduleName}"]`)
+    )
 
-    $conditionals = [
+    $conditionals = /** @type {HTMLElement[]} */ ([
       ...$root.querySelectorAll('.nhsuk-checkboxes__conditional')
-    ]
+    ])
 
     const $input1 = getByRole($root, 'checkbox', {
       name: 'Email'
@@ -129,14 +131,30 @@ describe('Checkboxes', () => {
       }
     })
 
+    it('should throw with missing conditional content', () => {
+      $conditionals[0].remove()
+
+      expect(() => initCheckboxes()).toThrow(
+        `${Checkboxes.moduleName}: Conditional reveal (\`id="${$conditionals[0].id}"\`) not found`
+      )
+    })
+
     it('should throw with missing checkboxes', () => {
       for (const $input of $inputs) {
         $input.remove()
       }
 
       expect(() => initCheckboxes()).toThrow(
-        'Checkboxes: Form inputs (`<input type="checkbox">`) not found'
+        `${Checkboxes.moduleName}: Form inputs (\`<input type="checkbox">\`) not found`
       )
+    })
+
+    it('should not throw with missing checkbox `aria-controls` attribute', () => {
+      for (const $input of $inputs) {
+        $input.removeAttribute('aria-controls')
+      }
+
+      expect(() => initCheckboxes()).not.toThrow()
     })
 
     it('should not throw with empty body', () => {
@@ -165,15 +183,24 @@ describe('Checkboxes', () => {
 
     it('should throw with missing $root element', () => {
       expect(() => new Checkboxes()).toThrow(
-        'Checkboxes: Root element (`$root`) not found'
+        `${Checkboxes.moduleName}: Root element (\`$root\`) not found`
       )
     })
 
     it('should throw with wrong $root element type', () => {
-      $root = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+      const $svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
 
-      expect(() => new Checkboxes($root)).toThrow(
-        'Checkboxes: Root element (`$root`) is not of type HTMLElement'
+      expect(() => new Checkboxes($svg)).toThrow(
+        `${Checkboxes.moduleName}: Root element (\`$root\`) is not of type HTMLElement`
+      )
+    })
+
+    it('should throw when initialised twice', () => {
+      expect(() => {
+        new Checkboxes($root)
+        new Checkboxes($root)
+      }).toThrow(
+        `${Checkboxes.moduleName}: Root element (\`$root\`) already initialised`
       )
     })
   })
@@ -209,6 +236,27 @@ describe('Checkboxes', () => {
           'nhsuk-checkboxes__conditional--hidden'
         )
       }
+    })
+
+    it('should be visible when input is pre-checked (deferred initialisation)', () => {
+      const $input = $inputs[0]
+      const $conditional = $conditionals[0]
+
+      // Pre-check the first input
+      $input.click()
+
+      // Conditional content not visible
+      expect($input).not.toHaveAttribute('aria-expanded', 'true')
+      expect($conditional).toHaveClass('nhsuk-checkboxes__conditional--hidden')
+
+      window.addEventListener('pageshow', () => initCheckboxes())
+      window.dispatchEvent(new Event('pageshow'))
+
+      // Conditional content visible
+      expect($input).toHaveAttribute('aria-expanded', 'true')
+      expect($conditional).not.toHaveClass(
+        'nhsuk-checkboxes__conditional--hidden'
+      )
     })
 
     it('should be hidden when input is unchecked', () => {

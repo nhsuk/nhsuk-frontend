@@ -8,10 +8,10 @@ describe('Radios', () => {
   /** @type {HTMLElement} */
   let $root
 
-  /** @type {HTMLDivElement[]} */
+  /** @type {HTMLElement[]} */
   let $conditionals
 
-  /** @type {HTMLInputElement[]} */
+  /** @type {HTMLElement[]} */
   let $inputs
 
   beforeEach(() => {
@@ -92,9 +92,13 @@ describe('Radios', () => {
       </form>
     `
 
-    $root = document.querySelector('.nhsuk-radios')
+    $root = /** @type {HTMLElement} */ (
+      document.querySelector(`[data-module="${Radios.moduleName}"]`)
+    )
 
-    $conditionals = [...$root.querySelectorAll('.nhsuk-radios__conditional')]
+    $conditionals = /** @type {HTMLElement[]} */ ([
+      ...$root.querySelectorAll('.nhsuk-radios__conditional')
+    ])
 
     const $input1 = getByRole($root, 'radio', {
       name: 'Email'
@@ -121,10 +125,18 @@ describe('Radios', () => {
 
       for (const $input of $inputs) {
         expect($input.addEventListener).toHaveBeenCalledWith(
-          'change',
+          'click',
           expect.any(Function)
         )
       }
+    })
+
+    it('should throw with missing conditional content', () => {
+      $conditionals[0].remove()
+
+      expect(() => initRadios()).toThrow(
+        `${Radios.moduleName}: Conditional reveal (\`id="${$conditionals[0].id}"\`) not found`
+      )
     })
 
     it('should throw with missing radios', () => {
@@ -133,8 +145,16 @@ describe('Radios', () => {
       }
 
       expect(() => initRadios()).toThrow(
-        'Radios: Form inputs (`<input type="radio">`) not found'
+        `${Radios.moduleName}: Form inputs (\`<input type="radio">\`) not found`
       )
+    })
+
+    it('should not throw with missing radio `aria-controls` attribute', () => {
+      for (const $input of $inputs) {
+        $input.removeAttribute('aria-controls')
+      }
+
+      expect(() => initRadios()).not.toThrow()
     })
 
     it('should not throw with empty body', () => {
@@ -163,15 +183,24 @@ describe('Radios', () => {
 
     it('should throw with missing $root element', () => {
       expect(() => new Radios()).toThrow(
-        'Radios: Root element (`$root`) not found'
+        `${Radios.moduleName}: Root element (\`$root\`) not found`
       )
     })
 
     it('should throw with wrong $root element type', () => {
-      $root = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+      const $svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
 
-      expect(() => new Radios($root)).toThrow(
-        'Radios: Root element (`$root`) is not of type HTMLElement'
+      expect(() => new Radios($svg)).toThrow(
+        `${Radios.moduleName}: Root element (\`$root\`) is not of type HTMLElement`
+      )
+    })
+
+    it('should throw when initialised twice', () => {
+      expect(() => {
+        new Radios($root)
+        new Radios($root)
+      }).toThrow(
+        `${Radios.moduleName}: Root element (\`$root\`) already initialised`
       )
     })
   })
@@ -205,6 +234,25 @@ describe('Radios', () => {
           'nhsuk-radios__conditional--hidden'
         )
       }
+    })
+
+    it('should be visible when input is pre-checked (deferred initialisation)', () => {
+      const $input = $inputs[0]
+      const $conditional = $conditionals[0]
+
+      // Pre-check the first input
+      $input.click()
+
+      // Conditional content not visible
+      expect($input).not.toHaveAttribute('aria-expanded', 'true')
+      expect($conditional).toHaveClass('nhsuk-radios__conditional--hidden')
+
+      window.addEventListener('pageshow', () => initRadios())
+      window.dispatchEvent(new Event('pageshow'))
+
+      // Conditional content visible
+      expect($input).toHaveAttribute('aria-expanded', 'true')
+      expect($conditional).not.toHaveClass('nhsuk-radios__conditional--hidden')
     })
 
     it('should be hidden when other input is checked', () => {

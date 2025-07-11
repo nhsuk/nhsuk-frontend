@@ -5,6 +5,21 @@ import { ElementError } from '../../errors/index.mjs'
  * Header component
  */
 export class Header extends Component {
+  width = 0
+
+  /**
+   * @type {{ element: HTMLElement, right: number }[]}
+   */
+  breakpoints = []
+
+  /**
+   * @type {number | null}
+   */
+  updateNavigationTimer = null
+
+  menuIsEnabled = false
+  menuIsOpen = false
+
   /**
    * @param {Element | null} [$root] - HTML element to use for component
    */
@@ -37,7 +52,7 @@ export class Header extends Component {
       })
     }
 
-    if (!$navigationItems || !$navigationItems.length) {
+    if (!$navigationItems.length) {
       throw new ElementError({
         component: Header,
         identifier: 'List items (`<li class="nhsuk-header__navigation-item">`)'
@@ -67,25 +82,12 @@ export class Header extends Component {
     this.$menuToggle = $menuToggle
     this.$menuList = document.createElement('ul')
 
-    this.menuIsEnabled = false
-    this.menuIsOpen = false
-
     this.handleEscapeKey = this.onEscapeKey.bind(this)
-    this.handleUpdateNavigation = this.debounce(this.updateNavigation)
+    this.handleUpdateNavigation = this.updateNavigation.bind(this)
     this.handleToggleMenu = this.toggleMenu.bind(this)
 
     this.setupNavigation()
     this.updateNavigation()
-  }
-
-  debounce(func, timeout = 100) {
-    let timer
-    return (...args) => {
-      clearTimeout(timer)
-      timer = setTimeout(() => {
-        func.apply(this, args)
-      }, timeout)
-    }
   }
 
   /**
@@ -113,14 +115,21 @@ export class Header extends Component {
    * Add the breakpoints with default positions
    */
   setupNavigation() {
-    this.breakpoints = []
-
     this.$navigationItems.forEach((element) => {
       this.breakpoints.push({ element, right: 0 })
     })
 
     // Add resize listener for next update
-    window.addEventListener('resize', this.handleUpdateNavigation)
+    window.addEventListener('resize', () => {
+      if (this.updateNavigationTimer) {
+        window.clearTimeout(this.updateNavigationTimer)
+      }
+
+      this.updateNavigationTimer = window.setTimeout(
+        this.handleUpdateNavigation,
+        100
+      )
+    })
   }
 
   /**
@@ -286,6 +295,11 @@ export class Header extends Component {
       )
     }
   }
+
+  /**
+   * Name for the component used when initialising using data-module attributes
+   */
+  static moduleName = 'nhsuk-header'
 }
 
 /**
@@ -295,8 +309,8 @@ export class Header extends Component {
  * @param {Element | Document | null} [options.scope] - Scope of the document to search within
  */
 export function initHeader(options = {}) {
-  const $scope = options.scope || document
-  const $root = $scope.querySelector('.nhsuk-header')
+  const $scope = options.scope ?? document
+  const $root = $scope.querySelector(`[data-module="${Header.moduleName}"]`)
 
   if (!$root) {
     return

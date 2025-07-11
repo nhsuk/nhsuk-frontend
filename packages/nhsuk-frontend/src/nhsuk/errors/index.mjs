@@ -1,3 +1,5 @@
+import { formatErrorMessage } from '../common/index.mjs'
+
 /**
  * NHS.UK frontend error
  *
@@ -59,13 +61,34 @@ export class ElementError extends NHSUKFrontendError {
   constructor(options) {
     const { component, identifier, element, expectedType } = options
 
-    // Add prefix and identifier
-    let message = `${component.name}: ${identifier}`
+    let message = identifier
 
     // Append reason
     message += element
       ? ` is not of type ${expectedType ?? 'HTMLElement'}`
       : ' not found'
+
+    super(formatErrorMessage(component, message))
+  }
+}
+
+/**
+ * Indicates that a component is already initialised
+ */
+export class InitError extends NHSUKFrontendError {
+  name = 'InitError'
+
+  /**
+   * @param {ComponentConstructor | string} componentOrMessage - Component or init error message
+   */
+  constructor(componentOrMessage) {
+    const message =
+      typeof componentOrMessage === 'string'
+        ? componentOrMessage
+        : formatErrorMessage(
+            componentOrMessage,
+            'Root element (`$root`) already initialised'
+          )
 
     super(message)
   }

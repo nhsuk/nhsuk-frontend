@@ -6,6 +6,39 @@
 
 You must make the following changes when you migrate to this release, or your service might break.
 
+#### Add missing `data-module` attributes to components
+
+You do not need to do anything if you're using Nunjucks macros.
+
+If you are not using Nunjucks macros, add the missing `data-module` attributes to the following components' HTML:
+
+```patch
+- <div class="nhsuk-checkboxes">
++ <div class="nhsuk-checkboxes" data-module="nhsuk-checkboxes">
+```
+
+```patch
+- <div class="nhsuk-radios">
++ <div class="nhsuk-radios" data-module="nhsuk-radios">
+```
+
+```patch
+- <div class="nhsuk-error-summary">
++ <div class="nhsuk-error-summary" data-module="nhsuk-error-summary">
+```
+
+```patch
+- <header class="nhsuk-header">
++ <header class="nhsuk-header" data-module="nhsuk-header">
+```
+
+```patch
+- <a class="nhsuk-skip-link">
++ <a class="nhsuk-skip-link" data-module="nhsuk-skip-link">
+```
+
+This change was introduced in [pull request #1480: Add missing component `data-module` attributes](https://github.com/nhsuk/nhsuk-frontend/pull/1480).
+
 #### Check that tabs components work as expected
 
 The tabs component no longer triggers the `tab.show` and `tab.hide` custom events. [Get in touch](https://service-manual.nhs.uk/get-in-touch) if you need to continue using these events.
@@ -35,8 +68,9 @@ Errors you might see include:
 
 - `SupportError` - when NHS.UK frontend is not supported in the current browser
 - `ElementError` - when component templates have missing or broken HTML elements
+- `InitError` - when components are initialised multiple times
 
-This change was introduced in pull requests [#1459: Add NHS.UK frontend browser support checks](https://github.com/nhsuk/nhsuk-frontend/pull/1459) and [#1466: Throw `ElementError` for all missing elements](https://github.com/nhsuk/nhsuk-frontend/pull/1466).
+This change was introduced in pull requests [#1459: Add NHS.UK frontend browser support checks](https://github.com/nhsuk/nhsuk-frontend/pull/1459), [#1466: Throw `ElementError` for all missing elements](https://github.com/nhsuk/nhsuk-frontend/pull/1466) and [#1481: Prevent multiple initialisations of a single component instance](https://github.com/nhsuk/nhsuk-frontend/pull/1481).
 
 :wrench: **Fixes**
 
@@ -44,7 +78,8 @@ This change was introduced in pull requests [#1459: Add NHS.UK frontend browser 
 - [#1467: Update components to set a default `id` based on `name`](https://github.com/nhsuk/nhsuk-frontend/pull/1467)
 - [#1468: Support initial `aria-describedby` on all form fields](https://github.com/nhsuk/nhsuk-frontend/pull/1468)
 - [#1469: Remove deprecated code and legacy feature detection](https://github.com/nhsuk/nhsuk-frontend/pull/1469)
-- [#1471: Fix styles for button as link :visited when :active and :focus](https://github.com/nhsuk/nhsuk-frontend/pull/1471)
+- [#1474: Fix missing `attributes` option on form groups](https://github.com/nhsuk/nhsuk-frontend/pull/1474)
+- [#1479: Fix tabs component JavaScript to use `$nhsuk-breakpoints` option](https://github.com/nhsuk/nhsuk-frontend/pull/1479)
 
 ## 10.0.0-internal.0 - 2 July 2025
 
@@ -189,8 +224,8 @@ import { initButtons, initCheckboxes } from 'nhsuk-frontend'
 // Initialise all button components
 initButtons();
 
-// Initialise all radios components
-initRadios();
+// Initialise all checkboxes components
+initCheckboxes();
 ```
 
 Or alternatively, you can initialise individual component classes:
@@ -432,6 +467,14 @@ We've made changes to NHS.UK frontend in the following pull requests:
 
 - [#1349: Add select component `value`, `disabled` and `formGroup` params](https://github.com/nhsuk/nhsuk-frontend/pull/1349)
 - [#1401: Fix header menu active item indicator above desktop viewport](https://github.com/nhsuk/nhsuk-frontend/issues/1401)
+
+## 9.6.4 - 10 July 2025
+
+Note: This release was created from the `support/9.x` branch.
+
+:wrench: **Fixes**
+
+- [#1471: Fix styles for button as link :visited when :active and :focus](https://github.com/nhsuk/nhsuk-frontend/pull/1471)
 
 ## 9.6.3 - 19 June 2025
 

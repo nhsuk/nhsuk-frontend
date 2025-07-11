@@ -51,7 +51,7 @@ describe('Warnings settings', () => {
 
     // Expect our mocked @warn function to have been called once with a single
     // argument, which should be the test message
-    expect(logger.warn.mock.calls).toHaveLength(1)
+    expect(jest.mocked(logger.warn)?.mock.calls).toHaveLength(1)
   })
 
   it('fires every @warn if $silence-further-warnings is false', async () => {
@@ -67,7 +67,7 @@ describe('Warnings settings', () => {
       logger
     })
 
-    expect(logger.warn.mock.calls).toHaveLength(2)
+    expect(jest.mocked(logger.warn)?.mock.calls).toHaveLength(2)
   })
 
   it('Does not fire a @warn if the key is already in $nhsuk-suppressed-warnings', async () => {

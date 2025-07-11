@@ -1,6 +1,11 @@
 import { SkipLink } from '../index.mjs'
 
-import { ElementError, NHSUKFrontendError, SupportError } from './index.mjs'
+import {
+  ElementError,
+  NHSUKFrontendError,
+  InitError,
+  SupportError
+} from './index.mjs'
 
 describe('Errors', () => {
   describe('NHSUKFrontendError', () => {
@@ -28,7 +33,6 @@ describe('Errors', () => {
     })
 
     it('provides feedback regarding browser support', () => {
-      // @ts-expect-error Allow property 'noModule' to be removed
       delete window.HTMLScriptElement.prototype.noModule
       expect(new SupportError(document.body).message).toBe(
         'NHS.UK frontend is not supported in this browser'
@@ -47,6 +51,26 @@ describe('Errors', () => {
       expect(new SupportError(null).message).toBe(
         'NHS.UK frontend initialised without `<script type="module">`'
       )
+    })
+  })
+
+  describe('InitError', () => {
+    it('is an instance of NHSUKFrontendError', () => {
+      expect(new InitError(SkipLink)).toBeInstanceOf(NHSUKFrontendError)
+    })
+
+    it('has its own name set', () => {
+      expect(new InitError(SkipLink).name).toBe('InitError')
+    })
+
+    it('provides feedback for modules already initialised', () => {
+      expect(new InitError(SkipLink).message).toBe(
+        'nhsuk-skip-link: Root element (`$root`) already initialised'
+      )
+    })
+
+    it('allows a custom message to be provided', () => {
+      expect(new InitError('custom message').message).toBe('custom message')
     })
   })
 
@@ -77,7 +101,7 @@ describe('Errors', () => {
 
       expect(error).toHaveProperty(
         'message',
-        'SkipLink: variableName not found'
+        `${SkipLink.moduleName}: variableName not found`
       )
     })
 
@@ -93,7 +117,7 @@ describe('Errors', () => {
 
       expect(error).toHaveProperty(
         'message',
-        'SkipLink: variableName is not of type HTMLAnchorElement'
+        `${SkipLink.moduleName}: variableName is not of type HTMLAnchorElement`
       )
     })
   })

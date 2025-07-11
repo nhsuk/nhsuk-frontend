@@ -1,4 +1,4 @@
-import { toggleConditionalInput } from '../../common.mjs'
+import { toggleConditionalInput } from '../../common/index.mjs'
 import { Component } from '../../component.mjs'
 import { ElementError } from '../../errors/index.mjs'
 
@@ -26,14 +26,31 @@ export class Checkboxes extends Component {
 
     this.$inputs = $inputs
 
+    this.$inputs.forEach(($input) => {
+      const targetId = $input.getAttribute('aria-controls')
+
+      // Skip checkboxes without aria-controls attributes
+      if (!targetId) {
+        return
+      }
+
+      // Throw if target conditional element does not exist.
+      if (!document.getElementById(targetId)) {
+        throw new ElementError({
+          component: Checkboxes,
+          identifier: `Conditional reveal (\`id="${targetId}"\`)`
+        })
+      }
+    })
+
     // When the page is restored after navigating 'back' in some browsers the
     // state of form controls is not restored until *after* the DOMContentLoaded
     // event is fired, so we need to sync after the pageshow event.
     window.addEventListener('pageshow', () => this.syncAllConditionalReveals())
 
-    // Although we've set up handlers to sync state on the pageshow or
-    // DOMContentLoaded event, init could be called after those events have fired,
-    // for example if they are added to the page dynamically, so sync now too.
+    // Although we've set up handlers to sync state on the pageshow event, init
+    // could be called after those events have fired, for example if they are
+    // added to the page dynamically, so sync now too.
     this.syncAllConditionalReveals()
 
     // Attach handleClick as click to inputs
@@ -56,8 +73,14 @@ export class Checkboxes extends Component {
    *
    * Find any other checkbox inputs with the checkbox group value, and uncheck them.
    * This is useful for when a “None of these" checkbox is checked.
+   *
+   * @param {HTMLInputElement} input - Checkbox input
    */
   unCheckAllInputsExcept(input) {
+    if (!input.form) {
+      return
+    }
+
     const allInputsInSameExclusiveGroup = input.form.querySelectorAll(
       `input[type="checkbox"][data-checkbox-exclusive-group="${input.getAttribute('data-checkbox-exclusive-group')}"]`
     )
@@ -65,7 +88,7 @@ export class Checkboxes extends Component {
     allInputsInSameExclusiveGroup.forEach((inputWithSameName) => {
       const hasSameFormOwner = input.form === inputWithSameName.form
       if (hasSameFormOwner && inputWithSameName !== input) {
-        inputWithSameName.checked = false // eslint-disable-line no-param-reassign
+        inputWithSameName.checked = false
       }
     })
 
@@ -78,8 +101,14 @@ export class Checkboxes extends Component {
    * Find any checkbox inputs with the same checkbox group value and the 'exclusive' behaviour,
    * and uncheck them. This helps prevent someone checking both a regular checkbox and a
    * "None of these" checkbox in the same fieldset.
+   *
+   * @param {HTMLInputElement} input - Checkbox input
    */
   unCheckExclusiveInputs(input) {
+    if (!input.form) {
+      return
+    }
+
     const allExclusiveInputsInSameExclusiveGroup = input.form.querySelectorAll(
       `input[type="checkbox"][data-checkbox-exclusive][data-checkbox-exclusive-group="${input.getAttribute(
         'data-checkbox-exclusive-group'
@@ -89,7 +118,7 @@ export class Checkboxes extends Component {
     allExclusiveInputsInSameExclusiveGroup.forEach((exclusiveInput) => {
       const hasSameFormOwner = input.form === exclusiveInput.form
       if (hasSameFormOwner) {
-        exclusiveInput.checked = false // eslint-disable-line no-param-reassign
+        exclusiveInput.checked = false
       }
     })
 
@@ -102,23 +131,38 @@ export class Checkboxes extends Component {
    * @param {MouseEvent} event - Click event
    */
   handleClick(event) {
+    const $clickedInput = event.target
+
+    // Ignore clicks on things that aren't checkbox inputs
+    if (
+      !($clickedInput instanceof HTMLInputElement) ||
+      $clickedInput.type !== 'checkbox'
+    ) {
+      return
+    }
+
     // Toggle conditional content based on checked state
     toggleConditionalInput(
-      event.target,
+      $clickedInput,
       'nhsuk-checkboxes__conditional--hidden'
     )
 
-    if (!event.target.checked) {
+    if (!$clickedInput.checked) {
       return
     }
 
     // Handle 'exclusive' checkbox behaviour (ie "None of these")
-    if (event.target.hasAttribute('data-checkbox-exclusive')) {
-      this.unCheckAllInputsExcept(event.target)
+    if ($clickedInput.hasAttribute('data-checkbox-exclusive')) {
+      this.unCheckAllInputsExcept($clickedInput)
     } else {
-      this.unCheckExclusiveInputs(event.target)
+      this.unCheckExclusiveInputs($clickedInput)
     }
   }
+
+  /**
+   * Name for the component used when initialising using data-module attributes
+   */
+  static moduleName = 'nhsuk-checkboxes'
 }
 
 /**
@@ -128,8 +172,10 @@ export class Checkboxes extends Component {
  * @param {Element | Document | null} [options.scope] - Scope of the document to search within
  */
 export function initCheckboxes(options = {}) {
-  const $scope = options.scope || document
-  const $checkboxes = $scope.querySelectorAll('.nhsuk-checkboxes')
+  const $scope = options.scope ?? document
+  const $checkboxes = $scope.querySelectorAll(
+    `[data-module="${Checkboxes.moduleName}"]`
+  )
 
   $checkboxes.forEach(($root) => {
     new Checkboxes($root)

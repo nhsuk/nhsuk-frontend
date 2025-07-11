@@ -6,6 +6,17 @@ import { ElementError } from '../../errors/index.mjs'
  */
 export class CharacterCount extends Component {
   /**
+   * @type {number | null}
+   */
+  lastInputTimestamp = null
+  lastInputValue = ''
+
+  /**
+   * @type {number | null}
+   */
+  valueChecker = null
+
+  /**
    * @param {Element | null} [$root] - HTML element to use for component
    */
   constructor($root) {
@@ -28,9 +39,6 @@ export class CharacterCount extends Component {
     }
 
     this.$textarea = $textarea
-    this.$visibleCountMessage = null
-    this.$screenReaderCountMessage = null
-    this.lastInputTimestamp = null
 
     const fallbackLimitMessageId = `${this.$textarea.id}-info`
     const $fallbackLimitMessage = document.getElementById(
@@ -76,22 +84,19 @@ export class CharacterCount extends Component {
     // Hide the fallback limit message
     $fallbackLimitMessage.classList.add('nhsuk-u-visually-hidden')
 
-    // Read options set using dataset ('data-' values)
-    this.options = CharacterCount.getDataset(this.$root)
+    /**
+     * Read config set using dataset ('data-' values)
+     *
+     * @type {CharacterCountConfig}
+     */
+    this.config = Object.assign(
+      {},
+      CharacterCount.defaults,
+      CharacterCount.getDataset(this.$root.dataset)
+    )
 
     // Determine the limit attribute (characters or words)
-    let countAttribute = this.defaults.characterCountAttribute
-    if (this.options.maxwords) {
-      countAttribute = this.defaults.wordCountAttribute
-    }
-
-    // Save the element limit
-    this.maxLength = this.$root.getAttribute(countAttribute)
-
-    // Check for limit
-    if (!this.maxLength) {
-      return this
-    }
+    this.maxLength = this.config.maxwords ?? this.config.maxlength ?? Infinity
 
     // Remove hard limit if set
     this.$textarea.removeAttribute('maxlength')
@@ -109,36 +114,42 @@ export class CharacterCount extends Component {
     this.updateCountMessage()
   }
 
-  // Read data attributes
-  static getDataset(element) {
-    const dataset = {}
-    const { attributes } = element
-    if (attributes) {
-      // eslint-disable-next-line @typescript-eslint/prefer-for-of
-      for (let i = 0; i < attributes.length; i++) {
-        const attribute = attributes[i]
-        const match = attribute.name.match(/^data-(.+)/)
-        if (match) {
-          dataset[match[1]] = attribute.value
-        }
+  /**
+   * Read data attributes
+   *
+   * @param {DOMStringMap} dataset - HTML element dataset
+   */
+  static getDataset(dataset) {
+    const out = /** @type {CharacterCountConfig} */ ({})
+
+    for (const [key, value] of Object.entries(dataset)) {
+      if (key === 'maxlength' || key === 'maxwords' || key === 'threshold') {
+        out[key] = Number(value)
       }
     }
-    return dataset
+
+    return out
   }
 
-  // Counts characters or words in text
+  /**
+   * Counts characters or words in text
+   *
+   * @param {string} text
+   */
   count(text) {
     let length
-    if (this.options.maxwords) {
-      const tokens = text.match(/\S+/g) || [] // Matches consecutive non-whitespace chars
-      length = tokens.length // eslint-disable-line prefer-destructuring
+    if (this.config.maxwords) {
+      const tokens = text.match(/\S+/g) ?? [] // Matches consecutive non-whitespace chars
+      length = tokens.length
     } else {
-      length = text.length // eslint-disable-line prefer-destructuring
+      length = text.length
     }
     return length
   }
 
-  // Bind input propertychange to the elements and update based on the change
+  /**
+   * Bind input propertychange to the elements and update based on the change
+   */
   bindChangeEvents() {
     const { $textarea } = this
     $textarea.addEventListener('keyup', this.handleKeyUp.bind(this))
@@ -148,27 +159,30 @@ export class CharacterCount extends Component {
     $textarea.addEventListener('blur', this.handleBlur.bind(this))
   }
 
-  // Speech recognition software such as Dragon NaturallySpeaking will modify the
-  // fields by directly changing its `value`. These changes don't trigger events
-  // in JavaScript, so we need to poll to handle when and if they occur.
+  /**
+   * Speech recognition software such as Dragon NaturallySpeaking will modify the
+   * fields by directly changing its `value`. These changes don't trigger events
+   * in JavaScript, so we need to poll to handle when and if they occur
+   */
   checkIfValueChanged() {
-    if (!this.$textarea.oldValue) {
-      this.$textarea.oldValue = ''
-    }
-    if (this.$textarea.value !== this.$textarea.oldValue) {
-      this.$textarea.oldValue = this.$textarea.value
+    if (this.$textarea.value !== this.lastInputValue) {
+      this.lastInputValue = this.$textarea.value
       this.updateCountMessage()
     }
   }
 
-  // Helper function to update both the visible and screen reader-specific
-  // counters simultaneously (e.g. on init)
+  /**
+   * Helper function to update both the visible and screen reader-specific
+   * counters simultaneously (e.g. on init)
+   */
   updateCountMessage() {
     this.updateVisibleCountMessage()
     this.updateScreenReaderCountMessage()
   }
 
-  // Update visible counter
+  /**
+   * Update visible counter
+   */
   updateVisibleCountMessage() {
     const { $textarea } = this
     const { $visibleCountMessage } = this
@@ -201,7 +215,9 @@ export class CharacterCount extends Component {
     $visibleCountMessage.innerHTML = this.formattedUpdateMessage()
   }
 
-  // Update screen reader-specific counter
+  /**
+   * Update screen reader-specific counter
+   */
   updateScreenReaderCountMessage() {
     const { $screenReaderCountMessage } = this
 
@@ -217,16 +233,18 @@ export class CharacterCount extends Component {
     $screenReaderCountMessage.innerHTML = this.formattedUpdateMessage()
   }
 
-  // Format update message
+  /**
+   * Format update message
+   */
   formattedUpdateMessage() {
     const { $textarea } = this
-    const { options } = this
+    const { config } = this
     const remainingNumber = this.maxLength - this.count($textarea.value)
 
     let charVerb = 'remaining'
     let charNoun = 'character'
     let displayNumber = remainingNumber
-    if (options.maxwords) {
+    if (config.maxwords) {
       charNoun = 'word'
     }
     charNoun += remainingNumber === -1 || remainingNumber === 1 ? '' : 's'
@@ -237,37 +255,48 @@ export class CharacterCount extends Component {
     return `You have ${displayNumber} ${charNoun} ${charVerb}`
   }
 
-  // Checks whether the value is over the configured threshold for the input.
-  // If there is no configured threshold, it is set to 0 and this function will
-  // always return true.
+  /**
+   * Check if count is over threshold
+   *
+   * Checks whether the value is over the configured threshold for the input.
+   * If there is no configured threshold, it is set to 0 and this function will
+   * always return true
+   */
   isOverThreshold() {
     const { $textarea } = this
-    const { options } = this
+    const { config } = this
 
     // Determine the remaining number of characters/words
     const currentLength = this.count($textarea.value)
     const { maxLength } = this
 
-    // Set threshold if presented in options
-    const thresholdPercent = options.threshold ? options.threshold : 0
+    // Set threshold if presented in config
+    const thresholdPercent = config.threshold ?? 0
     const thresholdValue = (maxLength * thresholdPercent) / 100
 
     return thresholdValue <= currentLength
   }
 
-  // Update the visible character counter and keep track of when the last update
-  // happened for each keypress
+  /**
+   * Handle key up event
+   *
+   * Update the visible character counter and keep track of when the last update
+   * happened for each keypress
+   */
   handleKeyUp() {
     this.updateVisibleCountMessage()
     this.lastInputTimestamp = Date.now()
   }
 
+  /**
+   * Handle focus event
+   */
   handleFocus() {
     // If the field is focused, and a keyup event hasn't been detected for at
     // least 1000 ms (1 second), then run the manual change check.
     // This is so that the update triggered by the manual comparison doesn't
     // conflict with debounced KeyboardEvent updates.
-    this.valueChecker = setInterval(() => {
+    this.valueChecker = window.setInterval(() => {
       if (
         !this.lastInputTimestamp ||
         Date.now() - 500 >= this.lastInputTimestamp
@@ -277,15 +306,33 @@ export class CharacterCount extends Component {
     }, 1000)
   }
 
+  /**
+   * Handle blur event
+   *
+   * Stop checking the textarea value once the textarea no longer has focus
+   */
   handleBlur() {
     // Cancel value checking on blur
-    clearInterval(this.valueChecker)
+    if (this.valueChecker) {
+      window.clearInterval(this.valueChecker)
+    }
   }
-}
 
-CharacterCount.prototype.defaults = {
-  characterCountAttribute: 'data-maxlength',
-  wordCountAttribute: 'data-maxwords'
+  /**
+   * Name for the component used when initialising using data-module attributes
+   */
+  static moduleName = 'nhsuk-character-count'
+
+  /**
+   * Character count default config
+   *
+   * @see {@link CharacterCountConfig}
+   * @constant
+   * @type {CharacterCountConfig}
+   */
+  static defaults = Object.freeze({
+    threshold: 0
+  })
 }
 
 /**
@@ -295,12 +342,26 @@ CharacterCount.prototype.defaults = {
  * @param {Element | Document | null} [options.scope] - Scope of the document to search within
  */
 export function initCharacterCounts(options = {}) {
-  const $scope = options.scope || document
+  const $scope = options.scope ?? document
   const $characterCounts = $scope.querySelectorAll(
-    '[data-module="nhsuk-character-count"]'
+    `[data-module="${CharacterCount.moduleName}"]`
   )
 
   $characterCounts.forEach(($root) => {
     new CharacterCount($root)
   })
 }
+
+/**
+ * Character count config
+ *
+ * @see {@link CharacterCount.defaults}
+ * @typedef {object} CharacterCountConfig
+ * @property {number} [maxlength] - The maximum number of characters.
+ *   If maxwords is provided, the maxlength option will be ignored.
+ * @property {number} [maxwords] - The maximum number of words. If maxwords is
+ *   provided, the maxlength option will be ignored.
+ * @property {number} [threshold=0] - The percentage value of the limit at
+ *   which point the count message is displayed. If this attribute is set, the
+ *   count message will be hidden by default.
+ */

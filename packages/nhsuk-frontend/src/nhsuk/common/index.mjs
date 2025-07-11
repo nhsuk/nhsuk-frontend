@@ -16,28 +16,14 @@ export function getFragmentFromUrl(url) {
 }
 
 /**
- * Toggle a boolean attribute on a HTML element
- *
- * @param {HTMLElement} element
- * @param {string} attr
- */
-export function toggleAttribute(element, attr) {
-  // Return without error if element or attr are missing
-  if (!element || !attr) return
-  // Toggle attribute value. Treat no existing attr same as when set to false
-  const value = element.getAttribute(attr) === 'true' ? 'false' : 'true'
-  element.setAttribute(attr, value)
-}
-
-/**
  * Toggle a toggle a class on conditional content for an input based on checked state
  *
- * @param {HTMLElement} input - input element
+ * @param {Element | null | undefined} input - input element
  * @param {string} className - class to toggle
  */
 export function toggleConditionalInput(input, className) {
   // Return without error if input or class are missing
-  if (!input || !className) return
+  if (!input || !(input instanceof HTMLInputElement) || !className) return
   // If the input has conditional content it had a data-aria-controls attribute
   const conditionalId = input.getAttribute('aria-controls')
   if (conditionalId) {
@@ -52,6 +38,25 @@ export function toggleConditionalInput(input, className) {
         input.setAttribute('aria-expanded', 'false')
       }
     }
+  }
+}
+
+/**
+ * Get NHS.UK frontend breakpoint value from CSS custom property
+ *
+ * @param {string} name - Breakpoint name
+ */
+export function getBreakpoint(name) {
+  const property = `--nhsuk-breakpoint-${name}`
+
+  // Get value from `<html>` with breakpoints on CSS :root
+  const value = window
+    .getComputedStyle(document.documentElement)
+    .getPropertyValue(property)
+
+  return {
+    property,
+    value: value || undefined
   }
 }
 
@@ -112,6 +117,20 @@ export function setFocus($element, options = {}) {
 }
 
 /**
+ * Checks if component is already initialised
+ *
+ * @param {Element} $root - HTML element to be checked
+ * @param {string} moduleName - name of component module
+ * @returns {boolean} Whether component is already initialised
+ */
+export function isInitialised($root, moduleName) {
+  return (
+    $root instanceof HTMLElement &&
+    $root.hasAttribute(`data-${moduleName}-init`)
+  )
+}
+
+/**
  * Checks if NHS.UK frontend is supported on this page
  *
  * Some browsers will load and run our JavaScript but NHS.UK frontend
@@ -127,3 +146,20 @@ export function isSupported($scope = document.body) {
 
   return $scope.classList.contains('nhsuk-frontend-supported')
 }
+
+/**
+ * Format error message
+ *
+ * @param {ComponentConstructor} Component - Component that threw the error
+ * @param {string} message - Error message
+ * @returns {string} - Formatted error message
+ */
+export function formatErrorMessage(Component, message) {
+  return `${Component.moduleName}: ${message}`
+}
+
+export * from './nhsuk-frontend-version.mjs'
+
+/**
+ * @import { ComponentConstructor } from '../component.mjs'
+ */

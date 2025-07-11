@@ -67,7 +67,9 @@ describe('Header class', () => {
       }
     })
 
-    $root = document.querySelector('.nhsuk-header')
+    $root = /** @type {HTMLElement} */ (
+      document.querySelector(`[data-module="${Header.moduleName}"]`)
+    )
 
     $navigation = getByRole($root, 'navigation')
     $navigationList = getByRole($navigation, 'list')
@@ -80,13 +82,14 @@ describe('Header class', () => {
     listWidth = 800
     itemWidth = 100
 
-    jest
-      .spyOn(HTMLElement.prototype, 'offsetWidth', 'get')
-      .mockImplementation(function () {
+    jest.spyOn(HTMLElement.prototype, 'offsetWidth', 'get').mockImplementation(
+      /** @this {HTMLElement} */
+      function () {
         return this instanceof HTMLUListElement
           ? listWidth // Mock list width
           : itemWidth // Mock item width
-      })
+      }
+    )
 
     jest.spyOn($menuButton, 'addEventListener')
     jest.spyOn(window, 'addEventListener')
@@ -133,7 +136,7 @@ describe('Header class', () => {
       $navigation.remove()
 
       expect(() => initHeader()).toThrow(
-        'Header: Navigation (`<nav class="nhsuk-header__navigation">`) not found'
+        `${Header.moduleName}: Navigation (\`<nav class="nhsuk-header__navigation">\`) not found`
       )
     })
 
@@ -141,7 +144,7 @@ describe('Header class', () => {
       $navigationList.remove()
 
       expect(() => initHeader()).toThrow(
-        'Header: List (`<ul class="nhsuk-header__navigation-list">`) not found'
+        `${Header.moduleName}: List (\`<ul class="nhsuk-header__navigation-list">\`) not found`
       )
     })
 
@@ -149,7 +152,7 @@ describe('Header class', () => {
       $navigationList.innerHTML = ''
 
       expect(() => initHeader()).toThrow(
-        'Header: List items (`<li class="nhsuk-header__navigation-item">`) not found'
+        `${Header.moduleName}: List items (\`<li class="nhsuk-header__navigation-item">\`) not found`
       )
     })
 
@@ -157,7 +160,7 @@ describe('Header class', () => {
       $menuButton.parentElement.remove()
 
       expect(() => initHeader()).toThrow(
-        'Header: Menu item (`<li class="nhsuk-header__menu" hidden>`) not found'
+        `${Header.moduleName}: Menu item (\`<li class="nhsuk-header__menu" hidden>\`) not found`
       )
     })
 
@@ -165,7 +168,7 @@ describe('Header class', () => {
       $menuButton.remove()
 
       expect(() => initHeader()).toThrow(
-        'Header: Menu button (`<button class="nhsuk-header__menu-toggle">`) not found'
+        `${Header.moduleName}: Menu button (\`<button class="nhsuk-header__menu-toggle">\`) not found`
       )
     })
 
@@ -195,15 +198,24 @@ describe('Header class', () => {
 
     it('should throw with missing $root element', () => {
       expect(() => new Header()).toThrow(
-        'Header: Root element (`$root`) not found'
+        `${Header.moduleName}: Root element (\`$root\`) not found`
       )
     })
 
     it('should throw with wrong $root element type', () => {
-      $root = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+      const $svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
 
-      expect(() => new Header($root)).toThrow(
-        'Header: Root element (`$root`) is not of type HTMLElement'
+      expect(() => new Header($svg)).toThrow(
+        `${Header.moduleName}: Root element (\`$root\`) is not of type HTMLElement`
+      )
+    })
+
+    it('should throw when initialised twice', () => {
+      expect(() => {
+        new Header($root)
+        new Header($root)
+      }).toThrow(
+        `${Header.moduleName}: Root element (\`$root\`) already initialised`
       )
     })
   })

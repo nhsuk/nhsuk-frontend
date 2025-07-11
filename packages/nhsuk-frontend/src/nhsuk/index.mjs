@@ -1,4 +1,4 @@
-import { isSupported } from './common.mjs'
+import { isSupported } from './common/index.mjs'
 import {
   initRadios,
   initHeader,
@@ -21,7 +21,7 @@ import { SupportError } from './errors/index.mjs'
  */
 export function initAll($scope) {
   const options = {
-    scope: $scope || document
+    scope: $scope ?? document
   }
 
   // Skip initialisation when NHS.UK frontend is not supported
@@ -40,5 +40,6 @@ export function initAll($scope) {
   initTabs(options)
 }
 
+export { isSupported, version } from './common/index.mjs'
 export * from './components/index.mjs'
 export * from './component.mjs'

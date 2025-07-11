@@ -1,6 +1,4 @@
-/* eslint-disable @typescript-eslint/no-extraneous-class */
-
-import { getFragmentFromUrl, setFocus } from '../../common.mjs'
+import { getFragmentFromUrl, setFocus } from '../../common/index.mjs'
 import { Component } from '../../component.mjs'
 import { ElementError } from '../../errors/index.mjs'
 
@@ -60,6 +58,11 @@ export class SkipLink extends Component {
       })
     )
   }
+
+  /**
+   * Name for the component used when initialising using data-module attributes
+   */
+  static moduleName = 'nhsuk-skip-link'
 }
 
 /**
@@ -69,8 +72,10 @@ export class SkipLink extends Component {
  * @param {Element | Document | null} [options.scope] - Scope of the document to search within
  */
 export function initSkipLinks(options = {}) {
-  const $scope = options.scope || document
-  const $skipLinks = $scope.querySelectorAll('.nhsuk-skip-link')
+  const $scope = options.scope ?? document
+  const $skipLinks = $scope.querySelectorAll(
+    `[data-module="${SkipLink.moduleName}"]`
+  )
 
   $skipLinks.forEach(($root) => {
     new SkipLink($root)
