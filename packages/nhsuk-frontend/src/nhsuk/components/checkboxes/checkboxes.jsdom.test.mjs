@@ -202,7 +202,7 @@ describe('Checkboxes', () => {
       expect($input).not.toHaveAttribute('aria-expanded', 'true')
       expect($conditional).toHaveClass('nhsuk-checkboxes__conditional--hidden')
 
-      window.addEventListener('pageshow', initCheckboxes)
+      window.addEventListener('pageshow', () => initCheckboxes())
       window.dispatchEvent(new Event('pageshow'))
 
       // Conditional content visible

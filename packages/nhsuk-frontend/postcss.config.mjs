@@ -33,10 +33,9 @@ export default (ctx = {}) => {
       },
 
       // Minify CSS only
-      to?.endsWith('.min.css') &&
-        cssnano({
-          preset: ['default', { env: 'stylesheets' }]
-        })
+      to?.endsWith('.min.css')
+        ? cssnano({ preset: ['default', { env: 'stylesheets' }] })
+        : false
     ],
 
     // Sass syntax support

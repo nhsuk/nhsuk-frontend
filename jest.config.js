@@ -6,7 +6,7 @@ const { headless = true } = jestPuppeteerConfig.launch
 /**
  * Jest project config defaults
  *
- * @type {ProjectConfig}
+ * @type {Config}
  */
 const config = {
   cacheDirectory: '<rootDir>/.cache/jest',
@@ -98,5 +98,5 @@ module.exports = {
 }
 
 /**
- * @import { Config, ProjectConfig } from 'jest'
+ * @import { Config } from 'jest'
  */
