@@ -2,6 +2,7 @@ import { components } from '@nhsuk/frontend-lib'
 import { getByRole } from '@testing-library/dom'
 import { outdent } from 'outdent'
 
+import { examples } from './macro-options.mjs'
 import { Radios, initRadios } from './radios.mjs'
 
 describe('Radios', () => {
@@ -15,83 +16,9 @@ describe('Radios', () => {
   let $inputs
 
   beforeEach(() => {
-    const emailHtml = components.render('input', {
-      context: {
-        id: 'email',
-        name: 'email',
-        spellcheck: false,
-        classes: 'nhsuk-u-width-two-thirds',
-        label: {
-          text: 'Email address'
-        }
-      }
-    })
-
-    const phoneHtml = components.render('input', {
-      context: {
-        id: 'phone',
-        name: 'phone',
-        type: 'tel',
-        classes: 'nhsuk-u-width-two-thirds',
-        label: {
-          text: 'Phone number'
-        }
-      }
-    })
-
-    const mobileHtml = components.render('input', {
-      context: {
-        id: 'mobile',
-        name: 'mobile',
-        type: 'tel',
-        classes: 'nhsuk-u-width-two-thirds',
-        label: {
-          text: 'Mobile phone number'
-        }
-      }
-    })
-
     document.body.innerHTML = outdent`
       <form method="post" novalidate>
-        ${components.render('radios', {
-          context: {
-            idPrefix: 'contact',
-            name: 'contact',
-            fieldset: {
-              legend: {
-                text: 'How would you prefer to be contacted?',
-                classes: 'nhsuk-fieldset__legend--l',
-                isPageHeading: 'true'
-              }
-            },
-            hint: {
-              text: 'Select 1 option that is relevant to you'
-            },
-            items: [
-              {
-                value: 'email',
-                text: 'Email',
-                conditional: {
-                  html: emailHtml
-                }
-              },
-              {
-                value: 'phone',
-                text: 'Phone',
-                conditional: {
-                  html: phoneHtml
-                }
-              },
-              {
-                value: 'text',
-                text: 'Text message',
-                conditional: {
-                  html: mobileHtml
-                }
-              }
-            ]
-          }
-        })}
+        ${components.render('radios', examples['with conditional content'])}
       </form>
     `
 
