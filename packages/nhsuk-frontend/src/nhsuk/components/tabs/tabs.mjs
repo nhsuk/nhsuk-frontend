@@ -250,17 +250,17 @@ export class Tabs extends Component {
   /**
    * Handle tab link clicks
    *
-   * @param {MouseEvent} e - Mouse click event
+   * @param {MouseEvent} event - Mouse click event
    */
-  onTabClick(e) {
+  onTabClick(event) {
     const $currentTab = this.getCurrentTab()
-    const $newTab = e.currentTarget
+    const $newTab = event.currentTarget
 
     if (!$currentTab || !($newTab instanceof HTMLAnchorElement)) {
       return
     }
 
-    e.preventDefault()
+    event.preventDefault()
 
     this.hideTab($currentTab)
     this.showTab($newTab)
@@ -319,18 +319,18 @@ export class Tabs extends Component {
    * Activate next tab
    */
   activateNextTab() {
-    const currentTab = this.getCurrentTab()
-    const nextTabListItem = currentTab.parentNode.nextElementSibling
-    let nextTab
+    const $currentTab = this.getCurrentTab()
+    const $nextTabListItem = $currentTab.parentNode.nextElementSibling
+    let $nextTab
 
-    if (nextTabListItem) {
-      nextTab = nextTabListItem.querySelector('a.nhsuk-tabs__tab')
+    if ($nextTabListItem) {
+      $nextTab = $nextTabListItem.querySelector('a.nhsuk-tabs__tab')
     }
-    if (nextTab) {
-      this.hideTab(currentTab)
-      this.showTab(nextTab)
-      nextTab.focus()
-      this.createHistoryEntry(nextTab)
+    if ($nextTab) {
+      this.hideTab($currentTab)
+      this.showTab($nextTab)
+      $nextTab.focus()
+      this.createHistoryEntry($nextTab)
     }
   }
 
@@ -338,18 +338,18 @@ export class Tabs extends Component {
    * Activate previous tab
    */
   activatePreviousTab() {
-    const currentTab = this.getCurrentTab()
-    const previousTabListItem = currentTab.parentNode.previousElementSibling
-    let previousTab
+    const $currentTab = this.getCurrentTab()
+    const $previousTabListItem = $currentTab.parentNode.previousElementSibling
+    let $previousTab
 
-    if (previousTabListItem) {
-      previousTab = previousTabListItem.querySelector('a.nhsuk-tabs__tab')
+    if ($previousTabListItem) {
+      $previousTab = $previousTabListItem.querySelector('a.nhsuk-tabs__tab')
     }
-    if (previousTab) {
-      this.hideTab(currentTab)
-      this.showTab(previousTab)
-      previousTab.focus()
-      this.createHistoryEntry(previousTab)
+    if ($previousTab) {
+      this.hideTab($currentTab)
+      this.showTab($previousTab)
+      $previousTab.focus()
+      this.createHistoryEntry($previousTab)
     }
   }
 
@@ -376,10 +376,10 @@ export class Tabs extends Component {
   /**
    * Hide tab panel for tab link
    *
-   * @param {HTMLAnchorElement} tab - Tab link
+   * @param {HTMLAnchorElement} $tab - Tab link
    */
-  hidePanel(tab) {
-    const $panel = this.getPanel(tab)
+  hidePanel($tab) {
+    const $panel = this.getPanel($tab)
     $panel.classList.add(this.jsHiddenClass)
   }
 
