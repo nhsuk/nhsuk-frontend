@@ -222,13 +222,13 @@ describe('Character count', () => {
             '.nhsuk-character-count__status',
             (el) => el.innerHTML.trim()
           )
-          expect(message).toBe('You have 23 characters too many')
+          expect(message).toBe('You have 40 characters too many')
 
           const srMessage = await page.$eval(
             '.nhsuk-character-count__sr-status',
             (el) => el.innerHTML.trim()
           )
-          expect(srMessage).toBe('You have 23 characters too many')
+          expect(srMessage).toBe('You have 40 characters too many')
         })
 
         it('adds error styles to the textarea', async () => {
