@@ -170,6 +170,9 @@ export class Tabs extends Component {
 
     // Show either the active tab according to the URL's hash or the first tab
     const $previousTab = this.getCurrentTab()
+    if (!$previousTab) {
+      return
+    }
 
     this.hideTab($previousTab)
     this.showTab($tabWithHash)
@@ -211,8 +214,12 @@ export class Tabs extends Component {
    * @param {HTMLAnchorElement} $tab - Tab link
    */
   setAttributes($tab) {
-    // set tab attributes
     const panelId = getFragmentFromUrl($tab.href)
+    if (!panelId) {
+      return
+    }
+
+    // set tab attributes
     $tab.setAttribute('id', `tab_${panelId}`)
     $tab.setAttribute('role', 'tab')
     $tab.setAttribute('aria-controls', panelId)
@@ -221,6 +228,10 @@ export class Tabs extends Component {
 
     // set panel attributes
     const $panel = this.getPanel($tab)
+    if (!$panel) {
+      return
+    }
+
     $panel.setAttribute('role', 'tabpanel')
     $panel.setAttribute('aria-labelledby', $tab.id)
     $panel.classList.add(this.jsHiddenClass)
@@ -241,6 +252,10 @@ export class Tabs extends Component {
 
     // unset panel attributes
     const $panel = this.getPanel($tab)
+    if (!$panel) {
+      return
+    }
+
     $panel.removeAttribute('role')
     $panel.removeAttribute('aria-labelledby')
     $panel.removeAttribute('tabindex')
@@ -277,6 +292,9 @@ export class Tabs extends Component {
    */
   createHistoryEntry($tab) {
     const $panel = this.getPanel($tab)
+    if (!$panel) {
+      return
+    }
 
     // Save and restore the id
     // so the page doesn't jump when a user clicks a tab (which changes the hash)
@@ -320,18 +338,24 @@ export class Tabs extends Component {
    */
   activateNextTab() {
     const $currentTab = this.getCurrentTab()
-    const $nextTabListItem = $currentTab.parentNode.nextElementSibling
-    let $nextTab
+    if (!$currentTab?.parentElement) {
+      return
+    }
 
-    if ($nextTabListItem) {
-      $nextTab = $nextTabListItem.querySelector('a.nhsuk-tabs__tab')
+    const $nextTabListItem = $currentTab.parentElement.nextElementSibling
+    if (!$nextTabListItem) {
+      return
     }
-    if ($nextTab) {
-      this.hideTab($currentTab)
-      this.showTab($nextTab)
-      $nextTab.focus()
-      this.createHistoryEntry($nextTab)
+
+    const $nextTab = $nextTabListItem.querySelector('a.nhsuk-tabs__tab')
+    if (!$nextTab) {
+      return
     }
+
+    this.hideTab($currentTab)
+    this.showTab($nextTab)
+    $nextTab.focus()
+    this.createHistoryEntry($nextTab)
   }
 
   /**
@@ -339,18 +363,25 @@ export class Tabs extends Component {
    */
   activatePreviousTab() {
     const $currentTab = this.getCurrentTab()
-    const $previousTabListItem = $currentTab.parentNode.previousElementSibling
-    let $previousTab
+    if (!$currentTab?.parentElement) {
+      return
+    }
 
-    if ($previousTabListItem) {
-      $previousTab = $previousTabListItem.querySelector('a.nhsuk-tabs__tab')
+    const $previousTabListItem =
+      $currentTab.parentElement.previousElementSibling
+    if (!$previousTabListItem) {
+      return
     }
-    if ($previousTab) {
-      this.hideTab($currentTab)
-      this.showTab($previousTab)
-      $previousTab.focus()
-      this.createHistoryEntry($previousTab)
+
+    const $previousTab = $previousTabListItem.querySelector('a.nhsuk-tabs__tab')
+    if (!$previousTab) {
+      return
     }
+
+    this.hideTab($currentTab)
+    this.showTab($previousTab)
+    $previousTab.focus()
+    this.createHistoryEntry($previousTab)
   }
 
   /**
@@ -360,6 +391,10 @@ export class Tabs extends Component {
    */
   getPanel($tab) {
     const panelId = getFragmentFromUrl($tab.href)
+    if (!panelId) {
+      return null
+    }
+
     return this.$root.querySelector(`#${panelId}`)
   }
 
@@ -370,6 +405,10 @@ export class Tabs extends Component {
    */
   showPanel($tab) {
     const $panel = this.getPanel($tab)
+    if (!$panel) {
+      return
+    }
+
     $panel.classList.remove(this.jsHiddenClass)
   }
 
@@ -380,6 +419,10 @@ export class Tabs extends Component {
    */
   hidePanel($tab) {
     const $panel = this.getPanel($tab)
+    if (!$panel) {
+      return
+    }
+
     $panel.classList.add(this.jsHiddenClass)
   }
 
@@ -389,6 +432,10 @@ export class Tabs extends Component {
    * @param {HTMLAnchorElement} $tab - Tab link
    */
   unhighlightTab($tab) {
+    if (!$tab.parentElement) {
+      return
+    }
+
     $tab.setAttribute('aria-selected', 'false')
     $tab.parentElement.classList.remove('nhsuk-tabs__list-item--selected')
     $tab.setAttribute('tabindex', '-1')
@@ -400,6 +447,10 @@ export class Tabs extends Component {
    * @param {HTMLAnchorElement} $tab - Tab link
    */
   highlightTab($tab) {
+    if (!$tab.parentElement) {
+      return
+    }
+
     $tab.setAttribute('aria-selected', 'true')
     $tab.parentElement.classList.add('nhsuk-tabs__list-item--selected')
     $tab.setAttribute('tabindex', '0')
