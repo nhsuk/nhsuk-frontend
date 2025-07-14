@@ -127,6 +127,11 @@ export class ErrorSummary extends Component {
       event.preventDefault()
     }
   }
+
+  /**
+   * Name for the component used when initialising using data-module attributes
+   */
+  static moduleName = 'nhsuk-error-summary'
 }
 
 /**
@@ -139,7 +144,9 @@ export class ErrorSummary extends Component {
  */
 export function initErrorSummary(options = {}) {
   const $scope = options.scope || document
-  const $root = $scope.querySelector('.nhsuk-error-summary')
+  const $root = $scope.querySelector(
+    `[data-module="${ErrorSummary.moduleName}"]`
+  )
 
   if (!$root) {
     return

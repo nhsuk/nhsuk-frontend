@@ -1,5 +1,4 @@
 import { components } from '@nhsuk/frontend-lib'
-import { getByRole } from '@testing-library/dom'
 import { userEvent } from '@testing-library/user-event'
 
 import { SkipLink, initSkipLinks } from './skip-link.mjs'
@@ -34,10 +33,7 @@ describe('Skip link', () => {
     `
 
     $main = document.querySelector('main')
-
-    $root = getByRole(document.body, 'link', {
-      name: 'Skip to main content'
-    })
+    $root = document.querySelector(`[data-module="${SkipLink.moduleName}"]`)
 
     jest.spyOn($root, 'addEventListener')
   })
@@ -61,7 +57,7 @@ describe('Skip link', () => {
       $root.setAttribute('href', 'https://example.com')
 
       expect(() => initSkipLinks()).toThrow(
-        'SkipLink: Target link (`href="https://example.com"`) hash fragment not found'
+        `${SkipLink.moduleName}: Target link (\`href="https://example.com"\`) hash fragment not found`
       )
     })
 
@@ -69,7 +65,7 @@ describe('Skip link', () => {
       $main.remove()
 
       expect(() => initSkipLinks()).toThrow(
-        'SkipLink: Target content (`id="maincontent"`) not found'
+        `${SkipLink.moduleName}: Target content (\`id="maincontent"\`) not found`
       )
     })
 
@@ -99,7 +95,7 @@ describe('Skip link', () => {
 
     it('should throw with missing $root element', () => {
       expect(() => new SkipLink()).toThrow(
-        'SkipLink: Root element (`$root`) not found'
+        `${SkipLink.moduleName}: Root element (\`$root\`) not found`
       )
     })
 
@@ -107,8 +103,19 @@ describe('Skip link', () => {
       $root = document.createElement('div')
 
       expect(() => new SkipLink($root)).toThrow(
-        'SkipLink: Root element (`$root`) is not of type HTMLAnchorElement'
+        `${SkipLink.moduleName}: Root element (\`$root\`) is not of type HTMLAnchorElement`
       )
+    })
+  })
+
+  describe('Accessibility', () => {
+    beforeEach(() => {
+      initSkipLinks()
+    })
+
+    it('should add accessible name and role', () => {
+      expect($root).toHaveAccessibleName('Skip to main content')
+      expect($root).toHaveRole('link')
     })
   })
 

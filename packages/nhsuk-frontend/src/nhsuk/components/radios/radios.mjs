@@ -69,6 +69,11 @@ export class Radios extends Component {
       toggleConditionalInput(input, 'nhsuk-radios__conditional--hidden')
     )
   }
+
+  /**
+   * Name for the component used when initialising using data-module attributes
+   */
+  static moduleName = 'nhsuk-radios'
 }
 
 /**
@@ -79,7 +84,9 @@ export class Radios extends Component {
  */
 export function initRadios(options = {}) {
   const $scope = options.scope || document
-  const $radios = $scope.querySelectorAll('.nhsuk-radios--conditional')
+  const $radios = $scope.querySelectorAll(
+    `[data-module="${Radios.moduleName}"]`
+  )
 
   $radios.forEach(($root) => {
     new Radios($root)

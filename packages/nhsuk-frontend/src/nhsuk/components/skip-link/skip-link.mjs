@@ -60,6 +60,11 @@ export class SkipLink extends Component {
       })
     )
   }
+
+  /**
+   * Name for the component used when initialising using data-module attributes
+   */
+  static moduleName = 'nhsuk-skip-link'
 }
 
 /**
@@ -70,7 +75,9 @@ export class SkipLink extends Component {
  */
 export function initSkipLinks(options = {}) {
   const $scope = options.scope || document
-  const $skipLinks = $scope.querySelectorAll('.nhsuk-skip-link')
+  const $skipLinks = $scope.querySelectorAll(
+    `[data-module="${SkipLink.moduleName}"]`
+  )
 
   $skipLinks.forEach(($root) => {
     new SkipLink($root)

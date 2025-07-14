@@ -27,7 +27,9 @@ describe('Character count', () => {
       }
     })
 
-    $root = document.querySelector('.nhsuk-character-count')
+    $root = document.querySelector(
+      `[data-module="${CharacterCount.moduleName}"]`
+    )
 
     $textarea = getByRole($root, 'textbox', {
       name: 'Can you provide more detail?'
@@ -62,7 +64,7 @@ describe('Character count', () => {
       $textarea.remove()
 
       expect(() => initCharacterCounts()).toThrow(
-        'CharacterCount: Form field (`.nhsuk-js-character-count`) not found'
+        `${CharacterCount.moduleName}: Form field (\`.nhsuk-js-character-count\`) not found`
       )
     })
 
@@ -70,7 +72,7 @@ describe('Character count', () => {
       $description.remove()
 
       expect(() => new CharacterCount($root)).toThrow(
-        'CharacterCount: Count message (`id="example-info"`) not found'
+        `${CharacterCount.moduleName}: Count message (\`id="example-info"\`) not found`
       )
     })
 
@@ -100,15 +102,15 @@ describe('Character count', () => {
 
     it('should throw with missing $root element', () => {
       expect(() => new CharacterCount()).toThrow(
-        'CharacterCount: Root element (`$root`) not found'
+        `${CharacterCount.moduleName}: Root element (\`$root\`) not found`
       )
     })
 
     it('should throw with wrong $root element type', () => {
-      $root = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+      const $svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
 
-      expect(() => new CharacterCount($root)).toThrow(
-        'CharacterCount: Root element (`$root`) is not of type HTMLElement'
+      expect(() => new CharacterCount($svg)).toThrow(
+        `${CharacterCount.moduleName}: Root element (\`$root\`) is not of type HTMLElement`
       )
     })
   })

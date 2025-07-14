@@ -311,6 +311,11 @@ export class Tabs extends Component {
       '.nhsuk-tabs__list-item--selected .nhsuk-tabs__tab'
     )
   }
+
+  /**
+   * Name for the component used when initialising using data-module attributes
+   */
+  static moduleName = 'nhsuk-tabs'
 }
 
 /**
@@ -321,7 +326,7 @@ export class Tabs extends Component {
  */
 export function initTabs(options = {}) {
   const $scope = options.scope || document
-  const $tabs = $scope.querySelectorAll('[data-module="nhsuk-tabs"]')
+  const $tabs = $scope.querySelectorAll(`[data-module="${Tabs.moduleName}"]`)
 
   $tabs.forEach(($root) => {
     new Tabs($root)

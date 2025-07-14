@@ -1,5 +1,4 @@
 import { components } from '@nhsuk/frontend-lib'
-import { getByRole } from '@testing-library/dom'
 
 import { Button, initButtons } from './button.mjs'
 
@@ -12,7 +11,7 @@ describe('Button', () => {
       context: { text: 'Save and continue' }
     })
 
-    $root = getByRole(document.body, 'button')
+    $root = document.querySelector(`[data-module="${Button.moduleName}"]`)
 
     jest.spyOn($root, 'addEventListener')
   })
@@ -65,16 +64,27 @@ describe('Button', () => {
 
     it('should throw with missing $root element', () => {
       expect(() => new Button()).toThrow(
-        'Button: Root element (`$root`) not found'
+        `${Button.moduleName}: Root element (\`$root\`) not found`
       )
     })
 
     it('should throw with wrong $root element type', () => {
-      $root = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+      const $svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
 
-      expect(() => new Button($root)).toThrow(
-        'Button: Root element (`$root`) is not of type HTMLElement'
+      expect(() => new Button($svg)).toThrow(
+        `${Button.moduleName}: Root element (\`$root\`) is not of type HTMLElement`
       )
+    })
+  })
+
+  describe('Accessibility', () => {
+    beforeEach(() => {
+      initButtons()
+    })
+
+    it('should have accessible name and role', () => {
+      expect($root).toHaveAccessibleName('Save and continue')
+      expect($root).toHaveRole('button')
     })
   })
 })

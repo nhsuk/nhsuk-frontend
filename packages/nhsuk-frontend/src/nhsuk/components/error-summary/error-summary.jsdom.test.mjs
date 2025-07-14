@@ -58,9 +58,7 @@ describe('Error summary', () => {
 
     const $container = document.querySelector('form')
 
-    $root = getByRole($container, 'alert', {
-      name: 'There is a problem'
-    })
+    $root = document.querySelector(`[data-module="${ErrorSummary.moduleName}"]`)
 
     $links = getAllByRole($root, 'link')
 
@@ -121,16 +119,27 @@ describe('Error summary', () => {
 
     it('should throw with missing $root element', () => {
       expect(() => new ErrorSummary()).toThrow(
-        'ErrorSummary: Root element (`$root`) not found'
+        `${ErrorSummary.moduleName}: Root element (\`$root\`) not found`
       )
     })
 
     it('should throw with wrong $root element type', () => {
-      $root = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+      const $svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
 
-      expect(() => new ErrorSummary($root)).toThrow(
-        'ErrorSummary: Root element (`$root`) is not of type HTMLElement'
+      expect(() => new ErrorSummary($svg)).toThrow(
+        `${ErrorSummary.moduleName}: Root element (\`$root\`) is not of type HTMLElement`
       )
+    })
+  })
+
+  describe('Accessibility', () => {
+    beforeEach(() => {
+      initErrorSummary()
+    })
+
+    it('should add accessible name and role', () => {
+      expect($root).toHaveAccessibleName('There is a problem')
+      expect($root).toHaveRole('alert')
     })
   })
 

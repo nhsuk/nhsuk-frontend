@@ -54,6 +54,11 @@ export class Component {
       throw new SupportError()
     }
   }
+
+  /**
+   * Name for the component used when initialising using data-module attributes
+   */
+  static moduleName = 'nhsuk-component'
 }
 
 /**

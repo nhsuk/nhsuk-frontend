@@ -6,6 +6,39 @@
 
 You must make the following changes when you migrate to this release, or your service might break.
 
+#### Add missing `data-module` attributes to components
+
+You do not need to do anything if you're using Nunjucks macros.
+
+If you are not using Nunjucks macros, add the missing `data-module` attributes to the following components' HTML:
+
+```patch
+- <div class="nhsuk-checkboxes">
++ <div class="nhsuk-checkboxes" data-module="nhsuk-checkboxes">
+```
+
+```patch
+- <div class="nhsuk-radios">
++ <div class="nhsuk-radios" data-module="nhsuk-radios">
+```
+
+```patch
+- <div class="nhsuk-error-summary">
++ <div class="nhsuk-error-summary" data-module="nhsuk-error-summary">
+```
+
+```patch
+- <header class="nhsuk-header">
++ <header class="nhsuk-header" data-module="nhsuk-header">
+```
+
+```patch
+- <a class="nhsuk-skip-link">
++ <a class="nhsuk-skip-link" data-module="nhsuk-skip-link">
+```
+
+This change was introduced in [pull request #1480: Add missing component `data-module` attributes](https://github.com/nhsuk/nhsuk-frontend/pull/1480).
+
 #### Check that tabs components work as expected
 
 The tabs component no longer triggers the `tab.show` and `tab.hide` custom events. [Get in touch](https://service-manual.nhs.uk/get-in-touch) if you need to continue using these events.

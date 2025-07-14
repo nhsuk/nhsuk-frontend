@@ -1,3 +1,5 @@
+import { formatErrorMessage } from '../common/index.mjs'
+
 /**
  * NHS.UK frontend error
  *
@@ -59,15 +61,14 @@ export class ElementError extends NHSUKFrontendError {
   constructor(options) {
     const { component, identifier, element, expectedType } = options
 
-    // Add prefix and identifier
-    let message = `${component.name}: ${identifier}`
+    let message = identifier
 
     // Append reason
     message += element
       ? ` is not of type ${expectedType ?? 'HTMLElement'}`
       : ' not found'
 
-    super(message)
+    super(formatErrorMessage(component, message))
   }
 }
 
