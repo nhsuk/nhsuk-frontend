@@ -1,3 +1,4 @@
+import { AxePuppeteer } from '@axe-core/puppeteer'
 import slug from 'slug'
 
 const {
@@ -5,6 +6,83 @@ const {
   BASE_HOST = `localhost:${PORT}`, // Default via `npm start`
   BASE_URL = `http://${BASE_HOST}/nhsuk-frontend`
 } = process.env
+
+/**
+ * Axe Puppeteer reporter
+ *
+ * @param {Page} page - Puppeteer page object
+ * @param {RuleObject} [overrides] - Axe rule overrides
+ */
+export async function axe(page, overrides = {}) {
+  const reporter = new AxePuppeteer(page)
+    .setLegacyMode(true) // Share single page via iframe
+    .include('body')
+
+  /**
+   * Shared options for NHS.UK frontend
+   *
+   * @satisfies {RunOptions}
+   */
+  const options = {
+    runOnly: {
+      type: 'tag',
+      values: [
+        'best-practice',
+
+        // WCAG 2.x
+        'wcag2a',
+        'wcag2aa',
+        'wcag2aaa',
+
+        // WCAG 2.1
+        'wcag21a',
+        'wcag21aa',
+
+        // WCAG 2.2
+        'wcag22aa'
+      ]
+    },
+    rules: {
+      /**
+       * Ignore 'Element has insufficient color contrast' for WCAG Level AAA
+       *
+       * Affects buttons, links and hint text etc
+       */
+      'color-contrast-enhanced': { enabled: false },
+
+      /**
+       * Ignore 'Some page content is not contained by landmarks'
+       * {@link https://github.com/alphagov/govuk-frontend/issues/1604}
+       */
+      'region': { enabled: false },
+      ...overrides
+    }
+  }
+
+  // Ignore colour contrast for 'inactive' components
+  if (page.url().includes('-disabled')) {
+    options.rules['color-contrast'] = { enabled: false }
+  }
+
+  // Create report
+  const report = await reporter.options(options).analyze()
+
+  /**
+   * Add review app preview URL below link to violation
+   *
+   * @example
+   * ```console
+   * You can find more information on this issue here:
+   * https://dequeuniversity.com/rules/axe/4.10/aria-allowed-attr?application=axe-puppeteer
+   * http://localhost:3000/nhsuk-frontend/components/radios/with-conditional-content/
+   * ```
+   */
+  report.violations.forEach((violation) => {
+    violation.helpUrl += `\n${new URL(page.url())}`
+  })
+
+  return report
+}
 
 /**
  * Navigate to path
@@ -94,5 +172,6 @@ export function getURL(path) {
 }
 
 /**
+ * @import { RuleObject, RunOptions } from 'axe-core'
  * @import { Page, Browser } from 'puppeteer'
  */

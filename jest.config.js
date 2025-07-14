@@ -64,7 +64,25 @@ module.exports = {
         '@nhsuk/frontend-helpers/jest/environment/jest.puppeteer.setup.mjs'
       ],
       testEnvironment: 'jest-environment-puppeteer',
-      testMatch: ['<rootDir>/**/*.puppeteer.test.{js,mjs}'],
+      testMatch: [
+        '<rootDir>/**/*.puppeteer.test.{js,mjs}',
+
+        // Exclude accessibility tests
+        '!**/accessibility.puppeteer.test.mjs'
+      ],
+
+      // Web server and browser required
+      globalSetup: 'jest-environment-puppeteer/setup',
+      globalTeardown: '@nhsuk/frontend-helpers/jest/browser/close.mjs'
+    },
+    {
+      ...config,
+      displayName: 'Accessibility tests',
+      setupFilesAfterEnv: [
+        '@nhsuk/frontend-helpers/jest/environment/jest.puppeteer.setup.mjs'
+      ],
+      testEnvironment: 'jest-environment-puppeteer',
+      testMatch: ['<rootDir>/**/accessibility.puppeteer.test.mjs'],
 
       // Web server and browser required
       globalSetup: 'jest-environment-puppeteer/setup',
