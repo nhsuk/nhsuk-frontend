@@ -39,8 +39,6 @@ export class CharacterCount extends Component {
     }
 
     this.$textarea = $textarea
-    this.$visibleCountMessage = null
-    this.$screenReaderCountMessage = null
 
     const fallbackLimitMessageId = `${this.$textarea.id}-info`
     const $fallbackLimitMessage = document.getElementById(

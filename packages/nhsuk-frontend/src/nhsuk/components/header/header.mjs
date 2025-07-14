@@ -5,10 +5,20 @@ import { ElementError } from '../../errors/index.mjs'
  * Header component
  */
 export class Header extends Component {
+  width = 0
+
+  /**
+   * @type {{ element: HTMLElement, right: number }[]}
+   */
+  breakpoints = []
+
   /**
    * @type {number | null}
    */
   updateNavigationTimer = null
+
+  menuIsEnabled = false
+  menuIsOpen = false
 
   /**
    * @param {Element | null} [$root] - HTML element to use for component
@@ -72,9 +82,6 @@ export class Header extends Component {
     this.$menuToggle = $menuToggle
     this.$menuList = document.createElement('ul')
 
-    this.menuIsEnabled = false
-    this.menuIsOpen = false
-
     this.handleEscapeKey = this.onEscapeKey.bind(this)
     this.handleUpdateNavigation = this.updateNavigation.bind(this)
     this.handleToggleMenu = this.toggleMenu.bind(this)
@@ -108,8 +115,6 @@ export class Header extends Component {
    * Add the breakpoints with default positions
    */
   setupNavigation() {
-    this.breakpoints = []
-
     this.$navigationItems.forEach((element) => {
       this.breakpoints.push({ element, right: 0 })
     })
