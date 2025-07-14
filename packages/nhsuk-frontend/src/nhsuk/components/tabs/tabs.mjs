@@ -1,4 +1,4 @@
-import { getFragmentFromUrl } from '../../common/index.mjs'
+import { getBreakpoint, getFragmentFromUrl } from '../../common/index.mjs'
 import { Component } from '../../component.mjs'
 import { ElementError } from '../../errors/index.mjs'
 
@@ -49,38 +49,37 @@ export class Tabs extends Component {
 
     this.jsHiddenClass = 'nhsuk-tabs__panel--hidden'
 
-    if (typeof window.matchMedia === 'function') {
-      this.setupResponsiveChecks()
-    } else {
-      this.setup()
-    }
+    this.setupResponsiveChecks()
   }
 
   setupResponsiveChecks() {
-    // $nhsuk-breakpoints: (
-    // mobile: 320px,
-    // tablet: 641px,
-    // desktop: 769px,
-    // large-desktop: 990px
-    // );
-    this.mql = window.matchMedia('(min-width: 641px)')
+    const breakpoint = getBreakpoint('tablet')
+
+    if (!breakpoint.value) {
+      throw new ElementError({
+        component: Tabs,
+        identifier: `CSS custom property (\`${breakpoint.property}\`) on pseudo-class \`:root\``
+      })
+    }
+
+    // Media query list for NHS.UK frontend tablet breakpoint
+    this.mql = window.matchMedia(`(min-width: ${breakpoint.value})`)
 
     // MediaQueryList.addEventListener isn't supported by Safari < 14 so we need
     // to be able to fall back to the deprecated MediaQueryList.addListener
     if ('addEventListener' in this.mql) {
-      this.mql.addEventListener('change', this.checkMode.bind(this))
+      this.mql.addEventListener('change', () => this.checkMode())
     } else {
-      // addListener is a deprecated function, however addEventListener
-      // isn't supported by Safari < 14. We therefore add this in as
-      // a fallback for those browsers
-      this.mql.addListener(this.checkMode.bind(this))
+      // @ts-expect-error Property 'addListener' does not exist
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+      this.mql.addListener(() => this.checkMode())
     }
 
     this.checkMode()
   }
 
   checkMode() {
-    if (this.mql.matches) {
+    if (this.mql?.matches) {
       this.setup()
     } else {
       this.teardown()
