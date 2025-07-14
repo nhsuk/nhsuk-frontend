@@ -43,7 +43,10 @@ export class Button extends Component {
     }
 
     // Handle elements with [role="button"] only
-    if (target.getAttribute('role') === 'button') {
+    if (
+      target instanceof HTMLElement &&
+      target.getAttribute('role') === 'button'
+    ) {
       event.preventDefault()
       target.click()
     }
@@ -62,7 +65,10 @@ export class Button extends Component {
   debounce(event) {
     const { target } = event
     // Check the button that is clicked on has the preventDoubleClick feature enabled
-    if (target.getAttribute('data-prevent-double-click') !== 'true') {
+    if (
+      !(target instanceof HTMLElement) ||
+      target.getAttribute('data-prevent-double-click') !== 'true'
+    ) {
       return
     }
 

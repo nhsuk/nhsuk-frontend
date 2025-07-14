@@ -47,7 +47,10 @@ export class ErrorSummary extends Component {
 
         // If the input type is radio or checkbox, always use the legend if there
         // is one.
-        if (input.type === 'checkbox' || input.type === 'radio') {
+        if (
+          input instanceof HTMLInputElement &&
+          (input.type === 'checkbox' || input.type === 'radio')
+        ) {
           return candidateLegend
         }
 
@@ -98,7 +101,7 @@ export class ErrorSummary extends Component {
    */
   focusTarget(target) {
     // If the element that was clicked was not a link, return early
-    if (target.tagName !== 'A' || target.href === false) {
+    if (!(target instanceof HTMLAnchorElement)) {
       return false
     }
 

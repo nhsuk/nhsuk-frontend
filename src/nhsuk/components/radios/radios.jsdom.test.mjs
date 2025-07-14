@@ -169,7 +169,7 @@ describe('Radios', () => {
       expect($input).not.toHaveAttribute('aria-expanded', 'true')
       expect($conditional).toHaveClass('nhsuk-radios__conditional--hidden')
 
-      window.addEventListener('pageshow', initRadios)
+      window.addEventListener('pageshow', () => initRadios())
       window.dispatchEvent(new Event('pageshow'))
 
       // Conditional content visible
