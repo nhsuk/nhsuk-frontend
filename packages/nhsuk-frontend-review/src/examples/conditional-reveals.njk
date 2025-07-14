@@ -183,18 +183,30 @@
           items: [
             {
               value: "red",
-              text: "Red"
+              text: "Red",
+              exclusiveGroup: "colour-primary"
             },
             {
               value: "yellow",
               text: "Yellow",
+              exclusiveGroup: "colour-primary",
               conditional: {
                 html: '<p class="nhsuk-body">Orange is much nicer than yellow!</p>'
               }
             },
             {
               value: "blue",
-              text: "Blue"
+              text: "Blue",
+              exclusiveGroup: "colour-primary"
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "none-primary",
+              text: "None of the primary colours",
+              exclusive: true,
+              exclusiveGroup: "colour-primary"
             }
           ]
         }) }}
@@ -207,18 +219,30 @@
           items: [
             {
               value: "green",
-              text: "Green"
+              text: "Green",
+              exclusiveGroup: "colour-secondary"
             },
             {
               value: "purple",
-              text: "Purple"
+              text: "Purple",
+              exclusiveGroup: "colour-secondary"
             },
             {
               value: "orange",
               text: "Orange",
+              exclusiveGroup: "colour-secondary",
               conditional: {
                 html: '<p class="nhsuk-body">I like orange too!</p>'
               }
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "none-secondary",
+              text: "None of the secondary colours",
+              exclusive: true,
+              exclusiveGroup: "colour-secondary"
             }
           ]
         }) }}
