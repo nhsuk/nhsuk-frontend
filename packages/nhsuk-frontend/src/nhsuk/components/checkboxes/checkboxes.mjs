@@ -26,14 +26,31 @@ export class Checkboxes extends Component {
 
     this.$inputs = $inputs
 
+    this.$inputs.forEach(($input) => {
+      const targetId = $input.getAttribute('aria-controls')
+
+      // Skip checkboxes without aria-controls attributes
+      if (!targetId) {
+        return
+      }
+
+      // Throw if target conditional element does not exist.
+      if (!document.getElementById(targetId)) {
+        throw new ElementError({
+          component: Checkboxes,
+          identifier: `Conditional reveal (\`id="${targetId}"\`)`
+        })
+      }
+    })
+
     // When the page is restored after navigating 'back' in some browsers the
     // state of form controls is not restored until *after* the DOMContentLoaded
     // event is fired, so we need to sync after the pageshow event.
     window.addEventListener('pageshow', () => this.syncAllConditionalReveals())
 
-    // Although we've set up handlers to sync state on the pageshow or
-    // DOMContentLoaded event, init could be called after those events have fired,
-    // for example if they are added to the page dynamically, so sync now too.
+    // Although we've set up handlers to sync state on the pageshow event, init
+    // could be called after those events have fired, for example if they are
+    // added to the page dynamically, so sync now too.
     this.syncAllConditionalReveals()
 
     // Attach handleClick as click to inputs

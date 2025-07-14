@@ -190,8 +190,8 @@ import { initButtons, initCheckboxes } from 'nhsuk-frontend'
 // Initialise all button components
 initButtons();
 
-// Initialise all radios components
-initRadios();
+// Initialise all checkboxes components
+initCheckboxes();
 ```
 
 Or alternatively, you can initialise individual component classes:
