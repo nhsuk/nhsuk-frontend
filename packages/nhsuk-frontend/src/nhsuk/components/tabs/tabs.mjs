@@ -195,7 +195,7 @@ export class Tabs extends Component {
    * @param {string} hash - Hash fragment including #
    */
   getTab(hash) {
-    return this.$root.querySelector(`.nhsuk-tabs__tab[href="${hash}"]`)
+    return this.$root.querySelector(`a.nhsuk-tabs__tab[href="${hash}"]`)
   }
 
   /**
@@ -317,7 +317,7 @@ export class Tabs extends Component {
     let nextTab
 
     if (nextTabListItem) {
-      nextTab = nextTabListItem.querySelector('.nhsuk-tabs__tab')
+      nextTab = nextTabListItem.querySelector('a.nhsuk-tabs__tab')
     }
     if (nextTab) {
       this.hideTab(currentTab)
@@ -336,7 +336,7 @@ export class Tabs extends Component {
     let previousTab
 
     if (previousTabListItem) {
-      previousTab = previousTabListItem.querySelector('.nhsuk-tabs__tab')
+      previousTab = previousTabListItem.querySelector('a.nhsuk-tabs__tab')
     }
     if (previousTab) {
       this.hideTab(currentTab)
@@ -403,7 +403,7 @@ export class Tabs extends Component {
    */
   getCurrentTab() {
     return this.$root.querySelector(
-      '.nhsuk-tabs__list-item--selected .nhsuk-tabs__tab'
+      '.nhsuk-tabs__list-item--selected a.nhsuk-tabs__tab'
     )
   }
 
