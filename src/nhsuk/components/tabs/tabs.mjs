@@ -115,7 +115,8 @@ export class Tabs extends Component {
     })
 
     // Show either the active tab according to the URL's hash or the first tab
-    const $activeTab = this.getTab(window.location.hash) || this.$tabs[0]
+    const $activeTab = this.getTab(window.location.hash) ?? this.$tabs[0]
+
     this.showTab($activeTab)
 
     // Handle hashchange events
@@ -420,7 +421,7 @@ export class Tabs extends Component {
  * @param {Element | Document | null} [options.scope] - Scope of the document to search within
  */
 export function initTabs(options = {}) {
-  const $scope = options.scope || document
+  const $scope = options.scope ?? document
   const $tabs = $scope.querySelectorAll(`[data-module="${Tabs.moduleName}"]`)
 
   $tabs.forEach(($root) => {
