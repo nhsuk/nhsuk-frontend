@@ -1,6 +1,7 @@
 import { components } from '@nhsuk/frontend-lib'
 import { userEvent } from '@testing-library/user-event'
 
+import { examples } from './macro-options.mjs'
 import { SkipLink, initSkipLinks } from './skip-link.mjs'
 
 const user = userEvent.setup()
@@ -14,12 +15,7 @@ describe('Skip link', () => {
 
   beforeEach(() => {
     document.body.innerHTML = `
-      ${components.render('skip-link', {
-        context: {
-          href: '#maincontent',
-          text: 'Skip to main content'
-        }
-      })}
+      ${components.render('skip-link', examples.default)}
 
       <div class="nhsuk-width-container">
         <main class="nhsuk-main-wrapper" id="maincontent">
