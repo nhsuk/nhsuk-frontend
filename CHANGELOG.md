@@ -44,7 +44,6 @@ This change was introduced in pull requests [#1459: Add NHS.UK frontend browser 
 - [#1467: Update components to set a default `id` based on `name`](https://github.com/nhsuk/nhsuk-frontend/pull/1467)
 - [#1468: Support initial `aria-describedby` on all form fields](https://github.com/nhsuk/nhsuk-frontend/pull/1468)
 - [#1469: Remove deprecated code and legacy feature detection](https://github.com/nhsuk/nhsuk-frontend/pull/1469)
-- [#1471: Fix styles for button as link :visited when :active and :focus](https://github.com/nhsuk/nhsuk-frontend/pull/1471)
 
 ## 10.0.0-internal.0 - 2 July 2025
 
@@ -432,6 +431,14 @@ We've made changes to NHS.UK frontend in the following pull requests:
 
 - [#1349: Add select component `value`, `disabled` and `formGroup` params](https://github.com/nhsuk/nhsuk-frontend/pull/1349)
 - [#1401: Fix header menu active item indicator above desktop viewport](https://github.com/nhsuk/nhsuk-frontend/issues/1401)
+
+## 9.6.4 - 10 July 2025
+
+Note: This release was created from the `support/9.x` branch.
+
+:wrench: **Fixes**
+
+- [#1471: Fix styles for button as link :visited when :active and :focus](https://github.com/nhsuk/nhsuk-frontend/pull/1471)
 
 ## 9.6.3 - 19 June 2025
 
