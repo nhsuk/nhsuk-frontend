@@ -1,15 +1,14 @@
 import { components } from '@nhsuk/frontend-lib'
 
 import { Button, initButtons } from './button.mjs'
+import { examples } from './macro-options.mjs'
 
 describe('Button', () => {
   /** @type {HTMLElement} */
   let $root
 
   beforeEach(() => {
-    document.body.innerHTML = components.render('button', {
-      context: { text: 'Save and continue' }
-    })
+    document.body.innerHTML = components.render('button', examples.default)
 
     $root = document.querySelector(`[data-module="${Button.moduleName}"]`)
 
