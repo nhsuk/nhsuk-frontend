@@ -388,6 +388,145 @@ export const examples = {
       ]
     }
   },
+  'with conditional content, error message': {
+    context: {
+      idPrefix: 'contact',
+      name: 'contact',
+      fieldset: {
+        legend: {
+          text: 'How would you prefer to be contacted?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: 'true'
+        }
+      },
+      hint: {
+        text: 'Select 1 option'
+      },
+      errorMessage: {
+        text: 'Select how you like to be contacted'
+      },
+      items: [
+        {
+          value: 'email',
+          text: 'Email',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                id: 'email',
+                name: 'email',
+                classes: 'nhsuk-u-width-two-thirds',
+                label: {
+                  text: 'Email address'
+                }
+              }
+            })
+          }
+        },
+        {
+          value: 'phone',
+          text: 'Phone',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                id: 'phone',
+                name: 'phone',
+                classes: 'nhsuk-u-width-two-thirds',
+                label: {
+                  text: 'Phone number'
+                }
+              }
+            })
+          }
+        },
+        {
+          value: 'text',
+          text: 'Text message',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                id: 'mobile',
+                name: 'mobile',
+                classes: 'nhsuk-u-width-two-thirds',
+                label: {
+                  text: 'Mobile phone number'
+                }
+              }
+            })
+          }
+        }
+      ]
+    }
+  },
+  'with conditional content, error message (nested)': {
+    context: {
+      idPrefix: 'contact',
+      name: 'contact',
+      fieldset: {
+        legend: {
+          text: 'How would you prefer to be contacted?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: 'true'
+        }
+      },
+      hint: {
+        text: 'Select 1 option'
+      },
+      value: 'phone',
+      items: [
+        {
+          value: 'email',
+          text: 'Email',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                id: 'email',
+                name: 'email',
+                classes: 'nhsuk-u-width-two-thirds',
+                label: {
+                  text: 'Email address'
+                }
+              }
+            })
+          }
+        },
+        {
+          value: 'phone',
+          text: 'Phone',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                id: 'phone',
+                name: 'phone',
+                classes: 'nhsuk-u-width-two-thirds',
+                label: {
+                  text: 'Phone number'
+                },
+                errorMessage: {
+                  text: 'Enter your phone number'
+                }
+              }
+            })
+          }
+        },
+        {
+          value: 'text',
+          text: 'Text message',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                id: 'mobile',
+                name: 'mobile',
+                classes: 'nhsuk-u-width-two-thirds',
+                label: {
+                  text: 'Mobile phone number'
+                }
+              }
+            })
+          }
+        }
+      ]
+    }
+  },
   'without fieldset': {
     context: {
       name: 'colours',
