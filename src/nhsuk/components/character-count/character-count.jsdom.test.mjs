@@ -165,5 +165,27 @@ describe('Character count', () => {
         threshold: 8
       })
     })
+
+    it('ignores unknown data attributes', () => {
+      document.body.innerHTML = components.render('character-count', {
+        context: {
+          ...examples['default'].context,
+          attributes: {
+            'data-unknown1': '100',
+            'data-unknown2': 200,
+            'data-unknown3': false
+          }
+        }
+      })
+
+      const characterCount = new CharacterCount(
+        document.querySelector(`[data-module="${CharacterCount.moduleName}"]`)
+      )
+
+      expect(characterCount.config).toEqual({
+        maxlength: 10,
+        threshold: 0
+      })
+    })
   })
 })
