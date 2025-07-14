@@ -8,7 +8,8 @@
 {%- set describedBy = params.describedBy if params.describedBy else "" -%}
 {%- set id = params.id if params.id else params.name -%}
 
-<div class="nhsuk-form-group {%- if params.errorMessage %} nhsuk-form-group--error{% endif %} {%- if params.formGroup.classes %} {{ params.formGroup.classes }}{% endif %}">
+<div class="nhsuk-form-group {%- if params.errorMessage %} nhsuk-form-group--error{% endif %} {%- if params.formGroup.classes %} {{ params.formGroup.classes }}{% endif %}"
+  {{- nhsukAttributes(params.formGroup.attributes) }}>
   {{ label({
     html: params.label.html,
     text: params.label.text,
