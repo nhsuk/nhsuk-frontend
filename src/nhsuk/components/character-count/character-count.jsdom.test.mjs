@@ -116,4 +116,54 @@ describe('Character count', () => {
       )
     })
   })
+
+  describe('JavaScript configuration', () => {
+    it('configures the number of characters using `data-maxlength`', () => {
+      document.body.innerHTML = components.render(
+        'character-count',
+        examples.default
+      )
+
+      const characterCount = new CharacterCount(
+        document.querySelector(`[data-module="${CharacterCount.moduleName}"]`)
+      )
+
+      expect(characterCount.config).toEqual({
+        maxlength: 10,
+        threshold: 0
+      })
+    })
+
+    it('configures the number of words using `data-maxwords`', () => {
+      document.body.innerHTML = components.render(
+        'character-count',
+        examples['with max words']
+      )
+
+      const characterCount = new CharacterCount(
+        document.querySelector(`[data-module="${CharacterCount.moduleName}"]`)
+      )
+
+      expect(characterCount.config).toEqual({
+        maxwords: 10,
+        threshold: 0
+      })
+    })
+
+    it('configures the threshold using `data-threshold`', () => {
+      document.body.innerHTML = components.render(
+        'character-count',
+        examples['with threshold']
+      )
+
+      const characterCount = new CharacterCount(
+        document.querySelector(`[data-module="${CharacterCount.moduleName}"]`)
+      )
+
+      expect(characterCount.config).toEqual({
+        maxlength: 10,
+        threshold: 8
+      })
+    })
+  })
 })
