@@ -40,17 +40,17 @@ runs:
         key: build-${{ inputs.ref || github.sha }}
         path: packages/*/dist/
 
-    - name: Install dependencies only
-      if: ${{ steps.cache-build.outputs.cache-hit == 'true' }}
+    - name: Install dependencies
+      if: ${{ steps.npm-install-cache.outputs.cache-hit != 'true' }}
       shell: bash
       run: npm install
 
-    - name: Install and build
+    - name: Build
       if: ${{ steps.cache-build.outputs.cache-hit != 'true' }}
       shell: bash
-      run: |
-        npm install
-        npm run build
+      run: npm run build
+      env:
+        NODE_ENV: production
 
     - name: Save build (to cache)
       if: ${{ steps.cache-build.outputs.cache-hit != 'true' }}

@@ -10,7 +10,7 @@ Object.defineProperties(Element.prototype, {
 })
 
 /**
- * Polyfill `window.matchMedia()` for GOV.UK Frontend
+ * Polyfill `window.matchMedia()` for NHS.UK frontend
  */
 Object.defineProperty(window, 'matchMedia', {
   writable: true,
