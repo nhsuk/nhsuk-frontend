@@ -19,6 +19,7 @@ describe('Radios', () => {
       context: {
         id: 'email',
         name: 'email',
+        spellcheck: false,
         classes: 'nhsuk-u-width-two-thirds',
         label: {
           text: 'Email address'
@@ -30,6 +31,7 @@ describe('Radios', () => {
       context: {
         id: 'phone',
         name: 'phone',
+        type: 'tel',
         classes: 'nhsuk-u-width-two-thirds',
         label: {
           text: 'Phone number'
@@ -41,6 +43,7 @@ describe('Radios', () => {
       context: {
         id: 'mobile',
         name: 'mobile',
+        type: 'tel',
         classes: 'nhsuk-u-width-two-thirds',
         label: {
           text: 'Mobile phone number'
