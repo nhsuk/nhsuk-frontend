@@ -32,26 +32,26 @@ export class ErrorSummary extends Component {
    * - The first `<label>` that is associated with the input using for='inputId'
    * - The closest parent `<label>`
    *
-   * @param {Element} input - The input
+   * @param {Element} $input - The input
    * @returns {Element | null} Associated legend or label, or null if no
    *   associated legend or label can be found
    */
-  getAssociatedLegendOrLabel(input) {
-    const fieldset = input.closest('fieldset')
+  getAssociatedLegendOrLabel($input) {
+    const $fieldset = $input.closest('fieldset')
 
-    if (fieldset) {
-      const legends = fieldset.getElementsByTagName('legend')
+    if ($fieldset) {
+      const $legends = $fieldset.getElementsByTagName('legend')
 
-      if (legends.length) {
-        const candidateLegend = legends[0]
+      if ($legends.length) {
+        const $candidateLegend = $legends[0]
 
         // If the input type is radio or checkbox, always use the legend if there
         // is one.
         if (
-          input instanceof HTMLInputElement &&
-          (input.type === 'checkbox' || input.type === 'radio')
+          $input instanceof HTMLInputElement &&
+          ($input.type === 'checkbox' || $input.type === 'radio')
         ) {
-          return candidateLegend
+          return $candidateLegend
         }
 
         // For other input types, only scroll to the fieldset’s legend (instead of
@@ -60,8 +60,8 @@ export class ErrorSummary extends Component {
         //
         // This should avoid situations where the input either ends up off the
         // screen, or obscured by a software keyboard.
-        const legendTop = candidateLegend.getBoundingClientRect().top
-        const inputRect = input.getBoundingClientRect()
+        const legendTop = $candidateLegend.getBoundingClientRect().top
+        const inputRect = $input.getBoundingClientRect()
 
         // If the browser doesn't support Element.getBoundingClientRect().height
         // or window.innerHeight (like IE8), bail and just link to the label.
@@ -69,15 +69,15 @@ export class ErrorSummary extends Component {
           const inputBottom = inputRect.top + inputRect.height
 
           if (inputBottom - legendTop < window.innerHeight / 2) {
-            return candidateLegend
+            return $candidateLegend
           }
         }
       }
     }
 
     return (
-      document.querySelector(`label[for='${input.getAttribute('id')}']`) ??
-      input.closest('label')
+      document.querySelector(`label[for='${$input.getAttribute('id')}']`) ??
+      $input.closest('label')
     )
   }
 
@@ -96,35 +96,35 @@ export class ErrorSummary extends Component {
    * NVDA - without this only the field type is announced
    * (e.g. 'Edit, has autocomplete').
    *
-   * @param {EventTarget} target - Event target
+   * @param {EventTarget} $target - Event target
    * @returns {boolean} True if the target was able to be focussed
    */
-  focusTarget(target) {
+  focusTarget($target) {
     // If the element that was clicked was not a link, return early
-    if (!(target instanceof HTMLAnchorElement)) {
+    if (!($target instanceof HTMLAnchorElement)) {
       return false
     }
 
-    const inputId = getFragmentFromUrl(target.href)
+    const inputId = getFragmentFromUrl($target.href)
     if (!inputId) {
       return false
     }
 
-    const input = document.getElementById(inputId)
-    if (!input) {
+    const $input = document.getElementById(inputId)
+    if (!$input) {
       return false
     }
 
-    const legendOrLabel = this.getAssociatedLegendOrLabel(input)
-    if (!legendOrLabel) {
+    const $legendOrLabel = this.getAssociatedLegendOrLabel($input)
+    if (!$legendOrLabel) {
       return false
     }
 
     // Scroll the legend or label into view *before* calling focus on the input to
     // avoid extra scrolling in browsers that don't support `preventScroll` (which
     // at time of writing is most of them...)
-    legendOrLabel.scrollIntoView()
-    input.focus({ preventScroll: true })
+    $legendOrLabel.scrollIntoView()
+    $input.focus({ preventScroll: true })
 
     return true
   }
