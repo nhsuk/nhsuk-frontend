@@ -345,6 +345,7 @@ export const examples = {
               context: {
                 id: 'email',
                 name: 'email',
+                spellcheck: false,
                 classes: 'nhsuk-u-width-two-thirds',
                 label: {
                   text: 'Email address'
@@ -361,6 +362,7 @@ export const examples = {
               context: {
                 id: 'phone',
                 name: 'phone',
+                type: 'tel',
                 classes: 'nhsuk-u-width-two-thirds',
                 label: {
                   text: 'Phone number'
@@ -377,6 +379,7 @@ export const examples = {
               context: {
                 id: 'mobile',
                 name: 'mobile',
+                type: 'tel',
                 classes: 'nhsuk-u-width-two-thirds',
                 label: {
                   text: 'Mobile phone number'
@@ -414,6 +417,7 @@ export const examples = {
               context: {
                 id: 'email',
                 name: 'email',
+                spellcheck: false,
                 classes: 'nhsuk-u-width-two-thirds',
                 label: {
                   text: 'Email address'
@@ -430,6 +434,7 @@ export const examples = {
               context: {
                 id: 'phone',
                 name: 'phone',
+                type: 'tel',
                 classes: 'nhsuk-u-width-two-thirds',
                 label: {
                   text: 'Phone number'
@@ -446,6 +451,7 @@ export const examples = {
               context: {
                 id: 'mobile',
                 name: 'mobile',
+                type: 'tel',
                 classes: 'nhsuk-u-width-two-thirds',
                 label: {
                   text: 'Mobile phone number'
@@ -481,6 +487,7 @@ export const examples = {
               context: {
                 id: 'email',
                 name: 'email',
+                spellcheck: false,
                 classes: 'nhsuk-u-width-two-thirds',
                 label: {
                   text: 'Email address'
@@ -497,6 +504,7 @@ export const examples = {
               context: {
                 id: 'phone',
                 name: 'phone',
+                type: 'tel',
                 classes: 'nhsuk-u-width-two-thirds',
                 label: {
                   text: 'Phone number'
@@ -516,6 +524,7 @@ export const examples = {
               context: {
                 id: 'mobile',
                 name: 'mobile',
+                type: 'tel',
                 classes: 'nhsuk-u-width-two-thirds',
                 label: {
                   text: 'Mobile phone number'
@@ -592,6 +601,7 @@ export const examples = {
                         context: {
                           id: 'email',
                           name: 'email',
+                          spellcheck: false,
                           classes: 'nhsuk-u-width-two-thirds',
                           label: {
                             text: 'Email address'
@@ -608,6 +618,7 @@ export const examples = {
                         context: {
                           id: 'phone',
                           name: 'phone',
+                          type: 'tel',
                           classes: 'nhsuk-u-width-two-thirds',
                           label: {
                             text: 'Phone number'
@@ -624,6 +635,7 @@ export const examples = {
                         context: {
                           id: 'mobile',
                           name: 'mobile',
+                          type: 'tel',
                           classes: 'nhsuk-u-width-two-thirds',
                           label: {
                             text: 'Mobile phone number'
