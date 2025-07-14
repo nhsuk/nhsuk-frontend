@@ -203,7 +203,7 @@ export class Checkboxes extends Component {
  * @param {Element | Document | null} [options.scope] - Scope of the document to search within
  */
 export function initCheckboxes(options = {}) {
-  const $scope = options.scope || document
+  const $scope = options.scope ?? document
   const $checkboxes = $scope.querySelectorAll(
     `[data-module="${Checkboxes.moduleName}"]`
   )
