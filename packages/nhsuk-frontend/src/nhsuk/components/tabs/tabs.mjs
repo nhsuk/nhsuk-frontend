@@ -6,6 +6,14 @@ import { ElementError } from '../../errors/index.mjs'
  * Tabs component
  */
 export class Tabs extends Component {
+  jsHiddenClass = 'nhsuk-tabs__panel--hidden'
+  changingHash = false
+
+  /**
+   * @type {MediaQueryList | null}
+   */
+  mql = null
+
   /**
    * @param {Element | null} [$root] - HTML element to use for component
    */
@@ -46,8 +54,6 @@ export class Tabs extends Component {
 
     this.$tabList = $tabList
     this.$tabListItems = $tabListItems
-
-    this.jsHiddenClass = 'nhsuk-tabs__panel--hidden'
 
     this.setupResponsiveChecks()
   }
