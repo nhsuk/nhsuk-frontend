@@ -120,12 +120,12 @@ export class CharacterCount extends Component {
   /**
    * Read data attributes
    *
-   * @param {HTMLElement} element - HTML element
+   * @param {HTMLElement} $element - HTML element
    */
-  static getDataset(element) {
+  static getDataset($element) {
     const dataset = /** @type {CharacterCountConfig} */ ({})
 
-    for (const [key, value] of Object.entries(element.dataset)) {
+    for (const [key, value] of Object.entries($element.dataset)) {
       if (key === 'maxlength' || key === 'maxwords' || key === 'threshold') {
         dataset[key] = Number(value)
       }
