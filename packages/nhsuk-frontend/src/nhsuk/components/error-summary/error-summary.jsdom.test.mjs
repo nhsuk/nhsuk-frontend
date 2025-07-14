@@ -130,6 +130,15 @@ describe('Error summary', () => {
         `${ErrorSummary.moduleName}: Root element (\`$root\`) is not of type HTMLElement`
       )
     })
+
+    it('should throw when initialised twice', () => {
+      expect(() => {
+        new ErrorSummary($root)
+        new ErrorSummary($root)
+      }).toThrow(
+        `${ErrorSummary.moduleName}: Root element (\`$root\`) already initialised`
+      )
+    })
   })
 
   describe('Accessibility', () => {

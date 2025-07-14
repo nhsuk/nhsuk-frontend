@@ -73,6 +73,28 @@ export class ElementError extends NHSUKFrontendError {
 }
 
 /**
+ * Indicates that a component is already initialised
+ */
+export class InitError extends NHSUKFrontendError {
+  name = 'InitError'
+
+  /**
+   * @param {ComponentConstructor | string} componentOrMessage - Component or init error message
+   */
+  constructor(componentOrMessage) {
+    const message =
+      typeof componentOrMessage === 'string'
+        ? componentOrMessage
+        : formatErrorMessage(
+            componentOrMessage,
+            'Root element (`$root`) already initialised'
+          )
+
+    super(message)
+  }
+}
+
+/**
  * Element error options
  *
  * @typedef {object} ElementErrorOptions

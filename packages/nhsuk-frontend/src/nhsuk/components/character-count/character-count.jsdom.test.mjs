@@ -113,5 +113,14 @@ describe('Character count', () => {
         `${CharacterCount.moduleName}: Root element (\`$root\`) is not of type HTMLElement`
       )
     })
+
+    it('should throw when initialised twice', () => {
+      expect(() => {
+        new CharacterCount($root)
+        new CharacterCount($root)
+      }).toThrow(
+        `${CharacterCount.moduleName}: Root element (\`$root\`) already initialised`
+      )
+    })
   })
 })
