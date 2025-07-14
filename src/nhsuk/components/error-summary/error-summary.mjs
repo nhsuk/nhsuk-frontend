@@ -135,7 +135,8 @@ export class ErrorSummary extends Component {
    * @param {MouseEvent} event - Click event
    */
   handleClick(event) {
-    if (this.focusTarget(event.target)) {
+    const $target = event.target
+    if ($target && this.focusTarget($target)) {
       event.preventDefault()
     }
   }
