@@ -279,7 +279,6 @@ export const examples = {
       hint: {
         text: 'This includes changing your last name or spelling your name differently'
       },
-      value: 'no',
       items: [
         {
           value: 'yes',
