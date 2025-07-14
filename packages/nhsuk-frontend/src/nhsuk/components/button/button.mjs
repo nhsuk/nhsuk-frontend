@@ -47,9 +47,14 @@ export class Button extends Component {
   }
 
   /**
+   * Debounce double-clicks
+   *
    * If the click quickly succeeds a previous click then nothing will happen.
    * This stops people accidentally causing multiple form submissions by
    * double clicking buttons.
+   *
+   * @param {MouseEvent} event - Mouse click event
+   * @returns {undefined | false} Returns undefined, or false when debounced
    */
   debounce(event) {
     const { target } = event

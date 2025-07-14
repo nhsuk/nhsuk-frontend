@@ -126,7 +126,11 @@ export class CharacterCount extends Component {
     return dataset
   }
 
-  // Counts characters or words in text
+  /**
+   * Counts characters or words in text
+   *
+   * @param {string} text
+   */
   count(text) {
     let length
     if (this.config.maxwords) {
@@ -138,7 +142,9 @@ export class CharacterCount extends Component {
     return length
   }
 
-  // Bind input propertychange to the elements and update based on the change
+  /**
+   * Bind input propertychange to the elements and update based on the change
+   */
   bindChangeEvents() {
     const { $textarea } = this
     $textarea.addEventListener('keyup', this.handleKeyUp.bind(this))
@@ -148,9 +154,11 @@ export class CharacterCount extends Component {
     $textarea.addEventListener('blur', this.handleBlur.bind(this))
   }
 
-  // Speech recognition software such as Dragon NaturallySpeaking will modify the
-  // fields by directly changing its `value`. These changes don't trigger events
-  // in JavaScript, so we need to poll to handle when and if they occur.
+  /**
+   * Speech recognition software such as Dragon NaturallySpeaking will modify the
+   * fields by directly changing its `value`. These changes don't trigger events
+   * in JavaScript, so we need to poll to handle when and if they occur
+   */
   checkIfValueChanged() {
     if (!this.$textarea.oldValue) {
       this.$textarea.oldValue = ''
@@ -161,14 +169,18 @@ export class CharacterCount extends Component {
     }
   }
 
-  // Helper function to update both the visible and screen reader-specific
-  // counters simultaneously (e.g. on init)
+  /**
+   * Helper function to update both the visible and screen reader-specific
+   * counters simultaneously (e.g. on init)
+   */
   updateCountMessage() {
     this.updateVisibleCountMessage()
     this.updateScreenReaderCountMessage()
   }
 
-  // Update visible counter
+  /**
+   * Update visible counter
+   */
   updateVisibleCountMessage() {
     const { $textarea } = this
     const { $visibleCountMessage } = this
@@ -197,7 +209,9 @@ export class CharacterCount extends Component {
     $visibleCountMessage.innerHTML = this.formattedUpdateMessage()
   }
 
-  // Update screen reader-specific counter
+  /**
+   * Update screen reader-specific counter
+   */
   updateScreenReaderCountMessage() {
     const { $screenReaderCountMessage } = this
 
@@ -213,7 +227,9 @@ export class CharacterCount extends Component {
     $screenReaderCountMessage.innerHTML = this.formattedUpdateMessage()
   }
 
-  // Format update message
+  /**
+   * Format update message
+   */
   formattedUpdateMessage() {
     const { $textarea } = this
     const { config } = this
@@ -233,9 +249,13 @@ export class CharacterCount extends Component {
     return `You have ${displayNumber} ${charNoun} ${charVerb}`
   }
 
-  // Checks whether the value is over the configured threshold for the input.
-  // If there is no configured threshold, it is set to 0 and this function will
-  // always return true.
+  /**
+   * Check if count is over threshold
+   *
+   * Checks whether the value is over the configured threshold for the input.
+   * If there is no configured threshold, it is set to 0 and this function will
+   * always return true
+   */
   isOverThreshold() {
     const { $textarea } = this
     const { config } = this
@@ -251,13 +271,20 @@ export class CharacterCount extends Component {
     return thresholdValue <= currentLength
   }
 
-  // Update the visible character counter and keep track of when the last update
-  // happened for each keypress
+  /**
+   * Handle key up event
+   *
+   * Update the visible character counter and keep track of when the last update
+   * happened for each keypress
+   */
   handleKeyUp() {
     this.updateVisibleCountMessage()
     this.lastInputTimestamp = Date.now()
   }
 
+  /**
+   * Handle focus event
+   */
   handleFocus() {
     // If the field is focused, and a keyup event hasn't been detected for at
     // least 1000 ms (1 second), then run the manual change check.
@@ -273,6 +300,11 @@ export class CharacterCount extends Component {
     }, 1000)
   }
 
+  /**
+   * Handle blur event
+   *
+   * Stop checking the textarea value once the textarea no longer has focus
+   */
   handleBlur() {
     // Cancel value checking on blur
     clearInterval(this.valueChecker)
