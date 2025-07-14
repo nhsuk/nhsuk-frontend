@@ -153,15 +153,13 @@ export const examples = {
   },
   'with default value exceeding limit': {
     context: {
-      name: 'more-detail',
-      id: 'more-detail',
-      maxlength: 10,
-      value: '012345678901234567890123456789123',
+      name: 'exceeding-characters',
+      id: 'exceeding-characters',
+      maxlength: 350,
+      value:
+        'A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels. They make sure appropriate content is shown to a user in the right place and in the best format.',
       label: {
-        text: 'Can you provide more detail?'
-      },
-      hint: {
-        text: 'Do not include personal information, like your name, date of birth or NHS number'
+        text: 'What is your job description?'
       }
     }
   },
