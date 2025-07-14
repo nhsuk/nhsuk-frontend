@@ -135,7 +135,7 @@ export function render(component, options) {
   ])
 
   // Replace plural directory name with singular macro name
-  const macroName = camelCase(renamed.get(component) || component)
+  const macroName = camelCase(renamed.get(component) ?? component)
   const macroPath = `nhsuk/components/${component}/macro.njk`
 
   return nunjucks.renderMacro(macroName, macroPath, options)

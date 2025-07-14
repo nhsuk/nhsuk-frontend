@@ -21,7 +21,7 @@ import { SupportError } from './errors/index.mjs'
  */
 export function initAll($scope) {
   const options = {
-    scope: $scope || document
+    scope: $scope ?? document
   }
 
   // Skip initialisation when NHS.UK frontend is not supported

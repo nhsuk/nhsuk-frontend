@@ -6,23 +6,23 @@ module.exports = async function (page, scenario) {
   const { postInteractionWait = 0, scrollToSelector } = scenario
 
   const clickSelectors =
-    scenario.clickSelectors ||
+    scenario.clickSelectors ??
     (scenario.clickSelector ? [scenario.clickSelector] : [])
 
   const hoverSelectors =
-    scenario.hoverSelectors ||
+    scenario.hoverSelectors ??
     (scenario.hoverSelector ? [scenario.hoverSelector] : [])
 
   const activeSelectors =
-    scenario.activeSelectors ||
+    scenario.activeSelectors ??
     (scenario.activeSelector ? [scenario.activeSelector] : [])
 
   const focusSelectors =
-    scenario.focusSelectors ||
+    scenario.focusSelectors ??
     (scenario.focusSelector ? [scenario.focusSelector] : [])
 
   const keyPressSelectors =
-    scenario.keyPressSelectors ||
+    scenario.keyPressSelectors ??
     (scenario.keyPressSelector ? [scenario.keyPressSelector] : [])
 
   for (const { selector, keyPress } of keyPressSelectors) {

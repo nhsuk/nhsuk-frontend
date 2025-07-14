@@ -42,7 +42,7 @@ export class Header extends Component {
       })
     }
 
-    if (!$navigationItems || !$navigationItems.length) {
+    if (!$navigationItems.length) {
       throw new ElementError({
         component: Header,
         identifier: 'List items (`<li class="nhsuk-header__navigation-item">`)'
@@ -304,7 +304,7 @@ export class Header extends Component {
  * @param {Element | Document | null} [options.scope] - Scope of the document to search within
  */
 export function initHeader(options = {}) {
-  const $scope = options.scope || document
+  const $scope = options.scope ?? document
   const $root = $scope.querySelector(`[data-module="${Header.moduleName}"]`)
 
   if (!$root) {
