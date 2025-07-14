@@ -77,11 +77,11 @@ export class CharacterCount extends Component {
     $fallbackLimitMessage.classList.add('nhsuk-u-visually-hidden')
 
     // Read options set using dataset ('data-' values)
-    this.options = CharacterCount.getDataset(this.$root)
+    this.config = CharacterCount.getDataset(this.$root)
 
     // Determine the limit attribute (characters or words)
     let countAttribute = this.defaults.characterCountAttribute
-    if (this.options.maxwords) {
+    if (this.config.maxwords) {
       countAttribute = this.defaults.wordCountAttribute
     }
 
@@ -129,7 +129,7 @@ export class CharacterCount extends Component {
   // Counts characters or words in text
   count(text) {
     let length
-    if (this.options.maxwords) {
+    if (this.config.maxwords) {
       const tokens = text.match(/\S+/g) || [] // Matches consecutive non-whitespace chars
       length = tokens.length // eslint-disable-line prefer-destructuring
     } else {
@@ -220,13 +220,13 @@ export class CharacterCount extends Component {
   // Format update message
   formattedUpdateMessage() {
     const { $textarea } = this
-    const { options } = this
+    const { config } = this
     const remainingNumber = this.maxLength - this.count($textarea.value)
 
     let charVerb = 'remaining'
     let charNoun = 'character'
     let displayNumber = remainingNumber
-    if (options.maxwords) {
+    if (config.maxwords) {
       charNoun = 'word'
     }
     charNoun += remainingNumber === -1 || remainingNumber === 1 ? '' : 's'
@@ -242,14 +242,14 @@ export class CharacterCount extends Component {
   // always return true.
   isOverThreshold() {
     const { $textarea } = this
-    const { options } = this
+    const { config } = this
 
     // Determine the remaining number of characters/words
     const currentLength = this.count($textarea.value)
     const { maxLength } = this
 
-    // Set threshold if presented in options
-    const thresholdPercent = options.threshold ? options.threshold : 0
+    // Set threshold if presented in config
+    const thresholdPercent = config.threshold ? config.threshold : 0
     const thresholdValue = (maxLength * thresholdPercent) / 100
 
     return thresholdValue <= currentLength
