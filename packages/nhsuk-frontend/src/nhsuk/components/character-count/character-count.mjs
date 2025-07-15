@@ -76,22 +76,19 @@ export class CharacterCount extends Component {
     // Hide the fallback limit message
     $fallbackLimitMessage.classList.add('nhsuk-u-visually-hidden')
 
-    // Read options set using dataset ('data-' values)
-    this.options = CharacterCount.getDataset(this.$root)
+    /**
+     * Read config set using dataset ('data-' values)
+     *
+     * @type {CharacterCountConfig}
+     */
+    this.config = Object.assign(
+      {},
+      CharacterCount.defaults,
+      CharacterCount.getDataset(this.$root)
+    )
 
     // Determine the limit attribute (characters or words)
-    let countAttribute = this.defaults.characterCountAttribute
-    if (this.options.maxwords) {
-      countAttribute = this.defaults.wordCountAttribute
-    }
-
-    // Save the element limit
-    this.maxLength = this.$root.getAttribute(countAttribute)
-
-    // Check for limit
-    if (!this.maxLength) {
-      return this
-    }
+    this.maxLength = this.config.maxwords ?? this.config.maxlength ?? Infinity
 
     // Remove hard limit if set
     this.$textarea.removeAttribute('maxlength')
@@ -109,27 +106,27 @@ export class CharacterCount extends Component {
     this.updateCountMessage()
   }
 
-  // Read data attributes
+  /**
+   * Read data attributes
+   *
+   * @param {HTMLElement} element - HTML element
+   */
   static getDataset(element) {
-    const dataset = {}
-    const { attributes } = element
-    if (attributes) {
-      // eslint-disable-next-line @typescript-eslint/prefer-for-of
-      for (let i = 0; i < attributes.length; i++) {
-        const attribute = attributes[i]
-        const match = attribute.name.match(/^data-(.+)/)
-        if (match) {
-          dataset[match[1]] = attribute.value
-        }
+    const dataset = /** @type {CharacterCountConfig} */ ({})
+
+    for (const [key, value] of Object.entries(element.dataset)) {
+      if (key === 'maxlength' || key === 'maxwords' || key === 'threshold') {
+        dataset[key] = Number(value)
       }
     }
+
     return dataset
   }
 
   // Counts characters or words in text
   count(text) {
     let length
-    if (this.options.maxwords) {
+    if (this.config.maxwords) {
       const tokens = text.match(/\S+/g) || [] // Matches consecutive non-whitespace chars
       length = tokens.length // eslint-disable-line prefer-destructuring
     } else {
@@ -220,13 +217,13 @@ export class CharacterCount extends Component {
   // Format update message
   formattedUpdateMessage() {
     const { $textarea } = this
-    const { options } = this
+    const { config } = this
     const remainingNumber = this.maxLength - this.count($textarea.value)
 
     let charVerb = 'remaining'
     let charNoun = 'character'
     let displayNumber = remainingNumber
-    if (options.maxwords) {
+    if (config.maxwords) {
       charNoun = 'word'
     }
     charNoun += remainingNumber === -1 || remainingNumber === 1 ? '' : 's'
@@ -242,14 +239,14 @@ export class CharacterCount extends Component {
   // always return true.
   isOverThreshold() {
     const { $textarea } = this
-    const { options } = this
+    const { config } = this
 
     // Determine the remaining number of characters/words
     const currentLength = this.count($textarea.value)
     const { maxLength } = this
 
-    // Set threshold if presented in options
-    const thresholdPercent = options.threshold ? options.threshold : 0
+    // Set threshold if presented in config
+    const thresholdPercent = config.threshold ? config.threshold : 0
     const thresholdValue = (maxLength * thresholdPercent) / 100
 
     return thresholdValue <= currentLength
@@ -286,11 +283,17 @@ export class CharacterCount extends Component {
    * Name for the component used when initialising using data-module attributes
    */
   static moduleName = 'nhsuk-character-count'
-}
 
-CharacterCount.prototype.defaults = {
-  characterCountAttribute: 'data-maxlength',
-  wordCountAttribute: 'data-maxwords'
+  /**
+   * Character count default config
+   *
+   * @see {@link CharacterCountConfig}
+   * @constant
+   * @type {CharacterCountConfig}
+   */
+  static defaults = Object.freeze({
+    threshold: 0
+  })
 }
 
 /**
@@ -309,3 +312,17 @@ export function initCharacterCounts(options = {}) {
     new CharacterCount($root)
   })
 }
+
+/**
+ * Character count config
+ *
+ * @see {@link CharacterCount.defaults}
+ * @typedef {object} CharacterCountConfig
+ * @property {number} [maxlength] - The maximum number of characters.
+ *   If maxwords is provided, the maxlength option will be ignored.
+ * @property {number} [maxwords] - The maximum number of words. If maxwords is
+ *   provided, the maxlength option will be ignored.
+ * @property {number} [threshold=0] - The percentage value of the limit at
+ *   which point the count message is displayed. If this attribute is set, the
+ *   count message will be hidden by default.
+ */

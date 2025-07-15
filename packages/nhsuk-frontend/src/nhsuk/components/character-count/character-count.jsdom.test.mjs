@@ -2,6 +2,7 @@ import { components } from '@nhsuk/frontend-lib'
 import { getByRole } from '@testing-library/dom'
 
 import { CharacterCount, initCharacterCounts } from './character-count.mjs'
+import { examples } from './macro-options.mjs'
 
 describe('Character count', () => {
   /** @type {HTMLElement} */
@@ -14,18 +15,10 @@ describe('Character count', () => {
   let $description
 
   beforeEach(() => {
-    document.body.innerHTML = components.render('character-count', {
-      context: {
-        label: {
-          text: 'Can you provide more detail?'
-        },
-        hint: {
-          text: "Don't include personal or financial information, eg your National Insurance number or credit card details."
-        },
-        id: 'example',
-        maxlength: '10'
-      }
-    })
+    document.body.innerHTML = components.render(
+      'character-count',
+      examples.default
+    )
 
     $root = document.querySelector(
       `[data-module="${CharacterCount.moduleName}"]`
@@ -72,7 +65,7 @@ describe('Character count', () => {
       $description.remove()
 
       expect(() => new CharacterCount($root)).toThrow(
-        `${CharacterCount.moduleName}: Count message (\`id="example-info"\`) not found`
+        `${CharacterCount.moduleName}: Count message (\`id="more-detail-info"\`) not found`
       )
     })
 
@@ -121,6 +114,78 @@ describe('Character count', () => {
       }).toThrow(
         `${CharacterCount.moduleName}: Root element (\`$root\`) already initialised`
       )
+    })
+  })
+
+  describe('JavaScript configuration', () => {
+    it('configures the number of characters using `data-maxlength`', () => {
+      document.body.innerHTML = components.render(
+        'character-count',
+        examples.default
+      )
+
+      const characterCount = new CharacterCount(
+        document.querySelector(`[data-module="${CharacterCount.moduleName}"]`)
+      )
+
+      expect(characterCount.config).toEqual({
+        maxlength: 10,
+        threshold: 0
+      })
+    })
+
+    it('configures the number of words using `data-maxwords`', () => {
+      document.body.innerHTML = components.render(
+        'character-count',
+        examples['with max words']
+      )
+
+      const characterCount = new CharacterCount(
+        document.querySelector(`[data-module="${CharacterCount.moduleName}"]`)
+      )
+
+      expect(characterCount.config).toEqual({
+        maxwords: 10,
+        threshold: 0
+      })
+    })
+
+    it('configures the threshold using `data-threshold`', () => {
+      document.body.innerHTML = components.render(
+        'character-count',
+        examples['with threshold']
+      )
+
+      const characterCount = new CharacterCount(
+        document.querySelector(`[data-module="${CharacterCount.moduleName}"]`)
+      )
+
+      expect(characterCount.config).toEqual({
+        maxlength: 10,
+        threshold: 8
+      })
+    })
+
+    it('ignores unknown data attributes', () => {
+      document.body.innerHTML = components.render('character-count', {
+        context: {
+          ...examples['default'].context,
+          attributes: {
+            'data-unknown1': '100',
+            'data-unknown2': 200,
+            'data-unknown3': false
+          }
+        }
+      })
+
+      const characterCount = new CharacterCount(
+        document.querySelector(`[data-module="${CharacterCount.moduleName}"]`)
+      )
+
+      expect(characterCount.config).toEqual({
+        maxlength: 10,
+        threshold: 0
+      })
     })
   })
 })
