@@ -81,6 +81,7 @@ This change was introduced in pull requests [#1459: Add NHS.UK frontend browser 
 - [#1474: Fix missing `attributes` option on form groups](https://github.com/nhsuk/nhsuk-frontend/pull/1474)
 - [#1479: Fix tabs component JavaScript to use `$nhsuk-breakpoints` option](https://github.com/nhsuk/nhsuk-frontend/pull/1479)
 - [#1487: Fix character count not having error border colour when rendered with error message](https://github.com/nhsuk/nhsuk-frontend/pull/1487)
+- [#1489: Apply conditional reveal fixes from GOV.UK Frontend](https://github.com/nhsuk/nhsuk-frontend/pull/1489)
 
 ## 10.0.0-internal.0 - 2 July 2025
 
