@@ -51,21 +51,17 @@ describe('Checkboxes', () => {
       name: 'None of the above'
     })
 
-    jest.spyOn($input1, 'addEventListener')
-    jest.spyOn($input2, 'addEventListener')
-    jest.spyOn($input3, 'addEventListener')
+    jest.spyOn($root, 'addEventListener')
   })
 
   describe('Initialisation via init function', () => {
     it('should add event listeners', () => {
       initCheckboxes()
 
-      for (const $input of $inputs) {
-        expect($input.addEventListener).toHaveBeenCalledWith(
-          'click',
-          expect.any(Function)
-        )
-      }
+      expect($root.addEventListener).toHaveBeenCalledWith(
+        'click',
+        expect.any(Function)
+      )
     })
 
     it('should throw with missing conditional content', () => {

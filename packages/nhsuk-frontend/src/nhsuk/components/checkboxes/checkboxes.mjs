@@ -53,10 +53,8 @@ export class Checkboxes extends Component {
     // added to the page dynamically, so sync now too.
     this.syncAllConditionalReveals()
 
-    // Attach handleClick as click to inputs
-    this.$inputs.forEach(($input) => {
-      $input.addEventListener('click', this.handleClick.bind(this))
-    })
+    // Handle events
+    this.$root.addEventListener('click', (event) => this.handleClick(event))
   }
 
   /**
@@ -89,7 +87,7 @@ export class Checkboxes extends Component {
    * @param {HTMLInputElement} $input - Checkbox input
    */
   unCheckAllInputsExcept($input) {
-    const allInputsInSameExclusiveGroup = $input.form.querySelectorAll(
+    const allInputsInSameExclusiveGroup = document.querySelectorAll(
       `input[type="checkbox"][data-checkbox-exclusive-group="${$input.getAttribute('data-checkbox-exclusive-group')}"]`
     )
 
@@ -112,7 +110,7 @@ export class Checkboxes extends Component {
    * @param {HTMLInputElement} $input - Checkbox input
    */
   unCheckExclusiveInputs($input) {
-    const allExclusiveInputsInSameExclusiveGroup = $input.form.querySelectorAll(
+    const allExclusiveInputsInSameExclusiveGroup = document.querySelectorAll(
       `input[type="checkbox"][data-checkbox-exclusive][data-checkbox-exclusive-group="${$input.getAttribute(
         'data-checkbox-exclusive-group'
       )}"]`
@@ -133,18 +131,32 @@ export class Checkboxes extends Component {
    * @param {MouseEvent} event - Click event
    */
   handleClick(event) {
-    // Toggle conditional content based on checked state
-    this.syncConditionalRevealWithInputState(event.target)
+    const $clickedInput = event.target
 
-    if (!event.target.checked) {
+    // Ignore clicks on things that aren't checkbox inputs
+    if (
+      !($clickedInput instanceof HTMLInputElement) ||
+      $clickedInput.type !== 'checkbox'
+    ) {
+      return
+    }
+
+    // If the checkbox conditionally-reveals some content, sync the state
+    const hasAriaControls = $clickedInput.getAttribute('aria-controls')
+    if (hasAriaControls) {
+      this.syncConditionalRevealWithInputState($clickedInput)
+    }
+
+    // No further behaviour needed for unchecking
+    if (!$clickedInput.checked) {
       return
     }
 
     // Handle 'exclusive' checkbox behaviour (ie "None of these")
-    if (event.target.hasAttribute('data-checkbox-exclusive')) {
-      this.unCheckAllInputsExcept(event.target)
+    if ($clickedInput.hasAttribute('data-checkbox-exclusive')) {
+      this.unCheckAllInputsExcept($clickedInput)
     } else {
-      this.unCheckExclusiveInputs(event.target)
+      this.unCheckExclusiveInputs($clickedInput)
     }
   }
 
