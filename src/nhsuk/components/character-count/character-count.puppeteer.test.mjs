@@ -61,6 +61,21 @@ describe('Character count', () => {
         )
         expect(messageClasses).toContain('nhsuk-u-visually-hidden')
       })
+
+      it('retains error class if there is already an error', async () => {
+        await Promise.all([
+          page.goto(
+            `${BASE_URL}/components/character-count/with-error-message/`
+          ),
+          page.waitForNavigation()
+        ])
+
+        const textareaClasses = await page.$eval(
+          '.nhsuk-textarea',
+          (el) => el.className
+        )
+        expect(textareaClasses).toContain('nhsuk-textarea--error')
+      })
     })
 
     describe('when counting characters', () => {
@@ -142,6 +157,26 @@ describe('Character count', () => {
           (el) => el.innerHTML.trim()
         )
         expect(srMessage).toBe('You have 1 character remaining')
+      })
+
+      it('retains error class if there is already an error', async () => {
+        await Promise.all([
+          page.goto(
+            `${BASE_URL}/components/character-count/with-error-message/`
+          ),
+          page.waitForNavigation()
+        ])
+
+        await page.type('.nhsuk-js-character-count', 'A')
+
+        // Wait for debounced update to happen
+        await new Promise((resolve) => setTimeout(resolve, debouncedWaitTime))
+
+        const textareaClasses = await page.$eval(
+          '.nhsuk-textarea',
+          (el) => el.className
+        )
+        expect(textareaClasses).toContain('nhsuk-textarea--error')
       })
 
       describe('when the character limit is exceeded', () => {
