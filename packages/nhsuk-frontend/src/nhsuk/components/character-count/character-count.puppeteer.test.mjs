@@ -59,12 +59,9 @@ describe('Character count', () => {
       })
 
       it('retains error class if there is already an error', async () => {
-        await Promise.all([
-          page.goto(
-            `${BASE_URL}/components/character-count/with-error-message/`
-          ),
-          page.waitForNavigation()
-        ])
+        page = await goToComponent(browser, 'character-count', {
+          exampleName: 'with error message'
+        })
 
         const textareaClasses = await page.$eval(
           '.nhsuk-textarea',
@@ -150,17 +147,14 @@ describe('Character count', () => {
       })
 
       it('retains error class if there is already an error', async () => {
-        await Promise.all([
-          page.goto(
-            `${BASE_URL}/components/character-count/with-error-message/`
-          ),
-          page.waitForNavigation()
-        ])
+        page = await goToComponent(browser, 'character-count', {
+          exampleName: 'with error message'
+        })
 
         await page.type('.nhsuk-js-character-count', 'A')
 
         // Wait for debounced update to happen
-        await new Promise((resolve) => setTimeout(resolve, debouncedWaitTime))
+        await setTimeout(debouncedWaitTime)
 
         const textareaClasses = await page.$eval(
           '.nhsuk-textarea',
