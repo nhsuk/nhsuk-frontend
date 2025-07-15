@@ -9,10 +9,20 @@ import { Component } from '../../component.mjs'
 export class NotificationBanner extends Component {
   /**
    * @param {Element | null} [$root] - HTML element to use for notification banner
-   * @param {NotificationBannerConfig} [config] - Notification banner config
    */
-  constructor($root, config = {}) {
+  constructor($root) {
     super($root)
+
+    /**
+     * Read config set using dataset ('data-' values)
+     *
+     * @type {NotificationBannerConfig}
+     */
+    this.config = Object.assign(
+      {},
+      NotificationBanner.defaults,
+      NotificationBanner.getDataset(this.$root)
+    )
 
     /**
      * Focus the notification banner
@@ -27,16 +37,44 @@ export class NotificationBanner extends Component {
      */
     if (
       this.$root.getAttribute('role') === 'alert' &&
-      !config.disableAutoFocus
+      !this.config.disableAutoFocus
     ) {
       setFocus(this.$root)
     }
   }
 
   /**
+   * Read data attributes
+   *
+   * @param {HTMLElement} element - HTML element
+   */
+  static getDataset(element) {
+    const dataset = /** @type {NotificationBannerConfig} */ ({})
+
+    for (const [key, value] of Object.entries(element.dataset)) {
+      if (key === 'disableAutoFocus') {
+        dataset[key] = value === 'true'
+      }
+    }
+
+    return dataset
+  }
+
+  /**
    * Name for the component used when initialising using data-module attributes.
    */
   static moduleName = 'nhsuk-notification-banner'
+
+  /**
+   * Notification banner default config
+   *
+   * @see {@link NotificationBannerConfig}
+   * @constant
+   * @type {NotificationBannerConfig}
+   */
+  static defaults = Object.freeze({
+    disableAutoFocus: false
+  })
 }
 
 /**
@@ -44,8 +82,6 @@ export class NotificationBanner extends Component {
  *
  * @param {object} [options]
  * @param {Element | Document | null} [options.scope] - Scope of the document to search within
- * @param {boolean} [options.disableAutoFocus] - If set to `true` the notification
- *   banner will not be focussed when the page loads.
  */
 export function initNotificationBanners(options = {}) {
   const $scope = options.scope ?? document
@@ -54,9 +90,7 @@ export function initNotificationBanners(options = {}) {
   )
 
   $notificationBanners.forEach(($notificationBanner) => {
-    new NotificationBanner($notificationBanner, {
-      disableAutoFocus: options.disableAutoFocus ?? false
-    })
+    new NotificationBanner($notificationBanner)
   })
 }
 
