@@ -1,10 +1,9 @@
-const {
-  PORT = '3000',
-  BASE_HOST = `localhost:${PORT}`, // Default via `npm start`
-  BASE_URL = `http://${BASE_HOST}/nhsuk-frontend`
-} = process.env
+import { goToComponent } from '@nhsuk/frontend-helpers/puppeteer.mjs'
 
 describe('Button', () => {
+  /** @type {Page} */
+  let page
+
   const clickTimeoutTime = 1000 // ms
 
   // The longest possible time a button will ignore unintentional clicks for
@@ -12,12 +11,16 @@ describe('Button', () => {
   const debouncedWaitTime = clickTimeoutTime + 100
 
   beforeAll(async () => {
-    await page.goto(`${BASE_URL}/components/button/as-a-link/`)
+    page = await goToComponent(browser, 'button', {
+      exampleName: 'as a link'
+    })
   })
 
   describe('Button as a link', () => {
     it('triggers the click event when the space key is pressed', async () => {
-      await page.evaluate(() => document.body.querySelector('.nhsuk-button'))
+      const href = await page.evaluate(
+        () => document.body.querySelector('a.nhsuk-button').href
+      )
 
       await page.focus('a[role="button"]')
 
@@ -31,7 +34,7 @@ describe('Button', () => {
       ])
 
       const url = new URL(page.url())
-      expect(url.href).toBe(`${BASE_URL}/components/button/as-a-link/#`)
+      expect(url.href).toBe(href)
     })
   })
 
@@ -91,7 +94,7 @@ describe('Button', () => {
       let $button
 
       beforeEach(async () => {
-        await page.goto(`${BASE_URL}/components/button/default/`)
+        page = await goToComponent(browser, 'button')
         $button = await setButtonTracking(await page.$('button'))
       })
 
@@ -111,9 +114,9 @@ describe('Button', () => {
       let $button
 
       beforeEach(async () => {
-        await page.goto(
-          `${BASE_URL}/components/button/with-double-click-prevented/`
-        )
+        page = await goToComponent(browser, 'button', {
+          exampleName: 'with double click prevented'
+        })
 
         $button = await setButtonTracking(await page.$('button'))
       })
@@ -166,5 +169,5 @@ describe('Button', () => {
 })
 
 /**
- * @import { ElementHandle } from 'puppeteer'
+ * @import { ElementHandle, Page } from 'puppeteer'
  */
