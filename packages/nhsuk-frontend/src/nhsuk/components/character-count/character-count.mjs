@@ -45,6 +45,9 @@ export class CharacterCount extends Component {
       })
     }
 
+    // Pre-existing validation error rendered from server
+    this.$errorMessage = this.$root.querySelector('.nhsuk-error-message')
+
     // Move the fallback count message to be immediately after the textarea
     // Kept for backwards compatibility
     this.$textarea.insertAdjacentElement('afterend', $fallbackLimitMessage)
@@ -169,30 +172,26 @@ export class CharacterCount extends Component {
   updateVisibleCountMessage() {
     const { $textarea } = this
     const { $visibleCountMessage } = this
+
     const remainingNumber = this.maxLength - this.count($textarea.value)
+    const isError = remainingNumber < 0
 
     // If input is over the threshold, remove the disabled class which renders the
     // counter invisible.
-    if (this.isOverThreshold()) {
-      $visibleCountMessage.classList.remove(
-        'nhsuk-character-count__message--disabled'
-      )
-    } else {
-      $visibleCountMessage.classList.add(
-        'nhsuk-character-count__message--disabled'
-      )
-    }
+    $visibleCountMessage.classList.toggle(
+      'nhsuk-character-count__message--disabled',
+      !this.isOverThreshold()
+    )
 
     // Update styles
-    if (remainingNumber < 0) {
-      $textarea.classList.add('nhsuk-textarea--error')
-      $visibleCountMessage.classList.remove('nhsuk-hint')
-      $visibleCountMessage.classList.add('nhsuk-error-message')
-    } else {
-      $textarea.classList.remove('nhsuk-textarea--error')
-      $visibleCountMessage.classList.remove('nhsuk-error-message')
-      $visibleCountMessage.classList.add('nhsuk-hint')
+    if (!this.$errorMessage) {
+      // Only toggle the textarea error class if there isn't an error message
+      // already, as it may be unrelated to the limit (eg: allowed characters)
+      // and would set the border colour back to black.
+      $textarea.classList.toggle('nhsuk-textarea--error', isError)
     }
+    $visibleCountMessage.classList.toggle('nhsuk-error-message', isError)
+    $visibleCountMessage.classList.toggle('nhsuk-hint', !isError)
 
     // Update message
     $visibleCountMessage.innerHTML = this.formattedUpdateMessage()
