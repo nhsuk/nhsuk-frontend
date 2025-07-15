@@ -45,6 +45,9 @@ export class CharacterCount extends Component {
       })
     }
 
+    // Pre-existing validation error rendered from server
+    this.$errorMessage = this.$root.querySelector('.nhsuk-error-message')
+
     // Move the fallback count message to be immediately after the textarea
     // Kept for backwards compatibility
     this.$textarea.insertAdjacentElement('afterend', $fallbackLimitMessage)
@@ -181,7 +184,12 @@ export class CharacterCount extends Component {
     )
 
     // Update styles
-    $textarea.classList.toggle('nhsuk-textarea--error', isError)
+    if (!this.$errorMessage) {
+      // Only toggle the textarea error class if there isn't an error message
+      // already, as it may be unrelated to the limit (eg: allowed characters)
+      // and would set the border colour back to black.
+      $textarea.classList.toggle('nhsuk-textarea--error', isError)
+    }
     $visibleCountMessage.classList.toggle('nhsuk-error-message', isError)
     $visibleCountMessage.classList.toggle('nhsuk-hint', !isError)
 
