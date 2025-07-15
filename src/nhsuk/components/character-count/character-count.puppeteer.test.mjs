@@ -57,6 +57,21 @@ describe('Character count', () => {
         )
         expect(messageClasses).toContain('nhsuk-u-visually-hidden')
       })
+
+      it('retains error class if there is already an error', async () => {
+        await Promise.all([
+          page.goto(
+            `${BASE_URL}/components/character-count/with-error-message/`
+          ),
+          page.waitForNavigation()
+        ])
+
+        const textareaClasses = await page.$eval(
+          '.nhsuk-textarea',
+          (el) => el.className
+        )
+        expect(textareaClasses).toContain('nhsuk-textarea--error')
+      })
     })
 
     describe('when counting characters', () => {
@@ -134,6 +149,26 @@ describe('Character count', () => {
         expect(srMessage).toBe('You have 1 character remaining')
       })
 
+      it('retains error class if there is already an error', async () => {
+        await Promise.all([
+          page.goto(
+            `${BASE_URL}/components/character-count/with-error-message/`
+          ),
+          page.waitForNavigation()
+        ])
+
+        await page.type('.nhsuk-js-character-count', 'A')
+
+        // Wait for debounced update to happen
+        await new Promise((resolve) => setTimeout(resolve, debouncedWaitTime))
+
+        const textareaClasses = await page.$eval(
+          '.nhsuk-textarea',
+          (el) => el.className
+        )
+        expect(textareaClasses).toContain('nhsuk-textarea--error')
+      })
+
       describe('when the character limit is exceeded', () => {
         beforeEach(async () => {
           page = await goToComponent(browser, 'character-count')
@@ -205,13 +240,13 @@ describe('Character count', () => {
             '.nhsuk-character-count__status',
             (el) => el.innerHTML.trim()
           )
-          expect(message).toBe('You have 23 characters too many')
+          expect(message).toBe('You have 40 characters too many')
 
           const srMessage = await page.$eval(
             '.nhsuk-character-count__sr-status',
             (el) => el.innerHTML.trim()
           )
-          expect(srMessage).toBe('You have 23 characters too many')
+          expect(srMessage).toBe('You have 40 characters too many')
         })
 
         it('adds error styles to the textarea', async () => {
