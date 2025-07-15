@@ -1,4 +1,4 @@
-const { goToComponent } = require('@nhsuk/frontend-helpers/puppeteer.mjs')
+import { goToComponent } from '@nhsuk/frontend-helpers/puppeteer.mjs'
 
 describe('Notification banner', () => {
   /** @type {Page} */
