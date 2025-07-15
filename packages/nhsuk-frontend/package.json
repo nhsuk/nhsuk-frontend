@@ -48,6 +48,7 @@
   "devDependencies": {
     "@babel/preset-env": "^7.28.0",
     "@nhsuk/frontend-config": "*",
+    "@nhsuk/frontend-helpers": "*",
     "@nhsuk/frontend-lib": "*",
     "@nhsuk/frontend-tasks": "*",
     "@testing-library/dom": "^10.4.0",

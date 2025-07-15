@@ -10,7 +10,8 @@
     "@testing-library/jest-dom": "^6.6.3",
     "jest-environment-jsdom": "^30.0.2",
     "jest-environment-node": "^30.0.0",
-    "jest-environment-puppeteer": "^11.0.0"
+    "jest-environment-puppeteer": "^11.0.0",
+    "slug": "^11.0.0"
   },
   "engines": {
     "node": "^20.9.0 || ^22.11.0"
