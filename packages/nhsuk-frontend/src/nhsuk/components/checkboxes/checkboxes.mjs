@@ -96,11 +96,10 @@ export class Checkboxes extends Component {
     allInputsInSameExclusiveGroup.forEach(($inputWithSameName) => {
       const hasSameFormOwner = $input.form === $inputWithSameName.form
       if (hasSameFormOwner && $inputWithSameName !== $input) {
-        $inputWithSameName.checked = false // eslint-disable-line no-param-reassign
+        $inputWithSameName.checked = false
+        this.syncConditionalRevealWithInputState($inputWithSameName)
       }
     })
-
-    this.syncAllConditionalReveals()
   }
 
   /**
@@ -122,11 +121,10 @@ export class Checkboxes extends Component {
     allExclusiveInputsInSameExclusiveGroup.forEach(($exclusiveInput) => {
       const hasSameFormOwner = $input.form === $exclusiveInput.form
       if (hasSameFormOwner) {
-        $exclusiveInput.checked = false // eslint-disable-line no-param-reassign
+        $exclusiveInput.checked = false
+        this.syncConditionalRevealWithInputState($exclusiveInput)
       }
     })
-
-    this.syncAllConditionalReveals()
   }
 
   /**
