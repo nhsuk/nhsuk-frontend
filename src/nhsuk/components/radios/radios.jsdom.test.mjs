@@ -113,21 +113,17 @@ describe('Radios', () => {
 
     $inputs = [$input1, $input2, $input3]
 
-    jest.spyOn($input1, 'addEventListener')
-    jest.spyOn($input2, 'addEventListener')
-    jest.spyOn($input3, 'addEventListener')
+    jest.spyOn($root, 'addEventListener')
   })
 
   describe('Initialisation via init function', () => {
     it('should add event listeners', () => {
       initRadios()
 
-      for (const $input of $inputs) {
-        expect($input.addEventListener).toHaveBeenCalledWith(
-          'click',
-          expect.any(Function)
-        )
-      }
+      expect($root.addEventListener).toHaveBeenCalledWith(
+        'click',
+        expect.any(Function)
+      )
     })
 
     it('should throw with missing conditional content', () => {

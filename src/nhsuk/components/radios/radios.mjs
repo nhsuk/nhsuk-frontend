@@ -53,12 +53,8 @@ export class Radios extends Component {
     // added to the page dynamically, so sync now too.
     this.syncAllConditionalReveals()
 
-    // Attach event handler to radioInputs
-    this.$inputs.forEach(($input) => {
-      $input.addEventListener('click', () =>
-        this.syncConditionalRevealWithInputState($input)
-      )
-    })
+    // Handle events
+    this.$root.addEventListener('click', (event) => this.handleClick(event))
   }
 
   /**
@@ -81,6 +77,41 @@ export class Radios extends Component {
    */
   syncConditionalRevealWithInputState($input) {
     toggleConditionalInput($input, 'nhsuk-radios__conditional--hidden')
+  }
+
+  /**
+   * Toggle classes and attributes
+   *
+   * @param {MouseEvent} event - Click event
+   */
+  handleClick(event) {
+    const $clickedInput = event.target
+
+    // Ignore clicks on things that aren't radio buttons
+    if (
+      !($clickedInput instanceof HTMLInputElement) ||
+      $clickedInput.type !== 'radio'
+    ) {
+      return
+    }
+
+    // We only need to consider radios with conditional reveals, which will have
+    // aria-controls attributes.
+    const $allInputs = document.querySelectorAll(
+      'input[type="radio"][aria-controls]'
+    )
+
+    const $clickedInputForm = $clickedInput.form
+    const $clickedInputName = $clickedInput.name
+
+    $allInputs.forEach(($input) => {
+      const hasSameFormOwner = $input.form === $clickedInputForm
+      const hasSameName = $input.name === $clickedInputName
+
+      if (hasSameName && hasSameFormOwner) {
+        this.syncConditionalRevealWithInputState($input)
+      }
+    })
   }
 
   /**
