@@ -1,23 +1,18 @@
-const {
-  PORT = '3000',
-  BASE_HOST = `localhost:${PORT}`, // Default via `npm start`
-  BASE_URL = `http://${BASE_HOST}/nhsuk-frontend`
-} = process.env
-
+import { goToComponent } from '@nhsuk/frontend-helpers/puppeteer.mjs'
 import { KnownDevices } from 'puppeteer'
+
 const iPhone = KnownDevices['iPhone 6']
 
 describe('Tabs', () => {
-  describe('when JavaScript is unavailable or fails', () => {
-    beforeAll(async () => {
-      await page.setJavaScriptEnabled(false)
-    })
+  /** @type {Page} */
+  let page
 
+  describe('when JavaScript is unavailable or fails', () => {
     beforeEach(async () => {
-      await Promise.all([
-        page.goto(`${BASE_URL}/components/tabs/default/`),
-        page.waitForNavigation()
-      ])
+      page = await goToComponent(browser, 'tabs')
+
+      await page.setJavaScriptEnabled(false)
+      await page.reload()
     })
 
     afterAll(async () => {
@@ -35,10 +30,7 @@ describe('Tabs', () => {
 
   describe('when JavaScript is available', () => {
     beforeEach(async () => {
-      await Promise.all([
-        page.goto(`${BASE_URL}/components/tabs/default/`),
-        page.waitForNavigation()
-      ])
+      page = await goToComponent(browser, 'tabs')
     })
 
     it('should indicate the open state of the first tab', async () => {
@@ -80,10 +72,7 @@ describe('Tabs', () => {
 
   describe('when a tab is pressed', () => {
     beforeEach(async () => {
-      await Promise.all([
-        page.goto(`${BASE_URL}/components/tabs/default/`),
-        page.waitForNavigation()
-      ])
+      page = await goToComponent(browser, 'tabs')
     })
 
     it('should indicate the open state of the pressed tab', async () => {
@@ -122,10 +111,7 @@ describe('Tabs', () => {
 
     describe('when the tab contains a DOM element', () => {
       beforeEach(async () => {
-        await Promise.all([
-          page.goto(`${BASE_URL}/components/tabs/default/`),
-          page.waitForNavigation()
-        ])
+        page = await goToComponent(browser, 'tabs')
       })
 
       it('should display the tab panel associated with the selected tab', async () => {
@@ -159,10 +145,7 @@ describe('Tabs', () => {
 
   describe('when first tab is focused and the right arrow key is pressed', () => {
     beforeEach(async () => {
-      await Promise.all([
-        page.goto(`${BASE_URL}/components/tabs/default/`),
-        page.waitForNavigation()
-      ])
+      page = await goToComponent(browser, 'tabs')
     })
 
     it('should indicate the open state of the next tab', async () => {
@@ -204,10 +187,11 @@ describe('Tabs', () => {
 
   describe('when a hash associated with a tab panel is passed in the URL', () => {
     it('should indicate the open state of the associated tab', async () => {
-      await Promise.all([
-        page.goto(`${BASE_URL}/components/tabs/default/#tab-two`),
-        page.waitForNavigation()
-      ])
+      page = await goToComponent(browser, 'tabs')
+
+      await page.evaluate(() => {
+        window.location.hash = '#tab-two'
+      })
 
       const currentTabAriaSelected = await page.evaluate(() =>
         document.body
@@ -232,10 +216,9 @@ describe('Tabs', () => {
     })
 
     it('should only update based on hashes that are tabs', async () => {
-      await Promise.all([
-        page.goto(`${BASE_URL}/components/tabs/with-anchor-in-panel/`),
-        page.waitForNavigation()
-      ])
+      page = await goToComponent(browser, 'tabs', {
+        exampleName: 'with anchor in panel'
+      })
 
       await page.click('[href="#anchor"]')
 
@@ -248,10 +231,7 @@ describe('Tabs', () => {
 
   describe('when rendered on a small device', () => {
     beforeEach(async () => {
-      await Promise.all([
-        page.goto(`${BASE_URL}/components/tabs/default/`),
-        page.waitForNavigation()
-      ])
+      page = await goToComponent(browser, 'tabs')
     })
 
     it('falls back to making the all tab containers visible', async () => {
@@ -264,3 +244,7 @@ describe('Tabs', () => {
     })
   })
 })
+
+/**
+ * @import { Page } from 'puppeteer'
+ */
