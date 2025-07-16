@@ -10,10 +10,12 @@ const {
  * Navigate to path
  *
  * @param {Page} page - Puppeteer page object
- * @param {string} path - Path or URL to navigate to
+ * @param {string | URL} pathOrUrl - Path or URL to navigate to
  */
-async function goTo(page, path) {
-  const { href, pathname } = new URL(path, `${BASE_URL}/`)
+async function goTo(page, pathOrUrl) {
+  const { href, pathname } = !(pathOrUrl instanceof URL)
+    ? getURL(pathOrUrl) // Build URL from base
+    : pathOrUrl
 
   const response = await page.goto(href)
   const code = response.status()
@@ -56,6 +58,15 @@ export async function goToComponent(browser, componentName, options) {
     : '/default'
 
   return goTo(await browser.newPage(), `./${componentPath}`)
+}
+
+/**
+ * Get review app URL
+ *
+ * @param {string} path - Path to navigate to
+ */
+export function getURL(path) {
+  return new URL(path, `${BASE_URL}/`)
 }
 
 /**
