@@ -54,8 +54,8 @@ export class Checkboxes extends Component {
     this.syncAllConditionalReveals()
 
     // Attach handleClick as click to inputs
-    this.$inputs.forEach((checkboxButton) => {
-      checkboxButton.addEventListener('click', this.handleClick.bind(this))
+    this.$inputs.forEach(($input) => {
+      $input.addEventListener('click', this.handleClick.bind(this))
     })
   }
 
@@ -63,8 +63,8 @@ export class Checkboxes extends Component {
    * Sync the conditional reveal states for all checkboxes in this component.
    */
   syncAllConditionalReveals() {
-    this.$inputs.forEach((item) =>
-      this.syncConditionalRevealWithInputState(item)
+    this.$inputs.forEach(($input) =>
+      this.syncConditionalRevealWithInputState($input)
     )
   }
 
@@ -74,10 +74,10 @@ export class Checkboxes extends Component {
    * Synchronise the visibility of the conditional reveal, and its accessible
    * state, with the input's checked state.
    *
-   * @param {HTMLInputElement} input - Checkbox input
+   * @param {HTMLInputElement} $input - Checkbox input
    */
-  syncConditionalRevealWithInputState(input) {
-    toggleConditionalInput(input, 'nhsuk-checkboxes__conditional--hidden')
+  syncConditionalRevealWithInputState($input) {
+    toggleConditionalInput($input, 'nhsuk-checkboxes__conditional--hidden')
   }
 
   /**
@@ -86,17 +86,17 @@ export class Checkboxes extends Component {
    * Find any other checkbox inputs with the checkbox group value, and uncheck them.
    * This is useful for when a “None of these" checkbox is checked.
    *
-   * @param {HTMLInputElement} input - Checkbox input
+   * @param {HTMLInputElement} $input - Checkbox input
    */
-  unCheckAllInputsExcept(input) {
-    const allInputsInSameExclusiveGroup = input.form.querySelectorAll(
-      `input[type="checkbox"][data-checkbox-exclusive-group="${input.getAttribute('data-checkbox-exclusive-group')}"]`
+  unCheckAllInputsExcept($input) {
+    const allInputsInSameExclusiveGroup = $input.form.querySelectorAll(
+      `input[type="checkbox"][data-checkbox-exclusive-group="${$input.getAttribute('data-checkbox-exclusive-group')}"]`
     )
 
-    allInputsInSameExclusiveGroup.forEach((inputWithSameName) => {
-      const hasSameFormOwner = input.form === inputWithSameName.form
-      if (hasSameFormOwner && inputWithSameName !== input) {
-        inputWithSameName.checked = false // eslint-disable-line no-param-reassign
+    allInputsInSameExclusiveGroup.forEach(($inputWithSameName) => {
+      const hasSameFormOwner = $input.form === $inputWithSameName.form
+      if (hasSameFormOwner && $inputWithSameName !== $input) {
+        $inputWithSameName.checked = false // eslint-disable-line no-param-reassign
       }
     })
 
@@ -110,19 +110,19 @@ export class Checkboxes extends Component {
    * and uncheck them. This helps prevent someone checking both a regular checkbox and a
    * "None of these" checkbox in the same fieldset.
    *
-   * @param {HTMLInputElement} input - Checkbox input
+   * @param {HTMLInputElement} $input - Checkbox input
    */
-  unCheckExclusiveInputs(input) {
-    const allExclusiveInputsInSameExclusiveGroup = input.form.querySelectorAll(
-      `input[type="checkbox"][data-checkbox-exclusive][data-checkbox-exclusive-group="${input.getAttribute(
+  unCheckExclusiveInputs($input) {
+    const allExclusiveInputsInSameExclusiveGroup = $input.form.querySelectorAll(
+      `input[type="checkbox"][data-checkbox-exclusive][data-checkbox-exclusive-group="${$input.getAttribute(
         'data-checkbox-exclusive-group'
       )}"]`
     )
 
-    allExclusiveInputsInSameExclusiveGroup.forEach((exclusiveInput) => {
-      const hasSameFormOwner = input.form === exclusiveInput.form
+    allExclusiveInputsInSameExclusiveGroup.forEach(($exclusiveInput) => {
+      const hasSameFormOwner = $input.form === $exclusiveInput.form
       if (hasSameFormOwner) {
-        exclusiveInput.checked = false // eslint-disable-line no-param-reassign
+        $exclusiveInput.checked = false // eslint-disable-line no-param-reassign
       }
     })
 

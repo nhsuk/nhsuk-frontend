@@ -18,15 +18,15 @@ export function getFragmentFromUrl(url) {
 /**
  * Toggle a toggle a class on conditional content for an input based on checked state
  *
- * @param {Element | null} input - input element
+ * @param {Element | null} $input - input element
  * @param {string} className - class to toggle
  */
-export function toggleConditionalInput(input, className) {
-  if (!input || !(input instanceof HTMLInputElement) || !className) {
+export function toggleConditionalInput($input, className) {
+  if (!$input || !($input instanceof HTMLInputElement) || !className) {
     return
   }
 
-  const targetId = input.getAttribute('aria-controls')
+  const targetId = $input.getAttribute('aria-controls')
   if (!targetId) {
     return
   }
@@ -36,8 +36,8 @@ export function toggleConditionalInput(input, className) {
     return
   }
 
-  input.setAttribute('aria-expanded', input.checked.toString())
-  target.classList.toggle(className, !input.checked)
+  $input.setAttribute('aria-expanded', $input.checked.toString())
+  target.classList.toggle(className, !$input.checked)
 }
 
 /**
