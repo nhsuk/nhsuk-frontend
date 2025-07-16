@@ -60,12 +60,24 @@ export class Checkboxes extends Component {
   }
 
   /**
-   * Update all conditional reveals to match checked state
+   * Sync the conditional reveal states for all checkboxes in this component.
    */
   syncAllConditionalReveals() {
     this.$inputs.forEach((item) =>
-      toggleConditionalInput(item, 'nhsuk-checkboxes__conditional--hidden')
+      this.syncConditionalRevealWithInputState(item)
     )
+  }
+
+  /**
+   * Sync conditional reveal with the input state
+   *
+   * Synchronise the visibility of the conditional reveal, and its accessible
+   * state, with the input's checked state.
+   *
+   * @param {HTMLInputElement} input - Checkbox input
+   */
+  syncConditionalRevealWithInputState(input) {
+    toggleConditionalInput(input, 'nhsuk-checkboxes__conditional--hidden')
   }
 
   /**
@@ -73,6 +85,8 @@ export class Checkboxes extends Component {
    *
    * Find any other checkbox inputs with the checkbox group value, and uncheck them.
    * This is useful for when a “None of these" checkbox is checked.
+   *
+   * @param {HTMLInputElement} input - Checkbox input
    */
   unCheckAllInputsExcept(input) {
     const allInputsInSameExclusiveGroup = input.form.querySelectorAll(
@@ -95,6 +109,8 @@ export class Checkboxes extends Component {
    * Find any checkbox inputs with the same checkbox group value and the 'exclusive' behaviour,
    * and uncheck them. This helps prevent someone checking both a regular checkbox and a
    * "None of these" checkbox in the same fieldset.
+   *
+   * @param {HTMLInputElement} input - Checkbox input
    */
   unCheckExclusiveInputs(input) {
     const allExclusiveInputsInSameExclusiveGroup = input.form.querySelectorAll(
@@ -120,10 +136,7 @@ export class Checkboxes extends Component {
    */
   handleClick(event) {
     // Toggle conditional content based on checked state
-    toggleConditionalInput(
-      event.target,
-      'nhsuk-checkboxes__conditional--hidden'
-    )
+    this.syncConditionalRevealWithInputState(event.target)
 
     if (!event.target.checked) {
       return
