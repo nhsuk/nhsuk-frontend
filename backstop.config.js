@@ -1,3 +1,4 @@
+const { screenshots } = require('@nhsuk/frontend-lib')
 const { executablePath } = require('puppeteer')
 
 const {
@@ -6,54 +7,7 @@ const {
   BASE_HOST = `localhost:${PORT}`, // Default via `npm start`
   BASE_URL = `http://${BASE_HOST}/nhsuk-frontend`
 } = process.env
-
-/**
- * Default viewport sizes
- *
- * @type {Map<string, Viewport>}
- */
-const viewports = new Map([
-  [
-    'mobile',
-    {
-      width: 320,
-      height: 100
-    }
-  ],
-  [
-    'tablet',
-    {
-      width: 641,
-      height: 100
-    }
-  ],
-  [
-    'desktop',
-    {
-      width: 769,
-      height: 100
-    }
-  ],
-  [
-    'large-desktop',
-    {
-      width: 990,
-      height: 100
-    }
-  ],
-  [
-    'xlarge-desktop',
-    {
-      width: 1281,
-      height: 100
-    }
-  ]
-])
-
-// Set viewport labels
-for (const [label, viewport] of viewports.entries()) {
-  viewport.label = label
-}
+const { viewports } = screenshots
 
 /**
  * @type {PlaywrightEngineConfig}
