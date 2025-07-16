@@ -54,9 +54,9 @@ export class Radios extends Component {
     this.syncAllConditionalReveals()
 
     // Attach event handler to radioInputs
-    this.$inputs.forEach((radioButton) => {
-      radioButton.addEventListener('click', () =>
-        this.syncConditionalRevealWithInputState(radioButton)
+    this.$inputs.forEach(($input) => {
+      $input.addEventListener('click', () =>
+        this.syncConditionalRevealWithInputState($input)
       )
     })
   }
@@ -65,8 +65,8 @@ export class Radios extends Component {
    * Sync the conditional reveal states for all radio buttons in this component.
    */
   syncAllConditionalReveals() {
-    this.$inputs.forEach((input) =>
-      this.syncConditionalRevealWithInputState(input)
+    this.$inputs.forEach(($input) =>
+      this.syncConditionalRevealWithInputState($input)
     )
   }
 
@@ -77,10 +77,10 @@ export class Radios extends Component {
    * state, with the input's checked state.
    *
    * @private
-   * @param {HTMLInputElement} input - Radio input
+   * @param {HTMLInputElement} $input - Radio input
    */
-  syncConditionalRevealWithInputState(input) {
-    toggleConditionalInput(input, 'nhsuk-radios__conditional--hidden')
+  syncConditionalRevealWithInputState($input) {
+    toggleConditionalInput($input, 'nhsuk-radios__conditional--hidden')
   }
 
   /**
