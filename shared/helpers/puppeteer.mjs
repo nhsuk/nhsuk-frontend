@@ -45,36 +45,36 @@ export async function goToExample(browser, example) {
  * Navigate to component preview page
  *
  * @param {Browser} browser - Puppeteer browser object
- * @param {string} [componentName] - Component name
+ * @param {string} [component] - Component name
  * @param {object} [options] - Navigation options
  * @param {string} options.example - Example name
  */
-export async function goToComponent(browser, componentName, options) {
-  const componentPath = getComponentPath(componentName, options)
+export async function goToComponent(browser, component, options) {
+  const componentPath = getComponentPath(component, options)
   return goTo(await browser.newPage(), `.${componentPath}`)
 }
 
 /**
  * Get component preview review app URL
  *
- * @param {string} [componentName] - Component name
+ * @param {string} [component] - Component name
  * @param {object} [options] - Navigation options
  * @param {string} options.example - Example name
  */
-export function getComponentURL(componentName, options) {
-  const componentPath = getComponentPath(componentName, options)
+export function getComponentURL(component, options) {
+  const componentPath = getComponentPath(component, options)
   return getURL(`.${componentPath}`)
 }
 
 /**
  * Get component preview path
  *
- * @param {string} [componentName] - Component name
+ * @param {string} [component] - Component name
  * @param {object} [options] - Navigation options
  * @param {string} options.example - Example name
  */
-export function getComponentPath(componentName, options) {
-  let componentPath = `/components/${componentName}`
+export function getComponentPath(component, options) {
+  let componentPath = `/components/${component}`
 
   // Add example name to URL
   componentPath += options?.example
