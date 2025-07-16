@@ -65,68 +65,83 @@ describe('isSupported util', () => {
 })
 
 describe('toggleConditionalInput util', () => {
-  const className = 'test-class'
+  const className = 'nhsuk-checkboxes__conditional--hidden'
+
+  /** @type {HTMLInputElement} */
+  let $input
+
+  /** @type {HTMLElement} */
+  let $target
+
+  beforeEach(() => {
+    $input = document.createElement('input')
+    $input.setAttribute('aria-controls', 'target-id')
+
+    $target = document.createElement('div')
+    $target.classList.add('nhsuk-checkboxes__conditional')
+    $target.id = 'target-id'
+
+    document.body.innerHTML = ''
+    document.body.appendChild($input)
+    document.body.appendChild($target)
+  })
 
   describe('does not throw an error', () => {
     it('if the element does not exist', () => {
-      const $element = document.querySelector('.fake-class')
-      expect($element).toBeNull()
-      toggleConditionalInput($element, className)
+      expect(() => toggleConditionalInput(null, 'fake-class')).not.toThrow()
+    })
+
+    it('if the element is not an input', () => {
+      const $div = document.createElement('div')
+      expect(() => toggleConditionalInput($div, className)).not.toThrow()
     })
 
     it('if no class is passed', () => {
-      const $element = document.querySelector('.fake-class')
-      expect($element).toBeNull()
-      toggleConditionalInput($element)
+      expect(() => toggleConditionalInput($input)).not.toThrow()
     })
 
     it('if the input has no aria-controls', () => {
-      document.body.innerHTML = '<input />'
-      const $input = document.querySelector('input')
-      expect($input).not.toBeNull()
-      toggleConditionalInput($input, className)
+      $input.removeAttribute('aria-controls')
+      expect(() => toggleConditionalInput($input, className)).not.toThrow()
     })
 
     it('if the input has an invalid aria-controls', () => {
-      document.body.innerHTML = '<input aria-controls="fake-id" />'
-      const $input = document.querySelector('input')
-      expect($input).not.toBeNull()
-      toggleConditionalInput($input, className)
+      $input.setAttribute('aria-controls', 'fake-id')
+      expect(() => toggleConditionalInput($input, className)).not.toThrow()
+    })
+
+    it('if the target has no ID', () => {
+      $target.removeAttribute('id')
+      expect(() => toggleConditionalInput($input, className)).not.toThrow()
     })
   })
 
   describe('toggles the passed class', () => {
     it('if the aria-controls element is valid and content is hidden', () => {
-      document.body.innerHTML =
-        '<input aria-controls="content" aria-expanded="false" /><div class="hidden" id="content" />'
-      const $input = document.querySelector('input')
-      const $content = document.querySelector('div')
-      expect($input).not.toBeNull()
-      expect($content).not.toBeNull()
       $input.checked = true
-      toggleConditionalInput($input, 'hidden')
-      expect($content).not.toHaveClass('hidden')
+      toggleConditionalInput($input, className)
+
+      expect($target).not.toHaveClass(className)
       expect($input).toHaveAttribute('aria-expanded', 'true')
+
       $input.checked = false
-      toggleConditionalInput($input, 'hidden')
-      expect($content).toHaveClass('hidden')
+      toggleConditionalInput($input, className)
+
+      expect($target).toHaveClass(className)
       expect($input).toHaveAttribute('aria-expanded', 'false')
     })
 
     it('if the aria-controls element is valid and content is not hidden', () => {
-      document.body.innerHTML =
-        '<input aria-controls="content" aria-expanded="true" /><div id="content" />'
-      const $input = document.querySelector('input')
-      const $content = document.querySelector('div')
-      expect($input).not.toBeNull()
-      expect($content).not.toBeNull()
       $input.checked = false
-      toggleConditionalInput($input, 'hidden')
-      expect($content).toHaveClass('hidden')
+      toggleConditionalInput($input, className)
+
+      expect($target).toHaveClass(className)
       expect($input).toHaveAttribute('aria-expanded', 'false')
+
       $input.checked = true
-      toggleConditionalInput($input, 'hidden')
-      expect($content).not.toHaveClass('hidden')
+      toggleConditionalInput($input, className)
+
+      expect($target).not.toHaveClass(className)
       expect($input).toHaveAttribute('aria-expanded', 'true')
     })
   })
