@@ -23,7 +23,7 @@ export const compile = task.name('html:render', async () => {
   const destPath = join(config.paths.app, 'dist')
 
   // Find all Nunjucks views (excluding layouts)
-  const paths = await getListing('**/*.njk', {
+  const paths = getListing('**/*.njk', {
     cwd: join(config.paths.app, 'src'),
     ignore: ['**/layouts/**']
   })
@@ -99,7 +99,7 @@ export const compile = task.name('html:render', async () => {
  * Validate review app HTML output
  */
 export const validate = task.name('html:validate', async () => {
-  const paths = await getListing('dist/**/*.html', {
+  const paths = getListing('dist/**/*.html', {
     cwd: config.paths.app
   })
 

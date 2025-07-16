@@ -50,7 +50,7 @@ export async function load(component) {
  * Load all component data (from source)
  */
 export async function loadAll() {
-  const components = await getNames()
+  const components = getNames()
 
   // Load component data per directory
   return Promise.all(components.map(load))
@@ -59,8 +59,8 @@ export async function loadAll() {
 /**
  * Get component names
  */
-export async function getNames() {
-  const listing = await files.getDirectories('nhsuk/components', {
+export function getNames() {
+  const listing = files.getDirectories('nhsuk/components', {
     cwd: join(paths.pkg, 'src')
   })
 
