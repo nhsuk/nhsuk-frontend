@@ -10,7 +10,7 @@ export const compile = gulp.series(
    * Transform NHS.UK frontend styles
    */
   task.name('styles:transform', async () => {
-    const modulePaths = await getListing('nhsuk/**/*.scss', {
+    const modulePaths = getListing('nhsuk/**/*.scss', {
       cwd: join(config.paths.pkg, 'src')
     })
 
