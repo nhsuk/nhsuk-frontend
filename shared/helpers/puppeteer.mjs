@@ -50,6 +50,18 @@ export async function goToExample(browser, exampleName) {
  * @param {string} options.exampleName - Example name
  */
 export async function goToComponent(browser, componentName, options) {
+  const componentPath = getComponentPath(componentName, options)
+  return goTo(await browser.newPage(), `.${componentPath}`)
+}
+
+/**
+ * Get component preview path
+ *
+ * @param {string} [componentName] - Component name
+ * @param {object} [options] - Navigation options
+ * @param {string} options.exampleName - Example name
+ */
+export function getComponentPath(componentName, options) {
   let componentPath = `/components/${componentName}`
 
   // Add example name to URL
@@ -57,7 +69,7 @@ export async function goToComponent(browser, componentName, options) {
     ? `/${slug(options.exampleName, { lower: true })}`
     : '/default'
 
-  return goTo(await browser.newPage(), `./${componentPath}`)
+  return componentPath
 }
 
 /**
