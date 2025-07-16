@@ -55,6 +55,18 @@ export async function goToComponent(browser, componentName, options) {
 }
 
 /**
+ * Get component preview review app URL
+ *
+ * @param {string} [componentName] - Component name
+ * @param {object} [options] - Navigation options
+ * @param {string} options.exampleName - Example name
+ */
+export function getComponentURL(componentName, options) {
+  const componentPath = getComponentPath(componentName, options)
+  return getURL(`.${componentPath}`)
+}
+
+/**
  * Get component preview path
  *
  * @param {string} [componentName] - Component name
