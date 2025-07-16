@@ -38,7 +38,7 @@ async function goTo(page, pathOrUrl) {
  * @param {string} example - Example name
  */
 export async function goToExample(browser, example) {
-  return goTo(await browser.newPage(), `./examples/${example}`)
+  return goTo(await browser.newPage(), `./examples/${example}/`)
 }
 
 /**
@@ -78,8 +78,8 @@ export function getComponentPath(component, options) {
 
   // Add example name to URL
   componentPath += options?.example
-    ? `/${slug(options.example, { lower: true })}`
-    : '/default'
+    ? `/${slug(options.example, { lower: true })}/`
+    : '/default/'
 
   return componentPath
 }
