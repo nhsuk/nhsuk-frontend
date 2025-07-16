@@ -7,11 +7,11 @@ import rename from 'gulp-rename'
 /**
  * Copy asset
  *
- * @param {string} assetPath - File path to asset
+ * @param {string} inputPath - File path to asset
  * @param {AssetOptions} options - Asset options
  */
-export function copy(assetPath, { srcPath, destPath, output = {} }) {
-  let stream = gulp.src(join(srcPath, assetPath), {
+export function copy(inputPath, { srcPath, destPath, output = {} }) {
+  let stream = gulp.src(join(srcPath, inputPath), {
     encoding: false,
     sourcemaps: true
   })
@@ -41,18 +41,18 @@ export function copy(assetPath, { srcPath, destPath, output = {} }) {
 /**
  * Write file task
  *
- * @param {string} assetPath - File path to asset
+ * @param {string} inputPath - File path to asset
  * @param {Pick<AssetOptions, "destPath" | "output">} options - Asset options
  */
-export async function write(assetPath, { destPath, output = {} }) {
-  const filePath = join(destPath, assetPath)
+export async function write(inputPath, { destPath, output = {} }) {
+  const filePath = join(destPath, inputPath)
 
   if (!output.contents) {
     throw new Error("Option 'contents' required")
   }
 
   await mkdir(dirname(filePath), { recursive: true })
-  await writeFile(filePath, `${output.contents}\n`)
+  await writeFile(filePath, `${output.contents.trimEnd()}\n`)
 }
 
 /**

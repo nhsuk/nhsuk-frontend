@@ -1,9 +1,9 @@
-import { readFile, mkdir, writeFile } from 'node:fs/promises'
-import { dirname, join, parse, relative } from 'node:path'
+import { readFile } from 'node:fs/promises'
+import { join, parse, relative } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 import { paths } from '@nhsuk/frontend-config'
-import { task } from '@nhsuk/frontend-tasks'
+import { files, task } from '@nhsuk/frontend-tasks'
 import postcss from 'postcss'
 // eslint-disable-next-line import/default
 import postcssrc from 'postcss-load-config'
@@ -13,11 +13,12 @@ import { compileAsync } from 'sass-embedded'
 /**
  * Compile Sass task
  *
- * @param {string} assetPath
+ * @param {string} inputPath
  * @param {CompileStylesOptions} entry
  */
-export function compile(assetPath, { srcPath, destPath, output = {} }) {
-  const { name } = parse(assetPath)
+export function compile(inputPath, { srcPath, destPath, output = {} }) {
+  const { dir, name } = parse(inputPath)
+  const outputPath = output.file ?? join(dir, `${name}.css`)
 
   /**
    * Configure PostCSS
@@ -25,8 +26,8 @@ export function compile(assetPath, { srcPath, destPath, output = {} }) {
    * @satisfies {ProcessOptions}
    */
   const options = {
-    from: join(srcPath, assetPath),
-    to: join(destPath, output.file ?? `${name}.css`),
+    from: join(srcPath, inputPath),
+    to: join(destPath, outputPath),
 
     /**
      * Always generate source maps for either:
@@ -90,11 +91,16 @@ export function compile(assetPath, { srcPath, destPath, output = {} }) {
     })
 
     // Write to files
-    await mkdir(dirname(options.to), { recursive: true })
-    await writeFile(options.to, result.css)
+    await files.write(outputPath, {
+      destPath,
+      output: { contents: result.css }
+    })
 
     if (result.map) {
-      await writeFile(`${options.to}.map`, result.map.toString())
+      await files.write(`${outputPath}.map`, {
+        destPath,
+        output: { contents: result.map.toString() }
+      })
     }
   })
 }
