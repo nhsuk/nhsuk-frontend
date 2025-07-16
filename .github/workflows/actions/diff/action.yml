@@ -41,6 +41,6 @@ runs:
       shell: bash
       run: |
         set +e
-        git diff HEAD^ --exit-code --quiet -- 'packages/nhsuk-frontend-review/dist/**/*' 'tests/**' 'backstop.config.js'
+        git diff HEAD^ --exit-code --quiet -- 'packages/nhsuk-frontend-review/dist/**/*' 'tests/**/*' 'backstop.config.js'
         [ $? -eq 0 ] && echo "changes=false" >> "${GITHUB_OUTPUT}"
         exit 0
