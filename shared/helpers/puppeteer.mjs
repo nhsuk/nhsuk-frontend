@@ -35,10 +35,10 @@ async function goTo(page, pathOrUrl) {
  * Navigate to example
  *
  * @param {Browser} browser - Puppeteer browser object
- * @param {string} exampleName - Example name
+ * @param {string} example - Example name
  */
-export async function goToExample(browser, exampleName) {
-  return goTo(await browser.newPage(), `./examples/${exampleName}`)
+export async function goToExample(browser, example) {
+  return goTo(await browser.newPage(), `./examples/${example}`)
 }
 
 /**
@@ -47,7 +47,7 @@ export async function goToExample(browser, exampleName) {
  * @param {Browser} browser - Puppeteer browser object
  * @param {string} [componentName] - Component name
  * @param {object} [options] - Navigation options
- * @param {string} options.exampleName - Example name
+ * @param {string} options.example - Example name
  */
 export async function goToComponent(browser, componentName, options) {
   const componentPath = getComponentPath(componentName, options)
@@ -59,7 +59,7 @@ export async function goToComponent(browser, componentName, options) {
  *
  * @param {string} [componentName] - Component name
  * @param {object} [options] - Navigation options
- * @param {string} options.exampleName - Example name
+ * @param {string} options.example - Example name
  */
 export function getComponentURL(componentName, options) {
   const componentPath = getComponentPath(componentName, options)
@@ -71,14 +71,14 @@ export function getComponentURL(componentName, options) {
  *
  * @param {string} [componentName] - Component name
  * @param {object} [options] - Navigation options
- * @param {string} options.exampleName - Example name
+ * @param {string} options.example - Example name
  */
 export function getComponentPath(componentName, options) {
   let componentPath = `/components/${componentName}`
 
   // Add example name to URL
-  componentPath += options?.exampleName
-    ? `/${slug(options.exampleName, { lower: true })}`
+  componentPath += options?.example
+    ? `/${slug(options.example, { lower: true })}`
     : '/default'
 
   return componentPath
