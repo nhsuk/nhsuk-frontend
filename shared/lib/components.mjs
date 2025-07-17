@@ -1,9 +1,13 @@
+import { createRequire } from 'node:module'
 import { basename, join } from 'node:path'
 
 import { paths } from '@nhsuk/frontend-config'
 import camelCase from 'lodash/camelCase.js'
 
 import { files, nunjucks } from './index.mjs'
+
+// Create require for sync import
+const importSync = createRequire(import.meta.url)
 
 /**
  * Load single component data (from source)
@@ -100,6 +104,20 @@ export function getMacroOptions(params) {
 
     return option
   })
+}
+
+/**
+ * Get component fixtures (from dist)
+ *
+ * @param {string} component - Component directory name
+ * @returns {MacroExampleFixtures} Nunjucks macro example fixtures
+ */
+export function getFixtures(component) {
+  const componentPath = join(paths.pkg, `dist/nhsuk/components/${component}`)
+
+  return /** @type {MacroExampleFixtures} */ (
+    importSync(join(componentPath, 'fixtures.json'))
+  )
 }
 
 /**
