@@ -1,7 +1,7 @@
 /**
  * Default viewport sizes
  *
- * @type {Map<string, Viewport>}
+ * @type {Map<string, Omit<ViewportNext, 'label'>>}
  */
 export const viewports = new Map([
   [
@@ -41,11 +41,26 @@ export const viewports = new Map([
   ]
 ])
 
-// Set viewport labels
-for (const [label, viewport] of viewports.entries()) {
-  viewport.label = label
+/**
+ * Get viewports by names
+ *
+ * @param {string[]} [names] - Viewport names
+ * @returns {ViewportNext[]}
+ */
+export function getViewports(names = []) {
+  return names.flatMap((name) => {
+    const viewport = viewports.get(name)
+
+    // No viewport found
+    if (!viewport) {
+      return []
+    }
+
+    // Set viewport label
+    return { label: name, ...viewport }
+  })
 }
 
 /**
- * @import { Viewport } from 'backstopjs'
+ * @import { ViewportNext } from 'backstopjs'
  */
