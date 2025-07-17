@@ -66,16 +66,23 @@ export async function generateMacroOptions({ destPath }) {
  * Component fixtures to JSON
  *
  * @param {ComponentData} data - Component data
+ * @returns {MacroExampleFixtures} Macro example fixture
  */
 export function generateFixture(data) {
   const { name, component, examples = {} } = data
 
-  // Loop examples
-  const fixtures = Object.entries(examples).map(([name, example]) => {
+  /**
+   * Loop examples and generate fixtures
+   *
+   * @type {MacroExampleFixture[]}
+   */
+  const fixtures = Object.entries(examples).map(([exampleName, example]) => {
     return {
-      name,
-      description: example.description ?? '',
+      name: exampleName,
+      description: example.description,
+      layout: example.layout,
       options: example.context ?? {},
+      callBlock: example.callBlock,
       html: components.render(component, example).trim()
     }
   })
@@ -88,6 +95,6 @@ export function generateFixture(data) {
 }
 
 /**
- * @import { ComponentData } from '@nhsuk/frontend-lib/components.mjs'
+ * @import { ComponentData, MacroExampleFixture, MacroExampleFixtures } from '@nhsuk/frontend-lib/components.mjs'
  * @import { AssetOptions } from '@nhsuk/frontend-tasks/files.mjs'
  */

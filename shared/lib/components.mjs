@@ -146,13 +146,30 @@ export function render(component, options) {
  */
 
 /**
- * Nunjucks macro option example
+ * Nunjucks macro example
  *
  * @typedef {object} MacroExample
- * @property {string} [description] - Example description (optional)
- * @property {string} [layout] - Nunjucks layout for component (optional)
+ * @property {string | undefined} [description] - Example description (optional)
+ * @property {string | undefined} [layout] - Nunjucks layout for component (optional)
  * @property {{ [param: string]: unknown }} [context] - Nunjucks context object (optional)
- * @property {string} [callBlock] - Nunjucks macro `caller()` content (optional)
+ * @property {string | undefined} [callBlock] - Nunjucks macro `caller()` content (optional)
+ */
+
+/**
+ * Nunjucks macro example fixture
+ * (used by the Design System website)
+ *
+ * @typedef {Required<MacroExample> & { name: string, html: string }} MacroExampleFixture
+ */
+
+/**
+ * Nunjucks macro example fixtures
+ * (used by the Design System website)
+ *
+ * @typedef {object} MacroExampleFixtures
+ * @property {string} name - Component friendly name
+ * @property {string} component - Component directory name
+ * @property {MacroExampleFixture[]} fixtures - Nunjucks macro example fixtures
  */
 
 /**
