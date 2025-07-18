@@ -553,6 +553,81 @@ export const examples = {
         {
           value: 'email',
           text: 'Email',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                id: 'email',
+                name: 'email',
+                spellcheck: false,
+                classes: 'nhsuk-u-width-two-thirds',
+                label: { text: 'Email address' }
+              }
+            })
+          }
+        },
+        {
+          value: 'phone',
+          text: 'Phone',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                id: 'phone',
+                name: 'phone',
+                type: 'tel',
+                classes: 'nhsuk-u-width-two-thirds',
+                label: {
+                  text: 'Phone number'
+                }
+              }
+            })
+          }
+        },
+        {
+          value: 'text',
+          text: 'Text message',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                id: 'mobile',
+                name: 'mobile',
+                type: 'tel',
+                classes: 'nhsuk-u-width-two-thirds',
+                label: {
+                  text: 'Mobile phone number'
+                }
+              }
+            })
+          }
+        },
+        {
+          divider: 'or'
+        },
+        {
+          value: 'none',
+          text: 'None of the above',
+          exclusive: true
+        }
+      ]
+    }
+  },
+  'with "none of the above" option (named group)': {
+    context: {
+      idPrefix: 'contact',
+      name: 'contact',
+      fieldset: {
+        legend: {
+          text: 'How would you prefer to be contacted?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: 'true'
+        }
+      },
+      hint: {
+        text: 'Select all options that are relevant to you'
+      },
+      items: [
+        {
+          value: 'email',
+          text: 'Email',
           exclusiveGroup: 'communication-preferences',
           conditional: {
             html: components.render('input', {

@@ -23,10 +23,13 @@ describe('Checkboxes', () => {
   /** @type {HTMLElement} */
   let $inputNone
 
-  beforeEach(() => {
+  /**
+   * @param {keyof typeof examples} exampleName
+   */
+  function initExample(exampleName) {
     document.body.innerHTML = components.render(
       'checkboxes',
-      examples['with "none of the above" option']
+      examples[exampleName]
     )
 
     $root = document.querySelector(`[data-module="${Checkboxes.moduleName}"]`)
@@ -52,9 +55,13 @@ describe('Checkboxes', () => {
     })
 
     jest.spyOn($root, 'addEventListener')
-  })
+  }
 
   describe('Initialisation via init function', () => {
+    beforeEach(() => {
+      initExample('with "none of the above" option')
+    })
+
     it('should add event listeners', () => {
       initCheckboxes()
 
@@ -103,6 +110,10 @@ describe('Checkboxes', () => {
   })
 
   describe('Initialisation via class', () => {
+    beforeEach(() => {
+      initExample('with "none of the above" option')
+    })
+
     it('should not throw with $root element', () => {
       expect(() => new Checkboxes($root)).not.toThrow()
     })
@@ -144,6 +155,7 @@ describe('Checkboxes', () => {
     let $inputs = []
 
     beforeEach(() => {
+      initExample('with "none of the above" option')
       $inputs = [$input1, $input2, $input3]
     })
 
@@ -220,6 +232,10 @@ describe('Checkboxes', () => {
   })
 
   describe('Exclusive checkbox', () => {
+    beforeEach(() => {
+      initExample('with "none of the above" option')
+    })
+
     it('should uncheck other checkboxes', () => {
       initCheckboxes()
 
@@ -261,6 +277,10 @@ describe('Checkboxes', () => {
   })
 
   describe('Exclusive checkbox (named groups)', () => {
+    beforeEach(() => {
+      initExample('with "none of the above" option (named group)')
+    })
+
     it('should uncheck other checkboxes', () => {
       initCheckboxes()
 
