@@ -18,13 +18,15 @@ Object.defineProperty(window, 'matchMedia', {
     matches: true,
     media: query,
     onchange: null,
+    addListener: jest.fn(),
     addEventListener: jest.fn(),
+    removeListener: jest.fn(),
     removeEventListener: jest.fn(),
     dispatchEvent: jest.fn()
   }))
 })
 
-beforeEach(async () => {
+beforeEach(() => {
   const { style } = document.documentElement
 
   // Add styles for NHS.UK frontend checks

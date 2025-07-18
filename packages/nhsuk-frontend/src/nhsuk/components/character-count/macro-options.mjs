@@ -126,88 +126,82 @@ export const params = {
 export const examples = {
   'default': {
     context: {
-      name: 'more-detail',
-      id: 'more-detail',
-      maxlength: 10,
       label: {
         text: 'Can you provide more detail?'
       },
       hint: {
         text: 'Do not include personal information, like your name, date of birth or NHS number'
-      }
+      },
+      name: 'example',
+      maxlength: 10
     },
     screenshot: true
   },
   'with default value': {
     context: {
-      name: 'more-detail',
-      id: 'more-detail',
-      maxlength: 70,
-      value: '123',
       label: {
         text: 'Can you provide more detail?'
       },
       hint: {
         text: 'Do not include personal information, like your name, date of birth or NHS number'
-      }
+      },
+      name: 'example',
+      value: '123',
+      maxlength: 70
     }
   },
   'with default value exceeding limit': {
     context: {
-      name: 'exceeding-characters',
-      id: 'exceeding-characters',
-      maxlength: 350,
-      value:
-        'A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels. They make sure appropriate content is shown to a user in the right place and in the best format.',
       label: {
         text: 'What is your job description?'
       },
       errorMessage: {
         text: 'Job description must be 350 characters or less'
-      }
+      },
+      name: 'example',
+      value:
+        'A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels. They make sure appropriate content is shown to a user in the right place and in the best format.',
+      maxlength: 350
     }
   },
   'with error message': {
     context: {
-      name: 'with-error-message',
-      id: 'with-error-message',
-      maxlength: 350,
       label: {
         text: 'What is your job description?'
       },
       errorMessage: {
         text: 'Enter a job description'
-      }
+      },
+      name: 'example',
+      maxlength: 350
     }
   },
   'with maxlength attribute': {
     context: {
-      name: 'more-detail',
-      id: 'more-detail',
-      maxlength: 11,
-      attributes: {
-        maxlength: 11
-      },
       label: {
         text: 'Can you provide more detail?'
       },
       hint: {
         text: 'Do not include personal information, like your name, date of birth or NHS number'
+      },
+      name: 'example',
+      maxlength: 11,
+      attributes: {
+        maxlength: 11
       }
     }
   },
   'with threshold': {
     context: {
-      name: 'more-detail',
-      id: 'more-detail',
-      maxlength: 10,
-      threshold: 8,
       label: {
         text: 'Can you provide more detail?'
       },
       hint: {
         text: 'Do not include personal information, like your name, date of birth or NHS number'
-      }
+      },
+      name: 'example',
+      maxlength: 10,
+      threshold: 8
     },
     screenshot: {
       viewports: ['tablet']
@@ -215,15 +209,14 @@ export const examples = {
   },
   'with max words': {
     context: {
-      name: 'more-detail',
-      id: 'more-detail',
-      maxwords: 10,
       label: {
         text: 'Can you provide more detail?'
       },
       hint: {
         text: 'Do not include personal information, like your name, date of birth or NHS number'
-      }
+      },
+      name: 'example',
+      maxwords: 10
     },
     screenshot: {
       viewports: ['tablet']

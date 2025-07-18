@@ -1,21 +1,4 @@
 /**
- * Get hash fragment from URL
- *
- * Extract the hash fragment (everything after the hash) from a URL,
- * but not including the hash symbol
- *
- * @param {string} url - URL
- * @returns {string | undefined} Fragment from URL, without the hash
- */
-export function getFragmentFromUrl(url) {
-  if (!url.includes('#')) {
-    return undefined
-  }
-
-  return url.split('#').pop()
-}
-
-/**
  * Toggle a toggle a class on conditional content for an input based on checked state
  *
  * @param {Element | null} $input - input element

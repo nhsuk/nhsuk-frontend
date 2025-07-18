@@ -1,4 +1,4 @@
-import { getBreakpoint, getFragmentFromUrl } from '../../common/index.mjs'
+import { getBreakpoint } from '../../common/index.mjs'
 import { Component } from '../../component.mjs'
 import { ElementError } from '../../errors/index.mjs'
 
@@ -6,6 +6,14 @@ import { ElementError } from '../../errors/index.mjs'
  * Tabs component
  */
 export class Tabs extends Component {
+  jsHiddenClass = 'nhsuk-tabs__panel--hidden'
+  changingHash = false
+
+  /**
+   * @type {MediaQueryList | null}
+   */
+  mql = null
+
   /**
    * @param {Element | null} [$root] - HTML element to use for component
    */
@@ -47,11 +55,12 @@ export class Tabs extends Component {
     this.$tabList = $tabList
     this.$tabListItems = $tabListItems
 
-    this.jsHiddenClass = 'nhsuk-tabs__panel--hidden'
-
     this.setupResponsiveChecks()
   }
 
+  /**
+   * Setup viewport resize check
+   */
   setupResponsiveChecks() {
     const breakpoint = getBreakpoint('tablet')
 
@@ -78,6 +87,9 @@ export class Tabs extends Component {
     this.checkMode()
   }
 
+  /**
+   * Setup or teardown handler for viewport resize check
+   */
   checkMode() {
     if (this.mql?.matches) {
       this.setup()
@@ -86,6 +98,9 @@ export class Tabs extends Component {
     }
   }
 
+  /**
+   * Setup tab component
+   */
   setup() {
     this.$tabList.setAttribute('role', 'tablist')
 
@@ -106,13 +121,17 @@ export class Tabs extends Component {
     })
 
     // Show either the active tab according to the URL's hash or the first tab
-    const $activeTab = this.getTab(window.location.hash) || this.$tabs[0]
+    const $activeTab = this.getTab(window.location.hash) ?? this.$tabs[0]
+
     this.showTab($activeTab)
 
     // Handle hashchange events
     window.addEventListener('hashchange', this.boundOnHashChange, true)
   }
 
+  /**
+   * Teardown tab component
+   */
   teardown() {
     this.$tabList.removeAttribute('role')
 
@@ -133,6 +152,9 @@ export class Tabs extends Component {
     window.removeEventListener('hashchange', this.boundOnHashChange, true)
   }
 
+  /**
+   * Handle hashchange event
+   */
   onHashChange() {
     const { hash } = window.location
     const $tabWithHash = this.getTab(hash)
@@ -148,29 +170,56 @@ export class Tabs extends Component {
 
     // Show either the active tab according to the URL's hash or the first tab
     const $previousTab = this.getCurrentTab()
+    if (!$previousTab) {
+      return
+    }
 
     this.hideTab($previousTab)
     this.showTab($tabWithHash)
     $tabWithHash.focus()
   }
 
+  /**
+   * Hide panel for tab link
+   *
+   * @param {HTMLAnchorElement} $tab - Tab link
+   */
   hideTab($tab) {
     this.unhighlightTab($tab)
     this.hidePanel($tab)
   }
 
+  /**
+   * Show panel for tab link
+   *
+   * @param {HTMLAnchorElement} $tab - Tab link
+   */
   showTab($tab) {
     this.highlightTab($tab)
     this.showPanel($tab)
   }
 
+  /**
+   * Get tab link by hash
+   *
+   * @param {string} hash - Hash fragment including #
+   */
   getTab(hash) {
-    return this.$root.querySelector(`.nhsuk-tabs__tab[href="${hash}"]`)
+    return this.$root.querySelector(`a.nhsuk-tabs__tab[href="${hash}"]`)
   }
 
+  /**
+   * Set tab link and panel attributes
+   *
+   * @param {HTMLAnchorElement} $tab - Tab link
+   */
   setAttributes($tab) {
+    const panelId = $tab.hash.replace('#', '')
+    if (!panelId) {
+      return
+    }
+
     // set tab attributes
-    const panelId = getFragmentFromUrl($tab.href)
     $tab.setAttribute('id', `tab_${panelId}`)
     $tab.setAttribute('role', 'tab')
     $tab.setAttribute('aria-controls', panelId)
@@ -179,11 +228,20 @@ export class Tabs extends Component {
 
     // set panel attributes
     const $panel = this.getPanel($tab)
+    if (!$panel) {
+      return
+    }
+
     $panel.setAttribute('role', 'tabpanel')
     $panel.setAttribute('aria-labelledby', $tab.id)
     $panel.classList.add(this.jsHiddenClass)
   }
 
+  /**
+   * Unset tab link and panel attributes
+   *
+   * @param {HTMLAnchorElement} $tab - Tab link
+   */
   unsetAttributes($tab) {
     // unset tab attributes
     $tab.removeAttribute('id')
@@ -194,39 +252,67 @@ export class Tabs extends Component {
 
     // unset panel attributes
     const $panel = this.getPanel($tab)
+    if (!$panel) {
+      return
+    }
+
     $panel.removeAttribute('role')
     $panel.removeAttribute('aria-labelledby')
     $panel.removeAttribute('tabindex')
     $panel.classList.remove(this.jsHiddenClass)
   }
 
-  onTabClick(e) {
+  /**
+   * Handle tab link clicks
+   *
+   * @param {MouseEvent} event - Mouse click event
+   */
+  onTabClick(event) {
     const $currentTab = this.getCurrentTab()
-    const $newTab = e.currentTarget
+    const $newTab = event.currentTarget
 
     if (!$currentTab || !($newTab instanceof HTMLAnchorElement)) {
       return
     }
 
-    e.preventDefault()
+    event.preventDefault()
 
     this.hideTab($currentTab)
     this.showTab($newTab)
     this.createHistoryEntry($newTab)
   }
 
+  /**
+   * Update browser URL hash fragment for tab
+   *
+   * - Allows back/forward to navigate tabs
+   * - Avoids page jump when hash changes
+   *
+   * @param {HTMLAnchorElement} $tab - Tab link
+   */
   createHistoryEntry($tab) {
     const $panel = this.getPanel($tab)
+    if (!$panel) {
+      return
+    }
 
     // Save and restore the id
     // so the page doesn't jump when a user clicks a tab (which changes the hash)
-    const { id } = $panel
+    const panelId = $panel.id
     $panel.id = ''
     this.changingHash = true
-    window.location.hash = id
-    $panel.id = id
+    window.location.hash = panelId
+    $panel.id = panelId
   }
 
+  /**
+   * Handle tab keydown event
+   *
+   * - Press right/down arrow for next tab
+   * - Press left/up arrow for previous tab
+   *
+   * @param {KeyboardEvent} event - Keydown event
+   */
   onTabKeydown(event) {
     switch (event.key) {
       // 'Left', 'Right', 'Up' and 'Down' required for Edge 16 support.
@@ -247,68 +333,135 @@ export class Tabs extends Component {
     }
   }
 
+  /**
+   * Activate next tab
+   */
   activateNextTab() {
-    const currentTab = this.getCurrentTab()
-    const nextTabListItem = currentTab.parentNode.nextElementSibling
-    let nextTab
+    const $currentTab = this.getCurrentTab()
+    if (!$currentTab?.parentElement) {
+      return
+    }
 
-    if (nextTabListItem) {
-      nextTab = nextTabListItem.querySelector('.nhsuk-tabs__tab')
+    const $nextTabListItem = $currentTab.parentElement.nextElementSibling
+    if (!$nextTabListItem) {
+      return
     }
-    if (nextTab) {
-      this.hideTab(currentTab)
-      this.showTab(nextTab)
-      nextTab.focus()
-      this.createHistoryEntry(nextTab)
+
+    const $nextTab = $nextTabListItem.querySelector('a.nhsuk-tabs__tab')
+    if (!$nextTab) {
+      return
     }
+
+    this.hideTab($currentTab)
+    this.showTab($nextTab)
+    $nextTab.focus()
+    this.createHistoryEntry($nextTab)
   }
 
+  /**
+   * Activate previous tab
+   */
   activatePreviousTab() {
-    const currentTab = this.getCurrentTab()
-    const previousTabListItem = currentTab.parentNode.previousElementSibling
-    let previousTab
+    const $currentTab = this.getCurrentTab()
+    if (!$currentTab?.parentElement) {
+      return
+    }
 
-    if (previousTabListItem) {
-      previousTab = previousTabListItem.querySelector('.nhsuk-tabs__tab')
+    const $previousTabListItem =
+      $currentTab.parentElement.previousElementSibling
+    if (!$previousTabListItem) {
+      return
     }
-    if (previousTab) {
-      this.hideTab(currentTab)
-      this.showTab(previousTab)
-      previousTab.focus()
-      this.createHistoryEntry(previousTab)
+
+    const $previousTab = $previousTabListItem.querySelector('a.nhsuk-tabs__tab')
+    if (!$previousTab) {
+      return
     }
+
+    this.hideTab($currentTab)
+    this.showTab($previousTab)
+    $previousTab.focus()
+    this.createHistoryEntry($previousTab)
   }
 
+  /**
+   * Get tab panel for tab link
+   *
+   * @param {HTMLAnchorElement} $tab - Tab link
+   */
   getPanel($tab) {
-    const panelId = getFragmentFromUrl($tab.href)
+    const panelId = $tab.hash.replace('#', '')
+    if (!panelId) {
+      return null
+    }
+
     return this.$root.querySelector(`#${panelId}`)
   }
 
+  /**
+   * Show tab panel for tab link
+   *
+   * @param {HTMLAnchorElement} $tab - Tab link
+   */
   showPanel($tab) {
     const $panel = this.getPanel($tab)
+    if (!$panel) {
+      return
+    }
+
     $panel.classList.remove(this.jsHiddenClass)
   }
 
-  hidePanel(tab) {
-    const $panel = this.getPanel(tab)
+  /**
+   * Hide tab panel for tab link
+   *
+   * @param {HTMLAnchorElement} $tab - Tab link
+   */
+  hidePanel($tab) {
+    const $panel = this.getPanel($tab)
+    if (!$panel) {
+      return
+    }
+
     $panel.classList.add(this.jsHiddenClass)
   }
 
+  /**
+   * Unset 'selected' state for tab link
+   *
+   * @param {HTMLAnchorElement} $tab - Tab link
+   */
   unhighlightTab($tab) {
+    if (!$tab.parentElement) {
+      return
+    }
+
     $tab.setAttribute('aria-selected', 'false')
     $tab.parentElement.classList.remove('nhsuk-tabs__list-item--selected')
     $tab.setAttribute('tabindex', '-1')
   }
 
+  /**
+   * Set 'selected' state for tab link
+   *
+   * @param {HTMLAnchorElement} $tab - Tab link
+   */
   highlightTab($tab) {
+    if (!$tab.parentElement) {
+      return
+    }
+
     $tab.setAttribute('aria-selected', 'true')
     $tab.parentElement.classList.add('nhsuk-tabs__list-item--selected')
     $tab.setAttribute('tabindex', '0')
   }
 
+  /**
+   * Get current tab link
+   */
   getCurrentTab() {
     return this.$root.querySelector(
-      '.nhsuk-tabs__list-item--selected .nhsuk-tabs__tab'
+      '.nhsuk-tabs__list-item--selected a.nhsuk-tabs__tab'
     )
   }
 
@@ -325,7 +478,7 @@ export class Tabs extends Component {
  * @param {Element | Document | null} [options.scope] - Scope of the document to search within
  */
 export function initTabs(options = {}) {
-  const $scope = options.scope || document
+  const $scope = options.scope ?? document
   const $tabs = $scope.querySelectorAll(`[data-module="${Tabs.moduleName}"]`)
 
   $tabs.forEach(($root) => {

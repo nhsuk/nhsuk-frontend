@@ -1,51 +1,4 @@
-import {
-  getFragmentFromUrl,
-  isSupported,
-  toggleConditionalInput
-} from './index.mjs'
-
-describe('getFragmentFromUrl util', () => {
-  it.each([
-    {
-      url: 'https://www.nhs.uk/#content',
-      fragment: 'content'
-    },
-    {
-      url: 'https://www.nhs.uk/example/#content',
-      fragment: 'content'
-    },
-    {
-      url: 'https://www.nhs.uk/example/?keywords=123#content',
-      fragment: 'content'
-    },
-    {
-      url: '/#content',
-      fragment: 'content'
-    },
-    {
-      url: '/example/#content',
-      fragment: 'content'
-    },
-    {
-      url: '/?keywords=123#content',
-      fragment: 'content'
-    },
-    {
-      url: '#content',
-      fragment: 'content'
-    },
-    {
-      url: '/',
-      fragment: undefined
-    },
-    {
-      url: '',
-      fragment: undefined
-    }
-  ])("returns '$fragment' for '$url'", ({ url, fragment }) => {
-    expect(getFragmentFromUrl(url)).toBe(fragment)
-  })
-})
+import { isSupported, toggleConditionalInput } from './index.mjs'
 
 describe('isSupported util', () => {
   it('returns true if the nhsuk-frontend-supported class is set', () => {
@@ -97,6 +50,7 @@ describe('toggleConditionalInput util', () => {
     })
 
     it('if no class is passed', () => {
+      // @ts-expect-error Parameter 'className' not provided
       expect(() => toggleConditionalInput($input)).not.toThrow()
     })
 

@@ -151,8 +151,6 @@ export const params = {
 export const examples = {
   'default': {
     context: {
-      idPrefix: 'example',
-      name: 'example',
       fieldset: {
         legend: {
           text: 'Have you changed your name?',
@@ -162,6 +160,7 @@ export const examples = {
       hint: {
         text: 'This includes changing your last name or spelling your name differently'
       },
+      name: 'example',
       value: 'no',
       items: [
         {
@@ -180,15 +179,14 @@ export const examples = {
   },
   'with hint text': {
     context: {
-      idPrefix: 'gov',
-      name: 'gov',
       fieldset: {
         legend: {
           text: 'How do you want to sign in?',
           classes: 'nhsuk-fieldset__legend--l',
-          isPageHeading: 'true'
+          isPageHeading: true
         }
       },
+      name: 'example',
       items: [
         {
           value: 'gateway',
@@ -212,8 +210,6 @@ export const examples = {
   },
   'with disabled item': {
     context: {
-      idPrefix: 'example-disabled',
-      name: 'example-disabled',
       fieldset: {
         legend: {
           text: 'Have you changed your name?',
@@ -223,6 +219,7 @@ export const examples = {
       hint: {
         text: 'This includes changing your last name or spelling your name differently'
       },
+      name: 'example',
       items: [
         {
           value: 'yes',
@@ -242,9 +239,7 @@ export const examples = {
   },
   'inline': {
     context: {
-      idPrefix: 'example',
       classes: 'nhsuk-radios--inline',
-      name: 'example',
       fieldset: {
         legend: {
           text: 'Have you changed your name?',
@@ -254,6 +249,7 @@ export const examples = {
       hint: {
         text: 'This includes changing your last name or spelling your name differently'
       },
+      name: 'example',
       value: 'no',
       items: [
         {
@@ -272,11 +268,6 @@ export const examples = {
   },
   'with hint text, error message': {
     context: {
-      idPrefix: 'example',
-      name: 'example',
-      errorMessage: {
-        text: 'Please select an option'
-      },
       fieldset: {
         classes: 'app-fieldset--custom-modifier',
         attributes: {
@@ -291,6 +282,10 @@ export const examples = {
       hint: {
         text: 'This includes changing your last name or spelling your name differently'
       },
+      errorMessage: {
+        text: 'Please select an option'
+      },
+      name: 'example',
       items: [
         {
           value: 'yes',
@@ -310,8 +305,6 @@ export const examples = {
   },
   'with divider': {
     context: {
-      idPrefix: 'example-divider',
-      name: 'example',
       fieldset: {
         legend: {
           text: 'How do you want to sign in?',
@@ -319,6 +312,7 @@ export const examples = {
           pageHeading: 'true'
         }
       },
+      name: 'example',
       items: [
         {
           value: 'government-gateway',
@@ -343,18 +337,17 @@ export const examples = {
   },
   'with conditional content': {
     context: {
-      idPrefix: 'contact',
-      name: 'contact',
       fieldset: {
         legend: {
           text: 'How would you prefer to be contacted?',
           classes: 'nhsuk-fieldset__legend--l',
-          isPageHeading: 'true'
+          isPageHeading: true
         }
       },
       hint: {
         text: 'Select 1 option'
       },
+      name: 'example',
       items: [
         {
           value: 'email',
@@ -362,13 +355,12 @@ export const examples = {
           conditional: {
             html: components.render('input', {
               context: {
-                id: 'email',
-                name: 'email',
-                spellcheck: false,
-                classes: 'nhsuk-u-width-two-thirds',
                 label: {
                   text: 'Email address'
-                }
+                },
+                name: 'email',
+                spellcheck: false,
+                classes: 'nhsuk-u-width-two-thirds'
               }
             })
           }
@@ -379,13 +371,12 @@ export const examples = {
           conditional: {
             html: components.render('input', {
               context: {
-                id: 'phone',
-                name: 'phone',
-                type: 'tel',
-                classes: 'nhsuk-u-width-two-thirds',
                 label: {
                   text: 'Phone number'
-                }
+                },
+                name: 'phone',
+                type: 'tel',
+                classes: 'nhsuk-u-width-two-thirds'
               }
             })
           }
@@ -396,13 +387,12 @@ export const examples = {
           conditional: {
             html: components.render('input', {
               context: {
-                id: 'mobile',
-                name: 'mobile',
-                type: 'tel',
-                classes: 'nhsuk-u-width-two-thirds',
                 label: {
                   text: 'Mobile phone number'
-                }
+                },
+                name: 'mobile',
+                type: 'tel',
+                classes: 'nhsuk-u-width-two-thirds'
               }
             })
           }
@@ -412,13 +402,11 @@ export const examples = {
   },
   'with conditional content, error message': {
     context: {
-      idPrefix: 'contact',
-      name: 'contact',
       fieldset: {
         legend: {
           text: 'How would you prefer to be contacted?',
           classes: 'nhsuk-fieldset__legend--l',
-          isPageHeading: 'true'
+          isPageHeading: true
         }
       },
       hint: {
@@ -427,6 +415,7 @@ export const examples = {
       errorMessage: {
         text: 'Select how you like to be contacted'
       },
+      name: 'example',
       items: [
         {
           value: 'email',
@@ -434,13 +423,12 @@ export const examples = {
           conditional: {
             html: components.render('input', {
               context: {
-                id: 'email',
-                name: 'email',
-                spellcheck: false,
-                classes: 'nhsuk-u-width-two-thirds',
                 label: {
                   text: 'Email address'
-                }
+                },
+                name: 'email',
+                spellcheck: false,
+                classes: 'nhsuk-u-width-two-thirds'
               }
             })
           }
@@ -451,13 +439,12 @@ export const examples = {
           conditional: {
             html: components.render('input', {
               context: {
-                id: 'phone',
-                name: 'phone',
-                type: 'tel',
-                classes: 'nhsuk-u-width-two-thirds',
                 label: {
                   text: 'Phone number'
-                }
+                },
+                name: 'phone',
+                type: 'tel',
+                classes: 'nhsuk-u-width-two-thirds'
               }
             })
           }
@@ -468,13 +455,12 @@ export const examples = {
           conditional: {
             html: components.render('input', {
               context: {
-                id: 'mobile',
-                name: 'mobile',
-                type: 'tel',
-                classes: 'nhsuk-u-width-two-thirds',
                 label: {
                   text: 'Mobile phone number'
-                }
+                },
+                name: 'mobile',
+                type: 'tel',
+                classes: 'nhsuk-u-width-two-thirds'
               }
             })
           }
@@ -484,18 +470,17 @@ export const examples = {
   },
   'with conditional content, error message (nested)': {
     context: {
-      idPrefix: 'contact',
-      name: 'contact',
       fieldset: {
         legend: {
           text: 'How would you prefer to be contacted?',
           classes: 'nhsuk-fieldset__legend--l',
-          isPageHeading: 'true'
+          isPageHeading: true
         }
       },
       hint: {
         text: 'Select 1 option'
       },
+      name: 'example',
       value: 'phone',
       items: [
         {
@@ -504,13 +489,12 @@ export const examples = {
           conditional: {
             html: components.render('input', {
               context: {
-                id: 'email',
-                name: 'email',
-                spellcheck: false,
-                classes: 'nhsuk-u-width-two-thirds',
                 label: {
                   text: 'Email address'
-                }
+                },
+                name: 'email',
+                spellcheck: false,
+                classes: 'nhsuk-u-width-two-thirds'
               }
             })
           }
@@ -521,16 +505,15 @@ export const examples = {
           conditional: {
             html: components.render('input', {
               context: {
-                id: 'phone',
-                name: 'phone',
-                type: 'tel',
-                classes: 'nhsuk-u-width-two-thirds',
                 label: {
                   text: 'Phone number'
                 },
                 errorMessage: {
                   text: 'Enter your phone number'
-                }
+                },
+                name: 'phone',
+                type: 'tel',
+                classes: 'nhsuk-u-width-two-thirds'
               }
             })
           }
@@ -541,13 +524,12 @@ export const examples = {
           conditional: {
             html: components.render('input', {
               context: {
-                id: 'mobile',
-                name: 'mobile',
-                type: 'tel',
-                classes: 'nhsuk-u-width-two-thirds',
                 label: {
                   text: 'Mobile phone number'
-                }
+                },
+                name: 'mobile',
+                type: 'tel',
+                classes: 'nhsuk-u-width-two-thirds'
               }
             })
           }
@@ -556,7 +538,7 @@ export const examples = {
     },
     screenshot: {
       states: ['focus'],
-      selector: '#contact-2',
+      selector: '#example-2',
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
@@ -584,18 +566,17 @@ export const examples = {
   },
   'with nested conditional radios': {
     context: {
-      idPrefix: 'outer',
-      name: 'outer',
       fieldset: {
         legend: {
           text: 'How would you prefer to be contacted?',
           classes: 'nhsuk-fieldset__legend--l',
-          isPageHeading: 'true'
+          isPageHeading: true
         }
       },
       hint: {
         text: 'Select 1 option'
       },
+      name: 'example-outer',
       items: [
         {
           value: 'no-conditional',
@@ -607,18 +588,17 @@ export const examples = {
           conditional: {
             html: components.render('radios', {
               context: {
-                idPrefix: 'contact',
-                name: 'contact',
                 fieldset: {
                   legend: {
                     text: 'How would you prefer to be contacted?',
                     classes: 'nhsuk-fieldset__legend--l',
-                    isPageHeading: 'true'
+                    isPageHeading: true
                   }
                 },
                 hint: {
                   text: 'Select 1 option'
                 },
+                name: 'example-inner',
                 items: [
                   {
                     value: 'email',
@@ -626,13 +606,12 @@ export const examples = {
                     conditional: {
                       html: components.render('input', {
                         context: {
-                          id: 'email',
-                          name: 'email',
-                          spellcheck: false,
-                          classes: 'nhsuk-u-width-two-thirds',
                           label: {
                             text: 'Email address'
-                          }
+                          },
+                          name: 'email',
+                          spellcheck: false,
+                          classes: 'nhsuk-u-width-two-thirds'
                         }
                       })
                     }
@@ -643,13 +622,12 @@ export const examples = {
                     conditional: {
                       html: components.render('input', {
                         context: {
-                          id: 'phone',
-                          name: 'phone',
-                          type: 'tel',
-                          classes: 'nhsuk-u-width-two-thirds',
                           label: {
                             text: 'Phone number'
-                          }
+                          },
+                          name: 'phone',
+                          type: 'tel',
+                          classes: 'nhsuk-u-width-two-thirds'
                         }
                       })
                     }
@@ -660,13 +638,12 @@ export const examples = {
                     conditional: {
                       html: components.render('input', {
                         context: {
-                          id: 'mobile',
-                          name: 'mobile',
-                          type: 'tel',
-                          classes: 'nhsuk-u-width-two-thirds',
                           label: {
                             text: 'Mobile phone number'
-                          }
+                          },
+                          name: 'mobile',
+                          type: 'tel',
+                          classes: 'nhsuk-u-width-two-thirds'
                         }
                       })
                     }

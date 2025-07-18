@@ -129,11 +129,10 @@ export const params = {
 export const examples = {
   'default': {
     context: {
-      id: 'sort',
-      name: 'sort',
       label: {
         text: 'Sort by'
       },
+      name: 'example',
       value: 'updated',
       items: [
         {
@@ -158,11 +157,10 @@ export const examples = {
   },
   'with disabled option': {
     context: {
-      id: 'sort',
-      name: 'sort',
       label: {
         text: 'Sort by'
       },
+      name: 'example',
       value: 'updated',
       items: [
         {
@@ -187,14 +185,13 @@ export const examples = {
   },
   'with hint text': {
     context: {
-      id: 'location',
-      name: 'location',
       label: {
         text: 'Choose location'
       },
       hint: {
         text: 'This can be different to where you went before'
       },
+      name: 'example',
       value: 'choose',
       items: [
         {
@@ -243,8 +240,6 @@ export const examples = {
   },
   'with hint text, error message': {
     context: {
-      id: 'location',
-      name: 'location',
       label: {
         text: 'Choose location'
       },
@@ -254,6 +249,7 @@ export const examples = {
       errorMessage: {
         text: 'Select a location'
       },
+      name: 'example',
       value: 'choose',
       items: [
         {
@@ -300,7 +296,7 @@ export const examples = {
     },
     screenshot: {
       states: ['focus'],
-      selector: '[for=location]'
+      selector: '#example'
     }
   }
 }
