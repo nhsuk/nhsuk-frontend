@@ -87,15 +87,19 @@ export class Checkboxes extends Component {
    * @param {HTMLInputElement} $input - Checkbox input
    */
   unCheckAllInputsExcept($input) {
-    const allInputsInSameExclusiveGroup = document.querySelectorAll(
-      `input[type="checkbox"][data-checkbox-exclusive-group="${$input.getAttribute('data-checkbox-exclusive-group')}"]`
+    const { checkboxExclusiveGroup: exclusiveGroup } = $input.dataset
+
+    const allInputsWithSameName = document.querySelectorAll(
+      `input[type="checkbox"][name="${$input.name}"]`
     )
 
-    allInputsInSameExclusiveGroup.forEach(($inputWithSameName) => {
+    allInputsWithSameName.forEach(($inputWithSameName) => {
       const hasSameFormOwner = $input.form === $inputWithSameName.form
+
+      // Uncheck all with same exclusive group by default, otherwise fall back to
+      // GOV.UK Frontend behaviour to uncheck all with the same name attribute
       if (hasSameFormOwner && $inputWithSameName !== $input) {
-        $inputWithSameName.checked = false
-        this.syncConditionalRevealWithInputState($inputWithSameName)
+        this.setInputState($inputWithSameName, false, exclusiveGroup)
       }
     })
   }
@@ -110,19 +114,45 @@ export class Checkboxes extends Component {
    * @param {HTMLInputElement} $input - Checkbox input
    */
   unCheckExclusiveInputs($input) {
-    const allExclusiveInputsInSameExclusiveGroup = document.querySelectorAll(
-      `input[type="checkbox"][data-checkbox-exclusive][data-checkbox-exclusive-group="${$input.getAttribute(
-        'data-checkbox-exclusive-group'
-      )}"]`
-    )
+    const { checkboxExclusiveGroup: exclusiveGroup } = $input.dataset
 
-    allExclusiveInputsInSameExclusiveGroup.forEach(($exclusiveInput) => {
+    const allInputsWithSameNameAndExclusiveBehaviour =
+      document.querySelectorAll(
+        `input[type="checkbox"][data-checkbox-exclusive][name="${$input.name}"]`
+      )
+
+    allInputsWithSameNameAndExclusiveBehaviour.forEach(($exclusiveInput) => {
       const hasSameFormOwner = $input.form === $exclusiveInput.form
+
+      // Uncheck the exclusive input only. When no group is set, fall back to
+      // GOV.UK Frontend behaviour and locate the exclusive input by name
       if (hasSameFormOwner) {
-        $exclusiveInput.checked = false
-        this.syncConditionalRevealWithInputState($exclusiveInput)
+        this.setInputState($exclusiveInput, false, exclusiveGroup)
       }
     })
+  }
+
+  /**
+   * Set input state, optionally for matching exclusive group only
+   *
+   * @param {HTMLInputElement} $input - Checkbox input
+   * @param {boolean} checked - Checkbox checked state
+   * @param {string} [exclusiveGroup] - Set state for matching exclusive group only (optional)
+   */
+  setInputState($input, checked, exclusiveGroup) {
+    const { checkboxExclusiveGroup } = $input.dataset
+
+    // Skip input when exclusive group does not match
+    if (
+      exclusiveGroup &&
+      checkboxExclusiveGroup &&
+      checkboxExclusiveGroup !== exclusiveGroup
+    ) {
+      return
+    }
+
+    $input.checked = checked
+    this.syncConditionalRevealWithInputState($input)
   }
 
   /**
@@ -153,7 +183,7 @@ export class Checkboxes extends Component {
     }
 
     // Handle 'exclusive' checkbox behaviour (ie "None of these")
-    if ($clickedInput.hasAttribute('data-checkbox-exclusive')) {
+    if ('checkboxExclusive' in $clickedInput.dataset) {
       this.unCheckAllInputsExcept($clickedInput)
     } else {
       this.unCheckExclusiveInputs($clickedInput)
