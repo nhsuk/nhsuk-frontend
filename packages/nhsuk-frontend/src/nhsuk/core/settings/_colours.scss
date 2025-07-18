@@ -1,4 +1,5 @@
 @use "sass:color";
+@use "sass:map";
 
 ////
 /// NHS colour palette
@@ -15,42 +16,6 @@
 ////
 
 // stylelint-disable color-no-hex
-
-$color_nhsuk-blue: #005eb8;
-$color_nhsuk-white: #ffffff;
-$color_nhsuk-black: #212b32;
-$color_nhsuk-green: #007f3b;
-$color_nhsuk-purple: #330072;
-$color_nhsuk-dark-pink: #7c2855;
-$color_nhsuk-red: #d5281b;
-$color_nhsuk-yellow: #ffeb3b;
-
-/// Secondary colours
-
-$color_nhsuk-dark-blue: #003087;
-$color_nhsuk-pale-yellow: #fff9c4;
-$color_nhsuk-warm-yellow: #ffb81c;
-$color_nhsuk-orange: #ed8b00;
-$color_nhsuk-aqua-green: #00a499;
-$color_nhsuk-pink: #ae2573;
-
-/// Greyscale
-
-$color_nhsuk-grey-1: #4c6272;
-$color_nhsuk-grey-2: #768692;
-$color_nhsuk-grey-3: #aeb7bd;
-$color_nhsuk-grey-4: #d8dde0;
-$color_nhsuk-grey-5: #f0f4f5;
-
-// stylelint-enable color-no-hex
-
-/// RGB and alpha values
-///
-/// Used to create drop/box shadows e.g. for search suggestions dropdown
-///
-
-$color_nhsuk-grey-1-rgb: rgb(66, 84, 98);
-$alpha-transparency-50: 0.5;
 
 /// Tint function
 ///
@@ -74,6 +39,120 @@ $alpha-transparency-50: 0.5;
   @return color.mix(black, $color, $percentage);
 }
 
+/// Transparent Shade function
+///
+/// Generates a semi-transparent shaded version of a given color.
+///
+/// This wraps the `nhsuk-shade` function and applies an alpha channel.
+///
+/// @param {Color} $color - The base color to shade.
+/// @param {Number} $shade-percent - The percentage to darken the color by.
+/// @param {Number} $alpha - The alpha transparency (0 to 1).
+///
+/// @return {Color} A shaded RGBA color.
+///
+/// @example scss
+///   nhsuk-transparent-shade($color_nhsuk-blue, 50%, 0.1);
+///
+@function nhsuk-transparent-shade($color, $shade-percent, $alpha) {
+  @return rgba(nhsuk-shade($color, $shade-percent), $alpha);
+}
+
+// Central colour map
+
+$nhsuk-colors: (
+  // Primary
+  "blue": #005eb8,
+  "white": #ffffff,
+  "black": #212b32,
+  "green": #007f3b,
+  "purple": #330072,
+  "dark-pink": #7c2855,
+  "red": #d5281b,
+  "yellow": #ffeb3b,
+
+  // Secondary
+  "pale-yellow": #fff9c4,
+  "warm-yellow": #ffb81c,
+  "orange": #ed8b00,
+  "aqua-green": #00a499,
+  "pink": #ae2573,
+
+  // Greyscale
+  "grey-1": #4c6272,
+  "grey-2": #768692,
+  "grey-3": #aeb7bd,
+  "grey-4": #d8dde0,
+  "grey-5": #f0f4f5,
+
+  // RGB
+  "grey-1-rgb": rgb(66, 84, 98),
+  "box-shadow": rgba(33, 43, 50, 0.16),
+  // Tints & Shades
+  "tint-black-10": #{nhsuk-tint(#212b32, 10%)},
+  "shade-blue-20": #{nhsuk-shade(#005eb8, 20%)},
+  "shade-blue-35": #{nhsuk-shade(#005eb8, 35%)},
+  "shade-blue-50": #{nhsuk-shade(#005eb8, 50%)},
+  "shade-green-35": #{nhsuk-shade(#007f3b, 35%)},
+  "shade-green-50": #{nhsuk-shade(#007f3b, 50%)},
+
+  // Transparency
+  "transparent-white-20": rgba(#ffffff, 0.2),
+  "transparent-blue-50": #{nhsuk-transparent-shade(nhsuk-shade(#005eb8, 50%), 50%, 0.1)},
+
+  // Derived colors for semantic purposes
+  "link-active-color": #{nhsuk-shade(#005eb8, 50%)},
+  "button-hover-color": #{nhsuk-shade(#007f3b, 20%)},
+  "button-active-color": #{nhsuk-shade(#007f3b, 50%)},
+  "button-shadow-color": #{nhsuk-shade(#007f3b, 50%)},
+  "secondary-button-hover-color": #{nhsuk-tint(#005eb8, 85%)},
+  "secondary-button-active-color": #{nhsuk-tint(#005eb8, 78%)},
+  "reverse-button-hover-color": #{nhsuk-shade(#ffffff, 15%)},
+  "reverse-button-active-color": #{nhsuk-shade(#ffffff, 30%)},
+  "reverse-button-shadow-color": #{nhsuk-shade(#ffffff, 30%)},
+  "warning-button-hover-color": #{nhsuk-shade(#d5281b, 20%)},
+  "warning-button-active-color": #{nhsuk-shade(#d5281b, 50%)},
+  "warning-button-shadow-color": #{nhsuk-shade(#d5281b, 50%)},
+  "login-button-hover-color": #{nhsuk-shade(#005eb8, 20%)},
+  "login-button-active-color": #{nhsuk-shade(#005eb8, 50%)},
+  "login-button-shadow-color": #{nhsuk-shade(#005eb8, 50%)}
+);
+
+// stylelint-enable color-no-hex
+
+/// RGB and alpha values
+///
+/// Used to create drop/box shadows e.g. for search suggestions dropdown
+///
+
+$color_nhsuk-blue: map.get($nhsuk-colors, "blue");
+$color_nhsuk-white: map.get($nhsuk-colors, "white");
+$color_nhsuk-black: map.get($nhsuk-colors, "black");
+$color_nhsuk-green: map.get($nhsuk-colors, "green");
+$color_nhsuk-purple: map.get($nhsuk-colors, "purple");
+$color_nhsuk-dark-pink: map.get($nhsuk-colors, "dark-pink");
+$color_nhsuk-red: map.get($nhsuk-colors, "red");
+$color_nhsuk-yellow: map.get($nhsuk-colors, "yellow");
+
+/// Secondary colours
+
+$color_nhsuk-pale-yellow: map.get($nhsuk-colors, "pale-yellow");
+$color_nhsuk-warm-yellow: map.get($nhsuk-colors, "warm-yellow");
+$color_nhsuk-orange: map.get($nhsuk-colors, "orange");
+$color_nhsuk-aqua-green: map.get($nhsuk-colors, "aqua-green");
+$color_nhsuk-pink: map.get($nhsuk-colors, "pink");
+
+/// Greyscale
+
+$color_nhsuk-grey-1: map.get($nhsuk-colors, "grey-1");
+$color_nhsuk-grey-2: map.get($nhsuk-colors, "grey-2");
+$color_nhsuk-grey-3: map.get($nhsuk-colors, "grey-3");
+$color_nhsuk-grey-4: map.get($nhsuk-colors, "grey-4");
+$color_nhsuk-grey-5: map.get($nhsuk-colors, "grey-5");
+
+$color_nhsuk-grey-1-rgb: map.get($nhsuk-colors, "grey-1-rgb");
+$alpha-transparency-50: 0.5;
+
 /// Primary colour variations
 ///
 /// 1. used for link :active states
@@ -83,83 +162,83 @@ $alpha-transparency-50: 0.5;
 /// 5. used for primary button and action link icon :hover states
 /// 6. used for primary button and action link icon :active states
 
-$color_tint_nhsuk-black-10: nhsuk-tint($color_nhsuk-black, 10%); // [1]
+$color_tint_nhsuk-black-10: map.get($nhsuk-colors, "tint-black-10"); // [1]
 
-$color_shade_nhsuk-blue-20: nhsuk-shade($color_nhsuk-blue, 20%); // [2]
-$color_shade_nhsuk-blue-35: nhsuk-shade($color_nhsuk-blue, 35%); // [3]
-$color_shade_nhsuk-blue-50: nhsuk-shade($color_nhsuk-blue, 50%); // [4]
+$color_shade_nhsuk-blue-20: map.get($nhsuk-colors, "shade-blue-20"); // [2]
+$color_shade_nhsuk-blue-35: map.get($nhsuk-colors, "shade-blue-35"); // [3]
+$color_shade_nhsuk-blue-50: map.get($nhsuk-colors, "shade-blue-50"); // [4]
 
-$color_shade_nhsuk-green-35: nhsuk-shade($color_nhsuk-green, 35%); // [5]
-$color_shade_nhsuk-green-50: nhsuk-shade($color_nhsuk-green, 50%); // [6]
+$color_shade_nhsuk-green-35: map.get($nhsuk-colors, "shade-green-35"); // [5]
+$color_shade_nhsuk-green-50: map.get($nhsuk-colors, "shade-green-50"); // [6]
 
-$color_transparent_nhsuk-white-20: rgba($color_nhsuk-white, 0.2);
-$color_transparent_nhsuk-blue-50: rgba($color_shade_nhsuk-blue-50, 0.1);
+$color_transparent_nhsuk-white-20: map.get($nhsuk-colors, "transparent-white-20");
+$color_transparent_nhsuk-blue-50: map.get($nhsuk-colors, "transparent-blue-50");
 
 /// Colour aliases
 
 /// Text
 
-$nhsuk-text-color: $color_nhsuk-black;
-$nhsuk-reverse-text-color: $color_nhsuk-white;
-$nhsuk-secondary-text-color: $color_nhsuk-grey-1;
-$nhsuk-print-text-color: $color_nhsuk-black;
+$nhsuk-text-color: map.get($nhsuk-colors, "black");
+$nhsuk-reverse-text-color: map.get($nhsuk-colors, "white");
+$nhsuk-secondary-text-color: map.get($nhsuk-colors, "grey-1");
+$nhsuk-print-text-color: map.get($nhsuk-colors, "black");
 
 /// Links
 
-$nhsuk-link-color: $color_nhsuk-blue;
-$nhsuk-link-hover-color: $color_nhsuk-dark-pink;
-$nhsuk-link-active-color: nhsuk-shade($nhsuk-link-color, 50%);
-$nhsuk-link-visited-color: $color_nhsuk-purple;
+$nhsuk-link-color: map.get($nhsuk-colors, "blue");
+$nhsuk-link-hover-color: map.get($nhsuk-colors, "dark-pink");
+$nhsuk-link-active-color: map.get($nhsuk-colors, "link-active-color");
+$nhsuk-link-visited-color: map.get($nhsuk-colors, "purple");
 
 /// Focus
 
-$nhsuk-focus-color: $color_nhsuk-yellow;
-$nhsuk-focus-text-color: $color_nhsuk-black;
+$nhsuk-focus-color: map.get($nhsuk-colors, "yellow");
+$nhsuk-focus-text-color: map.get($nhsuk-colors, "black");
 
 /// Border
 
-$nhsuk-border-color: $color_nhsuk-grey-4;
-$nhsuk-secondary-border-color: $color_transparent_nhsuk-white-20;
+$nhsuk-border-color: map.get($nhsuk-colors, "grey-4");
+$nhsuk-secondary-border-color: map.get($nhsuk-colors, "transparent-white-20");
 
 /// Box shadow
 
-$nhsuk-box-shadow: rgba(33, 43, 50, 0.16);
-$nhsuk-box-shadow-color: $color_nhsuk-grey-1-rgb;
+$nhsuk-box-shadow: map.get($nhsuk-colors, "box-shadow");
+$nhsuk-box-shadow-color: map.get($nhsuk-colors, "grey-1-rgb");
 
 /// Forms
 
-$nhsuk-error-color: $color_nhsuk-red;
-$nhsuk-form-border-color: $color_nhsuk-grey-1;
-$nhsuk-form-element-background-color: $color_nhsuk-white;
+$nhsuk-error-color: map.get($nhsuk-colors, "red");
+$nhsuk-form-border-color: map.get($nhsuk-colors, "grey-1");
+$nhsuk-form-element-background-color: map.get($nhsuk-colors, "white");
 
 /// Buttons
 
-$nhsuk-button-color: $color_nhsuk-green;
-$nhsuk-button-text-color: $color_nhsuk-white;
-$nhsuk-button-hover-color: nhsuk-shade($nhsuk-button-color, 20%);
-$nhsuk-button-active-color: nhsuk-shade($nhsuk-button-color, 50%);
-$nhsuk-button-shadow-color: nhsuk-shade($nhsuk-button-color, 50%);
+$nhsuk-button-color: map.get($nhsuk-colors, "green");
+$nhsuk-button-text-color: map.get($nhsuk-colors, "white");
+$nhsuk-button-hover-color: map.get($nhsuk-colors, "button-hover-color");
+$nhsuk-button-active-color: map.get($nhsuk-colors, "button-active-color");
+$nhsuk-button-shadow-color: map.get($nhsuk-colors, "button-shadow-color");
 
 $nhsuk-secondary-button-color: transparent;
-$nhsuk-secondary-button-solid-background-color: $color_nhsuk-white;
-$nhsuk-secondary-button-border-color: $color_nhsuk-blue;
-$nhsuk-secondary-button-text-color: $color_nhsuk-blue;
-$nhsuk-secondary-button-hover-color: nhsuk-tint($nhsuk-secondary-button-border-color, 85%);
-$nhsuk-secondary-button-active-color: nhsuk-tint($nhsuk-secondary-button-border-color, 78%);
-$nhsuk-secondary-button-shadow-color: $nhsuk-secondary-button-border-color;
+$nhsuk-secondary-button-solid-background-color: map.get($nhsuk-colors, "white");
+$nhsuk-secondary-button-border-color: map.get($nhsuk-colors, "blue");
+$nhsuk-secondary-button-text-color: map.get($nhsuk-colors, "blue");
+$nhsuk-secondary-button-hover-color: map.get($nhsuk-colors, "secondary-button-hover-color");
+$nhsuk-secondary-button-active-color: map.get($nhsuk-colors, "secondary-button-active-color");
+$nhsuk-secondary-button-shadow-color: map.get($nhsuk-colors, "blue");
 
-$nhsuk-reverse-button-color: $color_nhsuk-white;
-$nhsuk-reverse-button-text-color: $color_nhsuk-black;
-$nhsuk-reverse-button-hover-color: nhsuk-shade($nhsuk-reverse-button-color, 15%);
-$nhsuk-reverse-button-active-color: nhsuk-shade($nhsuk-reverse-button-color, 30%);
-$nhsuk-reverse-button-shadow-color: nhsuk-shade($nhsuk-reverse-button-color, 30%);
+$nhsuk-reverse-button-color: map.get($nhsuk-colors, "white");
+$nhsuk-reverse-button-text-color: map.get($nhsuk-colors, "black");
+$nhsuk-reverse-button-hover-color: map.get($nhsuk-colors, "reverse-button-hover-color");
+$nhsuk-reverse-button-active-color: map.get($nhsuk-colors, "reverse-button-active-color");
+$nhsuk-reverse-button-shadow-color: map.get($nhsuk-colors, "reverse-button-shadow-color");
 
-$nhsuk-warning-button-color: $color_nhsuk-red;
-$nhsuk-warning-button-hover-color: nhsuk-shade($nhsuk-warning-button-color, 20%);
-$nhsuk-warning-button-active-color: nhsuk-shade($nhsuk-warning-button-color, 50%);
-$nhsuk-warning-button-shadow-color: nhsuk-shade($nhsuk-warning-button-color, 50%);
+$nhsuk-warning-button-color: map.get($nhsuk-colors, "red");
+$nhsuk-warning-button-hover-color: map.get($nhsuk-colors, "warning-button-hover-color");
+$nhsuk-warning-button-active-color: map.get($nhsuk-colors, "warning-button-active-color");
+$nhsuk-warning-button-shadow-color: map.get($nhsuk-colors, "warning-button-shadow-color");
 
-$nhsuk-login-button-color: $color_nhsuk-blue;
-$nhsuk-login-button-hover-color: nhsuk-shade($nhsuk-login-button-color, 20%);
-$nhsuk-login-button-active-color: nhsuk-shade($nhsuk-login-button-color, 50%);
-$nhsuk-login-button-shadow-color: nhsuk-shade($nhsuk-login-button-color, 50%);
+$nhsuk-login-button-color: map.get($nhsuk-colors, "blue");
+$nhsuk-login-button-hover-color: map.get($nhsuk-colors, "login-button-hover-color");
+$nhsuk-login-button-active-color: map.get($nhsuk-colors, "login-button-active-color");
+$nhsuk-login-button-shadow-color: map.get($nhsuk-colors, "login-button-shadow-color");
