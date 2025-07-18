@@ -1,4 +1,3 @@
-import { getFragmentFromUrl } from '../../common/index.mjs'
 import { Component } from '../../component.mjs'
 
 /**
@@ -105,7 +104,7 @@ export class ErrorSummary extends Component {
       return false
     }
 
-    const inputId = getFragmentFromUrl($target.href)
+    const inputId = $target.hash.replace('#', '')
     if (!inputId) {
       return false
     }

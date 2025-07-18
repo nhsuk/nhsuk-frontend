@@ -1,4 +1,4 @@
-import { getBreakpoint, getFragmentFromUrl } from '../../common/index.mjs'
+import { getBreakpoint } from '../../common/index.mjs'
 import { Component } from '../../component.mjs'
 import { ElementError } from '../../errors/index.mjs'
 
@@ -214,7 +214,7 @@ export class Tabs extends Component {
    * @param {HTMLAnchorElement} $tab - Tab link
    */
   setAttributes($tab) {
-    const panelId = getFragmentFromUrl($tab.href)
+    const panelId = $tab.hash.replace('#', '')
     if (!panelId) {
       return
     }
@@ -390,7 +390,7 @@ export class Tabs extends Component {
    * @param {HTMLAnchorElement} $tab - Tab link
    */
   getPanel($tab) {
-    const panelId = getFragmentFromUrl($tab.href)
+    const panelId = $tab.hash.replace('#', '')
     if (!panelId) {
       return null
     }
