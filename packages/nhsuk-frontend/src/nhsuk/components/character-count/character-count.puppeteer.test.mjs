@@ -60,7 +60,7 @@ describe('Character count', () => {
 
       it('retains error class if there is already an error', async () => {
         page = await goToComponent(browser, 'character-count', {
-          exampleName: 'with error message'
+          example: 'with error message'
         })
 
         const textareaClasses = await page.$eval(
@@ -92,7 +92,7 @@ describe('Character count', () => {
 
       it('shows the characters remaining if the field is pre-filled', async () => {
         page = await goToComponent(browser, 'character-count', {
-          exampleName: 'with default value'
+          example: 'with default value'
         })
 
         const message = await page.$eval(
@@ -148,7 +148,7 @@ describe('Character count', () => {
 
       it('retains error class if there is already an error', async () => {
         page = await goToComponent(browser, 'character-count', {
-          exampleName: 'with error message'
+          example: 'with error message'
         })
 
         await page.type('.nhsuk-js-character-count', 'A')
@@ -225,7 +225,7 @@ describe('Character count', () => {
       describe('when the character limit is exceeded on page load', () => {
         beforeEach(async () => {
           page = await goToComponent(browser, 'character-count', {
-            exampleName: 'with default value exceeding limit'
+            example: 'with default value exceeding limit'
           })
         })
 
@@ -263,7 +263,7 @@ describe('Character count', () => {
       describe('when a threshold is set', () => {
         beforeEach(async () => {
           page = await goToComponent(browser, 'character-count', {
-            exampleName: 'with threshold'
+            example: 'with threshold'
           })
         })
 
@@ -309,7 +309,7 @@ describe('Character count', () => {
       describe('when a maxlength attribute is specified on the textarea', () => {
         beforeEach(async () => {
           page = await goToComponent(browser, 'character-count', {
-            exampleName: 'with maxlength attribute'
+            example: 'with maxlength attribute'
           })
         })
 
@@ -325,7 +325,7 @@ describe('Character count', () => {
     describe('when counting words', () => {
       beforeEach(async () => {
         page = await goToComponent(browser, 'character-count', {
-          exampleName: 'with max words'
+          example: 'with max words'
         })
       })
 
@@ -384,7 +384,7 @@ describe('Character count', () => {
       describe('when the word limit is exceeded', () => {
         beforeEach(async () => {
           page = await goToComponent(browser, 'character-count', {
-            exampleName: 'with max words'
+            example: 'with max words'
           })
 
           await page.type('.nhsuk-js-character-count', 'Hello '.repeat(11))
