@@ -154,12 +154,11 @@ export class CharacterCount extends Component {
    * Bind input propertychange to the elements and update based on the change
    */
   bindChangeEvents() {
-    const { $textarea } = this
-    $textarea.addEventListener('keyup', this.handleKeyUp.bind(this))
+    this.$textarea.addEventListener('keyup', this.handleKeyUp.bind(this))
 
     // Bind focus/blur events to start/stop polling
-    $textarea.addEventListener('focus', this.handleFocus.bind(this))
-    $textarea.addEventListener('blur', this.handleBlur.bind(this))
+    this.$textarea.addEventListener('focus', this.handleFocus.bind(this))
+    this.$textarea.addEventListener('blur', this.handleBlur.bind(this))
   }
 
   /**
@@ -187,15 +186,12 @@ export class CharacterCount extends Component {
    * Update visible counter
    */
   updateVisibleCountMessage() {
-    const { $textarea } = this
-    const { $visibleCountMessage } = this
-
-    const remainingNumber = this.maxLength - this.count($textarea.value)
+    const remainingNumber = this.maxLength - this.count(this.$textarea.value)
     const isError = remainingNumber < 0
 
     // If input is over the threshold, remove the disabled class which renders the
     // counter invisible.
-    $visibleCountMessage.classList.toggle(
+    this.$visibleCountMessage.classList.toggle(
       'nhsuk-character-count__message--disabled',
       !this.isOverThreshold()
     )
@@ -205,45 +201,41 @@ export class CharacterCount extends Component {
       // Only toggle the textarea error class if there isn't an error message
       // already, as it may be unrelated to the limit (eg: allowed characters)
       // and would set the border colour back to black.
-      $textarea.classList.toggle('nhsuk-textarea--error', isError)
+      this.$textarea.classList.toggle('nhsuk-textarea--error', isError)
     }
-    $visibleCountMessage.classList.toggle('nhsuk-error-message', isError)
-    $visibleCountMessage.classList.toggle('nhsuk-hint', !isError)
+    this.$visibleCountMessage.classList.toggle('nhsuk-error-message', isError)
+    this.$visibleCountMessage.classList.toggle('nhsuk-hint', !isError)
 
     // Update message
-    $visibleCountMessage.innerHTML = this.formattedUpdateMessage()
+    this.$visibleCountMessage.innerHTML = this.formattedUpdateMessage()
   }
 
   /**
    * Update screen reader-specific counter
    */
   updateScreenReaderCountMessage() {
-    const { $screenReaderCountMessage } = this
-
     // If over the threshold, remove the aria-hidden attribute, allowing screen
     // readers to announce the content of the element.
     if (this.isOverThreshold()) {
-      $screenReaderCountMessage.removeAttribute('aria-hidden')
+      this.$screenReaderCountMessage.removeAttribute('aria-hidden')
     } else {
-      $screenReaderCountMessage.setAttribute('aria-hidden', 'true')
+      this.$screenReaderCountMessage.setAttribute('aria-hidden', 'true')
     }
 
     // Update message
-    $screenReaderCountMessage.innerHTML = this.formattedUpdateMessage()
+    this.$screenReaderCountMessage.innerHTML = this.formattedUpdateMessage()
   }
 
   /**
    * Format update message
    */
   formattedUpdateMessage() {
-    const { $textarea } = this
-    const { config } = this
-    const remainingNumber = this.maxLength - this.count($textarea.value)
+    const remainingNumber = this.maxLength - this.count(this.$textarea.value)
 
     let charVerb = 'remaining'
     let charNoun = 'character'
     let displayNumber = remainingNumber
-    if (config.maxwords) {
+    if (this.config.maxwords) {
       charNoun = 'word'
     }
     charNoun += remainingNumber === -1 || remainingNumber === 1 ? '' : 's'
@@ -262,16 +254,12 @@ export class CharacterCount extends Component {
    * always return true
    */
   isOverThreshold() {
-    const { $textarea } = this
-    const { config } = this
-
     // Determine the remaining number of characters/words
-    const currentLength = this.count($textarea.value)
-    const { maxLength } = this
+    const currentLength = this.count(this.$textarea.value)
 
     // Set threshold if presented in config
-    const thresholdPercent = config.threshold ?? 0
-    const thresholdValue = (maxLength * thresholdPercent) / 100
+    const thresholdPercent = this.config.threshold ?? 0
+    const thresholdValue = (this.maxLength * thresholdPercent) / 100
 
     return thresholdValue <= currentLength
   }
