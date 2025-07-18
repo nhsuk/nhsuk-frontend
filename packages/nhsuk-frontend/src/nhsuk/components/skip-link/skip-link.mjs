@@ -1,4 +1,4 @@
-import { getFragmentFromUrl, setFocus } from '../../common/index.mjs'
+import { setFocus } from '../../common/index.mjs'
 import { Component } from '../../component.mjs'
 import { ElementError } from '../../errors/index.mjs'
 
@@ -22,7 +22,7 @@ export class SkipLink extends Component {
     const hash = this.$root.hash
     const href = this.$root.getAttribute('href') ?? ''
 
-    const linkedElementId = getFragmentFromUrl(hash)
+    const linkedElementId = hash.replace('#', '')
     if (!linkedElementId) {
       throw new ElementError({
         component: SkipLink,
