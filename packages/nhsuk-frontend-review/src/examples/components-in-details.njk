@@ -1,4 +1,3 @@
-
 {% extends "layouts/page.njk" %}
 
 {% set title = "Components in details" %}
@@ -9,60 +8,64 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      {% call details({summaryText: "Checkboxes", open: true}) %}
+      {% call details({
+        summaryText: "Checkboxes",
+        open: true
+      }) %}
 
         {{ checkboxes({
-          "idPrefix": "nationality",
-          "name": "nationality",
-          "fieldset": {
-            "legend": {
-              "text": "What is your nationality?"
+          fieldset: {
+            legend: {
+              text: "What is your nationality?"
             }
           },
-          "hint": {
-            "text": "If you have more than 1 nationality, select all options that are relevant to you"
+          hint: {
+            text: "If you have more than 1 nationality, select all options that are relevant to you"
           },
-          "values": ["british"],
-          "items": [
+          name: "nationality",
+          values: ["british"],
+          items: [
             {
-              "value": "british",
-              "text": "British"
+              value: "british",
+              text: "British"
             },
             {
-              "value": "irish",
-              "text": "Irish"
+              value: "irish",
+              text: "Irish"
             },
             {
-              "value": "other",
-              "text": "citizen of another country"
+              value: "other",
+              text: "citizen of another country"
             }
           ]
         }) }}
 
       {% endcall %}
 
-      {% call details({summaryText: "Radios", open: true}) %}
+      {% call details({
+        summaryText: "Radios",
+        open: true
+      }) %}
 
         {{ radios({
-          "idPrefix": "name-changed",
-          "name": "nameChanged",
-          "fieldset": {
-            "legend": {
-              "text": "Have you changed your name?"
+          fieldset: {
+            legend: {
+              text: "Have you changed your name?"
             }
           },
-          "hint": {
-            "text": "This includes changing your last name or spelling your name differently"
+          hint: {
+            text: "This includes changing your last name or spelling your name differently"
           },
-          "value": "no",
-          "items": [
+          name: "name-changed",
+          value: "no",
+          items: [
             {
-              "value": "yes",
-              "text": "Yes"
+              value: "yes",
+              text: "Yes"
             },
             {
-              "value": "no",
-              "text": "No"
+              value: "no",
+              text: "No"
             }
           ]
         }) }}
@@ -72,23 +75,21 @@
       {% call details({summaryText: "Inputs", open: true}) %}
 
         {{ input({
-          "label": {
-            "text": "NHS number"
+          label: {
+            text: "NHS number"
           },
-          "id": "input-example",
-          "classes": "nhsuk-input--width-20",
-          "name": "test-name"
+          name: "input-example",
+          classes: "nhsuk-input--width-20"
         }) }}
 
         {{ textarea({
-          name: "moreDetail",
-          id: "more-detail",
           label: {
             text: "Can you provide more detail?"
           },
           hint: {
             text: "Do not include personal information like your name, date of birth or NHS number"
-          }
+          },
+          name: "more-detail"
         }) }}
 
         {{ dateInput({
@@ -106,43 +107,50 @@
 
         <div class="nhsuk-button-group">
           {{ button({
-            "text": "Save and continue"
+            text: "Save and continue"
           }) }}
 
           {{ button({
-            "text": "Yes, delete this vaccine",
-            "classes": "nhsuk-button--warning"
+            text: "Yes, delete this vaccine",
+            classes: "nhsuk-button--warning"
           }) }}
 
           {{ button({
-            "text": "Continue",
-            "classes": "nhsuk-button--login"
+            text: "Continue",
+            classes: "nhsuk-button--login"
           }) }}
 
           {{ button({
-            "text": "Find my location",
-            "classes": "nhsuk-button--secondary"
+            text: "Find my location",
+            classes: "nhsuk-button--secondary"
           }) }}
         </div>
 
       {% endcall %}
 
-      {% call details({summaryText: "Expander", open: true}) %}
+      {% call details({
+        summaryText: "Expander",
+        open: true
+      }) %}
 
         {{ details({
           classes: "nhsuk-expander",
           summaryText: "Get your medical records",
           html: "
-          <p>You can see your GP records by:</p>
-          <ul>
-            <li>asking for them at your GP surgery </li>
-            <li>going online to see them (if you have signed up for <a href=\"/using-the-nhs/nhs-services/gps/gp-online-services/\">GP online services</a>) </li>
-          </ul>"
+            <p>You can see your GP records by:</p>
+            <ul>
+              <li>asking for them at your GP surgery </li>
+              <li>going online to see them (if you have signed up for <a href=\"/using-the-nhs/nhs-services/gps/gp-online-services/\">GP online services</a>) </li>
+            </ul>
+          "
         }) }}
 
       {% endcall %}
 
-      {% call details({summaryText: "Lists", open: true}) %}
+      {% call details({
+        summaryText: "Lists",
+        open: true
+      }) %}
 
         {{ list({
           title: "Do",
@@ -180,10 +188,6 @@
         }) }}
 
       {% endcall %}
-
-
-
-
 
     </div>
   </div>
