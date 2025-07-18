@@ -115,6 +115,9 @@ export const examples = {
           }
         }
       ]
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
     }
   },
   'with anchor in panel': {

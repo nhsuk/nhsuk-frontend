@@ -74,6 +74,9 @@ export const examples = {
       legend: {
         text: 'What is your address?'
       }
+    },
+    screenshot: {
+      viewports: ['tablet']
     }
   },
   'as page heading': {
@@ -83,6 +86,9 @@ export const examples = {
         classes: 'nhsuk-fieldset__legend--xl',
         isPageHeading: true
       }
+    },
+    screenshot: {
+      viewports: ['tablet']
     }
   },
   'with inputs': {
@@ -133,7 +139,10 @@ export const examples = {
           name: 'county'
         }
       })}
-    `
+    `,
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
+    }
   }
 }
 

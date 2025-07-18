@@ -135,6 +135,9 @@ export const examples = {
           label: 'Terms and conditions'
         }
       ]
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'columns': {
@@ -233,6 +236,9 @@ export const examples = {
           label: 'Cookies'
         }
       ]
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'with custom copyright statement': {
@@ -261,6 +267,9 @@ export const examples = {
           label: 'Terms and conditions'
         }
       ]
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   }
 }

@@ -125,7 +125,10 @@ export const examples = {
     },
     callBlock: outdent`
       <p class="nhsuk-card__description">Go to <a href="#">NHS 111 online</a> or <a href="#">call 111</a>.</p>
-    `
+    `,
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
+    }
   },
   'basic with custom HTML': {
     context: {
@@ -136,7 +139,10 @@ export const examples = {
       <p class="nhsuk-body">If you're worried about a symptom and not sure what help you need, NHS 111 can tell you what to do next.</p>
       <p class="nhsuk-body">Go to <a href="#">111.nhs.uk</a> or <a href="#">call 111</a>.</p>
       <p class="nhsuk-body">For a life-threatening emergency call 999.</p>
-    `
+    `,
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
+    }
   },
   'non-urgent (blue)': {
     context: {
@@ -152,7 +158,10 @@ export const examples = {
         <li>you're concerned about your child or they get worse</li>
       </ul>
       <p>Tell the receptionist you think it's chickenpox before going in. They may recommend a special appointment time if other patients are at risk.</p>
-    `
+    `,
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
+    }
   },
   'urgent (red)': {
     context: {
@@ -168,7 +177,10 @@ export const examples = {
         <li>you think your newborn baby has chickenpox</li>
       </ul>
       <p>In these situations, your GP can prescribe medicine to prevent complications. You need to take it within 24 hours of the spots coming out.</p>
-    `
+    `,
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
+    }
   },
   'emergency (red and black)': {
     context: {
@@ -183,7 +195,10 @@ export const examples = {
         <li>also started with shortness of breath, sweating and feeling or being sick</li>
       </ul>
       <p>You could be having a heart attack. Call 999 immediately as you need immediate treatment in hospital.</p>
-    `
+    `,
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
+    }
   },
   'primary (with chevron)': {
     context: {
@@ -192,6 +207,9 @@ export const examples = {
       clickable: true,
       heading: 'Breast screening',
       headingClasses: 'nhsuk-heading-m'
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
     }
   },
   'primary (with chevron and description)': {
@@ -203,6 +221,9 @@ export const examples = {
       headingClasses: 'nhsuk-heading-m',
       description:
         'A quick guide for people who have care and support needs and their carers'
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
     }
   },
   'clickable': {
@@ -213,6 +234,9 @@ export const examples = {
       headingClasses: 'nhsuk-heading-m',
       description:
         'A quick guide for people who have care and support needs and their carers'
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
     }
   },
   'secondary': {
@@ -224,6 +248,9 @@ export const examples = {
       headingClasses: 'nhsuk-heading-m',
       description:
         'Services the NHS provides if you need urgent or emergency medical help'
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
     }
   },
   'feature': {
@@ -233,6 +260,9 @@ export const examples = {
       heading: 'Feature card heading',
       headingClasses: 'nhsuk-heading-m',
       description: 'Feature card description'
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
     }
   },
   'with image': {
@@ -245,6 +275,9 @@ export const examples = {
       headingClasses: 'nhsuk-heading-m',
       description:
         'Programmes, workouts and tips to get you moving and improve your fitness and wellbeing'
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
     }
   },
   'top task': {
@@ -255,6 +288,9 @@ export const examples = {
       headingLevel: 5,
       heading: 'Order a repeat prescription',
       headingClasses: 'nhsuk-heading-xs'
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
     }
   }
 }

@@ -84,24 +84,37 @@ export const examples = {
   'default': {
     context: {
       text: 'Save and continue'
+    },
+    screenshot: {
+      states: ['focus', 'hover', 'active'],
+      selector: '.nhsuk-button'
     }
   },
   'disabled': {
     context: {
       text: 'Disabled button',
       disabled: true
-    }
+    },
+    screenshot: true
   },
   'as a link': {
     context: {
       text: 'Link button',
       href: '#'
+    },
+    screenshot: {
+      states: ['focus', 'hover', 'active'],
+      selector: '.nhsuk-button'
     }
   },
   'login': {
     context: {
       text: 'Continue',
       classes: 'nhsuk-button--login'
+    },
+    screenshot: {
+      states: ['focus', 'hover', 'active'],
+      selector: '.nhsuk-button'
     }
   },
   'login disabled': {
@@ -109,13 +122,18 @@ export const examples = {
       text: 'Continue',
       classes: 'nhsuk-button--login',
       disabled: true
-    }
+    },
+    screenshot: true
   },
   'login as a link': {
     context: {
       text: 'Continue',
       classes: 'nhsuk-button--login',
       href: '#'
+    },
+    screenshot: {
+      states: ['focus', 'hover', 'active'],
+      selector: '.nhsuk-button'
     }
   },
   'with double click prevented': {
@@ -129,6 +147,10 @@ export const examples = {
     context: {
       text: 'Log out',
       classes: 'nhsuk-button--reverse'
+    },
+    screenshot: {
+      states: ['focus', 'hover', 'active'],
+      selector: '.nhsuk-button'
     }
   },
   'reverse disabled': {
@@ -137,7 +159,8 @@ export const examples = {
       text: 'Log out',
       classes: 'nhsuk-button--reverse',
       disabled: true
-    }
+    },
+    screenshot: true
   },
   'reverse as a link': {
     layout: 'layouts/example-background-blue.njk',
@@ -145,12 +168,20 @@ export const examples = {
       text: 'Log out',
       classes: 'nhsuk-button--reverse',
       href: '#'
+    },
+    screenshot: {
+      states: ['focus', 'hover', 'active'],
+      selector: '.nhsuk-button'
     }
   },
   'secondary': {
     context: {
       text: 'Find my location',
       classes: 'nhsuk-button--secondary'
+    },
+    screenshot: {
+      states: ['focus', 'hover', 'active'],
+      selector: '.nhsuk-button'
     }
   },
   'secondary disabled': {
@@ -158,13 +189,18 @@ export const examples = {
       text: 'Find my location',
       classes: 'nhsuk-button--secondary',
       disabled: true
-    }
+    },
+    screenshot: true
   },
   'secondary as a link': {
     context: {
       text: 'Find my location',
       classes: 'nhsuk-button--secondary',
       href: '#'
+    },
+    screenshot: {
+      states: ['focus', 'hover', 'active'],
+      selector: '.nhsuk-button'
     }
   },
   'secondary, solid background': {
@@ -172,6 +208,10 @@ export const examples = {
     context: {
       text: 'Find my location',
       classes: 'nhsuk-button--secondary-solid'
+    },
+    screenshot: {
+      states: ['focus', 'hover', 'active'],
+      selector: '.nhsuk-button'
     }
   },
   'secondary, solid background disabled': {
@@ -180,7 +220,8 @@ export const examples = {
       text: 'Find my location',
       classes: 'nhsuk-button--secondary-solid',
       disabled: true
-    }
+    },
+    screenshot: true
   },
   'secondary as a link, solid background': {
     layout: 'layouts/example-background-grey.njk',
@@ -188,12 +229,20 @@ export const examples = {
       text: 'Find my location',
       classes: 'nhsuk-button--secondary-solid',
       href: '#'
+    },
+    screenshot: {
+      states: ['focus', 'hover', 'active'],
+      selector: '.nhsuk-button'
     }
   },
   'warning': {
     context: {
       text: 'Yes, delete this vaccine',
       classes: 'nhsuk-button--warning'
+    },
+    screenshot: {
+      states: ['focus', 'hover', 'active'],
+      selector: '.nhsuk-button'
     }
   },
   'warning disabled': {
@@ -201,13 +250,18 @@ export const examples = {
       text: 'Yes, delete this vaccine',
       classes: 'nhsuk-button--warning',
       disabled: true
-    }
+    },
+    screenshot: true
   },
   'warning as a link': {
     context: {
       text: 'Yes, delete this vaccine',
       classes: 'nhsuk-button--warning',
       href: '#'
+    },
+    screenshot: {
+      states: ['focus', 'hover', 'active'],
+      selector: '.nhsuk-button'
     }
   }
 }

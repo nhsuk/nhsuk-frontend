@@ -153,7 +153,8 @@ export const examples = {
           text: 'Most comments'
         }
       ]
-    }
+    },
+    screenshot: true
   },
   'with disabled option': {
     context: {
@@ -237,7 +238,8 @@ export const examples = {
           text: 'Yorkshire and the Humber'
         }
       ]
-    }
+    },
+    screenshot: true
   },
   'with hint text, error message': {
     context: {
@@ -295,6 +297,10 @@ export const examples = {
           text: 'Yorkshire and the Humber'
         }
       ]
+    },
+    screenshot: {
+      states: ['focus'],
+      selector: '[for=location]'
     }
   }
 }

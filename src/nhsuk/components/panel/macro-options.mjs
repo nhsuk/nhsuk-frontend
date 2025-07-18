@@ -67,6 +67,9 @@ export const examples = {
     context: {
       titleText: 'Booking complete',
       text: 'We have sent you a confirmation email'
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
     }
   }
 }

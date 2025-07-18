@@ -135,7 +135,8 @@ export const examples = {
       hint: {
         text: 'Do not include personal information, like your name, date of birth or NHS number'
       }
-    }
+    },
+    screenshot: true
   },
   'with default value': {
     context: {
@@ -207,6 +208,9 @@ export const examples = {
       hint: {
         text: 'Do not include personal information, like your name, date of birth or NHS number'
       }
+    },
+    screenshot: {
+      viewports: ['tablet']
     }
   },
   'with max words': {
@@ -220,6 +224,9 @@ export const examples = {
       hint: {
         text: 'Do not include personal information, like your name, date of birth or NHS number'
       }
+    },
+    screenshot: {
+      viewports: ['tablet']
     }
   }
 }

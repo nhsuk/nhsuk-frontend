@@ -169,7 +169,8 @@ export const examples = {
       hint: {
         text: 'For example, 31 3 1980'
       }
-    }
+    },
+    screenshot: true
   },
   'with autocomplete attribute': {
     context: {
@@ -261,7 +262,8 @@ export const examples = {
           classes: 'nhsuk-input--width-4 nhsuk-input--error'
         }
       ]
-    }
+    },
+    screenshot: true
   },
   'with values': {
     context: {
