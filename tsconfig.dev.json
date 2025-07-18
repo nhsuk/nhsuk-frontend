@@ -1,0 +1,28 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "strictNullChecks": false,
+    "types": [
+      "@testing-library/jest-dom",
+      "jest",
+      "jest-axe",
+      "jest-puppeteer",
+      "node",
+      "typed-query-selector"
+    ]
+  },
+  "include": [
+    "./packages/*/gulpfile.mjs",
+    "./packages/*/tasks/**/*.mjs",
+    "./packages/*/.htmlvalidate.js",
+    "./.prettierrc.js",
+    "./.stylelintrc.js",
+    "**/engine_scripts/**/*.js",
+    "**/*.config.js",
+    "**/*.config.mjs",
+    "**/*.setup.mjs",
+    "**/*.test.mjs",
+    "**/.eslintrc.js",
+    "**/macro-options.mjs"
+  ]
+}
