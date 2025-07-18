@@ -129,7 +129,6 @@ export const params = {
 export const examples = {
   'default': {
     context: {
-      id: 'sort',
       name: 'sort',
       label: {
         text: 'Sort by'
@@ -158,7 +157,6 @@ export const examples = {
   },
   'with disabled option': {
     context: {
-      id: 'sort',
       name: 'sort',
       label: {
         text: 'Sort by'
@@ -187,7 +185,6 @@ export const examples = {
   },
   'with hint text': {
     context: {
-      id: 'location',
       name: 'location',
       label: {
         text: 'Choose location'
@@ -243,7 +240,6 @@ export const examples = {
   },
   'with hint text, error message': {
     context: {
-      id: 'location',
       name: 'location',
       label: {
         text: 'Choose location'

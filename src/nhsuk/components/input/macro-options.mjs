@@ -130,7 +130,6 @@ export const examples = {
       label: {
         text: 'NHS number'
       },
-      id: 'input-example',
       name: 'test-name'
     },
     screenshot: true
@@ -144,8 +143,7 @@ export const examples = {
       hint: {
         text: "It's a 10-digit number that's on any letter the NHS has sent you, for example, 485 777 3456"
       },
-      id: 'input-with-hint-text',
-      name: 'test-name-2',
+      name: 'example',
       classes: 'nhsuk-input--width-10'
     },
     screenshot: true
@@ -159,8 +157,7 @@ export const examples = {
       hint: {
         text: "It's a 10-digit number that's on any letter the NHS has sent you, for example, 485 777 3456"
       },
-      id: 'input-with-error-message',
-      name: 'test-name-3',
+      name: 'example',
       classes: 'nhsuk-input--width-10',
       errorMessage: {
         text: 'Error message goes here'
@@ -168,7 +165,7 @@ export const examples = {
     },
     screenshot: {
       states: ['focus'],
-      selector: '#input-with-error-message'
+      selector: '#example'
     }
   },
   'with width modifier': {
@@ -180,7 +177,6 @@ export const examples = {
       hint: {
         text: "It's a 10-digit number that's on any letter the NHS has sent you, for example, 485 777 3456"
       },
-      id: 'input-width-10',
       name: 'test-width-10',
       classes: 'nhsuk-input--width-10'
     },
@@ -192,7 +188,6 @@ export const examples = {
         text: 'What is the cost in pounds?',
         classes: 'nhsuk-label--l'
       },
-      id: 'input-with-prefix',
       name: 'test-name-4',
       prefix: '£',
       classes: 'nhsuk-input--width-5'
@@ -205,7 +200,6 @@ export const examples = {
         text: 'What is the weight in kilograms?',
         classes: 'nhsuk-label--l'
       },
-      id: 'input-with-suffix',
       name: 'test-name-5',
       suffix: 'kg',
       classes: 'nhsuk-input--width-5'
@@ -218,7 +212,6 @@ export const examples = {
         text: 'What is the cost per item, in pounds?',
         classes: 'nhsuk-label--l'
       },
-      id: 'input-with-prefix-and-suffix',
       name: 'test-name-6',
       prefix: '£',
       suffix: 'per item',
@@ -231,7 +224,6 @@ export const examples = {
       label: {
         text: 'Postcode'
       },
-      id: 'input-with-autocomplete-attribute',
       name: 'postcode',
       autocomplete: 'postal-code',
       classes: 'nhsuk-input--width-5'
@@ -244,7 +236,6 @@ export const examples = {
         text: 'What is the cost per item, in pounds?',
         classes: 'nhsuk-label--l'
       },
-      id: 'input-with-error-message-and-prefix-and-suffix',
       name: 'test-name-7',
       prefix: '£',
       suffix: 'per item',
