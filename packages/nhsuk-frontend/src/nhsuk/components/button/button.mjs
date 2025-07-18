@@ -63,11 +63,10 @@ export class Button extends Component {
    * @returns {undefined | false} Returns undefined, or false when debounced
    */
   debounce(event) {
-    const { target } = event
     // Check the button that is clicked on has the preventDoubleClick feature enabled
     if (
-      !(target instanceof HTMLElement) ||
-      target.getAttribute('data-prevent-double-click') !== 'true'
+      !(event.target instanceof HTMLElement) ||
+      event.target.getAttribute('data-prevent-double-click') !== 'true'
     ) {
       return
     }

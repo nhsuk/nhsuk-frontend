@@ -298,11 +298,11 @@ export class Tabs extends Component {
 
     // Save and restore the id
     // so the page doesn't jump when a user clicks a tab (which changes the hash)
-    const { id } = $panel
+    const panelId = $panel.id
     $panel.id = ''
     this.changingHash = true
-    window.location.hash = id
-    $panel.id = id
+    window.location.hash = panelId
+    $panel.id = panelId
   }
 
   /**
