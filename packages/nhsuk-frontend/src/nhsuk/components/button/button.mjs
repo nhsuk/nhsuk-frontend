@@ -66,7 +66,7 @@ export class Button extends Component {
     // Check the button that is clicked on has the preventDoubleClick feature enabled
     if (
       !(event.target instanceof HTMLElement) ||
-      event.target.getAttribute('data-prevent-double-click') !== 'true'
+      event.target.dataset.preventDoubleClick !== 'true'
     ) {
       return
     }
