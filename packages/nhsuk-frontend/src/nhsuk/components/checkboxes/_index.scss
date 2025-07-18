@@ -45,6 +45,7 @@ $nhsuk-checkboxes-label-padding-left-right: 12px;
 .nhsuk-checkboxes__label {
   cursor: pointer;
   display: inline-block;
+  box-sizing: border-box;
   margin-bottom: 0;
   padding: 8px $nhsuk-checkboxes-label-padding-left-right nhsuk-spacing(1);
   -ms-touch-action: manipulation; // [1]
