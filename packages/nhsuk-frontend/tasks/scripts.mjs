@@ -10,7 +10,7 @@ export const compile = gulp.series(
    * Transform NHS.UK frontend scripts
    */
   task.name('scripts:transform', async () => {
-    const modulePaths = await getListing('nhsuk/components/**/*.mjs', {
+    const modulePaths = getListing('nhsuk/components/**/*.mjs', {
       cwd: join(config.paths.pkg, 'src'),
       ignore: ['**/macro-options.mjs', '**/*.test.{cjs,js,mjs}']
     })

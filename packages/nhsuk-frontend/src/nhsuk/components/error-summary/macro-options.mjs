@@ -110,7 +110,8 @@ export const examples = {
           href: '#example-error'
         }
       ]
-    }
+    },
+    screenshot: true
   }
 }
 

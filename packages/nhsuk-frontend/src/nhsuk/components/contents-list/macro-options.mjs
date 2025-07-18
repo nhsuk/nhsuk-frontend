@@ -74,7 +74,8 @@ export const examples = {
           text: 'Living with AMD'
         }
       ]
-    }
+    },
+    screenshot: true
   }
 }
 

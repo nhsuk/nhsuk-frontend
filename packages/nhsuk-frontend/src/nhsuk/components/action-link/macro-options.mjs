@@ -46,7 +46,8 @@ export const examples = {
     context: {
       text: 'Find your nearest A&E',
       href: '#'
-    }
+    },
+    screenshot: true
   }
 }
 

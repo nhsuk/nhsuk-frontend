@@ -236,6 +236,9 @@ export const examples = {
           }
         }
       ]
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
     }
   },
   'without actions': {
@@ -281,6 +284,9 @@ export const examples = {
           }
         }
       ]
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
     }
   },
   'without border': {
@@ -327,6 +333,9 @@ export const examples = {
           }
         }
       ]
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
     }
   },
   'without row border': {
@@ -373,6 +382,9 @@ export const examples = {
           }
         }
       ]
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
     }
   }
 }

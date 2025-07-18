@@ -1,6 +1,6 @@
 import { basename, join } from 'node:path'
 
-import { glob } from 'glob'
+import { globSync } from 'glob'
 
 /**
  * Directory listing for path
@@ -9,8 +9,8 @@ import { glob } from 'glob'
  * @param {GlobOptionsWithFileTypesUnset} [options] - Glob options
  * @returns File paths
  */
-export async function getListing(directoryPath, options = {}) {
-  const listing = await glob(directoryPath, {
+export function getListing(directoryPath, options = {}) {
+  const listing = globSync(directoryPath, {
     nodir: true,
     ...options
   })
@@ -25,8 +25,8 @@ export async function getListing(directoryPath, options = {}) {
  * @param {GlobOptionsWithFileTypesUnset} [options] - Glob options
  * @returns Directory names
  */
-export async function getDirectories(directoryPath, options = {}) {
-  const listing = await getListing(join(directoryPath, '*/'), {
+export function getDirectories(directoryPath, options = {}) {
+  const listing = getListing(join(directoryPath, '*/'), {
     nodir: false,
     ...options
   })

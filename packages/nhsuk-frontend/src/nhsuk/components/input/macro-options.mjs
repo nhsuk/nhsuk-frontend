@@ -132,7 +132,8 @@ export const examples = {
       },
       id: 'input-example',
       name: 'test-name'
-    }
+    },
+    screenshot: true
   },
   'with hint text': {
     context: {
@@ -146,7 +147,8 @@ export const examples = {
       id: 'input-with-hint-text',
       name: 'test-name-2',
       classes: 'nhsuk-input--width-10'
-    }
+    },
+    screenshot: true
   },
   'with error message': {
     context: {
@@ -163,6 +165,10 @@ export const examples = {
       errorMessage: {
         text: 'Error message goes here'
       }
+    },
+    screenshot: {
+      states: ['focus'],
+      selector: '#input-with-error-message'
     }
   },
   'with width modifier': {
@@ -177,7 +183,8 @@ export const examples = {
       id: 'input-width-10',
       name: 'test-width-10',
       classes: 'nhsuk-input--width-10'
-    }
+    },
+    screenshot: true
   },
   'with prefix': {
     context: {
@@ -189,7 +196,8 @@ export const examples = {
       name: 'test-name-4',
       prefix: '£',
       classes: 'nhsuk-input--width-5'
-    }
+    },
+    screenshot: true
   },
   'with suffix': {
     context: {
@@ -201,7 +209,8 @@ export const examples = {
       name: 'test-name-5',
       suffix: 'kg',
       classes: 'nhsuk-input--width-5'
-    }
+    },
+    screenshot: true
   },
   'with prefix and suffix': {
     context: {
@@ -214,7 +223,8 @@ export const examples = {
       prefix: '£',
       suffix: 'per item',
       classes: 'nhsuk-input--width-5'
-    }
+    },
+    screenshot: true
   },
   'with autocomplete attribute': {
     context: {
@@ -225,7 +235,8 @@ export const examples = {
       name: 'postcode',
       autocomplete: 'postal-code',
       classes: 'nhsuk-input--width-5'
-    }
+    },
+    screenshot: true
   },
   'with error message, prefix and suffix': {
     context: {
@@ -241,7 +252,8 @@ export const examples = {
       errorMessage: {
         text: 'Enter a cost per item, in pounds'
       }
-    }
+    },
+    screenshot: true
   }
 }
 

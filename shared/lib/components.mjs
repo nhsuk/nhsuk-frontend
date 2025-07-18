@@ -1,9 +1,13 @@
+import { createRequire } from 'node:module'
 import { basename, join } from 'node:path'
 
 import { paths } from '@nhsuk/frontend-config'
 import camelCase from 'lodash/camelCase.js'
 
 import { files, nunjucks } from './index.mjs'
+
+// Create require for sync import
+const importSync = createRequire(import.meta.url)
 
 /**
  * Load single component data (from source)
@@ -50,7 +54,7 @@ export async function load(component) {
  * Load all component data (from source)
  */
 export async function loadAll() {
-  const components = await getNames()
+  const components = getNames()
 
   // Load component data per directory
   return Promise.all(components.map(load))
@@ -59,8 +63,8 @@ export async function loadAll() {
 /**
  * Get component names
  */
-export async function getNames() {
-  const listing = await files.getDirectories('nhsuk/components', {
+export function getNames() {
+  const listing = files.getDirectories('nhsuk/components', {
     cwd: join(paths.pkg, 'src')
   })
 
@@ -100,6 +104,20 @@ export function getMacroOptions(params) {
 
     return option
   })
+}
+
+/**
+ * Get component fixtures (from dist)
+ *
+ * @param {string} component - Component directory name
+ * @returns {MacroExampleFixtures} Nunjucks macro example fixtures
+ */
+export function getFixtures(component) {
+  const componentPath = join(paths.pkg, `dist/nhsuk/components/${component}`)
+
+  return /** @type {MacroExampleFixtures} */ (
+    importSync(join(componentPath, 'fixtures.json'))
+  )
 }
 
 /**
@@ -146,13 +164,47 @@ export function render(component, options) {
  */
 
 /**
- * Nunjucks macro option example
+ * Nunjucks macro screenshot
+ *
+ * @typedef {object} MacroScreenshot
+ * @property {MacroExampleState[]} [states] - Selector state (optional)
+ * @property {string} [selector] - Selector to apply state (optional)
+ * @property {string} [name] - Selector name (optional)
+ * @property {('mobile' | 'tablet' | 'desktop' | 'large-desktop' | 'xlarge-desktop')[]} [viewports] - Screenshot viewports (optional)
+ */
+
+/**
+ * Nunjucks macro example
  *
  * @typedef {object} MacroExample
- * @property {string} [description] - Example description (optional)
- * @property {string} [layout] - Nunjucks layout for component (optional)
+ * @property {string | undefined} [description] - Example description (optional)
+ * @property {string | undefined} [layout] - Nunjucks layout for component (optional)
  * @property {{ [param: string]: unknown }} [context] - Nunjucks context object (optional)
- * @property {string} [callBlock] - Nunjucks macro `caller()` content (optional)
+ * @property {string | undefined} [callBlock] - Nunjucks macro `caller()` content (optional)
+ * @property {MacroScreenshot | MacroScreenshot[] | boolean} [screenshot] - Screenshot and include in visual regression tests
+ */
+
+/**
+ * Nunjucks macro example state
+ *
+ * @typedef {('focus' | 'hover' | 'active' | 'click')} MacroExampleState
+ */
+
+/**
+ * Nunjucks macro example fixture
+ * (used by the Design System website)
+ *
+ * @typedef {Required<MacroExample> & { name: string, html: string }} MacroExampleFixture
+ */
+
+/**
+ * Nunjucks macro example fixtures
+ * (used by the Design System website)
+ *
+ * @typedef {object} MacroExampleFixtures
+ * @property {string} name - Component friendly name
+ * @property {string} component - Component directory name
+ * @property {MacroExampleFixture[]} fixtures - Nunjucks macro example fixtures
  */
 
 /**

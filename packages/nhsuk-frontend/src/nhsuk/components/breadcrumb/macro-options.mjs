@@ -91,6 +91,10 @@ export const examples = {
           attributes: { lang: 'en' }
         }
       ]
+    },
+    screenshot: {
+      states: ['focus', 'hover', 'active'],
+      selector: '.nhsuk-breadcrumb a'
     }
   },
   reverse: {
@@ -119,6 +123,10 @@ export const examples = {
           attributes: { lang: 'en' }
         }
       ]
+    },
+    screenshot: {
+      states: ['focus', 'hover', 'active'],
+      selector: '.nhsuk-breadcrumb a'
     }
   }
 }

@@ -173,6 +173,9 @@ export const examples = {
           text: 'No'
         }
       ]
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
     }
   },
   'with hint text': {
@@ -202,6 +205,9 @@ export const examples = {
           }
         }
       ]
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
     }
   },
   'with disabled item': {
@@ -229,6 +235,9 @@ export const examples = {
           disabled: true
         }
       ]
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
     }
   },
   'inline': {
@@ -256,6 +265,9 @@ export const examples = {
           text: 'No'
         }
       ]
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
     }
   },
   'with hint text, error message': {
@@ -289,6 +301,11 @@ export const examples = {
           text: 'No'
         }
       ]
+    },
+    screenshot: {
+      states: ['focus'],
+      selector: '#example-2',
+      viewports: ['mobile', 'tablet', 'desktop']
     }
   },
   'with divider': {
@@ -319,6 +336,9 @@ export const examples = {
           text: 'Create an account'
         }
       ]
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
     }
   },
   'with conditional content': {
@@ -533,6 +553,11 @@ export const examples = {
           }
         }
       ]
+    },
+    screenshot: {
+      states: ['focus'],
+      selector: '#contact-2',
+      viewports: ['mobile', 'tablet', 'desktop']
     }
   },
   'without fieldset': {
@@ -552,6 +577,9 @@ export const examples = {
           text: 'Blue'
         }
       ]
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
     }
   },
   'with nested conditional radios': {

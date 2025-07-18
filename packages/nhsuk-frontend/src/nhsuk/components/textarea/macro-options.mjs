@@ -109,7 +109,8 @@ export const examples = {
       hint: {
         text: 'Do not include personal information, like your name, date of birth or NHS number'
       }
-    }
+    },
+    screenshot: true
   },
   'with error message': {
     context: {
@@ -121,6 +122,10 @@ export const examples = {
       errorMessage: {
         text: 'You must provide an explanation'
       }
+    },
+    screenshot: {
+      states: ['focus'],
+      selector: '#no-ni-reason'
     }
   },
   'with autocomplete attribute': {

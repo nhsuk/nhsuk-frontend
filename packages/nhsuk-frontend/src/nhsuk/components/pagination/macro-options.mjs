@@ -53,6 +53,9 @@ export const examples = {
       previousPage: 'Treatments',
       nextUrl: '/section/symptoms',
       nextPage: 'Symptoms'
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   }
 }
