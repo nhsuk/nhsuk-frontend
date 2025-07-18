@@ -83,7 +83,11 @@ export const examples = {
         <li>your NHS medical card</li>
       </ul>
       <p>Ask your GP practice for help if you can't find your NHS number.</p>
-    `
+    `,
+    screenshot: {
+      states: ['click'],
+      selector: '.nhsuk-details__summary'
+    }
   },
   expander: {
     context: {
@@ -162,7 +166,11 @@ export const examples = {
           ]
         }
       })}
-    `
+    `,
+    screenshot: {
+      states: ['click'],
+      selector: '.nhsuk-details__summary'
+    }
   }
 }
 

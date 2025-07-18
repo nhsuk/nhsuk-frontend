@@ -54,12 +54,18 @@ export const examples = {
   'default': {
     context: {
       text: 'NHS number'
+    },
+    screenshot: {
+      viewports: ['tablet']
     }
   },
   'with bold text': {
     context: {
       classes: 'nhsuk-label--s',
       text: 'NHS number'
+    },
+    screenshot: {
+      viewports: ['tablet']
     }
   },
   'as page heading': {
@@ -67,6 +73,9 @@ export const examples = {
       text: 'NHS number',
       classes: 'nhsuk-label--xl',
       isPageHeading: true
+    },
+    screenshot: {
+      viewports: ['tablet']
     }
   }
 }

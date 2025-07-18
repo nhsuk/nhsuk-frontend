@@ -189,6 +189,9 @@ export const examples = {
           }
         }
       ]
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
     }
   }
 }

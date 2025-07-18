@@ -312,7 +312,18 @@ export const examples = {
           }
         ]
       }
-    }
+    },
+    screenshot: [
+      {
+        viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+      },
+      {
+        name: 'logo',
+        states: ['focus'],
+        selector: '.nhsuk-header__service-logo',
+        viewports: ['desktop']
+      }
+    ]
   },
   'with navigation': {
     layout: 'layouts/example-full-width.njk',
@@ -348,6 +359,9 @@ export const examples = {
           }
         ]
       }
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'with navigation (white)': {
@@ -385,6 +399,9 @@ export const examples = {
           }
         ]
       }
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'with search': {
@@ -394,6 +411,12 @@ export const examples = {
         href: '#'
       },
       search: true
+    },
+    screenshot: {
+      name: 'search input',
+      states: ['focus'],
+      selector: '.nhsuk-header__search-input',
+      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'with logo': {
@@ -402,11 +425,17 @@ export const examples = {
       logo: {
         href: '#'
       }
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'with logo unlinked': {
     layout: 'layouts/example-full-width.njk',
-    context: {}
+    context: {},
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+    }
   },
   'with account (logged in)': {
     layout: 'layouts/example-full-width.njk',
@@ -428,6 +457,9 @@ export const examples = {
           }
         ]
       }
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'with account (logged out)': {
@@ -445,6 +477,9 @@ export const examples = {
           }
         ]
       }
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'with account, search, navigation (logged in, complex)': {
@@ -494,6 +529,9 @@ export const examples = {
           }
         ]
       }
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'with service name, account, search and navigation': {
@@ -539,6 +577,9 @@ export const examples = {
           }
         ]
       }
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'with service name, account, search and navigation (white)': {
@@ -585,6 +626,9 @@ export const examples = {
           }
         ]
       }
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'with service name, search and navigation': {
@@ -625,6 +669,9 @@ export const examples = {
           }
         ]
       }
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'with service name, search and navigation (white)': {
@@ -680,7 +727,20 @@ export const examples = {
         href: '#'
       },
       search: {}
-    }
+    },
+    screenshot: [
+      {
+        states: ['hover', 'focus'],
+        selector: '.nhsuk-header__service-name',
+        viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+      },
+      {
+        name: 'logo',
+        states: ['hover', 'focus'],
+        selector: '.nhsuk-header__service-logo',
+        viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+      }
+    ]
   },
   'with service name logo separate, search (long service name)': {
     layout: 'layouts/example-full-width.njk',
@@ -720,7 +780,18 @@ export const examples = {
       search: {
         visuallyHiddenLabel: 'Search the NHS digital service manual'
       }
-    }
+    },
+    screenshot: [
+      {
+        viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+      },
+      {
+        name: 'logo',
+        states: ['hover', 'focus'],
+        selector: '.nhsuk-header__service-logo',
+        viewports: ['desktop']
+      }
+    ]
   },
   'with service name unlinked, search': {
     layout: 'layouts/example-full-width.njk',
@@ -733,6 +804,9 @@ export const examples = {
         text: 'Find your NHS number'
       },
       search: {}
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'with navigation (justified)': {
@@ -770,6 +844,9 @@ export const examples = {
           }
         ]
       }
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'organisational with search': {
@@ -786,6 +863,9 @@ export const examples = {
       search: {
         visuallyHiddenLabel: 'Search the Anytown Anyplace Anywhere website'
       }
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'organisational with search, navigation': {
@@ -842,7 +922,23 @@ export const examples = {
         href: '#'
       },
       search: {}
-    }
+    },
+    screenshot: [
+      {
+        viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+      },
+      {
+        states: ['hover', 'focus'],
+        selector: '.nhsuk-header__service-name',
+        viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+      },
+      {
+        name: 'logo',
+        states: ['hover', 'focus'],
+        selector: '.nhsuk-header__service-logo',
+        viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+      }
+    ]
   },
   'organisational white with service name logo combo, search': {
     layout: 'layouts/example-full-width.njk',
@@ -924,7 +1020,24 @@ export const examples = {
       search: {
         visuallyHiddenLabel: 'Search the Anytown Anyplace Anywhere website'
       }
-    }
+    },
+    screenshot: [
+      {
+        viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+      },
+      {
+        name: 'logo',
+        states: ['hover', 'focus'],
+        selector: '.nhsuk-header__service-logo',
+        viewports: ['desktop']
+      },
+      {
+        name: 'search input',
+        states: ['focus'],
+        selector: '.nhsuk-header__search-input',
+        viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+      }
+    ]
   },
   'organisational white with search, navigation': {
     layout: 'layouts/example-full-width.njk',
@@ -966,6 +1079,9 @@ export const examples = {
           }
         ]
       }
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'organisational white with search, navigation (white)': {
@@ -1009,6 +1125,9 @@ export const examples = {
           }
         ]
       }
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'organisational white with account (logged in)': {
@@ -1032,6 +1151,9 @@ export const examples = {
           }
         ]
       }
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'organisational white with account (logged out)': {
@@ -1110,7 +1232,29 @@ export const examples = {
           }
         ]
       }
-    }
+    },
+    screenshot: [
+      {
+        viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+      },
+      {
+        name: 'logo',
+        states: ['hover', 'focus'],
+        selector: '.nhsuk-header__service-logo'
+      },
+      {
+        name: 'menu',
+        states: ['click'],
+        selector: '#toggle-menu',
+        viewports: [
+          'mobile',
+          'tablet',
+          'desktop',
+          'large-desktop',
+          'xlarge-desktop'
+        ]
+      }
+    ]
   }
 }
 

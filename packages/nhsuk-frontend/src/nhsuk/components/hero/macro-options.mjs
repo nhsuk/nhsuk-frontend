@@ -78,6 +78,9 @@ export const examples = {
     context: {
       heading: "We're here for you",
       text: 'Helping you take control of your health and wellbeing.'
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'with image': {
@@ -85,6 +88,9 @@ export const examples = {
     context: {
       imageURL:
         'https://assets.nhs.uk/prod/images/S_0818_homepage_hero_1_F0147446.width-1000.jpg'
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'with image, content': {
@@ -94,6 +100,9 @@ export const examples = {
       text: 'Helping you take control of your health and wellbeing.',
       imageURL:
         'https://assets.nhs.uk/prod/images/S_0818_homepage_hero_1_F0147446.width-1000.jpg'
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'with html content': {

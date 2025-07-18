@@ -211,6 +211,9 @@ export const examples = {
           text: 'citizen of another country'
         }
       ]
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
     }
   },
   'with hint text': {
@@ -242,6 +245,9 @@ export const examples = {
           }
         }
       ]
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
     }
   },
   'with disabled item': {
@@ -262,6 +268,9 @@ export const examples = {
           disabled: true
         }
       ]
+    },
+    screenshot: {
+      viewports: ['mobile']
     }
   },
   'with error message': {
@@ -290,6 +299,11 @@ export const examples = {
           text: 'Farm or agricultural waste'
         }
       ]
+    },
+    screenshot: {
+      states: ['focus'],
+      selector: '#waste',
+      viewports: ['mobile', 'tablet', 'desktop']
     }
   },
   'with legend as page heading': {
@@ -319,6 +333,9 @@ export const examples = {
           text: 'Farm or agricultural waste'
         }
       ]
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
     }
   },
   'with conditional content': {
@@ -533,6 +550,11 @@ export const examples = {
           }
         }
       ]
+    },
+    screenshot: {
+      states: ['focus'],
+      selector: '#contact-2',
+      viewports: ['mobile', 'tablet', 'desktop']
     }
   },
   'with "none of the above" option': {
@@ -687,6 +709,9 @@ export const examples = {
           exclusiveGroup: 'communication-preferences'
         }
       ]
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
     }
   }
 }

@@ -49,7 +49,8 @@ export const examples = {
   default: {
     callBlock: outdent`
       <p>You can report any suspected side effects to the <a href="https://yellowcard.mhra.gov.uk/" title="External website">UK safety scheme</a>.</p>
-    `
+    `,
+    screenshot: true
   }
 }
 

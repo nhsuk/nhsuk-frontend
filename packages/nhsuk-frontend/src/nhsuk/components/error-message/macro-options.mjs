@@ -53,6 +53,9 @@ export const examples = {
   default: {
     context: {
       text: 'Error message about full name goes here'
+    },
+    screenshot: {
+      viewports: ['tablet']
     }
   }
 }

@@ -76,6 +76,9 @@ export const examples = {
           item: 'allow the fluid in a burst blister to drain before covering it with a plaster or dressing'
         }
       ]
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
     }
   },
   "don't": {
@@ -96,6 +99,9 @@ export const examples = {
           item: 'wear the shoes or use the equipment that caused your blister until it heals'
         }
       ]
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
     }
   }
 }

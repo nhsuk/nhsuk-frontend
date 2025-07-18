@@ -164,6 +164,16 @@ export function render(component, options) {
  */
 
 /**
+ * Nunjucks macro screenshot
+ *
+ * @typedef {object} MacroScreenshot
+ * @property {MacroExampleState[]} [states] - Selector state (optional)
+ * @property {string} [selector] - Selector to apply state (optional)
+ * @property {string} [name] - Selector name (optional)
+ * @property {('mobile' | 'tablet' | 'desktop' | 'large-desktop' | 'xlarge-desktop')[]} [viewports] - Screenshot viewports (optional)
+ */
+
+/**
  * Nunjucks macro example
  *
  * @typedef {object} MacroExample
@@ -171,6 +181,13 @@ export function render(component, options) {
  * @property {string | undefined} [layout] - Nunjucks layout for component (optional)
  * @property {{ [param: string]: unknown }} [context] - Nunjucks context object (optional)
  * @property {string | undefined} [callBlock] - Nunjucks macro `caller()` content (optional)
+ * @property {MacroScreenshot | MacroScreenshot[] | boolean} [screenshot] - Screenshot and include in visual regression tests
+ */
+
+/**
+ * Nunjucks macro example state
+ *
+ * @typedef {('focus' | 'hover' | 'active' | 'click')} MacroExampleState
  */
 
 /**

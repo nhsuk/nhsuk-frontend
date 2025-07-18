@@ -175,6 +175,9 @@ export const examples = {
           }
         ]
       ]
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
     }
   },
   'with responsive layout': {
@@ -297,6 +300,9 @@ export const examples = {
           }
         ]
       ]
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
     }
   },
   'with word breaks': {
@@ -401,6 +407,9 @@ export const examples = {
           }
         ]
       ]
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
     }
   }
 }
