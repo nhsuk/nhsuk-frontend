@@ -105,7 +105,6 @@ export const examples = {
           label: {
             text: 'Address line 1'
           },
-          id: 'input-address1',
           name: 'address1'
         }
       })}
@@ -115,7 +114,6 @@ export const examples = {
           label: {
             text: 'Address line 2'
           },
-          id: 'input-address2',
           name: 'address2'
         }
       })}
@@ -125,7 +123,6 @@ export const examples = {
           label: {
             text: 'Town or city'
           },
-          id: 'input-town-city',
           name: 'town'
         }
       })}
@@ -135,7 +132,6 @@ export const examples = {
           label: {
             text: 'County'
           },
-          id: 'input-county',
           name: 'county'
         }
       })}

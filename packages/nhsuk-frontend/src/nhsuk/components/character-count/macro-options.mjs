@@ -127,7 +127,6 @@ export const examples = {
   'default': {
     context: {
       name: 'more-detail',
-      id: 'more-detail',
       maxlength: 10,
       label: {
         text: 'Can you provide more detail?'
@@ -141,7 +140,6 @@ export const examples = {
   'with default value': {
     context: {
       name: 'more-detail',
-      id: 'more-detail',
       maxlength: 70,
       value: '123',
       label: {
@@ -155,7 +153,6 @@ export const examples = {
   'with default value exceeding limit': {
     context: {
       name: 'exceeding-characters',
-      id: 'exceeding-characters',
       maxlength: 350,
       value:
         'A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels. They make sure appropriate content is shown to a user in the right place and in the best format.',
@@ -170,7 +167,6 @@ export const examples = {
   'with error message': {
     context: {
       name: 'with-error-message',
-      id: 'with-error-message',
       maxlength: 350,
       label: {
         text: 'What is your job description?'
@@ -183,7 +179,6 @@ export const examples = {
   'with maxlength attribute': {
     context: {
       name: 'more-detail',
-      id: 'more-detail',
       maxlength: 11,
       attributes: {
         maxlength: 11
@@ -199,7 +194,6 @@ export const examples = {
   'with threshold': {
     context: {
       name: 'more-detail',
-      id: 'more-detail',
       maxlength: 10,
       threshold: 8,
       label: {
@@ -216,7 +210,6 @@ export const examples = {
   'with max words': {
     context: {
       name: 'more-detail',
-      id: 'more-detail',
       maxwords: 10,
       label: {
         text: 'Can you provide more detail?'
