@@ -27,6 +27,7 @@ $color_nhsuk-yellow: #ffeb3b;
 
 /// Secondary colours
 
+$color_nhsuk-dark-blue: #003087;
 $color_nhsuk-pale-yellow: #fff9c4;
 $color_nhsuk-warm-yellow: #ffb81c;
 $color_nhsuk-orange: #ed8b00;
@@ -102,10 +103,6 @@ $nhsuk-text-color: $color_nhsuk-black;
 $nhsuk-reverse-text-color: $color_nhsuk-white;
 $nhsuk-secondary-text-color: $color_nhsuk-grey-1;
 $nhsuk-print-text-color: $color_nhsuk-black;
-// stylelint-disable-next-line color-no-hex
-$nhsuk-footer-link-text-color: #003087;
-// stylelint-disable-next-line color-no-hex
-$nhsuk-footer-copyright-text-color: #231f20;
 
 /// Links
 
