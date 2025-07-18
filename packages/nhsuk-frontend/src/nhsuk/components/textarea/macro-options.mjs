@@ -102,7 +102,6 @@ export const examples = {
   'default': {
     context: {
       name: 'more-detail',
-      id: 'more-detail',
       label: {
         text: 'Can you provide more detail?'
       },
@@ -115,7 +114,6 @@ export const examples = {
   'with error message': {
     context: {
       name: 'no-ni-reason',
-      id: 'no-ni-reason',
       label: {
         text: "Why can't you provide an NHS number?"
       },
@@ -131,7 +129,6 @@ export const examples = {
   'with autocomplete attribute': {
     context: {
       name: 'address',
-      id: 'textarea-with-autocomplete-attribute',
       label: {
         text: 'Full address'
       },

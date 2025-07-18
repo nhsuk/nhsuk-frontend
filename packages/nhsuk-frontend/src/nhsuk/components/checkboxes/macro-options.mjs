@@ -185,7 +185,6 @@ export const params = {
 export const examples = {
   'default': {
     context: {
-      idPrefix: 'nationality',
       name: 'nationality',
       fieldset: {
         legend: {
@@ -228,7 +227,6 @@ export const examples = {
       items: [
         {
           name: 'gateway',
-          id: 'government-gateway',
           value: 'gov-gateway',
           text: 'Sign in with Government Gateway',
           hint: {
@@ -237,7 +235,6 @@ export const examples = {
         },
         {
           name: 'verify',
-          id: 'nhsuk-login',
           value: 'nhsuk-verify',
           text: 'Sign in with NHS.UK login',
           hint: {
@@ -340,7 +337,6 @@ export const examples = {
   },
   'with conditional content': {
     context: {
-      idPrefix: 'contact',
       name: 'contact',
       fieldset: {
         legend: {
@@ -359,7 +355,6 @@ export const examples = {
           conditional: {
             html: components.render('input', {
               context: {
-                id: 'email',
                 name: 'email',
                 spellcheck: false,
                 classes: 'nhsuk-u-width-two-thirds',
@@ -376,7 +371,6 @@ export const examples = {
           conditional: {
             html: components.render('input', {
               context: {
-                id: 'phone',
                 name: 'phone',
                 type: 'tel',
                 classes: 'nhsuk-u-width-two-thirds',
@@ -393,7 +387,6 @@ export const examples = {
           conditional: {
             html: components.render('input', {
               context: {
-                id: 'mobile',
                 name: 'mobile',
                 type: 'tel',
                 classes: 'nhsuk-u-width-two-thirds',
@@ -409,7 +402,6 @@ export const examples = {
   },
   'with conditional content, error message': {
     context: {
-      idPrefix: 'contact',
       name: 'contact',
       fieldset: {
         legend: {
@@ -431,7 +423,6 @@ export const examples = {
           conditional: {
             html: components.render('input', {
               context: {
-                id: 'email',
                 name: 'email',
                 spellcheck: false,
                 classes: 'nhsuk-u-width-two-thirds',
@@ -448,7 +439,6 @@ export const examples = {
           conditional: {
             html: components.render('input', {
               context: {
-                id: 'phone',
                 name: 'phone',
                 type: 'tel',
                 classes: 'nhsuk-u-width-two-thirds',
@@ -465,7 +455,6 @@ export const examples = {
           conditional: {
             html: components.render('input', {
               context: {
-                id: 'mobile',
                 name: 'mobile',
                 type: 'tel',
                 classes: 'nhsuk-u-width-two-thirds',
@@ -481,7 +470,6 @@ export const examples = {
   },
   'with conditional content, error message (nested)': {
     context: {
-      idPrefix: 'contact',
       name: 'contact',
       fieldset: {
         legend: {
@@ -501,7 +489,6 @@ export const examples = {
           conditional: {
             html: components.render('input', {
               context: {
-                id: 'email',
                 name: 'email',
                 spellcheck: false,
                 classes: 'nhsuk-u-width-two-thirds',
@@ -518,7 +505,6 @@ export const examples = {
           conditional: {
             html: components.render('input', {
               context: {
-                id: 'phone',
                 name: 'phone',
                 type: 'tel',
                 classes: 'nhsuk-u-width-two-thirds',
@@ -538,7 +524,6 @@ export const examples = {
           conditional: {
             html: components.render('input', {
               context: {
-                id: 'mobile',
                 name: 'mobile',
                 type: 'tel',
                 classes: 'nhsuk-u-width-two-thirds',
@@ -559,7 +544,6 @@ export const examples = {
   },
   'with "none of the above" option': {
     context: {
-      idPrefix: 'contact',
       name: 'contact',
       fieldset: {
         legend: {
@@ -578,7 +562,6 @@ export const examples = {
           conditional: {
             html: components.render('input', {
               context: {
-                id: 'email',
                 name: 'email',
                 spellcheck: false,
                 classes: 'nhsuk-u-width-two-thirds',
@@ -593,7 +576,6 @@ export const examples = {
           conditional: {
             html: components.render('input', {
               context: {
-                id: 'phone',
                 name: 'phone',
                 type: 'tel',
                 classes: 'nhsuk-u-width-two-thirds',
@@ -610,7 +592,6 @@ export const examples = {
           conditional: {
             html: components.render('input', {
               context: {
-                id: 'mobile',
                 name: 'mobile',
                 type: 'tel',
                 classes: 'nhsuk-u-width-two-thirds',
@@ -634,7 +615,6 @@ export const examples = {
   },
   'with "none of the above" option (named group)': {
     context: {
-      idPrefix: 'contact',
       name: 'contact',
       fieldset: {
         legend: {
@@ -654,7 +634,6 @@ export const examples = {
           conditional: {
             html: components.render('input', {
               context: {
-                id: 'email',
                 name: 'email',
                 spellcheck: false,
                 classes: 'nhsuk-u-width-two-thirds',
@@ -670,7 +649,6 @@ export const examples = {
           conditional: {
             html: components.render('input', {
               context: {
-                id: 'phone',
                 name: 'phone',
                 type: 'tel',
                 classes: 'nhsuk-u-width-two-thirds',
@@ -688,7 +666,6 @@ export const examples = {
           conditional: {
             html: components.render('input', {
               context: {
-                id: 'mobile',
                 name: 'mobile',
                 type: 'tel',
                 classes: 'nhsuk-u-width-two-thirds',
