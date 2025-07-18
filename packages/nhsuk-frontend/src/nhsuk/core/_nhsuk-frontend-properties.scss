@@ -1,3 +1,4 @@
+@use "settings/colours" as *;
 @use "settings/breakpoints" as *;
 @use "tools" as *;
 
@@ -9,5 +10,9 @@
   // CSS custom property for each breakpoint
   @each $name, $value in $nhsuk-breakpoints {
     --nhsuk-breakpoint-#{$name}: #{nhsuk-px-to-rem($value)};
+  }
+
+  @each $name, $value in $nhsuk-colors {
+    --nhsuk-color-#{$name}: #{$value};
   }
 }
