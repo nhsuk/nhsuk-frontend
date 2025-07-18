@@ -82,6 +82,7 @@ export class Header extends Component {
     this.$menuToggle = $menuToggle
     this.$menuList = document.createElement('ul')
 
+    // Save bound functions so we can remove event listeners when unnecessary
     this.handleEscapeKey = this.onEscapeKey.bind(this)
     this.handleUpdateNavigation = this.updateNavigation.bind(this)
     this.handleToggleMenu = this.toggleMenu.bind(this)

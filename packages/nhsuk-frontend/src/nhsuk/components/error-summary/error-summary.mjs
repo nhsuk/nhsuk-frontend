@@ -14,11 +14,11 @@ export class ErrorSummary extends Component {
   constructor($root, config = {}) {
     super($root)
 
-    this.$root.addEventListener('click', this.handleClick.bind(this))
-
     if (!config.disableAutoFocus) {
       this.$root.focus()
     }
+
+    this.$root.addEventListener('click', (event) => this.handleClick(event))
   }
 
   /**
