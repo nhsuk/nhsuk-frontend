@@ -14,10 +14,13 @@ describe('Character count', () => {
   /** @type {HTMLElement} */
   let $description
 
-  beforeEach(() => {
+  /**
+   * @param {keyof typeof examples} example
+   */
+  function initExample(example) {
     document.body.innerHTML = components.render(
       'character-count',
-      examples.default
+      examples[example]
     )
 
     $root = /** @type {HTMLElement} */ (
@@ -31,6 +34,10 @@ describe('Character count', () => {
     $description = document.getElementById(`${$textarea.id}-info`)
 
     jest.spyOn($textarea, 'addEventListener')
+  }
+
+  beforeEach(() => {
+    initExample('default')
   })
 
   describe('Initialisation via init function', () => {
@@ -107,6 +114,17 @@ describe('Character count', () => {
       )
     })
 
+    it('should throw with wrong input element type', () => {
+      const $div = document.createElement('div')
+      $div.classList.add('nhsuk-js-character-count')
+
+      $textarea.replaceWith($div)
+
+      expect(() => new CharacterCount($root)).toThrow(
+        `${CharacterCount.moduleName}: Form field (\`.nhsuk-js-character-count\`) is not of type HTMLTextareaElement or HTMLInputElement`
+      )
+    })
+
     it('should throw when initialised twice', () => {
       expect(() => {
         new CharacterCount($root)
@@ -119,15 +137,7 @@ describe('Character count', () => {
 
   describe('JavaScript configuration', () => {
     it('configures the number of characters using `data-maxlength`', () => {
-      document.body.innerHTML = components.render(
-        'character-count',
-        examples.default
-      )
-
-      const characterCount = new CharacterCount(
-        document.querySelector(`[data-module="${CharacterCount.moduleName}"]`)
-      )
-
+      const characterCount = new CharacterCount($root)
       expect(characterCount.config).toEqual({
         maxlength: 10,
         threshold: 0
@@ -135,15 +145,9 @@ describe('Character count', () => {
     })
 
     it('configures the number of words using `data-maxwords`', () => {
-      document.body.innerHTML = components.render(
-        'character-count',
-        examples['with word count']
-      )
+      initExample('with word count')
 
-      const characterCount = new CharacterCount(
-        document.querySelector(`[data-module="${CharacterCount.moduleName}"]`)
-      )
-
+      const characterCount = new CharacterCount($root)
       expect(characterCount.config).toEqual({
         maxwords: 10,
         threshold: 0
@@ -151,15 +155,9 @@ describe('Character count', () => {
     })
 
     it('configures the threshold using `data-threshold`', () => {
-      document.body.innerHTML = components.render(
-        'character-count',
-        examples['with threshold']
-      )
+      initExample('with threshold')
 
-      const characterCount = new CharacterCount(
-        document.querySelector(`[data-module="${CharacterCount.moduleName}"]`)
-      )
-
+      const characterCount = new CharacterCount($root)
       expect(characterCount.config).toEqual({
         maxlength: 10,
         threshold: 8

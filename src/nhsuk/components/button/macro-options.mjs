@@ -142,6 +142,12 @@ export const examples = {
       preventDoubleClick: true
     }
   },
+  'with double click not prevented': {
+    context: {
+      text: 'Save and continue',
+      preventDoubleClick: false
+    }
+  },
   'reverse': {
     layout: 'layouts/example-background-blue.njk',
     context: {

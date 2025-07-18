@@ -1,5 +1,5 @@
 import { components } from '@nhsuk/frontend-lib'
-import { getByRole } from '@testing-library/dom'
+import { fireEvent, getByRole } from '@testing-library/dom'
 import { outdent } from 'outdent'
 
 import { examples } from './macro-options.mjs'
@@ -174,7 +174,7 @@ describe('Radios', () => {
       expect($conditional).toHaveClass('nhsuk-radios__conditional--hidden')
 
       window.addEventListener('pageshow', () => initRadios())
-      window.dispatchEvent(new Event('pageshow'))
+      fireEvent.pageShow(window)
 
       // Conditional content visible
       expect($input).toHaveAttribute('aria-expanded', 'true')
