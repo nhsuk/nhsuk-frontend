@@ -53,21 +53,65 @@ export class Radios extends Component {
     // added to the page dynamically, so sync now too.
     this.syncAllConditionalReveals()
 
-    // Attach event handler to radioInputs
-    this.$inputs.forEach((radioButton) => {
-      radioButton.addEventListener('click', () =>
-        this.syncAllConditionalReveals()
-      )
-    })
+    // Handle events
+    this.$root.addEventListener('click', (event) => this.handleClick(event))
   }
 
   /**
-   * Update all conditional reveals to match checked state
+   * Sync the conditional reveal states for all radio buttons in this component.
    */
   syncAllConditionalReveals() {
-    this.$inputs.forEach((input) =>
-      toggleConditionalInput(input, 'nhsuk-radios__conditional--hidden')
+    this.$inputs.forEach(($input) =>
+      this.syncConditionalRevealWithInputState($input)
     )
+  }
+
+  /**
+   * Sync conditional reveal with the input state
+   *
+   * Synchronise the visibility of the conditional reveal, and its accessible
+   * state, with the input's checked state.
+   *
+   * @private
+   * @param {HTMLInputElement} $input - Radio input
+   */
+  syncConditionalRevealWithInputState($input) {
+    toggleConditionalInput($input, 'nhsuk-radios__conditional--hidden')
+  }
+
+  /**
+   * Toggle classes and attributes
+   *
+   * @param {MouseEvent} event - Click event
+   */
+  handleClick(event) {
+    const $clickedInput = event.target
+
+    // Ignore clicks on things that aren't radio buttons
+    if (
+      !($clickedInput instanceof HTMLInputElement) ||
+      $clickedInput.type !== 'radio'
+    ) {
+      return
+    }
+
+    // We only need to consider radios with conditional reveals, which will have
+    // aria-controls attributes.
+    const $allInputs = document.querySelectorAll(
+      'input[type="radio"][aria-controls]'
+    )
+
+    const $clickedInputForm = $clickedInput.form
+    const $clickedInputName = $clickedInput.name
+
+    $allInputs.forEach(($input) => {
+      const hasSameFormOwner = $input.form === $clickedInputForm
+      const hasSameName = $input.name === $clickedInputName
+
+      if (hasSameName && hasSameFormOwner) {
+        this.syncConditionalRevealWithInputState($input)
+      }
+    })
   }
 
   /**

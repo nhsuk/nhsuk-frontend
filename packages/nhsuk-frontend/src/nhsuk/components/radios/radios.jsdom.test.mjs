@@ -19,6 +19,7 @@ describe('Radios', () => {
       context: {
         id: 'email',
         name: 'email',
+        spellcheck: false,
         classes: 'nhsuk-u-width-two-thirds',
         label: {
           text: 'Email address'
@@ -30,6 +31,7 @@ describe('Radios', () => {
       context: {
         id: 'phone',
         name: 'phone',
+        type: 'tel',
         classes: 'nhsuk-u-width-two-thirds',
         label: {
           text: 'Phone number'
@@ -41,6 +43,7 @@ describe('Radios', () => {
       context: {
         id: 'mobile',
         name: 'mobile',
+        type: 'tel',
         classes: 'nhsuk-u-width-two-thirds',
         label: {
           text: 'Mobile phone number'
@@ -110,21 +113,17 @@ describe('Radios', () => {
 
     $inputs = [$input1, $input2, $input3]
 
-    jest.spyOn($input1, 'addEventListener')
-    jest.spyOn($input2, 'addEventListener')
-    jest.spyOn($input3, 'addEventListener')
+    jest.spyOn($root, 'addEventListener')
   })
 
   describe('Initialisation via init function', () => {
     it('should add event listeners', () => {
       initRadios()
 
-      for (const $input of $inputs) {
-        expect($input.addEventListener).toHaveBeenCalledWith(
-          'click',
-          expect.any(Function)
-        )
-      }
+      expect($root.addEventListener).toHaveBeenCalledWith(
+        'click',
+        expect.any(Function)
+      )
     })
 
     it('should throw with missing conditional content', () => {

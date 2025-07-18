@@ -1,0 +1,352 @@
+
+{% extends "layouts/page.njk" %}
+
+{% set title = "Conditional reveals" %}
+
+{% block content %}
+  <h1 class="nhsuk-heading-xl">{{ title }}</h1>
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      {% set emailHtml %}
+        {{ input({
+          id: "contact-by-email",
+          name: "contact-by-email",
+          type: "email",
+          spellcheck: false,
+          classes: "nhsuk-u-width-two-thirds",
+          label: {
+            text: "Email address"
+          }
+        }) }}
+      {% endset -%}
+
+      {% set phoneHtml %}
+        {{ input({
+          id: "contact-by-phone",
+          name: "contact-by-phone",
+          type: "tel",
+          classes: "nhsuk-u-width-two-thirds",
+          label: {
+            text: "Phone number"
+          }
+        }) }}
+      {% endset -%}
+
+      {% set textHtml %}
+        {{ input({
+          id: "contact-by-text",
+          name: "contact-by-text",
+          type: "tel",
+          classes: "nhsuk-u-width-two-thirds",
+          label: {
+            text: "Mobile phone number"
+          }
+        }) }}
+      {% endset -%}
+
+      <p class="nhsuk-body">
+        <a class="nhsuk-link" href="#">Focusable element</a>
+      </p>
+
+      {{ checkboxes({
+        idPrefix: "contact",
+        name: "contact",
+        fieldset: {
+          legend: {
+            text: "How would you like to be contacted?",
+            isPageHeading: true,
+            classes: "nhsuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: "Select all options that are relevant to you."
+        },
+        items: [
+          {
+            value: "email",
+            text: "Email",
+            conditional: {
+              html: emailHtml
+            }
+          },
+          {
+            value: "phone",
+            text: "Phone",
+            conditional: {
+              html: phoneHtml
+            }
+          },
+          {
+            value: "text message",
+            text: "Text message",
+            conditional: {
+              html: textHtml
+            }
+          }
+        ]
+      }) }}
+
+      {% set emailHtml %}
+        {{ input({
+          id: "radio-contact-by-email",
+          name: "radio-contact-by-email",
+          type: "email",
+          spellcheck: false,
+          classes: "nhsuk-u-width-two-thirds",
+          label: {
+            text: "Email address"
+          }
+        }) }}
+      {% endset -%}
+
+      {% set phoneHtml %}
+        {{ input({
+          id: "radio-contact-by-phone",
+          name: "radio-contact-by-phone",
+          type: "tel",
+          classes: "nhsuk-u-width-two-thirds",
+          label: {
+            text: "Phone number"
+          }
+        }) }}
+      {% endset -%}
+
+      {% set textHtml %}
+        {{ input({
+          id: "radio-contact-by-text",
+          name: "radio-contact-by-text",
+          type: "tel",
+          classes: "nhsuk-u-width-two-thirds",
+          label: {
+            text: "Mobile phone number"
+          }
+        }) }}
+      {% endset -%}
+
+      <p class="nhsuk-body">
+        <a class="nhsuk-link" href="#">Focusable element</a>
+      </p>
+
+      {{ radios({
+        idPrefix: "radio-contact",
+        name: "radio-contact",
+        fieldset: {
+          legend: {
+            text: "How would you prefer to be contacted?",
+            isPageHeading: true,
+            classes: "nhsuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: "Select one option."
+        },
+        items: [
+          {
+            value: "email",
+            text: "Email",
+            conditional: {
+              html: emailHtml
+            }
+          },
+          {
+            value: "phone",
+            text: "Phone",
+            conditional: {
+              html: phoneHtml
+            }
+          },
+          {
+            value: "text",
+            text: "Text message",
+            conditional: {
+              html: textHtml
+            }
+          }
+        ]
+      }) }}
+
+      <hr class="nhsuk-section-break nhsuk-section-break--l">
+
+      {% call fieldset({
+        legend: {
+          text: "Which colours do you like?",
+          classes: "nhsuk-fieldset__legend--l"
+        }
+      }) %}
+        <h2 class="nhsuk-heading-m">Primary colours</h2>
+
+        {{ checkboxes({
+          idPrefix: "colour-primary",
+          name: "colour",
+          items: [
+            {
+              value: "red",
+              text: "Red",
+              exclusiveGroup: "colour-primary"
+            },
+            {
+              value: "yellow",
+              text: "Yellow",
+              exclusiveGroup: "colour-primary",
+              conditional: {
+                html: '<p class="nhsuk-body">Orange is much nicer than yellow!</p>'
+              }
+            },
+            {
+              value: "blue",
+              text: "Blue",
+              exclusiveGroup: "colour-primary"
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "none-primary",
+              text: "None of the primary colours",
+              exclusive: true,
+              exclusiveGroup: "colour-primary"
+            }
+          ]
+        }) }}
+
+        <h2 class="nhsuk-heading-m">Secondary colours</h2>
+
+        {{ checkboxes({
+          idPrefix: "colour-secondary",
+          name: "colour",
+          items: [
+            {
+              value: "green",
+              text: "Green",
+              exclusiveGroup: "colour-secondary"
+            },
+            {
+              value: "purple",
+              text: "Purple",
+              exclusiveGroup: "colour-secondary"
+            },
+            {
+              value: "orange",
+              text: "Orange",
+              exclusiveGroup: "colour-secondary",
+              conditional: {
+                html: '<p class="nhsuk-body">I like orange too!</p>'
+              }
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "none-secondary",
+              text: "None of the secondary colours",
+              exclusive: true,
+              exclusiveGroup: "colour-secondary"
+            }
+          ]
+        }) }}
+
+        <h2 class="nhsuk-heading-m">Other colours</h2>
+
+        {{ checkboxes({
+          idPrefix: "colour-other",
+          name: "colour",
+          items: [
+            {
+              value: "imaginary",
+              text: "An imaginary colour"
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "none",
+              text: "None of the above",
+              exclusive: true
+            }
+          ]
+        }) }}
+      {% endcall %}
+
+      <hr class="nhsuk-section-break nhsuk-section-break--l">
+
+      {% call fieldset({
+        legend: {
+          text: "Which colour is your favourite?",
+          classes: "nhsuk-fieldset__legend--l"
+        }
+      }) %}
+        <h2 class="nhsuk-heading-m">Primary colours</h2>
+
+        {{ radios({
+          idPrefix: "fave-primary",
+          name: "fave",
+          items: [
+            {
+              value: "red",
+              text: "Red"
+            },
+            {
+              value: "yellow",
+              text: "Yellow",
+              conditional: {
+                html: '<p class="nhsuk-body">Orange is much nicer than yellow!</p>'
+              }
+            },
+            {
+              value: "blue",
+              text: "Blue"
+            }
+          ]
+        }) }}
+
+        <h2 class="nhsuk-heading-m">Secondary colours</h2>
+
+        {{ radios({
+          idPrefix: "fave-secondary",
+          name: "fave",
+          items: [
+            {
+              value: "green",
+              text: "Green"
+            },
+            {
+              value: "purple",
+              text: "Purple"
+            },
+            {
+              value: "orange",
+              text: "Orange",
+              conditional: {
+                html: '<p class="nhsuk-body">Orange is my favourite colour!</p>'
+              }
+            }
+          ]
+        }) }}
+
+        <h2 class="nhsuk-heading-m">Other colours</h2>
+
+        {{ radios({
+          idPrefix: "fave-other",
+          name: "fave",
+          items: [
+            {
+              value: "imaginary",
+              text: "An imaginary colour"
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "none",
+              text: "None of the above",
+              behaviour: "exclusive"
+            }
+          ]
+        }) }}
+      {% endcall %}
+
+    </div>
+  </div>
+{% endblock %}

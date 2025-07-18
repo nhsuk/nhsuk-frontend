@@ -1,8 +1,8 @@
 import { components } from '@nhsuk/frontend-lib'
 import { getByRole } from '@testing-library/dom'
-import { outdent } from 'outdent'
 
 import { Checkboxes, initCheckboxes } from './checkboxes.mjs'
+import { examples } from './macro-options.mjs'
 
 describe('Checkboxes', () => {
   /** @type {HTMLElement} */
@@ -11,86 +11,26 @@ describe('Checkboxes', () => {
   /** @type {HTMLDivElement[]} */
   let $conditionals
 
-  /** @type {HTMLInputElement[]} */
-  let $inputs
+  /** @type {HTMLElement} */
+  let $input1
 
-  beforeEach(() => {
-    const emailHtml = components.render('input', {
-      context: {
-        id: 'email',
-        name: 'email',
-        classes: 'nhsuk-u-width-two-thirds',
-        label: {
-          text: 'Email address'
-        }
-      }
-    })
+  /** @type {HTMLElement} */
+  let $input2
 
-    const phoneHtml = components.render('input', {
-      context: {
-        id: 'phone',
-        name: 'phone',
-        classes: 'nhsuk-u-width-two-thirds',
-        label: {
-          text: 'Phone number'
-        }
-      }
-    })
+  /** @type {HTMLElement} */
+  let $input3
 
-    const mobileHtml = components.render('input', {
-      context: {
-        id: 'mobile',
-        name: 'mobile',
-        classes: 'nhsuk-u-width-two-thirds',
-        label: {
-          text: 'Mobile phone number'
-        }
-      }
-    })
+  /** @type {HTMLElement} */
+  let $inputNone
 
-    document.body.innerHTML = outdent`
-      <form method="post" novalidate>
-        ${components.render('checkboxes', {
-          context: {
-            idPrefix: 'contact',
-            name: 'contact',
-            fieldset: {
-              legend: {
-                text: 'How would you prefer to be contacted?',
-                classes: 'nhsuk-fieldset__legend--l',
-                isPageHeading: 'true'
-              }
-            },
-            hint: {
-              text: 'Select all options that are relevant to you'
-            },
-            items: [
-              {
-                value: 'email',
-                text: 'Email',
-                conditional: {
-                  html: emailHtml
-                }
-              },
-              {
-                value: 'phone',
-                text: 'Phone',
-                conditional: {
-                  html: phoneHtml
-                }
-              },
-              {
-                value: 'text',
-                text: 'Text message',
-                conditional: {
-                  html: mobileHtml
-                }
-              }
-            ]
-          }
-        })}
-      </form>
-    `
+  /**
+   * @param {keyof typeof examples} exampleName
+   */
+  function initExample(exampleName) {
+    document.body.innerHTML = components.render(
+      'checkboxes',
+      examples[exampleName]
+    )
 
     $root = document.querySelector(`[data-module="${Checkboxes.moduleName}"]`)
 
@@ -98,35 +38,37 @@ describe('Checkboxes', () => {
       ...$root.querySelectorAll('.nhsuk-checkboxes__conditional')
     ]
 
-    const $input1 = getByRole($root, 'checkbox', {
+    $input1 = getByRole($root, 'checkbox', {
       name: 'Email'
     })
 
-    const $input2 = getByRole($root, 'checkbox', {
+    $input2 = getByRole($root, 'checkbox', {
       name: 'Phone'
     })
 
-    const $input3 = getByRole($root, 'checkbox', {
+    $input3 = getByRole($root, 'checkbox', {
       name: 'Text message'
     })
 
-    $inputs = [$input1, $input2, $input3]
+    $inputNone = getByRole($root, 'checkbox', {
+      name: 'None of the above'
+    })
 
-    jest.spyOn($input1, 'addEventListener')
-    jest.spyOn($input2, 'addEventListener')
-    jest.spyOn($input3, 'addEventListener')
-  })
+    jest.spyOn($root, 'addEventListener')
+  }
 
   describe('Initialisation via init function', () => {
+    beforeEach(() => {
+      initExample('with "none of the above" option')
+    })
+
     it('should add event listeners', () => {
       initCheckboxes()
 
-      for (const $input of $inputs) {
-        expect($input.addEventListener).toHaveBeenCalledWith(
-          'click',
-          expect.any(Function)
-        )
-      }
+      expect($root.addEventListener).toHaveBeenCalledWith(
+        'click',
+        expect.any(Function)
+      )
     })
 
     it('should throw with missing conditional content', () => {
@@ -138,9 +80,10 @@ describe('Checkboxes', () => {
     })
 
     it('should throw with missing checkboxes', () => {
-      for (const $input of $inputs) {
-        $input.remove()
-      }
+      $input1.remove()
+      $input2.remove()
+      $input3.remove()
+      $inputNone.remove()
 
       expect(() => initCheckboxes()).toThrow(
         `${Checkboxes.moduleName}: Form inputs (\`<input type="checkbox">\`) not found`
@@ -148,9 +91,9 @@ describe('Checkboxes', () => {
     })
 
     it('should not throw with missing checkbox `aria-controls` attribute', () => {
-      for (const $input of $inputs) {
-        $input.removeAttribute('aria-controls')
-      }
+      $input1.removeAttribute('aria-controls')
+      $input2.removeAttribute('aria-controls')
+      $input3.removeAttribute('aria-controls')
 
       expect(() => initCheckboxes()).not.toThrow()
     })
@@ -167,6 +110,10 @@ describe('Checkboxes', () => {
   })
 
   describe('Initialisation via class', () => {
+    beforeEach(() => {
+      initExample('with "none of the above" option')
+    })
+
     it('should not throw with $root element', () => {
       expect(() => new Checkboxes($root)).not.toThrow()
     })
@@ -204,6 +151,14 @@ describe('Checkboxes', () => {
   })
 
   describe('Conditional content', () => {
+    /** @type {HTMLElement[]} */
+    let $inputs = []
+
+    beforeEach(() => {
+      initExample('with "none of the above" option')
+      $inputs = [$input1, $input2, $input3]
+    })
+
     it('should be hidden by default', () => {
       initCheckboxes()
 
@@ -273,6 +228,96 @@ describe('Checkboxes', () => {
           'nhsuk-checkboxes__conditional--hidden'
         )
       }
+    })
+  })
+
+  describe('Exclusive checkbox', () => {
+    beforeEach(() => {
+      initExample('with "none of the above" option')
+    })
+
+    it('should uncheck other checkboxes', () => {
+      initCheckboxes()
+
+      // Tick all options
+      $input1.click()
+      $input2.click()
+      $input3.click()
+
+      expect($input1).toBeChecked()
+      expect($input2).toBeChecked()
+      expect($input3).toBeChecked()
+      expect($inputNone).not.toBeChecked()
+
+      // Tick "None of the above"
+      $inputNone.click()
+
+      expect($input1).not.toBeChecked()
+      expect($input2).not.toBeChecked()
+      expect($input3).not.toBeChecked()
+      expect($inputNone).toBeChecked()
+    })
+
+    it('should uncheck when other checkboxes are checked', () => {
+      initCheckboxes()
+
+      // Tick "None of the above"
+      $inputNone.click()
+
+      expect($input1).not.toBeChecked()
+      expect($input2).not.toBeChecked()
+      expect($input3).not.toBeChecked()
+      expect($inputNone).toBeChecked()
+
+      // Tick 1st option
+      $input1.click()
+
+      expect($inputNone).not.toBeChecked()
+    })
+  })
+
+  describe('Exclusive checkbox (named groups)', () => {
+    beforeEach(() => {
+      initExample('with "none of the above" option (named group)')
+    })
+
+    it('should uncheck other checkboxes', () => {
+      initCheckboxes()
+
+      // Tick all options
+      $input1.click()
+      $input2.click()
+      $input3.click()
+
+      expect($input1).toBeChecked()
+      expect($input2).toBeChecked()
+      expect($input3).toBeChecked()
+      expect($inputNone).not.toBeChecked()
+
+      // Tick "None of the above"
+      $inputNone.click()
+
+      expect($input1).not.toBeChecked()
+      expect($input2).not.toBeChecked()
+      expect($input3).not.toBeChecked()
+      expect($inputNone).toBeChecked()
+    })
+
+    it('should uncheck when other checkboxes are checked', () => {
+      initCheckboxes()
+
+      // Tick "None of the above"
+      $inputNone.click()
+
+      expect($input1).not.toBeChecked()
+      expect($input2).not.toBeChecked()
+      expect($input3).not.toBeChecked()
+      expect($inputNone).toBeChecked()
+
+      // Tick 1st option
+      $input1.click()
+
+      expect($inputNone).not.toBeChecked()
     })
   })
 })
