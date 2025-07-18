@@ -154,11 +154,11 @@ export class CharacterCount extends Component {
    * Bind input propertychange to the elements and update based on the change
    */
   bindChangeEvents() {
-    this.$textarea.addEventListener('keyup', this.handleKeyUp.bind(this))
+    this.$textarea.addEventListener('keyup', () => this.handleKeyUp())
 
     // Bind focus/blur events to start/stop polling
-    this.$textarea.addEventListener('focus', this.handleFocus.bind(this))
-    this.$textarea.addEventListener('blur', this.handleBlur.bind(this))
+    this.$textarea.addEventListener('focus', () => this.handleFocus())
+    this.$textarea.addEventListener('blur', () => this.handleBlur())
   }
 
   /**
