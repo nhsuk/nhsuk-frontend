@@ -64,6 +64,7 @@ module.exports = {
   engineOptions: {
     args: [
       '--deterministic-mode',
+      '--disable-skia-graphite',
       '--disable-skia-runtime-opts',
       '--font-render-hinting=medium',
       '--force-device-scale-factor=1'
@@ -76,7 +77,6 @@ module.exports = {
     headless: HEADLESS !== 'false'
   },
   fileNameTemplate: '{scenarioLabel}_{viewportLabel}',
-  misMatchThreshold: 0.8,
   onBeforeScript: 'playwright/onBefore.js',
   onReadyScript: 'playwright/onReady.js',
   paths: {
@@ -88,6 +88,9 @@ module.exports = {
   },
   readySelector: 'body.nhsuk-frontend-supported',
   report: ['browser'],
+  resembleOutputOptions: {
+    ignoreAntialiasing: true
+  },
   scenarios: [
     {
       label: 'Action link',
