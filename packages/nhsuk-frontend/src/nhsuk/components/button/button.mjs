@@ -21,8 +21,8 @@ export class Button extends Component {
      * Initialise an event listener for keydown at document level
      * this will help listening for later inserted elements with a role="button"
      */
-    this.$root.addEventListener('keydown', this.handleKeyDown.bind(this))
-    this.$root.addEventListener('click', this.debounce.bind(this))
+    this.$root.addEventListener('keydown', (event) => this.handleKeyDown(event))
+    this.$root.addEventListener('click', (event) => this.debounce(event))
   }
 
   /**
