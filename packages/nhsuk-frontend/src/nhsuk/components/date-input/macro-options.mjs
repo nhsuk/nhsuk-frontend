@@ -159,8 +159,6 @@ export const params = {
 export const examples = {
   'default': {
     context: {
-      id: 'dob',
-      namePrefix: 'dob',
       fieldset: {
         legend: {
           text: 'What is your date of birth?'
@@ -168,14 +166,14 @@ export const examples = {
       },
       hint: {
         text: 'For example, 31 3 1980'
-      }
+      },
+      id: 'example',
+      namePrefix: 'example'
     },
     screenshot: true
   },
   'with autocomplete attribute': {
     context: {
-      id: 'dob-with-autocomplete-attribute',
-      namePrefix: 'dob-with-autocomplete',
       fieldset: {
         legend: {
           text: 'What is your date of birth?'
@@ -184,6 +182,8 @@ export const examples = {
       hint: {
         text: 'For example, 31 3 1980'
       },
+      id: 'example',
+      namePrefix: 'example',
       items: [
         {
           name: 'day',
@@ -205,8 +205,6 @@ export const examples = {
   },
   'with errors': {
     context: {
-      id: 'dob-day-error',
-      namePrefix: 'dob-day-error',
       fieldset: {
         legend: {
           text: 'What is your date of birth?'
@@ -218,6 +216,8 @@ export const examples = {
       errorMessage: {
         text: 'Error message goes here'
       },
+      id: 'example',
+      namePrefix: 'example',
       items: [
         {
           name: 'day',
@@ -236,7 +236,6 @@ export const examples = {
   },
   'with multiple errors': {
     context: {
-      id: 'dob-errors',
       fieldset: {
         legend: {
           text: 'What is your date of birth?'
@@ -248,6 +247,8 @@ export const examples = {
       errorMessage: {
         text: 'Error message goes here'
       },
+      id: 'example',
+      namePrefix: 'example',
       items: [
         {
           name: 'day',
@@ -267,8 +268,6 @@ export const examples = {
   },
   'with values': {
     context: {
-      id: 'dob',
-      namePrefix: 'dob',
       fieldset: {
         legend: {
           text: 'What is your date of birth?'
@@ -277,6 +276,8 @@ export const examples = {
       hint: {
         text: 'For example, 31 3 1980'
       },
+      id: 'example',
+      namePrefix: 'example',
       values: {
         day: '5',
         month: '8',
@@ -286,8 +287,6 @@ export const examples = {
   },
   'month and year with values': {
     context: {
-      id: 'dob',
-      namePrefix: 'dob',
       fieldset: {
         legend: {
           text: 'When did you start your job?'
@@ -296,6 +295,8 @@ export const examples = {
       hint: {
         text: 'For example, 11 2023'
       },
+      id: 'example',
+      namePrefix: 'example',
       values: {
         month: '8',
         year: '2024'

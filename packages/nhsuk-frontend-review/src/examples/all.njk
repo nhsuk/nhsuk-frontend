@@ -800,8 +800,8 @@
         "label": {
           "text": "NHS number"
         },
-        "classes": "nhsuk-input--width-20",
-        "name": "test-name"
+        "name": "nhs-number",
+        "classes": "nhsuk-input--width-20"
       }) }}
 
       {{ input({
@@ -811,16 +811,15 @@
         "hint": {
           "text": "It's a 10-digit number that's on any letter the NHS has sent you, for example, 485 777 3456"
         },
-        "classes": "nhsuk-input--width-20",
-        "name": "test-name-3",
         "errorMessage": {
-          "text": "Error message goes here"
-        }
+          "text": "Enter your NHS number"
+        },
+        "name": "nhs-number-hint",
+        "classes": "nhsuk-input--width-20"
       }) }}
 
       <form method="post" novalidate>
         {{ checkboxes({
-          "name": "nationality",
           "fieldset": {
             "legend": {
               "text": "What is your nationality?"
@@ -829,6 +828,7 @@
           "hint": {
             "text": "If you have more than 1 nationality, select all options that are relevant to you"
           },
+          "name": "nationality",
           "values": ["british"],
           "items": [
             {
@@ -848,7 +848,6 @@
       </form>
 
       {{ radios({
-        "name": "example",
         "fieldset": {
           "legend": {
             "text": "Have you changed your name?"
@@ -857,6 +856,7 @@
         "hint": {
           "text": "This includes changing your last name or spelling your name differently"
         },
+        "name": "example",
         "value": "no",
         "items": [
           {
@@ -908,21 +908,21 @@
       }) }}
 
       {{ characterCount({
-        "name": "more-detail-character-count",
-        "maxlength": 200,
         "label": {
           "text": "Can you provide more detail?"
         },
         "hint": {
           "text": "Do not include personal information, like your name, date of birth or NHS number"
-        }
+        },
+        "name": "more-detail-character-count",
+        "maxlength": 200
       }) }}
 
       {{ select({
-        "name": "sort",
         "label": {
           "text": "Sort by"
         },
+        "name": "sort",
         "value": "updated",
         "items": [
           {

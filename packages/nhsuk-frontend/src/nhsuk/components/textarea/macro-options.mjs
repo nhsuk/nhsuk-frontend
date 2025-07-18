@@ -101,37 +101,37 @@ export const params = {
 export const examples = {
   'default': {
     context: {
-      name: 'more-detail',
       label: {
         text: 'Can you provide more detail?'
       },
       hint: {
         text: 'Do not include personal information, like your name, date of birth or NHS number'
-      }
+      },
+      name: 'example'
     },
     screenshot: true
   },
   'with error message': {
     context: {
-      name: 'no-ni-reason',
       label: {
         text: "Why can't you provide an NHS number?"
       },
       errorMessage: {
         text: 'You must provide an explanation'
-      }
+      },
+      name: 'example'
     },
     screenshot: {
       states: ['focus'],
-      selector: '#no-ni-reason'
+      selector: '#example'
     }
   },
   'with autocomplete attribute': {
     context: {
-      name: 'address',
       label: {
         text: 'Full address'
       },
+      name: 'example',
       autocomplete: 'street-address'
     }
   }

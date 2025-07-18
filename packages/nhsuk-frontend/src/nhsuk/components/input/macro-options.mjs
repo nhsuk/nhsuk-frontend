@@ -130,7 +130,7 @@ export const examples = {
       label: {
         text: 'NHS number'
       },
-      name: 'test-name'
+      name: 'example'
     },
     screenshot: true
   },
@@ -157,11 +157,11 @@ export const examples = {
       hint: {
         text: "It's a 10-digit number that's on any letter the NHS has sent you, for example, 485 777 3456"
       },
-      name: 'example',
-      classes: 'nhsuk-input--width-10',
       errorMessage: {
         text: 'Error message goes here'
-      }
+      },
+      name: 'example',
+      classes: 'nhsuk-input--width-10'
     },
     screenshot: {
       states: ['focus'],
@@ -177,7 +177,7 @@ export const examples = {
       hint: {
         text: "It's a 10-digit number that's on any letter the NHS has sent you, for example, 485 777 3456"
       },
-      name: 'test-width-10',
+      name: 'example',
       classes: 'nhsuk-input--width-10'
     },
     screenshot: true
@@ -188,7 +188,7 @@ export const examples = {
         text: 'What is the cost in pounds?',
         classes: 'nhsuk-label--l'
       },
-      name: 'test-name-4',
+      name: 'example',
       prefix: '£',
       classes: 'nhsuk-input--width-5'
     },
@@ -200,7 +200,7 @@ export const examples = {
         text: 'What is the weight in kilograms?',
         classes: 'nhsuk-label--l'
       },
-      name: 'test-name-5',
+      name: 'example',
       suffix: 'kg',
       classes: 'nhsuk-input--width-5'
     },
@@ -212,7 +212,7 @@ export const examples = {
         text: 'What is the cost per item, in pounds?',
         classes: 'nhsuk-label--l'
       },
-      name: 'test-name-6',
+      name: 'example',
       prefix: '£',
       suffix: 'per item',
       classes: 'nhsuk-input--width-5'
@@ -224,7 +224,7 @@ export const examples = {
       label: {
         text: 'Postcode'
       },
-      name: 'postcode',
+      name: 'example',
       autocomplete: 'postal-code',
       classes: 'nhsuk-input--width-5'
     },
@@ -236,13 +236,13 @@ export const examples = {
         text: 'What is the cost per item, in pounds?',
         classes: 'nhsuk-label--l'
       },
-      name: 'test-name-7',
-      prefix: '£',
-      suffix: 'per item',
-      classes: 'nhsuk-input--width-5',
       errorMessage: {
         text: 'Enter a cost per item, in pounds'
-      }
+      },
+      name: 'example',
+      prefix: '£',
+      suffix: 'per item',
+      classes: 'nhsuk-input--width-5'
     },
     screenshot: true
   }

@@ -65,7 +65,7 @@ describe('Character count', () => {
       $description.remove()
 
       expect(() => new CharacterCount($root)).toThrow(
-        `${CharacterCount.moduleName}: Count message (\`id="more-detail-info"\`) not found`
+        `${CharacterCount.moduleName}: Count message (\`id="example-info"\`) not found`
       )
     })
 
