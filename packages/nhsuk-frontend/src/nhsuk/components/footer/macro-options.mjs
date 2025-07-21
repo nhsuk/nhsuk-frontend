@@ -8,65 +8,106 @@ export const name = 'Footer'
  * @satisfies {{ [param: string]: MacroParam }}
  */
 export const params = {
-  links: {
+  navigation: {
     type: 'array',
     required: false,
-    description: 'Contains the array of the first column of footer link items.',
+    description: 'Contains groups of footer navigation links.',
     params: {
-      href: {
+      title: {
         type: 'string',
         required: false,
-        description:
-          'Href attribute for a footer link item in the first column.'
+        description: 'Title for group of footer navigation links.'
       },
-      text: {
-        type: 'string',
-        required: true,
-        description: 'The label for a footer link item in the first column.'
+      items: {
+        type: 'array',
+        required: false,
+        description:
+          'Contains the array of footer navigation link items for this group.',
+        params: {
+          href: {
+            type: 'string',
+            required: true,
+            description: 'Footer navigation link `href` attribute.'
+          },
+          text: {
+            type: 'string',
+            required: true,
+            description: 'Footer navigation link text.'
+          },
+          attributes: {
+            type: 'object',
+            required: false,
+            description:
+              'HTML attributes (for example data attributes) to add to the anchor in the footer meta section.'
+          }
+        }
       }
     }
   },
-  linksColumn2: {
-    type: 'array',
+  meta: {
+    type: 'object',
     required: false,
-    description:
-      'Contains the array of the second column of footer link items.',
-    params: {
-      href: {
-        type: 'string',
-        required: false,
-        description:
-          'Href attribute for a footer link item in the second column.'
-      },
-      text: {
-        type: 'string',
-        required: true,
-        description: 'The label for a footer link item in the second column.'
-      }
-    }
-  },
-  linksColumn3: {
-    type: 'array',
-    required: false,
-    description: 'Contains the array of the third column of footer link items.',
-    params: {
-      href: {
-        type: 'string',
-        required: false,
-        description:
-          'Href attribute for a footer link item in the third column.'
-      },
-      text: {
-        type: 'string',
-        required: true,
-        description: 'The label for a footer link item in the third column.'
+    visuallyHiddenTitle: {
+      type: 'string',
+      required: 'false',
+      description:
+        'Title for meta `items` links. Defaults to `"Support links"`.'
+    },
+    html: {
+      type: 'string',
+      required: false,
+      description:
+        'HTML to add to the meta section of the footer, which will appear below any links specified using meta `items`.'
+    },
+    text: {
+      type: 'string',
+      required: false,
+      description:
+        'Text to add to the meta section of the footer, which will appear below any links specified using meta `items`. If meta `html` is specified, this option is ignored.'
+    },
+    items: {
+      type: 'array',
+      required: false,
+      description: 'Contains the array of key policy footer link items.',
+      params: {
+        href: {
+          type: 'string',
+          required: true,
+          description: 'Footer meta link `href` attribute.'
+        },
+        text: {
+          type: 'string',
+          required: true,
+          description: 'Footer meta link text.'
+        },
+        attributes: {
+          type: 'object',
+          required: false,
+          description:
+            'HTML attributes (for example data attributes) to add to the footer meta link.'
+        }
       }
     }
   },
   copyright: {
-    type: 'string',
+    type: 'object',
     required: false,
-    description: 'Optional text for the copyright notice in the footer.'
+    description:
+      'The copyright information in the footer component, this defaults to `"© NHS England"`.',
+    params: {
+      text: {
+        type: 'string',
+        required: false,
+        description:
+          'If `html` is set, this is not required. If `html` is provided, the `text` option will be ignored. If neither are provided, `"© NHS England"` is used.'
+      },
+      html: {
+        type: 'string',
+        required: false,
+        description:
+          'If `text` is set, this is not required. If `html` is provided, the `text` option will be ignored. If neither are provided, `"© NHS England"` is used.'
+      }
+    }
   },
   containerClasses: {
     type: 'string',
@@ -84,23 +125,6 @@ export const params = {
     required: false,
     description:
       'HTML attributes (for example data attributes) to add to the footer container.'
-  },
-  metaLinks: {
-    type: 'array',
-    required: false,
-    description: 'Contains the array of key policy footer link items.',
-    params: {
-      href: {
-        type: 'string',
-        required: false,
-        description: 'Href attribute for a key policy footer link item.'
-      },
-      text: {
-        type: 'string',
-        required: true,
-        description: 'The label for a key policy footer link item.'
-      }
-    }
   }
 }
 
@@ -116,29 +140,109 @@ export const examples = {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
-  'with links': {
+  'with custom copyright text': {
     layout: 'layouts/example-full-width.njk',
     context: {
-      links: [
+      copyright: {
+        text: '© East London NHS Foundation Trust'
+      }
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+    }
+  },
+  'with meta (links only)': {
+    layout: 'layouts/example-full-width.njk',
+    context: {
+      meta: {
+        items: [
+          {
+            href: '#',
+            text: 'About us'
+          },
+          {
+            href: '#',
+            text: 'Give us feedback'
+          },
+          {
+            href: '#',
+            text: 'Accessibility statement'
+          },
+          {
+            href: '#',
+            text: 'Our policies'
+          },
+          {
+            href: '#',
+            text: 'Cookies'
+          }
+        ]
+      }
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+    }
+  },
+  'with meta (links and text)': {
+    layout: 'layouts/example-full-width.njk',
+    context: {
+      meta: {
+        text: `All content is available under the Open Government Licence v3.0, except where otherwise stated.`,
+        items: [
+          {
+            href: '#',
+            text: 'About us'
+          },
+          {
+            href: '#',
+            text: 'Give us feedback'
+          },
+          {
+            href: '#',
+            text: 'Accessibility statement'
+          },
+          {
+            href: '#',
+            text: 'Our policies'
+          },
+          {
+            href: '#',
+            text: 'Cookies'
+          }
+        ]
+      }
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+    }
+  },
+  'with single navigation group': {
+    layout: 'layouts/example-full-width.njk',
+    context: {
+      navigation: [
         {
-          href: '#',
-          text: 'Accessibility statement'
-        },
-        {
-          href: '#',
-          text: 'Give us feedback'
-        },
-        {
-          href: '#',
-          text: 'Cookies'
-        },
-        {
-          href: '#',
-          text: 'Privacy policy'
-        },
-        {
-          href: '#',
-          text: 'Terms and conditions'
+          items: [
+            {
+              href: '#',
+              text: 'Accessibility statement'
+            },
+            {
+              href: '#',
+              text: 'Give us feedback'
+            },
+            {
+              href: '#',
+              text: 'Cookies'
+            },
+            {
+              href: '#',
+              text: 'Privacy policy'
+            },
+            {
+              href: '#',
+              text: 'Terms and conditions'
+            }
+          ]
         }
       ]
     },
@@ -146,51 +250,112 @@ export const examples = {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
-  'with links and meta links': {
+  'with multiple navigation groups': {
     layout: 'layouts/example-full-width.njk',
     context: {
-      links: [
+      copyright: {
+        text: '© Crown copyright'
+      },
+      navigation: [
         {
-          href: '#',
-          text: 'Accessibility statement'
+          items: [
+            {
+              href: '#',
+              text: 'Home'
+            },
+            {
+              href: '#',
+              text: 'Health A to Z'
+            },
+            {
+              href: '#',
+              text: 'Live Well'
+            },
+            {
+              href: '#',
+              text: 'Mental health'
+            },
+            {
+              href: '#',
+              text: 'Care and support'
+            },
+            {
+              href: '#',
+              text: 'Accessibility statement'
+            },
+            {
+              href: '#',
+              text: 'Pregnancy'
+            },
+            {
+              href: '#',
+              text: 'NHS services'
+            },
+            {
+              href: '#',
+              text: 'Coronavirus (COVID-19)'
+            }
+          ]
         },
         {
-          href: '#',
-          text: 'Give us feedback'
+          items: [
+            {
+              href: '#',
+              text: 'NHS App'
+            },
+            {
+              href: '#',
+              text: 'Find my NHS number'
+            },
+            {
+              href: '#',
+              text: 'Your health records'
+            },
+            {
+              href: '#',
+              text: 'About the NHS'
+            },
+            {
+              href: '#',
+              text: 'Healthcare abroad'
+            }
+          ]
         },
         {
-          href: '#',
-          text: 'Cookies'
+          items: [
+            {
+              href: '#',
+              text: 'Other NHS websites'
+            },
+            {
+              href: '#',
+              text: 'Profile editor login'
+            }
+          ]
         },
         {
-          href: '#',
-          text: 'Privacy policy'
-        },
-        {
-          href: '#',
-          text: 'Terms and conditions'
-        }
-      ],
-      metaLinks: [
-        {
-          href: '#',
-          text: 'About us'
-        },
-        {
-          href: '#',
-          text: 'Give us feedback'
-        },
-        {
-          href: '#',
-          text: 'Accessibility statement'
-        },
-        {
-          href: '#',
-          text: 'Our policies'
-        },
-        {
-          href: '#',
-          text: 'Cookies'
+          items: [
+            {
+              href: '#',
+              text: 'About us'
+            },
+            {
+              href: '#',
+              text: 'Give us feedback'
+            },
+            {
+              href: '#',
+              text: 'Accessibility statement'
+            },
+            {
+              href: '#',
+              text: 'Our policies'
+            },
+            {
+              href: '#',
+              text: 'Cookies'
+            }
+          ]
         }
       ]
     },
@@ -198,99 +363,60 @@ export const examples = {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
-  'with columns': {
+  'with multiple titled navigation groups': {
     layout: 'layouts/example-full-width.njk',
     context: {
-      links: [
+      navigation: [
         {
-          href: '#',
-          text: 'Home'
+          title: 'Legal',
+          items: [
+            {
+              href: '#',
+              text: 'Looking after your data'
+            },
+            {
+              href: '#',
+              text: 'Freedom of information'
+            },
+            {
+              href: '#',
+              text: 'Modern Slavery and human trafficking statement'
+            }
+          ]
         },
         {
-          href: '#',
-          text: 'Health A to Z'
+          title: 'Get in touch',
+          items: [
+            {
+              href: '#',
+              text: 'Contact us'
+            },
+            {
+              href: '#',
+              text: 'Press office'
+            },
+            {
+              href: '#',
+              text: 'Tell us what you think of our website'
+            },
+            {
+              href: '#',
+              text: 'RSS feeds'
+            }
+          ]
         },
         {
-          href: '#',
-          text: 'Live Well'
-        },
-        {
-          href: '#',
-          text: 'Mental health'
-        },
-        {
-          href: '#',
-          text: 'Care and support'
-        },
-        {
-          href: '#',
-          text: 'Accessibility statement'
-        },
-        {
-          href: '#',
-          text: 'Pregnancy'
-        },
-        {
-          href: '#',
-          text: 'NHS services'
-        },
-        {
-          href: '#',
-          text: 'Coronavirus (COVID-19)'
-        }
-      ],
-      linksColumn2: [
-        {
-          href: '#',
-          text: 'NHS App'
-        },
-        {
-          href: '#',
-          text: 'Find my NHS number'
-        },
-        {
-          href: '#',
-          text: 'Your health records'
-        },
-        {
-          href: '#',
-          text: 'About the NHS'
-        },
-        {
-          href: '#',
-          text: 'Healthcare abroad'
-        }
-      ],
-      linksColumn3: [
-        {
-          href: '#',
-          text: 'Other NHS websites'
-        },
-        {
-          href: '#',
-          text: 'Profile editor login'
-        }
-      ],
-      metaLinks: [
-        {
-          href: '#',
-          text: 'About us'
-        },
-        {
-          href: '#',
-          text: 'Give us feedback'
-        },
-        {
-          href: '#',
-          text: 'Accessibility statement'
-        },
-        {
-          href: '#',
-          text: 'Our policies'
-        },
-        {
-          href: '#',
-          text: 'Cookies'
+          title: 'Follow us',
+          items: [
+            {
+              href: '#',
+              text: 'LinkedIn'
+            },
+            {
+              href: '#',
+              text: 'YouTube'
+            }
+          ]
         }
       ]
     },
@@ -298,32 +424,112 @@ export const examples = {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
-  'with custom copyright statement': {
+  'with meta and navigation': {
     layout: 'layouts/example-full-width.njk',
     context: {
-      copyright: '© East London NHS Foundation Trust',
-      links: [
+      navigation: [
         {
-          href: '#',
-          text: 'Accessibility statement'
+          items: [
+            {
+              href: '#',
+              text: 'Home'
+            },
+            {
+              href: '#',
+              text: 'Health A to Z'
+            },
+            {
+              href: '#',
+              text: 'Live Well'
+            },
+            {
+              href: '#',
+              text: 'Mental health'
+            },
+            {
+              href: '#',
+              text: 'Care and support'
+            },
+            {
+              href: '#',
+              text: 'Accessibility statement'
+            },
+            {
+              href: '#',
+              text: 'Pregnancy'
+            },
+            {
+              href: '#',
+              text: 'NHS services'
+            },
+            {
+              href: '#',
+              text: 'Coronavirus (COVID-19)'
+            }
+          ]
         },
         {
-          href: '#',
-          text: 'Give us feedback'
+          items: [
+            {
+              href: '#',
+              text: 'NHS App'
+            },
+            {
+              href: '#',
+              text: 'Find my NHS number'
+            },
+            {
+              href: '#',
+              text: 'Your health records'
+            },
+            {
+              href: '#',
+              text: 'About the NHS'
+            },
+            {
+              href: '#',
+              text: 'Healthcare abroad'
+            }
+          ]
         },
         {
-          href: '#',
-          text: 'Cookies'
-        },
-        {
-          href: '#',
-          text: 'Privacy policy'
-        },
-        {
-          href: '#',
-          text: 'Terms and conditions'
+          items: [
+            {
+              href: '#',
+              text: 'Other NHS websites'
+            },
+            {
+              href: '#',
+              text: 'Profile editor login'
+            }
+          ]
         }
-      ]
+      ],
+      meta: {
+        html: `<p class="nhsuk-body-s">All content is available under the <a class="nhsuk-footer__list-item-link" href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license">Open Government Licence v3.0</a>, except where otherwise stated.</p>`,
+        items: [
+          {
+            href: '#',
+            text: 'About us'
+          },
+          {
+            href: '#',
+            text: 'Give us feedback'
+          },
+          {
+            href: '#',
+            text: 'Accessibility statement'
+          },
+          {
+            href: '#',
+            text: 'Our policies'
+          },
+          {
+            href: '#',
+            text: 'Cookies'
+          }
+        ]
+      }
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
