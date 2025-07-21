@@ -1015,37 +1015,43 @@
 
 {% block footer %}
   {{ footer({
-    "links": [
+    navigation: [
       {
-        "href": "https://www.nhs.uk/nhs-sites",
-        "text": "NHS sites"
-      },
-      {
-        "href": "https://www.nhs.uk/about-us",
-        "text": "About us"
-      },
-      {
-        "href": "https://www.nhs.uk/give-feedback-about-the-nhs-website/",
-        "text": "Give us feedback"
-      },
-      {
-        "href": "https://www.nhs.uk/Personalisation/Login.aspx",
-        "text": "Profile editor login"
+        items: [
+          {
+            href: "https://www.nhs.uk/nhs-sites",
+            text: "NHS sites"
+          },
+          {
+            href: "https://www.nhs.uk/about-us",
+            text: "About us"
+          },
+          {
+            href: "https://www.nhs.uk/give-feedback-about-the-nhs-website/",
+            text: "Give us feedback"
+          },
+          {
+            href: "https://www.nhs.uk/Personalisation/Login.aspx",
+            text: "Profile editor login"
+          }
+        ]
       }
     ],
-    "metaLinks": [
-      {
-        "href": "https://www.nhs.uk/about-us/sitemap/",
-        "text": "Sitemap"
-      },
-      {
-        'href': 'https://www.nhs.uk/accessibility/',
-        'text': 'Accessibility'
-      },
-      {
-        "href": "https://www.nhs.uk/our-policies/",
-        "text": "Our policies"
-      }
-    ]
+    meta: {
+      items: [
+        {
+          href: "https://www.nhs.uk/about-us/sitemap/",
+          text: "Sitemap"
+        },
+        {
+          href: 'https://www.nhs.uk/accessibility/',
+          text: 'Accessibility'
+        },
+        {
+          href: "https://www.nhs.uk/our-policies/",
+          text: "Our policies"
+        }
+      ]
+    }
   }) }}
 {% endblock %}
