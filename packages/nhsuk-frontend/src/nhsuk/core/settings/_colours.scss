@@ -39,25 +39,6 @@
   @return color.mix(black, $color, $percentage);
 }
 
-/// Transparent Shade function
-///
-/// Generates a semi-transparent shaded version of a given color.
-///
-/// This wraps the `nhsuk-shade` function and applies an alpha channel.
-///
-/// @param {Color} $color - The base color to shade.
-/// @param {Number} $shade-percent - The percentage to darken the color by.
-/// @param {Number} $alpha - The alpha transparency (0 to 1).
-///
-/// @return {Color} A shaded RGBA color.
-///
-/// @example scss
-///   nhsuk-transparent-shade($color_nhsuk-blue, 50%, 0.1);
-///
-@function nhsuk-transparent-shade($color, $shade-percent, $alpha) {
-  @return rgba(nhsuk-shade($color, $shade-percent), $alpha);
-}
-
 // Central colour map
 
 $nhsuk-colors: (
@@ -98,7 +79,7 @@ $nhsuk-colors: (
 
   // Transparency
   "transparent-white-20": rgba(#ffffff, 0.2),
-  "transparent-blue-50": #{nhsuk-transparent-shade(nhsuk-shade(#005eb8, 50%), 50%, 0.1)},
+  "transparent-blue-50": #{rgba(nhsuk-shade(#005eb8, 50%), 0.1)},
 
   // Derived colors for semantic purposes
   "link-active-color": #{nhsuk-shade(#005eb8, 50%)},
