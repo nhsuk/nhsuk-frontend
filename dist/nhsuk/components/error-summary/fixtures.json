@@ -1,0 +1,35 @@
+{
+  "name": "Error summary",
+  "component": "error-summary",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "titleText": "There is a problem",
+        "errorList": [
+          {
+            "text": "Date of birth must be in the past",
+            "href": "#example-day"
+          }
+        ]
+      },
+      "screenshot": false,
+      "html": "<div class=\"nhsuk-error-summary\" aria-labelledby=\"error-summary-title\" role=\"alert\" tabindex=\"-1\" data-module=\"nhsuk-error-summary\">\n  <h2 class=\"nhsuk-error-summary__title\" id=\"error-summary-title\">\n    There is a problem\n  </h2>\n  <div class=\"nhsuk-error-summary__body\">\n    <ul class=\"nhsuk-list nhsuk-error-summary__list\" role=\"list\">      <li>        <a href=\"#example-day\">Date of birth must be in the past</a>\n</li>    </ul>\n  </div>\n</div>"
+    },
+    {
+      "name": "with description",
+      "context": {
+        "titleText": "There is a problem",
+        "descriptionText": "Describe the errors and how to correct them",
+        "errorList": [
+          {
+            "text": "Date of birth must be in the past",
+            "href": "#example-day"
+          }
+        ]
+      },
+      "screenshot": true,
+      "html": "<div class=\"nhsuk-error-summary\" aria-labelledby=\"error-summary-title\" role=\"alert\" tabindex=\"-1\" data-module=\"nhsuk-error-summary\">\n  <h2 class=\"nhsuk-error-summary__title\" id=\"error-summary-title\">\n    There is a problem\n  </h2>\n  <div class=\"nhsuk-error-summary__body\">\n      <p>Describe the errors and how to correct them</p>\n    <ul class=\"nhsuk-list nhsuk-error-summary__list\" role=\"list\">      <li>        <a href=\"#example-day\">Date of birth must be in the past</a>\n</li>    </ul>\n  </div>\n</div>"
+    }
+  ]
+}

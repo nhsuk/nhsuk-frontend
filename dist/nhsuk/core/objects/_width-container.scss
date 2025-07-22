@@ -1,0 +1,71 @@
+@use "../settings" as *;
+@use "../tools" as *;
+
+////
+/// Page width for the grid system
+///
+/// @group objects
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+////
+
+////
+/// Width container mixin
+///
+/// Used to create page width and custom width container classes.
+///
+/// @param {String} $width [$nhsuk-page-width] - Width in pixels
+///
+/// @example scss - Creating a 1200px wide container class
+///   .app-width-container--wide {
+///     @include nhsuk-width-container(1200px);
+///   }
+////
+
+@mixin nhsuk-width-container($width: $nhsuk-page-width) {
+  // By default, limit the width of the container to the page width
+  max-width: $width;
+
+  // On mobile, add half width gutters
+  margin-right: $nhsuk-gutter-half;
+  margin-left: $nhsuk-gutter-half;
+
+  // On desktop, add full width gutters
+  @include nhsuk-media-query($from: desktop) {
+    margin-right: $nhsuk-gutter;
+    margin-left: $nhsuk-gutter;
+  }
+
+  // As soon as the viewport is greater than the width of the page plus the
+  // gutters, just centre the content instead of adding gutters.
+  @include nhsuk-media-query($and: "(min-width: #{($width + $nhsuk-gutter * 2)})") {
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+@mixin nhsuk-width-container-fluid {
+  // Full width container, spanning the entire width of the viewport
+  max-width: 100%;
+
+  // On mobile, add half width gutters
+  margin-right: $nhsuk-gutter-half;
+  margin-left: $nhsuk-gutter-half;
+
+  // On desktop, add full width gutters
+  @include nhsuk-media-query($from: desktop) {
+    margin-right: $nhsuk-gutter;
+    margin-left: $nhsuk-gutter;
+  }
+}
+
+@include nhsuk-exports("nhsuk/core/objects/width-container") {
+  .nhsuk-width-container {
+    @include nhsuk-width-container;
+  }
+
+  .nhsuk-width-container-fluid {
+    @include nhsuk-width-container-fluid;
+  }
+}
+
+/*# sourceMappingURL=_width-container.scss.map */

@@ -1,0 +1,142 @@
+{
+  "name": "Fieldset",
+  "component": "fieldset",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "legend": {
+          "text": "What is your address?"
+        }
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "html": "<fieldset class=\"nhsuk-fieldset\">  <legend class=\"nhsuk-fieldset__legend\">    What is your address?\n</legend></fieldset>"
+    },
+    {
+      "name": "as page heading l",
+      "context": {
+        "legend": {
+          "text": "What is your address?",
+          "classes": "nhsuk-fieldset__legend--l",
+          "isPageHeading": true
+        }
+      },
+      "screenshot": false,
+      "html": "<fieldset class=\"nhsuk-fieldset\">  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--l\">    <h1 class=\"nhsuk-fieldset__heading\">\n      What is your address?\n    </h1>\n</legend></fieldset>"
+    },
+    {
+      "name": "as page heading m",
+      "context": {
+        "legend": {
+          "text": "What is your address?",
+          "classes": "nhsuk-fieldset__legend--m",
+          "isPageHeading": true
+        }
+      },
+      "screenshot": false,
+      "html": "<fieldset class=\"nhsuk-fieldset\">  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--m\">    <h1 class=\"nhsuk-fieldset__heading\">\n      What is your address?\n    </h1>\n</legend></fieldset>"
+    },
+    {
+      "name": "as page heading s",
+      "context": {
+        "legend": {
+          "text": "What is your address?",
+          "classes": "nhsuk-fieldset__legend--s",
+          "isPageHeading": true
+        }
+      },
+      "screenshot": false,
+      "html": "<fieldset class=\"nhsuk-fieldset\">  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--s\">    <h1 class=\"nhsuk-fieldset__heading\">\n      What is your address?\n    </h1>\n</legend></fieldset>"
+    },
+    {
+      "name": "as page heading without class",
+      "context": {
+        "legend": {
+          "text": "What is your address?",
+          "isPageHeading": true
+        }
+      },
+      "screenshot": false,
+      "html": "<fieldset class=\"nhsuk-fieldset\">  <legend class=\"nhsuk-fieldset__legend\">    <h1 class=\"nhsuk-fieldset__heading\">\n      What is your address?\n    </h1>\n</legend></fieldset>"
+    },
+    {
+      "name": "as page heading xl",
+      "context": {
+        "legend": {
+          "text": "What is your address?",
+          "classes": "nhsuk-fieldset__legend--xl",
+          "isPageHeading": true
+        }
+      },
+      "screenshot": false,
+      "html": "<fieldset class=\"nhsuk-fieldset\">  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--xl\">    <h1 class=\"nhsuk-fieldset__heading\">\n      What is your address?\n    </h1>\n</legend></fieldset>"
+    },
+    {
+      "name": "styled as large text",
+      "context": {
+        "legend": {
+          "text": "What is your address?",
+          "classes": "nhsuk-fieldset__legend--l"
+        }
+      },
+      "screenshot": false,
+      "html": "<fieldset class=\"nhsuk-fieldset\">  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--l\">    What is your address?\n</legend></fieldset>"
+    },
+    {
+      "name": "styled as medium text",
+      "context": {
+        "legend": {
+          "text": "What is your address?",
+          "classes": "nhsuk-fieldset__legend--m"
+        }
+      },
+      "screenshot": false,
+      "html": "<fieldset class=\"nhsuk-fieldset\">  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--m\">    What is your address?\n</legend></fieldset>"
+    },
+    {
+      "name": "styled as small text",
+      "context": {
+        "legend": {
+          "text": "What is your address?",
+          "classes": "nhsuk-fieldset__legend--s"
+        }
+      },
+      "screenshot": false,
+      "html": "<fieldset class=\"nhsuk-fieldset\">  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--s\">    What is your address?\n</legend></fieldset>"
+    },
+    {
+      "name": "styled as xl text",
+      "context": {
+        "legend": {
+          "text": "What is your address?",
+          "classes": "nhsuk-fieldset__legend--xl"
+        }
+      },
+      "screenshot": false,
+      "html": "<fieldset class=\"nhsuk-fieldset\">  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--xl\">    What is your address?\n</legend></fieldset>"
+    },
+    {
+      "name": "with inputs",
+      "context": {
+        "legend": {
+          "text": "What is your address?",
+          "classes": "nhsuk-fieldset__legend--l",
+          "isPageHeading": true
+        }
+      },
+      "callBlock": "<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"address-line1\">\n    Address line 1\n  </label>    <input class=\"nhsuk-input\" id=\"address-line1\" name=\"address-line1\" type=\"text\" autocomplete=\"address-line1\"></div> \n\n\n<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"address-line2\">\n    Address line 2\n  </label>    <input class=\"nhsuk-input\" id=\"address-line2\" name=\"address-line2\" type=\"text\" autocomplete=\"address-line2\"></div> \n\n\n<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"address-town\">\n    Town or city\n  </label>    <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"address-town\" name=\"address-town\" type=\"text\" autocomplete=\"address-level2\"></div> \n\n\n<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"address-county\">\n    County (optional)\n  </label>    <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"address-county\" name=\"address-county\" type=\"text\"></div> \n\n\n<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"address-postcode\">\n    Postcode\n  </label>    <input class=\"nhsuk-input nhsuk-input--width-10\" id=\"address-postcode\" name=\"address-postcode\" type=\"text\" autocomplete=\"postal-code\"></div> \n",
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop"
+        ]
+      },
+      "html": "<fieldset class=\"nhsuk-fieldset\">  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--l\">    <h1 class=\"nhsuk-fieldset__heading\">\n      What is your address?\n    </h1>\n</legend><div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"address-line1\">\n    Address line 1\n  </label>    <input class=\"nhsuk-input\" id=\"address-line1\" name=\"address-line1\" type=\"text\" autocomplete=\"address-line1\"></div> \n\n\n<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"address-line2\">\n    Address line 2\n  </label>    <input class=\"nhsuk-input\" id=\"address-line2\" name=\"address-line2\" type=\"text\" autocomplete=\"address-line2\"></div> \n\n\n<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"address-town\">\n    Town or city\n  </label>    <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"address-town\" name=\"address-town\" type=\"text\" autocomplete=\"address-level2\"></div> \n\n\n<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"address-county\">\n    County (optional)\n  </label>    <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"address-county\" name=\"address-county\" type=\"text\"></div> \n\n\n<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"address-postcode\">\n    Postcode\n  </label>    <input class=\"nhsuk-input nhsuk-input--width-10\" id=\"address-postcode\" name=\"address-postcode\" type=\"text\" autocomplete=\"postal-code\"></div></fieldset>"
+    }
+  ]
+}

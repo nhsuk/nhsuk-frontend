@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../../src/nhsuk/core/objects/_form-group.scss"],"names":[],"mappings":"AAAA,uBAAuB;AACvB,oBAAoB;;AAEpB;EACE;IACE,uBAAuB;IACvB,6CAA6C;;IAE7C;MACE,gBAAgB,EAAE,+CAA+C;IACnE;EACF;;EAEA;IACE,6CAA6C;EAC/C;;EAEA;IACE,0EAA0E;IAC1E,8BAA8B;;IAE9B;MACE,sEAAsE;MACtE,SAAS;MACT,UAAU;IACZ;EACF;AACF","file":"_form-group.scss"}

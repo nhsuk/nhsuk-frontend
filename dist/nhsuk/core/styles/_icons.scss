@@ -1,0 +1,98 @@
+@use "../settings" as *;
+
+////
+/// Icons
+///
+/// @group styles
+////
+
+/// Default icon size
+
+.nhsuk-icon {
+  height: $nhsuk-icon-size;
+  width: $nhsuk-icon-size;
+}
+
+/// Default icon colours
+
+.nhsuk-icon__search {
+  fill: currentcolor;
+}
+
+.nhsuk-icon__user {
+  fill: currentcolor;
+}
+
+.nhsuk-icon__chevron-left {
+  fill: $color_nhsuk-blue;
+}
+
+.nhsuk-icon__chevron-right {
+  fill: $color_nhsuk-blue;
+}
+
+.nhsuk-icon__close {
+  fill: $color_nhsuk-blue;
+}
+
+.nhsuk-icon__cross {
+  fill: $color_nhsuk-red;
+}
+
+.nhsuk-icon__tick {
+  stroke: $color_nhsuk-green;
+}
+
+.nhsuk-icon__arrow-right {
+  fill: $color_nhsuk-blue;
+}
+
+.nhsuk-icon__arrow-left {
+  fill: $color_nhsuk-blue;
+}
+
+.nhsuk-icon__arrow-right-circle {
+  fill: $color_nhsuk-green;
+}
+
+.nhsuk-icon__chevron-down {
+  fill: currentcolor;
+}
+
+.nhsuk-icon__emdash {
+  path {
+    fill: $color_nhsuk-grey-3;
+  }
+}
+
+.nhsuk-icon__plus {
+  fill: $color_nhsuk-blue;
+}
+
+.nhsuk-icon__minus {
+  fill: $color_nhsuk-blue;
+}
+
+/// Icon size adjustments
+
+.nhsuk-icon--size-25 {
+  height: $nhsuk-icon-size * 1.25;
+  width: $nhsuk-icon-size * 1.25;
+}
+
+.nhsuk-icon--size-50 {
+  height: $nhsuk-icon-size * 1.5;
+  width: $nhsuk-icon-size * 1.5;
+}
+
+.nhsuk-icon--size-75 {
+  height: $nhsuk-icon-size * 1.75;
+  width: $nhsuk-icon-size * 1.75;
+}
+
+.nhsuk-icon--size-100 {
+  height: $nhsuk-icon-size * 2;
+  width: $nhsuk-icon-size * 2;
+}
+
+/*# sourceMappingURL=_icons.scss.map */

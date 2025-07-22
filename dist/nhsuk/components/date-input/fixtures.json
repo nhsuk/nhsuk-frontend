@@ -1,0 +1,355 @@
+{
+  "name": "Date input",
+  "component": "date-input",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "fieldset": {
+          "legend": {
+            "text": "What is your date of birth?"
+          }
+        },
+        "hint": {
+          "text": "For example, 31 3 1980"
+        },
+        "id": "example"
+      },
+      "screenshot": true,
+      "html": "<div class=\"nhsuk-form-group\">\n\n<fieldset class=\"nhsuk-fieldset\" aria-describedby=\"example-hint\" role=\"group\">  <legend class=\"nhsuk-fieldset__legend\">    What is your date of birth?\n</legend><div class=\"nhsuk-hint\" id=\"example-hint\">\n    For example, 31 3 1980\n  </div>\n  <div class=\"nhsuk-date-input\" id=\"example\">    <div class=\"nhsuk-date-input__item\">\n      <div class=\"nhsuk-form-group\">\n        <label class=\"nhsuk-label nhsuk-date-input__label\" for=\"example-day\">\n          Day\n        </label>    <input class=\"nhsuk-input nhsuk-date-input__input nhsuk-input--width-2\" id=\"example-day\" name=\"day\" type=\"text\" inputmode=\"numeric\"></div>\n    </div>    <div class=\"nhsuk-date-input__item\">\n      <div class=\"nhsuk-form-group\">\n        <label class=\"nhsuk-label nhsuk-date-input__label\" for=\"example-month\">\n          Month\n        </label>    <input class=\"nhsuk-input nhsuk-date-input__input nhsuk-input--width-2\" id=\"example-month\" name=\"month\" type=\"text\" inputmode=\"numeric\"></div>\n    </div>    <div class=\"nhsuk-date-input__item\">\n      <div class=\"nhsuk-form-group\">\n        <label class=\"nhsuk-label nhsuk-date-input__label\" for=\"example-year\">\n          Year\n        </label>    <input class=\"nhsuk-input nhsuk-date-input__input nhsuk-input--width-4\" id=\"example-year\" name=\"year\" type=\"text\" inputmode=\"numeric\"></div>\n    </div></div></fieldset>\n</div>"
+    },
+    {
+      "name": "day and month",
+      "context": {
+        "fieldset": {
+          "legend": {
+            "text": "What is your birthday?"
+          }
+        },
+        "hint": {
+          "text": "For example, 5 12"
+        },
+        "id": "example",
+        "items": [
+          {
+            "name": "day",
+            "classes": "nhsuk-input--width-2"
+          },
+          {
+            "name": "month",
+            "classes": "nhsuk-input--width-2"
+          }
+        ]
+      },
+      "screenshot": false,
+      "html": "<div class=\"nhsuk-form-group\">\n\n<fieldset class=\"nhsuk-fieldset\" aria-describedby=\"example-hint\" role=\"group\">  <legend class=\"nhsuk-fieldset__legend\">    What is your birthday?\n</legend><div class=\"nhsuk-hint\" id=\"example-hint\">\n    For example, 5 12\n  </div>\n  <div class=\"nhsuk-date-input\" id=\"example\">    <div class=\"nhsuk-date-input__item\">\n      <div class=\"nhsuk-form-group\">\n        <label class=\"nhsuk-label nhsuk-date-input__label\" for=\"example-day\">\n          Day\n        </label>    <input class=\"nhsuk-input nhsuk-date-input__input nhsuk-input--width-2\" id=\"example-day\" name=\"day\" type=\"text\" inputmode=\"numeric\"></div>\n    </div>    <div class=\"nhsuk-date-input__item\">\n      <div class=\"nhsuk-form-group\">\n        <label class=\"nhsuk-label nhsuk-date-input__label\" for=\"example-month\">\n          Month\n        </label>    <input class=\"nhsuk-input nhsuk-date-input__input nhsuk-input--width-2\" id=\"example-month\" name=\"month\" type=\"text\" inputmode=\"numeric\"></div>\n    </div></div></fieldset>\n</div>"
+    },
+    {
+      "name": "month and year",
+      "context": {
+        "fieldset": {
+          "legend": {
+            "text": "When did you start your job?"
+          }
+        },
+        "hint": {
+          "text": "For example, 11 2023"
+        },
+        "id": "example",
+        "items": [
+          {
+            "name": "month",
+            "classes": "nhsuk-input--width-2"
+          },
+          {
+            "name": "year",
+            "classes": "nhsuk-input--width-4"
+          }
+        ]
+      },
+      "screenshot": false,
+      "html": "<div class=\"nhsuk-form-group\">\n\n<fieldset class=\"nhsuk-fieldset\" aria-describedby=\"example-hint\" role=\"group\">  <legend class=\"nhsuk-fieldset__legend\">    When did you start your job?\n</legend><div class=\"nhsuk-hint\" id=\"example-hint\">\n    For example, 11 2023\n  </div>\n  <div class=\"nhsuk-date-input\" id=\"example\">    <div class=\"nhsuk-date-input__item\">\n      <div class=\"nhsuk-form-group\">\n        <label class=\"nhsuk-label nhsuk-date-input__label\" for=\"example-month\">\n          Month\n        </label>    <input class=\"nhsuk-input nhsuk-date-input__input nhsuk-input--width-2\" id=\"example-month\" name=\"month\" type=\"text\" inputmode=\"numeric\"></div>\n    </div>    <div class=\"nhsuk-date-input__item\">\n      <div class=\"nhsuk-form-group\">\n        <label class=\"nhsuk-label nhsuk-date-input__label\" for=\"example-year\">\n          Year\n        </label>    <input class=\"nhsuk-input nhsuk-date-input__input nhsuk-input--width-4\" id=\"example-year\" name=\"year\" type=\"text\" inputmode=\"numeric\"></div>\n    </div></div></fieldset>\n</div>"
+    },
+    {
+      "name": "month and year with values",
+      "context": {
+        "fieldset": {
+          "legend": {
+            "text": "When did you start your job?"
+          }
+        },
+        "hint": {
+          "text": "For example, 11 2023"
+        },
+        "id": "example",
+        "values": {
+          "month": "8",
+          "year": "2024"
+        },
+        "items": [
+          {
+            "name": "month",
+            "classes": "nhsuk-input--width-2"
+          },
+          {
+            "name": "year",
+            "classes": "nhsuk-input--width-4"
+          }
+        ]
+      },
+      "screenshot": false,
+      "html": "<div class=\"nhsuk-form-group\">\n\n<fieldset class=\"nhsuk-fieldset\" aria-describedby=\"example-hint\" role=\"group\">  <legend class=\"nhsuk-fieldset__legend\">    When did you start your job?\n</legend><div class=\"nhsuk-hint\" id=\"example-hint\">\n    For example, 11 2023\n  </div>\n  <div class=\"nhsuk-date-input\" id=\"example\">    <div class=\"nhsuk-date-input__item\">\n      <div class=\"nhsuk-form-group\">\n        <label class=\"nhsuk-label nhsuk-date-input__label\" for=\"example-month\">\n          Month\n        </label>    <input class=\"nhsuk-input nhsuk-date-input__input nhsuk-input--width-2\" id=\"example-month\" name=\"month\" type=\"text\" value=\"8\" inputmode=\"numeric\"></div>\n    </div>    <div class=\"nhsuk-date-input__item\">\n      <div class=\"nhsuk-form-group\">\n        <label class=\"nhsuk-label nhsuk-date-input__label\" for=\"example-year\">\n          Year\n        </label>    <input class=\"nhsuk-input nhsuk-date-input__input nhsuk-input--width-4\" id=\"example-year\" name=\"year\" type=\"text\" value=\"2024\" inputmode=\"numeric\"></div>\n    </div></div></fieldset>\n</div>"
+    },
+    {
+      "name": "with autocomplete values",
+      "context": {
+        "fieldset": {
+          "legend": {
+            "text": "What is your date of birth?"
+          }
+        },
+        "hint": {
+          "text": "For example, 31 3 1980"
+        },
+        "id": "example",
+        "items": [
+          {
+            "name": "day",
+            "classes": "nhsuk-input--width-2",
+            "autocomplete": "bday-day"
+          },
+          {
+            "name": "month",
+            "classes": "nhsuk-input--width-2",
+            "autocomplete": "bday-month"
+          },
+          {
+            "name": "year",
+            "classes": "nhsuk-input--width-4",
+            "autocomplete": "bday-year"
+          }
+        ]
+      },
+      "screenshot": false,
+      "html": "<div class=\"nhsuk-form-group\">\n\n<fieldset class=\"nhsuk-fieldset\" aria-describedby=\"example-hint\" role=\"group\">  <legend class=\"nhsuk-fieldset__legend\">    What is your date of birth?\n</legend><div class=\"nhsuk-hint\" id=\"example-hint\">\n    For example, 31 3 1980\n  </div>\n  <div class=\"nhsuk-date-input\" id=\"example\">    <div class=\"nhsuk-date-input__item\">\n      <div class=\"nhsuk-form-group\">\n        <label class=\"nhsuk-label nhsuk-date-input__label\" for=\"example-day\">\n          Day\n        </label>    <input class=\"nhsuk-input nhsuk-date-input__input nhsuk-input--width-2\" id=\"example-day\" name=\"day\" type=\"text\" autocomplete=\"bday-day\" inputmode=\"numeric\"></div>\n    </div>    <div class=\"nhsuk-date-input__item\">\n      <div class=\"nhsuk-form-group\">\n        <label class=\"nhsuk-label nhsuk-date-input__label\" for=\"example-month\">\n          Month\n        </label>    <input class=\"nhsuk-input nhsuk-date-input__input nhsuk-input--width-2\" id=\"example-month\" name=\"month\" type=\"text\" autocomplete=\"bday-month\" inputmode=\"numeric\"></div>\n    </div>    <div class=\"nhsuk-date-input__item\">\n      <div class=\"nhsuk-form-group\">\n        <label class=\"nhsuk-label nhsuk-date-input__label\" for=\"example-year\">\n          Year\n        </label>    <input class=\"nhsuk-input nhsuk-date-input__input nhsuk-input--width-4\" id=\"example-year\" name=\"year\" type=\"text\" autocomplete=\"bday-year\" inputmode=\"numeric\"></div>\n    </div></div></fieldset>\n</div>"
+    },
+    {
+      "name": "with custom name prefix",
+      "context": {
+        "fieldset": {
+          "legend": {
+            "text": "What is your date of birth?"
+          }
+        },
+        "hint": {
+          "text": "For example, 31 3 1980"
+        },
+        "id": "example",
+        "namePrefix": "example"
+      },
+      "screenshot": false,
+      "html": "<div class=\"nhsuk-form-group\">\n\n<fieldset class=\"nhsuk-fieldset\" aria-describedby=\"example-hint\" role=\"group\">  <legend class=\"nhsuk-fieldset__legend\">    What is your date of birth?\n</legend><div class=\"nhsuk-hint\" id=\"example-hint\">\n    For example, 31 3 1980\n  </div>\n  <div class=\"nhsuk-date-input\" id=\"example\">    <div class=\"nhsuk-date-input__item\">\n      <div class=\"nhsuk-form-group\">\n        <label class=\"nhsuk-label nhsuk-date-input__label\" for=\"example-day\">\n          Day\n        </label>    <input class=\"nhsuk-input nhsuk-date-input__input nhsuk-input--width-2\" id=\"example-day\" name=\"example[day]\" type=\"text\" inputmode=\"numeric\"></div>\n    </div>    <div class=\"nhsuk-date-input__item\">\n      <div class=\"nhsuk-form-group\">\n        <label class=\"nhsuk-label nhsuk-date-input__label\" for=\"example-month\">\n          Month\n        </label>    <input class=\"nhsuk-input nhsuk-date-input__input nhsuk-input--width-2\" id=\"example-month\" name=\"example[month]\" type=\"text\" inputmode=\"numeric\"></div>\n    </div>    <div class=\"nhsuk-date-input__item\">\n      <div class=\"nhsuk-form-group\">\n        <label class=\"nhsuk-label nhsuk-date-input__label\" for=\"example-year\">\n          Year\n        </label>    <input class=\"nhsuk-input nhsuk-date-input__input nhsuk-input--width-4\" id=\"example-year\" name=\"example[year]\" type=\"text\" inputmode=\"numeric\"></div>\n    </div></div></fieldset>\n</div>"
+    },
+    {
+      "name": "with error on day input",
+      "context": {
+        "fieldset": {
+          "legend": {
+            "text": "What is your date of birth?"
+          }
+        },
+        "hint": {
+          "text": "For example, 31 3 1980"
+        },
+        "errorMessage": {
+          "text": "Error message goes here"
+        },
+        "id": "example",
+        "items": [
+          {
+            "name": "day",
+            "classes": "nhsuk-input--width-2 nhsuk-input--error"
+          },
+          {
+            "name": "month",
+            "classes": "nhsuk-input--width-2"
+          },
+          {
+            "name": "year",
+            "classes": "nhsuk-input--width-4"
+          }
+        ]
+      },
+      "screenshot": false,
+      "html": "<div class=\"nhsuk-form-group nhsuk-form-group--error\">\n\n<fieldset class=\"nhsuk-fieldset\" aria-describedby=\"example-hint example-error\" role=\"group\">  <legend class=\"nhsuk-fieldset__legend\">    What is your date of birth?\n</legend><div class=\"nhsuk-hint\" id=\"example-hint\">\n    For example, 31 3 1980\n  </div>\n  <span class=\"nhsuk-error-message\" id=\"example-error\">\n  <span class=\"nhsuk-u-visually-hidden\">Error:</span> Error message goes here\n  </span>\n  <div class=\"nhsuk-date-input\" id=\"example\">    <div class=\"nhsuk-date-input__item\">\n      <div class=\"nhsuk-form-group\">\n        <label class=\"nhsuk-label nhsuk-date-input__label\" for=\"example-day\">\n          Day\n        </label>    <input class=\"nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-input--error\" id=\"example-day\" name=\"day\" type=\"text\" inputmode=\"numeric\"></div>\n    </div>    <div class=\"nhsuk-date-input__item\">\n      <div class=\"nhsuk-form-group\">\n        <label class=\"nhsuk-label nhsuk-date-input__label\" for=\"example-month\">\n          Month\n        </label>    <input class=\"nhsuk-input nhsuk-date-input__input nhsuk-input--width-2\" id=\"example-month\" name=\"month\" type=\"text\" inputmode=\"numeric\"></div>\n    </div>    <div class=\"nhsuk-date-input__item\">\n      <div class=\"nhsuk-form-group\">\n        <label class=\"nhsuk-label nhsuk-date-input__label\" for=\"example-year\">\n          Year\n        </label>    <input class=\"nhsuk-input nhsuk-date-input__input nhsuk-input--width-4\" id=\"example-year\" name=\"year\" type=\"text\" inputmode=\"numeric\"></div>\n    </div></div></fieldset>\n</div>"
+    },
+    {
+      "name": "with error on month input",
+      "context": {
+        "fieldset": {
+          "legend": {
+            "text": "What is your date of birth?"
+          }
+        },
+        "hint": {
+          "text": "For example, 31 3 1980"
+        },
+        "errorMessage": {
+          "text": "Error message goes here"
+        },
+        "id": "example",
+        "items": [
+          {
+            "name": "day",
+            "classes": "nhsuk-input--width-2"
+          },
+          {
+            "name": "month",
+            "classes": "nhsuk-input--width-2 nhsuk-input--error"
+          },
+          {
+            "name": "year",
+            "classes": "nhsuk-input--width-4"
+          }
+        ]
+      },
+      "screenshot": false,
+      "html": "<div class=\"nhsuk-form-group nhsuk-form-group--error\">\n\n<fieldset class=\"nhsuk-fieldset\" aria-describedby=\"example-hint example-error\" role=\"group\">  <legend class=\"nhsuk-fieldset__legend\">    What is your date of birth?\n</legend><div class=\"nhsuk-hint\" id=\"example-hint\">\n    For example, 31 3 1980\n  </div>\n  <span class=\"nhsuk-error-message\" id=\"example-error\">\n  <span class=\"nhsuk-u-visually-hidden\">Error:</span> Error message goes here\n  </span>\n  <div class=\"nhsuk-date-input\" id=\"example\">    <div class=\"nhsuk-date-input__item\">\n      <div class=\"nhsuk-form-group\">\n        <label class=\"nhsuk-label nhsuk-date-input__label\" for=\"example-day\">\n          Day\n        </label>    <input class=\"nhsuk-input nhsuk-date-input__input nhsuk-input--width-2\" id=\"example-day\" name=\"day\" type=\"text\" inputmode=\"numeric\"></div>\n    </div>    <div class=\"nhsuk-date-input__item\">\n      <div class=\"nhsuk-form-group\">\n        <label class=\"nhsuk-label nhsuk-date-input__label\" for=\"example-month\">\n          Month\n        </label>    <input class=\"nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-input--error\" id=\"example-month\" name=\"month\" type=\"text\" inputmode=\"numeric\"></div>\n    </div>    <div class=\"nhsuk-date-input__item\">\n      <div class=\"nhsuk-form-group\">\n        <label class=\"nhsuk-label nhsuk-date-input__label\" for=\"example-year\">\n          Year\n        </label>    <input class=\"nhsuk-input nhsuk-date-input__input nhsuk-input--width-4\" id=\"example-year\" name=\"year\" type=\"text\" inputmode=\"numeric\"></div>\n    </div></div></fieldset>\n</div>"
+    },
+    {
+      "name": "with error on year input",
+      "context": {
+        "fieldset": {
+          "legend": {
+            "text": "What is your date of birth?"
+          }
+        },
+        "hint": {
+          "text": "For example, 31 3 1980"
+        },
+        "errorMessage": {
+          "text": "Error message goes here"
+        },
+        "id": "example",
+        "items": [
+          {
+            "name": "day",
+            "classes": "nhsuk-input--width-2"
+          },
+          {
+            "name": "month",
+            "classes": "nhsuk-input--width-2"
+          },
+          {
+            "name": "year",
+            "classes": "nhsuk-input--width-4 nhsuk-input--error"
+          }
+        ]
+      },
+      "screenshot": false,
+      "html": "<div class=\"nhsuk-form-group nhsuk-form-group--error\">\n\n<fieldset class=\"nhsuk-fieldset\" aria-describedby=\"example-hint example-error\" role=\"group\">  <legend class=\"nhsuk-fieldset__legend\">    What is your date of birth?\n</legend><div class=\"nhsuk-hint\" id=\"example-hint\">\n    For example, 31 3 1980\n  </div>\n  <span class=\"nhsuk-error-message\" id=\"example-error\">\n  <span class=\"nhsuk-u-visually-hidden\">Error:</span> Error message goes here\n  </span>\n  <div class=\"nhsuk-date-input\" id=\"example\">    <div class=\"nhsuk-date-input__item\">\n      <div class=\"nhsuk-form-group\">\n        <label class=\"nhsuk-label nhsuk-date-input__label\" for=\"example-day\">\n          Day\n        </label>    <input class=\"nhsuk-input nhsuk-date-input__input nhsuk-input--width-2\" id=\"example-day\" name=\"day\" type=\"text\" inputmode=\"numeric\"></div>\n    </div>    <div class=\"nhsuk-date-input__item\">\n      <div class=\"nhsuk-form-group\">\n        <label class=\"nhsuk-label nhsuk-date-input__label\" for=\"example-month\">\n          Month\n        </label>    <input class=\"nhsuk-input nhsuk-date-input__input nhsuk-input--width-2\" id=\"example-month\" name=\"month\" type=\"text\" inputmode=\"numeric\"></div>\n    </div>    <div class=\"nhsuk-date-input__item\">\n      <div class=\"nhsuk-form-group\">\n        <label class=\"nhsuk-label nhsuk-date-input__label\" for=\"example-year\">\n          Year\n        </label>    <input class=\"nhsuk-input nhsuk-date-input__input nhsuk-input--width-4 nhsuk-input--error\" id=\"example-year\" name=\"year\" type=\"text\" inputmode=\"numeric\"></div>\n    </div></div></fieldset>\n</div>"
+    },
+    {
+      "name": "with errors and hint",
+      "context": {
+        "fieldset": {
+          "legend": {
+            "text": "What is your date of birth?"
+          }
+        },
+        "hint": {
+          "text": "For example, 31 3 1980"
+        },
+        "errorMessage": {
+          "text": "Error message goes here"
+        },
+        "id": "example",
+        "items": [
+          {
+            "name": "day",
+            "classes": "nhsuk-input--width-2 nhsuk-input--error"
+          },
+          {
+            "name": "month",
+            "classes": "nhsuk-input--width-2 nhsuk-input--error"
+          },
+          {
+            "name": "year",
+            "classes": "nhsuk-input--width-4 nhsuk-input--error"
+          }
+        ]
+      },
+      "screenshot": true,
+      "html": "<div class=\"nhsuk-form-group nhsuk-form-group--error\">\n\n<fieldset class=\"nhsuk-fieldset\" aria-describedby=\"example-hint example-error\" role=\"group\">  <legend class=\"nhsuk-fieldset__legend\">    What is your date of birth?\n</legend><div class=\"nhsuk-hint\" id=\"example-hint\">\n    For example, 31 3 1980\n  </div>\n  <span class=\"nhsuk-error-message\" id=\"example-error\">\n  <span class=\"nhsuk-u-visually-hidden\">Error:</span> Error message goes here\n  </span>\n  <div class=\"nhsuk-date-input\" id=\"example\">    <div class=\"nhsuk-date-input__item\">\n      <div class=\"nhsuk-form-group\">\n        <label class=\"nhsuk-label nhsuk-date-input__label\" for=\"example-day\">\n          Day\n        </label>    <input class=\"nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-input--error\" id=\"example-day\" name=\"day\" type=\"text\" inputmode=\"numeric\"></div>\n    </div>    <div class=\"nhsuk-date-input__item\">\n      <div class=\"nhsuk-form-group\">\n        <label class=\"nhsuk-label nhsuk-date-input__label\" for=\"example-month\">\n          Month\n        </label>    <input class=\"nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-input--error\" id=\"example-month\" name=\"month\" type=\"text\" inputmode=\"numeric\"></div>\n    </div>    <div class=\"nhsuk-date-input__item\">\n      <div class=\"nhsuk-form-group\">\n        <label class=\"nhsuk-label nhsuk-date-input__label\" for=\"example-year\">\n          Year\n        </label>    <input class=\"nhsuk-input nhsuk-date-input__input nhsuk-input--width-4 nhsuk-input--error\" id=\"example-year\" name=\"year\" type=\"text\" inputmode=\"numeric\"></div>\n    </div></div></fieldset>\n</div>"
+    },
+    {
+      "name": "with errors only",
+      "context": {
+        "fieldset": {
+          "legend": {
+            "text": "What is your date of birth?"
+          }
+        },
+        "errorMessage": {
+          "text": "Error message goes here"
+        },
+        "id": "example",
+        "items": [
+          {
+            "name": "day",
+            "classes": "nhsuk-input--width-2 nhsuk-input--error"
+          },
+          {
+            "name": "month",
+            "classes": "nhsuk-input--width-2 nhsuk-input--error"
+          },
+          {
+            "name": "year",
+            "classes": "nhsuk-input--width-4 nhsuk-input--error"
+          }
+        ]
+      },
+      "screenshot": false,
+      "html": "<div class=\"nhsuk-form-group nhsuk-form-group--error\">\n\n<fieldset class=\"nhsuk-fieldset\" aria-describedby=\"example-error\" role=\"group\">  <legend class=\"nhsuk-fieldset__legend\">    What is your date of birth?\n</legend><span class=\"nhsuk-error-message\" id=\"example-error\">\n  <span class=\"nhsuk-u-visually-hidden\">Error:</span> Error message goes here\n  </span>\n  <div class=\"nhsuk-date-input\" id=\"example\">    <div class=\"nhsuk-date-input__item\">\n      <div class=\"nhsuk-form-group\">\n        <label class=\"nhsuk-label nhsuk-date-input__label\" for=\"example-day\">\n          Day\n        </label>    <input class=\"nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-input--error\" id=\"example-day\" name=\"day\" type=\"text\" inputmode=\"numeric\"></div>\n    </div>    <div class=\"nhsuk-date-input__item\">\n      <div class=\"nhsuk-form-group\">\n        <label class=\"nhsuk-label nhsuk-date-input__label\" for=\"example-month\">\n          Month\n        </label>    <input class=\"nhsuk-input nhsuk-date-input__input nhsuk-input--width-2 nhsuk-input--error\" id=\"example-month\" name=\"month\" type=\"text\" inputmode=\"numeric\"></div>\n    </div>    <div class=\"nhsuk-date-input__item\">\n      <div class=\"nhsuk-form-group\">\n        <label class=\"nhsuk-label nhsuk-date-input__label\" for=\"example-year\">\n          Year\n        </label>    <input class=\"nhsuk-input nhsuk-date-input__input nhsuk-input--width-4 nhsuk-input--error\" id=\"example-year\" name=\"year\" type=\"text\" inputmode=\"numeric\"></div>\n    </div></div></fieldset>\n</div>"
+    },
+    {
+      "name": "with legend as page heading",
+      "context": {
+        "fieldset": {
+          "legend": {
+            "text": "What is your date of birth?",
+            "classes": "nhsuk-fieldset__legend--l",
+            "isPageHeading": true
+          }
+        },
+        "hint": {
+          "text": "For example, 31 3 1980"
+        },
+        "id": "example"
+      },
+      "screenshot": false,
+      "html": "<div class=\"nhsuk-form-group\">\n\n<fieldset class=\"nhsuk-fieldset\" aria-describedby=\"example-hint\" role=\"group\">  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--l\">    <h1 class=\"nhsuk-fieldset__heading\">\n      What is your date of birth?\n    </h1>\n</legend><div class=\"nhsuk-hint\" id=\"example-hint\">\n    For example, 31 3 1980\n  </div>\n  <div class=\"nhsuk-date-input\" id=\"example\">    <div class=\"nhsuk-date-input__item\">\n      <div class=\"nhsuk-form-group\">\n        <label class=\"nhsuk-label nhsuk-date-input__label\" for=\"example-day\">\n          Day\n        </label>    <input class=\"nhsuk-input nhsuk-date-input__input nhsuk-input--width-2\" id=\"example-day\" name=\"day\" type=\"text\" inputmode=\"numeric\"></div>\n    </div>    <div class=\"nhsuk-date-input__item\">\n      <div class=\"nhsuk-form-group\">\n        <label class=\"nhsuk-label nhsuk-date-input__label\" for=\"example-month\">\n          Month\n        </label>    <input class=\"nhsuk-input nhsuk-date-input__input nhsuk-input--width-2\" id=\"example-month\" name=\"month\" type=\"text\" inputmode=\"numeric\"></div>\n    </div>    <div class=\"nhsuk-date-input__item\">\n      <div class=\"nhsuk-form-group\">\n        <label class=\"nhsuk-label nhsuk-date-input__label\" for=\"example-year\">\n          Year\n        </label>    <input class=\"nhsuk-input nhsuk-date-input__input nhsuk-input--width-4\" id=\"example-year\" name=\"year\" type=\"text\" inputmode=\"numeric\"></div>\n    </div></div></fieldset>\n</div>"
+    },
+    {
+      "name": "with values",
+      "context": {
+        "fieldset": {
+          "legend": {
+            "text": "What is your date of birth?"
+          }
+        },
+        "hint": {
+          "text": "For example, 31 3 1980"
+        },
+        "id": "example",
+        "values": {
+          "day": "5",
+          "month": "8",
+          "year": "2024"
+        }
+      },
+      "screenshot": false,
+      "html": "<div class=\"nhsuk-form-group\">\n\n<fieldset class=\"nhsuk-fieldset\" aria-describedby=\"example-hint\" role=\"group\">  <legend class=\"nhsuk-fieldset__legend\">    What is your date of birth?\n</legend><div class=\"nhsuk-hint\" id=\"example-hint\">\n    For example, 31 3 1980\n  </div>\n  <div class=\"nhsuk-date-input\" id=\"example\">    <div class=\"nhsuk-date-input__item\">\n      <div class=\"nhsuk-form-group\">\n        <label class=\"nhsuk-label nhsuk-date-input__label\" for=\"example-day\">\n          Day\n        </label>    <input class=\"nhsuk-input nhsuk-date-input__input nhsuk-input--width-2\" id=\"example-day\" name=\"day\" type=\"text\" value=\"5\" inputmode=\"numeric\"></div>\n    </div>    <div class=\"nhsuk-date-input__item\">\n      <div class=\"nhsuk-form-group\">\n        <label class=\"nhsuk-label nhsuk-date-input__label\" for=\"example-month\">\n          Month\n        </label>    <input class=\"nhsuk-input nhsuk-date-input__input nhsuk-input--width-2\" id=\"example-month\" name=\"month\" type=\"text\" value=\"8\" inputmode=\"numeric\"></div>\n    </div>    <div class=\"nhsuk-date-input__item\">\n      <div class=\"nhsuk-form-group\">\n        <label class=\"nhsuk-label nhsuk-date-input__label\" for=\"example-year\">\n          Year\n        </label>    <input class=\"nhsuk-input nhsuk-date-input__input nhsuk-input--width-4\" id=\"example-year\" name=\"year\" type=\"text\" value=\"2024\" inputmode=\"numeric\"></div>\n    </div></div></fieldset>\n</div>"
+    }
+  ]
+}

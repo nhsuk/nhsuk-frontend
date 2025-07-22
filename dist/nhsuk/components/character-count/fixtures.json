@@ -1,0 +1,181 @@
+{
+  "name": "Character count",
+  "component": "character-count",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "label": {
+          "text": "Can you provide more detail?"
+        },
+        "name": "example",
+        "maxlength": 10
+      },
+      "screenshot": true,
+      "html": "<div class=\"nhsuk-character-count\" data-module=\"nhsuk-character-count\" data-maxlength=\"10\">\n  <div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"example\">\n    Can you provide more detail?\n  </label>  <textarea class=\"nhsuk-textarea nhsuk-js-character-count\" id=\"example\" name=\"example\" rows=\"5\" aria-describedby=\"example-info\"></textarea>\n</div>\n\n  \n<div class=\"nhsuk-hint nhsuk-character-count__message\" id=\"example-info\">\n  You can enter up to 10 characters\n</div>\n\n</div>"
+    },
+    {
+      "name": "with custom rows",
+      "context": {
+        "label": {
+          "text": "What is your job description?"
+        },
+        "id": "custom-rows",
+        "name": "example",
+        "maxlength": 350,
+        "rows": 8
+      },
+      "screenshot": false,
+      "html": "<div class=\"nhsuk-character-count\" data-module=\"nhsuk-character-count\" data-maxlength=\"350\">\n  <div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"custom-rows\">\n    What is your job description?\n  </label>  <textarea class=\"nhsuk-textarea nhsuk-js-character-count\" id=\"custom-rows\" name=\"example\" rows=\"8\" aria-describedby=\"custom-rows-info\"></textarea>\n</div>\n\n  \n<div class=\"nhsuk-hint nhsuk-character-count__message\" id=\"custom-rows-info\">\n  You can enter up to 350 characters\n</div>\n\n</div>"
+    },
+    {
+      "name": "with error message",
+      "context": {
+        "label": {
+          "text": "Can you provide more detail?"
+        },
+        "errorMessage": {
+          "text": "Enter more detail"
+        },
+        "id": "with-error-message",
+        "name": "example",
+        "maxlength": 10
+      },
+      "screenshot": false,
+      "html": "<div class=\"nhsuk-character-count\" data-module=\"nhsuk-character-count\" data-maxlength=\"10\">\n  <div class=\"nhsuk-form-group nhsuk-form-group--error\">\n  <label class=\"nhsuk-label\" for=\"with-error-message\">\n    Can you provide more detail?\n  </label>  <span class=\"nhsuk-error-message\" id=\"with-error-message-error\">\n  <span class=\"nhsuk-u-visually-hidden\">Error:</span> Enter more detail\n  </span>  <textarea class=\"nhsuk-textarea nhsuk-textarea--error nhsuk-js-character-count\" id=\"with-error-message\" name=\"example\" rows=\"5\" aria-describedby=\"with-error-message-info with-error-message-error\"></textarea>\n</div>\n\n  \n<div class=\"nhsuk-hint nhsuk-character-count__message\" id=\"with-error-message-info\">\n  You can enter up to 10 characters\n</div>\n\n</div>"
+    },
+    {
+      "name": "with hint",
+      "context": {
+        "label": {
+          "text": "Can you provide more detail?"
+        },
+        "hint": {
+          "text": "Do not include personal information, like your name, date of birth or NHS number"
+        },
+        "id": "with-hint",
+        "name": "example",
+        "maxlength": 10
+      },
+      "screenshot": false,
+      "html": "<div class=\"nhsuk-character-count\" data-module=\"nhsuk-character-count\" data-maxlength=\"10\">\n  <div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"with-hint\">\n    Can you provide more detail?\n  </label>  <div class=\"nhsuk-hint\" id=\"with-hint-hint\">\n    Do not include personal information, like your name, date of birth or NHS number\n  </div>  <textarea class=\"nhsuk-textarea nhsuk-js-character-count\" id=\"with-hint\" name=\"example\" rows=\"5\" aria-describedby=\"with-hint-info with-hint-hint\"></textarea>\n</div>\n\n  \n<div class=\"nhsuk-hint nhsuk-character-count__message\" id=\"with-hint-info\">\n  You can enter up to 10 characters\n</div>\n\n</div>"
+    },
+    {
+      "name": "with hint and error",
+      "context": {
+        "label": {
+          "text": "Can you provide more detail?"
+        },
+        "hint": {
+          "text": "Do not include personal information, like your name, date of birth or NHS number"
+        },
+        "errorMessage": {
+          "text": "Enter more detail"
+        },
+        "id": "with-hint-error",
+        "name": "example",
+        "maxlength": 10
+      },
+      "screenshot": true,
+      "html": "<div class=\"nhsuk-character-count\" data-module=\"nhsuk-character-count\" data-maxlength=\"10\">\n  <div class=\"nhsuk-form-group nhsuk-form-group--error\">\n  <label class=\"nhsuk-label\" for=\"with-hint-error\">\n    Can you provide more detail?\n  </label>  <div class=\"nhsuk-hint\" id=\"with-hint-error-hint\">\n    Do not include personal information, like your name, date of birth or NHS number\n  </div>  <span class=\"nhsuk-error-message\" id=\"with-hint-error-error\">\n  <span class=\"nhsuk-u-visually-hidden\">Error:</span> Enter more detail\n  </span>  <textarea class=\"nhsuk-textarea nhsuk-textarea--error nhsuk-js-character-count\" id=\"with-hint-error\" name=\"example\" rows=\"5\" aria-describedby=\"with-hint-error-info with-hint-error-hint with-hint-error-error\"></textarea>\n</div>\n\n  \n<div class=\"nhsuk-hint nhsuk-character-count__message\" id=\"with-hint-error-info\">\n  You can enter up to 10 characters\n</div>\n\n</div>"
+    },
+    {
+      "name": "with label as page heading",
+      "context": {
+        "label": {
+          "text": "What is your job description?",
+          "classes": "nhsuk-label--l",
+          "isPageHeading": true
+        },
+        "id": "page-heading",
+        "name": "example",
+        "maxlength": 350,
+        "rows": 8
+      },
+      "screenshot": false,
+      "html": "<div class=\"nhsuk-character-count\" data-module=\"nhsuk-character-count\" data-maxlength=\"350\">\n  <div class=\"nhsuk-form-group\">\n  <h1 class=\"nhsuk-label-wrapper\"><label class=\"nhsuk-label nhsuk-label--l\" for=\"page-heading\">\n      What is your job description?\n    </label></h1>  <textarea class=\"nhsuk-textarea nhsuk-js-character-count\" id=\"page-heading\" name=\"example\" rows=\"8\" aria-describedby=\"page-heading-info\"></textarea>\n</div>\n\n  \n<div class=\"nhsuk-hint nhsuk-character-count__message\" id=\"page-heading-info\">\n  You can enter up to 350 characters\n</div>\n\n</div>"
+    },
+    {
+      "name": "with maxlength attribute",
+      "context": {
+        "label": {
+          "text": "Can you provide more detail?"
+        },
+        "id": "maxlength-attribute",
+        "name": "example",
+        "maxlength": 11,
+        "attributes": {
+          "maxlength": 11
+        }
+      },
+      "screenshot": false,
+      "html": "<div class=\"nhsuk-character-count\" data-module=\"nhsuk-character-count\" data-maxlength=\"11\">\n  <div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"maxlength-attribute\">\n    Can you provide more detail?\n  </label>  <textarea class=\"nhsuk-textarea nhsuk-js-character-count\" id=\"maxlength-attribute\" name=\"example\" rows=\"5\" aria-describedby=\"maxlength-attribute-info\" maxlength=\"11\"></textarea>\n</div>\n\n  \n<div class=\"nhsuk-hint nhsuk-character-count__message\" id=\"maxlength-attribute-info\">\n  You can enter up to 11 characters\n</div>\n\n</div>"
+    },
+    {
+      "name": "with threshold",
+      "context": {
+        "label": {
+          "text": "Can you provide more detail?"
+        },
+        "id": "with-threshold",
+        "name": "example",
+        "maxlength": 10,
+        "threshold": 8
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "html": "<div class=\"nhsuk-character-count\" data-module=\"nhsuk-character-count\" data-maxlength=\"10\" data-threshold=\"8\">\n  <div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"with-threshold\">\n    Can you provide more detail?\n  </label>  <textarea class=\"nhsuk-textarea nhsuk-js-character-count\" id=\"with-threshold\" name=\"example\" rows=\"5\" aria-describedby=\"with-threshold-info\"></textarea>\n</div>\n\n  \n<div class=\"nhsuk-hint nhsuk-character-count__message\" id=\"with-threshold-info\">\n  You can enter up to 10 characters\n</div>\n\n</div>"
+    },
+    {
+      "name": "with default value",
+      "context": {
+        "label": {
+          "text": "What is your job description?"
+        },
+        "id": "default-value",
+        "name": "example",
+        "value": "A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels.",
+        "maxlength": 350
+      },
+      "screenshot": false,
+      "html": "<div class=\"nhsuk-character-count\" data-module=\"nhsuk-character-count\" data-maxlength=\"350\">\n  <div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"default-value\">\n    What is your job description?\n  </label>  <textarea class=\"nhsuk-textarea nhsuk-js-character-count\" id=\"default-value\" name=\"example\" rows=\"5\" aria-describedby=\"default-value-info\">A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels.</textarea>\n</div>\n\n  \n<div class=\"nhsuk-hint nhsuk-character-count__message\" id=\"default-value-info\">\n  You can enter up to 350 characters\n</div>\n\n</div>"
+    },
+    {
+      "name": "with default value exceeding limit",
+      "context": {
+        "label": {
+          "text": "What is your job description?"
+        },
+        "errorMessage": {
+          "text": "Job description must be 350 characters or less"
+        },
+        "id": "exceeding-limit",
+        "name": "example",
+        "value": "A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels. They make sure appropriate content is shown to a user in the right place and in the best format.",
+        "maxlength": 350
+      },
+      "screenshot": false,
+      "html": "<div class=\"nhsuk-character-count\" data-module=\"nhsuk-character-count\" data-maxlength=\"350\">\n  <div class=\"nhsuk-form-group nhsuk-form-group--error\">\n  <label class=\"nhsuk-label\" for=\"exceeding-limit\">\n    What is your job description?\n  </label>  <span class=\"nhsuk-error-message\" id=\"exceeding-limit-error\">\n  <span class=\"nhsuk-u-visually-hidden\">Error:</span> Job description must be 350 characters or less\n  </span>  <textarea class=\"nhsuk-textarea nhsuk-textarea--error nhsuk-js-character-count\" id=\"exceeding-limit\" name=\"example\" rows=\"5\" aria-describedby=\"exceeding-limit-info exceeding-limit-error\">A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels. They make sure appropriate content is shown to a user in the right place and in the best format.</textarea>\n</div>\n\n  \n<div class=\"nhsuk-hint nhsuk-character-count__message\" id=\"exceeding-limit-info\">\n  You can enter up to 350 characters\n</div>\n\n</div>"
+    },
+    {
+      "name": "with word count",
+      "context": {
+        "label": {
+          "text": "Can you provide more detail?"
+        },
+        "id": "with-word-count",
+        "name": "example",
+        "maxwords": 10
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "html": "<div class=\"nhsuk-character-count\" data-module=\"nhsuk-character-count\" data-maxwords=\"10\">\n  <div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"with-word-count\">\n    Can you provide more detail?\n  </label>  <textarea class=\"nhsuk-textarea nhsuk-js-character-count\" id=\"with-word-count\" name=\"example\" rows=\"5\" aria-describedby=\"with-word-count-info\"></textarea>\n</div>\n\n  \n<div class=\"nhsuk-hint nhsuk-character-count__message\" id=\"with-word-count-info\">\n  You can enter up to 10 words\n</div>\n\n</div>"
+    }
+  ]
+}
