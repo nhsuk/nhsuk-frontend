@@ -22,8 +22,9 @@
 
     @include nhsuk-responsive-margin(7, "bottom");
 
-    .nhsuk-table {
-      margin: 0; // [1]
+    .nhsuk-table,
+    .nhsuk-table-with-panel {
+      margin-bottom: 0; // [1]
     }
   }
 
