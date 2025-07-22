@@ -168,7 +168,7 @@
 ///
 /// 1. Margin is removed so there isn't double spacing.
 
-.nhsuk-table-container-with-panel {
+.nhsuk-table-with-panel {
   @include nhsuk-panel-with-label($color_nhsuk-white, $nhsuk-text-color, $color_nhsuk-grey-4);
 
   .nhsuk-table,
@@ -177,7 +177,7 @@
   }
 }
 
-.nhsuk-table-container-with-panel__heading {
+.nhsuk-table-with-panel__heading {
   @include nhsuk-heading-label($color_nhsuk-blue, $color_nhsuk-white);
 }
 
@@ -189,7 +189,11 @@
 .nhsuk-list-view__caption {
   text-align: left;
 
-  @include nhsuk-typography-weight-bold;
+  @include nhsuk-font-size(22);
+
+  & {
+    @include nhsuk-typography-weight-bold;
+  }
 }
 
 .nhsuk-table__caption--xl,
@@ -205,11 +209,6 @@
 .nhsuk-table__caption--m,
 .nhsuk-list-view__caption--m {
   @include nhsuk-font-size(26);
-}
-
-.nhsuk-table__caption--s,
-.nhsuk-list-view__caption--s {
-  @include nhsuk-font-size(22);
 }
 
 /// Table row hover
