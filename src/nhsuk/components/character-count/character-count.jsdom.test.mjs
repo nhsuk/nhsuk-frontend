@@ -65,7 +65,7 @@ describe('Character count', () => {
       $description.remove()
 
       expect(() => new CharacterCount($root)).toThrow(
-        `${CharacterCount.moduleName}: Count message (\`id="more-detail-info"\`) not found`
+        `${CharacterCount.moduleName}: Count message (\`id="example-info"\`) not found`
       )
     })
 
@@ -137,7 +137,7 @@ describe('Character count', () => {
     it('configures the number of words using `data-maxwords`', () => {
       document.body.innerHTML = components.render(
         'character-count',
-        examples['with max words']
+        examples['with word count']
       )
 
       const characterCount = new CharacterCount(

@@ -2,7 +2,7 @@ import { components } from '@nhsuk/frontend-lib'
 import { getAllByRole, getByRole } from '@testing-library/dom'
 import { outdent } from 'outdent'
 
-import { examples as inputExamples } from '../input/macro-options.mjs'
+import { examples as dateInputExamples } from '../date-input/macro-options.mjs'
 
 import { ErrorSummary, initErrorSummary } from './error-summary.mjs'
 import { examples } from './macro-options.mjs'
@@ -24,7 +24,7 @@ describe('Error summary', () => {
     document.body.innerHTML = outdent`
       <form method="post" novalidate>
         ${components.render('error-summary', examples['with description'])}
-        ${components.render('input', inputExamples['with hint text'])}
+        ${components.render('date-input', dateInputExamples['with errors and hint'])}
       </form>
     `
 
@@ -37,7 +37,7 @@ describe('Error summary', () => {
     $links = getAllByRole($root, 'link')
 
     $input = getByRole($container, 'textbox', {
-      name: 'NHS number'
+      name: 'Day'
     })
 
     $label = $input.labels[0]
