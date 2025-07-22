@@ -11,7 +11,7 @@
     --nhsuk-breakpoint-#{$name}: #{nhsuk-px-to-rem($value)};
   }
 
-  @each $name, $value in $nhsuk-colors {
+  @each $name, $value in $nhsuk-colours {
     --nhsuk-color-#{$name}: #{$value};
   }
 }

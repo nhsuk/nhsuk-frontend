@@ -1,0 +1,52 @@
+@use "sass:color";
+@use "sass:map";
+@use "sass:meta";
+
+@use "../settings/colours-palette" as *;
+
+////
+/// NHS colour palette
+///
+/// Colours are prefixed with color_ to make them easier to
+/// search for within the code base.
+///
+/// We also prefix them with nhsuk- to prevent clashing with
+/// other colours in existing code bases.
+///
+/// We use the word color, not colour, for variables.
+///
+/// @group settings
+////
+///
+/// Get colour
+///
+/// @param {String | Colour} $colour - Name of colour from the colour palette
+///   (`$nhsuk-colours`)
+/// @param {String | Colour | Boolean} $legacy [false] - Deprecated.
+///   The `$legacy` parameter is deprecated and is non-operational, as the
+///   legacy colour palette has been removed. The parameter will be removed in
+///   the next major version.
+/// @return {Colour} Representation of named colour
+///
+/// @throw if `$colour` is not a colour from the colour palette
+/// @access public
+
+@function nhsuk-colour($colour, $legacy: false) {
+  // Output a warning if $legacy is set to anything.
+  @if $legacy and _should-warn("legacy-colour-param") {
+    @warn _warning-text("legacy-colour-param", "The `$legacy` parameter of " +
+    "`nhsuk-colour` is deprecated and is non-operational. It will be " +
+    "removed in the next major version.");
+  }
+
+  @if meta.type-of($colour) == "color" {
+    // stylelint-disable-next-line scss/function-quote-no-quoted-strings-inside
+    $colour: quote("#{$colour}");
+  }
+
+  @if not map.has-key($nhsuk-colours, $colour) {
+    @error "Unknown colour `#{$colour}` `#{$nhsuk-colours}`";
+  }
+
+  @return map.get($nhsuk-colours, $colour);
+}

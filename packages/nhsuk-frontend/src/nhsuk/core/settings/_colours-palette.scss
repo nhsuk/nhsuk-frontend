@@ -1,0 +1,102 @@
+@use "sass:color";
+
+////
+/// NHS colour palette
+///
+/// Colours are prefixed with color_ to make them easier to
+/// search for within the code base.
+///
+/// We also prefix them with nhsuk- to prevent clashing with
+/// other colours in existing code bases.
+///
+/// We use the word color, not colour, for variables.
+///
+/// @group settings
+////
+///
+
+// stylelint-disable color-no-hex
+
+/// Tint function
+///
+/// @example scss
+///   nhsuk-tint(color, percentage);
+///   nhsuk-tint($color_nhsuk-black, 10%);
+///
+
+@function nhsuk-tint($color, $percentage) {
+  @return color.mix(white, $color, $percentage);
+}
+
+/// Shade function
+///
+/// @example scss
+///   nhsuk-shade(color, percentage);
+///   nhsuk-shade($color_nhsuk-blue, 50%);
+///
+
+@function nhsuk-shade($color, $percentage) {
+  @return color.mix(black, $color, $percentage);
+}
+
+$nhsuk-colours: (
+  // Primary
+  "blue": #005eb8,
+  "white": #ffffff,
+  "black": #212b32,
+  "green": #007f3b,
+  "purple": #330072,
+  "dark-pink": #7c2855,
+  "red": #d5281b,
+  "yellow": #ffeb3b,
+
+  // Secondary
+  "pale-yellow": #fff9c4,
+  "warm-yellow": #ffb81c,
+  "orange": #ed8b00,
+  "aqua-green": #00a499,
+  "pink": #ae2573,
+
+  // Greyscale
+  "grey-1": #4c6272,
+  "grey-2": #768692,
+  "grey-3": #aeb7bd,
+  "grey-4": #d8dde0,
+  "grey-5": #f0f4f5,
+
+  // RGB
+  "grey-1-rgb": rgb(66, 84, 98),
+  "box-shadow": rgba(33, 43, 50, 0.16),
+  // Tints & Shades
+  "tint-black-10": #{nhsuk-tint(#212b32, 10%)},
+  "shade-blue-20": #{nhsuk-shade(#005eb8, 20%)},
+  "shade-blue-35": #{nhsuk-shade(#005eb8, 35%)},
+  "shade-blue-50": #{nhsuk-shade(#005eb8, 50%)},
+  "shade-green-35": #{nhsuk-shade(#007f3b, 35%)},
+  "shade-green-50": #{nhsuk-shade(#007f3b, 50%)},
+
+  // Transparency
+  "transparent-white-20": rgba(#ffffff, 0.2),
+  "transparent-blue-50": #{rgba(nhsuk-shade(#005eb8, 50%), 0.1)},
+
+  // Footer specific colors
+  "footer-link-text-color": #003087,
+  "footer-copyright-text-color": #231f20,
+
+  // Derived colors for semantic purposes
+  "link-active-color": #{nhsuk-shade(#005eb8, 50%)},
+  "button-hover-color": #{nhsuk-shade(#007f3b, 20%)},
+  "button-active-color": #{nhsuk-shade(#007f3b, 50%)},
+  "button-shadow-color": #{nhsuk-shade(#007f3b, 50%)},
+  "secondary-button-hover-color": #{nhsuk-tint(#005eb8, 85%)},
+  "secondary-button-active-color": #{nhsuk-tint(#005eb8, 78%)},
+  "reverse-button-hover-color": #{nhsuk-shade(#ffffff, 15%)},
+  "reverse-button-active-color": #{nhsuk-shade(#ffffff, 30%)},
+  "reverse-button-shadow-color": #{nhsuk-shade(#ffffff, 30%)},
+  "warning-button-hover-color": #{nhsuk-shade(#d5281b, 20%)},
+  "warning-button-active-color": #{nhsuk-shade(#d5281b, 50%)},
+  "warning-button-shadow-color": #{nhsuk-shade(#d5281b, 50%)},
+  "login-button-hover-color": #{nhsuk-shade(#005eb8, 20%)},
+  "login-button-active-color": #{nhsuk-shade(#005eb8, 50%)},
+  "login-button-shadow-color": #{nhsuk-shade(#005eb8, 50%)}
+);
