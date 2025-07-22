@@ -327,6 +327,51 @@ export const examples = {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
+  'with navigation overflow': {
+    layout: 'layouts/example-full-width.njk',
+    context: {
+      logo: {
+        href: '#'
+      },
+      navigation: {
+        items: [
+          {
+            href: '#',
+            text: 'Health A to Z'
+          },
+          {
+            href: '#',
+            text: 'Live Well'
+          },
+          {
+            href: '#',
+            text: 'Mental health'
+          },
+          {
+            href: '#',
+            text: 'Care and support'
+          },
+          {
+            href: '#',
+            text: 'Pregnancy',
+            active: true
+          },
+          {
+            href: '#',
+            text: 'NHS services'
+          },
+          {
+            href: '#',
+            text: 'Another item #1'
+          },
+          {
+            href: '#',
+            text: 'Another item #2'
+          }
+        ]
+      }
+    }
+  },
   'with navigation (white)': {
     layout: 'layouts/example-full-width.njk',
     context: {
