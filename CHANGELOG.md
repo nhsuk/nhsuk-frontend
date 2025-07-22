@@ -2,6 +2,91 @@
 
 ## Unreleased
 
+:boom: **Breaking changes**
+
+You must make the following changes when you migrate to this release, or your service might break.
+
+#### Update footer component
+
+The footer component's Nunjucks macros and HTML have been updated for better consistency and flexiblity.
+
+If you are using Nunjucks macros, replace `links` with `navigation.items` and `metaLinks` with `meta.items`. Rename `URL` to `href` and `label` to `text`.
+
+Before:
+
+```njk
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "https://www.nhs.uk/nhs-sites",
+        "label": "NHS sites"
+      },
+      {
+        "URL": "https://www.nhs.uk/about-us",
+        "label": "About us"
+      },
+      {
+        "URL": "https://www.nhs.uk/give-feedback-about-the-nhs-website/",
+        "label": "Give us feedback"
+      }
+    ],
+    "metaLinks": [
+      {
+        'URL': 'https://www.nhs.uk/accessibility/',
+        'label': 'Accessibility'
+      },
+      {
+        "URL": "https://www.nhs.uk/our-policies/",
+        "label": "Our policies"
+      }
+    ]
+  }) }}
+{% endblock %}
+```
+
+After:
+
+```njk
+{% block footer %}
+  {{ footer({
+    navigation: [
+      {
+        items: [
+          {
+            href: "https://www.nhs.uk/nhs-sites",
+            text: "NHS sites"
+          },
+          {
+            href: "https://www.nhs.uk/about-us",
+            text: "About us"
+          },
+          {
+            href: "https://www.nhs.uk/give-feedback-about-the-nhs-website/",
+            text: "Give us feedback"
+          }
+        ]
+      }
+    ],
+    meta: {
+      items: [
+        {
+          href: 'https://www.nhs.uk/accessibility/',
+          text: 'Accessibility'
+        },
+        {
+          href: "https://www.nhs.uk/our-policies/",
+          text: "Our policies"
+        }
+      ]
+    }
+  }) }}
+{% endblock %}
+```
+If you are not using Nunjucks macros, update your HTML markup using the [footer examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/footer).
+
+This change was introduced in [pull request #1452: Update footer to use common link parameters](https://github.com/nhsuk/nhsuk-frontend/pull/1452).
+
 :wrench: **Fixes**
 
 - [#1504: Skip header missing element checks without navigation](https://github.com/nhsuk/nhsuk-frontend/pull/1504)
