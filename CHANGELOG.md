@@ -1,6 +1,6 @@
 # NHS.UK frontend Changelog
 
-## Unreleased
+## 10.0.0-internal.1 - 22 July 2025
 
 :boom: **Breaking changes**
 
