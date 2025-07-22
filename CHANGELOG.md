@@ -5,6 +5,7 @@
 :wrench: **Fixes**
 
 - [#1504: Skip header missing element checks without navigation](https://github.com/nhsuk/nhsuk-frontend/pull/1504)
+- [#1505: Fix Sass "Error: This module was already loaded"](https://github.com/nhsuk/nhsuk-frontend/pull/1505)
 
 ## 10.0.0-internal.1 - 22 July 2025
 
