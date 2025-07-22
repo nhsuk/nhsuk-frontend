@@ -91,7 +91,8 @@ export const examples = {
   'default': {
     context: {
       text: 'The patient record was updated.'
-    }
+    },
+    screenshot: true
   },
   'paragraph as html heading': {
     context: {
@@ -114,7 +115,8 @@ export const examples = {
     context: {
       type: 'success',
       text: 'Email sent to example@email.com'
-    }
+    },
+    screenshot: true
   },
   'success with custom html': {
     context: {
