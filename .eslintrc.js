@@ -38,7 +38,9 @@ module.exports = {
       ],
       parser: '@typescript-eslint/parser',
       parserOptions: {
-        ecmaVersion: 'latest'
+        ecmaVersion: 'latest',
+        projectService: true,
+        tsconfigRootDir: __dirname
       },
       plugins: [
         '@typescript-eslint',
@@ -121,7 +123,17 @@ module.exports = {
         'no-else-return': 'error',
 
         // Avoid hard to read multi assign statements
-        'no-multi-assign': 'error'
+        'no-multi-assign': 'error',
+
+        // Prefer rules that are type aware
+        'no-unused-vars': 'off',
+        '@typescript-eslint/no-unused-vars': [
+          'error',
+          {
+            argsIgnorePattern: '^_',
+            varsIgnorePattern: '^_'
+          }
+        ]
       },
       settings: {
         jsdoc: {
@@ -194,6 +206,7 @@ module.exports = {
     {
       // Configure ESLint in Markdown code blocks
       files: ['**/*.md/*.{cjs,js,mjs}'],
+      extends: ['plugin:@typescript-eslint/disable-type-checked'],
       env: {
         browser: true
       },

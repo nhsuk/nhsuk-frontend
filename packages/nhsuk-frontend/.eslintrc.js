@@ -5,8 +5,13 @@ module.exports = {
   overrides: [
     {
       files: ['src/**/*.{cjs,js,mjs}'],
-      excludedFiles: ['src/**/*.test.{cjs,js,mjs}'],
-      extends: ['plugin:es-x/restrict-to-es2015', 'prettier'],
+      excludedFiles: ['src/**/*.test.{cjs,js,mjs}', 'src/**/macro-options.mjs'],
+      extends: [
+        'plugin:@typescript-eslint/strict-type-checked',
+        'plugin:@typescript-eslint/stylistic-type-checked',
+        'plugin:es-x/restrict-to-es2015',
+        'prettier'
+      ],
       env: {
         browser: true
       },
@@ -14,8 +19,25 @@ module.exports = {
         // Note: Allow ES2015 for import/export syntax
         ecmaVersion: '2015'
       },
-      plugins: ['es-x'],
+      plugins: ['@typescript-eslint', 'es-x'],
       rules: {
+        // Allow void return shorthand in arrow functions
+        '@typescript-eslint/no-confusing-void-expression': [
+          'error',
+          {
+            ignoreArrowShorthand: true
+          }
+        ],
+
+        // Check type support for template string implicit `.toString()`
+        '@typescript-eslint/restrict-template-expressions': [
+          'error',
+          {
+            allowBoolean: true,
+            allowNumber: true
+          }
+        ],
+
         // Babel transpiles ES2020 class fields
         'es-x/no-class-fields': 'off',
 
@@ -37,7 +59,28 @@ module.exports = {
         'es-x/no-object-entries': 'off',
 
         // Babel transpiles ES2020 optional chaining
-        'es-x/no-optional-chaining': 'off'
+        'es-x/no-optional-chaining': 'off',
+
+        // JSDoc blocks are optional but must be valid
+        'jsdoc/require-jsdoc': [
+          'error',
+          {
+            enableFixer: false,
+            require: {
+              FunctionDeclaration: false
+            }
+          }
+        ],
+
+        // JSDoc @param types are mandatory for JavaScript
+        'jsdoc/require-param-description': 'off',
+        'jsdoc/require-param-type': 'error',
+        'jsdoc/require-param': 'off',
+
+        // JSDoc @returns is optional
+        'jsdoc/require-returns-description': 'off',
+        'jsdoc/require-returns-type': 'off',
+        'jsdoc/require-returns': 'off'
       }
     }
   ]
