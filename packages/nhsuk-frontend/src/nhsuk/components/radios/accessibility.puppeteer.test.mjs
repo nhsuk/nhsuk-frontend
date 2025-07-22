@@ -3,6 +3,7 @@ import { axe, goToComponent } from '@nhsuk/frontend-helpers/puppeteer.mjs'
 import { examples } from './macro-options.mjs'
 
 describe('Radios', () => {
+  /** @type {RuleObject} */
   let axeRules
 
   /** @type {Page} */
@@ -30,5 +31,6 @@ describe('Radios', () => {
 })
 
 /**
+ * @import { RuleObject } from 'axe-core'
  * @import { Page } from 'puppeteer'
  */
