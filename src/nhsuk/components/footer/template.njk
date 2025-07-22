@@ -37,10 +37,10 @@
       <h2 class="nhsuk-u-visually-hidden">{{ params.meta.visuallyHiddenTitle | default("Support links") }}</h2>
       {{ _footerList(params.meta.items) | indent(6) }}
     {% endif %}
-    {% if params.meta.text %}
+    {% if caller or params.meta.html %}
+      {{ caller() if caller else params.meta.html | safe | trim | indent(6) }}
+    {% elif params.meta.text %}
       <p class="nhsuk-body-s">{{ params.meta.text }}</p>
-    {% elif params.meta.html %}
-      {{ params.meta.html | safe }}
     {% endif %}
 {% endif %}
     {% if params.copyright.html %}
