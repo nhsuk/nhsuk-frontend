@@ -7,7 +7,7 @@ describe('Notification banner', () => {
   describe('when type is set to "success"', () => {
     beforeAll(async () => {
       page = await goToComponent(browser, 'notification-banner', {
-        exampleName: 'with type as success'
+        example: 'with type as success'
       })
     })
 
@@ -42,7 +42,7 @@ describe('Notification banner', () => {
     describe('and auto-focus is disabled using data attributes', () => {
       beforeAll(async () => {
         page = await goToComponent(browser, 'notification-banner', {
-          exampleName: 'auto-focus disabled, with type as success'
+          example: 'auto-focus disabled, with type as success'
         })
       })
 
@@ -66,8 +66,7 @@ describe('Notification banner', () => {
     describe('and role is overridden to "region"', () => {
       beforeAll(async () => {
         page = await goToComponent(browser, 'notification-banner', {
-          exampleName:
-            'role=alert overridden to role=region, with type as success'
+          example: 'role=alert overridden to role=region, with type as success'
         })
       })
 
@@ -91,7 +90,7 @@ describe('Notification banner', () => {
     describe('and a custom tabindex is set', () => {
       beforeAll(async () => {
         page = await goToComponent(browser, 'notification-banner', {
-          exampleName: 'custom tabindex'
+          example: 'custom tabindex'
         })
       })
 
@@ -109,3 +108,7 @@ describe('Notification banner', () => {
     })
   })
 })
+
+/**
+ * @import { Page } from 'puppeteer'
+ */

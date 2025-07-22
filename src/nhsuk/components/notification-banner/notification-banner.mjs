@@ -48,14 +48,14 @@ export class NotificationBanner extends Component {
  *   banner will not be focussed when the page loads.
  */
 export function initNotificationBanners(options = {}) {
-  const $scope = options.scope || document
+  const $scope = options.scope ?? document
   const $notificationBanners = $scope.querySelectorAll(
     `[data-module="${NotificationBanner.moduleName}"]`
   )
 
   $notificationBanners.forEach(($notificationBanner) => {
     new NotificationBanner($notificationBanner, {
-      disableAutoFocus: options.disableAutoFocus || false
+      disableAutoFocus: options.disableAutoFocus ?? false
     })
   })
 }
