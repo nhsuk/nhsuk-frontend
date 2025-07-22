@@ -85,7 +85,7 @@ After:
 ```
 If you are not using Nunjucks macros, update your HTML markup using the [footer examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/footer).
 
-This change was introduced in [pull request #1452: Update footer to use common link parameters](https://github.com/nhsuk/nhsuk-frontend/pull/1452).
+This change was introduced in [pull request #1452: Update footer to separate navigation from meta links, and use common parameters](https://github.com/nhsuk/nhsuk-frontend/pull/1452).
 
 :wrench: **Fixes**
 
