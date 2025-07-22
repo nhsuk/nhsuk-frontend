@@ -124,6 +124,12 @@ export const params = {
     required: false,
     description: 'Classes to add to the footer container.'
   },
+  caller: {
+    type: 'nunjucks-block',
+    required: false,
+    description:
+      'Not strictly a parameter but a Nunjucks code convention. Using a `call` block enables you to call a macro with all the text inside the tag. This is helpful if you want to pass a lot of content into a macro. To use it, you will need to wrap the entire footer component in a `call` block.'
+  },
   attributes: {
     type: 'object',
     required: false,
