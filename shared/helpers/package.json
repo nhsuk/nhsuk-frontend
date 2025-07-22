@@ -11,7 +11,7 @@
     "@testing-library/jest-dom": "^6.6.3",
     "axe-core": "^4.10.3",
     "jest-axe": "^10.0.0",
-    "jest-environment-jsdom": "^30.0.4",
+    "jest-environment-jsdom": "^30.0.5",
     "jest-environment-node": "^30.0.0",
     "jest-environment-puppeteer": "^11.0.0",
     "slug": "^11.0.0"
