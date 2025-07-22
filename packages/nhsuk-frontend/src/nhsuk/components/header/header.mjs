@@ -5,6 +5,24 @@ import { ElementError } from '../../errors/index.mjs'
  * Header component
  */
 export class Header extends Component {
+  /** @type {HTMLElement | null} */
+  $navigation = null
+
+  /** @type {HTMLElement | null} */
+  $navigationList = null
+
+  /** @type {NodeListOf<HTMLElement> | null} */
+  $navigationItems = null
+
+  /** @type {HTMLElement | null} */
+  $menu = null
+
+  /** @type {HTMLButtonElement | null} */
+  $menuToggle = null
+
+  /** @type {HTMLElement | null} */
+  $menuList = null
+
   width = 0
 
   /**
@@ -38,49 +56,53 @@ export class Header extends Component {
     const $menu = this.$root.querySelector('.nhsuk-header__menu')
     const $menuToggle = this.$root.querySelector('.nhsuk-header__menu-toggle')
 
-    if (!$navigation || !($navigation instanceof HTMLElement)) {
-      throw new ElementError({
-        component: Header,
-        identifier: 'Navigation (`<nav class="nhsuk-header__navigation">`)'
-      })
-    }
+    // Check for navigation (optional)
+    if ($navigation) {
+      if (!($navigation instanceof HTMLElement)) {
+        throw new ElementError({
+          component: Header,
+          identifier: 'Navigation (`<nav class="nhsuk-header__navigation">`)'
+        })
+      }
 
-    if (!$navigationList || !($navigationList instanceof HTMLElement)) {
-      throw new ElementError({
-        component: Header,
-        identifier: 'List (`<ul class="nhsuk-header__navigation-list">`)'
-      })
-    }
+      if (!$navigationList || !($navigationList instanceof HTMLElement)) {
+        throw new ElementError({
+          component: Header,
+          identifier: 'List (`<ul class="nhsuk-header__navigation-list">`)'
+        })
+      }
 
-    if (!$navigationItems.length) {
-      throw new ElementError({
-        component: Header,
-        identifier: 'List items (`<li class="nhsuk-header__navigation-item">`)'
-      })
-    }
+      if (!$navigationItems.length) {
+        throw new ElementError({
+          component: Header,
+          identifier:
+            'List items (`<li class="nhsuk-header__navigation-item">`)'
+        })
+      }
 
-    if (!$menu || !($menu instanceof HTMLElement)) {
-      throw new ElementError({
-        component: Header,
-        identifier: 'Menu item (`<li class="nhsuk-header__menu" hidden>`)'
-      })
-    }
+      if (!$menu || !($menu instanceof HTMLElement)) {
+        throw new ElementError({
+          component: Header,
+          identifier: 'Menu item (`<li class="nhsuk-header__menu" hidden>`)'
+        })
+      }
 
-    if (!$menuToggle || !($menuToggle instanceof HTMLButtonElement)) {
-      throw new ElementError({
-        component: Header,
-        identifier:
-          'Menu button (`<button class="nhsuk-header__menu-toggle">`)',
-        expectedType: 'HTMLButtonElement'
-      })
-    }
+      if (!$menuToggle || !($menuToggle instanceof HTMLButtonElement)) {
+        throw new ElementError({
+          component: Header,
+          identifier:
+            'Menu button (`<button class="nhsuk-header__menu-toggle">`)',
+          expectedType: 'HTMLButtonElement'
+        })
+      }
 
-    this.$navigation = $navigation
-    this.$navigationList = $navigationList
-    this.$navigationItems = $navigationItems
-    this.$menu = $menu
-    this.$menuToggle = $menuToggle
-    this.$menuList = document.createElement('ul')
+      this.$navigation = $navigation
+      this.$navigationList = $navigationList
+      this.$navigationItems = $navigationItems
+      this.$menu = $menu
+      this.$menuToggle = $menuToggle
+      this.$menuList = document.createElement('ul')
+    }
 
     // Save bound functions so we can remove event listeners when unnecessary
     this.handleEscapeKey = this.onEscapeKey.bind(this)
@@ -97,11 +119,16 @@ export class Header extends Component {
    * Calculate available space by summing the width of each navigation item
    */
   resetNavigation() {
+    const { $menu, $navigationList } = this
+    if (!$menu || !$navigationList) {
+      return
+    }
+
     let right = 0
 
     // Reset and calculate widths on every resize
     this.breakpoints.forEach((breakpoint) => {
-      this.$navigationList.insertBefore(breakpoint.element, this.$menu)
+      $navigationList.insertBefore(breakpoint.element, $menu)
 
       // Calculate widths
       right += breakpoint.element.offsetWidth
@@ -109,14 +136,21 @@ export class Header extends Component {
     })
 
     // Reset space for menu button
-    this.width = this.$navigationList.offsetWidth
+    this.width = $navigationList.offsetWidth
   }
 
   /**
    * Add the breakpoints with default positions
    */
   setupNavigation() {
-    this.$navigationItems.forEach((element) => {
+    const { $navigationItems } = this
+
+    // Skip with no navigation items
+    if (!$navigationItems) {
+      return
+    }
+
+    $navigationItems.forEach((element) => {
       this.breakpoints.push({ element, right: 0 })
     })
 
@@ -137,44 +171,53 @@ export class Header extends Component {
    * Add the menu to the DOM
    */
   setupMenu() {
-    if (this.$menuList.parentElement) {
+    const { $menu, $menuList } = this
+
+    // Skip with no menu or when already appended
+    if (!$menu || !$menuList || $menuList.parentElement) {
       return
     }
 
-    this.$menuList.classList.add('nhsuk-header__menu-list')
-    this.$menuList.setAttribute('hidden', '')
-    this.$menu.appendChild(this.$menuList)
+    $menuList.classList.add('nhsuk-header__menu-list')
+    $menuList.setAttribute('hidden', '')
+    $menu.appendChild($menuList)
   }
 
   /**
    * Enable the menu
    */
   enableMenu() {
-    if (this.menuIsEnabled) {
+    const { $menu, $menuToggle } = this
+
+    // Skip with no menu or when already enabled
+    if (!$menu || !$menuToggle || this.menuIsEnabled) {
       return
     }
 
     this.menuIsEnabled = true
-    this.$menu.removeAttribute('hidden')
+    $menu.removeAttribute('hidden')
 
     // Add click listener to toggle menu
-    this.$menuToggle.addEventListener('click', this.handleToggleMenu)
+    $menuToggle.addEventListener('click', this.handleToggleMenu)
   }
 
   /**
    * Disable the menu
    */
   disableMenu() {
-    if (!this.menuIsEnabled) {
+    const { $menu, $menuToggle } = this
+
+    // Skip with no menu or when already disabled
+    if (!$menu || !$menuToggle || !this.menuIsEnabled) {
       return
     }
 
     this.closeMenu()
     this.menuIsEnabled = false
-    this.$menu.setAttribute('hidden', '')
+    $menu.setAttribute('hidden', '')
 
     // Remove click listener from toggle menu
-    this.$menuToggle.removeEventListener('click', this.handleToggleMenu)
+    $menuToggle.removeEventListener('click', this.handleToggleMenu)
   }
 
   /**
@@ -185,14 +228,23 @@ export class Header extends Component {
    * Removes the bottom border from the navigation
    */
   closeMenu() {
-    if (!this.menuIsEnabled || !this.menuIsOpen) {
+    const { $menuList, $menuToggle, $navigation } = this
+
+    // Skip with no menu or when already closed
+    if (
+      !$navigation ||
+      !$menuList ||
+      !$menuToggle ||
+      !this.menuIsEnabled ||
+      !this.menuIsOpen
+    ) {
       return
     }
 
     this.menuIsOpen = false
-    this.$menuList.setAttribute('hidden', '')
-    this.$menuToggle.setAttribute('aria-expanded', 'false')
-    this.$navigation.style.removeProperty('border-bottom-width')
+    $menuList.setAttribute('hidden', '')
+    $menuToggle.setAttribute('aria-expanded', 'false')
+    $navigation.style.removeProperty('border-bottom-width')
 
     // Remove escape key listener to close menu
     document.removeEventListener('keydown', this.handleEscapeKey)
@@ -223,16 +275,25 @@ export class Header extends Component {
    * Adds event listeners for the close button,
    */
   openMenu() {
-    if (!this.menuIsEnabled || this.menuIsOpen) {
+    const { $menuList, $menuToggle, $navigation } = this
+
+    // Skip with no menu or when already open
+    if (
+      !$navigation ||
+      !$menuList ||
+      !$menuToggle ||
+      !this.menuIsEnabled ||
+      this.menuIsOpen
+    ) {
       return
     }
 
     this.menuIsOpen = true
-    this.$menuList.removeAttribute('hidden')
-    this.$menuToggle.setAttribute('aria-expanded', 'true')
-    this.$navigation.style.setProperty(
+    $menuList.removeAttribute('hidden')
+    $menuToggle.setAttribute('aria-expanded', 'true')
+    $navigation.style.setProperty(
       'border-bottom-width',
-      `${this.$menuList.offsetHeight}px`
+      `${$menuList.offsetHeight}px`
     )
 
     // Add escape key listener to close menu
@@ -278,21 +339,28 @@ export class Header extends Component {
     this.setupMenu()
     this.enableMenu()
 
+    const { $menu, $menuList, $navigation } = this
+
+    // Skip when no menu or menu list
+    if (!$menu || !$menuList || !$navigation) {
+      return
+    }
+
     // Subtract space for menu button
-    this.width -= this.$menu.offsetWidth
+    this.width -= $menu.offsetWidth
 
     // Move items based on available width
     this.breakpoints.forEach((breakpoint) => {
       if (breakpoint.right > this.width) {
-        this.$menuList.insertAdjacentElement('beforeend', breakpoint.element)
+        $menuList.insertAdjacentElement('beforeend', breakpoint.element)
       }
     })
 
     // Update menu height if open
     if (this.menuIsOpen) {
-      this.$navigation.style.setProperty(
+      $navigation.style.setProperty(
         'border-bottom-width',
-        `${this.$menuList.offsetHeight}px`
+        `${$menuList.offsetHeight}px`
       )
     }
   }
