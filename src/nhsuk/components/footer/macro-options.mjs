@@ -47,44 +47,48 @@ export const params = {
   meta: {
     type: 'object',
     required: false,
-    visuallyHiddenTitle: {
-      type: 'string',
-      required: 'false',
-      description:
-        'Title for meta `items` links. Defaults to `"Support links"`.'
-    },
-    html: {
-      type: 'string',
-      required: false,
-      description:
-        'HTML to add to the meta section of the footer, which will appear below any links specified using meta `items`.'
-    },
-    text: {
-      type: 'string',
-      required: false,
-      description:
-        'Text to add to the meta section of the footer, which will appear below any links specified using meta `items`. If meta `html` is specified, this option is ignored.'
-    },
-    items: {
-      type: 'array',
-      required: false,
-      description: 'Contains the array of key policy footer link items.',
-      params: {
-        href: {
-          type: 'string',
-          required: true,
-          description: 'Footer meta link `href` attribute.'
-        },
-        text: {
-          type: 'string',
-          required: true,
-          description: 'Footer meta link text.'
-        },
-        attributes: {
-          type: 'object',
-          required: false,
-          description:
-            'HTML attributes (for example data attributes) to add to the footer meta link.'
+    description:
+      'The meta section of the footer after any navigation, before the copyright information.',
+    params: {
+      visuallyHiddenTitle: {
+        type: 'string',
+        required: false,
+        description:
+          'Title for meta `items` links. Defaults to `"Support links"`.'
+      },
+      html: {
+        type: 'string',
+        required: false,
+        description:
+          'HTML to add to the meta section of the footer, which will appear below any links specified using meta `items`.'
+      },
+      text: {
+        type: 'string',
+        required: false,
+        description:
+          'Text to add to the meta section of the footer, which will appear below any links specified using meta `items`. If meta `html` is specified, this option is ignored.'
+      },
+      items: {
+        type: 'array',
+        required: false,
+        description: 'Contains the array of key policy footer link items.',
+        params: {
+          href: {
+            type: 'string',
+            required: true,
+            description: 'Footer meta link `href` attribute.'
+          },
+          text: {
+            type: 'string',
+            required: true,
+            description: 'Footer meta link text.'
+          },
+          attributes: {
+            type: 'object',
+            required: false,
+            description:
+              'HTML attributes (for example data attributes) to add to the footer meta link.'
+          }
         }
       }
     }
