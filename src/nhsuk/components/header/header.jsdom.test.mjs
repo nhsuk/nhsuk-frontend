@@ -96,14 +96,6 @@ describe('Header class', () => {
       )
     })
 
-    it('should throw with missing navigation', () => {
-      $navigation.remove()
-
-      expect(() => initHeader()).toThrow(
-        `${Header.moduleName}: Navigation (\`<nav class="nhsuk-header__navigation">\`) not found`
-      )
-    })
-
     it('should throw with missing navigation list', () => {
       $navigationList.remove()
 
@@ -134,6 +126,20 @@ describe('Header class', () => {
       expect(() => initHeader()).toThrow(
         `${Header.moduleName}: Menu button (\`<button class="nhsuk-header__menu-toggle">\`) not found`
       )
+    })
+
+    it('should not throw with missing navigation', () => {
+      $navigation.remove()
+
+      expect(() => initHeader()).not.toThrow()
+    })
+
+    it('should not throw with missing navigation and related elements', () => {
+      $navigation.remove()
+      $navigationList.remove()
+      $menuButton.remove()
+
+      expect(() => initHeader()).not.toThrow()
     })
 
     it('should not throw with empty body', () => {
