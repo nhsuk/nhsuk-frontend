@@ -6,41 +6,41 @@ module.exports = async function (page, scenario) {
   const { postInteractionWait = 0, scrollToSelector } = scenario
 
   const clickSelectors =
-    scenario.clickSelectors ||
+    scenario.clickSelectors ??
     (scenario.clickSelector ? [scenario.clickSelector] : [])
 
   const hoverSelectors =
-    scenario.hoverSelectors ||
+    scenario.hoverSelectors ??
     (scenario.hoverSelector ? [scenario.hoverSelector] : [])
 
   const activeSelectors =
-    scenario.activeSelectors ||
+    scenario.activeSelectors ??
     (scenario.activeSelector ? [scenario.activeSelector] : [])
 
   const focusSelectors =
-    scenario.focusSelectors ||
+    scenario.focusSelectors ??
     (scenario.focusSelector ? [scenario.focusSelector] : [])
 
   const keyPressSelectors =
-    scenario.keyPressSelectors ||
+    scenario.keyPressSelectors ??
     (scenario.keyPressSelector ? [scenario.keyPressSelector] : [])
 
   for (const { selector, keyPress } of keyPressSelectors) {
-    const locator = await getLocator(page, selector)
+    const locator = getLocator(page, selector)
 
     await page.bringToFront()
     await locator.pressSequentially(keyPress)
   }
 
   for (const selector of hoverSelectors) {
-    const locator = await getLocator(page, selector)
+    const locator = getLocator(page, selector)
 
     await page.bringToFront()
     await locator.hover()
   }
 
   for (const selector of activeSelectors) {
-    const locator = await getLocator(page, selector)
+    const locator = getLocator(page, selector)
 
     await page.bringToFront()
     await locator.hover()
@@ -48,14 +48,14 @@ module.exports = async function (page, scenario) {
   }
 
   for (const selector of focusSelectors) {
-    const locator = await getLocator(page, selector)
+    const locator = getLocator(page, selector)
 
     await page.bringToFront()
     await locator.focus()
   }
 
   for (const selector of clickSelectors) {
-    const locator = await getLocator(page, selector)
+    const locator = getLocator(page, selector)
 
     await page.bringToFront()
     await locator.click()

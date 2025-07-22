@@ -127,7 +127,7 @@ export class Radios extends Component {
  * @param {Element | Document | null} [options.scope] - Scope of the document to search within
  */
 export function initRadios(options = {}) {
-  const $scope = options.scope || document
+  const $scope = options.scope ?? document
   const $radios = $scope.querySelectorAll(
     `[data-module="${Radios.moduleName}"]`
   )

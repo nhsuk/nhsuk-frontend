@@ -151,18 +151,12 @@ export const params = {
 export const examples = {
   'default': {
     context: {
-      idPrefix: 'example',
-      name: 'example',
       fieldset: {
         legend: {
-          text: 'Have you changed your name?',
-          classes: 'nhsuk-fieldset__legend--m'
+          text: 'Have you changed your name?'
         }
       },
-      hint: {
-        text: 'This includes changing your last name or spelling your name differently'
-      },
-      value: 'no',
+      name: 'example',
       items: [
         {
           value: 'yes',
@@ -178,82 +172,43 @@ export const examples = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
-  'with hint text': {
+  'with hint': {
     context: {
-      idPrefix: 'gov',
-      name: 'gov',
       fieldset: {
         legend: {
-          text: 'How do you want to sign in?',
-          classes: 'nhsuk-fieldset__legend--l',
-          isPageHeading: 'true'
-        }
-      },
-      items: [
-        {
-          value: 'gateway',
-          text: 'Sign in with Government Gateway',
-          hint: {
-            text: "You'll have a user ID if you've registered for self assessment or filed a tax return online before"
-          }
-        },
-        {
-          value: 'verify',
-          text: 'Sign in with NHS.UK login',
-          hint: {
-            text: "You'll have an account if you've already proved your identity with either Barclays, CitizenSafe, Digidentity, Experian, Post Office, Royal Mail or SecureIdentity"
-          }
-        }
-      ]
-    },
-    screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
-    }
-  },
-  'with disabled item': {
-    context: {
-      idPrefix: 'example-disabled',
-      name: 'example-disabled',
-      fieldset: {
-        legend: {
-          text: 'Have you changed your name?',
-          classes: 'nhsuk-fieldset__legend--m'
+          text: 'Have you changed your name?'
         }
       },
       hint: {
         text: 'This includes changing your last name or spelling your name differently'
       },
+      idPrefix: 'with-hint',
+      name: 'example',
       items: [
         {
           value: 'yes',
-          text: 'Yes',
-          disabled: true
+          text: 'Yes'
         },
         {
           value: 'no',
-          text: 'No',
-          disabled: true
+          text: 'No'
         }
       ]
-    },
-    screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
     }
   },
   'inline': {
     context: {
-      idPrefix: 'example',
       classes: 'nhsuk-radios--inline',
-      name: 'example',
       fieldset: {
         legend: {
-          text: 'Have you changed your name?',
-          classes: 'nhsuk-fieldset__legend--m'
+          text: 'Have you changed your name?'
         }
       },
       hint: {
         text: 'This includes changing your last name or spelling your name differently'
       },
+      idPrefix: 'inline',
+      name: 'example',
       value: 'no',
       items: [
         {
@@ -270,27 +225,20 @@ export const examples = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
-  'with hint text, error message': {
+  'with legend as page heading': {
     context: {
-      idPrefix: 'example',
-      name: 'example',
-      errorMessage: {
-        text: 'Please select an option'
-      },
       fieldset: {
-        classes: 'app-fieldset--custom-modifier',
-        attributes: {
-          'data-attribute': 'value',
-          'data-second-attribute': 'second-value'
-        },
         legend: {
           text: 'Have you changed your name?',
-          classes: 'nhsuk-fieldset__legend--m'
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: true
         }
       },
       hint: {
         text: 'This includes changing your last name or spelling your name differently'
       },
+      idPrefix: 'page-heading',
+      name: 'example',
       items: [
         {
           value: 'yes',
@@ -301,17 +249,10 @@ export const examples = {
           text: 'No'
         }
       ]
-    },
-    screenshot: {
-      states: ['focus'],
-      selector: '#example-2',
-      viewports: ['mobile', 'tablet', 'desktop']
     }
   },
   'with divider': {
     context: {
-      idPrefix: 'example-divider',
-      name: 'example',
       fieldset: {
         legend: {
           text: 'How do you want to sign in?',
@@ -319,6 +260,8 @@ export const examples = {
           pageHeading: 'true'
         }
       },
+      idPrefix: 'with-divider',
+      name: 'example',
       items: [
         {
           value: 'government-gateway',
@@ -341,227 +284,39 @@ export const examples = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
-  'with conditional content': {
+  'with hints on items': {
     context: {
-      idPrefix: 'contact',
-      name: 'contact',
       fieldset: {
         legend: {
-          text: 'How would you prefer to be contacted?',
-          classes: 'nhsuk-fieldset__legend--l',
-          isPageHeading: 'true'
+          text: 'How do you want to sign in?'
         }
       },
-      hint: {
-        text: 'Select 1 option'
-      },
+      idPrefix: 'with-hint-item',
+      name: 'example',
       items: [
         {
-          value: 'email',
-          text: 'Email',
-          conditional: {
-            html: components.render('input', {
-              context: {
-                id: 'email',
-                name: 'email',
-                spellcheck: false,
-                classes: 'nhsuk-u-width-two-thirds',
-                label: {
-                  text: 'Email address'
-                }
-              }
-            })
+          value: 'gateway',
+          text: 'Sign in with Government Gateway',
+          hint: {
+            text: "You'll have a user ID if you've registered for self assessment or filed a tax return online before"
           }
         },
         {
-          value: 'phone',
-          text: 'Phone',
-          conditional: {
-            html: components.render('input', {
-              context: {
-                id: 'phone',
-                name: 'phone',
-                type: 'tel',
-                classes: 'nhsuk-u-width-two-thirds',
-                label: {
-                  text: 'Phone number'
-                }
-              }
-            })
-          }
-        },
-        {
-          value: 'text',
-          text: 'Text message',
-          conditional: {
-            html: components.render('input', {
-              context: {
-                id: 'mobile',
-                name: 'mobile',
-                type: 'tel',
-                classes: 'nhsuk-u-width-two-thirds',
-                label: {
-                  text: 'Mobile phone number'
-                }
-              }
-            })
-          }
-        }
-      ]
-    }
-  },
-  'with conditional content, error message': {
-    context: {
-      idPrefix: 'contact',
-      name: 'contact',
-      fieldset: {
-        legend: {
-          text: 'How would you prefer to be contacted?',
-          classes: 'nhsuk-fieldset__legend--l',
-          isPageHeading: 'true'
-        }
-      },
-      hint: {
-        text: 'Select 1 option'
-      },
-      errorMessage: {
-        text: 'Select how you like to be contacted'
-      },
-      items: [
-        {
-          value: 'email',
-          text: 'Email',
-          conditional: {
-            html: components.render('input', {
-              context: {
-                id: 'email',
-                name: 'email',
-                spellcheck: false,
-                classes: 'nhsuk-u-width-two-thirds',
-                label: {
-                  text: 'Email address'
-                }
-              }
-            })
-          }
-        },
-        {
-          value: 'phone',
-          text: 'Phone',
-          conditional: {
-            html: components.render('input', {
-              context: {
-                id: 'phone',
-                name: 'phone',
-                type: 'tel',
-                classes: 'nhsuk-u-width-two-thirds',
-                label: {
-                  text: 'Phone number'
-                }
-              }
-            })
-          }
-        },
-        {
-          value: 'text',
-          text: 'Text message',
-          conditional: {
-            html: components.render('input', {
-              context: {
-                id: 'mobile',
-                name: 'mobile',
-                type: 'tel',
-                classes: 'nhsuk-u-width-two-thirds',
-                label: {
-                  text: 'Mobile phone number'
-                }
-              }
-            })
-          }
-        }
-      ]
-    }
-  },
-  'with conditional content, error message (nested)': {
-    context: {
-      idPrefix: 'contact',
-      name: 'contact',
-      fieldset: {
-        legend: {
-          text: 'How would you prefer to be contacted?',
-          classes: 'nhsuk-fieldset__legend--l',
-          isPageHeading: 'true'
-        }
-      },
-      hint: {
-        text: 'Select 1 option'
-      },
-      value: 'phone',
-      items: [
-        {
-          value: 'email',
-          text: 'Email',
-          conditional: {
-            html: components.render('input', {
-              context: {
-                id: 'email',
-                name: 'email',
-                spellcheck: false,
-                classes: 'nhsuk-u-width-two-thirds',
-                label: {
-                  text: 'Email address'
-                }
-              }
-            })
-          }
-        },
-        {
-          value: 'phone',
-          text: 'Phone',
-          conditional: {
-            html: components.render('input', {
-              context: {
-                id: 'phone',
-                name: 'phone',
-                type: 'tel',
-                classes: 'nhsuk-u-width-two-thirds',
-                label: {
-                  text: 'Phone number'
-                },
-                errorMessage: {
-                  text: 'Enter your phone number'
-                }
-              }
-            })
-          }
-        },
-        {
-          value: 'text',
-          text: 'Text message',
-          conditional: {
-            html: components.render('input', {
-              context: {
-                id: 'mobile',
-                name: 'mobile',
-                type: 'tel',
-                classes: 'nhsuk-u-width-two-thirds',
-                label: {
-                  text: 'Mobile phone number'
-                }
-              }
-            })
+          value: 'verify',
+          text: 'Sign in with NHS.UK login',
+          hint: {
+            text: "You'll have an account if you've already proved your identity with either Barclays, CitizenSafe, Digidentity, Experian, Post Office, Royal Mail or SecureIdentity"
           }
         }
       ]
     },
     screenshot: {
-      states: ['focus'],
-      selector: '#contact-2',
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
   'without fieldset': {
     context: {
+      id: 'without-fieldset',
       name: 'colours',
       items: [
         {
@@ -582,20 +337,307 @@ export const examples = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
-  'with nested conditional radios': {
+  'with disabled item': {
     context: {
-      idPrefix: 'outer',
-      name: 'outer',
       fieldset: {
         legend: {
-          text: 'How would you prefer to be contacted?',
-          classes: 'nhsuk-fieldset__legend--l',
-          isPageHeading: 'true'
+          text: 'Have you changed your name?'
+        }
+      },
+      hint: {
+        text: 'This includes changing your last name or spelling your name differently'
+      },
+      idPrefix: 'with-disabled-item',
+      name: 'example',
+      items: [
+        {
+          value: 'yes',
+          text: 'Yes',
+          disabled: true
+        },
+        {
+          value: 'no',
+          text: 'No',
+          disabled: true
+        }
+      ]
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
+    }
+  },
+  'with error message': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'Have you changed your name?'
+        }
+      },
+      errorMessage: {
+        text: 'Select yes if you have changed your name'
+      },
+      idPrefix: 'with-error-message',
+      name: 'example',
+      items: [
+        {
+          value: 'yes',
+          text: 'Yes'
+        },
+        {
+          value: 'no',
+          text: 'No'
+        }
+      ]
+    }
+  },
+  'with hint and error': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'Have you changed your name?'
+        }
+      },
+      hint: {
+        text: 'This includes changing your last name or spelling your name differently'
+      },
+      errorMessage: {
+        text: 'Select yes if you have changed your name'
+      },
+      idPrefix: 'with-hint-error',
+      name: 'example',
+      items: [
+        {
+          value: 'yes',
+          text: 'Yes'
+        },
+        {
+          value: 'no',
+          text: 'No'
+        }
+      ]
+    },
+    screenshot: {
+      states: ['focus'],
+      selector: '#with-hint-error',
+      viewports: ['mobile', 'tablet', 'desktop']
+    }
+  },
+  'with conditional content': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'How would you prefer to be contacted?'
         }
       },
       hint: {
         text: 'Select 1 option'
       },
+      idPrefix: 'conditional',
+      name: 'example',
+      items: [
+        {
+          value: 'email',
+          text: 'Email',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                label: {
+                  text: 'Email address'
+                },
+                name: 'email',
+                spellcheck: false,
+                classes: 'nhsuk-u-width-two-thirds'
+              }
+            })
+          }
+        },
+        {
+          value: 'phone',
+          text: 'Phone',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                label: {
+                  text: 'Phone number'
+                },
+                name: 'phone',
+                type: 'tel',
+                classes: 'nhsuk-u-width-two-thirds'
+              }
+            })
+          }
+        },
+        {
+          value: 'text',
+          text: 'Text message',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                label: {
+                  text: 'Mobile phone number'
+                },
+                name: 'mobile',
+                type: 'tel',
+                classes: 'nhsuk-u-width-two-thirds'
+              }
+            })
+          }
+        }
+      ]
+    }
+  },
+  'with conditional content, error message': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'How would you prefer to be contacted?'
+        }
+      },
+      hint: {
+        text: 'Select 1 option'
+      },
+      errorMessage: {
+        text: 'Select how you prefer to be contacted'
+      },
+      idPrefix: 'conditional',
+      name: 'example',
+      items: [
+        {
+          value: 'email',
+          text: 'Email',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                label: {
+                  text: 'Email address'
+                },
+                name: 'email',
+                spellcheck: false,
+                classes: 'nhsuk-u-width-two-thirds'
+              }
+            })
+          }
+        },
+        {
+          value: 'phone',
+          text: 'Phone',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                label: {
+                  text: 'Phone number'
+                },
+                name: 'phone',
+                type: 'tel',
+                classes: 'nhsuk-u-width-two-thirds'
+              }
+            })
+          }
+        },
+        {
+          value: 'text',
+          text: 'Text message',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                label: {
+                  text: 'Mobile phone number'
+                },
+                name: 'mobile',
+                type: 'tel',
+                classes: 'nhsuk-u-width-two-thirds'
+              }
+            })
+          }
+        }
+      ]
+    }
+  },
+  'with conditional content, error message (nested)': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'How would you prefer to be contacted?'
+        }
+      },
+      hint: {
+        text: 'Select 1 option'
+      },
+      idPrefix: 'conditional',
+      name: 'example',
+      value: 'phone',
+      items: [
+        {
+          value: 'email',
+          text: 'Email',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                label: {
+                  text: 'Email address'
+                },
+                name: 'email',
+                spellcheck: false,
+                classes: 'nhsuk-u-width-two-thirds'
+              }
+            })
+          }
+        },
+        {
+          value: 'phone',
+          text: 'Phone',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                label: {
+                  text: 'Phone number'
+                },
+                errorMessage: {
+                  text: 'Enter your phone number'
+                },
+                name: 'phone',
+                type: 'tel',
+                classes: 'nhsuk-u-width-two-thirds'
+              }
+            })
+          }
+        },
+        {
+          value: 'text',
+          text: 'Text message',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                label: {
+                  text: 'Mobile phone number'
+                },
+                name: 'mobile',
+                type: 'tel',
+                classes: 'nhsuk-u-width-two-thirds'
+              }
+            })
+          }
+        }
+      ]
+    },
+    screenshot: {
+      states: ['focus'],
+      selector: '#conditional-2',
+      viewports: ['mobile', 'tablet', 'desktop']
+    }
+  },
+  'with nested conditional radios': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'How would you prefer to be contacted?'
+        }
+      },
+      hint: {
+        text: 'Select 1 option'
+      },
+      idPrefix: 'conditional-nested',
+      name: 'example-outer',
       items: [
         {
           value: 'no-conditional',
@@ -607,18 +649,15 @@ export const examples = {
           conditional: {
             html: components.render('radios', {
               context: {
-                idPrefix: 'contact',
-                name: 'contact',
                 fieldset: {
                   legend: {
-                    text: 'How would you prefer to be contacted?',
-                    classes: 'nhsuk-fieldset__legend--l',
-                    isPageHeading: 'true'
+                    text: 'How would you prefer to be contacted?'
                   }
                 },
                 hint: {
                   text: 'Select 1 option'
                 },
+                name: 'example-inner',
                 items: [
                   {
                     value: 'email',
@@ -626,13 +665,12 @@ export const examples = {
                     conditional: {
                       html: components.render('input', {
                         context: {
-                          id: 'email',
-                          name: 'email',
-                          spellcheck: false,
-                          classes: 'nhsuk-u-width-two-thirds',
                           label: {
                             text: 'Email address'
-                          }
+                          },
+                          name: 'email',
+                          spellcheck: false,
+                          classes: 'nhsuk-u-width-two-thirds'
                         }
                       })
                     }
@@ -643,13 +681,12 @@ export const examples = {
                     conditional: {
                       html: components.render('input', {
                         context: {
-                          id: 'phone',
-                          name: 'phone',
-                          type: 'tel',
-                          classes: 'nhsuk-u-width-two-thirds',
                           label: {
                             text: 'Phone number'
-                          }
+                          },
+                          name: 'phone',
+                          type: 'tel',
+                          classes: 'nhsuk-u-width-two-thirds'
                         }
                       })
                     }
@@ -660,13 +697,12 @@ export const examples = {
                     conditional: {
                       html: components.render('input', {
                         context: {
-                          id: 'mobile',
-                          name: 'mobile',
-                          type: 'tel',
-                          classes: 'nhsuk-u-width-two-thirds',
                           label: {
                             text: 'Mobile phone number'
-                          }
+                          },
+                          name: 'mobile',
+                          type: 'tel',
+                          classes: 'nhsuk-u-width-two-thirds'
                         }
                       })
                     }

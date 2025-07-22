@@ -101,40 +101,74 @@ export const params = {
 export const examples = {
   'default': {
     context: {
-      name: 'more-detail',
-      id: 'more-detail',
+      label: {
+        text: 'Can you provide more detail?'
+      },
+      name: 'example'
+    },
+    screenshot: true
+  },
+  'with hint': {
+    context: {
       label: {
         text: 'Can you provide more detail?'
       },
       hint: {
         text: 'Do not include personal information, like your name, date of birth or NHS number'
-      }
-    },
-    screenshot: true
+      },
+      id: 'with-hint',
+      name: 'example'
+    }
+  },
+  'with label as page heading': {
+    context: {
+      label: {
+        text: 'Can you provide more detail?',
+        classes: 'nhsuk-label--l',
+        isPageHeading: true
+      },
+      id: 'page-heading',
+      name: 'example'
+    }
   },
   'with error message': {
     context: {
-      name: 'no-ni-reason',
-      id: 'no-ni-reason',
       label: {
-        text: "Why can't you provide an NHS number?"
+        text: 'Can you provide more detail?'
       },
       errorMessage: {
         text: 'You must provide an explanation'
-      }
+      },
+      id: 'with-error-message',
+      name: 'example'
     },
     screenshot: {
       states: ['focus'],
-      selector: '#no-ni-reason'
+      selector: '#with-error-message'
+    }
+  },
+  'with hint and error': {
+    context: {
+      label: {
+        text: 'Can you provide more detail?'
+      },
+      hint: {
+        text: 'Do not include personal information, like your name, date of birth or NHS number'
+      },
+      errorMessage: {
+        text: 'You must provide an explanation'
+      },
+      id: 'with-hint-error',
+      name: 'example'
     }
   },
   'with autocomplete attribute': {
     context: {
-      name: 'address',
-      id: 'textarea-with-autocomplete-attribute',
       label: {
         text: 'Full address'
       },
+      id: 'with-autocomplete-attribute',
+      name: 'example',
       autocomplete: 'street-address'
     }
   }

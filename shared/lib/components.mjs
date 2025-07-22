@@ -39,7 +39,7 @@ export async function load(component) {
 
   // Sort examples by name, default at top
   data.examples = Object.fromEntries(
-    Object.entries(options.examples).sort(([nameA], [nameB]) =>
+    Object.entries(options.examples ?? {}).sort(([nameA], [nameB]) =>
       collator.compare(
         nameA.replace('default', ''),
         nameB.replace('default', '')
@@ -135,7 +135,7 @@ export function render(component, options) {
   ])
 
   // Replace plural directory name with singular macro name
-  const macroName = camelCase(renamed.get(component) || component)
+  const macroName = camelCase(renamed.get(component) ?? component)
   const macroPath = `nhsuk/components/${component}/macro.njk`
 
   return nunjucks.renderMacro(macroName, macroPath, options)

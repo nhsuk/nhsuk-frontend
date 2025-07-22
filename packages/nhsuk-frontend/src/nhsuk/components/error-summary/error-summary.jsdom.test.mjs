@@ -2,10 +2,13 @@ import { components } from '@nhsuk/frontend-lib'
 import { getAllByRole, getByRole } from '@testing-library/dom'
 import { outdent } from 'outdent'
 
+import { examples as dateInputExamples } from '../date-input/macro-options.mjs'
+
 import { ErrorSummary, initErrorSummary } from './error-summary.mjs'
+import { examples } from './macro-options.mjs'
 
 describe('Error summary', () => {
-  /** @type {HTMLDivElement} */
+  /** @type {HTMLElement} */
   let $root
 
   /** @type {HTMLAnchorElement[]} */
@@ -18,52 +21,23 @@ describe('Error summary', () => {
   let $label
 
   beforeEach(() => {
-    const descriptionHtml = outdent`
-      Optional description of the errors and how to correct them.<br>
-      Note that the error summary should receive focus on page load using the JavaScript that comes with this component.
-    `
-
     document.body.innerHTML = outdent`
       <form method="post" novalidate>
-        ${components.render('error-summary', {
-          context: {
-            titleText: 'There is a problem',
-            descriptionHtml,
-            errorList: [
-              {
-                text: 'Link to input error with explanation',
-                href: '#example'
-              }
-            ]
-          }
-        })}
-
-        ${components.render('input', {
-          context: {
-            id: 'example',
-            name: 'example',
-            label: {
-              text: 'National Insurance number'
-            },
-            hint: {
-              text: "Clicking an error summary link should scroll the top of this input's label into view."
-            },
-            errorMessage: {
-              text: 'Error message goes here'
-            }
-          }
-        })}
+        ${components.render('error-summary', examples['with description'])}
+        ${components.render('date-input', dateInputExamples['with errors and hint'])}
       </form>
     `
 
     const $container = document.querySelector('form')
 
-    $root = document.querySelector(`[data-module="${ErrorSummary.moduleName}"]`)
+    $root = /** @type {HTMLElement} */ (
+      document.querySelector(`[data-module="${ErrorSummary.moduleName}"]`)
+    )
 
     $links = getAllByRole($root, 'link')
 
     $input = getByRole($container, 'textbox', {
-      name: 'National Insurance number'
+      name: 'Day'
     })
 
     $label = $input.labels[0]

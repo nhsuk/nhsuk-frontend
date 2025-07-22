@@ -1,103 +1,34 @@
 import { components } from '@nhsuk/frontend-lib'
-import { getByRole } from '@testing-library/dom'
+import { fireEvent, getByRole } from '@testing-library/dom'
 import { outdent } from 'outdent'
 
+import { examples } from './macro-options.mjs'
 import { Radios, initRadios } from './radios.mjs'
 
 describe('Radios', () => {
   /** @type {HTMLElement} */
   let $root
 
-  /** @type {HTMLDivElement[]} */
+  /** @type {HTMLElement[]} */
   let $conditionals
 
-  /** @type {HTMLInputElement[]} */
+  /** @type {HTMLElement[]} */
   let $inputs
 
   beforeEach(() => {
-    const emailHtml = components.render('input', {
-      context: {
-        id: 'email',
-        name: 'email',
-        spellcheck: false,
-        classes: 'nhsuk-u-width-two-thirds',
-        label: {
-          text: 'Email address'
-        }
-      }
-    })
-
-    const phoneHtml = components.render('input', {
-      context: {
-        id: 'phone',
-        name: 'phone',
-        type: 'tel',
-        classes: 'nhsuk-u-width-two-thirds',
-        label: {
-          text: 'Phone number'
-        }
-      }
-    })
-
-    const mobileHtml = components.render('input', {
-      context: {
-        id: 'mobile',
-        name: 'mobile',
-        type: 'tel',
-        classes: 'nhsuk-u-width-two-thirds',
-        label: {
-          text: 'Mobile phone number'
-        }
-      }
-    })
-
     document.body.innerHTML = outdent`
       <form method="post" novalidate>
-        ${components.render('radios', {
-          context: {
-            idPrefix: 'contact',
-            name: 'contact',
-            fieldset: {
-              legend: {
-                text: 'How would you prefer to be contacted?',
-                classes: 'nhsuk-fieldset__legend--l',
-                isPageHeading: 'true'
-              }
-            },
-            hint: {
-              text: 'Select 1 option that is relevant to you'
-            },
-            items: [
-              {
-                value: 'email',
-                text: 'Email',
-                conditional: {
-                  html: emailHtml
-                }
-              },
-              {
-                value: 'phone',
-                text: 'Phone',
-                conditional: {
-                  html: phoneHtml
-                }
-              },
-              {
-                value: 'text',
-                text: 'Text message',
-                conditional: {
-                  html: mobileHtml
-                }
-              }
-            ]
-          }
-        })}
+        ${components.render('radios', examples['with conditional content'])}
       </form>
     `
 
-    $root = document.querySelector(`[data-module="${Radios.moduleName}"]`)
+    $root = /** @type {HTMLElement} */ (
+      document.querySelector(`[data-module="${Radios.moduleName}"]`)
+    )
 
-    $conditionals = [...$root.querySelectorAll('.nhsuk-radios__conditional')]
+    $conditionals = /** @type {HTMLElement[]} */ ([
+      ...$root.querySelectorAll('.nhsuk-radios__conditional')
+    ])
 
     const $input1 = getByRole($root, 'radio', {
       name: 'Email'
@@ -242,8 +173,8 @@ describe('Radios', () => {
       expect($input).not.toHaveAttribute('aria-expanded', 'true')
       expect($conditional).toHaveClass('nhsuk-radios__conditional--hidden')
 
-      window.addEventListener('pageshow', initRadios)
-      window.dispatchEvent(new Event('pageshow'))
+      window.addEventListener('pageshow', () => initRadios())
+      fireEvent.pageShow(window)
 
       // Conditional content visible
       expect($input).toHaveAttribute('aria-expanded', 'true')

@@ -129,12 +129,10 @@ export const params = {
 export const examples = {
   'default': {
     context: {
-      id: 'sort',
-      name: 'sort',
       label: {
         text: 'Sort by'
       },
-      value: 'updated',
+      name: 'example',
       items: [
         {
           value: 'published',
@@ -156,14 +154,13 @@ export const examples = {
     },
     screenshot: true
   },
-  'with disabled option': {
+  'with disabled item': {
     context: {
-      id: 'sort',
-      name: 'sort',
       label: {
         text: 'Sort by'
       },
-      value: 'updated',
+      id: 'with-disabled-item',
+      name: 'example',
       items: [
         {
           value: 'published',
@@ -185,17 +182,16 @@ export const examples = {
       ]
     }
   },
-  'with hint text': {
+  'with hint': {
     context: {
-      id: 'location',
-      name: 'location',
       label: {
         text: 'Choose location'
       },
       hint: {
         text: 'This can be different to where you went before'
       },
-      value: 'choose',
+      id: 'with-hint',
+      name: 'example',
       items: [
         {
           value: 'choose',
@@ -241,10 +237,91 @@ export const examples = {
     },
     screenshot: true
   },
-  'with hint text, error message': {
+  'with label as page heading': {
     context: {
-      id: 'location',
-      name: 'location',
+      label: {
+        text: 'Sort by',
+        classes: 'nhsuk-label--l',
+        isPageHeading: true
+      },
+      id: 'page-heading',
+      name: 'example',
+      items: [
+        {
+          value: 'published',
+          text: 'Recently published'
+        },
+        {
+          value: 'updated',
+          text: 'Recently updated'
+        },
+        {
+          value: 'views',
+          text: 'Most views'
+        },
+        {
+          value: 'comments',
+          text: 'Most comments'
+        }
+      ]
+    }
+  },
+  'with error message': {
+    context: {
+      label: {
+        text: 'Choose location'
+      },
+      errorMessage: {
+        text: 'Select a location'
+      },
+      id: 'with-error-message',
+      name: 'example',
+      items: [
+        {
+          value: 'choose',
+          text: 'Choose location'
+        },
+        {
+          value: 'eastmidlands',
+          text: 'East Midlands'
+        },
+        {
+          value: 'eastofengland',
+          text: 'East of England'
+        },
+        {
+          value: 'london',
+          text: 'London'
+        },
+        {
+          value: 'northeast',
+          text: 'North East'
+        },
+        {
+          value: 'northwest',
+          text: 'North West'
+        },
+        {
+          value: 'southeast',
+          text: 'South East'
+        },
+        {
+          value: 'southwest',
+          text: 'South West'
+        },
+        {
+          value: 'westmidlands',
+          text: 'West Midlands'
+        },
+        {
+          value: 'yorkshire',
+          text: 'Yorkshire and the Humber'
+        }
+      ]
+    }
+  },
+  'with hint and error': {
+    context: {
       label: {
         text: 'Choose location'
       },
@@ -254,7 +331,8 @@ export const examples = {
       errorMessage: {
         text: 'Select a location'
       },
-      value: 'choose',
+      id: 'with-hint-error',
+      name: 'example',
       items: [
         {
           value: 'choose',
@@ -300,7 +378,35 @@ export const examples = {
     },
     screenshot: {
       states: ['focus'],
-      selector: '[for=location]'
+      selector: '#with-hint-error'
+    }
+  },
+  'with selected value': {
+    context: {
+      label: {
+        text: 'Sort by'
+      },
+      id: 'with-value',
+      name: 'example',
+      value: 'updated',
+      items: [
+        {
+          value: 'published',
+          text: 'Recently published'
+        },
+        {
+          value: 'updated',
+          text: 'Recently updated'
+        },
+        {
+          value: 'views',
+          text: 'Most views'
+        },
+        {
+          value: 'comments',
+          text: 'Most comments'
+        }
+      ]
     }
   }
 }

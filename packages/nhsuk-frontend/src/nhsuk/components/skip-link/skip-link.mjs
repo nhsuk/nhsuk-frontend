@@ -1,6 +1,4 @@
-/* eslint-disable @typescript-eslint/no-extraneous-class */
-
-import { getFragmentFromUrl, setFocus } from '../../common/index.mjs'
+import { setFocus } from '../../common/index.mjs'
 import { Component } from '../../component.mjs'
 import { ElementError } from '../../errors/index.mjs'
 
@@ -24,7 +22,7 @@ export class SkipLink extends Component {
     const hash = this.$root.hash
     const href = this.$root.getAttribute('href') ?? ''
 
-    const linkedElementId = getFragmentFromUrl(hash)
+    const linkedElementId = hash.replace('#', '')
     if (!linkedElementId) {
       throw new ElementError({
         component: SkipLink,
@@ -74,7 +72,7 @@ export class SkipLink extends Component {
  * @param {Element | Document | null} [options.scope] - Scope of the document to search within
  */
 export function initSkipLinks(options = {}) {
-  const $scope = options.scope || document
+  const $scope = options.scope ?? document
   const $skipLinks = $scope.querySelectorAll(
     `[data-module="${SkipLink.moduleName}"]`
   )

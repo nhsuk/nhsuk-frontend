@@ -1,19 +1,32 @@
 import { components } from '@nhsuk/frontend-lib'
+import { createEvent, fireEvent } from '@testing-library/dom'
+import { userEvent } from '@testing-library/user-event'
 
 import { Button, initButtons } from './button.mjs'
+import { examples } from './macro-options.mjs'
+
+const user = userEvent.setup()
 
 describe('Button', () => {
   /** @type {HTMLElement} */
   let $root
 
-  beforeEach(() => {
-    document.body.innerHTML = components.render('button', {
-      context: { text: 'Save and continue' }
-    })
+  /**
+   * @param {keyof typeof examples} example
+   */
+  function initExample(example) {
+    document.body.innerHTML = components.render('button', examples[example])
 
-    $root = document.querySelector(`[data-module="${Button.moduleName}"]`)
+    $root = /** @type {HTMLElement} */ (
+      document.querySelector(`[data-module="${Button.moduleName}"]`)
+    )
 
     jest.spyOn($root, 'addEventListener')
+    jest.spyOn($root, 'click')
+  }
+
+  beforeEach(() => {
+    initExample('default')
   })
 
   describe('Initialisation via init function', () => {
@@ -86,7 +99,50 @@ describe('Button', () => {
     })
   })
 
-  describe('Accessibility', () => {
+  describe('Double click', () => {
+    it('should not be prevented', () => {
+      initButtons()
+
+      const event = createEvent.click($root)
+      jest.spyOn(event, 'preventDefault')
+
+      fireEvent($root, event)
+      expect(event.preventDefault).not.toHaveBeenCalled()
+
+      fireEvent($root, event)
+      expect(event.preventDefault).not.toHaveBeenCalled()
+    })
+
+    it('should not be prevented with `preventDoubleClick: false`', () => {
+      initExample('with double click not prevented')
+      initButtons()
+
+      const event = createEvent.click($root)
+      jest.spyOn(event, 'preventDefault')
+
+      fireEvent($root, event)
+      expect(event.preventDefault).not.toHaveBeenCalled()
+
+      fireEvent($root, event)
+      expect(event.preventDefault).not.toHaveBeenCalled()
+    })
+
+    it('should be prevented with `preventDoubleClick: true`', () => {
+      initExample('with double click prevented')
+      initButtons()
+
+      const event = createEvent.click($root)
+      jest.spyOn(event, 'preventDefault')
+
+      fireEvent($root, event)
+      expect(event.preventDefault).not.toHaveBeenCalled()
+
+      fireEvent($root, event)
+      expect(event.preventDefault).toHaveBeenCalled()
+    })
+  })
+
+  describe('Accessibility (button)', () => {
     beforeEach(() => {
       initButtons()
     })
@@ -94,6 +150,32 @@ describe('Button', () => {
     it('should have accessible name and role', () => {
       expect($root).toHaveAccessibleName('Save and continue')
       expect($root).toHaveRole('button')
+    })
+
+    it('should not trigger the click event when the space key is pressed', async () => {
+      $root.focus()
+
+      await user.keyboard('[Space]')
+      expect($root.click).not.toHaveBeenCalled()
+    })
+  })
+
+  describe('Accessibility (link)', () => {
+    beforeEach(() => {
+      initExample('as a link')
+      initButtons()
+    })
+
+    it('should have accessible name and role', () => {
+      expect($root).toHaveAccessibleName('Link button')
+      expect($root).toHaveRole('button')
+    })
+
+    it('should trigger the click event when the space key is pressed', async () => {
+      $root.focus()
+
+      await user.keyboard('[Space]')
+      expect($root.click).toHaveBeenCalled()
     })
   })
 })

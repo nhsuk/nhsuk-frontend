@@ -1,5 +1,5 @@
 import { components } from '@nhsuk/frontend-lib'
-import { getByRole } from '@testing-library/dom'
+import { fireEvent, getByRole } from '@testing-library/dom'
 
 import { Checkboxes, initCheckboxes } from './checkboxes.mjs'
 import { examples } from './macro-options.mjs'
@@ -24,19 +24,18 @@ describe('Checkboxes', () => {
   let $inputNone
 
   /**
-   * @param {keyof typeof examples} exampleName
+   * @param {keyof typeof examples} example
    */
-  function initExample(exampleName) {
-    document.body.innerHTML = components.render(
-      'checkboxes',
-      examples[exampleName]
+  function initExample(example) {
+    document.body.innerHTML = components.render('checkboxes', examples[example])
+
+    $root = /** @type {HTMLElement} */ (
+      document.querySelector(`[data-module="${Checkboxes.moduleName}"]`)
     )
 
-    $root = document.querySelector(`[data-module="${Checkboxes.moduleName}"]`)
-
-    $conditionals = [
+    $conditionals = /** @type {HTMLDivElement[]} */ ([
       ...$root.querySelectorAll('.nhsuk-checkboxes__conditional')
-    ]
+    ])
 
     $input1 = getByRole($root, 'checkbox', {
       name: 'Email'
@@ -202,8 +201,8 @@ describe('Checkboxes', () => {
       expect($input).not.toHaveAttribute('aria-expanded', 'true')
       expect($conditional).toHaveClass('nhsuk-checkboxes__conditional--hidden')
 
-      window.addEventListener('pageshow', initCheckboxes)
-      window.dispatchEvent(new Event('pageshow'))
+      window.addEventListener('pageshow', () => initCheckboxes())
+      fireEvent.pageShow(window)
 
       // Conditional content visible
       expect($input).toHaveAttribute('aria-expanded', 'true')

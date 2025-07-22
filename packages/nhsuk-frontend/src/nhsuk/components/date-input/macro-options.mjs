@@ -8,19 +8,19 @@ export const name = 'Date input'
  * @satisfies {{ [param: string]: MacroParam }}
  */
 export const params = {
-  'id': {
+  id: {
     type: 'string',
     required: false,
     description:
       'This is used for the main component and to compose id attribute for each item.'
   },
-  'namePrefix': {
+  namePrefix: {
     type: 'string',
     required: false,
     description:
       "Optional prefix. This is used to prefix each `item.name` using `'-'`."
   },
-  'items': {
+  items: {
     type: 'array',
     required: false,
     description: 'An array of input objects with name, value and classes.',
@@ -78,26 +78,26 @@ export const params = {
       }
     }
   },
-  'fieldset': {
+  fieldset: {
     type: 'object',
     required: false,
     description: 'Options for the fieldset component (for example legend).',
     isComponent: true
   },
-  'hint': {
+  hint: {
     type: 'object',
     required: false,
     description: 'Options for the hint component.',
     isComponent: true
   },
-  'errorMessage': {
+  errorMessage: {
     type: 'object',
     required: false,
     description:
       'Options for the error message component. The error message component will not display if you use a falsy value for `errorMessage`, for example `false` or `null`.',
     isComponent: true
   },
-  'formGroup': {
+  formGroup: {
     type: 'object',
     required: false,
     description:
@@ -117,37 +117,39 @@ export const params = {
       }
     }
   },
-  'classes': {
+  values: {
+    type: 'object',
+    required: false,
+    description:
+      'An optional object use to specify value attributes for the date parts without setting items.',
+    params: {
+      day: {
+        type: 'string',
+        required: false,
+        description: 'Value attribute for the day input.'
+      },
+      month: {
+        type: 'string',
+        required: false,
+        description: 'Value attribute for the month input.'
+      },
+      year: {
+        type: 'string',
+        required: false,
+        description: 'Value attribute for the year input.'
+      }
+    }
+  },
+  classes: {
     type: 'string',
     required: false,
     description: 'Classes to add to the date-input container.'
   },
-  'attributes': {
+  attributes: {
     type: 'object',
     required: false,
     description:
       'HTML attributes (for example data attributes) to add to the date-input container.'
-  },
-  'values': {
-    type: 'object',
-    required: false,
-    description:
-      'An optional object use to specify value attributes for the date parts without setting rows.'
-  },
-  'values.day': {
-    type: 'string',
-    required: false,
-    description: 'Value attribute for the day input.'
-  },
-  'values.month': {
-    type: 'string',
-    required: false,
-    description: 'Value attribute for the month input.'
-  },
-  'values.year': {
-    type: 'string',
-    required: false,
-    description: 'Value attribute for the year input.'
   }
 }
 
@@ -159,8 +161,6 @@ export const params = {
 export const examples = {
   'default': {
     context: {
-      id: 'dob',
-      namePrefix: 'dob',
       fieldset: {
         legend: {
           text: 'What is your date of birth?'
@@ -168,14 +168,13 @@ export const examples = {
       },
       hint: {
         text: 'For example, 31 3 1980'
-      }
+      },
+      id: 'example'
     },
     screenshot: true
   },
-  'with autocomplete attribute': {
+  'with values': {
     context: {
-      id: 'dob-with-autocomplete-attribute',
-      namePrefix: 'dob-with-autocomplete',
       fieldset: {
         legend: {
           text: 'What is your date of birth?'
@@ -184,6 +183,113 @@ export const examples = {
       hint: {
         text: 'For example, 31 3 1980'
       },
+      id: 'example',
+      values: {
+        day: '5',
+        month: '8',
+        year: '2024'
+      }
+    }
+  },
+  'day and month': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'What is your birthday?'
+        }
+      },
+      hint: {
+        text: 'For example, 5 12'
+      },
+      id: 'example',
+      items: [
+        {
+          name: 'day',
+          classes: 'nhsuk-input--width-2'
+        },
+        {
+          name: 'month',
+          classes: 'nhsuk-input--width-2'
+        }
+      ]
+    }
+  },
+  'month and year': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'When did you start your job?'
+        }
+      },
+      hint: {
+        text: 'For example, 11 2023'
+      },
+      id: 'example',
+      items: [
+        {
+          name: 'month',
+          classes: 'nhsuk-input--width-2'
+        },
+        {
+          name: 'year',
+          classes: 'nhsuk-input--width-4'
+        }
+      ]
+    }
+  },
+  'month and year with values': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'When did you start your job?'
+        }
+      },
+      hint: {
+        text: 'For example, 11 2023'
+      },
+      id: 'example',
+      values: {
+        month: '8',
+        year: '2024'
+      },
+      items: [
+        {
+          name: 'month',
+          classes: 'nhsuk-input--width-2'
+        },
+        {
+          name: 'year',
+          classes: 'nhsuk-input--width-4'
+        }
+      ]
+    }
+  },
+  'with legend as page heading': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'What is your date of birth?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: true
+        }
+      },
+      hint: {
+        text: 'For example, 31 3 1980'
+      },
+      id: 'example'
+    }
+  },
+  'with autocomplete values': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'What is your date of birth?'
+        }
+      },
+      hint: {
+        text: 'For example, 31 3 1980'
+      },
+      id: 'example',
       items: [
         {
           name: 'day',
@@ -203,10 +309,8 @@ export const examples = {
       ]
     }
   },
-  'with errors': {
+  'with custom name prefix': {
     context: {
-      id: 'dob-day-error',
-      namePrefix: 'dob-day-error',
       fieldset: {
         legend: {
           text: 'What is your date of birth?'
@@ -215,9 +319,21 @@ export const examples = {
       hint: {
         text: 'For example, 31 3 1980'
       },
+      id: 'example',
+      namePrefix: 'example'
+    }
+  },
+  'with errors only': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'What is your date of birth?'
+        }
+      },
       errorMessage: {
         text: 'Error message goes here'
       },
+      id: 'example',
       items: [
         {
           name: 'day',
@@ -225,18 +341,17 @@ export const examples = {
         },
         {
           name: 'month',
-          classes: 'nhsuk-input--width-2'
+          classes: 'nhsuk-input--width-2 nhsuk-input--error'
         },
         {
           name: 'year',
-          classes: 'nhsuk-input--width-4'
+          classes: 'nhsuk-input--width-4 nhsuk-input--error'
         }
       ]
     }
   },
-  'with multiple errors': {
+  'with errors and hint': {
     context: {
-      id: 'dob-errors',
       fieldset: {
         legend: {
           text: 'What is your date of birth?'
@@ -248,6 +363,7 @@ export const examples = {
       errorMessage: {
         text: 'Error message goes here'
       },
+      id: 'example',
       items: [
         {
           name: 'day',
@@ -265,10 +381,8 @@ export const examples = {
     },
     screenshot: true
   },
-  'with values': {
+  'with error on day input': {
     context: {
-      id: 'dob',
-      namePrefix: 'dob',
       fieldset: {
         legend: {
           text: 'What is your date of birth?'
@@ -277,30 +391,15 @@ export const examples = {
       hint: {
         text: 'For example, 31 3 1980'
       },
-      values: {
-        day: '5',
-        month: '8',
-        year: '2024'
-      }
-    }
-  },
-  'month and year with values': {
-    context: {
-      id: 'dob',
-      namePrefix: 'dob',
-      fieldset: {
-        legend: {
-          text: 'When did you start your job?'
-        }
+      errorMessage: {
+        text: 'Error message goes here'
       },
-      hint: {
-        text: 'For example, 11 2023'
-      },
-      values: {
-        month: '8',
-        year: '2024'
-      },
+      id: 'example',
       items: [
+        {
+          name: 'day',
+          classes: 'nhsuk-input--width-2 nhsuk-input--error'
+        },
         {
           name: 'month',
           classes: 'nhsuk-input--width-2'
@@ -308,6 +407,66 @@ export const examples = {
         {
           name: 'year',
           classes: 'nhsuk-input--width-4'
+        }
+      ]
+    }
+  },
+  'with error on month input': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'What is your date of birth?'
+        }
+      },
+      hint: {
+        text: 'For example, 31 3 1980'
+      },
+      errorMessage: {
+        text: 'Error message goes here'
+      },
+      id: 'example',
+      items: [
+        {
+          name: 'day',
+          classes: 'nhsuk-input--width-2'
+        },
+        {
+          name: 'month',
+          classes: 'nhsuk-input--width-2 nhsuk-input--error'
+        },
+        {
+          name: 'year',
+          classes: 'nhsuk-input--width-4'
+        }
+      ]
+    }
+  },
+  'with error on year input': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'What is your date of birth?'
+        }
+      },
+      hint: {
+        text: 'For example, 31 3 1980'
+      },
+      errorMessage: {
+        text: 'Error message goes here'
+      },
+      id: 'example',
+      items: [
+        {
+          name: 'day',
+          classes: 'nhsuk-input--width-2'
+        },
+        {
+          name: 'month',
+          classes: 'nhsuk-input--width-2'
+        },
+        {
+          name: 'year',
+          classes: 'nhsuk-input--width-4 nhsuk-input--error'
         }
       ]
     }

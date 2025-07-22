@@ -25,11 +25,6 @@
       <br><br><br><br><br><br>↕ Intentionally long page to demonstrate error summary link scrolling behaviour ↕<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
       {{ radios({
-        "idPrefix": "example",
-        "name": "radios-example",
-        "errorMessage": {
-          "text": "Please select an option"
-        },
         "fieldset": {
           "legend": {
             "text": "Have you changed your name?",
@@ -39,6 +34,10 @@
         "hint": {
           "text": "Clicking an error summary link should scroll the top of this radio fieldset into view"
         },
+        "errorMessage": {
+          "text": "Please select an option"
+        },
+        "name": "example",
         "items": [
           {
             "value": "yes",

@@ -130,128 +130,207 @@ export const examples = {
       label: {
         text: 'NHS number'
       },
-      id: 'input-example',
-      name: 'test-name'
+      name: 'example'
     },
     screenshot: true
   },
-  'with hint text': {
+  'with hint': {
     context: {
       label: {
-        text: 'NHS number',
-        classes: 'nhsuk-label--l'
+        text: 'NHS number'
       },
       hint: {
         text: "It's a 10-digit number that's on any letter the NHS has sent you, for example, 485 777 3456"
       },
-      id: 'input-with-hint-text',
-      name: 'test-name-2',
-      classes: 'nhsuk-input--width-10'
+      id: 'with-hint',
+      name: 'example'
     },
     screenshot: true
   },
   'with error message': {
     context: {
       label: {
-        text: 'NHS number',
-        classes: 'nhsuk-label--l'
+        text: 'NHS number'
+      },
+      errorMessage: {
+        text: 'Enter NHS number'
+      },
+      id: 'with-error-message',
+      name: 'example'
+    }
+  },
+  'with hint and error': {
+    context: {
+      label: {
+        text: 'NHS number'
       },
       hint: {
         text: "It's a 10-digit number that's on any letter the NHS has sent you, for example, 485 777 3456"
       },
-      id: 'input-with-error-message',
-      name: 'test-name-3',
-      classes: 'nhsuk-input--width-10',
       errorMessage: {
-        text: 'Error message goes here'
-      }
+        text: 'Enter NHS number'
+      },
+      id: 'with-hint-error',
+      name: 'example'
     },
     screenshot: {
       states: ['focus'],
-      selector: '#input-with-error-message'
+      selector: '#with-hint-error'
     }
   },
-  'with width modifier': {
+  'with width-2 class': {
+    context: {
+      label: {
+        text: 'NHS number'
+      },
+      id: 'input-width-2',
+      name: 'example',
+      classes: 'nhsuk-input--width-2'
+    }
+  },
+  'with width-3 class': {
+    context: {
+      label: {
+        text: 'NHS number'
+      },
+      id: 'input-width-3',
+      name: 'example',
+      classes: 'nhsuk-input--width-3'
+    }
+  },
+  'with width-4 class': {
+    context: {
+      label: {
+        text: 'NHS number'
+      },
+      id: 'input-width-4',
+      name: 'example',
+      classes: 'nhsuk-input--width-4'
+    }
+  },
+  'with width-5 class': {
+    context: {
+      label: {
+        text: 'NHS number'
+      },
+      id: 'input-width-5',
+      name: 'example',
+      classes: 'nhsuk-input--width-5'
+    }
+  },
+  'with width-10 class': {
+    context: {
+      label: {
+        text: 'NHS number'
+      },
+      id: 'input-width-10',
+      name: 'example',
+      classes: 'nhsuk-input--width-10'
+    }
+  },
+  'with width-20 class': {
+    context: {
+      label: {
+        text: 'NHS number'
+      },
+      id: 'input-width-20',
+      name: 'example',
+      classes: 'nhsuk-input--width-20'
+    }
+  },
+  'with width-30 class': {
+    context: {
+      label: {
+        text: 'NHS number'
+      },
+      id: 'input-width-30',
+      name: 'example',
+      classes: 'nhsuk-input--width-30'
+    }
+  },
+  'with label as page heading': {
     context: {
       label: {
         text: 'NHS number',
-        classes: 'nhsuk-label--l'
+        classes: 'nhsuk-label--l',
+        isPageHeading: true
       },
-      hint: {
-        text: "It's a 10-digit number that's on any letter the NHS has sent you, for example, 485 777 3456"
-      },
-      id: 'input-width-10',
-      name: 'test-width-10',
-      classes: 'nhsuk-input--width-10'
-    },
-    screenshot: true
+      id: 'page-heading',
+      name: 'example'
+    }
   },
   'with prefix': {
     context: {
       label: {
-        text: 'What is the cost in pounds?',
-        classes: 'nhsuk-label--l'
+        text: 'What is the cost in pounds?'
       },
-      id: 'input-with-prefix',
-      name: 'test-name-4',
-      prefix: '£',
-      classes: 'nhsuk-input--width-5'
+      id: 'with-prefix',
+      name: 'example',
+      prefix: '£'
     },
     screenshot: true
   },
   'with suffix': {
     context: {
       label: {
-        text: 'What is the weight in kilograms?',
-        classes: 'nhsuk-label--l'
+        text: 'What is the weight in kilograms?'
       },
-      id: 'input-with-suffix',
-      name: 'test-name-5',
-      suffix: 'kg',
-      classes: 'nhsuk-input--width-5'
+      id: 'with-suffix',
+      name: 'example',
+      suffix: 'kg'
     },
     screenshot: true
   },
   'with prefix and suffix': {
     context: {
       label: {
-        text: 'What is the cost per item, in pounds?',
-        classes: 'nhsuk-label--l'
+        text: 'What is the cost per item, in pounds?'
       },
-      id: 'input-with-prefix-and-suffix',
-      name: 'test-name-6',
+      id: 'with-prefix-suffix',
+      name: 'example',
+      prefix: '£',
+      suffix: 'per item'
+    },
+    screenshot: true
+  },
+  'with prefix and suffix and error': {
+    context: {
+      label: {
+        text: 'What is the cost per item, in pounds?'
+      },
+      errorMessage: {
+        text: 'Enter a cost per item, in pounds'
+      },
+      id: 'with-prefix-suffix',
+      name: 'example',
+      prefix: '£',
+      suffix: 'per item'
+    },
+    screenshot: {
+      states: ['focus'],
+      selector: '#with-prefix-suffix'
+    }
+  },
+  'with prefix and suffix and width modifier': {
+    context: {
+      label: {
+        text: 'What is the cost per item, in pounds?'
+      },
+      id: 'with-prefix-suffix',
+      name: 'example',
       prefix: '£',
       suffix: 'per item',
       classes: 'nhsuk-input--width-5'
-    },
-    screenshot: true
+    }
   },
   'with autocomplete attribute': {
     context: {
       label: {
         text: 'Postcode'
       },
-      id: 'input-with-autocomplete-attribute',
-      name: 'postcode',
-      autocomplete: 'postal-code',
-      classes: 'nhsuk-input--width-5'
-    },
-    screenshot: true
-  },
-  'with error message, prefix and suffix': {
-    context: {
-      label: {
-        text: 'What is the cost per item, in pounds?',
-        classes: 'nhsuk-label--l'
-      },
-      id: 'input-with-error-message-and-prefix-and-suffix',
-      name: 'test-name-7',
-      prefix: '£',
-      suffix: 'per item',
-      classes: 'nhsuk-input--width-5',
-      errorMessage: {
-        text: 'Enter a cost per item, in pounds'
-      }
+      id: 'with-autocomplete-attribute',
+      name: 'example',
+      autocomplete: 'postal-code'
     },
     screenshot: true
   }

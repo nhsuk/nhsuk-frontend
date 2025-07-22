@@ -95,7 +95,7 @@ export const examples = {
       errorList: [
         {
           text: 'Date of birth must be in the past',
-          href: '#example-error'
+          href: '#example-day'
         }
       ]
     }
@@ -107,7 +107,7 @@ export const examples = {
       errorList: [
         {
           text: 'Date of birth must be in the past',
-          href: '#example-error'
+          href: '#example-day'
         }
       ]
     },

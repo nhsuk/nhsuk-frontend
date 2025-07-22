@@ -138,9 +138,7 @@ export const params = {
 export const examples = {
   'default': {
     context: {
-      panel: false,
       caption: 'Skin symptoms and possible causes',
-      firstCellIsHeader: false,
       head: [
         {
           text: 'Skin symptoms'
@@ -182,10 +180,8 @@ export const examples = {
   },
   'with responsive layout': {
     context: {
-      responsive: true,
-      panel: false,
       caption: 'Ibuprofen syrup dosages for children',
-      firstCellIsHeader: false,
+      responsive: true,
       head: [
         {
           text: 'Age',
@@ -307,9 +303,7 @@ export const examples = {
   },
   'with word breaks': {
     context: {
-      panel: false,
       caption: 'Users',
-      firstCellIsHeader: false,
       head: [
         {
           text: 'Name'
@@ -366,13 +360,83 @@ export const examples = {
       ]
     }
   },
+  'with first cell as header': {
+    context: {
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: 'Day of the week'
+        },
+        {
+          text: 'Opening hours'
+        }
+      ],
+      rows: [
+        [
+          {
+            text: 'Monday'
+          },
+          {
+            text: '9am to 6pm'
+          }
+        ],
+        [
+          {
+            text: 'Tuesday'
+          },
+          {
+            text: '9am to 6pm'
+          }
+        ],
+        [
+          {
+            text: 'Wednesday'
+          },
+          {
+            text: '9am to 6pm'
+          }
+        ],
+        [
+          {
+            text: 'Thursday'
+          },
+          {
+            text: '9am to 6pm'
+          }
+        ],
+        [
+          {
+            text: 'Friday'
+          },
+          {
+            text: '9am to 6pm'
+          }
+        ],
+        [
+          {
+            text: 'Saturday'
+          },
+          {
+            text: '9am to 1pm'
+          }
+        ],
+        [
+          {
+            text: 'Sunday'
+          },
+          {
+            text: 'Closed'
+          }
+        ]
+      ]
+    }
+  },
   'as a panel': {
     context: {
-      panel: true,
       heading: 'Conditions similar to impetigo',
       caption: 'Other possible causes of your symptoms',
       captionClasses: 'nhsuk-u-visually-hidden',
-      firstCellIsHeader: false,
+      panel: true,
       head: [
         {
           text: 'Symptoms'
