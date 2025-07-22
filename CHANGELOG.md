@@ -8,7 +8,7 @@ You must make the following changes when you migrate to this release, or your se
 
 #### Update footer component
 
-The footer component's Nunjucks macros and HTML have been updated for better consistency and flexiblity.
+The footer component's Nunjucks macros and HTML have been updated for better consistency and flexibility.
 
 If you're using the `footer` Nunjucks macro in your service, you must:
 
