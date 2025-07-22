@@ -57,11 +57,14 @@ export const compile = task.name('html:render', async () => {
         'index.html'
       )
 
+      // Use review app environment
+      const options = { ...example, env }
+
       // Render example
       const html = nunjucks.renderTemplate(
         example.layout ?? 'layouts/example.njk',
         {
-          blocks: { example: components.render(component, example) },
+          blocks: { example: components.render(component, options) },
           context: { ...context, title: `${name} ${exampleName}` },
           env
         }
