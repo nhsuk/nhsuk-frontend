@@ -9,9 +9,10 @@ export const name = 'Footer'
  */
 export const params = {
   navigation: {
-    type: 'array',
+    type: 'object',
     required: false,
-    description: 'Contains groups of footer navigation links.',
+    description:
+      'The navigation section of the footer before the copyright information.',
     params: {
       title: {
         type: 'string',
@@ -229,32 +230,30 @@ export const examples = {
   'with single navigation group': {
     layout: 'layouts/example-full-width.njk',
     context: {
-      navigation: [
-        {
-          items: [
-            {
-              href: '#',
-              text: 'Accessibility statement'
-            },
-            {
-              href: '#',
-              text: 'Give us feedback'
-            },
-            {
-              href: '#',
-              text: 'Cookies'
-            },
-            {
-              href: '#',
-              text: 'Privacy policy'
-            },
-            {
-              href: '#',
-              text: 'Terms and conditions'
-            }
-          ]
-        }
-      ]
+      navigation: {
+        items: [
+          {
+            href: '#',
+            text: 'Accessibility statement'
+          },
+          {
+            href: '#',
+            text: 'Give us feedback'
+          },
+          {
+            href: '#',
+            text: 'Cookies'
+          },
+          {
+            href: '#',
+            text: 'Privacy policy'
+          },
+          {
+            href: '#',
+            text: 'Terms and conditions'
+          }
+        ]
+      }
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
