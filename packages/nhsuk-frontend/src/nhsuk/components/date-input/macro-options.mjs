@@ -8,19 +8,19 @@ export const name = 'Date input'
  * @satisfies {{ [param: string]: MacroParam }}
  */
 export const params = {
-  'id': {
+  id: {
     type: 'string',
     required: false,
     description:
       'This is used for the main component and to compose id attribute for each item.'
   },
-  'namePrefix': {
+  namePrefix: {
     type: 'string',
     required: false,
     description:
       "Optional prefix. This is used to prefix each `item.name` using `'-'`."
   },
-  'items': {
+  items: {
     type: 'array',
     required: false,
     description: 'An array of input objects with name, value and classes.',
@@ -78,26 +78,26 @@ export const params = {
       }
     }
   },
-  'fieldset': {
+  fieldset: {
     type: 'object',
     required: false,
     description: 'Options for the fieldset component (for example legend).',
     isComponent: true
   },
-  'hint': {
+  hint: {
     type: 'object',
     required: false,
     description: 'Options for the hint component.',
     isComponent: true
   },
-  'errorMessage': {
+  errorMessage: {
     type: 'object',
     required: false,
     description:
       'Options for the error message component. The error message component will not display if you use a falsy value for `errorMessage`, for example `false` or `null`.',
     isComponent: true
   },
-  'formGroup': {
+  formGroup: {
     type: 'object',
     required: false,
     description:
@@ -117,37 +117,39 @@ export const params = {
       }
     }
   },
-  'classes': {
+  values: {
+    type: 'object',
+    required: false,
+    description:
+      'An optional object use to specify value attributes for the date parts without setting items.',
+    params: {
+      day: {
+        type: 'string',
+        required: false,
+        description: 'Value attribute for the day input.'
+      },
+      month: {
+        type: 'string',
+        required: false,
+        description: 'Value attribute for the month input.'
+      },
+      year: {
+        type: 'string',
+        required: false,
+        description: 'Value attribute for the year input.'
+      }
+    }
+  },
+  classes: {
     type: 'string',
     required: false,
     description: 'Classes to add to the date-input container.'
   },
-  'attributes': {
+  attributes: {
     type: 'object',
     required: false,
     description:
       'HTML attributes (for example data attributes) to add to the date-input container.'
-  },
-  'values': {
-    type: 'object',
-    required: false,
-    description:
-      'An optional object use to specify value attributes for the date parts without setting rows.'
-  },
-  'values.day': {
-    type: 'string',
-    required: false,
-    description: 'Value attribute for the day input.'
-  },
-  'values.month': {
-    type: 'string',
-    required: false,
-    description: 'Value attribute for the month input.'
-  },
-  'values.year': {
-    type: 'string',
-    required: false,
-    description: 'Value attribute for the year input.'
   }
 }
 
