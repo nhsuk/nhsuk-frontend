@@ -18,7 +18,7 @@
   {{- nhsukAttributes(params.attributes) }}>
   <div class="nhsuk-width-container {%- if params.containerClasses %} {{ params.containerClasses }}{% endif %}">
 {% if params.navigation %}
-  {% for row in params.navigation | batch(4) %}
+  {% for row in ([params.navigation] if params.navigation is mapping else params.navigation) | batch(4) %}
     <div class="nhsuk-footer__navigation nhsuk-grid-row">
     {% for navigation in row %}
       <div class="nhsuk-grid-column-one-quarter">
