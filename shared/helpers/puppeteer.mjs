@@ -95,6 +95,11 @@ async function goTo(page, pathOrUrl) {
     ? getURL(pathOrUrl) // Build URL from base
     : pathOrUrl
 
+  // Throw on JavaScript page errors
+  page.on('pageerror', (error) => {
+    throw error
+  })
+
   const response = await page.goto(href)
   const code = response.status()
 
