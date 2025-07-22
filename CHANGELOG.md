@@ -17,28 +17,28 @@ Before:
 ```njk
 {% block footer %}
   {{ footer({
-    "links": [
+    links: [
       {
-        "URL": "https://www.nhs.uk/nhs-sites",
-        "label": "NHS sites"
+        URL: "https://www.nhs.uk/nhs-sites",
+        label: "NHS sites"
       },
       {
-        "URL": "https://www.nhs.uk/about-us",
-        "label": "About us"
+        URL: "https://www.nhs.uk/about-us",
+        label: "About us"
       },
       {
-        "URL": "https://www.nhs.uk/give-feedback-about-the-nhs-website/",
-        "label": "Give us feedback"
+        URL: "https://www.nhs.uk/give-feedback-about-the-nhs-website/",
+        label: "Give us feedback"
       }
     ],
-    "metaLinks": [
+    metaLinks: [
       {
-        'URL': 'https://www.nhs.uk/accessibility/',
-        'label': 'Accessibility'
+        URL: "https://www.nhs.uk/accessibility/",
+        label: "Accessibility"
       },
       {
-        "URL": "https://www.nhs.uk/our-policies/",
-        "label": "Our policies"
+        URL: "https://www.nhs.uk/our-policies/",
+        label: "Our policies"
       }
     ]
   }) }}
@@ -71,8 +71,8 @@ After:
     meta: {
       items: [
         {
-          href: 'https://www.nhs.uk/accessibility/',
-          text: 'Accessibility'
+          href: "https://www.nhs.uk/accessibility/",
+          text: "Accessibility"
         },
         {
           href: "https://www.nhs.uk/our-policies/",
@@ -83,6 +83,7 @@ After:
   }) }}
 {% endblock %}
 ```
+
 If you are not using Nunjucks macros, update your HTML markup using the [footer examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/footer).
 
 This change was introduced in [pull request #1452: Update footer to separate navigation from meta links, and use common parameters](https://github.com/nhsuk/nhsuk-frontend/pull/1452).
