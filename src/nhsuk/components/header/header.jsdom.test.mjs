@@ -5,6 +5,7 @@ import { fireEvent, getByRole } from '@testing-library/dom'
 import { userEvent } from '@testing-library/user-event'
 
 import { Header, initHeader } from './header.mjs'
+import { examples } from './macro-options.mjs'
 
 const user = userEvent.setup()
 
@@ -25,47 +26,10 @@ describe('Header class', () => {
   let itemWidth = 0
 
   beforeEach(() => {
-    document.body.innerHTML = components.render('header', {
-      context: {
-        navigation: {
-          items: [
-            {
-              href: '#',
-              text: 'Health A to Z'
-            },
-            {
-              href: '#',
-              text: 'Live Well'
-            },
-            {
-              href: '#',
-              text: 'Mental health'
-            },
-            {
-              href: '#',
-              text: 'Care and support'
-            },
-            {
-              href: '#',
-              text: 'Pregnancy',
-              active: true
-            },
-            {
-              href: '#',
-              text: 'NHS services'
-            },
-            {
-              href: '#',
-              text: 'Another item #1'
-            },
-            {
-              href: '#',
-              text: 'Another item #2'
-            }
-          ]
-        }
-      }
-    })
+    document.body.innerHTML = components.render(
+      'header',
+      examples['with navigation overflow']
+    )
 
     $root = /** @type {HTMLElement} */ (
       document.querySelector(`[data-module="${Header.moduleName}"]`)
