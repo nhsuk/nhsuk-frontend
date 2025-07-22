@@ -5,6 +5,7 @@ import { fireEvent, getByRole } from '@testing-library/dom'
 import { userEvent } from '@testing-library/user-event'
 
 import { Header, initHeader } from './header.mjs'
+import { examples } from './macro-options.mjs'
 
 const user = userEvent.setup()
 
@@ -25,47 +26,10 @@ describe('Header class', () => {
   let itemWidth = 0
 
   beforeEach(() => {
-    document.body.innerHTML = components.render('header', {
-      context: {
-        navigation: {
-          items: [
-            {
-              href: '#',
-              text: 'Health A to Z'
-            },
-            {
-              href: '#',
-              text: 'Live Well'
-            },
-            {
-              href: '#',
-              text: 'Mental health'
-            },
-            {
-              href: '#',
-              text: 'Care and support'
-            },
-            {
-              href: '#',
-              text: 'Pregnancy',
-              active: true
-            },
-            {
-              href: '#',
-              text: 'NHS services'
-            },
-            {
-              href: '#',
-              text: 'Another item #1'
-            },
-            {
-              href: '#',
-              text: 'Another item #2'
-            }
-          ]
-        }
-      }
-    })
+    document.body.innerHTML = components.render(
+      'header',
+      examples['with navigation overflow']
+    )
 
     $root = /** @type {HTMLElement} */ (
       document.querySelector(`[data-module="${Header.moduleName}"]`)
@@ -132,14 +96,6 @@ describe('Header class', () => {
       )
     })
 
-    it('should throw with missing navigation', () => {
-      $navigation.remove()
-
-      expect(() => initHeader()).toThrow(
-        `${Header.moduleName}: Navigation (\`<nav class="nhsuk-header__navigation">\`) not found`
-      )
-    })
-
     it('should throw with missing navigation list', () => {
       $navigationList.remove()
 
@@ -170,6 +126,20 @@ describe('Header class', () => {
       expect(() => initHeader()).toThrow(
         `${Header.moduleName}: Menu button (\`<button class="nhsuk-header__menu-toggle">\`) not found`
       )
+    })
+
+    it('should not throw with missing navigation', () => {
+      $navigation.remove()
+
+      expect(() => initHeader()).not.toThrow()
+    })
+
+    it('should not throw with missing navigation and related elements', () => {
+      $navigation.remove()
+      $navigationList.remove()
+      $menuButton.remove()
+
+      expect(() => initHeader()).not.toThrow()
     })
 
     it('should not throw with empty body', () => {

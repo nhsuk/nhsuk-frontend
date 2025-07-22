@@ -282,48 +282,11 @@ export const examples = {
     context: {
       logo: {
         href: '#'
-      },
-      search: true,
-      navigation: {
-        items: [
-          {
-            href: '#',
-            text: 'Health A to Z'
-          },
-          {
-            href: '#',
-            text: 'Live Well'
-          },
-          {
-            href: '#',
-            text: 'Mental health'
-          },
-          {
-            href: '#',
-            text: 'Care and support'
-          },
-          {
-            href: '#',
-            text: 'Pregnancy'
-          },
-          {
-            href: '#',
-            text: 'NHS services'
-          }
-        ]
       }
     },
-    screenshot: [
-      {
-        viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
-      },
-      {
-        name: 'logo',
-        states: ['focus'],
-        selector: '.nhsuk-header__service-logo',
-        viewports: ['desktop']
-      }
-    ]
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+    }
   },
   'with navigation': {
     layout: 'layouts/example-full-width.njk',
@@ -362,6 +325,51 @@ export const examples = {
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+    }
+  },
+  'with navigation overflow': {
+    layout: 'layouts/example-full-width.njk',
+    context: {
+      logo: {
+        href: '#'
+      },
+      navigation: {
+        items: [
+          {
+            href: '#',
+            text: 'Health A to Z'
+          },
+          {
+            href: '#',
+            text: 'Live Well'
+          },
+          {
+            href: '#',
+            text: 'Mental health'
+          },
+          {
+            href: '#',
+            text: 'Care and support'
+          },
+          {
+            href: '#',
+            text: 'Pregnancy',
+            active: true
+          },
+          {
+            href: '#',
+            text: 'NHS services'
+          },
+          {
+            href: '#',
+            text: 'Another item #1'
+          },
+          {
+            href: '#',
+            text: 'Another item #2'
+          }
+        ]
+      }
     }
   },
   'with navigation (white)': {

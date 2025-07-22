@@ -54,7 +54,8 @@ module.exports = {
       setupFilesAfterEnv: [
         '@nhsuk/frontend-helpers/jest/environment/jest.jsdom.setup.mjs'
       ],
-      testEnvironment: 'jsdom',
+      testEnvironment:
+        '@nhsuk/frontend-helpers/jest/environment/jest.jsdom.mjs',
       testMatch: ['<rootDir>/**/*.jsdom.test.{js,mjs}']
     },
     {
@@ -63,7 +64,8 @@ module.exports = {
       setupFilesAfterEnv: [
         '@nhsuk/frontend-helpers/jest/environment/jest.puppeteer.setup.mjs'
       ],
-      testEnvironment: 'jest-environment-puppeteer',
+      testEnvironment:
+        '@nhsuk/frontend-helpers/jest/environment/jest.puppeteer.mjs',
       testMatch: [
         '<rootDir>/**/*.puppeteer.test.{js,mjs}',
 
@@ -81,7 +83,8 @@ module.exports = {
       setupFilesAfterEnv: [
         '@nhsuk/frontend-helpers/jest/environment/jest.puppeteer.setup.mjs'
       ],
-      testEnvironment: 'jest-environment-puppeteer',
+      testEnvironment:
+        '@nhsuk/frontend-helpers/jest/environment/jest.puppeteer.mjs',
       testMatch: ['<rootDir>/**/accessibility.puppeteer.test.mjs'],
 
       // Web server and browser required
