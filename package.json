@@ -60,7 +60,7 @@
     "@testing-library/dom": "^10.4.0",
     "@testing-library/user-event": "^14.6.1",
     "autoprefixer": "^10.4.21",
-    "cssnano": "^7.0.7",
+    "cssnano": "^7.1.0",
     "del-cli": "^6.0.0",
     "gulp": "^5.0.1",
     "gulp-zip": "^6.1.0",
