@@ -58,7 +58,6 @@
     "@nhsuk/frontend-helpers": "*",
     "@nhsuk/frontend-lib": "*",
     "@testing-library/user-event": "^14.6.1",
-    "@types/axe-core": "^3.0.6",
     "@types/backstopjs": "^6.1.3",
     "@types/browser-sync": "^2.29.0",
     "@types/eslint": "^9.6.1",
