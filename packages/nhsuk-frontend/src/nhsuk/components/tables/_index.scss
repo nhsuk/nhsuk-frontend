@@ -190,8 +190,7 @@
 .nhsuk-list-view__caption {
   text-align: left;
 
-  @include nhsuk-font-size(22);
-  @include nhsuk-typography-weight-bold;
+  @include nhsuk-font(22, bold)
 }
 
 .nhsuk-table__caption--xl,
