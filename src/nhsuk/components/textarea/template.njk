@@ -41,8 +41,7 @@
 {%- endif %}
   <textarea class="nhsuk-textarea
   {%- if params.errorMessage %} nhsuk-textarea--error{% endif %}
-  {%- if params.classes %} {{ params.classes }}{% endif %}" id="{{ id }}" name="{{ params.name }}" rows="
-  {%- if params.rows %} {{ params.rows }} {% else %}5{%endif %}"
+  {%- if params.classes %} {{ params.classes }}{% endif %}" id="{{ id }}" name="{{ params.name }}" rows="{{ params.rows | default(5, true) }}"
   {%- if describedBy %} aria-describedby="{{ describedBy }}"{% endif %}
   {%- if params.autocomplete %} autocomplete="{{ params.autocomplete}}"{% endif %}
   {{- nhsukAttributes(params.attributes) }}>{{ params.value }}</textarea>
