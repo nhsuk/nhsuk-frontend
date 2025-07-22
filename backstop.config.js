@@ -26,9 +26,8 @@ const scenarios = components.getNames().flatMap((component) => {
      *
      * @type {Scenario[]}
      */
-    const list = [{ label, url }]
     if (fixture.screenshot === true) {
-      return list
+      return [{ label, url }]
     }
 
     // Build custom scenarios
@@ -41,7 +40,7 @@ const scenarios = components.getNames().flatMap((component) => {
 
       // Start with the default scenario for the first screenshot only,
       // to prevent it being duplicated for the next screenshot config
-      const listStates = !index ? list : []
+      const listStates = !index ? [{ label, url, viewports }] : []
 
       // Add custom scenario for each state (e.g. 'hover', 'focus')
       return listStates.concat(
