@@ -24,6 +24,7 @@ updates:
 
       lint:
         patterns:
+          - '@types/*'
           - '@typescript-eslint/*'
           - 'eslint'
           - 'eslint-*'
@@ -31,11 +32,19 @@ updates:
           - 'prettier'
           - 'stylelint'
           - 'stylelint-*'
+          - 'typed-query-selector'
           - 'typescript'
+
+        # Exclude packages in other groups
+        exclude-patterns:
+          - '@types/jest'
+          - '@types/jest-*'
 
       test:
         patterns:
           - '@testing-library/*'
+          - '@types/jest'
+          - '@types/jest-*'
           - 'babel-jest'
           - 'backstopjs'
           - 'jest'
