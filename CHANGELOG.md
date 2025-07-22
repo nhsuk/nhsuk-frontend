@@ -10,7 +10,11 @@ You must make the following changes when you migrate to this release, or your se
 
 The footer component's Nunjucks macros and HTML have been updated for better consistency and flexiblity.
 
-If you are using Nunjucks macros, replace `links` with `navigation.items` and `metaLinks` with `meta.items`. Rename `URL` to `href` and `label` to `text`.
+If you're using the `footer` Nunjucks macro in your service, you must:
+
+- Replace the `links` option with the nested `navigation.items` option.
+- Replace the `metaLinks` option with the nested `meta.items` option.
+- Update all items to rename `label` to `text` and `URL` to `href`.
 
 Before:
 
@@ -19,26 +23,26 @@ Before:
   {{ footer({
     links: [
       {
-        URL: "https://www.nhs.uk/nhs-sites",
-        label: "NHS sites"
+        label: "NHS sites",
+        URL: "https://www.nhs.uk/nhs-sites"
       },
       {
-        URL: "https://www.nhs.uk/about-us",
-        label: "About us"
+        label: "About us",
+        URL: "https://www.nhs.uk/about-us"
       },
       {
-        URL: "https://www.nhs.uk/give-feedback-about-the-nhs-website/",
-        label: "Give us feedback"
+        label: "Give us feedback",
+        URL: "https://www.nhs.uk/give-feedback-about-the-nhs-website/"
       }
     ],
     metaLinks: [
       {
-        URL: "https://www.nhs.uk/accessibility/",
-        label: "Accessibility"
+        label: "Accessibility",
+        URL: "https://www.nhs.uk/accessibility/"
       },
       {
-        URL: "https://www.nhs.uk/our-policies/",
-        label: "Our policies"
+        label: "Our policies",
+        URL: "https://www.nhs.uk/our-policies/"
       }
     ]
   }) }}
@@ -50,24 +54,22 @@ After:
 ```njk
 {% block footer %}
   {{ footer({
-    navigation: [
-      {
-        items: [
-          {
-            href: "https://www.nhs.uk/nhs-sites",
-            text: "NHS sites"
-          },
-          {
-            href: "https://www.nhs.uk/about-us",
-            text: "About us"
-          },
-          {
-            href: "https://www.nhs.uk/give-feedback-about-the-nhs-website/",
-            text: "Give us feedback"
-          }
-        ]
-      }
-    ],
+    navigation: {
+      items: [
+        {
+          text: "NHS sites",
+          href: "https://www.nhs.uk/nhs-sites"
+        },
+        {
+          text: "About us",
+          href: "https://www.nhs.uk/about-us"
+        },
+        {
+          text: "Give us feedback",
+          href: "https://www.nhs.uk/give-feedback-about-the-nhs-website/"
+        }
+      ]
+    },
     meta: {
       items: [
         {
@@ -82,6 +84,36 @@ After:
     }
   }) }}
 {% endblock %}
+```
+
+Or where additional columns `linksColumn2` and `linksColumn3` are currently used, wrap the `navigation` object in an array to support multiple columns:
+
+```patch
+- navigation: {
++ navigation: [{
+    items: [
+      {
+        text: "List 1, item 1",
+        href: "/example-1-1"
+      },
+      {
+        text: "List 1, item 2",
+        href: "/example-1-2"
+      }
+    ]
+  },
++ {
++   items: [
++     {
++       text: "List 2, item 1",
++       href: "/example-2-1"
++     },
++     {
++       text: "List 2, item 2",
++       href: "/example-2-2"
++     }
++   ]
++ }],
 ```
 
 If you are not using Nunjucks macros, update your HTML markup using the [footer examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/footer).
