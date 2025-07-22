@@ -14,6 +14,7 @@
   "sideEffects": false,
   "exports": {
     ".": {
+      "types": "./dist/nhsuk/index.d.mts",
       "sass": "./dist/nhsuk/index.scss",
       "import": "./dist/nhsuk/index.mjs",
       "require": "./dist/nhsuk/index.js",
@@ -30,6 +31,7 @@
   "main": "dist/nhsuk/index.js",
   "module": "dist/nhsuk/index.mjs",
   "sass": "dist/nhsuk/index.scss",
+  "types": "dist/nhsuk/index.d.mts",
   "files": [
     "dist",
     "src",
@@ -39,8 +41,12 @@
   "scripts": {
     "prebuild": "npm run clean",
     "clean": "del-cli dist/**",
-    "build": "gulp build --color",
-    "watch": "gulp watch --color",
+    "build": "concurrently npm:build:* --group --prefix none",
+    "build:package": "gulp build --color",
+    "build:types": "tsc --build --noEmit false --pretty tsconfig.json",
+    "watch": "concurrently npm:watch:* --group --prefix none",
+    "watch:package": "gulp watch --color",
+    "watch:types": "npm run build:types -- --preserveWatchOutput --watch",
     "release": "gulp release --color",
     "version": "echo $npm_package_version",
     "start": "npm run watch"
