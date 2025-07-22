@@ -10,6 +10,34 @@ describe('Core', () => {
     logger.warn = jest.fn().mockReturnValue(sassNull)
   })
 
+  describe('importing using index file', () => {
+    it('forwards core styles', async () => {
+      const sass = `
+        @forward "core";
+      `
+
+      const results = compileStringAsync(sass, {
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+      })
+
+      await expect(results).resolves.not.toThrow()
+    })
+
+    it('forwards core styles (with settings)', async () => {
+      const sass = `
+        @forward "core" with (
+          $nhsuk-page-width: 1100px
+        );
+      `
+
+      const results = compileStringAsync(sass, {
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+      })
+
+      await expect(results).resolves.not.toThrow()
+    })
+  })
+
   describe('importing using "all" files', () => {
     it('outputs a warning when importing the core "all" file', async () => {
       const sass = `
