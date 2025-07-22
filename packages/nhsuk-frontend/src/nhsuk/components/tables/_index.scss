@@ -1,5 +1,6 @@
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
+@use "../../core/utilities" as *;
 
 ////
 /// Table component
@@ -190,10 +191,7 @@
   text-align: left;
 
   @include nhsuk-font-size(22);
-
-  & {
-    @include nhsuk-typography-weight-bold;
-  }
+  @include nhsuk-typography-weight-bold;
 }
 
 .nhsuk-table__caption--xl,
