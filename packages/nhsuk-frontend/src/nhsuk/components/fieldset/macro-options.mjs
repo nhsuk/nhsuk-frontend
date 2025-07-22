@@ -79,23 +79,87 @@ export const examples = {
       viewports: ['tablet']
     }
   },
-  'as page heading': {
+  'styled as xl text': {
+    context: {
+      legend: {
+        text: 'What is your address?',
+        classes: 'nhsuk-fieldset__legend--xl'
+      }
+    }
+  },
+  'styled as large text': {
+    context: {
+      legend: {
+        text: 'What is your address?',
+        classes: 'nhsuk-fieldset__legend--l'
+      }
+    }
+  },
+  'styled as medium text': {
+    context: {
+      legend: {
+        text: 'What is your address?',
+        classes: 'nhsuk-fieldset__legend--m'
+      }
+    }
+  },
+  'styled as small text': {
+    context: {
+      legend: {
+        text: 'What is your address?',
+        classes: 'nhsuk-fieldset__legend--s'
+      }
+    }
+  },
+  'as page heading xl': {
     context: {
       legend: {
         text: 'What is your address?',
         classes: 'nhsuk-fieldset__legend--xl',
         isPageHeading: true
       }
-    },
-    screenshot: {
-      viewports: ['tablet']
+    }
+  },
+  'as page heading l': {
+    context: {
+      legend: {
+        text: 'What is your address?',
+        classes: 'nhsuk-fieldset__legend--l',
+        isPageHeading: true
+      }
+    }
+  },
+  'as page heading m': {
+    context: {
+      legend: {
+        text: 'What is your address?',
+        classes: 'nhsuk-fieldset__legend--m',
+        isPageHeading: true
+      }
+    }
+  },
+  'as page heading s': {
+    context: {
+      legend: {
+        text: 'What is your address?',
+        classes: 'nhsuk-fieldset__legend--s',
+        isPageHeading: true
+      }
+    }
+  },
+  'as page heading without class': {
+    context: {
+      legend: {
+        text: 'What is your address?',
+        isPageHeading: true
+      }
     }
   },
   'with inputs': {
     context: {
       legend: {
         text: 'What is your address?',
-        classes: 'nhsuk-fieldset__legend--xl',
+        classes: 'nhsuk-fieldset__legend--l',
         isPageHeading: true
       }
     },
@@ -105,7 +169,8 @@ export const examples = {
           label: {
             text: 'Address line 1'
           },
-          name: 'address1'
+          name: 'address-line1',
+          autocomplete: 'address-line1'
         }
       })}
 
@@ -114,7 +179,8 @@ export const examples = {
           label: {
             text: 'Address line 2'
           },
-          name: 'address2'
+          name: 'address-line2',
+          autocomplete: 'address-line2'
         }
       })}
 
@@ -123,16 +189,30 @@ export const examples = {
           label: {
             text: 'Town or city'
           },
-          name: 'town'
+          name: 'address-town',
+          autocomplete: 'address-level2',
+          classes: 'nhsuk-u-width-two-thirds'
         }
       })}
 
       ${components.render('input', {
         context: {
           label: {
-            text: 'County'
+            text: 'County (optional)'
           },
-          name: 'county'
+          name: 'address-county',
+          classes: 'nhsuk-u-width-two-thirds'
+        }
+      })}
+
+      ${components.render('input', {
+        context: {
+          label: {
+            text: 'Postcode'
+          },
+          name: 'address-postcode',
+          autocomplete: 'postal-code',
+          classes: 'nhsuk-input--width-10'
         }
       })}
     `,

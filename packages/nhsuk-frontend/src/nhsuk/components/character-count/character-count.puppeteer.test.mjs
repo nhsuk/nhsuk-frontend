@@ -99,13 +99,13 @@ describe('Character count', () => {
           '.nhsuk-character-count__status',
           (el) => el.innerHTML.trim()
         )
-        expect(message).toBe('You have 67 characters remaining')
+        expect(message).toBe('You have 57 characters remaining')
 
         const srMessage = await page.$eval(
           '.nhsuk-character-count__sr-status',
           (el) => el.innerHTML.trim()
         )
-        expect(srMessage).toBe('You have 67 characters remaining')
+        expect(srMessage).toBe('You have 57 characters remaining')
       })
 
       it('counts down to the character limit', async () => {
@@ -325,7 +325,7 @@ describe('Character count', () => {
     describe('when counting words', () => {
       beforeEach(async () => {
         page = await goToComponent(browser, 'character-count', {
-          example: 'with max words'
+          example: 'with word count'
         })
       })
 
@@ -384,7 +384,7 @@ describe('Character count', () => {
       describe('when the word limit is exceeded', () => {
         beforeEach(async () => {
           page = await goToComponent(browser, 'character-count', {
-            example: 'with max words'
+            example: 'with word count'
           })
 
           await page.type('.nhsuk-js-character-count', 'Hello '.repeat(11))

@@ -72,8 +72,7 @@ export const examples = {
       items: [
         {
           href: '#',
-          text: 'Level one',
-          attributes: { lang: 'en' }
+          text: 'Level one'
         },
         {
           href: '#',
@@ -81,14 +80,11 @@ export const examples = {
         },
         {
           href: '#',
-          text: 'Level three',
-          attributes: { lang: 'en' }
+          text: 'Level three'
         },
         {
           href: '#',
-          text: 'Level four',
-          classes: 'example-class-one example-class-two',
-          attributes: { lang: 'en' }
+          text: 'Level four'
         }
       ]
     },
@@ -101,6 +97,32 @@ export const examples = {
     layout: 'layouts/example-background-blue.njk',
     context: {
       classes: 'nhsuk-breadcrumb--reverse',
+      items: [
+        {
+          href: '#',
+          text: 'Level one'
+        },
+        {
+          href: '#',
+          text: 'Level two'
+        },
+        {
+          href: '#',
+          text: 'Level three'
+        },
+        {
+          href: '#',
+          text: 'Level four'
+        }
+      ]
+    },
+    screenshot: {
+      states: ['focus', 'hover', 'active'],
+      selector: '.nhsuk-breadcrumb a'
+    }
+  },
+  attributes: {
+    context: {
       items: [
         {
           href: '#',
@@ -123,10 +145,6 @@ export const examples = {
           attributes: { lang: 'en' }
         }
       ]
-    },
-    screenshot: {
-      states: ['focus', 'hover', 'active'],
-      selector: '.nhsuk-breadcrumb a'
     }
   }
 }

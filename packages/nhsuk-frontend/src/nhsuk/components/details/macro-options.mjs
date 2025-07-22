@@ -1,6 +1,8 @@
 import { components } from '@nhsuk/frontend-lib'
 import { outdent } from 'outdent'
 
+import { examples as tablesExamples } from '../tables/macro-options.mjs'
+
 export const name = 'Details'
 
 /**
@@ -68,7 +70,7 @@ export const params = {
  * @satisfies {{ [example: string]: MacroExample }}
  */
 export const examples = {
-  default: {
+  'default': {
     context: {
       summaryText: 'Where can I find my NHS number?'
     },
@@ -89,88 +91,46 @@ export const examples = {
       selector: '.nhsuk-details__summary'
     }
   },
-  expander: {
+  'open': {
+    context: {
+      summaryText: 'Where can I find my NHS number?',
+      open: true
+    },
+    callBlock: outdent`
+      <p>An NHS number is a 10 digit number, like 485 777 3456.</p>
+      <p>You can find your NHS number on any document sent to you by the NHS. This may include:</p>
+      <ul>
+        <li>prescriptions</li>
+        <li>test results</li>
+        <li>hospital referral letters</li>
+        <li>appointment letters</li>
+        <li>your NHS medical card</li>
+      </ul>
+      <p>Ask your GP practice for help if you can't find your NHS number.</p>
+    `
+  },
+  'expander': {
     context: {
       summaryText: 'Opening times',
       classes: 'nhsuk-expander'
     },
     callBlock: outdent`
-      ${components.render('tables', {
-        context: {
-          firstCellIsHeader: true,
-          head: [
-            {
-              text: 'Day of the week'
-            },
-            {
-              text: 'Opening hours'
-            }
-          ],
-          rows: [
-            [
-              {
-                text: 'Monday'
-              },
-              {
-                text: '9am to 6pm'
-              }
-            ],
-            [
-              {
-                text: 'Tuesday'
-              },
-              {
-                text: '9am to 6pm'
-              }
-            ],
-            [
-              {
-                text: 'Wednesday'
-              },
-              {
-                text: '9am to 6pm'
-              }
-            ],
-            [
-              {
-                text: 'Thursday'
-              },
-              {
-                text: '9am to 6pm'
-              }
-            ],
-            [
-              {
-                text: 'Friday'
-              },
-              {
-                text: '9am to 6pm'
-              }
-            ],
-            [
-              {
-                text: 'Saturday'
-              },
-              {
-                text: '9am to 1pm'
-              }
-            ],
-            [
-              {
-                text: 'Sunday'
-              },
-              {
-                text: 'Closed'
-              }
-            ]
-          ]
-        }
-      })}
+      ${components.render('tables', tablesExamples['with first cell as header'])}
     `,
     screenshot: {
       states: ['click'],
       selector: '.nhsuk-details__summary'
     }
+  },
+  'expander open': {
+    context: {
+      summaryText: 'Opening times',
+      classes: 'nhsuk-expander',
+      open: true
+    },
+    callBlock: outdent`
+      ${components.render('tables', tablesExamples['with first cell as header'])}
+    `
   }
 }
 

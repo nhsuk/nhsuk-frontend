@@ -126,97 +126,143 @@ export const params = {
 export const examples = {
   'default': {
     context: {
-      name: 'more-detail',
-      maxlength: 10,
+      label: {
+        text: 'Can you provide more detail?'
+      },
+      name: 'example',
+      maxlength: 10
+    },
+    screenshot: true
+  },
+  'with hint': {
+    context: {
       label: {
         text: 'Can you provide more detail?'
       },
       hint: {
         text: 'Do not include personal information, like your name, date of birth or NHS number'
-      }
+      },
+      id: 'with-hint',
+      name: 'example',
+      maxlength: 10
+    }
+  },
+  'with error message': {
+    context: {
+      label: {
+        text: 'Can you provide more detail?'
+      },
+      errorMessage: {
+        text: 'Enter more detail'
+      },
+      id: 'with-error-message',
+      name: 'example',
+      maxlength: 10
+    }
+  },
+  'with hint and error': {
+    context: {
+      label: {
+        text: 'Can you provide more detail?'
+      },
+      hint: {
+        text: 'Do not include personal information, like your name, date of birth or NHS number'
+      },
+      errorMessage: {
+        text: 'Enter more detail'
+      },
+      id: 'with-hint-error',
+      name: 'example',
+      maxlength: 10
     },
     screenshot: true
   },
   'with default value': {
     context: {
-      name: 'more-detail',
-      maxlength: 70,
-      value: '123',
       label: {
-        text: 'Can you provide more detail?'
+        text: 'What is your job description?'
       },
-      hint: {
-        text: 'Do not include personal information, like your name, date of birth or NHS number'
-      }
+      id: 'default-value',
+      name: 'example',
+      value:
+        'A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels.',
+      maxlength: 350
     }
   },
   'with default value exceeding limit': {
     context: {
-      name: 'exceeding-characters',
-      maxlength: 350,
-      value:
-        'A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels. They make sure appropriate content is shown to a user in the right place and in the best format.',
       label: {
         text: 'What is your job description?'
       },
       errorMessage: {
         text: 'Job description must be 350 characters or less'
-      }
+      },
+      id: 'exceeding-limit',
+      name: 'example',
+      value:
+        'A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels. They make sure appropriate content is shown to a user in the right place and in the best format.',
+      maxlength: 350
     }
   },
-  'with error message': {
+  'with custom rows': {
     context: {
-      name: 'with-error-message',
-      maxlength: 350,
       label: {
         text: 'What is your job description?'
       },
-      errorMessage: {
-        text: 'Enter a job description'
-      }
+      id: 'custom-rows',
+      name: 'example',
+      maxlength: 350,
+      rows: 8
+    }
+  },
+  'with label as page heading': {
+    context: {
+      label: {
+        text: 'What is your job description?',
+        classes: 'nhsuk-label--l',
+        isPageHeading: true
+      },
+      id: 'page-heading',
+      name: 'example',
+      maxlength: 350,
+      rows: 8
     }
   },
   'with maxlength attribute': {
     context: {
-      name: 'more-detail',
+      label: {
+        text: 'Can you provide more detail?'
+      },
+      id: 'maxlength-attribute',
+      name: 'example',
       maxlength: 11,
       attributes: {
         maxlength: 11
-      },
-      label: {
-        text: 'Can you provide more detail?'
-      },
-      hint: {
-        text: 'Do not include personal information, like your name, date of birth or NHS number'
       }
     }
   },
-  'with threshold': {
+  'with word count': {
     context: {
-      name: 'more-detail',
-      maxlength: 10,
-      threshold: 8,
       label: {
         text: 'Can you provide more detail?'
       },
-      hint: {
-        text: 'Do not include personal information, like your name, date of birth or NHS number'
-      }
+      id: 'with-word-count',
+      name: 'example',
+      maxwords: 10
     },
     screenshot: {
       viewports: ['tablet']
     }
   },
-  'with max words': {
+  'with threshold': {
     context: {
-      name: 'more-detail',
-      maxwords: 10,
       label: {
         text: 'Can you provide more detail?'
       },
-      hint: {
-        text: 'Do not include personal information, like your name, date of birth or NHS number'
-      }
+      id: 'with-threshold',
+      name: 'example',
+      maxlength: 10,
+      threshold: 8
     },
     screenshot: {
       viewports: ['tablet']
