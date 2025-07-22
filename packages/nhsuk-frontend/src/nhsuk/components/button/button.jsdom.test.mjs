@@ -142,25 +142,36 @@ describe('Button', () => {
     })
   })
 
-  describe('Accessibility', () => {
+  describe('Accessibility (button)', () => {
+    beforeEach(() => {
+      initButtons()
+    })
+
     it('should have accessible name and role', () => {
       expect($root).toHaveAccessibleName('Save and continue')
       expect($root).toHaveRole('button')
     })
 
     it('should not trigger the click event when the space key is pressed', async () => {
-      initButtons()
-
       $root.focus()
 
       await user.keyboard('[Space]')
       expect($root.click).not.toHaveBeenCalled()
     })
+  })
 
-    it('should trigger the click event when the space key is pressed ([role="button"])', async () => {
+  describe('Accessibility (link)', () => {
+    beforeEach(() => {
       initExample('as a link')
       initButtons()
+    })
 
+    it('should have accessible name and role', () => {
+      expect($root).toHaveAccessibleName('Link button')
+      expect($root).toHaveRole('button')
+    })
+
+    it('should trigger the click event when the space key is pressed', async () => {
       $root.focus()
 
       await user.keyboard('[Space]')
