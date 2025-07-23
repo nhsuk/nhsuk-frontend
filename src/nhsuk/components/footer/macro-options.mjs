@@ -33,13 +33,13 @@ export const params = {
           },
           text: {
             type: 'string',
-            required: false,
+            required: true,
             description:
               'If `html` is set, this is not required. Text to use within each footer navigation link. If `html` is provided, the `text` option will be ignored.'
           },
           html: {
             type: 'string',
-            required: false,
+            required: true,
             description:
               'If `text` is set, this is not required. HTML to use within each footer navigation link. If `html` is provided, the `text` option will be ignored.'
           },
@@ -89,13 +89,13 @@ export const params = {
           },
           text: {
             type: 'string',
-            required: false,
+            required: true,
             description:
               'If `html` is set, this is not required. Text to use within each footer meta link. If `html` is provided, the `text` option will be ignored.'
           },
           html: {
             type: 'string',
-            required: false,
+            required: true,
             description:
               'If `text` is set, this is not required. HTML to use within each footer meta link. If `html` is provided, the `text` option will be ignored.'
           },
@@ -117,13 +117,13 @@ export const params = {
     params: {
       text: {
         type: 'string',
-        required: false,
+        required: true,
         description:
           'If `html` is set, this is not required. If `html` is provided, the `text` option will be ignored. If neither are provided, `"© NHS England"` is used.'
       },
       html: {
         type: 'string',
-        required: false,
+        required: true,
         description:
           'If `text` is set, this is not required. If `html` is provided, the `text` option will be ignored. If neither are provided, `"© NHS England"` is used.'
       }
