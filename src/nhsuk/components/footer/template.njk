@@ -21,9 +21,14 @@
   {% for row in ([params.navigation] if params.navigation is mapping else params.navigation) | batch(4) %}
     <div class="nhsuk-footer__navigation nhsuk-grid-row">
     {% for navigation in row %}
-      <div class="nhsuk-grid-column-one-quarter">
+      <div class="nhsuk-grid-column-{{ navigation.width | default("one-quarter", true) }}">
       {% if navigation.title %}
         <h2 class="nhsuk-footer__heading nhsuk-heading-s">{{ navigation.title }}</h2>
+      {% endif %}
+      {% if navigation.html %}
+        {{ navigation.html | safe | trim | indent(8) }}
+      {% elif navigation.text %}
+        <p class="nhsuk-body-s">{{ navigation.text }}</p>
       {% endif %}
         {{ _footerList(navigation.items) | trim | indent(8) }}
       </div>
