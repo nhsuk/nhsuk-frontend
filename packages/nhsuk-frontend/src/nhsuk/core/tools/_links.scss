@@ -148,24 +148,12 @@
 ///
 
 @mixin nhsuk-link-style-success {
-  &:link,
-  &:visited {
-    color: $nhsuk_success-color;
-  }
-
-  &:hover {
-    color: nhsuk-shade($nhsuk-success-color, 30%);
-  }
-
-  &:active {
-    color: $nhsuk-success-color;
-  }
-
-  // When focussed, the text colour needs to be darker to ensure that colour
-  // contrast is still acceptable
-  &:focus {
-    color: $nhsuk-focus-text-color;
-  }
+  @include nhsuk-link-style(
+    $link-color: $nhsuk-button-color,
+    $link-visited-color: $nhsuk-button-color,
+    $link-hover-color: $nhsuk-button-hover-color,
+    $link-active-color: $nhsuk-button-active-color
+  );
 }
 
 /// No visited state link mixin
