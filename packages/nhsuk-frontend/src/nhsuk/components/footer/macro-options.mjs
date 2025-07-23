@@ -12,7 +12,7 @@ export const params = {
     type: 'object',
     required: false,
     description:
-      'The navigation section of the footer before the copyright information.',
+      'The navigation section of the footer before the copyright information. Alternatively supports an array of `navigation` objects.',
     params: {
       title: {
         type: 'string',
@@ -32,8 +32,15 @@ export const params = {
           },
           text: {
             type: 'string',
-            required: true,
-            description: 'Footer navigation link text.'
+            required: false,
+            description:
+              'If `html` is set, this is not required. Text to use within each footer navigation link. If `html` is provided, the `text` option will be ignored.'
+          },
+          html: {
+            type: 'string',
+            required: false,
+            description:
+              'If `text` is set, this is not required. HTML to use within each footer navigation link. If `html` is provided, the `text` option will be ignored.'
           },
           attributes: {
             type: 'object',
@@ -81,8 +88,15 @@ export const params = {
           },
           text: {
             type: 'string',
-            required: true,
-            description: 'Footer meta link text.'
+            required: false,
+            description:
+              'If `html` is set, this is not required. Text to use within each footer meta link. If `html` is provided, the `text` option will be ignored.'
+          },
+          html: {
+            type: 'string',
+            required: false,
+            description:
+              'If `text` is set, this is not required. HTML to use within each footer meta link. If `html` is provided, the `text` option will be ignored.'
           },
           attributes: {
             type: 'object',
