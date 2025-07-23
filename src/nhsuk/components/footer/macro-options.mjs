@@ -9,6 +9,12 @@ export const name = 'Footer'
  * @satisfies {{ [param: string]: MacroParam }}
  */
 export const params = {
+  columns: {
+    type: 'integer',
+    required: false,
+    description:
+      'Number of columns to display per row in the navigation section of the footer – `4`, `3`, `2` or `1`. Defaults to `4`.'
+  },
   navigation: {
     type: 'object',
     required: false,
@@ -411,6 +417,7 @@ export const examples = {
       copyright: {
         text: '© 2025 – Manchester University NHS Foundation Trust'
       },
+      columns: 3,
       navigation: [
         {
           width: 'one-quarter',
@@ -454,6 +461,13 @@ export const examples = {
             October 2017 following the merger of Central Manchester University
             Hospitals NHS Foundation Trust (CMFT) and University Hospital of
             South Manchester NHS Foundation Trust (UHSM).</p>
+          `
+        },
+        {
+          width: 'full',
+          html: outdent`
+            <p class="nhsuk-body-s">Cobbett House, Manchester University NHS
+            Foundation Trust, Oxford Road, Manchester, M13 9WL</p>
           `
         }
       ]
