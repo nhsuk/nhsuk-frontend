@@ -20,6 +20,24 @@ export const params = {
         required: false,
         description: 'Title for group of footer navigation links.'
       },
+      text: {
+        type: 'string',
+        required: false,
+        description:
+          'Optional text to use within each navigation section column. If `html` is provided, the `text` option will be ignored.'
+      },
+      html: {
+        type: 'string',
+        required: false,
+        description:
+          'Optional HTML to use within each navigation section column. If `html` is provided, the `text` option will be ignored.'
+      },
+      width: {
+        type: 'string',
+        required: false,
+        description:
+          'Width of each navigation section column in the footer. You can pass any design system grid width here – for example, `"one-third"`, `"two-thirds"` or `"one-half"`. Defaults to `"one-quarter"`.'
+      },
       items: {
         type: 'array',
         required: false,
@@ -385,6 +403,60 @@ export const examples = {
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+    }
+  },
+  'with multiple navigation groups and custom HTML': {
+    layout: 'layouts/example-full-width.njk',
+    context: {
+      copyright: {
+        text: '© 2025 – Manchester University NHS Foundation Trust'
+      },
+      navigation: [
+        {
+          width: 'one-quarter',
+          items: [
+            {
+              href: '#',
+              text: 'About us'
+            },
+            {
+              href: '#',
+              text: 'Give us feedback'
+            },
+            {
+              href: '#',
+              text: 'Accessibility statement'
+            }
+          ]
+        },
+        {
+          width: 'one-quarter',
+          items: [
+            {
+              href: '#',
+              text: 'Cookies'
+            },
+            {
+              href: '#',
+              text: 'Privacy policy'
+            },
+            {
+              href: '#',
+              text: 'Terms and conditions'
+            }
+          ]
+        },
+        {
+          width: 'one-half',
+          html: outdent`
+            <p class="nhsuk-body-s nhsuk-u-margin-bottom-6"><strong>Manchester
+            University NHS Foundation Trust (MFT)</strong> was formed on 1st
+            October 2017 following the merger of Central Manchester University
+            Hospitals NHS Foundation Trust (CMFT) and University Hospital of
+            South Manchester NHS Foundation Trust (UHSM).</p>
+          `
+        }
+      ]
     }
   },
   'with multiple titled navigation groups': {
