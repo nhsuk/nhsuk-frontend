@@ -30,8 +30,12 @@ export const params = {
   titleText: {
     type: 'string',
     required: false,
-    description:
-      'The title text that displays in the notification banner. You can use any string with this option. Use this option to set text that does not contain HTML. The available default values are \'Important\', \'Success\', and null:\n- if you do not set `type`, `titleText` defaults to `"Important"`\n- if you set `type` to `success`, `titleText` defaults to `"Success"`\n- if you set `titleHtml`, this option is ignored'
+    description: outdent`
+      The title text that displays in the notification banner. You can use any string with this option. Use this option to set text that does not contain HTML. The available default values are \'Important\', \'Success\', and null:
+      - if you do not set \`type\`, \`titleText\` defaults to \`"Important"\`
+      - if you set \`type\` to \`success\`, \`titleText\` defaults to \`"Success"\`
+      - if you set \`titleHtml\`, this option is ignored
+    `
   },
   titleHtml: {
     type: 'string',
