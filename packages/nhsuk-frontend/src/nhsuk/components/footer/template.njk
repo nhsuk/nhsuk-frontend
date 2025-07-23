@@ -1,5 +1,19 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
+{% set columns = params.columns | default(4, true) -%}
+
+{% switch columns %}
+  {% case 1 %}
+    {% set width = "full" %}
+  {% case 2 %}
+    {% set width = "one-half" %}
+  {% case 3 %}
+    {% set width = "one-third" %}
+  {% default %}
+    {% set width = "one-quarter" %}
+    {% set columns = 4 %}
+{% endswitch -%}
+
 {% macro _footerList(items, modifier) %}
 <ul class="nhsuk-footer__list">
 {% for item in items %}
@@ -11,17 +25,17 @@
   </li>
 {% endfor %}
 </ul>
-{% endmacro %}
+{% endmacro -%}
 
 <footer class="nhsuk-footer
   {%- if params.classes %} {{ params.classes }}{% endif %}" role="contentinfo"
   {{- nhsukAttributes(params.attributes) }}>
   <div class="nhsuk-width-container {%- if params.containerClasses %} {{ params.containerClasses }}{% endif %}">
 {% if params.navigation %}
-  {% for row in ([params.navigation] if params.navigation is mapping else params.navigation) | batch(4) %}
+  {% for row in ([params.navigation] if params.navigation is mapping else params.navigation) | batch(columns) %}
     <div class="nhsuk-footer__navigation nhsuk-grid-row">
     {% for navigation in row %}
-      <div class="nhsuk-grid-column-{{ navigation.width | default("one-quarter", true) }}">
+      <div class="nhsuk-grid-column-{{ navigation.width | default(width, true) }}">
       {% if navigation.title %}
         <h2 class="nhsuk-footer__heading nhsuk-heading-s">{{ navigation.title }}</h2>
       {% endif %}
