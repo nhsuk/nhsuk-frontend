@@ -6,7 +6,7 @@
   <li class="nhsuk-footer__list-item">
     <a class="nhsuk-footer__list-item-link" href="{{ item.href }}"
       {{- nhsukAttributes(item.attributes) }}>
-      {{- item.html | safe if item.html else item.text -}}
+      {{- item.html | safe | trim | indent(6) if item.html else item.text -}}
     </a>
   </li>
 {% endfor %}
@@ -25,7 +25,7 @@
       {% if navigation.title %}
         <h2 class="nhsuk-footer__heading nhsuk-heading-s">{{ navigation.title }}</h2>
       {% endif %}
-        {{ _footerList(navigation.items) | indent(10) }}
+        {{ _footerList(navigation.items) | trim | indent(8) }}
       </div>
     {% endfor %}
     </div>
@@ -44,7 +44,7 @@
     {% endif %}
 {% endif %}
     {% if params.copyright.html %}
-      {{ params.copyright.html | safe }}
+      {{ params.copyright.html | safe | trim | indent(6) }}
     {% else %}
       <p class="nhsuk-body-s">{{ params.copyright.text | default("© NHS England") }}</p>
     {% endif %}
