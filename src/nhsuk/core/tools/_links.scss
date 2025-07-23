@@ -137,16 +137,15 @@
 /// Makes links use the success colour. The link will darken if it's active or a
 /// user hovers their cursor over it.
 ///
-/// If you use this mixin in a component, you must also include the
-/// `nhsuk-link-default` mixin to get the correct focus and hover states.
+/// If you use this mixin in a component you must also include the
+/// nhsuk-link-style-default mixin in order to get the focus state.
 ///
 /// @example scss
 ///   .nhsuk-component__link {
-///     @include nhsuk-link-default;
+///     @include nhsuk-link-style-default;
 ///     @include nhsuk-link-style-success;
 ///   }
 ///
-/// @access public
 
 @mixin nhsuk-link-style-success {
   &:link,
