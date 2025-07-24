@@ -1,23 +1,8 @@
 @use "sass:color";
 @use "sass:map";
 @use "sass:meta";
-
 @use "../settings/colours-palette" as *;
 
-////
-/// NHS colour palette
-///
-/// Colours are prefixed with color_ to make them easier to
-/// search for within the code base.
-///
-/// We also prefix them with nhsuk- to prevent clashing with
-/// other colours in existing code bases.
-///
-/// We use the word color, not colour, for variables.
-///
-/// @group settings
-////
-///
 /// Get colour
 ///
 /// @param {String | Colour} $colour - Name of colour from the colour palette
@@ -25,7 +10,6 @@
 /// @return {Colour} Representation of named colour
 ///
 /// @throw if `$colour` is not a colour from the colour palette
-/// @access public
 
 @function nhsuk-colour($colour) {
   @if meta.type-of($colour) == "color" {
@@ -34,7 +18,7 @@
   }
 
   @if not map.has-key($nhsuk-colours, $colour) {
-    @error "Unknown colour `#{$colour}` `#{$nhsuk-colours}`";
+    @error "Unknown colour `#{$colour}`";
   }
 
   @return map.get($nhsuk-colours, $colour);
