@@ -134,17 +134,17 @@ describe('Error summary', () => {
         expect($root).toHaveFocus()
       })
 
-      it('sets focus automatically (focusOnPageLoad: true)', () => {
+      it('sets focus automatically (disableAutoFocus: false)', () => {
         initErrorSummary({
-          focusOnPageLoad: true
+          disableAutoFocus: false
         })
 
         expect($root).toHaveFocus()
       })
 
-      it('does not set focus automatically (focusOnPageLoad: false)', () => {
+      it('does not set focus automatically (disableAutoFocus: true)', () => {
         initErrorSummary({
-          focusOnPageLoad: false
+          disableAutoFocus: true
         })
 
         expect($root).not.toHaveFocus()
