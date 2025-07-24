@@ -50,6 +50,13 @@ export class SupportError extends NHSUKFrontendError {
 }
 
 /**
+ * Indicates that a component has received an illegal configuration
+ */
+export class ConfigError extends NHSUKFrontendError {
+  name = 'ConfigError'
+}
+
+/**
  * Indicates an issue with an element (possibly `null` or `undefined`)
  */
 export class ElementError extends NHSUKFrontendError {

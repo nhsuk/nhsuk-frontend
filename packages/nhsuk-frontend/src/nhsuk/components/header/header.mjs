@@ -374,8 +374,7 @@ export class Header extends Component {
 /**
  * Initialise header component
  *
- * @param {object} [options]
- * @param {Element | Document | null} [options.scope] - Scope of the document to search within
+ * @param {ComponentInitOptions} [options]
  */
 export function initHeader(options = {}) {
   const $scope = options.scope ?? document
@@ -387,3 +386,7 @@ export function initHeader(options = {}) {
 
   new Header($root)
 }
+
+/**
+ * @import { ComponentInitOptions } from '../../index.mjs'
+ */

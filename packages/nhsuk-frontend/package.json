@@ -44,7 +44,7 @@
     "build": "concurrently npm:build:* --group --prefix none",
     "build:package": "gulp build --color",
     "build:types": "tsc --build --noEmit false --pretty tsconfig.json",
-    "watch": "concurrently npm:watch:* --group --prefix none",
+    "watch": "concurrently npm:watch:* --prefix none",
     "watch:package": "gulp watch --color",
     "watch:types": "npm run build:types -- --preserveWatchOutput --watch",
     "release": "gulp release --color",
