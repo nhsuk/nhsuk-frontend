@@ -6,6 +6,8 @@ import { formatErrorMessage } from './common/index.mjs'
 import { Component } from './component.mjs'
 import { ConfigError } from './errors/index.mjs'
 
+export const configOverride = Symbol.for('configOverride')
+
 /**
  * Configurable base component class
  *
@@ -15,6 +17,26 @@ import { ConfigError } from './errors/index.mjs'
  * @augments Component<RootElementType>
  */
 export class ConfigurableComponent extends Component {
+  /**
+   * configOverride
+   *
+   * Function which defines configuration overrides to prioritize
+   * properties from the root element's dataset.
+   *
+   * It should take a subset of configuration as input and return
+   * a new configuration object with properties that should be
+   * overridden based on the root element's dataset. A Symbol
+   * is used for indexing to prevent conflicts.
+   *
+   * @abstract
+   * @param {Partial<ConfigurationType>} [param] - Configuration object
+   * @returns {Partial<ConfigurationType>} Configuration object
+   */
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  [configOverride](param) {
+    return {}
+  }
+
   /**
    * Constructs a new component, validating that NHS.UK frontend is supported
    *
@@ -37,11 +59,16 @@ export class ConfigurableComponent extends Component {
       )
     }
 
+    const datasetConfig = /** @type {ConfigurationType} */ (
+      normaliseDataset(ComponentClass, this.$root.dataset)
+    )
+
     this.config = /** @type {ConfigurationType} */ (
       mergeConfigs(
         ComponentClass.defaults,
         config ?? {},
-        normaliseDataset(ComponentClass, this.$root.dataset)
+        this[configOverride](datasetConfig),
+        datasetConfig
       )
     )
   }

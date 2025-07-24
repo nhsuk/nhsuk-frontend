@@ -1,20 +1,26 @@
-import { Component } from '../../component.mjs'
+import { setFocus } from '../../common/index.mjs'
+import { ConfigurableComponent } from '../../configurable-component.mjs'
 
 /**
  * Error summary component
  *
  * Adapted from https://github.com/alphagov/govuk-frontend/blob/v2.13.0/src/components/error-summary/error-summary.js
+ *
+ * @augments ConfigurableComponent<ErrorSummaryConfig>
  */
-export class ErrorSummary extends Component {
+export class ErrorSummary extends ConfigurableComponent {
   /**
    * @param {Element | null} [$root] - HTML element to use for component
    * @param {ErrorSummaryConfig} [config] - Error summary config
    */
   constructor($root, config = {}) {
-    super($root)
+    super($root, config)
 
-    if (!config.disableAutoFocus) {
-      this.$root.focus()
+    /**
+     * Focus the error summary
+     */
+    if (!this.config.disableAutoFocus) {
+      setFocus(this.$root)
     }
 
     this.$root.addEventListener('click', (event) => this.handleClick(event))
@@ -144,15 +150,35 @@ export class ErrorSummary extends Component {
    * Name for the component used when initialising using data-module attributes
    */
   static moduleName = 'nhsuk-error-summary'
+
+  /**
+   * Error summary default config
+   *
+   * @see {@link ErrorSummaryConfig}
+   * @constant
+   * @type {ErrorSummaryConfig}
+   */
+  static defaults = Object.freeze({
+    disableAutoFocus: false
+  })
+
+  /**
+   * Error summary config schema
+   *
+   * @constant
+   * @satisfies {Schema<ErrorSummaryConfig>}
+   */
+  static schema = Object.freeze({
+    properties: {
+      disableAutoFocus: { type: 'boolean' }
+    }
+  })
 }
 
 /**
  * Initialise error summary component
  *
- * @param {object} [options]
- * @param {Element | Document | null} [options.scope] - Scope of the document to search within
- * @param {boolean} [options.disableAutoFocus] - If set to `true` the error
- *   summary will not be focussed when the page loads.
+ * @param {ComponentInitOptions & ErrorSummaryConfig} [options]
  */
 export function initErrorSummary(options = {}) {
   const $scope = options.scope ?? document
@@ -164,15 +190,19 @@ export function initErrorSummary(options = {}) {
     return
   }
 
-  new ErrorSummary($root, {
-    disableAutoFocus: options.disableAutoFocus
-  })
+  new ErrorSummary($root, options)
 }
 
 /**
  * Error summary config
  *
+ * @see {@link ErrorSummary.defaults}
  * @typedef {object} ErrorSummaryConfig
  * @property {boolean} [disableAutoFocus=false] - If set to `true` the error
  *   summary will not be focussed when the page loads.
+ */
+
+/**
+ * @import { ComponentInitOptions } from '../../index.mjs'
+ * @import { Schema } from '../../configurable-component.mjs'
  */

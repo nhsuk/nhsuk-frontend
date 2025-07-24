@@ -135,8 +135,8 @@ describe('Character count', () => {
     })
   })
 
-  describe('JavaScript configuration', () => {
-    it('configures the number of characters using `data-maxlength`', () => {
+  describe('Nunjucks configuration', () => {
+    it('configures the number of characters', () => {
       const characterCount = new CharacterCount($root)
       expect(characterCount.config).toEqual({
         maxlength: 10,
@@ -144,7 +144,7 @@ describe('Character count', () => {
       })
     })
 
-    it('configures the number of words using `data-maxwords`', () => {
+    it('configures the number of words', () => {
       initExample('with word count')
 
       const characterCount = new CharacterCount($root)
@@ -154,7 +154,7 @@ describe('Character count', () => {
       })
     })
 
-    it('configures the threshold using `data-threshold`', () => {
+    it('configures the threshold', () => {
       initExample('with threshold')
 
       const characterCount = new CharacterCount($root)
@@ -183,6 +183,44 @@ describe('Character count', () => {
       expect(characterCount.config).toEqual({
         maxlength: 10,
         threshold: 0
+      })
+    })
+  })
+
+  describe('JavaScript configuration', () => {
+    beforeEach(() => {
+      initExample('with neither maxlength nor maxwords set')
+    })
+
+    it('configures the number of characters', () => {
+      const characterCount = new CharacterCount($root, {
+        maxlength: 20
+      })
+
+      expect(characterCount.config).toEqual({
+        maxlength: 20,
+        threshold: 0
+      })
+    })
+
+    it('configures the number of words', () => {
+      const characterCount = new CharacterCount($root, {
+        maxwords: 20
+      })
+
+      expect(characterCount.config).toEqual({
+        maxwords: 20,
+        threshold: 0
+      })
+    })
+
+    it('configures the threshold', () => {
+      const characterCount = new CharacterCount($root, {
+        threshold: 18
+      })
+
+      expect(characterCount.config).toEqual({
+        threshold: 18
       })
     })
   })
