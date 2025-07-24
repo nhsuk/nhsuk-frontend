@@ -116,10 +116,10 @@ For example, run `initAll` with a `scope` parameter to initialise the components
 ```js
 import { initAll } from 'nhsuk-frontend'
 
-const $element = document.querySelector('.app-modal')
+const $scope = document.querySelector('.app-modal')
 
-if ($element) {
-  initAll({ scope: $element })
+if ($scope) {
+  initAll($scope)
 }
 ```
 
