@@ -23,3 +23,25 @@
 
   @return map.get($nhsuk-colours, $colour);
 }
+
+/// Shade function
+///
+/// @example scss
+///   nhsuk-shade(color, percentage);
+///   nhsuk-shade($color_nhsuk-blue, 50%);
+///
+
+@function nhsuk-shade($color, $percentage) {
+  @return color.mix(black, $color, $percentage);
+}
+
+/// Tint function
+///
+/// @example scss
+///   nhsuk-tint(color, percentage);
+///   nhsuk-tint($color_nhsuk-black, 10%);
+///
+
+@function nhsuk-tint($color, $percentage) {
+  @return color.mix(white, $color, $percentage);
+}
