@@ -78,4 +78,4 @@ $nhsuk-colours: (
   "login-button-hover-color": #{color.mix(black, #005eb8, 20%)},
   "login-button-active-color": #{color.mix(black, #005eb8, 50%)},
   "login-button-shadow-color": #{color.mix(black, #005eb8, 50%)}
-);
+) !default;
