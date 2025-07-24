@@ -1,0 +1,47 @@
+@use "sass:color";
+@use "sass:map";
+@use "sass:meta";
+@use "../settings/colours-palette" as *;
+
+/// Get colour
+///
+/// @param {String | Colour} $colour - Name of colour from the colour palette
+///   (`$nhsuk-colours`)
+/// @return {Colour} Representation of named colour
+///
+/// @throw if `$colour` is not a colour from the colour palette
+
+@function nhsuk-colour($colour) {
+  @if meta.type-of($colour) == "color" {
+    // stylelint-disable-next-line scss/function-quote-no-quoted-strings-inside
+    $colour: quote("#{$colour}");
+  }
+
+  @if not map.has-key($nhsuk-colours, $colour) {
+    @error "Unknown colour `#{$colour}`";
+  }
+
+  @return map.get($nhsuk-colours, $colour);
+}
+
+/// Shade function
+///
+/// @example scss
+///   nhsuk-shade(color, percentage);
+///   nhsuk-shade($color_nhsuk-blue, 50%);
+///
+
+@function nhsuk-shade($color, $percentage) {
+  @return color.mix(black, $color, $percentage);
+}
+
+/// Tint function
+///
+/// @example scss
+///   nhsuk-tint(color, percentage);
+///   nhsuk-tint($color_nhsuk-black, 10%);
+///
+
+@function nhsuk-tint($color, $percentage) {
+  @return color.mix(white, $color, $percentage);
+}
