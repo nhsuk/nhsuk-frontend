@@ -6,6 +6,7 @@ import {
   initCharacterCounts,
   initCheckboxes,
   initErrorSummary,
+  initNotificationBanners,
   initSkipLinks,
   initTabs
 } from './components/index.mjs'
@@ -36,6 +37,7 @@ export function initAll($scope) {
   initCharacterCounts(options)
   initCheckboxes(options)
   initErrorSummary(options)
+  initNotificationBanners(options)
   initRadios(options)
   initTabs(options)
 }

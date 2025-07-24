@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+:new: **New features**
+
+#### New notification banner component
+
+We’ve added a new notification banner component, ported from the GOV.UK Design System.
+
+This was added in [pull request #1408: Add notification banner component](https://github.com/nhsuk/nhsuk-frontend/pull/1408).
+
 :boom: **Breaking changes**
 
 You must make the following changes when you migrate to this release, or your service might break.

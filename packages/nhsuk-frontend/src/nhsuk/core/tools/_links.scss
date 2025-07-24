@@ -132,6 +132,30 @@
   }
 }
 
+/// Success link styles
+///
+/// Makes links use the success colour. The link will darken if it's active or a
+/// user hovers their cursor over it.
+///
+/// If you use this mixin in a component you must also include the
+/// nhsuk-link-style-default mixin in order to get the focus state.
+///
+/// @example scss
+///   .nhsuk-component__link {
+///     @include nhsuk-link-style-default;
+///     @include nhsuk-link-style-success;
+///   }
+///
+
+@mixin nhsuk-link-style-success {
+  @include nhsuk-link-style(
+    $link-color: $nhsuk-button-color,
+    $link-visited-color: $nhsuk-button-color,
+    $link-hover-color: $nhsuk-button-hover-color,
+    $link-active-color: $nhsuk-button-active-color
+  );
+}
+
 /// No visited state link mixin
 ///
 /// Used in cases where it is not helpful to distinguish between visited and
