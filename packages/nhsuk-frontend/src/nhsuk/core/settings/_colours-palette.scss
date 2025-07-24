@@ -43,38 +43,39 @@ $nhsuk-colours: (
   "grey-5": #f0f4f5,
 
   // RGB
-  "grey-1-rgb": rgb(66, 84, 98),
-  "box-shadow": rgba(33, 43, 50, 0.16),
-  // Tints & Shades
-  "tint-black-10": #{nhsuk-tint(#212b32, 10%)},
-  "shade-blue-20": #{nhsuk-shade(#005eb8, 20%)},
-  "shade-blue-35": #{nhsuk-shade(#005eb8, 35%)},
-  "shade-blue-50": #{nhsuk-shade(#005eb8, 50%)},
-  "shade-green-35": #{nhsuk-shade(#007f3b, 35%)},
-  "shade-green-50": #{nhsuk-shade(#007f3b, 50%)},
+  "grey-1-rgb": #{rgb(66, 84, 98)},
+  "box-shadow": #{rgba(33, 43, 50, 0.16)},
+
+  // Tints Shades
+  "tint-black-10": #{color.mix(white, #212b32, 10%)},
+  "shade-blue-20": #{color.mix(black, #005eb8, 20%)},
+  "shade-blue-35": #{color.mix(black, #005eb8, 35%)},
+  "shade-blue-50": #{color.mix(black, #005eb8, 50%)},
+  "shade-green-35": #{color.mix(black, #007f3b, 35%)},
+  "shade-green-50": #{color.mix(black, #007f3b, 50%)},
 
   // Transparency
-  "transparent-white-20": rgba(#ffffff, 0.2),
-  "transparent-blue-50": #{rgba(nhsuk-shade(#005eb8, 50%), 0.1)},
+  "transparent-white-20": #{rgba(#ffffff, 0.2)},
+  "transparent-blue-50": #{rgba(color.mix(black, #005eb8, 50%), 0.1)},
 
   // Footer specific colors
   "footer-link-text-color": #003087,
   "footer-copyright-text-color": #231f20,
 
   // Derived colors for semantic purposes
-  "link-active-color": #{nhsuk-shade(#005eb8, 50%)},
-  "button-hover-color": #{nhsuk-shade(#007f3b, 20%)},
-  "button-active-color": #{nhsuk-shade(#007f3b, 50%)},
-  "button-shadow-color": #{nhsuk-shade(#007f3b, 50%)},
-  "secondary-button-hover-color": #{nhsuk-tint(#005eb8, 85%)},
-  "secondary-button-active-color": #{nhsuk-tint(#005eb8, 78%)},
-  "reverse-button-hover-color": #{nhsuk-shade(#ffffff, 15%)},
-  "reverse-button-active-color": #{nhsuk-shade(#ffffff, 30%)},
-  "reverse-button-shadow-color": #{nhsuk-shade(#ffffff, 30%)},
-  "warning-button-hover-color": #{nhsuk-shade(#d5281b, 20%)},
-  "warning-button-active-color": #{nhsuk-shade(#d5281b, 50%)},
-  "warning-button-shadow-color": #{nhsuk-shade(#d5281b, 50%)},
-  "login-button-hover-color": #{nhsuk-shade(#005eb8, 20%)},
-  "login-button-active-color": #{nhsuk-shade(#005eb8, 50%)},
-  "login-button-shadow-color": #{nhsuk-shade(#005eb8, 50%)}
+  "link-active-color": #{color.mix(black, #005eb8, 50%)},
+  "button-hover-color": #{color.mix(black, #007f3b, 20%)},
+  "button-active-color": #{color.mix(black, #007f3b, 50%)},
+  "button-shadow-color": #{color.mix(black, #007f3b, 50%)},
+  "secondary-button-hover-color": #{color.mix(white, #005eb8, 85%)},
+  "secondary-button-active-color": #{color.mix(white, #005eb8, 78%)},
+  "reverse-button-hover-color": #{color.mix(black, #ffffff, 15%)},
+  "reverse-button-active-color": #{color.mix(black, #ffffff, 30%)},
+  "reverse-button-shadow-color": #{color.mix(black, #ffffff, 30%)},
+  "warning-button-hover-color": #{color.mix(black, #d5281b, 20%)},
+  "warning-button-active-color": #{color.mix(black, #d5281b, 50%)},
+  "warning-button-shadow-color": #{color.mix(black, #d5281b, 50%)},
+  "login-button-hover-color": #{color.mix(black, #005eb8, 20%)},
+  "login-button-active-color": #{color.mix(black, #005eb8, 50%)},
+  "login-button-shadow-color": #{color.mix(black, #005eb8, 50%)}
 );
