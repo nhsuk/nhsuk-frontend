@@ -10,7 +10,7 @@ const { NPM_PACKAGE_VERSION = config.version } = process.env
 
 export const copy = gulp.parallel(
   /**
-   * Copy GitHub release logos, icons and other assets
+   * Copy GitHub release images, icons and other assets
    */
   task.name('copy:assets', () =>
     files.copy('nhsuk/assets/**', {
