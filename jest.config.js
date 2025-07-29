@@ -10,6 +10,7 @@ const { headless = true } = jestPuppeteerConfig.launch
  */
 const config = {
   cacheDirectory: '<rootDir>/.cache/jest',
+  clearMocks: true,
   coveragePathIgnorePatterns: [
     '.eslintrc.js',
     '.test.(js|mjs)',
