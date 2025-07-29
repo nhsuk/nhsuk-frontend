@@ -5,7 +5,7 @@ import { files, task } from '@nhsuk/frontend-tasks'
 import gulp from 'gulp'
 
 /**
- * Copy NHS.UK frontend logos, icons and other assets into review app
+ * Copy NHS.UK frontend images, icons and other assets into review app
  */
 export const copy = gulp.parallel(
   /**
