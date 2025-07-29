@@ -72,7 +72,6 @@ export class Radios extends Component {
    * Synchronise the visibility of the conditional reveal, and its accessible
    * state, with the input's checked state.
    *
-   * @private
    * @param {HTMLInputElement} $input - Radio input
    */
   syncConditionalRevealWithInputState($input) {
