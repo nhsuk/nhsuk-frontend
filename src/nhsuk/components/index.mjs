@@ -7,3 +7,7 @@ export * from './notification-banner/notification-banner.mjs'
 export * from './radios/radios.mjs'
 export * from './skip-link/skip-link.mjs'
 export * from './tabs/tabs.mjs'
+
+// Base components
+export * from '../component.mjs'
+export * from '../configurable-component.mjs'

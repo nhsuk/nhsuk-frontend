@@ -49,8 +49,5 @@ export function normaliseString(value, property) {
 }
 
 /**
- * Schema property for component config
- *
- * @typedef {object} SchemaProperty
- * @property {'string' | 'boolean' | 'number' | 'object'} type - Property type
+ * @import { SchemaProperty } from '../../configurable-component.mjs'
  */
