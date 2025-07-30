@@ -2,6 +2,11 @@ import { Component } from './component.mjs'
 import { SupportError } from './errors/index.mjs'
 
 describe('Component', () => {
+  beforeEach(() => {
+    document.documentElement.innerHTML = ''
+    document.body.classList.add('nhsuk-frontend-supported')
+  })
+
   describe('checkSupport()', () => {
     describe('default implementation', () => {
       class ServiceComponent extends Component {
