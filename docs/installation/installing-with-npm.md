@@ -107,6 +107,18 @@ import { initAll } from 'nhsuk-frontend'
 initAll()
 ```
 
+Or you can pass configuration to components by including key-value pairs of camel-cased component names with their options:
+
+```js
+import { initAll } from 'nhsuk-frontend'
+
+initAll({
+  button: {
+    preventDoubleClick: true
+  }
+})
+```
+
 #### Initialise only part of a page
 
 If you update a page with new markup, for example a modal dialogue box, you can initialise components on that part of the page only.

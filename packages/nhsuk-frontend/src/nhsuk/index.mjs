@@ -1,29 +1,42 @@
 import { isSupported } from './common/index.mjs'
 import {
-  initRadios,
-  initHeader,
-  initButtons,
-  initCharacterCounts,
-  initCheckboxes,
-  initErrorSummary,
-  initNotificationBanners,
-  initSkipLinks,
-  initTabs
+  Button,
+  CharacterCount,
+  Checkboxes,
+  ErrorSummary,
+  Header,
+  NotificationBanner,
+  Radios,
+  SkipLink,
+  Tabs
 } from './components/index.mjs'
 import { SupportError } from './errors/index.mjs'
 
 /**
- * Use this function to initialise nhsuk-frontend components within a
- * given scope. This function is called by default with the document
- * element, but you can call it again later with a new DOM element
- * containing nhsuk-frontend components which you wish to initialise.
+ * Initialise all components
  *
- * @param {Element | Document | null} [$scope] - Scope of the document to search within
+ * Use the `data-module` attributes to find and initialise all of the
+ * components provided as part of NHS.UK frontend.
+ *
+ * @overload
+ * @param {Config} [config] - Config for all components (with optional scope)
+ * @returns {void}
  */
-export function initAll($scope) {
-  const options = {
-    scope: $scope ?? document
-  }
+
+/**
+ * @overload
+ * @param {Element | null} [$scope] - Scope of the document to search within
+ * @returns {void}
+ */
+
+/**
+ * @param {Config | Element | null} [configOrScope]
+ */
+export function initAll(configOrScope = {}) {
+  const config =
+    configOrScope instanceof Element
+      ? { scope: configOrScope } // Compatibility with `initAll($scope)`
+      : (configOrScope ?? {}) // Default support for `initAll(config)`
 
   // Skip initialisation when NHS.UK frontend is not supported
   if (!isSupported()) {
@@ -31,15 +44,19 @@ export function initAll($scope) {
     return
   }
 
-  initHeader(options)
-  initSkipLinks(options)
-  initButtons(options)
-  initCharacterCounts(options)
-  initCheckboxes(options)
-  initErrorSummary(options)
-  initNotificationBanners(options)
-  initRadios(options)
-  initTabs(options)
+  // Allow the user to initialise NHS.UK frontend in only certain sections of the page
+  // Defaults to the entire document if nothing is set.
+  const { scope: $scope } = config
+
+  createAll(Header, undefined, $scope)
+  createAll(SkipLink, undefined, $scope)
+  createAll(Button, config.button, $scope)
+  createAll(CharacterCount, config.characterCount, $scope)
+  createAll(Checkboxes, undefined, $scope)
+  createAll(ErrorSummary, config.errorSummary, $scope)
+  createAll(NotificationBanner, config.notificationBanner, $scope)
+  createAll(Radios, undefined, $scope)
+  createAll(Tabs, undefined, $scope)
 }
 
 /**
@@ -88,6 +105,17 @@ export function createAll(Component, config, $scope) {
 export { isSupported, version } from './common/index.mjs'
 export * from './components/index.mjs'
 export * from './errors/index.mjs'
+
+/**
+ * NHS.UK frontend config for all components via `initAll()`
+ *
+ * @typedef {object} Config
+ * @property {Element | null} [scope] - Scope of the document to search within
+ * @property {ComponentConfig<typeof Button>} [button] - Button config
+ * @property {ComponentConfig<typeof CharacterCount>} [characterCount] - Character Count config
+ * @property {ComponentConfig<typeof ErrorSummary>} [errorSummary] - Error Summary config
+ * @property {ComponentConfig<typeof NotificationBanner>} [notificationBanner] - Notification Banner config
+ */
 
 /**
  * Component config
