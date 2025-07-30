@@ -152,6 +152,8 @@ export class ErrorSummary extends Component {
  *
  * @param {object} [options]
  * @param {Element | Document | null} [options.scope] - Scope of the document to search within
+ * @param {boolean} [options.disableAutoFocus] - If set to `true` the error
+ *   summary will not be focussed when the page loads
  * @param {boolean} [options.focusOnPageLoad] - Deprecated, use `disableAutoFocus` instead
  */
 export function initErrorSummary(options = {}) {
@@ -174,7 +176,8 @@ export function initErrorSummary(options = {}) {
   }
 
   new ErrorSummary($root, {
-    disableAutoFocus: options.focusOnPageLoad === false
+    disableAutoFocus:
+      options.disableAutoFocus ?? options.focusOnPageLoad === false
   })
 }
 
