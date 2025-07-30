@@ -8,7 +8,7 @@ import { Component } from '../../component.mjs'
  */
 export class ErrorSummary extends Component {
   /**
-   * @param {Element | null} [$root] - HTML element to use for component
+   * @param {Element | null} $root - HTML element to use for component
    * @param {ErrorSummaryConfig} [config] - Error summary config
    */
   constructor($root, config = {}) {

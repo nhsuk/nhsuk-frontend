@@ -8,7 +8,7 @@ import { Component } from '../../component.mjs'
  */
 export class NotificationBanner extends Component {
   /**
-   * @param {Element | null} [$root] - HTML element to use for notification banner
+   * @param {Element | null} $root - HTML element to use for component
    */
   constructor($root) {
     super($root)

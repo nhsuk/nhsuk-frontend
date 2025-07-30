@@ -11,7 +11,7 @@ import { ElementError } from '../../errors/index.mjs'
  */
 export class Checkboxes extends Component {
   /**
-   * @param {Element | null} [$root] - HTML element to use for component
+   * @param {Element | null} $root - HTML element to use for component
    */
   constructor($root) {
     super($root)

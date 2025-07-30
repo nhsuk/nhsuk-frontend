@@ -76,6 +76,7 @@ describe('Button', () => {
     })
 
     it('should throw with missing $root element', () => {
+      // @ts-expect-error Parameter '$root' not provided
       expect(() => new Button()).toThrow(
         `${Button.moduleName}: Root element (\`$root\`) not found`
       )

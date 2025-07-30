@@ -141,6 +141,17 @@ export function isObject(option) {
 }
 
 /**
+ * Check for valid scope
+ *
+ * @template {Element | Document} ScopeType
+ * @param {unknown | ScopeType} $scope - Scope of the document to search within
+ * @returns {$scope is ScopeType} Whether the scope can be queried
+ */
+export function isScope($scope) {
+  return !!$scope && ($scope instanceof Element || $scope instanceof Document)
+}
+
+/**
  * Format error message
  *
  * @param {CompatibleClass} Component - Component that threw the error

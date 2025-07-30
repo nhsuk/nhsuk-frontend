@@ -39,7 +39,7 @@ export class Header extends Component {
   menuIsOpen = false
 
   /**
-   * @param {Element | null} [$root] - HTML element to use for component
+   * @param {Element | null} $root - HTML element to use for component
    */
   constructor($root) {
     super($root)
