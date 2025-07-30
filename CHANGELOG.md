@@ -2,6 +2,42 @@
 
 ## Unreleased
 
+:boom: **Breaking changes**
+
+#### Check that your favicons, app icons and Open Graph image still work
+
+We've changed the names, formats and sizes of icon assets we distribute in NHS.UK frontend. You will want to check that the correct files are copied in the right place and served at the right URLs.
+
+The following files have been added to the assets folder:
+
+- manifest.json
+- images/favicon.ico
+- images/favicon.svg
+- images/nhsuk-icon-180.png
+- images/nhsuk-icon-192.png
+- images/nhsuk-icon-512.png
+- images/nhsuk-icon-mask.svg
+- images/nhsuk-opengraph-image.png
+
+The following folders have been removed from the assets folder:
+
+- favicons
+- logos
+
+If you're not using the Nunjucks page template, you will need to replace the list of icons in the template's head with the following:
+
+```html
+<link rel="icon" href="/assets/images/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/images/favicon.svg" sizes="any" type="image/svg+xml">
+<link rel="mask-icon" href="/assets/images/nhsuk-icon-mask.svg" color="#005eb8">
+<link rel="apple-touch-icon" href="/assets/images/nhsuk-icon-180.png">
+<link rel="manifest" href="/assets/manifest.json">
+```
+
+You will need to update the file path to match your assets folder if it's not at the default location.
+
+This change was introduced in [pull request #1508: Update site icons and Open Graph image, add `manifest.json`](https://github.com/nhsuk/nhsuk-frontend/pull/1508).
+
 :recycle: **Changes**
 
 #### Remove the X-UA-Compatible meta tag
