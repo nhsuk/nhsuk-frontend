@@ -157,16 +157,11 @@ new Checkboxes($checkboxes);
 If you want to import assets such as the NHS logo, favicons and SVG icons, copy the files into your project folders from the `node_modules/nhsuk-frontend/dist/nhsuk/assets/` directory.
 
 ```html
-<link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
-<link rel="apple-touch-icon" href="/assets/apple-touch-icon-180x180.png">
-<link rel="mask-icon" href="/assets/favicon.svg" color="#005eb8">
-<link rel="icon" sizes="192x192" href="/assets/favicon-192x192.png">
-<meta name="msapplication-TileImage" content="/assets/mediumtile-144x144.png">
-<meta name="msapplication-TileColor" content="#005eb8">
-<meta name="msapplication-square70x70logo" content="/assets/smalltile-70x70.png">
-<meta name="msapplication-square150x150logo" content="/assets/mediumtile-150x150.png">
-<meta name="msapplication-wide310x150logo" content="/assets/widetile-310x150.png">
-<meta name="msapplication-square310x310logo" content="/assets/largetile-310x310.png">
+<link rel="icon" href="/assets/images/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/images/favicon.svg" sizes="any" type="image/svg+xml">
+<link rel="mask-icon" href="/assets/images/nhsuk-icon-mask.svg" color="#005eb8">
+<link rel="apple-touch-icon" href="/assets/images/nhsuk-icon-180.png">
+<link rel="manifest" href="/assets/manifest.json">
 ```
 
 ## Thanks to the Government Digital Service (GDS)

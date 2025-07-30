@@ -16,7 +16,7 @@ You'll not be able to:
 
 1. Download the `nhsuk-frontend-<VERSION-NUMBER>.zip` file at the bottom of the [latest NHS.UK frontend release note](https://github.com/nhsuk/nhsuk-frontend/releases/latest).
 2. Unzip the zip file.
-3. Copy the `assets` folder to the root of your project's public folder. This is so, for example, `<YOUR-SITE-URL>/assets/favicons/favicon.ico` shows the `favicon.ico` icon in your users' browsers.
+3. Copy the `assets` folder to the root of your project's public folder. This is so, for example, `<YOUR-SITE-URL>/assets/images/favicon.ico` shows the `favicon.ico` icon in your users' browsers.
 4. Copy the `.css` and `.css.map` files to a stylesheets folder in the root of your project's public folder. This is so, for example, `<YOUR-SITE-URL>/stylesheets/nhsuk-frontend-<VERSION-NUMBER>.min.css` shows the CSS file in your users' browsers.
 5. Copy the `.js` and `.js.map` files to a JavaScripts folder in the root of your project's public folder. This is so, for example, `<YOUR-SITE-URL>/javascripts/nhsuk-frontend-<VERSION-NUMBER>.min.js` shows the JavaScript file in your users' browsers.
 
