@@ -143,7 +143,7 @@ export function isObject(option) {
 /**
  * Format error message
  *
- * @param {ComponentConstructor} Component - Component that threw the error
+ * @param {CompatibleClass} Component - Component that threw the error
  * @param {string} message - Error message
  * @returns {string} - Formatted error message
  */
@@ -154,5 +154,5 @@ export function formatErrorMessage(Component, message) {
 export * from './nhsuk-frontend-version.mjs'
 
 /**
- * @import { ComponentConstructor } from '../component.mjs'
+ * @import { CompatibleClass } from '../component.mjs'
  */

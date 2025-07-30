@@ -44,4 +44,4 @@ export function initAll($scope) {
 
 export { isSupported, version } from './common/index.mjs'
 export * from './components/index.mjs'
-export * from './component.mjs'
+export * from './errors/index.mjs'

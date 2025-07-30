@@ -81,7 +81,33 @@ export class Component {
   static moduleName = 'nhsuk-component'
 }
 
+/* eslint-disable jsdoc/valid-types --
+ * `{new(...args: any[] ): any}` is not recognised as valid
+ * https://github.com/gajus/eslint-plugin-jsdoc/issues/145#issuecomment-1308722878
+ * https://github.com/jsdoc-type-pratt-parser/jsdoc-type-pratt-parser/issues/131
+ **/
+
 /**
- * @template {Element} [RootElementType=HTMLElement]
- * @typedef {typeof Component<RootElementType>} ComponentConstructor
+ * Component compatible class
+ *
+ * @template {typeof Component | typeof ConfigurableComponent} [ComponentType=typeof Component]
+ * @typedef {{
+ *   new(...args: ConstructorParameters<ComponentType>): InstanceType<ComponentType>,
+ *   defaults?: ObjectNested,
+ *   moduleName: string
+ * }} CompatibleClass
+ */
+
+/* eslint-enable jsdoc/valid-types */
+
+/**
+ * Component constructor
+ *
+ * @template {typeof Component | typeof ConfigurableComponent} [ComponentType=typeof Component]
+ * @typedef {CompatibleClass & ComponentType} ComponentConstructor
+ */
+
+/**
+ * @import { ObjectNested } from './common/configuration/index.mjs'
+ * @import { ConfigurableComponent } from './configurable-component.mjs'
  */
