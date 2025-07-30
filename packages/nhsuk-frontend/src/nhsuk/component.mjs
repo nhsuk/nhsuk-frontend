@@ -108,6 +108,13 @@ export class Component {
  */
 
 /**
+ * Component initialisation options
+ *
+ * @typedef {object} InitOptions
+ * @property {Element | Document | null} [scope] - Scope of the document to search within
+ */
+
+/**
  * @import { ObjectNested } from './common/configuration/index.mjs'
  * @import { ConfigurableComponent } from './configurable-component.mjs'
  */
