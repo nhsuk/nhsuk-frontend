@@ -1,12 +1,14 @@
 import { ConfigError } from '../../errors/index.mjs'
 import { formatErrorMessage, isObject } from '../index.mjs'
 
+import { extractConfigByNamespace } from './extract-config-by-namespace.mjs'
 import { normaliseString } from './normalise-string.mjs'
 
 /**
  * Normalise dataset
  *
- * Loop over an object and normalise each value using {@link normaliseString}
+ * Loop over an object and normalise each value using {@link normaliseString},
+ * optionally expanding `data-namespace.property` nested values
  *
  * @template {Partial<Record<keyof ConfigurationType, unknown>>} ConfigurationType
  * @template {[keyof ConfigurationType, SchemaProperty | undefined][]} SchemaEntryType
@@ -39,16 +41,24 @@ export function normaliseDataset(Component, dataset) {
     if (field in dataset) {
       out[field] = normaliseString(dataset[field], property)
     }
+
+    /**
+     * Extract and normalise nested object values automatically using
+     * {@link normaliseString} but only schema object types are allowed
+     */
+    if (property?.type === 'object') {
+      out[field] = extractConfigByNamespace(
+        Component.schema,
+        dataset,
+        namespace
+      )
+    }
   }
 
   return out
 }
 
 /**
- * @typedef {{ [key: string]: string | boolean | number | ObjectNested | undefined }} ObjectNested
- */
-
-/**
  * @import { CompatibleClass } from '../../component.mjs'
- * @import { Schema, SchemaProperty } from '../../configurable-component.mjs'
+ * @import { ObjectNested, Schema, SchemaProperty } from './index.mjs'
  */

@@ -1,3 +1,4 @@
+export * from './extract-config-by-namespace.mjs'
 export * from './merge-configs.mjs'
 export * from './normalise-dataset.mjs'
 export * from './normalise-string.mjs'
