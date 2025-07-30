@@ -474,8 +474,8 @@ export class Tabs extends Component {
 /**
  * Initialise tabs component
  *
- * @param {object} [options]
- * @param {Element | Document | null} [options.scope] - Scope of the document to search within
+ * @deprecated Use {@link createAll | `createAll(Tabs)`} instead.
+ * @param {InitOptions} [options]
  */
 export function initTabs(options = {}) {
   const $scope = options.scope ?? document
@@ -485,3 +485,7 @@ export function initTabs(options = {}) {
     new Tabs($root)
   })
 }
+
+/**
+ * @import { createAll, InitOptions } from '../../index.mjs'
+ */

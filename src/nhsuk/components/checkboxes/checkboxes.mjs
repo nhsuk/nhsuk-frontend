@@ -199,8 +199,8 @@ export class Checkboxes extends Component {
 /**
  * Initialise checkboxes component
  *
- * @param {object} [options]
- * @param {Element | Document | null} [options.scope] - Scope of the document to search within
+ * @deprecated Use {@link createAll | `createAll(Checkboxes)`} instead.
+ * @param {InitOptions} [options]
  */
 export function initCheckboxes(options = {}) {
   const $scope = options.scope ?? document
@@ -212,3 +212,7 @@ export function initCheckboxes(options = {}) {
     new Checkboxes($root)
   })
 }
+
+/**
+ * @import { createAll, InitOptions } from '../../index.mjs'
+ */

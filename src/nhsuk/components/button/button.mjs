@@ -91,8 +91,8 @@ export class Button extends Component {
 /**
  * Initialise button component
  *
- * @param {object} [options]
- * @param {Element | Document | null} [options.scope] - Scope of the document to search within
+ * @deprecated Use {@link createAll | `createAll(Button)`} instead.
+ * @param {InitOptions} [options]
  */
 export function initButtons(options = {}) {
   const $scope = options.scope ?? document
@@ -104,3 +104,7 @@ export function initButtons(options = {}) {
     new Button($root)
   })
 }
+
+/**
+ * @import { createAll, InitOptions } from '../../index.mjs'
+ */

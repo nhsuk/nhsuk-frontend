@@ -150,11 +150,8 @@ export class ErrorSummary extends Component {
 /**
  * Initialise error summary component
  *
- * @param {object} [options]
- * @param {Element | Document | null} [options.scope] - Scope of the document to search within
- * @param {boolean} [options.disableAutoFocus] - If set to `true` the error
- *   summary will not be focussed when the page loads
- * @param {boolean} [options.focusOnPageLoad] - Deprecated, use `disableAutoFocus` instead
+ * @deprecated Use {@link createAll | `createAll(ErrorSummary, options)`} instead.
+ * @param {InitOptions & ErrorSummaryConfig} [options]
  */
 export function initErrorSummary(options = {}) {
   const $scope = options.scope ?? document
@@ -185,6 +182,11 @@ export function initErrorSummary(options = {}) {
  * Error summary config
  *
  * @typedef {object} ErrorSummaryConfig
+ * @property {boolean} [focusOnPageLoad=true] - Deprecated. Use `disableAutoFocus` instead.
  * @property {boolean} [disableAutoFocus=false] - If set to `true` the error
  *   summary will not be focussed when the page loads.
+ */
+
+/**
+ * @import { createAll, InitOptions } from '../../index.mjs'
  */

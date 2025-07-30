@@ -374,8 +374,8 @@ export class Header extends Component {
 /**
  * Initialise header component
  *
- * @param {object} [options]
- * @param {Element | Document | null} [options.scope] - Scope of the document to search within
+ * @deprecated Use {@link createAll | `createAll(Header)`} instead.
+ * @param {InitOptions} [options]
  */
 export function initHeader(options = {}) {
   const $scope = options.scope ?? document
@@ -387,3 +387,7 @@ export function initHeader(options = {}) {
 
   new Header($root)
 }
+
+/**
+ * @import { createAll, InitOptions } from '../../index.mjs'
+ */
