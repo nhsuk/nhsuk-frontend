@@ -79,21 +79,6 @@ export class ConfigurableComponent extends Component {
 }
 
 /**
- * Schema for component config
- *
- * @template {Partial<Record<keyof ConfigurationType, unknown>>} ConfigurationType
- * @typedef {object} Schema
- * @property {Record<keyof ConfigurationType, SchemaProperty | undefined>} properties - Schema properties
- */
-
-/**
- * Schema property for component config
- *
- * @typedef {object} SchemaProperty
- * @property {'string' | 'boolean' | 'number' | 'object'} type - Property type
- */
-
-/**
  * @import { ObjectNested } from './common/configuration/index.mjs'
  * @import { ComponentConstructor } from './component.mjs'
  */

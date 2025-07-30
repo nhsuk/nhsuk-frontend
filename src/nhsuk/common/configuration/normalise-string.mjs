@@ -49,5 +49,5 @@ export function normaliseString(value, property) {
 }
 
 /**
- * @import { SchemaProperty } from '../../configurable-component.mjs'
+ * @import { SchemaProperty } from './index.mjs'
  */
