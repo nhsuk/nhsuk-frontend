@@ -1,3 +1,4 @@
+import { formatErrorMessage } from '../../common/index.mjs'
 import { Component } from '../../component.mjs'
 
 /**
@@ -151,8 +152,7 @@ export class ErrorSummary extends Component {
  *
  * @param {object} [options]
  * @param {Element | Document | null} [options.scope] - Scope of the document to search within
- * @param {boolean} [options.focusOnPageLoad] - If set to `false` the error
- *   summary will not be focussed when the page loads.
+ * @param {boolean} [options.focusOnPageLoad] - Deprecated, use `disableAutoFocus` instead
  */
 export function initErrorSummary(options = {}) {
   const $scope = options.scope ?? document
@@ -162,6 +162,15 @@ export function initErrorSummary(options = {}) {
 
   if (!$root) {
     return
+  }
+
+  if ('focusOnPageLoad' in options) {
+    console.warn(
+      formatErrorMessage(
+        ErrorSummary,
+        'Option `focusOnPageLoad` is deprecated. Use `disableAutoFocus` instead.'
+      )
+    )
   }
 
   new ErrorSummary($root, {

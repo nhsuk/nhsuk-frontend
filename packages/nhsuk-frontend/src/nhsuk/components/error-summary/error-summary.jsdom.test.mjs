@@ -45,6 +45,8 @@ describe('Error summary', () => {
     jest.spyOn($root, 'addEventListener')
     jest.spyOn($input, 'focus')
     jest.spyOn($label, 'scrollIntoView')
+
+    jest.spyOn(console, 'warn').mockImplementation(() => {})
   })
 
   describe('Initialisation via init function', () => {
@@ -134,18 +136,32 @@ describe('Error summary', () => {
         expect($root).toHaveFocus()
       })
 
-      it('sets focus automatically (focusOnPageLoad: true)', () => {
-        initErrorSummary({
-          focusOnPageLoad: true
-        })
+      it('moves focus to the $root element', () => {
+        initErrorSummary()
 
         expect($root).toHaveFocus()
       })
 
-      it('does not set focus automatically (focusOnPageLoad: false)', () => {
+      it('moves focus to the $root element with `focusOnPageLoad: true` (deprecated)', () => {
+        initErrorSummary({
+          focusOnPageLoad: true
+        })
+
+        expect(console.warn).toHaveBeenCalledWith(
+          `${ErrorSummary.moduleName}: Option \`focusOnPageLoad\` is deprecated. Use \`disableAutoFocus\` instead.`
+        )
+
+        expect($root).toHaveFocus()
+      })
+
+      it('does not move focus to the $root element with `focusOnPageLoad: false` (deprecated)', () => {
         initErrorSummary({
           focusOnPageLoad: false
         })
+
+        expect(console.warn).toHaveBeenCalledWith(
+          `${ErrorSummary.moduleName}: Option \`focusOnPageLoad\` is deprecated. Use \`disableAutoFocus\` instead.`
+        )
 
         expect($root).not.toHaveFocus()
       })
