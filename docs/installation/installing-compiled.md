@@ -29,7 +29,7 @@ You'll not be able to:
    <html lang="en">
      <head>
        <title>Example - NHS.UK</title>
-       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+       <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
        <link rel="stylesheet" href="/stylesheets/nhsuk-frontend-<VERSION-NUMBER>.min.css">
      </head>
      <body>

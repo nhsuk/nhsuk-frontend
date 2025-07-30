@@ -16,6 +16,15 @@ As NHS.UK frontend no longer supports Internet Explorer versions older than 11, 
 
 This change was made in [pull request #1509: Remove `X-UA-Compatible meta tag`](https://github.com/nhsuk/nhsuk-frontend/pull/1509).
 
+#### Update the viewport meta tag
+
+We've updated our grid layout gutter margins to accommodate devices with "camera notches". Browsers on these devices reserve a safe area in landscape orientation (known as pillar-boxing) so content isn't obscured.
+
+To avoid this, support has been added for `viewport-fit=cover` as shown here:
+https://webkit.org/blog/7929/designing-websites-for-iphone-x/
+
+This change was introduced in [pull request #1510: Accommodate camera notches](https://github.com/nhsuk/nhsuk-frontend/pull/1510).
+
 :wrench: **Fixes**
 
 - [#1512: Remove unused close icon](https://github.com/nhsuk/nhsuk-frontend/pull/1512)
