@@ -1,10 +1,12 @@
-import { Component } from '../../component.mjs'
+import { ConfigurableComponent } from '../../configurable-component.mjs'
 import { ElementError } from '../../errors/index.mjs'
 
 /**
  * Character count component
+ *
+ * @augments ConfigurableComponent<CharacterCountConfig>
  */
-export class CharacterCount extends Component {
+export class CharacterCount extends ConfigurableComponent {
   /**
    * @type {number | null}
    */
@@ -87,17 +89,6 @@ export class CharacterCount extends Component {
     // Hide the fallback limit message
     $fallbackLimitMessage.classList.add('nhsuk-u-visually-hidden')
 
-    /**
-     * Read config set using dataset ('data-' values)
-     *
-     * @type {CharacterCountConfig}
-     */
-    this.config = Object.assign(
-      {},
-      CharacterCount.defaults,
-      CharacterCount.getDataset(this.$root)
-    )
-
     // Determine the limit attribute (characters or words)
     this.maxLength = this.config.maxwords ?? this.config.maxlength ?? Infinity
 
@@ -118,20 +109,29 @@ export class CharacterCount extends Component {
   }
 
   /**
-   * Read data attributes
+   * Character count config override
    *
-   * @param {HTMLElement} $element - HTML element
+   * To ensure data-attributes take complete precedence, even if they change
+   * the type of count, we need to reset the `maxlength` and `maxwords` from
+   * the JavaScript config.
+   *
+   * @param {Partial<CharacterCountConfig>} datasetConfig - Config specified by dataset
+   * @returns {Partial<CharacterCountConfig>} Config to override by dataset
    */
-  static getDataset($element) {
-    const dataset = /** @type {CharacterCountConfig} */ ({})
+  configOverride(datasetConfig) {
+    let configOverrides = /** @type {Partial<CharacterCountConfig>} */ ({})
 
-    for (const [key, value] of Object.entries($element.dataset)) {
-      if (key === 'maxlength' || key === 'maxwords' || key === 'threshold') {
-        dataset[key] = Number(value)
-      }
+    // Reset maxlength when maxwords in data attributes
+    if ('maxlength' in this.config && 'maxwords' in datasetConfig) {
+      configOverrides.maxlength = undefined
     }
 
-    return dataset
+    // Reset maxwords when maxlength in data attributes
+    if ('maxwords' in this.config && 'maxlength' in datasetConfig) {
+      configOverrides.maxwords = undefined
+    }
+
+    return configOverrides
   }
 
   /**
@@ -320,6 +320,20 @@ export class CharacterCount extends Component {
   static defaults = Object.freeze({
     threshold: 0
   })
+
+  /**
+   * Character config schema
+   *
+   * @constant
+   * @satisfies {Schema<CharacterCountConfig>}
+   */
+  static schema = Object.freeze({
+    properties: {
+      maxwords: { type: 'number' },
+      maxlength: { type: 'number' },
+      threshold: { type: 'number' }
+    }
+  })
 }
 
 /**
@@ -355,4 +369,5 @@ export function initCharacterCounts(options = {}) {
 
 /**
  * @import { createAll, InitOptions } from '../../index.mjs'
+ * @import { Schema } from '../../common/configuration/index.mjs'
  */
