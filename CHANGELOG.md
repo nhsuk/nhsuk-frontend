@@ -1,5 +1,21 @@
 # NHS.UK frontend Changelog
 
+## Unreleased
+
+:recycle: **Changes**
+
+#### Remove the X-UA-Compatible meta tag
+
+Remove the `<meta http-equiv="X-UA-Compatible" content="IE=edge">` meta tag from your page template.
+
+Internet Explorer versions 8, 9 and 10 included a feature that would try to determine if the page was built for an older version of IE and silently enable compatibility mode, modifying the rendering engine's behaviour to match the older version of IE. Setting this meta tag prevented that behaviour.
+
+IE11 deprecated this meta tag and defaulted to always using IE11's renderer when the page has a HTML5 doctype (`<!DOCTYPE html>`).
+
+As NHS.UK frontend no longer supports Internet Explorer versions older than 11, this meta tag can now be removed.
+
+This change was made in [pull request #1509: Remove `X-UA-Compatible meta tag`](https://github.com/nhsuk/nhsuk-frontend/pull/1509).
+
 ## 10.0.0-internal.2 - 24 July 2025
 
 :new: **New features**
