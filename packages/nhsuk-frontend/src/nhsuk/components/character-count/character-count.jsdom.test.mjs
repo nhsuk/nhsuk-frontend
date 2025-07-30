@@ -101,6 +101,7 @@ describe('Character count', () => {
     })
 
     it('should throw with missing $root element', () => {
+      // @ts-expect-error Parameter '$root' not provided
       expect(() => new CharacterCount()).toThrow(
         `${CharacterCount.moduleName}: Root element (\`$root\`) not found`
       )

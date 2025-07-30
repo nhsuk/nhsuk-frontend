@@ -17,7 +17,7 @@ export class CharacterCount extends Component {
   valueChecker = null
 
   /**
-   * @param {Element | null} [$root] - HTML element to use for component
+   * @param {Element | null} $root - HTML element to use for component
    */
   constructor($root) {
     super($root)

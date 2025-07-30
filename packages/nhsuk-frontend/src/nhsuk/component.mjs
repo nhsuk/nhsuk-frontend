@@ -23,7 +23,7 @@ export class Component {
   /**
    * Constructs a new component, validating that NHS.UK frontend is supported
    *
-   * @param {Element | null} [$root] - HTML element to use for component
+   * @param {Element | null} $root - HTML element to use for component
    */
   constructor($root) {
     const ComponentClass = /** @type {ComponentConstructor} */ (

@@ -125,31 +125,31 @@ if ($element) {
 
 #### Initialise individual components
 
-Rather than using `initAll`, you can initialise all instances of individual components used by your service. For example:
+Rather than using `initAll`, you can initialise all instances of individual components using `createAll`. For example:
 
 ```js
-import { initButtons, initRadios } from 'nhsuk-frontend';
+import { createAll, Button, Checkboxes } from 'nhsuk-frontend'
 
 // Initialise all button components
-initButtons();
+createAll(Button)
 
-// Initialise all radios components
-initRadios();
+// Initialise all checkboxes components
+createAll(Checkboxes)
 ```
 
 Or where necessary, single instances of individual components only:
 
 ```js
-import { Button, Checkboxes } from 'nhsuk-frontend';
+import { Button, Checkboxes } from 'nhsuk-frontend'
 
 const $button = document.querySelector('.app-button')
 const $checkboxes = document.querySelector('.app-checkboxes')
 
 // Initialise single button component
-new Button($button);
+new Button($button)
 
 // Initialise single checkboxes component
-new Checkboxes($checkboxes);
+new Checkboxes($checkboxes)
 ```
 
 ## Importing assets (optional)

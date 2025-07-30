@@ -14,7 +14,7 @@ export class SkipLink extends Component {
   static elementType = HTMLAnchorElement
 
   /**
-   * @param {Element | null} [$root] - HTML element to use for component
+   * @param {Element | null} $root - HTML element to use for component
    */
   constructor($root) {
     super($root)

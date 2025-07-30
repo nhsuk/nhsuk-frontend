@@ -15,7 +15,7 @@ export class Tabs extends Component {
   mql = null
 
   /**
-   * @param {Element | null} [$root] - HTML element to use for component
+   * @param {Element | null} $root - HTML element to use for component
    */
   constructor($root) {
     super($root)
