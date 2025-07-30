@@ -1,3 +1,4 @@
+@use "sass:string";
 @use "../settings" as *;
 @use "../tools" as *;
 
@@ -29,10 +30,32 @@
   margin-right: $nhsuk-gutter-half;
   margin-left: $nhsuk-gutter-half;
 
+  // Respect 'display cutout' safe area (avoids notches and rounded corners)
+  @supports (margin: string.unquote("max(calc(0px))")) {
+    $gutter-safe-area-right: calc(#{$nhsuk-gutter-half} + env(safe-area-inset-right));
+    $gutter-safe-area-left: calc(#{$nhsuk-gutter-half} + env(safe-area-inset-left));
+
+    // Use max() to pick largest margin, default or with safe area
+    // Escaped due to Sass max() vs. CSS native max()
+    margin-right: string.unquote("max(#{$nhsuk-gutter-half}, #{$gutter-safe-area-right})");
+    margin-left: string.unquote("max(#{$nhsuk-gutter-half}, #{$gutter-safe-area-left})");
+  }
+
   // On desktop, add full width gutters
   @include nhsuk-media-query($from: desktop) {
     margin-right: $nhsuk-gutter;
     margin-left: $nhsuk-gutter;
+
+    // Respect 'display cutout' safe area (avoids notches and rounded corners)
+    @supports (margin: string.unquote("max(calc(0px))")) {
+      $gutter-safe-area-right: calc(#{$nhsuk-gutter-half} + env(safe-area-inset-right));
+      $gutter-safe-area-left: calc(#{$nhsuk-gutter-half} + env(safe-area-inset-left));
+
+      // Use max() to pick largest margin, default or with safe area
+      // Escaped due to Sass max() vs. CSS native max()
+      margin-right: string.unquote("max(#{$nhsuk-gutter}, #{$gutter-safe-area-right})");
+      margin-left: string.unquote("max(#{$nhsuk-gutter}, #{$gutter-safe-area-left})");
+    }
   }
 
   // As soon as the viewport is greater than the width of the page plus the
@@ -40,6 +63,13 @@
   @include nhsuk-media-query($and: "(min-width: #{($width + $nhsuk-gutter * 2)})") {
     margin-right: auto;
     margin-left: auto;
+
+    // Since a safe area may have previously been set above,
+    // we need to duplicate this margin that centers the page.
+    @supports (margin: string.unquote("max(calc(0px))")) {
+      margin-right: auto;
+      margin-left: auto;
+    }
   }
 }
 

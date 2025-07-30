@@ -27,16 +27,34 @@ describe('Page width container', () => {
             margin-right: 16px;
             margin-left: 16px;
           }
+          @supports (margin: max(calc(0px))) {
+            .app-width-container--wide {
+              margin-right: max(16px, calc(16px + env(safe-area-inset-right)));
+              margin-left: max(16px, calc(16px + env(safe-area-inset-left)));
+            }
+          }
           @media (min-width: 48.0625em) {
             .app-width-container--wide {
               margin-right: 32px;
               margin-left: 32px;
+            }
+            @supports (margin: max(calc(0px))) {
+              .app-width-container--wide {
+                margin-right: max(32px, calc(16px + env(safe-area-inset-right)));
+                margin-left: max(32px, calc(16px + env(safe-area-inset-left)));
+              }
             }
           }
           @media (min-width: 1264px) {
             .app-width-container--wide {
               margin-right: auto;
               margin-left: auto;
+            }
+            @supports (margin: max(calc(0px))) {
+              .app-width-container--wide {
+                margin-right: auto;
+                margin-left: auto;
+              }
             }
           }
         `)
