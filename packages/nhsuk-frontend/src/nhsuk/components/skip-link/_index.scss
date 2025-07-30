@@ -1,3 +1,4 @@
+@use "sass:string";
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
 
@@ -16,6 +17,15 @@
   top: nhsuk-spacing(3);
   padding: nhsuk-spacing(2);
   @include nhsuk-visually-hidden-focusable; // [1]
+
+  // Respect 'display cutout' safe area (avoids notches and rounded corners)
+  @supports (left: string.unquote("max(calc(0px))")) {
+    $safe-area-left: calc(#{nhsuk-spacing(3)} + env(safe-area-inset-left));
+
+    // Use max() to pick largest offset, default or with safe area
+    // Escaped due to Sass max() vs. CSS native max()
+    left: string.unquote("max(#{nhsuk-spacing(3)}, #{$safe-area-left})");
+  }
 }
 
 .nhsuk-skip-link-focused-element {
