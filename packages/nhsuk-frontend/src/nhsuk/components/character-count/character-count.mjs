@@ -325,8 +325,8 @@ export class CharacterCount extends Component {
 /**
  * Initialise character count component
  *
- * @param {object} [options]
- * @param {Element | Document | null} [options.scope] - Scope of the document to search within
+ * @deprecated Use {@link createAll | `createAll(CharacterCount)`} instead.
+ * @param {InitOptions} [options]
  */
 export function initCharacterCounts(options = {}) {
   const $scope = options.scope ?? document
@@ -351,4 +351,8 @@ export function initCharacterCounts(options = {}) {
  * @property {number} [threshold=0] - The percentage value of the limit at
  *   which point the count message is displayed. If this attribute is set, the
  *   count message will be hidden by default.
+ */
+
+/**
+ * @import { createAll, InitOptions } from '../../index.mjs'
  */

@@ -80,8 +80,8 @@ export class NotificationBanner extends Component {
 /**
  * Initialise notification banner component
  *
- * @param {object} [options]
- * @param {Element | Document | null} [options.scope] - Scope of the document to search within
+ * @deprecated Use {@link createAll | `createAll(NotificationBanner)`} instead.
+ * @param {InitOptions} [options]
  */
 export function initNotificationBanners(options = {}) {
   const $scope = options.scope ?? document
@@ -102,4 +102,8 @@ export function initNotificationBanners(options = {}) {
  *   notification banner will not be focussed when the page loads. This only
  *   applies if the component has a `role` of `alert` – in other cases the
  *   component will not be focused on page load, regardless of this option.
+ */
+
+/**
+ * @import { createAll, InitOptions } from '../../index.mjs'
  */

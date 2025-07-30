@@ -68,8 +68,8 @@ export class SkipLink extends Component {
 /**
  * Initialise skip link component
  *
- * @param {object} [options]
- * @param {Element | Document | null} [options.scope] - Scope of the document to search within
+ * @deprecated Use {@link createAll | `createAll(SkipLink)`} instead.
+ * @param {InitOptions} [options]
  */
 export function initSkipLinks(options = {}) {
   const $scope = options.scope ?? document
@@ -81,3 +81,7 @@ export function initSkipLinks(options = {}) {
     new SkipLink($root)
   })
 }
+
+/**
+ * @import { createAll, InitOptions } from '../../index.mjs'
+ */
