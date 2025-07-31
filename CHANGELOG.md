@@ -64,6 +64,7 @@ This change was introduced in [pull request #1510: Accommodate camera notches](h
 :wrench: **Fixes**
 
 - [#1512: Remove unused close icon](https://github.com/nhsuk/nhsuk-frontend/pull/1512)
+- [#1514: Use `clip-path()` for plus and minus icons on details expander](https://github.com/nhsuk/nhsuk-frontend/pull/1514)
 
 ## 10.0.0-internal.2 - 24 July 2025
 
