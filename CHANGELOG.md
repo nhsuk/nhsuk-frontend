@@ -65,6 +65,7 @@ This change was introduced in [pull request #1510: Accommodate camera notches](h
 
 - [#1511: Use pseudo element for ticks on contents list items](https://github.com/nhsuk/nhsuk-frontend/pull/1511)
 - [#1512: Remove unused close icon](https://github.com/nhsuk/nhsuk-frontend/pull/1512)
+- [#1514: Use `clip-path()` for plus and minus icons on details expander](https://github.com/nhsuk/nhsuk-frontend/pull/1514)
 - [#1516: Remove unused global Sass variables](https://github.com/nhsuk/nhsuk-frontend/pull/1516)
 
 ## 10.0.0-internal.2 - 24 July 2025
