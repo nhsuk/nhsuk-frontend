@@ -1,0 +1,3 @@
+dest: dist/docs/sassdoc
+exclude:
+  - vendor/*
