@@ -1,3 +1,4 @@
+@use "sass:math";
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
 
@@ -9,8 +10,8 @@
 /// 3. Absolutely position the marker against this element
 /// 3. Allow for absolutely positioned marker and align with disclosed text
 /// 4. Only underline the text, not the arrow
-/// 5. Remove the default details marker so we can style our own consistently and
-///    ensure it displays in Firefox
+/// 5. Remove the default details marker so we can style our own consistently
+///    and ensure it displays in Firefox
 /// 6. Custom padding to left align the details text with the summary
 ///
 /// @group components
@@ -112,20 +113,13 @@
   }
 }
 
-/// Expander variation.
-///
-/// 1. !important used because the icon is populated
-///    by the JavaScript polyfill
-/// 2. Remove the default hover, focus and active
-///    styles for this component.
-/// 3. -2px left margin to align the icon to the content.
-/// 4. When a group of details is used reduce the
-///    margin between them so they sit together.
+/// Expander variant
 
 $expander-border-width: 1px;
 $expander-border-bottom-width: nhsuk-spacing(1);
 $expander-border-color: $color_nhsuk-grey-4;
 $expander-border-hover-color: $color_nhsuk-grey-3;
+$expander-icon-size: 27px; // 19px font size + 4px summary text padding
 
 .nhsuk-expander {
   background-color: $color_nhsuk-white;
@@ -136,7 +130,7 @@ $expander-border-hover-color: $color_nhsuk-grey-3;
     border-top: $nhsuk-focus-width solid transparent;
     display: block;
     padding: nhsuk-spacing(4) - $nhsuk-focus-width nhsuk-spacing(4) 0;
-    width: auto; // [2]
+    width: auto;
 
     @include nhsuk-media-query($from: tablet) {
       padding: nhsuk-spacing(5) - $nhsuk-focus-width nhsuk-spacing(5) 0;
@@ -185,8 +179,7 @@ $expander-border-hover-color: $color_nhsuk-grey-3;
     }
 
     .nhsuk-details__summary::before {
-      // stylelint-disable-next-line declaration-no-important
-      display: none !important; // [1]
+      display: none;
     }
 
     .nhsuk-details__summary:focus {
@@ -197,7 +190,8 @@ $expander-border-hover-color: $color_nhsuk-grey-3;
       color: $color_nhsuk-blue;
       cursor: pointer;
       display: inline-block;
-      padding: nhsuk-spacing(1) nhsuk-spacing(1) nhsuk-spacing(1) 38px;
+      padding: nhsuk-spacing(1);
+      padding-left: #{$expander-icon-size + nhsuk-spacing(2)};
       position: relative;
     }
 
@@ -209,22 +203,19 @@ $expander-border-hover-color: $color_nhsuk-grey-3;
       @include nhsuk-focused-text;
     }
 
+    // Internet Explorer 11 doesn’t support clip-path, but we don’t show the
+    // ::before pseudo element to users of that browser
     .nhsuk-details__summary-text::before {
-      background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__plus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' fill='%23005eb8'%3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M12 8v8M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A")
-        left -2px center no-repeat;
+      background-color: currentcolor;
+      clip-path: path(
+        "M13.5 1a12.5 12.5 0 1 1 0 25 12.5 12.5 0 0 1 0-25Zm0 6c-.8 0-1.5.7-1.5 1.5V12H8.5c-.8 0-1.4.6-1.5 1.4v.1c0 .8.7 1.5 1.5 1.5H12v3.5c0 .8.6 1.4 1.4 1.5h.1c.8 0 1.5-.7 1.5-1.5V15h3.5c.8 0 1.4-.6 1.5-1.4v-.1c0-.8-.7-1.5-1.5-1.5H15V8.5c0-.8-.6-1.4-1.4-1.5Z"
+      ); // Plus icon
       content: "";
-      display: inline-block;
-      height: 32px;
+      height: $expander-icon-size;
       left: 0;
       position: absolute;
-      top: calc(50% - 16px);
-      width: 32px;
-    }
-
-    .nhsuk-details__summary:focus .nhsuk-details__summary-text::before {
-      background: $nhsuk-focus-color
-        url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__plus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' fill='002f5c'%3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M12 8v8M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A")
-        left -2px center no-repeat;
+      top: calc(50% - math.div($expander-icon-size, 2));
+      width: $expander-icon-size;
     }
 
     &[open] {
@@ -232,21 +223,15 @@ $expander-border-hover-color: $color_nhsuk-grey-3;
     }
 
     &[open] .nhsuk-details__summary-text::before {
-      background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__minus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' fill='%23005eb8'%3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A")
-        left -2px center no-repeat; // [3]
-    }
-
-    &[open] .nhsuk-details__summary:focus .nhsuk-details__summary-text::before {
-      background: $nhsuk-focus-color
-        url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__minus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' fill='002f5c'%3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A")
-        left -2px center no-repeat; // [3]
+      clip-path: path(
+        "M13.5 1a12.5 12.5 0 1 1 0 25 12.5 12.5 0 0 1 0-25Zm5 11h-10a1.5 1.5 0 0 0 0 3h10a1.5 1.5 0 0 0 0-3Z"
+      ); // Minus icon
     }
   }
 }
 
+// Reduce margin between a group of expanders so they sit together
 .nhsuk-expander-group {
-  // [4]
-
   @include nhsuk-responsive-margin(4, "bottom");
 
   > .nhsuk-details {
