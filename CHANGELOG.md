@@ -1,5 +1,11 @@
 # NHS.UK frontend Changelog
 
+## Unreleased
+
+:wrench: **Fixes**
+
+- [#1511: Use pseudo element for ticks on contents list items](https://github.com/nhsuk/nhsuk-frontend/pull/1511)
+
 ## 10.0.0-internal.2 - 24 July 2025
 
 :new: **New features**
