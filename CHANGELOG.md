@@ -16,6 +16,10 @@ As NHS.UK frontend no longer supports Internet Explorer versions older than 11, 
 
 This change was made in [pull request #1509: Remove `X-UA-Compatible meta tag`](https://github.com/nhsuk/nhsuk-frontend/pull/1509).
 
+:wrench: **Fixes**
+
+- [#1512: Remove unused close icon](https://github.com/nhsuk/nhsuk-frontend/pull/1512)
+
 ## 10.0.0-internal.2 - 24 July 2025
 
 :new: **New features**
