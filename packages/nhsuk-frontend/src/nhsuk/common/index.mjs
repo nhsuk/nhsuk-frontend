@@ -130,9 +130,20 @@ export function isSupported($scope = document.body) {
 }
 
 /**
+ * Check for an object
+ *
+ * @template {Partial<Record<keyof ObjectType, unknown>>} ObjectType
+ * @param {unknown | ObjectType} option - Option to check
+ * @returns {option is ObjectType} Whether the option is an object
+ */
+export function isObject(option) {
+  return !!option && typeof option === 'object' && !Array.isArray(option)
+}
+
+/**
  * Format error message
  *
- * @param {ComponentConstructor} Component - Component that threw the error
+ * @param {CompatibleClass} Component - Component that threw the error
  * @param {string} message - Error message
  * @returns {string} - Formatted error message
  */
@@ -143,5 +154,5 @@ export function formatErrorMessage(Component, message) {
 export * from './nhsuk-frontend-version.mjs'
 
 /**
- * @import { ComponentConstructor } from '../component.mjs'
+ * @import { CompatibleClass } from '../component.mjs'
  */

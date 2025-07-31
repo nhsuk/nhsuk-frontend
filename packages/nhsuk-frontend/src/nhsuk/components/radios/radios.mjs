@@ -72,7 +72,6 @@ export class Radios extends Component {
    * Synchronise the visibility of the conditional reveal, and its accessible
    * state, with the input's checked state.
    *
-   * @private
    * @param {HTMLInputElement} $input - Radio input
    */
   syncConditionalRevealWithInputState($input) {
@@ -123,8 +122,8 @@ export class Radios extends Component {
 /**
  * Initialise radios component
  *
- * @param {object} [options]
- * @param {Element | Document | null} [options.scope] - Scope of the document to search within
+ * @deprecated Use {@link createAll | `createAll(Radios)`} instead.
+ * @param {InitOptions} [options]
  */
 export function initRadios(options = {}) {
   const $scope = options.scope ?? document
@@ -136,3 +135,7 @@ export function initRadios(options = {}) {
     new Radios($root)
   })
 }
+
+/**
+ * @import { createAll, InitOptions } from '../../index.mjs'
+ */
