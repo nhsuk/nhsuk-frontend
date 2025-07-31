@@ -103,7 +103,8 @@ export const compile = task.name('html:render', async () => {
  */
 export const validate = task.name('html:validate', async () => {
   const paths = getListing('dist/**/*.html', {
-    cwd: config.paths.app
+    cwd: config.paths.app,
+    ignore: ['**/docs/sassdoc/**']
   })
 
   // HTML validation
