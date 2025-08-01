@@ -63,6 +63,7 @@ This change was introduced in [pull request #1510: Accommodate camera notches](h
 
 :wrench: **Fixes**
 
+- [#1516: Remove unused global Sass variables](https://github.com/nhsuk/nhsuk-frontend/pull/1516)
 - [#1512: Remove unused close icon](https://github.com/nhsuk/nhsuk-frontend/pull/1512)
 
 ## 10.0.0-internal.2 - 24 July 2025
