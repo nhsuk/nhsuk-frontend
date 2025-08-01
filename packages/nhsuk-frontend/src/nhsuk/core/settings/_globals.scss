@@ -15,7 +15,6 @@ $nhsuk-font-fallback: arial, sans-serif !default; // [1]
 $nhsuk-font-family-print: sans-serif !default;
 $nhsuk-font-bold: 600 !default;
 $nhsuk-font-normal: 400 !default;
-$nhsuk-font-light: $nhsuk-font-normal !default;
 $nhsuk-fonts-path: "https://assets.nhs.uk/fonts/" !default;
 $nhsuk-include-font-face: true !default;
 
@@ -48,8 +47,6 @@ $nhsuk-grid-widths: (
 /// Border sizes
 
 $nhsuk-border-width-inset-text: 8px !default;
-$nhsuk-care-card-triangle-border: 16px !default;
-$nhsuk-hero-content-triangle-border: 16px !default;
 $nhsuk-hero-border: 1px !default;
 $nhsuk-border-table-header-width: 2px !default;
 $nhsuk-border-table-cell-width: 1px !default;
@@ -57,20 +54,6 @@ $nhsuk-border-table-cell-width: 1px !default;
 /// Border radius
 
 $nhsuk-border-radius: 4px !default;
-
-/// Box shadow
-
-$nhsuk-box-shadow-spread: 4px !default;
-$nhsuk-box-shadow-blur: 4px !default;
-$nhsuk-box-shadow-link: 4px !default;
-$nhsuk-box-details: 8px !default;
-$nhsuk-box-expander: 4px !default;
-$nhsuk-box-shadow-pagination: 16px !default;
-$nhsuk-box-shadow-link: 4px !default;
-
-/// Header spacing
-
-$nhsuk-header-spacing: 20px;
 
 /// Form elements
 
