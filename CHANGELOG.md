@@ -30,6 +30,64 @@ This was added in [pull request #1506: Add JavaScript configuration support to c
 
 :boom: **Breaking changes**
 
+#### Update back link component
+
+HTML markup for the back link component has been updated to align with GOV.UK Frontend:
+
+```diff
+- <div class="nhsuk-back-link"> <a class="nhsuk-back-link__link" href="#">
+-   <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
+-     <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+-   </svg>
+-   Back</a>
+- </div>
++ <a class="nhsuk-back-link" href="#">Back</a>
+```
+
+You do not need to do anything if you're using Nunjucks macros.
+
+If you are not using Nunjucks macros, update your HTML markup using the [back link examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/back-link).
+
+This change was introduced in [pull request #1515: Update back link and breadcrumb components](https://github.com/nhsuk/nhsuk-frontend/pull/1515).
+
+#### Update breadcrumbs component
+
+HTML markup for breadcrumbs component has been updated to better align with that used on GOV.UK and use back link styles for presentation on mobile:
+
+Before:
+
+```diff
+  <nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+    <ol class="nhsuk-breadcrumb__list">
+-     <li class="nhsuk-breadcrumb__item">
++     <li class="nhsuk-breadcrumb__list-item">
+        <a class="nhsuk-breadcrumb__link" href="#">Level one</a>
+      </li>
+-     <li class="nhsuk-breadcrumb__item">
++     <li class="nhsuk-breadcrumb__list-item">
+        <a class="nhsuk-breadcrumb__link" href="#">Level two</a>
+      </li>
+-     <li class="nhsuk-breadcrumb__item">
++     <li class="nhsuk-breadcrumb__list-item">
+        <a class="nhsuk-breadcrumb__link" href="#">Level three</a>
+      </li>
+    </ol>
+-   <p class="nhsuk-breadcrumb__back">
+-     <a class="nhsuk-breadcrumb__backlink" href="#">
+-       <span class="nhsuk-u-visually-hidden">Back to &nbsp;</span>
+-       Level three
+-     </a>
+-   </p>
++   <a class="nhsuk-back-link" href="#"><span class="nhsuk-u-visually-hidden">Back to&nbsp;</span>Level three</a>
+  </nav>
+```
+
+You do not need to do anything if you're using Nunjucks macros.
+
+If you are not using Nunjucks macros, update your HTML markup using the [back link examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/breadcrumbs).
+
+This change was introduced in [pull request #1515: Update back link and breadcrumb components](https://github.com/nhsuk/nhsuk-frontend/pull/1515).
+
 #### Check that your favicons, app icons and Open Graph image still work
 
 We've changed the names, formats and sizes of icon assets we distribute in NHS.UK frontend. You will want to check that the correct files are copied in the right place and served at the right URLs.
