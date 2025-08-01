@@ -43,3 +43,19 @@
 
   @return math.div($value, $nhsuk-base-font-size) * 1rem;
 }
+
+/// Get the size (△↕) of chevron, from base to tip, given a certain font size
+///
+/// @param {Number} $font-size [14] - Font size to base chevron size on
+/// @return {String} Height of chevron as em-based value
+
+@function nhsuk-chevron-size($font-size: 16) {
+  // Get unitless chevron border width
+  $border: math.div($nhsuk-chevron-border, 1px);
+
+  // Get unitless length of one side of the chevron, minus the border
+  $box-size: math.div($font-size, 2) - $border;
+
+  // Calculate width (△↕) of the chevron, from base to tip
+  @return math.sqrt(math.pow($box-size, 2) + math.pow($box-size, 2)) * 0.5;
+}
