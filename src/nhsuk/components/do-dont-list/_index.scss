@@ -16,6 +16,14 @@
 
 .nhsuk-do-dont-list {
   @include nhsuk-panel-with-label(nhsuk-colour("white"), $nhsuk-text-colour, nhsuk-colour("grey-4")); // [1]
+
+  .nhsuk-icon__cross {
+    fill: nhsuk-colour("red");
+  }
+
+  .nhsuk-icon__tick {
+    fill: nhsuk-colour("green");
+  }
 }
 
 .nhsuk-do-dont-list__label {
