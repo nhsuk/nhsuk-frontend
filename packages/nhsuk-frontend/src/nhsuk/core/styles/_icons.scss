@@ -1,5 +1,4 @@
 @use "../settings" as *;
-@use "../helpers" as *;
 
 ////
 /// Icons
@@ -7,53 +6,10 @@
 /// @group styles
 ////
 
-/// Default icon size
+/// Default icon styles
 
 .nhsuk-icon {
-  height: $nhsuk-icon-size;
-  width: $nhsuk-icon-size;
-}
-
-/// Default icon colours
-
-.nhsuk-icon__search {
   fill: currentcolor;
-}
-
-.nhsuk-icon__user {
-  fill: currentcolor;
-}
-
-.nhsuk-icon__cross {
-  fill: nhsuk-colour("red");
-}
-
-.nhsuk-icon__tick {
-  stroke: nhsuk-colour("green");
-}
-
-.nhsuk-icon__arrow-right {
-  fill: nhsuk-colour("blue");
-}
-
-.nhsuk-icon__arrow-left {
-  fill: nhsuk-colour("blue");
-}
-
-.nhsuk-icon__arrow-right-circle {
-  fill: nhsuk-colour("green");
-}
-
-.nhsuk-icon__chevron-down {
-  fill: currentcolor;
-}
-
-.nhsuk-icon__plus {
-  fill: nhsuk-colour("blue");
-}
-
-.nhsuk-icon__minus {
-  fill: nhsuk-colour("blue");
 }
 
 /// Icon size adjustments

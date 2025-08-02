@@ -1,3 +1,4 @@
+@use "sass:math";
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
 @use "../../core/helpers" as *;
@@ -12,6 +13,8 @@
 ///
 /// @group components
 ////
+
+$_icon-size: nhsuk-em($nhsuk-icon-size, 26px);
 
 .nhsuk-pagination {
   @include nhsuk-responsive-margin(7, "top");
@@ -28,11 +31,11 @@
   width: 50%;
 
   .nhsuk-icon {
-    left: -6px;
+    left: nhsuk-px-to-rem(-6px);
   }
 
   .nhsuk-pagination__title {
-    padding-left: nhsuk-spacing(5); // [1]
+    padding-left: $_icon-size; // [1]
   }
 }
 
@@ -42,11 +45,11 @@
   width: 50%;
 
   .nhsuk-icon {
-    right: -6px;
+    right: nhsuk-px-to-rem(-6px);
   }
 
   .nhsuk-pagination__title {
-    padding-right: nhsuk-spacing(5); // [1]
+    padding-right: $_icon-size; // [1]
   }
 }
 
@@ -56,25 +59,19 @@
   text-decoration: none;
   width: 100%;
 
-  @include nhsuk-media-query($media-type: print) {
-    color: nhsuk-colour("black");
-  }
+  @include nhsuk-font-size(26);
+  @include nhsuk-print-colour($nhsuk-print-text-colour);
 
   .nhsuk-icon {
     position: absolute;
-    top: -2px;
-
-    @include nhsuk-media-query($media-type: print) {
-      color: nhsuk-colour("black");
-      margin-top: 0;
-    }
+    top: 0;
+    height: $_icon-size;
+    width: $_icon-size;
   }
 }
 
 .nhsuk-pagination__title {
   display: block;
-
-  @include nhsuk-font-size(26);
 
   @include nhsuk-media-query($media-type: print) {
     &::after {
