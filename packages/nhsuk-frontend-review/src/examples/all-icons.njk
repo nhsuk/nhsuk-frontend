@@ -1,0 +1,28 @@
+{% set title = 'Icons' %}
+{% from 'nhsuk/macros/icon.njk' import nhsukIcon %}
+{% extends 'layouts/example.njk' %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <table class="nhsuk-table">
+        <thead class="nhsuk-table__head">
+          <tr class="nhsuk-table__row">
+            <th scope="col" class="nhsuk-table__header nhsuk-u-width-two-thirds">Icon name</th>
+            <th scope="col" class="nhsuk-table__header nhsuk-u-width-one-third">Icon</th>
+          </tr>
+        </thead>
+        <tbody class="nhsuk-table__body">
+        {% for name in ["arrow-left", "arrow-right", "arrow-right-circle", "chevron-right-circle", "cross", "tick", "search", "user"] %}
+          <tr class="nhsuk-table__row">
+            <td class="nhsuk-table__cell"><code>{{ name }}</code></td>
+            <td class="nhsuk-table__cell">{{ nhsukIcon(name) }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+{% endblock %}
