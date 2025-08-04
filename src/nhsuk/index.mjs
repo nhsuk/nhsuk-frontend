@@ -13,21 +13,60 @@ import {
 import { SupportError } from './errors/index.mjs'
 
 /**
- * Use this function to initialise nhsuk-frontend components within a
- * given scope. This function is called by default with the document
- * element, but you can call it again later with a new DOM element
- * containing nhsuk-frontend components which you wish to initialise.
+ * Initialise all components
  *
- * @param {Element | Document | null} [$scope] - Scope of the document to search within
+ * Use the `data-module` attributes to find and initialise all of the
+ * components provided as part of NHS.UK frontend.
+ *
+ * @overload
+ * @param {Config} [config] - Config for all components (with optional scope)
+ * @returns {void}
  */
-export function initAll($scope) {
-  const options = {
-    scope: $scope ?? document
+
+/**
+ * @overload
+ * @param {Element | Document | null} [$scope] - Scope of the document to search within
+ * @returns {void}
+ */
+
+/**
+ * @param {Config | Element | Document | null} [scopeOrConfig]
+ */
+export function initAll(scopeOrConfig = {}) {
+  let /** @type {Config} */ config = {}
+
+  // Handle options object
+  if (isObject(scopeOrConfig)) {
+    config = scopeOrConfig
+
+    // Scope must be valid or null
+    if (!(isScope(config.scope) || config.scope === null)) {
+      delete config.scope
+    }
+
+    // Error handler must be a function
+    if (typeof config.onError !== 'function') {
+      delete config.onError
+    }
+  }
+
+  if (isScope(scopeOrConfig)) {
+    config.scope = scopeOrConfig
+  } else if (scopeOrConfig === null) {
+    config.scope = null
+  } else if (typeof scopeOrConfig === 'function') {
+    config.onError = scopeOrConfig
   }
 
   // Skip initialisation when NHS.UK frontend is not supported
   if (!isSupported()) {
-    console.log(new SupportError())
+    if (config.onError) {
+      config.onError(new SupportError(), {
+        config
+      })
+    } else {
+      console.log(new SupportError())
+    }
     return
   }
 
@@ -42,6 +81,13 @@ export function initAll($scope) {
     [SkipLink],
     [Tabs]
   ])
+
+  // Allow the user to initialise NHS.UK frontend in only certain sections of the page
+  // Defaults to the entire document if nothing is set.
+
+  const options = {
+    scope: config.scope ?? document
+  }
 
   components.forEach(([Component]) => {
     createAll(Component, undefined, options)
@@ -163,6 +209,14 @@ export * from './components/index.mjs'
 export * from './errors/index.mjs'
 
 /**
+ * NHS.UK frontend config for all components via `initAll()`
+ *
+ * @typedef {object} Config
+ * @property {Element | Document | null} [scope] - Scope of the document to search within
+ * @property {OnErrorCallback<CompatibleClass>} [onError] - Initialisation error callback
+ */
+
+/**
  * Component config
  *
  * @template {CompatibleClass} ComponentClass
@@ -178,7 +232,7 @@ export * from './errors/index.mjs'
  * @typedef {object} ErrorContext
  * @property {Element} [element] - Element used for component module initialisation
  * @property {ComponentClass} [component] - Class of component
- * @property {ComponentConfig<ComponentClass>} config - Config supplied to components
+ * @property {Config | ComponentConfig<ComponentClass>} config - Config supplied to components
  */
 
 /**
