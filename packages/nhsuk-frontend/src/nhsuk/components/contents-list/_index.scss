@@ -28,7 +28,7 @@
     display: block;
     left: 0;
     position: absolute;
-    top: 0.75em;
+    top: nhsuk-em(12px, $nhsuk-base-font-size);
     width: nhsuk-spacing(3);
     border-top: 1px solid $color_nhsuk-grey-3;
   }
