@@ -39,15 +39,20 @@ export function initAll(scopeOrConfig = {}) {
   // Extract initialisation options
   const options = normaliseOptions(scopeOrConfig)
 
-  // Skip initialisation when NHS.UK frontend is not supported
-  if (!isSupported()) {
+  try {
+    // Skip initialisation when NHS.UK frontend is not supported
+    if (!isSupported()) {
+      throw new SupportError()
+    }
+  } catch (error) {
     if (options.onError) {
-      options.onError(new SupportError(), {
+      options.onError(error, {
         config
       })
     } else {
-      console.log(new SupportError())
+      console.log(error)
     }
+
     return
   }
 
@@ -110,27 +115,34 @@ export function initAll(scopeOrConfig = {}) {
  * @param {CreateAllOptions<ComponentClass> | OnErrorCallback<ComponentClass> | Element | Document | null} [scopeOrOptions]
  */
 export function createAll(Component, config, scopeOrOptions) {
+  let /** @type {NodeListOf<Element> | undefined} */ $elements
+
+  // Extract initialisation options
   const options = normaliseOptions(scopeOrOptions)
 
-  const $elements =
-    options.scope?.querySelectorAll(
-      `[data-module="${Component.moduleName}"]`
-    ) ?? []
+  try {
+    // Skip initialisation when NHS.UK frontend is not supported
+    if (!isSupported()) {
+      throw new SupportError()
+    }
 
-  // Skip initialisation when NHS.UK frontend is not supported
-  if (!isSupported()) {
+    $elements = options.scope?.querySelectorAll(
+      `[data-module="${Component.moduleName}"]`
+    )
+  } catch (error) {
     if (options.onError) {
-      options.onError(new SupportError(), {
+      options.onError(error, {
         component: Component,
         config
       })
     } else {
-      console.log(new SupportError())
+      console.log(error)
     }
+
     return []
   }
 
-  return Array.from($elements)
+  return Array.from($elements ?? [])
     .map(($element) => {
       try {
         return /** @type {InstanceType<ComponentClass>} */ (
