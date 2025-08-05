@@ -1,3 +1,4 @@
+import { normaliseOptions } from '../../common/configuration/index.mjs'
 import { getBreakpoint } from '../../common/index.mjs'
 import { Component } from '../../component.mjs'
 import { ElementError } from '../../errors/index.mjs'
@@ -477,11 +478,12 @@ export class Tabs extends Component {
  * @deprecated Use {@link createAll | `createAll(Tabs)`} instead.
  * @param {InitOptions} [options]
  */
-export function initTabs(options = {}) {
-  const $scope = options.scope ?? document
-  const $tabs = $scope.querySelectorAll(`[data-module="${Tabs.moduleName}"]`)
+export function initTabs(options) {
+  const { scope: $scope } = normaliseOptions(options)
 
-  $tabs.forEach(($root) => {
+  const $tabs = $scope?.querySelectorAll(`[data-module="${Tabs.moduleName}"]`)
+
+  $tabs?.forEach(($root) => {
     new Tabs($root)
   })
 }

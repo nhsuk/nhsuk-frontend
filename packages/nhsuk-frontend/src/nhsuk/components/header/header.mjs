@@ -1,3 +1,4 @@
+import { normaliseOptions } from '../../common/configuration/index.mjs'
 import { Component } from '../../component.mjs'
 import { ElementError } from '../../errors/index.mjs'
 
@@ -377,9 +378,10 @@ export class Header extends Component {
  * @deprecated Use {@link createAll | `createAll(Header)`} instead.
  * @param {InitOptions} [options]
  */
-export function initHeader(options = {}) {
-  const $scope = options.scope ?? document
-  const $root = $scope.querySelector(`[data-module="${Header.moduleName}"]`)
+export function initHeader(options) {
+  const { scope: $scope } = normaliseOptions(options)
+
+  const $root = $scope?.querySelector(`[data-module="${Header.moduleName}"]`)
 
   if (!$root) {
     return

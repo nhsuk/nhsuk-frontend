@@ -1,3 +1,4 @@
+import { normaliseOptions } from '../../common/configuration/index.mjs'
 import { ConfigurableComponent } from '../../configurable-component.mjs'
 import { ElementError } from '../../errors/index.mjs'
 
@@ -317,13 +318,14 @@ export class CharacterCount extends ConfigurableComponent {
  * @deprecated Use {@link createAll | `createAll(CharacterCount)`} instead.
  * @param {InitOptions} [options]
  */
-export function initCharacterCounts(options = {}) {
-  const $scope = options.scope ?? document
-  const $characterCounts = $scope.querySelectorAll(
+export function initCharacterCounts(options) {
+  const { scope: $scope } = normaliseOptions(options)
+
+  const $characterCounts = $scope?.querySelectorAll(
     `[data-module="${CharacterCount.moduleName}"]`
   )
 
-  $characterCounts.forEach(($root) => {
+  $characterCounts?.forEach(($root) => {
     new CharacterCount($root)
   })
 }
