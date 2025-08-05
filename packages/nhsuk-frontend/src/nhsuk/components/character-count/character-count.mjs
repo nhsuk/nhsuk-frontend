@@ -1,10 +1,12 @@
-import { Component } from '../../component.mjs'
+import { ConfigurableComponent } from '../../configurable-component.mjs'
 import { ElementError } from '../../errors/index.mjs'
 
 /**
  * Character count component
+ *
+ * @augments ConfigurableComponent<CharacterCountConfig>
  */
-export class CharacterCount extends Component {
+export class CharacterCount extends ConfigurableComponent {
   /**
    * @type {number | null}
    */
@@ -18,9 +20,10 @@ export class CharacterCount extends Component {
 
   /**
    * @param {Element | null} $root - HTML element to use for component
+   * @param {Record<string, never>} [config] - Not yet supported. Character count config
    */
-  constructor($root) {
-    super($root)
+  constructor($root, config = {}) {
+    super($root, config)
 
     const $textarea = this.$root.querySelector('.nhsuk-js-character-count')
     if (
@@ -87,17 +90,6 @@ export class CharacterCount extends Component {
     // Hide the fallback limit message
     $fallbackLimitMessage.classList.add('nhsuk-u-visually-hidden')
 
-    /**
-     * Read config set using dataset ('data-' values)
-     *
-     * @type {CharacterCountConfig}
-     */
-    this.config = Object.assign(
-      {},
-      CharacterCount.defaults,
-      CharacterCount.getDataset(this.$root)
-    )
-
     // Determine the limit attribute (characters or words)
     this.maxLength = this.config.maxwords ?? this.config.maxlength ?? Infinity
 
@@ -115,23 +107,6 @@ export class CharacterCount extends Component {
     // could be called after those events have fired, for example if they are
     // added to the page dynamically, so update now too.
     this.updateCountMessage()
-  }
-
-  /**
-   * Read data attributes
-   *
-   * @param {HTMLElement} $element - HTML element
-   */
-  static getDataset($element) {
-    const dataset = /** @type {CharacterCountConfig} */ ({})
-
-    for (const [key, value] of Object.entries($element.dataset)) {
-      if (key === 'maxlength' || key === 'maxwords' || key === 'threshold') {
-        dataset[key] = Number(value)
-      }
-    }
-
-    return dataset
   }
 
   /**
@@ -320,6 +295,20 @@ export class CharacterCount extends Component {
   static defaults = Object.freeze({
     threshold: 0
   })
+
+  /**
+   * Character config schema
+   *
+   * @constant
+   * @satisfies {Schema<CharacterCountConfig>}
+   */
+  static schema = Object.freeze({
+    properties: {
+      maxwords: { type: 'number' },
+      maxlength: { type: 'number' },
+      threshold: { type: 'number' }
+    }
+  })
 }
 
 /**
@@ -355,4 +344,5 @@ export function initCharacterCounts(options = {}) {
 
 /**
  * @import { createAll, InitOptions } from '../../index.mjs'
+ * @import { Schema } from '../../common/configuration/index.mjs'
  */

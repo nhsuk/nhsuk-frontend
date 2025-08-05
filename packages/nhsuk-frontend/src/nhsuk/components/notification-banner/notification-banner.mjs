@@ -1,28 +1,20 @@
 import { setFocus } from '../../common/index.mjs'
-import { Component } from '../../component.mjs'
+import { ConfigurableComponent } from '../../configurable-component.mjs'
 
 /**
  * Notification banner component
  *
  * Adapted from https://github.com/alphagov/govuk-frontend/blob/v5.10.2/packages/govuk-frontend/src/govuk/components/notification-banner/notification-banner.mjs
+ *
+ * @augments ConfigurableComponent<NotificationBannerConfig>
  */
-export class NotificationBanner extends Component {
+export class NotificationBanner extends ConfigurableComponent {
   /**
    * @param {Element | null} $root - HTML element to use for component
+   * @param {NotificationBannerConfig} [config] - Notification banner config
    */
-  constructor($root) {
-    super($root)
-
-    /**
-     * Read config set using dataset ('data-' values)
-     *
-     * @type {NotificationBannerConfig}
-     */
-    this.config = Object.assign(
-      {},
-      NotificationBanner.defaults,
-      NotificationBanner.getDataset(this.$root)
-    )
+  constructor($root, config = {}) {
+    super($root, config)
 
     /**
      * Focus the notification banner
@@ -44,23 +36,6 @@ export class NotificationBanner extends Component {
   }
 
   /**
-   * Read data attributes
-   *
-   * @param {HTMLElement} element - HTML element
-   */
-  static getDataset(element) {
-    const dataset = /** @type {NotificationBannerConfig} */ ({})
-
-    for (const [key, value] of Object.entries(element.dataset)) {
-      if (key === 'disableAutoFocus') {
-        dataset[key] = value === 'true'
-      }
-    }
-
-    return dataset
-  }
-
-  /**
    * Name for the component used when initialising using data-module attributes.
    */
   static moduleName = 'nhsuk-notification-banner'
@@ -75,13 +50,25 @@ export class NotificationBanner extends Component {
   static defaults = Object.freeze({
     disableAutoFocus: false
   })
+
+  /**
+   * Notification banner config schema
+   *
+   * @constant
+   * @satisfies {Schema<NotificationBannerConfig>}
+   */
+  static schema = Object.freeze({
+    properties: {
+      disableAutoFocus: { type: 'boolean' }
+    }
+  })
 }
 
 /**
  * Initialise notification banner component
  *
- * @deprecated Use {@link createAll | `createAll(NotificationBanner)`} instead.
- * @param {InitOptions} [options]
+ * @deprecated Use {@link createAll | `createAll(NotificationBanner, options)`} instead.
+ * @param {InitOptions & NotificationBannerConfig} [options]
  */
 export function initNotificationBanners(options = {}) {
   const $scope = options.scope ?? document
@@ -90,7 +77,7 @@ export function initNotificationBanners(options = {}) {
   )
 
   $notificationBanners.forEach(($notificationBanner) => {
-    new NotificationBanner($notificationBanner)
+    new NotificationBanner($notificationBanner, options)
   })
 }
 
@@ -106,4 +93,5 @@ export function initNotificationBanners(options = {}) {
 
 /**
  * @import { createAll, InitOptions } from '../../index.mjs'
+ * @import { Schema } from '../../common/configuration/index.mjs'
  */
