@@ -256,6 +256,52 @@ describe('NHS.UK frontend', () => {
       })
     })
 
+    it('should skip initialisation with null scope parameter (and log errors)', () => {
+      const $scope = document.querySelector('.unknown-scope')
+
+      initAll($scope)
+
+      expect(console.log).toHaveBeenCalledWith(expect.any(Error))
+      expect(console.log).toHaveBeenCalledWith(
+        expect.objectContaining({
+          message: 'NHS.UK frontend scope element (`$scope`) not found'
+        })
+      )
+
+      expect(Button).not.toHaveBeenCalled()
+      expect(CharacterCount).not.toHaveBeenCalled()
+      expect(Checkboxes).not.toHaveBeenCalled()
+      expect(ErrorSummary).not.toHaveBeenCalled()
+      expect(Header).not.toHaveBeenCalled()
+      expect(NotificationBanner).not.toHaveBeenCalled()
+      expect(Radios).not.toHaveBeenCalled()
+      expect(SkipLink).not.toHaveBeenCalled()
+      expect(Tabs).not.toHaveBeenCalled()
+    })
+
+    it('should skip initialisation with null scope option (and log errors)', () => {
+      const $scope = document.querySelector('.unknown-scope')
+
+      initAll({ scope: $scope })
+
+      expect(console.log).toHaveBeenCalledWith(expect.any(Error))
+      expect(console.log).toHaveBeenCalledWith(
+        expect.objectContaining({
+          message: 'NHS.UK frontend scope element (`$scope`) not found'
+        })
+      )
+
+      expect(Button).not.toHaveBeenCalled()
+      expect(CharacterCount).not.toHaveBeenCalled()
+      expect(Checkboxes).not.toHaveBeenCalled()
+      expect(ErrorSummary).not.toHaveBeenCalled()
+      expect(Header).not.toHaveBeenCalled()
+      expect(NotificationBanner).not.toHaveBeenCalled()
+      expect(Radios).not.toHaveBeenCalled()
+      expect(SkipLink).not.toHaveBeenCalled()
+      expect(Tabs).not.toHaveBeenCalled()
+    })
+
     it('should ignore unsupported browsers (and log errors)', () => {
       document.body.classList.remove('nhsuk-frontend-supported')
 
@@ -385,6 +431,38 @@ describe('NHS.UK frontend', () => {
       const result = createAll(MockComponent)
 
       expect(result).toStrictEqual([])
+    })
+
+    it('should return empty array with null scope parameter (and log errors)', () => {
+      const $scope = document.querySelector('.unknown-scope')
+
+      const result = createAll(MockComponent, undefined, $scope)
+
+      expect(result).toStrictEqual([])
+
+      expect(console.log).toHaveBeenCalledWith(expect.any(Error))
+      expect(console.log).toHaveBeenCalledWith(
+        expect.objectContaining({
+          message: `${MockComponent.moduleName}: Scope element (\`$scope\`) not found`
+        })
+      )
+    })
+
+    it('should return empty array with null scope option (and log errors)', () => {
+      const $scope = document.querySelector('.unknown-scope')
+
+      const result = createAll(MockComponent, undefined, {
+        scope: $scope
+      })
+
+      expect(result).toStrictEqual([])
+
+      expect(console.log).toHaveBeenCalledWith(expect.any(Error))
+      expect(console.log).toHaveBeenCalledWith(
+        expect.objectContaining({
+          message: `${MockComponent.moduleName}: Scope element (\`$scope\`) not found`
+        })
+      )
     })
 
     it('should return empty array with unsupported browsers (and log errors)', () => {
