@@ -11,7 +11,7 @@ import {
   SkipLink,
   Tabs
 } from './components/index.mjs'
-import { SupportError } from './errors/index.mjs'
+import { ElementError, SupportError } from './errors/index.mjs'
 
 /**
  * Initialise all components
@@ -43,6 +43,15 @@ export function initAll(scopeOrConfig = {}) {
     // Skip initialisation when NHS.UK frontend is not supported
     if (!isSupported()) {
       throw new SupportError()
+    }
+
+    // Users can initialise NHS.UK frontend in certain sections of the page
+    // unless the scope is null (for example, query selector not found)
+    if (options.scope === null) {
+      throw new ElementError({
+        element: options.scope,
+        identifier: 'NHS.UK frontend scope element (`$scope`)'
+      })
     }
   } catch (error) {
     if (options.onError) {
@@ -124,6 +133,16 @@ export function createAll(Component, config, scopeOrOptions) {
     // Skip initialisation when NHS.UK frontend is not supported
     if (!isSupported()) {
       throw new SupportError()
+    }
+
+    // Users can initialise NHS.UK frontend in certain sections of the page
+    // unless the scope is null (for example, query selector not found)
+    if (options.scope === null) {
+      throw new ElementError({
+        element: options.scope,
+        component: Component,
+        identifier: 'Scope element (`$scope`)'
+      })
     }
 
     $elements = options.scope?.querySelectorAll(
