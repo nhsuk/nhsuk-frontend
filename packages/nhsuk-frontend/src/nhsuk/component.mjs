@@ -26,26 +26,26 @@ export class Component {
    * @param {Element | null} $root - HTML element to use for component
    */
   constructor($root) {
-    const ComponentClass = /** @type {ComponentConstructor} */ (
+    const childConstructor = /** @type {ComponentConstructor} */ (
       this.constructor
     )
 
-    if (!$root || !($root instanceof ComponentClass.elementType)) {
+    if (!$root || !($root instanceof childConstructor.elementType)) {
       throw new ElementError({
         element: $root,
-        component: ComponentClass,
+        component: childConstructor,
         identifier: 'Root element (`$root`)',
-        expectedType: ComponentClass.elementType.name
+        expectedType: childConstructor.elementType.name
       })
     }
 
     this.$root = /** @type {RootElementType} */ ($root)
 
-    ComponentClass.checkSupport()
+    childConstructor.checkSupport()
 
     this.checkInitialised()
 
-    const { moduleName } = ComponentClass
+    const { moduleName } = childConstructor
     this.$root.setAttribute(`data-${moduleName}-init`, '')
   }
 
@@ -55,12 +55,12 @@ export class Component {
    * @throws {InitError} when component is already initialised
    */
   checkInitialised() {
-    const ComponentClass = /** @type {ComponentConstructor} */ (
+    const childConstructor = /** @type {ComponentConstructor} */ (
       this.constructor
     )
 
-    if (isInitialised(this.$root, ComponentClass.moduleName)) {
-      throw new InitError(ComponentClass)
+    if (isInitialised(this.$root, childConstructor.moduleName)) {
+      throw new InitError(childConstructor)
     }
   }
 

@@ -29,27 +29,27 @@ export class ConfigurableComponent extends Component {
   constructor($root, config) {
     super($root)
 
-    const ComponentClass =
+    const childConstructor =
       /** @type {ComponentConstructor<typeof ConfigurableComponent>} */ (
         this.constructor
       )
 
-    if (!isObject(ComponentClass.defaults)) {
+    if (!isObject(childConstructor.defaults)) {
       throw new ConfigError(
         formatErrorMessage(
-          ComponentClass,
+          childConstructor,
           'Config passed as parameter into constructor but no defaults defined'
         )
       )
     }
 
     const datasetConfig = /** @type {ConfigurationType} */ (
-      normaliseDataset(ComponentClass, this.$root.dataset)
+      normaliseDataset(childConstructor, this.$root.dataset)
     )
 
     // Override defaults with JavaScript config
     this.config = /** @type {ConfigurationType} */ (
-      mergeConfigs(ComponentClass.defaults, config ?? {})
+      mergeConfigs(childConstructor.defaults, config ?? {})
     )
 
     // Override merged config with dataset config
