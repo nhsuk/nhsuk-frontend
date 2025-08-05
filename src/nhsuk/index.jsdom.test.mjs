@@ -246,10 +246,11 @@ describe('NHS.UK frontend', () => {
           }
         })
 
-        expect(NamespaceComponent).toHaveBeenCalledWith($root2, {
+        expect(NamespaceComponent).not.toHaveBeenCalledWith($root1, {
           __test: true
         })
-        expect(NamespaceComponent).not.toHaveBeenCalledWith($root1, {
+
+        expect(NamespaceComponent).toHaveBeenCalledWith($root2, {
           __test: true
         })
       })
