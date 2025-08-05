@@ -452,7 +452,6 @@ $_header-item-active-size: $nhsuk-focus-width;
   .nhsuk-icon__chevron-down {
     width: nhsuk-spacing(4);
     height: nhsuk-spacing(4);
-    transform: rotate(90deg);
 
     // Move icon to align with edge of button, offsetting 8px of empty
     // SVG view box but keeping the same 2px padding used by text links
@@ -460,7 +459,7 @@ $_header-item-active-size: $nhsuk-focus-width;
   }
 
   &[aria-expanded="true"] .nhsuk-icon__chevron-down {
-    transform: rotate(270deg);
+    transform: rotate(180deg);
   }
 }
 
