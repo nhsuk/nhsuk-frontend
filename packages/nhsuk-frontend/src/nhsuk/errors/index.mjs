@@ -75,7 +75,12 @@ export class ElementError extends NHSUKFrontendError {
       ? ` is not of type ${expectedType ?? 'HTMLElement'}`
       : ' not found'
 
-    super(formatErrorMessage(component, message))
+    // Prepend with module name (optional)
+    if (component) {
+      message = formatErrorMessage(component, message)
+    }
+
+    super(message)
   }
 }
 
@@ -105,8 +110,8 @@ export class InitError extends NHSUKFrontendError {
  * Element error options
  *
  * @typedef {object} ElementErrorOptions
- * @property {Element | null} [element] - The element in error
- * @property {CompatibleClass} component - Component throwing the error
+ * @property {Element | Document | null} [element] - The element in error (optional)
+ * @property {CompatibleClass} [component] - Component throwing the error (optional)
  * @property {string} identifier - An identifier that'll let the user understand which element has an error. This is whatever makes the most sense
  * @property {string} [expectedType] - The type that was expected for the identifier
  */
