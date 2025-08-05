@@ -1,4 +1,5 @@
-import { isObject, isScope, isSupported } from './common/index.mjs'
+import { normaliseOptions } from './common/configuration/index.mjs'
+import { isObject, isSupported } from './common/index.mjs'
 import {
   Button,
   CharacterCount,
@@ -33,35 +34,15 @@ import { SupportError } from './errors/index.mjs'
  * @param {Config | Element | Document | null} [scopeOrConfig]
  */
 export function initAll(scopeOrConfig = {}) {
-  let /** @type {Config} */ config = {}
+  const config = isObject(scopeOrConfig) ? scopeOrConfig : {}
 
-  // Handle options object
-  if (isObject(scopeOrConfig)) {
-    config = scopeOrConfig
-
-    // Scope must be valid or null
-    if (!(isScope(config.scope) || config.scope === null)) {
-      delete config.scope
-    }
-
-    // Error handler must be a function
-    if (typeof config.onError !== 'function') {
-      delete config.onError
-    }
-  }
-
-  if (isScope(scopeOrConfig)) {
-    config.scope = scopeOrConfig
-  } else if (scopeOrConfig === null) {
-    config.scope = null
-  } else if (typeof scopeOrConfig === 'function') {
-    config.onError = scopeOrConfig
-  }
+  // Extract initialisation options
+  const options = normaliseOptions(scopeOrConfig)
 
   // Skip initialisation when NHS.UK frontend is not supported
   if (!isSupported()) {
-    if (config.onError) {
-      config.onError(new SupportError(), {
+    if (options.onError) {
+      options.onError(new SupportError(), {
         config
       })
     } else {
@@ -81,13 +62,6 @@ export function initAll(scopeOrConfig = {}) {
     [SkipLink],
     [Tabs]
   ])
-
-  // Allow the user to initialise NHS.UK frontend in only certain sections of the page
-  // Defaults to the entire document if nothing is set.
-
-  const options = {
-    scope: config.scope ?? document
-  }
 
   components.forEach(([Component, componentConfig]) => {
     createAll(Component, componentConfig, options)
@@ -136,39 +110,17 @@ export function initAll(scopeOrConfig = {}) {
  * @param {CreateAllOptions<ComponentClass> | OnErrorCallback<ComponentClass> | Element | Document | null} [scopeOrOptions]
  */
 export function createAll(Component, config, scopeOrOptions) {
-  let /** @type {Element | Document | null} */ $scope = document
-  let /** @type {OnErrorCallback<Component> | undefined} */ onError
-
-  // Handle options object
-  if (isObject(scopeOrOptions)) {
-    const options = scopeOrOptions
-
-    // Scope must be valid or null
-    if (isScope(options.scope) || options.scope === null) {
-      $scope = options.scope
-    }
-
-    // Error handler must be a function
-    if (typeof options.onError === 'function') {
-      onError = options.onError
-    }
-  }
-
-  if (isScope(scopeOrOptions)) {
-    $scope = scopeOrOptions
-  } else if (scopeOrOptions === null) {
-    $scope = null
-  } else if (typeof scopeOrOptions === 'function') {
-    onError = scopeOrOptions
-  }
+  const options = normaliseOptions(scopeOrOptions)
 
   const $elements =
-    $scope?.querySelectorAll(`[data-module="${Component.moduleName}"]`) ?? []
+    options.scope?.querySelectorAll(
+      `[data-module="${Component.moduleName}"]`
+    ) ?? []
 
   // Skip initialisation when NHS.UK frontend is not supported
   if (!isSupported()) {
-    if (onError) {
-      onError(new SupportError(), {
+    if (options.onError) {
+      options.onError(new SupportError(), {
         component: Component,
         config
       })
@@ -188,8 +140,8 @@ export function createAll(Component, config, scopeOrOptions) {
             : new Component($element)
         )
       } catch (error) {
-        if (onError) {
-          onError(error, {
+        if (options.onError) {
+          options.onError(error, {
             element: $element,
             component: Component,
             config
