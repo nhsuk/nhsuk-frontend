@@ -71,12 +71,12 @@ export function initAll(scopeOrConfig = {}) {
   }
 
   const components = /** @type {const} */ ([
-    [Button],
-    [CharacterCount],
+    [Button, config.button],
+    [CharacterCount, config.characterCount],
     [Checkboxes],
-    [ErrorSummary],
+    [ErrorSummary, config.errorSummary],
     [Header],
-    [NotificationBanner],
+    [NotificationBanner, config.notificationBanner],
     [Radios],
     [SkipLink],
     [Tabs]
@@ -89,8 +89,8 @@ export function initAll(scopeOrConfig = {}) {
     scope: config.scope ?? document
   }
 
-  components.forEach(([Component]) => {
-    createAll(Component, undefined, options)
+  components.forEach(([Component, componentConfig]) => {
+    createAll(Component, componentConfig, options)
   })
 }
 
@@ -183,7 +183,7 @@ export function createAll(Component, config, scopeOrOptions) {
       try {
         return /** @type {InstanceType<ComponentClass>} */ (
           // Only pass config to components that accept it
-          'defaults' in Component
+          !!config && 'defaults' in Component
             ? new Component($element, config)
             : new Component($element)
         )
@@ -214,6 +214,10 @@ export * from './errors/index.mjs'
  * @typedef {object} Config
  * @property {Element | Document | null} [scope] - Scope of the document to search within
  * @property {OnErrorCallback<CompatibleClass>} [onError] - Initialisation error callback
+ * @property {ComponentConfig<typeof Button>} [button] - Button config
+ * @property {ComponentConfig<typeof CharacterCount>} [characterCount] - Character count config
+ * @property {ComponentConfig<typeof ErrorSummary>} [errorSummary] - Error Summary config
+ * @property {ComponentConfig<typeof NotificationBanner>} [notificationBanner] - Notification Banner config
  */
 
 /**
