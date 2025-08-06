@@ -3,6 +3,7 @@
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
 
+$_header-chevron-size: nhsuk-chevron-size(19) * 1px;
 $_header-item-padding: 12px;
 $_header-link-padding: 2px;
 $_header-item-hover-color: $color_shade_nhsuk-blue-20;
@@ -443,24 +444,25 @@ $_header-item-active-size: $nhsuk-focus-width;
   display: flex;
   margin: 0;
   text-align: center;
-  vertical-align: top;
+  padding-right: #{nhsuk-spacing(3) + $_header-chevron-size};
 
   &[hidden] {
     display: none;
   }
 
-  .nhsuk-icon__chevron-down {
-    width: nhsuk-spacing(4);
-    height: nhsuk-spacing(4);
-    transform: rotate(90deg);
+  &::after {
+    bottom: 0;
+    content: "";
+    right: $_header-link-padding;
+    margin: auto;
+    position: absolute;
+    top: 0;
 
-    // Move icon to align with edge of button, offsetting 8px of empty
-    // SVG view box but keeping the same 2px padding used by text links
-    margin-right: -8px + $_header-link-padding;
+    @include nhsuk-shape-chevron(down, currentcolor, $font-size: 19);
   }
 
-  &[aria-expanded="true"] .nhsuk-icon__chevron-down {
-    transform: rotate(270deg);
+  &[aria-expanded="true"]::after {
+    @include nhsuk-shape-chevron(up, currentcolor, $font-size: 19);
   }
 }
 
