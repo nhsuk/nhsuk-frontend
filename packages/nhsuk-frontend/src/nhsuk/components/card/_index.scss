@@ -291,16 +291,31 @@ $card-border-hover-color: $color_nhsuk-grey-3;
     height: 100%;
   }
 
-  .nhsuk-icon {
-    display: block;
-    width: $icon-width;
-    height: $icon-height;
-    fill: $color_nhsuk-blue;
-    margin-top: -(math.floor(math.div($icon-height, 2)));
-    pointer-events: none;
+  &::before,
+  &::after {
+    content: "";
+    margin: auto;
     position: absolute;
-    top: 50%;
-    @include nhsuk-responsive-spacing(5, "right");
+    top: 0;
+    bottom: 0;
+
+    @include nhsuk-responsive-spacing(5, "margin", $direction: "right");
+  }
+
+  // Containing circle for chevron
+  &::before {
+    right: 0;
+    width: $icon-width;
+    height: $icon-width;
+    background-color: $color_nhsuk-blue;
+    border-radius: 100%;
+  }
+
+  // Chevron
+  &::after {
+    right: 7px;
+
+    @include nhsuk-shape-chevron(right, $color_nhsuk-white, $font-size: 19);
   }
 }
 
