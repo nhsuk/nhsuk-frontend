@@ -56,11 +56,31 @@ Before:
   </nav>
 ```
 
+#### Update primary card component
+
+The primary card component no longer uses an inline SVG for its chevron icon:
+
+```diff
+  <div class="nhsuk-card nhsuk-card--clickable">
+    <div class="nhsuk-card__content nhsuk-card__content--primary">
+      <h2 class="nhsuk-card__heading nhsuk-heading-m"> <a class="nhsuk-card__link" href="#">Introduction to care and support</a> </h2>
+      <p class="nhsuk-card__description">A quick guide for people who have care and support needs and their carers</p>
+-     <svg class="nhsuk-icon" xmlns="http://www.w3.org/2000/svg" width="27" height="27" aria-hidden="true" focusable="false">
+-       <circle cx="13.333" cy="13.333" r="13.333" fill="" />
+-       <g fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2.667">
+-         <path d="M15.438 13l-3.771 3.771" />
+-         <path d="M11.667 9.229L15.438 13" />
+-       </g>
+-     </svg>
+    </div>
+  </div>
+```
+
 You do not need to do anything if you're using Nunjucks macros.
 
 If you are not using Nunjucks macros, update your HTML markup using the [back link examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/breadcrumbs).
 
-This change was introduced in [pull request #1515: Update back link and breadcrumb components](https://github.com/nhsuk/nhsuk-frontend/pull/1515).
+These changes were introduced in [pull request #1515: Update back link and breadcrumb components](https://github.com/nhsuk/nhsuk-frontend/pull/1515) and [#1524: Use CSS-generated chevron for header menu and primary card](https://github.com/nhsuk/nhsuk-frontend/pull/1524).
 
 #### Check that your favicons, app icons and Open Graph image still work
 
