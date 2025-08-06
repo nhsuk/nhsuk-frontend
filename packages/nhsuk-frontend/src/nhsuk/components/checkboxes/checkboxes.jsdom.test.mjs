@@ -126,6 +126,7 @@ describe('Checkboxes', () => {
     })
 
     it('should throw with missing $root element', () => {
+      // @ts-expect-error Parameter '$root' not provided
       expect(() => new Checkboxes()).toThrow(
         `${Checkboxes.moduleName}: Root element (\`$root\`) not found`
       )

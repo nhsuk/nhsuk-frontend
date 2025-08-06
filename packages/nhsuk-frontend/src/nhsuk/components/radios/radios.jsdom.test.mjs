@@ -108,6 +108,7 @@ describe('Radios', () => {
     })
 
     it('should throw with missing $root element', () => {
+      // @ts-expect-error Parameter '$root' not provided
       expect(() => new Radios()).toThrow(
         `${Radios.moduleName}: Root element (\`$root\`) not found`
       )

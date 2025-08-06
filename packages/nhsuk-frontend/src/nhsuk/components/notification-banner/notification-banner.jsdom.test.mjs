@@ -10,15 +10,22 @@ describe('Notification banner', () => {
   /** @type {HTMLElement} */
   let $root
 
-  beforeEach(() => {
+  /**
+   * @param {keyof typeof examples} example
+   */
+  function initExample(example) {
     document.body.innerHTML = components.render(
       'notification-banner',
-      examples['with type as success']
+      examples[example]
     )
 
     $root = /** @type {HTMLElement} */ (
       document.querySelector(`[data-module="${NotificationBanner.moduleName}"]`)
     )
+  }
+
+  beforeEach(() => {
+    initExample('with type as success')
   })
 
   describe('Initialisation via init function', () => {
@@ -52,6 +59,7 @@ describe('Notification banner', () => {
     })
 
     it('should throw with missing $root element', () => {
+      // @ts-expect-error Parameter '$root' not provided
       expect(() => new NotificationBanner()).toThrow(
         `${NotificationBanner.moduleName}: Root element (\`$root\`) not found`
       )
@@ -79,6 +87,75 @@ describe('Notification banner', () => {
     it('should add accessible name and role', () => {
       expect($root).toHaveAccessibleName('Success')
       expect($root).toHaveRole('alert')
+    })
+  })
+
+  describe('Nunjucks configuration', () => {
+    it('configures auto-focus explicitly enabled', () => {
+      initExample('auto-focus explicitly enabled, with type as success')
+
+      const notificationBanner = new NotificationBanner($root)
+      expect(notificationBanner.config).toEqual({
+        disableAutoFocus: false
+      })
+
+      expect($root).toHaveFocus()
+    })
+
+    it('configures auto-focus disabled', () => {
+      initExample('auto-focus disabled, with type as success')
+
+      const notificationBanner = new NotificationBanner($root)
+      expect(notificationBanner.config).toEqual({
+        disableAutoFocus: true
+      })
+
+      expect($root).not.toHaveFocus()
+    })
+
+    it('ignores unknown data attributes', () => {
+      document.body.innerHTML = components.render('notification-banner', {
+        context: {
+          ...examples['default'].context,
+          attributes: {
+            'data-unknown1': '100',
+            'data-unknown2': 200,
+            'data-unknown3': false
+          }
+        }
+      })
+
+      const notificationBanner = new NotificationBanner(
+        document.querySelector(
+          `[data-module="${NotificationBanner.moduleName}"]`
+        )
+      )
+
+      expect(notificationBanner.config).toEqual({
+        disableAutoFocus: false
+      })
+    })
+  })
+
+  describe('JavaScript configuration', () => {
+    it('configures auto-focus explicitly enabled', () => {
+      const notificationBanner = new NotificationBanner($root, {
+        disableAutoFocus: false
+      })
+
+      expect(notificationBanner.config).toEqual({
+        disableAutoFocus: false
+      })
+    })
+
+    it('configures auto-focus disabled', () => {
+      const notificationBanner = new NotificationBanner($root, {
+        disableAutoFocus: true
+      })
+
+      expect(notificationBanner.config).toEqual({
+        disableAutoFocus: true
+      })
     })
   })
 })

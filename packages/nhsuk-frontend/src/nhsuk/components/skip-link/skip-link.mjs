@@ -1,3 +1,4 @@
+import { normaliseOptions } from '../../common/configuration/index.mjs'
 import { setFocus } from '../../common/index.mjs'
 import { Component } from '../../component.mjs'
 import { ElementError } from '../../errors/index.mjs'
@@ -14,7 +15,7 @@ export class SkipLink extends Component {
   static elementType = HTMLAnchorElement
 
   /**
-   * @param {Element | null} [$root] - HTML element to use for component
+   * @param {Element | null} $root - HTML element to use for component
    */
   constructor($root) {
     super($root)
@@ -68,16 +69,21 @@ export class SkipLink extends Component {
 /**
  * Initialise skip link component
  *
- * @param {object} [options]
- * @param {Element | Document | null} [options.scope] - Scope of the document to search within
+ * @deprecated Use {@link createAll | `createAll(SkipLink)`} instead.
+ * @param {InitOptions} [options]
  */
-export function initSkipLinks(options = {}) {
-  const $scope = options.scope ?? document
-  const $skipLinks = $scope.querySelectorAll(
+export function initSkipLinks(options) {
+  const { scope: $scope } = normaliseOptions(options)
+
+  const $skipLinks = $scope?.querySelectorAll(
     `[data-module="${SkipLink.moduleName}"]`
   )
 
-  $skipLinks.forEach(($root) => {
+  $skipLinks?.forEach(($root) => {
     new SkipLink($root)
   })
 }
+
+/**
+ * @import { createAll, InitOptions } from '../../index.mjs'
+ */

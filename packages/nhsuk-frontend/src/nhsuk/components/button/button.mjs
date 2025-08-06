@@ -1,21 +1,25 @@
-import { Component } from '../../component.mjs'
+import { normaliseOptions } from '../../common/configuration/index.mjs'
+import { ConfigurableComponent } from '../../configurable-component.mjs'
 
 const DEBOUNCE_TIMEOUT_IN_SECONDS = 1
 
 /**
  * Button component
+ *
+ * @augments ConfigurableComponent<ButtonConfig>
  */
-export class Button extends Component {
+export class Button extends ConfigurableComponent {
   /**
    * @type {number | null}
    */
   debounceFormSubmitTimer = null
 
   /**
-   * @param {Element | null} [$root] - HTML element to use for component
+   * @param {Element | null} $root - HTML element to use for component
+   * @param {ButtonConfig} [config] - Button config
    */
-  constructor($root) {
-    super($root)
+  constructor($root, config = {}) {
+    super($root, config)
 
     /**
      * Initialise an event listener for keydown at document level
@@ -63,11 +67,8 @@ export class Button extends Component {
    * @returns {undefined | false} Returns undefined, or false when debounced
    */
   debounce(event) {
-    // Check the button that is clicked on has the preventDoubleClick feature enabled
-    if (
-      !(event.target instanceof HTMLElement) ||
-      event.target.dataset.preventDoubleClick !== 'true'
-    ) {
+    // Check the button that was clicked has preventDoubleClick enabled
+    if (!this.config.preventDoubleClick) {
       return
     }
 
@@ -86,21 +87,58 @@ export class Button extends Component {
    * Name for the component used when initialising using data-module attributes
    */
   static moduleName = 'nhsuk-button'
+
+  /**
+   * Button default config
+   *
+   * @see {@link ButtonConfig}
+   * @constant
+   * @type {ButtonConfig}
+   */
+  static defaults = Object.freeze({
+    preventDoubleClick: false
+  })
+
+  /**
+   * Button config schema
+   *
+   * @constant
+   * @satisfies {Schema<ButtonConfig>}
+   */
+  static schema = Object.freeze({
+    properties: {
+      preventDoubleClick: { type: 'boolean' }
+    }
+  })
 }
 
 /**
  * Initialise button component
  *
- * @param {object} [options]
- * @param {Element | Document | null} [options.scope] - Scope of the document to search within
+ * @deprecated Use {@link createAll | `createAll(Button, options)`} instead.
+ * @param {InitOptions & ButtonConfig} [options]
  */
-export function initButtons(options = {}) {
-  const $scope = options.scope ?? document
-  const $buttons = $scope.querySelectorAll(
+export function initButtons(options) {
+  const { scope: $scope } = normaliseOptions(options)
+
+  const $buttons = $scope?.querySelectorAll(
     `[data-module="${Button.moduleName}"]`
   )
 
-  $buttons.forEach(($root) => {
-    new Button($root)
+  $buttons?.forEach(($root) => {
+    new Button($root, options)
   })
 }
+
+/**
+ * Button config
+ *
+ * @typedef {object} ButtonConfig
+ * @property {boolean} [preventDoubleClick=false] - Prevent accidental double
+ *   clicks on submit buttons from submitting forms multiple times.
+ */
+
+/**
+ * @import { createAll, InitOptions } from '../../index.mjs'
+ * @import { Schema } from '../../common/configuration/index.mjs'
+ */

@@ -76,6 +76,7 @@ describe('Button', () => {
     })
 
     it('should throw with missing $root element', () => {
+      // @ts-expect-error Parameter '$root' not provided
       expect(() => new Button()).toThrow(
         `${Button.moduleName}: Root element (\`$root\`) not found`
       )
@@ -176,6 +177,69 @@ describe('Button', () => {
 
       await user.keyboard('[Space]')
       expect($root.click).toHaveBeenCalled()
+    })
+  })
+
+  describe('Nunjucks configuration', () => {
+    it('configures prevent double click explicitly enabled', () => {
+      initExample('with double click prevented')
+
+      const button = new Button($root)
+      expect(button.config).toEqual({
+        preventDoubleClick: true
+      })
+    })
+
+    it('configures prevent double click disabled', () => {
+      initExample('with double click not prevented')
+
+      const button = new Button($root)
+      expect(button.config).toEqual({
+        preventDoubleClick: false
+      })
+    })
+
+    it('ignores unknown data attributes', () => {
+      document.body.innerHTML = components.render('button', {
+        context: {
+          ...examples['default'].context,
+          attributes: {
+            'data-unknown1': '100',
+            'data-unknown2': 200,
+            'data-unknown3': false
+          }
+        }
+      })
+
+      const button = new Button(
+        document.querySelector(`[data-module="${Button.moduleName}"]`)
+      )
+
+      expect(button.config).toEqual({
+        preventDoubleClick: false
+      })
+    })
+  })
+
+  describe('JavaScript configuration', () => {
+    it('configures prevent double click explicitly enabled', () => {
+      const button = new Button($root, {
+        preventDoubleClick: true
+      })
+
+      expect(button.config).toEqual({
+        preventDoubleClick: true
+      })
+    })
+
+    it('configures prevent double click disabled', () => {
+      const button = new Button($root, {
+        preventDoubleClick: false
+      })
+
+      expect(button.config).toEqual({
+        preventDoubleClick: false
+      })
     })
   })
 })

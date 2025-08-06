@@ -70,6 +70,12 @@ export const params = {
       }
     }
   },
+  disableAutoFocus: {
+    type: 'boolean',
+    required: false,
+    description:
+      'Prevent moving focus to the error summary when the page loads.'
+  },
   classes: {
     type: 'string',
     required: false,
@@ -112,6 +118,30 @@ export const examples = {
       ]
     },
     screenshot: true
+  },
+  'auto-focus disabled': {
+    context: {
+      titleText: 'There is a problem',
+      errorList: [
+        {
+          text: 'Date of birth must be in the past',
+          href: '#example-day'
+        }
+      ],
+      disableAutoFocus: true
+    }
+  },
+  'auto-focus explicitly enabled': {
+    context: {
+      titleText: 'There is a problem',
+      errorList: [
+        {
+          text: 'Date of birth must be in the past',
+          href: '#example-day'
+        }
+      ],
+      disableAutoFocus: false
+    }
   }
 }
 

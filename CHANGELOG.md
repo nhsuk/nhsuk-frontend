@@ -2,6 +2,32 @@
 
 ## Unreleased
 
+:new: **New features**
+
+#### Create individual components with `createAll`
+
+We've added a new `createAll` function that lets you initialise specific components in the same way that `initAll` does.
+
+The `createAll` function will:
+
+- find all elements in the page with the corresponding `data-module` attribute
+- initialise a new component for each element
+- catch errors and log them in the console
+- return an array of all the successfully initialised components.
+
+```mjs
+import { createAll, Button, Checkboxes } from 'nhsuk-frontend'
+
+createAll(Button)
+createAll(Checkboxes)
+```
+
+You can also pass a config object and a scope within which to search for elements.
+
+You can find out more about [how to use the `createAll` function](https://github.com/nhsuk/nhsuk-frontend/blob/main/docs/installation/installing-with-npm.md#initialise-individual-components) in our documentation.
+
+This was added in [pull request #1506: Add JavaScript configuration support to components](https://github.com/nhsuk/nhsuk-frontend/pull/1506).
+
 :boom: **Breaking changes**
 
 #### Check that your favicons, app icons and Open Graph image still work

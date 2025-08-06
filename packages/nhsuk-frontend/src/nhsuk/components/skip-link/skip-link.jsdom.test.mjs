@@ -93,6 +93,7 @@ describe('Skip link', () => {
     })
 
     it('should throw with missing $root element', () => {
+      // @ts-expect-error Parameter '$root' not provided
       expect(() => new SkipLink()).toThrow(
         `${SkipLink.moduleName}: Root element (\`$root\`) not found`
       )

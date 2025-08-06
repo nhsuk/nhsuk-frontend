@@ -78,7 +78,7 @@ describe('Errors', () => {
     it('is an instance of NHSUKFrontendError', () => {
       const error = new ElementError({
         component: SkipLink,
-        identifier: 'variableName'
+        identifier: 'Element name'
       })
 
       expect(error).toBeInstanceOf(NHSUKFrontendError)
@@ -87,38 +87,65 @@ describe('Errors', () => {
     it('has its own name set', () => {
       const error = new ElementError({
         component: SkipLink,
-        identifier: 'variableName'
+        identifier: 'Element name'
       })
 
       expect(error).toHaveProperty('name', 'ElementError')
     })
 
-    it('formats the message when the element is not found', () => {
-      const error = new ElementError({
-        component: SkipLink,
-        identifier: 'variableName'
+    describe('with component', () => {
+      it('formats the message when the element is not found', () => {
+        const error = new ElementError({
+          component: SkipLink,
+          identifier: 'Element name'
+        })
+
+        expect(error).toHaveProperty(
+          'message',
+          `${SkipLink.moduleName}: Element name not found`
+        )
       })
 
-      expect(error).toHaveProperty(
-        'message',
-        `${SkipLink.moduleName}: variableName not found`
-      )
+      it('formats the message when the element is not the right type', () => {
+        const $element = document.createElement('div')
+
+        const error = new ElementError({
+          element: $element,
+          component: SkipLink,
+          identifier: 'Element name',
+          expectedType: 'HTMLAnchorElement'
+        })
+
+        expect(error).toHaveProperty(
+          'message',
+          `${SkipLink.moduleName}: Element name is not of type HTMLAnchorElement`
+        )
+      })
     })
 
-    it('formats the message when the element is not the right type', () => {
-      const $element = document.createElement('div')
+    describe('without component', () => {
+      it('formats the message when the element is not found', () => {
+        const error = new ElementError({
+          identifier: 'Element name'
+        })
 
-      const error = new ElementError({
-        element: $element,
-        component: SkipLink,
-        identifier: 'variableName',
-        expectedType: 'HTMLAnchorElement'
+        expect(error).toHaveProperty('message', 'Element name not found')
       })
 
-      expect(error).toHaveProperty(
-        'message',
-        `${SkipLink.moduleName}: variableName is not of type HTMLAnchorElement`
-      )
+      it('formats the message when the element is not the right type', () => {
+        const $element = document.createElement('div')
+
+        const error = new ElementError({
+          element: $element,
+          identifier: 'Element name',
+          expectedType: 'HTMLAnchorElement'
+        })
+
+        expect(error).toHaveProperty(
+          'message',
+          'Element name is not of type HTMLAnchorElement'
+        )
+      })
     })
   })
 })

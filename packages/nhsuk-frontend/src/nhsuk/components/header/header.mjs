@@ -1,3 +1,4 @@
+import { normaliseOptions } from '../../common/configuration/index.mjs'
 import { Component } from '../../component.mjs'
 import { ElementError } from '../../errors/index.mjs'
 
@@ -39,7 +40,7 @@ export class Header extends Component {
   menuIsOpen = false
 
   /**
-   * @param {Element | null} [$root] - HTML element to use for component
+   * @param {Element | null} $root - HTML element to use for component
    */
   constructor($root) {
     super($root)
@@ -374,12 +375,13 @@ export class Header extends Component {
 /**
  * Initialise header component
  *
- * @param {object} [options]
- * @param {Element | Document | null} [options.scope] - Scope of the document to search within
+ * @deprecated Use {@link createAll | `createAll(Header)`} instead.
+ * @param {InitOptions} [options]
  */
-export function initHeader(options = {}) {
-  const $scope = options.scope ?? document
-  const $root = $scope.querySelector(`[data-module="${Header.moduleName}"]`)
+export function initHeader(options) {
+  const { scope: $scope } = normaliseOptions(options)
+
+  const $root = $scope?.querySelector(`[data-module="${Header.moduleName}"]`)
 
   if (!$root) {
     return
@@ -387,3 +389,7 @@ export function initHeader(options = {}) {
 
   new Header($root)
 }
+
+/**
+ * @import { createAll, InitOptions } from '../../index.mjs'
+ */

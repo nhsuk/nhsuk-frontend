@@ -101,6 +101,7 @@ describe('Character count', () => {
     })
 
     it('should throw with missing $root element', () => {
+      // @ts-expect-error Parameter '$root' not provided
       expect(() => new CharacterCount()).toThrow(
         `${CharacterCount.moduleName}: Root element (\`$root\`) not found`
       )
@@ -135,8 +136,8 @@ describe('Character count', () => {
     })
   })
 
-  describe('JavaScript configuration', () => {
-    it('configures the number of characters using `data-maxlength`', () => {
+  describe('Nunjucks configuration', () => {
+    it('configures the number of characters', () => {
       const characterCount = new CharacterCount($root)
       expect(characterCount.config).toEqual({
         maxlength: 10,
@@ -144,7 +145,7 @@ describe('Character count', () => {
       })
     })
 
-    it('configures the number of words using `data-maxwords`', () => {
+    it('configures the number of words', () => {
       initExample('with word count')
 
       const characterCount = new CharacterCount($root)
@@ -154,7 +155,7 @@ describe('Character count', () => {
       })
     })
 
-    it('configures the threshold using `data-threshold`', () => {
+    it('configures the threshold', () => {
       initExample('with threshold')
 
       const characterCount = new CharacterCount($root)
