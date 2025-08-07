@@ -54,7 +54,7 @@ export const examples = {
     context: {},
     screenshot: {
       states: ['focus', 'hover', 'active'],
-      selector: '.nhsuk-back-link__link'
+      selector: '.nhsuk-back-link'
     }
   },
   'as a button': {
@@ -63,7 +63,7 @@ export const examples = {
     },
     screenshot: {
       states: ['focus', 'hover', 'active'],
-      selector: '.nhsuk-back-link__link'
+      selector: '.nhsuk-back-link'
     }
   },
   'reverse': {
@@ -73,7 +73,7 @@ export const examples = {
     },
     screenshot: {
       states: ['focus', 'hover', 'active'],
-      selector: '.nhsuk-back-link__link'
+      selector: '.nhsuk-back-link'
     }
   }
 }
