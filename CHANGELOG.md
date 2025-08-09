@@ -4,6 +4,20 @@
 
 :boom: **Breaking changes**
 
+#### Apply grid column widths from tablet (not desktop) width
+
+We've updated our grid column styles to be applied at tablet width (641px) not desktop (769px).
+
+If necessary, different grid behaviour for the tablet and desktop breakpoints can be applied using new classes. For example, you can make a column one-half on tablet but expand to two-thirds on desktop sized screens.
+
+```html
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-one-half nhsuk-grid-column-two-thirds-from-desktop">
+    <!-- Component -->
+  </div>
+</div>
+```
+
 #### Check that your favicons, app icons and Open Graph image still work
 
 We've changed the names, formats and sizes of icon assets we distribute in NHS.UK frontend. You will want to check that the correct files are copied in the right place and served at the right URLs.
