@@ -20,7 +20,7 @@
               {%- else %}nhsuk-card--care__heading-container{% endif %}">
     {%- if params.headingHtml %}
       {{ params.headingHtml | safe }}
-    {%- else %}
+    {%- elseif params.heading %}
     <h{{ headingLevel }} class="{% if params.type %}nhsuk-card--care__heading{% else %}nhsuk-card__heading{% endif %}{% if params.feature %} nhsuk-card__heading--feature{% endif %} {%- if params.headingClasses %} {{ params.headingClasses }}{% endif %}">
       {%- if params.href and not params.feature %}
         <a class="nhsuk-card__link" href="{{ params.href }}">{{ params.heading | safe }}</a>
