@@ -5,8 +5,8 @@
 
 $_header-item-padding: 12px;
 $_header-link-padding: 2px;
-$_header-item-hover-color: $color_shade_nhsuk-blue-20;
-$_header-item-active-color: $color_shade_nhsuk-blue-35;
+$_header-item-hover-color: nhsuk-shade($color_nhsuk-blue, 20%);
+$_header-item-active-color: nhsuk-shade($color_nhsuk-blue, 35%);
 $_header-item-active-size: $nhsuk-focus-width;
 
 @mixin _header-link-style(
@@ -158,8 +158,8 @@ $_header-item-active-size: $nhsuk-focus-width;
 /// Account
 
 .nhsuk-header__account {
-  background-color: $color_shade_nhsuk-blue-20;
-  border: 1px solid $color_shade_nhsuk-blue-20;
+  background-color: nhsuk-shade($color_nhsuk-blue, 20%);
+  border: 1px solid nhsuk-shade($color_nhsuk-blue, 20%);
   border-radius: $nhsuk-border-radius;
   flex-grow: 1;
   margin-top: nhsuk-spacing(3);

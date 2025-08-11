@@ -44,14 +44,6 @@ $color_nhsuk-grey-5: #f0f4f5;
 
 // stylelint-enable color-no-hex
 
-/// RGB and alpha values
-///
-/// Used to create drop/box shadows e.g. for search suggestions dropdown
-///
-
-$color_nhsuk-grey-1-rgb: rgb(66, 84, 98);
-$alpha-transparency-50: 0.5;
-
 /// Tint function
 ///
 /// @example scss
@@ -73,27 +65,6 @@ $alpha-transparency-50: 0.5;
 @function nhsuk-shade($color, $percentage) {
   @return color.mix(black, $color, $percentage);
 }
-
-/// Primary colour variations
-///
-/// 1. used for link :active states
-/// 2. used for .is-active state on main navigation
-/// 3. used for :hover states on main navigation
-/// 4. used for :active states on main navigation
-/// 5. used for primary button and action link icon :hover states
-/// 6. used for primary button and action link icon :active states
-
-$color_tint_nhsuk-black-10: nhsuk-tint($color_nhsuk-black, 10%); // [1]
-
-$color_shade_nhsuk-blue-20: nhsuk-shade($color_nhsuk-blue, 20%); // [2]
-$color_shade_nhsuk-blue-35: nhsuk-shade($color_nhsuk-blue, 35%); // [3]
-$color_shade_nhsuk-blue-50: nhsuk-shade($color_nhsuk-blue, 50%); // [4]
-
-$color_shade_nhsuk-green-35: nhsuk-shade($color_nhsuk-green, 35%); // [5]
-$color_shade_nhsuk-green-50: nhsuk-shade($color_nhsuk-green, 50%); // [6]
-
-$color_transparent_nhsuk-white-20: rgba($color_nhsuk-white, 0.2);
-$color_transparent_nhsuk-blue-50: rgba($color_shade_nhsuk-blue-50, 0.1);
 
 /// Colour aliases
 
@@ -119,12 +90,7 @@ $nhsuk-focus-text-color: $color_nhsuk-black;
 /// Border
 
 $nhsuk-border-color: $color_nhsuk-grey-4;
-$nhsuk-secondary-border-color: $color_transparent_nhsuk-white-20;
-
-/// Box shadow
-
-$nhsuk-box-shadow: rgba(33, 43, 50, 0.16);
-$nhsuk-box-shadow-color: $color_nhsuk-grey-1-rgb;
+$nhsuk-secondary-border-color: rgba($color_nhsuk-white, 0.2);
 
 /// Forms
 
