@@ -754,6 +754,82 @@ export const examples = {
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']
     }
+  },
+  'with "none of the above" option (named group, unique)': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'How would you prefer to be contacted?'
+        }
+      },
+      idPrefix: 'conditional',
+      items: [
+        {
+          name: 'preference-email',
+          value: 'yes',
+          text: 'Email',
+          exclusiveGroup: 'communication-preferences',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                label: {
+                  text: 'Email address'
+                },
+                name: 'email',
+                spellcheck: false,
+                classes: 'nhsuk-u-width-two-thirds'
+              }
+            })
+          }
+        },
+        {
+          name: 'preference-phone',
+          value: 'yes',
+          text: 'Phone',
+          exclusiveGroup: 'communication-preferences',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                label: {
+                  text: 'Phone number'
+                },
+                name: 'phone',
+                type: 'tel',
+                classes: 'nhsuk-u-width-two-thirds'
+              }
+            })
+          }
+        },
+        {
+          name: 'preference-text',
+          value: 'yes',
+          text: 'Text message',
+          exclusiveGroup: 'communication-preferences',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                label: {
+                  text: 'Mobile phone number'
+                },
+                name: 'mobile',
+                type: 'tel',
+                classes: 'nhsuk-u-width-two-thirds'
+              }
+            })
+          }
+        },
+        {
+          divider: 'or'
+        },
+        {
+          name: 'preference-none',
+          value: 'yes',
+          text: 'None of the above',
+          exclusive: true,
+          exclusiveGroup: 'communication-preferences'
+        }
+      ]
+    }
   }
 }
 
