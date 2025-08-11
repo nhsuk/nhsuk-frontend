@@ -73,7 +73,7 @@
   }
 
   .nhsuk-hero__overlay {
-    background-color: $color_transparent_nhsuk-blue-50; // [7]
+    background-color: rgba(nhsuk-shade($color_nhsuk-blue, 50%), 0.1); // [7]
 
     @media only screen {
       // [4]
