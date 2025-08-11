@@ -319,4 +319,49 @@ describe('Checkboxes', () => {
       expect($inputNone).not.toBeChecked()
     })
   })
+
+  describe('Exclusive checkbox (named groups, unique)', () => {
+    beforeEach(() => {
+      initExample('with "none of the above" option (named group, unique)')
+    })
+
+    it('should uncheck other checkboxes', () => {
+      initCheckboxes()
+
+      // Tick all options
+      $input1.click()
+      $input2.click()
+      $input3.click()
+
+      expect($input1).toBeChecked()
+      expect($input2).toBeChecked()
+      expect($input3).toBeChecked()
+      expect($inputNone).not.toBeChecked()
+
+      // Tick "None of the above"
+      $inputNone.click()
+
+      expect($input1).not.toBeChecked()
+      expect($input2).not.toBeChecked()
+      expect($input3).not.toBeChecked()
+      expect($inputNone).toBeChecked()
+    })
+
+    it('should uncheck when other checkboxes are checked', () => {
+      initCheckboxes()
+
+      // Tick "None of the above"
+      $inputNone.click()
+
+      expect($input1).not.toBeChecked()
+      expect($input2).not.toBeChecked()
+      expect($input3).not.toBeChecked()
+      expect($inputNone).toBeChecked()
+
+      // Tick 1st option
+      $input1.click()
+
+      expect($inputNone).not.toBeChecked()
+    })
+  })
 })
