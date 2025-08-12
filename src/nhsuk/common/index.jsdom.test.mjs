@@ -1,4 +1,6 @@
-import { isSupported, toggleConditionalInput } from './index.mjs'
+import { outdent } from 'outdent'
+
+import { isSupported, getBreakpoint, toggleConditionalInput } from './index.mjs'
 
 describe('isSupported util', () => {
   it('returns true if the nhsuk-frontend-supported class is set', () => {
@@ -14,6 +16,48 @@ describe('isSupported util', () => {
     // For example, running `initAll()` in `<head>` without `type="module"`
     // will see support checks run when document.body is still `null`
     expect(isSupported(null)).toBe(false)
+  })
+})
+
+describe('getBreakpoint util', () => {
+  beforeEach(() => {
+    document.documentElement.innerHTML = ''
+
+    const stylesheet = document.createElement('style')
+
+    stylesheet.innerHTML = outdent`
+      :root {
+        --nhsuk-breakpoint-mobile: 40rem;
+        --nhsuk-breakpoint-tablet: 80rem;
+      }
+
+      body {
+        --nhsuk-breakpoint-tablet: 90rem;
+      }
+    `
+
+    document.body.appendChild(stylesheet)
+  })
+
+  it('returns the breakpoint value if it exists', () => {
+    expect(getBreakpoint('mobile')).toEqual({
+      property: '--nhsuk-breakpoint-mobile',
+      value: '40rem'
+    })
+  })
+
+  it('returns the value as set on the HTML (root) element', () => {
+    expect(getBreakpoint('tablet')).toEqual({
+      property: '--nhsuk-breakpoint-tablet',
+      value: '80rem'
+    })
+  })
+
+  it('returns an undefined value if the breakpoint does not exist', () => {
+    expect(getBreakpoint('giant-video-wall')).toEqual({
+      property: '--nhsuk-breakpoint-giant-video-wall',
+      value: undefined
+    })
   })
 })
 
