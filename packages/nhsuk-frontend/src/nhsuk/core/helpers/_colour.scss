@@ -1,0 +1,29 @@
+@use "sass:color";
+
+/// Make a colour darker by mixing it with black
+///
+/// @example scss
+///   nhsuk-shade(color, percentage);
+///   nhsuk-shade($color_nhsuk-blue, 50%);
+///
+/// @param {Colour} $colour - colour to shade
+/// @param {Number} $percentage - percentage of black to mix with $colour
+/// @return {Colour}
+
+@function nhsuk-shade($colour, $percentage) {
+  @return color.mix(black, $colour, $percentage);
+}
+
+/// Make a colour lighter by mixing it with white
+///
+/// @example scss
+///   nhsuk-tint(color, percentage);
+///   nhsuk-tint($color_nhsuk-black, 10%);
+///
+/// @param {Colour} $colour - colour to tint
+/// @param {Number} $percentage - percentage of white to mix with $colour
+/// @return {Colour}
+
+@function nhsuk-tint($color, $percentage) {
+  @return color.mix(white, $color, $percentage);
+}
