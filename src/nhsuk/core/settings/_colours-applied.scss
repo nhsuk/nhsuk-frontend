@@ -1,7 +1,8 @@
 @use "../helpers/colour" as *;
+@use "./colours-palette" as *;
 
 ////
-/// NHS colour palette
+/// NHS colour variables
 ///
 /// Colours are prefixed with color_ to make them easier to
 /// search for within the code base.
@@ -14,35 +15,31 @@
 /// @group settings
 ////
 
-// stylelint-disable color-no-hex
-
-$color_nhsuk-blue: #005eb8;
-$color_nhsuk-white: #ffffff;
-$color_nhsuk-black: #212b32;
-$color_nhsuk-green: #007f3b;
-$color_nhsuk-purple: #330072;
-$color_nhsuk-dark-pink: #7c2855;
-$color_nhsuk-red: #d5281b;
-$color_nhsuk-yellow: #ffeb3b;
+$color_nhsuk-blue: nhsuk-colour("blue");
+$color_nhsuk-white: nhsuk-colour("white");
+$color_nhsuk-black: nhsuk-colour("black");
+$color_nhsuk-green: nhsuk-colour("green");
+$color_nhsuk-purple: nhsuk-colour("purple");
+$color_nhsuk-dark-pink: nhsuk-colour("dark-pink");
+$color_nhsuk-red: nhsuk-colour("red");
+$color_nhsuk-yellow: nhsuk-colour("yellow");
 
 /// Secondary colours
 
-$color_nhsuk-dark-blue: #003087;
-$color_nhsuk-pale-yellow: #fff9c4;
-$color_nhsuk-warm-yellow: #ffb81c;
-$color_nhsuk-orange: #ed8b00;
-$color_nhsuk-aqua-green: #00a499;
-$color_nhsuk-pink: #ae2573;
+$color_nhsuk-dark-blue: nhsuk-colour("dark-blue");
+$color_nhsuk-pale-yellow: nhsuk-colour("pale-yellow");
+$color_nhsuk-warm-yellow: nhsuk-colour("warm-yellow");
+$color_nhsuk-orange: nhsuk-colour("orange");
+$color_nhsuk-aqua-green: nhsuk-colour("aqua-green");
+$color_nhsuk-pink: nhsuk-colour("pink");
 
 /// Greyscale
 
-$color_nhsuk-grey-1: #4c6272;
-$color_nhsuk-grey-2: #768692;
-$color_nhsuk-grey-3: #aeb7bd;
-$color_nhsuk-grey-4: #d8dde0;
-$color_nhsuk-grey-5: #f0f4f5;
-
-// stylelint-enable color-no-hex
+$color_nhsuk-grey-1: nhsuk-colour("grey-1");
+$color_nhsuk-grey-2: nhsuk-colour("grey-2");
+$color_nhsuk-grey-3: nhsuk-colour("grey-3");
+$color_nhsuk-grey-4: nhsuk-colour("grey-4");
+$color_nhsuk-grey-5: nhsuk-colour("grey-5");
 
 /// Colour aliases
 

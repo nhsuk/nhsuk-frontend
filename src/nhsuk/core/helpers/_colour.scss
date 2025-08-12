@@ -1,4 +1,34 @@
 @use "sass:color";
+@use "sass:map";
+@use "sass:meta";
+@use "sass:string";
+@use "../settings/colours-palette" as *;
+
+////
+/// @group helpers/colour
+////
+
+///
+/// Get colour
+///
+/// @param {String | Colour} $colour - Name of colour from the colour palette
+///   (`$nhsuk-colours`)
+/// @return {Colour} Representation of named colour
+///
+/// @throw if `$colour` is not a colour from the colour palette
+
+@function nhsuk-colour($colour) {
+  @if meta.type-of($colour) == "color" {
+    // stylelint-disable-next-line scss/function-quote-no-quoted-strings-inside
+    $colour: string.quote("#{$colour}");
+  }
+
+  @if not map.has-key($nhsuk-colours, $colour) {
+    @error "Unknown colour `#{$colour}`";
+  }
+
+  @return map.get($nhsuk-colours, $colour);
+}
 
 /// Make a colour darker by mixing it with black
 ///
