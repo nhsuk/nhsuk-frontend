@@ -1,5 +1,6 @@
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
+@use "../../core/helpers" as *;
 
 ////
 /// Input component
@@ -104,7 +105,7 @@
 
 .nhsuk-input__prefix,
 .nhsuk-input__suffix {
-  background-color: $color_nhsuk-grey-4;
+  background-color: nhsuk-colour("grey-4");
   border: $nhsuk-border-width-form-element solid $nhsuk-form-border-color;
   box-sizing: border-box;
   cursor: default; // emphasises non-editable status of prefixes and suffixes

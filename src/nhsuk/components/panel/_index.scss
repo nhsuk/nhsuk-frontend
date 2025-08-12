@@ -1,5 +1,6 @@
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
+@use "../../core/helpers" as *;
 
 ////
 /// Panel component
@@ -24,10 +25,10 @@
 $nhsuk-border-width-panel: nhsuk-spacing(1);
 
 .nhsuk-panel {
-  background: $color_nhsuk-green;
+  background: nhsuk-colour("green");
   border: $nhsuk-border-width-panel solid transparent; /* [1] */
   box-sizing: border-box;
-  color: $color_nhsuk-white;
+  color: nhsuk-colour("white");
   padding: nhsuk-spacing(5) - $nhsuk-border-width-panel; /* [2] */
 
   @include nhsuk-font-size(26);

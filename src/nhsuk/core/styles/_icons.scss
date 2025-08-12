@@ -1,4 +1,5 @@
 @use "../settings" as *;
+@use "../helpers" as *;
 
 ////
 /// Icons
@@ -24,23 +25,23 @@
 }
 
 .nhsuk-icon__cross {
-  fill: $color_nhsuk-red;
+  fill: nhsuk-colour("red");
 }
 
 .nhsuk-icon__tick {
-  stroke: $color_nhsuk-green;
+  stroke: nhsuk-colour("green");
 }
 
 .nhsuk-icon__arrow-right {
-  fill: $color_nhsuk-blue;
+  fill: nhsuk-colour("blue");
 }
 
 .nhsuk-icon__arrow-left {
-  fill: $color_nhsuk-blue;
+  fill: nhsuk-colour("blue");
 }
 
 .nhsuk-icon__arrow-right-circle {
-  fill: $color_nhsuk-green;
+  fill: nhsuk-colour("green");
 }
 
 .nhsuk-icon__chevron-down {
@@ -48,11 +49,11 @@
 }
 
 .nhsuk-icon__plus {
-  fill: $color_nhsuk-blue;
+  fill: nhsuk-colour("blue");
 }
 
 .nhsuk-icon__minus {
-  fill: $color_nhsuk-blue;
+  fill: nhsuk-colour("blue");
 }
 
 /// Icon size adjustments

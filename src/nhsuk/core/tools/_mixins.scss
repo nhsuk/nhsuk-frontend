@@ -1,4 +1,5 @@
 @use "../settings" as *;
+@use "../helpers" as *;
 @use "sass-mq" as *;
 @use "spacing" as *;
 @use "typography" as *;
@@ -232,7 +233,7 @@
 /// See components/_panel
 ///
 /// @example scss
-///   @include nhsuk-panel($color_nhsuk-blue, $color_nhsuk-white);
+///   @include nhsuk-panel(nhsuk-colour("blue"), $nhsuk-reverse-text-colour);
 ///
 
 @mixin nhsuk-panel($panel-background-color, $panel-text-color) {
@@ -268,7 +269,7 @@
 /// @see components/_warning-component
 ///
 /// @example scss
-///   @include nhsuk-panel-with-label($color_nhsuk-blue, $color_nhsuk-white);
+///   @include nhsuk-panel-with-label(nhsuk-colour("blue"), $nhsuk-reverse-text-colour, $nhsuk-secondary-border-color);
 ///
 
 @mixin nhsuk-panel-with-label($panel-background-color, $panel-text-color, $panel-border-color) {
@@ -305,7 +306,7 @@
 ///    sit just outside the box.
 ///
 /// @example scss
-///   @include nhsuk-heading-label($color_nhsuk-blue, $color_nhsuk-white);
+///   @include nhsuk-heading-label(nhsuk-colour("blue"), $nhsuk-reverse-text-colour);
 ///
 
 @mixin nhsuk-heading-label($heading-background-color, $heading-text-color) {
@@ -328,7 +329,7 @@
 
   @include nhsuk-media-query($media-type: print) {
     background: none;
-    color: $color_nhsuk-black;
+    color: nhsuk-colour("black");
     top: 0;
   }
 }
@@ -350,7 +351,7 @@
 /// @see components/card/card
 ///
 /// @example scss
-///   @include nhsuk-care-card($color_nhsuk-blue, $color_nhsuk-white, 4px);
+///   @include nhsuk-care-card(nhsuk-colour("blue"), $nhsuk-reverse-text-colour, 4px);
 ///
 
 @mixin nhsuk-care-card($heading-background-color, $heading-text-color, $print-border-size) {

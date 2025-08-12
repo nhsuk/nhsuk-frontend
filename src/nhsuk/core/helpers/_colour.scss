@@ -34,7 +34,7 @@
 ///
 /// @example scss
 ///   nhsuk-shade(color, percentage);
-///   nhsuk-shade($color_nhsuk-blue, 50%);
+///   nhsuk-shade(nhsuk-colour("blue"), 50%);
 ///
 /// @param {Colour} $colour - colour to shade
 /// @param {Number} $percentage - percentage of black to mix with $colour
@@ -48,7 +48,7 @@
 ///
 /// @example scss
 ///   nhsuk-tint(color, percentage);
-///   nhsuk-tint($color_nhsuk-black, 10%);
+///   nhsuk-tint(nhsuk-colour("blue"), 10%);
 ///
 /// @param {Colour} $colour - colour to tint
 /// @param {Number} $percentage - percentage of white to mix with $colour
