@@ -90,8 +90,12 @@ export class Checkboxes extends Component {
   unCheckAllInputsExcept($input) {
     const { checkboxExclusiveGroup: exclusiveGroup } = $input.dataset
 
+    const selectorGroup = exclusiveGroup
+      ? `[data-checkbox-exclusive-group="${exclusiveGroup}"]`
+      : `[name="${$input.name}"]`
+
     const allInputsWithSameName = document.querySelectorAll(
-      `input[type="checkbox"][name="${$input.name}"]`
+      `input[type="checkbox"]${selectorGroup}`
     )
 
     allInputsWithSameName.forEach(($inputWithSameName) => {
@@ -117,9 +121,13 @@ export class Checkboxes extends Component {
   unCheckExclusiveInputs($input) {
     const { checkboxExclusiveGroup: exclusiveGroup } = $input.dataset
 
+    const selectorGroup = exclusiveGroup
+      ? `[data-checkbox-exclusive-group="${exclusiveGroup}"]`
+      : `[name="${$input.name}"]`
+
     const allInputsWithSameNameAndExclusiveBehaviour =
       document.querySelectorAll(
-        `input[type="checkbox"][data-checkbox-exclusive][name="${$input.name}"]`
+        `input[type="checkbox"][data-checkbox-exclusive]${selectorGroup}`
       )
 
     allInputsWithSameNameAndExclusiveBehaviour.forEach(($exclusiveInput) => {
