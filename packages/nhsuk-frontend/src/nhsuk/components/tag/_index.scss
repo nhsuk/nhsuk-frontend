@@ -9,9 +9,9 @@
 ////
 
 .nhsuk-tag {
-  background-color: nhsuk-shade($color_nhsuk-blue, 10%);
-  border: 1px solid nhsuk-shade($color_nhsuk-blue, 10%);
-  color: $color_nhsuk-white;
+  background-color: nhsuk-shade(nhsuk-colour("blue"), 10%);
+  border: 1px solid nhsuk-shade(nhsuk-colour("blue"), 10%);
+  color: nhsuk-colour("white");
   display: inline-block;
   outline: 2px solid transparent;
   outline-offset: -2px;
@@ -27,63 +27,63 @@
 /// Colour variants
 
 .nhsuk-tag--white {
-  background-color: $color_nhsuk-white;
-  border-color: $color_nhsuk-black;
-  color: $color_nhsuk-black;
+  background-color: nhsuk-colour("white");
+  border-color: nhsuk-colour("black");
+  color: nhsuk-colour("black");
 }
 
 .nhsuk-tag--grey {
-  background-color: nhsuk-tint($color_nhsuk-grey-1, 80%);
-  border-color: nhsuk-shade($color_nhsuk-grey-1, 30%);
-  color: nhsuk-shade($color_nhsuk-grey-1, 30%);
+  background-color: nhsuk-tint(nhsuk-colour("grey-1"), 80%);
+  border-color: nhsuk-shade(nhsuk-colour("grey-1"), 30%);
+  color: nhsuk-shade(nhsuk-colour("grey-1"), 30%);
 }
 
 .nhsuk-tag--green {
-  background-color: nhsuk-tint($color_nhsuk-green, 80%);
-  border-color: nhsuk-shade($color_nhsuk-green, 40%);
-  color: nhsuk-shade($color_nhsuk-green, 40%);
+  background-color: nhsuk-tint(nhsuk-colour("green"), 80%);
+  border-color: nhsuk-shade(nhsuk-colour("green"), 40%);
+  color: nhsuk-shade(nhsuk-colour("green"), 40%);
 }
 
 .nhsuk-tag--aqua-green {
-  background-color: nhsuk-tint($color_nhsuk-aqua-green, 80%);
-  border-color: nhsuk-shade($color_nhsuk-aqua-green, 50%);
-  color: nhsuk-shade($color_nhsuk-aqua-green, 50%);
+  background-color: nhsuk-tint(nhsuk-colour("aqua-green"), 80%);
+  border-color: nhsuk-shade(nhsuk-colour("aqua-green"), 50%);
+  color: nhsuk-shade(nhsuk-colour("aqua-green"), 50%);
 }
 
 .nhsuk-tag--blue {
-  background-color: nhsuk-tint($color_nhsuk-blue, 80%);
-  border-color: nhsuk-shade($color_nhsuk-blue, 30%);
-  color: nhsuk-shade($color_nhsuk-blue, 30%);
+  background-color: nhsuk-tint(nhsuk-colour("blue"), 80%);
+  border-color: nhsuk-shade(nhsuk-colour("blue"), 30%);
+  color: nhsuk-shade(nhsuk-colour("blue"), 30%);
 }
 
 .nhsuk-tag--purple {
-  background-color: nhsuk-tint($color_nhsuk-purple, 80%);
-  border-color: nhsuk-shade($color_nhsuk-purple, 30%);
-  color: nhsuk-shade($color_nhsuk-purple, 30%);
+  background-color: nhsuk-tint(nhsuk-colour("purple"), 80%);
+  border-color: nhsuk-shade(nhsuk-colour("purple"), 30%);
+  color: nhsuk-shade(nhsuk-colour("purple"), 30%);
 }
 
 .nhsuk-tag--pink {
-  background-color: nhsuk-tint($color_nhsuk-pink, 80%);
-  border-color: nhsuk-shade($color_nhsuk-pink, 50%);
-  color: nhsuk-shade($color_nhsuk-pink, 50%);
+  background-color: nhsuk-tint(nhsuk-colour("pink"), 80%);
+  border-color: nhsuk-shade(nhsuk-colour("pink"), 50%);
+  color: nhsuk-shade(nhsuk-colour("pink"), 50%);
 }
 
 .nhsuk-tag--red {
-  background-color: nhsuk-tint($color_nhsuk-red, 80%);
-  border-color: nhsuk-shade($color_nhsuk-red, 50%);
-  color: nhsuk-shade($color_nhsuk-red, 50%);
+  background-color: nhsuk-tint(nhsuk-colour("red"), 80%);
+  border-color: nhsuk-shade(nhsuk-colour("red"), 50%);
+  color: nhsuk-shade(nhsuk-colour("red"), 50%);
 }
 
 .nhsuk-tag--orange {
-  background-color: nhsuk-tint($color_nhsuk-warm-yellow, 50%);
-  border-color: nhsuk-shade($color_nhsuk-warm-yellow, 70%);
-  color: nhsuk-shade($color_nhsuk-warm-yellow, 70%);
+  background-color: nhsuk-tint(nhsuk-colour("warm-yellow"), 50%);
+  border-color: nhsuk-shade(nhsuk-colour("warm-yellow"), 70%);
+  color: nhsuk-shade(nhsuk-colour("warm-yellow"), 70%);
 }
 
 .nhsuk-tag--yellow {
-  background-color: nhsuk-tint($color_nhsuk-yellow, 50%);
-  border-color: nhsuk-shade($color_nhsuk-yellow, 70%);
-  color: nhsuk-shade($color_nhsuk-yellow, 70%);
+  background-color: nhsuk-tint(nhsuk-colour("yellow"), 50%);
+  border-color: nhsuk-shade(nhsuk-colour("yellow"), 70%);
+  color: nhsuk-shade(nhsuk-colour("yellow"), 70%);
 }
 
 /// Remove tag border

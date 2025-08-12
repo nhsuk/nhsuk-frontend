@@ -214,7 +214,7 @@ Example:
 /// 1. Provide line-comments like this.
 
 .nhsuk-example {
-  color: $color_nhsuk-red; // [1]
+  color: nhsuk-colour("red"); // [1]
 }
 ```
 

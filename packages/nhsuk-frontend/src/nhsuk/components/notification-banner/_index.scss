@@ -1,8 +1,9 @@
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
+@use "../../core/helpers" as *;
 
 .nhsuk-notification-banner {
-  border: $nhsuk-border-width solid $color_nhsuk-blue;
+  border: $nhsuk-border-width solid nhsuk-colour("blue");
 
   @include nhsuk-font($size: 19);
   @include nhsuk-responsive-margin(8, "bottom");
@@ -14,7 +15,7 @@
 
 .nhsuk-notification-banner__header {
   padding: 2px nhsuk-spacing(3) nhsuk-spacing(1);
-  background-color: $color_nhsuk-blue;
+  background-color: nhsuk-colour("blue");
 
   // Ensures the notification header appears separate to the notification body
   // text in high contrast mode
@@ -28,7 +29,7 @@
 .nhsuk-notification-banner__title {
   margin: 0;
   padding: 0;
-  color: $color_nhsuk-white;
+  color: nhsuk-colour("white");
 
   // Set the size again because this element is a heading and the user agent
   // font size overrides the inherited font size

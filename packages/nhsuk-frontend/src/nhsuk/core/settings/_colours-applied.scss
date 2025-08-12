@@ -4,17 +4,11 @@
 ////
 /// NHS colour variables
 ///
-/// Colours are prefixed with color_ to make them easier to
-/// search for within the code base.
-///
-/// We also prefix them with nhsuk- to prevent clashing with
-/// other colours in existing code bases.
-///
-/// We use the word color, not colour, for variables.
-///
 /// @group settings
 ////
 
+// Primary colours
+// @deprecated To be removed in v11.0
 $color_nhsuk-blue: nhsuk-colour("blue");
 $color_nhsuk-white: nhsuk-colour("white");
 $color_nhsuk-black: nhsuk-colour("black");
@@ -24,8 +18,8 @@ $color_nhsuk-dark-pink: nhsuk-colour("dark-pink");
 $color_nhsuk-red: nhsuk-colour("red");
 $color_nhsuk-yellow: nhsuk-colour("yellow");
 
-/// Secondary colours
-
+// Secondary colours
+// @deprecated To be removed in v11.0
 $color_nhsuk-dark-blue: nhsuk-colour("dark-blue");
 $color_nhsuk-pale-yellow: nhsuk-colour("pale-yellow");
 $color_nhsuk-warm-yellow: nhsuk-colour("warm-yellow");
@@ -33,8 +27,8 @@ $color_nhsuk-orange: nhsuk-colour("orange");
 $color_nhsuk-aqua-green: nhsuk-colour("aqua-green");
 $color_nhsuk-pink: nhsuk-colour("pink");
 
-/// Greyscale
-
+// Greyscale
+// @deprecated To be removed in v11.0
 $color_nhsuk-grey-1: nhsuk-colour("grey-1");
 $color_nhsuk-grey-2: nhsuk-colour("grey-2");
 $color_nhsuk-grey-3: nhsuk-colour("grey-3");
@@ -43,64 +37,58 @@ $color_nhsuk-grey-5: nhsuk-colour("grey-5");
 
 /// Colour aliases
 
-/// Text
+// Text
+$nhsuk-text-color: nhsuk-colour("black") !default;
+$nhsuk-reverse-text-color: nhsuk-colour("white") !default;
+$nhsuk-secondary-text-color: nhsuk-colour("grey-1") !default;
+$nhsuk-print-text-color: nhsuk-colour("black") !default;
 
-$nhsuk-text-color: $color_nhsuk-black;
-$nhsuk-reverse-text-color: $color_nhsuk-white;
-$nhsuk-secondary-text-color: $color_nhsuk-grey-1;
-$nhsuk-print-text-color: $color_nhsuk-black;
+// Links
+$nhsuk-link-color: nhsuk-colour("blue") !default;
+$nhsuk-link-hover-color: nhsuk-colour("dark-pink") !default;
+$nhsuk-link-active-color: nhsuk-shade($nhsuk-link-color, 50%) !default;
+$nhsuk-link-visited-color: nhsuk-colour("purple") !default;
 
-/// Links
+// Focus
+$nhsuk-focus-color: nhsuk-colour("yellow") !default;
+$nhsuk-focus-text-color: nhsuk-colour("black") !default;
 
-$nhsuk-link-color: $color_nhsuk-blue;
-$nhsuk-link-hover-color: $color_nhsuk-dark-pink;
-$nhsuk-link-active-color: nhsuk-shade($nhsuk-link-color, 50%);
-$nhsuk-link-visited-color: $color_nhsuk-purple;
+// Border
+$nhsuk-border-color: nhsuk-colour("grey-4") !default;
+$nhsuk-secondary-border-color: rgba(nhsuk-colour("white"), 0.2) !default;
 
-/// Focus
+// Forms
+$nhsuk-error-color: nhsuk-colour("red") !default;
+$nhsuk-form-border-color: nhsuk-colour("grey-1") !default;
+$nhsuk-form-element-background-color: nhsuk-colour("white") !default;
 
-$nhsuk-focus-color: $color_nhsuk-yellow;
-$nhsuk-focus-text-color: $color_nhsuk-black;
+// Buttons
+$nhsuk-button-color: nhsuk-colour("green") !default;
+$nhsuk-button-text-color: nhsuk-colour("white") !default;
+$nhsuk-button-hover-color: nhsuk-shade($nhsuk-button-color, 20%) !default;
+$nhsuk-button-active-color: nhsuk-shade($nhsuk-button-color, 50%) !default;
+$nhsuk-button-shadow-color: nhsuk-shade($nhsuk-button-color, 50%) !default;
 
-/// Border
+$nhsuk-secondary-button-color: transparent !default;
+$nhsuk-secondary-button-solid-background-color: nhsuk-colour("white") !default;
+$nhsuk-secondary-button-border-color: nhsuk-colour("blue") !default;
+$nhsuk-secondary-button-text-color: nhsuk-colour("blue") !default;
+$nhsuk-secondary-button-hover-color: nhsuk-tint($nhsuk-secondary-button-border-color, 85%) !default;
+$nhsuk-secondary-button-active-color: nhsuk-tint($nhsuk-secondary-button-border-color, 78%) !default;
+$nhsuk-secondary-button-shadow-color: $nhsuk-secondary-button-border-color !default;
 
-$nhsuk-border-color: $color_nhsuk-grey-4;
-$nhsuk-secondary-border-color: rgba($color_nhsuk-white, 0.2);
+$nhsuk-reverse-button-color: nhsuk-colour("white") !default;
+$nhsuk-reverse-button-text-color: nhsuk-colour("black") !default;
+$nhsuk-reverse-button-hover-color: nhsuk-shade($nhsuk-reverse-button-color, 15%) !default;
+$nhsuk-reverse-button-active-color: nhsuk-shade($nhsuk-reverse-button-color, 30%) !default;
+$nhsuk-reverse-button-shadow-color: nhsuk-shade($nhsuk-reverse-button-color, 30%) !default;
 
-/// Forms
+$nhsuk-warning-button-color: nhsuk-colour("red") !default;
+$nhsuk-warning-button-hover-color: nhsuk-shade($nhsuk-warning-button-color, 20%) !default;
+$nhsuk-warning-button-active-color: nhsuk-shade($nhsuk-warning-button-color, 50%) !default;
+$nhsuk-warning-button-shadow-color: nhsuk-shade($nhsuk-warning-button-color, 50%) !default;
 
-$nhsuk-error-color: $color_nhsuk-red;
-$nhsuk-form-border-color: $color_nhsuk-grey-1;
-$nhsuk-form-element-background-color: $color_nhsuk-white;
-
-/// Buttons
-
-$nhsuk-button-color: $color_nhsuk-green;
-$nhsuk-button-text-color: $color_nhsuk-white;
-$nhsuk-button-hover-color: nhsuk-shade($nhsuk-button-color, 20%);
-$nhsuk-button-active-color: nhsuk-shade($nhsuk-button-color, 50%);
-$nhsuk-button-shadow-color: nhsuk-shade($nhsuk-button-color, 50%);
-
-$nhsuk-secondary-button-color: transparent;
-$nhsuk-secondary-button-solid-background-color: $color_nhsuk-white;
-$nhsuk-secondary-button-border-color: $color_nhsuk-blue;
-$nhsuk-secondary-button-text-color: $color_nhsuk-blue;
-$nhsuk-secondary-button-hover-color: nhsuk-tint($nhsuk-secondary-button-border-color, 85%);
-$nhsuk-secondary-button-active-color: nhsuk-tint($nhsuk-secondary-button-border-color, 78%);
-$nhsuk-secondary-button-shadow-color: $nhsuk-secondary-button-border-color;
-
-$nhsuk-reverse-button-color: $color_nhsuk-white;
-$nhsuk-reverse-button-text-color: $color_nhsuk-black;
-$nhsuk-reverse-button-hover-color: nhsuk-shade($nhsuk-reverse-button-color, 15%);
-$nhsuk-reverse-button-active-color: nhsuk-shade($nhsuk-reverse-button-color, 30%);
-$nhsuk-reverse-button-shadow-color: nhsuk-shade($nhsuk-reverse-button-color, 30%);
-
-$nhsuk-warning-button-color: $color_nhsuk-red;
-$nhsuk-warning-button-hover-color: nhsuk-shade($nhsuk-warning-button-color, 20%);
-$nhsuk-warning-button-active-color: nhsuk-shade($nhsuk-warning-button-color, 50%);
-$nhsuk-warning-button-shadow-color: nhsuk-shade($nhsuk-warning-button-color, 50%);
-
-$nhsuk-login-button-color: $color_nhsuk-blue;
-$nhsuk-login-button-hover-color: nhsuk-shade($nhsuk-login-button-color, 20%);
-$nhsuk-login-button-active-color: nhsuk-shade($nhsuk-login-button-color, 50%);
-$nhsuk-login-button-shadow-color: nhsuk-shade($nhsuk-login-button-color, 50%);
+$nhsuk-login-button-color: nhsuk-colour("blue") !default;
+$nhsuk-login-button-hover-color: nhsuk-shade($nhsuk-login-button-color, 20%) !default;
+$nhsuk-login-button-active-color: nhsuk-shade($nhsuk-login-button-color, 50%) !default;
+$nhsuk-login-button-shadow-color: nhsuk-shade($nhsuk-login-button-color, 50%) !default;

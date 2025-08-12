@@ -1,5 +1,6 @@
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
+@use "../../core/helpers" as *;
 
 ////
 /// Action link component
@@ -48,7 +49,7 @@
 
   .nhsuk-icon__arrow-right-circle {
     // stylelint-disable-next-line declaration-no-important
-    fill: $color_nhsuk-green !important;
+    fill: nhsuk-colour("green") !important;
     height: 36px;
     left: -3px;
     position: absolute;
@@ -68,6 +69,6 @@
 
   &:focus .nhsuk-icon__arrow-right-circle {
     // stylelint-disable-next-line declaration-no-important
-    fill: $color_nhsuk-black !important;
+    fill: nhsuk-colour("black") !important;
   }
 }
