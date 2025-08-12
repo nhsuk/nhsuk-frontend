@@ -1,3 +1,4 @@
+import { outdent } from 'outdent'
 import { compileStringAsync, sassNull } from 'sass-embedded'
 
 describe('Core', () => {
@@ -11,6 +12,15 @@ describe('Core', () => {
   })
 
   describe('importing using index file', () => {
+    const properties = outdent`
+      :root {
+        --nhsuk-frontend-version: "development";
+        --nhsuk-breakpoint-mobile: 20rem;
+        --nhsuk-breakpoint-tablet: 40.0625rem;
+        --nhsuk-breakpoint-desktop: 48.0625rem;
+        --nhsuk-breakpoint-large-desktop: 61.875rem;
+    `
+
     it('forwards core styles', async () => {
       const sass = `
         @forward "core";
@@ -20,13 +30,31 @@ describe('Core', () => {
         loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
       })
 
-      await expect(results).resolves.not.toThrow()
+      await expect(results).resolves.toMatchObject({
+        css: expect.stringContaining(properties)
+      })
+
+      await expect(results).resolves.toMatchObject({
+        css: expect.stringContaining(outdent`
+          .nhsuk-width-container {
+            max-width: 960px;
+            margin-right: 16px;
+            margin-left: 16px;
+          }
+        `)
+      })
     })
 
     it('forwards core styles (with settings)', async () => {
       const sass = `
         @forward "core" with (
-          $nhsuk-page-width: 1100px
+          $nhsuk-breakpoints: (
+            mobile: 110px,
+            tablet: 220px,
+            desktop: 330px,
+            large-desktop: 440px
+          ),
+          $nhsuk-page-width: 1100px,
         );
       `
 
@@ -34,7 +62,26 @@ describe('Core', () => {
         loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
       })
 
-      await expect(results).resolves.not.toThrow()
+      await expect(results).resolves.toMatchObject({
+        css: expect.stringContaining(outdent`
+          :root {
+            --nhsuk-frontend-version: "development";
+            --nhsuk-breakpoint-mobile: 6.875rem;
+            --nhsuk-breakpoint-tablet: 13.75rem;
+            --nhsuk-breakpoint-desktop: 20.625rem;
+            --nhsuk-breakpoint-large-desktop: 27.5rem;
+        `)
+      })
+
+      await expect(results).resolves.toMatchObject({
+        css: expect.stringContaining(outdent`
+          .nhsuk-width-container {
+            max-width: 1100px;
+            margin-right: 16px;
+            margin-left: 16px;
+          }
+        `)
+      })
     })
   })
 
