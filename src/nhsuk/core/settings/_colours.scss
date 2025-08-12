@@ -1,4 +1,4 @@
-@use "sass:color";
+@use "../helpers/colour" as *;
 
 ////
 /// NHS colour palette
@@ -43,28 +43,6 @@ $color_nhsuk-grey-4: #d8dde0;
 $color_nhsuk-grey-5: #f0f4f5;
 
 // stylelint-enable color-no-hex
-
-/// Tint function
-///
-/// @example scss
-///   nhsuk-tint(color, percentage);
-///   nhsuk-tint($color_nhsuk-black, 10%);
-///
-
-@function nhsuk-tint($color, $percentage) {
-  @return color.mix(white, $color, $percentage);
-}
-
-/// Shade function
-///
-/// @example scss
-///   nhsuk-shade(color, percentage);
-///   nhsuk-shade($color_nhsuk-blue, 50%);
-///
-
-@function nhsuk-shade($color, $percentage) {
-  @return color.mix(black, $color, $percentage);
-}
 
 /// Colour aliases
 
