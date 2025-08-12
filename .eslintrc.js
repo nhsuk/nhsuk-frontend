@@ -52,6 +52,14 @@ module.exports = {
         'jest-dom'
       ],
       rules: {
+        // Access import namespace (e.g. NHSUKFrontend) using string keys
+        'import/namespace': [
+          'error',
+          {
+            allowComputed: true
+          }
+        ],
+
         // Check import or require statements are A-Z ordered
         'import/order': [
           'error',

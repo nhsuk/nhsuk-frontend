@@ -20,10 +20,13 @@ describe('Error summary', () => {
   /** @type {HTMLLabelElement} */
   let $label
 
-  beforeEach(() => {
+  /**
+   * @param {keyof typeof examples} example
+   */
+  function initExample(example) {
     document.body.innerHTML = outdent`
       <form method="post" novalidate>
-        ${components.render('error-summary', examples['with description'])}
+        ${components.render('error-summary', examples[example])}
         ${components.render('date-input', dateInputExamples['with errors and hint'])}
       </form>
     `
@@ -45,6 +48,12 @@ describe('Error summary', () => {
     jest.spyOn($root, 'addEventListener')
     jest.spyOn($input, 'focus')
     jest.spyOn($label, 'scrollIntoView')
+
+    jest.spyOn(console, 'warn').mockImplementation()
+  }
+
+  beforeEach(() => {
+    initExample('with description')
   })
 
   describe('Initialisation via init function', () => {
@@ -92,6 +101,7 @@ describe('Error summary', () => {
     })
 
     it('should throw with missing $root element', () => {
+      // @ts-expect-error Parameter '$root' not provided
       expect(() => new ErrorSummary()).toThrow(
         `${ErrorSummary.moduleName}: Root element (\`$root\`) not found`
       )
@@ -134,18 +144,32 @@ describe('Error summary', () => {
         expect($root).toHaveFocus()
       })
 
-      it('sets focus automatically (focusOnPageLoad: true)', () => {
-        initErrorSummary({
-          focusOnPageLoad: true
-        })
+      it('moves focus to the $root element', () => {
+        initErrorSummary()
 
         expect($root).toHaveFocus()
       })
 
-      it('does not set focus automatically (focusOnPageLoad: false)', () => {
+      it('moves focus to the $root element with `focusOnPageLoad: true` (deprecated)', () => {
+        initErrorSummary({
+          focusOnPageLoad: true
+        })
+
+        expect(console.warn).toHaveBeenCalledWith(
+          `${ErrorSummary.moduleName}: Option \`focusOnPageLoad\` is deprecated. Use \`disableAutoFocus\` instead.`
+        )
+
+        expect($root).toHaveFocus()
+      })
+
+      it('does not move focus to the $root element with `focusOnPageLoad: false` (deprecated)', () => {
         initErrorSummary({
           focusOnPageLoad: false
         })
+
+        expect(console.warn).toHaveBeenCalledWith(
+          `${ErrorSummary.moduleName}: Option \`focusOnPageLoad\` is deprecated. Use \`disableAutoFocus\` instead.`
+        )
 
         expect($root).not.toHaveFocus()
       })
@@ -162,6 +186,69 @@ describe('Error summary', () => {
         expect($input.focus).toHaveBeenCalledWith({
           preventScroll: true
         })
+      })
+    })
+  })
+
+  describe('Nunjucks configuration', () => {
+    it('configures auto-focus explicitly enabled', () => {
+      initExample('auto-focus explicitly enabled')
+
+      const errorSummary = new ErrorSummary($root)
+      expect(errorSummary.config).toEqual({
+        disableAutoFocus: false
+      })
+    })
+
+    it('configures auto-focus disabled', () => {
+      initExample('auto-focus disabled')
+
+      const errorSummary = new ErrorSummary($root)
+      expect(errorSummary.config).toEqual({
+        disableAutoFocus: true
+      })
+    })
+
+    it('ignores unknown data attributes', () => {
+      document.body.innerHTML = components.render('error-summary', {
+        context: {
+          ...examples['default'].context,
+          attributes: {
+            'data-unknown1': '100',
+            'data-unknown2': 200,
+            'data-unknown3': false
+          }
+        }
+      })
+
+      const errorSummary = new ErrorSummary(
+        document.querySelector(`[data-module="${ErrorSummary.moduleName}"]`)
+      )
+
+      expect(errorSummary.config).toEqual({
+        disableAutoFocus: false
+      })
+    })
+  })
+
+  describe('JavaScript configuration', () => {
+    it('configures auto-focus explicitly enabled', () => {
+      const errorSummary = new ErrorSummary($root, {
+        disableAutoFocus: false
+      })
+
+      expect(errorSummary.config).toEqual({
+        disableAutoFocus: false
+      })
+    })
+
+    it('configures auto-focus disabled', () => {
+      const errorSummary = new ErrorSummary($root, {
+        disableAutoFocus: true
+      })
+
+      expect(errorSummary.config).toEqual({
+        disableAutoFocus: true
       })
     })
   })

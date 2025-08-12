@@ -50,6 +50,13 @@ export class SupportError extends NHSUKFrontendError {
 }
 
 /**
+ * Indicates that a component has received an illegal configuration
+ */
+export class ConfigError extends NHSUKFrontendError {
+  name = 'ConfigError'
+}
+
+/**
  * Indicates an issue with an element (possibly `null` or `undefined`)
  */
 export class ElementError extends NHSUKFrontendError {
@@ -68,7 +75,12 @@ export class ElementError extends NHSUKFrontendError {
       ? ` is not of type ${expectedType ?? 'HTMLElement'}`
       : ' not found'
 
-    super(formatErrorMessage(component, message))
+    // Prepend with module name (optional)
+    if (component) {
+      message = formatErrorMessage(component, message)
+    }
+
+    super(message)
   }
 }
 
@@ -79,7 +91,7 @@ export class InitError extends NHSUKFrontendError {
   name = 'InitError'
 
   /**
-   * @param {ComponentConstructor | string} componentOrMessage - Component or init error message
+   * @param {CompatibleClass | string} componentOrMessage - Component or init error message
    */
   constructor(componentOrMessage) {
     const message =
@@ -98,12 +110,12 @@ export class InitError extends NHSUKFrontendError {
  * Element error options
  *
  * @typedef {object} ElementErrorOptions
- * @property {Element | null} [element] - The element in error
- * @property {ComponentConstructor} component - Component throwing the error
+ * @property {Element | Document | null} [element] - The element in error (optional)
+ * @property {CompatibleClass} [component] - Component throwing the error (optional)
  * @property {string} identifier - An identifier that'll let the user understand which element has an error. This is whatever makes the most sense
  * @property {string} [expectedType] - The type that was expected for the identifier
  */
 
 /**
- * @import { ComponentConstructor } from '../component.mjs'
+ * @import { CompatibleClass } from '../component.mjs'
  */

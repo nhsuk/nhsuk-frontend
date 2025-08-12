@@ -23,29 +23,29 @@ export class Component {
   /**
    * Constructs a new component, validating that NHS.UK frontend is supported
    *
-   * @param {Element | null} [$root] - HTML element to use for component
+   * @param {Element | null} $root - HTML element to use for component
    */
   constructor($root) {
-    const ComponentClass = /** @type {ComponentConstructor} */ (
+    const childConstructor = /** @type {ComponentConstructor} */ (
       this.constructor
     )
 
-    if (!$root || !($root instanceof ComponentClass.elementType)) {
+    if (!$root || !($root instanceof childConstructor.elementType)) {
       throw new ElementError({
         element: $root,
-        component: ComponentClass,
+        component: childConstructor,
         identifier: 'Root element (`$root`)',
-        expectedType: ComponentClass.elementType.name
+        expectedType: childConstructor.elementType.name
       })
     }
 
     this.$root = /** @type {RootElementType} */ ($root)
 
-    ComponentClass.checkSupport()
+    childConstructor.checkSupport()
 
     this.checkInitialised()
 
-    const { moduleName } = ComponentClass
+    const { moduleName } = childConstructor
     this.$root.setAttribute(`data-${moduleName}-init`, '')
   }
 
@@ -55,12 +55,12 @@ export class Component {
    * @throws {InitError} when component is already initialised
    */
   checkInitialised() {
-    const ComponentClass = /** @type {ComponentConstructor} */ (
+    const childConstructor = /** @type {ComponentConstructor} */ (
       this.constructor
     )
 
-    if (isInitialised(this.$root, ComponentClass.moduleName)) {
-      throw new InitError(ComponentClass)
+    if (isInitialised(this.$root, childConstructor.moduleName)) {
+      throw new InitError(childConstructor)
     }
   }
 
@@ -81,7 +81,40 @@ export class Component {
   static moduleName = 'nhsuk-component'
 }
 
+/* eslint-disable jsdoc/valid-types --
+ * `{new(...args: any[] ): any}` is not recognised as valid
+ * https://github.com/gajus/eslint-plugin-jsdoc/issues/145#issuecomment-1308722878
+ * https://github.com/jsdoc-type-pratt-parser/jsdoc-type-pratt-parser/issues/131
+ **/
+
 /**
- * @template {Element} [RootElementType=HTMLElement]
- * @typedef {typeof Component<RootElementType>} ComponentConstructor
+ * Component compatible class
+ *
+ * @template {typeof Component | typeof ConfigurableComponent} [ComponentType=typeof Component]
+ * @typedef {{
+ *   new(...args: ConstructorParameters<ComponentType>): InstanceType<ComponentType>,
+ *   defaults?: ObjectNested,
+ *   moduleName: string
+ * }} CompatibleClass
+ */
+
+/* eslint-enable jsdoc/valid-types */
+
+/**
+ * Component constructor
+ *
+ * @template {typeof Component | typeof ConfigurableComponent} [ComponentType=typeof Component]
+ * @typedef {CompatibleClass & ComponentType} ComponentConstructor
+ */
+
+/**
+ * Component initialisation options
+ *
+ * @typedef {object} InitOptions
+ * @property {Element | Document | null} [scope] - Scope of the document to search within
+ */
+
+/**
+ * @import { ObjectNested } from './common/configuration/index.mjs'
+ * @import { ConfigurableComponent } from './configurable-component.mjs'
  */

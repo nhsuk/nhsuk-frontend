@@ -1,3 +1,4 @@
+import { normaliseOptions } from '../../common/configuration/index.mjs'
 import { toggleConditionalInput } from '../../common/index.mjs'
 import { Component } from '../../component.mjs'
 import { ElementError } from '../../errors/index.mjs'
@@ -11,7 +12,7 @@ import { ElementError } from '../../errors/index.mjs'
  */
 export class Radios extends Component {
   /**
-   * @param {Element | null} [$root] - HTML element to use for component
+   * @param {Element | null} $root - HTML element to use for component
    */
   constructor($root) {
     super($root)
@@ -72,7 +73,6 @@ export class Radios extends Component {
    * Synchronise the visibility of the conditional reveal, and its accessible
    * state, with the input's checked state.
    *
-   * @private
    * @param {HTMLInputElement} $input - Radio input
    */
   syncConditionalRevealWithInputState($input) {
@@ -123,16 +123,21 @@ export class Radios extends Component {
 /**
  * Initialise radios component
  *
- * @param {object} [options]
- * @param {Element | Document | null} [options.scope] - Scope of the document to search within
+ * @deprecated Use {@link createAll | `createAll(Radios)`} instead.
+ * @param {InitOptions} [options]
  */
-export function initRadios(options = {}) {
-  const $scope = options.scope ?? document
-  const $radios = $scope.querySelectorAll(
+export function initRadios(options) {
+  const { scope: $scope } = normaliseOptions(options)
+
+  const $radios = $scope?.querySelectorAll(
     `[data-module="${Radios.moduleName}"]`
   )
 
-  $radios.forEach(($root) => {
+  $radios?.forEach(($root) => {
     new Radios($root)
   })
 }
+
+/**
+ * @import { createAll, InitOptions } from '../../index.mjs'
+ */
