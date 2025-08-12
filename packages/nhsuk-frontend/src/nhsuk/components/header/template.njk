@@ -15,10 +15,10 @@
 
 {#- The NHS logo can be replaced by a bitmap image and/or suffixed by an
     organisation name (with can be split and include a descriptor) -#}
-{%- macro _serviceLogo(logoSrc, organisation) %}
-{% set ariaLabel = params.logo.ariaLabel | default("NHS") %}
-{% if logoSrc %}
-<img class="nhsuk-header__organisation-logo" src="{{ baseUrl }}{{ logoSrc }}" width="280" alt="{{ ariaLabel }}">
+{%- macro _serviceLogo(logo, organisation) %}
+{% set ariaLabel = logo.ariaLabel | default("NHS") %}
+{% if logo.src %}
+<img class="nhsuk-header__organisation-logo" src="{{ baseUrl }}{{ logo.src }}" width="280" alt="{{ ariaLabel }}">
 {% else %}
 <svg class="nhsuk-header__logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" height="40" width="100" focusable="false" role="img" aria-label="{{ ariaLabel }}">
   <title>{{ ariaLabel }}</title>
@@ -56,11 +56,11 @@
     <div class="nhsuk-header__service">
     {% if logoHref %}
       <a class="nhsuk-header__service-logo" href="{{ logoHref }}">
-        {{ _serviceLogo(params.logo.src, params.organisation) | indent(8) }}
+        {{ _serviceLogo(params.logo, params.organisation) | indent(8) }}
         {{- _serviceName(params.service.text) if combineLogoAndServiceNameLinks }}
       </a>
     {% else %}
-      {{ _serviceLogo(params.logo.src, params.organisation) | indent(6) }}
+      {{ _serviceLogo(params.logo, params.organisation) | indent(6) }}
       {{- _serviceName(params.service.text) if combineLogoAndServiceNameLinks }}
     {% endif %}
     {% if params.service.text and not combineLogoAndServiceNameLinks %}
