@@ -41,18 +41,22 @@ jobs:
           - description: Stylelint
             name: lint-styles
             run: npm run lint:css
+            cache: .cache/stylelint
 
           - description: ESLint
             name: lint-scripts
             run: npm run lint:js
+            cache: .cache/eslint
 
           - description: Prettier
             name: lint-prettier
             run: npm run lint:prettier
+            cache: .cache/prettier
 
           - description: TypeScript compiler
             name: lint-types
             run: npm run lint:types -- --incremental
+            cache: '**/*.tsbuildinfo'
 
     steps:
       - name: Checkout
@@ -64,6 +68,13 @@ jobs:
           fail-on-cache-miss: true
           key: npm-install-${{ hashFiles('package-lock.json') }}
           path: node_modules
+
+      - name: Cache lint task
+        if: ${{ matrix.task.cache }}
+        uses: actions/cache@v4
+        with:
+          key: ${{ matrix.task.name }}
+          path: ${{ matrix.task.cache }}
 
       - name: Setup Node
         uses: actions/setup-node@v6
