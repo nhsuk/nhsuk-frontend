@@ -97,19 +97,27 @@ jobs:
         task:
           - description: JavaScript unit tests
             name: test-unit
+            cache: .cache/jest
             coverage: true
 
           - description: JavaScript behaviour tests
             name: test-behaviour
+            cache: .cache/jest
             coverage: true
 
           - description: JavaScript component tests
             name: test-component
             run: npm run install:puppeteer
+            cache: |
+              .cache/jest
+              .cache/puppeteer
 
           - description: Accessibility tests
             name: test-accessibility
             run: npm run install:puppeteer
+            cache: |
+              .cache/jest
+              .cache/puppeteer
 
     steps:
       - name: Checkout
@@ -128,6 +136,13 @@ jobs:
           fail-on-cache-miss: true
           key: build-${{ github.sha }}
           path: packages/*/dist/
+
+      - name: Cache task
+        if: ${{ matrix.task.cache }}
+        uses: actions/cache@v4
+        with:
+          key: ${{ matrix.task.name }}
+          path: ${{ matrix.task.cache }}
 
       - name: Setup Node
         uses: actions/setup-node@v6
