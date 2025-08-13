@@ -152,6 +152,7 @@ This change was introduced in [pull request #1510: Accommodate camera notches](h
 - [#1514: Use `clip-path()` for plus and minus icons on details expander](https://github.com/nhsuk/nhsuk-frontend/pull/1514)
 - [#1516: Remove unused global Sass variables](https://github.com/nhsuk/nhsuk-frontend/pull/1516)
 - [#1522: Use em helper for contents list tick placement](https://github.com/nhsuk/nhsuk-frontend/pull/1522)
+- [#1524: Use CSS-generated chevron for header menu](https://github.com/nhsuk/nhsuk-frontend/pull/1524)
 - [#1525: Fix exclusive checkbox groups with unique name attributes](https://github.com/nhsuk/nhsuk-frontend/pull/1525)
 - [#1528: Fix alt text in header](https://github.com/nhsuk/nhsuk-frontend/pull/1528)
 
