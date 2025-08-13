@@ -107,8 +107,8 @@ $nhsuk-print-text-color: $color_nhsuk-black;
 /// Links
 
 $nhsuk-link-color: $color_nhsuk-blue;
-$nhsuk-link-hover-color: $color_nhsuk-dark-pink;
-$nhsuk-link-active-color: nhsuk-shade($nhsuk-link-color, 50%);
+$nhsuk-link-hover-color: nhsuk-shade($nhsuk-link-color, 50%);
+$nhsuk-link-active-color: $color_nhsuk-black;
 $nhsuk-link-visited-color: $color_nhsuk-purple;
 
 /// Focus
