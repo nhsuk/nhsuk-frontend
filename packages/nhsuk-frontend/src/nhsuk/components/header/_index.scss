@@ -434,6 +434,8 @@ $_header-item-active-size: $nhsuk-focus-width;
 }
 
 .nhsuk-header__menu-toggle {
+  $_chevron-font-size: 19;
+
   align-items: center;
   background: transparent;
   border: 0;
@@ -443,7 +445,7 @@ $_header-item-active-size: $nhsuk-focus-width;
   display: flex;
   margin: 0;
   text-align: center;
-  padding-right: nhsuk-spacing(3) + $_header-link-padding;
+  padding-right: nhsuk-em($_chevron-font-size, $nhsuk-base-font-size);
 
   &[hidden] {
     display: none;
@@ -457,11 +459,11 @@ $_header-item-active-size: $nhsuk-focus-width;
     position: absolute;
     top: 2px;
 
-    @include nhsuk-shape-chevron(down, currentcolor, $font-size: 19);
+    @include nhsuk-shape-chevron(down, currentcolor, $font-size: $_chevron-font-size);
   }
 
   &[aria-expanded="true"]::after {
-    @include nhsuk-shape-chevron(up, currentcolor, $font-size: 19);
+    @include nhsuk-shape-chevron(up, currentcolor, $font-size: $_chevron-font-size);
   }
 }
 

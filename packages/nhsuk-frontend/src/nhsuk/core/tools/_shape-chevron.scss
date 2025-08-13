@@ -20,7 +20,7 @@
 
 @mixin nhsuk-shape-chevron($direction, $color, $font-size: 16, $display: block) {
   $outline-width: nhsuk-em($nhsuk-chevron-border, $font-size);
-  $box-size: math.div($font-size, 2) * 1px;
+  $box-size: nhsuk-em(math.div($font-size, 2), $font-size);
   $size: nhsuk-em(nhsuk-chevron-size($font-size), $nhsuk-base-font-size);
 
   color: $color;
