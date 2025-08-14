@@ -36,10 +36,14 @@
 ///
 /// This ensures the colour is rendered properly by Safari < 12
 ///
-/// @param {Colour} $colour - The colour to convert
+/// @param {String | Colour} $colour - The colour to convert or name from the colour palette
 /// @return {Colour}
 
 @function nhsuk-colour-compatible($colour) {
+  @if meta.type-of($colour) == "string" {
+    $colour: nhsuk-colour($colour);
+  }
+
   $alpha: color.alpha($colour);
   $parts: ();
 
