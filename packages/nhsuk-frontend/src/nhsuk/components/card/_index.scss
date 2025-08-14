@@ -13,7 +13,7 @@
 /// 4. Removes padding-top from headings directly after the card group.
 /// 5. Includes the border width to achieve the correct left alignment.
 /// 6. Stops the heading from spanning the full width of the card.
-/// 7. Removes padding top for the feature heading positioning.
+/// 7. Removes padding as added to container by nhsuk-panel-with-label mixin.
 /// 8. Default care card colour set to blue (non-urgent care card) -
 ///    using the @mixin care-card tools/_mixins.scss.
 ///    The same mixin is used for each care card, setting the background
@@ -33,7 +33,7 @@
 
 $card-border-width: 1px;
 $card-border-bottom-width: nhsuk-spacing(1);
-$card-border-colour: nhsuk-colour("grey-4");
+$card-border-colour: $nhsuk-border-colour;
 $card-border-hover-colour: nhsuk-colour("grey-3");
 
 // @deprecated To be removed in v11.0
@@ -41,12 +41,10 @@ $card-border-color: $card-border-colour;
 $card-border-hover-color: $card-border-hover-colour;
 
 .nhsuk-card {
-  background: nhsuk-colour("white");
-  border: $card-border-width solid $card-border-colour;
   position: relative; // [1]
   width: 100%;
 
-  @include nhsuk-responsive-margin(7, "bottom");
+  @include nhsuk-panel(nhsuk-colour("white"), $nhsuk-text-colour, $card-border-colour);
 }
 
 .nhsuk-card__img {
@@ -146,31 +144,15 @@ $card-border-hover-color: $card-border-hover-colour;
 /// Card feature
 
 .nhsuk-card--feature {
-  @include nhsuk-responsive-margin(7, "top");
+  @include nhsuk-panel-with-label(nhsuk-colour("white"), $nhsuk-text-colour, $card-border-colour);
 }
 
 .nhsuk-card__heading--feature {
-  background: nhsuk-colour("blue");
-  color: nhsuk-colour("white");
-  display: inline-block;
-  left: -(nhsuk-spacing(4) + $card-border-width); // [5]
-  margin-bottom: nhsuk-spacing(2);
-  margin-right: -(nhsuk-spacing(4)); // [6]
-  padding: nhsuk-spacing(2) nhsuk-spacing(4);
-  position: relative;
-  top: -(nhsuk-spacing(2));
-
-  @include nhsuk-media-query($from: tablet) {
-    left: -(nhsuk-spacing(5) + $card-border-width); // [5]
-    margin-right: -(nhsuk-spacing(5)); // [6]
-    padding: nhsuk-spacing(2) nhsuk-spacing(5);
-    top: -(nhsuk-spacing(3));
-  }
+  @include nhsuk-heading-label(nhsuk-colour("blue"), nhsuk-colour("white"));
 }
 
 .nhsuk-card__content--feature {
-  // stylelint-disable-next-line declaration-no-important
-  padding-top: 0 !important; // [7]
+  padding: 0; // [7]
 }
 
 /// Care card
@@ -181,7 +163,8 @@ $card-border-hover-color: $card-border-hover-colour;
 }
 
 .nhsuk-card--care__heading-container {
-  padding-bottom: nhsuk-spacing(3);
+  border-bottom: 1px solid transparent;
+  padding-bottom: nhsuk-spacing(3) - 1px;
   padding-top: nhsuk-spacing(3);
   position: relative;
 
@@ -198,7 +181,7 @@ $card-border-hover-color: $card-border-hover-colour;
 }
 
 .nhsuk-card--care__arrow {
-  bottom: -10px; // [9]
+  bottom: -11px; // [9]
   display: block;
   height: 20px; // [9]
   left: 30px; // [10]
