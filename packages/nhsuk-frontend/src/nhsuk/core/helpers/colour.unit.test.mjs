@@ -91,8 +91,24 @@ describe('Colour helpers', () => {
         output: '#007f3b'
       },
       {
+        input: 'rgba(0, 127, 59, 1)',
+        output: '#007f3b'
+      },
+      {
+        input: 'rgba(0, 127, 59, 0.99)',
+        output: 'rgba(0, 127, 59, 0.99)'
+      },
+      {
         input: 'rgb(0.1, 127.2, 59.3)',
         output: '#007f3b'
+      },
+      {
+        input: 'rgba(0.1, 127.2, 59.3, 1)',
+        output: '#007f3b'
+      },
+      {
+        input: 'rgba(0.1, 127.2, 59.3, 0.99)',
+        output: 'rgba(0, 127, 59, 0.99)'
       }
     ])("outputs '$input' as value '$output'", async ({ input, output }) => {
       const sass = outdent`
@@ -118,7 +134,7 @@ describe('Colour helpers', () => {
   })
 
   describe('@function nhsuk-shade', () => {
-    it('outputs hexadecimal values', async () => {
+    it('outputs hexadecimal values by default', async () => {
       const sass = outdent`
         ${sassModules}
 
@@ -139,10 +155,32 @@ describe('Colour helpers', () => {
         `
       })
     })
+
+    it('outputs rgba() values (with alpha channel)', async () => {
+      const sass = outdent`
+        ${sassModules}
+
+        .foo {
+          color: nhsuk-shade(rgba(171, 205, 239, 0.2), 17%);
+        }
+      `
+
+      const results = compileStringAsync(sass, {
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+      })
+
+      await expect(results).resolves.toMatchObject({
+        css: outdent`
+          .foo {
+            color: rgba(60, 72, 84, 0.336);
+          }
+        `
+      })
+    })
   })
 
   describe('@function nhsuk-tint', () => {
-    it('outputs hexadecimal values', async () => {
+    it('outputs hexadecimal values by default', async () => {
       const sass = outdent`
         ${sassModules}
 
@@ -159,6 +197,28 @@ describe('Colour helpers', () => {
         css: outdent`
           .foo {
             color: #3a5773;
+          }
+        `
+      })
+    })
+
+    it('outputs rgba() values (with alpha channel)', async () => {
+      const sass = outdent`
+        ${sassModules}
+
+        .foo {
+          color: nhsuk-tint(rgba(18, 52, 86, 0.2), 17%);
+        }
+      `
+
+      const results = compileStringAsync(sass, {
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+      })
+
+      await expect(results).resolves.toMatchObject({
+        css: outdent`
+          .foo {
+            color: rgba(172, 184, 196, 0.336);
           }
         `
       })
