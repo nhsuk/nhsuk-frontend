@@ -1,5 +1,6 @@
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
+@use "../../core/helpers" as *;
 @forward "../back-link";
 
 ////
@@ -13,11 +14,11 @@
 ////
 
 $_font-size: 16;
-$_chevron-color: $nhsuk-secondary-text-color;
+$_chevron-colour: $nhsuk-secondary-text-colour;
 $_chevron-size: nhsuk-em(nhsuk-chevron-size(), $_font-size);
 
 .nhsuk-breadcrumb {
-  color: $nhsuk-text-color;
+  color: $nhsuk-text-colour;
 
   @include nhsuk-responsive-margin(4, "top");
   @include nhsuk-print-hide; // [1]
@@ -59,7 +60,7 @@ $_chevron-size: nhsuk-em(nhsuk-chevron-size(), $_font-size);
     position: absolute;
     top: 0;
 
-    @include nhsuk-shape-chevron(right, $_chevron-color);
+    @include nhsuk-shape-chevron(right, $_chevron-colour);
   }
 
   // Hide chevron before first breadcrumb item
@@ -81,7 +82,7 @@ $_chevron-size: nhsuk-em(nhsuk-chevron-size(), $_font-size);
 }
 
 .nhsuk-breadcrumb--reverse {
-  color: $color_nhsuk-white;
+  color: nhsuk-colour("white");
 
   .nhsuk-breadcrumb__link,
   .nhsuk-back-link {
@@ -89,6 +90,6 @@ $_chevron-size: nhsuk-em(nhsuk-chevron-size(), $_font-size);
   }
 
   .nhsuk-breadcrumb__list-item::before {
-    color: rgba($color_nhsuk-white, 0.6);
+    color: rgba(nhsuk-colour("white"), 0.6);
   }
 }

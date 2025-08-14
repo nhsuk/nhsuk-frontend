@@ -1,5 +1,6 @@
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
+@use "../../core/helpers" as *;
 
 ////
 /// Fieldset component
@@ -24,7 +25,7 @@
 
 .nhsuk-fieldset__legend {
   box-sizing: border-box; // [1]
-  color: $color_nhsuk-black;
+  color: nhsuk-colour("black");
   display: table; // [2]
   margin-bottom: nhsuk-spacing(2);
   margin-top: 0;

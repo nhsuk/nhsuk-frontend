@@ -1,6 +1,7 @@
 @use "sass:math";
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
+@use "../../core/helpers" as *;
 
 ////
 /// Footer component
@@ -9,8 +10,8 @@
 ////
 
 .nhsuk-footer {
-  background-color: $color_nhsuk-grey-4;
-  border-top: $nhsuk-border-width solid $color_nhsuk-blue;
+  background-color: nhsuk-colour("grey-4");
+  border-top: $nhsuk-border-width solid nhsuk-colour("blue");
 
   @include nhsuk-print-hide;
   @include nhsuk-responsive-padding(5, bottom);
@@ -33,12 +34,12 @@
 
 .nhsuk-footer__list-item-link,
 .nhsuk-footer__list-item-link:visited {
-  color: $color_nhsuk-dark-blue;
+  color: nhsuk-colour("dark-blue");
 }
 
 .nhsuk-footer__meta {
   .nhsuk-footer__navigation + & {
-    border-top: 1px solid $color_nhsuk-grey-3;
+    border-top: 1px solid nhsuk-colour("grey-3");
 
     @include nhsuk-responsive-padding(4, top);
   }

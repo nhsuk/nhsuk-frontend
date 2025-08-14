@@ -1,6 +1,7 @@
 @use "sass:math";
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
+@use "../../core/helpers" as *;
 
 ////
 /// Image component
@@ -14,8 +15,8 @@
 ////
 
 .nhsuk-image {
-  background-color: $color_nhsuk-white;
-  border-bottom: 1px solid $color_nhsuk-grey-4;
+  background-color: nhsuk-colour("white");
+  border-bottom: 1px solid nhsuk-colour("grey-4");
 
   margin-left: 0; // [1]
   margin-right: 0; // [1]

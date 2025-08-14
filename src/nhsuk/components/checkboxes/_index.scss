@@ -59,8 +59,8 @@ $nhsuk-checkboxes-label-padding-left-right: 12px;
 }
 
 .nhsuk-checkboxes__input + .nhsuk-checkboxes__label::before {
-  background: $nhsuk-form-element-background-color;
-  border: $nhsuk-border-width-form-element solid $nhsuk-form-border-color;
+  background: $nhsuk-form-element-background-colour;
+  border: $nhsuk-border-width-form-element solid $nhsuk-form-border-colour;
   box-sizing: border-box;
   content: "";
   height: $nhsuk-checkboxes-size;
@@ -120,7 +120,7 @@ $nhsuk-checkboxes-label-padding-left-right: 12px;
 .nhsuk-checkboxes__divider {
   $nhsuk-divider-size: $nhsuk-checkboxes-size !default;
 
-  color: $nhsuk-text-color;
+  color: $nhsuk-text-colour;
   margin-bottom: nhsuk-spacing(2);
   text-align: center;
   width: $nhsuk-divider-size;
@@ -141,7 +141,7 @@ $nhsuk-checkboxes-label-padding-left-right: 12px;
   $conditional-margin-left: $conditional-border-padding; // [2]
   $conditional-padding-left: $conditional-border-padding + $nhsuk-checkboxes-label-padding-left-right; // [3]
 
-  border-left: $conditional-border-width solid $nhsuk-form-border-color;
+  border-left: $conditional-border-width solid $nhsuk-form-border-colour;
   margin-left: $conditional-margin-left;
   padding-left: $conditional-padding-left;
   @include nhsuk-responsive-margin(4, "bottom");
