@@ -87,6 +87,10 @@ describe('Colour helpers', () => {
   describe('@function nhsuk-colour-compatible', () => {
     it.each([
       {
+        input: '"green"',
+        output: '#007f3b'
+      },
+      {
         input: 'rgb(0, 127, 59)',
         output: '#007f3b'
       },
