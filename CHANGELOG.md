@@ -4,6 +4,21 @@
 
 :new: **New features**
 
+#### Sass colours as CSS custom properties
+
+The Sass applied colour variables (e.g. `$nhsuk-link-colour`) are now available as [CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/--*)
+
+For example:
+
+```css
+--nhsuk-link-colour: #005eb8;
+--nhsuk-link-hover-colour: #7c2855;
+--nhsuk-link-active-colour: #002f5c;
+--nhsuk-link-visited-colour: #330072;
+```
+
+This change was introduced in [pull request #1495: Output CSS custom properties from Sass colours](https://github.com/nhsuk/nhsuk-frontend/pull/1495).
+
 #### Sass colour palette `nhsuk-colour` function
 
 The Sass colour palette variables (e.g. `$color_nhsuk-blue`) have been moved into a new single `$nhsuk-colours` map. The previous names are deprecated and will be removed in a future release.
