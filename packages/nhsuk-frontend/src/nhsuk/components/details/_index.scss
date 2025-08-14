@@ -21,7 +21,7 @@
 
 .nhsuk-details {
   display: block;
-  @include nhsuk-text-color;
+  @include nhsuk-text-colour;
   @include nhsuk-font-size(19);
   @include nhsuk-responsive-margin(4, "bottom");
 }

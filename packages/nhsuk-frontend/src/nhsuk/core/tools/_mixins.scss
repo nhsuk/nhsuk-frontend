@@ -384,10 +384,10 @@
 /// @see components/_care-card
 ///
 /// @example scss
-///   @include nhsuk-print-color($nhsuk-print-text-colour);
+///   @include nhsuk-print-colour($nhsuk-print-text-colour);
 ///
 
-@mixin nhsuk-print-color($print-colour) {
+@mixin nhsuk-print-colour($print-colour) {
   @include nhsuk-media-query($media-type: print) {
     color: $print-colour;
     fill: $print-colour;
@@ -403,12 +403,23 @@
 /// Print colour mixin, sets the text print colour
 /// warning callout, do and don't lists and panels (deprecated)
 ///
-/// @alias nhsuk-print-color
-/// @deprecated To be removed in v11.0, replaced by nhsuk-print-color
+/// @alias nhsuk-print-colour
+/// @deprecated To be removed in v11.0, replaced by nhsuk-print-colour
+
+@mixin nhsuk-print-color($args...) {
+  @include nhsuk-warning("color-to-colour", "nhsuk-print-color is deprecated. Use nhsuk-print-colour instead.");
+  @include nhsuk-print-colour($args...);
+}
+
+/// Print colour mixin, sets the text print colour
+/// warning callout, do and don't lists and panels (deprecated)
+///
+/// @alias nhsuk-print-colour
+/// @deprecated To be removed in v11.0, replaced by nhsuk-print-colour
 
 @mixin print-color($args...) {
-  @include nhsuk-warning("print-color", "print-color is deprecated. Use nhsuk-print-color instead.");
-  @include nhsuk-print-color($args...);
+  @include nhsuk-warning("print-color", "print-color is deprecated. Use nhsuk-print-colour instead.");
+  @include nhsuk-print-colour($args...);
 }
 
 /// Print hide mixin, hides the element from print
