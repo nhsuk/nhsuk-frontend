@@ -2,14 +2,13 @@
 
 {% set headingLevel = params.headingLevel if params.headingLevel else 2 %}
 
-<div class="nhsuk-card
+<div {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-card
 {%- if params.clickable %} nhsuk-card--clickable{% endif %}
 {%- if params.secondary %} nhsuk-card--secondary{% endif %}
 {%- if params.type %} nhsuk-card--care nhsuk-card--care--{{ params.type }}{% endif %}
 {%- if params.feature %} nhsuk-card--feature{% endif %}
 {%- if params.topTask %} nhsuk-card--top-task{% endif %}
 {%- if params.classes %} {{ params.classes }}{% endif %}"
-{%- if params.id %} id="{{ params.id }}"{% endif %}
 {{- nhsukAttributes(params.attributes) }}>
 {%- if params.imgURL %}
   <img class="nhsuk-card__img" src="{{ params.imgURL }}" alt="{{ params.imgALT }}">
