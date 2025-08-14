@@ -8,6 +8,11 @@ export const name = 'Action link'
  * @satisfies {{ [param: string]: MacroParam }}
  */
 export const params = {
+  id: {
+    type: 'string',
+    required: false,
+    description: 'The ID of the action link.'
+  },
   text: {
     type: 'string',
     required: true,

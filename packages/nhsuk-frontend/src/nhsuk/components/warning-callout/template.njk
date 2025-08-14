@@ -1,7 +1,7 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {% set headingLevel = params.headingLevel if params.headingLevel else 3 %}
-<div class="nhsuk-warning-callout
+<div {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-warning-callout
 {%- if params.classes %} {{ params.classes }}{% endif %}"
 {{- nhsukAttributes(params.attributes) }}>
   <h{{ headingLevel }} class="nhsuk-warning-callout__label">
