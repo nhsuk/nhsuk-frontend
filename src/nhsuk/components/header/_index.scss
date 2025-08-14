@@ -60,6 +60,7 @@ $_header-item-active-size: $nhsuk-focus-width;
 
 .nhsuk-header {
   background-color: nhsuk-colour("blue");
+  outline: 1px solid transparent;
   color: nhsuk-colour("white");
 
   // Add shadow to bottom of header when open
@@ -263,16 +264,20 @@ $_header-item-active-size: $nhsuk-focus-width;
 
 // Disable default search input appearance
 .nhsuk-header__search-input.nhsuk-input {
-  border-color: transparent;
+  $_header-border-width-form-element: 1px;
+
+  border: $_header-border-width-form-element solid transparent;
   border-radius: $nhsuk-border-radius 0 0 $nhsuk-border-radius;
   height: 40px;
-  margin-right: -$nhsuk-border-width-form-element;
+  margin-right: -$_header-border-width-form-element;
+  padding-left: $_header-item-padding;
   padding-right: $_header-item-padding;
-  padding-left: $_header-item-padding - $nhsuk-border-width-form-element;
   width: 100%;
   @include nhsuk-font-size(16);
 
   &:focus {
+    padding-left: $_header-item-padding - $_header-border-width-form-element;
+    padding-right: $_header-item-padding - $_header-border-width-form-element;
     z-index: 10;
   }
 
@@ -299,7 +304,7 @@ $_header-item-active-size: $nhsuk-focus-width;
 
 .nhsuk-header__search-submit {
   background-color: nhsuk-colour("grey-5");
-  border: 0;
+  border: 1px solid transparent;
   border-radius: 0 $nhsuk-border-radius $nhsuk-border-radius 0;
   color: nhsuk-colour("blue");
   flex-shrink: 0;
@@ -312,7 +317,7 @@ $_header-item-active-size: $nhsuk-focus-width;
   &:hover,
   &:active {
     background-color: $_header-item-hover-colour;
-    box-shadow: inset 0 0 0 1px nhsuk-colour("white");
+    border-color: nhsuk-colour("white");
     color: nhsuk-colour("white");
   }
 
@@ -326,6 +331,8 @@ $_header-item-active-size: $nhsuk-focus-width;
 
   &:focus:not(:active),
   &:focus:not(:active):hover {
+    border-color: transparent;
+
     @include nhsuk-focused-button;
   }
 }
@@ -512,7 +519,7 @@ $_header-item-active-size: $nhsuk-focus-width;
     border-bottom: 1px solid nhsuk-colour("grey-5");
 
     &:last-child {
-      border: 0;
+      border-color: transparent;
     }
   }
 }
