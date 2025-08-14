@@ -61,8 +61,8 @@ $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
 }
 
 .nhsuk-radios__input + .nhsuk-radios__label::before {
-  background: $nhsuk-form-element-background-color;
-  border: $nhsuk-border-width-form-element solid $nhsuk-form-border-color;
+  background: $nhsuk-form-element-background-colour;
+  border: $nhsuk-border-width-form-element solid $nhsuk-form-border-colour;
   border-radius: 50%;
   box-sizing: border-box;
   content: "";
@@ -74,8 +74,8 @@ $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
 }
 
 .nhsuk-radios__input + .nhsuk-radios__label::after {
-  background: $nhsuk-form-border-color;
-  border: 10px solid $nhsuk-text-color;
+  background: $nhsuk-form-border-colour;
+  border: 10px solid $nhsuk-text-colour;
   border-radius: 50%;
   content: "";
   height: 0;
@@ -143,7 +143,7 @@ $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
 .nhsuk-radios__divider {
   $nhsuk-divider-size: $nhsuk-radios-size !default;
 
-  color: $nhsuk-text-color;
+  color: $nhsuk-text-colour;
   margin-bottom: nhsuk-spacing(2);
   text-align: center;
   width: $nhsuk-divider-size;
@@ -164,7 +164,7 @@ $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
   $conditional-margin-left: $conditional-border-padding; // [2]
   $conditional-padding-left: $conditional-border-padding + $nhsuk-radios-label-padding-left-right; // [3]
 
-  border-left: $conditional-border-width solid $nhsuk-form-border-color;
+  border-left: $conditional-border-width solid $nhsuk-form-border-colour;
   margin-left: $conditional-margin-left;
   padding-left: $conditional-padding-left;
 

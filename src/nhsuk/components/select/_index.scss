@@ -18,7 +18,7 @@
 
 .nhsuk-select {
   background-color: nhsuk-colour("white");
-  border: $nhsuk-border-width-form-element solid $nhsuk-form-border-color;
+  border: $nhsuk-border-width-form-element solid $nhsuk-form-border-colour;
   box-sizing: border-box;
   color: nhsuk-colour("black");
   height: 2.5rem; // [1]
@@ -41,5 +41,5 @@
 }
 
 .nhsuk-select--error {
-  border: $nhsuk-border-width-form-element-error solid $nhsuk-error-color;
+  border: $nhsuk-border-width-form-element-error solid $nhsuk-error-colour;
 }

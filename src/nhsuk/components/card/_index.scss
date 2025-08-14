@@ -33,12 +33,16 @@
 
 $card-border-width: 1px;
 $card-border-bottom-width: nhsuk-spacing(1);
-$card-border-color: nhsuk-colour("grey-4");
-$card-border-hover-color: nhsuk-colour("grey-3");
+$card-border-colour: nhsuk-colour("grey-4");
+$card-border-hover-colour: nhsuk-colour("grey-3");
+
+// @deprecated To be removed in v11.0
+$card-border-color: $card-border-colour;
+$card-border-hover-color: $card-border-hover-colour;
 
 .nhsuk-card {
   background: nhsuk-colour("white");
-  border: $card-border-width solid $card-border-color;
+  border: $card-border-width solid $card-border-colour;
   position: relative; // [1]
   width: 100%;
 
@@ -90,7 +94,7 @@ $card-border-hover-color: nhsuk-colour("grey-3");
   }
 
   &:active {
-    border-color: $card-border-hover-color;
+    border-color: $card-border-hover-colour;
     bottom: -$card-border-width; // [3]
   }
 }
@@ -190,7 +194,7 @@ $card-border-hover-color: nhsuk-colour("grey-3");
   padding-top: 0; // [13]
 
   @include nhsuk-font(26, $weight: bold);
-  @include nhsuk-print-color($nhsuk-print-text-color);
+  @include nhsuk-print-color($nhsuk-print-text-colour);
 }
 
 .nhsuk-card--care__arrow {
@@ -254,7 +258,7 @@ $card-border-hover-color: nhsuk-colour("grey-3");
 
     @include nhsuk-media-query($media-type: print) {
       background-color: nhsuk-colour("white");
-      color: $nhsuk-print-text-color;
+      color: $nhsuk-print-text-colour;
     }
   }
 
@@ -309,7 +313,7 @@ $card-border-hover-color: nhsuk-colour("grey-3");
 
 .nhsuk-card--secondary {
   background: transparent;
-  border-bottom: $card-border-bottom-width solid $card-border-color;
+  border-bottom: $card-border-bottom-width solid $card-border-colour;
   border-left: 0;
   border-right: 0;
   border-top: 0;

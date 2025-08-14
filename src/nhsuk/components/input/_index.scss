@@ -18,7 +18,7 @@
   -moz-appearance: none; // [1]
   -webkit-appearance: none; // [1]
   appearance: none; // [1]
-  border: $nhsuk-border-width-form-element solid $nhsuk-form-border-color; // [2]
+  border: $nhsuk-border-width-form-element solid $nhsuk-form-border-colour; // [2]
   border-radius: 0;
   box-sizing: border-box;
   min-height: 40px;
@@ -44,7 +44,7 @@
 }
 
 .nhsuk-input--error {
-  border: $nhsuk-border-width-form-element-error solid $nhsuk-error-color;
+  border: $nhsuk-border-width-form-element-error solid $nhsuk-error-colour;
 }
 
 // The ex measurements are based on the number of W's that can fit inside the input
@@ -106,7 +106,7 @@
 .nhsuk-input__prefix,
 .nhsuk-input__suffix {
   background-color: nhsuk-colour("grey-4");
-  border: $nhsuk-border-width-form-element solid $nhsuk-form-border-color;
+  border: $nhsuk-border-width-form-element solid $nhsuk-form-border-colour;
   box-sizing: border-box;
   cursor: default; // emphasises non-editable status of prefixes and suffixes
   display: inline-block;

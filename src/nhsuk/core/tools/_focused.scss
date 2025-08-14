@@ -12,10 +12,10 @@
 /// Used for interactive text-based elements.
 
 @mixin nhsuk-focused-text {
-  background-color: $nhsuk-focus-color;
+  background-color: $nhsuk-focus-colour;
   box-shadow:
-    0 -2px $nhsuk-focus-color,
-    0 $nhsuk-focus-width $nhsuk-focus-text-color;
+    0 -2px $nhsuk-focus-colour,
+    0 $nhsuk-focus-width $nhsuk-focus-text-colour;
 
   // When colours are overridden, for example when users have a dark mode,
   // backgrounds and box-shadows disappear, so we need to ensure there's a
@@ -28,8 +28,8 @@
 
   &,
   .nhsuk-icon {
-    color: $nhsuk-focus-text-color;
-    fill: $nhsuk-focus-text-color;
+    color: $nhsuk-focus-text-colour;
+    fill: $nhsuk-focus-text-colour;
   }
 }
 
@@ -40,9 +40,9 @@
 /// as text inputs.
 
 @mixin nhsuk-focused-input {
-  border: 2px solid $nhsuk-focus-text-color;
+  border: 2px solid $nhsuk-focus-text-colour;
   box-shadow: inset 0 0 0 2px;
-  outline: $nhsuk-focus-width solid $nhsuk-focus-color; // [1]
+  outline: $nhsuk-focus-width solid $nhsuk-focus-colour; // [1]
   outline-offset: 0;
 }
 
@@ -52,8 +52,8 @@
 /// the target element has focus. Used by radios.
 
 @mixin nhsuk-focused-radio {
-  border: $nhsuk-focus-width solid $nhsuk-focus-text-color;
-  box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-color;
+  border: $nhsuk-focus-width solid $nhsuk-focus-text-colour;
+  box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-colour;
 }
 
 /// Focused checkbox input (form element)
@@ -62,8 +62,8 @@
 /// the target element has focus. Used by checkbox.
 
 @mixin nhsuk-focused-checkbox {
-  border: $nhsuk-focus-width solid $nhsuk-focus-text-color;
-  box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-color;
+  border: $nhsuk-focus-width solid $nhsuk-focus-text-colour;
+  box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-colour;
 }
 
 /// Focused button
@@ -72,16 +72,16 @@
 /// the target element has focus. Used for buttons.
 
 @mixin nhsuk-focused-button {
-  background-color: $nhsuk-focus-color;
-  box-shadow: 0 $nhsuk-focus-width 0 0 $nhsuk-focus-text-color;
-  color: $nhsuk-focus-text-color;
+  background-color: $nhsuk-focus-colour;
+  box-shadow: 0 $nhsuk-focus-width 0 0 $nhsuk-focus-text-colour;
+  color: $nhsuk-focus-text-colour;
   outline: $nhsuk-focus-width solid transparent; // [1]
   outline-offset: $nhsuk-focus-width;
 
   &,
   .nhsuk-icon {
-    color: $nhsuk-focus-text-color;
-    fill: $nhsuk-focus-text-color;
+    color: $nhsuk-focus-text-colour;
+    fill: $nhsuk-focus-text-colour;
   }
 }
 
@@ -95,6 +95,6 @@
 @mixin nhsuk-focused-box {
   outline: $nhsuk-focus-width solid transparent;
   box-shadow:
-    0 0 0 4px $nhsuk-focus-color,
-    0 0 0 8px $nhsuk-focus-text-color;
+    0 0 0 4px $nhsuk-focus-colour,
+    0 0 0 8px $nhsuk-focus-text-colour;
 }

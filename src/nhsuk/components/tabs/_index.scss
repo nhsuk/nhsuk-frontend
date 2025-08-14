@@ -9,7 +9,7 @@
 }
 
 .nhsuk-tabs__title {
-  color: $nhsuk-text-color;
+  color: $nhsuk-text-colour;
   margin-bottom: nhsuk-spacing(2);
   @include nhsuk-font($size: 19);
 }
@@ -26,7 +26,7 @@
   @include nhsuk-font($size: 19);
 
   &::before {
-    color: $nhsuk-text-color;
+    color: $nhsuk-text-colour;
     content: "\2014 "; // "— "
     margin-left: -(nhsuk-spacing(5));
     padding-right: nhsuk-spacing(1);
@@ -46,7 +46,7 @@
 .nhsuk-frontend-supported {
   @include nhsuk-media-query($from: tablet) {
     .nhsuk-tabs__list {
-      border-bottom: 1px solid $nhsuk-border-color;
+      border-bottom: 1px solid $nhsuk-border-colour;
       margin-bottom: 0;
       @include nhsuk-clearfix;
     }
@@ -73,7 +73,7 @@
     .nhsuk-tabs__list-item--selected {
       $border-width: 1px;
       background-color: nhsuk-colour("white");
-      border: $border-width solid $nhsuk-border-color;
+      border: $border-width solid $nhsuk-border-colour;
       border-bottom: 0;
       margin-bottom: -$border-width; // Compensation for border (otherwise we get a shift)
       margin-top: -(nhsuk-spacing(1));
@@ -105,7 +105,7 @@
 
     .nhsuk-tabs__panel {
       background-color: nhsuk-colour("white");
-      border: 1px solid $nhsuk-border-color;
+      border: 1px solid $nhsuk-border-colour;
       border-top: 0;
       padding: nhsuk-spacing(6) nhsuk-spacing(4);
       @include nhsuk-responsive-margin(0, "bottom");
