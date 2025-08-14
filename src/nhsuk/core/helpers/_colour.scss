@@ -32,7 +32,7 @@
 }
 
 /// Converts a colour with potential float values for its RGB channels
-/// into hexadecimal notation
+/// into hexadecimal notation where possible (e.g. no alpha transparency)
 ///
 /// This ensures the colour is rendered properly by Safari < 12
 ///
@@ -40,6 +40,7 @@
 /// @return {Colour}
 
 @function nhsuk-colour-compatible($colour) {
+  $alpha: color.alpha($colour);
   $parts: ();
 
   // Maintain compatibility with Sass < v1.79.0 where colour space functions
@@ -50,15 +51,17 @@
       "red": color.red($colour),
       "green": color.green($colour),
       "blue": color.blue($colour),
-      "alpha": color.alpha($colour)
+      "alpha": $alpha
     );
   } @else {
     $colour: color.to-space($colour, rgb);
+    $alpha: color.channel($colour, "alpha");
+
     $parts: (
       "red": math.round(color.channel($colour, "red")),
       "green": math.round(color.channel($colour, "green")),
       "blue": math.round(color.channel($colour, "blue")),
-      "alpha": math.round(color.channel($colour, "alpha"))
+      "alpha": $alpha
     );
   }
 
