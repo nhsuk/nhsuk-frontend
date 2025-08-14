@@ -1,4 +1,5 @@
 @use "../settings" as *;
+@use "../helpers" as *;
 @use "sass-mq" as *;
 @use "spacing" as *;
 @use "typography" as *;
@@ -232,12 +233,12 @@
 /// See components/_panel
 ///
 /// @example scss
-///   @include nhsuk-panel($color_nhsuk-blue, $color_nhsuk-white);
+///   @include nhsuk-panel(nhsuk-colour("blue"), $nhsuk-reverse-text-colour);
 ///
 
-@mixin nhsuk-panel($panel-background-color, $panel-text-color) {
-  background-color: $panel-background-color;
-  color: $panel-text-color;
+@mixin nhsuk-panel($panel-background-colour, $panel-text-colour) {
+  background-color: $panel-background-colour;
+  color: $panel-text-colour;
 
   @include nhsuk-top-and-bottom;
   @include nhsuk-responsive-margin(7, "bottom");
@@ -245,7 +246,7 @@
   @include nhsuk-responsive-padding(5);
 
   @include nhsuk-media-query($media-type: print) {
-    border: 1px solid $nhsuk-print-text-color;
+    border: 1px solid $nhsuk-print-text-colour;
     page-break-inside: avoid;
   }
 }
@@ -268,15 +269,15 @@
 /// @see components/_warning-component
 ///
 /// @example scss
-///   @include nhsuk-panel-with-label($color_nhsuk-blue, $color_nhsuk-white);
+///   @include nhsuk-panel-with-label(nhsuk-colour("blue"), $nhsuk-reverse-text-colour, $nhsuk-secondary-border-colour);
 ///
 
-@mixin nhsuk-panel-with-label($panel-background-color, $panel-text-color, $panel-border-color) {
-  border: 1px solid $panel-border-color;
+@mixin nhsuk-panel-with-label($panel-background-colour, $panel-text-colour, $panel-border-colour) {
+  border: 1px solid $panel-border-colour;
   // stylelint-disable-next-line declaration-no-important
   padding-top: 0 !important;
 
-  @include nhsuk-panel($panel-background-color, $panel-text-color);
+  @include nhsuk-panel($panel-background-colour, $panel-text-colour);
 }
 
 /// Panel with label mixin, inherits panel styling
@@ -305,12 +306,12 @@
 ///    sit just outside the box.
 ///
 /// @example scss
-///   @include nhsuk-heading-label($color_nhsuk-blue, $color_nhsuk-white);
+///   @include nhsuk-heading-label(nhsuk-colour("blue"), $nhsuk-reverse-text-colour);
 ///
 
-@mixin nhsuk-heading-label($heading-background-color, $heading-text-color) {
-  background-color: $heading-background-color; // [1]
-  color: $heading-text-color; // [2]
+@mixin nhsuk-heading-label($heading-background-colour, $heading-text-colour) {
+  background-color: $heading-background-colour; // [1]
+  color: $heading-text-colour; // [2]
   display: inline-block; // [3]
   margin: nhsuk-spacing(0) nhsuk-spacing(0) nhsuk-spacing(2) -33px;
   padding: nhsuk-spacing(2) nhsuk-spacing(5);
@@ -328,7 +329,7 @@
 
   @include nhsuk-media-query($media-type: print) {
     background: none;
-    color: $color_nhsuk-black;
+    color: nhsuk-colour("black");
     top: 0;
   }
 }
@@ -350,18 +351,18 @@
 /// @see components/card/card
 ///
 /// @example scss
-///   @include nhsuk-care-card($color_nhsuk-blue, $color_nhsuk-white, 4px);
+///   @include nhsuk-care-card(nhsuk-colour("blue"), $nhsuk-reverse-text-colour, 4px);
 ///
 
-@mixin nhsuk-care-card($heading-background-color, $heading-text-color, $print-border-size) {
+@mixin nhsuk-care-card($heading-background-colour, $heading-text-colour, $print-border-size) {
   .nhsuk-card--care__heading-container {
-    background-color: $heading-background-color;
-    color: $heading-text-color;
+    background-color: $heading-background-colour;
+    color: $heading-text-colour;
   }
 
   @include nhsuk-media-query($media-type: print) {
-    border: $print-border-size solid $nhsuk-print-text-color;
-    color: $nhsuk-print-text-color;
+    border: $print-border-size solid $nhsuk-print-text-colour;
+    color: $nhsuk-print-text-colour;
     page-break-inside: avoid;
   }
 }
@@ -383,18 +384,18 @@
 /// @see components/_care-card
 ///
 /// @example scss
-///   @include nhsuk-print-color($nhsuk-print-text-color);
+///   @include nhsuk-print-colour($nhsuk-print-text-colour);
 ///
 
-@mixin nhsuk-print-color($print-color) {
+@mixin nhsuk-print-colour($print-colour) {
   @include nhsuk-media-query($media-type: print) {
-    color: $print-color;
-    fill: $print-color;
+    color: $print-colour;
+    fill: $print-colour;
 
     &:active,
     &:focus,
     &:visited {
-      color: $nhsuk-print-text-color;
+      color: $nhsuk-print-text-colour;
     }
   }
 }
@@ -402,12 +403,23 @@
 /// Print colour mixin, sets the text print colour
 /// warning callout, do and don't lists and panels (deprecated)
 ///
-/// @alias nhsuk-print-color
-/// @deprecated To be removed in v11.0, replaced by nhsuk-print-color
+/// @alias nhsuk-print-colour
+/// @deprecated To be removed in v11.0, replaced by nhsuk-print-colour
+
+@mixin nhsuk-print-color($args...) {
+  @include nhsuk-warning("color-to-colour", "nhsuk-print-color is deprecated. Use nhsuk-print-colour instead.");
+  @include nhsuk-print-colour($args...);
+}
+
+/// Print colour mixin, sets the text print colour
+/// warning callout, do and don't lists and panels (deprecated)
+///
+/// @alias nhsuk-print-colour
+/// @deprecated To be removed in v11.0, replaced by nhsuk-print-colour
 
 @mixin print-color($args...) {
-  @include nhsuk-warning("print-color", "print-color is deprecated. Use nhsuk-print-color instead.");
-  @include nhsuk-print-color($args...);
+  @include nhsuk-warning("print-color", "print-color is deprecated. Use nhsuk-print-colour instead.");
+  @include nhsuk-print-colour($args...);
 }
 
 /// Print hide mixin, hides the element from print

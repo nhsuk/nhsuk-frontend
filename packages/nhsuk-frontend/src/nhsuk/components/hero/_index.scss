@@ -1,5 +1,6 @@
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
+@use "../../core/helpers" as *;
 
 ////
 /// Hero component shared styles
@@ -12,11 +13,11 @@
 ///
 
 .nhsuk-hero {
-  background-color: $color_nhsuk-blue;
-  color: $color_nhsuk-white;
+  background-color: nhsuk-colour("blue");
+  color: nhsuk-colour("white");
   position: relative; // [1]
 
-  @include nhsuk-print-color($nhsuk-print-text-color);
+  @include nhsuk-print-colour($nhsuk-print-text-colour);
 
   .nhsuk-link,
   a:not(.nhsuk-button) {
@@ -25,7 +26,7 @@
 
   .nhsuk-hero--border {
     // [2]
-    border-top: $nhsuk-hero-border solid $nhsuk-secondary-border-color;
+    border-top: $nhsuk-hero-border solid $nhsuk-secondary-border-colour;
   }
 }
 
@@ -73,7 +74,7 @@
   }
 
   .nhsuk-hero__overlay {
-    background-color: $color_transparent_nhsuk-blue-50; // [7]
+    background-color: rgba(nhsuk-shade(nhsuk-colour("blue"), 50%), 0.1); // [7]
 
     @media only screen {
       // [4]
@@ -106,8 +107,8 @@
   }
 
   .nhsuk-hero-content {
-    background-color: $color_nhsuk-blue;
-    color: $color_nhsuk-white;
+    background-color: nhsuk-colour("blue");
+    color: nhsuk-colour("white");
     margin-bottom: 24px;
     padding: nhsuk-spacing(4);
     position: relative;
@@ -127,7 +128,7 @@
 
     .nhsuk-hero__arrow::before,
     .nhsuk-hero__arrow::after {
-      border: solid 32px $color_nhsuk-blue; // [8]
+      border: solid 32px nhsuk-colour("blue"); // [8]
       content: "";
       display: block;
       height: 0;
@@ -163,7 +164,7 @@
 
   @include nhsuk-media-query($media-type: print) {
     .nhsuk-hero-content {
-      color: $color_nhsuk-black;
+      color: nhsuk-colour("black");
       max-width: 100%;
       padding: 0;
     }

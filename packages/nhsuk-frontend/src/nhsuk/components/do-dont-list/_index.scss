@@ -1,5 +1,6 @@
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
+@use "../../core/helpers" as *;
 
 ////
 /// Do and Don't list component
@@ -14,10 +15,10 @@
 ////
 
 .nhsuk-do-dont-list {
-  @include nhsuk-panel-with-label($color_nhsuk-white, $nhsuk-text-color, $color_nhsuk-grey-4); // [1]
+  @include nhsuk-panel-with-label(nhsuk-colour("white"), $nhsuk-text-colour, nhsuk-colour("grey-4")); // [1]
 }
 
 .nhsuk-do-dont-list__label {
-  @include nhsuk-heading-label($color_nhsuk-blue, $color_nhsuk-white); // [2]
-  @include nhsuk-print-color($nhsuk-print-text-color);
+  @include nhsuk-heading-label(nhsuk-colour("blue"), $nhsuk-reverse-text-colour); // [2]
+  @include nhsuk-print-colour($nhsuk-print-text-colour);
 }

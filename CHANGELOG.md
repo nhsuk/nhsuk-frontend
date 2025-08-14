@@ -4,6 +4,21 @@
 
 :new: **New features**
 
+#### Sass colour palette `nhsuk-colour` function
+
+The Sass colour palette variables (e.g. `$color_nhsuk-blue`) have been moved into a new single `$nhsuk-colours` map. The previous names are deprecated and will be removed in a future release.
+
+If you need to reference a colour within your application you should use the new `nhsuk-colour` function:
+
+```patch
+  .nhsuk-example {
+-   color: $color_nhsuk-blue;
++   color: nhsuk-colour("blue");
+  }
+```
+
+This was added in [pull request #1526: Add `$nhsuk-colour` palette, colour helpers and deprecate "color" spelling](https://github.com/nhsuk/nhsuk-frontend/pull/1526).
+
 #### Create individual components with `createAll`
 
 We've added a new `createAll` function that lets you initialise specific components in the same way that `initAll` does.
@@ -28,7 +43,54 @@ You can find out more about [how to use the `createAll` function](https://github
 
 This was added in [pull request #1506: Add JavaScript configuration support to components](https://github.com/nhsuk/nhsuk-frontend/pull/1506).
 
+:wastebasket: **Deprecated features**
+
+#### Rename Sass variables, mixins and CSS classes to use "colour" spelling
+
+We've renamed all Sass variables, mixins and CSS classes to use "colour" (not "color") spelling. You can still use the previous names but we'll remove them in a future breaking release.
+
+**Sass variables**
+
+For example, the following variables have been renamed:
+
+- `$nhsuk-link-color` renamed to `$nhsuk-link-colour`
+- `$nhsuk-link-hover-color` renamed to `$nhsuk-link-hover-colour`
+- `$nhsuk-link-active-color` renamed to `$nhsuk-link-active-colour`
+- `$nhsuk-link-visited-color` renamed to `$nhsuk-link-visited-colour`
+
+See [pull request #1526](https://github.com/nhsuk/nhsuk-frontend/pull/1526) for the full list.
+
+**Sass mixins**
+
+The following mixins have been renamed:
+
+- `nhsuk-print-color` renamed to `nhsuk-print-colour`
+- `nhsuk-text-color` renamed to `nhsuk-text-colour`
+
+**CSS classes**
+
+The following CSS classes have been renamed:
+
+- `nhsuk-u-secondary-text-color` renamed to `nhsuk-u-secondary-text-colour`
+
+This was added in [pull request #1526: Add `$nhsuk-colour` palette, colour helpers and deprecate "color" spelling](https://github.com/nhsuk/nhsuk-frontend/pull/1526).
+
 :boom: **Breaking changes**
+
+#### Colour variables that have been removed
+
+Sass colour tint and shade variables (e.g. `$color_tint_nhsuk-black-10`) have been removed but are available using the `nhsuk-tint` and `nhsuk-shade` functions:
+
+| Colour variable removed     | Suggested replacement                   |
+| --------------------------- | --------------------------------------- |
+| $color_tint_nhsuk-black-10  | nhsuk-tint(nhsuk-colour("black"), 10%)  |
+| $color_shade_nhsuk-blue-20  | nhsuk-shade(nhsuk-colour("blue"), 20%)  |
+| $color_shade_nhsuk-blue-35  | nhsuk-shade(nhsuk-colour("blue"), 35%)  |
+| $color_shade_nhsuk-blue-50  | nhsuk-shade(nhsuk-colour("blue"), 50%)  |
+| $color_shade_nhsuk-green-35 | nhsuk-shade(nhsuk-colour("green"), 35%) |
+| $color_shade_nhsuk-green-50 | nhsuk-shade(nhsuk-colour("green"), 50%) |
+
+This change was introduced in [pull request #1526: Add `$nhsuk-colour` palette, colour helpers and deprecate "color" spelling](https://github.com/nhsuk/nhsuk-frontend/pull/1526).
 
 #### Update back link component
 

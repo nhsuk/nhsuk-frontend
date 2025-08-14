@@ -1,6 +1,7 @@
 @use "sass:math";
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
+@use "../../core/helpers" as *;
 
 ////
 /// Details component
@@ -20,7 +21,7 @@
 
 .nhsuk-details {
   display: block;
-  @include nhsuk-text-color;
+  @include nhsuk-text-colour;
   @include nhsuk-font-size(19);
   @include nhsuk-responsive-margin(4, "bottom");
 }
@@ -36,7 +37,7 @@
 // Hack to support Internet Explorer 11
 @media screen\0 {
   .nhsuk-details {
-    border-left: nhsuk-spacing(1) solid $color_nhsuk-grey-4;
+    border-left: nhsuk-spacing(1) solid nhsuk-colour("grey-4");
     margin-top: nhsuk-spacing(2);
     padding: nhsuk-spacing(3) 0;
     padding-left: 20px; // [6]
@@ -59,14 +60,14 @@
 //   - do not support ES6 modules or the <details> element (eg, IE8+)
 @supports not (-ms-ime-align: auto) {
   .nhsuk-details__summary {
-    color: $nhsuk-link-color; // [1]
+    color: $nhsuk-link-colour; // [1]
     cursor: pointer;
     padding-left: nhsuk-spacing(4);
     position: relative; // [3]
     width: fit-content; // [2]
 
     &:hover {
-      color: $nhsuk-link-hover-color;
+      color: $nhsuk-link-hover-colour;
     }
 
     &:focus {
@@ -105,7 +106,7 @@
   }
 
   .nhsuk-details__text {
-    border-left: nhsuk-spacing(1) solid $color_nhsuk-grey-4;
+    border-left: nhsuk-spacing(1) solid nhsuk-colour("grey-4");
     margin-top: nhsuk-spacing(2);
     padding: nhsuk-spacing(3) 0;
     padding-left: 20px; // [6]
@@ -117,16 +118,16 @@
 
 $expander-border-width: 1px;
 $expander-border-bottom-width: nhsuk-spacing(1);
-$expander-border-color: $color_nhsuk-grey-4;
-$expander-border-hover-color: $color_nhsuk-grey-3;
+$expander-border-colour: nhsuk-colour("grey-4");
+$expander-border-hover-colour: nhsuk-colour("grey-3");
 $expander-icon-size: 27px; // 19px font size + 4px summary text padding
 
 .nhsuk-expander {
-  background-color: $color_nhsuk-white;
-  border: $expander-border-width solid $expander-border-color;
+  background-color: nhsuk-colour("white");
+  border: $expander-border-width solid $expander-border-colour;
 
   .nhsuk-details__summary {
-    background-color: $color_nhsuk-white;
+    background-color: nhsuk-colour("white");
     border-top: $nhsuk-focus-width solid transparent;
     display: block;
     padding: nhsuk-spacing(4) - $nhsuk-focus-width nhsuk-spacing(4) 0;
@@ -165,7 +166,7 @@ $expander-icon-size: 27px; // 19px font size + 4px summary text padding
     border-bottom-width: $expander-border-bottom-width;
 
     &:hover {
-      border-color: $expander-border-hover-color;
+      border-color: $expander-border-hover-colour;
     }
 
     .nhsuk-details__summary {
@@ -187,7 +188,7 @@ $expander-icon-size: 27px; // 19px font size + 4px summary text padding
     }
 
     .nhsuk-details__summary-text {
-      color: $color_nhsuk-blue;
+      color: nhsuk-colour("blue");
       cursor: pointer;
       display: inline-block;
       padding: nhsuk-spacing(1);
@@ -196,7 +197,7 @@ $expander-icon-size: 27px; // 19px font size + 4px summary text padding
     }
 
     .nhsuk-details__summary:hover .nhsuk-details__summary-text {
-      color: $nhsuk-link-hover-color;
+      color: $nhsuk-link-hover-colour;
     }
 
     .nhsuk-details__summary:focus .nhsuk-details__summary-text {

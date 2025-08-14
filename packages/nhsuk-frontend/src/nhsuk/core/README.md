@@ -161,7 +161,7 @@ nhsuk-u-[grid-size]
 ### Secondary text colour
 
 ```html
-<p class="nhsuk-u-secondary-text-color"></p>
+<p class="nhsuk-u-secondary-text-colour"></p>
 ```
 
 ### Reading width
@@ -233,6 +233,18 @@ To use the font you must have a licence. NHS England has a licence for the Fruti
 - `$nhsuk-fonts-path`: base URL to load fonts from (e.g. `/fonts/`; trailing slash required)
 - `$nhsuk-include-font-face`: set to false to disable the inclusion of the `@font-face` definition entirely
 
+## Colours
+
+Use the `nhsuk-colour()` function to reference a colour in your application:
+
+```scss
+.nhsuk-example {
+  color: nhsuk-colour("blue");
+}
+```
+
+See the full list in [\_colours-palette.scss](./settings/_colours-applied.scss).
+
 ## Breakpoints
 
 ```
@@ -256,51 +268,19 @@ large-desktop: 990px
 .nhsuk-example {
   // Apply styling to mobile and upwards
   @include nhsuk-media-query($from: mobile) {
-    color: $color_nhsuk-red;
+    color: nhsuk-colour("red");
   }
   // Apply styling up to devices smaller than tablets (exclude tablets)
   @include nhsuk-media-query($until: tablet) {
-    color: $color_nhsuk-blue;
+    color: nhsuk-colour("blue");
   }
   // Same thing, in landscape orientation
   @include nhsuk-media-query($until: tablet, $and: '(orientation: landscape)') {
-    color: $color_nhsuk-green;
+    color: nhsuk-colour("green");
   }
   // Apply styling to print media
   @include nhsuk-media-query($media-type: print) {
-    color: $color_nhsuk-orange;
+    color: nhsuk-colour("orange");
   }
 }
-```
-
-## Colour variables
-
-### Primary
-
-```scss
-$color_nhsuk-blue: #005eb8;
-$color_nhsuk-white: #ffffff;
-$color_nhsuk-black: #212b32;
-$color_nhsuk-green: #007f3b;
-$color_nhsuk-red: #da291c;
-$color_nhsuk-yellow: #ffeb3b;
-$color_nhsuk-purple: #330072;
-```
-
-### Secondary
-
-```scss
-$color_nhsuk-pale-yellow: #fff9c4;
-$color_nhsuk-warm-yellow: #ffb81C;
-$color_nhsuk-aqua-green: #00A499;
-```
-
-### Greyscale
-
-```scss
-$color_nhsuk-grey-1: #425563;
-$color_nhsuk-grey-2: #768692;
-$color_nhsuk-grey-3: #aeb7bd;
-$color_nhsuk-grey-4: #d8dde0;
-$color_nhsuk-grey-5: #f0f4f5;
 ```

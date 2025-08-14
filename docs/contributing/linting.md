@@ -25,7 +25,7 @@ Good:
 }
 ```
 
-### Use variables for colours not HEX values in selectors rules, unless in variables.
+### Use Sass mixin for colours instead of hex values
 
 Bad:
 
@@ -39,7 +39,7 @@ Good:
 
 ```scss
 .selector {
-  color: $color_nhsuk-blue;
+  color: nhsuk-colour("blue");
 }
 ```
 

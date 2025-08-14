@@ -1,0 +1,59 @@
+@use "sass:color";
+@use "sass:map";
+@use "sass:meta";
+@use "sass:string";
+@use "../settings/colours-palette" as *;
+
+////
+/// @group helpers/colour
+////
+
+///
+/// Get colour
+///
+/// @param {String | Colour} $colour - Name of colour from the colour palette
+///   (`$nhsuk-colours`)
+/// @return {Colour} Representation of named colour
+///
+/// @throw if `$colour` is not a colour from the colour palette
+
+@function nhsuk-colour($colour) {
+  @if meta.type-of($colour) == "color" {
+    // stylelint-disable-next-line scss/function-quote-no-quoted-strings-inside
+    $colour: string.quote("#{$colour}");
+  }
+
+  @if not map.has-key($nhsuk-colours, $colour) {
+    @error "Unknown colour `#{$colour}`";
+  }
+
+  @return map.get($nhsuk-colours, $colour);
+}
+
+/// Make a colour darker by mixing it with black
+///
+/// @example scss
+///   nhsuk-shade(color, percentage);
+///   nhsuk-shade(nhsuk-colour("blue"), 50%);
+///
+/// @param {Colour} $colour - colour to shade
+/// @param {Number} $percentage - percentage of black to mix with $colour
+/// @return {Colour}
+
+@function nhsuk-shade($colour, $percentage) {
+  @return color.mix(black, $colour, $percentage);
+}
+
+/// Make a colour lighter by mixing it with white
+///
+/// @example scss
+///   nhsuk-tint(color, percentage);
+///   nhsuk-tint(nhsuk-colour("blue"), 10%);
+///
+/// @param {Colour} $colour - colour to tint
+/// @param {Number} $percentage - percentage of white to mix with $colour
+/// @return {Colour}
+
+@function nhsuk-tint($color, $percentage) {
+  @return color.mix(white, $color, $percentage);
+}

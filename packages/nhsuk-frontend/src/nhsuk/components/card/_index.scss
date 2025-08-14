@@ -1,6 +1,7 @@
 @use "sass:math";
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
+@use "../../core/helpers" as *;
 
 ////
 /// Card component
@@ -32,12 +33,16 @@
 
 $card-border-width: 1px;
 $card-border-bottom-width: nhsuk-spacing(1);
-$card-border-color: $color_nhsuk-grey-4;
-$card-border-hover-color: $color_nhsuk-grey-3;
+$card-border-colour: nhsuk-colour("grey-4");
+$card-border-hover-colour: nhsuk-colour("grey-3");
+
+// @deprecated To be removed in v11.0
+$card-border-color: $card-border-colour;
+$card-border-hover-color: $card-border-hover-colour;
 
 .nhsuk-card {
-  background: $color_nhsuk-white;
-  border: $card-border-width solid $card-border-color;
+  background: nhsuk-colour("white");
+  border: $card-border-width solid $card-border-colour;
   position: relative; // [1]
   width: 100%;
 
@@ -45,7 +50,7 @@ $card-border-hover-color: $color_nhsuk-grey-3;
 }
 
 .nhsuk-card__img {
-  border-bottom: $card-border-width solid $color_nhsuk-grey-5; // [2]
+  border-bottom: $card-border-width solid nhsuk-colour("grey-5"); // [2]
   display: block;
   width: 100%;
 
@@ -89,7 +94,7 @@ $card-border-hover-color: $color_nhsuk-grey-3;
   }
 
   &:active {
-    border-color: $card-border-hover-color;
+    border-color: $card-border-hover-colour;
     bottom: -$card-border-width; // [3]
   }
 }
@@ -145,8 +150,8 @@ $card-border-hover-color: $color_nhsuk-grey-3;
 }
 
 .nhsuk-card__heading--feature {
-  background: $color_nhsuk-blue;
-  color: $color_nhsuk-white;
+  background: nhsuk-colour("blue");
+  color: nhsuk-colour("white");
   display: inline-block;
   left: -(nhsuk-spacing(4) + $card-border-width); // [5]
   margin-bottom: nhsuk-spacing(2);
@@ -171,7 +176,7 @@ $card-border-hover-color: $color_nhsuk-grey-3;
 /// Care card
 
 .nhsuk-card--care {
-  @include nhsuk-care-card($color_nhsuk-blue, $color_nhsuk-white, 4px); // [8]
+  @include nhsuk-care-card(nhsuk-colour("blue"), nhsuk-colour("white"), 4px); // [8]
   @include nhsuk-responsive-margin(7, "top");
 }
 
@@ -189,7 +194,7 @@ $card-border-hover-color: $color_nhsuk-grey-3;
   padding-top: 0; // [13]
 
   @include nhsuk-font(26, $weight: bold);
-  @include nhsuk-print-color($nhsuk-print-text-color);
+  @include nhsuk-print-colour($nhsuk-print-text-colour);
 }
 
 .nhsuk-card--care__arrow {
@@ -209,7 +214,7 @@ $card-border-hover-color: $color_nhsuk-grey-3;
 
   &::before,
   &::after {
-    border: solid 32px $color_nhsuk-blue; // [9]
+    border: solid 32px nhsuk-colour("blue"); // [9]
     content: "";
     display: block;
     height: 0;
@@ -221,30 +226,30 @@ $card-border-hover-color: $color_nhsuk-grey-3;
 }
 
 .nhsuk-card--care--urgent {
-  @include nhsuk-care-card($color_nhsuk-red, $color_nhsuk-white, 6px);
+  @include nhsuk-care-card(nhsuk-colour("red"), nhsuk-colour("white"), 6px);
 
   .nhsuk-card--care__arrow {
     &::before,
     &::after {
-      border-color: $color_nhsuk-red;
+      border-color: nhsuk-colour("red");
     }
   }
 }
 
 .nhsuk-card--care--emergency {
-  @include nhsuk-care-card($color_nhsuk-red, $color_nhsuk-white, 8px);
+  @include nhsuk-care-card(nhsuk-colour("red"), nhsuk-colour("white"), 8px);
 
   .nhsuk-card--care__arrow {
     &::before,
     &::after {
-      border-color: $color_nhsuk-red;
+      border-color: nhsuk-colour("red");
     }
   }
 
   .nhsuk-card__content {
-    background-color: $color_nhsuk-black;
+    background-color: nhsuk-colour("black");
     border: 0;
-    color: $color_nhsuk-white;
+    color: nhsuk-colour("white");
     position: static; // [15]
 
     a {
@@ -252,29 +257,29 @@ $card-border-hover-color: $color_nhsuk-grey-3;
     }
 
     @include nhsuk-media-query($media-type: print) {
-      background-color: $color_nhsuk-white;
-      color: $nhsuk-print-text-color;
+      background-color: nhsuk-colour("white");
+      color: $nhsuk-print-text-colour;
     }
   }
 
   .nhsuk-details,
   .nhsuk-details__summary {
-    color: $color_nhsuk-white;
+    color: nhsuk-colour("white");
   }
 
   .nhsuk-details__summary {
     &:hover {
-      color: $color_nhsuk-white;
+      color: nhsuk-colour("white");
     }
 
     &:focus {
-      color: $color_nhsuk-black;
+      color: nhsuk-colour("black");
     }
   }
 
   .nhsuk-action-link__link {
     .nhsuk-icon__arrow-right-circle {
-      fill: $color_nhsuk-white; // [14]
+      fill: nhsuk-colour("white"); // [14]
     }
   }
 }
@@ -295,7 +300,7 @@ $card-border-hover-color: $color_nhsuk-grey-3;
     display: block;
     width: $icon-width;
     height: $icon-height;
-    fill: $color_nhsuk-blue;
+    fill: nhsuk-colour("blue");
     margin-top: -(math.floor(math.div($icon-height, 2)));
     pointer-events: none;
     position: absolute;
@@ -308,7 +313,7 @@ $card-border-hover-color: $color_nhsuk-grey-3;
 
 .nhsuk-card--secondary {
   background: transparent;
-  border-bottom: $card-border-bottom-width solid $card-border-color;
+  border-bottom: $card-border-bottom-width solid $card-border-colour;
   border-left: 0;
   border-right: 0;
   border-top: 0;

@@ -1,5 +1,6 @@
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
+@use "../../core/helpers" as *;
 
 ////
 /// Warning callout component
@@ -11,9 +12,9 @@
 ////
 
 .nhsuk-warning-callout {
-  @include nhsuk-panel-with-label($color_nhsuk-pale-yellow, $nhsuk-text-color, $color_nhsuk-yellow); // [1]
+  @include nhsuk-panel-with-label(nhsuk-colour("pale-yellow"), $nhsuk-text-colour, nhsuk-colour("yellow")); // [1]
 }
 
 .nhsuk-warning-callout__label {
-  @include nhsuk-heading-label($color_nhsuk-yellow, $nhsuk-text-color); // [2]
+  @include nhsuk-heading-label(nhsuk-colour("yellow"), $nhsuk-text-colour); // [2]
 }

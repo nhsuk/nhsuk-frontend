@@ -1,5 +1,6 @@
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
+@use "../../core/helpers" as *;
 
 ////
 /// Inset text component
@@ -13,7 +14,7 @@
 ////
 
 .nhsuk-inset-text {
-  border-left: $nhsuk-border-width-inset-text solid $color_nhsuk-blue;
+  border-left: $nhsuk-border-width-inset-text solid nhsuk-colour("blue");
 
   @include nhsuk-reading-width; // [2]
   @include nhsuk-top-and-bottom; // [1]
@@ -23,6 +24,6 @@
   @include nhsuk-responsive-padding(4);
 
   @include nhsuk-media-query($media-type: print) {
-    border-color: $nhsuk-print-text-color;
+    border-color: $nhsuk-print-text-colour;
   }
 }

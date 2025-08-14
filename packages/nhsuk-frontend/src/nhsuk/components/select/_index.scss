@@ -1,5 +1,6 @@
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
+@use "../../core/helpers" as *;
 
 ////
 /// Select component
@@ -16,10 +17,10 @@
 ////
 
 .nhsuk-select {
-  background-color: $color_nhsuk-white;
-  border: $nhsuk-border-width-form-element solid $nhsuk-form-border-color;
+  background-color: nhsuk-colour("white");
+  border: $nhsuk-border-width-form-element solid $nhsuk-form-border-colour;
   box-sizing: border-box;
-  color: $color_nhsuk-black;
+  color: nhsuk-colour("black");
   height: 2.5rem; // [1]
   min-width: 20ex + 3ex; // [2]
   max-width: 100%;
@@ -35,10 +36,10 @@
 .nhsuk-select option:active,
 .nhsuk-select option:checked,
 .nhsuk-select:focus::-ms-value {
-  background-color: $color_nhsuk-blue;
-  color: $color_nhsuk-white;
+  background-color: nhsuk-colour("blue");
+  color: nhsuk-colour("white");
 }
 
 .nhsuk-select--error {
-  border: $nhsuk-border-width-form-element-error solid $nhsuk-error-color;
+  border: $nhsuk-border-width-form-element-error solid $nhsuk-error-colour;
 }

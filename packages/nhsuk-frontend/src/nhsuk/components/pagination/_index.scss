@@ -1,5 +1,6 @@
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
+@use "../../core/helpers" as *;
 
 ////
 /// Pagination component
@@ -56,7 +57,7 @@
   width: 100%;
 
   @include nhsuk-media-query($media-type: print) {
-    color: $color_nhsuk-black;
+    color: nhsuk-colour("black");
   }
 
   .nhsuk-icon {
@@ -64,7 +65,7 @@
     top: -2px;
 
     @include nhsuk-media-query($media-type: print) {
-      color: $color_nhsuk-black;
+      color: nhsuk-colour("black");
       margin-top: 0;
     }
   }

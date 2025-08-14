@@ -9,7 +9,7 @@
 
 .nhsuk-textarea {
   -webkit-appearance: none;
-  border: $nhsuk-border-width-form-element solid $nhsuk-form-border-color;
+  border: $nhsuk-border-width-form-element solid $nhsuk-form-border-colour;
   border-radius: 0;
   box-sizing: border-box;
   display: block;
@@ -26,5 +26,5 @@
 }
 
 .nhsuk-textarea--error {
-  border: $nhsuk-border-width-form-element-error solid $nhsuk-error-color;
+  border: $nhsuk-border-width-form-element-error solid $nhsuk-error-colour;
 }
