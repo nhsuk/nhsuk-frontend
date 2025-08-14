@@ -161,7 +161,7 @@ nhsuk-u-[grid-size]
 ### Secondary text colour
 
 ```html
-<p class="nhsuk-u-secondary-text-color"></p>
+<p class="nhsuk-u-secondary-text-colour"></p>
 ```
 
 ### Reading width
