@@ -20,7 +20,7 @@
     "@nhsuk/frontend-tasks": "*",
     "del-cli": "^6.0.0",
     "gulp": "^5.0.1",
-    "html-validate": "^9.7.1",
+    "html-validate": "^10.0.0",
     "plugin-error": "^2.0.1"
   },
   "engines": {
