@@ -218,6 +218,7 @@ This change was introduced in [pull request #1510: Accommodate camera notches](h
 - [#1525: Fix exclusive checkbox groups with unique name attributes](https://github.com/nhsuk/nhsuk-frontend/pull/1525)
 - [#1528: Fix alt text in header](https://github.com/nhsuk/nhsuk-frontend/pull/1528)
 - [#1532: Use em-based sizing for chevron size and shape](https://github.com/nhsuk/nhsuk-frontend/pull/1532)
+- [#1533: Improve high contrast appearance for header and card headings](https://github.com/nhsuk/nhsuk-frontend/pull/1533)
 
 ## 10.0.0-internal.2 - 24 July 2025
 
