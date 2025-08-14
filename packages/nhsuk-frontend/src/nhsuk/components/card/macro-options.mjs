@@ -9,6 +9,11 @@ export const name = 'Card'
  * @satisfies {{ [param: string]: MacroParam }}
  */
 export const params = {
+  id: {
+    type: 'string',
+    required: false,
+    description: 'The ID of the card.'
+  },
   heading: {
     type: 'string',
     required: true,
