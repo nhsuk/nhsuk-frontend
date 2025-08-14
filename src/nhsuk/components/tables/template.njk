@@ -8,7 +8,7 @@
     <h{{ headingLevel }} class="nhsuk-table__heading-tab">{{ params.heading | safe }}</h{{ headingLevel }}>
   {%- endif %}
   {%- endif %}
-  <table class="nhsuk-table
+  <table {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-table
     {%- if params.responsive %}-responsive{% endif %}
     {%- if params.tableClasses %} {{ params.tableClasses }}{% endif %}"
     {%- if params.responsive %} role="table"{% endif %}

@@ -8,6 +8,11 @@ export const name = 'Breadcrumb'
  * @satisfies {{ [param: string]: MacroParam }}
  */
 export const params = {
+  id: {
+    type: 'string',
+    required: false,
+    description: 'The ID of the breadcrumb.'
+  },
   items: {
     type: 'array',
     required: true,

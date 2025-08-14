@@ -8,6 +8,11 @@ export const name = "Do and Don't list"
  * @satisfies {{ [param: string]: MacroParam }}
  */
 export const params = {
+  id: {
+    type: 'string',
+    required: false,
+    description: "The ID of the do and don't list component."
+  },
   title: {
     type: 'string',
     required: true,
