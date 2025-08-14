@@ -60,14 +60,14 @@
 //   - do not support ES6 modules or the <details> element (eg, IE8+)
 @supports not (-ms-ime-align: auto) {
   .nhsuk-details__summary {
-    color: $nhsuk-link-color; // [1]
+    color: $nhsuk-link-colour; // [1]
     cursor: pointer;
     padding-left: nhsuk-spacing(4);
     position: relative; // [3]
     width: fit-content; // [2]
 
     &:hover {
-      color: $nhsuk-link-hover-color;
+      color: $nhsuk-link-hover-colour;
     }
 
     &:focus {
@@ -118,13 +118,13 @@
 
 $expander-border-width: 1px;
 $expander-border-bottom-width: nhsuk-spacing(1);
-$expander-border-color: nhsuk-colour("grey-4");
-$expander-border-hover-color: nhsuk-colour("grey-3");
+$expander-border-colour: nhsuk-colour("grey-4");
+$expander-border-hover-colour: nhsuk-colour("grey-3");
 $expander-icon-size: 27px; // 19px font size + 4px summary text padding
 
 .nhsuk-expander {
   background-color: nhsuk-colour("white");
-  border: $expander-border-width solid $expander-border-color;
+  border: $expander-border-width solid $expander-border-colour;
 
   .nhsuk-details__summary {
     background-color: nhsuk-colour("white");
@@ -166,7 +166,7 @@ $expander-icon-size: 27px; // 19px font size + 4px summary text padding
     border-bottom-width: $expander-border-bottom-width;
 
     &:hover {
-      border-color: $expander-border-hover-color;
+      border-color: $expander-border-hover-colour;
     }
 
     .nhsuk-details__summary {
@@ -197,7 +197,7 @@ $expander-icon-size: 27px; // 19px font size + 4px summary text padding
     }
 
     .nhsuk-details__summary:hover .nhsuk-details__summary-text {
-      color: $nhsuk-link-hover-color;
+      color: $nhsuk-link-hover-colour;
     }
 
     .nhsuk-details__summary:focus .nhsuk-details__summary-text {

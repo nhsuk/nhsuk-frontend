@@ -27,7 +27,7 @@
 }
 
 .nhsuk-summary-list__row {
-  border-bottom: 1px solid $nhsuk-border-color;
+  border-bottom: 1px solid $nhsuk-border-colour;
 
   @include nhsuk-media-query($until: tablet) {
     margin-bottom: nhsuk-spacing(3);
@@ -116,7 +116,7 @@
   display: inline-block;
 
   @include nhsuk-media-query($until: tablet) {
-    border-right: 1px solid $nhsuk-border-color;
+    border-right: 1px solid $nhsuk-border-colour;
     margin-right: nhsuk-spacing(2);
     padding-right: nhsuk-spacing(2);
 
@@ -138,7 +138,7 @@
     }
 
     &:not(:first-child) {
-      border-left: 1px solid $nhsuk-border-color;
+      border-left: 1px solid $nhsuk-border-colour;
     }
   }
 }

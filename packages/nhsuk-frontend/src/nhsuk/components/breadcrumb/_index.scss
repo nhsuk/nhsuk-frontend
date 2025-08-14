@@ -14,11 +14,11 @@
 ////
 
 $_font-size: 16;
-$_chevron-color: $nhsuk-secondary-text-color;
+$_chevron-colour: $nhsuk-secondary-text-colour;
 $_chevron-size: nhsuk-em(nhsuk-chevron-size(), $_font-size);
 
 .nhsuk-breadcrumb {
-  color: $nhsuk-text-color;
+  color: $nhsuk-text-colour;
 
   @include nhsuk-responsive-margin(4, "top");
   @include nhsuk-print-hide; // [1]
@@ -60,7 +60,7 @@ $_chevron-size: nhsuk-em(nhsuk-chevron-size(), $_font-size);
     position: absolute;
     top: 0;
 
-    @include nhsuk-shape-chevron(right, $_chevron-color);
+    @include nhsuk-shape-chevron(right, $_chevron-colour);
   }
 
   // Hide chevron before first breadcrumb item

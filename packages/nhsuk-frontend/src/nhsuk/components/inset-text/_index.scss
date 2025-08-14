@@ -24,6 +24,6 @@
   @include nhsuk-responsive-padding(4);
 
   @include nhsuk-media-query($media-type: print) {
-    border-color: $nhsuk-print-text-color;
+    border-color: $nhsuk-print-text-colour;
   }
 }

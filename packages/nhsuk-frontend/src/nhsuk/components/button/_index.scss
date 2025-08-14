@@ -27,8 +27,8 @@ $button-padding-left-right: 16px;
 .nhsuk-button {
   -webkit-appearance: none;
   // Set shadow below the button [4]
-  box-shadow: 0 $button-shadow-size 0 $nhsuk-button-shadow-color; // s0
-  background-color: $nhsuk-button-color;
+  box-shadow: 0 $button-shadow-size 0 $nhsuk-button-shadow-colour; // s0
+  background-color: $nhsuk-button-colour;
   border: $nhsuk-border-width-form-element solid transparent;
   border-radius: $button-border-radius;
   box-sizing: border-box;
@@ -58,7 +58,7 @@ $button-padding-left-right: 16px;
 
     &,
     &:visited {
-      color: $nhsuk-button-text-color;
+      color: $nhsuk-button-text-colour;
     }
   }
 
@@ -69,7 +69,7 @@ $button-padding-left-right: 16px;
   }
 
   &:hover {
-    background-color: $nhsuk-button-hover-color;
+    background-color: $nhsuk-button-hover-colour;
   }
 
   // Reset focus styles added to buttons as links
@@ -86,7 +86,7 @@ $button-padding-left-right: 16px;
     // stylelint-disable-next-line no-duplicate-selectors
     & {
       // Set shadow below the button [4]
-      box-shadow: 0 $button-shadow-size 0 $nhsuk-focus-text-color; // s0
+      box-shadow: 0 $button-shadow-size 0 $nhsuk-focus-text-colour; // s0
     }
   }
 
@@ -94,7 +94,7 @@ $button-padding-left-right: 16px;
   &:active,
   &:active:focus {
     box-shadow: none;
-    background-color: $nhsuk-button-active-color;
+    background-color: $nhsuk-button-active-colour;
     top: $button-shadow-size;
   }
 
@@ -143,18 +143,18 @@ $button-padding-left-right: 16px;
   &:hover:visited,
   &:active,
   &:active:visited {
-    color: $nhsuk-secondary-button-text-color;
+    color: $nhsuk-secondary-button-text-colour;
   }
 
   &:hover {
-    background-color: $nhsuk-secondary-button-hover-color;
+    background-color: $nhsuk-secondary-button-hover-colour;
   }
 
   // Set border for active state (no shadow)
   &:active,
   &:active:focus {
-    background-color: $nhsuk-secondary-button-active-color;
-    border-color: $nhsuk-secondary-button-border-color;
+    background-color: $nhsuk-secondary-button-active-colour;
+    border-color: $nhsuk-secondary-button-border-colour;
     border-radius: $button-border-radius;
   }
 
@@ -162,14 +162,14 @@ $button-padding-left-right: 16px;
   // border to render underneath the shadow and hide pixel artifacts, but
   // ensuring the active "pressed" and focus states have priority [3]
   &:not(:focus):not(:active)::before {
-    border-color: $nhsuk-secondary-button-border-color;
+    border-color: $nhsuk-secondary-button-border-colour;
   }
 
   // Set shadow on both the button and the pseudo element. The button shadow
   // remains in place to prevent any pixel gaps due to browser rounding [4]
   &,
   &::after {
-    box-shadow: 0 $button-shadow-size 0 $nhsuk-secondary-button-shadow-color; // s0
+    box-shadow: 0 $button-shadow-size 0 $nhsuk-secondary-button-shadow-colour; // s0
   }
 
   // Inset the pseudo element shadow away from the edges, to restore lost
@@ -188,17 +188,17 @@ $button-padding-left-right: 16px;
 }
 
 .nhsuk-button--secondary {
-  background-color: $nhsuk-secondary-button-color;
+  background-color: $nhsuk-secondary-button-colour;
 }
 
 .nhsuk-button--secondary-solid {
-  background-color: $nhsuk-secondary-button-solid-background-color;
+  background-color: $nhsuk-secondary-button-solid-background-colour;
 }
 
 .nhsuk-button--reverse {
   // Set shadow below the button [4]
-  box-shadow: 0 $button-shadow-size 0 $nhsuk-reverse-button-shadow-color; // s0
-  background-color: $nhsuk-reverse-button-color;
+  box-shadow: 0 $button-shadow-size 0 $nhsuk-reverse-button-shadow-colour; // s0
+  background-color: $nhsuk-reverse-button-colour;
 
   &,
   &:visited,
@@ -206,46 +206,46 @@ $button-padding-left-right: 16px;
   &:hover:visited,
   &:active,
   &:active:visited {
-    color: $nhsuk-reverse-button-text-color;
+    color: $nhsuk-reverse-button-text-colour;
   }
 
   &:hover {
-    background-color: $nhsuk-reverse-button-hover-color;
+    background-color: $nhsuk-reverse-button-hover-colour;
   }
 
   &:active,
   &:active:focus {
-    background-color: $nhsuk-reverse-button-active-color;
+    background-color: $nhsuk-reverse-button-active-colour;
   }
 }
 
 .nhsuk-button--warning {
   // Set shadow below the button [4]
-  box-shadow: 0 $button-shadow-size 0 $nhsuk-warning-button-shadow-color; // s0
-  background-color: $nhsuk-warning-button-color;
+  box-shadow: 0 $button-shadow-size 0 $nhsuk-warning-button-shadow-colour; // s0
+  background-color: $nhsuk-warning-button-colour;
 
   &:hover {
-    background-color: $nhsuk-warning-button-hover-color;
+    background-color: $nhsuk-warning-button-hover-colour;
   }
 
   &:active,
   &:active:focus {
-    background-color: $nhsuk-warning-button-active-color;
+    background-color: $nhsuk-warning-button-active-colour;
   }
 }
 
 .nhsuk-button--login {
   // Set shadow below the button [4]
-  box-shadow: 0 $button-shadow-size 0 $nhsuk-login-button-shadow-color; // s0
-  background-color: $nhsuk-login-button-color;
+  box-shadow: 0 $button-shadow-size 0 $nhsuk-login-button-shadow-colour; // s0
+  background-color: $nhsuk-login-button-colour;
 
   &:hover {
-    background-color: $nhsuk-login-button-hover-color;
+    background-color: $nhsuk-login-button-hover-colour;
   }
 
   &:active,
   &:active:focus {
-    background-color: $nhsuk-login-button-active-color;
+    background-color: $nhsuk-login-button-active-colour;
   }
 }
 

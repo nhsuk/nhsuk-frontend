@@ -12,7 +12,10 @@
 
 // NHS pages have a grey background, so we need a slightly darker colour for the hover
 // This produces 1.1:1 contrast, the same as GOV.UK’s
-$nhsuk-task-list-hover-color: color.adjust(nhsuk-colour("grey-5"), $lightness: -6%);
+$nhsuk-task-list-hover-colour: color.adjust(nhsuk-colour("grey-5"), $lightness: -6%);
+
+// @deprecated To be removed in v11.0
+$nhsuk-task-list-hover-color: $nhsuk-task-list-hover-colour;
 
 .nhsuk-task-list {
   margin-top: 0;
@@ -37,24 +40,24 @@ $nhsuk-task-list-hover-color: color.adjust(nhsuk-colour("grey-5"), $lightness: -
   padding-top: calc(nhsuk-spacing(2) + 4px);
   // stylelint-disable-next-line function-calc-no-unspaced-operator
   padding-bottom: calc(nhsuk-spacing(2) + 4px);
-  border-bottom: 1px solid $nhsuk-border-color;
+  border-bottom: 1px solid $nhsuk-border-colour;
 }
 
 .nhsuk-task-list__item:first-child {
-  border-top: 1px solid $nhsuk-border-color;
+  border-top: 1px solid $nhsuk-border-colour;
 }
 
 // This class is added to the <li> elements where the task name is a link.
 // The background hover colour is added to help indicate that the whole row is clickable, rather
 // than just the visible link text.
 .nhsuk-task-list__item--with-link:hover {
-  background: $nhsuk-task-list-hover-color;
+  background: $nhsuk-task-list-hover-colour;
 }
 
 .nhsuk-task-list__name-and-hint {
   display: table-cell;
   vertical-align: top;
-  color: $nhsuk-text-color;
+  color: $nhsuk-text-colour;
 }
 
 .nhsuk-task-list__status {
@@ -62,7 +65,7 @@ $nhsuk-task-list-hover-color: color.adjust(nhsuk-colour("grey-5"), $lightness: -
   padding-left: nhsuk-spacing(2);
   text-align: right;
   vertical-align: top;
-  color: $nhsuk-text-color;
+  color: $nhsuk-text-colour;
 }
 
 // This replicates some of the styling and spacing of tags so that these non-tag
@@ -80,7 +83,7 @@ $nhsuk-task-list-hover-color: color.adjust(nhsuk-colour("grey-5"), $lightness: -
 }
 
 .nhsuk-task-list__status--cannot-start-yet {
-  color: $nhsuk-secondary-text-color;
+  color: $nhsuk-secondary-text-colour;
 }
 
 // This adds an empty transparent box covering the whole row, including the task status and
@@ -98,5 +101,5 @@ $nhsuk-task-list-hover-color: color.adjust(nhsuk-colour("grey-5"), $lightness: -
 
 .nhsuk-task-list__hint {
   margin-top: nhsuk-spacing(1);
-  color: $nhsuk-secondary-text-color;
+  color: $nhsuk-secondary-text-colour;
 }

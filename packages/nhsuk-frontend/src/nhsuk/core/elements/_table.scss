@@ -30,7 +30,7 @@ table {
 
 thead {
   th {
-    border-bottom: $nhsuk-border-table-header-width solid $nhsuk-border-color;
+    border-bottom: $nhsuk-border-table-header-width solid $nhsuk-border-colour;
   }
 }
 
@@ -38,7 +38,7 @@ th,
 td {
   padding-left: 0;
 
-  border-bottom: $nhsuk-border-table-cell-width solid $nhsuk-border-color;
+  border-bottom: $nhsuk-border-table-cell-width solid $nhsuk-border-colour;
   text-align: left;
   vertical-align: top;
 

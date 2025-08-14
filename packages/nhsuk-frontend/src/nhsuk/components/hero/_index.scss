@@ -17,7 +17,7 @@
   color: nhsuk-colour("white");
   position: relative; // [1]
 
-  @include nhsuk-print-color($nhsuk-print-text-color);
+  @include nhsuk-print-color($nhsuk-print-text-colour);
 
   .nhsuk-link,
   a:not(.nhsuk-button) {
@@ -26,7 +26,7 @@
 
   .nhsuk-hero--border {
     // [2]
-    border-top: $nhsuk-hero-border solid $nhsuk-secondary-border-color;
+    border-top: $nhsuk-hero-border solid $nhsuk-secondary-border-colour;
   }
 }
 

@@ -15,10 +15,10 @@
 ////
 
 .nhsuk-do-dont-list {
-  @include nhsuk-panel-with-label(nhsuk-colour("white"), $nhsuk-text-color, nhsuk-colour("grey-4")); // [1]
+  @include nhsuk-panel-with-label(nhsuk-colour("white"), $nhsuk-text-colour, nhsuk-colour("grey-4")); // [1]
 }
 
 .nhsuk-do-dont-list__label {
-  @include nhsuk-heading-label(nhsuk-colour("blue"), $nhsuk-reverse-text-color); // [2]
-  @include nhsuk-print-color($nhsuk-print-text-color);
+  @include nhsuk-heading-label(nhsuk-colour("blue"), $nhsuk-reverse-text-colour); // [2]
+  @include nhsuk-print-color($nhsuk-print-text-colour);
 }

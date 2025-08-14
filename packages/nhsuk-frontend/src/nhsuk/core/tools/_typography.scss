@@ -21,10 +21,10 @@
 /// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
 
 @mixin nhsuk-text-color {
-  color: $nhsuk-text-color;
+  color: $nhsuk-text-colour;
 
   @include nhsuk-media-query($media-type: print) {
-    color: $nhsuk-print-text-color;
+    color: $nhsuk-print-text-colour;
   }
 }
 

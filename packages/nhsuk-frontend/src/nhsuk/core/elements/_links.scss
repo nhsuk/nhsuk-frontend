@@ -20,7 +20,7 @@ a {
 
   @include nhsuk-media-query($media-type: print) {
     &::after {
-      color: $nhsuk-text-color;
+      color: $nhsuk-text-colour;
       content: " (Link: " attr(href) ")"; // [1]
       font-size: inherit; // [2]
     }
