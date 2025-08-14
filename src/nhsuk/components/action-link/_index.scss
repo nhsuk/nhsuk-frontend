@@ -56,7 +56,7 @@
     top: -3px;
     width: 36px;
 
-    @include nhsuk-print-color($nhsuk-print-text-colour);
+    @include nhsuk-print-colour($nhsuk-print-text-colour);
 
     @include nhsuk-media-query($until: tablet) {
       height: 24px;

@@ -20,5 +20,5 @@
 
 .nhsuk-do-dont-list__label {
   @include nhsuk-heading-label(nhsuk-colour("blue"), $nhsuk-reverse-text-colour); // [2]
-  @include nhsuk-print-color($nhsuk-print-text-colour);
+  @include nhsuk-print-colour($nhsuk-print-text-colour);
 }

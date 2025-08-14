@@ -40,7 +40,7 @@
   $padding-tablet: nhsuk-spacing(4);
   padding: nhsuk-spacing(3);
 
-  @include nhsuk-text-color;
+  @include nhsuk-text-colour;
   @include nhsuk-media-query($from: tablet) {
     padding: $padding-tablet;
   }
