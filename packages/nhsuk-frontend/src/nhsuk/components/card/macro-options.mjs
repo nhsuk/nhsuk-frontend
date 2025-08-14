@@ -104,6 +104,11 @@ export const params = {
     required: false,
     description: 'Classes to add to the card.'
   },
+  id: {
+    type: 'string',
+    required: false,
+    description: 'Classes to add to the card.'
+  },
   attributes: {
     type: 'object',
     required: false,
