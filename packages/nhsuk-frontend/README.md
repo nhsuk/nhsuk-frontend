@@ -19,7 +19,7 @@ Visit our [support for browsers and assistive technology](/docs/contributing/bro
 
 ## Contribute
 
-Read our [contributing guidelines](CONTRIBUTING.md) to contribute to NHS.UK frontend.
+Read our [contributing guidelines](/CONTRIBUTING.md) to contribute to NHS.UK frontend.
 
 ## Development environment
 
