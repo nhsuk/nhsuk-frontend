@@ -38,6 +38,46 @@ describe('Core', () => {
         --nhsuk-grey-3-colour: #aeb7bd;
         --nhsuk-grey-4-colour: #d8dde0;
         --nhsuk-grey-5-colour: #f0f4f5;
+        --nhsuk-text-colour: #212b32;
+        --nhsuk-reverse-text-colour: white;
+        --nhsuk-secondary-text-colour: #4c6272;
+        --nhsuk-print-text-colour: #212b32;
+        --nhsuk-link-colour: #005eb8;
+        --nhsuk-link-hover-colour: #7c2855;
+        --nhsuk-link-active-colour: #002f5c;
+        --nhsuk-link-visited-colour: #330072;
+        --nhsuk-focus-colour: #ffeb3b;
+        --nhsuk-focus-text-colour: #212b32;
+        --nhsuk-border-colour: #d8dde0;
+        --nhsuk-secondary-border-colour: rgba(255, 255, 255, 0.2);
+        --nhsuk-error-colour: #d5281b;
+        --nhsuk-form-border-colour: #4c6272;
+        --nhsuk-form-element-background-colour: white;
+        --nhsuk-button-colour: #007f3b;
+        --nhsuk-button-text-colour: white;
+        --nhsuk-button-hover-colour: #00662f;
+        --nhsuk-button-active-colour: #00401e;
+        --nhsuk-button-shadow-colour: #00401e;
+        --nhsuk-secondary-button-colour: rgba(0, 0, 0, 0);
+        --nhsuk-secondary-button-solid-background-colour: white;
+        --nhsuk-secondary-button-border-colour: #005eb8;
+        --nhsuk-secondary-button-text-colour: #005eb8;
+        --nhsuk-secondary-button-hover-colour: #d9e7f4;
+        --nhsuk-secondary-button-active-colour: #c7dcef;
+        --nhsuk-secondary-button-shadow-colour: #005eb8;
+        --nhsuk-reverse-button-colour: white;
+        --nhsuk-reverse-button-text-colour: #212b32;
+        --nhsuk-reverse-button-hover-colour: #d9d9d9;
+        --nhsuk-reverse-button-active-colour: #b3b3b3;
+        --nhsuk-reverse-button-shadow-colour: #b3b3b3;
+        --nhsuk-warning-button-colour: #d5281b;
+        --nhsuk-warning-button-hover-colour: #aa2016;
+        --nhsuk-warning-button-active-colour: #6b140e;
+        --nhsuk-warning-button-shadow-colour: #6b140e;
+        --nhsuk-login-button-colour: #005eb8;
+        --nhsuk-login-button-hover-colour: #004b93;
+        --nhsuk-login-button-active-colour: #002f5c;
+        --nhsuk-login-button-shadow-colour: #002f5c;
       }
     `
 
