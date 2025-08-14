@@ -233,17 +233,16 @@
 /// See components/_panel
 ///
 /// @example scss
-///   @include nhsuk-panel(nhsuk-colour("blue"), $nhsuk-reverse-text-colour);
+///   @include nhsuk-panel(nhsuk-colour("blue"), $nhsuk-reverse-text-colour, $nhsuk-secondary-border-colour);
 ///
 
-@mixin nhsuk-panel($panel-background-colour, $panel-text-colour) {
+@mixin nhsuk-panel($panel-background-colour, $panel-text-colour, $panel-border-colour) {
   background-color: $panel-background-colour;
+  border: 1px solid $panel-border-colour;
   color: $panel-text-colour;
 
   @include nhsuk-top-and-bottom;
   @include nhsuk-responsive-margin(7, "bottom");
-  @include nhsuk-responsive-margin(7, "top");
-  @include nhsuk-responsive-padding(5);
 
   @include nhsuk-media-query($media-type: print) {
     border: 1px solid $nhsuk-print-text-colour;
@@ -277,7 +276,9 @@
   // stylelint-disable-next-line declaration-no-important
   padding-top: 0 !important;
 
-  @include nhsuk-panel($panel-background-colour, $panel-text-colour);
+  @include nhsuk-panel($panel-background-colour, $panel-text-colour, $panel-border-colour);
+  @include nhsuk-responsive-margin(7, "top");
+  @include nhsuk-responsive-padding(5);
 }
 
 /// Panel with label mixin, inherits panel styling
@@ -299,11 +300,11 @@
 /// @see components/_warning-component
 ///
 /// 1. Background colour to be set on the @include.
-/// 2. Text colour to be set on the @include.
-/// 3. Display inline-block so it does not take up the full width.
-/// 4. Margin -24px left and right aligns the heading to the box.
-/// 5. Top positioning set to minus to make the heading
-///    sit just outside the box.
+/// 2. Ensures heading appears separate to the body text in high contrast mode.
+/// 3. Text colour to be set on the @include.
+/// 4. Display inline-block so it does not take up the full width.
+/// 5. Negative left margin aligns the heading to the box.
+/// 6. Top positioning set to minus to make heading sit just outside the box.
 ///
 /// @example scss
 ///   @include nhsuk-heading-label(nhsuk-colour("blue"), $nhsuk-reverse-text-colour);
@@ -311,20 +312,23 @@
 
 @mixin nhsuk-heading-label($heading-background-colour, $heading-text-colour) {
   background-color: $heading-background-colour; // [1]
-  color: $heading-text-colour; // [2]
-  display: inline-block; // [3]
-  margin: nhsuk-spacing(0) nhsuk-spacing(0) nhsuk-spacing(2) -33px;
+  outline: 1px solid transparent; // [2]
+  outline-offset: -1px;
+  color: $heading-text-colour; // [3]
+  display: inline-block; // [4]
+  margin: 0;
+  margin-bottom: nhsuk-spacing(2);
+  margin-left: nhsuk-spacing(-5) - 1px; // [5]
   padding: nhsuk-spacing(2) nhsuk-spacing(5);
   position: relative;
-  top: -16px; // [5]
+  top: nhsuk-spacing(-3); // [6]
 
   @include nhsuk-font-size(26);
 
   @include nhsuk-media-query($until: tablet) {
-    margin-left: -25px;
-    margin-right: 0;
+    margin-left: nhsuk-spacing(-4) - 1px; // [5]
     padding: nhsuk-spacing(2) nhsuk-spacing(4);
-    top: -8px; // [5]
+    top: nhsuk-spacing(-2); // [6]
   }
 
   @include nhsuk-media-query($media-type: print) {
