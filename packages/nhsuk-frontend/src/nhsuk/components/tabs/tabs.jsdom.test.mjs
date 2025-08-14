@@ -131,7 +131,7 @@ describe('Tabs', () => {
     })
 
     it('should throw with missing breakpoint CSS property', () => {
-      document.documentElement.style.removeProperty('--nhsuk-breakpoint-tablet')
+      document.head.innerHTML = ''
 
       expect(() => new Tabs($root)).toThrow(
         `${Tabs.moduleName}: CSS custom property (\`--nhsuk-breakpoint-tablet\`) on pseudo-class \`:root\` not found`

@@ -216,6 +216,7 @@ This change was introduced in [pull request #1510: Accommodate camera notches](h
 - [#1522: Use em helper for contents list tick placement](https://github.com/nhsuk/nhsuk-frontend/pull/1522)
 - [#1524: Use CSS-generated chevron for header menu](https://github.com/nhsuk/nhsuk-frontend/pull/1524)
 - [#1525: Fix exclusive checkbox groups with unique name attributes](https://github.com/nhsuk/nhsuk-frontend/pull/1525)
+- [#1527: Output hexadecimal colours for `nhsuk-shade` and `nhsuk-tint`](https://github.com/nhsuk/nhsuk-frontend/pull/1527)
 - [#1528: Fix alt text in header](https://github.com/nhsuk/nhsuk-frontend/pull/1528)
 - [#1532: Use em-based sizing for chevron size and shape](https://github.com/nhsuk/nhsuk-frontend/pull/1532)
 

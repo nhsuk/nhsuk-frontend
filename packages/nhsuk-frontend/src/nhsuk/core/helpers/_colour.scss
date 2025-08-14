@@ -1,5 +1,6 @@
 @use "sass:color";
 @use "sass:map";
+@use "sass:math";
 @use "sass:meta";
 @use "sass:string";
 @use "../settings/colours-palette" as *;
@@ -30,6 +31,47 @@
   @return map.get($nhsuk-colours, $colour);
 }
 
+/// Converts a colour with potential float values for its RGB channels
+/// into hexadecimal notation where possible (e.g. no alpha transparency)
+///
+/// This ensures the colour is rendered properly by Safari < 12
+///
+/// @param {String | Colour} $colour - The colour to convert or name from the colour palette
+/// @return {Colour}
+
+@function nhsuk-colour-compatible($colour) {
+  @if meta.type-of($colour) == "string" {
+    $colour: nhsuk-colour($colour);
+  }
+
+  $alpha: color.alpha($colour);
+  $parts: ();
+
+  // Maintain compatibility with Sass < v1.79.0 where colour space functions
+  // are unavailable and RGB channels are automatically rounded to integers
+  // https://github.com/sass/dart-sass/blob/1.79.0/CHANGELOG.md
+  @if not meta.function-exists("channel", "color") {
+    $parts: (
+      "red": color.red($colour),
+      "green": color.green($colour),
+      "blue": color.blue($colour),
+      "alpha": $alpha
+    );
+  } @else {
+    $colour: color.to-space($colour, rgb);
+    $alpha: color.channel($colour, "alpha");
+
+    $parts: (
+      "red": math.round(color.channel($colour, "red")),
+      "green": math.round(color.channel($colour, "green")),
+      "blue": math.round(color.channel($colour, "blue")),
+      "alpha": $alpha
+    );
+  }
+
+  @return color.change($colour, $parts...);
+}
+
 /// Make a colour darker by mixing it with black
 ///
 /// @example scss
@@ -41,7 +83,9 @@
 /// @return {Colour}
 
 @function nhsuk-shade($colour, $percentage) {
-  @return color.mix(black, $colour, $percentage);
+  // Ensure the output is a hex string so that Safari <12 can render the colour
+  // without issues from float values in `rgb()`
+  @return nhsuk-colour-compatible(color.mix(black, $colour, $percentage));
 }
 
 /// Make a colour lighter by mixing it with white
@@ -54,6 +98,8 @@
 /// @param {Number} $percentage - percentage of white to mix with $colour
 /// @return {Colour}
 
-@function nhsuk-tint($color, $percentage) {
-  @return color.mix(white, $color, $percentage);
+@function nhsuk-tint($colour, $percentage) {
+  // Ensure the output is a hex string so that Safari <12 can render the colour
+  // without issues from float values in `rgb()`
+  @return nhsuk-colour-compatible(color.mix(white, $colour, $percentage));
 }

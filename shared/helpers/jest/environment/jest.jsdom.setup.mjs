@@ -1,4 +1,5 @@
 import '@testing-library/jest-dom'
+import { outdent } from 'outdent'
 
 /**
  * Polyfill Element methods for error summary
@@ -27,13 +28,19 @@ Object.defineProperty(window, 'matchMedia', {
 })
 
 beforeEach(() => {
-  const { style } = document.documentElement
+  const stylesheet = document.createElement('style')
+
+  stylesheet.innerHTML = outdent`
+    :root {
+      --nhsuk-breakpoint-mobile: 20rem;
+      --nhsuk-breakpoint-tablet: 40.0625rem;
+      --nhsuk-breakpoint-desktop: 48.0625rem;
+      --nhsuk-breakpoint-large-desktop: 61.875rem;
+    }
+  `
 
   // Add styles for NHS.UK frontend checks
-  style.setProperty('--nhsuk-breakpoint-mobile', '20rem')
-  style.setProperty('--nhsuk-breakpoint-tablet', '40.0625rem')
-  style.setProperty('--nhsuk-breakpoint-desktop', '48.0625rem')
-  style.setProperty('--nhsuk-breakpoint-large-desktop', '61.875rem')
+  document.head.appendChild(stylesheet)
 
   // Flag NHS.UK frontend as supported
   document.body.classList.add('nhsuk-frontend-supported')
