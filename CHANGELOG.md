@@ -55,13 +55,7 @@ We’ve added a new notification banner component, ported from the GOV.UK Design
 
 This was added in [pull request #1408: Add notification banner component](https://github.com/nhsuk/nhsuk-frontend/pull/1408).
 
-#### Export type declarations
-
-We've added type declarations to the [NHS.UK frontend npm package](https://www.npmjs.com/package/govuk-frontend) for TypeScript compatibility and code autocomplete.
-
-This was added in [pull request #1464: Export type declarations `*.d.mts` for NHS.UK frontend](https://github.com/nhsuk/nhsuk-frontend/pull/1464).
-
-#### New header with account section
+#### New header component with account section
 
 We’ve updated the header component to support account information and links. As part of this work we’ve also made some other improvements to the header, detailed below:
 
@@ -104,6 +98,12 @@ You can use the generated classes to set the width of:
 It was already possible to set the page app width with the `$nhsuk-page-width` variable. This new feature is useful when creating additional custom page width classes.
 
 This was added in [pull request #1412: Allow creating custom width containers](https://github.com/nhsuk/nhsuk-frontend/pull/1412)
+
+#### Export type declarations
+
+We've added type declarations to the [NHS.UK frontend npm package](https://www.npmjs.com/package/govuk-frontend) for TypeScript compatibility and code autocomplete.
+
+This was added in [pull request #1464: Export type declarations `*.d.mts` for NHS.UK frontend](https://github.com/nhsuk/nhsuk-frontend/pull/1464).
 
 ### :wastebasket: **Deprecated features**
 
