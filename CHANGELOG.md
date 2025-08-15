@@ -359,6 +359,12 @@ https://webkit.org/blog/7929/designing-websites-for-iphone-x/
 
 This change was introduced in [pull request #1510: Accommodate camera notches](https://github.com/nhsuk/nhsuk-frontend/pull/1510).
 
+### Add back link underline and change default text
+
+For consistency with other links, we've added an underline to the back link component. We've also changed the default text from "Go back" to "Back" in all examples.
+
+This change was introduced in [pull request #1314: Add back link underline and change "Go back" to "Back" in all examples](https://github.com/nhsuk/nhsuk-frontend/pull/1314)
+
 ### :wrench: **Fixes**
 
 - [#1349: Add select component `value`, `disabled` and `formGroup` params](https://github.com/nhsuk/nhsuk-frontend/pull/1349)
@@ -969,16 +975,6 @@ If you're using the `errorSummary` Nunjucks macro, remove `-1` from the end of t
 You do not need to do this if you specified an `id` for the individual checkbox or radio item.
 
 This change was introduced in [pull request #1112: Remove the -1 suffix from radio and checkbox IDs](https://github.com/nhsuk/nhsuk-frontend/pull/1112)
-
-### :recycle: **Changes**
-
-We've made changes to NHS.UK frontend in the following pull requests:
-
-### Add back link underline and change default text
-
-For consistency with other links, we've added an underline to the back link component. We've also changed the default text from "Go back" to "Back" in all examples.
-
-This change was introduced in [pull request #1314: Add back link underline and change "Go back" to "Back" in all examples](https://github.com/nhsuk/nhsuk-frontend/pull/1314)
 
 ## 9.6.4 - 10 July 2025
 
