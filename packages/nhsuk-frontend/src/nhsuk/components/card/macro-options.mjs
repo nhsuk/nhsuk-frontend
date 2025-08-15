@@ -58,7 +58,7 @@ export const params = {
     type: 'boolean',
     required: false,
     description:
-      'If set to true, the card will become a primary card variant (with chevron).'
+      'If set to true, the card will become a primary card variant (with arrow).'
   },
   secondary: {
     type: 'boolean',
@@ -200,7 +200,7 @@ export const examples = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
-  'primary (with chevron)': {
+  'primary (with arrow)': {
     context: {
       href: '#',
       primary: true,
@@ -212,7 +212,7 @@ export const examples = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
-  'primary (with chevron and description)': {
+  'primary (with arrow and description)': {
     context: {
       href: '#',
       primary: true,
