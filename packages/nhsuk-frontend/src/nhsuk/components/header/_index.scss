@@ -247,8 +247,8 @@ $_header-item-active-size: $nhsuk-focus-width;
   }
 
   .nhsuk-icon__search {
-    height: 28px;
-    width: 28px;
+    height: nhsuk-px-to-rem(28px);
+    width: nhsuk-px-to-rem(28px);
   }
 }
 
