@@ -1,6 +1,12 @@
 # NHS.UK frontend Changelog
 
-## 10.0.0-internal.3 - 15 August 2025
+## 10.0.0 - TBC
+
+This release introduces some breaking changes to file paths, full width buttons on mobile, the header component and others.
+
+It also stops Internet Explorer 11 and other older browsers from running NHS.UK frontend JavaScript. Your service will not stop working in Internet Explorer 11, but components will look and behave differently without JavaScript.
+
+You must read and apply these updates carefully to ensure your service does not break.
 
 ### :new: **New features**
 
@@ -947,18 +953,6 @@ This change was introduced in [pull request #1314: Add back link underline and c
 - [#1528: Fix alt text in header](https://github.com/nhsuk/nhsuk-frontend/pull/1528)
 - [#1532: Use em-based sizing for chevron size and shape](https://github.com/nhsuk/nhsuk-frontend/pull/1532)
 - [#1533: Improve high contrast appearance for header and card headings](https://github.com/nhsuk/nhsuk-frontend/pull/1533)
-
-## 10.0.0-internal.2 - 24 July 2025
-
-## 10.0.0-internal.1 - 22 July 2025
-
-## 10.0.0-internal.0 - 2 July 2025
-
-This release introduces some breaking changes to file paths, full width buttons on mobile, the header component and others.
-
-It also stops Internet Explorer 11 and other older browsers from running NHS.UK frontend JavaScript. Your service will not stop working in Internet Explorer 11, but components will look and behave differently without JavaScript.
-
-You must read and apply these updates carefully to ensure your service does not break.
 
 ## 9.6.4 - 10 July 2025
 
