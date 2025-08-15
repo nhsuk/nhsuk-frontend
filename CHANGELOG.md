@@ -334,76 +334,6 @@ You will need to update the file path to match your assets folder if it's not at
 
 This change was introduced in [pull request #1508: Update site icons and Open Graph image, add `manifest.json`](https://github.com/nhsuk/nhsuk-frontend/pull/1508).
 
-### :recycle: **Changes**
-
-We've made changes to NHS.UK frontend in the following pull requests:
-
-#### Remove the X-UA-Compatible meta tag
-
-Remove the `<meta http-equiv="X-UA-Compatible" content="IE=edge">` meta tag from your page template.
-
-Internet Explorer versions 8, 9 and 10 included a feature that would try to determine if the page was built for an older version of IE and silently enable compatibility mode, modifying the rendering engine's behaviour to match the older version of IE. Setting this meta tag prevented that behaviour.
-
-IE11 deprecated this meta tag and defaulted to always using IE11's renderer when the page has a HTML5 doctype (`<!DOCTYPE html>`).
-
-As NHS.UK frontend no longer supports Internet Explorer versions older than 11, this meta tag can now be removed.
-
-This change was introduced in [pull request #1509: Remove `X-UA-Compatible meta tag`](https://github.com/nhsuk/nhsuk-frontend/pull/1509).
-
-#### Update the viewport meta tag
-
-We've updated our grid layout gutter margins to accommodate devices with "camera notches". Browsers on these devices reserve a safe area in landscape orientation (known as pillar-boxing) so content isn't obscured.
-
-To avoid this, support has been added for `viewport-fit=cover` as shown here:
-https://webkit.org/blog/7929/designing-websites-for-iphone-x/
-
-This change was introduced in [pull request #1510: Accommodate camera notches](https://github.com/nhsuk/nhsuk-frontend/pull/1510).
-
-### Add back link underline and change default text
-
-For consistency with other links, we've added an underline to the back link component. We've also changed the default text from "Go back" to "Back" in all examples.
-
-This change was introduced in [pull request #1314: Add back link underline and change "Go back" to "Back" in all examples](https://github.com/nhsuk/nhsuk-frontend/pull/1314)
-
-### :wrench: **Fixes**
-
-- [#1349: Add select component `value`, `disabled` and `formGroup` params](https://github.com/nhsuk/nhsuk-frontend/pull/1349)
-- [#1401: Fix header menu active item indicator above desktop viewport](https://github.com/nhsuk/nhsuk-frontend/issues/1401)
-- [#1463: Fix component nested Nunjucks macro options](https://github.com/nhsuk/nhsuk-frontend/pull/1463)
-- [#1467: Update components to set a default `id` based on `name`](https://github.com/nhsuk/nhsuk-frontend/pull/1467)
-- [#1468: Support initial `aria-describedby` on all form fields](https://github.com/nhsuk/nhsuk-frontend/pull/1468)
-- [#1469: Remove deprecated code and legacy feature detection](https://github.com/nhsuk/nhsuk-frontend/pull/1469)
-- [#1474: Fix missing `attributes` option on form groups](https://github.com/nhsuk/nhsuk-frontend/pull/1474)
-- [#1479: Fix tabs component JavaScript to use `$nhsuk-breakpoints` option](https://github.com/nhsuk/nhsuk-frontend/pull/1479)
-- [#1487: Fix character count not having error border colour when rendered with error message](https://github.com/nhsuk/nhsuk-frontend/pull/1487)
-- [#1489: Apply conditional reveal fixes from GOV.UK Frontend](https://github.com/nhsuk/nhsuk-frontend/pull/1489)
-- [#1449: Fix a visual bug with checkboxes inside a details component](https://github.com/nhsuk/nhsuk-frontend/pull/1449)
-- [#1504: Skip header missing element checks without navigation](https://github.com/nhsuk/nhsuk-frontend/pull/1504)
-- [#1505: Fix Sass "Error: This module was already loaded"](https://github.com/nhsuk/nhsuk-frontend/pull/1505)
-- [#1511: Use pseudo element for ticks on contents list items](https://github.com/nhsuk/nhsuk-frontend/pull/1511)
-- [#1512: Remove unused close icon](https://github.com/nhsuk/nhsuk-frontend/pull/1512)
-- [#1514: Use `clip-path()` for plus and minus icons on details expander](https://github.com/nhsuk/nhsuk-frontend/pull/1514)
-- [#1516: Remove unused global Sass variables](https://github.com/nhsuk/nhsuk-frontend/pull/1516)
-- [#1522: Use em helper for contents list tick placement](https://github.com/nhsuk/nhsuk-frontend/pull/1522)
-- [#1524: Use CSS-generated chevron for header menu](https://github.com/nhsuk/nhsuk-frontend/pull/1524)
-- [#1525: Fix exclusive checkbox groups with unique name attributes](https://github.com/nhsuk/nhsuk-frontend/pull/1525)
-- [#1527: Output hexadecimal colours for `nhsuk-shade` and `nhsuk-tint`](https://github.com/nhsuk/nhsuk-frontend/pull/1527)
-- [#1528: Fix alt text in header](https://github.com/nhsuk/nhsuk-frontend/pull/1528)
-- [#1532: Use em-based sizing for chevron size and shape](https://github.com/nhsuk/nhsuk-frontend/pull/1532)
-- [#1533: Improve high contrast appearance for header and card headings](https://github.com/nhsuk/nhsuk-frontend/pull/1533)
-
-## 10.0.0-internal.2 - 24 July 2025
-
-### :new: **New features**
-
-#### New notification banner component
-
-We’ve added a new notification banner component, ported from the GOV.UK Design System.
-
-This was added in [pull request #1408: Add notification banner component](https://github.com/nhsuk/nhsuk-frontend/pull/1408).
-
-### :boom: **Breaking changes**
-
 You must make the following changes when you migrate to this release, or your service might break.
 
 #### Update footer component
@@ -520,12 +450,6 @@ If you are not using Nunjucks macros, update your HTML markup using the [footer 
 
 This change was introduced in [pull request #1452: Update footer to separate navigation from meta links, and use common parameters](https://github.com/nhsuk/nhsuk-frontend/pull/1452).
 
-## 10.0.0-internal.1 - 22 July 2025
-
-### :boom: **Breaking changes**
-
-You must make the following changes when you migrate to this release, or your service might break.
-
 #### Add missing `data-module` attributes to components
 
 You do not need to do anything if you're using Nunjucks macros.
@@ -591,72 +515,6 @@ Errors you might see include:
 - `InitError` - when components are initialised multiple times
 
 This change was introduced in pull requests [#1459: Add NHS.UK frontend browser support checks](https://github.com/nhsuk/nhsuk-frontend/pull/1459), [#1466: Throw `ElementError` for all missing elements](https://github.com/nhsuk/nhsuk-frontend/pull/1466) and [#1481: Prevent multiple initialisations of a single component instance](https://github.com/nhsuk/nhsuk-frontend/pull/1481).
-
-### :new: **New features**
-
-#### Export type declarations
-
-We've added type declarations to the [NHS.UK frontend npm package](https://www.npmjs.com/package/govuk-frontend) for TypeScript compatibility and code autocomplete.
-
-This was added in [pull request #1464: Export type declarations `*.d.mts` for NHS.UK frontend](https://github.com/nhsuk/nhsuk-frontend/pull/1464).
-
-## 10.0.0-internal.0 - 2 July 2025
-
-This release introduces some breaking changes to file paths, full width buttons on mobile, the header component and others.
-
-It also stops Internet Explorer 11 and other older browsers from running NHS.UK frontend JavaScript. Your service will not stop working in Internet Explorer 11, but components will look and behave differently without JavaScript.
-
-You must read and apply these updates carefully to ensure your service does not break.
-
-### :new: **New features**
-
-#### New header with account section
-
-We’ve updated the header component to support account information and links. As part of this work we’ve also made some other improvements to the header, detailed below:
-
-- Show account information and links in the header.
-- Show currently active section or page in the navigation.
-- Remove hardcoded home link from the navigation.
-- Align navigation items to the left by default.
-- Update navigation label from ’Primary navigation’ to ‘Menu’, and remove superfluous `role` and `id` attributes.
-- Update NHS logo in the header to have higher contrast when focused.
-- Refactor CSS classes and BEM naming, use hidden attributes instead of modifier classes, use generic search element.
-
-This was added in [pull request #1058: New header with account section](https://github.com/nhsuk/nhsuk-frontend/pull/1058).
-
-#### Buttons are now full width on mobile
-
-All buttons are now displayed at full width on mobile. This may not require any changes, but you should check that it does not break any of your layouts.
-
-Buttons and links can also be grouped together so that they appear side-by-side on tablet and desktop by using a `<div class="nhsuk-button-group"> </div>` container.
-
-This was added in [pull request #1309: Add button group and full width button styles](https://github.com/nhsuk/nhsuk-frontend/pull/1309)
-
-#### Create custom width container classes
-
-You can now create custom page width container classes using the `nhsuk-width-container` mixin. You do this by passing in the required maximum width of the container.
-
-For example:
-
-```scss
-.app-width-container--wide {
-  @include nhsuk-width-container(1200px);
-}
-```
-
-You can use the generated classes to set the width of:
-
-- template container
-- header container
-- footer container
-
-It was already possible to set the page app width with the `$nhsuk-page-width` variable. This new feature is useful when creating additional custom page width classes.
-
-This was added in [pull request #1412: Allow creating custom width containers](https://github.com/nhsuk/nhsuk-frontend/pull/1412)
-
-### :boom: **Breaking changes**
-
-You must make the following changes when you migrate to this release, or your service might break.
 
 #### Update file paths
 
@@ -975,6 +833,138 @@ If you're using the `errorSummary` Nunjucks macro, remove `-1` from the end of t
 You do not need to do this if you specified an `id` for the individual checkbox or radio item.
 
 This change was introduced in [pull request #1112: Remove the -1 suffix from radio and checkbox IDs](https://github.com/nhsuk/nhsuk-frontend/pull/1112)
+
+### :recycle: **Changes**
+
+We've made changes to NHS.UK frontend in the following pull requests:
+
+#### Remove the X-UA-Compatible meta tag
+
+Remove the `<meta http-equiv="X-UA-Compatible" content="IE=edge">` meta tag from your page template.
+
+Internet Explorer versions 8, 9 and 10 included a feature that would try to determine if the page was built for an older version of IE and silently enable compatibility mode, modifying the rendering engine's behaviour to match the older version of IE. Setting this meta tag prevented that behaviour.
+
+IE11 deprecated this meta tag and defaulted to always using IE11's renderer when the page has a HTML5 doctype (`<!DOCTYPE html>`).
+
+As NHS.UK frontend no longer supports Internet Explorer versions older than 11, this meta tag can now be removed.
+
+This change was introduced in [pull request #1509: Remove `X-UA-Compatible meta tag`](https://github.com/nhsuk/nhsuk-frontend/pull/1509).
+
+#### Update the viewport meta tag
+
+We've updated our grid layout gutter margins to accommodate devices with "camera notches". Browsers on these devices reserve a safe area in landscape orientation (known as pillar-boxing) so content isn't obscured.
+
+To avoid this, support has been added for `viewport-fit=cover` as shown here:
+https://webkit.org/blog/7929/designing-websites-for-iphone-x/
+
+This change was introduced in [pull request #1510: Accommodate camera notches](https://github.com/nhsuk/nhsuk-frontend/pull/1510).
+
+### Add back link underline and change default text
+
+For consistency with other links, we've added an underline to the back link component. We've also changed the default text from "Go back" to "Back" in all examples.
+
+This change was introduced in [pull request #1314: Add back link underline and change "Go back" to "Back" in all examples](https://github.com/nhsuk/nhsuk-frontend/pull/1314)
+
+### :wrench: **Fixes**
+
+- [#1349: Add select component `value`, `disabled` and `formGroup` params](https://github.com/nhsuk/nhsuk-frontend/pull/1349)
+- [#1401: Fix header menu active item indicator above desktop viewport](https://github.com/nhsuk/nhsuk-frontend/issues/1401)
+- [#1463: Fix component nested Nunjucks macro options](https://github.com/nhsuk/nhsuk-frontend/pull/1463)
+- [#1467: Update components to set a default `id` based on `name`](https://github.com/nhsuk/nhsuk-frontend/pull/1467)
+- [#1468: Support initial `aria-describedby` on all form fields](https://github.com/nhsuk/nhsuk-frontend/pull/1468)
+- [#1469: Remove deprecated code and legacy feature detection](https://github.com/nhsuk/nhsuk-frontend/pull/1469)
+- [#1474: Fix missing `attributes` option on form groups](https://github.com/nhsuk/nhsuk-frontend/pull/1474)
+- [#1479: Fix tabs component JavaScript to use `$nhsuk-breakpoints` option](https://github.com/nhsuk/nhsuk-frontend/pull/1479)
+- [#1487: Fix character count not having error border colour when rendered with error message](https://github.com/nhsuk/nhsuk-frontend/pull/1487)
+- [#1489: Apply conditional reveal fixes from GOV.UK Frontend](https://github.com/nhsuk/nhsuk-frontend/pull/1489)
+- [#1449: Fix a visual bug with checkboxes inside a details component](https://github.com/nhsuk/nhsuk-frontend/pull/1449)
+- [#1504: Skip header missing element checks without navigation](https://github.com/nhsuk/nhsuk-frontend/pull/1504)
+- [#1505: Fix Sass "Error: This module was already loaded"](https://github.com/nhsuk/nhsuk-frontend/pull/1505)
+- [#1511: Use pseudo element for ticks on contents list items](https://github.com/nhsuk/nhsuk-frontend/pull/1511)
+- [#1512: Remove unused close icon](https://github.com/nhsuk/nhsuk-frontend/pull/1512)
+- [#1514: Use `clip-path()` for plus and minus icons on details expander](https://github.com/nhsuk/nhsuk-frontend/pull/1514)
+- [#1516: Remove unused global Sass variables](https://github.com/nhsuk/nhsuk-frontend/pull/1516)
+- [#1522: Use em helper for contents list tick placement](https://github.com/nhsuk/nhsuk-frontend/pull/1522)
+- [#1524: Use CSS-generated chevron for header menu](https://github.com/nhsuk/nhsuk-frontend/pull/1524)
+- [#1525: Fix exclusive checkbox groups with unique name attributes](https://github.com/nhsuk/nhsuk-frontend/pull/1525)
+- [#1527: Output hexadecimal colours for `nhsuk-shade` and `nhsuk-tint`](https://github.com/nhsuk/nhsuk-frontend/pull/1527)
+- [#1528: Fix alt text in header](https://github.com/nhsuk/nhsuk-frontend/pull/1528)
+- [#1532: Use em-based sizing for chevron size and shape](https://github.com/nhsuk/nhsuk-frontend/pull/1532)
+- [#1533: Improve high contrast appearance for header and card headings](https://github.com/nhsuk/nhsuk-frontend/pull/1533)
+
+## 10.0.0-internal.2 - 24 July 2025
+
+### :new: **New features**
+
+#### New notification banner component
+
+We’ve added a new notification banner component, ported from the GOV.UK Design System.
+
+This was added in [pull request #1408: Add notification banner component](https://github.com/nhsuk/nhsuk-frontend/pull/1408).
+
+## 10.0.0-internal.1 - 22 July 2025
+
+### :new: **New features**
+
+#### Export type declarations
+
+We've added type declarations to the [NHS.UK frontend npm package](https://www.npmjs.com/package/govuk-frontend) for TypeScript compatibility and code autocomplete.
+
+This was added in [pull request #1464: Export type declarations `*.d.mts` for NHS.UK frontend](https://github.com/nhsuk/nhsuk-frontend/pull/1464).
+
+## 10.0.0-internal.0 - 2 July 2025
+
+This release introduces some breaking changes to file paths, full width buttons on mobile, the header component and others.
+
+It also stops Internet Explorer 11 and other older browsers from running NHS.UK frontend JavaScript. Your service will not stop working in Internet Explorer 11, but components will look and behave differently without JavaScript.
+
+You must read and apply these updates carefully to ensure your service does not break.
+
+### :new: **New features**
+
+#### New header with account section
+
+We’ve updated the header component to support account information and links. As part of this work we’ve also made some other improvements to the header, detailed below:
+
+- Show account information and links in the header.
+- Show currently active section or page in the navigation.
+- Remove hardcoded home link from the navigation.
+- Align navigation items to the left by default.
+- Update navigation label from ’Primary navigation’ to ‘Menu’, and remove superfluous `role` and `id` attributes.
+- Update NHS logo in the header to have higher contrast when focused.
+- Refactor CSS classes and BEM naming, use hidden attributes instead of modifier classes, use generic search element.
+
+This was added in [pull request #1058: New header with account section](https://github.com/nhsuk/nhsuk-frontend/pull/1058).
+
+#### Buttons are now full width on mobile
+
+All buttons are now displayed at full width on mobile. This may not require any changes, but you should check that it does not break any of your layouts.
+
+Buttons and links can also be grouped together so that they appear side-by-side on tablet and desktop by using a `<div class="nhsuk-button-group"> </div>` container.
+
+This was added in [pull request #1309: Add button group and full width button styles](https://github.com/nhsuk/nhsuk-frontend/pull/1309)
+
+#### Create custom width container classes
+
+You can now create custom page width container classes using the `nhsuk-width-container` mixin. You do this by passing in the required maximum width of the container.
+
+For example:
+
+```scss
+.app-width-container--wide {
+  @include nhsuk-width-container(1200px);
+}
+```
+
+You can use the generated classes to set the width of:
+
+- template container
+- header container
+- footer container
+
+It was already possible to set the page app width with the `$nhsuk-page-width` variable. This new feature is useful when creating additional custom page width classes.
+
+This was added in [pull request #1412: Allow creating custom width containers](https://github.com/nhsuk/nhsuk-frontend/pull/1412)
 
 ## 9.6.4 - 10 July 2025
 
