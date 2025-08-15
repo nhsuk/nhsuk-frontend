@@ -361,6 +361,19 @@ This change was introduced in [pull request #1510: Accommodate camera notches](h
 
 ### :wrench: **Fixes**
 
+- [#1349: Add select component `value`, `disabled` and `formGroup` params](https://github.com/nhsuk/nhsuk-frontend/pull/1349)
+- [#1401: Fix header menu active item indicator above desktop viewport](https://github.com/nhsuk/nhsuk-frontend/issues/1401)
+- [#1463: Fix component nested Nunjucks macro options](https://github.com/nhsuk/nhsuk-frontend/pull/1463)
+- [#1467: Update components to set a default `id` based on `name`](https://github.com/nhsuk/nhsuk-frontend/pull/1467)
+- [#1468: Support initial `aria-describedby` on all form fields](https://github.com/nhsuk/nhsuk-frontend/pull/1468)
+- [#1469: Remove deprecated code and legacy feature detection](https://github.com/nhsuk/nhsuk-frontend/pull/1469)
+- [#1474: Fix missing `attributes` option on form groups](https://github.com/nhsuk/nhsuk-frontend/pull/1474)
+- [#1479: Fix tabs component JavaScript to use `$nhsuk-breakpoints` option](https://github.com/nhsuk/nhsuk-frontend/pull/1479)
+- [#1487: Fix character count not having error border colour when rendered with error message](https://github.com/nhsuk/nhsuk-frontend/pull/1487)
+- [#1489: Apply conditional reveal fixes from GOV.UK Frontend](https://github.com/nhsuk/nhsuk-frontend/pull/1489)
+- [#1449: Fix a visual bug with checkboxes inside a details component](https://github.com/nhsuk/nhsuk-frontend/pull/1449)
+- [#1504: Skip header missing element checks without navigation](https://github.com/nhsuk/nhsuk-frontend/pull/1504)
+- [#1505: Fix Sass "Error: This module was already loaded"](https://github.com/nhsuk/nhsuk-frontend/pull/1505)
 - [#1511: Use pseudo element for ticks on contents list items](https://github.com/nhsuk/nhsuk-frontend/pull/1511)
 - [#1512: Remove unused close icon](https://github.com/nhsuk/nhsuk-frontend/pull/1512)
 - [#1514: Use `clip-path()` for plus and minus icons on details expander](https://github.com/nhsuk/nhsuk-frontend/pull/1514)
@@ -501,11 +514,6 @@ If you are not using Nunjucks macros, update your HTML markup using the [footer 
 
 This change was introduced in [pull request #1452: Update footer to separate navigation from meta links, and use common parameters](https://github.com/nhsuk/nhsuk-frontend/pull/1452).
 
-### :wrench: **Fixes**
-
-- [#1504: Skip header missing element checks without navigation](https://github.com/nhsuk/nhsuk-frontend/pull/1504)
-- [#1505: Fix Sass "Error: This module was already loaded"](https://github.com/nhsuk/nhsuk-frontend/pull/1505)
-
 ## 10.0.0-internal.1 - 22 July 2025
 
 ### :boom: **Breaking changes**
@@ -585,18 +593,6 @@ This change was introduced in pull requests [#1459: Add NHS.UK frontend browser 
 We've added type declarations to the [NHS.UK frontend npm package](https://www.npmjs.com/package/govuk-frontend) for TypeScript compatibility and code autocomplete.
 
 This was added in [pull request #1464: Export type declarations `*.d.mts` for NHS.UK frontend](https://github.com/nhsuk/nhsuk-frontend/pull/1464).
-
-### :wrench: **Fixes**
-
-- [#1463: Fix component nested Nunjucks macro options](https://github.com/nhsuk/nhsuk-frontend/pull/1463)
-- [#1467: Update components to set a default `id` based on `name`](https://github.com/nhsuk/nhsuk-frontend/pull/1467)
-- [#1468: Support initial `aria-describedby` on all form fields](https://github.com/nhsuk/nhsuk-frontend/pull/1468)
-- [#1469: Remove deprecated code and legacy feature detection](https://github.com/nhsuk/nhsuk-frontend/pull/1469)
-- [#1474: Fix missing `attributes` option on form groups](https://github.com/nhsuk/nhsuk-frontend/pull/1474)
-- [#1479: Fix tabs component JavaScript to use `$nhsuk-breakpoints` option](https://github.com/nhsuk/nhsuk-frontend/pull/1479)
-- [#1487: Fix character count not having error border colour when rendered with error message](https://github.com/nhsuk/nhsuk-frontend/pull/1487)
-- [#1489: Apply conditional reveal fixes from GOV.UK Frontend](https://github.com/nhsuk/nhsuk-frontend/pull/1489)
-- [#1449: Fix a visual bug with checkboxes inside a details component](https://github.com/nhsuk/nhsuk-frontend/pull/1449)
 
 ## 10.0.0-internal.0 - 2 July 2025
 
@@ -983,11 +979,6 @@ We've made changes to NHS.UK frontend in the following pull requests:
 For consistency with other links, we've added an underline to the back link component. We've also changed the default text from "Go back" to "Back" in all examples.
 
 This change was introduced in [pull request #1314: Add back link underline and change "Go back" to "Back" in all examples](https://github.com/nhsuk/nhsuk-frontend/pull/1314)
-
-### :wrench: **Fixes**
-
-- [#1349: Add select component `value`, `disabled` and `formGroup` params](https://github.com/nhsuk/nhsuk-frontend/pull/1349)
-- [#1401: Fix header menu active item indicator above desktop viewport](https://github.com/nhsuk/nhsuk-frontend/issues/1401)
 
 ## 9.6.4 - 10 July 2025
 
