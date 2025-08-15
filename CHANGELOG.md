@@ -2,7 +2,7 @@
 
 ## 10.0.0-internal.3 - 15 August 2025
 
-:new: **New features**
+### :new: **New features**
 
 #### Sass colour palette `nhsuk-colour` function
 
@@ -43,7 +43,7 @@ You can find out more about [how to use the `createAll` function](https://github
 
 This was added in [pull request #1506: Add JavaScript configuration support to components](https://github.com/nhsuk/nhsuk-frontend/pull/1506).
 
-:wastebasket: **Deprecated features**
+### :wastebasket: **Deprecated features**
 
 #### Rename Sass variables, mixins and CSS classes to use "colour" spelling
 
@@ -75,7 +75,7 @@ The following CSS classes have been renamed:
 
 This was added in [pull request #1526: Add `$nhsuk-colour` palette, colour helpers and deprecate "color" spelling](https://github.com/nhsuk/nhsuk-frontend/pull/1526).
 
-:boom: **Breaking changes**
+### :boom: **Breaking changes**
 
 #### Colour variables that have been removed
 
@@ -332,7 +332,7 @@ You will need to update the file path to match your assets folder if it's not at
 
 This change was introduced in [pull request #1508: Update site icons and Open Graph image, add `manifest.json`](https://github.com/nhsuk/nhsuk-frontend/pull/1508).
 
-:recycle: **Changes**
+### :recycle: **Changes**
 
 #### Remove the X-UA-Compatible meta tag
 
@@ -355,7 +355,7 @@ https://webkit.org/blog/7929/designing-websites-for-iphone-x/
 
 This change was introduced in [pull request #1510: Accommodate camera notches](https://github.com/nhsuk/nhsuk-frontend/pull/1510).
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - [#1511: Use pseudo element for ticks on contents list items](https://github.com/nhsuk/nhsuk-frontend/pull/1511)
 - [#1512: Remove unused close icon](https://github.com/nhsuk/nhsuk-frontend/pull/1512)
@@ -371,7 +371,7 @@ This change was introduced in [pull request #1510: Accommodate camera notches](h
 
 ## 10.0.0-internal.2 - 24 July 2025
 
-:new: **New features**
+### :new: **New features**
 
 #### New notification banner component
 
@@ -379,7 +379,7 @@ We’ve added a new notification banner component, ported from the GOV.UK Design
 
 This was added in [pull request #1408: Add notification banner component](https://github.com/nhsuk/nhsuk-frontend/pull/1408).
 
-:boom: **Breaking changes**
+### :boom: **Breaking changes**
 
 You must make the following changes when you migrate to this release, or your service might break.
 
@@ -497,14 +497,14 @@ If you are not using Nunjucks macros, update your HTML markup using the [footer 
 
 This change was introduced in [pull request #1452: Update footer to separate navigation from meta links, and use common parameters](https://github.com/nhsuk/nhsuk-frontend/pull/1452).
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - [#1504: Skip header missing element checks without navigation](https://github.com/nhsuk/nhsuk-frontend/pull/1504)
 - [#1505: Fix Sass "Error: This module was already loaded"](https://github.com/nhsuk/nhsuk-frontend/pull/1505)
 
 ## 10.0.0-internal.1 - 22 July 2025
 
-:boom: **Breaking changes**
+### :boom: **Breaking changes**
 
 You must make the following changes when you migrate to this release, or your service might break.
 
@@ -574,11 +574,11 @@ Errors you might see include:
 
 This change was introduced in pull requests [#1459: Add NHS.UK frontend browser support checks](https://github.com/nhsuk/nhsuk-frontend/pull/1459), [#1466: Throw `ElementError` for all missing elements](https://github.com/nhsuk/nhsuk-frontend/pull/1466) and [#1481: Prevent multiple initialisations of a single component instance](https://github.com/nhsuk/nhsuk-frontend/pull/1481).
 
-:new: **New features**
+### :new: **New features**
 
 - [#1464: Export type declarations ` *.d.mts` for NHS.UK frontend](https://github.com/nhsuk/nhsuk-frontend/pull/1464)
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - [#1463: Fix component nested Nunjucks macro options](https://github.com/nhsuk/nhsuk-frontend/pull/1463)
 - [#1467: Update components to set a default `id` based on `name`](https://github.com/nhsuk/nhsuk-frontend/pull/1467)
@@ -598,7 +598,7 @@ It also stops Internet Explorer 11 and other older browsers from running NHS.UK 
 
 You must read and apply these updates carefully to ensure your service does not break.
 
-:new: **New features**
+### :new: **New features**
 
 #### New header with account section
 
@@ -644,7 +644,7 @@ It was already possible to set the page app width with the `$nhsuk-page-width` v
 
 This change was introduced in [#1412: Allow creating custom width containers](https://github.com/nhsuk/nhsuk-frontend/pull/1412)
 
-:boom: **Breaking changes**
+### :boom: **Breaking changes**
 
 You must make the following changes when you migrate to this release, or your service might break.
 
@@ -966,13 +966,13 @@ You do not need to do this if you specified an `id` for the individual checkbox 
 
 This change was introduced in [#1112: Remove the -1 suffix from radio and checkbox IDs](https://github.com/nhsuk/nhsuk-frontend/pull/1112)
 
-:recycle: **Changes**
+### :recycle: **Changes**
 
 We've made changes to NHS.UK frontend in the following pull requests:
 
 - [#1314: Add back link underline and change "Go back" to "Back" in all examples](https://github.com/nhsuk/nhsuk-frontend/pull/1314)
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - [#1349: Add select component `value`, `disabled` and `formGroup` params](https://github.com/nhsuk/nhsuk-frontend/pull/1349)
 - [#1401: Fix header menu active item indicator above desktop viewport](https://github.com/nhsuk/nhsuk-frontend/issues/1401)
@@ -981,7 +981,7 @@ We've made changes to NHS.UK frontend in the following pull requests:
 
 Note: This release was created from the `support/9.x` branch.
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - [#1471: Fix styles for button as link :visited when :active and :focus](https://github.com/nhsuk/nhsuk-frontend/pull/1471)
 
@@ -989,7 +989,7 @@ Note: This release was created from the `support/9.x` branch.
 
 Note: This release was created from the `support/9.x` branch.
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - [#1411: Fix card heading margin above custom HTML content](https://github.com/nhsuk/nhsuk-frontend/issues/1411)
 
@@ -997,7 +997,7 @@ Note: This release was created from the `support/9.x` branch.
 
 Note: This release was created from the `support/9.x` branch.
 
-:recycle: **Changes**
+### :recycle: **Changes**
 
 #### Resolve inconsistent link styles
 
@@ -1009,7 +1009,7 @@ Please carefully review all links in custom or modified components to make sure 
 
 You can now use the breadcrumb and back link components on dark backgrounds by using the `.nhsuk-breadcrumb--reverse` and `.nhsuk-back-link--reverse` classes respectively. Added in [pull request #1335](https://github.com/nhsuk/nhsuk-frontend/pull/1335).
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - [#1318: Consistent padding for card and expander](https://github.com/nhsuk/nhsuk-frontend/pull/1318)
 - [#1324: Show border on summary row cells with no action link](https://github.com/nhsuk/nhsuk-frontend/pull/1324)
@@ -1023,7 +1023,7 @@ You can now use the breadcrumb and back link components on dark backgrounds by u
 
 Note: This release was created from the `support/9.x` branch.
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 We've made fixes to NHS.UK frontend in the following pull requests:
 
@@ -1032,7 +1032,7 @@ We've made fixes to NHS.UK frontend in the following pull requests:
 
 ## 9.6.0 - 20 May 2025
 
-:new: **New features**
+### :new: **New features**
 
 #### Use new override classes to apply static spacing
 
@@ -1050,7 +1050,7 @@ For example:
 
 This was added in [pull request #1163: Add static spacing override classes](https://github.com/nhsuk/nhsuk-frontend/pull/1163).
 
-:wastebasket: **Deprecated features**
+### :wastebasket: **Deprecated features**
 
 #### Add nhsuk namespace to Sass mixins and functions
 
@@ -1107,7 +1107,7 @@ The following functions have been renamed:
 - `tint` renamed to `nhsuk-tint`
 - `shade` renamed to `nhsuk-shade`
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 We've made fixes to NHS.UK frontend in the following pull requests:
 
@@ -1115,7 +1115,7 @@ We've made fixes to NHS.UK frontend in the following pull requests:
 
 ## 9.5.2 - 14 May 2025
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 We've made fixes to NHS.UK frontend in the following pull requests:
 
@@ -1123,7 +1123,7 @@ We've made fixes to NHS.UK frontend in the following pull requests:
 
 ## 9.5.1 - 14 May 2025
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 We've made fixes to NHS.UK frontend in the following pull requests:
 
@@ -1131,7 +1131,7 @@ We've made fixes to NHS.UK frontend in the following pull requests:
 
 ## 9.5.0 - 13 May 2025
 
-:new: **New features**
+### :new: **New features**
 
 #### Define negative spacing using the `nhsuk-spacing()` function
 
@@ -1221,7 +1221,7 @@ $nhsuk-suppressed-warnings: (
 
 This was added in [pull request #1291: Add Sass warning suppression functionality](https://github.com/nhsuk/nhsuk-frontend/pull/1291)
 
-:wastebasket: **Deprecated features**
+### :wastebasket: **Deprecated features**
 
 #### Stop using `nhsuk-u-font-size-24` and '24' on the typography scale
 
@@ -1355,7 +1355,7 @@ After:
 @import "node_modules/nhsuk-frontend/packages/components/breadcrumb";
 ```
 
-:recycle: **Changes**
+### :recycle: **Changes**
 
 We've completed changes to fully replace 24px with 26px from the typography scale in [pull request #1294](https://github.com/nhsuk/nhsuk-frontend/issues/1294) for the following:
 
@@ -1371,7 +1371,7 @@ We've made changes to NHS.UK frontend in the following pull requests:
 - [#1077: Secondary button has been restyled to improve its visual hierarchy and prevent users from interpreting it as a disabled button](https://github.com/nhsuk/nhsuk-frontend/pull/1077)
 - [#1198: Reverse button has been restyled to better match other buttons](https://github.com/nhsuk/nhsuk-frontend/pull/1198)
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 We've made fixes to NHS.UK frontend in the following pull requests:
 
@@ -1380,7 +1380,7 @@ We've made fixes to NHS.UK frontend in the following pull requests:
 
 ## 9.4.1 - 22 April 2025
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 We've made fixes to NHS.UK frontend in the following pull requests:
 
@@ -1388,7 +1388,7 @@ We've made fixes to NHS.UK frontend in the following pull requests:
 
 ## 9.4.0 - 22 April 2025
 
-:new: **New features**
+### :new: **New features**
 
 #### Include a page template
 
@@ -1463,7 +1463,7 @@ You can now use [source maps](https://firefox-source-docs.mozilla.org/devtools-u
 
 This was added in [pull request #1152: Add source maps to compiled JavaScript and CSS](https://github.com/nhsuk/nhsuk-frontend/pull/1152).
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 We've configured our build tasks to use [Browserslist](https://browsersl.ist) for browser compatibility. This change was introduced in [pull request #1135: Configure Browserslist for build tooling](https://github.com/nhsuk/nhsuk-frontend/issues/1135)
 
@@ -1487,18 +1487,18 @@ We've made fixes to NHS.UK frontend in the following pull requests:
 
 ## 9.3.0 - 13 February 2025
 
-:new: **New features**
+### :new: **New features**
 
 - Add panel component ([PR 1012](https://github.com/nhsuk/nhsuk-frontend/pull/1012))
 
 ## 9.2.0 - 12 February 2025
 
-:new: **New features**
+### :new: **New features**
 
 - Adds `text` param for Inset text ([PR 1113](https://github.com/nhsuk/nhsuk-frontend/pull/1113))
 - Make it easier to set checkbox and radio checked items ([PR 1105](https://github.com/nhsuk/nhsuk-frontend/pull/1105))
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - Fix appearance of the select element for more consistency between browsers and OS ([Issue 527](https://github.com/nhsuk/nhsuk-service-manual-community-backlog/issues/527))
 - Fix appearance of disabled warning buttons ([Issue 1034]([https://github.com/nhsuk/nhsuk-service-manual-community-backlog/issues/1034]))
@@ -1508,11 +1508,11 @@ We've made fixes to NHS.UK frontend in the following pull requests:
 
 ## 9.1.0 - 4 November 2024
 
-:new: **New features**
+### :new: **New features**
 
 - Add task list component ([PR 969](https://github.com/nhsuk/nhsuk-frontend/pull/969))
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - Fix navigation items not flowing into the overflow drop-down menu on desktop ([PR 1062](https://github.com/nhsuk/nhsuk-frontend/pull/1062))
 - Update header styles so that `.nhsuk-header__search-no-nav` class is no longer needed when header contains a search field but no navigation ([PR 1046](https://github.com/nhsuk/nhsuk-frontend/pull/1046))
@@ -1520,14 +1520,14 @@ We've made fixes to NHS.UK frontend in the following pull requests:
 
 ## 9.0.1 - 9 October 2024
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - Fix layout bug where breadcrumb component was changing height when more than one link shown
 - Fix print styling bug with emergency care card ([Issue 533]([https://github.com/nhsuk/nhsuk-service-manual-community-backlog/issues/533]))
 
 ## 9.0.0 - 18 September 2024
 
-:boom: **Breaking changes**
+### :boom: **Breaking changes**
 
 #### Updated back link and breadcrumbs ([PR 1002](https://github.com/nhsuk/nhsuk-frontend/pull/1002))
 
@@ -1652,7 +1652,7 @@ You can override this new default by setting the `name` attribute on the individ
 }) }}
 ```
 
-:recycle: **Changes**
+### :recycle: **Changes**
 
 - Large headings, legends and labels updated to use 36px rather than 32px ([PR 989](https://github.com/nhsuk/nhsuk-frontend/pull/989))
 - Medium headings, legends and labels updated to use 26px rather than 24px ([Issue 445](https://github.com/nhsuk/nhsuk-service-manual-community-backlog/issues/445))
@@ -1670,18 +1670,18 @@ You can override this new default by setting the `name` attribute on the individ
 
 ## 8.3.0 - 24 July 2024
 
-:new: **New features**
+### :new: **New features**
 
 - Make `nhsuk-page-width` a default so that services can override it ([PR 971](https://github.com/nhsuk/nhsuk-frontend/pull/971))
 - Make footer copyright statement configurable via Nunjucks parameters ([PR 975](https://github.com/nhsuk/nhsuk-frontend/pull/975))
 - Add warning button ([PR 976](https://github.com/nhsuk/nhsuk-frontend/pull/976))
 - Add support for custom classes and attributes in Header primary links ([PR 978](https://github.com/nhsuk/nhsuk-frontend/pull/978))
 
-:wrench: **Maintenance**
+### :wrench: **Maintenance**
 
 - Update Node to version 20 ([PR 957](https://github.com/nhsuk/nhsuk-frontend/pull/957))
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - Change "Contact us" in the footer link examples to "Give us feedback" ([PR 972](https://github.com/nhsuk/nhsuk-frontend/pull/972))
 - Remove the pattern from the date input component ([PR 984](https://github.com/nhsuk/nhsuk-frontend/pull/984))
@@ -1692,11 +1692,11 @@ You can override this new default by setting the `name` attribute on the individ
 
 ## 8.2.0 - 12 June 2024
 
-:recycle: **Changes**
+### :recycle: **Changes**
 
 - Align label bottom margins with fieldset legend bottom margins ([PR 946](https://github.com/nhsuk/nhsuk-frontend/pull/946))
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - Change example link to hash ([PR 962](https://github.com/nhsuk/nhsuk-frontend/pull/962))
 - Adjust nested list spacing ([PR 961](https://github.com/nhsuk/nhsuk-frontend/pull/961))
@@ -1709,7 +1709,7 @@ You can override this new default by setting the `name` attribute on the individ
 
 ## 8.1.1 - 14 March 2024
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - Fix alignment of copyright footer
 - Add missing/outdated backstop images
@@ -1717,27 +1717,27 @@ You can override this new default by setting the `name` attribute on the individ
 
 ## 8.1.0 - 11 January 2024
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - Updated header component unit tests ([PR 900](https://github.com/nhsuk/nhsuk-frontend/pull/900)).
 - Fixed bug where the header didn't align with the main width container ([PR 902](https://github.com/nhsuk/nhsuk-frontend/pull/902)). This fixes [Issue 901](https://github.com/nhsuk/nhsuk-frontend/issues/901)
 - Clicking the chevron image on a 'Primary Card (With Chevron)' card element now focuses the link ([PR 905](https://github.com/nhsuk/nhsuk-frontend/pull/905)).
 - Added font licensing guidance to the relevant package READMEs and updated the copyright guidance to include NHS England ([PR 915](https://github.com/nhsuk/nhsuk-frontend/pull/915)).
 
-:new: **New features**
+### :new: **New features**
 
 - Add and export new `initAll` method in `nhsuk.js`, and pass document by default, but allowing smaller DOM scopes to be passed. This allows new nhsuk-frontend JS components to be initialised after page load, such as in new pieces of DOM added by JavaScript.
   - This fixes [issue 906](https://github.com/nhsuk/nhsuk-frontend/issues/906) where button elements added _after_ the page has loaded would not benefit from the button component's JS behaviours (double click prevention and space bar activation for links). ([PR 907](https://github.com/nhsuk/nhsuk-frontend/pull/907)).
 
 ## 8.0.2 - 19 October 2023
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - Resolves the bug of the drop down menu covering the main content of the page ([PR 898](https://github.com/nhsuk/nhsuk-frontend/pull/898)).
 
 ## 8.0.1 - 02 October 2023
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - Updated design examples for suffix and prefix, and added backstop regression images ([PR 826](https://github.com/nhsuk/nhsuk-frontend/pull/826)).
 - Fix focus padding for the search input ([PR 896](https://github.com/nhsuk/nhsuk-frontend/pull/896)).
@@ -1745,7 +1745,7 @@ You can override this new default by setting the `name` attribute on the individ
 
 ## 8.0.0 - 28 September 2023
 
-:boom: **Breaking changes**
+### :boom: **Breaking changes**
 
 - Updated header and footer to use the new styles and functionality to match the live nhs.uk site ([PR 881](https://github.com/nhsuk/nhsuk-frontend/pull/881))
 
@@ -1785,13 +1785,13 @@ You will now only need this:
 </ul>
 ```
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - Fix vertical alignment of primary card icon
 - Change NHS Digital wording to NHS England
 - Remove dead link in "Action link" example
 
-:new: **New features**
+### :new: **New features**
 
 - Added suffix and prefix examples to text input component ([PR 884](https://github.com/nhsuk/nhsuk-frontend/pull/884))
 
@@ -1812,12 +1812,13 @@ We added 4 new text input examples that allow users to add suffixes and prefixed
 
 ## 7.1.0 - 21 August 2023
 
-:new: **New features**
+### :new: **New features**
+
 🆕 New features
 
 - Added three new card variants, primary card(with chevron), secondary card and top task ([PR 878](https://github.com/nhsuk/nhsuk-frontend/pull/878))
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - Breadcrumb update ([PR 872](https://github.com/nhsuk/nhsuk-frontend/pull/872))
 
@@ -1869,12 +1870,12 @@ Note: For backwards compatibility, 'href' and 'text' parameters outside of the i
 
 ## 7.0.0 - 22 March 2023
 
-:new: **New features**
+### :new: **New features**
 
 - Added Character Count component, ported from govuk-frontend ([PR 811](https://github.com/nhsuk/nhsuk-frontend/pull/811))
 - Added Tabs component, ported from govuk-frontend ([PR 828](https://github.com/nhsuk/nhsuk-frontend/pull/828))
 
-:boom: **Breaking changes**
+### :boom: **Breaking changes**
 
 - Breadcrumb update
 
@@ -1899,26 +1900,26 @@ You will only now need this:
   </p>
 ```
 
-:recycle: **Changes**
+### :recycle: **Changes**
 
 - Rework clickable cards using CSS invisible overlay rather than JS event handler to avoid problems with using Ctrl-click, middle click, right click to open new tabs ([PR 762](https://github.com/nhsuk/nhsuk-frontend/pull/762)).
   This change removes the `Card` component's associated JavaScript. If you are bundling this yourself in your pipeline you will need to edit your JS entrypoint to remove the lines which read: `import Card from '[wherever]';` and `Card();`
   You do not need to update your html as part of this change - this remains the same.
 
-:wrench: **Maintenance**
+### :wrench: **Maintenance**
 
 - Removes support for LibSass and Ruby Sass in favour of [Dart Sass](https://www.npmjs.com/package/sass)
 - Upgrade all dependencies to their latest versions where possible
 - Updates code formatting conventions to fall mostly in line with [Prettier](https://prettier.io/)'s recommendations. Details of the implementation and how it effects ESlint can be [found on the PR](https://github.com/nhsuk/nhsuk-frontend/pull/832#issue-1315246034).
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - Adds missing `open` and `id` parameters to `details` nunjucks component ([Issue 856](https://github.com/nhsuk/nhsuk-frontend/issues/856), [PR 857](https://github.com/nhsuk/nhsuk-frontend/pull/857))
   These were already documented in the service manual but not actually implemented.
 
 ## 6.2.0 - 17 January 2023
 
-:new: **New features**
+### :new: **New features**
 
 - Button improvements
   - Add `role="button"` attribute to links _visually styled_ as buttons (`<a class="nhsuk-button" role="button">`) and bind a spacebar keydown listener to these elements so that they _behave_ like buttons.
@@ -1927,7 +1928,7 @@ You will only now need this:
 
 - Allow back-link component to be a button element ([PR 838](https://github.com/nhsuk/nhsuk-frontend/pull/838))
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - Fix issue with VoiceOver on Safari (iOS and macOS) not announcing a list as a list. This affects some components that have a list with style `list-style-type: none`, ie those that have a class of `nhsuk-list` on the `<ul>`. This fixes the do/don't list and the error summary components. The contents list and pagination components don't seem to be affected.
 
@@ -1935,28 +1936,28 @@ You will only now need this:
 
 ## 6.1.2 - 8 August 2022
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - Add missing `nhsuk-list--border` utility class
 - Reduce input and textarea error border widths to eliminate text movement / dimension changes when focusing and unfocusing a field with an error ([Issue 825](https://github.com/nhsuk/nhsuk-frontend/issues/825)), ([PR 826](https://github.com/nhsuk/nhsuk-frontend/pull/826)).
 
 ## 6.1.1 - 13 June 2022
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - Remove duplicated width attributes on plus and minus icon SVGs - fixing validation and rendering issues with these icons
 
-:wrench: **Maintenance**
+### :wrench: **Maintenance**
 
 - Refreshed dependencies to make dependabot happy
 
 ## 6.1.0 - 12 January 2022
 
-:new: **New features**
+### :new: **New features**
 
 - Added utility classes `nhsuk-u-text-align-left`, `nhsuk-u-text-align-centre` and `nhsuk-u-text-align-right`
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - Updated dependancies in `package.json` & generated new `package-lock.json`
 - Changed spelling mistake `charitiest` to `charities`
@@ -1964,13 +1965,13 @@ You will only now need this:
 
 ## 6.0.1 - 29 November 2021
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - Added missing utility classes `nhsuk-u-display-block`, `nhsuk-u-display-inline-block`, `nhsuk-u-float-left` and `nhsuk-u-float-right`
 
 ## 6.0.0 - 29 November 2021
 
-:boom: **Breaking changes**
+### :boom: **Breaking changes**
 
 - Care card refactor
 
@@ -2282,7 +2283,7 @@ After:
 
 ## 5.2.1 - 28 October 2021
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - Tidying and removing of duplicate styles in header SCSS ([Issue 711](https://github.com/nhsuk/nhsuk-frontend/issues/711)), ([PR 779](https://github.com/nhsuk/nhsuk-frontend/pull/779)).
 - Removal of unnecessary static `aria-label="Open menu"` on the header menu button. Included more descriptive `aria-expanded="false"` on page load.
@@ -2290,11 +2291,11 @@ After:
 
 ## 5.2.0 - 22 September 2021
 
-:new: **New features**
+### :new: **New features**
 
 - Add "None of these" JavaScript behaviour to checkboxes - allowing all checkboxes in a group to be automatically unchecked when the "None of the above" option is checked ([PR 756](https://github.com/nhsuk/nhsuk-frontend/pull/756))
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - Transactional header defaults to wrapping underneath the logo without the need for a modifier ([Issue 720](https://github.com/nhsuk/nhsuk-frontend/issues/720)).
 - Add width, height, stroke and fill attributes to inline SVGs in order that they render at appropriate sizes when viewed with disabled/broken/missing CSS ([PR 761](https://github.com/nhsuk/nhsuk-frontend/pull/761)).
@@ -2303,7 +2304,7 @@ After:
 
 ## 5.1.0 - 14 May 2021
 
-:new: **New features**
+### :new: **New features**
 
 - Ensure Error Summary receives keyboard focus when rendered ([Issue 702](https://github.com/nhsuk/nhsuk-frontend/issues/702)).
 - Enhance Error Summary link focus behaviour such that the nearest label/legend remains in view when scrolling ([PR 725](https://github.com/nhsuk/nhsuk-frontend/pull/725)).
@@ -2330,14 +2331,14 @@ After:
   - `$nhsuk-fonts-path`: base URL to load fonts from (e.g. `/fonts/`; trailing slash required)
   - `$nhsuk-include-font-face`: set to false to disable the inclusion of the `@font-face` definition entirely
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - Fix aXe accessibility warning on breadcrumb and expander components ([PR 718](https://github.com/nhsuk/nhsuk-frontend/pull/718))
 - Changed SCSS linting package to stylelint from sass-lint, which is more extensible and actively maintained.
 
 ## 5.0.0 - 16 March 2021
 
-:boom: **Breaking changes**
+### :boom: **Breaking changes**
 
 - Header, breadcrumb, button and hero - the CSS for IE 8 and 9 for these components have been removed. Therefore if you update to this version then the conditionals for the `<html>` element will have no effect so you should remove them. So instead of having something like this:
 
@@ -2389,12 +2390,12 @@ After:
 - Header search autocomplete - the Header search autocomplete has been removed and extracted into a separate package. The search implementation in the library and service manual is very
   NHS website specific and uses a third party supplier for the search results. ([Issue 568](https://github.com/nhsuk/nhsuk-frontend/issues/568))
 
-:new: **New features**
+### :new: **New features**
 
 - Updated browser and assistive technology support documentation - remove support for IE8-10. Read the blog post ([Changing our testing requirements for Internet Explorer 8, 9 and 10](https://technology.blog.gov.uk/2018/06/26/changing-our-testing-requirements-for-internet-explorer-8-9-and-10/)) by GOV.UK for more information why we have done this now.
 - add ability to not display the 'do not' prefix on list items that have the type 'cross' for the do and don't list component
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - Removing support for IE8-10 and updating the NHS logo SVG html means the `xlink:href` is no longer an issue ([PR 657](https://github.com/nhsuk/nhsuk-frontend/pull/657), [PR 673](https://github.com/nhsuk/nhsuk-frontend/pull/673)). This also fixes the issue of not being able to select or focus on the NHS logo when using VoiceOver on iOS ([PR 631](https://github.com/nhsuk/nhsuk-frontend/pull/631))
 - Fix Create release GitHub Action which wasn't publishing to NPM ([Issue 691](https://github.com/nhsuk/nhsuk-frontend/issues/691))
@@ -2407,13 +2408,13 @@ After:
 
 ## 4.1.0 - 21 January 2021
 
-:new: **New features**
+### :new: **New features**
 
 - Add `inputmode` and `spellcheck` options to the text input Nunjucks macro
 - Change `type="number"` to `inputmode="numeric"` for the date input component
 - Add a colon after the word Important on the warning callout component ([Issue 670](https://github.com/nhsuk/nhsuk-frontend/issues/653))
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - Align items to the top in the Summary list component ([Issue 663](https://github.com/nhsuk/nhsuk-frontend/issues/663))
 - Ensure the NHS logo SVG is a valid SVG file by adding `xlink` namespace to the markup ([PR 657](https://github.com/nhsuk/nhsuk-frontend/pull/657))
@@ -2427,7 +2428,7 @@ After:
 
 ## 4.0.0 - 26 October 2020
 
-:boom: **Breaking changes**
+### :boom: **Breaking changes**
 
 - Tables - New responsive table component, when viewed on a desktop the table component will behave like any other table. However, when viewed on a mobile the table collapses into what appears to be a group list style component. ([Pull request 635](https://github.com/nhsuk/nhsuk-frontend/pull/635))
 
@@ -2616,7 +2617,7 @@ After:
 
   ([PR 627](https://github.com/nhsuk/nhsuk-frontend/pull/627))
 
-:new: **New features**
+### :new: **New features**
 
 - Add Card component
 
@@ -2644,7 +2645,7 @@ After:
     </script>
 ```
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - Hints - changed hints to be div instead of span to allow multi-line elements ([Issue 620](https://github.com/nhsuk/nhsuk-frontend/issues/620))
 - Details - fix the left alignment of the details text and summary ([Issue 615](https://github.com/nhsuk/nhsuk-frontend/issues/615))
@@ -2662,7 +2663,7 @@ After:
 
 ## 3.1.0 - 24 April 2020
 
-:new: **New features**
+### :new: **New features**
 
 - Checkboxes with conditional content - add functionality to show and hide conditional content when checkbox is checked
 - Radios with conditional content - add functionality to show and hide conditional content when radio is checked
@@ -2701,7 +2702,7 @@ After:
 
   Note: You may need to change the path to `node_modules` depending on your project structure.
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - Tidy dependencies - Removed unnecessary JavaScript linting NPM packages
 - JS utils - Fix toggleClass util which duplicated classes if there was no other class before it, more tests added
@@ -2709,7 +2710,7 @@ After:
 
 ## 3.0.4 - 24 March 2020
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - Breadcrumb - fix the text colour on :focus:hover ([Issue 589](https://github.com/nhsuk/nhsuk-frontend/issues/589))
 - Transactional Header - fix the text colour on :focus:hover for non visited links ([Issue 592](https://github.com/nhsuk/nhsuk-frontend/issues/592))
@@ -2717,7 +2718,7 @@ After:
 
 ## 3.0.3 - 17 February 2020
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - Expander - fix the Expander plus and minus icon sizing on IE11 ([Issue 564](https://github.com/nhsuk/nhsuk-frontend/issues/564))
 - Button - fix the active state text colour for button as a link
@@ -2730,20 +2731,20 @@ After:
 
 ## 3.0.2 - 11 November 2019
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - Details keydown - following the details polyfill refactor, we've fixed an issue with keydown events not opening or closing the component
 - Search defaults - change default header search URL to use nhs.uk search
 
 ## 3.0.1 - 8 November 2019
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - Focus states - following the focus styles changes, we've fixed an issue with the header navigation link styling
 
 ## 3.0.0 - 7 November 2019
 
-:boom: **Breaking changes**
+### :boom: **Breaking changes**
 
 - Non-text colour contrast for WCAG 2.1 ([Issue 473](https://github.com/nhsuk/nhsuk-frontend/issues/473)). Our focus states now meet the new WCAG 2.1 level AA requirements.
 
@@ -2801,7 +2802,7 @@ After:
 
   <hr>
 
-:boom: **Breaking changes**
+### :boom: **Breaking changes**
 
 - Deprecation of the [Feedback banner](https://github.com/nhsuk/nhsuk-service-manual-backlog/issues/151) and [Emergency alert](https://github.com/nhsuk/nhsuk-service-manual-backlog/issues/149) components.
 
@@ -2835,7 +2836,7 @@ After:
 
   <hr>
 
-:boom: **Breaking changes**
+### :boom: **Breaking changes**
 
 - Refactor component JavaScript to make it more robust and use the latest ES6 coding standards ([Issue 425](https://github.com/nhsuk/nhsuk-frontend/issues/425)) ([Issue 450](https://github.com/nhsuk/nhsuk-frontend/issues/450))
 
@@ -2859,7 +2860,7 @@ After:
 
   If you are already importing JavaScript with these export names, you can change the default export name.
 
-:new: **New features**
+### :new: **New features**
 
 - Organisational logos - the Header component now supports organisational logos. The organisational logo can be SVG code, with the organisation name and descriptor being editable through code, or a static PNG asset. You can also change the colour of the header and navigation menu from blue (default) to white ([Issue 446](https://github.com/nhsuk/nhsuk-frontend/issues/446)).
 
@@ -2889,7 +2890,7 @@ After:
 
   [Preview the header organisational with white header and navigation component](https://nhsuk.github.io/nhsuk-frontend/components/header/header-org-white-nav.html)
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - Images - Add `size` and `srcset` attributes to the images component for responsive loading of images. ([Issue 422](https://github.com/nhsuk/nhsuk-frontend/issues/422))
 - Jaws/NVDA not reading fieldset heading - removing old `overflow: hidden` hack for hint text in legend ([Issue 534](https://github.com/nhsuk/nhsuk-frontend/issues/534))
@@ -2901,13 +2902,13 @@ After:
 
 ## 2.3.2 - 30 September 2019
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - Header search - Fix javascript error when header search autocomplete is not present on the page ([Issue 531](https://github.com/nhsuk/nhsuk-frontend/issues/531)), add linting to all component JavaScript files, exclude linting from details polyfill, fix linting errors in autocomplete JavaScript, remove unnecessary JavaScript and CSS from autocomplete.
 
 ## 2.3.1 - 10 September 2019
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - Details (Expander variant) - Fix an issue on Microsoft Edge with the sizing of the +/- icons overlapping the title of the Expander. ([Issue 508](https://github.com/nhsuk/nhsuk-frontend/issues/508))
 - Footer - Added a new parameter to the nunjucks template to override the default copyright notice. ([Issue 485](https://github.com/nhsuk/nhsuk-frontend/issues/485))
@@ -2916,13 +2917,13 @@ After:
 
 ## 2.3.0 - 23 July 2019
 
-:new: **New features**
+### :new: **New features**
 
 - Lede text - Lede text styling for use after the `<h1>` element, often used as intro text for the page immediately following the page header. You can see an example of Lede text on the [NHS website Live Well page](https://www.nhs.uk/live-well/), you can find the HTML code for Lede text in the [Typography section in the README](https://github.com/nhsuk/nhsuk-frontend/blob/master/packages/core#lede-text). ([Issue 106](https://github.com/nhsuk/nhsuk-service-manual-backlog/issues/106))
 
 - Secondary text colour utility class - a new utility class to be able to use the secondary text colour within elements (`$nhsuk-secondary-text-color` - `#425563`) You can find the HTML code for secondary text colour utility class in the [Utilities section in the README](https://github.com/nhsuk/nhsuk-frontend/blob/master/packages/core#secondary-text-colour) ([Issue 465](https://github.com/nhsuk/nhsuk-frontend/issues/465))
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - Care card (immediate) - Fix colour contrast issue when using the Details component within the Care card (immediate) ([Issue 475](https://github.com/nhsuk/nhsuk-frontend/issues/475))
 
@@ -2934,13 +2935,13 @@ After:
 
 ## 2.2.0 - 24 June 2019
 
-:new: **New features**
+### :new: **New features**
 
 - Footer - A variant for footer links to be in lists in 3 columns, which can be used when there are more than just a few links. You can find the markup and example in the [Footer component README](https://github.com/nhsuk/nhsuk-frontend/blob/master/packages/components/footer/README.md#footer-with-list-columns) [(Issue 168)](https://github.com/nhsuk/nhsuk-frontend/issues/168)
 
 - Favicon - The favicon design has changed and the favicon asset files have been updated in the `packages/assets/favicons` directory. The file names have stayed the same - but there are also some additional recommended favicon metadata tags for different devices. You can find a list of the recommended favicons to use in the [Installing with npm - importing assets documentation](https://github.com/nhsuk/nhsuk-frontend/blob/master/docs/installation/installing-with-npm.md#importing-assets-optional) and the [Installing using compiled files - HTML template](https://github.com/nhsuk/nhsuk-frontend/blob/master/docs/installation/installing-compiled.md#html-template). ([Issue 447](https://github.com/nhsuk/nhsuk-frontend/issues/447))
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - Remove light font version - The light version of the Frutiger font has been removed as it was only been used in one place. The SASS `$nhsuk-font-light` variable has been remapped to use the `$nhsuk-font-normal` value as a defensive measure for now until it is decided to remove the `$nhsuk-font-light` variable completely. ([PR 460](https://github.com/nhsuk/nhsuk-frontend/pull/460))
 
@@ -2954,7 +2955,7 @@ After:
 
 ## 2.1.0 - 8 April 2019
 
-:new: **New features**
+### :new: **New features**
 
 - Hero component - removed background image and arrow and tidied up area around the hero with image and content when in Windows high contrast mode. ([PR 435](https://github.com/nhsuk/nhsuk-frontend/pull/435))
 
@@ -2996,7 +2997,7 @@ After:
 
   The open graph default image has also been added to the `assets/logos` folder of the package.
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - Reorder the asset `preconnect` and remove unneeded `dns-prefetch` ([Issue 434](https://github.com/nhsuk/nhsuk-frontend/issues/434))
 
@@ -3004,11 +3005,11 @@ After:
 
 ## 2.0.0 - 11 March 2019
 
-:boom: **Breaking changes**
+### :boom: **Breaking changes**
 
 - Hero component - Refactored hero component to not overlap with the header when zooming in / increasing the font size massively. There have been minor HTML changes so please update your code if you are using this component.([PR 411](https://github.com/nhsuk/nhsuk-frontend/pull/411)), ([Issue 400](https://github.com/nhsuk/nhsuk-frontend/issues/400))
 
-:new: **New features**
+### :new: **New features**
 
 - Summary list component - Use the summary list to summarise information, for example, a user’s responses at the end of a form.
 
@@ -3016,7 +3017,7 @@ After:
 
   ([Issue 384](https://github.com/nhsuk/nhsuk-frontend/issues/384))
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - Button component - A fix for the :focus state to display a 4px yellow border. ([Issue 406](https://github.com/nhsuk/nhsuk-frontend/issues/406))
 
@@ -3026,21 +3027,21 @@ After:
 
 ## 1.0.1 - 20 February 2019
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - Panel component - A fix for the panel to go full width of the grid item, rather than just the width of the content. ([Issue 395](https://github.com/nhsuk/nhsuk-frontend/issues/395))
 
-:new: **New features**
+### :new: **New features**
 
 - Promo component - Updated the Nunjucks macro and css to allow any level of heading for the promo heading rather than being hardcoded to a `<h3>` ([PR 392](https://github.com/nhsuk/nhsuk-frontend/pull/392))
 
 ## 1.0.0 - 5 February 2019
 
-:tada: **Official release of the NHS.UK frontend**
+### :tada: **Official release of the NHS.UK frontend**
 
 - v1.0.0 of the NHS.UK frontend library!
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - Review date component - Removed the `<time>` markup around the date because it doesn't have a `datetime` attribute (which can't be automatically generated) and also we can't guarantee that the content will be a valid date/time string ([PR 381](https://github.com/nhsuk/nhsuk-frontend/pull/381))
 
@@ -3048,39 +3049,39 @@ After:
 
 ## 0.9.1 (Prerelease) - 4 February 2019
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - Header, hero and breadcrumbs - IE8 fixes to make the header and hero components display better, and hidden a back link (used in mobile view) in the breadcrumbs component ([PR 376](https://github.com/nhsuk/nhsuk-frontend/pull/376))
 
 ## 0.9.0 (Prerelease) - 31 January 2019
 
-:new: **New features**
+### :new: **New features**
 
 - Emergency alert, feedback banner, footer, header, hero component - Add options for extra classes and attributes in the Nunjucks macro. ([PR 361](https://github.com/nhsuk/nhsuk-frontend/pull/361))
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - Footer text amend - Uncapitalised copyright message in footer - 'copyright' rather than 'Copyright' ([PR 360](https://github.com/nhsuk/nhsuk-frontend/pull/360))
 
 ## 0.8.0 (Prerelease) - 17 January 2019
 
-:boom: **Breaking changes**
+### :boom: **Breaking changes**
 
 - Header - The autocomplete has been rewritten to remove the dependency on jQuery and now uses [GOV.UK's accessible autocomplete component](https://github.com/alphagov/accessible-autocomplete). You will need to do an `npm install` to update your packages and update the header HTML accordingly. ([PR 342](https://github.com/nhsuk/nhsuk-frontend/pull/342))
 
 ## 0.7.0 (Prerelease) - Jan 2, 2019
 
-:new: **New features**
+### :new: **New features**
 
 - Button component - Add option for button to be also an `<a>` or `<input>` element. ([PR 324](https://github.com/nhsuk/nhsuk-frontend/pull/324))
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - Project structure - move website pages out of the `/docs` folder and into `/app` along with other general project clean up ([PR 324](https://github.com/nhsuk/nhsuk-frontend/pull/321))
 
 ## 0.6.0 (Prerelease) - 18 December 2018
 
-:boom: **Breaking changes**
+### :boom: **Breaking changes**
 
 - npm JavaScript file path - The `nhsuk.min.js` file has been moved from `packages/` into `dist/` if you are referencing
   the compiled JavaScript file from the `packages/` folder please update your projects.
@@ -3088,7 +3089,7 @@ After:
 - Footer no longer includes a logo and the nunjucks macro arguments have been updated - if you are using the footer nunjucks
   macro then you need to update it. ([PR 300](https://github.com/nhsuk/nhsuk-frontend/pull/300))
 
-:new: **New features**
+### :new: **New features**
 
 - ES6 JavaScript modules - NHS.UK frontend JavaScript is now written in ES6 format, meaning you can import individual components
   that you require (if you are using a transpiler such as Babel). ([PR 258](https://github.com/nhsuk/nhsuk-frontend/pull/258))
@@ -3097,13 +3098,13 @@ See more about using ES6 modules in your project in the [installing with npm - i
 
 ## 0.5.3 (Prerelease) - 13 December 2018
 
-:new: **New features**
+### :new: **New features**
 
 - Header - Add 'aria-label' Nunjucks argument so it can be overridden ([PR 297](https://github.com/nhsuk/nhsuk-frontend/pull/297))
 
 ## 0.5.2 (Prerelease) - 12 December 2018
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - Address styling - Add generic styling for the `<address>` element ([PR 295](https://github.com/nhsuk/nhsuk-frontend/pull/295))
 
@@ -3111,7 +3112,7 @@ See more about using ES6 modules in your project in the [installing with npm - i
 
 ## 0.5.1 (Prerelease) - 11 December 2018
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - Feedback banner - Fix an issue with the JavaScript reporting errors within the console log
   when scrolling down the page if the feedback banner did not exist on the page. ([PR 293](https://github.com/nhsuk/nhsuk-frontend/pull/293))
@@ -3120,7 +3121,7 @@ See more about using ES6 modules in your project in the [installing with npm - i
 
 ## 0.5.0 (Prerelease) - 7 December 2018
 
-:boom: **Breaking changes**
+### :boom: **Breaking changes**
 
 - Utility classes - Utility classes should be prefixed with `nhsuk-u-` rather than `nhsuk-!-`. ([PR 282](https://github.com/nhsuk/nhsuk-frontend/pull/282))
 
@@ -3129,13 +3130,13 @@ See more about using ES6 modules in your project in the [installing with npm - i
 
   You can find out more about utility class usage in the [utility class documentation](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/core#utilities).
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - Footer - Add the ability to change the link of the NHS logo within the nunjucks macro with `homeHref` argument. Also have the logo show by default with the ability to hide it using the `showLogo` argument. ([PR 278](https://github.com/nhsuk/nhsuk-frontend/pull/278))
 
 ## 0.4.0 (Prerelease) - 3 December 2018
 
-:boom: **Breaking changes**
+### :boom: **Breaking changes**
 
 - Breadcrumb - Updated nunjucks macro so now you do not need duplicate entries for it to work ([PR 276](https://github.com/nhsuk/nhsuk-frontend/pull/276))
 
@@ -3145,7 +3146,7 @@ See more about using ES6 modules in your project in the [installing with npm - i
 
   Use the latest [Care card HTML markup](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/care-card#quick-start-examples) in your app.
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - Header - Removed icon includes from nunjucks macro and added the SVG's inline ([PR 276](https://github.com/nhsuk/nhsuk-frontend/pull/276))
 
@@ -3153,7 +3154,7 @@ See more about using ES6 modules in your project in the [installing with npm - i
 
 ## 0.3.0 (Prerelease) - 3 December 2018
 
-:boom: **Breaking changes**
+### :boom: **Breaking changes**
 
 - Footer - Nunjucks macro arguments no longer contains `secondaryLinks` only `primaryLinks` ([PR 208](https://github.com/nhsuk/nhsuk-frontend/pull/208))
 
@@ -3167,7 +3168,7 @@ See more about using ES6 modules in your project in the [installing with npm - i
 
   Use the latest [Pagination nunjucks macro arguments](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/pagination#nunjucks-macro) and [Pagination HTML markup](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/pagination#html-markup)
 
-:new: **New features**
+### :new: **New features**
 
 - Form elements - All form elements have now been added to NHS.UK frontend. Including a new transactional header and footer. ([PR 208](https://github.com/nhsuk/nhsuk-frontend/pull/208))
 
@@ -3175,13 +3176,13 @@ See more about using ES6 modules in your project in the [installing with npm - i
 
 ## 0.2.1 (Prerelease) - 27 November 2018
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - Header &amp; Footer - Remove NHS logo SVG nunjucks include ([PR 256](https://github.com/nhsuk/nhsuk-frontend/pull/256))
 
 ## 0.2.0 (Prerelease) - 27 November 2018
 
-:boom: **Breaking changes**
+### :boom: **Breaking changes**
 
 - Breadcrumb - Refactor breadcrumb SVG icons to background images. ([PR 246](https://github.com/nhsuk/nhsuk-frontend/pull/246))
 
@@ -3195,20 +3196,20 @@ See more about using ES6 modules in your project in the [installing with npm - i
 
   Use the latest [Do & don't list HTML markup](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/do-dont-list#html-markup) in your app.
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - Action link - Add argument to the nunjucks macro allow action link to open in new window ([PR 245](https://github.com/nhsuk/nhsuk-frontend/pull/245))
 - Contents list - Fix MacOS VoiceOver issue for accessibility ([PR 245](https://github.com/nhsuk/nhsuk-frontend/pull/245))
 
 ## 0.1.6 (Prerelease) - 22 November 2018
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - Release 0.1.5 was missing the `nhsuk.min.js` within the packages folder for npm. It is now included.
 
 ## 0.1.5 (Prerelease) - 22 November 2018
 
-:wrench: **Fixes**
+### :wrench: **Fixes**
 
 - Update skip link documentation, template and js ([PR 204](https://github.com/nhsuk/nhsuk-frontend/pull/204))
 - Fixes rogue markup and helps the page validate ([PR 216](https://github.com/nhsuk/nhsuk-frontend/pull/216))
@@ -3220,7 +3221,7 @@ See more about using ES6 modules in your project in the [installing with npm - i
 
 ## 0.1.4 (Prerelease) - 13 November 2018
 
-:tada: **Initial release of the NHS.UK frontend**
+### :tada: **Initial release of the NHS.UK frontend**
 
 - This release includes all the content page components and the first
   installable npm package.
