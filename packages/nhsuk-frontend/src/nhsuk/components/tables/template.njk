@@ -49,7 +49,7 @@
           {% endset -%}
 
           {% set commonContents %}
-            {%- if params.responsive -%}
+            {%- if params.responsive and cell.header -%}
               <span class="nhsuk-table-responsive__heading" aria-hidden="true">{{ cell.header }} </span>
             {%- endif -%}
             {{- cell.html | safe if cell.html else cell.text -}}
