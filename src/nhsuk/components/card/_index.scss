@@ -260,10 +260,8 @@ $card-border-hover-color: $card-border-hover-colour;
     }
   }
 
-  .nhsuk-action-link__link {
-    .nhsuk-icon__arrow-right-circle {
-      fill: nhsuk-colour("white"); // [14]
-    }
+  .nhsuk-action-link__link .nhsuk-icon {
+    fill: nhsuk-colour("white"); // [14]
   }
 }
 

@@ -167,7 +167,7 @@ $_header-item-active-size: $nhsuk-focus-width;
   margin-top: nhsuk-spacing(3);
   overflow: hidden;
 
-  .nhsuk-icon__user {
+  .nhsuk-icon--user {
     fill: currentcolor;
     height: nhsuk-px-to-rem(24px);
     width: nhsuk-px-to-rem(24px);
@@ -246,7 +246,7 @@ $_header-item-active-size: $nhsuk-focus-width;
     margin: 0;
   }
 
-  .nhsuk-icon__search {
+  .nhsuk-icon--search {
     height: nhsuk-px-to-rem(28px);
     width: nhsuk-px-to-rem(28px);
   }
