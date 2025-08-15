@@ -1986,9 +1986,9 @@ We've reworked the care cards component as a pattern to "Help users decide when 
 
 The Nav A-Z component & List Panel component are two components in the NHS.UK frontend that did not have guidance in the service manual.
 
-### Nav A-Z
+#### Nav A-Z
 
-#### Old code:
+Before:
 
 ```
 <nav class="nhsuk-nav-a-z" id="nhsuk-nav-a-z" role="navigation" aria-label="A to Z Navigation">
@@ -2075,7 +2075,7 @@ The Nav A-Z component & List Panel component are two components in the NHS.UK fr
 </nav>
 ```
 
-#### New code:
+After:
 
 The nav A-Z component can be recreated using `nhsuk-list`.
 
@@ -2174,9 +2174,9 @@ The new code uses a new utility class:
 
 All the other code already exists and the spacing utility classes can be customised to fit into your design.
 
-### List panel
+#### List panel
 
-#### Old code:
+Before:
 
 ```
 <ol class="nhsuk-list">
@@ -2270,7 +2270,7 @@ All the other code already exists and the spacing utility classes can be customi
 
 The list panel component can be recreated by adding `nhsuk-list--border` to the [list styles in typography](https://service-manual.nhs.uk/design-system/styles/typography#lists)
 
-#### New code:
+After:
 
 ```
 <ul class="nhsuk-list nhsuk-list--border">
