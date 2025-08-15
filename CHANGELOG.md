@@ -576,7 +576,11 @@ This change was introduced in pull requests [#1459: Add NHS.UK frontend browser 
 
 ### :new: **New features**
 
-- [#1464: Export type declarations ` *.d.mts` for NHS.UK frontend](https://github.com/nhsuk/nhsuk-frontend/pull/1464)
+#### Export type declarations
+
+We've added type declarations to the [NHS.UK frontend npm package](https://www.npmjs.com/package/govuk-frontend) for TypeScript compatibility and code autocomplete.
+
+This was added in [pull request #1464: Export type declarations `*.d.mts` for NHS.UK frontend](https://github.com/nhsuk/nhsuk-frontend/pull/1464).
 
 ### :wrench: **Fixes**
 
