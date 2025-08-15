@@ -70,7 +70,9 @@
         <label class="nhsuk-u-visually-hidden" for="search-field">{{ searchVisuallyHiddenLabel }}</label>
         <input class="nhsuk-header__search-input nhsuk-input" id="search-field" name="{{ searchName }}" type="search" placeholder="{{ searchPlaceholder }}" autocomplete="off">
         <button class="nhsuk-header__search-submit" type="submit">
-          {{ nhsukIcon("search", searchVisuallyHiddenButton) }}
+          {{ nhsukIcon("search", {
+            title: searchVisuallyHiddenButton
+          }) }}
         </button>
       </form>
     </search>

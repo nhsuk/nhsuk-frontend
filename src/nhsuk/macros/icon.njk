@@ -12,17 +12,21 @@
   Output search icon with an accessible title:
 
   ```njk
-  nhsukIcon("search", "Search site")
+  nhsukIcon("search", {
+    title: "Search site"
+  })
   ```
 
   @private
   @param {string} name - Icon name
-  @param {string} [title=false] - Accessible name
+  @param {object} [params] - Icon params
+  @param {string} params.title - Accessible name
+  @param {string} params.classes - Classes to add to the icon
 #}
-{% macro nhsukIcon(name, title=false) -%}
-<svg class="nhsuk-icon nhsuk-icon__{{ name }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" focusable="false"{% if title %} role="img" aria-label="{{ title }}"{% else %} aria-hidden="true"{% endif %}>
-{% if title %}
-  <title>{{ title }}</title>
+{% macro nhsukIcon(name, params) -%}
+<svg class="nhsuk-icon nhsuk-icon__{{ name }} {%- if params.classes %} {{ params.classes }}{% endif %}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" focusable="false"{% if params.title %} role="img" aria-label="{{ params.title }}"{% else %} aria-hidden="true"{% endif %}>
+{% if params.title %}
+  <title>{{ params.title }}</title>
 {% endif %}
 {% if name == "arrow-left" %}
   <path d="M10.7 6.3c.4.4.4 1 0 1.4L7.4 11H19a1 1 0 0 1 0 2H7.4l3.3 3.3c.4.4.4 1 0 1.4a1 1 0 0 1-1.4 0l-5-5A1 1 0 0 1 4 12c0-.3.1-.5.3-.7l5-5a1 1 0 0 1 1.4 0Z"/>
