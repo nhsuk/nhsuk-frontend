@@ -1,27 +1,69 @@
+{% extends 'layouts/page.njk' %}
+
 {% set title = 'Icons' %}
-{% from 'nhsuk/macros/icon.njk' import nhsukIcon %}
-{% extends 'layouts/example.njk' %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-two-thirds">
+    <div class="nhsuk-grid-column-full">
+      {% set rows = [] %}
 
-      <table class="nhsuk-table">
-        <thead class="nhsuk-table__head">
-          <tr class="nhsuk-table__row">
-            <th scope="col" class="nhsuk-table__header nhsuk-u-width-two-thirds">Icon name</th>
-            <th scope="col" class="nhsuk-table__header nhsuk-u-width-one-third">Icon</th>
-          </tr>
-        </thead>
-        <tbody class="nhsuk-table__body">
-        {% for name in ["arrow-left", "arrow-right", "arrow-right-circle", "chevron-right-circle", "cross", "tick", "search", "user"] %}
-          <tr class="nhsuk-table__row">
-            <td class="nhsuk-table__cell"><code>{{ name }}</code></td>
-            <td class="nhsuk-table__cell">{{ nhsukIcon(name) }}</td>
-          </tr>
-        {% endfor %}
-        </tbody>
-      </table>
+      {% for name, modifier in {
+        "Arrow left": "arrow-left",
+        "Arrow right": "arrow-right",
+        "Arrow right circle": "arrow-right-circle",
+        "Chevron right circle": "chevron-right-circle",
+        "Cross": "cross",
+        "Tick": "tick",
+        "Search": "search",
+        "User": "user"
+      } %}
+        {% set modifierHtml %}
+          <code class="nhsuk-body-s">{{ modifier }}</code>
+        {% endset %}
+
+        {% set iconHtml %}
+          {% for size, params in {
+            "100%": {},
+            "125%": { classes: "nhsuk-icon--size-25" },
+            "150%": { classes: "nhsuk-icon--size-50" },
+            "175%": { classes: "nhsuk-icon--size-75" },
+            "200%": { classes: "nhsuk-icon--size-100" }
+          } %}
+            <figure class="nhsuk-u-display-inline-block nhsuk-u-text-align-centre nhsuk-u-margin-1">
+              {{ nhsukIcon(modifier, params) }}
+              <figcaption class="nhsuk-body-s">{{ size }}</figcaption>
+            </figure>
+          {% endfor %}
+        {% endset %}
+
+        {% set rows = (rows.push([
+          { text: name, header: "Name" },
+          { html: modifierHtml, header: "Modifier" },
+          { html: iconHtml }
+        ]), rows) %}
+      {% endfor %}
+
+      {{ table({
+        caption: "Icons",
+        captionClasses: "nhsuk-table__caption--xl nhsuk-u-margin-bottom-7",
+        firstCellIsHeader: true,
+        responsive: true,
+        head: [
+          {
+            text: "Name",
+            classes: "nhsuk-u-width-one-quarter"
+          },
+          {
+            text: "Modifier",
+            classes: "nhsuk-u-width-one-quarter"
+          },
+          {
+            text: "Icon",
+            classes: "nhsuk-u-width-one-half"
+          }
+        ],
+        rows: rows
+      }) }}
 
     </div>
   </div>
