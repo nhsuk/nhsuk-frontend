@@ -8,6 +8,11 @@ export const name = 'Contents list'
  * @satisfies {{ [param: string]: MacroParam }}
  */
 export const params = {
+  id: {
+    type: 'string',
+    required: false,
+    description: 'The ID of the contents list.'
+  },
   items: {
     type: 'array',
     required: true,

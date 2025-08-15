@@ -1,6 +1,6 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
-<nav class="nhsuk-pagination
+<nav {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-pagination
 {%- if params.classes %} {{ params.classes }}{% endif %}" role="navigation" aria-label="Pagination"
 {{- nhsukAttributes(params.attributes) }}>
   <ul class="nhsuk-list nhsuk-pagination__list">

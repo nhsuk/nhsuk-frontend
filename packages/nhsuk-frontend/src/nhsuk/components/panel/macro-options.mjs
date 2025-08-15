@@ -8,6 +8,11 @@ export const name = 'Panel'
  * @satisfies {{ [param: string]: MacroParam }}
  */
 export const params = {
+  id: {
+    type: 'string',
+    required: false,
+    description: 'The ID of the panel.'
+  },
   titleText: {
     type: 'string',
     required: true,

@@ -2,7 +2,7 @@
 
 {% set element = "button" if params.element == "button" else "a" %}
 
-<{{element}} class="nhsuk-back-link {%- if params.classes %} {{ params.classes }}{% endif %}"
+<{{element}} {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-back-link {%- if params.classes %} {{ params.classes }}{% endif %}"
   {%- if element == "a"%} href="{{ params.href | default("#", true) }}"{% endif %}
   {{- nhsukAttributes(params.attributes) }}>
   {{- params.html | safe if params.html else (params.text | default("Back", true)) -}}

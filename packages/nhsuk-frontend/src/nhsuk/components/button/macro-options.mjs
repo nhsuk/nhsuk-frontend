@@ -8,6 +8,11 @@ export const name = 'Button'
  * @satisfies {{ [param: string]: MacroParam }}
  */
 export const params = {
+  id: {
+    type: 'string',
+    required: false,
+    description: 'The ID of the button.'
+  },
   element: {
     type: 'string',
     required: false,

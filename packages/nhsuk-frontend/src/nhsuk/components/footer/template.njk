@@ -27,7 +27,7 @@
 </ul>
 {% endmacro -%}
 
-<footer class="nhsuk-footer
+<footer {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-footer
   {%- if params.classes %} {{ params.classes }}{% endif %}" role="contentinfo"
   {{- nhsukAttributes(params.attributes) }}>
   <div class="nhsuk-width-container {%- if params.containerClasses %} {{ params.containerClasses }}{% endif %}">

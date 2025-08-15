@@ -1,6 +1,6 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
-<nav class="nhsuk-contents-list
+<nav {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-contents-list
 {%- if params.classes %} {{ params.classes }}{% endif %}"
 {{- nhsukAttributes(params.attributes) }} role="navigation" aria-label="Pages in this guide">
   <h2 class="nhsuk-u-visually-hidden">Contents</h2>

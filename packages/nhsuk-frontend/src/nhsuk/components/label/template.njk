@@ -2,7 +2,7 @@
 
 {% if params.html or params.text %}
 {%- set labelHtml %}
-<label class="nhsuk-label
+<label {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-label
 {%- if params.classes %} {{ params.classes }}{% endif %}"
 {%- if params.for %} for="{{ params.for }}"{% endif %}
 {{- nhsukAttributes(params.attributes) }}>

@@ -1,7 +1,7 @@
 {% from "nhsuk/components/back-link/macro.njk" import backLink %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
-<nav class="nhsuk-breadcrumb{% if params.classes %} {{ params.classes }}{% endif %}" aria-label="{{ params.labelText | default("Breadcrumb") }}"
+<nav {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-breadcrumb{% if params.classes %} {{ params.classes }}{% endif %}" aria-label="{{ params.labelText | default("Breadcrumb") }}"
   {{- nhsukAttributes(params.attributes) }}>
   <ol class="nhsuk-breadcrumb__list">
 {% for item in params.items %}
