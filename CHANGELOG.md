@@ -974,7 +974,11 @@ This change was introduced in [#1112: Remove the -1 suffix from radio and checkb
 
 We've made changes to NHS.UK frontend in the following pull requests:
 
-- [#1314: Add back link underline and change "Go back" to "Back" in all examples](https://github.com/nhsuk/nhsuk-frontend/pull/1314)
+### Add back link underline and change default text
+
+For consistency with other links, we've added an underline to the back link component. We've also changed the default text from "Go back" to "Back" in all examples.
+
+This change was introduced in [#1314: Add back link underline and change "Go back" to "Back" in all examples](https://github.com/nhsuk/nhsuk-frontend/pull/1314)
 
 ### :wrench: **Fixes**
 
