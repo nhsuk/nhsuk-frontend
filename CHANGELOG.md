@@ -73,9 +73,11 @@ The following CSS classes have been renamed:
 
 - `nhsuk-u-secondary-text-color` renamed to `nhsuk-u-secondary-text-colour`
 
-This was added in [pull request #1526: Add `$nhsuk-colour` palette, colour helpers and deprecate "color" spelling](https://github.com/nhsuk/nhsuk-frontend/pull/1526).
+This change was introduced in [pull request #1526: Add `$nhsuk-colour` palette, colour helpers and deprecate "color" spelling](https://github.com/nhsuk/nhsuk-frontend/pull/1526).
 
 ### :boom: **Breaking changes**
+
+You must make the following changes when you migrate to this release, or your service might break.
 
 #### Colour variables that have been removed
 
@@ -334,6 +336,8 @@ This change was introduced in [pull request #1508: Update site icons and Open Gr
 
 ### :recycle: **Changes**
 
+We've made changes to NHS.UK frontend in the following pull requests:
+
 #### Remove the X-UA-Compatible meta tag
 
 Remove the `<meta http-equiv="X-UA-Compatible" content="IE=edge">` meta tag from your page template.
@@ -344,7 +348,7 @@ IE11 deprecated this meta tag and defaulted to always using IE11's renderer when
 
 As NHS.UK frontend no longer supports Internet Explorer versions older than 11, this meta tag can now be removed.
 
-This change was made in [pull request #1509: Remove `X-UA-Compatible meta tag`](https://github.com/nhsuk/nhsuk-frontend/pull/1509).
+This change was introduced in [pull request #1509: Remove `X-UA-Compatible meta tag`](https://github.com/nhsuk/nhsuk-frontend/pull/1509).
 
 #### Update the viewport meta tag
 
@@ -624,7 +628,7 @@ All buttons are now displayed at full width on mobile. This may not require any 
 
 Buttons and links can also be grouped together so that they appear side-by-side on tablet and desktop by using a `<div class="nhsuk-button-group"> </div>` container.
 
-This change was introduced in [pull request #1309: Add button group and full width button styles](https://github.com/nhsuk/nhsuk-frontend/pull/1309)
+This was added in [pull request #1309: Add button group and full width button styles](https://github.com/nhsuk/nhsuk-frontend/pull/1309)
 
 #### Create custom width container classes
 
@@ -646,7 +650,7 @@ You can use the generated classes to set the width of:
 
 It was already possible to set the page app width with the `$nhsuk-page-width` variable. This new feature is useful when creating additional custom page width classes.
 
-This change was introduced in [#1412: Allow creating custom width containers](https://github.com/nhsuk/nhsuk-frontend/pull/1412)
+This was added in [pull request #1412: Allow creating custom width containers](https://github.com/nhsuk/nhsuk-frontend/pull/1412)
 
 ### :boom: **Breaking changes**
 
@@ -859,7 +863,7 @@ If you're using the `card`, `details`, `insetText` or `warningCallout` Nunjucks 
   }) }}
 ```
 
-This change was made in [pull request #1259: Review legacy Nunjucks params](https://github.com/nhsuk/nhsuk-frontend/pull/1259).
+This change was introduced in [pull request #1259: Review legacy Nunjucks params](https://github.com/nhsuk/nhsuk-frontend/pull/1259).
 
 #### Rename details component `text` param to `summaryText`
 
@@ -883,7 +887,7 @@ This change ensures consistency with other components, where `text` or `html` pa
   }) }}
 ```
 
-This change was made in pull requests [#1259: Review legacy Nunjucks params](https://github.com/nhsuk/nhsuk-frontend/pull/1259) and [#1398: Document details component `summaryText` and `summaryHtml` macro options](https://github.com/nhsuk/nhsuk-frontend/pull/1398).
+This change was introduced in pull requests [#1259: Review legacy Nunjucks params](https://github.com/nhsuk/nhsuk-frontend/pull/1259) and [#1398: Document details component `summaryText` and `summaryHtml` macro options](https://github.com/nhsuk/nhsuk-frontend/pull/1398).
 
 #### Remove deprecated 24 point on the typography scale
 
@@ -891,7 +895,7 @@ The point 24 (24px large screens, 20px small screens) on the typography scale ha
 
 Use either point 22 or point 26 instead.
 
-This change was introduced in [#1139: Remove 24px from typography scale](https://github.com/nhsuk/nhsuk-frontend/pull/1139)
+This change was introduced in [pull request #1139: Remove 24px from typography scale](https://github.com/nhsuk/nhsuk-frontend/pull/1139)
 
 #### Remove the `nhsuk-button--disabled` class from buttons
 
@@ -903,7 +907,7 @@ Use the [`disabled` HTML boolean attribute](https://developer.mozilla.org/en-US/
 
 We no longer support link buttons being disabled or using disabled styles.
 
-This change was introduced in [#1075: Remove support for `nhsuk-button--disabled` class](https://github.com/nhsuk/nhsuk-frontend/pull/1075)
+This change was introduced in [pull request #1075: Remove support for `nhsuk-button--disabled` class](https://github.com/nhsuk/nhsuk-frontend/pull/1075)
 
 #### Remove deprecated Sass mixins and functions
 
@@ -941,7 +945,7 @@ The following deprecated functions have been removed:
 - `shade` replaced with `nhsuk-shade`
 - `iff` replaced with [Sass `if` function](https://sass-lang.com/documentation/modules/#if)
 
-This change was introduced in [#1409: Remove deprecated features marked for removal in v10](https://github.com/nhsuk/nhsuk-frontend/pull/1409).
+This change was introduced in [pull request #1409: Remove deprecated features marked for removal in v10](https://github.com/nhsuk/nhsuk-frontend/pull/1409).
 
 See the [NHS.UK frontend v9.5.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v9.5.0) and [NHS.UK frontend v9.6.0 release notes](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v9.6.0) for more details on previously deprecated features.
 
@@ -968,7 +972,7 @@ If you're using the `errorSummary` Nunjucks macro, remove `-1` from the end of t
 
 You do not need to do this if you specified an `id` for the individual checkbox or radio item.
 
-This change was introduced in [#1112: Remove the -1 suffix from radio and checkbox IDs](https://github.com/nhsuk/nhsuk-frontend/pull/1112)
+This change was introduced in [pull request #1112: Remove the -1 suffix from radio and checkbox IDs](https://github.com/nhsuk/nhsuk-frontend/pull/1112)
 
 ### :recycle: **Changes**
 
@@ -978,7 +982,7 @@ We've made changes to NHS.UK frontend in the following pull requests:
 
 For consistency with other links, we've added an underline to the back link component. We've also changed the default text from "Go back" to "Back" in all examples.
 
-This change was introduced in [#1314: Add back link underline and change "Go back" to "Back" in all examples](https://github.com/nhsuk/nhsuk-frontend/pull/1314)
+This change was introduced in [pull request #1314: Add back link underline and change "Go back" to "Back" in all examples](https://github.com/nhsuk/nhsuk-frontend/pull/1314)
 
 ### :wrench: **Fixes**
 
@@ -1237,7 +1241,7 @@ We have deprecated point 24 (24px large screens, 20px small screens) on the typo
 
 We will be removing this class and point 24 on the typography scale in a future release. You will no longer be able to call the Sass mixins `nhsuk-font()` or `nhsuk-font-size()` with `$size` set to '24'.
 
-This change was introduced in [#1294: Deprecate 24 on the typography scale](https://github.com/nhsuk/nhsuk-frontend/pull/1294)
+This change was introduced in [pull request #1294: Deprecate 24 on the typography scale](https://github.com/nhsuk/nhsuk-frontend/pull/1294)
 
 #### Replace Sass mixins for media queries
 
