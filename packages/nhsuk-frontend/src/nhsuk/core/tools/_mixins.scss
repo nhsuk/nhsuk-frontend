@@ -394,7 +394,6 @@
 @mixin nhsuk-print-colour($print-colour) {
   @include nhsuk-media-query($media-type: print) {
     color: $print-colour;
-    fill: $print-colour;
 
     &:active,
     &:focus,

@@ -1,4 +1,5 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/icon.njk" import nhsukIcon %}
 
 {%- set searchAction = params.search.action | default("https://www.nhs.uk/search/") %}
 {%- set searchName = params.search.name | default("q") %}
@@ -40,11 +41,7 @@
 {% endmacro %}
 
 {%- macro _accountItem(item) %}
-{% if item.icon %}
-<svg class="nhsuk-icon nhsuk-icon__user" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-  <path d="M12 1a11 11 0 1 1 0 22 11 11 0 0 1 0-22Zm0 2a9 9 0 0 0-5 16.5V18a4 4 0 0 1 4-4h2a4 4 0 0 1 4 4v1.5A9 9 0 0 0 12 3Zm0 3a3.5 3.5 0 1 1-3.5 3.5A3.4 3.4 0 0 1 12 6Z"></path>
-</svg>
-{%- endif %}
+{{- nhsukIcon("user") if item.icon -}}
 {{- item.html | safe if item.html else item.text -}}
 {% endmacro %}
 
@@ -73,10 +70,9 @@
         <label class="nhsuk-u-visually-hidden" for="search-field">{{ searchVisuallyHiddenLabel }}</label>
         <input class="nhsuk-header__search-input nhsuk-input" id="search-field" name="{{ searchName }}" type="search" placeholder="{{ searchPlaceholder }}" autocomplete="off">
         <button class="nhsuk-header__search-submit" type="submit">
-          <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
-          </svg>
-          <span class="nhsuk-u-visually-hidden">{{ searchVisuallyHiddenButton }}</span>
+          {{ nhsukIcon("search", {
+            title: searchVisuallyHiddenButton
+          }) }}
         </button>
       </form>
     </search>

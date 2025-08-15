@@ -1,5 +1,5 @@
 @use "../settings" as *;
-@use "../helpers" as *;
+@use "../tools" as *;
 
 ////
 /// Icons
@@ -7,73 +7,32 @@
 /// @group styles
 ////
 
-/// Default icon size
+/// Default icon styles
 
 .nhsuk-icon {
-  height: $nhsuk-icon-size;
-  width: $nhsuk-icon-size;
-}
-
-/// Default icon colours
-
-.nhsuk-icon__search {
   fill: currentcolor;
-}
-
-.nhsuk-icon__user {
-  fill: currentcolor;
-}
-
-.nhsuk-icon__cross {
-  fill: nhsuk-colour("red");
-}
-
-.nhsuk-icon__tick {
-  stroke: nhsuk-colour("green");
-}
-
-.nhsuk-icon__arrow-right {
-  fill: nhsuk-colour("blue");
-}
-
-.nhsuk-icon__arrow-left {
-  fill: nhsuk-colour("blue");
-}
-
-.nhsuk-icon__arrow-right-circle {
-  fill: nhsuk-colour("green");
-}
-
-.nhsuk-icon__chevron-down {
-  fill: currentcolor;
-}
-
-.nhsuk-icon__plus {
-  fill: nhsuk-colour("blue");
-}
-
-.nhsuk-icon__minus {
-  fill: nhsuk-colour("blue");
+  height: nhsuk-px-to-rem($nhsuk-icon-size);
+  width: nhsuk-px-to-rem($nhsuk-icon-size);
 }
 
 /// Icon size adjustments
 
 .nhsuk-icon--size-25 {
-  height: $nhsuk-icon-size * 1.25;
-  width: $nhsuk-icon-size * 1.25;
+  height: nhsuk-px-to-rem($nhsuk-icon-size * 1.25);
+  width: nhsuk-px-to-rem($nhsuk-icon-size * 1.25);
 }
 
 .nhsuk-icon--size-50 {
-  height: $nhsuk-icon-size * 1.5;
-  width: $nhsuk-icon-size * 1.5;
+  height: nhsuk-px-to-rem($nhsuk-icon-size * 1.5);
+  width: nhsuk-px-to-rem($nhsuk-icon-size * 1.5);
 }
 
 .nhsuk-icon--size-75 {
-  height: $nhsuk-icon-size * 1.75;
-  width: $nhsuk-icon-size * 1.75;
+  height: nhsuk-px-to-rem($nhsuk-icon-size * 1.75);
+  width: nhsuk-px-to-rem($nhsuk-icon-size * 1.75);
 }
 
 .nhsuk-icon--size-100 {
-  height: $nhsuk-icon-size * 2;
-  width: $nhsuk-icon-size * 2;
+  height: nhsuk-px-to-rem($nhsuk-icon-size * 2);
+  width: nhsuk-px-to-rem($nhsuk-icon-size * 2);
 }

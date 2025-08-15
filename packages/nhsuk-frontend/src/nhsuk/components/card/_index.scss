@@ -260,20 +260,15 @@ $card-border-hover-color: $card-border-hover-colour;
     }
   }
 
-  .nhsuk-action-link__link {
-    .nhsuk-icon__arrow-right-circle {
-      fill: nhsuk-colour("white"); // [14]
-    }
+  .nhsuk-action-link__link .nhsuk-icon {
+    fill: nhsuk-colour("white"); // [14]
   }
 }
 
 /// Card primary
 
 .nhsuk-card__content--primary {
-  $icon-width: 27px;
-  $icon-height: 27px;
-
-  @include nhsuk-responsive-spacing(5, "padding", $direction: "right", $adjustment: $icon-width + nhsuk-spacing(4));
+  @include nhsuk-responsive-spacing(5, "padding", $direction: "right", $adjustment: nhsuk-spacing(7));
 
   @include nhsuk-media-query($from: desktop) {
     height: 100%;
@@ -281,10 +276,8 @@ $card-border-hover-color: $card-border-hover-colour;
 
   .nhsuk-icon {
     display: block;
-    width: $icon-width;
-    height: $icon-height;
     fill: nhsuk-colour("blue");
-    margin-top: -(math.floor(math.div($icon-height, 2)));
+    margin-top: math.floor(math.div($nhsuk-icon-size, -2));
     pointer-events: none;
     position: absolute;
     top: 50%;

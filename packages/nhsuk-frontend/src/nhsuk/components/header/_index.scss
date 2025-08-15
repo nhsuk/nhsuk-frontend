@@ -167,10 +167,10 @@ $_header-item-active-size: $nhsuk-focus-width;
   margin-top: nhsuk-spacing(3);
   overflow: hidden;
 
-  .nhsuk-icon__user {
+  .nhsuk-icon--user {
     fill: currentcolor;
-    height: 24px;
-    width: 24px;
+    height: nhsuk-px-to-rem(24px);
+    width: nhsuk-px-to-rem(24px);
     flex-shrink: 0;
   }
 
@@ -246,13 +246,9 @@ $_header-item-active-size: $nhsuk-focus-width;
     margin: 0;
   }
 
-  .nhsuk-icon__search {
-    height: 28px;
-    width: 28px;
-
-    // Adjust optical alignment due to the handle appearing
-    // to push the magnifying glass circle to the top left
-    margin: 0 -2px -2px 0;
+  .nhsuk-icon--search {
+    height: nhsuk-px-to-rem(28px);
+    width: nhsuk-px-to-rem(28px);
   }
 }
 

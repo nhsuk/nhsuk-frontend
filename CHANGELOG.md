@@ -150,6 +150,153 @@ If you are not using Nunjucks macros, update your HTML markup using the [back li
 
 This change was introduced in [pull request #1515: Update back link and breadcrumb components](https://github.com/nhsuk/nhsuk-frontend/pull/1515).
 
+#### Update icons
+
+We have updated the design of some of our icons used in components. You do not need to do anything if you're using Nunjucks macros.
+
+If you are not using Nunjucks macros, update your HTML markup if you are using any of the following components:
+
+- Action link
+
+  ```diff
+    <div class="nhsuk-action-link">
+      <a class="nhsuk-action-link__link" href="#">
+  -     <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="36" height="36">
+  -       <path d="M0 0h24v24H0z" fill="none"></path>
+  -       <path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z"></path>
+  -     </svg>
+  +     <svg class="nhsuk-icon nhsuk-icon--arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" focusable="false" aria-hidden="true">
+  +       <path d="M12 2a10 10 0 0 0-10 9h11.7l-4-4a1 1 0 0 1 1.5-1.4l5.6 5.7a1 1 0 0 1 0 1.4l-5.6 5.7a1 1 0 0 1-1.5 0 1 1 0 0 1 0-1.4l4-4H2A10 10 0 1 0 12 2z"/>
+  +     </svg>
+        <span class="nhsuk-action-link__text">Find your nearest A&amp;E</span>
+      </a>
+    </div>
+  ```
+
+- Do and don’t lists
+
+  ```diff
+    <div class="nhsuk-do-dont-list">
+      <h3 class="nhsuk-do-dont-list__label">Do</h3>
+      <ul class="nhsuk-list nhsuk-list--tick" role="list">
+        <li>
+  -       <svg class="nhsuk-icon nhsuk-icon__tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true" width="34" height="34">
+  -         <path stroke-width="4" stroke-linecap="round" d="M18.4 7.8l-8.5 8.4L5.6 12" stroke="#007f3b"></path>
+  -       </svg>
+  +       <svg class="nhsuk-icon nhsuk-icon--tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" focusable="false" aria-hidden="true">
+  +         <path d="M11.4 18.8a2 2 0 0 1-2.7.1h-.1L4 14.1a1.5 1.5 0 0 1 2.1-2L10 16l8.1-8.1a1.5 1.5 0 1 1 2.2 2l-8.9 9Z"/>
+  +       </svg>
+          cover blisters with a soft plaster or padded dressing
+        </li>
+      </ul>
+    </div>
+
+    <div class="nhsuk-do-dont-list">
+      <h3 class="nhsuk-do-dont-list__label">Don&#39;t</h3>
+      <ul class="nhsuk-list nhsuk-list--cross" role="list">
+        <li>
+  -       <svg class="nhsuk-icon nhsuk-icon__cross" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="34" height="34">
+  -         <path d="M17 18.5c-.4 0-.8-.1-1.1-.4l-10-10c-.6-.6-.6-1.6 0-2.1.6-.6 1.5-.6 2.1 0l10 10c.6.6.6 1.5 0 2.1-.3.3-.6.4-1 .4z" fill="#d5281b"></path>
+  -         <path d="M7 18.5c-.4 0-.8-.1-1.1-.4-.6-.6-.6-1.5 0-2.1l10-10c.6-.6 1.5-.6 2.1 0 .6.6.6 1.5 0 2.1l-10 10c-.3.3-.6.4-1 .4z" fill="#d5281b"></path>
+  -       </svg>
+  +       <svg class="nhsuk-icon nhsuk-icon--cross" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" focusable="false" aria-hidden="true">
+  +         <path d="M17 18.5c-.4 0-.8-.1-1.1-.4l-10-10c-.6-.6-.6-1.6 0-2.1.6-.6 1.5-.6 2.1 0l10 10c.6.6.6 1.5 0 2.1-.3.3-.6.4-1 .4z M7 18.5c-.4 0-.8-.1-1.1-.4-.6-.6-.6-1.5 0-2.1l10-10c.6-.6 1.5-.6 2.1 0 .6.6.6 1.5 0 2.1l-10 10c-.3.3-.6.4-1 .4z"/>
+  +       </svg>
+          do not burst a blister yourself
+        </li>
+      </ul>
+    </div>
+  ```
+
+- Header
+
+  If you are using search, update the search submit icon:
+
+  ```diff
+    <button class="nhsuk-header__search-submit" type="submit">
+  -   <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+  -     <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
+  -   </svg>
+  -   <span class="nhsuk-u-visually-hidden">Search</span>
+  +   <svg class="nhsuk-icon nhsuk-icon--search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" focusable="false" role="img" aria-label="Search">
+  +     <title>Search</title>
+  +     <path d="m20.7 19.3-4.1-4.1a7 7 0 1 0-1.4 1.4l4 4.1a1 1 0 0 0 1.5 0c.4-.4.4-1 0-1.4ZM6 11a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z"></path>
+  +   </svg>
+    </button>
+  ```
+
+  If you are using an account link, update the user icon:
+
+  ```diff
+    <a class="nhsuk-header__account-link" href="#">
+  -   <svg class="nhsuk-icon nhsuk-icon__user" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+  -     <path d="M12 1a11 11 0 1 1 0 22 11 11 0 0 1 0-22Zm0 2a9 9 0 0 0-5 16.5V18a4 4 0 0 1 4-4h2a4 4 0 0 1 4 4v1.5A9 9 0 0 0 12 3Zm0 3a3.5 3.5 0 1 1-3.5 3.5A3.4 3.4 0 0 1 12 6Z"></path>
+  -   </svg>
+  +   <svg class="nhsuk-icon nhsuk-icon--user" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" focusable="false" aria-hidden="true">
+  +     <path d="M12 1a11 11 0 1 1 0 22 11 11 0 0 1 0-22Zm0 2a9 9 0 0 0-5 16.5V18a4 4 0 0 1 4-4h2a4 4 0 0 1 4 4v1.5A9 9 0 0 0 12 3Zm0 3a3.5 3.5 0 1 1-3.5 3.5A3.4 3.4 0 0 1 12 6Z"/>
+  +   </svg>
+      florence.nightingale@nhs.net
+    </a>
+  ```
+
+- Pagination
+
+  ```diff
+    <nav class="nhsuk-pagination" role="navigation" aria-label="Pagination">
+      <ul class="nhsuk-list nhsuk-pagination__list">
+        <li class="nhsuk-pagination-item--previous">
+          <a class="nhsuk-pagination__link nhsuk-pagination__link--prev" href="#">
+            <span class="nhsuk-pagination__title">Previous</span>
+            <span class="nhsuk-u-visually-hidden">:</span>
+            <span class="nhsuk-pagination__page">Treatments</span>
+  -         <svg class="nhsuk-icon nhsuk-icon__arrow-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="34" height="34">
+  -           <path d="M4.1 12.3l2.7 3c.2.2.5.2.7 0 .1-.1.1-.2.1-.3v-2h11c.6 0 1-.4 1-1s-.4-1-1-1h-11V9c0-.2-.1-.4-.3-.5h-.2c-.1 0-.3.1-.4.2l-2.7 3c0 .2 0 .4.1.6z"></path>
+  -         </svg>
+  +         <svg class="nhsuk-icon nhsuk-icon--arrow-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" focusable="false" aria-hidden="true">
+  +           <path d="M10.7 6.3c.4.4.4 1 0 1.4L7.4 11H19a1 1 0 0 1 0 2H7.4l3.3 3.3c.4.4.4 1 0 1.4a1 1 0 0 1-1.4 0l-5-5A1 1 0 0 1 4 12c0-.3.1-.5.3-.7l5-5a1 1 0 0 1 1.4 0Z"/>
+  +         </svg>
+          </a>
+        </li>
+        <li class="nhsuk-pagination-item--next">
+          <a class="nhsuk-pagination__link nhsuk-pagination__link--next" href="#">
+            <span class="nhsuk-pagination__title">Next</span>
+            <span class="nhsuk-u-visually-hidden">:</span>
+            <span class="nhsuk-pagination__page">Symptoms</span>
+  -         <svg class="nhsuk-icon nhsuk-icon__arrow-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="34" height="34">
+  -           <path d="M19.6 11.66l-2.73-3A.51.51 0 0 0 16 9v2H5a1 1 0 0 0 0 2h11v2a.5.5 0 0 0 .32.46.39.39 0 0 0 .18 0 .52.52 0 0 0 .37-.16l2.73-3a.5.5 0 0 0 0-.64z"></path>
+  -         </svg>
+  +         <svg class="nhsuk-icon nhsuk-icon--arrow-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" focusable="false" aria-hidden="true">
+  +           <path d="m14.7 6.3 5 5c.2.2.3.4.3.7 0 .3-.1.5-.3.7l-5 5a1 1 0 0 1-1.4-1.4l3.3-3.3H5a1 1 0 0 1 0-2h11.6l-3.3-3.3a1 1 0 1 1 1.4-1.4Z"/>
+  +         </svg>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  ```
+
+- Primary card
+
+  ```diff
+    <div class="nhsuk-card nhsuk-card--clickable">
+      <div class="nhsuk-card__content nhsuk-card__content--primary">
+        <h2 class="nhsuk-card__heading nhsuk-heading-m"> <a class="nhsuk-card__link" href="#">Introduction to care and support</a> </h2>
+        <p class="nhsuk-card__description">A quick guide for people who have care and support needs and their carers</p>
+  -     <svg class="nhsuk-icon" xmlns="http://www.w3.org/2000/svg" width="27" height="27" aria-hidden="true" focusable="false">
+  -       <circle cx="13.333" cy="13.333" r="13.333" fill="" />
+  -       <g fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2.667">
+  -         <path d="M15.438 13l-3.771 3.771" />
+  -         <path d="M11.667 9.229L15.438 13" />
+  -       </g>
+  -     </svg>
+  +    <svg class="nhsuk-icon nhsuk-icon--chevron-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" focusable="false" aria-hidden="true">
+  +      <path d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20Zm-.3 5.8a1 1 0 1 0-1.5 1.4l2.9 2.8-2.9 2.8a1 1 0 0 0 1.5 1.4l3.5-3.5c.4-.4.4-1 0-1.4Z"></path>
+  +    </svg>
+      </div>
+    </div>
+  ```
+
+This change was introduced in [pull request #1521: Update component icons](https://github.com/nhsuk/nhsuk-frontend/pull/1521).
+
 #### Check that your favicons, app icons and Open Graph image still work
 
 We've changed the names, formats and sizes of icon assets we distribute in NHS.UK frontend. You will want to check that the correct files are copied in the right place and served at the right URLs.
@@ -168,6 +315,7 @@ The following files have been added to the assets folder:
 The following folders have been removed from the assets folder:
 
 - favicons
+- icons
 - logos
 
 If you're not using the Nunjucks page template, you will need to replace the list of icons in the template's head with the following:
