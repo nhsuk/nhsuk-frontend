@@ -33,7 +33,7 @@ $_small-icon-size: 24px;
     padding-left: nhsuk-px-to-rem($_small-icon-size + 2px); // [2]
   }
 
-  .nhsuk-icon__arrow-right-circle {
+  .nhsuk-icon {
     // stylelint-disable-next-line declaration-no-important
     fill: nhsuk-colour("green") !important;
     left: nhsuk-px-to-rem(-2px);
@@ -45,7 +45,7 @@ $_small-icon-size: 24px;
     }
   }
 
-  &:focus .nhsuk-icon__arrow-right-circle {
+  &:focus .nhsuk-icon {
     // stylelint-disable-next-line declaration-no-important
     fill: $nhsuk-focus-text-colour !important;
   }
