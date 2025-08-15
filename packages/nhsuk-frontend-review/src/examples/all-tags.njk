@@ -1,141 +1,100 @@
-{% set title = 'Tag' %}
-{% from 'nhsuk/components/tag/macro.njk' import tag %}
-{% extends 'layouts/example.njk' %}
+{% extends 'layouts/page.njk' %}
+
+{% set title = 'Tags' %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
+      {% set rows = [] %}
 
-      <table class="nhsuk-table">
-        <thead class="nhsuk-table__head">
-          <tr class="nhsuk-table__row">
-            <th scope="col" class="nhsuk-table__header nhsuk-u-width-two-thirds">Class name</th>
-            <th scope="col" class="nhsuk-table__header nhsuk-u-width-one-third">Tag</th>
-          </tr>
-        </thead>
-        <tbody class="nhsuk-table__body">
-          <tr class="nhsuk-table__row">
-            <td class="nhsuk-table__cell">
-              nhsuk-tag
-            </td>
-            <td class="nhsuk-table__cell">
-              {{ tag({
-                text: "Active"
-              })}}
-            </td>
-          </tr>
-          <tr class="nhsuk-table__row">
-            <td class="nhsuk-table__cell">
-              nhsuk-tag--white
-            </td>
-            <td class="nhsuk-table__cell">
-              {{ tag({
-                text: "Started",
-                classes: "nhsuk-tag--white"
-              })}}
-            </td>
-          </tr>
-          <tr class="nhsuk-table__row">
-            <td class="nhsuk-table__cell">
-              nhsuk-tag--grey
-            </td>
-            <td class="nhsuk-table__cell">
-              {{ tag({
-                text: "Not started",
-                classes: "nhsuk-tag--grey"
-              })}}
-            </td>
-          </tr>
-          <tr class="nhsuk-table__row">
-            <td class="nhsuk-table__cell">
-              nhsuk-tag--green
-            </td>
-            <td class="nhsuk-table__cell">
-              {{ tag({
-                text: "New",
-                classes: "nhsuk-tag--green"
-              })}}
-            </td>
-          </tr>
-          <tr class="nhsuk-table__row">
-            <td class="nhsuk-table__cell">
-              nhsuk-tag--aqua-green
-            </td>
-            <td class="nhsuk-table__cell">
-              {{ tag({
-                text: "Active",
-                classes: "nhsuk-tag--aqua-green"
-              })}}
-            </td>
-          </tr>
-          <tr class="nhsuk-table__row">
-            <td class="nhsuk-table__cell">
-              nhsuk-tag--blue
-            </td>
-            <td class="nhsuk-table__cell">
-              {{ tag({
-                text: "Pending",
-                classes: "nhsuk-tag--blue"
-              })}}
-            </td>
-          </tr>
-          <tr class="nhsuk-table__row">
-            <td class="nhsuk-table__cell">
-              nhsuk-tag--purple
-            </td>
-            <td class="nhsuk-table__cell">
-              {{ tag({
-                text: "Received",
-                classes: "nhsuk-tag--purple"
-              })}}
-            </td>
-          </tr>
-          <tr class="nhsuk-table__row">
-            <td class="nhsuk-table__cell">
-              nhsuk-tag--pink
-            </td>
-            <td class="nhsuk-table__cell">
-              {{ tag({
-                text: "Sent",
-                classes: "nhsuk-tag--pink"
-              })}}
-            </td>
-          </tr>
-          <tr class="nhsuk-table__row">
-            <td class="nhsuk-table__cell">
-              nhsuk-tag--red
-            </td>
-            <td class="nhsuk-table__cell">
-              {{ tag({
-                text: "Rejected",
-                classes: "nhsuk-tag--red"
-              })}}
-            </td>
-          </tr>
-          <tr class="nhsuk-table__row">
-            <td class="nhsuk-table__cell">
-              nhsuk-tag--orange
-            </td>
-            <td class="nhsuk-table__cell">
-              {{ tag({
-                text: "Declined",
-                classes: "nhsuk-tag--orange"
-              })}}
-            </td>
-          </tr>
-          <tr class="nhsuk-table__row">
-            <td class="nhsuk-table__cell">
-              nhsuk-tag--yellow
-            </td>
-            <td class="nhsuk-table__cell">
-              {{ tag({
-                text: "Delayed",
-                classes: "nhsuk-tag--yellow"
-              })}}
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      {% for name, example in {
+        "Default": {
+          text: "Default"
+        },
+        "White": {
+          text: "In progress",
+          modifier: "white"
+        },
+        "Grey": {
+          text: "Inactive",
+          modifier: "grey"
+        },
+        "Green": {
+          text: "New",
+          modifier: "green"
+        },
+        "Aqua green": {
+          text: "Active",
+          modifier: "aqua-green"
+        },
+        "Blue": {
+          text: "Pending",
+          modifier: "blue"
+        },
+        "Purple": {
+          text: "Received",
+          modifier: "purple"
+        },
+        "Pink": {
+          text: "Sent",
+          modifier: "pink"
+        },
+        "Red": {
+          text: "Rejected",
+          modifier: "red"
+        },
+        "Orange": {
+          text: "Declined",
+          modifier: "orange"
+        },
+        "Yellow": {
+          text: "Delayed",
+          modifier: "yellow"
+        }
+      } %}
+        {% set modifierHtml %}
+          {% if example.modifier %}
+            <code class="nhsuk-body-s">{{ example.modifier }}</code>
+          {% else %}
+            None
+          {% endif %}
+        {% endset %}
+
+        {% set tagHtml %}
+          {{ tag({
+            text: example.text,
+            classes: ("nhsuk-tag--" ~ example.modifier) if example.modifier
+          }) }}
+        {% endset %}
+
+        {% set rows = (rows.push([
+          { text: name, header: "Name" },
+          { html: modifierHtml, header: "Modifier" },
+          { html: tagHtml, header: "Tag" }
+        ]), rows) %}
+      {% endfor %}
+
+      {{ table({
+        caption: "Tags",
+        captionClasses: "nhsuk-table__caption--xl nhsuk-u-margin-bottom-7",
+        firstCellIsHeader: true,
+        responsive: true,
+        head: [
+          {
+            text: "Name",
+            classes: "nhsuk-u-width-one-third"
+          },
+          {
+            text: "Modifier",
+            classes: "nhsuk-u-width-one-third"
+          },
+          {
+            text: "Tag",
+            classes: "nhsuk-u-width-one-third"
+          }
+        ],
+        rows: rows
+      }) }}
 
     </div>
   </div>
