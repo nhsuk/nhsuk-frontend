@@ -43,6 +43,62 @@ You can find out more about [how to use the `createAll` function](https://github
 
 This was added in [pull request #1506: Add JavaScript configuration support to components](https://github.com/nhsuk/nhsuk-frontend/pull/1506).
 
+#### New notification banner component
+
+We’ve added a new notification banner component, ported from the GOV.UK Design System.
+
+This was added in [pull request #1408: Add notification banner component](https://github.com/nhsuk/nhsuk-frontend/pull/1408).
+
+#### Export type declarations
+
+We've added type declarations to the [NHS.UK frontend npm package](https://www.npmjs.com/package/govuk-frontend) for TypeScript compatibility and code autocomplete.
+
+This was added in [pull request #1464: Export type declarations `*.d.mts` for NHS.UK frontend](https://github.com/nhsuk/nhsuk-frontend/pull/1464).
+
+#### New header with account section
+
+We’ve updated the header component to support account information and links. As part of this work we’ve also made some other improvements to the header, detailed below:
+
+- Show account information and links in the header.
+- Show currently active section or page in the navigation.
+- Remove hardcoded home link from the navigation.
+- Align navigation items to the left by default.
+- Update navigation label from ’Primary navigation’ to ‘Menu’, and remove superfluous `role` and `id` attributes.
+- Update NHS logo in the header to have higher contrast when focused.
+- Refactor CSS classes and BEM naming, use hidden attributes instead of modifier classes, use generic search element.
+
+This was added in [pull request #1058: New header with account section](https://github.com/nhsuk/nhsuk-frontend/pull/1058).
+
+#### Buttons are now full width on mobile
+
+All buttons are now displayed at full width on mobile. This may not require any changes, but you should check that it does not break any of your layouts.
+
+Buttons and links can also be grouped together so that they appear side-by-side on tablet and desktop by using a `<div class="nhsuk-button-group"> </div>` container.
+
+This was added in [pull request #1309: Add button group and full width button styles](https://github.com/nhsuk/nhsuk-frontend/pull/1309)
+
+#### Create custom width container classes
+
+You can now create custom page width container classes using the `nhsuk-width-container` mixin. You do this by passing in the required maximum width of the container.
+
+For example:
+
+```scss
+.app-width-container--wide {
+  @include nhsuk-width-container(1200px);
+}
+```
+
+You can use the generated classes to set the width of:
+
+- template container
+- header container
+- footer container
+
+It was already possible to set the page app width with the `$nhsuk-page-width` variable. This new feature is useful when creating additional custom page width classes.
+
+This was added in [pull request #1412: Allow creating custom width containers](https://github.com/nhsuk/nhsuk-frontend/pull/1412)
+
 ### :wastebasket: **Deprecated features**
 
 #### Rename Sass variables, mixins and CSS classes to use "colour" spelling
@@ -894,23 +950,7 @@ This change was introduced in [pull request #1314: Add back link underline and c
 
 ## 10.0.0-internal.2 - 24 July 2025
 
-### :new: **New features**
-
-#### New notification banner component
-
-We’ve added a new notification banner component, ported from the GOV.UK Design System.
-
-This was added in [pull request #1408: Add notification banner component](https://github.com/nhsuk/nhsuk-frontend/pull/1408).
-
 ## 10.0.0-internal.1 - 22 July 2025
-
-### :new: **New features**
-
-#### Export type declarations
-
-We've added type declarations to the [NHS.UK frontend npm package](https://www.npmjs.com/package/govuk-frontend) for TypeScript compatibility and code autocomplete.
-
-This was added in [pull request #1464: Export type declarations `*.d.mts` for NHS.UK frontend](https://github.com/nhsuk/nhsuk-frontend/pull/1464).
 
 ## 10.0.0-internal.0 - 2 July 2025
 
@@ -919,52 +959,6 @@ This release introduces some breaking changes to file paths, full width buttons 
 It also stops Internet Explorer 11 and other older browsers from running NHS.UK frontend JavaScript. Your service will not stop working in Internet Explorer 11, but components will look and behave differently without JavaScript.
 
 You must read and apply these updates carefully to ensure your service does not break.
-
-### :new: **New features**
-
-#### New header with account section
-
-We’ve updated the header component to support account information and links. As part of this work we’ve also made some other improvements to the header, detailed below:
-
-- Show account information and links in the header.
-- Show currently active section or page in the navigation.
-- Remove hardcoded home link from the navigation.
-- Align navigation items to the left by default.
-- Update navigation label from ’Primary navigation’ to ‘Menu’, and remove superfluous `role` and `id` attributes.
-- Update NHS logo in the header to have higher contrast when focused.
-- Refactor CSS classes and BEM naming, use hidden attributes instead of modifier classes, use generic search element.
-
-This was added in [pull request #1058: New header with account section](https://github.com/nhsuk/nhsuk-frontend/pull/1058).
-
-#### Buttons are now full width on mobile
-
-All buttons are now displayed at full width on mobile. This may not require any changes, but you should check that it does not break any of your layouts.
-
-Buttons and links can also be grouped together so that they appear side-by-side on tablet and desktop by using a `<div class="nhsuk-button-group"> </div>` container.
-
-This was added in [pull request #1309: Add button group and full width button styles](https://github.com/nhsuk/nhsuk-frontend/pull/1309)
-
-#### Create custom width container classes
-
-You can now create custom page width container classes using the `nhsuk-width-container` mixin. You do this by passing in the required maximum width of the container.
-
-For example:
-
-```scss
-.app-width-container--wide {
-  @include nhsuk-width-container(1200px);
-}
-```
-
-You can use the generated classes to set the width of:
-
-- template container
-- header container
-- footer container
-
-It was already possible to set the page app width with the `$nhsuk-page-width` variable. This new feature is useful when creating additional custom page width classes.
-
-This was added in [pull request #1412: Allow creating custom width containers](https://github.com/nhsuk/nhsuk-frontend/pull/1412)
 
 ## 9.6.4 - 10 July 2025
 
