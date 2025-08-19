@@ -74,7 +74,11 @@ All buttons are now displayed at full width on mobile. This may not require any 
 
 Buttons and links can also be grouped together so that they appear side-by-side on tablet and desktop by using a `<div class="nhsuk-button-group"> </div>` container.
 
-This was added in [pull request #1309: Add button group and full width button styles](https://github.com/nhsuk/nhsuk-frontend/pull/1309)
+This was added in [pull request #1309: Add button group and full width button styles](https://github.com/nhsuk/nhsuk-frontend/pull/1309).
+
+#### Reversed link style for action link
+
+You can now use the action link component on dark backgrounds by using the `.nhsuk-action-link--reverse` class. Added in [pull request #1542: Add reverse action link modifiers and styles](https://github.com/nhsuk/nhsuk-frontend/pull/1542).
 
 #### Create custom width container classes
 
@@ -96,7 +100,7 @@ You can use the generated classes to set the width of:
 
 It was already possible to set the page app width with the `$nhsuk-page-width` variable. This new feature is useful when creating additional custom page width classes.
 
-This was added in [pull request #1412: Allow creating custom width containers](https://github.com/nhsuk/nhsuk-frontend/pull/1412)
+This was added in [pull request #1412: Allow creating custom width containers](https://github.com/nhsuk/nhsuk-frontend/pull/1412).
 
 #### Export type declarations
 
@@ -301,7 +305,7 @@ The point 24 (24px large screens, 20px small screens) on the typography scale ha
 
 Use either point 22 or point 26 instead.
 
-This change was introduced in [pull request #1139: Remove 24px from typography scale](https://github.com/nhsuk/nhsuk-frontend/pull/1139)
+This change was introduced in [pull request #1139: Remove 24px from typography scale](https://github.com/nhsuk/nhsuk-frontend/pull/1139).
 
 #### Remove deprecated Sass mixins and functions
 
@@ -379,6 +383,29 @@ If you are not using Nunjucks macros, add the missing `data-module` attributes t
 ```
 
 This change was introduced in [pull request #1480: Add missing component `data-module` attributes](https://github.com/nhsuk/nhsuk-frontend/pull/1480).
+
+#### Action link component changes
+
+HTML markup for the action link component has been updated to remove the HTML wrapper. You do not need to do anything if you're using Nunjucks macros.
+
+If you are not using Nunjucks macros, update your HTML markup to:
+
+- Remove the wrapper `<div class="nhsuk-action-link"> </div>`
+- Rename the action link `<a class="nhsuk-action-link__link"` class attribute to match `<a class="nhsuk-action-link"`
+
+```patch
+- <div class="nhsuk-action-link">
+- <a class="nhsuk-action-link__link href="#">
++ <a class="nhsuk-action-link href="#">
+    <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="36" height="36">
+      <!-- // ... -->
+    </svg>
+    <span class="nhsuk-action-link__text">Find your nearest A&amp;E</span>
+  </a>
+- </div>
+```
+
+This change was introduced in [pull request #1542: Add reverse action link modifiers and styles](https://github.com/nhsuk/nhsuk-frontend/pull/1542).
 
 #### Back link component changes
 
@@ -631,7 +658,7 @@ If you're using the `errorSummary` Nunjucks macro, remove `-1` from the end of t
 
 You do not need to do this if you specified an `id` for the individual checkbox or radio item.
 
-This change was introduced in [pull request #1112: Remove the -1 suffix from radio and checkbox IDs](https://github.com/nhsuk/nhsuk-frontend/pull/1112)
+This change was introduced in [pull request #1112: Remove the -1 suffix from radio and checkbox IDs](https://github.com/nhsuk/nhsuk-frontend/pull/1112).
 
 #### Tabs component changes
 
@@ -919,6 +946,7 @@ This change was introduced in [pull request #1510: Accommodate camera notches](h
 - [#1528: Fix alt text in header](https://github.com/nhsuk/nhsuk-frontend/pull/1528)
 - [#1532: Use em-based sizing for chevron size and shape](https://github.com/nhsuk/nhsuk-frontend/pull/1532)
 - [#1533: Improve high contrast appearance for header and card headings](https://github.com/nhsuk/nhsuk-frontend/pull/1533)
+- [#1536: Add support for id param to all components](https://github.com/nhsuk/nhsuk-frontend/pull/1536)
 
 ## 9.6.4 - 10 July 2025
 

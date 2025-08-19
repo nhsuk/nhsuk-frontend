@@ -9,6 +9,11 @@ export const name = 'Footer'
  * @satisfies {{ [param: string]: MacroParam }}
  */
 export const params = {
+  id: {
+    type: 'string',
+    required: false,
+    description: 'The ID of the footer.'
+  },
   columns: {
     type: 'integer',
     required: false,

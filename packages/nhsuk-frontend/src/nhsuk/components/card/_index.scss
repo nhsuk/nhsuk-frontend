@@ -277,7 +277,9 @@ $card-border-hover-color: $card-border-hover-colour;
   .nhsuk-icon {
     display: block;
     fill: nhsuk-colour("blue");
-    margin-top: math.floor(math.div($nhsuk-icon-size, -2));
+    height: nhsuk-px-to-rem($nhsuk-icon-size-large);
+    width: nhsuk-px-to-rem($nhsuk-icon-size-large);
+    margin-top: math.floor(math.div($nhsuk-icon-size-large, -2));
     pointer-events: none;
     position: absolute;
     top: 50%;

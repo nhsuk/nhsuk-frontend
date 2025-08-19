@@ -2,7 +2,7 @@
 
 {% set headingLevel = params.headingLevel if params.headingLevel else 1 -%}
 
-<div class="nhsuk-panel
+<div {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-panel
   {%- if params.classes %} {{ params.classes }}{% endif %}"
   {{- nhsukAttributes(params.attributes) }}>
   <h{{ headingLevel }} class="nhsuk-panel__title">

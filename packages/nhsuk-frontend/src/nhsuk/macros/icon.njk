@@ -24,7 +24,7 @@
   @param {string} params.classes - Classes to add to the icon
 #}
 {% macro nhsukIcon(name, params) -%}
-<svg class="nhsuk-icon nhsuk-icon--{{ name }} {%- if params.classes %} {{ params.classes }}{% endif %}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" focusable="false"{% if params.title %} role="img" aria-label="{{ params.title }}"{% else %} aria-hidden="true"{% endif %}>
+<svg class="nhsuk-icon nhsuk-icon--{{ name }} {%- if params.classes %} {{ params.classes }}{% endif %}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false"{% if params.title %} role="img" aria-label="{{ params.title }}"{% else %} aria-hidden="true"{% endif %}>
 {% if params.title %}
   <title>{{ params.title }}</title>
 {% endif %}

@@ -1,3 +1,4 @@
+@use "sass:math";
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
 @use "../../core/helpers" as *;
@@ -13,40 +14,61 @@
 /// @group components
 ////
 
-$_small-icon-size: 24px;
+$_small-icon-size: $nhsuk-icon-size;
+$_small-icon-spacing: math.floor(math.div($_small-icon-size, 10));
+
+$_large-icon-size: 36px;
+$_large-icon-spacing: math.floor(math.div($_large-icon-size, 10));
 
 .nhsuk-action-link {
-  @include nhsuk-responsive-margin(6, "bottom");
-}
-
-.nhsuk-action-link__link {
   display: inline-block; // [1]
-  padding-left: nhsuk-px-to-rem($nhsuk-icon-size + 2px); // [2]
+  padding-left: nhsuk-px-to-rem($_small-icon-size + $_small-icon-spacing); // [2]
   position: relative; // [3]
   text-decoration: none; // [4]
 
-  @include nhsuk-font(22, $weight: bold, $line-height: $nhsuk-icon-size);
-  @include nhsuk-print-colour($nhsuk-print-text-colour);
+  &:not(:focus):hover {
+    .nhsuk-action-link__text {
+      text-decoration: underline; // [5]
+    }
+  }
 
-  @include nhsuk-media-query($until: tablet) {
-    line-height: $_small-icon-size;
-    padding-left: nhsuk-px-to-rem($_small-icon-size + 2px); // [2]
+  @include nhsuk-font(22, $weight: bold, $line-height: $_small-icon-size);
+  @include nhsuk-print-colour($nhsuk-print-text-colour);
+  @include nhsuk-responsive-margin(6, "bottom");
+
+  @include nhsuk-media-query($from: tablet) {
+    line-height: nhsuk-line-height($_large-icon-size, $font-size: 22);
+    padding-left: nhsuk-px-to-rem($_large-icon-size + $_large-icon-spacing); // [2]
   }
 
   .nhsuk-icon {
     // stylelint-disable-next-line declaration-no-important
     fill: nhsuk-colour("green") !important;
-    left: nhsuk-px-to-rem(-2px);
+    left: nhsuk-px-to-rem(-$_small-icon-spacing);
     position: absolute;
 
-    @include nhsuk-media-query($until: tablet) {
-      height: nhsuk-px-to-rem($_small-icon-size);
-      width: nhsuk-px-to-rem($_small-icon-size);
+    @include nhsuk-media-query($from: tablet) {
+      height: nhsuk-px-to-rem($_large-icon-size);
+      width: nhsuk-px-to-rem($_large-icon-size);
+      left: nhsuk-px-to-rem(-$_large-icon-spacing);
     }
   }
 
   &:focus .nhsuk-icon {
     // stylelint-disable-next-line declaration-no-important
     fill: $nhsuk-focus-text-colour !important;
+  }
+}
+
+.nhsuk-action-link--reverse {
+  @include nhsuk-link-style-white;
+
+  &:link {
+    text-decoration: none; // [4]
+  }
+
+  &:not(:focus) .nhsuk-icon {
+    // stylelint-disable-next-line declaration-no-important
+    fill: $nhsuk-reverse-text-colour !important;
   }
 }

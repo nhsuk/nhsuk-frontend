@@ -45,7 +45,7 @@
 {{- item.html | safe if item.html else item.text -}}
 {% endmacro %}
 
-<header class="nhsuk-header
+<header {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-header
   {%- if params.organisation %} nhsuk-header--organisation{% endif %}
   {%- if params.classes %} {{ params.classes }}{% endif %}" role="banner"
   {{- nhsukAttributes(params.attributes) }} data-module="nhsuk-header">

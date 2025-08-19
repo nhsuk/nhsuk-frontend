@@ -8,6 +8,11 @@ export const name = 'Action link'
  * @satisfies {{ [param: string]: MacroParam }}
  */
 export const params = {
+  id: {
+    type: 'string',
+    required: false,
+    description: 'The ID of the action link.'
+  },
   text: {
     type: 'string',
     required: true,
@@ -48,6 +53,18 @@ export const examples = {
       href: '#'
     },
     screenshot: true
+  },
+  reverse: {
+    layout: 'layouts/example-background-blue.njk',
+    context: {
+      classes: 'nhsuk-action-link--reverse',
+      text: 'Find your nearest A&E',
+      href: '#'
+    },
+    screenshot: {
+      states: ['focus', 'hover', 'active'],
+      selector: '.nhsuk-action-link'
+    }
   }
 }
 
