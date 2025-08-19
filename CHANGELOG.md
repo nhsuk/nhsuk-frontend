@@ -189,28 +189,6 @@ For precompiled JavaScript, note the following path changes:
 - extract `nhsuk-frontend-<VERSION-NUMBER>.min.js` from the GitHub release zip file  
   – not the previous `js/nhsuk-<VERSION-NUMBER>.min.js` script
 
-Then include the script before the closing `</body>` tag of your page using the `type="module"` attribute, and run the `initAll` function to initialise all the components.
-
-Before:
-
-```html
-  <!-- // ... -->
-  <script src="/javascripts/nhsuk-frontend.min.js" defer></script>
-</head>
-```
-
-After:
-
-```html
-  <!-- // ... -->
-  <script type="module" src="/javascripts/nhsuk-frontend.min.js"></script>
-  <script type="module">
-    import { initAll } from '/javascripts/nhsuk-frontend.min.js'
-    initAll()
-  </script>
-</body>
-```
-
 #### Update JavaScript file paths for bundlers
 
 For JavaScript imported using a bundler, consolidate all `import` or `require()` calls to `nhsuk-frontend/packages/components/*` into a single statement:
@@ -832,6 +810,34 @@ This change was introduced in [pull request #1508: Update site icons and Open Gr
 
 You must make the following component and template changes when you migrate to this release, or your service might break.
 
+#### Update the `<script>` tag that includes or bundles NHS.UK frontend
+
+Add attribute `type="module"` to `<script>` tags that include or bundle NHS.UK frontend.
+
+This is to stop Internet Explorer 11 and other older browsers running the JavaScript, which relies on features older browsers might not support and could cause errors.
+
+Then include the script before the closing `</body>` tag of your page using the `type="module"` attribute, and run the `initAll` function to initialise all the components.
+
+Before:
+
+```html
+  <!-- // ... -->
+  <script src="/javascripts/nhsuk-frontend.min.js" defer></script>
+</head>
+```
+
+After:
+
+```html
+  <!-- // ... -->
+  <script type="module" src="/javascripts/nhsuk-frontend.min.js"></script>
+  <script type="module">
+    import { initAll } from '/javascripts/nhsuk-frontend.min.js'
+    initAll()
+  </script>
+</body>
+```
+
 #### Update the `<script>` snippet at the top of your `<body>` tag
 
 Page templates now include a new `nhsuk-frontend-supported` class on the `<body>` tag when NHS.UK frontend JavaScript components are fully supported.
@@ -852,11 +858,7 @@ These changes were introduced in [pull request #1327: Add class `.nhsuk-frontend
 
 #### Check Internet Explorer 11 and other older browsers do not run unsupported JavaScript
 
-Add `type="module"` to all HTML `<script>` tags that include or bundle NHS.UK frontend.
-
-This is to stop Internet Explorer 11 and other older browsers running the JavaScript, which relies on features older browsers might not support and could cause errors.
-
-Please note that `<script>` with `type="module"` [runs JavaScript in a slightly different way](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules#other_differences_between_modules_and_standard_scripts) than `<script>` without `type="module"`. You'll need to assess the impact of these nuances and make sure that:
+Please note that updating `<script>` with `type="module"` [runs JavaScript in a slightly different way](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules#other_differences_between_modules_and_standard_scripts) than `<script>` without `type="module"`. You'll need to assess the impact of these nuances and make sure that:
 
 - when your service code is bundled with NHS.UK frontend it runs as expected in [strict mode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode)
 - if you have any code that needs to run after NHS.UK frontend in its own `<script>` tag, you'll need to make sure it's using `type="module"` or [`defer`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#defer). This is because the tag loading NHS.UK frontend will be deferred because of its `type="module"` attribute
