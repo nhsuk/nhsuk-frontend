@@ -1,3 +1,4 @@
+@use "sass:math";
 @use "../settings" as *;
 @use "../tools" as *;
 
@@ -22,50 +23,19 @@
 
 /// Icon size adjustments
 
-.nhsuk-icon--size-25 {
-  $ratio: 1.25; // 25% larger
+$_icon-sizes: (25%, 50%, 75%, 100%);
 
-  height: nhsuk-px-to-rem($nhsuk-icon-size * $ratio);
-  width: nhsuk-px-to-rem($nhsuk-icon-size * $ratio);
+@each $size in $_icon-sizes {
+  $ratio: math.div(100% + $size, 100%); // 25% adjustment = 1.25
+  $name: "size-#{math.div($size, 1%)}"; // 25% adjustment = "size-25"
 
-  @include nhsuk-media-query($from: tablet) {
-    height: nhsuk-px-to-rem($nhsuk-icon-size-large * $ratio);
-    width: nhsuk-px-to-rem($nhsuk-icon-size-large * $ratio);
-  }
-}
+  .nhsuk-icon--#{$name} {
+    height: nhsuk-px-to-rem($nhsuk-icon-size * $ratio);
+    width: nhsuk-px-to-rem($nhsuk-icon-size * $ratio);
 
-.nhsuk-icon--size-50 {
-  $ratio: 1.5; // 50% larger
-
-  height: nhsuk-px-to-rem($nhsuk-icon-size * $ratio);
-  width: nhsuk-px-to-rem($nhsuk-icon-size * $ratio);
-
-  @include nhsuk-media-query($from: tablet) {
-    height: nhsuk-px-to-rem($nhsuk-icon-size-large * $ratio);
-    width: nhsuk-px-to-rem($nhsuk-icon-size-large * $ratio);
-  }
-}
-
-.nhsuk-icon--size-75 {
-  $ratio: 1.75; // 75% larger
-
-  height: nhsuk-px-to-rem($nhsuk-icon-size * $ratio);
-  width: nhsuk-px-to-rem($nhsuk-icon-size * $ratio);
-
-  @include nhsuk-media-query($from: tablet) {
-    height: nhsuk-px-to-rem($nhsuk-icon-size-large * $ratio);
-    width: nhsuk-px-to-rem($nhsuk-icon-size-large * $ratio);
-  }
-}
-
-.nhsuk-icon--size-100 {
-  $ratio: 2; // 100% larger
-
-  height: nhsuk-px-to-rem($nhsuk-icon-size * $ratio);
-  width: nhsuk-px-to-rem($nhsuk-icon-size * $ratio);
-
-  @include nhsuk-media-query($from: tablet) {
-    height: nhsuk-px-to-rem($nhsuk-icon-size-large * $ratio);
-    width: nhsuk-px-to-rem($nhsuk-icon-size-large * $ratio);
+    @include nhsuk-media-query($from: tablet) {
+      height: nhsuk-px-to-rem($nhsuk-icon-size-large * $ratio);
+      width: nhsuk-px-to-rem($nhsuk-icon-size-large * $ratio);
+    }
   }
 }
