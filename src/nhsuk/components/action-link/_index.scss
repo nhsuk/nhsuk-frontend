@@ -60,3 +60,16 @@ $_large-icon-spacing: 3px;
     fill: $nhsuk-focus-text-colour !important;
   }
 }
+
+.nhsuk-action-link--reverse {
+  @include nhsuk-link-style-white;
+
+  &:link {
+    text-decoration: none; // [4]
+  }
+
+  &:not(:focus) .nhsuk-icon {
+    // stylelint-disable-next-line declaration-no-important
+    fill: $nhsuk-reverse-text-colour !important;
+  }
+}
