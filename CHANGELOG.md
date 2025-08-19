@@ -832,22 +832,6 @@ This change was introduced in [pull request #1508: Update site icons and Open Gr
 
 You must make the following component and template changes when you migrate to this release, or your service might break.
 
-#### Stop Internet Explorer 11 and other older browsers running unsupported JavaScript
-
-Add `type="module"` to all HTML `<script>` tags that include or bundle NHS.UK frontend.
-
-This is to stop Internet Explorer 11 and other older browsers running the JavaScript, which relies on features older browsers might not support and could cause errors.
-
-Please note that `<script>` with `type="module"` [runs JavaScript in a slightly different way](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules#other_differences_between_modules_and_standard_scripts) than `<script>` without `type="module"`. You'll need to assess the impact of these nuances and make sure that:
-
-- when your service code is bundled with NHS.UK frontend it runs as expected in [strict mode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode)
-- if you have any code that needs to run after NHS.UK frontend in its own `<script>` tag, you'll need to make sure it's using `type="module"` or [`defer`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#defer). This is because the tag loading NHS.UK frontend will be deferred because of its `type="module"` attribute
-- code that needs to run without being deferred is split into its own file and loaded with a `<script>` tag without `type="module"`
-
-If your service has JavaScript you want to run successfully in Internet Explorer (for example JavaScript for analytics), you will need to load it in a separate `<script>` tag without `type="module"` and make sure its code is compatible with the browsers it should run in (see the [section about polyfills](#check-your-code-does-not-rely-on-polyfills-we-have-now-removed)).
-
-These changes were introduced in [pull request #1260: Remove legacy browser support with `<script type="module">`](https://github.com/nhsuk-frontend/pull/1260).
-
 #### Update the `<script>` snippet at the top of your `<body>` tag
 
 Page templates now include a new `nhsuk-frontend-supported` class on the `<body>` tag when NHS.UK frontend JavaScript components are fully supported.
@@ -865,6 +849,22 @@ with:
 ```
 
 These changes were introduced in [pull request #1327: Add class `.nhsuk-frontend-supported` for ES modules support](https://github.com/nhsuk-frontend/pull/1327).
+
+#### Check Internet Explorer 11 and other older browsers do not run unsupported JavaScript
+
+Add `type="module"` to all HTML `<script>` tags that include or bundle NHS.UK frontend.
+
+This is to stop Internet Explorer 11 and other older browsers running the JavaScript, which relies on features older browsers might not support and could cause errors.
+
+Please note that `<script>` with `type="module"` [runs JavaScript in a slightly different way](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules#other_differences_between_modules_and_standard_scripts) than `<script>` without `type="module"`. You'll need to assess the impact of these nuances and make sure that:
+
+- when your service code is bundled with NHS.UK frontend it runs as expected in [strict mode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode)
+- if you have any code that needs to run after NHS.UK frontend in its own `<script>` tag, you'll need to make sure it's using `type="module"` or [`defer`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#defer). This is because the tag loading NHS.UK frontend will be deferred because of its `type="module"` attribute
+- code that needs to run without being deferred is split into its own file and loaded with a `<script>` tag without `type="module"`
+
+If your service has JavaScript you want to run successfully in Internet Explorer (for example JavaScript for analytics), you will need to load it in a separate `<script>` tag without `type="module"` and make sure its code is compatible with the browsers it should run in (see the [section about polyfills](#check-your-code-does-not-rely-on-polyfills-we-have-now-removed)).
+
+These changes were introduced in [pull request #1260: Remove legacy browser support with `<script type="module">`](https://github.com/nhsuk-frontend/pull/1260).
 
 #### Check your browser console for component initialisation errors
 
