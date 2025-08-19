@@ -819,7 +819,7 @@ Please note that `<script>` with `type="module"` [runs JavaScript in a slightly 
 - if you have any code that needs to run after NHS.UK frontend in its own `<script>` tag, you'll need to make sure it's using `type="module"` or [`defer`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#defer). This is because the tag loading NHS.UK frontend will be deferred because of its `type="module"` attribute
 - code that needs to run without being deferred, is split into its own file and loaded with a `<script>` tag without `type="module"`
 
-If your service has JavaScript you want to run successfully in Internet Explorer (for example JavaScript for analytics), you will need to load it in a separate `<script>` tag without `type="module"` and make sure its code is compatible with the browsers it should run in (see previous section about polyfills).
+If your service has JavaScript you want to run successfully in Internet Explorer (for example JavaScript for analytics), you will need to load it in a separate `<script>` tag without `type="module"` and make sure its code is compatible with the browsers it should run in (see the [section about polyfills](#check-your-code-does-not-rely-on-polyfills-we-have-now-removed)).
 
 These changes were introduced in [pull request #1260: Remove legacy browser support with `<script type="module">`](https://github.com/nhsuk-frontend/pull/1260).
 
