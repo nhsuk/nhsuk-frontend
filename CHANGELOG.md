@@ -57,9 +57,8 @@ This was added in [pull request #1408: Add notification banner component](https:
 
 #### New header component with account section
 
-We’ve updated the header component to support account information and links. As part of this work we’ve also made some other improvements to the header, detailed below:
+We’ve updated the header component to support showing account information and links. As part of this work we’ve also made some other improvements to the header:
 
-- Show account information and links in the header.
 - Show currently active section or page in the navigation.
 - Remove hardcoded home link from the navigation.
 - Align navigation items to the left by default.
@@ -67,7 +66,7 @@ We’ve updated the header component to support account information and links. A
 - Update NHS logo in the header to have higher contrast when focused.
 - Refactor CSS classes and BEM naming, use hidden attributes instead of modifier classes, use generic search element.
 
-This was added in [pull request #1058: New header with account section](https://github.com/nhsuk/nhsuk-frontend/pull/1058).
+These changes were added in [pull request #1058: New header with account section](https://github.com/nhsuk/nhsuk-frontend/pull/1058).
 
 #### Buttons are now full width on mobile
 
