@@ -14,7 +14,7 @@
 /// @group components
 ////
 
-$_icon-size: nhsuk-em($nhsuk-icon-size, 26px);
+$_icon-size: nhsuk-em($nhsuk-icon-size-large, 26px);
 
 .nhsuk-pagination {
   @include nhsuk-responsive-margin(7, "top");
