@@ -803,8 +803,6 @@ You will need to update the file path to match your assets folder if it's not at
 
 This change was introduced in [pull request #1508: Update site icons and Open Graph image, add `manifest.json`](https://github.com/nhsuk/nhsuk-frontend/pull/1508).
 
-You must make the following changes when you migrate to this release, or your service might break.
-
 ### :boom: **Breaking changes** to browser support
 
 You must make the following component and template changes when you migrate to this release, or your service might break.
