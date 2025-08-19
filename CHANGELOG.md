@@ -25,6 +25,12 @@ If you are not using Nunjucks macros, update your HTML markup to:
 - </div>
 ```
 
+:new: **New features**
+
+#### Reversed link style for action link
+
+You can now use the action link component on dark backgrounds by using the `.nhsuk-action-link--reverse` class. Added in [pull request #1542: Add reverse action link modifiers and styles](https://github.com/nhsuk/nhsuk-frontend/pull/1542).
+
 ## 10.0.0-internal.3 - 15 August 2025
 
 :new: **New features**
