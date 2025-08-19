@@ -8,6 +8,11 @@ export const name = 'Error summary'
  * @satisfies {{ [param: string]: MacroParam }}
  */
 export const params = {
+  id: {
+    type: 'string',
+    required: false,
+    description: 'The ID of the error summary.'
+  },
   titleText: {
     type: 'string',
     required: true,

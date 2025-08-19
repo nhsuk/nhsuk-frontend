@@ -15,7 +15,7 @@
   {% set anyRowHasActions = true if row.actions.items | length else anyRowHasActions %}
 {% endfor -%}
 
-<dl class="nhsuk-summary-list {%- if params.classes %} {{ params.classes }}{% endif %}" {{- nhsukAttributes(params.attributes) }}>
+<dl {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-summary-list {%- if params.classes %} {{ params.classes }}{% endif %}" {{- nhsukAttributes(params.attributes) }}>
   {% for row in params.rows %}
     {% if row %}
     <div class="nhsuk-summary-list__row {%- if anyRowHasActions and not row.actions.items %} nhsuk-summary-list__row--no-actions{% endif %} {%- if row.classes %} {{ row.classes }}{% endif %}">

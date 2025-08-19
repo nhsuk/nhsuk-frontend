@@ -9,6 +9,11 @@ export const name = 'Fieldset'
  * @satisfies {{ [param: string]: MacroParam }}
  */
 export const params = {
+  id: {
+    type: 'string',
+    required: false,
+    description: 'The ID of the fieldset.'
+  },
   describedBy: {
     type: 'string',
     required: false,

@@ -8,6 +8,11 @@ export const name = 'Checkboxes'
  * @satisfies {{ [param: string]: MacroParam }}
  */
 export const params = {
+  id: {
+    type: 'string',
+    required: false,
+    description: 'The ID of the checkboxes component.'
+  },
   describedBy: {
     type: 'string',
     required: false,

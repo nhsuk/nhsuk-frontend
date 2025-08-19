@@ -33,7 +33,7 @@
   </li>
 {%- endmacro %}
 
-<ul class="nhsuk-task-list {%- if params.classes %} {{ params.classes }}{% endif %}" {{- nhsukAttributes(params.attributes) }}>
+<ul {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-task-list {%- if params.classes %} {{ params.classes }}{% endif %}" {{- nhsukAttributes(params.attributes) }}>
   {% for item in params.items %}
     {{- _taskListItem(params, item, loop.index) }}
   {% endfor %}

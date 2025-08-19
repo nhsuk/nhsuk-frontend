@@ -3,7 +3,7 @@
 
 {% set headingLevel = params.headingLevel if params.headingLevel else 2 %}
 
-<div class="nhsuk-card
+<div {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-card
 {%- if params.clickable %} nhsuk-card--clickable{% endif %}
 {%- if params.secondary %} nhsuk-card--secondary{% endif %}
 {%- if params.type %} nhsuk-card--care nhsuk-card--care--{{ params.type }}{% endif %}

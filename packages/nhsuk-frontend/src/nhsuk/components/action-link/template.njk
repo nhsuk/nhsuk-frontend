@@ -1,7 +1,7 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
 
-<a class="nhsuk-action-link
+<a {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-action-link
   {%- if params.classes %} {{ params.classes }}{% endif %}" href="
   {%- if params.href %}{{ params.href }}{% else %}#{% endif %}"
   {%- if params.openInNewWindow %} target="_blank"{% endif %}
