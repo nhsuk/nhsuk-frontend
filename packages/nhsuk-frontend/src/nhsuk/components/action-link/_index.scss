@@ -33,7 +33,7 @@ $_large-icon-spacing: 3px;
   @include nhsuk-print-colour($nhsuk-print-text-colour);
 
   @include nhsuk-media-query($until: tablet) {
-    line-height: $_small-icon-size;
+    line-height: nhsuk-line-height($_small-icon-size, $font-size: 22);
     padding-left: nhsuk-px-to-rem($_small-icon-size + $_small-icon-spacing); // [2]
   }
 
