@@ -20,10 +20,6 @@ $_large-icon-size: 36px;
 $_large-icon-spacing: 3px;
 
 .nhsuk-action-link {
-  @include nhsuk-responsive-margin(6, "bottom");
-}
-
-.nhsuk-action-link__link {
   display: inline-block; // [1]
   padding-left: nhsuk-px-to-rem($_large-icon-size + $_large-icon-spacing); // [2]
   position: relative; // [3]
@@ -31,6 +27,7 @@ $_large-icon-spacing: 3px;
 
   @include nhsuk-font(22, $weight: bold, $line-height: $_large-icon-size);
   @include nhsuk-print-colour($nhsuk-print-text-colour);
+  @include nhsuk-responsive-margin(6, "bottom");
 
   @include nhsuk-media-query($until: tablet) {
     line-height: nhsuk-line-height($_small-icon-size, $font-size: 22);
