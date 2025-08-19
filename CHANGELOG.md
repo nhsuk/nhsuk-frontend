@@ -31,6 +31,21 @@ If you are not using Nunjucks macros, update your HTML markup to:
 
 You can now use the action link component on dark backgrounds by using the `.nhsuk-action-link--reverse` class. Added in [pull request #1542: Add reverse action link modifiers and styles](https://github.com/nhsuk/nhsuk-frontend/pull/1542).
 
+#### Sass colours as CSS custom properties
+
+The Sass applied colour variables (e.g. `$nhsuk-link-colour`) are now available as [CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/--*)
+
+For example:
+
+```css
+--nhsuk-link-colour: #005eb8;
+--nhsuk-link-hover-colour: #7c2855;
+--nhsuk-link-active-colour: #002f5c;
+--nhsuk-link-visited-colour: #330072;
+```
+
+This change was introduced in [pull request #1495: Output CSS custom properties from Sass colours](https://github.com/nhsuk/nhsuk-frontend/pull/1495).
+
 :wrench: **Fixes**
 
 - [#1536: Add support for id param to all components](https://github.com/nhsuk/nhsuk-frontend/pull/1536)
