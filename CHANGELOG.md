@@ -6,7 +6,7 @@ This release introduces some breaking changes to file paths, full width buttons 
 
 It also stops Internet Explorer 11 and other older browsers from running NHS.UK frontend JavaScript. Your service will not stop working in Internet Explorer 11, but components will look and behave differently without JavaScript.
 
-You must read and apply these updates carefully to ensure your service does not break.
+You must read and apply these updates carefully to make sure your service does not break.
 
 ### :new: **New features**
 
@@ -51,7 +51,7 @@ This was added in [pull request #1506: Add JavaScript configuration support to c
 
 #### New notification banner component
 
-We’ve added a new notification banner component, ported from the GOV.UK Design System.
+We’ve added a new notification banner component, ported from the GOV.UK design system.
 
 This was added in [pull request #1408: Add notification banner component](https://github.com/nhsuk/nhsuk-frontend/pull/1408).
 
@@ -59,12 +59,12 @@ This was added in [pull request #1408: Add notification banner component](https:
 
 We’ve updated the header component to support showing account information and links. As part of this work we’ve also made some other improvements to the header:
 
-- Show currently active section or page in the navigation.
-- Remove hardcoded home link from the navigation.
-- Align navigation items to the left by default.
-- Update navigation label from ’Primary navigation’ to ‘Menu’, and remove superfluous `role` and `id` attributes.
-- Update NHS logo in the header to have higher contrast when focused.
-- Refactor CSS classes and BEM naming, use hidden attributes instead of modifier classes, use generic search element.
+- show currently active section or page in the navigation
+- remove hardcoded home link from the navigation
+- align navigation items to the left by default
+- update navigation label from ’Primary navigation’ to ‘Menu’, and remove superfluous `role` and `id` attributes
+- update NHS logo in the header to have higher contrast when focused
+- refactor CSS classes and BEM naming, use hidden attributes instead of modifier classes, use generic search element
 
 These changes were added in [pull request #1058: New header with account section](https://github.com/nhsuk/nhsuk-frontend/pull/1058).
 
@@ -171,18 +171,18 @@ Replace `packages` with `dist/nhsuk` for any `@forward`, `@use` or `@import` pat
 
 For precompiled stylesheets, note the following path changes:
 
-- Copy or serve `node_modules/dist/nhsuk/nhsuk-frontend.min.css`  
+- copy or serve `node_modules/dist/nhsuk/nhsuk-frontend.min.css`  
   – not the previous `node_modules/dist/nhsuk.min.css` stylesheet
-- Extract `nhsuk-frontend-<VERSION-NUMBER>.min.css` from the GitHub release zip file  
+- extract `nhsuk-frontend-<VERSION-NUMBER>.min.css` from the GitHub release zip file  
   – not the previous `css/nhsuk-<VERSION-NUMBER>.min.css` stylesheet
 
 #### Update precompiled JavaScript file paths
 
 For precompiled JavaScript, note the following path changes:
 
-- Copy or serve `node_modules/dist/nhsuk/nhsuk-frontend.min.js`  
+- copy or serve `node_modules/dist/nhsuk/nhsuk-frontend.min.js`  
   – not the previous `node_modules/dist/nhsuk.min.js` script
-- Extract `nhsuk-frontend-<VERSION-NUMBER>.min.js` from the GitHub release zip file  
+- extract `nhsuk-frontend-<VERSION-NUMBER>.min.js` from the GitHub release zip file  
   – not the previous `js/nhsuk-<VERSION-NUMBER>.min.js` script
 
 Then include the script before the closing `</body>` tag of your page using the `type="module"` attribute, and run the `initAll` function to initialise all the components.
@@ -217,7 +217,7 @@ For JavaScript imported using a bundler, consolidate all `import` or `require()`
 + import { initButtons, initCheckboxes } from 'nhsuk-frontend'
 ```
 
-Ensuring component initialisation functions match the named exports:
+Making sure component initialisation functions match the named exports:
 
 ```mjs
 import { initButtons, initCheckboxes } from 'nhsuk-frontend'
@@ -384,7 +384,7 @@ This change was introduced in [pull request #1480: Add missing component `data-m
 
 For consistency with other links, we've added an underline to the back link component. We've also changed the default text from "Go back" to "Back" in all examples.
 
-HTML markup for the back link component has been updated to align with GOV.UK Frontend:
+HTML markup for the back link component has been updated to align with GOV.UK frontend:
 
 ```diff
 - <div class="nhsuk-back-link"> <a class="nhsuk-back-link__link" href="#">
@@ -482,15 +482,15 @@ This change was introduced in pull requests [#1259: Review legacy Nunjucks param
 
 If you're using the `header` Nunjucks macro in your service, you must:
 
-- Rename the `transactionalService` option to the new `service` option, and remove the boolean `transactional` option.
-- Replace the `primaryLinks` option with the nested `navigation.items` option, using `text` and `href` instead of `label` and `url`.
-- Replace the `searchAction` option with the nested `search.action` option.
-- Replace the `searchInputName` option with the nested `search.name` option.
-- Remove the boolean `showNav` and `showSearch` options. The respective parts of the header are now shown automatically when `navigation.items` or `search` options are provided.
-- Check the `classes` option for `nhsuk-header--white-nav` and remove it. To turn the navigation white, add the modifier class `nhsuk-header__navigation--white` to the nested `navigation.classes` option.
-- Remove the `nhsuk-header__navigation-list--left-aligned` modifier class, navigation items are now aligned left by default.
+- rename the `transactionalService` option to the new `service` option, and remove the boolean `transactional` option
+- replace the `primaryLinks` option with the nested `navigation.items` option, using `text` and `href` instead of `label` and `url`
+- replace the `searchAction` option with the nested `search.action` option
+- replace the `searchInputName` option with the nested `search.name` option
+- remove the boolean `showNav` and `showSearch` options - the respective parts of the header are now shown automatically when `navigation.items` or `search` options are provided
+- check the `classes` option for `nhsuk-header--white-nav` and remove it - to turn the navigation white, add the modifier class `nhsuk-header__navigation--white` to the nested `navigation.classes` option
+- remove the `nhsuk-header__navigation-list--left-aligned` modifier class - navigation items are now aligned left by default
 
-To restore the previous justified alignment, where navigation items appeared evenly spaced out, add the new `nhsuk-header__navigation--justified` modifier class to the nested `navigation.classes` option
+To restore the previous justified alignment, where navigation items appeared evenly spaced out, add the new `nhsuk-header__navigation--justified` modifier class to the nested `navigation.classes` option.
 
 If you are not using Nunjucks macros, update your HTML markup using the [header examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/header).
 
@@ -500,9 +500,9 @@ The footer component's Nunjucks macros and HTML have been updated for better con
 
 If you're using the `footer` Nunjucks macro in your service, you must:
 
-- Replace the `links` option with the nested `navigation.items` option.
-- Replace the `metaLinks` option with the nested `meta.items` option.
-- Update all items to rename `label` to `text` and `URL` to `href`.
+- replace the `links` option with the nested `navigation.items` option
+- replace the `metaLinks` option with the nested `meta.items` option
+- update all items to rename `label` to `text` and `URL` to `href`
 
 Before:
 
@@ -817,7 +817,7 @@ Please note that `<script>` with `type="module"` [runs JavaScript in a slightly 
 
 - when your service code is bundled with NHS.UK frontend it runs as expected in [strict mode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode)
 - if you have any code that needs to run after NHS.UK frontend in its own `<script>` tag, you'll need to make sure it's using `type="module"` or [`defer`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#defer). This is because the tag loading NHS.UK frontend will be deferred because of its `type="module"` attribute
-- code that needs to run without being deferred, is split into its own file and loaded with a `<script>` tag without `type="module"`
+- code that needs to run without being deferred is split into its own file and loaded with a `<script>` tag without `type="module"`
 
 If your service has JavaScript you want to run successfully in Internet Explorer (for example JavaScript for analytics), you will need to load it in a separate `<script>` tag without `type="module"` and make sure its code is compatible with the browsers it should run in (see the [section about polyfills](#check-your-code-does-not-rely-on-polyfills-we-have-now-removed)).
 
