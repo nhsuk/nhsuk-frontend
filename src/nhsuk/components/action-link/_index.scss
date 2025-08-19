@@ -25,6 +25,12 @@ $_large-icon-spacing: 3px;
   position: relative; // [3]
   text-decoration: none; // [4]
 
+  &:not(:focus):hover {
+    .nhsuk-action-link__text {
+      text-decoration: underline; // [5]
+    }
+  }
+
   @include nhsuk-font(22, $weight: bold, $line-height: $_large-icon-size);
   @include nhsuk-print-colour($nhsuk-print-text-colour);
   @include nhsuk-responsive-margin(6, "bottom");
