@@ -339,9 +339,7 @@ If you are using the Nunjucks macros, update the list of paths in `nunjucks.conf
 
 ### :boom: **Breaking changes** to page template
 
-We have made several updates to the [Page template](https://service-manual.nhs.uk/design-system/styles/page-template). If you are using the Nunjucks page template included within NHS frontend, you do not need to make any changes.
-
-Otherwise, you will need to make the following changes.
+You must make the following [page template](https://service-manual.nhs.uk/design-system/styles/page-template) changes when you migrate to this release, or your service might break.
 
 #### Update the `<script>` tag that includes or bundles NHS.UK frontend
 
@@ -396,13 +394,17 @@ These changes were introduced in [pull request #1327: Add class `.nhsuk-frontend
 
 #### Remove the X-UA-Compatible meta tag
 
-Remove the `<meta http-equiv="X-UA-Compatible" content="IE=edge">` meta tag from your page template.
-
 Internet Explorer versions 8, 9 and 10 included a feature that would try to determine if the page was built for an older version of IE and silently enable compatibility mode, modifying the rendering engine's behaviour to match the older version of IE. Setting this meta tag prevented that behaviour.
 
 IE11 deprecated this meta tag and defaulted to always using IE11's renderer when the page has a HTML5 doctype (`<!DOCTYPE html>`).
 
-As NHS.UK frontend no longer supports Internet Explorer versions older than 11, this meta tag can now be removed.
+If you are not using our Nunjucks page template, remove the X-UA-Compatible meta tag from your pages:
+
+```patch
+- <meta http-equiv="X-UA-Compatible" content="IE=edge">
+```
+
+NHS.UK frontend no longer supports Internet Explorer versions older than 11.
 
 This change was introduced in [pull request #1509: Remove `X-UA-Compatible meta tag`](https://github.com/nhsuk/nhsuk-frontend/pull/1509).
 
@@ -413,7 +415,7 @@ We've updated our grid layout gutter margins to accommodate devices with "camera
 To avoid this, support has been added for `viewport-fit=cover` as shown here:
 https://webkit.org/blog/7929/designing-websites-for-iphone-x/
 
-Update the viewport meta tag by changing `shrink-to-fit=no` to `viewport-fit=cover`:
+If you are not using our Nunjucks page template, update the viewport meta tag by changing `shrink-to-fit=no` to `viewport-fit=cover`:
 
 ```patch
 - <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
