@@ -325,9 +325,122 @@ This change was introduced in [pull request #1409: Remove deprecated features ma
 
 See the [NHS.UK frontend v9.5.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v9.5.0) and [NHS.UK frontend v9.6.0 release notes](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v9.6.0) for more details on previously deprecated features.
 
-### :boom: **Breaking changes** to HTML templates
+### :boom: **Breaking changes** to page template
 
-You must make the following component and template changes when you migrate to this release, or your service might break.
+You must make the following page template changes when you migrate to this release, or your service might break.
+
+#### Update the `<script>` tag that includes or bundles NHS.UK frontend
+
+Add attribute `type="module"` to `<script>` tags that include or bundle NHS.UK frontend.
+
+This is to stop Internet Explorer 11 and other older browsers running the JavaScript, which relies on features older browsers might not support and could cause errors.
+
+Then include the script before the closing `</body>` tag of your page using the `type="module"` attribute, and run the `initAll` function to initialise all the components.
+
+Before:
+
+```html
+  <!-- // ... -->
+  <script src="/javascripts/nhsuk-frontend.min.js" defer></script>
+</head>
+```
+
+After:
+
+```html
+  <!-- // ... -->
+  <script type="module" src="/javascripts/nhsuk-frontend.min.js"></script>
+  <script type="module">
+    import { initAll } from '/javascripts/nhsuk-frontend.min.js'
+    initAll()
+  </script>
+</body>
+```
+
+#### Update the `<script>` snippet at the top of your `<body>` tag
+
+Page templates now include a new `nhsuk-frontend-supported` class on the `<body>` tag when NHS.UK frontend JavaScript components are fully supported.
+
+If you are not using our Nunjucks page template, replace the existing snippet:
+
+```html
+<script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+```
+
+with:
+
+```html
+<script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' nhsuk-frontend-supported' : '');</script>
+```
+
+These changes were introduced in [pull request #1327: Add class `.nhsuk-frontend-supported` for ES modules support](https://github.com/nhsuk-frontend/pull/1327).
+
+#### Remove the X-UA-Compatible meta tag
+
+Remove the `<meta http-equiv="X-UA-Compatible" content="IE=edge">` meta tag from your page template.
+
+Internet Explorer versions 8, 9 and 10 included a feature that would try to determine if the page was built for an older version of IE and silently enable compatibility mode, modifying the rendering engine's behaviour to match the older version of IE. Setting this meta tag prevented that behaviour.
+
+IE11 deprecated this meta tag and defaulted to always using IE11's renderer when the page has a HTML5 doctype (`<!DOCTYPE html>`).
+
+As NHS.UK frontend no longer supports Internet Explorer versions older than 11, this meta tag can now be removed.
+
+This change was introduced in [pull request #1509: Remove `X-UA-Compatible meta tag`](https://github.com/nhsuk/nhsuk-frontend/pull/1509).
+
+#### Update the viewport meta tag
+
+We've updated our grid layout gutter margins to accommodate devices with "camera notches". Browsers on these devices reserve a safe area in landscape orientation (known as pillar-boxing) so content isn't obscured.
+
+To avoid this, support has been added for `viewport-fit=cover` as shown here:
+https://webkit.org/blog/7929/designing-websites-for-iphone-x/
+
+Update the viewport meta tag by changing `shrink-to-fit=no` to `viewport-fit=cover`:
+
+```patch
+- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
++ <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+```
+
+This change was introduced in [pull request #1510: Accommodate camera notches](https://github.com/nhsuk/nhsuk-frontend/pull/1510).
+
+#### Update the favicons, app icons and Open Graph image tags
+
+We've changed the names, formats and sizes of icon assets we distribute in NHS.UK frontend. You will want to check that the correct files are copied in the right place and served at the right URLs.
+
+The following files have been added to the assets folder:
+
+- manifest.json
+- images/favicon.ico
+- images/favicon.svg
+- images/nhsuk-icon-180.png
+- images/nhsuk-icon-192.png
+- images/nhsuk-icon-512.png
+- images/nhsuk-icon-mask.svg
+- images/nhsuk-opengraph-image.png
+
+The following folders have been removed from the assets folder:
+
+- favicons
+- icons
+- logos
+
+If you're not using the Nunjucks page template, you will need to replace the list of icons in the template's head with the following:
+
+```html
+<link rel="icon" href="/assets/images/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/images/favicon.svg" sizes="any" type="image/svg+xml">
+<link rel="mask-icon" href="/assets/images/nhsuk-icon-mask.svg" color="#005eb8">
+<link rel="apple-touch-icon" href="/assets/images/nhsuk-icon-180.png">
+<link rel="manifest" href="/assets/manifest.json">
+```
+
+You will need to update the file path to match your assets folder if it's not at the default location.
+
+This change was introduced in [pull request #1508: Update site icons and Open Graph image, add `manifest.json`](https://github.com/nhsuk/nhsuk-frontend/pull/1508).
+
+### :boom: **Breaking changes** to components
+
+You must make the following component changes when you migrate to this release, or your service might break.
 
 #### Add missing `data-module` attributes to components
 
@@ -771,90 +884,9 @@ If you are not using Nunjucks macros, update your HTML markup if you are using a
 
 This change was introduced in [pull request #1521: Update component icons](https://github.com/nhsuk/nhsuk-frontend/pull/1521).
 
-#### Check that your favicons, app icons and Open Graph image still work
-
-We've changed the names, formats and sizes of icon assets we distribute in NHS.UK frontend. You will want to check that the correct files are copied in the right place and served at the right URLs.
-
-The following files have been added to the assets folder:
-
-- manifest.json
-- images/favicon.ico
-- images/favicon.svg
-- images/nhsuk-icon-180.png
-- images/nhsuk-icon-192.png
-- images/nhsuk-icon-512.png
-- images/nhsuk-icon-mask.svg
-- images/nhsuk-opengraph-image.png
-
-The following folders have been removed from the assets folder:
-
-- favicons
-- icons
-- logos
-
-If you're not using the Nunjucks page template, you will need to replace the list of icons in the template's head with the following:
-
-```html
-<link rel="icon" href="/assets/images/favicon.ico" sizes="48x48">
-<link rel="icon" href="/assets/images/favicon.svg" sizes="any" type="image/svg+xml">
-<link rel="mask-icon" href="/assets/images/nhsuk-icon-mask.svg" color="#005eb8">
-<link rel="apple-touch-icon" href="/assets/images/nhsuk-icon-180.png">
-<link rel="manifest" href="/assets/manifest.json">
-```
-
-You will need to update the file path to match your assets folder if it's not at the default location.
-
-This change was introduced in [pull request #1508: Update site icons and Open Graph image, add `manifest.json`](https://github.com/nhsuk/nhsuk-frontend/pull/1508).
-
 ### :boom: **Breaking changes** to browser support
 
 You must make the following component and template changes when you migrate to this release, or your service might break.
-
-#### Update the `<script>` tag that includes or bundles NHS.UK frontend
-
-Add attribute `type="module"` to `<script>` tags that include or bundle NHS.UK frontend.
-
-This is to stop Internet Explorer 11 and other older browsers running the JavaScript, which relies on features older browsers might not support and could cause errors.
-
-Then include the script before the closing `</body>` tag of your page using the `type="module"` attribute, and run the `initAll` function to initialise all the components.
-
-Before:
-
-```html
-  <!-- // ... -->
-  <script src="/javascripts/nhsuk-frontend.min.js" defer></script>
-</head>
-```
-
-After:
-
-```html
-  <!-- // ... -->
-  <script type="module" src="/javascripts/nhsuk-frontend.min.js"></script>
-  <script type="module">
-    import { initAll } from '/javascripts/nhsuk-frontend.min.js'
-    initAll()
-  </script>
-</body>
-```
-
-#### Update the `<script>` snippet at the top of your `<body>` tag
-
-Page templates now include a new `nhsuk-frontend-supported` class on the `<body>` tag when NHS.UK frontend JavaScript components are fully supported.
-
-If you are not using our Nunjucks page template, replace the existing snippet:
-
-```html
-<script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
-```
-
-with:
-
-```html
-<script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' nhsuk-frontend-supported' : '');</script>
-```
-
-These changes were introduced in [pull request #1327: Add class `.nhsuk-frontend-supported` for ES modules support](https://github.com/nhsuk-frontend/pull/1327).
 
 #### Check Internet Explorer 11 and other older browsers do not run unsupported JavaScript
 
@@ -894,31 +926,6 @@ We have removed polyfills `Array.prototype.includes`, `CustomEvent`, `Element.cl
 However, because these polyfills create or extend global objects ('polluting the global namespace'), you might have other code in your service unintentionally relying on the inclusion of these polyfills. You might need to introduce your own polyfills or rewrite your JavaScript to avoid using the polyfilled features.
 
 These changes were introduced in [pull request #1326: Remove IE11 vendor polyfills](https://github.com/nhsuk/nhsuk-frontend/pull/1326).
-
-### :recycle: **Changes**
-
-We've made changes to NHS.UK frontend in the following pull requests:
-
-#### Remove the X-UA-Compatible meta tag
-
-Remove the `<meta http-equiv="X-UA-Compatible" content="IE=edge">` meta tag from your page template.
-
-Internet Explorer versions 8, 9 and 10 included a feature that would try to determine if the page was built for an older version of IE and silently enable compatibility mode, modifying the rendering engine's behaviour to match the older version of IE. Setting this meta tag prevented that behaviour.
-
-IE11 deprecated this meta tag and defaulted to always using IE11's renderer when the page has a HTML5 doctype (`<!DOCTYPE html>`).
-
-As NHS.UK frontend no longer supports Internet Explorer versions older than 11, this meta tag can now be removed.
-
-This change was introduced in [pull request #1509: Remove `X-UA-Compatible meta tag`](https://github.com/nhsuk/nhsuk-frontend/pull/1509).
-
-#### Update the viewport meta tag
-
-We've updated our grid layout gutter margins to accommodate devices with "camera notches". Browsers on these devices reserve a safe area in landscape orientation (known as pillar-boxing) so content isn't obscured.
-
-To avoid this, support has been added for `viewport-fit=cover` as shown here:
-https://webkit.org/blog/7929/designing-websites-for-iphone-x/
-
-This change was introduced in [pull request #1510: Accommodate camera notches](https://github.com/nhsuk/nhsuk-frontend/pull/1510).
 
 ### :wrench: **Fixes**
 
