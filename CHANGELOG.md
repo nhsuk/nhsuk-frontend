@@ -25,11 +25,21 @@ If you need to reference a colour within your application you should use the new
 
 This was added in [pull request #1526: Add `$nhsuk-colour` palette, colour helpers and deprecate "color" spelling](https://github.com/nhsuk/nhsuk-frontend/pull/1526).
 
-#### Create individual components with `createAll`
+#### New JavaScript API for NHS.UK frontend
 
-We've added a new `createAll` function that lets you initialise specific components in the same way that `initAll` does.
+We've updated the `initAll` function to configure components when including key-value pairs of camel-cased component names with their options:
 
-The `createAll` function will:
+```js
+import { initAll } from 'nhsuk-frontend'
+
+initAll({
+  button: {
+    preventDoubleClick: true
+  }
+})
+```
+
+We've also added a new `createAll` function that lets you initialise specific components in the same way that `initAll` does:
 
 - find all elements in the page with the corresponding `data-module` attribute
 - initialise a new component for each element
@@ -43,9 +53,22 @@ createAll(Button)
 createAll(Checkboxes)
 ```
 
-You can also pass a config object and a scope within which to search for elements.
+You can also pass a config object and a scope within which to search for elements:
 
-You can find out more about [how to use the `createAll` function](https://github.com/nhsuk/nhsuk-frontend/blob/main/docs/installation/installing-with-npm.md#initialise-individual-components) in our documentation.
+```mjs
+import { createAll, Button, Checkboxes } from 'nhsuk-frontend'
+
+const $element = document.querySelector('.app-modal')
+
+createAll(Button, {
+  preventDoubleClick: true,
+  scope: $element,
+})
+
+createAll(Checkboxes, $element)
+```
+
+You can find out more about [how to use the `initAll` and `createAll` functions](/docs/installation/installing-with-npm.md#importing-javascript) in our documentation.
 
 This was added in [pull request #1506: Add JavaScript configuration support to components](https://github.com/nhsuk/nhsuk-frontend/pull/1506).
 
@@ -335,7 +358,7 @@ Add attribute `type="module"` to `<script>` tags that include or bundle NHS.UK f
 
 This is to stop Internet Explorer 11 and other older browsers running the JavaScript, which relies on features older browsers might not support and could cause errors.
 
-Then include the script before the closing `</body>` tag of your page using the `type="module"` attribute, and run the `initAll` function to initialise all the components.
+Then move the script before the closing `</body>` tag of your page and run the `initAll` function to initialise all the components.
 
 Before:
 
