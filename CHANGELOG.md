@@ -354,11 +354,16 @@ You must make the following page template changes when you migrate to this relea
 
 #### Update the `<script>` tag that includes or bundles NHS.UK frontend
 
-Add attribute `type="module"` to `<script>` tags that include or bundle NHS.UK frontend.
+The main `<script>` tag for NHS.UK frontend JavaScript has been updated and moved.
 
 This is to stop Internet Explorer 11 and other older browsers running the JavaScript, which relies on features older browsers might not support and could cause errors.
 
-Then move the script before the closing `</body>` tag of your page and run the `initAll` function to initialise all the components.
+You need to:
+
+1. move it from within the `<head>` element to just before the closing `</body>` tag
+2. remove the `defer` boolean attribute
+3. add the `type="module"` attribute
+4. add a second `<script>` tag to import and initialise the components
 
 Before:
 
