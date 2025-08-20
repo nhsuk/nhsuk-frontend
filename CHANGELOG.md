@@ -198,8 +198,8 @@ Replace `packages` with `dist/nhsuk` for any `@forward`, `@use` or `@import` pat
 
 For precompiled stylesheets, note the following path changes:
 
-- copy or serve `node_modules/dist/nhsuk/nhsuk-frontend.min.css`  
-  – not the previous `node_modules/dist/nhsuk.min.css` stylesheet
+- copy or serve `node_modules/nhsuk-frontend/dist/nhsuk/nhsuk-frontend.min.css`  
+  – not the previous `node_modules/nhsuk-frontend/dist/nhsuk.min.css` stylesheet
 - extract `nhsuk-frontend-<VERSION-NUMBER>.min.css` from the GitHub release zip file  
   – not the previous `css/nhsuk-<VERSION-NUMBER>.min.css` stylesheet
 
@@ -207,8 +207,8 @@ For precompiled stylesheets, note the following path changes:
 
 For precompiled JavaScript, note the following path changes:
 
-- copy or serve `node_modules/dist/nhsuk/nhsuk-frontend.min.js`  
-  – not the previous `node_modules/dist/nhsuk.min.js` script
+- copy or serve `node_modules/nhsuk-frontend/dist/nhsuk/nhsuk-frontend.min.js`  
+  – not the previous `node_modules/nhsuk-frontend/dist/nhsuk.min.js` script
 - extract `nhsuk-frontend-<VERSION-NUMBER>.min.js` from the GitHub release zip file  
   – not the previous `js/nhsuk-<VERSION-NUMBER>.min.js` script
 
