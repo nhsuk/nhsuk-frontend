@@ -163,26 +163,22 @@ The following CSS classes have been renamed:
 
 This change was introduced in [pull request #1526: Add `$nhsuk-colour` palette, colour helpers and deprecate "color" spelling](https://github.com/nhsuk/nhsuk-frontend/pull/1526).
 
-### :boom: **Breaking changes** to file paths
+### :boom: **Breaking changes** to stylesheets
 
-You must make the following file path changes when you migrate to this release, or your service might break.
+The file structure for the stylesheets has changed. You will have to make different updates depending on whether you are compiling the Sass files or using the precompiled CSS.
 
-#### Update file paths
+#### Precompiled CSS
 
-To make sure NHS.UK frontend's files do not conflict with your code, we've moved our package files from `packages` to `dist/nhsuk`.
+For precompiled CSS files, note the following path changes:
 
-Make the following changes if they apply to your service:
+- copy or serve `node_modules/nhsuk-frontend/dist/nhsuk/nhsuk-frontend.min.css`  
+  – not the previous `node_modules/nhsuk-frontend/dist/nhsuk.min.css` stylesheet
+- extract `nhsuk-frontend-<VERSION-NUMBER>.min.css` from the GitHub release zip file  
+  – not the previous `css/nhsuk-<VERSION-NUMBER>.min.css` stylesheet
 
-- [Update Sass file paths](#update-sass-file-paths)
-- [Update precompiled CSS file paths](#update-precompiled-css-file-paths)
-- [Update precompiled JavaScript file paths](#update-precompiled-javascript-file-paths)
-- [Update JavaScript file paths for bundlers](#update-javascript-file-paths-for-bundlers)
-- [Update Nunjucks file paths](#update-nunjucks-file-paths)
-- [Update file paths for copying or serving assets](#update-file-paths-for-copying-or-serving-assets)
+#### Sass files
 
-#### Update Sass file paths
-
-You must add `node_modules` to [Sass](https://sass-lang.com/) load paths, by either:
+If you are compiling the Sass files, you must add `node_modules` to [Sass](https://sass-lang.com/) load paths, by either:
 
 - calling the Sass compiler from the command line with the `--load-path node_modules` flag
 - using the JavaScript API with `loadPaths: ['node_modules']` in the `options` object
@@ -194,98 +190,7 @@ Replace `packages` with `dist/nhsuk` for any `@forward`, `@use` or `@import` pat
 + @import "nhsuk-frontend/dist/nhsuk";
 ```
 
-#### Update precompiled CSS file paths
-
-For precompiled stylesheets, note the following path changes:
-
-- copy or serve `node_modules/nhsuk-frontend/dist/nhsuk/nhsuk-frontend.min.css`  
-  – not the previous `node_modules/nhsuk-frontend/dist/nhsuk.min.css` stylesheet
-- extract `nhsuk-frontend-<VERSION-NUMBER>.min.css` from the GitHub release zip file  
-  – not the previous `css/nhsuk-<VERSION-NUMBER>.min.css` stylesheet
-
-#### Update precompiled JavaScript file paths
-
-For precompiled JavaScript, note the following path changes:
-
-- copy or serve `node_modules/nhsuk-frontend/dist/nhsuk/nhsuk-frontend.min.js`  
-  – not the previous `node_modules/nhsuk-frontend/dist/nhsuk.min.js` script
-- extract `nhsuk-frontend-<VERSION-NUMBER>.min.js` from the GitHub release zip file  
-  – not the previous `js/nhsuk-<VERSION-NUMBER>.min.js` script
-
-#### Update JavaScript file paths for bundlers
-
-For JavaScript imported using a bundler, consolidate all `import` or `require()` calls to `nhsuk-frontend/packages/components/*` into a single statement:
-
-```patch
-- import initButtons from 'nhsuk-frontend/packages/components/button/button.js'
-- import initCheckboxes from 'nhsuk-frontend/packages/components/checkboxes/checkboxes.js'
-+ import { initButtons, initCheckboxes } from 'nhsuk-frontend'
-```
-
-Make sure component initialisation functions match the named exports:
-
-```mjs
-import { initButtons, initCheckboxes } from 'nhsuk-frontend'
-
-// Initialise all button components
-initButtons();
-
-// Initialise all checkboxes components
-initCheckboxes();
-```
-
-Or alternatively, you can initialise individual component classes:
-
-```js
-import { Button, Checkboxes } from 'nhsuk-frontend';
-
-const $button = document.querySelector('.app-button')
-const $checkboxes = document.querySelector('.app-checkboxes')
-
-// Initialise single button component
-new Button($button);
-
-// Initialise single checkboxes component
-new Checkboxes($checkboxes);
-```
-
-#### Update Nunjucks file paths
-
-1. Change the list of paths in `nunjucks.configure()` to search within `node_modules/nhsuk-frontend/dist`:
-
-```patch
-  nunjucks.configure([
--   'node_modules/nhsuk-frontend/packages/components',
--   'node_modules/nhsuk-frontend/packages/macros'
-+   'node_modules/nhsuk-frontend/dist/nhsuk/components',
-+   'node_modules/nhsuk-frontend/dist/nhsuk/macros',
-+   'node_modules/nhsuk-frontend/dist/nhsuk',
-+   'node_modules/nhsuk-frontend/dist'
-  ])
-```
-
-#### Update file paths for copying or serving assets
-
-Replace `packages/` with `dist/nhsuk` when copying or serving NHS.UK frontend logos, icons and other assets:
-
-```patch
-- node_modules/nhsuk-frontend/packages/assets
-+ node_modules/nhsuk-frontend/dist/nhsuk/assets
-```
-
-For example, if you're using [Express.js](https://expressjs.com/), request routing could be set up as follows:
-
-```js
-router.use('/assets', [
-  express.static('node_modules/nhsuk-frontend/dist/nhsuk/assets')
-])
-```
-
-### :boom: **Breaking changes** to Sass partials
-
-You must make the following Sass file changes when you migrate to this release, or your service might break.
-
-#### Replace Sass colour variables that have been removed
+#### Sass deprecated colours removed
 
 Sass colour tint and shade variables (e.g. `$color_tint_nhsuk-black-10`) have been removed but are available using the `nhsuk-tint` and `nhsuk-shade` functions:
 
@@ -300,7 +205,7 @@ Sass colour tint and shade variables (e.g. `$color_tint_nhsuk-black-10`) have be
 
 This change was introduced in [pull request #1526: Add `$nhsuk-colour` palette, colour helpers and deprecate "color" spelling](https://github.com/nhsuk/nhsuk-frontend/pull/1526).
 
-#### Remove deprecated 24 point on the typography scale
+#### Sass deprecated typography scale point 24 removed
 
 The point 24 (24px large screens, 20px small screens) on the typography scale has been removed, after previously being deprecated in [version 9.5.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v9.5.0).
 
@@ -308,7 +213,7 @@ Use either point 22 or point 26 instead.
 
 This change was introduced in [pull request #1139: Remove 24px from typography scale](https://github.com/nhsuk/nhsuk-frontend/pull/1139).
 
-#### Remove deprecated Sass mixins and functions
+#### Sass deprecated mixins and functions removed
 
 We've removed the `govuk-main-wrapper()`, `govuk-main-wrapper--l()` and `govuk-main-wrapper--s()` Sass mixins we deprecated in [NHS.UK frontend v9.5.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v9.5.0).
 
@@ -348,9 +253,95 @@ This change was introduced in [pull request #1409: Remove deprecated features ma
 
 See the [NHS.UK frontend v9.5.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v9.5.0) and [NHS.UK frontend v9.6.0 release notes](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v9.6.0) for more details on previously deprecated features.
 
+### :boom: **Breaking changes** to JavaScript
+
+The file structure for the JavaScript has changed. You will have to make different updates depending on whether you are using a bundler or the precompiled files.
+
+#### Using precompiled JavaScript
+
+For precompiled JavaScript, note the following path changes:
+
+- copy or serve `node_modules/nhsuk-frontend/dist/nhsuk/nhsuk-frontend.min.js`  
+  – not the previous `node_modules/nhsuk-frontend/dist/nhsuk.min.js` script
+- extract `nhsuk-frontend-<VERSION-NUMBER>.min.js` from the GitHub release zip file  
+  – not the previous `js/nhsuk-<VERSION-NUMBER>.min.js` script
+
+#### Using a JavaScript bundler
+
+For JavaScript imported using a bundler, consolidate all `import` or `require()` calls to `nhsuk-frontend/packages/components/*` into a single statement:
+
+```patch
+- import initButtons from 'nhsuk-frontend/packages/components/button/button.js'
+- import initCheckboxes from 'nhsuk-frontend/packages/components/checkboxes/checkboxes.js'
++ import { initButtons, initCheckboxes } from 'nhsuk-frontend'
+```
+
+Make sure component initialisation functions match the named exports:
+
+```mjs
+import { initButtons, initCheckboxes } from 'nhsuk-frontend'
+
+// Initialise all button components
+initButtons();
+
+// Initialise all checkboxes components
+initCheckboxes();
+```
+
+Or alternatively, you can initialise individual component classes:
+
+```js
+import { Button, Checkboxes } from 'nhsuk-frontend';
+
+const $button = document.querySelector('.app-button')
+const $checkboxes = document.querySelector('.app-checkboxes')
+
+// Initialise single button component
+new Button($button);
+
+// Initialise single checkboxes component
+new Checkboxes($checkboxes);
+```
+
+### :boom: **Breaking changes** to static assets
+
+The location of the folder containing static assets such as logos, icons and other images has changed.
+
+Replace `packages/` with `dist/nhsuk` when copying or serving NHS.UK frontend logos, icons and other assets:
+
+```patch
+- node_modules/nhsuk-frontend/packages/assets
++ node_modules/nhsuk-frontend/dist/nhsuk/assets
+```
+
+For example, if you're using [Express.js](https://expressjs.com/), request routing could be set up as follows:
+
+```js
+router.use('/assets', [
+  express.static('node_modules/nhsuk-frontend/dist/nhsuk/assets')
+])
+```
+
+### :boom: **Breaking changes** to Nunjucks
+
+If you are using the Nunjucks macros, update the list of paths in `nunjucks.configure()` to search within `node_modules/nhsuk-frontend/dist`:
+
+```patch
+  nunjucks.configure([
+-   'node_modules/nhsuk-frontend/packages/components',
+-   'node_modules/nhsuk-frontend/packages/macros'
++   'node_modules/nhsuk-frontend/dist/nhsuk/components',
++   'node_modules/nhsuk-frontend/dist/nhsuk/macros',
++   'node_modules/nhsuk-frontend/dist/nhsuk',
++   'node_modules/nhsuk-frontend/dist'
+  ])
+```
+
 ### :boom: **Breaking changes** to page template
 
-You must make the following page template changes when you migrate to this release, or your service might break.
+We have made several updates to the [Page template](https://service-manual.nhs.uk/design-system/styles/page-template). If you are using the Nunjucks page template included within NHS frontend, you do not need to make any changes.
+
+Otherwise, you will need to make the following changes.
 
 #### Update the `<script>` tag that includes or bundles NHS.UK frontend
 
