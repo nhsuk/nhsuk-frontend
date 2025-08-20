@@ -199,7 +199,7 @@ For JavaScript imported using a bundler, consolidate all `import` or `require()`
 + import { initButtons, initCheckboxes } from 'nhsuk-frontend'
 ```
 
-Making sure component initialisation functions match the named exports:
+Make sure component initialisation functions match the named exports:
 
 ```mjs
 import { initButtons, initCheckboxes } from 'nhsuk-frontend'
