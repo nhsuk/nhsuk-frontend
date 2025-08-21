@@ -459,39 +459,6 @@ This change was introduced in [pull request #1508: Update site icons and Open Gr
 
 You must make the following component changes when you migrate to this release, or your service might break.
 
-#### Add missing `data-module` attributes to components
-
-You do not need to do anything if you're using Nunjucks macros.
-
-If you are not using Nunjucks macros, add the missing `data-module` attributes to the following components' HTML:
-
-```patch
-- <div class="nhsuk-checkboxes">
-+ <div class="nhsuk-checkboxes" data-module="nhsuk-checkboxes">
-```
-
-```patch
-- <div class="nhsuk-radios">
-+ <div class="nhsuk-radios" data-module="nhsuk-radios">
-```
-
-```patch
-- <div class="nhsuk-error-summary">
-+ <div class="nhsuk-error-summary" data-module="nhsuk-error-summary">
-```
-
-```patch
-- <header class="nhsuk-header">
-+ <header class="nhsuk-header" data-module="nhsuk-header">
-```
-
-```patch
-- <a class="nhsuk-skip-link">
-+ <a class="nhsuk-skip-link" data-module="nhsuk-skip-link">
-```
-
-This change was introduced in [pull request #1480: Add missing component `data-module` attributes](https://github.com/nhsuk/nhsuk-frontend/pull/1480).
-
 #### Action link component changes
 
 HTML markup for the action link component has been updated to remove the HTML wrapper. You do not need to do anything if you're using Nunjucks macros.
@@ -586,6 +553,19 @@ Use the [`disabled` HTML boolean attribute](https://developer.mozilla.org/en-US/
 We no longer support link buttons being disabled or using disabled styles.
 
 This change was introduced in [pull request #1075: Remove support for `nhsuk-button--disabled` class](https://github.com/nhsuk/nhsuk-frontend/pull/1075).
+
+#### Checkboxes component changes
+
+If you are using the `checkboxes` Nunjucks macro, the first checkbox input's `id` attribute no longer has the suffix `-1`. You will need to [update any links to the first checkbox input from error summary components](#error-summary-component-changes) to remove this suffix.
+
+If you are not using Nunjucks macros, add the missing `data-module` attribute to the component HTML:
+
+```patch
+- <div class="nhsuk-checkboxes">
++ <div class="nhsuk-checkboxes" data-module="nhsuk-checkboxes">
+```
+
+These changes were introduced in pull requests [#1112: Remove the -1 suffix from radio and checkbox IDs](https://github.com/nhsuk/nhsuk-frontend/pull/1112) and [#1480: Add missing component `data-module` attributes](https://github.com/nhsuk/nhsuk-frontend/pull/1480).
 
 #### Details component changes
 
@@ -747,7 +727,7 @@ This change was introduced in [pull request #1452: Update footer to separate nav
 
 We've changed how the [error summary](https://design-system.service.gov.uk/components/error-summary/) component links to the first input in a [radios](https://design-system.service.gov.uk/components/radios/) or [checkboxes](https://design-system.service.gov.uk/components/checkboxes/) component.
 
-This is because the `id` of the first checkbox or radio item no longer has the suffix `-1` when rendered using the Nunjucks macros.
+This is because the `id` of the first checkbox or radio input no longer has the suffix `-1` when rendered using the Nunjucks macros.
 
 If you're using the `errorSummary` Nunjucks macro, remove `-1` from the end of the `href` attribute:
 
@@ -764,9 +744,40 @@ If you're using the `errorSummary` Nunjucks macro, remove `-1` from the end of t
   }) }}
 ```
 
-You do not need to do this if you specified an `id` for the individual checkbox or radio item.
+You do not need to do this if you specified an `id` for the individual checkbox or radio input.
 
-This change was introduced in [pull request #1112: Remove the -1 suffix from radio and checkbox IDs](https://github.com/nhsuk/nhsuk-frontend/pull/1112).
+If you are not using Nunjucks macros, add the missing `data-module` attribute to the component HTML:
+
+```patch
+- <div class="nhsuk-error-summary">
++ <div class="nhsuk-error-summary" data-module="nhsuk-error-summary">
+```
+
+These changes were introduced in pull requests [#1112: Remove the -1 suffix from radio and checkbox IDs](https://github.com/nhsuk/nhsuk-frontend/pull/1112) and [#1480: Add missing component `data-module` attributes](https://github.com/nhsuk/nhsuk-frontend/pull/1480).
+
+#### Radios component changes
+
+If you are using the `radios` Nunjucks macro, the first radio input's `id` attribute no longer has the suffix `-1`. You will need to [update any links to the first radio input from error summary components](#error-summary-component-changes) to remove this suffix.
+
+If you are not using Nunjucks macros, add the missing `data-module` attribute to the component HTML:
+
+```patch
+- <div class="nhsuk-radios">
++ <div class="nhsuk-radios" data-module="nhsuk-radios">
+```
+
+These changes were introduced in pull requests [#1112: Remove the -1 suffix from radio and checkbox IDs](https://github.com/nhsuk/nhsuk-frontend/pull/1112) and [#1480: Add missing component `data-module` attributes](https://github.com/nhsuk/nhsuk-frontend/pull/1480).
+
+#### Skip link component changes
+
+If you are not using Nunjucks macros, add the missing `data-module` attribute to the component HTML:
+
+```patch
+- <a class="nhsuk-skip-link">
++ <a class="nhsuk-skip-link" data-module="nhsuk-skip-link">
+```
+
+This change was introduced in [pull request #1480: Add missing component `data-module` attributes](https://github.com/nhsuk/nhsuk-frontend/pull/1480).
 
 #### Tabs component changes
 
