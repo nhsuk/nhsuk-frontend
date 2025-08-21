@@ -137,9 +137,7 @@ This was added in [pull request #1464: Export type declarations `*.d.mts` for NH
 
 We've renamed all Sass variables, mixins and CSS classes to use "colour" (not "color") spelling. You can still use the previous names but we'll remove them in a future breaking release.
 
-**Sass variables**
-
-For example, the following variables have been renamed:
+For example, the following Sass variables have been renamed:
 
 - `$nhsuk-link-color` renamed to `$nhsuk-link-colour`
 - `$nhsuk-link-hover-color` renamed to `$nhsuk-link-hover-colour`
@@ -148,14 +146,10 @@ For example, the following variables have been renamed:
 
 See [pull request #1526](https://github.com/nhsuk/nhsuk-frontend/pull/1526) for the full list.
 
-**Sass mixins**
-
-The following mixins have been renamed:
+The following Sass mixins have been renamed:
 
 - `nhsuk-print-color` renamed to `nhsuk-print-colour`
 - `nhsuk-text-color` renamed to `nhsuk-text-colour`
-
-**CSS classes**
 
 The following CSS classes have been renamed:
 
@@ -228,11 +222,7 @@ If you're using the `nhsuk-grid-column()` Sass mixin to create custom grid class
   }
 ```
 
-See the full list of previously deprecated features below:
-
-**Sass mixins**
-
-The following mixins have been removed:
+The following deprecated Sass mixins have been removed:
 
 - `govuk-exports` replaced with `nhsuk-exports`
 - `govuk-grid-column` replaced with `nhsuk-grid-column`
@@ -241,9 +231,7 @@ The following mixins have been removed:
 - `govuk-width-container` replaced with `nhsuk-width-container`
 - `grid-width` replaced with `nhsuk-grid-width`
 
-**Sass functions**
-
-The following deprecated functions have been removed:
+The following deprecated Sass functions have been removed:
 
 - `tint` replaced with `nhsuk-tint`
 - `shade` replaced with `nhsuk-shade`
@@ -1055,9 +1043,7 @@ This was added in [pull request #1163: Add static spacing override classes](http
 
 We've completed changes to prefix all Sass mixins and functions with the `nhsuk` namespace. You can still use the previous names but we'll remove them in a future breaking release.
 
-**Sass mixins**
-
-The following mixins have been renamed:
+The following Sass mixins have been renamed:
 
 - `care-card` renamed to `nhsuk-care-card`
 - `clearfix` renamed to `nhsuk-clearfix`
@@ -1099,9 +1085,7 @@ After:
 
 See https://github.com/nhsuk/nhsuk-frontend/issues/1168 for more details.
 
-**Sass functions**
-
-The following functions have been renamed:
+The following Sass functions have been renamed:
 
 - `tint` renamed to `nhsuk-tint`
 - `shade` renamed to `nhsuk-shade`
