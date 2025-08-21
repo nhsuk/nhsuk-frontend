@@ -111,8 +111,23 @@
     "node": "^20.9.0 || ^22.11.0"
   },
   "overrides": {
+    "chokidar@^2": {
+      "glob-parent": "^5"
+    },
+    "glob-stream@^6": {
+      "glob-parent": "^5"
+    },
     "jest": "$jest",
+    "latest-version@^5": {
+      "package-json": "^7"
+    },
     "playwright": "$playwright-core",
-    "puppeteer": "$puppeteer"
+    "puppeteer": "$puppeteer",
+    "sass-convert": {
+      "semver-regex": "^3"
+    },
+    "sassdoc-extras@^2": {
+      "marked": "^1"
+    }
   }
 }
