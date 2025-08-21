@@ -13,6 +13,8 @@
 /// Directions for spacing
 ///
 /// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+///
+/// @access private
 
 $_spacing-directions: ("top", "right", "bottom", "left") !default;
 
@@ -34,6 +36,7 @@ $_spacing-directions: ("top", "right", "bottom", "left") !default;
 ///     }
 ///   }
 ///
+/// @access private
 
 @mixin _nhsuk-generate-responsive-spacing-overrides($property) {
   // For each point in the spacing scale (defined in settings), create an
@@ -64,6 +67,7 @@ $_spacing-directions: ("top", "right", "bottom", "left") !default;
 ///      margin: 24px !important;
 ///   }
 ///
+/// @access private
 
 @mixin _nhsuk-generate-static-spacing-overrides($property) {
   @each $spacing-point in map.keys($nhsuk-spacing-points) {

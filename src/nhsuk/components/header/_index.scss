@@ -37,6 +37,8 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
 /// @param {Colour} $link-colour [$nhsuk-header-item-colour] - Link colour
 /// @param {Colour} $link-hover-colour [$nhsuk-header-item-hover-colour] - Link hover colour
 /// @param {Colour} $link-active-colour [$nhsuk-header-item-active-colour] - Link active colour
+///
+/// @access private
 
 @mixin _header-link-style(
   $link-colour: $nhsuk-header-item-colour,

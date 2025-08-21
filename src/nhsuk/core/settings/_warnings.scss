@@ -65,6 +65,8 @@ $nhsuk-suppressed-warnings: () !default;
 /// @param {String} $key - The key to be checked against `$nhsuk-suppressed-warnings`.
 ///
 /// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+///
+/// @access private
 
 @function _should-warn($key) {
   @return list.index($nhsuk-suppressed-warnings, $key) == null;
@@ -76,6 +78,8 @@ $nhsuk-suppressed-warnings: () !default;
 /// @param {String} $message - The warning text.
 ///
 /// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+///
+/// @access private
 
 @function _warning-text($key, $message) {
   @return $message + " To silence this warning, update $nhsuk-suppressed-warnings " + 'with key: "#{$key}"';
