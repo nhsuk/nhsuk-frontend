@@ -10,6 +10,37 @@ You must read and apply these updates carefully to make sure your service does n
 
 ### :new: **New features**
 
+#### New header component with account section
+
+We’ve updated the header component to support showing account information and links. As part of this work we’ve also made some other improvements to the header:
+
+- show currently active section or page in the navigation
+- remove hardcoded home link from the navigation
+- align navigation items to the left by default
+- update navigation label from ’Primary navigation’ to ‘Menu’, and remove superfluous `role` and `id` attributes
+- update NHS logo in the header to have higher contrast when focused
+- refactor CSS classes and BEM naming, use hidden attributes instead of modifier classes, use generic search element
+
+This was added in [pull request #1058: New header with account section](https://github.com/nhsuk/nhsuk-frontend/pull/1058).
+
+#### New notification banner component
+
+We’ve added a new notification banner component, ported from the GOV.UK design system.
+
+This was added in [pull request #1408: Add notification banner component](https://github.com/nhsuk/nhsuk-frontend/pull/1408).
+
+#### Buttons are now full width on mobile
+
+All buttons are now displayed at full width on mobile. This may not require any changes, but you should check that it does not break any of your layouts.
+
+Buttons and links can also be grouped together so that they appear side-by-side on tablet and desktop by using a `<div class="nhsuk-button-group"> </div>` container.
+
+This was added in [pull request #1309: Add button group and full width button styles](https://github.com/nhsuk/nhsuk-frontend/pull/1309).
+
+#### Reversed link style for action link
+
+You can now use the action link component on dark backgrounds by using the `.nhsuk-action-link--reverse` class. Added in [pull request #1542: Add reverse action link modifiers and styles](https://github.com/nhsuk/nhsuk-frontend/pull/1542).
+
 #### Sass colour palette `nhsuk-colour` function
 
 The Sass colour palette variables (e.g. `$color_nhsuk-blue`) have been moved into a new single `$nhsuk-colours` map. The previous names are deprecated and will be removed in a future release.
@@ -86,37 +117,6 @@ createAll(Checkboxes, $element)
 You can find out more about [how to use the `initAll` and `createAll` functions](/docs/installation/installing-with-npm.md#importing-javascript) in our documentation.
 
 This was added in [pull request #1506: Add JavaScript configuration support to components](https://github.com/nhsuk/nhsuk-frontend/pull/1506).
-
-#### New notification banner component
-
-We’ve added a new notification banner component, ported from the GOV.UK design system.
-
-This was added in [pull request #1408: Add notification banner component](https://github.com/nhsuk/nhsuk-frontend/pull/1408).
-
-#### New header component with account section
-
-We’ve updated the header component to support showing account information and links. As part of this work we’ve also made some other improvements to the header:
-
-- show currently active section or page in the navigation
-- remove hardcoded home link from the navigation
-- align navigation items to the left by default
-- update navigation label from ’Primary navigation’ to ‘Menu’, and remove superfluous `role` and `id` attributes
-- update NHS logo in the header to have higher contrast when focused
-- refactor CSS classes and BEM naming, use hidden attributes instead of modifier classes, use generic search element
-
-This was added in [pull request #1058: New header with account section](https://github.com/nhsuk/nhsuk-frontend/pull/1058).
-
-#### Buttons are now full width on mobile
-
-All buttons are now displayed at full width on mobile. This may not require any changes, but you should check that it does not break any of your layouts.
-
-Buttons and links can also be grouped together so that they appear side-by-side on tablet and desktop by using a `<div class="nhsuk-button-group"> </div>` container.
-
-This was added in [pull request #1309: Add button group and full width button styles](https://github.com/nhsuk/nhsuk-frontend/pull/1309).
-
-#### Reversed link style for action link
-
-You can now use the action link component on dark backgrounds by using the `.nhsuk-action-link--reverse` class. Added in [pull request #1542: Add reverse action link modifiers and styles](https://github.com/nhsuk/nhsuk-frontend/pull/1542).
 
 #### Create custom width container classes
 
