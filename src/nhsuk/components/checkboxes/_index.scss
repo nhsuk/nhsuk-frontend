@@ -88,24 +88,22 @@ $nhsuk-checkboxes-label-padding-left-right: 12px;
     width: 22px;
   }
 
-  /// Focus state
-  ///
-  /// 1. Since box-shadows are removed when users customise their colours
-  ///    We set a transparent outline that is shown instead.
-  ///
-  /// @link https://accessibility.blog.gov.uk/2017/03/27/how-users-change-colours-on-websites/
+  // Focus state
+  //
+  // 1. Since box-shadows are removed when users customise their colours
+  //    We set a transparent outline that is shown instead.
 
   .nhsuk-checkboxes__input:focus + .nhsuk-checkboxes__label::before {
     @include nhsuk-focused-checkbox;
   }
 
-  /// Selected state
+  // Selected state
 
   .nhsuk-checkboxes__input:checked + .nhsuk-checkboxes__label::after {
     opacity: 1;
   }
 
-  /// Disabled state
+  // Disabled state
 
   .nhsuk-checkboxes__input:disabled,
   .nhsuk-checkboxes__input:disabled + .nhsuk-checkboxes__label {
@@ -116,7 +114,7 @@ $nhsuk-checkboxes-label-padding-left-right: 12px;
     opacity: 0.5;
   }
 
-  /// Divider variant
+  // Divider variant
 
   .nhsuk-checkboxes__divider {
     $nhsuk-divider-size: $nhsuk-checkboxes-size !default;
@@ -129,12 +127,12 @@ $nhsuk-checkboxes-label-padding-left-right: 12px;
     @include nhsuk-font(19);
   }
 
-  /// Conditional
-  ///
-  /// 1. Calculate the amount of padding needed to keep the border
-  ///    centered against the checkbox.
-  /// 2. Move the border centered with the checkbox.
-  /// 3. Move the contents of the conditional inline with the label.
+  // Conditional
+  //
+  // 1. Calculate the amount of padding needed to keep the border
+  //    centered against the checkbox.
+  // 2. Move the border centered with the checkbox.
+  // 3. Move the contents of the conditional inline with the label.
 
   .nhsuk-checkboxes__conditional {
     $conditional-border-width: $nhsuk-border-width-mobile;

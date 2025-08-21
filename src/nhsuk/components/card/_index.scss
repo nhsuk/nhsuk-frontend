@@ -73,7 +73,7 @@ $card-border-hover-color: $card-border-hover-colour;
     margin-bottom: 0;
   }
 
-  /// Clickable card
+  // Clickable card
 
   .nhsuk-card--clickable {
     border-bottom-width: $card-border-bottom-width;
@@ -98,10 +98,10 @@ $card-border-hover-color: $card-border-hover-colour;
     }
   }
 
-  /// Card group
-  ///
-  /// Allows you to have a row of cards.
-  /// Flexbox is used to make each card in a row the same height.
+  // Card group
+  //
+  // Allows you to have a row of cards.
+  // Flexbox is used to make each card in a row the same height.
 
   .nhsuk-card-group {
     margin-bottom: nhsuk-spacing(3);
@@ -142,7 +142,7 @@ $card-border-hover-color: $card-border-hover-colour;
     }
   }
 
-  /// Card feature
+  // Card feature
 
   .nhsuk-card--feature {
     @include nhsuk-panel-with-label(nhsuk-colour("white"), $nhsuk-text-colour, $card-border-colour);
@@ -156,7 +156,7 @@ $card-border-hover-color: $card-border-hover-colour;
     padding: 0; // [7]
   }
 
-  /// Care card
+  // Care card
 
   .nhsuk-card--care {
     @include nhsuk-care-card(nhsuk-colour("blue"), nhsuk-colour("white"), 4px); // [8]
@@ -266,7 +266,7 @@ $card-border-hover-color: $card-border-hover-colour;
     }
   }
 
-  /// Card primary
+  // Card primary
 
   .nhsuk-card__content--primary {
     @include nhsuk-responsive-spacing(5, "padding", $direction: "right", $adjustment: nhsuk-spacing(7));
@@ -288,7 +288,7 @@ $card-border-hover-color: $card-border-hover-colour;
     }
   }
 
-  /// Card secondary
+  // Card secondary
 
   .nhsuk-card--secondary {
     background: transparent;

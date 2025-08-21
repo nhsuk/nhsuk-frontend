@@ -12,14 +12,11 @@
 );
 
 ////
-/// Wrangle sass-mq config...
-///
 /// @group tools
 ////
 
+// Wrangle sass-mq config...
 @forward "../vendor/sass-mq";
-
-/// Helpers
 
 /// Media query
 ///

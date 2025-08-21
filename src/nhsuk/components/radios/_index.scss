@@ -88,24 +88,22 @@ $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
     width: 0;
   }
 
-  /// Focus state
-  ///
-  /// 1. Since box-shadows are removed when users customise their colours
-  ///    We set a transparent outline that is shown instead.
-  ///
-  /// @link https://accessibility.blog.gov.uk/2017/03/27/how-users-change-colours-on-websites/
+  // Focus state
+  //
+  // 1. Since box-shadows are removed when users customise their colours
+  //    We set a transparent outline that is shown instead.
 
   .nhsuk-radios__input:focus + .nhsuk-radios__label::before {
     @include nhsuk-focused-radio;
   }
 
-  /// Selected state
+  // Selected state
 
   .nhsuk-radios__input:checked + .nhsuk-radios__label::after {
     opacity: 1;
   }
 
-  /// Disabled state
+  // Disabled state
 
   .nhsuk-radios__input:disabled,
   .nhsuk-radios__input:disabled + .nhsuk-radios__label {
@@ -116,9 +114,9 @@ $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
     opacity: 0.5;
   }
 
-  /// Inline variant
-  ///
-  /// 1. Prevent inline modifier being used with conditional reveals
+  // Inline variant
+  //
+  // 1. Prevent inline modifier being used with conditional reveals
 
   .nhsuk-radios--inline {
     @include nhsuk-media-query($from: tablet) {
@@ -140,7 +138,7 @@ $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
     }
   }
 
-  /// Divider variant
+  // Divider variant
 
   .nhsuk-radios__divider {
     $nhsuk-divider-size: $nhsuk-radios-size !default;
@@ -153,12 +151,12 @@ $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
     @include nhsuk-font(19);
   }
 
-  /// Conditional
-  ///
-  /// 1. Calculate the amount of padding needed to keep the border
-  ///    centered against the radio.
-  /// 2. Move the border centered with the radio.
-  /// 3. Move the contents of the conditional inline with the label.
+  // Conditional
+  //
+  // 1. Calculate the amount of padding needed to keep the border
+  //    centered against the radio.
+  // 2. Move the border centered with the radio.
+  // 3. Move the contents of the conditional inline with the label.
 
   .nhsuk-radios__conditional {
     $conditional-border-width: $nhsuk-border-width-mobile;
