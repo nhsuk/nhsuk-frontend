@@ -25,7 +25,7 @@
     @include nhsuk-font($size: 16, $weight: bold, $line-height: 1);
   }
 
-  /// Colour variants
+  // Colour variants
 
   .nhsuk-tag--white {
     background-color: nhsuk-colour("white");
@@ -87,7 +87,7 @@
     color: nhsuk-shade(nhsuk-colour("yellow"), 70%);
   }
 
-  /// Remove tag border
+  // Remove tag border
 
   .nhsuk-tag--no-border {
     border: 0;

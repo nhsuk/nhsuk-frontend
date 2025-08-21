@@ -7,17 +7,10 @@
 /// @group styles
 ////
 
-///
-/// Headings
-///
-/// The % (silent class) allows code to be extended (@extend) to other elements
-/// without bloating the code.
-///
-/// @example scss
-///   .foo {
-///     @extend %nhsuk-heading-xl;
-///   }
-////
+// Headings
+//
+// The % (silent class) allows code to be extended (@extend) to other elements
+// without bloating the code.
 
 %nhsuk-heading-xl {
   display: block;
@@ -103,7 +96,7 @@ h6,
   @extend %nhsuk-heading-xxs;
 }
 
-/// Captions to be used inside headings
+// Captions to be used inside headings
 
 .nhsuk-caption-xl {
   color: $nhsuk-secondary-text-colour;
@@ -133,7 +126,7 @@ h6,
   margin-top: nhsuk-spacing(1);
 }
 
-/// Body (paragraphs)
+// Body (paragraphs)
 
 %nhsuk-body-l {
   display: block;
@@ -179,10 +172,10 @@ address {
   font-style: normal;
 }
 
-/// Lede text
-///
-/// 1. Apply lede text styling to p and ul within the lede element
-/// 2. Reduces the spacing between the page heading and the lede text
+// Lede text
+//
+// 1. Apply lede text styling to p and ul within the lede element
+// 2. Reduces the spacing between the page heading and the lede text
 
 .nhsuk-lede-text {
   @include nhsuk-font(26);
@@ -206,13 +199,11 @@ h1 + .nhsuk-lede-text--small {
   margin-top: -(nhsuk-spacing(2));
 }
 
-/// Contextual adjustments
-///
-/// Add top padding to headings that appear directly after paragraphs.
-///
-/// 1. Removes the padding-top because of the lede-text's increased margin-bottom
-///
-/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+// Contextual adjustments
+//
+// Add top padding to headings that appear directly after paragraphs.
+//
+// 1. Removes the padding-top because of the lede-text's increased margin-bottom
 
 %nhsuk-body-l + %nhsuk-heading-l {
   padding-top: nhsuk-spacing(1);
@@ -243,7 +234,7 @@ h1 + .nhsuk-lede-text--small {
   padding-top: 0;
 }
 
-/// Font weight for <strong> and <b>
+// Font weight for <strong> and <b>
 
 strong,
 b {

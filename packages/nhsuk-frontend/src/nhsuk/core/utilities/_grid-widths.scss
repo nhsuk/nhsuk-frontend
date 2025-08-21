@@ -45,16 +45,13 @@
   width: math.percentage(math.div(3, 4)) !important;
 }
 
-/// Force grid widths on screen sizes on tablet
-/// and above
-///
-/// By default all grid elements will go to 100% width
-/// on every screen size, these utilities can force
-/// custom widths on screen sizes on tablet
-/// and above
-///
-/// @example html
-///   <div class="nhsuk-u-one-half-tablet"></div>
+// Force grid widths on screen sizes on tablet
+// and above
+//
+// By default all grid elements will go to 100% width
+// on every screen size, these utilities can force
+// custom widths on screen sizes on tablet
+// and above
 
 .nhsuk-u-one-half-tablet {
   width: 100% !important;

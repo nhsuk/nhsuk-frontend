@@ -9,10 +9,10 @@
 ////
 
 @include nhsuk-exports("nhsuk/components/table") {
-  /// Table container is used to ensure the table does not break the container.
-  ///
-  /// 1. Margin is removed so there isn't double spacing.
-  /// 2. XS size not added because it matches the table header, so it'd be bad for hierarchy
+  // Table container is used to ensure the table does not break the container.
+  //
+  // 1. Margin is removed so there isn't double spacing.
+  // 2. XS size not added because it matches the table header, so it'd be bad for hierarchy
 
   .nhsuk-table-container {
     display: block;
@@ -58,9 +58,9 @@
 
   // [2]
 
-  /// Table row hover
-  ///
-  /// Table row hover is used to aid readability for users.
+  // Table row hover
+  //
+  // Table row hover is used to aid readability for users.
 
   .nhsuk-table__row {
     &:hover {
@@ -68,9 +68,9 @@
     }
   }
 
-  /// Table panel with tab heading
-  ///
-  /// 1. Margin is removed so there isn't double spacing.
+  // Table panel with tab heading
+  //
+  // 1. Margin is removed so there isn't double spacing.
 
   .nhsuk-table__panel-with-heading-tab {
     @include nhsuk-panel-with-label(nhsuk-colour("white"), $nhsuk-text-colour, nhsuk-colour("grey-4"));
@@ -86,17 +86,17 @@
     @include nhsuk-heading-label(nhsuk-colour("blue"), $nhsuk-reverse-text-colour);
   }
 
-  /// Responsive table
-  ///
-  /// 1. Hide the thead until desktop
-  /// 2. Removing default screen reader behaviour
-  /// 3. Assigning role of table-row on desktop to give default screen reader behaviour
-  /// 4. Using justify content to space out elements in the row on mobile
-  /// 5. Assigning a minimum width in case of black cell
-  /// 6. Aligning content to the right on mobile
-  /// 7. Aligning mobile header to left to split it from the data
-  /// 8. Hiding mobile specific header from desktop view
-  /// 9. Adding a display block value due to IE 11 not having full flex support
+  // Responsive table
+  //
+  // 1. Hide the thead until desktop
+  // 2. Removing default screen reader behaviour
+  // 3. Assigning role of table-row on desktop to give default screen reader behaviour
+  // 4. Using justify content to space out elements in the row on mobile
+  // 5. Assigning a minimum width in case of black cell
+  // 6. Aligning content to the right on mobile
+  // 7. Aligning mobile header to left to split it from the data
+  // 8. Hiding mobile specific header from desktop view
+  // 9. Adding a display block value due to IE 11 not having full flex support
 
   .nhsuk-table-responsive {
     thead {
@@ -173,9 +173,9 @@
     }
   }
 
-  /// Numeric tables
-  ///
-  /// Right aligns table cells for numeric tables.
+  // Numeric tables
+  //
+  // Right aligns table cells for numeric tables.
 
   .nhsuk-table__header--numeric,
   .nhsuk-table__cell--numeric {

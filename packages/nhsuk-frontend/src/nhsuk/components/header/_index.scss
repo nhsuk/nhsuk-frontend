@@ -96,7 +96,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     }
   }
 
-  /// Service logo (and optional name)
+  // Service logo (and optional name)
 
   .nhsuk-header__logo {
     min-width: 100px;
@@ -170,7 +170,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     );
   }
 
-  /// Account
+  // Account
 
   .nhsuk-header__account {
     background-color: nhsuk-shade(nhsuk-colour("blue"), 20%);
@@ -245,7 +245,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     @include nhsuk-font(16);
   }
 
-  /// Search
+  // Search
 
   .nhsuk-header__search {
     flex-grow: 1;
@@ -346,7 +346,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     }
   }
 
-  /// Navigation
+  // Navigation
 
   .nhsuk-header__navigation {
     background-color: nhsuk-colour("blue");
@@ -435,7 +435,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     }
   }
 
-  /// Menu (shown when screen can’t fit all navigation items)
+  // Menu (shown when screen can’t fit all navigation items)
 
   .nhsuk-header__menu {
     align-self: center;
@@ -533,7 +533,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     }
   }
 
-  /// White header navigation variant
+  // White header navigation variant
 
   .nhsuk-header__navigation--white {
     background-color: nhsuk-colour("white");
@@ -548,9 +548,9 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     }
   }
 
-  /// When header and navigation have the same background colour:
-  /// - Until tablet breakpoint, add negative top margin
-  /// - From tablet breakpoint, add a top border
+  // When header and navigation have the same background colour:
+  // - Until tablet breakpoint, add negative top margin
+  // - From tablet breakpoint, add a top border
   .nhsuk-header__navigation-container {
     box-shadow: 0 -1px 0 0 $nhsuk-secondary-border-colour;
 
@@ -573,7 +573,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     }
   }
 
-  /// White header variant
+  // White header variant
 
   .nhsuk-header--white {
     background-color: nhsuk-colour("white");
@@ -623,7 +623,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     }
   }
 
-  /// Organisation header variant
+  // Organisation header variant
 
   .nhsuk-header--organisation {
     .nhsuk-header__logo {
