@@ -362,6 +362,14 @@ After:
 </body>
 ```
 
+Or for [JavaScript imported using a bundler](#using-a-javascript-bundler), initialisation will be handled in your own JavaScript bundle:
+
+```html
+  <!-- // ... -->
+  <script type="module" src="/javascripts/application.min.js"></script>
+</body>
+```
+
 #### Update the `<script>` snippet at the top of your `<body>` tag
 
 Page templates now include a new `nhsuk-frontend-supported` class on the `<body>` tag when NHS.UK frontend JavaScript components are fully supported.
