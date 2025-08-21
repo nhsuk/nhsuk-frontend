@@ -25,6 +25,21 @@ If you need to reference a colour within your application you should use the new
 
 This was added in [pull request #1526: Add `$nhsuk-colour` palette, colour helpers and deprecate "color" spelling](https://github.com/nhsuk/nhsuk-frontend/pull/1526).
 
+#### Sass colours as CSS custom properties
+
+The Sass applied colour variables (e.g. `$nhsuk-link-colour`) are now available as [CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/--*)
+
+For example:
+
+```css
+--nhsuk-link-colour: #005eb8;
+--nhsuk-link-hover-colour: #7c2855;
+--nhsuk-link-active-colour: #002f5c;
+--nhsuk-link-visited-colour: #330072;
+```
+
+This change was introduced in [pull request #1495: Output CSS custom properties from Sass colours](https://github.com/nhsuk/nhsuk-frontend/pull/1495).
+
 #### New JavaScript API for NHS.UK frontend
 
 We've updated the `initAll` function to configure components when including key-value pairs of camel-cased component names with their options:
