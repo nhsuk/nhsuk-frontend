@@ -101,10 +101,10 @@ $expander-icon-size: 27px; // 19px font size + 4px summary text padding
         top: 0;
 
         @include nhsuk-shape-arrow($direction: right, $base: 14px);
+      }
 
-        .nhsuk-details[open] > & {
-          @include nhsuk-shape-arrow($direction: down, $base: 14px);
-        }
+      .nhsuk-details[open] > &::before {
+        @include nhsuk-shape-arrow($direction: down, $base: 14px);
       }
     }
 
