@@ -66,6 +66,8 @@
 /// @param {Boolean} $important [true] - Whether to mark as `!important`
 ///
 /// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+///
+/// @access private
 
 @mixin _nhsuk-visually-hide-content($important: true) {
   position: absolute if($important, !important, null);

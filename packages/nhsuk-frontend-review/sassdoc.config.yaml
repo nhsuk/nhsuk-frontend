@@ -1,3 +1,6 @@
 dest: dist/docs/sassdoc
+display:
+  access:
+    - public
 exclude:
   - vendor/*

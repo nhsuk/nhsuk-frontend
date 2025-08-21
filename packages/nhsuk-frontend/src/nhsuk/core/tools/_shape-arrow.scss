@@ -15,6 +15,8 @@
 ///
 /// @param {Number} $base - Length of the base of the triangle
 /// @return {Number} Calculated height of the triangle
+///
+/// @access private
 
 @function _nhsuk-equilateral-height($base) {
   $square-root-of-three: 1.732;
