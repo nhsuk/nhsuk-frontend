@@ -89,7 +89,7 @@ We’ve updated the header component to support showing account information and 
 - update NHS logo in the header to have higher contrast when focused
 - refactor CSS classes and BEM naming, use hidden attributes instead of modifier classes, use generic search element
 
-These changes were added in [pull request #1058: New header with account section](https://github.com/nhsuk/nhsuk-frontend/pull/1058).
+This was added in [pull request #1058: New header with account section](https://github.com/nhsuk/nhsuk-frontend/pull/1058).
 
 #### Buttons are now full width on mobile
 
@@ -461,34 +461,45 @@ You must make the following component changes when you migrate to this release, 
 
 #### Action link component changes
 
-HTML markup for the action link component has been updated to remove the HTML wrapper. You do not need to do anything if you're using Nunjucks macros.
+HTML markup for the action link component has been updated to remove the HTML wrapper and update the embedded SVG icon. You do not need to do anything if you're using Nunjucks macros.
 
-If you are not using Nunjucks macros, update your HTML markup to:
+If you are not using Nunjucks macros, update your HTML markup using the [action link examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/action-link) as follows:
 
 - Remove the wrapper `<div class="nhsuk-action-link"> </div>`
 - Rename the action link `<a class="nhsuk-action-link__link"` class attribute to match `<a class="nhsuk-action-link"`
+- Update the embedded SVG icon
 
 ```patch
 - <div class="nhsuk-action-link">
 - <a class="nhsuk-action-link__link href="#">
 + <a class="nhsuk-action-link href="#">
-    <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="36" height="36">
-      <!-- // ... -->
-    </svg>
+-   <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="36" height="36">
+-     <path d="M0 0h24v24H0z" fill="none"></path>
+-     <path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z"></path>
+-   </svg>
++   <svg class="nhsuk-icon nhsuk-icon--arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
++     <path d="M12 2a10 10 0 0 0-10 9h11.7l-4-4a1 1 0 0 1 1.5-1.4l5.6 5.7a1 1 0 0 1 0 1.4l-5.6 5.7a1 1 0 0 1-1.5 0 1 1 0 0 1 0-1.4l4-4H2A10 10 0 1 0 12 2z"/>
++   </svg>
     <span class="nhsuk-action-link__text">Find your nearest A&amp;E</span>
   </a>
 - </div>
 ```
 
-This change was introduced in [pull request #1542: Add reverse action link modifiers and styles](https://github.com/nhsuk/nhsuk-frontend/pull/1542).
+This change was introduced in pull requests [#1521: Update component icons](https://github.com/nhsuk/nhsuk-frontend/pull/1521) and [#1542: Add reverse action link modifiers and styles](https://github.com/nhsuk/nhsuk-frontend/pull/1542).
 
 #### Back link component changes
 
 For consistency with other links, we've added an underline to the back link component. We've also changed the default text from "Go back" to "Back" in all examples.
 
-HTML markup for the back link component has been updated to align with GOV.UK frontend:
+HTML markup for the back link component has been updated to remove the HTML wrapper and remove the embedded SVG icon. You do not need to do anything if you're using Nunjucks macros.
 
-```diff
+If you are not using Nunjucks macros, update your HTML markup using the [back link examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/back-link) as follows:
+
+- Remove the wrapper `<div class="nhsuk-back-link"> </div>`
+- Rename the back link `<a class="nhsuk-back-link__link"` class attribute to match `<a class="nhsuk-back-link"`
+- Remove the embedded SVG icon
+
+```patch
 - <div class="nhsuk-back-link"> <a class="nhsuk-back-link__link" href="#">
 -   <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
 -     <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
@@ -498,19 +509,19 @@ HTML markup for the back link component has been updated to align with GOV.UK fr
 + <a class="nhsuk-back-link" href="#">Back</a>
 ```
 
-You do not need to do anything if you're using Nunjucks macros.
+This change was introduced in pull requests [#1314: Add back link underline and change "Go back" to "Back" in all examples](https://github.com/nhsuk/nhsuk-frontend/pull/1314), [#1515: Update back link and breadcrumb components](https://github.com/nhsuk/nhsuk-frontend/pull/1515) and [#1521: Update component icons](https://github.com/nhsuk/nhsuk-frontend/pull/1521).
 
-If you are not using Nunjucks macros, update your HTML markup using the [back link examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/back-link).
+#### Breadcrumbs component changes
 
-This change was introduced in pull requests [#1314: Add back link underline and change "Go back" to "Back" in all examples](https://github.com/nhsuk/nhsuk-frontend/pull/1314) and [#1515: Update back link and breadcrumb components](https://github.com/nhsuk/nhsuk-frontend/pull/1515).
+HTML markup for the breadcrumbs component has been updated to better align with that used on GOV.UK and use back link styles for presentation on mobile. You do not need to do anything if you're using Nunjucks macros.
 
-#### Breadcrumb component changes
+If you are not using Nunjucks macros, update your HTML markup using the [breadcrumbs examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/breadcrumbs) as follows:
 
-HTML markup for breadcrumbs component has been updated to better align with that used on GOV.UK and use back link styles for presentation on mobile:
+- Rename the breadcrumb item `<li class="nhsuk-breadcrumb__item"` class attribute to match `<li class="nhsuk-breadcrumb__list-item"`
+- Rename the breadcrumb back link `<a class="nhsuk-breadcrumb__backlink"` class attribute to match `<a class="nhsuk-back-link"`
+- Remove the breadcrumb back link wrapper `<p class="nhsuk-breadcrumb__back"> </p>`
 
-Before:
-
-```diff
+```patch
   <nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
     <ol class="nhsuk-breadcrumb__list">
 -     <li class="nhsuk-breadcrumb__item">
@@ -536,10 +547,6 @@ Before:
   </nav>
 ```
 
-You do not need to do anything if you're using Nunjucks macros.
-
-If you are not using Nunjucks macros, update your HTML markup using the [back link examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/breadcrumbs).
-
 This change was introduced in [pull request #1515: Update back link and breadcrumb components](https://github.com/nhsuk/nhsuk-frontend/pull/1515).
 
 #### Button component changes
@@ -554,15 +561,58 @@ We no longer support link buttons being disabled or using disabled styles.
 
 This change was introduced in [pull request #1075: Remove support for `nhsuk-button--disabled` class](https://github.com/nhsuk/nhsuk-frontend/pull/1075).
 
+#### Card component changes
+
+HTML markup for the do and don't list component now includes an updated embedded SVG icon.
+
+If you're using the `card` Nunjucks macro, you need to rename the deprecated `HTML` param to `html`:
+
+```patch
+  {{ card({
+    heading: "If you need help now, but it's not an emergency",
+-   HTML: '<p>Go to <a href="#">NHS 111 online</a> or <a href="#">call 111</a>.</p>'
++   html: '<p>Go to <a href="#">NHS 111 online</a> or <a href="#">call 111</a>.</p>'
+  }) }}
+```
+
+If you are not using Nunjucks macros, update your HTML markup using the [card examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/card) to update the embedded SVG icon:
+
+```patch
+  <div class="nhsuk-card nhsuk-card--clickable">
+    <div class="nhsuk-card__content nhsuk-card__content--primary">
+      <h2 class="nhsuk-card__heading nhsuk-heading-m"> <a class="nhsuk-card__link" href="#">Introduction to care and support</a> </h2>
+      <p class="nhsuk-card__description">A quick guide for people who have care and support needs and their carers</p>
+-     <svg class="nhsuk-icon" xmlns="http://www.w3.org/2000/svg" width="27" height="27" aria-hidden="true" focusable="false">
+-       <circle cx="13.333" cy="13.333" r="13.333" fill="" />
+-       <g fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2.667">
+-         <path d="M15.438 13l-3.771 3.771" />
+-         <path d="M11.667 9.229L15.438 13" />
+-       </g>
+-     </svg>
++    <svg class="nhsuk-icon nhsuk-icon--chevron-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
++      <path d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20Zm-.3 5.8a1 1 0 1 0-1.5 1.4l2.9 2.8-2.9 2.8a1 1 0 0 0 1.5 1.4l3.5-3.5c.4-.4.4-1 0-1.4Z"></path>
++    </svg>
+    </div>
+  </div>
+```
+
+These changes were introduced in pull requests [#1259: Review legacy Nunjucks params](https://github.com/nhsuk/nhsuk-frontend/pull/1259) and [pull request #1521: Update component icons](https://github.com/nhsuk/nhsuk-frontend/pull/1521).
+
 #### Checkboxes component changes
 
 If you are using the `checkboxes` Nunjucks macro, the first checkbox input's `id` attribute no longer has the suffix `-1`. You will need to [update any links to the first checkbox input from error summary components](#error-summary-component-changes) to remove this suffix.
 
-If you are not using Nunjucks macros, add the missing `data-module` attribute to the component HTML:
+If you are not using Nunjucks macros, update your HTML markup using the [checkboxes examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/checkboxes) as follows:
+
+1. Add the missing `data-module` attribute to the component HTML
+2. Remove the `id` attribute suffix `-1` from the first checkbox input
 
 ```patch
 - <div class="nhsuk-checkboxes">
 + <div class="nhsuk-checkboxes" data-module="nhsuk-checkboxes">
+    <div class="nhsuk-checkboxes__item">
+-     <input class="nhsuk-checkboxes__input" id="#contact-preference-1" name="contact" type="checkbox" value="email">
++     <input class="nhsuk-checkboxes__input" id="#contact-preference" name="contact" type="checkbox" value="email">
 ```
 
 These changes were introduced in pull requests [#1112: Remove the -1 suffix from radio and checkbox IDs](https://github.com/nhsuk/nhsuk-frontend/pull/1112) and [#1480: Add missing component `data-module` attributes](https://github.com/nhsuk/nhsuk-frontend/pull/1480).
@@ -571,17 +621,18 @@ These changes were introduced in pull requests [#1112: Remove the -1 suffix from
 
 The details component no longer uses JavaScript, and is no longer polyfilled in older browsers. If you have extended browser support requirements, check that the details component works as expected in older browsers.
 
-If you're using the `details` Nunjucks macro you need to rename the `text` param to `summaryText`:
+If you're using the `details` Nunjucks macro you need to rename the `text` param to `summaryText` and the deprecated `HTML` param to `html`:
 
 ```patch
   {{ details({
 -   text: "Where can I find my NHS number?",
 +   summaryText: "Where can I find my NHS number?",
-    html: "<p>An NHS number is a 10 digit number, like 485 777 3456.</p>"
+-   HTML: "<p>An NHS number is a 10 digit number, like 485 777 3456.</p>"
++   html: "<p>An NHS number is a 10 digit number, like 485 777 3456.</p>"
   }) }}
 ```
 
-This change ensures consistency with other components, where `text` or `html` params are alternatives and cannot be used together. For example, when only text content is necessary:
+This change makes sure the details component is consistent with other components, where `text` or `html` params are alternatives and cannot be used together. For example, when only text content is necessary:
 
 ```patch
   {{ details({
@@ -592,6 +643,88 @@ This change ensures consistency with other components, where `text` or `html` pa
 ```
 
 This change was introduced in pull requests [#1259: Review legacy Nunjucks params](https://github.com/nhsuk/nhsuk-frontend/pull/1259), [#1398: Document details component `summaryText` and `summaryHtml` macro options](https://github.com/nhsuk/nhsuk-frontend/pull/1398) and [#1460: Remove JavaScript from details component](https://github.com/nhsuk/nhsuk-frontend/pull/1460).
+
+#### Pagination component changes
+
+HTML markup for the pagination component now includes an updated embedded SVG icon. You do not need to do anything if you're using Nunjucks macros.
+
+If you are not using Nunjucks macros, update your HTML markup using the [pagination examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/pagination) to update the embedded SVG icon:
+
+```patch
+  <nav class="nhsuk-pagination" role="navigation" aria-label="Pagination">
+    <ul class="nhsuk-list nhsuk-pagination__list">
+      <li class="nhsuk-pagination-item--previous">
+        <a class="nhsuk-pagination__link nhsuk-pagination__link--prev" href="#">
+          <span class="nhsuk-pagination__title">Previous</span>
+          <span class="nhsuk-u-visually-hidden">:</span>
+          <span class="nhsuk-pagination__page">Treatments</span>
+-         <svg class="nhsuk-icon nhsuk-icon__arrow-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="16" height="16">
+-           <path d="M4.1 12.3l2.7 3c.2.2.5.2.7 0 .1-.1.1-.2.1-.3v-2h11c.6 0 1-.4 1-1s-.4-1-1-1h-11V9c0-.2-.1-.4-.3-.5h-.2c-.1 0-.3.1-.4.2l-2.7 3c0 .2 0 .4.1.6z"></path>
+-         </svg>
++         <svg class="nhsuk-icon nhsuk-icon--arrow-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
++           <path d="M10.7 6.3c.4.4.4 1 0 1.4L7.4 11H19a1 1 0 0 1 0 2H7.4l3.3 3.3c.4.4.4 1 0 1.4a1 1 0 0 1-1.4 0l-5-5A1 1 0 0 1 4 12c0-.3.1-.5.3-.7l5-5a1 1 0 0 1 1.4 0Z"/>
++         </svg>
+        </a>
+      </li>
+      <li class="nhsuk-pagination-item--next">
+        <a class="nhsuk-pagination__link nhsuk-pagination__link--next" href="#">
+          <span class="nhsuk-pagination__title">Next</span>
+          <span class="nhsuk-u-visually-hidden">:</span>
+          <span class="nhsuk-pagination__page">Symptoms</span>
+-         <svg class="nhsuk-icon nhsuk-icon__arrow-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="16" height="16">
+-           <path d="M19.6 11.66l-2.73-3A.51.51 0 0 0 16 9v2H5a1 1 0 0 0 0 2h11v2a.5.5 0 0 0 .32.46.39.39 0 0 0 .18 0 .52.52 0 0 0 .37-.16l2.73-3a.5.5 0 0 0 0-.64z"></path>
+-         </svg>
++         <svg class="nhsuk-icon nhsuk-icon--arrow-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
++           <path d="m14.7 6.3 5 5c.2.2.3.4.3.7 0 .3-.1.5-.3.7l-5 5a1 1 0 0 1-1.4-1.4l3.3-3.3H5a1 1 0 0 1 0-2h11.6l-3.3-3.3a1 1 0 1 1 1.4-1.4Z"/>
++         </svg>
+        </a>
+      </li>
+    </ul>
+  </nav>
+```
+
+This change was introduced in [pull request #1521: Update component icons](https://github.com/nhsuk/nhsuk-frontend/pull/1521).
+
+#### Do and Don't list component changes
+
+HTML markup for the do and don't list component now includes an updated embedded SVG icon. You do not need to do anything if you're using Nunjucks macros.
+
+If you are not using Nunjucks macros, update your HTML markup using the [do and don’t list examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/do-and-dont-lists) to update the embedded SVG icon:
+
+```patch
+  <div class="nhsuk-do-dont-list">
+    <h3 class="nhsuk-do-dont-list__label">Do</h3>
+    <ul class="nhsuk-list nhsuk-list--tick" role="list">
+      <li>
+-       <svg class="nhsuk-icon nhsuk-icon__tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true" width="16" height="16">
+-         <path stroke-width="4" stroke-linecap="round" d="M18.4 7.8l-8.5 8.4L5.6 12" stroke="#007f3b"></path>
+-       </svg>
++       <svg class="nhsuk-icon nhsuk-icon--tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
++         <path d="M11.4 18.8a2 2 0 0 1-2.7.1h-.1L4 14.1a1.5 1.5 0 0 1 2.1-2L10 16l8.1-8.1a1.5 1.5 0 1 1 2.2 2l-8.9 9Z"/>
++       </svg>
+        cover blisters with a soft plaster or padded dressing
+      </li>
+    </ul>
+  </div>
+
+  <div class="nhsuk-do-dont-list">
+    <h3 class="nhsuk-do-dont-list__label">Don&#39;t</h3>
+    <ul class="nhsuk-list nhsuk-list--cross" role="list">
+      <li>
+-       <svg class="nhsuk-icon nhsuk-icon__cross" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="16" height="16">
+-         <path d="M17 18.5c-.4 0-.8-.1-1.1-.4l-10-10c-.6-.6-.6-1.6 0-2.1.6-.6 1.5-.6 2.1 0l10 10c.6.6.6 1.5 0 2.1-.3.3-.6.4-1 .4z" fill="#d5281b"></path>
+-         <path d="M7 18.5c-.4 0-.8-.1-1.1-.4-.6-.6-.6-1.5 0-2.1l10-10c.6-.6 1.5-.6 2.1 0 .6.6.6 1.5 0 2.1l-10 10c-.3.3-.6.4-1 .4z" fill="#d5281b"></path>
+-       </svg>
++       <svg class="nhsuk-icon nhsuk-icon--cross" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
++         <path d="M17 18.5c-.4 0-.8-.1-1.1-.4l-10-10c-.6-.6-.6-1.6 0-2.1.6-.6 1.5-.6 2.1 0l10 10c.6.6.6 1.5 0 2.1-.3.3-.6.4-1 .4z M7 18.5c-.4 0-.8-.1-1.1-.4-.6-.6-.6-1.5 0-2.1l10-10c.6-.6 1.5-.6 2.1 0 .6.6.6 1.5 0 2.1l-10 10c-.3.3-.6.4-1 .4z"/>
++       </svg>
+        do not burst a blister yourself
+      </li>
+    </ul>
+  </div>
+```
+
+This change was introduced in [pull request #1521: Update component icons](https://github.com/nhsuk/nhsuk-frontend/pull/1521).
 
 #### Header component changes
 
@@ -608,6 +741,8 @@ If you're using the `header` Nunjucks macro in your service, you must:
 To restore the previous justified alignment, where navigation items appeared evenly spaced out, add the new `nhsuk-header__navigation--justified` modifier class to the nested `navigation.classes` option.
 
 If you are not using Nunjucks macros, update your HTML markup using the [header examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/header).
+
+These changes were introduced in [pull request #1058: New header with account section](https://github.com/nhsuk/nhsuk-frontend/pull/1058).
 
 #### Footer component changes
 
@@ -746,7 +881,7 @@ If you're using the `errorSummary` Nunjucks macro, remove `-1` from the end of t
 
 You do not need to do this if you specified an `id` for the individual checkbox or radio input.
 
-If you are not using Nunjucks macros, add the missing `data-module` attribute to the component HTML:
+If you are not using Nunjucks macros, update your HTML markup using the [error summary examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/error-summary) to add the missing `data-module` attribute:
 
 ```patch
 - <div class="nhsuk-error-summary">
@@ -755,22 +890,43 @@ If you are not using Nunjucks macros, add the missing `data-module` attribute to
 
 These changes were introduced in pull requests [#1112: Remove the -1 suffix from radio and checkbox IDs](https://github.com/nhsuk/nhsuk-frontend/pull/1112) and [#1480: Add missing component `data-module` attributes](https://github.com/nhsuk/nhsuk-frontend/pull/1480).
 
+#### Inset text component changes
+
+If you're using the `insetText` Nunjucks macro, you need to rename the deprecated `HTML` param to `html`:
+
+```patch
+  {{ insetText({
+-   HTML: "<p>You'll need to stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.</p>"
++   html: "<p>You'll need to stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.</p>"
+  }) }}
+```
+
+This change was introduced in [pull request #1259: Review legacy Nunjucks params](https://github.com/nhsuk/nhsuk-frontend/pull/1259).
+
 #### Radios component changes
 
 If you are using the `radios` Nunjucks macro, the first radio input's `id` attribute no longer has the suffix `-1`. You will need to [update any links to the first radio input from error summary components](#error-summary-component-changes) to remove this suffix.
 
-If you are not using Nunjucks macros, add the missing `data-module` attribute to the component HTML:
+If you are not using Nunjucks macros, update your HTML markup using the [radios examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/radios) as follows:
+
+1. Add the missing `data-module` attribute to the component HTML
+2. Remove the `id` attribute suffix `-1` from the first radio input
 
 ```patch
 - <div class="nhsuk-radios">
 + <div class="nhsuk-radios" data-module="nhsuk-radios">
+    <div class="nhsuk-radios__item">
+-     <input class="nhsuk-radios__input" id="#contact-preference-1" name="contact" type="radio" value="email">
++     <input class="nhsuk-radios__input" id="#contact-preference" name="contact" type="radio" value="email">
 ```
 
 These changes were introduced in pull requests [#1112: Remove the -1 suffix from radio and checkbox IDs](https://github.com/nhsuk/nhsuk-frontend/pull/1112) and [#1480: Add missing component `data-module` attributes](https://github.com/nhsuk/nhsuk-frontend/pull/1480).
 
 #### Skip link component changes
 
-If you are not using Nunjucks macros, add the missing `data-module` attribute to the component HTML:
+You do not need to do anything if you're using Nunjucks macros.
+
+If you are not using Nunjucks macros, update your HTML markup using the [skip link examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/skip-link) to add the missing `data-module` attribute:
 
 ```patch
 - <a class="nhsuk-skip-link">
@@ -785,132 +941,19 @@ The tabs component no longer triggers the `tab.show` and `tab.hide` custom event
 
 This change was introduced in [pull request #1469: Remove deprecated code and legacy feature detection](https://github.com/nhsuk/nhsuk-frontend/pull/1469).
 
-#### Replace outdated component Nunjucks params
+#### Warning callout component changes
 
-If you're using the `card`, `details`, `insetText` or `warningCallout` Nunjucks macros, you need to rename the `HTML` param to `html`:
+If you're using the `warningCallout` Nunjucks macro, you need to rename the deprecated `HTML` param to `html`:
 
 ```patch
-  {{ insetText({
--   HTML: "<p>You'll need to stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.</p>"
-+   html: "<p>You'll need to stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.</p>"
+  {{ warningCallout({
+    heading: "School, nursery or work",
+-   HTML: "<p>Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.</p>"
++   html: "<p>Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.</p>"
   }) }}
 ```
 
 This change was introduced in [pull request #1259: Review legacy Nunjucks params](https://github.com/nhsuk/nhsuk-frontend/pull/1259).
-
-#### Replace outdated component SVG icons
-
-We have updated the design of some of our icons used in components. You do not need to do anything if you're using Nunjucks macros.
-
-If you are not using Nunjucks macros, update your HTML markup if you are using any of the following components:
-
-- Action link
-
-  ```diff
-    <a class="nhsuk-action-link" href="#">
-  -   <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="36" height="36">
-  -     <path d="M0 0h24v24H0z" fill="none"></path>
-  -     <path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z"></path>
-  -   </svg>
-  +   <svg class="nhsuk-icon nhsuk-icon--arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
-  +     <path d="M12 2a10 10 0 0 0-10 9h11.7l-4-4a1 1 0 0 1 1.5-1.4l5.6 5.7a1 1 0 0 1 0 1.4l-5.6 5.7a1 1 0 0 1-1.5 0 1 1 0 0 1 0-1.4l4-4H2A10 10 0 1 0 12 2z"/>
-  +   </svg>
-      <span class="nhsuk-action-link__text">Find your nearest A&amp;E</span>
-    </a>
-  ```
-
-- Do and don’t lists
-
-  ```diff
-    <div class="nhsuk-do-dont-list">
-      <h3 class="nhsuk-do-dont-list__label">Do</h3>
-      <ul class="nhsuk-list nhsuk-list--tick" role="list">
-        <li>
-  -       <svg class="nhsuk-icon nhsuk-icon__tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true" width="34" height="34">
-  -         <path stroke-width="4" stroke-linecap="round" d="M18.4 7.8l-8.5 8.4L5.6 12" stroke="#007f3b"></path>
-  -       </svg>
-  +       <svg class="nhsuk-icon nhsuk-icon--tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
-  +         <path d="M11.4 18.8a2 2 0 0 1-2.7.1h-.1L4 14.1a1.5 1.5 0 0 1 2.1-2L10 16l8.1-8.1a1.5 1.5 0 1 1 2.2 2l-8.9 9Z"/>
-  +       </svg>
-          cover blisters with a soft plaster or padded dressing
-        </li>
-      </ul>
-    </div>
-
-    <div class="nhsuk-do-dont-list">
-      <h3 class="nhsuk-do-dont-list__label">Don&#39;t</h3>
-      <ul class="nhsuk-list nhsuk-list--cross" role="list">
-        <li>
-  -       <svg class="nhsuk-icon nhsuk-icon__cross" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="34" height="34">
-  -         <path d="M17 18.5c-.4 0-.8-.1-1.1-.4l-10-10c-.6-.6-.6-1.6 0-2.1.6-.6 1.5-.6 2.1 0l10 10c.6.6.6 1.5 0 2.1-.3.3-.6.4-1 .4z" fill="#d5281b"></path>
-  -         <path d="M7 18.5c-.4 0-.8-.1-1.1-.4-.6-.6-.6-1.5 0-2.1l10-10c.6-.6 1.5-.6 2.1 0 .6.6.6 1.5 0 2.1l-10 10c-.3.3-.6.4-1 .4z" fill="#d5281b"></path>
-  -       </svg>
-  +       <svg class="nhsuk-icon nhsuk-icon--cross" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
-  +         <path d="M17 18.5c-.4 0-.8-.1-1.1-.4l-10-10c-.6-.6-.6-1.6 0-2.1.6-.6 1.5-.6 2.1 0l10 10c.6.6.6 1.5 0 2.1-.3.3-.6.4-1 .4z M7 18.5c-.4 0-.8-.1-1.1-.4-.6-.6-.6-1.5 0-2.1l10-10c.6-.6 1.5-.6 2.1 0 .6.6.6 1.5 0 2.1l-10 10c-.3.3-.6.4-1 .4z"/>
-  +       </svg>
-          do not burst a blister yourself
-        </li>
-      </ul>
-    </div>
-  ```
-
-- Pagination
-
-  ```diff
-    <nav class="nhsuk-pagination" role="navigation" aria-label="Pagination">
-      <ul class="nhsuk-list nhsuk-pagination__list">
-        <li class="nhsuk-pagination-item--previous">
-          <a class="nhsuk-pagination__link nhsuk-pagination__link--prev" href="#">
-            <span class="nhsuk-pagination__title">Previous</span>
-            <span class="nhsuk-u-visually-hidden">:</span>
-            <span class="nhsuk-pagination__page">Treatments</span>
-  -         <svg class="nhsuk-icon nhsuk-icon__arrow-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="34" height="34">
-  -           <path d="M4.1 12.3l2.7 3c.2.2.5.2.7 0 .1-.1.1-.2.1-.3v-2h11c.6 0 1-.4 1-1s-.4-1-1-1h-11V9c0-.2-.1-.4-.3-.5h-.2c-.1 0-.3.1-.4.2l-2.7 3c0 .2 0 .4.1.6z"></path>
-  -         </svg>
-  +         <svg class="nhsuk-icon nhsuk-icon--arrow-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
-  +           <path d="M10.7 6.3c.4.4.4 1 0 1.4L7.4 11H19a1 1 0 0 1 0 2H7.4l3.3 3.3c.4.4.4 1 0 1.4a1 1 0 0 1-1.4 0l-5-5A1 1 0 0 1 4 12c0-.3.1-.5.3-.7l5-5a1 1 0 0 1 1.4 0Z"/>
-  +         </svg>
-          </a>
-        </li>
-        <li class="nhsuk-pagination-item--next">
-          <a class="nhsuk-pagination__link nhsuk-pagination__link--next" href="#">
-            <span class="nhsuk-pagination__title">Next</span>
-            <span class="nhsuk-u-visually-hidden">:</span>
-            <span class="nhsuk-pagination__page">Symptoms</span>
-  -         <svg class="nhsuk-icon nhsuk-icon__arrow-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="34" height="34">
-  -           <path d="M19.6 11.66l-2.73-3A.51.51 0 0 0 16 9v2H5a1 1 0 0 0 0 2h11v2a.5.5 0 0 0 .32.46.39.39 0 0 0 .18 0 .52.52 0 0 0 .37-.16l2.73-3a.5.5 0 0 0 0-.64z"></path>
-  -         </svg>
-  +         <svg class="nhsuk-icon nhsuk-icon--arrow-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
-  +           <path d="m14.7 6.3 5 5c.2.2.3.4.3.7 0 .3-.1.5-.3.7l-5 5a1 1 0 0 1-1.4-1.4l3.3-3.3H5a1 1 0 0 1 0-2h11.6l-3.3-3.3a1 1 0 1 1 1.4-1.4Z"/>
-  +         </svg>
-          </a>
-        </li>
-      </ul>
-    </nav>
-  ```
-
-- Primary card
-
-  ```diff
-    <div class="nhsuk-card nhsuk-card--clickable">
-      <div class="nhsuk-card__content nhsuk-card__content--primary">
-        <h2 class="nhsuk-card__heading nhsuk-heading-m"> <a class="nhsuk-card__link" href="#">Introduction to care and support</a> </h2>
-        <p class="nhsuk-card__description">A quick guide for people who have care and support needs and their carers</p>
-  -     <svg class="nhsuk-icon" xmlns="http://www.w3.org/2000/svg" width="27" height="27" aria-hidden="true" focusable="false">
-  -       <circle cx="13.333" cy="13.333" r="13.333" fill="" />
-  -       <g fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2.667">
-  -         <path d="M15.438 13l-3.771 3.771" />
-  -         <path d="M11.667 9.229L15.438 13" />
-  -       </g>
-  -     </svg>
-  +    <svg class="nhsuk-icon nhsuk-icon--chevron-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
-  +      <path d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20Zm-.3 5.8a1 1 0 1 0-1.5 1.4l2.9 2.8-2.9 2.8a1 1 0 0 0 1.5 1.4l3.5-3.5c.4-.4.4-1 0-1.4Z"></path>
-  +    </svg>
-      </div>
-    </div>
-  ```
-
-This change was introduced in [pull request #1521: Update component icons](https://github.com/nhsuk/nhsuk-frontend/pull/1521).
 
 ### :boom: **Breaking changes** to browser support
 
