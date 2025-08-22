@@ -13,10 +13,10 @@
 /// Clearfix mixin
 ///
 /// @example scss
-///   @include nhsuk-clearfix();
+///   @include nhsuk-clearfix;
 ///
 
-@mixin nhsuk-clearfix() {
+@mixin nhsuk-clearfix {
   &::after {
     clear: both;
     content: "";
@@ -38,10 +38,10 @@
 /// to large pieces of content
 ///
 /// @example scss
-///   @include nhsuk-reading-width();
+///   @include nhsuk-reading-width;
 ///
 
-@mixin nhsuk-reading-width() {
+@mixin nhsuk-reading-width {
   max-width: 44em;
 }
 
@@ -201,7 +201,7 @@
 ///   @include nhsuk-top-and-bottom;
 ///
 
-@mixin nhsuk-top-and-bottom() {
+@mixin nhsuk-top-and-bottom {
   & > *:first-child {
     margin-top: 0;
   }
@@ -420,10 +420,10 @@
 /// Print hide mixin, hides the element from print
 ///
 /// @example scss
-///   @include nhsuk-print-hide();
+///   @include nhsuk-print-hide;
 ///
 
-@mixin nhsuk-print-hide() {
+@mixin nhsuk-print-hide {
   @include nhsuk-media-query($media-type: print) {
     display: none;
   }
@@ -434,9 +434,9 @@
 /// @alias nhsuk-print-hide
 /// @deprecated To be removed in v11.0, replaced by nhsuk-print-hide
 
-@mixin print-hide($args...) {
+@mixin print-hide {
   @include nhsuk-warning("print-hide", "print-hide is deprecated. Use nhsuk-print-hide instead.");
-  @include nhsuk-print-hide($args...);
+  @include nhsuk-print-hide;
 }
 
 /// Flex mixin
@@ -445,7 +445,7 @@
 ///   @include nhsuk-flex;
 ///
 
-@mixin nhsuk-flex() {
+@mixin nhsuk-flex {
   display: flex;
   flex-wrap: wrap;
 }
@@ -455,9 +455,9 @@
 /// @alias nhsuk-flex
 /// @deprecated To be removed in v11.0, replaced by nhsuk-flex
 
-@mixin flex($args...) {
+@mixin flex {
   @include nhsuk-warning("flex", "flex is deprecated. Use nhsuk-flex instead.");
-  @include nhsuk-flex($args...);
+  @include nhsuk-flex;
 }
 
 /// Flex item mixin
@@ -466,7 +466,7 @@
 ///   @include nhsuk-flex-item;
 ///
 
-@mixin nhsuk-flex-item() {
+@mixin nhsuk-flex-item {
   display: flex;
 
   @include nhsuk-media-query($until: desktop) {
@@ -479,16 +479,16 @@
 /// @alias nhsuk-flex-item
 /// @deprecated To be removed in v11.0, replaced by nhsuk-flex-item
 
-@mixin flex-item($args...) {
+@mixin flex-item {
   @include nhsuk-warning("flex-item", "flex-item is deprecated. Use nhsuk-flex-item instead.");
-  @include nhsuk-flex-item($args...);
+  @include nhsuk-flex-item;
 }
 
 /// Remove margin mobile mixin
 ///
 /// Removes left and right margin at tablet breakpoint
 
-@mixin nhsuk-remove-margin-mobile() {
+@mixin nhsuk-remove-margin-mobile {
   @include nhsuk-media-query($until: tablet) {
     margin-left: -$nhsuk-gutter-half;
     margin-right: -$nhsuk-gutter-half;
