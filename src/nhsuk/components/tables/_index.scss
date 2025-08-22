@@ -109,11 +109,11 @@
       .nhsuk-table-responsive__heading {
         @include nhsuk-typography-weight-bold;
         padding-right: nhsuk-spacing(3);
-        text-align: left; // [8]
+        text-align: left; // [7]
       }
 
       .nhsuk-table__row {
-        display: block; // [3]
+        display: block; // [2]
         margin-bottom: nhsuk-spacing(4);
 
         &:last-child {
@@ -125,14 +125,14 @@
       .nhsuk-table__row td {
         display: block; // For browsers that don't support flexbox
         display: flex;
-        justify-content: space-between; // [5]
-        min-width: 1px; // [6]
+        justify-content: space-between; // [4]
+        min-width: 1px; // [5]
       }
 
       @media all and (-ms-high-contrast: none) {
         .nhsuk-table__row th,
         .nhsuk-table__row td {
-          display: block; // [10]
+          display: block; // [9]
         }
       }
 
@@ -144,7 +144,7 @@
         .nhsuk-table__row th,
         .nhsuk-table__row td {
           padding-right: 0;
-          text-align: right; // [7]
+          text-align: right; // [6]
 
           &:last-child {
             border-bottom: 3px solid $nhsuk-border-colour;
@@ -154,11 +154,11 @@
 
       @include nhsuk-media-query($from: desktop) {
         .nhsuk-table-responsive__heading {
-          display: none; // [9]
+          display: none; // [8]
         }
 
         .nhsuk-table__row {
-          display: table-row; // [4]
+          display: table-row; // [3]
         }
 
         .nhsuk-table__row th {
