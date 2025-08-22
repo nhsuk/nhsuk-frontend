@@ -12,8 +12,6 @@
 
 /// Clearfix mixin
 ///
-/// @see utilities/clearfix
-///
 /// @example scss
 ///   @include nhsuk-clearfix();
 ///
@@ -38,8 +36,6 @@
 
 /// Reading width mixin, add a maximum width
 /// to large pieces of content
-///
-/// @see utilities/reading-width
 ///
 /// @example scss
 ///   @include nhsuk-reading-width();
@@ -101,8 +97,6 @@
 }
 
 /// Hide an element visually, but have it available for screen readers
-///
-/// @see utilities/visually-hidden
 ///
 /// @param {Boolean} $important [true] - Whether to mark as `!important`
 ///
@@ -201,8 +195,6 @@
 /// Top and bottom margin mixin, remove
 /// the top and bottom margin spacing
 ///
-/// @see utilities/top-and-bottom
-///
 /// @example scss
 ///   @include nhsuk-top-and-bottom;
 ///
@@ -231,6 +223,10 @@
 /// Panel mixin
 ///
 /// See components/_panel
+///
+/// @param {Colour} $panel-background-colour - Panel background colour
+/// @param {Colour} $panel-text-colour - Panel text colour
+/// @param {Colour} $panel-border-colour - Panel border colour
 ///
 /// @example scss
 ///   @include nhsuk-panel(nhsuk-colour("blue"), $nhsuk-reverse-text-colour, $nhsuk-secondary-border-colour);
@@ -263,9 +259,9 @@
 /// Panel with label mixin, inherits panel styling
 /// and removes padding top for the label positioning
 ///
-/// Used in-conjunction with @mixin heading-label
-///
-/// @see components/_warning-component
+/// @param {Colour} $panel-background-colour - Panel background colour
+/// @param {Colour} $panel-text-colour - Panel text colour
+/// @param {Colour} $panel-border-colour - Panel border colour
 ///
 /// @example scss
 ///   @include nhsuk-panel-with-label(nhsuk-colour("blue"), $nhsuk-reverse-text-colour, $nhsuk-secondary-border-colour);
@@ -295,16 +291,15 @@
 /// Heading label mixin, adds a tab heading to
 /// warning callout, do and don't lists and panel
 ///
-/// Used in-conjunction with @mixin panel-with-label
-///
-/// @see components/_warning-component
-///
 /// 1. Background colour to be set on the @include.
 /// 2. Ensures heading appears separate to the body text in high contrast mode.
 /// 3. Text colour to be set on the @include.
 /// 4. Display inline-block so it does not take up the full width.
 /// 5. Negative left margin aligns the heading to the box.
 /// 6. Top positioning set to minus to make heading sit just outside the box.
+///
+/// @param {Colour} $heading-background-colour - Heading background colour
+/// @param {Colour} $heading-text-colour - Heading text colour
 ///
 /// @example scss
 ///   @include nhsuk-heading-label(nhsuk-colour("blue"), $nhsuk-reverse-text-colour);
@@ -352,7 +347,9 @@
 /// Care card mixin, used for creating
 /// different coloured care cards
 ///
-/// @see components/card/card
+/// @param {Colour} $heading-background-colour - Heading background colour
+/// @param {Colour} $heading-text-colour - Heading text colour
+/// @param {Number} $print-border-size - Print border size
 ///
 /// @example scss
 ///   @include nhsuk-care-card(nhsuk-colour("blue"), $nhsuk-reverse-text-colour, 4px);
@@ -385,7 +382,7 @@
 /// Print colour mixin, sets the text print colour
 /// warning callout, do and don't lists and panels
 ///
-/// @see components/_care-card
+/// @param {Colour} $print-colour - Print colour
 ///
 /// @example scss
 ///   @include nhsuk-print-colour($nhsuk-print-text-colour);

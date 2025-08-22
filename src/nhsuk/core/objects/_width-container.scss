@@ -9,7 +9,6 @@
 /// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
 ////
 
-////
 /// Width container mixin
 ///
 /// Used to create page width and custom width container classes.
@@ -20,7 +19,6 @@
 ///   .app-width-container--wide {
 ///     @include nhsuk-width-container(1200px);
 ///   }
-////
 
 @mixin nhsuk-width-container($width: $nhsuk-page-width) {
   // By default, limit the width of the container to the page width

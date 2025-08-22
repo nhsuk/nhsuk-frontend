@@ -35,7 +35,7 @@ $_font-size: 16;
     position: absolute;
     top: 0;
 
-    @include nhsuk-shape-chevron(left, $color: currentcolor, $font-size: 19);
+    @include nhsuk-shape-chevron(left, $colour: currentcolor, $font-size: 19);
   }
 }
 
