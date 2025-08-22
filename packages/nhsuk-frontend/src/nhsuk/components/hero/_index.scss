@@ -18,7 +18,7 @@
     color: $nhsuk-reverse-text-colour;
     position: relative; // [1]
 
-    @include nhsuk-print-colour($nhsuk-print-text-colour);
+    @include nhsuk-print-colour;
 
     .nhsuk-link,
     a:not(.nhsuk-button) {
@@ -138,6 +138,11 @@
         transform: rotate(45deg); // [10]
         width: 0;
       }
+
+      @include nhsuk-print-colour {
+        max-width: 100%;
+        padding: 0;
+      }
     }
 
     @include nhsuk-media-query(375px) {
@@ -160,14 +165,6 @@
 
       .nhsuk-hero__arrow {
         left: 46px; // [9]
-      }
-    }
-
-    @include nhsuk-media-query($media-type: print) {
-      .nhsuk-hero-content {
-        color: $nhsuk-print-text-colour;
-        max-width: 100%;
-        padding: 0;
       }
     }
 

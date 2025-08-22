@@ -178,7 +178,7 @@ $card-border-hover-color: $card-border-hover-colour;
     padding-top: 0; // [13]
 
     @include nhsuk-font(26, $weight: bold);
-    @include nhsuk-print-colour($nhsuk-print-text-colour);
+    @include nhsuk-print-colour;
   }
 
   .nhsuk-card--care__arrow {
@@ -240,9 +240,8 @@ $card-border-hover-color: $card-border-hover-colour;
         @include nhsuk-link-style-white;
       }
 
-      @include nhsuk-media-query($media-type: print) {
+      @include nhsuk-print-colour {
         background-color: $nhsuk-card-background-colour;
-        color: $nhsuk-print-text-colour;
       }
     }
 

@@ -61,7 +61,9 @@
     width: 100%;
 
     @include nhsuk-font-size(26);
-    @include nhsuk-print-colour($nhsuk-print-text-colour);
+    @include nhsuk-print-colour {
+      @include nhsuk-link-style-text($nhsuk-print-text-colour);
+    }
 
     .nhsuk-icon {
       position: absolute;

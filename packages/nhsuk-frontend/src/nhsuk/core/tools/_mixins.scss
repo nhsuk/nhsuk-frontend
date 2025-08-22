@@ -328,9 +328,8 @@
     top: nhsuk-spacing(-2); // [6]
   }
 
-  @include nhsuk-media-query($media-type: print) {
+  @include nhsuk-print-colour {
     background: none;
-    color: $nhsuk-print-text-colour;
     top: 0;
   }
 }
@@ -363,9 +362,8 @@
     color: $heading-text-colour;
   }
 
-  @include nhsuk-media-query($media-type: print) {
+  @include nhsuk-print-colour {
     border: $print-border-size solid $nhsuk-print-text-colour;
-    color: $nhsuk-print-text-colour;
     page-break-inside: avoid;
   }
 }
@@ -384,21 +382,16 @@
 /// Print colour mixin, sets the text print colour
 /// warning callout, do and don't lists and panels
 ///
-/// @param {Colour} $print-colour - Print colour
+/// @param {Colour} $print-colour [$nhsuk-print-text-colour] - Print colour
 ///
 /// @example scss
-///   @include nhsuk-print-colour($nhsuk-print-text-colour);
+///   @include nhsuk-print-colour($print-colour: inherit);
 ///
 
-@mixin nhsuk-print-colour($print-colour) {
+@mixin nhsuk-print-colour($print-colour: $nhsuk-print-text-colour) {
   @include nhsuk-media-query($media-type: print) {
     color: $print-colour;
-
-    &:active,
-    &:focus,
-    &:visited {
-      color: $nhsuk-print-text-colour;
-    }
+    @content;
   }
 }
 

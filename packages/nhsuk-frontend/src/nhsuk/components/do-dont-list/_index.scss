@@ -28,6 +28,6 @@
 
   .nhsuk-do-dont-list__label {
     @include nhsuk-heading-label($nhsuk-brand-colour, $nhsuk-reverse-text-colour); // [2]
-    @include nhsuk-print-colour($nhsuk-print-text-colour);
+    @include nhsuk-print-colour;
   }
 }
