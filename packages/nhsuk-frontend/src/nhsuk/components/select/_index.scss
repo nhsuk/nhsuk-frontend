@@ -13,33 +13,35 @@
 ///    - 20ex + 3ex matches the 'width-10' variant of the input component
 ///    - it fits comfortably on screens as narrow as 240px wide
 ///
-/// @group components
+/// @group components/select
 ////
 
-.nhsuk-select {
-  background-color: nhsuk-colour("white");
-  border: $nhsuk-border-width-form-element solid $nhsuk-form-border-colour;
-  box-sizing: border-box;
-  color: nhsuk-colour("black");
-  height: 2.5rem; // [1]
-  min-width: 20ex + 3ex; // [2]
-  max-width: 100%;
-  padding: nhsuk-spacing(1);
+@include nhsuk-exports("nhsuk/components/select") {
+  .nhsuk-select {
+    background-color: $nhsuk-input-background-colour;
+    border: $nhsuk-border-width-form-element solid $nhsuk-input-border-colour;
+    box-sizing: border-box;
+    color: $nhsuk-text-colour;
+    height: 2.5rem; // [1]
+    min-width: 20ex + 3ex; // [2]
+    max-width: 100%;
+    padding: nhsuk-spacing(1);
 
-  @include nhsuk-font(19);
+    @include nhsuk-font(19);
 
-  &:focus {
-    @include nhsuk-focused-input;
+    &:focus {
+      @include nhsuk-focused-input;
+    }
   }
-}
 
-.nhsuk-select option:active,
-.nhsuk-select option:checked,
-.nhsuk-select:focus::-ms-value {
-  background-color: nhsuk-colour("blue");
-  color: nhsuk-colour("white");
-}
+  .nhsuk-select option:active,
+  .nhsuk-select option:checked,
+  .nhsuk-select:focus::-ms-value {
+    background-color: nhsuk-colour("blue");
+    color: $nhsuk-reverse-text-colour;
+  }
 
-.nhsuk-select--error {
-  border: $nhsuk-border-width-form-element-error solid $nhsuk-error-colour;
+  .nhsuk-select--error {
+    border: $nhsuk-border-width-form-element-error solid $nhsuk-error-colour;
+  }
 }

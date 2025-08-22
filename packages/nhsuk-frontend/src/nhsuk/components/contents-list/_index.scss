@@ -8,37 +8,39 @@
 /// 1. Creates a grey line before each list
 ///    item using a ASCII number for the symbol.
 ///
-/// @group components
+/// @group components/contents-list
 ////
 
-.nhsuk-contents-list {
-  @include nhsuk-responsive-margin(7, "bottom");
-}
-
-.nhsuk-contents-list__list {
-  list-style: none;
-  padding: 0;
-}
-
-.nhsuk-contents-list__item {
-  padding: 0 0 0 nhsuk-spacing(5);
-  position: relative;
-
-  &::before {
-    content: "";
-    display: block;
-    left: 0;
-    position: absolute;
-    top: nhsuk-em(12px, $nhsuk-base-font-size);
-    width: nhsuk-spacing(3);
-    border-top: 1px solid nhsuk-colour("grey-3");
+@include nhsuk-exports("nhsuk/components/contents-list") {
+  .nhsuk-contents-list {
+    @include nhsuk-responsive-margin(7, "bottom");
   }
-}
 
-.nhsuk-contents-list__link {
-  display: inline-block;
-}
+  .nhsuk-contents-list__list {
+    list-style: none;
+    padding: 0;
+  }
 
-.nhsuk-contents-list__current {
-  font-weight: $nhsuk-font-bold;
+  .nhsuk-contents-list__item {
+    padding: 0 0 0 nhsuk-spacing(5);
+    position: relative;
+
+    &::before {
+      content: "";
+      display: block;
+      left: 0;
+      position: absolute;
+      top: nhsuk-em(12px, $nhsuk-base-font-size);
+      width: nhsuk-spacing(3);
+      border-top: 1px solid $nhsuk-border-hover-colour;
+    }
+  }
+
+  .nhsuk-contents-list__link {
+    display: inline-block;
+  }
+
+  .nhsuk-contents-list__current {
+    font-weight: $nhsuk-font-bold;
+  }
 }

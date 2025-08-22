@@ -10,8 +10,6 @@
 ////
 
 html {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -19,8 +17,6 @@ html {
   &,
   &::before,
   &::after {
-    -moz-box-sizing: inherit;
-    -webkit-box-sizing: inherit;
     box-sizing: inherit;
   }
 }

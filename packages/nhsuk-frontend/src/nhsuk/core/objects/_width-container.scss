@@ -3,24 +3,21 @@
 @use "../tools" as *;
 
 ////
-/// Page width for the grid system
-///
-/// @group objects
-/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+/// @group objects/layout
 ////
 
-////
 /// Width container mixin
 ///
 /// Used to create page width and custom width container classes.
 ///
 /// @param {String} $width [$nhsuk-page-width] - Width in pixels
 ///
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+///
 /// @example scss - Creating a 1200px wide container class
 ///   .app-width-container--wide {
 ///     @include nhsuk-width-container(1200px);
 ///   }
-////
 
 @mixin nhsuk-width-container($width: $nhsuk-page-width) {
   // By default, limit the width of the container to the page width

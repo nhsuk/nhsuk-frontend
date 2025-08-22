@@ -5,16 +5,15 @@
 ////
 /// Warning callout component
 ///
-/// 1. Uses @mixin panel-with-label from tools/_mixins.
-/// 2. Uses @mixin heading-label from tools/_mixins.
-///
-/// @group components
+/// @group components/warning-callout
 ////
 
-.nhsuk-warning-callout {
-  @include nhsuk-panel-with-label(nhsuk-colour("pale-yellow"), $nhsuk-text-colour, nhsuk-colour("yellow")); // [1]
-}
+@include nhsuk-exports("nhsuk/components/warning-callout") {
+  .nhsuk-warning-callout {
+    @include nhsuk-panel-with-label(nhsuk-colour("pale-yellow"), $nhsuk-text-colour, nhsuk-colour("yellow")); // [1]
+  }
 
-.nhsuk-warning-callout__label {
-  @include nhsuk-heading-label(nhsuk-colour("yellow"), $nhsuk-text-colour); // [2]
+  .nhsuk-warning-callout__label {
+    @include nhsuk-heading-label(nhsuk-colour("yellow"), $nhsuk-text-colour); // [2]
+  }
 }

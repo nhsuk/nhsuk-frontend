@@ -101,12 +101,17 @@ We've renamed all Sass variables, mixins and CSS classes to use "colour" (not "c
 
 **Sass variables**
 
-For example, the following variables have been renamed:
+For example, the following variables have been renamed to replace `-color` with `-colour`:
 
 - `$nhsuk-link-color` renamed to `$nhsuk-link-colour`
 - `$nhsuk-link-hover-color` renamed to `$nhsuk-link-hover-colour`
 - `$nhsuk-link-active-color` renamed to `$nhsuk-link-active-colour`
 - `$nhsuk-link-visited-color` renamed to `$nhsuk-link-visited-colour`
+
+With the following variables renamed to align with GOV.UK Frontend:
+
+- `$nhsuk-form-border-color` renamed to `$nhsuk-input-border-colour`
+- `$nhsuk-form-element-background-color` renamed to `$nhsuk-input-background-colour`
 
 See [pull request #1526](https://github.com/nhsuk/nhsuk-frontend/pull/1526) for the full list.
 

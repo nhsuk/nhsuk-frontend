@@ -3,7 +3,6 @@
 ////
 /// Page wrapper for the grid system
 ///
-/// @group objects
 /// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
 ///
 ///
@@ -23,6 +22,8 @@
 ///         to the top / bottom -->
 ///     </div>
 ///   </div>
+///
+/// @group objects/layout
 ////
 
 @include nhsuk-exports("nhsuk/core/objects/main-wrapper") {

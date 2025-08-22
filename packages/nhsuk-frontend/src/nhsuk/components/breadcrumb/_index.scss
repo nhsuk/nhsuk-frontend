@@ -10,86 +10,88 @@
 /// 2. Don't show the full breadcrumb below tablet size.
 /// 3. Center chevron between breadcrumb items.
 ///
-/// @group components
+/// @group components/breadcrumb
 ////
 
-$_font-size: 16;
-$_chevron-colour: $nhsuk-secondary-text-colour;
-$_chevron-size: nhsuk-em(nhsuk-chevron-size(), $_font-size);
+@include nhsuk-exports("nhsuk/components/breadcrumb") {
+  $_font-size: 16;
+  $_chevron-colour: $nhsuk-secondary-text-colour;
+  $_chevron-size: nhsuk-em(nhsuk-chevron-size(), $_font-size);
 
-.nhsuk-breadcrumb {
-  color: $nhsuk-text-colour;
+  .nhsuk-breadcrumb {
+    color: $nhsuk-text-colour;
 
-  @include nhsuk-responsive-margin(4, "top");
-  @include nhsuk-print-hide; // [1]
+    @include nhsuk-responsive-margin(4, "top");
+    @include nhsuk-print-hide; // [1]
 
-  .nhsuk-back-link {
+    .nhsuk-back-link {
+      margin: 0;
+
+      @include nhsuk-media-query($from: tablet) {
+        display: none; // [2]
+      }
+    }
+  }
+
+  .nhsuk-breadcrumb__list {
+    list-style: none;
     margin: 0;
+    padding: 0;
 
-    @include nhsuk-media-query($from: tablet) {
+    @include nhsuk-clearfix;
+    @include nhsuk-font($_font-size);
+
+    @include nhsuk-media-query($until: tablet) {
       display: none; // [2]
     }
   }
-}
 
-.nhsuk-breadcrumb__list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-
-  @include nhsuk-clearfix;
-  @include nhsuk-font($_font-size);
-
-  @include nhsuk-media-query($until: tablet) {
-    display: none; // [2]
-  }
-}
-
-.nhsuk-breadcrumb__list-item {
-  float: left;
-  margin-bottom: 0;
-  margin-left: nhsuk-em(nhsuk-spacing(3), $_font-size); // [3]
-  padding-left: nhsuk-em(nhsuk-spacing(3), $_font-size) + $_chevron-size; // [3]
-  position: relative;
-
-  &::before {
-    bottom: 0;
-    content: "";
-    left: 0;
-    margin: auto;
-    position: absolute;
-    top: 0;
-
-    @include nhsuk-shape-chevron(right, $_chevron-colour);
-  }
-
-  // Hide chevron before first breadcrumb item
-  &:first-child {
-    margin-left: 0;
-    padding-left: 0;
+  .nhsuk-breadcrumb__list-item {
+    float: left;
+    margin-bottom: 0;
+    margin-left: nhsuk-em(nhsuk-spacing(3), $_font-size); // [3]
+    padding-left: nhsuk-em(nhsuk-spacing(3), $_font-size) + $_chevron-size; // [3]
+    position: relative;
 
     &::before {
-      display: none;
+      bottom: 0;
+      content: "";
+      left: 0;
+      margin: auto;
+      position: absolute;
+      top: 0;
+
+      @include nhsuk-shape-chevron(right, $_chevron-colour);
+    }
+
+    // Hide chevron before first breadcrumb item
+    &:first-child {
+      margin-left: 0;
+      padding-left: 0;
+
+      &::before {
+        display: none;
+      }
     }
   }
-}
 
-.nhsuk-breadcrumb__link {
-  display: inline-block;
+  .nhsuk-breadcrumb__link {
+    display: inline-block;
 
-  @include nhsuk-font($_font-size);
-  @include nhsuk-link-style-no-visited-state;
-}
-
-.nhsuk-breadcrumb--reverse {
-  color: nhsuk-colour("white");
-
-  .nhsuk-breadcrumb__link,
-  .nhsuk-back-link {
-    @include nhsuk-link-style-white;
+    @include nhsuk-font($_font-size);
+    @include nhsuk-link-style-no-visited-state;
   }
 
-  .nhsuk-breadcrumb__list-item::before {
-    color: rgba(nhsuk-colour("white"), 0.6);
+  .nhsuk-breadcrumb--reverse {
+    color: $nhsuk-reverse-text-colour;
+
+    .nhsuk-breadcrumb__link,
+    .nhsuk-back-link {
+      @include nhsuk-link-style-white;
+    }
+
+    .nhsuk-breadcrumb__list-item::before {
+      color: rgba($nhsuk-reverse-text-colour, 0.6);
+    }
   }
 }
