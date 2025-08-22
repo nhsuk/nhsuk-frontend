@@ -1046,11 +1046,13 @@ These changes were introduced in [pull request #1326: Remove IE11 vendor polyfil
 - [#1533: Improve high contrast appearance for header and card headings](https://github.com/nhsuk/nhsuk-frontend/pull/1533)
 - [#1536: Add support for id param to all components](https://github.com/nhsuk/nhsuk-frontend/pull/1536)
 
-Huge thanks to everybody that contributed to this release: @colinrotherham, @paulrobertlloyd, @frankieroberto, @edwardhorsford, @MatMoore, @mattclaffey-nhs, @lasara-d, @roshaanbajwa, @davehunter08, the Design System Review Panel and the GOV.UK Design System team.
+---
 
-Thanks to the following for their help in testing the v10 pre-release: @chrimesdev, @imnatgreen, @adam-bell-nhs, @craigdixon5, @nicki-nhs and @maheshmuralip.
+Huge thanks to everybody that contributed to this release: [@colinrotherham](https://github.com/colinrotherham), [@paulrobertlloyd](https://github.com/paulrobertlloyd), [@frankieroberto](https://github.com/frankieroberto), [@edwardhorsford](https://github.com/edwardhorsford), [@MatMoore](https://github.com/MatMoore), [@mattclaffey-nhs](https://github.com/mattclaffey-nhs), [@lasara-d](https://github.com/lasara-d), [@roshaanbajwa](https://github.com/roshaanbajwa), [@davidhunter08](https://github.com/davidhunter08), the Design System Review Panel and the GOV.UK Design System team.
 
-And thanks to the following for reporting issues: @andymantell, @GrilloPress, @kaycee45 and @xLasercut.
+Thanks to the following for their help in testing the v10 pre-release: [@chrimesdev](https://github.com/chrimesdev), [@imnatgreen](https://github.com/imnatgreen), [@adam-bell-nhs](https://github.com/adam-bell-nhs), [@craigdixon5](https://github.com/craigdixon5), [@nicki-nhs](https://github.com/nicki-nhs) and [@maheshmuralip](https://github.com/maheshmuralip).
+
+And thanks to the following for reporting issues: [@andymantell](https://github.com/andymantell), [@GrilloPress](https://github.com/GrilloPress), [@kaycee45](https://github.com/kaycee45) and [@xLasercut](https://github.com/xLasercut).
 
 ## 9.6.4 - 10 July 2025
 
