@@ -19,7 +19,7 @@
     -moz-appearance: none; // [1]
     -webkit-appearance: none; // [1]
     appearance: none; // [1]
-    border: $nhsuk-border-width-form-element solid $nhsuk-form-border-colour; // [2]
+    border: $nhsuk-border-width-form-element solid $nhsuk-input-border-colour; // [2]
     border-radius: 0;
     box-sizing: border-box;
     min-height: 40px;
@@ -107,7 +107,7 @@
   .nhsuk-input__prefix,
   .nhsuk-input__suffix {
     background-color: nhsuk-colour("grey-4");
-    border: $nhsuk-border-width-form-element solid $nhsuk-form-border-colour;
+    border: $nhsuk-border-width-form-element solid $nhsuk-input-border-colour;
     box-sizing: border-box;
     cursor: default; // emphasises non-editable status of prefixes and suffixes
     display: inline-block;

@@ -10,7 +10,7 @@
 
 @include nhsuk-exports("nhsuk/components/notification-banner") {
   .nhsuk-notification-banner {
-    border: $nhsuk-border-width solid nhsuk-colour("blue");
+    border: $nhsuk-border-width solid $nhsuk-brand-colour;
 
     @include nhsuk-font($size: 19);
     @include nhsuk-responsive-margin(8, "bottom");
@@ -22,7 +22,7 @@
 
   .nhsuk-notification-banner__header {
     padding: 2px nhsuk-spacing(3) nhsuk-spacing(1);
-    background-color: nhsuk-colour("blue");
+    background-color: $nhsuk-brand-colour;
 
     // Ensures the notification header appears separate to the notification body
     // text in high contrast mode
@@ -36,7 +36,7 @@
   .nhsuk-notification-banner__title {
     margin: 0;
     padding: 0;
-    color: nhsuk-colour("white");
+    color: $nhsuk-reverse-text-colour;
 
     // Set the size again because this element is a heading and the user agent
     // font size overrides the inherited font size
@@ -84,20 +84,14 @@
   }
 
   .nhsuk-notification-banner--success {
-    border-color: $nhsuk-button-colour;
+    border-color: $nhsuk-success-colour;
 
     .nhsuk-notification-banner__header {
-      background-color: $nhsuk-button-colour;
+      background-color: $nhsuk-success-colour;
     }
 
     .nhsuk-notification-banner__link {
       @include nhsuk-link-style-success;
-      @include nhsuk-link-style(
-        $link-colour: $nhsuk-button-colour,
-        $link-visited-colour: $nhsuk-button-colour,
-        $link-hover-colour: $nhsuk-button-hover-colour,
-        $link-active-colour: $nhsuk-button-active-colour
-      );
     }
   }
 }

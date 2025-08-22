@@ -16,8 +16,8 @@
 
 @include nhsuk-exports("nhsuk/components/images") {
   .nhsuk-image {
-    background-color: nhsuk-colour("white");
-    border-bottom: 1px solid nhsuk-colour("grey-4");
+    background-color: $nhsuk-card-background-colour;
+    border-bottom: 1px solid $nhsuk-border-colour;
 
     margin-left: 0; // [1]
     margin-right: 0; // [1]

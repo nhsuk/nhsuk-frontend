@@ -26,7 +26,7 @@
 
   .nhsuk-fieldset__legend {
     box-sizing: border-box; // [1]
-    color: nhsuk-colour("black");
+    color: $nhsuk-text-colour;
     display: table; // [2]
     margin-bottom: nhsuk-spacing(2);
     margin-top: 0;

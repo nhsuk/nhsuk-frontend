@@ -229,7 +229,7 @@
 /// @param {Colour} $panel-border-colour - Panel border colour
 ///
 /// @example scss
-///   @include nhsuk-panel(nhsuk-colour("blue"), $nhsuk-reverse-text-colour, $nhsuk-secondary-border-colour);
+///   @include nhsuk-panel($nhsuk-brand-colour, $nhsuk-reverse-text-colour, $nhsuk-secondary-border-colour);
 ///
 
 @mixin nhsuk-panel($panel-background-colour, $panel-text-colour, $panel-border-colour) {
@@ -264,7 +264,7 @@
 /// @param {Colour} $panel-border-colour - Panel border colour
 ///
 /// @example scss
-///   @include nhsuk-panel-with-label(nhsuk-colour("blue"), $nhsuk-reverse-text-colour, $nhsuk-secondary-border-colour);
+///   @include nhsuk-panel-with-label($nhsuk-brand-colour, $nhsuk-reverse-text-colour, $nhsuk-secondary-border-colour);
 ///
 
 @mixin nhsuk-panel-with-label($panel-background-colour, $panel-text-colour, $panel-border-colour) {
@@ -302,7 +302,7 @@
 /// @param {Colour} $heading-text-colour - Heading text colour
 ///
 /// @example scss
-///   @include nhsuk-heading-label(nhsuk-colour("blue"), $nhsuk-reverse-text-colour);
+///   @include nhsuk-heading-label($nhsuk-brand-colour, $nhsuk-reverse-text-colour);
 ///
 
 @mixin nhsuk-heading-label($heading-background-colour, $heading-text-colour) {
@@ -328,7 +328,7 @@
 
   @include nhsuk-media-query($media-type: print) {
     background: none;
-    color: nhsuk-colour("black");
+    color: $nhsuk-print-text-colour;
     top: 0;
   }
 }
@@ -352,7 +352,7 @@
 /// @param {Number} $print-border-size - Print border size
 ///
 /// @example scss
-///   @include nhsuk-care-card(nhsuk-colour("blue"), $nhsuk-reverse-text-colour, 4px);
+///   @include nhsuk-care-card($nhsuk-brand-colour, $nhsuk-reverse-text-colour, 4px);
 ///
 
 @mixin nhsuk-care-card($heading-background-colour, $heading-text-colour, $print-border-size) {
