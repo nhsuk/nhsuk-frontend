@@ -49,8 +49,7 @@ $nhsuk-checkboxes-label-padding-left-right: 12px;
     box-sizing: border-box;
     margin-bottom: 0;
     padding: 8px $nhsuk-checkboxes-label-padding-left-right nhsuk-spacing(1);
-    -ms-touch-action: manipulation; // [1]
-    touch-action: manipulation;
+    touch-action: manipulation; // [1]
   }
 
   .nhsuk-checkboxes__hint {
@@ -82,8 +81,6 @@ $nhsuk-checkboxes-label-padding-left-right: 12px;
     opacity: 0; // [2]
     position: absolute;
     top: 13px;
-    -ms-transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg);
     transform: rotate(-45deg);
     width: 22px;
   }

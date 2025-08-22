@@ -9,7 +9,7 @@
 
 @include nhsuk-exports("nhsuk/components/textarea") {
   .nhsuk-textarea {
-    -webkit-appearance: none;
+    appearance: none;
     border: $nhsuk-border-width-form-element solid $nhsuk-input-border-colour;
     border-radius: 0;
     box-sizing: border-box;

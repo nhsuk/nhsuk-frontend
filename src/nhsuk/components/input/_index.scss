@@ -16,8 +16,6 @@
 
 @include nhsuk-exports("nhsuk/components/input") {
   .nhsuk-input {
-    -moz-appearance: none; // [1]
-    -webkit-appearance: none; // [1]
     appearance: none; // [1]
     border: $nhsuk-border-width-form-element solid $nhsuk-input-border-colour; // [2]
     border-radius: 0;
