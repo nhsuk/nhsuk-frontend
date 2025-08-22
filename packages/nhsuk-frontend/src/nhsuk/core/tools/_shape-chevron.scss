@@ -14,16 +14,16 @@
 /// Generate chevron by using a box with borders on two sides, then rotating it.
 ///
 /// @param {String} $direction - Direction for chevron: up, right, down, left
-/// @param {Number} $color - Colour of chevron
+/// @param {Colour} $colour - Colour of chevron
 /// @param {Number} $font-size [14] - Font size to base chevron size on
 /// @param {String} $display [block] - CSS display property of the arrow
 
-@mixin nhsuk-shape-chevron($direction, $color, $font-size: 16, $display: block) {
+@mixin nhsuk-shape-chevron($direction, $colour, $font-size: 16, $display: block) {
   $outline-width: nhsuk-em($nhsuk-chevron-border, $font-size);
   $box-size: nhsuk-em(math.div($font-size, 2), $font-size);
   $size: nhsuk-em(nhsuk-chevron-size($font-size), $nhsuk-base-font-size);
 
-  color: $color;
+  color: $colour;
   display: $display;
 
   width: $box-size;
