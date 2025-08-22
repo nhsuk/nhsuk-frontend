@@ -1,6 +1,7 @@
 @use "settings" as *;
 @forward "colours-palette";
 @forward "colours-applied";
+@forward "colours-deprecated";
 
 @include nhsuk-warning(
   "import-using-settings-colours",

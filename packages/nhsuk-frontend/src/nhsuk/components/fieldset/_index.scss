@@ -12,55 +12,57 @@
 ///    the legend. Effectively we want to be able to treat the heading as if it is
 ///    not there.
 ///
-/// @group components
+/// @group components/fieldset
 ////
 
-.nhsuk-fieldset {
-  border: 0;
-  margin: 0;
-  padding: 0;
+@include nhsuk-exports("nhsuk/components/fieldset") {
+  .nhsuk-fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
 
-  @include nhsuk-clearfix;
-}
+    @include nhsuk-clearfix;
+  }
 
-.nhsuk-fieldset__legend {
-  box-sizing: border-box; // [1]
-  color: nhsuk-colour("black");
-  display: table; // [2]
-  margin-bottom: nhsuk-spacing(2);
-  margin-top: 0;
-  max-width: 100%; // [1]
-  padding: 0;
-  white-space: normal; // [3]
+  .nhsuk-fieldset__legend {
+    box-sizing: border-box; // [1]
+    color: $nhsuk-text-colour;
+    display: table; // [2]
+    margin-bottom: nhsuk-spacing(2);
+    margin-top: 0;
+    max-width: 100%; // [1]
+    padding: 0;
+    white-space: normal; // [3]
 
-  @include nhsuk-font(19);
-}
+    @include nhsuk-font(19);
+  }
 
-/// Heading modifiers
+  // Heading modifiers
 
-.nhsuk-fieldset__legend--xl {
-  margin-bottom: nhsuk-spacing(3);
-  @include nhsuk-font($size: 48, $weight: bold);
-}
+  .nhsuk-fieldset__legend--xl {
+    margin-bottom: nhsuk-spacing(3);
+    @include nhsuk-font($size: 48, $weight: bold);
+  }
 
-.nhsuk-fieldset__legend--l {
-  margin-bottom: nhsuk-spacing(3);
-  @include nhsuk-font($size: 36, $weight: bold);
-}
+  .nhsuk-fieldset__legend--l {
+    margin-bottom: nhsuk-spacing(3);
+    @include nhsuk-font($size: 36, $weight: bold);
+  }
 
-.nhsuk-fieldset__legend--m {
-  margin-bottom: nhsuk-spacing(3);
-  @include nhsuk-font($size: 26, $weight: bold);
-}
+  .nhsuk-fieldset__legend--m {
+    margin-bottom: nhsuk-spacing(3);
+    @include nhsuk-font($size: 26, $weight: bold);
+  }
 
-.nhsuk-fieldset__legend--s {
-  margin-bottom: nhsuk-spacing(3);
-  @include nhsuk-font($size: 19, $weight: bold);
-}
+  .nhsuk-fieldset__legend--s {
+    margin-bottom: nhsuk-spacing(3);
+    @include nhsuk-font($size: 19, $weight: bold);
+  }
 
-.nhsuk-fieldset__heading {
-  // [5]
-  font-size: inherit;
-  font-weight: inherit;
-  margin: 0;
+  .nhsuk-fieldset__heading {
+    // [5]
+    font-size: inherit;
+    font-weight: inherit;
+    margin: 0;
+  }
 }

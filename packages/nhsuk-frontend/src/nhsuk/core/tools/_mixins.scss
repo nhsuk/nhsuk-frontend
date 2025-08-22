@@ -12,13 +12,11 @@
 
 /// Clearfix mixin
 ///
-/// @see utilities/clearfix
-///
 /// @example scss
-///   @include nhsuk-clearfix();
+///   @include nhsuk-clearfix;
 ///
 
-@mixin nhsuk-clearfix() {
+@mixin nhsuk-clearfix {
   &::after {
     clear: both;
     content: "";
@@ -39,13 +37,11 @@
 /// Reading width mixin, add a maximum width
 /// to large pieces of content
 ///
-/// @see utilities/reading-width
-///
 /// @example scss
-///   @include nhsuk-reading-width();
+///   @include nhsuk-reading-width;
 ///
 
-@mixin nhsuk-reading-width() {
+@mixin nhsuk-reading-width {
   max-width: 44em;
 }
 
@@ -70,6 +66,8 @@
 /// @param {Boolean} $important [true] - Whether to mark as `!important`
 ///
 /// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+///
+/// @access private
 
 @mixin _nhsuk-visually-hide-content($important: true) {
   position: absolute if($important, !important, null);
@@ -101,8 +99,6 @@
 }
 
 /// Hide an element visually, but have it available for screen readers
-///
-/// @see utilities/visually-hidden
 ///
 /// @param {Boolean} $important [true] - Whether to mark as `!important`
 ///
@@ -201,13 +197,11 @@
 /// Top and bottom margin mixin, remove
 /// the top and bottom margin spacing
 ///
-/// @see utilities/top-and-bottom
-///
 /// @example scss
 ///   @include nhsuk-top-and-bottom;
 ///
 
-@mixin nhsuk-top-and-bottom() {
+@mixin nhsuk-top-and-bottom {
   & > *:first-child {
     margin-top: 0;
   }
@@ -232,8 +226,12 @@
 ///
 /// See components/_panel
 ///
+/// @param {Colour} $panel-background-colour - Panel background colour
+/// @param {Colour} $panel-text-colour - Panel text colour
+/// @param {Colour} $panel-border-colour - Panel border colour
+///
 /// @example scss
-///   @include nhsuk-panel(nhsuk-colour("blue"), $nhsuk-reverse-text-colour, $nhsuk-secondary-border-colour);
+///   @include nhsuk-panel($nhsuk-brand-colour, $nhsuk-reverse-text-colour, $nhsuk-secondary-border-colour);
 ///
 
 @mixin nhsuk-panel($panel-background-colour, $panel-text-colour, $panel-border-colour) {
@@ -263,12 +261,12 @@
 /// Panel with label mixin, inherits panel styling
 /// and removes padding top for the label positioning
 ///
-/// Used in-conjunction with @mixin heading-label
-///
-/// @see components/_warning-component
+/// @param {Colour} $panel-background-colour - Panel background colour
+/// @param {Colour} $panel-text-colour - Panel text colour
+/// @param {Colour} $panel-border-colour - Panel border colour
 ///
 /// @example scss
-///   @include nhsuk-panel-with-label(nhsuk-colour("blue"), $nhsuk-reverse-text-colour, $nhsuk-secondary-border-colour);
+///   @include nhsuk-panel-with-label($nhsuk-brand-colour, $nhsuk-reverse-text-colour, $nhsuk-secondary-border-colour);
 ///
 
 @mixin nhsuk-panel-with-label($panel-background-colour, $panel-text-colour, $panel-border-colour) {
@@ -295,10 +293,6 @@
 /// Heading label mixin, adds a tab heading to
 /// warning callout, do and don't lists and panel
 ///
-/// Used in-conjunction with @mixin panel-with-label
-///
-/// @see components/_warning-component
-///
 /// 1. Background colour to be set on the @include.
 /// 2. Ensures heading appears separate to the body text in high contrast mode.
 /// 3. Text colour to be set on the @include.
@@ -306,8 +300,11 @@
 /// 5. Negative left margin aligns the heading to the box.
 /// 6. Top positioning set to minus to make heading sit just outside the box.
 ///
+/// @param {Colour} $heading-background-colour - Heading background colour
+/// @param {Colour} $heading-text-colour - Heading text colour
+///
 /// @example scss
-///   @include nhsuk-heading-label(nhsuk-colour("blue"), $nhsuk-reverse-text-colour);
+///   @include nhsuk-heading-label($nhsuk-brand-colour, $nhsuk-reverse-text-colour);
 ///
 
 @mixin nhsuk-heading-label($heading-background-colour, $heading-text-colour) {
@@ -331,9 +328,8 @@
     top: nhsuk-spacing(-2); // [6]
   }
 
-  @include nhsuk-media-query($media-type: print) {
+  @include nhsuk-print-colour {
     background: none;
-    color: nhsuk-colour("black");
     top: 0;
   }
 }
@@ -352,10 +348,12 @@
 /// Care card mixin, used for creating
 /// different coloured care cards
 ///
-/// @see components/card/card
+/// @param {Colour} $heading-background-colour - Heading background colour
+/// @param {Colour} $heading-text-colour - Heading text colour
+/// @param {Number} $print-border-size - Print border size
 ///
 /// @example scss
-///   @include nhsuk-care-card(nhsuk-colour("blue"), $nhsuk-reverse-text-colour, 4px);
+///   @include nhsuk-care-card($nhsuk-brand-colour, $nhsuk-reverse-text-colour, 4px);
 ///
 
 @mixin nhsuk-care-card($heading-background-colour, $heading-text-colour, $print-border-size) {
@@ -364,9 +362,8 @@
     color: $heading-text-colour;
   }
 
-  @include nhsuk-media-query($media-type: print) {
+  @include nhsuk-print-colour {
     border: $print-border-size solid $nhsuk-print-text-colour;
-    color: $nhsuk-print-text-colour;
     page-break-inside: avoid;
   }
 }
@@ -385,21 +382,16 @@
 /// Print colour mixin, sets the text print colour
 /// warning callout, do and don't lists and panels
 ///
-/// @see components/_care-card
+/// @param {Colour} $print-colour [$nhsuk-print-text-colour] - Print colour
 ///
 /// @example scss
-///   @include nhsuk-print-colour($nhsuk-print-text-colour);
+///   @include nhsuk-print-colour($print-colour: inherit);
 ///
 
-@mixin nhsuk-print-colour($print-colour) {
+@mixin nhsuk-print-colour($print-colour: $nhsuk-print-text-colour) {
   @include nhsuk-media-query($media-type: print) {
     color: $print-colour;
-
-    &:active,
-    &:focus,
-    &:visited {
-      color: $nhsuk-print-text-colour;
-    }
+    @content;
   }
 }
 
@@ -428,10 +420,10 @@
 /// Print hide mixin, hides the element from print
 ///
 /// @example scss
-///   @include nhsuk-print-hide();
+///   @include nhsuk-print-hide;
 ///
 
-@mixin nhsuk-print-hide() {
+@mixin nhsuk-print-hide {
   @include nhsuk-media-query($media-type: print) {
     display: none;
   }
@@ -442,9 +434,9 @@
 /// @alias nhsuk-print-hide
 /// @deprecated To be removed in v11.0, replaced by nhsuk-print-hide
 
-@mixin print-hide($args...) {
+@mixin print-hide {
   @include nhsuk-warning("print-hide", "print-hide is deprecated. Use nhsuk-print-hide instead.");
-  @include nhsuk-print-hide($args...);
+  @include nhsuk-print-hide;
 }
 
 /// Flex mixin
@@ -453,7 +445,7 @@
 ///   @include nhsuk-flex;
 ///
 
-@mixin nhsuk-flex() {
+@mixin nhsuk-flex {
   display: flex;
   flex-wrap: wrap;
 }
@@ -463,9 +455,9 @@
 /// @alias nhsuk-flex
 /// @deprecated To be removed in v11.0, replaced by nhsuk-flex
 
-@mixin flex($args...) {
+@mixin flex {
   @include nhsuk-warning("flex", "flex is deprecated. Use nhsuk-flex instead.");
-  @include nhsuk-flex($args...);
+  @include nhsuk-flex;
 }
 
 /// Flex item mixin
@@ -474,7 +466,7 @@
 ///   @include nhsuk-flex-item;
 ///
 
-@mixin nhsuk-flex-item() {
+@mixin nhsuk-flex-item {
   display: flex;
 
   @include nhsuk-media-query($until: desktop) {
@@ -487,16 +479,16 @@
 /// @alias nhsuk-flex-item
 /// @deprecated To be removed in v11.0, replaced by nhsuk-flex-item
 
-@mixin flex-item($args...) {
+@mixin flex-item {
   @include nhsuk-warning("flex-item", "flex-item is deprecated. Use nhsuk-flex-item instead.");
-  @include nhsuk-flex-item($args...);
+  @include nhsuk-flex-item;
 }
 
 /// Remove margin mobile mixin
 ///
 /// Removes left and right margin at tablet breakpoint
 
-@mixin nhsuk-remove-margin-mobile() {
+@mixin nhsuk-remove-margin-mobile {
   @include nhsuk-media-query($until: tablet) {
     margin-left: -$nhsuk-gutter-half;
     margin-right: -$nhsuk-gutter-half;

@@ -1,17 +1,17 @@
 @use "sass:color";
 
+// stylelint-disable color-no-hex
+
 ////
+/// @group settings/colours
+////
+
 /// NHS colour palette
 ///
 /// @type Map
 ///
 /// @prop $colour - Representation for the given $colour, where $colour is the
 ///   friendly name for the colour (e.g. "red": #ff0000);
-///
-/// @group settings
-////
-
-// stylelint-disable color-no-hex
 
 $nhsuk-colours: (
   // Primary

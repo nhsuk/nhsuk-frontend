@@ -7,38 +7,40 @@
 /// 1. Allow space for the chevron.
 /// 2. Hide back link on print stylesheets.
 ///
-/// @group components
+/// @group components/back-link
 ////
 
-$_font-size: 16;
+@include nhsuk-exports("nhsuk/components/back-link") {
+  $_font-size: 16;
 
-.nhsuk-back-link {
-  background: none;
-  border: 0;
-  cursor: pointer;
-  display: inline-block;
-  padding: 0;
-  padding-left: nhsuk-em($_font-size, $nhsuk-base-font-size);
-  position: relative;
+  .nhsuk-back-link {
+    background: none;
+    border: 0;
+    cursor: pointer;
+    display: inline-block;
+    padding: 0;
+    padding-left: nhsuk-em($_font-size, $nhsuk-base-font-size);
+    position: relative;
 
-  @include nhsuk-font($_font-size);
-  @include nhsuk-link-style-default;
-  @include nhsuk-link-style-no-visited-state;
-  @include nhsuk-responsive-margin(4, "top");
-  @include nhsuk-print-hide; // [2]
+    @include nhsuk-font($_font-size);
+    @include nhsuk-link-style-default;
+    @include nhsuk-link-style-no-visited-state;
+    @include nhsuk-responsive-margin(4, "top");
+    @include nhsuk-print-hide; // [2]
 
-  &::before {
-    bottom: 0;
-    content: "";
-    left: 0;
-    margin: auto;
-    position: absolute;
-    top: 0;
+    &::before {
+      bottom: 0;
+      content: "";
+      left: 0;
+      margin: auto;
+      position: absolute;
+      top: 0;
 
-    @include nhsuk-shape-chevron(left, $color: currentcolor, $font-size: 19);
+      @include nhsuk-shape-chevron(left, $colour: currentcolor, $font-size: 19);
+    }
   }
-}
 
-.nhsuk-back-link--reverse {
-  @include nhsuk-link-style-white;
+  .nhsuk-back-link--reverse {
+    @include nhsuk-link-style-white;
+  }
 }
