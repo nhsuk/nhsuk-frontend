@@ -31,25 +31,29 @@
 /// @group components/card
 ////
 
-$card-border-width: 1px;
-$card-border-bottom-width: nhsuk-spacing(1);
-$card-border-colour: $nhsuk-border-colour;
-$card-border-hover-colour: $nhsuk-border-hover-colour;
+$nhsuk-card-border-width: 1px;
+$nhsuk-card-border-bottom-width: nhsuk-spacing(1);
+$nhsuk-card-border-colour: $nhsuk-border-colour;
+$nhsuk-card-border-hover-colour: $nhsuk-border-hover-colour;
 
 // @deprecated To be removed in v11.0
-$card-border-color: $card-border-colour;
-$card-border-hover-color: $card-border-hover-colour;
+$card-border-width: $nhsuk-card-border-width;
+$card-border-bottom-width: $nhsuk-card-border-bottom-width;
+$card-border-color: $nhsuk-card-border-colour;
+$card-border-colour: $nhsuk-card-border-colour;
+$card-border-hover-color: $nhsuk-card-border-hover-colour;
+$card-border-hover-colour: $nhsuk-card-border-hover-colour;
 
 @include nhsuk-exports("nhsuk/components/card") {
   .nhsuk-card {
     position: relative; // [1]
     width: 100%;
 
-    @include nhsuk-panel($nhsuk-card-background-colour, $nhsuk-text-colour, $card-border-colour);
+    @include nhsuk-panel($nhsuk-card-background-colour, $nhsuk-text-colour, $nhsuk-card-border-colour);
   }
 
   .nhsuk-card__img {
-    border-bottom: $card-border-width solid nhsuk-colour("grey-5"); // [2]
+    border-bottom: $nhsuk-card-border-width solid nhsuk-colour("grey-5"); // [2]
     display: block;
     width: 100%;
 
@@ -76,7 +80,7 @@ $card-border-hover-color: $card-border-hover-colour;
   // Clickable card
 
   .nhsuk-card--clickable {
-    border-bottom-width: $card-border-bottom-width;
+    border-bottom-width: $nhsuk-card-border-bottom-width;
 
     .nhsuk-card__heading a,
     .nhsuk-card__link {
@@ -93,8 +97,8 @@ $card-border-hover-color: $card-border-hover-colour;
     }
 
     &:active {
-      border-color: $card-border-hover-colour;
-      bottom: -$card-border-width; // [3]
+      border-color: $nhsuk-card-border-hover-colour;
+      bottom: -$nhsuk-card-border-width; // [3]
     }
   }
 
@@ -145,7 +149,7 @@ $card-border-hover-color: $card-border-hover-colour;
   // Card feature
 
   .nhsuk-card--feature {
-    @include nhsuk-panel-with-label($nhsuk-card-background-colour, $nhsuk-text-colour, $card-border-colour);
+    @include nhsuk-panel-with-label($nhsuk-card-background-colour, $nhsuk-text-colour, $nhsuk-card-border-colour);
   }
 
   .nhsuk-card__heading--feature {
@@ -291,7 +295,7 @@ $card-border-hover-color: $card-border-hover-colour;
 
   .nhsuk-card--secondary {
     background: transparent;
-    border-bottom: $card-border-bottom-width solid $card-border-colour;
+    border-bottom: $nhsuk-card-border-bottom-width solid $nhsuk-card-border-colour;
     border-left: 0;
     border-right: 0;
     border-top: 0;
