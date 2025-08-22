@@ -63,8 +63,8 @@ $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
   }
 
   .nhsuk-radios__input + .nhsuk-radios__label::before {
-    background: $nhsuk-form-element-background-colour;
-    border: $nhsuk-border-width-form-element solid $nhsuk-form-border-colour;
+    background: $nhsuk-input-background-colour;
+    border: $nhsuk-border-width-form-element solid $nhsuk-input-border-colour;
     border-radius: 50%;
     box-sizing: border-box;
     content: "";
@@ -76,7 +76,7 @@ $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
   }
 
   .nhsuk-radios__input + .nhsuk-radios__label::after {
-    background: $nhsuk-form-border-colour;
+    background: $nhsuk-input-border-colour;
     border: 10px solid $nhsuk-text-colour;
     border-radius: 50%;
     content: "";
@@ -164,7 +164,7 @@ $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
     $conditional-margin-left: $conditional-border-padding; // [2]
     $conditional-padding-left: $conditional-border-padding + $nhsuk-radios-label-padding-left-right; // [3]
 
-    border-left: $conditional-border-width solid $nhsuk-form-border-colour;
+    border-left: $conditional-border-width solid $nhsuk-input-border-colour;
     margin-left: $conditional-margin-left;
     padding-left: $conditional-padding-left;
 

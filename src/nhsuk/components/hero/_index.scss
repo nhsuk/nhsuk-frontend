@@ -14,8 +14,8 @@
 
 @include nhsuk-exports("nhsuk/components/hero") {
   .nhsuk-hero {
-    background-color: nhsuk-colour("blue");
-    color: nhsuk-colour("white");
+    background-color: $nhsuk-brand-colour;
+    color: $nhsuk-reverse-text-colour;
     position: relative; // [1]
 
     @include nhsuk-print-colour($nhsuk-print-text-colour);
@@ -75,7 +75,7 @@
     }
 
     .nhsuk-hero__overlay {
-      background-color: rgba(nhsuk-shade(nhsuk-colour("blue"), 50%), 0.1); // [7]
+      background-color: rgba(nhsuk-shade($nhsuk-brand-colour, 50%), 0.1); // [7]
 
       @media only screen {
         // [4]
@@ -108,8 +108,8 @@
     }
 
     .nhsuk-hero-content {
-      background-color: nhsuk-colour("blue");
-      color: nhsuk-colour("white");
+      background-color: $nhsuk-brand-colour;
+      color: $nhsuk-reverse-text-colour;
       margin-bottom: 24px;
       padding: nhsuk-spacing(4);
       position: relative;
@@ -129,7 +129,7 @@
 
       .nhsuk-hero__arrow::before,
       .nhsuk-hero__arrow::after {
-        border: solid 32px nhsuk-colour("blue"); // [8]
+        border: solid 32px $nhsuk-brand-colour; // [8]
         content: "";
         display: block;
         height: 0;
@@ -165,7 +165,7 @@
 
     @include nhsuk-media-query($media-type: print) {
       .nhsuk-hero-content {
-        color: nhsuk-colour("black");
+        color: $nhsuk-print-text-colour;
         max-width: 100%;
         padding: 0;
       }

@@ -32,7 +32,7 @@
       position: absolute;
       top: nhsuk-em(12px, $nhsuk-base-font-size);
       width: nhsuk-spacing(3);
-      border-top: 1px solid nhsuk-colour("grey-3");
+      border-top: 1px solid $nhsuk-border-hover-colour;
     }
   }
 

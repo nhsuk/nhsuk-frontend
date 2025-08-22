@@ -83,7 +83,7 @@
   }
 
   .nhsuk-breadcrumb--reverse {
-    color: nhsuk-colour("white");
+    color: $nhsuk-reverse-text-colour;
 
     .nhsuk-breadcrumb__link,
     .nhsuk-back-link {
@@ -91,7 +91,7 @@
     }
 
     .nhsuk-breadcrumb__list-item::before {
-      color: rgba(nhsuk-colour("white"), 0.6);
+      color: rgba($nhsuk-reverse-text-colour, 0.6);
     }
   }
 }

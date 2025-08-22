@@ -20,7 +20,7 @@
 ////
 
 html {
-  background-color: nhsuk-colour("grey-4");
+  background-color: $nhsuk-template-background-colour;
   overflow-y: scroll; // [1]
 
   @if $nhsuk-include-font-face {
@@ -33,7 +33,7 @@ html {
 }
 
 body {
-  background-color: nhsuk-colour("grey-5");
+  background-color: $nhsuk-body-background-colour;
   color: $nhsuk-text-colour;
   font-size: $nhsuk-base-font-size;
   -moz-osx-font-smoothing: grayscale; // [2]

@@ -34,7 +34,7 @@
 $card-border-width: 1px;
 $card-border-bottom-width: nhsuk-spacing(1);
 $card-border-colour: $nhsuk-border-colour;
-$card-border-hover-colour: nhsuk-colour("grey-3");
+$card-border-hover-colour: $nhsuk-border-hover-colour;
 
 // @deprecated To be removed in v11.0
 $card-border-color: $card-border-colour;
@@ -45,7 +45,7 @@ $card-border-hover-color: $card-border-hover-colour;
     position: relative; // [1]
     width: 100%;
 
-    @include nhsuk-panel(nhsuk-colour("white"), $nhsuk-text-colour, $card-border-colour);
+    @include nhsuk-panel($nhsuk-card-background-colour, $nhsuk-text-colour, $card-border-colour);
   }
 
   .nhsuk-card__img {
@@ -145,11 +145,11 @@ $card-border-hover-color: $card-border-hover-colour;
   // Card feature
 
   .nhsuk-card--feature {
-    @include nhsuk-panel-with-label(nhsuk-colour("white"), $nhsuk-text-colour, $card-border-colour);
+    @include nhsuk-panel-with-label($nhsuk-card-background-colour, $nhsuk-text-colour, $card-border-colour);
   }
 
   .nhsuk-card__heading--feature {
-    @include nhsuk-heading-label(nhsuk-colour("blue"), nhsuk-colour("white"));
+    @include nhsuk-heading-label($nhsuk-brand-colour, $nhsuk-reverse-text-colour);
   }
 
   .nhsuk-card__content--feature {
@@ -159,7 +159,7 @@ $card-border-hover-color: $card-border-hover-colour;
   // Care card
 
   .nhsuk-card--care {
-    @include nhsuk-care-card(nhsuk-colour("blue"), nhsuk-colour("white"), 4px); // [8]
+    @include nhsuk-care-card($nhsuk-brand-colour, $nhsuk-reverse-text-colour, 4px); // [8]
     @include nhsuk-responsive-margin(7, "top");
   }
 
@@ -198,7 +198,7 @@ $card-border-hover-color: $card-border-hover-colour;
 
     &::before,
     &::after {
-      border: solid 32px nhsuk-colour("blue"); // [9]
+      border: solid 32px $nhsuk-brand-colour; // [9]
       content: "";
       display: block;
       height: 0;
@@ -210,7 +210,7 @@ $card-border-hover-color: $card-border-hover-colour;
   }
 
   .nhsuk-card--care--urgent {
-    @include nhsuk-care-card(nhsuk-colour("red"), nhsuk-colour("white"), 6px);
+    @include nhsuk-care-card(nhsuk-colour("red"), $nhsuk-reverse-text-colour, 6px);
 
     .nhsuk-card--care__arrow {
       &::before,
@@ -221,7 +221,7 @@ $card-border-hover-color: $card-border-hover-colour;
   }
 
   .nhsuk-card--care--emergency {
-    @include nhsuk-care-card(nhsuk-colour("red"), nhsuk-colour("white"), 8px);
+    @include nhsuk-care-card(nhsuk-colour("red"), $nhsuk-reverse-text-colour, 8px);
 
     .nhsuk-card--care__arrow {
       &::before,
@@ -233,7 +233,7 @@ $card-border-hover-color: $card-border-hover-colour;
     .nhsuk-card__content {
       background-color: nhsuk-colour("black");
       border: 0;
-      color: nhsuk-colour("white");
+      color: $nhsuk-reverse-text-colour;
       position: static; // [15]
 
       a {
@@ -241,28 +241,28 @@ $card-border-hover-color: $card-border-hover-colour;
       }
 
       @include nhsuk-media-query($media-type: print) {
-        background-color: nhsuk-colour("white");
+        background-color: $nhsuk-card-background-colour;
         color: $nhsuk-print-text-colour;
       }
     }
 
     .nhsuk-details,
     .nhsuk-details__summary {
-      color: nhsuk-colour("white");
+      color: $nhsuk-reverse-text-colour;
     }
 
     .nhsuk-details__summary {
       &:hover {
-        color: nhsuk-colour("white");
+        color: $nhsuk-reverse-text-colour;
       }
 
       &:focus {
-        color: nhsuk-colour("black");
+        color: $nhsuk-focus-text-colour;
       }
     }
 
     .nhsuk-action-link__link .nhsuk-icon {
-      fill: nhsuk-colour("white"); // [14]
+      fill: $nhsuk-reverse-text-colour; // [14]
     }
   }
 
@@ -277,7 +277,7 @@ $card-border-hover-color: $card-border-hover-colour;
 
     .nhsuk-icon {
       display: block;
-      fill: nhsuk-colour("blue");
+      fill: $nhsuk-link-colour;
       height: nhsuk-px-to-rem($nhsuk-icon-size-large);
       width: nhsuk-px-to-rem($nhsuk-icon-size-large);
       margin-top: math.floor(math.div($nhsuk-icon-size-large, -2));

@@ -18,10 +18,10 @@
 
 @include nhsuk-exports("nhsuk/components/select") {
   .nhsuk-select {
-    background-color: nhsuk-colour("white");
-    border: $nhsuk-border-width-form-element solid $nhsuk-form-border-colour;
+    background-color: $nhsuk-input-background-colour;
+    border: $nhsuk-border-width-form-element solid $nhsuk-input-border-colour;
     box-sizing: border-box;
-    color: nhsuk-colour("black");
+    color: $nhsuk-text-colour;
     height: 2.5rem; // [1]
     min-width: 20ex + 3ex; // [2]
     max-width: 100%;
@@ -38,7 +38,7 @@
   .nhsuk-select option:checked,
   .nhsuk-select:focus::-ms-value {
     background-color: nhsuk-colour("blue");
-    color: nhsuk-colour("white");
+    color: $nhsuk-reverse-text-colour;
   }
 
   .nhsuk-select--error {

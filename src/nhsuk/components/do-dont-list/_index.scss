@@ -13,7 +13,7 @@
 
 @include nhsuk-exports("nhsuk/components/do-dont-list") {
   .nhsuk-do-dont-list {
-    @include nhsuk-panel-with-label(nhsuk-colour("white"), $nhsuk-text-colour, nhsuk-colour("grey-4")); // [1]
+    @include nhsuk-panel-with-label($nhsuk-card-background-colour, $nhsuk-text-colour, $nhsuk-border-colour); // [1]
 
     .nhsuk-icon__cross,
     .nhsuk-icon--cross {
@@ -27,7 +27,7 @@
   }
 
   .nhsuk-do-dont-list__label {
-    @include nhsuk-heading-label(nhsuk-colour("blue"), $nhsuk-reverse-text-colour); // [2]
+    @include nhsuk-heading-label($nhsuk-brand-colour, $nhsuk-reverse-text-colour); // [2]
     @include nhsuk-print-colour($nhsuk-print-text-colour);
   }
 }

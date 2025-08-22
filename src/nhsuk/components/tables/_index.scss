@@ -73,7 +73,7 @@
   // 1. Margin is removed so there isn't double spacing.
 
   .nhsuk-table__panel-with-heading-tab {
-    @include nhsuk-panel-with-label(nhsuk-colour("white"), $nhsuk-text-colour, nhsuk-colour("grey-4"));
+    @include nhsuk-panel-with-label($nhsuk-card-background-colour, $nhsuk-text-colour, $nhsuk-border-colour);
 
     .nhsuk-table,
     .nhsuk-table-container,
@@ -83,7 +83,7 @@
   }
 
   .nhsuk-table__heading-tab {
-    @include nhsuk-heading-label(nhsuk-colour("blue"), $nhsuk-reverse-text-colour);
+    @include nhsuk-heading-label($nhsuk-brand-colour, $nhsuk-reverse-text-colour);
   }
 
   // Responsive table
@@ -147,7 +147,7 @@
           text-align: right; // [7]
 
           &:last-child {
-            border-bottom: 3px solid nhsuk-colour("grey-4");
+            border-bottom: 3px solid $nhsuk-border-colour;
           }
         }
       }

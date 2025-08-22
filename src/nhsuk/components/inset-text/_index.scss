@@ -15,7 +15,7 @@
 
 @include nhsuk-exports("nhsuk/components/inset-text") {
   .nhsuk-inset-text {
-    border-left: $nhsuk-border-width-inset-text solid nhsuk-colour("blue");
+    border-left: $nhsuk-border-width-inset-text solid $nhsuk-brand-colour;
 
     @include nhsuk-reading-width; // [2]
     @include nhsuk-top-and-bottom; // [1]

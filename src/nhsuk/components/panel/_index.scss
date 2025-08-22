@@ -27,10 +27,10 @@ $nhsuk-border-width-panel: nhsuk-spacing(1);
 
 @include nhsuk-exports("nhsuk/components/panel") {
   .nhsuk-panel {
-    background: nhsuk-colour("green");
+    background: $nhsuk-success-colour;
     border: $nhsuk-border-width-panel solid transparent; /* [1] */
     box-sizing: border-box;
-    color: nhsuk-colour("white");
+    color: $nhsuk-reverse-text-colour;
     padding: nhsuk-spacing(5) - $nhsuk-border-width-panel; /* [2] */
 
     @include nhsuk-font-size(26);
