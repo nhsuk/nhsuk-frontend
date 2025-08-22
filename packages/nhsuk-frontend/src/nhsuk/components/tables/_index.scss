@@ -129,7 +129,7 @@
         min-width: 1px; // [5]
       }
 
-      @media all and (-ms-high-contrast: none) {
+      @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
         .nhsuk-table__row th,
         .nhsuk-table__row td {
           display: block; // [9]

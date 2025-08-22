@@ -52,7 +52,6 @@ $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
     display: inline-block;
     margin-bottom: 0;
     padding: 8px $nhsuk-radios-label-padding-left-right nhsuk-spacing(1);
-    -ms-touch-action: manipulation; // [1]
     touch-action: manipulation; // [1]
   }
 

@@ -70,7 +70,7 @@
       }
     }
 
-    @media screen and (-ms-high-contrast: active) {
+    @media screen and (forced-colors: active), (-ms-high-contrast: active) {
       min-height: 0; // [12]
     }
 
@@ -82,7 +82,7 @@
         min-height: 200px; // [6]
       }
 
-      @media screen and (-ms-high-contrast: active) {
+      @media screen and (forced-colors: active), (-ms-high-contrast: active) {
         height: auto; // [12]
         min-height: 0; // [12]
       }
@@ -168,7 +168,7 @@
       }
     }
 
-    @media screen and (-ms-high-contrast: active) {
+    @media screen and (forced-colors: active), (-ms-high-contrast: active) {
       .nhsuk-hero-content {
         // [14]
         bottom: 0;

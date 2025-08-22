@@ -34,7 +34,7 @@ $button-shadow-size: $nhsuk-button-shadow-size;
 
 @include nhsuk-exports("nhsuk/components/button") {
   .nhsuk-button {
-    -webkit-appearance: none;
+    appearance: none;
     // Set shadow below the button [4]
     box-shadow: 0 $nhsuk-button-shadow-size 0 $nhsuk-button-shadow-colour; // s0
     background-color: $nhsuk-button-colour;
