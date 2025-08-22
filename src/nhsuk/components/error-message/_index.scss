@@ -4,14 +4,16 @@
 ////
 /// Error message component
 ///
-/// @group components
+/// @group components/error-message
 ////
 
-.nhsuk-error-message {
-  clear: both;
-  color: $nhsuk-error-colour;
-  display: block;
-  margin-bottom: nhsuk-spacing(3);
+@include nhsuk-exports("nhsuk/components/error-message") {
+  .nhsuk-error-message {
+    clear: both;
+    color: $nhsuk-error-colour;
+    display: block;
+    margin-bottom: nhsuk-spacing(3);
 
-  @include nhsuk-font(19, $weight: bold);
+    @include nhsuk-font(19, $weight: bold);
+  }
 }
