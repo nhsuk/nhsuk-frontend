@@ -19,11 +19,20 @@
 /// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
 ////
 
-$expander-border-width: 1px;
-$expander-border-bottom-width: nhsuk-spacing(1);
-$expander-border-colour: $nhsuk-border-colour;
-$expander-border-hover-colour: $nhsuk-border-hover-colour;
-$expander-icon-size: 27px; // 19px font size + 4px summary text padding
+$nhsuk-expander-border-width: 1px;
+$nhsuk-expander-border-bottom-width: nhsuk-spacing(1);
+$nhsuk-expander-border-colour: $nhsuk-border-colour;
+$nhsuk-expander-border-hover-colour: $nhsuk-border-hover-colour;
+$nhsuk-expander-icon-size: 27px; // 19px font size + 4px summary text padding
+
+// @deprecated To be removed in v11.0
+$expander-border-width: $nhsuk-expander-border-width;
+$expander-border-bottom-width: $nhsuk-expander-border-bottom-width;
+$expander-border-color: $nhsuk-expander-border-colour;
+$expander-border-colour: $nhsuk-expander-border-colour;
+$expander-border-hover-color: $nhsuk-expander-border-hover-colour;
+$expander-border-hover-colour: $nhsuk-expander-border-hover-colour;
+$expander-icon-size: $nhsuk-expander-icon-size;
 
 @include nhsuk-exports("nhsuk/components/details") {
   .nhsuk-details {
@@ -125,7 +134,7 @@ $expander-icon-size: 27px; // 19px font size + 4px summary text padding
 
   .nhsuk-expander {
     background-color: $nhsuk-card-background-colour;
-    border: $expander-border-width solid $expander-border-colour;
+    border: $nhsuk-expander-border-width solid $nhsuk-expander-border-colour;
 
     .nhsuk-details__summary {
       background-color: $nhsuk-card-background-colour;
@@ -164,10 +173,10 @@ $expander-icon-size: 27px; // 19px font size + 4px summary text padding
     }
 
     @supports not (-ms-ime-align: auto) {
-      border-bottom-width: $expander-border-bottom-width;
+      border-bottom-width: $nhsuk-expander-border-bottom-width;
 
       &:hover {
-        border-color: $expander-border-hover-colour;
+        border-color: $nhsuk-expander-border-hover-colour;
       }
 
       .nhsuk-details__summary {
@@ -193,7 +202,7 @@ $expander-icon-size: 27px; // 19px font size + 4px summary text padding
         cursor: pointer;
         display: inline-block;
         padding: nhsuk-spacing(1);
-        padding-left: #{$expander-icon-size + nhsuk-spacing(2)};
+        padding-left: #{$nhsuk-expander-icon-size + nhsuk-spacing(2)};
         position: relative;
       }
 
@@ -213,15 +222,15 @@ $expander-icon-size: 27px; // 19px font size + 4px summary text padding
           "M13.5 1a12.5 12.5 0 1 1 0 25 12.5 12.5 0 0 1 0-25Zm0 6c-.8 0-1.5.7-1.5 1.5V12H8.5c-.8 0-1.4.6-1.5 1.4v.1c0 .8.7 1.5 1.5 1.5H12v3.5c0 .8.6 1.4 1.4 1.5h.1c.8 0 1.5-.7 1.5-1.5V15h3.5c.8 0 1.4-.6 1.5-1.4v-.1c0-.8-.7-1.5-1.5-1.5H15V8.5c0-.8-.6-1.4-1.4-1.5Z"
         ); // Plus icon
         content: "";
-        height: $expander-icon-size;
+        height: $nhsuk-expander-icon-size;
         left: 0;
         position: absolute;
-        top: calc(50% - math.div($expander-icon-size, 2));
-        width: $expander-icon-size;
+        top: calc(50% - math.div($nhsuk-expander-icon-size, 2));
+        width: $nhsuk-expander-icon-size;
       }
 
       &[open] {
-        border-bottom-width: $expander-border-width;
+        border-bottom-width: $nhsuk-expander-border-width;
       }
 
       &[open] .nhsuk-details__summary-text::before {

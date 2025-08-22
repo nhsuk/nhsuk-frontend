@@ -23,21 +23,24 @@
 /// @group components/panel
 ////
 
-$nhsuk-border-width-panel: nhsuk-spacing(1);
+$nhsuk-panel-border-width: nhsuk-spacing(1);
+
+// @deprecated To be removed in v11.0
+$nhsuk-border-width-panel: $nhsuk-panel-border-width;
 
 @include nhsuk-exports("nhsuk/components/panel") {
   .nhsuk-panel {
     background: $nhsuk-success-colour;
-    border: $nhsuk-border-width-panel solid transparent; /* [1] */
+    border: $nhsuk-panel-border-width solid transparent; /* [1] */
     box-sizing: border-box;
     color: $nhsuk-reverse-text-colour;
-    padding: nhsuk-spacing(5) - $nhsuk-border-width-panel; /* [2] */
+    padding: nhsuk-spacing(5) - $nhsuk-panel-border-width; /* [2] */
 
     @include nhsuk-font-size(26);
     @include nhsuk-responsive-margin(4, "bottom");
 
     @include nhsuk-media-query($until: tablet) {
-      padding: nhsuk-spacing(4) - $nhsuk-border-width-panel; /* [2] */
+      padding: nhsuk-spacing(4) - $nhsuk-panel-border-width; /* [2] */
       @include nhsuk-text-break-word; /* [3] */
     }
 
