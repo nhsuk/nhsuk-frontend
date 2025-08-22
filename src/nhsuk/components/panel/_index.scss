@@ -41,9 +41,8 @@ $nhsuk-border-width-panel: nhsuk-spacing(1);
       @include nhsuk-text-break-word; /* [3] */
     }
 
-    @include nhsuk-media-query($media-type: print) {
+    @include nhsuk-print-colour {
       border-color: currentcolor;
-      color: $nhsuk-print-text-colour;
       background: none;
     }
   }

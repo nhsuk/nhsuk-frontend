@@ -60,9 +60,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     color: $nhsuk-focus-text-colour;
   }
 
-  @include nhsuk-media-query($media-type: print) {
-    color: inherit;
-
+  @include nhsuk-print-colour($print-colour: inherit) {
     &::after {
       content: "";
     }
@@ -84,9 +82,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
       border-bottom: nhsuk-spacing(1) solid $nhsuk-border-colour;
     }
 
-    @include nhsuk-media-query($media-type: print) {
-      color: $nhsuk-print-text-colour;
-    }
+    @include nhsuk-print-colour;
   }
 
   .nhsuk-header__container {

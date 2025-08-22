@@ -34,7 +34,11 @@
     }
 
     @include nhsuk-font(22, $weight: bold, $line-height: $_small-icon-size);
-    @include nhsuk-print-colour($nhsuk-print-text-colour);
+
+    @include nhsuk-print-colour {
+      @include nhsuk-link-style-text($nhsuk-print-text-colour);
+    }
+
     @include nhsuk-responsive-margin(6, "bottom");
 
     @include nhsuk-media-query($from: tablet) {
