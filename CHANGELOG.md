@@ -1,6 +1,6 @@
 # NHS.UK frontend Changelog
 
-## 10.0.0 - TBC
+## 10.0.0 - 26 August 2025
 
 This release introduces some breaking changes to file paths, full width buttons on mobile, the header component and others.
 
