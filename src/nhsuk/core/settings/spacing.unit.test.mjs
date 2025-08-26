@@ -2,7 +2,11 @@ import { outdent } from 'outdent'
 import { compileStringAsync } from 'sass-embedded'
 
 describe('Spacing settings', () => {
-  const sassBootstrap = `
+  const sassModules = outdent`
+    @use "core/tools/spacing" as *;
+  `
+
+  const sassBootstrap = outdent`
     $spacing-point: 2;
 
     @use "core/settings/breakpoints" as * with (
@@ -24,12 +28,12 @@ describe('Spacing settings', () => {
       )
     );
 
-    @use "core/tools/spacing" as *;
+    ${sassModules}
   `
 
   describe('@function nhsuk-spacing', () => {
     it('returns CSS for a property based on the given spacing point', async () => {
-      const sass = `
+      const sass = outdent`
         ${sassBootstrap}
 
         .foo {
@@ -51,7 +55,7 @@ describe('Spacing settings', () => {
     })
 
     it('returns CSS for a property based on a negative spacing point', async () => {
-      const sass = `
+      const sass = outdent`
         ${sassBootstrap}
 
         .foo {
@@ -73,7 +77,7 @@ describe('Spacing settings', () => {
     })
 
     it('throws an error when passed anything other than a number', async () => {
-      const sass = `
+      const sass = outdent`
         ${sassBootstrap}
 
         .foo {
@@ -91,7 +95,7 @@ describe('Spacing settings', () => {
     })
 
     it('throws an error when passed a non-existent point', async () => {
-      const sass = `
+      const sass = outdent`
         ${sassBootstrap}
 
         .foo {
@@ -109,7 +113,7 @@ describe('Spacing settings', () => {
     })
 
     it('throws an error when passed a non-existent negative point', async () => {
-      const sass = `
+      const sass = outdent`
         ${sassBootstrap}
 
         .foo {
@@ -127,7 +131,7 @@ describe('Spacing settings', () => {
     })
 
     it('handles negative zero', async () => {
-      const sass = `
+      const sass = outdent`
         ${sassBootstrap}
 
         .foo {
@@ -151,7 +155,7 @@ describe('Spacing settings', () => {
 
   describe('@mixin nhsuk-responsive-spacing', () => {
     it('outputs CSS for a property based on the given spacing map', async () => {
-      const sass = `
+      const sass = outdent`
         ${sassBootstrap}
 
         .foo {
@@ -178,7 +182,7 @@ describe('Spacing settings', () => {
     })
 
     it('outputs CSS for a property and direction based on the spacing map', async () => {
-      const sass = `
+      const sass = outdent`
         ${sassBootstrap}
 
         .foo {
@@ -205,7 +209,7 @@ describe('Spacing settings', () => {
     })
 
     it('throws an exception when passed a non-existent point', async () => {
-      const sass = `
+      const sass = outdent`
         ${sassBootstrap}
 
         .foo {
@@ -224,7 +228,7 @@ describe('Spacing settings', () => {
 
     describe('when $important is set to true', () => {
       it('marks the rule as important for the property', async () => {
-        const sass = `
+        const sass = outdent`
           ${sassBootstrap}
 
           .foo {
@@ -255,7 +259,7 @@ describe('Spacing settings', () => {
       })
 
       it('marks the rule as important for the property and direction', async () => {
-        const sass = `
+        const sass = outdent`
           ${sassBootstrap}
 
           .foo {
@@ -289,7 +293,7 @@ describe('Spacing settings', () => {
 
     describe('when an adjustment is provided', () => {
       it('adjusts the value for the property', async () => {
-        const sass = `
+        const sass = outdent`
           ${sassBootstrap}
 
           .foo {
@@ -320,7 +324,7 @@ describe('Spacing settings', () => {
       })
 
       it('adjusts the value for the property and direction', async () => {
-        const sass = `
+        const sass = outdent`
           ${sassBootstrap}
 
           .foo {
@@ -355,7 +359,7 @@ describe('Spacing settings', () => {
 
   describe('@mixin nhsuk-responsive-margin', () => {
     it('outputs simple responsive margins', async () => {
-      const sass = `
+      const sass = outdent`
           ${sassBootstrap}
 
           .foo {
@@ -382,7 +386,7 @@ describe('Spacing settings', () => {
     })
 
     it('outputs extreme responsive margins', async () => {
-      const sass = `
+      const sass = outdent`
           ${sassBootstrap}
 
           .foo {
@@ -416,7 +420,7 @@ describe('Spacing settings', () => {
 
   describe('@mixin nhsuk-responsive-padding', () => {
     it('outputs simple responsive padding', async () => {
-      const sass = `
+      const sass = outdent`
           ${sassBootstrap}
 
           .foo {
@@ -443,7 +447,7 @@ describe('Spacing settings', () => {
     })
 
     it('outputs extreme responsive padding', async () => {
-      const sass = `
+      const sass = outdent`
           ${sassBootstrap}
 
           .foo {

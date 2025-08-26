@@ -2,14 +2,13 @@ import { outdent } from 'outdent'
 import { compileStringAsync } from 'sass-embedded'
 
 describe('Grid system', () => {
-  const sassModules = `
-    @use "core/settings" as *;
-    @use "core/tools" as *;
+  const sassModules = outdent`
+    @use "core/tools/grid" as *;
   `
 
   describe('@function nhsuk-grid-width', () => {
     it('outputs the specified key value from the map of widths', async () => {
-      const sass = `
+      const sass = outdent`
         ${sassModules}
 
         .foo {
@@ -31,7 +30,7 @@ describe('Grid system', () => {
     })
 
     it('throws an error that the specified key does not exist in the map of widths', async () => {
-      const sass = `
+      const sass = outdent`
         ${sassModules}
 
         $value: nhsuk-grid-width(seven-fifths);
@@ -47,7 +46,7 @@ describe('Grid system', () => {
 
   describe('@mixin nhsuk-grid-column', () => {
     it('outputs the CSS required for a column in the grid', async () => {
-      const sass = `
+      const sass = outdent`
         ${sassModules}
 
         .nhsuk-grid-column-full {
@@ -75,7 +74,7 @@ describe('Grid system', () => {
     })
 
     it('allows different widths to be specified using $width', async () => {
-      const sass = `
+      const sass = outdent`
         ${sassModules}
 
         .nhsuk-grid-column-two-thirds {
@@ -103,7 +102,7 @@ describe('Grid system', () => {
     })
 
     it('allows predefined breakpoints to be specified using $at', async () => {
-      const sass = `
+      const sass = outdent`
         ${sassModules}
 
         .nhsuk-grid-column-one-quarter-at-desktop {
@@ -131,7 +130,7 @@ describe('Grid system', () => {
     })
 
     it('allows custom breakpoints to be specified using $at', async () => {
-      const sass = `
+      const sass = outdent`
         ${sassModules}
 
         .nhsuk-grid-column-one-quarter-at-500px {
@@ -159,7 +158,7 @@ describe('Grid system', () => {
     })
 
     it('allows columns to float right using $float: right', async () => {
-      const sass = `
+      const sass = outdent`
         ${sassModules}
 
         .nhsuk-grid-column-one-half-right {

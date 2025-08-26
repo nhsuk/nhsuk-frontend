@@ -2,12 +2,11 @@ import { outdent } from 'outdent'
 import { compileStringAsync, sassNull } from 'sass-embedded'
 
 describe('Typography tools', () => {
-  const sassModules = `
-    @use "core/settings" as *;
-    @use "core/tools" as *;
+  const sassModules = outdent`
+    @use "core/tools/typography" as *;
   `
 
-  const sassBootstrap = `
+  const sassBootstrap = outdent`
     @use "core/settings/breakpoints" as * with (
       $nhsuk-breakpoints: (
         desktop: 30em
@@ -53,7 +52,7 @@ describe('Typography tools', () => {
       )
     );
 
-    @use "core/tools/typography" as *;
+    ${sassModules}
   `
 
   /** @type {Logger} */
@@ -67,7 +66,7 @@ describe('Typography tools', () => {
 
   describe('@mixin nhsuk-text-break-word', () => {
     it('adds the word-wrap and overflow-wrap properties', async () => {
-      const sass = `
+      const sass = outdent`
         ${sassBootstrap}
 
         .foo {
@@ -90,7 +89,7 @@ describe('Typography tools', () => {
     })
 
     it('marks the properties as important if $important is set to true', async () => {
-      const sass = `
+      const sass = outdent`
         ${sassBootstrap}
 
         .foo {
@@ -115,7 +114,7 @@ describe('Typography tools', () => {
 
   describe('@function nhsuk-line-height', () => {
     it('preserves line-height if already unitless', async () => {
-      const sass = `
+      const sass = outdent`
         ${sassModules}
 
         .foo {
@@ -137,7 +136,7 @@ describe('Typography tools', () => {
     })
 
     it('preserves line-height if using different units', async () => {
-      const sass = `
+      const sass = outdent`
         ${sassModules}
 
         .foo {
@@ -159,7 +158,7 @@ describe('Typography tools', () => {
     })
 
     it('converts line-height to a relative number', async () => {
-      const sass = `
+      const sass = outdent`
         ${sassModules}
 
         .foo {
@@ -183,7 +182,7 @@ describe('Typography tools', () => {
 
   describe('@mixin nhsuk-font-size', () => {
     it('outputs CSS with suitable media queries', async () => {
-      const sass = `
+      const sass = outdent`
         ${sassBootstrap}
 
         .foo {
@@ -214,7 +213,7 @@ describe('Typography tools', () => {
     })
 
     it('outputs CSS with suitable media queries for print', async () => {
-      const sass = `
+      const sass = outdent`
         ${sassBootstrap}
 
         .foo {
@@ -244,7 +243,7 @@ describe('Typography tools', () => {
     })
 
     it('outputs CSS when passing size as a string', async () => {
-      const sass = `
+      const sass = outdent`
         ${sassBootstrap}
 
         .foo {
@@ -275,7 +274,7 @@ describe('Typography tools', () => {
     })
 
     it('outputs CSS using points as strings', async () => {
-      const sass = `
+      const sass = outdent`
         @use "core/settings/breakpoints" as * with (
           $nhsuk-breakpoints: (
             desktop: 30em
@@ -326,7 +325,7 @@ describe('Typography tools', () => {
     })
 
     it('throws an exception when passed a size that is not in the scale', async () => {
-      const sass = `
+      const sass = outdent`
         ${sassBootstrap}
 
         .foo {
@@ -344,7 +343,7 @@ describe('Typography tools', () => {
     })
 
     it('throws a deprecation warning if a point on the scale is deprecated', async () => {
-      const sass = `
+      const sass = outdent`
         ${sassBootstrap}
 
         .foo {
@@ -367,7 +366,7 @@ describe('Typography tools', () => {
 
     describe('when $important is set to true', () => {
       it('marks font size and line height as important', async () => {
-        const sass = `
+        const sass = outdent`
           ${sassBootstrap}
 
           .foo {
@@ -398,7 +397,7 @@ describe('Typography tools', () => {
       })
 
       it('marks font-size and line-height as important for print media', async () => {
-        const sass = `
+        const sass = outdent`
           ${sassBootstrap}
 
           .foo {
@@ -430,7 +429,7 @@ describe('Typography tools', () => {
 
     describe('when $line-height is set', () => {
       it('overrides the line height', async () => {
-        const sass = `
+        const sass = outdent`
           ${sassBootstrap}
 
           .foo {
@@ -463,7 +462,7 @@ describe('Typography tools', () => {
 
     describe('@mixin nhsuk-font', () => {
       it('outputs all required typographic CSS properties', async () => {
-        const sass = `
+        const sass = outdent`
           ${sassBootstrap}
 
           .foo {
@@ -497,7 +496,7 @@ describe('Typography tools', () => {
       })
 
       it('sets font-size based on $size', async () => {
-        const sass = `
+        const sass = outdent`
           ${sassBootstrap}
 
           .foo {
@@ -519,7 +518,7 @@ describe('Typography tools', () => {
       })
 
       it('does not output font-size if $size: false', async () => {
-        const sass = `
+        const sass = outdent`
           ${sassBootstrap}
 
           .foo {
@@ -537,7 +536,7 @@ describe('Typography tools', () => {
       })
 
       it('sets font-weight based on $weight', async () => {
-        const sass = `
+        const sass = outdent`
           ${sassBootstrap}
 
           .foo {
@@ -555,7 +554,7 @@ describe('Typography tools', () => {
       })
 
       it('does not output font-weight if $weight: false', async () => {
-        const sass = `
+        const sass = outdent`
           ${sassBootstrap}
 
           .foo {
@@ -573,7 +572,7 @@ describe('Typography tools', () => {
       })
 
       it('ignores undefined font-weights', async () => {
-        const sass = `
+        const sass = outdent`
           ${sassBootstrap}
 
           .foo {
@@ -591,7 +590,7 @@ describe('Typography tools', () => {
       })
 
       it('sets line-height based on $line-height', async () => {
-        const sass = `
+        const sass = outdent`
           ${sassBootstrap}
 
           .foo {
@@ -612,7 +611,7 @@ describe('Typography tools', () => {
     // nhsuk-typography-responsive is the previous, deprecated version of nhsuk-font-size
     describe('@mixin nhsuk-typography-responsive', () => {
       it('outputs the same CSS as nhsuk-font-size', async () => {
-        const sass = `
+        const sass = outdent`
           ${sassBootstrap}
 
           .foo {
@@ -624,7 +623,7 @@ describe('Typography tools', () => {
           }
         `
 
-        const expectedSass = `
+        const expectedSass = outdent`
           ${sassBootstrap}
 
           .foo {
@@ -652,7 +651,7 @@ describe('Typography tools', () => {
       })
 
       it('throws a deprecation warning if govuk-typography-responsive is used', async () => {
-        const sass = `
+        const sass = outdent`
           ${sassBootstrap}
 
           .foo {
