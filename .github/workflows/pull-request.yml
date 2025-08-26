@@ -153,7 +153,6 @@ jobs:
     # Run existing "Sass" workflow
     # (after build has been cached)
     uses: ./.github/workflows/sass.yml
-    secrets: inherit
 
   regression:
     name: Visual regression tests
