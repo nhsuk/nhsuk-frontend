@@ -88,7 +88,7 @@ describe('Core', () => {
     `
 
     it('forwards core styles', async () => {
-      const sass = `
+      const sass = outdent`
         @forward "core";
       `
 
@@ -112,7 +112,7 @@ describe('Core', () => {
     })
 
     it('forwards core styles (with settings)', async () => {
-      const sass = `
+      const sass = outdent`
         @forward "core" with (
           $nhsuk-breakpoints: (
             mobile: 110px,
@@ -153,7 +153,7 @@ describe('Core', () => {
 
   describe('importing using "all" files', () => {
     it('outputs a warning when importing the core "all" file', async () => {
-      const sass = `
+      const sass = outdent`
         @forward "core/all";
       `
 
@@ -169,7 +169,7 @@ describe('Core', () => {
     })
 
     it('outputs a warning for each layer that has an "all" file', async () => {
-      const sass = `
+      const sass = outdent`
         @forward "core/settings/all";
         @forward "core/tools/all";
       `

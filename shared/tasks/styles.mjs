@@ -57,6 +57,7 @@ export function compile(inputPath, { srcPath, destPath, output = {} }) {
           'color-functions',
           'global-builtin',
           'import',
+          'misplaced-rest',
           'mixed-decls'
         ],
         loadPaths: [join(paths.root, 'node_modules')],

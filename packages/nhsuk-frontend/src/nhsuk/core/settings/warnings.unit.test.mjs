@@ -1,7 +1,8 @@
+import { outdent } from 'outdent'
 import { compileStringAsync, sassNull } from 'sass-embedded'
 
 describe('Warnings settings', () => {
-  const sassModules = `
+  const sassModules = outdent`
     @use "sass:list";
     @use "core/settings/warnings" as *;
   `
@@ -16,7 +17,7 @@ describe('Warnings settings', () => {
   })
 
   it('Fires a @warn with the message plus the key suffix text', async () => {
-    const sass = `
+    const sass = outdent`
       ${sassModules}
 
       @include nhsuk-warning('test', 'This is a warning.');
@@ -37,7 +38,7 @@ describe('Warnings settings', () => {
   })
 
   it('Only fires one @warn per warning key', async () => {
-    const sass = `
+    const sass = outdent`
       ${sassModules}
 
       @include nhsuk-warning('test', 'This is a warning.');
@@ -55,7 +56,7 @@ describe('Warnings settings', () => {
   })
 
   it('fires every @warn if $silence-further-warnings is false', async () => {
-    const sass = `
+    const sass = outdent`
       ${sassModules}
 
       @include nhsuk-warning('test', 'This is a warning.', $silence-further-warnings: false);
@@ -71,7 +72,7 @@ describe('Warnings settings', () => {
   })
 
   it('Does not fire a @warn if the key is already in $nhsuk-suppressed-warnings', async () => {
-    const sass = `
+    const sass = outdent`
       ${sassModules}
 
       $nhsuk-suppressed-warnings: list.append($nhsuk-suppressed-warnings, 'test');
