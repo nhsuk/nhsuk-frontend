@@ -73,17 +73,7 @@ This change was introduced in [pull request #1495: Output CSS custom properties 
 
 #### New JavaScript API for NHS.UK frontend
 
-We've updated the `initAll` function to configure components when including key-value pairs of camel-cased component names with their options:
-
-```js
-import { initAll } from 'nhsuk-frontend'
-
-initAll({
-  button: {
-    preventDoubleClick: true
-  }
-})
-```
+The JavaScript API for NHS.UK frontend now includes type declarations for better type safety and code autocomplete.
 
 We've also added a new `createAll` function that lets you initialise specific components in the same way that `initAll` does:
 
@@ -114,9 +104,21 @@ createAll(Button, {
 createAll(Checkboxes, $element)
 ```
 
+Similarly, the existing `initAll` function can also configure components by including key-value pairs of camel-cased component names with their options:
+
+```js
+import { initAll } from 'nhsuk-frontend'
+
+initAll({
+  button: {
+    preventDoubleClick: true
+  }
+})
+```
+
 You can find out more about [how to use the `initAll` and `createAll` functions](/docs/installation/installing-with-npm.md#importing-javascript) in our documentation.
 
-This was added in [pull request #1506: Add JavaScript configuration support to components](https://github.com/nhsuk/nhsuk-frontend/pull/1506).
+This was added in pull requests [#1464: Export type declarations `*.d.mts` for NHS.UK frontend](https://github.com/nhsuk/nhsuk-frontend/pull/1464) and [#1506: Add JavaScript configuration support to components](https://github.com/nhsuk/nhsuk-frontend/pull/1506).
 
 #### Create custom width container classes
 
@@ -139,12 +141,6 @@ You can use the generated classes to set the width of:
 It was already possible to set the page app width with the `$nhsuk-page-width` variable. This new feature is useful when creating additional custom page width classes.
 
 This was added in [pull request #1412: Allow creating custom width containers](https://github.com/nhsuk/nhsuk-frontend/pull/1412).
-
-#### Export type declarations
-
-We've added type declarations to the [NHS.UK frontend npm package](https://www.npmjs.com/package/govuk-frontend) for TypeScript compatibility and code autocomplete.
-
-This was added in [pull request #1464: Export type declarations `*.d.mts` for NHS.UK frontend](https://github.com/nhsuk/nhsuk-frontend/pull/1464).
 
 ### :wastebasket: **Deprecated features**
 
