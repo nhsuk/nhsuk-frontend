@@ -2,7 +2,7 @@ import { outdent } from 'outdent'
 import { compileStringAsync } from 'sass-embedded'
 
 describe('Colour helpers', () => {
-  const sassModules = `
+  const sassModules = outdent`
     @use "core/helpers" as *;
   `
 
@@ -10,7 +10,7 @@ describe('Colour helpers', () => {
     let sassBootstrap = ''
 
     beforeEach(() => {
-      sassBootstrap = `
+      sassBootstrap = outdent`
         @use "core/settings/colours-palette" as * with (
           $nhsuk-colours: (
             "red": #ff0000,
@@ -24,7 +24,7 @@ describe('Colour helpers', () => {
     })
 
     it('returns a colour from the colour palette', async () => {
-      const sass = `
+      const sass = outdent`
         ${sassBootstrap}
 
         .foo {
@@ -46,7 +46,7 @@ describe('Colour helpers', () => {
     })
 
     it('works with unquoted strings', async () => {
-      const sass = `
+      const sass = outdent`
         ${sassBootstrap}
 
         .foo {
@@ -68,7 +68,7 @@ describe('Colour helpers', () => {
     })
 
     it('throws an error if a non-existent colour is requested', async () => {
-      const sass = `
+      const sass = outdent`
         ${sassBootstrap}
 
         .foo {

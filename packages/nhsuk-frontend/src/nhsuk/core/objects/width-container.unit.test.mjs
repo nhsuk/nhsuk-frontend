@@ -2,14 +2,14 @@ import { outdent } from 'outdent'
 import { compileStringAsync } from 'sass-embedded'
 
 describe('Page width container', () => {
-  const sassBootstrap = `
+  const sassModules = outdent`
     @use "core/objects/width-container" as *;
   `
 
   describe('@mixin nhsuk-width-container', () => {
     it('allows different widths to be specified using $width', async () => {
-      const sass = `
-        ${sassBootstrap}
+      const sass = outdent`
+        ${sassModules}
 
         .app-width-container--wide {
           @include nhsuk-width-container(1200px);

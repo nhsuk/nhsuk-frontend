@@ -2,11 +2,11 @@ import { outdent } from 'outdent'
 import { compileStringAsync } from 'sass-embedded'
 
 describe('@mixin nhsuk-media-query', () => {
-  const sassModules = `
+  const sassModules = outdent`
     @use "core/tools/sass-mq" as *;
   `
 
-  const sassBootstrap = `
+  const sassBootstrap = outdent`
     @use "core/settings/breakpoints" as * with (
       $nhsuk-breakpoints: (
         mobile: 110px,
@@ -20,7 +20,7 @@ describe('@mixin nhsuk-media-query', () => {
   `
 
   it('allows you to target min-width using a numeric value', async () => {
-    const sass = `
+    const sass = outdent`
       ${sassModules}
 
       .foo {
@@ -46,7 +46,7 @@ describe('@mixin nhsuk-media-query', () => {
   })
 
   it('allows you to target min-width using a predefined breakpoint', async () => {
-    const sass = `
+    const sass = outdent`
       ${sassBootstrap}
 
       .foo {
@@ -72,7 +72,7 @@ describe('@mixin nhsuk-media-query', () => {
   })
 
   it('allows you to target max-width using a numeric value', async () => {
-    const sass = `
+    const sass = outdent`
       ${sassModules}
 
       .foo {
@@ -98,7 +98,7 @@ describe('@mixin nhsuk-media-query', () => {
   })
 
   it('allows you to target max-width using a predefined breakpoint', async () => {
-    const sass = `
+    const sass = outdent`
       ${sassBootstrap}
 
       .foo {
@@ -124,7 +124,7 @@ describe('@mixin nhsuk-media-query', () => {
   })
 
   it('allows you to target combined min-width and max-width using numeric values', async () => {
-    const sass = `
+    const sass = outdent`
       ${sassModules}
 
       .foo {
@@ -150,7 +150,7 @@ describe('@mixin nhsuk-media-query', () => {
   })
 
   it('allows you to target combined min-width and max-width using predefined breakpoints', async () => {
-    const sass = `
+    const sass = outdent`
       ${sassBootstrap}
 
       .foo {
@@ -176,7 +176,7 @@ describe('@mixin nhsuk-media-query', () => {
   })
 
   it('allows you to target using custom directives', async () => {
-    const sass = `
+    const sass = outdent`
       ${sassModules}
 
       .foo {
@@ -202,7 +202,7 @@ describe('@mixin nhsuk-media-query', () => {
   })
 
   it('allows you to target particular media types', async () => {
-    const sass = `
+    const sass = outdent`
       ${sassModules}
 
       .foo {

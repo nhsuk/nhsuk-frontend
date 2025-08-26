@@ -1,9 +1,10 @@
+import { outdent } from 'outdent'
 import { compileStringAsync } from 'sass-embedded'
 
 describe('Components', () => {
   describe('importing using index file', () => {
     it('forwards all components', async () => {
-      const sass = `
+      const sass = outdent`
         @forward "components";
       `
 
@@ -17,7 +18,7 @@ describe('Components', () => {
 
   describe('importing using legacy paths', () => {
     it('forwards all components', async () => {
-      const sass = `
+      const sass = outdent`
         @forward "components/action-link/action-link";
         @forward "components/back-link/back-link";
         @forward "components/breadcrumb/breadcrumb";
