@@ -2,9 +2,11 @@
 
 ## 10.0.0 - 26 August 2025
 
-This release introduces some breaking changes to file paths, full width buttons on mobile, the header component and others.
+This release introduces some breaking changes to file paths, full width buttons on mobile, the header component and others. It also stops Internet Explorer 11 and other older browsers from running NHS.UK frontend JavaScript.
 
-It also stops Internet Explorer 11 and other older browsers from running NHS.UK frontend JavaScript. Your service will not stop working in Internet Explorer 11, but components will look and behave differently without JavaScript.
+Your service will not stop working in Internet Explorer 11, but components will look and behave differently without JavaScript. Read more about [how we provide support for different browsers](/docs/contributing/browser-support.md).
+
+Service teams should be [using a progressive enhancement approach (GOV.UK service manual)](https://www.gov.uk/service-manual/technology/using-progressive-enhancement) to make sure users can still access any content and complete their tasks.
 
 You must read and apply these updates carefully to make sure your service does not break.
 
