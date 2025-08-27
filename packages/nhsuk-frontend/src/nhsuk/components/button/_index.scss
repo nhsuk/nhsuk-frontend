@@ -22,12 +22,7 @@ $nhsuk-button-padding-top-bottom-small: nhsuk-px-to-rem(6px);
 $nhsuk-button-padding-left-right: nhsuk-px-to-rem(16px);
 $nhsuk-button-padding-left-right-small: nhsuk-px-to-rem(12px);
 
-// @deprecated To be removed in v11.0
-$button-border-radius: $nhsuk-button-border-radius;
-$button-padding-top-bottom-mobile: $nhsuk-button-padding-top-bottom-mobile;
-$button-padding-top-bottom-desktop: $nhsuk-button-padding-top-bottom-desktop;
-$button-padding-left-right: $nhsuk-button-padding-left-right;
-$button-shadow-size: $nhsuk-button-shadow-size;
+
 
 @include nhsuk-exports("nhsuk/components/button") {
   .nhsuk-button {

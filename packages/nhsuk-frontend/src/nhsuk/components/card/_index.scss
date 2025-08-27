@@ -37,13 +37,7 @@ $nhsuk-card-border-bottom-width: nhsuk-spacing(1);
 $nhsuk-card-border-colour: $nhsuk-border-colour;
 $nhsuk-card-border-hover-colour: $nhsuk-border-hover-colour;
 
-// @deprecated To be removed in v11.0
-$card-border-width: $nhsuk-card-border-width;
-$card-border-bottom-width: $nhsuk-card-border-bottom-width;
-$card-border-color: $nhsuk-card-border-colour;
-$card-border-colour: $nhsuk-card-border-colour;
-$card-border-hover-color: $nhsuk-card-border-hover-colour;
-$card-border-hover-colour: $nhsuk-card-border-hover-colour;
+
 
 @include nhsuk-exports("nhsuk/components/card") {
   .nhsuk-card {
