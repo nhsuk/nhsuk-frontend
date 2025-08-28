@@ -14,8 +14,6 @@
 // This produces 1.1:1 contrast, the same as GOV.UK’s
 $nhsuk-task-list-hover-colour: color.adjust(nhsuk-colour("grey-5"), $lightness: -6%);
 
-
-
 @include nhsuk-exports("nhsuk/components/task-list") {
   .nhsuk-task-list {
     margin-top: 0;
