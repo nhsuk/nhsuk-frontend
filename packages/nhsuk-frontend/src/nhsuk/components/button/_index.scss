@@ -22,8 +22,6 @@ $nhsuk-button-padding-top-bottom-small: nhsuk-px-to-rem(6px);
 $nhsuk-button-padding-left-right: nhsuk-px-to-rem(16px);
 $nhsuk-button-padding-left-right-small: nhsuk-px-to-rem(12px);
 
-
-
 @include nhsuk-exports("nhsuk/components/button") {
   .nhsuk-button {
     box-sizing: border-box;
