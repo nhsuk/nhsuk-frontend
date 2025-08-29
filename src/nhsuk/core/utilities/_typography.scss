@@ -12,7 +12,6 @@
 
 // Generate typography override classes for each responsive font map in the
 // typography scale eg .nhsuk-u-font-size-48
-// nhsuk-u-font-size-24 is deprecated
 @each $size, $font-map in $nhsuk-typography-scale {
   .nhsuk-u-font-size-#{$size} {
     $font-map: map.get($nhsuk-typography-scale, $size);
