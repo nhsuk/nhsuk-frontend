@@ -26,13 +26,17 @@
     @include nhsuk-clearfix;
   }
 
+  .nhsuk-pagination-item {
+    width: 50%;
+  }
+
   .nhsuk-pagination-item--previous {
     float: left;
+    margin-left: nhsuk-spacing(-2);
     text-align: left;
-    width: 50%;
 
     .nhsuk-icon {
-      left: nhsuk-px-to-rem(-6px);
+      left: calc(nhsuk-spacing(2) + nhsuk-px-to-rem(-6px));
     }
 
     .nhsuk-pagination__title {
@@ -42,11 +46,11 @@
 
   .nhsuk-pagination-item--next {
     float: right;
+    margin-right: nhsuk-spacing(-2);
     text-align: right;
-    width: 50%;
 
     .nhsuk-icon {
-      right: nhsuk-px-to-rem(-6px);
+      right: calc(nhsuk-spacing(2) + nhsuk-px-to-rem(-6px));
     }
 
     .nhsuk-pagination__title {
@@ -55,14 +59,21 @@
   }
 
   .nhsuk-pagination__link {
-    display: block;
+    display: inline-block;
     position: relative;
-    text-decoration: none;
     width: 100%;
-
+    width: fit-content;
+    padding: 0 nhsuk-spacing(2);
     @include nhsuk-font-size(26);
+
     @include nhsuk-print-colour {
       @include nhsuk-link-style-text($nhsuk-print-text-colour);
+    }
+
+    &,
+    &:hover,
+    &:hover:visited {
+      text-decoration: none;
     }
 
     .nhsuk-icon {
@@ -85,11 +96,13 @@
 
   .nhsuk-pagination__page {
     display: block;
-    text-decoration: underline;
-
+    @include nhsuk-link-decoration;
     @include nhsuk-font-size(16);
 
-    .nhsuk-pagination__link:hover &,
+    .nhsuk-pagination__link:hover & {
+      @include nhsuk-link-hover-decoration;
+    }
+
     .nhsuk-pagination__link:focus & {
       text-decoration: none;
     }

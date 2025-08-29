@@ -20,8 +20,8 @@
 /// @example scss
 ///   // warning message:
 ///   //  $foobar is no longer supported. To silence this warning, update
-///   //  $govuk-suppressed-warnings with key: "foobar"
-///   $govuk-suppressed-warnings: (
+///   //  $nhsuk-suppressed-warnings with key: "foobar"
+///   $nhsuk-suppressed-warnings: (
 ///     foobar
 ///   );
 ///
@@ -42,7 +42,7 @@ $nhsuk-suppressed-warnings: () !default;
 /// `$nhsuk-suppressed-warnings` after `@warn` is called to ensure it only runs
 /// once per sass compilation
 ///
-/// @param {String} $key - The key to be checked against `$govuk-suppressed-warnings`
+/// @param {String} $key - The key to be checked against `$nhsuk-suppressed-warnings`
 /// and then passed to it to prevent multiple of the same warning.
 /// @param {String} $message - The message to use when calling `@warn`
 /// @param {Boolean} $silence-further-warnings - Whether to silence future
