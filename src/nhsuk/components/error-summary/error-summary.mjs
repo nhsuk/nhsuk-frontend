@@ -1,4 +1,4 @@
-import { formatErrorMessage, setFocus } from '../../common/index.mjs'
+import { setFocus } from '../../common/index.mjs'
 import { ConfigurableComponent } from '../../configurable-component.mjs'
 
 /**
@@ -24,29 +24,6 @@ export class ErrorSummary extends ConfigurableComponent {
     }
 
     this.$root.addEventListener('click', (event) => this.handleClick(event))
-  }
-
-  /**
-   * Error summary config override
-   *
-   * @param {Partial<ErrorSummaryConfig>} _datasetConfig - Config specified by dataset
-   * @returns {Partial<ErrorSummaryConfig>} Config to override by dataset
-   */
-  configOverride(_datasetConfig) {
-    let configOverrides = /** @type {Partial<ErrorSummaryConfig>} */ ({})
-
-    if ('focusOnPageLoad' in this.config) {
-      console.warn(
-        formatErrorMessage(
-          ErrorSummary,
-          'Option `focusOnPageLoad` is deprecated. Use `disableAutoFocus` instead.'
-        )
-      )
-
-      configOverrides.disableAutoFocus = !this.config.focusOnPageLoad
-    }
-
-    return configOverrides
   }
 
   /**
@@ -193,7 +170,6 @@ export class ErrorSummary extends ConfigurableComponent {
    */
   static schema = Object.freeze({
     properties: {
-      focusOnPageLoad: { type: 'boolean' }, // Deprecated
       disableAutoFocus: { type: 'boolean' }
     }
   })
@@ -204,7 +180,6 @@ export class ErrorSummary extends ConfigurableComponent {
  *
  * @see {@link ErrorSummary.defaults}
  * @typedef {object} ErrorSummaryConfig
- * @property {boolean} [focusOnPageLoad=true] - Deprecated. Use `disableAutoFocus` instead.
  * @property {boolean} [disableAutoFocus=false] - If set to `true` the error
  *   summary will not be focussed when the page loads.
  */
