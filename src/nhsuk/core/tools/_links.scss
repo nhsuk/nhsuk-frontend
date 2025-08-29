@@ -13,26 +13,19 @@
 /// @param {Colour} $link-hover-colour [$nhsuk-link-hover-colour] - Link hover colour
 /// @param {Colour} $link-visited-colour [$nhsuk-link-visited-colour] - Link visited colour
 /// @param {Colour} $link-active-colour [$nhsuk-link-active-colour] - Link active colour
-/// @param {Boolean} $link-underlines [true] - Whether or not to underline the link
 ///
 
 @mixin nhsuk-link-style(
   $link-colour: $nhsuk-link-colour,
   $link-visited-colour: $nhsuk-link-visited-colour,
   $link-hover-colour: $nhsuk-link-hover-colour,
-  $link-active-colour: $nhsuk-link-active-colour,
-  $link-underlines: true
+  $link-active-colour: $nhsuk-link-active-colour
 ) {
   & {
     color: $link-colour;
-
-    @if $link-underlines {
-      text-decoration: underline;
-      text-decoration-thickness: $nhsuk-link-underline-thickness;
-      text-underline-offset: $nhsuk-link-underline-offset;
-    } @else {
-      text-decoration: none;
-    }
+    text-decoration: underline;
+    text-decoration-thickness: $nhsuk-link-underline-thickness;
+    text-underline-offset: $nhsuk-link-underline-offset;
   }
 
   .nhsuk-icon {
@@ -40,35 +33,31 @@
   }
 
   @include nhsuk-link-style-visited($link-visited-colour);
-  @include nhsuk-link-style-hover($link-hover-colour, $link-underlines);
+  @include nhsuk-link-style-hover($link-hover-colour);
   @include nhsuk-link-style-active($link-active-colour);
   @include nhsuk-link-style-focus;
 }
 
 /// Default link styling
 ///
-/// @param {Boolean} $link-underlines [true] - Whether or not to underline the link
-//
 /// @example scss
 ///   @include nhsuk-link-style-default;
 ///
 
-@mixin nhsuk-link-style-default($link-underlines: true) {
-  @include nhsuk-link-style($link-underlines: $link-underlines);
+@mixin nhsuk-link-style-default {
+  @include nhsuk-link-style;
 }
 
 /// White link styling, used in hero
 /// component, and in the `.nhsuk-link--reverse`
 /// modifier class.
 ///
-/// @param {Boolean} $link-underlines [true] - Whether or not to underline the link
-///
 /// @example scss
 ///   @include nhsuk-link-style-white;
 ///
 
-@mixin nhsuk-link-style-white($link-underlines: true) {
-  @include nhsuk-link-style-text($override-colour: $nhsuk-reverse-text-colour, $link-underlines: $link-underlines);
+@mixin nhsuk-link-style-white {
+  @include nhsuk-link-style-text($override-colour: $nhsuk-reverse-text-colour);
 }
 
 /// Default link visited only styling
@@ -92,29 +81,23 @@
 /// Default link hover only styling
 ///
 /// @param {Colour} $link-hover-colour [$nhsuk-link-hover-colour] - Link hover colour
-/// @param {Boolean} $link-underlines [true] - Whether or not to underline the link
 ///
 /// @example scss
 ///   @include nhsuk-link-style-hover;
 ///
 
-@mixin nhsuk-link-style-hover($link-hover-colour: $nhsuk-link-hover-colour, $link-underlines: true) {
+@mixin nhsuk-link-style-hover($link-hover-colour: $nhsuk-link-hover-colour) {
   &:hover,
   &:hover:visited {
     color: $link-hover-colour;
+    text-decoration: underline;
+    text-decoration-thickness: $nhsuk-link-hover-underline-thickness;
+    text-underline-offset: $nhsuk-link-underline-offset;
 
-    @if $link-underlines {
-      text-decoration: underline;
-      text-decoration-thickness: $nhsuk-link-hover-underline-thickness;
-      text-underline-offset: $nhsuk-link-underline-offset;
-
-      // Disable ink skipping on underlines on hover. Browsers haven't
-      // standardised on this part of the spec yet, so set both properties
-      text-decoration-skip-ink: none; // Chromium, Firefox
-      text-decoration-skip: none; // Safari
-    } @else {
-      text-decoration: none;
-    }
+    // Disable ink skipping on underlines on hover. Browsers haven't
+    // standardised on this part of the spec yet, so set both properties
+    text-decoration-skip-ink: none; // Chromium, Firefox
+    text-decoration-skip: none; // Safari
 
     .nhsuk-icon {
       fill: $link-hover-colour;
@@ -211,7 +194,6 @@
 /// navigation components, such as breadcrumbs or the back link.
 ///
 /// @param {Colour} $override-colour [$nhsuk-text-colour] - Link colour for all states
-/// @param {Boolean} $link-underlines [true] - Whether or not to underline the link
 ///
 /// @example scss
 ///   .nhsuk-component__link {
@@ -219,13 +201,12 @@
 ///   }
 ///
 
-@mixin nhsuk-link-style-text($override-colour: $nhsuk-text-colour, $link-underlines: true) {
+@mixin nhsuk-link-style-text($override-colour: $nhsuk-text-colour) {
   @include nhsuk-link-style(
     $link-colour: $override-colour,
     $link-visited-colour: $override-colour,
     $link-hover-colour: $override-colour,
-    $link-active-colour: $override-colour,
-    $link-underlines: $link-underlines
+    $link-active-colour: $override-colour
   );
 
   // Force a colour change on hover to work around a bug in Safari
