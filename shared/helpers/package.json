@@ -8,10 +8,10 @@
   },
   "dependencies": {
     "@axe-core/puppeteer": "^4.10.2",
-    "@testing-library/jest-dom": "^6.7.0",
+    "@testing-library/jest-dom": "^6.8.0",
     "axe-core": "^4.10.3",
     "jest-axe": "^10.0.0",
-    "jest-environment-jsdom": "^30.0.5",
+    "jest-environment-jsdom": "^30.1.1",
     "jest-environment-node": "^30.0.0",
     "jest-environment-puppeteer": "^11.0.0",
     "outdent": "^0.8.0",
