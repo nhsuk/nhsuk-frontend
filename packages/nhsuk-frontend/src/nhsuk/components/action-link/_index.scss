@@ -60,7 +60,7 @@
   }
 
   .nhsuk-action-link--reverse {
-    @include nhsuk-link-style-white;
+    @include nhsuk-link-style-reverse;
 
     &:not(:focus) .nhsuk-icon {
       // stylelint-disable-next-line declaration-no-important
