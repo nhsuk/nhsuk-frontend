@@ -1121,7 +1121,7 @@ createAll(Checkboxes, undefined, $element)
 
 Similarly, the existing `initAll` function can also configure components by including key-value pairs of camel-cased component names with their options:
 
-```js
+```mjs
 import { initAll } from 'nhsuk-frontend'
 
 initAll({
@@ -1309,7 +1309,7 @@ initCheckboxes()
 
 Or alternatively, you can initialise individual component classes:
 
-```js
+```mjs
 import { Button, Checkboxes } from 'nhsuk-frontend'
 
 const $button = document.querySelector('.app-button')
@@ -3910,7 +3910,7 @@ After:
 
   If you are importing component JavaScript with ES6 imports, you will need to remove the imports and initialisation for the feedback banner:
 
-  ```js
+  ```mjs
   import nhsuk_feedbackBanner from 'node_modules/nhsuk-frontend/packages/components/feedback-banner/feedback-banner'
   ```
 
@@ -3928,7 +3928,7 @@ After:
 
   If you are importing component JavaScript with ES6 imports, you will need to update the imports to:
 
-  ```js
+  ```mjs
   // Components
   import Header from './components/header/header'
   import SkipLink from './components/skip-link/skip-link'
