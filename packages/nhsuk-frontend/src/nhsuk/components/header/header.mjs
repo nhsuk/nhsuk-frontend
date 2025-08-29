@@ -1,4 +1,3 @@
-import { normaliseOptions } from '../../common/configuration/index.mjs'
 import { ConfigurableComponent } from '../../configurable-component.mjs'
 import { ElementError } from '../../errors/index.mjs'
 
@@ -414,24 +413,6 @@ export class Header extends ConfigurableComponent {
 }
 
 /**
- * Initialise header component
- *
- * @deprecated Use {@link createAll | `createAll(Header, options)`} instead.
- * @param {InitOptions & Partial<HeaderConfig>} [options]
- */
-export function initHeader(options) {
-  const { scope: $scope } = normaliseOptions(options)
-
-  const $root = $scope?.querySelector(`[data-module="${Header.moduleName}"]`)
-
-  if (!$root) {
-    return
-  }
-
-  new Header($root, options)
-}
-
-/**
  * Header config
  *
  * @typedef {object} HeaderConfig
@@ -444,6 +425,5 @@ export function initHeader(options) {
  */
 
 /**
- * @import { createAll, InitOptions } from '../../index.mjs'
  * @import { Schema } from '../../common/configuration/index.mjs'
  */
