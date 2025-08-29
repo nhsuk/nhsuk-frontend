@@ -1,4 +1,3 @@
-import { normaliseOptions } from '../../common/configuration/index.mjs'
 import { Component } from '../../component.mjs'
 import { ElementError } from '../../errors/index.mjs'
 
@@ -371,25 +370,3 @@ export class Header extends Component {
    */
   static moduleName = 'nhsuk-header'
 }
-
-/**
- * Initialise header component
- *
- * @deprecated Use {@link createAll | `createAll(Header)`} instead.
- * @param {InitOptions} [options]
- */
-export function initHeader(options) {
-  const { scope: $scope } = normaliseOptions(options)
-
-  const $root = $scope?.querySelector(`[data-module="${Header.moduleName}"]`)
-
-  if (!$root) {
-    return
-  }
-
-  new Header($root)
-}
-
-/**
- * @import { createAll, InitOptions } from '../../index.mjs'
- */

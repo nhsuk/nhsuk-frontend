@@ -1,4 +1,3 @@
-import { normaliseOptions } from '../../common/configuration/index.mjs'
 import { toggleConditionalInput } from '../../common/index.mjs'
 import { Component } from '../../component.mjs'
 import { ElementError } from '../../errors/index.mjs'
@@ -204,25 +203,3 @@ export class Checkboxes extends Component {
    */
   static moduleName = 'nhsuk-checkboxes'
 }
-
-/**
- * Initialise checkboxes component
- *
- * @deprecated Use {@link createAll | `createAll(Checkboxes)`} instead.
- * @param {InitOptions} [options]
- */
-export function initCheckboxes(options) {
-  const { scope: $scope } = normaliseOptions(options)
-
-  const $checkboxes = $scope?.querySelectorAll(
-    `[data-module="${Checkboxes.moduleName}"]`
-  )
-
-  $checkboxes?.forEach(($root) => {
-    new Checkboxes($root)
-  })
-}
-
-/**
- * @import { createAll, InitOptions } from '../../index.mjs'
- */

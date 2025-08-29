@@ -82,18 +82,6 @@ describe('NHS.UK frontend', () => {
       expect(NHSUKFrontend).toHaveProperty('Component')
       expect(NHSUKFrontend).toHaveProperty('ConfigurableComponent')
     })
-
-    it('should export component init functions', () => {
-      expect(NHSUKFrontend).toHaveProperty('initButtons')
-      expect(NHSUKFrontend).toHaveProperty('initCharacterCounts')
-      expect(NHSUKFrontend).toHaveProperty('initCheckboxes')
-      expect(NHSUKFrontend).toHaveProperty('initErrorSummary')
-      expect(NHSUKFrontend).toHaveProperty('initHeader')
-      expect(NHSUKFrontend).toHaveProperty('initNotificationBanners')
-      expect(NHSUKFrontend).toHaveProperty('initRadios')
-      expect(NHSUKFrontend).toHaveProperty('initSkipLinks')
-      expect(NHSUKFrontend).toHaveProperty('initTabs')
-    })
   })
 
   describe('initAll', () => {

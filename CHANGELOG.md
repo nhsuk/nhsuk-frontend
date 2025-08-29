@@ -1,5 +1,43 @@
 # NHS.UK frontend Changelog
 
+## Unreleased
+
+### :boom: **Breaking changes**
+
+#### Remove deprecated component init functions
+
+We've replaced component init functions with the `createAll` functions added in [version 10.0.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.0.0).
+
+For example, if you're using functions such as `initButtons` and `initCheckboxes`, you must replace them with the `createAll` function:
+
+```patch
+- import { initButtons, initCheckboxes } from 'nhsuk-frontend'
++ import { createAll, Button, Checkboxes } from 'nhsuk-frontend'
+
+- initButtons()
+- initCheckboxes()
++ createAll(Button)
++ createAll(Checkboxes)
+```
+
+Where a component config object or scope is required, these can also be passed to the `createAll` function:
+
+```mjs
+- import { initButtons, initCheckboxes } from 'nhsuk-frontend'
++ import { createAll, Button, Checkboxes } from 'nhsuk-frontend'
+
+  const $element = document.querySelector('.app-modal')
+
+- initButtons({
+- createAll(Button, {
+    preventDoubleClick: true,
+    scope: $element,
+  })
+
+- initCheckboxes({ scope: $element })
++ createAll(Checkboxes, $element)
+```
+
 ## 10.0.0 - 26 August 2025
 
 This release introduces some breaking changes to file paths, full width buttons on mobile, the header component and others. It also stops Internet Explorer 11 and other older browsers from running NHS.UK frontend JavaScript.
@@ -108,7 +146,7 @@ createAll(Checkboxes, $element)
 
 Similarly, the existing `initAll` function can also configure components by including key-value pairs of camel-cased component names with their options:
 
-```js
+```mjs
 import { initAll } from 'nhsuk-frontend'
 
 initAll({
@@ -296,7 +334,7 @@ initCheckboxes();
 
 Or alternatively, you can initialise individual component classes:
 
-```js
+```mjs
 import { Button, Checkboxes } from 'nhsuk-frontend';
 
 const $button = document.querySelector('.app-button')

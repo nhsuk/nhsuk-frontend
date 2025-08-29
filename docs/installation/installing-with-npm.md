@@ -75,7 +75,7 @@ You should include NHS.UK frontend JavaScript in your project to ensure that all
 
 Add the following JavaScript to the top of the `<body>` section of your page template:
 
-```js
+```html
 <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' nhsuk-frontend-supported' : '');</script>
 ```
 
@@ -102,14 +102,14 @@ We encourage the use of ECMAScript (ES) modules, but you should check your bundl
 
 If you decide to import using a bundler like [Rollup](https://rollupjs.org/) or [webpack](https://webpack.js.org/), import and run the `initAll` function to initialise NHS.UK frontend:
 
-```js
+```mjs
 import { initAll } from 'nhsuk-frontend'
 initAll()
 ```
 
 You can pass configuration to components by including key-value pairs of camel-cased component names with their options:
 
-```js
+```mjs
 import { initAll } from 'nhsuk-frontend'
 
 initAll({
@@ -125,7 +125,7 @@ If you update a page with new markup, for example a modal dialogue box, you can 
 
 For example, run `initAll` with a `scope` parameter to initialise the components on part of a page:
 
-```js
+```mjs
 import { initAll } from 'nhsuk-frontend'
 
 const $element = document.querySelector('.app-modal')
@@ -139,7 +139,7 @@ if ($element) {
 
 Rather than using `initAll`, you can initialise all instances of individual components using `createAll`. For example:
 
-```js
+```mjs
 import { createAll, Button, Checkboxes } from 'nhsuk-frontend'
 
 // Initialise all button components
@@ -153,7 +153,7 @@ createAll(Checkboxes)
 
 Or where necessary, single instances of individual components only:
 
-```js
+```mjs
 import { Button, Checkboxes } from 'nhsuk-frontend'
 
 const $button = document.querySelector('.app-button')

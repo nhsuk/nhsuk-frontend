@@ -3,7 +3,7 @@ import { fireEvent, getByRole } from '@testing-library/dom'
 import { outdent } from 'outdent'
 
 import { examples } from './macro-options.mjs'
-import { Radios, initRadios } from './radios.mjs'
+import { Radios } from './radios.mjs'
 
 describe('Radios', () => {
   /** @type {HTMLElement} */
@@ -47,9 +47,9 @@ describe('Radios', () => {
     jest.spyOn($root, 'addEventListener')
   })
 
-  describe('Initialisation via init function', () => {
+  describe('Initialisation via class', () => {
     it('should add event listeners', () => {
-      initRadios()
+      new Radios($root)
 
       expect($root.addEventListener).toHaveBeenCalledWith(
         'click',
@@ -57,44 +57,6 @@ describe('Radios', () => {
       )
     })
 
-    it('should throw with missing conditional content', () => {
-      $conditionals[0].remove()
-
-      expect(() => initRadios()).toThrow(
-        `${Radios.moduleName}: Conditional reveal (\`id="${$conditionals[0].id}"\`) not found`
-      )
-    })
-
-    it('should throw with missing radios', () => {
-      for (const $input of $inputs) {
-        $input.remove()
-      }
-
-      expect(() => initRadios()).toThrow(
-        `${Radios.moduleName}: Form inputs (\`<input type="radio">\`) not found`
-      )
-    })
-
-    it('should not throw with missing radio `aria-controls` attribute', () => {
-      for (const $input of $inputs) {
-        $input.removeAttribute('aria-controls')
-      }
-
-      expect(() => initRadios()).not.toThrow()
-    })
-
-    it('should not throw with empty body', () => {
-      document.body.innerHTML = ''
-      expect(() => initRadios()).not.toThrow()
-    })
-
-    it('should not throw with empty scope', () => {
-      const scope = document.createElement('div')
-      expect(() => initRadios({ scope })).not.toThrow()
-    })
-  })
-
-  describe('Initialisation via class', () => {
     it('should not throw with $root element', () => {
       expect(() => new Radios($root)).not.toThrow()
     })
@@ -122,6 +84,32 @@ describe('Radios', () => {
       )
     })
 
+    it('should throw with missing conditional content', () => {
+      $conditionals[0].remove()
+
+      expect(() => new Radios($root)).toThrow(
+        `${Radios.moduleName}: Conditional reveal (\`id="${$conditionals[0].id}"\`) not found`
+      )
+    })
+
+    it('should throw with missing radios', () => {
+      for (const $input of $inputs) {
+        $input.remove()
+      }
+
+      expect(() => new Radios($root)).toThrow(
+        `${Radios.moduleName}: Form inputs (\`<input type="radio">\`) not found`
+      )
+    })
+
+    it('should not throw with missing radio `aria-controls` attribute', () => {
+      for (const $input of $inputs) {
+        $input.removeAttribute('aria-controls')
+      }
+
+      expect(() => new Radios($root)).not.toThrow()
+    })
+
     it('should throw when initialised twice', () => {
       expect(() => {
         new Radios($root)
@@ -134,7 +122,7 @@ describe('Radios', () => {
 
   describe('Conditional content', () => {
     it('should be hidden by default', () => {
-      initRadios()
+      new Radios($root)
 
       for (const $input of $inputs) {
         const index = $inputs.indexOf($input)
@@ -147,7 +135,7 @@ describe('Radios', () => {
     })
 
     it('should be visible when input is checked', () => {
-      initRadios()
+      new Radios($root)
 
       for (const $input of $inputs) {
         const index = $inputs.indexOf($input)
@@ -174,7 +162,7 @@ describe('Radios', () => {
       expect($input).not.toHaveAttribute('aria-expanded', 'true')
       expect($conditional).toHaveClass('nhsuk-radios__conditional--hidden')
 
-      window.addEventListener('pageshow', () => initRadios())
+      window.addEventListener('pageshow', () => new Radios($root))
       fireEvent.pageShow(window)
 
       // Conditional content visible
@@ -183,7 +171,7 @@ describe('Radios', () => {
     })
 
     it('should be hidden when other input is checked', () => {
-      initRadios()
+      new Radios($root)
 
       for (const $input of $inputs) {
         const index = $inputs.indexOf($input)

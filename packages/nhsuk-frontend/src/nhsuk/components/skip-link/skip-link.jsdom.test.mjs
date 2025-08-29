@@ -2,7 +2,7 @@ import { components } from '@nhsuk/frontend-lib'
 import { userEvent } from '@testing-library/user-event'
 
 import { examples } from './macro-options.mjs'
-import { SkipLink, initSkipLinks } from './skip-link.mjs'
+import { SkipLink } from './skip-link.mjs'
 
 const user = userEvent.setup()
 
@@ -37,9 +37,9 @@ describe('Skip link', () => {
     jest.spyOn($root, 'addEventListener')
   })
 
-  describe('Initialisation via init function', () => {
+  describe('Initialisation via class', () => {
     it('should add event listeners', () => {
-      initSkipLinks()
+      new SkipLink($root)
 
       expect($root.addEventListener).toHaveBeenCalledWith(
         'click',
@@ -47,39 +47,6 @@ describe('Skip link', () => {
       )
     })
 
-    it('should not throw with missing skip link', () => {
-      $root.remove()
-      expect(() => initSkipLinks()).not.toThrow()
-    })
-
-    it('should throw with missing hash fragment', () => {
-      $root.setAttribute('href', 'https://example.com')
-
-      expect(() => initSkipLinks()).toThrow(
-        `${SkipLink.moduleName}: Target link (\`href="https://example.com"\`) hash fragment not found`
-      )
-    })
-
-    it('should throw with missing main content', () => {
-      $main.remove()
-
-      expect(() => initSkipLinks()).toThrow(
-        `${SkipLink.moduleName}: Target content (\`id="maincontent"\`) not found`
-      )
-    })
-
-    it('should not throw with empty body', () => {
-      document.body.innerHTML = ''
-      expect(() => initSkipLinks()).not.toThrow()
-    })
-
-    it('should not throw with empty scope', () => {
-      const scope = document.createElement('div')
-      expect(() => initSkipLinks({ scope })).not.toThrow()
-    })
-  })
-
-  describe('Initialisation via class', () => {
     it('should not throw with $root element', () => {
       expect(() => new SkipLink($root)).not.toThrow()
     })
@@ -107,6 +74,22 @@ describe('Skip link', () => {
       )
     })
 
+    it('should throw with missing hash fragment', () => {
+      $root.setAttribute('href', 'https://example.com')
+
+      expect(() => new SkipLink($root)).toThrow(
+        `${SkipLink.moduleName}: Target link (\`href="https://example.com"\`) hash fragment not found`
+      )
+    })
+
+    it('should throw with missing main content', () => {
+      $main.remove()
+
+      expect(() => new SkipLink($root)).toThrow(
+        `${SkipLink.moduleName}: Target content (\`id="maincontent"\`) not found`
+      )
+    })
+
     it('should throw when initialised twice', () => {
       expect(() => {
         new SkipLink($root)
@@ -119,7 +102,7 @@ describe('Skip link', () => {
 
   describe('Accessibility', () => {
     beforeEach(() => {
-      initSkipLinks()
+      new SkipLink($root)
     })
 
     it('should add accessible name and role', () => {
@@ -130,7 +113,7 @@ describe('Skip link', () => {
 
   describe('Focus handling', () => {
     beforeEach(async () => {
-      initSkipLinks()
+      new SkipLink($root)
 
       await user.tab()
       await user.keyboard('[Enter]')

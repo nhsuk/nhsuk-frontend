@@ -1,4 +1,3 @@
-import { normaliseOptions } from '../../common/configuration/index.mjs'
 import { setFocus } from '../../common/index.mjs'
 import { ConfigurableComponent } from '../../configurable-component.mjs'
 
@@ -66,24 +65,6 @@ export class NotificationBanner extends ConfigurableComponent {
 }
 
 /**
- * Initialise notification banner component
- *
- * @deprecated Use {@link createAll | `createAll(NotificationBanner, options)`} instead.
- * @param {InitOptions & NotificationBannerConfig} [options]
- */
-export function initNotificationBanners(options) {
-  const { scope: $scope } = normaliseOptions(options)
-
-  const $notificationBanners = $scope?.querySelectorAll(
-    `[data-module="${NotificationBanner.moduleName}"]`
-  )
-
-  $notificationBanners?.forEach(($notificationBanner) => {
-    new NotificationBanner($notificationBanner, options)
-  })
-}
-
-/**
  * Notification banner config
  *
  * @typedef {object} NotificationBannerConfig
@@ -94,6 +75,5 @@ export function initNotificationBanners(options) {
  */
 
 /**
- * @import { createAll, InitOptions } from '../../index.mjs'
  * @import { Schema } from '../../common/configuration/index.mjs'
  */

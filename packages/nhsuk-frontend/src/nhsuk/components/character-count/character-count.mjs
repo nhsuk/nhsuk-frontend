@@ -1,4 +1,3 @@
-import { normaliseOptions } from '../../common/configuration/index.mjs'
 import { ConfigurableComponent } from '../../configurable-component.mjs'
 import { ElementError } from '../../errors/index.mjs'
 
@@ -313,24 +312,6 @@ export class CharacterCount extends ConfigurableComponent {
 }
 
 /**
- * Initialise character count component
- *
- * @deprecated Use {@link createAll | `createAll(CharacterCount)`} instead.
- * @param {InitOptions} [options]
- */
-export function initCharacterCounts(options) {
-  const { scope: $scope } = normaliseOptions(options)
-
-  const $characterCounts = $scope?.querySelectorAll(
-    `[data-module="${CharacterCount.moduleName}"]`
-  )
-
-  $characterCounts?.forEach(($root) => {
-    new CharacterCount($root)
-  })
-}
-
-/**
  * Character count config
  *
  * @see {@link CharacterCount.defaults}
@@ -345,6 +326,5 @@ export function initCharacterCounts(options) {
  */
 
 /**
- * @import { createAll, InitOptions } from '../../index.mjs'
  * @import { Schema } from '../../common/configuration/index.mjs'
  */
