@@ -26,13 +26,17 @@
     @include nhsuk-clearfix;
   }
 
+  .nhsuk-pagination-item {
+    width: 50%;
+  }
+
   .nhsuk-pagination-item--previous {
     float: left;
+    margin-left: nhsuk-spacing(-2);
     text-align: left;
-    width: 50%;
 
     .nhsuk-icon {
-      left: nhsuk-px-to-rem(-6px);
+      left: nhsuk-em(nhsuk-spacing(2) - 6px, 26px);
     }
 
     .nhsuk-pagination__title {
@@ -42,11 +46,11 @@
 
   .nhsuk-pagination-item--next {
     float: right;
+    margin-right: nhsuk-spacing(-2);
     text-align: right;
-    width: 50%;
 
     .nhsuk-icon {
-      right: nhsuk-px-to-rem(-6px);
+      right: nhsuk-em(nhsuk-spacing(2) - 6px, 26px);
     }
 
     .nhsuk-pagination__title {
@@ -55,9 +59,11 @@
   }
 
   .nhsuk-pagination__link {
-    display: block;
+    display: inline-block;
     position: relative;
     width: 100%;
+    width: fit-content;
+    padding: 0 nhsuk-spacing(2);
     @include nhsuk-font-size(26);
 
     @include nhsuk-print-colour {
