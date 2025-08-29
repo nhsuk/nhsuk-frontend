@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-deprecated */
 
-import { normaliseOptions } from '../../common/configuration/index.mjs'
 import { getBreakpoint } from '../../common/index.mjs'
 import { ConfigurableComponent } from '../../configurable-component.mjs'
 import { ElementError } from '../../errors/index.mjs'
@@ -532,22 +531,6 @@ export class Tabs extends ConfigurableComponent {
 }
 
 /**
- * Initialise tabs component
- *
- * @deprecated Use {@link createAll | `createAll(Tabs, options)`} instead.
- * @param {InitOptions & Partial<TabsConfig>} [options]
- */
-export function initTabs(options) {
-  const { scope: $scope } = normaliseOptions(options)
-
-  const $tabs = $scope?.querySelectorAll(`[data-module="${Tabs.moduleName}"]`)
-
-  $tabs?.forEach(($root) => {
-    new Tabs($root, options)
-  })
-}
-
-/**
  * Tabs config
  *
  * @typedef {object} TabsConfig
@@ -558,6 +541,5 @@ export function initTabs(options) {
  */
 
 /**
- * @import { createAll, InitOptions } from '../../index.mjs'
  * @import { Schema } from '../../common/configuration/index.mjs'
  */

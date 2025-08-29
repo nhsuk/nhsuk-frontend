@@ -1,5 +1,4 @@
 import { closestAttributeValue } from '../../common/closest-attribute-value.mjs'
-import { normaliseOptions } from '../../common/configuration/index.mjs'
 import { ConfigurableComponent } from '../../configurable-component.mjs'
 import { ElementError } from '../../errors/index.mjs'
 import { I18n } from '../../i18n.mjs'
@@ -209,24 +208,6 @@ export class PasswordInput extends ConfigurableComponent {
 }
 
 /**
- * Initialise password input component
- *
- * @deprecated Use {@link createAll | `createAll(PasswordInput, options)`} instead.
- * @param {InitOptions & Partial<PasswordInputConfig>} [options]
- */
-export function initPasswordInputs(options) {
-  const { scope: $scope } = normaliseOptions(options)
-
-  const $passwordInputs = $scope?.querySelectorAll(
-    `[data-module="${PasswordInput.moduleName}"]`
-  )
-
-  $passwordInputs?.forEach(($root) => {
-    new PasswordInput($root, options)
-  })
-}
-
-/**
  * Password input config
  *
  * @typedef {object} PasswordInputConfig
@@ -258,6 +239,5 @@ export function initPasswordInputs(options) {
  */
 
 /**
- * @import { createAll, InitOptions } from '../../index.mjs'
  * @import { Schema } from '../../common/configuration/index.mjs'
  */

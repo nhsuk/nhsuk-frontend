@@ -1,4 +1,3 @@
-import { normaliseOptions } from '../../common/configuration/index.mjs'
 import { toggleConditionalInput } from '../../common/index.mjs'
 import { ConfigurableComponent } from '../../configurable-component.mjs'
 import { ElementError } from '../../errors/index.mjs'
@@ -165,24 +164,6 @@ export class Radios extends ConfigurableComponent {
 }
 
 /**
- * Initialise radios component
- *
- * @deprecated Use {@link createAll | `createAll(Radios, options)`} instead.
- * @param {InitOptions & Partial<RadiosConfig>} [options]
- */
-export function initRadios(options) {
-  const { scope: $scope } = normaliseOptions(options)
-
-  const $radios = $scope?.querySelectorAll(
-    `[data-module="${Radios.moduleName}"]`
-  )
-
-  $radios?.forEach(($root) => {
-    new Radios($root, options)
-  })
-}
-
-/**
  * Radios config
  *
  * @typedef {object} RadiosConfig
@@ -190,6 +171,5 @@ export function initRadios(options) {
  */
 
 /**
- * @import { createAll, InitOptions } from '../../index.mjs'
  * @import { Schema } from '../../common/configuration/index.mjs'
  */

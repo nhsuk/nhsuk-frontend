@@ -1,6 +1,6 @@
 import { getByLabelText } from '@testing-library/dom'
 
-import { FileUpload, initFileUploads } from './file-upload.mjs'
+import { FileUpload } from './file-upload.mjs'
 import { examples } from './fixtures.mjs'
 
 import { components } from '#lib'
@@ -35,14 +35,14 @@ describe('File upload', () => {
     initExample('default')
   })
 
-  describe('Initialisation via init function', () => {
+  describe('Initialisation via class', () => {
     it('should add event listeners', () => {
       const addEventListenerSpy = jest.spyOn(
         HTMLButtonElement.prototype,
         'addEventListener'
       )
 
-      initFileUploads()
+      new FileUpload($root)
 
       expect(addEventListenerSpy).toHaveBeenCalledWith(
         'click',
@@ -83,52 +83,6 @@ describe('File upload', () => {
       expect(clickSpy).toHaveBeenCalled()
     })
 
-    it('should throw with missing input', () => {
-      $input.remove()
-
-      expect(() => initFileUploads()).toThrow(
-        `${FileUpload.moduleName}: Form field (\`<input>\`) not found`
-      )
-    })
-
-    it('should throw with missing file input', () => {
-      $input.setAttribute('type', 'text')
-
-      expect(() => initFileUploads()).toThrow(
-        `${FileUpload.moduleName}: Form field (\`<input>\`) is not of type HTMLInputElement with attribute (\`type="file"\`)`
-      )
-    })
-
-    it('should throw with missing input id', () => {
-      $input.removeAttribute('id')
-
-      expect(() => initFileUploads()).toThrow(
-        `${FileUpload.moduleName}: File input (\`<input type="file">\`) attribute (\`id\`) not found`
-      )
-    })
-
-    it('should throw with missing label', () => {
-      const $label = document.querySelector(`label[for="${$input.id}"]`)
-
-      $label.remove()
-
-      expect(() => initFileUploads()).toThrow(
-        `${FileUpload.moduleName}: Field label (\`<label for=${$input.id}>\`) not found`
-      )
-    })
-
-    it('should not throw with empty body', () => {
-      document.body.innerHTML = ''
-      expect(() => initFileUploads()).not.toThrow()
-    })
-
-    it('should not throw with empty scope', () => {
-      const scope = document.createElement('div')
-      expect(() => initFileUploads({ scope })).not.toThrow()
-    })
-  })
-
-  describe('Initialisation via class', () => {
     it('should not throw with $root element', () => {
       expect(() => new FileUpload($root)).not.toThrow()
     })
@@ -157,12 +111,46 @@ describe('File upload', () => {
 
     it('should throw with wrong input element type', () => {
       const $div = document.createElement('div')
-      $div.classList.add('nhsuk-js-character-count')
+      $div.classList.add('nhsuk-file-upload__input')
 
       $input.replaceWith($div)
 
       expect(() => new FileUpload($root)).toThrow(
         `${FileUpload.moduleName}: Form field (\`<input>\`) not found`
+      )
+    })
+
+    it('should throw with missing input', () => {
+      $input.remove()
+
+      expect(() => new FileUpload($root)).toThrow(
+        `${FileUpload.moduleName}: Form field (\`<input>\`) not found`
+      )
+    })
+
+    it('should throw with missing file input', () => {
+      $input.setAttribute('type', 'text')
+
+      expect(() => new FileUpload($root)).toThrow(
+        `${FileUpload.moduleName}: Form field (\`<input>\`) is not of type HTMLInputElement with attribute (\`type="file"\`)`
+      )
+    })
+
+    it('should throw with missing input id', () => {
+      $input.removeAttribute('id')
+
+      expect(() => new FileUpload($root)).toThrow(
+        `${FileUpload.moduleName}: File input (\`<input type="file">\`) attribute (\`id\`) not found`
+      )
+    })
+
+    it('should throw with missing label', () => {
+      const $label = document.querySelector(`label[for="${$input.id}"]`)
+
+      $label.remove()
+
+      expect(() => new FileUpload($root)).toThrow(
+        `${FileUpload.moduleName}: Field label (\`<label for=${$input.id}>\`) not found`
       )
     })
 
