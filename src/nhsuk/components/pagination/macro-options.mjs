@@ -60,7 +60,9 @@ export const examples = {
       nextPage: 'Symptoms'
     },
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+      states: ['focus', 'hover', 'active'],
+      selector: '.nhsuk-pagination-item--previous a',
+      viewports: ['mobile', 'tablet', 'desktop']
     }
   }
 }
