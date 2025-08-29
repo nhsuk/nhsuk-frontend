@@ -1,7 +1,7 @@
 import { userEvent } from '@testing-library/user-event'
 
 import { examples } from './fixtures.mjs'
-import { PasswordInput, initPasswordInputs } from './password-input.mjs'
+import { PasswordInput } from './password-input.mjs'
 
 import { components } from '#lib'
 
@@ -47,9 +47,9 @@ describe('Password input', () => {
     initExample('default')
   })
 
-  describe('Initialisation via init function', () => {
+  describe('Initialisation via class', () => {
     it('should add event listeners', () => {
-      initPasswordInputs()
+      new PasswordInput($root)
 
       // Adds listener for window pageshow
       expect(window.addEventListener).toHaveBeenNthCalledWith(
@@ -66,39 +66,6 @@ describe('Password input', () => {
       )
     })
 
-    it('should throw with missing password input', () => {
-      $input.remove()
-
-      expect(() => initPasswordInputs()).toThrow(
-        `${PasswordInput.moduleName}: Form field (\`.nhsuk-js-password-input-input\`) not found`
-      )
-    })
-
-    it('should throw with missing show/hide button', () => {
-      $button.remove()
-
-      expect(() => initPasswordInputs()).toThrow(
-        `${PasswordInput.moduleName}: Button (\`.nhsuk-js-password-input-toggle\`) not found`
-      )
-    })
-
-    it('should not throw with missing component', () => {
-      $root.remove()
-      expect(() => initPasswordInputs()).not.toThrow()
-    })
-
-    it('should not throw with empty body', () => {
-      document.body.innerHTML = ''
-      expect(() => initPasswordInputs()).not.toThrow()
-    })
-
-    it('should not throw with empty scope', () => {
-      const scope = document.createElement('div')
-      expect(() => initPasswordInputs({ scope })).not.toThrow()
-    })
-  })
-
-  describe('Initialisation via class', () => {
     it('should not throw with $root element', () => {
       expect(() => new PasswordInput($root)).not.toThrow()
     })
@@ -142,6 +109,22 @@ describe('Password input', () => {
       )
     })
 
+    it('should throw with missing password input', () => {
+      $input.remove()
+
+      expect(() => new PasswordInput($root)).toThrow(
+        `${PasswordInput.moduleName}: Form field (\`.nhsuk-js-password-input-input\`) not found`
+      )
+    })
+
+    it('should throw with missing show/hide button', () => {
+      $button.remove()
+
+      expect(() => new PasswordInput($root)).toThrow(
+        `${PasswordInput.moduleName}: Button (\`.nhsuk-js-password-input-toggle\`) not found`
+      )
+    })
+
     it('should throw when initialised twice', () => {
       expect(() => {
         new PasswordInput($root)
@@ -154,7 +137,7 @@ describe('Password input', () => {
 
   describe('Accessibility', () => {
     beforeEach(() => {
-      initPasswordInputs()
+      new PasswordInput($root)
     })
 
     it('should have accessible name and role', async () => {

@@ -1,4 +1,3 @@
-import { normaliseOptions } from '../../common/configuration/index.mjs'
 import { formatErrorMessage, setFocus } from '../../common/index.mjs'
 import { ConfigurableComponent } from '../../configurable-component.mjs'
 
@@ -201,26 +200,6 @@ export class ErrorSummary extends ConfigurableComponent {
 }
 
 /**
- * Initialise error summary component
- *
- * @deprecated Use {@link createAll | `createAll(ErrorSummary, options)`} instead.
- * @param {InitOptions & Partial<ErrorSummaryConfig>} [options]
- */
-export function initErrorSummary(options) {
-  const { scope: $scope } = normaliseOptions(options)
-
-  const $root = $scope?.querySelector(
-    `[data-module="${ErrorSummary.moduleName}"]`
-  )
-
-  if (!$root) {
-    return
-  }
-
-  new ErrorSummary($root, options)
-}
-
-/**
  * Error summary config
  *
  * @see {@link ErrorSummary.defaults}
@@ -231,6 +210,5 @@ export function initErrorSummary(options) {
  */
 
 /**
- * @import { createAll, InitOptions } from '../../index.mjs'
  * @import { Schema } from '../../common/configuration/index.mjs'
  */
