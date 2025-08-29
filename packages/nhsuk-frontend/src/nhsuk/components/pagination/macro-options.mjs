@@ -54,9 +54,9 @@ export const params = {
 export const examples = {
   default: {
     context: {
-      previousUrl: '/section/treatments',
+      previousUrl: '#/section/treatments',
       previousPage: 'Treatments',
-      nextUrl: '/section/symptoms',
+      nextUrl: '#/section/symptoms',
       nextPage: 'Symptoms'
     },
     screenshot: {
