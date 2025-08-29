@@ -185,61 +185,6 @@ describe('Core', () => {
       })
     })
   })
-
-  describe('importing using "all" files', () => {
-    it('outputs a warning when importing the core "all" file', async () => {
-      const sass = outdent`
-        @forward "core/all";
-      `
-
-      await compileStringAsync(sass, {
-        loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
-        logger
-      })
-
-      expect(logger.warn).toHaveBeenCalledWith(
-        `Importing using 'core/all' is deprecated. Update your import statement to import 'core'. To silence this warning, update $nhsuk-suppressed-warnings with key: "import-using-all"`,
-        expect.anything()
-      )
-    })
-
-    it('outputs a warning for each layer that has an "all" file', async () => {
-      const sass = outdent`
-        @forward "core/settings/all";
-        @forward "core/tools/all";
-      `
-
-      await compileStringAsync(sass, {
-        loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
-        logger
-      })
-
-      for (const layer of ['settings', 'tools']) {
-        expect(logger.warn).toHaveBeenCalledWith(
-          `Importing using 'core/${layer}/all' is deprecated. Update your import statement to import 'core/${layer}'. To silence this warning, update $nhsuk-suppressed-warnings with key: "import-using-all"`,
-          expect.anything()
-        )
-      }
-    })
-  })
-
-  describe('importing using deprecated files', () => {
-    it('outputs a warning when importing the core "settings/colours" file', async () => {
-      const sass = outdent`
-        @forward "core/settings/colours";
-      `
-
-      await compileStringAsync(sass, {
-        loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
-        logger
-      })
-
-      expect(logger.warn).toHaveBeenCalledWith(
-        `Importing using 'core/settings/colours' is deprecated. Update your import statement to import 'core/settings/colours-palette', 'core/settings/colours-applied' and 'core/settings/colours-deprecated'. To silence this warning, update $nhsuk-suppressed-warnings with key: "import-using-settings-colours"`,
-        expect.anything()
-      )
-    })
-  })
 })
 
 /**
