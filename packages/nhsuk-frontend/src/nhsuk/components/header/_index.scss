@@ -629,7 +629,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
   .nhsuk-header--organisation {
     .nhsuk-header__logo {
       height: 24px;
-      margin-bottom: 6px;
+      margin-bottom: nhsuk-spacing(2);
       min-width: auto;
       width: 60px;
 
