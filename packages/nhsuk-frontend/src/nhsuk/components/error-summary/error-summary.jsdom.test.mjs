@@ -138,26 +138,18 @@ describe('Error summary', () => {
         expect($root).toHaveFocus()
       })
 
-      it('moves focus to the $root element with `focusOnPageLoad: true` (deprecated)', () => {
+      it('moves focus to the $root element with `disableAutoFocus: false`', () => {
         new ErrorSummary($root, {
-          focusOnPageLoad: true
+          disableAutoFocus: false
         })
-
-        expect(console.warn).toHaveBeenCalledWith(
-          `${ErrorSummary.moduleName}: Option \`focusOnPageLoad\` is deprecated. Use \`disableAutoFocus\` instead.`
-        )
 
         expect($root).toHaveFocus()
       })
 
-      it('does not move focus to the $root element with `focusOnPageLoad: false` (deprecated)', () => {
+      it('does not move focus to the $root element with `disableAutoFocus: true`', () => {
         new ErrorSummary($root, {
-          focusOnPageLoad: false
+          disableAutoFocus: true
         })
-
-        expect(console.warn).toHaveBeenCalledWith(
-          `${ErrorSummary.moduleName}: Option \`focusOnPageLoad\` is deprecated. Use \`disableAutoFocus\` instead.`
-        )
 
         expect($root).not.toHaveFocus()
       })
