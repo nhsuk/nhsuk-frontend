@@ -64,6 +64,46 @@ export const examples = {
       selector: '.nhsuk-pagination-item--previous a',
       viewports: ['mobile', 'tablet', 'desktop']
     }
+  },
+  numbered: {
+    context: {
+      previousUrl: '#',
+      nextUrl: '#',
+      items: [
+        {
+          number: 1,
+          href: '#/page/1'
+        },
+        {
+          ellipsis: true
+        },
+        {
+          number: 6,
+          href: '#/page/6'
+        },
+        {
+          number: 7,
+          href: '#/page/7',
+          current: true
+        },
+        {
+          number: 8,
+          href: '#/page/8'
+        },
+        {
+          ellipsis: true
+        },
+        {
+          number: 10,
+          href: '#/page/10'
+        }
+      ]
+    },
+    screenshot: {
+      states: ['focus', 'hover', 'active'],
+      selector: '.nhsuk-pagination-item--previous a',
+      viewports: ['mobile', 'tablet', 'desktop']
+    }
   }
 }
 
