@@ -192,16 +192,32 @@
   }
 }
 
-/// White link styling, used in hero
-/// component, and in the `.nhsuk-link--reverse`
-/// modifier class.
+/// Reverse link styles
+///
+/// Makes links white, in all states. Use this mixin if you're displaying links
+/// against a dark background.
+///
+/// If you use this mixin in a component, you must also include the
+/// `nhsuk-link-style-default` mixin to get the correct focus and hover states.
 ///
 /// @example scss
-///   @include nhsuk-link-style-white;
+///   .nhsuk-component__link {
+///     @include nhsuk-link-style-default;
+///     @include nhsuk-link-style-reverse;
+///   }
 ///
 
-@mixin nhsuk-link-style-white {
+@mixin nhsuk-link-style-reverse {
   @include nhsuk-link-style-text($override-colour: $nhsuk-reverse-text-colour);
+}
+
+/// White link styles (deprecated)
+///
+/// @alias nhsuk-link-style-reverse
+/// @deprecated To be removed in v12.0, replaced by nhsuk-link-style-reverse
+
+@mixin nhsuk-link-style-white {
+  @include nhsuk-link-style-reverse;
 }
 
 /// Default link visited only styling
