@@ -17,6 +17,7 @@
 @include nhsuk-exports("nhsuk/components/pagination") {
   $_icon-size: nhsuk-em($nhsuk-icon-size-large, 26px);
 
+  // Previous and next pages variant
   .nhsuk-pagination {
     @include nhsuk-responsive-margin(7, "top");
     @include nhsuk-responsive-margin(7, "bottom");
@@ -106,5 +107,111 @@
     .nhsuk-pagination__link:focus & {
       text-decoration: none;
     }
+  }
+
+  // Numbered pages variant
+  .nhsuk-pagination--numbered {
+    @include nhsuk-clearfix;
+  }
+
+  // In a numbered list, the previous link, numbered page links,
+  // and next link should all line up
+  .nhsuk-pagination--numbered__prev,
+  .nhsuk-pagination--numbered__next,
+  .nhsuk-pagination--numbered__item {
+    box-sizing: border-box;
+    position: relative;
+    min-width: 45px;
+    min-height: 45px;
+    padding: nhsuk-spacing(2);
+    text-align: center;
+    margin: 0;
+    float: left;
+    @include nhsuk-font(19);
+  }
+
+  .nhsuk-pagination--numbered__link:visited:hover,
+  .nhsuk-pagination--numbered__item a:hover {
+    color: $nhsuk-link-hover-colour;
+  }
+
+  .nhsuk-pagination--numbered__prev:hover,
+  .nhsuk-pagination--numbered__next:hover,
+  .nhsuk-pagination--numbered__item:hover {
+    background-color: nhsuk-colour("grey-4");
+    color: nhsuk-colour("blue");
+  }
+
+  // Container for the list of numbered items
+  .nhsuk-pagination__list--numbered {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  // Current number
+  .nhsuk-pagination--numbered__item--current,
+  .nhsuk-pagination--numbered__item--current:hover {
+    background-color: nhsuk-colour("blue");
+    font-weight: $nhsuk-font-bold;
+
+    .nhsuk-pagination--numbered__link {
+      color: nhsuk-colour("white");
+    }
+
+    .nhsuk-pagination--numbered__link:focus {
+      color: nhsuk-colour("black");
+    }
+  }
+
+  .nhsuk-pagination--numbered__item--ellipses {
+    font-weight: $nhsuk-font-bold;
+    color: $nhsuk-secondary-text-colour;
+
+    &:hover {
+      background-color: transparent;
+    }
+  }
+
+  .nhsuk-pagination--numbered__link {
+    min-width: nhsuk-spacing(3);
+    vertical-align: middle;
+    color: nhsuk-colour("blue");
+
+    // Increase the touch area for the link to the parent element.
+    @media screen {
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
+    }
+  }
+
+  .nhsuk-pagination--numbered .nhsuk-icon {
+    margin-top: 0;
+    margin-bottom: -12px;
+    fill: nhsuk-colour("blue");
+  }
+
+  .nhsuk-pagination--numbered__link:visited .nhsuk-icon {
+    fill: $nhsuk-link-visited-colour;
+  }
+
+  .nhsuk-pagination--numbered__link:hover .nhsuk-icon {
+    fill: $nhsuk-link-hover-colour;
+  }
+
+  .nhsuk-pagination--numbered .nhsuk-icon__arrow-left {
+    margin-left: -13px;
+    margin-right: nhsuk-spacing(2);
+  }
+
+  .nhsuk-pagination--numbered .nhsuk-icon__arrow-right {
+    margin-left: nhsuk-spacing(2);
+    margin-right: -13px;
   }
 }
