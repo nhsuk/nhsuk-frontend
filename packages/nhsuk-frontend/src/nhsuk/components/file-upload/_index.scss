@@ -1,0 +1,207 @@
+@use "sass:color";
+@use "sass:math";
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+@use "../../core/helpers" as *;
+@forward "../error-message";
+@forward "../hint";
+@forward "../label";
+
+@include nhsuk-exports("govuk/component/file-upload") {
+  $_button-border-colour: nhsuk-colour("grey-2");
+
+  .nhsuk-file-upload {
+    margin-left: nhsuk-spacing(-1);
+    max-width: 100%;
+    padding: nhsuk-spacing(1);
+
+    @include nhsuk-text-colour;
+    @include nhsuk-font(19);
+
+    // The default file upload button in Safari does not support setting a
+    // custom font-size. Set `-webkit-appearance` to `button` to drop out of the
+    // native appearance so the font-size is set to 19px
+    // https://webkit.org/b/224746
+    &::-webkit-file-upload-button {
+      -webkit-appearance: button;
+      color: inherit;
+      font: inherit;
+    }
+
+    &:focus {
+      // Adjust padding to account for focus border
+      padding: 2px;
+
+      @include nhsuk-focused-input;
+    }
+
+    // Set "focus-within" to fix https://bugzil.la/1430196 so that component
+    // receives focus in Firefox.
+    // This can't be set together with `:focus` as all versions of IE fail
+    // to recognise `focus-within` and don't set any styles from the block
+    // when it's a selector.
+    &:focus-within {
+      @include nhsuk-focused-input;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+  }
+
+  .nhsuk-drop-zone {
+    display: block;
+    background-color: $nhsuk-body-background-colour;
+    position: relative;
+    z-index: 0;
+  }
+
+  // Required because disabling pointer events on the button means that the
+  // cursor style be applied on the button itself
+  .nhsuk-drop-zone--disabled {
+    cursor: not-allowed;
+  }
+
+  .nhsuk-file-upload-button__pseudo-button {
+    flex-shrink: 0;
+    margin-bottom: $nhsuk-border-width-form-element + 1;
+    margin-right: nhsuk-spacing(2);
+    width: auto;
+  }
+
+  .nhsuk-file-upload-button__instruction {
+    margin-bottom: 0;
+    margin-top: nhsuk-spacing(2) - ($nhsuk-border-width-form-element + 1);
+    text-align: left;
+  }
+
+  .nhsuk-file-upload-button__status {
+    background-color: nhsuk-colour("grey-1");
+    color: $nhsuk-reverse-text-colour;
+    display: block;
+    margin-bottom: nhsuk-spacing(3);
+    padding: nhsuk-spacing(3);
+    text-align: left;
+
+    .nhsuk-file-upload-button--empty & {
+      background-color: color.scale(nhsuk-colour("grey-4"), $alpha: -50%);
+      color: $nhsuk-text-colour;
+    }
+  }
+
+  // Bugs documented with button using flex so we need a container here
+  // https://github.com/philipwalton/flexbugs#flexbug-9
+  .nhsuk-file-upload-button__pseudo-button-container {
+    align-items: baseline;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .nhsuk-file-upload-button {
+    border: $nhsuk-border-width-form-element solid $_button-border-colour;
+    background-color: nhsuk-colour("white");
+    cursor: pointer;
+    // Align padding with notification banner and error summary,
+    // while accounting for their thicker borders
+    padding: (nhsuk-spacing(3) + $nhsuk-border-width - $nhsuk-border-width-form-element);
+    width: 100%;
+
+    @include nhsuk-media-query($from: tablet) {
+      padding: (nhsuk-spacing(4) + $nhsuk-border-width - $nhsuk-border-width-form-element);
+    }
+
+    &:hover {
+      background-color: nhsuk-colour("white");
+
+      .nhsuk-file-upload-button__pseudo-button {
+        background-color: $nhsuk-secondary-button-hover-colour;
+      }
+    }
+
+    &:active,
+    &:focus {
+      // Double the border by adding its width again. Use `box-shadow` for this
+      // instead of changing `border-width` - this is for consistency with
+      // components such as textarea where we avoid changing `border-width` as
+      // it will change the element size. Also, `outline` cannot be utilised
+      // here as it is already used for the yellow focus state.
+      border: $nhsuk-border-width-form-element solid nhsuk-colour("black");
+      box-shadow: inset 0 0 0 $nhsuk-border-width-form-element;
+      outline: $nhsuk-focus-width solid $nhsuk-focus-colour;
+      // Ensure outline appears outside of the element
+      outline-offset: 0;
+
+      // Remove the pseudo element shadow when parent button focused or pressed
+      .nhsuk-file-upload-button__pseudo-button::after {
+        box-shadow: none;
+      }
+    }
+
+    &:active {
+      .nhsuk-file-upload-button__pseudo-button {
+        background-color: $nhsuk-secondary-button-active-colour;
+        box-shadow: none;
+        top: $nhsuk-border-width;
+
+        &::before {
+          bottom: -$nhsuk-border-width-form-element;
+        }
+      }
+    }
+
+    &:focus:not(:active),
+    &:focus:not(:active):hover {
+      .nhsuk-file-upload-button__pseudo-button {
+        @include nhsuk-focused-button;
+
+        &::before {
+          border-color: transparent;
+        }
+      }
+    }
+  }
+
+  .nhsuk-file-upload-button--empty {
+    background-color: $nhsuk-body-background-colour;
+    border-style: dashed;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: nhsuk-colour("white");
+    }
+
+    &:hover {
+      .nhsuk-file-upload-button__pseudo-button {
+        background-color: $nhsuk-secondary-button-hover-colour;
+      }
+    }
+
+    &:active {
+      .nhsuk-file-upload-button__pseudo-button {
+        background-color: $nhsuk-secondary-button-active-colour;
+        box-shadow: none;
+        top: $nhsuk-border-width;
+
+        &::before {
+          bottom: -$nhsuk-border-width-form-element;
+        }
+      }
+    }
+  }
+
+  .nhsuk-file-upload-button--dragging {
+    background-color: nhsuk-colour("white");
+    border-style: solid;
+  }
+
+  .nhsuk-file-upload-button:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .nhsuk-file-upload--disabled {
+    pointer-events: none;
+  }
+}
