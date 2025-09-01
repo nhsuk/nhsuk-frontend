@@ -15,7 +15,8 @@
 ////
 
 @include nhsuk-exports("nhsuk/components/pagination") {
-  $_icon-size: nhsuk-em($nhsuk-icon-size-large, 26px);
+  $_small-icon-size: nhsuk-em($nhsuk-icon-size, 19px);
+  $_large-icon-size: nhsuk-em($nhsuk-icon-size-large, 26px);
 
   // Previous and next pages variant
   .nhsuk-pagination {
@@ -37,7 +38,7 @@
     }
 
     .nhsuk-pagination__link-title {
-      padding-left: $_icon-size; // [1]
+      padding-left: $_large-icon-size; // [1]
     }
   }
 
@@ -51,7 +52,7 @@
     }
 
     .nhsuk-pagination__link-title {
-      padding-right: $_icon-size; // [1]
+      padding-right: $_large-icon-size; // [1]
     }
   }
 
@@ -76,8 +77,8 @@
     .nhsuk-icon {
       position: absolute;
       top: 0;
-      height: $_icon-size;
-      width: $_icon-size;
+      height: $_large-icon-size;
+      width: $_large-icon-size;
     }
   }
 
@@ -148,7 +149,8 @@
   }
 
   .nhsuk-pagination--numbered .nhsuk-pagination__link {
-    display: block;
+    position: static;
+    width: auto;
     min-width: nhsuk-spacing(3);
     padding: 0;
     vertical-align: middle;
@@ -189,17 +191,26 @@
   }
 
   .nhsuk-pagination--numbered .nhsuk-icon {
-    margin-top: 0;
-    margin-bottom: -12px;
+    top: 50%;
+    height: $_small-icon-size;
+    width: $_small-icon-size;
+    margin-top: math.div($_small-icon-size, -2);
+    margin-bottom: 0;
   }
 
-  .nhsuk-pagination--numbered .nhsuk-icon__arrow-left {
-    margin-left: -13px;
-    margin-right: nhsuk-spacing(2);
+  .nhsuk-pagination--numbered .nhsuk-icon--arrow-left {
+    left: nhsuk-spacing(1);
   }
 
-  .nhsuk-pagination--numbered .nhsuk-icon__arrow-right {
-    margin-left: nhsuk-spacing(2);
-    margin-right: -13px;
+  .nhsuk-pagination--numbered .nhsuk-icon--arrow-right {
+    right: nhsuk-spacing(1);
+  }
+
+  .nhsuk-pagination--numbered .nhsuk-pagination__next .nhsuk-pagination__link-title {
+    padding-right: $_small-icon-size;
+  }
+
+  .nhsuk-pagination--numbered .nhsuk-pagination__prev .nhsuk-pagination__link-title {
+    padding-left: $_small-icon-size;
   }
 }
