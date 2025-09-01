@@ -38,7 +38,7 @@ a {
 }
 
 .nhsuk-link--reverse {
-  @include nhsuk-link-style-white;
+  @include nhsuk-link-style-reverse;
 
   @include nhsuk-media-query($media-type: print) {
     &::after {
