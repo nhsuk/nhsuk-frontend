@@ -93,7 +93,7 @@ Then include the script before the closing `</body>` tag of your page using the 
       import { initAll } from '/javascripts/nhsuk-frontend.min.js'
       initAll()
     </script>
-  </head>
+  </body>
 ```
 
 ### Option 2: Import JavaScript using a bundler
