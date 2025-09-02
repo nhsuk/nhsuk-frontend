@@ -12,7 +12,6 @@
   // Table container is used to ensure the table does not break the container.
   //
   // 1. Margin is removed so there isn't double spacing.
-  // 2. XS size not added because it matches the table header, so it'd be bad for hierarchy
 
   .nhsuk-table-container {
     display: block;
@@ -24,47 +23,146 @@
     @include nhsuk-responsive-margin(7, "bottom");
 
     .nhsuk-table,
-    .nhsuk-table-responsive {
-      margin: 0; // [1]
+    .nhsuk-table-with-panel {
+      margin-bottom: 0; // [1]
     }
   }
 
-  .nhsuk-table,
-  .nhsuk-table-responsive {
-    width: 100%;
-
-    border-spacing: 0;
-    border-collapse: collapse;
-
-    @include nhsuk-font($size: 19);
-    @include nhsuk-responsive-margin(7, "bottom");
-  }
-
-  .nhsuk-table__caption--xl {
-    @include nhsuk-font-size(48);
-  }
-
-  .nhsuk-table__caption--l {
-    @include nhsuk-font-size(36);
-  }
-
-  .nhsuk-table__caption--m {
-    @include nhsuk-font-size(26);
-  }
-
-  .nhsuk-table__caption--s {
-    @include nhsuk-font-size(22);
-  }
-
-  // [2]
-
-  // Table row hover
+  // Table styling
   //
-  // Table row hover is used to aid readability for users.
+  // 1. Force `<table>`s to be full-width by default.
+  // 2. Allow word breaks anywhere to prevent table fit-to-content.
+  // 3. Allow word breaks when necessary (deprecated but works, unlike overflow-wrap).
+  //
 
-  .nhsuk-table__row {
-    &:hover {
-      background-color: nhsuk-colour("grey-5");
+  .nhsuk-table {
+    border-spacing: 0;
+    vertical-align: top;
+    width: 100%; // [1]
+
+    @include nhsuk-responsive-margin(7, "bottom");
+
+    .nhsuk-u-text-break-word {
+      word-break: break-all; // [2]
+      word-break: break-word; // [3]
+    }
+
+    @include nhsuk-media-query($media-type: print) {
+      page-break-inside: avoid;
+    }
+  }
+
+  .nhsuk-table__head {
+    .nhsuk-table__header {
+      border-bottom: $nhsuk-border-table-header-width solid $nhsuk-border-color;
+    }
+  }
+
+  .nhsuk-table__header {
+    @include nhsuk-typography-weight-bold;
+  }
+
+  .nhsuk-table__header,
+  .nhsuk-table__cell,
+  .nhsuk-list-view__cell {
+    padding-left: 0;
+
+    border-bottom: $nhsuk-border-table-cell-width solid $nhsuk-border-color;
+    text-align: left;
+    vertical-align: top;
+
+    @include nhsuk-font-size(19);
+    @include nhsuk-responsive-padding(3, "bottom");
+    @include nhsuk-responsive-padding(4, "right");
+    @include nhsuk-responsive-padding(3, "top");
+
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+
+  // Responsive table
+  //
+  // 1. Defining the mobile view of the table
+  // 2. Defining the desktop view of the table
+  // 3. Hiding the table view on mobile
+  // 4. Displaying the table view on desktop
+  // 5. Set up the figcaption to match the table caption
+  // 6. Assigning a minimum width in case of blank cell
+  // 7. Make the (dt,dd) pair together act like a table cell
+
+  .nhsuk-list-view-container {
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
+
+    .nhsuk-list-view {
+      margin-bottom: 0;
+    }
+
+    figcaption {
+      text-align: left;
+    }
+
+    .nhsuk-list-view__heading {
+      padding-right: nhsuk-spacing(3);
+
+      @include nhsuk-typography-weight-bold;
+    }
+
+    .nhsuk-list-view__row {
+      margin-block-start: 0;
+      margin-bottom: nhsuk-spacing(4);
+
+      &:last-child {
+        margin-block-end: 0;
+      }
+    }
+
+    .nhsuk-list-view__cell {
+      // [7]
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      padding-right: 0;
+
+      &:last-child {
+        border-bottom: 3px solid $nhsuk-border-colour;
+      }
+
+      dd {
+        margin-inline-start: 0;
+        box-sizing: border-box;
+      }
+
+      dt {
+        text-align: right;
+        flex-grow: 1; // So that the text-align right always works
+        box-sizing: border-box;
+      }
+    }
+  }
+
+  @include nhsuk-media-query($until: desktop) {
+    // [3]
+    .nhsuk-table-container--responsive .nhsuk-list-view-container {
+      display: block;
+    }
+
+    .nhsuk-table-container--responsive .nhsuk-table {
+      display: none;
+    }
+  }
+
+  @include nhsuk-media-query($from: desktop) {
+    // [4]
+    .nhsuk-table-container--responsive .nhsuk-list-view-container {
+      display: none;
+    }
+
+    .nhsuk-table-container--responsive .nhsuk-table {
+      display: table; // Not `block`, otherwise the table will not be full width
     }
   }
 
@@ -72,110 +170,57 @@
   //
   // 1. Margin is removed so there isn't double spacing.
 
-  .nhsuk-table__panel-with-heading-tab {
+  .nhsuk-table-with-panel {
     @include nhsuk-panel-with-label($nhsuk-card-background-colour, $nhsuk-text-colour, $nhsuk-border-colour);
 
     .nhsuk-table,
-    .nhsuk-table-container,
-    .nhsuk-table-responsive {
+    .nhsuk-table-container {
       margin: 0; // [1]
     }
   }
 
-  .nhsuk-table__heading-tab {
+  .nhsuk-table-with-panel__heading {
     @include nhsuk-heading-label($nhsuk-brand-colour, $nhsuk-reverse-text-colour);
   }
 
-  // Responsive table
+  // Table captions
   //
-  // 1. Hide the thead until desktop
-  // 2. Removing default screen reader behaviour
-  // 3. Assigning role of table-row on desktop to give default screen reader behaviour
-  // 4. Using justify content to space out elements in the row on mobile
-  // 5. Assigning a minimum width in case of black cell
-  // 6. Aligning content to the right on mobile
-  // 7. Aligning mobile header to left to split it from the data
-  // 8. Hiding mobile specific header from desktop view
-  // 9. Adding a display block value due to IE 11 not having full flex support
+  // Size table captions to match heading levels
 
-  .nhsuk-table-responsive {
-    thead {
-      @include nhsuk-media-query($until: desktop) {
-        @include nhsuk-visually-hidden; // [1]
-      }
-    }
+  .nhsuk-table__caption,
+  .nhsuk-list-view__caption {
+    text-align: left;
+    @include nhsuk-font(22, $weight: bold);
+  }
 
-    .nhsuk-table__body {
-      .nhsuk-table-responsive__heading {
-        @include nhsuk-typography-weight-bold;
-        padding-right: nhsuk-spacing(3);
-        text-align: left; // [7]
-      }
+  .nhsuk-table__caption--xl,
+  .nhsuk-list-view__caption--xl {
+    @include nhsuk-font-size(48);
+  }
 
-      .nhsuk-table__row {
-        display: block; // [2]
-        margin-bottom: nhsuk-spacing(4);
+  .nhsuk-table__caption--l,
+  .nhsuk-list-view__caption--l {
+    @include nhsuk-font-size(36);
+  }
 
-        &:last-child {
-          margin-bottom: 0;
-        }
-      }
+  .nhsuk-table__caption--m,
+  .nhsuk-list-view__caption--m {
+    @include nhsuk-font-size(26);
+  }
 
-      .nhsuk-table__row th,
-      .nhsuk-table__row td {
-        display: block; // For browsers that don't support flexbox
-        display: flex;
-        justify-content: space-between; // [4]
-        min-width: 1px; // [5]
-      }
+  // Table row hover
+  //
+  // Table row hover is used to aid readability for users.
 
-      @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-        .nhsuk-table__row th,
-        .nhsuk-table__row td {
-          display: block; // [9]
-        }
-      }
-
-      @include nhsuk-media-query($until: desktop) {
-        .nhsuk-table__row th {
-          font-weight: $nhsuk-font-normal;
-        }
-
-        .nhsuk-table__row th,
-        .nhsuk-table__row td {
-          padding-right: 0;
-          text-align: right; // [6]
-
-          &:last-child {
-            border-bottom: 3px solid $nhsuk-border-colour;
-          }
-        }
-      }
-
-      @include nhsuk-media-query($from: desktop) {
-        .nhsuk-table-responsive__heading {
-          display: none; // [8]
-        }
-
-        .nhsuk-table__row {
-          display: table-row; // [3]
-        }
-
-        .nhsuk-table__row th {
-          text-align: left;
-        }
-
-        .nhsuk-table__row th,
-        .nhsuk-table__row td {
-          display: table-cell;
-        }
-      }
+  .nhsuk-table__row {
+    &:hover {
+      background-color: $color_nhsuk-grey-5;
     }
   }
 
   // Numeric tables
   //
-  // Right aligns table cells for numeric tables.
+  // Right aligns table cells for numeric table columns.
 
   .nhsuk-table__header--numeric,
   .nhsuk-table__cell--numeric {
