@@ -187,6 +187,7 @@ export function createAll(Component, config, scopeOrOptions) {
     .filter((instance) => !!instance) // Exclude components that errored
 }
 
+export * from './i18n.mjs'
 export * from './common/index.mjs'
 export * from './components/index.mjs'
 export * from './errors/index.mjs'
