@@ -8,7 +8,6 @@
 
 There is a new variant of the Panel component with a solid blue background and white text. This can be used as an interruption card. [Pull request #1196](https://github.com/nhsuk/nhsuk-frontend/pull/1196)
 
-
 ## 10.0.0 - 26 August 2025
 
 This release introduces some breaking changes to file paths, full width buttons on mobile, the header component and others. It also stops Internet Explorer 11 and other older browsers from running NHS.UK frontend JavaScript.
