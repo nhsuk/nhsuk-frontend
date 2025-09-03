@@ -99,7 +99,7 @@
 
   .nhsuk-file-upload-button {
     border: $nhsuk-border-width-form-element solid $_button-border-colour;
-    background-color: nhsuk-colour("grey-4");
+    background-color: nhsuk-colour("white");
     cursor: pointer;
     // Align padding with notification banner and error summary,
     // while accounting for their thicker borders
@@ -112,6 +112,10 @@
 
     &:hover {
       background-color: nhsuk-colour("white");
+
+      .nhsuk-file-upload-button__pseudo-button {
+        background-color: $nhsuk-secondary-button-hover-colour;
+      }
     }
 
     &:active,
@@ -130,6 +134,18 @@
       // Remove the pseudo element shadow when parent button focused or pressed
       .nhsuk-file-upload-button__pseudo-button::after {
         box-shadow: none;
+      }
+    }
+
+    &:active {
+      .nhsuk-file-upload-button__pseudo-button {
+        background-color: $nhsuk-secondary-button-active-colour;
+        box-shadow: none;
+        top: $nhsuk-border-width;
+
+        &::before {
+          bottom: -$nhsuk-border-width-form-element;
+        }
       }
     }
 
@@ -153,6 +169,24 @@
     &:focus,
     &:active {
       background-color: nhsuk-colour("white");
+    }
+
+    &:hover {
+      .nhsuk-file-upload-button__pseudo-button {
+        background-color: $nhsuk-secondary-button-hover-colour;
+      }
+    }
+
+    &:active {
+      .nhsuk-file-upload-button__pseudo-button {
+        background-color: $nhsuk-secondary-button-active-colour;
+        box-shadow: none;
+        top: $nhsuk-border-width;
+
+        &::before {
+          bottom: -$nhsuk-border-width-form-element;
+        }
+      }
     }
   }
 
