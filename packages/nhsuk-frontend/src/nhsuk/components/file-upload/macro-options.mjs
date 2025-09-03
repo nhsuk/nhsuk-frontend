@@ -227,6 +227,19 @@ export const examples = {
         isPageHeading: true
       }
     }
+  },
+  'with multiple': {
+    context: {
+      id: 'file-upload-6',
+      name: 'file-upload-6',
+      multiple: true,
+      chooseFilesButtonText: 'Choose files',
+      dropInstructionText: 'or drop files',
+      noFileChosenText: 'No files chosen',
+      label: {
+        text: 'Upload multiple files'
+      }
+    }
   }
 }
 
