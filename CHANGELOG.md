@@ -2,7 +2,7 @@
 
 ## Unreleased
 
-### New features
+### :new: **New features**
 
 #### Blue panel variant
 
