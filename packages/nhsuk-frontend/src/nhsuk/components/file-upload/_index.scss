@@ -112,6 +112,10 @@
 
     &:hover {
       background-color: nhsuk-colour("white");
+
+      .nhsuk-file-upload-button__pseudo-button {
+        background-color: $nhsuk-secondary-button-hover-colour;
+      }
     }
 
     &:active,
@@ -133,17 +137,12 @@
       }
     }
 
-    &:hover {
-      .nhsuk-file-upload-button__pseudo-button {
-        background-color: $nhsuk-secondary-button-hover-colour;
-      }
-    }
-
     &:active {
       .nhsuk-file-upload-button__pseudo-button {
         background-color: $nhsuk-secondary-button-active-colour;
         box-shadow: none;
         top: $nhsuk-border-width;
+
         &::before {
           bottom: -$nhsuk-border-width-form-element;
         }
@@ -183,6 +182,7 @@
         background-color: $nhsuk-secondary-button-active-colour;
         box-shadow: none;
         top: $nhsuk-border-width;
+
         &::before {
           bottom: -$nhsuk-border-width-form-element;
         }
