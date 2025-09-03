@@ -76,6 +76,16 @@ export const examples = {
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']
     }
+  },
+  blue: {
+    context: {
+      titleText: 'You are doing something unusual',
+      html: '<p>Some text to explain.</p><a href="#" class="nhsuk-button nhsuk-button--reverse" data-module="nhsuk-button">Continue anyway</a>',
+      classes: 'nhsuk-panel--blue'
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
+    }
   }
 }
 

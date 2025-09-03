@@ -50,6 +50,10 @@ $nhsuk-border-width-panel: $nhsuk-panel-border-width;
     }
   }
 
+  .nhsuk-panel--blue {
+    background-color: nhsuk-colour("blue");
+  }
+
   .nhsuk-panel__title {
     margin-top: 0;
 
