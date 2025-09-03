@@ -825,6 +825,26 @@
         "classes": "nhsuk-input--width-20"
       }) }}
 
+      {{ fileUpload({
+        "label": {
+          "text": "Upload a file"
+        },
+        "name": "file"
+      }) }}
+
+      {{ fileUpload({
+        "label": {
+          "text": "Upload a file"
+        },
+        "hint": {
+          "text": "Upload a CSV or Excel file"
+        },
+        "errorMessage": {
+          "text": "The CSV must be smaller than 2MB"
+        },
+        "name": "file-hint"
+      }) }}
+
       <form method="post" novalidate>
         {{ checkboxes({
           "fieldset": {
