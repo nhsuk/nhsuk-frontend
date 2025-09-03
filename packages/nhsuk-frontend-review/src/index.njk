@@ -1,0 +1,112 @@
+{% set title = 'NHS.UK frontend' %}
+
+{% extends 'layouts/page.njk' %}
+
+{% block header %}
+  {% call hero({
+    heading: "This is an internal development app.",
+    headingClasses: "nhsuk-body-l nhsuk-u-font-weight-normal",
+    headingLevel: 2
+  }) %}
+    <p class="nhsuk-u-margin-bottom-0">To learn how to design and build digital services, visit the <a href="https://service-manual.nhs.uk/design-system">design system in the NHS digital service manual</a> for guidance and examples.</p>
+  {% endcall %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-4">NHS.UK frontend</h1>
+      <p class="nhsuk-body">Deployed automatically from <a href="https://github.com/nhsuk/nhsuk-frontend/commits/{{ branchName }}" rel="noreferrer noopener" target="_blank"><code>{{ branchName }}</code> branch (opens in new tab).</a></p>
+
+      <h2 class="nhsuk-heading-l">Components and variants</h2>
+      <p class="nhsuk-body">These examples are used for automated tests and may not follow service manual best practice.</p>
+
+      <ul class="nhsuk-list">
+        {% for data in components %}
+          {% for exampleName, example in data.examples %}
+            <li><a href="components/{{ data.component }}/{{ exampleName | slugify }}/">{{ data.name ~ " " ~ exampleName }}</a></li>
+          {% endfor %}
+        {% endfor %}
+      </ul>
+
+      <h2 class="nhsuk-heading-l">Example pages</h2>
+
+      {{ contentsList({
+        items: [
+          {
+            href: "examples/all/",
+            text: "All component examples"
+          },
+          {
+            href: "examples/all-buttons/",
+            text: "All button examples"
+          },
+          {
+            href: "examples/all-icons/",
+            text: "All icon examples"
+          },
+          {
+            href: "examples/all-links/",
+            text: "All link examples"
+          },
+          {
+            href: "examples/all-tags/",
+            text: "All tag examples"
+          },
+          {
+            href: "examples/button-group/",
+            text: "Button group"
+          },
+          {
+            href: "examples/components-in-details/",
+            text: "Components in details"
+          },
+          {
+            href: "examples/conditional-reveals/",
+            text: "Conditional reveals"
+          },
+          {
+            href: "examples/card-group/",
+            text: "Card group"
+          },
+          {
+            href: "examples/expander-group/",
+            text: "Expander group"
+          },
+          {
+            href: "examples/expander-alongside-card/",
+            text: "Expander alongside card"
+          },
+          {
+            href: "examples/error-summary-linking-to-input/",
+            text: "Error summary with link to an input field"
+          },
+          {
+            href: "examples/error-summary-linking-to-radios/",
+            text: "Error summary with link to a radio field"
+          },
+          {
+            href: "examples/multiple-radio-groups/",
+            text: "Multiple radio groups"
+          },
+          {
+            href: "examples/task-list-multiple-sections/",
+            text: "Task list with multiple sections"
+          },
+          {
+            href: "examples/typography/",
+            text: "Typography and spacing examples"
+          }
+        ]
+      }) }}
+
+      <hr class="nhsuk-section-break nhsuk-section-break--xl nhsuk-section-break--visible">
+
+      <h2 class="nhsuk-heading-l">Documentation</h2>
+      <p class="nhsuk-body"><a class="nhsuk-link" href="docs/sassdoc/">Sass API reference</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}

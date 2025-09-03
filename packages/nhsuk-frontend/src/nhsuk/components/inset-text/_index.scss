@@ -1,0 +1,31 @@
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+@use "../../core/helpers" as *;
+
+////
+/// Inset text component
+///
+/// 1. Removes top margin from first element and bottom margin from last,
+///    to ensure correct spacing within the component.
+/// 2. Restricts the width of the text to optimise the line length for
+///    readability.
+///
+/// @group components/inset-text
+////
+
+@include nhsuk-exports("nhsuk/components/inset-text") {
+  .nhsuk-inset-text {
+    border-left: $nhsuk-border-width-inset-text solid $nhsuk-brand-colour;
+
+    @include nhsuk-reading-width; // [2]
+    @include nhsuk-top-and-bottom; // [1]
+
+    @include nhsuk-responsive-margin(7, "bottom");
+    @include nhsuk-responsive-margin(7, "top");
+    @include nhsuk-responsive-padding(4);
+
+    @include nhsuk-media-query($media-type: print) {
+      border-color: $nhsuk-print-text-colour;
+    }
+  }
+}

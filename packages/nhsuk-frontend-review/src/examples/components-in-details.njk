@@ -1,0 +1,194 @@
+{% extends "layouts/page.njk" %}
+
+{% set title = "Components in details" %}
+
+{% block content %}
+  <h1 class="nhsuk-heading-xl">{{ title }}</h1>
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      {% call details({
+        summaryText: "Checkboxes",
+        open: true
+      }) %}
+
+        {{ checkboxes({
+          fieldset: {
+            legend: {
+              text: "What is your nationality?"
+            }
+          },
+          hint: {
+            text: "If you have more than 1 nationality, select all options that are relevant to you"
+          },
+          name: "nationality",
+          values: ["british"],
+          items: [
+            {
+              value: "british",
+              text: "British"
+            },
+            {
+              value: "irish",
+              text: "Irish"
+            },
+            {
+              value: "other",
+              text: "citizen of another country"
+            }
+          ]
+        }) }}
+
+      {% endcall %}
+
+      {% call details({
+        summaryText: "Radios",
+        open: true
+      }) %}
+
+        {{ radios({
+          fieldset: {
+            legend: {
+              text: "Have you changed your name?"
+            }
+          },
+          hint: {
+            text: "This includes changing your last name or spelling your name differently"
+          },
+          name: "name-changed",
+          value: "no",
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No"
+            }
+          ]
+        }) }}
+
+      {% endcall %}
+
+      {% call details({summaryText: "Inputs", open: true}) %}
+
+        {{ input({
+          label: {
+            text: "NHS number"
+          },
+          name: "input-example",
+          classes: "nhsuk-input--width-20"
+        }) }}
+
+        {{ textarea({
+          label: {
+            text: "Can you provide more detail?"
+          },
+          hint: {
+            text: "Do not include personal information like your name, date of birth or NHS number"
+          },
+          name: "more-detail"
+        }) }}
+
+        {{ dateInput({
+          namePrefix: "dob",
+          fieldset: {
+            legend: {
+              text: "What is your date of birth?"
+            }
+          }
+        }) }}
+
+      {% endcall %}
+
+      {% call details({summaryText: "Buttons", open: true}) %}
+
+        <div class="nhsuk-button-group">
+          {{ button({
+            text: "Save and continue"
+          }) }}
+
+          {{ button({
+            text: "Yes, delete this vaccine",
+            classes: "nhsuk-button--warning"
+          }) }}
+
+          {{ button({
+            text: "Continue",
+            classes: "nhsuk-button--login"
+          }) }}
+
+          {{ button({
+            text: "Find my location",
+            classes: "nhsuk-button--secondary"
+          }) }}
+        </div>
+
+      {% endcall %}
+
+      {% call details({
+        summaryText: "Expander",
+        open: true
+      }) %}
+
+        {{ details({
+          classes: "nhsuk-expander",
+          summaryText: "Get your medical records",
+          html: "
+            <p>You can see your GP records by:</p>
+            <ul>
+              <li>asking for them at your GP surgery </li>
+              <li>going online to see them (if you have signed up for <a href=\"/using-the-nhs/nhs-services/gps/gp-online-services/\">GP online services</a>) </li>
+            </ul>
+          "
+        }) }}
+
+      {% endcall %}
+
+      {% call details({
+        summaryText: "Lists",
+        open: true
+      }) %}
+
+        {{ list({
+          title: "Do",
+          type: "tick",
+          items: [
+            {
+              item: "cover blisters with a soft plaster or padded dressing"
+            },
+            {
+              item: "wash your hands before touching a burst blister"
+            },
+            {
+              item: "allow the fluid in a burst blister to drain before covering it with a plaster or dressing"
+            }
+          ]
+        }) }}
+
+        {{ list({
+          title: "Don't",
+          type: "cross",
+          items: [
+            {
+              item: "burst a blister yourself"
+            },
+            {
+              item: "peel the skin off a burst blister"
+            },
+            {
+              item: "pick at the edges of the remaining skin"
+            },
+            {
+              item: "wear the shoes or use the equipment that caused your blister until it heals"
+            }
+          ]
+        }) }}
+
+      {% endcall %}
+
+    </div>
+  </div>
+{% endblock %}

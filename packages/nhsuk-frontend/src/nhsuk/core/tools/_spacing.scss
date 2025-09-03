@@ -1,0 +1,187 @@
+@use "sass:map";
+@use "sass:math";
+@use "sass:meta";
+@use "../settings" as *;
+@use "sass-mq" as *;
+
+////
+/// Spacing
+///
+/// @group tools
+////
+
+/// Single point spacing
+///
+/// Returns measurement corresponding to the spacing point requested.
+///
+/// @param {Number} $spacing-point - Point on the spacing scale
+///  (set in `settings/_spacing.scss`)
+///
+/// @returns {String} Spacing measurement eg. 8px
+///
+/// @example scss
+///   .element {
+///     padding: nhsuk-spacing(5);
+///   }
+///
+/// @example scss Using negative spacing
+///   .element {
+///     margin-top: nhsuk-spacing(-1);
+///   }
+///
+/// @example scss Marking spacing declarations as important
+///   .element {
+///     margin-top: nhsuk-spacing(1) !important;
+///   }
+///
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+
+@function nhsuk-spacing($spacing-point) {
+  $actual-input-type: meta.type-of($spacing-point);
+  @if $actual-input-type != "number" {
+    @error "Expected a number (integer), but got a "
+      + "#{$actual-input-type}.";
+  }
+
+  $is-negative: false;
+  @if $spacing-point < 0 {
+    $is-negative: true;
+    $spacing-point: math.abs($spacing-point);
+  }
+
+  @if not map.has-key($nhsuk-spacing-points, $spacing-point) {
+    @error "Unknown spacing variable `#{$spacing-point}`. Make sure you are using a point from the spacing scale in `_settings/spacing.scss`.";
+  }
+
+  $value: map.get($nhsuk-spacing-points, $spacing-point);
+  @return if($is-negative, $value * -1, $value);
+}
+
+/// Responsive spacing
+///
+/// Adds responsive spacing (either padding or margin, depending on `$property`)
+/// by fetching a 'spacing map' from the responsive spacing scale, which defines
+/// different spacing values at different breakpoints.
+///
+/// To generate responsive spacing, use 'nhsuk-responsive-margin' or
+/// 'nhsuk-responsive-padding' mixins
+///
+/// @param {Number} $responsive-spacing-point - Point on the responsive spacing
+///  scale, corresponds to a map of breakpoints and spacing values
+/// @param {String} $property - Property to add spacing to (e.g. 'margin')
+/// @param {String} $direction [all] - Direction to add spacing to
+///  (`top`, `right`, `bottom`, `left`, `all`)
+/// @param {Boolean} $important [false] - Whether to mark as `!important`
+/// @param {Number} $adjustment [false] - Offset to adjust spacing by
+///
+/// @example scss
+///   .foo {
+///     padding: nhsuk-spacing(5);
+///     top: nhsuk-spacing(2) !important; // if `!important` is required
+///   }
+///
+/// 1. Make sure that the return value from `_settings/spacing.scss` is a map.
+/// 2. Loop through each breakpoint in the map
+/// 3. The 'null' breakpoint is for mobile.
+///
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+
+@mixin nhsuk-responsive-spacing(
+  $responsive-spacing-point,
+  $property,
+  $direction: "all",
+  $important: false,
+  $adjustment: false
+) {
+  $actual-input-type: meta.type-of($responsive-spacing-point);
+  @if $actual-input-type != "number" {
+    @error "Expected a number (integer), but got a " + "#{$actual-input-type}.";
+  }
+
+  @if not map.has-key($nhsuk-spacing-responsive-scale, $responsive-spacing-point) {
+    @error "Unknown spacing point `#{$responsive-spacing-point}`. Make sure you are using a point from the "
+      + "responsive spacing scale in `_settings/spacing.scss`.";
+  }
+
+  $scale-map: map.get($nhsuk-spacing-responsive-scale, $responsive-spacing-point); // [1]
+  $actual-map-type: meta.type-of($scale-map);
+  @if $actual-map-type != "map" {
+    @error "Expected a number (integer), but got a "
+      + "#{$actual-map-type}. Make sure you are using a map to set the responsive spacing in `_settings/spacing.scss`)";
+  }
+
+  @each $breakpoint, $breakpoint-value in $scale-map {
+    // [2]
+
+    @if $adjustment {
+      $breakpoint-value: $breakpoint-value + $adjustment;
+    }
+
+    & {
+      @if not $breakpoint {
+        // [3]
+        @if $direction == all {
+          #{$property}: $breakpoint-value if($important, !important, null);
+        } @else {
+          #{$property}-#{$direction}: $breakpoint-value if($important, !important, null);
+        }
+      } @else {
+        @include nhsuk-media-query($from: $breakpoint) {
+          @if $direction == all {
+            #{$property}: $breakpoint-value if($important, !important, null);
+          } @else {
+            #{$property}-#{$direction}: $breakpoint-value if($important, !important, null);
+          }
+        }
+      }
+    }
+  }
+}
+
+/// Responsive margin
+///
+/// Adds responsive margin by fetching a 'spacing map' from the responsive
+/// spacing scale, which defines different spacing values at different
+/// breakpoints. Wrapper for the `nhsuk-responsive-spacing` mixin.
+///
+/// @param {Number} $responsive-spacing-point - Point on the responsive spacing
+/// scale, corresponds to a map of breakpoints and spacing values
+/// @param {String} $direction [all] - Direction to add spacing to
+///   (`top`, `right`, `bottom`, `left`, `all`)
+/// @param {Boolean} $important [false] - Whether to mark as `!important`
+/// @param {Number} $adjustment [false] - Offset to adjust spacing by
+///
+/// @example scss
+///   .foo {
+///     @include nhsuk-responsive-margin(6, 'left', $adjustment: 1px);
+///   }
+///
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+
+@mixin nhsuk-responsive-margin($responsive-spacing-point, $direction: "all", $important: false, $adjustment: false) {
+  @include nhsuk-responsive-spacing($responsive-spacing-point, "margin", $direction, $important, $adjustment);
+}
+
+/// Responsive padding
+///
+/// Adds responsive padding by fetching a 'spacing map' from the responsive
+/// spacing scale, which defines different spacing values at different
+/// breakpoints. Wrapper for the `nhsuk-responsive-spacing` mixin.
+///
+/// @param {Number} $responsive-spacing-point - Point on the responsive spacing
+///   scale, corresponds to a map of breakpoints and spacing values
+/// @param {String} $direction [all] - Direction to add spacing to
+///   (`top`, `right`, `bottom`, `left`, `all`)
+/// @param {Boolean} $important [false] - Whether to mark as `!important`
+/// @param {Number} $adjustment [false] - Offset to adjust spacing
+///
+/// @example scss
+///   .foo {
+///     @include nhsuk-responsive-padding(6, 'left', $adjustment: 1px);
+///   }
+///
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+
+@mixin nhsuk-responsive-padding($responsive-spacing-point, $direction: "all", $important: false, $adjustment: false) {
+  @include nhsuk-responsive-spacing($responsive-spacing-point, "padding", $direction, $important, $adjustment);
+}

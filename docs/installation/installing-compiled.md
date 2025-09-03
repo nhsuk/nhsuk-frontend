@@ -1,57 +1,57 @@
 # Installing using compiled files
 
-When installing NHS.UK frontend using compiled files, you are using compiled and minified versions of the stylesheet and JavaScript.
+You can install NHS.UK frontend by copying our CSS, JavaScript and asset files into your project. If you install this way, you can try NHS.UK frontend in your application without having to make many changes.
 
-This means that you will not be able to:
+In your live application, you should [install using npm](/docs/installation/installing-with-npm.md) instead.
+
+## What you cannot do with the precompiled files
+
+You'll not be able to:
 
 - selectively include CSS for individual components.
 - build your own styles or components based on the colour variables or typography and spacing mixins.
 - use the component Nunjucks templates.
 
-If you require any of this functionality, you should [install using npm](/docs/installation/installing-with-npm.md) instead.
+## Copy and install the precompiled files
 
-## Installation
+1. Download the `nhsuk-frontend-<VERSION-NUMBER>.zip` file at the bottom of the [latest NHS.UK frontend release note](https://github.com/nhsuk/nhsuk-frontend/releases/latest).
+2. Unzip the zip file.
+3. Copy the `assets` folder to the root of your project's public folder. This is so, for example, `<YOUR-SITE-URL>/assets/images/favicon.ico` shows the `favicon.ico` icon in your users' browsers.
+4. Copy the `.css` and `.css.map` files to a stylesheets folder in the root of your project's public folder. This is so, for example, `<YOUR-SITE-URL>/stylesheets/nhsuk-frontend-<VERSION-NUMBER>.min.css` shows the CSS file in your users' browsers.
+5. Copy the `.js` and `.js.map` files to a JavaScripts folder in the root of your project's public folder. This is so, for example, `<YOUR-SITE-URL>/javascripts/nhsuk-frontend-<VERSION-NUMBER>.min.js` shows the JavaScript file in your users' browsers.
 
-1. Download the compiled files
+## Create an example page to check for errors
 
-   [Download the latest CSS, JavaScript and assets from GitHub (zip file)](https://github.com/nhsuk/nhsuk-frontend/releases)
-
-2. Include resources
-
-   Copy all 3 folders, `css`, `js` and `assets`, into the root of your project. If you already have a folder structure
-   in place, you will need to copy the individual files into the relevant folders.
-
-   Make sure you change the version numbers of the `[latest version].min.css` and `[latest version].min.js` files,
-   in the example below, to the version you are using.
+1. Create a page in your project using the following HTML (in your live application, you should use the [Design system page template](https://service-manual.nhs.uk/design-system/styles/page-template) instead):
 
    ```html
-   <!-- Styles -->
-   <link rel="stylesheet" href="css/nhsuk-[latest version].min.css">
+   <!DOCTYPE html>
+   <html lang="en">
+     <head>
+       <title>Example - NHS.UK</title>
+       <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+       <link rel="stylesheet" href="/stylesheets/nhsuk-frontend-<VERSION-NUMBER>.min.css">
+     </head>
+     <body>
+       <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' nhsuk-frontend-supported' : '');</script>
 
-   <!-- Scripts -->
-   <script src="js/nhsuk-[latest version].min.js" defer></script>
+       <!-- component HTML -->
 
-   <!-- Favicons -->
-   <link rel="shortcut icon" href="assets/favicons/favicon.ico" type="image/x-icon">
-   <link rel="apple-touch-icon" href="assets/favicons/apple-touch-icon-180x180.png">
-   <link rel="mask-icon" href="assets/favicons/favicon.svg" color="#005eb8">
-   <link rel="icon" sizes="192x192" href="assets/favicons/favicon-192x192.png">
-   <meta name="msapplication-TileImage" content="assets/favicons/mediumtile-144x144.png">
-   <meta name="msapplication-TileColor" content="#005eb8">
-   <meta name="msapplication-square70x70logo" content="assets/favicons/smalltile-70x70.png">
-   <meta name="msapplication-square150x150logo" content="assets/favicons/mediumtile-150x150.png">
-   <meta name="msapplication-wide310x150logo" content="assets/favicons/widetile-310x150.png">
-   <meta name="msapplication-square310x310logo" content="assets/favicons/largetile-310x310.png">
+       <script type="module" src="/javascripts/nhsuk-frontend-<VERSION-NUMBER>.min.js"></script>
+       <script type="module">
+         import { initAll } from '/javascripts/nhsuk-frontend-<VERSION-NUMBER>.min.js'
+         initAll()
+       </script>
+     </body>
+   </html>
    ```
 
-3. Get the JavaScript working
+2. Replace `<VERSION-NUMBER>` so the 2 filenames match the files you copied from [NHS.UK frontend's GitHub repo](#copy-and-install-the-precompiled-files).
 
-   Add the following JavaScript to the top of the `<body>` section of your page template:
+3. Go to the [character count component](https://service-manual.nhs.uk/design-system/components/character-count) on the Design system and copy the HTML from the first example.
 
-   ```
-   <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
-   ```
+4. Replace `<!-- component HTML -->` with the character count HTML you copied.
 
-4. Create pages using NHS.UK frontend
+5. Run your application - you can check it works the same way as the [character count component example](https://service-manual.nhs.uk/design-example/components/character-count/default) by typing into the textarea.
 
    You can now create pages using the [Design system on the NHS digital service manual](https://service-manual.nhs.uk/design-system).

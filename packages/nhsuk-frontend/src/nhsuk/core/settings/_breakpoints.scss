@@ -1,0 +1,18 @@
+////
+/// @group settings/layout
+////
+
+/// Breakpoint definitions
+
+$nhsuk-breakpoints: (
+  mobile: 320px,
+  tablet: 641px,
+  desktop: 769px,
+  large-desktop: 990px
+) !default;
+
+/// Show active breakpoint in top-right corner.
+///
+/// Only use this during local development.
+
+$nhsuk-show-breakpoints: false !default;

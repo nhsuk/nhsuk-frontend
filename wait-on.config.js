@@ -1,4 +1,4 @@
-const { PORT = 3000 } = process.env
+const { PORT = '3000' } = process.env
 
 /**
  * @type {WaitOnOptions}

@@ -1,0 +1,50 @@
+@use "sass:map";
+@use "../settings" as *;
+@use "../tools" as *;
+
+////
+/// Typography
+///
+/// @group utilities
+////
+
+// Font size and line height
+
+// Generate typography override classes for each responsive font map in the
+// typography scale eg .nhsuk-u-font-size-48
+// nhsuk-u-font-size-24 is deprecated
+@each $size, $font-map in $nhsuk-typography-scale {
+  .nhsuk-u-font-size-#{$size} {
+    $font-map: map.get($nhsuk-typography-scale, $size);
+
+    // Add underscore to deprecated typography scale keys
+    @if map.has-key($font-map, "deprecation") {
+      $size: _#{$size};
+    }
+
+    @include nhsuk-font-size($size, $important: true);
+  }
+}
+
+// Weights
+
+.nhsuk-u-font-weight-normal {
+  @include nhsuk-typography-weight-normal($important: true);
+}
+
+.nhsuk-u-font-weight-bold {
+  @include nhsuk-typography-weight-bold($important: true);
+}
+
+// Typography helpers
+
+.nhsuk-u-text-break-word {
+  @include nhsuk-text-break-word($important: true);
+}
+
+// Colours
+
+.nhsuk-u-secondary-text-colour {
+  // stylelint-disable-next-line declaration-no-important
+  color: $nhsuk-secondary-text-colour !important;
+}

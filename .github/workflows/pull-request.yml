@@ -1,11 +1,23 @@
 name: Pull request
 
-on: pull_request
+on:
+  pull_request:
+
+  push:
+    branches:
+      - main
+      - 'feature/**'
+      - 'support/**'
+
+  workflow_dispatch:
 
 jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
+
+    env:
+      PUPPETEER_SKIP_DOWNLOAD: true
 
     steps:
       - name: Checkout
@@ -28,6 +40,7 @@ jobs:
       - name: Restore dependencies (from cache)
         uses: actions/cache/restore@v4
         with:
+          fail-on-cache-miss: true
           key: npm-install-${{ hashFiles('package-lock.json') }}
           path: node_modules
 
@@ -51,14 +64,16 @@ jobs:
       - name: Restore dependencies (from cache)
         uses: actions/cache/restore@v4
         with:
+          fail-on-cache-miss: true
           key: npm-install-${{ hashFiles('package-lock.json') }}
           path: node_modules
 
       - name: Restore build (from cache)
         uses: actions/cache/restore@v4
         with:
-          path: dist/
+          fail-on-cache-miss: true
           key: build-${{ github.sha }}
+          path: packages/*/dist/
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -66,16 +81,78 @@ jobs:
           node-version-file: .nvmrc
 
       - name: Setup Puppeteer
-        run: npx puppeteer browsers install
+        run: npm run install:puppeteer
 
       - name: Run tests
-        run: npm test --ignore-scripts
+        run: npm run test:js -- --coverage
 
       - name: Save test coverage
         uses: actions/upload-artifact@v4
         with:
           name: Javascript unit tests coverage
           path: coverage
+
+  exports:
+    name: Package ${{ matrix.conditions }}
+    runs-on: ubuntu-latest
+    needs: [build]
+
+    strategy:
+      fail-fast: false
+
+      matrix:
+        conditions:
+          - require
+          - import
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Restore dependencies (from cache)
+        uses: actions/cache/restore@v4
+        with:
+          fail-on-cache-miss: true
+          key: npm-install-${{ hashFiles('package-lock.json') }}
+          path: node_modules
+
+      - name: Restore build (from cache)
+        uses: actions/cache/restore@v4
+        with:
+          fail-on-cache-miss: true
+          key: build-${{ github.sha }}
+          path: packages/*/dist/
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+
+      - name: Resolve entry path
+        run: |
+          node --eval "console.log(require.resolve('nhsuk-frontend'))" --conditions ${{ matrix.conditions }}
+          node --eval "console.log(require.resolve('nhsuk-frontend/package.json'))" --conditions ${{ matrix.conditions }}
+          node --eval "console.log(require.resolve('nhsuk-frontend/dist/nhsuk/index.js'))" --conditions ${{ matrix.conditions }}
+          node --eval "console.log(require.resolve('nhsuk-frontend/dist/nhsuk/index.mjs'))" --conditions ${{ matrix.conditions }}
+          node --eval "console.log(require.resolve('nhsuk-frontend/dist/nhsuk/nhsuk.js'))" --conditions ${{ matrix.conditions }}
+          node --eval "console.log(require.resolve('nhsuk-frontend/dist/nhsuk/nhsuk.mjs'))" --conditions ${{ matrix.conditions }}
+          node --eval "console.log(require.resolve('nhsuk-frontend/dist/nhsuk/components/button/button.js'))" --conditions ${{ matrix.conditions }}
+          node --eval "console.log(require.resolve('nhsuk-frontend/dist/nhsuk/components/button/button.mjs'))" --conditions ${{ matrix.conditions }}
+
+      - name: Resolve entry path (legacy paths)
+        run: |
+          node --eval "console.log(require.resolve('nhsuk-frontend/packages/nhsuk'))" --conditions ${{ matrix.conditions }}
+          node --eval "console.log(require.resolve('nhsuk-frontend/packages/nhsuk.js'))" --conditions ${{ matrix.conditions }}
+          node --eval "console.log(require.resolve('nhsuk-frontend/packages/components/button/button'))" --conditions ${{ matrix.conditions }}
+          node --eval "console.log(require.resolve('nhsuk-frontend/packages/components/button/button.js'))" --conditions ${{ matrix.conditions }}
+
+  sass:
+    name: Sass import
+    needs: [build]
+
+    # Run existing "Sass" workflow
+    # (after build has been cached)
+    uses: ./.github/workflows/sass.yml
 
   regression:
     name: Visual regression tests
@@ -94,9 +171,11 @@ jobs:
         uses: ./.github/workflows/actions/diff
         id: changes
 
-      - name: Setup Playwright
+      - name: Download browsers
         if: ${{ steps.changes.outputs.changes == 'true' }}
-        run: npm run postinstall
+        run: |
+          npm run install:puppeteer
+          npm run install:playwright
 
       - name: Run backstop
         if: ${{ steps.changes.outputs.changes == 'true' }}

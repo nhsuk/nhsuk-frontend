@@ -12,24 +12,24 @@ We use the following rules when linting files:
 
 Bad:
 
-```
+```scss
 .selector {border: 0; padding: 0;}
 ```
 
 Good:
 
-```
+```scss
 .selector {
   border: 0;
   padding: 0;
 }
 ```
 
-### Use variables for colours not HEX values in selectors rules, unless in variables.
+### Use Sass mixin for colours instead of hex values
 
 Bad:
 
-```
+```scss
 .selector {
   color: #005eb8;
 }
@@ -37,9 +37,9 @@ Bad:
 
 Good:
 
-```
+```scss
 .selector {
-  color: $colour_nhsuk-blue;
+  color: nhsuk-colour("blue");
 }
 ```
 
@@ -47,13 +47,13 @@ Good:
 
 Bad:
 
-```
+```scss
 $white: #FFF;
 ```
 
 Good:
 
-```
+```scss
 $white: #ffffff;
 ```
 
@@ -61,7 +61,7 @@ $white: #ffffff;
 
 Bad:
 
-```
+```scss
 .selector {
   border: none;
 }
@@ -69,7 +69,7 @@ Bad:
 
 Good:
 
-```
+```scss
 .selector {
   border: 0;
 }
@@ -79,17 +79,17 @@ Good:
 
 Bad:
 
-```
+```scss
 #content {
-  ...
+  // ...
 }
 ```
 
 Good:
 
-```
+```scss
 .nhsuk-wrapper {
-  ...
+  // ...
 }
 ```
 
@@ -97,31 +97,31 @@ Good:
 
 Bad:
 
-```
+```scss
 p {
   margin: 0;
   em {
-    ...
+    // ...
   }
 }
 a {
-  ...
+  // ...
 }
 ```
 
 Good:
 
-```
+```scss
 p {
   margin: 0;
 
   em {
-    ...
+    // ...
   }
 }
 
 a {
-  ...
+  // ...
 }
 ```
 
@@ -129,24 +129,24 @@ a {
 
 Bad:
 
-```
+```scss
 .nhsuk-breadcrumb {
-  ...
+  // ...
   &__item {
-    ...
+    // ...
   }
 }
 ```
 
 Good:
 
-```
+```scss
 .nhsuk-breadcrumb {
-  ...
+  // ...
 }
 
 .nhsuk-breadcrumb__item {
-  ...
+  // ...
 }
 ```
 
@@ -154,14 +154,14 @@ Good:
 
 Bad:
 
-```
+```scss
 @extend %contain-floats;
 ```
 
 Good:
 
-```
-@include clearfix;
+```scss
+@include nhsuk-clearfix;
 ```
 
 ### Allow max 3-rule property shorthand if possible
@@ -182,27 +182,27 @@ margin: 1px 2px 3px;
 
 ### Commas in lists should be followed by a space
 
-### The basenames of `@import`ed SCSS partials should not begin with an underscore and should not include the filename extension
+### The basenames of `@forward`ed SCSS partials should not begin with an underscore and should not include the filename extension
 
 Bad:
 
-```
-@import "_foo.scss";
-@import "_bar/foo.scss";
+```scss
+@forward "_foo.scss";
+@forward "_bar/foo.scss";
 ```
 
 Good:
 
-```
-@import "foo";
-@import "bar/foo";
+```scss
+@forward "foo";
+@forward "bar/foo";
 ```
 
 ### Properties should be formatted with a single space separating the colon from the property's value
 
 Bad:
 
-```
+```scss
 .foo {
   content:"bar";
 }
@@ -210,7 +210,7 @@ Bad:
 
 Good:
 
-```
+```scss
 .foo {
   content: "bar";
 }
@@ -220,15 +220,15 @@ Good:
 
 Bad:
 
-```
-.selector {
+```scss
+.selector-1 {
   margin: 5px+15px;
 }
 
 $foo: 1;
 $bar: 3;
 
-.selector {
+.selector-2 {
   margin: $foo+$bar+'px';
 }
 
@@ -246,15 +246,15 @@ $bar: 2-1;
 
 Good:
 
-```
-.selector {
+```scss
+.selector-1 {
   margin: 5px + 15px;
 }
 
 $foo: 1;
 $bar: 3;
 
-.selector {
+.selector-2 {
   margin: $foo + $bar + 'px';
 }
 
@@ -265,7 +265,7 @@ $bar: 2 - 1;
   $baz: 1;
 }
 
-@if ($foo != $bar) {
+@if $foo != $bar {
   $baz: 1;
 }
 ```
@@ -274,7 +274,7 @@ $bar: 2 - 1;
 
 Bad:
 
-```
+```scss
 @function foo( $bar, $baz ) {
   @return $bar + $baz;
 }
@@ -282,7 +282,7 @@ Bad:
 
 Good:
 
-```
+```scss
 @function foo($bar, $baz) {
   @return $bar + $baz;
 }
@@ -292,7 +292,7 @@ Good:
 
 Bad:
 
-```
+```scss
 @mixin FONT_STACK() {
   font-family: $nhsuk-font-stack;
 }
@@ -300,7 +300,7 @@ Bad:
 
 Good:
 
-```
+```scss
 @mixin font-stack() {
   font-family: $nhsuk-font-stack;
 }
@@ -310,7 +310,7 @@ Good:
 
 Bad:
 
-```
+```scss
 .selector {
   margin: 0px;
 }
@@ -318,7 +318,7 @@ Bad:
 
 Good:
 
-```
+```scss
 .selector {
   margin: 0;
 }
@@ -328,7 +328,7 @@ Good:
 
 Bad:
 
-```
+```scss
 .selector {
   margin: 0
 }
@@ -338,7 +338,7 @@ $my-example-var: value
 
 Good:
 
-```
+```scss
 .selector {
   margin: 0;
 }
@@ -350,7 +350,7 @@ $my-example-var: value;
 
 Bad:
 
-```
+```scss
 .selector {
   font-size: 0.50em;
 }
@@ -358,7 +358,7 @@ Bad:
 
 Good:
 
-```
+```scss
 .selector {
   font-size: 0.5em;
 }

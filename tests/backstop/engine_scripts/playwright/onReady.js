@@ -1,6 +1,20 @@
-module.exports = async (page, scenario, viewport, isReference, browserContext) => {
-  console.log('SCENARIO > ' + scenario.label);
-  await require('./clickAndHoverHelper')(page, scenario);
+const clickAndHoverHelper = require('./clickAndHoverHelper')
 
-  // add more ready handlers here...
-};
+/**
+ * @param {Page} page
+ * @param {Scenario} scenario
+ */
+module.exports = async function (page, scenario) {
+  await clickAndHoverHelper(page, scenario)
+  if (page.isClosed()) {
+    return
+  }
+
+  await page.dispatchEvent('body', 'resize')
+  await page.waitForTimeout(200)
+}
+
+/**
+ * @import { Scenario } from 'backstopjs'
+ * @import { Page } from 'playwright-core'
+ */

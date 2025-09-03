@@ -1,0 +1,96 @@
+@use "sass:string";
+@use "../settings" as *;
+@use "../tools" as *;
+
+////
+/// @group objects/layout
+////
+
+/// Width container mixin
+///
+/// Used to create page width and custom width container classes.
+///
+/// @param {String} $width [$nhsuk-page-width] - Width in pixels
+///
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+///
+/// @example scss - Creating a 1200px wide container class
+///   .app-width-container--wide {
+///     @include nhsuk-width-container(1200px);
+///   }
+
+@mixin nhsuk-width-container($width: $nhsuk-page-width) {
+  // By default, limit the width of the container to the page width
+  max-width: $width;
+
+  // On mobile, add half width gutters
+  margin-right: $nhsuk-gutter-half;
+  margin-left: $nhsuk-gutter-half;
+
+  // Respect 'display cutout' safe area (avoids notches and rounded corners)
+  @supports (margin: string.unquote("max(calc(0px))")) {
+    $gutter-safe-area-right: calc(#{$nhsuk-gutter-half} + env(safe-area-inset-right));
+    $gutter-safe-area-left: calc(#{$nhsuk-gutter-half} + env(safe-area-inset-left));
+
+    // Use max() to pick largest margin, default or with safe area
+    // Escaped due to Sass max() vs. CSS native max()
+    margin-right: string.unquote("max(#{$nhsuk-gutter-half}, #{$gutter-safe-area-right})");
+    margin-left: string.unquote("max(#{$nhsuk-gutter-half}, #{$gutter-safe-area-left})");
+  }
+
+  // On desktop, add full width gutters
+  @include nhsuk-media-query($from: desktop) {
+    margin-right: $nhsuk-gutter;
+    margin-left: $nhsuk-gutter;
+
+    // Respect 'display cutout' safe area (avoids notches and rounded corners)
+    @supports (margin: string.unquote("max(calc(0px))")) {
+      $gutter-safe-area-right: calc(#{$nhsuk-gutter-half} + env(safe-area-inset-right));
+      $gutter-safe-area-left: calc(#{$nhsuk-gutter-half} + env(safe-area-inset-left));
+
+      // Use max() to pick largest margin, default or with safe area
+      // Escaped due to Sass max() vs. CSS native max()
+      margin-right: string.unquote("max(#{$nhsuk-gutter}, #{$gutter-safe-area-right})");
+      margin-left: string.unquote("max(#{$nhsuk-gutter}, #{$gutter-safe-area-left})");
+    }
+  }
+
+  // As soon as the viewport is greater than the width of the page plus the
+  // gutters, just centre the content instead of adding gutters.
+  @include nhsuk-media-query($and: "(min-width: #{($width + $nhsuk-gutter * 2)})") {
+    margin-right: auto;
+    margin-left: auto;
+
+    // Since a safe area may have previously been set above,
+    // we need to duplicate this margin that centers the page.
+    @supports (margin: string.unquote("max(calc(0px))")) {
+      margin-right: auto;
+      margin-left: auto;
+    }
+  }
+}
+
+@mixin nhsuk-width-container-fluid {
+  // Full width container, spanning the entire width of the viewport
+  max-width: 100%;
+
+  // On mobile, add half width gutters
+  margin-right: $nhsuk-gutter-half;
+  margin-left: $nhsuk-gutter-half;
+
+  // On desktop, add full width gutters
+  @include nhsuk-media-query($from: desktop) {
+    margin-right: $nhsuk-gutter;
+    margin-left: $nhsuk-gutter;
+  }
+}
+
+@include nhsuk-exports("nhsuk/core/objects/width-container") {
+  .nhsuk-width-container {
+    @include nhsuk-width-container;
+  }
+
+  .nhsuk-width-container-fluid {
+    @include nhsuk-width-container-fluid;
+  }
+}

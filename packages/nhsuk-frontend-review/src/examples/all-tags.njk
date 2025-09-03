@@ -1,0 +1,101 @@
+{% extends 'layouts/page.njk' %}
+
+{% set title = 'Tags' %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      {% set rows = [] %}
+
+      {% for name, example in {
+        "Default": {
+          text: "Default"
+        },
+        "White": {
+          text: "In progress",
+          modifier: "white"
+        },
+        "Grey": {
+          text: "Inactive",
+          modifier: "grey"
+        },
+        "Green": {
+          text: "New",
+          modifier: "green"
+        },
+        "Aqua green": {
+          text: "Active",
+          modifier: "aqua-green"
+        },
+        "Blue": {
+          text: "Pending",
+          modifier: "blue"
+        },
+        "Purple": {
+          text: "Received",
+          modifier: "purple"
+        },
+        "Pink": {
+          text: "Sent",
+          modifier: "pink"
+        },
+        "Red": {
+          text: "Rejected",
+          modifier: "red"
+        },
+        "Orange": {
+          text: "Declined",
+          modifier: "orange"
+        },
+        "Yellow": {
+          text: "Delayed",
+          modifier: "yellow"
+        }
+      } %}
+        {% set modifierHtml %}
+          {% if example.modifier %}
+            <code class="nhsuk-body-s">{{ example.modifier }}</code>
+          {% else %}
+            None
+          {% endif %}
+        {% endset %}
+
+        {% set tagHtml %}
+          {{ tag({
+            text: example.text,
+            classes: ("nhsuk-tag--" ~ example.modifier) if example.modifier
+          }) }}
+        {% endset %}
+
+        {% set rows = (rows.push([
+          { text: name, header: "Name" },
+          { html: modifierHtml, header: "Modifier" },
+          { html: tagHtml, header: "Tag" }
+        ]), rows) %}
+      {% endfor %}
+
+      {{ table({
+        caption: "Tags",
+        captionClasses: "nhsuk-table__caption--xl nhsuk-u-margin-bottom-7",
+        firstCellIsHeader: true,
+        responsive: true,
+        head: [
+          {
+            text: "Name",
+            classes: "nhsuk-u-width-one-third"
+          },
+          {
+            text: "Modifier",
+            classes: "nhsuk-u-width-one-third"
+          },
+          {
+            text: "Tag",
+            classes: "nhsuk-u-width-one-third"
+          }
+        ],
+        rows: rows
+      }) }}
+
+    </div>
+  </div>
+{% endblock %}

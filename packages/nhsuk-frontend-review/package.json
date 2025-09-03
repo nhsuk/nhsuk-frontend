@@ -1,0 +1,34 @@
+{
+  "name": "@nhsuk/frontend-review",
+  "private": true,
+  "description": "NHS.UK frontend review app",
+  "license": "MIT",
+  "scripts": {
+    "prebuild": "npm run clean",
+    "clean": "del-cli dist/**",
+    "build": "concurrently npm:build:* --group --prefix none",
+    "build:package": "gulp build --color",
+    "build:sassdoc": "sassdoc --config sassdoc.config.yaml ../nhsuk-frontend/src/nhsuk",
+    "serve": "gulp serve --color",
+    "watch": "gulp serve watch --color",
+    "start": "browser-sync start --config browsersync.config.js --no-snippet --no-ui"
+  },
+  "dependencies": {
+    "browser-sync": "^3.0.4"
+  },
+  "devDependencies": {
+    "@nhsuk/frontend-config": "*",
+    "@nhsuk/frontend-lib": "*",
+    "@nhsuk/frontend-tasks": "*",
+    "del-cli": "^6.0.0",
+    "gulp": "^5.0.1",
+    "html-validate": "^10.0.0",
+    "marked": "^16.2.0",
+    "package-json": "^10.0.1",
+    "plugin-error": "^2.0.1",
+    "sassdoc": "^2.7.4"
+  },
+  "engines": {
+    "node": "^20.9.0 || ^22.11.0"
+  }
+}

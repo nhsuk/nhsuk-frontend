@@ -1,0 +1,255 @@
+import { components } from '@nhsuk/frontend-lib'
+import { getAllByRole, getByRole } from '@testing-library/dom'
+import { outdent } from 'outdent'
+
+import { examples as dateInputExamples } from '../date-input/macro-options.mjs'
+
+import { ErrorSummary, initErrorSummary } from './error-summary.mjs'
+import { examples } from './macro-options.mjs'
+
+describe('Error summary', () => {
+  /** @type {HTMLElement} */
+  let $root
+
+  /** @type {HTMLAnchorElement[]} */
+  let $links
+
+  /** @type {HTMLInputElement} */
+  let $input
+
+  /** @type {HTMLLabelElement} */
+  let $label
+
+  /**
+   * @param {keyof typeof examples} example
+   */
+  function initExample(example) {
+    document.body.innerHTML = outdent`
+      <form method="post" novalidate>
+        ${components.render('error-summary', examples[example])}
+        ${components.render('date-input', dateInputExamples['with errors and hint'])}
+      </form>
+    `
+
+    const $container = document.querySelector('form')
+
+    $root = /** @type {HTMLElement} */ (
+      document.querySelector(`[data-module="${ErrorSummary.moduleName}"]`)
+    )
+
+    $links = getAllByRole($root, 'link')
+
+    $input = getByRole($container, 'textbox', {
+      name: 'Day'
+    })
+
+    $label = $input.labels[0]
+
+    jest.spyOn($root, 'addEventListener')
+    jest.spyOn($input, 'focus')
+    jest.spyOn($label, 'scrollIntoView')
+
+    jest.spyOn(console, 'warn').mockImplementation()
+  }
+
+  beforeEach(() => {
+    initExample('with description')
+  })
+
+  describe('Initialisation via init function', () => {
+    it('should add event listeners', () => {
+      initErrorSummary()
+
+      expect($root.addEventListener).toHaveBeenCalledWith(
+        'click',
+        expect.any(Function)
+      )
+    })
+
+    it('should not throw with missing error summary', () => {
+      $root.remove()
+      expect(() => initErrorSummary()).not.toThrow()
+    })
+
+    it('should not throw with missing linked element', () => {
+      $input.remove()
+      expect(() => initErrorSummary()).not.toThrow()
+    })
+
+    it('should not throw with empty body', () => {
+      document.body.innerHTML = ''
+      expect(() => initErrorSummary()).not.toThrow()
+    })
+
+    it('should not throw with empty scope', () => {
+      const scope = document.createElement('div')
+      expect(() => initErrorSummary({ scope })).not.toThrow()
+    })
+  })
+
+  describe('Initialisation via class', () => {
+    it('should not throw with $root element', () => {
+      expect(() => new ErrorSummary($root)).not.toThrow()
+    })
+
+    it('should throw with unsupported browser', () => {
+      document.body.classList.remove('nhsuk-frontend-supported')
+
+      expect(() => new ErrorSummary($root)).toThrow(
+        'NHS.UK frontend is not supported in this browser'
+      )
+    })
+
+    it('should throw with missing $root element', () => {
+      // @ts-expect-error Parameter '$root' not provided
+      expect(() => new ErrorSummary()).toThrow(
+        `${ErrorSummary.moduleName}: Root element (\`$root\`) not found`
+      )
+    })
+
+    it('should throw with wrong $root element type', () => {
+      const $svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+
+      expect(() => new ErrorSummary($svg)).toThrow(
+        `${ErrorSummary.moduleName}: Root element (\`$root\`) is not of type HTMLElement`
+      )
+    })
+
+    it('should throw when initialised twice', () => {
+      expect(() => {
+        new ErrorSummary($root)
+        new ErrorSummary($root)
+      }).toThrow(
+        `${ErrorSummary.moduleName}: Root element (\`$root\`) already initialised`
+      )
+    })
+  })
+
+  describe('Accessibility', () => {
+    beforeEach(() => {
+      initErrorSummary()
+    })
+
+    it('should add accessible name and role', () => {
+      expect($root).toHaveAccessibleName('There is a problem')
+      expect($root).toHaveRole('alert')
+    })
+  })
+
+  describe('Focus handling', () => {
+    describe('Alert role', () => {
+      it('sets focus automatically', () => {
+        initErrorSummary()
+
+        expect($root).toHaveFocus()
+      })
+
+      it('moves focus to the $root element', () => {
+        initErrorSummary()
+
+        expect($root).toHaveFocus()
+      })
+
+      it('moves focus to the $root element with `focusOnPageLoad: true` (deprecated)', () => {
+        initErrorSummary({
+          focusOnPageLoad: true
+        })
+
+        expect(console.warn).toHaveBeenCalledWith(
+          `${ErrorSummary.moduleName}: Option \`focusOnPageLoad\` is deprecated. Use \`disableAutoFocus\` instead.`
+        )
+
+        expect($root).toHaveFocus()
+      })
+
+      it('does not move focus to the $root element with `focusOnPageLoad: false` (deprecated)', () => {
+        initErrorSummary({
+          focusOnPageLoad: false
+        })
+
+        expect(console.warn).toHaveBeenCalledWith(
+          `${ErrorSummary.moduleName}: Option \`focusOnPageLoad\` is deprecated. Use \`disableAutoFocus\` instead.`
+        )
+
+        expect($root).not.toHaveFocus()
+      })
+    })
+
+    describe('Links', () => {
+      it('moves focus to the linked element', () => {
+        initErrorSummary()
+
+        $links[0].click()
+
+        expect($input).toHaveFocus()
+        expect($label.scrollIntoView).toHaveBeenCalled()
+        expect($input.focus).toHaveBeenCalledWith({
+          preventScroll: true
+        })
+      })
+    })
+  })
+
+  describe('Nunjucks configuration', () => {
+    it('configures auto-focus explicitly enabled', () => {
+      initExample('auto-focus explicitly enabled')
+
+      const errorSummary = new ErrorSummary($root)
+      expect(errorSummary.config).toEqual({
+        disableAutoFocus: false
+      })
+    })
+
+    it('configures auto-focus disabled', () => {
+      initExample('auto-focus disabled')
+
+      const errorSummary = new ErrorSummary($root)
+      expect(errorSummary.config).toEqual({
+        disableAutoFocus: true
+      })
+    })
+
+    it('ignores unknown data attributes', () => {
+      document.body.innerHTML = components.render('error-summary', {
+        context: {
+          ...examples['default'].context,
+          attributes: {
+            'data-unknown1': '100',
+            'data-unknown2': 200,
+            'data-unknown3': false
+          }
+        }
+      })
+
+      const errorSummary = new ErrorSummary(
+        document.querySelector(`[data-module="${ErrorSummary.moduleName}"]`)
+      )
+
+      expect(errorSummary.config).toEqual({
+        disableAutoFocus: false
+      })
+    })
+  })
+
+  describe('JavaScript configuration', () => {
+    it('configures auto-focus explicitly enabled', () => {
+      const errorSummary = new ErrorSummary($root, {
+        disableAutoFocus: false
+      })
+
+      expect(errorSummary.config).toEqual({
+        disableAutoFocus: false
+      })
+    })
+
+    it('configures auto-focus disabled', () => {
+      const errorSummary = new ErrorSummary($root, {
+        disableAutoFocus: true
+      })
+
+      expect(errorSummary.config).toEqual({
+        disableAutoFocus: true
+      })
+    })
+  })
+})

@@ -1,0 +1,69 @@
+@use "sass:map";
+@use "sass:math";
+@use "../settings" as *;
+@use "mixins" as *;
+@use "sass-mq" as *;
+
+////
+/// Grid
+///
+/// @group tools
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+////
+
+/// Grid width percentage
+///
+/// @param {String} $key - Name of grid width (e.g. two-thirds)
+/// @return {Number} Percentage width
+/// @throw if `$key` is not a valid grid width
+
+@function nhsuk-grid-width($key) {
+  @if map.has-key($nhsuk-grid-widths, $key) {
+    @return map.get($nhsuk-grid-widths, $key);
+  }
+
+  @error "Unknown grid width `#{$key}`";
+}
+
+/// Generate grid column styles
+///
+/// Creates a grid column with standard gutter between the columns.
+///
+/// Grid widths are defined in the `$nhsuk-grid-widths` map.
+///
+/// By default the column width changes from 100% to specified width at the
+/// 'desktop' breakpoint, but other breakpoints can be specified using the `$at`
+/// parameter.
+///
+/// @param {String} $width [full] name of a grid width from $nhsuk-grid-widths
+/// @param {String} $float [left] left | right
+/// @param {String} $at [desktop] - mobile | tablet | desktop | any custom breakpoint
+///
+/// @example scss - Default
+///   .nhsuk-grid-column-two-thirds {
+///     @include nhsuk-grid-column(two-thirds)
+///   }
+///
+/// @example scss - Customising the breakpoint where width percentage is applied
+///   .nhsuk-grid-column-one-half-at-tablet {
+///     @include nhsuk-grid-column(one-half, $at: tablet);
+///   }
+///
+/// @example scss - Customising the float direction
+///   .nhsuk-grid-column-one-half-right {
+///     @include nhsuk-grid-column(two-thirds, $float: right);
+///   }
+///
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+
+@mixin nhsuk-grid-column($width: full, $float: left, $at: desktop) {
+  box-sizing: border-box;
+  @if $at != tablet {
+    width: 100%;
+  }
+  padding: 0 $nhsuk-gutter-half;
+  @include nhsuk-media-query($from: $at) {
+    width: nhsuk-grid-width($width);
+    float: $float;
+  }
+}

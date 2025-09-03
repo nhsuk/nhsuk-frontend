@@ -1,0 +1,80 @@
+{
+  "name": "nhsuk-frontend",
+  "version": "10.0.0",
+  "description": "NHS.UK frontend contains the code you need to start building user interfaces for NHS websites and services.",
+  "homepage": "https://nhsuk.github.io/nhsuk-frontend/",
+  "bugs": {
+    "url": "https://github.com/nhsuk/nhsuk-frontend/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nhsuk/nhsuk-frontend.git"
+  },
+  "license": "MIT",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/nhsuk/index.d.mts",
+      "sass": "./dist/nhsuk/index.scss",
+      "import": "./dist/nhsuk/index.mjs",
+      "require": "./dist/nhsuk/index.js",
+      "default": "./dist/nhsuk/index.js"
+    },
+    "./*": "./*",
+    "./packages/*": {
+      "sass": "./dist/nhsuk/*",
+      "default": "./dist/nhsuk/*.js"
+    },
+    "./packages/*.js": "./dist/nhsuk/*.js",
+    "./package.json": "./package.json"
+  },
+  "main": "dist/nhsuk/index.js",
+  "module": "dist/nhsuk/index.mjs",
+  "sass": "dist/nhsuk/index.scss",
+  "types": "dist/nhsuk/index.d.mts",
+  "files": [
+    "dist",
+    "src",
+    "!**/macro-options.mjs",
+    "!**/*.test.*"
+  ],
+  "scripts": {
+    "prebuild": "npm run clean",
+    "clean": "del-cli dist/**",
+    "build": "concurrently npm:build:* --group --prefix none",
+    "build:package": "gulp build --color",
+    "build:types": "tsc --build --noEmit false --pretty tsconfig.json",
+    "watch": "concurrently npm:watch:* --prefix none",
+    "watch:package": "gulp watch --color",
+    "watch:types": "npm run build:types -- --preserveWatchOutput --watch",
+    "release": "gulp release --color",
+    "version": "echo $npm_package_version",
+    "start": "npm run watch"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.28.3",
+    "@nhsuk/frontend-config": "*",
+    "@nhsuk/frontend-helpers": "*",
+    "@nhsuk/frontend-lib": "*",
+    "@nhsuk/frontend-tasks": "*",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/user-event": "^14.6.1",
+    "autoprefixer": "^10.4.21",
+    "cssnano": "^7.1.1",
+    "del-cli": "^6.0.0",
+    "gulp": "^5.0.1",
+    "gulp-zip": "^6.1.0",
+    "lodash": "^4.17.21",
+    "outdent": "^0.8.0",
+    "postcss": "^8.5.6",
+    "postcss-scss": "^4.0.9",
+    "puppeteer": "^24.17.1",
+    "sass-embedded": "^1.91.0"
+  },
+  "engines": {
+    "node": "^20.9.0 || ^22.11.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

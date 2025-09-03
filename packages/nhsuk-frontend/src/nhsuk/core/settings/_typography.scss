@@ -1,0 +1,144 @@
+@forward "globals" show $nhsuk-font-normal, $nhsuk-font-bold;
+
+////
+/// Typography
+///
+/// @group settings/typography
+////
+
+/// Responsive typography font map
+///
+/// This is used to generate responsive typography that adapts according to the
+/// breakpoints.
+///
+/// Font size and font weight can be defined for each breakpoint. You can define
+/// different behaviour on tablet and desktop. The 'null' breakpoint is for
+/// mobile.
+///
+/// Line-heights will automatically be converted from pixel measurements into
+/// relative values. For example, with a font-size of 16px and a line-height of
+/// 24px, the line-height will be converted to 1.5 before output.
+///
+/// You can also specify a separate font size and line height for print media.
+///
+/// @prop {Number} $point.$breakpoint.font-size - Font size for `$point` at `$breakpoint`
+/// @prop {Number} $point.$breakpoint.line-height - Line height for `$point` at `$breakpoint`
+/// @prop {Number} $point.print.font-size - Font size for `$point` when printing
+/// @prop {Number} $point.print.line-height - Line height for `$point` when printing
+///
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+
+$nhsuk-typography-scale: (
+  64: (
+    null: (
+      font-size: 48px,
+      line-height: 54px
+    ),
+    tablet: (
+      font-size: 64px,
+      line-height: 70px
+    ),
+    print: (
+      font-size: 34pt,
+      line-height: 1.1
+    )
+  ),
+  48: (
+    null: (
+      font-size: 32px,
+      line-height: 38px
+    ),
+    tablet: (
+      font-size: 48px,
+      line-height: 54px
+    ),
+    print: (
+      font-size: 26pt,
+      line-height: 1.15
+    )
+  ),
+  36: (
+    null: (
+      font-size: 27px,
+      line-height: 33px
+    ),
+    tablet: (
+      font-size: 36px,
+      line-height: 42px
+    ),
+    print: (
+      font-size: 20pt,
+      line-height: 1.2
+    )
+  ),
+  26: (
+    null: (
+      font-size: 22px,
+      line-height: 29px
+    ),
+    tablet: (
+      font-size: 26px,
+      line-height: 32px
+    ),
+    print: (
+      font-size: 17pt,
+      line-height: 1.25
+    )
+  ),
+  22: (
+    null: (
+      font-size: 19px,
+      line-height: 27px
+    ),
+    tablet: (
+      font-size: 22px,
+      line-height: 30px
+    ),
+    print: (
+      font-size: 15pt,
+      line-height: 1.25
+    )
+  ),
+  19: (
+    null: (
+      font-size: 16px,
+      line-height: 24px
+    ),
+    tablet: (
+      font-size: 19px,
+      line-height: 28px
+    ),
+    print: (
+      font-size: 13pt,
+      line-height: 1.25
+    )
+  ),
+  16: (
+    null: (
+      font-size: 14px,
+      line-height: 24px
+    ),
+    tablet: (
+      font-size: 16px,
+      line-height: 24px
+    ),
+    print: (
+      font-size: 12pt,
+      line-height: 1.3
+    )
+  ),
+  14: (
+    null: (
+      font-size: 12px,
+      line-height: 20px
+    ),
+    tablet: (
+      font-size: 14px,
+      line-height: 24px
+    ),
+    print: (
+      font-size: 12pt,
+      line-height: 1.3
+    )
+  )
+) !default;
