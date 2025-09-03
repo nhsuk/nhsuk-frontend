@@ -199,4 +199,8 @@
     opacity: 0.5;
     pointer-events: none;
   }
+
+  .nhsuk-file-upload--disabled {
+    pointer-events: none;
+  }
 }

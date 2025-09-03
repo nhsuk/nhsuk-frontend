@@ -240,6 +240,16 @@ export const examples = {
         text: 'Upload multiple files'
       }
     }
+  },
+  'disabled': {
+    context: {
+      id: 'file-upload-7',
+      name: 'file-upload-7',
+      label: {
+        text: 'Upload a file'
+      },
+      disabled: true
+    }
   }
 }
 
