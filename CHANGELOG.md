@@ -1,5 +1,28 @@
 # NHS.UK frontend Changelog
 
+## Unreleased
+
+### :new: **New features**
+
+#### Insert custom HTML into component form group wrappers
+
+You can now insert custom HTML into form group wrappers for all components with form fields.
+
+```njk
+input({
+  formGroup: {
+    beforeInput: {
+      html: "example"
+    },
+    afterInput: {
+      html: "example"
+    },
+  }
+})
+```
+
+This was added in [pull request #1561: Add `beforeInput(s)` and `beforeInput(s)` options to form groups](https://github.com/nhsuk/nhsuk-frontend/pull/1561).
+
 ## 10.0.0 - 26 August 2025
 
 This release introduces some breaking changes to file paths, full width buttons on mobile, the header component and others. It also stops Internet Explorer 11 and other older browsers from running NHS.UK frontend JavaScript.
