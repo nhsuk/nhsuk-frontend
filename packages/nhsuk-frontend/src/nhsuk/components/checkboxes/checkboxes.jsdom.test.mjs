@@ -1,7 +1,7 @@
 import { components } from '@nhsuk/frontend-lib'
 import { fireEvent, getByRole } from '@testing-library/dom'
 
-import { Checkboxes, initCheckboxes } from './checkboxes.mjs'
+import { Checkboxes } from './checkboxes.mjs'
 import { examples } from './macro-options.mjs'
 
 describe('Checkboxes', () => {
@@ -56,61 +56,18 @@ describe('Checkboxes', () => {
     jest.spyOn($root, 'addEventListener')
   }
 
-  describe('Initialisation via init function', () => {
+  describe('Initialisation via class', () => {
     beforeEach(() => {
       initExample('with "none of the above" option')
     })
 
     it('should add event listeners', () => {
-      initCheckboxes()
+      new Checkboxes($root)
 
       expect($root.addEventListener).toHaveBeenCalledWith(
         'click',
         expect.any(Function)
       )
-    })
-
-    it('should throw with missing conditional content', () => {
-      $conditionals[0].remove()
-
-      expect(() => initCheckboxes()).toThrow(
-        `${Checkboxes.moduleName}: Conditional reveal (\`id="${$conditionals[0].id}"\`) not found`
-      )
-    })
-
-    it('should throw with missing checkboxes', () => {
-      $input1.remove()
-      $input2.remove()
-      $input3.remove()
-      $inputNone.remove()
-
-      expect(() => initCheckboxes()).toThrow(
-        `${Checkboxes.moduleName}: Form inputs (\`<input type="checkbox">\`) not found`
-      )
-    })
-
-    it('should not throw with missing checkbox `aria-controls` attribute', () => {
-      $input1.removeAttribute('aria-controls')
-      $input2.removeAttribute('aria-controls')
-      $input3.removeAttribute('aria-controls')
-
-      expect(() => initCheckboxes()).not.toThrow()
-    })
-
-    it('should not throw with empty body', () => {
-      document.body.innerHTML = ''
-      expect(() => initCheckboxes()).not.toThrow()
-    })
-
-    it('should not throw with empty scope', () => {
-      const scope = document.createElement('div')
-      expect(() => initCheckboxes({ scope })).not.toThrow()
-    })
-  })
-
-  describe('Initialisation via class', () => {
-    beforeEach(() => {
-      initExample('with "none of the above" option')
     })
 
     it('should not throw with $root element', () => {
@@ -140,6 +97,33 @@ describe('Checkboxes', () => {
       )
     })
 
+    it('should throw with missing conditional content', () => {
+      $conditionals[0].remove()
+
+      expect(() => new Checkboxes($root)).toThrow(
+        `${Checkboxes.moduleName}: Conditional reveal (\`id="${$conditionals[0].id}"\`) not found`
+      )
+    })
+
+    it('should throw with missing checkboxes', () => {
+      $input1.remove()
+      $input2.remove()
+      $input3.remove()
+      $inputNone.remove()
+
+      expect(() => new Checkboxes($root)).toThrow(
+        `${Checkboxes.moduleName}: Form inputs (\`<input type="checkbox">\`) not found`
+      )
+    })
+
+    it('should not throw with missing checkbox `aria-controls` attribute', () => {
+      $input1.removeAttribute('aria-controls')
+      $input2.removeAttribute('aria-controls')
+      $input3.removeAttribute('aria-controls')
+
+      expect(() => new Checkboxes($root)).not.toThrow()
+    })
+
     it('should throw when initialised twice', () => {
       expect(() => {
         new Checkboxes($root)
@@ -160,7 +144,7 @@ describe('Checkboxes', () => {
     })
 
     it('should be hidden by default', () => {
-      initCheckboxes()
+      new Checkboxes($root)
 
       for (const $input of $inputs) {
         const index = $inputs.indexOf($input)
@@ -175,7 +159,7 @@ describe('Checkboxes', () => {
     })
 
     it('should be visible when input is checked', () => {
-      initCheckboxes()
+      new Checkboxes($root)
 
       for (const $input of $inputs) {
         const index = $inputs.indexOf($input)
@@ -202,7 +186,7 @@ describe('Checkboxes', () => {
       expect($input).not.toHaveAttribute('aria-expanded', 'true')
       expect($conditional).toHaveClass('nhsuk-checkboxes__conditional--hidden')
 
-      window.addEventListener('pageshow', () => initCheckboxes())
+      window.addEventListener('pageshow', () => new Checkboxes($root))
       fireEvent.pageShow(window)
 
       // Conditional content visible
@@ -213,7 +197,7 @@ describe('Checkboxes', () => {
     })
 
     it('should be hidden when input is unchecked', () => {
-      initCheckboxes()
+      new Checkboxes($root)
 
       for (const $input of $inputs) {
         const index = $inputs.indexOf($input)
@@ -237,7 +221,7 @@ describe('Checkboxes', () => {
     })
 
     it('should uncheck other checkboxes', () => {
-      initCheckboxes()
+      new Checkboxes($root)
 
       // Tick all options
       $input1.click()
@@ -259,7 +243,7 @@ describe('Checkboxes', () => {
     })
 
     it('should uncheck when other checkboxes are checked', () => {
-      initCheckboxes()
+      new Checkboxes($root)
 
       // Tick "None of the above"
       $inputNone.click()
@@ -282,7 +266,7 @@ describe('Checkboxes', () => {
     })
 
     it('should uncheck other checkboxes', () => {
-      initCheckboxes()
+      new Checkboxes($root)
 
       // Tick all options
       $input1.click()
@@ -304,7 +288,7 @@ describe('Checkboxes', () => {
     })
 
     it('should uncheck when other checkboxes are checked', () => {
-      initCheckboxes()
+      new Checkboxes($root)
 
       // Tick "None of the above"
       $inputNone.click()
@@ -327,7 +311,7 @@ describe('Checkboxes', () => {
     })
 
     it('should uncheck other checkboxes', () => {
-      initCheckboxes()
+      new Checkboxes($root)
 
       // Tick all options
       $input1.click()
@@ -349,7 +333,7 @@ describe('Checkboxes', () => {
     })
 
     it('should uncheck when other checkboxes are checked', () => {
-      initCheckboxes()
+      new Checkboxes($root)
 
       // Tick "None of the above"
       $inputNone.click()

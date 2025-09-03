@@ -1,4 +1,3 @@
-import { normaliseOptions } from '../../common/configuration/index.mjs'
 import { ConfigurableComponent } from '../../configurable-component.mjs'
 
 const DEBOUNCE_TIMEOUT_IN_SECONDS = 1
@@ -113,24 +112,6 @@ export class Button extends ConfigurableComponent {
 }
 
 /**
- * Initialise button component
- *
- * @deprecated Use {@link createAll | `createAll(Button, options)`} instead.
- * @param {InitOptions & ButtonConfig} [options]
- */
-export function initButtons(options) {
-  const { scope: $scope } = normaliseOptions(options)
-
-  const $buttons = $scope?.querySelectorAll(
-    `[data-module="${Button.moduleName}"]`
-  )
-
-  $buttons?.forEach(($root) => {
-    new Button($root, options)
-  })
-}
-
-/**
  * Button config
  *
  * @typedef {object} ButtonConfig
@@ -139,6 +120,5 @@ export function initButtons(options) {
  */
 
 /**
- * @import { createAll, InitOptions } from '../../index.mjs'
  * @import { Schema } from '../../common/configuration/index.mjs'
  */

@@ -4,7 +4,7 @@ import { components } from '@nhsuk/frontend-lib'
 import { fireEvent, getByRole } from '@testing-library/dom'
 import { userEvent } from '@testing-library/user-event'
 
-import { Header, initHeader } from './header.mjs'
+import { Header } from './header.mjs'
 import { examples } from './macro-options.mjs'
 
 const user = userEvent.setup()
@@ -61,9 +61,9 @@ describe('Header class', () => {
     jest.spyOn(document, 'removeEventListener')
   })
 
-  describe('Initialisation via init function', () => {
+  describe('Initialisation via class', () => {
     it('should add event listeners', () => {
-      initHeader()
+      new Header($root)
 
       // Adds listener for window resize
       expect(window.addEventListener).toHaveBeenCalledWith(
@@ -81,7 +81,7 @@ describe('Header class', () => {
     it('should add event listeners when items overflow', () => {
       listWidth = 700
 
-      initHeader()
+      new Header($root)
 
       // Adds listener for window resize
       expect(window.addEventListener).toHaveBeenCalledWith(
@@ -96,64 +96,6 @@ describe('Header class', () => {
       )
     })
 
-    it('should throw with missing navigation list', () => {
-      $navigationList.remove()
-
-      expect(() => initHeader()).toThrow(
-        `${Header.moduleName}: List (\`<ul class="nhsuk-header__navigation-list">\`) not found`
-      )
-    })
-
-    it('should throw with missing navigation list items', () => {
-      $navigationList.innerHTML = ''
-
-      expect(() => initHeader()).toThrow(
-        `${Header.moduleName}: List items (\`<li class="nhsuk-header__navigation-item">\`) not found`
-      )
-    })
-
-    it('should throw with missing menu item', () => {
-      $menuButton.parentElement.remove()
-
-      expect(() => initHeader()).toThrow(
-        `${Header.moduleName}: Menu item (\`<li class="nhsuk-header__menu" hidden>\`) not found`
-      )
-    })
-
-    it('should throw with missing menu button', () => {
-      $menuButton.remove()
-
-      expect(() => initHeader()).toThrow(
-        `${Header.moduleName}: Menu button (\`<button class="nhsuk-header__menu-toggle">\`) not found`
-      )
-    })
-
-    it('should not throw with missing navigation', () => {
-      $navigation.remove()
-
-      expect(() => initHeader()).not.toThrow()
-    })
-
-    it('should not throw with missing navigation and related elements', () => {
-      $navigation.remove()
-      $navigationList.remove()
-      $menuButton.remove()
-
-      expect(() => initHeader()).not.toThrow()
-    })
-
-    it('should not throw with empty body', () => {
-      document.body.innerHTML = ''
-      expect(() => initHeader()).not.toThrow()
-    })
-
-    it('should not throw with empty scope', () => {
-      const scope = document.createElement('div')
-      expect(() => initHeader({ scope })).not.toThrow()
-    })
-  })
-
-  describe('Initialisation via class', () => {
     it('should not throw with $root element', () => {
       expect(() => new Header($root)).not.toThrow()
     })
@@ -181,6 +123,52 @@ describe('Header class', () => {
       )
     })
 
+    it('should throw with missing navigation list', () => {
+      $navigationList.remove()
+
+      expect(() => new Header($root)).toThrow(
+        `${Header.moduleName}: List (\`<ul class="nhsuk-header__navigation-list">\`) not found`
+      )
+    })
+
+    it('should throw with missing navigation list items', () => {
+      $navigationList.innerHTML = ''
+
+      expect(() => new Header($root)).toThrow(
+        `${Header.moduleName}: List items (\`<li class="nhsuk-header__navigation-item">\`) not found`
+      )
+    })
+
+    it('should throw with missing menu item', () => {
+      $menuButton.parentElement.remove()
+
+      expect(() => new Header($root)).toThrow(
+        `${Header.moduleName}: Menu item (\`<li class="nhsuk-header__menu" hidden>\`) not found`
+      )
+    })
+
+    it('should throw with missing menu button', () => {
+      $menuButton.remove()
+
+      expect(() => new Header($root)).toThrow(
+        `${Header.moduleName}: Menu button (\`<button class="nhsuk-header__menu-toggle">\`) not found`
+      )
+    })
+
+    it('should not throw with missing navigation', () => {
+      $navigation.remove()
+
+      expect(() => new Header($root)).not.toThrow()
+    })
+
+    it('should not throw with missing navigation and related elements', () => {
+      $navigation.remove()
+      $navigationList.remove()
+      $menuButton.remove()
+
+      expect(() => new Header($root)).not.toThrow()
+    })
+
     it('should throw when initialised twice', () => {
       expect(() => {
         new Header($root)
@@ -198,7 +186,7 @@ describe('Header class', () => {
     })
 
     it('should be hidden when items do not overflow', () => {
-      initHeader()
+      new Header($root)
 
       expect($menuButton.parentElement).toHaveAttribute('hidden')
     })
@@ -206,7 +194,7 @@ describe('Header class', () => {
     it('should be visible when items overflow', () => {
       listWidth = 700
 
-      initHeader()
+      new Header($root)
 
       expect($menuButton.parentElement).not.toHaveAttribute('hidden')
     })
@@ -214,7 +202,7 @@ describe('Header class', () => {
     it('should toggle menu via click', () => {
       listWidth = 700
 
-      initHeader()
+      new Header($root)
 
       // Menu closed
       expect($menuButton.nextElementSibling).toHaveAttribute('hidden')
@@ -247,7 +235,7 @@ describe('Header class', () => {
     it('should stay open when resized down', async () => {
       listWidth = 700
 
-      initHeader()
+      new Header($root)
 
       // Open menu
       $menuButton.click()
@@ -268,7 +256,7 @@ describe('Header class', () => {
     it('should close menu when resized up', async () => {
       listWidth = 700
 
-      initHeader()
+      new Header($root)
 
       // Open menu
       $menuButton.click()
@@ -289,7 +277,7 @@ describe('Header class', () => {
     it('should close menu via escape key', async () => {
       listWidth = 700
 
-      initHeader()
+      new Header($root)
 
       // Menu closed
       expect($menuButton.nextElementSibling).toHaveAttribute('hidden')
@@ -314,7 +302,7 @@ describe('Header class', () => {
     })
 
     it('should be skipped when items do not overflow', () => {
-      initHeader()
+      new Header($root)
 
       expect($menuButton.nextElementSibling).not.toBeInTheDocument()
     })
@@ -322,7 +310,7 @@ describe('Header class', () => {
     it('should be added when items overflow', () => {
       listWidth = 700
 
-      initHeader()
+      new Header($root)
 
       expect($menuButton.nextElementSibling).toBeInTheDocument()
       expect($menuButton.nextElementSibling).toHaveRole('list')
@@ -330,7 +318,7 @@ describe('Header class', () => {
     })
 
     it('should be added when items overflow when resized', async () => {
-      initHeader()
+      new Header($root)
 
       expect($menuButton.nextElementSibling).not.toBeInTheDocument()
 
@@ -393,7 +381,7 @@ describe('Header class', () => {
     it.each(examples)('should be allocated', async (expected) => {
       listWidth = expected.listWidth
 
-      initHeader()
+      new Header($root)
 
       const $listItems = $navigation.querySelectorAll('div > ul > li')
       const $menuItems = $navigation.querySelectorAll('div > ul > li li')
@@ -407,7 +395,7 @@ describe('Header class', () => {
       async (expected) => {
         listWidth = 0
 
-        initHeader()
+        new Header($root)
 
         listWidth = expected.listWidth
 
@@ -428,7 +416,7 @@ describe('Header class', () => {
       async (expected) => {
         listWidth = 900
 
-        initHeader()
+        new Header($root)
 
         listWidth = expected.listWidth
 

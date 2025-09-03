@@ -1,4 +1,3 @@
-import { normaliseOptions } from '../../common/configuration/index.mjs'
 import { toggleConditionalInput } from '../../common/index.mjs'
 import { Component } from '../../component.mjs'
 import { ElementError } from '../../errors/index.mjs'
@@ -119,25 +118,3 @@ export class Radios extends Component {
    */
   static moduleName = 'nhsuk-radios'
 }
-
-/**
- * Initialise radios component
- *
- * @deprecated Use {@link createAll | `createAll(Radios)`} instead.
- * @param {InitOptions} [options]
- */
-export function initRadios(options) {
-  const { scope: $scope } = normaliseOptions(options)
-
-  const $radios = $scope?.querySelectorAll(
-    `[data-module="${Radios.moduleName}"]`
-  )
-
-  $radios?.forEach(($root) => {
-    new Radios($root)
-  })
-}
-
-/**
- * @import { createAll, InitOptions } from '../../index.mjs'
- */
