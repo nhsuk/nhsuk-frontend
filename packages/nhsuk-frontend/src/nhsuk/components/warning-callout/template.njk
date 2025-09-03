@@ -2,8 +2,8 @@
 
 {% set headingLevel = params.headingLevel if params.headingLevel else 3 %}
 <div {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-warning-callout
-{%- if params.classes %} {{ params.classes }}{% endif %}"
-{{- nhsukAttributes(params.attributes) }}>
+  {%- if params.classes %} {{ params.classes }}{% endif %}"
+  {{- nhsukAttributes(params.attributes) }}>
   <h{{ headingLevel }} class="nhsuk-warning-callout__label">
     {%- if "Important" in params.heading or "important" in params.heading %}
     {{ params.heading | safe }}<span class="nhsuk-u-visually-hidden">:</span>
