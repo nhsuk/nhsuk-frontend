@@ -46,6 +46,9 @@
     {%- if params.classes %} {{ params.classes }}{% endif %}
     {%- if isConditional %} nhsuk-radios--conditional{% endif %}"
     {{- nhsukAttributes(params.attributes) }} data-module="nhsuk-radios">
+    {% if params.formGroup.beforeInputs %}
+    {{ params.formGroup.beforeInputs.html | safe | trim | indent(4) if params.formGroup.beforeInputs.html else params.formGroup.beforeInputs.text }}
+    {% endif %}
     {%- for item in params.items %}
     {%- set id = item.id if item.id else idPrefix + ("-" + loop.index if loop.index > 1 else "") %}
     {% set conditionalId = "conditional-" + id %}
@@ -86,6 +89,9 @@
     {% endif %}
     {%- endif %}
     {%- endfor %}
+    {% if params.formGroup.afterInputs %}
+    {{ params.formGroup.afterInputs.html | safe | trim | indent(4) if params.formGroup.afterInputs.html else params.formGroup.afterInputs.text }}
+    {% endif %}
   </div>
 {% endset -%}
 

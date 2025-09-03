@@ -114,6 +114,46 @@ export const params = {
         required: false,
         description:
           'HTML attributes (for example data attributes) to add to the form group.'
+      },
+      beforeInputs: {
+        type: 'object',
+        required: false,
+        description:
+          'Content to add before the inputs used by the date input component.',
+        params: {
+          text: {
+            type: 'string',
+            required: true,
+            description:
+              'Text to add before the inputs. If `html` is provided, the `text` option will be ignored.'
+          },
+          html: {
+            type: 'string',
+            required: true,
+            description:
+              'HTML to add before the inputs. If `html` is provided, the `text` option will be ignored.'
+          }
+        }
+      },
+      afterInputs: {
+        type: 'object',
+        required: false,
+        description:
+          'Content to add after the inputs used by the date input component.',
+        params: {
+          text: {
+            type: 'string',
+            required: true,
+            description:
+              'Text to add after the inputs. If `html` is provided, the `text` option will be ignored.'
+          },
+          html: {
+            type: 'string',
+            required: true,
+            description:
+              'HTML to add after the inputs. If `html` is provided, the `text` option will be ignored.'
+          }
+        }
       }
     }
   },
