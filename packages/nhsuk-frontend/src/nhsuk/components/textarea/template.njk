@@ -39,10 +39,16 @@
     text: params.errorMessage.text
   }) | indent(2) | trim }}
 {%- endif %}
+{% if params.formGroup.beforeInput %}
+  {{ params.formGroup.beforeInput.html | safe | trim | indent(2) if params.formGroup.beforeInput.html else params.formGroup.beforeInput.text }}
+{% endif %}
   <textarea class="nhsuk-textarea
     {%- if params.errorMessage %} nhsuk-textarea--error{% endif %}
     {%- if params.classes %} {{ params.classes }}{% endif %}" id="{{ id }}" name="{{ params.name }}" rows="{{ params.rows | default(5, true) }}"
     {%- if describedBy %} aria-describedby="{{ describedBy }}"{% endif %}
     {%- if params.autocomplete %} autocomplete="{{ params.autocomplete}}"{% endif %}
     {{- nhsukAttributes(params.attributes) }}>{{ params.value }}</textarea>
+{% if params.formGroup.afterInput %}
+  {{ params.formGroup.afterInput.html | safe | trim | indent(2) if params.formGroup.afterInput.html else params.formGroup.afterInput.text }}
+{% endif %}
 </div>

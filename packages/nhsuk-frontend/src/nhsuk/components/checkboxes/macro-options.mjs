@@ -54,6 +54,46 @@ export const params = {
         required: false,
         description:
           'HTML attributes (for example data attributes) to add to the form group.'
+      },
+      beforeInputs: {
+        type: 'object',
+        required: false,
+        description:
+          'Content to add before all checkbox items within the checkboxes component.',
+        params: {
+          text: {
+            type: 'string',
+            required: true,
+            description:
+              'Text to add before all checkbox items. If `html` is provided, the `text` option will be ignored.'
+          },
+          html: {
+            type: 'string',
+            required: true,
+            description:
+              'HTML to add before all checkbox items. If `html` is provided, the `text` option will be ignored.'
+          }
+        }
+      },
+      afterInputs: {
+        type: 'object',
+        required: false,
+        description:
+          'Content to add after all checkbox items within the checkboxes component.',
+        params: {
+          text: {
+            type: 'string',
+            required: true,
+            description:
+              'Text to add after all checkbox items. If `html` is provided, the `text` option will be ignored.'
+          },
+          html: {
+            type: 'string',
+            required: true,
+            description:
+              'HTML to add after all checkbox items. If `html` is provided, the `text` option will be ignored.'
+          }
+        }
       }
     }
   },
