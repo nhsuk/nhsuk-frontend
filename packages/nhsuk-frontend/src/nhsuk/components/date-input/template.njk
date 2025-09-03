@@ -54,10 +54,9 @@
     text: params.errorMessage.text
   }) | indent(2) | trim }}
 {% endif %}
-  <div class="nhsuk-date-input
+  <div {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-date-input
     {%- if params.classes %} {{ params.classes }}{% endif %}"
-    {{- nhsukAttributes(params.attributes) }}
-    {%- if params.id %} id="{{ params.id }}"{% endif %}>
+    {{- nhsukAttributes(params.attributes) }}>
     {%- for item in dateInputItems %}
     <div class="nhsuk-date-input__item">
       {{ input({
