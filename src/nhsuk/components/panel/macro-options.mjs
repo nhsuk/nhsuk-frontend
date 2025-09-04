@@ -1,4 +1,5 @@
 import { components } from '@nhsuk/frontend-lib'
+import { outdent } from 'outdent'
 
 export const name = 'Panel'
 
@@ -80,7 +81,16 @@ export const examples = {
   blue: {
     context: {
       titleText: 'You are doing something unusual',
-      html: '<p>Some text to explain.</p><a href="#" class="nhsuk-button nhsuk-button--reverse" data-module="nhsuk-button">Continue anyway</a>',
+      html: outdent`
+        <p>Some text to explain.</p>
+        ${components.render('button', {
+          context: {
+            text: 'Continue anyway',
+            classes: 'nhsuk-button--reverse',
+            href: '#'
+          }
+        })}
+      `,
       classes: 'nhsuk-panel--blue'
     },
     screenshot: {
