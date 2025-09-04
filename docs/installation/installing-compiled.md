@@ -2,15 +2,16 @@
 
 You can install NHS.UK frontend by copying our CSS, JavaScript and asset files into your project. If you install this way, you can try NHS.UK frontend in your application without having to make many changes.
 
-In your live application, you should [install using npm](/docs/installation/installing-with-npm.md) instead.
+In your live application, you should [Install with Node.js package manager (npm)](./installing-with-npm.md) instead.
 
 ## What you cannot do with the precompiled files
 
 You'll not be able to:
 
-- selectively include CSS for individual components.
-- build your own styles or components based on the colour variables or typography and spacing mixins.
-- use the component Nunjucks templates.
+- change [Sass settings](https://nhsuk.github.io/nhsuk-frontend/docs/sassdoc/), for example override colours or set your own page width
+- use the Nunjucks code from the [design system in the NHS digital service manual](https://service-manual.nhs.uk/design-system) to add components
+- import an individual component's CSS or JavaScript
+- use NHS.UK frontend's colours or mixins in your custom code
 
 ## Copy and install the precompiled files
 
@@ -22,7 +23,7 @@ You'll not be able to:
 
 ## Create an example page to check for errors
 
-1. Create a page in your project using the following HTML (in your live application, you should use the [Design system page template](https://service-manual.nhs.uk/design-system/styles/page-template) instead):
+1. Create a page in your project using the following HTML (in your live application, you should use the [design system page template](https://service-manual.nhs.uk/design-system/styles/page-template) instead):
 
    ```html
    <!DOCTYPE html>
@@ -48,10 +49,19 @@ You'll not be able to:
 
 2. Replace `<VERSION-NUMBER>` so the 2 filenames match the files you copied from [NHS.UK frontend's GitHub repo](#copy-and-install-the-precompiled-files).
 
-3. Go to the [character count component](https://service-manual.nhs.uk/design-system/components/character-count) on the Design system and copy the HTML from the first example.
+3. Go to the [character count component](https://service-manual.nhs.uk/design-system/components/character-count) on the design system and copy the HTML from the first example.
 
 4. Replace `<!-- component HTML -->` with the character count HTML you copied.
 
-5. Run your application - you can check it works the same way as the [character count component example](https://service-manual.nhs.uk/design-example/components/character-count/default) by typing into the textarea.
+5. Run your application and check for errors in the browser console - it should work the same way as the [character count component example](https://service-manual.nhs.uk/design-example/components/character-count/default) by typing into the textarea.
 
-   You can now create pages using the [Design system on the NHS digital service manual](https://service-manual.nhs.uk/design-system).
+You can now get the full code for page layouts and other components from the [design system in the NHS digital service manual](https://service-manual.nhs.uk/design-system).
+
+If the character count does not work, you can find out more about how to import NHS.UK frontend's CSS and JavaScript in:
+
+- [Import CSS](../configuration/css.md)
+- [Import JavaScript](../configuration/javascript.md)
+
+## Thanks to the Government Digital Service (GDS)
+
+This documentation has been taken from [Try GOV.UK Frontend using precompiled files](https://frontend.design-system.service.gov.uk/install-using-precompiled-files/) with a few minor adaptations.
