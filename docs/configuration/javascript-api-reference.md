@@ -22,7 +22,7 @@ Prevent accidental double clicks on submit buttons from submitting forms multipl
 
 Default:
 
-```js
+```json5
 false
 ```
 
@@ -48,7 +48,7 @@ The percentage value of the limit at which point the count message is displayed.
 
 Default:
 
-```js
+```json5
 0
 ```
 
@@ -62,7 +62,7 @@ Type: boolean
 
 Default
 
-```js
+```json5
 false
 ```
 
@@ -76,6 +76,6 @@ If set to `true` the notification banner will not be focussed when the page load
 
 Default:
 
-```js
+```json5
 false
 ```
