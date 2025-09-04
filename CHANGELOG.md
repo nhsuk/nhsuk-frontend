@@ -193,9 +193,9 @@ The file structure for the stylesheets has changed. You will have to make differ
 
 For precompiled CSS files, note the following path changes:
 
-- copy or serve `node_modules/nhsuk-frontend/dist/nhsuk/nhsuk-frontend.min.css`
+- copy or serve `node_modules/nhsuk-frontend/dist/nhsuk/nhsuk-frontend.min.css` 
   – not the previous `node_modules/nhsuk-frontend/dist/nhsuk.min.css` stylesheet
-- extract `nhsuk-frontend-<VERSION-NUMBER>.min.css` from the GitHub release zip file
+- extract `nhsuk-frontend-<VERSION-NUMBER>.min.css` from the GitHub release zip file 
   – not the previous `css/nhsuk-<VERSION-NUMBER>.min.css` stylesheet
 
 #### Sass files
@@ -277,9 +277,9 @@ The file structure for the JavaScript has changed. You will have to make differe
 
 For precompiled JavaScript, note the following path changes:
 
-- copy or serve `node_modules/nhsuk-frontend/dist/nhsuk/nhsuk-frontend.min.js`
+- copy or serve `node_modules/nhsuk-frontend/dist/nhsuk/nhsuk-frontend.min.js` 
   – not the previous `node_modules/nhsuk-frontend/dist/nhsuk.min.js` script
-- extract `nhsuk-frontend-<VERSION-NUMBER>.min.js` from the GitHub release zip file
+- extract `nhsuk-frontend-<VERSION-NUMBER>.min.js` from the GitHub release zip file 
   – not the previous `js/nhsuk-<VERSION-NUMBER>.min.js` script
 
 #### Using a JavaScript bundler
