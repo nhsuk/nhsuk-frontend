@@ -307,6 +307,17 @@ export const examples = {
     screenshot: {
       viewports: ['tablet']
     }
+  },
+  'with neither maxlength nor maxwords set': {
+    context: {
+      label: {
+        text: 'Can you provide more detail?'
+      },
+      id: 'no-maximum',
+      name: 'example',
+      value: 'This textarea has no maximum character or word count.',
+      rows: 8
+    }
   }
 }
 
