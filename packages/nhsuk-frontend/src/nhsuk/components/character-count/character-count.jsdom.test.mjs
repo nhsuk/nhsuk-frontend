@@ -184,4 +184,16 @@ describe('Character count', () => {
       })
     })
   })
+
+  describe('JavaScript configuration', () => {
+    beforeEach(() => {
+      initExample('with neither maxlength nor maxwords set')
+    })
+
+    it('should throw when config is invalid', () => {
+      expect(() => new CharacterCount($root)).toThrow(
+        `${CharacterCount.moduleName}: Either "maxlength" or "maxwords" must be provided`
+      )
+    })
+  })
 })
