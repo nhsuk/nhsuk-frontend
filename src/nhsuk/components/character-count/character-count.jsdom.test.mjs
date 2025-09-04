@@ -190,6 +190,40 @@ describe('Character count', () => {
       initExample('with neither maxlength nor maxwords set')
     })
 
+    it('configures the number of characters', () => {
+      const characterCount = new CharacterCount($root, {
+        maxlength: 20
+      })
+
+      expect(characterCount.config).toEqual({
+        maxlength: 20,
+        threshold: 0
+      })
+    })
+
+    it('configures the number of words', () => {
+      const characterCount = new CharacterCount($root, {
+        maxwords: 20
+      })
+
+      expect(characterCount.config).toEqual({
+        maxwords: 20,
+        threshold: 0
+      })
+    })
+
+    it('configures the threshold', () => {
+      const characterCount = new CharacterCount($root, {
+        maxwords: 10,
+        threshold: 18
+      })
+
+      expect(characterCount.config).toEqual({
+        maxwords: 10,
+        threshold: 18
+      })
+    })
+
     it('should throw when config is invalid', () => {
       expect(() => new CharacterCount($root)).toThrow(
         `${CharacterCount.moduleName}: Either "maxlength" or "maxwords" must be provided`
