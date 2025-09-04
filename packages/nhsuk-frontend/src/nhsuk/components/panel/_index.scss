@@ -61,6 +61,11 @@ $nhsuk-border-width-panel: $nhsuk-panel-border-width;
     @include nhsuk-responsive-margin(5, "bottom");
   }
 
+  .nhsuk-panel__title--l {
+    @include nhsuk-font-size(36);
+    @include nhsuk-responsive-margin(3, "bottom");
+  }
+
   .nhsuk-panel__title:last-child {
     margin-bottom: 0;
   }
