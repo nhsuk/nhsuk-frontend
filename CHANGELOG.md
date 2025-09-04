@@ -878,7 +878,7 @@ This change was introduced in [pull request #1452: Update footer to separate nav
 
 #### Error summary component changes
 
-We've changed how the [error summary](https://design-system.service.gov.uk/components/error-summary/) component links to the first input in a [radios](https://design-system.service.gov.uk/components/radios/) or [checkboxes](https://design-system.service.gov.uk/components/checkboxes/) component.
+We've changed how the [error summary](https://service-manual.nhs.uk/design-system/components/error-summary) component links to the first input in a [radios](https://service-manual.nhs.uk/design-system/components/radios) or [checkboxes](https://service-manual.nhs.uk/design-system/components/checkboxes) component.
 
 This is because the `id` of the first checkbox or radio input no longer has the suffix `-1` when rendered using the Nunjucks macros.
 
