@@ -1,6 +1,10 @@
-import { normaliseOptions } from '../../common/configuration/index.mjs'
+import {
+  normaliseOptions,
+  validateConfig
+} from '../../common/configuration/index.mjs'
+import { formatErrorMessage } from '../../common/index.mjs'
 import { ConfigurableComponent } from '../../configurable-component.mjs'
-import { ElementError } from '../../errors/index.mjs'
+import { ConfigError, ElementError } from '../../errors/index.mjs'
 
 /**
  * Character count component
@@ -40,6 +44,12 @@ export class CharacterCount extends ConfigurableComponent {
         expectedType: 'HTMLTextareaElement or HTMLInputElement',
         identifier: 'Form field (`.nhsuk-js-character-count`)'
       })
+    }
+
+    // Check for valid config
+    const errors = validateConfig(CharacterCount.schema, this.config)
+    if (errors[0]) {
+      throw new ConfigError(formatErrorMessage(CharacterCount, errors[0]))
     }
 
     this.$textarea = $textarea
@@ -308,7 +318,17 @@ export class CharacterCount extends ConfigurableComponent {
       maxwords: { type: 'number' },
       maxlength: { type: 'number' },
       threshold: { type: 'number' }
-    }
+    },
+    anyOf: [
+      {
+        required: ['maxwords'],
+        errorMessage: 'Either "maxlength" or "maxwords" must be provided'
+      },
+      {
+        required: ['maxlength'],
+        errorMessage: 'Either "maxlength" or "maxwords" must be provided'
+      }
+    ]
   })
 }
 
