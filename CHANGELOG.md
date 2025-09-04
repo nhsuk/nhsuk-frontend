@@ -98,12 +98,8 @@ import { createAll, Button, Checkboxes } from 'nhsuk-frontend'
 
 const $element = document.querySelector('.app-modal')
 
-createAll(Button, {
-  preventDoubleClick: true,
-  scope: $element,
-})
-
-createAll(Checkboxes, $element)
+createAll(Button, { preventDoubleClick: true }, $element)
+createAll(Checkboxes, undefined, $element)
 ```
 
 Similarly, the existing `initAll` function can also configure components by including key-value pairs of camel-cased component names with their options:
