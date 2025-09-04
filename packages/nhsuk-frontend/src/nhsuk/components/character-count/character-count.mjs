@@ -32,7 +32,7 @@ export class CharacterCount extends ConfigurableComponent {
 
   /**
    * @param {Element | null} $root - HTML element to use for component
-   * @param {Record<string, never>} [config] - Not yet supported. Character count config
+   * @param {CharacterCountConfig} [config] - Character count config
    */
   constructor($root, config = {}) {
     super($root, config)
@@ -119,6 +119,28 @@ export class CharacterCount extends ConfigurableComponent {
     // could be called after those events have fired, for example if they are
     // added to the page dynamically, so update now too.
     this.updateCountMessage()
+  }
+
+  /**
+   * Character count config override
+   *
+   * To ensure data-attributes take complete precedence, even if they change
+   * the type of count, we need to reset the `maxlength` and `maxwords` from
+   * the JavaScript config.
+   *
+   * @param {Partial<CharacterCountConfig>} datasetConfig - Config specified by dataset
+   * @returns {Partial<CharacterCountConfig>} Config to override by dataset
+   */
+  configOverride(datasetConfig) {
+    let configOverrides = {}
+    if ('maxwords' in datasetConfig || 'maxlength' in datasetConfig) {
+      configOverrides = {
+        maxlength: undefined,
+        maxwords: undefined
+      }
+    }
+
+    return configOverrides
   }
 
   /**
@@ -354,8 +376,8 @@ export class CharacterCount extends ConfigurableComponent {
 /**
  * Initialise character count component
  *
- * @deprecated Use {@link createAll | `createAll(CharacterCount)`} instead.
- * @param {InitOptions} [options]
+ * @deprecated Use {@link createAll | `createAll(CharacterCount, options)`} instead.
+ * @param {InitOptions & CharacterCountConfig} [options]
  */
 export function initCharacterCounts(options) {
   const { scope: $scope } = normaliseOptions(options)
@@ -365,7 +387,7 @@ export function initCharacterCounts(options) {
   )
 
   $characterCounts?.forEach(($root) => {
-    new CharacterCount($root)
+    new CharacterCount($root, options)
   })
 }
 
