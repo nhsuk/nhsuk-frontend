@@ -22,7 +22,7 @@ describe('extractConfigByNamespace', () => {
    */
   const schema2 = {
     properties: {
-      namespace: {
+      i18n: {
         type: 'object'
       }
     }
@@ -83,15 +83,15 @@ describe('extractConfigByNamespace', () => {
   it('can extract config from key-value pairs (with invalid namespace, first)', () => {
     document.body.outerHTML = outdent`
       <div id="app-example2"
-        data-namespace
-        data-namespace.key1="One"
-        data-namespace.key2="Two"
-        data-namespace.key3="Three">
+        data-i18n
+        data-i18n.key1="One"
+        data-i18n.key2="Two"
+        data-i18n.key3="Three">
       </div>
     `
 
     const { dataset } = document.getElementById('app-example2')
-    const result = extractConfigByNamespace(schema2, dataset, 'namespace')
+    const result = extractConfigByNamespace(schema2, dataset, 'i18n')
 
     expect(result).toEqual({ key1: 'One', key2: 'Two', key3: 'Three' })
   })
@@ -99,15 +99,15 @@ describe('extractConfigByNamespace', () => {
   it('can extract config from key-value pairs (with invalid namespace, last)', () => {
     document.body.outerHTML = outdent`
       <div id="app-example2"
-        data-namespace.key1="One"
-        data-namespace.key2="Two"
-        data-namespace.key3="Three"
-        data-namespace>
+        data-i18n.key1="One"
+        data-i18n.key2="Two"
+        data-i18n.key3="Three"
+        data-i18n>
       </div>
     `
 
     const { dataset } = document.getElementById('app-example2')
-    const result = extractConfigByNamespace(schema2, dataset, 'namespace')
+    const result = extractConfigByNamespace(schema2, dataset, 'i18n')
 
     expect(result).toEqual({ key1: 'One', key2: 'Two', key3: 'Three' })
   })
@@ -200,14 +200,14 @@ describe('extractConfigByNamespace', () => {
   it('can handle multiple levels of nesting', () => {
     document.body.outerHTML = outdent`
       <div id="app-example2"
-        data-namespace.key1="This, That"
-        data-namespace.key2.one="The"
-        data-namespace.key2.other="Other">
+        data-i18n.key1="This, That"
+        data-i18n.key2.one="The"
+        data-i18n.key2.other="Other">
       </div>
     `
 
     const { dataset } = document.getElementById('app-example2')
-    const result = extractConfigByNamespace(schema2, dataset, 'namespace')
+    const result = extractConfigByNamespace(schema2, dataset, 'i18n')
 
     expect(result).toEqual({
       key1: 'This, That',
@@ -221,17 +221,17 @@ describe('extractConfigByNamespace', () => {
   it('can handle multiple levels of nesting (prioritises the last parameter provided)', () => {
     document.body.outerHTML = outdent`
       <div id="app-example2"
-        data-namespace.key1.one="This"
-        data-namespace.key1.other="That"
-        data-namespace.key2.one="The"
-        data-namespace.key2.other="Other"
-        data-namespace.key1="This, That"
-        data-namespace.key2="The Other">
+        data-i18n.key1.one="This"
+        data-i18n.key1.other="That"
+        data-i18n.key2.one="The"
+        data-i18n.key2.other="Other"
+        data-i18n.key1="This, That"
+        data-i18n.key2="The Other">
       </div>
     `
 
     const { dataset } = document.getElementById('app-example2')
-    const result = extractConfigByNamespace(schema2, dataset, 'namespace')
+    const result = extractConfigByNamespace(schema2, dataset, 'i18n')
 
     expect(result).toEqual({
       key1: 'This, That',
@@ -253,11 +253,12 @@ describe('extractConfigByNamespace', () => {
 /**
  * @typedef {object} MockConfig2
  * @property {{
- *   key1: string | {[key: string]: string},
- *   key2: string | {[key: string]: string}
- * }} namespace - Namespace
+ *   key1: string | TranslationPluralForms,
+ *   key2: string | TranslationPluralForms
+ * }} i18n - Namespace
  */
 
 /**
  * @import { Schema } from './index.mjs'
+ * @import { TranslationPluralForms } from '../../i18n.mjs'
  */

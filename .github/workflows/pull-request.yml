@@ -132,6 +132,8 @@ jobs:
         run: |
           node --eval "console.log(require.resolve('nhsuk-frontend'))" --conditions ${{ matrix.conditions }}
           node --eval "console.log(require.resolve('nhsuk-frontend/package.json'))" --conditions ${{ matrix.conditions }}
+          node --eval "console.log(require.resolve('nhsuk-frontend/dist/nhsuk/i18n.js'))" --conditions ${{ matrix.conditions }}
+          node --eval "console.log(require.resolve('nhsuk-frontend/dist/nhsuk/i18n.mjs'))" --conditions ${{ matrix.conditions }}
           node --eval "console.log(require.resolve('nhsuk-frontend/dist/nhsuk/index.js'))" --conditions ${{ matrix.conditions }}
           node --eval "console.log(require.resolve('nhsuk-frontend/dist/nhsuk/index.mjs'))" --conditions ${{ matrix.conditions }}
           node --eval "console.log(require.resolve('nhsuk-frontend/dist/nhsuk/nhsuk.js'))" --conditions ${{ matrix.conditions }}
