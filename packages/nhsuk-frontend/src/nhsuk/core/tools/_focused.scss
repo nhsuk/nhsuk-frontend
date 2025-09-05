@@ -42,8 +42,8 @@
 
 @mixin nhsuk-focused-input {
   border: 2px solid $nhsuk-focus-text-colour;
-  box-shadow: inset 0 0 0 2px;
-  outline: $nhsuk-focus-width solid $nhsuk-focus-colour; // [1]
+  box-shadow: inset 0 0 0 2px $nhsuk-focus-text-colour;
+  outline: $nhsuk-focus-width solid $nhsuk-focus-colour;
   outline-offset: 0;
 }
 
@@ -76,7 +76,7 @@
   background-color: $nhsuk-focus-colour;
   box-shadow: 0 $nhsuk-focus-width 0 0 $nhsuk-focus-text-colour;
   color: $nhsuk-focus-text-colour;
-  outline: $nhsuk-focus-width solid transparent; // [1]
+  outline: $nhsuk-focus-width solid transparent;
   outline-offset: $nhsuk-focus-width;
 
   &,
