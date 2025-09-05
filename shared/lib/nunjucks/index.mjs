@@ -60,19 +60,21 @@ export function renderMacro(macroName, macroPath, options) {
     ? `{%- call ${macroName}(${paramsFormatted}) -%}${options.callBlock}{%- endcall -%}`
     : `{{- ${macroName}(${paramsFormatted}) -}}`
 
-  return renderString(macroString, options)
+  return renderString(macroString, {
+    env: options?.env
+  })
 }
 
 /**
  * Render string
  *
  * @param {string} string - Nunjucks string to render
- * @param {MacroRenderOptions | TemplateRenderOptions} [options] - Nunjucks render options
+ * @param {TemplateRenderOptions} [options] - Nunjucks render options
  * @returns HTML rendered from the Nunjucks string
  */
 export function renderString(string, options) {
-  const configure = options?.env ?? env
-  return configure.renderString(string, options?.context ?? {})
+  const nunjucksEnv = options?.env ?? env
+  return nunjucksEnv.renderString(string, options?.context ?? {})
 }
 
 /**
@@ -107,7 +109,7 @@ export * as filters from './filters/index.mjs'
  * Nunjucks macro render options
  *
  * @typedef {object} MacroRenderOptions
- * @property {{ [param: string]: unknown }} [context] - Nunjucks mixed context (optional)
+ * @property {string | { [param: string]: unknown }} [context] - Nunjucks mixed context (optional)
  * @property {string} [callBlock] - Nunjucks macro `caller()` content (optional)
  * @property {Environment} [env] - Nunjucks environment (optional)
  */
