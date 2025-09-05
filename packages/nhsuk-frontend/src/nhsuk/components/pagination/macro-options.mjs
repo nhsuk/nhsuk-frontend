@@ -96,6 +96,9 @@ export const examples = {
           href: '#'
         }
       ]
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   }
 }
