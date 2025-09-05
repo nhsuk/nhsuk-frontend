@@ -172,7 +172,10 @@ export const examples = {
       name: 'example',
       maxlength: 10
     },
-    screenshot: true
+    screenshot: {
+      states: ['focus'],
+      selector: '.nhsuk-textarea'
+    }
   },
   'with hint': {
     context: {
@@ -215,7 +218,10 @@ export const examples = {
       name: 'example',
       maxlength: 10
     },
-    screenshot: true
+    screenshot: {
+      states: ['focus'],
+      selector: '.nhsuk-textarea'
+    }
   },
   'with default value': {
     context: {
