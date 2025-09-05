@@ -20,6 +20,7 @@
     width: 100%;
 
     @include nhsuk-font(19);
+    @include nhsuk-responsive-margin(6, "bottom");
 
     &:focus {
       @include nhsuk-focused-input;
@@ -27,6 +28,6 @@
   }
 
   .nhsuk-textarea--error {
-    border: $nhsuk-border-width-form-element-error solid $nhsuk-error-colour;
+    border-color: $nhsuk-error-colour;
   }
 }
