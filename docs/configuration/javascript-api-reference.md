@@ -52,6 +52,136 @@ Default:
 0
 ```
 
+### i18n
+
+Type: object
+
+Messages shown to users as they type. It provides feedback on how many words or
+characters they have remaining or if they are over the limit. This also includes
+a message used as an accessible description for the textarea.
+
+Default: see properties
+
+#### Properties
+
+##### charactersUnderLimit
+
+Type: object
+
+Message displayed when the number of characters is under the configured maximum,
+`maxlength`. This message is displayed visually and through assistive
+technologies. The component will replace the `%{count}` placeholder with the
+number of remaining characters. This is a [pluralised list of
+messages](./localisation.md).
+
+Default:
+
+```json5
+{
+  one: 'You have %{count} character remaining',
+  other: 'You have %{count} characters remaining'
+}
+```
+
+##### charactersAtLimit
+
+Type: string
+
+Message displayed when the number of characters reaches the configured maximum,
+`maxlength`. This message is displayed visually and through assistive
+technologies.
+
+Default:
+
+```json5
+'You have 0 characters remaining'
+```
+
+##### charactersOverLimit
+
+Type: object
+
+Message displayed when the number of characters is over the configured maximum,
+`maxlength`. This message is displayed visually and through assistive
+technologies. The component will replace the `%{count}` placeholder with the
+number of remaining characters. This is a [pluralised list of
+messages](./localisation.md).
+
+Default:
+
+```json5
+{
+  one: 'You have %{count} character too many',
+  other: 'You have %{count} characters too many'
+}
+```
+
+##### wordsUnderLimit
+
+Type: object
+
+Message displayed when the number of words is under the configured maximum,
+`maxwords`. This message is displayed visually and through assistive
+technologies. The component will replace the `%{count}` placeholder with the
+number of remaining words. This is a [pluralised list of
+messages](./localisation.md).
+
+Default:
+
+```json5
+{
+  one: 'You have %{count} word remaining',
+  other: 'You have %{count} words remaining'
+}
+```
+
+##### wordsAtLimit
+
+Type: string
+
+Message displayed when the number of words reaches the configured maximum,
+`maxwords`. This message is displayed visually and through assistive
+technologies.
+
+Default:
+
+```json5
+'You have 0 words remaining'
+```
+
+##### wordsOverLimit
+
+Type: object
+
+Message displayed when the number of words is over the configured maximum,
+`maxwords`. This message is displayed visually and through assistive
+technologies. The component will replace the `%{count}` placeholder with the
+number of remaining words. This is a [pluralised list of
+messages](./localisation.md).
+
+Default:
+
+```json5
+{
+  one: 'You have %{count} word too many',
+  other: 'You have %{count} words too many'
+}
+```
+
+##### textareaDescription
+
+Type: object
+
+Message made available to assistive technologies, if none is already present in the HTML, to describe that the component accepts only a limited amount of content. The component will replace the `%{count}` placeholder with the value of the `maxlength` or `maxwords` option.
+
+Default:
+
+```json5
+{
+  other: ''
+}
+```
+
 ## ErrorSummary
 
 ### disableAutoFocus
