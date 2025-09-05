@@ -177,7 +177,10 @@ export const examples = {
       name: 'example',
       maxlength: 200
     },
-    screenshot: true
+    screenshot: {
+      states: ['focus'],
+      selector: '.nhsuk-textarea'
+    }
   },
   'with hint': {
     context: {
@@ -230,7 +233,10 @@ export const examples = {
       value:
         'A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels. They make sure appropriate content is shown to a user in the right place and in the best format.'
     },
-    screenshot: true
+    screenshot: {
+      states: ['focus'],
+      selector: '.nhsuk-textarea'
+    }
   },
   'with default value': {
     context: {
