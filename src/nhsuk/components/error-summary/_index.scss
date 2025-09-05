@@ -14,7 +14,7 @@
   .nhsuk-error-summary {
     // Not using responsive spacing as we want smaller margin on mobile
     margin-bottom: nhsuk-spacing(5);
-    border: $nhsuk-border-width-mobile solid $nhsuk-error-colour;
+    border: $nhsuk-border-width solid $nhsuk-error-colour;
 
     @include nhsuk-responsive-padding(4);
 
