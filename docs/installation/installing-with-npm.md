@@ -1,176 +1,66 @@
-# Installing using npm
+# Install with Node.js package manager (npm)
 
 ## Requirements
 
-To use NHS.UK frontend in your projects with npm you must:
+1. [Install Node.js](https://nodejs.org/en/).
 
-1. Have [Node.js](https://nodejs.org/en/) installed. We recommend using the [long-term support (LTS)](https://nodejs.org/en/download/) version of Nodejs, which also includes [npm](https://www.npmjs.com/).
+   NHS.UK frontend requires Node.js version 20.9.0 or later. Where possible, we recommend you install the latest Long Term Support (LTS) version.
 
-2. Have a [package.json file](https://docs.npmjs.com/files/package.json) within your project. You can create a default `package.json` file by running `npm init -y` from the root of your project.
+2. `cd` to the root of your project and check if you have a [`package.json` file](https://docs.npmjs.com/files/package.json). If you do not have the file, create it by running:
 
-3. Have a pipeline set up to compile [Sass](https://sass-lang.com/) files to CSS.
-
-4. (Optional) If you want to use our [Nunjucks](https://mozilla.github.io/nunjucks/) macros, you will need to install Nunjucks. [Nunjucks macros](https://mozilla.github.io/nunjucks/templating.html#macro) allows you to define reusable chunks of content. It is similar to a function in a programming language.
-
-   ```sh
-   npm install nunjucks --save
+   ```
+   npm init
    ```
 
-## Install dependencies
+3. Install [Dart Sass](https://www.npmjs.com/package/sass-embedded) - version 1.77.6 or higher.
 
-Install the NHS.UK frontend package into your project:
+You can also [install Nunjucks v3.0.0 or later](https://www.npmjs.com/package/nunjucks) if you want to [use NHS.UK frontend's Nunjucks macros](../configuration/nunjucks.md).
 
-```sh
+## Install NHS.UK frontend
+
+Run:
+
+```
 npm install nhsuk-frontend --save
 ```
 
 When the installation finishes, the `nhsuk-frontend` package and other dependencies will be in your `node_modules` folder.
 
-## Configuration
+## Get the CSS, Assets and JavaScript working
 
-You will need to import a couple of things into your project before you can start using NHS.UK frontend:
+Add the HTML for a component to your application. We recommend the character count component as this makes it easier to spot if JavaScript is not working.
 
-- [Importing styles](#importing-styles)
-- [Importing JavaScript](#importing-javascript)
-- [Importing assets (optional)](#importing-assets-optional)
+Go to the [character count component](https://service-manual.nhs.uk/design-system/components/character-count) on the design system and copy the HTML from the first example.
 
-## Importing styles
+Paste the HTML into a page or template in your application.
 
-To build the stylesheet you will need a pipeline set up to compile [Sass](https://sass-lang.com/) files to CSS. We recommend using [Gulp](https://gulpjs.com/) and [gulp-sass](https://www.npmjs.com/package/gulp-sass) however you can use any tools that you are familiar with.
+### Get the CSS working
 
-You must add `node_modules` to Sass load paths, by either:
+1. Copy the `/node_modules/nhsuk-frontend/dist/nhsuk/nhsuk-frontend.min.css` file into your application.
 
-- calling the Sass compiler from the command line with the `--load-path node_modules` flag
-- using the JavaScript API with `loadPaths: ['node_modules']` in the `options` object
+2. Add your CSS file to your page layout if you need to. For example:
 
-Then load the NHS.UK frontend styles by adding the following to your Sass file. You should place the below code before your own Sass rules (or Sass `@forward`).
+   ```html
+   <head>
+     <!-- // ... -->
+     <link rel="stylesheet" href="/stylesheets/nhsuk-frontend.min.css">
+     <!-- // ... -->
+   </head>
+   ```
+
+3. Run your application and check that the character count displays correctly.
+
+The character count message will not update when typing into the textarea until you get the JavaScript working.
+
+There are also different ways you can [load NHS.UK frontend's CSS](../configuration/css.md), including into your project's main Sass file:
 
 ```scss
 @forward "nhsuk-frontend/dist/nhsuk";
 ```
 
-Alternatively you can use NHS.UK frontend styles with a custom configuration:
+### Get the assets working
 
-```scss
-@forward "nhsuk-frontend/dist/nhsuk" with (
-  $nhsuk-include-font-face: false
-);
-```
-
-Or to use only the minimum components necessary:
-
-```scss
-// Core (required)
-@forward "nhsuk-frontend/dist/nhsuk/core";
-
-// Individual component (optional)
-@forward "nhsuk-frontend/dist/nhsuk/components/action-link";
-```
-
-## Importing JavaScript
-
-Some of our components require JavaScript to function properly, others need JavaScript to improve the usability and accessibility.
-
-You should include NHS.UK frontend JavaScript in your project to ensure that all users can use it successfully.
-
-Add the following JavaScript to the top of the `<body>` section of your page template:
-
-```js
-<script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' nhsuk-frontend-supported' : '');</script>
-```
-
-### Option 1: Include compiled JavaScript
-
-Copy the `/node_modules/nhsuk-frontend/dist/nhsuk/nhsuk-frontend.min.js` script file into your application.
-
-Then include the script before the closing `</body>` tag of your page using the `type="module"` attribute, and run the `initAll` function to initialise all the components.
-
-> The `type="module"` attribute stops Internet Explorer 11 and other older browsers running the JavaScript, which relies on features older browsers might not support and could cause errors.
-
-```html
-    <script type="module" src="/javascripts/nhsuk-frontend.min.js"></script>
-    <script type="module">
-      import { initAll } from '/javascripts/nhsuk-frontend.min.js'
-      initAll()
-    </script>
-  </head>
-```
-
-### Option 2: Import JavaScript using a bundler
-
-We encourage the use of ECMAScript (ES) modules, but you should check your bundler does not unnecessarily downgrade modern JavaScript for unsupported browsers.
-
-If you decide to import using a bundler like [Rollup](https://rollupjs.org/) or [webpack](https://webpack.js.org/), import and run the `initAll` function to initialise NHS.UK frontend:
-
-```js
-import { initAll } from 'nhsuk-frontend'
-initAll()
-```
-
-You can pass configuration to components by including key-value pairs of camel-cased component names with their options:
-
-```js
-import { initAll } from 'nhsuk-frontend'
-
-initAll({
-  button: {
-    preventDoubleClick: true
-  }
-})
-```
-
-#### Initialise only part of a page
-
-If you update a page with new markup, for example a modal dialogue box, you can initialise components on that part of the page only.
-
-For example, run `initAll` with a `scope` parameter to initialise the components on part of a page:
-
-```js
-import { initAll } from 'nhsuk-frontend'
-
-const $element = document.querySelector('.app-modal')
-
-if ($element) {
-  initAll({ scope: $element })
-}
-```
-
-#### Initialise individual components
-
-Rather than using `initAll`, you can initialise all instances of individual components using `createAll`. For example:
-
-```js
-import { createAll, Button, Checkboxes } from 'nhsuk-frontend'
-
-// Initialise all button components
-createAll(Button, {
-  preventDoubleClick: true
-})
-
-// Initialise all checkboxes components
-createAll(Checkboxes)
-```
-
-Or where necessary, single instances of individual components only:
-
-```js
-import { Button, Checkboxes } from 'nhsuk-frontend'
-
-const $button = document.querySelector('.app-button')
-const $checkboxes = document.querySelector('.app-checkboxes')
-
-// Initialise single button component
-new Button($button, {
-  preventDoubleClick: true
-})
-
-// Initialise single checkboxes component
-new Checkboxes($checkboxes)
-```
-
-## Importing assets (optional)
-
-If you want to import assets such as the NHS logo, favicons and SVG icons, copy the files into your project folders from the `node_modules/nhsuk-frontend/dist/nhsuk/assets/` directory.
+Copy the favicons, app icons and manifest file into your application from the `node_modules/nhsuk-frontend/dist/nhsuk/assets/` directory:
 
 ```html
 <link rel="icon" href="/assets/images/favicon.ico" sizes="48x48">
@@ -180,6 +70,40 @@ If you want to import assets such as the NHS logo, favicons and SVG icons, copy 
 <link rel="manifest" href="/assets/manifest.json">
 ```
 
+In your live application, we recommend [using an automated task or your build pipeline](../configuration/assets.md) instead of copying the files manually.
+
+### Get the JavaScript working
+
+1. Add the following to the top of the `<body>` section of your page template:
+
+   ```html
+   <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' nhsuk-frontend-supported' : '');</script>
+   ```
+
+2. Copy the `/node_modules/nhsuk-frontend/dist/nhsuk/nhsuk-frontend.min.js` file into your application.
+
+3. Import the file before the closing `</body>` tag of your page template, then run the `initAll` function to initialise all the components. For example:
+
+```html
+    <script type="module" src="/javascripts/nhsuk-frontend.min.js"></script>
+    <script type="module">
+      import { initAll } from '/javascripts/nhsuk-frontend.min.js'
+      initAll()
+    </script>
+  </body>
+```
+
+4. Run your application and check it works the same way as the [character count component example](https://service-manual.nhs.uk/design-example/components/character-count/default) by typing into the textarea.
+
+In your live application, we recommend:
+
+- [using an automated task or your build pipeline](../configuration/assets.md) instead of copying the files manually
+- importing only the components your application uses and [using `createAll` to initialise](../configuration/javascript.md#import-individual-components) all their instances on the page
+
+Make sure you import all the components used throughout your application or some components will not work correctly for disabled users who use assistive technologies.
+
+Once your testing is complete you can use the full code for page layouts and other components from the [design system in the NHS digital service manual](https://service-manual.nhs.uk/).
+
 ## Thanks to the Government Digital Service (GDS)
 
-This documentation has been taken from [Installing GOV.UK Frontend with node package manager (NPM)](https://github.com/alphagov/govuk-frontend/blob/v2.13.0/docs/installation/installing-with-npm.md) with a few minor adaptations.
+This documentation has been taken from [Install with Node.js package manager (npm)](https://frontend.design-system.service.gov.uk/installing-with-npm/) with a few minor adaptations.

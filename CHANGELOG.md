@@ -98,12 +98,8 @@ import { createAll, Button, Checkboxes } from 'nhsuk-frontend'
 
 const $element = document.querySelector('.app-modal')
 
-createAll(Button, {
-  preventDoubleClick: true,
-  scope: $element,
-})
-
-createAll(Checkboxes, $element)
+createAll(Button, { preventDoubleClick: true }, $element)
+createAll(Checkboxes, undefined, $element)
 ```
 
 Similarly, the existing `initAll` function can also configure components by including key-value pairs of camel-cased component names with their options:
@@ -118,7 +114,7 @@ initAll({
 })
 ```
 
-You can find out more about [how to use the `initAll` and `createAll` functions](/docs/installation/installing-with-npm.md#importing-javascript) in our documentation.
+You can find out more about [how to use the `initAll` and `createAll` functions](/docs/configuration/javascript.md) in our documentation.
 
 This was added in pull requests [#1464: Export type declarations `*.d.mts` for NHS.UK frontend](https://github.com/nhsuk/nhsuk-frontend/pull/1464) and [#1506: Add JavaScript configuration support to components](https://github.com/nhsuk/nhsuk-frontend/pull/1506).
 
@@ -878,7 +874,7 @@ This change was introduced in [pull request #1452: Update footer to separate nav
 
 #### Error summary component changes
 
-We've changed how the [error summary](https://design-system.service.gov.uk/components/error-summary/) component links to the first input in a [radios](https://design-system.service.gov.uk/components/radios/) or [checkboxes](https://design-system.service.gov.uk/components/checkboxes/) component.
+We've changed how the [error summary](https://service-manual.nhs.uk/design-system/components/error-summary) component links to the first input in a [radios](https://service-manual.nhs.uk/design-system/components/radios) or [checkboxes](https://service-manual.nhs.uk/design-system/components/checkboxes) component.
 
 This is because the `id` of the first checkbox or radio input no longer has the suffix `-1` when rendered using the Nunjucks macros.
 
@@ -996,7 +992,7 @@ NHS.UK frontend component JavaScript now provides errors if you initialise a com
 These errors will be:
 
 - logged in the browser console when using the `initAll()` function
-- [thrown as exceptions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw) when [initialising individual components](https://github.com/nhsuk/nhsuk-frontend/blob/main/docs/installation/installing-with-npm.md#initialise-individual-components)
+- [thrown as exceptions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw) when [initialising individual components](/docs/configuration/javascript.md#import-individual-components)
 
 To make sure the components behave as intended, we encourage you to check your browser console and address any errors by updating your markup or configuration.
 
