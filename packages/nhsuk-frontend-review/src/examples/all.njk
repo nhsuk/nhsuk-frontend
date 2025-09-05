@@ -428,16 +428,10 @@
       </div>
 
       {{ pagination({
-        previous: {
-          href: "#/section/treatments",
-          text: "Previous",
-          labelText: "Treatments"
-        },
-        next: {
-          href: "#/section/symptoms",
-          text: "Next",
-          labelText: "Symptoms"
-        }
+        "previousUrl": "/section/treatments",
+        "previousPage": "Treatments",
+        "nextUrl": "/section/symptoms",
+        "nextPage": "Symptoms"
       }) }}
 
       {{ list({
