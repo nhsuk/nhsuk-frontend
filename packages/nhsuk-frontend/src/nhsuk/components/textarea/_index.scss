@@ -1,5 +1,8 @@
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
+@forward "../error-message";
+@forward "../hint";
+@forward "../label";
 
 ////
 /// Textarea component
@@ -9,24 +12,34 @@
 
 @include nhsuk-exports("nhsuk/components/textarea") {
   .nhsuk-textarea {
-    appearance: none;
-    border: $nhsuk-border-width-form-element solid $nhsuk-input-border-colour;
-    border-radius: 0;
     box-sizing: border-box;
     display: block;
+    width: 100%;
     min-height: 40px;
     padding: nhsuk-spacing(1);
-    resize: vertical;
-    width: 100%;
 
-    @include nhsuk-font(19);
+    resize: vertical;
+
+    border: $nhsuk-border-width-form-element solid $nhsuk-input-border-colour;
+    border-radius: 0;
+    appearance: none;
+
+    @include nhsuk-responsive-margin(6, "bottom");
+    @include nhsuk-font($size: 19, $line-height: 1.25);
 
     &:focus {
       @include nhsuk-focused-input;
     }
+
+    &:disabled {
+      opacity: 0.5;
+      color: inherit;
+      background-color: transparent;
+      cursor: not-allowed;
+    }
   }
 
   .nhsuk-textarea--error {
-    border: $nhsuk-border-width-form-element-error solid $nhsuk-error-colour;
+    border-color: $nhsuk-error-colour;
   }
 }
