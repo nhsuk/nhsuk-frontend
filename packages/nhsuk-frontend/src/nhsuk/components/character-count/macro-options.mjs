@@ -155,6 +155,12 @@ export const params = {
         description: 'Classes to add to the count message.'
       }
     }
+  },
+  textareaDescriptionText: {
+    type: 'string',
+    required: false,
+    description:
+      'Message made available to assistive technologies to describe that the component accepts only a limited amount of content. It is visible on the page when JavaScript is unavailable. The component will replace the `%{count}` placeholder with the value of the `maxlength` or `maxwords` parameter.'
   }
 }
 
@@ -245,10 +251,7 @@ export const examples = {
         classes: 'nhsuk-label--l',
         isPageHeading: true
       },
-      errorMessage: {
-        text: 'Job description must be 350 characters or less'
-      },
-      id: 'with-error-message',
+      id: 'with-default-value',
       name: 'example',
       maxlength: 350,
       value:
