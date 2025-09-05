@@ -1,4 +1,4 @@
-# Installing using compiled files
+# Try NHS.UK frontend using precompiled files
 
 You can install NHS.UK frontend by copying our CSS, JavaScript and asset files into your project. If you install this way, you can try NHS.UK frontend in your application without having to make many changes.
 
