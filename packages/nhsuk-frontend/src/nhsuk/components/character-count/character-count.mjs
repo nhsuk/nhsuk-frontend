@@ -1,3 +1,4 @@
+import { closestAttributeValue } from '../../common/closest-attribute-value.mjs'
 import {
   normaliseOptions,
   validateConfig
@@ -5,6 +6,7 @@ import {
 import { formatErrorMessage } from '../../common/index.mjs'
 import { ConfigurableComponent } from '../../configurable-component.mjs'
 import { ConfigError, ElementError } from '../../errors/index.mjs'
+import { I18n } from '../../i18n.mjs'
 
 /**
  * Character count component
@@ -58,6 +60,11 @@ export class CharacterCount extends ConfigurableComponent {
       throw new ConfigError(formatErrorMessage(CharacterCount, errors[0]))
     }
 
+    this.i18n = new I18n(this.config.i18n, {
+      // Read the fallback if necessary rather than have it set in the defaults
+      locale: closestAttributeValue(this.$root, 'lang')
+    })
+
     // Determine the limit attribute (characters or words)
     this.maxLength = this.config.maxwords ?? this.config.maxlength ?? Infinity
 
@@ -75,6 +82,15 @@ export class CharacterCount extends ConfigurableComponent {
 
     // Pre-existing validation error rendered from server
     this.$errorMessage = this.$root.querySelector('.nhsuk-error-message')
+
+    // Inject a description for the textarea if none is present already
+    // for when the component was rendered with no maxlength, maxwords
+    // nor custom textareaDescriptionText
+    if (/^\s*$/.exec($textareaDescription.textContent)) {
+      $textareaDescription.textContent = this.i18n.t('textareaDescription', {
+        count: this.maxLength
+      })
+    }
 
     // Move the textarea description to be immediately after the textarea
     // Kept for backwards compatibility
@@ -245,19 +261,29 @@ export class CharacterCount extends ConfigurableComponent {
    */
   formattedUpdateMessage() {
     const remainingNumber = this.maxLength - this.count(this.$textarea.value)
+    const countType = this.config.maxwords ? 'words' : 'characters'
+    return this.formatCountMessage(remainingNumber, countType)
+  }
 
-    let charVerb = 'remaining'
-    let charNoun = 'character'
-    let displayNumber = remainingNumber
-    if (this.config.maxwords) {
-      charNoun = 'word'
+  /**
+   * Formats the message shown to users according to what's counted
+   * and how many remain
+   *
+   * @param {number} remainingNumber - The number of words/characaters remaining
+   * @param {string} countType - "words" or "characters"
+   * @returns {string} Status message
+   */
+  formatCountMessage(remainingNumber, countType) {
+    if (remainingNumber === 0) {
+      return this.i18n.t(`${countType}AtLimit`)
     }
-    charNoun += remainingNumber === -1 || remainingNumber === 1 ? '' : 's'
 
-    charVerb = remainingNumber < 0 ? 'too many' : 'remaining'
-    displayNumber = Math.abs(remainingNumber)
+    const translationKeySuffix =
+      remainingNumber < 0 ? 'OverLimit' : 'UnderLimit'
 
-    return `You have ${displayNumber} ${charNoun} ${charVerb}`
+    return this.i18n.t(`${countType}${translationKeySuffix}`, {
+      count: Math.abs(remainingNumber)
+    })
   }
 
   /**
@@ -345,7 +371,32 @@ export class CharacterCount extends ConfigurableComponent {
    * @type {CharacterCountConfig}
    */
   static defaults = Object.freeze({
-    threshold: 0
+    threshold: 0,
+    i18n: {
+      // Characters
+      charactersUnderLimit: {
+        one: 'You have %{count} character remaining',
+        other: 'You have %{count} characters remaining'
+      },
+      charactersAtLimit: 'You have 0 characters remaining',
+      charactersOverLimit: {
+        one: 'You have %{count} character too many',
+        other: 'You have %{count} characters too many'
+      },
+      // Words
+      wordsUnderLimit: {
+        one: 'You have %{count} word remaining',
+        other: 'You have %{count} words remaining'
+      },
+      wordsAtLimit: 'You have 0 words remaining',
+      wordsOverLimit: {
+        one: 'You have %{count} word too many',
+        other: 'You have %{count} words too many'
+      },
+      textareaDescription: {
+        other: ''
+      }
+    }
   })
 
   /**
@@ -356,6 +407,7 @@ export class CharacterCount extends ConfigurableComponent {
    */
   static schema = Object.freeze({
     properties: {
+      i18n: { type: 'object' },
       maxwords: { type: 'number' },
       maxlength: { type: 'number' },
       threshold: { type: 'number' }
@@ -403,9 +455,55 @@ export function initCharacterCounts(options) {
  * @property {number} [threshold=0] - The percentage value of the limit at
  *   which point the count message is displayed. If this attribute is set, the
  *   count message will be hidden by default.
+ * @property {CharacterCountTranslations} [i18n=CharacterCount.defaults.i18n] - Character count translations
  */
 
 /**
+ * Character count translations
+ *
+ * @see {@link CharacterCount.defaults.i18n}
+ * @see {@link https://github.com/nhsuk/nhsuk-frontend/blob/main/docs/configuration/localisation.md}
+ * @typedef {object} CharacterCountTranslations
+ *
+ * Messages shown to users as they type. It provides feedback on how many words
+ * or characters they have remaining or if they are over the limit. This also
+ * includes a message used as an accessible description for the textarea.
+ * @property {TranslationPluralForms} [charactersUnderLimit] - Message displayed
+ *   when the number of characters is under the configured maximum, `maxlength`.
+ *   This message is displayed visually and through assistive technologies. The
+ *   component will replace the `%{count}` placeholder with the number of
+ *   remaining characters. This is a pluralised list of messages.
+ * @property {string} [charactersAtLimit] - Message displayed when the number of
+ *   characters reaches the configured maximum, `maxlength`. This message is
+ *   displayed visually and through assistive technologies.
+ * @property {TranslationPluralForms} [charactersOverLimit] - Message displayed
+ *   when the number of characters is over the configured maximum, `maxlength`.
+ *   This message is displayed visually and through assistive technologies. The
+ *   component will replace the `%{count}` placeholder with the number of
+ *   remaining characters. This is a pluralised list of messages.
+ * @property {TranslationPluralForms} [wordsUnderLimit] - Message displayed when
+ *   the number of words is under the configured maximum, `maxlength`. This
+ *   message is displayed visually and through assistive technologies. The
+ *   component will replace the `%{count}` placeholder with the number of
+ *   remaining words. This is a pluralised list of messages.
+ * @property {string} [wordsAtLimit] - Message displayed when the number of
+ *   words reaches the configured maximum, `maxlength`. This message is
+ *   displayed visually and through assistive technologies.
+ * @property {TranslationPluralForms} [wordsOverLimit] - Message displayed when
+ *   the number of words is over the configured maximum, `maxlength`. This
+ *   message is displayed visually and through assistive technologies. The
+ *   component will replace the `%{count}` placeholder with the number of
+ *   remaining words. This is a pluralised list of messages.
+ * @property {TranslationPluralForms} [textareaDescription] - Message made
+ *   available to assistive technologies, if none is already present in the
+ *   HTML, to describe that the component accepts only a limited amount of
+ *   content. It is visible on the page when JavaScript is unavailable. The
+ *   component will replace the `%{count}` placeholder with the value of the
+ *   `maxlength` or `maxwords` parameter.
+ */
+
+/**
+ * @import { TranslationPluralForms } from '../../i18n.mjs'
  * @import { createAll, InitOptions } from '../../index.mjs'
  * @import { Schema } from '../../common/configuration/index.mjs'
  */
