@@ -78,6 +78,7 @@ $nhsuk-task-list-hover-color: $nhsuk-task-list-hover-colour;
     padding-left: nhsuk-spacing(2);
     // stylelint-disable-next-line function-calc-no-unspaced-operator
     padding-top: calc(nhsuk-spacing(1) + 2px); // to match the spacing on tags
+    text-decoration: none;
 
     @include nhsuk-font($size: 16, $weight: regular, $line-height: 1);
   }

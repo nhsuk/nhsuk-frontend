@@ -6,12 +6,14 @@
 ////
 /// Details component
 ///
-/// 1. Make the focus outline shrink-wrap the text content of the summary
-/// 2. Allow for absolutely positioned marker and align with disclosed text
-/// 3. Only underline the text, not the arrow
-/// 4. Remove the default details marker so we can style our own consistently
+/// 1. Style the summary to look like a link...
+/// 2. Make the focus outline shrink-wrap the text content of the summary
+/// 3. Absolutely position the marker against this element
+/// 3. Allow for absolutely positioned marker and align with disclosed text
+/// 4. Only underline the text, not the arrow
+/// 5. Remove the default details marker so we can style our own consistently
 ///    and ensure it displays in Firefox
-/// 5. Custom padding to left align the details text with the summary
+/// 6. Custom padding to left align the details text with the summary
 ///
 /// @group components/details
 /// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
@@ -54,7 +56,7 @@ $expander-icon-size: $nhsuk-expander-icon-size;
       border-left: nhsuk-spacing(1) solid $nhsuk-border-colour;
       margin-top: nhsuk-spacing(2);
       padding: nhsuk-spacing(3) 0;
-      padding-left: 20px; // [5]
+      padding-left: 20px; // [6]
     }
 
     .nhsuk-details__summary-text {
@@ -74,14 +76,29 @@ $expander-icon-size: $nhsuk-expander-icon-size;
   //   - do not support ES6 modules or the <details> element (eg, IE8+)
   @supports not (-ms-ime-align: auto) {
     .nhsuk-details__summary {
+      color: $nhsuk-link-colour; // [1]
       cursor: pointer;
       padding-left: nhsuk-spacing(4);
-      position: relative; // [2]
-      width: fit-content; // [1]
-      @include nhsuk-link-style;
+      position: relative; // [3]
+      width: fit-content; // [2]
+
+      &:hover {
+        color: $nhsuk-link-hover-colour;
+      }
+
+      &:focus {
+        @include nhsuk-focused-text;
+      }
+
+      &:hover,
+      &:focus {
+        .nhsuk-details__summary-text {
+          text-decoration: none;
+        }
+      }
 
       &::-webkit-details-marker {
-        display: none; // [4]
+        display: none; // [5]
       }
 
       &::before {
@@ -100,21 +117,15 @@ $expander-icon-size: $nhsuk-expander-icon-size;
       }
     }
 
-    // ...but only underline the text, not the arrow
     .nhsuk-details__summary-text {
-      @include nhsuk-link-decoration; // [4]
-    }
-
-    // Remove the underline when focussed to avoid duplicate borders
-    .nhsuk-details__summary:focus .nhsuk-details__summary-text {
-      text-decoration: none;
+      text-decoration: underline; // [4]
     }
 
     .nhsuk-details__text {
       border-left: nhsuk-spacing(1) solid $nhsuk-border-colour;
       margin-top: nhsuk-spacing(2);
       padding: nhsuk-spacing(3) 0;
-      padding-left: 20px; // [5]
+      padding-left: 20px; // [6]
       padding-right: 0;
     }
   }
@@ -196,7 +207,7 @@ $expander-icon-size: $nhsuk-expander-icon-size;
       }
 
       .nhsuk-details__summary:hover .nhsuk-details__summary-text {
-        @include nhsuk-link-hover-decoration;
+        color: $nhsuk-link-hover-colour;
       }
 
       .nhsuk-details__summary:focus .nhsuk-details__summary-text {
