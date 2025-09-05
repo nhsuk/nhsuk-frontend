@@ -114,7 +114,7 @@ initAll({
 })
 ```
 
-You can find out more about [how to use the `initAll` and `createAll` functions](/docs/installation/installing-with-npm.md#importing-javascript) in our documentation.
+You can find out more about [how to use the `initAll` and `createAll` functions](/docs/configuration/javascript.md) in our documentation.
 
 This was added in pull requests [#1464: Export type declarations `*.d.mts` for NHS.UK frontend](https://github.com/nhsuk/nhsuk-frontend/pull/1464) and [#1506: Add JavaScript configuration support to components](https://github.com/nhsuk/nhsuk-frontend/pull/1506).
 
@@ -992,7 +992,7 @@ NHS.UK frontend component JavaScript now provides errors if you initialise a com
 These errors will be:
 
 - logged in the browser console when using the `initAll()` function
-- [thrown as exceptions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw) when [initialising individual components](https://github.com/nhsuk/nhsuk-frontend/blob/main/docs/installation/installing-with-npm.md#initialise-individual-components)
+- [thrown as exceptions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw) when [initialising individual components](/docs/configuration/javascript.md#import-individual-components)
 
 To make sure the components behave as intended, we encourage you to check your browser console and address any errors by updating your markup or configuration.
 
