@@ -15,75 +15,66 @@
 ////
 
 @include nhsuk-exports("nhsuk/components/pagination") {
+  $_icon-size: nhsuk-em($nhsuk-icon-size-large, 26px);
   $_small-icon-size: nhsuk-em($nhsuk-icon-size, 19px);
-  $_large-icon-size: nhsuk-em($nhsuk-icon-size-large, 26px);
 
-  // Previous and next pages variant
   .nhsuk-pagination {
-    @include nhsuk-clearfix;
     @include nhsuk-responsive-margin(7, "top");
     @include nhsuk-responsive-margin(7, "bottom");
   }
 
-  .nhsuk-pagination-item {
-    width: 50%;
+  .nhsuk-pagination__list {
+    @include nhsuk-clearfix;
   }
 
-  .nhsuk-pagination__prev {
+  .nhsuk-pagination-item--previous {
     float: left;
-    margin-left: nhsuk-spacing(-2);
     text-align: left;
+    width: 50%;
 
     .nhsuk-icon {
-      left: nhsuk-em(nhsuk-spacing(2) - 6px, 26px);
+      left: nhsuk-px-to-rem(-6px);
     }
 
-    .nhsuk-pagination__link-title {
-      padding-left: $_large-icon-size; // [1]
+    .nhsuk-pagination__title {
+      padding-left: $_icon-size; // [1]
     }
   }
 
-  .nhsuk-pagination__next {
+  .nhsuk-pagination-item--next {
     float: right;
-    margin-right: nhsuk-spacing(-2);
     text-align: right;
+    width: 50%;
 
     .nhsuk-icon {
-      right: nhsuk-em(nhsuk-spacing(2) - 6px, 26px);
+      right: nhsuk-px-to-rem(-6px);
     }
 
-    .nhsuk-pagination__link-title {
-      padding-right: $_large-icon-size; // [1]
+    .nhsuk-pagination__title {
+      padding-right: $_icon-size; // [1]
     }
   }
 
   .nhsuk-pagination__link {
-    display: inline-block;
+    display: block;
     position: relative;
+    text-decoration: none;
     width: 100%;
-    width: fit-content;
-    padding: 0 nhsuk-spacing(2);
-    @include nhsuk-font-size(26);
 
+    @include nhsuk-font-size(26);
     @include nhsuk-print-colour {
       @include nhsuk-link-style-text($nhsuk-print-text-colour);
-    }
-
-    &,
-    &:hover,
-    &:hover:visited {
-      text-decoration: none;
     }
 
     .nhsuk-icon {
       position: absolute;
       top: 0;
-      height: $_large-icon-size;
-      width: $_large-icon-size;
+      height: $_icon-size;
+      width: $_icon-size;
     }
   }
 
-  .nhsuk-pagination__link-title {
+  .nhsuk-pagination__title {
     display: block;
 
     @include nhsuk-media-query($media-type: print) {
@@ -93,36 +84,45 @@
     }
   }
 
-  .nhsuk-pagination__link-label {
+  .nhsuk-pagination__page {
     display: block;
-    @include nhsuk-link-decoration;
+    text-decoration: underline;
+
     @include nhsuk-font-size(16);
 
-    .nhsuk-pagination__link:hover & {
-      @include nhsuk-link-hover-decoration;
-    }
-
+    .nhsuk-pagination__link:hover &,
     .nhsuk-pagination__link:focus & {
       text-decoration: none;
     }
   }
 
-  // Numbered pages variant
+  // Numbered pagination variant
 
-  // In a numbered list, the previous link, numbered page links,
-  // and next link should all line up
-  .nhsuk-pagination--numbered .nhsuk-pagination__prev,
-  .nhsuk-pagination--numbered .nhsuk-pagination__next,
-  .nhsuk-pagination__item {
+  // Container for the list of numbered items
+  .nhsuk-pagination--numbered .nhsuk-pagination__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  // Override for the default non-numbered style
+  .nhsuk-pagination--numbered .nhsuk-pagination__list::after {
+    content: none;
+  }
+
+  // Numbered item
+  .nhsuk-pagination__item,
+  .nhsuk-pagination__previous,
+  .nhsuk-pagination__next {
     box-sizing: border-box;
     position: relative;
-    width: auto;
     min-width: 45px;
     min-height: 45px;
     padding: nhsuk-spacing(2);
+    float: left;
+    display: block;
     text-align: center;
     margin: 0;
-    float: left;
     @include nhsuk-font(19);
 
     &:hover {
@@ -130,34 +130,11 @@
     }
   }
 
-  // Container for the list of numbered items
-  .nhsuk-pagination__list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  .nhsuk-pagination__item--ellipses {
-    font-weight: $nhsuk-font-bold;
-    color: $nhsuk-secondary-text-colour;
-
-    &:hover {
-      background-color: transparent;
-    }
-  }
-
+  // Numbered item links
   .nhsuk-pagination--numbered .nhsuk-pagination__link {
     position: static;
-    width: auto;
-    min-width: nhsuk-spacing(3);
-    padding: 0;
-    vertical-align: middle;
     text-decoration: underline;
-    @include nhsuk-font(19);
-
-    &:focus {
-      text-decoration: none;
-    }
+    @include nhsuk-font-size(19);
 
     // Increase the touch area for the link to the parent element.
     @media screen {
@@ -173,42 +150,30 @@
   }
 
   // Current number
-  .nhsuk-pagination--numbered .nhsuk-pagination__item--current,
-  .nhsuk-pagination--numbered .nhsuk-pagination__item--current:hover {
+  .nhsuk-pagination__item--current {
+    background-color: nhsuk-colour("blue");
+    font-weight: $nhsuk-font-bold;
+
+    .nhsuk-pagination__link {
+      color: nhsuk-colour("white");
+    }
+  }
+
+  .nhsuk-pagination__item--current:hover {
     background-color: nhsuk-colour("blue");
   }
 
-  .nhsuk-pagination__item--current .nhsuk-pagination__link {
-    font-weight: $nhsuk-font-bold;
-    @include nhsuk-link-style-reverse;
-  }
-
-  .nhsuk-pagination--numbered .nhsuk-pagination__link-title {
+  // Previous and Next labels next to arrows
+  .nhsuk-pagination--numbered .nhsuk-pagination__title {
     display: inline;
-    @include nhsuk-font(19);
   }
 
+  // Arrows within numbered pagination
   .nhsuk-pagination--numbered .nhsuk-icon {
     top: 50%;
     height: $_small-icon-size;
     width: $_small-icon-size;
     margin-top: math.div($_small-icon-size, -2);
     margin-bottom: 0;
-  }
-
-  .nhsuk-pagination--numbered .nhsuk-icon--arrow-left {
-    left: nhsuk-spacing(1);
-  }
-
-  .nhsuk-pagination--numbered .nhsuk-icon--arrow-right {
-    right: nhsuk-spacing(1);
-  }
-
-  .nhsuk-pagination--numbered .nhsuk-pagination__next .nhsuk-pagination__link-title {
-    padding-right: $_small-icon-size;
-  }
-
-  .nhsuk-pagination--numbered .nhsuk-pagination__prev .nhsuk-pagination__link-title {
-    padding-left: $_small-icon-size;
   }
 }
