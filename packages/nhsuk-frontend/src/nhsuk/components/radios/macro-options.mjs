@@ -1,4 +1,5 @@
 import { components } from '@nhsuk/frontend-lib'
+import { outdent } from 'outdent'
 
 export const name = 'Radios'
 
@@ -172,6 +173,17 @@ export const params = {
             required: true
           }
         }
+      },
+      disabled: {
+        type: 'boolean',
+        required: false,
+        description: 'If true, radio will be disabled.'
+      },
+      attributes: {
+        type: 'object',
+        required: false,
+        description:
+          'HTML attributes (for example data attributes) to add to the radio input tag.'
       }
     }
   },
@@ -467,6 +479,51 @@ export const examples = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
+  'with long text': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'Venenatis Condimentum'
+        }
+      },
+      idPrefix: 'with-long-text',
+      name: 'example',
+      items: [
+        {
+          value: 'nullam',
+          text: outdent`
+            Nullam id dolor id nibh ultricies vehicula ut id elit. Aenean eu leo
+            quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
+            Maecenas faucibus mollis interdum. Donec id elit non mi porta gravida
+            at eget metus.
+          `
+        },
+        {
+          value: 'aenean',
+          text: outdent`
+            Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis
+            vestibulum. Donec sed odio dui. Duis mollis, est non commodo luctus,
+            nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cum sociis
+            natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+            mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam
+            venenatis vestibulum. Cras mattis consectetur purus sit amet
+            fermentum.
+          `
+        },
+        {
+          value: 'fusce',
+          text: outdent`
+            Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum
+            nibh, ut fermentum massa justo sit amet risus. Etiam porta sem
+            malesuada magna mollis euismod. Praesent commodo cursus magna, vel
+            scelerisque nisl consectetur et. Etiam porta sem malesuada magna
+            mollis euismod. Etiam porta sem malesuada magna mollis euismod.
+            Donec sed odio dui. Sed posuere consectetur est at lobortis.
+          `
+        }
+      ]
+    }
+  },
   'with conditional content': {
     context: {
       fieldset: {
@@ -673,6 +730,631 @@ export const examples = {
   },
   'with nested conditional radios': {
     context: {
+      fieldset: {
+        legend: {
+          text: 'How would you prefer to be contacted?'
+        }
+      },
+      hint: {
+        text: 'Select 1 option'
+      },
+      idPrefix: 'conditional-nested',
+      name: 'example-outer',
+      items: [
+        {
+          value: 'no-conditional',
+          text: 'No conditional'
+        },
+        {
+          value: 'nested',
+          text: 'Nested conditional',
+          conditional: {
+            html: components.render('radios', {
+              context: {
+                fieldset: {
+                  legend: {
+                    text: 'How would you prefer to be contacted?'
+                  }
+                },
+                hint: {
+                  text: 'Select 1 option'
+                },
+                name: 'example-inner',
+                items: [
+                  {
+                    value: 'email',
+                    text: 'Email',
+                    conditional: {
+                      html: components.render('input', {
+                        context: {
+                          label: {
+                            text: 'Email address'
+                          },
+                          name: 'email',
+                          spellcheck: false,
+                          classes: 'nhsuk-u-width-two-thirds'
+                        }
+                      })
+                    }
+                  },
+                  {
+                    value: 'phone',
+                    text: 'Phone',
+                    conditional: {
+                      html: components.render('input', {
+                        context: {
+                          label: {
+                            text: 'Phone number'
+                          },
+                          name: 'phone',
+                          type: 'tel',
+                          classes: 'nhsuk-u-width-two-thirds'
+                        }
+                      })
+                    }
+                  },
+                  {
+                    value: 'text',
+                    text: 'Text message',
+                    conditional: {
+                      html: components.render('input', {
+                        context: {
+                          label: {
+                            text: 'Mobile phone number'
+                          },
+                          name: 'mobile',
+                          type: 'tel',
+                          classes: 'nhsuk-u-width-two-thirds'
+                        }
+                      })
+                    }
+                  }
+                ]
+              }
+            })
+          }
+        }
+      ]
+    }
+  },
+  'small': {
+    context: {
+      classes: 'nhsuk-radios--small',
+      fieldset: {
+        legend: {
+          text: 'Have you changed your name?'
+        }
+      },
+      name: 'example',
+      items: [
+        {
+          value: 'yes',
+          text: 'Yes'
+        },
+        {
+          value: 'no',
+          text: 'No'
+        }
+      ]
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
+    }
+  },
+  'small with hint': {
+    context: {
+      classes: 'nhsuk-radios--small',
+      fieldset: {
+        legend: {
+          text: 'Have you changed your name?'
+        }
+      },
+      hint: {
+        text: 'This includes changing your last name or spelling your name differently'
+      },
+      idPrefix: 'with-hint',
+      name: 'example',
+      items: [
+        {
+          value: 'yes',
+          text: 'Yes'
+        },
+        {
+          value: 'no',
+          text: 'No'
+        }
+      ]
+    }
+  },
+  'small inline': {
+    context: {
+      classes: 'nhsuk-radios--small nhsuk-radios--inline',
+      fieldset: {
+        legend: {
+          text: 'Have you changed your name?'
+        }
+      },
+      hint: {
+        text: 'This includes changing your last name or spelling your name differently'
+      },
+      idPrefix: 'inline',
+      name: 'example',
+      value: 'no',
+      items: [
+        {
+          value: 'yes',
+          text: 'Yes'
+        },
+        {
+          value: 'no',
+          text: 'No'
+        }
+      ]
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
+    }
+  },
+  'small with legend as page heading': {
+    context: {
+      classes: 'nhsuk-radios--small',
+      fieldset: {
+        legend: {
+          text: 'Have you changed your name?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: true
+        }
+      },
+      hint: {
+        text: 'This includes changing your last name or spelling your name differently'
+      },
+      idPrefix: 'page-heading',
+      name: 'example',
+      items: [
+        {
+          value: 'yes',
+          text: 'Yes'
+        },
+        {
+          value: 'no',
+          text: 'No'
+        }
+      ]
+    }
+  },
+  'small with divider': {
+    context: {
+      classes: 'nhsuk-radios--small',
+      fieldset: {
+        legend: {
+          text: 'How do you want to sign in?',
+          classes: 'nhsuk-fieldset__legend--l',
+          pageHeading: 'true'
+        }
+      },
+      idPrefix: 'with-divider',
+      name: 'example',
+      items: [
+        {
+          value: 'government-gateway',
+          text: 'Use Government Gateway'
+        },
+        {
+          value: 'nhsuk-login',
+          text: 'Use NHS.UK login'
+        },
+        {
+          divider: 'or'
+        },
+        {
+          value: 'create-account',
+          text: 'Create an account'
+        }
+      ]
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
+    }
+  },
+  'small with hints on items': {
+    context: {
+      classes: 'nhsuk-radios--small',
+      fieldset: {
+        legend: {
+          text: 'How do you want to sign in?'
+        }
+      },
+      idPrefix: 'with-hint-item',
+      name: 'example',
+      items: [
+        {
+          value: 'gateway',
+          text: 'Sign in with Government Gateway',
+          hint: {
+            text: "You'll have a user ID if you've registered for self assessment or filed a tax return online before"
+          }
+        },
+        {
+          value: 'verify',
+          text: 'Sign in with NHS.UK login',
+          hint: {
+            text: "You'll have an account if you've already proved your identity with either Barclays, CitizenSafe, Digidentity, Experian, Post Office, Royal Mail or SecureIdentity"
+          }
+        }
+      ]
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
+    }
+  },
+  'small without fieldset': {
+    context: {
+      classes: 'nhsuk-radios--small',
+      id: 'without-fieldset',
+      name: 'colours',
+      items: [
+        {
+          value: 'red',
+          text: 'Red'
+        },
+        {
+          value: 'green',
+          text: 'Green'
+        },
+        {
+          value: 'blue',
+          text: 'Blue'
+        }
+      ]
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
+    }
+  },
+  'small with disabled item': {
+    context: {
+      classes: 'nhsuk-radios--small',
+      fieldset: {
+        legend: {
+          text: 'Have you changed your name?'
+        }
+      },
+      hint: {
+        text: 'This includes changing your last name or spelling your name differently'
+      },
+      idPrefix: 'with-disabled-item',
+      name: 'example',
+      items: [
+        {
+          value: 'yes',
+          text: 'Yes',
+          disabled: true
+        },
+        {
+          value: 'no',
+          text: 'No',
+          disabled: true
+        }
+      ]
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
+    }
+  },
+  'small with error message': {
+    context: {
+      classes: 'nhsuk-radios--small',
+      fieldset: {
+        legend: {
+          text: 'Have you changed your name?'
+        }
+      },
+      errorMessage: {
+        text: 'Select yes if you have changed your name'
+      },
+      idPrefix: 'with-error-message',
+      name: 'example',
+      items: [
+        {
+          value: 'yes',
+          text: 'Yes'
+        },
+        {
+          value: 'no',
+          text: 'No'
+        }
+      ]
+    }
+  },
+  'small with hint and error': {
+    context: {
+      classes: 'nhsuk-radios--small',
+      fieldset: {
+        legend: {
+          text: 'Have you changed your name?'
+        }
+      },
+      hint: {
+        text: 'This includes changing your last name or spelling your name differently'
+      },
+      errorMessage: {
+        text: 'Select yes if you have changed your name'
+      },
+      idPrefix: 'with-hint-error',
+      name: 'example',
+      items: [
+        {
+          value: 'yes',
+          text: 'Yes'
+        },
+        {
+          value: 'no',
+          text: 'No'
+        }
+      ]
+    },
+    screenshot: {
+      states: ['focus'],
+      selector: '#with-hint-error',
+      viewports: ['mobile', 'tablet', 'desktop']
+    }
+  },
+  'small with long text': {
+    context: {
+      classes: 'nhsuk-radios--small',
+      fieldset: {
+        legend: {
+          text: 'Venenatis Condimentum'
+        }
+      },
+      idPrefix: 'with-long-text',
+      name: 'example',
+      items: [
+        {
+          value: 'nullam',
+          text: outdent`
+            Nullam id dolor id nibh ultricies vehicula ut id elit. Aenean eu leo
+            quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
+            Maecenas faucibus mollis interdum. Donec id elit non mi porta gravida
+            at eget metus.
+          `
+        },
+        {
+          value: 'aenean',
+          text: outdent`
+            Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis
+            vestibulum. Donec sed odio dui. Duis mollis, est non commodo luctus,
+            nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cum sociis
+            natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+            mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam
+            venenatis vestibulum. Cras mattis consectetur purus sit amet
+            fermentum.
+          `
+        },
+        {
+          value: 'fusce',
+          text: outdent`
+            Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum
+            nibh, ut fermentum massa justo sit amet risus. Etiam porta sem
+            malesuada magna mollis euismod. Praesent commodo cursus magna, vel
+            scelerisque nisl consectetur et. Etiam porta sem malesuada magna
+            mollis euismod. Etiam porta sem malesuada magna mollis euismod.
+            Donec sed odio dui. Sed posuere consectetur est at lobortis.
+          `
+        }
+      ]
+    }
+  },
+  'small with conditional content': {
+    context: {
+      classes: 'nhsuk-radios--small',
+      fieldset: {
+        legend: {
+          text: 'How would you prefer to be contacted?'
+        }
+      },
+      hint: {
+        text: 'Select 1 option'
+      },
+      idPrefix: 'conditional',
+      name: 'example',
+      items: [
+        {
+          value: 'email',
+          text: 'Email',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                label: {
+                  text: 'Email address'
+                },
+                name: 'email',
+                spellcheck: false,
+                classes: 'nhsuk-u-width-two-thirds'
+              }
+            })
+          }
+        },
+        {
+          value: 'phone',
+          text: 'Phone',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                label: {
+                  text: 'Phone number'
+                },
+                name: 'phone',
+                type: 'tel',
+                classes: 'nhsuk-u-width-two-thirds'
+              }
+            })
+          }
+        },
+        {
+          value: 'text',
+          text: 'Text message',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                label: {
+                  text: 'Mobile phone number'
+                },
+                name: 'mobile',
+                type: 'tel',
+                classes: 'nhsuk-u-width-two-thirds'
+              }
+            })
+          }
+        }
+      ]
+    }
+  },
+  'small with conditional content, error message': {
+    context: {
+      classes: 'nhsuk-radios--small',
+      fieldset: {
+        legend: {
+          text: 'How would you prefer to be contacted?'
+        }
+      },
+      hint: {
+        text: 'Select 1 option'
+      },
+      errorMessage: {
+        text: 'Select how you prefer to be contacted'
+      },
+      idPrefix: 'conditional',
+      name: 'example',
+      items: [
+        {
+          value: 'email',
+          text: 'Email',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                label: {
+                  text: 'Email address'
+                },
+                name: 'email',
+                spellcheck: false,
+                classes: 'nhsuk-u-width-two-thirds'
+              }
+            })
+          }
+        },
+        {
+          value: 'phone',
+          text: 'Phone',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                label: {
+                  text: 'Phone number'
+                },
+                name: 'phone',
+                type: 'tel',
+                classes: 'nhsuk-u-width-two-thirds'
+              }
+            })
+          }
+        },
+        {
+          value: 'text',
+          text: 'Text message',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                label: {
+                  text: 'Mobile phone number'
+                },
+                name: 'mobile',
+                type: 'tel',
+                classes: 'nhsuk-u-width-two-thirds'
+              }
+            })
+          }
+        }
+      ]
+    }
+  },
+  'small with conditional content, error message (nested)': {
+    context: {
+      classes: 'nhsuk-radios--small',
+      fieldset: {
+        legend: {
+          text: 'How would you prefer to be contacted?'
+        }
+      },
+      hint: {
+        text: 'Select 1 option'
+      },
+      idPrefix: 'conditional',
+      name: 'example',
+      value: 'phone',
+      items: [
+        {
+          value: 'email',
+          text: 'Email',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                label: {
+                  text: 'Email address'
+                },
+                name: 'email',
+                spellcheck: false,
+                classes: 'nhsuk-u-width-two-thirds'
+              }
+            })
+          }
+        },
+        {
+          value: 'phone',
+          text: 'Phone',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                label: {
+                  text: 'Phone number'
+                },
+                errorMessage: {
+                  text: 'Enter your phone number'
+                },
+                name: 'phone',
+                type: 'tel',
+                classes: 'nhsuk-u-width-two-thirds'
+              }
+            })
+          }
+        },
+        {
+          value: 'text',
+          text: 'Text message',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                label: {
+                  text: 'Mobile phone number'
+                },
+                name: 'mobile',
+                type: 'tel',
+                classes: 'nhsuk-u-width-two-thirds'
+              }
+            })
+          }
+        }
+      ]
+    },
+    screenshot: {
+      states: ['focus'],
+      selector: '#conditional-2',
+      viewports: ['mobile', 'tablet', 'desktop']
+    }
+  },
+  'small with nested conditional radios': {
+    context: {
+      classes: 'nhsuk-radios--small',
       fieldset: {
         legend: {
           text: 'How would you prefer to be contacted?'
