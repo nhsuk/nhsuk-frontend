@@ -87,7 +87,7 @@
 
     .nhsuk-breadcrumb__link,
     .nhsuk-back-link {
-      @include nhsuk-link-style-reverse;
+      @include nhsuk-link-style-white;
     }
 
     .nhsuk-breadcrumb__list-item::before {
