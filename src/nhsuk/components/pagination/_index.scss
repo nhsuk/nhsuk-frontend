@@ -110,10 +110,10 @@
     content: none;
   }
 
-  // Numbered item
-  .nhsuk-pagination__item,
-  .nhsuk-pagination__previous,
-  .nhsuk-pagination__next {
+  // Numbered items, previous and next links
+  .nhsuk-pagination--numbered .nhsuk-pagination__item,
+  .nhsuk-pagination--numbered .nhsuk-pagination__previous,
+  .nhsuk-pagination--numbered .nhsuk-pagination__next {
     box-sizing: border-box;
     position: relative;
     min-width: 45px;
@@ -128,6 +128,17 @@
     &:hover {
       background-color: nhsuk-colour("grey-4");
     }
+  }
+
+  // Previous and next links within pagination navigation
+  .nhsuk-pagination--numbered .nhsuk-pagination__previous,
+  .nhsuk-pagination--numbered .nhsuk-pagination__next {
+    font-weight: $nhsuk-font-bold;
+
+    // Use flex to avoid extra space being introduced when
+    // whitespace exists between the arrow svg and the link text
+    display: flex;
+    align-items: center;
   }
 
   // Numbered item links
@@ -150,7 +161,7 @@
   }
 
   // Current number
-  .nhsuk-pagination__item--current {
+  .nhsuk-pagination--numbered .nhsuk-pagination__item--current {
     background-color: nhsuk-colour("blue");
     font-weight: $nhsuk-font-bold;
 
@@ -159,7 +170,7 @@
     }
   }
 
-  .nhsuk-pagination__item--current:hover {
+  .nhsuk-pagination--numbered .nhsuk-pagination__item--current:hover {
     background-color: nhsuk-colour("blue");
   }
 
@@ -170,10 +181,15 @@
 
   // Arrows within numbered pagination
   .nhsuk-pagination--numbered .nhsuk-icon {
-    top: 50%;
     height: $_small-icon-size;
     width: $_small-icon-size;
-    margin-top: math.div($_small-icon-size, -2);
-    margin-bottom: 0;
+  }
+
+  .nhsuk-pagination--numbered .nhsuk-pagination__previous .nhsuk-icon {
+    margin-right: nhsuk-spacing(2);
+  }
+
+  .nhsuk-pagination--numbered .nhsuk-pagination__next .nhsuk-icon {
+    margin-left: nhsuk-spacing(2);
   }
 }
