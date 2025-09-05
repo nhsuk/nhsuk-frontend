@@ -54,6 +54,11 @@ export const params = {
     required: false,
     description: 'Classes to add to the fieldset container.'
   },
+  role: {
+    type: 'string',
+    required: false,
+    description: 'Optional ARIA role attribute.'
+  },
   attributes: {
     type: 'object',
     required: false,
