@@ -241,7 +241,7 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
       position: static; // [15]
 
       a {
-        @include nhsuk-link-style-reverse;
+        @include nhsuk-link-style-white;
       }
 
       @include nhsuk-print-colour {
