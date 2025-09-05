@@ -8,7 +8,7 @@ describe('I18n', () => {
     beforeEach(() => {
       translations = {
         textString: 'Hello world',
-        htmlString: 'Hello<span class="govuk-visually-hidden"> world</span>'
+        htmlString: 'Hello<span class="nhsuk-u-visually-hidden"> world</span>'
       }
     })
 
@@ -22,7 +22,7 @@ describe('I18n', () => {
       const i18n = new I18n(translations)
       const returnString = i18n.t('htmlString')
       expect(returnString).toBe(
-        'Hello<span class="govuk-visually-hidden"> world</span>'
+        'Hello<span class="nhsuk-u-visually-hidden"> world</span>'
       )
     })
 
