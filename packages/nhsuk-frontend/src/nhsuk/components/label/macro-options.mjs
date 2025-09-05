@@ -27,9 +27,9 @@ export const params = {
   },
   for: {
     type: 'string',
-    required: true,
+    required: false,
     description:
-      'The value of the for attribute, the id of the input the label is associated with.'
+      'The value of the `for` attribute, the ID of the input the label is associated with.'
   },
   isPageHeading: {
     type: 'boolean',
