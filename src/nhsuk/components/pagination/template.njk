@@ -23,9 +23,9 @@
   {% if params.items %}
 
     {%- if params.previousUrl and params.items %}
-      <a href="{{ params.previousUrl }}" class="nhsuk-pagination__previous">
+      <a href="{{ params.previousUrl }}" class="nhsuk-pagination__previous" rel="prev">
         {{ nhsukIcon("arrow-left") }}
-        <span class="nhsuk-pagination__title">Previous</span>
+        <span class="nhsuk-pagination__title">Previous<span class="nhsuk-u-visually-hidden"> page</span></span>
       </a>
     {% endif %}
 
@@ -38,8 +38,8 @@
     {% endif %}
 
     {%- if params.nextUrl and params.items %}
-      <a href="{{ params.nextUrl }}" class="nhsuk-pagination__next">
-        <span class="nhsuk-pagination__title">Next</span>
+      <a href="{{ params.nextUrl }}" class="nhsuk-pagination__next"  rel="next">
+        <span class="nhsuk-pagination__title">Next<span class="nhsuk-u-visually-hidden"> page</span></span>
         {{ nhsukIcon("arrow-right") }}
       </a>
     {% endif %}
