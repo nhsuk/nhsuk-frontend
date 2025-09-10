@@ -18,7 +18,7 @@ export const params = {
     type: 'string',
     required: false,
     description:
-      "Optional prefix. This is used to prefix each `item.name` using `'-'`."
+      "Optional prefix. This is used to prefix each `item.name`, with the name then appearing in square brackets, for example `'date[month]'` ."
   },
   items: {
     type: 'array',
