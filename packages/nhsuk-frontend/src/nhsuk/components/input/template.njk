@@ -8,6 +8,11 @@
 {%- set describedBy = params.describedBy if params.describedBy else "" -%}
 {%- set id = params.id if params.id else params.name -%}
 
+{%- set hasPrefix = true if params.prefix else false %}
+{%- set hasSuffix = true if params.suffix else false %}
+{%- set hasBeforeInput = true if params.formGroup.beforeInput and (params.formGroup.beforeInput.text or params.formGroup.beforeInput.html) else false %}
+{%- set hasAfterInput = true if params.formGroup.afterInput and (params.formGroup.afterInput.text or params.formGroup.afterInput.html) else false %}
+
 <div class="nhsuk-form-group
   {%- if params.errorMessage %} nhsuk-form-group--error{% endif %}
   {%- if params.formGroup.classes %} {{ params.formGroup.classes }}{% endif %}"
@@ -41,26 +46,32 @@
     text: params.errorMessage.text
   }) | indent(2) | trim -}}
 {% endif %}
-{%- if params.prefix or params.suffix %}
+{%- if hasPrefix or hasSuffix or hasBeforeInput or hasAfterInput %}
   <div class="nhsuk-input__wrapper">
+    {% if hasBeforeInput %}
+      {{- params.formGroup.beforeInput.html | safe | trim | indent(4, true) if params.formGroup.beforeInput.html else params.formGroup.beforeInput.text }}
+    {% endif %}
 {% endif %}
-    {%- if params.prefix %}
+    {%- if hasPrefix %}
     <div class="nhsuk-input__prefix" aria-hidden="true">{{ params.prefix }}</div>
     {% endif %}
     <input class="nhsuk-input
-    {%- if params.classes %} {{ params.classes }}{% endif %}
-    {%- if params.errorMessage %} nhsuk-input--error{% endif %}" id="{{ id }}" name="{{ params.name }}" type="{{ params.type | default('text') }}"
-    {%- if (params.spellcheck === false) or (params.spellcheck === true) %} spellcheck="{{ params.spellcheck }}"{% endif %}
-    {%- if params.value %} value="{{ params.value}}"{% endif %}
-    {%- if describedBy %} aria-describedby="{{ describedBy }}"{% endif %}
-    {%- if params.autocomplete %} autocomplete="{{ params.autocomplete}}"{% endif %}
-    {%- if params.pattern %} pattern="{{ params.pattern }}"{% endif %}
-    {%- if params.inputmode %} inputmode="{{ params.inputmode }}"{% endif %}
-    {{- nhsukAttributes(params.attributes) }}>
-    {%- if params.suffix %}
+      {%- if params.classes %} {{ params.classes }}{% endif %}
+      {%- if params.errorMessage %} nhsuk-input--error{% endif %}" id="{{ id }}" name="{{ params.name }}" type="{{ params.type | default('text') }}"
+      {%- if (params.spellcheck === false) or (params.spellcheck === true) %} spellcheck="{{ params.spellcheck }}"{% endif %}
+      {%- if params.value %} value="{{ params.value}}"{% endif %}
+      {%- if describedBy %} aria-describedby="{{ describedBy }}"{% endif %}
+      {%- if params.autocomplete %} autocomplete="{{ params.autocomplete}}"{% endif %}
+      {%- if params.pattern %} pattern="{{ params.pattern }}"{% endif %}
+      {%- if params.inputmode %} inputmode="{{ params.inputmode }}"{% endif %}
+      {{- nhsukAttributes(params.attributes) }}>
+    {%- if hasSuffix %}
     <div class="nhsuk-input__suffix" aria-hidden="true">{{ params.suffix }}</div>
     {% endif %}
-{%- if params.prefix or params.suffix %}
-</div> {# close nhsuk-input__wrapper #}
+{%- if hasPrefix or hasSuffix or hasBeforeInput or hasAfterInput %}
+    {% if hasAfterInput %}
+      {{- params.formGroup.afterInput.html | safe | trim | indent(4, true) if params.formGroup.afterInput.html else params.formGroup.afterInput.text }}
+    {% endif %}
+  </div> {#- close nhsuk-input__wrapper #}
 {% endif %}
-</div> {# close nhsuk-form-group #}
+</div> {#- close nhsuk-form-group #}
