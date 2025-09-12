@@ -1,6 +1,8 @@
 {% extends "layouts/example.njk" %}
 
-{% set title = "Error summary with link to an input field" %}
+{% set heading = "Error summary" %}
+{% set caption = "Link to an input field" %}
+{% set title = heading ~ " – " ~ caption %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
@@ -17,6 +19,8 @@
         Optional description of the errors and how to correct them.<br>
         Note that the error summary should receive focus on page load using the JavaScript that comes with this component.
       {% endcall %}
+
+      <h1 class="nhsuk-heading-xl">{{ heading }} <span class="nhsuk-caption-xl nhsuk-caption--bottom">{{ caption }}</span></h1>
 
       <br><br><br><br><br><br>↕ Intentionally long page to demonstrate error summary link scrolling behaviour ↕<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 

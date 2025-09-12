@@ -1,11 +1,16 @@
 {% extends "layouts/example.njk" %}
 
-{% set title = "Card - Card group" %}
+{% set title = "Card group" %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-full">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl">{{ title }}</h1>
+    </div>
+  </div>
 
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
       <h2>Halves</h2>
 
       <ul class="nhsuk-grid-row nhsuk-card-group">
