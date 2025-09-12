@@ -8,7 +8,7 @@ Visit the [NHS digital service manual](https://service-manual.nhs.uk/) for examp
 
 ## Updating to v10
 
-Follow our guide to [updating to version 10](https://service-manual.nhs.uk/design-system/guides/updating-to-v10) for detailed instructions on what's changed and what you need to update. The [v10 changelog](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.0.0) also includes details of changes and links to included PRs and fixes.
+You can follow the [updating to NHS.UK frontend version 10](https://service-manual.nhs.uk/design-system/guides/updating-to-v10) guide in the NHS digital service manual on what's changed and what you need to update. The [v10 changelog](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.0.0) also includes details of changes and links to included PRs and fixes.
 
 ## How to install
 
