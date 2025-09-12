@@ -362,7 +362,7 @@ Before:
 
 ```html
   <!-- // ... -->
-  <script src="/javascripts/nhsuk-frontend.min.js" defer></script>
+  <script src="/<JAVASCRIPTS-PATH>/nhsuk.min.js" defer></script>
 </head>
 ```
 
@@ -370,9 +370,9 @@ After:
 
 ```html
   <!-- // ... -->
-  <script type="module" src="/javascripts/nhsuk-frontend.min.js"></script>
+  <script type="module" src="/<JAVASCRIPTS-PATH>/nhsuk.min.js"></script>
   <script type="module">
-    import { initAll } from '/javascripts/nhsuk-frontend.min.js'
+    import { initAll } from '/<JAVASCRIPTS-PATH>/nhsuk-frontend.min.js'
     initAll()
   </script>
 </body>
@@ -382,7 +382,7 @@ Or for [JavaScript imported using a bundler](#using-a-javascript-bundler), initi
 
 ```html
   <!-- // ... -->
-  <script type="module" src="/javascripts/application.min.js"></script>
+  <script type="module" src="/<JAVASCRIPTS-PATH>/application.min.js"></script>
 </body>
 ```
 
