@@ -325,10 +325,60 @@ export const examples = {
       label: {
         text: 'Can you provide more detail?'
       },
+      textareaDescriptionText: 'No more than %{count} characters',
+      id: 'no-maximum-description',
+      name: 'example',
+      value: 'This textarea has no maximum character or word count.',
+      rows: 8
+    }
+  },
+  'with neither maxlength, maxwords nor textarea description set': {
+    context: {
+      label: {
+        text: 'Can you provide more detail?'
+      },
       id: 'no-maximum',
       name: 'example',
       value: 'This textarea has no maximum character or word count.',
       rows: 8
+    }
+  },
+  'with translations': {
+    context: {
+      label: {
+        text: 'Allwch chi roi mwy o fanylion?'
+      },
+      hint: {
+        text: 'Peidiwch â chynnwys gwybodaeth bersonol, fel eich enw, dyddiad geni na rhif y GIG'
+      },
+      id: 'with-translations',
+      name: 'example',
+      maxlength: 200,
+      textareaDescriptionText: 'Gallwch ddefnyddio hyd at %{count} nod',
+      charactersUnderLimitText: {
+        one: 'Mae gennych %{count} nod ar ôl',
+        two: 'Mae gennych %{count} nod ar ôl',
+        few: 'Mae gennych %{count} nod ar ôl',
+        many: 'Mae gennych %{count} nod ar ôl',
+        other: 'Mae gennych %{count} nod ar ôl'
+      },
+      charactersAtLimitText: 'Mae gennych 0 nod ar ôl',
+      charactersOverLimitText: {
+        one: 'Mae gennych %{count} nod yn ormod',
+        two: 'Mae gennych %{count} nod yn ormod',
+        few: 'Mae gennych %{count} nod yn ormod',
+        many: 'Mae gennych %{count} nod yn ormod',
+        other: 'Mae gennych chi %{count} nod yn ormod'
+      }
+    }
+  },
+  'to configure in JavaScript': {
+    context: {
+      label: {
+        text: 'Can you provide more detail?'
+      },
+      id: 'to-configure-in-javascript',
+      name: 'example'
     }
   }
 }
