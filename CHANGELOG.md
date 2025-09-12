@@ -1,5 +1,15 @@
 # NHS.UK frontend Changelog
 
+## Unreleased
+
+### :new: **New features**
+
+#### Blue panel variant
+
+We've added a new variant of the panel component with a solid blue background and white text. This can be used as an interruption card.
+
+This was added in [pull request #1196: Add blue panel (Interruption card) variant](https://github.com/nhsuk/nhsuk-frontend/pull/1196).
+
 ## 10.0.0 - 26 August 2025
 
 This release introduces some breaking changes to file paths, full width buttons on mobile, the header component and others. It also stops Internet Explorer 11 and other older browsers from running NHS.UK frontend JavaScript.
