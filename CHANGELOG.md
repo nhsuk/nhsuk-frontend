@@ -2,11 +2,7 @@
 
 ## 10.0.0 - 26 August 2025
 
-### Update guide for version 10
-Follow our guide to [updating to version 10](https://service-manual.nhs.uk/design-system/guides/updating-to-v10) for detailed instructions on what's changed and what you need to update.
-
-### Release overview
-
+You can follow the [updating to NHS.UK frontend version 10](https://service-manual.nhs.uk/design-system/guides/updating-to-v10) guide in the NHS digital service manual on what's changed and what you need to update.
 This release introduces some breaking changes to file paths, full width buttons on mobile, the header component and others. It also stops Internet Explorer 11 and other older browsers from running NHS.UK frontend JavaScript.
 
 Your service will not stop working in Internet Explorer 11, but components will look and behave differently without JavaScript. Read more about [how we provide support for different browsers](/docs/contributing/browser-support.md).
