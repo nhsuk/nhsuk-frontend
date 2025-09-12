@@ -99,7 +99,7 @@
     "postcss-scss": "^4.0.9",
     "prettier": "^3.6.2",
     "puppeteer": "^24.17.1",
-    "strip-ansi": "^7.1.0",
+    "strip-ansi": "^7.1.2",
     "stylelint": "^16.23.1",
     "stylelint-config-gds": "^2.0.0",
     "stylelint-order": "^7.0.0",
