@@ -1,17 +1,17 @@
 
-{% extends 'layouts/example.njk' %}
+{% extends "layouts/example.njk" %}
 
-{% set title = 'Error summary with link to an input field' %}
+{% set title = "Error summary with link to an input field" %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       {% call errorSummary({
-        "titleText": "There is a problem",
-        "errorList": [
+        titleText: "There is a problem",
+        errorList: [
           {
-            "text": "Link to input error with explanation",
-            "href": "#example"
+            text: "Link to input error with explanation",
+            href: "#example"
           }
         ]
       }) %}
@@ -22,16 +22,16 @@
       <br><br><br><br><br><br>↕ Intentionally long page to demonstrate error summary link scrolling behaviour ↕<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
       {{ input({
-        "label": {
-          "text": "NHS number"
+        label: {
+          text: "NHS number"
         },
-        "hint": {
-          "text": "Clicking an error summary link should scroll the top of this input's label into view"
+        hint: {
+          text: "Clicking an error summary link should scroll the top of this input's label into view"
         },
-        "errorMessage": {
-          "text": "Error message goes here"
+        errorMessage: {
+          text: "Error message goes here"
         },
-        "name": "example"
+        name: "example"
       }) }}
 
       <br><br><br><br><br><br>↕ Intentionally long page to demonstrate error summary link scrolling behaviour ↕<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
