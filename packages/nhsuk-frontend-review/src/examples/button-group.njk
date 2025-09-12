@@ -1,6 +1,6 @@
-{% extends 'layouts/page.njk' %}
+{% extends "layouts/page.njk" %}
 
-{% set title = 'Button group' %}
+{% set title = "Button group" %}
 
 {% block main %}
   <main id="maincontent">
@@ -18,11 +18,11 @@
 
             <div class="nhsuk-button-group">
               {{ button({
-                "text": "I'm OK with analytics cookies"
+                text: "I'm OK with analytics cookies"
               }) }}
 
               {{ button({
-                "text": "Do not use analytics cookies"
+                text: "Do not use analytics cookies"
               }) }}
 
               <a href="#" class="nhsuk-link">Read more about our cookies</a>
@@ -32,8 +32,8 @@
 
             <div class="nhsuk-button-group">
               {{ button({
-                "text": "Delete account",
-                "classes": "nhsuk-button--warning"
+                text: "Delete account",
+                classes: "nhsuk-button--warning"
               }) }}
 
               <a href="#" class="nhsuk-link">Cancel</a>
@@ -46,14 +46,14 @@
               <a href="#" class="nhsuk-link">Buy it</a>
 
               {{ button({
-                "text": "Use it",
+                text: "Use it",
                 attributes: {
                   style: "min-width: 150px;"
                 }
               }) }}
 
               {{ button({
-                "text": "Break it"
+                text: "Break it"
               }) }}
 
               <a href="#" class="nhsuk-link">Fix it</a>
@@ -61,7 +61,7 @@
               <a href="#" class="nhsuk-link">Change it</a>
 
               {{ button({
-                "text": "Mail it"
+                text: "Mail it"
               }) }}
 
               <a href="#" class="nhsuk-link">Upgrade it</a>
@@ -69,18 +69,18 @@
               <a href="#" class="nhsuk-link">Charge it</a>
 
               {{ button({
-                "text": "Point it",
-                "classes": "nhsuk-button--secondary"
+                text: "Point it",
+                classes: "nhsuk-button--secondary"
               }) }}
 
               {{ button({
-                "text": "Zoom it",
-                "classes": "nhsuk-button--secondary"
+                text: "Zoom it",
+                classes: "nhsuk-button--secondary"
               }) }}
 
               {{ button({
-                "text": "Press it",
-                "classes": "nhsuk-button--secondary"
+                text: "Press it",
+                classes: "nhsuk-button--secondary"
               }) }}
             </div>
 

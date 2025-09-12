@@ -1,6 +1,6 @@
-{% extends 'layouts/page.njk' %}
+{% extends "layouts/page.njk" %}
 
-{% set title = 'Typography and spacing' %}
+{% set title = "Typography and spacing" %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
@@ -133,37 +133,37 @@
       <h2>Typography with images</h2>
 
       {{ image({
-        "alt": "Picture of allergic conjunctivitis",
-        "src": "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
-        "caption": "Itchy, red, watering eyes"
+        alt: "Picture of allergic conjunctivitis",
+        src: "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
+        caption: "Itchy, red, watering eyes"
       }) }}
 
       {{ image({
-        "alt": "Picture of allergic conjunctivitis",
-        "src": "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
-        "caption": "Itchy, red, watering eyes"
+        alt: "Picture of allergic conjunctivitis",
+        src: "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
+        caption: "Itchy, red, watering eyes"
       }) }}
 
       {{ image({
-        "alt": "Picture of allergic conjunctivitis",
-        "src": "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
-        "caption": "Itchy, red, watering eyes"
+        alt: "Picture of allergic conjunctivitis",
+        src: "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
+        caption: "Itchy, red, watering eyes"
       }) }}
 
       <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
 
       {{ image({
-        "alt": "Picture of allergic conjunctivitis",
-        "src": "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
-        "caption": "Itchy, red, watering eyes"
+        alt: "Picture of allergic conjunctivitis",
+        src: "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
+        caption: "Itchy, red, watering eyes"
       }) }}
 
       <h3>H3 heading</h3>
 
       {{ image({
-        "alt": "Picture of allergic conjunctivitis",
-        "src": "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
-        "caption": "Itchy, red, watering eyes"
+        alt: "Picture of allergic conjunctivitis",
+        src: "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
+        caption: "Itchy, red, watering eyes"
       }) }}
 
       <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
@@ -179,9 +179,9 @@
       <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
 
       {% call card({
-        "heading": "Speak to a GP if:",
-        "headingLevel": 3,
-        "type": "non-urgent"
+        heading: "Speak to a GP if:",
+        headingLevel: 3,
+        type: "non-urgent"
       }) %}
         <ul>
           <li>you're not sure it's chickenpox</li>
@@ -203,9 +203,9 @@
       <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
 
       {% call card({
-        "heading": "Speak to a GP if:",
-        "headingLevel": 3,
-        "type": "non-urgent"
+        heading: "Speak to a GP if:",
+        headingLevel: 3,
+        type: "non-urgent"
       }) %}
         <ul>
           <li>you're not sure it's chickenpox</li>
@@ -227,9 +227,9 @@
       </ul>
 
       {% call card({
-        "heading": "Ask for an urgent GP appointment if:",
-        "headingLevel": 3,
-        "type": "urgent"
+        heading: "Ask for an urgent GP appointment if:",
+        headingLevel: 3,
+        type: "urgent"
       }) %}
         <ul>
           <li>you're an adult and have chickenpox</li>
@@ -241,9 +241,9 @@
       {% endcall %}
 
       {% call card({
-        "heading": "Call 999 if you have sudden chest pain that:",
-        "headingLevel": 3,
-        "type": "emergency"
+        heading: "Call 999 if you have sudden chest pain that:",
+        headingLevel: 3,
+        type: "emergency"
       }) %}
         <ul>
           <li>spreads to your arms, back, neck or jaw</li>
@@ -256,9 +256,9 @@
       <h2>H2 heading</h2>
 
       {% call card({
-        "heading": "Speak to a GP if:",
-        "headingLevel": 3,
-        "type": "non-urgent"
+        heading: "Speak to a GP if:",
+        headingLevel: 3,
+        type: "non-urgent"
       }) %}
         <ul>
           <li>you're not sure it's chickenpox</li>
@@ -274,36 +274,36 @@
       <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
 
       {{ list({
-        "title": "Do",
-        "type": "tick",
-        "items": [
+        title: "Do",
+        type: "tick",
+        items: [
           {
-            "item": "cover blisters that are likely to burst with a soft plaster or dressing"
+            item: "cover blisters that are likely to burst with a soft plaster or dressing"
           },
           {
-            "item": "wash your hands before touching a burst blister"
+            item: "wash your hands before touching a burst blister"
           },
           {
-            "item": "allow the fluid in a burst blister to drain before covering it with a plaster or dressing"
+            item: "allow the fluid in a burst blister to drain before covering it with a plaster or dressing"
           }
         ]
       }) }}
 
       {{ list({
-        "title": "Don't",
-        "type": "cross",
-        "items": [
+        title: "Don't",
+        type: "cross",
+        items: [
           {
-            "item": "burst a blister yourself"
+            item: "burst a blister yourself"
           },
           {
-            "item": "peel the skin off a burst blister"
+            item: "peel the skin off a burst blister"
           },
           {
-            "item": "pick at the edges of the remaining skin"
+            item: "pick at the edges of the remaining skin"
           },
           {
-            "item": "wear the shoes or use the equipment that caused your blister until it heals"
+            item: "wear the shoes or use the equipment that caused your blister until it heals"
           }
         ]
       }) }}
@@ -315,7 +315,7 @@
       <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
 
       {% call details({
-        "summaryText": "Where can I find my NHS number?"
+        summaryText: "Where can I find my NHS number?"
       }) %}
         <p>An NHS number is a 10 digit number, like 485 777 3456.</p>
         <p>You can find your NHS number on any document sent to you by the NHS. This may include:</p>
@@ -336,15 +336,15 @@
       <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
 
       {{ warningCallout({
-        "heading": "Important",
-        "text": "For safety, tell your doctor or pharmacist if you're taking any other medicines, including herbal medicines, vitamins or supplements."
+        heading: "Important",
+        text: "For safety, tell your doctor or pharmacist if you're taking any other medicines, including herbal medicines, vitamins or supplements."
       }) }}
 
       <h2>H2 heading</h2>
 
       {{ warningCallout({
-        "heading": "Important",
-        "text": "For safety, tell your doctor or pharmacist if you're taking any other medicines, including herbal medicines, vitamins or supplements."
+        heading: "Important",
+        text: "For safety, tell your doctor or pharmacist if you're taking any other medicines, including herbal medicines, vitamins or supplements."
       }) }}
 
       <h2>H2 heading</h2>
@@ -399,8 +399,8 @@
       <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
 
       {{ actionLink({
-        "text": "Find your nearest A&E",
-        "href": "#"
+        text: "Find your nearest A&E",
+        href: "#"
       }) }}
 
       <ul>
@@ -411,9 +411,9 @@
       <h2>Content with images</h2>
 
       {{ image({
-        "alt": "Picture of allergic conjunctivitis",
-        "src": "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
-        "caption": "Itchy, red, watering eyes"
+        alt: "Picture of allergic conjunctivitis",
+        src: "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
+        caption: "Itchy, red, watering eyes"
       }) }}
 
       <h3>H3 heading</h3>
@@ -421,28 +421,28 @@
       <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
 
       {{ image({
-        "alt": "Picture of allergic conjunctivitis",
-        "src": "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
-        "caption": "Itchy, red, watering eyes"
+        alt: "Picture of allergic conjunctivitis",
+        src: "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
+        caption: "Itchy, red, watering eyes"
       }) }}
 
       {{ image({
-        "alt": "Picture of allergic conjunctivitis",
-        "src": "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
-        "caption": "Itchy, red, watering eyes"
+        alt: "Picture of allergic conjunctivitis",
+        src: "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
+        caption: "Itchy, red, watering eyes"
       }) }}
 
       {{ image({
-        "alt": "Picture of allergic conjunctivitis",
-        "src": "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
-        "caption": "Itchy, red, watering eyes"
+        alt: "Picture of allergic conjunctivitis",
+        src: "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
+        caption: "Itchy, red, watering eyes"
       }) }}
 
       <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
 
       {{ actionLink({
-        "URL": "#",
-        "text": "Find your nearest A&E"
+        URL: "#",
+        text: "Find your nearest A&E"
       }) }}
 
       <hr class="nhsuk-section-break nhsuk-section-break--xl nhsuk-section-break--visible">
