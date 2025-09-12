@@ -1,13 +1,17 @@
 {% extends "layouts/example.njk" %}
 
-{% set title = "Task list" %}
+{% set heading = "Task list" %}
+{% set caption = "Multiple sections" %}
+{% set title = heading ~ " – " ~ caption %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-heading-l">Service name</h1>
+      <h1 class="nhsuk-heading-xl">{{ heading }} <span class="nhsuk-caption-xl nhsuk-caption--bottom">{{ caption }}</span></h1>
 
-      <h2 class="nhsuk-heading-m">Check before you start</h2>
+      <h2 class="nhsuk-heading-l">Your service</h2>
+      <h3 class="nhsuk-heading-m">Check before you start</h3>
+
       {{ taskList({
         idPrefix: "before-you-start",
         items: [
@@ -36,7 +40,7 @@
         ]
       }) }}
 
-      <h2 class="nhsuk-heading-m">Prepare application</h2>
+      <h3 class="nhsuk-heading-m">Prepare application</h3>
 
       {{ taskList({
         idPrefix: "your-health",
