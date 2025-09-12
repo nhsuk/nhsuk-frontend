@@ -113,7 +113,7 @@ export function initAll(scopeOrConfig = {}) {
  * @overload
  * @param {ComponentClass} Component - Component class to initialise
  * @param {ComponentConfig<ComponentClass>} [config] - Config supplied to component
- * @param {Element | null} [$scope] - Scope of the document to search within
+ * @param {Element | Document | null} [$scope] - Scope of the document to search within
  * @returns {InstanceType<ComponentClass>[]} Array of initialised components
  */
 
