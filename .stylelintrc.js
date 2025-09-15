@@ -53,7 +53,7 @@ module.exports = {
       [
         {
           emptyLineBefore: 'threshold',
-          properties: ['content', 'quotes']
+          properties: ['content', 'content-visibility', 'quotes']
         },
         {
           // Box-sizing - Allow here until global is decided
@@ -200,6 +200,8 @@ module.exports = {
             'border-bottom-color',
             'border-left-color',
 
+            'border-image',
+
             'outline',
             'outline-color',
             'outline-offset',
@@ -209,7 +211,7 @@ module.exports = {
         },
         {
           emptyLineBefore: 'threshold',
-          properties: ['opacity']
+          properties: ['pointer-events', 'opacity']
         },
         {
           // Color has been moved to ensure it appears before background
@@ -254,6 +256,8 @@ module.exports = {
             'font-variant',
             'font-weight',
             'font-emphasize',
+            'font-display',
+            'src',
 
             'letter-spacing',
             'line-height',
@@ -262,6 +266,9 @@ module.exports = {
             'text-align',
             'text-align-last',
             'text-decoration',
+            'text-decoration-thickness',
+            'text-decoration-skip-ink',
+            'text-decoration-skip',
             'text-indent',
             'text-justify',
             'text-overflow',
@@ -274,18 +281,21 @@ module.exports = {
             'text-wrap',
             'word-wrap',
             'word-break',
+            'overflow-wrap',
 
             'text-emphasis',
 
             'vertical-align',
             'white-space',
             'word-spacing',
-            'hyphens'
+            'hyphens',
+            'user-select',
+            'forced-color-adjust'
           ]
         },
         {
           emptyLineBefore: 'threshold',
-          properties: ['src', 'cursor', '-webkit-appearance']
+          properties: ['cursor', '-webkit-appearance']
         }
       ],
       {
