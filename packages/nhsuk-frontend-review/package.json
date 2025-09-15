@@ -23,7 +23,7 @@
     "del-cli": "^6.0.0",
     "gulp": "^5.0.1",
     "html-validate": "^10.0.0",
-    "marked": "^16.2.0",
+    "marked": "^16.3.0",
     "package-json": "^10.0.1",
     "plugin-error": "^2.0.1",
     "sassdoc": "^2.7.4"
