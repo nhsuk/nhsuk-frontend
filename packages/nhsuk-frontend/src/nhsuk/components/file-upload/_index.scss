@@ -7,16 +7,17 @@
 @forward "../hint";
 @forward "../label";
 
-@include nhsuk-exports("govuk/component/file-upload") {
-  $_button-border-colour: nhsuk-colour("grey-2");
+@include nhsuk-exports("nhsuk/components/file-upload") {
+  $empty-button-background-colour: $nhsuk-body-background-colour;
+  $empty-pseudo-button-background-colour: $nhsuk-template-background-colour;
+  $empty-status-background-colour: color.scale(nhsuk-colour("grey-4"), $alpha: -50%);
 
   .nhsuk-file-upload {
-    margin-left: nhsuk-spacing(-1);
     max-width: 100%;
+    margin-left: nhsuk-spacing(-1);
     padding: nhsuk-spacing(1);
-
     @include nhsuk-text-colour;
-    @include nhsuk-font(19);
+    @include nhsuk-font($size: 19);
 
     // The default file upload button in Safari does not support setting a
     // custom font-size. Set `-webkit-appearance` to `button` to drop out of the
@@ -45,163 +46,171 @@
     }
 
     &:disabled {
-      cursor: not-allowed;
       opacity: 0.5;
+      cursor: not-allowed;
     }
   }
 
   .nhsuk-drop-zone {
     display: block;
-    background-color: $nhsuk-body-background-colour;
     position: relative;
     z-index: 0;
+    background-color: $nhsuk-body-background-colour;
   }
 
-  // Required because disabling pointer events on the button means that the
-  // cursor style be applied on the button itself
+  // required because disabling pointer events
+  // on the button means that the cursor style
+  // be applied on the button itself
   .nhsuk-drop-zone--disabled {
     cursor: not-allowed;
   }
 
   .nhsuk-file-upload-button__pseudo-button {
-    flex-shrink: 0;
-    margin-bottom: $nhsuk-border-width-form-element + 1;
-    margin-right: nhsuk-spacing(2);
     width: auto;
+    margin-right: nhsuk-spacing(2);
+    margin-bottom: $nhsuk-border-width-form-element + 1;
+    flex-shrink: 0;
   }
 
   .nhsuk-file-upload-button__instruction {
-    margin-bottom: 0;
     margin-top: nhsuk-spacing(2) - ($nhsuk-border-width-form-element + 1);
+    margin-bottom: 0;
     text-align: left;
   }
 
   .nhsuk-file-upload-button__status {
-    background-color: nhsuk-colour("grey-1");
-    color: $nhsuk-reverse-text-colour;
     display: block;
-    margin-bottom: nhsuk-spacing(3);
-    padding: nhsuk-spacing(3);
+    margin-bottom: nhsuk-spacing(2);
+    padding: nhsuk-spacing(3) nhsuk-spacing(2);
+    background-color: nhsuk-colour("grey-1");
     text-align: left;
-
-    .nhsuk-file-upload-button--empty & {
-      background-color: color.scale(nhsuk-colour("grey-4"), $alpha: -50%);
-      color: $nhsuk-text-colour;
-    }
   }
 
-  // Bugs documented with button using flex so we need a container here
+  // bugs documented with button using flex
   // https://github.com/philipwalton/flexbugs#flexbug-9
+  // so we need a container here
   .nhsuk-file-upload-button__pseudo-button-container {
-    align-items: baseline;
     display: flex;
+    align-items: baseline;
     flex-wrap: wrap;
   }
 
   .nhsuk-file-upload-button {
-    border: $nhsuk-border-width-form-element solid $_button-border-colour;
+    width: 100%;
+    // align the padding to be same as notification banner and error summary accounting for the thicker borders
+    padding: (nhsuk-spacing(3) + $nhsuk-border-width - $nhsuk-border-width-form-element);
+    border: $nhsuk-border-width-form-element nhsuk-colour("grey-2") solid;
     background-color: nhsuk-colour("white");
     cursor: pointer;
-    // Align padding with notification banner and error summary,
-    // while accounting for their thicker borders
-    padding: (nhsuk-spacing(3) + $nhsuk-border-width - $nhsuk-border-width-form-element);
-    width: 100%;
 
     @include nhsuk-media-query($from: tablet) {
       padding: (nhsuk-spacing(4) + $nhsuk-border-width - $nhsuk-border-width-form-element);
     }
 
-    &:hover {
+    .nhsuk-file-upload-button__pseudo-button {
       background-color: nhsuk-colour("white");
+    }
+
+    &:hover {
+      background-color: nhsuk-tint(nhsuk-colour("grey-2"), 20%);
 
       .nhsuk-file-upload-button__pseudo-button {
-        background-color: $nhsuk-secondary-button-hover-colour;
+        background-color: nhsuk-shade(nhsuk-colour("grey-4"), 10%);
+      }
+
+      .nhsuk-file-upload-button__status {
+        background-color: nhsuk-tint(nhsuk-colour("blue"), 80%);
       }
     }
 
     &:active,
     &:focus {
+      border: $nhsuk-border-width-form-element solid nhsuk-colour("black");
+      outline: $nhsuk-focus-width solid $nhsuk-focus-colour;
+      // Ensure outline appears outside of the element
+      outline-offset: 0;
+      background-color: nhsuk-tint(nhsuk-colour("grey-2"), 20%);
       // Double the border by adding its width again. Use `box-shadow` for this
       // instead of changing `border-width` - this is for consistency with
       // components such as textarea where we avoid changing `border-width` as
       // it will change the element size. Also, `outline` cannot be utilised
       // here as it is already used for the yellow focus state.
-      border: $nhsuk-border-width-form-element solid nhsuk-colour("black");
       box-shadow: inset 0 0 0 $nhsuk-border-width-form-element;
-      outline: $nhsuk-focus-width solid $nhsuk-focus-colour;
-      // Ensure outline appears outside of the element
-      outline-offset: 0;
 
-      // Remove the pseudo element shadow when parent button focused or pressed
-      .nhsuk-file-upload-button__pseudo-button::after {
-        box-shadow: none;
-      }
-    }
-
-    &:active {
       .nhsuk-file-upload-button__pseudo-button {
-        background-color: $nhsuk-secondary-button-active-colour;
-        box-shadow: none;
-        top: $nhsuk-border-width;
-
-        &::before {
-          bottom: -$nhsuk-border-width-form-element;
-        }
+        background-color: $nhsuk-focus-colour;
+        box-shadow: 0 2px 0 nhsuk-colour("black");
       }
-    }
 
-    &:focus:not(:active),
-    &:focus:not(:active):hover {
-      .nhsuk-file-upload-button__pseudo-button {
-        @include nhsuk-focused-button;
-
-        &::before {
-          border-color: transparent;
-        }
+      &:hover .nhsuk-file-upload-button__pseudo-button {
+        border-color: $nhsuk-focus-colour;
+        outline: 3px solid transparent;
+        background-color: nhsuk-colour("grey-4");
+        box-shadow: inset 0 0 0 1px $nhsuk-focus-colour;
       }
     }
   }
 
   .nhsuk-file-upload-button--empty {
-    background-color: $nhsuk-body-background-colour;
+    background-color: $empty-button-background-colour;
     border-style: dashed;
+
+    .nhsuk-file-upload-button__pseudo-button {
+      background-color: $empty-pseudo-button-background-colour;
+    }
+
+    .nhsuk-file-upload-button__status {
+      color: nhsuk-shade(nhsuk-colour("blue"), 60%);
+      background-color: $empty-status-background-colour;
+    }
 
     &:hover,
     &:focus,
     &:active {
-      background-color: nhsuk-colour("white");
-    }
+      background-color: nhsuk-colour("grey-4");
 
-    &:hover {
-      .nhsuk-file-upload-button__pseudo-button {
-        background-color: $nhsuk-secondary-button-hover-colour;
-      }
-    }
-
-    &:active {
-      .nhsuk-file-upload-button__pseudo-button {
-        background-color: $nhsuk-secondary-button-active-colour;
-        box-shadow: none;
-        top: $nhsuk-border-width;
-
-        &::before {
-          bottom: -$nhsuk-border-width-form-element;
-        }
+      .nhsuk-file-upload-button__status {
+        background-color: nhsuk-tint(nhsuk-colour("blue"), 80%);
       }
     }
   }
 
   .nhsuk-file-upload-button--dragging {
-    background-color: nhsuk-colour("white");
     border-style: solid;
+    border-color: nhsuk-colour("black");
+
+    // extra specificity to apply when
+    // empty
+    &.nhsuk-file-upload-button {
+      background-color: nhsuk-tint(nhsuk-colour("grey-2"), 20%);
+    }
+
+    &.nhsuk-file-upload-button--empty {
+      background-color: nhsuk-colour("grey-4");
+    }
+
+    &.nhsuk-file-upload-button--empty:not(:disabled) .nhsuk-file-upload-button__status,
+    &.nhsuk-file-upload-button--empty .nhsuk-file-upload-button__pseudo-button {
+      background-color: nhsuk-colour("white");
+    }
+
+    .nhsuk-file-upload-button__pseudo-button {
+      background-color: nhsuk-shade(nhsuk-colour("grey-4"), 10%);
+    }
   }
 
   .nhsuk-file-upload-button:disabled {
+    pointer-events: none;
     opacity: 0.5;
-    pointer-events: none;
-  }
 
-  .nhsuk-file-upload--disabled {
-    pointer-events: none;
+    background-color: $empty-button-background-colour;
+
+    .nhsuk-file-upload-button__pseudo-button {
+      background-color: $empty-pseudo-button-background-colour;
+    }
+
+    .nhsuk-file-upload-button__status {
+      background-color: $empty-status-background-colour;
+    }
   }
 }
