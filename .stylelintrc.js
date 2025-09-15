@@ -26,6 +26,7 @@ module.exports = {
         'length-zero-no-unit': null,
         'rule-empty-line-before': null,
         'selector-max-id': null,
+        'selector-no-qualifying-type': null,
 
         // Allow markdown `*.md` Sass bad examples
         'scss/at-mixin-pattern': null,
@@ -33,16 +34,6 @@ module.exports = {
         'scss/load-no-partial-leading-underscore': null,
         'scss/load-partial-extension': null,
         'scss/operator-no-unspaced': null
-      }
-    },
-    {
-      customSyntax: 'postcss-markdown',
-      files: ['**/coding-standards.md', '**/README.md'],
-      rules: {
-        // Allow markdown `*.md` CSS bad examples
-        'block-no-empty': null,
-        'selector-max-id': null,
-        'selector-no-qualifying-type': null
       }
     },
     {
