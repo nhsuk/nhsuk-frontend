@@ -1,0 +1,10 @@
+{% extends "layouts/page.njk" %}
+
+{% block main %}
+  <div class="nhsuk-width-container">
+    {% block beforeContent %}{% endblock %}
+  </div>
+  <main {%- if mainClasses | length %} class="{{ mainClasses }}"{% endif %} id="maincontent">
+    {% block content %}{% endblock %}
+  </main>
+{% endblock %}
