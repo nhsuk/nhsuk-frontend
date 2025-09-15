@@ -1,4 +1,5 @@
 import { components } from '@nhsuk/frontend-lib'
+import { outdent } from 'outdent'
 
 export const name = 'Checkboxes'
 
@@ -423,6 +424,51 @@ export const examples = {
         {
           value: 'farm',
           text: 'Farm or agricultural waste'
+        }
+      ]
+    }
+  },
+  'with long text': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'Venenatis Condimentum'
+        }
+      },
+      idPrefix: 'with-long-text',
+      name: 'example',
+      items: [
+        {
+          value: 'nullam',
+          text: outdent`
+            Nullam id dolor id nibh ultricies vehicula ut id elit. Aenean eu leo
+            quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
+            Maecenas faucibus mollis interdum. Donec id elit non mi porta gravida
+            at eget metus.
+          `
+        },
+        {
+          value: 'aenean',
+          text: outdent`
+            Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis
+            vestibulum. Donec sed odio dui. Duis mollis, est non commodo luctus,
+            nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cum sociis
+            natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+            mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam
+            venenatis vestibulum. Cras mattis consectetur purus sit amet
+            fermentum.
+          `
+        },
+        {
+          value: 'fusce',
+          text: outdent`
+            Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum
+            nibh, ut fermentum massa justo sit amet risus. Etiam porta sem
+            malesuada magna mollis euismod. Praesent commodo cursus magna, vel
+            scelerisque nisl consectetur et. Etiam porta sem malesuada magna
+            mollis euismod. Etiam porta sem malesuada magna mollis euismod.
+            Donec sed odio dui. Sed posuere consectetur est at lobortis.
+          `
         }
       ]
     }
@@ -872,6 +918,560 @@ export const examples = {
           text: 'None of the above',
           exclusive: true,
           exclusiveGroup: 'communication-preferences'
+        }
+      ]
+    }
+  },
+  'small': {
+    context: {
+      classes: 'nhsuk-checkboxes--small',
+      fieldset: {
+        legend: {
+          text: 'What is your nationality?'
+        }
+      },
+      name: 'example',
+      items: [
+        {
+          value: 'british',
+          text: 'British'
+        },
+        {
+          value: 'irish',
+          text: 'Irish'
+        },
+        {
+          value: 'other',
+          text: 'citizen of another country'
+        }
+      ]
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
+    }
+  },
+  'small with hint': {
+    context: {
+      classes: 'nhsuk-checkboxes--small',
+      fieldset: {
+        legend: {
+          text: 'What is your nationality?'
+        }
+      },
+      hint: {
+        text: 'If you have more than 1 nationality, select all options that are relevant to you'
+      },
+      idPrefix: 'with-hint',
+      name: 'example',
+      items: [
+        {
+          value: 'british',
+          text: 'British'
+        },
+        {
+          value: 'irish',
+          text: 'Irish'
+        },
+        {
+          value: 'other',
+          text: 'citizen of another country'
+        }
+      ]
+    }
+  },
+  'small with pre-checked values': {
+    context: {
+      classes: 'nhsuk-checkboxes--small',
+      fieldset: {
+        legend: {
+          text: 'What is your nationality?'
+        }
+      },
+      idPrefix: 'with-values',
+      name: 'example',
+      values: ['british'],
+      items: [
+        {
+          value: 'british',
+          text: 'British'
+        },
+        {
+          value: 'irish',
+          text: 'Irish'
+        },
+        {
+          value: 'other',
+          text: 'citizen of another country'
+        }
+      ]
+    }
+  },
+  'small with hints on items': {
+    context: {
+      classes: 'nhsuk-checkboxes--small',
+      fieldset: {
+        legend: {
+          text: 'How do you want to sign in?'
+        }
+      },
+      idPrefix: 'with-hint-item',
+      name: 'example',
+      items: [
+        {
+          value: 'government-gateway',
+          text: 'Sign in with Government Gateway',
+          hint: {
+            text: "You'll have a user ID if you've registered for Self Assessment or filed a tax return online before"
+          }
+        },
+        {
+          value: 'nhsuk-login',
+          text: 'Sign in with NHS.UK login',
+          hint: {
+            text: "You'll have an account if you've already proved your identity with either Barclays, CitizenSafe, Digidentity, Experian, Post Office, Royal Mail or SecureIdentity"
+          }
+        }
+      ]
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
+    }
+  },
+  'small with disabled item': {
+    context: {
+      classes: 'nhsuk-checkboxes--small',
+      id: 'with-disabled-item',
+      name: 'colours',
+      items: [
+        {
+          value: 'red',
+          text: 'Red'
+        },
+        {
+          value: 'green',
+          text: 'Green'
+        },
+        {
+          value: 'blue',
+          text: 'Blue',
+          disabled: true
+        }
+      ]
+    },
+    screenshot: {
+      viewports: ['mobile']
+    }
+  },
+  'small with error message': {
+    context: {
+      classes: 'nhsuk-checkboxes--small',
+      fieldset: {
+        legend: {
+          text: 'Which types of waste do you transport regularly?'
+        }
+      },
+      errorMessage: {
+        text: 'Select types of waste you transport regularly'
+      },
+      idPrefix: 'with-error-message',
+      name: 'example',
+      items: [
+        {
+          value: 'animal',
+          text: 'Waste from animal carcasses'
+        },
+        {
+          value: 'mines',
+          text: 'Waste from mines or quarries'
+        },
+        {
+          value: 'farm',
+          text: 'Farm or agricultural waste'
+        }
+      ]
+    },
+    screenshot: {
+      states: ['focus'],
+      selector: '#with-error-message',
+      viewports: ['mobile', 'tablet', 'desktop']
+    }
+  },
+  'small with hint and error': {
+    context: {
+      classes: 'nhsuk-checkboxes--small',
+      fieldset: {
+        legend: {
+          text: 'Which types of waste do you transport regularly?'
+        }
+      },
+      hint: {
+        text: 'Select all that apply'
+      },
+      errorMessage: {
+        text: 'Select types of waste you transport regularly'
+      },
+      idPrefix: 'with-hint-error',
+      name: 'example',
+      items: [
+        {
+          value: 'animal',
+          text: 'Waste from animal carcasses'
+        },
+        {
+          value: 'mines',
+          text: 'Waste from mines or quarries'
+        },
+        {
+          value: 'farm',
+          text: 'Farm or agricultural waste'
+        }
+      ]
+    }
+  },
+  'small with long text': {
+    context: {
+      classes: 'nhsuk-checkboxes--small',
+      fieldset: {
+        legend: {
+          text: 'Venenatis Condimentum'
+        }
+      },
+      idPrefix: 'with-long-text',
+      name: 'example',
+      items: [
+        {
+          value: 'nullam',
+          text: outdent`
+            Nullam id dolor id nibh ultricies vehicula ut id elit. Aenean eu leo
+            quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
+            Maecenas faucibus mollis interdum. Donec id elit non mi porta gravida
+            at eget metus.
+          `
+        },
+        {
+          value: 'aenean',
+          text: outdent`
+            Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis
+            vestibulum. Donec sed odio dui. Duis mollis, est non commodo luctus,
+            nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cum sociis
+            natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+            mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam
+            venenatis vestibulum. Cras mattis consectetur purus sit amet
+            fermentum.
+          `
+        },
+        {
+          value: 'fusce',
+          text: outdent`
+            Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum
+            nibh, ut fermentum massa justo sit amet risus. Etiam porta sem
+            malesuada magna mollis euismod. Praesent commodo cursus magna, vel
+            scelerisque nisl consectetur et. Etiam porta sem malesuada magna
+            mollis euismod. Etiam porta sem malesuada magna mollis euismod.
+            Donec sed odio dui. Sed posuere consectetur est at lobortis.
+          `
+        }
+      ]
+    }
+  },
+  'small with legend as page heading': {
+    context: {
+      classes: 'nhsuk-checkboxes--small',
+      fieldset: {
+        legend: {
+          text: 'Which types of waste do you transport regularly?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: true
+        }
+      },
+      hint: {
+        text: 'Select all that apply'
+      },
+      idPrefix: 'page-heading',
+      name: 'example',
+      items: [
+        {
+          value: 'animal',
+          text: 'Waste from animal carcasses'
+        },
+        {
+          value: 'mines',
+          text: 'Waste from mines or quarries'
+        },
+        {
+          value: 'farm',
+          text: 'Farm or agricultural waste'
+        }
+      ]
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
+    }
+  },
+  'small with conditional content': {
+    context: {
+      classes: 'nhsuk-checkboxes--small',
+      fieldset: {
+        legend: {
+          text: 'How would you prefer to be contacted?'
+        }
+      },
+      idPrefix: 'conditional',
+      name: 'contact',
+      items: [
+        {
+          value: 'email',
+          text: 'Email',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                label: {
+                  text: 'Email address'
+                },
+                name: 'email',
+                spellcheck: false,
+                classes: 'nhsuk-u-width-two-thirds'
+              }
+            })
+          }
+        },
+        {
+          value: 'phone',
+          text: 'Phone',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                label: {
+                  text: 'Phone number'
+                },
+                name: 'phone',
+                type: 'tel',
+                classes: 'nhsuk-u-width-two-thirds'
+              }
+            })
+          }
+        },
+        {
+          value: 'text',
+          text: 'Text message',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                label: {
+                  text: 'Mobile phone number'
+                },
+                name: 'mobile',
+                type: 'tel',
+                classes: 'nhsuk-u-width-two-thirds'
+              }
+            })
+          }
+        }
+      ]
+    }
+  },
+  'small with conditional content, error message': {
+    context: {
+      classes: 'nhsuk-checkboxes--small',
+      fieldset: {
+        legend: {
+          text: 'How would you prefer to be contacted?'
+        }
+      },
+      errorMessage: {
+        text: 'Select how you like to be contacted'
+      },
+      idPrefix: 'conditional',
+      name: 'contact',
+      items: [
+        {
+          value: 'email',
+          text: 'Email',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                label: {
+                  text: 'Email address'
+                },
+                name: 'email',
+                spellcheck: false,
+                classes: 'nhsuk-u-width-two-thirds'
+              }
+            })
+          }
+        },
+        {
+          value: 'phone',
+          text: 'Phone',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                label: {
+                  text: 'Phone number'
+                },
+                name: 'phone',
+                type: 'tel',
+                classes: 'nhsuk-u-width-two-thirds'
+              }
+            })
+          }
+        },
+        {
+          value: 'text',
+          text: 'Text message',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                label: {
+                  text: 'Mobile phone number'
+                },
+                name: 'mobile',
+                type: 'tel',
+                classes: 'nhsuk-u-width-two-thirds'
+              }
+            })
+          }
+        }
+      ]
+    }
+  },
+  'small with conditional content, error message (nested)': {
+    context: {
+      classes: 'nhsuk-checkboxes--small',
+      fieldset: {
+        legend: {
+          text: 'How would you prefer to be contacted?'
+        }
+      },
+      idPrefix: 'conditional',
+      name: 'example',
+      values: ['phone'],
+      items: [
+        {
+          value: 'email',
+          text: 'Email',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                label: {
+                  text: 'Email address'
+                },
+                name: 'email',
+                spellcheck: false,
+                classes: 'nhsuk-u-width-two-thirds'
+              }
+            })
+          }
+        },
+        {
+          value: 'phone',
+          text: 'Phone',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                label: {
+                  text: 'Phone number'
+                },
+                errorMessage: {
+                  text: 'Enter your phone number'
+                },
+                name: 'phone',
+                type: 'tel',
+                classes: 'nhsuk-u-width-two-thirds'
+              }
+            })
+          }
+        },
+        {
+          value: 'text',
+          text: 'Text message',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                label: {
+                  text: 'Mobile phone number'
+                },
+                name: 'mobile',
+                type: 'tel',
+                classes: 'nhsuk-u-width-two-thirds'
+              }
+            })
+          }
+        }
+      ]
+    },
+    screenshot: {
+      states: ['focus'],
+      selector: '#conditional-2',
+      viewports: ['mobile', 'tablet', 'desktop']
+    }
+  },
+  'small with "none of the above" option': {
+    context: {
+      classes: 'nhsuk-checkboxes--small',
+      fieldset: {
+        legend: {
+          text: 'How would you prefer to be contacted?'
+        }
+      },
+      idPrefix: 'conditional',
+      name: 'example',
+      items: [
+        {
+          value: 'email',
+          text: 'Email',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                label: {
+                  text: 'Email address'
+                },
+                name: 'email',
+                spellcheck: false,
+                classes: 'nhsuk-u-width-two-thirds'
+              }
+            })
+          }
+        },
+        {
+          value: 'phone',
+          text: 'Phone',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                label: {
+                  text: 'Phone number'
+                },
+                name: 'phone',
+                type: 'tel',
+                classes: 'nhsuk-u-width-two-thirds'
+              }
+            })
+          }
+        },
+        {
+          value: 'text',
+          text: 'Text message',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                label: {
+                  text: 'Mobile phone number'
+                },
+                name: 'mobile',
+                type: 'tel',
+                classes: 'nhsuk-u-width-two-thirds'
+              }
+            })
+          }
+        },
+        {
+          divider: 'or'
+        },
+        {
+          value: 'none',
+          text: 'None of the above',
+          exclusive: true
         }
       ]
     }
