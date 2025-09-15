@@ -56,8 +56,8 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
 
   &:focus,
   &:focus:visited {
-    box-shadow: inset 0 ($nhsuk-focus-width * -1) $nhsuk-focus-text-colour;
     color: $nhsuk-focus-text-colour;
+    box-shadow: inset 0 ($nhsuk-focus-width * -1) $nhsuk-focus-text-colour;
   }
 
   @include nhsuk-print-colour($print-colour: inherit) {
@@ -73,9 +73,9 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
   $_header-item-active-size: $nhsuk-focus-width;
 
   .nhsuk-header {
-    background-color: $nhsuk-brand-colour;
     outline: 1px solid transparent;
     color: $nhsuk-reverse-text-colour;
+    background-color: $nhsuk-brand-colour;
 
     // Add shadow to bottom of header when open
     &:has(.nhsuk-header__menu-list:not([hidden])) {
@@ -103,8 +103,8 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
 
   .nhsuk-header__service,
   .nhsuk-header__service-logo {
-    gap: nhsuk-spacing(2) nhsuk-spacing(3);
     margin-right: auto;
+    gap: nhsuk-spacing(2) nhsuk-spacing(3);
   }
 
   .nhsuk-header__service {
@@ -117,12 +117,15 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
 
   .nhsuk-header__service-name {
     display: inline-flex;
+
     flex-direction: column;
     flex-grow: 0;
     justify-content: center;
-    margin-right: auto;
-    text-wrap: balance;
+
     max-width: 54ch;
+    margin-right: auto;
+
+    text-wrap: balance;
     @include nhsuk-font(19, $line-height: 1.1);
 
     &:only-child {
@@ -131,11 +134,15 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
   }
 
   .nhsuk-header__service-logo {
-    position: relative;
     display: inline-flex;
+
+    position: relative;
+
     flex-grow: 0;
-    line-height: 0;
+
     margin-right: 0;
+
+    line-height: 0;
     text-decoration: none;
 
     &:only-child {
@@ -149,12 +156,16 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     // By adding a pseudo element with the same dimensions, we style this instead.
     &:has(svg):not(:focus):hover::before {
       content: "";
-      border-bottom: 0.1rem solid currentcolor;
+
       display: inline;
-      height: 40px;
+
       position: absolute;
       top: 0.2rem;
+
       width: 100px;
+      height: 40px;
+
+      border-bottom: 0.1rem solid currentcolor;
     }
   }
 
@@ -172,18 +183,22 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
   // Account
 
   .nhsuk-header__account {
-    background-color: nhsuk-shade($nhsuk-brand-colour, 20%);
-    border: 1px solid nhsuk-shade($nhsuk-brand-colour, 20%);
-    border-radius: $nhsuk-border-radius;
     flex-grow: 1;
+
     margin-top: nhsuk-spacing(3);
+
     overflow: hidden;
 
+    border: 1px solid nhsuk-shade($nhsuk-brand-colour, 20%);
+    border-radius: $nhsuk-border-radius;
+
+    background-color: nhsuk-shade($nhsuk-brand-colour, 20%);
+
     .nhsuk-icon--user {
-      fill: currentcolor;
-      height: nhsuk-px-to-rem(24px);
-      width: nhsuk-px-to-rem(24px);
       flex-shrink: 0;
+      width: nhsuk-px-to-rem(24px);
+      height: nhsuk-px-to-rem(24px);
+      fill: currentcolor;
     }
 
     @include nhsuk-print-hide;
@@ -198,24 +213,35 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
   }
 
   .nhsuk-header__account-list {
-    position: relative;
     display: flex;
+
+    position: relative;
+
     flex-wrap: wrap;
-    gap: 1px;
-    list-style: none;
+
     margin: 0;
-    overflow: hidden;
     padding: 0;
+
+    overflow: hidden;
+
+    list-style: none;
+
+    gap: 1px;
   }
 
   .nhsuk-header__account-item {
     display: flex;
+
     flex-grow: 1;
-    gap: nhsuk-spacing(2);
+
     margin: 0;
-    outline: 1px solid $nhsuk-brand-colour;
-    overflow-wrap: anywhere;
     padding: nhsuk-spacing(2) $_header-item-padding;
+
+    outline: 1px solid $nhsuk-brand-colour;
+
+    overflow-wrap: anywhere;
+
+    gap: nhsuk-spacing(2);
     @include nhsuk-font(16);
 
     &:nth-last-child(2) {
@@ -230,27 +256,27 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
   .nhsuk-header__account-button,
   .nhsuk-header__account-link {
     display: flex;
-    gap: nhsuk-spacing(2);
     margin: nhsuk-spacing(-2) ($_header-item-padding * -1);
     padding: nhsuk-spacing(2) $_header-item-padding;
     overflow-wrap: anywhere;
+    gap: nhsuk-spacing(2);
   }
 
   .nhsuk-header__account-button {
-    background: none;
     border: 0;
-    cursor: pointer;
+    background: none;
     text-decoration: underline;
+    cursor: pointer;
     @include nhsuk-font(16);
   }
 
   // Search
 
   .nhsuk-header__search {
-    flex-grow: 1;
-    margin-top: nhsuk-spacing(3);
     position: relative;
     z-index: 10;
+    flex-grow: 1;
+    margin-top: nhsuk-spacing(3);
 
     @include nhsuk-print-hide;
 
@@ -259,8 +285,8 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     }
 
     .nhsuk-icon--search {
-      height: nhsuk-px-to-rem(28px);
       width: nhsuk-px-to-rem(28px);
+      height: nhsuk-px-to-rem(28px);
     }
   }
 
@@ -273,25 +299,25 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
   // Disable default search input appearance
   .nhsuk-header__search-input.nhsuk-input {
     $_header-border-width-form-element: 1px;
+    width: 100%;
+    height: 40px;
+    margin-right: -$_header-border-width-form-element;
+    padding-right: $_header-item-padding;
+    padding-left: $_header-item-padding;
 
     border: $_header-border-width-form-element solid transparent;
     border-radius: $nhsuk-border-radius 0 0 $nhsuk-border-radius;
-    height: 40px;
-    margin-right: -$_header-border-width-form-element;
-    padding-left: $_header-item-padding;
-    padding-right: $_header-item-padding;
-    width: 100%;
     @include nhsuk-font-size(16);
 
     &:focus {
-      padding-left: $_header-item-padding - $_header-border-width-form-element;
-      padding-right: $_header-item-padding - $_header-border-width-form-element;
       z-index: 10;
+      padding-right: $_header-item-padding - $_header-border-width-form-element;
+      padding-left: $_header-item-padding - $_header-border-width-form-element;
     }
 
     &::placeholder {
-      color: nhsuk-colour("grey-1");
       opacity: 1; // Fixes low contrast of placeholder text in firefox
+      color: nhsuk-colour("grey-1");
     }
 
     // Hide search input clear button (IE)
@@ -311,22 +337,27 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
   }
 
   .nhsuk-header__search-submit {
-    background-color: $nhsuk-header-item-button-colour;
+    flex-shrink: 0;
+
+    width: 44px;
+    height: nhsuk-spacing(6);
+    margin: 0;
+
     border: 1px solid transparent;
     border-radius: 0 $nhsuk-border-radius $nhsuk-border-radius 0;
+
     color: $nhsuk-brand-colour;
-    flex-shrink: 0;
-    height: nhsuk-spacing(6);
+    background-color: $nhsuk-header-item-button-colour;
+
     line-height: 1;
-    margin: 0;
-    width: 44px;
+
     cursor: pointer;
 
     &:hover,
     &:active {
-      background-color: $nhsuk-header-item-hover-colour;
       border-color: nhsuk-colour("white");
       color: nhsuk-colour("white");
+      background-color: $nhsuk-header-item-hover-colour;
     }
 
     &:active {
@@ -348,9 +379,9 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
   // Navigation
 
   .nhsuk-header__navigation {
-    background-color: $nhsuk-brand-colour;
     border: 0 solid nhsuk-colour("white");
     color: nhsuk-colour("white");
+    background-color: $nhsuk-brand-colour;
 
     @media screen and (forced-colors: active), (-ms-high-contrast: active) {
       border: 0;
@@ -360,13 +391,17 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
   }
 
   .nhsuk-header__navigation-list {
-    position: relative;
     display: flex;
+
+    position: relative;
+
     flex-wrap: wrap;
-    list-style: none;
+
+    width: calc(100% + $nhsuk-gutter-half);
     margin: 0 math.div($nhsuk-gutter-half, 2) * -1;
     padding: 0;
-    width: calc(100% + $nhsuk-gutter-half);
+
+    list-style: none;
 
     @include nhsuk-media-query($from: tablet) {
       width: calc(100% + $nhsuk-gutter);
@@ -402,8 +437,8 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
 
   .nhsuk-header__navigation-link {
     display: block;
-    padding: nhsuk-spacing(3) $_header-link-padding;
     position: relative;
+    padding: nhsuk-spacing(3) $_header-link-padding;
     white-space: nowrap;
     @include nhsuk-font(16);
     @include _header-link-style(
@@ -415,11 +450,14 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     // Visual indicator for navigation item uses a border on bottom edge
     &::before {
       content: "";
+
       display: block;
+
       position: absolute;
+      right: 0;
       bottom: 0;
       left: 0;
-      right: 0;
+
       border: 0 solid currentcolor;
     }
 
@@ -451,29 +489,37 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
 
   .nhsuk-header__menu-toggle {
     $_chevron-font-size: 19;
+    box-sizing: border-box;
+
+    display: flex;
 
     align-items: center;
-    background: transparent;
+
+    margin: 0;
+    padding-right: nhsuk-em($_chevron-font-size, $nhsuk-base-font-size);
+
     border: 0;
     border-radius: 0;
-    box-sizing: border-box;
-    cursor: pointer;
-    display: flex;
-    margin: 0;
+
+    background: transparent;
+
     text-align: center;
-    padding-right: nhsuk-em($_chevron-font-size, $nhsuk-base-font-size);
+
+    cursor: pointer;
 
     &[hidden] {
       display: none;
     }
 
     &::after {
-      bottom: 0;
       content: "";
-      right: $_header-link-padding;
-      margin: auto;
+
       position: absolute;
       top: 2px;
+      right: $_header-link-padding;
+      bottom: 0;
+
+      margin: auto;
 
       @include nhsuk-shape-chevron(down, currentcolor, $font-size: $_chevron-font-size);
     }
@@ -484,13 +530,15 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
   }
 
   .nhsuk-header__menu-list {
-    list-style: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+
     margin: 0 math.div($nhsuk-gutter-half, 2);
     padding: 0;
-    position: absolute;
-    right: 0;
-    top: 100%;
-    left: 0;
+
+    list-style: none;
 
     @include nhsuk-print-hide;
 
@@ -508,11 +556,13 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
       // Visual indicator for navigation item uses a border on left edge
       &[aria-current="page"]::before,
       &[aria-current="true"]::before {
-        width: 0;
         top: 0;
+        right: auto;
         bottom: 0;
         left: -$nhsuk-gutter-half;
-        right: auto;
+
+        width: 0;
+
         border-left-width: $_header-item-active-size;
 
         // stylelint-disable-next-line max-nesting-depth
@@ -535,8 +585,8 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
   // White header navigation variant
 
   .nhsuk-header__navigation--white {
-    background-color: nhsuk-colour("white");
     color: $nhsuk-brand-colour;
+    background-color: nhsuk-colour("white");
 
     .nhsuk-header__navigation-link {
       @include _header-link-style;
@@ -559,15 +609,15 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
 
     .nhsuk-header--white :not(.nhsuk-header__navigation--white) &,
     .nhsuk-header__navigation--white & {
-      box-shadow: none;
       margin-top: 0;
+      box-shadow: none;
     }
 
     &,
     .nhsuk-header--white .nhsuk-header__navigation--white & {
       @include nhsuk-media-query($until: tablet) {
-        box-shadow: none;
         margin-top: math.div($nhsuk-gutter, 2) * -1;
+        box-shadow: none;
       }
     }
   }
@@ -575,8 +625,8 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
   // White header variant
 
   .nhsuk-header--white {
-    background-color: nhsuk-colour("white");
     color: $nhsuk-brand-colour;
+    background-color: nhsuk-colour("white");
 
     .nhsuk-header__service-logo,
     .nhsuk-header__service-name[href],
@@ -590,8 +640,8 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     }
 
     .nhsuk-header__account {
-      background-color: nhsuk-colour("grey-5");
       border-color: $nhsuk-border-colour;
+      background-color: nhsuk-colour("grey-5");
     }
 
     .nhsuk-header__account-item {
@@ -601,18 +651,18 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     .nhsuk-header__search-input.nhsuk-input:not(:focus) {
       margin-right: -1px;
       padding-left: $_header-item-padding - 1px;
-      border-color: $nhsuk-border-hover-colour;
       border-width: 1px;
+      border-color: $nhsuk-border-hover-colour;
     }
 
     .nhsuk-header__search-submit {
-      background-color: $nhsuk-header-item-colour;
       color: $nhsuk-reverse-text-colour;
+      background-color: $nhsuk-header-item-colour;
 
       &:hover,
       &:active {
-        background-color: $nhsuk-header-item-hover-colour;
         border-color: $nhsuk-header-item-hover-colour;
+        background-color: $nhsuk-header-item-hover-colour;
         box-shadow: none;
       }
 
@@ -626,14 +676,14 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
 
   .nhsuk-header--organisation {
     .nhsuk-header__logo {
+      width: 60px;
+      min-width: auto;
       height: 24px;
       margin-bottom: 6px;
-      min-width: auto;
-      width: 60px;
 
       @include nhsuk-media-query($from: tablet) {
-        height: 32px;
         width: 80px;
+        height: 32px;
       }
     }
 
@@ -642,12 +692,12 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
 
       // Adjust SVG logo underline position
       &:has(svg):not(:focus):hover::before {
-        height: 24px;
         width: 60px;
+        height: 24px;
 
         @include nhsuk-media-query($from: tablet) {
-          height: 32px;
           width: 80px;
+          height: 32px;
         }
       }
     }
@@ -668,17 +718,17 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
   }
 
   .nhsuk-header__organisation-logo {
-    border: 0;
-    height: auto;
     width: 280px;
+    height: auto;
+    border: 0;
 
     @include nhsuk-media-query($until: 450px) {
       max-width: 150px;
     }
 
     &[src$=".svg"] {
-      max-width: 220px;
       width: 220px;
+      max-width: 220px;
     }
   }
 

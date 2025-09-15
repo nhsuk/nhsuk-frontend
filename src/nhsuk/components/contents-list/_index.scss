@@ -17,21 +17,25 @@
   }
 
   .nhsuk-contents-list__list {
-    list-style: none;
     padding: 0;
+    list-style: none;
   }
 
   .nhsuk-contents-list__item {
-    padding: 0 0 0 nhsuk-spacing(5);
     position: relative;
+    padding: 0 0 0 nhsuk-spacing(5);
 
     &::before {
       content: "";
+
       display: block;
-      left: 0;
+
       position: absolute;
       top: nhsuk-em(12px, $nhsuk-base-font-size);
+      left: 0;
+
       width: nhsuk-spacing(3);
+
       border-top: 1px solid $nhsuk-border-hover-colour;
     }
   }

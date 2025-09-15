@@ -18,9 +18,9 @@
 
 @mixin nhsuk-clearfix {
   &::after {
-    clear: both;
     content: "";
     display: block;
+    clear: both;
   }
 }
 
@@ -178,14 +178,19 @@
   );
 
   position: static if($important, !important, null);
+
   width: auto if($important, !important, null);
   height: auto if($important, !important, null);
   margin: 0 if($important, !important, null);
   padding: 0 if($important, !important, null);
+
   overflow: visible if($important, !important, null);
+
   clip: auto if($important, !important, null);
   clip-path: none if($important, !important, null);
+
   border: none if($important, !important, null);
+
   white-space: normal if($important, !important, null);
   user-select: auto if($important, !important, null);
 
@@ -235,9 +240,9 @@
 ///
 
 @mixin nhsuk-panel($panel-background-colour, $panel-text-colour, $panel-border-colour) {
-  background-color: $panel-background-colour;
   border: 1px solid $panel-border-colour;
   color: $panel-text-colour;
+  background-color: $panel-background-colour;
 
   @include nhsuk-top-and-bottom;
   @include nhsuk-responsive-margin(7, "bottom");
@@ -270,9 +275,9 @@
 ///
 
 @mixin nhsuk-panel-with-label($panel-background-colour, $panel-text-colour, $panel-border-colour) {
-  border: 1px solid $panel-border-colour;
   // stylelint-disable-next-line declaration-no-important
   padding-top: 0 !important;
+  border: 1px solid $panel-border-colour;
 
   @include nhsuk-panel($panel-background-colour, $panel-text-colour, $panel-border-colour);
   @include nhsuk-responsive-margin(7, "top");
@@ -308,29 +313,33 @@
 ///
 
 @mixin nhsuk-heading-label($heading-background-colour, $heading-text-colour) {
-  background-color: $heading-background-colour; // [1]
-  outline: 1px solid transparent; // [2]
-  outline-offset: -1px;
-  color: $heading-text-colour; // [3]
   display: inline-block; // [4]
+
+  position: relative;
+  top: nhsuk-spacing(-3); // [6]
+
   margin: 0;
   margin-bottom: nhsuk-spacing(2);
   margin-left: nhsuk-spacing(-5) - 1px; // [5]
   padding: nhsuk-spacing(2) nhsuk-spacing(5);
-  position: relative;
-  top: nhsuk-spacing(-3); // [6]
+
+  outline: 1px solid transparent; // [2]
+  outline-offset: -1px;
+
+  color: $heading-text-colour; // [3]
+  background-color: $heading-background-colour; // [1]
 
   @include nhsuk-font-size(26);
 
   @include nhsuk-media-query($until: tablet) {
+    top: nhsuk-spacing(-2); // [6]
     margin-left: nhsuk-spacing(-4) - 1px; // [5]
     padding: nhsuk-spacing(2) nhsuk-spacing(4);
-    top: nhsuk-spacing(-2); // [6]
   }
 
   @include nhsuk-print-colour {
-    background: none;
     top: 0;
+    background: none;
   }
 }
 
@@ -358,8 +367,8 @@
 
 @mixin nhsuk-care-card($heading-background-colour, $heading-text-colour, $print-border-size) {
   .nhsuk-card--care__heading-container {
-    background-color: $heading-background-colour;
     color: $heading-text-colour;
+    background-color: $heading-background-colour;
   }
 
   @include nhsuk-print-colour {
@@ -490,8 +499,8 @@
 
 @mixin nhsuk-remove-margin-mobile {
   @include nhsuk-media-query($until: tablet) {
-    margin-left: -$nhsuk-gutter-half;
     margin-right: -$nhsuk-gutter-half;
+    margin-left: -$nhsuk-gutter-half;
   }
 }
 
@@ -517,11 +526,11 @@
 /// Used in the header and footer.
 
 @mixin nhsuk-logo-size {
-  height: 40px;
   width: 100px;
+  height: 40px;
 }
 
 @mixin nhsuk-logo-size-small {
-  height: 32px;
   width: 80px;
+  height: 32px;
 }
