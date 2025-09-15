@@ -1,4 +1,7 @@
-module.exports = {
+/**
+ * @type {Config}
+ */
+export default {
   extends: 'stylelint-config-gds/scss',
   ignoreFiles: [
     '**/dist/**',
@@ -305,3 +308,7 @@ module.exports = {
     ]
   }
 }
+
+/**
+ * @import { Config } from 'stylelint'
+ */
