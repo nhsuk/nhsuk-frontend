@@ -41,9 +41,9 @@
 
 @mixin nhsuk-focused-input {
   border: 2px solid $nhsuk-focus-text-colour;
-  outline: $nhsuk-focus-width solid $nhsuk-focus-colour; // [1]
+  outline: $nhsuk-focus-width solid $nhsuk-focus-colour;
   outline-offset: 0;
-  box-shadow: inset 0 0 0 2px;
+  box-shadow: inset 0 0 0 2px $nhsuk-focus-text-colour;
 }
 
 /// Focused radio input (form element)
@@ -72,7 +72,7 @@
 /// the target element has focus. Used for buttons.
 
 @mixin nhsuk-focused-button {
-  outline: $nhsuk-focus-width solid transparent; // [1]
+  outline: $nhsuk-focus-width solid transparent;
   outline-offset: $nhsuk-focus-width;
   color: $nhsuk-focus-text-colour;
   background-color: $nhsuk-focus-colour;
