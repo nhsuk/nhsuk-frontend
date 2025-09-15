@@ -26,12 +26,8 @@ module.exports = {
         'length-zero-no-unit': null,
         'rule-empty-line-before': null,
         'selector-max-id': null,
-        'shorthand-property-no-redundant-values': null,
 
         // Allow markdown `*.md` Sass bad examples
-        'scss/at-if-no-null': null,
-        'scss/at-import-no-partial-leading-underscore': null,
-        'scss/at-import-partial-extension': null,
         'scss/at-mixin-pattern': null,
         'scss/at-rule-conditional-no-parentheses': null,
         'scss/load-no-partial-leading-underscore': null,
@@ -45,12 +41,8 @@ module.exports = {
       rules: {
         // Allow markdown `*.md` CSS bad examples
         'block-no-empty': null,
-        'color-no-hex': null,
         'selector-max-id': null,
-        'selector-no-qualifying-type': null,
-
-        // Allow markdown `*.md` Sass bad examples
-        'scss/dollar-variable-pattern': null
+        'selector-no-qualifying-type': null
       }
     },
     {
