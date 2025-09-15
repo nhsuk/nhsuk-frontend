@@ -1,5 +1,8 @@
 {% extends "layouts/example.njk" %}
 
 {% block main %}
-  {% block example %}{% endblock %}
+  {% block beforeContent %}{% endblock %}
+  {% block content %}
+    {% block example %}{% endblock %}
+  {% endblock %}
 {% endblock %}
