@@ -9,15 +9,20 @@
 
 @include nhsuk-exports("nhsuk/components/textarea") {
   .nhsuk-textarea {
-    appearance: none;
-    border: $nhsuk-border-width-form-element solid $nhsuk-input-border-colour;
-    border-radius: 0;
     box-sizing: border-box;
+
     display: block;
+
+    width: 100%;
     min-height: 40px;
     padding: nhsuk-spacing(1);
+
     resize: vertical;
-    width: 100%;
+
+    border: $nhsuk-border-width-form-element solid $nhsuk-input-border-colour;
+    border-radius: 0;
+
+    appearance: none;
 
     @include nhsuk-font(19);
 

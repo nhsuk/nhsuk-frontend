@@ -14,9 +14,9 @@
 
 @include nhsuk-exports("nhsuk/components/hero") {
   .nhsuk-hero {
-    background-color: $nhsuk-brand-colour;
-    color: $nhsuk-reverse-text-colour;
     position: relative; // [1]
+    color: $nhsuk-reverse-text-colour;
+    background-color: $nhsuk-brand-colour;
 
     @include nhsuk-print-colour;
 
@@ -50,8 +50,8 @@
   // 12. Remove any heights/min heights in Windows high contrast mode.
 
   .nhsuk-hero--image {
-    background-position: center right; // [3]
     background-repeat: no-repeat;
+    background-position: center right; // [3]
     background-size: cover;
 
     @media only screen {
@@ -108,35 +108,46 @@
     }
 
     .nhsuk-hero-content {
-      background-color: $nhsuk-brand-colour;
-      color: $nhsuk-reverse-text-colour;
-      margin-bottom: 24px;
-      padding: nhsuk-spacing(4);
       position: relative;
       top: 70px;
 
+      margin-bottom: 24px;
+      padding: nhsuk-spacing(4);
+
+      color: $nhsuk-reverse-text-colour;
+      background-color: $nhsuk-brand-colour;
+
       .nhsuk-hero__arrow {
-        bottom: -10px; // [8]
         display: block;
-        height: 20px; // [8]
-        left: 32px; // [9]
-        overflow: hidden;
+
         position: absolute;
-        transform: rotate(45deg);
+        bottom: -10px; // [8]
+        left: 32px; // [9]
+
         width: 20px; // [8]
+        height: 20px; // [8]
+
+        overflow: hidden;
+
+        transform: rotate(45deg);
         @include nhsuk-print-hide;
       }
 
       .nhsuk-hero__arrow::before,
       .nhsuk-hero__arrow::after {
-        border: solid 32px $nhsuk-brand-colour; // [8]
         content: "";
+
         display: block;
-        height: 0;
+
         position: absolute;
         top: 0;
-        transform: rotate(45deg); // [10]
+
         width: 0;
+        height: 0;
+
+        transform: rotate(45deg); // [10]
+
+        border: solid 32px $nhsuk-brand-colour; // [8]
       }
 
       @include nhsuk-print-colour {
@@ -153,12 +164,13 @@
 
     @include nhsuk-media-query($from: tablet) {
       .nhsuk-hero-content {
-        bottom: -48px; // [8]
-        margin-bottom: 0;
-        max-width: 35em; // [11]
-        padding: nhsuk-spacing(5) nhsuk-spacing(6);
         position: absolute;
         top: auto;
+        bottom: -48px; // [8]
+
+        max-width: 35em; // [11]
+        margin-bottom: 0;
+        padding: nhsuk-spacing(5) nhsuk-spacing(6);
 
         @include nhsuk-top-and-bottom;
       }
@@ -170,13 +182,14 @@
 
     @media screen and (forced-colors: active), (-ms-high-contrast: active) {
       .nhsuk-hero-content {
-        // [14]
-        bottom: 0;
-        margin-bottom: 0;
-        min-height: 0;
-        padding: nhsuk-spacing(5) 0 0;
         position: relative;
         top: 0;
+        // [14]
+        bottom: 0;
+
+        min-height: 0;
+        margin-bottom: 0;
+        padding: nhsuk-spacing(5) 0 0;
       }
 
       .nhsuk-hero__arrow {

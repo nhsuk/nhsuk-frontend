@@ -14,8 +14,8 @@
 
 %nhsuk-heading-xl {
   display: block;
-  font-weight: $nhsuk-font-bold;
   margin-top: 0;
+  font-weight: $nhsuk-font-bold;
 
   @include nhsuk-font-size(48);
   @include nhsuk-responsive-margin(7, "bottom");
@@ -28,8 +28,8 @@ h1,
 
 %nhsuk-heading-l {
   display: block;
-  font-weight: $nhsuk-font-bold;
   margin-top: 0;
+  font-weight: $nhsuk-font-bold;
 
   @include nhsuk-font-size(36);
   @include nhsuk-responsive-margin(4, "bottom");
@@ -42,8 +42,8 @@ h2,
 
 %nhsuk-heading-m {
   display: block;
-  font-weight: $nhsuk-font-bold;
   margin-top: 0;
+  font-weight: $nhsuk-font-bold;
 
   @include nhsuk-font-size(26);
   @include nhsuk-responsive-margin(4, "bottom");
@@ -56,8 +56,8 @@ h3,
 
 %nhsuk-heading-s {
   display: block;
-  font-weight: $nhsuk-font-bold;
   margin-top: 0;
+  font-weight: $nhsuk-font-bold;
 
   @include nhsuk-font-size(22);
   @include nhsuk-responsive-margin(4, "bottom");
@@ -70,8 +70,8 @@ h4,
 
 %nhsuk-heading-xs {
   display: block;
-  font-weight: $nhsuk-font-bold;
   margin-top: 0;
+  font-weight: $nhsuk-font-bold;
 
   @include nhsuk-font-size(19);
   @include nhsuk-responsive-margin(4, "bottom");
@@ -84,8 +84,8 @@ h5,
 
 %nhsuk-heading-xxs {
   display: block;
-  font-weight: $nhsuk-font-bold;
   margin-top: 0;
+  font-weight: $nhsuk-font-bold;
 
   @include nhsuk-font-size(19);
   @include nhsuk-responsive-margin(4, "bottom");
@@ -99,31 +99,31 @@ h6,
 // Captions to be used inside headings
 
 .nhsuk-caption-xl {
-  color: $nhsuk-secondary-text-colour;
   display: block;
   margin-bottom: nhsuk-spacing(1);
+  color: $nhsuk-secondary-text-colour;
 
   @include nhsuk-font(26);
 }
 
 .nhsuk-caption-l {
-  color: $nhsuk-secondary-text-colour;
   display: block;
   margin-bottom: nhsuk-spacing(1);
+  color: $nhsuk-secondary-text-colour;
 
   @include nhsuk-font(22);
 }
 
 .nhsuk-caption-m {
-  color: $nhsuk-secondary-text-colour;
   display: block;
+  color: $nhsuk-secondary-text-colour;
 
   @include nhsuk-font(19);
 }
 
 .nhsuk-caption--bottom {
-  margin-bottom: nhsuk-spacing(0);
   margin-top: nhsuk-spacing(1);
+  margin-bottom: nhsuk-spacing(0);
 }
 
 // Body (paragraphs)

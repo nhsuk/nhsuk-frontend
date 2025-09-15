@@ -22,11 +22,11 @@
 
   .nhsuk-notification-banner__header {
     padding: 2px nhsuk-spacing(3) nhsuk-spacing(1);
-    background-color: $nhsuk-brand-colour;
 
     // Ensures the notification header appears separate to the notification body
     // text in high contrast mode
     border-bottom: 1px solid transparent;
+    background-color: $nhsuk-brand-colour;
 
     @include nhsuk-media-query($from: tablet) {
       padding: 2px nhsuk-spacing(4) nhsuk-spacing(1);
