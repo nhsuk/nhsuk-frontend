@@ -30,7 +30,7 @@ runs:
     - name: Setup Node
       uses: actions/setup-node@v5
       with:
-        cache: ${{ steps.npm-install-cache.outputs.cache-hit != 'true' && 'npm' || '' }}
+        package-manager-cache: ${{ steps.npm-install-cache.outputs.cache-hit != 'true' }}
         node-version-file: .nvmrc
 
     - name: Restore build (from cache)

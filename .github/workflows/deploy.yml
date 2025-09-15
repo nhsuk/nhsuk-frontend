@@ -29,7 +29,6 @@ jobs:
         if: steps.npm-install-cache.outputs.cache-hit != 'true'
         uses: actions/setup-node@v5
         with:
-          cache: 'npm'
           node-version-file: .nvmrc
 
       - name: Install dependencies
@@ -64,6 +63,7 @@ jobs:
         uses: actions/setup-node@v5
         with:
           node-version-file: .nvmrc
+          package-manager-cache: false
 
       - name: Build
         run: npm run build
