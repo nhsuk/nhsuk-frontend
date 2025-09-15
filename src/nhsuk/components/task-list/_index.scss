@@ -37,9 +37,7 @@ $nhsuk-task-list-hover-color: $nhsuk-task-list-hover-colour;
     position: relative;
     width: 100%;
     margin-bottom: 0;
-    // stylelint-disable-next-line function-calc-no-unspaced-operator
     padding-top: calc(nhsuk-spacing(2) + 4px);
-    // stylelint-disable-next-line function-calc-no-unspaced-operator
     padding-bottom: calc(nhsuk-spacing(2) + 4px);
     border-bottom: 1px solid $nhsuk-border-colour;
   }
@@ -76,7 +74,6 @@ $nhsuk-task-list-hover-color: $nhsuk-task-list-hover-colour;
   .nhsuk-task-list__status--cannot-start-yet {
     padding-bottom: nhsuk-spacing(1);
     padding-left: nhsuk-spacing(2);
-    // stylelint-disable-next-line function-calc-no-unspaced-operator
     padding-top: calc(nhsuk-spacing(1) + 2px); // to match the spacing on tags
     text-decoration: none;
 
