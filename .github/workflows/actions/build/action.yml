@@ -28,7 +28,7 @@ runs:
         path: node_modules
 
     - name: Setup Node
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v5
       with:
         cache: ${{ steps.npm-install-cache.outputs.cache-hit != 'true' && 'npm' || '' }}
         node-version-file: .nvmrc
