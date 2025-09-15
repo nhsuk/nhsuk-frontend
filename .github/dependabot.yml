@@ -15,12 +15,16 @@ updates:
           - 'caniuse-lite'
           - 'cssnano'
           - 'cssnano-*'
+          - 'marked'
           - 'nunjucks'
           - 'postcss'
           - 'postcss-*'
           - 'rollup'
           - 'rollup-*'
-          - 'sass-embedded'
+          - 'sass'
+          - 'sass-*'
+          - 'sassdoc'
+          - 'sassdoc-*'
 
       lint:
         patterns:
@@ -61,7 +65,10 @@ updates:
           - 'glob'
           - 'gulp'
           - 'gulp-*'
+          - 'latest-version'
           - 'outdent'
+          - 'package-json'
+          - 'plugin-error'
           - 'strip-ansi'
           - 'wait-on'
 
