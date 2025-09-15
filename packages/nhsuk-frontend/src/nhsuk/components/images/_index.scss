@@ -16,11 +16,11 @@
 
 @include nhsuk-exports("nhsuk/components/images") {
   .nhsuk-image {
-    background-color: $nhsuk-card-background-colour;
-    border-bottom: 1px solid $nhsuk-border-colour;
+    margin-right: 0; // [1]
 
     margin-left: 0; // [1]
-    margin-right: 0; // [1]
+    border-bottom: 1px solid $nhsuk-border-colour;
+    background-color: $nhsuk-card-background-colour;
 
     @include nhsuk-responsive-margin(6, "bottom");
     @include nhsuk-responsive-margin(6, "top");

@@ -20,10 +20,10 @@
     @include nhsuk-responsive-margin(6, "bottom");
 
     @include nhsuk-media-query($from: tablet) {
-      border-collapse: collapse;
       display: table;
-      table-layout: fixed; // [1]
       width: 100%;
+      table-layout: fixed; // [1]
+      border-collapse: collapse;
     }
   }
 
@@ -63,9 +63,9 @@
 
     @include nhsuk-media-query($from: tablet) {
       display: table-cell;
-      padding-bottom: nhsuk-spacing(2);
-      padding-right: nhsuk-spacing(4);
       padding-top: nhsuk-spacing(2);
+      padding-right: nhsuk-spacing(4);
+      padding-bottom: nhsuk-spacing(2);
     }
   }
 
@@ -73,8 +73,8 @@
     margin-bottom: nhsuk-spacing(3);
 
     @include nhsuk-media-query($from: tablet) {
-      text-align: right;
       width: 20%;
+      text-align: right;
     }
   }
 
@@ -108,23 +108,23 @@
   }
 
   .nhsuk-summary-list__actions-list {
+    width: 100%;
     margin: 0; // [2]
     padding: 0; // [2]
-    width: 100%;
   }
 
   .nhsuk-summary-list__actions-list-item {
     display: inline-block;
 
     @include nhsuk-media-query($until: tablet) {
-      border-right: 1px solid $nhsuk-border-colour;
       margin-right: nhsuk-spacing(2);
       padding-right: nhsuk-spacing(2);
+      border-right: 1px solid $nhsuk-border-colour;
 
       &:last-child {
-        border: 0;
         margin-right: 0;
         padding-right: 0;
+        border: 0;
       }
     }
 
@@ -133,9 +133,9 @@
       padding-left: nhsuk-spacing(2);
 
       &:first-child {
-        border: 0;
         margin-left: 0;
         padding-left: 0;
+        border: 0;
       }
 
       &:not(:first-child) {

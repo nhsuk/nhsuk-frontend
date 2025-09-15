@@ -27,9 +27,9 @@
   }
 
   .nhsuk-pagination-item--previous {
+    width: 50%;
     float: left;
     text-align: left;
-    width: 50%;
 
     .nhsuk-icon {
       left: nhsuk-px-to-rem(-6px);
@@ -41,9 +41,9 @@
   }
 
   .nhsuk-pagination-item--next {
+    width: 50%;
     float: right;
     text-align: right;
-    width: 50%;
 
     .nhsuk-icon {
       right: nhsuk-px-to-rem(-6px);
@@ -57,8 +57,8 @@
   .nhsuk-pagination__link {
     display: block;
     position: relative;
-    text-decoration: none;
     width: 100%;
+    text-decoration: none;
 
     @include nhsuk-font-size(26);
     @include nhsuk-print-colour {
@@ -68,8 +68,8 @@
     .nhsuk-icon {
       position: absolute;
       top: 0;
-      height: $_icon-size;
       width: $_icon-size;
+      height: $_icon-size;
     }
   }
 
