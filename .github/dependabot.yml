@@ -62,6 +62,7 @@ updates:
           - 'gulp'
           - 'gulp-*'
           - 'outdent'
+          - 'strip-ansi'
           - 'wait-on'
 
     schedule:
