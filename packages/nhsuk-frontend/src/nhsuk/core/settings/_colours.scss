@@ -5,6 +5,6 @@
 
 @include nhsuk-warning(
   "import-using-settings-colours",
-  "Importing using 'core/settings/colours' is deprecated. Update your import statement to import 'core/settings/colours-palette' and 'core/settings/colours-applied'.",
+  "Importing using 'core/settings/colours' is deprecated. Update your import statement to import 'core/settings/colours-palette', 'core/settings/colours-applied' and 'core/settings/colours-deprecated'.",
   $silence-further-warnings: false
 );
