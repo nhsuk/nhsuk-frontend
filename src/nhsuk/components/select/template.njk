@@ -39,6 +39,9 @@
     text: params.errorMessage.text
   }) | indent(2) | trim }}
 {%- endif %}
+{% if params.formGroup.beforeInput %}
+  {{ params.formGroup.beforeInput.html | safe | trim | indent(2) if params.formGroup.beforeInput.html else params.formGroup.beforeInput.text }}
+{% endif %}
   <select class="nhsuk-select
     {%- if params.classes %} {{ params.classes }}{% endif %}{%- if params.errorMessage %} nhsuk-select--error{% endif %}" id="{{ id }}" name="{{ params.name }}"
     {%- if params.disabled %} disabled{% endif %}
@@ -57,4 +60,7 @@
     {% endif %}
   {%- endfor %}
   </select>
+{% if params.formGroup.afterInput %}
+  {{ params.formGroup.afterInput.html | safe | trim | indent(2) if params.formGroup.afterInput.html else params.formGroup.afterInput.text }}
+{% endif %}
 </div>

@@ -22,12 +22,12 @@
   $outline-width: nhsuk-em($nhsuk-chevron-border, $font-size);
   $box-size: nhsuk-em(math.div($font-size, 2), $font-size);
   $size: nhsuk-em(nhsuk-chevron-size($font-size), $nhsuk-base-font-size);
-
-  color: $colour;
   display: $display;
 
   width: $box-size;
   height: $box-size;
+
+  clip-path: polygon(100% 100%, 100% 0, 0 0);
 
   border-radius: 2px;
 
@@ -36,7 +36,8 @@
   // outline on the two other two sides using clip-path.
   outline: $outline-width solid currentcolor;
   outline-offset: -$outline-width;
-  clip-path: polygon(100% 100%, 100% 0, 0 0);
+
+  color: $colour;
 
   @if $direction == "up" {
     transform: translateY($outline-width) rotate(-45deg);

@@ -243,7 +243,7 @@ Use the `nhsuk-colour()` function to reference a colour in your application:
 }
 ```
 
-See the full list in [\_colours-palette.scss](./settings/_colours-applied.scss).
+See the full list in [\_colours-palette.scss](./settings/_colours-palette.scss).
 
 ## Breakpoints
 

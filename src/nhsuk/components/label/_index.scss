@@ -19,9 +19,9 @@
   .nhsuk-label--xl,
   .nhsuk-label--l,
   .nhsuk-label--m {
-    font-weight: $nhsuk-font-bold;
     margin-top: 0;
     margin-bottom: nhsuk-spacing(3);
+    font-weight: $nhsuk-font-bold;
   }
 
   .nhsuk-label--xl {
@@ -37,8 +37,8 @@
   }
 
   .nhsuk-label--s {
-    font-weight: $nhsuk-font-bold;
     margin-top: 0;
+    font-weight: $nhsuk-font-bold;
 
     @include nhsuk-font-size(19);
   }

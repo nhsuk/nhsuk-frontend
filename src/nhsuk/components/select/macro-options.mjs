@@ -105,6 +105,46 @@ export const params = {
         required: false,
         description:
           'HTML attributes (for example data attributes) to add to the form group.'
+      },
+      beforeInput: {
+        type: 'object',
+        required: false,
+        description:
+          'Content to add before the select used by the select component.',
+        params: {
+          text: {
+            type: 'string',
+            required: true,
+            description:
+              'Text to add before the select. If `html` is provided, the `text` option will be ignored.'
+          },
+          html: {
+            type: 'string',
+            required: true,
+            description:
+              'HTML to add before the select. If `html` is provided, the `text` option will be ignored.'
+          }
+        }
+      },
+      afterInput: {
+        type: 'object',
+        required: false,
+        description:
+          'Content to add after the select used by the select component.',
+        params: {
+          text: {
+            type: 'string',
+            required: true,
+            description:
+              'Text to add after the select. If `html` is provided, the `text` option will be ignored.'
+          },
+          html: {
+            type: 'string',
+            required: true,
+            description:
+              'HTML to add after the select. If `html` is provided, the `text` option will be ignored.'
+          }
+        }
       }
     }
   },

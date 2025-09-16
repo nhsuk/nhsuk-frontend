@@ -34,9 +34,9 @@
   }
 
   .nhsuk-breadcrumb__list {
-    list-style: none;
     margin: 0;
     padding: 0;
+    list-style: none;
 
     @include nhsuk-clearfix;
     @include nhsuk-font($_font-size);
@@ -47,19 +47,21 @@
   }
 
   .nhsuk-breadcrumb__list-item {
-    float: left;
+    position: relative;
     margin-bottom: 0;
     margin-left: nhsuk-em(nhsuk-spacing(3), $_font-size); // [3]
     padding-left: nhsuk-em(nhsuk-spacing(3), $_font-size) + $_chevron-size; // [3]
-    position: relative;
+    float: left;
 
     &::before {
-      bottom: 0;
       content: "";
-      left: 0;
-      margin: auto;
+
       position: absolute;
       top: 0;
+      bottom: 0;
+      left: 0;
+
+      margin: auto;
 
       @include nhsuk-shape-chevron(right, $_chevron-colour);
     }

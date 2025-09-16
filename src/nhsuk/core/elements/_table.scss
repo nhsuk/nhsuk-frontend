@@ -12,9 +12,9 @@
 ////
 
 table {
+  width: 100%; // [1]
   border-spacing: 0;
   vertical-align: top;
-  width: 100%; // [1]
 
   @include nhsuk-responsive-margin(7, "bottom");
 
@@ -37,7 +37,6 @@ thead {
 th,
 td {
   padding-left: 0;
-
   border-bottom: $nhsuk-border-table-cell-width solid $nhsuk-border-colour;
   text-align: left;
   vertical-align: top;

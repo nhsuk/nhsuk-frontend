@@ -162,6 +162,7 @@ export function formatErrorMessage(Component, message) {
   return `${Component.moduleName}: ${message}`
 }
 
+export * from './closest-attribute-value.mjs'
 export * from './nhsuk-frontend-version.mjs'
 
 /**
