@@ -42,7 +42,11 @@
 @mixin nhsuk-focused-input {
   border: $nhsuk-border-width-form-element solid $nhsuk-focus-text-colour;
   outline: $nhsuk-focus-width solid $nhsuk-focus-colour;
+  // Ensure outline appears outside of the element
   outline-offset: 0;
+  // Double the border by adding its width again. Use `box-shadow` to do
+  // this instead of changing `border-width` (which changes element size)
+  // and since `outline` is already used for the yellow focus state.
   box-shadow: inset 0 0 0 $nhsuk-border-width-form-element $nhsuk-focus-text-colour;
 }
 
