@@ -90,13 +90,17 @@ export const examples = {
       titleClasses: 'nhsuk-panel__title--l',
       html: outdent`
         <p>Some text to explain.</p>
-        ${components.render('button', {
-          context: {
-            text: 'Continue anyway',
-            classes: 'nhsuk-button--reverse',
-            href: '#'
-          }
-        })}
+        <div class="nhsuk-button-group">
+          ${components.render('button', {
+            context: {
+              text: 'Continue anyway',
+              classes: 'nhsuk-button--reverse',
+              href: '#'
+            }
+          })}
+
+          <a href="#" class="nhsuk-link nhsuk-link--reverse">Cancel</a>
+        </div>
       `,
       classes: 'nhsuk-panel--interruption'
     },
