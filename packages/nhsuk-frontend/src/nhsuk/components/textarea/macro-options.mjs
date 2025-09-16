@@ -19,6 +19,12 @@ export const params = {
     description:
       'The name of the textarea, which is submitted with the form data.'
   },
+  spellcheck: {
+    type: 'boolean',
+    required: false,
+    description:
+      'Optional field to enable or disable the `spellcheck` attribute on the textarea.'
+  },
   rows: {
     type: 'string',
     required: false,
@@ -28,6 +34,11 @@ export const params = {
     type: 'string',
     required: false,
     description: 'Optional initial value of the textarea.'
+  },
+  disabled: {
+    type: 'boolean',
+    required: false,
+    description: 'If `true`, textarea will be disabled.'
   },
   describedBy: {
     type: 'string',
