@@ -83,4 +83,10 @@ $nhsuk-border-width-panel: $nhsuk-panel-border-width;
   .nhsuk-panel__title:last-child {
     margin-bottom: 0;
   }
+
+  .nhsuk-panel__body {
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
 }
