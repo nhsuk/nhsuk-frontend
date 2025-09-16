@@ -99,7 +99,7 @@ export const examples = {
             }
           })}
 
-          <a href="#" class="nhsuk-link nhsuk-link--reverse">Cancel</a>
+          <a href="#">Cancel</a>
         </div>
       `,
       classes: 'nhsuk-panel--interruption'
