@@ -45,24 +45,44 @@ $nhsuk-grid-widths: (
   full: 100%
 ) !default;
 
-/// Border sizes
+// =========================================================
+// Borders
+// =========================================================
 
 $nhsuk-border-width-inset-text: 8px !default;
 $nhsuk-chevron-border: 2px !default;
 $nhsuk-hero-border: 1px !default;
 $nhsuk-border-table-header-width: 2px !default;
 $nhsuk-border-table-cell-width: 1px !default;
-
-/// Border radius
-
 $nhsuk-border-radius: 4px !default;
 
-/// Form elements
+/// Standard border width
+///
+/// @type Number
+
+$nhsuk-border-width: 4px !default;
+
+/// Form control border width
+///
+/// @type Number
 
 $nhsuk-border-width-form-element: 2px !default;
-$nhsuk-focus-width: 4px !default;
-$nhsuk-border-width: 4px !default;
+
+/// Form group border width when in error state
+///
+/// @type Number
+/// @access public
+
 $nhsuk-border-width-form-group-error: $nhsuk-border-width !default;
+
+/// Border width of focus outline
+///
+/// @type Number
+
+$nhsuk-focus-width: 4px !default;
+
+/// Globals (deprecated)
+///
 
 // @deprecated To be removed in v11.0
 $nhsuk-border-width-form-element-error: $nhsuk-border-width-form-element;
