@@ -59,14 +59,42 @@ export const params = {
     isComponent: true
   },
   prefix: {
-    type: 'string',
+    type: 'object',
     required: false,
-    description: 'Optional prefix text to be displayed before the input.'
+    description: 'Can be used to add a prefix to the text input component.',
+    params: {
+      text: {
+        type: 'string',
+        required: true,
+        description:
+          'If `html` is set, this is not required. Text to use within the prefix. If `html` is provided, the `text` option will be ignored.'
+      },
+      html: {
+        type: 'string',
+        required: true,
+        description:
+          'If `text` is set, this is not required. HTML to use within the prefix. If `html` is provided, the `text` option will be ignored.'
+      }
+    }
   },
   suffix: {
-    type: 'string',
+    type: 'object',
     required: false,
-    description: 'Optional suffix text to be displayed after the input.'
+    description: 'Can be used to add a suffix to the text input component.',
+    params: {
+      text: {
+        type: 'string',
+        required: true,
+        description:
+          'If `html` is set, this is not required. Text to use within the suffix. If `html` is provided, the `text` option will be ignored.'
+      },
+      html: {
+        type: 'string',
+        required: true,
+        description:
+          'If `text` is set, this is not required. HTML to use within the suffix. If `html` is provided, the `text` option will be ignored.'
+      }
+    }
   },
   formGroup: {
     type: 'object',
@@ -306,9 +334,33 @@ export const examples = {
       },
       id: 'with-prefix',
       name: 'example',
-      prefix: '£'
+      prefix: {
+        text: '£'
+      }
     },
     screenshot: true
+  },
+  'with prefix HTML': {
+    context: {
+      label: {
+        text: 'What is the cost in pounds?'
+      },
+      id: 'with-prefix',
+      name: 'example',
+      prefix: {
+        html: '<span>£</span>'
+      }
+    }
+  },
+  'with prefix string': {
+    context: {
+      label: {
+        text: 'What is the cost in pounds?'
+      },
+      id: 'with-prefix',
+      name: 'example',
+      prefix: '£'
+    }
   },
   'with suffix': {
     context: {
@@ -317,9 +369,33 @@ export const examples = {
       },
       id: 'with-suffix',
       name: 'example',
-      suffix: 'kg'
+      suffix: {
+        text: 'kg'
+      }
     },
     screenshot: true
+  },
+  'with suffix HTML': {
+    context: {
+      label: {
+        text: 'What is the weight in kilograms?'
+      },
+      id: 'with-suffix',
+      name: 'example',
+      suffix: {
+        html: '<span>kg</span>'
+      }
+    }
+  },
+  'with suffix string': {
+    context: {
+      label: {
+        text: 'What is the weight in kilograms?'
+      },
+      id: 'with-suffix',
+      name: 'example',
+      suffix: 'kg'
+    }
   },
   'with prefix and suffix': {
     context: {
@@ -328,8 +404,12 @@ export const examples = {
       },
       id: 'with-prefix-suffix',
       name: 'example',
-      prefix: '£',
-      suffix: 'per item'
+      prefix: {
+        text: '£'
+      },
+      suffix: {
+        text: 'per item'
+      }
     },
     screenshot: true
   },
@@ -343,8 +423,12 @@ export const examples = {
       },
       id: 'with-prefix-suffix',
       name: 'example',
-      prefix: '£',
-      suffix: 'per item'
+      prefix: {
+        text: '£'
+      },
+      suffix: {
+        text: 'per item'
+      }
     },
     screenshot: {
       states: ['focus'],
@@ -358,8 +442,12 @@ export const examples = {
       },
       id: 'with-prefix-suffix',
       name: 'example',
-      prefix: '£',
-      suffix: 'per item',
+      prefix: {
+        text: '£'
+      },
+      suffix: {
+        text: 'per item'
+      },
       classes: 'nhsuk-input--width-5'
     }
   },
