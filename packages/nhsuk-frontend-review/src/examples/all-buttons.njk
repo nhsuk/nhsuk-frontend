@@ -2,6 +2,12 @@
 
 {% set title = "Buttons" %}
 
+{% block beforeContent %}
+  {{ backLink({
+    href: baseUrl
+  }) }}
+{% endblock %}
+
 {% block content %}
   <section class="nhsuk-main-wrapper">
     <div class="nhsuk-width-container">

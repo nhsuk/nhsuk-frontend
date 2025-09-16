@@ -2,6 +2,12 @@
 
 {% set title = "Icons" %}
 
+{% block beforeContent %}
+  {{ backLink({
+    href: baseUrl
+  }) }}
+{% endblock %}
+
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-full">
