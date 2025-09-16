@@ -40,10 +40,10 @@
 /// as text inputs.
 
 @mixin nhsuk-focused-input {
-  border: 2px solid $nhsuk-focus-text-colour;
+  border: $nhsuk-border-width-form-element solid $nhsuk-focus-text-colour;
   outline: $nhsuk-focus-width solid $nhsuk-focus-colour;
   outline-offset: 0;
-  box-shadow: inset 0 0 0 2px $nhsuk-focus-text-colour;
+  box-shadow: inset 0 0 0 $nhsuk-border-width-form-element $nhsuk-focus-text-colour;
 }
 
 /// Focused radio input (form element)

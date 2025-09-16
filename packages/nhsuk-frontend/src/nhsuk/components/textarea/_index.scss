@@ -32,6 +32,6 @@
   }
 
   .nhsuk-textarea--error {
-    border: $nhsuk-border-width-form-element-error solid $nhsuk-error-colour;
+    border-color: $nhsuk-error-colour;
   }
 }

@@ -46,7 +46,7 @@
   }
 
   .nhsuk-input--error {
-    border: $nhsuk-border-width-form-element-error solid $nhsuk-error-colour;
+    border-color: $nhsuk-error-colour;
   }
 
   // The ex measurements are based on the number of W's that can fit inside the input
