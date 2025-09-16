@@ -17,10 +17,12 @@
 @mixin nhsuk-font-face-frutiger {
   @at-root {
     @font-face {
-      font-display: swap;
       font-family: "Frutiger W01";
       font-style: normal;
       font-weight: $nhsuk-font-normal;
+
+      font-display: swap;
+
       src: nhsuk-font-url("FrutigerLTW01-55Roman.eot?#iefix");
       src:
         nhsuk-font-url("FrutigerLTW01-55Roman.eot?#iefix") format("eot"),
@@ -31,10 +33,12 @@
     }
 
     @font-face {
-      font-display: swap;
       font-family: "Frutiger W01";
       font-style: normal;
       font-weight: $nhsuk-font-bold;
+
+      font-display: swap;
+
       src: nhsuk-font-url("FrutigerLTW01-65Bold.eot?#iefix");
       src:
         nhsuk-font-url("FrutigerLTW01-65Bold.eot?#iefix") format("eot"),

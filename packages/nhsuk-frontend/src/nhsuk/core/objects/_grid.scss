@@ -10,9 +10,9 @@
 
 @include nhsuk-exports("nhsuk/core/objects/grid") {
   .nhsuk-grid-row {
-    @include nhsuk-clearfix;
     margin-right: -($nhsuk-gutter-half);
     margin-left: -($nhsuk-gutter-half);
+    @include nhsuk-clearfix;
   }
 
   @each $width in map.keys($nhsuk-grid-widths) {

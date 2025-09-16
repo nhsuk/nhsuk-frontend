@@ -10,7 +10,28 @@ We've added a new variant of the panel component with a solid blue background an
 
 This was added in [pull request #1196: Add blue panel (Interruption card) variant](https://github.com/nhsuk/nhsuk-frontend/pull/1196).
 
+#### Insert custom HTML into component form group wrappers
+
+You can now insert custom HTML into form group wrappers for all components with form fields.
+
+```njk
+input({
+  formGroup: {
+    beforeInput: {
+      html: "example"
+    },
+    afterInput: {
+      html: "example"
+    },
+  }
+})
+```
+
+This was added in [pull request #1561: Add `beforeInput(s)` and `beforeInput(s)` options to form groups](https://github.com/nhsuk/nhsuk-frontend/pull/1561).
+
 ## 10.0.0 - 26 August 2025
+
+You can follow the [updating to NHS.UK frontend version 10](https://service-manual.nhs.uk/design-system/guides/updating-to-v10) guide in the NHS digital service manual on what's changed and what you need to update.
 
 This release introduces some breaking changes to file paths, full width buttons on mobile, the header component and others. It also stops Internet Explorer 11 and other older browsers from running NHS.UK frontend JavaScript.
 
@@ -108,12 +129,8 @@ import { createAll, Button, Checkboxes } from 'nhsuk-frontend'
 
 const $element = document.querySelector('.app-modal')
 
-createAll(Button, {
-  preventDoubleClick: true,
-  scope: $element,
-})
-
-createAll(Checkboxes, $element)
+createAll(Button, { preventDoubleClick: true }, $element)
+createAll(Checkboxes, undefined, $element)
 ```
 
 Similarly, the existing `initAll` function can also configure components by including key-value pairs of camel-cased component names with their options:
@@ -128,7 +145,7 @@ initAll({
 })
 ```
 
-You can find out more about [how to use the `initAll` and `createAll` functions](/docs/installation/installing-with-npm.md#importing-javascript) in our documentation.
+You can find out more about [how to use the `initAll` and `createAll` functions](/docs/configuration/javascript.md) in our documentation.
 
 This was added in pull requests [#1464: Export type declarations `*.d.mts` for NHS.UK frontend](https://github.com/nhsuk/nhsuk-frontend/pull/1464) and [#1506: Add JavaScript configuration support to components](https://github.com/nhsuk/nhsuk-frontend/pull/1506).
 
@@ -374,7 +391,7 @@ Before:
 
 ```html
   <!-- // ... -->
-  <script src="/javascripts/nhsuk-frontend.min.js" defer></script>
+  <script src="/<JAVASCRIPTS-PATH>/nhsuk.min.js" defer></script>
 </head>
 ```
 
@@ -382,9 +399,9 @@ After:
 
 ```html
   <!-- // ... -->
-  <script type="module" src="/javascripts/nhsuk-frontend.min.js"></script>
+  <script type="module" src="/<JAVASCRIPTS-PATH>/nhsuk.min.js"></script>
   <script type="module">
-    import { initAll } from '/javascripts/nhsuk-frontend.min.js'
+    import { initAll } from '/<JAVASCRIPTS-PATH>/nhsuk-frontend.min.js'
     initAll()
   </script>
 </body>
@@ -394,7 +411,7 @@ Or for [JavaScript imported using a bundler](#using-a-javascript-bundler), initi
 
 ```html
   <!-- // ... -->
-  <script type="module" src="/javascripts/application.min.js"></script>
+  <script type="module" src="/<JAVASCRIPTS-PATH>/application.min.js"></script>
 </body>
 ```
 
@@ -888,7 +905,7 @@ This change was introduced in [pull request #1452: Update footer to separate nav
 
 #### Error summary component changes
 
-We've changed how the [error summary](https://design-system.service.gov.uk/components/error-summary/) component links to the first input in a [radios](https://design-system.service.gov.uk/components/radios/) or [checkboxes](https://design-system.service.gov.uk/components/checkboxes/) component.
+We've changed how the [error summary](https://service-manual.nhs.uk/design-system/components/error-summary) component links to the first input in a [radios](https://service-manual.nhs.uk/design-system/components/radios) or [checkboxes](https://service-manual.nhs.uk/design-system/components/checkboxes) component.
 
 This is because the `id` of the first checkbox or radio input no longer has the suffix `-1` when rendered using the Nunjucks macros.
 
@@ -1006,7 +1023,7 @@ NHS.UK frontend component JavaScript now provides errors if you initialise a com
 These errors will be:
 
 - logged in the browser console when using the `initAll()` function
-- [thrown as exceptions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw) when [initialising individual components](https://github.com/nhsuk/nhsuk-frontend/blob/main/docs/installation/installing-with-npm.md#initialise-individual-components)
+- [thrown as exceptions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw) when [initialising individual components](/docs/configuration/javascript.md#import-individual-components)
 
 To make sure the components behave as intended, we encourage you to check your browser console and address any errors by updating your markup or configuration.
 

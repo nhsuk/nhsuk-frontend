@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Cache dependencies
         uses: actions/cache@v4
@@ -27,9 +27,8 @@ jobs:
 
       - name: Setup Node
         if: steps.npm-install-cache.outputs.cache-hit != 'true'
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
-          cache: 'npm'
           node-version-file: .nvmrc
 
       - name: Install dependencies
@@ -51,7 +50,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Restore dependencies
         uses: actions/cache/restore@v4
@@ -61,9 +60,10 @@ jobs:
           path: node_modules
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version-file: .nvmrc
+          package-manager-cache: false
 
       - name: Build
         run: npm run build
@@ -71,7 +71,7 @@ jobs:
           NODE_ENV: production
 
       - name: Upload GitHub Pages artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: packages/nhsuk-frontend-review/dist
 

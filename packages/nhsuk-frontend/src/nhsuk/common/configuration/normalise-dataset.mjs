@@ -8,7 +8,7 @@ import { normaliseString } from './normalise-string.mjs'
  * Normalise dataset
  *
  * Loop over an object and normalise each value using {@link normaliseString},
- * optionally expanding `data-namespace.property` nested values
+ * optionally expanding `data-i18n.property` nested values
  *
  * @template {Partial<Record<keyof ConfigurationType, unknown>>} ConfigurationType
  * @template {[keyof ConfigurationType, SchemaProperty | undefined][]} SchemaEntryType

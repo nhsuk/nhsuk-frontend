@@ -53,10 +53,10 @@ $expander-icon-size: $nhsuk-expander-icon-size;
   // Hack to support Internet Explorer 11
   @media screen\0 {
     .nhsuk-details {
-      border-left: nhsuk-spacing(1) solid $nhsuk-border-colour;
       margin-top: nhsuk-spacing(2);
       padding: nhsuk-spacing(3) 0;
       padding-left: 20px; // [6]
+      border-left: nhsuk-spacing(1) solid $nhsuk-border-colour;
     }
 
     .nhsuk-details__summary-text {
@@ -76,11 +76,11 @@ $expander-icon-size: $nhsuk-expander-icon-size;
   //   - do not support ES6 modules or the <details> element (eg, IE8+)
   @supports not (-ms-ime-align: auto) {
     .nhsuk-details__summary {
-      color: $nhsuk-link-colour; // [1]
-      cursor: pointer;
-      padding-left: nhsuk-spacing(4);
       position: relative; // [3]
       width: fit-content; // [2]
+      padding-left: nhsuk-spacing(4);
+      color: $nhsuk-link-colour; // [1]
+      cursor: pointer;
 
       &:hover {
         color: $nhsuk-link-hover-colour;
@@ -102,12 +102,14 @@ $expander-icon-size: $nhsuk-expander-icon-size;
       }
 
       &::before {
-        bottom: 0;
         content: "";
-        left: 0;
-        margin: auto;
+
         position: absolute;
         top: 0;
+        bottom: 0;
+        left: 0;
+
+        margin: auto;
 
         @include nhsuk-shape-arrow($direction: right, $base: 14px);
       }
@@ -122,26 +124,26 @@ $expander-icon-size: $nhsuk-expander-icon-size;
     }
 
     .nhsuk-details__text {
-      border-left: nhsuk-spacing(1) solid $nhsuk-border-colour;
       margin-top: nhsuk-spacing(2);
       padding: nhsuk-spacing(3) 0;
-      padding-left: 20px; // [6]
       padding-right: 0;
+      padding-left: 20px; // [6]
+      border-left: nhsuk-spacing(1) solid $nhsuk-border-colour;
     }
   }
 
   // Expander variant
 
   .nhsuk-expander {
-    background-color: $nhsuk-card-background-colour;
     border: $nhsuk-expander-border-width solid $nhsuk-expander-border-colour;
+    background-color: $nhsuk-card-background-colour;
 
     .nhsuk-details__summary {
-      background-color: $nhsuk-card-background-colour;
-      border-top: $nhsuk-focus-width solid transparent;
       display: block;
-      padding: nhsuk-spacing(4) - $nhsuk-focus-width nhsuk-spacing(4) 0;
       width: auto;
+      padding: nhsuk-spacing(4) - $nhsuk-focus-width nhsuk-spacing(4) 0;
+      border-top: $nhsuk-focus-width solid transparent;
+      background-color: $nhsuk-card-background-colour;
 
       @include nhsuk-media-query($from: tablet) {
         padding: nhsuk-spacing(5) - $nhsuk-focus-width nhsuk-spacing(5) 0;
@@ -149,9 +151,9 @@ $expander-icon-size: $nhsuk-expander-icon-size;
     }
 
     .nhsuk-details__text {
-      border-left: 0;
-      margin-left: 0;
       margin-top: 0;
+      margin-left: 0;
+      border-left: 0;
 
       @include nhsuk-responsive-padding(5, "bottom");
       @include nhsuk-responsive-padding(5, "left");
@@ -198,12 +200,16 @@ $expander-icon-size: $nhsuk-expander-icon-size;
       }
 
       .nhsuk-details__summary-text {
-        color: $nhsuk-link-colour;
-        cursor: pointer;
         display: inline-block;
+
+        position: relative;
+
         padding: nhsuk-spacing(1);
         padding-left: #{$nhsuk-expander-icon-size + nhsuk-spacing(2)};
-        position: relative;
+
+        color: $nhsuk-link-colour;
+
+        cursor: pointer;
       }
 
       .nhsuk-details__summary:hover .nhsuk-details__summary-text {
@@ -217,16 +223,20 @@ $expander-icon-size: $nhsuk-expander-icon-size;
       // Internet Explorer 11 doesn’t support clip-path, but we don’t show the
       // ::before pseudo element to users of that browser
       .nhsuk-details__summary-text::before {
-        background-color: currentcolor;
+        content: "";
+
+        position: absolute;
+        top: calc(50% - math.div($nhsuk-expander-icon-size, 2));
+        left: 0;
+
+        width: $nhsuk-expander-icon-size;
+        height: $nhsuk-expander-icon-size;
+
         clip-path: path(
           "M13.5 1a12.5 12.5 0 1 1 0 25 12.5 12.5 0 0 1 0-25Zm0 6c-.8 0-1.5.7-1.5 1.5V12H8.5c-.8 0-1.4.6-1.5 1.4v.1c0 .8.7 1.5 1.5 1.5H12v3.5c0 .8.6 1.4 1.4 1.5h.1c.8 0 1.5-.7 1.5-1.5V15h3.5c.8 0 1.4-.6 1.5-1.4v-.1c0-.8-.7-1.5-1.5-1.5H15V8.5c0-.8-.6-1.4-1.4-1.5Z"
         ); // Plus icon
-        content: "";
-        height: $nhsuk-expander-icon-size;
-        left: 0;
-        position: absolute;
-        top: calc(50% - math.div($nhsuk-expander-icon-size, 2));
-        width: $nhsuk-expander-icon-size;
+
+        background-color: currentcolor;
       }
 
       &[open] {
