@@ -4,9 +4,6 @@
 ////
 /// Error summary component
 ///
-/// 1. Cross-component class - adjusts styling of list component.
-/// 2. Override default link styling to use error colour
-///
 /// @group components/error-summary
 ////
 
@@ -51,23 +48,11 @@
 
   .nhsuk-error-summary__list {
     margin-top: 0;
-    // [1]
     margin-bottom: 0;
   }
 
   .nhsuk-error-summary__list a {
     @include nhsuk-typography-weight-bold;
-
-    // [2]
-    &:link,
-    &:visited,
-    &:hover,
-    &:active {
-      color: $nhsuk-error-colour;
-    }
-
-    &:focus {
-      @include nhsuk-focused-text;
-    }
+    @include nhsuk-link-style-error;
   }
 }
