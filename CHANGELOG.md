@@ -23,9 +23,23 @@ input({
 
 This was added in [pull request #1561: Add `beforeInput(s)` and `beforeInput(s)` options to form groups](https://github.com/nhsuk/nhsuk-frontend/pull/1561).
 
+### :wastebasket: **Deprecated features**
+
+#### Rename Sass variables for border width and colour
+
+If you use Sass and you've extended or created components that use the following border variables:
+
+- rename `$nhsuk-border-width-mobile` to `$nhsuk-border-width`
+- rename `$nhsuk-border-width-form-element-error` to `$nhsuk-border-width-form-element`
+
+The previous names are deprecated and will be removed in a future release.
+
+This change was introduced in [pull request #1594: Always set input `:focus` box-shadow colour](https://github.com/nhsuk/nhsuk-frontend/pull/1594).
+
 ### :wrench: **Fixes**
 
 - [#1593: Fix Sass deprecated `core/settings/colours` partial](https://github.com/nhsuk/nhsuk-frontend/pull/1593)
+- [#1594: Always set input `:focus` box-shadow colour](https://github.com/nhsuk/nhsuk-frontend/pull/1594)
 - [#1599: Make border colour on `nhsuk-panel` mixin optional](https://github.com/nhsuk/nhsuk-frontend/pull/1599)
 
 ## 10.0.0 - 26 August 2025
