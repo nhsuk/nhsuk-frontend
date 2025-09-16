@@ -84,7 +84,7 @@ export const examples = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
-  blue: {
+  interruption: {
     context: {
       titleText: 'You are doing something unusual',
       titleClasses: 'nhsuk-panel__title--l',
@@ -98,7 +98,7 @@ export const examples = {
           }
         })}
       `,
-      classes: 'nhsuk-panel--blue'
+      classes: 'nhsuk-panel--interruption'
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']
