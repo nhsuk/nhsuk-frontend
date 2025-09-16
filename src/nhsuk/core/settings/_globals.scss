@@ -60,8 +60,10 @@ $nhsuk-border-radius: 4px !default;
 /// Form elements
 
 $nhsuk-border-width-form-element: 2px !default;
-$nhsuk-border-width-form-element-error: 2px !default;
 $nhsuk-focus-width: 4px !default;
 $nhsuk-border-width: 4px !default;
 $nhsuk-border-width-mobile: 4px !default;
 $nhsuk-border-width-form-group-error: $nhsuk-border-width !default;
+
+// @deprecated To be removed in v11.0
+$nhsuk-border-width-form-element-error: $nhsuk-border-width-form-element;
