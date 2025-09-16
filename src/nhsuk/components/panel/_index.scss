@@ -51,7 +51,7 @@ $nhsuk-border-width-panel: $nhsuk-panel-border-width;
   }
 
   .nhsuk-panel--interruption {
-    background-color: nhsuk-colour("blue");
+    background-color: $nhsuk-brand-colour;
 
     // Links within the Panel should use white text
     .nhsuk-link,
