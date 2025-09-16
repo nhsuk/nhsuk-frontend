@@ -1,0 +1,59 @@
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+@use "../../core/helpers" as *;
+@forward "../error-message";
+@forward "../hint";
+@forward "../label";
+
+////
+/// Select component
+///
+/// @group components/select
+////
+
+@include nhsuk-exports("nhsuk/components/select") {
+  .nhsuk-select {
+    box-sizing: border-box;
+
+    // This min-width was chosen because:
+    // - it makes the Select wider than it is tall (which is what users expect)
+    // - 20ex + 3ex matches the 'length-10' variant of the input component
+    // - it fits comfortably on screens as narrow as 240px wide
+    min-width: 20ex + 3ex;
+    max-width: 100%;
+    height: nhsuk-px-to-rem(40px);
+    padding: nhsuk-spacing(1);
+
+    border: $nhsuk-border-width-form-element solid $nhsuk-input-border-colour;
+
+    // Default user agent colours for selects can have low contrast,
+    // and may look disabled (https://github.com/alphagov/govuk-frontend/issues/2435)
+    color: $nhsuk-text-colour;
+    background-color: $nhsuk-input-background-colour;
+
+    @include nhsuk-font($size: 19, $line-height: 1.25);
+
+    &:focus {
+      @include nhsuk-focused-input;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      color: inherit;
+      cursor: not-allowed;
+    }
+  }
+
+  .nhsuk-select option:active,
+  .nhsuk-select option:checked,
+  .nhsuk-select:focus::-ms-value {
+    color: $nhsuk-reverse-text-colour;
+    background-color: nhsuk-colour("blue");
+  }
+
+  .nhsuk-select--error {
+    border-color: $nhsuk-error-colour;
+  }
+}
+
+/*# sourceMappingURL=_index.scss.map */

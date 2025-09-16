@@ -1,0 +1,18 @@
+{
+  "name": "Error message",
+  "component": "error-message",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "text": "Error message about full name goes here"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "html": "<span class=\"nhsuk-error-message\">\n  <span class=\"nhsuk-u-visually-hidden\">Error:</span> Error message about full name goes here\n</span>"
+    }
+  ]
+}

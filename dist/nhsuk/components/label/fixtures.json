@@ -1,0 +1,45 @@
+{
+  "name": "Label",
+  "component": "label",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "text": "NHS number"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "html": "<label class=\"nhsuk-label\">\n  NHS number\n</label>"
+    },
+    {
+      "name": "as page heading",
+      "context": {
+        "text": "NHS number",
+        "classes": "nhsuk-label--xl",
+        "isPageHeading": true
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "html": "<h1 class=\"nhsuk-label-wrapper\">\n  <label class=\"nhsuk-label nhsuk-label--xl\">\n    NHS number\n  </label>\n</h1>"
+    },
+    {
+      "name": "with bold text",
+      "context": {
+        "classes": "nhsuk-label--s",
+        "text": "NHS number"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "html": "<label class=\"nhsuk-label nhsuk-label--s\">\n  NHS number\n</label>"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+@use "settings" as *;
+@forward "colours-palette";
+@forward "colours-applied";
+@forward "colours-deprecated";
+
+@include nhsuk-warning(
+  "import-using-settings-colours",
+  "Importing using 'core/settings/colours' is deprecated. Update your import statement to import 'core/settings/colours-palette' and 'core/settings/colours-applied'.",
+  $silence-further-warnings: false
+);
+
+/*# sourceMappingURL=_colours.scss.map */

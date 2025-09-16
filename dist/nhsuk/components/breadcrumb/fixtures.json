@@ -1,0 +1,107 @@
+{
+  "name": "Breadcrumb",
+  "component": "breadcrumb",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "items": [
+          {
+            "href": "#",
+            "text": "Level one"
+          },
+          {
+            "href": "#",
+            "text": "Level two"
+          },
+          {
+            "href": "#",
+            "text": "Level three"
+          },
+          {
+            "href": "#",
+            "text": "Level four"
+          }
+        ]
+      },
+      "screenshot": {
+        "states": [
+          "focus",
+          "hover",
+          "active"
+        ],
+        "selector": ".nhsuk-breadcrumb a"
+      },
+      "html": "<nav class=\"nhsuk-breadcrumb\" aria-label=\"Breadcrumb\">\n  <ol class=\"nhsuk-breadcrumb__list\">\n    <li class=\"nhsuk-breadcrumb__list-item\">\n      <a class=\"nhsuk-breadcrumb__link\" href=\"#\">Level one</a>\n    </li>\n    <li class=\"nhsuk-breadcrumb__list-item\">\n      <a class=\"nhsuk-breadcrumb__link\" href=\"#\">Level two</a>\n    </li>\n    <li class=\"nhsuk-breadcrumb__list-item\">\n      <a class=\"nhsuk-breadcrumb__link\" href=\"#\">Level three</a>\n    </li>\n    <li class=\"nhsuk-breadcrumb__list-item\">\n      <a class=\"nhsuk-breadcrumb__link\" href=\"#\">Level four</a>\n    </li>\n  </ol>\n  \n  \n  <a class=\"nhsuk-back-link\" href=\"#\"><span class=\"nhsuk-u-visually-hidden\">Back to&nbsp;</span>Level four</a>\n  \n</nav>"
+    },
+    {
+      "name": "attributes",
+      "context": {
+        "items": [
+          {
+            "href": "#",
+            "text": "Level one",
+            "attributes": {
+              "lang": "en"
+            }
+          },
+          {
+            "href": "#",
+            "text": "Level two"
+          },
+          {
+            "href": "#",
+            "text": "Level three",
+            "attributes": {
+              "lang": "en"
+            }
+          },
+          {
+            "href": "#",
+            "text": "Level four",
+            "classes": "example-class-one example-class-two",
+            "attributes": {
+              "lang": "en"
+            }
+          }
+        ]
+      },
+      "screenshot": false,
+      "html": "<nav class=\"nhsuk-breadcrumb\" aria-label=\"Breadcrumb\">\n  <ol class=\"nhsuk-breadcrumb__list\">\n    <li class=\"nhsuk-breadcrumb__list-item\">\n      <a class=\"nhsuk-breadcrumb__link\" href=\"#\" lang=\"en\">Level one</a>\n    </li>\n    <li class=\"nhsuk-breadcrumb__list-item\">\n      <a class=\"nhsuk-breadcrumb__link\" href=\"#\">Level two</a>\n    </li>\n    <li class=\"nhsuk-breadcrumb__list-item\">\n      <a class=\"nhsuk-breadcrumb__link\" href=\"#\" lang=\"en\">Level three</a>\n    </li>\n    <li class=\"nhsuk-breadcrumb__list-item\">\n      <a class=\"nhsuk-breadcrumb__link\" href=\"#\" lang=\"en\">Level four</a>\n    </li>\n  </ol>\n  \n  \n  <a class=\"nhsuk-back-link\" href=\"#\" lang=\"en\"><span class=\"nhsuk-u-visually-hidden\">Back to&nbsp;</span>Level four</a>\n  \n</nav>"
+    },
+    {
+      "name": "reverse",
+      "layout": "layouts/example-background-blue.njk",
+      "context": {
+        "classes": "nhsuk-breadcrumb--reverse",
+        "items": [
+          {
+            "href": "#",
+            "text": "Level one"
+          },
+          {
+            "href": "#",
+            "text": "Level two"
+          },
+          {
+            "href": "#",
+            "text": "Level three"
+          },
+          {
+            "href": "#",
+            "text": "Level four"
+          }
+        ]
+      },
+      "screenshot": {
+        "states": [
+          "focus",
+          "hover",
+          "active"
+        ],
+        "selector": ".nhsuk-breadcrumb a"
+      },
+      "html": "<nav class=\"nhsuk-breadcrumb nhsuk-breadcrumb--reverse\" aria-label=\"Breadcrumb\">\n  <ol class=\"nhsuk-breadcrumb__list\">\n    <li class=\"nhsuk-breadcrumb__list-item\">\n      <a class=\"nhsuk-breadcrumb__link\" href=\"#\">Level one</a>\n    </li>\n    <li class=\"nhsuk-breadcrumb__list-item\">\n      <a class=\"nhsuk-breadcrumb__link\" href=\"#\">Level two</a>\n    </li>\n    <li class=\"nhsuk-breadcrumb__list-item\">\n      <a class=\"nhsuk-breadcrumb__link\" href=\"#\">Level three</a>\n    </li>\n    <li class=\"nhsuk-breadcrumb__list-item\">\n      <a class=\"nhsuk-breadcrumb__link\" href=\"#\">Level four</a>\n    </li>\n  </ol>\n  \n  \n  <a class=\"nhsuk-back-link\" href=\"#\"><span class=\"nhsuk-u-visually-hidden\">Back to&nbsp;</span>Level four</a>\n  \n</nav>"
+    }
+  ]
+}

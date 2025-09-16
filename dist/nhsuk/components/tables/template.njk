@@ -1,0 +1,81 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+
+{%- set headingLevel = params.headingLevel if params.headingLevel else 3 -%}
+{%  if params.panel %}
+<div class="nhsuk-table__panel-with-heading-tab
+{%- if params.panelClasses %} {{ params.panelClasses }}{% endif %}">
+  {%- if params.heading %}
+    <h{{ headingLevel }} class="nhsuk-table__heading-tab">{{ params.heading | safe }}</h{{ headingLevel }}>
+  {%- endif %}
+  {%- endif %}
+  <table {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-table
+    {%- if params.responsive %}-responsive{% endif %}
+    {%- if params.tableClasses %} {{ params.tableClasses }}{% endif %}"
+    {%- if params.responsive %} role="table"{% endif %}
+    {{- nhsukAttributes(params.attributes) }}>
+
+  {%- if params.caption %}
+    <caption class="nhsuk-table__caption
+      {%- if params.captionClasses %} {{ params.captionClasses }}{% endif %}">
+      {{- params.caption -}}
+    </caption>
+  {%- endif %}
+
+  {%- if params.head %}
+    <thead class="nhsuk-table__head" {%- if params.responsive %} role="rowgroup"{% endif %}>
+      <tr {%- if params.responsive %} role="row"{% endif %}>
+        {%- for item in params.head %}
+          <th scope="col" class="nhsuk-table__header
+            {%- if item.format %} nhsuk-table__header--{{ item.format }}{% endif %}
+            {%- if item.classes %} {{ item.classes }}{% endif %}"
+            {%- if item.colspan %} colspan="{{ item.colspan }}"{% endif %}
+            {%- if item.rowspan %} rowspan="{{ item.rowspan }}"{% endif %}
+            {%- if params.responsive %} role="columnheader"{% endif %}
+            {{- nhsukAttributes(item.attributes) }}>
+            {{- item.html | safe if item.html else item.text -}}
+          </th>
+        {%- endfor %}
+      </tr>
+    </thead>
+  {%- endif %}
+    <tbody class="nhsuk-table__body">
+    {%- for row in params.rows %}
+      <tr class="nhsuk-table__row" {%- if params.responsive %} role="row"{% endif %}>
+        {%- for cell in row %}
+          {% set commonAttributes %}
+            {%- if cell.colspan %} colspan="{{ cell.colspan }}"{% endif %}
+            {%- if cell.rowspan %} rowspan="{{ cell.rowspan }}"{% endif %}
+            {{- nhsukAttributes(cell.attributes) -}}
+          {% endset -%}
+
+          {% set commonContents %}
+            {%- if params.responsive and cell.header -%}
+              <span class="nhsuk-table-responsive__heading" aria-hidden="true">{{ cell.header }} </span>
+            {%- endif -%}
+            {{- cell.html | safe if cell.html else cell.text -}}
+          {% endset -%}
+
+          {%- if loop.first and params.firstCellIsHeader %}
+            <th scope="row" class="nhsuk-table__header
+              {%- if cell.classes %} {{ cell.classes }}{% endif %}"
+              {%- if params.responsive %} role="rowheader"{% endif %}
+              {{- commonAttributes | safe }}>
+              {{- commonContents | safe -}}
+            </th>
+          {%- else %}
+            <td class="nhsuk-table__cell
+              {%- if cell.format %} nhsuk-table__cell--{{ cell.format }}{% endif %}
+              {%- if cell.classes %} {{ cell.classes }}{% endif %}"
+              {%- if params.responsive %} role="cell"{% endif %}
+              {{- commonAttributes | safe }}>
+              {{- commonContents | safe -}}
+            </td>
+          {%- endif %}
+        {%- endfor %}
+      </tr>
+    {%- endfor %}
+    </tbody>
+  </table>
+  {%- if params.panel %}
+</div>
+{%- endif %}

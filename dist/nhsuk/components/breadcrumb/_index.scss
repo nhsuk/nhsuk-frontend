@@ -1,0 +1,101 @@
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+@use "../../core/helpers" as *;
+@forward "../back-link";
+
+////
+/// Breadcrumb component
+///
+/// 1. Hide the breadcrumb on print stylesheets.
+/// 2. Don't show the full breadcrumb below tablet size.
+/// 3. Center chevron between breadcrumb items.
+///
+/// @group components/breadcrumb
+////
+
+@include nhsuk-exports("nhsuk/components/breadcrumb") {
+  $_font-size: 16;
+  $_chevron-colour: $nhsuk-secondary-text-colour;
+  $_chevron-size: nhsuk-em(nhsuk-chevron-size(), $_font-size);
+
+  .nhsuk-breadcrumb {
+    color: $nhsuk-text-colour;
+
+    @include nhsuk-responsive-margin(4, "top");
+    @include nhsuk-print-hide; // [1]
+
+    .nhsuk-back-link {
+      margin: 0;
+
+      @include nhsuk-media-query($from: tablet) {
+        display: none; // [2]
+      }
+    }
+  }
+
+  .nhsuk-breadcrumb__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @include nhsuk-clearfix;
+    @include nhsuk-font($_font-size);
+
+    @include nhsuk-media-query($until: tablet) {
+      display: none; // [2]
+    }
+  }
+
+  .nhsuk-breadcrumb__list-item {
+    position: relative;
+    margin-bottom: 0;
+    margin-left: nhsuk-em(nhsuk-spacing(3), $_font-size); // [3]
+    padding-left: nhsuk-em(nhsuk-spacing(3), $_font-size) + $_chevron-size; // [3]
+    float: left;
+
+    &::before {
+      content: "";
+
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+
+      margin: auto;
+
+      @include nhsuk-shape-chevron(right, $_chevron-colour);
+    }
+
+    // Hide chevron before first breadcrumb item
+    &:first-child {
+      margin-left: 0;
+      padding-left: 0;
+
+      &::before {
+        display: none;
+      }
+    }
+  }
+
+  .nhsuk-breadcrumb__link {
+    display: inline-block;
+
+    @include nhsuk-font($_font-size);
+    @include nhsuk-link-style-no-visited-state;
+  }
+
+  .nhsuk-breadcrumb--reverse {
+    color: $nhsuk-reverse-text-colour;
+
+    .nhsuk-breadcrumb__link,
+    .nhsuk-back-link {
+      @include nhsuk-link-style-white;
+    }
+
+    .nhsuk-breadcrumb__list-item::before {
+      color: rgba($nhsuk-reverse-text-colour, 0.6);
+    }
+  }
+}
+
+/*# sourceMappingURL=_index.scss.map */

@@ -1,0 +1,364 @@
+import { formatErrorMessage } from '../../common/index.mjs';
+import { ConfigurableComponent } from '../../configurable-component.mjs';
+import { ElementError, ConfigError } from '../../errors/index.mjs';
+import { validateConfig } from '../../common/configuration/validate-config.mjs';
+import { normaliseOptions } from '../../common/configuration/normalise-options.mjs';
+
+/**
+ * Character count component
+ *
+ * Tracks the number of characters or words in the `.nhsuk-js-character-count`
+ * `<textarea>` inside the element. Displays a message with the remaining number
+ * of characters/words available, or the number of characters/words in excess.
+ *
+ * You can configure the message to only appear after a certain percentage
+ * of the available characters/words has been entered.
+ *
+ * @augments ConfigurableComponent<CharacterCountConfig>
+ */
+class CharacterCount extends ConfigurableComponent {
+  /**
+   * @param {Element | null} $root - HTML element to use for component
+   * @param {Record<string, never>} [config] - Not yet supported. Character count config
+   */
+  constructor($root, config = {}) {
+    var _ref, _this$config$maxwords;
+    super($root, config);
+    /**
+     * @type {number | null}
+     */
+    this.lastInputTimestamp = null;
+    this.lastInputValue = '';
+    /**
+     * @type {number | null}
+     */
+    this.valueChecker = null;
+    const $textarea = this.$root.querySelector('.nhsuk-js-character-count');
+    if (!($textarea instanceof HTMLTextAreaElement || $textarea instanceof HTMLInputElement)) {
+      throw new ElementError({
+        component: CharacterCount,
+        element: $textarea,
+        expectedType: 'HTMLTextareaElement or HTMLInputElement',
+        identifier: 'Form field (`.nhsuk-js-character-count`)'
+      });
+    }
+
+    // Check for valid config
+    const errors = validateConfig(CharacterCount.schema, this.config);
+    if (errors[0]) {
+      throw new ConfigError(formatErrorMessage(CharacterCount, errors[0]));
+    }
+
+    // Determine the limit attribute (characters or words)
+    this.maxLength = (_ref = (_this$config$maxwords = this.config.maxwords) != null ? _this$config$maxwords : this.config.maxlength) != null ? _ref : Infinity;
+    this.$textarea = $textarea;
+    const textareaDescriptionId = `${this.$textarea.id}-info`;
+    const $textareaDescription = document.getElementById(textareaDescriptionId);
+    if (!$textareaDescription) {
+      throw new ElementError({
+        component: CharacterCount,
+        element: $textareaDescription,
+        identifier: `Count message (\`id="${textareaDescriptionId}"\`)`
+      });
+    }
+
+    // Pre-existing validation error rendered from server
+    this.$errorMessage = this.$root.querySelector('.nhsuk-error-message');
+
+    // Move the textarea description to be immediately after the textarea
+    // Kept for backwards compatibility
+    this.$textarea.insertAdjacentElement('afterend', $textareaDescription);
+
+    // Create the *screen reader* specific live-updating counter
+    // This doesn't need any styling classes, as it is never visible
+    const $screenReaderCountMessage = document.createElement('div');
+    $screenReaderCountMessage.className = 'nhsuk-character-count__sr-status nhsuk-u-visually-hidden';
+    $screenReaderCountMessage.setAttribute('aria-live', 'polite');
+    this.$screenReaderCountMessage = $screenReaderCountMessage;
+    $textareaDescription.insertAdjacentElement('afterend', $screenReaderCountMessage);
+
+    // Create our live-updating counter element, copying the classes from the
+    // textarea description for backwards compatibility as these may have been
+    // configured
+    const $visibleCountMessage = document.createElement('div');
+    $visibleCountMessage.className = $textareaDescription.className;
+    $visibleCountMessage.classList.add('nhsuk-character-count__status');
+    $visibleCountMessage.setAttribute('aria-hidden', 'true');
+    this.$visibleCountMessage = $visibleCountMessage;
+    $textareaDescription.insertAdjacentElement('afterend', $visibleCountMessage);
+
+    // Hide the textarea description
+    $textareaDescription.classList.add('nhsuk-u-visually-hidden');
+
+    // Remove hard limit if set
+    this.$textarea.removeAttribute('maxlength');
+    this.bindChangeEvents();
+
+    // When the page is restored after navigating 'back' in some browsers the
+    // state of form controls is not restored until *after* the DOMContentLoaded
+    // event is fired, so we need to sync after the pageshow event.
+    window.addEventListener('pageshow', () => this.updateCountMessage());
+
+    // Although we've set up handlers to sync state on the pageshow event, init
+    // could be called after those events have fired, for example if they are
+    // added to the page dynamically, so update now too.
+    this.updateCountMessage();
+  }
+
+  /**
+   * Count the number of characters (or words, if `config.maxwords` is set)
+   * in the given text
+   *
+   * @param {string} text - The text to count the characters of
+   * @returns {number} the number of characters (or words) in the text
+   */
+  count(text) {
+    if (this.config.maxwords) {
+      var _text$match;
+      const tokens = (_text$match = text.match(/\S+/g)) != null ? _text$match : []; // Matches consecutive non-whitespace chars
+      return tokens.length;
+    }
+    return text.length;
+  }
+
+  /**
+   * Bind change events
+   *
+   * Set up event listeners on the $textarea so that the count messages update
+   * when the user types.
+   */
+  bindChangeEvents() {
+    this.$textarea.addEventListener('keyup', () => this.handleKeyUp());
+
+    // Bind focus/blur events to start/stop polling
+    this.$textarea.addEventListener('focus', () => this.handleFocus());
+    this.$textarea.addEventListener('blur', () => this.handleBlur());
+  }
+
+  /**
+   * Update count message if textarea value has changed
+   */
+  checkIfValueChanged() {
+    if (this.$textarea.value !== this.lastInputValue) {
+      this.lastInputValue = this.$textarea.value;
+      this.updateCountMessage();
+    }
+  }
+
+  /**
+   * Update count message
+   *
+   * Helper function to update both the visible and screen reader-specific
+   * counters simultaneously (e.g. on init)
+   */
+  updateCountMessage() {
+    this.updateVisibleCountMessage();
+    this.updateScreenReaderCountMessage();
+  }
+
+  /**
+   * Update visible count message
+   */
+  updateVisibleCountMessage() {
+    const remainingNumber = this.maxLength - this.count(this.$textarea.value);
+    const isError = remainingNumber < 0;
+
+    // If input is over the threshold, remove the disabled class which renders
+    // the counter invisible.
+    this.$visibleCountMessage.classList.toggle('nhsuk-character-count__message--disabled', !this.isOverThreshold());
+
+    // Update styles
+    if (!this.$errorMessage) {
+      // Only toggle the textarea error class if there isn't an error message
+      // already, as it may be unrelated to the limit (eg: allowed characters)
+      // and would set the border colour back to black.
+      this.$textarea.classList.toggle('nhsuk-textarea--error', isError);
+    }
+    this.$visibleCountMessage.classList.toggle('nhsuk-error-message', isError);
+    this.$visibleCountMessage.classList.toggle('nhsuk-hint', !isError);
+
+    // Update message
+    this.$visibleCountMessage.textContent = this.formattedUpdateMessage();
+  }
+
+  /**
+   * Update screen reader count message
+   */
+  updateScreenReaderCountMessage() {
+    // If over the threshold, remove the aria-hidden attribute, allowing screen
+    // readers to announce the content of the element.
+    if (this.isOverThreshold()) {
+      this.$screenReaderCountMessage.removeAttribute('aria-hidden');
+    } else {
+      this.$screenReaderCountMessage.setAttribute('aria-hidden', 'true');
+    }
+
+    // Update message
+    this.$screenReaderCountMessage.textContent = this.formattedUpdateMessage();
+  }
+
+  /**
+   * Get count message
+   *
+   * @returns {string} Status message
+   */
+  formattedUpdateMessage() {
+    const remainingNumber = this.maxLength - this.count(this.$textarea.value);
+    let charVerb = 'remaining';
+    let charNoun = 'character';
+    let displayNumber = remainingNumber;
+    if (this.config.maxwords) {
+      charNoun = 'word';
+    }
+    charNoun += remainingNumber === -1 || remainingNumber === 1 ? '' : 's';
+    charVerb = remainingNumber < 0 ? 'too many' : 'remaining';
+    displayNumber = Math.abs(remainingNumber);
+    return `You have ${displayNumber} ${charNoun} ${charVerb}`;
+  }
+
+  /**
+   * Check if count is over threshold
+   *
+   * Checks whether the value is over the configured threshold for the input.
+   * If there is no configured threshold, it is set to 0 and this function will
+   * always return true.
+   *
+   * @returns {boolean} true if the current count is over the config.threshold
+   *   (or no threshold is set)
+   */
+  isOverThreshold() {
+    // No threshold means we're always above threshold so save some computation
+    if (!this.config.threshold) {
+      return true;
+    }
+
+    // Determine the remaining number of characters/words
+    const currentLength = this.count(this.$textarea.value);
+    const maxLength = this.maxLength;
+    const thresholdValue = maxLength * this.config.threshold / 100;
+    return thresholdValue <= currentLength;
+  }
+
+  /**
+   * Handle key up event
+   *
+   * Update the visible character counter and keep track of when the last update
+   * happened for each keypress
+   */
+  handleKeyUp() {
+    this.updateVisibleCountMessage();
+    this.lastInputTimestamp = Date.now();
+  }
+
+  /**
+   * Handle focus event
+   *
+   * Speech recognition software such as Dragon NaturallySpeaking will modify
+   * the fields by directly changing its `value`. These changes don't trigger
+   * events in JavaScript, so we need to poll to handle when and if they occur.
+   *
+   * Once the keyup event hasn't been detected for at least 1000 ms (1s), check
+   * if the textarea value has changed and update the count message if it has.
+   *
+   * This is so that the update triggered by the manual comparison doesn't
+   * conflict with debounced KeyboardEvent updates.
+   */
+  handleFocus() {
+    this.valueChecker = window.setInterval(() => {
+      if (!this.lastInputTimestamp || Date.now() - 500 >= this.lastInputTimestamp) {
+        this.checkIfValueChanged();
+      }
+    }, 1000);
+  }
+
+  /**
+   * Handle blur event
+   *
+   * Stop checking the textarea value once the textarea no longer has focus
+   */
+  handleBlur() {
+    // Cancel value checking on blur
+    if (this.valueChecker) {
+      window.clearInterval(this.valueChecker);
+    }
+  }
+
+  /**
+   * Name for the component used when initialising using data-module attributes
+   */
+}
+
+/**
+ * Initialise character count component
+ *
+ * @deprecated Use {@link createAll | `createAll(CharacterCount)`} instead.
+ * @param {InitOptions} [options]
+ */
+CharacterCount.moduleName = 'nhsuk-character-count';
+/**
+ * Character count default config
+ *
+ * @see {@link CharacterCountConfig}
+ * @constant
+ * @type {CharacterCountConfig}
+ */
+CharacterCount.defaults = Object.freeze({
+  threshold: 0
+});
+/**
+ * Character count config schema
+ *
+ * @constant
+ * @satisfies {Schema<CharacterCountConfig>}
+ */
+CharacterCount.schema = Object.freeze({
+  properties: {
+    maxwords: {
+      type: 'number'
+    },
+    maxlength: {
+      type: 'number'
+    },
+    threshold: {
+      type: 'number'
+    }
+  },
+  anyOf: [{
+    required: ['maxwords'],
+    errorMessage: 'Either "maxlength" or "maxwords" must be provided'
+  }, {
+    required: ['maxlength'],
+    errorMessage: 'Either "maxlength" or "maxwords" must be provided'
+  }]
+});
+function initCharacterCounts(options) {
+  const {
+    scope: $scope
+  } = normaliseOptions(options);
+  const $characterCounts = $scope == null ? void 0 : $scope.querySelectorAll(`[data-module="${CharacterCount.moduleName}"]`);
+  $characterCounts == null || $characterCounts.forEach($root => {
+    new CharacterCount($root);
+  });
+}
+
+/**
+ * Character count config
+ *
+ * @see {@link CharacterCount.defaults}
+ * @typedef {object} CharacterCountConfig
+ * @property {number} [maxlength] - The maximum number of characters.
+ *   If maxwords is provided, the maxlength option will be ignored.
+ * @property {number} [maxwords] - The maximum number of words. If maxwords is
+ *   provided, the maxlength option will be ignored.
+ * @property {number} [threshold=0] - The percentage value of the limit at
+ *   which point the count message is displayed. If this attribute is set, the
+ *   count message will be hidden by default.
+ */
+
+/**
+ * @import { createAll, InitOptions } from '../../index.mjs'
+ * @import { Schema } from '../../common/configuration/index.mjs'
+ */
+
+export { CharacterCount, initCharacterCounts };
+//# sourceMappingURL=character-count.mjs.map

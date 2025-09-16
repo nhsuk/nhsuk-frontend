@@ -1,0 +1,144 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/components/error-message/macro.njk" import errorMessage %}
+{% from "nhsuk/components/hint/macro.njk" import hint %}
+{% from "nhsuk/components/label/macro.njk" import label %}
+
+{%- set prefix = params.prefix -%}
+{%- set suffix = params.suffix -%}
+
+{%- if prefix and prefix is string %}
+  {% set prefix = { text: prefix } %}
+{% endif %}
+
+{%- if suffix and suffix is string %}
+  {% set suffix = { text: suffix } %}
+{% endif %}
+
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-input" -%}
+
+{%- if params.classes %}
+  {% set classNames = classNames + " " + params.classes %}
+{% endif %}
+
+{%- if params.errorMessage %}
+  {% set classNames = classNames + " nhsuk-input--error" %}
+{% endif %}
+
+{#- a record of other elements that we need to associate with the input using
+  aria-describedby – for example hints or error messages -#}
+{% set describedBy = params.describedBy if params.describedBy else undefined -%}
+{%- set id = params.id if params.id else params.name -%}
+
+{%- set hasPrefix = true if prefix and (prefix.text or prefix.html) else false %}
+{%- set hasSuffix = true if suffix and (suffix.text or suffix.html) else false %}
+{%- set hasBeforeInput = true if params.formGroup.beforeInput and (params.formGroup.beforeInput.text or params.formGroup.beforeInput.html) else false %}
+{%- set hasAfterInput = true if params.formGroup.afterInput and (params.formGroup.afterInput.text or params.formGroup.afterInput.html) else false %}
+
+{%- macro _inputElement(params) -%}
+  <input
+    {{- nhsukAttributes({
+      class: classNames,
+      id: id,
+      name: params.name,
+      type: params.type | default("text", true),
+      spellcheck: {
+        value: params.spellcheck | string
+          if [true, false].includes(params.spellcheck)
+          else false,
+        optional: true
+      },
+      value: {
+        value: params.value,
+        optional: true
+      },
+      disabled: {
+        value: params.disabled,
+        optional: true
+      },
+      "aria-describedby": {
+        value: describedBy,
+        optional: true
+      },
+      autocomplete: {
+        value: params.autocomplete,
+        optional: true
+      },
+      autocapitalize: {
+        value: params.autocapitalize,
+        optional: true
+      },
+      pattern: {
+        value: params.pattern,
+        optional: true
+      },
+      inputmode: {
+        value: params.inputmode,
+        optional: true
+      }
+    }) -}}
+
+    {{- nhsukAttributes(params.attributes) }}>
+{%- endmacro -%}
+
+{%- macro _affixItem(affix, type) %}
+  <div class="nhsuk-input__{{ type }} {%- if affix.classes %} {{ affix.classes }}{% endif %}" aria-hidden="true" {{- nhsukAttributes(affix.attributes) }}>
+    {{- affix.html | safe | trim | indent(4) if affix.html else affix.text -}}
+  </div>
+{%- endmacro -%}
+
+<div class="nhsuk-form-group {%- if params.errorMessage %} nhsuk-form-group--error{% endif %} {%- if params.formGroup.classes %} {{ params.formGroup.classes }}{% endif %}"
+  {{- nhsukAttributes(params.formGroup.attributes) }}>
+  {{ label({
+    html: params.label.html,
+    text: params.label.text,
+    classes: params.label.classes,
+    isPageHeading: params.label.isPageHeading,
+    attributes: params.label.attributes,
+    for: id
+  }) | trim | indent(2) }}
+{% if params.hint %}
+  {% set hintId = id + '-hint' %}
+  {% set describedBy = describedBy + ' ' + hintId if describedBy else hintId %}
+  {{ hint({
+    id: hintId,
+    classes: params.hint.classes,
+    attributes: params.hint.attributes,
+    html: params.hint.html,
+    text: params.hint.text
+  }) | trim | indent(2) }}
+{% endif %}
+{% if params.errorMessage %}
+  {% set errorId = id + '-error' %}
+  {% set describedBy = describedBy + ' ' + errorId if describedBy else errorId %}
+  {{ errorMessage({
+    id: errorId,
+    classes: params.errorMessage.classes,
+    attributes: params.errorMessage.attributes,
+    html: params.errorMessage.html,
+    text: params.errorMessage.text,
+    visuallyHiddenText: params.errorMessage.visuallyHiddenText
+  }) | trim | indent(2) }}
+{% endif %}
+
+{%- if hasPrefix or hasSuffix or hasBeforeInput or hasAfterInput %}
+  <div class="nhsuk-input__wrapper {%- if params.inputWrapper.classes %} {{ params.inputWrapper.classes }}{% endif %}"
+    {{- nhsukAttributes(params.inputWrapper.attributes) }}>
+    {% if hasBeforeInput %}
+      {{- params.formGroup.beforeInput.html | safe | trim | indent(4, true) if params.formGroup.beforeInput.html else params.formGroup.beforeInput.text }}
+    {% endif %}
+    {% if hasPrefix %}
+      {{- _affixItem(prefix, "prefix") | indent(2, true) }}
+    {% endif %}
+    {{ _inputElement(params) }}
+    {% if hasSuffix %}
+      {{- _affixItem(suffix, "suffix") | indent(2, true) }}
+    {% endif %}
+    {% if hasAfterInput %}
+      {{- params.formGroup.afterInput.html | safe | trim | indent(4, true) if params.formGroup.afterInput.html else params.formGroup.afterInput.text }}
+    {% endif %}
+  </div>
+{% else %}
+  {{ _inputElement(params) }}
+{% endif %}
+</div>

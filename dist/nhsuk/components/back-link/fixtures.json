@@ -1,0 +1,50 @@
+{
+  "name": "Back link",
+  "component": "back-link",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {},
+      "screenshot": {
+        "states": [
+          "focus",
+          "hover",
+          "active"
+        ],
+        "selector": ".nhsuk-back-link"
+      },
+      "html": "<a class=\"nhsuk-back-link\" href=\"#\">Back</a>"
+    },
+    {
+      "name": "as a button",
+      "context": {
+        "element": "button"
+      },
+      "screenshot": {
+        "states": [
+          "focus",
+          "hover",
+          "active"
+        ],
+        "selector": ".nhsuk-back-link"
+      },
+      "html": "<button class=\"nhsuk-back-link\">Back</button>"
+    },
+    {
+      "name": "reverse",
+      "layout": "layouts/example-background-blue.njk",
+      "context": {
+        "classes": "nhsuk-back-link--reverse"
+      },
+      "screenshot": {
+        "states": [
+          "focus",
+          "hover",
+          "active"
+        ],
+        "selector": ".nhsuk-back-link"
+      },
+      "html": "<a class=\"nhsuk-back-link nhsuk-back-link--reverse\" href=\"#\">Back</a>"
+    }
+  ]
+}

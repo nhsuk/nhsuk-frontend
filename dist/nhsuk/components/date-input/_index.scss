@@ -1,0 +1,35 @@
+@use "../../core/tools" as *;
+@forward "../error-message";
+@forward "../input";
+@forward "../hint";
+@forward "../label";
+@forward "../fieldset";
+
+////
+/// Date input component
+///
+/// @group components/date-input
+////
+
+@include nhsuk-exports("nhsuk/components/date-input") {
+  .nhsuk-date-input {
+    font-size: 0; // removes whitespace caused by inline-block
+    @include nhsuk-clearfix;
+  }
+
+  .nhsuk-date-input__item {
+    display: inline-block;
+    margin-right: nhsuk-spacing(4);
+    margin-bottom: 0;
+  }
+
+  .nhsuk-date-input__label {
+    display: block;
+  }
+
+  .nhsuk-date-input__input {
+    margin-bottom: 0;
+  }
+}
+
+/*# sourceMappingURL=_index.scss.map */

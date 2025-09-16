@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../../src/nhsuk/components/error-message/_index.scss"],"names":[],"mappings":"AAAA,+BAA+B;AAC/B,4BAA4B;;AAE5B,GAAG;AACH,0BAA0B;AAC1B,EAAE;AACF,kCAAkC;AAClC,GAAG;;AAEH;EACE;IACE,cAAc;IACd,aAAa,EAAE,kDAAkD;IACjE,+BAA+B;IAC/B,WAAW;IACX,0BAA0B;;IAE1B,sCAAsC;EACxC;AACF","file":"_index.scss"}

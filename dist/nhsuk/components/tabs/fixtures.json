@@ -1,0 +1,72 @@
+{
+  "name": "Tabs",
+  "component": "tabs",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "items": [
+          {
+            "label": "Tab one",
+            "id": "tab-one",
+            "panel": {
+              "html": "<h2>Tab one content</h2>\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>"
+            }
+          },
+          {
+            "label": "Tab two",
+            "id": "tab-two",
+            "panel": {
+              "html": "<h2>Tab two content</h2>\n<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>"
+            }
+          },
+          {
+            "label": "Tab three",
+            "id": "tab-three",
+            "panel": {
+              "html": "<h2>Tab three content</h2>\n<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>"
+            }
+          }
+        ]
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop"
+        ]
+      },
+      "html": "<div class=\"nhsuk-tabs\" data-module=\"nhsuk-tabs\">\n  <h2 class=\"nhsuk-tabs__title\">\n    Contents\n  </h2>\n  <ul class=\"nhsuk-tabs__list\">\n        <li class=\"nhsuk-tabs__list-item nhsuk-tabs__list-item--selected\">\n          <a class=\"nhsuk-tabs__tab\" href=\"#tab-one\">\n            Tab one\n          </a>\n        </li>\n        <li class=\"nhsuk-tabs__list-item\">\n          <a class=\"nhsuk-tabs__tab\" href=\"#tab-two\">\n            Tab two\n          </a>\n        </li>\n        <li class=\"nhsuk-tabs__list-item\">\n          <a class=\"nhsuk-tabs__tab\" href=\"#tab-three\">\n            Tab three\n          </a>\n        </li>\n  </ul>\n      <div class=\"nhsuk-tabs__panel\" id=\"tab-one\">\n        <h2>Tab one content</h2>\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n      </div>\n      <div class=\"nhsuk-tabs__panel nhsuk-tabs__panel--hidden\" id=\"tab-two\">\n        <h2>Tab two content</h2>\n<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>\n      </div>\n      <div class=\"nhsuk-tabs__panel nhsuk-tabs__panel--hidden\" id=\"tab-three\">\n        <h2>Tab three content</h2>\n<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>\n      </div>\n</div>"
+    },
+    {
+      "name": "with anchor in panel",
+      "context": {
+        "items": [
+          {
+            "label": "Tab one",
+            "id": "tab-one",
+            "panel": {
+              "html": "<h2>Tab one content</h2>\n<p>Testing that when you click the anchor it moves to the anchor point successfully</p>\n<p><a href=\"#anchor\">Anchor</a></p>\n<p><a id=\"anchor\" tabindex=\"0\">Anchor Point</a></p>"
+            }
+          },
+          {
+            "label": "Tab two",
+            "id": "tab-two",
+            "panel": {
+              "html": "<h2>Tab two content</h2>\n<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>"
+            }
+          },
+          {
+            "label": "Tab three",
+            "id": "tab-three",
+            "panel": {
+              "html": "<h2>Tab three content</h2>\n<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>"
+            }
+          }
+        ]
+      },
+      "screenshot": false,
+      "html": "<div class=\"nhsuk-tabs\" data-module=\"nhsuk-tabs\">\n  <h2 class=\"nhsuk-tabs__title\">\n    Contents\n  </h2>\n  <ul class=\"nhsuk-tabs__list\">\n        <li class=\"nhsuk-tabs__list-item nhsuk-tabs__list-item--selected\">\n          <a class=\"nhsuk-tabs__tab\" href=\"#tab-one\">\n            Tab one\n          </a>\n        </li>\n        <li class=\"nhsuk-tabs__list-item\">\n          <a class=\"nhsuk-tabs__tab\" href=\"#tab-two\">\n            Tab two\n          </a>\n        </li>\n        <li class=\"nhsuk-tabs__list-item\">\n          <a class=\"nhsuk-tabs__tab\" href=\"#tab-three\">\n            Tab three\n          </a>\n        </li>\n  </ul>\n      <div class=\"nhsuk-tabs__panel\" id=\"tab-one\">\n        <h2>Tab one content</h2>\n<p>Testing that when you click the anchor it moves to the anchor point successfully</p>\n<p><a href=\"#anchor\">Anchor</a></p>\n<p><a id=\"anchor\" tabindex=\"0\">Anchor Point</a></p>\n      </div>\n      <div class=\"nhsuk-tabs__panel nhsuk-tabs__panel--hidden\" id=\"tab-two\">\n        <h2>Tab two content</h2>\n<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>\n      </div>\n      <div class=\"nhsuk-tabs__panel nhsuk-tabs__panel--hidden\" id=\"tab-three\">\n        <h2>Tab three content</h2>\n<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>\n      </div>\n</div>"
+    }
+  ]
+}

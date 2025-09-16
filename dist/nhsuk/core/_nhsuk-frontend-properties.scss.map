@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/nhsuk/core/_nhsuk-frontend-properties.scss"],"names":[],"mappings":"AAAA,gBAAgB;AAChB,oBAAoB;AACpB,+BAA+B;AAC/B,iBAAiB;AACjB,mBAAmB;;AAEnB;EACE,wEAAwE;EACxE,yCAAyC;EACzC,uCAAuC;;EAEvC,yCAAyC;EACzC;IACE,uDAAuD;EACzD;;EAEA,6CAA6C;EAC7C;IACE,2DAA2D;EAC7D;;EAEA,6CAA6C;EAC7C;IACE,8CAA8C;EAChD;AACF","file":"_nhsuk-frontend-properties.scss"}
