@@ -1,0 +1,37 @@
+{% extends "layouts/page.njk" %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block header %}
+  {% include "partials/banner.njk" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ breadcrumb({
+    items: [
+      {
+        text: "NHS.UK frontend",
+        href: baseUrl
+      },
+      {
+        text: title,
+        href: baseUrl ~ "components/" ~ component ~ "/"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl">{{ title }}</h1>
+      <p class="nhsuk-body">These examples are used for automated tests and may not follow service manual best practice.</p>
+
+      <ul class="nhsuk-list">
+        {% for exampleName, example in examples %}
+          <li><a href="{{ exampleName | slugify }}/">{{ name ~ " " ~ exampleName }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+{% endblock %}

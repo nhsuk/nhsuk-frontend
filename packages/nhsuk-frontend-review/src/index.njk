@@ -3,34 +3,30 @@
 {% set title = "NHS.UK frontend" %}
 
 {% block header %}
-  {% call hero({
-    heading: "This is an internal development app.",
-    headingClasses: "nhsuk-body-l nhsuk-u-font-weight-normal",
-    headingLevel: 2
-  }) %}
-    <p class="nhsuk-u-margin-bottom-0">To learn how to design and build digital services, visit the <a href="https://service-manual.nhs.uk/design-system">design system in the NHS digital service manual</a> for guidance and examples.</p>
-  {% endcall %}
+  {% include "partials/banner.njk" %}
 {% endblock %}
 
 {% block content %}
-
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-4">NHS.UK frontend</h1>
-      <p class="nhsuk-body">Deployed automatically from <a href="https://github.com/nhsuk/nhsuk-frontend/commits/{{ branchName }}" rel="noreferrer noopener" target="_blank"><code>{{ branchName }}</code> branch (opens in new tab).</a></p>
+      <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-4">{{ title }}</h1>
+      <p class="nhsuk-body nhsuk-u-margin-bottom-8">Deployed automatically from <a href="https://github.com/nhsuk/nhsuk-frontend/commits/{{ branchName }}" rel="noreferrer noopener" target="_blank"><code>{{ branchName }}</code> branch (opens in new tab).</a></p>
+    </div>
+  </div>
 
-      <h2 class="nhsuk-heading-l">Components and variants</h2>
-      <p class="nhsuk-body">These examples are used for automated tests and may not follow service manual best practice.</p>
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-one-third">
+      <h2 class="nhsuk-heading-l">Components</h2>
 
       <ul class="nhsuk-list">
         {% for data in components %}
-          {% for exampleName, example in data.examples %}
-            <li><a href="components/{{ data.component }}/{{ exampleName | slugify }}/">{{ data.name ~ " " ~ exampleName }}</a></li>
-          {% endfor %}
+          <li><a href="components/{{ data.component }}/">{{ data.name }}</a></li>
         {% endfor %}
       </ul>
+    </div>
 
-      <h2 class="nhsuk-heading-l">Example pages</h2>
+    <div class="nhsuk-grid-column-one-third">
+      <h2 class="nhsuk-heading-l">Examples</h2>
 
       <ul class="nhsuk-list">
         <li><a href="examples/all/">All component examples</a></li>
@@ -50,13 +46,15 @@
         <li><a href="examples/task-list-multiple-sections/">Task list with multiple sections</a></li>
         <li><a href="examples/typography/">Typography and spacing</a></li>
       </ul>
+    </div>
+  </div>
 
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
       <hr class="nhsuk-section-break nhsuk-section-break--xl nhsuk-section-break--visible">
 
       <h2 class="nhsuk-heading-l">Documentation</h2>
       <p class="nhsuk-body"><a class="nhsuk-link" href="docs/sassdoc/">Sass API reference</a></p>
-
     </div>
   </div>
-
 {% endblock %}

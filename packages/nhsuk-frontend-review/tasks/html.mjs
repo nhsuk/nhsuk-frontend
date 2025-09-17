@@ -25,7 +25,7 @@ export const compile = task.name('html:render', async () => {
   // Find all Nunjucks views (excluding layouts)
   const paths = getListing('**/*.njk', {
     cwd: join(config.paths.app, 'src'),
-    ignore: ['**/layouts/**']
+    ignore: ['**/layouts/**', '**/partials/**']
   })
 
   // Components and examples
@@ -47,20 +47,29 @@ export const compile = task.name('html:render', async () => {
     version: config.version
   }
 
-  // Render component examples
+  // Render components
   for (const data of list) {
     const { name, component, examples = {} } = data
 
-    for (const [exampleName, example] of Object.entries(examples)) {
-      const outputPath = join(
-        `components/${component}/${slugify(exampleName)}`,
-        'index.html'
-      )
+    const componentPath = `components/${component}`
 
-      // Use review app environment
+    // Render component listing
+    const html = nunjucks.renderTemplate('layouts/listing.njk', {
+      context: { ...context, ...data, title: name },
+      env
+    })
+
+    // Write component listing to disk
+    await files.write(join(componentPath, 'index.html'), {
+      destPath,
+      output: { contents: html }
+    })
+
+    // Render component examples
+    for (const [exampleName, example] of Object.entries(examples)) {
       const options = { ...example, env }
 
-      // Render example
+      // Render component example
       const html = nunjucks.renderTemplate(
         example.layout ?? 'layouts/example.njk',
         {
@@ -70,11 +79,11 @@ export const compile = task.name('html:render', async () => {
         }
       )
 
-      // Write example to disk
-      await files.write(outputPath, {
-        destPath,
-        output: { contents: html }
-      })
+      // Write component example to disk
+      await files.write(
+        join(componentPath, slugify(exampleName), 'index.html'),
+        { destPath, output: { contents: html } }
+      )
     }
   }
 
