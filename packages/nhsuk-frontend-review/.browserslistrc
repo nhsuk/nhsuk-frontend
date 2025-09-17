@@ -1,0 +1,5 @@
+[javascripts]
+supports es6-module
+
+[node]
+node 22

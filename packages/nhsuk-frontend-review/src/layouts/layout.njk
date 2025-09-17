@@ -18,8 +18,5 @@
 
 {% block bodyEnd %}
   <script type="module" src="{{ baseUrl }}javascripts/nhsuk-frontend.min.js"></script>
-  <script type="module">
-    import { initAll } from '{{ baseUrl }}javascripts/nhsuk-frontend.min.js'
-    initAll()
-  </script>
+  <script type="module" src="{{ baseUrl }}javascripts/application.min.js"></script>
 {% endblock %}}
