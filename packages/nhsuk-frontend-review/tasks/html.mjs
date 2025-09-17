@@ -28,27 +28,23 @@ export const compile = task.name('html:render', async () => {
     ignore: ['**/layouts/**', '**/partials/**']
   })
 
-  // Components and examples
-  const list = await components.loadAll()
-
   // Configure Nunjucks
   const env = nunjucks.configure([
     join(config.paths.app, 'src'),
     join(config.paths.pkg, 'src')
   ])
 
-  env.addGlobal('components', list)
-
   // Default Nunjucks context
   const context = {
     assetPath: `/nhsuk-frontend/assets`,
     baseUrl: '/nhsuk-frontend/',
     branchName: HEROKU_BRANCH,
-    version: config.version
+    version: config.version,
+    components: await components.loadAll()
   }
 
   // Render components
-  for (const data of list) {
+  for (const data of context.components) {
     const { name, component, examples = {} } = data
 
     const componentPath = `components/${component}`

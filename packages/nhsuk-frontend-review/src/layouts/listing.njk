@@ -1,6 +1,8 @@
-{% extends "layouts/page.njk" %}
+{% extends "layouts/page-full-width.njk" %}
 
-{% set mainClasses = "nhsuk-main-wrapper--s" %}
+{% set htmlAttributes = htmlAttributes | default({ style: "background-color: #f0f4f5;" }) %}
+{% set bodyAttributes = bodyAttributes | default(htmlAttributes) %}
+{% set mainClasses = "nhsuk-u-padding-top-4" %}
 
 {% block header %}
   {% include "partials/banner.njk" %}
@@ -22,16 +24,48 @@
 {% endblock %}
 
 {% block content %}
-  <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-heading-xl">{{ title }}</h1>
-      <p class="nhsuk-body">These examples are used for automated tests and may not follow service manual best practice.</p>
+  <section class="nhsuk-main-wrapper nhsuk-main-wrapper--s">
+    <div class="nhsuk-width-container">
 
-      <ul class="nhsuk-list">
-        {% for exampleName, example in examples %}
-          <li><a href="{{ exampleName | slugify }}/">{{ name ~ " " ~ exampleName }}</a></li>
-        {% endfor %}
-      </ul>
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          <h1 class="nhsuk-heading-xl">{{ title }}</h1>
+          <p class="nhsuk-body nhsuk-u-margin-bottom-0">These examples are used for automated tests and may not follow service manual best practice.</p>
+        </div>
+      </div>
+
     </div>
-  </div>
+  </section>
+
+{% for exampleName, example in examples %}
+  {% set isFullWidth = example.options.isFullWidth | default(false) -%}
+  {% set isHidden = example.options.isHidden | default(false) -%}
+  {% set isReverse = example.options.isReverse | default(false) -%}
+
+  {% if not isHidden %}
+  <section class="nhsuk-main-wrapper {%- if isReverse %} app-wrapper app-wrapper--background-blue{%- endif %}">
+    <div class="nhsuk-width-container">
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          <h3 class="nhsuk-heading-s nhsuk-u-margin-bottom-2 nhsuk-u-margin-top-4">
+            {{- name ~ " " ~ exampleName -}}
+          </h3>
+          <p class="nhsuk-body nhsuk-u-margin-bottom-6">
+            <a {{- nhsukAttributes({
+              href: exampleName | slugify ~ "/",
+              class: "nhsuk-link nhsuk-link--no-visited-state" ~ (" nhsuk-link--reverse" if isReverse else ""),
+              rel: "noreferrer noopener",
+              target: "_blank"
+            }) -}}>
+              Open this example in a new tab<span class="nhsuk-u-visually-hidden">: {{ name ~ " " ~ exampleName }}</span>
+            </a>
+          </p>
+          {{ renderExample(component, example) if not isFullWidth }}
+        </div>
+      </div>
+    </div>
+    {{ renderExample(component, example) if isFullWidth }}
+  </section>
+  {% endif %}
+{% endfor %}
 {% endblock %}
