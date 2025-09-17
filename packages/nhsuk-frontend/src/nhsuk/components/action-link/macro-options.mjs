@@ -55,11 +55,13 @@ export const examples = {
     screenshot: true
   },
   reverse: {
-    layout: 'layouts/example-background-blue.njk',
     context: {
       classes: 'nhsuk-action-link--reverse',
       text: 'Find your nearest A&E',
       href: '#'
+    },
+    options: {
+      isReverse: true
     },
     screenshot: {
       states: ['focus', 'hover', 'active'],

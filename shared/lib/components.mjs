@@ -178,10 +178,20 @@ export function render(component, options) {
  *
  * @typedef {object} MacroExample
  * @property {string | undefined} [description] - Example description (optional)
- * @property {string | undefined} [layout] - Nunjucks layout for component (optional)
  * @property {{ [param: string]: unknown }} [context] - Nunjucks context object (optional)
  * @property {string | undefined} [callBlock] - Nunjucks macro `caller()` content (optional)
+ * @property {MacroExampleOptions} [options] - Review app example options (optional)
  * @property {MacroScreenshot | MacroScreenshot[] | boolean} [screenshot] - Screenshot and include in visual regression tests
+ */
+
+/**
+ * Nunjucks macro example review app options
+ *
+ * @typedef {object} MacroExampleOptions
+ * @property {boolean} [isFullWidth] - Render full width in review app
+ * @property {boolean} [isHidden] - Hide example in review app
+ * @property {boolean} [isReverse] - Reverse colour scheme in review app
+ * @property {string | undefined} [layout] - Nunjucks layout for component
  */
 
 /**

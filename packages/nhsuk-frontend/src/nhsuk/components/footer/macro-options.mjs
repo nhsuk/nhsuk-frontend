@@ -190,24 +190,29 @@ export const params = {
  */
 export const examples = {
   'default': {
-    layout: 'layouts/example-full-width.njk',
+    options: {
+      isFullWidth: true,
+      layout: 'example-full-width'
+    },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'with custom copyright text': {
-    layout: 'layouts/example-full-width.njk',
     context: {
       copyright: {
         text: '© East London NHS Foundation Trust'
       }
+    },
+    options: {
+      isFullWidth: true,
+      layout: 'example-full-width'
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'with meta (links only)': {
-    layout: 'layouts/example-full-width.njk',
     context: {
       meta: {
         items: [
@@ -234,12 +239,15 @@ export const examples = {
         ]
       }
     },
+    options: {
+      isFullWidth: true,
+      layout: 'example-full-width'
+    },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'with meta (links and text)': {
-    layout: 'layouts/example-full-width.njk',
     context: {
       meta: {
         text: `All content is available under the Open Government Licence v3.0, except where otherwise stated.`,
@@ -267,12 +275,15 @@ export const examples = {
         ]
       }
     },
+    options: {
+      isFullWidth: true,
+      layout: 'example-full-width'
+    },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'with single navigation group': {
-    layout: 'layouts/example-full-width.njk',
     context: {
       navigation: {
         items: [
@@ -299,12 +310,15 @@ export const examples = {
         ]
       }
     },
+    options: {
+      isFullWidth: true,
+      layout: 'example-full-width'
+    },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'with multiple navigation groups': {
-    layout: 'layouts/example-full-width.njk',
     context: {
       copyright: {
         text: '© Crown copyright'
@@ -412,12 +426,15 @@ export const examples = {
         }
       ]
     },
+    options: {
+      isFullWidth: true,
+      layout: 'example-full-width'
+    },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'with multiple navigation groups and custom HTML': {
-    layout: 'layouts/example-full-width.njk',
     context: {
       copyright: {
         text: '© 2025 – Manchester University NHS Foundation Trust'
@@ -476,10 +493,13 @@ export const examples = {
           `
         }
       ]
+    },
+    options: {
+      isFullWidth: true,
+      layout: 'example-full-width'
     }
   },
   'with multiple titled navigation groups': {
-    layout: 'layouts/example-full-width.njk',
     context: {
       navigation: [
         {
@@ -535,12 +555,15 @@ export const examples = {
         }
       ]
     },
+    options: {
+      isFullWidth: true,
+      layout: 'example-full-width'
+    },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'with meta and navigation': {
-    layout: 'layouts/example-full-width.njk',
     context: {
       navigation: [
         {
@@ -652,6 +675,10 @@ export const examples = {
           }
         ]
       }
+    },
+    options: {
+      isFullWidth: true,
+      layout: 'example-full-width'
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']

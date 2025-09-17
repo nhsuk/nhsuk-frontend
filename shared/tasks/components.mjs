@@ -80,10 +80,10 @@ export function generateFixture(data) {
     return {
       name: exampleName,
       description: example.description,
-      layout: example.layout,
       context: example.context ?? {},
       callBlock: example.callBlock,
       screenshot: example.screenshot ?? false,
+      options: example.options ?? {},
       html: components.render(component, example).trim()
     }
   })

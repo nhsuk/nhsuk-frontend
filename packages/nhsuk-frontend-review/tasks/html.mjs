@@ -67,17 +67,18 @@ export const compile = task.name('html:render', async () => {
 
     // Render component examples
     for (const [exampleName, example] of Object.entries(examples)) {
-      const options = { ...example, env }
+      const componentHtml = components.render(component, { ...example, env })
 
-      // Render component example
-      const html = nunjucks.renderTemplate(
-        example.layout ?? 'layouts/example.njk',
-        {
-          blocks: { example: components.render(component, options) },
-          context: { ...context, title: `${name} ${exampleName}` },
-          env
-        }
-      )
+      const layout =
+        example.options?.layout ??
+        (example.options?.isReverse ? 'example-background-blue' : 'example')
+
+      // Render component example into layout
+      const html = nunjucks.renderTemplate(`layouts/${layout}.njk`, {
+        blocks: { example: componentHtml },
+        context: { ...context, title: `${name} ${exampleName}` },
+        env
+      })
 
       // Write component example to disk
       await files.write(

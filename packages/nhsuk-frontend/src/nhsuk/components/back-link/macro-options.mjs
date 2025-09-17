@@ -72,9 +72,11 @@ export const examples = {
     }
   },
   'reverse': {
-    layout: 'layouts/example-background-blue.njk',
     context: {
       classes: 'nhsuk-back-link--reverse'
+    },
+    options: {
+      isReverse: true
     },
     screenshot: {
       states: ['focus', 'hover', 'active'],

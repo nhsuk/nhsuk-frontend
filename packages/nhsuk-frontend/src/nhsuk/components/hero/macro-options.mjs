@@ -79,39 +79,47 @@ export const params = {
  */
 export const examples = {
   'default': {
-    layout: 'layouts/example-full-width.njk',
     context: {
       heading: "We're here for you",
       text: 'Helping you take control of your health and wellbeing.'
+    },
+    options: {
+      isFullWidth: true,
+      layout: 'example-full-width'
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'with image': {
-    layout: 'layouts/example-full-width.njk',
     context: {
       imageURL:
         'https://assets.nhs.uk/prod/images/S_0818_homepage_hero_1_F0147446.width-1000.jpg'
+    },
+    options: {
+      isFullWidth: true,
+      layout: 'example-full-width'
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'with image, content': {
-    layout: 'layouts/example-full-width.njk',
     context: {
       heading: "We're here for you",
       text: 'Helping you take control of your health and wellbeing.',
       imageURL:
         'https://assets.nhs.uk/prod/images/S_0818_homepage_hero_1_F0147446.width-1000.jpg'
     },
+    options: {
+      isFullWidth: true,
+      layout: 'example-full-width'
+    },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'with html content': {
-    layout: 'layouts/example-full-width.njk',
     context: {
       heading: 'This is a header for the product or service',
       headingClasses: 'nhsuk-heading-l nhsuk-u-margin-top-5',
@@ -125,6 +133,10 @@ export const examples = {
           }
         })}
       `
+    },
+    options: {
+      isFullWidth: true,
+      layout: 'example-full-width'
     }
   }
 }

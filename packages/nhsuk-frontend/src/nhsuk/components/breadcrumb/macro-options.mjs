@@ -99,7 +99,6 @@ export const examples = {
     }
   },
   reverse: {
-    layout: 'layouts/example-background-blue.njk',
     context: {
       classes: 'nhsuk-breadcrumb--reverse',
       items: [
@@ -120,6 +119,9 @@ export const examples = {
           text: 'Level four'
         }
       ]
+    },
+    options: {
+      isReverse: true
     },
     screenshot: {
       states: ['focus', 'hover', 'active'],
