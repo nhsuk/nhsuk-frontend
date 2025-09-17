@@ -3,6 +3,11 @@
 {% set htmlAttributes = htmlAttributes | default({ style: "background-color: #f0f4f5;" }) %}
 {% set bodyAttributes = bodyAttributes | default(htmlAttributes) %}
 
+{% block head %}
+  {% include "partials/preload.njk" %}
+  <link href="{{ baseUrl }}stylesheets/nhsuk-frontend.min.css" rel="stylesheet">
+{% endblock %}
+
 {# Turn the skip link off #}
 {% block skipLink %}{% endblock %}
 

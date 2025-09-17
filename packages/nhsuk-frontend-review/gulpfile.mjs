@@ -13,7 +13,7 @@ import { assets, html, scripts, styles } from './tasks/index.mjs'
 gulp.task('assets', assets.copy)
 gulp.task('html', html.compile)
 gulp.task('scripts', gulp.series(scripts.copy, scripts.compile))
-gulp.task('styles', styles.copy)
+gulp.task('styles', gulp.series(styles.copy, styles.compile))
 gulp.task('validate', html.validate)
 
 /**
@@ -48,7 +48,10 @@ gulp.task('watch', () =>
      * Watch and copy minified styles
      */
     gulp.watch(
-      [join(config.paths.pkg, 'dist/nhsuk/*.min.{css,css.map}')],
+      [
+        join(config.paths.pkg, 'dist/nhsuk/*.min.{css,css.map}'),
+        join(config.paths.app, 'src/stylesheets/**/*.scss')
+      ],
       gulp.series('styles')
     ),
 
