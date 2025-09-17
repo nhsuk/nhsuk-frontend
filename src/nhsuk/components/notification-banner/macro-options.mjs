@@ -180,6 +180,9 @@ export const examples = {
       type: 'success',
       disableAutoFocus: true,
       text: 'Email sent to example@email.com'
+    },
+    options: {
+      isHidden: true
     }
   },
   'auto-focus explicitly enabled, with type as success': {
@@ -187,6 +190,9 @@ export const examples = {
       type: 'success',
       disableAutoFocus: false,
       text: 'Email sent to example@email.com'
+    },
+    options: {
+      isHidden: true
     }
   },
   'role=alert overridden to role=region, with type as success': {
@@ -194,6 +200,9 @@ export const examples = {
       type: 'success',
       role: 'region',
       text: 'Email sent to example@email.com'
+    },
+    options: {
+      isHidden: true
     }
   },
   'custom tabindex': {
@@ -203,6 +212,9 @@ export const examples = {
       attributes: {
         tabindex: 2
       }
+    },
+    options: {
+      isHidden: true
     }
   }
 }
