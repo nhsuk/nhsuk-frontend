@@ -283,18 +283,20 @@ export const params = {
  */
 export const examples = {
   'default': {
-    layout: 'layouts/example-full-width.njk',
     context: {
       logo: {
         href: '#'
       }
+    },
+    options: {
+      isFullWidth: true,
+      layout: 'example-full-width'
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'with navigation': {
-    layout: 'layouts/example-full-width.njk',
     context: {
       logo: {
         href: '#'
@@ -328,12 +330,15 @@ export const examples = {
         ]
       }
     },
+    options: {
+      isFullWidth: true,
+      layout: 'example-full-width'
+    },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'with navigation overflow': {
-    layout: 'layouts/example-full-width.njk',
     context: {
       logo: {
         href: '#'
@@ -375,10 +380,13 @@ export const examples = {
           }
         ]
       }
+    },
+    options: {
+      isFullWidth: true,
+      layout: 'example-full-width'
     }
   },
   'with navigation (white)': {
-    layout: 'layouts/example-full-width.njk',
     context: {
       logo: {
         href: '#'
@@ -413,17 +421,24 @@ export const examples = {
         ]
       }
     },
+    options: {
+      isFullWidth: true,
+      layout: 'example-full-width'
+    },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'with search': {
-    layout: 'layouts/example-full-width.njk',
     context: {
       logo: {
         href: '#'
       },
       search: true
+    },
+    options: {
+      isFullWidth: true,
+      layout: 'example-full-width'
     },
     screenshot: {
       name: 'search input',
@@ -433,25 +448,29 @@ export const examples = {
     }
   },
   'with logo': {
-    layout: 'layouts/example-full-width.njk',
     context: {
       logo: {
         href: '#'
       }
+    },
+    options: {
+      isFullWidth: true,
+      layout: 'example-full-width'
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'with logo unlinked': {
-    layout: 'layouts/example-full-width.njk',
-    context: {},
+    options: {
+      isFullWidth: true,
+      layout: 'example-full-width'
+    },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'with account (logged in)': {
-    layout: 'layouts/example-full-width.njk',
     context: {
       service: {
         href: '#',
@@ -471,12 +490,15 @@ export const examples = {
         ]
       }
     },
+    options: {
+      isFullWidth: true,
+      layout: 'example-full-width'
+    },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'with account (logged out)': {
-    layout: 'layouts/example-full-width.njk',
     context: {
       service: {
         href: '#',
@@ -491,12 +513,15 @@ export const examples = {
         ]
       }
     },
+    options: {
+      isFullWidth: true,
+      layout: 'example-full-width'
+    },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'with account, search, navigation (logged in, complex)': {
-    layout: 'layouts/example-full-width.njk',
     context: {
       service: {
         href: '#',
@@ -543,12 +568,15 @@ export const examples = {
         ]
       }
     },
+    options: {
+      isFullWidth: true,
+      layout: 'example-full-width'
+    },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'with service name, account, search and navigation': {
-    layout: 'layouts/example-full-width.njk',
     context: {
       service: {
         text: 'Search patient directory',
@@ -590,13 +618,16 @@ export const examples = {
           }
         ]
       }
+    },
+    options: {
+      isFullWidth: true,
+      layout: 'example-full-width'
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'with service name, account, search and navigation (white)': {
-    layout: 'layouts/example-full-width.njk',
     context: {
       service: {
         text: 'Search patient directory',
@@ -640,12 +671,15 @@ export const examples = {
         ]
       }
     },
+    options: {
+      isFullWidth: true,
+      layout: 'example-full-width'
+    },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'with service name, search and navigation': {
-    layout: 'layouts/example-full-width.njk',
     context: {
       logo: {
         href: '#'
@@ -683,12 +717,15 @@ export const examples = {
         ]
       }
     },
+    options: {
+      isFullWidth: true,
+      layout: 'example-full-width'
+    },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'with service name, search and navigation (white)': {
-    layout: 'layouts/example-full-width.njk',
     context: {
       logo: {
         href: '#'
@@ -726,10 +763,13 @@ export const examples = {
           }
         ]
       }
+    },
+    options: {
+      isFullWidth: true,
+      layout: 'example-full-width'
     }
   },
   'with service name logo separate, search': {
-    layout: 'layouts/example-full-width.njk',
     context: {
       logo: {
         href: '#nhs',
@@ -740,6 +780,10 @@ export const examples = {
         href: '#'
       },
       search: {}
+    },
+    options: {
+      isFullWidth: true,
+      layout: 'example-full-width'
     },
     screenshot: [
       {
@@ -756,7 +800,6 @@ export const examples = {
     ]
   },
   'with service name logo separate, search (long service name)': {
-    layout: 'layouts/example-full-width.njk',
     context: {
       logo: {
         href: '#nhs',
@@ -767,10 +810,13 @@ export const examples = {
         href: '#'
       },
       search: {}
+    },
+    options: {
+      isFullWidth: true,
+      layout: 'example-full-width'
     }
   },
   'with service name logo separate, search (longer service name)': {
-    layout: 'layouts/example-full-width.njk',
     context: {
       logo: {
         href: '#nhs',
@@ -781,10 +827,13 @@ export const examples = {
         href: '#'
       },
       search: {}
+    },
+    options: {
+      isFullWidth: true,
+      layout: 'example-full-width'
     }
   },
   'with service name logo combo, search': {
-    layout: 'layouts/example-full-width.njk',
     context: {
       service: {
         text: 'Prototype kit',
@@ -793,6 +842,10 @@ export const examples = {
       search: {
         visuallyHiddenLabel: 'Search the NHS digital service manual'
       }
+    },
+    options: {
+      isFullWidth: true,
+      layout: 'example-full-width'
     },
     screenshot: [
       {
@@ -807,7 +860,6 @@ export const examples = {
     ]
   },
   'with service name unlinked, search': {
-    layout: 'layouts/example-full-width.njk',
     context: {
       logo: {
         href: '#',
@@ -818,12 +870,15 @@ export const examples = {
       },
       search: {}
     },
+    options: {
+      isFullWidth: true,
+      layout: 'example-full-width'
+    },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'with navigation (justified)': {
-    layout: 'layouts/example-full-width.njk',
     context: {
       logo: {
         href: '#'
@@ -858,12 +913,15 @@ export const examples = {
         ]
       }
     },
+    options: {
+      isFullWidth: true,
+      layout: 'example-full-width'
+    },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'organisational with search': {
-    layout: 'layouts/example-full-width.njk',
     context: {
       logo: {
         href: '#'
@@ -877,12 +935,15 @@ export const examples = {
         visuallyHiddenLabel: 'Search the Anytown Anyplace Anywhere website'
       }
     },
+    options: {
+      isFullWidth: true,
+      layout: 'example-full-width'
+    },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'organisational with search, navigation': {
-    layout: 'layouts/example-full-width.njk',
     context: {
       logo: {
         href: '#'
@@ -920,10 +981,13 @@ export const examples = {
           }
         ]
       }
+    },
+    options: {
+      isFullWidth: true,
+      layout: 'example-full-width'
     }
   },
   'organisational white with service name logo separate, search': {
-    layout: 'layouts/example-full-width.njk',
     context: {
       classes: 'nhsuk-header--white',
       logo: {
@@ -935,6 +999,10 @@ export const examples = {
         href: '#'
       },
       search: {}
+    },
+    options: {
+      isFullWidth: true,
+      layout: 'example-full-width'
     },
     screenshot: [
       {
@@ -954,7 +1022,6 @@ export const examples = {
     ]
   },
   'organisational white with service name logo combo, search': {
-    layout: 'layouts/example-full-width.njk',
     context: {
       classes: 'nhsuk-header--white',
       service: {
@@ -964,10 +1031,13 @@ export const examples = {
       search: {
         visuallyHiddenLabel: 'Search the NHS digital service manual'
       }
+    },
+    options: {
+      isFullWidth: true,
+      layout: 'example-full-width'
     }
   },
   'organisational white with service name unlinked, search': {
-    layout: 'layouts/example-full-width.njk',
     context: {
       classes: 'nhsuk-header--white',
       logo: {
@@ -978,10 +1048,13 @@ export const examples = {
         text: 'Find your NHS number'
       },
       search: {}
+    },
+    options: {
+      isFullWidth: true,
+      layout: 'example-full-width'
     }
   },
   'organisational white with navigation (justified)': {
-    layout: 'layouts/example-full-width.njk',
     context: {
       classes: 'nhsuk-header--white',
       logo: {
@@ -1016,10 +1089,13 @@ export const examples = {
           }
         ]
       }
+    },
+    options: {
+      isFullWidth: true,
+      layout: 'example-full-width'
     }
   },
   'organisational white with search': {
-    layout: 'layouts/example-full-width.njk',
     context: {
       classes: 'nhsuk-header--white',
       logo: {
@@ -1033,6 +1109,10 @@ export const examples = {
       search: {
         visuallyHiddenLabel: 'Search the Anytown Anyplace Anywhere website'
       }
+    },
+    options: {
+      isFullWidth: true,
+      layout: 'example-full-width'
     },
     screenshot: [
       {
@@ -1053,7 +1133,6 @@ export const examples = {
     ]
   },
   'organisational white with search, navigation': {
-    layout: 'layouts/example-full-width.njk',
     context: {
       classes: 'nhsuk-header--white',
       logo: {
@@ -1093,12 +1172,15 @@ export const examples = {
         ]
       }
     },
+    options: {
+      isFullWidth: true,
+      layout: 'example-full-width'
+    },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'organisational white with search, navigation (white)': {
-    layout: 'layouts/example-full-width.njk',
     context: {
       classes: 'nhsuk-header--white',
       logo: {
@@ -1139,12 +1221,15 @@ export const examples = {
         ]
       }
     },
+    options: {
+      isFullWidth: true,
+      layout: 'example-full-width'
+    },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'organisational white with account (logged in)': {
-    layout: 'layouts/example-full-width.njk',
     context: {
       classes: 'nhsuk-header--white',
       service: {
@@ -1165,12 +1250,15 @@ export const examples = {
         ]
       }
     },
+    options: {
+      isFullWidth: true,
+      layout: 'example-full-width'
+    },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'organisational white with account (logged out)': {
-    layout: 'layouts/example-full-width.njk',
     context: {
       classes: 'nhsuk-header--white',
       service: {
@@ -1185,10 +1273,13 @@ export const examples = {
           }
         ]
       }
+    },
+    options: {
+      isFullWidth: true,
+      layout: 'example-full-width'
     }
   },
   'organisational white with search, navigation (custom logo)': {
-    layout: 'layouts/example-full-width.njk',
     context: {
       classes: 'nhsuk-header--white',
       logo: {
@@ -1245,6 +1336,10 @@ export const examples = {
           }
         ]
       }
+    },
+    options: {
+      isFullWidth: true,
+      layout: 'example-full-width'
     },
     screenshot: [
       {

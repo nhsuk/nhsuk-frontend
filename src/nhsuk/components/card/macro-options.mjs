@@ -286,13 +286,15 @@ export const examples = {
     }
   },
   'top task': {
-    layout: 'layouts/example-one-third.njk',
     context: {
       href: '#',
       clickable: true,
       headingLevel: 5,
       heading: 'Order a repeat prescription',
       headingClasses: 'nhsuk-heading-xs'
+    },
+    options: {
+      layout: 'example-one-third'
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']
