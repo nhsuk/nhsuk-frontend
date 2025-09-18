@@ -159,7 +159,7 @@ export const examples = {
       classes: 'nhsuk-button--reverse'
     },
     options: {
-      isReverse: true
+      layout: 'background-blue'
     },
     screenshot: {
       states: ['focus', 'hover', 'active'],
@@ -173,7 +173,7 @@ export const examples = {
       disabled: true
     },
     options: {
-      isReverse: true
+      layout: 'background-blue'
     },
     screenshot: true
   },
@@ -184,7 +184,7 @@ export const examples = {
       href: '#'
     },
     options: {
-      isReverse: true
+      layout: 'background-blue'
     },
     screenshot: {
       states: ['focus', 'hover', 'active'],
@@ -226,7 +226,7 @@ export const examples = {
       classes: 'nhsuk-button--secondary-solid'
     },
     options: {
-      layout: 'example-background-grey'
+      layout: 'background-grey'
     },
     screenshot: {
       states: ['focus', 'hover', 'active'],
@@ -240,7 +240,7 @@ export const examples = {
       disabled: true
     },
     options: {
-      layout: 'example-background-grey'
+      layout: 'background-grey'
     },
     screenshot: true
   },
@@ -251,7 +251,7 @@ export const examples = {
       href: '#'
     },
     options: {
-      layout: 'example-background-grey'
+      layout: 'background-grey'
     },
     screenshot: {
       states: ['focus', 'hover', 'active'],

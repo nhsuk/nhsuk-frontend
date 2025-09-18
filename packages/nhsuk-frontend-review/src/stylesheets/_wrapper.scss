@@ -1,0 +1,38 @@
+@use "vendor/nhsuk-frontend/base" as *;
+
+.app-wrapper {
+  border-top: $nhsuk-hero-border solid $nhsuk-border-colour;
+  color: $nhsuk-text-colour;
+}
+
+// Turn off border between high-contrast colours
+.app-wrapper--background-blue + .app-wrapper--background-grey,
+.app-wrapper--background-blue + .app-wrapper--background-white {
+  border-color: transparent;
+}
+
+.app-wrapper--background-blue {
+  // Turn off border by default
+  border-color: transparent;
+  color: $nhsuk-reverse-text-colour;
+  background-color: $nhsuk-brand-colour;
+
+  & + & {
+    border-color: $nhsuk-secondary-border-colour;
+  }
+}
+
+.app-wrapper--background-grey {
+  // Turn off border by default
+  border-color: transparent;
+  background-color: $nhsuk-template-background-colour;
+
+  // Turn on border between grey and grey
+  & + & {
+    border-color: $nhsuk-body-background-colour;
+  }
+}
+
+.app-wrapper--background-white {
+  background-color: $nhsuk-card-background-colour;
+}

@@ -76,7 +76,7 @@ export const examples = {
       classes: 'nhsuk-back-link--reverse'
     },
     options: {
-      isReverse: true
+      layout: 'background-blue'
     },
     screenshot: {
       states: ['focus', 'hover', 'active'],

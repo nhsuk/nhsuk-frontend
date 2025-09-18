@@ -136,7 +136,7 @@ export const examples = {
       disableAutoFocus: true
     },
     options: {
-      isHidden: true
+      hidden: true
     }
   },
   'auto-focus explicitly enabled': {
@@ -151,7 +151,7 @@ export const examples = {
       disableAutoFocus: false
     },
     options: {
-      isHidden: true
+      hidden: true
     }
   }
 }

@@ -1,18 +1,2 @@
-@use "vendor/nhsuk-frontend/base" as *;
-
-.app-wrapper {
-  color: $nhsuk-text-colour;
-}
-
-.app-wrapper--background-blue {
-  background-color: nhsuk-colour("blue");
-  color: $nhsuk-reverse-text-colour;
-}
-
-.app-wrapper--background-grey {
-  background-color: $nhsuk-template-background-colour;
-}
-
-.app-wrapper--background-white {
-  background-color: $nhsuk-card-background-colour;
-}
+@forward "template";
+@forward "wrapper";

@@ -182,7 +182,7 @@ export const examples = {
       text: 'Email sent to example@email.com'
     },
     options: {
-      isHidden: true
+      hidden: true
     }
   },
   'auto-focus explicitly enabled, with type as success': {
@@ -192,7 +192,7 @@ export const examples = {
       text: 'Email sent to example@email.com'
     },
     options: {
-      isHidden: true
+      hidden: true
     }
   },
   'role=alert overridden to role=region, with type as success': {
@@ -202,7 +202,7 @@ export const examples = {
       text: 'Email sent to example@email.com'
     },
     options: {
-      isHidden: true
+      hidden: true
     }
   },
   'custom tabindex': {
@@ -214,7 +214,7 @@ export const examples = {
       }
     },
     options: {
-      isHidden: true
+      hidden: true
     }
   }
 }

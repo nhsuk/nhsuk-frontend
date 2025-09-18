@@ -294,7 +294,7 @@ export const examples = {
       headingClasses: 'nhsuk-heading-xs'
     },
     options: {
-      layout: 'example-one-third'
+      width: 'one-third'
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']

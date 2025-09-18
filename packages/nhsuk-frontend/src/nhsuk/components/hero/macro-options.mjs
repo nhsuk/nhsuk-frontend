@@ -84,8 +84,7 @@ export const examples = {
       text: 'Helping you take control of your health and wellbeing.'
     },
     options: {
-      isFullWidth: true,
-      layout: 'example-full-width'
+      width: false
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
@@ -97,8 +96,7 @@ export const examples = {
         'https://assets.nhs.uk/prod/images/S_0818_homepage_hero_1_F0147446.width-1000.jpg'
     },
     options: {
-      isFullWidth: true,
-      layout: 'example-full-width'
+      width: false
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
@@ -112,8 +110,7 @@ export const examples = {
         'https://assets.nhs.uk/prod/images/S_0818_homepage_hero_1_F0147446.width-1000.jpg'
     },
     options: {
-      isFullWidth: true,
-      layout: 'example-full-width'
+      width: false
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
@@ -135,8 +132,7 @@ export const examples = {
       `
     },
     options: {
-      isFullWidth: true,
-      layout: 'example-full-width'
+      width: false
     }
   }
 }

@@ -51,36 +51,38 @@ export const compile = task.name('html:render', async () => {
     const componentPath = `components/${component}`
 
     // Render component listing
-    const html = nunjucks.renderTemplate('layouts/listing.njk', {
-      context: { ...context, ...data, title: name },
+    const templateHtml = nunjucks.renderTemplate('layouts/listing.njk', {
+      context: { ...context, ...data, pageName: name },
       env
     })
 
     // Write component listing to disk
     await files.write(join(componentPath, 'index.html'), {
       destPath,
-      output: { contents: html }
+      output: { contents: templateHtml }
     })
 
     // Render component examples
     for (const [exampleName, example] of Object.entries(examples)) {
-      const componentHtml = components.render(component, { ...example, env })
+      const { options } = example
 
-      const layout =
-        example.options?.layout ??
-        (example.options?.isReverse ? 'example-background-blue' : 'example')
+      // Render component example
+      const html = components.render(component, {
+        ...example,
+        env
+      })
 
       // Render component example into layout
-      const html = nunjucks.renderTemplate(`layouts/${layout}.njk`, {
-        blocks: { example: componentHtml },
-        context: { ...context, title: `${name} ${exampleName}` },
+      const templateHtml = nunjucks.renderTemplate('layouts/preview.njk', {
+        blocks: { example: html },
+        context: { ...context, pageName: `${name}: ${exampleName}`, options },
         env
       })
 
       // Write component example to disk
       await files.write(
         join(componentPath, slugify(exampleName), 'index.html'),
-        { destPath, output: { contents: html } }
+        { destPath, output: { contents: templateHtml } }
       )
     }
   }
@@ -95,12 +97,12 @@ export const compile = task.name('html:render', async () => {
     )
 
     // Render page
-    const html = nunjucks.renderTemplate(path, { context, env })
+    const templateHtml = nunjucks.renderTemplate(path, { context, env })
 
     // Write page to disk
     await files.write(outputPath, {
       destPath,
-      output: { contents: html }
+      output: { contents: templateHtml }
     })
   }
 })

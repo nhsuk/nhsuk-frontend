@@ -188,16 +188,21 @@ export function render(component, options) {
  * Nunjucks macro example review app options
  *
  * @typedef {object} MacroExampleOptions
- * @property {boolean} [isFullWidth] - Render full width in review app
- * @property {boolean} [isHidden] - Hide example in review app
- * @property {boolean} [isReverse] - Reverse colour scheme in review app
- * @property {string | undefined} [layout] - Nunjucks layout for component
+ * @property {boolean} [hidden] - Hide example on component listing pages
+ * @property {string} [layout] - Nunjucks layout for component preview page
+ * @property {MacroExampleWidth | false} [width] - Component grid column width (or set `false` to remove width container)
  */
 
 /**
  * Nunjucks macro example state
  *
  * @typedef {('focus' | 'hover' | 'active' | 'click')} MacroExampleState
+ */
+
+/**
+ * Nunjucks macro example column width
+ *
+ * @typedef {('one-third' | 'two-thirds' | 'one-half' | 'full')} MacroExampleWidth
  */
 
 /**
