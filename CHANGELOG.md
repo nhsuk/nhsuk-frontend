@@ -23,6 +23,10 @@ input({
 
 This was added in [pull request #1561: Add `beforeInput(s)` and `beforeInput(s)` options to form groups](https://github.com/nhsuk/nhsuk-frontend/pull/1561).
 
+### :wrench: **Fixes**
+
+- [#1599: Make border colour on `nhsuk-panel` mixin optional](https://github.com/nhsuk/nhsuk-frontend/pull/1599)
+
 ## 10.0.0 - 26 August 2025
 
 You can follow the [updating to NHS.UK frontend version 10](https://service-manual.nhs.uk/design-system/guides/updating-to-v10) guide in the NHS digital service manual on what's changed and what you need to update.
