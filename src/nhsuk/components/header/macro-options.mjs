@@ -289,8 +289,7 @@ export const examples = {
       }
     },
     options: {
-      isFullWidth: true,
-      layout: 'example-full-width'
+      width: false
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
@@ -331,8 +330,7 @@ export const examples = {
       }
     },
     options: {
-      isFullWidth: true,
-      layout: 'example-full-width'
+      width: false
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
@@ -382,8 +380,7 @@ export const examples = {
       }
     },
     options: {
-      isFullWidth: true,
-      layout: 'example-full-width'
+      width: false
     }
   },
   'with navigation (white)': {
@@ -422,8 +419,7 @@ export const examples = {
       }
     },
     options: {
-      isFullWidth: true,
-      layout: 'example-full-width'
+      width: false
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
@@ -437,8 +433,7 @@ export const examples = {
       search: true
     },
     options: {
-      isFullWidth: true,
-      layout: 'example-full-width'
+      width: false
     },
     screenshot: {
       name: 'search input',
@@ -454,8 +449,7 @@ export const examples = {
       }
     },
     options: {
-      isFullWidth: true,
-      layout: 'example-full-width'
+      width: false
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
@@ -463,8 +457,7 @@ export const examples = {
   },
   'with logo unlinked': {
     options: {
-      isFullWidth: true,
-      layout: 'example-full-width'
+      width: false
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
@@ -491,8 +484,7 @@ export const examples = {
       }
     },
     options: {
-      isFullWidth: true,
-      layout: 'example-full-width'
+      width: false
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
@@ -514,8 +506,7 @@ export const examples = {
       }
     },
     options: {
-      isFullWidth: true,
-      layout: 'example-full-width'
+      width: false
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
@@ -569,8 +560,7 @@ export const examples = {
       }
     },
     options: {
-      isFullWidth: true,
-      layout: 'example-full-width'
+      width: false
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
@@ -620,8 +610,7 @@ export const examples = {
       }
     },
     options: {
-      isFullWidth: true,
-      layout: 'example-full-width'
+      width: false
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
@@ -672,8 +661,7 @@ export const examples = {
       }
     },
     options: {
-      isFullWidth: true,
-      layout: 'example-full-width'
+      width: false
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
@@ -718,8 +706,7 @@ export const examples = {
       }
     },
     options: {
-      isFullWidth: true,
-      layout: 'example-full-width'
+      width: false
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
@@ -765,8 +752,7 @@ export const examples = {
       }
     },
     options: {
-      isFullWidth: true,
-      layout: 'example-full-width'
+      width: false
     }
   },
   'with service name logo separate, search': {
@@ -782,8 +768,7 @@ export const examples = {
       search: {}
     },
     options: {
-      isFullWidth: true,
-      layout: 'example-full-width'
+      width: false
     },
     screenshot: [
       {
@@ -812,8 +797,7 @@ export const examples = {
       search: {}
     },
     options: {
-      isFullWidth: true,
-      layout: 'example-full-width'
+      width: false
     }
   },
   'with service name logo separate, search (longer service name)': {
@@ -829,8 +813,7 @@ export const examples = {
       search: {}
     },
     options: {
-      isFullWidth: true,
-      layout: 'example-full-width'
+      width: false
     }
   },
   'with service name logo combo, search': {
@@ -844,8 +827,7 @@ export const examples = {
       }
     },
     options: {
-      isFullWidth: true,
-      layout: 'example-full-width'
+      width: false
     },
     screenshot: [
       {
@@ -871,8 +853,7 @@ export const examples = {
       search: {}
     },
     options: {
-      isFullWidth: true,
-      layout: 'example-full-width'
+      width: false
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
@@ -914,8 +895,7 @@ export const examples = {
       }
     },
     options: {
-      isFullWidth: true,
-      layout: 'example-full-width'
+      width: false
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
@@ -936,8 +916,7 @@ export const examples = {
       }
     },
     options: {
-      isFullWidth: true,
-      layout: 'example-full-width'
+      width: false
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
@@ -983,8 +962,7 @@ export const examples = {
       }
     },
     options: {
-      isFullWidth: true,
-      layout: 'example-full-width'
+      width: false
     }
   },
   'organisational white with service name logo separate, search': {
@@ -1001,8 +979,7 @@ export const examples = {
       search: {}
     },
     options: {
-      isFullWidth: true,
-      layout: 'example-full-width'
+      width: false
     },
     screenshot: [
       {
@@ -1033,8 +1010,7 @@ export const examples = {
       }
     },
     options: {
-      isFullWidth: true,
-      layout: 'example-full-width'
+      width: false
     }
   },
   'organisational white with service name unlinked, search': {
@@ -1050,8 +1026,7 @@ export const examples = {
       search: {}
     },
     options: {
-      isFullWidth: true,
-      layout: 'example-full-width'
+      width: false
     }
   },
   'organisational white with navigation (justified)': {
@@ -1091,8 +1066,7 @@ export const examples = {
       }
     },
     options: {
-      isFullWidth: true,
-      layout: 'example-full-width'
+      width: false
     }
   },
   'organisational white with search': {
@@ -1111,8 +1085,7 @@ export const examples = {
       }
     },
     options: {
-      isFullWidth: true,
-      layout: 'example-full-width'
+      width: false
     },
     screenshot: [
       {
@@ -1173,8 +1146,7 @@ export const examples = {
       }
     },
     options: {
-      isFullWidth: true,
-      layout: 'example-full-width'
+      width: false
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
@@ -1222,8 +1194,7 @@ export const examples = {
       }
     },
     options: {
-      isFullWidth: true,
-      layout: 'example-full-width'
+      width: false
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
@@ -1251,8 +1222,7 @@ export const examples = {
       }
     },
     options: {
-      isFullWidth: true,
-      layout: 'example-full-width'
+      width: false
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
@@ -1275,8 +1245,7 @@ export const examples = {
       }
     },
     options: {
-      isFullWidth: true,
-      layout: 'example-full-width'
+      width: false
     }
   },
   'organisational white with search, navigation (custom logo)': {
@@ -1338,8 +1307,7 @@ export const examples = {
       }
     },
     options: {
-      isFullWidth: true,
-      layout: 'example-full-width'
+      width: false
     },
     screenshot: [
       {

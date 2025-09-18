@@ -121,7 +121,7 @@ export const examples = {
       ]
     },
     options: {
-      isReverse: true
+      layout: 'background-blue'
     },
     screenshot: {
       states: ['focus', 'hover', 'active'],
@@ -152,6 +152,9 @@ export const examples = {
           attributes: { lang: 'en' }
         }
       ]
+    },
+    options: {
+      hidden: true
     }
   }
 }

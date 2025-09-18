@@ -61,7 +61,7 @@ export const examples = {
       href: '#'
     },
     options: {
-      isReverse: true
+      layout: 'background-blue'
     },
     screenshot: {
       states: ['focus', 'hover', 'active'],

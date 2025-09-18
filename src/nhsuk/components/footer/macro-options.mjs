@@ -191,8 +191,7 @@ export const params = {
 export const examples = {
   'default': {
     options: {
-      isFullWidth: true,
-      layout: 'example-full-width'
+      width: false
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
@@ -205,8 +204,7 @@ export const examples = {
       }
     },
     options: {
-      isFullWidth: true,
-      layout: 'example-full-width'
+      width: false
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
@@ -240,8 +238,7 @@ export const examples = {
       }
     },
     options: {
-      isFullWidth: true,
-      layout: 'example-full-width'
+      width: false
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
@@ -276,8 +273,7 @@ export const examples = {
       }
     },
     options: {
-      isFullWidth: true,
-      layout: 'example-full-width'
+      width: false
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
@@ -311,8 +307,7 @@ export const examples = {
       }
     },
     options: {
-      isFullWidth: true,
-      layout: 'example-full-width'
+      width: false
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
@@ -427,8 +422,7 @@ export const examples = {
       ]
     },
     options: {
-      isFullWidth: true,
-      layout: 'example-full-width'
+      width: false
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
@@ -495,8 +489,7 @@ export const examples = {
       ]
     },
     options: {
-      isFullWidth: true,
-      layout: 'example-full-width'
+      width: false
     }
   },
   'with multiple titled navigation groups': {
@@ -556,8 +549,7 @@ export const examples = {
       ]
     },
     options: {
-      isFullWidth: true,
-      layout: 'example-full-width'
+      width: false
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
@@ -677,8 +669,7 @@ export const examples = {
       }
     },
     options: {
-      isFullWidth: true,
-      layout: 'example-full-width'
+      width: false
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
