@@ -3,8 +3,18 @@
 {% set pageName = "Button group" %}
 
 {% block beforeContent %}
-  {{ backLink({
-    href: baseUrl
+  {{ breadcrumb({
+    classes: "nhsuk-u-display-inline-block",
+    items: [
+      {
+        text: "NHS.UK frontend",
+        href: baseUrl
+      },
+      {
+        text: "Examples",
+        href: baseUrl ~ "#examples"
+      }
+    ]
   }) }}
 {% endblock %}
 
