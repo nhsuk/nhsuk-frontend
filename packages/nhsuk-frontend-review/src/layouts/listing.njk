@@ -41,7 +41,7 @@
   {% set isReverse = options.layout == "background-blue" -%}
 
   {% if not options.hidden %}
-  <section class="nhsuk-main-wrapper app-wrapper {%- if options.layout %} app-wrapper--{{ options.layout }}{%- endif %}">
+  <section id="{{ exampleName | slugify }}" class="nhsuk-main-wrapper app-wrapper {%- if options.layout %} app-wrapper--{{ options.layout }}{%- endif %}">
     <div class="nhsuk-width-container">
       <div class="nhsuk-grid-row">
         <div class="nhsuk-grid-column-{{ options.width | default("two-thirds", true) }}">
