@@ -1,6 +1,6 @@
 {% extends "layouts/page.njk" %}
 
-{% set title = "Components" %}
+{% set pageName = "Components" %}
 
 {% block header %}
   {{ header({
@@ -57,7 +57,7 @@
         </p>
       {% endcall %}
 
-      <h1 class="nhsuk-heading-xl">{{ title }}</h1>
+      <h1 class="nhsuk-heading-xl">{{ pageName }}</h1>
 
       {{ contentsList({
         items: [

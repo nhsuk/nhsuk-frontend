@@ -1,6 +1,6 @@
 {% extends "layouts/page.njk" %}
 
-{% set title = "Tags" %}
+{% set pageName = "Tags" %}
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 
 {% block beforeContent %}
@@ -82,7 +82,7 @@
       {% endfor %}
 
       {{ table({
-        caption: title,
+        caption: pageName,
         captionClasses: "nhsuk-table__caption--xl nhsuk-u-margin-bottom-7",
         firstCellIsHeader: true,
         responsive: true,

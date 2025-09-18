@@ -1,6 +1,6 @@
 {% extends "layouts/page.njk" %}
 
-{% set title = "Conditional reveals" %}
+{% set pageName = "Conditional reveals" %}
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 
 {% block beforeContent %}
@@ -12,7 +12,7 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-heading-xl">{{ title }}</h1>
+      <h1 class="nhsuk-heading-xl">{{ pageName }}</h1>
 
       {% set emailHtml %}
         {{ input({

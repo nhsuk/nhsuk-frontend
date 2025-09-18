@@ -39,6 +39,7 @@ export const compile = task.name('html:render', async () => {
     assetPath: `/nhsuk-frontend/assets`,
     baseUrl: '/nhsuk-frontend/',
     branchName: HEROKU_BRANCH,
+    serviceName: 'NHS.UK frontend',
     version: config.version,
     components: await components.loadAll()
   }

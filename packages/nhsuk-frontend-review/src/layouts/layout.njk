@@ -1,6 +1,10 @@
 {% extends "nhsuk/template.njk" %}
 
-{% block pageTitle %}{{ title }} - NHS.UK Frontend{% endblock %}
+{% block pageTitle -%}
+  {%- if errors === true or (errors | length) %}Error: {% endif -%}
+  {%- if pageName %}{{ pageName }} – {% endif -%}
+  {{ serviceName }} – NHS
+{%- endblock %}
 
 {% block head %}
   {% include "partials/preload.njk" %}

@@ -1,7 +1,5 @@
 {% extends "layouts/page.njk" %}
 
-{% set title = "NHS.UK frontend" %}
-
 {% block header %}
   {% include "partials/banner.njk" %}
 {% endblock %}
@@ -9,7 +7,7 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-4">{{ title }}</h1>
+      <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-4">{{ serviceName }}</h1>
       <p class="nhsuk-body nhsuk-u-margin-bottom-8">Deployed automatically from <a href="https://github.com/nhsuk/nhsuk-frontend/commits/{{ branchName }}" rel="noreferrer noopener" target="_blank"><code>{{ branchName }}</code> branch (opens in new tab).</a></p>
     </div>
   </div>
