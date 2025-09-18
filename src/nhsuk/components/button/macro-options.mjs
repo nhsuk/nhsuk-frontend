@@ -244,7 +244,7 @@ export const examples = {
     },
     screenshot: true
   },
-  'secondary as a link, solid background': {
+  'secondary, solid background as a link': {
     context: {
       text: 'Find my location',
       classes: 'nhsuk-button--secondary-solid',
