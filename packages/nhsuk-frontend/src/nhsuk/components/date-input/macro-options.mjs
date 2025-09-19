@@ -18,7 +18,7 @@ export const params = {
     type: 'string',
     required: false,
     description:
-      "Optional prefix. This is used to prefix each `item.name`, with the name then appearing in square brackets, for example `'date[month]'` ."
+      "Optional. This is used to in the name attribute to group the date input parts together. For example, if the `namePrefix` is `dateOfBirth` the day input will have the `name` attribute `dateOfBirth[day]`, the month input will have the `name` attribute `dateOfBirth[month]` and so on."
   },
   items: {
     type: 'array',
