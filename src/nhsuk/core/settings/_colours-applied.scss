@@ -127,6 +127,14 @@ $nhsuk-secondary-border-colour: rgba(nhsuk-colour("white"), 0.2) !default;
 
 $nhsuk-input-border-colour: nhsuk-colour("grey-1") !default;
 
+/// Input hover colour
+///
+/// Used for hover states on form controls
+///
+/// @type Colour
+
+$nhsuk-hover-colour: nhsuk-colour("grey-3") !default;
+
 /// Form element background colour
 ///
 /// @type Colour
