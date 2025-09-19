@@ -25,6 +25,7 @@ This was added in [pull request #1561: Add `beforeInput(s)` and `beforeInput(s)`
 
 ### :wrench: **Fixes**
 
+- [#1593: Fix Sass deprecated `core/settings/colours` partial](https://github.com/nhsuk/nhsuk-frontend/pull/1593)
 - [#1599: Make border colour on `nhsuk-panel` mixin optional](https://github.com/nhsuk/nhsuk-frontend/pull/1599)
 
 ## 10.0.0 - 26 August 2025
