@@ -14,8 +14,8 @@ $nhsuk-footer-border-colour: nhsuk-colour("grey-3");
 
 @include nhsuk-exports("nhsuk/components/footer") {
   .nhsuk-footer {
-    background-color: $nhsuk-template-background-colour;
     border-top: $nhsuk-border-width solid $nhsuk-brand-colour;
+    background-color: $nhsuk-template-background-colour;
 
     @include nhsuk-print-hide;
     @include nhsuk-responsive-padding(5, bottom);
@@ -27,9 +27,9 @@ $nhsuk-footer-border-colour: nhsuk-colour("grey-3");
   }
 
   .nhsuk-footer__list {
-    list-style-type: none;
     margin-bottom: nhsuk-spacing(4);
     padding: 0;
+    list-style-type: none;
   }
 
   .nhsuk-footer__list-item {

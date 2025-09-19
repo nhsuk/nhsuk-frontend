@@ -16,13 +16,13 @@
   }
 
   .nhsuk-form-group--error {
-    border-left: $nhsuk-border-width-form-group-error solid $nhsuk-error-colour;
     padding-left: nhsuk-spacing(3);
+    border-left: $nhsuk-border-width-form-group-error solid $nhsuk-error-colour;
 
     .nhsuk-form-group {
+      padding: 0;
       // Reset error styles in nested form groups that might have error class
       border: 0;
-      padding: 0;
     }
   }
 }

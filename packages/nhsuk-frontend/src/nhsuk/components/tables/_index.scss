@@ -16,10 +16,10 @@
 
   .nhsuk-table-container {
     display: block;
+    width: 100%;
+    overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: -ms-autohiding-scrollbar;
-    overflow-x: auto;
-    width: 100%;
 
     @include nhsuk-responsive-margin(7, "bottom");
 
@@ -32,7 +32,6 @@
   .nhsuk-table,
   .nhsuk-table-responsive {
     width: 100%;
-
     border-spacing: 0;
     border-collapse: collapse;
 

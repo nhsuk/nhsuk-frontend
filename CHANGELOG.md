@@ -1,6 +1,35 @@
 # NHS.UK frontend Changelog
 
+## Unreleased
+
+### :new: **New features**
+
+#### Insert custom HTML into component form group wrappers
+
+You can now insert custom HTML into form group wrappers for all components with form fields.
+
+```njk
+input({
+  formGroup: {
+    beforeInput: {
+      html: "example"
+    },
+    afterInput: {
+      html: "example"
+    },
+  }
+})
+```
+
+This was added in [pull request #1561: Add `beforeInput(s)` and `beforeInput(s)` options to form groups](https://github.com/nhsuk/nhsuk-frontend/pull/1561).
+
+### :wrench: **Fixes**
+
+- [#1599: Make border colour on `nhsuk-panel` mixin optional](https://github.com/nhsuk/nhsuk-frontend/pull/1599)
+
 ## 10.0.0 - 26 August 2025
+
+You can follow the [updating to NHS.UK frontend version 10](https://service-manual.nhs.uk/design-system/guides/updating-to-v10) guide in the NHS digital service manual on what's changed and what you need to update.
 
 This release introduces some breaking changes to file paths, full width buttons on mobile, the header component and others. It also stops Internet Explorer 11 and other older browsers from running NHS.UK frontend JavaScript.
 
@@ -360,7 +389,7 @@ Before:
 
 ```html
   <!-- // ... -->
-  <script src="/javascripts/nhsuk-frontend.min.js" defer></script>
+  <script src="/<JAVASCRIPTS-PATH>/nhsuk.min.js" defer></script>
 </head>
 ```
 
@@ -368,9 +397,9 @@ After:
 
 ```html
   <!-- // ... -->
-  <script type="module" src="/javascripts/nhsuk-frontend.min.js"></script>
+  <script type="module" src="/<JAVASCRIPTS-PATH>/nhsuk.min.js"></script>
   <script type="module">
-    import { initAll } from '/javascripts/nhsuk-frontend.min.js'
+    import { initAll } from '/<JAVASCRIPTS-PATH>/nhsuk-frontend.min.js'
     initAll()
   </script>
 </body>
@@ -380,7 +409,7 @@ Or for [JavaScript imported using a bundler](#using-a-javascript-bundler), initi
 
 ```html
   <!-- // ... -->
-  <script type="module" src="/javascripts/application.min.js"></script>
+  <script type="module" src="/<JAVASCRIPTS-PATH>/application.min.js"></script>
 </body>
 ```
 

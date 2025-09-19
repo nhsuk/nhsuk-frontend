@@ -23,8 +23,8 @@
 
   .nhsuk-action-link {
     display: inline-block; // [1]
-    padding-left: nhsuk-px-to-rem($_small-icon-size + $_small-icon-spacing); // [2]
     position: relative; // [3]
+    padding-left: nhsuk-px-to-rem($_small-icon-size + $_small-icon-spacing); // [2]
     text-decoration: none; // [4]
 
     &:not(:focus):hover {
@@ -42,20 +42,20 @@
     @include nhsuk-responsive-margin(6, "bottom");
 
     @include nhsuk-media-query($from: tablet) {
-      line-height: nhsuk-line-height($_large-icon-size, $font-size: 22);
       padding-left: nhsuk-px-to-rem($_large-icon-size + $_large-icon-spacing); // [2]
+      line-height: nhsuk-line-height($_large-icon-size, $font-size: 22);
     }
 
     .nhsuk-icon {
+      position: absolute;
+      left: nhsuk-px-to-rem(-$_small-icon-spacing);
       // stylelint-disable-next-line declaration-no-important
       fill: nhsuk-colour("green") !important;
-      left: nhsuk-px-to-rem(-$_small-icon-spacing);
-      position: absolute;
 
       @include nhsuk-media-query($from: tablet) {
-        height: nhsuk-px-to-rem($_large-icon-size);
-        width: nhsuk-px-to-rem($_large-icon-size);
         left: nhsuk-px-to-rem(-$_large-icon-spacing);
+        width: nhsuk-px-to-rem($_large-icon-size);
+        height: nhsuk-px-to-rem($_large-icon-size);
       }
     }
 

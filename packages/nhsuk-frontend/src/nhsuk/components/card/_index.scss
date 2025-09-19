@@ -53,9 +53,9 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
   }
 
   .nhsuk-card__img {
-    border-bottom: $nhsuk-card-border-width solid nhsuk-colour("grey-5"); // [2]
     display: block;
     width: 100%;
+    border-bottom: $nhsuk-card-border-width solid nhsuk-colour("grey-5"); // [2]
 
     @include nhsuk-print-hide;
   }
@@ -85,20 +85,23 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
     .nhsuk-card__heading a,
     .nhsuk-card__link {
       &::before {
-        background-color: rgba(255, 255, 255, 0); // [17]
-        bottom: 0;
         content: "";
+
         display: block;
-        left: 0;
+
         position: absolute;
-        right: 0;
         top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        background-color: rgba(255, 255, 255, 0); // [17]
       }
     }
 
     &:active {
-      border-color: $nhsuk-card-border-hover-colour;
       bottom: -$nhsuk-card-border-width; // [3]
+      border-color: $nhsuk-card-border-hover-colour;
     }
   }
 
@@ -126,8 +129,8 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
   }
 
   .nhsuk-card-group__item {
-    list-style-type: none;
     margin-bottom: 0;
+    list-style-type: none;
 
     @include nhsuk-flex-item;
 
@@ -168,10 +171,10 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
   }
 
   .nhsuk-card--care__heading-container {
-    border-bottom: 1px solid transparent;
-    padding-bottom: nhsuk-spacing(3) - 1px;
-    padding-top: nhsuk-spacing(3);
     position: relative;
+    padding-top: nhsuk-spacing(3);
+    padding-bottom: nhsuk-spacing(3) - 1px;
+    border-bottom: 1px solid transparent;
 
     @include nhsuk-responsive-padding(5, "left");
     @include nhsuk-responsive-padding(5, "right");
@@ -186,14 +189,18 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
   }
 
   .nhsuk-card--care__arrow {
-    bottom: -11px; // [9]
     display: block;
-    height: 20px; // [9]
-    left: 30px; // [10]
-    overflow: hidden;
+
     position: absolute;
-    transform: rotate(45deg);
+    bottom: -11px; // [9]
+    left: 30px; // [10]
+
     width: 20px; // [9]
+    height: 20px; // [9]
+
+    overflow: hidden;
+
+    transform: rotate(45deg);
     @include nhsuk-print-hide;
 
     @include nhsuk-media-query($from: tablet) {
@@ -202,14 +209,19 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
 
     &::before,
     &::after {
-      border: solid 32px $nhsuk-brand-colour; // [9]
       content: "";
+
       display: block;
-      height: 0;
+
       position: absolute;
       top: 0;
-      transform: rotate(45deg); // [12]
+
       width: 0;
+      height: 0;
+
+      transform: rotate(45deg); // [12]
+
+      border: solid 32px $nhsuk-brand-colour; // [9]
     }
   }
 
@@ -235,10 +247,10 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
     }
 
     .nhsuk-card__content {
-      background-color: nhsuk-colour("black");
+      position: static; // [15]
       border: 0;
       color: $nhsuk-reverse-text-colour;
-      position: static; // [15]
+      background-color: nhsuk-colour("black");
 
       a {
         @include nhsuk-link-style-white;
@@ -280,13 +292,17 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
 
     .nhsuk-icon {
       display: block;
-      fill: $nhsuk-link-colour;
-      height: nhsuk-px-to-rem($nhsuk-icon-size-large);
-      width: nhsuk-px-to-rem($nhsuk-icon-size-large);
-      margin-top: math.floor(math.div($nhsuk-icon-size-large, -2));
-      pointer-events: none;
+
       position: absolute;
       top: 50%;
+
+      width: nhsuk-px-to-rem($nhsuk-icon-size-large);
+      height: nhsuk-px-to-rem($nhsuk-icon-size-large);
+      margin-top: math.floor(math.div($nhsuk-icon-size-large, -2));
+
+      pointer-events: none;
+
+      fill: $nhsuk-link-colour;
       @include nhsuk-responsive-spacing(5, "right");
     }
   }
@@ -294,16 +310,16 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
   // Card secondary
 
   .nhsuk-card--secondary {
-    background: transparent;
+    border-top: 0;
+    border-right: 0;
     border-bottom: $nhsuk-card-border-bottom-width solid $nhsuk-card-border-colour;
     border-left: 0;
-    border-right: 0;
-    border-top: 0;
+    background: transparent;
   }
 
   .nhsuk-card__content--secondary {
-    padding-left: 0;
-    padding-right: 0;
     padding-top: 0;
+    padding-right: 0;
+    padding-left: 0;
   }
 }
