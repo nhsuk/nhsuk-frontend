@@ -120,7 +120,7 @@ describe('Tabs', () => {
           const secondTab = document.body.querySelector(
             '.nhsuk-tabs__list-item:nth-child(2) .nhsuk-tabs__tab'
           )
-          secondTab.innerHTML = '<span>Tab 2</span>'
+          secondTab.innerHTML = '<span>Past week</span>'
         })
 
         // Click the DOM element inside the second tab
@@ -190,26 +190,26 @@ describe('Tabs', () => {
       page = await goToComponent(browser, 'tabs')
 
       await page.evaluate(() => {
-        window.location.hash = '#tab-two'
+        window.location.hash = '#past-week'
       })
 
       const currentTabAriaSelected = await page.evaluate(() =>
         document.body
-          .querySelector('.nhsuk-tabs__tab[href="#tab-two"]')
+          .querySelector('.nhsuk-tabs__tab[href="#past-week"]')
           .getAttribute('aria-selected')
       )
       expect(currentTabAriaSelected).toBe('true')
 
       const currentTabClasses = await page.evaluate(
         () =>
-          document.body.querySelector('.nhsuk-tabs__tab[href="#tab-two"]')
+          document.body.querySelector('.nhsuk-tabs__tab[href="#past-week"]')
             .parentElement.className
       )
       expect(currentTabClasses).toContain('nhsuk-tabs__list-item--selected')
 
       const currentTabPanelIsHidden = await page.evaluate(() =>
         document
-          .getElementById('tab-two')
+          .getElementById('past-week')
           .classList.contains('nhsuk-tabs__panel--hidden')
       )
       expect(currentTabPanelIsHidden).toBeFalsy()

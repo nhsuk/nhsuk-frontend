@@ -170,7 +170,8 @@ export const examples = {
   'default': {
     context: {
       label: {
-        text: 'Sort by'
+        text: 'Sort by',
+        isPageHeading: true
       },
       name: 'example',
       items: [
@@ -197,7 +198,8 @@ export const examples = {
   'with disabled item': {
     context: {
       label: {
-        text: 'Sort by'
+        text: 'Sort by',
+        isPageHeading: true
       },
       id: 'with-disabled-item',
       name: 'example',
@@ -225,7 +227,8 @@ export const examples = {
   'with hint': {
     context: {
       label: {
-        text: 'Choose location'
+        text: 'Choose location',
+        isPageHeading: true
       },
       hint: {
         text: 'This can be different to where you went before'
@@ -277,14 +280,128 @@ export const examples = {
     },
     screenshot: true
   },
-  'with label as page heading': {
+  'with label size S': {
+    context: {
+      label: {
+        text: 'Sort by',
+        classes: 'nhsuk-label--s',
+        isPageHeading: true
+      },
+      id: 'custom-size',
+      name: 'example',
+      items: [
+        {
+          value: 'published',
+          text: 'Recently published'
+        },
+        {
+          value: 'updated',
+          text: 'Recently updated'
+        },
+        {
+          value: 'views',
+          text: 'Most views'
+        },
+        {
+          value: 'comments',
+          text: 'Most comments'
+        }
+      ]
+    }
+  },
+  'with label size M': {
+    context: {
+      label: {
+        text: 'Sort by',
+        classes: 'nhsuk-label--m',
+        isPageHeading: true
+      },
+      id: 'custom-size',
+      name: 'example',
+      items: [
+        {
+          value: 'published',
+          text: 'Recently published'
+        },
+        {
+          value: 'updated',
+          text: 'Recently updated'
+        },
+        {
+          value: 'views',
+          text: 'Most views'
+        },
+        {
+          value: 'comments',
+          text: 'Most comments'
+        }
+      ]
+    }
+  },
+  'with label size L': {
     context: {
       label: {
         text: 'Sort by',
         classes: 'nhsuk-label--l',
         isPageHeading: true
       },
-      id: 'page-heading',
+      id: 'custom-size',
+      name: 'example',
+      items: [
+        {
+          value: 'published',
+          text: 'Recently published'
+        },
+        {
+          value: 'updated',
+          text: 'Recently updated'
+        },
+        {
+          value: 'views',
+          text: 'Most views'
+        },
+        {
+          value: 'comments',
+          text: 'Most comments'
+        }
+      ]
+    }
+  },
+  'with label size XL': {
+    context: {
+      label: {
+        text: 'Sort by',
+        classes: 'nhsuk-label--xl',
+        isPageHeading: true
+      },
+      id: 'custom-size',
+      name: 'example',
+      items: [
+        {
+          value: 'published',
+          text: 'Recently published'
+        },
+        {
+          value: 'updated',
+          text: 'Recently updated'
+        },
+        {
+          value: 'views',
+          text: 'Most views'
+        },
+        {
+          value: 'comments',
+          text: 'Most comments'
+        }
+      ]
+    }
+  },
+  'without page heading': {
+    context: {
+      label: {
+        text: 'Sort by'
+      },
+      id: 'without-heading',
       name: 'example',
       items: [
         {
@@ -309,7 +426,8 @@ export const examples = {
   'with error message': {
     context: {
       label: {
-        text: 'Choose location'
+        text: 'Choose location',
+        isPageHeading: true
       },
       errorMessage: {
         text: 'Select a location'
@@ -363,7 +481,8 @@ export const examples = {
   'with hint and error': {
     context: {
       label: {
-        text: 'Choose location'
+        text: 'Choose location',
+        isPageHeading: true
       },
       hint: {
         text: 'This can be different to where you went before'
@@ -424,7 +543,8 @@ export const examples = {
   'with selected value': {
     context: {
       label: {
-        text: 'Sort by'
+        text: 'Sort by',
+        isPageHeading: true
       },
       id: 'with-value',
       name: 'example',

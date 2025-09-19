@@ -190,11 +190,42 @@ export const params = {
  */
 export const examples = {
   'default': {
+    context: {
+      meta: {
+        items: [
+          {
+            href: '#',
+            text: 'Accessibility statement'
+          },
+          {
+            href: '#',
+            text: 'Contact us'
+          },
+          {
+            href: '#',
+            text: 'Cookies'
+          },
+          {
+            href: '#',
+            text: 'Privacy policy'
+          },
+          {
+            href: '#',
+            text: 'Terms and conditions'
+          }
+        ]
+      }
+    },
     options: {
       width: false
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+    }
+  },
+  'with copyright text only': {
+    options: {
+      width: false
     }
   },
   'with custom copyright text': {
@@ -216,23 +247,23 @@ export const examples = {
         items: [
           {
             href: '#',
-            text: 'About us'
-          },
-          {
-            href: '#',
-            text: 'Give us feedback'
-          },
-          {
-            href: '#',
             text: 'Accessibility statement'
           },
           {
             href: '#',
-            text: 'Our policies'
+            text: 'Contact us'
           },
           {
             href: '#',
             text: 'Cookies'
+          },
+          {
+            href: '#',
+            text: 'Privacy policy'
+          },
+          {
+            href: '#',
+            text: 'Terms and conditions'
           }
         ]
       }
@@ -246,28 +277,31 @@ export const examples = {
   },
   'with meta (links and text)': {
     context: {
+      copyright: {
+        text: '© Crown copyright'
+      },
       meta: {
         text: `All content is available under the Open Government Licence v3.0, except where otherwise stated.`,
         items: [
-          {
-            href: '#',
-            text: 'About us'
-          },
-          {
-            href: '#',
-            text: 'Give us feedback'
-          },
           {
             href: '#',
             text: 'Accessibility statement'
           },
           {
             href: '#',
-            text: 'Our policies'
+            text: 'Contact us'
           },
           {
             href: '#',
             text: 'Cookies'
+          },
+          {
+            href: '#',
+            text: 'Privacy policy'
+          },
+          {
+            href: '#',
+            text: 'Terms and conditions'
           }
         ]
       }
@@ -289,7 +323,7 @@ export const examples = {
           },
           {
             href: '#',
-            text: 'Give us feedback'
+            text: 'Contact us'
           },
           {
             href: '#',
@@ -331,6 +365,10 @@ export const examples = {
             },
             {
               href: '#',
+              text: 'NHS services'
+            },
+            {
+              href: '#',
               text: 'Live Well'
             },
             {
@@ -351,11 +389,7 @@ export const examples = {
             },
             {
               href: '#',
-              text: 'NHS services'
-            },
-            {
-              href: '#',
-              text: 'Coronavirus (COVID-19)'
+              text: 'COVID-19'
             }
           ]
         },
@@ -371,7 +405,11 @@ export const examples = {
             },
             {
               href: '#',
-              text: 'Your health records'
+              text: 'View your GP health records'
+            },
+            {
+              href: '#',
+              text: 'View your test results'
             },
             {
               href: '#',
@@ -557,6 +595,9 @@ export const examples = {
   },
   'with meta and navigation': {
     context: {
+      copyright: {
+        text: '© Crown copyright'
+      },
       navigation: [
         {
           items: [

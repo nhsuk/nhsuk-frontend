@@ -103,17 +103,6 @@ export const examples = {
   'default': {
     context: {
       titleText: 'There is a problem',
-      errorList: [
-        {
-          text: 'Date of birth must be in the past',
-          href: '#example-day'
-        }
-      ]
-    }
-  },
-  'with description': {
-    context: {
-      titleText: 'There is a problem',
       descriptionText: 'Describe the errors and how to correct them',
       errorList: [
         {
@@ -123,6 +112,17 @@ export const examples = {
       ]
     },
     screenshot: true
+  },
+  'without description': {
+    context: {
+      titleText: 'There is a problem',
+      errorList: [
+        {
+          text: 'Date of birth must be in the past',
+          href: '#example-day'
+        }
+      ]
+    }
   },
   'auto-focus disabled': {
     context: {

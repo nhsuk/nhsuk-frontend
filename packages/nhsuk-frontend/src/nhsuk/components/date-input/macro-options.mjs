@@ -203,7 +203,9 @@ export const examples = {
     context: {
       fieldset: {
         legend: {
-          text: 'What is your date of birth?'
+          text: 'What is your date of birth?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: true
         }
       },
       hint: {
@@ -217,7 +219,9 @@ export const examples = {
     context: {
       fieldset: {
         legend: {
-          text: 'What is your date of birth?'
+          text: 'What is your date of birth?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: true
         }
       },
       hint: {
@@ -235,7 +239,9 @@ export const examples = {
     context: {
       fieldset: {
         legend: {
-          text: 'What is your birthday?'
+          text: 'What is your birthday?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: true
         }
       },
       hint: {
@@ -258,7 +264,9 @@ export const examples = {
     context: {
       fieldset: {
         legend: {
-          text: 'When did you start your job?'
+          text: 'When did you start your job?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: true
         }
       },
       hint: {
@@ -281,7 +289,9 @@ export const examples = {
     context: {
       fieldset: {
         legend: {
-          text: 'When did you start your job?'
+          text: 'When did you start your job?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: true
         }
       },
       hint: {
@@ -304,13 +314,71 @@ export const examples = {
       ]
     }
   },
-  'with legend as page heading': {
+  'with legend size S': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'What is your date of birth?',
+          classes: 'nhsuk-fieldset__legend--s',
+          isPageHeading: true
+        }
+      },
+      hint: {
+        text: 'For example, 31 3 1980'
+      },
+      id: 'custom-size'
+    }
+  },
+  'with legend size M': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'What is your date of birth?',
+          classes: 'nhsuk-fieldset__legend--m',
+          isPageHeading: true
+        }
+      },
+      hint: {
+        text: 'For example, 31 3 1980'
+      },
+      id: 'custom-size'
+    }
+  },
+  'with legend size L': {
     context: {
       fieldset: {
         legend: {
           text: 'What is your date of birth?',
           classes: 'nhsuk-fieldset__legend--l',
           isPageHeading: true
+        }
+      },
+      hint: {
+        text: 'For example, 31 3 1980'
+      },
+      id: 'custom-size'
+    }
+  },
+  'with legend size XL': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'What is your date of birth?',
+          classes: 'nhsuk-fieldset__legend--xl',
+          isPageHeading: true
+        }
+      },
+      hint: {
+        text: 'For example, 31 3 1980'
+      },
+      id: 'custom-size'
+    }
+  },
+  'without page heading': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'What is your date of birth?'
         }
       },
       hint: {
@@ -323,7 +391,9 @@ export const examples = {
     context: {
       fieldset: {
         legend: {
-          text: 'What is your date of birth?'
+          text: 'What is your date of birth?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: true
         }
       },
       hint: {
@@ -353,7 +423,9 @@ export const examples = {
     context: {
       fieldset: {
         legend: {
-          text: 'What is your date of birth?'
+          text: 'What is your date of birth?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: true
         }
       },
       hint: {
@@ -367,11 +439,13 @@ export const examples = {
     context: {
       fieldset: {
         legend: {
-          text: 'What is your date of birth?'
+          text: 'What is your date of birth?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: true
         }
       },
       errorMessage: {
-        text: 'Error message goes here'
+        text: 'Enter your date of birth'
       },
       id: 'example',
       items: [
@@ -394,14 +468,16 @@ export const examples = {
     context: {
       fieldset: {
         legend: {
-          text: 'What is your date of birth?'
+          text: 'What is your date of birth?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: true
         }
       },
       hint: {
         text: 'For example, 31 3 1980'
       },
       errorMessage: {
-        text: 'Error message goes here'
+        text: 'Enter your date of birth'
       },
       id: 'example',
       items: [
@@ -425,14 +501,16 @@ export const examples = {
     context: {
       fieldset: {
         legend: {
-          text: 'What is your date of birth?'
+          text: 'What is your date of birth?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: true
         }
       },
       hint: {
         text: 'For example, 31 3 1980'
       },
       errorMessage: {
-        text: 'Error message goes here'
+        text: 'Date of birth must include a day'
       },
       id: 'example',
       items: [
@@ -442,10 +520,12 @@ export const examples = {
         },
         {
           name: 'month',
+          value: '3',
           classes: 'nhsuk-input--width-2'
         },
         {
           name: 'year',
+          value: '1980',
           classes: 'nhsuk-input--width-4'
         }
       ]
@@ -455,20 +535,23 @@ export const examples = {
     context: {
       fieldset: {
         legend: {
-          text: 'What is your date of birth?'
+          text: 'What is your date of birth?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: true
         }
       },
       hint: {
         text: 'For example, 31 3 1980'
       },
       errorMessage: {
-        text: 'Error message goes here'
+        text: 'Date of birth must include a month'
       },
       id: 'example',
       items: [
         {
           name: 'day',
-          classes: 'nhsuk-input--width-2'
+          classes: 'nhsuk-input--width-2',
+          value: '31'
         },
         {
           name: 'month',
@@ -476,7 +559,8 @@ export const examples = {
         },
         {
           name: 'year',
-          classes: 'nhsuk-input--width-4'
+          classes: 'nhsuk-input--width-4',
+          value: '1980'
         }
       ]
     }
@@ -485,24 +569,28 @@ export const examples = {
     context: {
       fieldset: {
         legend: {
-          text: 'What is your date of birth?'
+          text: 'What is your date of birth?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: true
         }
       },
       hint: {
         text: 'For example, 31 3 1980'
       },
       errorMessage: {
-        text: 'Error message goes here'
+        text: 'Date of birth must include a year'
       },
       id: 'example',
       items: [
         {
           name: 'day',
-          classes: 'nhsuk-input--width-2'
+          classes: 'nhsuk-input--width-2',
+          value: '31'
         },
         {
           name: 'month',
-          classes: 'nhsuk-input--width-2'
+          classes: 'nhsuk-input--width-2',
+          value: '3'
         },
         {
           name: 'year',

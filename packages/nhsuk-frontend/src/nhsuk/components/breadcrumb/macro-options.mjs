@@ -77,19 +77,15 @@ export const examples = {
       items: [
         {
           href: '#',
-          text: 'Level one'
+          text: 'Home'
         },
         {
           href: '#',
-          text: 'Level two'
+          text: 'NHS services'
         },
         {
           href: '#',
-          text: 'Level three'
-        },
-        {
-          href: '#',
-          text: 'Level four'
+          text: 'Hospitals'
         }
       ]
     },
@@ -104,19 +100,15 @@ export const examples = {
       items: [
         {
           href: '#',
-          text: 'Level one'
+          text: 'Home'
         },
         {
           href: '#',
-          text: 'Level two'
+          text: 'NHS services'
         },
         {
           href: '#',
-          text: 'Level three'
-        },
-        {
-          href: '#',
-          text: 'Level four'
+          text: 'Hospitals'
         }
       ]
     },
@@ -133,21 +125,17 @@ export const examples = {
       items: [
         {
           href: '#',
-          text: 'Level one',
+          text: 'Home',
           attributes: { lang: 'en' }
         },
         {
           href: '#',
-          text: 'Level two'
-        },
-        {
-          href: '#',
-          text: 'Level three',
+          text: 'NHS services',
           attributes: { lang: 'en' }
         },
         {
           href: '#',
-          text: 'Level four',
+          text: 'Hospitals',
           classes: 'example-class-one example-class-two',
           attributes: { lang: 'en' }
         }
