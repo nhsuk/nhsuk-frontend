@@ -27,10 +27,7 @@ describe('Character count', () => {
       document.querySelector(`[data-module="${CharacterCount.moduleName}"]`)
     )
 
-    $textarea = getByRole($root, 'textbox', {
-      name: 'Can you provide more detail?'
-    })
-
+    $textarea = getByRole($root, 'textbox')
     $description = document.getElementById(`${$textarea.id}-info`)
 
     jest.spyOn($textarea, 'addEventListener')
@@ -140,7 +137,7 @@ describe('Character count', () => {
     it('configures the number of characters', () => {
       const characterCount = new CharacterCount($root)
       expect(characterCount.config).toEqual({
-        maxlength: 10,
+        maxlength: 200,
         threshold: 0
       })
     })
@@ -150,7 +147,7 @@ describe('Character count', () => {
 
       const characterCount = new CharacterCount($root)
       expect(characterCount.config).toEqual({
-        maxwords: 10,
+        maxwords: 150,
         threshold: 0
       })
     })
@@ -160,8 +157,8 @@ describe('Character count', () => {
 
       const characterCount = new CharacterCount($root)
       expect(characterCount.config).toEqual({
-        maxlength: 10,
-        threshold: 8
+        maxlength: 112,
+        threshold: 75
       })
     })
 
@@ -182,7 +179,7 @@ describe('Character count', () => {
       )
 
       expect(characterCount.config).toEqual({
-        maxlength: 10,
+        maxlength: 200,
         threshold: 0
       })
     })

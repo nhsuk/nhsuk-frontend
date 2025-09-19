@@ -285,14 +285,44 @@ export const examples = {
   'default': {
     context: {
       logo: {
+        href: '#',
+        ariaLabel: 'NHS digital service manual homepage'
+      },
+      service: {
+        text: 'Digital service manual',
         href: '#'
+      },
+      search: {
+        placeholder: 'Search',
+        visuallyHiddenLabel: 'Search the NHS digital service manual'
+      },
+      navigation: {
+        items: [
+          {
+            text: 'NHS service standard',
+            href: '#'
+          },
+          {
+            text: 'Design system',
+            href: '#'
+          },
+          {
+            text: 'Content guide',
+            href: '#'
+          },
+          {
+            text: 'Accessibility',
+            href: '#'
+          },
+          {
+            text: 'Community and contribution',
+            href: '#'
+          }
+        ]
       }
     },
     options: {
       width: false
-    },
-    screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'with navigation': {
@@ -670,37 +700,38 @@ export const examples = {
   'with service name, search and navigation': {
     context: {
       logo: {
-        href: '#'
+        href: '#',
+        ariaLabel: 'NHS digital service manual homepage'
       },
       service: {
         text: 'Digital service manual',
         href: '#'
       },
       search: {
+        placeholder: 'Search',
         visuallyHiddenLabel: 'Search the NHS digital service manual'
       },
       navigation: {
         items: [
           {
-            href: '#',
-            text: 'Standards and technology'
+            text: 'NHS service standard',
+            href: '#'
           },
           {
-            href: '#',
             text: 'Design system',
-            current: true
+            href: '#'
           },
           {
-            href: '#',
-            text: 'Content style guide'
+            text: 'Content guide',
+            href: '#'
           },
           {
-            href: '#',
-            text: 'Accessibility'
+            text: 'Accessibility',
+            href: '#'
           },
           {
-            href: '#',
-            text: 'Community and contribution'
+            text: 'Community and contribution',
+            href: '#'
           }
         ]
       }
@@ -715,38 +746,39 @@ export const examples = {
   'with service name, search and navigation (white)': {
     context: {
       logo: {
-        href: '#'
+        href: '#',
+        ariaLabel: 'NHS digital service manual homepage'
       },
       service: {
         text: 'Digital service manual',
         href: '#'
       },
       search: {
+        placeholder: 'Search',
         visuallyHiddenLabel: 'Search the NHS digital service manual'
       },
       navigation: {
         classes: 'nhsuk-header__navigation--white',
         items: [
           {
-            href: '#',
-            text: 'Standards and technology'
+            text: 'NHS service standard',
+            href: '#'
           },
           {
-            href: '#',
             text: 'Design system',
-            current: true
+            href: '#'
           },
           {
-            href: '#',
-            text: 'Content style guide'
+            text: 'Content guide',
+            href: '#'
           },
           {
-            href: '#',
-            text: 'Accessibility'
+            text: 'Accessibility',
+            href: '#'
           },
           {
-            href: '#',
-            text: 'Community and contribution'
+            text: 'Community and contribution',
+            href: '#'
           }
         ]
       }
