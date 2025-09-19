@@ -168,7 +168,9 @@ export const examples = {
   'default': {
     context: {
       label: {
-        text: 'NHS number'
+        text: 'What is your full name?',
+        classes: 'nhsuk-label--l',
+        isPageHeading: true
       },
       name: 'example'
     },
@@ -177,166 +179,245 @@ export const examples = {
   'with hint': {
     context: {
       label: {
-        text: 'NHS number'
+        text: 'What is your NHS number?',
+        classes: 'nhsuk-label--l',
+        isPageHeading: true
       },
       hint: {
-        text: "It's a 10-digit number that's on any letter the NHS has sent you, for example, 485 777 3456"
+        text: 'Your NHS number is a 10 digit number that you find on any letter the NHS has sent you, for example, 485 777 3456'
       },
       id: 'with-hint',
-      name: 'example'
+      name: 'example',
+      classes: 'nhsuk-input--width-10',
+      inputmode: 'numeric',
+      spellcheck: false
     },
     screenshot: true
   },
   'with error message': {
     context: {
       label: {
-        text: 'NHS number'
+        text: 'What is your NHS number?',
+        classes: 'nhsuk-label--l',
+        isPageHeading: true
       },
       errorMessage: {
         text: 'Enter NHS number'
       },
       id: 'with-error-message',
-      name: 'example'
+      name: 'example',
+      classes: 'nhsuk-input--width-10',
+      inputmode: 'numeric',
+      spellcheck: false
     }
   },
   'with hint and error': {
     context: {
       label: {
-        text: 'NHS number'
+        text: 'What is your NHS number?',
+        classes: 'nhsuk-label--l',
+        isPageHeading: true
       },
       hint: {
-        text: "It's a 10-digit number that's on any letter the NHS has sent you, for example, 485 777 3456"
+        text: 'Your NHS number is a 10 digit number that you find on any letter the NHS has sent you, for example, 485 777 3456'
       },
       errorMessage: {
         text: 'Enter NHS number'
       },
       id: 'with-hint-error',
-      name: 'example'
+      name: 'example',
+      classes: 'nhsuk-input--width-10',
+      inputmode: 'numeric',
+      spellcheck: false
     },
     screenshot: {
       states: ['focus'],
       selector: '#with-hint-error'
     }
   },
-  'with width-2 class': {
+  'with 2 character width': {
     context: {
       label: {
-        text: 'NHS number'
+        text: '2 character width'
       },
       id: 'input-width-2',
       name: 'example',
       classes: 'nhsuk-input--width-2'
     }
   },
-  'with width-3 class': {
+  'with 3 character width': {
     context: {
       label: {
-        text: 'NHS number'
+        text: '3 character width'
       },
       id: 'input-width-3',
       name: 'example',
       classes: 'nhsuk-input--width-3'
     }
   },
-  'with width-4 class': {
+  'with 4 character width': {
     context: {
       label: {
-        text: 'NHS number'
+        text: '4 character width'
       },
       id: 'input-width-4',
       name: 'example',
       classes: 'nhsuk-input--width-4'
     }
   },
-  'with width-5 class': {
+  'with 5 character width': {
     context: {
       label: {
-        text: 'NHS number'
+        text: '5 character width'
       },
       id: 'input-width-5',
       name: 'example',
       classes: 'nhsuk-input--width-5'
     }
   },
-  'with width-10 class': {
+  'with 10 character width': {
     context: {
       label: {
-        text: 'NHS number'
+        text: '10 character width'
       },
       id: 'input-width-10',
       name: 'example',
       classes: 'nhsuk-input--width-10'
     }
   },
-  'with width-20 class': {
+  'with 20 character width': {
     context: {
       label: {
-        text: 'NHS number'
+        text: '20 character width'
       },
       id: 'input-width-20',
       name: 'example',
       classes: 'nhsuk-input--width-20'
     }
   },
-  'with width-30 class': {
+  'with 30 character width': {
     context: {
       label: {
-        text: 'NHS number'
+        text: '30 character width'
       },
       id: 'input-width-30',
       name: 'example',
       classes: 'nhsuk-input--width-30'
     }
   },
-  'with label as page heading': {
+  'with label size S': {
     context: {
       label: {
-        text: 'NHS number',
+        text: 'What is your NHS number?',
+        classes: 'nhsuk-label--s',
+        isPageHeading: true
+      },
+      id: 'custom-size',
+      name: 'example',
+      classes: 'nhsuk-input--width-10',
+      inputmode: 'numeric',
+      spellcheck: false
+    }
+  },
+  'with label size M': {
+    context: {
+      label: {
+        text: 'What is your NHS number?',
+        classes: 'nhsuk-label--m',
+        isPageHeading: true
+      },
+      id: 'custom-size',
+      name: 'example',
+      classes: 'nhsuk-input--width-10',
+      inputmode: 'numeric',
+      spellcheck: false
+    }
+  },
+  'with label size L': {
+    context: {
+      label: {
+        text: 'What is your NHS number?',
         classes: 'nhsuk-label--l',
         isPageHeading: true
       },
-      id: 'page-heading',
-      name: 'example'
+      id: 'custom-size',
+      name: 'example',
+      classes: 'nhsuk-input--width-10',
+      inputmode: 'numeric',
+      spellcheck: false
+    }
+  },
+  'with label size XL': {
+    context: {
+      label: {
+        text: 'What is your NHS number?',
+        classes: 'nhsuk-label--xl',
+        isPageHeading: true
+      },
+      id: 'custom-size',
+      name: 'example',
+      classes: 'nhsuk-input--width-10',
+      inputmode: 'numeric',
+      spellcheck: false
+    }
+  },
+  'without page heading': {
+    context: {
+      label: {
+        text: 'What is your NHS number?'
+      },
+      id: 'without-heading',
+      name: 'example',
+      classes: 'nhsuk-input--width-10',
+      inputmode: 'numeric',
+      spellcheck: false
     }
   },
   'with prefix': {
     context: {
       label: {
-        text: 'What is the cost in pounds?'
+        text: 'Cost in pounds',
+        isPageHeading: true
       },
       id: 'with-prefix',
       name: 'example',
-      prefix: '£'
+      prefix: '£',
+      classes: 'nhsuk-input--width-5'
     },
     screenshot: true
   },
   'with suffix': {
     context: {
       label: {
-        text: 'What is the weight in kilograms?'
+        text: 'Weight in kilograms',
+        isPageHeading: true
       },
       id: 'with-suffix',
       name: 'example',
-      suffix: 'kg'
+      suffix: 'kg',
+      classes: 'nhsuk-input--width-5'
     },
     screenshot: true
   },
   'with prefix and suffix': {
     context: {
       label: {
-        text: 'What is the cost per item, in pounds?'
+        text: 'Cost per item, in pounds',
+        isPageHeading: true
       },
       id: 'with-prefix-suffix',
       name: 'example',
       prefix: '£',
-      suffix: 'per item'
+      suffix: 'per item',
+      classes: 'nhsuk-input--width-5'
     },
     screenshot: true
   },
   'with prefix and suffix and error': {
     context: {
       label: {
-        text: 'What is the cost per item, in pounds?'
+        text: 'Cost per item, in pounds',
+        isPageHeading: true
       },
       errorMessage: {
         text: 'Enter a cost per item, in pounds'
@@ -344,29 +425,22 @@ export const examples = {
       id: 'with-prefix-suffix',
       name: 'example',
       prefix: '£',
-      suffix: 'per item'
+      suffix: 'per item',
+      classes: 'nhsuk-input--width-5'
     },
     screenshot: {
       states: ['focus'],
       selector: '#with-prefix-suffix'
     }
   },
-  'with prefix and suffix and width modifier': {
-    context: {
-      label: {
-        text: 'What is the cost per item, in pounds?'
-      },
-      id: 'with-prefix-suffix',
-      name: 'example',
-      prefix: '£',
-      suffix: 'per item',
-      classes: 'nhsuk-input--width-5'
-    }
-  },
   'with autocomplete attribute': {
     context: {
       label: {
-        text: 'Postcode'
+        text: 'Enter a full postcode in England',
+        isPageHeading: true
+      },
+      hint: {
+        text: 'For example, LS1 1AB'
       },
       id: 'with-autocomplete-attribute',
       name: 'example',

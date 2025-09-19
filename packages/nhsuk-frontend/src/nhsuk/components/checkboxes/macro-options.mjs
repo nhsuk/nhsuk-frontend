@@ -232,22 +232,27 @@ export const examples = {
     context: {
       fieldset: {
         legend: {
-          text: 'What is your nationality?'
+          text: 'How do you want to be contacted about this?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: true
         }
+      },
+      hint: {
+        text: 'Select all options that are relevant to you'
       },
       name: 'example',
       items: [
         {
-          value: 'british',
-          text: 'British'
+          value: 'email',
+          text: 'Email'
         },
         {
-          value: 'irish',
-          text: 'Irish'
+          value: 'phone',
+          text: 'Phone'
         },
         {
-          value: 'other',
-          text: 'citizen of another country'
+          value: 'text',
+          text: 'Text message'
         }
       ]
     },
@@ -259,11 +264,13 @@ export const examples = {
     context: {
       fieldset: {
         legend: {
-          text: 'What is your nationality?'
+          text: 'What is your nationality?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: true
         }
       },
       hint: {
-        text: 'If you have more than 1 nationality, select all options that are relevant to you'
+        text: 'If you have dual nationality, select all options that are relevant to you'
       },
       idPrefix: 'with-hint',
       name: 'example',
@@ -278,7 +285,7 @@ export const examples = {
         },
         {
           value: 'other',
-          text: 'citizen of another country'
+          text: 'Citizen of another country'
         }
       ]
     }
@@ -287,7 +294,9 @@ export const examples = {
     context: {
       fieldset: {
         legend: {
-          text: 'What is your nationality?'
+          text: 'What is your nationality?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: true
         }
       },
       idPrefix: 'with-values',
@@ -304,7 +313,7 @@ export const examples = {
         },
         {
           value: 'other',
-          text: 'citizen of another country'
+          text: 'Citizen of another country'
         }
       ]
     }
@@ -313,25 +322,31 @@ export const examples = {
     context: {
       fieldset: {
         legend: {
-          text: 'How do you want to sign in?'
+          text: 'What is your nationality?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: true
         }
+      },
+      hint: {
+        text: 'If you have dual nationality, select all options that are relevant to you'
       },
       idPrefix: 'with-hint-item',
       name: 'example',
       items: [
         {
-          value: 'government-gateway',
-          text: 'Sign in with Government Gateway',
+          value: 'british',
+          text: 'British',
           hint: {
-            text: "You'll have a user ID if you've registered for Self Assessment or filed a tax return online before"
+            text: 'including English, Scottish, Welsh and Northern Irish'
           }
         },
         {
-          value: 'nhsuk-login',
-          text: 'Sign in with NHS.UK login',
-          hint: {
-            text: "You'll have an account if you've already proved your identity with either Barclays, CitizenSafe, Digidentity, Experian, Post Office, Royal Mail or SecureIdentity"
-          }
+          value: 'irish',
+          text: 'Irish'
+        },
+        {
+          value: 'other',
+          text: 'Citizen of another country'
         }
       ]
     },
@@ -367,26 +382,28 @@ export const examples = {
     context: {
       fieldset: {
         legend: {
-          text: 'Which types of waste do you transport regularly?'
+          text: 'How do you want to be contacted about this?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: true
         }
       },
       errorMessage: {
-        text: 'Select types of waste you transport regularly'
+        text: 'Select how you want to be contacted'
       },
       idPrefix: 'with-error-message',
       name: 'example',
       items: [
         {
-          value: 'animal',
-          text: 'Waste from animal carcasses'
+          value: 'email',
+          text: 'Email'
         },
         {
-          value: 'mines',
-          text: 'Waste from mines or quarries'
+          value: 'phone',
+          text: 'Phone'
         },
         {
-          value: 'farm',
-          text: 'Farm or agricultural waste'
+          value: 'text message',
+          text: 'Text message'
         }
       ]
     },
@@ -400,72 +417,194 @@ export const examples = {
     context: {
       fieldset: {
         legend: {
-          text: 'Which types of waste do you transport regularly?'
-        }
-      },
-      hint: {
-        text: 'Select all that apply'
-      },
-      errorMessage: {
-        text: 'Select types of waste you transport regularly'
-      },
-      idPrefix: 'with-hint-error',
-      name: 'example',
-      items: [
-        {
-          value: 'animal',
-          text: 'Waste from animal carcasses'
-        },
-        {
-          value: 'mines',
-          text: 'Waste from mines or quarries'
-        },
-        {
-          value: 'farm',
-          text: 'Farm or agricultural waste'
-        }
-      ]
-    }
-  },
-  'with legend as page heading': {
-    context: {
-      fieldset: {
-        legend: {
-          text: 'Which types of waste do you transport regularly?',
+          text: 'How do you want to be contacted about this?',
           classes: 'nhsuk-fieldset__legend--l',
           isPageHeading: true
         }
       },
       hint: {
-        text: 'Select all that apply'
+        text: 'Select all options that are relevant to you'
       },
-      idPrefix: 'page-heading',
+      errorMessage: {
+        text: 'Select how you want to be contacted'
+      },
+      idPrefix: 'with-hint-error',
       name: 'example',
       items: [
         {
-          value: 'animal',
-          text: 'Waste from animal carcasses'
+          value: 'email',
+          text: 'Email'
         },
         {
-          value: 'mines',
-          text: 'Waste from mines or quarries'
+          value: 'phone',
+          text: 'Phone'
         },
         {
-          value: 'farm',
-          text: 'Farm or agricultural waste'
+          value: 'text message',
+          text: 'Text message'
         }
       ]
-    },
-    screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
+    }
+  },
+  'with legend size S': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'How do you want to be contacted about this?',
+          classes: 'nhsuk-fieldset__legend--s',
+          isPageHeading: true
+        }
+      },
+      hint: {
+        text: 'Select all options that are relevant to you'
+      },
+      idPrefix: 'custom-size',
+      name: 'example',
+      items: [
+        {
+          value: 'email',
+          text: 'Email'
+        },
+        {
+          value: 'phone',
+          text: 'Phone'
+        },
+        {
+          value: 'text message',
+          text: 'Text message'
+        }
+      ]
+    }
+  },
+  'with legend size M': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'How do you want to be contacted about this?',
+          classes: 'nhsuk-fieldset__legend--m',
+          isPageHeading: true
+        }
+      },
+      hint: {
+        text: 'Select all options that are relevant to you'
+      },
+      idPrefix: 'custom-size',
+      name: 'example',
+      items: [
+        {
+          value: 'email',
+          text: 'Email'
+        },
+        {
+          value: 'phone',
+          text: 'Phone'
+        },
+        {
+          value: 'text message',
+          text: 'Text message'
+        }
+      ]
+    }
+  },
+  'with legend size L': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'How do you want to be contacted about this?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: true
+        }
+      },
+      hint: {
+        text: 'Select all options that are relevant to you'
+      },
+      idPrefix: 'custom-size',
+      name: 'example',
+      items: [
+        {
+          value: 'email',
+          text: 'Email'
+        },
+        {
+          value: 'phone',
+          text: 'Phone'
+        },
+        {
+          value: 'text message',
+          text: 'Text message'
+        }
+      ]
+    }
+  },
+  'with legend size XL': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'How do you want to be contacted about this?',
+          classes: 'nhsuk-fieldset__legend--xl',
+          isPageHeading: true
+        }
+      },
+      hint: {
+        text: 'Select all options that are relevant to you'
+      },
+      idPrefix: 'custom-size',
+      name: 'example',
+      items: [
+        {
+          value: 'email',
+          text: 'Email'
+        },
+        {
+          value: 'phone',
+          text: 'Phone'
+        },
+        {
+          value: 'text message',
+          text: 'Text message'
+        }
+      ]
+    }
+  },
+  'without page heading': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'How do you want to be contacted about this?'
+        }
+      },
+      hint: {
+        text: 'Select all options that are relevant to you'
+      },
+      idPrefix: 'without-heading',
+      name: 'example',
+      items: [
+        {
+          value: 'email',
+          text: 'Email'
+        },
+        {
+          value: 'phone',
+          text: 'Phone'
+        },
+        {
+          value: 'text message',
+          text: 'Text message'
+        }
+      ]
     }
   },
   'with conditional content': {
     context: {
       fieldset: {
         legend: {
-          text: 'How would you prefer to be contacted?'
+          text: 'How do you want to be contacted about this?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: true
         }
+      },
+      hint: {
+        text: 'Select all options that are relevant to you'
       },
       idPrefix: 'conditional',
       name: 'contact',
@@ -525,8 +664,13 @@ export const examples = {
     context: {
       fieldset: {
         legend: {
-          text: 'How would you prefer to be contacted?'
+          text: 'How do you want to be contacted about this?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: true
         }
+      },
+      hint: {
+        text: 'Select all options that are relevant to you'
       },
       errorMessage: {
         text: 'Select how you like to be contacted'
@@ -589,8 +733,13 @@ export const examples = {
     context: {
       fieldset: {
         legend: {
-          text: 'How would you prefer to be contacted?'
+          text: 'How do you want to be contacted about this?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: true
         }
+      },
+      hint: {
+        text: 'Select all options that are relevant to you'
       },
       idPrefix: 'conditional',
       name: 'example',
@@ -659,7 +808,9 @@ export const examples = {
     context: {
       fieldset: {
         legend: {
-          text: 'How would you prefer to be contacted?'
+          text: 'How do you want to be contacted about this?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: true
         }
       },
       idPrefix: 'conditional',
@@ -728,7 +879,9 @@ export const examples = {
     context: {
       fieldset: {
         legend: {
-          text: 'How would you prefer to be contacted?'
+          text: 'How do you want to be contacted about this?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: true
         }
       },
       idPrefix: 'conditional',
@@ -796,6 +949,9 @@ export const examples = {
         }
       ]
     },
+    options: {
+      hidden: true
+    },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']
     }
@@ -804,7 +960,9 @@ export const examples = {
     context: {
       fieldset: {
         legend: {
-          text: 'How would you prefer to be contacted?'
+          text: 'How do you want to be contacted about this?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: true
         }
       },
       idPrefix: 'conditional',
@@ -874,6 +1032,9 @@ export const examples = {
           exclusiveGroup: 'communication-preferences'
         }
       ]
+    },
+    options: {
+      hidden: true
     }
   }
 }

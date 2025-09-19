@@ -1,6 +1,23 @@
-{% extends 'layouts/page.njk' %}
+{% extends "layouts/page.njk" %}
 
-{% set title = 'Icons' %}
+{% set pageName = "Icons" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block beforeContent %}
+  {{ breadcrumb({
+    classes: "nhsuk-u-display-inline-block",
+    items: [
+      {
+        text: "NHS.UK frontend",
+        href: baseUrl
+      },
+      {
+        text: "Examples",
+        href: baseUrl ~ "#examples"
+      }
+    ]
+  }) }}
+{% endblock %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
@@ -44,7 +61,7 @@
       {% endfor %}
 
       {{ table({
-        caption: "Icons",
+        caption: pageName,
         captionClasses: "nhsuk-table__caption--xl nhsuk-u-margin-bottom-7",
         firstCellIsHeader: true,
         responsive: true,

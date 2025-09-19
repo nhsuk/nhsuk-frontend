@@ -9,6 +9,9 @@
       "path": "./packages/nhsuk-frontend/tsconfig.json"
     },
     {
+      "path": "./packages/nhsuk-frontend-review/tsconfig.json"
+    },
+    {
       "path": "./shared/tsconfig.json"
     }
   ]

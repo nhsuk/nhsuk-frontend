@@ -43,6 +43,9 @@ module.exports = defineConfig({
     // Allow optional subresource integrity (SRI)
     'require-sri': 'off',
 
+    // Allow for duplicate landmarks in component example listings
+    'unique-landmark': 'off',
+
     // Allow optional submit buttons in <form> wrapped examples
     'wcag/h32': 'off'
   }

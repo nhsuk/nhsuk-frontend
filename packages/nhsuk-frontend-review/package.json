@@ -20,10 +20,13 @@
     "@nhsuk/frontend-config": "*",
     "@nhsuk/frontend-lib": "*",
     "@nhsuk/frontend-tasks": "*",
+    "autoprefixer": "^10.4.21",
+    "cssnano": "^7.1.1",
     "del-cli": "^6.0.0",
     "gulp": "^5.0.1",
     "html-validate": "^10.0.0",
     "marked": "^16.3.0",
+    "nhsuk-frontend": "*",
     "package-json": "^10.0.1",
     "plugin-error": "^2.0.1",
     "sassdoc": "^2.7.4"

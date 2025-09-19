@@ -1,14 +1,34 @@
-{% set title = 'Task list' %}
-{% from 'nhsuk/components/task-list/macro.njk' import taskList %}
-{% from 'nhsuk/components/button/macro.njk' import button %}
-{% extends 'layouts/example.njk' %}
+{% extends "layouts/example.njk" %}
+
+{% set heading = "Task list" %}
+{% set caption = "Multiple sections" %}
+{% set pageName = heading ~ " – " ~ caption %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block beforeContent %}
+  {{ breadcrumb({
+    classes: "nhsuk-u-display-inline-block",
+    items: [
+      {
+        text: "NHS.UK frontend",
+        href: baseUrl
+      },
+      {
+        text: "Examples",
+        href: baseUrl ~ "#examples"
+      }
+    ]
+  }) }}
+{% endblock %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-heading-l">Service name</h1>
+      <h1 class="nhsuk-heading-xl">{{ heading }} <span class="nhsuk-caption-xl nhsuk-caption--bottom">{{ caption }}</span></h1>
 
-      <h2 class="nhsuk-heading-m">Check before you start</h2>
+      <h2 class="nhsuk-heading-l">Your service</h2>
+      <h3 class="nhsuk-heading-m">Check before you start</h3>
+
       {{ taskList({
         idPrefix: "before-you-start",
         items: [
@@ -37,7 +57,7 @@
         ]
       }) }}
 
-      <h2 class="nhsuk-heading-m">Prepare application</h2>
+      <h3 class="nhsuk-heading-m">Prepare application</h3>
 
       {{ taskList({
         idPrefix: "your-health",

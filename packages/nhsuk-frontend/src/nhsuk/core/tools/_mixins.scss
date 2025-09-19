@@ -233,14 +233,16 @@
 ///
 /// @param {Colour} $panel-background-colour - Panel background colour
 /// @param {Colour} $panel-text-colour - Panel text colour
-/// @param {Colour} $panel-border-colour - Panel border colour
+/// @param {Colour} $panel-border-colour [null] - Optional panel border colour
 ///
 /// @example scss
 ///   @include nhsuk-panel($nhsuk-brand-colour, $nhsuk-reverse-text-colour, $nhsuk-secondary-border-colour);
 ///
 
-@mixin nhsuk-panel($panel-background-colour, $panel-text-colour, $panel-border-colour) {
-  border: 1px solid $panel-border-colour;
+@mixin nhsuk-panel($panel-background-colour, $panel-text-colour, $panel-border-colour: null) {
+  @if $panel-border-colour {
+    border: 1px solid $panel-border-colour;
+  }
   color: $panel-text-colour;
   background-color: $panel-background-colour;
 
