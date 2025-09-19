@@ -16,6 +16,7 @@
 
 @include nhsuk-exports("nhsuk/components/pagination") {
   $_icon-size: nhsuk-em($nhsuk-icon-size-large, 26px);
+  $_small-icon-size: nhsuk-em($nhsuk-icon-size, 19px);
 
   .nhsuk-pagination {
     @include nhsuk-responsive-margin(7, "top");
@@ -93,5 +94,102 @@
     .nhsuk-pagination__link:focus & {
       text-decoration: none;
     }
+  }
+
+  // Numbered pagination variant
+
+  // Container for the list of numbered items
+  .nhsuk-pagination--numbered .nhsuk-pagination__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  // Override for the default non-numbered style
+  .nhsuk-pagination--numbered .nhsuk-pagination__list::after {
+    content: none;
+  }
+
+  // Numbered items, previous and next links
+  .nhsuk-pagination--numbered .nhsuk-pagination__item,
+  .nhsuk-pagination--numbered .nhsuk-pagination__previous,
+  .nhsuk-pagination--numbered .nhsuk-pagination__next {
+    box-sizing: border-box;
+    position: relative;
+    min-width: 45px;
+    min-height: 45px;
+    padding: nhsuk-spacing(2);
+    float: left;
+    display: block;
+    text-align: center;
+    margin: 0;
+    @include nhsuk-font(19);
+
+    &:hover {
+      background-color: nhsuk-colour("grey-4");
+    }
+  }
+
+  // Previous and next links within pagination navigation
+  .nhsuk-pagination--numbered .nhsuk-pagination__previous,
+  .nhsuk-pagination--numbered .nhsuk-pagination__next {
+    font-weight: $nhsuk-font-bold;
+
+    // Use flex to avoid extra space being introduced when
+    // whitespace exists between the arrow svg and the link text
+    display: flex;
+    align-items: center;
+  }
+
+  // Numbered item links
+  .nhsuk-pagination--numbered .nhsuk-pagination__link {
+    position: static;
+    text-decoration: underline;
+    @include nhsuk-font-size(19);
+
+    // Increase the touch area for the link to the parent element.
+    @media screen {
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
+    }
+  }
+
+  // Current number
+  .nhsuk-pagination--numbered .nhsuk-pagination__item--current {
+    background-color: nhsuk-colour("blue");
+    font-weight: $nhsuk-font-bold;
+
+    .nhsuk-pagination__link {
+      color: nhsuk-colour("white");
+    }
+  }
+
+  .nhsuk-pagination--numbered .nhsuk-pagination__item--current:hover {
+    background-color: nhsuk-colour("blue");
+  }
+
+  // Previous and Next labels next to arrows
+  .nhsuk-pagination--numbered .nhsuk-pagination__title {
+    display: inline;
+  }
+
+  // Arrows within numbered pagination
+  .nhsuk-pagination--numbered .nhsuk-icon {
+    height: $_small-icon-size;
+    width: $_small-icon-size;
+  }
+
+  .nhsuk-pagination--numbered .nhsuk-pagination__previous .nhsuk-icon {
+    margin-right: nhsuk-spacing(2);
+  }
+
+  .nhsuk-pagination--numbered .nhsuk-pagination__next .nhsuk-icon {
+    margin-left: nhsuk-spacing(2);
   }
 }
