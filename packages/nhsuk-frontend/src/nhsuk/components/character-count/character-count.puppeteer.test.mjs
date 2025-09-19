@@ -50,7 +50,7 @@ describe('Character count', () => {
         expect(srMessage).toBeTruthy()
       })
 
-      it('hides the fallback hint', async () => {
+      it('hides the textarea description', async () => {
         const messageClasses = await page.$eval(
           '.nhsuk-character-count__message',
           (el) => el.className

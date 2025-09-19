@@ -26,12 +26,18 @@ export const params = {
   inputmode: {
     type: 'string',
     required: false,
-    description: 'Optional value for inputmode.'
+    description:
+      'Optional value for [the inputmode attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode).'
   },
   value: {
     type: 'string',
     required: false,
     description: 'Optional initial value of the input.'
+  },
+  disabled: {
+    type: 'boolean',
+    required: false,
+    description: 'If `true`, input will be disabled.'
   },
   describedBy: {
     type: 'string',
@@ -59,14 +65,64 @@ export const params = {
     isComponent: true
   },
   prefix: {
-    type: 'string',
+    type: 'object',
     required: false,
-    description: 'Optional prefix text to be displayed before the input.'
+    description: 'Can be used to add a prefix to the text input component.',
+    params: {
+      text: {
+        type: 'string',
+        required: true,
+        description:
+          'If `html` is set, this is not required. Text to use within the prefix. If `html` is provided, the `text` option will be ignored.'
+      },
+      html: {
+        type: 'string',
+        required: true,
+        description:
+          'If `text` is set, this is not required. HTML to use within the prefix. If `html` is provided, the `text` option will be ignored.'
+      },
+      classes: {
+        type: 'string',
+        required: false,
+        description: 'Classes to add to the prefix.'
+      },
+      attributes: {
+        type: 'object',
+        required: false,
+        description:
+          'HTML attributes (for example data attributes) to add to the prefix element.'
+      }
+    }
   },
   suffix: {
-    type: 'string',
+    type: 'object',
     required: false,
-    description: 'Optional suffix text to be displayed after the input.'
+    description: 'Can be used to add a suffix to the text input component.',
+    params: {
+      text: {
+        type: 'string',
+        required: true,
+        description:
+          'If `html` is set, this is not required. Text to use within the suffix. If `html` is provided, the `text` option will be ignored.'
+      },
+      html: {
+        type: 'string',
+        required: true,
+        description:
+          'If `text` is set, this is not required. HTML to use within the suffix. If `html` is provided, the `text` option will be ignored.'
+      },
+      classes: {
+        type: 'string',
+        required: false,
+        description: 'Classes to add to the suffix.'
+      },
+      attributes: {
+        type: 'object',
+        required: false,
+        description:
+          'HTML attributes (for example data attributes) to add to the suffix element.'
+      }
+    }
   },
   formGroup: {
     type: 'object',
@@ -151,6 +207,31 @@ export const params = {
     description:
       'Optional field to enable or disable the spellcheck attribute on the input.'
   },
+  autocapitalize: {
+    type: 'string',
+    required: false,
+    description:
+      'Optional field to enable or disable autocapitalisation of user input. [See the Autocapitalization section in the HTML spec](https://html.spec.whatwg.org/multipage/interaction.html#autocapitalization) for a full list of values that can be used.'
+  },
+  inputWrapper: {
+    type: 'object',
+    required: false,
+    description:
+      'If any of `prefix`, `suffix`, `formGroup.beforeInput` or `formGroup.afterInput` have a value, a wrapping element is added around the input and inserted content. This object allows you to customise that wrapping element.',
+    params: {
+      classes: {
+        type: 'string',
+        required: false,
+        description: 'Classes to add to the wrapping element.'
+      },
+      attributes: {
+        type: 'object',
+        required: false,
+        description:
+          'HTML attributes (for example data attributes) to add to the wrapping element.'
+      }
+    }
+  },
   attributes: {
     type: 'object',
     required: false,
@@ -233,6 +314,24 @@ export const examples = {
     screenshot: {
       states: ['focus'],
       selector: '#with-hint-error'
+    }
+  },
+  'with extra letter spacing': {
+    context: {
+      label: {
+        text: 'What is your NHS number?',
+        classes: 'nhsuk-label--l',
+        isPageHeading: true
+      },
+      hint: {
+        text: 'Your NHS number is a 10 digit number that you find on any letter the NHS has sent you, for example, 485 777 3456'
+      },
+      id: 'with-extra-letter-spacing',
+      name: 'example',
+      value: '485 777 3456',
+      classes: 'nhsuk-input--width-10 nhsuk-input--extra-letter-spacing',
+      inputmode: 'numeric',
+      spellcheck: false
     }
   },
   'with 2 character width': {
@@ -381,12 +480,71 @@ export const examples = {
       },
       id: 'with-prefix',
       name: 'example',
-      prefix: '£',
+      prefix: {
+        text: '£'
+      },
       classes: 'nhsuk-input--width-5'
     },
     screenshot: true
   },
+  'with prefix HTML': {
+    context: {
+      label: {
+        text: 'Cost in pounds',
+        isPageHeading: true
+      },
+      id: 'with-prefix',
+      name: 'example',
+      prefix: {
+        html: '<span>£</span>'
+      },
+      classes: 'nhsuk-input--width-5'
+    }
+  },
+  'with prefix string': {
+    context: {
+      label: {
+        text: 'Cost in pounds',
+        isPageHeading: true
+      },
+      id: 'with-prefix',
+      name: 'example',
+      prefix: '£'
+    },
+    options: {
+      hidden: true
+    }
+  },
   'with suffix': {
+    context: {
+      label: {
+        text: 'Weight in kilograms',
+        isPageHeading: true
+      },
+      id: 'with-suffix',
+      name: 'example',
+      suffix: {
+        text: 'kg'
+      },
+      classes: 'nhsuk-input--width-5'
+    },
+    screenshot: true
+  },
+  'with suffix HTML': {
+    context: {
+      label: {
+        text: 'Weight in kilograms',
+        isPageHeading: true
+      },
+      id: 'with-suffix',
+      name: 'example',
+      suffix: {
+        html: '<span>kg</span>'
+      },
+      classes: 'nhsuk-input--width-5'
+    }
+  },
+  'with suffix string': {
     context: {
       label: {
         text: 'Weight in kilograms',
@@ -397,7 +555,9 @@ export const examples = {
       suffix: 'kg',
       classes: 'nhsuk-input--width-5'
     },
-    screenshot: true
+    options: {
+      hidden: true
+    }
   },
   'with prefix and suffix': {
     context: {
@@ -407,8 +567,12 @@ export const examples = {
       },
       id: 'with-prefix-suffix',
       name: 'example',
-      prefix: '£',
-      suffix: 'per item',
+      prefix: {
+        text: '£'
+      },
+      suffix: {
+        text: 'per item'
+      },
       classes: 'nhsuk-input--width-5'
     },
     screenshot: true
@@ -424,8 +588,12 @@ export const examples = {
       },
       id: 'with-prefix-suffix',
       name: 'example',
-      prefix: '£',
-      suffix: 'per item',
+      prefix: {
+        text: '£'
+      },
+      suffix: {
+        text: 'per item'
+      },
       classes: 'nhsuk-input--width-5'
     },
     screenshot: {
