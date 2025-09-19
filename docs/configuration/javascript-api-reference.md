@@ -10,6 +10,7 @@ This page lists the options available for the following components:
 - [Button](#button)
 - [CharacterCount](#charactercount)
 - [ErrorSummary](#errorsummary)
+- [FileUpload](#fileupload)
 - [NotificationBanner](#notificationbanner)
 
 ## Button
@@ -194,6 +195,98 @@ Default
 
 ```json5
 false
+```
+
+## FileUpload
+
+### i18n
+
+Type: object
+
+Messages the component uses for screen reader announcements relating to choosing
+and dropping files.
+
+All of these strings should be short and in plain text.
+
+#### Properties
+
+##### chooseFilesButton
+
+Type: string
+
+The text of the button that opens the file picker.
+
+Default:
+
+```json5
+  'Choose file'
+```
+
+##### dropInstruction
+
+Type: string
+
+The text informing users they can drop files.
+
+Default:
+
+```json5
+  'or drop file'
+```
+
+##### noFileChosen
+
+Type: string
+
+The text to display when no file has been chosen by the user.
+
+Default:
+
+```json5
+  'No file chosen'
+```
+
+##### multipleFilesChosen
+
+Type: object
+
+The text displayed when multiple files have been chosen by the user.
+
+Default:
+
+```json5
+  {
+    // the 'one' string isn't used as the component displays the filename
+    // instead, however it's here for coverage's sake
+    one: '%{count} file chosen',
+    other: '%{count} files chosen'
+  },
+```
+
+##### enteredDropZone
+
+Type: string
+
+The text announced by assistive technology when the user drags files and enters
+the drop zone
+
+Default:
+
+```json5
+  'Entered drop zone'
+```
+
+##### leftDropZone
+
+Type: string
+
+The text announced by assistive technology when user drags files and leaves the
+drop zone without dropping
+
+Default:
+
+```json5
+  'Left drop zone'
 ```
 
 ## NotificationBanner
