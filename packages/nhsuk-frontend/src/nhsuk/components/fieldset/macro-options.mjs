@@ -77,92 +77,6 @@ export const examples = {
   'default': {
     context: {
       legend: {
-        text: 'What is your address?'
-      }
-    },
-    screenshot: {
-      viewports: ['tablet']
-    }
-  },
-  'styled as xl text': {
-    context: {
-      legend: {
-        text: 'What is your address?',
-        classes: 'nhsuk-fieldset__legend--xl'
-      }
-    }
-  },
-  'styled as large text': {
-    context: {
-      legend: {
-        text: 'What is your address?',
-        classes: 'nhsuk-fieldset__legend--l'
-      }
-    }
-  },
-  'styled as medium text': {
-    context: {
-      legend: {
-        text: 'What is your address?',
-        classes: 'nhsuk-fieldset__legend--m'
-      }
-    }
-  },
-  'styled as small text': {
-    context: {
-      legend: {
-        text: 'What is your address?',
-        classes: 'nhsuk-fieldset__legend--s'
-      }
-    }
-  },
-  'as page heading xl': {
-    context: {
-      legend: {
-        text: 'What is your address?',
-        classes: 'nhsuk-fieldset__legend--xl',
-        isPageHeading: true
-      }
-    }
-  },
-  'as page heading l': {
-    context: {
-      legend: {
-        text: 'What is your address?',
-        classes: 'nhsuk-fieldset__legend--l',
-        isPageHeading: true
-      }
-    }
-  },
-  'as page heading m': {
-    context: {
-      legend: {
-        text: 'What is your address?',
-        classes: 'nhsuk-fieldset__legend--m',
-        isPageHeading: true
-      }
-    }
-  },
-  'as page heading s': {
-    context: {
-      legend: {
-        text: 'What is your address?',
-        classes: 'nhsuk-fieldset__legend--s',
-        isPageHeading: true
-      }
-    }
-  },
-  'as page heading without class': {
-    context: {
-      legend: {
-        text: 'What is your address?',
-        isPageHeading: true
-      }
-    }
-  },
-  'with inputs': {
-    context: {
-      legend: {
         text: 'What is your address?',
         classes: 'nhsuk-fieldset__legend--l',
         isPageHeading: true
@@ -182,7 +96,7 @@ export const examples = {
       ${components.render('input', {
         context: {
           label: {
-            text: 'Address line 2'
+            text: 'Address line 2 (optional)'
           },
           name: 'address-line2',
           autocomplete: 'address-line2'
@@ -203,16 +117,6 @@ export const examples = {
       ${components.render('input', {
         context: {
           label: {
-            text: 'County (optional)'
-          },
-          name: 'address-county',
-          classes: 'nhsuk-u-width-two-thirds'
-        }
-      })}
-
-      ${components.render('input', {
-        context: {
-          label: {
             text: 'Postcode'
           },
           name: 'address-postcode',
@@ -223,6 +127,49 @@ export const examples = {
     `,
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']
+    }
+  },
+  'with legend size XL': {
+    context: {
+      legend: {
+        text: 'What is your address?',
+        classes: 'nhsuk-fieldset__legend--xl',
+        isPageHeading: true
+      }
+    }
+  },
+  'with legend size L': {
+    context: {
+      legend: {
+        text: 'What is your address?',
+        classes: 'nhsuk-fieldset__legend--l',
+        isPageHeading: true
+      }
+    }
+  },
+  'with legend size M': {
+    context: {
+      legend: {
+        text: 'What is your address?',
+        classes: 'nhsuk-fieldset__legend--m',
+        isPageHeading: true
+      }
+    }
+  },
+  'with legend size S': {
+    context: {
+      legend: {
+        text: 'What is your address?',
+        classes: 'nhsuk-fieldset__legend--s',
+        isPageHeading: true
+      }
+    }
+  },
+  'without page heading': {
+    context: {
+      legend: {
+        text: 'What is your address?'
+      }
     }
   }
 }

@@ -1,0 +1,21 @@
+@use "vendor/nhsuk-frontend/base" as *;
+
+.app-template {
+  background-color: $nhsuk-body-background-colour;
+}
+
+.app-template--background-blue {
+  background-color: $nhsuk-brand-colour;
+}
+
+.app-template--background-grey {
+  background-color: $nhsuk-template-background-colour;
+}
+
+.app-template--background-white {
+  background-color: $nhsuk-card-background-colour;
+}
+
+.app-template__body {
+  background-color: inherit;
+}

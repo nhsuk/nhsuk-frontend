@@ -243,7 +243,7 @@ describe('Tabs', () => {
       // First panel visible
       expect($tab).toHaveAttribute('aria-selected', 'true')
       expect($panel).not.toHaveClass('nhsuk-tabs__panel--hidden')
-      expect($panelsHidden).toHaveLength(2)
+      expect($panelsHidden).toHaveLength(3)
 
       for (const $panelHidden of $panelsHidden) {
         const index = $panels.indexOf($panelHidden)
@@ -272,7 +272,7 @@ describe('Tabs', () => {
         // First panel visible
         expect($tab).toHaveAttribute('aria-selected', 'true')
         expect($panel).not.toHaveClass('nhsuk-tabs__panel--hidden')
-        expect($panelsHidden).toHaveLength(2)
+        expect($panelsHidden).toHaveLength(3)
 
         for (const $panelHidden of $panelsHidden) {
           const index = $panels.indexOf($panelHidden)
@@ -285,7 +285,7 @@ describe('Tabs', () => {
       }
     )
 
-    it.each(['#tab-one', '#tab-two', '#tab-three'])(
+    it.each(['#past-day', '#past-week', '#past-month', '#past-year'])(
       'should be visible when %s is active',
       (selector) => {
         window.location.hash = selector
@@ -302,7 +302,7 @@ describe('Tabs', () => {
         // Active panel visible
         expect($tab).toHaveAttribute('aria-selected', 'true')
         expect($panel).not.toHaveClass('nhsuk-tabs__panel--hidden')
-        expect($panelsHidden).toHaveLength(2)
+        expect($panelsHidden).toHaveLength(3)
 
         for (const $panelHidden of $panelsHidden) {
           const index = $panels.indexOf($panelHidden)
@@ -315,7 +315,7 @@ describe('Tabs', () => {
       }
     )
 
-    it.each(['#tab-one', '#tab-two', '#tab-three'])(
+    it.each(['#past-day', '#past-week', '#past-month', '#past-year'])(
       'should be visible when %s is clicked',
       (selector) => {
         const $tab = document.querySelector(`a[href="${selector}"]`)
@@ -329,7 +329,7 @@ describe('Tabs', () => {
         // Clicked panel visible
         expect($tab).toHaveAttribute('aria-selected', 'true')
         expect($panel).not.toHaveClass('nhsuk-tabs__panel--hidden')
-        expect($panelsHidden).toHaveLength(2)
+        expect($panelsHidden).toHaveLength(3)
 
         for (const $panelHidden of $panelsHidden) {
           const index = $panels.indexOf($panelHidden)
@@ -355,25 +355,37 @@ describe('Tabs', () => {
       // Activated 3rd tab panel
       expect($tabs.at(2)).toHaveAttribute('aria-selected', 'true')
       expect($panels.at(2)).not.toHaveClass('nhsuk-tabs__panel--hidden')
+
+      await user.keyboard('[ArrowRight]')
+
+      // Activated 4th tab panel
+      expect($tabs.at(3)).toHaveAttribute('aria-selected', 'true')
+      expect($panels.at(3)).not.toHaveClass('nhsuk-tabs__panel--hidden')
     })
 
     it('should not move to next panel using right arrow key (last tab)', async () => {
-      $tabs.at(2).click()
+      $tabs.at(3).click()
       await user.keyboard('[ArrowRight]')
 
       // Stuck on last tab panel
-      expect($tabs.at(2)).toHaveAttribute('aria-selected', 'true')
-      expect($panels.at(2)).not.toHaveClass('nhsuk-tabs__panel--hidden')
+      expect($tabs.at(3)).toHaveAttribute('aria-selected', 'true')
+      expect($panels.at(3)).not.toHaveClass('nhsuk-tabs__panel--hidden')
 
       await user.keyboard('[ArrowRight]')
 
       // Stuck on last tab panel (no change)
-      expect($tabs.at(2)).toHaveAttribute('aria-selected', 'true')
-      expect($panels.at(2)).not.toHaveClass('nhsuk-tabs__panel--hidden')
+      expect($tabs.at(3)).toHaveAttribute('aria-selected', 'true')
+      expect($panels.at(3)).not.toHaveClass('nhsuk-tabs__panel--hidden')
     })
 
     it('should move to previous panel using left arrow key', async () => {
-      $tabs.at(2).click()
+      $tabs.at(3).click()
+      await user.keyboard('[ArrowLeft]')
+
+      // Activated 3rd tab panel
+      expect($tabs.at(2)).toHaveAttribute('aria-selected', 'true')
+      expect($panels.at(2)).not.toHaveClass('nhsuk-tabs__panel--hidden')
+
       await user.keyboard('[ArrowLeft]')
 
       // Activated 2nd tab panel

@@ -5,6 +5,7 @@ import nunjucks from 'nunjucks'
 import { outdent } from 'outdent'
 
 import * as filters from './filters/index.mjs'
+import * as globals from './globals/index.mjs'
 
 // Node.js environment with default
 // https://nodejs.org/en/learn/getting-started/nodejs-the-difference-between-development-and-production
@@ -36,6 +37,11 @@ export function configure(searchPaths = [], nunjucksOptions = {}) {
   // Add Nunjucks filters
   for (const [key, filter] of Object.entries(filters)) {
     env.addFilter(key, filter)
+  }
+
+  // Add Nunjucks globals
+  for (const [key, global] of Object.entries(globals)) {
+    env.addGlobal(key, global)
   }
 
   return env
