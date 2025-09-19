@@ -23,6 +23,7 @@ export async function load(component) {
 
   const collator = new Intl.Collator('en', {
     ignorePunctuation: true,
+    numeric: true,
     sensitivity: 'base'
   })
 
@@ -39,12 +40,23 @@ export async function load(component) {
 
   // Sort examples by name, default at top
   data.examples = Object.fromEntries(
-    Object.entries(options.examples ?? {}).sort(([nameA], [nameB]) =>
-      collator.compare(
-        nameA.replace('default', ''),
-        nameB.replace('default', '')
-      )
-    )
+    Object.entries(options.examples ?? {}).sort(([nameA], [nameB]) => {
+      for (const [find, replace] of [
+        // Sort default to top
+        ['default', ''],
+
+        // Sort sizes numerically
+        ['size S', 'size 1'],
+        ['size M', 'size 2'],
+        ['size L', 'size 3'],
+        ['size XL', 'size 4']
+      ]) {
+        nameA = nameA.replace(find, replace)
+        nameB = nameB.replace(find, replace)
+      }
+
+      return collator.compare(nameA, nameB)
+    })
   )
 
   return data
