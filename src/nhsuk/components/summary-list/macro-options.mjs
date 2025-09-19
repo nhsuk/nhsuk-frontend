@@ -148,7 +148,16 @@ export const examples = {
             text: 'Name'
           },
           value: {
-            text: 'Sarah Philips'
+            text: 'Karen Francis'
+          },
+          actions: {
+            items: [
+              {
+                href: '#',
+                text: 'Change',
+                visuallyHiddenText: 'name'
+              }
+            ]
           }
         },
         {
@@ -156,7 +165,7 @@ export const examples = {
             text: 'Date of birth'
           },
           value: {
-            text: '5 January 1978'
+            text: '15 March 1984'
           },
           actions: {
             items: [
@@ -174,9 +183,9 @@ export const examples = {
           },
           value: {
             html: outdent`
-              72 Guild Street<br>
-              London<br>
-              SE23 6FH
+              73 Roman Rd<br>
+              Leeds<br>
+              LS2 5ZN
             `
           },
           actions: {
@@ -195,8 +204,83 @@ export const examples = {
           },
           value: {
             html: outdent`
-              <p>07700 900457</p>
-              <p>sarah.philips@example.com</p>
+              <p>07700 900362</p>
+              <p>karen.francis@example.com</p>
+            `
+          },
+          actions: {
+            items: [
+              {
+                href: '#',
+                text: 'Change',
+                visuallyHiddenText: 'contact details'
+              }
+            ]
+          }
+        }
+      ]
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
+    }
+  },
+  'with multiple actions': {
+    context: {
+      rows: [
+        {
+          key: {
+            text: 'Name'
+          },
+          value: {
+            text: 'Karen Francis'
+          }
+        },
+        {
+          key: {
+            text: 'Date of birth'
+          },
+          value: {
+            text: '15 March 1984'
+          },
+          actions: {
+            items: [
+              {
+                href: '#',
+                text: 'Change',
+                visuallyHiddenText: 'date of birth'
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: 'Contact information'
+          },
+          value: {
+            html: outdent`
+              73 Roman Rd<br>
+              Leeds<br>
+              LS2 5ZN
+            `
+          },
+          actions: {
+            items: [
+              {
+                href: '#',
+                text: 'Change',
+                visuallyHiddenText: 'contact information'
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: 'Contact details'
+          },
+          value: {
+            html: outdent`
+              <p>07700 900362</p>
+              <p>karen.francis@example.com</p>
             `
           },
           actions: {
@@ -242,8 +326,8 @@ export const examples = {
         }
       ]
     },
-    screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
+    options: {
+      width: 'full'
     }
   },
   'without actions': {
@@ -254,7 +338,7 @@ export const examples = {
             text: 'Name'
           },
           value: {
-            text: 'Sarah Philips'
+            text: 'Karen Francis'
           }
         },
         {
@@ -262,7 +346,7 @@ export const examples = {
             text: 'Date of birth'
           },
           value: {
-            text: '5 January 1978'
+            text: '15 March 1984'
           }
         },
         {
@@ -271,9 +355,9 @@ export const examples = {
           },
           value: {
             html: outdent`
-              72 Guild Street<br>
-              London<br>
-              SE23 6FH
+              73 Roman Rd<br>
+              Leeds<br>
+              LS2 5ZN
             `
           }
         },
@@ -283,8 +367,8 @@ export const examples = {
           },
           value: {
             html: outdent`
-              <p>07700 900457</p>
-              <p>sarah.philips@example.com</p>
+              <p>07700 900362</p>
+              <p>karen.francis@example.com</p>
             `
           }
         }
@@ -303,7 +387,7 @@ export const examples = {
             text: 'Name'
           },
           value: {
-            text: 'Sarah Philips'
+            text: 'Karen Francis'
           }
         },
         {
@@ -311,7 +395,7 @@ export const examples = {
             text: 'Date of birth'
           },
           value: {
-            text: '5 January 1978'
+            text: '15 March 1984'
           }
         },
         {
@@ -320,9 +404,9 @@ export const examples = {
           },
           value: {
             html: outdent`
-              72 Guild Street<br>
-              London<br>
-              SE23 6FH
+              73 Roman Rd<br>
+              Leeds<br>
+              LS2 5ZN
             `
           }
         },
@@ -332,8 +416,8 @@ export const examples = {
           },
           value: {
             html: outdent`
-              <p>07700 900457</p>
-              <p>sarah.philips@example.com</p>
+              <p>07700 900362</p>
+              <p>karen.francis@example.com</p>
             `
           }
         }
@@ -351,7 +435,7 @@ export const examples = {
             text: 'Name'
           },
           value: {
-            text: 'Sarah Philips'
+            text: 'Karen Francis'
           }
         },
         {
@@ -359,7 +443,7 @@ export const examples = {
             text: 'Date of birth'
           },
           value: {
-            text: '5 January 1978'
+            text: '15 March 1984'
           }
         },
         {
@@ -368,9 +452,9 @@ export const examples = {
           },
           value: {
             html: outdent`
-              72 Guild Street<br>
-              London<br>
-              SE23 6FH
+              73 Roman Rd<br>
+              Leeds<br>
+              LS2 5ZN
             `
           }
         },
@@ -381,8 +465,8 @@ export const examples = {
           },
           value: {
             html: outdent`
-              <p>07700 900457</p>
-              <p>sarah.philips@example.com</p>
+              <p>07700 900362</p>
+              <p>karen.francis@example.com</p>
             `
           }
         }

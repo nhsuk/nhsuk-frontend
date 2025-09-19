@@ -158,7 +158,7 @@ export const examples = {
             text: 'Blisters on lips or around the mouth'
           },
           {
-            text: 'cold sores'
+            text: 'Cold sores'
           }
         ],
         [
@@ -166,7 +166,7 @@ export const examples = {
             text: 'Itchy, dry, cracked, sore'
           },
           {
-            text: 'eczema'
+            text: 'Eczema'
           }
         ],
         [
@@ -174,13 +174,113 @@ export const examples = {
             text: 'Itchy blisters'
           },
           {
-            text: 'shingles, chickenpox'
+            text: 'Shingles, chickenpox'
           }
         ]
       ]
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']
+    }
+  },
+  'with missing data': {
+    context: {
+      caption: 'Vaccinations given',
+      head: [
+        {
+          text: 'Date'
+        },
+        {
+          text: 'Vaccine'
+        },
+        {
+          text: 'Product'
+        }
+      ],
+      rows: [
+        [
+          {
+            text: '10 July 2024'
+          },
+          {
+            text: 'RSV'
+          },
+          {
+            text: 'Abrysvo'
+          }
+        ],
+        [
+          {
+            text: '6 September 2023'
+          },
+          {
+            text: 'Flu'
+          },
+          {
+            text: 'No data',
+            classes: 'nhsuk-u-secondary-text-colour'
+          }
+        ]
+      ]
+    }
+  },
+  'with numeric data': {
+    context: {
+      caption: 'Prescription prepayment certificate (PPC) charges',
+      head: [
+        {
+          text: 'Item'
+        },
+        {
+          text: 'Current charge',
+          format: 'numeric'
+        },
+        {
+          text: 'New charge',
+          format: 'numeric'
+        }
+      ],
+      rows: [
+        [
+          {
+            text: '3-month'
+          },
+          {
+            text: '£31.25',
+            format: 'numeric'
+          },
+          {
+            text: '£32.05',
+            format: 'numeric'
+          }
+        ],
+        [
+          {
+            text: '12-month'
+          },
+          {
+            text: '£111.60',
+            format: 'numeric'
+          },
+          {
+            text: '£114.50',
+            format: 'numeric'
+          }
+        ],
+        [
+          {
+            text: 'HRT'
+          },
+          {
+            text: '£19.30',
+            format: 'numeric'
+          },
+          {
+            text: '£19.80',
+            format: 'numeric'
+          }
+        ]
+      ]
     }
   },
   'with responsive layout': {
@@ -444,7 +544,7 @@ export const examples = {
       panel: true,
       head: [
         {
-          text: 'Symptoms'
+          text: 'Skin symptoms'
         },
         {
           text: 'Possible cause'
@@ -456,7 +556,7 @@ export const examples = {
             text: 'Blisters on lips or around the mouth'
           },
           {
-            text: 'cold sores'
+            text: 'Cold sores'
           }
         ],
         [
@@ -464,7 +564,7 @@ export const examples = {
             text: 'Itchy, dry, cracked, sore'
           },
           {
-            text: 'eczema'
+            text: 'Eczema'
           }
         ],
         [
@@ -472,7 +572,7 @@ export const examples = {
             text: 'Itchy blisters'
           },
           {
-            text: 'shingles, chickenpox'
+            text: 'Shingles, chickenpox'
           }
         ]
       ]

@@ -58,29 +58,54 @@ export const params = {
 export const examples = {
   'default': {
     context: {
-      text: 'NHS number'
+      text: 'What is your full name?',
+      classes: 'nhsuk-label--l',
+      isPageHeading: true
     },
     screenshot: {
-      viewports: ['tablet']
+      viewports: ['mobile', 'tablet', 'desktop']
     }
   },
-  'with bold text': {
+  'size XL': {
     context: {
-      classes: 'nhsuk-label--s',
-      text: 'NHS number'
-    },
-    screenshot: {
-      viewports: ['tablet']
-    }
-  },
-  'as page heading': {
-    context: {
-      text: 'NHS number',
+      text: 'What is your full name?',
       classes: 'nhsuk-label--xl',
       isPageHeading: true
     },
     screenshot: {
       viewports: ['tablet']
+    }
+  },
+  'size L': {
+    context: {
+      text: 'What is your full name?',
+      classes: 'nhsuk-label--l',
+      isPageHeading: true
+    },
+    screenshot: {
+      viewports: ['tablet']
+    }
+  },
+  'size M': {
+    context: {
+      text: 'What is your full name?',
+      classes: 'nhsuk-label--m',
+      isPageHeading: true
+    },
+    screenshot: {
+      viewports: ['tablet']
+    }
+  },
+  'size S': {
+    context: {
+      text: 'What is your full name?',
+      classes: 'nhsuk-label--s',
+      isPageHeading: true
+    }
+  },
+  'without page heading': {
+    context: {
+      text: 'What is your full name?'
     }
   }
 }

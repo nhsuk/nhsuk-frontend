@@ -142,7 +142,12 @@ export const examples = {
   'default': {
     context: {
       label: {
-        text: 'Can you provide more detail?'
+        text: 'Can you provide more detail?',
+        classes: 'nhsuk-label--l',
+        isPageHeading: true
+      },
+      hint: {
+        text: 'Do not include personal information like your name, date of birth or NHS number'
       },
       name: 'example'
     },
@@ -151,30 +156,91 @@ export const examples = {
   'with hint': {
     context: {
       label: {
-        text: 'Can you provide more detail?'
+        text: 'Can you provide more detail?',
+        classes: 'nhsuk-label--l',
+        isPageHeading: true
       },
       hint: {
-        text: 'Do not include personal information, like your name, date of birth or NHS number'
+        text: 'Do not include personal information like your name, date of birth or NHS number'
       },
       id: 'with-hint',
       name: 'example'
     }
   },
-  'with label as page heading': {
+  'with label size S': {
+    context: {
+      label: {
+        text: 'Can you provide more detail?',
+        classes: 'nhsuk-label--s',
+        isPageHeading: true
+      },
+      hint: {
+        text: 'Do not include personal information like your name, date of birth or NHS number'
+      },
+      id: 'custom-size',
+      name: 'example'
+    }
+  },
+  'with label size M': {
+    context: {
+      label: {
+        text: 'Can you provide more detail?',
+        classes: 'nhsuk-label--m',
+        isPageHeading: true
+      },
+      hint: {
+        text: 'Do not include personal information like your name, date of birth or NHS number'
+      },
+      id: 'custom-size',
+      name: 'example'
+    }
+  },
+  'with label size L': {
     context: {
       label: {
         text: 'Can you provide more detail?',
         classes: 'nhsuk-label--l',
         isPageHeading: true
       },
-      id: 'page-heading',
+      hint: {
+        text: 'Do not include personal information like your name, date of birth or NHS number'
+      },
+      id: 'custom-size',
+      name: 'example'
+    }
+  },
+  'with label size XL': {
+    context: {
+      label: {
+        text: 'Can you provide more detail?',
+        classes: 'nhsuk-label--xl',
+        isPageHeading: true
+      },
+      hint: {
+        text: 'Do not include personal information like your name, date of birth or NHS number'
+      },
+      id: 'custom-size',
+      name: 'example'
+    }
+  },
+  'without page heading': {
+    context: {
+      label: {
+        text: 'Can you provide more detail?'
+      },
+      hint: {
+        text: 'Do not include personal information like your name, date of birth or NHS number'
+      },
+      id: 'without-heading',
       name: 'example'
     }
   },
   'with error message': {
     context: {
       label: {
-        text: 'Can you provide more detail?'
+        text: 'Can you provide more detail?',
+        classes: 'nhsuk-label--l',
+        isPageHeading: true
       },
       errorMessage: {
         text: 'You must provide an explanation'
@@ -190,10 +256,12 @@ export const examples = {
   'with hint and error': {
     context: {
       label: {
-        text: 'Can you provide more detail?'
+        text: 'Can you provide more detail?',
+        classes: 'nhsuk-label--l',
+        isPageHeading: true
       },
       hint: {
-        text: 'Do not include personal information, like your name, date of birth or NHS number'
+        text: 'Do not include personal information like your name, date of birth or NHS number'
       },
       errorMessage: {
         text: 'You must provide an explanation'
@@ -205,7 +273,9 @@ export const examples = {
   'with autocomplete attribute': {
     context: {
       label: {
-        text: 'Full address'
+        text: 'Full address',
+        classes: 'nhsuk-label--l',
+        isPageHeading: true
       },
       id: 'with-autocomplete-attribute',
       name: 'example',
