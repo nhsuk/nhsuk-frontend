@@ -1,4 +1,5 @@
 @use "../settings" as *;
+@use "buttons" as *;
 
 ////
 /// Focused
@@ -104,11 +105,19 @@
 /// the target element has focus. Used for buttons.
 
 @mixin nhsuk-focused-button {
-  outline: $nhsuk-focus-width solid transparent;
-  outline-offset: $nhsuk-focus-width;
+  border-color: $nhsuk-focus-text-colour;
   color: $nhsuk-focus-text-colour;
   background-color: $nhsuk-focus-colour;
-  box-shadow: 0 $nhsuk-focus-width 0 0 $nhsuk-focus-text-colour;
+  box-shadow: 0 $nhsuk-button-shadow-size 0 $nhsuk-focus-text-colour;
+
+  &::before {
+    outline: $nhsuk-focus-width solid $nhsuk-focus-colour;
+  }
+
+  &::after {
+    bottom: -$nhsuk-button-shadow-size;
+    border-color: $nhsuk-focus-text-colour;
+  }
 
   &,
   .nhsuk-icon {
