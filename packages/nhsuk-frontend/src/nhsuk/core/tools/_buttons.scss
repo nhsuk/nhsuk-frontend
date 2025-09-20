@@ -1,0 +1,75 @@
+@use "../settings" as *;
+
+////
+/// Buttons
+///
+/// @group tools
+////
+
+/// Button styling with colour overrides
+///
+/// @param {Colour} $button-colour [$nhsuk-button-colour] - Button background colour
+/// @param {Colour} $button-hover-colour [$nhsuk-button-hover-colour - Button hover background colour
+/// @param {Colour} $button-text-colour [$nhsuk-button-text-colour] - Button text colour
+/// @param {Colour} $button-shadow-colour [$nhsuk-button-shadow-colour] - Button shadow colour
+/// @param {Boolean} $secondary [false] - Secondary button
+///
+
+@mixin nhsuk-button-style(
+  $button-colour: $nhsuk-button-colour,
+  $button-hover-colour: $nhsuk-button-hover-colour,
+  $button-active-colour: $nhsuk-button-active-colour,
+  $button-text-colour: $nhsuk-button-text-colour,
+  $button-shadow-colour: $nhsuk-button-shadow-colour,
+  $secondary: false
+) {
+  $button-border-colour: $button-colour;
+  $button-border-hover-colour: $button-hover-colour;
+  $button-border-active-colour: $button-active-colour;
+  $button-shadow-size: $nhsuk-border-width-form-element;
+
+  @if $secondary == true {
+    $button-border-colour: $button-shadow-colour;
+    $button-border-hover-colour: $button-shadow-colour;
+    $button-border-active-colour: $button-shadow-colour;
+  }
+
+  border: $nhsuk-border-width-form-element solid $button-shadow-colour;
+  background-color: $button-colour;
+  box-shadow: 0 $button-shadow-size 0 $button-shadow-colour;
+
+  &::after {
+    bottom: 0;
+    border: $nhsuk-border-width-form-element solid $button-border-colour;
+
+    @if $secondary == true {
+      bottom: -$nhsuk-border-width-form-element;
+    }
+  }
+
+  &:hover {
+    background-color: $button-hover-colour;
+
+    &::after {
+      border-color: $button-border-hover-colour;
+    }
+  }
+
+  &:active,
+  &:active:focus {
+    background-color: $button-active-colour;
+
+    &::after {
+      border-color: $button-border-active-colour;
+    }
+  }
+
+  &,
+  &:visited,
+  &:hover,
+  &:hover:visited,
+  &:active,
+  &:active:visited {
+    color: $button-text-colour;
+  }
+}
