@@ -17,7 +17,9 @@
 
 $nhsuk-button-padding-top-bottom-mobile: 8px;
 $nhsuk-button-padding-top-bottom-desktop: 12px;
+$nhsuk-button-padding-top-bottom-small: 5px;
 $nhsuk-button-padding-left-right: 16px;
+$nhsuk-button-padding-left-right-small: 12px;
 
 // @deprecated To be removed in v11.0
 $button-padding-top-bottom-mobile: $nhsuk-button-padding-top-bottom-mobile;
@@ -177,6 +179,12 @@ $button-padding-left-right: $nhsuk-button-padding-left-right;
       $button-active-colour: $nhsuk-login-button-active-colour,
       $button-shadow-colour: $nhsuk-login-button-shadow-colour
     );
+  }
+
+  .nhsuk-button--small {
+    padding: $nhsuk-button-padding-top-bottom-small $nhsuk-button-padding-left-right-small;
+
+    @include nhsuk-font(16, $weight: bold);
   }
 
   // Button disabled states
