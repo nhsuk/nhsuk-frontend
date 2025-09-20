@@ -18,7 +18,9 @@
 $nhsuk-button-border-radius: $nhsuk-border-width-form-element * 2;
 $nhsuk-button-padding-top-bottom-mobile: 8px;
 $nhsuk-button-padding-top-bottom-desktop: 12px;
+$nhsuk-button-padding-top-bottom-small: 6px;
 $nhsuk-button-padding-left-right: 16px;
+$nhsuk-button-padding-left-right-small: 12px;
 
 // Because the shadow is visually 'part of' the button, we need to reduce
 // the height of the button to compensate by adjusting its padding (s2) and
@@ -187,6 +189,19 @@ $button-shadow-size: $nhsuk-button-shadow-size;
       $button-active-colour: $nhsuk-login-button-active-colour,
       $button-shadow-colour: $nhsuk-login-button-shadow-colour
     );
+  }
+
+  .nhsuk-button--small {
+    padding: $nhsuk-button-padding-top-bottom-small $nhsuk-button-padding-left-right-small;
+
+    // Reduce shadow size without needing to redefine shadow colours
+    clip-path: rect(0 100% calc(100% + 1.5px) 0 round $nhsuk-button-border-radius);
+
+    @include nhsuk-font(16, $weight: bold);
+
+    &:active {
+      top: 1.5px;
+    }
   }
 
   // Button disabled states
