@@ -873,6 +873,7 @@ export const examples = {
     context: {
       classes: 'nhsuk-header--white',
       logo: {
+        ariaLabel: 'NHS white homepage',
         href: '#'
       }
     },
