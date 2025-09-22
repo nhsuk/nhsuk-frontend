@@ -332,6 +332,7 @@ export const examples = {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
+
   /**
    * Blue header examples
    */
@@ -855,6 +856,7 @@ export const examples = {
       viewports: ['desktop']
     }
   },
+
   /**
    * White header examples
    */
@@ -883,6 +885,19 @@ export const examples = {
       states: ['hover', 'focus'],
       selector: '.nhsuk-header__service-logo',
       viewports: ['desktop']
+    }
+  },
+  'white (linked logo, ARIA label)': {
+    context: {
+      classes: 'nhsuk-header--white',
+      logo: {
+        ariaLabel: 'NHS white homepage',
+        href: '#'
+      }
+    },
+    options: {
+      hidden: true,
+      width: false
     }
   },
   'white (linked logo, custom)': {
@@ -1342,8 +1357,7 @@ export const examples = {
     context: {
       classes: 'nhsuk-header--white',
       logo: {
-        href: '#',
-        ariaLabel: 'NHS digital service manual homepage'
+        href: '#'
       },
       organisation: {
         name: 'Business Services Authority'
