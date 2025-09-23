@@ -68,7 +68,6 @@ export const examples = {
   'as a button': {
     context: {
       text: 'Back',
-      href: '#',
       element: 'button'
     },
     screenshot: {
