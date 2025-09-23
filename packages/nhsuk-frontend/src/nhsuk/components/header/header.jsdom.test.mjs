@@ -28,7 +28,7 @@ describe('Header class', () => {
   beforeEach(() => {
     document.body.innerHTML = components.render(
       'header',
-      examples['with navigation overflow']
+      examples['blue with navigation (overflow)']
     )
 
     $root = /** @type {HTMLElement} */ (
