@@ -41,7 +41,6 @@ This change was introduced in [pull request #1594: Always set input `:focus` box
 - [#1593: Fix Sass deprecated `core/settings/colours` partial](https://github.com/nhsuk/nhsuk-frontend/pull/1593)
 - [#1594: Always set input `:focus` box-shadow colour](https://github.com/nhsuk/nhsuk-frontend/pull/1594)
 - [#1599: Make border colour on `nhsuk-panel` mixin optional](https://github.com/nhsuk/nhsuk-frontend/pull/1599)
-- [#1602: Remove invalid `href` option from back link component when used as a button](https://github.com/nhsuk/nhsuk-frontend/pull/1602)
 
 ## 10.0.0 - 26 August 2025
 
