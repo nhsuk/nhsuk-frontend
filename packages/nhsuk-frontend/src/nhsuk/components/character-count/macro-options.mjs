@@ -165,7 +165,7 @@ export const params = {
   charactersUnderLimitText: {
     type: 'object',
     required: false,
-    description: 'Message displayed when the number of characters is under the configured maximum, `maxlength`. This message is displayed visually and through assistive technologies. The component will replace the `%{count}` placeholder with the number of remaining characters. Our pluralisation rules apply to this macro option (https://github.com/nhsuk/nhsuk-frontend/blob/main/docs/configuration/localisation.md).'
+    description: 'Message displayed when the number of characters is under the configured maximum, `maxlength`. This message is displayed visually and through assistive technologies. The component will replace the `%{count}` placeholder with the number of remaining characters. [Our pluralisation rules apply to this macro option](https://github.com/nhsuk/nhsuk-frontend/blob/main/docs/configuration/localisation.md).'
   },
   charactersAtLimitText: {
     type: 'string',
@@ -175,12 +175,12 @@ export const params = {
   charactersOverLimitText: {
     type: 'object',
     required: false,
-    description: 'Message displayed when the number of characters is over the configured maximum, `maxlength`. This message is displayed visually and through assistive technologies. The component will replace the `%{count}` placeholder with the number of characters above the maximum. Our pluralisation rules apply to this macro option (https://github.com/nhsuk/nhsuk-frontend/blob/main/docs/configuration/localisation.md).'
+    description: 'Message displayed when the number of characters is over the configured maximum, `maxlength`. This message is displayed visually and through assistive technologies. The component will replace the `%{count}` placeholder with the number of characters above the maximum. [Our pluralisation rules apply to this macro option](https://github.com/nhsuk/nhsuk-frontend/blob/main/docs/configuration/localisation.md).'
   },
   wordsUnderLimitText: {
     type: 'object',
     required: false,
-    description: 'Message displayed when the number of words is under the configured maximum, `maxwords`. This message is displayed visually and through assistive technologies. The component will replace the `%{count}` placeholder with the number of remaining words. Our pluralisation rules apply to this macro option (https://github.com/nhsuk/nhsuk-frontend/blob/main/docs/configuration/localisation.md).'
+    description: 'Message displayed when the number of words is under the configured maximum, `maxwords`. This message is displayed visually and through assistive technologies. The component will replace the `%{count}` placeholder with the number of remaining words. [Our pluralisation rules apply to this macro option](https://github.com/nhsuk/nhsuk-frontend/blob/main/docs/configuration/localisation.md).'
   },
   wordsAtLimitText: {
     type: 'string',
@@ -190,7 +190,7 @@ export const params = {
   wordsOverLimitText: {
     type: 'object',
     required: false,
-    description: 'Message displayed when the number of words is over the configured maximum, `maxwords`. This message is displayed visually and through assistive technologies. The component will replace the `%{count}` placeholder with the number of characters above the maximum. Our pluralisation rules apply to this macro option (https://github.com/nhsuk/nhsuk-frontend/blob/main/docs/configuration/localisation.md).'
+    description: 'Message displayed when the number of words is over the configured maximum, `maxwords`. This message is displayed visually and through assistive technologies. The component will replace the `%{count}` placeholder with the number of characters above the maximum. [Our pluralisation rules apply to this macro option](https://github.com/nhsuk/nhsuk-frontend/blob/main/docs/configuration/localisation.md).'
   }
 }
 
