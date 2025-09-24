@@ -10,26 +10,26 @@ export const name = 'Date input'
 export const params = {
   id: {
     type: 'string',
-    required: false,
+    required: true,
     description:
-      'This is used for the main component and to compose id attribute for each item.'
+      'This is used for the main component and to compose the ID attribute for each item.'
   },
   namePrefix: {
     type: 'string',
     required: false,
     description:
-      "Optional prefix. This is used to prefix each `item.name` using `'-'`."
+      'Optional prefix. This is used to prefix each item `name`, separated by `-`.'
   },
   items: {
     type: 'array',
     required: false,
-    description: 'An array of input objects with name, value and classes.',
+    description: 'The inputs within the date input component.',
     params: {
       id: {
         type: 'string',
         required: false,
         description:
-          'Item-specific id. If provided, it will be used instead of the generated id.'
+          'Item-specific ID. If provided, it will be used instead of the generated ID.'
       },
       name: {
         type: 'string',
@@ -51,50 +51,45 @@ export const params = {
       value: {
         type: 'string',
         required: false,
-        description: 'Optional initial value of the input.'
+        description:
+          'If provided, it will be used as the initial value of the input.'
       },
       autocomplete: {
         type: 'string',
         required: false,
         description:
-          "Attribute to [identify input purpose](https://www.w3.org/WAI/WCAG21/Understanding/identify-input-purpose.html), for instance `'postal-code'` or `'username'`. See [Autofilling form controls: the autocomplete attribute](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill) for the full list of attributes that can be used."
+          'Attribute to meet [WCAG success criterion 1.3.5: Identify input purpose](https://www.w3.org/WAI/WCAG22/Understanding/identify-input-purposeandard](https://html.spec.whatwg.org/multipage/form-control-infrastructure used.'
       },
       pattern: {
         type: 'string',
         required: false,
         description:
-          'Attribute to [provide a regular expression pattern](https://www.w3.org/TR/html51/sec-forms.html#the-pattern-attribute), used to match allowed character combinations for the input value.'
+          'Attribute to [provide a regular expression pattern](https://html.spec.whatharacter combinations for the input value.'
       },
       classes: {
         type: 'string',
         required: false,
-        description: 'Classes to add to the date input item.'
+        description: 'Classes to add to date input item.'
       },
       attributes: {
         type: 'object',
         required: false,
         description:
-          'HTML attributes (for example data attributes) to add to the date input item.'
+          'HTML attributes (for example data attributes) to add to the date input tag.'
       }
     }
-  },
-  fieldset: {
-    type: 'object',
-    required: false,
-    description: 'Options for the fieldset component (for example legend).',
-    isComponent: true
   },
   hint: {
     type: 'object',
     required: false,
-    description: 'Options for the hint component.',
+    description: 'Can be used to add a hint to a date input component.',
     isComponent: true
   },
   errorMessage: {
     type: 'object',
     required: false,
     description:
-      'Options for the error message component. The error message component will not display if you use a falsy value for `errorMessage`, for example `false` or `null`.',
+      'Can be used to add an error message to the date input component. The error message component will not display if you use a falsy value for `errorMessage`, for example `false` or `null`.',
     isComponent: true
   },
   formGroup: {
@@ -156,6 +151,12 @@ export const params = {
         }
       }
     }
+  },
+  fieldset: {
+    type: 'object',
+    required: false,
+    description: 'Can be used to add a fieldset to the date input component.',
+    isComponent: true
   },
   values: {
     type: 'object',
