@@ -14,85 +14,75 @@ export const params = {
     required: false,
     description: 'The ID of the checkboxes component.'
   },
-  describedBy: {
+    describedBy: {
     type: 'string',
     required: false,
-    description:
-      'One or more element IDs to add to the input `aria-describedby` attribute without a fieldset, used to provide additional descriptive information for screenreader users.'
+    description: 'One or more element IDs to add to the input `aria-describedby` attribute without a fieldset, used to provide additional descriptive information for screenreader users.'
   },
   fieldset: {
     type: 'object',
     required: false,
-    description: 'Options for the fieldset component (for example legend).',
+    description: 'Can be used to add a fieldset to the checkboxes component.',
     isComponent: true
   },
   hint: {
     type: 'object',
     required: false,
-    description: 'Options for the hint component (for example text).',
+    description: 'Can be used to add a hint to the checkboxes component.',
     isComponent: true
   },
   errorMessage: {
     type: 'object',
     required: false,
-    description: 'Options for the error message component.',
+    description: 'Can be used to add an error message to the checkboxes component. The error message component will not display if you use a falsy value for `errorMessage`, for example `false` or `null`.',
     isComponent: true
   },
   formGroup: {
     type: 'object',
     required: false,
-    description:
-      'Additional options for the form group containing the checkboxes component.',
+    description: 'Additional options for the form group containing the checkboxes component.',
     params: {
       classes: {
         type: 'string',
         required: false,
-        description:
-          'Classes to add to the form group (for example to show error state for the whole group).'
+        description: 'Classes to add to the form group (for example to show error state for the whole group).'
       },
       attributes: {
         type: 'object',
         required: false,
-        description:
-          'HTML attributes (for example data attributes) to add to the form group.'
+        description: 'HTML attributes (for example data attributes) to add to the form group.'
       },
       beforeInputs: {
         type: 'object',
         required: false,
-        description:
-          'Content to add before all checkbox items within the checkboxes component.',
+        description: 'Content to add before all checkbox items within the checkboxes component.',
         params: {
           text: {
             type: 'string',
             required: true,
-            description:
-              'Text to add before all checkbox items. If `html` is provided, the `text` option will be ignored.'
+            description: 'Text to add before all checkbox items. If `html` is provided, the `text` option will be ignored.'
           },
           html: {
             type: 'string',
             required: true,
-            description:
-              'HTML to add before all checkbox items. If `html` is provided, the `text` option will be ignored.'
+            description: 'HTML to add before all checkbox items. If `html` is provided, the `text` option will be ignored.'
           }
         }
       },
       afterInputs: {
         type: 'object',
         required: false,
-        description:
-          'Content to add after all checkbox items within the checkboxes component.',
+        description: 'Content to add after all checkbox items within the checkboxes component.',
         params: {
           text: {
             type: 'string',
             required: true,
-            description:
-              'Text to add after all checkbox items. If `html` is provided, the `text` option will be ignored.'
+            description: 'Text to add after all checkbox items. If `html` is provided, the `text` option will be ignored.'
           },
           html: {
             type: 'string',
             required: true,
-            description:
-              'HTML to add after all checkbox items. If `html` is provided, the `text` option will be ignored.'
+            description: 'HTML to add after all checkbox items. If `html` is provided, the `text` option will be ignored.'
           }
         }
       }
@@ -101,8 +91,7 @@ export const params = {
   idPrefix: {
     type: 'string',
     required: false,
-    description:
-      'String to prefix id for each checkbox item if no id is specified on each item. If not passed, fall back to using the name option instead.'
+    description: 'Optional prefix. This is used to prefix the `id` attribute for each checkbox item input, hint and error message, separated by `-`. Defaults to the `name` option value.'
   },
   name: {
     type: 'string',
@@ -112,103 +101,105 @@ export const params = {
   items: {
     type: 'array',
     required: true,
-    description: 'Array of checkbox items objects.',
+    description: 'The checkbox items within the checkboxes component.',
     params: {
       text: {
         type: 'string',
         required: true,
-        description:
-          'If `html` is set, this is not required. Text to use within each checkbox item label. If `html` is provided, the `text` argument will be ignored.'
+        description: 'If `html` is set, this is not required. Text to use within each checkbox item label. If `html` is provided, the `text` option will be ignored.'
       },
       html: {
         type: 'string',
         required: true,
-        description:
-          'If `text` is set, this is not required. HTML to use within each checkbox item label. If `html` is provided, the `text` argument will be ignored.'
+        description: 'If `text` is set, this is not required. HTML to use within each checkbox item label. If `html` is provided, the `text` option will be ignored.'
       },
       id: {
         type: 'string',
         required: false,
-        description:
-          'Specific id attribute for the checkbox item. If omitted, then component global `idPrefix` option will be applied.'
+        description: 'Specific ID attribute for the checkbox item. If omitted, then component global `idPrefix` option will be applied.'
       },
       name: {
         type: 'string',
         required: false,
-        description:
-          'Specific name for the checkbox item. If omitted, then component global `name` string will be applied.'
-      },
-      label: {
-        type: 'object',
-        required: false,
-        description: 'Options for the label component.',
-        isComponent: true
+        description: 'Specific name for the checkbox item. If omitted, then component global `name` string will be applied.'
       },
       value: {
         type: 'string',
         required: true,
         description: 'Value for the checkbox input.'
       },
-      divider: {
-        type: 'string',
-        required: true,
-        description:
-          "Optional divider text to separate checkbox items, for example the text `'or'`."
+      label: {
+        type: 'object',
+        required: false,
+        description: 'Subset of options for the label used by each checkbox item within the checkboxes component.',
+        isComponent: true,
+        params: {
+          classes: {
+            type: 'string',
+            required: false,
+            description: 'Classes to add to the label tag.'
+          },
+          attributes: {
+            type: 'object',
+            required: false,
+            description: 'HTML attributes (for example data attributes) to add to the label tag.'
+          }
+        }
       },
       hint: {
         type: 'object',
         required: false,
-        description: 'Provide hint to each checkbox item.',
+        description: 'Can be used to add a hint to each checkbox item within the checkboxes component.',
         isComponent: true
+      },
+      divider: {
+        type: 'string',
+        required: false,
+        description: 'Divider text to separate checkbox items, for example the text `"or"`.'
       },
       checked: {
         type: 'boolean',
         required: false,
-        description: 'If true, checkbox will be checked.'
+        description: 'Whether the checkbox should be checked when the page loads. Takes precedence over the top-level `values` option.'
       },
       conditional: {
         type: 'object',
         required: false,
-        description:
-          'Provide additional content to reveal when the checkbox is checked.',
+        description: 'Provide additional content to reveal when the checkbox is checked.',
         params: {
           html: {
             type: 'string',
-            description: 'The HTML to reveal when the checkbox is checked.',
-            required: true
+            required: true,
+            description: 'The HTML to reveal when the checkbox is checked.'
           }
         }
       },
       disabled: {
         type: 'boolean',
         required: false,
-        description: 'If true, checkbox will be disabled.'
+        description: 'If `true`, checkbox will be disabled.'
       },
       attributes: {
         type: 'object',
         required: false,
-        description:
-          'HTML attributes (for example data attributes) to add to the checkbox input tag.'
+        description: 'HTML attributes (for example data attributes) to add to the checkbox input tag.'
+      },
+      exclusive: {
+          type: 'boolean',
+          required: false,
+          description: 'If set to `true`, marks this checkbox as the None option in a None of these type behaviour. Unchecking all other checkboxes in the group when None is clicked.'
+      },
+      exclusiveGroup: {
+          type: 'string',
+          required: false,
+          description: 'Used in conjunction with `exclusive` - this should be set to a string which groups checkboxes together into a set for use in a None of these scenario.'
       }
     }
-  },
-  exclusive: {
-    type: 'boolean',
-    required: false,
-    description:
-      'If set to `true`, marks this checkbox as the None option in a None of these type behaviour. Unchecking all other checkboxes in the group when None is clicked.'
-  },
-  exclusiveGroup: {
-    type: 'string',
-    required: false,
-    description:
-      'Used in conjunction with `exclusive` - this should be set to a string which groups checkboxes together into a set for use in a None of these scenario.'
   },
   values: {
     type: 'array',
     required: false,
-    description:
-      'Array of values for checkboxes which should be checked when the page loads. Use this as an alternative to setting the `checked` option on each individual item.'
+    description: 'Array of values for checkboxes which should be checked when the page loads. Use this as an alternative to setting the `checked` option on each individual item.'
   },
   classes: {
     type: 'string',
@@ -218,8 +209,7 @@ export const params = {
   attributes: {
     type: 'object',
     required: false,
-    description:
-      'HTML attributes (for example data attributes) to add to the anchor tag.'
+    description: 'HTML attributes (for example data attributes) to add to the anchor tag.'
   }
 }
 
