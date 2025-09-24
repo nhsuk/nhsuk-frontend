@@ -161,6 +161,36 @@ export const params = {
     required: false,
     description:
       'Message made available to assistive technologies to describe that the component accepts only a limited amount of content. It is visible on the page when JavaScript is unavailable. The component will replace the `%{count}` placeholder with the value of the `maxlength` or `maxwords` parameter.'
+  },
+  charactersUnderLimitText: {
+    type: 'object',
+    required: false,
+    description: 'Message displayed when the number of characters is under the configured maximum, `maxlength`. This message is displayed visually and through assistive technologies. The component will replace the `%{count}` placeholder with the number of remaining characters. Our pluralisation rules apply to this macro option (https://frontend.design-system.service.gov.uk/localise-govuk-frontend/#understanding-pluralisation-rules).'
+  },
+  charactersAtLimitText: {
+    type: 'string',
+    required: false,
+    description: 'Message displayed when the number of characters reaches the configured maximum, `maxlength`. This message is displayed visually and through assistive technologies.'
+  },
+  charactersOverLimitText: {
+    type: 'object',
+    required: false,
+    description: 'Message displayed when the number of characters is over the configured maximum, `maxlength`. This message is displayed visually and through assistive technologies. The component will replace the `%{count}` placeholder with the number of characters above the maximum. Our pluralisation rules apply to this macro option (https://frontend.design-system.service.gov.uk/localise-govuk-frontend/#understanding-pluralisation-rules).'
+  },
+  wordsUnderLimitText: {
+    type: 'object',
+    required: false,
+    description: 'Message displayed when the number of words is under the configured maximum, `maxwords`. This message is displayed visually and through assistive technologies. The component will replace the `%{count}` placeholder with the number of remaining words. Our pluralisation rules apply to this macro option (https://frontend.design-system.service.gov.uk/localise-govuk-frontend/#understanding-pluralisation-rules).'
+  },
+  wordsAtLimitText: {
+    type: 'string',
+    required: false,
+    description: 'Message displayed when the number of words reaches the configured maximum, `maxwords`. This message is displayed visually and through assistive technologies.'
+  },
+  wordsOverLimitText: {
+    type: 'object',
+    required: false,
+    description: 'Message displayed when the number of words is over the configured maximum, `maxwords`. This message is displayed visually and through assistive technologies. The component will replace the `%{count}` placeholder with the number of characters above the maximum. Our pluralisation rules apply to this macro option (https://frontend.design-system.service.gov.uk/localise-govuk-frontend/#understanding-pluralisation-rules).'
   }
 }
 
