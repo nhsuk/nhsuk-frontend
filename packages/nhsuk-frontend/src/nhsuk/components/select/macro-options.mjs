@@ -11,7 +11,7 @@ export const params = {
   id: {
     type: 'string',
     required: false,
-    description: 'The ID of the select. Defaults to the value of `name`.'
+    description: 'ID for the select box. Defaults to the value of `name`.'
   },
   name: {
     type: 'string',
@@ -21,12 +21,12 @@ export const params = {
   items: {
     type: 'array',
     required: true,
-    description: 'Array of option items for the select.',
+    description: 'The items within the select component.',
     params: {
       value: {
         type: 'string',
         required: false,
-        description: 'Value for the option item. Defaults to an empty string.'
+        description: 'Value for the option. If this is omitted, the value is taken from the text content of the option element.'
       },
       text: {
         type: 'string',
@@ -36,7 +36,7 @@ export const params = {
       selected: {
         type: 'boolean',
         required: false,
-        description: 'Sets the option as the selected.'
+        description: 'Whether the option should be selected when the page loads. Takes precedence over the top-level `value` option.'
       },
       disabled: {
         type: 'boolean',
@@ -46,103 +46,89 @@ export const params = {
       attributes: {
         type: 'object',
         required: false,
-        description:
-          'HTML attributes (for example data attributes) to add to the option.'
+        description: 'HTML attributes (for example data attributes) to add to the option.'
       }
     }
   },
   value: {
     type: 'string',
     required: false,
-    description:
-      'Value for the option which should be selected. Use this as an alternative to setting the `selected` option on each individual item.'
+    description: 'Value for the option which should be selected. Use this as an alternative to setting the `selected` option on each individual item.'
   },
   disabled: {
     type: 'boolean',
     required: false,
-    description:
-      'If `true`, select box will be disabled. Use the `disabled` option on each individual item to only disable certain options.'
+    description: 'If `true`, select box will be disabled. Use the `disabled` option on each individual item to only disable certain options.'
   },
   describedBy: {
     type: 'string',
     required: false,
-    description:
-      'One or more element IDs to add to the `aria-describedby` attribute, used to provide additional descriptive information for screenreader users.'
+    description: 'One or more element IDs to add to the `aria-describedby` attribute, used to provide additional descriptive information for screenreader users.'
   },
   label: {
     type: 'object',
-    required: false,
-    description: 'Options for the label component.',
+    required: true,
+    description: 'The label used by the select component.',
     isComponent: true
   },
   hint: {
     type: 'object',
     required: false,
-    description: 'Options for the hint component.',
+    description: 'Can be used to add a hint to the select component.',
     isComponent: true
   },
   errorMessage: {
     type: 'object',
     required: false,
-    description:
-      'Options for the error message component. The error message component will not display if you use a falsy value for `errorMessage`, for example `false` or `null`.',
+    description: 'Can be used to add an error message to the select component. The error message component will not display if you use a falsy value for `errorMessage`, for example `false` or `null`.',
     isComponent: true
   },
   formGroup: {
     type: 'object',
     required: false,
-    description:
-      'Additional options for the form group containing the select component.',
+    description: 'Additional options for the form group containing the select component.',
     params: {
       classes: {
         type: 'string',
         required: false,
-        description:
-          'Classes to add to the form group (for example to show error state for the whole group).'
+        description: 'Classes to add to the form group (for example to show error state for the whole group).'
       },
       attributes: {
         type: 'object',
         required: false,
-        description:
-          'HTML attributes (for example data attributes) to add to the form group.'
+        description: 'HTML attributes (for example data attributes) to add to the form group.'
       },
       beforeInput: {
         type: 'object',
         required: false,
-        description:
-          'Content to add before the select used by the select component.',
+        description: 'Content to add before the select used by the select component.',
         params: {
           text: {
             type: 'string',
             required: true,
-            description:
-              'Text to add before the select. If `html` is provided, the `text` option will be ignored.'
+            description: 'Text to add before the select. If `html` is provided, the `text` option will be ignored.'
           },
           html: {
             type: 'string',
             required: true,
-            description:
-              'HTML to add before the select. If `html` is provided, the `text` option will be ignored.'
+            description: 'HTML to add before the select. If `html` is provided, the `text` option will be ignored.'
           }
         }
       },
       afterInput: {
         type: 'object',
         required: false,
-        description:
-          'Content to add after the select used by the select component.',
+        description: 'Content to add after the select used by the select component.',
         params: {
           text: {
             type: 'string',
             required: true,
-            description:
-              'Text to add after the select. If `html` is provided, the `text` option will be ignored.'
+            description: 'Text to add after the select. If `html` is provided, the `text` option will be ignored.'
           },
           html: {
             type: 'string',
             required: true,
-            description:
-              'HTML to add after the select. If `html` is provided, the `text` option will be ignored.'
+            description: 'HTML to add after the select. If `html` is provided, the `text` option will be ignored.'
           }
         }
       }
@@ -156,8 +142,7 @@ export const params = {
   attributes: {
     type: 'object',
     required: false,
-    description:
-      'HTML attributes (for example data attributes) to add to the select.'
+    description: 'HTML attributes (for example data attributes) to add to the select.'
   }
 }
 
