@@ -16,17 +16,20 @@ export const params = {
   text: {
     type: 'string',
     required: true,
-    description: 'If `html` is set, this is not required. Text to use within the label. If `html` is provided, the `text` option will be ignored.'
+    description:
+      'If `html` is set, this is not required. Text to use within the label. If `html` is provided, the `text` option will be ignored.'
   },
   html: {
     type: 'string',
     required: true,
-    description: 'If `text` is set, this is not required. HTML to use within the label. If `html` is provided, the `text` option will be ignored.'
+    description:
+      'If `text` is set, this is not required. HTML to use within the label. If `html` is provided, the `text` option will be ignored.'
   },
   for: {
     type: 'string',
     required: false,
-    description: 'The value of the `for` attribute, the ID of the input the label is associated with.'
+    description:
+      'The value of the `for` attribute, the ID of the input the label is associated with.'
   },
   isPageHeading: {
     type: 'boolean',
@@ -41,7 +44,8 @@ export const params = {
   attributes: {
     type: 'object',
     required: false,
-    description: 'HTML attributes (for example data attributes) to add to the label tag.'
+    description:
+      'HTML attributes (for example data attributes) to add to the label tag.'
   }
 }
 

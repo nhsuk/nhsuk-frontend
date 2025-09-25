@@ -16,12 +16,14 @@ export const params = {
   name: {
     type: 'string',
     required: true,
-    description: 'The name of the textarea, which is submitted with the form data.'
+    description:
+      'The name of the textarea, which is submitted with the form data.'
   },
   spellcheck: {
     type: 'boolean',
     required: false,
-    description: 'Optional field to enable or disable the `spellcheck` attribute on the textarea.'
+    description:
+      'Optional field to enable or disable the `spellcheck` attribute on the textarea.'
   },
   rows: {
     type: 'string',
@@ -41,7 +43,8 @@ export const params = {
   describedBy: {
     type: 'string',
     required: false,
-    description: 'One or more element IDs to add to the `aria-describedby` attribute, used to provide additional descriptive information for screenreader users.'
+    description:
+      'One or more element IDs to add to the `aria-describedby` attribute, used to provide additional descriptive information for screenreader users.'
   },
   label: {
     type: 'object',
@@ -58,55 +61,65 @@ export const params = {
   errorMessage: {
     type: 'object',
     required: false,
-    description: 'Can be used to add an error message to the textarea component. The error message component will not display if you use a falsy value for `errorMessage`, for example `false` or `null`.',
+    description:
+      'Can be used to add an error message to the textarea component. The error message component will not display if you use a falsy value for `errorMessage`, for example `false` or `null`.',
     isComponent: true
   },
   formGroup: {
     type: 'object',
     required: false,
-    description: 'Additional options for the form group containing the textarea component.',
+    description:
+      'Additional options for the form group containing the textarea component.',
     params: {
       classes: {
         type: 'string',
         required: false,
-        description: 'Classes to add to the form group (for example to show error state for the whole group).'
+        description:
+          'Classes to add to the form group (for example to show error state for the whole group).'
       },
       attributes: {
         type: 'object',
         required: false,
-        description: 'HTML attributes (for example data attributes) to add to the form group.'
+        description:
+          'HTML attributes (for example data attributes) to add to the form group.'
       },
       beforeInput: {
         type: 'object',
         required: false,
-        description: 'Content to add before the textarea used by the textarea component.',
+        description:
+          'Content to add before the textarea used by the textarea component.',
         params: {
           text: {
             type: 'string',
             required: true,
-            description: 'Text to add before the textarea. If `html` is provided, the `text` option will be ignored.'
+            description:
+              'Text to add before the textarea. If `html` is provided, the `text` option will be ignored.'
           },
           html: {
             type: 'string',
             required: true,
-            description: 'HTML to add before the textarea. If `html` is provided, the `text` option will be ignored.'
+            description:
+              'HTML to add before the textarea. If `html` is provided, the `text` option will be ignored.'
           }
         }
       },
       afterInput: {
         type: 'object',
         required: false,
-        description: 'Content to add after the textarea used by the textarea component.',
+        description:
+          'Content to add after the textarea used by the textarea component.',
         params: {
           text: {
             type: 'string',
             required: true,
-            description: 'Text to add after the textarea. If `html` is provided, the `text` option will be ignored.'
+            description:
+              'Text to add after the textarea. If `html` is provided, the `text` option will be ignored.'
           },
           html: {
             type: 'string',
             required: true,
-            description: 'HTML to add after the textarea. If `html` is provided, the `text` option will be ignored.'
+            description:
+              'HTML to add after the textarea. If `html` is provided, the `text` option will be ignored.'
           }
         }
       }
@@ -120,12 +133,14 @@ export const params = {
   autocomplete: {
     type: 'string',
     required: false,
-    description: 'Attribute to meet [WCAG success criterion 1.3.5: Identify input purpose](https://www.w3.org/WAI/WCAG22/Understanding/identify-input HTML standard](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html.'
+    description:
+      'Attribute to meet [WCAG success criterion 1.3.5: Identify input purpose](https://www.w3.org/WAI/WCAG22/Understanding/identify-input HTML standard](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html.'
   },
   attributes: {
     type: 'object',
     required: false,
-    description: 'HTML attributes (for example data attributes) to add to the textarea.'
+    description:
+      'HTML attributes (for example data attributes) to add to the textarea.'
   }
 }
 
