@@ -11,7 +11,7 @@ export const params = {
   id: {
     type: 'string',
     required: false,
-    description: 'The ID of the select. Defaults to the value of `name`.'
+    description: 'ID for the select box. Defaults to the value of `name`.'
   },
   name: {
     type: 'string',
@@ -21,12 +21,13 @@ export const params = {
   items: {
     type: 'array',
     required: true,
-    description: 'Array of option items for the select.',
+    description: 'The items within the select component.',
     params: {
       value: {
         type: 'string',
         required: false,
-        description: 'Value for the option item. Defaults to an empty string.'
+        description:
+          'Value for the option. If this is omitted, the value is taken from the text content of the option element.'
       },
       text: {
         type: 'string',
@@ -36,7 +37,8 @@ export const params = {
       selected: {
         type: 'boolean',
         required: false,
-        description: 'Sets the option as the selected.'
+        description:
+          'Whether the option should be selected when the page loads. Takes precedence over the top-level `value` option.'
       },
       disabled: {
         type: 'boolean',
@@ -71,21 +73,21 @@ export const params = {
   },
   label: {
     type: 'object',
-    required: false,
-    description: 'Options for the label component.',
+    required: true,
+    description: 'The label used by the select component.',
     isComponent: true
   },
   hint: {
     type: 'object',
     required: false,
-    description: 'Options for the hint component.',
+    description: 'Can be used to add a hint to the select component.',
     isComponent: true
   },
   errorMessage: {
     type: 'object',
     required: false,
     description:
-      'Options for the error message component. The error message component will not display if you use a falsy value for `errorMessage`, for example `false` or `null`.',
+      'Can be used to add an error message to the select component. The error message component will not display if you use a falsy value for `errorMessage`, for example `false` or `null`.',
     isComponent: true
   },
   formGroup: {

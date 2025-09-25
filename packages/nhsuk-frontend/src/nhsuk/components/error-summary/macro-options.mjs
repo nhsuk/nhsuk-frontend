@@ -41,13 +41,12 @@ export const params = {
     type: 'nunjucks-block',
     required: false,
     description:
-      'Not strictly a parameter but a Nunjucks code convention. Using a `call` block enables you to call a macro with all the text inside the tag. This is helpful if you want to pass a lot of content into a macro. To use it, you will need to wrap the entire error summary component in a `call` block.'
+      'Not strictly a parameter but [Nunjucks code convention](https://mozilla.github.io/nunjucks/templating.html#call). Using a `call` block enables you to call a macro with all the text inside the tag. This is helpful if you want to pass a lot of content into a macro. To use it, you will need to wrap the entire error summary component in a `call` block.'
   },
   errorList: {
     type: 'array',
-    required: true,
-    description:
-      'Contains an array of error link items and all their available arguments.',
+    required: false,
+    description: 'A list of errors to include in the error summary.',
     params: {
       href: {
         type: 'string',
@@ -59,13 +58,13 @@ export const params = {
         type: 'string',
         required: true,
         description:
-          'If `html` is set, this is not required. Text for the error link item. If `html` is provided, the `text` argument will be ignored.'
+          'If `html` is set, this is not required. Text for the error link item. If `html` is provided, the `text` option will be ignored.'
       },
       html: {
         type: 'string',
         required: true,
         description:
-          'If `text` is set, this is not required. HTML for the error link item. If `html` is provided, the `text` argument will be ignored.'
+          'If `text` is set, this is not required. HTML for the error link item. If `html` is provided, the `text` option will be ignored.'
       },
       attributes: {
         type: 'object',

@@ -3,6 +3,8 @@
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
 @use "../../core/helpers" as *;
+@forward "../../core/styles/icons";
+@forward "../input";
 
 ////
 /// Header component
@@ -312,7 +314,8 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     &:focus {
       z-index: 10;
       padding-right: $_header-item-padding - $_header-border-width-form-element;
-      padding-left: $_header-item-padding - $_header-border-width-form-element;
+      padding-left: $_header-item-padding - ($_header-border-width-form-element * 2);
+      border: $nhsuk-border-width-form-element solid $nhsuk-focus-text-colour;
     }
 
     &::placeholder {
