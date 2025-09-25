@@ -4,6 +4,12 @@
 
 ### :new: **New features**
 
+#### Interruption panel
+
+We've added a new variant of the panel component with a solid blue background and white text. This can be used as an interruption card.
+
+This was added in [pull request #1196: Add interruption panel variant](https://github.com/nhsuk/nhsuk-frontend/pull/1196).
+
 #### Insert custom HTML into component form group wrappers
 
 You can now insert custom HTML into form group wrappers for all components with form fields.
