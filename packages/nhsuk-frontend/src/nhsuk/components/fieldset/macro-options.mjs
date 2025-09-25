@@ -14,28 +14,25 @@ export const params = {
     required: false,
     description: 'The ID of the fieldset.'
   },
-  describedBy: {
+    describedBy: {
     type: 'string',
     required: false,
-    description:
-      'One or more element IDs to add to the `aria-describedby` attribute, used to provide additional descriptive information for screenreader users.'
+    description: 'One or more element IDs to add to the `aria-describedby` attribute, used to provide additional descriptive information for screenreader users.'
   },
   legend: {
     type: 'object',
     required: false,
-    description: 'Options for the legend',
+    description: 'The legend for the fieldset component.',
     params: {
       text: {
         type: 'string',
         required: true,
-        description:
-          'If `html` is set, this is not required. Text to use within the legend. If `html` is provided, the `text` argument will be ignored.'
+        description: 'If `html` is set, this is not required. Text to use within the legend. If `html` is provided, the `text` option will be ignored.'
       },
       html: {
         type: 'string',
         required: true,
-        description:
-          'If `text` is set, this is not required. HTML to use within the legend. If `html` is provided, the `text` argument will be ignored.'
+        description: 'If `text` is set, this is not required. HTML to use within the legend. If `html` is provided, the `text` option will be ignored.'
       },
       classes: {
         type: 'string',
@@ -62,14 +59,17 @@ export const params = {
   attributes: {
     type: 'object',
     required: false,
-    description:
-      'HTML attributes (for example data attributes) to add to the fieldset container.'
+    description: 'HTML attributes (for example data attributes) to add to the fieldset container.'
+  },
+  html: {
+    type: 'string',
+    required: false,
+    description: 'HTML to use/render within the fieldset element.'
   },
   caller: {
     type: 'nunjucks-block',
     required: false,
-    description:
-      'Not strictly a parameter but a Nunjucks code convention. Using a `call` block enables you to call a macro with all the text inside the tag. This is helpful if you want to pass a lot of content into a macro. To use it, you will need to wrap the entire fieldset component in a `call` block.'
+    description: 'Not strictly a parameter but Nunjucks code convention. Using a `call` block enables you to call a macro with all the text inside the tag. This is helpful if you want to pass a lot of content into a macro. To use it, you will need to wrap the entire fieldset component in a `call` block.'
   }
 }
 
