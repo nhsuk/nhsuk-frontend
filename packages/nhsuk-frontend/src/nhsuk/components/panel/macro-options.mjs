@@ -86,10 +86,11 @@ export const examples = {
   },
   interruption: {
     context: {
-      titleText: 'You are doing something unusual',
+      titleText: 'Jodie Brown had a COVID-19 vaccine less than 3 months ago',
       titleClasses: 'nhsuk-panel__title--l',
       html: outdent`
-        <p>Some text to explain.</p>
+        <p>They had a COVID-19 vaccine on 25 September 2025.</p>
+        <p>For most people, the minimum recommended gap between COVID-19 vaccine doses is 3 months.</p>
         <div class="nhsuk-button-group">
           ${components.render('button', {
             context: {
