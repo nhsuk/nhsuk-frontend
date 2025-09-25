@@ -161,6 +161,36 @@ export const params = {
     required: false,
     description:
       'Message made available to assistive technologies to describe that the component accepts only a limited amount of content. It is visible on the page when JavaScript is unavailable. The component will replace the `%{count}` placeholder with the value of the `maxlength` or `maxwords` parameter.'
+  },
+  charactersUnderLimitText: {
+    type: 'object',
+    required: false,
+    description: 'Message displayed when the number of characters is under the configured maximum, `maxlength`. This message is displayed visually and through assistive technologies. The component will replace the `%{count}` placeholder with the number of remaining characters. [Our pluralisation rules apply to this macro option](https://github.com/nhsuk/nhsuk-frontend/blob/main/docs/configuration/localisation.md).'
+  },
+  charactersAtLimitText: {
+    type: 'string',
+    required: false,
+    description: 'Message displayed when the number of characters reaches the configured maximum, `maxlength`. This message is displayed visually and through assistive technologies.'
+  },
+  charactersOverLimitText: {
+    type: 'object',
+    required: false,
+    description: 'Message displayed when the number of characters is over the configured maximum, `maxlength`. This message is displayed visually and through assistive technologies. The component will replace the `%{count}` placeholder with the number of characters above the maximum. [Our pluralisation rules apply to this macro option](https://github.com/nhsuk/nhsuk-frontend/blob/main/docs/configuration/localisation.md).'
+  },
+  wordsUnderLimitText: {
+    type: 'object',
+    required: false,
+    description: 'Message displayed when the number of words is under the configured maximum, `maxwords`. This message is displayed visually and through assistive technologies. The component will replace the `%{count}` placeholder with the number of remaining words. [Our pluralisation rules apply to this macro option](https://github.com/nhsuk/nhsuk-frontend/blob/main/docs/configuration/localisation.md).'
+  },
+  wordsAtLimitText: {
+    type: 'string',
+    required: false,
+    description: 'Message displayed when the number of words reaches the configured maximum, `maxwords`. This message is displayed visually and through assistive technologies.'
+  },
+  wordsOverLimitText: {
+    type: 'object',
+    required: false,
+    description: 'Message displayed when the number of words is over the configured maximum, `maxwords`. This message is displayed visually and through assistive technologies. The component will replace the `%{count}` placeholder with the number of characters above the maximum. [Our pluralisation rules apply to this macro option](https://github.com/nhsuk/nhsuk-frontend/blob/main/docs/configuration/localisation.md).'
   }
 }
 
@@ -384,12 +414,79 @@ export const examples = {
   'with neither maxlength nor maxwords set': {
     context: {
       label: {
-        text: 'Can you provide more detail?'
+        text: 'Can you provide more detail?',
+        classes: 'nhsuk-label--l',
+        isPageHeading: true
+      },
+      textareaDescriptionText: 'No more than %{count} characters',
+      id: 'no-maximum-description',
+      name: 'example',
+      value: 'This textarea has no maximum character or word count.',
+      rows: 8
+    },
+    options: {
+      hidden: true
+    }
+  },
+  'with neither maxlength, maxwords nor textarea description set': {
+    context: {
+      label: {
+        text: 'Can you provide more detail?',
+        classes: 'nhsuk-label--l',
+        isPageHeading: true
       },
       id: 'no-maximum',
       name: 'example',
       value: 'This textarea has no maximum character or word count.',
       rows: 8
+    },
+    options: {
+      hidden: true
+    }
+  },
+  'with translations': {
+    context: {
+      label: {
+        text: 'Allwch chi roi mwy o fanylion?',
+        classes: 'nhsuk-label--l',
+        isPageHeading: true
+      },
+      hint: {
+        text: 'Peidiwch â chynnwys gwybodaeth bersonol, fel eich enw, dyddiad geni na rhif y GIG'
+      },
+      id: 'with-translations',
+      name: 'example',
+      maxlength: 200,
+      textareaDescriptionText: 'Gallwch ddefnyddio hyd at %{count} nod',
+      charactersUnderLimitText: {
+        one: 'Mae gennych %{count} nod ar ôl',
+        two: 'Mae gennych %{count} nod ar ôl',
+        few: 'Mae gennych %{count} nod ar ôl',
+        many: 'Mae gennych %{count} nod ar ôl',
+        other: 'Mae gennych %{count} nod ar ôl'
+      },
+      charactersAtLimitText: 'Mae gennych 0 nod ar ôl',
+      charactersOverLimitText: {
+        one: 'Mae gennych %{count} nod yn ormod',
+        two: 'Mae gennych %{count} nod yn ormod',
+        few: 'Mae gennych %{count} nod yn ormod',
+        many: 'Mae gennych %{count} nod yn ormod',
+        other: 'Mae gennych chi %{count} nod yn ormod'
+      }
+    }
+  },
+  'to configure in JavaScript': {
+    context: {
+      label: {
+        text: 'Can you provide more detail?',
+        classes: 'nhsuk-label--l',
+        isPageHeading: true
+      },
+      id: 'to-configure-in-javascript',
+      name: 'example'
+    },
+    options: {
+      hidden: true
     }
   }
 }

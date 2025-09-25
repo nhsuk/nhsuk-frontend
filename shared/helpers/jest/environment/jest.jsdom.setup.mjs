@@ -2,7 +2,7 @@ import '@testing-library/jest-dom'
 import { outdent } from 'outdent'
 
 /**
- * Polyfill Element methods for error summary
+ * Polyfill Element methods for NHS.UK frontend error summary
  *
  * @see {@link https://github.com/jsdom/jsdom/issues/1695}
  */
@@ -11,7 +11,7 @@ Object.defineProperties(Element.prototype, {
 })
 
 /**
- * Polyfill `window.matchMedia()` for NHS.UK frontend
+ * Polyfill `window.matchMedia()` for NHS.UK frontend tabs
  */
 Object.defineProperty(window, 'matchMedia', {
   writable: true,
