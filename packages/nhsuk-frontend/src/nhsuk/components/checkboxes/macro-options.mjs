@@ -1259,6 +1259,7 @@ export const examples = {
   },
   'small with error message': {
     context: {
+      classes: 'nhsuk-checkboxes--small',
       fieldset: {
         legend: {
           text: 'How do you want to be contacted about this?',
