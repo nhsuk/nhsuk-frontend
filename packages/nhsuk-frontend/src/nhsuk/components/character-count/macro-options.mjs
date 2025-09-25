@@ -251,10 +251,7 @@ export const examples = {
         classes: 'nhsuk-label--l',
         isPageHeading: true
       },
-      errorMessage: {
-        text: 'Job description must be 350 characters or less'
-      },
-      id: 'with-error-message',
+      id: 'with-default-value',
       name: 'example',
       maxlength: 350,
       value:
