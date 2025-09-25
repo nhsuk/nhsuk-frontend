@@ -253,7 +253,7 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
       background-color: nhsuk-colour("black");
 
       a {
-        @include nhsuk-link-style-white;
+        @include nhsuk-link-style-reverse;
       }
 
       @include nhsuk-print-colour {
