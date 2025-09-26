@@ -23,6 +23,36 @@ input({
 
 This was added in [pull request #1561: Add `beforeInput(s)` and `beforeInput(s)` options to form groups](https://github.com/nhsuk/nhsuk-frontend/pull/1561).
 
+#### Numbered pagination component
+
+The pagination component now supports numbered pagination, for example where you have a long list of of items to navigate.
+
+You can use it like this:
+
+```njk
+pagination({
+  previousUrl: "#",
+  nextUrl: "#",
+  items: [
+    {
+      number: 1,
+      href: "#"
+    },
+    {
+      number: 2,
+      href: "#",
+      current: true
+    },
+    {
+      number: 3,
+      href: "#"
+    }
+  ]
+})
+```
+
+This was added in [pull request #1026: Add numbered pagination](https://github.com/nhsuk/nhsuk-frontend/pull/1026).
+
 ### :wastebasket: **Deprecated features**
 
 #### Rename Sass variables for border width and colour
