@@ -13,15 +13,15 @@ We use the following rules when linting files:
 Bad:
 
 ```scss
-.selector {border: 0; padding: 0;}
+.selector { padding: 0; border: 0;}
 ```
 
 Good:
 
 ```scss
 .selector {
-  border: 0;
   padding: 0;
+  border: 0;
 }
 ```
 

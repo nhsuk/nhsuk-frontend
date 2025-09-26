@@ -1,13 +1,28 @@
-
 {% extends "layouts/page.njk" %}
 
-{% set title = "Conditional reveals" %}
+{% set pageName = "Conditional reveals" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block beforeContent %}
+  {{ breadcrumb({
+    classes: "nhsuk-u-display-inline-block",
+    items: [
+      {
+        text: "NHS.UK frontend",
+        href: baseUrl
+      },
+      {
+        text: "Examples",
+        href: baseUrl ~ "#examples"
+      }
+    ]
+  }) }}
+{% endblock %}
 
 {% block content %}
-  <h1 class="nhsuk-heading-xl">{{ title }}</h1>
-
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl">{{ pageName }}</h1>
 
       {% set emailHtml %}
         {{ input({
@@ -134,13 +149,13 @@
         name: "radio-contact",
         fieldset: {
           legend: {
-            text: "How would you prefer to be contacted?",
+            text: "How do you want to be contacted about this?",
             isPageHeading: true,
             classes: "nhsuk-fieldset__legend--l"
           }
         },
         hint: {
-          text: "Select one option."
+          text: "Select 1 option"
         },
         items: [
           {

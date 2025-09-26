@@ -1,10 +1,30 @@
+{% extends "layouts/page.njk" %}
 
-{% extends 'layouts/page.njk' %}
+{% set pageName = "Multiple radio groups" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
 
-{% set title = 'Multiple radio groups' %}
+{% block beforeContent %}
+  {{ breadcrumb({
+    classes: "nhsuk-u-display-inline-block",
+    items: [
+      {
+        text: "NHS.UK frontend",
+        href: baseUrl
+      },
+      {
+        text: "Examples",
+        href: baseUrl ~ "#examples"
+      }
+    ]
+  }) }}
+{% endblock %}
 
 {% block content %}
-  <h1 class="nhsuk-heading-xl">{{ title }}</h1>
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl">{{ pageName }}</h1>
+    </div>
+  </div>
 
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-one-half">

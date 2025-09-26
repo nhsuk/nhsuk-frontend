@@ -16,15 +16,15 @@
   }
 
   .nhsuk-tabs__title {
-    color: $nhsuk-text-colour;
     margin-bottom: nhsuk-spacing(2);
+    color: $nhsuk-text-colour;
     @include nhsuk-font($size: 19);
   }
 
   .nhsuk-tabs__list {
-    list-style: none;
     margin: 0;
     padding: 0;
+    list-style: none;
     @include nhsuk-responsive-margin(6, "bottom");
   }
 
@@ -33,10 +33,10 @@
     @include nhsuk-font($size: 19);
 
     &::before {
-      color: $nhsuk-text-colour;
       content: "\2014 "; // "— "
       margin-left: -(nhsuk-spacing(5));
       padding-right: nhsuk-spacing(1);
+      color: $nhsuk-text-colour;
     }
   }
 
@@ -53,8 +53,8 @@
   .nhsuk-frontend-supported {
     @include nhsuk-media-query($from: tablet) {
       .nhsuk-tabs__list {
-        border-bottom: 1px solid $nhsuk-border-colour;
         margin-bottom: 0;
+        border-bottom: 1px solid $nhsuk-border-colour;
         @include nhsuk-clearfix;
       }
 
@@ -63,13 +63,17 @@
       }
 
       .nhsuk-tabs__list-item {
-        background-color: nhsuk-colour("grey-4");
-        float: left;
+        position: relative;
+
+        margin-right: nhsuk-spacing(1);
         margin-bottom: 0;
         margin-left: 0;
-        margin-right: nhsuk-spacing(1);
         padding: nhsuk-spacing(2) nhsuk-spacing(4);
-        position: relative;
+
+        float: left;
+
+        background-color: nhsuk-colour("grey-4");
+
         text-align: center;
 
         &::before {
@@ -79,16 +83,19 @@
 
       .nhsuk-tabs__list-item--selected {
         $border-width: 1px;
-        background-color: $nhsuk-card-background-colour;
-        border: $border-width solid $nhsuk-border-colour;
-        border-bottom: 0;
-        margin-bottom: -$border-width; // Compensation for border (otherwise we get a shift)
+        position: relative;
+
         margin-top: -(nhsuk-spacing(1));
+        margin-bottom: -$border-width; // Compensation for border (otherwise we get a shift)
+        padding-top: (nhsuk-spacing(2) * 1.5) - $border-width;
+        padding-right: nhsuk-spacing(4) - $border-width;
         padding-bottom: (nhsuk-spacing(2) * 1.5) + $border-width;
         padding-left: nhsuk-spacing(4) - $border-width;
-        padding-right: nhsuk-spacing(4) - $border-width;
-        padding-top: (nhsuk-spacing(2) * 1.5) - $border-width;
-        position: relative;
+
+        border: $border-width solid $nhsuk-border-colour;
+        border-bottom: 0;
+
+        background-color: $nhsuk-card-background-colour;
 
         .nhsuk-tabs__tab {
           text-decoration: none;
@@ -101,20 +108,21 @@
         @include nhsuk-link-style-text;
 
         &::after {
-          bottom: 0;
           content: "";
-          left: 0;
+
           position: absolute;
-          right: 0;
           top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
         }
       }
 
       .nhsuk-tabs__panel {
-        background-color: $nhsuk-card-background-colour;
+        padding: nhsuk-spacing(6) nhsuk-spacing(4);
         border: 1px solid $nhsuk-border-colour;
         border-top: 0;
-        padding: nhsuk-spacing(6) nhsuk-spacing(4);
+        background-color: $nhsuk-card-background-colour;
         @include nhsuk-responsive-margin(0, "bottom");
 
         & > :last-child {

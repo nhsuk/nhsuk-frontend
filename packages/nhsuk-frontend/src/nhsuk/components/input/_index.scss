@@ -16,14 +16,17 @@
 
 @include nhsuk-exports("nhsuk/components/input") {
   .nhsuk-input {
-    appearance: none; // [1]
-    border: $nhsuk-border-width-form-element solid $nhsuk-input-border-colour; // [2]
-    border-radius: 0;
     box-sizing: border-box;
+
+    width: 100%;
     min-height: 40px;
     margin-top: 0;
     padding: nhsuk-spacing(1);
-    width: 100%;
+
+    border: $nhsuk-border-width-form-element solid $nhsuk-input-border-colour; // [2]
+    border-radius: 0;
+
+    appearance: none; // [1]
 
     @include nhsuk-font(19);
 
@@ -34,8 +37,8 @@
 
   .nhsuk-input::-webkit-outer-spin-button,
   .nhsuk-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
     margin: 0;
+    -webkit-appearance: none;
   }
 
   .nhsuk-input[type="number"] {
@@ -43,7 +46,7 @@
   }
 
   .nhsuk-input--error {
-    border: $nhsuk-border-width-form-element-error solid $nhsuk-error-colour;
+    border-color: $nhsuk-error-colour;
   }
 
   // The ex measurements are based on the number of W's that can fit inside the input
@@ -104,17 +107,24 @@
 
   .nhsuk-input__prefix,
   .nhsuk-input__suffix {
-    background-color: nhsuk-colour("grey-4");
-    border: $nhsuk-border-width-form-element solid $nhsuk-input-border-colour;
     box-sizing: border-box;
-    cursor: default; // emphasises non-editable status of prefixes and suffixes
+
     display: inline-block;
+
     flex: 0 0 auto;
-    min-height: 40px;
+
     min-width: nhsuk-px-to-rem(40px);
+    min-height: 40px;
     padding: nhsuk-spacing(1);
+
+    border: $nhsuk-border-width-form-element solid $nhsuk-input-border-colour;
+
+    background-color: nhsuk-colour("grey-4");
+
     text-align: center;
     white-space: nowrap;
+
+    cursor: default; // emphasises non-editable status of prefixes and suffixes
 
     @include nhsuk-font($size: 19);
 
@@ -125,8 +135,8 @@
     }
 
     @include nhsuk-media-query($until: tablet) {
-      line-height: 1.6;
       font-size: 1.1875rem;
+      line-height: 1.6;
     }
   }
 

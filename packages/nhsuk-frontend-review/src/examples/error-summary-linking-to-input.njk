@@ -1,20 +1,35 @@
+{% extends "layouts/example.njk" %}
 
-{% extends 'layouts/example.njk' %}
+{% set heading = "Error summary" %}
+{% set caption = "Link to an input field" %}
+{% set pageName = heading ~ " – " ~ caption %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
 
-{% from 'nhsuk/components/error-summary/macro.njk' import errorSummary %}
-{% from 'nhsuk/components/input/macro.njk' import input %}
-
-{% set title = 'Error summary with link to an input field' %}
+{% block beforeContent %}
+  {{ breadcrumb({
+    classes: "nhsuk-u-display-inline-block",
+    items: [
+      {
+        text: "NHS.UK frontend",
+        href: baseUrl
+      },
+      {
+        text: "Examples",
+        href: baseUrl ~ "#examples"
+      }
+    ]
+  }) }}
+{% endblock %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       {% call errorSummary({
-        "titleText": "There is a problem",
-        "errorList": [
+        titleText: "There is a problem",
+        errorList: [
           {
-            "text": "Link to input error with explanation",
-            "href": "#example"
+            text: "Link to input error with explanation",
+            href: "#example"
           }
         ]
       }) %}
@@ -22,19 +37,21 @@
         Note that the error summary should receive focus on page load using the JavaScript that comes with this component.
       {% endcall %}
 
+      <h1 class="nhsuk-heading-xl">{{ heading }} <span class="nhsuk-caption-xl nhsuk-caption--bottom">{{ caption }}</span></h1>
+
       <br><br><br><br><br><br>↕ Intentionally long page to demonstrate error summary link scrolling behaviour ↕<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
       {{ input({
-        "label": {
-          "text": "NHS number"
+        label: {
+          text: "NHS number"
         },
-        "hint": {
-          "text": "Clicking an error summary link should scroll the top of this input's label into view"
+        hint: {
+          text: "Clicking an error summary link should scroll the top of this input's label into view"
         },
-        "errorMessage": {
-          "text": "Error message goes here"
+        errorMessage: {
+          text: "Enter NHS number"
         },
-        "name": "example"
+        name: "example"
       }) }}
 
       <br><br><br><br><br><br>↕ Intentionally long page to demonstrate error summary link scrolling behaviour ↕<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>

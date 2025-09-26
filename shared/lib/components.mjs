@@ -23,6 +23,7 @@ export async function load(component) {
 
   const collator = new Intl.Collator('en', {
     ignorePunctuation: true,
+    numeric: true,
     sensitivity: 'base'
   })
 
@@ -39,12 +40,23 @@ export async function load(component) {
 
   // Sort examples by name, default at top
   data.examples = Object.fromEntries(
-    Object.entries(options.examples ?? {}).sort(([nameA], [nameB]) =>
-      collator.compare(
-        nameA.replace('default', ''),
-        nameB.replace('default', '')
-      )
-    )
+    Object.entries(options.examples ?? {}).sort(([nameA], [nameB]) => {
+      for (const [find, replace] of [
+        // Sort default to top
+        ['default', ''],
+
+        // Sort sizes numerically
+        ['size S', 'size 1'],
+        ['size M', 'size 2'],
+        ['size L', 'size 3'],
+        ['size XL', 'size 4']
+      ]) {
+        nameA = nameA.replace(find, replace)
+        nameB = nameB.replace(find, replace)
+      }
+
+      return collator.compare(nameA, nameB)
+    })
   )
 
   return data
@@ -178,16 +190,31 @@ export function render(component, options) {
  *
  * @typedef {object} MacroExample
  * @property {string | undefined} [description] - Example description (optional)
- * @property {string | undefined} [layout] - Nunjucks layout for component (optional)
  * @property {{ [param: string]: unknown }} [context] - Nunjucks context object (optional)
  * @property {string | undefined} [callBlock] - Nunjucks macro `caller()` content (optional)
+ * @property {MacroExampleOptions} [options] - Review app example options (optional)
  * @property {MacroScreenshot | MacroScreenshot[] | boolean} [screenshot] - Screenshot and include in visual regression tests
+ */
+
+/**
+ * Nunjucks macro example review app options
+ *
+ * @typedef {object} MacroExampleOptions
+ * @property {boolean} [hidden] - Hide example on component listing pages
+ * @property {string} [layout] - Nunjucks layout for component preview page
+ * @property {MacroExampleWidth | false} [width] - Component grid column width (or set `false` to remove width container)
  */
 
 /**
  * Nunjucks macro example state
  *
  * @typedef {('focus' | 'hover' | 'active' | 'click')} MacroExampleState
+ */
+
+/**
+ * Nunjucks macro example column width
+ *
+ * @typedef {('one-third' | 'two-thirds' | 'one-half' | 'full')} MacroExampleWidth
  */
 
 /**

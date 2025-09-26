@@ -53,7 +53,7 @@ describe('Error summary', () => {
   }
 
   beforeEach(() => {
-    initExample('with description')
+    initExample('default')
   })
 
   describe('Initialisation via init function', () => {

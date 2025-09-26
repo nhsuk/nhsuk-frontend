@@ -52,7 +52,7 @@ export const params = {
 export const examples = {
   default: {
     context: {
-      text: 'Error message about full name goes here'
+      text: 'Enter your full name'
     },
     screenshot: {
       viewports: ['tablet']
