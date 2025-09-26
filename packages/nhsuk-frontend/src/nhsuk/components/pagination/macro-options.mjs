@@ -52,12 +52,167 @@ export const params = {
  * @satisfies {{ [example: string]: MacroExample }}
  */
 export const examples = {
-  default: {
+  'default': {
     context: {
       previousUrl: '/section/treatments',
       previousPage: 'Treatments',
       nextUrl: '/section/symptoms',
       nextPage: 'Symptoms'
+    },
+    options: {
+      width: 'full'
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+    }
+  },
+  'previous only': {
+    context: {
+      previousUrl: '/section/treatments',
+      previousPage: 'Treatments'
+    },
+    options: {
+      width: 'full'
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+    }
+  },
+  'next only': {
+    context: {
+      nextUrl: '/section/treatments',
+      nextPage: 'Treatments'
+    },
+    options: {
+      width: 'full'
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+    }
+  },
+  'numbered': {
+    context: {
+      previousUrl: '#',
+      nextUrl: '#',
+      items: [
+        {
+          number: 1,
+          href: '#'
+        },
+        {
+          number: 2,
+          href: '#',
+          current: true
+        },
+        {
+          number: 3,
+          href: '#'
+        }
+      ]
+    },
+    options: {
+      width: 'full'
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+    }
+  },
+  'numbered with many pages': {
+    context: {
+      previousUrl: '#',
+      nextUrl: '#',
+      items: [
+        {
+          number: 1,
+          href: '#'
+        },
+        {
+          ellipsis: true
+        },
+        {
+          number: 8,
+          href: '#'
+        },
+        {
+          number: 9,
+          href: '#'
+        },
+        {
+          number: 10,
+          href: '#',
+          current: true
+        },
+        {
+          number: 11,
+          href: '#'
+        },
+        {
+          number: 12,
+          href: '#'
+        },
+        {
+          ellipsis: true
+        },
+        {
+          number: 40,
+          href: '#'
+        }
+      ]
+    },
+    options: {
+      width: 'full'
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+    }
+  },
+  'numbered first page': {
+    context: {
+      nextUrl: '#',
+      items: [
+        {
+          number: 1,
+          href: '#',
+          current: true
+        },
+        {
+          number: 2,
+          href: '#'
+        },
+        {
+          number: 3,
+          href: '#'
+        }
+      ]
+    },
+    options: {
+      width: 'full'
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+    }
+  },
+  'numbered last page': {
+    context: {
+      previousUrl: '#',
+      items: [
+        {
+          number: 1,
+          href: '#'
+        },
+        {
+          number: 2,
+          href: '#'
+        },
+        {
+          number: 3,
+          href: '#',
+          current: true
+        }
+      ]
+    },
+    options: {
+      width: 'full'
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
