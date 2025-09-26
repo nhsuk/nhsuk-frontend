@@ -63,7 +63,49 @@ export const examples = {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
+  'previous only': {
+    context: {
+      previousUrl: '/section/treatments',
+      previousPage: 'Treatments'
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+    }
+  },
+  'next only': {
+    context: {
+      nextUrl: '/section/treatments',
+      nextPage: 'Treatments'
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+    }
+  },
   numbered: {
+    context: {
+      previousUrl: '#',
+      nextUrl: '#',
+      items: [
+        {
+          number: 1,
+          href: '#'
+        },
+        {
+          number: 2,
+          href: '#',
+          current: true
+        },
+        {
+          number: 3,
+          href: '#'
+        }
+      ]
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+    }
+  },
+  'numbered with many pages' : {
     context: {
       previousUrl: '#',
       nextUrl: '#',
@@ -76,24 +118,78 @@ export const examples = {
           ellipsis: true
         },
         {
-          number: 6,
+          number: 8,
           href: '#'
         },
         {
-          number: 7,
+          number: 9,
+          href: '#'
+        },
+        {
+          number: 10,
           href: '#',
           current: true
         },
         {
-          number: 8,
+          number: 11,
+          href: '#'
+        },
+        {
+          number: 12,
           href: '#'
         },
         {
           ellipsis: true
         },
         {
-          number: 10,
+          number: 40,
           href: '#'
+        }
+      ]
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+    }
+  },
+  'numbered first page': {
+    context: {
+      nextUrl: '#',
+      items: [
+        {
+          number: 1,
+          href: '#',
+          current: true
+        },
+        {
+          number: 2,
+          href: '#'
+        },
+        {
+          number: 3,
+          href: '#'
+        }
+      ]
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+    }
+  },
+  'numbered last page': {
+    context: {
+      previousUrl: '#',
+      items: [
+        {
+          number: 1,
+          href: '#'
+        },
+        {
+          number: 2,
+          href: '#'
+        },
+        {
+          number: 3,
+          href: '#',
+          current: true
         }
       ]
     },
