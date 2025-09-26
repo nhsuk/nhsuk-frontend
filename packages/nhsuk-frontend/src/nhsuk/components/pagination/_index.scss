@@ -98,6 +98,20 @@
 
   // Numbered pagination variant
 
+  // Flexbox enhancement for small screen visual design
+  // Falls back to a float: left layout on non-flex browsers
+  .nhsuk-pagination--numbered {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+
+    @include nhsuk-media-query($from: tablet) {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+  }
+
   // Container for the list of numbered items
   .nhsuk-pagination--numbered .nhsuk-pagination__list {
     margin: 0;
@@ -110,19 +124,44 @@
     content: none;
   }
 
+  .nhsuk-pagination--numbered .nhsuk-pagination__item {
+    // Hide items on small screens except the prev/next items,
+    // non-link items and the first and last items
+    display: none;
+
+    // Center align pagination links in their parent list item so that they
+    // visually sit in the middle of their touch area
+    text-align: center;
+
+    @include nhsuk-media-query($from: tablet) {
+      display: block;
+    }
+  }
+
+  // Only show first, last and non-link items on mobile
+  .nhsuk-pagination--numbered .nhsuk-pagination__item:first-child,
+  .nhsuk-pagination--numbered .nhsuk-pagination__item:last-child,
+  .nhsuk-pagination--numbered .nhsuk-pagination__item--ellipses,
+  .nhsuk-pagination--numbered .nhsuk-pagination__item--current {
+    display: block;
+  }
+
   // Numbered items, previous and next links
   .nhsuk-pagination--numbered .nhsuk-pagination__item,
   .nhsuk-pagination--numbered .nhsuk-pagination__previous,
   .nhsuk-pagination--numbered .nhsuk-pagination__next {
     box-sizing: border-box;
+
     position: relative;
+
     min-width: 45px;
     min-height: 45px;
-    padding: nhsuk-spacing(2);
-    float: left;
-    display: block;
-    text-align: center;
     margin: 0;
+    padding: nhsuk-spacing(2);
+
+    float: left; // Float is ignored if flex is active for prev/next links
+
+    text-align: center;
     @include nhsuk-font(19);
 
     &:hover {
@@ -133,12 +172,11 @@
   // Previous and next links within pagination navigation
   .nhsuk-pagination--numbered .nhsuk-pagination__previous,
   .nhsuk-pagination--numbered .nhsuk-pagination__next {
-    font-weight: $nhsuk-font-bold;
-
     // Use flex to avoid extra space being introduced when
     // whitespace exists between the arrow svg and the link text
     display: flex;
     align-items: center;
+    font-weight: $nhsuk-font-bold;
   }
 
   // Numbered item links
@@ -151,6 +189,7 @@
     @media screen {
       &::after {
         content: "";
+
         position: absolute;
         top: 0;
         right: 0;
@@ -181,8 +220,8 @@
 
   // Arrows within numbered pagination
   .nhsuk-pagination--numbered .nhsuk-icon {
-    height: $_small-icon-size;
     width: $_small-icon-size;
+    height: $_small-icon-size;
   }
 
   .nhsuk-pagination--numbered .nhsuk-pagination__previous .nhsuk-icon {
