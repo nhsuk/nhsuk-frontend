@@ -56,7 +56,10 @@ export const params = {
  */
 export const examples = {
   'default': {
-    context: {},
+    context: {
+      text: 'Back',
+      href: '#'
+    },
     screenshot: {
       states: ['focus', 'hover', 'active'],
       selector: '.nhsuk-back-link'
@@ -64,6 +67,7 @@ export const examples = {
   },
   'as a button': {
     context: {
+      text: 'Back',
       element: 'button'
     },
     screenshot: {
@@ -72,9 +76,13 @@ export const examples = {
     }
   },
   'reverse': {
-    layout: 'layouts/example-background-blue.njk',
     context: {
+      text: 'Back',
+      href: '#',
       classes: 'nhsuk-back-link--reverse'
+    },
+    options: {
+      layout: 'background-blue'
     },
     screenshot: {
       states: ['focus', 'hover', 'active'],

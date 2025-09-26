@@ -49,6 +49,46 @@ export const params = {
         required: false,
         description:
           'HTML attributes (for example data attributes) to add to the form group.'
+      },
+      beforeInputs: {
+        type: 'object',
+        required: false,
+        description:
+          'Content to add before all radio items within the radios component.',
+        params: {
+          text: {
+            type: 'string',
+            required: true,
+            description:
+              'Text to add before all radio items. If `html` is provided, the `text` option will be ignored.'
+          },
+          html: {
+            type: 'string',
+            required: true,
+            description:
+              'HTML to add before all radio items. If `html` is provided, the `text` option will be ignored.'
+          }
+        }
+      },
+      afterInputs: {
+        type: 'object',
+        required: false,
+        description:
+          'Content to add after all radio items within the radios component.',
+        params: {
+          text: {
+            type: 'string',
+            required: true,
+            description:
+              'Text to add after all radio items. If `html` is provided, the `text` option will be ignored.'
+          },
+          html: {
+            type: 'string',
+            required: true,
+            description:
+              'HTML to add after all radio items. If `html` is provided, the `text` option will be ignored.'
+          }
+        }
       }
     }
   },
@@ -158,7 +198,9 @@ export const examples = {
     context: {
       fieldset: {
         legend: {
-          text: 'Have you changed your name?'
+          text: 'Are you 18 or over?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: true
         }
       },
       name: 'example',
@@ -181,22 +223,28 @@ export const examples = {
     context: {
       fieldset: {
         legend: {
-          text: 'Have you changed your name?'
+          text: 'Do you know your NHS number?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: true
         }
       },
       hint: {
-        text: 'This includes changing your last name or spelling your name differently'
+        text: 'This is a 10 digit number, like 485 777 3456, that you can find on an NHS letter, prescription or in the NHS App'
       },
       idPrefix: 'with-hint',
       name: 'example',
       items: [
         {
           value: 'yes',
-          text: 'Yes'
+          text: 'Yes, I know my NHS number'
         },
         {
           value: 'no',
-          text: 'No'
+          text: 'No, I do not know my NHS number'
+        },
+        {
+          value: 'not sure',
+          text: "I'm not sure"
         }
       ]
     }
@@ -206,11 +254,10 @@ export const examples = {
       classes: 'nhsuk-radios--inline',
       fieldset: {
         legend: {
-          text: 'Have you changed your name?'
+          text: 'Are you 18 or over?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: true
         }
-      },
-      hint: {
-        text: 'This includes changing your last name or spelling your name differently'
       },
       idPrefix: 'inline',
       name: 'example',
@@ -230,19 +277,106 @@ export const examples = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
-  'with legend as page heading': {
+  'with legend size S': {
     context: {
       fieldset: {
         legend: {
-          text: 'Have you changed your name?',
+          text: 'Are you 18 or over?',
+          classes: 'nhsuk-fieldset__legend--s',
+          isPageHeading: true
+        }
+      },
+      idPrefix: 'custom-size',
+      name: 'example',
+      items: [
+        {
+          value: 'yes',
+          text: 'Yes'
+        },
+        {
+          value: 'no',
+          text: 'No'
+        }
+      ]
+    }
+  },
+  'with legend size M': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'Are you 18 or over?',
+          classes: 'nhsuk-fieldset__legend--m',
+          isPageHeading: true
+        }
+      },
+      idPrefix: 'custom-size',
+      name: 'example',
+      items: [
+        {
+          value: 'yes',
+          text: 'Yes'
+        },
+        {
+          value: 'no',
+          text: 'No'
+        }
+      ]
+    }
+  },
+  'with legend size L': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'Are you 18 or over?',
           classes: 'nhsuk-fieldset__legend--l',
           isPageHeading: true
         }
       },
-      hint: {
-        text: 'This includes changing your last name or spelling your name differently'
+      idPrefix: 'custom-size',
+      name: 'example',
+      items: [
+        {
+          value: 'yes',
+          text: 'Yes'
+        },
+        {
+          value: 'no',
+          text: 'No'
+        }
+      ]
+    }
+  },
+  'with legend size XL': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'Are you 18 or over?',
+          classes: 'nhsuk-fieldset__legend--xl',
+          isPageHeading: true
+        }
       },
-      idPrefix: 'page-heading',
+      idPrefix: 'custom-size',
+      name: 'example',
+      items: [
+        {
+          value: 'yes',
+          text: 'Yes'
+        },
+        {
+          value: 'no',
+          text: 'No'
+        }
+      ]
+    }
+  },
+  'without page heading': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'Are you 18 or over?'
+        }
+      },
+      idPrefix: 'without-heading',
       name: 'example',
       items: [
         {
@@ -262,19 +396,19 @@ export const examples = {
         legend: {
           text: 'How do you want to sign in?',
           classes: 'nhsuk-fieldset__legend--l',
-          pageHeading: 'true'
+          isPageHeading: true
         }
       },
       idPrefix: 'with-divider',
       name: 'example',
       items: [
         {
-          value: 'government-gateway',
-          text: 'Use Government Gateway'
+          value: 'nhsuk-login',
+          text: 'Use NHS login'
         },
         {
-          value: 'nhsuk-login',
-          text: 'Use NHS.UK login'
+          value: 'government-verify',
+          text: 'Use GOV.UK Verify'
         },
         {
           divider: 'or'
@@ -293,24 +427,26 @@ export const examples = {
     context: {
       fieldset: {
         legend: {
-          text: 'How do you want to sign in?'
+          text: 'Do you have a mobile phone with signal?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: true
         }
       },
       idPrefix: 'with-hint-item',
       name: 'example',
       items: [
         {
-          value: 'gateway',
-          text: 'Sign in with Government Gateway',
+          value: 'mobile',
+          text: 'Yes, I have a mobile phone with signal',
           hint: {
-            text: "You'll have a user ID if you've registered for self assessment or filed a tax return online before"
+            text: 'We will text you a 6 digit security code'
           }
         },
         {
-          value: 'verify',
-          text: 'Sign in with NHS.UK login',
+          value: 'landline',
+          text: 'No, I want to use my landline',
           hint: {
-            text: "You'll have an account if you've already proved your identity with either Barclays, CitizenSafe, Digidentity, Experian, Post Office, Royal Mail or SecureIdentity"
+            text: 'We will call you to give you a 6 digit security code'
           }
         }
       ]
@@ -346,7 +482,9 @@ export const examples = {
     context: {
       fieldset: {
         legend: {
-          text: 'Have you changed your name?'
+          text: 'Have you changed your name?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: true
         }
       },
       hint: {
@@ -375,7 +513,9 @@ export const examples = {
     context: {
       fieldset: {
         legend: {
-          text: 'Have you changed your name?'
+          text: 'Have you changed your name?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: true
         }
       },
       errorMessage: {
@@ -399,7 +539,9 @@ export const examples = {
     context: {
       fieldset: {
         legend: {
-          text: 'Have you changed your name?'
+          text: 'Have you changed your name?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: true
         }
       },
       hint: {
@@ -431,7 +573,9 @@ export const examples = {
     context: {
       fieldset: {
         legend: {
-          text: 'How would you prefer to be contacted?'
+          text: 'How do you want to be contacted about this?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: true
         }
       },
       hint: {
@@ -495,7 +639,9 @@ export const examples = {
     context: {
       fieldset: {
         legend: {
-          text: 'How would you prefer to be contacted?'
+          text: 'How do you want to be contacted about this?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: true
         }
       },
       hint: {
@@ -562,7 +708,9 @@ export const examples = {
     context: {
       fieldset: {
         legend: {
-          text: 'How would you prefer to be contacted?'
+          text: 'How do you want to be contacted about this?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: true
         }
       },
       hint: {
@@ -635,7 +783,9 @@ export const examples = {
     context: {
       fieldset: {
         legend: {
-          text: 'How would you prefer to be contacted?'
+          text: 'How do you want to be contacted about this?',
+          classes: 'nhsuk-fieldset__legend--m',
+          isPageHeading: true
         }
       },
       hint: {
@@ -656,7 +806,8 @@ export const examples = {
               context: {
                 fieldset: {
                   legend: {
-                    text: 'How would you prefer to be contacted?'
+                    text: 'How do you want to be contacted about this?',
+                    classes: 'nhsuk-fieldset__legend--s'
                   }
                 },
                 hint: {

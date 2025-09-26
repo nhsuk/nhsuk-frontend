@@ -20,7 +20,6 @@
 
 @function nhsuk-colour($colour) {
   @if meta.type-of($colour) == "color" {
-    // stylelint-disable-next-line scss/function-quote-no-quoted-strings-inside
     $colour: string.quote("#{$colour}");
   }
 

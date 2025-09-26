@@ -20,8 +20,8 @@
 ////
 
 html {
-  background-color: $nhsuk-template-background-colour;
   overflow-y: scroll; // [1]
+  background-color: $nhsuk-template-background-colour;
 
   @if $nhsuk-include-font-face {
     @include nhsuk-font-face-frutiger;
@@ -33,12 +33,15 @@ html {
 }
 
 body {
-  background-color: $nhsuk-body-background-colour;
+  min-height: 100%; // [4]
+  margin: 0; // [3]
+
   color: $nhsuk-text-colour;
+  background-color: $nhsuk-body-background-colour;
+
   font-size: $nhsuk-base-font-size;
+  line-height: nhsuk-line-height($nhsuk-base-line-height, $nhsuk-base-font-size);
+
   -moz-osx-font-smoothing: grayscale; // [2]
   -webkit-font-smoothing: antialiased; // [2]
-  line-height: nhsuk-line-height($nhsuk-base-line-height, $nhsuk-base-font-size);
-  margin: 0; // [3]
-  min-height: 100%; // [4]
 }

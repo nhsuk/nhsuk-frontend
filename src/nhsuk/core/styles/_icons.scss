@@ -11,13 +11,13 @@
 // Default icon styles
 
 .nhsuk-icon {
-  fill: currentcolor;
-  height: nhsuk-px-to-rem($nhsuk-icon-size);
   width: nhsuk-px-to-rem($nhsuk-icon-size);
+  height: nhsuk-px-to-rem($nhsuk-icon-size);
+  fill: currentcolor;
 
   @include nhsuk-media-query($from: tablet) {
-    height: nhsuk-px-to-rem($nhsuk-icon-size-large);
     width: nhsuk-px-to-rem($nhsuk-icon-size-large);
+    height: nhsuk-px-to-rem($nhsuk-icon-size-large);
   }
 }
 
@@ -32,12 +32,12 @@ $_icon-sizes: (25%, 50%, 75%, 100%);
   $name: "size-#{math.div($size, 1%)}"; // 25% adjustment = "size-25"
 
   .nhsuk-icon--#{$name} {
-    height: nhsuk-px-to-rem($nhsuk-icon-size * $ratio);
     width: nhsuk-px-to-rem($nhsuk-icon-size * $ratio);
+    height: nhsuk-px-to-rem($nhsuk-icon-size * $ratio);
 
     @include nhsuk-media-query($from: tablet) {
-      height: nhsuk-px-to-rem($nhsuk-icon-size-large * $ratio);
       width: nhsuk-px-to-rem($nhsuk-icon-size-large * $ratio);
+      height: nhsuk-px-to-rem($nhsuk-icon-size-large * $ratio);
     }
   }
 }

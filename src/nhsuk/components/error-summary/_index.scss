@@ -14,8 +14,7 @@
   .nhsuk-error-summary {
     // Not using responsive spacing as we want smaller margin on mobile
     margin-bottom: nhsuk-spacing(5);
-
-    border: $nhsuk-border-width-mobile solid $nhsuk-error-colour;
+    border: $nhsuk-border-width solid $nhsuk-error-colour;
 
     @include nhsuk-responsive-padding(4);
 
@@ -29,8 +28,8 @@
 
     &:focus {
       border: $nhsuk-focus-width solid $nhsuk-focus-text-colour;
-      box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-colour;
       outline: $nhsuk-focus-width solid transparent;
+      box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-colour;
     }
   }
 
@@ -51,9 +50,9 @@
   }
 
   .nhsuk-error-summary__list {
+    margin-top: 0;
     // [1]
     margin-bottom: 0;
-    margin-top: 0;
   }
 
   .nhsuk-error-summary__list a {
