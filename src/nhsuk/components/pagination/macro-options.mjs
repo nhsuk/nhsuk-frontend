@@ -59,6 +59,9 @@ export const examples = {
       nextUrl: '/section/symptoms',
       nextPage: 'Symptoms'
     },
+    options: {
+      width: 'full'
+    },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
@@ -68,6 +71,9 @@ export const examples = {
       previousUrl: '/section/treatments',
       previousPage: 'Treatments'
     },
+    options: {
+      width: 'full'
+    },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
@@ -76,6 +82,9 @@ export const examples = {
     context: {
       nextUrl: '/section/treatments',
       nextPage: 'Treatments'
+    },
+    options: {
+      width: 'full'
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
@@ -100,6 +109,9 @@ export const examples = {
           href: '#'
         }
       ]
+    },
+    options: {
+      width: 'full'
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
@@ -147,6 +159,9 @@ export const examples = {
         }
       ]
     },
+    options: {
+      width: 'full'
+    },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
@@ -170,6 +185,9 @@ export const examples = {
         }
       ]
     },
+    options: {
+      width: 'full'
+    },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
@@ -192,6 +210,9 @@ export const examples = {
           current: true
         }
       ]
+    },
+    options: {
+      width: 'full'
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
