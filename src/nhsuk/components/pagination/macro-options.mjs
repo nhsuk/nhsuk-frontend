@@ -52,7 +52,7 @@ export const params = {
  * @satisfies {{ [example: string]: MacroExample }}
  */
 export const examples = {
-  default: {
+  'default': {
     context: {
       previousUrl: '/section/treatments',
       previousPage: 'Treatments',
@@ -90,7 +90,7 @@ export const examples = {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
-  numbered: {
+  'numbered': {
     context: {
       previousUrl: '#',
       nextUrl: '#',
@@ -117,7 +117,7 @@ export const examples = {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
-  'numbered with many pages' : {
+  'numbered with many pages': {
     context: {
       previousUrl: '#',
       nextUrl: '#',
