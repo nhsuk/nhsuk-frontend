@@ -30,11 +30,16 @@ export const params = {
         description:
           'The path of the logo image, if you are not using the default NHS logo.'
       },
+      alt: {
+        type: 'string',
+        required: false,
+        description: "The alt text for the logo. Defaults to `'NHS'`"
+      },
       ariaLabel: {
         type: 'string',
         required: false,
         description:
-          "The `aria-label` for the logo. Defaults to `'NHS homepage'`"
+          "The `aria-label` for a linked logo. Defaults to `'NHS homepage'`"
       }
     }
   },
@@ -285,8 +290,7 @@ export const examples = {
   'default': {
     context: {
       logo: {
-        href: '#',
-        ariaLabel: 'NHS digital service manual homepage'
+        href: '#'
       },
       service: {
         text: 'Digital service manual',
@@ -328,6 +332,7 @@ export const examples = {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
+
   /**
    * Blue header examples
    */
@@ -780,8 +785,7 @@ export const examples = {
   'blue with organisation name': {
     context: {
       logo: {
-        href: '#',
-        ariaLabel: 'NHS digital service manual homepage'
+        href: '#'
       },
       organisation: {
         name: 'Business Services Authority'
@@ -852,6 +856,7 @@ export const examples = {
       viewports: ['desktop']
     }
   },
+
   /**
    * White header examples
    */
@@ -880,6 +885,19 @@ export const examples = {
       states: ['hover', 'focus'],
       selector: '.nhsuk-header__service-logo',
       viewports: ['desktop']
+    }
+  },
+  'white (linked logo, ARIA label)': {
+    context: {
+      classes: 'nhsuk-header--white',
+      logo: {
+        ariaLabel: 'NHS white homepage',
+        href: '#'
+      }
+    },
+    options: {
+      hidden: true,
+      width: false
     }
   },
   'white (linked logo, custom)': {
@@ -1339,8 +1357,7 @@ export const examples = {
     context: {
       classes: 'nhsuk-header--white',
       logo: {
-        href: '#',
-        ariaLabel: 'NHS digital service manual homepage'
+        href: '#'
       },
       organisation: {
         name: 'Business Services Authority'
