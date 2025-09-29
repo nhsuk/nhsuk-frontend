@@ -187,6 +187,24 @@ describe('Core', () => {
       }
     })
   })
+
+  describe('importing using deprecated files', () => {
+    it('outputs a warning when importing the core "settings/colours" file', async () => {
+      const sass = outdent`
+        @forward "core/settings/colours";
+      `
+
+      await compileStringAsync(sass, {
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
+        logger
+      })
+
+      expect(logger.warn).toHaveBeenCalledWith(
+        `Importing using 'core/settings/colours' is deprecated. Update your import statement to import 'core/settings/colours-palette', 'core/settings/colours-applied' and 'core/settings/colours-deprecated'. To silence this warning, update $nhsuk-suppressed-warnings with key: "import-using-settings-colours"`,
+        expect.anything()
+      )
+    })
+  })
 })
 
 /**
