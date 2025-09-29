@@ -52,25 +52,13 @@
   <div class="nhsuk-header__container nhsuk-width-container {%- if params.containerClasses %} {{ params.containerClasses }}{% endif %}">
     <div class="nhsuk-header__service">
     {% if logoHref %}
-      {% if params.logo.ariaLabel %}
-        {% set logoAriaLabel = params.logo.ariaLabel %}
-      {% elif combineLogoAndServiceNameLinks %}
-        {% if params.organisation.name and params.organisation.split %}
-          {% set logoAriaLabel = [logoAlt, params.organisation.name, params.organisation.split, params.service.text, "homepage"] | join(" ") %}
-        {% elif params.organisation.name %}
-          {% set logoAriaLabel = [logoAlt, params.organisation.name, params.service.text, "homepage"] | join(" ") %}
-        {% else %}
-          {% set logoAriaLabel = [logoAlt, params.service.text, "homepage"] | join(" ") %}
-        {% endif %}
-      {% else %}
-        {% if params.organisation.name and params.organisation.split %}
-          {% set logoAriaLabel = [logoAlt, params.organisation.name, params.organisation.split, "homepage"] | join(" ") %}
-        {% elif params.organisation.name %}
-          {% set logoAriaLabel = [logoAlt, params.organisation.name, "homepage"] | join(" ") %}
-        {% else %}
-          {% set logoAriaLabel = [logoAlt, "homepage"] | join(" ") %}
-        {% endif %}
-      {% endif %}
+      {% set logoAriaLabel = params.logo.ariaLabel if params.logo.ariaLabel else [
+        logoAlt,
+        params.organisation.name,
+        params.organisation.split,
+        params.service.text if combineLogoAndServiceNameLinks,
+        'homepage'
+      ] | select('string') | join(' ') %}
       <a class="nhsuk-header__service-logo" href="{{ logoHref }}" aria-label="{{ logoAriaLabel }}">
         {{ _serviceLogo(params.logo, params.organisation) | indent(8) }}
         {{- _serviceName(params.service.text) if combineLogoAndServiceNameLinks }}
