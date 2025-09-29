@@ -62,6 +62,13 @@
       margin-bottom: $vertical-gap + $button-shadow-size;
     }
 
+    // Remove the margin from below the last item within the
+    // button group in mobile view, as this otherwise doubles up
+    // with the margin below the button group container itself.
+    > :last-child {
+      margin-bottom: 0;
+    }
+
     // On tablet and above, we also introduce a 'column gap' between the
     // buttons and links in each row and left align links
     @include nhsuk-media-query($from: tablet) {
