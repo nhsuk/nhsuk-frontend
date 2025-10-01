@@ -216,13 +216,14 @@ export const examples = {
         <li>you're coughing up more than just a few spots or streaks of blood – this could be a sign of serious bleeding in your lungs</li>
         <li>you have severe difficulty breathing – you're gasping, choking or not able to get words out</li>
       </ul>
-      components.render('action-link', {
+
+      ${components.render('action-link', {
         context: {
           classes: 'nhsuk-action-link--reverse',
           text: 'Find your nearest A&E',
           href: '#'
         }
-      })
+      })}
     `
   },
   'primary (with chevron)': {
