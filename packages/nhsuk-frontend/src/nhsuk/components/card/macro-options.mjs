@@ -205,6 +205,26 @@ export const examples = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
+  'emergency (red and black) with action link': {
+    context: {
+      heading: 'Call 999 or go to A&E now if:',
+      headingLevel: 3,
+      type: 'emergency'
+    },
+    callBlock: outdent`
+      <ul>
+        <li>you're coughing up more than just a few spots or streaks of blood – this could be a sign of serious bleeding in your lungs</li>
+        <li>you have severe difficulty breathing – you're gasping, choking or not able to get words out</li>
+      </ul>
+      <a class="nhsuk-action-link nhsuk-action-link--reverse" href="#">
+        <svg class="nhsuk-icon nhsuk-icon--arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
+          <path d="M12 2a10 10 0 0 0-10 9h11.7l-4-4a1 1 0 0 1 1.5-1.4l5.6 5.7a1 1 0 0 1 0 1.4l-5.6 5.7a1 1 0 0 1-1.5 0 1 1 0 0 1 0-1.4l4-4H2A10 10 0 1 0 12 2z"></path>
+        </svg>
+
+        <span class="nhsuk-action-link__text">Find your nearest A&amp;E</span>
+      </a>
+    `
+  },
   'primary (with chevron)': {
     context: {
       href: '#',
