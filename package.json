@@ -105,7 +105,7 @@
     "stylelint-order": "^7.0.0",
     "typed-query-selector": "^2.12.0",
     "typescript": "^5.9.3",
-    "wait-on": "^8.0.5"
+    "wait-on": "^9.0.1"
   },
   "engines": {
     "node": "^20.9.0 || ^22.11.0",
