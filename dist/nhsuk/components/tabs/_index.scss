@@ -1,0 +1,140 @@
+@forward "../../core/nhsuk-frontend-properties";
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+@use "../../core/helpers" as *;
+
+////
+/// Tabs component
+///
+/// @group components/tabs
+////
+
+@include nhsuk-exports("nhsuk/components/tabs") {
+  .nhsuk-tabs {
+    @include nhsuk-responsive-margin(1, "top");
+    @include nhsuk-responsive-margin(6, "bottom");
+  }
+
+  .nhsuk-tabs__title {
+    margin-bottom: nhsuk-spacing(2);
+    color: $nhsuk-text-colour;
+    @include nhsuk-font($size: 19);
+  }
+
+  .nhsuk-tabs__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    @include nhsuk-responsive-margin(6, "bottom");
+  }
+
+  .nhsuk-tabs__list-item {
+    margin-left: nhsuk-spacing(5);
+    @include nhsuk-font($size: 19);
+
+    &::before {
+      content: "\2014 "; // "— "
+      margin-left: -(nhsuk-spacing(5));
+      padding-right: nhsuk-spacing(1);
+      color: $nhsuk-text-colour;
+    }
+  }
+
+  .nhsuk-tabs__tab {
+    display: inline-block;
+    margin-bottom: nhsuk-spacing(2);
+  }
+
+  .nhsuk-tabs__panel {
+    @include nhsuk-responsive-margin(8, "bottom");
+  }
+
+  // ES module JavaScript supported
+  .nhsuk-frontend-supported {
+    @include nhsuk-media-query($from: tablet) {
+      .nhsuk-tabs__list {
+        margin-bottom: 0;
+        border-bottom: 1px solid $nhsuk-border-colour;
+        @include nhsuk-clearfix;
+      }
+
+      .nhsuk-tabs__title {
+        display: none;
+      }
+
+      .nhsuk-tabs__list-item {
+        position: relative;
+
+        margin-right: nhsuk-spacing(1);
+        margin-bottom: 0;
+        margin-left: 0;
+        padding: nhsuk-spacing(2) nhsuk-spacing(4);
+
+        float: left;
+
+        background-color: nhsuk-colour("grey-4");
+
+        text-align: center;
+
+        &::before {
+          content: none;
+        }
+      }
+
+      .nhsuk-tabs__list-item--selected {
+        $border-width: 1px;
+        position: relative;
+
+        margin-top: -(nhsuk-spacing(1));
+        margin-bottom: -$border-width; // Compensation for border (otherwise we get a shift)
+        padding-top: (nhsuk-spacing(2) * 1.5) - $border-width;
+        padding-right: nhsuk-spacing(4) - $border-width;
+        padding-bottom: (nhsuk-spacing(2) * 1.5) + $border-width;
+        padding-left: nhsuk-spacing(4) - $border-width;
+
+        border: $border-width solid $nhsuk-border-colour;
+        border-bottom: 0;
+
+        background-color: $nhsuk-card-background-colour;
+
+        .nhsuk-tabs__tab {
+          text-decoration: none;
+        }
+      }
+
+      .nhsuk-tabs__tab {
+        margin-bottom: 0;
+
+        @include nhsuk-link-style-text;
+
+        &::after {
+          content: "";
+
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+        }
+      }
+
+      .nhsuk-tabs__panel {
+        padding: nhsuk-spacing(6) nhsuk-spacing(4);
+        border: 1px solid $nhsuk-border-colour;
+        border-top: 0;
+        background-color: $nhsuk-card-background-colour;
+        @include nhsuk-responsive-margin(0, "bottom");
+
+        & > :last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      .nhsuk-tabs__panel--hidden {
+        display: none;
+      }
+    }
+  }
+}
+
+/*# sourceMappingURL=_index.scss.map */

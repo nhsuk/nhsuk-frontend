@@ -1,0 +1,29 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/icon.njk" import nhsukIcon %}
+
+<nav {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-pagination
+{%- if params.classes %} {{ params.classes }}{% endif %}" role="navigation" aria-label="Pagination"
+{{- nhsukAttributes(params.attributes) }}>
+  <ul class="nhsuk-list nhsuk-pagination__list">
+  {%- if params.previousUrl and params.previousPage %}
+    <li class="nhsuk-pagination-item--previous">
+      <a class="nhsuk-pagination__link nhsuk-pagination__link--prev" href="{{ params.previousUrl }}">
+        <span class="nhsuk-pagination__title">Previous</span>
+        <span class="nhsuk-u-visually-hidden">:</span>
+        <span class="nhsuk-pagination__page">{{ params.previousPage }}</span>
+        {{ nhsukIcon("arrow-left") }}
+      </a>
+    </li>
+  {%- endif %}
+  {%- if params.nextUrl and params.nextPage %}
+    <li class="nhsuk-pagination-item--next">
+      <a class="nhsuk-pagination__link nhsuk-pagination__link--next" href="{{ params.nextUrl }}">
+        <span class="nhsuk-pagination__title">Next</span>
+        <span class="nhsuk-u-visually-hidden">:</span>
+        <span class="nhsuk-pagination__page">{{ params.nextPage }}</span>
+        {{ nhsukIcon("arrow-right") }}
+      </a>
+    </li>
+  {%- endif %}
+  </ul>
+</nav>

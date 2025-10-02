@@ -1,0 +1,41 @@
+@use "sass:color";
+
+////
+/// @group settings/colours
+////
+
+/// NHS colour palette
+///
+/// @type Map
+///
+/// @prop $colour - Representation for the given $colour, where $colour is the
+///   friendly name for the colour (e.g. "red": #ff0000);
+
+$nhsuk-colours: (
+  // Primary
+  "blue": #005eb8,
+  "white": #ffffff,
+  "black": #212b32,
+  "green": #007f3b,
+  "purple": #330072,
+  "dark-pink": #7c2855,
+  "red": #d5281b,
+  "yellow": #ffeb3b,
+
+  // Secondary
+  "dark-blue": #003087,
+  "pale-yellow": #fff9c4,
+  "warm-yellow": #ffb81c,
+  "orange": #ed8b00,
+  "aqua-green": #00a499,
+  "pink": #ae2573,
+
+  // Greyscale
+  "grey-1": #4c6272,
+  "grey-2": #768692,
+  "grey-3": #aeb7bd,
+  "grey-4": #d8dde0,
+  "grey-5": #f0f4f5
+) !default;
+
+/*# sourceMappingURL=_colours-palette.scss.map */

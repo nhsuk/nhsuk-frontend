@@ -1,0 +1,79 @@
+{
+  "name": "Task list",
+  "component": "task-list",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "idPrefix": "your-health",
+        "items": [
+          {
+            "title": {
+              "text": "Exercise"
+            },
+            "href": "#",
+            "status": {
+              "text": "Completed",
+              "classes": "nhsuk-task-list__status--completed"
+            }
+          },
+          {
+            "title": {
+              "text": "Personal health"
+            },
+            "href": "#",
+            "status": {
+              "text": "Completed",
+              "classes": "nhsuk-task-list__status--completed"
+            }
+          },
+          {
+            "title": {
+              "text": "Family health history"
+            },
+            "hint": {
+              "text": "Details of your parents, brothers and sisters"
+            },
+            "href": "#",
+            "status": {
+              "tag": {
+                "text": "Incomplete",
+                "classes": "nhsuk-tag--blue"
+              }
+            }
+          },
+          {
+            "title": {
+              "text": "Smoking history"
+            },
+            "href": "#",
+            "status": {
+              "tag": {
+                "text": "Incomplete",
+                "classes": "nhsuk-tag--blue"
+              }
+            }
+          },
+          {
+            "title": {
+              "text": "Blood test"
+            },
+            "status": {
+              "text": "Cannot start yet",
+              "classes": "nhsuk-task-list__status--cannot-start-yet"
+            }
+          }
+        ]
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop"
+        ]
+      },
+      "options": {},
+      "html": "<ul class=\"nhsuk-task-list\">\n  <li class=\"nhsuk-task-list__item nhsuk-task-list__item--with-link\">\n    <div class=\"nhsuk-task-list__name-and-hint\"><a class=\"nhsuk-link nhsuk-task-list__link\" href=\"#\"  aria-describedby=\"your-health-1-status\">Exercise</a></div>\n    <div class=\"nhsuk-task-list__status nhsuk-task-list__status--completed\" id=\"your-health-1-status\">Completed</div>\n  </li>\n  <li class=\"nhsuk-task-list__item nhsuk-task-list__item--with-link\">\n    <div class=\"nhsuk-task-list__name-and-hint\"><a class=\"nhsuk-link nhsuk-task-list__link\" href=\"#\"  aria-describedby=\"your-health-2-status\">Personal health</a></div>\n    <div class=\"nhsuk-task-list__status nhsuk-task-list__status--completed\" id=\"your-health-2-status\">Completed</div>\n  </li>\n  <li class=\"nhsuk-task-list__item nhsuk-task-list__item--with-link\">\n    <div class=\"nhsuk-task-list__name-and-hint\"><a class=\"nhsuk-link nhsuk-task-list__link\" href=\"#\"  aria-describedby=\"your-health-3-hint your-health-3-status\">Family health history</a><div id=\"your-health-3-hint\" class=\"nhsuk-task-list__hint\">Details of your parents, brothers and sisters</div></div>\n    <div class=\"nhsuk-task-list__status\" id=\"your-health-3-status\"><strong class=\"nhsuk-tag nhsuk-tag--blue\">\n        Incomplete\n      </strong></div>\n  </li>\n  <li class=\"nhsuk-task-list__item nhsuk-task-list__item--with-link\">\n    <div class=\"nhsuk-task-list__name-and-hint\"><a class=\"nhsuk-link nhsuk-task-list__link\" href=\"#\"  aria-describedby=\"your-health-4-status\">Smoking history</a></div>\n    <div class=\"nhsuk-task-list__status\" id=\"your-health-4-status\"><strong class=\"nhsuk-tag nhsuk-tag--blue\">\n        Incomplete\n      </strong></div>\n  </li>\n  <li class=\"nhsuk-task-list__item\">\n    <div class=\"nhsuk-task-list__name-and-hint\"><div>Blood test</div></div>\n    <div class=\"nhsuk-task-list__status nhsuk-task-list__status--cannot-start-yet\" id=\"your-health-5-status\">Cannot start yet</div>\n  </li>\n</ul>"
+    }
+  ]
+}
