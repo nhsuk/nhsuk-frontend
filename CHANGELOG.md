@@ -510,25 +510,25 @@ Make sure component initialisation functions match the named exports:
 import { initButtons, initCheckboxes } from 'nhsuk-frontend'
 
 // Initialise all button components
-initButtons();
+initButtons()
 
 // Initialise all checkboxes components
-initCheckboxes();
+initCheckboxes()
 ```
 
 Or alternatively, you can initialise individual component classes:
 
 ```js
-import { Button, Checkboxes } from 'nhsuk-frontend';
+import { Button, Checkboxes } from 'nhsuk-frontend'
 
 const $button = document.querySelector('.app-button')
 const $checkboxes = document.querySelector('.app-checkboxes')
 
 // Initialise single button component
-new Button($button);
+new Button($button)
 
 // Initialise single checkboxes component
-new Checkboxes($checkboxes);
+new Checkboxes($checkboxes)
 ```
 
 ### :boom: **Breaking changes** to static assets
@@ -2606,12 +2606,12 @@ After:
 
   ```javascript
   // Components
-  import ErrorSummary from '../node_modules/nhsuk-frontend/packages/components/error-summary/error-summary';
+  import ErrorSummary from '../node_modules/nhsuk-frontend/packages/components/error-summary/error-summary'
 
   // Initialize components
   document.addEventListener('DOMContentLoaded', () => {
-    ErrorSummary();
-  });
+    ErrorSummary()
+  })
   ```
 
   Note: You may need to change the path to `node_modules` depending on your project structure.
@@ -2974,23 +2974,23 @@ After:
 
   ```javascript
   // Components
-  import Header from '../node_modules/nhsuk-frontend/packages/components/header/header';
-  import SkipLink from '../node_modules/nhsuk-frontend/packages/components/skip-link/skip-link';
-  import Details from '../node_modules/nhsuk-frontend/packages/components/details/details';
-  import Radios from '../node_modules/nhsuk-frontend/packages/components/radios/radios';
-  import Checkboxes from '../node_modules/nhsuk-frontend/packages/components/checkboxes/checkboxes';
+  import Header from '../node_modules/nhsuk-frontend/packages/components/header/header'
+  import SkipLink from '../node_modules/nhsuk-frontend/packages/components/skip-link/skip-link'
+  import Details from '../node_modules/nhsuk-frontend/packages/components/details/details'
+  import Radios from '../node_modules/nhsuk-frontend/packages/components/radios/radios'
+  import Checkboxes from '../node_modules/nhsuk-frontend/packages/components/checkboxes/checkboxes'
 
   // Polyfills
-  import '../node_modules/nhsuk-frontend/packages/polyfills';
+  import '../node_modules/nhsuk-frontend/packages/polyfills'
 
   // Initialize components
   document.addEventListener('DOMContentLoaded', () => {
-    Details();
-    Header();
-    SkipLink();
-    Radios();
-    Checkboxes();
-  });
+    Details()
+    Header()
+    SkipLink()
+    Radios()
+    Checkboxes()
+  })
   ```
 
   Note: You may need to change the path to `node_modules` depending on your project structure.
@@ -3120,11 +3120,11 @@ After:
   If you are importing component JavaScript with ES6 imports, you will need to remove the imports and initialisation for the feedback banner:
 
   ```js
-  import nhsuk_feedbackBanner from 'node_modules/nhsuk-frontend/packages/components/feedback-banner/feedback-banner';
+  import nhsuk_feedbackBanner from 'node_modules/nhsuk-frontend/packages/components/feedback-banner/feedback-banner'
   ```
 
   ```js
-  nhsuk_feedbackBanner(3000);
+  nhsuk_feedbackBanner(3000)
   ```
 
   <hr>
@@ -3139,16 +3139,16 @@ After:
 
   ```js
   // Components
-  import Header from './components/header/header';
-  import SkipLink from './components/skip-link/skip-link';
-  import Details from './components/details/details';
+  import Header from './components/header/header'
+  import SkipLink from './components/skip-link/skip-link'
+  import Details from './components/details/details'
 
   // Initialize components
   document.addEventListener('DOMContentLoaded', () => {
-    Details();
-    Header();
-    SkipLink();
-  });
+    Details()
+    Header()
+    SkipLink()
+  })
   ```
 
   If you are already importing JavaScript with these export names, you can change the default export name.

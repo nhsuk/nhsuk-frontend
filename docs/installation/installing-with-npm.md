@@ -8,7 +8,7 @@
 
 2. `cd` to the root of your project and check if you have a [`package.json` file](https://docs.npmjs.com/files/package.json). If you do not have the file, create it by running:
 
-   ```
+   ```sh
    npm init
    ```
 
@@ -20,7 +20,7 @@ You can also [install Nunjucks v3.0.0 or later](https://www.npmjs.com/package/nu
 
 Run:
 
-```
+```sh
 npm install nhsuk-frontend --save
 ```
 
