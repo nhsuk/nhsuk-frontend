@@ -45,6 +45,9 @@ export async function load(component) {
         // Sort default to top
         ['default', ''],
 
+        // Sort urgent with non-urgent
+        ['non-', ''],
+
         // Sort sizes numerically
         ['size S', 'size 1'],
         ['size M', 'size 2'],
