@@ -81,6 +81,13 @@
     max-width: 5.4ex;
   }
 
+  // Codes and sequences
+
+  .nhsuk-input--code {
+    font-family: $nhsuk-code-font;
+    letter-spacing: 0.1em;
+  }
+
   // Suffix and prefix
 
   .nhsuk-input__wrapper {
