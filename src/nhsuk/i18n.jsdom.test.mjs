@@ -2,7 +2,7 @@ import { I18n } from './i18n.mjs'
 
 describe('I18n', () => {
   describe('.t', () => {
-    /** @type {{ [key: string]: unknown }} */
+    /** @type {{ [key: string]: string }} */
     let translations = {}
 
     beforeEach(() => {
@@ -40,7 +40,7 @@ describe('I18n', () => {
     })
 
     describe('string interpolation', () => {
-      /** @type {{ [key: string]: unknown }} */
+      /** @type {{ [key: string]: string }} */
       const translations = {
         nameString: 'My name is %{name}'
       }
@@ -179,7 +179,7 @@ describe('I18n', () => {
       })
 
       it('formats numbers that are passed as placeholders', () => {
-        /** @type {{ [key: string]: unknown }} */
+        /** @type {{ [key: string]: string }} */
         const translations = { ageString: 'I am %{age} years old' }
 
         const i18nEn = new I18n(translations, { locale: 'en' })
@@ -230,7 +230,7 @@ describe('I18n', () => {
     beforeEach(() => {
       // Silence warnings in test output, and allow us to 'expect' them
       consoleWarn = jest
-        .spyOn(global.console, 'warn')
+        .spyOn(window.console, 'warn')
         .mockImplementation(() => {
           /* noop */
         })
@@ -242,7 +242,7 @@ describe('I18n', () => {
 
     it('uses `Intl.PluralRules` when available', () => {
       const IntlPluralRulesSelect = jest
-        .spyOn(global.Intl.PluralRules.prototype, 'select')
+        .spyOn(window.Intl.PluralRules.prototype, 'select')
         .mockImplementation(() => 'one')
 
       const i18n = new I18n(

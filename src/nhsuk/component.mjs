@@ -1,5 +1,3 @@
-/* eslint-disable es-x/no-global-this */
-
 import { isInitialised, isSupported } from './common/index.mjs'
 import { ElementError, InitError, SupportError } from './errors/index.mjs'
 
@@ -88,12 +86,6 @@ export class Component {
   static moduleName = 'nhsuk-component'
 }
 
-/* eslint-disable jsdoc/valid-types --
- * `{new(...args: any[] ): any}` is not recognised as valid
- * https://github.com/gajus/eslint-plugin-jsdoc/issues/145#issuecomment-1308722878
- * https://github.com/jsdoc-type-pratt-parser/jsdoc-type-pratt-parser/issues/131
- **/
-
 /**
  * Component compatible class
  *
@@ -105,8 +97,6 @@ export class Component {
  *   moduleName: string
  * }} CompatibleClass
  */
-
-/* eslint-enable jsdoc/valid-types */
 
 /**
  * Component constructor
