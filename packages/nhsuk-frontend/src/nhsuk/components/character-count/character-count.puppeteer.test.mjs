@@ -1,4 +1,4 @@
-import { setTimeout } from 'node:timers/promises'
+import * as timers from 'node:timers/promises'
 
 import { goToComponent } from '@nhsuk/frontend-helpers/puppeteer.mjs'
 
@@ -118,7 +118,7 @@ describe('Character count', () => {
         expect(message).toBe('You have 199 characters remaining')
 
         // Wait for debounced update to happen
-        await setTimeout(debouncedWaitTime)
+        await timers.setTimeout(debouncedWaitTime)
 
         const srMessage = await page.$eval(
           '.nhsuk-character-count__sr-status',
@@ -137,7 +137,7 @@ describe('Character count', () => {
         expect(message).toBe('You have 1 character remaining')
 
         // Wait for debounced update to happen
-        await setTimeout(debouncedWaitTime)
+        await timers.setTimeout(debouncedWaitTime)
 
         const srMessage = await page.$eval(
           '.nhsuk-character-count__sr-status',
@@ -154,7 +154,7 @@ describe('Character count', () => {
         await page.type('.nhsuk-js-character-count', 'A')
 
         // Wait for debounced update to happen
-        await setTimeout(debouncedWaitTime)
+        await timers.setTimeout(debouncedWaitTime)
 
         const textareaClasses = await page.$eval(
           '.nhsuk-textarea',
@@ -177,7 +177,7 @@ describe('Character count', () => {
           expect(message).toBe('You have 1 character too many')
 
           // Wait for debounced update to happen
-          await setTimeout(debouncedWaitTime)
+          await timers.setTimeout(debouncedWaitTime)
 
           const srMessage = await page.$eval(
             '.nhsuk-character-count__sr-status',
@@ -196,7 +196,7 @@ describe('Character count', () => {
           expect(message).toBe('You have 2 characters too many')
 
           // Wait for debounced update to happen
-          await setTimeout(debouncedWaitTime)
+          await timers.setTimeout(debouncedWaitTime)
 
           const srMessage = await page.$eval(
             '.nhsuk-character-count__sr-status',
@@ -275,7 +275,7 @@ describe('Character count', () => {
           expect(visibility).toBe('hidden')
 
           // Wait for debounced update to happen
-          await setTimeout(debouncedWaitTime)
+          await timers.setTimeout(debouncedWaitTime)
 
           // Ensure threshold is hidden for users of assistive technologies
           const ariaHidden = await page.$eval(
@@ -295,7 +295,7 @@ describe('Character count', () => {
           expect(visibility).toBe('visible')
 
           // Wait for debounced update to happen
-          await setTimeout(debouncedWaitTime)
+          await timers.setTimeout(debouncedWaitTime)
 
           // Ensure threshold is visible for users of assistive technologies
           const ariaHidden = await page.$eval(
@@ -353,7 +353,7 @@ describe('Character count', () => {
         expect(message).toBe('You have 148 words remaining')
 
         // Wait for debounced update to happen
-        await setTimeout(debouncedWaitTime)
+        await timers.setTimeout(debouncedWaitTime)
 
         const srMessage = await page.$eval(
           '.nhsuk-character-count__sr-status',
@@ -372,7 +372,7 @@ describe('Character count', () => {
         expect(message).toBe('You have 1 word remaining')
 
         // Wait for debounced update to happen
-        await setTimeout(debouncedWaitTime)
+        await timers.setTimeout(debouncedWaitTime)
 
         const srMessage = await page.$eval(
           '.nhsuk-character-count__sr-status',
@@ -398,7 +398,7 @@ describe('Character count', () => {
           expect(message).toBe('You have 1 word too many')
 
           // Wait for debounced update to happen
-          await setTimeout(debouncedWaitTime)
+          await timers.setTimeout(debouncedWaitTime)
 
           const srMessage = await page.$eval(
             '.nhsuk-character-count__sr-status',
@@ -417,7 +417,7 @@ describe('Character count', () => {
           expect(message).toBe('You have 2 words too many')
 
           // Wait for debounced update to happen
-          await setTimeout(debouncedWaitTime)
+          await timers.setTimeout(debouncedWaitTime)
 
           const srMessage = await page.$eval(
             '.nhsuk-character-count__sr-status',
