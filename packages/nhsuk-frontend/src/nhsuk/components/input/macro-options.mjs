@@ -270,7 +270,7 @@ export const examples = {
       },
       id: 'with-hint',
       name: 'example',
-      classes: 'nhsuk-input--width-10',
+      classes: 'nhsuk-input--width-10 nhsuk-input--code',
       inputmode: 'numeric',
       spellcheck: false
     },
@@ -345,7 +345,7 @@ export const examples = {
       },
       id: 'with-error-message',
       name: 'example',
-      classes: 'nhsuk-input--width-10',
+      classes: 'nhsuk-input--width-10 nhsuk-input--code',
       inputmode: 'numeric',
       spellcheck: false
     }
@@ -365,7 +365,7 @@ export const examples = {
       },
       id: 'with-hint-error',
       name: 'example',
-      classes: 'nhsuk-input--width-10',
+      classes: 'nhsuk-input--width-10 nhsuk-input--code',
       inputmode: 'numeric',
       spellcheck: false
     },
@@ -453,7 +453,7 @@ export const examples = {
       },
       id: 'custom-size',
       name: 'example',
-      classes: 'nhsuk-input--width-10',
+      classes: 'nhsuk-input--width-10 nhsuk-input--code',
       inputmode: 'numeric',
       spellcheck: false
     }
@@ -467,7 +467,7 @@ export const examples = {
       },
       id: 'custom-size',
       name: 'example',
-      classes: 'nhsuk-input--width-10',
+      classes: 'nhsuk-input--width-10 nhsuk-input--code',
       inputmode: 'numeric',
       spellcheck: false
     }
@@ -481,7 +481,7 @@ export const examples = {
       },
       id: 'custom-size',
       name: 'example',
-      classes: 'nhsuk-input--width-10',
+      classes: 'nhsuk-input--width-10 nhsuk-input--code',
       inputmode: 'numeric',
       spellcheck: false
     }
@@ -495,7 +495,7 @@ export const examples = {
       },
       id: 'custom-size',
       name: 'example',
-      classes: 'nhsuk-input--width-10',
+      classes: 'nhsuk-input--width-10 nhsuk-input--code',
       inputmode: 'numeric',
       spellcheck: false
     }
@@ -507,7 +507,7 @@ export const examples = {
       },
       id: 'without-heading',
       name: 'example',
-      classes: 'nhsuk-input--width-10',
+      classes: 'nhsuk-input--width-10 nhsuk-input--code',
       inputmode: 'numeric',
       spellcheck: false
     }
