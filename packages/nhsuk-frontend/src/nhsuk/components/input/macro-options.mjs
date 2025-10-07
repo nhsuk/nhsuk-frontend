@@ -21,7 +21,8 @@ export const params = {
   type: {
     type: 'string',
     required: false,
-    description: 'Type of input control to render. Defaults to `"text"`.'
+    description:
+      'Type of input control to render, for example, an email input control. Defaults to `"text"`.'
   },
   inputmode: {
     type: 'string',
@@ -48,20 +49,20 @@ export const params = {
   label: {
     type: 'object',
     required: true,
-    description: 'Options for the label component.',
+    description: 'The label used by the text input component.',
     isComponent: true
   },
   hint: {
     type: 'object',
     required: false,
-    description: 'Options for the hint component.',
+    description: 'Can be used to add a hint to a text input component.',
     isComponent: true
   },
   errorMessage: {
     type: 'object',
     required: false,
     description:
-      'Options for the error message component. The error message component will not display if you use a falsy value for `errorMessage`, for example `false` or `null`.',
+      'Can be used to add an error message to the text input component. The error message component will not display if you use a falsy value for `errorMessage`, for example `false` or `null`.',
     isComponent: true
   },
   prefix: {
@@ -73,13 +74,13 @@ export const params = {
         type: 'string',
         required: true,
         description:
-          'If `html` is set, this is not required. Text to use within the prefix. If `html` is provided, the `text` option will be ignored.'
+          'Required. If `html` is set, this is not required. Text to use within the prefix. If `html` is provided, the `text` option will be ignored.'
       },
       html: {
         type: 'string',
         required: true,
         description:
-          'If `text` is set, this is not required. HTML to use within the prefix. If `html` is provided, the `text` option will be ignored.'
+          'Required. If `text` is set, this is not required. HTML to use within the prefix. If `html` is provided, the `text` option will be ignored.'
       },
       classes: {
         type: 'string',
@@ -114,7 +115,7 @@ export const params = {
       classes: {
         type: 'string',
         required: false,
-        description: 'Classes to add to the suffix.'
+        description: 'Classes to add to the suffix element.'
       },
       attributes: {
         type: 'object',
@@ -128,7 +129,7 @@ export const params = {
     type: 'object',
     required: false,
     description:
-      'Additional options for the form group containing the input component.',
+      'Additional options for the form group containing the text input component.',
     params: {
       classes: {
         type: 'string',
@@ -166,7 +167,7 @@ export const params = {
         type: 'object',
         required: false,
         description:
-          'Content to add after the input used by the date input component.',
+          'Content to add after the input used by the text input component.',
         params: {
           text: {
             type: 'string',
@@ -193,19 +194,19 @@ export const params = {
     type: 'string',
     required: false,
     description:
-      'autocomplete attribute to identify input purpose, for instance `"postal-code"` or `"username"`.'
+      'Attribute to meet [WCAG success criterion 1.3.5: Identify input purpose](https://www.w3.org/WAI/WCAG22/Understanding/identify-input-purpose.html), for instance `"bday-day"`. See the [Autofill section in the HTML standard](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill) section in the HTML standard for full list of attributes that can be used.'
   },
   pattern: {
     type: 'string',
     required: false,
     description:
-      'pattern attribute to provide a regular expression pattern, used to match allowed character combinations for the input value.'
+      'Attribute to provide a regular expression pattern, used to match allowed character combinations for the input value.'
   },
   spellcheck: {
     type: 'boolean',
     required: false,
     description:
-      'Optional field to enable or disable the spellcheck attribute on the input.'
+      'Optional field to enable or disable the `spellcheck` attribute on the input.'
   },
   autocapitalize: {
     type: 'string',
