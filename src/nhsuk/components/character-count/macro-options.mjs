@@ -29,22 +29,41 @@ export const params = {
     required: false,
     description: 'Optional initial value of the textarea.'
   },
+  maxlength: {
+    type: 'string',
+    required: true,
+    description:
+      'If `maxwords` is set, this is not required. The maximum number of characters. If `maxwords` is provided, the `maxlength` option will be ignored.'
+  },
+  maxwords: {
+    type: 'string',
+    required: true,
+    description:
+      'If `maxlength` is set, this is not required. The maximum number of words. If `maxwords` is provided, the `maxlength` option will be ignored.'
+  },
+  threshold: {
+    type: 'string',
+    required: false,
+    description:
+      'The percentage value of the limit at which point the count message is displayed. If this attribute is set, the count message will be hidden by default.'
+  },
   label: {
     type: 'object',
     required: true,
-    description: 'Options for the label component.',
+    description: 'The label used by the character count component.',
     isComponent: true
   },
   hint: {
     type: 'object',
     required: false,
-    description: 'Options for the hint component.',
+    description: 'Can be used to add a hint to the character count component.',
     isComponent: true
   },
   errorMessage: {
     type: 'object',
     required: false,
-    description: 'Options for the error message component.',
+    description:
+      'Can be used to add an error message to the character count component. The error message component will not display if you use a falsy value for `errorMessage`, for example `false` or `null`.',
     isComponent: true
   },
   formGroup: {
@@ -110,38 +129,19 @@ export const params = {
   classes: {
     type: 'string',
     required: false,
-    description:
-      'Optional additional classes to add to the textarea tag. Separate each class with a space.'
-  },
-  maxlength: {
-    type: 'string',
-    required: false,
-    description:
-      'If `maxwords` is set, this is not required. The maximum number of characters. If `maxwords` is provided, the `maxlength` argument will be ignored.'
-  },
-  maxwords: {
-    type: 'string',
-    required: false,
-    description:
-      'If `maxlength` is set, this is not required. The maximum number of words. If `maxwords` is provided, the `maxlength` argument will be ignored.'
-  },
-  threshold: {
-    type: 'string',
-    required: false,
-    description:
-      'The percentage value of the limit at which point the count message is displayed. If this attribute is set, the count message will be hidden by default.'
-  },
-  spellcheck: {
-    type: 'boolean',
-    required: false,
-    description:
-      'Optional field to enable or disable the spellcheck attribute on the textarea.'
+    description: 'Classes to add to the textarea.'
   },
   attributes: {
     type: 'object',
     required: false,
     description:
-      'Any extra HTML attributes (for example data attributes) to add to the textarea tag.'
+      'HTML attributes (for example data attributes) to add to the textarea.'
+  },
+  spellcheck: {
+    type: 'boolean',
+    required: false,
+    description:
+      'Optional field to enable or disable the `spellcheck` attribute on the character count.'
   },
   countMessage: {
     type: 'object',
