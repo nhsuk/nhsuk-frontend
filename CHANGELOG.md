@@ -4,6 +4,34 @@
 
 ### :new: **New features**
 
+#### Smaller versions of radio buttons and checkboxes
+
+You can now use smaller versions of the [radios](https://service-manual.nhs.uk/design-system/components/radios) and [checkboxes](https://service-manual.nhs.uk/design-system/components/checkboxes) components by adding the `nhsuk-radios--small` or `nhsuk-checkboxes--small` class.
+
+This was added in [pull request #1567: Uplift GOV.UK Frontend form field components](https://github.com/nhsuk/nhsuk-frontend/pull/1567).
+
+#### Updated Nunjucks macro options for form components
+
+For consistency with other form components, we’ve added new Nunjucks macro options:
+
+- Character count `textareaDescriptionText` option
+- Text input `autocapitalize` and `disabled` options, with prefix and suffix nested `text`, `html`, `classes` and `attributes` options
+- Textarea `disabled` and `spellcheck` options
+- Radios item `disabled` and `attributes` options
+- Fieldset `html` and `role` options
+
+Visit the [design system in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components) to see Nunjucks options for each component.
+
+This was added in [pull request #1567: Uplift GOV.UK Frontend form field components](https://github.com/nhsuk/nhsuk-frontend/pull/1567).
+
+#### Updated appearance of disabled form controls
+
+We’ve updated the disabled state of radio buttons, checkboxes, text inputs, textareas and select menus so it is consistent across browsers and devices.
+
+Disabled form controls appear at 50% opacity and with an alternative cursor appearance when hovered over.
+
+This was added in [pull request #1567: Uplift GOV.UK Frontend form field components](https://github.com/nhsuk/nhsuk-frontend/pull/1567).
+
 #### Insert custom HTML into component form group wrappers
 
 You can now insert custom HTML into form group wrappers for all components with form fields.
