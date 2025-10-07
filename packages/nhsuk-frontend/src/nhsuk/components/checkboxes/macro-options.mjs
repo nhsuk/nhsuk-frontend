@@ -236,7 +236,7 @@ export const params = {
     type: 'object',
     required: false,
     description:
-      'HTML attributes (for example data attributes) to add to the anchor tag.'
+      'HTML attributes (for example data attributes) to add to the checkboxes container.'
   }
 }
 

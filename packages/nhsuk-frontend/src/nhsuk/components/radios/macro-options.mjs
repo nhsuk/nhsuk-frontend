@@ -206,13 +206,13 @@ export const params = {
   classes: {
     type: 'string',
     required: false,
-    description: 'Classes to add to the radio container.'
+    description: 'Classes to add to the radios container.'
   },
   attributes: {
     type: 'object',
     required: false,
     description:
-      'HTML attributes (for example data attributes) to add to the radio input tag.'
+      'HTML attributes (for example data attributes) to add to the radios container.'
   }
 }
 
