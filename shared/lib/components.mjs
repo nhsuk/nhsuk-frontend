@@ -41,7 +41,7 @@ export async function load(component) {
   // Sort examples by name, default at top
   data.examples = Object.fromEntries(
     Object.entries(options.examples ?? {}).sort(([nameA], [nameB]) => {
-      for (const [find, replace] of [
+      for (const [find, replace] of /** @type {const} */ ([
         // Sort default to top
         ['default', ''],
 
@@ -52,8 +52,11 @@ export async function load(component) {
         ['size S', 'size 1'],
         ['size M', 'size 2'],
         ['size L', 'size 3'],
-        ['size XL', 'size 4']
-      ]) {
+        ['size XL', 'size 4'],
+
+        // Sort small form controls to end
+        [/^small/, 'ZZZ']
+      ])) {
         nameA = nameA.replace(find, replace)
         nameB = nameB.replace(find, replace)
       }

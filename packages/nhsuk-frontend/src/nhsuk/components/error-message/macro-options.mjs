@@ -12,29 +12,29 @@ export const params = {
     type: 'string',
     required: true,
     description:
-      'If `html` is set, this is not required. Text to use within the error message. If `html` is provided, the `text` argument will be ignored.'
+      'If `html` is set, this is not required. Text to use within the error message. If `html` is provided, the `text` option will be ignored.'
   },
   html: {
     type: 'string',
     required: true,
     description:
-      'If `text` is set, this is not required. HTML to use within the error message. If `html` is provided, the `text` argument will be ignored.'
+      'If `text` is set, this is not required. HTML to use within the error message. If `html` is provided, the `text` option will be ignored.'
   },
   id: {
     type: 'string',
     required: false,
-    description: 'Id attribute to add to the error message span tag.'
+    description: 'ID attribute to add to the error message `<span>` tag.'
   },
   classes: {
     type: 'string',
     required: false,
-    description: 'Classes to add to the error message span tag.'
+    description: 'Classes to add to the error message `<span>` tag.'
   },
   attributes: {
     type: 'object',
     required: false,
     description:
-      'HTML attributes (for example data attributes) to add to the error message span tag.'
+      'HTML attributes (for example data attributes) to add to the error message `<span>` tag.'
   },
   visuallyHiddenText: {
     type: 'string',
