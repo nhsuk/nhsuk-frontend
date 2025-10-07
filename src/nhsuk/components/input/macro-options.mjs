@@ -26,12 +26,18 @@ export const params = {
   inputmode: {
     type: 'string',
     required: false,
-    description: 'Optional value for inputmode.'
+    description:
+      'Optional value for [the inputmode attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode).'
   },
   value: {
     type: 'string',
     required: false,
     description: 'Optional initial value of the input.'
+  },
+  disabled: {
+    type: 'boolean',
+    required: false,
+    description: 'If `true`, input will be disabled.'
   },
   describedBy: {
     type: 'string',
@@ -74,6 +80,17 @@ export const params = {
         required: true,
         description:
           'If `text` is set, this is not required. HTML to use within the prefix. If `html` is provided, the `text` option will be ignored.'
+      },
+      classes: {
+        type: 'string',
+        required: false,
+        description: 'Classes to add to the prefix.'
+      },
+      attributes: {
+        type: 'object',
+        required: false,
+        description:
+          'HTML attributes (for example data attributes) to add to the prefix element.'
       }
     }
   },
@@ -93,6 +110,17 @@ export const params = {
         required: true,
         description:
           'If `text` is set, this is not required. HTML to use within the suffix. If `html` is provided, the `text` option will be ignored.'
+      },
+      classes: {
+        type: 'string',
+        required: false,
+        description: 'Classes to add to the suffix.'
+      },
+      attributes: {
+        type: 'object',
+        required: false,
+        description:
+          'HTML attributes (for example data attributes) to add to the suffix element.'
       }
     }
   },
@@ -178,6 +206,31 @@ export const params = {
     required: false,
     description:
       'Optional field to enable or disable the spellcheck attribute on the input.'
+  },
+  autocapitalize: {
+    type: 'string',
+    required: false,
+    description:
+      'Optional field to enable or disable autocapitalisation of user input. [See the Autocapitalization section in the HTML spec](https://html.spec.whatwg.org/multipage/interaction.html#autocapitalization) for a full list of values that can be used.'
+  },
+  inputWrapper: {
+    type: 'object',
+    required: false,
+    description:
+      'If any of `prefix`, `suffix`, `formGroup.beforeInput` or `formGroup.afterInput` have a value, a wrapping element is added around the input and inserted content. This object allows you to customise that wrapping element.',
+    params: {
+      classes: {
+        type: 'string',
+        required: false,
+        description: 'Classes to add to the wrapping element.'
+      },
+      attributes: {
+        type: 'object',
+        required: false,
+        description:
+          'HTML attributes (for example data attributes) to add to the wrapping element.'
+      }
+    }
   },
   attributes: {
     type: 'object',
