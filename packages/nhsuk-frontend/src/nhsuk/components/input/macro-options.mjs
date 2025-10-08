@@ -526,7 +526,8 @@ export const examples = {
       name: 'nhs-number',
       classes: 'nhsuk-input--width-10 nhsuk-input--code',
       value: '999 123 4567',
-      inputmode: 'numeric'
+      inputmode: 'numeric',
+      spellcheck: false
     },
     screenshot: true
   },
