@@ -24,8 +24,9 @@
 {% endif %}
   </ol>
   {{ backLink({
+    visuallyHiddenText: "Back to",
+    text: lastText,
     href: lastHref,
-    html: '<span class="nhsuk-u-visually-hidden">Back to&nbsp;</span>' + lastText,
     attributes: lastItem.attributes
   }) | indent(2) }}
 </nav>
