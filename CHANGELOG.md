@@ -59,7 +59,6 @@ You can add it through the classes option when using Nunjucks, or directly in th
 
 This was added in [pull request #1617: Add input styling for codes and sequences](https://github.com/nhsuk/nhsuk-frontend/pull/1617).
 
-
 ### :wastebasket: **Deprecated features**
 
 #### Rename Sass variables for border width and colour
