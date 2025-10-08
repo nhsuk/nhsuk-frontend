@@ -16,7 +16,7 @@ export const params = {
   logo: {
     type: 'object',
     required: false,
-    description: 'Object containing options for the logo',
+    description: 'Object containing options for the logo.',
     params: {
       href: {
         type: 'string',
@@ -33,13 +33,13 @@ export const params = {
       alt: {
         type: 'string',
         required: false,
-        description: "The alt text for the logo. Defaults to `'NHS'`"
+        description: 'The alt text for the logo. Defaults to `"NHS"`.'
       },
       ariaLabel: {
         type: 'string',
         required: false,
         description:
-          "The `aria-label` for a linked logo. Defaults to `'NHS homepage'`"
+          'The `aria-label` for a linked logo. Defaults to `"NHS homepage"`.'
       }
     }
   },
@@ -139,7 +139,7 @@ export const params = {
         type: 'string',
         required: false,
         description:
-          "The `aria-label` for the primary navigation. Defaults to `'Menu'`"
+          'The `aria-label` for the primary navigation. Defaults to `"Menu"`.'
       },
       classes: {
         type: 'string',
@@ -157,36 +157,36 @@ export const params = {
   search: {
     type: 'object',
     required: false,
-    description: 'Object containing settings for a search box',
+    description: 'Object containing settings for a search box.',
     params: {
       action: {
         type: 'string',
         required: false,
         description:
-          "The search action endpoint. Defaults to `'https://www.nhs.uk/search'`"
+          'The search action endpoint. Defaults to `"https://www.nhs.uk/search"`.'
       },
       name: {
         type: 'string',
         required: false,
-        description: "The name for the search field. Defaults to `'q'`"
+        description: 'The name for the search field. Defaults to `"q"`.'
       },
       placeholder: {
         type: 'string',
         required: false,
         description:
-          "The placeholder text for the search field. Defaults to `'Search'`"
+          'The placeholder text for the search field. Defaults to `"Search"`.'
       },
       visuallyHiddenLabel: {
         type: 'string',
         required: false,
         description:
-          "The label for the search field. Defaults to `'Search the NHS website'`"
+          'The label for the search field. Defaults to `"Search the NHS website"`.'
       },
       visuallyHiddenButton: {
         type: 'string',
         required: false,
         description:
-          "The label for the visually hidden button. Defaults to `'Search'`"
+          'The label for the visually hidden button. Defaults to `"Search"`.'
       }
     }
   },
@@ -234,7 +234,7 @@ export const params = {
             type: 'string',
             required: false,
             description:
-              "The value to use for the `method` of the form if `action` is set. Defaults to `'post'`"
+              'The value to use for the `method` of the form if `action` is set. Defaults to `"post"`.'
           }
         }
       },
@@ -242,7 +242,7 @@ export const params = {
         type: 'string',
         required: false,
         description:
-          "The `aria-label` for the account navigation. Defaults to `'Account'`"
+          'The `aria-label` for the account navigation. Defaults to `"Account"`.'
       },
       classes: {
         type: 'string',
