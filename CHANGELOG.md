@@ -53,7 +53,7 @@ This was added in [pull request #1561: Add `beforeInput(s)` and `beforeInput(s)`
 
 #### Added a modifier class for text input styles that accept codes and sequences
 
-We've added a new `.nhsuk-input--code` class for text Inputs. This improves readability of text inputs that receive codes and sequecnes (like NHS numbers, security codes or booking references).
+We've added a new `.nhsuk-input--code` class for the [text input](https://service-manual.nhs.uk/design-system/components/text-input) component. This improves readability of text inputs that receive codes and sequences (like NHS numbers, security codes or booking references).
 
 You can add it through the classes option when using Nunjucks, or directly in the class attribute of the `<input>` when using HTML.
 
