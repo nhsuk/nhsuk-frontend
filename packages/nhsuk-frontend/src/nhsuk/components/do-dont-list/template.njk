@@ -10,7 +10,7 @@
     {%- for data in params.items %}
     <li>
       {{ nhsukIcon("cross") if params.type == "cross" else nhsukIcon("tick") }}
-      {% if params.type == "cross" %}{% if not params.hidePrefix %}do not {% endif %}{% endif %}{{ data.item | safe}}
+      {% if params.type == "cross" %}{% if not params.hidePrefix %}do not {% endif %}{% endif %}{{ data.item | safe }}
     </li>
     {%- endfor %}
   </ul>
