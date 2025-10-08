@@ -465,8 +465,8 @@ export const examples = {
       hint: {
         html: 'This is a 10 digit number (like <span class="nhsuk-u-nowrap">999 123 4567</span>) that you can find on an NHS letter, prescription or in the NHS App'
       },
-      id: 'nhs-number',
-      name: 'nhs-number',
+      id: 'with-code-input-styling',
+      name: 'example',
       classes: 'nhsuk-input--width-10 nhsuk-input--code',
       value: '999 123 4567',
       inputmode: 'numeric',
