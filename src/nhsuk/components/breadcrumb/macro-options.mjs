@@ -63,6 +63,12 @@ export const params = {
     required: false,
     description:
       'Plain text label identifying the landmark to screen readers. Defaults to "Breadcrumb".'
+  },
+  backLink: {
+    type: 'object',
+    required: false,
+    description: 'The back link used by the breadcrumbs component on mobile.',
+    isComponent: true
   }
 }
 
@@ -72,7 +78,7 @@ export const params = {
  * @satisfies {{ [example: string]: MacroExample }}
  */
 export const examples = {
-  default: {
+  'default': {
     context: {
       items: [
         {
@@ -94,7 +100,7 @@ export const examples = {
       selector: '.nhsuk-breadcrumb a'
     }
   },
-  reverse: {
+  'reverse': {
     context: {
       classes: 'nhsuk-breadcrumb--reverse',
       items: [
@@ -120,8 +126,44 @@ export const examples = {
       selector: '.nhsuk-breadcrumb a'
     }
   },
-  attributes: {
+  'with back link as a button': {
     context: {
+      items: [
+        {
+          href: '#',
+          text: 'Home'
+        },
+        {
+          href: '#',
+          text: 'Search results'
+        }
+      ],
+      backLink: {
+        element: 'button'
+      }
+    }
+  },
+  'with back link custom text': {
+    context: {
+      items: [
+        {
+          href: '#',
+          text: 'Home'
+        },
+        {
+          href: '#',
+          text: 'Advanced search'
+        }
+      ],
+      backLink: {
+        text: 'Search results',
+        href: '#'
+      }
+    }
+  },
+  'attributes': {
+    context: {
+      id: 'with-attributes',
       items: [
         {
           href: '#',
@@ -139,7 +181,11 @@ export const examples = {
           classes: 'example-class-one example-class-two',
           attributes: { lang: 'en' }
         }
-      ]
+      ],
+      backLink: {
+        id: 'back-link-with-attributes',
+        attributes: { lang: 'en' }
+      }
     },
     options: {
       hidden: true
