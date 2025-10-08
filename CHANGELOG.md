@@ -4,6 +4,37 @@
 
 ### :new: **New features**
 
+#### Localise character count component
+
+You can now translate the text used by the [character count](https://service-manual.nhs.uk/design-system/components/character-count) component to:
+
+- show when the maximum number of characters or words is reached
+- show the number of characters or words over or under the allowed maximum
+- update the textarea description if JavaScript is not available
+- announce to screen readers when the textarea is focused
+
+The Nunjucks macro accepts new options so you can customise each message. You can:
+
+- Use `charactersAtLimitText` or `wordsAtLimitText` to provide the text that shows when users have reached the limit.
+- Use `charactersUnderLimitText` or `wordsUnderLimitText` to provide the text that shows when users are under the limit. The component will pluralise the message according to the configured locale and the number of characters or words remaining.
+- Use `charactersOverLimitText` or `wordsOverLimitText` to provide the text that shows when users are over the limit. The component will pluralise the message according to the configured locale and the number of characters or words remaining.
+- Use `textareaDescriptionText` to provide the textarea description for assistive technologies. It is visible on the page when JavaScript is unavailable.
+
+The component will replace `%{count}` with the number of characters over or under the limit.
+
+If you're not using Nunjucks macros, you can use data-\* attributes to provide these translations. Within the attribute value, any [quotation marks or other characters reserved by HTML](https://developer.mozilla.org/en-US/docs/Glossary/Character_reference) needs to be converted into their HTML entity equivalents.
+
+You can:
+
+- use `data-i18n.characters-at-limit` or `data-i18n.words-at-limit` for when users are at the limit
+- configure the text that informs the end user they are under the character or word limit, by using `data-i18n.characters-under-limit.{other,many,few,two,one,zero}` or `data-i18n.words-under-limit.{other,many,few,two,one,zero}`, with one suffix for each plural form required by your locale
+- configure the text that informs the end user they are over the character or word limit, by using `data-i18n.characters-over-limit.{other,many,few,two,one,zero}` or `data-i18n.words-over-limit.{other,many,few,two,one,zero}`, with one suffix for each plural form required by your locale
+- configure the description provided to assistive technologies when users focus the input, by using `data-i18n.textarea-description.{other,many,few,two,one,zero}` to provide the text to set as the description
+
+You can also provide these messages using a JavaScript configuration object when creating an instance of the component or initialising all components. See [our guidance on localising NHS.UK frontend](/docs/configuration/localisation.md) for how to do this.
+
+This was added in [pull request #1565: Add character count localisation](https://github.com/nhsuk/nhsuk-frontend/pull/1565).
+
 #### Smaller versions of radio buttons and checkboxes
 
 You can now use smaller versions of the [radios](https://service-manual.nhs.uk/design-system/components/radios) and [checkboxes](https://service-manual.nhs.uk/design-system/components/checkboxes) components by adding the `nhsuk-radios--small` or `nhsuk-checkboxes--small` class.
@@ -14,7 +45,6 @@ This was added in [pull request #1567: Uplift GOV.UK Frontend form field compone
 
 For consistency with other form components, we’ve added new Nunjucks macro options:
 
-- Character count `textareaDescriptionText` option
 - Text input `autocapitalize` and `disabled` options, with prefix and suffix nested `text`, `html`, `classes` and `attributes` options
 - Textarea `disabled` and `spellcheck` options
 - Radios item `disabled` and `attributes` options

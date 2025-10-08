@@ -1,12 +1,16 @@
 # Configure NHS.UK frontend
 
-You can configure NHS.UK frontend components by:
+You can configure the components in NHS.UK frontend to customise their behaviour or to [localise their JavaScript to use a language other than English](./localisation.md).
+
+You can configure a component by:
 
 - [setting Nunjucks macro options](#setting-nunjucks-macro-options)
 - [passing JavaScript configuration](#passing-javascript-configuration)
 - [adding HTML data attributes](#adding-html-data-attributes)
 
 Configuration passed through data attributes in the HTML or Nunjucks macro options will take precedence over any JavaScript configuration.
+
+To learn more about how configuration is passed from Nunjucks macros to HTML data attributes, see advanced examples in [the localisation options](./localisation.md).
 
 ## Setting Nunjucks macro options
 
@@ -28,7 +32,14 @@ You can pass a configuration object into `createAll`'s second argument when crea
 import { CharacterCount, createAll } from 'nhsuk-frontend'
 
 createAll(CharacterCount, {
-  maxlength: 500
+  maxlength: 500,
+  i18n: {
+    charactersAtLimit: 'No characters left',
+    charactersUnderLimit: {
+      other: '%{count} characters to go',
+      one: '%{count} character to go'
+    }
+  }
 })
 ```
 
@@ -45,7 +56,10 @@ import { initAll } from 'nhsuk-frontend'
 
 initAll({
   characterCount: {
-    maxlength: 500
+    maxlength: 500,
+    i18n: {
+      charactersAtLimit: 'No characters left'
+    }
   }
 })
 ```
@@ -72,12 +86,23 @@ You should check your application works without errors or some components will n
 
 If you're using HTML, you can pass configuration by adding data attributes to the component's outermost element (the element that has the `data-module` attribute). This is how our Nunjucks macros forward the configuration to the JavaScript components in the browser. Data attributes use kebab-case.
 
-This example shows the opening tag of a character count component with a specific number of characters:
+Some configuration options are grouped under a namespace to keep related options together. For example, [the localisation options](./localisation.md) are grouped under the `i18n` namespace. When using these options, include the namespace as a prefix followed by a period as part of the attribute name.
+
+For options accepting object values, you'll need to set one attribute for each key of that object. Suffix the attribute name (including any namespace) with a period and the name of the key in the object.
+
+This example shows the opening tag of a character count component with some configuration options including:
+
+- a specific number of characters (non-namespaced configuration)
+- a new message for when users reach the specified number of characters (namespaced configuration)
+- two plural forms for when users are under the specified limit of characters (namespaced configuration + object value)
 
 ```html
 <div
   data-module="nhsuk-character-count"
   data-maxlength="500"
+  data-i18n.characters-at-limit="No characters left"
+  data-i18n.characters-under-limit.other="%{count} characters to go"
+  data-i18n.characters-under-limit.one="%{count} character to go"
 >
 ```
 
