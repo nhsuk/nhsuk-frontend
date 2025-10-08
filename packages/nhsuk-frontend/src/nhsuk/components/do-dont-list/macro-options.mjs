@@ -21,7 +21,7 @@ export const params = {
   type: {
     type: 'string',
     required: true,
-    description: "Type of do and don't list component – `'cross'` or `'tick'`."
+    description: 'Type of do and don\'t list component – `"cross"` or `"tick"`.'
   },
   items: {
     type: 'array',
@@ -39,7 +39,7 @@ export const params = {
     type: 'boolean',
     required: false,
     description:
-      "If set to true when type is `'cross'`, then removes the default `'do not'` text prefix to each item."
+      'If set to true when type is `"cross"`, then removes the default `"do not"` text prefix to each item.'
   },
   headingLevel: {
     type: 'integer',
