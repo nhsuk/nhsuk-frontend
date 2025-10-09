@@ -154,8 +154,8 @@
 
     position: relative;
 
-    min-width: 45px;
-    min-height: 45px;
+    min-width: nhsuk-px-to-rem(45px); // Set size using rems to make the icon scale with text
+    min-height: nhsuk-px-to-rem(45px);
     margin: 0;
     padding: nhsuk-spacing(2);
 
