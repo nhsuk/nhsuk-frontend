@@ -182,6 +182,14 @@
     align-items: center;
   }
 
+  .nhsuk-pagination--numbered .nhsuk-pagination__previous {
+    padding-left: 0;
+  }
+
+  .nhsuk-pagination--numbered .nhsuk-pagination__next {
+    padding-right: 0;
+  }
+
   // Numbered item links
   .nhsuk-pagination--numbered .nhsuk-pagination__link {
     position: static;
@@ -239,9 +247,11 @@
 
   .nhsuk-pagination--numbered .nhsuk-pagination__previous .nhsuk-icon {
     margin-right: nhsuk-spacing(2);
+    margin-left: -0.175rem;
   }
 
   .nhsuk-pagination--numbered .nhsuk-pagination__next .nhsuk-icon {
+    margin-right: -0.175rem;
     margin-left: nhsuk-spacing(2);
   }
 }
