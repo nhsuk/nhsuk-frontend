@@ -81,6 +81,14 @@ input({
 
 This was added in [pull request #1561: Add `beforeInput(s)` and `beforeInput(s)` options to form groups](https://github.com/nhsuk/nhsuk-frontend/pull/1561).
 
+#### Added a modifier class for text input styles that accept codes and sequences
+
+We've added a new `.nhsuk-input--code` class for the [text input](https://service-manual.nhs.uk/design-system/components/text-input) component. This improves readability of text inputs that receive codes and sequences (like NHS numbers, security codes or booking references).
+
+You can add it through the classes option when using Nunjucks, or directly in the class attribute of the `<input>` when using HTML.
+
+This was added in [pull request #1617: Add input styling for codes and sequences](https://github.com/nhsuk/nhsuk-frontend/pull/1617).
+
 ### :wastebasket: **Deprecated features**
 
 #### Rename Sass variables for border width and colour
@@ -100,7 +108,7 @@ This change was introduced in [pull request #1594: Always set input `:focus` box
 - [#1594: Always set input `:focus` box-shadow colour](https://github.com/nhsuk/nhsuk-frontend/pull/1594)
 - [#1599: Make border colour on `nhsuk-panel` mixin optional](https://github.com/nhsuk/nhsuk-frontend/pull/1599)
 - [#1601: Fix accessible name for linked logo in header component](https://github.com/nhsuk/nhsuk-frontend/pull/1601)
-- [#1612: Fix styling of action link when used in emergency cards ](https://github.com/nhsuk/nhsuk-frontend/pull/1612)
+- [#1612: Fix styling of action link when used in emergency cards](https://github.com/nhsuk/nhsuk-frontend/pull/1612)
 
 ## 10.0.0 - 26 August 2025
 
