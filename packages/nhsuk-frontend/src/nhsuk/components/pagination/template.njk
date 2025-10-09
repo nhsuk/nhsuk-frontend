@@ -1,29 +1,72 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
 
-<nav {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-pagination
+{# Numbered page - included as a link within a list item. #}
+{%- macro _pageItem(item) -%}
+  <li class="nhsuk-pagination__item {%- if item.current %} nhsuk-pagination__item--current{% endif %} {%- if item.ellipsis %} nhsuk-pagination__item--ellipsis{% endif %} {%- if item.classes %} {{ item.classes }}{% endif %}">
+  {% if item.ellipsis %}
+    &ctdot;
+  {% else %}
+    <a class="nhsuk-pagination__link" href="{{ item.href }}" aria-label="{{ item.visuallyHiddenText | default("Page " + item.number) }}"
+      {%- if item.current %} aria-current="page"{% endif %}
+      {{- nhsukAttributes(item.attributes) }}>
+      {{ item.number }}
+    </a>
+  {% endif %}
+  </li>
+{%- endmacro -%}
+
+<nav {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-pagination {%- if params.items %} nhsuk-pagination--numbered{% endif %}
 {%- if params.classes %} {{ params.classes }}{% endif %}" role="navigation" aria-label="Pagination"
 {{- nhsukAttributes(params.attributes) }}>
-  <ul class="nhsuk-list nhsuk-pagination__list">
-  {%- if params.previousUrl and params.previousPage %}
-    <li class="nhsuk-pagination-item--previous">
-      <a class="nhsuk-pagination__link nhsuk-pagination__link--prev" href="{{ params.previousUrl }}">
-        <span class="nhsuk-pagination__title">Previous</span>
-        <span class="nhsuk-u-visually-hidden">:</span>
-        <span class="nhsuk-pagination__page">{{ params.previousPage }}</span>
+
+  {% if params.items %}
+
+    {%- if params.previousUrl and params.items %}
+      <a href="{{ params.previousUrl }}" class="nhsuk-pagination__previous" rel="prev">
         {{ nhsukIcon("arrow-left") }}
+        <span class="nhsuk-pagination__title">Previous<span class="nhsuk-u-visually-hidden"> page</span></span>
       </a>
-    </li>
-  {%- endif %}
-  {%- if params.nextUrl and params.nextPage %}
-    <li class="nhsuk-pagination-item--next">
-      <a class="nhsuk-pagination__link nhsuk-pagination__link--next" href="{{ params.nextUrl }}">
-        <span class="nhsuk-pagination__title">Next</span>
-        <span class="nhsuk-u-visually-hidden">:</span>
-        <span class="nhsuk-pagination__page">{{ params.nextPage }}</span>
+    {% endif %}
+
+    {%- if params.items %}
+      <ul class="nhsuk-pagination__list">
+      {% for item in params.items %}
+        {{ _pageItem(item) | indent(2) }}
+      {% endfor %}
+      </ul>
+    {% endif %}
+
+    {%- if params.nextUrl and params.items %}
+      <a href="{{ params.nextUrl }}" class="nhsuk-pagination__next"  rel="next">
+        <span class="nhsuk-pagination__title">Next<span class="nhsuk-u-visually-hidden"> page</span></span>
         {{ nhsukIcon("arrow-right") }}
       </a>
-    </li>
-  {%- endif %}
-  </ul>
+    {% endif %}
+
+  {% else %}
+    <ul class="nhsuk-list nhsuk-pagination__list">
+      {%- if params.previousUrl and params.previousPage %}
+        <li class="nhsuk-pagination-item--previous">
+          <a class="nhsuk-pagination__link nhsuk-pagination__link--prev" href="{{ params.previousUrl }}">
+            <span class="nhsuk-pagination__title">Previous</span>
+            <span class="nhsuk-u-visually-hidden">:</span>
+            <span class="nhsuk-pagination__page">{{ params.previousPage }}</span>
+            {{ nhsukIcon("arrow-left") }}
+          </a>
+        </li>
+      {%- endif %}
+
+      {%- if params.nextUrl and params.nextPage %}
+        <li class="nhsuk-pagination-item--next">
+          <a class="nhsuk-pagination__link nhsuk-pagination__link--next" href="{{ params.nextUrl }}">
+            <span class="nhsuk-pagination__title">Next</span>
+            <span class="nhsuk-u-visually-hidden">:</span>
+            <span class="nhsuk-pagination__page">{{ params.nextPage }}</span>
+            {{ nhsukIcon("arrow-right") }}
+          </a>
+        </li>
+      {%- endif %}
+    </ul>
+  {% endif %}
 </nav>
