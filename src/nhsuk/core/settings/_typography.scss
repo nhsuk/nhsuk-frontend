@@ -143,10 +143,7 @@ $nhsuk-typography-scale: (
   )
 ) !default;
 
-/// System ui-monospace font stack
-///
-/// @link https://caniuse.com/extended-system-fonts
-/// @link https://www.w3.org/TR/css-fonts-4/#ui-monospace-def
+/// System monospace font stack
 ///
 /// Android typically avoids the "Courier" based monospace
 /// default but we need to specify fallbacks for others:
