@@ -141,7 +141,7 @@
   // Only show first, last and non-link items on mobile
   .nhsuk-pagination--numbered .nhsuk-pagination__item:first-child,
   .nhsuk-pagination--numbered .nhsuk-pagination__item:last-child,
-  .nhsuk-pagination--numbered .nhsuk-pagination__item--ellipses,
+  .nhsuk-pagination--numbered .nhsuk-pagination__item--ellipsis,
   .nhsuk-pagination--numbered .nhsuk-pagination__item--current {
     display: block;
   }

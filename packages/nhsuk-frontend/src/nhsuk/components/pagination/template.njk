@@ -3,7 +3,7 @@
 
 {# Numbered page - included as a link within a list item. #}
 {%- macro _pageItem(item) -%}
-  <li class="nhsuk-pagination__item {%- if item.current %} nhsuk-pagination__item--current{% endif %} {%- if item.ellipsis %} nhsuk-pagination__item--ellipses{% endif %} {%- if item.classes %} {{ item.classes }}{% endif %}">
+  <li class="nhsuk-pagination__item {%- if item.current %} nhsuk-pagination__item--current{% endif %} {%- if item.ellipsis %} nhsuk-pagination__item--ellipsis{% endif %} {%- if item.classes %} {{ item.classes }}{% endif %}">
   {% if item.ellipsis %}
     &ctdot;
   {% else %}
