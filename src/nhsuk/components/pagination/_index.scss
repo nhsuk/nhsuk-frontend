@@ -212,6 +212,16 @@
     background-color: nhsuk-colour("blue");
   }
 
+  .nhsuk-pagination--numbered .nhsuk-pagination__item--ellipsis {
+    @include nhsuk-typography-weight-bold;
+    color: $nhsuk-secondary-text-colour;
+
+    // Remove hover state for ellipsis items as they don't contain links
+    &:hover {
+      background-color: transparent;
+    }
+  }
+
   // Previous and Next labels next to arrows
   .nhsuk-pagination--numbered .nhsuk-pagination__title {
     display: inline;
