@@ -1,17 +1,24 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
 
-{% set headingLevel = params.headingLevel if params.headingLevel else 3 %}
+{%- set type = "cross" if params.type == "cross" else "tick" %}
+{%- set headingLevel = params.headingLevel if params.headingLevel else 3 %}
+
+{%- macro _listItem(params, data, type) %}
+  {{ nhsukIcon(type) }}
+  {%- if not params.hidePrefix and type == "cross" %}do not {% endif %}
+  {{- data.item | safe | trim | indent(6) }}
+{% endmacro -%}
+
 <div {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-do-dont-list
-{%- if params.classes %} {{ params.classes }}{% endif %}"
-{{- nhsukAttributes(params.attributes) }}>
+  {%- if params.classes %} {{ params.classes }}{% endif %}"
+  {{- nhsukAttributes(params.attributes) }}>
   <h{{ headingLevel }} class="nhsuk-do-dont-list__label">{{ params.title }}</h{{ headingLevel }}>
-  <ul class="nhsuk-list {% if params.type == 'tick' %}nhsuk-list--tick{% else %}nhsuk-list--cross{% endif %}" role="list">
-    {%- for data in params.items %}
+  <ul class="nhsuk-list nhsuk-list--{{ type }}" role="list">
+  {% for data in params.items %}
     <li>
-      {{ nhsukIcon("cross") if params.type == "cross" else nhsukIcon("tick") }}
-      {% if params.type == "cross" %}{% if not params.hidePrefix %}do not {% endif %}{% endif %}{{ data.item | safe }}
+      {{ _listItem(params, data, type) | trim | indent(6) }}
     </li>
-    {%- endfor %}
+  {% endfor %}
   </ul>
 </div>
