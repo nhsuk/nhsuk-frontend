@@ -94,6 +94,7 @@ export class Component {
  * @typedef {{
  *   new(...args: ConstructorParameters<ComponentType>): InstanceType<ComponentType>,
  *   defaults?: ObjectNested,
+ *   schema?: Schema<ObjectNested>,
  *   moduleName: string
  * }} CompatibleClass
  */
@@ -115,6 +116,6 @@ export class Component {
  */
 
 /**
- * @import { ObjectNested } from './common/configuration/index.mjs'
+ * @import { ObjectNested, Schema } from './common/configuration/index.mjs'
  * @import { ConfigurableComponent } from './configurable-component.mjs'
  */

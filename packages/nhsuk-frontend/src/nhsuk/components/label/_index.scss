@@ -12,35 +12,31 @@
     display: block;
     margin-bottom: nhsuk-spacing(1);
 
-    @include nhsuk-font(19);
+    @include nhsuk-font($size: 19);
   }
 
   // Modifiers that make labels look more like their equivalent headings
   .nhsuk-label--xl,
   .nhsuk-label--l,
   .nhsuk-label--m {
-    margin-top: 0;
     margin-bottom: nhsuk-spacing(3);
-    font-weight: $nhsuk-font-bold;
+    @include nhsuk-typography-weight-bold;
   }
 
   .nhsuk-label--xl {
-    @include nhsuk-font-size(48);
+    @include nhsuk-font-size($size: 48);
   }
 
   .nhsuk-label--l {
-    @include nhsuk-font-size(36);
+    @include nhsuk-font-size($size: 36);
   }
 
   .nhsuk-label--m {
-    @include nhsuk-font-size(26);
+    @include nhsuk-font-size($size: 26);
   }
 
   .nhsuk-label--s {
-    margin-top: 0;
-    font-weight: $nhsuk-font-bold;
-
-    @include nhsuk-font-size(19);
+    @include nhsuk-typography-weight-bold;
   }
 
   // When the label is nested inside a heading, override the heading so that it

@@ -205,6 +205,27 @@ export const examples = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
+  'emergency (red and black) with action link': {
+    context: {
+      heading: 'Call 999 or go to A&E now if:',
+      headingLevel: 3,
+      type: 'emergency'
+    },
+    callBlock: outdent`
+      <ul>
+        <li>you're coughing up more than just a few spots or streaks of blood – this could be a sign of serious bleeding in your lungs</li>
+        <li>you have severe difficulty breathing – you're gasping, choking or not able to get words out</li>
+      </ul>
+
+      ${components.render('action-link', {
+        context: {
+          classes: 'nhsuk-action-link--reverse',
+          text: 'Find your nearest A&E',
+          href: '#'
+        }
+      })}
+    `
+  },
   'primary (with chevron)': {
     context: {
       href: '#',
@@ -264,7 +285,7 @@ export const examples = {
       href: '#',
       heading: 'Feature card heading',
       headingClasses: 'nhsuk-heading-m',
-      description: 'Feature card description'
+      description: 'Feature card description.'
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']

@@ -2,6 +2,7 @@
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
 @use "../../core/helpers" as *;
+@forward "../../core/styles/icons";
 
 ////
 /// Card component
@@ -252,7 +253,7 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
       color: $nhsuk-reverse-text-colour;
       background-color: nhsuk-colour("black");
 
-      a {
+      a:not(.nhsuk-action-link):not(.nhsuk-button) {
         @include nhsuk-link-style-white;
       }
 

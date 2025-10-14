@@ -16,7 +16,7 @@ export const params = {
   logo: {
     type: 'object',
     required: false,
-    description: 'Object containing options for the logo',
+    description: 'Object containing options for the logo.',
     params: {
       href: {
         type: 'string',
@@ -30,11 +30,16 @@ export const params = {
         description:
           'The path of the logo image, if you are not using the default NHS logo.'
       },
+      alt: {
+        type: 'string',
+        required: false,
+        description: 'The alt text for the logo. Defaults to `"NHS"`.'
+      },
       ariaLabel: {
         type: 'string',
         required: false,
         description:
-          "The `aria-label` for the logo. Defaults to `'NHS homepage'`"
+          'The `aria-label` for a linked logo. Defaults to `"NHS homepage"`.'
       }
     }
   },
@@ -134,7 +139,18 @@ export const params = {
         type: 'string',
         required: false,
         description:
-          "The `aria-label` for the primary navigation. Defaults to `'Menu'`"
+          'The `aria-label` for the primary navigation. Defaults to `"Menu"`.'
+      },
+      toggleMenuText: {
+        type: 'string',
+        required: false,
+        description: 'Text for the toggle menu button. Defaults to `"More"`.'
+      },
+      toggleMenuVisuallyHiddenText: {
+        type: 'string',
+        required: false,
+        description:
+          'A visually hidden prefix used before the toggle menu button text. Defaults to `"Browse"`.'
       },
       classes: {
         type: 'string',
@@ -152,36 +168,36 @@ export const params = {
   search: {
     type: 'object',
     required: false,
-    description: 'Object containing settings for a search box',
+    description: 'Object containing settings for a search box.',
     params: {
       action: {
         type: 'string',
         required: false,
         description:
-          "The search action endpoint. Defaults to `'https://www.nhs.uk/search'`"
+          'The search action endpoint. Defaults to `"https://www.nhs.uk/search"`.'
       },
       name: {
         type: 'string',
         required: false,
-        description: "The name for the search field. Defaults to `'q'`"
+        description: 'The name for the search field. Defaults to `"q"`.'
       },
       placeholder: {
         type: 'string',
         required: false,
         description:
-          "The placeholder text for the search field. Defaults to `'Search'`"
+          'The placeholder text for the search field. Defaults to `"Search"`.'
       },
       visuallyHiddenLabel: {
         type: 'string',
         required: false,
         description:
-          "The label for the search field. Defaults to `'Search the NHS website'`"
+          'The label for the search field. Defaults to `"Search the NHS website"`.'
       },
       visuallyHiddenButton: {
         type: 'string',
         required: false,
         description:
-          "The label for the visually hidden button. Defaults to `'Search'`"
+          'The label for the visually hidden button. Defaults to `"Search"`.'
       }
     }
   },
@@ -229,7 +245,7 @@ export const params = {
             type: 'string',
             required: false,
             description:
-              "The value to use for the `method` of the form if `action` is set. Defaults to `'post'`"
+              'The value to use for the `method` of the form if `action` is set. Defaults to `"post"`.'
           }
         }
       },
@@ -237,7 +253,7 @@ export const params = {
         type: 'string',
         required: false,
         description:
-          "The `aria-label` for the account navigation. Defaults to `'Account'`"
+          'The `aria-label` for the account navigation. Defaults to `"Account"`.'
       },
       classes: {
         type: 'string',
@@ -285,8 +301,7 @@ export const examples = {
   'default': {
     context: {
       logo: {
-        href: '#',
-        ariaLabel: 'NHS digital service manual homepage'
+        href: '#'
       },
       service: {
         text: 'Digital service manual',
@@ -328,6 +343,7 @@ export const examples = {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
+
   /**
    * Blue header examples
    */
@@ -780,8 +796,7 @@ export const examples = {
   'blue with organisation name': {
     context: {
       logo: {
-        href: '#',
-        ariaLabel: 'NHS digital service manual homepage'
+        href: '#'
       },
       organisation: {
         name: 'Business Services Authority'
@@ -852,6 +867,7 @@ export const examples = {
       viewports: ['desktop']
     }
   },
+
   /**
    * White header examples
    */
@@ -880,6 +896,19 @@ export const examples = {
       states: ['hover', 'focus'],
       selector: '.nhsuk-header__service-logo',
       viewports: ['desktop']
+    }
+  },
+  'white (linked logo, ARIA label)': {
+    context: {
+      classes: 'nhsuk-header--white',
+      logo: {
+        ariaLabel: 'NHS white homepage',
+        href: '#'
+      }
+    },
+    options: {
+      hidden: true,
+      width: false
     }
   },
   'white (linked logo, custom)': {
@@ -1339,8 +1368,7 @@ export const examples = {
     context: {
       classes: 'nhsuk-header--white',
       logo: {
-        href: '#',
-        ariaLabel: 'NHS digital service manual homepage'
+        href: '#'
       },
       organisation: {
         name: 'Business Services Authority'
