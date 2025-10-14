@@ -1,0 +1,52 @@
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+@forward "../error-message";
+@forward "../hint";
+@forward "../label";
+
+////
+/// Textarea component
+///
+/// @group components/textarea
+////
+
+@include nhsuk-exports("nhsuk/components/textarea") {
+  .nhsuk-textarea {
+    box-sizing: border-box;
+
+    display: block;
+
+    width: 100%;
+    min-height: 40px;
+    padding: nhsuk-spacing(1);
+
+    resize: vertical;
+
+    border: $nhsuk-border-width-form-element solid $nhsuk-input-border-colour;
+    border-radius: 0;
+
+    -webkit-appearance: none;
+
+            appearance: none;
+
+    @include nhsuk-responsive-margin(6, "bottom");
+    @include nhsuk-font($size: 19);
+
+    &:focus {
+      @include nhsuk-focused-input;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      color: inherit;
+      background-color: transparent;
+      cursor: not-allowed;
+    }
+  }
+
+  .nhsuk-textarea--error {
+    border-color: $nhsuk-error-colour;
+  }
+}
+
+/*# sourceMappingURL=_index.scss.map */

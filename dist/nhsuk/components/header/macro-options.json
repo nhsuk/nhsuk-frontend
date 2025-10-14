@@ -1,0 +1,306 @@
+[
+  {
+    "name": "id",
+    "type": "string",
+    "required": false,
+    "description": "The ID of the header."
+  },
+  {
+    "name": "logo",
+    "type": "object",
+    "required": false,
+    "description": "Object containing options for the logo.",
+    "params": [
+      {
+        "name": "href",
+        "type": "string",
+        "required": false,
+        "description": "The `href` of the link for the logo. If not set, and a `service.href` is set, or both are set to same value, then the logo and service name will be combined into a single link."
+      },
+      {
+        "name": "src",
+        "type": "string",
+        "required": false,
+        "description": "The path of the logo image, if you are not using the default NHS logo."
+      },
+      {
+        "name": "alt",
+        "type": "string",
+        "required": false,
+        "description": "The alt text for the logo. Defaults to `\"NHS\"`."
+      },
+      {
+        "name": "ariaLabel",
+        "type": "string",
+        "required": false,
+        "description": "The `aria-label` for a linked logo. Defaults to `\"NHS homepage\"`."
+      }
+    ]
+  },
+  {
+    "name": "service",
+    "type": "object",
+    "required": false,
+    "description": "Object containing options for the service name.",
+    "params": [
+      {
+        "name": "text",
+        "type": "string",
+        "required": false,
+        "description": "The text to use for the service name."
+      },
+      {
+        "name": "href",
+        "type": "string",
+        "required": false,
+        "description": "The `href` of the link for the service name."
+      }
+    ]
+  },
+  {
+    "name": "organisation",
+    "type": "object",
+    "required": false,
+    "description": "Settings for header with organisational logo.",
+    "params": [
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "description": "Organisation name."
+      },
+      {
+        "name": "split",
+        "type": "string",
+        "required": false,
+        "description": "Longer organisation names can be split onto multiple lines."
+      },
+      {
+        "name": "descriptor",
+        "type": "string",
+        "required": false,
+        "description": "Organisation descriptor."
+      }
+    ]
+  },
+  {
+    "name": "navigation",
+    "type": "object",
+    "required": false,
+    "description": "Object containing settings for the primary navigation.",
+    "params": [
+      {
+        "name": "items",
+        "type": "array",
+        "required": false,
+        "description": "Array of navigation links for use in the header.",
+        "params": [
+          {
+            "name": "href",
+            "type": "string",
+            "required": true,
+            "description": "The href of a navigation item in the header."
+          },
+          {
+            "name": "text",
+            "type": "string",
+            "required": true,
+            "description": "If `html` is set, this is not required. Text for the navigation item. If `html` is provided, the `text` argument will be ignored."
+          },
+          {
+            "name": "html",
+            "type": "string",
+            "required": true,
+            "description": "If `text` is set, this is not required. HTML for the navigation item. If `html` is provided, the `text` argument will be ignored."
+          },
+          {
+            "name": "current",
+            "type": "boolean",
+            "required": false,
+            "description": "Set to true if this links to the current page being shown."
+          },
+          {
+            "name": "active",
+            "type": "boolean",
+            "required": false,
+            "description": "Set to true if the current page is within this section, but the link doesn't necessarily link to the current page"
+          },
+          {
+            "name": "classes",
+            "type": "string",
+            "required": false,
+            "description": "Classes to add to the list item containing the link."
+          },
+          {
+            "name": "attributes",
+            "type": "object",
+            "required": false,
+            "description": "HTML attributes (for example data attributes) to add to the list item containing the link."
+          }
+        ]
+      },
+      {
+        "name": "ariaLabel",
+        "type": "string",
+        "required": false,
+        "description": "The `aria-label` for the primary navigation. Defaults to `\"Menu\"`."
+      },
+      {
+        "name": "toggleMenuText",
+        "type": "string",
+        "required": false,
+        "description": "Text for the toggle menu button. Defaults to `\"More\"`."
+      },
+      {
+        "name": "toggleMenuVisuallyHiddenText",
+        "type": "string",
+        "required": false,
+        "description": "A visually hidden prefix used before the toggle menu button text. Defaults to `\"Browse\"`."
+      },
+      {
+        "name": "classes",
+        "type": "string",
+        "required": false,
+        "description": "Classes to add to the primary navigation."
+      },
+      {
+        "name": "attributes",
+        "type": "object",
+        "required": false,
+        "description": "HTML attributes (for example data attributes) to add to the primary navigation."
+      }
+    ]
+  },
+  {
+    "name": "search",
+    "type": "object",
+    "required": false,
+    "description": "Object containing settings for a search box.",
+    "params": [
+      {
+        "name": "action",
+        "type": "string",
+        "required": false,
+        "description": "The search action endpoint. Defaults to `\"https://www.nhs.uk/search\"`."
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "description": "The name for the search field. Defaults to `\"q\"`."
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "required": false,
+        "description": "The placeholder text for the search field. Defaults to `\"Search\"`."
+      },
+      {
+        "name": "visuallyHiddenLabel",
+        "type": "string",
+        "required": false,
+        "description": "The label for the search field. Defaults to `\"Search the NHS website\"`."
+      },
+      {
+        "name": "visuallyHiddenButton",
+        "type": "string",
+        "required": false,
+        "description": "The label for the visually hidden button. Defaults to `\"Search\"`."
+      }
+    ]
+  },
+  {
+    "name": "account",
+    "type": "object",
+    "required": false,
+    "description": "Object containing settings for the account section of the header.",
+    "params": [
+      {
+        "name": "items",
+        "type": "array",
+        "required": false,
+        "description": "Array of account items for use in the header.",
+        "params": [
+          {
+            "name": "href",
+            "type": "string",
+            "required": false,
+            "description": "The href of an account item in the header."
+          },
+          {
+            "name": "text",
+            "type": "string",
+            "required": true,
+            "description": "If `html` is set, this is not required. Text for the account item. If `html` is provided, the `text` argument will be ignored."
+          },
+          {
+            "name": "html",
+            "type": "string",
+            "required": true,
+            "description": "If `text` is set, this is not required. HTML for the account item. If `html` is provided, the `text` argument will be ignored."
+          },
+          {
+            "name": "icon",
+            "type": "boolean",
+            "required": false,
+            "description": "Whether to include the account icon for the account item. Defaults to `false`."
+          },
+          {
+            "name": "action",
+            "type": "string",
+            "required": false,
+            "description": "If set, the item will become a button wrapped in a form with the action given. Useful for log out buttons."
+          },
+          {
+            "name": "method",
+            "type": "string",
+            "required": false,
+            "description": "The value to use for the `method` of the form if `action` is set. Defaults to `\"post\"`."
+          }
+        ]
+      },
+      {
+        "name": "ariaLabel",
+        "type": "string",
+        "required": false,
+        "description": "The `aria-label` for the account navigation. Defaults to `\"Account\"`."
+      },
+      {
+        "name": "classes",
+        "type": "string",
+        "required": false,
+        "description": "Classes to add to the account navigation."
+      },
+      {
+        "name": "attributes",
+        "type": "object",
+        "required": false,
+        "description": "HTML attributes (for example data attributes) to add to the account navigation."
+      }
+    ]
+  },
+  {
+    "name": "baseUrl",
+    "type": "string",
+    "required": false,
+    "description": "Base URL to prepend to the `logo.src` path."
+  },
+  {
+    "name": "containerClasses",
+    "type": "string",
+    "required": false,
+    "description": "Classes to add to the header container, useful if you want to make the header fixed width."
+  },
+  {
+    "name": "classes",
+    "type": "string",
+    "required": false,
+    "description": "Classes to add to the header container."
+  },
+  {
+    "name": "attributes",
+    "type": "object",
+    "required": false,
+    "description": "HTML attributes (for example data attributes) to add to the header container."
+  }
+]

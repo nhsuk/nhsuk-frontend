@@ -1,0 +1,40 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+
+{% set headingLevel = params.headingLevel if params.headingLevel else 1 -%}
+
+<section {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-hero
+{%- if params.imageURL and params.heading %} nhsuk-hero--image nhsuk-hero--image-description
+{%- elif params.imageURL %} nhsuk-hero--image{% endif %}
+{%- if params.classes %} {{ params.classes }}{% endif %}"
+{%- if params.imageURL %} style="background-image: url('{{ params.imageURL }}');"{% endif %}
+{{- nhsukAttributes(params.attributes) }}>
+{% if params.imageURL %}<div class="nhsuk-hero__overlay">{% endif %}
+{%- if caller or params.heading or params.text or params.html %}
+  <div class="nhsuk-width-container
+    {%- if params.containerClasses %} {{ params.containerClasses }}{% endif %}
+    {%- if not params.imageURL %} nhsuk-hero--border{% endif %}">
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+        <div class="{% if params.imageURL %}nhsuk-hero-content{% else %}nhsuk-hero__wrapper{% endif %}">
+          {%- if params.heading -%}
+            <h{{ headingLevel }} class="nhsuk-hero__heading
+              {%- if params.headingClasses %} {{ params.headingClasses }}{% endif %}
+              {%- if not (caller or params.text or params.html) %} nhsuk-u-margin-bottom-0{% endif %}">
+              {{- params.heading -}}
+            </h{{ headingLevel }}>
+          {%- endif %}
+          {% if caller or params.html -%}
+            {{ caller() if caller else params.html | safe }}
+          {%- elif params.text -%}
+            <p class="nhsuk-body-l nhsuk-u-margin-bottom-0">{{ params.text }}</p>
+          {%- endif %}
+          {% if params.imageURL -%}
+            <span class="nhsuk-hero__arrow" aria-hidden="true"></span>
+          {%- endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif -%}
+{%- if params.imageURL %}</div>{% endif %}
+</section>

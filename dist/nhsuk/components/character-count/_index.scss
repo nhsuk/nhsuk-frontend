@@ -1,0 +1,51 @@
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+@forward "../error-message";
+@forward "../hint";
+@forward "../label";
+@forward "../textarea";
+
+////
+/// Character count component
+///
+/// @group components/character-count
+////
+
+@include nhsuk-exports("nhsuk/components/character-count") {
+  .nhsuk-character-count {
+    @include nhsuk-responsive-margin(6, "bottom");
+
+    .nhsuk-form-group,
+    .nhsuk-textarea {
+      margin-bottom: nhsuk-spacing(1);
+    }
+
+    // If the textarea enters the error state whilst the user is focused on it,
+    // show the error state. This presents feedback to the user that the value
+    // has become invalid without needing to see the counter.
+    .nhsuk-textarea--error:focus {
+      border-color: $nhsuk-error-colour;
+      box-shadow: inset 0 0 0 $nhsuk-border-width-form-element $nhsuk-error-colour;
+    }
+  }
+
+  .nhsuk-character-count__message {
+    margin-top: 0;
+    margin-bottom: 0;
+
+    &::after {
+      // Zero-width space that will reserve vertical space when no hint is
+      // provided as:
+      // - setting a min-height is not possible without a magic number because
+      //   the line-height is set by the `nhsuk-font` call above
+      // - using `:empty` is not possible as the hint macro outputs line breaks
+      content: "\200B";
+    }
+  }
+
+  .nhsuk-character-count__message--disabled {
+    visibility: hidden;
+  }
+}
+
+/*# sourceMappingURL=_index.scss.map */

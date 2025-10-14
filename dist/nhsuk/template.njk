@@ -1,0 +1,63 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes -%}
+{% from "nhsuk/components/skip-link/macro.njk" import skipLink -%}
+{% from "nhsuk/components/header/macro.njk" import header -%}
+{% from "nhsuk/components/footer/macro.njk" import footer -%}
+
+{% set assetPath = assetPath | default("/assets", true) -%}
+{% set themeColor = themeColor | default("#005eb8", true) -%}
+
+<!DOCTYPE html>
+  <html lang="{{ htmlLang | default("en", true) }}" {{- nhsukAttributes(htmlAttributes) }}>
+  <head>
+    <meta charset="utf-8">
+    <title>{% block pageTitle %}NHS{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="{{ themeColor }}">
+
+    {% block headIcons %}
+    <link rel="icon" href="{{ assetPath }}/images/favicon.ico" sizes="48x48">
+    <link rel="icon" href="{{ assetPath }}/images/favicon.svg" sizes="any" type="image/svg+xml">
+    <link rel="mask-icon" href="{{ assetPath }}/images/nhsuk-icon-mask.svg" color="{{ themeColor }}">
+    <link rel="apple-touch-icon" href="{{ assetPath }}/images/nhsuk-icon-180.png">
+    <link rel="manifest" href="{{ assetPath }}/manifest.json">
+    {% endblock %}
+
+    {% block head %}{% endblock %}
+
+    {#- Open Graph image needs an absolute URL, so need either a URL for image or assetUrl to be set #}
+    {% if opengraphImageUrl or assetUrl %}
+    <meta property="og:image" content="{{ opengraphImageUrl | default(assetUrl + "/images/nhsuk-opengraph-image.png", true) }}">
+    {% endif %}
+  </head>
+
+  <body {% if bodyClasses %}class="{{ bodyClasses }}"{% endif %} {{- nhsukAttributes(bodyAttributes) }}>
+    <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' nhsuk-frontend-supported' : '');</script>
+    {% block bodyStart %}{% endblock %}
+
+      {% block skipLink %}
+        {{ skipLink({
+          href: "#maincontent",
+          text: "Skip to main content"
+        }) }}
+      {% endblock %}
+
+      {% block header %}
+        {{ header({}) }}
+      {% endblock %}
+
+      {% block main %}
+        <div class="nhsuk-width-container {%- if containerClasses %} {{ containerClasses }}{% endif %}">
+          {% block beforeContent %}{% endblock %}
+          <main class="nhsuk-main-wrapper {%- if mainClasses %} {{ mainClasses }}{% endif %}" id="maincontent">
+            {% block content %}{% endblock %}
+          </main>
+        </div>
+      {% endblock %}
+
+      {% block footer %}
+        {{ footer({}) }}
+      {% endblock %}
+
+    {% block bodyEnd %}{% endblock %}
+  </body>
+</html>

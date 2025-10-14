@@ -1,0 +1,88 @@
+{
+  "name": "Label",
+  "component": "label",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "text": "What is your full name?",
+        "classes": "nhsuk-label--l",
+        "isPageHeading": true
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop"
+        ]
+      },
+      "options": {},
+      "html": "<h1 class=\"nhsuk-label-wrapper\">\n  <label class=\"nhsuk-label nhsuk-label--l\">\n    What is your full name?\n  </label>\n</h1>"
+    },
+    {
+      "name": "size S",
+      "context": {
+        "text": "What is your full name?",
+        "classes": "nhsuk-label--s",
+        "isPageHeading": true
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<h1 class=\"nhsuk-label-wrapper\">\n  <label class=\"nhsuk-label nhsuk-label--s\">\n    What is your full name?\n  </label>\n</h1>"
+    },
+    {
+      "name": "size M",
+      "context": {
+        "text": "What is your full name?",
+        "classes": "nhsuk-label--m",
+        "isPageHeading": true
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<h1 class=\"nhsuk-label-wrapper\">\n  <label class=\"nhsuk-label nhsuk-label--m\">\n    What is your full name?\n  </label>\n</h1>"
+    },
+    {
+      "name": "size L",
+      "context": {
+        "text": "What is your full name?",
+        "classes": "nhsuk-label--l",
+        "isPageHeading": true
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<h1 class=\"nhsuk-label-wrapper\">\n  <label class=\"nhsuk-label nhsuk-label--l\">\n    What is your full name?\n  </label>\n</h1>"
+    },
+    {
+      "name": "size XL",
+      "context": {
+        "text": "What is your full name?",
+        "classes": "nhsuk-label--xl",
+        "isPageHeading": true
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<h1 class=\"nhsuk-label-wrapper\">\n  <label class=\"nhsuk-label nhsuk-label--xl\">\n    What is your full name?\n  </label>\n</h1>"
+    },
+    {
+      "name": "without page heading",
+      "context": {
+        "text": "What is your full name?"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<label class=\"nhsuk-label\">\n  What is your full name?\n</label>"
+    }
+  ]
+}

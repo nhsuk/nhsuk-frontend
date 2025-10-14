@@ -1,0 +1,115 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/components/error-message/macro.njk" import errorMessage -%}
+{% from "nhsuk/components/fieldset/macro.njk" import fieldset %}
+{% from "nhsuk/components/hint/macro.njk" import hint %}
+{% from "nhsuk/components/label/macro.njk" import label %}
+
+{#- If an id 'prefix' is not passed, fall back to using the name attribute
+  instead. We need this for error messages and hints as well -#}
+{% set idPrefix = params.idPrefix if params.idPrefix else params.name %}
+
+{#- a record of other elements that we need to associate with the input using
+  aria-describedby – for example hints or error messages -#}
+{% set describedBy = params.fieldset.describedBy if params.fieldset.describedBy else "" %}
+
+{#- fieldset is false by default -#}
+{% set hasFieldset = true if params.fieldset else false %}
+
+{%- macro _radioItem(params, item, index) %}
+  {#- If the user explicitly sets an id, use this instead of the regular idPrefix -#}
+  {#- The first id should not have a number suffix so it's easy to link to from the error summary component -#}
+  {% set itemId = item.id if item.id else idPrefix + ("-" + index if index > 1 else "") %}
+  {% set conditionalId = "conditional-" + itemId %}
+  {%- if item.divider %}
+    <div class="nhsuk-radios__divider">{{ item.divider }}</div>
+  {% else %}
+    {% set isChecked = item.checked | default((item.value == params.value and item.checked != false) if params.value else false, true) %}
+    {% set hasHint = true if item.hint.text or item.hint.html %}
+    {% set itemHintId = itemId + '-item-hint' %}
+    <div class="nhsuk-radios__item">
+      <input class="nhsuk-radios__input" id="{{ itemId }}" name="{{ params.name }}" type="radio" value="{{ item.value }}"
+        {{-" checked" if isChecked }}
+        {{-" disabled" if item.disabled }}
+        {%- if item.conditional.html %} aria-controls="{{ conditionalId }}"{% endif -%}
+        {%- if hasHint %} aria-describedby="{{ itemHintId }}"{% endif -%}
+        {{- nhsukAttributes(item.attributes) }}>
+      {{ label({
+        html: item.html,
+        text: item.text,
+        classes: 'nhsuk-radios__label' + (' ' + item.label.classes if item.label.classes),
+        attributes: item.label.attributes,
+        for: itemId
+      }) | trim | indent(6) }}
+      {% if hasHint %}
+      {{ hint({
+        id: itemHintId,
+        classes: 'nhsuk-radios__hint' + (' ' + item.hint.classes if item.hint.classes),
+        attributes: item.hint.attributes,
+        html: item.hint.html,
+        text: item.hint.text
+      }) | trim | indent(6) }}
+      {% endif %}
+    </div>
+    {% if item.conditional.html %}
+    <div class="nhsuk-radios__conditional {%- if not isChecked %} nhsuk-radios__conditional--hidden{% endif %}" id="{{ conditionalId }}">
+      {{ item.conditional.html | safe | trim }}
+    </div>
+    {% endif %}
+  {% endif %}
+{%- endmacro %}
+
+{#- Capture the HTML so we can optionally nest it in a fieldset -#}
+{% set innerHtml %}
+{% if params.hint %}
+  {% set hintId = idPrefix + '-hint' %}
+  {% set describedBy = describedBy + ' ' + hintId if describedBy else hintId %}
+  {{ hint({
+    id: hintId,
+    classes: params.hint.classes,
+    attributes: params.hint.attributes,
+    html: params.hint.html,
+    text: params.hint.text
+  }) | trim | indent(2) }}
+{% endif %}
+{% if params.errorMessage %}
+  {% set errorId = idPrefix + '-error' %}
+  {% set describedBy = describedBy + ' ' + errorId if describedBy else errorId %}
+  {{ errorMessage({
+    id: errorId,
+    classes: params.errorMessage.classes,
+    attributes: params.errorMessage.attributes,
+    html: params.errorMessage.html,
+    text: params.errorMessage.text,
+    visuallyHiddenText: params.errorMessage.visuallyHiddenText
+  }) | trim | indent(2) }}
+{% endif %}
+  <div {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-radios {%- if params.classes %} {{ params.classes }}{% endif %}"
+    {{- nhsukAttributes(params.attributes) }} data-module="nhsuk-radios">
+    {% if params.formGroup.beforeInputs %}
+    {{ params.formGroup.beforeInputs.html | safe | trim | indent(4) if params.formGroup.beforeInputs.html else params.formGroup.beforeInputs.text }}
+    {% endif %}
+    {% for item in params.items %}
+      {% if item %}
+        {{- _radioItem(params, item, loop.index) -}}
+      {% endif %}
+    {% endfor %}
+    {% if params.formGroup.afterInputs %}
+    {{ params.formGroup.afterInputs.html | safe | trim | indent(4) if params.formGroup.afterInputs.html else params.formGroup.afterInputs.text }}
+    {% endif %}
+  </div>
+{% endset -%}
+
+<div class="nhsuk-form-group {%- if params.errorMessage %} nhsuk-form-group--error{% endif %} {%- if params.formGroup.classes %} {{ params.formGroup.classes }}{% endif %}"
+  {{- nhsukAttributes(params.formGroup.attributes) }}>
+{% if hasFieldset %}
+  {{ fieldset({
+    describedBy: describedBy,
+    classes: params.fieldset.classes,
+    attributes: params.fieldset.attributes,
+    legend: params.fieldset.legend,
+    html: innerHtml | trim
+  }) | trim }}
+{% else %}
+  {{ innerHtml | safe | trim }}
+{% endif %}
+</div>

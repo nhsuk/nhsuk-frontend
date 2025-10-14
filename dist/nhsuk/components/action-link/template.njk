@@ -1,0 +1,11 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/icon.njk" import nhsukIcon %}
+
+<a {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-action-link
+  {%- if params.classes %} {{ params.classes }}{% endif %}" href="
+  {%- if params.href %}{{ params.href }}{% else %}#{% endif %}"
+  {%- if params.openInNewWindow %} target="_blank"{% endif %}
+  {{- nhsukAttributes(params.attributes) }}>
+  {{ nhsukIcon("arrow-right-circle") }}
+  <span class="nhsuk-action-link__text">{{ params.text }}</span>
+</a>

@@ -1,0 +1,16 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+
+{% set headingLevel = params.headingLevel if params.headingLevel else 1 -%}
+
+<div {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-panel
+  {%- if params.classes %} {{ params.classes }}{% endif %}"
+  {{- nhsukAttributes(params.attributes) }}>
+  <h{{ headingLevel }} class="nhsuk-panel__title">
+    {{ params.titleHtml | safe if params.titleHtml else params.titleText }}
+  </h{{ headingLevel }}>
+  {% if caller or params.html or params.text %}
+  <div class="nhsuk-panel__body">
+    {{ caller() if caller else (params.html | safe | trim | indent(4) if params.html else params.text) }}
+  </div>
+  {% endif %}
+</div>

@@ -1,0 +1,151 @@
+{
+  "name": "Breadcrumb",
+  "component": "breadcrumb",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "items": [
+          {
+            "href": "#",
+            "text": "Home"
+          },
+          {
+            "href": "#",
+            "text": "NHS services"
+          },
+          {
+            "href": "#",
+            "text": "Hospitals"
+          }
+        ]
+      },
+      "screenshot": {
+        "states": [
+          "focus",
+          "hover",
+          "active"
+        ],
+        "selector": ".nhsuk-breadcrumb a"
+      },
+      "options": {},
+      "html": "<nav class=\"nhsuk-breadcrumb\" aria-label=\"Breadcrumb\">\n  <ol class=\"nhsuk-breadcrumb__list\">\n    <li class=\"nhsuk-breadcrumb__list-item\">\n      <a class=\"nhsuk-breadcrumb__link\" href=\"#\">Home</a>\n    </li>\n    <li class=\"nhsuk-breadcrumb__list-item\">\n      <a class=\"nhsuk-breadcrumb__link\" href=\"#\">NHS services</a>\n    </li>\n    <li class=\"nhsuk-breadcrumb__list-item\">\n      <a class=\"nhsuk-breadcrumb__link\" href=\"#\">Hospitals</a>\n    </li>\n  </ol>\n  \n  \n  <a class=\"nhsuk-back-link\" href=\"#\">\n    <span class=\"nhsuk-u-visually-hidden\">Back to</span> Hospitals\n  </a>\n  \n</nav>"
+    },
+    {
+      "name": "attributes",
+      "context": {
+        "id": "with-attributes",
+        "items": [
+          {
+            "href": "#",
+            "text": "Home",
+            "attributes": {
+              "lang": "en"
+            }
+          },
+          {
+            "href": "#",
+            "text": "NHS services",
+            "attributes": {
+              "lang": "en"
+            }
+          },
+          {
+            "href": "#",
+            "text": "Hospitals",
+            "classes": "example-class-one example-class-two",
+            "attributes": {
+              "lang": "en"
+            }
+          }
+        ],
+        "backLink": {
+          "id": "back-link-with-attributes",
+          "attributes": {
+            "lang": "en"
+          }
+        }
+      },
+      "screenshot": false,
+      "options": {
+        "hidden": true
+      },
+      "html": "<nav id=\"with-attributes\" class=\"nhsuk-breadcrumb\" aria-label=\"Breadcrumb\">\n  <ol class=\"nhsuk-breadcrumb__list\">\n    <li class=\"nhsuk-breadcrumb__list-item\">\n      <a class=\"nhsuk-breadcrumb__link\" href=\"#\" lang=\"en\">Home</a>\n    </li>\n    <li class=\"nhsuk-breadcrumb__list-item\">\n      <a class=\"nhsuk-breadcrumb__link\" href=\"#\" lang=\"en\">NHS services</a>\n    </li>\n    <li class=\"nhsuk-breadcrumb__list-item\">\n      <a class=\"nhsuk-breadcrumb__link\" href=\"#\" lang=\"en\">Hospitals</a>\n    </li>\n  </ol>\n  \n  \n  <a id=\"back-link-with-attributes\" class=\"nhsuk-back-link\" href=\"#\" lang=\"en\">\n    <span class=\"nhsuk-u-visually-hidden\">Back to</span> Hospitals\n  </a>\n  \n</nav>"
+    },
+    {
+      "name": "reverse",
+      "context": {
+        "classes": "nhsuk-breadcrumb--reverse",
+        "items": [
+          {
+            "href": "#",
+            "text": "Home"
+          },
+          {
+            "href": "#",
+            "text": "NHS services"
+          },
+          {
+            "href": "#",
+            "text": "Hospitals"
+          }
+        ]
+      },
+      "screenshot": {
+        "states": [
+          "focus",
+          "hover",
+          "active"
+        ],
+        "selector": ".nhsuk-breadcrumb a"
+      },
+      "options": {
+        "layout": "background-blue"
+      },
+      "html": "<nav class=\"nhsuk-breadcrumb nhsuk-breadcrumb--reverse\" aria-label=\"Breadcrumb\">\n  <ol class=\"nhsuk-breadcrumb__list\">\n    <li class=\"nhsuk-breadcrumb__list-item\">\n      <a class=\"nhsuk-breadcrumb__link\" href=\"#\">Home</a>\n    </li>\n    <li class=\"nhsuk-breadcrumb__list-item\">\n      <a class=\"nhsuk-breadcrumb__link\" href=\"#\">NHS services</a>\n    </li>\n    <li class=\"nhsuk-breadcrumb__list-item\">\n      <a class=\"nhsuk-breadcrumb__link\" href=\"#\">Hospitals</a>\n    </li>\n  </ol>\n  \n  \n  <a class=\"nhsuk-back-link\" href=\"#\">\n    <span class=\"nhsuk-u-visually-hidden\">Back to</span> Hospitals\n  </a>\n  \n</nav>"
+    },
+    {
+      "name": "with back link as a button",
+      "context": {
+        "items": [
+          {
+            "href": "#",
+            "text": "Home"
+          },
+          {
+            "href": "#",
+            "text": "Search results"
+          }
+        ],
+        "backLink": {
+          "element": "button"
+        }
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<nav class=\"nhsuk-breadcrumb\" aria-label=\"Breadcrumb\">\n  <ol class=\"nhsuk-breadcrumb__list\">\n    <li class=\"nhsuk-breadcrumb__list-item\">\n      <a class=\"nhsuk-breadcrumb__link\" href=\"#\">Home</a>\n    </li>\n    <li class=\"nhsuk-breadcrumb__list-item\">\n      <a class=\"nhsuk-breadcrumb__link\" href=\"#\">Search results</a>\n    </li>\n  </ol>\n  \n  \n  <button class=\"nhsuk-back-link\">\n    <span class=\"nhsuk-u-visually-hidden\">Back to</span> Search results\n  </button>\n  \n</nav>"
+    },
+    {
+      "name": "with back link custom text",
+      "context": {
+        "items": [
+          {
+            "href": "#",
+            "text": "Home"
+          },
+          {
+            "href": "#",
+            "text": "Advanced search"
+          }
+        ],
+        "backLink": {
+          "text": "Search results",
+          "href": "#"
+        }
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<nav class=\"nhsuk-breadcrumb\" aria-label=\"Breadcrumb\">\n  <ol class=\"nhsuk-breadcrumb__list\">\n    <li class=\"nhsuk-breadcrumb__list-item\">\n      <a class=\"nhsuk-breadcrumb__link\" href=\"#\">Home</a>\n    </li>\n    <li class=\"nhsuk-breadcrumb__list-item\">\n      <a class=\"nhsuk-breadcrumb__link\" href=\"#\">Advanced search</a>\n    </li>\n  </ol>\n  \n  \n  <a class=\"nhsuk-back-link\" href=\"#\">\n    <span class=\"nhsuk-u-visually-hidden\">Back to</span> Search results\n  </a>\n  \n</nav>"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "name": "Images",
+  "component": "images",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "src": "https://service-manual.nhs.uk/assets/image-example-stretch-marks-600w.jpg",
+        "sizes": "(max-width: 768px) 100vw, 66vw",
+        "srcset": "https://service-manual.nhs.uk/assets/image-example-stretch-marks-600w.jpg 600w, https://service-manual.nhs.uk/assets/image-example-stretch-marks-1000w.jpg 1000w",
+        "alt": "Close-up of a person's tummy showing a number of creases in the skin under their belly button. Shown on light brown skin.",
+        "caption": "Stretch marks can be pink, red, brown, black, silver or purple. They usually start off darker and fade over time."
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop"
+        ]
+      },
+      "options": {},
+      "html": "<figure class=\"nhsuk-image\">\n  <img class=\"nhsuk-image__img\" src=\"https://service-manual.nhs.uk/assets/image-example-stretch-marks-600w.jpg\" alt=\"Close-up of a person&#39;s tummy showing a number of creases in the skin under their belly button. Shown on light brown skin.\"    sizes=\"(max-width: 768px) 100vw, 66vw\" srcset=\"https://service-manual.nhs.uk/assets/image-example-stretch-marks-600w.jpg 600w, https://service-manual.nhs.uk/assets/image-example-stretch-marks-1000w.jpg 1000w\">  <figcaption class=\"nhsuk-image__caption\">\n    Stretch marks can be pink, red, brown, black, silver or purple. They usually start off darker and fade over time.\n  </figcaption></figure>"
+    },
+    {
+      "name": "without caption",
+      "context": {
+        "src": "https://service-manual.nhs.uk/assets/image-example-stretch-marks-600w.jpg",
+        "alt": "Close-up of a person's tummy showing a number of creases in the skin under their belly button. Shown on light brown skin."
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<figure class=\"nhsuk-image\">\n  <img class=\"nhsuk-image__img\" src=\"https://service-manual.nhs.uk/assets/image-example-stretch-marks-600w.jpg\" alt=\"Close-up of a person&#39;s tummy showing a number of creases in the skin under their belly button. Shown on light brown skin.\"></figure>"
+    }
+  ]
+}

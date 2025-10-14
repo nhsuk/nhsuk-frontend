@@ -1,0 +1,448 @@
+{
+  "name": "Input",
+  "component": "input",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "label": {
+          "text": "What is your full name?",
+          "classes": "nhsuk-label--l",
+          "isPageHeading": true
+        },
+        "name": "example"
+      },
+      "screenshot": true,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label nhsuk-label--l\" for=\"example\">\n      What is your full name?\n    </label>\n  </h1>\n  <input class=\"nhsuk-input\" id=\"example\" name=\"example\" type=\"text\">\n</div>"
+    },
+    {
+      "name": "with 2 character width",
+      "context": {
+        "label": {
+          "text": "2 character width"
+        },
+        "id": "input-width-2",
+        "name": "example",
+        "classes": "nhsuk-input--width-2"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"input-width-2\">\n    2 character width\n  </label>\n  <input class=\"nhsuk-input nhsuk-input--width-2\" id=\"input-width-2\" name=\"example\" type=\"text\">\n</div>"
+    },
+    {
+      "name": "with 3 character width",
+      "context": {
+        "label": {
+          "text": "3 character width"
+        },
+        "id": "input-width-3",
+        "name": "example",
+        "classes": "nhsuk-input--width-3"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"input-width-3\">\n    3 character width\n  </label>\n  <input class=\"nhsuk-input nhsuk-input--width-3\" id=\"input-width-3\" name=\"example\" type=\"text\">\n</div>"
+    },
+    {
+      "name": "with 4 character width",
+      "context": {
+        "label": {
+          "text": "4 character width"
+        },
+        "id": "input-width-4",
+        "name": "example",
+        "classes": "nhsuk-input--width-4"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"input-width-4\">\n    4 character width\n  </label>\n  <input class=\"nhsuk-input nhsuk-input--width-4\" id=\"input-width-4\" name=\"example\" type=\"text\">\n</div>"
+    },
+    {
+      "name": "with 5 character width",
+      "context": {
+        "label": {
+          "text": "5 character width"
+        },
+        "id": "input-width-5",
+        "name": "example",
+        "classes": "nhsuk-input--width-5"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"input-width-5\">\n    5 character width\n  </label>\n  <input class=\"nhsuk-input nhsuk-input--width-5\" id=\"input-width-5\" name=\"example\" type=\"text\">\n</div>"
+    },
+    {
+      "name": "with 10 character width",
+      "context": {
+        "label": {
+          "text": "10 character width"
+        },
+        "id": "input-width-10",
+        "name": "example",
+        "classes": "nhsuk-input--width-10"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"input-width-10\">\n    10 character width\n  </label>\n  <input class=\"nhsuk-input nhsuk-input--width-10\" id=\"input-width-10\" name=\"example\" type=\"text\">\n</div>"
+    },
+    {
+      "name": "with 20 character width",
+      "context": {
+        "label": {
+          "text": "20 character width"
+        },
+        "id": "input-width-20",
+        "name": "example",
+        "classes": "nhsuk-input--width-20"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"input-width-20\">\n    20 character width\n  </label>\n  <input class=\"nhsuk-input nhsuk-input--width-20\" id=\"input-width-20\" name=\"example\" type=\"text\">\n</div>"
+    },
+    {
+      "name": "with 30 character width",
+      "context": {
+        "label": {
+          "text": "30 character width"
+        },
+        "id": "input-width-30",
+        "name": "example",
+        "classes": "nhsuk-input--width-30"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"input-width-30\">\n    30 character width\n  </label>\n  <input class=\"nhsuk-input nhsuk-input--width-30\" id=\"input-width-30\" name=\"example\" type=\"text\">\n</div>"
+    },
+    {
+      "name": "with autocomplete attribute",
+      "context": {
+        "label": {
+          "text": "Enter a full postcode in England",
+          "isPageHeading": true
+        },
+        "hint": {
+          "text": "For example, LS1 1AB"
+        },
+        "id": "with-autocomplete-attribute",
+        "name": "example",
+        "autocomplete": "postal-code"
+      },
+      "screenshot": true,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label\" for=\"with-autocomplete-attribute\">\n      Enter a full postcode in England\n    </label>\n  </h1>\n  <div id=\"with-autocomplete-attribute-hint\" class=\"nhsuk-hint\">\n    For example, LS1 1AB\n  </div>\n  <input class=\"nhsuk-input\" id=\"with-autocomplete-attribute\" name=\"example\" type=\"text\" aria-describedby=\"with-autocomplete-attribute-hint\" autocomplete=\"postal-code\">\n</div>"
+    },
+    {
+      "name": "with deprecated prefix string parameter",
+      "context": {
+        "label": {
+          "text": "Cost in pounds",
+          "isPageHeading": true
+        },
+        "id": "with-prefix",
+        "name": "example",
+        "prefix": "£"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label\" for=\"with-prefix\">\n      Cost in pounds\n    </label>\n  </h1>\n  <div class=\"nhsuk-input__wrapper\">\n    <div class=\"nhsuk-input__prefix\" aria-hidden=\"true\">£</div>\n    <input class=\"nhsuk-input\" id=\"with-prefix\" name=\"example\" type=\"text\">\n  </div>\n</div>"
+    },
+    {
+      "name": "with deprecated suffix string parameter",
+      "context": {
+        "label": {
+          "text": "Weight in kilograms",
+          "isPageHeading": true
+        },
+        "id": "with-suffix",
+        "name": "example",
+        "suffix": "kg",
+        "classes": "nhsuk-input--width-5"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label\" for=\"with-suffix\">\n      Weight in kilograms\n    </label>\n  </h1>\n  <div class=\"nhsuk-input__wrapper\">\n    <input class=\"nhsuk-input nhsuk-input--width-5\" id=\"with-suffix\" name=\"example\" type=\"text\">\n    <div class=\"nhsuk-input__suffix\" aria-hidden=\"true\">kg</div>\n  </div>\n</div>"
+    },
+    {
+      "name": "with error message",
+      "context": {
+        "label": {
+          "text": "What is your NHS number?",
+          "classes": "nhsuk-label--l",
+          "isPageHeading": true
+        },
+        "errorMessage": {
+          "text": "Enter NHS number"
+        },
+        "id": "with-error-message",
+        "name": "example",
+        "classes": "nhsuk-input--width-10",
+        "inputmode": "numeric",
+        "spellcheck": false
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group nhsuk-form-group--error\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label nhsuk-label--l\" for=\"with-error-message\">\n      What is your NHS number?\n    </label>\n  </h1>\n  <span id=\"with-error-message-error\" class=\"nhsuk-error-message\">\n    <span class=\"nhsuk-u-visually-hidden\">Error:</span> Enter NHS number\n  </span>\n  <input class=\"nhsuk-input nhsuk-input--width-10 nhsuk-input--error\" id=\"with-error-message\" name=\"example\" type=\"text\" spellcheck=\"false\" aria-describedby=\"with-error-message-error\" inputmode=\"numeric\">\n</div>"
+    },
+    {
+      "name": "with hint",
+      "context": {
+        "label": {
+          "text": "What is your NHS number?",
+          "classes": "nhsuk-label--l",
+          "isPageHeading": true
+        },
+        "hint": {
+          "text": "Your NHS number is a 10 digit number that you find on any letter the NHS has sent you, for example, 485 777 3456"
+        },
+        "id": "with-hint",
+        "name": "example",
+        "classes": "nhsuk-input--width-10",
+        "inputmode": "numeric",
+        "spellcheck": false
+      },
+      "screenshot": true,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label nhsuk-label--l\" for=\"with-hint\">\n      What is your NHS number?\n    </label>\n  </h1>\n  <div id=\"with-hint-hint\" class=\"nhsuk-hint\">\n    Your NHS number is a 10 digit number that you find on any letter the NHS has sent you, for example, 485 777 3456\n  </div>\n  <input class=\"nhsuk-input nhsuk-input--width-10\" id=\"with-hint\" name=\"example\" type=\"text\" spellcheck=\"false\" aria-describedby=\"with-hint-hint\" inputmode=\"numeric\">\n</div>"
+    },
+    {
+      "name": "with hint and error",
+      "context": {
+        "label": {
+          "text": "What is your NHS number?",
+          "classes": "nhsuk-label--l",
+          "isPageHeading": true
+        },
+        "hint": {
+          "text": "Your NHS number is a 10 digit number that you find on any letter the NHS has sent you, for example, 485 777 3456"
+        },
+        "errorMessage": {
+          "text": "Enter NHS number"
+        },
+        "id": "with-hint-error",
+        "name": "example",
+        "classes": "nhsuk-input--width-10",
+        "inputmode": "numeric",
+        "spellcheck": false
+      },
+      "screenshot": {
+        "states": [
+          "focus"
+        ],
+        "selector": "#with-hint-error"
+      },
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group nhsuk-form-group--error\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label nhsuk-label--l\" for=\"with-hint-error\">\n      What is your NHS number?\n    </label>\n  </h1>\n  <div id=\"with-hint-error-hint\" class=\"nhsuk-hint\">\n    Your NHS number is a 10 digit number that you find on any letter the NHS has sent you, for example, 485 777 3456\n  </div>\n  <span id=\"with-hint-error-error\" class=\"nhsuk-error-message\">\n    <span class=\"nhsuk-u-visually-hidden\">Error:</span> Enter NHS number\n  </span>\n  <input class=\"nhsuk-input nhsuk-input--width-10 nhsuk-input--error\" id=\"with-hint-error\" name=\"example\" type=\"text\" spellcheck=\"false\" aria-describedby=\"with-hint-error-hint with-hint-error-error\" inputmode=\"numeric\">\n</div>"
+    },
+    {
+      "name": "with label size S",
+      "context": {
+        "label": {
+          "text": "What is your NHS number?",
+          "classes": "nhsuk-label--s",
+          "isPageHeading": true
+        },
+        "id": "custom-size",
+        "name": "example",
+        "classes": "nhsuk-input--width-10",
+        "inputmode": "numeric",
+        "spellcheck": false
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label nhsuk-label--s\" for=\"custom-size\">\n      What is your NHS number?\n    </label>\n  </h1>\n  <input class=\"nhsuk-input nhsuk-input--width-10\" id=\"custom-size\" name=\"example\" type=\"text\" spellcheck=\"false\" inputmode=\"numeric\">\n</div>"
+    },
+    {
+      "name": "with label size M",
+      "context": {
+        "label": {
+          "text": "What is your NHS number?",
+          "classes": "nhsuk-label--m",
+          "isPageHeading": true
+        },
+        "id": "custom-size",
+        "name": "example",
+        "classes": "nhsuk-input--width-10",
+        "inputmode": "numeric",
+        "spellcheck": false
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label nhsuk-label--m\" for=\"custom-size\">\n      What is your NHS number?\n    </label>\n  </h1>\n  <input class=\"nhsuk-input nhsuk-input--width-10\" id=\"custom-size\" name=\"example\" type=\"text\" spellcheck=\"false\" inputmode=\"numeric\">\n</div>"
+    },
+    {
+      "name": "with label size L",
+      "context": {
+        "label": {
+          "text": "What is your NHS number?",
+          "classes": "nhsuk-label--l",
+          "isPageHeading": true
+        },
+        "id": "custom-size",
+        "name": "example",
+        "classes": "nhsuk-input--width-10",
+        "inputmode": "numeric",
+        "spellcheck": false
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label nhsuk-label--l\" for=\"custom-size\">\n      What is your NHS number?\n    </label>\n  </h1>\n  <input class=\"nhsuk-input nhsuk-input--width-10\" id=\"custom-size\" name=\"example\" type=\"text\" spellcheck=\"false\" inputmode=\"numeric\">\n</div>"
+    },
+    {
+      "name": "with label size XL",
+      "context": {
+        "label": {
+          "text": "What is your NHS number?",
+          "classes": "nhsuk-label--xl",
+          "isPageHeading": true
+        },
+        "id": "custom-size",
+        "name": "example",
+        "classes": "nhsuk-input--width-10",
+        "inputmode": "numeric",
+        "spellcheck": false
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label nhsuk-label--xl\" for=\"custom-size\">\n      What is your NHS number?\n    </label>\n  </h1>\n  <input class=\"nhsuk-input nhsuk-input--width-10\" id=\"custom-size\" name=\"example\" type=\"text\" spellcheck=\"false\" inputmode=\"numeric\">\n</div>"
+    },
+    {
+      "name": "without page heading",
+      "context": {
+        "label": {
+          "text": "What is your NHS number?"
+        },
+        "id": "without-heading",
+        "name": "example",
+        "classes": "nhsuk-input--width-10",
+        "inputmode": "numeric",
+        "spellcheck": false
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"without-heading\">\n    What is your NHS number?\n  </label>\n  <input class=\"nhsuk-input nhsuk-input--width-10\" id=\"without-heading\" name=\"example\" type=\"text\" spellcheck=\"false\" inputmode=\"numeric\">\n</div>"
+    },
+    {
+      "name": "with prefix",
+      "context": {
+        "label": {
+          "text": "Cost in pounds",
+          "isPageHeading": true
+        },
+        "id": "with-prefix",
+        "name": "example",
+        "prefix": {
+          "text": "£"
+        },
+        "classes": "nhsuk-input--width-5"
+      },
+      "screenshot": true,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label\" for=\"with-prefix\">\n      Cost in pounds\n    </label>\n  </h1>\n  <div class=\"nhsuk-input__wrapper\">\n    <div class=\"nhsuk-input__prefix\" aria-hidden=\"true\">£</div>\n    <input class=\"nhsuk-input nhsuk-input--width-5\" id=\"with-prefix\" name=\"example\" type=\"text\">\n  </div>\n</div>"
+    },
+    {
+      "name": "with prefix and suffix",
+      "context": {
+        "label": {
+          "text": "Cost per item, in pounds",
+          "isPageHeading": true
+        },
+        "id": "with-prefix-suffix",
+        "name": "example",
+        "prefix": {
+          "text": "£"
+        },
+        "suffix": {
+          "text": "per item"
+        },
+        "classes": "nhsuk-input--width-5"
+      },
+      "screenshot": true,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label\" for=\"with-prefix-suffix\">\n      Cost per item, in pounds\n    </label>\n  </h1>\n  <div class=\"nhsuk-input__wrapper\">\n    <div class=\"nhsuk-input__prefix\" aria-hidden=\"true\">£</div>\n    <input class=\"nhsuk-input nhsuk-input--width-5\" id=\"with-prefix-suffix\" name=\"example\" type=\"text\">\n    <div class=\"nhsuk-input__suffix\" aria-hidden=\"true\">per item</div>\n  </div>\n</div>"
+    },
+    {
+      "name": "with prefix and suffix and error",
+      "context": {
+        "label": {
+          "text": "Cost per item, in pounds",
+          "isPageHeading": true
+        },
+        "errorMessage": {
+          "text": "Enter a cost per item, in pounds"
+        },
+        "id": "with-prefix-suffix",
+        "name": "example",
+        "prefix": {
+          "text": "£"
+        },
+        "suffix": {
+          "text": "per item"
+        },
+        "classes": "nhsuk-input--width-5"
+      },
+      "screenshot": {
+        "states": [
+          "focus"
+        ],
+        "selector": "#with-prefix-suffix"
+      },
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group nhsuk-form-group--error\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label\" for=\"with-prefix-suffix\">\n      Cost per item, in pounds\n    </label>\n  </h1>\n  <span id=\"with-prefix-suffix-error\" class=\"nhsuk-error-message\">\n    <span class=\"nhsuk-u-visually-hidden\">Error:</span> Enter a cost per item, in pounds\n  </span>\n  <div class=\"nhsuk-input__wrapper\">\n    <div class=\"nhsuk-input__prefix\" aria-hidden=\"true\">£</div>\n    <input class=\"nhsuk-input nhsuk-input--width-5 nhsuk-input--error\" id=\"with-prefix-suffix\" name=\"example\" type=\"text\" aria-describedby=\"with-prefix-suffix-error\">\n    <div class=\"nhsuk-input__suffix\" aria-hidden=\"true\">per item</div>\n  </div>\n</div>"
+    },
+    {
+      "name": "with prefix HTML",
+      "context": {
+        "label": {
+          "text": "Cost in pounds",
+          "isPageHeading": true
+        },
+        "id": "with-prefix",
+        "name": "example",
+        "prefix": {
+          "html": "<span>£</span>"
+        },
+        "classes": "nhsuk-input--width-5"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label\" for=\"with-prefix\">\n      Cost in pounds\n    </label>\n  </h1>\n  <div class=\"nhsuk-input__wrapper\">\n    <div class=\"nhsuk-input__prefix\" aria-hidden=\"true\"><span>£</span></div>\n    <input class=\"nhsuk-input nhsuk-input--width-5\" id=\"with-prefix\" name=\"example\" type=\"text\">\n  </div>\n</div>"
+    },
+    {
+      "name": "with suffix",
+      "context": {
+        "label": {
+          "text": "Weight in kilograms",
+          "isPageHeading": true
+        },
+        "id": "with-suffix",
+        "name": "example",
+        "suffix": {
+          "text": "kg"
+        },
+        "classes": "nhsuk-input--width-5"
+      },
+      "screenshot": true,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label\" for=\"with-suffix\">\n      Weight in kilograms\n    </label>\n  </h1>\n  <div class=\"nhsuk-input__wrapper\">\n    <input class=\"nhsuk-input nhsuk-input--width-5\" id=\"with-suffix\" name=\"example\" type=\"text\">\n    <div class=\"nhsuk-input__suffix\" aria-hidden=\"true\">kg</div>\n  </div>\n</div>"
+    },
+    {
+      "name": "with suffix HTML",
+      "context": {
+        "label": {
+          "text": "Weight in kilograms",
+          "isPageHeading": true
+        },
+        "id": "with-suffix",
+        "name": "example",
+        "suffix": {
+          "html": "<span>kg</span>"
+        },
+        "classes": "nhsuk-input--width-5"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label\" for=\"with-suffix\">\n      Weight in kilograms\n    </label>\n  </h1>\n  <div class=\"nhsuk-input__wrapper\">\n    <input class=\"nhsuk-input nhsuk-input--width-5\" id=\"with-suffix\" name=\"example\" type=\"text\">\n    <div class=\"nhsuk-input__suffix\" aria-hidden=\"true\"><span>kg</span></div>\n  </div>\n</div>"
+    }
+  ]
+}
