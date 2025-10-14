@@ -141,6 +141,17 @@ export const params = {
         description:
           'The `aria-label` for the primary navigation. Defaults to `"Menu"`.'
       },
+      toggleMenuText: {
+        type: 'string',
+        required: false,
+        description: 'Text for the toggle menu button. Defaults to `"More"`.'
+      },
+      toggleMenuVisuallyHiddenText: {
+        type: 'string',
+        required: false,
+        description:
+          'A visually hidden prefix used before the toggle menu button text. Defaults to `"Browse"`.'
+      },
       classes: {
         type: 'string',
         required: false,
