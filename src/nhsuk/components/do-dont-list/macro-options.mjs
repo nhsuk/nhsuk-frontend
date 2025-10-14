@@ -114,9 +114,6 @@ export const examples = {
           item: 'allow the fluid in a burst blister to drain before covering it with a plaster or dressing'
         }
       ]
-    },
-    options: {
-      hidden: true
     }
   },
   '(do) with custom prefix': {
@@ -178,9 +175,6 @@ export const examples = {
           item: 'wear the shoes or use the equipment that caused your blister until it heals'
         }
       ]
-    },
-    options: {
-      hidden: true
     }
   },
   "(don't) with custom prefix": {
