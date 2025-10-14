@@ -27,8 +27,8 @@
 {%- endmacro -%}
 
 <nav {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-pagination {%- if params.items %} nhsuk-pagination--numbered{% endif %}
-{%- if params.classes %} {{ params.classes }}{% endif %}" role="navigation" aria-label="Pagination"
-{{- nhsukAttributes(params.attributes) }}>
+  {%- if params.classes %} {{ params.classes }}{% endif %}" role="navigation" aria-label="{{ params.landmarkLabel | default("Pagination", true) }}"
+  {{- nhsukAttributes(params.attributes) }}>
 
 {% if previous.href and params.items %}
   <a href="{{ previous.href }}" class="nhsuk-pagination__previous" rel="prev">
