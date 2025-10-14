@@ -17,7 +17,7 @@
   <ul class="nhsuk-list nhsuk-pagination__list">
   {% if previous and previous.href %}
     <li class="nhsuk-pagination-item--previous">
-      <a class="nhsuk-pagination__link nhsuk-pagination__link--prev" href="{{ previous.href }}" rel="previous"
+      <a class="nhsuk-pagination__link nhsuk-pagination__link--prev" href="{{ previous.href }}" rel="prev"
         {{- nhsukAttributes(previous.attributes) }}>
         <span class="nhsuk-pagination__title">
         {% if previous.html or previous.text %}
