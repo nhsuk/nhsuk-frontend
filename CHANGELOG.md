@@ -41,14 +41,22 @@ You can now use smaller versions of the [radios](https://service-manual.nhs.uk/d
 
 This was added in [pull request #1567: Uplift GOV.UK Frontend form field components](https://github.com/nhsuk/nhsuk-frontend/pull/1567).
 
-#### Updated Nunjucks macro options for form components
+#### Updated Nunjucks macro options for components
 
-For consistency with other form components, we’ve added new Nunjucks macro options:
+For consistency with other components, we’ve added new Nunjucks macro options:
 
+- Back link `visuallyHiddenText` option
+- Breadcrumbs nested `backLink` component option
+- Contents list `landmarkLabel` and `visuallyHiddenTitle` options
+- Do and Don't list `prefixText` option, with nested item `text` and `html` options
+- Fieldset `html` and `role` options
+- Header navigation `toggleMenuText` and `toggleMenuVisuallyHiddenText` options
+- Inset text `visuallyHiddenText` option
+- Pagination `previous`, `next` and `landmarkLabel` options
+- Radios item `disabled` and `attributes` options
 - Text input `autocapitalize` and `disabled` options, with prefix and suffix nested `text`, `html`, `classes` and `attributes` options
 - Textarea `disabled` and `spellcheck` options
-- Radios item `disabled` and `attributes` options
-- Fieldset `html` and `role` options
+- Warning callout `visuallyHiddenText` option
 
 Visit the [design system in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components) to see Nunjucks options for each component.
 
