@@ -75,16 +75,16 @@ This was added in [pull request #1567: Uplift GOV.UK Frontend form field compone
 You can now insert custom HTML into form group wrappers for all components with form fields.
 
 ```njk
-input({
+{{ input({
   formGroup: {
     beforeInput: {
       html: "example"
     },
     afterInput: {
       html: "example"
-    },
+    }
   }
-})
+}) }}
 ```
 
 This was added in [pull request #1561: Add `beforeInput(s)` and `beforeInput(s)` options to form groups](https://github.com/nhsuk/nhsuk-frontend/pull/1561).
