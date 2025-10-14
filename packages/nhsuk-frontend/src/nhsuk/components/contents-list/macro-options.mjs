@@ -35,6 +35,12 @@ export const params = {
     required: false,
     description: 'Set the current active page.'
   },
+  landmarkLabel: {
+    type: 'string',
+    required: false,
+    description:
+      'The label for the navigation landmark that wraps the contents list. Defaults to `"Pages in this guide"`.'
+  },
   classes: {
     type: 'string',
     required: false,
