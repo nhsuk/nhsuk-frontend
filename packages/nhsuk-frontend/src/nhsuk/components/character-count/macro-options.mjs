@@ -390,9 +390,6 @@ export const examples = {
       name: 'example',
       value: 'This textarea has no maximum character or word count.',
       rows: 8
-    },
-    options: {
-      hidden: true
     }
   },
   'with neither maxlength, maxwords nor textarea description set': {
@@ -406,9 +403,6 @@ export const examples = {
       name: 'example',
       value: 'This textarea has no maximum character or word count.',
       rows: 8
-    },
-    options: {
-      hidden: true
     }
   },
   'with translations': {

@@ -131,9 +131,6 @@ export const examples = {
       previousPage: 'Treatments',
       nextUrl: '/section/symptoms',
       nextPage: 'Symptoms'
-    },
-    options: {
-      hidden: true
     }
   },
   'with translations': {
