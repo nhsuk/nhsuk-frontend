@@ -26,11 +26,12 @@
   </li>
 {%- endmacro -%}
 
-<nav {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-pagination {%- if params.items %} nhsuk-pagination--numbered{% endif %}
+<nav {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-pagination
+  {%- if params.items | length %} nhsuk-pagination--numbered{% endif %}
   {%- if params.classes %} {{ params.classes }}{% endif %}" role="navigation" aria-label="{{ params.landmarkLabel | default("Pagination", true) }}"
   {{- nhsukAttributes(params.attributes) }}>
 
-{% if previous.href and params.items %}
+{% if previous.href and params.items | length %}
   <a href="{{ previous.href }}" class="nhsuk-pagination__previous" rel="prev">
     {{ nhsukIcon("arrow-left") | trim | indent(4) }}
     <span class="nhsuk-pagination__title">
@@ -43,7 +44,7 @@
   </a>
 {% endif %}
 
-{%- if params.items %}
+{%- if params.items | length %}
   <ul class="nhsuk-pagination__list">
   {% for item in params.items %}
     {{ _pageItem(item) | indent(2) }}
@@ -51,7 +52,7 @@
   </ul>
 {% endif %}
 
-{%- if next.href and params.items %}
+{%- if next.href and params.items | length %}
   <a href="{{ next.href }}" class="nhsuk-pagination__next" rel="next">
     <span class="nhsuk-pagination__title">
     {% if next.html or next.text %}
