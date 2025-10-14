@@ -5,9 +5,14 @@
 {%- set headingLevel = params.headingLevel if params.headingLevel else 3 %}
 
 {%- macro _listItem(params, data, type) %}
+  {% set item = {
+    text: data.item if data.item is string,
+    html: data.item if data.item is escaped
+  } if data.item else data -%}
+
   {{ nhsukIcon(type) }}
   {%- if not params.hidePrefix and type == "cross" %}do not {% endif %}
-  {{- data.item | safe | trim | indent(6) }}
+  {{- item.html | safe | trim | indent(6) if item.html else item.text }}
 {% endmacro -%}
 
 <div {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-do-dont-list

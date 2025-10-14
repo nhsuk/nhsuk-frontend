@@ -28,10 +28,17 @@ export const params = {
     required: true,
     description: "Array of do and don't items objects.",
     params: {
-      item: {
+      text: {
         type: 'string',
         required: true,
-        description: "Text to use within each do and don't item label."
+        description:
+          "If `html` is set, this is not required. Text to use within each do and don't item. If `html` is provided, the `text` option will be ignored."
+      },
+      html: {
+        type: 'string',
+        required: true,
+        description:
+          "If `text` is set, this is not required. HTML to use within each do and don't item. If `html` is provided, the `text` option will be ignored."
       }
     }
   },
@@ -72,6 +79,26 @@ export const examples = {
       type: 'tick',
       items: [
         {
+          text: 'cover blisters with a soft plaster or padded dressing'
+        },
+        {
+          text: 'wash your hands before touching a burst blister'
+        },
+        {
+          text: 'allow the fluid in a burst blister to drain before covering it with a plaster or dressing'
+        }
+      ]
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
+    }
+  },
+  '(do) with deprecated parameters': {
+    context: {
+      title: 'Do',
+      type: 'tick',
+      items: [
+        {
           item: 'cover blisters with a soft plaster or padded dressing'
         },
         {
@@ -82,11 +109,34 @@ export const examples = {
         }
       ]
     },
+    options: {
+      hidden: true
+    }
+  },
+  "(don't)": {
+    context: {
+      title: "Don't",
+      type: 'cross',
+      items: [
+        {
+          text: 'burst a blister yourself'
+        },
+        {
+          text: 'peel the skin off a burst blister'
+        },
+        {
+          text: 'pick at the edges of the remaining skin'
+        },
+        {
+          text: 'wear the shoes or use the equipment that caused your blister until it heals'
+        }
+      ]
+    },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
-  "don't": {
+  "(don't) with deprecated parameters": {
     context: {
       title: "Don't",
       type: 'cross',
@@ -105,8 +155,29 @@ export const examples = {
         }
       ]
     },
-    screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
+    options: {
+      hidden: true
+    }
+  },
+  "(don't) with hidden prefix": {
+    context: {
+      title: "Don't",
+      type: 'cross',
+      hidePrefix: true,
+      items: [
+        {
+          item: 'avoid bursting a blister yourself'
+        },
+        {
+          item: "certainly don't peel the skin off a burst blister"
+        },
+        {
+          item: 'absolutely do not pick at the edges of the remaining skin'
+        },
+        {
+          item: "please don't wear the shoes or use the equipment that caused your blister until it heals"
+        }
+      ]
     }
   }
 }
