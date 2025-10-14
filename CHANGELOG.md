@@ -102,6 +102,67 @@ The previous names are deprecated and will be removed in a future release.
 
 This change was introduced in [pull request #1594: Always set input `:focus` box-shadow colour](https://github.com/nhsuk/nhsuk-frontend/pull/1594).
 
+### :recycle: **Changes**
+
+#### Do and Don't list Nunjucks options
+
+For consistency with other components, the do and don't list Nunjucks options have changed. The previous names are deprecated and will be removed in a future release.
+
+If you're using the `list` Nunjucks macro in your service, you should update the nested `items` option, using `text` or `html` instead of `item`.
+
+```patch
+  {{ list({
+    title: "Do",
+    type: "tick",
+    items: [
+      {
+-       item: "cover blisters with a soft plaster or padded dressing"
++       text: "cover blisters with a soft plaster or padded dressing"
+      },
+      {
+-       item: "wash your hands before touching a burst blister"
++       text: "wash your hands before touching a burst blister"
+      },
+      {
+-       item: "allow the fluid in a burst blister to drain before covering it with a plaster or dressing"
++       text: "allow the fluid in a burst blister to drain before covering it with a plaster or dressing"
+      }
+    ]
+  }) }}
+```
+
+This change was introduced in [pull request #1620: Make all Nunjucks components text configurable](https://github.com/nhsuk/nhsuk-frontend/pull/1620).
+
+#### Pagination Nunjucks options
+
+For consistency with other components, the pagination Nunjucks options have changed. The previous names are deprecated and will be removed in a future release.
+
+If you're using the `pagination` Nunjucks macro in your service, you should:
+
+- replace the `previousUrl` option with the nested `previous.href` option
+- replace the `previousPage` option with the nested `previous.labelText` option
+- replace the `nextUrl` option with the nested `next.href` option
+- replace the `nextPage` option with the nested `next.labelText` option
+
+```patch
+  {{ pagination({
+-   previousPage: "Treatments",
+-   previousUrl: "/section/treatments",
++   previous: {
++     labelText: "Treatments",
++     href: "/section/treatments"
++   },
+-   nextPage: "Symptoms",
+-   nextUrl: "/section/symptoms"
++   next: {
++     labelText: "Symptoms",
++     href: "/section/symptoms"
++   }
+  }) }}
+```
+
+This change was introduced in [pull request #1620: Make all Nunjucks components text configurable](https://github.com/nhsuk/nhsuk-frontend/pull/1620).
+
 ### :wrench: **Fixes**
 
 - [#1593: Fix Sass deprecated `core/settings/colours` partial](https://github.com/nhsuk/nhsuk-frontend/pull/1593)
