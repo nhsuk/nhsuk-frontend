@@ -51,6 +51,12 @@ export const params = {
     required: false,
     description:
       'HTML attributes (for example data attributes) to items in the content list.'
+  },
+  visuallyHiddenTitle: {
+    type: 'string',
+    required: false,
+    description:
+      'Visually hidden title for the contents list items. Defaults to `"Contents"`.'
   }
 }
 
