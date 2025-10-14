@@ -42,7 +42,11 @@
 @mixin nhsuk-focused-input {
   border: $nhsuk-border-width-form-element solid $nhsuk-focus-text-colour;
   outline: $nhsuk-focus-width solid $nhsuk-focus-colour;
+  // Ensure outline appears outside of the element
   outline-offset: 0;
+  // Double the border by adding its width again. Use `box-shadow` to do
+  // this instead of changing `border-width` (which changes element size)
+  // and since `outline` is already used for the yellow focus state.
   box-shadow: inset 0 0 0 $nhsuk-border-width-form-element $nhsuk-focus-text-colour;
 }
 
@@ -50,10 +54,25 @@
 ///
 /// Provides an additional outline and border to clearly indicate when
 /// the target element has focus. Used by radios.
+///
+/// @param {Number} $focus-width [$nhsuk-focus-width + 1px] - Focus width
 
-@mixin nhsuk-focused-radio {
+@mixin nhsuk-focused-radio($focus-width: $nhsuk-focus-width + 1px) {
   border: $nhsuk-focus-width solid $nhsuk-focus-text-colour;
-  box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-colour;
+
+  // When colours are overridden, the yellow box-shadow becomes invisible
+  // which means the focus state is less obvious. By adding a transparent
+  // outline, which becomes solid (text-coloured) in that context, we ensure
+  // the focus remains clearly visible.
+  outline: $nhsuk-focus-width solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 $focus-width $nhsuk-focus-colour;
+
+  // When in an explicit forced-color mode, we can use the Highlight system
+  // color for the outline to better match focus states of native controls
+  @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+    outline-color: Highlight;
+  }
 }
 
 /// Focused checkbox input (form element)
@@ -63,7 +82,20 @@
 
 @mixin nhsuk-focused-checkbox {
   border: $nhsuk-focus-width solid $nhsuk-focus-text-colour;
+
+  // When colours are overridden, the yellow box-shadow becomes invisible
+  // which means the focus state is less obvious. By adding a transparent
+  // outline, which becomes solid (text-coloured) in that context, we ensure
+  // the focus remains clearly visible.
+  outline: $nhsuk-focus-width solid transparent;
+  outline-offset: 1px;
   box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-colour;
+
+  // When in an explicit forced-color mode, we can use the Highlight system
+  // color for the outline to better match focus states of native controls
+  @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+    outline-color: Highlight;
+  }
 }
 
 /// Focused button

@@ -49,6 +49,12 @@ export const params = {
     required: false,
     description:
       'HTML attributes (for example data attributes) to add to the warning callout.'
+  },
+  visuallyHiddenText: {
+    type: 'string',
+    required: false,
+    description:
+      'A visually hidden prefix used before the heading. Defaults to `"Important"`.'
   }
 }
 

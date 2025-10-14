@@ -54,10 +54,14 @@ export const params = {
 export const examples = {
   'default': {
     context: {
-      previousUrl: '/section/treatments',
-      previousPage: 'Treatments',
-      nextUrl: '/section/symptoms',
-      nextPage: 'Symptoms'
+      previous: {
+        labelText: 'Treatments',
+        href: '/section/treatments'
+      },
+      next: {
+        labelText: 'Symptoms',
+        href: '/section/symptoms'
+      }
     },
     options: {
       width: 'full'
@@ -66,10 +70,12 @@ export const examples = {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
-  'previous only': {
+  'with only previous': {
     context: {
-      previousUrl: '/section/treatments',
-      previousPage: 'Treatments'
+      previous: {
+        labelText: 'Treatments',
+        href: '/section/treatments'
+      }
     },
     options: {
       width: 'full'
@@ -78,22 +84,45 @@ export const examples = {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
-  'next only': {
+  'with only next': {
     context: {
-      nextUrl: '/section/treatments',
-      nextPage: 'Treatments'
+      next: {
+        labelText: 'Symptoms',
+        href: '/section/symptoms'
+      }
     },
     options: {
       width: 'full'
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+    }
+  },
+  'with translations': {
+    context: {
+      previous: {
+        text: 'Blaenorol',
+        labelText: 'Driniaethau',
+        href: '/section/driniaethau'
+      },
+      next: {
+        text: 'Nesaf',
+        labelText: 'Symptomau',
+        href: '/section/symptomau'
+      }
+    },
+    options: {
+      width: 'full'
     }
   },
   'numbered': {
     context: {
-      previousUrl: '#',
-      nextUrl: '#',
+      previous: {
+        href: '#'
+      },
+      next: {
+        href: '#'
+      },
       items: [
         {
           number: 1,
@@ -119,8 +148,12 @@ export const examples = {
   },
   'numbered with many pages': {
     context: {
-      previousUrl: '#',
-      nextUrl: '#',
+      previous: {
+        href: '#'
+      },
+      next: {
+        href: '#'
+      },
       items: [
         {
           number: 1,
@@ -168,7 +201,9 @@ export const examples = {
   },
   'numbered first page': {
     context: {
-      nextUrl: '#',
+      next: {
+        href: '#'
+      },
       items: [
         {
           number: 1,
@@ -194,7 +229,9 @@ export const examples = {
   },
   'numbered last page': {
     context: {
-      previousUrl: '#',
+      previous: {
+        href: '#'
+      },
       items: [
         {
           number: 1,
@@ -216,6 +253,36 @@ export const examples = {
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+    }
+  },
+  'numbered with translations': {
+    context: {
+      previous: {
+        text: 'Blaenorol',
+        href: '#'
+      },
+      next: {
+        text: 'Nesaf',
+        href: '#'
+      },
+      items: [
+        {
+          number: 1,
+          href: '#'
+        },
+        {
+          number: 2,
+          href: '#',
+          current: true
+        },
+        {
+          number: 3,
+          href: '#'
+        }
+      ]
+    },
+    options: {
+      width: 'full'
     }
   }
 }

@@ -1,17 +1,19 @@
 @use "../../core/tools" as *;
+@forward "../error-message";
+@forward "../input";
+@forward "../hint";
+@forward "../label";
+@forward "../fieldset";
 
 ////
 /// Date input component
-///
-/// 1. font-size: 0 removes whitespace caused by inline-block
 ///
 /// @group components/date-input
 ////
 
 @include nhsuk-exports("nhsuk/components/date-input") {
   .nhsuk-date-input {
-    font-size: 0; // [1]
-
+    font-size: 0; // removes whitespace caused by inline-block
     @include nhsuk-clearfix;
   }
 
