@@ -41,14 +41,22 @@ You can now use smaller versions of the [radios](https://service-manual.nhs.uk/d
 
 This was added in [pull request #1567: Uplift GOV.UK Frontend form field components](https://github.com/nhsuk/nhsuk-frontend/pull/1567).
 
-#### Updated Nunjucks macro options for form components
+#### Updated Nunjucks macro options for components
 
-For consistency with other form components, we’ve added new Nunjucks macro options:
+For consistency with other components, we’ve added new Nunjucks macro options:
 
+- Back link `visuallyHiddenText` option
+- Breadcrumbs nested `backLink` component option
+- Contents list `landmarkLabel` and `visuallyHiddenTitle` options
+- Do and Don't list `prefixText` option, with nested item `text` and `html` options
+- Fieldset `html` and `role` options
+- Header navigation `toggleMenuText` and `toggleMenuVisuallyHiddenText` options
+- Inset text `visuallyHiddenText` option
+- Pagination `previous`, `next` and `landmarkLabel` options
+- Radios item `disabled` and `attributes` options
 - Text input `autocapitalize` and `disabled` options, with prefix and suffix nested `text`, `html`, `classes` and `attributes` options
 - Textarea `disabled` and `spellcheck` options
-- Radios item `disabled` and `attributes` options
-- Fieldset `html` and `role` options
+- Warning callout `visuallyHiddenText` option
 
 Visit the [design system in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components) to see Nunjucks options for each component.
 
@@ -67,16 +75,16 @@ This was added in [pull request #1567: Uplift GOV.UK Frontend form field compone
 You can now insert custom HTML into form group wrappers for all components with form fields.
 
 ```njk
-input({
+{{ input({
   formGroup: {
     beforeInput: {
       html: "example"
     },
     afterInput: {
       html: "example"
-    },
+    }
   }
-})
+}) }}
 ```
 
 This was added in [pull request #1561: Add `beforeInput(s)` and `beforeInput(s)` options to form groups](https://github.com/nhsuk/nhsuk-frontend/pull/1561).
@@ -93,6 +101,67 @@ If you use Sass and you've extended or created components that use the following
 The previous names are deprecated and will be removed in a future release.
 
 This change was introduced in [pull request #1594: Always set input `:focus` box-shadow colour](https://github.com/nhsuk/nhsuk-frontend/pull/1594).
+
+### :recycle: **Changes**
+
+#### Do and Don't list Nunjucks options
+
+For consistency with other components, the do and don't list Nunjucks options have changed. The previous names are deprecated and will be removed in a future release.
+
+If you're using the `list` Nunjucks macro in your service, you should update the nested `items` option, using `text` or `html` instead of `item`.
+
+```patch
+  {{ list({
+    title: "Do",
+    type: "tick",
+    items: [
+      {
+-       item: "cover blisters with a soft plaster or padded dressing"
++       text: "cover blisters with a soft plaster or padded dressing"
+      },
+      {
+-       item: "wash your hands before touching a burst blister"
++       text: "wash your hands before touching a burst blister"
+      },
+      {
+-       item: "allow the fluid in a burst blister to drain before covering it with a plaster or dressing"
++       text: "allow the fluid in a burst blister to drain before covering it with a plaster or dressing"
+      }
+    ]
+  }) }}
+```
+
+This change was introduced in [pull request #1620: Make all Nunjucks components text configurable](https://github.com/nhsuk/nhsuk-frontend/pull/1620).
+
+#### Pagination Nunjucks options
+
+For consistency with other components, the pagination Nunjucks options have changed. The previous names are deprecated and will be removed in a future release.
+
+If you're using the `pagination` Nunjucks macro in your service, you should:
+
+- replace the `previousUrl` option with the nested `previous.href` option
+- replace the `previousPage` option with the nested `previous.labelText` option
+- replace the `nextUrl` option with the nested `next.href` option
+- replace the `nextPage` option with the nested `next.labelText` option
+
+```patch
+  {{ pagination({
+-   previousPage: "Treatments",
+-   previousUrl: "/section/treatments",
++   previous: {
++     labelText: "Treatments",
++     href: "/section/treatments"
++   },
+-   nextPage: "Symptoms",
+-   nextUrl: "/section/symptoms"
++   next: {
++     labelText: "Symptoms",
++     href: "/section/symptoms"
++   }
+  }) }}
+```
+
+This change was introduced in [pull request #1620: Make all Nunjucks components text configurable](https://github.com/nhsuk/nhsuk-frontend/pull/1620).
 
 ### :wrench: **Fixes**
 

@@ -9,7 +9,7 @@
     {{ params.heading | safe }}<span class="nhsuk-u-visually-hidden">:</span>
     {%- else %}
     <span role="text">
-      <span class="nhsuk-u-visually-hidden">Important: </span>
+      <span class="nhsuk-u-visually-hidden">{{ params.visuallyHiddenText | default("Important", true) }}: </span>
       {{ params.heading | safe }}
     </span>
     {%- endif %}
