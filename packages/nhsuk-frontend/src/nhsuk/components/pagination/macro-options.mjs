@@ -13,6 +13,48 @@ export const params = {
     required: false,
     description: 'The ID of the pagination container.'
   },
+  items: {
+    type: 'array',
+    required: false,
+    description: 'The items within the pagination component.',
+    params: {
+      number: {
+        type: 'string',
+        required: false,
+        description:
+          'The pagination item text – usually a page number.  Required unless the item is an ellipsis.'
+      },
+      visuallyHiddenText: {
+        type: 'string',
+        required: false,
+        description:
+          'The visually hidden label for the pagination item, which will be applied to an `aria-label` and announced by screen readers on the pagination item link. Should include page number. Defaults to, for example "Page 1".'
+      },
+      href: {
+        type: 'string',
+        required: false,
+        description: "The link's URL. Required unless the item is an ellipsis."
+      },
+      current: {
+        type: 'boolean',
+        required: false,
+        description:
+          'Set to `true` to indicate the current page the user is on.'
+      },
+      ellipsis: {
+        type: 'boolean',
+        required: false,
+        description:
+          'Use this option if you want to specify an ellipsis at a given point between numbers. If you set this option as `true`, any other options for the item are ignored.'
+      },
+      attributes: {
+        type: 'object',
+        required: false,
+        description:
+          'The HTML attributes (for example, data attributes) you want to add to the anchor.'
+      }
+    }
+  },
   previous: {
     type: 'object',
     required: false,
@@ -121,6 +163,9 @@ export const examples = {
         href: '/section/symptoms'
       }
     },
+    options: {
+      width: 'full'
+    },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
@@ -131,6 +176,37 @@ export const examples = {
       previousPage: 'Treatments',
       nextUrl: '/section/symptoms',
       nextPage: 'Symptoms'
+    },
+    options: {
+      width: 'full'
+    }
+  },
+  'with only previous': {
+    context: {
+      previous: {
+        labelText: 'Treatments',
+        href: '/section/treatments'
+      }
+    },
+    options: {
+      width: 'full'
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+    }
+  },
+  'with only next': {
+    context: {
+      next: {
+        labelText: 'Symptoms',
+        href: '/section/symptoms'
+      }
+    },
+    options: {
+      width: 'full'
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'with translations': {
@@ -145,6 +221,179 @@ export const examples = {
         labelText: 'Symptomau',
         href: '/section/symptomau'
       }
+    },
+    options: {
+      width: 'full'
+    }
+  },
+  'numbered': {
+    context: {
+      previous: {
+        href: '#'
+      },
+      next: {
+        href: '#'
+      },
+      items: [
+        {
+          number: 1,
+          href: '#'
+        },
+        {
+          number: 2,
+          href: '#',
+          current: true
+        },
+        {
+          number: 3,
+          href: '#'
+        }
+      ]
+    },
+    options: {
+      width: 'full'
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+    }
+  },
+  'numbered with many pages': {
+    context: {
+      previous: {
+        href: '#'
+      },
+      next: {
+        href: '#'
+      },
+      items: [
+        {
+          number: 1,
+          href: '#'
+        },
+        {
+          ellipsis: true
+        },
+        {
+          number: 8,
+          href: '#'
+        },
+        {
+          number: 9,
+          href: '#'
+        },
+        {
+          number: 10,
+          href: '#',
+          current: true
+        },
+        {
+          number: 11,
+          href: '#'
+        },
+        {
+          number: 12,
+          href: '#'
+        },
+        {
+          ellipsis: true
+        },
+        {
+          number: 40,
+          href: '#'
+        }
+      ]
+    },
+    options: {
+      width: 'full'
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+    }
+  },
+  'numbered first page': {
+    context: {
+      next: {
+        href: '#'
+      },
+      items: [
+        {
+          number: 1,
+          href: '#',
+          current: true
+        },
+        {
+          number: 2,
+          href: '#'
+        },
+        {
+          number: 3,
+          href: '#'
+        }
+      ]
+    },
+    options: {
+      width: 'full'
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+    }
+  },
+  'numbered last page': {
+    context: {
+      previous: {
+        href: '#'
+      },
+      items: [
+        {
+          number: 1,
+          href: '#'
+        },
+        {
+          number: 2,
+          href: '#'
+        },
+        {
+          number: 3,
+          href: '#',
+          current: true
+        }
+      ]
+    },
+    options: {
+      width: 'full'
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+    }
+  },
+  'numbered with translations': {
+    context: {
+      previous: {
+        text: 'Blaenorol',
+        href: '#'
+      },
+      next: {
+        text: 'Nesaf',
+        href: '#'
+      },
+      items: [
+        {
+          number: 1,
+          href: '#'
+        },
+        {
+          number: 2,
+          href: '#',
+          current: true
+        },
+        {
+          number: 3,
+          href: '#'
+        }
+      ]
+    },
+    options: {
+      width: 'full'
     }
   }
 }
