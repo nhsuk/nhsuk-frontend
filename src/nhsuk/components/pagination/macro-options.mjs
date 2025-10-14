@@ -33,6 +33,12 @@ export const params = {
     required: true,
     description: 'The text of the next link.'
   },
+  landmarkLabel: {
+    type: 'string',
+    required: false,
+    description:
+      'The label for the navigation landmark that wraps the pagination. Defaults to `"Pagination"`.'
+  },
   classes: {
     type: 'string',
     required: false,
