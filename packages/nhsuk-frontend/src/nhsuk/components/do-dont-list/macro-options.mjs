@@ -42,11 +42,17 @@ export const params = {
       }
     }
   },
+  prefixText: {
+    type: 'string',
+    required: false,
+    description:
+      'Optional prefix text used before each do and don\'t item. Defaults to `"do not"` when `type` is `"cross"`.'
+  },
   hidePrefix: {
     type: 'boolean',
     required: false,
     description:
-      'If set to true when type is `"cross"`, then removes the default `"do not"` text prefix to each item.'
+      "If set to `true`, the optional `prefixText` will be removed from each do and don't item."
   },
   headingLevel: {
     type: 'integer',
@@ -113,6 +119,24 @@ export const examples = {
       hidden: true
     }
   },
+  '(do) with custom prefix': {
+    context: {
+      title: 'Do',
+      type: 'tick',
+      prefixText: 'always',
+      items: [
+        {
+          item: 'cover blisters with a soft plaster or padded dressing'
+        },
+        {
+          item: 'wash your hands before touching a burst blister'
+        },
+        {
+          item: 'allow the fluid in a burst blister to drain before covering it with a plaster or dressing'
+        }
+      ]
+    }
+  },
   "(don't)": {
     context: {
       title: "Don't",
@@ -157,6 +181,27 @@ export const examples = {
     },
     options: {
       hidden: true
+    }
+  },
+  "(don't) with custom prefix": {
+    context: {
+      title: 'Never',
+      type: 'cross',
+      prefixText: 'never',
+      items: [
+        {
+          text: 'burst a blister yourself'
+        },
+        {
+          text: 'peel the skin off a burst blister'
+        },
+        {
+          text: 'pick at the edges of the remaining skin'
+        },
+        {
+          text: 'wear the shoes or use the equipment that caused your blister until it heals'
+        }
+      ]
     }
   },
   "(don't) with hidden prefix": {

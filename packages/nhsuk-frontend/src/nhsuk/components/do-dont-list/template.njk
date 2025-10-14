@@ -11,7 +11,9 @@
   } if data.item else data -%}
 
   {{ nhsukIcon(type) }}
-  {%- if not params.hidePrefix and type == "cross" %}do not {% endif %}
+  {%- if not params.hidePrefix and (params.prefixText or type == "cross") %}
+    {{ (params.prefixText if params.prefixText else "do not") ~ " " }}
+  {% endif %}
   {{- item.html | safe | trim | indent(6) if item.html else item.text }}
 {% endmacro -%}
 

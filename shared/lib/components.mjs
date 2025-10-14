@@ -45,6 +45,10 @@ export async function load(component) {
         // Sort default to top
         ['default', ''],
 
+        // Sort do before don't
+        ['(do)', '1 do-dont'],
+        ["(don't)", '2 do-dont'],
+
         // Sort urgent with non-urgent
         ['non-', ''],
 
