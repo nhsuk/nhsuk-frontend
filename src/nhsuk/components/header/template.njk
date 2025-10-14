@@ -138,7 +138,7 @@
       {% endfor %}
         <li class="nhsuk-header__menu" hidden>
           <button class="nhsuk-header__menu-toggle nhsuk-header__navigation-link" id="toggle-menu" aria-expanded="false">
-            <span class="nhsuk-u-visually-hidden">Browse </span>More
+            <span class="nhsuk-u-visually-hidden">{{ params.navigation.toggleMenuVisuallyHiddenText | default("Browse") }} </span>{{ params.navigation.toggleMenuText | default("More") }}
           </button>
         </li>
       </ul>
