@@ -308,7 +308,7 @@ $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
     .nhsuk-radios__input:focus + .nhsuk-radios__label:hover::before {
       // prettier-ignore
       box-shadow:
-        0 0 0 $nhsuk-radios-focus-width $nhsuk-focus-colour // 1,
+        0 0 0 $nhsuk-radios-focus-width $nhsuk-focus-colour, // 1
         0 0 0 $nhsuk-hover-width $nhsuk-hover-colour; // 2
 
       // Set different HCM colour when we have both hover/focus applied at once
