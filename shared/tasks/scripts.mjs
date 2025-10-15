@@ -7,6 +7,7 @@ import commonjs from '@rollup/plugin-commonjs'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import replace from '@rollup/plugin-replace'
 import terser from '@rollup/plugin-terser'
+import * as NHSUKFrontend from 'nhsuk-frontend/src/nhsuk/index.mjs'
 import PluginError from 'plugin-error'
 import { rollup } from 'rollup'
 
@@ -75,7 +76,7 @@ export function compile(
             keep_fnames: true,
             // Ensure all top-level exports skip mangling, for example
             // non-function string constants like `export { version }`
-            reserved: await getNHSUKFrontendExportsNames()
+            reserved: Object.keys(NHSUKFrontend)
           },
 
           // Include sources content from source maps to inspect
@@ -107,22 +108,6 @@ export function compile(
       sourcemapExcludeSources: !!output.preserveModules
     })
   })
-}
-
-// NHS.UK frontend uses browser APIs at `import` time
-// because of static properties. These APIs are not available
-// in Node.js.
-// We mock them the time of the `import` so we can read
-// the name of NHS.UK frontend's exports without errors
-async function getNHSUKFrontendExportsNames() {
-  try {
-    global.HTMLElement = undefined
-    global.HTMLAnchorElement = undefined
-    return Object.keys(await import('nhsuk-frontend/src/nhsuk/index.mjs'))
-  } finally {
-    delete global.HTMLElement
-    delete global.HTMLAnchorElement
-  }
 }
 
 /**
