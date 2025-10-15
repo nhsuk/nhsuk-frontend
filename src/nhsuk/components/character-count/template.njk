@@ -1,4 +1,5 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/i18n.njk" import nhsukI18nAttributes %}
 {% from "nhsuk/components/textarea/macro.njk" import textarea %}
 {% from "nhsuk/components/hint/macro.njk" import hint %}
 
@@ -39,6 +40,49 @@
       value: params.maxwords,
       optional: true
     }
+  }) -}}
+
+  {#-
+    Without maxlength or maxwords, we can't guess if the component will count words or characters.
+    We can't guess a default textarea description to be interpolated in JavaScript
+    once the maximum gets configured there.
+    So we only add the attribute if a textarea description was explicitely provided.
+  #}
+  {%- if hasNoLimit and params.textareaDescriptionText %}
+    {{- nhsukI18nAttributes({
+      key: 'textarea-description',
+      messages: { other: params.textareaDescriptionText }
+    }) -}}
+  {% endif -%}
+
+  {{- nhsukI18nAttributes({
+    key: 'characters-under-limit',
+    messages: params.charactersUnderLimitText
+  }) -}}
+
+  {{- nhsukI18nAttributes({
+    key: 'characters-at-limit',
+    message: params.charactersAtLimitText
+  }) -}}
+
+  {{- nhsukI18nAttributes({
+    key: 'characters-over-limit',
+    messages: params.charactersOverLimitText
+  }) -}}
+
+  {{- nhsukI18nAttributes({
+    key: 'words-under-limit',
+    messages: params.wordsUnderLimitText
+  }) -}}
+
+  {{- nhsukI18nAttributes({
+    key: 'words-at-limit',
+    message: params.wordsAtLimitText
+  }) -}}
+
+  {{- nhsukI18nAttributes({
+    key: 'words-over-limit',
+    messages: params.wordsOverLimitText
   }) -}}
 {% endset -%}
 
