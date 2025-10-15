@@ -266,11 +266,11 @@ export const examples = {
         isPageHeading: true
       },
       hint: {
-        text: 'Your NHS number is a 10 digit number that you find on any letter the NHS has sent you, for example, 485 777 3456'
+        html: 'This is a 10 digit number (like <span class="nhsuk-u-nowrap">999 123 4567</span>) that you can find on an NHS letter, prescription or in the NHS App'
       },
       id: 'with-hint',
       name: 'example',
-      classes: 'nhsuk-input--width-10',
+      classes: 'nhsuk-input--width-10 nhsuk-input--code',
       inputmode: 'numeric',
       spellcheck: false
     },
@@ -288,7 +288,7 @@ export const examples = {
       },
       id: 'with-error-message',
       name: 'example',
-      classes: 'nhsuk-input--width-10',
+      classes: 'nhsuk-input--width-10 nhsuk-input--code',
       inputmode: 'numeric',
       spellcheck: false
     }
@@ -301,14 +301,14 @@ export const examples = {
         isPageHeading: true
       },
       hint: {
-        text: 'Your NHS number is a 10 digit number that you find on any letter the NHS has sent you, for example, 485 777 3456'
+        html: 'This is a 10 digit number (like <span class="nhsuk-u-nowrap">999 123 4567</span>) that you can find on an NHS letter, prescription or in the NHS App'
       },
       errorMessage: {
         text: 'Enter NHS number'
       },
       id: 'with-hint-error',
       name: 'example',
-      classes: 'nhsuk-input--width-10',
+      classes: 'nhsuk-input--width-10 nhsuk-input--code',
       inputmode: 'numeric',
       spellcheck: false
     },
@@ -396,7 +396,7 @@ export const examples = {
       },
       id: 'custom-size',
       name: 'example',
-      classes: 'nhsuk-input--width-10',
+      classes: 'nhsuk-input--width-10 nhsuk-input--code',
       inputmode: 'numeric',
       spellcheck: false
     }
@@ -410,7 +410,7 @@ export const examples = {
       },
       id: 'custom-size',
       name: 'example',
-      classes: 'nhsuk-input--width-10',
+      classes: 'nhsuk-input--width-10 nhsuk-input--code',
       inputmode: 'numeric',
       spellcheck: false
     }
@@ -424,7 +424,7 @@ export const examples = {
       },
       id: 'custom-size',
       name: 'example',
-      classes: 'nhsuk-input--width-10',
+      classes: 'nhsuk-input--width-10 nhsuk-input--code',
       inputmode: 'numeric',
       spellcheck: false
     }
@@ -438,7 +438,7 @@ export const examples = {
       },
       id: 'custom-size',
       name: 'example',
-      classes: 'nhsuk-input--width-10',
+      classes: 'nhsuk-input--width-10 nhsuk-input--code',
       inputmode: 'numeric',
       spellcheck: false
     }
@@ -450,10 +450,29 @@ export const examples = {
       },
       id: 'without-heading',
       name: 'example',
-      classes: 'nhsuk-input--width-10',
+      classes: 'nhsuk-input--width-10 nhsuk-input--code',
       inputmode: 'numeric',
       spellcheck: false
     }
+  },
+  'with code input styling': {
+    context: {
+      label: {
+        text: 'What is your NHS number?',
+        classes: 'nhsuk-label--l',
+        isPageHeading: true
+      },
+      hint: {
+        html: 'This is a 10 digit number (like <span class="nhsuk-u-nowrap">999 123 4567</span>) that you can find on an NHS letter, prescription or in the NHS App'
+      },
+      id: 'with-code-input-styling',
+      name: 'example',
+      classes: 'nhsuk-input--width-10 nhsuk-input--code',
+      value: '999 123 4567',
+      inputmode: 'numeric',
+      spellcheck: false
+    },
+    screenshot: true
   },
   'with prefix': {
     context: {
