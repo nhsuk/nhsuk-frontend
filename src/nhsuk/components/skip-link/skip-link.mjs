@@ -1,7 +1,14 @@
+/* eslint-disable es-x/no-global-this */
+
 import { normaliseOptions } from '../../common/configuration/index.mjs'
 import { setFocus } from '../../common/index.mjs'
 import { Component } from '../../component.mjs'
 import { ElementError } from '../../errors/index.mjs'
+
+const _self =
+  typeof globalThis !== 'undefined'
+    ? globalThis // Modern browsers, Node.js
+    : self // Old browsers, web workers
 
 /**
  * Skip link component
@@ -12,7 +19,7 @@ import { ElementError } from '../../errors/index.mjs'
  * @augments Component<HTMLAnchorElement>
  */
 export class SkipLink extends Component {
-  static elementType = HTMLAnchorElement
+  static elementType = _self.HTMLAnchorElement
 
   /**
    * @param {Element | null} $root - HTML element to use for component
