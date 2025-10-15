@@ -41,6 +41,12 @@ export const params = {
     description:
       'HTML attributes (for example data attributes) to add to the tag.'
   },
+  visuallyHiddenText: {
+    type: 'string',
+    required: false,
+    description:
+      'An optional visually hidden prefix used before the back link text, for example `"Back to"` used by the breadcrumbs component.'
+  },
   element: {
     type: 'string',
     required: false,
@@ -87,6 +93,13 @@ export const examples = {
     screenshot: {
       states: ['focus', 'hover', 'active'],
       selector: '.nhsuk-back-link'
+    }
+  },
+  'with visually hidden text': {
+    context: {
+      visuallyHiddenText: 'Back to',
+      text: 'Search results',
+      href: '#'
     }
   }
 }

@@ -28,7 +28,7 @@ export const params = {
     type: 'string',
     required: false,
     description:
-      "Optional prefix. This is used to prefix the `id` attribute for the task list item tag and hint, separated by `'-'`. Defaults to `'task-list'`."
+      'Optional prefix. This is used to prefix the `id` attribute for the task list item tag and hint, separated by `"-"`. Defaults to `"task-list"`.'
   },
   items: {
     type: 'array',

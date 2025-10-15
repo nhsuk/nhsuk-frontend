@@ -51,7 +51,7 @@ export const params = {
       panel: {
         type: 'object',
         required: true,
-        description: 'Content for the panel',
+        description: 'Content for the panel.',
         params: {
           text: {
             type: 'string',

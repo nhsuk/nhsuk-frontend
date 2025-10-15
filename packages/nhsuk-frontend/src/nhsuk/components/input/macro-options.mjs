@@ -503,7 +503,7 @@ export const examples = {
       classes: 'nhsuk-input--width-5'
     }
   },
-  'with prefix string': {
+  'with deprecated prefix string parameter': {
     context: {
       label: {
         text: 'Cost in pounds',
@@ -512,9 +512,6 @@ export const examples = {
       id: 'with-prefix',
       name: 'example',
       prefix: '£'
-    },
-    options: {
-      hidden: true
     }
   },
   'with suffix': {
@@ -546,7 +543,7 @@ export const examples = {
       classes: 'nhsuk-input--width-5'
     }
   },
-  'with suffix string': {
+  'with deprecated suffix string parameter': {
     context: {
       label: {
         text: 'Weight in kilograms',
@@ -556,9 +553,6 @@ export const examples = {
       name: 'example',
       suffix: 'kg',
       classes: 'nhsuk-input--width-5'
-    },
-    options: {
-      hidden: true
     }
   },
   'with prefix and suffix': {

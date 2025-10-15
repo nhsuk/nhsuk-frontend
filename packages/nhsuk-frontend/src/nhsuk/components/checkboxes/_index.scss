@@ -274,7 +274,8 @@ $nhsuk-checkboxes-check-horizontal-position: 12px;
     // is so much larger than their visible size, and so we need to provide
     // feedback to the user as to which checkbox they will select when their
     // cursor is outside of the visible area.
-    .nhsuk-checkboxes__item:hover .nhsuk-checkboxes__input:not(:disabled) + .nhsuk-checkboxes__label::before {
+    .nhsuk-checkboxes__input:not(:disabled):hover + .nhsuk-checkboxes__label::before,
+    .nhsuk-checkboxes__input:not(:disabled) + .nhsuk-checkboxes__label:hover::before {
       // Forced colours modes tend to ignore box-shadow.
       // Apply an outline for those modes to use instead.
       outline: $nhsuk-focus-width dashed transparent;
@@ -287,7 +288,8 @@ $nhsuk-checkboxes-check-horizontal-position: 12px;
     //
     // We use two box shadows, one that restores the original focus state [1]
     // and another that then applies the hover state [2].
-    .nhsuk-checkboxes__item:hover .nhsuk-checkboxes__input:focus + .nhsuk-checkboxes__label::before {
+    .nhsuk-checkboxes__input:focus:hover + .nhsuk-checkboxes__label::before,
+    .nhsuk-checkboxes__input:focus + .nhsuk-checkboxes__label:hover::before {
       // prettier-ignore
       box-shadow:
         0 0 0 $nhsuk-focus-width $nhsuk-focus-colour, // 1
@@ -306,11 +308,13 @@ $nhsuk-checkboxes-check-horizontal-position: 12px;
     // state in browsers that don't support `@media (hover)` (like Internet
     // Explorer) – so we have to 'undo' the hover state instead.
     @media (hover: none), (pointer: coarse) {
-      .nhsuk-checkboxes__item:hover .nhsuk-checkboxes__input:not(:disabled) + .nhsuk-checkboxes__label::before {
+      .nhsuk-checkboxes__input:not(:disabled):hover + .nhsuk-checkboxes__label::before,
+      .nhsuk-checkboxes__input:not(:disabled) + .nhsuk-checkboxes__label:hover::before {
         box-shadow: initial;
       }
 
-      .nhsuk-checkboxes__item:hover .nhsuk-checkboxes__input:focus + .nhsuk-checkboxes__label::before {
+      .nhsuk-checkboxes__input:focus:hover + .nhsuk-checkboxes__label::before,
+      .nhsuk-checkboxes__input:focus + .nhsuk-checkboxes__label:hover::before {
         box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-colour;
       }
     }

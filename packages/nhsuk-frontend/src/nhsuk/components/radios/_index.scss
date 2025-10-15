@@ -290,7 +290,8 @@ $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
     // is so much larger than their visible size, and so we need to provide
     // feedback to the user as to which radio they will select when their
     // cursor is outside of the visible area.
-    .nhsuk-radios__item:hover .nhsuk-radios__input:not(:disabled) + .nhsuk-radios__label::before {
+    .nhsuk-radios__input:not(:disabled):hover + .nhsuk-radios__label::before,
+    .nhsuk-radios__input:not(:disabled) + .nhsuk-radios__label:hover::before {
       // Forced colours modes tend to ignore box-shadow.
       // Apply an outline for those modes to use instead.
       outline: $nhsuk-radios-focus-width dashed transparent;
@@ -303,10 +304,11 @@ $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
     //
     // We use two box shadows, one that restores the original focus state [1]
     // and another that then applies the hover state [2].
-    .nhsuk-radios__item:hover .nhsuk-radios__input:focus + .nhsuk-radios__label::before {
+    .nhsuk-radios__input:focus:hover + .nhsuk-radios__label::before,
+    .nhsuk-radios__input:focus + .nhsuk-radios__label:hover::before {
       // prettier-ignore
       box-shadow:
-        0 0 0 $nhsuk-radios-focus-width $nhsuk-focus-colour // 1,
+        0 0 0 $nhsuk-radios-focus-width $nhsuk-focus-colour, // 1
         0 0 0 $nhsuk-hover-width $nhsuk-hover-colour; // 2
 
       // Set different HCM colour when we have both hover/focus applied at once
@@ -322,11 +324,13 @@ $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
     // state in browsers that don't support `@media (hover)` (like Internet
     // Explorer) – so we have to 'undo' the hover state instead.
     @media (hover: none), (pointer: coarse) {
-      .nhsuk-radios__item:hover .nhsuk-radios__input:not(:disabled) + .nhsuk-radios__label::before {
+      .nhsuk-radios__input:not(:disabled):hover + .nhsuk-radios__label::before,
+      .nhsuk-radios__input:not(:disabled) + .nhsuk-radios__label:hover::before {
         box-shadow: initial;
       }
 
-      .nhsuk-radios__item:hover .nhsuk-radios__input:focus + .nhsuk-radios__label::before {
+      .nhsuk-radios__input:focus:hover + .nhsuk-radios__label::before,
+      .nhsuk-radios__input:focus + .nhsuk-radios__label:hover::before {
         box-shadow: 0 0 0 $nhsuk-radios-focus-width $nhsuk-focus-colour;
       }
     }

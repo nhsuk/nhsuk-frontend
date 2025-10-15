@@ -285,7 +285,7 @@ export const examples = {
       href: '#',
       heading: 'Feature card heading',
       headingClasses: 'nhsuk-heading-m',
-      description: 'Feature card description'
+      description: 'Feature card description.'
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']

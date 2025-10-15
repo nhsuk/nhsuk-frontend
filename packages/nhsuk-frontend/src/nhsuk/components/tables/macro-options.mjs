@@ -40,7 +40,7 @@ export const params = {
         type: 'string',
         required: false,
         description:
-          "Specify format of a cell. Currently we only use `'numeric'`."
+          'Specify format of a cell. Currently we only use `"numeric"`.'
       },
       colspan: {
         type: 'integer',
@@ -75,7 +75,7 @@ export const params = {
         type: 'string',
         required: false,
         description:
-          "Specify format of a cell. Currently we only use `'numeric'`."
+          'Specify format of a cell. Currently we only use `"numeric"`.'
       },
       colspan: {
         type: 'integer',
@@ -109,7 +109,7 @@ export const params = {
     type: 'string',
     required: false,
     description:
-      "Classes for caption text size. Classes to add to the table caption, for example `'nhsuk-table__caption--l'`."
+      'Classes for caption text size. Classes to add to the table caption, for example `"nhsuk-table__caption--l"`.'
   },
   firstCellIsHeader: {
     type: 'boolean',

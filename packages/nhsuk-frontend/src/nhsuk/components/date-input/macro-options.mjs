@@ -46,7 +46,7 @@ export const params = {
         type: 'string',
         required: false,
         description:
-          "Optional value for [the inputmode attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode). Defaults to `'numeric'`."
+          'Optional value for [the inputmode attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode). Defaults to `"numeric"`.'
       },
       value: {
         type: 'string',
