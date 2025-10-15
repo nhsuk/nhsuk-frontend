@@ -1,0 +1,451 @@
+{
+  "name": "Select",
+  "component": "select",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "label": {
+          "text": "Sort by",
+          "isPageHeading": true
+        },
+        "name": "example",
+        "items": [
+          {
+            "value": "published",
+            "text": "Recently published"
+          },
+          {
+            "value": "updated",
+            "text": "Recently updated"
+          },
+          {
+            "value": "views",
+            "text": "Most views"
+          },
+          {
+            "value": "comments",
+            "text": "Most comments"
+          }
+        ]
+      },
+      "screenshot": true,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label\" for=\"example\">\n      Sort by\n    </label>\n  </h1>\n  <select class=\"nhsuk-select\" id=\"example\" name=\"example\">\n    <option value=\"published\">Recently published</option>\n    <option value=\"updated\">Recently updated</option>\n    <option value=\"views\">Most views</option>\n    <option value=\"comments\">Most comments</option>\n  </select>\n</div>"
+    },
+    {
+      "name": "with disabled item",
+      "context": {
+        "label": {
+          "text": "Sort by",
+          "isPageHeading": true
+        },
+        "id": "with-disabled-item",
+        "name": "example",
+        "items": [
+          {
+            "value": "published",
+            "text": "Recently published"
+          },
+          {
+            "value": "updated",
+            "text": "Recently updated"
+          },
+          {
+            "value": "views",
+            "text": "Most views"
+          },
+          {
+            "value": "comments",
+            "text": "Most comments",
+            "disabled": true
+          }
+        ]
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label\" for=\"with-disabled-item\">\n      Sort by\n    </label>\n  </h1>\n  <select class=\"nhsuk-select\" id=\"with-disabled-item\" name=\"example\">\n    <option value=\"published\">Recently published</option>\n    <option value=\"updated\">Recently updated</option>\n    <option value=\"views\">Most views</option>\n    <option value=\"comments\" disabled>Most comments</option>\n  </select>\n</div>"
+    },
+    {
+      "name": "with error message",
+      "context": {
+        "label": {
+          "text": "Choose location",
+          "isPageHeading": true
+        },
+        "errorMessage": {
+          "text": "Select a location"
+        },
+        "id": "with-error-message",
+        "name": "example",
+        "items": [
+          {
+            "value": "choose",
+            "text": "Choose location"
+          },
+          {
+            "value": "eastmidlands",
+            "text": "East Midlands"
+          },
+          {
+            "value": "eastofengland",
+            "text": "East of England"
+          },
+          {
+            "value": "london",
+            "text": "London"
+          },
+          {
+            "value": "northeast",
+            "text": "North East"
+          },
+          {
+            "value": "northwest",
+            "text": "North West"
+          },
+          {
+            "value": "southeast",
+            "text": "South East"
+          },
+          {
+            "value": "southwest",
+            "text": "South West"
+          },
+          {
+            "value": "westmidlands",
+            "text": "West Midlands"
+          },
+          {
+            "value": "yorkshire",
+            "text": "Yorkshire and the Humber"
+          }
+        ]
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group nhsuk-form-group--error\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label\" for=\"with-error-message\">\n      Choose location\n    </label>\n  </h1>\n  <span id=\"with-error-message-error\" class=\"nhsuk-error-message\">\n    <span class=\"nhsuk-u-visually-hidden\">Error:</span> Select a location\n  </span>\n  <select class=\"nhsuk-select nhsuk-select--error\" id=\"with-error-message\" name=\"example\" aria-describedby=\"with-error-message-error\">\n    <option value=\"choose\">Choose location</option>\n    <option value=\"eastmidlands\">East Midlands</option>\n    <option value=\"eastofengland\">East of England</option>\n    <option value=\"london\">London</option>\n    <option value=\"northeast\">North East</option>\n    <option value=\"northwest\">North West</option>\n    <option value=\"southeast\">South East</option>\n    <option value=\"southwest\">South West</option>\n    <option value=\"westmidlands\">West Midlands</option>\n    <option value=\"yorkshire\">Yorkshire and the Humber</option>\n  </select>\n</div>"
+    },
+    {
+      "name": "with hint",
+      "context": {
+        "label": {
+          "text": "Choose location",
+          "isPageHeading": true
+        },
+        "hint": {
+          "text": "This can be different to where you went before"
+        },
+        "id": "with-hint",
+        "name": "example",
+        "items": [
+          {
+            "value": "choose",
+            "text": "Choose location"
+          },
+          {
+            "value": "eastmidlands",
+            "text": "East Midlands"
+          },
+          {
+            "value": "eastofengland",
+            "text": "East of England"
+          },
+          {
+            "value": "london",
+            "text": "London"
+          },
+          {
+            "value": "northeast",
+            "text": "North East"
+          },
+          {
+            "value": "northwest",
+            "text": "North West"
+          },
+          {
+            "value": "southeast",
+            "text": "South East"
+          },
+          {
+            "value": "southwest",
+            "text": "South West"
+          },
+          {
+            "value": "westmidlands",
+            "text": "West Midlands"
+          },
+          {
+            "value": "yorkshire",
+            "text": "Yorkshire and the Humber"
+          }
+        ]
+      },
+      "screenshot": true,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label\" for=\"with-hint\">\n      Choose location\n    </label>\n  </h1>\n  <div id=\"with-hint-hint\" class=\"nhsuk-hint\">\n    This can be different to where you went before\n  </div>\n  <select class=\"nhsuk-select\" id=\"with-hint\" name=\"example\" aria-describedby=\"with-hint-hint\">\n    <option value=\"choose\">Choose location</option>\n    <option value=\"eastmidlands\">East Midlands</option>\n    <option value=\"eastofengland\">East of England</option>\n    <option value=\"london\">London</option>\n    <option value=\"northeast\">North East</option>\n    <option value=\"northwest\">North West</option>\n    <option value=\"southeast\">South East</option>\n    <option value=\"southwest\">South West</option>\n    <option value=\"westmidlands\">West Midlands</option>\n    <option value=\"yorkshire\">Yorkshire and the Humber</option>\n  </select>\n</div>"
+    },
+    {
+      "name": "with hint and error",
+      "context": {
+        "label": {
+          "text": "Choose location",
+          "isPageHeading": true
+        },
+        "hint": {
+          "text": "This can be different to where you went before"
+        },
+        "errorMessage": {
+          "text": "Select a location"
+        },
+        "id": "with-hint-error",
+        "name": "example",
+        "items": [
+          {
+            "value": "choose",
+            "text": "Choose location"
+          },
+          {
+            "value": "eastmidlands",
+            "text": "East Midlands"
+          },
+          {
+            "value": "eastofengland",
+            "text": "East of England"
+          },
+          {
+            "value": "london",
+            "text": "London"
+          },
+          {
+            "value": "northeast",
+            "text": "North East"
+          },
+          {
+            "value": "northwest",
+            "text": "North West"
+          },
+          {
+            "value": "southeast",
+            "text": "South East"
+          },
+          {
+            "value": "southwest",
+            "text": "South West"
+          },
+          {
+            "value": "westmidlands",
+            "text": "West Midlands"
+          },
+          {
+            "value": "yorkshire",
+            "text": "Yorkshire and the Humber"
+          }
+        ]
+      },
+      "screenshot": {
+        "states": [
+          "focus"
+        ],
+        "selector": "#with-hint-error"
+      },
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group nhsuk-form-group--error\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label\" for=\"with-hint-error\">\n      Choose location\n    </label>\n  </h1>\n  <div id=\"with-hint-error-hint\" class=\"nhsuk-hint\">\n    This can be different to where you went before\n  </div>\n  <span id=\"with-hint-error-error\" class=\"nhsuk-error-message\">\n    <span class=\"nhsuk-u-visually-hidden\">Error:</span> Select a location\n  </span>\n  <select class=\"nhsuk-select nhsuk-select--error\" id=\"with-hint-error\" name=\"example\" aria-describedby=\"with-hint-error-hint with-hint-error-error\">\n    <option value=\"choose\">Choose location</option>\n    <option value=\"eastmidlands\">East Midlands</option>\n    <option value=\"eastofengland\">East of England</option>\n    <option value=\"london\">London</option>\n    <option value=\"northeast\">North East</option>\n    <option value=\"northwest\">North West</option>\n    <option value=\"southeast\">South East</option>\n    <option value=\"southwest\">South West</option>\n    <option value=\"westmidlands\">West Midlands</option>\n    <option value=\"yorkshire\">Yorkshire and the Humber</option>\n  </select>\n</div>"
+    },
+    {
+      "name": "with label size S",
+      "context": {
+        "label": {
+          "text": "Sort by",
+          "classes": "nhsuk-label--s",
+          "isPageHeading": true
+        },
+        "id": "custom-size",
+        "name": "example",
+        "items": [
+          {
+            "value": "published",
+            "text": "Recently published"
+          },
+          {
+            "value": "updated",
+            "text": "Recently updated"
+          },
+          {
+            "value": "views",
+            "text": "Most views"
+          },
+          {
+            "value": "comments",
+            "text": "Most comments"
+          }
+        ]
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label nhsuk-label--s\" for=\"custom-size\">\n      Sort by\n    </label>\n  </h1>\n  <select class=\"nhsuk-select\" id=\"custom-size\" name=\"example\">\n    <option value=\"published\">Recently published</option>\n    <option value=\"updated\">Recently updated</option>\n    <option value=\"views\">Most views</option>\n    <option value=\"comments\">Most comments</option>\n  </select>\n</div>"
+    },
+    {
+      "name": "with label size M",
+      "context": {
+        "label": {
+          "text": "Sort by",
+          "classes": "nhsuk-label--m",
+          "isPageHeading": true
+        },
+        "id": "custom-size",
+        "name": "example",
+        "items": [
+          {
+            "value": "published",
+            "text": "Recently published"
+          },
+          {
+            "value": "updated",
+            "text": "Recently updated"
+          },
+          {
+            "value": "views",
+            "text": "Most views"
+          },
+          {
+            "value": "comments",
+            "text": "Most comments"
+          }
+        ]
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label nhsuk-label--m\" for=\"custom-size\">\n      Sort by\n    </label>\n  </h1>\n  <select class=\"nhsuk-select\" id=\"custom-size\" name=\"example\">\n    <option value=\"published\">Recently published</option>\n    <option value=\"updated\">Recently updated</option>\n    <option value=\"views\">Most views</option>\n    <option value=\"comments\">Most comments</option>\n  </select>\n</div>"
+    },
+    {
+      "name": "with label size L",
+      "context": {
+        "label": {
+          "text": "Sort by",
+          "classes": "nhsuk-label--l",
+          "isPageHeading": true
+        },
+        "id": "custom-size",
+        "name": "example",
+        "items": [
+          {
+            "value": "published",
+            "text": "Recently published"
+          },
+          {
+            "value": "updated",
+            "text": "Recently updated"
+          },
+          {
+            "value": "views",
+            "text": "Most views"
+          },
+          {
+            "value": "comments",
+            "text": "Most comments"
+          }
+        ]
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label nhsuk-label--l\" for=\"custom-size\">\n      Sort by\n    </label>\n  </h1>\n  <select class=\"nhsuk-select\" id=\"custom-size\" name=\"example\">\n    <option value=\"published\">Recently published</option>\n    <option value=\"updated\">Recently updated</option>\n    <option value=\"views\">Most views</option>\n    <option value=\"comments\">Most comments</option>\n  </select>\n</div>"
+    },
+    {
+      "name": "with label size XL",
+      "context": {
+        "label": {
+          "text": "Sort by",
+          "classes": "nhsuk-label--xl",
+          "isPageHeading": true
+        },
+        "id": "custom-size",
+        "name": "example",
+        "items": [
+          {
+            "value": "published",
+            "text": "Recently published"
+          },
+          {
+            "value": "updated",
+            "text": "Recently updated"
+          },
+          {
+            "value": "views",
+            "text": "Most views"
+          },
+          {
+            "value": "comments",
+            "text": "Most comments"
+          }
+        ]
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label nhsuk-label--xl\" for=\"custom-size\">\n      Sort by\n    </label>\n  </h1>\n  <select class=\"nhsuk-select\" id=\"custom-size\" name=\"example\">\n    <option value=\"published\">Recently published</option>\n    <option value=\"updated\">Recently updated</option>\n    <option value=\"views\">Most views</option>\n    <option value=\"comments\">Most comments</option>\n  </select>\n</div>"
+    },
+    {
+      "name": "without page heading",
+      "context": {
+        "label": {
+          "text": "Sort by"
+        },
+        "id": "without-heading",
+        "name": "example",
+        "items": [
+          {
+            "value": "published",
+            "text": "Recently published"
+          },
+          {
+            "value": "updated",
+            "text": "Recently updated"
+          },
+          {
+            "value": "views",
+            "text": "Most views"
+          },
+          {
+            "value": "comments",
+            "text": "Most comments"
+          }
+        ]
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"without-heading\">\n    Sort by\n  </label>\n  <select class=\"nhsuk-select\" id=\"without-heading\" name=\"example\">\n    <option value=\"published\">Recently published</option>\n    <option value=\"updated\">Recently updated</option>\n    <option value=\"views\">Most views</option>\n    <option value=\"comments\">Most comments</option>\n  </select>\n</div>"
+    },
+    {
+      "name": "with selected value",
+      "context": {
+        "label": {
+          "text": "Sort by",
+          "isPageHeading": true
+        },
+        "id": "with-value",
+        "name": "example",
+        "value": "updated",
+        "items": [
+          {
+            "value": "published",
+            "text": "Recently published"
+          },
+          {
+            "value": "updated",
+            "text": "Recently updated"
+          },
+          {
+            "value": "views",
+            "text": "Most views"
+          },
+          {
+            "value": "comments",
+            "text": "Most comments"
+          }
+        ]
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label\" for=\"with-value\">\n      Sort by\n    </label>\n  </h1>\n  <select class=\"nhsuk-select\" id=\"with-value\" name=\"example\">\n    <option value=\"published\">Recently published</option>\n    <option value=\"updated\" selected>Recently updated</option>\n    <option value=\"views\">Most views</option>\n    <option value=\"comments\">Most comments</option>\n  </select>\n</div>"
+    }
+  ]
+}

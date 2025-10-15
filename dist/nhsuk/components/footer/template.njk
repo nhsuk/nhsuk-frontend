@@ -1,0 +1,72 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+
+{% set columns = params.columns | default(4, true) -%}
+
+{% switch columns %}
+  {% case 1 %}
+    {% set width = "full" %}
+  {% case 2 %}
+    {% set width = "one-half" %}
+  {% case 3 %}
+    {% set width = "one-third" %}
+  {% default %}
+    {% set width = "one-quarter" %}
+    {% set columns = 4 %}
+{% endswitch -%}
+
+{% macro _footerList(items, modifier) %}
+<ul class="nhsuk-footer__list">
+{% for item in items %}
+  <li class="nhsuk-footer__list-item">
+    <a class="nhsuk-footer__list-item-link" href="{{ item.href }}"
+      {{- nhsukAttributes(item.attributes) }}>
+      {{- item.html | safe | trim | indent(6) if item.html else item.text -}}
+    </a>
+  </li>
+{% endfor %}
+</ul>
+{% endmacro -%}
+
+<footer {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-footer
+  {%- if params.classes %} {{ params.classes }}{% endif %}" role="contentinfo"
+  {{- nhsukAttributes(params.attributes) }}>
+  <div class="nhsuk-width-container {%- if params.containerClasses %} {{ params.containerClasses }}{% endif %}">
+{% if params.navigation %}
+  {% for row in ([params.navigation] if params.navigation is mapping else params.navigation) | batch(columns) %}
+    <div class="nhsuk-footer__navigation nhsuk-grid-row">
+    {% for navigation in row %}
+      <div class="nhsuk-grid-column-{{ navigation.width | default(width, true) }}">
+      {% if navigation.title %}
+        <h2 class="nhsuk-footer__heading nhsuk-heading-s">{{ navigation.title }}</h2>
+      {% endif %}
+      {% if navigation.html %}
+        {{ navigation.html | safe | trim | indent(8) }}
+      {% elif navigation.text %}
+        <p class="nhsuk-body-s">{{ navigation.text }}</p>
+      {% endif %}
+        {{ _footerList(navigation.items) | trim | indent(8) }}
+      </div>
+    {% endfor %}
+    </div>
+  {% endfor %}
+{% endif %}
+    <div class="nhsuk-footer__meta">
+{% if params.meta %}
+    {% if params.meta.items %}
+      <h2 class="nhsuk-u-visually-hidden">{{ params.meta.visuallyHiddenTitle | default("Support links") }}</h2>
+      {{ _footerList(params.meta.items) | indent(6) }}
+    {% endif %}
+    {% if caller or params.meta.html %}
+      {{ caller() if caller else params.meta.html | safe | trim | indent(6) }}
+    {% elif params.meta.text %}
+      <p class="nhsuk-body-s">{{ params.meta.text }}</p>
+    {% endif %}
+{% endif %}
+    {% if params.copyright.html %}
+      {{ params.copyright.html | safe | trim | indent(6) }}
+    {% else %}
+      <p class="nhsuk-body-s">{{ params.copyright.text | default("© NHS England") }}</p>
+    {% endif %}
+    </div>
+  </div>
+</footer>

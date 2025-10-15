@@ -1,0 +1,83 @@
+{
+  "name": "Tabs",
+  "component": "tabs",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "items": [
+          {
+            "label": "Past day",
+            "id": "past-day",
+            "panel": {
+              "html": "  <table class=\"nhsuk-table\">    <caption class=\"nhsuk-table__caption\">Past day</caption>    <thead class=\"nhsuk-table__head\">\n      <tr>          <th scope=\"col\" class=\"nhsuk-table__header\">Case manager</th>          <th scope=\"col\" class=\"nhsuk-table__header nhsuk-table__header--numeric\">Cases opened</th>          <th scope=\"col\" class=\"nhsuk-table__header nhsuk-table__header--numeric\">Cases closed</th>      </tr>\n    </thead>    <tbody class=\"nhsuk-table__body\">      <tr class=\"nhsuk-table__row\">            <td class=\"nhsuk-table__cell\">David Francis</td>            <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">3</td>            <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">0</td>      </tr>      <tr class=\"nhsuk-table__row\">            <td class=\"nhsuk-table__cell\">Paul Farmer</td>            <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">1</td>            <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">0</td>      </tr>      <tr class=\"nhsuk-table__row\">            <td class=\"nhsuk-table__cell\">Rita Patel</td>            <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">2</td>            <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">0</td>      </tr>    </tbody>\n  </table>"
+            }
+          },
+          {
+            "label": "Past week",
+            "id": "past-week",
+            "panel": {
+              "html": "  <table class=\"nhsuk-table\">    <caption class=\"nhsuk-table__caption\">Past week</caption>    <thead class=\"nhsuk-table__head\">\n      <tr>          <th scope=\"col\" class=\"nhsuk-table__header\">Case manager</th>          <th scope=\"col\" class=\"nhsuk-table__header nhsuk-table__header--numeric\">Cases opened</th>          <th scope=\"col\" class=\"nhsuk-table__header nhsuk-table__header--numeric\">Cases closed</th>      </tr>\n    </thead>    <tbody class=\"nhsuk-table__body\">      <tr class=\"nhsuk-table__row\">            <td class=\"nhsuk-table__cell\">David Francis</td>            <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">24</td>            <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">18</td>      </tr>      <tr class=\"nhsuk-table__row\">            <td class=\"nhsuk-table__cell\">Paul Farmer</td>            <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">16</td>            <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">20</td>      </tr>      <tr class=\"nhsuk-table__row\">            <td class=\"nhsuk-table__cell\">Rita Patel</td>            <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">24</td>            <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">27</td>      </tr>    </tbody>\n  </table>"
+            }
+          },
+          {
+            "label": "Past month",
+            "id": "past-month",
+            "panel": {
+              "html": "  <table class=\"nhsuk-table\">    <caption class=\"nhsuk-table__caption\">Past month</caption>    <thead class=\"nhsuk-table__head\">\n      <tr>          <th scope=\"col\" class=\"nhsuk-table__header\">Case manager</th>          <th scope=\"col\" class=\"nhsuk-table__header nhsuk-table__header--numeric\">Cases opened</th>          <th scope=\"col\" class=\"nhsuk-table__header nhsuk-table__header--numeric\">Cases closed</th>      </tr>\n    </thead>    <tbody class=\"nhsuk-table__body\">      <tr class=\"nhsuk-table__row\">            <td class=\"nhsuk-table__cell\">David Francis</td>            <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">98</td>            <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">95</td>      </tr>      <tr class=\"nhsuk-table__row\">            <td class=\"nhsuk-table__cell\">Paul Farmer</td>            <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">122</td>            <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">131</td>      </tr>      <tr class=\"nhsuk-table__row\">            <td class=\"nhsuk-table__cell\">Rita Patel</td>            <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">126</td>            <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">142</td>      </tr>    </tbody>\n  </table>"
+            }
+          },
+          {
+            "label": "Past year",
+            "id": "past-year",
+            "panel": {
+              "html": "  <table class=\"nhsuk-table\">    <caption class=\"nhsuk-table__caption\">Past year</caption>    <thead class=\"nhsuk-table__head\">\n      <tr>          <th scope=\"col\" class=\"nhsuk-table__header\">Case manager</th>          <th scope=\"col\" class=\"nhsuk-table__header nhsuk-table__header--numeric\">Cases opened</th>          <th scope=\"col\" class=\"nhsuk-table__header nhsuk-table__header--numeric\">Cases closed</th>      </tr>\n    </thead>    <tbody class=\"nhsuk-table__body\">      <tr class=\"nhsuk-table__row\">            <td class=\"nhsuk-table__cell\">David Francis</td>            <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">1380</td>            <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">1472</td>      </tr>      <tr class=\"nhsuk-table__row\">            <td class=\"nhsuk-table__cell\">Paul Farmer</td>            <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">1129</td>            <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">1083</td>      </tr>      <tr class=\"nhsuk-table__row\">            <td class=\"nhsuk-table__cell\">Rita Patel</td>            <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">1539</td>            <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">1265</td>      </tr>    </tbody>\n  </table>"
+            }
+          }
+        ]
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop"
+        ]
+      },
+      "options": {
+        "width": "full"
+      },
+      "html": "<div class=\"nhsuk-tabs\" data-module=\"nhsuk-tabs\">\n  <h2 class=\"nhsuk-tabs__title\">\n    Contents\n  </h2>\n  <ul class=\"nhsuk-tabs__list\">\n        <li class=\"nhsuk-tabs__list-item nhsuk-tabs__list-item--selected\">\n          <a class=\"nhsuk-tabs__tab\" href=\"#past-day\">\n            Past day\n          </a>\n        </li>\n        <li class=\"nhsuk-tabs__list-item\">\n          <a class=\"nhsuk-tabs__tab\" href=\"#past-week\">\n            Past week\n          </a>\n        </li>\n        <li class=\"nhsuk-tabs__list-item\">\n          <a class=\"nhsuk-tabs__tab\" href=\"#past-month\">\n            Past month\n          </a>\n        </li>\n        <li class=\"nhsuk-tabs__list-item\">\n          <a class=\"nhsuk-tabs__tab\" href=\"#past-year\">\n            Past year\n          </a>\n        </li>\n  </ul>\n      <div class=\"nhsuk-tabs__panel\" id=\"past-day\">\n          <table class=\"nhsuk-table\">    <caption class=\"nhsuk-table__caption\">Past day</caption>    <thead class=\"nhsuk-table__head\">\n      <tr>          <th scope=\"col\" class=\"nhsuk-table__header\">Case manager</th>          <th scope=\"col\" class=\"nhsuk-table__header nhsuk-table__header--numeric\">Cases opened</th>          <th scope=\"col\" class=\"nhsuk-table__header nhsuk-table__header--numeric\">Cases closed</th>      </tr>\n    </thead>    <tbody class=\"nhsuk-table__body\">      <tr class=\"nhsuk-table__row\">            <td class=\"nhsuk-table__cell\">David Francis</td>            <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">3</td>            <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">0</td>      </tr>      <tr class=\"nhsuk-table__row\">            <td class=\"nhsuk-table__cell\">Paul Farmer</td>            <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">1</td>            <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">0</td>      </tr>      <tr class=\"nhsuk-table__row\">            <td class=\"nhsuk-table__cell\">Rita Patel</td>            <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">2</td>            <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">0</td>      </tr>    </tbody>\n  </table>\n      </div>\n      <div class=\"nhsuk-tabs__panel nhsuk-tabs__panel--hidden\" id=\"past-week\">\n          <table class=\"nhsuk-table\">    <caption class=\"nhsuk-table__caption\">Past week</caption>    <thead class=\"nhsuk-table__head\">\n      <tr>          <th scope=\"col\" class=\"nhsuk-table__header\">Case manager</th>          <th scope=\"col\" class=\"nhsuk-table__header nhsuk-table__header--numeric\">Cases opened</th>          <th scope=\"col\" class=\"nhsuk-table__header nhsuk-table__header--numeric\">Cases closed</th>      </tr>\n    </thead>    <tbody class=\"nhsuk-table__body\">      <tr class=\"nhsuk-table__row\">            <td class=\"nhsuk-table__cell\">David Francis</td>            <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">24</td>            <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">18</td>      </tr>      <tr class=\"nhsuk-table__row\">            <td class=\"nhsuk-table__cell\">Paul Farmer</td>            <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">16</td>            <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">20</td>      </tr>      <tr class=\"nhsuk-table__row\">            <td class=\"nhsuk-table__cell\">Rita Patel</td>            <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">24</td>            <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">27</td>      </tr>    </tbody>\n  </table>\n      </div>\n      <div class=\"nhsuk-tabs__panel nhsuk-tabs__panel--hidden\" id=\"past-month\">\n          <table class=\"nhsuk-table\">    <caption class=\"nhsuk-table__caption\">Past month</caption>    <thead class=\"nhsuk-table__head\">\n      <tr>          <th scope=\"col\" class=\"nhsuk-table__header\">Case manager</th>          <th scope=\"col\" class=\"nhsuk-table__header nhsuk-table__header--numeric\">Cases opened</th>          <th scope=\"col\" class=\"nhsuk-table__header nhsuk-table__header--numeric\">Cases closed</th>      </tr>\n    </thead>    <tbody class=\"nhsuk-table__body\">      <tr class=\"nhsuk-table__row\">            <td class=\"nhsuk-table__cell\">David Francis</td>            <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">98</td>            <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">95</td>      </tr>      <tr class=\"nhsuk-table__row\">            <td class=\"nhsuk-table__cell\">Paul Farmer</td>            <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">122</td>            <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">131</td>      </tr>      <tr class=\"nhsuk-table__row\">            <td class=\"nhsuk-table__cell\">Rita Patel</td>            <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">126</td>            <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">142</td>      </tr>    </tbody>\n  </table>\n      </div>\n      <div class=\"nhsuk-tabs__panel nhsuk-tabs__panel--hidden\" id=\"past-year\">\n          <table class=\"nhsuk-table\">    <caption class=\"nhsuk-table__caption\">Past year</caption>    <thead class=\"nhsuk-table__head\">\n      <tr>          <th scope=\"col\" class=\"nhsuk-table__header\">Case manager</th>          <th scope=\"col\" class=\"nhsuk-table__header nhsuk-table__header--numeric\">Cases opened</th>          <th scope=\"col\" class=\"nhsuk-table__header nhsuk-table__header--numeric\">Cases closed</th>      </tr>\n    </thead>    <tbody class=\"nhsuk-table__body\">      <tr class=\"nhsuk-table__row\">            <td class=\"nhsuk-table__cell\">David Francis</td>            <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">1380</td>            <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">1472</td>      </tr>      <tr class=\"nhsuk-table__row\">            <td class=\"nhsuk-table__cell\">Paul Farmer</td>            <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">1129</td>            <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">1083</td>      </tr>      <tr class=\"nhsuk-table__row\">            <td class=\"nhsuk-table__cell\">Rita Patel</td>            <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">1539</td>            <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">1265</td>      </tr>    </tbody>\n  </table>\n      </div>\n</div>"
+    },
+    {
+      "name": "with anchor in panel",
+      "context": {
+        "items": [
+          {
+            "label": "Tab 1",
+            "id": "tab-1",
+            "panel": {
+              "html": "<h2>Tab 1 content</h2>\n<p>Testing that when you <a href=\"#anchor\">click the link</a> it moves focus.</p>\n<ul>\n  <li><a href=\"#tab-1\" id=\"anchor\">Tab panel 1</a></li>\n  <li><a href=\"#tab-2\">Tab panel 2</a></li>\n  <li><a href=\"#tab-3\">Tab panel 3</a></li>\n</ul>"
+            }
+          },
+          {
+            "label": "Tab 2",
+            "id": "tab-2",
+            "panel": {
+              "html": "<h2>Tab 2 content</h2>\n<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>"
+            }
+          },
+          {
+            "label": "Tab 3",
+            "id": "tab-3",
+            "panel": {
+              "html": "<h2>Tab 3 content</h2>\n<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>"
+            }
+          }
+        ]
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-tabs\" data-module=\"nhsuk-tabs\">\n  <h2 class=\"nhsuk-tabs__title\">\n    Contents\n  </h2>\n  <ul class=\"nhsuk-tabs__list\">\n        <li class=\"nhsuk-tabs__list-item nhsuk-tabs__list-item--selected\">\n          <a class=\"nhsuk-tabs__tab\" href=\"#tab-1\">\n            Tab 1\n          </a>\n        </li>\n        <li class=\"nhsuk-tabs__list-item\">\n          <a class=\"nhsuk-tabs__tab\" href=\"#tab-2\">\n            Tab 2\n          </a>\n        </li>\n        <li class=\"nhsuk-tabs__list-item\">\n          <a class=\"nhsuk-tabs__tab\" href=\"#tab-3\">\n            Tab 3\n          </a>\n        </li>\n  </ul>\n      <div class=\"nhsuk-tabs__panel\" id=\"tab-1\">\n        <h2>Tab 1 content</h2>\n<p>Testing that when you <a href=\"#anchor\">click the link</a> it moves focus.</p>\n<ul>\n  <li><a href=\"#tab-1\" id=\"anchor\">Tab panel 1</a></li>\n  <li><a href=\"#tab-2\">Tab panel 2</a></li>\n  <li><a href=\"#tab-3\">Tab panel 3</a></li>\n</ul>\n      </div>\n      <div class=\"nhsuk-tabs__panel nhsuk-tabs__panel--hidden\" id=\"tab-2\">\n        <h2>Tab 2 content</h2>\n<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>\n      </div>\n      <div class=\"nhsuk-tabs__panel nhsuk-tabs__panel--hidden\" id=\"tab-3\">\n        <h2>Tab 3 content</h2>\n<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>\n      </div>\n</div>"
+    }
+  ]
+}

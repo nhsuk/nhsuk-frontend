@@ -1,0 +1,65 @@
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+@use "../../core/helpers" as *;
+
+////
+/// Panel component
+///
+/// 1. Adds a transparent border for high contrast modes
+/// 2. This subtracts the transparent border width from the padding (because the border
+///    visually adds to the total padding)
+/// 3. This is an if-all-else-fails attempt to stop long words from overflowing the container
+///    on very narrow viewports by forcing them to break and wrap instead. This
+///    overflowing is more likely to happen when user increases text size on a mobile eg. using
+///    iOS Safari text resize controls.
+
+///    The overflowing is a particular problem with the panel component since it uses white
+///    text: when the text overflows the container, it is invisible on the white (page)
+///    background. When the text in our other components overflow, the user might have to scroll
+///    horizontally to view it but the text remains legible.
+///
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+///
+/// @group components/panel
+////
+
+$nhsuk-panel-border-width: nhsuk-spacing(1);
+
+// @deprecated To be removed in v11.0
+$nhsuk-border-width-panel: $nhsuk-panel-border-width;
+
+@include nhsuk-exports("nhsuk/components/panel") {
+  .nhsuk-panel {
+    box-sizing: border-box;
+    padding: nhsuk-spacing(5) - $nhsuk-panel-border-width; /* [2] */
+    border: $nhsuk-panel-border-width solid transparent; /* [1] */
+    color: $nhsuk-reverse-text-colour;
+    background: $nhsuk-success-colour;
+
+    @include nhsuk-font-size(26);
+    @include nhsuk-responsive-margin(4, "bottom");
+
+    @include nhsuk-media-query($until: tablet) {
+      padding: nhsuk-spacing(4) - $nhsuk-panel-border-width; /* [2] */
+      @include nhsuk-text-break-word; /* [3] */
+    }
+
+    @include nhsuk-print-colour {
+      border-color: currentcolor;
+      background: none;
+    }
+  }
+
+  .nhsuk-panel__title {
+    margin-top: 0;
+
+    @include nhsuk-font-size(48);
+    @include nhsuk-responsive-margin(5, "bottom");
+  }
+
+  .nhsuk-panel__title:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/*# sourceMappingURL=_index.scss.map */

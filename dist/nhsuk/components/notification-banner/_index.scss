@@ -1,0 +1,99 @@
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+@use "../../core/helpers" as *;
+
+////
+/// Notification banner component
+///
+/// @group components/notification-banner
+////
+
+@include nhsuk-exports("nhsuk/components/notification-banner") {
+  .nhsuk-notification-banner {
+    border: $nhsuk-border-width solid $nhsuk-brand-colour;
+
+    @include nhsuk-font($size: 19);
+    @include nhsuk-responsive-margin(8, "bottom");
+
+    &:focus {
+      outline: $nhsuk-focus-width solid $nhsuk-focus-colour;
+    }
+  }
+
+  .nhsuk-notification-banner__header {
+    padding: 2px nhsuk-spacing(3) nhsuk-spacing(1);
+
+    // Ensures the notification header appears separate to the notification body
+    // text in high contrast mode
+    border-bottom: 1px solid transparent;
+    background-color: $nhsuk-brand-colour;
+
+    @include nhsuk-media-query($from: tablet) {
+      padding: 2px nhsuk-spacing(4) nhsuk-spacing(1);
+    }
+  }
+
+  .nhsuk-notification-banner__title {
+    margin: 0;
+    padding: 0;
+    color: $nhsuk-reverse-text-colour;
+
+    // Set the size again because this element is a heading and the user agent
+    // font size overrides the inherited font size
+    @include nhsuk-font($size: 19, $weight: bold);
+  }
+
+  .nhsuk-notification-banner__content {
+    $padding-tablet: nhsuk-spacing(4);
+    padding: nhsuk-spacing(3);
+
+    @include nhsuk-text-colour;
+    @include nhsuk-media-query($from: tablet) {
+      padding: $padding-tablet;
+    }
+
+    // Wrap content at the same place that a 2/3 grid column ends, to maintain
+    // shorter line-lengths when the notification banner is full width
+    > * {
+      // When elements have their own padding (like lists), include the padding
+      // in the max-width calculation
+      box-sizing: border-box;
+
+      // Calculate the internal width of a two-thirds column...
+      $two-col-width: calc($nhsuk-page-width * 2 / 3) - calc($nhsuk-gutter * 1 / 3);
+
+      // ...and then factor in the left border and padding
+      $banner-exterior: ($padding-tablet + $nhsuk-border-width);
+      max-width: $two-col-width - $banner-exterior;
+    }
+
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .nhsuk-notification-banner__heading {
+    margin: 0 0 nhsuk-spacing(3);
+    padding: 0;
+
+    @include nhsuk-font($size: 26, $weight: bold);
+  }
+
+  .nhsuk-notification-banner__link {
+    @include nhsuk-link-style-no-visited-state;
+  }
+
+  .nhsuk-notification-banner--success {
+    border-color: $nhsuk-success-colour;
+
+    .nhsuk-notification-banner__header {
+      background-color: $nhsuk-success-colour;
+    }
+
+    .nhsuk-notification-banner__link {
+      @include nhsuk-link-style-success;
+    }
+  }
+}
+
+/*# sourceMappingURL=_index.scss.map */

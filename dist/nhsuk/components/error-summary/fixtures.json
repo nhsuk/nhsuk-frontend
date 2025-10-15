@@ -1,0 +1,73 @@
+{
+  "name": "Error summary",
+  "component": "error-summary",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "titleText": "There is a problem",
+        "descriptionText": "Describe the errors and how to correct them",
+        "errorList": [
+          {
+            "text": "Date of birth must be in the past",
+            "href": "#example-day"
+          }
+        ]
+      },
+      "screenshot": true,
+      "options": {},
+      "html": "<div class=\"nhsuk-error-summary\" data-module=\"nhsuk-error-summary\">\n  <div role=\"alert\">\n    <h2 class=\"nhsuk-error-summary__title\">\n      There is a problem\n    </h2>\n    <div class=\"nhsuk-error-summary__body\">\n      <p>\n        Describe the errors and how to correct them\n      </p>\n        <ul class=\"nhsuk-list nhsuk-error-summary__list\">\n          <li>\n            <a href=\"#example-day\">Date of birth must be in the past</a>\n          </li>\n        </ul>\n    </div>\n  </div>\n</div>"
+    },
+    {
+      "name": "auto-focus disabled",
+      "context": {
+        "titleText": "There is a problem",
+        "errorList": [
+          {
+            "text": "Date of birth must be in the past",
+            "href": "#example-day"
+          }
+        ],
+        "disableAutoFocus": true
+      },
+      "screenshot": false,
+      "options": {
+        "hidden": true
+      },
+      "html": "<div class=\"nhsuk-error-summary\" data-disable-auto-focus=\"true\" data-module=\"nhsuk-error-summary\">\n  <div role=\"alert\">\n    <h2 class=\"nhsuk-error-summary__title\">\n      There is a problem\n    </h2>\n    <div class=\"nhsuk-error-summary__body\">\n        <ul class=\"nhsuk-list nhsuk-error-summary__list\">\n          <li>\n            <a href=\"#example-day\">Date of birth must be in the past</a>\n          </li>\n        </ul>\n    </div>\n  </div>\n</div>"
+    },
+    {
+      "name": "auto-focus explicitly enabled",
+      "context": {
+        "titleText": "There is a problem",
+        "errorList": [
+          {
+            "text": "Date of birth must be in the past",
+            "href": "#example-day"
+          }
+        ],
+        "disableAutoFocus": false
+      },
+      "screenshot": false,
+      "options": {
+        "hidden": true
+      },
+      "html": "<div class=\"nhsuk-error-summary\" data-disable-auto-focus=\"false\" data-module=\"nhsuk-error-summary\">\n  <div role=\"alert\">\n    <h2 class=\"nhsuk-error-summary__title\">\n      There is a problem\n    </h2>\n    <div class=\"nhsuk-error-summary__body\">\n        <ul class=\"nhsuk-list nhsuk-error-summary__list\">\n          <li>\n            <a href=\"#example-day\">Date of birth must be in the past</a>\n          </li>\n        </ul>\n    </div>\n  </div>\n</div>"
+    },
+    {
+      "name": "without description",
+      "context": {
+        "titleText": "There is a problem",
+        "errorList": [
+          {
+            "text": "Date of birth must be in the past",
+            "href": "#example-day"
+          }
+        ]
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-error-summary\" data-module=\"nhsuk-error-summary\">\n  <div role=\"alert\">\n    <h2 class=\"nhsuk-error-summary__title\">\n      There is a problem\n    </h2>\n    <div class=\"nhsuk-error-summary__body\">\n        <ul class=\"nhsuk-list nhsuk-error-summary__list\">\n          <li>\n            <a href=\"#example-day\">Date of birth must be in the past</a>\n          </li>\n        </ul>\n    </div>\n  </div>\n</div>"
+    }
+  ]
+}

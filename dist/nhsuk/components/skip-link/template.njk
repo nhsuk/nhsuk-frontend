@@ -1,0 +1,7 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+
+<a {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-skip-link
+{%- if params.classes %} {{ params.classes }}{% endif %}" href="
+{%- if params.href %}{{ params.href }}{% else %}#maincontent{% endif %}"
+{{- nhsukAttributes(params.attributes) }} data-module="nhsuk-skip-link">
+{%- if params.text %}{{ params.text }}{% else %}Skip to main content{% endif %}</a>

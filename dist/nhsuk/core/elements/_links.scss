@@ -1,0 +1,43 @@
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+
+////
+/// Links
+///
+/// Our basic `<a>` elements only need very minimal styling.
+/// Anything more opinionated (e.g. buttons, calls-to-action, etc.) will need a
+/// class defining in the Components layer.
+///
+/// 1. Outputs full link URL for print.
+/// 2. Point unit used for print.
+///
+/// @group elements
+////
+
+a {
+  @include nhsuk-link-style-default;
+
+  @include nhsuk-media-query($media-type: print) {
+    &::after {
+      content: " (Link: " attr(href) ")"; // [1]
+      color: $nhsuk-text-colour;
+      font-size: inherit; // [2]
+    }
+  }
+}
+
+.nhsuk-link--no-visited-state {
+  @include nhsuk-link-style-no-visited-state;
+}
+
+.nhsuk-link--reverse {
+  @include nhsuk-link-style-white;
+
+  @include nhsuk-media-query($media-type: print) {
+    &::after {
+      color: currentcolor;
+    }
+  }
+}
+
+/*# sourceMappingURL=_links.scss.map */

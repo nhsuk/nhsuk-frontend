@@ -1,0 +1,340 @@
+@use "sass:math";
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+@forward "../error-message";
+@forward "../fieldset";
+@forward "../hint";
+@forward "../label";
+
+////
+/// Radios component
+///
+/// @group components/radios
+////
+
+$nhsuk-radios-size: nhsuk-spacing(6);
+$nhsuk-radios-small-size: nhsuk-spacing(4);
+
+$nhsuk-radios-label-padding-left-right: 12px;
+
+// When the default focus width is used on a curved edge it looks visually
+// smaller. So for the circular radios we bump the default to make it look
+// visually consistent.
+$nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
+
+@include nhsuk-exports("nhsuk/components/radios") {
+  $nhsuk-touch-target-gutter: 4px;
+  $nhsuk-touch-target-size: $nhsuk-radios-size + $nhsuk-touch-target-gutter;
+
+  .nhsuk-radios__item {
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    margin-bottom: nhsuk-spacing(2);
+  }
+
+  .nhsuk-radios__item:last-child,
+  .nhsuk-radios__item:last-of-type {
+    margin-bottom: 0;
+  }
+
+  .nhsuk-radios__input {
+    // Allow the input to sit above the label, enabling its proper detection
+    // when exploring by touch or using automation tools like Selenium
+    z-index: 1;
+
+    width: $nhsuk-touch-target-size;
+    height: $nhsuk-touch-target-size;
+    margin: 0;
+
+    opacity: 0;
+
+    cursor: pointer;
+  }
+
+  .nhsuk-radios__label {
+    align-self: center;
+
+    // Ensure that the width of the label is never more than the width of the
+    // container minus the input. This prevents the label from wrapping due to
+    // __item using flex-wrap because we want hints on a separate line
+    max-width: calc(100% - $nhsuk-touch-target-size);
+    margin-bottom: 0;
+    padding: (nhsuk-spacing(1) + $nhsuk-border-width-form-element) $nhsuk-radios-label-padding-left-right;
+
+    cursor: pointer;
+    // remove 300ms pause on mobile
+    touch-action: manipulation;
+  }
+
+  // ( ) Radio ring
+  .nhsuk-radios__label::before {
+    content: "";
+
+    box-sizing: border-box;
+
+    position: absolute;
+    top: math.div($nhsuk-touch-target-gutter, 2);
+    left: math.div($nhsuk-touch-target-gutter, 2);
+
+    width: $nhsuk-radios-size;
+    height: $nhsuk-radios-size;
+
+    border: $nhsuk-border-width-form-element solid $nhsuk-input-border-colour;
+    border-radius: 50%;
+
+    background: $nhsuk-input-background-colour;
+  }
+
+  //  •  Radio button
+  //
+  // We create the 'button' entirely out of 'border' so that they remain
+  // 'filled' even when colours are overridden in the browser.
+  .nhsuk-radios__label::after {
+    $radio-button-size: 10px;
+
+    content: "";
+
+    position: absolute;
+
+    // Positioned by getting half the touch target, so we have the centre of the
+    // input, and then moving back by the button's border width, thus positioning
+    // the centre of the button in the centre of the input.
+    top: math.div($nhsuk-touch-target-size, 2) - $radio-button-size;
+    left: math.div($nhsuk-touch-target-size, 2) - $radio-button-size;
+
+    width: 0;
+    height: 0;
+
+    border: $radio-button-size solid currentcolor;
+    border-radius: 50%;
+
+    opacity: 0;
+
+    background: currentcolor;
+  }
+
+  .nhsuk-radios__hint {
+    display: block;
+    width: 100%;
+    margin-top: nhsuk-spacing(-1);
+    padding-right: $nhsuk-radios-label-padding-left-right;
+    padding-left: ($nhsuk-radios-label-padding-left-right + $nhsuk-touch-target-size);
+  }
+
+  // This is to bypass nhsuk-hint's specificity on hints following labels having
+  // a margin bottom of 8px (nhsuk-spacing(2)). Because radios are flexbox,
+  // the margin doesn't collapse so we have to do this manually.
+  .nhsuk-label:not(.nhsuk-label--m):not(.nhsuk-label--l):not(.nhsuk-label--xl) + .nhsuk-radios__hint {
+    margin-bottom: 0;
+  }
+
+  // Focused state
+  .nhsuk-radios__input:focus + .nhsuk-radios__label::before {
+    @include nhsuk-focused-radio($nhsuk-radios-focus-width);
+  }
+
+  // Selected state
+  .nhsuk-radios__input:checked + .nhsuk-radios__label::after {
+    opacity: 1;
+  }
+
+  // Disabled state
+  .nhsuk-radios__input:disabled,
+  .nhsuk-radios__input:disabled + .nhsuk-radios__label {
+    cursor: not-allowed;
+  }
+
+  .nhsuk-radios__input:disabled + .nhsuk-radios__label,
+  .nhsuk-radios__input:disabled ~ .nhsuk-hint {
+    opacity: 0.5;
+  }
+
+  // =========================================================
+  // Inline radios
+  // =========================================================
+
+  .nhsuk-radios--inline {
+    @include nhsuk-media-query($from: tablet) {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+
+      .nhsuk-radios__item {
+        margin-right: nhsuk-spacing(4);
+      }
+    }
+  }
+
+  // =========================================================
+  // Dividers ('or')
+  // =========================================================
+
+  .nhsuk-radios__divider {
+    $nhsuk-divider-size: $nhsuk-radios-size !default;
+    width: $nhsuk-divider-size;
+    margin-bottom: nhsuk-spacing(2);
+    text-align: center;
+    @include nhsuk-text-colour;
+    @include nhsuk-font($size: 19);
+  }
+
+  // =========================================================
+  // Conditional reveals
+  // =========================================================
+
+  // Calculate the amount of padding needed to keep the border centered against
+  // the radios.
+  $conditional-border-padding: math.div($nhsuk-touch-target-size, 2) - math.div($nhsuk-border-width, 2);
+  // Move the border centered with the radios
+  $conditional-margin-left: $conditional-border-padding;
+  // Move the contents of the conditional inline with the label
+  $conditional-padding-left: $conditional-border-padding + $nhsuk-radios-label-padding-left-right;
+
+  .nhsuk-radios__conditional {
+    margin-left: $conditional-margin-left;
+    padding-left: $conditional-padding-left;
+    border-left: $nhsuk-border-width solid $nhsuk-input-border-colour;
+    @include nhsuk-responsive-margin(4, "bottom");
+
+    .nhsuk-frontend-supported &--hidden {
+      display: none;
+    }
+
+    & > :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // =========================================================
+  // Small checkboxes
+  // =========================================================
+
+  .nhsuk-radios--small {
+    $input-offset: math.div($nhsuk-touch-target-size - $nhsuk-radios-small-size, 2);
+
+    .nhsuk-radios__item {
+      margin-bottom: 0;
+    }
+
+    // Shift the touch target into the left margin so that the visible edge of
+    // the control is aligned
+    //
+    //   ┆Which colour is your favourite?
+    //  ┌┆───┐
+    //  │┆() │ Purple
+    //  └┆▲──┘
+    //  ▲┆└─ Radio pseudo element, aligned with margin
+    //  └─── Touch target (invisible input), shifted into the margin
+    .nhsuk-radios__input {
+      margin-left: $input-offset * -1;
+    }
+
+    .nhsuk-radios__label {
+      // Create a tiny space between the small radio hover state so that it
+      // doesn't clash with the label
+      padding-left: 1px;
+    }
+
+    // ( ) Radio ring
+    //
+    // Reduce the size of the control [1], vertically centering it within the
+    // touch target [2]
+    // Left here is 0 because we've shifted the input into the left margin
+    .nhsuk-radios__label::before {
+      top: $input-offset; // 2
+      left: 0;
+      width: $nhsuk-radios-small-size; // 1
+      height: $nhsuk-radios-small-size; // 1
+    }
+
+    //  •  Radio button
+    //
+    // Reduce the size of the 'button' and center it within the ring
+    .nhsuk-radios__label::after {
+      $radio-button-size: 5px;
+
+      // The same calculation as normal radio buttons but reduce the border width
+      top: math.div($nhsuk-touch-target-size, 2) - $radio-button-size;
+      left: (math.div($nhsuk-touch-target-size, 2) - $radio-button-size) - $input-offset;
+      border-width: $radio-button-size;
+    }
+
+    // Fix position of hint with small radios
+    //
+    // Do not use hints with small radios – because they're within the input
+    // wrapper they trigger the hover state, but clicking them doesn't actually
+    // activate the control.
+    //
+    // (If you do use them, they won't look completely broken... but seriously,
+    // don't use them)
+    .nhsuk-radios__hint {
+      padding-left: ($nhsuk-radios-small-size + $input-offset);
+    }
+
+    // Align conditional reveals with small radios
+    .nhsuk-radios__conditional {
+      $margin-left: math.div($nhsuk-radios-small-size, 2) - math.div($nhsuk-border-width, 2);
+      margin-left: $margin-left;
+      padding-left: ($nhsuk-touch-target-size - $input-offset) - ($margin-left + $nhsuk-border-width);
+    }
+
+    .nhsuk-radios__divider {
+      width: $nhsuk-radios-small-size;
+      margin-bottom: nhsuk-spacing(1);
+    }
+
+    // Hover state for small radios.
+    //
+    // We use a hover state for small radios because the touch target size
+    // is so much larger than their visible size, and so we need to provide
+    // feedback to the user as to which radio they will select when their
+    // cursor is outside of the visible area.
+    .nhsuk-radios__input:not(:disabled):hover + .nhsuk-radios__label::before,
+    .nhsuk-radios__input:not(:disabled) + .nhsuk-radios__label:hover::before {
+      // Forced colours modes tend to ignore box-shadow.
+      // Apply an outline for those modes to use instead.
+      outline: $nhsuk-radios-focus-width dashed transparent;
+      outline-offset: 1px;
+      box-shadow: 0 0 0 $nhsuk-hover-width $nhsuk-hover-colour;
+    }
+
+    // Because we've overridden the border-shadow provided by the focus state,
+    // we need to redefine that too.
+    //
+    // We use two box shadows, one that restores the original focus state [1]
+    // and another that then applies the hover state [2].
+    .nhsuk-radios__input:focus:hover + .nhsuk-radios__label::before,
+    .nhsuk-radios__input:focus + .nhsuk-radios__label:hover::before {
+      // prettier-ignore
+      box-shadow:
+        0 0 0 $nhsuk-radios-focus-width $nhsuk-focus-colour, // 1
+        0 0 0 $nhsuk-hover-width $nhsuk-hover-colour; // 2
+
+      // Set different HCM colour when we have both hover/focus applied at once
+      @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+        outline-color: Highlight;
+      }
+    }
+
+    // For devices that explicitly don't support hover, don't provide a hover
+    // state (e.g. on touch devices like iOS).
+    //
+    // We can't use `@media (hover: hover)` because we wouldn't get the hover
+    // state in browsers that don't support `@media (hover)` (like Internet
+    // Explorer) – so we have to 'undo' the hover state instead.
+    @media (hover: none), (pointer: coarse) {
+      .nhsuk-radios__input:not(:disabled):hover + .nhsuk-radios__label::before,
+      .nhsuk-radios__input:not(:disabled) + .nhsuk-radios__label:hover::before {
+        box-shadow: initial;
+      }
+
+      .nhsuk-radios__input:focus:hover + .nhsuk-radios__label::before,
+      .nhsuk-radios__input:focus + .nhsuk-radios__label:hover::before {
+        box-shadow: 0 0 0 $nhsuk-radios-focus-width $nhsuk-focus-colour;
+      }
+    }
+  }
+}
+
+/*# sourceMappingURL=_index.scss.map */

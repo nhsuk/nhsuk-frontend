@@ -1,0 +1,18 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+
+<details {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-details
+{%- if params.classes %} {{ params.classes }}{% endif %}"
+{{- nhsukAttributes(params.attributes) }} {{- " open" if params.open }}>
+  <summary class="nhsuk-details__summary">
+    <span class="nhsuk-details__summary-text">
+      {{ params.summaryHtml | safe | trim | indent(6) if params.summaryHtml else params.summaryText }}
+    </span>
+  </summary>
+  <div class="nhsuk-details__text">
+    {% if caller or params.html -%}
+      {{ caller() if caller else params.html | safe | trim | indent(4) }}
+    {% elif params.text -%}
+      {{ params.text }}
+    {% endif %}
+  </div>
+</details>
