@@ -199,7 +199,8 @@ This change was introduced in [pull request #1620: Make all Nunjucks components 
 - [#1594: Always set input `:focus` box-shadow colour](https://github.com/nhsuk/nhsuk-frontend/pull/1594)
 - [#1599: Make border colour on `nhsuk-panel` mixin optional](https://github.com/nhsuk/nhsuk-frontend/pull/1599)
 - [#1601: Fix accessible name for linked logo in header component](https://github.com/nhsuk/nhsuk-frontend/pull/1601)
-- [#1612: Fix styling of action link when used in emergency cards ](https://github.com/nhsuk/nhsuk-frontend/pull/1612)
+- [#1612: Fix styling of action link when used in emergency cards](https://github.com/nhsuk/nhsuk-frontend/pull/1612)
+- [#1628: Fix Node.js `ReferenceError: HTMLElement is not defined` when imported server-side](https://github.com/nhsuk/nhsuk-frontend/pull/1628)
 
 ## 10.0.0 - 26 August 2025
 
