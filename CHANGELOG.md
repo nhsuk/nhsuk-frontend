@@ -97,8 +97,12 @@ You can use it like this:
 
 ```njk
 pagination({
-  previousUrl: "#",
-  nextUrl: "#",
+  previous: {
+    href: "#"
+  },  
+  next: {
+    href: "#"
+  },
   items: [
     {
       number: 1,
