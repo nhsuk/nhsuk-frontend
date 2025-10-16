@@ -87,9 +87,23 @@ $nhsuk-focus-width: 4px !default;
 
 $nhsuk-hover-width: 10px !default;
 
+/// Button border radius
+///
+/// @type Number
+
+$nhsuk-button-border-radius: 4px !default;
+
+/// Button shadow size
+///
+/// @type Number
+
+$nhsuk-button-shadow-size: 2px !default;
+
 /// Globals (deprecated)
 ///
 
 // @deprecated To be removed in v11.0
 $nhsuk-border-width-form-element-error: $nhsuk-border-width-form-element;
 $nhsuk-border-width-mobile: $nhsuk-border-width;
+$button-border-radius: $nhsuk-button-border-radius;
+$button-shadow-size: $nhsuk-button-shadow-size;
