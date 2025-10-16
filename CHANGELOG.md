@@ -99,7 +99,7 @@ You can use it like this:
 pagination({
   previous: {
     href: "#"
-  },  
+  },
   next: {
     href: "#"
   },
