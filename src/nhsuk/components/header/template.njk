@@ -56,7 +56,7 @@
         logoAlt,
         params.organisation.name,
         params.organisation.split,
-        params.service.text if combineLogoAndServiceNameLinks,
+        params.service.text if combineLogoAndServiceNameLinks else undefined,
         'homepage'
       ] | select('string') | join(' ') %}
       <a class="nhsuk-header__service-logo" href="{{ logoHref }}" aria-label="{{ logoAriaLabel }}">
