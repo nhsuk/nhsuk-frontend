@@ -28,8 +28,8 @@
     {% set itemHintId = itemId + '-item-hint' %}
     <div class="nhsuk-radios__item">
       <input class="nhsuk-radios__input" id="{{ itemId }}" name="{{ params.name }}" type="radio" value="{{ item.value }}"
-        {{-" checked" if isChecked }}
-        {{-" disabled" if item.disabled }}
+        {{- " checked" if isChecked }}
+        {{- " disabled" if item.disabled }}
         {%- if item.conditional.html %} aria-controls="{{ conditionalId }}"{% endif -%}
         {%- if hasHint %} aria-describedby="{{ itemHintId }}"{% endif -%}
         {{- nhsukAttributes(item.attributes) }}>

@@ -34,8 +34,8 @@
     {% set itemDescribedBy = (itemDescribedBy + " " + itemHintId) | trim %}
     <div class="nhsuk-checkboxes__item">
       <input class="nhsuk-checkboxes__input" id="{{ itemId }}" name="{{ itemName }}" type="checkbox" value="{{ item.value }}"
-        {{-" checked" if isChecked }}
-        {{-" disabled" if item.disabled }}
+        {{- " checked" if isChecked }}
+        {{- " disabled" if item.disabled }}
         {%- if item.exclusive %} data-checkbox-exclusive{% endif -%}
         {%- if item.exclusiveGroup %} data-checkbox-exclusive-group="{{ item.exclusiveGroup }}"{% endif -%}
         {%- if item.conditional.html %} aria-controls="{{ conditionalId }}"{% endif -%}
