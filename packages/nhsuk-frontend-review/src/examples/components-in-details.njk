@@ -88,6 +88,78 @@
 
       {% endcall %}
 
+      {% call details({
+        classes: "nhsuk-u-width-one-third",
+        summaryText: "Small checkboxes",
+        open: true
+      }) %}
+
+        {{ checkboxes({
+          fieldset: {
+            legend: {
+              text: "Display",
+              classes: "nhsuk-fieldset__legend--s"
+            }
+          },
+          idPrefix: "display",
+          name: "display",
+          classes: "nhsuk-checkboxes--small",
+          items: [
+            {
+              value: "consultations",
+              text: "Consultations and surveys"
+            },
+            {
+              value: "guidance",
+              text: "Guidance"
+            },
+            {
+              value: "notices",
+              text: "Notices"
+            },
+            {
+              value: "reports",
+              text: "Reports"
+            }
+          ]
+        }) }}
+
+      {% endcall %}
+
+      {% call details({
+        classes: "nhsuk-u-width-one-third",
+        summaryText: "Small radios",
+        open: true
+      }) %}
+
+        {{ radios({
+          fieldset: {
+            legend: {
+              text: "Include",
+              classes: "nhsuk-fieldset__legend--s"
+            }
+          },
+          idPrefix: "include",
+          name: "include",
+          classes: "nhsuk-radios--small",
+          items: [
+            {
+              value: "everything",
+              text: "Everything and anything"
+            },
+            {
+              value: "something",
+              text: "Something"
+            },
+            {
+              value: "nothing",
+              text: "Nothing"
+            }
+          ]
+        }) }}
+
+      {% endcall %}
+
       {% call details({summaryText: "Inputs", open: true}) %}
 
         {{ input({
