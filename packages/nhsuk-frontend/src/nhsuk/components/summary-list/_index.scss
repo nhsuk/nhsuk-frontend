@@ -58,6 +58,7 @@
   .nhsuk-summary-list__key,
   .nhsuk-summary-list__value,
   .nhsuk-summary-list__actions {
+    box-sizing: border-box;
     margin: 0; // [2]
     vertical-align: top;
 
