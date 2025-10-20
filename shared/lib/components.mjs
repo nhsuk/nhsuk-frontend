@@ -2,9 +2,8 @@ import { createRequire } from 'node:module'
 import { basename, join } from 'node:path'
 
 import { paths } from '@nhsuk/frontend-config'
+import { files, nunjucks } from '@nhsuk/frontend-lib'
 import camelCase from 'lodash/camelCase.js'
-
-import { files, nunjucks } from './index.mjs'
 
 // Create require for sync import
 const importSync = createRequire(import.meta.url)

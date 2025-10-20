@@ -1,13 +1,11 @@
 import { join } from 'node:path'
 
-import { components } from '@nhsuk/frontend-lib'
-
-import { files } from './index.mjs'
+import { components, files } from '@nhsuk/frontend-lib'
 
 /**
  * Generate fixtures.json from component data
  *
- * @param {Pick<AssetOptions, "destPath">} options - Asset options
+ * @param {Pick<FileOptions, "destPath">} options - Asset options
  */
 export async function generateFixtures({ destPath }) {
   const list = await components.loadAll()
@@ -36,7 +34,7 @@ export async function generateFixtures({ destPath }) {
 /**
  * Generate macro-options.json from component data
  *
- * @param {Pick<AssetOptions, "destPath">} options - Asset options
+ * @param {Pick<FileOptions, "destPath">} options - Asset options
  */
 export async function generateMacroOptions({ destPath }) {
   const list = await components.loadAll()
@@ -97,5 +95,5 @@ export function generateFixture(data) {
 
 /**
  * @import { ComponentData, MacroExampleFixture, MacroExampleFixtures } from '@nhsuk/frontend-lib/components.mjs'
- * @import { AssetOptions } from '@nhsuk/frontend-tasks/files.mjs'
+ * @import { FileOptions } from '@nhsuk/frontend-lib/files.mjs'
  */

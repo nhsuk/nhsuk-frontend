@@ -1,9 +1,8 @@
 import { join, parse } from 'node:path'
 
 import * as config from '@nhsuk/frontend-config'
-import { components, nunjucks } from '@nhsuk/frontend-lib'
-import { getListing } from '@nhsuk/frontend-lib/files.mjs'
-import { files, task } from '@nhsuk/frontend-tasks'
+import { components, files, nunjucks } from '@nhsuk/frontend-lib'
+import { task } from '@nhsuk/frontend-tasks'
 import { HtmlValidate, formatterFactory } from 'html-validate'
 import PluginError from 'plugin-error'
 
@@ -23,7 +22,7 @@ export const compile = task.name('html:render', async () => {
   const destPath = join(config.paths.app, 'dist')
 
   // Find all Nunjucks views (excluding layouts)
-  const paths = getListing('**/*.njk', {
+  const paths = files.getListing('**/*.njk', {
     cwd: join(config.paths.app, 'src'),
     ignore: ['**/layouts/**', '**/partials/**']
   })
@@ -111,7 +110,7 @@ export const compile = task.name('html:render', async () => {
  * Validate review app HTML output
  */
 export const validate = task.name('html:validate', async () => {
-  const paths = getListing('dist/**/*.html', {
+  const paths = files.getListing('dist/**/*.html', {
     cwd: config.paths.app,
     ignore: ['**/docs/sassdoc/**']
   })
