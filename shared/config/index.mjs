@@ -1,2 +1,2 @@
 export * as paths from './paths.mjs'
-export { version } from './version.mjs'
+export { environment, version } from './version.mjs'
