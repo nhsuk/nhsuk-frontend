@@ -66,7 +66,7 @@ export const compile = gulp.series(
 
       // Customise output
       output: {
-        compact: true,
+        compact: config.environment === 'production',
         file: 'nhsuk/nhsuk-frontend.min.js',
         format: 'esm'
       }
