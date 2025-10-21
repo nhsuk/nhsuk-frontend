@@ -17,5 +17,5 @@
 {% macro nhsukI18nAttributes(params) %}
   {%- if params.messages -%}
     {% for pluralRule, message in params.messages %} data-i18n.{{ params.key }}.{{ pluralRule }}="{{ message | escape }}"{% endfor %}
-  {% elseif params.message %} data-i18n.{{ params.key }}="{{ params.message | escape }}"{% endif -%}
+  {% elif params.message %} data-i18n.{{ params.key }}="{{ params.message | escape }}"{% endif -%}
 {% endmacro %}
