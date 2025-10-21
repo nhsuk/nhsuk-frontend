@@ -32,8 +32,8 @@ export default (ctx = {}) => {
         }
       },
 
-      // Minify CSS only
-      to?.endsWith('.min.css')
+      // Minify CSS for production only
+      to?.endsWith('.min.css') && config.environment === 'production'
         ? cssnano({ preset: ['default', { env: 'stylesheets' }] })
         : false
     ],

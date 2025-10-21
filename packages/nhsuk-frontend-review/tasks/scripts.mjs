@@ -19,7 +19,7 @@ export const compile = task.name(
 
     // Customise output
     output: {
-      compact: true,
+      compact: config.environment === 'production',
       file: 'javascripts/application.min.js',
       format: 'esm',
       paths: { 'nhsuk-frontend': './nhsuk-frontend.min.js' }
