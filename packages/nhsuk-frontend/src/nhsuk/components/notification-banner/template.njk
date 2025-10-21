@@ -5,7 +5,7 @@
 {% endif %}
 
 {%- if successBanner %}
-  {% set typeClass = "nhsuk-notification-banner--" + params.type %}
+  {% set typeClass = "nhsuk-notification-banner--" ~ params.type %}
 {% endif %}
 
 {%- if params.role %}

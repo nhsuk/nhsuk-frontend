@@ -4,4 +4,4 @@
   {% set previewLayoutName = "example-full-width" %}
 {% endif %}
 
-{% extends "layouts/" + previewLayoutName | default("example", true) + ".njk" %}
+{% extends "layouts/" ~ previewLayoutName | default("example", true) ~ ".njk" %}

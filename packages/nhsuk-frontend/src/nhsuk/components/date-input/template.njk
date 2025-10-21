@@ -36,8 +36,8 @@
 {#- Capture the HTML so we can optionally nest it in a fieldset -#}
 {% set innerHtml %}
 {% if params.hint %}
-  {% set hintId = params.id + "-hint" %}
-  {% set describedBy = describedBy + " " + hintId if describedBy else hintId %}
+  {% set hintId = params.id ~ "-hint" %}
+  {% set describedBy = describedBy ~ " " ~ hintId if describedBy else hintId %}
   {{ hint({
     id: hintId,
     classes: params.hint.classes,
@@ -47,8 +47,8 @@
   }) | trim | indent(2) }}
 {% endif %}
 {% if params.errorMessage %}
-  {% set errorId = params.id + "-error" %}
-  {% set describedBy = describedBy + " " + errorId if describedBy else errorId %}
+  {% set errorId = params.id ~ "-error" %}
+  {% set describedBy = describedBy ~ " " ~ errorId if describedBy else errorId %}
   {{ errorMessage({
     id: errorId,
     classes: params.errorMessage.classes,
@@ -70,9 +70,9 @@
           text: item.label if item.label else item.name | capitalize,
           classes: "nhsuk-date-input__label"
         },
-        id: item.id if item.id else (params.id + "-" + item.name),
-        classes: "nhsuk-date-input__input " + (item.classes if item.classes),
-        name: (params.namePrefix + "[" + item.name + "]") if params.namePrefix else item.name,
+        id: item.id if item.id else (params.id ~ "-" ~ item.name),
+        classes: "nhsuk-date-input__input " ~ (item.classes if item.classes),
+        name: (params.namePrefix ~ "[" ~ item.name ~ "]") if params.namePrefix else item.name,
         value: item.value or params.values[item.name],
         type: "text",
         inputmode: item.inputmode if item.inputmode else "numeric",
