@@ -15,8 +15,12 @@
     "publish-preview": "bin/publish-preview.sh"
   },
   "workspaces": [
-    "packages/*",
-    "shared/*"
+    "packages/nhsuk-frontend",
+    "packages/nhsuk-frontend-review",
+    "shared/config",
+    "shared/helpers",
+    "shared/lib",
+    "shared/tasks"
   ],
   "scripts": {
     "install:playwright": "playwright install chromium --with-deps --only-shell",
