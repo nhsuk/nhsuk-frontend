@@ -6,9 +6,9 @@
   {% set element = params.element | lower %}
 {% else %}
   {% if params.href %}
-    {% set element = 'a' %}
+    {% set element = "a" %}
   {% else %}
-    {% set element = 'button' %}
+    {% set element = "button" %}
   {% endif %}
 {% endif %}
 
@@ -21,21 +21,21 @@
 {%- endset -%}
 
 {# Define common attributes we can use for both button and input types #}
-{%- set buttonAttributes %}{% if params.name %} name="{{ params.name }}"{% endif %} type="{{ params.type if params.type else 'submit' }}"
+{%- set buttonAttributes %}{% if params.name %} name="{{ params.name }}"{% endif %} type="{{ params.type if params.type else "submit" }}"
    {%- if params.disabled %} disabled aria-disabled="true"{% endif %}
  {%- endset -%}
 
-{% if element == 'a' %}
-<a{{ commonAttributes | safe }} href="{{ params.href if params.href else '#' }}" draggable="false" role="button">
+{% if element == "a" %}
+<a{{ commonAttributes | safe }} href="{{ params.href if params.href else "#" }}" draggable="false" role="button">
   {{ params.html | safe if params.html else params.text }}
 </a>
 
-{% elseif element == 'button' %}
+{% elseif element == "button" %}
 <button{{ commonAttributes | safe }}{% if params.value %} value="{{ params.value }}"{% endif %}{{ buttonAttributes | safe }}>
   {{ params.html | safe if params.html else params.text }}
 </button>
 
-{% elseif element == 'input' %}
+{% elseif element == "input" %}
 <input{{ commonAttributes | safe }} value="{{ params.text }}"{{ buttonAttributes | safe }}>
 
 {% endif %}
