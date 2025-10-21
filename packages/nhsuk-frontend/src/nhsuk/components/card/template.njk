@@ -28,9 +28,9 @@
       {%- else %}
       {%- if params.type %}
       <span role="text"><span class="nhsuk-u-visually-hidden">
-      {%- if params.type == 'non-urgent' %}Non-urgent advice:
-      {%- elseif params.type == 'urgent' %}Urgent advice:
-      {%- elseif params.type == 'emergency' %}Immediate action required:
+      {%- if params.type == "non-urgent" %}Non-urgent advice:
+      {%- elseif params.type == "urgent" %}Urgent advice:
+      {%- elseif params.type == "emergency" %}Immediate action required:
       {%- else %}Non-urgent advice:{% endif %} </span>{{ params.heading }}</span>
       {%- else %}
       {{ params.heading }}

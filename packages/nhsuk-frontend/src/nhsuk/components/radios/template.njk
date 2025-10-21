@@ -25,7 +25,7 @@
   {% else %}
     {% set isChecked = item.checked | default((item.value == params.value and item.checked != false) if params.value else false, true) %}
     {% set hasHint = true if item.hint.text or item.hint.html %}
-    {% set itemHintId = itemId ~ '-item-hint' %}
+    {% set itemHintId = itemId ~ "-item-hint" %}
     <div class="nhsuk-radios__item">
       <input class="nhsuk-radios__input" id="{{ itemId }}" name="{{ params.name }}" type="radio" value="{{ item.value }}"
         {{- " checked" if isChecked }}
@@ -36,14 +36,14 @@
       {{ label({
         html: item.html,
         text: item.text,
-        classes: 'nhsuk-radios__label' ~ (' ' ~ item.label.classes if item.label.classes),
+        classes: "nhsuk-radios__label" ~ (" " ~ item.label.classes if item.label.classes),
         attributes: item.label.attributes,
         for: itemId
       }) | trim | indent(6) }}
       {% if hasHint %}
       {{ hint({
         id: itemHintId,
-        classes: 'nhsuk-radios__hint' ~ (' ' ~ item.hint.classes if item.hint.classes),
+        classes: "nhsuk-radios__hint" ~ (" " ~ item.hint.classes if item.hint.classes),
         attributes: item.hint.attributes,
         html: item.hint.html,
         text: item.hint.text
@@ -61,8 +61,8 @@
 {#- Capture the HTML so we can optionally nest it in a fieldset -#}
 {% set innerHtml %}
 {% if params.hint %}
-  {% set hintId = idPrefix ~ '-hint' %}
-  {% set describedBy = describedBy ~ ' ' ~ hintId if describedBy else hintId %}
+  {% set hintId = idPrefix ~ "-hint" %}
+  {% set describedBy = describedBy ~ " " ~ hintId if describedBy else hintId %}
   {{ hint({
     id: hintId,
     classes: params.hint.classes,
@@ -72,8 +72,8 @@
   }) | trim | indent(2) }}
 {% endif %}
 {% if params.errorMessage %}
-  {% set errorId = idPrefix ~ '-error' %}
-  {% set describedBy = describedBy ~ ' ' ~ errorId if describedBy else errorId %}
+  {% set errorId = idPrefix ~ "-error" %}
+  {% set describedBy = describedBy ~ " " ~ errorId if describedBy else errorId %}
   {{ errorMessage({
     id: errorId,
     classes: params.errorMessage.classes,
