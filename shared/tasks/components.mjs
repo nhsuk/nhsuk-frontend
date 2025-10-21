@@ -3,12 +3,19 @@ import { join } from 'node:path'
 import { components, files } from '@nhsuk/frontend-lib'
 
 /**
+ * Component data cache
+ *
+ * @type {ComponentData[] | undefined}
+ */
+let list
+
+/**
  * Generate fixtures.json from component data
  *
  * @param {Pick<FileOptions, "destPath">} options - Asset options
  */
 export async function generateFixtures({ destPath }) {
-  const list = await components.loadAll()
+  list ??= await components.loadAll()
 
   // Loop component names
   const fixtures = list.map(async (data) => {
@@ -37,7 +44,7 @@ export async function generateFixtures({ destPath }) {
  * @param {Pick<FileOptions, "destPath">} options - Asset options
  */
 export async function generateMacroOptions({ destPath }) {
-  const list = await components.loadAll()
+  list ??= await components.loadAll()
 
   // Loop component names
   const macroOptions = list.map(async (data) => {
