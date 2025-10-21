@@ -10,12 +10,17 @@ import PluginError from 'plugin-error'
  */
 export async function run(name, args = []) {
   try {
-    await runScript({
+    const task = await runScript({
       args,
       event: name,
       path: process.cwd(),
       stdio: 'inherit'
     })
+
+    // Throw on missing npm script
+    if (!task.cmd) {
+      throw new Error(`Task '${name}' not found`)
+    }
   } catch (cause) {
     throw new PluginError(`npm run ${name}`, cause, {
       showProperties: false

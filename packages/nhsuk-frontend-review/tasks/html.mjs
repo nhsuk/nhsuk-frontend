@@ -27,11 +27,8 @@ export const compile = task.name('html:render', async () => {
     ignore: ['**/layouts/**', '**/partials/**']
   })
 
-  // Configure Nunjucks
-  const env = nunjucks.configure([
-    join(config.paths.app, 'src'),
-    join(config.paths.pkg, 'src')
-  ])
+  // Configure Nunjucks with review app sources
+  const env = nunjucks.configure([join(config.paths.app, 'src')])
 
   // Default Nunjucks context
   const context = {
@@ -40,12 +37,12 @@ export const compile = task.name('html:render', async () => {
     branchName: HEROKU_BRANCH,
     serviceName: 'NHS.UK frontend',
     version: config.version,
-    components: await components.loadAll()
+    components: components.getAllFixtures()
   }
 
   // Render components
   for (const data of context.components) {
-    const { name, component, examples = {} } = data
+    const { name, component, fixtures } = data
 
     const componentPath = `components/${component}`
 
@@ -62,14 +59,8 @@ export const compile = task.name('html:render', async () => {
     })
 
     // Render component examples
-    for (const [exampleName, example] of Object.entries(examples)) {
-      const { options } = example
-
-      // Render component example
-      const html = components.render(component, {
-        ...example,
-        env
-      })
+    for (const fixture of fixtures) {
+      const { name: exampleName, html, options } = fixture
 
       // Render component example into layout
       const templateHtml = nunjucks.renderTemplate('layouts/preview.njk', {

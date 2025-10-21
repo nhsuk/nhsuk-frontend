@@ -1,15 +1,13 @@
-import { components } from '@nhsuk/frontend-lib'
 import filters from 'nunjucks/src/filters.js'
 
 /**
  * Render Nunjucks component with unique attributes
  *
- * @param {string} component - Component directory name
- * @param {MacroExample} example - Nunjucks macro example
+ * @param {MacroExampleFixture} fixture - Nunjucks macro example fixture
  * @param {string | number} [index] - Unique index to append to attribute values (optional)
  */
-export function renderExample(component, example, index) {
-  let html = components.render(component, example)
+export function renderExample(fixture, index) {
+  let { html } = fixture
 
   if (index) {
     html = html
@@ -63,5 +61,5 @@ export function uniqueValues(values, index) {
 }
 
 /**
- * @import { MacroExample } from '@nhsuk/frontend-lib/components.mjs'
+ * @import { MacroExampleFixture } from '@nhsuk/frontend-lib/components.mjs'
  */

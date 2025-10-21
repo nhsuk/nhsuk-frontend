@@ -1,12 +1,10 @@
-import { createRequire } from 'node:module'
+import { readFileSync } from 'node:fs'
 import { basename, join } from 'node:path'
 
 import { paths } from '@nhsuk/frontend-config'
-import { files, nunjucks } from '@nhsuk/frontend-lib'
 import camelCase from 'lodash/camelCase.js'
 
-// Create require for sync import
-const importSync = createRequire(import.meta.url)
+import { files, nunjucks } from './index.mjs'
 
 /**
  * Load single component data (from source)
@@ -26,9 +24,8 @@ export async function load(component) {
     sensitivity: 'base'
   })
 
-  // Bypass import cache (e.g. Gulp watch changes)
   const options = /** @type {Omit<ComponentData, "component">} */ (
-    await import(`${optionsPath}?imported=${Date.now()}`)
+    await import(optionsPath)
   )
 
   // Add component directory name to options
@@ -134,11 +131,22 @@ export function getMacroOptions(params) {
  * @returns {MacroExampleFixtures} Nunjucks macro example fixtures
  */
 export function getFixtures(component) {
-  const componentPath = join(paths.pkg, `dist/nhsuk/components/${component}`)
-
-  return /** @type {MacroExampleFixtures} */ (
-    importSync(join(componentPath, 'fixtures.json'))
+  return JSON.parse(
+    readFileSync(
+      join(paths.pkg, 'dist/nhsuk/components', component, 'fixtures.json'),
+      'utf8'
+    )
   )
+}
+
+/**
+ * Get all component fixtures (from dist)
+ */
+export function getAllFixtures() {
+  const components = getNames()
+
+  // Load component fictures per directory
+  return components.map(getFixtures)
 }
 
 /**

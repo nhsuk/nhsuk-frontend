@@ -1,6 +1,7 @@
 import { join } from 'node:path'
 
 import * as config from '@nhsuk/frontend-config'
+import { npm } from '@nhsuk/frontend-tasks'
 import gulp from 'gulp'
 
 import {
@@ -43,19 +44,15 @@ gulp.task('release', gulp.series(release.copy, release.zip))
 gulp.task('watch', () =>
   Promise.all([
     /**
-     * Watch and copy template files and READMEs
+     * Watch and copy template files and READMEs, then
+     * compile component fixtures and macro options
      */
     gulp.watch(
-      [join(config.paths.pkg, 'src/nhsuk/**/*.{md,njk}')],
-      gulp.series('templates')
-    ),
-
-    /**
-     * Watch and compile component fixtures and macro options
-     */
-    gulp.watch(
-      [join(config.paths.pkg, 'src/nhsuk/**/macro-options.mjs')],
-      gulp.series('fixtures')
+      [
+        join(config.paths.pkg, 'src/nhsuk/**/*.{md,njk}'),
+        join(config.paths.pkg, 'src/nhsuk/**/macro-options.mjs')
+      ],
+      gulp.series('templates', npm.script('fixtures'))
     ),
 
     /**
