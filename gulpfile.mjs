@@ -33,9 +33,12 @@ gulp.task('types', npm.script('types', ['--incremental']))
  */
 gulp.task(
   'build',
-  gulp.parallel(
-    gulp.series('styles', 'scripts', 'types', 'assets'),
-    gulp.series('templates', 'fixtures')
+  gulp.series(
+    npm.script('clean'),
+    gulp.parallel(
+      gulp.series('styles', 'scripts', 'types', 'assets'),
+      gulp.series('templates', 'fixtures')
+    )
   )
 )
 
