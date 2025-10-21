@@ -12,6 +12,7 @@ import {
   styles,
   templates
 } from './tasks/index.mjs'
+import types from './tsconfig.json' with { type: 'json' }
 
 /**
  * Utility tasks
@@ -23,12 +24,17 @@ gulp.task('styles', styles.compile)
 gulp.task('templates', templates.copy)
 
 /**
+ * NHS.UK frontend type declarations
+ */
+gulp.task('types', npm.script('types', ['--incremental']))
+
+/**
  * NHS.UK frontend build
  */
 gulp.task(
   'build',
   gulp.parallel(
-    gulp.series('styles', 'scripts', 'assets'),
+    gulp.series('styles', 'scripts', 'types', 'assets'),
     gulp.series('templates', 'fixtures')
   )
 )
@@ -53,6 +59,15 @@ gulp.task('watch', () =>
         join(config.paths.pkg, 'src/nhsuk/**/macro-options.mjs')
       ],
       gulp.series('templates', npm.script('fixtures'))
+    ),
+
+    /**
+     * Watch and compile type declarations
+     */
+    gulp.watch(
+      types.include.map((pattern) => join(config.paths.pkg, pattern)),
+      { ignored: types.exclude },
+      gulp.series('types')
     ),
 
     /**
