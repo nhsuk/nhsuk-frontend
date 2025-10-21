@@ -4,6 +4,15 @@ import * as config from '@nhsuk/frontend-config'
 import { scripts, task } from '@nhsuk/frontend-tasks'
 import gulp from 'gulp'
 
+/**
+ * Rollup build cache
+ *
+ * @type {RollupCache}
+ */
+const cache = {
+  modules: []
+}
+
 export const compile = gulp.series(
   task.name('scripts:transform', async () => {
     /**
@@ -18,6 +27,7 @@ export const compile = gulp.series(
 
       // Customise input
       input: {
+        cache,
         treeshake: false
       },
 
@@ -42,6 +52,7 @@ export const compile = gulp.series(
 
       // Customise input
       input: {
+        cache,
         treeshake: false
       },
 
@@ -64,6 +75,11 @@ export const compile = gulp.series(
       srcPath: join(config.paths.pkg, 'src'),
       destPath: join(config.paths.pkg, 'dist'),
 
+      // Customise input
+      input: {
+        cache
+      },
+
       // Customise output
       output: {
         compact: config.environment === 'production',
@@ -73,3 +89,7 @@ export const compile = gulp.series(
     })
   )
 )
+
+/**
+ * @import { RollupCache } from 'rollup'
+ */
