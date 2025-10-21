@@ -1,6 +1,7 @@
 import { join, parse } from 'node:path'
 
 import gulp from 'gulp'
+import changed from 'gulp-changed'
 import rename from 'gulp-rename'
 
 /**
@@ -19,13 +20,23 @@ export function copy(inputPath, { srcPath, destPath, output = {} }) {
   if (output.file) {
     const { name, ext, dir } = parse(output.file)
 
-    stream = stream.pipe(
-      rename({
-        dirname: dir,
-        basename: name,
-        extname: ext
-      })
-    )
+    stream = stream
+      .pipe(
+        changed('dist', {
+          transformPath() {
+            return join(dir, `${name}${ext}`)
+          }
+        })
+      )
+      .pipe(
+        rename({
+          dirname: dir,
+          basename: name,
+          extname: ext
+        })
+      )
+  } else {
+    stream = stream.pipe(changed(destPath))
   }
 
   return stream.pipe(
