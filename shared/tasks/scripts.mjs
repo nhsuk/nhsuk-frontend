@@ -104,6 +104,13 @@ export function compile(
       sourcemap: true,
       sourcemapExcludeSources: !!output.preserveModules
     })
+
+    // Update cache for next build
+    if (input.cache) {
+      Object.assign(input.cache, bundle.cache)
+    }
+
+    return bundle
   })
 }
 

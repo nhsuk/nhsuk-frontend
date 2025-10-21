@@ -4,6 +4,15 @@ import * as config from '@nhsuk/frontend-config'
 import { assets, scripts, task } from '@nhsuk/frontend-tasks'
 
 /**
+ * Rollup build cache
+ *
+ * @type {RollupCache}
+ */
+const cache = {
+  modules: []
+}
+
+/**
  * Compile review app scripts bundle
  */
 export const compile = task.name(
@@ -14,6 +23,7 @@ export const compile = task.name(
 
     // Customise input
     input: {
+      cache,
       external: ['nhsuk-frontend']
     },
 
@@ -36,3 +46,7 @@ export const copy = task.name('scripts:copy', () =>
     destPath: join(config.paths.app, 'dist/javascripts')
   })
 )
+
+/**
+ * @import { RollupCache } from 'rollup'
+ */
