@@ -84,10 +84,10 @@
 
       {#- Output ` name` only (no value) for boolean attributes -#}
       {% if options.optional === true and options.value === true %}
-        {% set attributesHtml = attributesHtml + " " + name | escape %}
+        {% set attributesHtml = attributesHtml ~ " " ~ name | escape %}
       {#- Skip optional empty attributes or output ` name="value"` pair by default -#}
       {% elif (options.optional === true and options.value not in [undefined, null, false]) or options.optional !== true %}
-        {% set attributesHtml = attributesHtml + " " + name | escape + '="' + options.value | escape + '"' %}
+        {% set attributesHtml = attributesHtml ~ " " ~ name | escape ~ '="' ~ options.value | escape ~ '"' %}
       {% endif %}
     {% endfor %}
   {% endif -%}
