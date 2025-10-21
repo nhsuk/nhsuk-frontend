@@ -1,6 +1,7 @@
 import { join } from 'node:path'
 
 import * as config from '@nhsuk/frontend-config'
+import { npm } from '@nhsuk/frontend-tasks'
 import browserSync from 'browser-sync'
 import gulp from 'gulp'
 
@@ -21,9 +22,12 @@ gulp.task('validate', html.validate)
  */
 gulp.task(
   'build',
-  gulp.parallel(
-    gulp.series('styles', 'scripts', 'assets'),
-    gulp.series('html', 'validate')
+  gulp.series(
+    npm.script('clean'),
+    gulp.parallel(
+      gulp.series('styles', 'scripts', 'assets'),
+      gulp.series('html', 'validate')
+    )
   )
 )
 

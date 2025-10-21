@@ -39,8 +39,7 @@
     "!**/*.test.*"
   ],
   "scripts": {
-    "prebuild": "npm run clean",
-    "clean": "del-cli dist/**",
+    "clean": "del-cli dist",
     "build": "gulp build --color",
     "watch": "gulp watch --color",
     "fixtures": "gulp fixtures --color",

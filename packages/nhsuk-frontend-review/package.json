@@ -4,8 +4,7 @@
   "description": "NHS.UK frontend review app",
   "license": "MIT",
   "scripts": {
-    "prebuild": "npm run clean",
-    "clean": "del-cli dist/**",
+    "clean": "del-cli dist",
     "build": "concurrently npm:build:* --group --prefix none",
     "build:package": "gulp build --color",
     "build:sassdoc": "sassdoc --config sassdoc.config.yaml ../nhsuk-frontend/src/nhsuk",
