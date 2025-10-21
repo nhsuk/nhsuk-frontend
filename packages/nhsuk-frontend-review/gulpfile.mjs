@@ -26,7 +26,8 @@ gulp.task(
     npm.script('clean'),
     gulp.parallel(
       gulp.series('styles', 'scripts', 'assets'),
-      gulp.series('html', 'validate')
+      gulp.series('html', 'validate'),
+      npm.script('sassdoc')
     )
   )
 )
