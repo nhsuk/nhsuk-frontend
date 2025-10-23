@@ -1,5 +1,11 @@
 # NHS.UK frontend Changelog
 
+## Unreleased
+
+### :wrench: **Fixes**
+
+- [#1635: Resolve Nunjucks template issues flagged by Jinja port](https://github.com/nhsuk/nhsuk-frontend/pull/1635)
+
 ## 10.1.0 - 15 October 2025
 
 ### :new: **New features**
