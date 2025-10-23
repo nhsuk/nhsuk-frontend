@@ -769,3 +769,135 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     @include nhsuk-focused-box;
   }
 }
+
+.v1 {
+  .nhsuk-header__service-logo:has(svg):not(:focus):hover::before {
+    @include nhsuk-link-style-no-underline;
+    top: -4px;
+    right: 4px;
+    bottom: 4px;
+    left: -4px;
+
+    width: 103%;
+
+    height: 120%;
+
+    border: 0;
+
+    background-color: $nhsuk-header-item-hover-colour;
+  }
+
+  .nhsuk-header__logo,
+  .nhsuk-header__service-name,
+  .nhsuk-header__service-logo:hover {
+    z-index: 1;
+    text-decoration: none;
+  }
+
+  .nhsuk-header__account-item {
+    color: nhsuk-tint($nhsuk-header-item-hover-colour, 75%);
+  }
+
+  .nhsuk-header__account-button,
+  .nhsuk-header__account-link {
+        @include nhsuk-link-style-no-underline;
+
+    &:hover {
+      background-color: $nhsuk-brand-colour;
+      text-decoration: none;
+    }
+  }
+
+  .nhsuk-header__navigation-link {
+    @include nhsuk-link-style-no-underline;
+
+    &:hover {
+      // border-radius: 8px;
+      background-color: $nhsuk-header-item-hover-colour;
+      // box-shadow: inset 0 6px 0 0 nhsuk-colour("blue"), inset 0 -6px 0 0 nhsuk-colour("blue");
+      box-shadow: 4px 0 0 0 $nhsuk-header-item-hover-colour, -4px 0 0 0 $nhsuk-header-item-hover-colour;
+      text-decoration: none;
+    }
+  }
+
+  .nhsuk-breadcrumb__link,
+  .nhsuk-back-link,
+  .nhsuk-action-link,
+  .nhsuk-details__summary,
+  .nhsuk-details__summary-text,
+  a.nhsuk-tabs__tab,
+  .nhsuk-card--clickable .nhsuk-card__link {
+    text-decoration: none;
+  }
+
+  .nhsuk-breadcrumb__link:hover,
+  .nhsuk-back-link:hover,
+  .nhsuk-action-link:hover,
+  .nhsuk-details__summary:hover,
+  .nhsuk-details__summary:hover .nhsuk-details__summary-text,
+  .nhsuk-details__summary-text:hover,
+  .nhsuk-card--clickable:hover .nhsuk-card__link {
+    @include nhsuk-link-style-default;
+    @include nhsuk-link-hover-decoration;
+  }
+
+}
+
+.v2 {
+  .nhsuk-header__account-item {
+    color: nhsuk-tint($nhsuk-header-item-hover-colour, 75%);
+  }
+
+  .nhsuk-header__account-button,
+  .nhsuk-header__account-link {
+    @include nhsuk-link-style-no-underline;
+  }
+
+  .nhsuk-header__navigation-link {
+    @include nhsuk-link-style-no-underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    &:not(:focus):hover::before {
+      $underline-offset: if($nhsuk-link-underline-offset, calc(0.2rem + $nhsuk-link-underline-offset), 0.2rem);
+      $underline-thickness: 4px;
+
+      content: "";
+
+      display: inline;
+
+      position: absolute;
+      top: auto;
+      bottom: 0;
+
+      width: 100%;
+      height: 6px;
+
+      border-bottom: $underline-thickness solid currentcolor;
+    }
+  }
+
+  .nhsuk-breadcrumb__link,
+  .nhsuk-back-link,
+  .nhsuk-action-link,
+  .nhsuk-details__summary,
+  .nhsuk-details__summary-text,
+  a.nhsuk-tabs__tab,
+  .nhsuk-card--clickable .nhsuk-card__link {
+    text-decoration: none;
+  }
+
+  .nhsuk-breadcrumb__link:hover,
+  .nhsuk-back-link:hover,
+  .nhsuk-action-link:hover,
+  .nhsuk-details__summary:hover,
+  .nhsuk-details__summary:hover .nhsuk-details__summary-text,
+  .nhsuk-details__summary-text:hover,
+  .nhsuk-card--clickable:hover .nhsuk-card__link {
+    @include nhsuk-link-style-default;
+    @include nhsuk-link-hover-decoration;
+  }
+
+}
