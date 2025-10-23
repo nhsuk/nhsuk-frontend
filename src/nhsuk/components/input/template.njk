@@ -44,7 +44,7 @@
       type: params.type | default("text", true),
       spellcheck: {
         value: params.spellcheck | string
-          if [true, false].includes(params.spellcheck)
+          if params.spellcheck in [true, false]
           else false,
         optional: true
       },
