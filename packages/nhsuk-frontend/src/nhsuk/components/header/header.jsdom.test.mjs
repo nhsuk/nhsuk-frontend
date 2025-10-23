@@ -214,18 +214,21 @@ describe('Header class', () => {
       initExample('blue (linked logo)')
 
       expect($serviceLogo).toHaveAccessibleName('NHS homepage')
+      expect($serviceLogo).toHaveAttribute('aria-label', 'NHS homepage')
     })
 
     it('should use a custom `aria-label` for linked NHS logo', () => {
       initExample('white (linked logo, ARIA label)')
 
       expect($serviceLogo).toHaveAccessibleName('NHS white homepage')
+      expect($serviceLogo).toHaveAttribute('aria-label', 'NHS white homepage')
     })
 
     it('should append ‘homepage’ to linked NHS logo with separate service name', () => {
       initExample('blue with service name')
 
       expect($serviceLogo).toHaveAccessibleName('NHS homepage')
+      expect($serviceLogo).toHaveAttribute('aria-label', 'NHS homepage')
     })
 
     it('should append ‘homepage’ to linked service name logo combo', () => {

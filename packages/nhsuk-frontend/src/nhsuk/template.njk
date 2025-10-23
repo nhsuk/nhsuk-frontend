@@ -26,7 +26,7 @@
 
     {#- Open Graph image needs an absolute URL, so need either a URL for image or assetUrl to be set #}
     {% if opengraphImageUrl or assetUrl %}
-    <meta property="og:image" content="{{ opengraphImageUrl | default(assetUrl + "/images/nhsuk-opengraph-image.png", true) }}">
+    <meta property="og:image" content="{{ opengraphImageUrl | default(assetUrl ~ "/images/nhsuk-opengraph-image.png", true) }}">
     {% endif %}
   </head>
 

@@ -18,11 +18,11 @@
 {%- set classNames = "nhsuk-input" -%}
 
 {%- if params.classes %}
-  {% set classNames = classNames + " " + params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
 {% endif %}
 
 {%- if params.errorMessage %}
-  {% set classNames = classNames + " nhsuk-input--error" %}
+  {% set classNames = classNames ~ " nhsuk-input--error" %}
 {% endif %}
 
 {#- a record of other elements that we need to associate with the input using
@@ -44,7 +44,7 @@
       type: params.type | default("text", true),
       spellcheck: {
         value: params.spellcheck | string
-          if [true, false].includes(params.spellcheck)
+          if params.spellcheck in [true, false]
           else false,
         optional: true
       },
@@ -98,8 +98,8 @@
     for: id
   }) | trim | indent(2) }}
 {% if params.hint %}
-  {% set hintId = id + '-hint' %}
-  {% set describedBy = describedBy + ' ' + hintId if describedBy else hintId %}
+  {% set hintId = id ~ "-hint" %}
+  {% set describedBy = describedBy ~ " " ~ hintId if describedBy else hintId %}
   {{ hint({
     id: hintId,
     classes: params.hint.classes,
@@ -109,8 +109,8 @@
   }) | trim | indent(2) }}
 {% endif %}
 {% if params.errorMessage %}
-  {% set errorId = id + '-error' %}
-  {% set describedBy = describedBy + ' ' + errorId if describedBy else errorId %}
+  {% set errorId = id ~ "-error" %}
+  {% set describedBy = describedBy ~ " " ~ errorId if describedBy else errorId %}
   {{ errorMessage({
     id: errorId,
     classes: params.errorMessage.classes,

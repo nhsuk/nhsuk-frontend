@@ -37,7 +37,7 @@
 
 {% for fixture in fixtures %}
   {% set options = fixture.options -%}
-  {% set isFullWidth = options.width == false -%}
+  {% set isFullWidth = options.width === false -%}
   {% set isReverse = options.layout == "background-blue" -%}
 
   {% if not options.hidden %}

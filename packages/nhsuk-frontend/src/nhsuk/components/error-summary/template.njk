@@ -2,7 +2,7 @@
 
 <div {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-error-summary
   {%- if params.classes %} {{ params.classes }}{% endif %}"
-  {%- if params.disableAutoFocus !== undefined %} data-disable-auto-focus="{{ params.disableAutoFocus }}"{% endif %}
+  {%- if params.disableAutoFocus is not undefined %} data-disable-auto-focus="{{ params.disableAutoFocus }}"{% endif %}
   {{- nhsukAttributes(params.attributes) }} data-module="nhsuk-error-summary">
   {#- Keep the role="alert" in a seperate child container to prevent a race condition between
   the focusing js at the alert, resulting in information getting missed in screen reader announcements #}
