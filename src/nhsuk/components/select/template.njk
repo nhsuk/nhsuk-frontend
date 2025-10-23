@@ -19,8 +19,8 @@
     for: id
   }) | trim | indent(2) }}
 {% if params.hint %}
-  {% set hintId = id + '-hint' %}
-  {% set describedBy = describedBy + ' ' + hintId if describedBy else hintId %}
+  {% set hintId = id ~ "-hint" %}
+  {% set describedBy = describedBy ~ " " ~ hintId if describedBy else hintId %}
   {{ hint({
     id: hintId,
     classes: params.hint.classes,
@@ -30,8 +30,8 @@
   }) | trim | indent(2) }}
 {% endif %}
 {% if params.errorMessage %}
-  {% set errorId = id + '-error' %}
-  {% set describedBy = describedBy + ' ' + errorId if describedBy else errorId %}
+  {% set errorId = id ~ "-error" %}
+  {% set describedBy = describedBy ~ " " ~ errorId if describedBy else errorId %}
   {{ errorMessage({
     id: errorId,
     classes: params.errorMessage.classes,
@@ -53,9 +53,9 @@
     {% if item %}
     {#- Allow selecting by text content (the value for an option when no value attribute is specified) #}
     {%- set effectiveValue = item.value | default(item.text) %}
-    <option {%- if item.value !== undefined %} value="{{ item.value }}"{% endif %}
-      {{-" selected" if item.selected | default((effectiveValue == params.value and item.selected != false) if params.value else false, true) }}
-      {{-" disabled" if item.disabled }}
+    <option {%- if item.value is not undefined %} value="{{ item.value }}"{% endif %}
+      {{- " selected" if item.selected | default((effectiveValue == params.value and item.selected != false) if params.value else false, true) }}
+      {{- " disabled" if item.disabled }}
       {{- nhsukAttributes(item.attributes) }}>
       {{- item.text -}}
     </option>

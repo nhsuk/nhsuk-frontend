@@ -205,16 +205,16 @@ export const examples = {
       hidePrefix: true,
       items: [
         {
-          item: 'avoid bursting a blister yourself'
+          text: 'avoid bursting a blister yourself'
         },
         {
-          item: "certainly don't peel the skin off a burst blister"
+          text: "certainly don't peel the skin off a burst blister"
         },
         {
-          item: 'absolutely do not pick at the edges of the remaining skin'
+          text: 'absolutely do not pick at the edges of the remaining skin'
         },
         {
-          item: "please don't wear the shoes or use the equipment that caused your blister until it heals"
+          text: "please don't wear the shoes or use the equipment that caused your blister until it heals"
         }
       ]
     }
