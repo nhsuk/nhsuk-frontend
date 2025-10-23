@@ -39,14 +39,11 @@
     "!**/*.test.*"
   ],
   "scripts": {
-    "prebuild": "npm run clean",
-    "clean": "del-cli dist/**",
-    "build": "concurrently npm:build:* --group --prefix none",
-    "build:package": "gulp build --color",
-    "build:types": "tsc --build --noEmit false --pretty tsconfig.json",
-    "watch": "concurrently npm:watch:* --prefix none",
-    "watch:package": "gulp watch --color",
-    "watch:types": "npm run build:types -- --preserveWatchOutput --watch",
+    "clean": "del-cli dist",
+    "build": "gulp build --color",
+    "watch": "gulp watch --color",
+    "fixtures": "gulp fixtures --color",
+    "types": "tsc --build --noEmit false --pretty tsconfig.json",
     "release": "gulp release --color",
     "version": "echo $npm_package_version",
     "start": "npm run watch"

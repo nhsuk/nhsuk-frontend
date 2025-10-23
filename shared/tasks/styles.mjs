@@ -3,7 +3,8 @@ import { join, parse, relative } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 import { paths } from '@nhsuk/frontend-config'
-import { files, task } from '@nhsuk/frontend-tasks'
+import { files } from '@nhsuk/frontend-lib'
+import { task } from '@nhsuk/frontend-tasks'
 import postcss from 'postcss'
 // eslint-disable-next-line import/default
 import postcssrc from 'postcss-load-config'

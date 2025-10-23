@@ -15,14 +15,17 @@
     "publish-preview": "bin/publish-preview.sh"
   },
   "workspaces": [
-    "packages/*",
-    "shared/*"
+    "packages/nhsuk-frontend",
+    "packages/nhsuk-frontend-review",
+    "shared/config",
+    "shared/helpers",
+    "shared/lib",
+    "shared/tasks"
   ],
   "scripts": {
     "install:playwright": "playwright install chromium --with-deps --only-shell",
     "install:puppeteer": "puppeteer browsers install",
-    "clean": "del-cli dist/**",
-    "prebuild": "npm run clean",
+    "clean": "del-cli dist",
     "build": "npm run build --if-present --workspaces",
     "heroku-postbuild": "npm run build",
     "postheroku-postbuild": "NPM_CONFIG_PRODUCTION=true npm ci --omit=dev --omit=optional --workspace @nhsuk/frontend-review",

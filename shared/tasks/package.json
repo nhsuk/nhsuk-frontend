@@ -11,6 +11,7 @@
   "dependencies": {
     "@nhsuk/frontend-config": "*",
     "@nhsuk/frontend-lib": "*",
+    "@npmcli/run-script": "^10.0.0",
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-commonjs": "^28.0.6",
     "@rollup/plugin-node-resolve": "^16.0.1",
@@ -20,6 +21,7 @@
     "browser-sync": "^3.0.4",
     "cssnano": "^7.1.1",
     "gulp": "^5.0.1",
+    "gulp-changed": "^5.0.4",
     "gulp-rename": "^2.1.0",
     "nhsuk-frontend": "*",
     "plugin-error": "^2.0.1",

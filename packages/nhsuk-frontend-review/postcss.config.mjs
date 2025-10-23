@@ -1,3 +1,4 @@
+import * as config from '@nhsuk/frontend-config'
 import autoprefixer from 'autoprefixer'
 import cssnano from 'cssnano'
 
@@ -13,9 +14,10 @@ export default {
       env: 'stylesheets'
     }),
 
-    cssnano({
-      preset: ['default', { env: 'stylesheets' }]
-    })
+    // Minify CSS for production only
+    config.environment === 'production'
+      ? cssnano({ preset: ['default', { env: 'stylesheets' }] })
+      : false
   ]
 }
 
