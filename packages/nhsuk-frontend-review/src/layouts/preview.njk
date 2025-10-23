@@ -1,6 +1,6 @@
 {% set previewLayoutName = ("example-" ~ options.layout) if options.layout %}
 
-{% if not previewLayoutName and options.width == false %}
+{% if not previewLayoutName and options.width === false %}
   {% set previewLayoutName = "example-full-width" %}
 {% endif %}
 
