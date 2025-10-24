@@ -12,6 +12,7 @@
   //   when they wrap across multiple lines
   .nhsuk-button-group {
     $horizontal-gap: nhsuk-spacing(4);
+    $horizontal-gap-small: nhsuk-spacing(2);
     $vertical-gap: nhsuk-spacing(3);
 
     // These need to be kept in sync with the button component's styles
@@ -85,6 +86,10 @@
 
       > .nhsuk-button {
         margin-right: $horizontal-gap;
+      }
+
+      > .nhsuk-button--small {
+        margin-right: $horizontal-gap-small;
       }
     }
   }

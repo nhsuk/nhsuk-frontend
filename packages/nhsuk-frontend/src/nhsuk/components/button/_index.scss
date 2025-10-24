@@ -18,7 +18,9 @@
 $nhsuk-button-border-radius: $nhsuk-border-width-form-element * 2;
 $nhsuk-button-padding-top-bottom-mobile: 8px;
 $nhsuk-button-padding-top-bottom-desktop: 12px;
+$nhsuk-button-padding-top-bottom-small: 4px;
 $nhsuk-button-padding-left-right: 16px;
+$nhsuk-button-padding-left-right-small: 12px;
 
 // Because the shadow (s0) is visually 'part of' the button, we need to reduce
 // the height of the button to compensate by adjusting its padding (s2) and
@@ -273,5 +275,16 @@ $button-shadow-size: $nhsuk-button-shadow-size;
     &:active:focus {
       background-color: $nhsuk-login-button-active-colour;
     }
+  }
+
+  // =========================================================
+  // Small buttons
+  // =========================================================
+
+  .nhsuk-button--small {
+    padding: $nhsuk-button-padding-top-bottom-small $nhsuk-button-padding-left-right-small;
+
+    @include nhsuk-font(16, $weight: bold);
+    @include nhsuk-responsive-margin(4, "bottom", $adjustment: $nhsuk-button-shadow-size); // s1
   }
 }
