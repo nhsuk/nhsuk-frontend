@@ -11,6 +11,29 @@
     }
   }
 
+  .nhsuk-form-group-row {
+    display: block;
+
+    .nhsuk-form-group {
+      // Set max-width to override potential width override class on the input
+      max-width: 100%;
+    }
+
+    @include nhsuk-media-query($from: tablet) {
+      display: flex;
+      gap: nhsuk-spacing(2);
+
+      .nhsuk-form-group {
+        flex: 0 1 auto;
+
+        &:focus-within {
+          // Hack to stop focus style being overlapped by the next group
+          z-index: 1;
+        }
+      }
+    }
+  }
+
   .nhsuk-form-group--wrapper {
     @include nhsuk-responsive-margin(5, "bottom");
   }
