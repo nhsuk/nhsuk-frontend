@@ -116,6 +116,11 @@ $button-shadow-size: $nhsuk-button-shadow-size;
       box-shadow: none;
     }
 
+    &:disabled {
+      pointer-events: none;
+      opacity: (0.5);
+    }
+
     // Default pseudo element styles for [3] and [4] below
     &::before,
     &::after {
@@ -268,12 +273,5 @@ $button-shadow-size: $nhsuk-button-shadow-size;
     &:active:focus {
       background-color: $nhsuk-login-button-active-colour;
     }
-  }
-
-  // Button disabled states
-
-  .nhsuk-button:disabled {
-    pointer-events: none;
-    opacity: (0.5);
   }
 }
