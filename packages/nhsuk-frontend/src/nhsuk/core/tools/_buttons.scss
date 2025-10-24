@@ -1,0 +1,82 @@
+@use "sass:math";
+@use "../settings" as *;
+
+////
+/// Buttons
+///
+/// @group tools
+////
+
+/// Button styling with colour overrides
+///
+/// @param {Colour} $button-colour [$nhsuk-button-colour] - Button background colour
+/// @param {Colour} $button-hover-colour [$nhsuk-button-hover-colour - Button hover background colour
+/// @param {Colour} $button-text-colour [$nhsuk-button-text-colour] - Button text colour
+/// @param {Colour} $button-shadow-colour [$nhsuk-button-shadow-colour] - Button shadow colour
+/// @param {Colour} $button-border-colour - Button border colour (optional, e.g. secondary button)
+///
+
+@mixin nhsuk-button-style(
+  $button-colour: $nhsuk-button-colour,
+  $button-hover-colour: $nhsuk-button-hover-colour,
+  $button-active-colour: $nhsuk-button-active-colour,
+  $button-text-colour: $nhsuk-button-text-colour,
+  $button-shadow-colour: $nhsuk-button-shadow-colour,
+  $button-border-colour: null
+) {
+  background-color: $button-colour;
+  box-shadow: 0 $nhsuk-button-shadow-size 0 $button-shadow-colour;
+
+  &,
+  &:visited,
+  &:hover,
+  &:hover:visited,
+  &:active,
+  &:active:visited {
+    color: $button-text-colour;
+  }
+
+  &:hover {
+    background-color: $button-hover-colour;
+  }
+
+  &:active,
+  &:active:focus {
+    background-color: $button-active-colour;
+  }
+
+  // Handle shadow on both the button and the pseudo element. The button shadow
+  // remains in place to prevent any pixel gaps due to browser rounding
+  @if $button-border-colour {
+    &,
+    &::after {
+      box-shadow: 0 $nhsuk-button-shadow-size 0 $button-shadow-colour;
+    }
+
+    &:active,
+    &:active:focus {
+      border-color: $button-border-colour;
+    }
+
+    // Set border on click area for default and hover states which allows the
+    // border to render underneath the shadow and hide pixel artifacts, but
+    // ensuring the active "pressed" and focus states have priority
+    &:not(:focus):not(:active)::before {
+      border-color: $button-border-colour;
+    }
+
+    // Inset the pseudo element shadow away from the edges, to restore lost
+    // border radius (and its shadow) previously hidden by the 2px border
+    &:not(:focus)::after {
+      right: 0;
+      left: 0;
+      border-radius: math.div($nhsuk-button-border-radius, 2);
+    }
+
+    // Remove the pseudo element shadow when focused or pressed
+    &:focus::after,
+    &:active::after {
+      box-shadow: none;
+    }
+  }
+}
