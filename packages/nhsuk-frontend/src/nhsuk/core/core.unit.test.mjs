@@ -205,6 +205,22 @@ describe('Core', () => {
         expect.anything()
       )
     })
+
+    it('outputs a warning when importing the core "generic/box-sizing" file', async () => {
+      const sass = outdent`
+        @forward "core/generic/box-sizing";
+      `
+
+      await compileStringAsync(sass, {
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
+        logger
+      })
+
+      expect(logger.warn).toHaveBeenCalledWith(
+        `Importing using 'core/generic/box-sizing' is deprecated. Remove your import statement for 'core/generic/box-sizing'. To silence this warning, update $nhsuk-suppressed-warnings with key: "import-using-generic-box-sizing"`,
+        expect.anything()
+      )
+    })
   })
 })
 
