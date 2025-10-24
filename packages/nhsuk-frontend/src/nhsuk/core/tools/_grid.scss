@@ -58,10 +58,13 @@
 
 @mixin nhsuk-grid-column($width: full, $float: left, $at: desktop) {
   box-sizing: border-box;
+
   @if $at != tablet {
     width: 100%;
   }
+
   padding: 0 $nhsuk-gutter-half;
+
   @include nhsuk-media-query($from: $at) {
     width: nhsuk-grid-width($width);
     float: $float;

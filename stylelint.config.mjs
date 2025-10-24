@@ -59,11 +59,6 @@ export default {
           properties: ['content', 'content-visibility', 'quotes']
         },
         {
-          // Box-sizing - Allow here until global is decided
-          emptyLineBefore: 'threshold',
-          properties: ['box-sizing']
-        },
-        {
           emptyLineBefore: 'threshold',
           properties: ['display', 'visibility']
         },
