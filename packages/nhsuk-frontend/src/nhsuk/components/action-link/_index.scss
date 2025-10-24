@@ -72,7 +72,7 @@
 
     &:hover {
       text-decoration: underline;
-      @include nhsuk-link-hover-decoration();
+      @include nhsuk-link-hover-decoration;
     }
 
     &:not(:focus) .nhsuk-icon {
