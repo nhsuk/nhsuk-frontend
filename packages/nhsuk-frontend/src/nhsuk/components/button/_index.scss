@@ -18,7 +18,9 @@
 
 $nhsuk-button-padding-top-bottom-mobile: 9px;
 $nhsuk-button-padding-top-bottom-desktop: 13px;
+$nhsuk-button-padding-top-bottom-small: 5px;
 $nhsuk-button-padding-left-right: 16px;
+$nhsuk-button-padding-left-right-small: 12px;
 
 // @deprecated To be removed in v11.0
 $button-border-radius: $nhsuk-button-border-radius;
@@ -272,5 +274,18 @@ $button-shadow-size: $nhsuk-button-shadow-size;
     &:active:focus {
       background-color: $nhsuk-login-button-active-colour;
     }
+  }
+
+  // =========================================================
+  // Small buttons
+  // =========================================================
+
+  .nhsuk-button--small {
+    min-height: nhsuk-px-to-rem(36px);
+    padding: $nhsuk-button-padding-top-bottom-small $nhsuk-button-padding-left-right-small
+      ($nhsuk-button-padding-top-bottom-small - math.div($nhsuk-button-shadow-size, 2)); // [5]
+
+    @include nhsuk-font(16, $weight: bold);
+    @include nhsuk-responsive-margin(4, "bottom", $adjustment: $nhsuk-button-shadow-size); // [5]
   }
 }
