@@ -1,3 +1,4 @@
+@use "sass:math";
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
 
@@ -14,9 +15,9 @@
 /// @group components/button
 ////
 
-$nhsuk-button-padding-top-bottom-mobile: 8px;
-$nhsuk-button-padding-top-bottom-desktop: 12px;
-$nhsuk-button-padding-top-bottom-small: 4px;
+$nhsuk-button-padding-top-bottom-mobile: 9px;
+$nhsuk-button-padding-top-bottom-desktop: 13px;
+$nhsuk-button-padding-top-bottom-small: 5px;
 $nhsuk-button-padding-left-right: 16px;
 $nhsuk-button-padding-left-right-small: 12px;
 
@@ -37,7 +38,8 @@ $button-shadow-size: $nhsuk-button-shadow-size;
 
     width: 100%;
     margin-top: 0;
-    padding: $nhsuk-button-padding-top-bottom-mobile $nhsuk-button-padding-left-right;
+    padding: $nhsuk-button-padding-top-bottom-mobile $nhsuk-button-padding-left-right
+      ($nhsuk-button-padding-top-bottom-mobile - math.div($nhsuk-button-shadow-size, 2));
 
     overflow: visible;
 
@@ -57,7 +59,8 @@ $button-shadow-size: $nhsuk-button-shadow-size;
 
     @include nhsuk-media-query($from: tablet) {
       width: auto;
-      padding: $nhsuk-button-padding-top-bottom-desktop $nhsuk-button-padding-left-right;
+      padding: $nhsuk-button-padding-top-bottom-desktop $nhsuk-button-padding-left-right
+        ($nhsuk-button-padding-top-bottom-desktop - math.div($nhsuk-button-shadow-size, 2));
     }
 
     // [1]
@@ -186,7 +189,8 @@ $button-shadow-size: $nhsuk-button-shadow-size;
   // =========================================================
 
   .nhsuk-button--small {
-    padding: $nhsuk-button-padding-top-bottom-small $nhsuk-button-padding-left-right-small;
+    padding: $nhsuk-button-padding-top-bottom-small $nhsuk-button-padding-left-right-small
+      ($nhsuk-button-padding-top-bottom-small - math.div($nhsuk-button-shadow-size, 2));
 
     @include nhsuk-font(16, $weight: bold);
     @include nhsuk-responsive-margin(4, "bottom", $adjustment: $nhsuk-button-shadow-size);
