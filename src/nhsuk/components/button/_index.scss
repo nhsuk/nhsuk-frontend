@@ -188,11 +188,13 @@ $button-shadow-size: $nhsuk-button-shadow-size;
   // Small buttons
   // =========================================================
 
-  .nhsuk-button--small {
-    padding: $nhsuk-button-padding-top-bottom-small $nhsuk-button-padding-left-right-small
-      ($nhsuk-button-padding-top-bottom-small - math.div($nhsuk-button-shadow-size, 2));
+  @include nhsuk-media-query($from: tablet) {
+    .nhsuk-button--small {
+      padding: $nhsuk-button-padding-top-bottom-small $nhsuk-button-padding-left-right-small
+        ($nhsuk-button-padding-top-bottom-small - math.div($nhsuk-button-shadow-size, 2));
 
-    @include nhsuk-font(16, $weight: bold);
-    @include nhsuk-responsive-margin(4, "bottom", $adjustment: $nhsuk-button-shadow-size);
+      @include nhsuk-font(16, $weight: bold);
+      @include nhsuk-responsive-margin(4, "bottom", $adjustment: $nhsuk-button-shadow-size);
+    }
   }
 }
