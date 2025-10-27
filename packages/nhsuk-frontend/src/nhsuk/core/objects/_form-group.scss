@@ -27,4 +27,22 @@
       border: 0;
     }
   }
+
+  .nhsuk-form-group--inline {
+    @include nhsuk-media-query($from: tablet) {
+      display: flex;
+      flex-direction: row;
+
+      // Align the bottom of inputs
+      align-items: flex-end;
+
+      .nhsuk-form-group {
+        margin-bottom: 0; // Remove margin when nested groups are inline
+      }
+
+      .nhsuk-form-group + .nhsuk-form-group {
+        margin-left: nhsuk-spacing(3);
+      }
+    }
+  }
 }
