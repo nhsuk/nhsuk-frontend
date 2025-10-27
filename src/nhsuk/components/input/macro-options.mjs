@@ -285,7 +285,7 @@ export const examples = {
       },
       id: 'with-button',
       name: 'example',
-      classes: 'nhsuk-input--width-10',
+      classes: 'nhsuk-u-width-full',
       inputmode: 'numeric',
       spellcheck: false,
       formGroup: {
@@ -299,7 +299,8 @@ export const examples = {
         }
       },
       inputWrapper: {
-        classes: 'nhsuk-form-group nhsuk-form-group--inline'
+        classes:
+          'nhsuk-form-group nhsuk-form-group--inline nhsuk-u-width-one-half'
       }
     }
   },
@@ -315,7 +316,7 @@ export const examples = {
       },
       id: 'with-button-error-message',
       name: 'example',
-      classes: 'nhsuk-input--width-10',
+      classes: 'nhsuk-u-width-full',
       inputmode: 'numeric',
       spellcheck: false,
       formGroup: {
@@ -329,7 +330,8 @@ export const examples = {
         }
       },
       inputWrapper: {
-        classes: 'nhsuk-form-group nhsuk-form-group--inline'
+        classes:
+          'nhsuk-form-group nhsuk-form-group--inline nhsuk-u-width-one-half'
       }
     }
   },
