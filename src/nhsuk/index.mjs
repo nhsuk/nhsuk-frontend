@@ -7,6 +7,7 @@ import {
   ErrorSummary,
   Header,
   NotificationBanner,
+  PasswordInput,
   Radios,
   SkipLink,
   Tabs
@@ -72,6 +73,7 @@ export function initAll(scopeOrConfig = {}) {
     [ErrorSummary, config.errorSummary],
     [Header],
     [NotificationBanner, config.notificationBanner],
+    [PasswordInput, config.passwordInput],
     [Radios],
     [SkipLink],
     [Tabs]
@@ -202,6 +204,7 @@ export * from './errors/index.mjs'
  * @property {ComponentConfig<typeof CharacterCount>} [characterCount] - Character count config
  * @property {ComponentConfig<typeof ErrorSummary>} [errorSummary] - Error Summary config
  * @property {ComponentConfig<typeof NotificationBanner>} [notificationBanner] - Notification Banner config
+ * @property {ComponentConfig<typeof PasswordInput>} [passwordInput] - Password Input config
  */
 
 /**
