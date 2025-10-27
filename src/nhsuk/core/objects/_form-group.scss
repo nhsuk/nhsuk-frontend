@@ -9,6 +9,19 @@
     .nhsuk-form-group:last-child {
       margin-bottom: 0; // Remove margin from last item in nested groups
     }
+
+    @include nhsuk-media-query($until: tablet) {
+      // Add margin to button when in the same group as other form elements
+      .nhsuk-button:not(:first-child),
+      .nhsuk-button:not(:only-child) {
+        margin-top: nhsuk-spacing(2);
+      }
+
+      // Remove margin from button when last, but reserve space for button shadow
+      .nhsuk-button:last-child {
+        margin-bottom: $nhsuk-button-shadow-size + $nhsuk-border-width-form-element;
+      }
+    }
   }
 
   .nhsuk-form-group--error {
@@ -31,14 +44,25 @@
       margin-bottom: nhsuk-spacing(2);
     }
 
+    @include nhsuk-media-query($until: tablet) {
+      // Unlike GOV.UK Frontend, always stack on small screens
+      // stylelint-disable-next-line declaration-no-important
+      display: block !important;
+    }
+
     @include nhsuk-media-query($from: tablet) {
       display: flex;
       gap: nhsuk-spacing(2);
       align-items: flex-end;
 
       .nhsuk-form-group {
-        flex: 0 1 auto;
+        flex-grow: 1;
         margin-bottom: 0; // Remove margin when nested groups are inline
+      }
+
+      .nhsuk-button,
+      .nhsuk-button-group {
+        flex-grow: 0;
       }
 
       // Remove inline button margin but reserve space for button shadow,

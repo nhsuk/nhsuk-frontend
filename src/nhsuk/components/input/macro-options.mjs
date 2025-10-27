@@ -276,6 +276,63 @@ export const examples = {
     },
     screenshot: true
   },
+  'with button': {
+    context: {
+      label: {
+        text: 'What is your NHS number?',
+        classes: 'nhsuk-label--l',
+        isPageHeading: true
+      },
+      id: 'with-button',
+      name: 'example',
+      classes: 'nhsuk-input--width-10',
+      inputmode: 'numeric',
+      spellcheck: false,
+      formGroup: {
+        afterInput: {
+          html: components.render('button', {
+            context: {
+              text: 'Search',
+              classes: 'nhsuk-button--secondary nhsuk-button--small'
+            }
+          })
+        }
+      },
+      inputWrapper: {
+        classes: 'nhsuk-form-group nhsuk-form-group--inline'
+      }
+    }
+  },
+  'with button and error message': {
+    context: {
+      label: {
+        text: 'What is your NHS number?',
+        classes: 'nhsuk-label--l',
+        isPageHeading: true
+      },
+      errorMessage: {
+        text: 'Enter NHS number'
+      },
+      id: 'with-button-error-message',
+      name: 'example',
+      classes: 'nhsuk-input--width-10',
+      inputmode: 'numeric',
+      spellcheck: false,
+      formGroup: {
+        afterInput: {
+          html: components.render('button', {
+            context: {
+              text: 'Search',
+              classes: 'nhsuk-button--secondary nhsuk-button--small'
+            }
+          })
+        }
+      },
+      inputWrapper: {
+        classes: 'nhsuk-form-group nhsuk-form-group--inline'
+      }
+    }
+  },
   'with error message': {
     context: {
       label: {
