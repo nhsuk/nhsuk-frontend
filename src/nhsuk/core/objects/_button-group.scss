@@ -57,20 +57,6 @@
       @include nhsuk-font($size: 19);
     }
 
-    &--small .nhsuk-body,
-    &--small .nhsuk-body-m,
-    &--small p,
-    &--small > .nhsuk-link,
-    &--small > a:not(.nhsuk-button) {
-      // Match paragraphs and link margin to small buttons
-      margin-top: $button-padding-top-bottom-small + $nhsuk-border-width-form-element;
-      margin-bottom: $button-padding-top-bottom-small + $nhsuk-border-width-form-element +
-        math.div($nhsuk-button-shadow-size, 2) + $vertical-gap;
-
-      // Match paragraphs and link font-size and line-height to small buttons
-      @include nhsuk-font($size: 16);
-    }
-
     // Reduce the bottom margin to the size of the vertical gap (accommodating
     // the button shadow) – the 'lost' margin is moved to the button-group
     > .nhsuk-button {
@@ -118,6 +104,9 @@
         margin-right: $horizontal-gap-small;
         margin-bottom: $button-padding-top-bottom-small + $nhsuk-border-width-form-element +
           math.div($nhsuk-button-shadow-size, 2) + $vertical-gap;
+
+        // Match paragraphs and link font-size and line-height to small buttons
+        @include nhsuk-font($size: 16);
       }
 
       // Remove bottom margin when inline
