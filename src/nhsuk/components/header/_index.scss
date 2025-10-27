@@ -303,7 +303,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     $_header-border-width-form-element: 1px;
     width: 100%;
     height: 40px;
-    margin-right: -$_header-border-width-form-element;
+    margin: 0 (-$_header-border-width-form-element) 0 0;
     padding-right: $_header-item-padding;
     padding-left: $_header-item-padding;
 

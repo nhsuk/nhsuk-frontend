@@ -45,9 +45,11 @@
         margin-bottom: 0; // Remove margin when nested groups are inline
       }
 
-      // Always preserve space for button shadows
+      // Remove inline button margin but reserve space for button shadow,
+      // making sure 44px box maintains alignment with other form controls
+      // https://nhsuk.github.io/nhsuk-frontend/examples/form-alignment/
       .nhsuk-button {
-        margin-bottom: $nhsuk-button-shadow-size;
+        margin-bottom: $nhsuk-button-shadow-size + $nhsuk-border-width-form-element;
       }
     }
   }

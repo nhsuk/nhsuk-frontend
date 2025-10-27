@@ -18,6 +18,10 @@ $nhsuk-checkboxes-small-size: nhsuk-spacing(4);
 $nhsuk-checkboxes-label-padding-left-right: 12px;
 $nhsuk-checkboxes-check-horizontal-position: 12px;
 
+// Align 44px clickable area with 40px form controls
+// https://nhsuk.github.io/nhsuk-frontend/examples/form-alignment/
+$nhsuk-checkboxes-offset-left: math.div($nhsuk-border-width-form-element, -1);
+
 @include nhsuk-exports("nhsuk/components/checkboxes") {
   $nhsuk-touch-target-gutter: 4px;
   $nhsuk-touch-target-size: $nhsuk-checkboxes-size + $nhsuk-touch-target-gutter;
@@ -25,6 +29,7 @@ $nhsuk-checkboxes-check-horizontal-position: 12px;
   .nhsuk-checkboxes__item {
     display: flex;
     position: relative;
+    left: $nhsuk-checkboxes-offset-left;
     flex-wrap: wrap;
     margin-bottom: nhsuk-spacing(2);
   }
@@ -167,9 +172,9 @@ $nhsuk-checkboxes-check-horizontal-position: 12px;
   // =========================================================
 
   // Calculate the amount of padding needed to keep the border centered against the checkbox.
-  $conditional-border-padding: math.div($nhsuk-touch-target-size, 2) - math.div($nhsuk-border-width, 2);
+  $conditional-border-padding: math.div($nhsuk-touch-target-size, 2) - $nhsuk-border-width-form-element;
   // Move the border centered with the checkbox
-  $conditional-margin-left: $conditional-border-padding;
+  $conditional-margin-left: $conditional-border-padding + $nhsuk-checkboxes-offset-left;
   // Move the contents of the conditional inline with the label
   $conditional-padding-left: $conditional-border-padding + $nhsuk-checkboxes-label-padding-left-right;
 
@@ -196,6 +201,7 @@ $nhsuk-checkboxes-check-horizontal-position: 12px;
     $input-offset: math.div($nhsuk-touch-target-size - $nhsuk-checkboxes-small-size, 2);
 
     .nhsuk-checkboxes__item {
+      left: 0;
       margin-bottom: 0;
     }
 
@@ -258,7 +264,7 @@ $nhsuk-checkboxes-check-horizontal-position: 12px;
 
     // Align conditional reveals with small checkboxes
     .nhsuk-checkboxes__conditional {
-      $margin-left: math.div($nhsuk-checkboxes-small-size, 2) - math.div($nhsuk-border-width, 2);
+      $margin-left: math.div($nhsuk-checkboxes-small-size, 2) - $nhsuk-border-width-form-element;
       margin-left: $margin-left;
       padding-left: ($nhsuk-touch-target-size - $input-offset) - ($margin-left + $nhsuk-border-width);
     }
