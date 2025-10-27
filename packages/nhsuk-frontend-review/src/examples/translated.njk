@@ -93,6 +93,22 @@
         }
       }) }}
 
+      {{ passwordInput({
+        label: {
+          text: 'Cyfrinair',
+          classes: 'nhsuk-label--l',
+          isPageHeading: true
+        },
+        id: 'with-translations-password',
+        name: 'example',
+        showPasswordText: 'Datguddia',
+        hidePasswordText: 'Cuddio',
+        showPasswordAriaLabelText: 'Datgelu cyfrinair',
+        hidePasswordAriaLabelText: 'Cuddio cyfrinair',
+        passwordShownAnnouncementText: 'Mae eich cyfrinair yn weladwy.',
+        passwordHiddenAnnouncementText: "Mae eich cyfrinair wedi'i guddio."
+      }) }}
+
       <div class="nhsuk-button-group">
         {{ button({
           text: "Cadw a pharhau"
