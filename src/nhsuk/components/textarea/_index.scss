@@ -32,7 +32,7 @@
 
     appearance: none;
 
-    @include nhsuk-responsive-margin(6, "bottom");
+    @include nhsuk-responsive-margin(5, "bottom");
     @include nhsuk-font($size: 19);
 
     &:focus {
