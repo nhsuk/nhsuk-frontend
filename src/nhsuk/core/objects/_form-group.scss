@@ -25,4 +25,30 @@
       border: 0;
     }
   }
+
+  .nhsuk-form-group--inline {
+    display: block;
+
+    .nhsuk-form-group {
+      // Set max-width to override potential width override class on the input
+      max-width: 100%;
+      margin-bottom: nhsuk-spacing(2);
+    }
+
+    @include nhsuk-media-query($from: tablet) {
+      display: flex;
+      gap: nhsuk-spacing(2);
+      align-items: flex-end;
+
+      .nhsuk-form-group {
+        flex: 0 1 auto;
+        margin-bottom: 0; // Remove margin when nested groups are inline
+      }
+
+      // Always preserve space for button shadows
+      .nhsuk-button {
+        margin-bottom: $nhsuk-button-shadow-size;
+      }
+    }
+  }
 }
