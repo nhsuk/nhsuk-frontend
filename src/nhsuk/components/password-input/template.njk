@@ -47,7 +47,7 @@
 {%- set buttonHtml %}
 {{ button({
   type: "button",
-  classes: "nhsuk-button--secondary nhsuk-password-input__toggle nhsuk-js-password-input-toggle" + (" " + params.button.classes if params.button.classes),
+  classes: "nhsuk-button--secondary nhsuk-button--small nhsuk-password-input__toggle nhsuk-js-password-input-toggle" + (" " + params.button.classes if params.button.classes),
   text: params.showPasswordText | default("Show"),
   attributes: {
     "aria-controls": id,
@@ -73,7 +73,7 @@
     }
   },
   inputWrapper: {
-    "classes": "nhsuk-password-input__wrapper"
+    classes: "nhsuk-form-group nhsuk-form-group--inline"
   },
   label: params.label,
   hint: params.hint,
