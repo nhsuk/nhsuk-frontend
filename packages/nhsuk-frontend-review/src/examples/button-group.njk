@@ -42,7 +42,23 @@
             <a href="#" class="nhsuk-link">Read more about our cookies</a>
           </div>
 
-          <hr>
+          <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
+
+          <div class="nhsuk-button-group nhsuk-button-group--small">
+            {{ button({
+              text: "I'm OK with analytics cookies",
+              classes: "nhsuk-button--small"
+            }) }}
+
+            {{ button({
+              text: "Do not use analytics cookies",
+              classes: "nhsuk-button--small"
+            }) }}
+
+            <a href="#" class="nhsuk-link">Read more about our cookies</a>
+          </div>
+
+          <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
 
           <div class="nhsuk-button-group">
             {{ button({
@@ -54,16 +70,25 @@
             <a href="#" class="nhsuk-link">Cancel and go back</a>
           </div>
 
-          <hr>
+          <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
+
+          <div class="nhsuk-button-group nhsuk-button-group--small">
+            {{ button({
+              text: "Delete account",
+              classes: "nhsuk-button--warning nhsuk-button--small"
+            }) }}
+
+            <a href="#" class="nhsuk-link">Cancel</a>
+            <a href="#" class="nhsuk-link">Cancel and go back</a>
+          </div>
+
+          <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
 
           <div class="nhsuk-button-group">
             <a href="#" class="nhsuk-link">Buy it</a>
 
             {{ button({
-              text: "Use it",
-              attributes: {
-                style: "min-width: 150px;"
-              }
+              text: "Use it"
             }) }}
 
             {{ button({
@@ -98,7 +123,51 @@
             }) }}
           </div>
 
-          <hr>
+          <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
+
+          <div class="nhsuk-button-group nhsuk-button-group--small">
+            <a href="#" class="nhsuk-link">Buy it</a>
+
+            {{ button({
+              text: "Use it",
+              classes: "nhsuk-button--small"
+            }) }}
+
+            {{ button({
+              text: "Break it",
+              classes: "nhsuk-button--small"
+            }) }}
+
+            <a href="#" class="nhsuk-link">Fix it</a>
+            <a href="#" class="nhsuk-link">Trash it</a>
+            <a href="#" class="nhsuk-link">Change it</a>
+
+            {{ button({
+              text: "Mail it",
+              classes: "nhsuk-button--small"
+            }) }}
+
+            <a href="#" class="nhsuk-link">Upgrade it</a>
+
+            <a href="#" class="nhsuk-link">Charge it</a>
+
+            {{ button({
+              text: "Point it",
+              classes: "nhsuk-button--secondary nhsuk-button--small"
+            }) }}
+
+            {{ button({
+              text: "Zoom it",
+              classes: "nhsuk-button--secondary nhsuk-button--small"
+            }) }}
+
+            {{ button({
+              text: "Press it",
+              classes: "nhsuk-button--secondary nhsuk-button--small"
+            }) }}
+          </div>
+
+          <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
 
           <div class="nhsuk-button-group">
             {{ button({
@@ -110,8 +179,102 @@
             <a href="#" class="nhsuk-link">Create an account</a>
           </div>
 
+
+          <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
+
+          <div class="nhsuk-button-group nhsuk-button-group--small">
+            {{ button({
+              text: "Continue to NHS login",
+              classes: "nhsuk-button--login nhsuk-button--small",
+              href: "#"
+            }) }}
+
+            <a href="#" class="nhsuk-link">Create an account</a>
+          </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="nhsuk-main-wrapper app-wrapper app-wrapper--background-grey">
+    <div class="nhsuk-width-container">
+
+      <div class="nhsuk-button-group">
+        {{ button({
+          text: "Breast cancer",
+          classes: "nhsuk-button--secondary-solid"
+        }) }}
+
+        {{ button({
+          text: "Implanted medical device",
+          classes: "nhsuk-button--secondary-solid"
+        }) }}
+
+        {{ button({
+          text: "Breast implants or augmentation",
+          classes: "nhsuk-button--secondary-solid"
+        }) }}
+
+        {{ button({
+          text: "Mastectomy or lumpectomy",
+          classes: "nhsuk-button--secondary-solid"
+        }) }}
+
+        {{ button({
+          text: "Cysts",
+          classes: "nhsuk-button--secondary-solid"
+        }) }}
+
+        {{ button({
+          text: "Benign lumps",
+          classes: "nhsuk-button--secondary-solid"
+        }) }}
+
+        {{ button({
+          text: "Other procedures",
+          classes: "nhsuk-button--secondary-solid"
+        }) }}
+      </div>
+
+      <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
+
+      <div class="nhsuk-button-group nhsuk-button-group--small">
+        {{ button({
+          text: "Breast cancer",
+          classes: "nhsuk-button--small nhsuk-button--secondary-solid"
+        }) }}
+
+        {{ button({
+          text: "Implanted medical device",
+          classes: "nhsuk-button--small nhsuk-button--secondary-solid"
+        }) }}
+
+        {{ button({
+          text: "Breast implants or augmentation",
+          classes: "nhsuk-button--small nhsuk-button--secondary-solid"
+        }) }}
+
+        {{ button({
+          text: "Mastectomy or lumpectomy",
+          classes: "nhsuk-button--small nhsuk-button--secondary-solid"
+        }) }}
+
+        {{ button({
+          text: "Cysts",
+          classes: "nhsuk-button--small nhsuk-button--secondary-solid"
+        }) }}
+
+        {{ button({
+          text: "Benign lumps",
+          classes: "nhsuk-button--small nhsuk-button--secondary-solid"
+        }) }}
+
+        {{ button({
+          text: "Other procedures",
+          classes: "nhsuk-button--small nhsuk-button--secondary-solid"
+        }) }}
+      </div>
+
     </div>
   </section>
 
@@ -135,6 +298,28 @@
         }) }}
 
         <p class="nhsuk-body">It's free</p>
+      </div>
+
+      <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
+
+      <div class="nhsuk-button-group nhsuk-button-group--small">
+        {{ button({
+          text: "Continue to NHS login",
+          classes: "nhsuk-button--reverse nhsuk-button--small",
+          href: "#"
+        }) }}
+
+        <p class="nhsuk-body-s">alternatively you can <a href="#" class="nhsuk-link nhsuk-link--reverse">register for a new account here</a></p>
+      </div>
+
+      <div class="nhsuk-button-group nhsuk-button-group--small">
+        {{ button({
+          text: "Register now",
+          classes: "nhsuk-button--reverse nhsuk-button--small",
+          href: "#"
+        }) }}
+
+        <p class="nhsuk-body-s">It's free</p>
       </div>
     </div>
   </section>

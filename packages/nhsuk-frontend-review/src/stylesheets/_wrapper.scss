@@ -17,7 +17,8 @@
   color: $nhsuk-reverse-text-colour;
   background-color: $nhsuk-brand-colour;
 
-  & + & {
+  & + &,
+  .nhsuk-section-break--visible {
     border-color: $nhsuk-secondary-border-colour;
   }
 }
@@ -28,7 +29,8 @@
   background-color: $nhsuk-template-background-colour;
 
   // Turn on border between grey and grey
-  & + & {
+  & + &,
+  .nhsuk-section-break--visible {
     border-color: $nhsuk-body-background-colour;
   }
 }
