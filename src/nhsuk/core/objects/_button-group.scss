@@ -13,11 +13,13 @@
   //   when they wrap across multiple lines
   .nhsuk-button-group {
     $horizontal-gap: nhsuk-spacing(4);
+    $horizontal-gap-small: nhsuk-spacing(3);
     $vertical-gap: nhsuk-spacing(3);
 
     // These need to be kept in sync with the button component's styles
     $button-padding-top-bottom-mobile: 9px;
     $button-padding-top-bottom-desktop: 13px;
+    $button-padding-top-bottom-small: 5px;
 
     // Flexbox is used to center-align links on mobile, align everything along
     // the baseline on tablet and above, and to removes extra whitespace that
@@ -55,10 +57,29 @@
       @include nhsuk-font($size: 19);
     }
 
+    &--small .nhsuk-body,
+    &--small .nhsuk-body-m,
+    &--small p,
+    &--small > .nhsuk-link,
+    &--small > a:not(.nhsuk-button) {
+      // Match paragraphs and link margin to small buttons
+      margin-top: $button-padding-top-bottom-small + $nhsuk-border-width-form-element;
+      margin-bottom: $button-padding-top-bottom-small + $nhsuk-border-width-form-element +
+        math.div($nhsuk-button-shadow-size, 2) + $vertical-gap;
+
+      // Match paragraphs and link font-size and line-height to small buttons
+      @include nhsuk-font($size: 16);
+    }
+
     // Reduce the bottom margin to the size of the vertical gap (accommodating
-    // the button shadow) – the 'lost' margin is moved to the button-group.
+    // the button shadow) – the 'lost' margin is moved to the button-group
     > .nhsuk-button {
       margin-bottom: $vertical-gap + $nhsuk-button-shadow-size;
+    }
+
+    // Remove double margin when nested in form groups
+    .nhsuk-form-group & {
+      margin-bottom: 0;
     }
 
     // On tablet and above, we also introduce a 'column gap' between the
@@ -70,6 +91,10 @@
 
       // Cancel out the column gap for the last item in each row
       margin-right: ($horizontal-gap * -1);
+
+      &--small {
+        margin-right: ($horizontal-gap-small * -1);
+      }
 
       .nhsuk-body,
       .nhsuk-body-m,
@@ -83,8 +108,33 @@
         text-align: left;
       }
 
+      &--small .nhsuk-body,
+      &--small .nhsuk-body-m,
+      &--small p,
+      &--small > .nhsuk-link,
+      &--small > a:not(.nhsuk-button) {
+        // Match paragraphs and link margin to small buttons
+        margin-top: $button-padding-top-bottom-small + $nhsuk-border-width-form-element;
+        margin-right: $horizontal-gap-small;
+        margin-bottom: $button-padding-top-bottom-small + $nhsuk-border-width-form-element +
+          math.div($nhsuk-button-shadow-size, 2) + $vertical-gap;
+      }
+
+      // Remove bottom margin when inline
+      .nhsuk-form-group--inline & .nhsuk-body,
+      .nhsuk-form-group--inline & .nhsuk-body-m,
+      .nhsuk-form-group--inline & p,
+      .nhsuk-form-group--inline & > .nhsuk-link,
+      .nhsuk-form-group--inline & > a:not(.nhsuk-button) {
+        margin-bottom: 0;
+      }
+
       > .nhsuk-button {
         margin-right: $horizontal-gap;
+      }
+
+      > .nhsuk-button--small {
+        margin-right: $horizontal-gap-small;
       }
     }
   }
