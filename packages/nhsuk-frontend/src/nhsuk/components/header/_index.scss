@@ -159,6 +159,8 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     &:has(svg):not(:focus):hover::before {
       content: "";
 
+      box-sizing: border-box;
+
       display: inline;
 
       position: absolute;
@@ -492,7 +494,6 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
 
   .nhsuk-header__menu-toggle {
     $_chevron-font-size: 19;
-    box-sizing: border-box;
 
     display: flex;
 

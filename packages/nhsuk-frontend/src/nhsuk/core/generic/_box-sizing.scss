@@ -1,22 +1,7 @@
-////
-/// Box sizing
-///
-/// Set the global `box-sizing` state to `border-box`.
-///
-/// @link https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice
-/// @link http://paulirish.com/2012/box-sizing-border-box-ftw
-///
-/// @group generic
-////
+@use "../settings" as *;
 
-html {
-  box-sizing: border-box;
-}
-
-* {
-  &,
-  &::before,
-  &::after {
-    box-sizing: inherit;
-  }
-}
+@include nhsuk-warning(
+  "import-using-generic-box-sizing",
+  "Importing using 'core/generic/box-sizing' is deprecated. Remove your import statement for 'core/generic/box-sizing'.",
+  $silence-further-warnings: false
+);
