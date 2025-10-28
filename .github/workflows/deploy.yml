@@ -27,7 +27,7 @@ jobs:
 
       - name: Setup Node
         if: steps.npm-install-cache.outputs.cache-hit != 'true'
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v6
         with:
           node-version-file: .nvmrc
 
@@ -60,7 +60,7 @@ jobs:
           path: node_modules
 
       - name: Setup Node
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v6
         with:
           node-version-file: .nvmrc
           package-manager-cache: false
