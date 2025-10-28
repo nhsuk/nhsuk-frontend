@@ -53,6 +53,8 @@ $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
   }
 
   .nhsuk-radios__label {
+    box-sizing: border-box;
+
     align-self: center;
 
     // Ensure that the width of the label is never more than the width of the
