@@ -1,0 +1,19 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes -%}
+
+{% if params.html or params.text %}
+{% set labelHtml %}
+<label {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-label {%- if params.classes %} {{ params.classes }}{% endif %}"
+  {{- nhsukAttributes(params.attributes) -}}
+  {%- if params.for %} for="{{ params.for }}"{% endif %}>
+  {{ params.html | safe | trim | indent(2) if params.html else params.text }}
+</label>
+{% endset -%}
+
+{% if params.isPageHeading %}
+<h1 class="nhsuk-label-wrapper">
+  {{ labelHtml | safe | trim | indent(2) }}
+</h1>
+{% else %}
+{{ labelHtml | safe | trim }}
+{% endif %}
+{% endif %}

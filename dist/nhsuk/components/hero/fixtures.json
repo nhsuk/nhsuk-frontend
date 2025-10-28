@@ -1,0 +1,76 @@
+{
+  "name": "Hero",
+  "component": "hero",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "heading": "We're here for you",
+        "text": "Helping you take control of your health and wellbeing."
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop",
+          "large-desktop"
+        ]
+      },
+      "options": {
+        "width": false
+      },
+      "html": "<section class=\"nhsuk-hero\">\n  <div class=\"nhsuk-width-container nhsuk-hero--border\">\n    <div class=\"nhsuk-grid-row\">\n      <div class=\"nhsuk-grid-column-two-thirds\">\n        <div class=\"nhsuk-hero__wrapper\"><h1 class=\"nhsuk-hero__heading\">We&#39;re here for you</h1><p class=\"nhsuk-body-l nhsuk-u-margin-bottom-0\">Helping you take control of your health and wellbeing.</p>        </div>\n      </div>\n    </div>\n  </div>\n</section>"
+    },
+    {
+      "name": "with html content",
+      "context": {
+        "heading": "This is a header for the product or service",
+        "headingClasses": "nhsuk-heading-l nhsuk-u-margin-top-5",
+        "html": "<p class=\"nhsuk-body-l\">This is some more content which explains the product or service.</p>\n\n\n\n\n\n<a class=\"nhsuk-button nhsuk-button--reverse\"\n  data-module=\"nhsuk-button\"\n href=\"#\" draggable=\"false\" role=\"button\">\n  Sign up\n</a>\n\n"
+      },
+      "screenshot": false,
+      "options": {
+        "width": false
+      },
+      "html": "<section class=\"nhsuk-hero\">\n  <div class=\"nhsuk-width-container nhsuk-hero--border\">\n    <div class=\"nhsuk-grid-row\">\n      <div class=\"nhsuk-grid-column-two-thirds\">\n        <div class=\"nhsuk-hero__wrapper\"><h1 class=\"nhsuk-hero__heading nhsuk-heading-l nhsuk-u-margin-top-5\">This is a header for the product or service</h1><p class=\"nhsuk-body-l\">This is some more content which explains the product or service.</p>\n\n\n\n\n\n<a class=\"nhsuk-button nhsuk-button--reverse\"\n  data-module=\"nhsuk-button\"\n href=\"#\" draggable=\"false\" role=\"button\">\n  Sign up\n</a>\n\n        </div>\n      </div>\n    </div>\n  </div>\n</section>"
+    },
+    {
+      "name": "with image",
+      "context": {
+        "imageURL": "https://assets.nhs.uk/prod/images/S_0818_homepage_hero_1_F0147446.width-1000.jpg"
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop",
+          "large-desktop"
+        ]
+      },
+      "options": {
+        "width": false
+      },
+      "html": "<section class=\"nhsuk-hero nhsuk-hero--image\" style=\"background-image: url('https://assets.nhs.uk/prod/images/S_0818_homepage_hero_1_F0147446.width-1000.jpg');\">\n<div class=\"nhsuk-hero__overlay\"></div></section>"
+    },
+    {
+      "name": "with image, content",
+      "context": {
+        "heading": "We're here for you",
+        "text": "Helping you take control of your health and wellbeing.",
+        "imageURL": "https://assets.nhs.uk/prod/images/S_0818_homepage_hero_1_F0147446.width-1000.jpg"
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop",
+          "large-desktop"
+        ]
+      },
+      "options": {
+        "width": false
+      },
+      "html": "<section class=\"nhsuk-hero nhsuk-hero--image nhsuk-hero--image-description\" style=\"background-image: url('https://assets.nhs.uk/prod/images/S_0818_homepage_hero_1_F0147446.width-1000.jpg');\">\n<div class=\"nhsuk-hero__overlay\">  <div class=\"nhsuk-width-container\">\n    <div class=\"nhsuk-grid-row\">\n      <div class=\"nhsuk-grid-column-two-thirds\">\n        <div class=\"nhsuk-hero-content\"><h1 class=\"nhsuk-hero__heading\">We&#39;re here for you</h1><p class=\"nhsuk-body-l nhsuk-u-margin-bottom-0\">Helping you take control of your health and wellbeing.</p><span class=\"nhsuk-hero__arrow\" aria-hidden=\"true\"></span>        </div>\n      </div>\n    </div>\n  </div>\n</div></section>"
+    }
+  ]
+}

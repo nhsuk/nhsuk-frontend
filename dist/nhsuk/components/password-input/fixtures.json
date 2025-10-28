@@ -1,0 +1,125 @@
+{
+  "name": "Password input",
+  "component": "password-input",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "label": {
+          "text": "Password",
+          "classes": "nhsuk-label--l",
+          "isPageHeading": true
+        },
+        "name": "example"
+      },
+      "screenshot": true,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group nhsuk-password-input\" data-module=\"nhsuk-password-input\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label nhsuk-label--l\" for=\"example\">\n      Password\n    </label>\n  </h1>\n  <div class=\"nhsuk-input__wrapper nhsuk-form-group nhsuk-form-group--inline\">\n    <input class=\"nhsuk-input nhsuk-password-input__input nhsuk-js-password-input-input\" id=\"example\" name=\"example\" type=\"password\" spellcheck=\"false\" autocomplete=\"current-password\" autocapitalize=\"none\">\n    <button class=\"nhsuk-button nhsuk-button--secondary nhsuk-button--small nhsuk-password-input__toggle nhsuk-js-password-input-toggle\"\n      data-module=\"nhsuk-button\"\n     aria-controls=\"example\" aria-label=\"Show password\" hidden type=\"button\">\n      Show\n    </button>\n  </div>\n</div>"
+    },
+    {
+      "name": "with autocomplete attribute",
+      "context": {
+        "label": {
+          "text": "Password",
+          "classes": "nhsuk-label--l",
+          "isPageHeading": true
+        },
+        "id": "new-password",
+        "name": "example",
+        "autocomplete": "new-password"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group nhsuk-password-input\" data-module=\"nhsuk-password-input\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label nhsuk-label--l\" for=\"new-password\">\n      Password\n    </label>\n  </h1>\n  <div class=\"nhsuk-input__wrapper nhsuk-form-group nhsuk-form-group--inline\">\n    <input class=\"nhsuk-input nhsuk-password-input__input nhsuk-js-password-input-input\" id=\"new-password\" name=\"example\" type=\"password\" spellcheck=\"false\" autocomplete=\"new-password\" autocapitalize=\"none\">\n    <button class=\"nhsuk-button nhsuk-button--secondary nhsuk-button--small nhsuk-password-input__toggle nhsuk-js-password-input-toggle\"\n      data-module=\"nhsuk-button\"\n     aria-controls=\"new-password\" aria-label=\"Show password\" hidden type=\"button\">\n      Show\n    </button>\n  </div>\n</div>"
+    },
+    {
+      "name": "with error message",
+      "context": {
+        "label": {
+          "text": "Password",
+          "classes": "nhsuk-label--l",
+          "isPageHeading": true
+        },
+        "hint": {
+          "text": "It probably has some letters, numbers and maybe even some symbols in it"
+        },
+        "errorMessage": {
+          "text": "Error message goes here"
+        },
+        "id": "with-error-message",
+        "name": "example"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group nhsuk-form-group--error nhsuk-password-input\" data-module=\"nhsuk-password-input\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label nhsuk-label--l\" for=\"with-error-message\">\n      Password\n    </label>\n  </h1>\n  <div id=\"with-error-message-hint\" class=\"nhsuk-hint\">\n    It probably has some letters, numbers and maybe even some symbols in it\n  </div>\n  <span id=\"with-error-message-error\" class=\"nhsuk-error-message\">\n    <span class=\"nhsuk-u-visually-hidden\">Error:</span> Error message goes here\n  </span>\n  <div class=\"nhsuk-input__wrapper nhsuk-form-group nhsuk-form-group--inline\">\n    <input class=\"nhsuk-input nhsuk-password-input__input nhsuk-js-password-input-input nhsuk-input--error\" id=\"with-error-message\" name=\"example\" type=\"password\" spellcheck=\"false\" aria-describedby=\"with-error-message-hint with-error-message-error\" autocomplete=\"current-password\" autocapitalize=\"none\">\n    <button class=\"nhsuk-button nhsuk-button--secondary nhsuk-button--small nhsuk-password-input__toggle nhsuk-js-password-input-toggle\"\n      data-module=\"nhsuk-button\"\n     aria-controls=\"with-error-message\" aria-label=\"Show password\" hidden type=\"button\">\n      Show\n    </button>\n  </div>\n</div>"
+    },
+    {
+      "name": "with hint text",
+      "context": {
+        "label": {
+          "text": "Password",
+          "classes": "nhsuk-label--l",
+          "isPageHeading": true
+        },
+        "hint": {
+          "text": "It probably has some letters, numbers and maybe even some symbols in it"
+        },
+        "id": "with-hint-text",
+        "name": "example"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group nhsuk-password-input\" data-module=\"nhsuk-password-input\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label nhsuk-label--l\" for=\"with-hint-text\">\n      Password\n    </label>\n  </h1>\n  <div id=\"with-hint-text-hint\" class=\"nhsuk-hint\">\n    It probably has some letters, numbers and maybe even some symbols in it\n  </div>\n  <div class=\"nhsuk-input__wrapper nhsuk-form-group nhsuk-form-group--inline\">\n    <input class=\"nhsuk-input nhsuk-password-input__input nhsuk-js-password-input-input\" id=\"with-hint-text\" name=\"example\" type=\"password\" spellcheck=\"false\" aria-describedby=\"with-hint-text-hint\" autocomplete=\"current-password\" autocapitalize=\"none\">\n    <button class=\"nhsuk-button nhsuk-button--secondary nhsuk-button--small nhsuk-password-input__toggle nhsuk-js-password-input-toggle\"\n      data-module=\"nhsuk-button\"\n     aria-controls=\"with-hint-text\" aria-label=\"Show password\" hidden type=\"button\">\n      Show\n    </button>\n  </div>\n</div>"
+    },
+    {
+      "name": "without page heading",
+      "context": {
+        "label": {
+          "text": "Password"
+        },
+        "id": "without-heading",
+        "name": "example"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group nhsuk-password-input\" data-module=\"nhsuk-password-input\">\n  <label class=\"nhsuk-label\" for=\"without-heading\">\n    Password\n  </label>\n  <div class=\"nhsuk-input__wrapper nhsuk-form-group nhsuk-form-group--inline\">\n    <input class=\"nhsuk-input nhsuk-password-input__input nhsuk-js-password-input-input\" id=\"without-heading\" name=\"example\" type=\"password\" spellcheck=\"false\" autocomplete=\"current-password\" autocapitalize=\"none\">\n    <button class=\"nhsuk-button nhsuk-button--secondary nhsuk-button--small nhsuk-password-input__toggle nhsuk-js-password-input-toggle\"\n      data-module=\"nhsuk-button\"\n     aria-controls=\"without-heading\" aria-label=\"Show password\" hidden type=\"button\">\n      Show\n    </button>\n  </div>\n</div>"
+    },
+    {
+      "name": "with translations",
+      "context": {
+        "label": {
+          "text": "Cyfrinair",
+          "classes": "nhsuk-label--l",
+          "isPageHeading": true
+        },
+        "id": "password-translated",
+        "name": "example",
+        "showPasswordText": "Datguddia",
+        "hidePasswordText": "Cuddio",
+        "showPasswordAriaLabelText": "Datgelu cyfrinair",
+        "hidePasswordAriaLabelText": "Cuddio cyfrinair",
+        "passwordShownAnnouncementText": "Mae eich cyfrinair yn weladwy.",
+        "passwordHiddenAnnouncementText": "Mae eich cyfrinair wedi'i guddio."
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group nhsuk-password-input\" data-module=\"nhsuk-password-input\" data-i18n.show-password=\"Datguddia\" data-i18n.hide-password=\"Cuddio\" data-i18n.show-password-aria-label=\"Datgelu cyfrinair\" data-i18n.hide-password-aria-label=\"Cuddio cyfrinair\" data-i18n.password-shown-announcement=\"Mae eich cyfrinair yn weladwy.\" data-i18n.password-hidden-announcement=\"Mae eich cyfrinair wedi&#39;i guddio.\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label nhsuk-label--l\" for=\"password-translated\">\n      Cyfrinair\n    </label>\n  </h1>\n  <div class=\"nhsuk-input__wrapper nhsuk-form-group nhsuk-form-group--inline\">\n    <input class=\"nhsuk-input nhsuk-password-input__input nhsuk-js-password-input-input\" id=\"password-translated\" name=\"example\" type=\"password\" spellcheck=\"false\" autocomplete=\"current-password\" autocapitalize=\"none\">\n    <button class=\"nhsuk-button nhsuk-button--secondary nhsuk-button--small nhsuk-password-input__toggle nhsuk-js-password-input-toggle\"\n      data-module=\"nhsuk-button\"\n     aria-controls=\"password-translated\" aria-label=\"Datgelu cyfrinair\" hidden type=\"button\">\n      Datguddia\n    </button>\n  </div>\n</div>"
+    },
+    {
+      "name": "with width class",
+      "context": {
+        "label": {
+          "text": "Password",
+          "classes": "nhsuk-label--l",
+          "isPageHeading": true
+        },
+        "id": "width-class",
+        "name": "example",
+        "classes": "nhsuk-input--width-10"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group nhsuk-password-input\" data-module=\"nhsuk-password-input\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label nhsuk-label--l\" for=\"width-class\">\n      Password\n    </label>\n  </h1>\n  <div class=\"nhsuk-input__wrapper nhsuk-form-group nhsuk-form-group--inline\">\n    <input class=\"nhsuk-input nhsuk-password-input__input nhsuk-js-password-input-input nhsuk-input--width-10\" id=\"width-class\" name=\"example\" type=\"password\" spellcheck=\"false\" autocomplete=\"current-password\" autocapitalize=\"none\">\n    <button class=\"nhsuk-button nhsuk-button--secondary nhsuk-button--small nhsuk-password-input__toggle nhsuk-js-password-input-toggle\"\n      data-module=\"nhsuk-button\"\n     aria-controls=\"width-class\" aria-label=\"Show password\" hidden type=\"button\">\n      Show\n    </button>\n  </div>\n</div>"
+    }
+  ]
+}

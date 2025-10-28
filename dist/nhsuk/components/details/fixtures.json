@@ -1,0 +1,60 @@
+{
+  "name": "Details",
+  "component": "details",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "summaryText": "How to find your NHS number"
+      },
+      "callBlock": "<p>An NHS number is a 10 digit number, like 485 777 3456.</p>\n<p>You can find your NHS number by logging in to a GP online service or on any document the NHS has sent you, such as your:</p>\n<ul>\n  <li>prescriptions</li>\n  <li>test results</li>\n  <li>hospital referral letters</li>\n  <li>appointment letters</li>\n</ul>\n<p>Ask your GP surgery for help if you can't find your NHS number.</p>",
+      "screenshot": {
+        "states": [
+          "click"
+        ],
+        "selector": ".nhsuk-details__summary"
+      },
+      "options": {},
+      "html": "<details class=\"nhsuk-details\">\n  <summary class=\"nhsuk-details__summary\">\n    <span class=\"nhsuk-details__summary-text\">\n      How to find your NHS number\n    </span>\n  </summary>\n  <div class=\"nhsuk-details__text\">\n<p>An NHS number is a 10 digit number, like 485 777 3456.</p>\n<p>You can find your NHS number by logging in to a GP online service or on any document the NHS has sent you, such as your:</p>\n<ul>\n  <li>prescriptions</li>\n  <li>test results</li>\n  <li>hospital referral letters</li>\n  <li>appointment letters</li>\n</ul>\n<p>Ask your GP surgery for help if you can't find your NHS number.</p>\n  </div>\n</details>"
+    },
+    {
+      "name": "expander",
+      "context": {
+        "summaryText": "Opening times",
+        "classes": "nhsuk-expander"
+      },
+      "callBlock": "  <table class=\"nhsuk-table\">    <thead class=\"nhsuk-table__head\">\n      <tr>          <th scope=\"col\" class=\"nhsuk-table__header\">Day of the week</th>          <th scope=\"col\" class=\"nhsuk-table__header\">Opening hours</th>      </tr>\n    </thead>    <tbody class=\"nhsuk-table__body\">      <tr class=\"nhsuk-table__row\">            <th scope=\"row\" class=\"nhsuk-table__header\">Monday</th>            <td class=\"nhsuk-table__cell\">9am to 6pm</td>      </tr>      <tr class=\"nhsuk-table__row\">            <th scope=\"row\" class=\"nhsuk-table__header\">Tuesday</th>            <td class=\"nhsuk-table__cell\">9am to 6pm</td>      </tr>      <tr class=\"nhsuk-table__row\">            <th scope=\"row\" class=\"nhsuk-table__header\">Wednesday</th>            <td class=\"nhsuk-table__cell\">9am to 6pm</td>      </tr>      <tr class=\"nhsuk-table__row\">            <th scope=\"row\" class=\"nhsuk-table__header\">Thursday</th>            <td class=\"nhsuk-table__cell\">9am to 6pm</td>      </tr>      <tr class=\"nhsuk-table__row\">            <th scope=\"row\" class=\"nhsuk-table__header\">Friday</th>            <td class=\"nhsuk-table__cell\">9am to 6pm</td>      </tr>      <tr class=\"nhsuk-table__row\">            <th scope=\"row\" class=\"nhsuk-table__header\">Saturday</th>            <td class=\"nhsuk-table__cell\">9am to 1pm</td>      </tr>      <tr class=\"nhsuk-table__row\">            <th scope=\"row\" class=\"nhsuk-table__header\">Sunday</th>            <td class=\"nhsuk-table__cell\">Closed</td>      </tr>    </tbody>\n  </table>",
+      "screenshot": {
+        "states": [
+          "click"
+        ],
+        "selector": ".nhsuk-details__summary"
+      },
+      "options": {},
+      "html": "<details class=\"nhsuk-details nhsuk-expander\">\n  <summary class=\"nhsuk-details__summary\">\n    <span class=\"nhsuk-details__summary-text\">\n      Opening times\n    </span>\n  </summary>\n  <div class=\"nhsuk-details__text\">\n<table class=\"nhsuk-table\">    <thead class=\"nhsuk-table__head\">\n      <tr>          <th scope=\"col\" class=\"nhsuk-table__header\">Day of the week</th>          <th scope=\"col\" class=\"nhsuk-table__header\">Opening hours</th>      </tr>\n    </thead>    <tbody class=\"nhsuk-table__body\">      <tr class=\"nhsuk-table__row\">            <th scope=\"row\" class=\"nhsuk-table__header\">Monday</th>            <td class=\"nhsuk-table__cell\">9am to 6pm</td>      </tr>      <tr class=\"nhsuk-table__row\">            <th scope=\"row\" class=\"nhsuk-table__header\">Tuesday</th>            <td class=\"nhsuk-table__cell\">9am to 6pm</td>      </tr>      <tr class=\"nhsuk-table__row\">            <th scope=\"row\" class=\"nhsuk-table__header\">Wednesday</th>            <td class=\"nhsuk-table__cell\">9am to 6pm</td>      </tr>      <tr class=\"nhsuk-table__row\">            <th scope=\"row\" class=\"nhsuk-table__header\">Thursday</th>            <td class=\"nhsuk-table__cell\">9am to 6pm</td>      </tr>      <tr class=\"nhsuk-table__row\">            <th scope=\"row\" class=\"nhsuk-table__header\">Friday</th>            <td class=\"nhsuk-table__cell\">9am to 6pm</td>      </tr>      <tr class=\"nhsuk-table__row\">            <th scope=\"row\" class=\"nhsuk-table__header\">Saturday</th>            <td class=\"nhsuk-table__cell\">9am to 1pm</td>      </tr>      <tr class=\"nhsuk-table__row\">            <th scope=\"row\" class=\"nhsuk-table__header\">Sunday</th>            <td class=\"nhsuk-table__cell\">Closed</td>      </tr>    </tbody>\n  </table>\n  </div>\n</details>"
+    },
+    {
+      "name": "expander open",
+      "context": {
+        "summaryText": "Opening times",
+        "classes": "nhsuk-expander",
+        "open": true
+      },
+      "callBlock": "  <table class=\"nhsuk-table\">    <thead class=\"nhsuk-table__head\">\n      <tr>          <th scope=\"col\" class=\"nhsuk-table__header\">Day of the week</th>          <th scope=\"col\" class=\"nhsuk-table__header\">Opening hours</th>      </tr>\n    </thead>    <tbody class=\"nhsuk-table__body\">      <tr class=\"nhsuk-table__row\">            <th scope=\"row\" class=\"nhsuk-table__header\">Monday</th>            <td class=\"nhsuk-table__cell\">9am to 6pm</td>      </tr>      <tr class=\"nhsuk-table__row\">            <th scope=\"row\" class=\"nhsuk-table__header\">Tuesday</th>            <td class=\"nhsuk-table__cell\">9am to 6pm</td>      </tr>      <tr class=\"nhsuk-table__row\">            <th scope=\"row\" class=\"nhsuk-table__header\">Wednesday</th>            <td class=\"nhsuk-table__cell\">9am to 6pm</td>      </tr>      <tr class=\"nhsuk-table__row\">            <th scope=\"row\" class=\"nhsuk-table__header\">Thursday</th>            <td class=\"nhsuk-table__cell\">9am to 6pm</td>      </tr>      <tr class=\"nhsuk-table__row\">            <th scope=\"row\" class=\"nhsuk-table__header\">Friday</th>            <td class=\"nhsuk-table__cell\">9am to 6pm</td>      </tr>      <tr class=\"nhsuk-table__row\">            <th scope=\"row\" class=\"nhsuk-table__header\">Saturday</th>            <td class=\"nhsuk-table__cell\">9am to 1pm</td>      </tr>      <tr class=\"nhsuk-table__row\">            <th scope=\"row\" class=\"nhsuk-table__header\">Sunday</th>            <td class=\"nhsuk-table__cell\">Closed</td>      </tr>    </tbody>\n  </table>",
+      "screenshot": false,
+      "options": {},
+      "html": "<details class=\"nhsuk-details nhsuk-expander\" open>\n  <summary class=\"nhsuk-details__summary\">\n    <span class=\"nhsuk-details__summary-text\">\n      Opening times\n    </span>\n  </summary>\n  <div class=\"nhsuk-details__text\">\n<table class=\"nhsuk-table\">    <thead class=\"nhsuk-table__head\">\n      <tr>          <th scope=\"col\" class=\"nhsuk-table__header\">Day of the week</th>          <th scope=\"col\" class=\"nhsuk-table__header\">Opening hours</th>      </tr>\n    </thead>    <tbody class=\"nhsuk-table__body\">      <tr class=\"nhsuk-table__row\">            <th scope=\"row\" class=\"nhsuk-table__header\">Monday</th>            <td class=\"nhsuk-table__cell\">9am to 6pm</td>      </tr>      <tr class=\"nhsuk-table__row\">            <th scope=\"row\" class=\"nhsuk-table__header\">Tuesday</th>            <td class=\"nhsuk-table__cell\">9am to 6pm</td>      </tr>      <tr class=\"nhsuk-table__row\">            <th scope=\"row\" class=\"nhsuk-table__header\">Wednesday</th>            <td class=\"nhsuk-table__cell\">9am to 6pm</td>      </tr>      <tr class=\"nhsuk-table__row\">            <th scope=\"row\" class=\"nhsuk-table__header\">Thursday</th>            <td class=\"nhsuk-table__cell\">9am to 6pm</td>      </tr>      <tr class=\"nhsuk-table__row\">            <th scope=\"row\" class=\"nhsuk-table__header\">Friday</th>            <td class=\"nhsuk-table__cell\">9am to 6pm</td>      </tr>      <tr class=\"nhsuk-table__row\">            <th scope=\"row\" class=\"nhsuk-table__header\">Saturday</th>            <td class=\"nhsuk-table__cell\">9am to 1pm</td>      </tr>      <tr class=\"nhsuk-table__row\">            <th scope=\"row\" class=\"nhsuk-table__header\">Sunday</th>            <td class=\"nhsuk-table__cell\">Closed</td>      </tr>    </tbody>\n  </table>\n  </div>\n</details>"
+    },
+    {
+      "name": "open",
+      "context": {
+        "summaryText": "How to find your NHS number",
+        "open": true
+      },
+      "callBlock": "<p>An NHS number is a 10 digit number, like 485 777 3456.</p>\n<p>You can find your NHS number by logging in to a GP online service or on any document the NHS has sent you, such as your:</p>\n<ul>\n  <li>prescriptions</li>\n  <li>test results</li>\n  <li>hospital referral letters</li>\n  <li>appointment letters</li>\n</ul>\n<p>Ask your GP surgery for help if you can't find your NHS number.</p>",
+      "screenshot": false,
+      "options": {},
+      "html": "<details class=\"nhsuk-details\" open>\n  <summary class=\"nhsuk-details__summary\">\n    <span class=\"nhsuk-details__summary-text\">\n      How to find your NHS number\n    </span>\n  </summary>\n  <div class=\"nhsuk-details__text\">\n<p>An NHS number is a 10 digit number, like 485 777 3456.</p>\n<p>You can find your NHS number by logging in to a GP online service or on any document the NHS has sent you, such as your:</p>\n<ul>\n  <li>prescriptions</li>\n  <li>test results</li>\n  <li>hospital referral letters</li>\n  <li>appointment letters</li>\n</ul>\n<p>Ask your GP surgery for help if you can't find your NHS number.</p>\n  </div>\n</details>"
+    }
+  ]
+}

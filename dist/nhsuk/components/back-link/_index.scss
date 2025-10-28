@@ -1,0 +1,55 @@
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+
+////
+/// Back link component
+///
+/// 1. Allow space for the chevron.
+/// 2. Hide back link on print stylesheets.
+///
+/// @group components/back-link
+////
+
+@include nhsuk-exports("nhsuk/components/back-link") {
+  $_font-size: 16;
+
+  .nhsuk-back-link {
+    display: inline-block;
+
+    position: relative;
+
+    padding: 0;
+    padding-left: nhsuk-em($_font-size, $nhsuk-base-font-size);
+
+    border: 0;
+
+    background: none;
+
+    cursor: pointer;
+
+    @include nhsuk-font($_font-size);
+    @include nhsuk-link-style-default;
+    @include nhsuk-link-style-no-visited-state;
+    @include nhsuk-responsive-margin(4, "top");
+    @include nhsuk-print-hide; // [2]
+
+    &::before {
+      content: "";
+
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+
+      margin: auto;
+
+      @include nhsuk-shape-chevron(left, $colour: currentcolor, $font-size: 19);
+    }
+  }
+
+  .nhsuk-back-link--reverse {
+    @include nhsuk-link-style-white;
+  }
+}
+
+/*# sourceMappingURL=_index.scss.map */

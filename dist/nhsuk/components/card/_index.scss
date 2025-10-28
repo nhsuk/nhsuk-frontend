@@ -1,0 +1,328 @@
+@use "sass:math";
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+@use "../../core/helpers" as *;
+@forward "../../core/styles/icons";
+
+////
+/// Card component
+///
+/// 1. Is needed for the :active top positioning, and invisible clickable overlay.
+/// 2. Border is used to create a divider between the white content
+///    box and an image.
+/// 3. Creates the 'pressed down' effect when clicked.
+/// 4. Removes padding-top from headings directly after the card group.
+/// 5. Includes the border width to achieve the correct left alignment.
+/// 6. Stops the heading from spanning the full width of the card.
+/// 7. Removes padding as added to container by nhsuk-panel-with-label mixin.
+/// 8. Default care card colour set to blue (non-urgent care card) -
+///    using the @mixin care-card tools/_mixins.scss.
+///    The same mixin is used for each care card, setting the background
+///    colour,text colour and print border width with the variables.
+/// 9. 'Random number' for the heading triangle.
+/// 10. 'Random number' for the heading triangle positioning.
+/// 11. 'Random number' used for spacing to compensate for the triangle.
+/// 12. Needed to enable the triangle to show correctly in high contrast mode.
+/// 13. Prevent additional padding on headings
+/// 14. Give the action link icon sufficient contrast when used in the emergency variant
+/// 15. Reset the positioning to the default [1] to display heading triangle on a coloured background.
+/// 16. Emergency care card <a> needs to be white because the background colour is black.
+/// 17. Trick IE10 into rendering the invisible clickable area. Without this it does not.
+///
+/// @group components/card
+////
+
+$nhsuk-card-border-width: 1px;
+$nhsuk-card-border-bottom-width: nhsuk-spacing(1);
+$nhsuk-card-border-colour: $nhsuk-border-colour;
+$nhsuk-card-border-hover-colour: $nhsuk-border-hover-colour;
+
+// @deprecated To be removed in v11.0
+$card-border-width: $nhsuk-card-border-width;
+$card-border-bottom-width: $nhsuk-card-border-bottom-width;
+$card-border-color: $nhsuk-card-border-colour;
+$card-border-colour: $nhsuk-card-border-colour;
+$card-border-hover-color: $nhsuk-card-border-hover-colour;
+$card-border-hover-colour: $nhsuk-card-border-hover-colour;
+
+@include nhsuk-exports("nhsuk/components/card") {
+  .nhsuk-card {
+    position: relative; // [1]
+    width: 100%;
+
+    @include nhsuk-panel($nhsuk-card-background-colour, $nhsuk-text-colour, $nhsuk-card-border-colour);
+  }
+
+  .nhsuk-card__img {
+    display: block;
+    width: 100%;
+    border-bottom: $nhsuk-card-border-width solid nhsuk-colour("grey-5"); // [2]
+
+    @include nhsuk-print-hide;
+  }
+
+  .nhsuk-card__content {
+    @include nhsuk-top-and-bottom;
+    @include nhsuk-responsive-padding(5);
+  }
+
+  .nhsuk-card__heading {
+    margin-bottom: nhsuk-spacing(3);
+
+    &:has(+ .nhsuk-icon) {
+      margin-bottom: 0;
+    }
+  }
+
+  .nhsuk-card__description {
+    margin-bottom: 0;
+  }
+
+  // Clickable card
+
+  .nhsuk-card--clickable {
+    border-bottom-width: $nhsuk-card-border-bottom-width;
+
+    .nhsuk-card__heading a,
+    .nhsuk-card__link {
+      &::before {
+        content: "";
+
+        display: block;
+
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        background-color: rgba(255, 255, 255, 0); // [17]
+      }
+    }
+
+    &:active {
+      bottom: -$nhsuk-card-border-width; // [3]
+      border-color: $nhsuk-card-border-hover-colour;
+    }
+  }
+
+  // Card group
+  //
+  // Allows you to have a row of cards.
+  // Flexbox is used to make each card in a row the same height.
+
+  .nhsuk-card-group {
+    margin-bottom: nhsuk-spacing(3);
+    padding: 0;
+
+    @include nhsuk-flex;
+
+    @include nhsuk-media-query($until: desktop) {
+      margin-bottom: nhsuk-spacing(6);
+    }
+
+    + h2,
+    + .nhsuk-heading-l,
+    + h3,
+    + .nhsuk-heading-m {
+      padding-top: 0; // [4]
+    }
+  }
+
+  .nhsuk-card-group__item {
+    margin-bottom: 0;
+    list-style-type: none;
+
+    @include nhsuk-flex-item;
+
+    .nhsuk-card {
+      margin-bottom: nhsuk-spacing(5);
+    }
+
+    @include nhsuk-media-query($until: desktop) {
+      .nhsuk-card {
+        margin-bottom: nhsuk-spacing(3);
+      }
+
+      &:last-child .nhsuk-card {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  // Card feature
+
+  .nhsuk-card--feature {
+    @include nhsuk-panel-with-label($nhsuk-card-background-colour, $nhsuk-text-colour, $nhsuk-card-border-colour);
+  }
+
+  .nhsuk-card__heading--feature {
+    @include nhsuk-heading-label($nhsuk-brand-colour, $nhsuk-reverse-text-colour);
+  }
+
+  .nhsuk-card__content--feature {
+    padding: 0; // [7]
+  }
+
+  // Care card
+
+  .nhsuk-card--care {
+    @include nhsuk-care-card($nhsuk-brand-colour, $nhsuk-reverse-text-colour, 4px); // [8]
+    @include nhsuk-responsive-margin(7, "top");
+  }
+
+  .nhsuk-card--care__heading-container {
+    position: relative;
+    padding-top: nhsuk-spacing(3);
+    padding-bottom: nhsuk-spacing(3) - 1px;
+    border-bottom: 1px solid transparent;
+
+    @include nhsuk-responsive-padding(5, "left");
+    @include nhsuk-responsive-padding(5, "right");
+  }
+
+  .nhsuk-card--care__heading {
+    margin: 0;
+    padding-top: 0; // [13]
+
+    @include nhsuk-font(26, $weight: bold);
+    @include nhsuk-print-colour;
+  }
+
+  .nhsuk-card--care__arrow {
+    display: block;
+
+    position: absolute;
+    bottom: -11px; // [9]
+    left: 30px; // [10]
+
+    width: 20px; // [9]
+    height: 20px; // [9]
+
+    overflow: hidden;
+
+    transform: rotate(45deg);
+    @include nhsuk-print-hide;
+
+    @include nhsuk-media-query($from: tablet) {
+      left: 38px; // [10]
+    }
+
+    &::before,
+    &::after {
+      content: "";
+
+      display: block;
+
+      position: absolute;
+      top: 0;
+
+      width: 0;
+      height: 0;
+
+      transform: rotate(45deg); // [12]
+
+      border: solid 32px $nhsuk-brand-colour; // [9]
+    }
+  }
+
+  .nhsuk-card--care--urgent {
+    @include nhsuk-care-card(nhsuk-colour("red"), $nhsuk-reverse-text-colour, 6px);
+
+    .nhsuk-card--care__arrow {
+      &::before,
+      &::after {
+        border-color: nhsuk-colour("red");
+      }
+    }
+  }
+
+  .nhsuk-card--care--emergency {
+    @include nhsuk-care-card(nhsuk-colour("red"), $nhsuk-reverse-text-colour, 8px);
+
+    .nhsuk-card--care__arrow {
+      &::before,
+      &::after {
+        border-color: nhsuk-colour("red");
+      }
+    }
+
+    .nhsuk-card__content {
+      position: static; // [15]
+      border: 0;
+      color: $nhsuk-reverse-text-colour;
+      background-color: nhsuk-colour("black");
+
+      a:not(.nhsuk-action-link):not(.nhsuk-button) {
+        @include nhsuk-link-style-white;
+      }
+
+      @include nhsuk-print-colour {
+        background-color: $nhsuk-card-background-colour;
+      }
+    }
+
+    .nhsuk-details,
+    .nhsuk-details__summary {
+      color: $nhsuk-reverse-text-colour;
+    }
+
+    .nhsuk-details__summary {
+      &:hover {
+        color: $nhsuk-reverse-text-colour;
+      }
+
+      &:focus {
+        color: $nhsuk-focus-text-colour;
+      }
+    }
+
+    .nhsuk-action-link__link .nhsuk-icon {
+      fill: $nhsuk-reverse-text-colour; // [14]
+    }
+  }
+
+  // Card primary
+
+  .nhsuk-card__content--primary {
+    @include nhsuk-responsive-spacing(5, "padding", $direction: "right", $adjustment: nhsuk-spacing(7));
+
+    @include nhsuk-media-query($from: desktop) {
+      height: 100%;
+    }
+
+    .nhsuk-icon {
+      display: block;
+
+      position: absolute;
+      top: 50%;
+
+      width: nhsuk-px-to-rem($nhsuk-icon-size-large);
+      height: nhsuk-px-to-rem($nhsuk-icon-size-large);
+      margin-top: math.floor(math.div($nhsuk-icon-size-large, -2));
+
+      pointer-events: none;
+
+      fill: $nhsuk-link-colour;
+      @include nhsuk-responsive-spacing(5, "right");
+    }
+  }
+
+  // Card secondary
+
+  .nhsuk-card--secondary {
+    border-top: 0;
+    border-right: 0;
+    border-bottom: $nhsuk-card-border-bottom-width solid $nhsuk-card-border-colour;
+    border-left: 0;
+    background: transparent;
+  }
+
+  .nhsuk-card__content--secondary {
+    padding-top: 0;
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+/*# sourceMappingURL=_index.scss.map */

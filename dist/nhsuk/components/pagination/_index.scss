@@ -1,0 +1,260 @@
+@use "sass:math";
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+@use "../../core/helpers" as *;
+@forward "../../core/styles/icons";
+
+////
+/// Pagination component
+///
+/// 1. Padding to give the icon spacing.
+/// 2. Append the word 'page' after next and
+///    previous on print stylesheets to make it easier
+///    to understand in print context.
+///
+/// @group components/pagination
+////
+
+@include nhsuk-exports("nhsuk/components/pagination") {
+  $_icon-size: nhsuk-em($nhsuk-icon-size-large, 26px);
+  $_small-icon-size: nhsuk-em($nhsuk-icon-size, 19px);
+
+  .nhsuk-pagination {
+    @include nhsuk-responsive-margin(7, "top");
+    @include nhsuk-responsive-margin(7, "bottom");
+  }
+
+  .nhsuk-pagination__list {
+    @include nhsuk-clearfix;
+  }
+
+  .nhsuk-pagination-item--previous {
+    width: 50%;
+    float: left;
+    text-align: left;
+
+    .nhsuk-icon {
+      left: nhsuk-px-to-rem(-6px);
+    }
+
+    .nhsuk-pagination__title {
+      padding-left: $_icon-size; // [1]
+    }
+  }
+
+  .nhsuk-pagination-item--next {
+    width: 50%;
+    float: right;
+    text-align: right;
+
+    .nhsuk-icon {
+      right: nhsuk-px-to-rem(-6px);
+    }
+
+    .nhsuk-pagination__title {
+      padding-right: $_icon-size; // [1]
+    }
+  }
+
+  .nhsuk-pagination__link {
+    display: block;
+    position: relative;
+    width: 100%;
+    text-decoration: none;
+
+    @include nhsuk-font-size(26);
+    @include nhsuk-print-colour {
+      @include nhsuk-link-style-text($nhsuk-print-text-colour);
+    }
+
+    .nhsuk-icon {
+      position: absolute;
+      top: 0;
+      width: $_icon-size;
+      height: $_icon-size;
+    }
+  }
+
+  .nhsuk-pagination__title {
+    display: block;
+
+    @include nhsuk-media-query($media-type: print) {
+      &::after {
+        content: " page"; // [2]
+      }
+    }
+  }
+
+  .nhsuk-pagination__page {
+    display: block;
+    text-decoration: underline;
+
+    @include nhsuk-font-size(16);
+
+    .nhsuk-pagination__link:hover &,
+    .nhsuk-pagination__link:focus & {
+      text-decoration: none;
+    }
+  }
+
+  // Numbered pagination variant
+
+  // Flexbox enhancement for small screen visual design
+  // Falls back to a float: left layout on non-flex browsers
+  .nhsuk-pagination--numbered {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+
+    @include nhsuk-media-query($from: tablet) {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+  }
+
+  // Container for the list of numbered items
+  .nhsuk-pagination--numbered .nhsuk-pagination__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  // Override for the default non-numbered style
+  .nhsuk-pagination--numbered .nhsuk-pagination__list::after {
+    content: none;
+  }
+
+  .nhsuk-pagination--numbered .nhsuk-pagination__item {
+    // Hide items on small screens except the prev/next items,
+    // non-link items and the first and last items
+    display: none;
+
+    // Center align pagination links in their parent list item so that they
+    // visually sit in the middle of their touch area
+    text-align: center;
+
+    @include nhsuk-media-query($from: tablet) {
+      display: block;
+    }
+  }
+
+  // Only show first, last and non-link items on mobile
+  .nhsuk-pagination--numbered .nhsuk-pagination__item:first-child,
+  .nhsuk-pagination--numbered .nhsuk-pagination__item:last-child,
+  .nhsuk-pagination--numbered .nhsuk-pagination__item--ellipsis,
+  .nhsuk-pagination--numbered .nhsuk-pagination__item--current {
+    display: block;
+  }
+
+  // Numbered items, previous and next links
+  .nhsuk-pagination--numbered .nhsuk-pagination__item,
+  .nhsuk-pagination--numbered .nhsuk-pagination__previous,
+  .nhsuk-pagination--numbered .nhsuk-pagination__next {
+    box-sizing: border-box;
+
+    position: relative;
+
+    min-width: nhsuk-px-to-rem(45px); // Set size using rems to make the icon scale with text
+    min-height: nhsuk-px-to-rem(45px);
+    margin: 0;
+    padding: nhsuk-spacing(2);
+
+    float: left; // Float is ignored if flex is active for prev/next links
+
+    text-align: center;
+    @include nhsuk-font(19);
+
+    &:hover {
+      background-color: nhsuk-colour("grey-4");
+    }
+
+    &:focus {
+      @include nhsuk-link-style-focus;
+    }
+  }
+
+  // Previous and next links within pagination navigation
+  .nhsuk-pagination--numbered .nhsuk-pagination__previous,
+  .nhsuk-pagination--numbered .nhsuk-pagination__next {
+    // Use flex to avoid extra space being introduced when
+    // whitespace exists between the arrow svg and the link text
+    display: flex;
+    align-items: center;
+  }
+
+  .nhsuk-pagination--numbered .nhsuk-pagination__previous {
+    padding-left: 0;
+  }
+
+  .nhsuk-pagination--numbered .nhsuk-pagination__next {
+    padding-right: 0;
+  }
+
+  // Numbered item links
+  .nhsuk-pagination--numbered .nhsuk-pagination__link {
+    position: static;
+    @include nhsuk-link-style;
+    @include nhsuk-font-size(19);
+
+    // Increase the touch area for the link to the parent element.
+    @media screen {
+      &::after {
+        content: "";
+
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
+    }
+  }
+
+  // Current number
+  .nhsuk-pagination--numbered .nhsuk-pagination__item--current {
+    background-color: nhsuk-colour("blue");
+    font-weight: $nhsuk-font-bold;
+
+    .nhsuk-pagination__link {
+      @include nhsuk-link-style-white;
+    }
+  }
+
+  .nhsuk-pagination--numbered .nhsuk-pagination__item--current:hover {
+    background-color: nhsuk-colour("blue");
+  }
+
+  .nhsuk-pagination--numbered .nhsuk-pagination__item--ellipsis {
+    @include nhsuk-typography-weight-bold;
+    color: $nhsuk-secondary-text-colour;
+
+    // Remove hover state for ellipsis items as they don't contain links
+    &:hover {
+      background-color: transparent;
+    }
+  }
+
+  // Previous and Next labels next to arrows
+  .nhsuk-pagination--numbered .nhsuk-pagination__title {
+    display: inline;
+  }
+
+  // Arrows within numbered pagination
+  .nhsuk-pagination--numbered .nhsuk-icon {
+    width: $_small-icon-size;
+    height: $_small-icon-size;
+  }
+
+  .nhsuk-pagination--numbered .nhsuk-pagination__previous .nhsuk-icon {
+    margin-right: nhsuk-spacing(2);
+    margin-left: -0.175rem;
+  }
+
+  .nhsuk-pagination--numbered .nhsuk-pagination__next .nhsuk-icon {
+    margin-right: -0.175rem;
+    margin-left: nhsuk-spacing(2);
+  }
+}
+
+/*# sourceMappingURL=_index.scss.map */

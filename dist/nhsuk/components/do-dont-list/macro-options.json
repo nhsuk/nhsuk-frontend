@@ -1,0 +1,70 @@
+[
+  {
+    "name": "id",
+    "type": "string",
+    "required": false,
+    "description": "The ID of the do and don't list component."
+  },
+  {
+    "name": "title",
+    "type": "string",
+    "required": true,
+    "description": "Title to be displayed on the do and don't list component."
+  },
+  {
+    "name": "type",
+    "type": "string",
+    "required": true,
+    "description": "Type of do and don't list component – `\"cross\"` or `\"tick\"`."
+  },
+  {
+    "name": "items",
+    "type": "array",
+    "required": true,
+    "description": "Array of do and don't items objects.",
+    "params": [
+      {
+        "name": "text",
+        "type": "string",
+        "required": true,
+        "description": "If `html` is set, this is not required. Text to use within each do and don't item. If `html` is provided, the `text` option will be ignored."
+      },
+      {
+        "name": "html",
+        "type": "string",
+        "required": true,
+        "description": "If `text` is set, this is not required. HTML to use within each do and don't item. If `html` is provided, the `text` option will be ignored."
+      }
+    ]
+  },
+  {
+    "name": "prefixText",
+    "type": "string",
+    "required": false,
+    "description": "Optional prefix text used before each do and don't item. Defaults to `\"do not\"` when `type` is `\"cross\"`."
+  },
+  {
+    "name": "hidePrefix",
+    "type": "boolean",
+    "required": false,
+    "description": "If set to `true`, the optional `prefixText` will be removed from each do and don't item."
+  },
+  {
+    "name": "headingLevel",
+    "type": "integer",
+    "required": false,
+    "description": "Optional heading level for the title heading. Defaults to `3`."
+  },
+  {
+    "name": "classes",
+    "type": "string",
+    "required": false,
+    "description": "Classes to add to the do and don't list container."
+  },
+  {
+    "name": "attributes",
+    "type": "object",
+    "required": false,
+    "description": "HTML attributes (for example data attributes) to add to the do and don't list container."
+  }
+]

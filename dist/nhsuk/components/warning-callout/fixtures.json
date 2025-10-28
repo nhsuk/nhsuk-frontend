@@ -1,0 +1,38 @@
+{
+  "name": "Warning callout",
+  "component": "warning-callout",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "heading": "Important",
+        "text": "For safety, tell your doctor or pharmacist if you're taking any other medicines, including herbal medicines, vitamins or supplements."
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop"
+        ]
+      },
+      "options": {},
+      "html": "<div class=\"nhsuk-warning-callout\">\n  <h3 class=\"nhsuk-warning-callout__label\">    Important<span class=\"nhsuk-u-visually-hidden\">:</span>  </h3>\n<p>For safety, tell your doctor or pharmacist if you&#39;re taking any other medicines, including herbal medicines, vitamins or supplements.</p>\n</div>"
+    },
+    {
+      "name": "with custom heading",
+      "context": {
+        "heading": "School, nursery or work",
+        "text": "Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared."
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop"
+        ]
+      },
+      "options": {},
+      "html": "<div class=\"nhsuk-warning-callout\">\n  <h3 class=\"nhsuk-warning-callout__label\">    <span role=\"text\">\n      <span class=\"nhsuk-u-visually-hidden\">Important: </span>\n      School, nursery or work\n    </span>  </h3>\n<p>Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.</p>\n</div>"
+    }
+  ]
+}

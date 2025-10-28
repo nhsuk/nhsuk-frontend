@@ -1,0 +1,189 @@
+{
+  "name": "Textarea",
+  "component": "textarea",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "label": {
+          "text": "Can you provide more detail?",
+          "classes": "nhsuk-label--l",
+          "isPageHeading": true
+        },
+        "hint": {
+          "text": "Do not include personal information like your name, date of birth or NHS number"
+        },
+        "name": "example"
+      },
+      "screenshot": true,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label nhsuk-label--l\" for=\"example\">\n      Can you provide more detail?\n    </label>\n  </h1>\n  <div id=\"example-hint\" class=\"nhsuk-hint\">\n    Do not include personal information like your name, date of birth or NHS number\n  </div>\n  <textarea class=\"nhsuk-textarea\" id=\"example\" name=\"example\" rows=\"5\" aria-describedby=\"example-hint\"></textarea>\n</div>"
+    },
+    {
+      "name": "with autocomplete attribute",
+      "context": {
+        "label": {
+          "text": "Full address",
+          "classes": "nhsuk-label--l",
+          "isPageHeading": true
+        },
+        "id": "with-autocomplete-attribute",
+        "name": "example",
+        "autocomplete": "street-address"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label nhsuk-label--l\" for=\"with-autocomplete-attribute\">\n      Full address\n    </label>\n  </h1>\n  <textarea class=\"nhsuk-textarea\" id=\"with-autocomplete-attribute\" name=\"example\" rows=\"5\" autocomplete=\"street-address\"></textarea>\n</div>"
+    },
+    {
+      "name": "with error message",
+      "context": {
+        "label": {
+          "text": "Can you provide more detail?",
+          "classes": "nhsuk-label--l",
+          "isPageHeading": true
+        },
+        "errorMessage": {
+          "text": "You must provide an explanation"
+        },
+        "id": "with-error-message",
+        "name": "example"
+      },
+      "screenshot": {
+        "states": [
+          "focus"
+        ],
+        "selector": "#with-error-message"
+      },
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group nhsuk-form-group--error\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label nhsuk-label--l\" for=\"with-error-message\">\n      Can you provide more detail?\n    </label>\n  </h1>\n  <span id=\"with-error-message-error\" class=\"nhsuk-error-message\">\n    <span class=\"nhsuk-u-visually-hidden\">Error:</span> You must provide an explanation\n  </span>\n  <textarea class=\"nhsuk-textarea nhsuk-textarea--error\" id=\"with-error-message\" name=\"example\" rows=\"5\" aria-describedby=\"with-error-message-error\"></textarea>\n</div>"
+    },
+    {
+      "name": "with hint",
+      "context": {
+        "label": {
+          "text": "Can you provide more detail?",
+          "classes": "nhsuk-label--l",
+          "isPageHeading": true
+        },
+        "hint": {
+          "text": "Do not include personal information like your name, date of birth or NHS number"
+        },
+        "id": "with-hint",
+        "name": "example"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label nhsuk-label--l\" for=\"with-hint\">\n      Can you provide more detail?\n    </label>\n  </h1>\n  <div id=\"with-hint-hint\" class=\"nhsuk-hint\">\n    Do not include personal information like your name, date of birth or NHS number\n  </div>\n  <textarea class=\"nhsuk-textarea\" id=\"with-hint\" name=\"example\" rows=\"5\" aria-describedby=\"with-hint-hint\"></textarea>\n</div>"
+    },
+    {
+      "name": "with hint and error",
+      "context": {
+        "label": {
+          "text": "Can you provide more detail?",
+          "classes": "nhsuk-label--l",
+          "isPageHeading": true
+        },
+        "hint": {
+          "text": "Do not include personal information like your name, date of birth or NHS number"
+        },
+        "errorMessage": {
+          "text": "You must provide an explanation"
+        },
+        "id": "with-hint-error",
+        "name": "example"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group nhsuk-form-group--error\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label nhsuk-label--l\" for=\"with-hint-error\">\n      Can you provide more detail?\n    </label>\n  </h1>\n  <div id=\"with-hint-error-hint\" class=\"nhsuk-hint\">\n    Do not include personal information like your name, date of birth or NHS number\n  </div>\n  <span id=\"with-hint-error-error\" class=\"nhsuk-error-message\">\n    <span class=\"nhsuk-u-visually-hidden\">Error:</span> You must provide an explanation\n  </span>\n  <textarea class=\"nhsuk-textarea nhsuk-textarea--error\" id=\"with-hint-error\" name=\"example\" rows=\"5\" aria-describedby=\"with-hint-error-hint with-hint-error-error\"></textarea>\n</div>"
+    },
+    {
+      "name": "with label size S",
+      "context": {
+        "label": {
+          "text": "Can you provide more detail?",
+          "classes": "nhsuk-label--s",
+          "isPageHeading": true
+        },
+        "hint": {
+          "text": "Do not include personal information like your name, date of birth or NHS number"
+        },
+        "id": "custom-size",
+        "name": "example"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label nhsuk-label--s\" for=\"custom-size\">\n      Can you provide more detail?\n    </label>\n  </h1>\n  <div id=\"custom-size-hint\" class=\"nhsuk-hint\">\n    Do not include personal information like your name, date of birth or NHS number\n  </div>\n  <textarea class=\"nhsuk-textarea\" id=\"custom-size\" name=\"example\" rows=\"5\" aria-describedby=\"custom-size-hint\"></textarea>\n</div>"
+    },
+    {
+      "name": "with label size M",
+      "context": {
+        "label": {
+          "text": "Can you provide more detail?",
+          "classes": "nhsuk-label--m",
+          "isPageHeading": true
+        },
+        "hint": {
+          "text": "Do not include personal information like your name, date of birth or NHS number"
+        },
+        "id": "custom-size",
+        "name": "example"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label nhsuk-label--m\" for=\"custom-size\">\n      Can you provide more detail?\n    </label>\n  </h1>\n  <div id=\"custom-size-hint\" class=\"nhsuk-hint\">\n    Do not include personal information like your name, date of birth or NHS number\n  </div>\n  <textarea class=\"nhsuk-textarea\" id=\"custom-size\" name=\"example\" rows=\"5\" aria-describedby=\"custom-size-hint\"></textarea>\n</div>"
+    },
+    {
+      "name": "with label size L",
+      "context": {
+        "label": {
+          "text": "Can you provide more detail?",
+          "classes": "nhsuk-label--l",
+          "isPageHeading": true
+        },
+        "hint": {
+          "text": "Do not include personal information like your name, date of birth or NHS number"
+        },
+        "id": "custom-size",
+        "name": "example"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label nhsuk-label--l\" for=\"custom-size\">\n      Can you provide more detail?\n    </label>\n  </h1>\n  <div id=\"custom-size-hint\" class=\"nhsuk-hint\">\n    Do not include personal information like your name, date of birth or NHS number\n  </div>\n  <textarea class=\"nhsuk-textarea\" id=\"custom-size\" name=\"example\" rows=\"5\" aria-describedby=\"custom-size-hint\"></textarea>\n</div>"
+    },
+    {
+      "name": "with label size XL",
+      "context": {
+        "label": {
+          "text": "Can you provide more detail?",
+          "classes": "nhsuk-label--xl",
+          "isPageHeading": true
+        },
+        "hint": {
+          "text": "Do not include personal information like your name, date of birth or NHS number"
+        },
+        "id": "custom-size",
+        "name": "example"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label nhsuk-label--xl\" for=\"custom-size\">\n      Can you provide more detail?\n    </label>\n  </h1>\n  <div id=\"custom-size-hint\" class=\"nhsuk-hint\">\n    Do not include personal information like your name, date of birth or NHS number\n  </div>\n  <textarea class=\"nhsuk-textarea\" id=\"custom-size\" name=\"example\" rows=\"5\" aria-describedby=\"custom-size-hint\"></textarea>\n</div>"
+    },
+    {
+      "name": "without page heading",
+      "context": {
+        "label": {
+          "text": "Can you provide more detail?"
+        },
+        "hint": {
+          "text": "Do not include personal information like your name, date of birth or NHS number"
+        },
+        "id": "without-heading",
+        "name": "example"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"without-heading\">\n    Can you provide more detail?\n  </label>\n  <div id=\"without-heading-hint\" class=\"nhsuk-hint\">\n    Do not include personal information like your name, date of birth or NHS number\n  </div>\n  <textarea class=\"nhsuk-textarea\" id=\"without-heading\" name=\"example\" rows=\"5\" aria-describedby=\"without-heading-hint\"></textarea>\n</div>"
+    }
+  ]
+}

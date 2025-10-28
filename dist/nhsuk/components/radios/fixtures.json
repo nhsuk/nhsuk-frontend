@@ -1,0 +1,1234 @@
+{
+  "name": "Radios",
+  "component": "radios",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "fieldset": {
+          "legend": {
+            "text": "Are you 18 or over?",
+            "classes": "nhsuk-fieldset__legend--l",
+            "isPageHeading": true
+          }
+        },
+        "name": "example",
+        "items": [
+          {
+            "value": "yes",
+            "text": "Yes"
+          },
+          {
+            "value": "no",
+            "text": "No"
+          }
+        ]
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop"
+        ]
+      },
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <fieldset class=\"nhsuk-fieldset\">\n  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--l\">\n    <h1 class=\"nhsuk-fieldset__heading\">\n      Are you 18 or over?\n    </h1>\n  </legend>\n  <div class=\"nhsuk-radios\" data-module=\"nhsuk-radios\">\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"example\" name=\"example\" type=\"radio\" value=\"yes\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"example\">\n        Yes\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"example-2\" name=\"example\" type=\"radio\" value=\"no\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"example-2\">\n        No\n      </label>\n    </div>\n  </div>\n</fieldset>\n</div>"
+    },
+    {
+      "name": "inline",
+      "context": {
+        "classes": "nhsuk-radios--inline",
+        "fieldset": {
+          "legend": {
+            "text": "Are you 18 or over?",
+            "classes": "nhsuk-fieldset__legend--l",
+            "isPageHeading": true
+          }
+        },
+        "idPrefix": "inline",
+        "name": "example",
+        "value": "no",
+        "items": [
+          {
+            "value": "yes",
+            "text": "Yes"
+          },
+          {
+            "value": "no",
+            "text": "No"
+          }
+        ]
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop"
+        ]
+      },
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <fieldset class=\"nhsuk-fieldset\">\n  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--l\">\n    <h1 class=\"nhsuk-fieldset__heading\">\n      Are you 18 or over?\n    </h1>\n  </legend>\n  <div class=\"nhsuk-radios nhsuk-radios--inline\" data-module=\"nhsuk-radios\">\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"inline\" name=\"example\" type=\"radio\" value=\"yes\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"inline\">\n        Yes\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"inline-2\" name=\"example\" type=\"radio\" value=\"no\" checked>\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"inline-2\">\n        No\n      </label>\n    </div>\n  </div>\n</fieldset>\n</div>"
+    },
+    {
+      "name": "with conditional content",
+      "context": {
+        "fieldset": {
+          "legend": {
+            "text": "How do you want to be contacted about this?",
+            "classes": "nhsuk-fieldset__legend--l",
+            "isPageHeading": true
+          }
+        },
+        "hint": {
+          "text": "Select 1 option"
+        },
+        "idPrefix": "conditional",
+        "name": "example",
+        "items": [
+          {
+            "value": "email",
+            "text": "Email",
+            "conditional": {
+              "html": "<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"email\">\n    Email address\n  </label>\n  <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"email\" name=\"email\" type=\"text\" spellcheck=\"false\">\n</div>\n"
+            }
+          },
+          {
+            "value": "phone",
+            "text": "Phone",
+            "conditional": {
+              "html": "<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"phone\">\n    Phone number\n  </label>\n  <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"phone\" name=\"phone\" type=\"tel\">\n</div>\n"
+            }
+          },
+          {
+            "value": "text",
+            "text": "Text message",
+            "conditional": {
+              "html": "<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"mobile\">\n    Mobile phone number\n  </label>\n  <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"mobile\" name=\"mobile\" type=\"tel\">\n</div>\n"
+            }
+          }
+        ]
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <fieldset class=\"nhsuk-fieldset\" aria-describedby=\"conditional-hint\">\n  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--l\">\n    <h1 class=\"nhsuk-fieldset__heading\">\n      How do you want to be contacted about this?\n    </h1>\n  </legend>\n  <div id=\"conditional-hint\" class=\"nhsuk-hint\">\n    Select 1 option\n  </div>\n  <div class=\"nhsuk-radios\" data-module=\"nhsuk-radios\">\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"conditional\" name=\"example\" type=\"radio\" value=\"email\" aria-controls=\"conditional-conditional\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"conditional\">\n        Email\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__conditional nhsuk-radios__conditional--hidden\" id=\"conditional-conditional\">\n      <div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"email\">\n    Email address\n  </label>\n  <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"email\" name=\"email\" type=\"text\" spellcheck=\"false\">\n</div>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"conditional-2\" name=\"example\" type=\"radio\" value=\"phone\" aria-controls=\"conditional-conditional-2\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"conditional-2\">\n        Phone\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__conditional nhsuk-radios__conditional--hidden\" id=\"conditional-conditional-2\">\n      <div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"phone\">\n    Phone number\n  </label>\n  <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"phone\" name=\"phone\" type=\"tel\">\n</div>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"conditional-3\" name=\"example\" type=\"radio\" value=\"text\" aria-controls=\"conditional-conditional-3\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"conditional-3\">\n        Text message\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__conditional nhsuk-radios__conditional--hidden\" id=\"conditional-conditional-3\">\n      <div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"mobile\">\n    Mobile phone number\n  </label>\n  <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"mobile\" name=\"mobile\" type=\"tel\">\n</div>\n    </div>\n  </div>\n</fieldset>\n</div>"
+    },
+    {
+      "name": "with conditional content, error message",
+      "context": {
+        "fieldset": {
+          "legend": {
+            "text": "How do you want to be contacted about this?",
+            "classes": "nhsuk-fieldset__legend--l",
+            "isPageHeading": true
+          }
+        },
+        "hint": {
+          "text": "Select 1 option"
+        },
+        "errorMessage": {
+          "text": "Select how you prefer to be contacted"
+        },
+        "idPrefix": "conditional",
+        "name": "example",
+        "items": [
+          {
+            "value": "email",
+            "text": "Email",
+            "conditional": {
+              "html": "<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"email\">\n    Email address\n  </label>\n  <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"email\" name=\"email\" type=\"text\" spellcheck=\"false\">\n</div>\n"
+            }
+          },
+          {
+            "value": "phone",
+            "text": "Phone",
+            "conditional": {
+              "html": "<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"phone\">\n    Phone number\n  </label>\n  <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"phone\" name=\"phone\" type=\"tel\">\n</div>\n"
+            }
+          },
+          {
+            "value": "text",
+            "text": "Text message",
+            "conditional": {
+              "html": "<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"mobile\">\n    Mobile phone number\n  </label>\n  <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"mobile\" name=\"mobile\" type=\"tel\">\n</div>\n"
+            }
+          }
+        ]
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group nhsuk-form-group--error\">\n  <fieldset class=\"nhsuk-fieldset\" aria-describedby=\"conditional-hint conditional-error\">\n  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--l\">\n    <h1 class=\"nhsuk-fieldset__heading\">\n      How do you want to be contacted about this?\n    </h1>\n  </legend>\n  <div id=\"conditional-hint\" class=\"nhsuk-hint\">\n    Select 1 option\n  </div>\n  <span id=\"conditional-error\" class=\"nhsuk-error-message\">\n    <span class=\"nhsuk-u-visually-hidden\">Error:</span> Select how you prefer to be contacted\n  </span>\n  <div class=\"nhsuk-radios\" data-module=\"nhsuk-radios\">\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"conditional\" name=\"example\" type=\"radio\" value=\"email\" aria-controls=\"conditional-conditional\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"conditional\">\n        Email\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__conditional nhsuk-radios__conditional--hidden\" id=\"conditional-conditional\">\n      <div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"email\">\n    Email address\n  </label>\n  <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"email\" name=\"email\" type=\"text\" spellcheck=\"false\">\n</div>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"conditional-2\" name=\"example\" type=\"radio\" value=\"phone\" aria-controls=\"conditional-conditional-2\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"conditional-2\">\n        Phone\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__conditional nhsuk-radios__conditional--hidden\" id=\"conditional-conditional-2\">\n      <div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"phone\">\n    Phone number\n  </label>\n  <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"phone\" name=\"phone\" type=\"tel\">\n</div>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"conditional-3\" name=\"example\" type=\"radio\" value=\"text\" aria-controls=\"conditional-conditional-3\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"conditional-3\">\n        Text message\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__conditional nhsuk-radios__conditional--hidden\" id=\"conditional-conditional-3\">\n      <div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"mobile\">\n    Mobile phone number\n  </label>\n  <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"mobile\" name=\"mobile\" type=\"tel\">\n</div>\n    </div>\n  </div>\n</fieldset>\n</div>"
+    },
+    {
+      "name": "with conditional content, error message (nested)",
+      "context": {
+        "fieldset": {
+          "legend": {
+            "text": "How do you want to be contacted about this?",
+            "classes": "nhsuk-fieldset__legend--l",
+            "isPageHeading": true
+          }
+        },
+        "hint": {
+          "text": "Select 1 option"
+        },
+        "idPrefix": "conditional",
+        "name": "example",
+        "value": "phone",
+        "items": [
+          {
+            "value": "email",
+            "text": "Email",
+            "conditional": {
+              "html": "<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"email\">\n    Email address\n  </label>\n  <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"email\" name=\"email\" type=\"text\" spellcheck=\"false\">\n</div>\n"
+            }
+          },
+          {
+            "value": "phone",
+            "text": "Phone",
+            "conditional": {
+              "html": "<div class=\"nhsuk-form-group nhsuk-form-group--error\">\n  <label class=\"nhsuk-label\" for=\"phone\">\n    Phone number\n  </label>\n  <span id=\"phone-error\" class=\"nhsuk-error-message\">\n    <span class=\"nhsuk-u-visually-hidden\">Error:</span> Enter your phone number\n  </span>\n  <input class=\"nhsuk-input nhsuk-u-width-two-thirds nhsuk-input--error\" id=\"phone\" name=\"phone\" type=\"tel\" aria-describedby=\"phone-error\">\n</div>\n"
+            }
+          },
+          {
+            "value": "text",
+            "text": "Text message",
+            "conditional": {
+              "html": "<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"mobile\">\n    Mobile phone number\n  </label>\n  <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"mobile\" name=\"mobile\" type=\"tel\">\n</div>\n"
+            }
+          }
+        ]
+      },
+      "screenshot": {
+        "states": [
+          "focus"
+        ],
+        "selector": "#conditional-2",
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop"
+        ]
+      },
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <fieldset class=\"nhsuk-fieldset\" aria-describedby=\"conditional-hint\">\n  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--l\">\n    <h1 class=\"nhsuk-fieldset__heading\">\n      How do you want to be contacted about this?\n    </h1>\n  </legend>\n  <div id=\"conditional-hint\" class=\"nhsuk-hint\">\n    Select 1 option\n  </div>\n  <div class=\"nhsuk-radios\" data-module=\"nhsuk-radios\">\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"conditional\" name=\"example\" type=\"radio\" value=\"email\" aria-controls=\"conditional-conditional\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"conditional\">\n        Email\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__conditional nhsuk-radios__conditional--hidden\" id=\"conditional-conditional\">\n      <div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"email\">\n    Email address\n  </label>\n  <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"email\" name=\"email\" type=\"text\" spellcheck=\"false\">\n</div>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"conditional-2\" name=\"example\" type=\"radio\" value=\"phone\" checked aria-controls=\"conditional-conditional-2\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"conditional-2\">\n        Phone\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__conditional\" id=\"conditional-conditional-2\">\n      <div class=\"nhsuk-form-group nhsuk-form-group--error\">\n  <label class=\"nhsuk-label\" for=\"phone\">\n    Phone number\n  </label>\n  <span id=\"phone-error\" class=\"nhsuk-error-message\">\n    <span class=\"nhsuk-u-visually-hidden\">Error:</span> Enter your phone number\n  </span>\n  <input class=\"nhsuk-input nhsuk-u-width-two-thirds nhsuk-input--error\" id=\"phone\" name=\"phone\" type=\"tel\" aria-describedby=\"phone-error\">\n</div>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"conditional-3\" name=\"example\" type=\"radio\" value=\"text\" aria-controls=\"conditional-conditional-3\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"conditional-3\">\n        Text message\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__conditional nhsuk-radios__conditional--hidden\" id=\"conditional-conditional-3\">\n      <div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"mobile\">\n    Mobile phone number\n  </label>\n  <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"mobile\" name=\"mobile\" type=\"tel\">\n</div>\n    </div>\n  </div>\n</fieldset>\n</div>"
+    },
+    {
+      "name": "with disabled item",
+      "context": {
+        "fieldset": {
+          "legend": {
+            "text": "Have you changed your name?",
+            "classes": "nhsuk-fieldset__legend--l",
+            "isPageHeading": true
+          }
+        },
+        "hint": {
+          "text": "This includes changing your last name or spelling your name differently"
+        },
+        "idPrefix": "with-disabled-item",
+        "name": "example",
+        "items": [
+          {
+            "value": "yes",
+            "text": "Yes",
+            "disabled": true
+          },
+          {
+            "value": "no",
+            "text": "No",
+            "disabled": true
+          }
+        ]
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop"
+        ]
+      },
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <fieldset class=\"nhsuk-fieldset\" aria-describedby=\"with-disabled-item-hint\">\n  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--l\">\n    <h1 class=\"nhsuk-fieldset__heading\">\n      Have you changed your name?\n    </h1>\n  </legend>\n  <div id=\"with-disabled-item-hint\" class=\"nhsuk-hint\">\n    This includes changing your last name or spelling your name differently\n  </div>\n  <div class=\"nhsuk-radios\" data-module=\"nhsuk-radios\">\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"with-disabled-item\" name=\"example\" type=\"radio\" value=\"yes\" disabled>\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"with-disabled-item\">\n        Yes\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"with-disabled-item-2\" name=\"example\" type=\"radio\" value=\"no\" disabled>\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"with-disabled-item-2\">\n        No\n      </label>\n    </div>\n  </div>\n</fieldset>\n</div>"
+    },
+    {
+      "name": "with divider",
+      "context": {
+        "fieldset": {
+          "legend": {
+            "text": "How do you want to sign in?",
+            "classes": "nhsuk-fieldset__legend--l",
+            "isPageHeading": true
+          }
+        },
+        "idPrefix": "with-divider",
+        "name": "example",
+        "items": [
+          {
+            "value": "nhsuk-login",
+            "text": "Use NHS login"
+          },
+          {
+            "value": "government-verify",
+            "text": "Use GOV.UK Verify"
+          },
+          {
+            "divider": "or"
+          },
+          {
+            "value": "create-account",
+            "text": "Create an account"
+          }
+        ]
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop"
+        ]
+      },
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <fieldset class=\"nhsuk-fieldset\">\n  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--l\">\n    <h1 class=\"nhsuk-fieldset__heading\">\n      How do you want to sign in?\n    </h1>\n  </legend>\n  <div class=\"nhsuk-radios\" data-module=\"nhsuk-radios\">\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"with-divider\" name=\"example\" type=\"radio\" value=\"nhsuk-login\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"with-divider\">\n        Use NHS login\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"with-divider-2\" name=\"example\" type=\"radio\" value=\"government-verify\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"with-divider-2\">\n        Use GOV.UK Verify\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__divider\">or</div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"with-divider-4\" name=\"example\" type=\"radio\" value=\"create-account\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"with-divider-4\">\n        Create an account\n      </label>\n    </div>\n  </div>\n</fieldset>\n</div>"
+    },
+    {
+      "name": "with error message",
+      "context": {
+        "fieldset": {
+          "legend": {
+            "text": "Have you changed your name?",
+            "classes": "nhsuk-fieldset__legend--l",
+            "isPageHeading": true
+          }
+        },
+        "errorMessage": {
+          "text": "Select yes if you have changed your name"
+        },
+        "idPrefix": "with-error-message",
+        "name": "example",
+        "items": [
+          {
+            "value": "yes",
+            "text": "Yes"
+          },
+          {
+            "value": "no",
+            "text": "No"
+          }
+        ]
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group nhsuk-form-group--error\">\n  <fieldset class=\"nhsuk-fieldset\" aria-describedby=\"with-error-message-error\">\n  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--l\">\n    <h1 class=\"nhsuk-fieldset__heading\">\n      Have you changed your name?\n    </h1>\n  </legend>\n  <span id=\"with-error-message-error\" class=\"nhsuk-error-message\">\n    <span class=\"nhsuk-u-visually-hidden\">Error:</span> Select yes if you have changed your name\n  </span>\n  <div class=\"nhsuk-radios\" data-module=\"nhsuk-radios\">\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"with-error-message\" name=\"example\" type=\"radio\" value=\"yes\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"with-error-message\">\n        Yes\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"with-error-message-2\" name=\"example\" type=\"radio\" value=\"no\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"with-error-message-2\">\n        No\n      </label>\n    </div>\n  </div>\n</fieldset>\n</div>"
+    },
+    {
+      "name": "with hint",
+      "context": {
+        "fieldset": {
+          "legend": {
+            "text": "Do you know your NHS number?",
+            "classes": "nhsuk-fieldset__legend--l",
+            "isPageHeading": true
+          }
+        },
+        "hint": {
+          "text": "This is a 10 digit number, like 485 777 3456, that you can find on an NHS letter, prescription or in the NHS App"
+        },
+        "idPrefix": "with-hint",
+        "name": "example",
+        "items": [
+          {
+            "value": "yes",
+            "text": "Yes, I know my NHS number"
+          },
+          {
+            "value": "no",
+            "text": "No, I do not know my NHS number"
+          },
+          {
+            "value": "not sure",
+            "text": "I'm not sure"
+          }
+        ]
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <fieldset class=\"nhsuk-fieldset\" aria-describedby=\"with-hint-hint\">\n  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--l\">\n    <h1 class=\"nhsuk-fieldset__heading\">\n      Do you know your NHS number?\n    </h1>\n  </legend>\n  <div id=\"with-hint-hint\" class=\"nhsuk-hint\">\n    This is a 10 digit number, like 485 777 3456, that you can find on an NHS letter, prescription or in the NHS App\n  </div>\n  <div class=\"nhsuk-radios\" data-module=\"nhsuk-radios\">\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"with-hint\" name=\"example\" type=\"radio\" value=\"yes\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"with-hint\">\n        Yes, I know my NHS number\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"with-hint-2\" name=\"example\" type=\"radio\" value=\"no\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"with-hint-2\">\n        No, I do not know my NHS number\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"with-hint-3\" name=\"example\" type=\"radio\" value=\"not sure\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"with-hint-3\">\n        I&#39;m not sure\n      </label>\n    </div>\n  </div>\n</fieldset>\n</div>"
+    },
+    {
+      "name": "with hint and error",
+      "context": {
+        "fieldset": {
+          "legend": {
+            "text": "Have you changed your name?",
+            "classes": "nhsuk-fieldset__legend--l",
+            "isPageHeading": true
+          }
+        },
+        "hint": {
+          "text": "This includes changing your last name or spelling your name differently"
+        },
+        "errorMessage": {
+          "text": "Select yes if you have changed your name"
+        },
+        "idPrefix": "with-hint-error",
+        "name": "example",
+        "items": [
+          {
+            "value": "yes",
+            "text": "Yes"
+          },
+          {
+            "value": "no",
+            "text": "No"
+          }
+        ]
+      },
+      "screenshot": {
+        "states": [
+          "focus"
+        ],
+        "selector": "#with-hint-error",
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop"
+        ]
+      },
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group nhsuk-form-group--error\">\n  <fieldset class=\"nhsuk-fieldset\" aria-describedby=\"with-hint-error-hint with-hint-error-error\">\n  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--l\">\n    <h1 class=\"nhsuk-fieldset__heading\">\n      Have you changed your name?\n    </h1>\n  </legend>\n  <div id=\"with-hint-error-hint\" class=\"nhsuk-hint\">\n    This includes changing your last name or spelling your name differently\n  </div>\n  <span id=\"with-hint-error-error\" class=\"nhsuk-error-message\">\n    <span class=\"nhsuk-u-visually-hidden\">Error:</span> Select yes if you have changed your name\n  </span>\n  <div class=\"nhsuk-radios\" data-module=\"nhsuk-radios\">\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"with-hint-error\" name=\"example\" type=\"radio\" value=\"yes\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"with-hint-error\">\n        Yes\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"with-hint-error-2\" name=\"example\" type=\"radio\" value=\"no\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"with-hint-error-2\">\n        No\n      </label>\n    </div>\n  </div>\n</fieldset>\n</div>"
+    },
+    {
+      "name": "with hints on items",
+      "context": {
+        "fieldset": {
+          "legend": {
+            "text": "Do you have a mobile phone with signal?",
+            "classes": "nhsuk-fieldset__legend--l",
+            "isPageHeading": true
+          }
+        },
+        "idPrefix": "with-hint-item",
+        "name": "example",
+        "items": [
+          {
+            "value": "mobile",
+            "text": "Yes, I have a mobile phone with signal",
+            "hint": {
+              "text": "We will text you a 6 digit security code"
+            }
+          },
+          {
+            "value": "landline",
+            "text": "No, I want to use my landline",
+            "hint": {
+              "text": "We will call you to give you a 6 digit security code"
+            }
+          }
+        ]
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop"
+        ]
+      },
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <fieldset class=\"nhsuk-fieldset\">\n  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--l\">\n    <h1 class=\"nhsuk-fieldset__heading\">\n      Do you have a mobile phone with signal?\n    </h1>\n  </legend>\n  <div class=\"nhsuk-radios\" data-module=\"nhsuk-radios\">\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"with-hint-item\" name=\"example\" type=\"radio\" value=\"mobile\" aria-describedby=\"with-hint-item-item-hint\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"with-hint-item\">\n        Yes, I have a mobile phone with signal\n      </label>\n      <div id=\"with-hint-item-item-hint\" class=\"nhsuk-hint nhsuk-radios__hint\">\n        We will text you a 6 digit security code\n      </div>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"with-hint-item-2\" name=\"example\" type=\"radio\" value=\"landline\" aria-describedby=\"with-hint-item-2-item-hint\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"with-hint-item-2\">\n        No, I want to use my landline\n      </label>\n      <div id=\"with-hint-item-2-item-hint\" class=\"nhsuk-hint nhsuk-radios__hint\">\n        We will call you to give you a 6 digit security code\n      </div>\n    </div>\n  </div>\n</fieldset>\n</div>"
+    },
+    {
+      "name": "with legend size S",
+      "context": {
+        "fieldset": {
+          "legend": {
+            "text": "Are you 18 or over?",
+            "classes": "nhsuk-fieldset__legend--s",
+            "isPageHeading": true
+          }
+        },
+        "idPrefix": "custom-size",
+        "name": "example",
+        "items": [
+          {
+            "value": "yes",
+            "text": "Yes"
+          },
+          {
+            "value": "no",
+            "text": "No"
+          }
+        ]
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <fieldset class=\"nhsuk-fieldset\">\n  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--s\">\n    <h1 class=\"nhsuk-fieldset__heading\">\n      Are you 18 or over?\n    </h1>\n  </legend>\n  <div class=\"nhsuk-radios\" data-module=\"nhsuk-radios\">\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"custom-size\" name=\"example\" type=\"radio\" value=\"yes\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"custom-size\">\n        Yes\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"custom-size-2\" name=\"example\" type=\"radio\" value=\"no\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"custom-size-2\">\n        No\n      </label>\n    </div>\n  </div>\n</fieldset>\n</div>"
+    },
+    {
+      "name": "with legend size M",
+      "context": {
+        "fieldset": {
+          "legend": {
+            "text": "Are you 18 or over?",
+            "classes": "nhsuk-fieldset__legend--m",
+            "isPageHeading": true
+          }
+        },
+        "idPrefix": "custom-size",
+        "name": "example",
+        "items": [
+          {
+            "value": "yes",
+            "text": "Yes"
+          },
+          {
+            "value": "no",
+            "text": "No"
+          }
+        ]
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <fieldset class=\"nhsuk-fieldset\">\n  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--m\">\n    <h1 class=\"nhsuk-fieldset__heading\">\n      Are you 18 or over?\n    </h1>\n  </legend>\n  <div class=\"nhsuk-radios\" data-module=\"nhsuk-radios\">\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"custom-size\" name=\"example\" type=\"radio\" value=\"yes\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"custom-size\">\n        Yes\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"custom-size-2\" name=\"example\" type=\"radio\" value=\"no\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"custom-size-2\">\n        No\n      </label>\n    </div>\n  </div>\n</fieldset>\n</div>"
+    },
+    {
+      "name": "with legend size L",
+      "context": {
+        "fieldset": {
+          "legend": {
+            "text": "Are you 18 or over?",
+            "classes": "nhsuk-fieldset__legend--l",
+            "isPageHeading": true
+          }
+        },
+        "idPrefix": "custom-size",
+        "name": "example",
+        "items": [
+          {
+            "value": "yes",
+            "text": "Yes"
+          },
+          {
+            "value": "no",
+            "text": "No"
+          }
+        ]
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <fieldset class=\"nhsuk-fieldset\">\n  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--l\">\n    <h1 class=\"nhsuk-fieldset__heading\">\n      Are you 18 or over?\n    </h1>\n  </legend>\n  <div class=\"nhsuk-radios\" data-module=\"nhsuk-radios\">\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"custom-size\" name=\"example\" type=\"radio\" value=\"yes\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"custom-size\">\n        Yes\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"custom-size-2\" name=\"example\" type=\"radio\" value=\"no\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"custom-size-2\">\n        No\n      </label>\n    </div>\n  </div>\n</fieldset>\n</div>"
+    },
+    {
+      "name": "with legend size XL",
+      "context": {
+        "fieldset": {
+          "legend": {
+            "text": "Are you 18 or over?",
+            "classes": "nhsuk-fieldset__legend--xl",
+            "isPageHeading": true
+          }
+        },
+        "idPrefix": "custom-size",
+        "name": "example",
+        "items": [
+          {
+            "value": "yes",
+            "text": "Yes"
+          },
+          {
+            "value": "no",
+            "text": "No"
+          }
+        ]
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <fieldset class=\"nhsuk-fieldset\">\n  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--xl\">\n    <h1 class=\"nhsuk-fieldset__heading\">\n      Are you 18 or over?\n    </h1>\n  </legend>\n  <div class=\"nhsuk-radios\" data-module=\"nhsuk-radios\">\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"custom-size\" name=\"example\" type=\"radio\" value=\"yes\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"custom-size\">\n        Yes\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"custom-size-2\" name=\"example\" type=\"radio\" value=\"no\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"custom-size-2\">\n        No\n      </label>\n    </div>\n  </div>\n</fieldset>\n</div>"
+    },
+    {
+      "name": "with long text",
+      "context": {
+        "fieldset": {
+          "legend": {
+            "text": "Venenatis Condimentum",
+            "classes": "nhsuk-fieldset__legend--l",
+            "isPageHeading": true
+          }
+        },
+        "idPrefix": "with-long-text",
+        "name": "example",
+        "items": [
+          {
+            "value": "nullam",
+            "text": "Nullam id dolor id nibh ultricies vehicula ut id elit. Aenean eu leo\nquam. Pellentesque ornare sem lacinia quam venenatis vestibulum.\nMaecenas faucibus mollis interdum. Donec id elit non mi porta gravida\nat eget metus."
+          },
+          {
+            "value": "aenean",
+            "text": "Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis\nvestibulum. Donec sed odio dui. Duis mollis, est non commodo luctus,\nnisi erat porttitor ligula, eget lacinia odio sem nec elit. Cum sociis\nnatoque penatibus et magnis dis parturient montes, nascetur ridiculus\nmus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam\nvenenatis vestibulum. Cras mattis consectetur purus sit amet\nfermentum."
+          },
+          {
+            "value": "fusce",
+            "text": "Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum\nnibh, ut fermentum massa justo sit amet risus. Etiam porta sem\nmalesuada magna mollis euismod. Praesent commodo cursus magna, vel\nscelerisque nisl consectetur et. Etiam porta sem malesuada magna\nmollis euismod. Etiam porta sem malesuada magna mollis euismod.\nDonec sed odio dui. Sed posuere consectetur est at lobortis."
+          }
+        ]
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <fieldset class=\"nhsuk-fieldset\">\n  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--l\">\n    <h1 class=\"nhsuk-fieldset__heading\">\n      Venenatis Condimentum\n    </h1>\n  </legend>\n  <div class=\"nhsuk-radios\" data-module=\"nhsuk-radios\">\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"with-long-text\" name=\"example\" type=\"radio\" value=\"nullam\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"with-long-text\">\n        Nullam id dolor id nibh ultricies vehicula ut id elit. Aenean eu leo\n      quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.\n      Maecenas faucibus mollis interdum. Donec id elit non mi porta gravida\n      at eget metus.\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"with-long-text-2\" name=\"example\" type=\"radio\" value=\"aenean\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"with-long-text-2\">\n        Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis\n      vestibulum. Donec sed odio dui. Duis mollis, est non commodo luctus,\n      nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cum sociis\n      natoque penatibus et magnis dis parturient montes, nascetur ridiculus\n      mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam\n      venenatis vestibulum. Cras mattis consectetur purus sit amet\n      fermentum.\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"with-long-text-3\" name=\"example\" type=\"radio\" value=\"fusce\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"with-long-text-3\">\n        Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum\n      nibh, ut fermentum massa justo sit amet risus. Etiam porta sem\n      malesuada magna mollis euismod. Praesent commodo cursus magna, vel\n      scelerisque nisl consectetur et. Etiam porta sem malesuada magna\n      mollis euismod. Etiam porta sem malesuada magna mollis euismod.\n      Donec sed odio dui. Sed posuere consectetur est at lobortis.\n      </label>\n    </div>\n  </div>\n</fieldset>\n</div>"
+    },
+    {
+      "name": "with nested conditional radios",
+      "context": {
+        "fieldset": {
+          "legend": {
+            "text": "How do you want to be contacted about this?",
+            "classes": "nhsuk-fieldset__legend--m",
+            "isPageHeading": true
+          }
+        },
+        "hint": {
+          "text": "Select 1 option"
+        },
+        "idPrefix": "conditional-nested",
+        "name": "example-outer",
+        "items": [
+          {
+            "value": "no-conditional",
+            "text": "No conditional"
+          },
+          {
+            "value": "nested",
+            "text": "Nested conditional",
+            "conditional": {
+              "html": "<div class=\"nhsuk-form-group\">\n  <fieldset class=\"nhsuk-fieldset\" aria-describedby=\"example-inner-hint\">\n  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--s\">\n    How do you want to be contacted about this?\n  </legend>\n  <div id=\"example-inner-hint\" class=\"nhsuk-hint\">\n    Select 1 option\n  </div>\n  <div class=\"nhsuk-radios\" data-module=\"nhsuk-radios\">\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"example-inner\" name=\"example-inner\" type=\"radio\" value=\"email\" aria-controls=\"conditional-example-inner\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"example-inner\">\n        Email\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__conditional nhsuk-radios__conditional--hidden\" id=\"conditional-example-inner\">\n      <div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"email\">\n    Email address\n  </label>\n  <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"email\" name=\"email\" type=\"text\" spellcheck=\"false\">\n</div>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"example-inner-2\" name=\"example-inner\" type=\"radio\" value=\"phone\" aria-controls=\"conditional-example-inner-2\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"example-inner-2\">\n        Phone\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__conditional nhsuk-radios__conditional--hidden\" id=\"conditional-example-inner-2\">\n      <div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"phone\">\n    Phone number\n  </label>\n  <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"phone\" name=\"phone\" type=\"tel\">\n</div>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"example-inner-3\" name=\"example-inner\" type=\"radio\" value=\"text\" aria-controls=\"conditional-example-inner-3\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"example-inner-3\">\n        Text message\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__conditional nhsuk-radios__conditional--hidden\" id=\"conditional-example-inner-3\">\n      <div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"mobile\">\n    Mobile phone number\n  </label>\n  <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"mobile\" name=\"mobile\" type=\"tel\">\n</div>\n    </div>\n  </div>\n</fieldset>\n</div>\n"
+            }
+          }
+        ]
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <fieldset class=\"nhsuk-fieldset\" aria-describedby=\"conditional-nested-hint\">\n  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--m\">\n    <h1 class=\"nhsuk-fieldset__heading\">\n      How do you want to be contacted about this?\n    </h1>\n  </legend>\n  <div id=\"conditional-nested-hint\" class=\"nhsuk-hint\">\n    Select 1 option\n  </div>\n  <div class=\"nhsuk-radios\" data-module=\"nhsuk-radios\">\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"conditional-nested\" name=\"example-outer\" type=\"radio\" value=\"no-conditional\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"conditional-nested\">\n        No conditional\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"conditional-nested-2\" name=\"example-outer\" type=\"radio\" value=\"nested\" aria-controls=\"conditional-conditional-nested-2\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"conditional-nested-2\">\n        Nested conditional\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__conditional nhsuk-radios__conditional--hidden\" id=\"conditional-conditional-nested-2\">\n      <div class=\"nhsuk-form-group\">\n  <fieldset class=\"nhsuk-fieldset\" aria-describedby=\"example-inner-hint\">\n  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--s\">\n    How do you want to be contacted about this?\n  </legend>\n  <div id=\"example-inner-hint\" class=\"nhsuk-hint\">\n    Select 1 option\n  </div>\n  <div class=\"nhsuk-radios\" data-module=\"nhsuk-radios\">\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"example-inner\" name=\"example-inner\" type=\"radio\" value=\"email\" aria-controls=\"conditional-example-inner\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"example-inner\">\n        Email\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__conditional nhsuk-radios__conditional--hidden\" id=\"conditional-example-inner\">\n      <div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"email\">\n    Email address\n  </label>\n  <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"email\" name=\"email\" type=\"text\" spellcheck=\"false\">\n</div>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"example-inner-2\" name=\"example-inner\" type=\"radio\" value=\"phone\" aria-controls=\"conditional-example-inner-2\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"example-inner-2\">\n        Phone\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__conditional nhsuk-radios__conditional--hidden\" id=\"conditional-example-inner-2\">\n      <div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"phone\">\n    Phone number\n  </label>\n  <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"phone\" name=\"phone\" type=\"tel\">\n</div>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"example-inner-3\" name=\"example-inner\" type=\"radio\" value=\"text\" aria-controls=\"conditional-example-inner-3\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"example-inner-3\">\n        Text message\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__conditional nhsuk-radios__conditional--hidden\" id=\"conditional-example-inner-3\">\n      <div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"mobile\">\n    Mobile phone number\n  </label>\n  <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"mobile\" name=\"mobile\" type=\"tel\">\n</div>\n    </div>\n  </div>\n</fieldset>\n</div>\n    </div>\n  </div>\n</fieldset>\n</div>"
+    },
+    {
+      "name": "without fieldset",
+      "context": {
+        "id": "without-fieldset",
+        "name": "colours",
+        "items": [
+          {
+            "value": "red",
+            "text": "Red"
+          },
+          {
+            "value": "green",
+            "text": "Green"
+          },
+          {
+            "value": "blue",
+            "text": "Blue"
+          }
+        ]
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop"
+        ]
+      },
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <div id=\"without-fieldset\" class=\"nhsuk-radios\" data-module=\"nhsuk-radios\">\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"colours\" name=\"colours\" type=\"radio\" value=\"red\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"colours\">\n        Red\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"colours-2\" name=\"colours\" type=\"radio\" value=\"green\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"colours-2\">\n        Green\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"colours-3\" name=\"colours\" type=\"radio\" value=\"blue\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"colours-3\">\n        Blue\n      </label>\n    </div>\n  </div>\n</div>"
+    },
+    {
+      "name": "without page heading",
+      "context": {
+        "fieldset": {
+          "legend": {
+            "text": "Are you 18 or over?"
+          }
+        },
+        "idPrefix": "without-heading",
+        "name": "example",
+        "items": [
+          {
+            "value": "yes",
+            "text": "Yes"
+          },
+          {
+            "value": "no",
+            "text": "No"
+          }
+        ]
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <fieldset class=\"nhsuk-fieldset\">\n  <legend class=\"nhsuk-fieldset__legend\">\n    Are you 18 or over?\n  </legend>\n  <div class=\"nhsuk-radios\" data-module=\"nhsuk-radios\">\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"without-heading\" name=\"example\" type=\"radio\" value=\"yes\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"without-heading\">\n        Yes\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"without-heading-2\" name=\"example\" type=\"radio\" value=\"no\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"without-heading-2\">\n        No\n      </label>\n    </div>\n  </div>\n</fieldset>\n</div>"
+    },
+    {
+      "name": "small",
+      "context": {
+        "classes": "nhsuk-radios--small",
+        "fieldset": {
+          "legend": {
+            "text": "Are you 18 or over?",
+            "classes": "nhsuk-fieldset__legend--m",
+            "isPageHeading": true
+          }
+        },
+        "name": "example",
+        "items": [
+          {
+            "value": "yes",
+            "text": "Yes"
+          },
+          {
+            "value": "no",
+            "text": "No"
+          }
+        ]
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop"
+        ]
+      },
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <fieldset class=\"nhsuk-fieldset\">\n  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--m\">\n    <h1 class=\"nhsuk-fieldset__heading\">\n      Are you 18 or over?\n    </h1>\n  </legend>\n  <div class=\"nhsuk-radios nhsuk-radios--small\" data-module=\"nhsuk-radios\">\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"example\" name=\"example\" type=\"radio\" value=\"yes\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"example\">\n        Yes\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"example-2\" name=\"example\" type=\"radio\" value=\"no\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"example-2\">\n        No\n      </label>\n    </div>\n  </div>\n</fieldset>\n</div>"
+    },
+    {
+      "name": "small inline",
+      "context": {
+        "classes": "nhsuk-radios--small nhsuk-radios--inline",
+        "fieldset": {
+          "legend": {
+            "text": "Are you 18 or over?",
+            "classes": "nhsuk-fieldset__legend--s",
+            "isPageHeading": true
+          }
+        },
+        "idPrefix": "inline",
+        "name": "example",
+        "value": "no",
+        "items": [
+          {
+            "value": "yes",
+            "text": "Yes"
+          },
+          {
+            "value": "no",
+            "text": "No"
+          }
+        ]
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop"
+        ]
+      },
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <fieldset class=\"nhsuk-fieldset\">\n  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--s\">\n    <h1 class=\"nhsuk-fieldset__heading\">\n      Are you 18 or over?\n    </h1>\n  </legend>\n  <div class=\"nhsuk-radios nhsuk-radios--small nhsuk-radios--inline\" data-module=\"nhsuk-radios\">\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"inline\" name=\"example\" type=\"radio\" value=\"yes\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"inline\">\n        Yes\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"inline-2\" name=\"example\" type=\"radio\" value=\"no\" checked>\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"inline-2\">\n        No\n      </label>\n    </div>\n  </div>\n</fieldset>\n</div>"
+    },
+    {
+      "name": "small with conditional content",
+      "context": {
+        "classes": "nhsuk-radios--small",
+        "fieldset": {
+          "legend": {
+            "text": "How do you want to be contacted about this?",
+            "classes": "nhsuk-fieldset__legend--m",
+            "isPageHeading": true
+          }
+        },
+        "hint": {
+          "text": "Select 1 option"
+        },
+        "idPrefix": "conditional",
+        "name": "example",
+        "items": [
+          {
+            "value": "email",
+            "text": "Email",
+            "conditional": {
+              "html": "<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"email\">\n    Email address\n  </label>\n  <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"email\" name=\"email\" type=\"text\" spellcheck=\"false\">\n</div>\n"
+            }
+          },
+          {
+            "value": "phone",
+            "text": "Phone",
+            "conditional": {
+              "html": "<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"phone\">\n    Phone number\n  </label>\n  <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"phone\" name=\"phone\" type=\"tel\">\n</div>\n"
+            }
+          },
+          {
+            "value": "text",
+            "text": "Text message",
+            "conditional": {
+              "html": "<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"mobile\">\n    Mobile phone number\n  </label>\n  <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"mobile\" name=\"mobile\" type=\"tel\">\n</div>\n"
+            }
+          }
+        ]
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <fieldset class=\"nhsuk-fieldset\" aria-describedby=\"conditional-hint\">\n  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--m\">\n    <h1 class=\"nhsuk-fieldset__heading\">\n      How do you want to be contacted about this?\n    </h1>\n  </legend>\n  <div id=\"conditional-hint\" class=\"nhsuk-hint\">\n    Select 1 option\n  </div>\n  <div class=\"nhsuk-radios nhsuk-radios--small\" data-module=\"nhsuk-radios\">\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"conditional\" name=\"example\" type=\"radio\" value=\"email\" aria-controls=\"conditional-conditional\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"conditional\">\n        Email\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__conditional nhsuk-radios__conditional--hidden\" id=\"conditional-conditional\">\n      <div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"email\">\n    Email address\n  </label>\n  <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"email\" name=\"email\" type=\"text\" spellcheck=\"false\">\n</div>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"conditional-2\" name=\"example\" type=\"radio\" value=\"phone\" aria-controls=\"conditional-conditional-2\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"conditional-2\">\n        Phone\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__conditional nhsuk-radios__conditional--hidden\" id=\"conditional-conditional-2\">\n      <div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"phone\">\n    Phone number\n  </label>\n  <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"phone\" name=\"phone\" type=\"tel\">\n</div>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"conditional-3\" name=\"example\" type=\"radio\" value=\"text\" aria-controls=\"conditional-conditional-3\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"conditional-3\">\n        Text message\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__conditional nhsuk-radios__conditional--hidden\" id=\"conditional-conditional-3\">\n      <div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"mobile\">\n    Mobile phone number\n  </label>\n  <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"mobile\" name=\"mobile\" type=\"tel\">\n</div>\n    </div>\n  </div>\n</fieldset>\n</div>"
+    },
+    {
+      "name": "small with conditional content, error message",
+      "context": {
+        "classes": "nhsuk-radios--small",
+        "fieldset": {
+          "legend": {
+            "text": "How do you want to be contacted about this?",
+            "classes": "nhsuk-fieldset__legend--m",
+            "isPageHeading": true
+          }
+        },
+        "hint": {
+          "text": "Select 1 option"
+        },
+        "errorMessage": {
+          "text": "Select how you prefer to be contacted"
+        },
+        "idPrefix": "conditional",
+        "name": "example",
+        "items": [
+          {
+            "value": "email",
+            "text": "Email",
+            "conditional": {
+              "html": "<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"email\">\n    Email address\n  </label>\n  <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"email\" name=\"email\" type=\"text\" spellcheck=\"false\">\n</div>\n"
+            }
+          },
+          {
+            "value": "phone",
+            "text": "Phone",
+            "conditional": {
+              "html": "<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"phone\">\n    Phone number\n  </label>\n  <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"phone\" name=\"phone\" type=\"tel\">\n</div>\n"
+            }
+          },
+          {
+            "value": "text",
+            "text": "Text message",
+            "conditional": {
+              "html": "<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"mobile\">\n    Mobile phone number\n  </label>\n  <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"mobile\" name=\"mobile\" type=\"tel\">\n</div>\n"
+            }
+          }
+        ]
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group nhsuk-form-group--error\">\n  <fieldset class=\"nhsuk-fieldset\" aria-describedby=\"conditional-hint conditional-error\">\n  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--m\">\n    <h1 class=\"nhsuk-fieldset__heading\">\n      How do you want to be contacted about this?\n    </h1>\n  </legend>\n  <div id=\"conditional-hint\" class=\"nhsuk-hint\">\n    Select 1 option\n  </div>\n  <span id=\"conditional-error\" class=\"nhsuk-error-message\">\n    <span class=\"nhsuk-u-visually-hidden\">Error:</span> Select how you prefer to be contacted\n  </span>\n  <div class=\"nhsuk-radios nhsuk-radios--small\" data-module=\"nhsuk-radios\">\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"conditional\" name=\"example\" type=\"radio\" value=\"email\" aria-controls=\"conditional-conditional\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"conditional\">\n        Email\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__conditional nhsuk-radios__conditional--hidden\" id=\"conditional-conditional\">\n      <div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"email\">\n    Email address\n  </label>\n  <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"email\" name=\"email\" type=\"text\" spellcheck=\"false\">\n</div>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"conditional-2\" name=\"example\" type=\"radio\" value=\"phone\" aria-controls=\"conditional-conditional-2\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"conditional-2\">\n        Phone\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__conditional nhsuk-radios__conditional--hidden\" id=\"conditional-conditional-2\">\n      <div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"phone\">\n    Phone number\n  </label>\n  <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"phone\" name=\"phone\" type=\"tel\">\n</div>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"conditional-3\" name=\"example\" type=\"radio\" value=\"text\" aria-controls=\"conditional-conditional-3\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"conditional-3\">\n        Text message\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__conditional nhsuk-radios__conditional--hidden\" id=\"conditional-conditional-3\">\n      <div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"mobile\">\n    Mobile phone number\n  </label>\n  <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"mobile\" name=\"mobile\" type=\"tel\">\n</div>\n    </div>\n  </div>\n</fieldset>\n</div>"
+    },
+    {
+      "name": "small with conditional content, error message (nested)",
+      "context": {
+        "classes": "nhsuk-radios--small",
+        "fieldset": {
+          "legend": {
+            "text": "How do you want to be contacted about this?",
+            "classes": "nhsuk-fieldset__legend--m",
+            "isPageHeading": true
+          }
+        },
+        "hint": {
+          "text": "Select 1 option"
+        },
+        "idPrefix": "conditional",
+        "name": "example",
+        "value": "phone",
+        "items": [
+          {
+            "value": "email",
+            "text": "Email",
+            "conditional": {
+              "html": "<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"email\">\n    Email address\n  </label>\n  <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"email\" name=\"email\" type=\"text\" spellcheck=\"false\">\n</div>\n"
+            }
+          },
+          {
+            "value": "phone",
+            "text": "Phone",
+            "conditional": {
+              "html": "<div class=\"nhsuk-form-group nhsuk-form-group--error\">\n  <label class=\"nhsuk-label\" for=\"phone\">\n    Phone number\n  </label>\n  <span id=\"phone-error\" class=\"nhsuk-error-message\">\n    <span class=\"nhsuk-u-visually-hidden\">Error:</span> Enter your phone number\n  </span>\n  <input class=\"nhsuk-input nhsuk-u-width-two-thirds nhsuk-input--error\" id=\"phone\" name=\"phone\" type=\"tel\" aria-describedby=\"phone-error\">\n</div>\n"
+            }
+          },
+          {
+            "value": "text",
+            "text": "Text message",
+            "conditional": {
+              "html": "<div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"mobile\">\n    Mobile phone number\n  </label>\n  <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"mobile\" name=\"mobile\" type=\"tel\">\n</div>\n"
+            }
+          }
+        ]
+      },
+      "screenshot": {
+        "states": [
+          "focus"
+        ],
+        "selector": "#conditional-2",
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop"
+        ]
+      },
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <fieldset class=\"nhsuk-fieldset\" aria-describedby=\"conditional-hint\">\n  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--m\">\n    <h1 class=\"nhsuk-fieldset__heading\">\n      How do you want to be contacted about this?\n    </h1>\n  </legend>\n  <div id=\"conditional-hint\" class=\"nhsuk-hint\">\n    Select 1 option\n  </div>\n  <div class=\"nhsuk-radios nhsuk-radios--small\" data-module=\"nhsuk-radios\">\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"conditional\" name=\"example\" type=\"radio\" value=\"email\" aria-controls=\"conditional-conditional\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"conditional\">\n        Email\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__conditional nhsuk-radios__conditional--hidden\" id=\"conditional-conditional\">\n      <div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"email\">\n    Email address\n  </label>\n  <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"email\" name=\"email\" type=\"text\" spellcheck=\"false\">\n</div>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"conditional-2\" name=\"example\" type=\"radio\" value=\"phone\" checked aria-controls=\"conditional-conditional-2\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"conditional-2\">\n        Phone\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__conditional\" id=\"conditional-conditional-2\">\n      <div class=\"nhsuk-form-group nhsuk-form-group--error\">\n  <label class=\"nhsuk-label\" for=\"phone\">\n    Phone number\n  </label>\n  <span id=\"phone-error\" class=\"nhsuk-error-message\">\n    <span class=\"nhsuk-u-visually-hidden\">Error:</span> Enter your phone number\n  </span>\n  <input class=\"nhsuk-input nhsuk-u-width-two-thirds nhsuk-input--error\" id=\"phone\" name=\"phone\" type=\"tel\" aria-describedby=\"phone-error\">\n</div>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"conditional-3\" name=\"example\" type=\"radio\" value=\"text\" aria-controls=\"conditional-conditional-3\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"conditional-3\">\n        Text message\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__conditional nhsuk-radios__conditional--hidden\" id=\"conditional-conditional-3\">\n      <div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"mobile\">\n    Mobile phone number\n  </label>\n  <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"mobile\" name=\"mobile\" type=\"tel\">\n</div>\n    </div>\n  </div>\n</fieldset>\n</div>"
+    },
+    {
+      "name": "small with disabled item",
+      "context": {
+        "classes": "nhsuk-radios--small",
+        "fieldset": {
+          "legend": {
+            "text": "Have you changed your name?",
+            "classes": "nhsuk-fieldset__legend--m",
+            "isPageHeading": true
+          }
+        },
+        "hint": {
+          "text": "This includes changing your last name or spelling your name differently"
+        },
+        "idPrefix": "with-disabled-item",
+        "name": "example",
+        "items": [
+          {
+            "value": "yes",
+            "text": "Yes",
+            "disabled": true
+          },
+          {
+            "value": "no",
+            "text": "No",
+            "disabled": true
+          }
+        ]
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop"
+        ]
+      },
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <fieldset class=\"nhsuk-fieldset\" aria-describedby=\"with-disabled-item-hint\">\n  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--m\">\n    <h1 class=\"nhsuk-fieldset__heading\">\n      Have you changed your name?\n    </h1>\n  </legend>\n  <div id=\"with-disabled-item-hint\" class=\"nhsuk-hint\">\n    This includes changing your last name or spelling your name differently\n  </div>\n  <div class=\"nhsuk-radios nhsuk-radios--small\" data-module=\"nhsuk-radios\">\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"with-disabled-item\" name=\"example\" type=\"radio\" value=\"yes\" disabled>\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"with-disabled-item\">\n        Yes\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"with-disabled-item-2\" name=\"example\" type=\"radio\" value=\"no\" disabled>\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"with-disabled-item-2\">\n        No\n      </label>\n    </div>\n  </div>\n</fieldset>\n</div>"
+    },
+    {
+      "name": "small with divider",
+      "context": {
+        "classes": "nhsuk-radios--small",
+        "fieldset": {
+          "legend": {
+            "text": "How do you want to sign in?",
+            "classes": "nhsuk-fieldset__legend--m",
+            "isPageHeading": true
+          }
+        },
+        "idPrefix": "with-divider",
+        "name": "example",
+        "items": [
+          {
+            "value": "nhsuk-login",
+            "text": "Use NHS login"
+          },
+          {
+            "value": "government-verify",
+            "text": "Use GOV.UK Verify"
+          },
+          {
+            "divider": "or"
+          },
+          {
+            "value": "create-account",
+            "text": "Create an account"
+          }
+        ]
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop"
+        ]
+      },
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <fieldset class=\"nhsuk-fieldset\">\n  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--m\">\n    <h1 class=\"nhsuk-fieldset__heading\">\n      How do you want to sign in?\n    </h1>\n  </legend>\n  <div class=\"nhsuk-radios nhsuk-radios--small\" data-module=\"nhsuk-radios\">\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"with-divider\" name=\"example\" type=\"radio\" value=\"nhsuk-login\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"with-divider\">\n        Use NHS login\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"with-divider-2\" name=\"example\" type=\"radio\" value=\"government-verify\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"with-divider-2\">\n        Use GOV.UK Verify\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__divider\">or</div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"with-divider-4\" name=\"example\" type=\"radio\" value=\"create-account\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"with-divider-4\">\n        Create an account\n      </label>\n    </div>\n  </div>\n</fieldset>\n</div>"
+    },
+    {
+      "name": "small with error message",
+      "context": {
+        "classes": "nhsuk-radios--small",
+        "fieldset": {
+          "legend": {
+            "text": "Have you changed your name?",
+            "classes": "nhsuk-fieldset__legend--m",
+            "isPageHeading": true
+          }
+        },
+        "errorMessage": {
+          "text": "Select yes if you have changed your name"
+        },
+        "idPrefix": "with-error-message",
+        "name": "example",
+        "items": [
+          {
+            "value": "yes",
+            "text": "Yes"
+          },
+          {
+            "value": "no",
+            "text": "No"
+          }
+        ]
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group nhsuk-form-group--error\">\n  <fieldset class=\"nhsuk-fieldset\" aria-describedby=\"with-error-message-error\">\n  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--m\">\n    <h1 class=\"nhsuk-fieldset__heading\">\n      Have you changed your name?\n    </h1>\n  </legend>\n  <span id=\"with-error-message-error\" class=\"nhsuk-error-message\">\n    <span class=\"nhsuk-u-visually-hidden\">Error:</span> Select yes if you have changed your name\n  </span>\n  <div class=\"nhsuk-radios nhsuk-radios--small\" data-module=\"nhsuk-radios\">\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"with-error-message\" name=\"example\" type=\"radio\" value=\"yes\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"with-error-message\">\n        Yes\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"with-error-message-2\" name=\"example\" type=\"radio\" value=\"no\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"with-error-message-2\">\n        No\n      </label>\n    </div>\n  </div>\n</fieldset>\n</div>"
+    },
+    {
+      "name": "small with hint",
+      "context": {
+        "classes": "nhsuk-radios--small",
+        "fieldset": {
+          "legend": {
+            "text": "Do you know your NHS number?",
+            "classes": "nhsuk-fieldset__legend--m",
+            "isPageHeading": true
+          }
+        },
+        "hint": {
+          "text": "This is a 10 digit number, like 485 777 3456, that you can find on an NHS letter, prescription or in the NHS App"
+        },
+        "idPrefix": "with-hint",
+        "name": "example",
+        "items": [
+          {
+            "value": "yes",
+            "text": "Yes, I know my NHS number"
+          },
+          {
+            "value": "no",
+            "text": "No, I do not know my NHS number"
+          },
+          {
+            "value": "not sure",
+            "text": "I'm not sure"
+          }
+        ]
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <fieldset class=\"nhsuk-fieldset\" aria-describedby=\"with-hint-hint\">\n  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--m\">\n    <h1 class=\"nhsuk-fieldset__heading\">\n      Do you know your NHS number?\n    </h1>\n  </legend>\n  <div id=\"with-hint-hint\" class=\"nhsuk-hint\">\n    This is a 10 digit number, like 485 777 3456, that you can find on an NHS letter, prescription or in the NHS App\n  </div>\n  <div class=\"nhsuk-radios nhsuk-radios--small\" data-module=\"nhsuk-radios\">\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"with-hint\" name=\"example\" type=\"radio\" value=\"yes\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"with-hint\">\n        Yes, I know my NHS number\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"with-hint-2\" name=\"example\" type=\"radio\" value=\"no\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"with-hint-2\">\n        No, I do not know my NHS number\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"with-hint-3\" name=\"example\" type=\"radio\" value=\"not sure\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"with-hint-3\">\n        I&#39;m not sure\n      </label>\n    </div>\n  </div>\n</fieldset>\n</div>"
+    },
+    {
+      "name": "small with hint and error",
+      "context": {
+        "classes": "nhsuk-radios--small",
+        "fieldset": {
+          "legend": {
+            "text": "Have you changed your name?",
+            "classes": "nhsuk-fieldset__legend--m",
+            "isPageHeading": true
+          }
+        },
+        "hint": {
+          "text": "This includes changing your last name or spelling your name differently"
+        },
+        "errorMessage": {
+          "text": "Select yes if you have changed your name"
+        },
+        "idPrefix": "with-hint-error",
+        "name": "example",
+        "items": [
+          {
+            "value": "yes",
+            "text": "Yes"
+          },
+          {
+            "value": "no",
+            "text": "No"
+          }
+        ]
+      },
+      "screenshot": {
+        "states": [
+          "focus"
+        ],
+        "selector": "#with-hint-error",
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop"
+        ]
+      },
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group nhsuk-form-group--error\">\n  <fieldset class=\"nhsuk-fieldset\" aria-describedby=\"with-hint-error-hint with-hint-error-error\">\n  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--m\">\n    <h1 class=\"nhsuk-fieldset__heading\">\n      Have you changed your name?\n    </h1>\n  </legend>\n  <div id=\"with-hint-error-hint\" class=\"nhsuk-hint\">\n    This includes changing your last name or spelling your name differently\n  </div>\n  <span id=\"with-hint-error-error\" class=\"nhsuk-error-message\">\n    <span class=\"nhsuk-u-visually-hidden\">Error:</span> Select yes if you have changed your name\n  </span>\n  <div class=\"nhsuk-radios nhsuk-radios--small\" data-module=\"nhsuk-radios\">\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"with-hint-error\" name=\"example\" type=\"radio\" value=\"yes\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"with-hint-error\">\n        Yes\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"with-hint-error-2\" name=\"example\" type=\"radio\" value=\"no\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"with-hint-error-2\">\n        No\n      </label>\n    </div>\n  </div>\n</fieldset>\n</div>"
+    },
+    {
+      "name": "small with hints on items",
+      "context": {
+        "classes": "nhsuk-radios--small",
+        "fieldset": {
+          "legend": {
+            "text": "Do you have a mobile phone with signal?",
+            "classes": "nhsuk-fieldset__legend--m",
+            "isPageHeading": true
+          }
+        },
+        "idPrefix": "with-hint-item",
+        "name": "example",
+        "items": [
+          {
+            "value": "mobile",
+            "text": "Yes, I have a mobile phone with signal",
+            "hint": {
+              "text": "We will text you a 6 digit security code"
+            }
+          },
+          {
+            "value": "landline",
+            "text": "No, I want to use my landline",
+            "hint": {
+              "text": "We will call you to give you a 6 digit security code"
+            }
+          }
+        ]
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop"
+        ]
+      },
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <fieldset class=\"nhsuk-fieldset\">\n  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--m\">\n    <h1 class=\"nhsuk-fieldset__heading\">\n      Do you have a mobile phone with signal?\n    </h1>\n  </legend>\n  <div class=\"nhsuk-radios nhsuk-radios--small\" data-module=\"nhsuk-radios\">\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"with-hint-item\" name=\"example\" type=\"radio\" value=\"mobile\" aria-describedby=\"with-hint-item-item-hint\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"with-hint-item\">\n        Yes, I have a mobile phone with signal\n      </label>\n      <div id=\"with-hint-item-item-hint\" class=\"nhsuk-hint nhsuk-radios__hint\">\n        We will text you a 6 digit security code\n      </div>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"with-hint-item-2\" name=\"example\" type=\"radio\" value=\"landline\" aria-describedby=\"with-hint-item-2-item-hint\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"with-hint-item-2\">\n        No, I want to use my landline\n      </label>\n      <div id=\"with-hint-item-2-item-hint\" class=\"nhsuk-hint nhsuk-radios__hint\">\n        We will call you to give you a 6 digit security code\n      </div>\n    </div>\n  </div>\n</fieldset>\n</div>"
+    },
+    {
+      "name": "small with long text",
+      "context": {
+        "classes": "nhsuk-radios--small",
+        "fieldset": {
+          "legend": {
+            "text": "Venenatis Condimentum",
+            "classes": "nhsuk-fieldset__legend--m",
+            "isPageHeading": true
+          }
+        },
+        "idPrefix": "with-long-text",
+        "name": "example",
+        "items": [
+          {
+            "value": "nullam",
+            "text": "Nullam id dolor id nibh ultricies vehicula ut id elit. Aenean eu leo\nquam. Pellentesque ornare sem lacinia quam venenatis vestibulum.\nMaecenas faucibus mollis interdum. Donec id elit non mi porta gravida\nat eget metus."
+          },
+          {
+            "value": "aenean",
+            "text": "Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis\nvestibulum. Donec sed odio dui. Duis mollis, est non commodo luctus,\nnisi erat porttitor ligula, eget lacinia odio sem nec elit. Cum sociis\nnatoque penatibus et magnis dis parturient montes, nascetur ridiculus\nmus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam\nvenenatis vestibulum. Cras mattis consectetur purus sit amet\nfermentum."
+          },
+          {
+            "value": "fusce",
+            "text": "Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum\nnibh, ut fermentum massa justo sit amet risus. Etiam porta sem\nmalesuada magna mollis euismod. Praesent commodo cursus magna, vel\nscelerisque nisl consectetur et. Etiam porta sem malesuada magna\nmollis euismod. Etiam porta sem malesuada magna mollis euismod.\nDonec sed odio dui. Sed posuere consectetur est at lobortis."
+          }
+        ]
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <fieldset class=\"nhsuk-fieldset\">\n  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--m\">\n    <h1 class=\"nhsuk-fieldset__heading\">\n      Venenatis Condimentum\n    </h1>\n  </legend>\n  <div class=\"nhsuk-radios nhsuk-radios--small\" data-module=\"nhsuk-radios\">\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"with-long-text\" name=\"example\" type=\"radio\" value=\"nullam\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"with-long-text\">\n        Nullam id dolor id nibh ultricies vehicula ut id elit. Aenean eu leo\n      quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.\n      Maecenas faucibus mollis interdum. Donec id elit non mi porta gravida\n      at eget metus.\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"with-long-text-2\" name=\"example\" type=\"radio\" value=\"aenean\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"with-long-text-2\">\n        Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis\n      vestibulum. Donec sed odio dui. Duis mollis, est non commodo luctus,\n      nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cum sociis\n      natoque penatibus et magnis dis parturient montes, nascetur ridiculus\n      mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam\n      venenatis vestibulum. Cras mattis consectetur purus sit amet\n      fermentum.\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"with-long-text-3\" name=\"example\" type=\"radio\" value=\"fusce\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"with-long-text-3\">\n        Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum\n      nibh, ut fermentum massa justo sit amet risus. Etiam porta sem\n      malesuada magna mollis euismod. Praesent commodo cursus magna, vel\n      scelerisque nisl consectetur et. Etiam porta sem malesuada magna\n      mollis euismod. Etiam porta sem malesuada magna mollis euismod.\n      Donec sed odio dui. Sed posuere consectetur est at lobortis.\n      </label>\n    </div>\n  </div>\n</fieldset>\n</div>"
+    },
+    {
+      "name": "small with nested conditional radios",
+      "context": {
+        "classes": "nhsuk-radios--small",
+        "fieldset": {
+          "legend": {
+            "text": "How do you want to be contacted about this?",
+            "classes": "nhsuk-fieldset__legend--m",
+            "isPageHeading": true
+          }
+        },
+        "hint": {
+          "text": "Select 1 option"
+        },
+        "idPrefix": "conditional-nested",
+        "name": "example-outer",
+        "items": [
+          {
+            "value": "no-conditional",
+            "text": "No conditional"
+          },
+          {
+            "value": "nested",
+            "text": "Nested conditional",
+            "conditional": {
+              "html": "<div class=\"nhsuk-form-group\">\n  <fieldset class=\"nhsuk-fieldset\" aria-describedby=\"example-inner-hint\">\n  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--s\">\n    How do you want to be contacted about this?\n  </legend>\n  <div id=\"example-inner-hint\" class=\"nhsuk-hint\">\n    Select 1 option\n  </div>\n  <div class=\"nhsuk-radios\" data-module=\"nhsuk-radios\">\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"example-inner\" name=\"example-inner\" type=\"radio\" value=\"email\" aria-controls=\"conditional-example-inner\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"example-inner\">\n        Email\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__conditional nhsuk-radios__conditional--hidden\" id=\"conditional-example-inner\">\n      <div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"email\">\n    Email address\n  </label>\n  <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"email\" name=\"email\" type=\"text\" spellcheck=\"false\">\n</div>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"example-inner-2\" name=\"example-inner\" type=\"radio\" value=\"phone\" aria-controls=\"conditional-example-inner-2\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"example-inner-2\">\n        Phone\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__conditional nhsuk-radios__conditional--hidden\" id=\"conditional-example-inner-2\">\n      <div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"phone\">\n    Phone number\n  </label>\n  <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"phone\" name=\"phone\" type=\"tel\">\n</div>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"example-inner-3\" name=\"example-inner\" type=\"radio\" value=\"text\" aria-controls=\"conditional-example-inner-3\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"example-inner-3\">\n        Text message\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__conditional nhsuk-radios__conditional--hidden\" id=\"conditional-example-inner-3\">\n      <div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"mobile\">\n    Mobile phone number\n  </label>\n  <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"mobile\" name=\"mobile\" type=\"tel\">\n</div>\n    </div>\n  </div>\n</fieldset>\n</div>\n"
+            }
+          }
+        ]
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <fieldset class=\"nhsuk-fieldset\" aria-describedby=\"conditional-nested-hint\">\n  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--m\">\n    <h1 class=\"nhsuk-fieldset__heading\">\n      How do you want to be contacted about this?\n    </h1>\n  </legend>\n  <div id=\"conditional-nested-hint\" class=\"nhsuk-hint\">\n    Select 1 option\n  </div>\n  <div class=\"nhsuk-radios nhsuk-radios--small\" data-module=\"nhsuk-radios\">\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"conditional-nested\" name=\"example-outer\" type=\"radio\" value=\"no-conditional\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"conditional-nested\">\n        No conditional\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"conditional-nested-2\" name=\"example-outer\" type=\"radio\" value=\"nested\" aria-controls=\"conditional-conditional-nested-2\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"conditional-nested-2\">\n        Nested conditional\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__conditional nhsuk-radios__conditional--hidden\" id=\"conditional-conditional-nested-2\">\n      <div class=\"nhsuk-form-group\">\n  <fieldset class=\"nhsuk-fieldset\" aria-describedby=\"example-inner-hint\">\n  <legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--s\">\n    How do you want to be contacted about this?\n  </legend>\n  <div id=\"example-inner-hint\" class=\"nhsuk-hint\">\n    Select 1 option\n  </div>\n  <div class=\"nhsuk-radios\" data-module=\"nhsuk-radios\">\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"example-inner\" name=\"example-inner\" type=\"radio\" value=\"email\" aria-controls=\"conditional-example-inner\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"example-inner\">\n        Email\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__conditional nhsuk-radios__conditional--hidden\" id=\"conditional-example-inner\">\n      <div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"email\">\n    Email address\n  </label>\n  <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"email\" name=\"email\" type=\"text\" spellcheck=\"false\">\n</div>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"example-inner-2\" name=\"example-inner\" type=\"radio\" value=\"phone\" aria-controls=\"conditional-example-inner-2\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"example-inner-2\">\n        Phone\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__conditional nhsuk-radios__conditional--hidden\" id=\"conditional-example-inner-2\">\n      <div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"phone\">\n    Phone number\n  </label>\n  <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"phone\" name=\"phone\" type=\"tel\">\n</div>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"example-inner-3\" name=\"example-inner\" type=\"radio\" value=\"text\" aria-controls=\"conditional-example-inner-3\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"example-inner-3\">\n        Text message\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__conditional nhsuk-radios__conditional--hidden\" id=\"conditional-example-inner-3\">\n      <div class=\"nhsuk-form-group\">\n  <label class=\"nhsuk-label\" for=\"mobile\">\n    Mobile phone number\n  </label>\n  <input class=\"nhsuk-input nhsuk-u-width-two-thirds\" id=\"mobile\" name=\"mobile\" type=\"tel\">\n</div>\n    </div>\n  </div>\n</fieldset>\n</div>\n    </div>\n  </div>\n</fieldset>\n</div>"
+    },
+    {
+      "name": "small without fieldset",
+      "context": {
+        "classes": "nhsuk-radios--small",
+        "id": "without-fieldset",
+        "name": "colours",
+        "items": [
+          {
+            "value": "red",
+            "text": "Red"
+          },
+          {
+            "value": "green",
+            "text": "Green"
+          },
+          {
+            "value": "blue",
+            "text": "Blue"
+          }
+        ]
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop"
+        ]
+      },
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <div id=\"without-fieldset\" class=\"nhsuk-radios nhsuk-radios--small\" data-module=\"nhsuk-radios\">\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"colours\" name=\"colours\" type=\"radio\" value=\"red\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"colours\">\n        Red\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"colours-2\" name=\"colours\" type=\"radio\" value=\"green\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"colours-2\">\n        Green\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"colours-3\" name=\"colours\" type=\"radio\" value=\"blue\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"colours-3\">\n        Blue\n      </label>\n    </div>\n  </div>\n</div>"
+    },
+    {
+      "name": "small without page heading",
+      "context": {
+        "classes": "nhsuk-radios--small",
+        "fieldset": {
+          "legend": {
+            "text": "Are you 18 or over?"
+          }
+        },
+        "idPrefix": "without-heading",
+        "name": "example",
+        "items": [
+          {
+            "value": "yes",
+            "text": "Yes"
+          },
+          {
+            "value": "no",
+            "text": "No"
+          }
+        ]
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group\">\n  <fieldset class=\"nhsuk-fieldset\">\n  <legend class=\"nhsuk-fieldset__legend\">\n    Are you 18 or over?\n  </legend>\n  <div class=\"nhsuk-radios nhsuk-radios--small\" data-module=\"nhsuk-radios\">\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"without-heading\" name=\"example\" type=\"radio\" value=\"yes\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"without-heading\">\n        Yes\n      </label>\n    </div>\n    <div class=\"nhsuk-radios__item\">\n      <input class=\"nhsuk-radios__input\" id=\"without-heading-2\" name=\"example\" type=\"radio\" value=\"no\">\n      <label class=\"nhsuk-label nhsuk-radios__label\" for=\"without-heading-2\">\n        No\n      </label>\n    </div>\n  </div>\n</fieldset>\n</div>"
+    }
+  ]
+}

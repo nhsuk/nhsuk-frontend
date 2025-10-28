@@ -1,0 +1,37 @@
+{
+  "name": "Contents list",
+  "component": "contents-list",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "items": [
+          {
+            "href": "#",
+            "text": "What is AMD?",
+            "current": true
+          },
+          {
+            "href": "#",
+            "text": "Symptoms"
+          },
+          {
+            "href": "#",
+            "text": "Getting diagnosed"
+          },
+          {
+            "href": "#",
+            "text": "Treatments"
+          },
+          {
+            "href": "#",
+            "text": "Living with AMD"
+          }
+        ]
+      },
+      "screenshot": true,
+      "options": {},
+      "html": "<nav class=\"nhsuk-contents-list\" role=\"navigation\" aria-label=\"Pages in this guide\">\n  <h2 class=\"nhsuk-u-visually-hidden\">Contents</h2>\n  <ol class=\"nhsuk-contents-list__list\">        <li class=\"nhsuk-contents-list__item\" aria-current=\"page\">\n          <span class=\"nhsuk-contents-list__current\">What is AMD?</span>\n        </li>        <li class=\"nhsuk-contents-list__item\">\n          <a class=\"nhsuk-contents-list__link\" href=\"#\">Symptoms</a>\n        </li>        <li class=\"nhsuk-contents-list__item\">\n          <a class=\"nhsuk-contents-list__link\" href=\"#\">Getting diagnosed</a>\n        </li>        <li class=\"nhsuk-contents-list__item\">\n          <a class=\"nhsuk-contents-list__link\" href=\"#\">Treatments</a>\n        </li>        <li class=\"nhsuk-contents-list__item\">\n          <a class=\"nhsuk-contents-list__link\" href=\"#\">Living with AMD</a>\n        </li>  </ol>\n</nav>"
+    }
+  ]
+}

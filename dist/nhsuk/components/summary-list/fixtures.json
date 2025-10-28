@@ -1,0 +1,334 @@
+{
+  "name": "Summary list",
+  "component": "summary-list",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "rows": [
+          {
+            "key": {
+              "text": "Name"
+            },
+            "value": {
+              "text": "Karen Francis"
+            },
+            "actions": {
+              "items": [
+                {
+                  "href": "#",
+                  "text": "Change",
+                  "visuallyHiddenText": "name"
+                }
+              ]
+            }
+          },
+          {
+            "key": {
+              "text": "Date of birth"
+            },
+            "value": {
+              "text": "15 March 1984"
+            },
+            "actions": {
+              "items": [
+                {
+                  "href": "#",
+                  "text": "Change",
+                  "visuallyHiddenText": "date of birth"
+                }
+              ]
+            }
+          },
+          {
+            "key": {
+              "text": "Contact information"
+            },
+            "value": {
+              "html": "73 Roman Rd<br>\nLeeds<br>\nLS2 5ZN"
+            },
+            "actions": {
+              "items": [
+                {
+                  "href": "#",
+                  "text": "Change",
+                  "visuallyHiddenText": "contact information"
+                }
+              ]
+            }
+          },
+          {
+            "key": {
+              "text": "Contact details"
+            },
+            "value": {
+              "html": "<p>07700 900362</p>\n<p>karen.francis@example.com</p>"
+            },
+            "actions": {
+              "items": [
+                {
+                  "href": "#",
+                  "text": "Change",
+                  "visuallyHiddenText": "contact details"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop"
+        ]
+      },
+      "options": {},
+      "html": "<dl class=\"nhsuk-summary-list\">\n    <div class=\"nhsuk-summary-list__row\">\n      <dt class=\"nhsuk-summary-list__key\">\n        Name\n      </dt>\n      <dd class=\"nhsuk-summary-list__value\">\n        Karen Francis\n      </dd>\n        <dd class=\"nhsuk-summary-list__actions\">\n            <a href=\"#\">\n                Change<span class=\"nhsuk-u-visually-hidden\"> name</span>\n            </a>\n        </dd>\n    </div>\n    <div class=\"nhsuk-summary-list__row\">\n      <dt class=\"nhsuk-summary-list__key\">\n        Date of birth\n      </dt>\n      <dd class=\"nhsuk-summary-list__value\">\n        15 March 1984\n      </dd>\n        <dd class=\"nhsuk-summary-list__actions\">\n            <a href=\"#\">\n                Change<span class=\"nhsuk-u-visually-hidden\"> date of birth</span>\n            </a>\n        </dd>\n    </div>\n    <div class=\"nhsuk-summary-list__row\">\n      <dt class=\"nhsuk-summary-list__key\">\n        Contact information\n      </dt>\n      <dd class=\"nhsuk-summary-list__value\">\n        73 Roman Rd<br>\n        Leeds<br>\n        LS2 5ZN\n      </dd>\n        <dd class=\"nhsuk-summary-list__actions\">\n            <a href=\"#\">\n                Change<span class=\"nhsuk-u-visually-hidden\"> contact information</span>\n            </a>\n        </dd>\n    </div>\n    <div class=\"nhsuk-summary-list__row\">\n      <dt class=\"nhsuk-summary-list__key\">\n        Contact details\n      </dt>\n      <dd class=\"nhsuk-summary-list__value\">\n        <p>07700 900362</p>\n        <p>karen.francis@example.com</p>\n      </dd>\n        <dd class=\"nhsuk-summary-list__actions\">\n            <a href=\"#\">\n                Change<span class=\"nhsuk-u-visually-hidden\"> contact details</span>\n            </a>\n        </dd>\n    </div>\n</dl>"
+    },
+    {
+      "name": "with multiple actions",
+      "context": {
+        "rows": [
+          {
+            "key": {
+              "text": "Name"
+            },
+            "value": {
+              "text": "Karen Francis"
+            }
+          },
+          {
+            "key": {
+              "text": "Date of birth"
+            },
+            "value": {
+              "text": "15 March 1984"
+            },
+            "actions": {
+              "items": [
+                {
+                  "href": "#",
+                  "text": "Change",
+                  "visuallyHiddenText": "date of birth"
+                }
+              ]
+            }
+          },
+          {
+            "key": {
+              "text": "Contact information"
+            },
+            "value": {
+              "html": "73 Roman Rd<br>\nLeeds<br>\nLS2 5ZN"
+            },
+            "actions": {
+              "items": [
+                {
+                  "href": "#",
+                  "text": "Change",
+                  "visuallyHiddenText": "contact information"
+                }
+              ]
+            }
+          },
+          {
+            "key": {
+              "text": "Contact details"
+            },
+            "value": {
+              "html": "<p>07700 900362</p>\n<p>karen.francis@example.com</p>"
+            },
+            "actions": {
+              "items": [
+                {
+                  "href": "#",
+                  "text": "Add",
+                  "visuallyHiddenText": "new contact details"
+                },
+                {
+                  "href": "#",
+                  "text": "Change",
+                  "visuallyHiddenText": "contact details"
+                }
+              ]
+            }
+          },
+          {
+            "key": {
+              "text": "Medicines"
+            },
+            "value": {
+              "html": "<p>Isotretinoin capsules (Roaccutane)</p>\n<p>Isotretinoin gel (Isotrex)</p>\n<p>Pepto-Bismol (bismuth subsalicylate)</p>"
+            },
+            "actions": {
+              "items": [
+                {
+                  "href": "#",
+                  "text": "Add",
+                  "visuallyHiddenText": "new medicine"
+                },
+                {
+                  "href": "#",
+                  "text": "Change",
+                  "visuallyHiddenText": "medicines"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "screenshot": false,
+      "options": {
+        "width": "full"
+      },
+      "html": "<dl class=\"nhsuk-summary-list\">\n    <div class=\"nhsuk-summary-list__row nhsuk-summary-list__row--no-actions\">\n      <dt class=\"nhsuk-summary-list__key\">\n        Name\n      </dt>\n      <dd class=\"nhsuk-summary-list__value\">\n        Karen Francis\n      </dd>\n    </div>\n    <div class=\"nhsuk-summary-list__row\">\n      <dt class=\"nhsuk-summary-list__key\">\n        Date of birth\n      </dt>\n      <dd class=\"nhsuk-summary-list__value\">\n        15 March 1984\n      </dd>\n        <dd class=\"nhsuk-summary-list__actions\">\n            <a href=\"#\">\n                Change<span class=\"nhsuk-u-visually-hidden\"> date of birth</span>\n            </a>\n        </dd>\n    </div>\n    <div class=\"nhsuk-summary-list__row\">\n      <dt class=\"nhsuk-summary-list__key\">\n        Contact information\n      </dt>\n      <dd class=\"nhsuk-summary-list__value\">\n        73 Roman Rd<br>\n        Leeds<br>\n        LS2 5ZN\n      </dd>\n        <dd class=\"nhsuk-summary-list__actions\">\n            <a href=\"#\">\n                Change<span class=\"nhsuk-u-visually-hidden\"> contact information</span>\n            </a>\n        </dd>\n    </div>\n    <div class=\"nhsuk-summary-list__row\">\n      <dt class=\"nhsuk-summary-list__key\">\n        Contact details\n      </dt>\n      <dd class=\"nhsuk-summary-list__value\">\n        <p>07700 900362</p>\n        <p>karen.francis@example.com</p>\n      </dd>\n        <dd class=\"nhsuk-summary-list__actions\">\n            <ul class=\"nhsuk-summary-list__actions-list\">\n                <li class=\"nhsuk-summary-list__actions-list-item\">\n                  <a href=\"#\">\n                      Add<span class=\"nhsuk-u-visually-hidden\"> new contact details</span>\n                  </a>\n                </li>\n                <li class=\"nhsuk-summary-list__actions-list-item\">\n                  <a href=\"#\">\n                      Change<span class=\"nhsuk-u-visually-hidden\"> contact details</span>\n                  </a>\n                </li>\n            </ul>\n        </dd>\n    </div>\n    <div class=\"nhsuk-summary-list__row\">\n      <dt class=\"nhsuk-summary-list__key\">\n        Medicines\n      </dt>\n      <dd class=\"nhsuk-summary-list__value\">\n        <p>Isotretinoin capsules (Roaccutane)</p>\n        <p>Isotretinoin gel (Isotrex)</p>\n        <p>Pepto-Bismol (bismuth subsalicylate)</p>\n      </dd>\n        <dd class=\"nhsuk-summary-list__actions\">\n            <ul class=\"nhsuk-summary-list__actions-list\">\n                <li class=\"nhsuk-summary-list__actions-list-item\">\n                  <a href=\"#\">\n                      Add<span class=\"nhsuk-u-visually-hidden\"> new medicine</span>\n                  </a>\n                </li>\n                <li class=\"nhsuk-summary-list__actions-list-item\">\n                  <a href=\"#\">\n                      Change<span class=\"nhsuk-u-visually-hidden\"> medicines</span>\n                  </a>\n                </li>\n            </ul>\n        </dd>\n    </div>\n</dl>"
+    },
+    {
+      "name": "without actions",
+      "context": {
+        "rows": [
+          {
+            "key": {
+              "text": "Name"
+            },
+            "value": {
+              "text": "Karen Francis"
+            }
+          },
+          {
+            "key": {
+              "text": "Date of birth"
+            },
+            "value": {
+              "text": "15 March 1984"
+            }
+          },
+          {
+            "key": {
+              "text": "Contact information"
+            },
+            "value": {
+              "html": "73 Roman Rd<br>\nLeeds<br>\nLS2 5ZN"
+            }
+          },
+          {
+            "key": {
+              "text": "Contact details"
+            },
+            "value": {
+              "html": "<p>07700 900362</p>\n<p>karen.francis@example.com</p>"
+            }
+          }
+        ]
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop"
+        ]
+      },
+      "options": {},
+      "html": "<dl class=\"nhsuk-summary-list\">\n    <div class=\"nhsuk-summary-list__row\">\n      <dt class=\"nhsuk-summary-list__key\">\n        Name\n      </dt>\n      <dd class=\"nhsuk-summary-list__value\">\n        Karen Francis\n      </dd>\n    </div>\n    <div class=\"nhsuk-summary-list__row\">\n      <dt class=\"nhsuk-summary-list__key\">\n        Date of birth\n      </dt>\n      <dd class=\"nhsuk-summary-list__value\">\n        15 March 1984\n      </dd>\n    </div>\n    <div class=\"nhsuk-summary-list__row\">\n      <dt class=\"nhsuk-summary-list__key\">\n        Contact information\n      </dt>\n      <dd class=\"nhsuk-summary-list__value\">\n        73 Roman Rd<br>\n        Leeds<br>\n        LS2 5ZN\n      </dd>\n    </div>\n    <div class=\"nhsuk-summary-list__row\">\n      <dt class=\"nhsuk-summary-list__key\">\n        Contact details\n      </dt>\n      <dd class=\"nhsuk-summary-list__value\">\n        <p>07700 900362</p>\n        <p>karen.francis@example.com</p>\n      </dd>\n    </div>\n</dl>"
+    },
+    {
+      "name": "without border",
+      "context": {
+        "classes": "nhsuk-summary-list--no-border",
+        "rows": [
+          {
+            "key": {
+              "text": "Name"
+            },
+            "value": {
+              "text": "Karen Francis"
+            }
+          },
+          {
+            "key": {
+              "text": "Date of birth"
+            },
+            "value": {
+              "text": "15 March 1984"
+            }
+          },
+          {
+            "key": {
+              "text": "Contact information"
+            },
+            "value": {
+              "html": "73 Roman Rd<br>\nLeeds<br>\nLS2 5ZN"
+            }
+          },
+          {
+            "key": {
+              "text": "Contact details"
+            },
+            "value": {
+              "html": "<p>07700 900362</p>\n<p>karen.francis@example.com</p>"
+            }
+          }
+        ]
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop"
+        ]
+      },
+      "options": {},
+      "html": "<dl class=\"nhsuk-summary-list nhsuk-summary-list--no-border\">\n    <div class=\"nhsuk-summary-list__row\">\n      <dt class=\"nhsuk-summary-list__key\">\n        Name\n      </dt>\n      <dd class=\"nhsuk-summary-list__value\">\n        Karen Francis\n      </dd>\n    </div>\n    <div class=\"nhsuk-summary-list__row\">\n      <dt class=\"nhsuk-summary-list__key\">\n        Date of birth\n      </dt>\n      <dd class=\"nhsuk-summary-list__value\">\n        15 March 1984\n      </dd>\n    </div>\n    <div class=\"nhsuk-summary-list__row\">\n      <dt class=\"nhsuk-summary-list__key\">\n        Contact information\n      </dt>\n      <dd class=\"nhsuk-summary-list__value\">\n        73 Roman Rd<br>\n        Leeds<br>\n        LS2 5ZN\n      </dd>\n    </div>\n    <div class=\"nhsuk-summary-list__row\">\n      <dt class=\"nhsuk-summary-list__key\">\n        Contact details\n      </dt>\n      <dd class=\"nhsuk-summary-list__value\">\n        <p>07700 900362</p>\n        <p>karen.francis@example.com</p>\n      </dd>\n    </div>\n</dl>"
+    },
+    {
+      "name": "without row border",
+      "context": {
+        "rows": [
+          {
+            "key": {
+              "text": "Name"
+            },
+            "value": {
+              "text": "Karen Francis"
+            }
+          },
+          {
+            "key": {
+              "text": "Date of birth"
+            },
+            "value": {
+              "text": "15 March 1984"
+            }
+          },
+          {
+            "key": {
+              "text": "Contact information"
+            },
+            "value": {
+              "html": "73 Roman Rd<br>\nLeeds<br>\nLS2 5ZN"
+            }
+          },
+          {
+            "classes": "nhsuk-summary-list__row--no-border",
+            "key": {
+              "text": "Contact details"
+            },
+            "value": {
+              "html": "<p>07700 900362</p>\n<p>karen.francis@example.com</p>"
+            }
+          }
+        ]
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop"
+        ]
+      },
+      "options": {},
+      "html": "<dl class=\"nhsuk-summary-list\">\n    <div class=\"nhsuk-summary-list__row\">\n      <dt class=\"nhsuk-summary-list__key\">\n        Name\n      </dt>\n      <dd class=\"nhsuk-summary-list__value\">\n        Karen Francis\n      </dd>\n    </div>\n    <div class=\"nhsuk-summary-list__row\">\n      <dt class=\"nhsuk-summary-list__key\">\n        Date of birth\n      </dt>\n      <dd class=\"nhsuk-summary-list__value\">\n        15 March 1984\n      </dd>\n    </div>\n    <div class=\"nhsuk-summary-list__row\">\n      <dt class=\"nhsuk-summary-list__key\">\n        Contact information\n      </dt>\n      <dd class=\"nhsuk-summary-list__value\">\n        73 Roman Rd<br>\n        Leeds<br>\n        LS2 5ZN\n      </dd>\n    </div>\n    <div class=\"nhsuk-summary-list__row nhsuk-summary-list__row--no-border\">\n      <dt class=\"nhsuk-summary-list__key\">\n        Contact details\n      </dt>\n      <dd class=\"nhsuk-summary-list__value\">\n        <p>07700 900362</p>\n        <p>karen.francis@example.com</p>\n      </dd>\n    </div>\n</dl>"
+    }
+  ]
+}

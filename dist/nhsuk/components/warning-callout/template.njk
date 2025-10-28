@@ -1,0 +1,22 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+
+{% set headingLevel = params.headingLevel if params.headingLevel else 3 %}
+<div {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-warning-callout
+  {%- if params.classes %} {{ params.classes }}{% endif %}"
+  {{- nhsukAttributes(params.attributes) }}>
+  <h{{ headingLevel }} class="nhsuk-warning-callout__label">
+    {%- if "Important" in params.heading or "important" in params.heading %}
+    {{ params.heading | safe }}<span class="nhsuk-u-visually-hidden">:</span>
+    {%- else %}
+    <span role="text">
+      <span class="nhsuk-u-visually-hidden">{{ params.visuallyHiddenText | default("Important", true) }}: </span>
+      {{ params.heading | safe }}
+    </span>
+    {%- endif %}
+  </h{{ headingLevel }}>
+  {% if caller or params.html -%}
+    {{ caller() if caller else params.html | safe }}
+  {% elif params.text -%}
+    <p>{{ params.text }}</p>
+  {% endif %}
+</div>
