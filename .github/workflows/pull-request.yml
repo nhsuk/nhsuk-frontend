@@ -89,7 +89,7 @@ jobs:
         run: npm run test:js -- --coverage
 
       - name: Save test coverage
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: Javascript unit tests coverage
           path: coverage
@@ -188,7 +188,7 @@ jobs:
 
       - name: Save backstop report
         if: ${{ !cancelled() && steps.changes.outputs.changes == 'true' }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: Backstop report
           path: tests/backstop/
