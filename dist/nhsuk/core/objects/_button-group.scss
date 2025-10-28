@@ -1,0 +1,132 @@
+@use "sass:math";
+@use "../settings" as *;
+@use "../tools" as *;
+
+@include nhsuk-exports("nhsuk/core/objects/button-group") {
+  // Button groups can be used to group buttons and links together as a group.
+  //
+  // Within a button group:
+  //
+  // - links are styled to line up visually with the buttons, including being
+  //   centre-aligned on mobile
+  // - spacing between the buttons and links is handled automatically, including
+  //   when they wrap across multiple lines
+  .nhsuk-button-group {
+    $horizontal-gap: nhsuk-spacing(4);
+    $horizontal-gap-small: nhsuk-spacing(3);
+    $vertical-gap: nhsuk-spacing(3);
+
+    // These need to be kept in sync with the button component's styles
+    $button-padding-top-bottom-mobile: 9px;
+    $button-padding-top-bottom-desktop: 13px;
+    $button-padding-top-bottom-small: 5px;
+
+    // Flexbox is used to center-align links on mobile, align everything along
+    // the baseline on tablet and above, and to removes extra whitespace that
+    // we'd get between the buttons and links because they're inline-blocks.
+    //
+    // Ideally we'd use `gap` with flexbox rather than having to do it all with
+    // margins, but unfortunately the support isn't there (yet) and @supports
+    // doesn't play nicely with it
+    // (https://github.com/w3c/csswg-drafts/issues/3559)
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include nhsuk-responsive-margin(5, "bottom", $adjustment: $vertical-gap * -1);
+
+    .nhsuk-body,
+    .nhsuk-body-m,
+    p,
+    > .nhsuk-link,
+    > a:not(.nhsuk-button) {
+      display: inline-block;
+
+      // Prevent links overflowing their container in IE10/11 because of bug
+      // with align-items: center
+      max-width: 100%;
+
+      // Because we want the focus state to be tight around the link text, we use
+      // margins where the buttons would use padding.
+      margin-top: $button-padding-top-bottom-mobile + $nhsuk-border-width-form-element;
+      margin-bottom: $button-padding-top-bottom-mobile + $nhsuk-border-width-form-element +
+        math.div($nhsuk-button-shadow-size, 2) + $vertical-gap;
+      text-align: center;
+
+      // Match paragraphs and link font-size and line-height to buttons
+      @include nhsuk-font($size: 19);
+    }
+
+    // Reduce the bottom margin to the size of the vertical gap (accommodating
+    // the button shadow) – the 'lost' margin is moved to the button-group
+    > .nhsuk-button {
+      margin-bottom: $vertical-gap + $nhsuk-button-shadow-size;
+    }
+
+    // Remove double margin when nested in form groups
+    .nhsuk-form-group & {
+      margin-bottom: 0;
+    }
+
+    // On tablet and above, we also introduce a 'column gap' between the
+    // buttons and links in each row and left align links
+    @include nhsuk-media-query($from: tablet) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: flex-start;
+
+      // Cancel out the column gap for the last item in each row
+      margin-right: ($horizontal-gap * -1);
+
+      &--small {
+        margin-right: ($horizontal-gap-small * -1);
+      }
+
+      .nhsuk-body,
+      .nhsuk-body-m,
+      p,
+      > .nhsuk-link,
+      > a:not(.nhsuk-button) {
+        margin-top: $button-padding-top-bottom-desktop + $nhsuk-border-width-form-element;
+        margin-right: $horizontal-gap;
+        margin-bottom: $button-padding-top-bottom-desktop + $nhsuk-border-width-form-element +
+          math.div($nhsuk-button-shadow-size, 2) + $vertical-gap;
+        text-align: left;
+      }
+
+      &--small .nhsuk-body,
+      &--small .nhsuk-body-m,
+      &--small p,
+      &--small > .nhsuk-link,
+      &--small > a:not(.nhsuk-button) {
+        // Match paragraphs and link margin to small buttons
+        margin-top: $button-padding-top-bottom-small + $nhsuk-border-width-form-element;
+        margin-right: $horizontal-gap-small;
+        margin-bottom: $button-padding-top-bottom-small + $nhsuk-border-width-form-element +
+          math.div($nhsuk-button-shadow-size, 2) + $vertical-gap;
+
+        // Match paragraphs and link font-size and line-height to small buttons
+        @include nhsuk-font($size: 16);
+      }
+
+      // Remove bottom margin when inline
+      .nhsuk-form-group--inline & .nhsuk-body,
+      .nhsuk-form-group--inline & .nhsuk-body-m,
+      .nhsuk-form-group--inline & p,
+      .nhsuk-form-group--inline & > .nhsuk-link,
+      .nhsuk-form-group--inline & > a:not(.nhsuk-button) {
+        margin-bottom: 0;
+      }
+
+      > .nhsuk-button {
+        margin-right: $horizontal-gap;
+      }
+
+      > .nhsuk-button--small {
+        margin-right: $horizontal-gap-small;
+      }
+    }
+  }
+}
+
+/*# sourceMappingURL=_button-group.scss.map */

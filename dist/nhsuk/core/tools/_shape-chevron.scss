@@ -1,0 +1,67 @@
+@use "sass:math";
+@use "sass:string";
+@use "../settings" as *;
+@use "functions" as *;
+
+////
+/// Shape chevron
+///
+/// @group tools
+////
+
+/// Chevron mixin
+///
+/// Generate chevron by using a box with borders on two sides, then rotating it.
+///
+/// @param {String} $direction - Direction for chevron: up, right, down, left
+/// @param {Colour} $colour - Colour of chevron
+/// @param {Number} $font-size [14] - Font size to base chevron size on
+/// @param {String} $display [block] - CSS display property of the arrow
+
+@mixin nhsuk-shape-chevron($direction, $colour, $font-size: 16, $display: block) {
+  $outline-width: nhsuk-em($nhsuk-chevron-border, $font-size);
+  $box-size: nhsuk-em(math.div($font-size, 2), $font-size);
+  $size: nhsuk-em(nhsuk-chevron-size($font-size), $nhsuk-base-font-size);
+  display: $display;
+
+  width: $box-size;
+  height: $box-size;
+
+  -webkit-clip-path: polygon(100% 100%, 100% 0, 0 0);
+
+          clip-path: polygon(100% 100%, 100% 0, 0 0);
+
+  border-radius: 2px;
+
+  // Safari renders a hairline gap if we use borders, so use an inset outline
+  // instead. Because outlines are added to all sides of a box, we hide the
+  // outline on the two other two sides using clip-path.
+  outline: $outline-width solid currentcolor;
+  outline-offset: -$outline-width;
+
+  color: $colour;
+
+  @if $direction == "up" {
+    transform: translateY($outline-width) rotate(-45deg);
+  } @else if $direction == "right" {
+    transform: translateX(-$size + $outline-width) rotate(45deg);
+  } @else if $direction == "down" {
+    transform: translateY(-$size + $outline-width) rotate(135deg);
+  } @else if $direction == "left" {
+    transform: translateX($outline-width) rotate(225deg);
+  } @else {
+    @error "Invalid arrow direction: expected `up`, `right`, `down` or `left`, got `#{$direction}`";
+  }
+
+  @supports (border-width: string.unquote("max(0px)")) {
+    $outline-width-eval: "max(#{$nhsuk-chevron-border}, #{$outline-width})";
+
+    // Ensure that the chevron outline never gets smaller than 2px
+    outline-width: string.unquote($outline-width-eval) string.unquote($outline-width-eval) 0 0;
+
+    // Ensure that the chevron never gets smaller than 16px
+    font-size: string.unquote("max(#{$font-size * 1px}, 1em)");
+  }
+}
+
+/*# sourceMappingURL=_shape-chevron.scss.map */

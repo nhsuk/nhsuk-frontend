@@ -1,0 +1,63 @@
+@use "sass:math";
+@use "../settings" as *;
+
+////
+/// Functions
+///
+/// @group tools
+////
+
+/// Convert pixels to em
+///
+/// A quick way to convert px into em
+///
+/// @example scss
+///   nhsuk-em(20px, $nhsuk-base-font-size);
+///
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+
+@function nhsuk-em($value, $context-font-size) {
+  @if math.is-unitless($value) {
+    $value: $value * 1px;
+  }
+  @if math.is-unitless($context-font-size) {
+    $context-font-size: $context-font-size * 1px;
+  }
+  @return math.div($value, $context-font-size) * 1em;
+}
+
+/// Convert pixels to rem
+///
+/// A quick way to convert px into rem
+///
+/// @example scss
+///   nhsuk-px-to-rem(20px);
+///
+/// The $nhsuk-base-font-size (defined in settings/_globals.scss)
+/// must be configured to match the font-size of your root (html) element
+
+@function nhsuk-px-to-rem($value) {
+  @if math.is-unitless($value) {
+    $value: $value * 1px;
+  }
+
+  @return math.div($value, $nhsuk-base-font-size) * 1rem;
+}
+
+/// Get the size (△↕) of chevron, from base to tip, given a certain font size
+///
+/// @param {Number} $font-size [14] - Font size to base chevron size on
+/// @return {String} Height of chevron as em-based value
+
+@function nhsuk-chevron-size($font-size: 16) {
+  // Get unitless chevron border width
+  $border: math.div($nhsuk-chevron-border, 1px);
+
+  // Get unitless length of one side of the chevron, minus the border
+  $box-size: math.div($font-size, 2) - $border;
+
+  // Calculate width (△↕) of the chevron, from base to tip
+  @return math.sqrt(math.pow($box-size, 2) + math.pow($box-size, 2)) * 0.5;
+}
+
+/*# sourceMappingURL=_functions.scss.map */

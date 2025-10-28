@@ -1,0 +1,49 @@
+@use "../generic" as *;
+@use "../settings" as *;
+@use "../tools" as *;
+@use "../helpers" as *;
+
+////
+/// Page
+///
+/// High-level, page-level styling.
+///
+/// 1. The reason for this is to prevent "centering jumps" when navigating back
+///    and forth between pages with enough content to have a vertical scroll bar
+///    and pages that do not.
+/// 2. Fonts on OSX will look more consistent with other systems that do not
+///    render text using sub-pixel anti-aliasing.
+/// 3. Override the user agent style margin of 8px.
+/// 4. Ensure the page always fills at least the entire height of the viewport.
+///
+/// @group elements
+////
+
+html {
+  overflow-y: scroll; // [1]
+  background-color: $nhsuk-template-background-colour;
+
+  @if $nhsuk-include-font-face {
+    @include nhsuk-font-face-frutiger;
+
+    & {
+      font-family: $nhsuk-font, $nhsuk-font-fallback;
+    }
+  }
+}
+
+body {
+  min-height: 100%; // [4]
+  margin: 0; // [3]
+
+  color: $nhsuk-text-colour;
+  background-color: $nhsuk-body-background-colour;
+
+  font-size: $nhsuk-base-font-size;
+  line-height: nhsuk-line-height($nhsuk-base-line-height, $nhsuk-base-font-size);
+
+  -moz-osx-font-smoothing: grayscale; // [2]
+  -webkit-font-smoothing: antialiased; // [2]
+}
+
+/*# sourceMappingURL=_page.scss.map */

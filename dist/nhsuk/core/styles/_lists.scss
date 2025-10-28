@@ -1,0 +1,120 @@
+@use "../settings" as *;
+@use "../tools" as *;
+
+////
+/// Lists
+///
+/// The % (silent class) allows code to be extended (@extend) to other elements
+/// without bloating the code.
+///
+/// 1. 'Random number' used to align ul and ol left with content.
+/// 2. 'Random number' used to give sufficient spacing between text and icon.
+/// 3. Align icon and text.
+///
+/// @group styles
+///
+/// @example scss
+///   .foo {
+///     @extend %nhsuk-list--bullet;
+///   }
+////
+
+%nhsuk-list {
+  margin-top: 0;
+  padding-left: 0;
+  list-style-type: none;
+
+  @include nhsuk-font-size(19);
+  @include nhsuk-responsive-margin(4, "bottom");
+
+  // Add a top margin and remove bottom margin for nested lists
+  %nhsuk-list {
+    margin-bottom: 0;
+    @include nhsuk-responsive-margin(2, "top");
+  }
+}
+
+%nhsuk-list > li {
+  @include nhsuk-responsive-margin(2, "bottom");
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+%nhsuk-list--bullet {
+  padding-left: 20px; // [1]
+  list-style-type: disc;
+}
+
+.nhsuk-list--bullet {
+  @extend %nhsuk-list--bullet;
+}
+
+%nhsuk-list--number {
+  padding-left: 20px; // [1]
+  list-style-type: decimal;
+}
+
+%nhsuk-list + h2,
+%nhsuk-list + .nhsuk-heading-l {
+  @include nhsuk-responsive-padding(4, "top");
+}
+
+%nhsuk-list + h3,
+%nhsuk-list + h4,
+%nhsuk-list + .nhsuk-heading-m,
+%nhsuk-list + .nhsuk-heading-s {
+  padding-top: nhsuk-spacing(1);
+
+  @include nhsuk-media-query($from: tablet) {
+    padding-top: nhsuk-spacing(2);
+  }
+}
+
+@include nhsuk-media-query($media-type: print) {
+  %nhsuk-list + h2,
+  %nhsuk-list + h3,
+  %nhsuk-list + h4,
+  %nhsuk-list + .nhsuk-heading-l,
+  %nhsuk-list + .nhsuk-heading-m,
+  %nhsuk-list + .nhsuk-heading-s {
+    padding-top: 0.45em;
+  }
+}
+
+.nhsuk-list--number {
+  @extend %nhsuk-list--number;
+}
+
+.nhsuk-list {
+  @extend %nhsuk-list;
+}
+
+ul {
+  @extend %nhsuk-list;
+  @extend %nhsuk-list--bullet;
+}
+
+ol {
+  @extend %nhsuk-list;
+  @extend %nhsuk-list--number;
+}
+
+.nhsuk-list--tick,
+.nhsuk-list--cross {
+  position: relative;
+  margin-top: 0;
+  padding-left: nhsuk-px-to-rem($nhsuk-icon-size-large + nhsuk-spacing(1)); // [3]
+  list-style: none;
+
+  .nhsuk-icon {
+    position: absolute;
+    left: nhsuk-px-to-rem(-4px); // [3]
+    width: nhsuk-px-to-rem($nhsuk-icon-size-large);
+    height: nhsuk-px-to-rem($nhsuk-icon-size-large);
+    margin-top: nhsuk-px-to-rem(-4px); // [3]
+  }
+}
+
+/*# sourceMappingURL=_lists.scss.map */

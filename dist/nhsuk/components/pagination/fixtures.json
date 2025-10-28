@@ -1,0 +1,308 @@
+{
+  "name": "Pagination",
+  "component": "pagination",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "previous": {
+          "labelText": "Treatments",
+          "href": "/section/treatments"
+        },
+        "next": {
+          "labelText": "Symptoms",
+          "href": "/section/symptoms"
+        }
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop",
+          "large-desktop"
+        ]
+      },
+      "options": {
+        "width": "full"
+      },
+      "html": "<nav class=\"nhsuk-pagination\" role=\"navigation\" aria-label=\"Pagination\">\n\n\n  <ul class=\"nhsuk-list nhsuk-pagination__list\">\n    <li class=\"nhsuk-pagination-item--previous\">\n      <a class=\"nhsuk-pagination__link nhsuk-pagination__link--prev\" href=\"/section/treatments\" rel=\"prev\">\n        <span class=\"nhsuk-pagination__title\">\n          Previous<span class=\"nhsuk-u-visually-hidden\"> page</span>\n        </span>\n        <span class=\"nhsuk-u-visually-hidden\">:</span>\n        <span class=\"nhsuk-pagination__page\">Treatments</span>\n        <svg class=\"nhsuk-icon nhsuk-icon--arrow-left\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n          <path d=\"M10.7 6.3c.4.4.4 1 0 1.4L7.4 11H19a1 1 0 0 1 0 2H7.4l3.3 3.3c.4.4.4 1 0 1.4a1 1 0 0 1-1.4 0l-5-5A1 1 0 0 1 4 12c0-.3.1-.5.3-.7l5-5a1 1 0 0 1 1.4 0Z\"/>\n        </svg>\n      </a>\n    </li>\n\n    <li class=\"nhsuk-pagination-item--next\">\n      <a class=\"nhsuk-pagination__link nhsuk-pagination__link--next\" href=\"/section/symptoms\" rel=\"next\">\n        <span class=\"nhsuk-pagination__title\">\n          Next<span class=\"nhsuk-u-visually-hidden\"> page</span>\n        </span>\n        <span class=\"nhsuk-u-visually-hidden\">:</span>\n        <span class=\"nhsuk-pagination__page\">Symptoms</span>\n        <svg class=\"nhsuk-icon nhsuk-icon--arrow-right\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n          <path d=\"m14.7 6.3 5 5c.2.2.3.4.3.7 0 .3-.1.5-.3.7l-5 5a1 1 0 0 1-1.4-1.4l3.3-3.3H5a1 1 0 0 1 0-2h11.6l-3.3-3.3a1 1 0 1 1 1.4-1.4Z\"/>\n        </svg>\n      </a>\n    </li>\n  </ul>\n</nav>"
+    },
+    {
+      "name": "numbered",
+      "context": {
+        "previous": {
+          "href": "#"
+        },
+        "next": {
+          "href": "#"
+        },
+        "items": [
+          {
+            "number": 1,
+            "href": "#"
+          },
+          {
+            "number": 2,
+            "href": "#",
+            "current": true
+          },
+          {
+            "number": 3,
+            "href": "#"
+          }
+        ]
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop",
+          "large-desktop"
+        ]
+      },
+      "options": {
+        "width": "full"
+      },
+      "html": "<nav class=\"nhsuk-pagination nhsuk-pagination--numbered\" role=\"navigation\" aria-label=\"Pagination\">\n\n  <a href=\"#\" class=\"nhsuk-pagination__previous\" rel=\"prev\">\n    <svg class=\"nhsuk-icon nhsuk-icon--arrow-left\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n      <path d=\"M10.7 6.3c.4.4.4 1 0 1.4L7.4 11H19a1 1 0 0 1 0 2H7.4l3.3 3.3c.4.4.4 1 0 1.4a1 1 0 0 1-1.4 0l-5-5A1 1 0 0 1 4 12c0-.3.1-.5.3-.7l5-5a1 1 0 0 1 1.4 0Z\"/>\n    </svg>\n    <span class=\"nhsuk-pagination__title\">\n      Previous<span class=\"nhsuk-u-visually-hidden\"> page</span>\n    </span>\n  </a>\n  <ul class=\"nhsuk-pagination__list\">\n    <li class=\"nhsuk-pagination__item\">\n      <a class=\"nhsuk-pagination__link\" href=\"#\" aria-label=\"Page 1\">\n        1\n      </a>\n    </li>\n    <li class=\"nhsuk-pagination__item nhsuk-pagination__item--current\">\n      <a class=\"nhsuk-pagination__link\" href=\"#\" aria-label=\"Page 2\" aria-current=\"page\">\n        2\n      </a>\n    </li>\n    <li class=\"nhsuk-pagination__item\">\n      <a class=\"nhsuk-pagination__link\" href=\"#\" aria-label=\"Page 3\">\n        3\n      </a>\n    </li>\n  </ul>\n  <a href=\"#\" class=\"nhsuk-pagination__next\" rel=\"next\">\n    <span class=\"nhsuk-pagination__title\">\n      Next<span class=\"nhsuk-u-visually-hidden\"> page</span>\n    </span>\n    <svg class=\"nhsuk-icon nhsuk-icon--arrow-right\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n      <path d=\"m14.7 6.3 5 5c.2.2.3.4.3.7 0 .3-.1.5-.3.7l-5 5a1 1 0 0 1-1.4-1.4l3.3-3.3H5a1 1 0 0 1 0-2h11.6l-3.3-3.3a1 1 0 1 1 1.4-1.4Z\"/>\n    </svg>\n  </a>\n\n</nav>"
+    },
+    {
+      "name": "numbered first page",
+      "context": {
+        "next": {
+          "href": "#"
+        },
+        "items": [
+          {
+            "number": 1,
+            "href": "#",
+            "current": true
+          },
+          {
+            "number": 2,
+            "href": "#"
+          },
+          {
+            "number": 3,
+            "href": "#"
+          }
+        ]
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop",
+          "large-desktop"
+        ]
+      },
+      "options": {
+        "width": "full"
+      },
+      "html": "<nav class=\"nhsuk-pagination nhsuk-pagination--numbered\" role=\"navigation\" aria-label=\"Pagination\">\n\n  <ul class=\"nhsuk-pagination__list\">\n    <li class=\"nhsuk-pagination__item nhsuk-pagination__item--current\">\n      <a class=\"nhsuk-pagination__link\" href=\"#\" aria-label=\"Page 1\" aria-current=\"page\">\n        1\n      </a>\n    </li>\n    <li class=\"nhsuk-pagination__item\">\n      <a class=\"nhsuk-pagination__link\" href=\"#\" aria-label=\"Page 2\">\n        2\n      </a>\n    </li>\n    <li class=\"nhsuk-pagination__item\">\n      <a class=\"nhsuk-pagination__link\" href=\"#\" aria-label=\"Page 3\">\n        3\n      </a>\n    </li>\n  </ul>\n  <a href=\"#\" class=\"nhsuk-pagination__next\" rel=\"next\">\n    <span class=\"nhsuk-pagination__title\">\n      Next<span class=\"nhsuk-u-visually-hidden\"> page</span>\n    </span>\n    <svg class=\"nhsuk-icon nhsuk-icon--arrow-right\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n      <path d=\"m14.7 6.3 5 5c.2.2.3.4.3.7 0 .3-.1.5-.3.7l-5 5a1 1 0 0 1-1.4-1.4l3.3-3.3H5a1 1 0 0 1 0-2h11.6l-3.3-3.3a1 1 0 1 1 1.4-1.4Z\"/>\n    </svg>\n  </a>\n\n</nav>"
+    },
+    {
+      "name": "numbered last page",
+      "context": {
+        "previous": {
+          "href": "#"
+        },
+        "items": [
+          {
+            "number": 1,
+            "href": "#"
+          },
+          {
+            "number": 2,
+            "href": "#"
+          },
+          {
+            "number": 3,
+            "href": "#",
+            "current": true
+          }
+        ]
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop",
+          "large-desktop"
+        ]
+      },
+      "options": {
+        "width": "full"
+      },
+      "html": "<nav class=\"nhsuk-pagination nhsuk-pagination--numbered\" role=\"navigation\" aria-label=\"Pagination\">\n\n  <a href=\"#\" class=\"nhsuk-pagination__previous\" rel=\"prev\">\n    <svg class=\"nhsuk-icon nhsuk-icon--arrow-left\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n      <path d=\"M10.7 6.3c.4.4.4 1 0 1.4L7.4 11H19a1 1 0 0 1 0 2H7.4l3.3 3.3c.4.4.4 1 0 1.4a1 1 0 0 1-1.4 0l-5-5A1 1 0 0 1 4 12c0-.3.1-.5.3-.7l5-5a1 1 0 0 1 1.4 0Z\"/>\n    </svg>\n    <span class=\"nhsuk-pagination__title\">\n      Previous<span class=\"nhsuk-u-visually-hidden\"> page</span>\n    </span>\n  </a>\n  <ul class=\"nhsuk-pagination__list\">\n    <li class=\"nhsuk-pagination__item\">\n      <a class=\"nhsuk-pagination__link\" href=\"#\" aria-label=\"Page 1\">\n        1\n      </a>\n    </li>\n    <li class=\"nhsuk-pagination__item\">\n      <a class=\"nhsuk-pagination__link\" href=\"#\" aria-label=\"Page 2\">\n        2\n      </a>\n    </li>\n    <li class=\"nhsuk-pagination__item nhsuk-pagination__item--current\">\n      <a class=\"nhsuk-pagination__link\" href=\"#\" aria-label=\"Page 3\" aria-current=\"page\">\n        3\n      </a>\n    </li>\n  </ul>\n\n</nav>"
+    },
+    {
+      "name": "numbered with many pages",
+      "context": {
+        "previous": {
+          "href": "#"
+        },
+        "next": {
+          "href": "#"
+        },
+        "items": [
+          {
+            "number": 1,
+            "href": "#"
+          },
+          {
+            "ellipsis": true
+          },
+          {
+            "number": 8,
+            "href": "#"
+          },
+          {
+            "number": 9,
+            "href": "#"
+          },
+          {
+            "number": 10,
+            "href": "#",
+            "current": true
+          },
+          {
+            "number": 11,
+            "href": "#"
+          },
+          {
+            "number": 12,
+            "href": "#"
+          },
+          {
+            "ellipsis": true
+          },
+          {
+            "number": 40,
+            "href": "#"
+          }
+        ]
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop",
+          "large-desktop"
+        ]
+      },
+      "options": {
+        "width": "full"
+      },
+      "html": "<nav class=\"nhsuk-pagination nhsuk-pagination--numbered\" role=\"navigation\" aria-label=\"Pagination\">\n\n  <a href=\"#\" class=\"nhsuk-pagination__previous\" rel=\"prev\">\n    <svg class=\"nhsuk-icon nhsuk-icon--arrow-left\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n      <path d=\"M10.7 6.3c.4.4.4 1 0 1.4L7.4 11H19a1 1 0 0 1 0 2H7.4l3.3 3.3c.4.4.4 1 0 1.4a1 1 0 0 1-1.4 0l-5-5A1 1 0 0 1 4 12c0-.3.1-.5.3-.7l5-5a1 1 0 0 1 1.4 0Z\"/>\n    </svg>\n    <span class=\"nhsuk-pagination__title\">\n      Previous<span class=\"nhsuk-u-visually-hidden\"> page</span>\n    </span>\n  </a>\n  <ul class=\"nhsuk-pagination__list\">\n    <li class=\"nhsuk-pagination__item\">\n      <a class=\"nhsuk-pagination__link\" href=\"#\" aria-label=\"Page 1\">\n        1\n      </a>\n    </li>\n    <li class=\"nhsuk-pagination__item nhsuk-pagination__item--ellipsis\">\n      &ctdot;\n    </li>\n    <li class=\"nhsuk-pagination__item\">\n      <a class=\"nhsuk-pagination__link\" href=\"#\" aria-label=\"Page 8\">\n        8\n      </a>\n    </li>\n    <li class=\"nhsuk-pagination__item\">\n      <a class=\"nhsuk-pagination__link\" href=\"#\" aria-label=\"Page 9\">\n        9\n      </a>\n    </li>\n    <li class=\"nhsuk-pagination__item nhsuk-pagination__item--current\">\n      <a class=\"nhsuk-pagination__link\" href=\"#\" aria-label=\"Page 10\" aria-current=\"page\">\n        10\n      </a>\n    </li>\n    <li class=\"nhsuk-pagination__item\">\n      <a class=\"nhsuk-pagination__link\" href=\"#\" aria-label=\"Page 11\">\n        11\n      </a>\n    </li>\n    <li class=\"nhsuk-pagination__item\">\n      <a class=\"nhsuk-pagination__link\" href=\"#\" aria-label=\"Page 12\">\n        12\n      </a>\n    </li>\n    <li class=\"nhsuk-pagination__item nhsuk-pagination__item--ellipsis\">\n      &ctdot;\n    </li>\n    <li class=\"nhsuk-pagination__item\">\n      <a class=\"nhsuk-pagination__link\" href=\"#\" aria-label=\"Page 40\">\n        40\n      </a>\n    </li>\n  </ul>\n  <a href=\"#\" class=\"nhsuk-pagination__next\" rel=\"next\">\n    <span class=\"nhsuk-pagination__title\">\n      Next<span class=\"nhsuk-u-visually-hidden\"> page</span>\n    </span>\n    <svg class=\"nhsuk-icon nhsuk-icon--arrow-right\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n      <path d=\"m14.7 6.3 5 5c.2.2.3.4.3.7 0 .3-.1.5-.3.7l-5 5a1 1 0 0 1-1.4-1.4l3.3-3.3H5a1 1 0 0 1 0-2h11.6l-3.3-3.3a1 1 0 1 1 1.4-1.4Z\"/>\n    </svg>\n  </a>\n\n</nav>"
+    },
+    {
+      "name": "numbered with translations",
+      "context": {
+        "previous": {
+          "text": "Blaenorol",
+          "href": "#"
+        },
+        "next": {
+          "text": "Nesaf",
+          "href": "#"
+        },
+        "items": [
+          {
+            "number": 1,
+            "href": "#"
+          },
+          {
+            "number": 2,
+            "href": "#",
+            "current": true
+          },
+          {
+            "number": 3,
+            "href": "#"
+          }
+        ]
+      },
+      "screenshot": false,
+      "options": {
+        "width": "full"
+      },
+      "html": "<nav class=\"nhsuk-pagination nhsuk-pagination--numbered\" role=\"navigation\" aria-label=\"Pagination\">\n\n  <a href=\"#\" class=\"nhsuk-pagination__previous\" rel=\"prev\">\n    <svg class=\"nhsuk-icon nhsuk-icon--arrow-left\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n      <path d=\"M10.7 6.3c.4.4.4 1 0 1.4L7.4 11H19a1 1 0 0 1 0 2H7.4l3.3 3.3c.4.4.4 1 0 1.4a1 1 0 0 1-1.4 0l-5-5A1 1 0 0 1 4 12c0-.3.1-.5.3-.7l5-5a1 1 0 0 1 1.4 0Z\"/>\n    </svg>\n    <span class=\"nhsuk-pagination__title\">\n      Blaenorol\n    </span>\n  </a>\n  <ul class=\"nhsuk-pagination__list\">\n    <li class=\"nhsuk-pagination__item\">\n      <a class=\"nhsuk-pagination__link\" href=\"#\" aria-label=\"Page 1\">\n        1\n      </a>\n    </li>\n    <li class=\"nhsuk-pagination__item nhsuk-pagination__item--current\">\n      <a class=\"nhsuk-pagination__link\" href=\"#\" aria-label=\"Page 2\" aria-current=\"page\">\n        2\n      </a>\n    </li>\n    <li class=\"nhsuk-pagination__item\">\n      <a class=\"nhsuk-pagination__link\" href=\"#\" aria-label=\"Page 3\">\n        3\n      </a>\n    </li>\n  </ul>\n  <a href=\"#\" class=\"nhsuk-pagination__next\" rel=\"next\">\n    <span class=\"nhsuk-pagination__title\">\n      Nesaf\n    </span>\n    <svg class=\"nhsuk-icon nhsuk-icon--arrow-right\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n      <path d=\"m14.7 6.3 5 5c.2.2.3.4.3.7 0 .3-.1.5-.3.7l-5 5a1 1 0 0 1-1.4-1.4l3.3-3.3H5a1 1 0 0 1 0-2h11.6l-3.3-3.3a1 1 0 1 1 1.4-1.4Z\"/>\n    </svg>\n  </a>\n\n</nav>"
+    },
+    {
+      "name": "with deprecated parameters",
+      "context": {
+        "previousUrl": "/section/treatments",
+        "previousPage": "Treatments",
+        "nextUrl": "/section/symptoms",
+        "nextPage": "Symptoms"
+      },
+      "screenshot": false,
+      "options": {
+        "width": "full"
+      },
+      "html": "<nav class=\"nhsuk-pagination\" role=\"navigation\" aria-label=\"Pagination\">\n\n\n  <ul class=\"nhsuk-list nhsuk-pagination__list\">\n    <li class=\"nhsuk-pagination-item--previous\">\n      <a class=\"nhsuk-pagination__link nhsuk-pagination__link--prev\" href=\"/section/treatments\" rel=\"prev\">\n        <span class=\"nhsuk-pagination__title\">\n          Previous<span class=\"nhsuk-u-visually-hidden\"> page</span>\n        </span>\n        <span class=\"nhsuk-u-visually-hidden\">:</span>\n        <span class=\"nhsuk-pagination__page\">Treatments</span>\n        <svg class=\"nhsuk-icon nhsuk-icon--arrow-left\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n          <path d=\"M10.7 6.3c.4.4.4 1 0 1.4L7.4 11H19a1 1 0 0 1 0 2H7.4l3.3 3.3c.4.4.4 1 0 1.4a1 1 0 0 1-1.4 0l-5-5A1 1 0 0 1 4 12c0-.3.1-.5.3-.7l5-5a1 1 0 0 1 1.4 0Z\"/>\n        </svg>\n      </a>\n    </li>\n\n    <li class=\"nhsuk-pagination-item--next\">\n      <a class=\"nhsuk-pagination__link nhsuk-pagination__link--next\" href=\"/section/symptoms\" rel=\"next\">\n        <span class=\"nhsuk-pagination__title\">\n          Next<span class=\"nhsuk-u-visually-hidden\"> page</span>\n        </span>\n        <span class=\"nhsuk-u-visually-hidden\">:</span>\n        <span class=\"nhsuk-pagination__page\">Symptoms</span>\n        <svg class=\"nhsuk-icon nhsuk-icon--arrow-right\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n          <path d=\"m14.7 6.3 5 5c.2.2.3.4.3.7 0 .3-.1.5-.3.7l-5 5a1 1 0 0 1-1.4-1.4l3.3-3.3H5a1 1 0 0 1 0-2h11.6l-3.3-3.3a1 1 0 1 1 1.4-1.4Z\"/>\n        </svg>\n      </a>\n    </li>\n  </ul>\n</nav>"
+    },
+    {
+      "name": "with only next",
+      "context": {
+        "next": {
+          "labelText": "Symptoms",
+          "href": "/section/symptoms"
+        }
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop",
+          "large-desktop"
+        ]
+      },
+      "options": {
+        "width": "full"
+      },
+      "html": "<nav class=\"nhsuk-pagination\" role=\"navigation\" aria-label=\"Pagination\">\n\n\n  <ul class=\"nhsuk-list nhsuk-pagination__list\">\n\n    <li class=\"nhsuk-pagination-item--next\">\n      <a class=\"nhsuk-pagination__link nhsuk-pagination__link--next\" href=\"/section/symptoms\" rel=\"next\">\n        <span class=\"nhsuk-pagination__title\">\n          Next<span class=\"nhsuk-u-visually-hidden\"> page</span>\n        </span>\n        <span class=\"nhsuk-u-visually-hidden\">:</span>\n        <span class=\"nhsuk-pagination__page\">Symptoms</span>\n        <svg class=\"nhsuk-icon nhsuk-icon--arrow-right\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n          <path d=\"m14.7 6.3 5 5c.2.2.3.4.3.7 0 .3-.1.5-.3.7l-5 5a1 1 0 0 1-1.4-1.4l3.3-3.3H5a1 1 0 0 1 0-2h11.6l-3.3-3.3a1 1 0 1 1 1.4-1.4Z\"/>\n        </svg>\n      </a>\n    </li>\n  </ul>\n</nav>"
+    },
+    {
+      "name": "with only previous",
+      "context": {
+        "previous": {
+          "labelText": "Treatments",
+          "href": "/section/treatments"
+        }
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop",
+          "large-desktop"
+        ]
+      },
+      "options": {
+        "width": "full"
+      },
+      "html": "<nav class=\"nhsuk-pagination\" role=\"navigation\" aria-label=\"Pagination\">\n\n\n  <ul class=\"nhsuk-list nhsuk-pagination__list\">\n    <li class=\"nhsuk-pagination-item--previous\">\n      <a class=\"nhsuk-pagination__link nhsuk-pagination__link--prev\" href=\"/section/treatments\" rel=\"prev\">\n        <span class=\"nhsuk-pagination__title\">\n          Previous<span class=\"nhsuk-u-visually-hidden\"> page</span>\n        </span>\n        <span class=\"nhsuk-u-visually-hidden\">:</span>\n        <span class=\"nhsuk-pagination__page\">Treatments</span>\n        <svg class=\"nhsuk-icon nhsuk-icon--arrow-left\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n          <path d=\"M10.7 6.3c.4.4.4 1 0 1.4L7.4 11H19a1 1 0 0 1 0 2H7.4l3.3 3.3c.4.4.4 1 0 1.4a1 1 0 0 1-1.4 0l-5-5A1 1 0 0 1 4 12c0-.3.1-.5.3-.7l5-5a1 1 0 0 1 1.4 0Z\"/>\n        </svg>\n      </a>\n    </li>\n\n  </ul>\n</nav>"
+    },
+    {
+      "name": "with translations",
+      "context": {
+        "previous": {
+          "text": "Blaenorol",
+          "labelText": "Driniaethau",
+          "href": "/section/driniaethau"
+        },
+        "next": {
+          "text": "Nesaf",
+          "labelText": "Symptomau",
+          "href": "/section/symptomau"
+        }
+      },
+      "screenshot": false,
+      "options": {
+        "width": "full"
+      },
+      "html": "<nav class=\"nhsuk-pagination\" role=\"navigation\" aria-label=\"Pagination\">\n\n\n  <ul class=\"nhsuk-list nhsuk-pagination__list\">\n    <li class=\"nhsuk-pagination-item--previous\">\n      <a class=\"nhsuk-pagination__link nhsuk-pagination__link--prev\" href=\"/section/driniaethau\" rel=\"prev\">\n        <span class=\"nhsuk-pagination__title\">\n          Blaenorol\n        </span>\n        <span class=\"nhsuk-u-visually-hidden\">:</span>\n        <span class=\"nhsuk-pagination__page\">Driniaethau</span>\n        <svg class=\"nhsuk-icon nhsuk-icon--arrow-left\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n          <path d=\"M10.7 6.3c.4.4.4 1 0 1.4L7.4 11H19a1 1 0 0 1 0 2H7.4l3.3 3.3c.4.4.4 1 0 1.4a1 1 0 0 1-1.4 0l-5-5A1 1 0 0 1 4 12c0-.3.1-.5.3-.7l5-5a1 1 0 0 1 1.4 0Z\"/>\n        </svg>\n      </a>\n    </li>\n\n    <li class=\"nhsuk-pagination-item--next\">\n      <a class=\"nhsuk-pagination__link nhsuk-pagination__link--next\" href=\"/section/symptomau\" rel=\"next\">\n        <span class=\"nhsuk-pagination__title\">\n          Nesaf\n        </span>\n        <span class=\"nhsuk-u-visually-hidden\">:</span>\n        <span class=\"nhsuk-pagination__page\">Symptomau</span>\n        <svg class=\"nhsuk-icon nhsuk-icon--arrow-right\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n          <path d=\"m14.7 6.3 5 5c.2.2.3.4.3.7 0 .3-.1.5-.3.7l-5 5a1 1 0 0 1-1.4-1.4l3.3-3.3H5a1 1 0 0 1 0-2h11.6l-3.3-3.3a1 1 0 1 1 1.4-1.4Z\"/>\n        </svg>\n      </a>\n    </li>\n  </ul>\n</nav>"
+    }
+  ]
+}
