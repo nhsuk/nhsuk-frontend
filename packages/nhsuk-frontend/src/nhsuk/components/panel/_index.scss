@@ -88,5 +88,10 @@ $nhsuk-border-width-panel: $nhsuk-panel-border-width;
     > :last-child {
       margin-bottom: 0;
     }
+
+    // Deduct button group vertical gap from margin
+    > .nhsuk-button-group:last-child {
+      margin-bottom: nhsuk-spacing(-3);
+    }
   }
 }
