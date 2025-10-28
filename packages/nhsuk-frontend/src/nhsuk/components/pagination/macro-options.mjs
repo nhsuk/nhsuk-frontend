@@ -172,9 +172,9 @@ export const examples = {
   },
   'with deprecated parameters': {
     context: {
-      previousUrl: '/section/treatments',
+      previousUrl: '#/section/treatments',
       previousPage: 'Treatments',
-      nextUrl: '/section/symptoms',
+      nextUrl: '#/section/symptoms',
       nextPage: 'Symptoms'
     },
     options: {
@@ -192,7 +192,9 @@ export const examples = {
       width: 'full'
     },
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+      states: ['focus', 'hover', 'active'],
+      selector: '.nhsuk-pagination-item--previous a',
+      viewports: ['mobile', 'tablet', 'desktop']
     }
   },
   'with only next': {
