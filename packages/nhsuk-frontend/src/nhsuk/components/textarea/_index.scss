@@ -1,5 +1,8 @@
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
+@forward "../error-message";
+@forward "../hint";
+@forward "../label";
 
 ////
 /// Textarea component
@@ -24,10 +27,18 @@
 
     appearance: none;
 
-    @include nhsuk-font(19);
+    @include nhsuk-responsive-margin(6, "bottom");
+    @include nhsuk-font($size: 19);
 
     &:focus {
       @include nhsuk-focused-input;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      color: inherit;
+      background-color: transparent;
+      cursor: not-allowed;
     }
   }
 

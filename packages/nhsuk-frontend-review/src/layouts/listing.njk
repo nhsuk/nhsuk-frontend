@@ -35,34 +35,34 @@
     </div>
   </section>
 
-{% for exampleName, example in examples %}
-  {% set options = example.options -%}
-  {% set isFullWidth = options.width == false -%}
+{% for fixture in fixtures %}
+  {% set options = fixture.options -%}
+  {% set isFullWidth = options.width === false -%}
   {% set isReverse = options.layout == "background-blue" -%}
 
   {% if not options.hidden %}
-  <section id="{{ exampleName | slugify }}" class="nhsuk-main-wrapper app-wrapper {%- if options.layout %} app-wrapper--{{ options.layout }}{%- endif %}">
+  <section id="{{ fixture.name | slugify }}" class="nhsuk-main-wrapper app-wrapper {%- if options.layout %} app-wrapper--{{ options.layout }}{%- endif %}">
     <div class="nhsuk-width-container">
       <div class="nhsuk-grid-row">
         <div class="nhsuk-grid-column-{{ options.width | default("two-thirds", true) }}">
           <h3 class="nhsuk-heading-s nhsuk-u-margin-bottom-2 nhsuk-u-margin-top-4">
-            {{- name ~ " " ~ exampleName -}}
+            {{- name ~ " " ~ fixture.name -}}
           </h3>
           <p class="nhsuk-body nhsuk-u-margin-bottom-6">
             <a {{- nhsukAttributes({
-              href: exampleName | slugify ~ "/",
+              href: fixture.name | slugify ~ "/",
               class: "nhsuk-link nhsuk-link--no-visited-state" ~ (" nhsuk-link--reverse" if isReverse else ""),
               rel: "noreferrer noopener",
               target: "_blank"
             }) -}}>
-              Open this example in a new tab<span class="nhsuk-u-visually-hidden">: {{ name ~ " " ~ exampleName }}</span>
+              Open this example in a new tab<span class="nhsuk-u-visually-hidden">: {{ name ~ " " ~ fixture.name }}</span>
             </a>
           </p>
-          {{ renderExample(component, example, loop.index0) if not isFullWidth }}
+          {{ renderExample(fixture, loop.index) if not isFullWidth }}
         </div>
       </div>
     </div>
-    {{ renderExample(component, example, loop.index0) if isFullWidth }}
+    {{ renderExample(fixture, loop.index) if isFullWidth }}
   </section>
   {% endif %}
 {% endfor %}

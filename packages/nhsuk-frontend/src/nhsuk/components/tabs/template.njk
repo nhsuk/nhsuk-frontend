@@ -12,7 +12,7 @@
   <ul class="nhsuk-tabs__list">
     {% for item in params.items %}
       {% if item %}
-        {% set id = item.id if item.id else idPrefix + "-" + loop.index %}
+        {% set id = item.id if item.id else idPrefix ~ "-" ~ loop.index %}
         <li class="nhsuk-tabs__list-item{% if loop.index == 1 %} nhsuk-tabs__list-item--selected{% endif %}">
           <a class="nhsuk-tabs__tab" href="#{{ id }}"
             {{- nhsukAttributes(item.attributes) }}>
@@ -25,7 +25,7 @@
   {% endif %}
   {% for item in params.items %}
     {% if item %}
-      {% set id = item.id if item.id else idPrefix + "-" + loop.index %}
+      {% set id = item.id if item.id else idPrefix ~ "-" ~ loop.index %}
       <div class="nhsuk-tabs__panel{% if loop.index > 1 %} nhsuk-tabs__panel--hidden{% endif %}" id="{{ id }}" {{- nhsukAttributes(item.panel.attributes) }}>
         {{ item.panel.html | safe if item.panel.html else item.panel.text }}
       </div>

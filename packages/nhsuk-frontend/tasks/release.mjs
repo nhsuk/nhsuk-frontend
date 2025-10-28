@@ -1,7 +1,7 @@
 import { join } from 'node:path'
 
 import * as config from '@nhsuk/frontend-config'
-import { files, task } from '@nhsuk/frontend-tasks'
+import { assets, task } from '@nhsuk/frontend-tasks'
 import gulp from 'gulp'
 import gulpZip from 'gulp-zip'
 
@@ -13,7 +13,7 @@ export const copy = gulp.parallel(
    * Copy GitHub release images, icons and other assets
    */
   task.name('copy:assets', () =>
-    files.copy('nhsuk/assets/**', {
+    assets.copy('nhsuk/assets/**', {
       srcPath: join(config.paths.pkg, 'dist'),
       destPath: join(config.paths.root, 'dist/assets')
     })
@@ -23,7 +23,7 @@ export const copy = gulp.parallel(
    * Copy and version GitHub release scripts
    */
   task.name("copy:scripts 'versioned'", () =>
-    files.copy('nhsuk/nhsuk-frontend.min.js', {
+    assets.copy('nhsuk/nhsuk-frontend.min.js', {
       srcPath: join(config.paths.pkg, 'dist'),
       destPath: join(config.paths.root, 'dist'),
       output: { file: `nhsuk-frontend-${NPM_PACKAGE_VERSION}.min.js` }
@@ -34,7 +34,7 @@ export const copy = gulp.parallel(
    * Copy and version GitHub release styles
    */
   task.name("copy:styles 'versioned'", () =>
-    files.copy('nhsuk/nhsuk-frontend.min.css', {
+    assets.copy('nhsuk/nhsuk-frontend.min.css', {
       srcPath: join(config.paths.pkg, 'dist'),
       destPath: join(config.paths.root, 'dist'),
       output: { file: `nhsuk-frontend-${NPM_PACKAGE_VERSION}.min.css` }

@@ -1,5 +1,12 @@
+/* eslint-disable es-x/no-global-this */
+
 import { isInitialised, isSupported } from './common/index.mjs'
 import { ElementError, InitError, SupportError } from './errors/index.mjs'
+
+const _self =
+  typeof globalThis !== 'undefined'
+    ? globalThis // Modern browsers, Node.js
+    : self // Old browsers, web workers
 
 /**
  * Base component class
@@ -13,7 +20,7 @@ export class Component {
   /**
    * @type {typeof Element}
    */
-  static elementType = HTMLElement
+  static elementType = _self.HTMLElement
 
   /**
    * @type {RootElementType}
@@ -94,6 +101,7 @@ export class Component {
  * @typedef {{
  *   new(...args: ConstructorParameters<ComponentType>): InstanceType<ComponentType>,
  *   defaults?: ObjectNested,
+ *   schema?: Schema<ObjectNested>,
  *   moduleName: string
  * }} CompatibleClass
  */
@@ -115,6 +123,6 @@ export class Component {
  */
 
 /**
- * @import { ObjectNested } from './common/configuration/index.mjs'
+ * @import { ObjectNested, Schema } from './common/configuration/index.mjs'
  * @import { ConfigurableComponent } from './configurable-component.mjs'
  */

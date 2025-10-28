@@ -45,7 +45,7 @@ jobs:
           path: node_modules
 
       - name: Setup Node
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v6
         with:
           node-version-file: .nvmrc
           package-manager-cache: false
@@ -77,7 +77,7 @@ jobs:
           path: packages/*/dist/
 
       - name: Setup Node
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v6
         with:
           node-version-file: .nvmrc
           package-manager-cache: false
@@ -89,7 +89,7 @@ jobs:
         run: npm run test:js -- --coverage
 
       - name: Save test coverage
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: Javascript unit tests coverage
           path: coverage
@@ -126,7 +126,7 @@ jobs:
           path: packages/*/dist/
 
       - name: Setup Node
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v6
         with:
           node-version-file: .nvmrc
           package-manager-cache: false
@@ -188,7 +188,7 @@ jobs:
 
       - name: Save backstop report
         if: ${{ !cancelled() && steps.changes.outputs.changes == 'true' }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: Backstop report
           path: tests/backstop/
@@ -213,11 +213,11 @@ jobs:
 
       - name: Restore test coverage
         if: ${{ env.SONAR_TOKEN }}
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v6
         with:
           name: Javascript unit tests coverage
           path: coverage
 
       - name: Sonar analysis
         if: ${{ env.SONAR_TOKEN }}
-        uses: SonarSource/sonarqube-scan-action@v5
+        uses: SonarSource/sonarqube-scan-action@v6

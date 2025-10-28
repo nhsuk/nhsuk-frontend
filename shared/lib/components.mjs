@@ -1,13 +1,10 @@
-import { createRequire } from 'node:module'
+import { readFileSync } from 'node:fs'
 import { basename, join } from 'node:path'
 
 import { paths } from '@nhsuk/frontend-config'
 import camelCase from 'lodash/camelCase.js'
 
 import { files, nunjucks } from './index.mjs'
-
-// Create require for sync import
-const importSync = createRequire(import.meta.url)
 
 /**
  * Load single component data (from source)
@@ -27,9 +24,8 @@ export async function load(component) {
     sensitivity: 'base'
   })
 
-  // Bypass import cache (e.g. Gulp watch changes)
   const options = /** @type {Omit<ComponentData, "component">} */ (
-    await import(`${optionsPath}?imported=${Date.now()}`)
+    await import(optionsPath)
   )
 
   // Add component directory name to options
@@ -41,16 +37,26 @@ export async function load(component) {
   // Sort examples by name, default at top
   data.examples = Object.fromEntries(
     Object.entries(options.examples ?? {}).sort(([nameA], [nameB]) => {
-      for (const [find, replace] of [
+      for (const [find, replace] of /** @type {const} */ ([
         // Sort default to top
         ['default', ''],
+
+        // Sort do before don't
+        ['(do)', '1 do-dont'],
+        ["(don't)", '2 do-dont'],
+
+        // Sort urgent with non-urgent
+        ['non-', ''],
 
         // Sort sizes numerically
         ['size S', 'size 1'],
         ['size M', 'size 2'],
         ['size L', 'size 3'],
-        ['size XL', 'size 4']
-      ]) {
+        ['size XL', 'size 4'],
+
+        // Sort small form controls to end
+        [/^small/, 'ZZZ']
+      ])) {
         nameA = nameA.replace(find, replace)
         nameB = nameB.replace(find, replace)
       }
@@ -125,11 +131,22 @@ export function getMacroOptions(params) {
  * @returns {MacroExampleFixtures} Nunjucks macro example fixtures
  */
 export function getFixtures(component) {
-  const componentPath = join(paths.pkg, `dist/nhsuk/components/${component}`)
-
-  return /** @type {MacroExampleFixtures} */ (
-    importSync(join(componentPath, 'fixtures.json'))
+  return JSON.parse(
+    readFileSync(
+      join(paths.pkg, 'dist/nhsuk/components', component, 'fixtures.json'),
+      'utf8'
+    )
   )
+}
+
+/**
+ * Get all component fixtures (from dist)
+ */
+export function getAllFixtures() {
+  const components = getNames()
+
+  // Load component fictures per directory
+  return components.map(getFixtures)
 }
 
 /**

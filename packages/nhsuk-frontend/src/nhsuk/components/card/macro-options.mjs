@@ -205,6 +205,27 @@ export const examples = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
+  'emergency (red and black) with action link': {
+    context: {
+      heading: 'Call 999 or go to A&E now if:',
+      headingLevel: 3,
+      type: 'emergency'
+    },
+    callBlock: outdent`
+      <ul>
+        <li>you're coughing up more than just a few spots or streaks of blood – this could be a sign of serious bleeding in your lungs</li>
+        <li>you have severe difficulty breathing – you're gasping, choking or not able to get words out</li>
+      </ul>
+
+      ${components.render('action-link', {
+        context: {
+          classes: 'nhsuk-action-link--reverse',
+          text: 'Find your nearest A&E',
+          href: '#'
+        }
+      })}
+    `
+  },
   'primary (with chevron)': {
     context: {
       href: '#',
@@ -258,13 +279,26 @@ export const examples = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
+  'secondary non-clickable with custom description': {
+    context: {
+      href: '#',
+      secondary: true,
+      heading: 'Why we are reinvesting in the NHS Prototype kit',
+      headingClasses: 'nhsuk-u-font-size-22 nhsuk-u-margin-bottom-2',
+      descriptionHtml:
+        '<p class="nhsuk-body-s nhsuk-u-margin-bottom-2">21 July 2025</p><p class="nhsuk-card__description">Frankie and Mike explain why we revived the NHS prototype kit, the benefits of prototyping in code and how digital teams in the NHS can get started using it.</p>'
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
+    }
+  },
   'feature': {
     context: {
       feature: true,
       href: '#',
       heading: 'Feature card heading',
       headingClasses: 'nhsuk-heading-m',
-      description: 'Feature card description'
+      description: 'Feature card description.'
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']

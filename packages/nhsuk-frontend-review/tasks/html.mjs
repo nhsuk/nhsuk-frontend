@@ -1,9 +1,8 @@
 import { join, parse } from 'node:path'
 
 import * as config from '@nhsuk/frontend-config'
-import { components, nunjucks } from '@nhsuk/frontend-lib'
-import { getListing } from '@nhsuk/frontend-lib/files.mjs'
-import { files, task } from '@nhsuk/frontend-tasks'
+import { components, files, nunjucks } from '@nhsuk/frontend-lib'
+import { task } from '@nhsuk/frontend-tasks'
 import { HtmlValidate, formatterFactory } from 'html-validate'
 import PluginError from 'plugin-error'
 
@@ -23,16 +22,13 @@ export const compile = task.name('html:render', async () => {
   const destPath = join(config.paths.app, 'dist')
 
   // Find all Nunjucks views (excluding layouts)
-  const paths = getListing('**/*.njk', {
+  const paths = files.getListing('**/*.njk', {
     cwd: join(config.paths.app, 'src'),
     ignore: ['**/layouts/**', '**/partials/**']
   })
 
-  // Configure Nunjucks
-  const env = nunjucks.configure([
-    join(config.paths.app, 'src'),
-    join(config.paths.pkg, 'src')
-  ])
+  // Configure Nunjucks with review app sources
+  const env = nunjucks.configure([join(config.paths.app, 'src')])
 
   // Default Nunjucks context
   const context = {
@@ -41,12 +37,12 @@ export const compile = task.name('html:render', async () => {
     branchName: HEROKU_BRANCH,
     serviceName: 'NHS.UK frontend',
     version: config.version,
-    components: await components.loadAll()
+    components: components.getAllFixtures()
   }
 
   // Render components
   for (const data of context.components) {
-    const { name, component, examples = {} } = data
+    const { name, component, fixtures } = data
 
     const componentPath = `components/${component}`
 
@@ -63,14 +59,8 @@ export const compile = task.name('html:render', async () => {
     })
 
     // Render component examples
-    for (const [exampleName, example] of Object.entries(examples)) {
-      const { options } = example
-
-      // Render component example
-      const html = components.render(component, {
-        ...example,
-        env
-      })
+    for (const fixture of fixtures) {
+      const { name: exampleName, html, options } = fixture
 
       // Render component example into layout
       const templateHtml = nunjucks.renderTemplate('layouts/preview.njk', {
@@ -111,7 +101,7 @@ export const compile = task.name('html:render', async () => {
  * Validate review app HTML output
  */
 export const validate = task.name('html:validate', async () => {
-  const paths = getListing('dist/**/*.html', {
+  const paths = files.getListing('dist/**/*.html', {
     cwd: config.paths.app,
     ignore: ['**/docs/sassdoc/**']
   })

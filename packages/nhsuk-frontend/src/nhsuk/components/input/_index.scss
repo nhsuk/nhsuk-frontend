@@ -1,15 +1,12 @@
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
 @use "../../core/helpers" as *;
+@forward "../error-message";
+@forward "../hint";
+@forward "../label";
 
 ////
 /// Input component
-///
-/// 1. Disable inner shadow and remove rounded corners
-/// 2. setting any background-color makes text invisible when changing colours to dark
-///    backgrounds in Firefox (https://bugzilla.mozilla.org/show_bug.cgi?id=1335476)
-///    as background-color and color need to always be set together, color should
-///    not be set either.
 ///
 /// @group components/input
 ////
@@ -19,19 +16,30 @@
     box-sizing: border-box;
 
     width: 100%;
-    min-height: 40px;
+    height: nhsuk-px-to-rem(40px);
     margin-top: 0;
     padding: nhsuk-spacing(1);
-
-    border: $nhsuk-border-width-form-element solid $nhsuk-input-border-colour; // [2]
+    // Setting any background-color makes text invisible when changing colours
+    // to dark backgrounds in Firefox (https://bugzil.la/1335476). As
+    // background-color and color need to always be set together, color should
+    // not be set either
+    border: $nhsuk-border-width-form-element solid $nhsuk-input-border-colour;
     border-radius: 0;
 
-    appearance: none; // [1]
+    // Disable inner shadow and remove rounded corners
+    appearance: none;
 
-    @include nhsuk-font(19);
+    @include nhsuk-font($size: 19);
 
     &:focus {
       @include nhsuk-focused-input;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      color: inherit;
+      background-color: transparent;
+      cursor: not-allowed;
     }
   }
 
@@ -81,8 +89,6 @@
     max-width: 5.4ex;
   }
 
-  // Suffix and prefix
-
   .nhsuk-input__wrapper {
     display: flex;
 
@@ -95,6 +101,7 @@
       z-index: 1;
     }
 
+    // Split prefix/suffix onto separate lines on narrow screens
     @include nhsuk-media-query($until: mobile) {
       display: block;
 
@@ -109,12 +116,15 @@
   .nhsuk-input__suffix {
     box-sizing: border-box;
 
-    display: inline-block;
+    // Use flexbox to align text within the prefix and suffix
+    display: flex;
 
     flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
 
     min-width: nhsuk-px-to-rem(40px);
-    min-height: 40px;
+    height: nhsuk-px-to-rem(40px);
     padding: nhsuk-spacing(1);
 
     border: $nhsuk-border-width-form-element solid $nhsuk-input-border-colour;
@@ -123,20 +133,16 @@
 
     text-align: center;
     white-space: nowrap;
-
-    cursor: default; // emphasises non-editable status of prefixes and suffixes
+    // Emphasise non-editable status of prefixes and suffixes
+    cursor: default;
 
     @include nhsuk-font($size: 19);
 
+    // Split prefix/suffix onto separate lines on narrow screens
     @include nhsuk-media-query($until: mobile) {
       display: block;
       height: 100%;
       white-space: normal;
-    }
-
-    @include nhsuk-media-query($until: tablet) {
-      font-size: 1.1875rem;
-      line-height: 1.6;
     }
   }
 
@@ -149,6 +155,7 @@
     }
   }
 
+  // Split prefix/suffix onto separate lines on narrow screens
   .nhsuk-input__suffix {
     @include nhsuk-media-query($until: mobile) {
       border-top: 0;
