@@ -47,6 +47,7 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
 
 @include nhsuk-exports("nhsuk/components/card") {
   .nhsuk-card {
+    box-sizing: border-box;
     position: relative; // [1]
     width: 100%;
 

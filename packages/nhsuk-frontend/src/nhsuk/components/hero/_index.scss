@@ -164,6 +164,8 @@
 
     @include nhsuk-media-query($from: tablet) {
       .nhsuk-hero-content {
+        box-sizing: border-box;
+
         position: absolute;
         top: auto;
         bottom: -48px; // [8]
