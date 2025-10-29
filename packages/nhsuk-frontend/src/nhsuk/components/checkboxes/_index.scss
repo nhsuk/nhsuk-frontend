@@ -18,7 +18,7 @@ $nhsuk-checkboxes-small-size: nhsuk-spacing(4);
 $nhsuk-checkboxes-label-padding-left-right: 12px;
 $nhsuk-checkboxes-check-horizontal-position: 12px;
 
-// Align 44px clickable area with 40px form controls
+// TODO: Fix visual size mismatch with 44px form controls
 // https://nhsuk.github.io/nhsuk-frontend/examples/form-alignment/
 $nhsuk-checkboxes-offset-left: math.div($nhsuk-border-width-form-element, -1);
 

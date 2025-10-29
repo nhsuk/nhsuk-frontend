@@ -69,11 +69,9 @@
         // Buttons are normally 100% wide on mobile, but we don't want that here
         width: auto;
 
-        // Move spacing from top to left but reserve space for button shadow,
-        // making sure 44px box maintains alignment with other form controls
-        // https://nhsuk.github.io/nhsuk-frontend/examples/form-alignment/
-        margin-top: $nhsuk-border-width-form-element;
-        margin-bottom: $nhsuk-button-shadow-size + $nhsuk-border-width-form-element;
+        // Remove inline button margin but reserve space for button shadow
+        margin-top: 0;
+        margin-bottom: $nhsuk-button-shadow-size;
       }
     }
   }

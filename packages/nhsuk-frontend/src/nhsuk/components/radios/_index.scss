@@ -22,7 +22,7 @@ $nhsuk-radios-label-padding-left-right: 12px;
 // visually consistent.
 $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
 
-// Align 44px clickable area with 40px form controls
+// TODO: Fix visual size mismatch with 44px form controls
 // https://nhsuk.github.io/nhsuk-frontend/examples/form-alignment/
 $nhsuk-radios-offset-left: math.div($nhsuk-border-width-form-element, -1);
 

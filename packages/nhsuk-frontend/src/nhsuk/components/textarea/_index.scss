@@ -17,12 +17,7 @@
     display: block;
 
     width: 100%;
-    min-height: 40px;
-
-    // Increase box from 40px to 44px for alignment with other form controls
-    // https://nhsuk.github.io/nhsuk-frontend/examples/form-alignment/
-    margin-top: $nhsuk-border-width-form-element;
-    margin-bottom: $nhsuk-border-width-form-element;
+    min-height: 44px;
     padding: nhsuk-spacing(1);
 
     resize: vertical;

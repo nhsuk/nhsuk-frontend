@@ -167,7 +167,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
       top: 0.2rem;
 
       width: 100px;
-      height: 40px;
+      height: 44px;
 
       border-bottom: 0.1rem solid currentcolor;
     }
@@ -304,7 +304,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
   .nhsuk-header__search-input.nhsuk-input {
     $_header-border-width-form-element: 1px;
     width: 100%;
-    height: 40px;
+    height: 44px;
     margin: 0 (-$_header-border-width-form-element) 0 0;
     padding-right: $_header-item-padding;
     padding-left: $_header-item-padding;

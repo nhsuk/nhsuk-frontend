@@ -15,11 +15,10 @@
 /// @group components/button
 ////
 
-$nhsuk-button-padding-top-bottom-mobile: 9px;
+$nhsuk-button-padding-top-bottom-mobile: 7px;
 $nhsuk-button-padding-top-bottom-desktop: 13px;
-$nhsuk-button-padding-top-bottom-small: 5px;
 $nhsuk-button-padding-left-right: 16px;
-$nhsuk-button-padding-left-right-small: 12px;
+$nhsuk-button-padding-left-right-small: 14px;
 
 // @deprecated To be removed in v11.0
 $button-border-radius: $nhsuk-button-border-radius;
@@ -38,7 +37,7 @@ $button-shadow-size: $nhsuk-button-shadow-size;
 
     width: 100%;
     margin-top: 0;
-    padding: $nhsuk-button-padding-top-bottom-mobile $nhsuk-button-padding-left-right
+    padding: $nhsuk-button-padding-top-bottom-mobile $nhsuk-button-padding-left-right-small
       ($nhsuk-button-padding-top-bottom-mobile - math.div($nhsuk-button-shadow-size, 2));
 
     overflow: visible;
@@ -189,15 +188,13 @@ $button-shadow-size: $nhsuk-button-shadow-size;
   // =========================================================
 
   .nhsuk-button--small {
-    @include nhsuk-media-query($from: mobile) {
-      padding: $nhsuk-button-padding-top-bottom-small $nhsuk-button-padding-left-right-small
-        ($nhsuk-button-padding-top-bottom-small - math.div($nhsuk-button-shadow-size, 2));
-
-      @include nhsuk-responsive-margin(4, "bottom", $adjustment: $nhsuk-button-shadow-size);
-    }
-
     @include nhsuk-media-query($from: tablet) {
+      // Small buttons use mobile padding on desktop screens
+      padding: $nhsuk-button-padding-top-bottom-mobile $nhsuk-button-padding-left-right-small
+        ($nhsuk-button-padding-top-bottom-mobile - math.div($nhsuk-button-shadow-size, 2));
+
       @include nhsuk-font(16, $weight: bold);
+      @include nhsuk-responsive-margin(4, "bottom", $adjustment: $nhsuk-button-shadow-size);
     }
   }
 }
