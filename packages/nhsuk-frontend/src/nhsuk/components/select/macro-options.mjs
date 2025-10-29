@@ -301,6 +301,139 @@ export const examples = {
     },
     screenshot: true
   },
+  'with button': {
+    context: {
+      label: {
+        text: 'Choose location',
+        isPageHeading: true
+      },
+      hint: {
+        text: 'This can be different to where you went before'
+      },
+      id: 'with-hint',
+      name: 'example',
+      items: [
+        {
+          value: 'choose',
+          text: 'Choose location'
+        },
+        {
+          value: 'eastmidlands',
+          text: 'East Midlands'
+        },
+        {
+          value: 'eastofengland',
+          text: 'East of England'
+        },
+        {
+          value: 'london',
+          text: 'London'
+        },
+        {
+          value: 'northeast',
+          text: 'North East'
+        },
+        {
+          value: 'northwest',
+          text: 'North West'
+        },
+        {
+          value: 'southeast',
+          text: 'South East'
+        },
+        {
+          value: 'southwest',
+          text: 'South West'
+        },
+        {
+          value: 'westmidlands',
+          text: 'West Midlands'
+        },
+        {
+          value: 'yorkshire',
+          text: 'Yorkshire and the Humber'
+        }
+      ],
+      formGroup: {
+        afterInput: {
+          html: components.render('button', {
+            context: {
+              text: 'Save',
+              classes: 'nhsuk-button--secondary nhsuk-button--small'
+            }
+          })
+        }
+      }
+    }
+  },
+  'with button and error message': {
+    context: {
+      label: {
+        text: 'Choose location',
+        isPageHeading: true
+      },
+      hint: {
+        text: 'This can be different to where you went before'
+      },
+      errorMessage: {
+        text: 'Select a location'
+      },
+      id: 'with-hint',
+      name: 'example',
+      items: [
+        {
+          value: 'choose',
+          text: 'Choose location'
+        },
+        {
+          value: 'eastmidlands',
+          text: 'East Midlands'
+        },
+        {
+          value: 'eastofengland',
+          text: 'East of England'
+        },
+        {
+          value: 'london',
+          text: 'London'
+        },
+        {
+          value: 'northeast',
+          text: 'North East'
+        },
+        {
+          value: 'northwest',
+          text: 'North West'
+        },
+        {
+          value: 'southeast',
+          text: 'South East'
+        },
+        {
+          value: 'southwest',
+          text: 'South West'
+        },
+        {
+          value: 'westmidlands',
+          text: 'West Midlands'
+        },
+        {
+          value: 'yorkshire',
+          text: 'Yorkshire and the Humber'
+        }
+      ],
+      formGroup: {
+        afterInput: {
+          html: components.render('button', {
+            context: {
+              text: 'Save',
+              classes: 'nhsuk-button--secondary nhsuk-button--small'
+            }
+          })
+        }
+      }
+    }
+  },
   'with label size S': {
     context: {
       label: {
