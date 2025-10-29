@@ -492,7 +492,8 @@ export const examples = {
       },
       id: 'with-prefix',
       name: 'example',
-      prefix: '£'
+      prefix: '£',
+      classes: 'nhsuk-input--width-5'
     }
   },
   'with suffix': {
