@@ -3,6 +3,8 @@
 
 @include nhsuk-exports("nhsuk/core/objects/form-group") {
   .nhsuk-form-group {
+    box-sizing: border-box;
+
     @include nhsuk-clearfix;
     @include nhsuk-responsive-margin(4, "bottom");
 
