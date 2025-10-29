@@ -20,6 +20,7 @@
   $_small-icon-size: nhsuk-em($nhsuk-icon-size, 19px);
 
   .nhsuk-pagination {
+    box-sizing: border-box;
     @include nhsuk-responsive-margin(7, "top");
     @include nhsuk-responsive-margin(7, "bottom");
   }
