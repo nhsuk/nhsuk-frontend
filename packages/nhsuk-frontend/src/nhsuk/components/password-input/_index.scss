@@ -11,22 +11,6 @@
 ////
 
 @include nhsuk-exports("nhsuk/components/password-input") {
-  .nhsuk-password-input__wrapper {
-    // This element inherits styles from .nhsuk-input__wrapper, including:
-    // - being display: block with contents in a stacked column below the mobile
-    //   breakpoint
-    // - being display: flex above the mobile breakpoint
-
-    @include nhsuk-media-query($from: mobile) {
-      flex-direction: row;
-
-      // The default of `stretch` makes the toggle button appear taller than the
-      // input, due to using box-shadow, which we don't particularly want in
-      // this situation
-      align-items: flex-start;
-    }
-  }
-
   .nhsuk-password-input__input {
     // IE 11 and Microsoft Edge comes with its own password reveal function. We
     // want to hide it, so that there aren't two controls presented to the user
@@ -39,12 +23,6 @@
   }
 
   .nhsuk-password-input__toggle {
-    // Add top margin so the button doesn't obscure the input's focus style
-    margin-top: nhsuk-spacing(1);
-
-    // Remove default margin-bottom from button
-    margin-bottom: 0;
-
     // Hide the button by default, JS removes this attribute
     &[hidden] {
       display: none;
@@ -52,14 +30,6 @@
 
     @include nhsuk-media-query($from: mobile) {
       flex-basis: 5em;
-      flex-shrink: 0;
-
-      // Buttons are normally 100% wide on mobile, but we don't want that here
-      width: auto;
-
-      // Move the spacing from top to the left
-      margin-top: 0;
-      margin-left: nhsuk-spacing(1);
     }
   }
 }
