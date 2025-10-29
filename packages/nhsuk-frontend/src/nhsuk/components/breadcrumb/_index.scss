@@ -19,6 +19,7 @@
   $_chevron-size: nhsuk-em(nhsuk-chevron-size(), $_font-size);
 
   .nhsuk-breadcrumb {
+    box-sizing: border-box;
     color: $nhsuk-text-colour;
 
     @include nhsuk-responsive-margin(4, "top");

@@ -60,7 +60,7 @@ export default {
         },
         {
           emptyLineBefore: 'threshold',
-          properties: ['display', 'visibility']
+          properties: ['box-sizing', 'display', 'visibility']
         },
         {
           emptyLineBefore: 'threshold',
