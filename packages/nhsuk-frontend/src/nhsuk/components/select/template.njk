@@ -8,6 +8,30 @@
 {% set describedBy = params.describedBy if params.describedBy else "" %}
 {%- set id = params.id if params.id else params.name -%}
 
+{%- set hasBeforeInput = true if params.formGroup.beforeInput and (params.formGroup.beforeInput.text or params.formGroup.beforeInput.html) else false %}
+{%- set hasAfterInput = true if params.formGroup.afterInput and (params.formGroup.afterInput.text or params.formGroup.afterInput.html) else false %}
+
+{%- macro _selectElement(params) -%}
+  <select class="nhsuk-select
+    {%- if params.classes %} {{ params.classes }}{% endif %}{%- if params.errorMessage %} nhsuk-select--error{% endif %}" id="{{ id }}" name="{{ params.name }}"
+    {%- if params.disabled %} disabled{% endif %}
+    {%- if describedBy %} aria-describedby="{{ describedBy }}"{% endif %}
+    {{- nhsukAttributes(params.attributes) }}>
+  {% for item in params.items %}
+    {% if item %}
+    {#- Allow selecting by text content (the value for an option when no value attribute is specified) #}
+    {%- set effectiveValue = item.value | default(item.text) %}
+    <option {%- if item.value is not undefined %} value="{{ item.value }}"{% endif %}
+      {{- " selected" if item.selected | default((effectiveValue == params.value and item.selected != false) if params.value else false, true) }}
+      {{- " disabled" if item.disabled }}
+      {{- nhsukAttributes(item.attributes) }}>
+      {{- item.text -}}
+    </option>
+    {% endif %}
+  {% endfor %}
+  </select>
+{%- endmacro -%}
+
 <div class="nhsuk-form-group {%- if params.errorMessage %} nhsuk-form-group--error{% endif %} {%- if params.formGroup.classes %} {{ params.formGroup.classes }}{% endif %}"
   {{- nhsukAttributes(params.formGroup.attributes) }}>
   {{ label({
@@ -41,28 +65,19 @@
     visuallyHiddenText: params.errorMessage.visuallyHiddenText
   }) | trim | indent(2) }}
 {% endif %}
-{% if params.formGroup.beforeInput %}
-  {{ params.formGroup.beforeInput.html | safe | trim | indent(2) if params.formGroup.beforeInput.html else params.formGroup.beforeInput.text }}
-{% endif %}
-  <select class="nhsuk-select
-    {%- if params.classes %} {{ params.classes }}{% endif %}{%- if params.errorMessage %} nhsuk-select--error{% endif %}" id="{{ id }}" name="{{ params.name }}"
-    {%- if params.disabled %} disabled{% endif %}
-    {%- if describedBy %} aria-describedby="{{ describedBy }}"{% endif %}
-    {{- nhsukAttributes(params.attributes) }}>
-  {% for item in params.items %}
-    {% if item %}
-    {#- Allow selecting by text content (the value for an option when no value attribute is specified) #}
-    {%- set effectiveValue = item.value | default(item.text) %}
-    <option {%- if item.value is not undefined %} value="{{ item.value }}"{% endif %}
-      {{- " selected" if item.selected | default((effectiveValue == params.value and item.selected != false) if params.value else false, true) }}
-      {{- " disabled" if item.disabled }}
-      {{- nhsukAttributes(item.attributes) }}>
-      {{- item.text -}}
-    </option>
+
+{%- if hasBeforeInput or hasAfterInput %}
+  <div class="nhsuk-input-wrapper {%- if params.inputWrapper.classes %} {{ params.inputWrapper.classes }}{% endif %}"
+    {{- nhsukAttributes(params.inputWrapper.attributes) }}>
+    {% if hasBeforeInput %}
+      {{- params.formGroup.beforeInput.html | safe | trim | indent(4, true) if params.formGroup.beforeInput.html else params.formGroup.beforeInput.text }}
     {% endif %}
-  {% endfor %}
-  </select>
-{% if params.formGroup.afterInput %}
-  {{ params.formGroup.afterInput.html | safe | trim | indent(2) if params.formGroup.afterInput.html else params.formGroup.afterInput.text }}
+    {{ _selectElement(params) }}
+    {% if hasAfterInput %}
+      {{- params.formGroup.afterInput.html | safe | trim | indent(4, true) if params.formGroup.afterInput.html else params.formGroup.afterInput.text }}
+    {% endif %}
+  </div>
+{% else %}
+  {{ _selectElement(params) }}
 {% endif %}
 </div>

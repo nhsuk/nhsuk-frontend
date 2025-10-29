@@ -155,6 +155,25 @@ export const params = {
     required: false,
     description: 'Classes to add to the select.'
   },
+  inputWrapper: {
+    type: 'object',
+    required: false,
+    description:
+      'If any of `formGroup.beforeInput` or `formGroup.afterInput` have a value, a wrapping element is added around the select and inserted content. This object allows you to customise that wrapping element.',
+    params: {
+      classes: {
+        type: 'string',
+        required: false,
+        description: 'Classes to add to the wrapping element.'
+      },
+      attributes: {
+        type: 'object',
+        required: false,
+        description:
+          'HTML attributes (for example data attributes) to add to the wrapping element.'
+      }
+    }
+  },
   attributes: {
     type: 'object',
     required: false,
