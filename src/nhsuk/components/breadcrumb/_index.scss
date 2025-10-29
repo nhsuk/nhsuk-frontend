@@ -20,6 +20,7 @@
 
   .nhsuk-breadcrumb {
     box-sizing: border-box;
+    display: inline-block;
     color: $nhsuk-text-colour;
 
     @include nhsuk-responsive-margin(4, "top");
