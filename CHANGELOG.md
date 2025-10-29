@@ -2,6 +2,38 @@
 
 ## Unreleased
 
+### :new: **New features**
+
+#### Add inline buttons to text inputs and select menus
+
+You can now add inline buttons to text inputs and select menus using the `inputWrapper` and `formGroup.afterInput` Nunjucks options.
+
+```njk
+{{ input({
+  label: {
+    text: "Search"
+  },
+  name: "search",
+  formGroup: {
+    afterInput: {
+      html: buttonHtml | safe
+    }
+  }
+}) }}
+```
+
+This was added in [pull request #1643: Add small buttons and inline form groups](https://github.com/nhsuk/nhsuk-frontend/pull/1643).
+
+### :wastebasket: **Deprecated features**
+
+#### Rename input wrapper HTML class
+
+Within the input component, change the `nhsuk-input__wrapper` class to `nhsuk-input-wrapper`.
+
+The previous class name is deprecated and will be removed in a future release.
+
+This change was introduced in [pull request #1643: Add small buttons and inline form groups](https://github.com/nhsuk/nhsuk-frontend/pull/1643).
+
 ### :recycle: **Changes**
 
 #### Remove global box sizing reset
