@@ -5,13 +5,12 @@
   .nhsuk-input-wrapper,
   .nhsuk-input__wrapper {
     display: flex;
+    flex-direction: column;
 
-    .nhsuk-input {
-      flex: 0 1 auto;
-    }
-
-    .nhsuk-input:focus {
-      // Hack to stop focus style being overlapped by the suffix
+    .nhsuk-input:focus,
+    .nhsuk-button:focus {
+      // Hack to stop focus style being overlapped by other elements
+      // such as other adjacent buttons, prefixes and suffixes
       z-index: 1;
     }
 
@@ -22,6 +21,57 @@
       .nhsuk-input {
         // Set max-width to override potential width override class on the input
         max-width: 100%;
+      }
+
+      .nhsuk-button {
+        margin-top: nhsuk-spacing(2);
+      }
+
+      // Remove margin when first or not following other inputs
+      .nhsuk-button:first-child,
+      .nhsuk-button:only-child {
+        margin-top: $nhsuk-border-width-form-element;
+      }
+
+      // Remove margin from button when last, but reserve space for button shadow
+      .nhsuk-button:last-child {
+        margin-bottom: $nhsuk-button-shadow-size + $nhsuk-border-width-form-element;
+      }
+    }
+
+    @include nhsuk-media-query($from: mobile) {
+      flex-direction: row;
+
+      // The default of `stretch` makes small buttons appear taller than the
+      // input, due to using box-shadow, which we don't particularly want in
+      // this situation
+      align-items: flex-start;
+
+      .nhsuk-input,
+      .nhsuk-button {
+        margin-left: nhsuk-spacing(2);
+
+        &:first-child,
+        &:only-child {
+          margin-left: 0;
+        }
+      }
+
+      .nhsuk-input__prefix + .nhsuk-input {
+        margin-left: 0;
+      }
+
+      .nhsuk-button {
+        flex-shrink: 0;
+
+        // Buttons are normally 100% wide on mobile, but we don't want that here
+        width: auto;
+
+        // Move spacing from top to left but reserve space for button shadow,
+        // making sure 44px box maintains alignment with other form controls
+        // https://nhsuk.github.io/nhsuk-frontend/examples/form-alignment/
+        margin-top: $nhsuk-border-width-form-element;
+        margin-bottom: $nhsuk-button-shadow-size + $nhsuk-border-width-form-element;
       }
     }
   }
