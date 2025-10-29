@@ -1,6 +1,7 @@
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
 @use "../../core/helpers" as *;
+@forward "../../core/objects/input-wrapper";
 @forward "../error-message";
 @forward "../hint";
 @forward "../label";
@@ -87,29 +88,6 @@
 
   .nhsuk-input--width-2 {
     max-width: 5.4ex;
-  }
-
-  .nhsuk-input__wrapper {
-    display: flex;
-
-    .nhsuk-input {
-      flex: 0 1 auto;
-    }
-
-    .nhsuk-input:focus {
-      // Hack to stop focus style being overlapped by the suffix
-      z-index: 1;
-    }
-
-    // Split prefix/suffix onto separate lines on narrow screens
-    @include nhsuk-media-query($until: mobile) {
-      display: block;
-
-      .nhsuk-input {
-        // Set max-width to override potential width override class on the input
-        max-width: 100%;
-      }
-    }
   }
 
   .nhsuk-input__prefix,
