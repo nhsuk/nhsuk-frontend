@@ -1,5 +1,5 @@
 import { readFileSync } from 'node:fs'
-import { basename, join } from 'node:path'
+import { basename, dirname, join } from 'node:path'
 
 import { paths } from '@nhsuk/frontend-config'
 
@@ -75,12 +75,12 @@ export async function loadAll() {
  * Get component names
  */
 export function getNames() {
-  const listing = files.getDirectories('nhsuk/components', {
+  const listing = files.getListing('nhsuk/components/*/template.njk', {
     cwd: join(paths.pkg, 'src')
   })
 
   // Use directory names only
-  return listing.map((directoryPath) => basename(directoryPath)).sort()
+  return listing.map((directoryPath) => basename(dirname(directoryPath))).sort()
 }
 
 /**
