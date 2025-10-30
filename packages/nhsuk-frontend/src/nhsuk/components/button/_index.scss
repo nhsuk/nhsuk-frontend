@@ -16,8 +16,8 @@
 /// @group components/button
 ////
 
-$nhsuk-button-padding-top-bottom-mobile: 8px;
-$nhsuk-button-padding-top-bottom-desktop: 12px;
+$nhsuk-button-padding-top-bottom-mobile: 9px;
+$nhsuk-button-padding-top-bottom-desktop: 13px;
 $nhsuk-button-padding-left-right: 16px;
 
 // @deprecated To be removed in v11.0
@@ -37,7 +37,8 @@ $button-shadow-size: $nhsuk-button-shadow-size;
 
     width: 100%;
     margin-top: 0;
-    padding: $nhsuk-button-padding-top-bottom-mobile $nhsuk-button-padding-left-right; // [5]
+    padding: $nhsuk-button-padding-top-bottom-mobile $nhsuk-button-padding-left-right
+      ($nhsuk-button-padding-top-bottom-mobile - math.div($nhsuk-button-shadow-size, 2)); // [5]
 
     overflow: visible;
 
@@ -60,7 +61,8 @@ $button-shadow-size: $nhsuk-button-shadow-size;
 
     @include nhsuk-media-query($from: tablet) {
       width: auto;
-      padding: $nhsuk-button-padding-top-bottom-desktop $nhsuk-button-padding-left-right; // [5]
+      padding: $nhsuk-button-padding-top-bottom-desktop $nhsuk-button-padding-left-right
+        ($nhsuk-button-padding-top-bottom-desktop - math.div($nhsuk-button-shadow-size, 2)); // [5]
     }
 
     // [1]
