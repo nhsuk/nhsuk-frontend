@@ -1,0 +1,41 @@
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+@forward "../tables";
+
+////
+/// Sortable table component
+///
+/// @group components/sortable-table
+////
+
+@include nhsuk-exports("nhsuk/components/sortable-table") {
+  [aria-sort] button,
+  [aria-sort] button:hover {
+    display: inline-flex;
+
+    position: relative;
+
+    align-items: center;
+
+    margin: 0;
+    padding: 0;
+
+    border-width: 0;
+
+    color: #005ea5;
+    background-color: transparent;
+    box-shadow: 0 0 0 0;
+
+    font-family: inherit;
+    font-size: inherit;
+    font-size: 1em;
+    font-weight: inherit;
+    text-align: inherit;
+
+    cursor: pointer;
+  }
+
+  [aria-sort] button:focus {
+    @include nhsuk-focused-text;
+  }
+}
