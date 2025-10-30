@@ -196,7 +196,10 @@ $button-shadow-size: $nhsuk-button-shadow-size;
     padding: $nhsuk-button-padding-top-bottom-small $nhsuk-button-padding-left-right-small
       ($nhsuk-button-padding-top-bottom-small - math.div($nhsuk-button-shadow-size, 2)); // [5]
 
-    @include nhsuk-font(16, $weight: bold);
     @include nhsuk-responsive-margin(4, "bottom", $adjustment: $nhsuk-button-shadow-size); // [5]
+
+    @include nhsuk-media-query($from: tablet) {
+      @include nhsuk-font(16, $weight: bold);
+    }
   }
 }
