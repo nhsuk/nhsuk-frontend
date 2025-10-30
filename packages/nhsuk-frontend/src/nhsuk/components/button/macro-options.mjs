@@ -286,6 +286,35 @@ export const examples = {
       states: ['focus', 'hover', 'active'],
       selector: '.nhsuk-button'
     }
+  },
+  'small': {
+    context: {
+      text: 'Yes, delete this vaccine',
+      classes: 'nhsuk-button--small'
+    },
+    screenshot: {
+      states: ['focus', 'hover', 'active'],
+      selector: '.nhsuk-button'
+    }
+  },
+  'small disabled': {
+    context: {
+      text: 'Yes, delete this vaccine',
+      classes: 'nhsuk-button--small',
+      disabled: true
+    },
+    screenshot: true
+  },
+  'small as a link': {
+    context: {
+      text: 'Yes, delete this vaccine',
+      classes: 'nhsuk-button--small',
+      href: '#'
+    },
+    screenshot: {
+      states: ['focus', 'hover', 'active'],
+      selector: '.nhsuk-button'
+    }
   }
 }
 

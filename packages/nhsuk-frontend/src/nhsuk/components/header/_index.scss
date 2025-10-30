@@ -376,8 +376,9 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     &:focus:not(:active),
     &:focus:not(:active):hover {
       border-color: transparent;
-
-      @include nhsuk-focused-button;
+      color: $nhsuk-focus-text-colour;
+      background-color: $nhsuk-focus-colour;
+      box-shadow: 0 $nhsuk-button-shadow-size 0 $nhsuk-focus-text-colour;
     }
   }
 
