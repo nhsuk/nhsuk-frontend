@@ -15,8 +15,6 @@
     $vertical-gap: nhsuk-spacing(3);
 
     // These need to be kept in sync with the button component's styles
-    $button-border-radius: $nhsuk-border-width-form-element * 2;
-    $button-shadow-size: $button-border-radius;
     $button-padding-top-bottom-mobile: 8px;
     $button-padding-top-bottom-desktop: 12px;
 
@@ -59,7 +57,7 @@
     // Reduce the bottom margin to the size of the vertical gap (accommodating
     // the button shadow) – the 'lost' margin is moved to the button-group.
     > .nhsuk-button {
-      margin-bottom: $vertical-gap + $button-shadow-size;
+      margin-bottom: $vertical-gap + $nhsuk-button-shadow-size;
     }
 
     // On tablet and above, we also introduce a 'column gap' between the
