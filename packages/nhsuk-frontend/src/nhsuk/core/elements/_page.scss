@@ -15,6 +15,8 @@
 ///    render text using sub-pixel anti-aliasing.
 /// 3. Override the user agent style margin of 8px.
 /// 4. Ensure the page always fills at least the entire height of the viewport.
+/// 5. On iOS, set font to -apple-system-body to support system level dynamic
+///    type for a11y, overriding with fallback font to not use iOS system font-family.
 ///
 /// @group elements
 ////
@@ -22,6 +24,17 @@
 html {
   overflow-y: scroll; // [1]
   background-color: $nhsuk-template-background-colour;
+
+  font-size: $nhsuk-base-font-size;
+  line-height: nhsuk-line-height($nhsuk-base-line-height, $nhsuk-base-font-size);
+
+  @supports (font: -apple-system-body) and (-webkit-touch-callout: default) { // [5]
+    & {
+      // stylelint-disable-next-line font-family-no-missing-generic-family-keyword
+      font: -apple-system-body;
+      font-family: $nhsuk-font-fallback;
+    }
+  }
 
   @if $nhsuk-include-font-face {
     @include nhsuk-font-face-frutiger;
