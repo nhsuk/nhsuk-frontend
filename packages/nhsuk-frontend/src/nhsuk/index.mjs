@@ -9,6 +9,7 @@ import {
   NotificationBanner,
   Radios,
   SkipLink,
+  SortableTable,
   Tabs
 } from './components/index.mjs'
 import { ElementError, SupportError } from './errors/index.mjs'
@@ -74,6 +75,7 @@ export function initAll(scopeOrConfig = {}) {
     [NotificationBanner, config.notificationBanner],
     [Radios],
     [SkipLink],
+    [SortableTable, config.sortableTable],
     [Tabs]
   ])
 
@@ -202,6 +204,7 @@ export * from './errors/index.mjs'
  * @property {ComponentConfig<typeof CharacterCount>} [characterCount] - Character count config
  * @property {ComponentConfig<typeof ErrorSummary>} [errorSummary] - Error Summary config
  * @property {ComponentConfig<typeof NotificationBanner>} [notificationBanner] - Notification Banner config
+ * @property {ComponentConfig<typeof SortableTable>} [sortableTable] - Sortable table config
  */
 
 /**
