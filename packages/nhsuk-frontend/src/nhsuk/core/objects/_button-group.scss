@@ -34,7 +34,7 @@
     flex-direction: column;
     align-items: center;
 
-    @include nhsuk-responsive-margin(6, "bottom", $adjustment: $vertical-gap * -1);
+    @include nhsuk-responsive-margin(5, "bottom", $adjustment: $vertical-gap * -1);
 
     // Give paragraphs and links within the button group the same font-size and
     // line-height as buttons.
