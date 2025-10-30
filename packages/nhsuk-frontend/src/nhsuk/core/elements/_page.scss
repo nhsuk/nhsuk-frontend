@@ -37,8 +37,11 @@ body {
   line-height: nhsuk-line-height($nhsuk-base-line-height, $nhsuk-base-font-size);
 
   @supports (font: -apple-system-body) and (-webkit-touch-callout: default) { // [5]
+    & {
+    // stylelint-disable-next-line font-family-no-missing-generic-family-keyword -- checked via @supports
     font: -apple-system-body;
     font-family: $nhsuk-font-fallback;
+    }
   }
 
   @if $nhsuk-include-font-face {
