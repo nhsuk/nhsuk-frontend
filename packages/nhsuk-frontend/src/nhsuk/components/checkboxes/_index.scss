@@ -18,18 +18,27 @@ $nhsuk-checkboxes-small-size: nhsuk-spacing(4);
 $nhsuk-checkboxes-label-padding-left-right: 12px;
 $nhsuk-checkboxes-check-horizontal-position: 12px;
 
+// Offset 2px due to 40px form control with 44px clickable area
+// https://nhsuk.github.io/nhsuk-frontend/examples/form-alignment/
+$nhsuk-checkboxes-offset: $nhsuk-border-width-form-element;
+
 @include nhsuk-exports("nhsuk/components/checkboxes") {
   $nhsuk-touch-target-gutter: 4px;
   $nhsuk-touch-target-size: $nhsuk-checkboxes-size + $nhsuk-touch-target-gutter;
+
+  .nhsuk-checkboxes {
+    margin: -$nhsuk-checkboxes-offset;
+    margin-right: 0;
+  }
 
   .nhsuk-checkboxes__item {
     display: flex;
     position: relative;
     flex-wrap: wrap;
-    margin-top: nhsuk-spacing(2);
+    margin-top: nhsuk-spacing(2) - $nhsuk-checkboxes-offset;
 
     .nhsuk-checkboxes__conditional:not(.nhsuk-checkboxes__conditional--hidden) + & {
-      @include nhsuk-responsive-margin(4, "top");
+      @include nhsuk-responsive-margin(4, "top", $adjustment: - $nhsuk-checkboxes-offset);
     }
   }
 
@@ -161,7 +170,8 @@ $nhsuk-checkboxes-check-horizontal-position: 12px;
   .nhsuk-checkboxes__divider {
     $nhsuk-divider-size: $nhsuk-checkboxes-size !default;
     width: $nhsuk-divider-size;
-    margin-top: nhsuk-spacing(2);
+    margin-top: nhsuk-spacing(2) - $nhsuk-checkboxes-offset;
+    padding: 0 $nhsuk-checkboxes-offset;
     text-align: center;
     @include nhsuk-text-colour;
     @include nhsuk-font($size: 19);
@@ -179,7 +189,8 @@ $nhsuk-checkboxes-check-horizontal-position: 12px;
   $conditional-padding-left: $conditional-border-padding + $nhsuk-checkboxes-label-padding-left-right;
 
   .nhsuk-checkboxes__conditional {
-    margin-top: nhsuk-spacing(2);
+    margin-top: nhsuk-spacing(2) - $nhsuk-checkboxes-offset;
+    margin-bottom: $nhsuk-checkboxes-offset;
     margin-left: $conditional-margin-left;
     padding-left: $conditional-padding-left;
     border-left: $nhsuk-border-width solid $nhsuk-input-border-colour;
@@ -266,7 +277,8 @@ $nhsuk-checkboxes-check-horizontal-position: 12px;
 
     .nhsuk-checkboxes__divider {
       width: $nhsuk-checkboxes-small-size;
-      margin: nhsuk-spacing(1) 0;
+      margin: nhsuk-spacing(1) - $nhsuk-checkboxes-offset 0;
+      padding: 0;
     }
 
     // Hover state for small checkboxes.

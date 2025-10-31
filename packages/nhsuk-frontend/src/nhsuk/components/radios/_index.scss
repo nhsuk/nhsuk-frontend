@@ -22,18 +22,27 @@ $nhsuk-radios-label-padding-left-right: 12px;
 // visually consistent.
 $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
 
+// Offset 2px due to 40px form control with 44px clickable area
+// https://nhsuk.github.io/nhsuk-frontend/examples/form-alignment/
+$nhsuk-radios-offset: $nhsuk-border-width-form-element;
+
 @include nhsuk-exports("nhsuk/components/radios") {
   $nhsuk-touch-target-gutter: 4px;
   $nhsuk-touch-target-size: $nhsuk-radios-size + $nhsuk-touch-target-gutter;
+
+  .nhsuk-radios {
+    margin: -$nhsuk-radios-offset;
+    margin-right: 0;
+  }
 
   .nhsuk-radios__item {
     display: flex;
     position: relative;
     flex-wrap: wrap;
-    margin-top: nhsuk-spacing(2);
+    margin-top: nhsuk-spacing(2) - $nhsuk-radios-offset;
 
     .nhsuk-radios__conditional:not(.nhsuk-radios__conditional--hidden) + & {
-      @include nhsuk-responsive-margin(4, "top");
+      @include nhsuk-responsive-margin(4, "top", $adjustment: - $nhsuk-radios-offset);
     }
   }
 
@@ -179,7 +188,8 @@ $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
   .nhsuk-radios__divider {
     $nhsuk-divider-size: $nhsuk-radios-size !default;
     width: $nhsuk-divider-size;
-    margin-top: nhsuk-spacing(2);
+    margin-top: nhsuk-spacing(2) - $nhsuk-radios-offset;
+    padding: 0 $nhsuk-radios-offset;
     text-align: center;
     @include nhsuk-text-colour;
     @include nhsuk-font($size: 19);
@@ -198,7 +208,8 @@ $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
   $conditional-padding-left: $conditional-border-padding + $nhsuk-radios-label-padding-left-right;
 
   .nhsuk-radios__conditional {
-    margin-top: nhsuk-spacing(2);
+    margin-top: nhsuk-spacing(2) - $nhsuk-radios-offset;
+    margin-bottom: $nhsuk-radios-offset;
     margin-left: $conditional-margin-left;
     padding-left: $conditional-padding-left;
     border-left: $nhsuk-border-width solid $nhsuk-input-border-colour;
@@ -283,7 +294,8 @@ $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
 
     .nhsuk-radios__divider {
       width: $nhsuk-radios-small-size;
-      margin: nhsuk-spacing(1) 0;
+      margin: nhsuk-spacing(1) - $nhsuk-radios-offset 0;
+      padding: 0;
     }
 
     // Hover state for small radios.
