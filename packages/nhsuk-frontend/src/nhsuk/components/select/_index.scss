@@ -22,6 +22,11 @@
     min-width: 20ex + 3ex;
     max-width: 100%;
     height: nhsuk-px-to-rem(40px);
+
+    // Increase box from 40px to 44px for alignment with other form controls
+    // https://nhsuk.github.io/nhsuk-frontend/examples/form-alignment/
+    margin-top: $nhsuk-border-width-form-element;
+    margin-bottom: $nhsuk-border-width-form-element;
     padding: nhsuk-spacing(1);
 
     border: $nhsuk-border-width-form-element solid $nhsuk-input-border-colour;
