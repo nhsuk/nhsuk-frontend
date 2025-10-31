@@ -28,6 +28,7 @@
 
   .nhsuk-input-wrapper {
     .nhsuk-input,
+    .nhsuk-select,
     .nhsuk-button {
       margin-top: nhsuk-spacing(2);
 
@@ -52,6 +53,7 @@
       align-items: flex-start;
 
       .nhsuk-input,
+      .nhsuk-select,
       .nhsuk-button {
         margin-top: 0;
         margin-left: nhsuk-spacing(2);

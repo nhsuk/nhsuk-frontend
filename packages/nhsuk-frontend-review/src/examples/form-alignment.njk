@@ -92,6 +92,103 @@
       <form method="post" novalidate>
         {% call fieldset({
           legend: {
+            text: "Select and button",
+            classes: "nhsuk-fieldset__legend--m"
+          }
+        }) %}
+          {% set buttonHtml = button({
+            text: "Sort",
+            classes: "nhsuk-button--secondary nhsuk-button--small"
+          }) | trim %}
+
+          {{ select({
+            label: {
+              text: "Sort by"
+            },
+            name: "sort-by",
+            id: "sort-by",
+            classes: "nhsuk-u-width-full",
+            items: [
+              {
+                value: "published",
+                text: "Recently published"
+              },
+              {
+                value: "updated",
+                text: "Recently updated"
+              },
+              {
+                value: "views",
+                text: "Most views"
+              },
+              {
+                value: "comments",
+                text: "Most comments"
+              }
+            ],
+            formGroup: {
+              classes: "nhsuk-u-width-one-half",
+              afterInput: {
+                html: buttonHtml | safe
+              }
+            }
+          }) }}
+        {% endcall %}
+      </form>
+
+      <form method="post" novalidate>
+        {% call fieldset({
+          legend: {
+            text: "Select and button with error",
+            classes: "nhsuk-fieldset__legend--m"
+          }
+        }) %}
+          {% set buttonHtml = button({
+            text: "Sort",
+            classes: "nhsuk-button--secondary nhsuk-button--small"
+          }) | trim %}
+
+          {{ select({
+            label: {
+              text: "Sort by"
+            },
+            errorMessage: {
+              text: "Select sort by"
+            },
+            name: "sort-by-2",
+            id: "sort-by-2",
+            classes: "nhsuk-u-width-full",
+            items: [
+              {
+                value: "published",
+                text: "Recently published"
+              },
+              {
+                value: "updated",
+                text: "Recently updated"
+              },
+              {
+                value: "views",
+                text: "Most views"
+              },
+              {
+                value: "comments",
+                text: "Most comments"
+              }
+            ],
+            formGroup: {
+              classes: "nhsuk-u-width-one-half",
+              afterInput: {
+                html: buttonHtml | safe
+              }
+            }
+          }) }}
+        {% endcall %}
+      </form>
+
+      <form method="post" novalidate>
+        {% call fieldset({
+          legend: {
             text: "Inputs side by side",
             classes: "nhsuk-fieldset__legend--m"
           }
