@@ -202,7 +202,7 @@ export function render(component, options) {
  * @property {MacroExampleState[]} [states] - Selector state (optional)
  * @property {string} [selector] - Selector to apply state (optional)
  * @property {string} [name] - Selector name (optional)
- * @property {('mobile' | 'tablet' | 'desktop' | 'large-desktop' | 'xlarge-desktop')[]} [viewports] - Screenshot viewports (optional)
+ * @property {('watch' | 'mobile' | 'tablet' | 'desktop' | 'large-desktop' | 'xlarge-desktop')[]} [viewports] - Screenshot viewports (optional)
  */
 
 /**
