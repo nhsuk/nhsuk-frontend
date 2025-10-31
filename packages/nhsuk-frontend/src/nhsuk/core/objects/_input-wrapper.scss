@@ -2,6 +2,7 @@
 @use "../tools" as *;
 
 @include nhsuk-exports("nhsuk/core/objects/input-wrapper") {
+  .nhsuk-input-wrapper,
   .nhsuk-input__wrapper {
     display: flex;
 

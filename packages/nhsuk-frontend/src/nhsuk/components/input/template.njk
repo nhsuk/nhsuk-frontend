@@ -122,7 +122,7 @@
 {% endif %}
 
 {%- if hasPrefix or hasSuffix or hasBeforeInput or hasAfterInput %}
-  <div class="nhsuk-input__wrapper {%- if params.inputWrapper.classes %} {{ params.inputWrapper.classes }}{% endif %}"
+  <div class="nhsuk-input-wrapper {%- if params.inputWrapper.classes %} {{ params.inputWrapper.classes }}{% endif %}"
     {{- nhsukAttributes(params.inputWrapper.attributes) }}>
     {% if hasBeforeInput %}
       {{- params.formGroup.beforeInput.html | safe | trim | indent(4, true) if params.formGroup.beforeInput.html else params.formGroup.beforeInput.text }}
