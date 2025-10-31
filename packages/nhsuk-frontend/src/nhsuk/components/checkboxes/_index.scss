@@ -26,12 +26,15 @@ $nhsuk-checkboxes-check-horizontal-position: 12px;
     display: flex;
     position: relative;
     flex-wrap: wrap;
-    margin-bottom: nhsuk-spacing(2);
+    margin-top: nhsuk-spacing(2);
+
+    .nhsuk-checkboxes__conditional:not(.nhsuk-checkboxes__conditional--hidden) + & {
+      @include nhsuk-responsive-margin(4, "top");
+    }
   }
 
-  .nhsuk-checkboxes__item:last-child,
-  .nhsuk-checkboxes__item:last-of-type {
-    margin-bottom: 0;
+  .nhsuk-checkboxes__item:first-child {
+    margin-top: 0;
   }
 
   .nhsuk-checkboxes__input {
@@ -158,7 +161,7 @@ $nhsuk-checkboxes-check-horizontal-position: 12px;
   .nhsuk-checkboxes__divider {
     $nhsuk-divider-size: $nhsuk-checkboxes-size !default;
     width: $nhsuk-divider-size;
-    margin-bottom: nhsuk-spacing(2);
+    margin-top: nhsuk-spacing(2);
     text-align: center;
     @include nhsuk-text-colour;
     @include nhsuk-font($size: 19);
@@ -176,17 +179,13 @@ $nhsuk-checkboxes-check-horizontal-position: 12px;
   $conditional-padding-left: $conditional-border-padding + $nhsuk-checkboxes-label-padding-left-right;
 
   .nhsuk-checkboxes__conditional {
+    margin-top: nhsuk-spacing(2);
     margin-left: $conditional-margin-left;
     padding-left: $conditional-padding-left;
     border-left: $nhsuk-border-width solid $nhsuk-input-border-colour;
-    @include nhsuk-responsive-margin(4, "bottom");
 
     .nhsuk-frontend-supported &--hidden {
       display: none;
-    }
-
-    & > :last-child {
-      margin-bottom: 0;
     }
   }
 
@@ -198,7 +197,7 @@ $nhsuk-checkboxes-check-horizontal-position: 12px;
     $input-offset: math.div($nhsuk-touch-target-size - $nhsuk-checkboxes-small-size, 2);
 
     .nhsuk-checkboxes__item {
-      margin-bottom: 0;
+      margin-top: 0;
     }
 
     // Shift the touch target into the left margin so that the visible edge of
@@ -267,7 +266,7 @@ $nhsuk-checkboxes-check-horizontal-position: 12px;
 
     .nhsuk-checkboxes__divider {
       width: $nhsuk-checkboxes-small-size;
-      margin-bottom: nhsuk-spacing(1);
+      margin: nhsuk-spacing(1) 0;
     }
 
     // Hover state for small checkboxes.
