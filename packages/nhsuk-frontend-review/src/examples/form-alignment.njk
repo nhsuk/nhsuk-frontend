@@ -1,5 +1,7 @@
 {% extends "layouts/page.njk" %}
 
+{% from "nhsuk/macros/icon.njk" import nhsukIcon %}
+
 {% set pageName = "Form elements alignment" %}
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 
@@ -31,6 +33,39 @@
       <form method="post" novalidate>
         {% call fieldset({
           legend: {
+            text: "Search input",
+            classes: "nhsuk-fieldset__legend--m"
+          }
+        }) %}
+          {% set buttonHtml = button({
+            html: nhsukIcon("search", {
+              title: "Search"
+            }),
+            classes: "nhsuk-button--icon nhsuk-button--small"
+          }) | trim %}
+
+          {{ input({
+            label: {
+              text: "NHS number",
+              classes: "nhsuk-u-visually-hidden"
+            },
+            name: "example-input",
+            id: "example-input",
+            type: "search",
+            classes: "nhsuk-u-width-full",
+            formGroup: {
+              classes: "nhsuk-u-width-one-half",
+              afterInput: {
+                html: buttonHtml | safe
+              }
+            }
+          }) }}
+        {% endcall %}
+      </form>
+
+      <form method="post" novalidate>
+        {% call fieldset({
+          legend: {
             text: "Input and button",
             classes: "nhsuk-fieldset__legend--m"
           }
@@ -39,8 +74,8 @@
             label: {
               text: "NHS number"
             },
-            name: "example-input",
-            id: "example-input",
+            name: "example-input-1",
+            id: "example-input-1",
             classes: "nhsuk-u-width-full",
             formGroup: {
               classes: "nhsuk-u-width-one-half",

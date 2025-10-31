@@ -200,4 +200,23 @@ $button-shadow-size: $nhsuk-button-shadow-size;
       @include nhsuk-font(16, $line-height: 19px, $weight: bold);
     }
   }
+
+  // =========================================================
+  // Icon buttons
+  // =========================================================
+
+  .nhsuk-button--icon {
+    display: flex;
+
+    // Align icon in center of button
+    flex-direction: column;
+    justify-content: center;
+
+    // Reduce padding to better fit icon
+    padding: 0 nhsuk-spacing(3) - $nhsuk-border-width-form-element;
+
+    &.nhsuk-button--small {
+      padding: 0 nhsuk-spacing(2) - $nhsuk-border-width-form-element;
+    }
+  }
 }
