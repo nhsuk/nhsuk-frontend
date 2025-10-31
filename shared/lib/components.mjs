@@ -39,7 +39,7 @@ export async function load(component) {
     Object.entries(options.examples ?? {}).sort(([nameA], [nameB]) => {
       for (const [find, replace] of /** @type {const} */ ([
         // Sort default to top
-        ['default', ''],
+        ['default', '!!!'],
 
         // Sort do before don't
         ['(do)', '1 do-dont'],
@@ -53,6 +53,9 @@ export async function load(component) {
         ['size M', 'size 2'],
         ['size L', 'size 3'],
         ['size XL', 'size 4'],
+
+        // Sort small variants with default sizes
+        [', small', ''],
 
         // Sort small form controls to end
         [/^small/, 'ZZZ']
@@ -199,7 +202,7 @@ export function render(component, options) {
  * @property {MacroExampleState[]} [states] - Selector state (optional)
  * @property {string} [selector] - Selector to apply state (optional)
  * @property {string} [name] - Selector name (optional)
- * @property {('mobile' | 'tablet' | 'desktop' | 'large-desktop' | 'xlarge-desktop')[]} [viewports] - Screenshot viewports (optional)
+ * @property {('watch' | 'mobile' | 'tablet' | 'desktop' | 'large-desktop' | 'xlarge-desktop')[]} [viewports] - Screenshot viewports (optional)
  */
 
 /**

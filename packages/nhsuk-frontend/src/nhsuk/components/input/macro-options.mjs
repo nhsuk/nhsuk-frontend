@@ -276,6 +276,63 @@ export const examples = {
     },
     screenshot: true
   },
+  'with button': {
+    context: {
+      label: {
+        text: 'What is your NHS number?',
+        classes: 'nhsuk-label--l',
+        isPageHeading: true
+      },
+      id: 'with-button',
+      name: 'example',
+      classes: 'nhsuk-input--width-10',
+      inputmode: 'numeric',
+      spellcheck: false,
+      formGroup: {
+        afterInput: {
+          html: components.render('button', {
+            context: {
+              text: 'Search',
+              classes: 'nhsuk-button--secondary nhsuk-button--small'
+            }
+          })
+        }
+      }
+    },
+    screenshot: {
+      viewports: ['watch', 'mobile', 'tablet', 'desktop']
+    }
+  },
+  'with button and error message': {
+    context: {
+      label: {
+        text: 'What is your NHS number?',
+        classes: 'nhsuk-label--l',
+        isPageHeading: true
+      },
+      errorMessage: {
+        text: 'Enter NHS number'
+      },
+      id: 'with-button-error-message',
+      name: 'example',
+      classes: 'nhsuk-input--width-10',
+      inputmode: 'numeric',
+      spellcheck: false,
+      formGroup: {
+        afterInput: {
+          html: components.render('button', {
+            context: {
+              text: 'Search',
+              classes: 'nhsuk-button--secondary nhsuk-button--small'
+            }
+          })
+        }
+      }
+    },
+    screenshot: {
+      viewports: ['watch', 'mobile', 'tablet', 'desktop']
+    }
+  },
   'with error message': {
     context: {
       label: {
@@ -492,7 +549,8 @@ export const examples = {
       },
       id: 'with-prefix',
       name: 'example',
-      prefix: '£'
+      prefix: '£',
+      classes: 'nhsuk-input--width-5'
     }
   },
   'with suffix': {

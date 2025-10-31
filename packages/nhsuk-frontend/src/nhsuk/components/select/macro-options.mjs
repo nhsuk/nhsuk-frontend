@@ -155,6 +155,25 @@ export const params = {
     required: false,
     description: 'Classes to add to the select.'
   },
+  inputWrapper: {
+    type: 'object',
+    required: false,
+    description:
+      'If any of `formGroup.beforeInput` or `formGroup.afterInput` have a value, a wrapping element is added around the select and inserted content. This object allows you to customise that wrapping element.',
+    params: {
+      classes: {
+        type: 'string',
+        required: false,
+        description: 'Classes to add to the wrapping element.'
+      },
+      attributes: {
+        type: 'object',
+        required: false,
+        description:
+          'HTML attributes (for example data attributes) to add to the wrapping element.'
+      }
+    }
+  },
   attributes: {
     type: 'object',
     required: false,
@@ -281,6 +300,145 @@ export const examples = {
       ]
     },
     screenshot: true
+  },
+  'with button': {
+    context: {
+      label: {
+        text: 'Choose location',
+        isPageHeading: true
+      },
+      hint: {
+        text: 'This can be different to where you went before'
+      },
+      id: 'with-hint',
+      name: 'example',
+      items: [
+        {
+          value: 'choose',
+          text: 'Choose location'
+        },
+        {
+          value: 'eastmidlands',
+          text: 'East Midlands'
+        },
+        {
+          value: 'eastofengland',
+          text: 'East of England'
+        },
+        {
+          value: 'london',
+          text: 'London'
+        },
+        {
+          value: 'northeast',
+          text: 'North East'
+        },
+        {
+          value: 'northwest',
+          text: 'North West'
+        },
+        {
+          value: 'southeast',
+          text: 'South East'
+        },
+        {
+          value: 'southwest',
+          text: 'South West'
+        },
+        {
+          value: 'westmidlands',
+          text: 'West Midlands'
+        },
+        {
+          value: 'yorkshire',
+          text: 'Yorkshire and the Humber'
+        }
+      ],
+      formGroup: {
+        afterInput: {
+          html: components.render('button', {
+            context: {
+              text: 'Save',
+              classes: 'nhsuk-button--secondary nhsuk-button--small'
+            }
+          })
+        }
+      }
+    },
+    screenshot: {
+      viewports: ['watch', 'mobile', 'tablet', 'desktop']
+    }
+  },
+  'with button and error message': {
+    context: {
+      label: {
+        text: 'Choose location',
+        isPageHeading: true
+      },
+      hint: {
+        text: 'This can be different to where you went before'
+      },
+      errorMessage: {
+        text: 'Select a location'
+      },
+      id: 'with-hint',
+      name: 'example',
+      items: [
+        {
+          value: 'choose',
+          text: 'Choose location'
+        },
+        {
+          value: 'eastmidlands',
+          text: 'East Midlands'
+        },
+        {
+          value: 'eastofengland',
+          text: 'East of England'
+        },
+        {
+          value: 'london',
+          text: 'London'
+        },
+        {
+          value: 'northeast',
+          text: 'North East'
+        },
+        {
+          value: 'northwest',
+          text: 'North West'
+        },
+        {
+          value: 'southeast',
+          text: 'South East'
+        },
+        {
+          value: 'southwest',
+          text: 'South West'
+        },
+        {
+          value: 'westmidlands',
+          text: 'West Midlands'
+        },
+        {
+          value: 'yorkshire',
+          text: 'Yorkshire and the Humber'
+        }
+      ],
+      formGroup: {
+        afterInput: {
+          html: components.render('button', {
+            context: {
+              text: 'Save',
+              classes: 'nhsuk-button--secondary nhsuk-button--small'
+            }
+          })
+        }
+      }
+    },
+    screenshot: {
+      viewports: ['watch', 'mobile', 'tablet', 'desktop']
+    }
   },
   'with label size S': {
     context: {

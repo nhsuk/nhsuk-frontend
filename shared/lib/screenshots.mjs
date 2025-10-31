@@ -5,6 +5,13 @@
  */
 export const viewports = new Map([
   [
+    'watch',
+    {
+      width: 224,
+      height: 100
+    }
+  ],
+  [
     'mobile',
     {
       width: 320,

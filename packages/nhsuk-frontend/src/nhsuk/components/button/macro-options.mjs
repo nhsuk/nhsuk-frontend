@@ -95,12 +95,25 @@ export const examples = {
       selector: '.nhsuk-button'
     }
   },
+  'default, small': {
+    context: {
+      text: 'Save and continue',
+      classes: 'nhsuk-button--small'
+    }
+  },
   'disabled': {
     context: {
       text: 'Disabled button',
       disabled: true
     },
     screenshot: true
+  },
+  'disabled, small': {
+    context: {
+      text: 'Disabled button',
+      classes: 'nhsuk-button--small',
+      disabled: true
+    }
   },
   'as a link': {
     context: {
@@ -110,6 +123,13 @@ export const examples = {
     screenshot: {
       states: ['focus', 'hover', 'active'],
       selector: '.nhsuk-button'
+    }
+  },
+  'as a link, small': {
+    context: {
+      text: 'Link button',
+      classes: 'nhsuk-button--small',
+      href: '#'
     }
   },
   'login': {
@@ -122,6 +142,12 @@ export const examples = {
       selector: '.nhsuk-button'
     }
   },
+  'login, small': {
+    context: {
+      text: 'Continue',
+      classes: 'nhsuk-button--login nhsuk-button--small'
+    }
+  },
   'login disabled': {
     context: {
       text: 'Continue',
@@ -129,6 +155,13 @@ export const examples = {
       disabled: true
     },
     screenshot: true
+  },
+  'login disabled, small': {
+    context: {
+      text: 'Continue',
+      classes: 'nhsuk-button--login nhsuk-button--small',
+      disabled: true
+    }
   },
   'login as a link': {
     context: {
@@ -139,6 +172,13 @@ export const examples = {
     screenshot: {
       states: ['focus', 'hover', 'active'],
       selector: '.nhsuk-button'
+    }
+  },
+  'login as a link, small': {
+    context: {
+      text: 'Continue',
+      classes: 'nhsuk-button--login nhsuk-button--small',
+      href: '#'
     }
   },
   'with double click prevented': {
@@ -166,6 +206,15 @@ export const examples = {
       selector: '.nhsuk-button'
     }
   },
+  'reverse, small': {
+    context: {
+      text: 'Log out',
+      classes: 'nhsuk-button--reverse nhsuk-button--small'
+    },
+    options: {
+      layout: 'background-blue'
+    }
+  },
   'reverse disabled': {
     context: {
       text: 'Log out',
@@ -176,6 +225,16 @@ export const examples = {
       layout: 'background-blue'
     },
     screenshot: true
+  },
+  'reverse disabled, small': {
+    context: {
+      text: 'Log out',
+      classes: 'nhsuk-button--reverse nhsuk-button--small',
+      disabled: true
+    },
+    options: {
+      layout: 'background-blue'
+    }
   },
   'reverse as a link': {
     context: {
@@ -191,6 +250,16 @@ export const examples = {
       selector: '.nhsuk-button'
     }
   },
+  'reverse as a link, small': {
+    context: {
+      text: 'Log out',
+      classes: 'nhsuk-button--reverse nhsuk-button--small',
+      href: '#'
+    },
+    options: {
+      layout: 'background-blue'
+    }
+  },
   'secondary': {
     context: {
       text: 'Find my location',
@@ -201,6 +270,12 @@ export const examples = {
       selector: '.nhsuk-button'
     }
   },
+  'secondary, small': {
+    context: {
+      text: 'Find my location',
+      classes: 'nhsuk-button--secondary nhsuk-button--small'
+    }
+  },
   'secondary disabled': {
     context: {
       text: 'Find my location',
@@ -208,6 +283,13 @@ export const examples = {
       disabled: true
     },
     screenshot: true
+  },
+  'secondary disabled, small': {
+    context: {
+      text: 'Find my location',
+      classes: 'nhsuk-button--secondary nhsuk-button--small',
+      disabled: true
+    }
   },
   'secondary as a link': {
     context: {
@@ -218,6 +300,13 @@ export const examples = {
     screenshot: {
       states: ['focus', 'hover', 'active'],
       selector: '.nhsuk-button'
+    }
+  },
+  'secondary as a link, small': {
+    context: {
+      text: 'Find my location',
+      classes: 'nhsuk-button--secondary nhsuk-button--small',
+      href: '#'
     }
   },
   'secondary, solid background': {
@@ -233,6 +322,15 @@ export const examples = {
       selector: '.nhsuk-button'
     }
   },
+  'secondary, solid background, small': {
+    context: {
+      text: 'Find my location',
+      classes: 'nhsuk-button--secondary-solid nhsuk-button--small'
+    },
+    options: {
+      layout: 'background-grey'
+    }
+  },
   'secondary, solid background disabled': {
     context: {
       text: 'Find my location',
@@ -243,6 +341,16 @@ export const examples = {
       layout: 'background-grey'
     },
     screenshot: true
+  },
+  'secondary, solid background disabled, small': {
+    context: {
+      text: 'Find my location',
+      classes: 'nhsuk-button--secondary-solid nhsuk-button--small',
+      disabled: true
+    },
+    options: {
+      layout: 'background-grey'
+    }
   },
   'secondary, solid background as a link': {
     context: {
@@ -258,6 +366,16 @@ export const examples = {
       selector: '.nhsuk-button'
     }
   },
+  'secondary, solid background as a link, small': {
+    context: {
+      text: 'Find my location',
+      classes: 'nhsuk-button--secondary-solid nhsuk-button--small',
+      href: '#'
+    },
+    options: {
+      layout: 'background-grey'
+    }
+  },
   'warning': {
     context: {
       text: 'Yes, delete this vaccine',
@@ -268,6 +386,12 @@ export const examples = {
       selector: '.nhsuk-button'
     }
   },
+  'warning, small': {
+    context: {
+      text: 'Yes, delete this vaccine',
+      classes: 'nhsuk-button--warning nhsuk-button--small'
+    }
+  },
   'warning disabled': {
     context: {
       text: 'Yes, delete this vaccine',
@@ -275,6 +399,13 @@ export const examples = {
       disabled: true
     },
     screenshot: true
+  },
+  'warning disabled, small': {
+    context: {
+      text: 'Yes, delete this vaccine',
+      classes: 'nhsuk-button--warning nhsuk-button--small',
+      disabled: true
+    }
   },
   'warning as a link': {
     context: {
@@ -285,6 +416,13 @@ export const examples = {
     screenshot: {
       states: ['focus', 'hover', 'active'],
       selector: '.nhsuk-button'
+    }
+  },
+  'warning as a link, small': {
+    context: {
+      text: 'Yes, delete this vaccine',
+      classes: 'nhsuk-button--warning nhsuk-button--small',
+      href: '#'
     }
   }
 }
