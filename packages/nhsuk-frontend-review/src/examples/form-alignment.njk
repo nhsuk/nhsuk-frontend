@@ -31,6 +31,67 @@
       <form method="post" novalidate>
         {% call fieldset({
           legend: {
+            text: "Input and button",
+            classes: "nhsuk-fieldset__legend--m"
+          }
+        }) %}
+          {% set buttonHtml = button({
+            text: "Search",
+            classes: "nhsuk-button--secondary nhsuk-button--small"
+          }) | trim %}
+
+          {{ input({
+            label: {
+              text: "NHS number"
+            },
+            name: "example-input",
+            id: "example-input",
+            classes: "nhsuk-u-width-full",
+            formGroup: {
+              classes: "nhsuk-u-width-one-half",
+              afterInput: {
+                html: buttonHtml | safe
+              }
+            }
+          }) }}
+        {% endcall %}
+      </form>
+
+      <form method="post" novalidate>
+        {% call fieldset({
+          legend: {
+            text: "Input and button with error",
+            classes: "nhsuk-fieldset__legend--m"
+          }
+        }) %}
+          {% set buttonHtml = button({
+            text: "Search",
+            classes: "nhsuk-button--secondary nhsuk-button--small"
+          }) | trim %}
+
+          {{ input({
+            label: {
+              text: "NHS number"
+            },
+            errorMessage: {
+              text: "Enter an NHS number"
+            },
+            name: "example-input-2",
+            id: "example-input-2",
+            classes: "nhsuk-u-width-full",
+            formGroup: {
+              classes: "nhsuk-u-width-one-half",
+              afterInput: {
+                html: buttonHtml | safe
+              }
+            }
+          }) }}
+        {% endcall %}
+      </form>
+
+      <form method="post" novalidate>
+        {% call fieldset({
+          legend: {
             text: "Inputs side by side",
             classes: "nhsuk-fieldset__legend--m"
           }
