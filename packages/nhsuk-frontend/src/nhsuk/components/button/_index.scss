@@ -36,6 +36,7 @@ $button-shadow-size: $nhsuk-button-shadow-size;
     position: relative;
 
     width: 100%;
+    min-height: nhsuk-px-to-rem(44px);
     margin-top: 0;
     padding: $nhsuk-button-padding-top-bottom-mobile $nhsuk-button-padding-left-right; // [5]
 
@@ -60,6 +61,7 @@ $button-shadow-size: $nhsuk-button-shadow-size;
 
     @include nhsuk-media-query($from: tablet) {
       width: auto;
+      min-height: nhsuk-px-to-rem(56px);
       padding: $nhsuk-button-padding-top-bottom-desktop $nhsuk-button-padding-left-right; // [5]
     }
 
