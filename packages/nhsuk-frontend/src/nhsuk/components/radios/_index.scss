@@ -30,12 +30,15 @@ $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
     display: flex;
     position: relative;
     flex-wrap: wrap;
-    margin-bottom: nhsuk-spacing(2);
+    margin-top: nhsuk-spacing(2);
+
+    .nhsuk-radios__conditional:not(.nhsuk-radios__conditional--hidden) + & {
+      @include nhsuk-responsive-margin(4, "top");
+    }
   }
 
-  .nhsuk-radios__item:last-child,
-  .nhsuk-radios__item:last-of-type {
-    margin-bottom: 0;
+  .nhsuk-radios__item:first-child {
+    margin-top: 0;
   }
 
   .nhsuk-radios__input {
@@ -163,6 +166,7 @@ $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
       align-items: flex-start;
 
       .nhsuk-radios__item {
+        margin-top: 0;
         margin-right: nhsuk-spacing(4);
       }
     }
@@ -175,7 +179,7 @@ $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
   .nhsuk-radios__divider {
     $nhsuk-divider-size: $nhsuk-radios-size !default;
     width: $nhsuk-divider-size;
-    margin-bottom: nhsuk-spacing(2);
+    margin-top: nhsuk-spacing(2);
     text-align: center;
     @include nhsuk-text-colour;
     @include nhsuk-font($size: 19);
@@ -194,17 +198,13 @@ $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
   $conditional-padding-left: $conditional-border-padding + $nhsuk-radios-label-padding-left-right;
 
   .nhsuk-radios__conditional {
+    margin-top: nhsuk-spacing(2);
     margin-left: $conditional-margin-left;
     padding-left: $conditional-padding-left;
     border-left: $nhsuk-border-width solid $nhsuk-input-border-colour;
-    @include nhsuk-responsive-margin(4, "bottom");
 
     .nhsuk-frontend-supported &--hidden {
       display: none;
-    }
-
-    & > :last-child {
-      margin-bottom: 0;
     }
   }
 
@@ -216,7 +216,7 @@ $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
     $input-offset: math.div($nhsuk-touch-target-size - $nhsuk-radios-small-size, 2);
 
     .nhsuk-radios__item {
-      margin-bottom: 0;
+      margin-top: 0;
     }
 
     // Shift the touch target into the left margin so that the visible edge of
@@ -283,7 +283,7 @@ $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
 
     .nhsuk-radios__divider {
       width: $nhsuk-radios-small-size;
-      margin-bottom: nhsuk-spacing(1);
+      margin: nhsuk-spacing(1) 0;
     }
 
     // Hover state for small radios.
