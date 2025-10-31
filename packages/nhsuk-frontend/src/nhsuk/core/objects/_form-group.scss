@@ -6,15 +6,12 @@
     box-sizing: border-box;
 
     @include nhsuk-clearfix;
-    @include nhsuk-responsive-margin(4, "bottom");
+    @include nhsuk-responsive-margin(5, "bottom");
 
+    .nhsuk-form-group:last-child,
     .nhsuk-form-group:last-of-type {
       margin-bottom: 0; // Remove margin from last item in nested groups
     }
-  }
-
-  .nhsuk-form-group--wrapper {
-    @include nhsuk-responsive-margin(5, "bottom");
   }
 
   .nhsuk-form-group--error {

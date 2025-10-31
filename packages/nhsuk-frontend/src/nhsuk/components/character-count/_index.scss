@@ -13,7 +13,7 @@
 
 @include nhsuk-exports("nhsuk/components/character-count") {
   .nhsuk-character-count {
-    @include nhsuk-responsive-margin(6, "bottom");
+    @include nhsuk-responsive-margin(5, "bottom");
 
     .nhsuk-form-group,
     .nhsuk-textarea {
