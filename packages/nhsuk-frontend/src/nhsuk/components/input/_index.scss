@@ -127,9 +127,20 @@
   .nhsuk-input__prefix {
     @include nhsuk-media-query($until: mobile) {
       border-bottom: 0;
+
+      // Remove top margin when preceded by a prefix
+      + .nhsuk-input {
+        margin-top: 0;
+      }
     }
+
     @include nhsuk-media-query($from: mobile) {
       border-right: 0;
+
+      // Remove left margin when preceded by a prefix
+      + .nhsuk-input {
+        margin-left: 0;
+      }
     }
   }
 
@@ -138,6 +149,7 @@
     @include nhsuk-media-query($until: mobile) {
       border-top: 0;
     }
+
     @include nhsuk-media-query($from: mobile) {
       border-left: 0;
     }
