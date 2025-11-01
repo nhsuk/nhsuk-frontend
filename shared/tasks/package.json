@@ -11,7 +11,7 @@
   "dependencies": {
     "@nhsuk/frontend-config": "*",
     "@nhsuk/frontend-lib": "*",
-    "@npmcli/run-script": "^10.0.0",
+    "@npmcli/run-script": "^10.0.2",
     "@rollup/plugin-babel": "^6.1.0",
     "@rollup/plugin-commonjs": "^28.0.9",
     "@rollup/plugin-node-resolve": "^16.0.3",
