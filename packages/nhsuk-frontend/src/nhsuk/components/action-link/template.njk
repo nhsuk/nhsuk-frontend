@@ -6,6 +6,6 @@
   {%- if params.href %}{{ params.href }}{% else %}#{% endif %}"
   {%- if params.openInNewWindow %} target="_blank"{% endif %}
   {{- nhsukAttributes(params.attributes) }}>
-  {{ nhsukIcon("arrow-right-circle") }}
+  {{ nhsukIcon("arrow-right-circle") | trim | indent(2) }}
   <span class="nhsuk-action-link__text">{{ params.text }}</span>
 </a>

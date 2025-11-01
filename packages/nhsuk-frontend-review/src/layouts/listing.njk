@@ -58,11 +58,11 @@
               Open this example in a new tab<span class="nhsuk-u-visually-hidden">: {{ name ~ " " ~ fixture.name }}</span>
             </a>
           </p>
-          {{ renderExample(fixture, loop.index) if not isFullWidth }}
+          {{ renderExample(fixture, loop.index) | indent(10) if not isFullWidth }}
         </div>
       </div>
     </div>
-    {{ renderExample(fixture, loop.index) if isFullWidth }}
+    {{ renderExample(fixture, loop.index) | indent(4) if isFullWidth }}
   </section>
   {% endif %}
 {% endfor %}
