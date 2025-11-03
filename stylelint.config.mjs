@@ -30,6 +30,7 @@ export default {
         'rule-empty-line-before': null,
         'selector-max-id': null,
         'selector-no-qualifying-type': null,
+        'shorthand-property-no-redundant-values': null,
 
         // Allow markdown `*.md` Sass bad examples
         'scss/at-mixin-pattern': null,
