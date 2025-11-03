@@ -120,6 +120,14 @@ If you are not using Nunjucks macros, update your HTML markup using the [tabs ex
 
 This change was introduced in [pull request #1686: Remove ↑ up and ↓ down arrow key bindings from tabs](https://github.com/nhsuk/nhsuk-frontend/pull/1686).
 
+#### Add support for iOS system level Dynamic Type
+
+To better accommodate accessibility requirements on iOS, we now scale up the root font size based on the system level Dynamic Type font size.
+
+Please review any custom font sizes which are not calculated relative to the root as fixed sizes (e.g. 16px) will not scale.
+
+This change was introduced in [pull request #1655: Add support for iOS system level Dynamic Type for a11y purposes](https://github.com/nhsuk/nhsuk-frontend/pull/1655).
+
 ### :wrench: **Fixes**
 
 - [#1633: Review global `box-sizing` usage](https://github.com/nhsuk/nhsuk-frontend/pull/1633)
