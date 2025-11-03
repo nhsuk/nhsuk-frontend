@@ -7,6 +7,7 @@
     "moduleResolution": "Node",
     "noEmit": true,
     "noImplicitThis": true,
+    "noUnusedLocals": true,
     "paths": {
       "nhsuk-frontend": ["./packages/nhsuk-frontend/src/nhsuk/index.mjs"],
       "nhsuk-frontend/*": ["./packages/nhsuk-frontend/*"]

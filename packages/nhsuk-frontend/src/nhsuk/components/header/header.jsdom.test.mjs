@@ -1,4 +1,4 @@
-import { setTimeout } from 'node:timers/promises'
+import * as timers from 'node:timers/promises'
 
 import { components } from '@nhsuk/frontend-lib'
 import { fireEvent, getByRole } from '@testing-library/dom'
@@ -330,7 +330,7 @@ describe('Header class', () => {
 
       // Trigger resize
       fireEvent.resize(window)
-      await setTimeout(100)
+      await timers.setTimeout(100)
 
       // Menu open (still)
       expect($menuButton.nextElementSibling).not.toHaveAttribute('hidden')
@@ -351,7 +351,7 @@ describe('Header class', () => {
 
       // Trigger resize
       fireEvent.resize(window)
-      await setTimeout(100)
+      await timers.setTimeout(100)
 
       // Menu closed
       expect($menuButton.nextElementSibling).toHaveAttribute('hidden')
@@ -409,7 +409,7 @@ describe('Header class', () => {
 
       // Trigger resize
       fireEvent.resize(window)
-      await setTimeout(100)
+      await timers.setTimeout(100)
 
       expect($menuButton.nextElementSibling).toBeInTheDocument()
       expect($menuButton.nextElementSibling).toHaveRole('list')
@@ -484,7 +484,7 @@ describe('Header class', () => {
 
         // Trigger resize
         fireEvent.resize(window)
-        await setTimeout(100)
+        await timers.setTimeout(100)
 
         const $listItems = $navigation.querySelectorAll('div > ul > li')
         const $menuItems = $navigation.querySelectorAll('div > ul > li li')
@@ -505,7 +505,7 @@ describe('Header class', () => {
 
         // Trigger resize
         fireEvent.resize(window)
-        await setTimeout(100)
+        await timers.setTimeout(100)
 
         const $listItems = $navigation.querySelectorAll('div > ul > li')
         const $menuItems = $navigation.querySelectorAll('div > ul > li li')

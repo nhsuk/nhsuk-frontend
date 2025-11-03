@@ -30,7 +30,7 @@ You must first:
      'node_modules/nhsuk-frontend/dist/nhsuk',
      'node_modules/nhsuk-frontend/dist',
      '<YOUR-VIEWS-FOLDER>'
-   ]);
+   ])
    ```
 
 2. Use the NHS.UK frontend template by adding the following at the top of your view file:

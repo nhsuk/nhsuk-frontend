@@ -28,16 +28,18 @@ updates:
 
       lint:
         patterns:
+          - '@eslint/*'
           - '@types/*'
-          - '@typescript-eslint/*'
           - 'eslint'
           - 'eslint-*'
+          - 'globals'
           - 'html-validate'
           - 'prettier'
           - 'stylelint'
           - 'stylelint-*'
           - 'typed-query-selector'
           - 'typescript'
+          - 'typescript-*'
 
         # Exclude packages in other groups
         exclude-patterns:
