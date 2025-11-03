@@ -12,7 +12,7 @@ const _self =
  * Skip link component
  *
  * When using VoiceOver on iOS, focus remains on the skip link anchor
- * when elected so the next focusable element is not at the jumped to area.
+ * when selected so the next focusable element is not at the jumped to area.
  *
  * @augments Component<HTMLAnchorElement>
  */
