@@ -85,6 +85,12 @@ This will enable screen reader users to have a better, more coherent experience 
 
 This change was introduced in [pull request #1036: Add breaking change entry for error summary screen reader improvements](https://github.com/nhsuk/nhsuk-frontend/pull/1036), after previously being recommended in [version 10.1.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.1.0).
 
+#### Make `nhsuk-u-nowrap` apply to mobile and above
+
+The utility class `nhsuk-nowrap` now applied to mobile breakpoint and above. We have added breakpoint specific modifiers to allow further control of line wrapping.
+
+This was added in [pull request #1668: Add breakpoints to nowrap class](https://github.com/nhsuk/nhsuk-frontend/pull/1668).
+
 ## 10.2.2 - 4 December 2025
 
 Note: This release was created from the `support/10.x` branch.
