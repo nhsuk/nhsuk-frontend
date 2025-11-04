@@ -9,7 +9,9 @@
 
 /// Convert pixels to em
 ///
-/// A quick way to convert px into em
+/// @param {Number} $value - Length in pixels
+/// @param {Number} $context-font-size - Font size of element
+/// @return {Number} Length in ems
 ///
 /// @example scss
 ///   nhsuk-em(20px, $nhsuk-base-font-size);
@@ -28,13 +30,15 @@
 
 /// Convert pixels to rem
 ///
-/// A quick way to convert px into rem
+/// The $nhsuk-base-font-size (defined in settings/_globals.scss)
+/// must be configured to match the font-size of your root (html) element
+///
+/// @param {Number} $value - Length in pixels
+/// @return {Number} Length in rems
 ///
 /// @example scss
 ///   nhsuk-px-to-rem(20px);
 ///
-/// The $nhsuk-base-font-size (defined in settings/_globals.scss)
-/// must be configured to match the font-size of your root (html) element
 
 @function nhsuk-px-to-rem($value) {
   @if math.is-unitless($value) {
