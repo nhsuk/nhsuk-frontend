@@ -3,8 +3,9 @@
 ////
 /// Link nowrap
 ///
-/// Prevent long anchor links from line breaking
-/// on smaller screens
+/// Prevent text from wrapping on to a new line and preserve 
+/// white spaces, for example: to keep the formatting of
+/// an NHS number.
 ///
 /// @group utilities
 ///
@@ -13,7 +14,5 @@
 ////
 
 .nhsuk-u-nowrap {
-  @include nhsuk-media-query($until: tablet) {
-    white-space: nowrap;
-  }
+  white-space: nowrap;
 }

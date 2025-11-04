@@ -213,7 +213,7 @@ class="nhsuk-u-margin-[direction]-[spacing]"
 
 ### Prevent text wrapping
 
-Prevent long anchor links from line breaking on smaller screens.
+Prevent text from wrapping on to a new line and preserve white spaces, for example: to keep the formatting of an NHS number.
 
 ```html
 <a class="nhsuk-u-nowrap"></a>
