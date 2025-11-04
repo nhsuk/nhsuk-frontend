@@ -10,7 +10,7 @@
 /// Convert pixels to em
 ///
 /// @param {Number} $value - Length in pixels
-/// @param {Number} $context-font-size - Font size of element
+/// @param {Number} $context-font-size [$nhsuk-base-font-size] - Font size of element
 /// @return {Number} Length in ems
 ///
 /// @example scss
@@ -18,7 +18,7 @@
 ///
 /// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
 
-@function nhsuk-em($value, $context-font-size) {
+@function nhsuk-em($value, $context-font-size: $nhsuk-base-font-size) {
   @if math.is-unitless($value) {
     $value: $value * 1px;
   }
