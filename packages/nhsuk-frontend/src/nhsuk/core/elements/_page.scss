@@ -1,3 +1,4 @@
+@use "sass:math";
 @use "../generic" as *;
 @use "../settings" as *;
 @use "../tools" as *;
@@ -17,22 +18,26 @@
 /// 4. Ensure the page always fills at least the entire height of the viewport.
 /// 5. On iOS, set font to -apple-system-body to support system level dynamic
 ///    type for a11y, overriding with fallback font to not use iOS system font-family.
-///
+///    font-size-adjust is used to normalise the default size back to our standard.
 /// @group elements
 ////
 
 html {
   overflow-y: scroll; // [1]
   background-color: $nhsuk-template-background-colour;
-
   font-size: $nhsuk-base-font-size;
   line-height: nhsuk-line-height($nhsuk-base-line-height, $nhsuk-base-font-size);
 
-  @supports (font: -apple-system-body) and (-webkit-touch-callout: default) { // [5]
+  @supports (font: -apple-system-body) and (-webkit-touch-callout: default) {
     & {
+      // [5]
       // stylelint-disable-next-line font-family-no-missing-generic-family-keyword
       font: -apple-system-body;
       font-family: $nhsuk-font-fallback;
+      $font-size-value: math.div($nhsuk-base-font-size, ($nhsuk-base-font-size * 0 + 1));
+      $default-apple-font-size: 17;
+      $font-size-adjust-value: calc(0.51 * math.div($font-size-value, $default-apple-font-size));
+      font-size-adjust: $font-size-adjust-value;
     }
   }
 
