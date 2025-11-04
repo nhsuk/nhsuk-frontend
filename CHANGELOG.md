@@ -87,7 +87,7 @@ This change was introduced in [pull request #1036: Add breaking change entry for
 
 #### Make `nhsuk-u-nowrap` apply to mobile and above
 
-The utility class `nhsuk-nowrap` now applied to mobile breakpoint and above. We have added breakpoint specific modifiers to allow further control of line wrapping.
+The utility class `nhsuk-u-nowrap` now applied to mobile breakpoint and above. We have added breakpoint specific modifiers to allow further control of line wrapping.
 
 This was added in [pull request #1668: Add breakpoints to nowrap class](https://github.com/nhsuk/nhsuk-frontend/pull/1668).
 
