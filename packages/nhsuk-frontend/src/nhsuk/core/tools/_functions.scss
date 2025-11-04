@@ -10,15 +10,15 @@
 /// Convert pixels to em
 ///
 /// @param {Number} $value - Length in pixels
-/// @param {Number} $context-font-size [$nhsuk-base-font-size] - Font size of element
+/// @param {Number} $context-font-size [$nhsuk-root-font-size] - Font size of element
 /// @return {Number} Length in ems
 ///
 /// @example scss
-///   nhsuk-em(20px, $nhsuk-base-font-size);
+///   nhsuk-em(20px, $nhsuk-root-font-size);
 ///
 /// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
 
-@function nhsuk-em($value, $context-font-size: $nhsuk-base-font-size) {
+@function nhsuk-em($value, $context-font-size: $nhsuk-root-font-size) {
   @if math.is-unitless($value) {
     $value: $value * 1px;
   }
@@ -30,7 +30,7 @@
 
 /// Convert pixels to rem
 ///
-/// The $nhsuk-base-font-size (defined in settings/_globals.scss)
+/// The $nhsuk-root-font-size (defined in settings/_globals.scss)
 /// must be configured to match the font-size of your root (html) element
 ///
 /// @param {Number} $value - Length in pixels
@@ -45,7 +45,7 @@
     $value: $value * 1px;
   }
 
-  @return math.div($value, $nhsuk-base-font-size) * 1rem;
+  @return math.div($value, $nhsuk-root-font-size) * 1rem;
 }
 
 /// Get the size (△↕) of chevron, from base to tip, given a certain font size
