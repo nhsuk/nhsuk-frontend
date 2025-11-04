@@ -197,13 +197,11 @@ describe('Typography tools', () => {
       await expect(results).resolves.toMatchObject({
         css: outdent`
           .foo {
-            font-size: 12px;
             font-size: 0.75rem;
             line-height: 1.25;
           }
           @media (min-width: 30em) {
             .foo {
-              font-size: 14px;
               font-size: 0.875rem;
               line-height: 1.42857;
             }
@@ -228,7 +226,6 @@ describe('Typography tools', () => {
       await expect(results).resolves.toMatchObject({
         css: outdent`
           .foo {
-            font-size: 12px;
             font-size: 0.75rem;
             line-height: 1.25;
           }
@@ -258,13 +255,11 @@ describe('Typography tools', () => {
       await expect(results).resolves.toMatchObject({
         css: outdent`
           .foo {
-            font-size: 12px;
             font-size: 0.75rem;
             line-height: 1.25;
           }
           @media (min-width: 30em) {
             .foo {
-              font-size: 14px;
               font-size: 0.875rem;
               line-height: 1.42857;
             }
@@ -310,7 +305,6 @@ describe('Typography tools', () => {
       await expect(results).resolves.toMatchObject({
         css: outdent`
           .foo {
-            font-size: 12px;
             font-size: 0.75rem;
             line-height: 1.25;
           }
@@ -381,13 +375,11 @@ describe('Typography tools', () => {
         await expect(results).resolves.toMatchObject({
           css: outdent`
             .foo {
-              font-size: 12px !important;
               font-size: 0.75rem !important;
               line-height: 1.25 !important;
             }
             @media (min-width: 30em) {
               .foo {
-                font-size: 14px !important;
                 font-size: 0.875rem !important;
                 line-height: 1.42857 !important;
               }
@@ -412,7 +404,6 @@ describe('Typography tools', () => {
         await expect(results).resolves.toMatchObject({
           css: outdent`
             .foo {
-              font-size: 12px !important;
               font-size: 0.75rem !important;
               line-height: 1.25 !important;
             }
@@ -444,13 +435,11 @@ describe('Typography tools', () => {
         await expect(results).resolves.toMatchObject({
           css: outdent`
             .foo {
-              font-size: 12px;
               font-size: 0.75rem;
               line-height: 1.75;
             }
             @media (min-width: 30em) {
               .foo {
-                font-size: 14px;
                 font-size: 0.875rem;
                 line-height: 1.5;
               }
@@ -480,13 +469,11 @@ describe('Typography tools', () => {
               font-weight: 400;
             }
             .foo {
-              font-size: 12px;
               font-size: 0.75rem;
               line-height: 1.25;
             }
             @media (min-width: 30em) {
               .foo {
-                font-size: 14px;
                 font-size: 0.875rem;
                 line-height: 1.42857;
               }
