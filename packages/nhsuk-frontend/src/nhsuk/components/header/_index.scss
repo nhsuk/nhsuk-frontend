@@ -500,7 +500,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     align-items: center;
 
     margin: 0;
-    padding-right: nhsuk-em($_chevron-font-size, $nhsuk-base-font-size);
+    padding-right: nhsuk-em($_chevron-font-size);
 
     border: 0;
     border-radius: 0;
