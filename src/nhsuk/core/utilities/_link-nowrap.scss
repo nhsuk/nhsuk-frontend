@@ -5,7 +5,8 @@
 ///
 /// Prevent text from wrapping on to a new line and preserve 
 /// white spaces, for example: to keep the formatting of
-/// an NHS number.
+/// an NHS number. Applies from mobile because tiny devices
+/// are likely to need wrapping on everything.
 ///
 /// @group utilities
 ///
@@ -14,5 +15,31 @@
 ////
 
 .nhsuk-u-nowrap {
-  white-space: nowrap;
+  @include nhsuk-media-query($from: mobile) {
+    white-space: nowrap;
+  }
+}
+
+.nhsuk-u-nowrap--from-tablet {
+  @include nhsuk-media-query($from: tablet) {
+    white-space: nowrap;
+  }
+}
+
+.nhsuk-u-nowrap--from-desktop {
+  @include nhsuk-media-query($from: desktop) {
+    white-space: nowrap;
+  }
+}
+
+.nhsuk-u-nowrap--until-tablet {
+  @include nhsuk-media-query($until: tablet) {
+    white-space: nowrap;
+  }
+}
+
+.nhsuk-u-nowrap--until-desktop {
+  @include nhsuk-media-query($until: desktop) {
+    white-space: nowrap;
+  }
 }
