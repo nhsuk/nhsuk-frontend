@@ -7,7 +7,7 @@
   {% set classNames = classNames ~ " " ~ params.classes %}
 {% endif %}
 
-{%- if params.html or params.text %}
+{%- if caller or params.html or params.text %}
 {% set labelHtml %}
 <label
   {{- nhsukAttributes({
@@ -23,7 +23,11 @@
   }) -}}
 
   {{- nhsukAttributes(params.attributes) }}>
-  {{ params.html | safe | trim | indent(2) if params.html else params.text }}
+{% if caller or params.html %}
+  {{ caller() if caller else params.html | safe | trim | indent(2) }}
+{% elif params.text %}
+  {{ params.text | safe | trim | indent(2) }}
+{% endif %}
 </label>
 {% endset -%}
 
