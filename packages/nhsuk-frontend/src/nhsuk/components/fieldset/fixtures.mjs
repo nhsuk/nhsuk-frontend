@@ -11,7 +11,7 @@ export const examples = {
     context: {
       legend: {
         text: 'What is your address?',
-        classes: 'nhsuk-fieldset__legend--l',
+        size: 'l',
         isPageHeading: true
       }
     },
@@ -74,7 +74,7 @@ export const examples = {
         description: 'with size S',
         context: {
           legend: {
-            classes: 'nhsuk-fieldset__legend--s'
+            size: 's'
           }
         }
       },
@@ -82,7 +82,7 @@ export const examples = {
         description: 'with size M',
         context: {
           legend: {
-            classes: 'nhsuk-fieldset__legend--m'
+            size: 'm'
           }
         }
       },
@@ -90,7 +90,7 @@ export const examples = {
         description: 'with size L',
         context: {
           legend: {
-            classes: 'nhsuk-fieldset__legend--l'
+            size: 'l'
           }
         }
       },
@@ -98,7 +98,7 @@ export const examples = {
         description: 'with size XL',
         context: {
           legend: {
-            classes: 'nhsuk-fieldset__legend--xl'
+            size: 'xl'
           }
         }
       }
