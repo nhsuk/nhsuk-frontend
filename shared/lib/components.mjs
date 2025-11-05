@@ -24,7 +24,11 @@ export async function load(component) {
   })
 
   const { name, params } = await import(optionsPath)
-  const fixtures = await import(fixturesPath)
+
+  // Import examples (optional) with fallback
+  const fixtures = await import(fixturesPath).catch(() => {
+    return { examples: {} }
+  })
 
   // Sort examples by name, default at top
   const examples = Object.fromEntries(
@@ -133,8 +137,8 @@ export function getFixtures(component) {
 export function getAllFixtures() {
   const components = getNames()
 
-  // Load component fictures per directory
-  return components.map(getFixtures)
+  // Load component fixtures per directory
+  return components.map(getFixtures).filter((data) => data.fixtures.length)
 }
 
 /**
