@@ -104,6 +104,25 @@ export const examples = {
       }
     ]
   },
+  'with legend size class': {
+    context: {
+      legend: {
+        text: 'What is your address?',
+        classes: 'nhsuk-fieldset__legend--l',
+        isPageHeading: true
+      }
+    }
+  },
+  'with legend size class overriding size param': {
+    context: {
+      legend: {
+        text: 'What is your address?',
+        classes: 'nhsuk-fieldset__legend--l',
+        size: 's',
+        isPageHeading: true
+      }
+    }
+  },
   'without page heading': {
     context: {
       legend: {
