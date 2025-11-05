@@ -6,6 +6,7 @@ export * from './header/header.mjs'
 export * from './notification-banner/notification-banner.mjs'
 export * from './radios/radios.mjs'
 export * from './skip-link/skip-link.mjs'
+export * from './sortable-table/sortable-table.mjs'
 export * from './tabs/tabs.mjs'
 
 // Base components

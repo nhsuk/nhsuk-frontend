@@ -10,6 +10,7 @@ import {
   NotificationBanner,
   Radios,
   SkipLink,
+  SortableTable,
   Tabs,
   initAll,
   createAll,
@@ -26,6 +27,7 @@ jest.mock('./components/header/header.mjs')
 jest.mock('./components/notification-banner/notification-banner.mjs')
 jest.mock('./components/radios/radios.mjs')
 jest.mock('./components/skip-link/skip-link.mjs')
+jest.mock('./components/sortable-table/sortable-table.mjs')
 jest.mock('./components/tabs/tabs.mjs')
 
 describe('NHS.UK frontend', () => {
@@ -34,6 +36,7 @@ describe('NHS.UK frontend', () => {
     'Header',
     'Radios',
     'SkipLink',
+    'SortableTable',
     'Tabs',
     'Button',
     'CharacterCount',
@@ -75,6 +78,7 @@ describe('NHS.UK frontend', () => {
       expect(NHSUKFrontend).toHaveProperty('NotificationBanner')
       expect(NHSUKFrontend).toHaveProperty('Radios')
       expect(NHSUKFrontend).toHaveProperty('SkipLink')
+      expect(NHSUKFrontend).toHaveProperty('SortableTable')
       expect(NHSUKFrontend).toHaveProperty('Tabs')
     })
 
@@ -92,6 +96,7 @@ describe('NHS.UK frontend', () => {
       expect(NHSUKFrontend).toHaveProperty('initNotificationBanners')
       expect(NHSUKFrontend).toHaveProperty('initRadios')
       expect(NHSUKFrontend).toHaveProperty('initSkipLinks')
+      expect(NHSUKFrontend).toHaveProperty('initSortableTables')
       expect(NHSUKFrontend).toHaveProperty('initTabs')
     })
   })
@@ -109,6 +114,7 @@ describe('NHS.UK frontend', () => {
         <div data-module="${NotificationBanner.moduleName}"></div>
         <div data-module="${Radios.moduleName}"></div>
         <div data-module="${SkipLink.moduleName}"></div>
+        <div data-module="${SortableTable.moduleName}"></div>
         <div data-module="${Tabs.moduleName}"></div>
       `
     })
@@ -276,6 +282,7 @@ describe('NHS.UK frontend', () => {
       expect(NotificationBanner).not.toHaveBeenCalled()
       expect(Radios).not.toHaveBeenCalled()
       expect(SkipLink).not.toHaveBeenCalled()
+      expect(SortableTable).not.toHaveBeenCalled()
       expect(Tabs).not.toHaveBeenCalled()
     })
 
@@ -299,6 +306,7 @@ describe('NHS.UK frontend', () => {
       expect(NotificationBanner).not.toHaveBeenCalled()
       expect(Radios).not.toHaveBeenCalled()
       expect(SkipLink).not.toHaveBeenCalled()
+      expect(SortableTable).not.toHaveBeenCalled()
       expect(Tabs).not.toHaveBeenCalled()
     })
 
@@ -322,6 +330,7 @@ describe('NHS.UK frontend', () => {
       expect(NotificationBanner).not.toHaveBeenCalled()
       expect(Radios).not.toHaveBeenCalled()
       expect(SkipLink).not.toHaveBeenCalled()
+      expect(SortableTable).not.toHaveBeenCalled()
       expect(Tabs).not.toHaveBeenCalled()
     })
   })
