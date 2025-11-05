@@ -134,7 +134,7 @@ export const params = {
     type: 'string',
     required: false,
     description:
-      'Attribute to meet [WCAG success criterion 1.3.5: Identify input purpose](https://www.w3.org/WAI/WCAG22/Understanding/identify-input HTML standard](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html.'
+      'Attribute to meet [WCAG success criterion 1.3.5: Identify input purpose](https://www.w3.org/WAI/WCAG22/Understanding/identify-input-purpose.html), for instance `"bday-day"`. See the [Autofill section in the HTML standard](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill) for a full list of attributes that can be used.'
   },
   attributes: {
     type: 'object',
