@@ -35,6 +35,11 @@ export const params = {
     type: 'boolean',
     required: false,
     description: 'Whether the legend also acts as the heading for the page.'
+  },
+  size: {
+    type: 'string',
+    required: false,
+    description: 'Size of the legend – `"s"`, `"m"`, `"l"` or `"xl"`.'
   }
 }
 

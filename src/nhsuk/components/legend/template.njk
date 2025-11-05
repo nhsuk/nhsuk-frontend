@@ -3,6 +3,10 @@
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-fieldset__legend" -%}
 
+{%- if params.size and params.size in ["s", "m", "l", "xl"] %}
+  {% set classNames = classNames ~ " nhsuk-fieldset__legend--" ~ params.size %}
+{% endif %}
+
 {%- if params.classes %}
   {% set classNames = classNames ~ " " ~ params.classes %}
 {% endif %}
