@@ -485,7 +485,7 @@
 @mixin nhsuk-flex-item {
   display: flex;
 
-  @include nhsuk-media-query($until: desktop) {
+  @include nhsuk-media-query($until: tablet) {
     flex: 0 0 100%;
   }
 }
