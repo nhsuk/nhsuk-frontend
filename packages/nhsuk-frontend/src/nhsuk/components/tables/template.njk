@@ -4,7 +4,16 @@
 {%- set classNames = "nhsuk-table" if not params.responsive else "nhsuk-table-responsive" -%}
 {%- set classNamesCaption = "nhsuk-table__caption" -%}
 
-{%- if params.captionSize %}
+{%- if params.captionSize and
+  params.captionSize in ["s", "m", "l", "xl"] and (
+    not params.captionClasses or (
+      not "nhsuk-label--s" in params.captionClasses and
+      not "nhsuk-label--m" in params.captionClasses and
+      not "nhsuk-label--l" in params.captionClasses and
+      not "nhsuk-label--xl" in params.captionClasses
+    )
+  )
+%}
   {% set classNamesCaption = classNamesCaption ~ " nhsuk-table__caption--" ~ params.captionSize %}
 {% endif %}
 

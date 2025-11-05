@@ -3,7 +3,16 @@
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-label" -%}
 
-{%- if params.size and params.size in ["s", "m", "l", "xl"] %}
+{%- if params.size and
+  params.size in ["s", "m", "l", "xl"] and (
+    not params.classes or (
+      not "nhsuk-label--s" in params.classes and
+      not "nhsuk-label--m" in params.classes and
+      not "nhsuk-label--l" in params.classes and
+      not "nhsuk-label--xl" in params.classes
+    )
+  )
+%}
   {% set classNames = classNames ~ " nhsuk-label--" ~ params.size %}
 {% endif %}
 
