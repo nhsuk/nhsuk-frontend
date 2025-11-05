@@ -138,7 +138,7 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
 
     @include nhsuk-flex;
 
-    @include nhsuk-media-query($until: desktop) {
+    @include nhsuk-media-query($until: tablet) {
       margin-bottom: nhsuk-spacing(6);
     }
 
@@ -160,7 +160,7 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
       margin-bottom: nhsuk-spacing(5);
     }
 
-    @include nhsuk-media-query($until: desktop) {
+    @include nhsuk-media-query($until: tablet) {
       .nhsuk-card {
         margin-bottom: nhsuk-spacing(3);
       }
@@ -320,7 +320,7 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
   .nhsuk-card__content--primary {
     @include nhsuk-responsive-spacing(5, "padding", $direction: "right", $adjustment: nhsuk-spacing(7));
 
-    @include nhsuk-media-query($from: desktop) {
+    @include nhsuk-media-query($from: tablet) {
       height: 100%;
     }
   }
