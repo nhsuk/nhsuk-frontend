@@ -123,6 +123,24 @@ export const examples = {
       }
     }
   },
+  'with legend heading level 1': {
+    context: {
+      legend: {
+        text: 'What is your address?',
+        size: 'l',
+        headingLevel: 1
+      }
+    }
+  },
+  'with legend heading level 2': {
+    context: {
+      legend: {
+        text: 'What is your address?',
+        size: 'm',
+        headingLevel: 2
+      }
+    }
+  },
   'without page heading': {
     context: {
       legend: {
