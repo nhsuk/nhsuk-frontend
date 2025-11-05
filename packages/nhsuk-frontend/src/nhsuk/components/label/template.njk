@@ -1,10 +1,28 @@
-{% from "nhsuk/macros/attributes.njk" import nhsukAttributes -%}
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
-{% if params.html or params.text %}
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-label" -%}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif %}
+
+{%- if params.html or params.text %}
 {% set labelHtml %}
-<label {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-label {%- if params.classes %} {{ params.classes }}{% endif %}"
-  {{- nhsukAttributes(params.attributes) -}}
-  {%- if params.for %} for="{{ params.for }}"{% endif %}>
+<label
+  {{- nhsukAttributes({
+    class: classNames,
+    id: {
+      value: params.id,
+      optional: true
+    },
+    for: {
+      value: params.for,
+      optional: true
+    }
+  }) -}}
+
+  {{- nhsukAttributes(params.attributes) }}>
   {{ params.html | safe | trim | indent(2) if params.html else params.text }}
 </label>
 {% endset -%}
