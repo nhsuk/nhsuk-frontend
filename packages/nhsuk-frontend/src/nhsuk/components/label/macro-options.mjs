@@ -40,6 +40,11 @@ export const params = {
     required: false,
     description: 'Whether the label also acts as the heading for the page.'
   },
+  size: {
+    type: 'string',
+    required: false,
+    description: 'Size of the label – `"s"`, `"m"`, `"l"` or `"xl"`.'
+  },
   classes: {
     type: 'string',
     required: false,
