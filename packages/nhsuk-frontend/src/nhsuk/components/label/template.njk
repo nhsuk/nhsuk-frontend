@@ -20,6 +20,8 @@
   {% set classNames = classNames ~ " " ~ params.classes %}
 {% endif %}
 
+{%- set headingLevel = params.headingLevel if params.headingLevel else 1 %}
+
 {%- if caller or params.html or params.text %}
 {% set labelHtml %}
 <label
@@ -44,10 +46,10 @@
 </label>
 {% endset -%}
 
-{% if params.isPageHeading %}
-<h1 class="nhsuk-label-wrapper">
+{% if params.isPageHeading or params.headingLevel %}
+<h{{ headingLevel }} class="nhsuk-label-wrapper">
   {{ labelHtml | safe | trim | indent(2) }}
-</h1>
+</h{{ headingLevel }}>
 {% else %}
 {{ labelHtml | safe | trim }}
 {% endif %}
