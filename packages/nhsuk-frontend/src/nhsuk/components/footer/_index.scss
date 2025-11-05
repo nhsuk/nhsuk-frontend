@@ -49,7 +49,7 @@ $nhsuk-footer-border-colour: nhsuk-colour("grey-3");
     }
 
     .nhsuk-footer__list-item {
-      @include nhsuk-media-query($from: desktop) {
+      @include nhsuk-media-query($from: tablet) {
         display: inline-block;
         margin-right: $nhsuk-gutter;
       }

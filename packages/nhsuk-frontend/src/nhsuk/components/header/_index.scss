@@ -414,7 +414,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     }
 
     .nhsuk-header__navigation--justified & {
-      @include nhsuk-media-query($from: desktop) {
+      @include nhsuk-media-query($from: tablet) {
         justify-content: space-between;
       }
     }
@@ -570,7 +570,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
         border-left-width: $_header-item-active-size;
 
         // stylelint-disable-next-line max-nesting-depth
-        @include nhsuk-media-query($from: desktop) {
+        @include nhsuk-media-query($from: tablet) {
           left: -$nhsuk-gutter;
         }
       }
