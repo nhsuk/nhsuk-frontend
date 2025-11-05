@@ -35,11 +35,6 @@
             classes: "nhsuk-fieldset__legend--m"
           }
         }) %}
-          {% set buttonHtml = button({
-            text: "Search",
-            classes: "nhsuk-button--secondary nhsuk-button--small"
-          }) | trim %}
-
           {{ input({
             label: {
               text: "NHS number"
@@ -50,7 +45,10 @@
             formGroup: {
               classes: "nhsuk-u-width-one-half",
               afterInput: {
-                html: buttonHtml | safe
+                html: button({
+                  text: "Search",
+                  classes: "nhsuk-button--secondary nhsuk-button--small"
+                })
               }
             }
           }) }}
@@ -64,11 +62,6 @@
             classes: "nhsuk-fieldset__legend--m"
           }
         }) %}
-          {% set buttonHtml = button({
-            text: "Search",
-            classes: "nhsuk-button--secondary nhsuk-button--small"
-          }) | trim %}
-
           {{ input({
             label: {
               text: "NHS number"
@@ -82,7 +75,10 @@
             formGroup: {
               classes: "nhsuk-u-width-one-half",
               afterInput: {
-                html: buttonHtml | safe
+                html: button({
+                  text: "Search",
+                  classes: "nhsuk-button--secondary nhsuk-button--small"
+                })
               }
             }
           }) }}
@@ -96,11 +92,6 @@
             classes: "nhsuk-fieldset__legend--m"
           }
         }) %}
-          {% set buttonHtml = button({
-            text: "Sort",
-            classes: "nhsuk-button--secondary nhsuk-button--small"
-          }) | trim %}
-
           {{ select({
             label: {
               text: "Sort by"
@@ -129,7 +120,10 @@
             formGroup: {
               classes: "nhsuk-u-width-one-half",
               afterInput: {
-                html: buttonHtml | safe
+                html: button({
+                  text: "Sort",
+                  classes: "nhsuk-button--secondary nhsuk-button--small"
+                })
               }
             }
           }) }}
@@ -143,11 +137,6 @@
             classes: "nhsuk-fieldset__legend--m"
           }
         }) %}
-          {% set buttonHtml = button({
-            text: "Sort",
-            classes: "nhsuk-button--secondary nhsuk-button--small"
-          }) | trim %}
-
           {{ select({
             label: {
               text: "Sort by"
@@ -179,7 +168,10 @@
             formGroup: {
               classes: "nhsuk-u-width-one-half",
               afterInput: {
-                html: buttonHtml | safe
+                html: button({
+                  text: "Sort",
+                  classes: "nhsuk-button--secondary nhsuk-button--small"
+                })
               }
             }
           }) }}

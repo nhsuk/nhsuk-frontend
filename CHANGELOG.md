@@ -11,12 +11,15 @@ You can now add inline buttons to text inputs and select menus using the `formGr
 ```njk
 {{ input({
   label: {
-    text: "Search"
+    text: "NHS number"
   },
   name: "search",
   formGroup: {
     afterInput: {
-      html: buttonHtml | safe
+      html: button({
+        text: "Search",
+        classes: "nhsuk-button--small"
+      })
     }
   }
 }) }}
