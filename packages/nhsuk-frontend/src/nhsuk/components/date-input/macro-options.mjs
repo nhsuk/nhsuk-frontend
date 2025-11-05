@@ -58,13 +58,13 @@ export const params = {
         type: 'string',
         required: false,
         description:
-          'Attribute to meet [WCAG success criterion 1.3.5: Identify input purpose](https://www.w3.org/WAI/WCAG22/Understanding/identify-input-purposeandard](https://html.spec.whatwg.org/multipage/form-control-infrastructure used.'
+          'Attribute to meet [WCAG success criterion 1.3.5: Identify input purpose](https://www.w3.org/WAI/WCAG22/Understanding/identify-input-purpose). See the [HTML Standard](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-input-autocomplete) for more information.'
       },
       pattern: {
         type: 'string',
         required: false,
         description:
-          'Attribute to [provide a regular expression pattern](https://html.spec.whatharacter combinations for the input value.'
+          'Attribute to [provide a regular expression pattern](https://html.spec.whatwg.org/multipage/input.html#attr-input-pattern) to validate character combinations for the input value.'
       },
       classes: {
         type: 'string',
