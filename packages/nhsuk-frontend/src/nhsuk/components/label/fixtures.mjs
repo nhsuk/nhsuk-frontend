@@ -7,7 +7,7 @@ export const examples = {
   'default': {
     context: {
       text: 'What is your full name?',
-      classes: 'nhsuk-label--l',
+      size: 'l',
       isPageHeading: true
     },
     screenshot: {
@@ -23,25 +23,25 @@ export const examples = {
       {
         description: 'with size S',
         context: {
-          classes: 'nhsuk-label--s'
+          size: 's'
         }
       },
       {
         description: 'with size M',
         context: {
-          classes: 'nhsuk-label--m'
+          size: 'm'
         }
       },
       {
         description: 'with size L',
         context: {
-          classes: 'nhsuk-label--l'
+          size: 'l'
         }
       },
       {
         description: 'with size XL',
         context: {
-          classes: 'nhsuk-label--xl'
+          size: 'xl'
         }
       }
     ],
