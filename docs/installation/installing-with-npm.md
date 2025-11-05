@@ -4,7 +4,7 @@
 
 1. [Install Node.js](https://nodejs.org/en/).
 
-   NHS.UK frontend requires Node.js version 20.9.0 or later. Where possible, we recommend you install the latest Long Term Support (LTS) version.
+   NHS.UK frontend requires Node.js version 20.9.0 or later. Where possible, we recommend you install the latest [Long Term Support (LTS) version](https://nodejs.org/en/download/).
 
 2. `cd` to the root of your project and check if you have a [`package.json` file](https://docs.npmjs.com/files/package.json). If you do not have the file, create it by running:
 
