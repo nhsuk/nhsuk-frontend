@@ -1,15 +1,23 @@
-{% extends 'layouts/layout.njk' %}
+{% extends "layouts/page.njk" %}
 
-{% set htmlAttributes = htmlAttributes | default({ style: "background-color: #f0f4f5;" }) %}
-{% set bodyAttributes = bodyAttributes | default(htmlAttributes) %}
+{% set htmlAttributes = htmlAttributes | default({ class: "app-template" }) %}
+{% set bodyAttributes = bodyAttributes | default({ class: "app-template__body" }) %}
 
 {# Turn the skip link off #}
 {% block skipLink %}{% endblock %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-two-thirds">
+    <div class="nhsuk-grid-column-{{ options.width | default("two-thirds", true) }}">
       {% block example %}{% endblock %}
     </div>
   </div>
 {% endblock %}
+
+{% block bodyEnd %}
+  <script type="module" src="{{ baseUrl }}javascripts/nhsuk-frontend.min.js"></script>
+  <script type="module">
+    import { initAll } from '{{ baseUrl }}javascripts/nhsuk-frontend.min.js'
+    initAll()
+  </script>
+{% endblock %}}

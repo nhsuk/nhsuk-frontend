@@ -63,6 +63,12 @@ export const params = {
     required: false,
     description:
       'Plain text label identifying the landmark to screen readers. Defaults to "Breadcrumb".'
+  },
+  backLink: {
+    type: 'object',
+    required: false,
+    description: 'The back link used by the breadcrumbs component on mobile.',
+    isComponent: true
   }
 }
 
@@ -72,24 +78,20 @@ export const params = {
  * @satisfies {{ [example: string]: MacroExample }}
  */
 export const examples = {
-  default: {
+  'default': {
     context: {
       items: [
         {
           href: '#',
-          text: 'Level one'
+          text: 'Home'
         },
         {
           href: '#',
-          text: 'Level two'
+          text: 'NHS services'
         },
         {
           href: '#',
-          text: 'Level three'
-        },
-        {
-          href: '#',
-          text: 'Level four'
+          text: 'Hospitals'
         }
       ]
     },
@@ -98,58 +100,95 @@ export const examples = {
       selector: '.nhsuk-breadcrumb a'
     }
   },
-  reverse: {
-    layout: 'layouts/example-background-blue.njk',
+  'reverse': {
     context: {
       classes: 'nhsuk-breadcrumb--reverse',
       items: [
         {
           href: '#',
-          text: 'Level one'
+          text: 'Home'
         },
         {
           href: '#',
-          text: 'Level two'
+          text: 'NHS services'
         },
         {
           href: '#',
-          text: 'Level three'
-        },
-        {
-          href: '#',
-          text: 'Level four'
+          text: 'Hospitals'
         }
       ]
+    },
+    options: {
+      layout: 'background-blue'
     },
     screenshot: {
       states: ['focus', 'hover', 'active'],
       selector: '.nhsuk-breadcrumb a'
     }
   },
-  attributes: {
+  'with back link as a button': {
     context: {
       items: [
         {
           href: '#',
-          text: 'Level one',
+          text: 'Home'
+        },
+        {
+          href: '#',
+          text: 'Search results'
+        }
+      ],
+      backLink: {
+        element: 'button'
+      }
+    }
+  },
+  'with back link custom text': {
+    context: {
+      items: [
+        {
+          href: '#',
+          text: 'Home'
+        },
+        {
+          href: '#',
+          text: 'Advanced search'
+        }
+      ],
+      backLink: {
+        text: 'Search results',
+        href: '#'
+      }
+    }
+  },
+  'attributes': {
+    context: {
+      id: 'with-attributes',
+      items: [
+        {
+          href: '#',
+          text: 'Home',
           attributes: { lang: 'en' }
         },
         {
           href: '#',
-          text: 'Level two'
-        },
-        {
-          href: '#',
-          text: 'Level three',
+          text: 'NHS services',
           attributes: { lang: 'en' }
         },
         {
           href: '#',
-          text: 'Level four',
+          text: 'Hospitals',
           classes: 'example-class-one example-class-two',
           attributes: { lang: 'en' }
         }
-      ]
+      ],
+      backLink: {
+        id: 'back-link-with-attributes',
+        attributes: { lang: 'en' }
+      }
+    },
+    options: {
+      hidden: true
     }
   }
 }

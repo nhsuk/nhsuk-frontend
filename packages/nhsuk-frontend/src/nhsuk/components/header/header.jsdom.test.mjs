@@ -1,4 +1,4 @@
-import { setTimeout } from 'node:timers/promises'
+import * as timers from 'node:timers/promises'
 
 import { components } from '@nhsuk/frontend-lib'
 import { fireEvent, getByRole } from '@testing-library/dom'
@@ -13,6 +13,9 @@ describe('Header class', () => {
   /** @type {HTMLElement} */
   let $root
 
+  /** @type {HTMLAnchorElement | null} */
+  let $serviceLogo
+
   /** @type {HTMLElement} */
   let $navigation
 
@@ -25,10 +28,25 @@ describe('Header class', () => {
   let listWidth = 0
   let itemWidth = 0
 
+  /**
+   * @param {keyof typeof examples} example
+   */
+  function initExample(example) {
+    document.body.innerHTML = components.render('header', examples[example])
+
+    $root = /** @type {HTMLElement} */ (
+      document.querySelector(`[data-module="${Header.moduleName}"]`)
+    )
+
+    $serviceLogo = /** @type {HTMLAnchorElement | null} */ (
+      $root.querySelector('.nhsuk-header__service-logo')
+    )
+  }
+
   beforeEach(() => {
     document.body.innerHTML = components.render(
       'header',
-      examples['with navigation overflow']
+      examples['blue with navigation (overflow)']
     )
 
     $root = /** @type {HTMLElement} */ (
@@ -191,6 +209,59 @@ describe('Header class', () => {
     })
   })
 
+  describe('Accessibility', () => {
+    it('should append ‘homepage’ to linked NHS logo', () => {
+      initExample('blue (linked logo)')
+
+      expect($serviceLogo).toHaveAccessibleName('NHS homepage')
+      expect($serviceLogo).toHaveAttribute('aria-label', 'NHS homepage')
+    })
+
+    it('should use a custom `aria-label` for linked NHS logo', () => {
+      initExample('white (linked logo, ARIA label)')
+
+      expect($serviceLogo).toHaveAccessibleName('NHS white homepage')
+      expect($serviceLogo).toHaveAttribute('aria-label', 'NHS white homepage')
+    })
+
+    it('should append ‘homepage’ to linked NHS logo with separate service name', () => {
+      initExample('blue with service name')
+
+      expect($serviceLogo).toHaveAccessibleName('NHS homepage')
+      expect($serviceLogo).toHaveAttribute('aria-label', 'NHS homepage')
+    })
+
+    it('should append ‘homepage’ to linked service name logo combo', () => {
+      initExample('blue with service name (linked with logo)')
+
+      expect($serviceLogo).toHaveAccessibleName('NHS Prototype kit homepage')
+    })
+
+    it('should append ‘homepage’ to linked logo and organisation name', () => {
+      initExample('blue with organisation name')
+
+      expect($serviceLogo).toHaveAccessibleName(
+        'NHS Business Services Authority homepage'
+      )
+    })
+
+    it('should append ‘homepage’ to linked logo and split organisation name', () => {
+      initExample('blue with organisation name (split with descriptor), search')
+
+      expect($serviceLogo).toHaveAccessibleName(
+        'NHS Anytown Anyplace Anywhere homepage'
+      )
+    })
+
+    it('should append ‘homepage’ to linked custom logo', () => {
+      initExample('white (linked logo, custom)')
+
+      expect($serviceLogo).toHaveAccessibleName(
+        'Great Ormond Street Hospital for Children, NHS Foundation Trust homepage'
+      )
+    })
+  })
+
   describe('Menu button', () => {
     it('should be hidden by default', () => {
       expect($menuButton).toHaveRole('button')
@@ -259,7 +330,7 @@ describe('Header class', () => {
 
       // Trigger resize
       fireEvent.resize(window)
-      await setTimeout(100)
+      await timers.setTimeout(100)
 
       // Menu open (still)
       expect($menuButton.nextElementSibling).not.toHaveAttribute('hidden')
@@ -280,7 +351,7 @@ describe('Header class', () => {
 
       // Trigger resize
       fireEvent.resize(window)
-      await setTimeout(100)
+      await timers.setTimeout(100)
 
       // Menu closed
       expect($menuButton.nextElementSibling).toHaveAttribute('hidden')
@@ -338,7 +409,7 @@ describe('Header class', () => {
 
       // Trigger resize
       fireEvent.resize(window)
-      await setTimeout(100)
+      await timers.setTimeout(100)
 
       expect($menuButton.nextElementSibling).toBeInTheDocument()
       expect($menuButton.nextElementSibling).toHaveRole('list')
@@ -413,7 +484,7 @@ describe('Header class', () => {
 
         // Trigger resize
         fireEvent.resize(window)
-        await setTimeout(100)
+        await timers.setTimeout(100)
 
         const $listItems = $navigation.querySelectorAll('div > ul > li')
         const $menuItems = $navigation.querySelectorAll('div > ul > li li')
@@ -434,7 +505,7 @@ describe('Header class', () => {
 
         // Trigger resize
         fireEvent.resize(window)
-        await setTimeout(100)
+        await timers.setTimeout(100)
 
         const $listItems = $navigation.querySelectorAll('div > ul > li')
         const $menuItems = $navigation.querySelectorAll('div > ul > li li')

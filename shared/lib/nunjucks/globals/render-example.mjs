@@ -1,0 +1,65 @@
+import filters from 'nunjucks/src/filters.js'
+
+/**
+ * Render Nunjucks component with unique attributes
+ *
+ * @param {MacroExampleFixture} fixture - Nunjucks macro example fixture
+ * @param {string | number} [index] - Unique index to append to attribute values (optional)
+ */
+export function renderExample(fixture, index) {
+  let { html } = fixture
+
+  if (index) {
+    html = html
+
+      // Append unique ID to attribute value
+      .replace(
+        / (href|id|for|name)="([^"]*)"/g,
+        (match, name, value) => ` ${name}="${uniqueValue(value, index)}"`
+      )
+
+      // Append unique ID to attribute value(s)
+      .replace(
+        / (aria-controls|aria-describedby|aria-labelledby)="([^"]*)"/g,
+        (match, name, values) => ` ${name}="${uniqueValues(values, index)}"`
+      )
+  }
+
+  return filters.safe(html)
+}
+
+/**
+ * Make value unique
+ *
+ * @param {string} value - Attribute value
+ * @param {string | number} index - Unique index to append to attribute value
+ */
+export function uniqueValue(value, index) {
+  if (!value || value === '#') {
+    return value
+  }
+
+  const [, prefix, suffix] =
+    /(.+)-((item-)+?hint|info|error)$/.exec(value) ?? []
+
+  return prefix && suffix
+    ? `${prefix}-${index}-${suffix}` // 'example-5-hint'
+    : `${value}-${index}` // 'example-5'
+}
+
+/**
+ * Make space-separated values unique
+ *
+ * @param {string} values - Attribute values, space-separated
+ * @param {string | number} index - Unique index to append to attribute values
+ */
+export function uniqueValues(values, index) {
+  return values
+    .split(' ')
+    .map((value) => uniqueValue(value, index))
+    .join(' ')
+}
+
+/**
+ * @import { MacroExampleFixture } from '@nhsuk/frontend-lib/components.mjs'
+ */

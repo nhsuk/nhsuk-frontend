@@ -2,30 +2,227 @@
 
 ## Unreleased
 
+### :recycle: **Changes**
+
+#### Remove global box sizing reset
+
+We have removed the global `box-sizing` reset and added `box-sizing: border-box` only where necessary.
+
+Please review any custom styles, especially those with defined widths, to make sure they have a correctly calculated box size.
+
+This change was introduced in pull requests [#1633: Review global `box-sizing` usage](https://github.com/nhsuk/nhsuk-frontend/pull/1633) and [#1651: Add `box-sizing: border-box` to width utility classes etc](https://github.com/nhsuk/nhsuk-frontend/pull/1651).
+
+### :wrench: **Fixes**
+
+- [#1633: Review global `box-sizing` usage](https://github.com/nhsuk/nhsuk-frontend/pull/1633)
+- [#1635: Resolve Nunjucks template issues flagged by Jinja port](https://github.com/nhsuk/nhsuk-frontend/pull/1635)
+- [#1653: Only show a task list item if not empty](https://github.com/nhsuk/nhsuk-frontend/pull/1653)
+
+## 10.1.0 - 15 October 2025
+
 ### :new: **New features**
+
+#### Localise character count component
+
+You can now translate the text used by the [character count](https://service-manual.nhs.uk/design-system/components/character-count) component to:
+
+- show when the maximum number of characters or words is reached
+- show the number of characters or words over or under the allowed maximum
+- update the textarea description if JavaScript is not available
+- announce to screen readers when the textarea is focused
+
+The Nunjucks macro accepts new options so you can customise each message. You can:
+
+- Use `charactersAtLimitText` or `wordsAtLimitText` to provide the text that shows when users have reached the limit.
+- Use `charactersUnderLimitText` or `wordsUnderLimitText` to provide the text that shows when users are under the limit. The component will pluralise the message according to the configured locale and the number of characters or words remaining.
+- Use `charactersOverLimitText` or `wordsOverLimitText` to provide the text that shows when users are over the limit. The component will pluralise the message according to the configured locale and the number of characters or words remaining.
+- Use `textareaDescriptionText` to provide the textarea description for assistive technologies. It is visible on the page when JavaScript is unavailable.
+
+The component will replace `%{count}` with the number of characters over or under the limit.
+
+If you're not using Nunjucks macros, you can use data-\* attributes to provide these translations. Within the attribute value, any [quotation marks or other characters reserved by HTML](https://developer.mozilla.org/en-US/docs/Glossary/Character_reference) needs to be converted into their HTML entity equivalents.
+
+You can:
+
+- use `data-i18n.characters-at-limit` or `data-i18n.words-at-limit` for when users are at the limit
+- configure the text that informs the end user they are under the character or word limit, by using `data-i18n.characters-under-limit.{other,many,few,two,one,zero}` or `data-i18n.words-under-limit.{other,many,few,two,one,zero}`, with one suffix for each plural form required by your locale
+- configure the text that informs the end user they are over the character or word limit, by using `data-i18n.characters-over-limit.{other,many,few,two,one,zero}` or `data-i18n.words-over-limit.{other,many,few,two,one,zero}`, with one suffix for each plural form required by your locale
+- configure the description provided to assistive technologies when users focus the input, by using `data-i18n.textarea-description.{other,many,few,two,one,zero}` to provide the text to set as the description
+
+You can also provide these messages using a JavaScript configuration object when creating an instance of the component or initialising all components. See [our guidance on localising NHS.UK frontend](/docs/configuration/localisation.md) for how to do this.
+
+This was added in [pull request #1565: Add character count localisation](https://github.com/nhsuk/nhsuk-frontend/pull/1565).
+
+#### Smaller versions of radio buttons and checkboxes
+
+You can now use smaller versions of the [radios](https://service-manual.nhs.uk/design-system/components/radios) and [checkboxes](https://service-manual.nhs.uk/design-system/components/checkboxes) components by adding the `nhsuk-radios--small` or `nhsuk-checkboxes--small` class.
+
+This was added in [pull request #1567: Uplift GOV.UK Frontend form field components](https://github.com/nhsuk/nhsuk-frontend/pull/1567).
+
+#### Updated Nunjucks macro options for components
+
+For consistency with other components, we’ve added new Nunjucks macro options:
+
+- Back link `visuallyHiddenText` option
+- Breadcrumbs nested `backLink` component option
+- Contents list `landmarkLabel` and `visuallyHiddenTitle` options
+- Do and Don't list `prefixText` option, with nested item `text` and `html` options
+- Fieldset `html` and `role` options
+- Header navigation `toggleMenuText` and `toggleMenuVisuallyHiddenText` options
+- Inset text `visuallyHiddenText` option
+- Pagination `previous`, `next` and `landmarkLabel` options
+- Radios item `disabled` and `attributes` options
+- Text input `autocapitalize` and `disabled` options, with prefix and suffix nested `text`, `html`, `classes` and `attributes` options
+- Textarea `disabled` and `spellcheck` options
+- Warning callout `visuallyHiddenText` option
+
+Visit the [design system in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components) to see Nunjucks options for each component.
+
+This was added in [pull request #1567: Uplift GOV.UK Frontend form field components](https://github.com/nhsuk/nhsuk-frontend/pull/1567).
+
+#### Updated appearance of disabled form controls
+
+We’ve updated the disabled state of radio buttons, checkboxes, text inputs, textareas and select menus so it is consistent across browsers and devices.
+
+Disabled form controls appear at 50% opacity and with an alternative cursor appearance when hovered over.
+
+This was added in [pull request #1567: Uplift GOV.UK Frontend form field components](https://github.com/nhsuk/nhsuk-frontend/pull/1567).
 
 #### Insert custom HTML into component form group wrappers
 
 You can now insert custom HTML into form group wrappers for all components with form fields.
 
 ```njk
-input({
+{{ input({
   formGroup: {
     beforeInput: {
       html: "example"
     },
     afterInput: {
       html: "example"
-    },
+    }
   }
-})
+}) }}
 ```
 
 This was added in [pull request #1561: Add `beforeInput(s)` and `beforeInput(s)` options to form groups](https://github.com/nhsuk/nhsuk-frontend/pull/1561).
 
+#### Numbered pagination component
+
+The pagination component now supports numbered pagination, for example where you have a long list of of items to navigate.
+
+You can use it like this:
+
+```njk
+pagination({
+  previous: {
+    href: "#"
+  },
+  next: {
+    href: "#"
+  },
+  items: [
+    {
+      number: 1,
+      href: "#"
+    },
+    {
+      number: 2,
+      href: "#",
+      current: true
+    },
+    {
+      number: 3,
+      href: "#"
+    }
+  ]
+})
+```
+
+This was added in [pull request #1026: Add numbered pagination](https://github.com/nhsuk/nhsuk-frontend/pull/1026).
+
+### :wastebasket: **Deprecated features**
+
+#### Rename Sass variables for border width and colour
+
+If you use Sass and you've extended or created components that use the following border variables:
+
+- rename `$nhsuk-border-width-mobile` to `$nhsuk-border-width`
+- rename `$nhsuk-border-width-form-element-error` to `$nhsuk-border-width-form-element`
+
+The previous names are deprecated and will be removed in a future release.
+
+This change was introduced in [pull request #1594: Always set input `:focus` box-shadow colour](https://github.com/nhsuk/nhsuk-frontend/pull/1594).
+
+### :recycle: **Changes**
+
+#### Do and Don't list Nunjucks options
+
+For consistency with other components, the do and don't list Nunjucks options have changed. The previous names are deprecated and will be removed in a future release.
+
+If you're using the `list` Nunjucks macro in your service, you should update the nested `items` option, using `text` or `html` instead of `item`.
+
+```patch
+  {{ list({
+    title: "Do",
+    type: "tick",
+    items: [
+      {
+-       item: "cover blisters with a soft plaster or padded dressing"
++       text: "cover blisters with a soft plaster or padded dressing"
+      },
+      {
+-       item: "wash your hands before touching a burst blister"
++       text: "wash your hands before touching a burst blister"
+      },
+      {
+-       item: "allow the fluid in a burst blister to drain before covering it with a plaster or dressing"
++       text: "allow the fluid in a burst blister to drain before covering it with a plaster or dressing"
+      }
+    ]
+  }) }}
+```
+
+This change was introduced in [pull request #1620: Make all Nunjucks components text configurable](https://github.com/nhsuk/nhsuk-frontend/pull/1620).
+
+#### Pagination Nunjucks options
+
+For consistency with other components, the pagination Nunjucks options have changed. The previous names are deprecated and will be removed in a future release.
+
+If you're using the `pagination` Nunjucks macro in your service, you should:
+
+- replace the `previousUrl` option with the nested `previous.href` option
+- replace the `previousPage` option with the nested `previous.labelText` option
+- replace the `nextUrl` option with the nested `next.href` option
+- replace the `nextPage` option with the nested `next.labelText` option
+
+```patch
+  {{ pagination({
+-   previousPage: "Treatments",
+-   previousUrl: "/section/treatments",
++   previous: {
++     labelText: "Treatments",
++     href: "/section/treatments"
++   },
+-   nextPage: "Symptoms",
+-   nextUrl: "/section/symptoms"
++   next: {
++     labelText: "Symptoms",
++     href: "/section/symptoms"
++   }
+  }) }}
+```
+
+This change was introduced in [pull request #1620: Make all Nunjucks components text configurable](https://github.com/nhsuk/nhsuk-frontend/pull/1620).
+
 ### :wrench: **Fixes**
 
+- [#1593: Fix Sass deprecated `core/settings/colours` partial](https://github.com/nhsuk/nhsuk-frontend/pull/1593)
+- [#1594: Always set input `:focus` box-shadow colour](https://github.com/nhsuk/nhsuk-frontend/pull/1594)
 - [#1599: Make border colour on `nhsuk-panel` mixin optional](https://github.com/nhsuk/nhsuk-frontend/pull/1599)
+- [#1601: Fix accessible name for linked logo in header component](https://github.com/nhsuk/nhsuk-frontend/pull/1601)
+- [#1612: Fix styling of action link when used in emergency cards](https://github.com/nhsuk/nhsuk-frontend/pull/1612)
+- [#1628: Fix Node.js `ReferenceError: HTMLElement is not defined` when imported server-side](https://github.com/nhsuk/nhsuk-frontend/pull/1628)
 
 ## 10.0.0 - 26 August 2025
 
@@ -313,25 +510,25 @@ Make sure component initialisation functions match the named exports:
 import { initButtons, initCheckboxes } from 'nhsuk-frontend'
 
 // Initialise all button components
-initButtons();
+initButtons()
 
 // Initialise all checkboxes components
-initCheckboxes();
+initCheckboxes()
 ```
 
 Or alternatively, you can initialise individual component classes:
 
 ```js
-import { Button, Checkboxes } from 'nhsuk-frontend';
+import { Button, Checkboxes } from 'nhsuk-frontend'
 
 const $button = document.querySelector('.app-button')
 const $checkboxes = document.querySelector('.app-checkboxes')
 
 // Initialise single button component
-new Button($button);
+new Button($button)
 
 // Initialise single checkboxes component
-new Checkboxes($checkboxes);
+new Checkboxes($checkboxes)
 ```
 
 ### :boom: **Breaking changes** to static assets
@@ -2409,12 +2606,12 @@ After:
 
   ```javascript
   // Components
-  import ErrorSummary from '../node_modules/nhsuk-frontend/packages/components/error-summary/error-summary';
+  import ErrorSummary from '../node_modules/nhsuk-frontend/packages/components/error-summary/error-summary'
 
   // Initialize components
   document.addEventListener('DOMContentLoaded', () => {
-    ErrorSummary();
-  });
+    ErrorSummary()
+  })
   ```
 
   Note: You may need to change the path to `node_modules` depending on your project structure.
@@ -2777,23 +2974,23 @@ After:
 
   ```javascript
   // Components
-  import Header from '../node_modules/nhsuk-frontend/packages/components/header/header';
-  import SkipLink from '../node_modules/nhsuk-frontend/packages/components/skip-link/skip-link';
-  import Details from '../node_modules/nhsuk-frontend/packages/components/details/details';
-  import Radios from '../node_modules/nhsuk-frontend/packages/components/radios/radios';
-  import Checkboxes from '../node_modules/nhsuk-frontend/packages/components/checkboxes/checkboxes';
+  import Header from '../node_modules/nhsuk-frontend/packages/components/header/header'
+  import SkipLink from '../node_modules/nhsuk-frontend/packages/components/skip-link/skip-link'
+  import Details from '../node_modules/nhsuk-frontend/packages/components/details/details'
+  import Radios from '../node_modules/nhsuk-frontend/packages/components/radios/radios'
+  import Checkboxes from '../node_modules/nhsuk-frontend/packages/components/checkboxes/checkboxes'
 
   // Polyfills
-  import '../node_modules/nhsuk-frontend/packages/polyfills';
+  import '../node_modules/nhsuk-frontend/packages/polyfills'
 
   // Initialize components
   document.addEventListener('DOMContentLoaded', () => {
-    Details();
-    Header();
-    SkipLink();
-    Radios();
-    Checkboxes();
-  });
+    Details()
+    Header()
+    SkipLink()
+    Radios()
+    Checkboxes()
+  })
   ```
 
   Note: You may need to change the path to `node_modules` depending on your project structure.
@@ -2923,11 +3120,11 @@ After:
   If you are importing component JavaScript with ES6 imports, you will need to remove the imports and initialisation for the feedback banner:
 
   ```js
-  import nhsuk_feedbackBanner from 'node_modules/nhsuk-frontend/packages/components/feedback-banner/feedback-banner';
+  import nhsuk_feedbackBanner from 'node_modules/nhsuk-frontend/packages/components/feedback-banner/feedback-banner'
   ```
 
   ```js
-  nhsuk_feedbackBanner(3000);
+  nhsuk_feedbackBanner(3000)
   ```
 
   <hr>
@@ -2942,16 +3139,16 @@ After:
 
   ```js
   // Components
-  import Header from './components/header/header';
-  import SkipLink from './components/skip-link/skip-link';
-  import Details from './components/details/details';
+  import Header from './components/header/header'
+  import SkipLink from './components/skip-link/skip-link'
+  import Details from './components/details/details'
 
   // Initialize components
   document.addEventListener('DOMContentLoaded', () => {
-    Details();
-    Header();
-    SkipLink();
-  });
+    Details()
+    Header()
+    SkipLink()
+  })
   ```
 
   If you are already importing JavaScript with these export names, you can change the default export name.

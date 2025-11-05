@@ -1,7 +1,8 @@
 import { join, resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
 
 // Repository root directory
-export const root = resolve(import.meta.dirname, '../../')
+export const root = resolve(fileURLToPath(new URL('../..', import.meta.url)))
 
 // Package for npm publish
 export const pkg = join(root, 'packages/nhsuk-frontend')

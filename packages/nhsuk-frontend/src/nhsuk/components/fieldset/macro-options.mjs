@@ -23,19 +23,19 @@ export const params = {
   legend: {
     type: 'object',
     required: false,
-    description: 'Options for the legend',
+    description: 'The legend for the fieldset component.',
     params: {
       text: {
         type: 'string',
         required: true,
         description:
-          'If `html` is set, this is not required. Text to use within the legend. If `html` is provided, the `text` argument will be ignored.'
+          'If `html` is set, this is not required. Text to use within the legend. If `html` is provided, the `text` option will be ignored.'
       },
       html: {
         type: 'string',
         required: true,
         description:
-          'If `text` is set, this is not required. HTML to use within the legend. If `html` is provided, the `text` argument will be ignored.'
+          'If `text` is set, this is not required. HTML to use within the legend. If `html` is provided, the `text` option will be ignored.'
       },
       classes: {
         type: 'string',
@@ -54,17 +54,27 @@ export const params = {
     required: false,
     description: 'Classes to add to the fieldset container.'
   },
+  role: {
+    type: 'string',
+    required: false,
+    description: 'Optional ARIA role attribute.'
+  },
   attributes: {
     type: 'object',
     required: false,
     description:
       'HTML attributes (for example data attributes) to add to the fieldset container.'
   },
+  html: {
+    type: 'string',
+    required: false,
+    description: 'HTML to use/render within the fieldset element.'
+  },
   caller: {
     type: 'nunjucks-block',
     required: false,
     description:
-      'Not strictly a parameter but a Nunjucks code convention. Using a `call` block enables you to call a macro with all the text inside the tag. This is helpful if you want to pass a lot of content into a macro. To use it, you will need to wrap the entire fieldset component in a `call` block.'
+      'Not strictly a parameter but Nunjucks code convention. Using a `call` block enables you to call a macro with all the text inside the tag. This is helpful if you want to pass a lot of content into a macro. To use it, you will need to wrap the entire fieldset component in a `call` block.'
   }
 }
 
@@ -75,92 +85,6 @@ export const params = {
  */
 export const examples = {
   'default': {
-    context: {
-      legend: {
-        text: 'What is your address?'
-      }
-    },
-    screenshot: {
-      viewports: ['tablet']
-    }
-  },
-  'styled as xl text': {
-    context: {
-      legend: {
-        text: 'What is your address?',
-        classes: 'nhsuk-fieldset__legend--xl'
-      }
-    }
-  },
-  'styled as large text': {
-    context: {
-      legend: {
-        text: 'What is your address?',
-        classes: 'nhsuk-fieldset__legend--l'
-      }
-    }
-  },
-  'styled as medium text': {
-    context: {
-      legend: {
-        text: 'What is your address?',
-        classes: 'nhsuk-fieldset__legend--m'
-      }
-    }
-  },
-  'styled as small text': {
-    context: {
-      legend: {
-        text: 'What is your address?',
-        classes: 'nhsuk-fieldset__legend--s'
-      }
-    }
-  },
-  'as page heading xl': {
-    context: {
-      legend: {
-        text: 'What is your address?',
-        classes: 'nhsuk-fieldset__legend--xl',
-        isPageHeading: true
-      }
-    }
-  },
-  'as page heading l': {
-    context: {
-      legend: {
-        text: 'What is your address?',
-        classes: 'nhsuk-fieldset__legend--l',
-        isPageHeading: true
-      }
-    }
-  },
-  'as page heading m': {
-    context: {
-      legend: {
-        text: 'What is your address?',
-        classes: 'nhsuk-fieldset__legend--m',
-        isPageHeading: true
-      }
-    }
-  },
-  'as page heading s': {
-    context: {
-      legend: {
-        text: 'What is your address?',
-        classes: 'nhsuk-fieldset__legend--s',
-        isPageHeading: true
-      }
-    }
-  },
-  'as page heading without class': {
-    context: {
-      legend: {
-        text: 'What is your address?',
-        isPageHeading: true
-      }
-    }
-  },
-  'with inputs': {
     context: {
       legend: {
         text: 'What is your address?',
@@ -182,7 +106,7 @@ export const examples = {
       ${components.render('input', {
         context: {
           label: {
-            text: 'Address line 2'
+            text: 'Address line 2 (optional)'
           },
           name: 'address-line2',
           autocomplete: 'address-line2'
@@ -203,16 +127,6 @@ export const examples = {
       ${components.render('input', {
         context: {
           label: {
-            text: 'County (optional)'
-          },
-          name: 'address-county',
-          classes: 'nhsuk-u-width-two-thirds'
-        }
-      })}
-
-      ${components.render('input', {
-        context: {
-          label: {
             text: 'Postcode'
           },
           name: 'address-postcode',
@@ -223,6 +137,49 @@ export const examples = {
     `,
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']
+    }
+  },
+  'with legend size XL': {
+    context: {
+      legend: {
+        text: 'What is your address?',
+        classes: 'nhsuk-fieldset__legend--xl',
+        isPageHeading: true
+      }
+    }
+  },
+  'with legend size L': {
+    context: {
+      legend: {
+        text: 'What is your address?',
+        classes: 'nhsuk-fieldset__legend--l',
+        isPageHeading: true
+      }
+    }
+  },
+  'with legend size M': {
+    context: {
+      legend: {
+        text: 'What is your address?',
+        classes: 'nhsuk-fieldset__legend--m',
+        isPageHeading: true
+      }
+    }
+  },
+  'with legend size S': {
+    context: {
+      legend: {
+        text: 'What is your address?',
+        classes: 'nhsuk-fieldset__legend--s',
+        isPageHeading: true
+      }
+    }
+  },
+  'without page heading': {
+    context: {
+      legend: {
+        text: 'What is your address?'
+      }
     }
   }
 }

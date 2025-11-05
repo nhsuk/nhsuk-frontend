@@ -30,6 +30,7 @@ export default {
         'rule-empty-line-before': null,
         'selector-max-id': null,
         'selector-no-qualifying-type': null,
+        'shorthand-property-no-redundant-values': null,
 
         // Allow markdown `*.md` Sass bad examples
         'scss/at-mixin-pattern': null,
@@ -59,13 +60,8 @@ export default {
           properties: ['content', 'content-visibility', 'quotes']
         },
         {
-          // Box-sizing - Allow here until global is decided
           emptyLineBefore: 'threshold',
-          properties: ['box-sizing']
-        },
-        {
-          emptyLineBefore: 'threshold',
-          properties: ['display', 'visibility']
+          properties: ['box-sizing', 'display', 'visibility']
         },
         {
           emptyLineBefore: 'threshold',

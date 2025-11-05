@@ -54,6 +54,7 @@ describe('Core', () => {
         --nhsuk-border-hover-colour: #aeb7bd;
         --nhsuk-secondary-border-colour: rgba(255, 255, 255, 0.2);
         --nhsuk-input-border-colour: #4c6272;
+        --nhsuk-hover-colour: #aeb7bd;
         --nhsuk-input-background-colour: white;
         --nhsuk-link-colour: #005eb8;
         --nhsuk-link-visited-colour: #330072;
@@ -185,6 +186,40 @@ describe('Core', () => {
           expect.anything()
         )
       }
+    })
+  })
+
+  describe('importing using deprecated files', () => {
+    it('outputs a warning when importing the core "settings/colours" file', async () => {
+      const sass = outdent`
+        @forward "core/settings/colours";
+      `
+
+      await compileStringAsync(sass, {
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
+        logger
+      })
+
+      expect(logger.warn).toHaveBeenCalledWith(
+        `Importing using 'core/settings/colours' is deprecated. Update your import statement to import 'core/settings/colours-palette', 'core/settings/colours-applied' and 'core/settings/colours-deprecated'. To silence this warning, update $nhsuk-suppressed-warnings with key: "import-using-settings-colours"`,
+        expect.anything()
+      )
+    })
+
+    it('outputs a warning when importing the core "generic/box-sizing" file', async () => {
+      const sass = outdent`
+        @forward "core/generic/box-sizing";
+      `
+
+      await compileStringAsync(sass, {
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
+        logger
+      })
+
+      expect(logger.warn).toHaveBeenCalledWith(
+        `Importing using 'core/generic/box-sizing' is deprecated. Remove your import statement for 'core/generic/box-sizing'. To silence this warning, update $nhsuk-suppressed-warnings with key: "import-using-generic-box-sizing"`,
+        expect.anything()
+      )
     })
   })
 })

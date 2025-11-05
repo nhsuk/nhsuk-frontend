@@ -1,13 +1,10 @@
-import { createRequire } from 'node:module'
+import { readFileSync } from 'node:fs'
 import { basename, join } from 'node:path'
 
 import { paths } from '@nhsuk/frontend-config'
 import camelCase from 'lodash/camelCase.js'
 
 import { files, nunjucks } from './index.mjs'
-
-// Create require for sync import
-const importSync = createRequire(import.meta.url)
 
 /**
  * Load single component data (from source)
@@ -23,12 +20,12 @@ export async function load(component) {
 
   const collator = new Intl.Collator('en', {
     ignorePunctuation: true,
+    numeric: true,
     sensitivity: 'base'
   })
 
-  // Bypass import cache (e.g. Gulp watch changes)
   const options = /** @type {Omit<ComponentData, "component">} */ (
-    await import(`${optionsPath}?imported=${Date.now()}`)
+    await import(optionsPath)
   )
 
   // Add component directory name to options
@@ -39,12 +36,33 @@ export async function load(component) {
 
   // Sort examples by name, default at top
   data.examples = Object.fromEntries(
-    Object.entries(options.examples ?? {}).sort(([nameA], [nameB]) =>
-      collator.compare(
-        nameA.replace('default', ''),
-        nameB.replace('default', '')
-      )
-    )
+    Object.entries(options.examples ?? {}).sort(([nameA], [nameB]) => {
+      for (const [find, replace] of /** @type {const} */ ([
+        // Sort default to top
+        ['default', ''],
+
+        // Sort do before don't
+        ['(do)', '1 do-dont'],
+        ["(don't)", '2 do-dont'],
+
+        // Sort urgent with non-urgent
+        ['non-', ''],
+
+        // Sort sizes numerically
+        ['size S', 'size 1'],
+        ['size M', 'size 2'],
+        ['size L', 'size 3'],
+        ['size XL', 'size 4'],
+
+        // Sort small form controls to end
+        [/^small/, 'ZZZ']
+      ])) {
+        nameA = nameA.replace(find, replace)
+        nameB = nameB.replace(find, replace)
+      }
+
+      return collator.compare(nameA, nameB)
+    })
   )
 
   return data
@@ -113,11 +131,22 @@ export function getMacroOptions(params) {
  * @returns {MacroExampleFixtures} Nunjucks macro example fixtures
  */
 export function getFixtures(component) {
-  const componentPath = join(paths.pkg, `dist/nhsuk/components/${component}`)
-
-  return /** @type {MacroExampleFixtures} */ (
-    importSync(join(componentPath, 'fixtures.json'))
+  return JSON.parse(
+    readFileSync(
+      join(paths.pkg, 'dist/nhsuk/components', component, 'fixtures.json'),
+      'utf8'
+    )
   )
+}
+
+/**
+ * Get all component fixtures (from dist)
+ */
+export function getAllFixtures() {
+  const components = getNames()
+
+  // Load component fictures per directory
+  return components.map(getFixtures)
 }
 
 /**
@@ -178,16 +207,31 @@ export function render(component, options) {
  *
  * @typedef {object} MacroExample
  * @property {string | undefined} [description] - Example description (optional)
- * @property {string | undefined} [layout] - Nunjucks layout for component (optional)
  * @property {{ [param: string]: unknown }} [context] - Nunjucks context object (optional)
  * @property {string | undefined} [callBlock] - Nunjucks macro `caller()` content (optional)
+ * @property {MacroExampleOptions} [options] - Review app example options (optional)
  * @property {MacroScreenshot | MacroScreenshot[] | boolean} [screenshot] - Screenshot and include in visual regression tests
+ */
+
+/**
+ * Nunjucks macro example review app options
+ *
+ * @typedef {object} MacroExampleOptions
+ * @property {boolean} [hidden] - Hide example on component listing pages
+ * @property {string} [layout] - Nunjucks layout for component preview page
+ * @property {MacroExampleWidth | false} [width] - Component grid column width (or set `false` to remove width container)
  */
 
 /**
  * Nunjucks macro example state
  *
  * @typedef {('focus' | 'hover' | 'active' | 'click')} MacroExampleState
+ */
+
+/**
+ * Nunjucks macro example column width
+ *
+ * @typedef {('one-third' | 'two-thirds' | 'one-half' | 'full')} MacroExampleWidth
  */
 
 /**

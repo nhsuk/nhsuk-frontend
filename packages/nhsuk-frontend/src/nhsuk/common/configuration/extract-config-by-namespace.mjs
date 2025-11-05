@@ -66,6 +66,7 @@ export function extractConfigByNamespace(schema, dataset, namespace) {
  * @template {Partial<Record<keyof ConfigurationType, unknown>>} ConfigurationType
  * @typedef {object} Schema
  * @property {Record<keyof ConfigurationType, SchemaProperty | undefined>} properties - Schema properties
+ * @property {SchemaCondition<ConfigurationType>[]} [anyOf] - List of schema conditions
  */
 
 /**
@@ -73,6 +74,15 @@ export function extractConfigByNamespace(schema, dataset, namespace) {
  *
  * @typedef {object} SchemaProperty
  * @property {'string' | 'boolean' | 'number' | 'object'} type - Property type
+ */
+
+/**
+ * Schema condition for component config
+ *
+ * @template {Partial<Record<keyof ConfigurationType, unknown>>} ConfigurationType
+ * @typedef {object} SchemaCondition
+ * @property {(keyof ConfigurationType)[]} required - List of required config fields
+ * @property {string} errorMessage - Error message when required config fields not provided
  */
 
 /**

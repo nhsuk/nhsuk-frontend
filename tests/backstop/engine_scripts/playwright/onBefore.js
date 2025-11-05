@@ -1,5 +1,3 @@
-const { Console } = require('node:console')
-
 const { default: stripAnsi } = require('strip-ansi')
 
 /**
@@ -42,7 +40,7 @@ module.exports = function (page) {
  * @param {string[]} options.silenced
  */
 function createLogger({ silenced }) {
-  const logger = new Console({
+  const logger = new console.Console({
     stdout: process.stdout,
     stderr: process.stderr
   })

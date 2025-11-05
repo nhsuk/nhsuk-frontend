@@ -29,22 +29,41 @@ export const params = {
     required: false,
     description: 'Optional initial value of the textarea.'
   },
+  maxlength: {
+    type: 'string',
+    required: true,
+    description:
+      'If `maxwords` is set, this is not required. The maximum number of characters. If `maxwords` is provided, the `maxlength` option will be ignored.'
+  },
+  maxwords: {
+    type: 'string',
+    required: true,
+    description:
+      'If `maxlength` is set, this is not required. The maximum number of words. If `maxwords` is provided, the `maxlength` option will be ignored.'
+  },
+  threshold: {
+    type: 'string',
+    required: false,
+    description:
+      'The percentage value of the limit at which point the count message is displayed. If this attribute is set, the count message will be hidden by default.'
+  },
   label: {
     type: 'object',
     required: true,
-    description: 'Options for the label component.',
+    description: 'The label used by the character count component.',
     isComponent: true
   },
   hint: {
     type: 'object',
     required: false,
-    description: 'Options for the hint component.',
+    description: 'Can be used to add a hint to the character count component.',
     isComponent: true
   },
   errorMessage: {
     type: 'object',
     required: false,
-    description: 'Options for the error message component.',
+    description:
+      'Can be used to add an error message to the character count component. The error message component will not display if you use a falsy value for `errorMessage`, for example `false` or `null`.',
     isComponent: true
   },
   formGroup: {
@@ -110,38 +129,19 @@ export const params = {
   classes: {
     type: 'string',
     required: false,
-    description:
-      'Optional additional classes to add to the textarea tag. Separate each class with a space.'
-  },
-  maxlength: {
-    type: 'string',
-    required: false,
-    description:
-      'If `maxwords` is set, this is not required. The maximum number of characters. If `maxwords` is provided, the `maxlength` argument will be ignored.'
-  },
-  maxwords: {
-    type: 'string',
-    required: false,
-    description:
-      'If `maxlength` is set, this is not required. The maximum number of words. If `maxwords` is provided, the `maxlength` argument will be ignored.'
-  },
-  threshold: {
-    type: 'string',
-    required: false,
-    description:
-      'The percentage value of the limit at which point the count message is displayed. If this attribute is set, the count message will be hidden by default.'
-  },
-  spellcheck: {
-    type: 'boolean',
-    required: false,
-    description:
-      'Optional field to enable or disable the spellcheck attribute on the textarea.'
+    description: 'Classes to add to the textarea.'
   },
   attributes: {
     type: 'object',
     required: false,
     description:
-      'Any extra HTML attributes (for example data attributes) to add to the textarea tag.'
+      'HTML attributes (for example data attributes) to add to the textarea.'
+  },
+  spellcheck: {
+    type: 'boolean',
+    required: false,
+    description:
+      'Optional field to enable or disable the `spellcheck` attribute on the character count.'
   },
   countMessage: {
     type: 'object',
@@ -155,6 +155,12 @@ export const params = {
         description: 'Classes to add to the count message.'
       }
     }
+  },
+  textareaDescriptionText: {
+    type: 'string',
+    required: false,
+    description:
+      'Message made available to assistive technologies to describe that the component accepts only a limited amount of content. It is visible on the page when JavaScript is unavailable. The component will replace the `%{count}` placeholder with the value of the `maxlength` or `maxwords` parameter.'
   }
 }
 
@@ -167,111 +173,166 @@ export const examples = {
   'default': {
     context: {
       label: {
-        text: 'Can you provide more detail?'
+        text: 'Can you provide more detail?',
+        classes: 'nhsuk-label--l',
+        isPageHeading: true
+      },
+      hint: {
+        text: 'Do not include personal information like your name, date of birth or NHS number'
       },
       name: 'example',
-      maxlength: 10
+      maxlength: 200
     },
-    screenshot: true
+    screenshot: {
+      states: ['focus'],
+      selector: '.nhsuk-textarea'
+    }
   },
   'with hint': {
     context: {
       label: {
-        text: 'Can you provide more detail?'
+        text: 'Enter a job description',
+        classes: 'nhsuk-label--l',
+        isPageHeading: true
       },
       hint: {
-        text: 'Do not include personal information, like your name, date of birth or NHS number'
+        text: 'Do not include personal information like your name, date of birth or NHS number'
       },
       id: 'with-hint',
       name: 'example',
-      maxlength: 10
+      maxlength: 200
     }
   },
   'with error message': {
     context: {
       label: {
-        text: 'Can you provide more detail?'
+        text: 'Enter a job description',
+        classes: 'nhsuk-label--l',
+        isPageHeading: true
       },
       errorMessage: {
-        text: 'Enter more detail'
+        text: 'Job description must be 350 characters or less'
       },
       id: 'with-error-message',
       name: 'example',
-      maxlength: 10
+      maxlength: 350,
+      value:
+        'A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels. They make sure appropriate content is shown to a user in the right place and in the best format.'
     }
   },
   'with hint and error': {
     context: {
       label: {
-        text: 'Can you provide more detail?'
+        text: 'Enter a job description',
+        classes: 'nhsuk-label--l',
+        isPageHeading: true
       },
       hint: {
-        text: 'Do not include personal information, like your name, date of birth or NHS number'
-      },
-      errorMessage: {
-        text: 'Enter more detail'
-      },
-      id: 'with-hint-error',
-      name: 'example',
-      maxlength: 10
-    },
-    screenshot: true
-  },
-  'with default value': {
-    context: {
-      label: {
-        text: 'What is your job description?'
-      },
-      id: 'default-value',
-      name: 'example',
-      value:
-        'A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels.',
-      maxlength: 350
-    }
-  },
-  'with default value exceeding limit': {
-    context: {
-      label: {
-        text: 'What is your job description?'
+        text: 'Do not include personal information like your name, date of birth or NHS number'
       },
       errorMessage: {
         text: 'Job description must be 350 characters or less'
       },
-      id: 'exceeding-limit',
+      id: 'with-error-message',
       name: 'example',
+      maxlength: 350,
       value:
-        'A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels. They make sure appropriate content is shown to a user in the right place and in the best format.',
-      maxlength: 350
+        'A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels. They make sure appropriate content is shown to a user in the right place and in the best format.'
+    },
+    screenshot: {
+      states: ['focus'],
+      selector: '.nhsuk-textarea'
+    }
+  },
+  'with default value': {
+    context: {
+      label: {
+        text: 'Enter a job description',
+        classes: 'nhsuk-label--l',
+        isPageHeading: true
+      },
+      id: 'with-default-value',
+      name: 'example',
+      maxlength: 350,
+      value:
+        'A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels.'
     }
   },
   'with custom rows': {
     context: {
       label: {
-        text: 'What is your job description?'
+        text: 'Can you provide more detail?',
+        classes: 'nhsuk-label--l',
+        isPageHeading: true
       },
       id: 'custom-rows',
       name: 'example',
       maxlength: 350,
-      rows: 8
+      rows: 15
     }
   },
-  'with label as page heading': {
+  'with label size S': {
     context: {
       label: {
-        text: 'What is your job description?',
+        text: 'Can you provide more detail?',
+        classes: 'nhsuk-label--s',
+        isPageHeading: true
+      },
+      id: 'custom-size',
+      name: 'example',
+      maxlength: 200
+    }
+  },
+  'with label size M': {
+    context: {
+      label: {
+        text: 'Can you provide more detail?',
+        classes: 'nhsuk-label--m',
+        isPageHeading: true
+      },
+      id: 'custom-size',
+      name: 'example',
+      maxlength: 200
+    }
+  },
+  'with label size L': {
+    context: {
+      label: {
+        text: 'Can you provide more detail?',
         classes: 'nhsuk-label--l',
         isPageHeading: true
       },
-      id: 'page-heading',
+      id: 'custom-size',
       name: 'example',
-      maxlength: 350,
-      rows: 8
+      maxlength: 200
+    }
+  },
+  'with label size XL': {
+    context: {
+      label: {
+        text: 'Can you provide more detail?',
+        classes: 'nhsuk-label--xl',
+        isPageHeading: true
+      },
+      id: 'custom-size',
+      name: 'example',
+      maxlength: 200
+    }
+  },
+  'without page heading': {
+    context: {
+      label: {
+        text: 'Tell us more about what happened'
+      },
+      id: 'without-heading',
+      name: 'example',
+      maxlength: 150
     }
   },
   'with maxlength attribute': {
     context: {
       label: {
-        text: 'Can you provide more detail?'
+        text: 'Enter a job description'
       },
       id: 'maxlength-attribute',
       name: 'example',
@@ -279,16 +340,21 @@ export const examples = {
       attributes: {
         maxlength: 11
       }
+    },
+    options: {
+      hidden: true
     }
   },
   'with word count': {
     context: {
       label: {
-        text: 'Can you provide more detail?'
+        text: 'Enter a job description',
+        classes: 'nhsuk-label--l',
+        isPageHeading: true
       },
       id: 'with-word-count',
       name: 'example',
-      maxwords: 10
+      maxwords: 150
     },
     screenshot: {
       viewports: ['tablet']
@@ -297,15 +363,91 @@ export const examples = {
   'with threshold': {
     context: {
       label: {
-        text: 'Can you provide more detail?'
+        text: 'Can you provide more detail?',
+        classes: 'nhsuk-label--l',
+        isPageHeading: true
       },
       id: 'with-threshold',
       name: 'example',
-      maxlength: 10,
-      threshold: 8
+      value:
+        'Type another letter into this field after this message to see the threshold feature',
+      maxlength: 112,
+      threshold: 75
     },
     screenshot: {
       viewports: ['tablet']
+    }
+  },
+  'with neither maxlength nor maxwords set': {
+    context: {
+      label: {
+        text: 'Can you provide more detail?',
+        classes: 'nhsuk-label--l',
+        isPageHeading: true
+      },
+      textareaDescriptionText: 'No more than %{count} characters',
+      id: 'no-maximum-description',
+      name: 'example',
+      value: 'This textarea has no maximum character or word count.',
+      rows: 8
+    }
+  },
+  'with neither maxlength, maxwords nor textarea description set': {
+    context: {
+      label: {
+        text: 'Can you provide more detail?',
+        classes: 'nhsuk-label--l',
+        isPageHeading: true
+      },
+      id: 'no-maximum',
+      name: 'example',
+      value: 'This textarea has no maximum character or word count.',
+      rows: 8
+    }
+  },
+  'with translations': {
+    context: {
+      label: {
+        text: 'Allwch chi roi mwy o fanylion?',
+        classes: 'nhsuk-label--l',
+        isPageHeading: true
+      },
+      hint: {
+        text: 'Peidiwch â chynnwys gwybodaeth bersonol, fel eich enw, dyddiad geni na rhif y GIG'
+      },
+      id: 'with-translations',
+      name: 'example',
+      maxlength: 200,
+      textareaDescriptionText: 'Gallwch ddefnyddio hyd at %{count} nod',
+      charactersUnderLimitText: {
+        one: 'Mae gennych %{count} nod ar ôl',
+        two: 'Mae gennych %{count} nod ar ôl',
+        few: 'Mae gennych %{count} nod ar ôl',
+        many: 'Mae gennych %{count} nod ar ôl',
+        other: 'Mae gennych %{count} nod ar ôl'
+      },
+      charactersAtLimitText: 'Mae gennych 0 nod ar ôl',
+      charactersOverLimitText: {
+        one: 'Mae gennych %{count} nod yn ormod',
+        two: 'Mae gennych %{count} nod yn ormod',
+        few: 'Mae gennych %{count} nod yn ormod',
+        many: 'Mae gennych %{count} nod yn ormod',
+        other: 'Mae gennych chi %{count} nod yn ormod'
+      }
+    }
+  },
+  'to configure in JavaScript': {
+    context: {
+      label: {
+        text: 'Can you provide more detail?',
+        classes: 'nhsuk-label--l',
+        isPageHeading: true
+      },
+      id: 'to-configure-in-javascript',
+      name: 'example'
+    },
+    options: {
+      hidden: true
     }
   }
 }

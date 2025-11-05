@@ -154,10 +154,12 @@ export const examples = {
     }
   },
   'reverse': {
-    layout: 'layouts/example-background-blue.njk',
     context: {
       text: 'Log out',
       classes: 'nhsuk-button--reverse'
+    },
+    options: {
+      layout: 'background-blue'
     },
     screenshot: {
       states: ['focus', 'hover', 'active'],
@@ -165,20 +167,24 @@ export const examples = {
     }
   },
   'reverse disabled': {
-    layout: 'layouts/example-background-blue.njk',
     context: {
       text: 'Log out',
       classes: 'nhsuk-button--reverse',
       disabled: true
     },
+    options: {
+      layout: 'background-blue'
+    },
     screenshot: true
   },
   'reverse as a link': {
-    layout: 'layouts/example-background-blue.njk',
     context: {
       text: 'Log out',
       classes: 'nhsuk-button--reverse',
       href: '#'
+    },
+    options: {
+      layout: 'background-blue'
     },
     screenshot: {
       states: ['focus', 'hover', 'active'],
@@ -215,10 +221,12 @@ export const examples = {
     }
   },
   'secondary, solid background': {
-    layout: 'layouts/example-background-grey.njk',
     context: {
       text: 'Find my location',
       classes: 'nhsuk-button--secondary-solid'
+    },
+    options: {
+      layout: 'background-grey'
     },
     screenshot: {
       states: ['focus', 'hover', 'active'],
@@ -226,20 +234,24 @@ export const examples = {
     }
   },
   'secondary, solid background disabled': {
-    layout: 'layouts/example-background-grey.njk',
     context: {
       text: 'Find my location',
       classes: 'nhsuk-button--secondary-solid',
       disabled: true
     },
+    options: {
+      layout: 'background-grey'
+    },
     screenshot: true
   },
-  'secondary as a link, solid background': {
-    layout: 'layouts/example-background-grey.njk',
+  'secondary, solid background as a link': {
     context: {
       text: 'Find my location',
       classes: 'nhsuk-button--secondary-solid',
       href: '#'
+    },
+    options: {
+      layout: 'background-grey'
     },
     screenshot: {
       states: ['focus', 'hover', 'active'],

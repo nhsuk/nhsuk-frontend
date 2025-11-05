@@ -1,0 +1,9 @@
+{% from "nhsuk/components/hero/macro.njk" import hero %}
+
+{% call hero({
+  heading: "This is an internal development app.",
+  headingClasses: "nhsuk-body-l nhsuk-u-font-weight-normal",
+  headingLevel: 2
+}) %}
+  <p class="nhsuk-u-margin-bottom-0">To learn how to design and build digital services, visit the <a href="https://service-manual.nhs.uk/design-system">design system in the NHS digital service manual</a> for guidance and examples.</p>
+{% endcall %}

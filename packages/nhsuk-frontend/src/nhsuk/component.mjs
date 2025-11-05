@@ -1,6 +1,11 @@
 import { isInitialised, isSupported } from './common/index.mjs'
 import { ElementError, InitError, SupportError } from './errors/index.mjs'
 
+const _self =
+  typeof globalThis !== 'undefined'
+    ? globalThis // Modern browsers, Node.js
+    : self // Old browsers, web workers
+
 /**
  * Base component class
  *
@@ -13,7 +18,7 @@ export class Component {
   /**
    * @type {typeof Element}
    */
-  static elementType = HTMLElement
+  static elementType = _self.HTMLElement
 
   /**
    * @type {RootElementType}
@@ -81,12 +86,6 @@ export class Component {
   static moduleName = 'nhsuk-component'
 }
 
-/* eslint-disable jsdoc/valid-types --
- * `{new(...args: any[] ): any}` is not recognised as valid
- * https://github.com/gajus/eslint-plugin-jsdoc/issues/145#issuecomment-1308722878
- * https://github.com/jsdoc-type-pratt-parser/jsdoc-type-pratt-parser/issues/131
- **/
-
 /**
  * Component compatible class
  *
@@ -94,11 +93,10 @@ export class Component {
  * @typedef {{
  *   new(...args: ConstructorParameters<ComponentType>): InstanceType<ComponentType>,
  *   defaults?: ObjectNested,
+ *   schema?: Schema<ObjectNested>,
  *   moduleName: string
  * }} CompatibleClass
  */
-
-/* eslint-enable jsdoc/valid-types */
 
 /**
  * Component constructor
@@ -115,6 +113,6 @@ export class Component {
  */
 
 /**
- * @import { ObjectNested } from './common/configuration/index.mjs'
+ * @import { ObjectNested, Schema } from './common/configuration/index.mjs'
  * @import { ConfigurableComponent } from './configurable-component.mjs'
  */

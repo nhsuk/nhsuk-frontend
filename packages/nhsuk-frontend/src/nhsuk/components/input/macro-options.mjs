@@ -21,17 +21,24 @@ export const params = {
   type: {
     type: 'string',
     required: false,
-    description: 'Type of input control to render. Defaults to `"text"`.'
+    description:
+      'Type of input control to render, for example, an email input control. Defaults to `"text"`.'
   },
   inputmode: {
     type: 'string',
     required: false,
-    description: 'Optional value for inputmode.'
+    description:
+      'Optional value for [the inputmode attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode).'
   },
   value: {
     type: 'string',
     required: false,
     description: 'Optional initial value of the input.'
+  },
+  disabled: {
+    type: 'boolean',
+    required: false,
+    description: 'If `true`, input will be disabled.'
   },
   describedBy: {
     type: 'string',
@@ -42,37 +49,87 @@ export const params = {
   label: {
     type: 'object',
     required: true,
-    description: 'Options for the label component.',
+    description: 'The label used by the text input component.',
     isComponent: true
   },
   hint: {
     type: 'object',
     required: false,
-    description: 'Options for the hint component.',
+    description: 'Can be used to add a hint to a text input component.',
     isComponent: true
   },
   errorMessage: {
     type: 'object',
     required: false,
     description:
-      'Options for the error message component. The error message component will not display if you use a falsy value for `errorMessage`, for example `false` or `null`.',
+      'Can be used to add an error message to the text input component. The error message component will not display if you use a falsy value for `errorMessage`, for example `false` or `null`.',
     isComponent: true
   },
   prefix: {
-    type: 'string',
+    type: 'object',
     required: false,
-    description: 'Optional prefix text to be displayed before the input.'
+    description: 'Can be used to add a prefix to the text input component.',
+    params: {
+      text: {
+        type: 'string',
+        required: true,
+        description:
+          'Required. If `html` is set, this is not required. Text to use within the prefix. If `html` is provided, the `text` option will be ignored.'
+      },
+      html: {
+        type: 'string',
+        required: true,
+        description:
+          'Required. If `text` is set, this is not required. HTML to use within the prefix. If `html` is provided, the `text` option will be ignored.'
+      },
+      classes: {
+        type: 'string',
+        required: false,
+        description: 'Classes to add to the prefix.'
+      },
+      attributes: {
+        type: 'object',
+        required: false,
+        description:
+          'HTML attributes (for example data attributes) to add to the prefix element.'
+      }
+    }
   },
   suffix: {
-    type: 'string',
+    type: 'object',
     required: false,
-    description: 'Optional suffix text to be displayed after the input.'
+    description: 'Can be used to add a suffix to the text input component.',
+    params: {
+      text: {
+        type: 'string',
+        required: true,
+        description:
+          'If `html` is set, this is not required. Text to use within the suffix. If `html` is provided, the `text` option will be ignored.'
+      },
+      html: {
+        type: 'string',
+        required: true,
+        description:
+          'If `text` is set, this is not required. HTML to use within the suffix. If `html` is provided, the `text` option will be ignored.'
+      },
+      classes: {
+        type: 'string',
+        required: false,
+        description: 'Classes to add to the suffix element.'
+      },
+      attributes: {
+        type: 'object',
+        required: false,
+        description:
+          'HTML attributes (for example data attributes) to add to the suffix element.'
+      }
+    }
   },
   formGroup: {
     type: 'object',
     required: false,
     description:
-      'Additional options for the form group containing the input component.',
+      'Additional options for the form group containing the text input component.',
     params: {
       classes: {
         type: 'string',
@@ -110,7 +167,7 @@ export const params = {
         type: 'object',
         required: false,
         description:
-          'Content to add after the input used by the date input component.',
+          'Content to add after the input used by the text input component.',
         params: {
           text: {
             type: 'string',
@@ -137,19 +194,44 @@ export const params = {
     type: 'string',
     required: false,
     description:
-      'autocomplete attribute to identify input purpose, for instance `"postal-code"` or `"username"`.'
+      'Attribute to meet [WCAG success criterion 1.3.5: Identify input purpose](https://www.w3.org/WAI/WCAG22/Understanding/identify-input-purpose.html), for instance `"bday-day"`. See the [Autofill section in the HTML standard](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill) for a full list of attributes that can be used.'
   },
   pattern: {
     type: 'string',
     required: false,
     description:
-      'pattern attribute to provide a regular expression pattern, used to match allowed character combinations for the input value.'
+      'Attribute to provide a regular expression pattern, used to match allowed character combinations for the input value.'
   },
   spellcheck: {
     type: 'boolean',
     required: false,
     description:
-      'Optional field to enable or disable the spellcheck attribute on the input.'
+      'Optional field to enable or disable the `spellcheck` attribute on the input.'
+  },
+  autocapitalize: {
+    type: 'string',
+    required: false,
+    description:
+      'Optional field to enable or disable autocapitalisation of user input. See the [Autocapitalization section in the HTML standard](https://html.spec.whatwg.org/multipage/interaction.html#autocapitalization) for a full list of values that can be used.'
+  },
+  inputWrapper: {
+    type: 'object',
+    required: false,
+    description:
+      'If any of `prefix`, `suffix`, `formGroup.beforeInput` or `formGroup.afterInput` have a value, a wrapping element is added around the input and inserted content. This object allows you to customise that wrapping element.',
+    params: {
+      classes: {
+        type: 'string',
+        required: false,
+        description: 'Classes to add to the wrapping element.'
+      },
+      attributes: {
+        type: 'object',
+        required: false,
+        description:
+          'HTML attributes (for example data attributes) to add to the wrapping element.'
+      }
+    }
   },
   attributes: {
     type: 'object',
@@ -168,7 +250,9 @@ export const examples = {
   'default': {
     context: {
       label: {
-        text: 'NHS number'
+        text: 'What is your full name?',
+        classes: 'nhsuk-label--l',
+        isPageHeading: true
       },
       name: 'example'
     },
@@ -177,196 +261,331 @@ export const examples = {
   'with hint': {
     context: {
       label: {
-        text: 'NHS number'
+        text: 'What is your NHS number?',
+        classes: 'nhsuk-label--l',
+        isPageHeading: true
       },
       hint: {
-        text: "It's a 10-digit number that's on any letter the NHS has sent you, for example, 485 777 3456"
+        text: 'Your NHS number is a 10 digit number that you find on any letter the NHS has sent you, for example, 485 777 3456'
       },
       id: 'with-hint',
-      name: 'example'
+      name: 'example',
+      classes: 'nhsuk-input--width-10',
+      inputmode: 'numeric',
+      spellcheck: false
     },
     screenshot: true
   },
   'with error message': {
     context: {
       label: {
-        text: 'NHS number'
+        text: 'What is your NHS number?',
+        classes: 'nhsuk-label--l',
+        isPageHeading: true
       },
       errorMessage: {
         text: 'Enter NHS number'
       },
       id: 'with-error-message',
-      name: 'example'
+      name: 'example',
+      classes: 'nhsuk-input--width-10',
+      inputmode: 'numeric',
+      spellcheck: false
     }
   },
   'with hint and error': {
     context: {
       label: {
-        text: 'NHS number'
+        text: 'What is your NHS number?',
+        classes: 'nhsuk-label--l',
+        isPageHeading: true
       },
       hint: {
-        text: "It's a 10-digit number that's on any letter the NHS has sent you, for example, 485 777 3456"
+        text: 'Your NHS number is a 10 digit number that you find on any letter the NHS has sent you, for example, 485 777 3456'
       },
       errorMessage: {
         text: 'Enter NHS number'
       },
       id: 'with-hint-error',
-      name: 'example'
+      name: 'example',
+      classes: 'nhsuk-input--width-10',
+      inputmode: 'numeric',
+      spellcheck: false
     },
     screenshot: {
       states: ['focus'],
       selector: '#with-hint-error'
     }
   },
-  'with width-2 class': {
+  'with 2 character width': {
     context: {
       label: {
-        text: 'NHS number'
+        text: '2 character width'
       },
       id: 'input-width-2',
       name: 'example',
       classes: 'nhsuk-input--width-2'
     }
   },
-  'with width-3 class': {
+  'with 3 character width': {
     context: {
       label: {
-        text: 'NHS number'
+        text: '3 character width'
       },
       id: 'input-width-3',
       name: 'example',
       classes: 'nhsuk-input--width-3'
     }
   },
-  'with width-4 class': {
+  'with 4 character width': {
     context: {
       label: {
-        text: 'NHS number'
+        text: '4 character width'
       },
       id: 'input-width-4',
       name: 'example',
       classes: 'nhsuk-input--width-4'
     }
   },
-  'with width-5 class': {
+  'with 5 character width': {
     context: {
       label: {
-        text: 'NHS number'
+        text: '5 character width'
       },
       id: 'input-width-5',
       name: 'example',
       classes: 'nhsuk-input--width-5'
     }
   },
-  'with width-10 class': {
+  'with 10 character width': {
     context: {
       label: {
-        text: 'NHS number'
+        text: '10 character width'
       },
       id: 'input-width-10',
       name: 'example',
       classes: 'nhsuk-input--width-10'
     }
   },
-  'with width-20 class': {
+  'with 20 character width': {
     context: {
       label: {
-        text: 'NHS number'
+        text: '20 character width'
       },
       id: 'input-width-20',
       name: 'example',
       classes: 'nhsuk-input--width-20'
     }
   },
-  'with width-30 class': {
+  'with 30 character width': {
     context: {
       label: {
-        text: 'NHS number'
+        text: '30 character width'
       },
       id: 'input-width-30',
       name: 'example',
       classes: 'nhsuk-input--width-30'
     }
   },
-  'with label as page heading': {
+  'with label size S': {
     context: {
       label: {
-        text: 'NHS number',
+        text: 'What is your NHS number?',
+        classes: 'nhsuk-label--s',
+        isPageHeading: true
+      },
+      id: 'custom-size',
+      name: 'example',
+      classes: 'nhsuk-input--width-10',
+      inputmode: 'numeric',
+      spellcheck: false
+    }
+  },
+  'with label size M': {
+    context: {
+      label: {
+        text: 'What is your NHS number?',
+        classes: 'nhsuk-label--m',
+        isPageHeading: true
+      },
+      id: 'custom-size',
+      name: 'example',
+      classes: 'nhsuk-input--width-10',
+      inputmode: 'numeric',
+      spellcheck: false
+    }
+  },
+  'with label size L': {
+    context: {
+      label: {
+        text: 'What is your NHS number?',
         classes: 'nhsuk-label--l',
         isPageHeading: true
       },
-      id: 'page-heading',
-      name: 'example'
+      id: 'custom-size',
+      name: 'example',
+      classes: 'nhsuk-input--width-10',
+      inputmode: 'numeric',
+      spellcheck: false
+    }
+  },
+  'with label size XL': {
+    context: {
+      label: {
+        text: 'What is your NHS number?',
+        classes: 'nhsuk-label--xl',
+        isPageHeading: true
+      },
+      id: 'custom-size',
+      name: 'example',
+      classes: 'nhsuk-input--width-10',
+      inputmode: 'numeric',
+      spellcheck: false
+    }
+  },
+  'without page heading': {
+    context: {
+      label: {
+        text: 'What is your NHS number?'
+      },
+      id: 'without-heading',
+      name: 'example',
+      classes: 'nhsuk-input--width-10',
+      inputmode: 'numeric',
+      spellcheck: false
     }
   },
   'with prefix': {
     context: {
       label: {
-        text: 'What is the cost in pounds?'
+        text: 'Cost in pounds',
+        isPageHeading: true
+      },
+      id: 'with-prefix',
+      name: 'example',
+      prefix: {
+        text: '£'
+      },
+      classes: 'nhsuk-input--width-5'
+    },
+    screenshot: true
+  },
+  'with prefix HTML': {
+    context: {
+      label: {
+        text: 'Cost in pounds',
+        isPageHeading: true
+      },
+      id: 'with-prefix',
+      name: 'example',
+      prefix: {
+        html: '<span>£</span>'
+      },
+      classes: 'nhsuk-input--width-5'
+    }
+  },
+  'with deprecated prefix string parameter': {
+    context: {
+      label: {
+        text: 'Cost in pounds',
+        isPageHeading: true
       },
       id: 'with-prefix',
       name: 'example',
       prefix: '£'
-    },
-    screenshot: true
+    }
   },
   'with suffix': {
     context: {
       label: {
-        text: 'What is the weight in kilograms?'
+        text: 'Weight in kilograms',
+        isPageHeading: true
       },
       id: 'with-suffix',
       name: 'example',
-      suffix: 'kg'
+      suffix: {
+        text: 'kg'
+      },
+      classes: 'nhsuk-input--width-5'
     },
     screenshot: true
+  },
+  'with suffix HTML': {
+    context: {
+      label: {
+        text: 'Weight in kilograms',
+        isPageHeading: true
+      },
+      id: 'with-suffix',
+      name: 'example',
+      suffix: {
+        html: '<span>kg</span>'
+      },
+      classes: 'nhsuk-input--width-5'
+    }
+  },
+  'with deprecated suffix string parameter': {
+    context: {
+      label: {
+        text: 'Weight in kilograms',
+        isPageHeading: true
+      },
+      id: 'with-suffix',
+      name: 'example',
+      suffix: 'kg',
+      classes: 'nhsuk-input--width-5'
+    }
   },
   'with prefix and suffix': {
     context: {
       label: {
-        text: 'What is the cost per item, in pounds?'
+        text: 'Cost per item, in pounds',
+        isPageHeading: true
       },
       id: 'with-prefix-suffix',
       name: 'example',
-      prefix: '£',
-      suffix: 'per item'
+      prefix: {
+        text: '£'
+      },
+      suffix: {
+        text: 'per item'
+      },
+      classes: 'nhsuk-input--width-5'
     },
     screenshot: true
   },
   'with prefix and suffix and error': {
     context: {
       label: {
-        text: 'What is the cost per item, in pounds?'
+        text: 'Cost per item, in pounds',
+        isPageHeading: true
       },
       errorMessage: {
         text: 'Enter a cost per item, in pounds'
       },
       id: 'with-prefix-suffix',
       name: 'example',
-      prefix: '£',
-      suffix: 'per item'
+      prefix: {
+        text: '£'
+      },
+      suffix: {
+        text: 'per item'
+      },
+      classes: 'nhsuk-input--width-5'
     },
     screenshot: {
       states: ['focus'],
       selector: '#with-prefix-suffix'
     }
   },
-  'with prefix and suffix and width modifier': {
-    context: {
-      label: {
-        text: 'What is the cost per item, in pounds?'
-      },
-      id: 'with-prefix-suffix',
-      name: 'example',
-      prefix: '£',
-      suffix: 'per item',
-      classes: 'nhsuk-input--width-5'
-    }
-  },
   'with autocomplete attribute': {
     context: {
       label: {
-        text: 'Postcode'
+        text: 'Enter a full postcode in England',
+        isPageHeading: true
+      },
+      hint: {
+        text: 'For example, LS1 1AB'
       },
       id: 'with-autocomplete-attribute',
       name: 'example',

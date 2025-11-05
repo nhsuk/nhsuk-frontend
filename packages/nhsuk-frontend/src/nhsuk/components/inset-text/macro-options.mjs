@@ -42,6 +42,12 @@ export const params = {
     required: false,
     description:
       'HTML attributes (for example data attributes) to add to the inset text.'
+  },
+  visuallyHiddenText: {
+    type: 'string',
+    required: false,
+    description:
+      'A visually hidden prefix used before the inset text. Defaults to `"Information"`.'
   }
 }
 
@@ -53,7 +59,7 @@ export const params = {
 export const examples = {
   default: {
     callBlock: outdent`
-      <p>You can report any suspected side effects to the <a href="https://yellowcard.mhra.gov.uk/" title="External website">UK safety scheme</a>.</p>
+      <p>You can report any suspected side effect using the <a href="#">Yellow Card safety scheme</a>.</p>
     `,
     screenshot: true
   }

@@ -11,7 +11,7 @@ export const params = {
   id: {
     type: 'string',
     required: false,
-    description: 'The ID of the select. Defaults to the value of `name`.'
+    description: 'ID for the select box. Defaults to the value of `name`.'
   },
   name: {
     type: 'string',
@@ -21,12 +21,13 @@ export const params = {
   items: {
     type: 'array',
     required: true,
-    description: 'Array of option items for the select.',
+    description: 'The items within the select component.',
     params: {
       value: {
         type: 'string',
         required: false,
-        description: 'Value for the option item. Defaults to an empty string.'
+        description:
+          'Value for the option. If this is omitted, the value is taken from the text content of the option element.'
       },
       text: {
         type: 'string',
@@ -36,7 +37,8 @@ export const params = {
       selected: {
         type: 'boolean',
         required: false,
-        description: 'Sets the option as the selected.'
+        description:
+          'Whether the option should be selected when the page loads. Takes precedence over the top-level `value` option.'
       },
       disabled: {
         type: 'boolean',
@@ -71,21 +73,21 @@ export const params = {
   },
   label: {
     type: 'object',
-    required: false,
-    description: 'Options for the label component.',
+    required: true,
+    description: 'The label used by the select component.',
     isComponent: true
   },
   hint: {
     type: 'object',
     required: false,
-    description: 'Options for the hint component.',
+    description: 'Can be used to add a hint to the select component.',
     isComponent: true
   },
   errorMessage: {
     type: 'object',
     required: false,
     description:
-      'Options for the error message component. The error message component will not display if you use a falsy value for `errorMessage`, for example `false` or `null`.',
+      'Can be used to add an error message to the select component. The error message component will not display if you use a falsy value for `errorMessage`, for example `false` or `null`.',
     isComponent: true
   },
   formGroup: {
@@ -170,7 +172,8 @@ export const examples = {
   'default': {
     context: {
       label: {
-        text: 'Sort by'
+        text: 'Sort by',
+        isPageHeading: true
       },
       name: 'example',
       items: [
@@ -197,7 +200,8 @@ export const examples = {
   'with disabled item': {
     context: {
       label: {
-        text: 'Sort by'
+        text: 'Sort by',
+        isPageHeading: true
       },
       id: 'with-disabled-item',
       name: 'example',
@@ -225,7 +229,8 @@ export const examples = {
   'with hint': {
     context: {
       label: {
-        text: 'Choose location'
+        text: 'Choose location',
+        isPageHeading: true
       },
       hint: {
         text: 'This can be different to where you went before'
@@ -277,14 +282,128 @@ export const examples = {
     },
     screenshot: true
   },
-  'with label as page heading': {
+  'with label size S': {
+    context: {
+      label: {
+        text: 'Sort by',
+        classes: 'nhsuk-label--s',
+        isPageHeading: true
+      },
+      id: 'custom-size',
+      name: 'example',
+      items: [
+        {
+          value: 'published',
+          text: 'Recently published'
+        },
+        {
+          value: 'updated',
+          text: 'Recently updated'
+        },
+        {
+          value: 'views',
+          text: 'Most views'
+        },
+        {
+          value: 'comments',
+          text: 'Most comments'
+        }
+      ]
+    }
+  },
+  'with label size M': {
+    context: {
+      label: {
+        text: 'Sort by',
+        classes: 'nhsuk-label--m',
+        isPageHeading: true
+      },
+      id: 'custom-size',
+      name: 'example',
+      items: [
+        {
+          value: 'published',
+          text: 'Recently published'
+        },
+        {
+          value: 'updated',
+          text: 'Recently updated'
+        },
+        {
+          value: 'views',
+          text: 'Most views'
+        },
+        {
+          value: 'comments',
+          text: 'Most comments'
+        }
+      ]
+    }
+  },
+  'with label size L': {
     context: {
       label: {
         text: 'Sort by',
         classes: 'nhsuk-label--l',
         isPageHeading: true
       },
-      id: 'page-heading',
+      id: 'custom-size',
+      name: 'example',
+      items: [
+        {
+          value: 'published',
+          text: 'Recently published'
+        },
+        {
+          value: 'updated',
+          text: 'Recently updated'
+        },
+        {
+          value: 'views',
+          text: 'Most views'
+        },
+        {
+          value: 'comments',
+          text: 'Most comments'
+        }
+      ]
+    }
+  },
+  'with label size XL': {
+    context: {
+      label: {
+        text: 'Sort by',
+        classes: 'nhsuk-label--xl',
+        isPageHeading: true
+      },
+      id: 'custom-size',
+      name: 'example',
+      items: [
+        {
+          value: 'published',
+          text: 'Recently published'
+        },
+        {
+          value: 'updated',
+          text: 'Recently updated'
+        },
+        {
+          value: 'views',
+          text: 'Most views'
+        },
+        {
+          value: 'comments',
+          text: 'Most comments'
+        }
+      ]
+    }
+  },
+  'without page heading': {
+    context: {
+      label: {
+        text: 'Sort by'
+      },
+      id: 'without-heading',
       name: 'example',
       items: [
         {
@@ -309,7 +428,8 @@ export const examples = {
   'with error message': {
     context: {
       label: {
-        text: 'Choose location'
+        text: 'Choose location',
+        isPageHeading: true
       },
       errorMessage: {
         text: 'Select a location'
@@ -363,7 +483,8 @@ export const examples = {
   'with hint and error': {
     context: {
       label: {
-        text: 'Choose location'
+        text: 'Choose location',
+        isPageHeading: true
       },
       hint: {
         text: 'This can be different to where you went before'
@@ -424,7 +545,8 @@ export const examples = {
   'with selected value': {
     context: {
       label: {
-        text: 'Sort by'
+        text: 'Sort by',
+        isPageHeading: true
       },
       id: 'with-value',
       name: 'example',

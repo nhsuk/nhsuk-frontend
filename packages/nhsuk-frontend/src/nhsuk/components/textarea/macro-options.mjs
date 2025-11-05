@@ -19,6 +19,12 @@ export const params = {
     description:
       'The name of the textarea, which is submitted with the form data.'
   },
+  spellcheck: {
+    type: 'boolean',
+    required: false,
+    description:
+      'Optional field to enable or disable the `spellcheck` attribute on the textarea.'
+  },
   rows: {
     type: 'string',
     required: false,
@@ -29,6 +35,11 @@ export const params = {
     required: false,
     description: 'Optional initial value of the textarea.'
   },
+  disabled: {
+    type: 'boolean',
+    required: false,
+    description: 'If `true`, textarea will be disabled.'
+  },
   describedBy: {
     type: 'string',
     required: false,
@@ -38,20 +49,20 @@ export const params = {
   label: {
     type: 'object',
     required: true,
-    description: 'Options for the label component.',
+    description: 'The label used by the textarea component.',
     isComponent: true
   },
   hint: {
     type: 'object',
     required: false,
-    description: 'Options for the hint component.',
+    description: 'Can be used to add a hint to the textarea component.',
     isComponent: true
   },
   errorMessage: {
     type: 'object',
     required: false,
     description:
-      'Options for the error message component. The error message component will not display if you use a falsy value for `errorMessage`, for example `false` or `null`.',
+      'Can be used to add an error message to the textarea component. The error message component will not display if you use a falsy value for `errorMessage`, for example `false` or `null`.',
     isComponent: true
   },
   formGroup: {
@@ -114,16 +125,16 @@ export const params = {
       }
     }
   },
-  autocomplete: {
-    type: 'string',
-    required: false,
-    description:
-      "autocomplete attribute to identify input purpose, for instance `'postal-code'` or `'username'`."
-  },
   classes: {
     type: 'string',
     required: false,
     description: 'Classes to add to the textarea.'
+  },
+  autocomplete: {
+    type: 'string',
+    required: false,
+    description:
+      'Attribute to meet [WCAG success criterion 1.3.5: Identify input purpose](https://www.w3.org/WAI/WCAG22/Understanding/identify-input-purpose.html), for instance `"bday-day"`. See the [Autofill section in the HTML standard](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill) for a full list of attributes that can be used.'
   },
   attributes: {
     type: 'object',
@@ -142,7 +153,12 @@ export const examples = {
   'default': {
     context: {
       label: {
-        text: 'Can you provide more detail?'
+        text: 'Can you provide more detail?',
+        classes: 'nhsuk-label--l',
+        isPageHeading: true
+      },
+      hint: {
+        text: 'Do not include personal information like your name, date of birth or NHS number'
       },
       name: 'example'
     },
@@ -151,30 +167,91 @@ export const examples = {
   'with hint': {
     context: {
       label: {
-        text: 'Can you provide more detail?'
+        text: 'Can you provide more detail?',
+        classes: 'nhsuk-label--l',
+        isPageHeading: true
       },
       hint: {
-        text: 'Do not include personal information, like your name, date of birth or NHS number'
+        text: 'Do not include personal information like your name, date of birth or NHS number'
       },
       id: 'with-hint',
       name: 'example'
     }
   },
-  'with label as page heading': {
+  'with label size S': {
+    context: {
+      label: {
+        text: 'Can you provide more detail?',
+        classes: 'nhsuk-label--s',
+        isPageHeading: true
+      },
+      hint: {
+        text: 'Do not include personal information like your name, date of birth or NHS number'
+      },
+      id: 'custom-size',
+      name: 'example'
+    }
+  },
+  'with label size M': {
+    context: {
+      label: {
+        text: 'Can you provide more detail?',
+        classes: 'nhsuk-label--m',
+        isPageHeading: true
+      },
+      hint: {
+        text: 'Do not include personal information like your name, date of birth or NHS number'
+      },
+      id: 'custom-size',
+      name: 'example'
+    }
+  },
+  'with label size L': {
     context: {
       label: {
         text: 'Can you provide more detail?',
         classes: 'nhsuk-label--l',
         isPageHeading: true
       },
-      id: 'page-heading',
+      hint: {
+        text: 'Do not include personal information like your name, date of birth or NHS number'
+      },
+      id: 'custom-size',
+      name: 'example'
+    }
+  },
+  'with label size XL': {
+    context: {
+      label: {
+        text: 'Can you provide more detail?',
+        classes: 'nhsuk-label--xl',
+        isPageHeading: true
+      },
+      hint: {
+        text: 'Do not include personal information like your name, date of birth or NHS number'
+      },
+      id: 'custom-size',
+      name: 'example'
+    }
+  },
+  'without page heading': {
+    context: {
+      label: {
+        text: 'Can you provide more detail?'
+      },
+      hint: {
+        text: 'Do not include personal information like your name, date of birth or NHS number'
+      },
+      id: 'without-heading',
       name: 'example'
     }
   },
   'with error message': {
     context: {
       label: {
-        text: 'Can you provide more detail?'
+        text: 'Can you provide more detail?',
+        classes: 'nhsuk-label--l',
+        isPageHeading: true
       },
       errorMessage: {
         text: 'You must provide an explanation'
@@ -190,10 +267,12 @@ export const examples = {
   'with hint and error': {
     context: {
       label: {
-        text: 'Can you provide more detail?'
+        text: 'Can you provide more detail?',
+        classes: 'nhsuk-label--l',
+        isPageHeading: true
       },
       hint: {
-        text: 'Do not include personal information, like your name, date of birth or NHS number'
+        text: 'Do not include personal information like your name, date of birth or NHS number'
       },
       errorMessage: {
         text: 'You must provide an explanation'
@@ -205,7 +284,9 @@ export const examples = {
   'with autocomplete attribute': {
     context: {
       label: {
-        text: 'Full address'
+        text: 'Full address',
+        classes: 'nhsuk-label--l',
+        isPageHeading: true
       },
       id: 'with-autocomplete-attribute',
       name: 'example',

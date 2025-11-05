@@ -2,13 +2,13 @@ import { I18n } from './i18n.mjs'
 
 describe('I18n', () => {
   describe('.t', () => {
-    /** @type {{ [key: string]: unknown }} */
+    /** @type {{ [key: string]: string }} */
     let translations = {}
 
     beforeEach(() => {
       translations = {
         textString: 'Hello world',
-        htmlString: 'Hello<span class="govuk-visually-hidden"> world</span>'
+        htmlString: 'Hello<span class="nhsuk-u-visually-hidden"> world</span>'
       }
     })
 
@@ -22,7 +22,7 @@ describe('I18n', () => {
       const i18n = new I18n(translations)
       const returnString = i18n.t('htmlString')
       expect(returnString).toBe(
-        'Hello<span class="govuk-visually-hidden"> world</span>'
+        'Hello<span class="nhsuk-u-visually-hidden"> world</span>'
       )
     })
 
@@ -40,7 +40,7 @@ describe('I18n', () => {
     })
 
     describe('string interpolation', () => {
-      /** @type {{ [key: string]: unknown }} */
+      /** @type {{ [key: string]: string }} */
       const translations = {
         nameString: 'My name is %{name}'
       }
@@ -179,7 +179,7 @@ describe('I18n', () => {
       })
 
       it('formats numbers that are passed as placeholders', () => {
-        /** @type {{ [key: string]: unknown }} */
+        /** @type {{ [key: string]: string }} */
         const translations = { ageString: 'I am %{age} years old' }
 
         const i18nEn = new I18n(translations, { locale: 'en' })
@@ -230,7 +230,7 @@ describe('I18n', () => {
     beforeEach(() => {
       // Silence warnings in test output, and allow us to 'expect' them
       consoleWarn = jest
-        .spyOn(global.console, 'warn')
+        .spyOn(window.console, 'warn')
         .mockImplementation(() => {
           /* noop */
         })
@@ -242,7 +242,7 @@ describe('I18n', () => {
 
     it('uses `Intl.PluralRules` when available', () => {
       const IntlPluralRulesSelect = jest
-        .spyOn(global.Intl.PluralRules.prototype, 'select')
+        .spyOn(window.Intl.PluralRules.prototype, 'select')
         .mockImplementation(() => 'one')
 
       const i18n = new I18n(
@@ -261,7 +261,7 @@ describe('I18n', () => {
       expect(IntlPluralRulesSelect).toHaveBeenCalledWith(1)
     })
 
-    it('falls back to internal fallback rules', () => {
+    it('falls back to "other" when the browser does not support Intl.PluralRules', () => {
       const i18n = new I18n(
         {
           test: {
@@ -278,13 +278,7 @@ describe('I18n', () => {
         .spyOn(i18n, 'hasIntlPluralRulesSupport')
         .mockImplementation(() => false)
 
-      const selectPluralFormUsingFallbackRules = jest.spyOn(
-        i18n,
-        'selectPluralFormUsingFallbackRules'
-      )
-
-      i18n.getPluralSuffix('test', 1)
-      expect(selectPluralFormUsingFallbackRules).toHaveBeenCalledWith(1)
+      expect(i18n.getPluralSuffix('test', 1)).toBe('other')
     })
 
     it('returns the preferred plural form for the locale if a translation exists', () => {
@@ -388,70 +382,6 @@ describe('I18n', () => {
 
       // @ts-expect-error Parameter 'count' not a number
       expect(i18n.getPluralSuffix('test', 'nonsense')).toBe('other')
-    })
-  })
-
-  describe('.getPluralRulesForLocale', () => {
-    it('returns the correct rules for a locale in the map', () => {
-      const locale = 'ar'
-      const i18n = new I18n({}, { locale })
-      expect(i18n.getPluralRulesForLocale()).toBe('arabic')
-    })
-
-    it('returns the correct rules for a locale in the map with regional indicator', () => {
-      const locale = 'pt-PT'
-      const i18n = new I18n({}, { locale })
-      expect(i18n.getPluralRulesForLocale()).toBe('spanish')
-    })
-
-    it('returns the correct rules for a locale allowing for no regional indicator', () => {
-      const locale = 'cy-GB'
-      const i18n = new I18n({}, { locale })
-      expect(i18n.getPluralRulesForLocale()).toBe('welsh')
-    })
-  })
-
-  describe('.selectPluralFormUsingFallbackRules', () => {
-    // The locales we want to test, with numbers for any 'special cases' in
-    // those locales we want to ensure are handled correctly
-    /** @type {[string, number[]][]} */
-    const locales = [
-      ['ar', [105, 125]],
-      ['zh', []],
-      ['fr', []],
-      ['de', []],
-      ['ga', [9]],
-      ['ru', [3, 13, 101]],
-      ['gd', [15]],
-      ['es', [1000000, 2000000]],
-      ['cy', [3, 6]]
-    ]
-
-    it.each(locales)(
-      'matches `Intl.PluralRules.select()` for %s locale',
-      (locale, localeNumbers) => {
-        const i18n = new I18n({}, { locale })
-        const intl = new Intl.PluralRules(locale)
-
-        const numbersToTest = [0, 1, 2, 5, 25, 100, ...localeNumbers]
-
-        numbersToTest.forEach((num) => {
-          expect(i18n.selectPluralFormUsingFallbackRules(num)).toBe(
-            intl.select(num)
-          )
-        })
-      }
-    )
-
-    it('returns "other" for unsupported locales', () => {
-      const locale = 'la'
-      const i18n = new I18n({}, { locale })
-
-      const numbersToTest = [0, 1, 2, 5, 25, 100]
-
-      numbersToTest.forEach((num) => {
-        expect(i18n.selectPluralFormUsingFallbackRules(num)).toBe('other')
-      })
     })
   })
 })

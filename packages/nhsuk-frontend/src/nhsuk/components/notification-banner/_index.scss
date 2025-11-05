@@ -10,6 +10,7 @@
 
 @include nhsuk-exports("nhsuk/components/notification-banner") {
   .nhsuk-notification-banner {
+    box-sizing: border-box;
     border: $nhsuk-border-width solid $nhsuk-brand-colour;
 
     @include nhsuk-font($size: 19);

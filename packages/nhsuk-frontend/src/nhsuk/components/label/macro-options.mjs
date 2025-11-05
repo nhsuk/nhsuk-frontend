@@ -17,19 +17,19 @@ export const params = {
     type: 'string',
     required: true,
     description:
-      'If `html` is set, this is not required. Text to use within the label. If `html` is provided, the `text` argument will be ignored.'
+      'If `html` is set, this is not required. Text to use within the label. If `html` is provided, the `text` option will be ignored.'
   },
   html: {
     type: 'string',
     required: true,
     description:
-      'If `text` is set, this is not required. HTML to use within the label. If `html` is provided, the `text` argument will be ignored.'
+      'If `text` is set, this is not required. HTML to use within the label. If `html` is provided, the `text` option will be ignored.'
   },
   for: {
     type: 'string',
-    required: true,
+    required: false,
     description:
-      'The value of the for attribute, the id of the input the label is associated with.'
+      'The value of the `for` attribute, the ID of the input the label is associated with.'
   },
   isPageHeading: {
     type: 'boolean',
@@ -39,8 +39,7 @@ export const params = {
   classes: {
     type: 'string',
     required: false,
-    description:
-      'Classes to add to the label tag. Separate each class with a space.'
+    description: 'Classes to add to the label tag.'
   },
   attributes: {
     type: 'object',
@@ -58,29 +57,54 @@ export const params = {
 export const examples = {
   'default': {
     context: {
-      text: 'NHS number'
+      text: 'What is your full name?',
+      classes: 'nhsuk-label--l',
+      isPageHeading: true
     },
     screenshot: {
-      viewports: ['tablet']
+      viewports: ['mobile', 'tablet', 'desktop']
     }
   },
-  'with bold text': {
+  'size XL': {
     context: {
-      classes: 'nhsuk-label--s',
-      text: 'NHS number'
-    },
-    screenshot: {
-      viewports: ['tablet']
-    }
-  },
-  'as page heading': {
-    context: {
-      text: 'NHS number',
+      text: 'What is your full name?',
       classes: 'nhsuk-label--xl',
       isPageHeading: true
     },
     screenshot: {
       viewports: ['tablet']
+    }
+  },
+  'size L': {
+    context: {
+      text: 'What is your full name?',
+      classes: 'nhsuk-label--l',
+      isPageHeading: true
+    },
+    screenshot: {
+      viewports: ['tablet']
+    }
+  },
+  'size M': {
+    context: {
+      text: 'What is your full name?',
+      classes: 'nhsuk-label--m',
+      isPageHeading: true
+    },
+    screenshot: {
+      viewports: ['tablet']
+    }
+  },
+  'size S': {
+    context: {
+      text: 'What is your full name?',
+      classes: 'nhsuk-label--s',
+      isPageHeading: true
+    }
+  },
+  'without page heading': {
+    context: {
+      text: 'What is your full name?'
     }
   }
 }

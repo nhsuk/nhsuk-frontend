@@ -1,14 +1,11 @@
 import { join } from 'node:path'
 
-import { paths } from '@nhsuk/frontend-config'
+import { environment, paths } from '@nhsuk/frontend-config'
 import nunjucks from 'nunjucks'
 import { outdent } from 'outdent'
 
 import * as filters from './filters/index.mjs'
-
-// Node.js environment with default
-// https://nodejs.org/en/learn/getting-started/nodejs-the-difference-between-development-and-production
-const { NODE_ENV = 'development' } = process.env
+import * as globals from './globals/index.mjs'
 
 // Nunjucks default environment
 export const env = configure()
@@ -21,7 +18,7 @@ export const env = configure()
  */
 export function configure(searchPaths = [], nunjucksOptions = {}) {
   searchPaths.push(
-    NODE_ENV === 'test'
+    environment === 'test'
       ? join(paths.pkg, 'src') // Use source files for tests
       : join(paths.pkg, 'dist') // Use build output for review
   )
@@ -36,6 +33,11 @@ export function configure(searchPaths = [], nunjucksOptions = {}) {
   // Add Nunjucks filters
   for (const [key, filter] of Object.entries(filters)) {
     env.addFilter(key, filter)
+  }
+
+  // Add Nunjucks globals
+  for (const [key, global] of Object.entries(globals)) {
+    env.addGlobal(key, global)
   }
 
   return env

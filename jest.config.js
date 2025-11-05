@@ -11,11 +11,7 @@ const { headless = true } = jestPuppeteerConfig.launch
 const config = {
   cacheDirectory: '<rootDir>/.cache/jest',
   clearMocks: true,
-  coveragePathIgnorePatterns: [
-    '.eslintrc.js',
-    '.test.(js|mjs)',
-    'polyfills.mjs'
-  ],
+  coveragePathIgnorePatterns: ['.test.mjs'],
 
   // Enable Babel transforms until Jest supports ESM and `import()`
   // See: https://jestjs.io/docs/ecmascript-modules
@@ -34,7 +30,7 @@ const config = {
  * @type {Config}
  */
 module.exports = {
-  collectCoverageFrom: ['packages/nhsuk-frontend/src/**/*.{js,mjs}'],
+  collectCoverageFrom: ['packages/*/src/**/*.{js,mjs}'],
   coverageProvider: 'v8',
 
   // Reduce CPU usage during project test runs

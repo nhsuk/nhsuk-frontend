@@ -72,19 +72,18 @@ export const params = {
 export const examples = {
   'default': {
     context: {
-      summaryText: 'Where can I find my NHS number?'
+      summaryText: 'How to find your NHS number'
     },
     callBlock: outdent`
       <p>An NHS number is a 10 digit number, like 485 777 3456.</p>
-      <p>You can find your NHS number on any document sent to you by the NHS. This may include:</p>
+      <p>You can find your NHS number by logging in to a GP online service or on any document the NHS has sent you, such as your:</p>
       <ul>
         <li>prescriptions</li>
         <li>test results</li>
         <li>hospital referral letters</li>
         <li>appointment letters</li>
-        <li>your NHS medical card</li>
       </ul>
-      <p>Ask your GP practice for help if you can't find your NHS number.</p>
+      <p>Ask your GP surgery for help if you can't find your NHS number.</p>
     `,
     screenshot: {
       states: ['click'],
@@ -93,20 +92,19 @@ export const examples = {
   },
   'open': {
     context: {
-      summaryText: 'Where can I find my NHS number?',
+      summaryText: 'How to find your NHS number',
       open: true
     },
     callBlock: outdent`
       <p>An NHS number is a 10 digit number, like 485 777 3456.</p>
-      <p>You can find your NHS number on any document sent to you by the NHS. This may include:</p>
+      <p>You can find your NHS number by logging in to a GP online service or on any document the NHS has sent you, such as your:</p>
       <ul>
         <li>prescriptions</li>
         <li>test results</li>
         <li>hospital referral letters</li>
         <li>appointment letters</li>
-        <li>your NHS medical card</li>
       </ul>
-      <p>Ask your GP practice for help if you can't find your NHS number.</p>
+      <p>Ask your GP surgery for help if you can't find your NHS number.</p>
     `
   },
   'expander': {

@@ -190,99 +190,16 @@ export const params = {
  */
 export const examples = {
   'default': {
-    layout: 'layouts/example-full-width.njk',
-    screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
-    }
-  },
-  'with custom copyright text': {
-    layout: 'layouts/example-full-width.njk',
-    context: {
-      copyright: {
-        text: '© East London NHS Foundation Trust'
-      }
-    },
-    screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
-    }
-  },
-  'with meta (links only)': {
-    layout: 'layouts/example-full-width.njk',
     context: {
       meta: {
         items: [
           {
             href: '#',
-            text: 'About us'
-          },
-          {
-            href: '#',
-            text: 'Give us feedback'
-          },
-          {
-            href: '#',
             text: 'Accessibility statement'
           },
           {
             href: '#',
-            text: 'Our policies'
-          },
-          {
-            href: '#',
-            text: 'Cookies'
-          }
-        ]
-      }
-    },
-    screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
-    }
-  },
-  'with meta (links and text)': {
-    layout: 'layouts/example-full-width.njk',
-    context: {
-      meta: {
-        text: `All content is available under the Open Government Licence v3.0, except where otherwise stated.`,
-        items: [
-          {
-            href: '#',
-            text: 'About us'
-          },
-          {
-            href: '#',
-            text: 'Give us feedback'
-          },
-          {
-            href: '#',
-            text: 'Accessibility statement'
-          },
-          {
-            href: '#',
-            text: 'Our policies'
-          },
-          {
-            href: '#',
-            text: 'Cookies'
-          }
-        ]
-      }
-    },
-    screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
-    }
-  },
-  'with single navigation group': {
-    layout: 'layouts/example-full-width.njk',
-    context: {
-      navigation: {
-        items: [
-          {
-            href: '#',
-            text: 'Accessibility statement'
-          },
-          {
-            href: '#',
-            text: 'Give us feedback'
+            text: 'Contact us'
           },
           {
             href: '#',
@@ -299,12 +216,138 @@ export const examples = {
         ]
       }
     },
+    options: {
+      width: false
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+    }
+  },
+  'with copyright text only': {
+    options: {
+      width: false
+    }
+  },
+  'with custom copyright text': {
+    context: {
+      copyright: {
+        text: '© East London NHS Foundation Trust'
+      }
+    },
+    options: {
+      width: false
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+    }
+  },
+  'with meta (links only)': {
+    context: {
+      meta: {
+        items: [
+          {
+            href: '#',
+            text: 'Accessibility statement'
+          },
+          {
+            href: '#',
+            text: 'Contact us'
+          },
+          {
+            href: '#',
+            text: 'Cookies'
+          },
+          {
+            href: '#',
+            text: 'Privacy policy'
+          },
+          {
+            href: '#',
+            text: 'Terms and conditions'
+          }
+        ]
+      }
+    },
+    options: {
+      width: false
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+    }
+  },
+  'with meta (links and text)': {
+    context: {
+      copyright: {
+        text: '© Crown copyright'
+      },
+      meta: {
+        text: `All content is available under the Open Government Licence v3.0, except where otherwise stated.`,
+        items: [
+          {
+            href: '#',
+            text: 'Accessibility statement'
+          },
+          {
+            href: '#',
+            text: 'Contact us'
+          },
+          {
+            href: '#',
+            text: 'Cookies'
+          },
+          {
+            href: '#',
+            text: 'Privacy policy'
+          },
+          {
+            href: '#',
+            text: 'Terms and conditions'
+          }
+        ]
+      }
+    },
+    options: {
+      width: false
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+    }
+  },
+  'with single navigation group': {
+    context: {
+      navigation: {
+        items: [
+          {
+            href: '#',
+            text: 'Accessibility statement'
+          },
+          {
+            href: '#',
+            text: 'Contact us'
+          },
+          {
+            href: '#',
+            text: 'Cookies'
+          },
+          {
+            href: '#',
+            text: 'Privacy policy'
+          },
+          {
+            href: '#',
+            text: 'Terms and conditions'
+          }
+        ]
+      }
+    },
+    options: {
+      width: false
+    },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'with multiple navigation groups': {
-    layout: 'layouts/example-full-width.njk',
     context: {
       copyright: {
         text: '© Crown copyright'
@@ -319,6 +362,10 @@ export const examples = {
             {
               href: '#',
               text: 'Health A to Z'
+            },
+            {
+              href: '#',
+              text: 'NHS services'
             },
             {
               href: '#',
@@ -342,11 +389,7 @@ export const examples = {
             },
             {
               href: '#',
-              text: 'NHS services'
-            },
-            {
-              href: '#',
-              text: 'Coronavirus (COVID-19)'
+              text: 'COVID-19'
             }
           ]
         },
@@ -362,7 +405,11 @@ export const examples = {
             },
             {
               href: '#',
-              text: 'Your health records'
+              text: 'View your GP health records'
+            },
+            {
+              href: '#',
+              text: 'View your test results'
             },
             {
               href: '#',
@@ -412,12 +459,14 @@ export const examples = {
         }
       ]
     },
+    options: {
+      width: false
+    },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'with multiple navigation groups and custom HTML': {
-    layout: 'layouts/example-full-width.njk',
     context: {
       copyright: {
         text: '© 2025 – Manchester University NHS Foundation Trust'
@@ -476,10 +525,12 @@ export const examples = {
           `
         }
       ]
+    },
+    options: {
+      width: false
     }
   },
   'with multiple titled navigation groups': {
-    layout: 'layouts/example-full-width.njk',
     context: {
       navigation: [
         {
@@ -535,13 +586,18 @@ export const examples = {
         }
       ]
     },
+    options: {
+      width: false
+    },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'with meta and navigation': {
-    layout: 'layouts/example-full-width.njk',
     context: {
+      copyright: {
+        text: '© Crown copyright'
+      },
       navigation: [
         {
           items: [
@@ -652,6 +708,9 @@ export const examples = {
           }
         ]
       }
+    },
+    options: {
+      width: false
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']

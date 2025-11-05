@@ -1,17 +1,32 @@
+{% extends "layouts/example.njk" %}
 
-{% extends 'layouts/example.njk' %}
+{% set pageName = "Expander group" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
 
-{% from 'nhsuk/components/details/macro.njk' import details %}
-
-{% set title = 'Expander group' %}
+{% block beforeContent %}
+  {{ breadcrumb({
+    items: [
+      {
+        text: "NHS.UK frontend",
+        href: baseUrl
+      },
+      {
+        text: "Examples",
+        href: baseUrl ~ "#examples"
+      }
+    ]
+  }) }}
+{% endblock %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl">{{ pageName }}</h1>
+
       <div class="nhsuk-expander-group">
         {% call details({
-          "summaryText": "How to measure your blood glucose levels",
-          "classes": "nhsuk-expander"
+          summaryText: "How to measure your blood glucose levels",
+          classes: "nhsuk-expander"
         }) %}
           <p>Testing your blood at home is quick and easy, although it can be uncomfortable. It does get better.</p>
           <p>You would have been given:</p>
@@ -24,8 +39,8 @@
         {% endcall %}
 
         {% call details({
-          "summaryText": "When to check your blood glucose level",
-          "classes": "nhsuk-expander"
+          summaryText: "When to check your blood glucose level",
+          classes: "nhsuk-expander"
         }) %}
           <p>Try to check your blood:</p>
           <ul>

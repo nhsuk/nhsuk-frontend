@@ -1,16 +1,21 @@
 import { join } from 'node:path'
 
-import { components } from '@nhsuk/frontend-lib'
+import { components, files } from '@nhsuk/frontend-lib'
 
-import { files } from './index.mjs'
+/**
+ * Component data cache
+ *
+ * @type {ComponentData[] | undefined}
+ */
+let list
 
 /**
  * Generate fixtures.json from component data
  *
- * @param {Pick<AssetOptions, "destPath">} options - Asset options
+ * @param {Pick<FileOptions, "destPath">} options - Asset options
  */
 export async function generateFixtures({ destPath }) {
-  const list = await components.loadAll()
+  list ??= await components.loadAll()
 
   // Loop component names
   const fixtures = list.map(async (data) => {
@@ -36,10 +41,10 @@ export async function generateFixtures({ destPath }) {
 /**
  * Generate macro-options.json from component data
  *
- * @param {Pick<AssetOptions, "destPath">} options - Asset options
+ * @param {Pick<FileOptions, "destPath">} options - Asset options
  */
 export async function generateMacroOptions({ destPath }) {
-  const list = await components.loadAll()
+  list ??= await components.loadAll()
 
   // Loop component names
   const macroOptions = list.map(async (data) => {
@@ -80,10 +85,10 @@ export function generateFixture(data) {
     return {
       name: exampleName,
       description: example.description,
-      layout: example.layout,
       context: example.context ?? {},
       callBlock: example.callBlock,
       screenshot: example.screenshot ?? false,
+      options: example.options ?? {},
       html: components.render(component, example).trim()
     }
   })
@@ -97,5 +102,5 @@ export function generateFixture(data) {
 
 /**
  * @import { ComponentData, MacroExampleFixture, MacroExampleFixtures } from '@nhsuk/frontend-lib/components.mjs'
- * @import { AssetOptions } from '@nhsuk/frontend-tasks/files.mjs'
+ * @import { FileOptions } from '@nhsuk/frontend-lib/files.mjs'
  */

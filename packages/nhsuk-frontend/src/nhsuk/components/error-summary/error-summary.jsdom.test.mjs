@@ -53,7 +53,7 @@ describe('Error summary', () => {
   }
 
   beforeEach(() => {
-    initExample('with description')
+    initExample('default')
   })
 
   describe('Initialisation via init function', () => {
@@ -130,14 +130,13 @@ describe('Error summary', () => {
       initErrorSummary()
     })
 
-    it('should add accessible name and role', () => {
-      expect($root).toHaveAccessibleName('There is a problem')
-      expect($root).toHaveRole('alert')
+    it('should add accessible role', () => {
+      expect($root.firstElementChild).toHaveRole('alert')
     })
   })
 
   describe('Focus handling', () => {
-    describe('Alert role', () => {
+    describe('Root element', () => {
       it('sets focus automatically', () => {
         initErrorSummary()
 

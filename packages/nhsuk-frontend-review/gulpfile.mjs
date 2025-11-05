@@ -1,6 +1,7 @@
 import { join } from 'node:path'
 
 import * as config from '@nhsuk/frontend-config'
+import { npm } from '@nhsuk/frontend-tasks'
 import browserSync from 'browser-sync'
 import gulp from 'gulp'
 
@@ -12,8 +13,8 @@ import { assets, html, scripts, styles } from './tasks/index.mjs'
  */
 gulp.task('assets', assets.copy)
 gulp.task('html', html.compile)
-gulp.task('scripts', scripts.copy)
-gulp.task('styles', styles.copy)
+gulp.task('scripts', gulp.series(scripts.copy, scripts.compile))
+gulp.task('styles', gulp.series(styles.copy, styles.compile))
 gulp.task('validate', html.validate)
 
 /**
@@ -21,9 +22,13 @@ gulp.task('validate', html.validate)
  */
 gulp.task(
   'build',
-  gulp.parallel(
-    gulp.series('styles', 'scripts', 'assets'),
-    gulp.series('html', 'validate')
+  gulp.series(
+    npm.script('clean'),
+    gulp.parallel(
+      gulp.series('styles', 'scripts', 'assets'),
+      gulp.series('html', 'validate'),
+      npm.script('sassdoc')
+    )
   )
 )
 
@@ -38,8 +43,7 @@ gulp.task('watch', () =>
     gulp.watch(
       [
         join(config.paths.app, 'src/**/*.njk'),
-        join(config.paths.pkg, 'src/nhsuk/**/macro-options.mjs'),
-        join(config.paths.pkg, 'dist/nhsuk/**/*.njk')
+        join(config.paths.pkg, 'dist/nhsuk/**/fixtures.json')
       ],
       gulp.series('html')
     ),
@@ -48,7 +52,10 @@ gulp.task('watch', () =>
      * Watch and copy minified styles
      */
     gulp.watch(
-      [join(config.paths.pkg, 'dist/nhsuk/*.min.{css,css.map}')],
+      [
+        join(config.paths.pkg, 'dist/nhsuk/*.min.{css,css.map}'),
+        join(config.paths.app, 'src/stylesheets/**/*.scss')
+      ],
       gulp.series('styles')
     ),
 
@@ -56,7 +63,11 @@ gulp.task('watch', () =>
      * Watch and copy minified scripts
      */
     gulp.watch(
-      [join(config.paths.pkg, 'dist/nhsuk/*.min.{js,js.map}')],
+      [
+        join(config.paths.pkg, 'dist/nhsuk/*.min.{js,js.map}'),
+        join(config.paths.app, 'src/javascripts/**/*.mjs')
+      ],
+      { ignored: ['**/*.test.*'] },
       gulp.series('scripts')
     ),
 

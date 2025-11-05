@@ -11,6 +11,9 @@ class BrowserAutomationEnvironment extends TestEnvironment {
     // Listen for browser exceptions
     this.global.page.on('pageerror', (error) => {
       this.context.console.error(error)
+      if (!(error instanceof Error)) {
+        return
+      }
 
       // Ensure error appears in in reporter summary
       // as Jest suppresses errors with stack traces

@@ -12,17 +12,18 @@
     ]
   },
   "include": [
-    "./packages/*/gulpfile.mjs",
+    "./packages/*/src/**/*.test.mjs",
+    "./packages/*/src/**/macro-options.mjs",
     "./packages/*/tasks/**/*.mjs",
+    "./packages/*/gulpfile.mjs",
     "./packages/*/.htmlvalidate.js",
+    "./packages/*/*.config.js",
+    "./packages/*/*.config.mjs",
+    "./shared/helpers/*/*.setup.mjs",
+    "./tests/backstop/engine_scripts/**/*.js",
     "./.prettierrc.js",
     "./.stylelintrc.js",
-    "**/engine_scripts/**/*.js",
-    "**/*.config.js",
-    "**/*.config.mjs",
-    "**/*.setup.mjs",
-    "**/*.test.mjs",
-    "**/.eslintrc.js",
-    "**/macro-options.mjs"
+    "./*.config.js",
+    "./*.config.mjs"
   ]
 }

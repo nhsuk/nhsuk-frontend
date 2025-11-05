@@ -30,7 +30,7 @@ Otherwise you'll have to clone your own fork
 git clone https://github.com/[Username]/nhsuk-frontend.git nhsuk-frontend
 ```
 
-> Replace '[Username]' in the git clone command above with your own GitHub username.
+> Replace '\[Username\]' in the git clone command above with your own GitHub username.
 
 ## 3. Install dependencies
 

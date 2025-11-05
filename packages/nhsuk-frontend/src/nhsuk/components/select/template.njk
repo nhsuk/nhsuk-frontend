@@ -1,11 +1,11 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/components/error-message/macro.njk" import errorMessage -%}
 {% from "nhsuk/components/hint/macro.njk" import hint %}
 {% from "nhsuk/components/label/macro.njk" import label %}
-{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- a record of other elements that we need to associate with the input using
-   aria-describedby – for example hints or error messages -#}
-{%- set describedBy = params.describedBy if params.describedBy else "" -%}
+  aria-describedby – for example hints or error messages -#}
+{% set describedBy = params.describedBy if params.describedBy else "" %}
 {%- set id = params.id if params.id else params.name -%}
 
 <div class="nhsuk-form-group {%- if params.errorMessage %} nhsuk-form-group--error{% endif %} {%- if params.formGroup.classes %} {{ params.formGroup.classes }}{% endif %}"
@@ -17,28 +17,30 @@
     isPageHeading: params.label.isPageHeading,
     attributes: params.label.attributes,
     for: id
-  }) | indent(2) | trim }}
-{%- if params.hint %}
-  {%- set hintId = id + '-hint' %}
-  {%- set describedBy = describedBy + ' ' + hintId if describedBy else hintId %}
+  }) | trim | indent(2) }}
+{% if params.hint %}
+  {% set hintId = id ~ "-hint" %}
+  {% set describedBy = describedBy ~ " " ~ hintId if describedBy else hintId %}
   {{ hint({
     id: hintId,
     classes: params.hint.classes,
     attributes: params.hint.attributes,
     html: params.hint.html,
     text: params.hint.text
-  }) | indent(2) | trim }}
-{%- endif -%}
-{%- if params.errorMessage %}
-  {%- set errorId = id + '-error' %}
-  {%- set describedBy = describedBy + ' ' + errorId if describedBy else errorId %}
+  }) | trim | indent(2) }}
+{% endif %}
+{% if params.errorMessage %}
+  {% set errorId = id ~ "-error" %}
+  {% set describedBy = describedBy ~ " " ~ errorId if describedBy else errorId %}
   {{ errorMessage({
     id: errorId,
     classes: params.errorMessage.classes,
+    attributes: params.errorMessage.attributes,
     html: params.errorMessage.html,
-    text: params.errorMessage.text
-  }) | indent(2) | trim }}
-{%- endif %}
+    text: params.errorMessage.text,
+    visuallyHiddenText: params.errorMessage.visuallyHiddenText
+  }) | trim | indent(2) }}
+{% endif %}
 {% if params.formGroup.beforeInput %}
   {{ params.formGroup.beforeInput.html | safe | trim | indent(2) if params.formGroup.beforeInput.html else params.formGroup.beforeInput.text }}
 {% endif %}
@@ -47,18 +49,18 @@
     {%- if params.disabled %} disabled{% endif %}
     {%- if describedBy %} aria-describedby="{{ describedBy }}"{% endif %}
     {{- nhsukAttributes(params.attributes) }}>
-  {%- for item in params.items %}
+  {% for item in params.items %}
     {% if item %}
     {#- Allow selecting by text content (the value for an option when no value attribute is specified) #}
     {%- set effectiveValue = item.value | default(item.text) %}
-    <option {%- if item.value !== undefined %} value="{{ item.value }}"{% endif %}
-      {{-" selected" if item.selected | default((effectiveValue == params.value and item.selected != false) if params.value else false, true) }}
-      {{-" disabled" if item.disabled }}
+    <option {%- if item.value is not undefined %} value="{{ item.value }}"{% endif %}
+      {{- " selected" if item.selected | default((effectiveValue == params.value and item.selected != false) if params.value else false, true) }}
+      {{- " disabled" if item.disabled }}
       {{- nhsukAttributes(item.attributes) }}>
       {{- item.text -}}
     </option>
     {% endif %}
-  {%- endfor %}
+  {% endfor %}
   </select>
 {% if params.formGroup.afterInput %}
   {{ params.formGroup.afterInput.html | safe | trim | indent(2) if params.formGroup.afterInput.html else params.formGroup.afterInput.text }}

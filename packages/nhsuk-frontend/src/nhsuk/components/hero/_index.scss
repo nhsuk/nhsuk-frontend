@@ -14,6 +14,7 @@
 
 @include nhsuk-exports("nhsuk/components/hero") {
   .nhsuk-hero {
+    box-sizing: border-box;
     position: relative; // [1]
     color: $nhsuk-reverse-text-colour;
     background-color: $nhsuk-brand-colour;
@@ -164,6 +165,8 @@
 
     @include nhsuk-media-query($from: tablet) {
       .nhsuk-hero-content {
+        box-sizing: border-box;
+
         position: absolute;
         top: auto;
         bottom: -48px; // [8]
