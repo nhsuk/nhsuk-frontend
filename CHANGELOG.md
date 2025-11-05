@@ -4,6 +4,12 @@
 
 ### :new: **New features**
 
+#### Smaller versions of buttons
+
+You can now use smaller versions of [buttons](https://service-manual.nhs.uk/design-system/components/buttons) by adding the `nhsuk-button--small` class.
+
+This was added in [pull request #1643: Add small buttons and inline form groups](https://github.com/nhsuk/nhsuk-frontend/pull/1643).
+
 #### Add inline buttons to text inputs and select menus
 
 You can now add inline buttons to text inputs and select menus using the `formGroup.afterInput` Nunjucks options.
