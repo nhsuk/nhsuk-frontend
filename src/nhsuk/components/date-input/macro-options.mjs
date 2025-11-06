@@ -18,7 +18,7 @@ export const params = {
     type: 'string',
     required: false,
     description:
-      'Optional prefix. This is used to prefix each item `name`, separated by `-`.'
+      'Optional prefix. This is used to prefix each date input `name` attribute, wrapped in `[` and `]`. For example, setting `namePrefix: "dob"` will output the `name` attributes `dob[day]`, `dob[month]` and `dob[year]` respectively.'
   },
   items: {
     type: 'array',
