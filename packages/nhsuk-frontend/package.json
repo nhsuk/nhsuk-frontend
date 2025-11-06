@@ -70,7 +70,7 @@
     "sass-embedded": "^1.93.3"
   },
   "engines": {
-    "node": "^20.9.0 || ^22.11.0"
+    "node": "^20.9.0 || ^22.11.0 || ^24.11.0"
   },
   "publishConfig": {
     "access": "public"
