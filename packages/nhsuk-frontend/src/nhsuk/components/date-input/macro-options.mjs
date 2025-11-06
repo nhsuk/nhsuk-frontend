@@ -18,7 +18,7 @@ export const params = {
     type: 'string',
     required: false,
     description:
-      'Optional. This is used in the name attribute to group the date input parts together. For example, if the `namePrefix` is `dateOfBirth` the day input will have the `name` attribute `dateOfBirth[day]`, the month input will have the `name` attribute `dateOfBirth[month]` and so on.'
+      'Optional prefix. This is used to prefix each date input `name` attribute, wrapped in `[` and `]`. For example, setting `namePrefix: "dob"` will output the `name` attributes `dob[day]`, `dob[month]` and `dob[year]` respectively.'
   },
   items: {
     type: 'array',
