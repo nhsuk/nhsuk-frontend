@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+### :new: **New features**
+
+#### Interruption panel
+
+We've added a new variant of the panel component with a solid blue background and white text. This can be used as an interruption card.
+
+This was added in [pull request #1196: Add interruption panel variant](https://github.com/nhsuk/nhsuk-frontend/pull/1196).
+
 ### :recycle: **Changes**
 
 #### Remove global box sizing reset
