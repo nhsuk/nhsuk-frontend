@@ -13,5 +13,5 @@
     "types": ["node", "typed-query-selector"]
   },
   "include": ["src/**/*.js", "src/**/*.mjs"],
-  "exclude": ["**/macro-options.mjs", "**/*.test.*"]
+  "exclude": ["src/**/macro-options.mjs", "src/**/*.test.mjs"]
 }

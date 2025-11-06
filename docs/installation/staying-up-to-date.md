@@ -40,7 +40,7 @@ We aim to follow [semantic versioning](https://semver.org/). This means we will:
 
 - increase the `PATCH` number if a release only includes bug fixes, for example going from v9.6.0 to v9.6.1
 - increase the `MINOR` number and reset the `PATCH` number to 0 if a release includes new features, for example going from v9.6.1 to v9.7.0
-- increase the `MAJOR` number and reset the `MINOR` and `PATCH` numbers to 0 if a release might require you to make changes to your service when you update (see [breaking changes](#breaking-changes)), for example going from v9.6.0 to v10.0.0
+- increase the `MAJOR` number and reset the `MINOR` and `PATCH` numbers to 0 if a release might require you to make changes to your service when you update (see [breaking changes](#boom-breaking-changes)), for example going from v9.6.0 to v10.0.0
 
 The intention is to make sure you can easily update to new minor and patch releases without needing to make any changes to your service.
 

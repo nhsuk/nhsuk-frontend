@@ -28,7 +28,7 @@ The examples below follow our recommended [Import JavaScript using a bundler](./
 
 You can pass a configuration object into `createAll`'s second argument when creating an instance of a component in JavaScript:
 
-```mjs
+```
 import { CharacterCount, createAll } from 'nhsuk-frontend'
 
 createAll(CharacterCount, {
@@ -76,7 +76,7 @@ For example, when:
 
 If our inline JavaScript snippet from [Importing JavaScript](./javascript.md) was not added to the top of the `<body>` section you'll see this error:
 
-```
+```console
 SupportError: NHS.UK frontend initialised without `<body class="nhsuk-frontend-supported">` from template `<script>` snippet
 ```
 

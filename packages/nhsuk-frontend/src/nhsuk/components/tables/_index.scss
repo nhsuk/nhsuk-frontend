@@ -15,9 +15,13 @@
   // 2. XS size not added because it matches the table header, so it'd be bad for hierarchy
 
   .nhsuk-table-container {
+    box-sizing: border-box;
     display: block;
+
     width: 100%;
+
     overflow-x: auto;
+
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: -ms-autohiding-scrollbar;
 
@@ -31,6 +35,7 @@
 
   .nhsuk-table,
   .nhsuk-table-responsive {
+    box-sizing: border-box;
     width: 100%;
     border-spacing: 0;
     border-collapse: collapse;

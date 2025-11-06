@@ -18,7 +18,7 @@ export const params = {
     type: 'string',
     required: false,
     description:
-      'Optional prefix. This is used to prefix each item `name`, separated by `-`.'
+      'Optional prefix. This is used to prefix each date input `name` attribute, wrapped in `[` and `]`. For example, setting `namePrefix: "dob"` will output the `name` attributes `dob[day]`, `dob[month]` and `dob[year]` respectively.'
   },
   items: {
     type: 'array',
@@ -58,13 +58,13 @@ export const params = {
         type: 'string',
         required: false,
         description:
-          'Attribute to meet [WCAG success criterion 1.3.5: Identify input purpose](https://www.w3.org/WAI/WCAG22/Understanding/identify-input-purposeandard](https://html.spec.whatwg.org/multipage/form-control-infrastructure used.'
+          'Attribute to meet [WCAG success criterion 1.3.5: Identify input purpose](https://www.w3.org/WAI/WCAG22/Understanding/identify-input-purpose.html), for instance `"bday-day"`. See the [Autofill section in the HTML standard](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill) for a full list of attributes that can be used.'
       },
       pattern: {
         type: 'string',
         required: false,
         description:
-          'Attribute to [provide a regular expression pattern](https://html.spec.whatharacter combinations for the input value.'
+          'Attribute to [provide a regular expression pattern](https://html.spec.whatwg.org/multipage/input.html#the-pattern-attribute), used to match allowed character combinations for the input value.'
       },
       classes: {
         type: 'string',

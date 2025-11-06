@@ -144,7 +144,7 @@ Automatically clear an elements child elements.
 By default all grid elements will go to 100% width on screen sizes below tablet. These utilities can force
 custom widths on all screen sizes.
 
-```
+```console
 nhsuk-u-[grid-size]
 ```
 
@@ -247,7 +247,7 @@ See the full list in [\_colours-palette.scss](./settings/_colours-palette.scss).
 
 ## Breakpoints
 
-```
+```console
 mobile: 320px
 tablet: 641px
 desktop: 769px

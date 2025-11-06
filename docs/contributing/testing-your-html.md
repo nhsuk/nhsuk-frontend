@@ -36,7 +36,6 @@ For example, you can find the `fixtures.json` file for the button component in t
     // ...
   ]
 }
-
 ```
 
 Each object in the `fixtures` list is a different example of the component, where:

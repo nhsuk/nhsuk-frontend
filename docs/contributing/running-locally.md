@@ -6,7 +6,7 @@ To run NHS.UK frontend locally you'll need to:
 
 - [set up git](https://help.github.com/articles/set-up-git/)
 - [install Node.js](https://nodejs.org/en/)
-  We recommend to use the [long-term support (LTS) version of Nodejs](https://nodejs.org/en/download/), rather than the latest beta version.
+  We recommend you install the latest [Long Term Support (LTS) version of Node.js](https://nodejs.org/en/download/).
 
 > Type `git --version` to check if git is installed. This should print a version number like "git version 2.18.0".
 
@@ -30,7 +30,7 @@ Otherwise you'll have to clone your own fork
 git clone https://github.com/[Username]/nhsuk-frontend.git nhsuk-frontend
 ```
 
-> Replace '[Username]' in the git clone command above with your own GitHub username.
+> Replace '\[Username\]' in the git clone command above with your own GitHub username.
 
 ## 3. Install dependencies
 

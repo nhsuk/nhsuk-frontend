@@ -240,6 +240,7 @@
 ///
 
 @mixin nhsuk-panel($panel-background-colour, $panel-text-colour, $panel-border-colour: null) {
+  box-sizing: border-box;
   @if $panel-border-colour {
     border: 1px solid $panel-border-colour;
   }

@@ -11,19 +11,19 @@ Each commit should be a single logical change. This makes it easier to unpick co
 
 Commit messages should start with a short descriptive one-line summary, preferably no longer than 50 characters, with a leading capital and no full stop. Git convention is to write these in the present tense. For example:
 
-```html
+```console
 Add border around care cards component
 ```
 
 If the commit refers to a ticket ID, then reference that in the commit message:
 
-```html
+```console
 [refs #94] Remove search icon IE8 fallback icon
 ```
 
 After the summary line should come a blank line, followed by a more detailed description, which should wrap at around 72 characters.
 
-```html
+```console
 [refs #94] Remove search icon IE8 fallback icon
 
 We are reducing the extra code and overheads for Internet Explorer 8,

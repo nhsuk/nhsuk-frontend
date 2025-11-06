@@ -11,15 +11,15 @@
   "dependencies": {
     "@nhsuk/frontend-config": "*",
     "@nhsuk/frontend-lib": "*",
-    "@npmcli/run-script": "^10.0.0",
-    "@rollup/plugin-babel": "^6.0.4",
-    "@rollup/plugin-commonjs": "^28.0.6",
-    "@rollup/plugin-node-resolve": "^16.0.1",
-    "@rollup/plugin-replace": "^6.0.2",
+    "@npmcli/run-script": "^10.0.2",
+    "@rollup/plugin-babel": "^6.1.0",
+    "@rollup/plugin-commonjs": "^29.0.0",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "@rollup/plugin-replace": "^6.0.3",
     "@rollup/plugin-terser": "^0.4.4",
     "autoprefixer": "^10.4.21",
     "browser-sync": "^3.0.4",
-    "cssnano": "^7.1.1",
+    "cssnano": "^7.1.2",
     "gulp": "^5.0.1",
     "gulp-changed": "^5.0.4",
     "gulp-rename": "^2.1.0",
@@ -28,11 +28,11 @@
     "postcss": "^8.5.6",
     "postcss-load-config": "^6.0.1",
     "postcss-scss": "^4.0.9",
-    "rollup": "^4.52.3",
-    "sass-embedded": "^1.93.2"
+    "rollup": "^4.52.5",
+    "sass-embedded": "^1.93.3"
   },
   "engines": {
-    "node": "^20.9.0 || ^22.11.0",
-    "npm": "^10.5.0"
+    "node": "^24.11.0",
+    "npm": "^11.6.1"
   }
 }

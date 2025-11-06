@@ -23,6 +23,7 @@
   $_large-icon-spacing: math.floor(math.div($_large-icon-size, 10));
 
   .nhsuk-action-link {
+    box-sizing: border-box;
     display: inline-block; // [1]
     position: relative; // [3]
     padding-left: nhsuk-px-to-rem($_small-icon-size + $_small-icon-spacing); // [2]

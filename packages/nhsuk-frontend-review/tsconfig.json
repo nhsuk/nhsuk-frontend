@@ -6,6 +6,6 @@
     "target": "ES2015",
     "types": ["node", "typed-query-selector"]
   },
-  "include": ["src/javascripts/**/*.js", "src/javascripts/**/*.mjs"],
-  "exclude": ["**/*.test.*"]
+  "include": ["src/javascripts/**/*.mjs"],
+  "exclude": ["src/**/*.test.mjs"]
 }
