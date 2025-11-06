@@ -33,7 +33,7 @@ describe('Page width container', () => {
               margin-left: max(16px, calc(16px + env(safe-area-inset-left)));
             }
           }
-          @media (min-width: 48.0625em) {
+          @media (min-width: 40.0625em) {
             .app-width-container--wide {
               margin-right: 32px;
               margin-left: 32px;
