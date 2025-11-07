@@ -27,37 +27,27 @@ module.exports = async function (page, scenario) {
 
   for (const { selector, keyPress } of keyPressSelectors) {
     const locator = getLocator(page, selector)
-
-    await page.bringToFront()
     await locator.pressSequentially(keyPress)
   }
 
   for (const selector of hoverSelectors) {
     const locator = getLocator(page, selector)
-
-    await page.bringToFront()
     await locator.hover()
   }
 
   for (const selector of activeSelectors) {
     const locator = getLocator(page, selector)
-
-    await page.bringToFront()
     await locator.hover()
     await page.mouse.down()
   }
 
   for (const selector of focusSelectors) {
     const locator = getLocator(page, selector)
-
-    await page.bringToFront()
     await locator.focus()
   }
 
   for (const selector of clickSelectors) {
     const locator = getLocator(page, selector)
-
-    await page.bringToFront()
     await locator.click()
   }
 
@@ -67,7 +57,6 @@ module.exports = async function (page, scenario) {
 
   if (scrollToSelector) {
     await getLocator(page, scrollToSelector).scrollIntoViewIfNeeded()
-    await page.bringToFront()
   }
 }
 
