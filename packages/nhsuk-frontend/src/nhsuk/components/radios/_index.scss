@@ -22,20 +22,32 @@ $nhsuk-radios-label-padding-left-right: 12px;
 // visually consistent.
 $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
 
+// Offset 2px due to 40px form control with 44px clickable area
+// https://nhsuk.github.io/nhsuk-frontend/examples/form-alignment/
+$nhsuk-radios-offset: $nhsuk-border-width-form-element;
+
 @include nhsuk-exports("nhsuk/components/radios") {
   $nhsuk-touch-target-gutter: 4px;
   $nhsuk-touch-target-size: $nhsuk-radios-size + $nhsuk-touch-target-gutter;
+
+  .nhsuk-radios {
+    margin: -$nhsuk-radios-offset;
+    margin-right: 0;
+  }
 
   .nhsuk-radios__item {
     display: flex;
     position: relative;
     flex-wrap: wrap;
-    margin-bottom: nhsuk-spacing(2);
+    margin-top: nhsuk-spacing(2) - $nhsuk-radios-offset;
+
+    .nhsuk-radios__conditional:not(.nhsuk-radios__conditional--hidden) + & {
+      @include nhsuk-responsive-margin(4, "top", $adjustment: - $nhsuk-radios-offset);
+    }
   }
 
-  .nhsuk-radios__item:last-child,
-  .nhsuk-radios__item:last-of-type {
-    margin-bottom: 0;
+  .nhsuk-radios__item:first-child {
+    margin-top: 0;
   }
 
   .nhsuk-radios__input {
@@ -163,6 +175,7 @@ $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
       align-items: flex-start;
 
       .nhsuk-radios__item {
+        margin-top: 0;
         margin-right: nhsuk-spacing(4);
       }
     }
@@ -175,7 +188,8 @@ $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
   .nhsuk-radios__divider {
     $nhsuk-divider-size: $nhsuk-radios-size !default;
     width: $nhsuk-divider-size;
-    margin-bottom: nhsuk-spacing(2);
+    margin-top: nhsuk-spacing(2) - $nhsuk-radios-offset;
+    padding: 0 $nhsuk-radios-offset;
     text-align: center;
     @include nhsuk-text-colour;
     @include nhsuk-font($size: 19);
@@ -187,36 +201,33 @@ $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
 
   // Calculate the amount of padding needed to keep the border centered against
   // the radios.
-  $conditional-border-padding: math.div($nhsuk-touch-target-size, 2) - math.div($nhsuk-border-width, 2);
+  $conditional-border-padding: math.div($nhsuk-touch-target-size, 2) - $nhsuk-border-width-form-element;
   // Move the border centered with the radios
   $conditional-margin-left: $conditional-border-padding;
   // Move the contents of the conditional inline with the label
   $conditional-padding-left: $conditional-border-padding + $nhsuk-radios-label-padding-left-right;
 
   .nhsuk-radios__conditional {
+    margin-top: nhsuk-spacing(2) - $nhsuk-radios-offset;
+    margin-bottom: $nhsuk-radios-offset;
     margin-left: $conditional-margin-left;
     padding-left: $conditional-padding-left;
     border-left: $nhsuk-border-width solid $nhsuk-input-border-colour;
-    @include nhsuk-responsive-margin(4, "bottom");
 
     .nhsuk-frontend-supported &--hidden {
       display: none;
     }
-
-    & > :last-child {
-      margin-bottom: 0;
-    }
   }
 
   // =========================================================
-  // Small checkboxes
+  // Small radios
   // =========================================================
 
   .nhsuk-radios--small {
     $input-offset: math.div($nhsuk-touch-target-size - $nhsuk-radios-small-size, 2);
 
     .nhsuk-radios__item {
-      margin-bottom: 0;
+      margin-top: 0;
     }
 
     // Shift the touch target into the left margin so that the visible edge of
@@ -276,14 +287,15 @@ $nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
 
     // Align conditional reveals with small radios
     .nhsuk-radios__conditional {
-      $margin-left: math.div($nhsuk-radios-small-size, 2) - math.div($nhsuk-border-width, 2);
+      $margin-left: math.div($nhsuk-radios-small-size, 2) - $nhsuk-border-width-form-element;
       margin-left: $margin-left;
       padding-left: ($nhsuk-touch-target-size - $input-offset) - ($margin-left + $nhsuk-border-width);
     }
 
     .nhsuk-radios__divider {
       width: $nhsuk-radios-small-size;
-      margin-bottom: nhsuk-spacing(1);
+      margin: nhsuk-spacing(1) - $nhsuk-radios-offset 0;
+      padding: 0;
     }
 
     // Hover state for small radios.
