@@ -16,8 +16,8 @@
 /// @group components/button
 ////
 
-$nhsuk-button-padding-top-bottom-mobile: 8px;
-$nhsuk-button-padding-top-bottom-desktop: 12px;
+$nhsuk-button-padding-top-bottom-mobile: 10px;
+$nhsuk-button-padding-top-bottom-desktop: 14px;
 $nhsuk-button-padding-left-right: 16px;
 
 // @deprecated To be removed in v11.0
@@ -56,13 +56,14 @@ $button-shadow-size: $nhsuk-button-shadow-size;
 
     appearance: none;
 
-    @include nhsuk-font(19, $weight: bold);
+    @include nhsuk-font(19, $line-height: 19px, $weight: bold);
     @include nhsuk-responsive-margin(5, "bottom", $adjustment: $nhsuk-button-shadow-size); // [5]
 
     @include nhsuk-media-query($from: tablet) {
       width: auto;
       min-height: nhsuk-px-to-rem(56px);
       padding: $nhsuk-button-padding-top-bottom-desktop $nhsuk-button-padding-left-right; // [5]
+      line-height: nhsuk-line-height(24px, $font-size: 19);
     }
 
     // [1]
