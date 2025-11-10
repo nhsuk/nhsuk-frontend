@@ -121,7 +121,7 @@ async function goTo(page, pathOrUrl) {
  * @param {string} example - Example name
  */
 export async function goToExample(browser, example) {
-  return goTo(await browser.newPage(), `./examples/${example}/`)
+  return goTo(await browser.newPage({ type: 'tab' }), `./examples/${example}/`)
 }
 
 /**
@@ -134,7 +134,7 @@ export async function goToExample(browser, example) {
  */
 export async function goToComponent(browser, component, options) {
   const componentPath = getComponentPath(component, options)
-  return goTo(await browser.newPage(), `.${componentPath}`)
+  return goTo(await browser.newPage({ type: 'tab' }), `.${componentPath}`)
 }
 
 /**
