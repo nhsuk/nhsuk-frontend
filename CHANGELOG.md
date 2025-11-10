@@ -2,6 +2,47 @@
 
 ## Unreleased
 
+### :new: **New features**
+
+#### Smaller versions of buttons
+
+You can now use smaller versions of [buttons](https://service-manual.nhs.uk/design-system/components/buttons) by adding the `nhsuk-button--small` class.
+
+This was added in [pull request #1643: Add small buttons and inline form groups](https://github.com/nhsuk/nhsuk-frontend/pull/1643).
+
+#### Add inline buttons to text inputs and select menus
+
+You can now add inline buttons to text inputs and select menus using the `formGroup.afterInput` Nunjucks options.
+
+```njk
+{{ input({
+  label: {
+    text: "NHS number"
+  },
+  name: "search",
+  formGroup: {
+    afterInput: {
+      html: button({
+        text: "Search",
+        classes: "nhsuk-button--small"
+      })
+    }
+  }
+}) }}
+```
+
+This was added in [pull request #1643: Add small buttons and inline form groups](https://github.com/nhsuk/nhsuk-frontend/pull/1643).
+
+### :wastebasket: **Deprecated features**
+
+#### Rename input wrapper HTML class
+
+Within the input component, change the `nhsuk-input__wrapper` class to `nhsuk-input-wrapper`.
+
+The previous class name is deprecated and will be removed in a future release.
+
+This change was introduced in [pull request #1643: Add small buttons and inline form groups](https://github.com/nhsuk/nhsuk-frontend/pull/1643).
+
 ### :recycle: **Changes**
 
 #### Remove global box sizing reset

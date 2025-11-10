@@ -31,6 +31,156 @@
       <form method="post" novalidate>
         {% call fieldset({
           legend: {
+            text: "Input and button",
+            classes: "nhsuk-fieldset__legend--m"
+          }
+        }) %}
+          {{ input({
+            label: {
+              text: "NHS number"
+            },
+            name: "example-input",
+            id: "example-input",
+            classes: "nhsuk-u-width-full",
+            formGroup: {
+              classes: "nhsuk-u-width-one-half",
+              afterInput: {
+                html: button({
+                  text: "Search",
+                  classes: "nhsuk-button--secondary nhsuk-button--small"
+                })
+              }
+            }
+          }) }}
+        {% endcall %}
+      </form>
+
+      <form method="post" novalidate>
+        {% call fieldset({
+          legend: {
+            text: "Input and button with error",
+            classes: "nhsuk-fieldset__legend--m"
+          }
+        }) %}
+          {{ input({
+            label: {
+              text: "NHS number"
+            },
+            errorMessage: {
+              text: "Enter an NHS number"
+            },
+            name: "example-input-2",
+            id: "example-input-2",
+            classes: "nhsuk-u-width-full",
+            formGroup: {
+              classes: "nhsuk-u-width-one-half",
+              afterInput: {
+                html: button({
+                  text: "Search",
+                  classes: "nhsuk-button--secondary nhsuk-button--small"
+                })
+              }
+            }
+          }) }}
+        {% endcall %}
+      </form>
+
+      <form method="post" novalidate>
+        {% call fieldset({
+          legend: {
+            text: "Select and button",
+            classes: "nhsuk-fieldset__legend--m"
+          }
+        }) %}
+          {{ select({
+            label: {
+              text: "Sort by"
+            },
+            name: "sort-by",
+            id: "sort-by",
+            classes: "nhsuk-u-width-full",
+            items: [
+              {
+                value: "published",
+                text: "Recently published"
+              },
+              {
+                value: "updated",
+                text: "Recently updated"
+              },
+              {
+                value: "views",
+                text: "Most views"
+              },
+              {
+                value: "comments",
+                text: "Most comments"
+              }
+            ],
+            formGroup: {
+              classes: "nhsuk-u-width-one-half",
+              afterInput: {
+                html: button({
+                  text: "Sort",
+                  classes: "nhsuk-button--secondary nhsuk-button--small"
+                })
+              }
+            }
+          }) }}
+        {% endcall %}
+      </form>
+
+      <form method="post" novalidate>
+        {% call fieldset({
+          legend: {
+            text: "Select and button with error",
+            classes: "nhsuk-fieldset__legend--m"
+          }
+        }) %}
+          {{ select({
+            label: {
+              text: "Sort by"
+            },
+            errorMessage: {
+              text: "Select sort by"
+            },
+            name: "sort-by-2",
+            id: "sort-by-2",
+            classes: "nhsuk-u-width-full",
+            items: [
+              {
+                value: "published",
+                text: "Recently published"
+              },
+              {
+                value: "updated",
+                text: "Recently updated"
+              },
+              {
+                value: "views",
+                text: "Most views"
+              },
+              {
+                value: "comments",
+                text: "Most comments"
+              }
+            ],
+            formGroup: {
+              classes: "nhsuk-u-width-one-half",
+              afterInput: {
+                html: button({
+                  text: "Sort",
+                  classes: "nhsuk-button--secondary nhsuk-button--small"
+                })
+              }
+            }
+          }) }}
+        {% endcall %}
+      </form>
+
+      <form method="post" novalidate>
+        {% call fieldset({
+          legend: {
             text: "Inputs side by side",
             classes: "nhsuk-fieldset__legend--m"
           }
