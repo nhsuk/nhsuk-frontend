@@ -55,6 +55,14 @@ For consistency with other components with nested items, we’ve added new Nunju
 
 This was added in [pull request #1683: Update Nunjucks macro options for nested items](https://github.com/nhsuk/nhsuk-frontend/pull/1683).
 
+#### Added a modifier class for text input styles that accept codes and sequences
+
+We've added a new `.nhsuk-input--code` class for the [text input](https://service-manual.nhs.uk/design-system/components/text-input) component. This improves readability of text inputs that receive codes and sequences (like NHS numbers, security codes or booking references).
+
+You can add it through the classes option when using Nunjucks, or directly in the class attribute of the `<input>` when using HTML.
+
+This was added in [pull request #1617: Add input styling for codes and sequences](https://github.com/nhsuk/nhsuk-frontend/pull/1617).
+
 ### :wastebasket: **Deprecated features**
 
 #### Rename input wrapper HTML class
@@ -315,6 +323,7 @@ This change was introduced in [pull request #1620: Make all Nunjucks components 
 - [#1599: Make border colour on `nhsuk-panel` mixin optional](https://github.com/nhsuk/nhsuk-frontend/pull/1599)
 - [#1601: Fix accessible name for linked logo in header component](https://github.com/nhsuk/nhsuk-frontend/pull/1601)
 - [#1612: Fix styling of action link when used in emergency cards](https://github.com/nhsuk/nhsuk-frontend/pull/1612)
+- [#1617: Add input styling for codes and sequences](https://github.com/nhsuk/nhsuk-frontend/pull/1617)
 - [#1628: Fix Node.js `ReferenceError: HTMLElement is not defined` when imported server-side](https://github.com/nhsuk/nhsuk-frontend/pull/1628)
 
 ## 10.0.0 - 26 August 2025
