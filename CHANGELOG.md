@@ -43,6 +43,14 @@ The previous class name is deprecated and will be removed in a future release.
 
 This change was introduced in [pull request #1643: Add small buttons and inline form groups](https://github.com/nhsuk/nhsuk-frontend/pull/1643).
 
+#### Rename Sass variable for base font size
+
+If you use the Sass `$nhsuk-base-font-size` variable, you should rename it to `$nhsuk-root-font-size`.
+
+The previous name is deprecated and will be removed in a future release.
+
+This change was introduced in [pull request #1669: Remove pixel font sizes where unnecessary](https://github.com/nhsuk/nhsuk-frontend/pull/1669).
+
 ### :recycle: **Changes**
 
 #### Remove global box sizing reset
