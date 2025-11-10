@@ -34,10 +34,6 @@ html {
       // stylelint-disable-next-line font-family-no-missing-generic-family-keyword
       font: -apple-system-body;
       font-family: $nhsuk-font-fallback;
-      $font-size-value: math.div($nhsuk-base-font-size, ($nhsuk-base-font-size * 0 + 1));
-      $default-apple-font-size: 17;
-      $font-size-adjust-value: calc(0.51 * math.div($font-size-value, $default-apple-font-size));
-      font-size-adjust: $font-size-adjust-value;
     }
   }
 
