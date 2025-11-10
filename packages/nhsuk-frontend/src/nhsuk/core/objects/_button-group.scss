@@ -1,3 +1,4 @@
+@use "sass:math";
 @use "../settings" as *;
 @use "../tools" as *;
 
@@ -15,12 +16,8 @@
     $vertical-gap: nhsuk-spacing(3);
 
     // These need to be kept in sync with the button component's styles
-    $button-border-radius: $nhsuk-border-width-form-element * 2;
-    $button-shadow-size: $button-border-radius;
-    $button-padding-top-bottom-mobile: 8px;
-    $button-padding-top-bottom-desktop: 12px;
-
-    $link-spacing: nhsuk-spacing(2);
+    $button-padding-top-bottom-mobile: 10px + $nhsuk-border-width-form-element;
+    $button-padding-top-bottom-desktop: 14px + $nhsuk-border-width-form-element;
 
     // Flexbox is used to center-align links on mobile, align everything along
     // the baseline on tablet and above, and to removes extra whitespace that
@@ -50,16 +47,16 @@
       // Prevent links overflowing their container in IE10/11 because of bug
       // with align-items: center
       max-width: 100%;
-      margin-top: $link-spacing;
-      margin-bottom: $link-spacing + $vertical-gap;
+      margin-top: $button-padding-top-bottom-mobile;
+      margin-bottom: $button-padding-top-bottom-mobile + $nhsuk-button-shadow-size + $vertical-gap;
       text-align: center;
-      @include nhsuk-font($size: 19);
+      @include nhsuk-font(19, $line-height: 19px);
     }
 
     // Reduce the bottom margin to the size of the vertical gap (accommodating
     // the button shadow) – the 'lost' margin is moved to the button-group.
     > .nhsuk-button {
-      margin-bottom: $vertical-gap + $button-shadow-size;
+      margin-bottom: $nhsuk-button-shadow-size + $vertical-gap;
     }
 
     // On tablet and above, we also introduce a 'column gap' between the
@@ -77,9 +74,10 @@
       p,
       > .nhsuk-link,
       > a:not(.nhsuk-button) {
-        margin-top: $button-padding-top-bottom-desktop + $nhsuk-border-width-form-element;
+        margin-top: $button-padding-top-bottom-desktop;
         margin-right: $horizontal-gap;
-        margin-bottom: $button-padding-top-bottom-desktop + $nhsuk-border-width-form-element;
+        margin-bottom: $button-padding-top-bottom-desktop + $nhsuk-button-shadow-size + $vertical-gap;
+        line-height: nhsuk-line-height(24px, $font-size: 19);
         text-align: left;
       }
 
