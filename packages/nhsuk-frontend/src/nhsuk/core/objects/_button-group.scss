@@ -13,11 +13,13 @@
   //   when they wrap across multiple lines
   .nhsuk-button-group {
     $horizontal-gap: nhsuk-spacing(4);
+    $horizontal-gap-small: nhsuk-spacing(3);
     $vertical-gap: nhsuk-spacing(3);
 
     // These need to be kept in sync with the button component's styles
     $button-padding-top-bottom-mobile: 10px + $nhsuk-border-width-form-element;
     $button-padding-top-bottom-desktop: 14px + $nhsuk-border-width-form-element;
+    $button-padding-top-bottom-small: 6px + $nhsuk-border-width-form-element;
 
     // Flexbox is used to center-align links on mobile, align everything along
     // the baseline on tablet and above, and to removes extra whitespace that
@@ -53,10 +55,24 @@
       @include nhsuk-font(19, $line-height: 19px);
     }
 
+    &--small .nhsuk-body,
+    &--small .nhsuk-body-m,
+    &--small p,
+    &--small > .nhsuk-link,
+    &--small > a:not(.nhsuk-button) {
+      margin-top: $button-padding-top-bottom-small;
+      margin-bottom: $button-padding-top-bottom-small + $vertical-gap + $nhsuk-button-shadow-size;
+    }
+
     // Reduce the bottom margin to the size of the vertical gap (accommodating
     // the button shadow) – the 'lost' margin is moved to the button-group.
     > .nhsuk-button {
       margin-bottom: $nhsuk-button-shadow-size + $vertical-gap;
+    }
+
+    // Deduct vertical gap from margin when nested in form groups
+    .nhsuk-form-group &:last-child {
+      margin-bottom: nhsuk-spacing(-3);
     }
 
     // On tablet and above, we also introduce a 'column gap' between the
@@ -68,6 +84,10 @@
 
       // Cancel out the column gap for the last item in each row
       margin-right: ($horizontal-gap * -1);
+
+      &--small {
+        margin-right: ($horizontal-gap-small * -1);
+      }
 
       .nhsuk-body,
       .nhsuk-body-m,
@@ -81,8 +101,23 @@
         text-align: left;
       }
 
+      &--small .nhsuk-body,
+      &--small .nhsuk-body-m,
+      &--small p,
+      &--small > .nhsuk-link,
+      &--small > a:not(.nhsuk-button) {
+        margin-top: $button-padding-top-bottom-small;
+        margin-right: $horizontal-gap-small;
+        margin-bottom: $button-padding-top-bottom-small + $vertical-gap + $nhsuk-button-shadow-size;
+        @include nhsuk-font(16, $line-height: 19px);
+      }
+
       > .nhsuk-button {
         margin-right: $horizontal-gap;
+      }
+
+      > .nhsuk-button--small {
+        margin-right: $horizontal-gap-small;
       }
     }
   }
