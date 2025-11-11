@@ -39,9 +39,6 @@ body {
   color: $nhsuk-text-colour;
   background-color: $nhsuk-body-background-colour;
 
-  font-size: $nhsuk-base-font-size;
-  line-height: nhsuk-line-height($nhsuk-base-line-height, $nhsuk-base-font-size);
-
   -moz-osx-font-smoothing: grayscale; // [2]
   -webkit-font-smoothing: antialiased; // [2]
 }
