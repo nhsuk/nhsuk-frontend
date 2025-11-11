@@ -111,7 +111,7 @@
     "typed-query-selector": "^2.12.0",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.46.3",
-    "wait-on": "^9.0.1"
+    "wait-on": "^9.0.3"
   },
   "engines": {
     "node": "^24.11.0",
