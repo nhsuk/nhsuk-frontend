@@ -25,6 +25,12 @@ export const params = {
     description:
       'If `text` is set, this is not required. HTML to use within the label. If `html` is provided, the `text` option will be ignored.'
   },
+  caller: {
+    type: 'nunjucks-block',
+    required: false,
+    description:
+      'Not strictly a parameter but Nunjucks code convention. Using a `call` block enables you to call a macro with all the text inside the tag. This is helpful if you want to pass a lot of content into a macro. To use it, you will need to wrap the entire label component in a `call` block.'
+  },
   for: {
     type: 'string',
     required: false,
@@ -34,7 +40,19 @@ export const params = {
   isPageHeading: {
     type: 'boolean',
     required: false,
-    description: 'Whether the label also acts as the heading for the page.'
+    description:
+      'Whether the label also acts as the heading for the page. Defaults to `true` when `headingLevel` is provided.'
+  },
+  headingLevel: {
+    type: 'integer',
+    required: false,
+    description:
+      'Optional label heading level. Defaults to `1` when `isPageHeading` is `true`.'
+  },
+  size: {
+    type: 'string',
+    required: false,
+    description: 'Size of the label – `"s"`, `"m"`, `"l"` or `"xl"`.'
   },
   classes: {
     type: 'string',
@@ -58,17 +76,35 @@ export const examples = {
   'default': {
     context: {
       text: 'What is your full name?',
-      classes: 'nhsuk-label--l',
+      size: 'l',
       isPageHeading: true
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
+  'heading level 1': {
+    context: {
+      legend: {
+        text: 'What is your full name?',
+        size: 'l',
+        headingLevel: 1
+      }
+    }
+  },
+  'heading level 2': {
+    context: {
+      legend: {
+        text: 'What is your full name?',
+        size: 'm',
+        headingLevel: 2
+      }
+    }
+  },
   'size XL': {
     context: {
       text: 'What is your full name?',
-      classes: 'nhsuk-label--xl',
+      size: 'xl',
       isPageHeading: true
     },
     screenshot: {
@@ -78,7 +114,7 @@ export const examples = {
   'size L': {
     context: {
       text: 'What is your full name?',
-      classes: 'nhsuk-label--l',
+      size: 'l',
       isPageHeading: true
     },
     screenshot: {
@@ -88,7 +124,7 @@ export const examples = {
   'size M': {
     context: {
       text: 'What is your full name?',
-      classes: 'nhsuk-label--m',
+      size: 'm',
       isPageHeading: true
     },
     screenshot: {
@@ -98,7 +134,22 @@ export const examples = {
   'size S': {
     context: {
       text: 'What is your full name?',
-      classes: 'nhsuk-label--s',
+      size: 's',
+      isPageHeading: true
+    }
+  },
+  'size class': {
+    context: {
+      text: 'What is your full name?',
+      classes: 'nhsuk-label--l',
+      isPageHeading: true
+    }
+  },
+  'size class overriding size param': {
+    context: {
+      text: 'What is your full name?',
+      classes: 'nhsuk-label--l',
+      size: 's',
       isPageHeading: true
     }
   },

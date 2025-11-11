@@ -148,8 +148,8 @@ export function getFixtures(component) {
 export function getAllFixtures() {
   const components = getNames()
 
-  // Load component fictures per directory
-  return components.map(getFixtures)
+  // Load component fixtures per directory
+  return components.map(getFixtures).filter((data) => data.fixtures.length)
 }
 
 /**

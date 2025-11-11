@@ -1,19 +1,19 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set classes for this component #}
-{%- set classNames = "nhsuk-label" -%}
+{%- set classNames = "nhsuk-fieldset__legend" -%}
 
 {%- if params.size and
   params.size in ["s", "m", "l", "xl"] and (
     not params.classes or (
-      not "nhsuk-label--s" in params.classes and
-      not "nhsuk-label--m" in params.classes and
-      not "nhsuk-label--l" in params.classes and
-      not "nhsuk-label--xl" in params.classes
+      not "nhsuk-fieldset__legend--s" in params.classes and
+      not "nhsuk-fieldset__legend--m" in params.classes and
+      not "nhsuk-fieldset__legend--l" in params.classes and
+      not "nhsuk-fieldset__legend--xl" in params.classes
     )
   )
 %}
-  {% set classNames = classNames ~ " nhsuk-label--" ~ params.size %}
+  {% set classNames = classNames ~ " nhsuk-fieldset__legend--" ~ params.size %}
 {% endif %}
 
 {%- if params.classes %}
@@ -23,34 +23,21 @@
 {%- set headingLevel = params.headingLevel if params.headingLevel else 1 %}
 
 {%- if caller or params.html or params.text %}
-{% set labelHtml %}
-<label
-  {{- nhsukAttributes({
-    class: classNames,
-    id: {
-      value: params.id,
-      optional: true
-    },
-    for: {
-      value: params.for,
-      optional: true
-    }
-  }) -}}
-
-  {{- nhsukAttributes(params.attributes) }}>
+{% set legendHtml %}
 {% if caller or params.html %}
   {{ caller() if caller else params.html | safe | trim | indent(2) }}
 {% elif params.text %}
   {{ params.text | safe | trim | indent(2) }}
 {% endif %}
-</label>
 {% endset -%}
 
+<legend {{- nhsukAttributes({ class: classNames }) }}>
 {% if params.isPageHeading or params.headingLevel %}
-<h{{ headingLevel }} class="nhsuk-label-wrapper">
-  {{ labelHtml | safe | trim | indent(2) }}
-</h{{ headingLevel }}>
+  <h{{ headingLevel }} class="nhsuk-fieldset__heading">
+    {{ legendHtml | safe | trim | indent(4) }}
+  </h{{ headingLevel }}>
 {% else %}
-{{ labelHtml | safe | trim }}
+  {{ legendHtml | safe | trim | indent(2) }}
 {% endif %}
+</legend>
 {% endif %}

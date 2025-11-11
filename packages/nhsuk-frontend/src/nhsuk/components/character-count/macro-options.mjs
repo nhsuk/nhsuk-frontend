@@ -174,7 +174,7 @@ export const examples = {
     context: {
       label: {
         text: 'Can you provide more detail?',
-        classes: 'nhsuk-label--l',
+        size: 'l',
         isPageHeading: true
       },
       hint: {
@@ -192,7 +192,7 @@ export const examples = {
     context: {
       label: {
         text: 'Enter a job description',
-        classes: 'nhsuk-label--l',
+        size: 'l',
         isPageHeading: true
       },
       hint: {
@@ -207,7 +207,7 @@ export const examples = {
     context: {
       label: {
         text: 'Enter a job description',
-        classes: 'nhsuk-label--l',
+        size: 'l',
         isPageHeading: true
       },
       errorMessage: {
@@ -224,7 +224,7 @@ export const examples = {
     context: {
       label: {
         text: 'Enter a job description',
-        classes: 'nhsuk-label--l',
+        size: 'l',
         isPageHeading: true
       },
       hint: {
@@ -248,7 +248,7 @@ export const examples = {
     context: {
       label: {
         text: 'Enter a job description',
-        classes: 'nhsuk-label--l',
+        size: 'l',
         isPageHeading: true
       },
       id: 'with-default-value',
@@ -262,7 +262,7 @@ export const examples = {
     context: {
       label: {
         text: 'Can you provide more detail?',
-        classes: 'nhsuk-label--l',
+        size: 'l',
         isPageHeading: true
       },
       id: 'custom-rows',
@@ -275,7 +275,7 @@ export const examples = {
     context: {
       label: {
         text: 'Can you provide more detail?',
-        classes: 'nhsuk-label--s',
+        size: 's',
         isPageHeading: true
       },
       id: 'custom-size',
@@ -287,7 +287,7 @@ export const examples = {
     context: {
       label: {
         text: 'Can you provide more detail?',
-        classes: 'nhsuk-label--m',
+        size: 'm',
         isPageHeading: true
       },
       id: 'custom-size',
@@ -299,7 +299,7 @@ export const examples = {
     context: {
       label: {
         text: 'Can you provide more detail?',
-        classes: 'nhsuk-label--l',
+        size: 'l',
         isPageHeading: true
       },
       id: 'custom-size',
@@ -311,7 +311,7 @@ export const examples = {
     context: {
       label: {
         text: 'Can you provide more detail?',
-        classes: 'nhsuk-label--xl',
+        size: 'xl',
         isPageHeading: true
       },
       id: 'custom-size',
@@ -349,7 +349,7 @@ export const examples = {
     context: {
       label: {
         text: 'Enter a job description',
-        classes: 'nhsuk-label--l',
+        size: 'l',
         isPageHeading: true
       },
       id: 'with-word-count',
@@ -364,7 +364,7 @@ export const examples = {
     context: {
       label: {
         text: 'Can you provide more detail?',
-        classes: 'nhsuk-label--l',
+        size: 'l',
         isPageHeading: true
       },
       id: 'with-threshold',
@@ -382,7 +382,7 @@ export const examples = {
     context: {
       label: {
         text: 'Can you provide more detail?',
-        classes: 'nhsuk-label--l',
+        size: 'l',
         isPageHeading: true
       },
       textareaDescriptionText: 'No more than %{count} characters',
@@ -396,7 +396,7 @@ export const examples = {
     context: {
       label: {
         text: 'Can you provide more detail?',
-        classes: 'nhsuk-label--l',
+        size: 'l',
         isPageHeading: true
       },
       id: 'no-maximum',
@@ -409,7 +409,7 @@ export const examples = {
     context: {
       label: {
         text: 'Allwch chi roi mwy o fanylion?',
-        classes: 'nhsuk-label--l',
+        size: 'l',
         isPageHeading: true
       },
       hint: {
@@ -440,7 +440,7 @@ export const examples = {
     context: {
       label: {
         text: 'Can you provide more detail?',
-        classes: 'nhsuk-label--l',
+        size: 'l',
         isPageHeading: true
       },
       id: 'to-configure-in-javascript',
