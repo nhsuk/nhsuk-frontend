@@ -16,12 +16,12 @@
   {% for item in params.items %}
     <li class="nhsuk-contents-list__item" {%- if item.current %} aria-current="page" {%- endif %}>
     {% if item.current %}
-      <span class="nhsuk-contents-list__current">
-        {{- item.text -}}
+      <span class="nhsuk-contents-list__current {%- if item.classes %} {{ item.classes }}{% endif %}" {{- nhsukAttributes(item.attributes) }}>
+        {{- item.html | safe | trim | indent(6) if item.html else item.text -}}
       </span>
     {% else %}
-      <a class="nhsuk-contents-list__link" href="{{ item.href }}">
-        {{- item.text -}}
+      <a class="nhsuk-contents-list__link {%- if item.classes %} {{ item.classes }}{% endif %}" href="{{ item.href }}" {{- nhsukAttributes(item.attributes) }}>
+        {{- item.html | safe | trim | indent(6) if item.html else item.text -}}
       </a>
     {% endif %}
     </li>
