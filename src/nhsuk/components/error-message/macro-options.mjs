@@ -23,7 +23,7 @@ export const params = {
   id: {
     type: 'string',
     required: false,
-    description: 'ID attribute to add to the error message `<span>` tag.'
+    description: 'The `id` attribute to add to the error message `<span>` tag.'
   },
   classes: {
     type: 'string',

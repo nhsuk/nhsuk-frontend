@@ -21,12 +21,12 @@ export const params = {
   href: {
     type: 'string',
     required: true,
-    description: 'The value of the link href attribute.'
+    description: 'The value of the link `href` attribute.'
   },
   openInNewWindow: {
     type: 'boolean',
     required: false,
-    description: 'If set to true, then the link will open in a new window.'
+    description: 'If set to `true`, then the link will open in a new window.'
   },
   classes: {
     type: 'string',

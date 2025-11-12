@@ -23,7 +23,7 @@ export const params = {
   id: {
     type: 'string',
     required: false,
-    description: 'Id attribute to add to the hint.'
+    description: 'The `id` attribute to add to the hint.'
   },
   classes: {
     type: 'string',

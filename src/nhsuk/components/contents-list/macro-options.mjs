@@ -21,7 +21,7 @@ export const params = {
       href: {
         type: 'string',
         required: true,
-        description: 'href value to use within each content list item label.'
+        description: 'The `href` attribute for the content list item label.'
       },
       text: {
         type: 'string',

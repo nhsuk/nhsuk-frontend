@@ -108,7 +108,7 @@ export const params = {
   name: {
     type: 'string',
     required: true,
-    description: 'Name attribute for all checkbox items.'
+    description: 'The `name` attribute for all checkbox items.'
   },
   items: {
     type: 'array',
@@ -131,18 +131,18 @@ export const params = {
         type: 'string',
         required: false,
         description:
-          'Specific ID attribute for the checkbox item. If omitted, then component global `idPrefix` option will be applied.'
+          'Specific `id` attribute for the checkbox item. If omitted, then component global `idPrefix` option will be applied.'
       },
       name: {
         type: 'string',
         required: false,
         description:
-          'Specific name for the checkbox item. If omitted, then component global `name` string will be applied.'
+          'Specific `name` attribute for the checkbox item. If omitted, then component global `name` string will be applied.'
       },
       value: {
         type: 'string',
         required: true,
-        description: 'Value for the checkbox input.'
+        description: 'The `value` attribute for the checkbox input.'
       },
       label: {
         type: 'object',
