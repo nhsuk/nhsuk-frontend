@@ -21,7 +21,14 @@ export const params = {
       href: {
         type: 'string',
         required: true,
-        description: 'The `href` attribute for the content list item label.'
+        description:
+          'The `href` attribute for the content list item label. Required unless `item.current` is set.'
+      },
+      current: {
+        type: 'boolean',
+        required: false,
+        description:
+          'Set to `true` to indicate the current page the user is on.'
       },
       text: {
         type: 'string',
@@ -29,11 +36,6 @@ export const params = {
         description: 'Text to use within each content list item label.'
       }
     }
-  },
-  current: {
-    type: 'boolean',
-    required: false,
-    description: 'Set the current active page.'
   },
   landmarkLabel: {
     type: 'string',
@@ -50,7 +52,7 @@ export const params = {
     type: 'object',
     required: false,
     description:
-      'HTML attributes (for example data attributes) to items in the content list.'
+      'HTML attributes (for example data attributes) to add to the content list container.'
   },
   visuallyHiddenTitle: {
     type: 'string',
