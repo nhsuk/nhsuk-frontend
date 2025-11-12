@@ -21,8 +21,9 @@ export const compile = task.name(
  */
 export const copy = task.name(
   'styles:copy',
-  styles.compile('nhsuk-frontend.min.css', {
-    srcPath: join(config.paths.pkg, 'dist/nhsuk'),
-    destPath: join(config.paths.app, 'dist/stylesheets')
+  styles.compile('nhsuk/nhsuk-frontend.css', {
+    srcPath: join(config.paths.pkg, 'dist'),
+    destPath: join(config.paths.app, 'dist'),
+    output: { file: 'stylesheets/nhsuk-frontend.min.css' }
   })
 )
