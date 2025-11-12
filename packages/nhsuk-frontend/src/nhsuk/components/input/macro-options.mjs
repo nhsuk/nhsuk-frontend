@@ -28,7 +28,7 @@ export const params = {
     type: 'string',
     required: false,
     description:
-      'Optional value for [the inputmode attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode).'
+      'Optional value for [the `inputmode` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode).'
   },
   value: {
     type: 'string',
