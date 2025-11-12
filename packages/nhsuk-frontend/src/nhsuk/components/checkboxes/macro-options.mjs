@@ -201,6 +201,11 @@ export const params = {
         required: false,
         description: 'If `true`, checkbox will be disabled.'
       },
+      classes: {
+        type: 'string',
+        required: false,
+        description: 'Classes to add to the checkbox input tag.'
+      },
       attributes: {
         type: 'object',
         required: false,
