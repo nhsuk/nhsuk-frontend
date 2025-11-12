@@ -9,9 +9,8 @@
 /// 2. Fix unwanted button padding in Firefox.
 /// 3. Use a pseudo element to expand the click target area to include the
 ///    button's shadow as well, in case users try to click it.
-/// 4. Use a pseudo element to expand and cover the button's bounds, used to
-///    add a button shadow or border without affecting the total height
-/// 5. Adjust margin and padding to accommodate button shadow
+/// 4. Use a pseudo element to expand and cover the button's border, used to
+///    ensure buttons with and without borders share the same metrics.
 ///
 /// @group components/button
 ////
@@ -38,13 +37,13 @@ $button-shadow-size: $nhsuk-button-shadow-size;
     position: relative;
 
     width: 100%;
-    min-height: nhsuk-px-to-rem(44px);
+    min-height: nhsuk-px-to-rem(44px + $nhsuk-button-shadow-size);
     margin-top: 0;
-    padding: $nhsuk-button-padding-top-bottom-mobile $nhsuk-button-padding-left-right; // [5]
+    padding: $nhsuk-button-padding-top-bottom-mobile $nhsuk-button-padding-left-right
+      $nhsuk-button-padding-top-bottom-mobile + $nhsuk-button-shadow-size; // [5]
 
     overflow: visible;
 
-    border: $nhsuk-border-width-form-element solid transparent;
     border-radius: $nhsuk-button-border-radius;
 
     text-align: center;
@@ -60,8 +59,9 @@ $button-shadow-size: $nhsuk-button-shadow-size;
 
     @include nhsuk-media-query($from: tablet) {
       width: auto;
-      min-height: nhsuk-px-to-rem(56px);
-      padding: $nhsuk-button-padding-top-bottom-desktop $nhsuk-button-padding-left-right; // [5]
+      min-height: nhsuk-px-to-rem(56px + $nhsuk-button-shadow-size);
+      padding: $nhsuk-button-padding-top-bottom-desktop $nhsuk-button-padding-left-right
+        $nhsuk-button-padding-top-bottom-desktop + $nhsuk-button-shadow-size; // [5]
       line-height: nhsuk-line-height(24px, $font-size: 19);
     }
 
@@ -112,21 +112,18 @@ $button-shadow-size: $nhsuk-button-shadow-size;
       position: absolute;
       top: -$nhsuk-border-width-form-element;
       right: -$nhsuk-border-width-form-element;
-      bottom: -$nhsuk-border-width-form-element;
       left: -$nhsuk-border-width-form-element;
-
-      border-radius: $nhsuk-button-border-radius;
     }
 
     // Use a pseudo element to expand the click target area to include the
-    // button's shadow as well, in case users try to click it [3]
+    // button's shadow as well, in case users try to click it. [3]
     &::before {
       bottom: -($nhsuk-border-width-form-element + $nhsuk-button-shadow-size);
-      border: $nhsuk-border-width-form-element solid transparent;
+      border-radius: $nhsuk-button-border-radius;
       background-color: transparent;
     }
 
-    // When the button is active it is shifted down by $nhsuk-button-shadow-size to
+    // Active button is shifted down by $nhsuk-button-shadow-size to
     // denote a 'pressed' state. If the user happened to click at the very top
     // of the button, their mouse is no longer over the button (because it has
     // 'moved beneath them') and so the click event is not fired.
@@ -138,24 +135,34 @@ $button-shadow-size: $nhsuk-button-shadow-size;
       top: -($nhsuk-border-width-form-element + $nhsuk-button-shadow-size);
       bottom: -$nhsuk-border-width-form-element;
     }
+
+    // Use a pseudo element to expand and cover the button's border. [4]
+    &::after {
+      border-radius: $nhsuk-button-border-radius;
+    }
   }
 
   // Button variations
-
-  .nhsuk-button--secondary,
-  .nhsuk-button--secondary-solid {
+  .nhsuk-button--secondary {
     @include nhsuk-button-style(
-      $button-colour: $nhsuk-secondary-button-colour,
-      $button-border-colour: $nhsuk-secondary-button-border-colour,
+      $button-colour: transparent,
       $button-hover-colour: $nhsuk-secondary-button-hover-colour,
       $button-active-colour: $nhsuk-secondary-button-active-colour,
       $button-text-colour: $nhsuk-secondary-button-text-colour,
-      $button-shadow-colour: $nhsuk-secondary-button-shadow-colour
+      $button-shadow-colour: $nhsuk-secondary-button-border-colour,
+      $secondary: true
     );
   }
 
   .nhsuk-button--secondary-solid {
-    background-color: $nhsuk-secondary-button-solid-background-colour;
+    @include nhsuk-button-style(
+      $button-colour: $nhsuk-secondary-button-solid-background-colour,
+      $button-hover-colour: $nhsuk-secondary-button-hover-colour,
+      $button-active-colour: $nhsuk-secondary-button-active-colour,
+      $button-text-colour: $nhsuk-secondary-button-text-colour,
+      $button-shadow-colour: $nhsuk-secondary-button-border-colour,
+      $secondary: true
+    );
   }
 
   .nhsuk-button--reverse {
@@ -191,8 +198,9 @@ $button-shadow-size: $nhsuk-button-shadow-size;
   // =========================================================
 
   .nhsuk-button--small {
-    min-height: nhsuk-px-to-rem(36px);
-    padding: $nhsuk-button-padding-top-bottom-small $nhsuk-button-padding-left-right-small; // [5]
+    min-height: nhsuk-px-to-rem(36px + $nhsuk-button-shadow-size);
+    padding: $nhsuk-button-padding-top-bottom-small $nhsuk-button-padding-left-right-small
+      $nhsuk-button-padding-top-bottom-small + $nhsuk-button-shadow-size; // [5]
 
     @include nhsuk-responsive-margin(4, "bottom", $adjustment: $nhsuk-button-shadow-size); // [5]
 
