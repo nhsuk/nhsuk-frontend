@@ -4,6 +4,17 @@
 
 ### :new: **New features**
 
+#### Use the Password input component to help users accessibly enter passwords
+
+The [password input component](https://service-manual.nhs.uk/design-system/components/password-input) allows users to choose:
+
+- whether their passwords are visible or not
+- to enter their passwords in plain text
+
+This helps users use longer and more complex passwords without needing to remember what they've already typed.
+
+This was added in [pull request #1574: Uplift GOV.UK Frontend password input component](https://github.com/nhsuk/nhsuk-frontend/pull/1574).
+
 #### Smaller versions of buttons
 
 You can now use smaller versions of [buttons](https://service-manual.nhs.uk/design-system/components/buttons) by adding the `nhsuk-button--small` class.

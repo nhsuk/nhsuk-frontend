@@ -11,6 +11,7 @@ This page lists the options available for the following components:
 - [CharacterCount](#charactercount)
 - [ErrorSummary](#errorsummary)
 - [NotificationBanner](#notificationbanner)
+- [PasswordInput](#passwordinput)
 
 ## Button
 
@@ -208,4 +209,82 @@ Default:
 
 ```json5
 false
+```
+
+## PasswordInput
+
+### i18n
+
+#### Properties
+
+##### hidePassword
+
+Type: string
+
+Visible text of the button when the password is currently visible.
+
+Default:
+
+```json5
+  'Hide'
+```
+
+##### hidePasswordAriaLabel
+
+Type: string
+
+aria-label of the button when the password is currently visible.
+
+Default:
+
+```json5
+  'Hide password'
+```
+
+##### passwordHiddenAnnouncement
+
+Type: string
+
+Screen reader announcement to make when the password has just been hidden.
+
+Default:
+
+```json5
+  'Your password is hidden'
+```
+
+##### passwordShownAnnouncement
+
+Type: string
+
+Screen reader announcement to make when the password has just become visible.
+
+Default:
+
+```json5
+  'Your password is visible'
+```
+
+##### showPassword
+
+Type: string
+
+Visible text of the button when the password is currently hidden.
+
+Default:
+
+```json5
+  'Show'
+```
+
+##### showPasswordAriaLabel
+
+Type: string
+
+aria-label of the button when the password is currently hidden.
+
+Default:
+
+```json5
+  'Show password'
 ```
