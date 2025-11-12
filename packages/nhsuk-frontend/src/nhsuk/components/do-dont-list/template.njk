@@ -10,7 +10,7 @@
     html: data.item if data.item is escaped
   } if data.item else data -%}
 
-  {{ nhsukIcon(type) }}
+  {{ nhsukIcon(type) | trim }}
   {% if not params.hidePrefix and (params.prefixText or type == "cross") %}
     {{- (params.prefixText if params.prefixText else "do not") ~ " " -}}
   {% endif %}
