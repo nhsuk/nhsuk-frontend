@@ -189,6 +189,11 @@ export const params = {
         required: false,
         description: 'If `true`, radio will be disabled.'
       },
+      classes: {
+        type: 'string',
+        required: false,
+        description: 'Classes to add to the radio input tag.'
+      },
       attributes: {
         type: 'object',
         required: false,
