@@ -51,7 +51,7 @@ export function compile(inputPath, { srcPath, destPath, output = {} }) {
     let map
 
     // Compile Sass to CSS
-    if (options.to.endsWith('.css')) {
+    if (options.from.endsWith('.scss') && options.to.endsWith('.css')) {
       ;({ css, sourceMap: map } = await compileAsync(options.from, {
         fatalDeprecations: [
           'color-functions',
