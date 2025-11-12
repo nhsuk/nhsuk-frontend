@@ -142,3 +142,14 @@ $nhsuk-typography-scale: (
     )
   )
 ) !default;
+
+/// System monospace font stack
+///
+/// Android typically avoids the "Courier" based monospace
+/// default but we need to specify fallbacks for others:
+///
+/// * Menlo - Font for older macOS, OS X versions
+/// * Cascadia Mono, Segoe UI Mono, Consolas - Fonts for Windows 11, 10, 8
+/// * Consolas - Font for older Windows versions
+/// * Liberation Mono - Font for Linux used by GitHub
+$nhsuk-code-font: menlo, "Cascadia Mono", "Segoe UI Mono", consolas, "Liberation Mono", monospace;

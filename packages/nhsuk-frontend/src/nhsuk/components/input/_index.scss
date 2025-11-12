@@ -58,6 +58,13 @@
     border-color: $nhsuk-error-colour;
   }
 
+  // Codes and sequences
+
+  .nhsuk-input--code {
+    font-family: $nhsuk-code-font;
+    letter-spacing: 0.1em;
+  }
+
   // The ex measurements are based on the number of W's that can fit inside the input
   // Extra space is left on the right hand side to allow for the Safari prefill icon
   // Linear regression estimation based on visual tests: y = 1.76 + 1.81x
