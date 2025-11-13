@@ -15,7 +15,7 @@
     {%- endif %}
   </h{{ headingLevel }}>
   {% if caller or params.html -%}
-    {{ caller() if caller else params.html | safe }}
+    {{ caller() if caller else params.html | safe | trim | indent(4) }}
   {% elif params.text -%}
     <p>{{ params.text }}</p>
   {% endif %}
