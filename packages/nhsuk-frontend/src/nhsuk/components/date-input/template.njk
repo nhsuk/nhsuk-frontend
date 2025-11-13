@@ -71,7 +71,7 @@
           classes: "nhsuk-date-input__label"
         },
         id: item.id if item.id else (params.id ~ "-" ~ item.name),
-        classes: "nhsuk-date-input__input " ~ (item.classes if item.classes),
+        classes: "nhsuk-date-input__input" ~ (" " ~ item.classes if item.classes),
         name: (params.namePrefix ~ "[" ~ item.name ~ "]") if params.namePrefix else item.name,
         value: item.value or params.values[item.name],
         type: "text",
