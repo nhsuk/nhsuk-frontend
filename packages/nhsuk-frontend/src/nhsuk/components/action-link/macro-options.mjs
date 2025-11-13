@@ -16,7 +16,14 @@ export const params = {
   text: {
     type: 'string',
     required: true,
-    description: 'Text to use within the action link component.'
+    description:
+      'If `html` is set, this is not required. Text to use within the action link. If `html` is provided, the `text` option will be ignored.'
+  },
+  html: {
+    type: 'string',
+    required: true,
+    description:
+      'If `text` is set, this is not required. HTML to use within the action link. If `html` is provided, the `text` option will be ignored.'
   },
   href: {
     type: 'string',

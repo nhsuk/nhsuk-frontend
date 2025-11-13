@@ -12,5 +12,7 @@
   {%- if params.openInNewWindow %} target="_blank"{% endif %}
   {{- nhsukAttributes(params.attributes) }}>
   {{ nhsukIcon("arrow-right-circle") | trim | indent(2) }}
-  <span class="nhsuk-action-link__text">{{ params.text }}</span>
+  <span class="nhsuk-action-link__text">
+    {{- params.html | safe | trim | indent(2) if params.html else params.text -}}
+  </span>
 </a>
