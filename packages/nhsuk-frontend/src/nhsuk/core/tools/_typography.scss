@@ -175,6 +175,11 @@
     $font-size: map.get($breakpoint-map, "font-size");
     $font-size-rem: nhsuk-px-to-rem($font-size);
 
+    // Scale the rem-based font size on iOS to match other platforms while supporting Dynamic Type
+    // $default-font-size: math.div($nhsuk-base-font-size, ($nhsuk-base-font-size * 0 + 1));
+    // $default-font-size-ios: 17;
+    // $font-size-rem-ios: nhsuk-px-to-rem(calc($font-size * math.div($default-font-size, $default-font-size-ios)));
+
     // $calculated-line-height is a separate variable from $line-height,
     // as otherwise the value would get redefined with each loop and
     // eventually break nhsuk-line-height.
@@ -192,11 +197,17 @@
     $font-size: $font-size if($important, !important, null);
     $font-size-rem: $font-size-rem if($important, !important, null);
     $calculated-line-height: $calculated-line-height if($important, !important, null);
+    // $font-size-rem-ios: $font-size-rem-ios if($important, !important, null);
 
     & {
       @if not $breakpoint {
         font-size: $font-size-rem;
         line-height: $calculated-line-height;
+
+        // stylelint-disable-next-line max-nesting-depth
+        // @supports (font: -apple-system-body) and (-webkit-touch-callout: default) {
+        //   font-size: $font-size-rem-ios;
+        // }
       } @else if $breakpoint == "print" {
         @include nhsuk-media-query($media-type: print) {
           font-size: $font-size;
@@ -206,6 +217,11 @@
         @include nhsuk-media-query($from: $breakpoint) {
           font-size: $font-size-rem;
           line-height: $calculated-line-height;
+
+          // stylelint-disable-next-line max-nesting-depth
+          // @supports (font: -apple-system-body) and (-webkit-touch-callout: default) {
+          //   font-size: $font-size-rem-ios;
+          // }
         }
       }
     }

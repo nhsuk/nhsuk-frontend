@@ -72,6 +72,14 @@ Please review any custom styles, especially those with defined widths, to make s
 
 This change was introduced in pull requests [#1633: Review global `box-sizing` usage](https://github.com/nhsuk/nhsuk-frontend/pull/1633) and [#1651: Add `box-sizing: border-box` to width utility classes etc](https://github.com/nhsuk/nhsuk-frontend/pull/1651).
 
+#### Add support for iOS system level Dynamic Type
+
+To better accommodate accessibility requirements on iOS, we now scale up the root font size based on the system level Dynamic Type font size.
+
+Please review any custom font sizes which are not calculated relative to the root as fixed sizes (e.g. 16px) will not scale.
+
+This change was introduced in pull request [#1655: Add support for iOS system level Dynamic Type for a11y purposes](https://github.com/nhsuk/nhsuk-frontend/pull/1655)
+
 ### :wrench: **Fixes**
 
 - [#1633: Review global `box-sizing` usage](https://github.com/nhsuk/nhsuk-frontend/pull/1633)
