@@ -372,6 +372,7 @@
 ///
 
 @mixin nhsuk-care-card($heading-background-colour, $heading-text-colour, $print-border-size) {
+  .nhsuk-card__heading-container,
   .nhsuk-card--care__heading-container {
     color: $heading-text-colour;
     background-color: $heading-background-colour;
