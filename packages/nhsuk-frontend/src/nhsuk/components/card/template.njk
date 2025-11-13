@@ -3,7 +3,6 @@
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-card" -%}
-{%- set classNamesContent = "nhsuk-card__content" -%}
 {%- set classNamesHeading = "nhsuk-card__heading" -%}
 
 {%- if params.clickable %}
@@ -12,17 +11,14 @@
 
 {%- if params.feature %}
   {% set classNames = classNames ~ " nhsuk-card--feature" %}
-  {% set classNamesContent = classNamesContent ~ " nhsuk-card__content--feature" %}
-  {% set classNamesHeading = classNamesHeading ~ " nhsuk-card__heading--feature" %}
 {% endif %}
 
 {%- if params.primary %}
-  {% set classNamesContent = classNamesContent ~ " nhsuk-card__content--primary" %}
+  {% set classNames = classNames ~ " nhsuk-card--primary" %}
 {% endif %}
 
 {%- if params.secondary %}
   {% set classNames = classNames ~ " nhsuk-card--secondary" %}
-  {% set classNamesContent = classNamesContent ~ " nhsuk-card__content--secondary" %}
 {% endif %}
 
 {%- if params.topTask %}
@@ -31,7 +27,6 @@
 
 {%- if params.type %}
   {% set classNames = classNames ~ " nhsuk-card--care nhsuk-card--care--" ~ params.type %}
-  {% set classNamesHeading = "nhsuk-card--care__heading" %}
 {% endif %}
 
 {%- if params.classes %}
@@ -45,38 +40,35 @@
 {%- set headingLevel = params.headingLevel if params.headingLevel else 2 %}
 
 {%- macro _careHeading(params, classNames) %}
-  <div class="nhsuk-card--care__heading-container">
-  {% if params.headingHtml %}
-    {{ params.headingHtml | safe | trim | indent(4) }}
+{% if params.heading %}
+  <h{{ headingLevel }} class="{{ classNames }}">
+  {% if params.href and not params.feature %}
+    <a class="nhsuk-card__link" href="{{ params.href }}">
+      {{- params.heading | safe -}}
+    </a>
   {% else %}
-    <h{{ headingLevel }} class="{{ classNames }}">
-    {% if params.href and not params.feature %}
-      <a class="nhsuk-card__link" href="{{ params.href }}">
-        {{- params.heading | safe -}}
-      </a>
-    {% else %}
-      <span role="text">
-        <span class="nhsuk-u-visually-hidden">
-          {%- if params.type == "emergency" -%}
-            Immediate action required:
-          {%- elif params.type == "urgent" -%}
-            Urgent advice:
-          {%- else -%}
-            Non-urgent advice:
-          {%- endif -%}
-        </span> {{ params.heading }}
-      </span>
-    {% endif %}
-    </h{{ headingLevel }}>
-    <span class="nhsuk-card--care__arrow" aria-hidden="true"></span>
+    <span role="text">
+      <span class="nhsuk-u-visually-hidden">
+        {%- if params.type == "emergency" -%}
+          Immediate action required:
+        {%- elif params.type == "urgent" -%}
+          Urgent advice:
+        {%- else -%}
+          Non-urgent advice:
+        {%- endif -%}
+      </span> {{ params.heading }}
+    </span>
   {% endif %}
-  </div>
+  </h{{ headingLevel }}>
+  <span class="nhsuk-card--care__arrow" aria-hidden="true"></span>
+{% endif %}
+{% if params.headingHtml %}
+  {{ params.headingHtml | safe | trim | indent(2) }}
+{% endif %}
 {% endmacro -%}
 
 {%- macro _cardHeading(params, classNames) %}
-{% if params.headingHtml %}
-  {{ params.headingHtml | safe | trim | indent(4) }}
-{% else %}
+{% if params.heading %}
   <h{{ headingLevel }} class="{{ classNames }}">
   {% if params.href and not params.feature %}
     <a class="nhsuk-card__link" href="{{ params.href }}">
@@ -87,6 +79,9 @@
   {% endif %}
   </h{{ headingLevel }}>
 {% endif %}
+{% if params.headingHtml %}
+  {{ params.headingHtml | safe | trim | indent(2) }}
+{% endif %}
 {% endmacro -%}
 
 <div {%- if params.id %} id="{{ params.id }}"{% endif %} class="{{ classNames }}"
@@ -95,14 +90,16 @@
   <img class="nhsuk-card__img" src="{{ params.imgURL }}" alt="{{ params.imgALT }}">
 {% endif %}
 {% if params.type %}
-  {{ _careHeading(params, classNamesHeading) | trim }}
+  <div class="nhsuk-card__heading-container">
+    {{ _careHeading(params, classNamesHeading) | trim | indent(2) }}
+  </div>
 {% endif %}
-  <div class="{{ classNamesContent }}">
-{% if not params.type %}
-  {{ _cardHeading(params, classNamesHeading) | trim | indent(2, true) }}
-{% endif %}
+  <div class="nhsuk-card__content">
+  {% if not params.type %}
+    {{ _cardHeading(params, classNamesHeading) | trim | indent(2) }}
+  {% endif %}
   {% if caller or params.descriptionHtml %}
-    {{ caller() if caller else params.descriptionHtml | safe | trim | indent(4) }}
+    {{ (caller() if caller else params.descriptionHtml) | safe | trim | indent(4) }}
   {% elif params.description %}
     <p class="nhsuk-card__description">
       {{- params.description -}}
