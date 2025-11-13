@@ -4,9 +4,9 @@
 {%- if params.classes %} {{ params.classes }}{% endif %}"
 {{- nhsukAttributes(params.attributes) }}>
   <span class="nhsuk-u-visually-hidden">{{ params.visuallyHiddenText | default("Information", true) }}: </span>
-  {% if caller or params.html -%}
-    {{ caller() if caller else params.html | safe | trim | indent(2) }}
-  {% elif params.text -%}
-    <p>{{ params.text }}</p>
-  {% endif %}
+{% if caller or params.html %}
+  {{ caller() if caller else params.html | safe | trim | indent(2) }}
+{% elif params.text %}
+  <p>{{ params.text }}</p>
+{% endif %}
 </div>
