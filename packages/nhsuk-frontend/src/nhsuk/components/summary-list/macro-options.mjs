@@ -132,6 +132,13 @@ export const params = {
       }
     }
   },
+  card: {
+    type: 'object',
+    required: false,
+    description:
+      'Can be used to wrap a card around the summary list component. If any of these options are present, a card will wrap around the summary list.',
+    isComponent: true
+  },
   classes: {
     type: 'string',
     required: false,
@@ -593,6 +600,192 @@ export const examples = {
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']
+    }
+  },
+  'as a card': {
+    context: {
+      card: {
+        heading: 'Regional Manager',
+        headingClasses: 'nhsuk-heading-m'
+      },
+      rows: [
+        {
+          key: {
+            text: 'Name'
+          },
+          value: {
+            text: 'Karen Francis'
+          }
+        },
+        {
+          key: {
+            text: 'Date of birth'
+          },
+          value: {
+            text: '15 March 1984'
+          }
+        }
+      ]
+    }
+  },
+  'as a card with multiple actions': {
+    context: {
+      card: {
+        heading: 'Regional Manager',
+        headingClasses: 'nhsuk-heading-m',
+        actions: {
+          items: [
+            {
+              text: 'Delete',
+              href: '#'
+            },
+            {
+              text: 'Withdraw',
+              href: '#'
+            }
+          ]
+        }
+      },
+      rows: [
+        {
+          key: {
+            text: 'Name'
+          },
+          value: {
+            text: 'Karen Francis'
+          }
+        },
+        {
+          key: {
+            text: 'Date of birth'
+          },
+          value: {
+            text: '15 March 1984'
+          },
+          actions: {
+            items: [
+              {
+                href: '#',
+                text: 'Change',
+                visuallyHiddenText: 'date of birth'
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: 'Contact information'
+          },
+          value: {
+            html: outdent`
+              73 Roman Rd<br>
+              Leeds<br>
+              LS2 5ZN
+            `
+          },
+          actions: {
+            items: [
+              {
+                href: '#',
+                text: 'Change',
+                visuallyHiddenText: 'contact information'
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: 'Contact details'
+          },
+          value: {
+            html: outdent`
+              <p>07700 900362</p>
+              <p>karen.francis@example.com</p>
+            `
+          },
+          actions: {
+            items: [
+              {
+                href: '#',
+                text: 'Add',
+                visuallyHiddenText: 'new contact details'
+              },
+              {
+                href: '#',
+                text: 'Change',
+                visuallyHiddenText: 'contact details'
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: 'Medicines'
+          },
+          value: {
+            html: outdent`
+              <p>Isotretinoin capsules (Roaccutane)</p>
+              <p>Isotretinoin gel (Isotrex)</p>
+              <p>Pepto-Bismol (bismuth subsalicylate)</p>
+            `
+          },
+          actions: {
+            items: [
+              {
+                href: '#',
+                text: 'Add',
+                visuallyHiddenText: 'new medicine'
+              },
+              {
+                href: '#',
+                text: 'Change',
+                visuallyHiddenText: 'medicines'
+              }
+            ]
+          }
+        }
+      ]
+    },
+    options: {
+      width: 'full'
+    }
+  },
+  'as a card with actions': {
+    context: {
+      card: {
+        heading: 'Regional Manager',
+        headingClasses: 'nhsuk-heading-m',
+        actions: {
+          items: [
+            {
+              text: 'Delete',
+              href: '#'
+            },
+            {
+              text: 'Withdraw',
+              href: '#'
+            }
+          ]
+        }
+      },
+      rows: [
+        {
+          key: {
+            text: 'Name'
+          },
+          value: {
+            text: 'Karen Francis'
+          }
+        },
+        {
+          key: {
+            text: 'Date of birth'
+          },
+          value: {
+            text: '15 March 1984'
+          }
+        }
+      ]
     }
   }
 }
