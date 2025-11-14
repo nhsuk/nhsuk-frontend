@@ -1,0 +1,46 @@
+@use "sass:color";
+@use "nhsuk-frontend/dist/nhsuk/core/settings" as *;
+@use "nhsuk-frontend/dist/nhsuk/core/helpers" as *;
+
+////
+/// Add x-ray outlines to form controls
+///
+/// @link https://nhsuk.github.io/nhsuk-frontend/examples/form-controls-states/
+////
+
+$app-xray-grey: color.adjust(nhsuk-colour("grey-3"));
+$app-xray-green: color.adjust(nhsuk-colour("green"), $saturation: 50%);
+$app-xray-red: color.adjust(nhsuk-colour("red"), $saturation: 50%);
+$app-xray-blue: color.adjust(nhsuk-colour("blue"), $saturation: 50%);
+
+.app-xray,
+.nhsuk-checkboxes__item:has(.app-xray),
+.nhsuk-radios__item:has(.app-xray) {
+  outline: $nhsuk-border-width solid rgba($app-xray-grey, 0.5);
+  outline-offset: $nhsuk-border-width;
+}
+
+.app-xray label,
+.app-xray + label {
+  outline: $nhsuk-border-width solid rgba($app-xray-green, 0.5);
+}
+
+.app-xray .nhsuk-error-message {
+  outline: $nhsuk-border-width solid rgba($app-xray-red, 0.5);
+}
+
+.app-xray input,
+.app-xray select,
+.app-xray textarea,
+.app-xray[type="checkbox"],
+.app-xray[type="radio"] {
+  outline: $nhsuk-border-width solid rgba($app-xray-blue, 0.5);
+}
+
+// Make outlines visible on checkboxes and radios
+.app-xray[type="checkbox"],
+.app-xray[type="radio"] {
+  outline-offset: 0;
+  opacity: 1;
+  -webkit-appearance: none;
+}

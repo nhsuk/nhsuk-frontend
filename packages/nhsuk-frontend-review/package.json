@@ -27,6 +27,7 @@
     "nhsuk-frontend": "*",
     "package-json": "^10.0.1",
     "plugin-error": "^2.0.1",
+    "postcss-pseudo-classes": "^0.4.0",
     "sassdoc": "^2.7.4"
   },
   "engines": {
