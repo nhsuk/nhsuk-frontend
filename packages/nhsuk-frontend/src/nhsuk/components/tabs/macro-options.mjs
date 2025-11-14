@@ -13,13 +13,13 @@ export const params = {
     type: 'string',
     required: false,
     description:
-      'This is used for the main component and to compose id attribute for each item.'
+      'This is used for the main component and to compose the `id` attribute for each item.'
   },
   idPrefix: {
     type: 'string',
     required: false,
     description:
-      'String to prefix id for each tab item if no id is specified on each item.'
+      'String to prefix the `id` for each tab item if no `id` is specified on each item.'
   },
   title: {
     type: 'string',
@@ -35,7 +35,7 @@ export const params = {
         type: 'string',
         required: true,
         description:
-          'Specific id attribute for the tab item. If omitted, then idPrefix string is required instead.'
+          'Specific `id` attribute for the tab item. If omitted, then `idPrefix` string is required instead.'
       },
       label: {
         type: 'string',
@@ -57,7 +57,7 @@ export const params = {
             type: 'string',
             required: true,
             description:
-              'Specific id attribute for the tab item. If omitted, then idPrefix string is required instead.'
+              'Specific `id` attribute for the tab item. If omitted, then `idPrefix` string is required instead.'
           },
           html: {
             type: 'string',

@@ -1,7 +1,8 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {%- macro _link(action) %}
-  <a href="{{ action.href }}">
+  <a class="nhsuk-link {%- if action.classes %} {{ action.classes }}{% endif %}" href="{{ action.href }}"
+    {{- nhsukAttributes(action.attributes) }}>
     {{ action.html | safe if action.html else action.text }}
     {%- if action.visuallyHiddenText -%}
       <span class="nhsuk-u-visually-hidden"> {{ action.visuallyHiddenText }}</span>

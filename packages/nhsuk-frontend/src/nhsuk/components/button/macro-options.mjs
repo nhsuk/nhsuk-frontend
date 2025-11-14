@@ -47,7 +47,7 @@ export const params = {
     type: 'string',
     required: false,
     description:
-      'Value for the `button` tag. This has no effect on `a` or `input` elements.'
+      'The `value` attribute for the `button` tag. This has no effect on `a` or `input` elements.'
   },
   disabled: {
     type: 'boolean',

@@ -16,7 +16,7 @@ export const params = {
   name: {
     type: 'string',
     required: true,
-    description: 'Name property for the select.'
+    description: 'The `name` attribute for the select.'
   },
   items: {
     type: 'array',
@@ -27,7 +27,7 @@ export const params = {
         type: 'string',
         required: false,
         description:
-          'Value for the option. If this is omitted, the value is taken from the text content of the option element.'
+          'The `value` attribute for the option. If this is omitted, the value is taken from the text content of the option element.'
       },
       text: {
         type: 'string',
@@ -57,7 +57,7 @@ export const params = {
     type: 'string',
     required: false,
     description:
-      'Value for the option which should be selected. Use this as an alternative to setting the `selected` option on each individual item.'
+      'The value for the option which should be selected. Use this as an alternative to setting the `selected` option on each individual item.'
   },
   disabled: {
     type: 'boolean',

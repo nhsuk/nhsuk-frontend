@@ -44,6 +44,17 @@ You can now add inline buttons to text inputs and select menus using the `formGr
 
 This was added in [pull request #1643: Add small buttons and inline form groups](https://github.com/nhsuk/nhsuk-frontend/pull/1643).
 
+#### Updated Nunjucks macro options for nested items
+
+For consistency with other components with nested items, we’ve added new Nunjucks macro options:
+
+- Action link and skip link `html` option
+- Checkboxes and radios item `classes` option
+- Contents list item `html`, `classes` and `attributes` options
+- Summary list action item `classes` and `attributes` options
+
+This was added in [pull request #1683: Update Nunjucks macro options for nested items](https://github.com/nhsuk/nhsuk-frontend/pull/1683).
+
 ### :wastebasket: **Deprecated features**
 
 #### Rename input wrapper HTML class

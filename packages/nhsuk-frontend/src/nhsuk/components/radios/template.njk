@@ -26,8 +26,9 @@
     {% set isChecked = item.checked | default((item.value == params.value and item.checked != false) if params.value else false, true) %}
     {% set hasHint = true if item.hint.text or item.hint.html %}
     {% set itemHintId = itemId ~ "-item-hint" %}
+    {% set itemClasses = "nhsuk-radios__input" ~ (" " ~ item.classes if item.classes) %}
     <div class="nhsuk-radios__item">
-      <input class="nhsuk-radios__input" id="{{ itemId }}" name="{{ params.name }}" type="radio" value="{{ item.value }}"
+      <input class="{{ itemClasses }}" id="{{ itemId }}" name="{{ params.name }}" type="radio" value="{{ item.value }}"
         {{- " checked" if isChecked }}
         {{- " disabled" if item.disabled }}
         {%- if item.conditional.html %} aria-controls="{{ conditionalId }}"{% endif -%}

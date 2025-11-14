@@ -115,12 +115,12 @@ export const params = {
     type: 'boolean',
     required: false,
     description:
-      'If set to true, first cell in table row will be a TH instead of a TD.'
+      'If set to `true`, first cell in table row will be a TH instead of a TD.'
   },
   responsive: {
     type: 'boolean',
     required: false,
-    description: 'If set to true, responsive table classes will be applied.'
+    description: 'If set to `true`, responsive table classes will be applied.'
   },
   tableClasses: {
     type: 'string',

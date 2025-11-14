@@ -39,13 +39,13 @@ export const params = {
   href: {
     type: 'string',
     required: false,
-    description: 'The value of the card link href attribute.'
+    description: 'The value of the card link `href` attribute.'
   },
   clickable: {
     type: 'boolean',
     required: false,
     description:
-      'If set to true, then the whole card will become a clickable card variant.'
+      'If set to `true`, then the whole card will become a clickable card variant.'
   },
   type: {
     type: 'string',
@@ -57,24 +57,25 @@ export const params = {
     type: 'boolean',
     required: false,
     description:
-      'If set to true, then the card will become a feature card variant.'
+      'If set to `true`, then the card will become a feature card variant.'
   },
   primary: {
     type: 'boolean',
     required: false,
     description:
-      'If set to true, the card will become a primary card variant (with chevron).'
+      'If set to `true`, the card will become a primary card variant (with chevron).'
   },
   secondary: {
     type: 'boolean',
     required: false,
     description:
-      'If set to true, the card will become a secondary card variant.'
+      'If set to `true`, the card will become a secondary card variant.'
   },
   topTask: {
     type: 'boolean',
     required: false,
-    description: 'If set to true, the card will become a top task card variant.'
+    description:
+      'If set to `true`, the card will become a top task card variant.'
   },
   imgURL: {
     type: 'string',

@@ -102,7 +102,7 @@ export const params = {
   name: {
     type: 'string',
     required: true,
-    description: 'Name attribute for the radio items.'
+    description: 'The `name` attribute for the radio items.'
   },
   items: {
     type: 'array',
@@ -125,12 +125,12 @@ export const params = {
         type: 'string',
         required: false,
         description:
-          'Specific ID attribute for the radio item. If omitted, then `idPrefix` string will be applied.'
+          'Specific `id` attribute for the radio item. If omitted, then `idPrefix` string will be applied.'
       },
       value: {
         type: 'string',
         required: true,
-        description: 'Value for the radio input.'
+        description: 'The `value` attribute for the radio input.'
       },
       label: {
         type: 'object',
@@ -188,6 +188,11 @@ export const params = {
         type: 'boolean',
         required: false,
         description: 'If `true`, radio will be disabled.'
+      },
+      classes: {
+        type: 'string',
+        required: false,
+        description: 'Classes to add to the radio input tag.'
       },
       attributes: {
         type: 'object',

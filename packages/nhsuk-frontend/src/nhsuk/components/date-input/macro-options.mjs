@@ -12,7 +12,7 @@ export const params = {
     type: 'string',
     required: true,
     description:
-      'This is used for the main component and to compose the ID attribute for each item.'
+      'This is used for the main component and to compose the `id` attribute for each item.'
   },
   namePrefix: {
     type: 'string',
@@ -29,12 +29,12 @@ export const params = {
         type: 'string',
         required: false,
         description:
-          'Item-specific ID. If provided, it will be used instead of the generated ID.'
+          'Item-specific `id` attribute. If provided, it will be used instead of the generated ID.'
       },
       name: {
         type: 'string',
         required: true,
-        description: 'Item-specific name attribute.'
+        description: 'Item-specific `name` attribute.'
       },
       label: {
         type: 'string',
@@ -46,13 +46,13 @@ export const params = {
         type: 'string',
         required: false,
         description:
-          'Optional value for [the inputmode attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode). Defaults to `"numeric"`.'
+          'Optional value for [the `inputmode` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode). Defaults to `"numeric"`.'
       },
       value: {
         type: 'string',
         required: false,
         description:
-          'If provided, it will be used as the initial value of the input.'
+          'If provided, it will be used as the initial `value` attribute of the input.'
       },
       autocomplete: {
         type: 'string',
@@ -162,22 +162,22 @@ export const params = {
     type: 'object',
     required: false,
     description:
-      'An optional object use to specify value attributes for the date parts without setting items.',
+      'An optional object use to specify `value` attributes for the date parts without setting items.',
     params: {
       day: {
         type: 'string',
         required: false,
-        description: 'Value attribute for the day input.'
+        description: 'The `value` attribute for the day input.'
       },
       month: {
         type: 'string',
         required: false,
-        description: 'Value attribute for the month input.'
+        description: 'The `value` attribute for the month input.'
       },
       year: {
         type: 'string',
         required: false,
-        description: 'Value attribute for the year input.'
+        description: 'The `value` attribute for the year input.'
       }
     }
   },

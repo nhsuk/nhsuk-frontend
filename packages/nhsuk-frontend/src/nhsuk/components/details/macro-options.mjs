@@ -38,12 +38,12 @@ export const params = {
   id: {
     type: 'string',
     required: false,
-    description: 'Id to add to the details element.'
+    description: 'The `id` to add to the details element.'
   },
   open: {
     type: 'boolean',
     required: false,
-    description: 'If true, details element will be expanded.'
+    description: 'If `true`, details element will be expanded.'
   },
   caller: {
     type: 'nunjucks-block',

@@ -28,7 +28,7 @@ export const params = {
   href: {
     type: 'string',
     required: false,
-    description: 'The value of the link href attribute.'
+    description: 'The value of the link `href` attribute.'
   },
   classes: {
     type: 'string',

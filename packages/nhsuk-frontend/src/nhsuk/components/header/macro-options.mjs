@@ -114,13 +114,13 @@ export const params = {
             type: 'boolean',
             required: false,
             description:
-              'Set to true if this links to the current page being shown.'
+              'Set to `true` if this links to the current page being shown.'
           },
           active: {
             type: 'boolean',
             required: false,
             description:
-              "Set to true if the current page is within this section, but the link doesn't necessarily link to the current page"
+              "Set to `true` if the current page is within this section, but the link doesn't necessarily link to the current page"
           },
           classes: {
             type: 'string',
@@ -174,12 +174,13 @@ export const params = {
         type: 'string',
         required: false,
         description:
-          'The search action endpoint. Defaults to `"https://www.nhs.uk/search"`.'
+          'The search form `action` attribute. Defaults to `"https://www.nhs.uk/search"`.'
       },
       name: {
         type: 'string',
         required: false,
-        description: 'The name for the search field. Defaults to `"q"`.'
+        description:
+          'The `name` attribute for the search field. Defaults to `"q"`.'
       },
       placeholder: {
         type: 'string',

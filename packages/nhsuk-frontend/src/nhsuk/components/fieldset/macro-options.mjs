@@ -57,7 +57,7 @@ export const params = {
   role: {
     type: 'string',
     required: false,
-    description: 'Optional ARIA role attribute.'
+    description: 'Optional ARIA `role` attribute.'
   },
   attributes: {
     type: 'object',

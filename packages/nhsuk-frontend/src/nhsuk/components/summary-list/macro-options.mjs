@@ -109,6 +109,17 @@ export const params = {
                 required: false,
                 description:
                   'Actions rely on context from the surrounding content so may require additional accessible text. Text supplied to this option is appended to the end. Use `html` for more complicated scenarios.'
+              },
+              classes: {
+                type: 'string',
+                required: false,
+                description: 'Classes to add to the action item.'
+              },
+              attributes: {
+                type: 'object',
+                required: false,
+                description:
+                  'HTML attributes (for example data attributes) to add to the action item.'
               }
             }
           },
