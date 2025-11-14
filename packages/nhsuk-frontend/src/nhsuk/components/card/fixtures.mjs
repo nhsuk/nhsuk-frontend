@@ -19,6 +19,16 @@ export const examples = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
+  'basic with heading link': {
+    context: {
+      heading: 'Introduction to care and support',
+      headingClasses: 'nhsuk-heading-m',
+      headingLevel: 3,
+      href: '#',
+      description:
+        'A quick guide for people who have care and support needs and their carers'
+    }
+  },
   'basic with custom HTML': {
     context: {
       heading: 'Help from NHS 111',
