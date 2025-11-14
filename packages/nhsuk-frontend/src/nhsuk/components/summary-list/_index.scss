@@ -105,9 +105,21 @@
   }
 
   .nhsuk-summary-list__actions-list {
+    display: flex;
+
+    flex-wrap: wrap;
+    row-gap: 10px;
+
     width: 100%;
     margin: 0; // Reset default user agent styles
     padding: 0; // Reset default user agent styles
+
+    list-style: none;
+
+    @include nhsuk-media-query($from: tablet) {
+      justify-content: right;
+      text-align: right;
+    }
   }
 
   .nhsuk-summary-list__actions-list-item {
