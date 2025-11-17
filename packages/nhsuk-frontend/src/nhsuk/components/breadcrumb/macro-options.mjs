@@ -27,7 +27,7 @@ export const params = {
       href: {
         type: 'string',
         required: false,
-        description: 'The value of the breadcrumb item link href attribute.'
+        description: 'The value of the breadcrumb item link `href` attribute.'
       },
       attributes: {
         type: 'object',
@@ -45,7 +45,7 @@ export const params = {
   href: {
     type: 'string',
     required: true,
-    description: 'The value of the parent page link href attribute.'
+    description: 'The value of the parent page link `href` attribute.'
   },
   classes: {
     type: 'string',

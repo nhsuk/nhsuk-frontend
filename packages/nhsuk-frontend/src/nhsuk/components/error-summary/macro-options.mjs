@@ -52,7 +52,7 @@ export const params = {
         type: 'string',
         required: false,
         description:
-          'Href attribute for the error link item. If provided item will be an anchor.'
+          'The `href` attribute for the error link item. If provided item will be an anchor.'
       },
       text: {
         type: 'string',
