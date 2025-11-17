@@ -132,7 +132,7 @@ h6,
   display: block;
   margin-top: 0;
 
-  @include nhsuk-font-size(26);
+  @include nhsuk-font(26);
   @include nhsuk-responsive-margin(5, "bottom");
 }
 
@@ -144,7 +144,7 @@ h6,
   display: block;
   margin-top: 0;
 
-  @include nhsuk-font-size(19);
+  @include nhsuk-font(19);
   @include nhsuk-responsive-margin(4, "bottom");
 }
 
@@ -159,7 +159,7 @@ p,
   display: block;
   margin-top: 0;
 
-  @include nhsuk-font-size(16);
+  @include nhsuk-font(16);
   @include nhsuk-responsive-margin(4, "bottom");
 }
 
@@ -265,6 +265,7 @@ b {
   p,
   .nhsuk-body-m,
   .nhsuk-body-s,
+  .nhsuk-body,
   address,
   ol,
   ul,
