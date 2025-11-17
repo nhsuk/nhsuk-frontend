@@ -76,6 +76,7 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
   }
 
   .nhsuk-card__heading-container,
+  // Deprecated, to be removed in v11.0
   .nhsuk-card--care__heading-container {
     @include nhsuk-responsive-padding(5);
   }
@@ -177,12 +178,14 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
   }
 
   .nhsuk-card--feature .nhsuk-card__heading,
+  // Deprecated, to be removed in v11.0
   .nhsuk-card__heading--feature {
     @include nhsuk-heading-label($nhsuk-brand-colour, $nhsuk-reverse-text-colour);
   }
 
   .nhsuk-card--feature .nhsuk-card__heading-container,
   .nhsuk-card--feature .nhsuk-card__content,
+  // Deprecated, to be removed in v11.0
   .nhsuk-card__content--feature {
     padding: 0; // [7]
   }
@@ -195,6 +198,7 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
   }
 
   .nhsuk-card--care .nhsuk-card__heading-container,
+  // Deprecated, to be removed in v11.0
   .nhsuk-card--care__heading-container {
     position: relative;
     padding-top: nhsuk-spacing(3);
@@ -203,6 +207,7 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
   }
 
   .nhsuk-card--care .nhsuk-card__heading,
+  // Deprecated, to be removed in v11.0
   .nhsuk-card--care__heading {
     margin: 0;
     padding-top: 0; // [13]
@@ -311,6 +316,7 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
   // Card primary
 
   .nhsuk-card--primary .nhsuk-card__content,
+  // Deprecated, to be removed in v11.0
   .nhsuk-card__content--primary {
     @include nhsuk-responsive-spacing(5, "padding", $direction: "right", $adjustment: nhsuk-spacing(7));
 
@@ -320,6 +326,7 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
   }
 
   .nhsuk-card--primary,
+  // Deprecated, to be removed in v11.0
   .nhsuk-card__content--primary {
     .nhsuk-icon {
       display: block;
@@ -350,6 +357,7 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
 
   .nhsuk-card--secondary .nhsuk-card__heading-container,
   .nhsuk-card--secondary .nhsuk-card__content,
+  // Deprecated, to be removed in v11.0
   .nhsuk-card__content--secondary {
     padding-top: 0;
     padding-right: 0;
