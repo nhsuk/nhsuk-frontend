@@ -1479,9 +1479,6 @@ export const examples = {
     },
     options: {
       width: false
-    },
-    screenshot: {
-      viewports: ['desktop']
     }
   }
 }
