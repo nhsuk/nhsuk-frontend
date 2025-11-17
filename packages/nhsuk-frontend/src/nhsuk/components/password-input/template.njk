@@ -41,13 +41,13 @@
 
 {#- Append form group attributes onto attributes set above #}
 {%- for name, value in params.formGroup.attributes %}
-  {% set attributesHtml = attributesHtml + " " + name | escape + '="' + value | escape + '"' %}
+  {% set attributesHtml = attributesHtml ~ " " ~ name | escape ~ '="' ~ value | escape ~ '"' %}
 {% endfor -%}
 
 {%- set buttonHtml %}
 {{ button({
   type: "button",
-  classes: "nhsuk-button--secondary nhsuk-button--small nhsuk-password-input__toggle nhsuk-js-password-input-toggle" + (" " + params.button.classes if params.button.classes),
+  classes: "nhsuk-button--secondary nhsuk-button--small nhsuk-password-input__toggle nhsuk-js-password-input-toggle" ~ (" " ~ params.button.classes if params.button.classes),
   text: params.showPasswordText | default("Show"),
   attributes: {
     "aria-controls": id,
@@ -65,7 +65,7 @@
 
 {{ input({
   formGroup: {
-    classes: "nhsuk-password-input" + (" " + params.formGroup.classes if params.formGroup.classes),
+    classes: "nhsuk-password-input" ~ (" " ~ params.formGroup.classes if params.formGroup.classes),
     attributes: attributesHtml,
     beforeInput: params.formGroup.beforeInput,
     afterInput: {
@@ -74,7 +74,7 @@
   },
   label: params.label,
   hint: params.hint,
-  classes: "nhsuk-password-input__input nhsuk-js-password-input-input" + (" " + params.classes if params.classes),
+  classes: "nhsuk-password-input__input nhsuk-js-password-input-input" ~ (" " ~ params.classes if params.classes),
   errorMessage: params.errorMessage,
   id: id,
   name: params.name,
