@@ -10,6 +10,9 @@ jobs:
     name: Create release
     runs-on: ubuntu-latest
 
+    permissions:
+      id-token: write
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -63,5 +66,3 @@ jobs:
 
       - name: Publish npm package
         run: npm publish --tag latest-v9
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
