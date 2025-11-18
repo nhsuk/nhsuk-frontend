@@ -1440,7 +1440,7 @@ export const examples = {
       viewports: ['desktop']
     }
   },
-  'where some navigation items are false': {
+  'blue with navigation (empty items)': {
     context: {
       logo: {
         href: '#'
