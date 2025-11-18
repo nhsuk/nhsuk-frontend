@@ -1439,6 +1439,47 @@ export const examples = {
     screenshot: {
       viewports: ['desktop']
     }
+  },
+  'blue with navigation (empty items)': {
+    context: {
+      logo: {
+        href: '#'
+      },
+      account: {
+        items: [
+          {
+            href: '#',
+            text: 'Account',
+            icon: true
+          },
+          false,
+          false,
+          false,
+          {
+            action: '#',
+            text: 'Log out'
+          }
+        ]
+      },
+      navigation: {
+        items: [
+          {
+            text: 'Home',
+            href: '/'
+          },
+          false,
+          false,
+          false,
+          {
+            text: 'Reports',
+            href: '/'
+          }
+        ]
+      }
+    },
+    options: {
+      width: false
+    }
   }
 }
 
