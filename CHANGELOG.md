@@ -90,6 +90,7 @@ This change was introduced in pull requests [#1633: Review global `box-sizing` u
 - [#1653: Only show a task list item if not empty](https://github.com/nhsuk/nhsuk-frontend/pull/1653)
 - [#1656: Improve button text vertical alignment](https://github.com/nhsuk/nhsuk-frontend/pull/1656)
 - [#1657: Fix inconsistent margin in form and button groups](https://github.com/nhsuk/nhsuk-frontend/pull/1657)
+- [#1689: Only show header navigation items if not empty](https://github.com/nhsuk/nhsuk-frontend/pull/1689)
 
 ## 10.1.0 - 15 October 2025
 
