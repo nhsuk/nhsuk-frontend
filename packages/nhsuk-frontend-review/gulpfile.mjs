@@ -49,22 +49,22 @@ gulp.task('watch', () =>
     ),
 
     /**
-     * Watch and copy minified styles
+     * Watch and copy styles
      */
     gulp.watch(
       [
-        join(config.paths.pkg, 'dist/nhsuk/*.min.{css,css.map}'),
+        join(config.paths.pkg, 'dist/nhsuk/*.{css,css.map}'),
         join(config.paths.app, 'src/stylesheets/**/*.scss')
       ],
       gulp.series('styles')
     ),
 
     /**
-     * Watch and copy minified scripts
+     * Watch and copy scripts
      */
     gulp.watch(
       [
-        join(config.paths.pkg, 'dist/nhsuk/*.min.{js,js.map}'),
+        join(config.paths.pkg, 'dist/nhsuk/*.{js,js.map}'),
         join(config.paths.app, 'src/javascripts/**/*.mjs')
       ],
       { ignored: ['**/*.test.*'] },
