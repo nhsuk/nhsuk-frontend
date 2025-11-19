@@ -213,24 +213,49 @@ $button-shadow-size: $nhsuk-button-shadow-size;
     justify-content: center;
 
     // Reduce padding to better fit icon
-    padding: 0 nhsuk-spacing(3) - $nhsuk-border-width-form-element;
+    padding-top: 0;
+    padding-bottom: 0;
 
     .nhsuk-icon {
+      margin: 0 nhsuk-spacing(1);
+
       @include nhsuk-media-query($from: tablet) {
         width: nhsuk-px-to-rem($nhsuk-icon-size-large);
         height: nhsuk-px-to-rem($nhsuk-icon-size-large);
       }
     }
 
-    &.nhsuk-button--small {
-      padding: 0 nhsuk-spacing(2) - $nhsuk-border-width-form-element;
+    .nhsuk-icon:first-child {
+      margin-left: 0;
+    }
 
+    .nhsuk-icon:last-child {
+      margin-right: 0;
+    }
+
+    &:has(.nhsuk-icon:first-child) {
+      padding-left: nhsuk-spacing(3) - $nhsuk-border-width-form-element;
+    }
+
+    &:has(.nhsuk-icon:last-child) {
+      padding-right: nhsuk-spacing(3) - $nhsuk-border-width-form-element;
+    }
+
+    &.nhsuk-button--small {
       // Prevent large icon size in small buttons
       .nhsuk-icon {
         @include nhsuk-media-query($from: tablet) {
           width: nhsuk-px-to-rem($nhsuk-icon-size);
           height: nhsuk-px-to-rem($nhsuk-icon-size);
         }
+      }
+
+      &:has(.nhsuk-icon:first-child) {
+        padding-left: nhsuk-spacing(2) - $nhsuk-border-width-form-element;
+      }
+
+      &:has(.nhsuk-icon:last-child) {
+        padding-right: nhsuk-spacing(2) - $nhsuk-border-width-form-element;
       }
     }
   }
