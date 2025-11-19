@@ -32,6 +32,18 @@ export const compile = gulp.series(
     styles.compile('nhsuk/nhsuk.scss', {
       srcPath: join(config.paths.pkg, 'src'),
       destPath: join(config.paths.pkg, 'dist'),
+      output: { file: 'nhsuk/nhsuk-frontend.css' }
+    })
+  ),
+
+  /**
+   * Minify NHS.UK frontend styles bundle
+   */
+  task.name(
+    "styles:compile 'minified'",
+    styles.compile('nhsuk/nhsuk-frontend.css', {
+      srcPath: join(config.paths.pkg, 'dist'),
+      destPath: join(config.paths.pkg, 'dist'),
       output: { file: 'nhsuk/nhsuk-frontend.min.css' }
     })
   )
