@@ -4,7 +4,7 @@
 
 ### :new: **New features**
 
-#### Use the Password input component to help users accessibly enter passwords
+#### Use the password input component to help users accessibly enter passwords
 
 The [password input component](https://service-manual.nhs.uk/design-system/components/password-input) allows users to choose:
 
