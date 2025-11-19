@@ -10,7 +10,7 @@
   "main": "index.mjs",
   "dependencies": {
     "@nhsuk/frontend-config": "*",
-    "glob": "^11.0.3",
+    "glob": "^11.1.0",
     "lodash": "^4.17.21",
     "nunjucks": "^3.2.4",
     "outdent": "^0.8.0",
