@@ -290,48 +290,24 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     @include nhsuk-media-query($from: tablet) {
       margin: 0;
     }
-
-    .nhsuk-icon--search {
-      width: nhsuk-px-to-rem(28px);
-      height: nhsuk-px-to-rem(28px);
-    }
   }
 
-  .nhsuk-header__search-form {
-    display: flex;
-    height: 100%;
-    overflow: visible;
+  .nhsuk-header__search-form-group {
+    width: 100%;
+    margin: 0;
   }
 
   // Disable default search input appearance
-  .nhsuk-header__search-input.nhsuk-input {
-    $_header-border-width-form-element: 1px;
+  .nhsuk-header__search-input {
     width: 100%;
-    height: 40px;
-    margin-right: -$_header-border-width-form-element;
-    padding-right: $_header-item-padding;
-    padding-left: $_header-item-padding;
+    padding-right: $_header-item-padding - 1px;
+    padding-left: $_header-item-padding - 1px;
+    border-radius: $nhsuk-border-radius;
 
-    border: $_header-border-width-form-element solid transparent;
-    border-radius: $nhsuk-border-radius 0 0 $nhsuk-border-radius;
     @include nhsuk-font-size(16);
 
-    &:focus {
-      z-index: 10;
-      padding-right: $_header-item-padding - $_header-border-width-form-element;
-      padding-left: $_header-item-padding - ($_header-border-width-form-element * 2);
-      border: $nhsuk-border-width-form-element solid $nhsuk-focus-text-colour;
-    }
-
-    // Hide search input clear button (IE)
-    &::-ms-clear {
-      display: none;
-    }
-
-    // Hide search input icon and cancel button (WebKit, Blink)
-    &::-webkit-search-decoration,
-    &::-webkit-search-cancel-button {
-      appearance: none;
+    @include nhsuk-media-query($from: mobile) {
+      border-radius: $nhsuk-border-radius 0 0 $nhsuk-border-radius;
     }
 
     @include nhsuk-media-query($until: tablet) {
@@ -339,22 +315,20 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     }
   }
 
-  .nhsuk-header__search-submit {
-    flex-shrink: 0;
+  .nhsuk-header__search-input:not(:focus) {
+    border-color: transparent;
+  }
 
-    width: 44px;
-    height: nhsuk-spacing(6);
-    margin: 0;
+  .nhsuk-header__search-submit {
+    min-height: nhsuk-px-to-rem(36px + $nhsuk-button-shadow-size);
+    // stylelint-disable-next-line declaration-no-important
+    margin-bottom: 0 !important;
 
     border: 1px solid transparent;
-    border-radius: 0 $nhsuk-border-radius $nhsuk-border-radius 0;
 
     color: $nhsuk-brand-colour;
     background-color: $nhsuk-header-item-button-colour;
-
-    line-height: 1;
-
-    cursor: pointer;
+    box-shadow: none;
 
     &:hover,
     &:active {
@@ -365,17 +339,6 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
 
     &:active {
       background-color: $nhsuk-header-item-active-colour;
-    }
-
-    &:focus {
-      outline: none;
-    }
-
-    &:focus:not(:active),
-    &:focus:not(:active):hover {
-      border-color: transparent;
-
-      @include nhsuk-focused-button;
     }
   }
 
@@ -650,9 +613,9 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
       outline-color: $nhsuk-border-colour;
     }
 
-    .nhsuk-header__search-input.nhsuk-input:not(:focus) {
-      margin-right: -1px;
-      padding-left: $_header-item-padding - 1px;
+    .nhsuk-header__search-input:not(:focus) {
+      padding-right: $_header-item-padding;
+      padding-left: $_header-item-padding;
       border-width: 1px;
       border-color: $nhsuk-border-hover-colour;
     }
@@ -665,7 +628,6 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
       &:active {
         border-color: $nhsuk-header-item-hover-colour;
         background-color: $nhsuk-header-item-hover-colour;
-        box-shadow: none;
       }
 
       &:active {
