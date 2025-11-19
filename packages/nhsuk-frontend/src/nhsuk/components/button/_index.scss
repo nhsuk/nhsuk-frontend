@@ -21,6 +21,8 @@ $nhsuk-button-padding-top-bottom-desktop: 14px;
 $nhsuk-button-padding-top-bottom-small: 6px;
 $nhsuk-button-padding-left-right: 16px;
 $nhsuk-button-padding-left-right-small: 12px;
+$nhsuk-button-icon-size: 28px;
+$nhsuk-button-icon-size-large: 38px;
 
 // @deprecated To be removed in v11.0
 $button-border-radius: $nhsuk-button-border-radius;
@@ -198,6 +200,40 @@ $button-shadow-size: $nhsuk-button-shadow-size;
 
     @include nhsuk-media-query($from: tablet) {
       @include nhsuk-font(16, $line-height: 19px, $weight: bold);
+    }
+  }
+
+  // =========================================================
+  // Icon buttons
+  // =========================================================
+
+  .nhsuk-button--icon {
+    display: flex;
+
+    // Align icon in center of button
+    align-items: center;
+    justify-content: center;
+
+    // Reduce padding to better fit icon
+    padding: 0 nhsuk-spacing(3) - $nhsuk-border-width-form-element;
+
+    .nhsuk-icon {
+      width: nhsuk-px-to-rem($nhsuk-button-icon-size);
+      height: nhsuk-px-to-rem($nhsuk-button-icon-size);
+
+      @include nhsuk-media-query($from: mobile) {
+        width: nhsuk-px-to-rem($nhsuk-button-icon-size-large);
+        height: nhsuk-px-to-rem($nhsuk-button-icon-size-large);
+      }
+    }
+
+    &.nhsuk-button--small {
+      padding: 0 nhsuk-spacing(2) - $nhsuk-border-width-form-element;
+
+      .nhsuk-icon {
+        width: nhsuk-px-to-rem($nhsuk-button-icon-size);
+        height: nhsuk-px-to-rem($nhsuk-button-icon-size);
+      }
     }
   }
 }
