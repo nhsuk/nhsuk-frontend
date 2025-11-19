@@ -26,29 +26,24 @@ module.exports = async function (page, scenario) {
     (scenario.keyPressSelector ? [scenario.keyPressSelector] : [])
 
   for (const { selector, keyPress } of keyPressSelectors) {
-    const locator = getLocator(page, selector)
-    await locator.pressSequentially(keyPress)
+    await getLocator(page, selector).pressSequentially(keyPress)
   }
 
   for (const selector of hoverSelectors) {
-    const locator = getLocator(page, selector)
-    await locator.hover()
+    await getLocator(page, selector).hover()
   }
 
   for (const selector of activeSelectors) {
-    const locator = getLocator(page, selector)
-    await locator.hover()
+    await getLocator(page, selector).hover()
     await page.mouse.down()
   }
 
   for (const selector of focusSelectors) {
-    const locator = getLocator(page, selector)
-    await locator.focus()
+    await getLocator(page, selector).focus()
   }
 
   for (const selector of clickSelectors) {
-    const locator = getLocator(page, selector)
-    await locator.click()
+    await getLocator(page, selector).click()
   }
 
   if (postInteractionWait > 0) {

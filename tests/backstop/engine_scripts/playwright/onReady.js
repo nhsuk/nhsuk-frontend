@@ -6,7 +6,6 @@ const clickAndHoverHelper = require('./clickAndHoverHelper')
  */
 module.exports = async function (page, scenario) {
   await page.evaluateHandle('document.fonts.ready')
-  await page.bringToFront()
 
   // Apply state selectors etc
   await clickAndHoverHelper(page, scenario)

@@ -68,7 +68,6 @@ module.exports = {
   engine: 'playwright',
   engineOptions: {
     args: [
-      '--deterministic-mode',
       '--disable-skia-graphite',
       '--disable-skia-runtime-opts',
       '--font-render-hinting=medium',
