@@ -82,6 +82,28 @@ export const compile = gulp.series(
 
       // Customise output
       output: {
+        file: 'nhsuk/nhsuk-frontend.js',
+        format: 'esm'
+      }
+    })
+  ),
+
+  /**
+   * Minify NHS.UK frontend scripts bundle
+   */
+  task.name(
+    "scripts:compile 'minified'",
+    scripts.compile('nhsuk/index.mjs', {
+      srcPath: join(config.paths.pkg, 'src'),
+      destPath: join(config.paths.pkg, 'dist'),
+
+      // Customise input
+      input: {
+        cache
+      },
+
+      // Customise output
+      output: {
         compact: config.environment === 'production',
         file: 'nhsuk/nhsuk-frontend.min.js',
         format: 'esm'
