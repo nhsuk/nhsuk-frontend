@@ -200,6 +200,11 @@ export const params = {
     description:
       'Attribute to provide a regular expression pattern, used to match allowed character combinations for the input value.'
   },
+  placeholder: {
+    type: 'string',
+    required: false,
+    description: 'Attribute to provide placeholder text for the input.'
+  },
   spellcheck: {
     type: 'boolean',
     required: false,
