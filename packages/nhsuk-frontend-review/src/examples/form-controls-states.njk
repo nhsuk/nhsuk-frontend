@@ -1,0 +1,215 @@
+{% extends "layouts/page.njk" %}
+
+{% set pageName = "Form controls states" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% set examplesText = [
+  { label: { text: "Initial" } },
+  { label: { text: "Focus" }, classes: ":focus" },
+  { label: { text: "Disabled" }, disabled: true },
+  { label: { text: "X-ray" }, formGroup: { classes: "app-xray" } },
+  { label: { text: "Error" }, errorMessage: { text: "Enter description" } },
+  { label: { text: "Error, Focus" }, errorMessage: { text: "Enter description" }, classes: ":focus" },
+  { label: { text: "Error, X-ray" }, errorMessage: { text: "Enter description" }, formGroup: { classes: "app-xray" } }
+] %}
+
+{% set exampleOptions = [
+  { text: "Choose bat species", value: "" },
+  { text: "Borneo fruit bat", value: "Aethalops aequalis" },
+  { text: "Guam Mariana fruit bat", value: "Pteropus mariannus mariannus" },
+  { text: "Honduran white bat", value: "Ectophylla alba" },
+  { text: "Indian flying fox", value: "Pteropus medius" },
+  { text: "Javan tailless fruit bat", value: "Megaerops kusnotoi" },
+  { text: "Madagascan flying fox", value: "Pteropus rufus" },
+  { text: "Madagascar sucker-footed bat", value: "Myzopoda aurita" },
+  { text: "Mozambique long-fingered bat", value: "Miniopterus mossambicus" },
+  { text: "Philippine long-fingered bat", value: "Miniopterus paululus" },
+  { text: "São Tomé collared fruit bat", value: "Myonycteris brachycephala" },
+  { text: "Seychelles fruit bat", value: "Pteropus seychellensis" },
+  { text: "Sulawesi harpy fruit bat", value: "Harpyionycteris celebensis" }
+] %}
+
+{% set exampleItems = [
+  { text: "Unchecked" },
+  { text: "Unchecked, Focus", classes: ":focus" },
+  { text: "Unchecked, Disabled", disabled: true },
+  { text: "Checked", checked: true },
+  { text: "Checked, Focus", checked: true, classes: ":focus" },
+  { text: "Checked, Disabled", checked: true, disabled: true },
+  { text: "X-ray", checked: true, classes: "app-xray" }
+] %}
+
+{% set exampleItemsSmall = [
+  { text: "Unchecked" },
+  { text: "Unchecked, Hover", classes: ":hover" },
+  { text: "Unchecked, Focus", classes: ":focus" },
+  { text: "Unchecked, Focus, Hover", classes: ":focus :hover" },
+  { text: "Unchecked, Disabled", disabled: true },
+  { text: "Checked", checked: true },
+  { text: "Checked, Hover", checked: true, classes: ":hover" },
+  { text: "Checked, Focus", checked: true, classes: ":focus" },
+  { text: "Checked, Focus, Hover", checked: true, classes: ":focus :hover" },
+  { text: "Checked, Disabled", checked: true, disabled: true },
+  { text: "X-ray", checked: true, classes: "app-xray" }
+] %}
+
+{% block beforeContent %}
+  {{ breadcrumb({
+    items: [
+      {
+        text: "NHS.UK frontend",
+        href: baseUrl
+      },
+      {
+        text: "Examples",
+        href: baseUrl ~ "#examples"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl">{{ pageName }}</h1>
+    </div>
+  </div>
+
+  <div class="nhsuk-grid-row">
+    {% for value in [undefined, "Bats are mammals of the order Chiroptera"] %}
+      <div class="nhsuk-grid-column-one-half">
+        {% for item in examplesText %}
+          {{ renderExample({
+            html: input({
+              label: item.label,
+              errorMessage: item.errorMessage,
+              value: value,
+              id: "input-with-value" if value else "input",
+              classes: item.classes,
+              formGroup: item.formGroup,
+              attributes: item.attributes,
+              disabled: item.disabled
+            })
+          }, loop.index) }}
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </div>
+
+  <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
+
+  <div class="nhsuk-grid-row">
+    {% for value in [undefined, "This is my password"] %}
+      <div class="nhsuk-grid-column-one-half">
+        {% for item in examplesText %}
+          {{ renderExample({
+            html: passwordInput({
+              label: item.label,
+              errorMessage: item.errorMessage,
+              value: value,
+              id: "password-input-with-value" if value else "password-input",
+              classes: item.classes,
+              formGroup: item.formGroup,
+              attributes: item.attributes,
+              disabled: item.disabled
+            })
+          }, loop.index) }}
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </div>
+
+  <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
+
+  <div class="nhsuk-grid-row">
+    {% for value in [undefined, "With their forelimbs adapted as wings, they are the only mammals capable of true and sustained flight. Bats are more agile in flight than most birds, flying with their very long spread-out digits covered with a thin membrane or patagium. The smallest bat, and arguably the smallest extant mammal, is Kitti's hog-nosed bat, which is 29–34 millimetres in length, 150 mm  across the wings and 2–2.6 g in mass. The largest bats are the flying foxes, with the giant golden-crowned flying fox, reaching a weight of 1.6 kg and having a wingspan of 1.7 m."] %}
+      <div class="nhsuk-grid-column-one-half">
+        {% for item in examplesText %}
+          {{ renderExample({
+            html: textarea({
+              label: item.label,
+              errorMessage: item.errorMessage,
+              value: value,
+              id: "textarea-with-value" if value else "textarea",
+              classes: item.classes,
+              formGroup: item.formGroup,
+              attributes: item.attributes,
+              disabled: item.disabled
+            })
+          }, loop.index) }}
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </div>
+
+  <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
+
+  <div class="nhsuk-grid-row">
+    {% for value in [undefined, "Ectophylla alba"] %}
+      <div class="nhsuk-grid-column-one-half">
+        {% for item in examplesText %}
+          {{ renderExample({
+            html: select({
+              label: item.label,
+              errorMessage: item.errorMessage,
+              value: value,
+              id: "select-with-value" if value else "select",
+              classes: item.classes,
+              formGroup: item.formGroup,
+              attributes: item.attributes,
+              disabled: item.disabled,
+              items: exampleOptions
+            })
+          }, loop.index) }}
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </div>
+
+  <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-one-half">
+      {{ renderExample({
+        html: checkboxes({
+          idPrefix: "checkboxes",
+          items: exampleItems
+        })
+      }, loop.index) }}
+    </div>
+
+    <div class="nhsuk-grid-column-one-half">
+      {{ renderExample({
+        html: radios({
+          idPrefix: "radios",
+          items: exampleItems
+        })
+      }, loop.index) }}
+    </div>
+  </div>
+
+  <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-one-half">
+      {{ renderExample({
+        html: checkboxes({
+          idPrefix: "checkboxes-small",
+          classes: 'nhsuk-checkboxes--small',
+          items: exampleItemsSmall
+        })
+      }, loop.index) }}
+    </div>
+
+    <div class="nhsuk-grid-column-one-half">
+      {{ renderExample({
+        html: radios({
+          idPrefix: "radios-small",
+          classes: 'nhsuk-radios--small',
+          items: exampleItemsSmall
+        })
+      }, loop.index) }}
+    </div>
+  </div>
+
+{% endblock %}
