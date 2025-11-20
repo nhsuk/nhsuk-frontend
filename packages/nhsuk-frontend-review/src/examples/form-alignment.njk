@@ -1,5 +1,7 @@
 {% extends "layouts/page.njk" %}
 
+{% from "nhsuk/macros/icon.njk" import nhsukIcon %}
+
 {% set pageName = "Form elements alignment" %}
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 
@@ -31,6 +33,29 @@
       <form method="post" novalidate>
         {% call fieldset({
           legend: {
+            text: "Search input",
+            classes: "nhsuk-fieldset__legend--m"
+          }
+        }) %}
+          {{ searchInput({
+            label: {
+              text: "Search patients by NHS number",
+              classes: "nhsuk-u-visually-hidden"
+            },
+            placeholder: "NHS number",
+            name: "example-input",
+            id: "example-input",
+            classes: "nhsuk-u-width-full",
+            formGroup: {
+              classes: "nhsuk-u-width-one-half"
+            }
+          }) }}
+        {% endcall %}
+      </form>
+
+      <form method="post" novalidate>
+        {% call fieldset({
+          legend: {
             text: "Input and button",
             classes: "nhsuk-fieldset__legend--m"
           }
@@ -39,8 +64,8 @@
             label: {
               text: "NHS number"
             },
-            name: "example-input",
-            id: "example-input",
+            name: "example-input-1",
+            id: "example-input-1",
             classes: "nhsuk-u-width-full",
             formGroup: {
               classes: "nhsuk-u-width-one-half",
