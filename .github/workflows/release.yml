@@ -10,6 +10,9 @@ jobs:
     name: Create release
     runs-on: ubuntu-latest
 
+    permissions:
+      id-token: write
+
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -67,11 +70,7 @@ jobs:
       - name: Publish npm package
         if: ${{ !contains(steps.get_version.outputs.VERSION, '-') }}
         run: npm publish --workspace nhsuk-frontend --tag latest
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
       - name: Publish npm package (pre-release)
         if: ${{ contains(steps.get_version.outputs.VERSION, '-') }}
         run: npm publish --workspace nhsuk-frontend --tag next
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
