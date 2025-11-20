@@ -123,6 +123,12 @@ export const examples = {
       ]
     }
   },
+  'without error list': {
+    context: {
+      titleText: 'There is a problem',
+      descriptionText: 'Describe the errors and how to correct them'
+    }
+  },
   'auto-focus disabled': {
     context: {
       titleText: 'There is a problem',

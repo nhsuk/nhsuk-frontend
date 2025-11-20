@@ -11,27 +11,27 @@
       {{ params.titleHtml | safe | trim | indent(6) if params.titleHtml else params.titleText }}
     </h2>
     <div class="nhsuk-error-summary__body">
-      {% if caller or params.descriptionHtml or params.descriptionText %}
+    {% if caller or params.descriptionHtml or params.descriptionText %}
       <p>
         {{ caller() if caller else (params.descriptionHtml | safe | trim | indent(8) if params.descriptionHtml else params.descriptionText) }}
       </p>
-      {% endif %}
-      {% if params.errorList | length %}
-        <ul class="nhsuk-list nhsuk-error-summary__list">
-        {% for item in params.errorList %}
-          <li>
-          {% if item.href %}
-            <a href="{{ item.href }}"
-              {{- nhsukAttributes(item.attributes) }}>
-              {{- item.html | safe | trim | indent(12) if item.html else item.text -}}
-            </a>
-          {% else %}
-            {{ item.html | safe | trim | indent(10) if item.html else item.text }}
-          {% endif %}
-          </li>
-        {% endfor %}
-        </ul>
-      {% endif %}
+    {% endif %}
+    {% if params.errorList | length %}
+      <ul class="nhsuk-list nhsuk-error-summary__list">
+      {% for item in params.errorList %}
+        <li>
+        {% if item.href %}
+          <a href="{{ item.href }}"
+            {{- nhsukAttributes(item.attributes) }}>
+            {{- item.html | safe | trim | indent(10) if item.html else item.text -}}
+          </a>
+        {% else %}
+          {{ item.html | safe | trim | indent(10) if item.html else item.text }}
+        {% endif %}
+        </li>
+      {% endfor %}
+      </ul>
+    {% endif %}
     </div>
   </div>
 </div>
