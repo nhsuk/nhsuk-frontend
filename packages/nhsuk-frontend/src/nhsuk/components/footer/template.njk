@@ -17,12 +17,14 @@
 {% macro _footerList(items, modifier) %}
 <ul class="nhsuk-footer__list">
 {% for item in items %}
+  {% if item %}
   <li class="nhsuk-footer__list-item">
     <a class="nhsuk-footer__list-item-link" href="{{ item.href }}"
       {{- nhsukAttributes(item.attributes) }}>
       {{- item.html | safe | trim | indent(6) if item.html else item.text -}}
     </a>
   </li>
+  {% endif %}
 {% endfor %}
 </ul>
 {% endmacro -%}
@@ -64,7 +66,7 @@
 {% endif %}
     {% if params.copyright.html %}
       {{ params.copyright.html | safe | trim | indent(6) }}
-    {% else %}
+    {% elif params.copyright.text or params.copyright.text not in ["", null, false] %}
       <p class="nhsuk-body-s">{{ params.copyright.text | default("© NHS England") }}</p>
     {% endif %}
     </div>

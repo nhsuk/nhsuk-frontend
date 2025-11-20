@@ -47,7 +47,7 @@
 {%- if params.items | length %}
   <ul class="nhsuk-pagination__list">
   {% for item in params.items %}
-    {{ _pageItem(item) | indent(2) }}
+    {{ _pageItem(item) | indent(2) if item }}
   {% endfor %}
   </ul>
 {% endif %}

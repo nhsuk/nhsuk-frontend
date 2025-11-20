@@ -64,6 +64,7 @@
     {{ params.formGroup.beforeInputs.html | safe | trim | indent(4) if params.formGroup.beforeInputs.html else params.formGroup.beforeInputs.text }}
     {% endif %}
     {% for item in dateInputItems %}
+    {% if item %}
     <div class="nhsuk-date-input__item">
       {{ input({
         label: {
@@ -71,7 +72,7 @@
           classes: "nhsuk-date-input__label"
         },
         id: item.id if item.id else (params.id ~ "-" ~ item.name),
-        classes: "nhsuk-date-input__input " ~ (item.classes if item.classes),
+        classes: "nhsuk-date-input__input" ~ (" " ~ item.classes if item.classes),
         name: (params.namePrefix ~ "[" ~ item.name ~ "]") if params.namePrefix else item.name,
         value: item.value or params.values[item.name],
         type: "text",
@@ -81,6 +82,7 @@
         attributes: item.attributes
       }) | trim | indent(6) }}
     </div>
+    {% endif %}
     {% endfor %}
     {% if params.formGroup.afterInputs %}
     {{ params.formGroup.afterInputs.html | safe | trim | indent(4) if params.formGroup.afterInputs.html else params.formGroup.afterInputs.text }}

@@ -112,6 +112,33 @@ export const examples = {
     },
     screenshot: true
   },
+  'with multiple errors': {
+    context: {
+      titleText: 'There is a problem',
+      errorList: [
+        {
+          text: 'Enter your first name',
+          href: '#example-first-name'
+        },
+        {
+          text: 'Enter your last name',
+          href: '#example-last-name'
+        }
+      ]
+    }
+  },
+  'with multiple errors (empty items)': {
+    context: {
+      titleText: 'There is a problem',
+      errorList: [
+        {
+          text: 'Enter your first name',
+          href: '#example-first-name'
+        },
+        false
+      ]
+    }
+  },
   'without description': {
     context: {
       titleText: 'There is a problem',
@@ -121,6 +148,12 @@ export const examples = {
           href: '#example-day'
         }
       ]
+    }
+  },
+  'without error list': {
+    context: {
+      titleText: 'There is a problem',
+      descriptionText: 'Describe the errors and how to correct them'
     }
   },
   'auto-focus disabled': {
