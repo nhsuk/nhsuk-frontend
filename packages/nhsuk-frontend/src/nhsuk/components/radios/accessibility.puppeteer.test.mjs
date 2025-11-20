@@ -20,13 +20,14 @@ describe('Radios', () => {
     }
   })
 
-  describe('Component examples', () => {
-    it('passes accessibility tests', async () => {
-      for (const example in examples) {
-        page = await goToComponent(browser, 'radios', { example })
-        await expect(axe(page, axeRules)).resolves.toHaveNoViolations()
-      }
-    }, 120000)
+  describe.each(Object.keys(examples))('%s', (example) => {
+    beforeAll(async () => {
+      page = await goToComponent(browser, 'radios', { example })
+    })
+
+    it('passes accessibility tests', () => {
+      return expect(axe(page, axeRules)).resolves.toHaveNoViolations()
+    })
   })
 })
 
