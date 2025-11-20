@@ -92,10 +92,10 @@ export function renderTemplate(templatePath, options) {
   if (options?.blocks) {
     for (const [name, content] of Object.entries(options.blocks)) {
       viewString += outdent`
-
-        {% block ${name} -%}
-          ${content}
-        {%- endblock %}`
+        {% block ${name} %}
+        ${content}
+        {% endblock %}
+      `
     }
   }
 
