@@ -171,7 +171,7 @@ export const examples = {
           actions: {
             items: [
               {
-                href: '#',
+                href: '#/change',
                 text: 'Change',
                 visuallyHiddenText: 'name'
               }
@@ -188,7 +188,7 @@ export const examples = {
           actions: {
             items: [
               {
-                href: '#',
+                href: '#/change',
                 text: 'Change',
                 visuallyHiddenText: 'date of birth'
               }
@@ -209,7 +209,7 @@ export const examples = {
           actions: {
             items: [
               {
-                href: '#',
+                href: '#/change',
                 text: 'Change',
                 visuallyHiddenText: 'contact information'
               }
@@ -229,7 +229,7 @@ export const examples = {
           actions: {
             items: [
               {
-                href: '#',
+                href: '#/change',
                 text: 'Change',
                 visuallyHiddenText: 'contact details'
               }
@@ -263,7 +263,7 @@ export const examples = {
           actions: {
             items: [
               {
-                href: '#',
+                href: '#/change',
                 text: 'Change',
                 visuallyHiddenText: 'date of birth'
               }
@@ -284,7 +284,7 @@ export const examples = {
           actions: {
             items: [
               {
-                href: '#',
+                href: '#/change',
                 text: 'Change',
                 visuallyHiddenText: 'contact information'
               }
@@ -304,12 +304,12 @@ export const examples = {
           actions: {
             items: [
               {
-                href: '#',
+                href: '#/add',
                 text: 'Add',
                 visuallyHiddenText: 'new contact details'
               },
               {
-                href: '#',
+                href: '#/change',
                 text: 'Change',
                 visuallyHiddenText: 'contact details'
               }
@@ -330,12 +330,12 @@ export const examples = {
           actions: {
             items: [
               {
-                href: '#',
+                href: '#/add',
                 text: 'Add',
                 visuallyHiddenText: 'new medicine'
               },
               {
-                href: '#',
+                href: '#/change',
                 text: 'Change',
                 visuallyHiddenText: 'medicines'
               }
@@ -637,11 +637,11 @@ export const examples = {
           items: [
             {
               text: 'Delete',
-              href: '#'
+              href: '#/delete'
             },
             {
               text: 'Withdraw',
-              href: '#'
+              href: '#/withdraw'
             }
           ]
         }
@@ -665,7 +665,7 @@ export const examples = {
           actions: {
             items: [
               {
-                href: '#',
+                href: '#/change',
                 text: 'Change',
                 visuallyHiddenText: 'date of birth'
               }
@@ -686,7 +686,7 @@ export const examples = {
           actions: {
             items: [
               {
-                href: '#',
+                href: '#/change',
                 text: 'Change',
                 visuallyHiddenText: 'contact information'
               }
@@ -706,12 +706,12 @@ export const examples = {
           actions: {
             items: [
               {
-                href: '#',
+                href: '#/add',
                 text: 'Add',
                 visuallyHiddenText: 'new contact details'
               },
               {
-                href: '#',
+                href: '#/change',
                 text: 'Change',
                 visuallyHiddenText: 'contact details'
               }
@@ -732,12 +732,12 @@ export const examples = {
           actions: {
             items: [
               {
-                href: '#',
+                href: '#/add',
                 text: 'Add',
                 visuallyHiddenText: 'new medicine'
               },
               {
-                href: '#',
+                href: '#/change',
                 text: 'Change',
                 visuallyHiddenText: 'medicines'
               }
@@ -759,11 +759,11 @@ export const examples = {
           items: [
             {
               text: 'Delete',
-              href: '#'
+              href: '#/delete'
             },
             {
               text: 'Withdraw',
-              href: '#'
+              href: '#/withdraw'
             }
           ]
         }
