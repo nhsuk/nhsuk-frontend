@@ -75,6 +75,26 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
     }
   }
 
+  .nhsuk-card__heading-container,
+  // Deprecated, to be removed in v11.0
+  .nhsuk-card--care__heading-container {
+    @include nhsuk-responsive-padding(5);
+  }
+
+  .nhsuk-card__heading-container {
+    &:last-child {
+      @include nhsuk-top-and-bottom;
+    }
+
+    &:not(:last-child) {
+      padding-bottom: 0;
+    }
+
+    + .nhsuk-card__content {
+      padding-top: 0;
+    }
+  }
+
   .nhsuk-card__description {
     margin-bottom: 0;
   }
@@ -157,10 +177,15 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
     @include nhsuk-panel-with-label($nhsuk-card-background-colour, $nhsuk-text-colour, $nhsuk-card-border-colour);
   }
 
+  .nhsuk-card--feature .nhsuk-card__heading,
+  // Deprecated, to be removed in v11.0
   .nhsuk-card__heading--feature {
     @include nhsuk-heading-label($nhsuk-brand-colour, $nhsuk-reverse-text-colour);
   }
 
+  .nhsuk-card--feature .nhsuk-card__heading-container,
+  .nhsuk-card--feature .nhsuk-card__content,
+  // Deprecated, to be removed in v11.0
   .nhsuk-card__content--feature {
     padding: 0; // [7]
   }
@@ -172,16 +197,17 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
     @include nhsuk-responsive-margin(7, "top");
   }
 
+  .nhsuk-card--care .nhsuk-card__heading-container,
+  // Deprecated, to be removed in v11.0
   .nhsuk-card--care__heading-container {
     position: relative;
     padding-top: nhsuk-spacing(3);
     padding-bottom: nhsuk-spacing(3) - 1px;
     border-bottom: 1px solid transparent;
-
-    @include nhsuk-responsive-padding(5, "left");
-    @include nhsuk-responsive-padding(5, "right");
   }
 
+  .nhsuk-card--care .nhsuk-card__heading,
+  // Deprecated, to be removed in v11.0
   .nhsuk-card--care__heading {
     margin: 0;
     padding-top: 0; // [13]
@@ -225,6 +251,10 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
 
       border: solid 32px $nhsuk-brand-colour; // [9]
     }
+  }
+
+  .nhsuk-card--care .nhsuk-card__content {
+    @include nhsuk-responsive-padding(5, "top");
   }
 
   .nhsuk-card--care--urgent {
@@ -285,13 +315,19 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
 
   // Card primary
 
+  .nhsuk-card--primary .nhsuk-card__content,
+  // Deprecated, to be removed in v11.0
   .nhsuk-card__content--primary {
     @include nhsuk-responsive-spacing(5, "padding", $direction: "right", $adjustment: nhsuk-spacing(7));
 
     @include nhsuk-media-query($from: desktop) {
       height: 100%;
     }
+  }
 
+  .nhsuk-card--primary,
+  // Deprecated, to be removed in v11.0
+  .nhsuk-card__content--primary {
     .nhsuk-icon {
       display: block;
 
@@ -319,6 +355,9 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
     background: transparent;
   }
 
+  .nhsuk-card--secondary .nhsuk-card__heading-container,
+  .nhsuk-card--secondary .nhsuk-card__content,
+  // Deprecated, to be removed in v11.0
   .nhsuk-card__content--secondary {
     padding-top: 0;
     padding-right: 0;

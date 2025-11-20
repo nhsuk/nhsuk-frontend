@@ -65,6 +65,24 @@ The previous class name is deprecated and will be removed in a future release.
 
 This change was introduced in [pull request #1643: Add small buttons and inline form groups](https://github.com/nhsuk/nhsuk-frontend/pull/1643).
 
+#### Add or rename card HTML classes
+
+HTML markup for the card component has been updated to simplify how each card variant is identified.
+
+If you are not using Nunjucks macros, change the card classes as follows:
+
+- Add the missing `nhsuk-card--primary` modifier class to primary cards.
+- Remove the unnecessary `nhsuk-card__heading--feature` modifier class from feature card headings.
+- Remove the unnecessary `nhsuk-card__content--feature` modifier class from feature card content.
+- Remove the unnecessary `nhsuk-card__content--primary` modifier class from primary card content.
+- Remove the unnecessary `nhsuk-card__content--secondary` modifier class from secondary card content.
+- Rename the `<div class="nhsuk-card--care__heading-container"` class attribute to match `<div class="nhsuk-card__heading-container"`.
+- Rename the `<div class="nhsuk-card--care__heading"` class attribute to match `<div class="nhsuk-card__heading"`.
+
+The previous class names are deprecated and will be removed in a future release.
+
+This change was introduced in [pull request #1684: Uplift GOV.UK Frontend summary list component](https://github.com/nhsuk/nhsuk-frontend/pull/1684).
+
 #### Rename Sass variable for base font size
 
 If you use the Sass `$nhsuk-base-font-size` variable, you should rename it to `$nhsuk-root-font-size`.
