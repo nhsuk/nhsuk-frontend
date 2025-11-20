@@ -202,11 +202,17 @@ $button-shadow-size: $nhsuk-button-shadow-size;
     min-height: nhsuk-px-to-rem(38px);
     padding: $nhsuk-button-padding-top-bottom-small $nhsuk-button-padding-left-right-small
       $nhsuk-button-padding-top-bottom-small;
+    border-radius: $nhsuk-button-border-radius-small;
 
     @include nhsuk-responsive-margin(4, "bottom", $adjustment: $nhsuk-button-shadow-size); // [5]
 
     @include nhsuk-media-query($from: tablet) {
       @include nhsuk-font(16, $line-height: 19px, $weight: bold);
+    }
+
+    &::before,
+    &::after {
+      border-radius: $nhsuk-button-border-radius-small;
     }
   }
 }
