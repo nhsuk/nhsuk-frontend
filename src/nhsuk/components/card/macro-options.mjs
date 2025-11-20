@@ -68,12 +68,6 @@ export const params = {
     description:
       'If set to `true`, the card will become a secondary card variant.'
   },
-  topTask: {
-    type: 'boolean',
-    required: false,
-    description:
-      'If set to `true`, the card will become a top task card variant.'
-  },
   imgURL: {
     type: 'string',
     required: false,
