@@ -99,7 +99,7 @@
     {{ _cardHeading(params, classNamesHeading) | trim | indent(2) }}
   {% endif %}
   {% if caller or params.descriptionHtml %}
-    {{ (caller() if caller else params.descriptionHtml) | safe | trim | indent(4) }}
+    {{ caller() if caller else params.descriptionHtml | safe | trim | indent(4) }}
   {% elif params.description %}
     <p class="nhsuk-card__description">
       {{- params.description -}}
