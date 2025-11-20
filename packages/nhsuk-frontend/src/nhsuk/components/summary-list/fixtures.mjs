@@ -635,6 +635,226 @@ export const examples = {
         }
       ]
     }
+  },
+  'as a card (secondary) with actions': {
+    context: {
+      card: {
+        heading: 'Regional Manager',
+        headingClasses: 'nhsuk-heading-m',
+        secondary: true,
+        actions: {
+          items: [
+            {
+              text: 'Delete',
+              href: '#/delete'
+            },
+            {
+              text: 'Withdraw',
+              href: '#/withdraw'
+            }
+          ]
+        }
+      },
+      rows: [
+        {
+          key: {
+            text: 'Name'
+          },
+          value: {
+            text: 'Karen Francis'
+          }
+        },
+        {
+          key: {
+            text: 'Date of birth'
+          },
+          value: {
+            text: '15 March 1984'
+          }
+        }
+      ]
+    }
+  },
+  'as a card (feature) with actions': {
+    context: {
+      card: {
+        heading: 'Regional Manager',
+        headingClasses: 'nhsuk-heading-m',
+        feature: true,
+        actions: {
+          items: [
+            {
+              text: 'Delete',
+              href: '#/delete'
+            },
+            {
+              text: 'Withdraw',
+              href: '#/withdraw'
+            }
+          ]
+        }
+      },
+      rows: [
+        {
+          key: {
+            text: 'Name'
+          },
+          value: {
+            text: 'Karen Francis'
+          }
+        },
+        {
+          key: {
+            text: 'Date of birth'
+          },
+          value: {
+            text: '15 March 1984'
+          }
+        }
+      ]
+    }
+  },
+  'as a card (clickable) without actions': {
+    context: {
+      card: {
+        heading: 'Regional Manager',
+        headingClasses: 'nhsuk-heading-m',
+        href: '#/card-clickable',
+        clickable: true
+      },
+      rows: [
+        {
+          key: {
+            text: 'Name'
+          },
+          value: {
+            text: 'Karen Francis'
+          }
+        },
+        {
+          key: {
+            text: 'Date of birth'
+          },
+          value: {
+            text: '15 March 1984'
+          }
+        }
+      ]
+    }
+  },
+  'as a card (type non-urgent) with actions': {
+    context: {
+      card: {
+        heading: 'Regional Manager',
+        type: 'non-urgent',
+        actions: {
+          items: [
+            {
+              text: 'Delete',
+              href: '#/delete'
+            },
+            {
+              text: 'Withdraw',
+              href: '#/withdraw'
+            }
+          ]
+        }
+      },
+      rows: [
+        {
+          key: {
+            text: 'Name'
+          },
+          value: {
+            text: 'Karen Francis'
+          }
+        },
+        {
+          key: {
+            text: 'Date of birth'
+          },
+          value: {
+            text: '15 March 1984'
+          }
+        }
+      ]
+    }
+  },
+  'as a card (type urgent) with actions': {
+    context: {
+      card: {
+        heading: 'Regional Manager',
+        type: 'urgent',
+        actions: {
+          items: [
+            {
+              text: 'Delete',
+              href: '#/delete'
+            },
+            {
+              text: 'Withdraw',
+              href: '#/withdraw'
+            }
+          ]
+        }
+      },
+      rows: [
+        {
+          key: {
+            text: 'Name'
+          },
+          value: {
+            text: 'Karen Francis'
+          }
+        },
+        {
+          key: {
+            text: 'Date of birth'
+          },
+          value: {
+            text: '15 March 1984'
+          }
+        }
+      ]
+    }
+  },
+  'as a card (type emergency) with actions': {
+    context: {
+      card: {
+        heading: 'Regional Manager',
+        type: 'emergency',
+        actions: {
+          items: [
+            {
+              text: 'Delete',
+              href: '#/delete'
+            },
+            {
+              text: 'Withdraw',
+              href: '#/withdraw'
+            }
+          ]
+        }
+      },
+      rows: [
+        {
+          key: {
+            text: 'Name'
+          },
+          value: {
+            text: 'Karen Francis'
+          }
+        },
+        {
+          key: {
+            text: 'Date of birth'
+          },
+          value: {
+            text: '15 March 1984'
+          }
+        }
+      ]
+    }
   }
 }
 
