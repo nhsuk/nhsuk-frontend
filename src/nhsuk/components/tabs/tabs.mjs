@@ -37,7 +37,9 @@ export class Tabs extends Component {
     this.boundOnHashChange = this.onHashChange.bind(this)
 
     const $tabList = this.$root.querySelector('.nhsuk-tabs__list')
-    const $tabListItems = this.$root.querySelectorAll('.nhsuk-tabs__list-item')
+    const $tabListItems = this.$root.querySelectorAll(
+      'li.nhsuk-tabs__list-item'
+    )
 
     if (!$tabList) {
       throw new ElementError({
@@ -155,6 +157,8 @@ export class Tabs extends Component {
 
   /**
    * Handle hashchange event
+   *
+   * @returns {void} Returns void when prevented
    */
   onHashChange() {
     const { hash } = window.location
@@ -204,6 +208,7 @@ export class Tabs extends Component {
    * Get tab link by hash
    *
    * @param {string} hash - Hash fragment including #
+   * @returns {HTMLAnchorElement | null} Tab link
    */
   getTab(hash) {
     return this.$root.querySelector(`a.nhsuk-tabs__tab[href="${hash}"]`)
@@ -220,14 +225,14 @@ export class Tabs extends Component {
       return
     }
 
-    // set tab attributes
+    // Set tab attributes
     $tab.setAttribute('id', `tab_${panelId}`)
     $tab.setAttribute('role', 'tab')
     $tab.setAttribute('aria-controls', panelId)
     $tab.setAttribute('aria-selected', 'false')
     $tab.setAttribute('tabindex', '-1')
 
-    // set panel attributes
+    // Set panel attributes
     const $panel = this.getPanel($tab)
     if (!$panel) {
       return
@@ -259,7 +264,6 @@ export class Tabs extends Component {
 
     $panel.removeAttribute('role')
     $panel.removeAttribute('aria-labelledby')
-    $panel.removeAttribute('tabindex')
     $panel.classList.remove(this.jsHiddenClass)
   }
 
@@ -267,20 +271,21 @@ export class Tabs extends Component {
    * Handle tab link clicks
    *
    * @param {MouseEvent} event - Mouse click event
+   * @returns {void} Returns void
    */
   onTabClick(event) {
     const $currentTab = this.getCurrentTab()
-    const $newTab = event.currentTarget
+    const $nextTab = event.currentTarget
 
-    if (!$currentTab || !($newTab instanceof HTMLAnchorElement)) {
+    if (!$currentTab || !($nextTab instanceof HTMLAnchorElement)) {
       return
     }
 
     event.preventDefault()
 
     this.hideTab($currentTab)
-    this.showTab($newTab)
-    this.createHistoryEntry($newTab)
+    this.showTab($nextTab)
+    this.createHistoryEntry($nextTab)
   }
 
   /**
@@ -297,8 +302,8 @@ export class Tabs extends Component {
       return
     }
 
-    // Save and restore the id
-    // so the page doesn't jump when a user clicks a tab (which changes the hash)
+    // Save and restore the id so the page doesn't jump when a user clicks a tab
+    // (which changes the hash)
     const panelId = $panel.id
     $panel.id = ''
     this.changingHash = true
@@ -309,25 +314,21 @@ export class Tabs extends Component {
   /**
    * Handle tab keydown event
    *
-   * - Press right/down arrow for next tab
-   * - Press left/up arrow for previous tab
+   * - Press right arrow for next tab
+   * - Press left arrow for previous tab
    *
    * @param {KeyboardEvent} event - Keydown event
    */
   onTabKeydown(event) {
     switch (event.key) {
-      // 'Left', 'Right', 'Up' and 'Down' required for Edge 16 support.
+      // 'Left' and 'Right' required for Edge 16 support.
       case 'ArrowLeft':
-      case 'ArrowUp':
       case 'Left':
-      case 'Up':
         this.activatePreviousTab()
         event.preventDefault()
         break
       case 'ArrowRight':
-      case 'ArrowDown':
       case 'Right':
-      case 'Down':
         this.activateNextTab()
         event.preventDefault()
         break
@@ -389,6 +390,7 @@ export class Tabs extends Component {
    * Get tab panel for tab link
    *
    * @param {HTMLAnchorElement} $tab - Tab link
+   * @returns {Element | null} Tab panel
    */
   getPanel($tab) {
     const panelId = $tab.hash.replace('#', '')
@@ -459,6 +461,8 @@ export class Tabs extends Component {
 
   /**
    * Get current tab link
+   *
+   * @returns {HTMLAnchorElement | null} Tab link
    */
   getCurrentTab() {
     return this.$root.querySelector(
