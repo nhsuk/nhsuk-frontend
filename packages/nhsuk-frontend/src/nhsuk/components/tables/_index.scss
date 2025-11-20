@@ -92,19 +92,19 @@
 
   // Responsive table
   //
-  // 1. Hide the thead until desktop
+  // 1. Hide the thead until tablet
   // 2. Removing default screen reader behaviour
-  // 3. Assigning role of table-row on desktop to give default screen reader behaviour
+  // 3. Assigning role of table-row on tablet to give default screen reader behaviour
   // 4. Using justify content to space out elements in the row on mobile
   // 5. Assigning a minimum width in case of black cell
   // 6. Aligning content to the right on mobile
   // 7. Aligning mobile header to left to split it from the data
-  // 8. Hiding mobile specific header from desktop view
+  // 8. Hiding mobile specific header from tablet view
   // 9. Adding a display block value due to IE 11 not having full flex support
 
   .nhsuk-table-responsive {
     thead {
-      @include nhsuk-media-query($until: desktop) {
+      @include nhsuk-media-query($until: tablet) {
         @include nhsuk-visually-hidden; // [1]
       }
     }
@@ -140,7 +140,7 @@
         }
       }
 
-      @include nhsuk-media-query($until: desktop) {
+      @include nhsuk-media-query($until: tablet) {
         .nhsuk-table__row th {
           font-weight: $nhsuk-font-normal;
         }
@@ -156,7 +156,7 @@
         }
       }
 
-      @include nhsuk-media-query($from: desktop) {
+      @include nhsuk-media-query($from: tablet) {
         .nhsuk-table-responsive__heading {
           display: none; // [8]
         }
