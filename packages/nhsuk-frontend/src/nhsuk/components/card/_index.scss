@@ -68,6 +68,8 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
   }
 
   .nhsuk-card__heading {
+    flex-basis: 0;
+    flex-grow: 999;
     margin-bottom: nhsuk-spacing(3);
 
     &:has(+ .nhsuk-icon) {
@@ -264,6 +266,8 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
   .nhsuk-card--feature > .nhsuk-card__content > .nhsuk-card__heading,
   // Deprecated, to be removed in v11.0
   .nhsuk-card__heading--feature {
+    flex-basis: auto;
+    flex-grow: 0;
     @include nhsuk-heading-label($nhsuk-brand-colour, $nhsuk-reverse-text-colour);
   }
 
