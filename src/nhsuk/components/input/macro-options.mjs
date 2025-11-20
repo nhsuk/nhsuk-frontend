@@ -285,7 +285,7 @@ export const examples = {
       },
       id: 'with-button',
       name: 'example',
-      classes: 'nhsuk-input--width-10',
+      classes: 'nhsuk-input--width-10 nhsuk-input--code',
       inputmode: 'numeric',
       spellcheck: false,
       formGroup: {
@@ -315,7 +315,7 @@ export const examples = {
       },
       id: 'with-button-error-message',
       name: 'example',
-      classes: 'nhsuk-input--width-10',
+      classes: 'nhsuk-input--width-10 nhsuk-input--code',
       inputmode: 'numeric',
       spellcheck: false,
       formGroup: {
