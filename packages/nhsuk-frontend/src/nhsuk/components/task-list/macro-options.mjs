@@ -133,7 +133,7 @@ export const params = {
  @satisfies {{ [example: string]: MacroExample }}
  */
 export const examples = {
-  default: {
+  'default': {
     context: {
       idPrefix: 'your-health',
       items: [
@@ -197,6 +197,47 @@ export const examples = {
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']
+    }
+  },
+  'with empty items': {
+    context: {
+      idPrefix: 'your-health',
+      items: [
+        {
+          title: {
+            text: 'Exercise'
+          },
+          href: '#',
+          status: {
+            text: 'Completed',
+            classes: 'nhsuk-task-list__status--completed'
+          }
+        },
+        {
+          title: {
+            text: 'Personal health'
+          },
+          href: '#',
+          status: {
+            text: 'Completed',
+            classes: 'nhsuk-task-list__status--completed'
+          }
+        },
+        false,
+        false,
+        {
+          title: {
+            text: 'Blood test'
+          },
+          href: '#',
+          status: {
+            tag: {
+              text: 'Incomplete',
+              classes: 'nhsuk-tag--blue'
+            }
+          }
+        }
+      ]
     }
   }
 }

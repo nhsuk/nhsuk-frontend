@@ -19,6 +19,7 @@
     {% if params.errorList | length %}
       <ul class="nhsuk-list nhsuk-error-summary__list">
       {% for item in params.errorList %}
+        {% if item %}
         <li>
         {% if item.href %}
           <a href="{{ item.href }}"
@@ -29,6 +30,7 @@
           {{ item.html | safe | trim | indent(10) if item.html else item.text }}
         {% endif %}
         </li>
+        {% endif %}
       {% endfor %}
       </ul>
     {% endif %}

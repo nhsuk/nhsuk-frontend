@@ -281,7 +281,7 @@ export const examples = {
         text: '© Crown copyright'
       },
       meta: {
-        text: `All content is available under the Open Government Licence v3.0, except where otherwise stated.`,
+        text: 'All content is available under the Open Government Licence v3.0, except where otherwise stated.',
         items: [
           {
             href: '#',
@@ -311,6 +311,44 @@ export const examples = {
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+    }
+  },
+  'with meta (links and HTML)': {
+    context: {
+      copyright: {
+        text: ''
+      },
+      meta: {
+        html: outdent`
+          <p class="nhsuk-body-s">All content is available under the Open Government Licence v3.0, except where otherwise stated.</p>
+          <p class="nhsuk-body-s">© Custom copyright</p>
+        `,
+        items: [
+          {
+            href: '#',
+            text: 'Accessibility statement'
+          },
+          {
+            href: '#',
+            text: 'Contact us'
+          },
+          {
+            href: '#',
+            text: 'Cookies'
+          },
+          {
+            href: '#',
+            text: 'Privacy policy'
+          },
+          {
+            href: '#',
+            text: 'Terms and conditions'
+          }
+        ]
+      }
+    },
+    options: {
+      width: false
     }
   },
   'with single navigation group': {
@@ -345,6 +383,31 @@ export const examples = {
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+    }
+  },
+  'with single navigation group (empty items)': {
+    context: {
+      navigation: {
+        items: [
+          {
+            href: '#',
+            text: 'Accessibility statement'
+          },
+          false,
+          false,
+          {
+            href: '#',
+            text: 'Privacy policy'
+          },
+          {
+            href: '#',
+            text: 'Terms and conditions'
+          }
+        ]
+      }
+    },
+    options: {
+      width: false
     }
   },
   'with multiple navigation groups': {

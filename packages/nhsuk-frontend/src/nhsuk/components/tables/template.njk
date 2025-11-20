@@ -24,6 +24,7 @@
   <thead class="nhsuk-table__head" {%- if params.responsive %} role="rowgroup"{% endif %}>
     <tr {%- if params.responsive %} role="row"{% endif %}>
     {% for item in params.head %}
+      {% if item %}
       <th scope="col" class="nhsuk-table__header
         {%- if item.format %} nhsuk-table__header--{{ item.format }}{% endif %}
         {%- if item.classes %} {{ item.classes }}{% endif %}"
@@ -33,14 +34,17 @@
         {{- nhsukAttributes(item.attributes) }}>
         {{ item.html | safe | trim | indent(8) if item.html else item.text }}
       </th>
+      {% endif %}
     {% endfor %}
     </tr>
   </thead>
 {% endif %}
   <tbody class="nhsuk-table__body">
 {% for row in params.rows %}
+  {% if row %}
     <tr class="nhsuk-table__row" {%- if params.responsive %} role="row"{% endif %}>
   {% for cell in row %}
+    {% if cell %}
     {% set commonAttributes %}
       {%- if cell.colspan %} colspan="{{ cell.colspan }}"{% endif %}
       {%- if cell.rowspan %} rowspan="{{ cell.rowspan }}"{% endif %}
@@ -68,8 +72,10 @@
         {{ commonContents | safe | trim | indent(8) }}
       </td>
     {% endif %}
+    {% endif %}
   {% endfor %}
     </tr>
+  {% endif %}
 {% endfor %}
   </tbody>
 </table>

@@ -32,11 +32,13 @@
         {{- _link(row.actions.items[0]) | trim | indent(6, true) }}
       {% else %}
       <ul class="nhsuk-summary-list__actions-list">
-        {% for action in row.actions.items %}
+      {% for action in row.actions.items %}
+        {% if action %}
         <li class="nhsuk-summary-list__actions-list-item">
           {{ _link(action) | trim | indent(8) }}
         </li>
-        {% endfor %}
+        {% endif %}
+      {% endfor %}
       </ul>
       {% endif %}
     </dd>

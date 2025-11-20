@@ -99,6 +99,21 @@ export const examples = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
+  '(do) with empty items': {
+    context: {
+      title: 'Do',
+      type: 'tick',
+      items: [
+        {
+          text: 'cover blisters with a soft plaster or padded dressing'
+        },
+        {
+          text: 'wash your hands before touching a burst blister'
+        },
+        false
+      ]
+    }
+  },
   '(do) with deprecated parameters': {
     context: {
       title: 'Do',
@@ -155,6 +170,24 @@ export const examples = {
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']
+    }
+  },
+  "(don't) with empty items": {
+    context: {
+      title: "Don't",
+      type: 'cross',
+      items: [
+        {
+          item: 'burst a blister yourself'
+        },
+        {
+          item: 'peel the skin off a burst blister'
+        },
+        {
+          item: 'pick at the edges of the remaining skin'
+        },
+        false
+      ]
     }
   },
   "(don't) with deprecated parameters": {

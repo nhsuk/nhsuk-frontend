@@ -310,6 +310,50 @@ export const examples = {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
+  'numbered with many pages (empty items)': {
+    context: {
+      previous: {
+        href: '#'
+      },
+      next: {
+        href: '#'
+      },
+      items: [
+        {
+          number: 1,
+          href: '#'
+        },
+        {
+          ellipsis: true
+        },
+        false,
+        {
+          number: 9,
+          href: '#'
+        },
+        {
+          number: 10,
+          href: '#',
+          current: true
+        },
+        {
+          number: 11,
+          href: '#'
+        },
+        false,
+        {
+          ellipsis: true
+        },
+        {
+          number: 40,
+          href: '#'
+        }
+      ]
+    },
+    options: {
+      width: 'full'
+    }
+  },
   'numbered first page': {
     context: {
       next: {

@@ -261,6 +261,32 @@ export const examples = {
       ]
     }
   },
+  'day and month (empty item)': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'What is your birthday?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: true
+        }
+      },
+      hint: {
+        text: 'For example, 5 12'
+      },
+      id: 'example',
+      items: [
+        {
+          name: 'day',
+          classes: 'nhsuk-input--width-2'
+        },
+        {
+          name: 'month',
+          classes: 'nhsuk-input--width-2'
+        },
+        false
+      ]
+    }
+  },
   'month and year': {
     context: {
       fieldset: {
@@ -275,6 +301,32 @@ export const examples = {
       },
       id: 'example',
       items: [
+        {
+          name: 'month',
+          classes: 'nhsuk-input--width-2'
+        },
+        {
+          name: 'year',
+          classes: 'nhsuk-input--width-4'
+        }
+      ]
+    }
+  },
+  'month and year (empty item)': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'When did you start your job?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: true
+        }
+      },
+      hint: {
+        text: 'For example, 11 2023'
+      },
+      id: 'example',
+      items: [
+        false,
         {
           name: 'month',
           classes: 'nhsuk-input--width-2'
