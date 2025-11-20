@@ -27,10 +27,6 @@ You can now add inline buttons to text inputs and select menus using the `formGr
 
 ```njk
 {{ input({
-  label: {
-    text: "NHS number"
-  },
-  name: "search",
   formGroup: {
     afterInput: {
       html: button({
@@ -54,6 +50,14 @@ For consistency with other components with nested items, we’ve added new Nunju
 - Summary list action item `classes` and `attributes` options
 
 This was added in [pull request #1683: Update Nunjucks macro options for nested items](https://github.com/nhsuk/nhsuk-frontend/pull/1683).
+
+#### Added a modifier class for text input styles that accept codes and sequences
+
+We've added a new `.nhsuk-input--code` class for the [text input](https://service-manual.nhs.uk/design-system/components/text-input) component. This improves readability of text inputs that receive codes and sequences (like NHS numbers, security codes or booking references).
+
+You can add it through the classes option when using Nunjucks, or directly in the class attribute of the `<input>` when using HTML.
+
+This was added in [pull request #1617: Add input styling for codes and sequences](https://github.com/nhsuk/nhsuk-frontend/pull/1617).
 
 ### :wastebasket: **Deprecated features**
 

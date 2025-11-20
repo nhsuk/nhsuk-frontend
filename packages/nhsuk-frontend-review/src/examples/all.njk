@@ -311,15 +311,15 @@
       {% call details({
         summaryText: "How to find your NHS number"
       }) %}
-        <p>An NHS number is a 10 digit number, like 485 777 3456.</p>
-        <p>You can find your NHS number by logging in to a GP online service or on any document the NHS has sent you, such as your:</p>
+        <p>An NHS number is a 10 digit number, like <span class="nhsuk-u-nowrap">999 123 4567</span>.</p>
+        <p>You can find your NHS number by logging in to the NHS App or on any document the NHS has sent you, such as your:</p>
         <ul>
           <li>prescriptions</li>
           <li>test results</li>
           <li>hospital referral letters</li>
           <li>appointment letters</li>
         </ul>
-        <p>Ask your GP surgery for help if you can't find your NHS number.</p>
+        <p>Ask your GP surgery for help if you cannot find your NHS number.</p>
       {% endcall %}
 
       {% call details({
@@ -807,7 +807,9 @@
           text: "NHS number"
         },
         name: "nhs-number",
-        classes: "nhsuk-input--width-20"
+        classes: "nhsuk-input--width-10 nhsuk-input--code",
+        inputmode: "numeric",
+        spellcheck: false
       }) }}
 
       {{ input({
@@ -815,13 +817,15 @@
           text: "NHS number"
         },
         hint: {
-          text: "Your NHS number is a 10 digit number that you find on any letter the NHS has sent you, for example, 485 777 3456"
+          html: 'This is a 10 digit number (like <span class="nhsuk-u-nowrap">999 123 4567</span>) that you can find on an NHS letter, prescription or in the NHS App'
         },
         errorMessage: {
           text: "Enter your NHS number"
         },
         name: "nhs-number-hint",
-        classes: "nhsuk-input--width-20"
+        classes: "nhsuk-input--width-10 nhsuk-input--code",
+        inputmode: "numeric",
+        spellcheck: false
       }) }}
 
       <form method="post" novalidate>
