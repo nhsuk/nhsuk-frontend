@@ -108,7 +108,7 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
     flex-wrap: wrap;
     row-gap: 10px;
 
-    margin: 0 0 nhsuk-spacing(4);
+    margin: nhsuk-spacing(-1) 0 nhsuk-spacing(3);
     padding: 0;
 
     list-style: none;
@@ -117,7 +117,7 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
 
     @include nhsuk-media-query($from: tablet) {
       justify-content: right;
-      margin: 0 0 nhsuk-spacing(3);
+      margin: 0 0 nhsuk-spacing(5) nhsuk-spacing(3);
       text-align: right;
     }
   }
