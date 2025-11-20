@@ -21,10 +21,6 @@
   {% set classNames = classNames ~ " nhsuk-card--secondary" %}
 {% endif %}
 
-{%- if params.topTask %}
-  {% set classNames = classNames ~ " nhsuk-card--top-task" %}
-{% endif %}
-
 {%- if params.type %}
   {% set classNames = classNames ~ " nhsuk-card--care nhsuk-card--care--" ~ params.type %}
 {% endif %}
