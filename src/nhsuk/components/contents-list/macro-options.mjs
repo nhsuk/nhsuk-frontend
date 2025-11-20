@@ -86,7 +86,7 @@ export const params = {
  * @satisfies {{ [example: string]: MacroExample }}
  */
 export const examples = {
-  default: {
+  'default': {
     context: {
       items: [
         {
@@ -113,6 +113,27 @@ export const examples = {
       ]
     },
     screenshot: true
+  },
+  'with empty items': {
+    context: {
+      items: [
+        {
+          href: '#',
+          text: 'What is AMD?',
+          current: true
+        },
+        {
+          href: '#',
+          text: 'Symptoms'
+        },
+        false,
+        {
+          href: '#',
+          text: 'Treatments'
+        },
+        false
+      ]
+    }
   }
 }
 

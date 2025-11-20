@@ -64,6 +64,7 @@
     {{ params.formGroup.beforeInputs.html | safe | trim | indent(4) if params.formGroup.beforeInputs.html else params.formGroup.beforeInputs.text }}
     {% endif %}
     {% for item in dateInputItems %}
+    {% if item %}
     <div class="nhsuk-date-input__item">
       {{ input({
         label: {
@@ -81,6 +82,7 @@
         attributes: item.attributes
       }) | trim | indent(6) }}
     </div>
+    {% endif %}
     {% endfor %}
     {% if params.formGroup.afterInputs %}
     {{ params.formGroup.afterInputs.html | safe | trim | indent(4) if params.formGroup.afterInputs.html else params.formGroup.afterInputs.text }}

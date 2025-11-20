@@ -183,6 +183,32 @@ export const examples = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
+  'with empty items': {
+    context: {
+      caption: 'Vaccinations given',
+      head: [
+        {
+          text: 'Date'
+        },
+        {
+          text: 'Vaccine'
+        },
+        false
+      ],
+      rows: [
+        [
+          {
+            text: '10 July 2024'
+          },
+          {
+            text: 'RSV'
+          },
+          false
+        ],
+        false
+      ]
+    }
+  },
   'with missing data': {
     context: {
       caption: 'Vaccinations given',

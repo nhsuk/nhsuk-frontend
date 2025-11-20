@@ -22,10 +22,12 @@
   {{- nhsukAttributes(params.attributes) }}>
   <h{{ headingLevel }} class="nhsuk-do-dont-list__label">{{ params.title }}</h{{ headingLevel }}>
   <ul class="nhsuk-list nhsuk-list--{{ type }}" role="list">
-  {% for data in params.items %}
+{% for data in params.items %}
+  {% if data %}
     <li>
       {{ _listItem(params, data, type) | trim | indent(6) }}
     </li>
-  {% endfor %}
+  {% endif %}
+{% endfor %}
   </ul>
 </div>
