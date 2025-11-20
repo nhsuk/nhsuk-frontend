@@ -262,7 +262,7 @@ export const examples = {
         }
       },
       hint: {
-        text: 'This is a 10 digit number, like 485 777 3456, that you can find on an NHS letter, prescription or in the NHS App'
+        html: 'This is a 10 digit number (like <span class="nhsuk-u-nowrap">999 123 4567</span>) that you can find on an NHS letter, prescription or in the NHS App'
       },
       idPrefix: 'with-hint',
       name: 'example',
@@ -988,7 +988,7 @@ export const examples = {
         }
       },
       hint: {
-        text: 'This is a 10 digit number, like 485 777 3456, that you can find on an NHS letter, prescription or in the NHS App'
+        html: 'This is a 10 digit number (like <span class="nhsuk-u-nowrap">999 123 4567</span>) that you can find on an NHS letter, prescription or in the NHS App'
       },
       idPrefix: 'with-hint',
       name: 'example',
