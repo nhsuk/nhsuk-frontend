@@ -105,6 +105,21 @@ Please review any custom styles, especially those with defined widths, to make s
 
 This change was introduced in pull requests [#1633: Review global `box-sizing` usage](https://github.com/nhsuk/nhsuk-frontend/pull/1633) and [#1651: Add `box-sizing: border-box` to width utility classes etc](https://github.com/nhsuk/nhsuk-frontend/pull/1651).
 
+#### Update the HTML for tab panel text content
+
+We've updated the HTML for the tabs component to wrap plain text content within `<p>` elements.
+
+If you are not using Nunjucks macros, update your HTML markup using the [tabs examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/tabs) to add the missing `<p> </p>` wrapper:
+
+```patch
+  <div class="nhsuk-tabs__panel" id="example-1">
+-   Example text content
++   <p>Example text content</p>
+  </div>
+```
+
+This change was introduced in [pull request #1686: Remove ↑ up and ↓ down arrow key bindings from tabs](https://github.com/nhsuk/nhsuk-frontend/pull/1686).
+
 ### :wrench: **Fixes**
 
 - [#1633: Review global `box-sizing` usage](https://github.com/nhsuk/nhsuk-frontend/pull/1633)
@@ -113,6 +128,7 @@ This change was introduced in pull requests [#1633: Review global `box-sizing` u
 - [#1653: Only show a task list item if not empty](https://github.com/nhsuk/nhsuk-frontend/pull/1653)
 - [#1656: Improve button text vertical alignment](https://github.com/nhsuk/nhsuk-frontend/pull/1656)
 - [#1657: Fix inconsistent margin in form and button groups](https://github.com/nhsuk/nhsuk-frontend/pull/1657)
+- [#1686: Remove ↑ up and ↓ down arrow key bindings from tabs](https://github.com/nhsuk/nhsuk-frontend/pull/1686)
 - [#1689: Only show header navigation items if not empty](https://github.com/nhsuk/nhsuk-frontend/pull/1689)
 
 ## 10.1.0 - 15 October 2025
