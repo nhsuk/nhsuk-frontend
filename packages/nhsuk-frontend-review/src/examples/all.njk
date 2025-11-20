@@ -807,7 +807,9 @@
           text: "NHS number"
         },
         name: "nhs-number",
-        classes: "nhsuk-input--width-10 nhsuk-input--code"
+        classes: "nhsuk-input--width-10 nhsuk-input--code",
+        inputmode: "numeric",
+        spellcheck: false
       }) }}
 
       {{ input({
@@ -821,7 +823,9 @@
           text: "Enter your NHS number"
         },
         name: "nhs-number-hint",
-        classes: "nhsuk-input--width-10 nhsuk-input--code"
+        classes: "nhsuk-input--width-10 nhsuk-input--code",
+        inputmode: "numeric",
+        spellcheck: false
       }) }}
 
       <form method="post" novalidate>

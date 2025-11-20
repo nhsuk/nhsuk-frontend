@@ -27,10 +27,6 @@ You can now add inline buttons to text inputs and select menus using the `formGr
 
 ```njk
 {{ input({
-  label: {
-    text: "NHS number"
-  },
-  name: "search",
   formGroup: {
     afterInput: {
       html: button({
