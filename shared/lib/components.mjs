@@ -36,7 +36,7 @@ export async function load(component) {
 
   // Sort examples by name, default at top
   data.examples = Object.fromEntries(
-    Object.entries(options.examples ?? {}).sort(([nameA], [nameB]) => {
+    Object.entries(options.examples).sort(([nameA], [nameB]) => {
       for (const [find, replace] of /** @type {const} */ ([
         // Sort default to top
         ['default', '!!!'],
@@ -180,8 +180,7 @@ export function render(component, options) {
  * @property {string} name - Component friendly name
  * @property {string} component - Component directory name
  * @property {{ [param: string]: MacroParam }} params - Nunjucks macro option params
- * @property {{ [example: string]: MacroExample }} [examples] - Nunjucks macro option examples
- * @property {MacroOption[]} options - Nunjucks macro options fixtures
+ * @property {{ [example: string]: MacroExample }} examples - Nunjucks macro option examples
  */
 
 /**
