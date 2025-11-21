@@ -4,14 +4,14 @@ import { basename, dirname, join } from 'node:path'
 import { globSync } from 'glob'
 
 /**
- * Directory listing for path
+ * Directory listing for paths
  *
- * @param {string} directoryPath - Minimatch pattern to directory
+ * @param {string | string[]} paths - Minimatch pattern to files or directories
  * @param {GlobOptionsWithFileTypesUnset} [options] - Glob options
  * @returns File paths
  */
-export function getListing(directoryPath, options = {}) {
-  const listing = globSync(directoryPath, {
+export function getListing(paths, options = {}) {
+  const listing = globSync(paths, {
     nodir: true,
     ...options
   })
