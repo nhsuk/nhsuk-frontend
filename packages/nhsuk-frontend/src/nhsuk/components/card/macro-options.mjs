@@ -99,6 +99,60 @@ export const params = {
     description:
       'HTML to use within the card content. If `descriptionHtml` is provided, the `description` argument will be ignored.'
   },
+  actions: {
+    type: 'object',
+    required: false,
+    description: 'Can be used to add actions to the card component.',
+    params: {
+      items: {
+        type: 'array',
+        required: false,
+        description: 'Array of actions as links for use in the card component.',
+        params: {
+          href: {
+            type: 'string',
+            required: true,
+            description:
+              "The value of the link's `href` attribute for an action item."
+          },
+          text: {
+            type: 'string',
+            required: true,
+            description:
+              'If `html` is set, this is not required. Text to use within each action item. If `html` is provided, the `text` option will be ignored.'
+          },
+          html: {
+            type: 'string',
+            required: true,
+            description:
+              'If `text` is set, this is not required. HTML to use within each action item. If `html` is provided, the `text` option will be ignored.'
+          },
+          visuallyHiddenText: {
+            type: 'string',
+            required: false,
+            description:
+              'Actions rely on context from the surrounding content so may require additional accessible text. Text supplied to this option is appended to the end. Use `html` for more complicated scenarios.'
+          },
+          classes: {
+            type: 'string',
+            required: false,
+            description: 'Classes to add to the action item.'
+          },
+          attributes: {
+            type: 'object',
+            required: false,
+            description:
+              'HTML attributes (for example data attributes) to add to the action item.'
+          }
+        }
+      },
+      classes: {
+        type: 'string',
+        required: false,
+        description: 'Classes to add to the actions wrapper.'
+      }
+    }
+  },
   caller: {
     type: 'nunjucks-block',
     required: false,
@@ -136,6 +190,16 @@ export const examples = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
+  'basic with heading link': {
+    context: {
+      heading: 'Introduction to care and support',
+      headingClasses: 'nhsuk-heading-m',
+      headingLevel: 3,
+      href: '#',
+      description:
+        'A quick guide for people who have care and support needs and their carers'
+    }
+  },
   'basic with custom HTML': {
     context: {
       heading: 'Help from NHS 111',
@@ -149,6 +213,148 @@ export const examples = {
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']
     }
+  },
+  'basic with summary list': {
+    context: {
+      heading: 'Regional Manager',
+      headingLevel: 3
+    },
+    callBlock: outdent`
+      ${components.render('summary-list', {
+        context: {
+          rows: [
+            {
+              key: {
+                text: 'Name'
+              },
+              value: {
+                text: 'Karen Francis'
+              }
+            },
+            {
+              key: {
+                text: 'Date of birth'
+              },
+              value: {
+                text: '15 March 1984'
+              }
+            }
+          ]
+        }
+      })}
+    `
+  },
+  'basic with summary list and actions': {
+    context: {
+      heading: 'Regional Manager',
+      headingLevel: 3,
+      actions: {
+        items: [
+          {
+            text: 'Delete',
+            href: '#'
+          },
+          {
+            text: 'Withdraw',
+            href: '#'
+          }
+        ]
+      }
+    },
+    callBlock: outdent`
+      ${components.render('summary-list', {
+        context: {
+          rows: [
+            {
+              key: {
+                text: 'Name'
+              },
+              value: {
+                text: 'Karen Francis'
+              }
+            },
+            {
+              key: {
+                text: 'Date of birth'
+              },
+              value: {
+                text: '15 March 1984'
+              }
+            }
+          ]
+        }
+      })}
+    `
+  },
+  'basic with summary list and actions (empty items)': {
+    context: {
+      heading: 'Regional Manager',
+      headingLevel: 3,
+      actions: {
+        items: [
+          {
+            text: 'Delete',
+            href: '#'
+          },
+          false
+        ]
+      }
+    },
+    callBlock: outdent`
+      ${components.render('summary-list', {
+        context: {
+          rows: [
+            {
+              key: {
+                text: 'Name'
+              },
+              value: {
+                text: 'Karen Francis'
+              }
+            },
+            {
+              key: {
+                text: 'Date of birth'
+              },
+              value: {
+                text: '15 March 1984'
+              }
+            }
+          ]
+        }
+      })}
+    `
+  },
+  'basic with summary list and heading link': {
+    context: {
+      heading: 'Regional Manager',
+      headingLevel: 3,
+      href: '#'
+    },
+    callBlock: outdent`
+      ${components.render('summary-list', {
+        context: {
+          rows: [
+            {
+              key: {
+                text: 'Name'
+              },
+              value: {
+                text: 'Karen Francis'
+              }
+            },
+            {
+              key: {
+                text: 'Date of birth'
+              },
+              value: {
+                text: '15 March 1984'
+              }
+            }
+          ]
+        }
+      })}
+    `
   },
   'non-urgent (blue)': {
     context: {

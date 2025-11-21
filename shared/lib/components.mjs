@@ -57,8 +57,11 @@ export async function load(component) {
         // Sort small variants with default sizes
         [', small', ''],
 
+        // Sort 'as a' variations to end
+        [/^as a/, 'ZZZ1'],
+
         // Sort small form controls to end
-        [/^small/, 'ZZZ']
+        [/^small/, 'ZZZ2']
       ])) {
         nameA = nameA.replace(find, replace)
         nameB = nameB.replace(find, replace)

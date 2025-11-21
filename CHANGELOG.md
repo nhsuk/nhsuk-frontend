@@ -40,6 +40,16 @@ You can now add inline buttons to text inputs and select menus using the `formGr
 
 This was added in [pull request #1643: Add small buttons and inline form groups](https://github.com/nhsuk/nhsuk-frontend/pull/1643).
 
+#### Use cards to visually separate multiple summary lists on a single page
+
+You can now wrap a [card](https://service-manual.nhs.uk/design-system/components/cards) around [summary lists](https://service-manual.nhs.uk/design-system/components/summary-list) to help you:
+
+- design and build pages with multiple summary lists
+- show visual dividers between summary lists
+- allow users to apply actions to entire lists
+
+This was added in [pull request #1685: Add card enhancement to summary list](https://github.com/nhsuk/nhsuk-frontend/pull/1685).
+
 #### Updated Nunjucks macro options for nested items
 
 For consistency with other components with nested items, we’ve added new Nunjucks macro options:
