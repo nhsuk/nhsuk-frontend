@@ -51,11 +51,9 @@
     @error "Invalid arrow direction: expected `up`, `right`, `down` or `left`, got `#{$direction}`";
   }
 
-  @supports (border-width: string.unquote("max(0px)")) {
-    $outline-width-eval: "max(#{$nhsuk-chevron-border}, #{$outline-width})";
-
+  @supports (outline-width: string.unquote("max(0px)")) {
     // Ensure that the chevron outline never gets smaller than 2px
-    outline-width: string.unquote($outline-width-eval) string.unquote($outline-width-eval) 0 0;
+    outline-width: string.unquote("max(#{$nhsuk-chevron-border}, #{$outline-width})");
 
     // Ensure that the chevron never gets smaller than 16px
     font-size: string.unquote("max(#{$font-size * 1px}, 1em)");
