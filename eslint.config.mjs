@@ -229,6 +229,9 @@ export default defineConfig([
       // https://browsersl.ist/#q=supports+es6-module+and+not+supports+object-entries
       'es-x/no-object-entries': 'off',
 
+      // Babel transpiles optional catch binding
+      'es-x/no-optional-catch-binding': 'off',
+
       // Babel transpiles ES2020 optional chaining
       'es-x/no-optional-chaining': 'off',
 
@@ -251,7 +254,10 @@ export default defineConfig([
       // JSDoc @returns is optional
       'jsdoc/require-returns-description': 'off',
       'jsdoc/require-returns-type': 'off',
-      'jsdoc/require-returns': 'off'
+      'jsdoc/require-returns': 'off',
+
+      // Allow optional catch binding
+      'no-empty': ['error', { allowEmptyCatch: true }]
     }
   },
   {
