@@ -1,5 +1,3 @@
-import { components } from '@nhsuk/frontend-lib'
-
 export const name = 'Images'
 
 /**
@@ -80,8 +78,6 @@ export const examples = {
     }
   }
 }
-
-export const options = components.getMacroOptions(params)
 
 /**
  * @import { MacroExample, MacroParam } from '@nhsuk/frontend-lib/components.mjs'

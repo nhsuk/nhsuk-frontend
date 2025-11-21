@@ -1,4 +1,3 @@
-import { components } from '@nhsuk/frontend-lib'
 import { outdent } from 'outdent'
 
 export const name = 'Footer'
@@ -780,8 +779,6 @@ export const examples = {
     }
   }
 }
-
-export const options = components.getMacroOptions(params)
 
 /**
  * @import { MacroExample, MacroParam } from '@nhsuk/frontend-lib/components.mjs'

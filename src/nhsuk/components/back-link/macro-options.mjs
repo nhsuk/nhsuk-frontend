@@ -1,5 +1,3 @@
-import { components } from '@nhsuk/frontend-lib'
-
 export const name = 'Back link'
 
 /**
@@ -103,8 +101,6 @@ export const examples = {
     }
   }
 }
-
-export const options = components.getMacroOptions(params)
 
 /**
  * @import { MacroExample, MacroParam } from '@nhsuk/frontend-lib/components.mjs'
