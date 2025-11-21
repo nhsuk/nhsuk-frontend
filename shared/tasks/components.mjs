@@ -12,7 +12,7 @@ let list
 /**
  * Generate fixtures.json from component data
  *
- * @param {Pick<FileOptions, "destPath">} options - Asset options
+ * @param {Pick<FileOptions, 'destPath'>} options - Asset options
  */
 export async function generateFixtures({ destPath }) {
   list ??= await components.loadAll()
@@ -41,7 +41,7 @@ export async function generateFixtures({ destPath }) {
 /**
  * Generate macro-options.json from component data
  *
- * @param {Pick<FileOptions, "destPath">} options - Asset options
+ * @param {Pick<FileOptions, 'destPath'>} options - Asset options
  */
 export async function generateMacroOptions({ destPath }) {
   list ??= await components.loadAll()
