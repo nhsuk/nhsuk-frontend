@@ -232,7 +232,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'Are you 18 or over?',
-          classes: 'nhsuk-fieldset__legend--l',
+          size: 'l',
           isPageHeading: true
         }
       },
@@ -257,7 +257,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'Do you know your NHS number?',
-          classes: 'nhsuk-fieldset__legend--l',
+          size: 'l',
           isPageHeading: true
         }
       },
@@ -288,7 +288,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'Are you 18 or over?',
-          classes: 'nhsuk-fieldset__legend--l',
+          size: 'l',
           isPageHeading: true
         }
       },
@@ -315,7 +315,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'Are you 18 or over?',
-          classes: 'nhsuk-fieldset__legend--s',
+          size: 's',
           isPageHeading: true
         }
       },
@@ -338,7 +338,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'Are you 18 or over?',
-          classes: 'nhsuk-fieldset__legend--m',
+          size: 'm',
           isPageHeading: true
         }
       },
@@ -361,7 +361,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'Are you 18 or over?',
-          classes: 'nhsuk-fieldset__legend--l',
+          size: 'l',
           isPageHeading: true
         }
       },
@@ -384,7 +384,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'Are you 18 or over?',
-          classes: 'nhsuk-fieldset__legend--xl',
+          size: 'xl',
           isPageHeading: true
         }
       },
@@ -428,7 +428,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'How do you want to sign in?',
-          classes: 'nhsuk-fieldset__legend--l',
+          size: 'l',
           isPageHeading: true
         }
       },
@@ -461,7 +461,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'Do you have a mobile phone with signal?',
-          classes: 'nhsuk-fieldset__legend--l',
+          size: 'l',
           isPageHeading: true
         }
       },
@@ -516,7 +516,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'Have you changed your name?',
-          classes: 'nhsuk-fieldset__legend--l',
+          size: 'l',
           isPageHeading: true
         }
       },
@@ -547,7 +547,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'Have you changed your name?',
-          classes: 'nhsuk-fieldset__legend--l',
+          size: 'l',
           isPageHeading: true
         }
       },
@@ -573,7 +573,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'Have you changed your name?',
-          classes: 'nhsuk-fieldset__legend--l',
+          size: 'l',
           isPageHeading: true
         }
       },
@@ -607,7 +607,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'Venenatis Condimentum',
-          classes: 'nhsuk-fieldset__legend--l',
+          size: 'l',
           isPageHeading: true
         }
       },
@@ -654,7 +654,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'How do you want to be contacted about this?',
-          classes: 'nhsuk-fieldset__legend--l',
+          size: 'l',
           isPageHeading: true
         }
       },
@@ -720,7 +720,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'How do you want to be contacted about this?',
-          classes: 'nhsuk-fieldset__legend--l',
+          size: 'l',
           isPageHeading: true
         }
       },
@@ -789,7 +789,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'How do you want to be contacted about this?',
-          classes: 'nhsuk-fieldset__legend--l',
+          size: 'l',
           isPageHeading: true
         }
       },
@@ -864,7 +864,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'How do you want to be contacted about this?',
-          classes: 'nhsuk-fieldset__legend--m',
+          size: 'm',
           isPageHeading: true
         }
       },
@@ -887,7 +887,7 @@ export const examples = {
                 fieldset: {
                   legend: {
                     text: 'How do you want to be contacted about this?',
-                    classes: 'nhsuk-fieldset__legend--s'
+                    size: 's'
                   }
                 },
                 hint: {
@@ -957,7 +957,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'Are you 18 or over?',
-          classes: 'nhsuk-fieldset__legend--m',
+          size: 'm',
           isPageHeading: true
         }
       },
@@ -983,7 +983,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'Do you know your NHS number?',
-          classes: 'nhsuk-fieldset__legend--m',
+          size: 'm',
           isPageHeading: true
         }
       },
@@ -1014,7 +1014,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'Are you 18 or over?',
-          classes: 'nhsuk-fieldset__legend--s',
+          size: 's',
           isPageHeading: true
         }
       },
@@ -1064,7 +1064,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'How do you want to sign in?',
-          classes: 'nhsuk-fieldset__legend--m',
+          size: 'm',
           isPageHeading: true
         }
       },
@@ -1098,7 +1098,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'Do you have a mobile phone with signal?',
-          classes: 'nhsuk-fieldset__legend--m',
+          size: 'm',
           isPageHeading: true
         }
       },
@@ -1155,7 +1155,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'Have you changed your name?',
-          classes: 'nhsuk-fieldset__legend--m',
+          size: 'm',
           isPageHeading: true
         }
       },
@@ -1187,7 +1187,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'Have you changed your name?',
-          classes: 'nhsuk-fieldset__legend--m',
+          size: 'm',
           isPageHeading: true
         }
       },
@@ -1214,7 +1214,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'Have you changed your name?',
-          classes: 'nhsuk-fieldset__legend--m',
+          size: 'm',
           isPageHeading: true
         }
       },
@@ -1249,7 +1249,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'Venenatis Condimentum',
-          classes: 'nhsuk-fieldset__legend--m',
+          size: 'm',
           isPageHeading: true
         }
       },
@@ -1297,7 +1297,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'How do you want to be contacted about this?',
-          classes: 'nhsuk-fieldset__legend--m',
+          size: 'm',
           isPageHeading: true
         }
       },
@@ -1364,7 +1364,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'How do you want to be contacted about this?',
-          classes: 'nhsuk-fieldset__legend--m',
+          size: 'm',
           isPageHeading: true
         }
       },
@@ -1434,7 +1434,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'How do you want to be contacted about this?',
-          classes: 'nhsuk-fieldset__legend--m',
+          size: 'm',
           isPageHeading: true
         }
       },
@@ -1510,7 +1510,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'How do you want to be contacted about this?',
-          classes: 'nhsuk-fieldset__legend--m',
+          size: 'm',
           isPageHeading: true
         }
       },
@@ -1533,7 +1533,7 @@ export const examples = {
                 fieldset: {
                   legend: {
                     text: 'How do you want to be contacted about this?',
-                    classes: 'nhsuk-fieldset__legend--s'
+                    size: 's'
                   }
                 },
                 hint: {

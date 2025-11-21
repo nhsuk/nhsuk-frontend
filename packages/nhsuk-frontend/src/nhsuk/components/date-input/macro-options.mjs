@@ -205,7 +205,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'What is your date of birth?',
-          classes: 'nhsuk-fieldset__legend--l',
+          size: 'l',
           isPageHeading: true
         }
       },
@@ -221,7 +221,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'What is your date of birth?',
-          classes: 'nhsuk-fieldset__legend--l',
+          size: 'l',
           isPageHeading: true
         }
       },
@@ -241,7 +241,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'What is your birthday?',
-          classes: 'nhsuk-fieldset__legend--l',
+          size: 'l',
           isPageHeading: true
         }
       },
@@ -292,7 +292,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'When did you start your job?',
-          classes: 'nhsuk-fieldset__legend--l',
+          size: 'l',
           isPageHeading: true
         }
       },
@@ -343,7 +343,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'When did you start your job?',
-          classes: 'nhsuk-fieldset__legend--l',
+          size: 'l',
           isPageHeading: true
         }
       },
@@ -372,7 +372,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'What is your date of birth?',
-          classes: 'nhsuk-fieldset__legend--s',
+          size: 's',
           isPageHeading: true
         }
       },
@@ -387,7 +387,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'What is your date of birth?',
-          classes: 'nhsuk-fieldset__legend--m',
+          size: 'm',
           isPageHeading: true
         }
       },
@@ -402,7 +402,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'What is your date of birth?',
-          classes: 'nhsuk-fieldset__legend--l',
+          size: 'l',
           isPageHeading: true
         }
       },
@@ -417,7 +417,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'What is your date of birth?',
-          classes: 'nhsuk-fieldset__legend--xl',
+          size: 'xl',
           isPageHeading: true
         }
       },
@@ -445,7 +445,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'What is your date of birth?',
-          classes: 'nhsuk-fieldset__legend--l',
+          size: 'l',
           isPageHeading: true
         }
       },
@@ -477,7 +477,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'What is your date of birth?',
-          classes: 'nhsuk-fieldset__legend--l',
+          size: 'l',
           isPageHeading: true
         }
       },
@@ -493,7 +493,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'What is your date of birth?',
-          classes: 'nhsuk-fieldset__legend--l',
+          size: 'l',
           isPageHeading: true
         }
       },
@@ -522,7 +522,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'What is your date of birth?',
-          classes: 'nhsuk-fieldset__legend--l',
+          size: 'l',
           isPageHeading: true
         }
       },
@@ -555,7 +555,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'What is your date of birth?',
-          classes: 'nhsuk-fieldset__legend--l',
+          size: 'l',
           isPageHeading: true
         }
       },
@@ -589,7 +589,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'What is your date of birth?',
-          classes: 'nhsuk-fieldset__legend--l',
+          size: 'l',
           isPageHeading: true
         }
       },
@@ -623,7 +623,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'What is your date of birth?',
-          classes: 'nhsuk-fieldset__legend--l',
+          size: 'l',
           isPageHeading: true
         }
       },

@@ -24,30 +24,7 @@ export const params = {
     type: 'object',
     required: false,
     description: 'The legend for the fieldset component.',
-    params: {
-      text: {
-        type: 'string',
-        required: true,
-        description:
-          'If `html` is set, this is not required. Text to use within the legend. If `html` is provided, the `text` option will be ignored.'
-      },
-      html: {
-        type: 'string',
-        required: true,
-        description:
-          'If `text` is set, this is not required. HTML to use within the legend. If `html` is provided, the `text` option will be ignored.'
-      },
-      classes: {
-        type: 'string',
-        required: false,
-        description: 'Classes to add to the legend.'
-      },
-      isPageHeading: {
-        type: 'boolean',
-        required: false,
-        description: 'Whether the legend also acts as the heading for the page.'
-      }
-    }
+    isComponent: true
   },
   classes: {
     type: 'string',
@@ -88,7 +65,7 @@ export const examples = {
     context: {
       legend: {
         text: 'What is your address?',
-        classes: 'nhsuk-fieldset__legend--l',
+        size: 'l',
         isPageHeading: true
       }
     },
@@ -139,11 +116,29 @@ export const examples = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
+  'with legend heading level 1': {
+    context: {
+      legend: {
+        text: 'What is your address?',
+        size: 'l',
+        headingLevel: 1
+      }
+    }
+  },
+  'with legend heading level 2': {
+    context: {
+      legend: {
+        text: 'What is your address?',
+        size: 'm',
+        headingLevel: 2
+      }
+    }
+  },
   'with legend size XL': {
     context: {
       legend: {
         text: 'What is your address?',
-        classes: 'nhsuk-fieldset__legend--xl',
+        size: 'xl',
         isPageHeading: true
       }
     }
@@ -152,7 +147,7 @@ export const examples = {
     context: {
       legend: {
         text: 'What is your address?',
-        classes: 'nhsuk-fieldset__legend--l',
+        size: 'l',
         isPageHeading: true
       }
     }
@@ -161,7 +156,7 @@ export const examples = {
     context: {
       legend: {
         text: 'What is your address?',
-        classes: 'nhsuk-fieldset__legend--m',
+        size: 'm',
         isPageHeading: true
       }
     }
@@ -170,7 +165,26 @@ export const examples = {
     context: {
       legend: {
         text: 'What is your address?',
-        classes: 'nhsuk-fieldset__legend--s',
+        size: 's',
+        isPageHeading: true
+      }
+    }
+  },
+  'with legend size class': {
+    context: {
+      legend: {
+        text: 'What is your address?',
+        classes: 'nhsuk-fieldset__legend--l',
+        isPageHeading: true
+      }
+    }
+  },
+  'with legend size class overriding size param': {
+    context: {
+      legend: {
+        text: 'What is your address?',
+        classes: 'nhsuk-fieldset__legend--l',
+        size: 's',
         isPageHeading: true
       }
     }

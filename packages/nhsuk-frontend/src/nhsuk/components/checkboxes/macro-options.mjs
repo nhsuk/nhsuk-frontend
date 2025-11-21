@@ -256,7 +256,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'How do you want to be contacted about this?',
-          classes: 'nhsuk-fieldset__legend--l',
+          size: 'l',
           isPageHeading: true
         }
       },
@@ -288,7 +288,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'What is your nationality?',
-          classes: 'nhsuk-fieldset__legend--l',
+          size: 'l',
           isPageHeading: true
         }
       },
@@ -318,7 +318,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'What is your nationality?',
-          classes: 'nhsuk-fieldset__legend--l',
+          size: 'l',
           isPageHeading: true
         }
       },
@@ -346,7 +346,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'What is your nationality?',
-          classes: 'nhsuk-fieldset__legend--l',
+          size: 'l',
           isPageHeading: true
         }
       },
@@ -406,7 +406,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'How do you want to be contacted about this?',
-          classes: 'nhsuk-fieldset__legend--l',
+          size: 'l',
           isPageHeading: true
         }
       },
@@ -441,7 +441,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'How do you want to be contacted about this?',
-          classes: 'nhsuk-fieldset__legend--l',
+          size: 'l',
           isPageHeading: true
         }
       },
@@ -474,7 +474,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'Venenatis Condimentum',
-          classes: 'nhsuk-fieldset__legend--l',
+          size: 'l',
           isPageHeading: true
         }
       },
@@ -521,7 +521,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'How do you want to be contacted about this?',
-          classes: 'nhsuk-fieldset__legend--s',
+          size: 's',
           isPageHeading: true
         }
       },
@@ -551,7 +551,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'How do you want to be contacted about this?',
-          classes: 'nhsuk-fieldset__legend--m',
+          size: 'm',
           isPageHeading: true
         }
       },
@@ -581,7 +581,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'How do you want to be contacted about this?',
-          classes: 'nhsuk-fieldset__legend--l',
+          size: 'l',
           isPageHeading: true
         }
       },
@@ -611,7 +611,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'How do you want to be contacted about this?',
-          classes: 'nhsuk-fieldset__legend--xl',
+          size: 'xl',
           isPageHeading: true
         }
       },
@@ -669,7 +669,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'How do you want to be contacted about this?',
-          classes: 'nhsuk-fieldset__legend--l',
+          size: 'l',
           isPageHeading: true
         }
       },
@@ -735,7 +735,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'How do you want to be contacted about this?',
-          classes: 'nhsuk-fieldset__legend--l',
+          size: 'l',
           isPageHeading: true
         }
       },
@@ -804,7 +804,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'How do you want to be contacted about this?',
-          classes: 'nhsuk-fieldset__legend--l',
+          size: 'l',
           isPageHeading: true
         }
       },
@@ -879,7 +879,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'How do you want to be contacted about this?',
-          classes: 'nhsuk-fieldset__legend--l',
+          size: 'l',
           isPageHeading: true
         }
       },
@@ -950,7 +950,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'How do you want to be contacted about this?',
-          classes: 'nhsuk-fieldset__legend--l',
+          size: 'l',
           isPageHeading: true
         }
       },
@@ -1031,7 +1031,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'How do you want to be contacted about this?',
-          classes: 'nhsuk-fieldset__legend--l',
+          size: 'l',
           isPageHeading: true
         }
       },
@@ -1113,7 +1113,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'How do you want to be contacted about this?',
-          classes: 'nhsuk-fieldset__legend--m',
+          size: 'm',
           isPageHeading: true
         }
       },
@@ -1146,7 +1146,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'What is your nationality?',
-          classes: 'nhsuk-fieldset__legend--m',
+          size: 'm',
           isPageHeading: true
         }
       },
@@ -1177,7 +1177,7 @@ export const examples = {
         classes: 'nhsuk-checkboxes--small',
         legend: {
           text: 'What is your nationality?',
-          classes: 'nhsuk-fieldset__legend--m',
+          size: 'm',
           isPageHeading: true
         }
       },
@@ -1206,7 +1206,7 @@ export const examples = {
         classes: 'nhsuk-checkboxes--small',
         legend: {
           text: 'What is your nationality?',
-          classes: 'nhsuk-fieldset__legend--m',
+          size: 'm',
           isPageHeading: true
         }
       },
@@ -1268,7 +1268,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'How do you want to be contacted about this?',
-          classes: 'nhsuk-fieldset__legend--m',
+          size: 'm',
           isPageHeading: true
         }
       },
@@ -1304,7 +1304,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'How do you want to be contacted about this?',
-          classes: 'nhsuk-fieldset__legend--m',
+          size: 'm',
           isPageHeading: true
         }
       },
@@ -1338,7 +1338,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'Venenatis Condimentum',
-          classes: 'nhsuk-fieldset__legend--m',
+          size: 'm',
           isPageHeading: true
         }
       },
@@ -1415,7 +1415,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'How do you want to be contacted about this?',
-          classes: 'nhsuk-fieldset__legend--m',
+          size: 'm',
           isPageHeading: true
         }
       },
@@ -1482,7 +1482,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'How do you want to be contacted about this?',
-          classes: 'nhsuk-fieldset__legend--m',
+          size: 'm',
           isPageHeading: true
         }
       },
@@ -1552,7 +1552,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'How do you want to be contacted about this?',
-          classes: 'nhsuk-fieldset__legend--m',
+          size: 'm',
           isPageHeading: true
         }
       },
@@ -1628,7 +1628,7 @@ export const examples = {
       fieldset: {
         legend: {
           text: 'How do you want to be contacted about this?',
-          classes: 'nhsuk-fieldset__legend--m',
+          size: 'm',
           isPageHeading: true
         }
       },

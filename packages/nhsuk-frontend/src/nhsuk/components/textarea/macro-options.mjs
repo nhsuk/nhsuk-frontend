@@ -154,7 +154,7 @@ export const examples = {
     context: {
       label: {
         text: 'Can you provide more detail?',
-        classes: 'nhsuk-label--l',
+        size: 'l',
         isPageHeading: true
       },
       hint: {
@@ -168,7 +168,7 @@ export const examples = {
     context: {
       label: {
         text: 'Can you provide more detail?',
-        classes: 'nhsuk-label--l',
+        size: 'l',
         isPageHeading: true
       },
       hint: {
@@ -182,7 +182,7 @@ export const examples = {
     context: {
       label: {
         text: 'Can you provide more detail?',
-        classes: 'nhsuk-label--s',
+        size: 's',
         isPageHeading: true
       },
       hint: {
@@ -196,7 +196,7 @@ export const examples = {
     context: {
       label: {
         text: 'Can you provide more detail?',
-        classes: 'nhsuk-label--m',
+        size: 'm',
         isPageHeading: true
       },
       hint: {
@@ -210,7 +210,7 @@ export const examples = {
     context: {
       label: {
         text: 'Can you provide more detail?',
-        classes: 'nhsuk-label--l',
+        size: 'l',
         isPageHeading: true
       },
       hint: {
@@ -224,7 +224,7 @@ export const examples = {
     context: {
       label: {
         text: 'Can you provide more detail?',
-        classes: 'nhsuk-label--xl',
+        size: 'xl',
         isPageHeading: true
       },
       hint: {
@@ -250,7 +250,7 @@ export const examples = {
     context: {
       label: {
         text: 'Can you provide more detail?',
-        classes: 'nhsuk-label--l',
+        size: 'l',
         isPageHeading: true
       },
       errorMessage: {
@@ -268,7 +268,7 @@ export const examples = {
     context: {
       label: {
         text: 'Can you provide more detail?',
-        classes: 'nhsuk-label--l',
+        size: 'l',
         isPageHeading: true
       },
       hint: {
@@ -285,7 +285,7 @@ export const examples = {
     context: {
       label: {
         text: 'Full address',
-        classes: 'nhsuk-label--l',
+        size: 'l',
         isPageHeading: true
       },
       id: 'with-autocomplete-attribute',
