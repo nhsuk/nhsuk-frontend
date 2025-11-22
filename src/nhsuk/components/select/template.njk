@@ -18,7 +18,9 @@
     {%- if describedBy %} aria-describedby="{{ describedBy }}"{% endif %}
     {{- nhsukAttributes(params.attributes) }}>
   {% for item in params.items %}
-    {% if item %}
+  {%- if item.divider %}
+    <hr>
+  {% elif item %}
     {#- Allow selecting by text content (the value for an option when no value attribute is specified) #}
     {%- set effectiveValue = item.value | default(item.text) %}
     <option {%- if item.value is not undefined %} value="{{ item.value }}"{% endif %}
