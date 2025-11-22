@@ -34,6 +34,11 @@ export const params = {
         required: true,
         description: 'Text for the option item.'
       },
+      divider: {
+        type: 'boolean',
+        required: false,
+        description: 'Divider line used to separate option items.'
+      },
       selected: {
         type: 'boolean',
         required: false,
@@ -215,6 +220,36 @@ export const examples = {
       ]
     },
     screenshot: true
+  },
+  'with divider': {
+    context: {
+      label: {
+        text: 'Sort by',
+        isPageHeading: true
+      },
+      name: 'example',
+      items: [
+        {
+          value: 'first-name-ascending',
+          text: 'First name (A to Z)'
+        },
+        {
+          value: 'first-name-descending',
+          text: 'First name (Z to A)'
+        },
+        {
+          divider: true
+        },
+        {
+          value: 'last-name-ascending',
+          text: 'Last name (A to Z)'
+        },
+        {
+          value: 'last-name-descending',
+          text: 'Last name (Z to A)'
+        }
+      ]
+    }
   },
   'with disabled item': {
     context: {
