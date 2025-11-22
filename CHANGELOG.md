@@ -51,13 +51,52 @@ For consistency with other components with nested items, we’ve added new Nunju
 
 This was added in [pull request #1683: Update Nunjucks macro options for nested items](https://github.com/nhsuk/nhsuk-frontend/pull/1683).
 
-#### Added a modifier class for text input styles that accept codes and sequences
+#### Add a modifier class for text input styles that accept codes and sequences
 
 We've added a new `.nhsuk-input--code` class for the [text input](https://service-manual.nhs.uk/design-system/components/text-input) component. This improves readability of text inputs that receive codes and sequences (like NHS numbers, security codes or booking references).
 
 You can add it through the classes option when using Nunjucks, or directly in the class attribute of the `<input>` when using HTML.
 
 This was added in [pull request #1617: Add input styling for codes and sequences](https://github.com/nhsuk/nhsuk-frontend/pull/1617).
+
+#### Add a 'divider' Nunjucks option to selects
+
+Newer browsers support [using `<hr>` (horizontal rule) elements inside a `<select>` element](https://developer.chrome.com/blog/hr-in-select/) to help visually break up options for better readability.
+
+We've added a new `divider` Nunjucks option on select items to support this feature. For example:
+
+```njk
+{{ select({
+  label: {
+    text: 'Sort by'
+  },
+  name: 'sort',
+  items: [
+    {
+      value: 'first-name-ascending',
+      text: 'First name (A to Z)'
+    },
+    {
+      value: 'first-name-descending',
+      text: 'First name (Z to A)'
+    },
+    {
+      divider: true
+    },
+    {
+      value: 'last-name-ascending',
+      text: 'Last name (A to Z)'
+    },
+    {
+      value: 'last-name-descending',
+      text: 'Last name (Z to A)'
+    }
+  ]
+}
+}) }}
+```
+
+This was added in [pull request #1701: Support showing dividers between select options](https://github.com/nhsuk/nhsuk-frontend/pull/1701).
 
 ### :wastebasket: **Deprecated features**
 
