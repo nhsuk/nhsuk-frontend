@@ -15,10 +15,10 @@ describe('Core', () => {
     const properties = outdent`
       :root {
         --nhsuk-frontend-version: "development";
-        --nhsuk-breakpoint-mobile: 20rem;
-        --nhsuk-breakpoint-tablet: 40.0625rem;
-        --nhsuk-breakpoint-desktop: 48.0625rem;
-        --nhsuk-breakpoint-large-desktop: 61.875rem;
+        --nhsuk-breakpoint-mobile: 18.8235294118rem;
+        --nhsuk-breakpoint-tablet: 37.7058823529rem;
+        --nhsuk-breakpoint-desktop: 45.2352941176rem;
+        --nhsuk-breakpoint-large-desktop: 58.2352941176rem;
         --nhsuk-blue-colour: #005eb8;
         --nhsuk-white-colour: white;
         --nhsuk-black-colour: #212b32;
@@ -133,10 +133,10 @@ describe('Core', () => {
         css: expect.stringContaining(outdent`
           :root {
             --nhsuk-frontend-version: "development";
-            --nhsuk-breakpoint-mobile: 6.875rem;
-            --nhsuk-breakpoint-tablet: 13.75rem;
-            --nhsuk-breakpoint-desktop: 20.625rem;
-            --nhsuk-breakpoint-large-desktop: 27.5rem;
+            --nhsuk-breakpoint-mobile: 6.4705882353rem;
+            --nhsuk-breakpoint-tablet: 12.9411764706rem;
+            --nhsuk-breakpoint-desktop: 19.4117647059rem;
+            --nhsuk-breakpoint-large-desktop: 25.8823529412rem;
         `)
       })
 
