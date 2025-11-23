@@ -1,5 +1,6 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
-{% from "nhsuk/components/error-message/macro.njk" import errorMessage -%}
+{% from "nhsuk/macros/i18n.njk" import nhsukI18nAttributes %}
+{% from "nhsuk/components/error-message/macro.njk" import errorMessage %}
 {% from "nhsuk/components/hint/macro.njk" import hint %}
 {% from "nhsuk/components/label/macro.njk" import label %}
 
@@ -11,9 +12,37 @@
 {%- set hasBeforeInput = true if params.formGroup.beforeInput and (params.formGroup.beforeInput.text or params.formGroup.beforeInput.html) else false %}
 {%- set hasAfterInput = true if params.formGroup.afterInput and (params.formGroup.afterInput.text or params.formGroup.afterInput.html) else false %}
 
+{%- set attributesHtml %}
+  {% if params.combobox %}
+    {{- nhsukAttributes({
+      "data-module": "nhsuk-select"
+    }) -}}
+  {% endif %}
+
+  {{- nhsukI18nAttributes({
+    key: "select-description",
+    message: params.selectDescriptionText
+  }) -}}
+
+  {{- nhsukI18nAttributes({
+    key: "no-results",
+    message: params.noResultsText
+  }) -}}
+
+  {{- nhsukI18nAttributes({
+    key: "results",
+    messages: params.resultsText
+  }) -}}
+{% endset -%}
+
+{#- Append form group attributes onto attributes set above #}
+{%- for name, value in params.formGroup.attributes %}
+  {% set attributesHtml = attributesHtml ~ " " ~ name | escape ~ '="' ~ value | escape ~ '"' %}
+{% endfor -%}
+
 {%- macro _selectElement(params) -%}
   <select class="nhsuk-select
-    {%- if params.classes %} {{ params.classes }}{% endif %}{%- if params.errorMessage %} nhsuk-select--error{% endif %}" id="{{ id }}" name="{{ params.name }}"
+    {%- if params.classes %} {{ params.classes }}{% endif %}{%- if params.errorMessage %} nhsuk-select--error{% endif %}{% if params.combobox %} nhsuk-js-select{% endif %}" id="{{ id }}" name="{{ params.name }}"
     {%- if params.disabled %} disabled{% endif %}
     {%- if describedBy %} aria-describedby="{{ describedBy }}"{% endif %}
     {{- nhsukAttributes(params.attributes) }}>
@@ -26,6 +55,8 @@
     <option {%- if item.value is not undefined %} value="{{ item.value }}"{% endif %}
       {{- " selected" if item.selected | default((effectiveValue == params.value and item.selected != false) if params.value else false, true) }}
       {{- " disabled" if item.disabled }}
+      {%- if item.hintText %} data-hint="{{ item.hintText }}"{% endif %}
+      {%- if item.synonyms %} data-synonyms="{{ item.synonyms.join(' ') }}"{% endif %}
       {{- nhsukAttributes(item.attributes) }}>
       {{- item.text -}}
     </option>
@@ -35,7 +66,7 @@
 {%- endmacro -%}
 
 <div class="nhsuk-form-group {%- if params.errorMessage %} nhsuk-form-group--error{% endif %} {%- if params.formGroup.classes %} {{ params.formGroup.classes }}{% endif %}"
-  {{- nhsukAttributes(params.formGroup.attributes) }}>
+  {{- attributesHtml | safe }}>
   {{ label({
     html: params.label.html,
     text: params.label.text,

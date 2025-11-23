@@ -93,6 +93,127 @@ export const examples = {
       ]
     }
   },
+  'with combobox': {
+    context: {
+      label: {
+        text: 'Choose a fruit',
+        isPageHeading: true
+      },
+      id: 'with-combobox',
+      name: 'example',
+      items: [
+        { text: 'Choose fruit', value: '' },
+        { text: 'Apple', value: 'apple' },
+        { text: 'Apricot', value: 'apricot' },
+        { text: 'Avocado', value: 'avocado' },
+        { text: 'Banana', value: 'banana' },
+        { text: 'Blackberry', value: 'blackberry' },
+        { text: 'Blueberry', value: 'blueberry' },
+        { text: 'Cherry', value: 'cherry' },
+        { text: 'Coconut', value: 'coconut' },
+        { text: 'Cranberry', value: 'cranberry' },
+        { text: 'Date', value: 'date' },
+        { text: 'Dragon fruit', value: 'dragon-fruit' },
+        { text: 'Elderberry', value: 'elderberry' },
+        { text: 'Fig', value: 'fig' },
+        { text: 'Grape', value: 'grape' },
+        { text: 'Grapefruit', value: 'grapefruit' },
+        { text: 'Guava', value: 'guava' },
+        { text: 'Kiwi', value: 'kiwi' },
+        { text: 'Lemon', value: 'lemon' },
+        { text: 'Lime', value: 'lime' },
+        { text: 'Mango', value: 'mango' },
+        { text: 'Melon', value: 'melon' },
+        { text: 'Orange', value: 'orange' },
+        { text: 'Papaya', value: 'papaya' },
+        { text: 'Peach', value: 'peach' },
+        { text: 'Pear', value: 'pear' },
+        { text: 'Pineapple', value: 'pineapple' },
+        { text: 'Plum', value: 'plum' },
+        { text: 'Pomegranate', value: 'pomegranate' },
+        { text: 'Raspberry', value: 'raspberry' },
+        { text: 'Strawberry', value: 'strawberry' },
+        { text: 'Tangerine', value: 'tangerine' },
+        { text: 'Watermelon', value: 'watermelon' }
+      ],
+      combobox: true
+    }
+  },
+  'with combobox with option hints': {
+    context: {
+      label: {
+        text: 'Choose a bone',
+        isPageHeading: true
+      },
+      id: 'with-combobox-hints',
+      name: 'example',
+      items: [
+        { text: 'Choose bone', value: '' },
+        { text: 'Ankle bones', hintText: 'tarsals' },
+        { text: 'Calf bone', hintText: 'fibula' },
+        { text: 'Foot bones', hintText: 'metatarsals' },
+        { text: 'Heel bone', hintText: 'calcaneus' },
+        { text: 'Kneecap', hintText: 'patella' },
+        { text: 'Shin bone', hintText: 'tibia' },
+        { text: 'Thigh bone', hintText: 'femur' },
+        { text: 'Toe bones', hintText: 'phalanges' }
+      ],
+      combobox: true
+    }
+  },
+  'with combobox with option synonyms': {
+    context: {
+      label: {
+        text: 'Choose a medical condition',
+        isPageHeading: true
+      },
+      id: 'with-combobox-synonyms',
+      name: 'example',
+      items: [
+        {
+          text: 'Choose a medical condition',
+          value: ''
+        },
+        {
+          text: 'Asthma',
+          synonyms: ['reactive airway disease', 'bronchial asthma']
+        },
+        {
+          text: 'Cystitis',
+          synonyms: ['urinary tract infection', 'UTI', 'bladder infection']
+        },
+        {
+          text: 'Diabetes',
+          synonyms: ['diabetes mellitus', 'high blood sugar']
+        },
+        {
+          text: 'Gastroenteritis',
+          synonyms: ['stomach flu', 'food poisoning']
+        },
+        {
+          text: 'Hypertension',
+          synonyms: ['high blood pressure', 'HTN', 'elevated blood pressure']
+        },
+        {
+          text: 'Myocardial infarction',
+          synonyms: ['heart attack', 'MI', 'coronary thrombosis']
+        },
+        {
+          text: 'Osteoarthritis',
+          synonyms: ['degenerative joint disease', 'arthritis']
+        },
+        {
+          text: 'Pneumonia',
+          synonyms: ['lung infection', 'chest infection']
+        },
+        {
+          text: 'Stroke',
+          synonyms: ['brain attack', 'CVA', 'cerebrovascular accident']
+        }
+      ],
+      combobox: true
+    }
+  },
   'with hint': {
     context: {
       label: {

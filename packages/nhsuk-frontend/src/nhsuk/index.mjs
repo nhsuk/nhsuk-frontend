@@ -9,6 +9,7 @@ import {
   NotificationBanner,
   PasswordInput,
   Radios,
+  Select,
   SkipLink,
   Tabs
 } from './components/index.mjs'
@@ -75,6 +76,7 @@ export function initAll(scopeOrConfig = {}) {
     [NotificationBanner, config.notificationBanner],
     [PasswordInput, config.passwordInput],
     [Radios],
+    [Select, config.select],
     [SkipLink],
     [Tabs]
   ])
@@ -205,6 +207,7 @@ export * from './errors/index.mjs'
  * @property {ComponentConfig<typeof ErrorSummary>} [errorSummary] - Error Summary config
  * @property {ComponentConfig<typeof NotificationBanner>} [notificationBanner] - Notification Banner config
  * @property {ComponentConfig<typeof PasswordInput>} [passwordInput] - Password Input config
+ * @property {ComponentConfig<typeof Select>} [select] - Select config
  */
 
 /**

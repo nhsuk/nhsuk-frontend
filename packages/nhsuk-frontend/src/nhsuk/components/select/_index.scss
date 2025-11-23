@@ -22,6 +22,7 @@
     padding: nhsuk-spacing(1);
 
     border: $nhsuk-border-width-form-element solid $nhsuk-input-border-colour;
+    border-radius: $nhsuk-border-radius;
 
     // Default user agent colours for selects can have low contrast,
     // and may look disabled (https://github.com/alphagov/govuk-frontend/issues/2435)
@@ -55,7 +56,147 @@
     background-color: nhsuk-colour("blue");
   }
 
-  .nhsuk-select--error {
+  .nhsuk-select--error,
+  .nhsuk-form-group--error .nhsuk-select__input,
+  .nhsuk-select__input--invalid {
     border-color: $nhsuk-error-colour;
+  }
+
+  .nhsuk-select__combobox {
+    position: relative;
+    margin-bottom: nhsuk-spacing(1);
+
+    // Down arrow icon
+    &::after {
+      content: "";
+
+      display: block;
+
+      position: absolute;
+      top: 20px;
+      right: 12px;
+
+      margin: auto;
+
+      pointer-events: none;
+
+      @include nhsuk-shape-chevron(down, currentcolor, 26);
+    }
+  }
+
+  .nhsuk-select__input:has(~ .nhsuk-select__menu:not([hidden])),
+  .nhsuk-form-group--error .nhsuk-select__input:focus {
+    @include nhsuk-focused-input;
+  }
+
+  .nhsuk-select__input {
+    padding-right: nhsuk-spacing(5); // Make space for down arrow icon
+    padding-left: nhsuk-spacing(2);
+    border-top-right-radius: $nhsuk-border-radius;
+    border-bottom-right-radius: $nhsuk-border-radius;
+  }
+
+  .nhsuk-select__menu {
+    position: relative;
+    top: -$nhsuk-border-width-form-element;
+    left: $nhsuk-border-width-form-element;
+
+    max-width: 100%;
+    max-width: calc(100% - #{$nhsuk-border-width-form-element * 4});
+    max-height: nhsuk-px-to-rem(300); // Maximum 7.5 options shown
+    margin: 0;
+    padding: 0;
+
+    overflow-x: hidden;
+
+    border: $nhsuk-border-width-form-element solid $nhsuk-focus-text-colour;
+
+    color: $nhsuk-text-colour;
+    background-color: $nhsuk-input-background-colour;
+
+    @supports not (selector(::-webkit-scrollbar)) {
+      scrollbar-color: $nhsuk-input-border-colour transparent;
+      scrollbar-width: thin;
+    }
+  }
+
+  @supports selector(::-webkit-scrollbar) {
+    .nhsuk-select__menu::-webkit-scrollbar-thumb {
+      border: $nhsuk-border-width-form-element solid $nhsuk-input-background-colour;
+      border-radius: $nhsuk-border-radius;
+      background: $nhsuk-input-border-colour;
+    }
+
+    .nhsuk-select__menu::-webkit-scrollbar {
+      max-width: nhsuk-spacing(2);
+    }
+  }
+
+  .nhsuk-select__option {
+    display: block;
+
+    margin: 0;
+    padding-top: nhsuk-spacing(2);
+    padding-right: nhsuk-spacing(1);
+    padding-bottom: #{nhsuk-spacing(2) - 1px};
+    padding-left: #{nhsuk-spacing(2) - $nhsuk-border-width-form-element};
+
+    border-bottom: 1px solid $nhsuk-border-colour;
+
+    cursor: pointer;
+
+    @include nhsuk-font($size: 19, $line-height: 24px);
+
+    &:last-of-type {
+      border-bottom-width: 0;
+    }
+
+    &:hover {
+      background-color: nhsuk-colour("grey-5");
+    }
+
+    &[aria-selected="true"] {
+      border-bottom-color: $nhsuk-focus-text-colour;
+      outline: 1px solid $nhsuk-focus-text-colour;
+      color: $nhsuk-focus-text-colour;
+      background-color: $nhsuk-focus-colour;
+      box-shadow: inset 0 ($nhsuk-border-width-form-element * -1) 0 $nhsuk-focus-text-colour;
+    }
+  }
+
+  .nhsuk-select__hint {
+    display: block;
+    color: $nhsuk-secondary-text-colour;
+
+    .nhsuk-select__option[aria-selected="true"] & {
+      color: $nhsuk-focus-text-colour;
+    }
+  }
+
+  @media (-ms-high-contrast: active), (forced-colors: active) {
+    .nhsuk-select__menu {
+      border-color: FieldText;
+    }
+
+    .nhsuk-select__option {
+      color: FieldText;
+      background-color: Field;
+
+      &[aria-selected="true"],
+      &:hover {
+        border-color: Highlight;
+        border-color: SelectedItem;
+        outline-color: SelectedItemText;
+
+        color: HighlightText;
+        color: SelectedItemText;
+        background-color: Highlight;
+
+        // Prefer SelectedItem / SelectedItemText in browsers that support it
+        background-color: SelectedItem;
+
+        forced-color-adjust: none;
+      }
+    }
   }
 }
