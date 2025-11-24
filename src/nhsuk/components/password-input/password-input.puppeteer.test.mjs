@@ -1,4 +1,7 @@
-import { goToComponent } from '@nhsuk/frontend-helpers/puppeteer.mjs'
+import {
+  goToComponent,
+  goToExample
+} from '@nhsuk/frontend-helpers/puppeteer.mjs'
 
 describe('Password input', () => {
   /** @type {Page} */
@@ -87,10 +90,9 @@ describe('Password input', () => {
       expectation()
     })
 
-    // eslint-disable-next-line jest/no-disabled-tests
-    describe.skip('when the form is submitted', () => {
+    describe('when the form is submitted', () => {
       it('reverts the input back to password type', async () => {
-        page = await goToComponent(browser, 'password-input')
+        page = await goToExample(browser, 'update-your-account-details')
 
         // Prevent form submissions so that we don't navigate away during the test
         await page.evaluate(() => {
