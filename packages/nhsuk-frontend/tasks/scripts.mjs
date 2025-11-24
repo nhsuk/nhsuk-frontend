@@ -1,6 +1,7 @@
 import { join } from 'node:path'
 
 import * as config from '@nhsuk/frontend-config'
+import { getListing } from '@nhsuk/frontend-lib/files.mjs'
 import { assets, scripts, task } from '@nhsuk/frontend-tasks'
 import gulp from 'gulp'
 
@@ -18,13 +19,23 @@ const cache = {
 
 export const compile = gulp.series(
   task.name('scripts:transform', async () => {
+    const modulePaths = getListing(
+      [
+        'nhsuk/components/*/fixtures.mjs',
+        'nhsuk/components/*/macro-options.mjs',
+        'nhsuk/nhsuk.mjs',
+        'nhsuk/index.mjs'
+      ],
+      { cwd: join(config.paths.pkg, 'src') }
+    )
+
     /**
      * Transform NHS.UK frontend modules into:
      *
      * - ECMAScript (ES) modules for Node.js or bundler `import`
      *   (External dependencies resolved via `node_modules`)
      */
-    await scripts.compile(['nhsuk/nhsuk.mjs', 'nhsuk/index.mjs'], {
+    await scripts.compile(modulePaths, {
       srcPath: join(config.paths.pkg, 'src'),
       destPath: join(config.paths.pkg, 'dist'),
 
@@ -49,7 +60,7 @@ export const compile = gulp.series(
      * - CommonJS (CJS) modules for Node.js or bundler `require()`
      *   (External dependencies resolved via `node_modules`)
      */
-    await scripts.compile(['nhsuk/nhsuk.mjs', 'nhsuk/index.mjs'], {
+    await scripts.compile(modulePaths, {
       srcPath: join(config.paths.pkg, 'src'),
       destPath: join(config.paths.pkg, 'dist'),
 
