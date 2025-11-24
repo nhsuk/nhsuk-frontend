@@ -8,8 +8,9 @@ import PluginError from 'plugin-error'
 
 import validatorConfig from '../.htmlvalidate.js'
 
+import { env, filters } from './nunjucks/index.mjs'
+
 const { HEROKU_BRANCH = 'main' } = process.env
-const { slugify } = nunjucks.filters
 
 // Configure HTML validator
 const validator = new HtmlValidate(validatorConfig)
@@ -26,9 +27,6 @@ export const compile = task.name('html:render', async () => {
     cwd: join(config.paths.app, 'src'),
     ignore: ['**/layouts/**', '**/partials/**']
   })
-
-  // Configure Nunjucks with review app sources
-  const env = nunjucks.configure([join(config.paths.app, 'src')])
 
   // Default Nunjucks context
   const context = {
@@ -74,7 +72,7 @@ export const compile = task.name('html:render', async () => {
 
       // Write component example to disk
       await files.write(
-        join(componentPath, slugify(exampleName), 'index.html'),
+        join(componentPath, filters.slugify(exampleName), 'index.html'),
         { destPath, output: { contents: templateHtml } }
       )
     }
