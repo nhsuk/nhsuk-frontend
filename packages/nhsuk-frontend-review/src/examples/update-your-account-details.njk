@@ -1,0 +1,84 @@
+{% extends "layouts/example.njk" %}
+
+{% set pageName = "Update your account details" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block beforeContent %}
+  {{ breadcrumb({
+    items: [
+      {
+        text: "NHS.UK frontend",
+        href: baseUrl
+      },
+      {
+        text: "Examples",
+        href: baseUrl ~ "#examples"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl">{{ pageName }}</h1>
+
+      <form method="post" novalidate>
+
+        {{ input({
+          label: {
+            text: "Email address",
+            classes: "nhsuk-label--m"
+          },
+          id: "email",
+          name: "email",
+          type: "email",
+          autocomplete: "email",
+          spellcheck: false
+        }) }}
+
+        {% call fieldset({
+          legend: {
+            text: "Change your password",
+            classes: "nhsuk-fieldset__legend--m"
+          }
+        }) %}
+
+          {{ passwordInput({
+            label: {
+              text: "Choose new password"
+            },
+            id: "password",
+            name: "password",
+            autocomplete: "new-password",
+            showPasswordAriaLabelText: "Show new password",
+            hidePasswordAriaLabelText: "Hide new password",
+            passwordShownAnnouncementText: "New password is visible",
+            passwordHiddenAnnouncementText: "New password is hidden"
+          }) }}
+
+          {{ passwordInput({
+            label: {
+              text: "Type new password again"
+            },
+            id: "confirm-password",
+            name: "confirm-password",
+            autocomplete: "new-password",
+            showPasswordAriaLabelText: "Show confirmed password",
+            hidePasswordAriaLabelText: "Hide confirmed password",
+            passwordShownAnnouncementText: "Confirmed password is visible",
+            passwordHiddenAnnouncementText: "Confirmed password is hidden"
+          }) }}
+
+        {% endcall %}
+
+        <div class="nhsuk-button-group">
+          {{ button({
+            text: "Save account details"
+          }) }}
+        </div>
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
