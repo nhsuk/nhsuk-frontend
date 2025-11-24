@@ -35,8 +35,6 @@
   "files": [
     "dist",
     "src",
-    "!**/fixtures.mjs",
-    "!**/macro-options.mjs",
     "!**/*.test.*"
   ],
   "scripts": {
