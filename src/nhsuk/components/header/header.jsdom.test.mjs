@@ -4,8 +4,8 @@ import { components } from '@nhsuk/frontend-lib'
 import { fireEvent, getByRole } from '@testing-library/dom'
 import { userEvent } from '@testing-library/user-event'
 
+import { examples } from './fixtures.mjs'
 import { Header, initHeader } from './header.mjs'
-import { examples } from './macro-options.mjs'
 
 const user = userEvent.setup()
 

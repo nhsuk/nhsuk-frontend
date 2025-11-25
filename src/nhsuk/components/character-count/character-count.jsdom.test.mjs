@@ -3,7 +3,7 @@ import { getByRole } from '@testing-library/dom'
 import { outdent } from 'outdent'
 
 import { CharacterCount, initCharacterCounts } from './character-count.mjs'
-import { examples } from './macro-options.mjs'
+import { examples } from './fixtures.mjs'
 
 describe('Character count', () => {
   /** @type {HTMLElement} */
