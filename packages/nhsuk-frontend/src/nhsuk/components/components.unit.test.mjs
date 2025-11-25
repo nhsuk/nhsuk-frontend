@@ -31,6 +31,7 @@ describe('Components', () => {
         @forward "components/error-message/error-message";
         @forward "components/error-summary/error-summary";
         @forward "components/fieldset/fieldset";
+        @forward "components/file-upload/file-upload";
         @forward "components/footer/footer";
         @forward "components/header/header";
         @forward "components/hero/hero";
