@@ -23,6 +23,7 @@ export const compile = gulp.series(
       [
         'nhsuk/components/*/fixtures.mjs',
         'nhsuk/components/*/macro-options.mjs',
+        'nhsuk/lib/index.mjs',
         'nhsuk/nhsuk.mjs',
         'nhsuk/index.mjs'
       ],
@@ -42,6 +43,7 @@ export const compile = gulp.series(
       // Customise input
       input: {
         cache,
+        external: ['#lib', 'nunjucks', 'outdent'],
         treeshake: false
       },
 

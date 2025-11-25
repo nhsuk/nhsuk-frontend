@@ -11,6 +11,7 @@
   "dependencies": {
     "@nhsuk/frontend-config": "*",
     "glob": "^12.0.0",
+    "nhsuk-frontend": "*",
     "nunjucks": "^3.2.4",
     "outdent": "^0.8.0"
   },

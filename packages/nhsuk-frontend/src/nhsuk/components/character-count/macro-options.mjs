@@ -163,5 +163,5 @@ export const params = {
 }
 
 /**
- * @import { MacroParam } from '@nhsuk/frontend-lib/components.mjs'
+ * @import { MacroParam } from '#lib'
  */
