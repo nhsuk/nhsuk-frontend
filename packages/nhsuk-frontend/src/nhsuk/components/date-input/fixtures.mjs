@@ -455,5 +455,5 @@ export const examples = {
 }
 
 /**
- * @import { MacroExample } from '@nhsuk/frontend-lib/components.mjs'
+ * @import { MacroExample } from '#lib'
  */

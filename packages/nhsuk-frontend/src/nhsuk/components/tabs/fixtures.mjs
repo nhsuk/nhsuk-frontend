@@ -1,5 +1,6 @@
-import { components } from '@nhsuk/frontend-lib'
 import { outdent } from 'outdent'
+
+import { components } from '#lib'
 
 /**
  * Nunjucks macro option examples
@@ -323,5 +324,5 @@ export const examples = {
 }
 
 /**
- * @import { MacroExample } from '@nhsuk/frontend-lib/components.mjs'
+ * @import { MacroExample } from '#lib'
  */
