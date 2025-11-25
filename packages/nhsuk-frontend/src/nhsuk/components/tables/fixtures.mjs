@@ -190,20 +190,17 @@ const fixtures = {
         {
           text: 'Name',
           attributes: {
-            'aria-sort': 'ascending'
+            'aria-sort': 'none'
           }
         },
         {
           text: 'Elevation',
           attributes: {
-            'aria-sort': 'none'
+            'aria-sort': 'descending'
           }
         },
         {
-          text: 'Continent',
-          attributes: {
-            'aria-sort': 'none'
-          }
+          text: 'Continent'
         },
         {
           text: 'First summit',
