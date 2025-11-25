@@ -13,6 +13,14 @@
   { label: { text: "Error, X-ray" }, errorMessage: { text: "Enter description" }, formGroup: { classes: "app-xray" } }
 ] %}
 
+{% set examplesFileUpload = [
+  { label: { text: "Initial" } },
+  { label: { text: "Disabled" }, disabled: true },
+  { label: { text: "X-ray" }, formGroup: { classes: "app-xray" } },
+  { label: { text: "Error" }, errorMessage: { text: "The selected file must be smaller than 2MB" } },
+  { label: { text: "Error, X-ray" }, errorMessage: { text: "The selected file must be smaller than 2MB" }, formGroup: { classes: "app-xray" } }
+] %}
+
 {% set exampleOptions = [
   { text: "Choose bat species", value: "" },
   { text: "Borneo fruit bat", value: "Aethalops aequalis" },
@@ -209,6 +217,27 @@
           items: exampleItemsSmall
         })
       }, loop.index) }}
+    </div>
+  </div>
+
+  <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      {% for item in examplesFileUpload %}
+        {{ renderExample({
+          html: fileUpload({
+            label: item.label,
+            button: item.button,
+            errorMessage: item.errorMessage,
+            id: 'file-upload',
+            classes: item.classes,
+            formGroup: item.formGroup,
+            attributes: item.attributes,
+            disabled: item.disabled
+          })
+        }, loop.index) }}
+      {% endfor %}
     </div>
   </div>
 
