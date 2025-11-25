@@ -1,5 +1,6 @@
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
+@use "../../core/helpers" as *;
 @forward "../tables";
 
 ////
@@ -9,20 +10,46 @@
 ////
 
 @include nhsuk-exports("nhsuk/components/sortable-table") {
-  [aria-sort] button,
-  [aria-sort] button:hover {
-    display: inline-flex;
+  th[aria-sort="ascending"]::after,
+  th[aria-sort="descending"]::after {
+    content: "";
+
+    position: absolute;
+    right: 0;
+    bottom: - $nhsuk-border-width-form-element;
+    left: 0;
+
+    height: $nhsuk-border-width-form-element;
+
+    background-color: $nhsuk-brand-colour;
+  }
+
+  th[aria-sort]:has(button) {
+    position: relative;
+    padding: 0;
+    block-size: 1rem; // gives a height to allow flex button to fill
+  }
+
+  [aria-sort] button {
+    display: flex;
+
+    min-block-size: 100%; // make button fill th height
 
     position: relative;
+    z-index: 1; // to keep above ::after border
 
-    align-items: center;
+    align-items: start;
+    column-gap: nhsuk-spacing(2) - $nhsuk-border-width-form-element;
+
+    width: 100%;
 
     margin: 0;
     padding: 0;
+    padding-left: $nhsuk-border-width-form-element;
 
     border-width: 0;
 
-    color: #005ea5;
+    color: $nhsuk-brand-colour;
     background-color: transparent;
     box-shadow: 0 0 0 0;
 
@@ -30,12 +57,39 @@
     font-size: inherit;
     font-size: 1em;
     font-weight: inherit;
+    line-height: inherit;
     text-align: inherit;
 
     cursor: pointer;
+
+    @include nhsuk-link-style-default;
+    @include nhsuk-responsive-padding(3, "bottom");
+    @include nhsuk-responsive-padding(3, "top");
+
+    &:hover {
+      z-index: 0;
+      background-color: nhsuk-colour("grey-4");
+    }
+
+    &:focus {
+      @include nhsuk-focused-button;
+    }
+
+    &:focus:hover {
+      z-index: 1; // keep focus above hover background
+    }
+  }
+  
+  [aria-sort].nhsuk-table__header--numeric button {
+    justify-content: end;
+    padding-right: $nhsuk-border-width-form-element;
+    padding-left: 0;
   }
 
-  [aria-sort] button:focus {
-    @include nhsuk-focused-text;
+  [aria-sort] button svg {
+    flex-shrink: 0;
+    width: auto;
+    height: 1.25rem;
+    margin-top: 0.25rem;
   }
 }
