@@ -1,11 +1,17 @@
-import { join } from 'node:path'
+import { resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
 
-import { environment, paths } from '@nhsuk/frontend-config'
 import nunjucks from 'nunjucks'
 import { outdent } from 'outdent'
 
+// Node.js environment with default
+// https://nodejs.org/en/learn/getting-started/nodejs-the-difference-between-development-and-production
+export const { NODE_ENV = 'development' } = process.env
+
 // Nunjucks default environment
-export const env = configure()
+export const env = configure([
+  resolve(fileURLToPath(new URL('.', import.meta.url)), '../..')
+])
 
 /**
  * Nunjucks environment factory
@@ -13,13 +19,6 @@ export const env = configure()
  * @param {string[]} [searchPaths] - Nunjucks search paths (optional)
  */
 export function configure(searchPaths = []) {
-  searchPaths.push(
-    environment === 'test'
-      ? join(paths.pkg, 'src') // Use source files for tests
-      : join(paths.pkg, 'dist') // Use build output for review
-  )
-
-  // Nunjucks environment
   return nunjucks.configure(searchPaths, {
     trimBlocks: true, // automatically remove trailing newlines from a block/tag
     lstripBlocks: true // automatically remove leading whitespace from a block/tag,
