@@ -1,0 +1,425 @@
+{% extends "layouts/page.njk" %}
+
+{% set pageName = "Form elements alignment" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block beforeContent %}
+  {{ breadcrumb({
+    items: [
+      {
+        text: "NHS.UK frontend",
+        href: baseUrl
+      },
+      {
+        text: "Examples",
+        href: baseUrl ~ "#examples"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl">{{ pageName }}</h1>
+    </div>
+  </div>
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <form method="post" novalidate>
+        {% call fieldset({
+          legend: {
+            text: "Input and button",
+            classes: "nhsuk-fieldset__legend--m"
+          }
+        }) %}
+          {{ input({
+            label: {
+              text: "NHS number"
+            },
+            name: "example-input",
+            id: "example-input",
+            classes: "nhsuk-u-width-full nhsuk-input--code",
+            inputmode: "numeric",
+            spellcheck: false,
+            formGroup: {
+              classes: "nhsuk-u-width-one-half",
+              afterInput: {
+                html: button({
+                  text: "Search",
+                  classes: "nhsuk-button--secondary nhsuk-button--small"
+                })
+              }
+            }
+          }) }}
+        {% endcall %}
+      </form>
+
+      <form method="post" novalidate>
+        {% call fieldset({
+          legend: {
+            text: "Input and button with error",
+            classes: "nhsuk-fieldset__legend--m"
+          }
+        }) %}
+          {{ input({
+            label: {
+              text: "NHS number"
+            },
+            errorMessage: {
+              text: "Enter an NHS number"
+            },
+            name: "example-input-2",
+            id: "example-input-2",
+            classes: "nhsuk-u-width-full nhsuk-input--code",
+            inputmode: "numeric",
+            spellcheck: false,
+            formGroup: {
+              classes: "nhsuk-u-width-one-half",
+              afterInput: {
+                html: button({
+                  text: "Search",
+                  classes: "nhsuk-button--secondary nhsuk-button--small"
+                })
+              }
+            }
+          }) }}
+        {% endcall %}
+      </form>
+
+      <form method="post" novalidate>
+        {% call fieldset({
+          legend: {
+            text: "Select and button",
+            classes: "nhsuk-fieldset__legend--m"
+          }
+        }) %}
+          {{ select({
+            label: {
+              text: "Sort by"
+            },
+            name: "sort-by",
+            id: "sort-by",
+            classes: "nhsuk-u-width-full",
+            items: [
+              {
+                value: "published",
+                text: "Recently published"
+              },
+              {
+                value: "updated",
+                text: "Recently updated"
+              },
+              {
+                value: "views",
+                text: "Most views"
+              },
+              {
+                value: "comments",
+                text: "Most comments"
+              }
+            ],
+            formGroup: {
+              classes: "nhsuk-u-width-one-half",
+              afterInput: {
+                html: button({
+                  text: "Sort",
+                  classes: "nhsuk-button--secondary nhsuk-button--small"
+                })
+              }
+            }
+          }) }}
+        {% endcall %}
+      </form>
+
+      <form method="post" novalidate>
+        {% call fieldset({
+          legend: {
+            text: "Select and button with error",
+            classes: "nhsuk-fieldset__legend--m"
+          }
+        }) %}
+          {{ select({
+            label: {
+              text: "Sort by"
+            },
+            errorMessage: {
+              text: "Select sort by"
+            },
+            name: "sort-by-2",
+            id: "sort-by-2",
+            classes: "nhsuk-u-width-full",
+            items: [
+              {
+                value: "published",
+                text: "Recently published"
+              },
+              {
+                value: "updated",
+                text: "Recently updated"
+              },
+              {
+                value: "views",
+                text: "Most views"
+              },
+              {
+                value: "comments",
+                text: "Most comments"
+              }
+            ],
+            formGroup: {
+              classes: "nhsuk-u-width-one-half",
+              afterInput: {
+                html: button({
+                  text: "Sort",
+                  classes: "nhsuk-button--secondary nhsuk-button--small"
+                })
+              }
+            }
+          }) }}
+        {% endcall %}
+      </form>
+
+      <form method="post" novalidate>
+        {% call fieldset({
+          legend: {
+            text: "Inputs side by side",
+            classes: "nhsuk-fieldset__legend--m"
+          }
+        }) %}
+          <div class="nhsuk-form-group nhsuk-form-group--inline nhsuk-u-width-two-thirds">
+            {{ input({
+              label: {
+                text: "Stone"
+              },
+              suffix: {
+                text: "st"
+              },
+              id: "weight-stone"
+            }) }}
+
+            {{ input({
+              label: {
+                text: "Pounds"
+              },
+              suffix: {
+                text: "lb"
+              },
+              id: "weight-pound"
+            }) }}
+          </div>
+        {% endcall %}
+      </form>
+
+      <form method="post" novalidate>
+        {% call fieldset({
+          legend: {
+            text: "Input and select",
+            classes: "nhsuk-fieldset__legend--m"
+          }
+        }) %}
+          <div class="nhsuk-form-group nhsuk-form-group--inline nhsuk-u-width-two-thirds">
+            {{ input({
+              label: {
+                text: "Keywords"
+              },
+              id: "keywords-group"
+            }) }}
+
+            {{ select({
+              label: {
+                text: "Sort by"
+              },
+              name: "sort-by-group",
+              id: "sort-by-group",
+              items: [
+                {
+                  value: "published",
+                  text: "Recently published"
+                },
+                {
+                  value: "updated",
+                  text: "Recently updated"
+                },
+                {
+                  value: "views",
+                  text: "Most views"
+                },
+                {
+                  value: "comments",
+                  text: "Most comments"
+                }
+              ]
+            }) }}
+          </div>
+        {% endcall %}
+      </form>
+
+      <form method="post" novalidate>
+        {% call fieldset({
+          legend: {
+            text: "Input and checkboxes",
+            classes: "nhsuk-fieldset__legend--m"
+          }
+        }) %}
+          <div class="nhsuk-form-group nhsuk-form-group--inline">
+            {{ input({
+              label: {
+                text: "Keywords"
+              },
+              id: "keywords-checkboxes",
+              formGroup: {
+                classes: "nhsuk-u-width-one-third"
+              }
+            }) }}
+
+            {{ checkboxes({
+              name: "checkboxes",
+              idPrefix: "checkboxes",
+              items: [
+                {
+                  text: "Show archived",
+                  value: "archived"
+                }
+              ]
+            }) }}
+          </div>
+        {% endcall %}
+      </form>
+
+      <form method="post" novalidate>
+        {% call fieldset({
+          legend: {
+            text: "Input and radios",
+            classes: "nhsuk-fieldset__legend--m"
+          }
+        }) %}
+          <div class="nhsuk-form-group nhsuk-form-group--inline">
+            {{ input({
+              label: {
+                text: "Keywords"
+              },
+              id: "keywords-radios",
+              formGroup: {
+                classes: "nhsuk-u-width-one-third"
+              }
+            }) }}
+
+            {{ radios({
+              name: "radios",
+              idPrefix: "radios",
+              items: [
+                {
+                  text: "Not applicable",
+                  value: "na"
+                }
+              ]
+            }) }}
+          </div>
+        {% endcall %}
+      </form>
+
+      <form method="post" novalidate>
+        {% call fieldset({
+          legend: {
+            text: "Checkboxes and radios",
+            classes: "nhsuk-fieldset__legend--m"
+          }
+        }) %}
+          <div class="nhsuk-form-group nhsuk-form-group--inline">
+            {{ checkboxes({
+              name: "checkboxes-group",
+              idPrefix: "checkboxes-group",
+              items: [
+                {
+                  text: "Show archived",
+                  value: "archived"
+                }
+              ],
+              formGroup: {
+                classes: "nhsuk-u-width-one-quarter"
+              }
+            }) }}
+
+            {{ radios({
+              name: "radios-group",
+              idPrefix: "radios-group",
+              items: [
+                {
+                  text: "Not applicable",
+                  value: "na"
+                }
+              ],
+              formGroup: {
+                classes: "nhsuk-u-width-one-quarter"
+              }
+            }) }}
+          </div>
+        {% endcall %}
+      </form>
+
+      <form method="post" novalidate>
+        {% call fieldset({
+          legend: {
+            text: "Input with nhsuk-u-width classes",
+            classes: "nhsuk-fieldset__legend--m"
+          }
+        }) %}
+          {{ input({
+            label: {
+              text: "Input with nhsuk-u-width-one-quarter (25% width)"
+            },
+            id: "nhsuk-u-width-one-quarter",
+            classes: "nhsuk-u-width-one-quarter"
+          }) }}
+
+          {{ input({
+            label: {
+              text: "Input with nhsuk-u-width-one-third (33% width)"
+            },
+            id: "nhsuk-u-width-one-third",
+            classes: "nhsuk-u-width-one-third"
+          }) }}
+
+          {{ input({
+            label: {
+              text: "Input with nhsuk-u-width-one-half (50% width)"
+            },
+            id: "nhsuk-u-width-one-half",
+            classes: "nhsuk-u-width-one-half"
+          }) }}
+
+          {{ input({
+            label: {
+              text: "Input with nhsuk-u-width-two-thirds (66% width)"
+            },
+            id: "nhsuk-u-width-two-thirds",
+            classes: "nhsuk-u-width-two-thirds"
+          }) }}
+
+          {{ input({
+            label: {
+              text: "Input with nhsuk-u-width-three-quarters (75% width)"
+            },
+            id: "nhsuk-u-width-three-quarters",
+            classes: "nhsuk-u-width-three-quarters"
+          }) }}
+
+          {{ input({
+            label: {
+              text: "Input with nhsuk-u-width-full (100% width)"
+            },
+            id: "nhsuk-u-width-full",
+            classes: "nhsuk-u-width-full"
+          }) }}
+        {% endcall %}
+
+        {{ button({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

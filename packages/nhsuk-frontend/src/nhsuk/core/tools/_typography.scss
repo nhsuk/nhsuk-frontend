@@ -195,7 +195,6 @@
 
     & {
       @if not $breakpoint {
-        font-size: $font-size;
         font-size: $font-size-rem;
         line-height: $calculated-line-height;
       } @else if $breakpoint == "print" {
@@ -205,7 +204,6 @@
         }
       } @else {
         @include nhsuk-media-query($from: $breakpoint) {
-          font-size: $font-size;
           font-size: $font-size-rem;
           line-height: $calculated-line-height;
         }

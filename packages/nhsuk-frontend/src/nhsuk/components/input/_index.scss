@@ -1,6 +1,7 @@
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
 @use "../../core/helpers" as *;
+@forward "../../core/objects/input-wrapper";
 @forward "../error-message";
 @forward "../hint";
 @forward "../label";
@@ -57,6 +58,13 @@
     border-color: $nhsuk-error-colour;
   }
 
+  // Codes and sequences
+
+  .nhsuk-input--code {
+    font-family: $nhsuk-code-font;
+    letter-spacing: 0.1em;
+  }
+
   // The ex measurements are based on the number of W's that can fit inside the input
   // Extra space is left on the right hand side to allow for the Safari prefill icon
   // Linear regression estimation based on visual tests: y = 1.76 + 1.81x
@@ -87,29 +95,6 @@
 
   .nhsuk-input--width-2 {
     max-width: 5.4ex;
-  }
-
-  .nhsuk-input__wrapper {
-    display: flex;
-
-    .nhsuk-input {
-      flex: 0 1 auto;
-    }
-
-    .nhsuk-input:focus {
-      // Hack to stop focus style being overlapped by the suffix
-      z-index: 1;
-    }
-
-    // Split prefix/suffix onto separate lines on narrow screens
-    @include nhsuk-media-query($until: mobile) {
-      display: block;
-
-      .nhsuk-input {
-        // Set max-width to override potential width override class on the input
-        max-width: 100%;
-      }
-    }
   }
 
   .nhsuk-input__prefix,
@@ -149,9 +134,20 @@
   .nhsuk-input__prefix {
     @include nhsuk-media-query($until: mobile) {
       border-bottom: 0;
+
+      // Remove top margin when preceded by a prefix
+      + .nhsuk-input {
+        margin-top: 0;
+      }
     }
+
     @include nhsuk-media-query($from: mobile) {
       border-right: 0;
+
+      // Remove left margin when preceded by a prefix
+      + .nhsuk-input {
+        margin-left: 0;
+      }
     }
   }
 
@@ -160,6 +156,7 @@
     @include nhsuk-media-query($until: mobile) {
       border-top: 0;
     }
+
     @include nhsuk-media-query($from: mobile) {
       border-left: 0;
     }

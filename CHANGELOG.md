@@ -4,11 +4,141 @@
 
 ### :new: **New features**
 
+#### Use the password input component to help users accessibly enter passwords
+
+The [password input component](https://service-manual.nhs.uk/design-system/components/password-input) allows users to choose:
+
+- whether their passwords are visible or not
+- to enter their passwords in plain text
+
+This helps users use longer and more complex passwords without needing to remember what they've already typed.
+
+This was added in [pull request #1574: Uplift GOV.UK Frontend password input component](https://github.com/nhsuk/nhsuk-frontend/pull/1574).
+
+#### Smaller versions of buttons
+
+You can now use smaller versions of [buttons](https://service-manual.nhs.uk/design-system/components/buttons) by adding the `nhsuk-button--small` class.
+
+This was added in [pull request #1643: Add small buttons and inline form groups](https://github.com/nhsuk/nhsuk-frontend/pull/1643).
+
+#### Add inline buttons to text inputs and select menus
+
+You can now add inline buttons to text inputs and select menus using the `formGroup.afterInput` Nunjucks options.
+
+```njk
+{{ input({
+  formGroup: {
+    afterInput: {
+      html: button({
+        text: "Search",
+        classes: "nhsuk-button--small"
+      })
+    }
+  }
+}) }}
+```
+
+This was added in [pull request #1643: Add small buttons and inline form groups](https://github.com/nhsuk/nhsuk-frontend/pull/1643).
+
+#### Updated Nunjucks macro options for nested items
+
+For consistency with other components with nested items, we’ve added new Nunjucks macro options:
+
+- Action link and skip link `html` option
+- Checkboxes and radios item `classes` option
+- Contents list item `html`, `classes` and `attributes` options
+- Summary list action item `classes` and `attributes` options
+
+This was added in [pull request #1683: Update Nunjucks macro options for nested items](https://github.com/nhsuk/nhsuk-frontend/pull/1683).
+
+#### Add a modifier class for text input styles that accept codes and sequences
+
+We've added a new `.nhsuk-input--code` class for the [text input](https://service-manual.nhs.uk/design-system/components/text-input) component. This improves readability of text inputs that receive codes and sequences (like NHS numbers, security codes or booking references).
+
+You can add it through the classes option when using Nunjucks, or directly in the class attribute of the `<input>` when using HTML.
+
+This was added in [pull request #1617: Add input styling for codes and sequences](https://github.com/nhsuk/nhsuk-frontend/pull/1617).
+
+#### Add a 'divider' Nunjucks option to selects
+
+Newer browsers support [using `<hr>` (horizontal rule) elements inside a `<select>` element](https://developer.chrome.com/blog/hr-in-select/) to help visually break up options for better readability.
+
+We've added a new `divider` Nunjucks option on select items to support this feature. For example:
+
+```njk
+{{ select({
+  label: {
+    text: 'Sort by'
+  },
+  name: 'sort',
+  items: [
+    {
+      value: 'first-name-ascending',
+      text: 'First name (A to Z)'
+    },
+    {
+      value: 'first-name-descending',
+      text: 'First name (Z to A)'
+    },
+    {
+      divider: true
+    },
+    {
+      value: 'last-name-ascending',
+      text: 'Last name (A to Z)'
+    },
+    {
+      value: 'last-name-descending',
+      text: 'Last name (Z to A)'
+    }
+  ]
+}
+}) }}
+```
+
+This was added in [pull request #1701: Support showing dividers between select options](https://github.com/nhsuk/nhsuk-frontend/pull/1701).
+
 #### Interruption panel
 
 We've added a new variant of the panel component with a solid blue background and white text. This can be used as an interruption card.
 
 This was added in [pull request #1196: Add interruption panel variant](https://github.com/nhsuk/nhsuk-frontend/pull/1196).
+
+### :wastebasket: **Deprecated features**
+
+#### Rename input wrapper HTML class
+
+Within the input component, change the `nhsuk-input__wrapper` class to `nhsuk-input-wrapper`.
+
+The previous class name is deprecated and will be removed in a future release.
+
+This change was introduced in [pull request #1643: Add small buttons and inline form groups](https://github.com/nhsuk/nhsuk-frontend/pull/1643).
+
+#### Add or rename card HTML classes
+
+HTML markup for the card component has been updated to simplify how each card variant is identified.
+
+If you are not using Nunjucks macros, change the card classes as follows:
+
+- Add the missing `nhsuk-card--primary` modifier class to primary cards.
+- Remove the unnecessary `nhsuk-card__heading--feature` modifier class from feature card headings.
+- Remove the unnecessary `nhsuk-card__content--feature` modifier class from feature card content.
+- Remove the unnecessary `nhsuk-card__content--primary` modifier class from primary card content.
+- Remove the unnecessary `nhsuk-card__content--secondary` modifier class from secondary card content.
+- Rename the `<div class="nhsuk-card--care__heading-container"` class attribute to match `<div class="nhsuk-card__heading-container"`.
+- Rename the `<div class="nhsuk-card--care__heading"` class attribute to match `<div class="nhsuk-card__heading"`.
+
+The previous class names are deprecated and will be removed in a future release.
+
+This change was introduced in [pull request #1684: Uplift GOV.UK Frontend summary list component](https://github.com/nhsuk/nhsuk-frontend/pull/1684).
+
+#### Rename Sass variable for base font size
+
+If you use the Sass `$nhsuk-base-font-size` variable, you should rename it to `$nhsuk-root-font-size`.
+
+The previous name is deprecated and will be removed in a future release.
+
+This change was introduced in [pull request #1669: Remove pixel font sizes where unnecessary](https://github.com/nhsuk/nhsuk-frontend/pull/1669).
 
 ### :recycle: **Changes**
 
@@ -20,11 +150,33 @@ Please review any custom styles, especially those with defined widths, to make s
 
 This change was introduced in pull requests [#1633: Review global `box-sizing` usage](https://github.com/nhsuk/nhsuk-frontend/pull/1633) and [#1651: Add `box-sizing: border-box` to width utility classes etc](https://github.com/nhsuk/nhsuk-frontend/pull/1651).
 
+#### Update the HTML for tab panel text content
+
+We've updated the HTML for the tabs component to wrap plain text content within `<p>` elements.
+
+If you are not using Nunjucks macros, update your HTML markup using the [tabs examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/tabs) to add the missing `<p> </p>` wrapper:
+
+```patch
+  <div class="nhsuk-tabs__panel" id="example-1">
+-   Example text content
++   <p>Example text content</p>
+  </div>
+```
+
+This change was introduced in [pull request #1686: Remove ↑ up and ↓ down arrow key bindings from tabs](https://github.com/nhsuk/nhsuk-frontend/pull/1686).
+
 ### :wrench: **Fixes**
 
 - [#1633: Review global `box-sizing` usage](https://github.com/nhsuk/nhsuk-frontend/pull/1633)
 - [#1635: Resolve Nunjucks template issues flagged by Jinja port](https://github.com/nhsuk/nhsuk-frontend/pull/1635)
+- [#1638: Resolve Nunjucks output indentation issues](https://github.com/nhsuk/nhsuk-frontend/pull/1638)
 - [#1653: Only show a task list item if not empty](https://github.com/nhsuk/nhsuk-frontend/pull/1653)
+- [#1656: Improve button text vertical alignment](https://github.com/nhsuk/nhsuk-frontend/pull/1656)
+- [#1657: Fix inconsistent margin in form and button groups](https://github.com/nhsuk/nhsuk-frontend/pull/1657)
+- [#1686: Remove ↑ up and ↓ down arrow key bindings from tabs](https://github.com/nhsuk/nhsuk-frontend/pull/1686)
+- [#1689: Only show header navigation items if not empty](https://github.com/nhsuk/nhsuk-frontend/pull/1689)
+- [#1698: Fix 2px minimum chevron `outline-width` syntax](https://github.com/nhsuk/nhsuk-frontend/pull/1698)
+- [#1699: Prevent date inputs shifting alignment on iOS 18](https://github.com/alphagov/govuk-frontend/pull/1699)
 
 ## 10.1.0 - 15 October 2025
 

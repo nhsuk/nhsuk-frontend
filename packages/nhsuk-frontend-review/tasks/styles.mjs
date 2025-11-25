@@ -1,7 +1,7 @@
 import { join } from 'node:path'
 
 import * as config from '@nhsuk/frontend-config'
-import { assets, styles, task } from '@nhsuk/frontend-tasks'
+import { styles, task } from '@nhsuk/frontend-tasks'
 
 /**
  * Compile review app styles bundle
@@ -17,10 +17,13 @@ export const compile = task.name(
 
 /**
  * Copy NHS.UK frontend styles into review app
+ * (Apply PostCSS transforms, e.g. 'companion' pseudo-classes)
  */
-export const copy = task.name('styles:copy', () =>
-  assets.copy('nhsuk/nhsuk-frontend.min.css', {
+export const copy = task.name(
+  'styles:copy',
+  styles.compile('nhsuk/nhsuk-frontend.css', {
     srcPath: join(config.paths.pkg, 'dist'),
-    destPath: join(config.paths.app, 'dist/stylesheets')
+    destPath: join(config.paths.app, 'dist'),
+    output: { file: 'stylesheets/nhsuk-frontend.min.css' }
   })
 )

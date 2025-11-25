@@ -1,0 +1,78 @@
+@use "../settings" as *;
+@use "../tools" as *;
+
+@include nhsuk-exports("nhsuk/core/objects/input-wrapper") {
+  .nhsuk-input-wrapper,
+  .nhsuk-input__wrapper {
+    display: flex;
+
+    .nhsuk-input {
+      flex: 0 1 auto;
+    }
+
+    .nhsuk-input:focus {
+      // Hack to stop focus style being overlapped by the suffix
+      z-index: 1;
+    }
+
+    // Split prefix/suffix onto separate lines on narrow screens
+    @include nhsuk-media-query($until: mobile) {
+      display: block;
+
+      .nhsuk-input {
+        // Set max-width to override potential width override class on the input
+        max-width: 100%;
+      }
+    }
+  }
+
+  .nhsuk-input-wrapper {
+    .nhsuk-input,
+    .nhsuk-select,
+    .nhsuk-button {
+      margin-top: nhsuk-spacing(2);
+
+      // Remove margin when first or not following other inputs
+      &:first-child,
+      &:only-child {
+        margin-top: 0;
+      }
+    }
+
+    // Remove margin from button when last, but reserve space for button shadow
+    .nhsuk-button:last-child {
+      margin-bottom: $nhsuk-button-shadow-size;
+    }
+
+    @include nhsuk-media-query($from: mobile) {
+      flex-direction: row;
+
+      // The default of `stretch` makes small buttons appear taller than the
+      // input, due to using box-shadow, which we don't particularly want in
+      // this situation
+      align-items: flex-start;
+
+      .nhsuk-input,
+      .nhsuk-select,
+      .nhsuk-button {
+        margin-top: 0;
+        margin-left: nhsuk-spacing(2);
+
+        &:first-child,
+        &:only-child {
+          margin-left: 0;
+        }
+      }
+
+      .nhsuk-button {
+        flex-shrink: 0;
+
+        // Buttons are normally 100% wide on mobile, but we don't want that here
+        width: auto;
+
+        // Move spacing from top to left but reserve space for button shadow
+        margin-bottom: $nhsuk-button-shadow-size;
+      }
+    }
+  }
+}

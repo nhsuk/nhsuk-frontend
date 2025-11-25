@@ -11,8 +11,8 @@ module.exports = {
   // Files to watch for auto reload
   files: [
     join(__dirname, 'dist/**/*.html'),
-    join(__dirname, 'dist/javascripts/*.min.js'),
-    join(__dirname, 'dist/stylesheets/*.min.css'),
+    join(__dirname, 'dist/javascripts/*.js'),
+    join(__dirname, 'dist/stylesheets/*.css'),
     join(__dirname, 'dist/assets/**')
   ],
 

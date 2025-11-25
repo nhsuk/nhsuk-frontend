@@ -6,15 +6,12 @@
     box-sizing: border-box;
 
     @include nhsuk-clearfix;
-    @include nhsuk-responsive-margin(4, "bottom");
+    @include nhsuk-responsive-margin(5, "bottom");
 
+    .nhsuk-form-group:last-child,
     .nhsuk-form-group:last-of-type {
       margin-bottom: 0; // Remove margin from last item in nested groups
     }
-  }
-
-  .nhsuk-form-group--wrapper {
-    @include nhsuk-responsive-margin(5, "bottom");
   }
 
   .nhsuk-form-group--error {
@@ -25,6 +22,24 @@
       padding: 0;
       // Reset error styles in nested form groups that might have error class
       border: 0;
+    }
+  }
+
+  .nhsuk-form-group--inline {
+    @include nhsuk-media-query($from: tablet) {
+      display: flex;
+      flex-direction: row;
+
+      // Align the bottom of inputs
+      align-items: flex-end;
+
+      .nhsuk-form-group {
+        margin-bottom: 0; // Remove margin when nested groups are inline
+      }
+
+      .nhsuk-form-group + .nhsuk-form-group {
+        margin-left: nhsuk-spacing(3);
+      }
     }
   }
 }

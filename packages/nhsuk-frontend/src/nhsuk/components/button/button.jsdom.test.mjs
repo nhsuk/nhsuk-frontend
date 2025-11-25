@@ -3,7 +3,7 @@ import { createEvent, fireEvent } from '@testing-library/dom'
 import { userEvent } from '@testing-library/user-event'
 
 import { Button, initButtons } from './button.mjs'
-import { examples } from './macro-options.mjs'
+import { examples } from './fixtures.mjs'
 
 const user = userEvent.setup()
 

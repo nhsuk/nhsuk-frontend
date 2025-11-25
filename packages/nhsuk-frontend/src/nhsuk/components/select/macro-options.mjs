@@ -1,5 +1,3 @@
-import { components } from '@nhsuk/frontend-lib'
-
 export const name = 'Select'
 
 /**
@@ -16,7 +14,7 @@ export const params = {
   name: {
     type: 'string',
     required: true,
-    description: 'Name property for the select.'
+    description: 'The `name` attribute for the select.'
   },
   items: {
     type: 'array',
@@ -27,12 +25,17 @@ export const params = {
         type: 'string',
         required: false,
         description:
-          'Value for the option. If this is omitted, the value is taken from the text content of the option element.'
+          'The `value` attribute for the option. If this is omitted, the value is taken from the text content of the option element.'
       },
       text: {
         type: 'string',
         required: true,
         description: 'Text for the option item.'
+      },
+      divider: {
+        type: 'boolean',
+        required: false,
+        description: 'Divider line used to separate option items.'
       },
       selected: {
         type: 'boolean',
@@ -57,7 +60,7 @@ export const params = {
     type: 'string',
     required: false,
     description:
-      'Value for the option which should be selected. Use this as an alternative to setting the `selected` option on each individual item.'
+      'The value for the option which should be selected. Use this as an alternative to setting the `selected` option on each individual item.'
   },
   disabled: {
     type: 'boolean',
@@ -155,6 +158,25 @@ export const params = {
     required: false,
     description: 'Classes to add to the select.'
   },
+  inputWrapper: {
+    type: 'object',
+    required: false,
+    description:
+      'If any of `formGroup.beforeInput` or `formGroup.afterInput` have a value, a wrapping element is added around the select and inserted content. This object allows you to customise that wrapping element.',
+    params: {
+      classes: {
+        type: 'string',
+        required: false,
+        description: 'Classes to add to the wrapping element.'
+      },
+      attributes: {
+        type: 'object',
+        required: false,
+        description:
+          'HTML attributes (for example data attributes) to add to the wrapping element.'
+      }
+    }
+  },
   attributes: {
     type: 'object',
     required: false,
@@ -164,417 +186,5 @@ export const params = {
 }
 
 /**
- * Nunjucks macro option examples
- *
- * @satisfies {{ [example: string]: MacroExample }}
- */
-export const examples = {
-  'default': {
-    context: {
-      label: {
-        text: 'Sort by',
-        isPageHeading: true
-      },
-      name: 'example',
-      items: [
-        {
-          value: 'published',
-          text: 'Recently published'
-        },
-        {
-          value: 'updated',
-          text: 'Recently updated'
-        },
-        {
-          value: 'views',
-          text: 'Most views'
-        },
-        {
-          value: 'comments',
-          text: 'Most comments'
-        }
-      ]
-    },
-    screenshot: true
-  },
-  'with disabled item': {
-    context: {
-      label: {
-        text: 'Sort by',
-        isPageHeading: true
-      },
-      id: 'with-disabled-item',
-      name: 'example',
-      items: [
-        {
-          value: 'published',
-          text: 'Recently published'
-        },
-        {
-          value: 'updated',
-          text: 'Recently updated'
-        },
-        {
-          value: 'views',
-          text: 'Most views'
-        },
-        {
-          value: 'comments',
-          text: 'Most comments',
-          disabled: true
-        }
-      ]
-    }
-  },
-  'with hint': {
-    context: {
-      label: {
-        text: 'Choose location',
-        isPageHeading: true
-      },
-      hint: {
-        text: 'This can be different to where you went before'
-      },
-      id: 'with-hint',
-      name: 'example',
-      items: [
-        {
-          value: 'choose',
-          text: 'Choose location'
-        },
-        {
-          value: 'eastmidlands',
-          text: 'East Midlands'
-        },
-        {
-          value: 'eastofengland',
-          text: 'East of England'
-        },
-        {
-          value: 'london',
-          text: 'London'
-        },
-        {
-          value: 'northeast',
-          text: 'North East'
-        },
-        {
-          value: 'northwest',
-          text: 'North West'
-        },
-        {
-          value: 'southeast',
-          text: 'South East'
-        },
-        {
-          value: 'southwest',
-          text: 'South West'
-        },
-        {
-          value: 'westmidlands',
-          text: 'West Midlands'
-        },
-        {
-          value: 'yorkshire',
-          text: 'Yorkshire and the Humber'
-        }
-      ]
-    },
-    screenshot: true
-  },
-  'with label size S': {
-    context: {
-      label: {
-        text: 'Sort by',
-        classes: 'nhsuk-label--s',
-        isPageHeading: true
-      },
-      id: 'custom-size',
-      name: 'example',
-      items: [
-        {
-          value: 'published',
-          text: 'Recently published'
-        },
-        {
-          value: 'updated',
-          text: 'Recently updated'
-        },
-        {
-          value: 'views',
-          text: 'Most views'
-        },
-        {
-          value: 'comments',
-          text: 'Most comments'
-        }
-      ]
-    }
-  },
-  'with label size M': {
-    context: {
-      label: {
-        text: 'Sort by',
-        classes: 'nhsuk-label--m',
-        isPageHeading: true
-      },
-      id: 'custom-size',
-      name: 'example',
-      items: [
-        {
-          value: 'published',
-          text: 'Recently published'
-        },
-        {
-          value: 'updated',
-          text: 'Recently updated'
-        },
-        {
-          value: 'views',
-          text: 'Most views'
-        },
-        {
-          value: 'comments',
-          text: 'Most comments'
-        }
-      ]
-    }
-  },
-  'with label size L': {
-    context: {
-      label: {
-        text: 'Sort by',
-        classes: 'nhsuk-label--l',
-        isPageHeading: true
-      },
-      id: 'custom-size',
-      name: 'example',
-      items: [
-        {
-          value: 'published',
-          text: 'Recently published'
-        },
-        {
-          value: 'updated',
-          text: 'Recently updated'
-        },
-        {
-          value: 'views',
-          text: 'Most views'
-        },
-        {
-          value: 'comments',
-          text: 'Most comments'
-        }
-      ]
-    }
-  },
-  'with label size XL': {
-    context: {
-      label: {
-        text: 'Sort by',
-        classes: 'nhsuk-label--xl',
-        isPageHeading: true
-      },
-      id: 'custom-size',
-      name: 'example',
-      items: [
-        {
-          value: 'published',
-          text: 'Recently published'
-        },
-        {
-          value: 'updated',
-          text: 'Recently updated'
-        },
-        {
-          value: 'views',
-          text: 'Most views'
-        },
-        {
-          value: 'comments',
-          text: 'Most comments'
-        }
-      ]
-    }
-  },
-  'without page heading': {
-    context: {
-      label: {
-        text: 'Sort by'
-      },
-      id: 'without-heading',
-      name: 'example',
-      items: [
-        {
-          value: 'published',
-          text: 'Recently published'
-        },
-        {
-          value: 'updated',
-          text: 'Recently updated'
-        },
-        {
-          value: 'views',
-          text: 'Most views'
-        },
-        {
-          value: 'comments',
-          text: 'Most comments'
-        }
-      ]
-    }
-  },
-  'with error message': {
-    context: {
-      label: {
-        text: 'Choose location',
-        isPageHeading: true
-      },
-      errorMessage: {
-        text: 'Select a location'
-      },
-      id: 'with-error-message',
-      name: 'example',
-      items: [
-        {
-          value: 'choose',
-          text: 'Choose location'
-        },
-        {
-          value: 'eastmidlands',
-          text: 'East Midlands'
-        },
-        {
-          value: 'eastofengland',
-          text: 'East of England'
-        },
-        {
-          value: 'london',
-          text: 'London'
-        },
-        {
-          value: 'northeast',
-          text: 'North East'
-        },
-        {
-          value: 'northwest',
-          text: 'North West'
-        },
-        {
-          value: 'southeast',
-          text: 'South East'
-        },
-        {
-          value: 'southwest',
-          text: 'South West'
-        },
-        {
-          value: 'westmidlands',
-          text: 'West Midlands'
-        },
-        {
-          value: 'yorkshire',
-          text: 'Yorkshire and the Humber'
-        }
-      ]
-    }
-  },
-  'with hint and error': {
-    context: {
-      label: {
-        text: 'Choose location',
-        isPageHeading: true
-      },
-      hint: {
-        text: 'This can be different to where you went before'
-      },
-      errorMessage: {
-        text: 'Select a location'
-      },
-      id: 'with-hint-error',
-      name: 'example',
-      items: [
-        {
-          value: 'choose',
-          text: 'Choose location'
-        },
-        {
-          value: 'eastmidlands',
-          text: 'East Midlands'
-        },
-        {
-          value: 'eastofengland',
-          text: 'East of England'
-        },
-        {
-          value: 'london',
-          text: 'London'
-        },
-        {
-          value: 'northeast',
-          text: 'North East'
-        },
-        {
-          value: 'northwest',
-          text: 'North West'
-        },
-        {
-          value: 'southeast',
-          text: 'South East'
-        },
-        {
-          value: 'southwest',
-          text: 'South West'
-        },
-        {
-          value: 'westmidlands',
-          text: 'West Midlands'
-        },
-        {
-          value: 'yorkshire',
-          text: 'Yorkshire and the Humber'
-        }
-      ]
-    },
-    screenshot: {
-      states: ['focus'],
-      selector: '#with-hint-error'
-    }
-  },
-  'with selected value': {
-    context: {
-      label: {
-        text: 'Sort by',
-        isPageHeading: true
-      },
-      id: 'with-value',
-      name: 'example',
-      value: 'updated',
-      items: [
-        {
-          value: 'published',
-          text: 'Recently published'
-        },
-        {
-          value: 'updated',
-          text: 'Recently updated'
-        },
-        {
-          value: 'views',
-          text: 'Most views'
-        },
-        {
-          value: 'comments',
-          text: 'Most comments'
-        }
-      ]
-    }
-  }
-}
-
-export const options = components.getMacroOptions(params)
-
-/**
- * @import { MacroExample, MacroParam } from '@nhsuk/frontend-lib/components.mjs'
+ * @import { MacroParam } from '@nhsuk/frontend-lib/components.mjs'
  */

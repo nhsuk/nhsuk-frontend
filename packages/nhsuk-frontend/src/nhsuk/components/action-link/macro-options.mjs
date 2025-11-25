@@ -1,5 +1,3 @@
-import { components } from '@nhsuk/frontend-lib'
-
 export const name = 'Action link'
 
 /**
@@ -16,17 +14,24 @@ export const params = {
   text: {
     type: 'string',
     required: true,
-    description: 'Text to use within the action link component.'
+    description:
+      'If `html` is set, this is not required. Text to use within the action link. If `html` is provided, the `text` option will be ignored.'
+  },
+  html: {
+    type: 'string',
+    required: true,
+    description:
+      'If `text` is set, this is not required. HTML to use within the action link. If `html` is provided, the `text` option will be ignored.'
   },
   href: {
     type: 'string',
     required: true,
-    description: 'The value of the link href attribute.'
+    description: 'The value of the link `href` attribute.'
   },
   openInNewWindow: {
     type: 'boolean',
     required: false,
-    description: 'If set to true, then the link will open in a new window.'
+    description: 'If set to `true`, then the link will open in a new window.'
   },
   classes: {
     type: 'string',
@@ -42,36 +47,5 @@ export const params = {
 }
 
 /**
- * Nunjucks macro option examples
- *
- * @satisfies {{ [example: string]: MacroExample }}
- */
-export const examples = {
-  default: {
-    context: {
-      text: 'Find your nearest A&E',
-      href: '#'
-    },
-    screenshot: true
-  },
-  reverse: {
-    context: {
-      classes: 'nhsuk-action-link--reverse',
-      text: 'Find your nearest A&E',
-      href: '#'
-    },
-    options: {
-      layout: 'background-blue'
-    },
-    screenshot: {
-      states: ['focus', 'hover', 'active'],
-      selector: '.nhsuk-action-link'
-    }
-  }
-}
-
-export const options = components.getMacroOptions(params)
-
-/**
- * @import { MacroExample, MacroParam } from '@nhsuk/frontend-lib/components.mjs'
+ * @import { MacroParam } from '@nhsuk/frontend-lib/components.mjs'
  */

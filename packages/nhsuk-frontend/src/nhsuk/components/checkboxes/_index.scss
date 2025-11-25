@@ -18,20 +18,32 @@ $nhsuk-checkboxes-small-size: nhsuk-spacing(4);
 $nhsuk-checkboxes-label-padding-left-right: 12px;
 $nhsuk-checkboxes-check-horizontal-position: 12px;
 
+// Offset 2px due to 40px form control with 44px clickable area
+// https://nhsuk.github.io/nhsuk-frontend/examples/form-alignment/
+$nhsuk-checkboxes-offset: $nhsuk-border-width-form-element;
+
 @include nhsuk-exports("nhsuk/components/checkboxes") {
   $nhsuk-touch-target-gutter: 4px;
   $nhsuk-touch-target-size: $nhsuk-checkboxes-size + $nhsuk-touch-target-gutter;
+
+  .nhsuk-checkboxes {
+    margin: -$nhsuk-checkboxes-offset;
+    margin-right: 0;
+  }
 
   .nhsuk-checkboxes__item {
     display: flex;
     position: relative;
     flex-wrap: wrap;
-    margin-bottom: nhsuk-spacing(2);
+    margin-top: nhsuk-spacing(2) - $nhsuk-checkboxes-offset;
+
+    .nhsuk-checkboxes__conditional:not(.nhsuk-checkboxes__conditional--hidden) + & {
+      @include nhsuk-responsive-margin(4, "top", $adjustment: - $nhsuk-checkboxes-offset);
+    }
   }
 
-  .nhsuk-checkboxes__item:last-child,
-  .nhsuk-checkboxes__item:last-of-type {
-    margin-bottom: 0;
+  .nhsuk-checkboxes__item:first-child {
+    margin-top: 0;
   }
 
   .nhsuk-checkboxes__input {
@@ -158,7 +170,8 @@ $nhsuk-checkboxes-check-horizontal-position: 12px;
   .nhsuk-checkboxes__divider {
     $nhsuk-divider-size: $nhsuk-checkboxes-size !default;
     width: $nhsuk-divider-size;
-    margin-bottom: nhsuk-spacing(2);
+    margin-top: nhsuk-spacing(2) - $nhsuk-checkboxes-offset;
+    padding: 0 $nhsuk-checkboxes-offset;
     text-align: center;
     @include nhsuk-text-colour;
     @include nhsuk-font($size: 19);
@@ -169,24 +182,21 @@ $nhsuk-checkboxes-check-horizontal-position: 12px;
   // =========================================================
 
   // Calculate the amount of padding needed to keep the border centered against the checkbox.
-  $conditional-border-padding: math.div($nhsuk-touch-target-size, 2) - math.div($nhsuk-border-width, 2);
+  $conditional-border-padding: math.div($nhsuk-touch-target-size, 2) - $nhsuk-border-width-form-element;
   // Move the border centered with the checkbox
   $conditional-margin-left: $conditional-border-padding;
   // Move the contents of the conditional inline with the label
   $conditional-padding-left: $conditional-border-padding + $nhsuk-checkboxes-label-padding-left-right;
 
   .nhsuk-checkboxes__conditional {
+    margin-top: nhsuk-spacing(2) - $nhsuk-checkboxes-offset;
+    margin-bottom: $nhsuk-checkboxes-offset;
     margin-left: $conditional-margin-left;
     padding-left: $conditional-padding-left;
     border-left: $nhsuk-border-width solid $nhsuk-input-border-colour;
-    @include nhsuk-responsive-margin(4, "bottom");
 
     .nhsuk-frontend-supported &--hidden {
       display: none;
-    }
-
-    & > :last-child {
-      margin-bottom: 0;
     }
   }
 
@@ -198,7 +208,7 @@ $nhsuk-checkboxes-check-horizontal-position: 12px;
     $input-offset: math.div($nhsuk-touch-target-size - $nhsuk-checkboxes-small-size, 2);
 
     .nhsuk-checkboxes__item {
-      margin-bottom: 0;
+      margin-top: 0;
     }
 
     // Shift the touch target into the left margin so that the visible edge of
@@ -260,14 +270,15 @@ $nhsuk-checkboxes-check-horizontal-position: 12px;
 
     // Align conditional reveals with small checkboxes
     .nhsuk-checkboxes__conditional {
-      $margin-left: math.div($nhsuk-checkboxes-small-size, 2) - math.div($nhsuk-border-width, 2);
+      $margin-left: math.div($nhsuk-checkboxes-small-size, 2) - $nhsuk-border-width-form-element;
       margin-left: $margin-left;
       padding-left: ($nhsuk-touch-target-size - $input-offset) - ($margin-left + $nhsuk-border-width);
     }
 
     .nhsuk-checkboxes__divider {
       width: $nhsuk-checkboxes-small-size;
-      margin-bottom: nhsuk-spacing(1);
+      margin: nhsuk-spacing(1) - $nhsuk-checkboxes-offset 0;
+      padding: 0;
     }
 
     // Hover state for small checkboxes.

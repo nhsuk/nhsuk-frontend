@@ -1,6 +1,7 @@
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
 @use "../../core/helpers" as *;
+@forward "../../core/objects/input-wrapper";
 @forward "../error-message";
 @forward "../hint";
 @forward "../label";
@@ -15,11 +16,7 @@
   .nhsuk-select {
     box-sizing: border-box;
 
-    // This min-width was chosen because:
-    // - it makes the Select wider than it is tall (which is what users expect)
-    // - 20ex + 3ex matches the 'length-10' variant of the input component
-    // - it fits comfortably on screens as narrow as 240px wide
-    min-width: 20ex + 3ex;
+    min-width: 100%;
     max-width: 100%;
     height: nhsuk-px-to-rem(40px);
     padding: nhsuk-spacing(1);
@@ -41,6 +38,13 @@
       opacity: 0.5;
       color: inherit;
       cursor: not-allowed;
+    }
+
+    @include nhsuk-media-query($from: mobile) {
+      // This min-width was chosen because:
+      // - it makes the Select wider than it is tall (which is what users expect)
+      // - 20ex + 3ex matches the 'length-10' variant of the input component
+      min-width: 20ex + 3ex;
     }
   }
 

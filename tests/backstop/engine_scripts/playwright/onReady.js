@@ -5,6 +5,9 @@ const clickAndHoverHelper = require('./clickAndHoverHelper')
  * @param {Scenario} scenario
  */
 module.exports = async function (page, scenario) {
+  await page.evaluateHandle('document.fonts.ready')
+
+  // Apply state selectors etc
   await clickAndHoverHelper(page, scenario)
   if (page.isClosed()) {
     return

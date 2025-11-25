@@ -9,10 +9,10 @@
     </span>
   </summary>
   <div class="nhsuk-details__text">
-    {% if caller or params.html -%}
-      {{ caller() if caller else params.html | safe | trim | indent(4) }}
-    {% elif params.text -%}
-      {{ params.text }}
-    {% endif %}
+  {% if caller or params.html %}
+    {{ caller() if caller else params.html | safe | trim | indent(4) }}
+  {% elif params.text %}
+    {{ params.text }}
+  {% endif %}
   </div>
 </details>

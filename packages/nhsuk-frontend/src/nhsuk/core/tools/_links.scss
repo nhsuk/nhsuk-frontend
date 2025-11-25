@@ -201,8 +201,11 @@
   );
 
   // Force a colour change on hover to work around a bug in Safari
+  // Also allows for ':focus' companion classes from postcss-pseudo-classes
+  // which the plugin unfortunately doesn't handle automatically.
   // https://bugs.webkit.org/show_bug.cgi?id=224483
-  &:not(:focus):hover {
+  // stylelint-disable-next-line selector-class-pattern
+  &:not(:focus):not(.\:focus):hover {
     color: rgba($override-colour, 0.99);
   }
 }

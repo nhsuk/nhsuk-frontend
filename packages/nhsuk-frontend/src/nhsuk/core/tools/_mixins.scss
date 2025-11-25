@@ -142,7 +142,10 @@
 
 @mixin nhsuk-visually-hidden-focusable($important: true) {
   // IE 11 doesn't support the combined `:not(:active, :focus)` syntax.
-  &:not(:active):not(:focus) {
+  // Also allows for ':focus' companion classes from postcss-pseudo-classes
+  // which the plugin unfortunately doesn't handle automatically.
+  // stylelint-disable-next-line selector-class-pattern
+  &:not(:active):not(:focus):not(.\:focus) {
     @include _nhsuk-visually-hide-content($important: $important);
   }
 }
@@ -369,6 +372,7 @@
 ///
 
 @mixin nhsuk-care-card($heading-background-colour, $heading-text-colour, $print-border-size) {
+  .nhsuk-card__heading-container,
   .nhsuk-card--care__heading-container {
     color: $heading-text-colour;
     background-color: $heading-background-colour;

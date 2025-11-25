@@ -1,5 +1,3 @@
-import { components } from '@nhsuk/frontend-lib'
-
 export const name = 'Error summary'
 
 /**
@@ -52,7 +50,7 @@ export const params = {
         type: 'string',
         required: false,
         description:
-          'Href attribute for the error link item. If provided item will be an anchor.'
+          'The `href` attribute for the error link item. If provided item will be an anchor.'
       },
       text: {
         type: 'string',
@@ -94,69 +92,5 @@ export const params = {
 }
 
 /**
- * Nunjucks macro option examples
- *
- * @satisfies {{ [example: string]: MacroExample }}
- */
-export const examples = {
-  'default': {
-    context: {
-      titleText: 'There is a problem',
-      descriptionText: 'Describe the errors and how to correct them',
-      errorList: [
-        {
-          text: 'Date of birth must be in the past',
-          href: '#example-day'
-        }
-      ]
-    },
-    screenshot: true
-  },
-  'without description': {
-    context: {
-      titleText: 'There is a problem',
-      errorList: [
-        {
-          text: 'Date of birth must be in the past',
-          href: '#example-day'
-        }
-      ]
-    }
-  },
-  'auto-focus disabled': {
-    context: {
-      titleText: 'There is a problem',
-      errorList: [
-        {
-          text: 'Date of birth must be in the past',
-          href: '#example-day'
-        }
-      ],
-      disableAutoFocus: true
-    },
-    options: {
-      hidden: true
-    }
-  },
-  'auto-focus explicitly enabled': {
-    context: {
-      titleText: 'There is a problem',
-      errorList: [
-        {
-          text: 'Date of birth must be in the past',
-          href: '#example-day'
-        }
-      ],
-      disableAutoFocus: false
-    },
-    options: {
-      hidden: true
-    }
-  }
-}
-
-export const options = components.getMacroOptions(params)
-
-/**
- * @import { MacroExample, MacroParam } from '@nhsuk/frontend-lib/components.mjs'
+ * @import { MacroParam } from '@nhsuk/frontend-lib/components.mjs'
  */

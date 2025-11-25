@@ -1,5 +1,3 @@
-import { components } from '@nhsuk/frontend-lib'
-
 export const name = 'Date input'
 
 /**
@@ -12,7 +10,7 @@ export const params = {
     type: 'string',
     required: true,
     description:
-      'This is used for the main component and to compose the ID attribute for each item.'
+      'This is used for the main component and to compose the `id` attribute for each item.'
   },
   namePrefix: {
     type: 'string',
@@ -29,12 +27,12 @@ export const params = {
         type: 'string',
         required: false,
         description:
-          'Item-specific ID. If provided, it will be used instead of the generated ID.'
+          'Item-specific `id` attribute. If provided, it will be used instead of the generated ID.'
       },
       name: {
         type: 'string',
         required: true,
-        description: 'Item-specific name attribute.'
+        description: 'Item-specific `name` attribute.'
       },
       label: {
         type: 'string',
@@ -46,13 +44,13 @@ export const params = {
         type: 'string',
         required: false,
         description:
-          'Optional value for [the inputmode attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode). Defaults to `"numeric"`.'
+          'Optional value for [the `inputmode` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode). Defaults to `"numeric"`.'
       },
       value: {
         type: 'string',
         required: false,
         description:
-          'If provided, it will be used as the initial value of the input.'
+          'If provided, it will be used as the initial `value` attribute of the input.'
       },
       autocomplete: {
         type: 'string',
@@ -162,22 +160,22 @@ export const params = {
     type: 'object',
     required: false,
     description:
-      'An optional object use to specify value attributes for the date parts without setting items.',
+      'An optional object use to specify `value` attributes for the date parts without setting items.',
     params: {
       day: {
         type: 'string',
         required: false,
-        description: 'Value attribute for the day input.'
+        description: 'The `value` attribute for the day input.'
       },
       month: {
         type: 'string',
         required: false,
-        description: 'Value attribute for the month input.'
+        description: 'The `value` attribute for the month input.'
       },
       year: {
         type: 'string',
         required: false,
-        description: 'Value attribute for the year input.'
+        description: 'The `value` attribute for the year input.'
       }
     }
   },
@@ -195,415 +193,5 @@ export const params = {
 }
 
 /**
- * Nunjucks macro option examples
- *
- * @satisfies {{ [example: string]: MacroExample }}
- */
-export const examples = {
-  'default': {
-    context: {
-      fieldset: {
-        legend: {
-          text: 'What is your date of birth?',
-          classes: 'nhsuk-fieldset__legend--l',
-          isPageHeading: true
-        }
-      },
-      hint: {
-        text: 'For example, 31 3 1980'
-      },
-      id: 'example'
-    },
-    screenshot: true
-  },
-  'with values': {
-    context: {
-      fieldset: {
-        legend: {
-          text: 'What is your date of birth?',
-          classes: 'nhsuk-fieldset__legend--l',
-          isPageHeading: true
-        }
-      },
-      hint: {
-        text: 'For example, 31 3 1980'
-      },
-      id: 'example',
-      values: {
-        day: '5',
-        month: '8',
-        year: '2024'
-      }
-    }
-  },
-  'day and month': {
-    context: {
-      fieldset: {
-        legend: {
-          text: 'What is your birthday?',
-          classes: 'nhsuk-fieldset__legend--l',
-          isPageHeading: true
-        }
-      },
-      hint: {
-        text: 'For example, 5 12'
-      },
-      id: 'example',
-      items: [
-        {
-          name: 'day',
-          classes: 'nhsuk-input--width-2'
-        },
-        {
-          name: 'month',
-          classes: 'nhsuk-input--width-2'
-        }
-      ]
-    }
-  },
-  'month and year': {
-    context: {
-      fieldset: {
-        legend: {
-          text: 'When did you start your job?',
-          classes: 'nhsuk-fieldset__legend--l',
-          isPageHeading: true
-        }
-      },
-      hint: {
-        text: 'For example, 11 2023'
-      },
-      id: 'example',
-      items: [
-        {
-          name: 'month',
-          classes: 'nhsuk-input--width-2'
-        },
-        {
-          name: 'year',
-          classes: 'nhsuk-input--width-4'
-        }
-      ]
-    }
-  },
-  'month and year with values': {
-    context: {
-      fieldset: {
-        legend: {
-          text: 'When did you start your job?',
-          classes: 'nhsuk-fieldset__legend--l',
-          isPageHeading: true
-        }
-      },
-      hint: {
-        text: 'For example, 11 2023'
-      },
-      id: 'example',
-      values: {
-        month: '8',
-        year: '2024'
-      },
-      items: [
-        {
-          name: 'month',
-          classes: 'nhsuk-input--width-2'
-        },
-        {
-          name: 'year',
-          classes: 'nhsuk-input--width-4'
-        }
-      ]
-    }
-  },
-  'with legend size S': {
-    context: {
-      fieldset: {
-        legend: {
-          text: 'What is your date of birth?',
-          classes: 'nhsuk-fieldset__legend--s',
-          isPageHeading: true
-        }
-      },
-      hint: {
-        text: 'For example, 31 3 1980'
-      },
-      id: 'custom-size'
-    }
-  },
-  'with legend size M': {
-    context: {
-      fieldset: {
-        legend: {
-          text: 'What is your date of birth?',
-          classes: 'nhsuk-fieldset__legend--m',
-          isPageHeading: true
-        }
-      },
-      hint: {
-        text: 'For example, 31 3 1980'
-      },
-      id: 'custom-size'
-    }
-  },
-  'with legend size L': {
-    context: {
-      fieldset: {
-        legend: {
-          text: 'What is your date of birth?',
-          classes: 'nhsuk-fieldset__legend--l',
-          isPageHeading: true
-        }
-      },
-      hint: {
-        text: 'For example, 31 3 1980'
-      },
-      id: 'custom-size'
-    }
-  },
-  'with legend size XL': {
-    context: {
-      fieldset: {
-        legend: {
-          text: 'What is your date of birth?',
-          classes: 'nhsuk-fieldset__legend--xl',
-          isPageHeading: true
-        }
-      },
-      hint: {
-        text: 'For example, 31 3 1980'
-      },
-      id: 'custom-size'
-    }
-  },
-  'without page heading': {
-    context: {
-      fieldset: {
-        legend: {
-          text: 'What is your date of birth?'
-        }
-      },
-      hint: {
-        text: 'For example, 31 3 1980'
-      },
-      id: 'example'
-    }
-  },
-  'with autocomplete values': {
-    context: {
-      fieldset: {
-        legend: {
-          text: 'What is your date of birth?',
-          classes: 'nhsuk-fieldset__legend--l',
-          isPageHeading: true
-        }
-      },
-      hint: {
-        text: 'For example, 31 3 1980'
-      },
-      id: 'example',
-      items: [
-        {
-          name: 'day',
-          classes: 'nhsuk-input--width-2',
-          autocomplete: 'bday-day'
-        },
-        {
-          name: 'month',
-          classes: 'nhsuk-input--width-2',
-          autocomplete: 'bday-month'
-        },
-        {
-          name: 'year',
-          classes: 'nhsuk-input--width-4',
-          autocomplete: 'bday-year'
-        }
-      ]
-    }
-  },
-  'with custom name prefix': {
-    context: {
-      fieldset: {
-        legend: {
-          text: 'What is your date of birth?',
-          classes: 'nhsuk-fieldset__legend--l',
-          isPageHeading: true
-        }
-      },
-      hint: {
-        text: 'For example, 31 3 1980'
-      },
-      id: 'example',
-      namePrefix: 'example'
-    }
-  },
-  'with errors only': {
-    context: {
-      fieldset: {
-        legend: {
-          text: 'What is your date of birth?',
-          classes: 'nhsuk-fieldset__legend--l',
-          isPageHeading: true
-        }
-      },
-      errorMessage: {
-        text: 'Enter your date of birth'
-      },
-      id: 'example',
-      items: [
-        {
-          name: 'day',
-          classes: 'nhsuk-input--width-2 nhsuk-input--error'
-        },
-        {
-          name: 'month',
-          classes: 'nhsuk-input--width-2 nhsuk-input--error'
-        },
-        {
-          name: 'year',
-          classes: 'nhsuk-input--width-4 nhsuk-input--error'
-        }
-      ]
-    }
-  },
-  'with errors and hint': {
-    context: {
-      fieldset: {
-        legend: {
-          text: 'What is your date of birth?',
-          classes: 'nhsuk-fieldset__legend--l',
-          isPageHeading: true
-        }
-      },
-      hint: {
-        text: 'For example, 31 3 1980'
-      },
-      errorMessage: {
-        text: 'Enter your date of birth'
-      },
-      id: 'example',
-      items: [
-        {
-          name: 'day',
-          classes: 'nhsuk-input--width-2 nhsuk-input--error'
-        },
-        {
-          name: 'month',
-          classes: 'nhsuk-input--width-2 nhsuk-input--error'
-        },
-        {
-          name: 'year',
-          classes: 'nhsuk-input--width-4 nhsuk-input--error'
-        }
-      ]
-    },
-    screenshot: true
-  },
-  'with error on day input': {
-    context: {
-      fieldset: {
-        legend: {
-          text: 'What is your date of birth?',
-          classes: 'nhsuk-fieldset__legend--l',
-          isPageHeading: true
-        }
-      },
-      hint: {
-        text: 'For example, 31 3 1980'
-      },
-      errorMessage: {
-        text: 'Date of birth must include a day'
-      },
-      id: 'example',
-      items: [
-        {
-          name: 'day',
-          classes: 'nhsuk-input--width-2 nhsuk-input--error'
-        },
-        {
-          name: 'month',
-          value: '3',
-          classes: 'nhsuk-input--width-2'
-        },
-        {
-          name: 'year',
-          value: '1980',
-          classes: 'nhsuk-input--width-4'
-        }
-      ]
-    }
-  },
-  'with error on month input': {
-    context: {
-      fieldset: {
-        legend: {
-          text: 'What is your date of birth?',
-          classes: 'nhsuk-fieldset__legend--l',
-          isPageHeading: true
-        }
-      },
-      hint: {
-        text: 'For example, 31 3 1980'
-      },
-      errorMessage: {
-        text: 'Date of birth must include a month'
-      },
-      id: 'example',
-      items: [
-        {
-          name: 'day',
-          classes: 'nhsuk-input--width-2',
-          value: '31'
-        },
-        {
-          name: 'month',
-          classes: 'nhsuk-input--width-2 nhsuk-input--error'
-        },
-        {
-          name: 'year',
-          classes: 'nhsuk-input--width-4',
-          value: '1980'
-        }
-      ]
-    }
-  },
-  'with error on year input': {
-    context: {
-      fieldset: {
-        legend: {
-          text: 'What is your date of birth?',
-          classes: 'nhsuk-fieldset__legend--l',
-          isPageHeading: true
-        }
-      },
-      hint: {
-        text: 'For example, 31 3 1980'
-      },
-      errorMessage: {
-        text: 'Date of birth must include a year'
-      },
-      id: 'example',
-      items: [
-        {
-          name: 'day',
-          classes: 'nhsuk-input--width-2',
-          value: '31'
-        },
-        {
-          name: 'month',
-          classes: 'nhsuk-input--width-2',
-          value: '3'
-        },
-        {
-          name: 'year',
-          classes: 'nhsuk-input--width-4 nhsuk-input--error'
-        }
-      ]
-    }
-  }
-}
-
-export const options = components.getMacroOptions(params)
-
-/**
- * @import { MacroExample, MacroParam } from '@nhsuk/frontend-lib/components.mjs'
+ * @import { MacroParam } from '@nhsuk/frontend-lib/components.mjs'
  */

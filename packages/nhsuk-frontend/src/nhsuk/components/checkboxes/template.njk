@@ -32,8 +32,9 @@
     {% set itemHintId = itemId ~ "-item-hint" if hasHint else "" %}
     {% set itemDescribedBy = describedBy if not hasFieldset else "" %}
     {% set itemDescribedBy = (itemDescribedBy ~ " " ~ itemHintId) | trim %}
+    {% set itemClasses = "nhsuk-checkboxes__input" ~ (" " ~ item.classes if item.classes) %}
     <div class="nhsuk-checkboxes__item">
-      <input class="nhsuk-checkboxes__input" id="{{ itemId }}" name="{{ itemName }}" type="checkbox" value="{{ item.value }}"
+      <input class="{{ itemClasses }}" id="{{ itemId }}" name="{{ itemName }}" type="checkbox" value="{{ item.value }}"
         {{- " checked" if isChecked }}
         {{- " disabled" if item.disabled }}
         {%- if item.exclusive %} data-checkbox-exclusive{% endif -%}
