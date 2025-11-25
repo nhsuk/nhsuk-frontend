@@ -1,6 +1,6 @@
 import { axe, goToComponent } from '@nhsuk/frontend-helpers/puppeteer.mjs'
 
-import { examples } from './macro-options.mjs'
+import { examples } from './fixtures.mjs'
 
 describe('Hero', () => {
   /** @type {Page} */

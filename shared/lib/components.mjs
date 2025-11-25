@@ -13,10 +13,9 @@ import { files, nunjucks } from './index.mjs'
  * @returns {Promise<ComponentData>} Component data
  */
 export async function load(component) {
-  const optionsPath = join(
-    paths.pkg,
-    `src/nhsuk/components/${component}/macro-options.mjs`
-  )
+  const componentPath = join(paths.pkg, `src/nhsuk/components/${component}`)
+  const fixturesPath = join(componentPath, 'fixtures.mjs')
+  const optionsPath = join(componentPath, 'macro-options.mjs')
 
   const collator = new Intl.Collator('en', {
     ignorePunctuation: true,
@@ -24,19 +23,12 @@ export async function load(component) {
     sensitivity: 'base'
   })
 
-  const options = /** @type {Omit<ComponentData, "component">} */ (
-    await import(optionsPath)
-  )
-
-  // Add component directory name to options
-  const data = /** @type {ComponentData} */ ({
-    component,
-    ...options
-  })
+  const { name, params } = await import(optionsPath)
+  const fixtures = await import(fixturesPath)
 
   // Sort examples by name, default at top
-  data.examples = Object.fromEntries(
-    Object.entries(options.examples).sort(([nameA], [nameB]) => {
+  const examples = Object.fromEntries(
+    Object.entries(fixtures.examples).sort(([nameA], [nameB]) => {
       for (const [find, replace] of /** @type {const} */ ([
         // Sort default to top
         ['default', '!!!'],
@@ -68,7 +60,12 @@ export async function load(component) {
     })
   )
 
-  return data
+  return {
+    name,
+    component,
+    params,
+    examples
+  }
 }
 
 /**

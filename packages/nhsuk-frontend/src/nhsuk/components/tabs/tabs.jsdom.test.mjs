@@ -7,7 +7,7 @@ import {
 } from '@testing-library/dom'
 import { userEvent } from '@testing-library/user-event'
 
-import { examples } from './macro-options.mjs'
+import { examples } from './fixtures.mjs'
 import { Tabs, initTabs } from './tabs.mjs'
 
 const user = userEvent.setup()

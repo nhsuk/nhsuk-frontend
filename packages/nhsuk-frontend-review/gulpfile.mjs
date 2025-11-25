@@ -67,7 +67,7 @@ gulp.task('watch', () =>
         join(config.paths.pkg, 'dist/nhsuk/*.{js,js.map}'),
         join(config.paths.app, 'src/javascripts/**/*.mjs')
       ],
-      { ignored: ['**/*.test.*'] },
+      { ignored: ['**/fixtures.mjs', '**/macro-options.mjs', '**/*.test.*'] },
       gulp.series('scripts')
     ),
 
