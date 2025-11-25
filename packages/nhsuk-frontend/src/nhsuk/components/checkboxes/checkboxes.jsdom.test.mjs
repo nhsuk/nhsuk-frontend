@@ -2,7 +2,7 @@ import { components } from '@nhsuk/frontend-lib'
 import { fireEvent, getByRole } from '@testing-library/dom'
 
 import { Checkboxes, initCheckboxes } from './checkboxes.mjs'
-import { examples } from './macro-options.mjs'
+import { examples } from './fixtures.mjs'
 
 describe('Checkboxes', () => {
   /** @type {HTMLElement} */

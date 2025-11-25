@@ -1,6 +1,6 @@
 import { components } from '@nhsuk/frontend-lib'
 
-import { examples } from './macro-options.mjs'
+import { examples } from './fixtures.mjs'
 import {
   NotificationBanner,
   initNotificationBanners

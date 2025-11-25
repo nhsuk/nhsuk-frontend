@@ -1,5 +1,3 @@
-import { components } from '@nhsuk/frontend-lib'
-
 export const name = 'Error message'
 
 /**
@@ -45,23 +43,5 @@ export const params = {
 }
 
 /**
- * Nunjucks macro option examples
- *
- * @satisfies {{ [example: string]: MacroExample }}
- */
-export const examples = {
-  default: {
-    context: {
-      text: 'Enter your full name'
-    },
-    screenshot: {
-      viewports: ['tablet']
-    }
-  }
-}
-
-export const options = components.getMacroOptions(params)
-
-/**
- * @import { MacroExample, MacroParam } from '@nhsuk/frontend-lib/components.mjs'
+ * @import { MacroParam } from '@nhsuk/frontend-lib/components.mjs'
  */

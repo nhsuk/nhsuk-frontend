@@ -40,7 +40,7 @@ export function getDirectories(directoryPath, options = {}) {
  * Write file task
  *
  * @param {string} inputPath - File path to asset
- * @param {Pick<FileOptions, "destPath" | "output">} options - File options
+ * @param {Pick<FileOptions, 'destPath' | 'output'>} options - File options
  */
 export async function write(inputPath, { destPath, output = {} }) {
   const filePath = join(destPath, inputPath)

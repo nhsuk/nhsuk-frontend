@@ -1,6 +1,3 @@
-import { components } from '@nhsuk/frontend-lib'
-import { outdent } from 'outdent'
-
 export const name = 'Inset text'
 
 /**
@@ -52,21 +49,5 @@ export const params = {
 }
 
 /**
- * Nunjucks macro option examples
- *
- * @satisfies {{ [example: string]: MacroExample }}
- */
-export const examples = {
-  default: {
-    callBlock: outdent`
-      <p>You can report any suspected side effect using the <a href="#">Yellow Card safety scheme</a>.</p>
-    `,
-    screenshot: true
-  }
-}
-
-export const options = components.getMacroOptions(params)
-
-/**
- * @import { MacroExample, MacroParam } from '@nhsuk/frontend-lib/components.mjs'
+ * @import { MacroParam } from '@nhsuk/frontend-lib/components.mjs'
  */

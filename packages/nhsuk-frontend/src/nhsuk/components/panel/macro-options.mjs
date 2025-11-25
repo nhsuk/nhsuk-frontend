@@ -1,5 +1,3 @@
-import { components } from '@nhsuk/frontend-lib'
-
 export const name = 'Panel'
 
 /**
@@ -63,24 +61,5 @@ export const params = {
 }
 
 /**
- * Nunjucks macro option examples
- *
- * @satisfies {{ [example: string]: MacroExample }}
- */
-export const examples = {
-  default: {
-    context: {
-      titleText: 'Booking complete',
-      text: 'We have sent you a confirmation email'
-    },
-    screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
-    }
-  }
-}
-
-export const options = components.getMacroOptions(params)
-
-/**
- * @import { MacroExample, MacroParam } from '@nhsuk/frontend-lib/components.mjs'
+ * @import { MacroParam } from '@nhsuk/frontend-lib/components.mjs'
  */

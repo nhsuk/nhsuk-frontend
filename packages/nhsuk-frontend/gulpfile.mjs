@@ -59,6 +59,7 @@ gulp.task('watch', () =>
     gulp.watch(
       [
         join(config.paths.pkg, 'src/nhsuk/**/*.{md,njk}'),
+        join(config.paths.pkg, 'src/nhsuk/**/fixtures.mjs'),
         join(config.paths.pkg, 'src/nhsuk/**/macro-options.mjs')
       ],
       gulp.series('templates', npm.script('fixtures'))
@@ -86,7 +87,7 @@ gulp.task('watch', () =>
      */
     gulp.watch(
       [join(config.paths.pkg, 'src/nhsuk/**/*.mjs')],
-      { ignored: ['**/macro-options.mjs', '**/*.test.*'] },
+      { ignored: ['**/fixtures.mjs', '**/macro-options.mjs', '**/*.test.*'] },
       gulp.series('scripts')
     )
   ])

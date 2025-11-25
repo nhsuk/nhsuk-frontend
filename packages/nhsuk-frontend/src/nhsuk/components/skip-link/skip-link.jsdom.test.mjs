@@ -1,7 +1,7 @@
 import { components } from '@nhsuk/frontend-lib'
 import { userEvent } from '@testing-library/user-event'
 
-import { examples } from './macro-options.mjs'
+import { examples } from './fixtures.mjs'
 import { SkipLink, initSkipLinks } from './skip-link.mjs'
 
 const user = userEvent.setup()
