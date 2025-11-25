@@ -1,0 +1,9 @@
+@use "../settings" as *;
+
+@include nhsuk-warning(
+  "import-using-generic-box-sizing",
+  "Importing using 'core/generic/box-sizing' is deprecated. Remove your import statement for 'core/generic/box-sizing'.",
+  $silence-further-warnings: false
+);
+
+/*# sourceMappingURL=_box-sizing.scss.map */

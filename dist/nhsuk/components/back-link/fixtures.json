@@ -1,0 +1,71 @@
+{
+  "name": "Back link",
+  "component": "back-link",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "text": "Back",
+        "href": "#"
+      },
+      "screenshot": {
+        "states": [
+          "focus",
+          "hover",
+          "active"
+        ],
+        "selector": ".nhsuk-back-link"
+      },
+      "options": {},
+      "html": "<a class=\"nhsuk-back-link\" href=\"#\">\n  Back\n</a>"
+    },
+    {
+      "name": "as a button",
+      "context": {
+        "text": "Back",
+        "element": "button"
+      },
+      "screenshot": {
+        "states": [
+          "focus",
+          "hover",
+          "active"
+        ],
+        "selector": ".nhsuk-back-link"
+      },
+      "options": {},
+      "html": "<button class=\"nhsuk-back-link\">\n  Back\n</button>"
+    },
+    {
+      "name": "reverse",
+      "context": {
+        "text": "Back",
+        "href": "#",
+        "classes": "nhsuk-back-link--reverse"
+      },
+      "screenshot": {
+        "states": [
+          "focus",
+          "hover",
+          "active"
+        ],
+        "selector": ".nhsuk-back-link"
+      },
+      "options": {
+        "layout": "background-blue"
+      },
+      "html": "<a class=\"nhsuk-back-link nhsuk-back-link--reverse\" href=\"#\">\n  Back\n</a>"
+    },
+    {
+      "name": "with visually hidden text",
+      "context": {
+        "visuallyHiddenText": "Back to",
+        "text": "Search results",
+        "href": "#"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<a class=\"nhsuk-back-link\" href=\"#\">\n  <span class=\"nhsuk-u-visually-hidden\">Back to</span> Search results\n</a>"
+    }
+  ]
+}

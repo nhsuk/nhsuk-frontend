@@ -1,0 +1,159 @@
+{
+  "name": "Tag",
+  "component": "tag",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "text": "Active"
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile"
+        ]
+      },
+      "options": {},
+      "html": "<strong class=\"nhsuk-tag\">\n  Active\n</strong>"
+    },
+    {
+      "name": "aqua-green",
+      "context": {
+        "text": "Active",
+        "classes": "nhsuk-tag--aqua-green"
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile"
+        ]
+      },
+      "options": {},
+      "html": "<strong class=\"nhsuk-tag nhsuk-tag--aqua-green\">\n  Active\n</strong>"
+    },
+    {
+      "name": "blue",
+      "context": {
+        "text": "Pending",
+        "classes": "nhsuk-tag--blue"
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile"
+        ]
+      },
+      "options": {},
+      "html": "<strong class=\"nhsuk-tag nhsuk-tag--blue\">\n  Pending\n</strong>"
+    },
+    {
+      "name": "green",
+      "context": {
+        "text": "New",
+        "classes": "nhsuk-tag--green"
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile"
+        ]
+      },
+      "options": {},
+      "html": "<strong class=\"nhsuk-tag nhsuk-tag--green\">\n  New\n</strong>"
+    },
+    {
+      "name": "grey",
+      "context": {
+        "text": "Inactive",
+        "classes": "nhsuk-tag--grey"
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile"
+        ]
+      },
+      "options": {},
+      "html": "<strong class=\"nhsuk-tag nhsuk-tag--grey\">\n  Inactive\n</strong>"
+    },
+    {
+      "name": "orange",
+      "context": {
+        "text": "Declined",
+        "classes": "nhsuk-tag--orange"
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile"
+        ]
+      },
+      "options": {},
+      "html": "<strong class=\"nhsuk-tag nhsuk-tag--orange\">\n  Declined\n</strong>"
+    },
+    {
+      "name": "pink",
+      "context": {
+        "text": "Sent",
+        "classes": "nhsuk-tag--pink"
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile"
+        ]
+      },
+      "options": {},
+      "html": "<strong class=\"nhsuk-tag nhsuk-tag--pink\">\n  Sent\n</strong>"
+    },
+    {
+      "name": "purple",
+      "context": {
+        "text": "Received",
+        "classes": "nhsuk-tag--purple"
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile"
+        ]
+      },
+      "options": {},
+      "html": "<strong class=\"nhsuk-tag nhsuk-tag--purple\">\n  Received\n</strong>"
+    },
+    {
+      "name": "red",
+      "context": {
+        "text": "Rejected",
+        "classes": "nhsuk-tag--red"
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile"
+        ]
+      },
+      "options": {},
+      "html": "<strong class=\"nhsuk-tag nhsuk-tag--red\">\n  Rejected\n</strong>"
+    },
+    {
+      "name": "white",
+      "context": {
+        "text": "In progress",
+        "classes": "nhsuk-tag--white"
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile"
+        ]
+      },
+      "options": {},
+      "html": "<strong class=\"nhsuk-tag nhsuk-tag--white\">\n  In progress\n</strong>"
+    },
+    {
+      "name": "yellow",
+      "context": {
+        "text": "Delayed",
+        "classes": "nhsuk-tag--yellow"
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile"
+        ]
+      },
+      "options": {},
+      "html": "<strong class=\"nhsuk-tag nhsuk-tag--yellow\">\n  Delayed\n</strong>"
+    }
+  ]
+}
