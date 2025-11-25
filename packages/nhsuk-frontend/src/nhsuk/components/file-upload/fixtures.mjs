@@ -15,35 +15,35 @@ export const examples = {
   },
   'with hint': {
     context: {
-      id: 'file-upload-2',
-      name: 'file-upload-2',
       label: {
         text: 'Upload your photo'
       },
       hint: {
         text: 'Your photo may be in your Pictures, Photos, Downloads or Desktop folder. Or in an app like iPhoto.'
-      }
+      },
+      id: 'file-upload',
+      name: 'file-upload'
     }
   },
   'with error message': {
     context: {
-      id: 'file-upload-3',
-      name: 'file-upload-3',
       label: {
         text: 'Upload a file'
       },
       errorMessage: {
         text: 'The selected file must be a JPG, BMP or TIF.'
-      }
+      },
+      id: 'file-upload',
+      name: 'file-upload'
     }
   },
   'with hint and error': {
     context: {
-      id: 'file-upload-4',
-      name: 'file-upload-4',
       label: {
         text: 'Upload a file'
       },
+      id: 'file-upload',
+      name: 'file-upload',
       hint: {
         text: 'Your photo may be in your Pictures, Photos, Downloads or Desktop folder. Or in an app like iPhoto.'
       },
@@ -54,35 +54,35 @@ export const examples = {
   },
   'with label as page heading': {
     context: {
-      id: 'file-upload-5',
-      name: 'file-upload-5',
       label: {
         text: 'Upload a file',
         classes: 'nhsuk-label--l',
         isPageHeading: true
-      }
+      },
+      id: 'file-upload',
+      name: 'file-upload'
     }
   },
   'with multiple': {
     context: {
-      id: 'file-upload-6',
-      name: 'file-upload-6',
+      label: {
+        text: 'Upload multiple files'
+      },
+      id: 'file-upload',
+      name: 'file-upload',
       multiple: true,
       chooseFilesButtonText: 'Choose files',
       dropInstructionText: 'or drop files',
-      noFileChosenText: 'No files chosen',
-      label: {
-        text: 'Upload multiple files'
-      }
+      noFileChosenText: 'No files chosen'
     }
   },
   'disabled': {
     context: {
-      id: 'file-upload-7',
-      name: 'file-upload-7',
       label: {
         text: 'Upload a file'
       },
+      id: 'file-upload',
+      name: 'file-upload',
       disabled: true
     }
   }
