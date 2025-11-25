@@ -14,14 +14,20 @@ import { I18n } from '../../i18n.mjs'
  * @augments ConfigurableComponent<SelectConfig>
  */
 export class Select extends ConfigurableComponent {
+  /** @type {HTMLButtonElement | null} */
+  $button = null
+
   /** @type {HTMLInputElement | null} */
   $input = null
+
+  /** @type {HTMLButtonElement | HTMLInputElement | null} */
+  $invoker = null
 
   /** @type {HTMLUListElement | null} */
   $menu = null
 
-  /** @type {string | null} */
-  activeOptionId = null
+  /** @type {HTMLDivElement | null} */
+  $screenReaderStatusMessage = null
 
   /**
    * @param {Element | null} $root - HTML element to use for component
@@ -52,23 +58,32 @@ export class Select extends ConfigurableComponent {
     })
 
     this.$select = $select
+    this.$button = this.$root.querySelector('button.nhsuk-select__button')
     this.$input = this.$root.querySelector('input.nhsuk-select__input')
     this.$menu = this.$root.querySelector('ul.nhsuk-select__menu')
 
-    // Create and append the status text
-    const $screenReaderStatusMessage = document.createElement('div')
-    $screenReaderStatusMessage.className = 'nhsuk-hint'
-    $screenReaderStatusMessage.setAttribute('aria-live', 'polite')
-    this.$screenReaderStatusMessage = $screenReaderStatusMessage
-    this.$select.insertAdjacentElement('afterend', $screenReaderStatusMessage)
+    // Create and append a wrapper to contain input/button and menu
+    const $wrapper = document.createElement('div')
+    $wrapper.className = 'nhsuk-select-wrapper'
+    this.$wrapper = $wrapper
+    this.$select.insertAdjacentElement('afterend', $wrapper)
 
-    // Create and append a combobox to contain the combobox input and menu
-    const $combobox = document.createElement('div')
-    $combobox.className = 'nhsuk-select__combobox'
-    this.$combobox = $combobox
-    this.$select.insertAdjacentElement('afterend', $combobox)
+    if (this.$root.dataset.search === '') {
+      // Create and append the status text
+      const $screenReaderStatusMessage = document.createElement('div')
+      $screenReaderStatusMessage.className = 'nhsuk-hint'
+      $screenReaderStatusMessage.setAttribute('aria-live', 'polite')
+      this.$screenReaderStatusMessage = $screenReaderStatusMessage
+      this.$wrapper.before($screenReaderStatusMessage)
 
-    this.updateStatusMessage()
+      this.updateStatusMessage()
+
+      this.setupInput()
+      this.$invoker = this.$input
+    } else {
+      this.setupButton()
+      this.$invoker = this.$button
+    }
 
     // Save bound functions so we can remove event listeners when unnecessary
     this.handleTabKey = this.onTabKey.bind(this)
@@ -77,10 +92,25 @@ export class Select extends ConfigurableComponent {
       this.handleDocumentClick(event)
     )
 
-    this.setupInput()
     this.setupMenu()
     this.hideSelect()
     this.bindChangeEvents()
+  }
+
+  /**
+   * Bind change events
+   */
+  bindChangeEvents() {
+    if (this.$button) {
+      this.$button.addEventListener('click', (e) => this.handleInvokerClick(e))
+      this.$button.addEventListener('keydown', (e) =>
+        this.handleButtonKeyDown(e)
+      )
+      this.$button.addEventListener('keyup', (e) => this.handleInvokerKeyUp(e))
+    } else if (this.$input) {
+      this.$input.addEventListener('click', (e) => this.handleInvokerClick(e))
+      this.$input.addEventListener('keyup', (e) => this.handleInvokerKeyUp(e))
+    }
   }
 
   /**
@@ -94,60 +124,118 @@ export class Select extends ConfigurableComponent {
   }
 
   /**
-   * Bind change events
+   * Setup replacement button component
    */
-  bindChangeEvents() {
-    if (!this.$input) {
-      return
-    }
+  setupButton() {
+    const $button = document.createElement('button')
+    $button.className = 'nhsuk-select__button'
+    $button.setAttribute('aria-controls', this.menuId)
+    $button.setAttribute('aria-expanded', 'false')
+    $button.setAttribute('id', this.$select.id)
+    $button.setAttribute('type', 'button')
 
-    this.$input.addEventListener('click', (e) => this.handleInputClick(e))
-    this.$input.addEventListener('keyup', (e) => this.handleInputKeyUp(e))
+    $button.textContent = this.$selectedOption?.text ?? ''
+    $button.value = this.$selectedOption?.text ?? ''
+
+    this.$button = $button
+
+    this.$wrapper.append(this.$button)
   }
 
   /**
-   * Setup replacement input component
+   * Setup replacement input component (if search enabled)
    */
   setupInput() {
     const $input = document.createElement('input')
     $input.className = 'nhsuk-input nhsuk-select__input'
     $input.setAttribute('aria-autocomplete', 'list')
-    $input.setAttribute('aria-controls', this.getMenuId())
+    $input.setAttribute('aria-controls', this.menuId)
     $input.setAttribute('aria-expanded', 'false')
     $input.setAttribute('autocapitalize', 'none')
     $input.setAttribute('autocomplete', 'off')
     $input.setAttribute('id', this.$select.id)
     $input.setAttribute('role', 'combobox')
 
-    const selected = this.$select.options[this.$select.selectedIndex]
-    if (!this.isEmpty(selected.value)) {
-      $input.value = this.$select.options[this.$select.selectedIndex].text
+    if (this.$selectedOption && !this.isEmpty(this.$selectedOption.value)) {
+      $input.value = this.$selectedOption.text
     }
 
     this.$input = $input
 
-    this.$combobox.append(this.$input)
+    this.$wrapper.append(this.$input)
   }
 
   /**
+   * Setup menu
+   */
+  setupMenu() {
+    if (!this.$invoker) {
+      return
+    }
+
+    const $menu = document.createElement('ul')
+    $menu.className = 'nhsuk-select__menu'
+    $menu.setAttribute('aria-labelled-by', this.$invoker.id)
+    $menu.setAttribute('id', this.menuId)
+    $menu.setAttribute('role', 'listbox')
+    $menu.hidden = true
+
+    $menu.addEventListener('click', (event) => {
+      if (event.target instanceof Element) {
+        const option = event.target.closest('[role=option]')
+
+        if (option instanceof HTMLLIElement) {
+          this.selectMenuOption(option)
+        }
+      }
+    })
+
+    $menu.addEventListener('keydown', (event) => {
+      this.handleMenuKeyDown(event)
+    })
+
+    this.$menu = $menu
+
+    this.$wrapper.append($menu)
+  }
+
+  /**
+   * Handle clicking outside component
+   *
+   * Close menu (if open) and update select with valid input (if any)
+   *
    * @param {MouseEvent} event - Event
    */
-  handleInputClick(event) {
-    this.removeMenuOptions()
-
-    const options = this.getAllValidOptions()
-    this.buildMenu(options)
-
-    const target = event.currentTarget
-    if (target instanceof HTMLInputElement) {
-      target.select()
+  handleDocumentClick(event) {
+    if (event.target instanceof Node && !this.$wrapper.contains(event.target)) {
+      this.closeMenu()
+      this.updateSelect()
     }
   }
 
   /**
+   * Handle click on invoking element
+   *
+   * @param {MouseEvent} event - Event
+   */
+  handleInvokerClick(event) {
+    const options = this.getAllValidSelectOptions()
+    this.buildMenu(options)
+
+    const target = event.currentTarget
+    if (target instanceof HTMLButtonElement) {
+      this.handleButtonType()
+    } else if (target instanceof HTMLInputElement) {
+      target.focus()
+    }
+  }
+
+  /**
+   * Handle key press on invoking element
+   *
    * @param {KeyboardEvent} event - Key press event
    */
-  handleInputKeyUp(event) {
+  handleInvokerKeyUp(event) {
     const ignoredKeys = [
       'Escape',
       'ArrowUp',
@@ -163,14 +251,86 @@ export class Select extends ConfigurableComponent {
       return
     }
 
-    if (event.key === 'ArrowDown') {
+    if (this.$button && event.key === 'ArrowDown') {
+      this.handleButtonArrowDownKey()
+      return
+    }
+
+    if (this.$input && event.key === 'ArrowDown') {
       this.handleInputArrowDownKey()
       return
     }
 
-    this.handleInputType()
+    if (this.$input) {
+      this.handleInputType()
+    } else {
+      this.handleButtonType()
+    }
   }
 
+  /**
+   * Handle keydown press on button element
+   *
+   * Ensures menu opens only on keyup but keydown doesn’t invoke page scroll
+   *
+   * @param {KeyboardEvent} event - Key press event
+   */
+  handleButtonKeyDown(event) {
+    const ignoredKeys = [
+      'Escape',
+      'ArrowUp',
+      'ArrowLeft',
+      'ArrowRight',
+      ' ',
+      'Enter',
+      'Tab',
+      'Shift'
+    ]
+
+    if (ignoredKeys.includes(event.key)) {
+      return
+    }
+
+    if (this.$button && event.key === 'ArrowDown') {
+      event.preventDefault()
+    }
+  }
+
+  /**
+   * Handle key press on button
+   */
+  handleButtonType() {
+    if (!this.$button) {
+      return
+    }
+
+    const options = this.getAllValidSelectOptions()
+    this.buildMenu(options)
+
+    const option = this.$selectedMenuOption ?? this.$firstMenuOption
+    this.highlightMenuOption(option)
+  }
+
+  /**
+   * Handle Arrow Down key press on button
+   *
+   * @returns {undefined}
+   */
+  handleButtonArrowDownKey() {
+    if (!this.$button) {
+      return
+    }
+
+    const options = this.getAllValidSelectOptions()
+    if (options.length > 0) {
+      this.buildMenu(options)
+      this.highlightMenuOption(this.$firstMenuOption)
+    }
+  }
+
+  /**
+   * Handle key press on input
+   */
   handleInputType() {
     if (!this.$input) {
       return
@@ -178,15 +338,19 @@ export class Select extends ConfigurableComponent {
 
     if (this.isEmpty(this.$input.value)) {
       this.closeMenu()
+      this.updateSelect()
     } else {
-      const options = this.getAllMatchingOptions(this.$input.value)
+      const options = this.getAllMatchingSelectOptions(this.$input.value)
       this.buildMenu(options)
-      this.updateResultsCountMessage(options.length)
+      this.updateCountMessage(options.length)
     }
-
-    this.updateSelect()
   }
 
+  /**
+   * Handle Arrow Down key press on input
+   *
+   * @returns {undefined}
+   */
   handleInputArrowDownKey() {
     if (!this.$input) {
       return
@@ -194,162 +358,26 @@ export class Select extends ConfigurableComponent {
 
     const value = this.$input.value
     // If empty value, or value exactly matches an option, show all options
-    if (this.isEmpty(value) || this.isExactMatch(value)) {
-      const options = this.getAllValidOptions()
+    if (this.isEmpty(value)) {
+      const options = this.getAllValidSelectOptions()
       this.buildMenu(options)
-
-      const option = this.getFirstOption()
-      if (option) {
-        this.highlightOption(option)
-      }
+      this.highlightMenuOption(this.$firstMenuOption)
     } else {
-      const options = this.getAllMatchingOptions(value)
+      const options = this.getAllMatchingSelectOptions(value)
       if (options.length > 0) {
         this.buildMenu(options)
-
-        const option = this.getFirstOption()
-        if (option) {
-          this.highlightOption(option)
-        }
+        this.highlightMenuOption(this.$firstMenuOption)
       }
     }
   }
 
-  focusInput() {
-    if (this.$input) {
-      this.$input.focus()
-    }
-  }
-
   /**
-   * Setup menu
-   */
-  setupMenu() {
-    if (!this.$input) {
-      return
-    }
-
-    const $menu = document.createElement('ul')
-    $menu.className = 'nhsuk-select__menu'
-    $menu.setAttribute('aria-labelled-by', this.$input.id)
-    $menu.setAttribute('id', this.getMenuId())
-    $menu.setAttribute('role', 'listbox')
-    $menu.hidden = true
-
-    $menu.addEventListener('click', (event) => {
-      if (event.target instanceof Element) {
-        const option = event.target.closest('[role=option]')
-
-        if (option instanceof HTMLLIElement) {
-          this.selectOption(option)
-        }
-      }
-    })
-
-    $menu.addEventListener('keydown', (event) => {
-      this.handleMenuKeyDown(event)
-    })
-
-    this.$menu = $menu
-
-    this.$combobox.append($menu)
-  }
-
-  /**
-   * Build menu with options from select
+   * Handle keydown press on input
    *
-   * @param {HTMLOptionElement[]} options - Array of option elements
-   */
-  buildMenu(options) {
-    if (!this.$menu) {
-      return
-    }
-
-    this.removeMenuOptions()
-    this.activeOptionId = null
-
-    if (options.length) {
-      this.openMenu()
-
-      options.forEach((option, index) => {
-        this.$menu?.append(this.getOptionHtml(index, option))
-      })
-    } else {
-      this.closeMenu()
-    }
-  }
-
-  /**
-   * Open menu
-   */
-  openMenu() {
-    if (!this.$input || !this.$menu) {
-      return
-    }
-
-    this.$input.setAttribute('aria-expanded', 'true')
-    this.$menu.hidden = false
-
-    // Add tab key listener to close menu
-    document.addEventListener('keydown', this.handleTabKey)
-  }
-
-  /**
-   * Close menu
-   */
-  closeMenu() {
-    if (!this.$input || !this.$menu) {
-      return
-    }
-
-    this.removeMenuOptions()
-    this.updateStatusMessage()
-    this.handleInvalidInput(this.$input)
-
-    this.activeOptionId = null
-    this.$input.setAttribute('aria-expanded', 'false')
-    this.$menu.hidden = true
-
-    // Remove tab key listener to close menu
-    document.removeEventListener('keydown', this.handleTabKey)
-  }
-
-  /**
-   * Remove menu items from the DOM
-   */
-  removeMenuOptions() {
-    if (this.$menu) {
-      this.$menu.innerHTML = ''
-    }
-  }
-
-  /**
-   * Get ID of options menu
-   *
-   * @returns {string} Options menu ID
-   */
-  getMenuId() {
-    return `nhsuk-select__menu-${this.$select.id}`
-  }
-
-  /**
-   * Indicate if currently entered value is invalid
-   *
-   * @param {HTMLInputElement} $input - Search input
-   */
-  handleInvalidInput($input) {
-    const matchingOption = this.getMatchingOption($input.value)
-    $input.classList.toggle(
-      'nhsuk-select__input--invalid',
-      matchingOption === undefined && !this.isEmpty($input.value)
-    )
-  }
-
-  /**
    * @param {KeyboardEvent} event - Key press event
    */
   handleMenuKeyDown(event) {
-    if (!this.$input) {
+    if (!this.$invoker) {
       return
     }
 
@@ -371,7 +399,7 @@ export class Select extends ConfigurableComponent {
         this.closeMenu()
         break
       default:
-        this.$input.focus()
+        this.$invoker.focus()
     }
   }
 
@@ -381,8 +409,10 @@ export class Select extends ConfigurableComponent {
    * @param {KeyboardEvent} event - Key press event
    */
   handleMenuEnterKey(event) {
-    if (this.isOptionSelected()) {
-      this.selectActiveOption()
+    if (document.activeElement === event.target) {
+      if (event.target instanceof HTMLLIElement) {
+        this.selectMenuOption(event.target)
+      }
     }
 
     event.preventDefault()
@@ -394,11 +424,7 @@ export class Select extends ConfigurableComponent {
    * @param {KeyboardEvent} event - Key press event
    */
   handleMenuArrowDownKey(event) {
-    const option = this.getNextOption()
-
-    if (option) {
-      this.highlightOption(option)
-    }
+    this.highlightMenuOption(this.$nextMenuOption)
 
     event.preventDefault()
   }
@@ -409,30 +435,23 @@ export class Select extends ConfigurableComponent {
    * @param {KeyboardEvent} event - Key press event
    */
   handleMenuArrowUpKey(event) {
-    if (this.isOptionSelected()) {
-      const option = this.getPreviousOption()
-
-      if (option) {
-        this.highlightOption(option)
-      } else {
-        this.focusInput()
-        this.closeMenu()
-      }
+    if (this.$previousMenuOption) {
+      this.highlightMenuOption(this.$previousMenuOption)
+    } else {
+      this.focusInvoker()
+      this.closeMenu()
     }
 
     event.preventDefault()
   }
 
   /**
-   * @param {MouseEvent} event - Event
+   * Tear down menu and return focus to input
    */
-  handleDocumentClick(event) {
-    if (
-      event.target instanceof Node &&
-      !this.$combobox.contains(event.target)
-    ) {
-      this.closeMenu()
-    }
+  handleMenuEscapeKey() {
+    this.removeMenuOptions()
+    this.closeMenu()
+    this.focusInvoker()
   }
 
   /**
@@ -445,43 +464,87 @@ export class Select extends ConfigurableComponent {
   onTabKey(event) {
     if (event.key === 'Tab') {
       this.closeMenu()
+      this.updateSelect()
     }
   }
 
   /**
-   * Tear down menu and return focus to input
+   * Build menu with options from select
+   *
+   * @param {HTMLOptionElement[]} options - Array of option elements
    */
-  handleMenuEscapeKey() {
+  buildMenu(options) {
     this.removeMenuOptions()
-    this.closeMenu()
-    this.focusInput()
+
+    if (options.length) {
+      this.openMenu()
+
+      options.forEach((option, index) => {
+        const $menuOption = this.getMenuOptionHtml(index, option)
+        if ($menuOption) {
+          this.$menu?.append($menuOption)
+        }
+      })
+    } else {
+      this.closeMenu()
+    }
+  }
+
+  /**
+   * Open menu
+   */
+  openMenu() {
+    if (!this.$invoker || !this.$menu?.hidden) {
+      return
+    }
+
+    this.$invoker.setAttribute('aria-expanded', 'true')
+    this.$menu.hidden = false
+
+    // Add tab key listener to close menu
+    document.addEventListener('keydown', this.handleTabKey)
+  }
+
+  /**
+   * Close menu
+   */
+  closeMenu() {
+    if (!this.$invoker || !this.$menu) {
+      return
+    }
+
+    this.removeMenuOptions()
+    this.updateStatusMessage()
+
+    this.$invoker.setAttribute('aria-expanded', 'false')
+    this.$menu.hidden = true
+
+    // Remove tab key listener to close menu
+    document.removeEventListener('keyup', this.handleTabKey)
+  }
+
+  /**
+   * Remove menu items from the DOM
+   */
+  removeMenuOptions() {
+    if (this.$menu) {
+      this.$menu.innerHTML = ''
+    }
   }
 
   /**
    * Highlight menu option and scroll into position if needed
    *
-   * @param {HTMLLIElement} option - Menu option element
+   * @param {HTMLLIElement|null|undefined} option - Menu option element
    */
-  highlightOption(option) {
-    if (!this.$menu) {
+  highlightMenuOption(option) {
+    if (!this.$menu || !option) {
       return
     }
 
-    if (this.activeOptionId) {
-      const activeOption = this.$menu.querySelector(`#${this.activeOptionId}`)
-
-      if (activeOption) {
-        activeOption.setAttribute('aria-selected', 'false')
-      }
-    }
-
-    option.setAttribute('aria-selected', 'true')
-
-    if (!this.isOptionVisible(this.$menu, option)) {
+    if (!this.isMenuOptionVisible(this.$menu, option)) {
       this.$menu.scrollTop = option.offsetTop
     }
-
-    this.activeOptionId = option.id
 
     option.focus()
   }
@@ -491,74 +554,77 @@ export class Select extends ConfigurableComponent {
    *
    * @param {HTMLLIElement} option - Option element
    */
-  selectOption(option) {
+  selectMenuOption(option) {
     if (option.dataset.optionValue) {
       this.setValue(option.dataset.optionValue)
     }
 
     this.closeMenu()
-    this.focusInput()
+    this.focusInvoker()
   }
 
   /**
-   * Select active menu option
-   */
-  selectActiveOption() {
-    const option = this.getActiveOption()
-
-    if (option instanceof HTMLLIElement) {
-      this.selectOption(option)
-    }
-  }
-  /**
-   * Get active menu option
+   * Get selected menu option
    *
    * @returns {HTMLLIElement|null|undefined}
    */
-  getActiveOption() {
-    if (!this.$menu) {
-      return
-    }
-
-    const activeOption = this.$menu.querySelector(`#${this.activeOptionId}`)
+  get $selectedMenuOption() {
+    const activeOption = this.$menu?.querySelector(`[aria-selected="true"]`)
 
     return /** @type {HTMLLIElement|null|undefined} */ (activeOption)
   }
 
   /**
+   * Get focused menu option
+   *
    * @returns {HTMLLIElement|null|undefined}
    */
-  getFirstOption() {
+  get $focusedMenuOption() {
+    const activeOption = this.$menu?.querySelector(`:focus`)
+
+    return /** @type {HTMLLIElement|null|undefined} */ (activeOption)
+  }
+
+  /**
+   * Get first menu option
+   *
+   * @returns {HTMLLIElement|null|undefined}
+   */
+  get $firstMenuOption() {
     const firstOption = this.$menu?.firstElementChild
 
     return /** @type {HTMLLIElement|null|undefined} */ (firstOption)
   }
 
   /**
+   * Get previous menu option
+   *
    * @returns {HTMLLIElement|null|undefined}
    */
-  getPreviousOption() {
-    if (!this.$menu) {
-      return
+  get $previousMenuOption() {
+    if (!this.$focusedMenuOption || !this.$menu) {
+      return null
     }
 
     const previousOption = this.$menu.querySelector(
-      `#${this.activeOptionId}`
+      `#${this.$focusedMenuOption.id}`
     )?.previousElementSibling
 
     return /** @type {HTMLLIElement|null|undefined} */ (previousOption)
   }
 
   /**
+   * Get next menu option
+   *
    * @returns {HTMLLIElement|null|undefined}
    */
-  getNextOption() {
-    if (!this.$menu) {
-      return
+  get $nextMenuOption() {
+    if (!this.$focusedMenuOption || !this.$menu) {
+      return null
     }
 
     const nextOption = this.$menu.querySelector(
-      `#${this.activeOptionId}`
+      `#${this.$focusedMenuOption.id}`
     )?.nextElementSibling
 
     return /** @type {HTMLLIElement|null|undefined} */ (nextOption)
@@ -569,7 +635,7 @@ export class Select extends ConfigurableComponent {
    *
    * @returns {Array<HTMLOptionElement>} Options
    */
-  getAllValidOptions() {
+  getAllValidSelectOptions() {
     return Array.from(this.$select.options)
       .filter((option) => !option.disabled)
       .filter((option) => !this.isEmpty(option.value))
@@ -581,8 +647,8 @@ export class Select extends ConfigurableComponent {
    * @param {string} value - Search value
    * @returns {Array<HTMLOptionElement>} Options
    */
-  getAllMatchingOptions(value) {
-    return this.getAllValidOptions().filter((option) => {
+  getAllMatchingSelectOptions(value) {
+    return this.getAllValidSelectOptions().filter((option) => {
       let searchText = option.text.toLowerCase()
 
       if (option.dataset.synonyms) {
@@ -599,66 +665,180 @@ export class Select extends ConfigurableComponent {
    * @param {string} value
    * @returns {HTMLOptionElement|undefined}
    */
-  getMatchingOption(value) {
+  getMatchingSelectOption(value) {
     return Array.from(this.$select.options).find(
       (option) => option.text.toLowerCase() === value.toLowerCase()
     )
   }
 
   /**
-   * Update select with matched menu option
+   * Get select option matching value
+   *
+   * @param {string} value
+   * @returns {HTMLOptionElement|undefined}
+   */
+  getSelectOption(value) {
+    return Array.from(this.$select.options).find(
+      (option) => option.value === value
+    )
+  }
+
+  /**
+   * Update select with matched menu option (or input value)
    */
   updateSelect() {
-    if (!this.$input) {
+    if (!this.$invoker) {
       return
     }
 
-    const option = this.getMatchingOption(this.$input.value)
-    if (option) {
-      this.$select.value = option.value
+    const matchingOption = this.getMatchingSelectOption(this.$invoker.value)
+
+    // If input value is not valid, revert to previous valid value
+    if (this.$input && this.$selectedOption && !matchingOption) {
+      const inputValueIsEmpty = this.isEmpty(this.$input.value)
+      const selectedOptionIsEmpty = this.isEmpty(this.$selectedOption.value)
+
+      // Only update text shown in input if non-empty value has been entered
+      // If input is empty, user may have deleted value to enter a new one
+      if (!inputValueIsEmpty) {
+        // Only use selected value if it’s value is no empty to prevent search
+        // input displaying text for empty option value like ‘Select option…’
+        this.$input.value = selectedOptionIsEmpty
+          ? ''
+          : this.$selectedOption.textContent
+      }
+
+      this.$select.value = this.$selectedOption.value
     } else {
-      this.$select.value = ''
+      this.$select.value = matchingOption?.value ?? ''
     }
   }
 
   /**
-   * @returns {string|null}
+   * Get currently selected option in original select
+   *
+   * @returns {HTMLOptionElement|undefined}
    */
-  isOptionSelected() {
-    return this.activeOptionId
+  get $selectedOption() {
+    return this.$select.options[this.$select.selectedIndex]
   }
 
   /**
+   * Format default status message
+   *
+   * @returns {string} Formatted default status message
+   */
+  formatStatusMessage() {
+    const options = this.getAllValidSelectOptions()
+
+    return this.i18n.t('selectDescription', { count: options.length })
+  }
+
+  /**
+   * Update default status message
+   */
+  updateStatusMessage() {
+    if (this.$screenReaderStatusMessage) {
+      this.$screenReaderStatusMessage.textContent = this.formatStatusMessage()
+    }
+  }
+
+  /**
+   * Format results count message
+   *
+   * @param {number|undefined} [count] - The number of search results
+   * @returns {string} Formatted results count message
+   */
+  formatCountMessage(count) {
+    return count === 0
+      ? this.i18n.t('noResults')
+      : this.i18n.t('results', { count })
+  }
+
+  /**
+   * Update results count message
+   *
+   * @param {number|undefined} [count] - The number of search results
+   */
+  updateCountMessage(count) {
+    if (this.$screenReaderStatusMessage) {
+      this.$screenReaderStatusMessage.textContent =
+        this.formatCountMessage(count)
+    }
+  }
+
+  /**
+   * Focus invoking element
+   */
+  focusInvoker() {
+    if (this.$invoker) {
+      this.$invoker.focus()
+    }
+  }
+
+  /**
+   * Check if value is an empty string
+   *
    * @param {string} value
-   * @returns {boolean}
+   * @returns {boolean} Value is empty string
    */
   isEmpty(value) {
     return value.trim() === ''
   }
 
   /**
-   * @param {string} value
-   * @returns {boolean}
+   * Check if menu option is visible
+   *
+   * @param {HTMLUListElement} menu - Menu
+   * @param {HTMLLIElement} option - Menu option
+   * @returns {boolean} Menu option visible
    */
-  isExactMatch(value) {
-    const matchingOption = this.getMatchingOption(value)
+  isMenuOptionVisible(menu, option) {
+    const menuHeight = menu.clientHeight
+    const optionHeight = option.clientHeight
+    const menuTop = menu.getBoundingClientRect().top
+    const optionTop = option.getBoundingClientRect().top
 
-    return matchingOption?.value === value
+    return !(
+      optionTop - menuTop < 0 || optionTop - menuTop + optionHeight > menuHeight
+    )
   }
 
   /**
-   * @param {number} index - Index
-   * @param {HTMLOptionElement} option - Menu option
+   * Get ID of options menu
+   *
+   * @returns {string} Options menu ID
    */
-  getOptionHtml(index, option) {
+  get menuId() {
+    return `nhsuk-select__menu-${this.$select.id}`
+  }
+
+  /**
+   * Get menu option ID
+   *
+   * @param {number} index - Index
+   * @param {HTMLOptionElement} option - Select option
+   * @returns {HTMLLIElement|undefined} - Menu option
+   */
+  getMenuOptionHtml(index, option) {
+    if (!this.$invoker) {
+      return
+    }
+
+    const selected = option.textContent === this.$selectedOption?.textContent
+
     const $menuItem = document.createElement('li')
     $menuItem.className = 'nhsuk-select__option'
     $menuItem.dataset.optionValue = option.value
     $menuItem.textContent = option.text
     $menuItem.setAttribute('id', `nhsuk-select__option-${index}`)
-    $menuItem.setAttribute('aria-selected', 'false')
+    $menuItem.setAttribute('aria-selected', String(selected))
     $menuItem.setAttribute('tabindex', '-1')
     $menuItem.setAttribute('role', 'option')
+
+    if (option.nextElementSibling instanceof HTMLHRElement) {
+      $menuItem.classList.add('nhsuk-select__option--divider')
+    }
 
     if (option.dataset.hint) {
       const $hintText = this.getHintTextHtml(option.dataset.hint)
@@ -683,81 +863,28 @@ export class Select extends ConfigurableComponent {
   }
 
   /**
-   * Update results count message
-   *
-   * @param {number|undefined} [count] - The number of search results
-   */
-  updateResultsCountMessage(count) {
-    if (count === 0) {
-      this.$screenReaderStatusMessage.textContent = this.i18n.t('noResultsText')
-    } else {
-      this.$screenReaderStatusMessage.textContent = this.i18n.t('resultsText', {
-        count
-      })
-    }
-  }
-
-  /**
-   * Update default status message
-   */
-  updateStatusMessage() {
-    const options = this.getAllValidOptions()
-
-    this.$screenReaderStatusMessage.textContent = this.i18n.t(
-      'selectDescriptionText',
-      {
-        count: options.length
-      }
-    )
-  }
-
-  /**
-   * Check if menu option is visible
-   *
-   * @param {HTMLUListElement} menu - Menu
-   * @param {HTMLLIElement} option - Menu option
-   * @returns {boolean} Menu option visible
-   */
-  isOptionVisible(menu, option) {
-    const menuHeight = menu.clientHeight
-    const optionHeight = option.clientHeight
-    const menuTop = menu.getBoundingClientRect().top
-    const optionTop = option.getBoundingClientRect().top
-
-    return !(
-      optionTop - menuTop < 0 || optionTop - menuTop + optionHeight > menuHeight
-    )
-  }
-
-  /**
-   *
-   * @param {string} value
-   * @returns {HTMLOptionElement|undefined}
-   */
-  getOption(value) {
-    return Array.from(this.$select.options).find(
-      (option) => option.value === value
-    )
-  }
-
-  /**
+   * Set value shown in invoking element
    *
    * @param {string} value
    */
   setValue(value) {
-    if (!this.$input) {
+    if (!this.$invoker) {
       return
     }
 
     this.$select.value = value
 
     if (this.isEmpty(value)) {
-      this.$input.value = ''
+      this.$invoker.value = ''
     } else {
-      const option = this.getOption(value)
+      const option = this.getSelectOption(value)
 
       if (option) {
-        this.$input.value = option.text
+        this.$invoker.value = option.text
+
+        if (this.$button) {
+          this.$button.textContent = option.textContent
+        }
       }
     }
   }
@@ -775,13 +902,14 @@ export class Select extends ConfigurableComponent {
    * @type {SelectConfig}
    */
   static defaults = Object.freeze({
+    search: false,
     i18n: {
-      noResultsText: 'No options found',
-      resultsText: {
+      noResults: 'No options found',
+      results: {
         one: '%{count} option found',
         other: '%{count} options found'
       },
-      selectDescriptionText: 'Select an option or search (%{count} options)'
+      selectDescription: 'Select an option or search (%{count} options)'
     }
   })
 
@@ -793,6 +921,7 @@ export class Select extends ConfigurableComponent {
    */
   static schema = Object.freeze({
     properties: {
+      search: { type: 'boolean' },
       i18n: { type: 'object' }
     }
   })
@@ -821,6 +950,7 @@ export function initSelects(options) {
  *
  * @see {@link Select.defaults}
  * @typedef {object} SelectConfig
+ * @property {boolean} [search=false] - Whether options available to the select can be searched.
  * @property {SelectTranslations} [i18n=Select.defaults.i18n] - Select translations
  */
 
@@ -834,11 +964,10 @@ export function initSelects(options) {
  * Messages shown to users as they type. It provides feedback on how many
  * results have been returned This also includes a message used as an accessible
  * description for the select.
- * @property {string} [noResultsText] - Message displayed when no results returned.
- * @property {TranslationPluralForms} [resultsText] - Number of results.
- * @property {string} [selectDescriptionText] - Message made
- *   available to assistive technologies, if none is already present in the
- *   HTML, to describe how to interact with the component.
+ * @property {string} [noResults] - Message displayed when no results returned.
+ * @property {TranslationPluralForms} [results] - Number of results.
+ * @property {string} [selectDescription] - Message describing how to interact
+ *   with the component.
  */
 
 /**

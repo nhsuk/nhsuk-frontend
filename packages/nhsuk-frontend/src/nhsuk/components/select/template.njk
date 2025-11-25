@@ -13,11 +13,13 @@
 {%- set hasAfterInput = true if params.formGroup.afterInput and (params.formGroup.afterInput.text or params.formGroup.afterInput.html) else false %}
 
 {%- set attributesHtml %}
-  {% if params.combobox %}
-    {{- nhsukAttributes({
-      "data-module": "nhsuk-select"
-    }) -}}
-  {% endif %}
+  {{- nhsukAttributes({
+    "data-module": "nhsuk-select",
+    "data-search": {
+      value: params.search,
+      optional: true
+    }
+  }) -}}
 
   {{- nhsukI18nAttributes({
     key: "select-description",
@@ -42,7 +44,7 @@
 
 {%- macro _selectElement(params) -%}
   <select class="nhsuk-select
-    {%- if params.classes %} {{ params.classes }}{% endif %}{%- if params.errorMessage %} nhsuk-select--error{% endif %}{% if params.combobox %} nhsuk-js-select{% endif %}" id="{{ id }}" name="{{ params.name }}"
+    {%- if params.classes %} {{ params.classes }}{% endif %}{%- if params.errorMessage %} nhsuk-select--error{% endif %} nhsuk-js-select" id="{{ id }}" name="{{ params.name }}"
     {%- if params.disabled %} disabled{% endif %}
     {%- if describedBy %} aria-describedby="{{ describedBy }}"{% endif %}
     {{- nhsukAttributes(params.attributes) }}>

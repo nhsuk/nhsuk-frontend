@@ -36,7 +36,7 @@ export const params = {
         type: 'array',
         required: false,
         description:
-          'Alternative values to use when filtering results in the combobox. For example, a previous name, official acronym or common mis-spelling.'
+          'Alternative values to use when searching options. For example, a previous name, official acronym or common mis-spelling.'
       },
       hintText: {
         type: 'string',
@@ -97,7 +97,7 @@ export const params = {
     description: 'Can be used to add a hint to the select component.',
     isComponent: true
   },
-  combobox: {
+  search: {
     type: 'boolean',
     required: false,
     description: 'Whether options available to the select can be searched.'
@@ -203,19 +203,19 @@ export const params = {
     type: 'string',
     required: false,
     description:
-      'Message shown for combobox option when no options matching search can be found.'
+      'Message shown for search option when no options matching search can be found.'
   },
   resultsText: {
     type: 'object',
     required: false,
     description:
-      'Message shown for combobox option when there options have been found that match a search. The component will replace the `%{count}` placeholder with the number of options found.'
+      'Message shown for search option when there options have been found that match a search. The component will replace the `%{count}` placeholder with the number of options found.'
   },
   selectDescriptionText: {
     type: 'string',
     required: false,
     description:
-      'Message shown for combobox option to describe how the component works. The component will replace the `%{count}` placeholder with the total number of options available.'
+      'Message shown for search option to describe how the component works. The component will replace the `%{count}` placeholder with the total number of options available.'
   }
 }
 

@@ -93,13 +93,13 @@ export const examples = {
       ]
     }
   },
-  'with combobox': {
+  'with search': {
     context: {
       label: {
         text: 'Choose a fruit',
         isPageHeading: true
       },
-      id: 'with-combobox',
+      id: 'with-search',
       name: 'example',
       items: [
         { text: 'Choose fruit', value: '' },
@@ -136,16 +136,16 @@ export const examples = {
         { text: 'Tangerine', value: 'tangerine' },
         { text: 'Watermelon', value: 'watermelon' }
       ],
-      combobox: true
+      search: true
     }
   },
-  'with combobox with option hints': {
+  'with search with option hints': {
     context: {
       label: {
         text: 'Choose a bone',
         isPageHeading: true
       },
-      id: 'with-combobox-hints',
+      id: 'with-search-hints',
       name: 'example',
       items: [
         { text: 'Choose bone', value: '' },
@@ -158,16 +158,16 @@ export const examples = {
         { text: 'Thigh bone', hintText: 'femur' },
         { text: 'Toe bones', hintText: 'phalanges' }
       ],
-      combobox: true
+      search: true
     }
   },
-  'with combobox with option synonyms': {
+  'with search with option synonyms': {
     context: {
       label: {
         text: 'Choose a medical condition',
         isPageHeading: true
       },
-      id: 'with-combobox-synonyms',
+      id: 'with-search-synonyms',
       name: 'example',
       items: [
         {
@@ -211,7 +211,7 @@ export const examples = {
           synonyms: ['brain attack', 'CVA', 'cerebrovascular accident']
         }
       ],
-      combobox: true
+      search: true
     }
   },
   'with hint': {
