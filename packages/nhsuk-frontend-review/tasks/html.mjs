@@ -1,9 +1,10 @@
 import { join, parse } from 'node:path'
 
 import * as config from '@nhsuk/frontend-config'
-import { components, files, nunjucks } from '@nhsuk/frontend-lib'
+import { components, files } from '@nhsuk/frontend-lib'
 import { task } from '@nhsuk/frontend-tasks'
 import { HtmlValidate, formatterFactory } from 'html-validate'
+import { nunjucks } from 'nhsuk-frontend/src/nhsuk/lib/index.mjs'
 import PluginError from 'plugin-error'
 
 import validatorConfig from '../.htmlvalidate.js'

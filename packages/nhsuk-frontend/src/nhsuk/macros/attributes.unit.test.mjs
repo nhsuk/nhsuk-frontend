@@ -1,5 +1,6 @@
-import { nunjucks } from '@nhsuk/frontend-lib'
 import { outdent } from 'outdent'
+
+import { nunjucks } from '#lib'
 
 describe('attributes.njk', () => {
   describe('nhsukAttributes', () => {

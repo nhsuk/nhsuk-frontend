@@ -1,6 +1,5 @@
 import { AxePuppeteer } from '@axe-core/puppeteer'
-import { components } from '@nhsuk/frontend-lib'
-import { componentNameToClassName } from '@nhsuk/frontend-lib/names.mjs'
+import { components, names } from 'nhsuk-frontend/src/nhsuk/lib/index.mjs'
 import slug from 'slug'
 
 const {
@@ -182,7 +181,7 @@ export async function render(page, component, renderOptions, browserOptions) {
   )
 
   const selector = `[data-module="nhsuk-${component}"]`
-  const exportName = componentNameToClassName(component)
+  const exportName = names.componentNameToClassName(component)
 
   // Run custom function before component init
   if (browserOptions?.beforeInitialisation) {
@@ -385,8 +384,7 @@ export async function isVisible($element) {
  */
 
 /**
- * @import { MacroExample } from '@nhsuk/frontend-lib/components.mjs'
- * @import { MacroRenderOptions } from '@nhsuk/frontend-lib/nunjucks/index.mjs'
+ * @import { MacroExample, MacroRenderOptions } from 'nhsuk-frontend/lib'
  * @import { RuleObject, RunOptions } from 'axe-core'
  * @import { Config, ConfigKey } from 'nhsuk-frontend'
  * @import { ElementHandle, EvaluateFuncWith, Handler, Page } from 'puppeteer'
