@@ -1,4 +1,5 @@
 import {
+  getPage,
   goToComponent,
   goToExample
 } from '@nhsuk/frontend-helpers/puppeteer.mjs'
@@ -11,13 +12,17 @@ describe('Password input', () => {
   const buttonSelector = '.nhsuk-js-password-input-toggle'
   const statusSelector = '.nhsuk-password-input__sr-status'
 
+  beforeAll(async () => {
+    page = await getPage(browser)
+  })
+
   describe('when JavaScript is unavailable or fails', () => {
     afterAll(async () => {
       await page.setJavaScriptEnabled(true)
     })
 
     beforeEach(async () => {
-      page = await goToComponent(browser, 'password-input')
+      page = await goToComponent(page, 'password-input')
 
       await page.setJavaScriptEnabled(false)
       await page.reload()
@@ -41,7 +46,7 @@ describe('Password input', () => {
   describe('when JavaScript is available', () => {
     describe('on page load', () => {
       beforeEach(async () => {
-        page = await goToComponent(browser, 'password-input')
+        page = await goToComponent(page, 'password-input')
       })
 
       it('renders the status element', async () => {
@@ -81,7 +86,7 @@ describe('Password input', () => {
       [3, itShowsThePassword]
     ])('when clicked %i time(s)', (clicks, expectation) => {
       beforeAll(async () => {
-        page = await goToComponent(browser, 'password-input')
+        page = await goToComponent(page, 'password-input')
         for (let i = 0; i < clicks; i++) {
           await page.click(buttonSelector)
         }
@@ -92,7 +97,7 @@ describe('Password input', () => {
 
     describe('when the form is submitted', () => {
       it('reverts the input back to password type', async () => {
-        page = await goToExample(browser, 'update-your-account-details')
+        page = await goToExample(page, 'update-your-account-details')
 
         // Prevent form submissions so that we don't navigate away during the test
         await page.evaluate(() => {
@@ -128,7 +133,7 @@ describe('Password input', () => {
 
     describe('i18n', () => {
       it('uses the correct translations when the password is visible', async () => {
-        page = await goToComponent(browser, 'password-input', {
+        page = await goToComponent(page, 'password-input', {
           example: 'with translations'
         })
 
@@ -155,7 +160,7 @@ describe('Password input', () => {
       })
 
       it('uses the correct translations when the password is hidden', async () => {
-        page = await goToComponent(browser, 'password-input', {
+        page = await goToComponent(page, 'password-input', {
           example: 'with translations'
         })
 
