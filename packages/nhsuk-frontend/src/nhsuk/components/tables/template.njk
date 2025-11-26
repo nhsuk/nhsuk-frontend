@@ -1,11 +1,19 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set classes for this component #}
-{%- set classNames = "nhsuk-table" if not params.responsive
-  else "nhsuk-table-responsive" -%}
+{%- set classNames = "nhsuk-table" if not params.responsive else "nhsuk-table-responsive" -%}
+{%- set classNamesCaption = "nhsuk-table__caption" -%}
+
+{%- if params.captionSize %}
+  {% set classNamesCaption = classNamesCaption ~ " nhsuk-table__caption--" ~ params.captionSize %}
+{% endif %}
 
 {%- if params.tableClasses %}
   {% set classNames = classNames ~ " " ~ params.tableClasses %}
+{% endif %}
+
+{%- if params.captionClasses %}
+  {% set classNamesCaption = classNamesCaption ~ " " ~ params.captionClasses %}
 {% endif %}
 
 {%- set headingLevel = params.headingLevel if params.headingLevel else 3 %}
@@ -15,8 +23,7 @@
   {%- if params.responsive %} role="table"{% endif %}
   {{- nhsukAttributes(params.attributes) }}>
 {% if params.caption %}
-  <caption class="nhsuk-table__caption
-    {%- if params.captionClasses %} {{ params.captionClasses }}{% endif %}">
+  <caption class="{{ classNamesCaption }}">
     {{ params.caption }}
   </caption>
 {% endif %}
