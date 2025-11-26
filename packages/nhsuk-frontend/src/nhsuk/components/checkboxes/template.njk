@@ -39,6 +39,8 @@
         {{- " disabled" if item.disabled }}
         {%- if item.exclusive %} data-checkbox-exclusive{% endif -%}
         {%- if item.exclusiveGroup %} data-checkbox-exclusive-group="{{ item.exclusiveGroup }}"{% endif -%}
+        {%- if item.inclusive %} data-checkbox-inclusive{% endif -%}
+        {%- if item.inclusiveGroup %} data-checkbox-inclusive-group="{{ item.inclusiveGroup }}"{% endif -%}
         {%- if item.conditional.html %} aria-controls="{{ conditionalId }}"{% endif -%}
         {%- if itemDescribedBy %} aria-describedby="{{ itemDescribedBy }}"{% endif -%}
         {{- nhsukAttributes(item.attributes) }}>
