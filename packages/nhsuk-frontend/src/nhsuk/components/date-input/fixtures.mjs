@@ -171,12 +171,11 @@ export const examples = {
       ]
     }
   },
-  'with legend size S': {
+  'legend': {
     context: {
       fieldset: {
         legend: {
           text: 'What is your date of birth?',
-          classes: 'nhsuk-fieldset__legend--s',
           isPageHeading: true
         }
       },
@@ -184,51 +183,50 @@ export const examples = {
         text: 'For example, 31 3 1980'
       },
       id: 'custom-size'
-    }
-  },
-  'with legend size M': {
-    context: {
-      fieldset: {
-        legend: {
-          text: 'What is your date of birth?',
-          classes: 'nhsuk-fieldset__legend--m',
-          isPageHeading: true
+    },
+    options: {
+      variants: [
+        {
+          description: 'with size S',
+          context: {
+            fieldset: {
+              legend: {
+                classes: 'nhsuk-fieldset__legend--s'
+              }
+            }
+          }
+        },
+        {
+          description: 'with size M',
+          context: {
+            fieldset: {
+              legend: {
+                classes: 'nhsuk-fieldset__legend--m'
+              }
+            }
+          }
+        },
+        {
+          description: 'with size L',
+          context: {
+            fieldset: {
+              legend: {
+                classes: 'nhsuk-fieldset__legend--l'
+              }
+            }
+          }
+        },
+        {
+          description: 'with size XL',
+          context: {
+            fieldset: {
+              legend: {
+                classes: 'nhsuk-fieldset__legend--xl'
+              }
+            }
+          }
         }
-      },
-      hint: {
-        text: 'For example, 31 3 1980'
-      },
-      id: 'custom-size'
-    }
-  },
-  'with legend size L': {
-    context: {
-      fieldset: {
-        legend: {
-          text: 'What is your date of birth?',
-          classes: 'nhsuk-fieldset__legend--l',
-          isPageHeading: true
-        }
-      },
-      hint: {
-        text: 'For example, 31 3 1980'
-      },
-      id: 'custom-size'
-    }
-  },
-  'with legend size XL': {
-    context: {
-      fieldset: {
-        legend: {
-          text: 'What is your date of birth?',
-          classes: 'nhsuk-fieldset__legend--xl',
-          isPageHeading: true
-        }
-      },
-      hint: {
-        text: 'For example, 31 3 1980'
-      },
-      id: 'custom-size'
+      ]
     }
   },
   'without page heading': {
