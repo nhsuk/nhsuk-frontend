@@ -14,41 +14,41 @@ export const examples = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
-  'size XL': {
+  'text': {
     context: {
       text: 'What is your full name?',
-      classes: 'nhsuk-label--xl',
       isPageHeading: true
+    },
+    options: {
+      variants: [
+        {
+          description: 'with size S',
+          context: {
+            classes: 'nhsuk-label--s'
+          }
+        },
+        {
+          description: 'with size M',
+          context: {
+            classes: 'nhsuk-label--m'
+          }
+        },
+        {
+          description: 'with size L',
+          context: {
+            classes: 'nhsuk-label--l'
+          }
+        },
+        {
+          description: 'with size XL',
+          context: {
+            classes: 'nhsuk-label--xl'
+          }
+        }
+      ]
     },
     screenshot: {
       viewports: ['tablet']
-    }
-  },
-  'size L': {
-    context: {
-      text: 'What is your full name?',
-      classes: 'nhsuk-label--l',
-      isPageHeading: true
-    },
-    screenshot: {
-      viewports: ['tablet']
-    }
-  },
-  'size M': {
-    context: {
-      text: 'What is your full name?',
-      classes: 'nhsuk-label--m',
-      isPageHeading: true
-    },
-    screenshot: {
-      viewports: ['tablet']
-    }
-  },
-  'size S': {
-    context: {
-      text: 'What is your full name?',
-      classes: 'nhsuk-label--s',
-      isPageHeading: true
     }
   },
   'without page heading': {

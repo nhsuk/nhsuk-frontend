@@ -105,52 +105,51 @@ export const examples = {
       rows: 15
     }
   },
-  'with label size S': {
+  'label': {
     context: {
       label: {
         text: 'Can you provide more detail?',
-        classes: 'nhsuk-label--s',
         isPageHeading: true
       },
       id: 'custom-size',
       name: 'example',
       maxlength: 200
-    }
-  },
-  'with label size M': {
-    context: {
-      label: {
-        text: 'Can you provide more detail?',
-        classes: 'nhsuk-label--m',
-        isPageHeading: true
-      },
-      id: 'custom-size',
-      name: 'example',
-      maxlength: 200
-    }
-  },
-  'with label size L': {
-    context: {
-      label: {
-        text: 'Can you provide more detail?',
-        classes: 'nhsuk-label--l',
-        isPageHeading: true
-      },
-      id: 'custom-size',
-      name: 'example',
-      maxlength: 200
-    }
-  },
-  'with label size XL': {
-    context: {
-      label: {
-        text: 'Can you provide more detail?',
-        classes: 'nhsuk-label--xl',
-        isPageHeading: true
-      },
-      id: 'custom-size',
-      name: 'example',
-      maxlength: 200
+    },
+    options: {
+      variants: [
+        {
+          description: 'with size S',
+          context: {
+            label: {
+              classes: 'nhsuk-label--s'
+            }
+          }
+        },
+        {
+          description: 'with size M',
+          context: {
+            label: {
+              classes: 'nhsuk-label--m'
+            }
+          }
+        },
+        {
+          description: 'with size L',
+          context: {
+            label: {
+              classes: 'nhsuk-label--l'
+            }
+          }
+        },
+        {
+          description: 'with size XL',
+          context: {
+            label: {
+              classes: 'nhsuk-label--xl'
+            }
+          }
+        }
+      ]
     }
   },
   'without page heading': {
