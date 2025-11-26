@@ -1,4 +1,4 @@
-import { goToComponent } from '@nhsuk/frontend-helpers/puppeteer.mjs'
+import { getPage, goToComponent } from '@nhsuk/frontend-helpers/puppeteer.mjs'
 
 describe('Button', () => {
   /** @type {Page} */
@@ -11,7 +11,8 @@ describe('Button', () => {
   const debouncedWaitTime = clickTimeoutTime + 100
 
   beforeAll(async () => {
-    page = await goToComponent(browser, 'button', {
+    page = await getPage(browser)
+    page = await goToComponent(page, 'button', {
       example: 'as a link'
     })
   })
@@ -94,7 +95,7 @@ describe('Button', () => {
       let $button
 
       beforeEach(async () => {
-        page = await goToComponent(browser, 'button')
+        page = await goToComponent(page, 'button')
         $button = await setButtonTracking(await page.$('button'))
       })
 
@@ -114,7 +115,7 @@ describe('Button', () => {
       let $button
 
       beforeEach(async () => {
-        page = await goToComponent(browser, 'button', {
+        page = await goToComponent(page, 'button', {
           example: 'with double click prevented'
         })
 
