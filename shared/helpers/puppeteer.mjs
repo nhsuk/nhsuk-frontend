@@ -125,7 +125,8 @@ export async function goToExample(page, example) {
  * @param {Page} page - Puppeteer page object
  * @param {string} [component] - Component name
  * @param {object} [options] - Navigation options
- * @param {string} options.example - Example name
+ * @param {string} options.name - Example name
+ * @param {string} [options.description] - Example description
  */
 export async function goToComponent(page, component, options) {
   const componentPath = getComponentPath(component, options)
@@ -137,7 +138,8 @@ export async function goToComponent(page, component, options) {
  *
  * @param {string} [component] - Component name
  * @param {object} [options] - Navigation options
- * @param {string} options.example - Example name
+ * @param {string} options.name - Example name
+ * @param {string} [options.description] - Example description
  */
 export function getComponentURL(component, options) {
   const componentPath = getComponentPath(component, options)
@@ -149,14 +151,20 @@ export function getComponentURL(component, options) {
  *
  * @param {string} [component] - Component name
  * @param {object} [options] - Navigation options
- * @param {string} options.example - Example name
+ * @param {string} options.name - Example name
+ * @param {string} [options.description] - Example description
  */
 export function getComponentPath(component, options) {
   let componentPath = `/components/${component}`
 
+  // Prefix with description, e.g. 'small with hint'
+  const exampleName = options?.name
+    ? `${options.description ?? ''} ${options.name}`.trim()
+    : ''
+
   // Add example name to URL
-  componentPath += options?.example
-    ? `/${slug(options.example, { lower: true })}/`
+  componentPath += exampleName
+    ? `/${slug(exampleName, { lower: true })}/`
     : '/default/'
 
   return componentPath

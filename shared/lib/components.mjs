@@ -153,7 +153,7 @@ export function getAllFixtures() {
  * Render component HTML
  *
  * @param {string} component - Component directory name
- * @param {MacroRenderOptions} [options] - Nunjucks macro render options
+ * @param {MacroRenderOptions | MacroExample} [options] - Nunjucks macro render options
  * @returns HTML rendered by the component
  */
 export function render(component, options) {
@@ -218,6 +218,7 @@ export function render(component, options) {
  * @typedef {object} MacroExampleOptions
  * @property {boolean} [hidden] - Hide example on component listing pages
  * @property {string} [layout] - Nunjucks layout for component preview page
+ * @property {MacroExample[]} [variants] - Review app example variants
  * @property {MacroExampleWidth | false} [width] - Component grid column width (or set `false` to remove width container)
  */
 

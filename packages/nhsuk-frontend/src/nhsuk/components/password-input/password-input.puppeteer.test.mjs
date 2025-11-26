@@ -134,7 +134,7 @@ describe('Password input', () => {
     describe('i18n', () => {
       it('uses the correct translations when the password is visible', async () => {
         page = await goToComponent(page, 'password-input', {
-          example: 'with translations'
+          name: 'with translations'
         })
 
         await page.click(buttonSelector)
@@ -161,7 +161,7 @@ describe('Password input', () => {
 
       it('uses the correct translations when the password is hidden', async () => {
         page = await goToComponent(page, 'password-input', {
-          example: 'with translations'
+          name: 'with translations'
         })
 
         // This test clicks the toggle twice because the status element is not populated when

@@ -221,7 +221,7 @@ describe('Tabs', () => {
 
     it('should only update based on hashes that are tabs', async () => {
       page = await goToComponent(page, 'tabs', {
-        example: 'with anchor in panel'
+        name: 'with anchor in panel'
       })
 
       await page.click('[href="#anchor"]')

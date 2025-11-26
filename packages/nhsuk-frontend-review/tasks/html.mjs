@@ -60,7 +60,10 @@ export const compile = task.name('html:render', async () => {
 
     // Render component examples
     for (const fixture of fixtures) {
-      const { name: exampleName, html, options } = fixture
+      const { html, options } = fixture
+
+      // Prefix with description, e.g. 'small with hint'
+      const exampleName = `${fixture.description ?? ''} ${fixture.name}`.trim()
 
       // Render component example into layout
       const templateHtml = nunjucks.renderTemplate('layouts/preview.njk', {
