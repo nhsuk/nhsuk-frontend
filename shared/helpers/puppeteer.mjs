@@ -95,11 +95,6 @@ async function goTo(page, pathOrUrl) {
     ? getURL(pathOrUrl) // Build URL from base
     : pathOrUrl
 
-  // Throw on JavaScript page errors
-  page.on('pageerror', (error) => {
-    throw error
-  })
-
   const response = await page.goto(href)
   const code = response.status()
 
@@ -117,24 +112,24 @@ async function goTo(page, pathOrUrl) {
 /**
  * Navigate to example
  *
- * @param {Browser} browser - Puppeteer browser object
+ * @param {Page} page - Puppeteer page object
  * @param {string} example - Example name
  */
-export async function goToExample(browser, example) {
-  return goTo(await browser.newPage(), `./examples/${example}/`)
+export async function goToExample(page, example) {
+  return goTo(page, `./examples/${example}/`)
 }
 
 /**
  * Navigate to component preview page
  *
- * @param {Browser} browser - Puppeteer browser object
+ * @param {Page} page - Puppeteer page object
  * @param {string} [component] - Component name
  * @param {object} [options] - Navigation options
  * @param {string} options.example - Example name
  */
-export async function goToComponent(browser, component, options) {
+export async function goToComponent(page, component, options) {
   const componentPath = getComponentPath(component, options)
-  return goTo(await browser.newPage(), `.${componentPath}`)
+  return goTo(page, `.${componentPath}`)
 }
 
 /**
@@ -170,6 +165,23 @@ export function getComponentPath(component, options) {
 /**
  * Get review app URL
  *
+ * @param {Browser} browser - Puppeteer browser object
+ * @param {CreatePageOptions} [options] - Puppeteer page options
+ */
+export async function getPage(browser, options) {
+  const page = await browser.newPage(options)
+
+  // Throw on JavaScript page errors
+  page.on('pageerror', (error) => {
+    throw error
+  })
+
+  return page
+}
+
+/**
+ * Get review app URL
+ *
  * @param {string} path - Path to navigate to
  */
 export function getURL(path) {
@@ -178,5 +190,5 @@ export function getURL(path) {
 
 /**
  * @import { RuleObject, RunOptions } from 'axe-core'
- * @import { Page, Browser } from 'puppeteer'
+ * @import { Browser, CreatePageOptions, Page } from 'puppeteer'
  */
