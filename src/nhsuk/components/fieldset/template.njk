@@ -1,4 +1,5 @@
-{% from "nhsuk/macros/attributes.njk" import nhsukAttributes -%}
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/components/legend/macro.njk" import legend %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-fieldset" -%}
@@ -25,17 +26,7 @@
   }) -}}
 
   {{- nhsukAttributes(params.attributes) }}>
-  {% if params.legend.html or params.legend.text %}
-  <legend class="nhsuk-fieldset__legend {%- if params.legend.classes %} {{ params.legend.classes }}{% endif %}">
-  {% if params.legend.isPageHeading %}
-    <h1 class="nhsuk-fieldset__heading">
-      {{ params.legend.html | safe | trim | indent(6) if params.legend.html else params.legend.text }}
-    </h1>
-  {% else %}
-    {{ params.legend.html | safe | trim | indent(4) if params.legend.html else params.legend.text }}
-  {% endif %}
-  </legend>
-  {% endif %}
+  {{ legend(params.legend) | trim | indent(2) }}
 {% if caller %} {#- if statement allows usage of `call` to be optional -#}
   {{ caller() }}
 {% elif params.html %}
