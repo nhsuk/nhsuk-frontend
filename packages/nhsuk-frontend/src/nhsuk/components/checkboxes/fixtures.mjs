@@ -736,6 +736,41 @@ const fixtures = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
+  'with "select all" option': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'What are your favourite colours?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: true
+        }
+      },
+      idPrefix: 'select-all',
+      name: 'example',
+      items: [
+        {
+          value: 'all',
+          text: 'All colours',
+          inclusive: true
+        },
+        {
+          divider: 'or'
+        },
+        {
+          value: 'red',
+          text: 'Red'
+        },
+        {
+          value: 'green',
+          text: 'Green'
+        },
+        {
+          value: 'blue',
+          text: 'Blue'
+        }
+      ]
+    }
+  },
   'with "none of the above" option': {
     context: {
       fieldset: {
