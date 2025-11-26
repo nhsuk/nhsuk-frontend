@@ -159,6 +159,12 @@ If you are not using Nunjucks macros, update your HTML markup using the [tabs ex
 
 This change was introduced in [pull request #1686: Remove ↑ up and ↓ down arrow key bindings from tabs](https://github.com/nhsuk/nhsuk-frontend/pull/1686).
 
+#### Remove unused top task card class name
+
+We've updated the HTML for the card component to remove the unused `nhsuk-card--top-task` class and associated `topTask` Nunjucks option.
+
+If you are not using Nunjucks macros, update your HTML markup using the [top task card example in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/action-link) where the `nhsuk-card--clickable` class is used instead.
+
 ### :wrench: **Fixes**
 
 - [#1633: Review global `box-sizing` usage](https://github.com/nhsuk/nhsuk-frontend/pull/1633)
