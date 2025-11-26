@@ -197,6 +197,39 @@ export function getURL(path) {
 }
 
 /**
+ * Get navigation options list from example
+ *
+ * @param {string} name - Component name
+ * @param {MacroExample} example - Nunjucks macro example
+ * @returns {NavigationOptions[]} Navigation options list
+ */
+export function getOptions(name, example) {
+  const { options = {} } = example
+
+  // Options for single example only
+  if (!('variants' in options)) {
+    return [{ name, title: 'example' }]
+  }
+
+  // Options for multiple variants
+  return options.variants.map(({ description }) => ({
+    name,
+    description,
+    title: `'${description}'`
+  }))
+}
+
+/**
+ * Navigation options
+ *
+ * @typedef {object} NavigationOptions
+ * @property {string} name - Example name (e.g. 'with hint')
+ * @property {string} [description] - Example description (e.g. 'small')
+ * @property {string} [title] - Unique test title (optional)
+ */
+
+/**
+ * @import { MacroExample } from '@nhsuk/frontend-lib/components.mjs'
  * @import { RuleObject, RunOptions } from 'axe-core'
  * @import { Browser, CreatePageOptions, Page } from 'puppeteer'
  */

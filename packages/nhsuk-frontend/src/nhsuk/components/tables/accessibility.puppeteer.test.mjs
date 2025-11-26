@@ -1,6 +1,7 @@
 import {
   axe,
   getPage,
+  getOptions,
   goToComponent
 } from '@nhsuk/frontend-helpers/puppeteer.mjs'
 
@@ -14,11 +15,14 @@ describe('Tables', () => {
     page = await getPage(browser)
   })
 
-  describe.each(Object.keys(examples))('%s', (example) => {
-    it('passes accessibility tests', async () => {
-      await goToComponent(page, 'tables', { example })
-      return expect(axe(page)).resolves.toHaveNoViolations()
-    })
+  describe.each(Object.entries(examples))('%s', (name, example) => {
+    it.each(getOptions(name, example))(
+      '$title passes accessibility tests',
+      async (options) => {
+        await goToComponent(page, 'tables', options)
+        return expect(axe(page)).resolves.toHaveNoViolations()
+      }
+    )
   })
 })
 
