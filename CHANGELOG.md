@@ -98,6 +98,28 @@ We've added a new `divider` Nunjucks option on select items to support this feat
 
 This was added in [pull request #1701: Support showing dividers between select options](https://github.com/nhsuk/nhsuk-frontend/pull/1701).
 
+#### Add a 'headingLevel' Nunjucks option to labels and legends
+
+The Nunjucks option `isPageHeading` sets whether the label or legend also acts as the heading for the page.
+
+We've added a new `headingLevel` Nunjucks option as a replacement for `isPageHeading` when a custom heading level is necessary, for example when a label or legend acts as the heading for a landmark:
+
+```patch
+<aside>
+  {{ input({
+    label: {
+      text: 'Search',
+-     isPageHeading: true
++     headingLevel: 2
+    }
+  }) }}
+
+  <!-- // … -->
+</aside>
+```
+
+This was adde in [pull request #1670: Add label and legend `headingLevel` option](https://github.com/nhsuk/nhsuk-frontend/pull/1670).
+
 #### Add a 'size' Nunjucks option to labels and legends
 
 We've added a new `size` Nunjucks option to labels and legends as a simpler alternative to the size modifier classes. For example:
