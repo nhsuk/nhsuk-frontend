@@ -13,7 +13,7 @@ describe('Button', () => {
   beforeAll(async () => {
     page = await getPage(browser)
     page = await goToComponent(page, 'button', {
-      example: 'as a link'
+      name: 'as a link'
     })
   })
 
@@ -116,7 +116,7 @@ describe('Button', () => {
 
       beforeEach(async () => {
         page = await goToComponent(page, 'button', {
-          example: 'with double click prevented'
+          name: 'with double click prevented'
         })
 
         $button = await setButtonTracking(await page.$('button'))
