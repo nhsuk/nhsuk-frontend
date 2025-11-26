@@ -38,19 +38,7 @@ export async function load(component) {
         ["(don't)", '2 do-dont'],
 
         // Sort urgent with non-urgent
-        ['non-', ''],
-
-        // Sort sizes numerically
-        ['size S', 'size 1'],
-        ['size M', 'size 2'],
-        ['size L', 'size 3'],
-        ['size XL', 'size 4'],
-
-        // Sort small variants with default sizes
-        [', small', ''],
-
-        // Sort small form controls to end
-        [/^small/, 'ZZZ']
+        ['non-', '']
       ])) {
         nameA = nameA.replace(find, replace)
         nameB = nameB.replace(find, replace)
