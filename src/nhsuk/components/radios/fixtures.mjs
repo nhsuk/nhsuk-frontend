@@ -11,7 +11,7 @@ export const variants = [
     context: {
       fieldset: {
         legend: {
-          classes: 'nhsuk-fieldset__legend--l',
+          size: 'l',
           isPageHeading: true
         }
       }
@@ -23,7 +23,7 @@ export const variants = [
       classes: 'nhsuk-radios--small',
       fieldset: {
         legend: {
-          classes: 'nhsuk-fieldset__legend--m',
+          size: 'm',
           isPageHeading: true
         }
       }
@@ -143,7 +143,7 @@ export const examples = {
         context: {
           fieldset: {
             legend: {
-              classes: 'nhsuk-fieldset__legend--s'
+              size: 's'
             }
           }
         }
@@ -153,7 +153,7 @@ export const examples = {
         context: {
           fieldset: {
             legend: {
-              classes: 'nhsuk-fieldset__legend--m'
+              size: 'm'
             }
           }
         }
@@ -163,7 +163,7 @@ export const examples = {
         context: {
           fieldset: {
             legend: {
-              classes: 'nhsuk-fieldset__legend--l'
+              size: 'l'
             }
           }
         }
@@ -173,7 +173,7 @@ export const examples = {
         context: {
           fieldset: {
             legend: {
-              classes: 'nhsuk-fieldset__legend--xl'
+              size: 'xl'
             }
           }
         }
@@ -658,7 +658,7 @@ export const examples = {
                 fieldset: {
                   legend: {
                     text: 'How do you want to be contacted about this?',
-                    classes: 'nhsuk-fieldset__legend--s'
+                    size: 's'
                   }
                 },
                 hint: {
