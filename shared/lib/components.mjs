@@ -38,19 +38,7 @@ export async function load(component) {
         ["(don't)", '2 do-dont'],
 
         // Sort urgent with non-urgent
-        ['non-', ''],
-
-        // Sort sizes numerically
-        ['size S', 'size 1'],
-        ['size M', 'size 2'],
-        ['size L', 'size 3'],
-        ['size XL', 'size 4'],
-
-        // Sort small variants with default sizes
-        [', small', ''],
-
-        // Sort small form controls to end
-        [/^small/, 'ZZZ']
+        ['non-', '']
       ])) {
         nameA = nameA.replace(find, replace)
         nameB = nameB.replace(find, replace)
@@ -153,7 +141,7 @@ export function getAllFixtures() {
  * Render component HTML
  *
  * @param {string} component - Component directory name
- * @param {MacroRenderOptions} [options] - Nunjucks macro render options
+ * @param {MacroRenderOptions | MacroExample} [options] - Nunjucks macro render options
  * @returns HTML rendered by the component
  */
 export function render(component, options) {
@@ -209,6 +197,7 @@ export function render(component, options) {
  * @property {{ [param: string]: unknown }} [context] - Nunjucks context object (optional)
  * @property {string | undefined} [callBlock] - Nunjucks macro `caller()` content (optional)
  * @property {MacroExampleOptions} [options] - Review app example options (optional)
+ * @property {MacroExample[]} [variants] - Review app example variants (optional)
  * @property {MacroScreenshot | MacroScreenshot[] | boolean} [screenshot] - Screenshot and include in visual regression tests
  */
 
@@ -237,7 +226,10 @@ export function render(component, options) {
  * Nunjucks macro example fixture
  * (used by the Design System website)
  *
- * @typedef {Required<MacroExample> & { name: string, html: string }} MacroExampleFixture
+ * @typedef {Omit<Required<MacroExample>, 'variants'> & {
+ *   name: string,
+ *   html: string
+ * }} MacroExampleFixture
  */
 
 /**

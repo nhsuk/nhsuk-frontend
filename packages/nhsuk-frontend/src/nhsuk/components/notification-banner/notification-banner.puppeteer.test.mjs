@@ -1,13 +1,17 @@
-import { goToComponent } from '@nhsuk/frontend-helpers/puppeteer.mjs'
+import { getPage, goToComponent } from '@nhsuk/frontend-helpers/puppeteer.mjs'
 
 describe('Notification banner', () => {
   /** @type {Page} */
   let page
 
+  beforeAll(async () => {
+    page = await getPage(browser)
+  })
+
   describe('when type is set to "success"', () => {
     beforeAll(async () => {
-      page = await goToComponent(browser, 'notification-banner', {
-        example: 'with type as success'
+      page = await goToComponent(page, 'notification-banner', {
+        name: 'with type as success'
       })
     })
 
@@ -41,8 +45,8 @@ describe('Notification banner', () => {
 
     describe('and auto-focus is disabled using data attributes', () => {
       beforeAll(async () => {
-        page = await goToComponent(browser, 'notification-banner', {
-          example: 'auto-focus disabled, with type as success'
+        page = await goToComponent(page, 'notification-banner', {
+          name: 'auto-focus disabled, with type as success'
         })
       })
 
@@ -65,8 +69,8 @@ describe('Notification banner', () => {
 
     describe('and role is overridden to "region"', () => {
       beforeAll(async () => {
-        page = await goToComponent(browser, 'notification-banner', {
-          example: 'role=alert overridden to role=region, with type as success'
+        page = await goToComponent(page, 'notification-banner', {
+          name: 'role=alert overridden to role=region, with type as success'
         })
       })
 
@@ -89,8 +93,8 @@ describe('Notification banner', () => {
 
     describe('and a custom tabindex is set', () => {
       beforeAll(async () => {
-        page = await goToComponent(browser, 'notification-banner', {
-          example: 'custom tabindex'
+        page = await goToComponent(page, 'notification-banner', {
+          name: 'custom tabindex'
         })
       })
 

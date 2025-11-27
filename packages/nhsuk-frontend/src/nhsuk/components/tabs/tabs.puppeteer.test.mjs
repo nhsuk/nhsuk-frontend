@@ -1,4 +1,4 @@
-import { goToComponent } from '@nhsuk/frontend-helpers/puppeteer.mjs'
+import { getPage, goToComponent } from '@nhsuk/frontend-helpers/puppeteer.mjs'
 import { KnownDevices } from 'puppeteer'
 
 const iPhone = KnownDevices['iPhone 6']
@@ -7,9 +7,13 @@ describe('Tabs', () => {
   /** @type {Page} */
   let page
 
+  beforeAll(async () => {
+    page = await getPage(browser)
+  })
+
   describe('when JavaScript is unavailable or fails', () => {
     beforeEach(async () => {
-      page = await goToComponent(browser, 'tabs')
+      page = await goToComponent(page, 'tabs')
 
       await page.setJavaScriptEnabled(false)
       await page.reload()
@@ -30,7 +34,7 @@ describe('Tabs', () => {
 
   describe('when JavaScript is available', () => {
     beforeEach(async () => {
-      page = await goToComponent(browser, 'tabs')
+      page = await goToComponent(page, 'tabs')
     })
 
     it('should indicate the open state of the first tab', async () => {
@@ -72,7 +76,7 @@ describe('Tabs', () => {
 
   describe('when a tab is pressed', () => {
     beforeEach(async () => {
-      page = await goToComponent(browser, 'tabs')
+      page = await goToComponent(page, 'tabs')
     })
 
     it('should indicate the open state of the pressed tab', async () => {
@@ -111,7 +115,7 @@ describe('Tabs', () => {
 
     describe('when the tab contains a DOM element', () => {
       beforeEach(async () => {
-        page = await goToComponent(browser, 'tabs')
+        page = await goToComponent(page, 'tabs')
       })
 
       it('should display the tab panel associated with the selected tab', async () => {
@@ -145,7 +149,7 @@ describe('Tabs', () => {
 
   describe('when first tab is focused and the right arrow key is pressed', () => {
     beforeEach(async () => {
-      page = await goToComponent(browser, 'tabs')
+      page = await goToComponent(page, 'tabs')
     })
 
     it('should indicate the open state of the next tab', async () => {
@@ -187,7 +191,7 @@ describe('Tabs', () => {
 
   describe('when a hash associated with a tab panel is passed in the URL', () => {
     it('should indicate the open state of the associated tab', async () => {
-      page = await goToComponent(browser, 'tabs')
+      page = await goToComponent(page, 'tabs')
 
       await page.evaluate(() => {
         window.location.hash = '#past-week'
@@ -216,8 +220,8 @@ describe('Tabs', () => {
     })
 
     it('should only update based on hashes that are tabs', async () => {
-      page = await goToComponent(browser, 'tabs', {
-        example: 'with anchor in panel'
+      page = await goToComponent(page, 'tabs', {
+        name: 'with anchor in panel'
       })
 
       await page.click('[href="#anchor"]')
@@ -231,7 +235,7 @@ describe('Tabs', () => {
 
   describe('when rendered on a small device', () => {
     beforeEach(async () => {
-      page = await goToComponent(browser, 'tabs')
+      page = await goToComponent(page, 'tabs')
     })
 
     it('falls back to making the all tab containers visible', async () => {

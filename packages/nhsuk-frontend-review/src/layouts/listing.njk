@@ -36,26 +36,27 @@
   </section>
 
 {% for fixture in fixtures %}
+  {% set exampleName = fixture.description ~ " " ~ fixture.name if fixture.description else fixture.name -%}
   {% set options = fixture.options -%}
   {% set isFullWidth = options.width === false -%}
   {% set isReverse = options.layout == "background-blue" -%}
 
   {% if not options.hidden %}
-  <section id="{{ fixture.name | slugify }}" class="nhsuk-main-wrapper app-wrapper {%- if options.layout %} app-wrapper--{{ options.layout }}{%- endif %}">
+  <section id="{{ exampleName | slugify }}" class="nhsuk-main-wrapper app-wrapper {%- if options.layout %} app-wrapper--{{ options.layout }}{%- endif %}">
     <div class="nhsuk-width-container">
       <div class="nhsuk-grid-row">
         <div class="nhsuk-grid-column-{{ options.width | default("two-thirds", true) }}">
           <h3 class="nhsuk-heading-s nhsuk-u-margin-bottom-2 nhsuk-u-margin-top-4">
-            {{- name ~ " " ~ fixture.name -}}
+            {{- name ~ " " ~ exampleName -}}
           </h3>
           <p class="nhsuk-body nhsuk-u-margin-bottom-6">
             <a {{- nhsukAttributes({
-              href: fixture.name | slugify ~ "/",
+              href: exampleName | slugify ~ "/",
               class: "nhsuk-link nhsuk-link--no-visited-state" ~ (" nhsuk-link--reverse" if isReverse else ""),
               rel: "noreferrer noopener",
               target: "_blank"
             }) -}}>
-              Open this example in a new tab<span class="nhsuk-u-visually-hidden">: {{ name ~ " " ~ fixture.name }}</span>
+              Open this example in a new tab<span class="nhsuk-u-visually-hidden">: {{ name ~ " " ~ exampleName }}</span>
             </a>
           </p>
           {{ renderExample(fixture, loop.index) | indent(10) if not isFullWidth }}

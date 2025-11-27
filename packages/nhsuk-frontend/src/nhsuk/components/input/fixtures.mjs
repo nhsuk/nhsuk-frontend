@@ -133,81 +133,81 @@ export const examples = {
       selector: '#with-hint-error'
     }
   },
-  'with 2 character width': {
+  'width': {
     context: {
-      label: {
-        text: '2 character width'
-      },
-      id: 'input-width-2',
       name: 'example',
-      classes: 'nhsuk-input--width-2'
-    }
-  },
-  'with 3 character width': {
-    context: {
-      label: {
-        text: '3 character width'
+      id: 'input-width'
+    },
+    variants: [
+      {
+        description: 'with 2 character',
+        context: {
+          label: {
+            text: '2 character width'
+          },
+          classes: 'nhsuk-input--width-2'
+        }
       },
-      id: 'input-width-3',
-      name: 'example',
-      classes: 'nhsuk-input--width-3'
-    }
-  },
-  'with 4 character width': {
-    context: {
-      label: {
-        text: '4 character width'
+      {
+        description: 'with 3 character',
+        context: {
+          label: {
+            text: '3 character width'
+          },
+          classes: 'nhsuk-input--width-3'
+        }
       },
-      id: 'input-width-4',
-      name: 'example',
-      classes: 'nhsuk-input--width-4'
-    }
-  },
-  'with 5 character width': {
-    context: {
-      label: {
-        text: '5 character width'
+      {
+        description: 'with 4 character',
+        context: {
+          label: {
+            text: '4 character width'
+          },
+          classes: 'nhsuk-input--width-4'
+        }
       },
-      id: 'input-width-5',
-      name: 'example',
-      classes: 'nhsuk-input--width-5'
-    }
-  },
-  'with 10 character width': {
-    context: {
-      label: {
-        text: '10 character width'
+      {
+        description: 'with 5 character',
+        context: {
+          label: {
+            text: '5 character width'
+          },
+          classes: 'nhsuk-input--width-5'
+        }
       },
-      id: 'input-width-10',
-      name: 'example',
-      classes: 'nhsuk-input--width-10'
-    }
-  },
-  'with 20 character width': {
-    context: {
-      label: {
-        text: '20 character width'
+      {
+        description: 'with 10 character',
+        context: {
+          label: {
+            text: '10 character width'
+          },
+          classes: 'nhsuk-input--width-10'
+        }
       },
-      id: 'input-width-20',
-      name: 'example',
-      classes: 'nhsuk-input--width-20'
-    }
-  },
-  'with 30 character width': {
-    context: {
-      label: {
-        text: '30 character width'
+      {
+        description: 'with 20 character',
+        context: {
+          label: {
+            text: '20 character width'
+          },
+          classes: 'nhsuk-input--width-20'
+        }
       },
-      id: 'input-width-30',
-      name: 'example',
-      classes: 'nhsuk-input--width-30'
-    }
+      {
+        description: 'with 30 character',
+        context: {
+          label: {
+            text: '30 character width'
+          },
+          classes: 'nhsuk-input--width-30'
+        }
+      }
+    ]
   },
-  'with label size S': {
+  'label': {
     context: {
       label: {
         text: 'What is your NHS number?',
-        classes: 'nhsuk-label--s',
         isPageHeading: true
       },
       id: 'custom-size',
@@ -215,49 +215,41 @@ export const examples = {
       classes: 'nhsuk-input--width-10 nhsuk-input--code',
       inputmode: 'numeric',
       spellcheck: false
-    }
-  },
-  'with label size M': {
-    context: {
-      label: {
-        text: 'What is your NHS number?',
-        classes: 'nhsuk-label--m',
-        isPageHeading: true
+    },
+    variants: [
+      {
+        description: 'with size S',
+        context: {
+          label: {
+            classes: 'nhsuk-label--s'
+          }
+        }
       },
-      id: 'custom-size',
-      name: 'example',
-      classes: 'nhsuk-input--width-10 nhsuk-input--code',
-      inputmode: 'numeric',
-      spellcheck: false
-    }
-  },
-  'with label size L': {
-    context: {
-      label: {
-        text: 'What is your NHS number?',
-        classes: 'nhsuk-label--l',
-        isPageHeading: true
+      {
+        description: 'with size M',
+        context: {
+          label: {
+            classes: 'nhsuk-label--m'
+          }
+        }
       },
-      id: 'custom-size',
-      name: 'example',
-      classes: 'nhsuk-input--width-10 nhsuk-input--code',
-      inputmode: 'numeric',
-      spellcheck: false
-    }
-  },
-  'with label size XL': {
-    context: {
-      label: {
-        text: 'What is your NHS number?',
-        classes: 'nhsuk-label--xl',
-        isPageHeading: true
+      {
+        description: 'with size L',
+        context: {
+          label: {
+            classes: 'nhsuk-label--l'
+          }
+        }
       },
-      id: 'custom-size',
-      name: 'example',
-      classes: 'nhsuk-input--width-10 nhsuk-input--code',
-      inputmode: 'numeric',
-      spellcheck: false
-    }
+      {
+        description: 'with size XL',
+        context: {
+          label: {
+            classes: 'nhsuk-label--xl'
+          }
+        }
+      }
+    ]
   },
   'without page heading': {
     context: {

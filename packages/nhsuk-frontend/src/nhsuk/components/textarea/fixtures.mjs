@@ -32,11 +32,10 @@ export const examples = {
       name: 'example'
     }
   },
-  'with label size S': {
+  'label': {
     context: {
       label: {
         text: 'Can you provide more detail?',
-        classes: 'nhsuk-label--s',
         isPageHeading: true
       },
       hint: {
@@ -44,49 +43,41 @@ export const examples = {
       },
       id: 'custom-size',
       name: 'example'
-    }
-  },
-  'with label size M': {
-    context: {
-      label: {
-        text: 'Can you provide more detail?',
-        classes: 'nhsuk-label--m',
-        isPageHeading: true
+    },
+    variants: [
+      {
+        description: 'with size S',
+        context: {
+          label: {
+            classes: 'nhsuk-label--s'
+          }
+        }
       },
-      hint: {
-        text: 'Do not include personal information like your name, date of birth or NHS number'
+      {
+        description: 'with size M',
+        context: {
+          label: {
+            classes: 'nhsuk-label--m'
+          }
+        }
       },
-      id: 'custom-size',
-      name: 'example'
-    }
-  },
-  'with label size L': {
-    context: {
-      label: {
-        text: 'Can you provide more detail?',
-        classes: 'nhsuk-label--l',
-        isPageHeading: true
+      {
+        description: 'with size L',
+        context: {
+          label: {
+            classes: 'nhsuk-label--l'
+          }
+        }
       },
-      hint: {
-        text: 'Do not include personal information like your name, date of birth or NHS number'
-      },
-      id: 'custom-size',
-      name: 'example'
-    }
-  },
-  'with label size XL': {
-    context: {
-      label: {
-        text: 'Can you provide more detail?',
-        classes: 'nhsuk-label--xl',
-        isPageHeading: true
-      },
-      hint: {
-        text: 'Do not include personal information like your name, date of birth or NHS number'
-      },
-      id: 'custom-size',
-      name: 'example'
-    }
+      {
+        description: 'with size XL',
+        context: {
+          label: {
+            classes: 'nhsuk-label--xl'
+          }
+        }
+      }
+    ]
   },
   'without page heading': {
     context: {

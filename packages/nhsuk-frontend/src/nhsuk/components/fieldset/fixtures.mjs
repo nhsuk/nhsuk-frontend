@@ -62,41 +62,47 @@ export const examples = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
-  'with legend size XL': {
+  'legend': {
     context: {
       legend: {
         text: 'What is your address?',
-        classes: 'nhsuk-fieldset__legend--xl',
         isPageHeading: true
       }
-    }
-  },
-  'with legend size L': {
-    context: {
-      legend: {
-        text: 'What is your address?',
-        classes: 'nhsuk-fieldset__legend--l',
-        isPageHeading: true
+    },
+    variants: [
+      {
+        description: 'with size S',
+        context: {
+          legend: {
+            classes: 'nhsuk-fieldset__legend--s'
+          }
+        }
+      },
+      {
+        description: 'with size M',
+        context: {
+          legend: {
+            classes: 'nhsuk-fieldset__legend--m'
+          }
+        }
+      },
+      {
+        description: 'with size L',
+        context: {
+          legend: {
+            classes: 'nhsuk-fieldset__legend--l'
+          }
+        }
+      },
+      {
+        description: 'with size XL',
+        context: {
+          legend: {
+            classes: 'nhsuk-fieldset__legend--xl'
+          }
+        }
       }
-    }
-  },
-  'with legend size M': {
-    context: {
-      legend: {
-        text: 'What is your address?',
-        classes: 'nhsuk-fieldset__legend--m',
-        isPageHeading: true
-      }
-    }
-  },
-  'with legend size S': {
-    context: {
-      legend: {
-        text: 'What is your address?',
-        classes: 'nhsuk-fieldset__legend--s',
-        isPageHeading: true
-      }
-    }
+    ]
   },
   'without page heading': {
     context: {
