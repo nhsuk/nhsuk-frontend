@@ -48,7 +48,6 @@ export const examples = {
       layout: 'background-blue'
     },
     screenshot: {
-      states: ['focus', 'hover', 'active'],
       selector: '.nhsuk-breadcrumb a'
     }
   },
