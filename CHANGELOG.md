@@ -98,6 +98,12 @@ We've added a new `divider` Nunjucks option on select items to support this feat
 
 This was added in [pull request #1701: Support showing dividers between select options](https://github.com/nhsuk/nhsuk-frontend/pull/1701).
 
+#### Interruption panel
+
+We've added a new variant of the panel component with a solid blue background and white text. This can be used as an interruption card.
+
+This was added in [pull request #1196: Add interruption panel variant](https://github.com/nhsuk/nhsuk-frontend/pull/1196).
+
 ### :wastebasket: **Deprecated features**
 
 #### Rename input wrapper HTML class

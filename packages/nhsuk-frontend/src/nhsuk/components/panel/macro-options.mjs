@@ -23,6 +23,12 @@ export const params = {
     description:
       'If `titleText` is set, this is not required. HTML to use within the panel. If `titleHtml` is provided, the `titleText` option will be ignored.'
   },
+  titleClasses: {
+    type: 'string',
+    required: false,
+    description:
+      'Optional additional classes to add to the heading tag. Separate each class with a space.'
+  },
   headingLevel: {
     type: 'integer',
     required: false,
