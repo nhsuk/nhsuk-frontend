@@ -197,6 +197,7 @@ export function render(component, options) {
  * @property {{ [param: string]: unknown }} [context] - Nunjucks context object (optional)
  * @property {string | undefined} [callBlock] - Nunjucks macro `caller()` content (optional)
  * @property {MacroExampleOptions} [options] - Review app example options (optional)
+ * @property {MacroExample[]} [variants] - Review app example variants (optional)
  * @property {MacroScreenshot | MacroScreenshot[] | boolean} [screenshot] - Screenshot and include in visual regression tests
  */
 
@@ -206,7 +207,6 @@ export function render(component, options) {
  * @typedef {object} MacroExampleOptions
  * @property {boolean} [hidden] - Hide example on component listing pages
  * @property {string} [layout] - Nunjucks layout for component preview page
- * @property {MacroExample[]} [variants] - Review app example variants
  * @property {MacroExampleWidth | false} [width] - Component grid column width (or set `false` to remove width container)
  */
 
@@ -226,7 +226,10 @@ export function render(component, options) {
  * Nunjucks macro example fixture
  * (used by the Design System website)
  *
- * @typedef {Required<MacroExample> & { name: string, html: string }} MacroExampleFixture
+ * @typedef {Omit<Required<MacroExample>, 'variants'> & {
+ *   name: string,
+ *   html: string
+ * }} MacroExampleFixture
  */
 
 /**

@@ -315,42 +315,40 @@ export const examples = {
         }
       ]
     },
-    options: {
-      variants: [
-        {
-          description: 'with size S',
-          context: {
-            label: {
-              classes: 'nhsuk-label--s'
-            }
-          }
-        },
-        {
-          description: 'with size M',
-          context: {
-            label: {
-              classes: 'nhsuk-label--m'
-            }
-          }
-        },
-        {
-          description: 'with size L',
-          context: {
-            label: {
-              classes: 'nhsuk-label--l'
-            }
-          }
-        },
-        {
-          description: 'with size XL',
-          context: {
-            label: {
-              classes: 'nhsuk-label--xl'
-            }
+    variants: [
+      {
+        description: 'with size S',
+        context: {
+          label: {
+            classes: 'nhsuk-label--s'
           }
         }
-      ]
-    }
+      },
+      {
+        description: 'with size M',
+        context: {
+          label: {
+            classes: 'nhsuk-label--m'
+          }
+        }
+      },
+      {
+        description: 'with size L',
+        context: {
+          label: {
+            classes: 'nhsuk-label--l'
+          }
+        }
+      },
+      {
+        description: 'with size XL',
+        context: {
+          label: {
+            classes: 'nhsuk-label--xl'
+          }
+        }
+      }
+    ]
   },
   'without page heading': {
     context: {

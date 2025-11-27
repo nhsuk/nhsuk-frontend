@@ -69,42 +69,40 @@ export const examples = {
         isPageHeading: true
       }
     },
-    options: {
-      variants: [
-        {
-          description: 'with size S',
-          context: {
-            legend: {
-              classes: 'nhsuk-fieldset__legend--s'
-            }
-          }
-        },
-        {
-          description: 'with size M',
-          context: {
-            legend: {
-              classes: 'nhsuk-fieldset__legend--m'
-            }
-          }
-        },
-        {
-          description: 'with size L',
-          context: {
-            legend: {
-              classes: 'nhsuk-fieldset__legend--l'
-            }
-          }
-        },
-        {
-          description: 'with size XL',
-          context: {
-            legend: {
-              classes: 'nhsuk-fieldset__legend--xl'
-            }
+    variants: [
+      {
+        description: 'with size S',
+        context: {
+          legend: {
+            classes: 'nhsuk-fieldset__legend--s'
           }
         }
-      ]
-    }
+      },
+      {
+        description: 'with size M',
+        context: {
+          legend: {
+            classes: 'nhsuk-fieldset__legend--m'
+          }
+        }
+      },
+      {
+        description: 'with size L',
+        context: {
+          legend: {
+            classes: 'nhsuk-fieldset__legend--l'
+          }
+        }
+      },
+      {
+        description: 'with size XL',
+        context: {
+          legend: {
+            classes: 'nhsuk-fieldset__legend--xl'
+          }
+        }
+      }
+    ]
   },
   'without page heading': {
     context: {

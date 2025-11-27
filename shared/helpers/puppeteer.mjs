@@ -204,15 +204,15 @@ export function getURL(path) {
  * @returns {NavigationOptions[]} Navigation options list
  */
 export function getOptions(name, example) {
-  const { options = {} } = example
+  const { variants = [] } = example
 
   // Options for single example only
-  if (!('variants' in options)) {
+  if (!variants.length) {
     return [{ name, title: 'example' }]
   }
 
   // Options for multiple variants
-  return options.variants.map(({ description }) => ({
+  return variants.map(({ description }) => ({
     name,
     description,
     title: `'${description}'`

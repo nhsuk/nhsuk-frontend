@@ -19,34 +19,32 @@ export const examples = {
       text: 'What is your full name?',
       isPageHeading: true
     },
-    options: {
-      variants: [
-        {
-          description: 'with size S',
-          context: {
-            classes: 'nhsuk-label--s'
-          }
-        },
-        {
-          description: 'with size M',
-          context: {
-            classes: 'nhsuk-label--m'
-          }
-        },
-        {
-          description: 'with size L',
-          context: {
-            classes: 'nhsuk-label--l'
-          }
-        },
-        {
-          description: 'with size XL',
-          context: {
-            classes: 'nhsuk-label--xl'
-          }
+    variants: [
+      {
+        description: 'with size S',
+        context: {
+          classes: 'nhsuk-label--s'
         }
-      ]
-    },
+      },
+      {
+        description: 'with size M',
+        context: {
+          classes: 'nhsuk-label--m'
+        }
+      },
+      {
+        description: 'with size L',
+        context: {
+          classes: 'nhsuk-label--l'
+        }
+      },
+      {
+        description: 'with size XL',
+        context: {
+          classes: 'nhsuk-label--xl'
+        }
+      }
+    ],
     screenshot: {
       viewports: ['tablet']
     }

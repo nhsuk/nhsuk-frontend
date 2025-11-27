@@ -85,7 +85,7 @@ export function generateFixture(data) {
    */
   const fixtures = Object.entries(examples).flatMap(
     ([exampleName, example]) => {
-      const { variants = [] } = example.options ?? {}
+      const { variants = [] } = example
 
       // Duplicate examples for each variant
       const examples = variants.length
@@ -93,19 +93,15 @@ export function generateFixture(data) {
         : [example]
 
       // Prepare example fixtures for JSON output
-      return examples.map((example) => {
-        delete example.options?.variants
-
-        return {
-          name: exampleName,
-          description: example.description,
-          context: example.context ?? {},
-          callBlock: example.callBlock,
-          screenshot: example.screenshot ?? false,
-          options: example.options ?? {},
-          html: components.render(component, example).trim()
-        }
-      })
+      return examples.map((example) => ({
+        name: exampleName,
+        description: example.description,
+        context: example.context ?? {},
+        callBlock: example.callBlock,
+        screenshot: example.screenshot ?? false,
+        options: example.options ?? {},
+        html: components.render(component, example).trim()
+      }))
     }
   )
 
