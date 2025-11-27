@@ -55,7 +55,7 @@
         {% set rows = (rows.push([
           { text: name, header: "Name" },
           { html: modifierHtml, header: "Modifier" },
-          { html: iconHtml }
+          { text: iconHtml | safe }
         ]), rows) %}
       {% endfor %}
 
