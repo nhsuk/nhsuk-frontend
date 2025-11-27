@@ -98,6 +98,50 @@ We've added a new `divider` Nunjucks option on select items to support this feat
 
 This was added in [pull request #1701: Support showing dividers between select options](https://github.com/nhsuk/nhsuk-frontend/pull/1701).
 
+#### Add a 'size' Nunjucks option to labels and legends
+
+We've added a new `size` Nunjucks option to labels and legends as a simpler alternative to the size modifier classes. For example:
+
+```patch
+  {{ input({
+    label: {
+      text: 'What is your full name?',
+-     classes: "nhsuk-label--l"
++     size: "l"
+    }
+  }) }}
+```
+
+```patch
+  {{ radios({
+    fieldset: {
+      legend: {
+        text: "How do you want to be contacted about this?",
+-       classes: "nhsuk-fieldset__legend--l"
++       size: "l"
+      }
+    },
+    items: []
+  }}
+```
+
+This was added in [pull request #1708: Add label, legend and table caption size option](https://github.com/nhsuk/nhsuk-frontend/pull/1708).
+
+#### Add a 'captionSize' Nunjucks option to tables
+
+We've added a new `captionSize` Nunjucks option to tables as a simpler alternative to the caption modifier classes. For example:
+
+```patch
+  {{ table({
+    caption: "Skin symptoms and possible causes",
+-   captionClasses: "nhsuk-table__caption--l",
++   captionSize: "l",
+    rows: []
+  }) }}
+```
+
+This was added in [pull request #1708: Add label, legend and table caption size option](https://github.com/nhsuk/nhsuk-frontend/pull/1708).
+
 ### :wastebasket: **Deprecated features**
 
 #### Rename input wrapper HTML class

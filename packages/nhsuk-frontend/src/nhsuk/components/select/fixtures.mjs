@@ -320,7 +320,7 @@ export const examples = {
         description: 'with size S',
         context: {
           label: {
-            classes: 'nhsuk-label--s'
+            size: 's'
           }
         }
       },
@@ -328,7 +328,7 @@ export const examples = {
         description: 'with size M',
         context: {
           label: {
-            classes: 'nhsuk-label--m'
+            size: 'm'
           }
         }
       },
@@ -336,7 +336,7 @@ export const examples = {
         description: 'with size L',
         context: {
           label: {
-            classes: 'nhsuk-label--l'
+            size: 'l'
           }
         }
       },
@@ -344,7 +344,7 @@ export const examples = {
         description: 'with size XL',
         context: {
           label: {
-            classes: 'nhsuk-label--xl'
+            size: 'xl'
           }
         }
       }

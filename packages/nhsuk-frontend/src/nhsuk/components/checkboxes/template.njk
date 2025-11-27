@@ -46,6 +46,7 @@
         html: item.html,
         text: item.text,
         classes: "nhsuk-checkboxes__label" ~ (" " ~ item.label.classes if item.label.classes),
+        size: item.label.size,
         attributes: item.label.attributes,
         for: itemId
       }) | trim | indent(6) }}

@@ -8,7 +8,7 @@ export const examples = {
     context: {
       label: {
         text: 'Password',
-        classes: 'nhsuk-label--l',
+        size: 'l',
         isPageHeading: true
       },
       name: 'example'
@@ -18,7 +18,7 @@ export const examples = {
     context: {
       label: {
         text: 'Password',
-        classes: 'nhsuk-label--l',
+        size: 'l',
         isPageHeading: true
       },
       hint: {
@@ -35,7 +35,7 @@ export const examples = {
     context: {
       label: {
         text: 'Password',
-        classes: 'nhsuk-label--l',
+        size: 'l',
         isPageHeading: true
       },
       errorMessage: {
@@ -49,7 +49,7 @@ export const examples = {
     context: {
       label: {
         text: 'Password',
-        classes: 'nhsuk-label--l',
+        size: 'l',
         isPageHeading: true
       },
       hint: {
@@ -78,7 +78,7 @@ export const examples = {
     context: {
       label: {
         text: 'Password',
-        classes: 'nhsuk-label--l',
+        size: 'l',
         isPageHeading: true
       },
       id: 'width-class',
@@ -90,7 +90,7 @@ export const examples = {
     context: {
       label: {
         text: 'Password',
-        classes: 'nhsuk-label--l',
+        size: 'l',
         isPageHeading: true
       },
       id: 'new-password',
@@ -102,7 +102,7 @@ export const examples = {
     context: {
       label: {
         text: 'Cyfrinair',
-        classes: 'nhsuk-label--l',
+        size: 'l',
         isPageHeading: true
       },
       id: 'password-translated',

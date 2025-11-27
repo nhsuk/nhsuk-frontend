@@ -8,7 +8,7 @@ export const examples = {
     context: {
       label: {
         text: 'Can you provide more detail?',
-        classes: 'nhsuk-label--l',
+        size: 'l',
         isPageHeading: true
       },
       hint: {
@@ -26,7 +26,7 @@ export const examples = {
     context: {
       label: {
         text: 'Enter a job description',
-        classes: 'nhsuk-label--l',
+        size: 'l',
         isPageHeading: true
       },
       hint: {
@@ -41,7 +41,7 @@ export const examples = {
     context: {
       label: {
         text: 'Enter a job description',
-        classes: 'nhsuk-label--l',
+        size: 'l',
         isPageHeading: true
       },
       errorMessage: {
@@ -58,7 +58,7 @@ export const examples = {
     context: {
       label: {
         text: 'Enter a job description',
-        classes: 'nhsuk-label--l',
+        size: 'l',
         isPageHeading: true
       },
       hint: {
@@ -82,7 +82,7 @@ export const examples = {
     context: {
       label: {
         text: 'Enter a job description',
-        classes: 'nhsuk-label--l',
+        size: 'l',
         isPageHeading: true
       },
       id: 'with-default-value',
@@ -96,7 +96,7 @@ export const examples = {
     context: {
       label: {
         text: 'Can you provide more detail?',
-        classes: 'nhsuk-label--l',
+        size: 'l',
         isPageHeading: true
       },
       id: 'custom-rows',
@@ -120,7 +120,7 @@ export const examples = {
         description: 'with size S',
         context: {
           label: {
-            classes: 'nhsuk-label--s'
+            size: 's'
           }
         }
       },
@@ -128,7 +128,7 @@ export const examples = {
         description: 'with size M',
         context: {
           label: {
-            classes: 'nhsuk-label--m'
+            size: 'm'
           }
         }
       },
@@ -136,7 +136,7 @@ export const examples = {
         description: 'with size L',
         context: {
           label: {
-            classes: 'nhsuk-label--l'
+            size: 'l'
           }
         }
       },
@@ -144,7 +144,7 @@ export const examples = {
         description: 'with size XL',
         context: {
           label: {
-            classes: 'nhsuk-label--xl'
+            size: 'xl'
           }
         }
       }
@@ -180,7 +180,7 @@ export const examples = {
     context: {
       label: {
         text: 'Enter a job description',
-        classes: 'nhsuk-label--l',
+        size: 'l',
         isPageHeading: true
       },
       id: 'with-word-count',
@@ -195,7 +195,7 @@ export const examples = {
     context: {
       label: {
         text: 'Can you provide more detail?',
-        classes: 'nhsuk-label--l',
+        size: 'l',
         isPageHeading: true
       },
       id: 'with-threshold',
@@ -213,7 +213,7 @@ export const examples = {
     context: {
       label: {
         text: 'Can you provide more detail?',
-        classes: 'nhsuk-label--l',
+        size: 'l',
         isPageHeading: true
       },
       textareaDescriptionText: 'No more than %{count} characters',
@@ -227,7 +227,7 @@ export const examples = {
     context: {
       label: {
         text: 'Can you provide more detail?',
-        classes: 'nhsuk-label--l',
+        size: 'l',
         isPageHeading: true
       },
       id: 'no-maximum',
@@ -240,7 +240,7 @@ export const examples = {
     context: {
       label: {
         text: 'Allwch chi roi mwy o fanylion?',
-        classes: 'nhsuk-label--l',
+        size: 'l',
         isPageHeading: true
       },
       hint: {
@@ -271,7 +271,7 @@ export const examples = {
     context: {
       label: {
         text: 'Can you provide more detail?',
-        classes: 'nhsuk-label--l',
+        size: 'l',
         isPageHeading: true
       },
       id: 'to-configure-in-javascript',
