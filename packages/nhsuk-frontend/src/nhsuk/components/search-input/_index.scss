@@ -1,0 +1,58 @@
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+@use "../../core/helpers" as *;
+@forward "../button";
+@forward "../input";
+
+////
+/// Search input component
+///
+/// @group components/search-input
+////
+
+@include nhsuk-exports("nhsuk/components/search-input") {
+  .nhsuk-search-input__input {
+    &[type="search"]::-webkit-search-cancel-button {
+      width: nhsuk-px-to-rem(28px);
+      height: nhsuk-px-to-rem(28px);
+      margin: 0;
+
+      background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23212b32'><path d='M13.41 12l5.3-5.29a1 1 0 1 0-1.42-1.42L12 10.59l-5.29-5.3a1 1 0 0 0-1.42 1.42l5.3 5.29-5.3 5.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l5.29-5.3 5.29 5.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z'/></svg>");
+
+      cursor: pointer;
+
+      appearance: none;
+    }
+  }
+
+  @include nhsuk-media-query($from: mobile) {
+    .nhsuk-search-input__input {
+      margin-right: -$nhsuk-border-width-form-element;
+    }
+
+    // Remove border radius from left side
+    .nhsuk-search-input__button,
+    .nhsuk-search-input__button::before,
+    .nhsuk-search-input__button::after {
+      border-radius: 0 $nhsuk-border-radius $nhsuk-border-radius 0;
+    }
+
+    // Remove inner box shadow from left side
+    .nhsuk-search-input__button:not(:focus)::after {
+      left: -2px;
+    }
+
+    // Remove margin from left side
+    .nhsuk-input-wrapper .nhsuk-search-input__button {
+      margin-left: 0;
+
+      // Prevent height change when pressed
+      &:active,
+      &:active:focus {
+        top: 0;
+        min-height: nhsuk-px-to-rem(36px + $nhsuk-button-shadow-size);
+        margin-bottom: 0;
+      }
+    }
+  }
+}
