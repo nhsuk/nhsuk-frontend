@@ -1,6 +1,5 @@
 @use "sass:color";
-@use "nhsuk-frontend/dist/nhsuk/core/settings" as *;
-@use "nhsuk-frontend/dist/nhsuk/core/helpers" as *;
+@use "vendor/nhsuk-frontend/base" as *;
 
 ////
 /// Add x-ray outlines to form controls
