@@ -73,9 +73,9 @@ export const examples = {
       }
     },
     options: {
-      width: false,
-      variants
+      width: false
     },
+    variants,
     screenshot: {
       states: ['hover', 'focus'],
       selector: '.nhsuk-header__service-logo',
@@ -84,9 +84,9 @@ export const examples = {
   },
   'unlinked logo': {
     options: {
-      width: false,
-      variants
-    }
+      width: false
+    },
+    variants
   },
   'with account (logged in)': {
     context: {
@@ -105,9 +105,9 @@ export const examples = {
       }
     },
     options: {
-      width: false,
-      variants
+      width: false
     },
+    variants,
     screenshot: {
       viewports: ['mobile', 'desktop']
     }
@@ -124,9 +124,9 @@ export const examples = {
       }
     },
     options: {
-      width: false,
-      variants
+      width: false
     },
+    variants,
     screenshot: {
       viewports: ['mobile', 'desktop']
     }
@@ -167,9 +167,9 @@ export const examples = {
       }
     },
     options: {
-      width: false,
-      variants
-    }
+      width: false
+    },
+    variants
   },
   'with navigation (empty items)': {
     context: {
@@ -209,9 +209,9 @@ export const examples = {
       }
     },
     options: {
-      width: false,
-      variants
-    }
+      width: false
+    },
+    variants
   },
   'with navigation (justified)': {
     context: {
@@ -250,9 +250,9 @@ export const examples = {
       }
     },
     options: {
-      width: false,
-      variants
+      width: false
     },
+    variants,
     screenshot: {
       viewports: ['desktop']
     }
@@ -301,9 +301,9 @@ export const examples = {
       }
     },
     options: {
-      width: false,
-      variants
+      width: false
     },
+    variants,
     screenshot: {
       name: 'menu',
       states: ['click'],
@@ -362,9 +362,9 @@ export const examples = {
       }
     },
     options: {
-      width: false,
-      variants
+      width: false
     },
+    variants,
     screenshot: {
       viewports: ['desktop']
     }
@@ -374,9 +374,9 @@ export const examples = {
       search: true
     },
     options: {
-      width: false,
-      variants
+      width: false
     },
+    variants,
     screenshot: {
       states: ['focus'],
       selector: '.nhsuk-header__search-input',
@@ -393,9 +393,9 @@ export const examples = {
       }
     },
     options: {
-      width: false,
-      variants
+      width: false
     },
+    variants,
     screenshot: {
       viewports: ['desktop']
     }
@@ -411,9 +411,9 @@ export const examples = {
       }
     },
     options: {
-      width: false,
-      variants
+      width: false
     },
+    variants,
     screenshot: [
       {
         name: 'name',
@@ -437,9 +437,9 @@ export const examples = {
       }
     },
     options: {
-      width: false,
-      variants
+      width: false
     },
+    variants,
     screenshot: {
       states: ['hover', 'focus'],
       selector: '.nhsuk-header__service-logo',
@@ -458,9 +458,9 @@ export const examples = {
       search: true
     },
     options: {
-      width: false,
-      variants
+      width: false
     },
+    variants,
     screenshot: {
       viewports: ['desktop']
     }
@@ -513,9 +513,9 @@ export const examples = {
       }
     },
     options: {
-      width: false,
-      variants
+      width: false
     },
+    variants,
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
@@ -564,9 +564,9 @@ export const examples = {
       }
     },
     options: {
-      width: false,
-      variants
-    }
+      width: false
+    },
+    variants
   },
   'with organisation name': {
     context: {
@@ -578,9 +578,9 @@ export const examples = {
       }
     },
     options: {
-      width: false,
-      variants
+      width: false
     },
+    variants,
     screenshot: {
       viewports: ['desktop']
     }
@@ -596,9 +596,9 @@ export const examples = {
       }
     },
     options: {
-      width: false,
-      variants
+      width: false
     },
+    variants,
     screenshot: {
       viewports: ['desktop']
     }
@@ -615,9 +615,9 @@ export const examples = {
       }
     },
     options: {
-      width: false,
-      variants
+      width: false
     },
+    variants,
     screenshot: {
       states: ['hover', 'focus'],
       selector: '.nhsuk-header__service-logo',
@@ -639,9 +639,9 @@ export const examples = {
       }
     },
     options: {
-      width: false,
-      variants
+      width: false
     },
+    variants,
     screenshot: {
       viewports: ['desktop']
     }

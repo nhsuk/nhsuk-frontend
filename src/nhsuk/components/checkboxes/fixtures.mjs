@@ -63,9 +63,7 @@ export const examples = {
         }
       ]
     },
-    options: {
-      variants
-    },
+    variants,
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']
     }
@@ -97,9 +95,7 @@ export const examples = {
         }
       ]
     },
-    options: {
-      variants
-    }
+    variants
   },
   'with pre-checked values': {
     context: {
@@ -126,9 +122,7 @@ export const examples = {
         }
       ]
     },
-    options: {
-      variants
-    }
+    variants
   },
   'with hints on items': {
     context: {
@@ -160,9 +154,7 @@ export const examples = {
         }
       ]
     },
-    options: {
-      variants
-    },
+    variants,
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']
     }
@@ -188,9 +180,7 @@ export const examples = {
         }
       ]
     },
-    options: {
-      variants
-    }
+    variants
   },
   'with disabled item': {
     context: {
@@ -213,9 +203,7 @@ export const examples = {
         }
       ]
     },
-    options: {
-      variants
-    },
+    variants,
     screenshot: {
       viewports: ['mobile']
     }
@@ -247,9 +235,7 @@ export const examples = {
         }
       ]
     },
-    options: {
-      variants
-    },
+    variants,
     screenshot: {
       states: ['focus'],
       selector: '#with-error-message',
@@ -286,9 +272,7 @@ export const examples = {
         }
       ]
     },
-    options: {
-      variants
-    }
+    variants
   },
   'with long text': {
     context: {
@@ -334,9 +318,7 @@ export const examples = {
         }
       ]
     },
-    options: {
-      variants
-    }
+    variants
   },
   'legend': {
     context: {
@@ -365,50 +347,48 @@ export const examples = {
         }
       ]
     },
-    options: {
-      variants: [
-        {
-          description: 'with size S',
-          context: {
-            fieldset: {
-              legend: {
-                classes: 'nhsuk-fieldset__legend--s'
-              }
-            }
-          }
-        },
-        {
-          description: 'with size M',
-          context: {
-            fieldset: {
-              legend: {
-                classes: 'nhsuk-fieldset__legend--m'
-              }
-            }
-          }
-        },
-        {
-          description: 'with size L',
-          context: {
-            fieldset: {
-              legend: {
-                classes: 'nhsuk-fieldset__legend--l'
-              }
-            }
-          }
-        },
-        {
-          description: 'with size XL',
-          context: {
-            fieldset: {
-              legend: {
-                classes: 'nhsuk-fieldset__legend--xl'
-              }
+    variants: [
+      {
+        description: 'with size S',
+        context: {
+          fieldset: {
+            legend: {
+              classes: 'nhsuk-fieldset__legend--s'
             }
           }
         }
-      ]
-    }
+      },
+      {
+        description: 'with size M',
+        context: {
+          fieldset: {
+            legend: {
+              classes: 'nhsuk-fieldset__legend--m'
+            }
+          }
+        }
+      },
+      {
+        description: 'with size L',
+        context: {
+          fieldset: {
+            legend: {
+              classes: 'nhsuk-fieldset__legend--l'
+            }
+          }
+        }
+      },
+      {
+        description: 'with size XL',
+        context: {
+          fieldset: {
+            legend: {
+              classes: 'nhsuk-fieldset__legend--xl'
+            }
+          }
+        }
+      }
+    ]
   },
   'without page heading': {
     context: {
@@ -438,9 +418,7 @@ export const examples = {
         }
       ]
     },
-    options: {
-      variants
-    }
+    variants
   },
   'with conditional content': {
     context: {
@@ -505,9 +483,7 @@ export const examples = {
         }
       ]
     },
-    options: {
-      variants
-    }
+    variants
   },
   'with conditional content, error message': {
     context: {
@@ -575,9 +551,7 @@ export const examples = {
         }
       ]
     },
-    options: {
-      variants
-    }
+    variants
   },
   'with conditional content, error message (nested)': {
     context: {
@@ -646,9 +620,7 @@ export const examples = {
         }
       ]
     },
-    options: {
-      variants
-    },
+    variants,
     screenshot: {
       states: ['focus'],
       selector: '#conditional-2',
@@ -723,9 +695,7 @@ export const examples = {
         }
       ]
     },
-    options: {
-      variants
-    }
+    variants
   },
   'with "none of the above" option (named group)': {
     context: {

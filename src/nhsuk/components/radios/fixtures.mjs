@@ -56,9 +56,7 @@ export const examples = {
         }
       ]
     },
-    options: {
-      variants
-    },
+    variants,
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']
     }
@@ -90,9 +88,7 @@ export const examples = {
         }
       ]
     },
-    options: {
-      variants
-    }
+    variants
   },
   'inline': {
     context: {
@@ -116,9 +112,7 @@ export const examples = {
         }
       ]
     },
-    options: {
-      variants
-    },
+    variants,
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']
     }
@@ -143,50 +137,48 @@ export const examples = {
         }
       ]
     },
-    options: {
-      variants: [
-        {
-          description: 'with size S',
-          context: {
-            fieldset: {
-              legend: {
-                classes: 'nhsuk-fieldset__legend--s'
-              }
-            }
-          }
-        },
-        {
-          description: 'with size M',
-          context: {
-            fieldset: {
-              legend: {
-                classes: 'nhsuk-fieldset__legend--m'
-              }
-            }
-          }
-        },
-        {
-          description: 'with size L',
-          context: {
-            fieldset: {
-              legend: {
-                classes: 'nhsuk-fieldset__legend--l'
-              }
-            }
-          }
-        },
-        {
-          description: 'with size XL',
-          context: {
-            fieldset: {
-              legend: {
-                classes: 'nhsuk-fieldset__legend--xl'
-              }
+    variants: [
+      {
+        description: 'with size S',
+        context: {
+          fieldset: {
+            legend: {
+              classes: 'nhsuk-fieldset__legend--s'
             }
           }
         }
-      ]
-    }
+      },
+      {
+        description: 'with size M',
+        context: {
+          fieldset: {
+            legend: {
+              classes: 'nhsuk-fieldset__legend--m'
+            }
+          }
+        }
+      },
+      {
+        description: 'with size L',
+        context: {
+          fieldset: {
+            legend: {
+              classes: 'nhsuk-fieldset__legend--l'
+            }
+          }
+        }
+      },
+      {
+        description: 'with size XL',
+        context: {
+          fieldset: {
+            legend: {
+              classes: 'nhsuk-fieldset__legend--xl'
+            }
+          }
+        }
+      }
+    ]
   },
   'without page heading': {
     context: {
@@ -209,9 +201,7 @@ export const examples = {
         }
       ]
     },
-    options: {
-      variants
-    }
+    variants
   },
   'with divider': {
     context: {
@@ -240,9 +230,7 @@ export const examples = {
         }
       ]
     },
-    options: {
-      variants
-    },
+    variants,
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']
     }
@@ -273,9 +261,7 @@ export const examples = {
         }
       ]
     },
-    options: {
-      variants
-    },
+    variants,
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']
     }
@@ -300,9 +286,7 @@ export const examples = {
         }
       ]
     },
-    options: {
-      variants
-    },
+    variants,
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']
     }
@@ -332,9 +316,7 @@ export const examples = {
         }
       ]
     },
-    options: {
-      variants
-    },
+    variants,
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']
     }
@@ -362,9 +344,7 @@ export const examples = {
         }
       ]
     },
-    options: {
-      variants
-    }
+    variants
   },
   'with hint and error': {
     context: {
@@ -392,9 +372,7 @@ export const examples = {
         }
       ]
     },
-    options: {
-      variants
-    },
+    variants,
     screenshot: {
       states: ['focus'],
       selector: '#with-hint-error',
@@ -445,9 +423,7 @@ export const examples = {
         }
       ]
     },
-    options: {
-      variants
-    }
+    variants
   },
   'with conditional content': {
     context: {
@@ -512,9 +488,7 @@ export const examples = {
         }
       ]
     },
-    options: {
-      variants
-    }
+    variants
   },
   'with conditional content, error message': {
     context: {
@@ -582,9 +556,7 @@ export const examples = {
         }
       ]
     },
-    options: {
-      variants
-    }
+    variants
   },
   'with conditional content, error message (nested)': {
     context: {
@@ -653,9 +625,7 @@ export const examples = {
         }
       ]
     },
-    options: {
-      variants
-    },
+    variants,
     screenshot: {
       states: ['focus'],
       selector: '#conditional-2',
@@ -751,9 +721,7 @@ export const examples = {
         }
       ]
     },
-    options: {
-      variants
-    }
+    variants
   }
 }
 

@@ -138,73 +138,71 @@ export const examples = {
       name: 'example',
       id: 'input-width'
     },
-    options: {
-      variants: [
-        {
-          description: 'with 2 character',
-          context: {
-            label: {
-              text: '2 character width'
-            },
-            classes: 'nhsuk-input--width-2'
-          }
-        },
-        {
-          description: 'with 3 character',
-          context: {
-            label: {
-              text: '3 character width'
-            },
-            classes: 'nhsuk-input--width-3'
-          }
-        },
-        {
-          description: 'with 4 character',
-          context: {
-            label: {
-              text: '4 character width'
-            },
-            classes: 'nhsuk-input--width-4'
-          }
-        },
-        {
-          description: 'with 5 character',
-          context: {
-            label: {
-              text: '5 character width'
-            },
-            classes: 'nhsuk-input--width-5'
-          }
-        },
-        {
-          description: 'with 10 character',
-          context: {
-            label: {
-              text: '10 character width'
-            },
-            classes: 'nhsuk-input--width-10'
-          }
-        },
-        {
-          description: 'with 20 character',
-          context: {
-            label: {
-              text: '20 character width'
-            },
-            classes: 'nhsuk-input--width-20'
-          }
-        },
-        {
-          description: 'with 30 character',
-          context: {
-            label: {
-              text: '30 character width'
-            },
-            classes: 'nhsuk-input--width-30'
-          }
+    variants: [
+      {
+        description: 'with 2 character',
+        context: {
+          label: {
+            text: '2 character width'
+          },
+          classes: 'nhsuk-input--width-2'
         }
-      ]
-    }
+      },
+      {
+        description: 'with 3 character',
+        context: {
+          label: {
+            text: '3 character width'
+          },
+          classes: 'nhsuk-input--width-3'
+        }
+      },
+      {
+        description: 'with 4 character',
+        context: {
+          label: {
+            text: '4 character width'
+          },
+          classes: 'nhsuk-input--width-4'
+        }
+      },
+      {
+        description: 'with 5 character',
+        context: {
+          label: {
+            text: '5 character width'
+          },
+          classes: 'nhsuk-input--width-5'
+        }
+      },
+      {
+        description: 'with 10 character',
+        context: {
+          label: {
+            text: '10 character width'
+          },
+          classes: 'nhsuk-input--width-10'
+        }
+      },
+      {
+        description: 'with 20 character',
+        context: {
+          label: {
+            text: '20 character width'
+          },
+          classes: 'nhsuk-input--width-20'
+        }
+      },
+      {
+        description: 'with 30 character',
+        context: {
+          label: {
+            text: '30 character width'
+          },
+          classes: 'nhsuk-input--width-30'
+        }
+      }
+    ]
   },
   'label': {
     context: {
@@ -218,42 +216,40 @@ export const examples = {
       inputmode: 'numeric',
       spellcheck: false
     },
-    options: {
-      variants: [
-        {
-          description: 'with size S',
-          context: {
-            label: {
-              classes: 'nhsuk-label--s'
-            }
-          }
-        },
-        {
-          description: 'with size M',
-          context: {
-            label: {
-              classes: 'nhsuk-label--m'
-            }
-          }
-        },
-        {
-          description: 'with size L',
-          context: {
-            label: {
-              classes: 'nhsuk-label--l'
-            }
-          }
-        },
-        {
-          description: 'with size XL',
-          context: {
-            label: {
-              classes: 'nhsuk-label--xl'
-            }
+    variants: [
+      {
+        description: 'with size S',
+        context: {
+          label: {
+            classes: 'nhsuk-label--s'
           }
         }
-      ]
-    }
+      },
+      {
+        description: 'with size M',
+        context: {
+          label: {
+            classes: 'nhsuk-label--m'
+          }
+        }
+      },
+      {
+        description: 'with size L',
+        context: {
+          label: {
+            classes: 'nhsuk-label--l'
+          }
+        }
+      },
+      {
+        description: 'with size XL',
+        context: {
+          label: {
+            classes: 'nhsuk-label--xl'
+          }
+        }
+      }
+    ]
   },
   'without page heading': {
     context: {
