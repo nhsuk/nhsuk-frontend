@@ -136,14 +136,6 @@ This change was introduced in [pull request #1669: Remove pixel font sizes where
 
 ### :recycle: **Changes**
 
-#### Remove global box sizing reset
-
-We have removed the global `box-sizing` reset and added `box-sizing: border-box` only where necessary.
-
-Please review any custom styles, especially those with defined widths, to make sure they have a correctly calculated box size.
-
-This change was introduced in pull requests [#1633: Review global `box-sizing` usage](https://github.com/nhsuk/nhsuk-frontend/pull/1633) and [#1651: Add `box-sizing: border-box` to width utility classes etc](https://github.com/nhsuk/nhsuk-frontend/pull/1651).
-
 #### Update the HTML for tab panel text content
 
 We've updated the HTML for the tabs component to wrap plain text content within `<p>` elements.
@@ -167,7 +159,6 @@ If you are not using Nunjucks macros, update your HTML markup using the [top tas
 
 ### :wrench: **Fixes**
 
-- [#1633: Review global `box-sizing` usage](https://github.com/nhsuk/nhsuk-frontend/pull/1633)
 - [#1635: Resolve Nunjucks template issues flagged by Jinja port](https://github.com/nhsuk/nhsuk-frontend/pull/1635)
 - [#1638: Resolve Nunjucks output indentation issues](https://github.com/nhsuk/nhsuk-frontend/pull/1638)
 - [#1653: Only show a task list item if not empty](https://github.com/nhsuk/nhsuk-frontend/pull/1653)
