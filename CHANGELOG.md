@@ -159,6 +159,22 @@ If you are not using Nunjucks macros, update your HTML markup using the [tabs ex
 
 This change was introduced in [pull request #1686: Remove ↑ up and ↓ down arrow key bindings from tabs](https://github.com/nhsuk/nhsuk-frontend/pull/1686).
 
+#### Update the HTML for responsive table cell content
+
+We've updated the HTML for the responsive table component to wrap HTML content within `<span>` elements.
+
+If you are not using Nunjucks macros, update your HTML markup using the [table examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/table) to add the missing `<span> </span>` wrapper:
+
+```patch
+  <td class="nhsuk-table__cell" role="cell">
+    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Cell heading </span>
+-   Example <code>&lt;td&gt;</code> content
++   <span>Example <code>&lt;td&gt;</code> content</span>
+  </td>
+```
+
+This change was introduced in [pull request #1710: Fix responsive table `display: flex` issue with nested HTML](https://github.com/nhsuk/nhsuk-frontend/pull/1710).
+
 #### Remove unused top task card class name
 
 We've updated the HTML for the card component to remove the unused `nhsuk-card--top-task` class and associated `topTask` Nunjucks option.
