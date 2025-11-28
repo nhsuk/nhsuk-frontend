@@ -34,7 +34,14 @@ export const params = {
   isPageHeading: {
     type: 'boolean',
     required: false,
-    description: 'Whether the legend also acts as the heading for the page.'
+    description:
+      'Whether the legend also acts as the heading for the page. Defaults to `true` when `headingLevel` is provided.'
+  },
+  headingLevel: {
+    type: 'integer',
+    required: false,
+    description:
+      'Optional legend heading level. Defaults to `1` when `isPageHeading` is `true`.'
   },
   size: {
     type: 'string',
