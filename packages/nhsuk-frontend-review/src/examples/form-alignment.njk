@@ -1,5 +1,7 @@
 {% extends "layouts/page.njk" %}
 
+{% from "nhsuk/macros/icon.njk" import nhsukIcon %}
+
 {% set pageName = "Form elements alignment" %}
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 
@@ -31,50 +33,48 @@
       <form method="post" novalidate>
         {% call fieldset({
           legend: {
+            text: "Search input",
+            size: "m"
+          }
+        }) %}
+          {{ searchInput({
+            label: {
+              text: "Search patients by NHS number",
+              classes: "nhsuk-u-visually-hidden"
+            },
+            placeholder: "NHS number",
+            name: "example-search-1",
+            id: "example-search-1",
+            classes: "nhsuk-u-width-full",
+            formGroup: {
+              classes: "nhsuk-u-width-one-half"
+            }
+          }) }}
+
+          {{ searchInput({
+            label: {
+              text: "Search patients by NHS number",
+              classes: "nhsuk-u-visually-hidden"
+            },
+            placeholder: "NHS number",
+            name: "example-search-2",
+            id: "example-search-2",
+            classes: "nhsuk-u-width-full",
+            formGroup: {
+              classes: "nhsuk-u-width-one-half"
+            },
+            button: false
+          }) }}
+        {% endcall %}
+      </form>
+
+      <form method="post" novalidate>
+        {% call fieldset({
+          legend: {
             text: "Input and icon button",
             size: "m"
           }
         }) %}
-          {{ input({
-            label: {
-              text: "Product order number"
-            },
-            name: "example-input-button-1",
-            id: "example-input-button-1",
-            type: "search",
-            classes: "nhsuk-u-width-full",
-            formGroup: {
-              classes: "nhsuk-u-width-one-half",
-              afterInput: {
-                html: button({
-                  text: "Find",
-                  icon: "search",
-                  small: true
-                })
-              }
-            }
-          }) }}
-
-          {{ input({
-            label: {
-              text: "Product order number"
-            },
-            name: "example-input-button-2",
-            id: "example-input-button-2",
-            type: "search",
-            classes: "nhsuk-u-width-full",
-            formGroup: {
-              classes: "nhsuk-u-width-one-half",
-              afterInput: {
-                html: button({
-                  ariaLabel: "Find",
-                  icon: "search",
-                  small: true
-                })
-              }
-            }
-          }) }}
-
           {{ input({
             label: {
               text: "Product order number"
@@ -173,8 +173,8 @@
             label: {
               text: "NHS number"
             },
-            name: "example-input",
-            id: "example-input",
+            name: "example-input-1",
+            id: "example-input-1",
             classes: "nhsuk-u-width-full",
             code: true,
             inputmode: "numeric",
