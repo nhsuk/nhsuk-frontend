@@ -98,25 +98,30 @@ export class CharacterCount extends ConfigurableComponent {
 
     // Create the *screen reader* specific live-updating counter
     // This doesn't need any styling classes, as it is never visible
-    const $screenReaderCountMessage = document.createElement('div')
-    $screenReaderCountMessage.className =
-      'nhsuk-character-count__sr-status nhsuk-u-visually-hidden'
-    $screenReaderCountMessage.setAttribute('aria-live', 'polite')
-    this.$screenReaderCountMessage = $screenReaderCountMessage
+    this.$screenReaderCountMessage = document.createElement('div')
+    this.$screenReaderCountMessage.setAttribute('aria-live', 'polite')
+    this.$screenReaderCountMessage.classList.add(
+      'nhsuk-character-count__sr-status',
+      'nhsuk-u-visually-hidden'
+    )
+
     $textareaDescription.insertAdjacentElement(
       'afterend',
-      $screenReaderCountMessage
+      this.$screenReaderCountMessage
     )
 
     // Create our live-updating counter element, copying the classes from the
     // textarea description for backwards compatibility as these may have been
     // configured
-    const $visibleCountMessage = document.createElement('div')
-    $visibleCountMessage.className = $textareaDescription.className
-    $visibleCountMessage.classList.add('nhsuk-character-count__status')
-    $visibleCountMessage.setAttribute('aria-hidden', 'true')
-    this.$visibleCountMessage = $visibleCountMessage
-    $textareaDescription.insertAdjacentElement('afterend', $visibleCountMessage)
+    this.$visibleCountMessage = document.createElement('div')
+    this.$visibleCountMessage.setAttribute('aria-hidden', 'true')
+    this.$visibleCountMessage.className = $textareaDescription.className
+    this.$visibleCountMessage.classList.add('nhsuk-character-count__status')
+
+    $textareaDescription.insertAdjacentElement(
+      'afterend',
+      this.$visibleCountMessage
+    )
 
     // Hide the textarea description
     $textareaDescription.classList.add('nhsuk-u-visually-hidden')
