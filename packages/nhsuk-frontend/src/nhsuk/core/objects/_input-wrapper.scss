@@ -18,7 +18,7 @@
 
     // Split prefix/suffix onto separate lines on narrow screens
     @include nhsuk-media-query($until: mobile) {
-      display: block;
+      flex-direction: column;
 
       .nhsuk-input {
         // Set max-width to override potential width override class on the input
@@ -40,8 +40,8 @@
       }
     }
 
-    // Remove margin from button when last, but reserve space for button shadow
-    .nhsuk-button:last-child {
+    // Remove margin from buttons when stacked, but reserve space for button shadow
+    .nhsuk-button {
       margin-bottom: $nhsuk-button-shadow-size;
     }
 
@@ -70,9 +70,6 @@
 
         // Buttons are normally 100% wide on mobile, but we don't want that here
         width: auto;
-
-        // Move spacing from top to left but reserve space for button shadow
-        margin-bottom: $nhsuk-button-shadow-size;
       }
     }
   }
