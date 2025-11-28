@@ -42,6 +42,11 @@
       background-color: transparent;
       cursor: not-allowed;
     }
+
+    &::placeholder {
+      opacity: 1; // Fixes low contrast of placeholder text in firefox
+      color: nhsuk-colour("grey-1");
+    }
   }
 
   .nhsuk-input::-webkit-outer-spin-button,
