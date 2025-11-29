@@ -643,6 +643,38 @@ export const examples = {
         }
       ]
     }
+  },
+  'to configure in JavaScript': {
+    context: {
+      label: {
+        text: 'Sort by?',
+        size: 'l',
+        isPageHeading: true
+      },
+      id: 'to-configure-in-javascript',
+      name: 'example',
+      items: [
+        {
+          value: 'published',
+          text: 'Recently published'
+        },
+        {
+          value: 'updated',
+          text: 'Recently updated'
+        },
+        {
+          value: 'views',
+          text: 'Most views'
+        },
+        {
+          value: 'comments',
+          text: 'Most comments'
+        }
+      ]
+    },
+    options: {
+      hidden: true
+    }
   }
 }
 
