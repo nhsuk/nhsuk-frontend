@@ -19,6 +19,16 @@ export const examples = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
+  'basic with heading link': {
+    context: {
+      heading: 'Introduction to care and support',
+      headingClasses: 'nhsuk-heading-m',
+      headingLevel: 3,
+      href: '#',
+      description:
+        'A quick guide for people who have care and support needs and their carers'
+    }
+  },
   'basic with custom HTML': {
     context: {
       heading: 'Help from NHS 111',
@@ -32,6 +42,148 @@ export const examples = {
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']
     }
+  },
+  'basic with summary list': {
+    context: {
+      heading: 'Regional Manager',
+      headingLevel: 3
+    },
+    callBlock: outdent`
+      ${components.render('summary-list', {
+        context: {
+          rows: [
+            {
+              key: {
+                text: 'Name'
+              },
+              value: {
+                text: 'Karen Francis'
+              }
+            },
+            {
+              key: {
+                text: 'Date of birth'
+              },
+              value: {
+                text: '15 March 1984'
+              }
+            }
+          ]
+        }
+      })}
+    `
+  },
+  'basic with summary list and actions': {
+    context: {
+      heading: 'Regional Manager',
+      headingLevel: 3,
+      actions: {
+        items: [
+          {
+            text: 'Delete',
+            href: '#'
+          },
+          {
+            text: 'Withdraw',
+            href: '#'
+          }
+        ]
+      }
+    },
+    callBlock: outdent`
+      ${components.render('summary-list', {
+        context: {
+          rows: [
+            {
+              key: {
+                text: 'Name'
+              },
+              value: {
+                text: 'Karen Francis'
+              }
+            },
+            {
+              key: {
+                text: 'Date of birth'
+              },
+              value: {
+                text: '15 March 1984'
+              }
+            }
+          ]
+        }
+      })}
+    `
+  },
+  'basic with summary list and actions (empty items)': {
+    context: {
+      heading: 'Regional Manager',
+      headingLevel: 3,
+      actions: {
+        items: [
+          {
+            text: 'Delete',
+            href: '#'
+          },
+          false
+        ]
+      }
+    },
+    callBlock: outdent`
+      ${components.render('summary-list', {
+        context: {
+          rows: [
+            {
+              key: {
+                text: 'Name'
+              },
+              value: {
+                text: 'Karen Francis'
+              }
+            },
+            {
+              key: {
+                text: 'Date of birth'
+              },
+              value: {
+                text: '15 March 1984'
+              }
+            }
+          ]
+        }
+      })}
+    `
+  },
+  'basic with summary list and heading link': {
+    context: {
+      heading: 'Regional Manager',
+      headingLevel: 3,
+      href: '#'
+    },
+    callBlock: outdent`
+      ${components.render('summary-list', {
+        context: {
+          rows: [
+            {
+              key: {
+                text: 'Name'
+              },
+              value: {
+                text: 'Karen Francis'
+              }
+            },
+            {
+              key: {
+                text: 'Date of birth'
+              },
+              value: {
+                text: '15 March 1984'
+              }
+            }
+          ]
+        }
+      })}
+    `
   },
   'non-urgent (blue)': {
     context: {
