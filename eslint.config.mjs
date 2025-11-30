@@ -147,6 +147,7 @@ export default defineConfig([
     files: ['**/*.{cjs,js,mjs}'],
     ignores: [
       'packages/nhsuk-frontend/src/**/*.mjs',
+      '!packages/nhsuk-frontend/src/nhsuk/lib/**/*.mjs',
       'packages/nhsuk-frontend-review/src/javascripts/**/*.mjs',
       '!**/fixtures.mjs',
       '!**/macro-options.mjs',
@@ -176,7 +177,12 @@ export default defineConfig([
       'packages/nhsuk-frontend-review/src/javascripts/**/*.mjs',
       '**/*.md/*.{cjs,js,mjs}'
     ],
-    ignores: ['**/fixtures.mjs', '**/macro-options.mjs', '**/*.test.mjs'],
+    ignores: [
+      'packages/nhsuk-frontend/src/nhsuk/lib/**/*.mjs',
+      '**/fixtures.mjs',
+      '**/macro-options.mjs',
+      '**/*.test.mjs'
+    ],
     extends: [
       pluginTypeScript.configs.strictTypeChecked,
       pluginTypeScript.configs.stylisticTypeChecked,

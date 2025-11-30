@@ -1,9 +1,10 @@
-import { components } from '@nhsuk/frontend-lib'
 import { fireEvent, getByRole } from '@testing-library/dom'
 import { outdent } from 'outdent'
 
 import { examples } from './fixtures.mjs'
 import { Radios, initRadios } from './radios.mjs'
+
+import { components } from '#lib'
 
 describe('Radios', () => {
   /** @type {HTMLElement} */

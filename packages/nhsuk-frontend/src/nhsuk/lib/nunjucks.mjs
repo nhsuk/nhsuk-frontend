@@ -1,46 +1,28 @@
-import { join } from 'node:path'
+import { resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
 
-import { environment, paths } from '@nhsuk/frontend-config'
 import nunjucks from 'nunjucks'
 import { outdent } from 'outdent'
 
-import * as filters from './filters/index.mjs'
-import * as globals from './globals/index.mjs'
+// Node.js environment with default
+// https://nodejs.org/en/learn/getting-started/nodejs-the-difference-between-development-and-production
+export const { NODE_ENV = 'development' } = process.env
 
 // Nunjucks default environment
-export const env = configure()
+export const env = configure([
+  resolve(fileURLToPath(new URL('.', import.meta.url)), '../..')
+])
 
 /**
  * Nunjucks environment factory
  *
  * @param {string[]} [searchPaths] - Nunjucks search paths (optional)
- * @param {ConfigureOptions} [nunjucksOptions] - Nunjucks options (optional)
  */
-export function configure(searchPaths = [], nunjucksOptions = {}) {
-  searchPaths.push(
-    environment === 'test'
-      ? join(paths.pkg, 'src') // Use source files for tests
-      : join(paths.pkg, 'dist') // Use build output for review
-  )
-
-  // Nunjucks environment
-  const env = nunjucks.configure(searchPaths, {
+export function configure(searchPaths = []) {
+  return nunjucks.configure(searchPaths, {
     trimBlocks: true, // automatically remove trailing newlines from a block/tag
-    lstripBlocks: true, // automatically remove leading whitespace from a block/tag,
-    ...nunjucksOptions
+    lstripBlocks: true // automatically remove leading whitespace from a block/tag,
   })
-
-  // Add Nunjucks filters
-  for (const [key, filter] of Object.entries(filters)) {
-    env.addFilter(key, filter)
-  }
-
-  // Add Nunjucks globals
-  for (const [key, global] of Object.entries(globals)) {
-    env.addGlobal(key, global)
-  }
-
-  return env
 }
 
 /**
@@ -103,11 +85,6 @@ export function renderTemplate(templatePath, options) {
 }
 
 /**
- * Nunjucks filters
- */
-export * as filters from './filters/index.mjs'
-
-/**
  * Nunjucks macro render options
  *
  * @typedef {object} MacroRenderOptions
@@ -126,5 +103,5 @@ export * as filters from './filters/index.mjs'
  */
 
 /**
- * @import { ConfigureOptions, Environment } from 'nunjucks'
+ * @import { Environment } from 'nunjucks'
  */
