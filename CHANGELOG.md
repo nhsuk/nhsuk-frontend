@@ -211,7 +211,7 @@ If you are not using Nunjucks macros, update your HTML markup using the [top tas
 - [#1686: Remove ↑ up and ↓ down arrow key bindings from tabs](https://github.com/nhsuk/nhsuk-frontend/pull/1686)
 - [#1689: Only show header navigation items if not empty](https://github.com/nhsuk/nhsuk-frontend/pull/1689)
 - [#1698: Fix 2px minimum chevron `outline-width` syntax](https://github.com/nhsuk/nhsuk-frontend/pull/1698)
-- [#1699: Prevent date inputs shifting alignment on iOS 18](https://github.com/alphagov/govuk-frontend/pull/1699)
+- [#1699: Prevent date inputs shifting alignment on iOS 18](https://github.com/nhsuk/nhsuk-frontend/pull/1699)
 
 ## 10.1.0 - 15 October 2025
 
