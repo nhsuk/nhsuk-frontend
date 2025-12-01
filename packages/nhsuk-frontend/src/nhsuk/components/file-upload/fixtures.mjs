@@ -7,7 +7,9 @@ export const examples = {
   'default': {
     context: {
       label: {
-        text: 'Upload a file'
+        text: 'Upload a file',
+        size: 'l',
+        isPageHeading: true
       },
       id: 'file-upload',
       name: 'file-upload'
@@ -17,7 +19,9 @@ export const examples = {
   'with hint': {
     context: {
       label: {
-        text: 'Upload your photo'
+        text: 'Upload your photo',
+        size: 'l',
+        isPageHeading: true
       },
       hint: {
         text: 'Your photo may be in your Pictures, Photos, Downloads or Desktop folder. Or in an app like iPhoto.'
@@ -29,7 +33,9 @@ export const examples = {
   'with error message': {
     context: {
       label: {
-        text: 'Upload a file'
+        text: 'Upload a file',
+        size: 'l',
+        isPageHeading: true
       },
       errorMessage: {
         text: 'The selected file must be a JPG, BMP or TIF.'
@@ -41,7 +47,9 @@ export const examples = {
   'with hint and error': {
     context: {
       label: {
-        text: 'Upload a file'
+        text: 'Upload a file',
+        size: 'l',
+        isPageHeading: true
       },
       id: 'file-upload',
       name: 'file-upload',
@@ -53,12 +61,10 @@ export const examples = {
       }
     }
   },
-  'with label as page heading': {
+  'without page heading': {
     context: {
       label: {
-        text: 'Upload a file',
-        classes: 'nhsuk-label--l',
-        isPageHeading: true
+        text: 'Upload a file'
       },
       id: 'file-upload',
       name: 'file-upload'
@@ -67,7 +73,9 @@ export const examples = {
   'with multiple': {
     context: {
       label: {
-        text: 'Upload multiple files'
+        text: 'Upload multiple files',
+        size: 'l',
+        isPageHeading: true
       },
       id: 'file-upload',
       name: 'file-upload',
@@ -80,7 +88,9 @@ export const examples = {
   'disabled': {
     context: {
       label: {
-        text: 'Upload a file'
+        text: 'Upload a file',
+        size: 'l',
+        isPageHeading: true
       },
       id: 'file-upload',
       name: 'file-upload',
