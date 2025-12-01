@@ -164,7 +164,7 @@ jobs:
     runs-on: macos-latest
     needs: [build]
 
-    if: ${{ github.base_ref == 'main' }}
+    if: ${{ github.base_ref == 'main' || startsWith(github.base_ref, 'support/') }}
 
     steps:
       - name: Checkout
