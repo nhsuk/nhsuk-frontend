@@ -225,6 +225,22 @@ $button-shadow-size: $nhsuk-button-shadow-size;
       }
     }
 
+    // Increase (mobile) search icon size
+    .nhsuk-icon--search {
+      @include nhsuk-media-query($from: mobile) {
+        width: nhsuk-px-to-rem(28px);
+        height: nhsuk-px-to-rem(28px);
+      }
+    }
+
+    // Increase (tablet) search icon size unless in small buttons
+    @at-root .nhsuk-button--icon:not(.nhsuk-button--small) .nhsuk-icon--search {
+      @include nhsuk-media-query($from: tablet) {
+        width: nhsuk-px-to-rem(38px);
+        height: nhsuk-px-to-rem(38px);
+      }
+    }
+
     .nhsuk-icon:first-child {
       margin-left: 0;
     }
@@ -242,20 +258,20 @@ $button-shadow-size: $nhsuk-button-shadow-size;
     }
 
     &.nhsuk-button--small {
-      // Prevent large icon size in small buttons
-      .nhsuk-icon {
-        @include nhsuk-media-query($from: tablet) {
-          width: nhsuk-px-to-rem($nhsuk-icon-size);
-          height: nhsuk-px-to-rem($nhsuk-icon-size);
-        }
-      }
-
       &:has(.nhsuk-icon:first-child) {
         padding-left: nhsuk-spacing(2) - $nhsuk-border-width-form-element;
       }
 
       &:has(.nhsuk-icon:last-child) {
         padding-right: nhsuk-spacing(2) - $nhsuk-border-width-form-element;
+      }
+    }
+
+    // Prevent large icon size in small buttons
+    &.nhsuk-button--small .nhsuk-icon:not(.nhsuk-icon--search) {
+      @include nhsuk-media-query($from: tablet) {
+        width: nhsuk-px-to-rem($nhsuk-icon-size);
+        height: nhsuk-px-to-rem($nhsuk-icon-size);
       }
     }
   }
