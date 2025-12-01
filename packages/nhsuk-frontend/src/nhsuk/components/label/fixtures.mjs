@@ -7,47 +7,60 @@ export const examples = {
   'default': {
     context: {
       text: 'What is your full name?',
-      classes: 'nhsuk-label--l',
+      size: 'l',
       isPageHeading: true
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
-  'size XL': {
+  'text': {
     context: {
       text: 'What is your full name?',
-      classes: 'nhsuk-label--xl',
       isPageHeading: true
     },
+    variants: [
+      {
+        description: 'with size S',
+        context: {
+          size: 's'
+        }
+      },
+      {
+        description: 'with size M',
+        context: {
+          size: 'm'
+        }
+      },
+      {
+        description: 'with size L',
+        context: {
+          size: 'l'
+        }
+      },
+      {
+        description: 'with size XL',
+        context: {
+          size: 'xl'
+        }
+      }
+    ],
     screenshot: {
       viewports: ['tablet']
     }
   },
-  'size L': {
+  'size class': {
     context: {
       text: 'What is your full name?',
       classes: 'nhsuk-label--l',
       isPageHeading: true
-    },
-    screenshot: {
-      viewports: ['tablet']
     }
   },
-  'size M': {
+  'size class overriding size param': {
     context: {
       text: 'What is your full name?',
-      classes: 'nhsuk-label--m',
-      isPageHeading: true
-    },
-    screenshot: {
-      viewports: ['tablet']
-    }
-  },
-  'size S': {
-    context: {
-      text: 'What is your full name?',
-      classes: 'nhsuk-label--s',
+      classes: 'nhsuk-label--l',
+      size: 's',
       isPageHeading: true
     }
   },

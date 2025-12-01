@@ -17,9 +17,11 @@
       <h2 id="components" class="nhsuk-heading-l">Components</h2>
 
       <ul class="nhsuk-list">
-        {% for data in components %}
-          <li><a href="components/{{ data.component }}/">{{ data.name }}</a></li>
-        {% endfor %}
+      {% for data in components %}
+        {% if data.fixtures | length %}
+        <li><a href="components/{{ data.component }}/">{{ data.name }}</a></li>
+        {% endif %}
+      {% endfor %}
       </ul>
     </div>
 

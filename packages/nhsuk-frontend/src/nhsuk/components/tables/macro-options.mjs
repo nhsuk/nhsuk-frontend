@@ -108,6 +108,11 @@ export const params = {
     description:
       'Classes for caption text size. Classes to add to the table caption, for example `"nhsuk-table__caption--l"`.'
   },
+  captionSize: {
+    type: 'string',
+    required: false,
+    description: 'Size of the caption – `"s"`, `"m"`, `"l"` or `"xl"`.'
+  },
   firstCellIsHeader: {
     type: 'boolean',
     required: false,

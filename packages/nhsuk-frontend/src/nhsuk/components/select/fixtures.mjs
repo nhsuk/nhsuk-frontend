@@ -288,11 +288,10 @@ export const examples = {
       viewports: ['watch', 'mobile', 'tablet', 'desktop']
     }
   },
-  'with label size S': {
+  'label': {
     context: {
       label: {
         text: 'Sort by',
-        classes: 'nhsuk-label--s',
         isPageHeading: true
       },
       id: 'custom-size',
@@ -315,94 +314,41 @@ export const examples = {
           text: 'Most comments'
         }
       ]
-    }
-  },
-  'with label size M': {
-    context: {
-      label: {
-        text: 'Sort by',
-        classes: 'nhsuk-label--m',
-        isPageHeading: true
-      },
-      id: 'custom-size',
-      name: 'example',
-      items: [
-        {
-          value: 'published',
-          text: 'Recently published'
-        },
-        {
-          value: 'updated',
-          text: 'Recently updated'
-        },
-        {
-          value: 'views',
-          text: 'Most views'
-        },
-        {
-          value: 'comments',
-          text: 'Most comments'
+    },
+    variants: [
+      {
+        description: 'with size S',
+        context: {
+          label: {
+            size: 's'
+          }
         }
-      ]
-    }
-  },
-  'with label size L': {
-    context: {
-      label: {
-        text: 'Sort by',
-        classes: 'nhsuk-label--l',
-        isPageHeading: true
       },
-      id: 'custom-size',
-      name: 'example',
-      items: [
-        {
-          value: 'published',
-          text: 'Recently published'
-        },
-        {
-          value: 'updated',
-          text: 'Recently updated'
-        },
-        {
-          value: 'views',
-          text: 'Most views'
-        },
-        {
-          value: 'comments',
-          text: 'Most comments'
+      {
+        description: 'with size M',
+        context: {
+          label: {
+            size: 'm'
+          }
         }
-      ]
-    }
-  },
-  'with label size XL': {
-    context: {
-      label: {
-        text: 'Sort by',
-        classes: 'nhsuk-label--xl',
-        isPageHeading: true
       },
-      id: 'custom-size',
-      name: 'example',
-      items: [
-        {
-          value: 'published',
-          text: 'Recently published'
-        },
-        {
-          value: 'updated',
-          text: 'Recently updated'
-        },
-        {
-          value: 'views',
-          text: 'Most views'
-        },
-        {
-          value: 'comments',
-          text: 'Most comments'
+      {
+        description: 'with size L',
+        context: {
+          label: {
+            size: 'l'
+          }
         }
-      ]
-    }
+      },
+      {
+        description: 'with size XL',
+        context: {
+          label: {
+            size: 'xl'
+          }
+        }
+      }
+    ]
   },
   'without page heading': {
     context: {

@@ -1,11 +1,46 @@
-{% from "nhsuk/macros/attributes.njk" import nhsukAttributes -%}
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
-{% if params.html or params.text %}
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-label" -%}
+
+{%- if params.size and
+  params.size in ["s", "m", "l", "xl"] and (
+    not params.classes or (
+      not "nhsuk-label--s" in params.classes and
+      not "nhsuk-label--m" in params.classes and
+      not "nhsuk-label--l" in params.classes and
+      not "nhsuk-label--xl" in params.classes
+    )
+  )
+%}
+  {% set classNames = classNames ~ " nhsuk-label--" ~ params.size %}
+{% endif %}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif %}
+
+{%- if caller or params.html or params.text %}
 {% set labelHtml %}
-<label {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-label {%- if params.classes %} {{ params.classes }}{% endif %}"
-  {{- nhsukAttributes(params.attributes) -}}
-  {%- if params.for %} for="{{ params.for }}"{% endif %}>
-  {{ params.html | safe | trim | indent(2) if params.html else params.text }}
+<label
+  {{- nhsukAttributes({
+    class: classNames,
+    id: {
+      value: params.id,
+      optional: true
+    },
+    for: {
+      value: params.for,
+      optional: true
+    }
+  }) -}}
+
+  {{- nhsukAttributes(params.attributes) }}>
+{% if caller or params.html %}
+  {{ caller() if caller else params.html | safe | trim | indent(2) }}
+{% elif params.text %}
+  {{ params.text | safe | trim | indent(2) }}
+{% endif %}
 </label>
 {% endset -%}
 

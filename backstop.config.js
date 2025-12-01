@@ -17,9 +17,12 @@ const scenarios = components.getNames().flatMap((component) => {
       return []
     }
 
+    // Prefix with description, e.g. 'small with hint'
+    const example = `${fixture.description ?? ''} ${fixture.name}`.trim()
+    const label = `${name} ${example.replace(/\s?default$/, '')}`.trim()
+
     // Set scenario label with review app URL
-    const label = fixture.name !== 'default' ? `${name} ${fixture.name}` : name
-    const { href: url } = getComponentURL(component, { example: fixture.name })
+    const { href: url } = getComponentURL(component, fixture)
 
     /**
      * Default scenario

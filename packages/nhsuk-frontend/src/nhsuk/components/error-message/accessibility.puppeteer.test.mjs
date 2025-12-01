@@ -1,4 +1,9 @@
-import { axe, goToComponent } from '@nhsuk/frontend-helpers/puppeteer.mjs'
+import {
+  axe,
+  getPage,
+  getOptions,
+  goToComponent
+} from '@nhsuk/frontend-helpers/puppeteer.mjs'
 
 import { examples } from './fixtures.mjs'
 
@@ -6,13 +11,18 @@ describe('Error message', () => {
   /** @type {Page} */
   let page
 
-  describe('Component examples', () => {
-    it('passes accessibility tests', async () => {
-      for (const example in examples) {
-        page = await goToComponent(browser, 'error-message', { example })
-        await expect(axe(page)).resolves.toHaveNoViolations()
+  beforeAll(async () => {
+    page = await getPage(browser)
+  })
+
+  describe.each(Object.entries(examples))('%s', (name, example) => {
+    it.each(getOptions(name, example))(
+      '$title passes accessibility tests',
+      async (options) => {
+        await goToComponent(page, 'error-message', options)
+        return expect(axe(page)).resolves.toHaveNoViolations()
       }
-    }, 120000)
+    )
   })
 })
 
