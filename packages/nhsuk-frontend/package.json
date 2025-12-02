@@ -1,6 +1,6 @@
 {
   "name": "nhsuk-frontend",
-  "version": "10.2.0",
+  "version": "10.2.1",
   "description": "NHS.UK frontend contains the code you need to start building user interfaces for NHS websites and services.",
   "homepage": "https://nhsuk.github.io/nhsuk-frontend/",
   "bugs": {
