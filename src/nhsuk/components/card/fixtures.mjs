@@ -169,8 +169,10 @@ export const examples = {
       secondary: true,
       heading: 'Why we are reinvesting in the NHS Prototype kit',
       headingClasses: 'nhsuk-u-font-size-22 nhsuk-u-margin-bottom-2',
-      descriptionHtml:
-        '<p class="nhsuk-body-s nhsuk-u-margin-bottom-2">21 July 2025</p><p class="nhsuk-card__description">Frankie and Mike explain why we revived the NHS prototype kit, the benefits of prototyping in code and how digital teams in the NHS can get started using it.</p>'
+      descriptionHtml: outdent`
+        <p class="nhsuk-body-s nhsuk-u-margin-bottom-2">21 July 2025</p>
+        <p class="nhsuk-card__description">Frankie and Mike explain why we revived the NHS prototype kit, the benefits of prototyping in code and how digital teams in the NHS can get started using it.</p>
+      `
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']
@@ -179,9 +181,7 @@ export const examples = {
   'feature': {
     context: {
       feature: true,
-      href: '#',
       heading: 'Feature card heading',
-      headingClasses: 'nhsuk-heading-m',
       description: 'Feature card description.'
     },
     screenshot: {
