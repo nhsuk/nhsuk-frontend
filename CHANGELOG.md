@@ -1,5 +1,13 @@
 # NHS.UK frontend Changelog
 
+## Unreleased
+
+Note: This release was created from the `support/10.x` branch.
+
+### :wrench: **Fixes**
+
+- [#1726: Fix card modifier scope to allow nested cards](https://github.com/nhsuk/nhsuk-frontend/pull/1726)
+
 ## 10.2.0 - 1 December 2025
 
 ### :new: **New features**
