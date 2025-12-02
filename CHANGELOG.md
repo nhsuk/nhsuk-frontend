@@ -168,7 +168,7 @@ If you are not using Nunjucks macros, change the card classes as follows:
 
 The previous class names are deprecated and will be removed in a future release.
 
-This change was introduced in [pull request #1684: Uplift GOV.UK Frontend summary list component](https://github.com/nhsuk/nhsuk-frontend/pull/1684).
+This change was introduced in [pull request #1684: Fix inconsistent card BEM modifiers etc](https://github.com/nhsuk/nhsuk-frontend/pull/1684).
 
 #### Rename Sass variable for base font size
 
