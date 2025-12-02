@@ -289,6 +289,67 @@ export const examples = {
       })}
     `
   },
+  'feature with nested card and summary list': {
+    context: {
+      feature: true,
+      heading: 'Flu: Follow-up requested'
+    },
+    callBlock: outdent`
+      <p>Sarah Philips (Mum) would like to speak to a member of the team about other options for their child's vaccination.</p>
+      <a class="nhsuk-button nhsuk-button--secondary" href="#">Record a new consent response</a>
+
+      <h3 class="nhsuk-heading-s">Consent responses</h3>
+
+      ${components.render('card', {
+        context: {
+          href: '#',
+          clickable: true,
+          heading: 'Sarah Philips (Mum)',
+          headingLevel: 4
+        },
+        callBlock: outdent`
+          ${components.render('summary-list', {
+            context: {
+              rows: [
+                {
+                  key: {
+                    text: 'Email address'
+                  },
+                  value: {
+                    text: 'sarah.philips@example.com'
+                  }
+                },
+                {
+                  key: {
+                    text: 'Date'
+                  },
+                  value: {
+                    text: '25 August 2025 at 4:04 pm'
+                  }
+                },
+                {
+                  classes: 'nhsuk-summary-list__row--no-border',
+                  key: {
+                    text: 'Response'
+                  },
+                  value: {
+                    html: outdent`
+                      ${components.render('tag', {
+                        context: {
+                          text: 'Follow up requested',
+                          classes: 'nhsuk-tag--orange'
+                        }
+                      })}
+                    `
+                  }
+                }
+              ]
+            }
+          })}
+        `
+      })}
+    `
+  },
   'with image': {
     context: {
       imgURL:
