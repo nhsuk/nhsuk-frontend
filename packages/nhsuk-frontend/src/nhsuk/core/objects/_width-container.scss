@@ -62,7 +62,7 @@
     margin-left: auto;
 
     // Since a safe area may have previously been set above,
-    // we need to duplicate this margin that centers the page.
+    // we need to duplicate this margin that centres the page.
     @supports (margin: string.unquote("max(calc(0px))")) {
       margin-right: auto;
       margin-left: auto;
