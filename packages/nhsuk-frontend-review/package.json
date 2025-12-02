@@ -23,7 +23,7 @@
     "del-cli": "^7.0.0",
     "gulp": "^5.0.1",
     "html-validate": "^10.4.0",
-    "marked": "^17.0.0",
+    "marked": "^17.0.1",
     "nhsuk-frontend": "*",
     "package-json": "^10.0.1",
     "plugin-error": "^2.0.1",
