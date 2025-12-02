@@ -7,7 +7,7 @@ import { outdent } from 'outdent'
  * @satisfies {{ [example: string]: MacroExample }}
  */
 export const examples = {
-  default: {
+  'default': {
     context: {
       titleText: 'Booking complete',
       text: 'We have sent you a confirmation email'
@@ -16,10 +16,10 @@ export const examples = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
-  interruption: {
+  'interruption': {
     context: {
       titleText: 'Jodie Brown had a COVID-19 vaccine less than 3 months ago',
-      titleClasses: 'nhsuk-panel__title--l',
+      titleSize: 'l',
       html: outdent`
         <p>They had a COVID-19 vaccine on 25 September 2025.</p>
         <p>For most people, the minimum recommended gap between COVID-19 vaccine doses is 3 months.</p>
@@ -39,6 +39,13 @@ export const examples = {
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']
+    }
+  },
+  'with title classes and heading level': {
+    context: {
+      titleText: 'Completed',
+      titleClasses: 'nhsuk-u-font-weight-normal nhsuk-u-font-size-26',
+      headingLevel: 2
     }
   }
 }
