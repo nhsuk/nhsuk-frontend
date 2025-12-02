@@ -1,5 +1,13 @@
 # NHS.UK frontend Changelog
 
+## Unreleased
+
+Note: This release was created from the `support/10.x` branch.
+
+### :wrench: **Fixes**
+
+- [#1726: Fix card modifier scope to allow nested cards](https://github.com/nhsuk/nhsuk-frontend/pull/1726)
+
 ## 10.2.0 - 1 December 2025
 
 ### :new: **New features**
@@ -168,7 +176,7 @@ If you are not using Nunjucks macros, change the card classes as follows:
 
 The previous class names are deprecated and will be removed in a future release.
 
-This change was introduced in [pull request #1684: Uplift GOV.UK Frontend summary list component](https://github.com/nhsuk/nhsuk-frontend/pull/1684).
+This change was introduced in [pull request #1684: Fix inconsistent card BEM modifiers etc](https://github.com/nhsuk/nhsuk-frontend/pull/1684).
 
 #### Rename Sass variable for base font size
 
