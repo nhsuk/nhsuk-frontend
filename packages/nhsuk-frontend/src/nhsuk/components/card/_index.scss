@@ -284,6 +284,8 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
     }
 
     .nhsuk-card__actions {
+      margin-top: 0;
+
       @include nhsuk-media-query($from: tablet) {
         padding-top: nhsuk-spacing(5);
       }
