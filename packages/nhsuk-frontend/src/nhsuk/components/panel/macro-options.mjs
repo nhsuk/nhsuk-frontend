@@ -23,6 +23,11 @@ export const params = {
     description:
       'If `titleText` is set, this is not required. HTML to use within the panel. If `titleHtml` is provided, the `titleText` option will be ignored.'
   },
+  titleSize: {
+    type: 'string',
+    required: false,
+    description: 'Size of the title – `"s"`, `"m"`, `"l"` or `"xl"`.'
+  },
   titleClasses: {
     type: 'string',
     required: false,
