@@ -365,6 +365,7 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
       margin-bottom: 0;
 
       @include nhsuk-media-query($from: tablet) {
+        align-self: center;
         margin-top: 0;
       }
     }
