@@ -67,6 +67,7 @@
   }
 
   .nhsuk-summary-list__actions {
+    margin-top: nhsuk-spacing(-1);
     margin-bottom: nhsuk-spacing(3);
 
     @include nhsuk-media-query($from: tablet) {
