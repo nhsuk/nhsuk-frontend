@@ -19,6 +19,16 @@ export const examples = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
+  'basic with heading link': {
+    context: {
+      heading: 'Introduction to care and support',
+      headingClasses: 'nhsuk-heading-m',
+      headingLevel: 3,
+      href: '#',
+      description:
+        'A quick guide for people who have care and support needs and their carers'
+    }
+  },
   'basic with custom HTML': {
     context: {
       heading: 'Help from NHS 111',
@@ -32,6 +42,67 @@ export const examples = {
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']
     }
+  },
+  'basic with summary list': {
+    context: {
+      heading: 'Regional Manager',
+      headingLevel: 3
+    },
+    callBlock: outdent`
+      ${components.render('summary-list', {
+        context: {
+          rows: [
+            {
+              key: {
+                text: 'Name'
+              },
+              value: {
+                text: 'Karen Francis'
+              }
+            },
+            {
+              key: {
+                text: 'Date of birth'
+              },
+              value: {
+                text: '15 March 1984'
+              }
+            }
+          ]
+        }
+      })}
+    `
+  },
+  'basic with summary list and heading link': {
+    context: {
+      heading: 'Regional Manager',
+      headingLevel: 3,
+      href: '#'
+    },
+    callBlock: outdent`
+      ${components.render('summary-list', {
+        context: {
+          rows: [
+            {
+              key: {
+                text: 'Name'
+              },
+              value: {
+                text: 'Karen Francis'
+              }
+            },
+            {
+              key: {
+                text: 'Date of birth'
+              },
+              value: {
+                text: '15 March 1984'
+              }
+            }
+          ]
+        }
+      })}
+    `
   },
   'non-urgent (blue)': {
     context: {
@@ -169,8 +240,10 @@ export const examples = {
       secondary: true,
       heading: 'Why we are reinvesting in the NHS Prototype kit',
       headingClasses: 'nhsuk-u-font-size-22 nhsuk-u-margin-bottom-2',
-      descriptionHtml:
-        '<p class="nhsuk-body-s nhsuk-u-margin-bottom-2">21 July 2025</p><p class="nhsuk-card__description">Frankie and Mike explain why we revived the NHS prototype kit, the benefits of prototyping in code and how digital teams in the NHS can get started using it.</p>'
+      descriptionHtml: outdent`
+        <p class="nhsuk-body-s nhsuk-u-margin-bottom-2">21 July 2025</p>
+        <p class="nhsuk-card__description">Frankie and Mike explain why we revived the NHS prototype kit, the benefits of prototyping in code and how digital teams in the NHS can get started using it.</p>
+      `
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']
@@ -179,14 +252,103 @@ export const examples = {
   'feature': {
     context: {
       feature: true,
-      href: '#',
       heading: 'Feature card heading',
-      headingClasses: 'nhsuk-heading-m',
       description: 'Feature card description.'
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']
     }
+  },
+  'feature with summary list': {
+    context: {
+      feature: true,
+      heading: 'Feature card heading'
+    },
+    callBlock: outdent`
+      ${components.render('summary-list', {
+        context: {
+          rows: [
+            {
+              key: {
+                text: 'Name'
+              },
+              value: {
+                text: 'Karen Francis'
+              }
+            },
+            {
+              key: {
+                text: 'Date of birth'
+              },
+              value: {
+                text: '15 March 1984'
+              }
+            }
+          ]
+        }
+      })}
+    `
+  },
+  'feature with nested card and summary list': {
+    context: {
+      feature: true,
+      heading: 'Flu: Follow-up requested'
+    },
+    callBlock: outdent`
+      <p>Sarah Philips (Mum) would like to speak to a member of the team about other options for their child's vaccination.</p>
+      <a class="nhsuk-button nhsuk-button--secondary" href="#">Record a new consent response</a>
+
+      <h3 class="nhsuk-heading-s">Consent responses</h3>
+
+      ${components.render('card', {
+        context: {
+          href: '#',
+          clickable: true,
+          heading: 'Sarah Philips (Mum)',
+          headingLevel: 4
+        },
+        callBlock: outdent`
+          ${components.render('summary-list', {
+            context: {
+              rows: [
+                {
+                  key: {
+                    text: 'Email address'
+                  },
+                  value: {
+                    text: 'sarah.philips@example.com'
+                  }
+                },
+                {
+                  key: {
+                    text: 'Date'
+                  },
+                  value: {
+                    text: '25 August 2025 at 4:04 pm'
+                  }
+                },
+                {
+                  classes: 'nhsuk-summary-list__row--no-border',
+                  key: {
+                    text: 'Response'
+                  },
+                  value: {
+                    html: outdent`
+                      ${components.render('tag', {
+                        context: {
+                          text: 'Follow up requested',
+                          classes: 'nhsuk-tag--orange'
+                        }
+                      })}
+                    `
+                  }
+                }
+              ]
+            }
+          })}
+        `
+      })}
+    `
   },
   'with image': {
     context: {
