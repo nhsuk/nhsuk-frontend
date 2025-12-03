@@ -21,15 +21,13 @@
 /// Due to Sass deprecated 'misplaced-rest' named argument warnings, all
 /// arguments must be passed to maintain `nhsuk-media-query(950px)` support.
 ///
-/// @param {String | Boolean} $from [false] - One of $nhsuk-breakpoints
-/// @param {String | Boolean} $until [false] - One of $nhsuk-breakpoints
+/// @param {String | Boolean} $from [false] - One of $breakpoints
+/// @param {String | Boolean} $until [false] - One of $breakpoints
 /// @param {String | Boolean} $and [false] - Additional media query parameters
-/// @param {String} $media-type [all] - Media type: screen, print…
+/// @param {String} $media-type [all] - Override media type: screen, print…
+/// @param {Map} $breakpoints [$nhsuk-breakpoints] - Map of breakpoints to use
 ///
-/// @ignore Undocumented mq API, for advanced use only:
-/// @ignore @param {Map} $breakpoints [$nhsuk-breakpoints]
-///
-/// @content styling rules, wrapped into a @media query when $responsive is true
+/// @content styling rules to use for the given media query range
 ///
 /// @example scss
 ///  .element {
@@ -55,8 +53,14 @@
 ///
 /// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
 
-@mixin nhsuk-media-query($from: false, $until: false, $and: false, $media-type: $mq-media-type) {
-  @include mq($from, $until, $and, $media-type, $silence-warning: true) {
+@mixin nhsuk-media-query(
+  $from: false,
+  $until: false,
+  $and: false,
+  $media-type: $mq-media-type,
+  $breakpoints: $nhsuk-breakpoints
+) {
+  @include mq($from, $until, $and, $media-type, $breakpoints, $silence-warning: true) {
     @content;
   }
 }
