@@ -147,20 +147,22 @@ Grid column styles are be applied at tablet width (641px) and above:
 nhsuk-grid-column-[grid-size]
 ```
 
-If necessary, different grid behaviour for the tablet and desktop breakpoints can be applied using additional classes:
+If necessary, different grid behaviour for the mobile and desktop breakpoints can be applied using additional classes:
 
 ```console
+nhsuk-grid-column-[grid-size]-from-mobile
 nhsuk-grid-column-[grid-size]-from-desktop
 ```
 
-For example, you can make a column one-half on tablet but expand to two-thirds on desktop sized screens:
+For example, you can make a column three-quarters on tablet but reduce to two-thirds on desktop sized screens:
 
-```html
-<div class="nhsuk-grid-row">
-  <div class="nhsuk-grid-column-one-half nhsuk-grid-column-two-thirds-from-desktop">
-    <!-- Component -->
+```patch
+  <div class="nhsuk-grid-row">
+-   <div class="nhsuk-grid-column-two-thirds">
++   <div class="nhsuk-grid-column-three-quarters nhsuk-grid-column-two-thirds-from-desktop">
+      <!-- Component -->
+    </div>
   </div>
-</div>
 ```
 
 ### Normal font weight
