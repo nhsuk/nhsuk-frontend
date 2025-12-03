@@ -16,6 +16,12 @@
   }
 
   @each $width in map.keys($nhsuk-grid-widths) {
+    .nhsuk-grid-column-#{$width}-from-mobile {
+      @include nhsuk-grid-column($width, $at: mobile);
+    }
+  }
+
+  @each $width in map.keys($nhsuk-grid-widths) {
     .nhsuk-grid-column-#{$width} {
       @include nhsuk-grid-column($width);
     }
