@@ -20,7 +20,7 @@
       optional: true
     },
     "aria-describedby": {
-      value: params.describedBy,
+      value: params.describedBy if params.describedBy else false,
       optional: true
     }
   }) -}}
