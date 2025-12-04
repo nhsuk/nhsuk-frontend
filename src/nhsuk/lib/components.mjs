@@ -68,7 +68,14 @@ export function render(component, options) {
 /**
  * Nunjucks macro example column width
  *
- * @typedef {('one-third' | 'two-thirds' | 'one-half' | 'full')} MacroExampleWidth
+ * @typedef {(
+ *   'one-quarter' |
+ *   'one-third' |
+ *   'one-half' |
+ *   'two-thirds' |
+ *   'three-quarters' |
+ *   'full'
+ * )} MacroExampleWidth
  */
 
 /**
