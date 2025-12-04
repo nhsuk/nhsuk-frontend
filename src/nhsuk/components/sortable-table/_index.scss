@@ -10,13 +10,28 @@
 ////
 
 @include nhsuk-exports("nhsuk/components/sortable-table") {
+  th[aria-sort]:hover {
+    background-color: nhsuk-colour("grey-4");
+    cursor: pointer;
+
+    button {
+      color: $nhsuk-link-hover-colour;
+      text-decoration: none;
+
+      .nhsuk-icon {
+        fill: $nhsuk-link-hover-colour;
+      }
+    }
+  }
+
   th[aria-sort="ascending"]::after,
   th[aria-sort="descending"]::after {
+    // currently sorted column indicator
     content: "";
 
     position: absolute;
     right: 0;
-    bottom: - $nhsuk-border-width-form-element;
+    bottom: -$nhsuk-border-width-form-element;
     left: 0;
 
     height: $nhsuk-border-width-form-element;
@@ -24,24 +39,11 @@
     background-color: $nhsuk-brand-colour;
   }
 
-  th[aria-sort]:has(button) {
-    position: relative;
-    padding: 0;
-    block-size: 1rem; // gives a height to allow flex button to fill
-  }
-
   [aria-sort] button {
-    display: flex;
+    display: inline-flex;
 
-    min-block-size: 100%; // make button fill th height
-
-    position: relative;
-    z-index: 1; // to keep above ::after border
-
-    align-items: start;
+    align-items: center;
     column-gap: nhsuk-spacing(2) - $nhsuk-border-width-form-element;
-
-    width: 100%;
 
     margin: 0;
     padding: 0;
@@ -63,23 +65,12 @@
     cursor: pointer;
 
     @include nhsuk-link-style-default;
-    @include nhsuk-responsive-padding(3, "bottom");
-    @include nhsuk-responsive-padding(3, "top");
-
-    &:hover {
-      z-index: 0;
-      background-color: nhsuk-colour("grey-4");
-    }
 
     &:focus {
       @include nhsuk-focused-button;
     }
-
-    &:focus:hover {
-      z-index: 1; // keep focus above hover background
-    }
   }
-  
+
   [aria-sort].nhsuk-table__header--numeric button {
     justify-content: end;
     padding-right: $nhsuk-border-width-form-element;
@@ -90,6 +81,5 @@
     flex-shrink: 0;
     width: auto;
     height: 1.25rem;
-    margin-top: 0.25rem;
   }
 }
