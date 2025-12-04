@@ -38,14 +38,20 @@
 {% for fixture in fixtures %}
   {% set exampleName = fixture.description ~ " " ~ fixture.name if fixture.description else fixture.name -%}
   {% set options = fixture.options -%}
+  {% set classNamesColumn = "" -%}
   {% set isFullWidth = options.width === false -%}
   {% set isReverse = options.layout == "background-blue" -%}
+
+  {# Append grid column width classes #}
+  {% for width in ([options.width] if options.width is string else options.width | default([], true)) -%}
+    {% set classNamesColumn = (classNamesColumn ~ " nhsuk-grid-column-" ~ width) | trim %}
+  {% endfor -%}
 
   {% if not options.hidden %}
   <section id="{{ exampleName | slugify }}" class="nhsuk-main-wrapper app-wrapper {%- if options.layout %} app-wrapper--{{ options.layout }}{%- endif %}">
     <div class="nhsuk-width-container">
       <div class="nhsuk-grid-row">
-        <div class="nhsuk-grid-column-{{ options.width | default("two-thirds", true) }}">
+        <div class="{{ classNamesColumn | default("nhsuk-grid-column-two-thirds", true) }}">
           <h3 class="nhsuk-heading-s nhsuk-u-margin-bottom-2 nhsuk-u-margin-top-4">
             {{- name ~ " " ~ exampleName -}}
           </h3>

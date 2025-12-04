@@ -211,7 +211,7 @@ export function render(component, options) {
  * @typedef {object} MacroExampleOptions
  * @property {boolean} [hidden] - Hide example on component listing pages
  * @property {string} [layout] - Nunjucks layout for component preview page
- * @property {MacroExampleWidth | false} [width] - Component grid column width (or set `false` to remove width container)
+ * @property {MacroExampleWidth | MacroExampleWidth[] | false} [width] - Component grid column width (or set `false` to remove width container)
  */
 
 /**
@@ -223,7 +223,26 @@ export function render(component, options) {
 /**
  * Nunjucks macro example column width
  *
- * @typedef {('one-third' | 'two-thirds' | 'one-half' | 'full')} MacroExampleWidth
+ * @typedef {(
+ *   'one-quarter' |
+ *   'one-quarter-from-mobile' |
+ *   'one-quarter-from-desktop' |
+ *   'one-third' |
+ *   'one-third-from-mobile' |
+ *   'one-third-from-desktop' |
+ *   'one-half' |
+ *   'one-half-from-mobile' |
+ *   'one-half-from-desktop' |
+ *   'two-thirds' |
+ *   'two-thirds-from-mobile' |
+ *   'two-thirds-from-desktop' |
+ *   'three-quarters' |
+ *   'three-quarters-from-mobile' |
+ *   'three-quarters-from-desktop' |
+ *   'full' |
+ *   'full-from-mobile' |
+ *   'full-from-desktop'
+ * )} MacroExampleWidth
  */
 
 /**
