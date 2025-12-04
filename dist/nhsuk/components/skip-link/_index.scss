@@ -1,0 +1,48 @@
+@use "sass:string";
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+
+////
+/// Skip link component
+///
+/// 1. Hide until the skip link gains focus from keyboard tabbing.
+///
+/// @group components/skip-link
+////
+
+@include nhsuk-exports("nhsuk/components/skip-link") {
+  .nhsuk-skip-link {
+    position: absolute;
+    z-index: 2;
+    top: nhsuk-spacing(3);
+    left: nhsuk-spacing(3);
+    padding: nhsuk-spacing(2);
+    @include nhsuk-visually-hidden-focusable; // [1]
+
+    // Respect 'display cutout' safe area (avoids notches and rounded corners)
+    @supports (left: string.unquote("max(calc(0px))")) {
+      $safe-area-left: calc(#{nhsuk-spacing(3)} + env(safe-area-inset-left));
+
+      // Use max() to pick largest offset, default or with safe area
+      // Escaped due to Sass max() vs. CSS native max()
+      left: string.unquote("max(#{nhsuk-spacing(3)}, #{$safe-area-left})");
+    }
+  }
+
+  .nhsuk-skip-link-focused-element {
+    &:focus {
+      // Remove the native visible focus indicator when the element is
+      // programmatically focused.
+      //
+      // We set the focus on the linked element (this is usually the <main>
+      // element) when the skip link is activated to improve screen reader
+      // announcements. However, we remove the visible focus indicator from the
+      // linked element because the user cannot interact with it.
+      //
+      // A related discussion: https://github.com/w3c/wcag/issues/1001
+      outline: none;
+    }
+  }
+}
+
+/*# sourceMappingURL=_index.scss.map */

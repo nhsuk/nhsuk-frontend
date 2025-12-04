@@ -1,0 +1,22 @@
+{
+  "name": "Panel",
+  "component": "panel",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "titleText": "Booking complete",
+        "text": "We have sent you a confirmation email"
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop"
+        ]
+      },
+      "options": {},
+      "html": "<div class=\"nhsuk-panel\">\n  <h1 class=\"nhsuk-panel__title\">\n    Booking complete\n  </h1>\n  <div class=\"nhsuk-panel__body\">\n    We have sent you a confirmation email\n  </div>\n</div>"
+    }
+  ]
+}
