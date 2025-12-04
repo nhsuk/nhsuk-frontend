@@ -1,5 +1,13 @@
 # NHS.UK frontend Changelog
 
+## Unreleased
+
+Note: This release was created from the `support/10.x` branch.
+
+### :wrench: **Fixes**
+
+- [#1731: Fix Nunjucks `describedBy` empty string handling](https://github.com/nhsuk/nhsuk-frontend/issues/1731)
+
 ## 10.2.1 - 2 December 2025
 
 Note: This release was created from the `support/10.x` branch.
