@@ -155,6 +155,30 @@ To restore the previous behaviour, add the new `nhsuk-u-wrap-from-tablet` utilit
 
 This was added in [pull request #1668: Add breakpoints to nowrap class](https://github.com/nhsuk/nhsuk-frontend/pull/1668).
 
+### :new: **New features**
+
+#### Add a 'headingLevel' Nunjucks option to labels and legends
+
+The Nunjucks option `isPageHeading` sets whether the label or legend also acts as the heading for the page.
+
+We've added a new `headingLevel` Nunjucks option as a replacement for `isPageHeading` when a custom heading level is necessary, for example when a label or legend acts as the heading for a landmark:
+
+```patch
+<aside>
+  {{ input({
+    label: {
+      text: 'Search',
+-     isPageHeading: true
++     headingLevel: 2
+    }
+  }) }}
+
+  <!-- // … -->
+</aside>
+```
+
+This was added in [pull request #1670: Add label and legend `headingLevel` option](https://github.com/nhsuk/nhsuk-frontend/pull/1670).
+
 ## 10.2.2 - 4 December 2025
 
 Note: This release was created from the `support/10.x` branch.
