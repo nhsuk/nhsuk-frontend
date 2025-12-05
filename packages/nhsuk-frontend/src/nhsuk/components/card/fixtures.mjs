@@ -488,51 +488,47 @@ export const examples = {
 
       <h3 class="nhsuk-heading-s">Consent responses</h3>
 
-      ${components.render('card', {
+      ${components.render('summary-list', {
         context: {
-          href: '#',
-          clickable: true,
-          heading: 'Sarah Philips (Mum)',
-          headingLevel: 4
-        },
-        callBlock: outdent`
-          ${components.render('summary-list', {
-            context: {
-              rows: [
-                {
-                  key: {
-                    text: 'Email address'
-                  },
-                  value: {
-                    text: 'sarah.philips@example.com'
+          card: {
+            href: '#',
+            clickable: true,
+            heading: 'Sarah Philips (Mum)',
+            headingLevel: 4
+          },
+          rows: [
+            {
+              key: {
+                text: 'Email address'
+              },
+              value: {
+                text: 'sarah.philips@example.com'
+              }
+            },
+            {
+              key: {
+                text: 'Date'
+              },
+              value: {
+                text: '25 August 2025 at 4:04 pm'
+              }
+            },
+            {
+              classes: 'nhsuk-summary-list__row--no-border',
+              key: {
+                text: 'Response'
+              },
+              value: {
+                html: components.render('tag', {
+                  context: {
+                    text: 'Follow up requested',
+                    classes: 'nhsuk-tag--orange'
                   }
-                },
-                {
-                  key: {
-                    text: 'Date'
-                  },
-                  value: {
-                    text: '25 August 2025 at 4:04 pm'
-                  }
-                },
-                {
-                  classes: 'nhsuk-summary-list__row--no-border',
-                  key: {
-                    text: 'Response'
-                  },
-                  value: {
-                    html: components.render('tag', {
-                      context: {
-                        text: 'Follow up requested',
-                        classes: 'nhsuk-tag--orange'
-                      }
-                    })
-                  }
-                }
-              ]
+                })
+              }
             }
-          })}
-        `
+          ]
+        }
       })}
     `
   },
