@@ -1,5 +1,19 @@
 # NHS.UK frontend Changelog
 
+## Unreleased
+
+### :new: **New features**
+
+#### Use cards to visually separate multiple summary lists on a single page
+
+You can now wrap a [card](https://service-manual.nhs.uk/design-system/components/cards) around [summary lists](https://service-manual.nhs.uk/design-system/components/summary-list) to help you:
+
+- design and build pages with multiple summary lists
+- show visual dividers between summary lists
+- allow users to apply actions to entire lists
+
+This was added in [pull request #1685: Add card enhancement to summary list](https://github.com/nhsuk/nhsuk-frontend/pull/1685).
+
 ## 10.2.2 - 4 December 2025
 
 Note: This release was created from the `support/10.x` branch.
