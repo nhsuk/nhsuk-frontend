@@ -117,6 +117,7 @@ describe('Grid system', () => {
       expect(results.css).toBe(outdent`
         .nhsuk-grid-column-one-quarter-at-desktop {
           box-sizing: border-box;
+          width: 100%;
           padding: 0 16px;
         }
         @media (min-width: 48.0625em) {
