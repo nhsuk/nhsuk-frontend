@@ -49,6 +49,14 @@ If you're using the following tablet width utility classes, you must:
 
 This change was introduced in [pull request #1296: Apply grid classes from tablet (not desktop)](https://github.com/nhsuk/nhsuk-frontend/pull/1296).
 
+#### Remove global box sizing reset
+
+We have removed the global `box-sizing` reset and added `box-sizing: border-box` only where necessary.
+
+Please review any custom styles, especially those with defined widths, to make sure they have a correctly calculated box size.
+
+This change was introduced in pull requests [#1633: Review global `box-sizing` usage](https://github.com/nhsuk/nhsuk-frontend/pull/1633), [#1711: Review global `box-sizing` usage for v11](https://github.com/nhsuk/nhsuk-frontend/pull/1711) and [#1651: Add `box-sizing: border-box` to width utility classes etc](https://github.com/nhsuk/nhsuk-frontend/pull/1651).
+
 ## 10.2.2 - 4 December 2025
 
 Note: This release was created from the `support/10.x` branch.
@@ -244,14 +252,6 @@ The previous name is deprecated and will be removed in a future release.
 This change was introduced in [pull request #1669: Remove pixel font sizes where unnecessary](https://github.com/nhsuk/nhsuk-frontend/pull/1669).
 
 ### :recycle: **Changes**
-
-#### Remove global box sizing reset
-
-We have removed the global `box-sizing` reset and added `box-sizing: border-box` only where necessary.
-
-Please review any custom styles, especially those with defined widths, to make sure they have a correctly calculated box size.
-
-This change was introduced in pull requests [#1633: Review global `box-sizing` usage](https://github.com/nhsuk/nhsuk-frontend/pull/1633) and [#1651: Add `box-sizing: border-box` to width utility classes etc](https://github.com/nhsuk/nhsuk-frontend/pull/1651).
 
 #### Update the HTML for tab panel text content
 
