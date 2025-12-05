@@ -26,16 +26,37 @@ a {
   }
 }
 
-.nhsuk-link--no-visited-state {
-  @include nhsuk-link-style-no-visited-state;
+// Variant classes should always be used in conjunction with the .nhsuk-link
+// class, so we do not need the common link styles as they will be inherited.
+
+.nhsuk-link--muted {
+  @include nhsuk-link-style-muted;
+}
+
+.nhsuk-link--text-colour {
+  @include nhsuk-link-style-text;
 }
 
 .nhsuk-link--reverse {
-  @include nhsuk-link-style-white;
+  @include nhsuk-link-style-reverse;
 
   @include nhsuk-media-query($media-type: print) {
     &::after {
       color: currentcolor;
     }
   }
+}
+
+.nhsuk-link--no-underline {
+  @include nhsuk-link-style-no-underline;
+}
+
+.nhsuk-link--no-visited-state {
+  @include nhsuk-link-style-no-visited-state;
+}
+
+// Links that only contain images
+
+.nhsuk-link-image {
+  @include nhsuk-link-image;
 }
