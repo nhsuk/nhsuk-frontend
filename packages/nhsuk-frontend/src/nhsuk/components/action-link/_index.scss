@@ -10,7 +10,6 @@
 /// 1. Display inline-block so top and bottom margins are respected.
 /// 2. Add sufficient space between icon and text.
 /// 3. Position is relative so the arrow icon can display absolute.
-/// 4. Text decoration none used to override default <a> styling.
 ///
 /// @group components/action-link
 ////
@@ -27,14 +26,9 @@
     display: inline-block; // [1]
     position: relative; // [3]
     padding-left: nhsuk-px-to-rem($_small-icon-size + $_small-icon-spacing); // [2]
-    text-decoration: none; // [4]
 
-    &:not(:focus):hover {
-      .nhsuk-action-link__text {
-        text-decoration: underline; // [5]
-      }
-    }
-
+    @include nhsuk-link-style;
+    @include nhsuk-link-style-no-visited-state;
     @include nhsuk-font(22, $weight: bold, $line-height: $_small-icon-size);
 
     @include nhsuk-print-colour {
@@ -68,11 +62,7 @@
   }
 
   .nhsuk-action-link--reverse {
-    @include nhsuk-link-style-white;
-
-    &:link {
-      text-decoration: none; // [4]
-    }
+    @include nhsuk-link-style-reverse;
 
     &:not(:focus) .nhsuk-icon {
       // stylelint-disable-next-line declaration-no-important
