@@ -38,8 +38,8 @@
     margin-left: string.unquote("max(#{$nhsuk-gutter-half}, #{$gutter-safe-area-left})");
   }
 
-  // On desktop, add full width gutters
-  @include nhsuk-media-query($from: desktop) {
+  // On tablet, add full width gutters
+  @include nhsuk-media-query($from: tablet) {
     margin-right: $nhsuk-gutter;
     margin-left: $nhsuk-gutter;
 
@@ -78,8 +78,8 @@
   margin-right: $nhsuk-gutter-half;
   margin-left: $nhsuk-gutter-half;
 
-  // On desktop, add full width gutters
-  @include nhsuk-media-query($from: desktop) {
+  // On tablet, add full width gutters
+  @include nhsuk-media-query($from: tablet) {
     margin-right: $nhsuk-gutter;
     margin-left: $nhsuk-gutter;
   }

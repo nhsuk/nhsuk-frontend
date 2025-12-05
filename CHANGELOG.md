@@ -1,5 +1,54 @@
 # NHS.UK frontend Changelog
 
+## Unreleased
+
+### :boom: **Breaking changes**
+
+#### Apply grid column widths from tablet (not desktop) width
+
+We've updated our grid column styles to be applied at tablet width (641px and up).
+
+Previously they were applied from desktop width (769px and up) making it difficult to cater for smaller screen sizes.
+
+Please carefully review your pages. If necessary, different grid behaviour for the mobile and desktop breakpoints can be applied using new classes ending `-from-mobile` and `-from-desktop`.
+
+For example, you can make a column three-quarters on tablet but reduce to two-thirds on desktop sized screens:
+
+```patch
+  <div class="nhsuk-grid-row">
+-   <div class="nhsuk-grid-column-two-thirds">
++   <div class="nhsuk-grid-column-three-quarters nhsuk-grid-column-two-thirds-from-desktop">
+      <!-- Component -->
+    </div>
+  </div>
+```
+
+##### Mobile width override classes
+
+Grid column classes ending `-from-mobile` are applied at mobile width (320px) and above.
+
+If you're using the following mobile width utility classes, you must:
+
+- Replace `nhsuk-u-one-half` with `nhsuk-grid-column-one-half-from-mobile`
+- Replace `nhsuk-u-one-third` with `nhsuk-grid-column-one-third-from-mobile`
+- Replace `nhsuk-u-two-thirds` with `nhsuk-grid-column-two-thirds-from-mobile`
+- Replace `nhsuk-u-one-quarter` with `nhsuk-grid-column-one-quarter-from-mobile`
+- Replace `nhsuk-u-three-quarters` with `nhsuk-grid-column-three-quarters-from-mobile`.
+
+##### Tablet width override classes
+
+Grid column classes not ending `-from-mobile` or `-from-desktop` are applied at tablet width (641px) and above.
+
+If you're using the following tablet width utility classes, you must:
+
+- Replace `nhsuk-u-one-half-tablet` with `nhsuk-grid-column-one-half`
+- Replace `nhsuk-u-one-third-tablet` with `nhsuk-grid-column-one-third`
+- Replace `nhsuk-u-two-thirds-tablet` with `nhsuk-grid-column-two-thirds`
+- Replace `nhsuk-u-one-quarter-tablet` with `nhsuk-grid-column-one-quarter`
+- Replace `nhsuk-u-three-quarters-tablet` with `nhsuk-grid-column-three-quarters`
+
+This change was introduced in [pull request #1296: Apply grid classes from tablet (not desktop)](https://github.com/nhsuk/nhsuk-frontend/pull/1296).
+
 ## 10.2.2 - 4 December 2025
 
 Note: This release was created from the `support/10.x` branch.

@@ -8,16 +8,57 @@
 /// @group objects/layout
 ////
 
+%nhsuk-grid-row {
+  margin-right: -($nhsuk-gutter-half);
+  margin-left: -($nhsuk-gutter-half);
+  @include nhsuk-clearfix;
+}
+
+%nhsuk-grid-column {
+  @include nhsuk-grid-column-common;
+}
+
 @include nhsuk-exports("nhsuk/core/objects/grid") {
+  $breakpoints: map.keys(map.remove($nhsuk-breakpoints, "large-desktop"));
+  $breakpoint-default: "tablet";
+
   .nhsuk-grid-row {
-    margin-right: -($nhsuk-gutter-half);
-    margin-left: -($nhsuk-gutter-half);
-    @include nhsuk-clearfix;
+    @extend %nhsuk-grid-row;
   }
 
+  .nhsuk-grid-column {
+    @extend %nhsuk-grid-column;
+  }
+
+  // Set defaults only without breakpoints
   @each $width in map.keys($nhsuk-grid-widths) {
-    .nhsuk-grid-column-#{$width} {
-      @include nhsuk-grid-column($width);
+    @each $breakpoint in $breakpoints {
+      $grid-column-selector: if(
+        $breakpoint == $breakpoint-default,
+        ".nhsuk-grid-column-#{$width}",
+        ".nhsuk-grid-column-#{$width}-from-#{$breakpoint}"
+      );
+
+      #{$grid-column-selector} {
+        @extend %nhsuk-grid-column;
+      }
+    }
+  }
+
+  // Set width classes at each breakpoint
+  @each $breakpoint in $breakpoints {
+    @include nhsuk-media-query($from: $breakpoint) {
+      @each $width in map.keys($nhsuk-grid-widths) {
+        $grid-column-selector: if(
+          $breakpoint == $breakpoint-default,
+          ".nhsuk-grid-column-#{$width}",
+          ".nhsuk-grid-column-#{$width}-from-#{$breakpoint}"
+        );
+
+        #{$grid-column-selector} {
+          @include nhsuk-grid-column-width($width);
+        }
+      }
     }
   }
 }
