@@ -71,7 +71,108 @@ export const examples = {
           ]
         }
       })}
-    `
+    `,
+    screenshot: {
+      viewports: ['mobile', 'tablet']
+    }
+  },
+  'basic with summary lists': {
+    context: {
+      heading: 'Regional Managers',
+      headingLevel: 3
+    },
+    callBlock: outdent`
+      <h4 class="nhsuk-heading-s nhsuk-u-margin-bottom-1">East</h4>
+      ${components.render('summary-list', {
+        context: {
+          rows: [
+            {
+              key: {
+                text: 'Name'
+              },
+              value: {
+                text: 'Karen Francis'
+              }
+            },
+            {
+              key: {
+                text: 'Date of birth'
+              },
+              value: {
+                text: '15 March 1984'
+              }
+            }
+          ]
+        }
+      })}
+
+      <h4 class="nhsuk-heading-s nhsuk-u-margin-bottom-1">West</h4>
+      ${components.render('summary-list', {
+        context: {
+          rows: [
+            {
+              key: {
+                text: 'Name'
+              },
+              value: {
+                text: 'Sarah Philips'
+              }
+            },
+            {
+              key: {
+                text: 'Date of birth'
+              },
+              value: {
+                text: '5 January 1978'
+              }
+            }
+          ]
+        }
+      })}
+    `,
+    screenshot: {
+      viewports: ['mobile', 'tablet']
+    }
+  },
+  'basic with summary list and button': {
+    context: {
+      heading: 'Regional Manager',
+      headingLevel: 3
+    },
+    callBlock: outdent`
+      ${components.render('summary-list', {
+        context: {
+          rows: [
+            {
+              key: {
+                text: 'Name'
+              },
+              value: {
+                text: 'Karen Francis'
+              }
+            },
+            {
+              key: {
+                text: 'Date of birth'
+              },
+              value: {
+                text: '15 March 1984'
+              }
+            }
+          ]
+        }
+      })}
+
+      ${components.render('button', {
+        context: {
+          text: 'Add role',
+          classes: 'nhsuk-button--secondary'
+        }
+      })}
+    `,
+    screenshot: {
+      viewports: ['mobile', 'tablet']
+    }
   },
   'basic with summary list and heading link': {
     context: {
