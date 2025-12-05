@@ -40,7 +40,7 @@ export function uniqueValue(value, index) {
   }
 
   const [, prefix, suffix] =
-    /(.+)-((item-)+?hint|info|error)$/.exec(value) ?? []
+    /(.+)-((item-)+?hint|info|label|error)$/.exec(value) ?? []
 
   return prefix && suffix
     ? `${prefix}-${index}-${suffix}` // 'example-5-hint'
