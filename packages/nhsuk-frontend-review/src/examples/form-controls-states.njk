@@ -90,7 +90,7 @@
               attributes: item.attributes,
               disabled: item.disabled
             })
-          }, loop.index) }}
+          }, loop.index) | safe }}
         {% endfor %}
       </div>
     {% endfor %}
@@ -113,7 +113,7 @@
               attributes: item.attributes,
               disabled: item.disabled
             })
-          }, loop.index) }}
+          }, loop.index) | safe }}
         {% endfor %}
       </div>
     {% endfor %}
@@ -136,7 +136,7 @@
               attributes: item.attributes,
               disabled: item.disabled
             })
-          }, loop.index) }}
+          }, loop.index) | safe }}
         {% endfor %}
       </div>
     {% endfor %}
@@ -160,7 +160,7 @@
               disabled: item.disabled,
               items: exampleOptions
             })
-          }, loop.index) }}
+          }, loop.index) | safe }}
         {% endfor %}
       </div>
     {% endfor %}
@@ -175,7 +175,7 @@
           idPrefix: "checkboxes",
           items: exampleItems
         })
-      }, loop.index) }}
+      }, loop.index) | safe }}
     </div>
 
     <div class="nhsuk-grid-column-one-half">
@@ -184,7 +184,7 @@
           idPrefix: "radios",
           items: exampleItems
         })
-      }, loop.index) }}
+      }, loop.index) | safe }}
     </div>
   </div>
 
@@ -198,7 +198,7 @@
           classes: 'nhsuk-checkboxes--small',
           items: exampleItemsSmall
         })
-      }, loop.index) }}
+      }, loop.index) | safe }}
     </div>
 
     <div class="nhsuk-grid-column-one-half">
@@ -208,7 +208,7 @@
           classes: 'nhsuk-radios--small',
           items: exampleItemsSmall
         })
-      }, loop.index) }}
+      }, loop.index) | safe }}
     </div>
   </div>
 

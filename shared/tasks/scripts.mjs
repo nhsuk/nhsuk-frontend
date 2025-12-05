@@ -39,7 +39,9 @@ export function compile(
        * Input plugins
        */
       plugins: [
-        nodeResolve(),
+        nodeResolve({
+          preferBuiltins: true
+        }),
         commonjs(),
         replace({
           include: '**/common/nhsuk-frontend-version.mjs',
