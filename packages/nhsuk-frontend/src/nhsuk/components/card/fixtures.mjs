@@ -73,6 +73,87 @@ export const examples = {
       })}
     `
   },
+  'basic with summary list and actions': {
+    context: {
+      heading: 'Regional Manager',
+      headingLevel: 3,
+      actions: {
+        items: [
+          {
+            text: 'Delete',
+            href: '#'
+          },
+          {
+            text: 'Withdraw',
+            href: '#'
+          }
+        ]
+      }
+    },
+    callBlock: outdent`
+      ${components.render('summary-list', {
+        context: {
+          rows: [
+            {
+              key: {
+                text: 'Name'
+              },
+              value: {
+                text: 'Karen Francis'
+              }
+            },
+            {
+              key: {
+                text: 'Date of birth'
+              },
+              value: {
+                text: '15 March 1984'
+              }
+            }
+          ]
+        }
+      })}
+    `
+  },
+  'basic with summary list and actions (empty items)': {
+    context: {
+      heading: 'Regional Manager',
+      headingLevel: 3,
+      actions: {
+        items: [
+          {
+            text: 'Delete',
+            href: '#'
+          },
+          false
+        ]
+      }
+    },
+    callBlock: outdent`
+      ${components.render('summary-list', {
+        context: {
+          rows: [
+            {
+              key: {
+                text: 'Name'
+              },
+              value: {
+                text: 'Karen Francis'
+              }
+            },
+            {
+              key: {
+                text: 'Date of birth'
+              },
+              value: {
+                text: '15 March 1984'
+              }
+            }
+          ]
+        }
+      })}
+    `
+  },
   'basic with summary list and heading link': {
     context: {
       heading: 'Regional Manager',
@@ -300,53 +381,49 @@ export const examples = {
 
       <h3 class="nhsuk-heading-s">Consent responses</h3>
 
-      ${components.render('card', {
+      ${components.render('summary-list', {
         context: {
-          href: '#',
-          clickable: true,
-          heading: 'Sarah Philips (Mum)',
-          headingLevel: 4
-        },
-        callBlock: outdent`
-          ${components.render('summary-list', {
-            context: {
-              rows: [
-                {
-                  key: {
-                    text: 'Email address'
-                  },
-                  value: {
-                    text: 'sarah.philips@example.com'
-                  }
-                },
-                {
-                  key: {
-                    text: 'Date'
-                  },
-                  value: {
-                    text: '25 August 2025 at 4:04 pm'
-                  }
-                },
-                {
-                  classes: 'nhsuk-summary-list__row--no-border',
-                  key: {
-                    text: 'Response'
-                  },
-                  value: {
-                    html: outdent`
-                      ${components.render('tag', {
-                        context: {
-                          text: 'Follow up requested',
-                          classes: 'nhsuk-tag--orange'
-                        }
-                      })}
-                    `
-                  }
-                }
-              ]
+          card: {
+            href: '#',
+            clickable: true,
+            heading: 'Sarah Philips (Mum)',
+            headingLevel: 4
+          },
+          rows: [
+            {
+              key: {
+                text: 'Email address'
+              },
+              value: {
+                text: 'sarah.philips@example.com'
+              }
+            },
+            {
+              key: {
+                text: 'Date'
+              },
+              value: {
+                text: '25 August 2025 at 4:04 pm'
+              }
+            },
+            {
+              classes: 'nhsuk-summary-list__row--no-border',
+              key: {
+                text: 'Response'
+              },
+              value: {
+                html: outdent`
+                  ${components.render('tag', {
+                    context: {
+                      text: 'Follow up requested',
+                      classes: 'nhsuk-tag--orange'
+                    }
+                  })}
+                `
+              }
             }
-          })}
-        `
+          ]
+        }
       })}
     `
   },
