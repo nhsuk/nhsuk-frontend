@@ -53,6 +53,16 @@ We've added a new variant of the panel component with a solid blue background an
 
 This was added in [pull request #1196: Add interruption panel variant](https://github.com/nhsuk/nhsuk-frontend/pull/1196).
 
+#### Use cards to visually separate multiple summary lists on a single page
+
+You can now wrap a [card](https://service-manual.nhs.uk/design-system/components/cards) around [summary lists](https://service-manual.nhs.uk/design-system/components/summary-list) to help you:
+
+- design and build pages with multiple summary lists
+- show visual dividers between summary lists
+- allow users to apply actions to entire lists
+
+This was added in [pull request #1685: Add card enhancement to summary list](https://github.com/nhsuk/nhsuk-frontend/pull/1685).
+
 ### :wastebasket: **Deprecated features**
 
 #### Rename input prefix and suffix HTML class
