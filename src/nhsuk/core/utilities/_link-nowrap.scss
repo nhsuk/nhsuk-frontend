@@ -20,26 +20,35 @@
   }
 }
 
-.nhsuk-u-nowrap--from-tablet {
+.nhsuk-u-nowrap-from-tablet {
   @include nhsuk-media-query($from: tablet) {
     white-space: nowrap;
   }
 }
 
-.nhsuk-u-nowrap--from-desktop {
+.nhsuk-u-nowrap-from-desktop {
   @include nhsuk-media-query($from: desktop) {
     white-space: nowrap;
   }
 }
 
-.nhsuk-u-nowrap--until-tablet {
-  @include nhsuk-media-query($until: tablet) {
-    white-space: nowrap;
+/// Link wrap
+/// Set text to wrap on to a new line at specific breakpoints.
+
+.nhsuk-u-wrap {
+  @include nhsuk-media-query($from: mobile) {
+    white-space: wrap;
   }
 }
 
-.nhsuk-u-nowrap--until-desktop {
-  @include nhsuk-media-query($until: desktop) {
-    white-space: nowrap;
+.nhsuk-u-wrap-from-tablet {
+  @include nhsuk-media-query($from: tablet) {
+    white-space: wrap;
+  }
+}
+
+.nhsuk-u-wrap-from-desktop {
+  @include nhsuk-media-query($from: desktop) {
+    white-space: wrap;
   }
 }
