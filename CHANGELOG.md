@@ -93,7 +93,12 @@ Previously the utility class did not apply to tablet sized screens (641px and up
 
 Please carefully review your pages. If necessary, different wrapping behaviour for the tablet and desktop breakpoints can be applied using new classes ending `-from-tablet` and `-from-desktop`.
 
-To keep the same behaviour as before this change, use the `.nhsuk-u-nowrap .nhsuk-u-wrap-from-tablet` classes.
+To restore the previous behaviour, add the new `nhsuk-u-wrap-from-tablet` utility class to override the default `nhsuk-u-nowrap` behaviour for tablet sized screens:
+
+```patch
+- <p class="nhsuk-u-nowrap">
++ <p class="nhsuk-u-nowrap nhsuk-u-wrap-from-tablet">
+```
 
 This was added in [pull request #1668: Add breakpoints to nowrap class](https://github.com/nhsuk/nhsuk-frontend/pull/1668).
 
