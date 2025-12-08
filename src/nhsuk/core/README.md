@@ -213,10 +213,11 @@ class="nhsuk-u-margin-[direction]-[spacing]"
 
 ### Prevent text wrapping
 
-Prevent text from wrapping on to a new line and preserve empty spaces, for example: to keep the formatting of an NHS number. Applies from mobile because tiny devices are likely to need wrapping on everything.
+Prevent text from wrapping on to a new line and preserve empty spaces, for example: to keep the formatting of an NHS number. Applies from mobile because tiny devices are likely to need wrapping on everything. Can be combined with breakpoints and wrap classes.
 
 ```html
-<a class="nhsuk-u-nowrap"></a>
+<span class="nhsuk-u-nowrap"></span>
+<span class="nhsuk-u-nowrap-from-tablet nhsuk-u-wrap-from-desktop"></span>
 ```
 
 ### Visually hidden
