@@ -1,7 +1,7 @@
 @use "../tools" as *;
 
 ////
-/// Link nowrap
+/// Text nowrap
 ///
 /// Prevent text from wrapping on to a new line and preserve
 /// empty spaces, for example: to keep the formatting of
@@ -32,17 +32,17 @@
   }
 }
 
-/// Link wrap
+/// Text wrap
 /// Reset text wrapping at specific breakpoints.
 
 .nhsuk-u-wrap-from-tablet {
   @include nhsuk-media-query($from: tablet) {
-    white-space: wrap;
+    white-space: normal;
   }
 }
 
 .nhsuk-u-wrap-from-desktop {
   @include nhsuk-media-query($from: desktop) {
-    white-space: wrap;
+    white-space: normal;
   }
 }
