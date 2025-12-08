@@ -33,13 +33,7 @@
 }
 
 /// Link wrap
-/// Set text to wrap on to a new line at specific breakpoints.
-
-.nhsuk-u-wrap {
-  @include nhsuk-media-query($from: mobile) {
-    white-space: wrap;
-  }
-}
+/// Reset text wrapping at specific breakpoints.
 
 .nhsuk-u-wrap-from-tablet {
   @include nhsuk-media-query($from: tablet) {
