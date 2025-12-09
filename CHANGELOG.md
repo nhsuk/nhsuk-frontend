@@ -57,6 +57,22 @@ Please review any custom styles, especially those with defined widths, to make s
 
 This change was introduced in pull requests [#1633: Review global `box-sizing` usage](https://github.com/nhsuk/nhsuk-frontend/pull/1633), [#1711: Review global `box-sizing` usage for v11](https://github.com/nhsuk/nhsuk-frontend/pull/1711) and [#1651: Add `box-sizing: border-box` to width utility classes etc](https://github.com/nhsuk/nhsuk-frontend/pull/1651).
 
+#### Update the HTML for error messages
+
+We've updated the HTML for the error message component to use a `<p>` element instead of a `<span>` element, as this is more semantically correct.
+
+If you're not using Nunjucks macros, swap the `<span class="nhsuk-error-message">` for a `<p class="nhsuk-error-message">`.
+
+```patch
+- <span class="nhsuk-error-message">
++ <p class="nhsuk-error-message">
+    <span class="nhsuk-u-visually-hidden">Error:</span> Example error message
+- </span>
++ </p>
+```
+
+This change was introduced in [pull request #1030: Update error messages to use paragraph tags instead of spans](https://github.com/nhsuk/nhsuk-frontend/pull/1030).
+
 ## 10.2.2 - 4 December 2025
 
 Note: This release was created from the `support/10.x` branch.
