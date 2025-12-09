@@ -26,7 +26,7 @@ export const params = {
   titleSize: {
     type: 'string',
     required: false,
-    description: 'Size of the title – `"s"`, `"m"`, `"l"` or `"xl"`.'
+    description: 'Size of the title – `"m"`, `"l"` or `"xl"`.'
   },
   titleClasses: {
     type: 'string',
