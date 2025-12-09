@@ -158,7 +158,7 @@ jobs:
 
         # Use 2x CPU cores for hosted GitHub runners
         # https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources
-        run: npx jest --color ${{ format('--coverage={0} --maxWorkers=2 --selectProjects "{1}"', matrix.task.coverage || false, matrix.task.description) }}
+        run: npx jest --color ${{ format('--coverage={0} --coverageDirectory="coverage/{1}" --maxWorkers=2 --selectProjects "{2}"', matrix.task.coverage || false, matrix.task.name, matrix.task.description) }}
 
       - name: Save test coverage
         if: ${{ matrix.task.coverage }}
