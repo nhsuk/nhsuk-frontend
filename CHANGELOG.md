@@ -73,6 +73,18 @@ If you're not using Nunjucks macros, swap the `<span class="nhsuk-error-message"
 
 This change was introduced in [pull request #1030: Update error messages to use paragraph tags instead of spans](https://github.com/nhsuk/nhsuk-frontend/pull/1030).
 
+#### Update the HTML for the error summary
+
+If you're not using the Nunjucks macros, you must improve the experience for screen reader users by making these changes to the error summary markup:
+
+- Remove `aria-labelledby="error-summary-title"`, `role="alert"` and `tabindex="-1"` from the parent element (`nhsuk-error-summary`)
+- Add a `div` wrapper around the contents of `nhsuk-error-summary` with the attribute `role="alert"`
+- Remove `id="error-summary-title"` from the error summary `h2` (`nhsuk-error-summary__title`)
+
+This will enable screen reader users to have a better, more coherent experience with the error summary. It will make sure users of JAWS 2022 or later will hear the entire contents of the error summary on page load and therefore have further context on why there is an error on the page they're on.
+
+This change was introduced in [pull request #1036: Add breaking change entry for error summary screen reader improvements](https://github.com/nhsuk/nhsuk-frontend/pull/1036), after previously being recommended in [version 10.1.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.1.0).
+
 ## 10.2.2 - 4 December 2025
 
 Note: This release was created from the `support/10.x` branch.
