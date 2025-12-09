@@ -12,6 +12,7 @@ updates:
           - '@babel/*'
           - '@rollup/*'
           - 'autoprefixer'
+          - 'babel-plugin-*'
           - 'caniuse-lite'
           - 'cssnano'
           - 'cssnano-*'
@@ -48,9 +49,11 @@ updates:
 
       test:
         patterns:
+          - '@axe-core/*'
           - '@testing-library/*'
           - '@types/jest'
           - '@types/jest-*'
+          - 'axe-core'
           - 'babel-jest'
           - 'backstopjs'
           - 'jest'
@@ -62,20 +65,26 @@ updates:
 
       tools:
         patterns:
+          - '@npmcli/*'
+          - 'browser-sync'
           - 'concurrently'
           - 'del-cli'
           - 'glob'
           - 'gulp'
           - 'gulp-*'
           - 'latest-version'
+          - 'lodash'
           - 'outdent'
           - 'package-json'
           - 'plugin-error'
+          - 'slug'
           - 'strip-ansi'
           - 'wait-on'
 
     schedule:
       interval: monthly
+    cooldown:
+      default-days: 7
 
     versioning-strategy: increase
 
@@ -96,3 +105,5 @@ updates:
 
     schedule:
       interval: 'monthly'
+    cooldown:
+      default-days: 7

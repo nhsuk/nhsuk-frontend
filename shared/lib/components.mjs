@@ -24,7 +24,11 @@ export async function load(component) {
   })
 
   const { name, params } = await import(optionsPath)
-  const fixtures = await import(fixturesPath)
+
+  // Import examples (optional) with fallback
+  const fixtures = await import(fixturesPath).catch(() => {
+    return { examples: {} }
+  })
 
   // Sort examples by name, default at top
   const examples = Object.fromEntries(
@@ -38,19 +42,7 @@ export async function load(component) {
         ["(don't)", '2 do-dont'],
 
         // Sort urgent with non-urgent
-        ['non-', ''],
-
-        // Sort sizes numerically
-        ['size S', 'size 1'],
-        ['size M', 'size 2'],
-        ['size L', 'size 3'],
-        ['size XL', 'size 4'],
-
-        // Sort small variants with default sizes
-        [', small', ''],
-
-        // Sort small form controls to end
-        [/^small/, 'ZZZ']
+        ['non-', '']
       ])) {
         nameA = nameA.replace(find, replace)
         nameB = nameB.replace(find, replace)
@@ -145,15 +137,15 @@ export function getFixtures(component) {
 export function getAllFixtures() {
   const components = getNames()
 
-  // Load component fictures per directory
-  return components.map(getFixtures)
+  // Load component fixtures per directory
+  return components.map(getFixtures).filter((data) => data.fixtures.length)
 }
 
 /**
  * Render component HTML
  *
  * @param {string} component - Component directory name
- * @param {MacroRenderOptions} [options] - Nunjucks macro render options
+ * @param {MacroRenderOptions | MacroExample} [options] - Nunjucks macro render options
  * @returns HTML rendered by the component
  */
 export function render(component, options) {
@@ -209,6 +201,7 @@ export function render(component, options) {
  * @property {{ [param: string]: unknown }} [context] - Nunjucks context object (optional)
  * @property {string | undefined} [callBlock] - Nunjucks macro `caller()` content (optional)
  * @property {MacroExampleOptions} [options] - Review app example options (optional)
+ * @property {MacroExample[]} [variants] - Review app example variants (optional)
  * @property {MacroScreenshot | MacroScreenshot[] | boolean} [screenshot] - Screenshot and include in visual regression tests
  */
 
@@ -218,7 +211,7 @@ export function render(component, options) {
  * @typedef {object} MacroExampleOptions
  * @property {boolean} [hidden] - Hide example on component listing pages
  * @property {string} [layout] - Nunjucks layout for component preview page
- * @property {MacroExampleWidth | false} [width] - Component grid column width (or set `false` to remove width container)
+ * @property {MacroExampleWidth | MacroExampleWidth[] | false} [width] - Component grid column width (or set `false` to remove width container)
  */
 
 /**
@@ -230,14 +223,36 @@ export function render(component, options) {
 /**
  * Nunjucks macro example column width
  *
- * @typedef {('one-third' | 'two-thirds' | 'one-half' | 'full')} MacroExampleWidth
+ * @typedef {(
+ *   'one-quarter' |
+ *   'one-quarter-from-mobile' |
+ *   'one-quarter-from-desktop' |
+ *   'one-third' |
+ *   'one-third-from-mobile' |
+ *   'one-third-from-desktop' |
+ *   'one-half' |
+ *   'one-half-from-mobile' |
+ *   'one-half-from-desktop' |
+ *   'two-thirds' |
+ *   'two-thirds-from-mobile' |
+ *   'two-thirds-from-desktop' |
+ *   'three-quarters' |
+ *   'three-quarters-from-mobile' |
+ *   'three-quarters-from-desktop' |
+ *   'full' |
+ *   'full-from-mobile' |
+ *   'full-from-desktop'
+ * )} MacroExampleWidth
  */
 
 /**
  * Nunjucks macro example fixture
  * (used by the Design System website)
  *
- * @typedef {Required<MacroExample> & { name: string, html: string }} MacroExampleFixture
+ * @typedef {Omit<Required<MacroExample>, 'variants'> & {
+ *   name: string,
+ *   html: string
+ * }} MacroExampleFixture
  */
 
 /**

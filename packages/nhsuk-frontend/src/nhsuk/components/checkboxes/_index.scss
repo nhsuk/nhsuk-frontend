@@ -181,9 +181,9 @@ $nhsuk-checkboxes-offset: $nhsuk-border-width-form-element;
   // Conditional reveals
   // =========================================================
 
-  // Calculate the amount of padding needed to keep the border centered against the checkbox.
+  // Calculate the amount of padding needed to keep the border centred against the checkbox.
   $conditional-border-padding: math.div($nhsuk-touch-target-size, 2) - $nhsuk-border-width-form-element;
-  // Move the border centered with the checkbox
+  // Move the border centred with the checkbox
   $conditional-margin-left: $conditional-border-padding;
   // Move the contents of the conditional inline with the label
   $conditional-padding-left: $conditional-border-padding + $nhsuk-checkboxes-label-padding-left-right;
@@ -232,7 +232,7 @@ $nhsuk-checkboxes-offset: $nhsuk-border-width-form-element;
 
     // [ ] Check box
     //
-    // Reduce the size of the check box [1], vertically center it within the
+    // Reduce the size of the check box [1], vertically centre it within the
     // touch target [2]
     // Left here is 0 because we've shifted the input into the left margin
     .nhsuk-checkboxes__label::before {

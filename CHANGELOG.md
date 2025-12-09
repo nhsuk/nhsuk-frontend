@@ -2,6 +2,107 @@
 
 ## Unreleased
 
+### :boom: **Breaking changes**
+
+#### Apply grid column widths from tablet (not desktop) width
+
+We've updated our grid column styles to be applied at tablet width (641px and up).
+
+Previously they were applied from desktop width (769px and up) making it difficult to cater for smaller screen sizes.
+
+Please carefully review your pages. If necessary, different grid behaviour for the mobile and desktop breakpoints can be applied using new classes ending `-from-mobile` and `-from-desktop`.
+
+For example, you can make a column three-quarters on tablet but reduce to two-thirds on desktop sized screens:
+
+```patch
+  <div class="nhsuk-grid-row">
+-   <div class="nhsuk-grid-column-two-thirds">
++   <div class="nhsuk-grid-column-three-quarters nhsuk-grid-column-two-thirds-from-desktop">
+      <!-- Component -->
+    </div>
+  </div>
+```
+
+##### Mobile width override classes
+
+Grid column classes ending `-from-mobile` are applied at mobile width (320px) and above.
+
+If you're using the following mobile width utility classes, you must:
+
+- Replace `nhsuk-u-one-half` with `nhsuk-grid-column-one-half-from-mobile`
+- Replace `nhsuk-u-one-third` with `nhsuk-grid-column-one-third-from-mobile`
+- Replace `nhsuk-u-two-thirds` with `nhsuk-grid-column-two-thirds-from-mobile`
+- Replace `nhsuk-u-one-quarter` with `nhsuk-grid-column-one-quarter-from-mobile`
+- Replace `nhsuk-u-three-quarters` with `nhsuk-grid-column-three-quarters-from-mobile`.
+
+##### Tablet width override classes
+
+Grid column classes not ending `-from-mobile` or `-from-desktop` are applied at tablet width (641px) and above.
+
+If you're using the following tablet width utility classes, you must:
+
+- Replace `nhsuk-u-one-half-tablet` with `nhsuk-grid-column-one-half`
+- Replace `nhsuk-u-one-third-tablet` with `nhsuk-grid-column-one-third`
+- Replace `nhsuk-u-two-thirds-tablet` with `nhsuk-grid-column-two-thirds`
+- Replace `nhsuk-u-one-quarter-tablet` with `nhsuk-grid-column-one-quarter`
+- Replace `nhsuk-u-three-quarters-tablet` with `nhsuk-grid-column-three-quarters`
+
+This change was introduced in [pull request #1296: Apply grid classes from tablet (not desktop)](https://github.com/nhsuk/nhsuk-frontend/pull/1296).
+
+#### Remove global box sizing reset
+
+We have removed the global `box-sizing` reset and added `box-sizing: border-box` only where necessary.
+
+Please review any custom styles, especially those with defined widths, to make sure they have a correctly calculated box size.
+
+This change was introduced in pull requests [#1633: Review global `box-sizing` usage](https://github.com/nhsuk/nhsuk-frontend/pull/1633), [#1711: Review global `box-sizing` usage for v11](https://github.com/nhsuk/nhsuk-frontend/pull/1711) and [#1651: Add `box-sizing: border-box` to width utility classes etc](https://github.com/nhsuk/nhsuk-frontend/pull/1651).
+
+#### Update the HTML for error messages
+
+We've updated the HTML for the error message component to use a `<p>` element instead of a `<span>` element, as this is more semantically correct.
+
+If you're not using Nunjucks macros, swap the `<span class="nhsuk-error-message">` for a `<p class="nhsuk-error-message">`.
+
+```patch
+- <span class="nhsuk-error-message">
++ <p class="nhsuk-error-message">
+    <span class="nhsuk-u-visually-hidden">Error:</span> Example error message
+- </span>
++ </p>
+```
+
+This change was introduced in [pull request #1030: Update error messages to use paragraph tags instead of spans](https://github.com/nhsuk/nhsuk-frontend/pull/1030).
+
+#### Update the HTML for the error summary
+
+If you're not using the Nunjucks macros, you must improve the experience for screen reader users by making these changes to the error summary markup:
+
+- Remove `aria-labelledby="error-summary-title"`, `role="alert"` and `tabindex="-1"` from the parent element (`nhsuk-error-summary`)
+- Add a `div` wrapper around the contents of `nhsuk-error-summary` with the attribute `role="alert"`
+- Remove `id="error-summary-title"` from the error summary `h2` (`nhsuk-error-summary__title`)
+
+This will enable screen reader users to have a better, more coherent experience with the error summary. It will make sure users of JAWS 2022 or later will hear the entire contents of the error summary on page load and therefore have further context on why there is an error on the page they're on.
+
+This change was introduced in [pull request #1036: Add breaking change entry for error summary screen reader improvements](https://github.com/nhsuk/nhsuk-frontend/pull/1036), after previously being recommended in [version 10.1.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.1.0).
+
+## 10.2.2 - 4 December 2025
+
+Note: This release was created from the `support/10.x` branch.
+
+### :wrench: **Fixes**
+
+- [#1731: Fix Nunjucks `describedBy` empty string handling](https://github.com/nhsuk/nhsuk-frontend/issues/1731)
+
+## 10.2.1 - 2 December 2025
+
+Note: This release was created from the `support/10.x` branch.
+
+### :wrench: **Fixes**
+
+- [#1726: Fix card modifier scope to allow nested cards](https://github.com/nhsuk/nhsuk-frontend/pull/1726)
+
+## 10.2.0 - 1 December 2025
+
 ### :new: **New features**
 
 #### Use the password input component to help users accessibly enter passwords
@@ -98,6 +199,50 @@ We've added a new `divider` Nunjucks option on select items to support this feat
 
 This was added in [pull request #1701: Support showing dividers between select options](https://github.com/nhsuk/nhsuk-frontend/pull/1701).
 
+#### Add a 'size' Nunjucks option to labels and legends
+
+We've added a new `size` Nunjucks option to labels and legends as a simpler alternative to the size modifier classes. For example:
+
+```patch
+  {{ input({
+    label: {
+      text: 'What is your full name?',
+-     classes: "nhsuk-label--l"
++     size: "l"
+    }
+  }) }}
+```
+
+```patch
+  {{ radios({
+    fieldset: {
+      legend: {
+        text: "How do you want to be contacted about this?",
+-       classes: "nhsuk-fieldset__legend--l"
++       size: "l"
+      }
+    },
+    items: []
+  }}
+```
+
+This was added in [pull request #1708: Add label, legend and table caption size option](https://github.com/nhsuk/nhsuk-frontend/pull/1708).
+
+#### Add a 'captionSize' Nunjucks option to tables
+
+We've added a new `captionSize` Nunjucks option to tables as a simpler alternative to the caption modifier classes. For example:
+
+```patch
+  {{ table({
+    caption: "Skin symptoms and possible causes",
+-   captionClasses: "nhsuk-table__caption--l",
++   captionSize: "l",
+    rows: []
+  }) }}
+```
+
+This was added in [pull request #1708: Add label, legend and table caption size option](https://github.com/nhsuk/nhsuk-frontend/pull/1708).
+
 ### :wastebasket: **Deprecated features**
 
 #### Rename input wrapper HTML class
@@ -124,7 +269,7 @@ If you are not using Nunjucks macros, change the card classes as follows:
 
 The previous class names are deprecated and will be removed in a future release.
 
-This change was introduced in [pull request #1684: Uplift GOV.UK Frontend summary list component](https://github.com/nhsuk/nhsuk-frontend/pull/1684).
+This change was introduced in [pull request #1684: Fix inconsistent card BEM modifiers etc](https://github.com/nhsuk/nhsuk-frontend/pull/1684).
 
 #### Rename Sass variable for base font size
 
@@ -135,14 +280,6 @@ The previous name is deprecated and will be removed in a future release.
 This change was introduced in [pull request #1669: Remove pixel font sizes where unnecessary](https://github.com/nhsuk/nhsuk-frontend/pull/1669).
 
 ### :recycle: **Changes**
-
-#### Remove global box sizing reset
-
-We have removed the global `box-sizing` reset and added `box-sizing: border-box` only where necessary.
-
-Please review any custom styles, especially those with defined widths, to make sure they have a correctly calculated box size.
-
-This change was introduced in pull requests [#1633: Review global `box-sizing` usage](https://github.com/nhsuk/nhsuk-frontend/pull/1633) and [#1651: Add `box-sizing: border-box` to width utility classes etc](https://github.com/nhsuk/nhsuk-frontend/pull/1651).
 
 #### Update the HTML for tab panel text content
 
@@ -159,6 +296,12 @@ If you are not using Nunjucks macros, update your HTML markup using the [tabs ex
 
 This change was introduced in [pull request #1686: Remove ↑ up and ↓ down arrow key bindings from tabs](https://github.com/nhsuk/nhsuk-frontend/pull/1686).
 
+#### Remove unused top task card class name
+
+We've updated the HTML for the card component to remove the unused `nhsuk-card--top-task` class and associated `topTask` Nunjucks option.
+
+If you are not using Nunjucks macros, update your HTML markup using the [top task card example in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/action-link) where the `nhsuk-card--clickable` class is used instead.
+
 ### :wrench: **Fixes**
 
 - [#1633: Review global `box-sizing` usage](https://github.com/nhsuk/nhsuk-frontend/pull/1633)
@@ -170,7 +313,7 @@ This change was introduced in [pull request #1686: Remove ↑ up and ↓ down ar
 - [#1686: Remove ↑ up and ↓ down arrow key bindings from tabs](https://github.com/nhsuk/nhsuk-frontend/pull/1686)
 - [#1689: Only show header navigation items if not empty](https://github.com/nhsuk/nhsuk-frontend/pull/1689)
 - [#1698: Fix 2px minimum chevron `outline-width` syntax](https://github.com/nhsuk/nhsuk-frontend/pull/1698)
-- [#1699: Prevent date inputs shifting alignment on iOS 18](https://github.com/alphagov/govuk-frontend/pull/1699)
+- [#1699: Prevent date inputs shifting alignment on iOS 18](https://github.com/nhsuk/nhsuk-frontend/pull/1699)
 
 ## 10.1.0 - 15 October 2025
 

@@ -141,15 +141,28 @@ Automatically clear an elements child elements.
 
 ### Grid overrides
 
-By default all grid elements will go to 100% width on screen sizes below tablet. These utilities can force
-custom widths on all screen sizes.
+Grid column styles are be applied at tablet width (641px) and above:
 
 ```console
-nhsuk-u-[grid-size]
+nhsuk-grid-column-[grid-size]
 ```
 
-```html
-<div class="nhsuk-grid-column-one-half nhsuk-u-one-half"></div>
+If necessary, different grid behaviour for the mobile and desktop breakpoints can be applied using additional classes:
+
+```console
+nhsuk-grid-column-[grid-size]-from-mobile
+nhsuk-grid-column-[grid-size]-from-desktop
+```
+
+For example, you can make a column three-quarters on tablet but reduce to two-thirds on desktop sized screens:
+
+```patch
+  <div class="nhsuk-grid-row">
+-   <div class="nhsuk-grid-column-two-thirds">
++   <div class="nhsuk-grid-column-three-quarters nhsuk-grid-column-two-thirds-from-desktop">
+      <!-- Component -->
+    </div>
+  </div>
 ```
 
 ### Normal font weight

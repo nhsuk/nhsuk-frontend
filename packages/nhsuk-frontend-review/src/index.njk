@@ -17,9 +17,11 @@
       <h2 id="components" class="nhsuk-heading-l">Components</h2>
 
       <ul class="nhsuk-list">
-        {% for data in components %}
-          <li><a href="components/{{ data.component }}/">{{ data.name }}</a></li>
-        {% endfor %}
+      {% for data in components %}
+        {% if data.fixtures | length %}
+        <li><a href="components/{{ data.component }}/">{{ data.name }}</a></li>
+        {% endif %}
+      {% endfor %}
       </ul>
     </div>
 
@@ -42,6 +44,7 @@
         <li><a href="examples/expander-alongside-card/">Expander alongside card</a></li>
         <li><a href="examples/form-alignment/">Form elements alignment</a></li>
         <li><a href="examples/form-controls-states/">Form controls states</a></li>
+        <li><a href="examples/grid/">Grid layout</a></li>
         <li><a href="examples/multiple-radio-groups/">Multiple radio groups</a></li>
         <li><a href="examples/small-form-controls/">Small form controls</a></li>
         <li><a href="examples/task-list-multiple-sections/">Task list with multiple sections</a></li>

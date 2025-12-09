@@ -46,7 +46,7 @@ describe('Header class', () => {
   beforeEach(() => {
     document.body.innerHTML = components.render(
       'header',
-      examples['blue with navigation (overflow)']
+      examples['with navigation (overflow)']
     )
 
     $root = /** @type {HTMLElement} */ (
@@ -211,34 +211,34 @@ describe('Header class', () => {
 
   describe('Accessibility', () => {
     it('should append ‘homepage’ to linked NHS logo', () => {
-      initExample('blue (linked logo)')
+      initExample('linked logo')
 
       expect($serviceLogo).toHaveAccessibleName('NHS homepage')
       expect($serviceLogo).toHaveAttribute('aria-label', 'NHS homepage')
     })
 
     it('should use a custom `aria-label` for linked NHS logo', () => {
-      initExample('white (linked logo, ARIA label)')
+      initExample('white linked logo, ARIA label')
 
       expect($serviceLogo).toHaveAccessibleName('NHS white homepage')
       expect($serviceLogo).toHaveAttribute('aria-label', 'NHS white homepage')
     })
 
     it('should append ‘homepage’ to linked NHS logo with separate service name', () => {
-      initExample('blue with service name')
+      initExample('with service name')
 
       expect($serviceLogo).toHaveAccessibleName('NHS homepage')
       expect($serviceLogo).toHaveAttribute('aria-label', 'NHS homepage')
     })
 
     it('should append ‘homepage’ to linked service name logo combo', () => {
-      initExample('blue with service name (linked with logo)')
+      initExample('with service name (linked with logo)')
 
       expect($serviceLogo).toHaveAccessibleName('NHS Prototype kit homepage')
     })
 
     it('should append ‘homepage’ to linked logo and organisation name', () => {
-      initExample('blue with organisation name')
+      initExample('with organisation name')
 
       expect($serviceLogo).toHaveAccessibleName(
         'NHS Business Services Authority homepage'
@@ -246,7 +246,7 @@ describe('Header class', () => {
     })
 
     it('should append ‘homepage’ to linked logo and split organisation name', () => {
-      initExample('blue with organisation name (split with descriptor), search')
+      initExample('with organisation name (split with descriptor), search')
 
       expect($serviceLogo).toHaveAccessibleName(
         'NHS Anytown Anyplace Anywhere homepage'
@@ -254,7 +254,7 @@ describe('Header class', () => {
     })
 
     it('should append ‘homepage’ to linked custom logo', () => {
-      initExample('white (linked logo, custom)')
+      initExample('white linked logo, custom')
 
       expect($serviceLogo).toHaveAccessibleName(
         'Great Ormond Street Hospital for Children, NHS Foundation Trust homepage'

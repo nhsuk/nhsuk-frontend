@@ -21,30 +21,7 @@ export const params = {
     type: 'object',
     required: false,
     description: 'The legend for the fieldset component.',
-    params: {
-      text: {
-        type: 'string',
-        required: true,
-        description:
-          'If `html` is set, this is not required. Text to use within the legend. If `html` is provided, the `text` option will be ignored.'
-      },
-      html: {
-        type: 'string',
-        required: true,
-        description:
-          'If `text` is set, this is not required. HTML to use within the legend. If `html` is provided, the `text` option will be ignored.'
-      },
-      classes: {
-        type: 'string',
-        required: false,
-        description: 'Classes to add to the legend.'
-      },
-      isPageHeading: {
-        type: 'boolean',
-        required: false,
-        description: 'Whether the legend also acts as the heading for the page.'
-      }
-    }
+    isComponent: true
   },
   classes: {
     type: 'string',

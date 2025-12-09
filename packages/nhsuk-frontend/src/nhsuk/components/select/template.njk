@@ -40,13 +40,14 @@
     html: params.label.html,
     text: params.label.text,
     classes: params.label.classes,
+    size: params.label.size,
     isPageHeading: params.label.isPageHeading,
     attributes: params.label.attributes,
     for: id
   }) | trim | indent(2) }}
 {% if params.hint %}
   {% set hintId = id ~ "-hint" %}
-  {% set describedBy = describedBy ~ " " ~ hintId if describedBy else hintId %}
+  {% set describedBy = (describedBy ~ " " ~ hintId) | trim %}
   {{ hint({
     id: hintId,
     classes: params.hint.classes,
@@ -57,7 +58,7 @@
 {% endif %}
 {% if params.errorMessage %}
   {% set errorId = id ~ "-error" %}
-  {% set describedBy = describedBy ~ " " ~ errorId if describedBy else errorId %}
+  {% set describedBy = (describedBy ~ " " ~ errorId) | trim %}
   {{ errorMessage({
     id: errorId,
     classes: params.errorMessage.classes,

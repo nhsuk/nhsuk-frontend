@@ -25,6 +25,24 @@
   @error "Unknown grid width `#{$key}`";
 }
 
+/// Common grid column styles
+
+@mixin nhsuk-grid-column-common {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 $nhsuk-gutter-half;
+}
+
+/// Generate grid column width styles
+///
+/// @param {String} $width [full] - name of a grid width from $nhsuk-grid-widths
+/// @param {String} $float [left] - left | right
+
+@mixin nhsuk-grid-column-width($width: full, $float: left) {
+  width: nhsuk-grid-width($width);
+  float: $float;
+}
+
 /// Generate grid column styles
 ///
 /// Creates a grid column with standard gutter between the columns.
@@ -32,12 +50,12 @@
 /// Grid widths are defined in the `$nhsuk-grid-widths` map.
 ///
 /// By default the column width changes from 100% to specified width at the
-/// 'desktop' breakpoint, but other breakpoints can be specified using the `$at`
+/// 'tablet' breakpoint, but other breakpoints can be specified using the `$at`
 /// parameter.
 ///
-/// @param {String} $width [full] name of a grid width from $nhsuk-grid-widths
-/// @param {String} $float [left] left | right
-/// @param {String} $at [desktop] - mobile | tablet | desktop | any custom breakpoint
+/// @param {String} $width [full] - name of a grid width from $nhsuk-grid-widths
+/// @param {String} $float [left] - left | right
+/// @param {String | Boolean} $at [tablet] - mobile | tablet | desktop | any custom breakpoint
 ///
 /// @example scss - Default
 ///   .nhsuk-grid-column-two-thirds {
@@ -45,8 +63,8 @@
 ///   }
 ///
 /// @example scss - Customising the breakpoint where width percentage is applied
-///   .nhsuk-grid-column-one-half-at-tablet {
-///     @include nhsuk-grid-column(one-half, $at: tablet);
+///   .nhsuk-grid-column-one-half-at-desktop {
+///     @include nhsuk-grid-column(one-half, $at: desktop);
 ///   }
 ///
 /// @example scss - Customising the float direction
@@ -56,17 +74,10 @@
 ///
 /// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
 
-@mixin nhsuk-grid-column($width: full, $float: left, $at: desktop) {
-  box-sizing: border-box;
-
-  @if $at != tablet {
-    width: 100%;
-  }
-
-  padding: 0 $nhsuk-gutter-half;
+@mixin nhsuk-grid-column($width: full, $float: left, $at: tablet) {
+  @include nhsuk-grid-column-common;
 
   @include nhsuk-media-query($from: $at) {
-    width: nhsuk-grid-width($width);
-    float: $float;
+    @include nhsuk-grid-column-width($width, $float);
   }
 }

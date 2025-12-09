@@ -18,12 +18,10 @@
 // stylelint-disable declaration-no-important
 
 .nhsuk-u-width-full {
-  box-sizing: border-box;
   width: 100% !important;
 }
 
 .nhsuk-u-width-three-quarters {
-  box-sizing: border-box;
   width: 100% !important;
 
   @include nhsuk-media-query($from: tablet) {
@@ -32,7 +30,6 @@
 }
 
 .nhsuk-u-width-two-thirds {
-  box-sizing: border-box;
   width: 100% !important;
 
   @include nhsuk-media-query($from: tablet) {
@@ -41,7 +38,6 @@
 }
 
 .nhsuk-u-width-one-half {
-  box-sizing: border-box;
   width: 100% !important;
 
   @include nhsuk-media-query($from: tablet) {
@@ -50,7 +46,6 @@
 }
 
 .nhsuk-u-width-one-third {
-  box-sizing: border-box;
   width: 100% !important;
 
   @include nhsuk-media-query($from: tablet) {
@@ -59,7 +54,6 @@
 }
 
 .nhsuk-u-width-one-quarter {
-  box-sizing: border-box;
   width: 100% !important;
 
   @include nhsuk-media-query($from: tablet) {
