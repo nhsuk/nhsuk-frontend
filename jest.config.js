@@ -11,7 +11,11 @@ const { headless = true } = jestPuppeteerConfig.launch
 const config = {
   cacheDirectory: '<rootDir>/.cache/jest',
   clearMocks: true,
-  coveragePathIgnorePatterns: ['.test.mjs'],
+  coveragePathIgnorePatterns: [
+    '.test.mjs',
+    'fixtures.mjs',
+    'macro-options.mjs'
+  ],
 
   // Enable Babel transforms until Jest supports ESM and `import()`
   // See: https://jestjs.io/docs/ecmascript-modules
