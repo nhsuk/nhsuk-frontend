@@ -10,6 +10,14 @@ We've added a new variant of the panel component with a solid blue background an
 
 This was added in [pull request #1196: Add interruption panel variant](https://github.com/nhsuk/nhsuk-frontend/pull/1196).
 
+## 10.2.2 - 4 December 2025
+
+Note: This release was created from the `support/10.x` branch.
+
+### :wrench: **Fixes**
+
+- [#1731: Fix Nunjucks `describedBy` empty string handling](https://github.com/nhsuk/nhsuk-frontend/issues/1731)
+
 ## 10.2.1 - 2 December 2025
 
 Note: This release was created from the `support/10.x` branch.
