@@ -466,6 +466,7 @@ export const examples = {
           }
         },
         {
+          classes: 'nhsuk-summary-list__row--no-border',
           key: {
             text: 'Date of birth'
           },
@@ -504,6 +505,7 @@ export const examples = {
           }
         },
         {
+          classes: 'nhsuk-summary-list__row--no-border',
           key: {
             text: 'Date of birth'
           },
@@ -567,6 +569,7 @@ export const examples = {
           }
         },
         {
+          classes: 'nhsuk-summary-list__row--no-border',
           key: {
             text: 'Medicines'
           },
@@ -626,6 +629,7 @@ export const examples = {
           }
         },
         {
+          classes: 'nhsuk-summary-list__row--no-border',
           key: {
             text: 'Date of birth'
           },
@@ -665,6 +669,7 @@ export const examples = {
           }
         },
         {
+          classes: 'nhsuk-summary-list__row--no-border',
           key: {
             text: 'Date of birth'
           },
@@ -704,6 +709,7 @@ export const examples = {
           }
         },
         {
+          classes: 'nhsuk-summary-list__row--no-border',
           key: {
             text: 'Date of birth'
           },
@@ -732,6 +738,7 @@ export const examples = {
           }
         },
         {
+          classes: 'nhsuk-summary-list__row--no-border',
           key: {
             text: 'Date of birth'
           },
@@ -770,6 +777,7 @@ export const examples = {
           }
         },
         {
+          classes: 'nhsuk-summary-list__row--no-border',
           key: {
             text: 'Date of birth'
           },
@@ -808,6 +816,7 @@ export const examples = {
           }
         },
         {
+          classes: 'nhsuk-summary-list__row--no-border',
           key: {
             text: 'Date of birth'
           },
@@ -846,6 +855,7 @@ export const examples = {
           }
         },
         {
+          classes: 'nhsuk-summary-list__row--no-border',
           key: {
             text: 'Date of birth'
           },
