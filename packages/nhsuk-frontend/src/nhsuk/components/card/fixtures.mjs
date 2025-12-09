@@ -176,6 +176,89 @@ export const examples = {
       viewports: ['mobile', 'tablet']
     }
   },
+  'basic with summary list and actions': {
+    context: {
+      heading: 'Regional Manager',
+      headingLevel: 3,
+      actions: {
+        items: [
+          {
+            text: 'Delete',
+            href: '#'
+          },
+          {
+            text: 'Withdraw',
+            href: '#'
+          }
+        ]
+      }
+    },
+    callBlock: outdent`
+      ${components.render('summary-list', {
+        context: {
+          rows: [
+            {
+              key: {
+                text: 'Name'
+              },
+              value: {
+                text: 'Karen Francis'
+              }
+            },
+            {
+              classes: 'nhsuk-summary-list__row--no-border',
+              key: {
+                text: 'Date of birth'
+              },
+              value: {
+                text: '15 March 1984'
+              }
+            }
+          ]
+        }
+      })}
+    `
+  },
+  'basic with summary list and actions (empty items)': {
+    context: {
+      heading: 'Regional Manager',
+      headingLevel: 3,
+      actions: {
+        items: [
+          {
+            text: 'Delete',
+            href: '#'
+          },
+          false
+        ]
+      }
+    },
+    callBlock: outdent`
+      ${components.render('summary-list', {
+        context: {
+          rows: [
+            {
+              key: {
+                text: 'Name'
+              },
+              value: {
+                text: 'Karen Francis'
+              }
+            },
+            {
+              classes: 'nhsuk-summary-list__row--no-border',
+              key: {
+                text: 'Date of birth'
+              },
+              value: {
+                text: '15 March 1984'
+              }
+            }
+          ]
+        }
+      })}
+    `
+  },
   'basic with summary list and heading link': {
     context: {
       heading: 'Regional Manager',
@@ -381,6 +464,7 @@ export const examples = {
               }
             },
             {
+              classes: 'nhsuk-summary-list__row--no-border',
               key: {
                 text: 'Date of birth'
               },
