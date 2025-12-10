@@ -63,7 +63,7 @@
         margin-right: nhsuk-spacing(1);
         margin-bottom: 0;
         margin-left: 0;
-        padding: nhsuk-spacing(2) nhsuk-spacing(4);
+        padding: nhsuk-spacing(2) $nhsuk-inset-size;
 
         float: left;
 
@@ -86,9 +86,9 @@
         // Compensation for border (otherwise we get a shift)
         margin-bottom: -$border-width;
         padding-top: (nhsuk-spacing(2) * 1.5) - $border-width;
-        padding-right: nhsuk-spacing(4) - $border-width;
+        padding-right: $nhsuk-inset-size - $border-width;
         padding-bottom: (nhsuk-spacing(2) * 1.5) + $border-width;
-        padding-left: nhsuk-spacing(4) - $border-width;
+        padding-left: $nhsuk-inset-size - $border-width;
 
         border: $border-width solid $nhsuk-border-colour;
         border-bottom: 0;
@@ -113,11 +113,11 @@
       }
 
       .nhsuk-tabs__panel {
-        padding: nhsuk-spacing(6) nhsuk-spacing(4);
+        margin-bottom: 0;
+        padding: $nhsuk-inset-size - 1px;
         border: 1px solid $nhsuk-border-colour;
         border-top: 0;
         background-color: $nhsuk-card-background-colour;
-        @include nhsuk-responsive-margin(0, "bottom");
 
         & > :last-child {
           margin-bottom: 0;
