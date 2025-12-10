@@ -85,6 +85,23 @@ This will enable screen reader users to have a better, more coherent experience 
 
 This change was introduced in [pull request #1036: Add breaking change entry for error summary screen reader improvements](https://github.com/nhsuk/nhsuk-frontend/pull/1036), after previously being recommended in [version 10.1.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.1.0).
 
+#### Make `nhsuk-u-nowrap` apply to mobile and above
+
+We've updated the `nhsuk-u-nowrap` utility class to be applied at mobile width (320px and up).
+
+Previously the utility class did not apply to tablet sized screens (641px and up).
+
+Please carefully review your pages. If necessary, different wrapping behaviour for the tablet and desktop breakpoints can be applied using new classes ending `-from-tablet` and `-from-desktop`.
+
+To restore the previous behaviour, add the new `nhsuk-u-wrap-from-tablet` utility class to override the default `nhsuk-u-nowrap` behaviour for tablet sized screens:
+
+```patch
+- <p class="nhsuk-u-nowrap">
++ <p class="nhsuk-u-nowrap nhsuk-u-wrap-from-tablet">
+```
+
+This was added in [pull request #1668: Add breakpoints to nowrap class](https://github.com/nhsuk/nhsuk-frontend/pull/1668).
+
 ## 10.2.2 - 4 December 2025
 
 Note: This release was created from the `support/10.x` branch.
