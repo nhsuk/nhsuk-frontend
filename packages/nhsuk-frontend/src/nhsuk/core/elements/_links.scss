@@ -27,11 +27,7 @@ a {
 }
 
 // Variant classes should always be used in conjunction with the .nhsuk-link
-// class, so we do not need the common link styles as they will be inherited.
-
-.nhsuk-link--muted {
-  @include nhsuk-link-style-muted;
-}
+// class or `a` element, to make sure the default link styles are inherited.
 
 .nhsuk-link--text-colour {
   @include nhsuk-link-style-text;

@@ -15,7 +15,6 @@ Please carefully review your pages. If you have created your own link styles, yo
 We've also introduced new mixins and modifier classes for:
 
 - text colour links
-- muted colour links
 - links without underlines
 
 This was added in [pull request #1367: Updates to link styles and link hover states](https://github.com/nhsuk/nhsuk-frontend/pull/1367).
@@ -26,15 +25,6 @@ You can now style links with text colour by using either the:
 
 - `nhsuk-link-style-text` mixin in your Sass, or
 - `nhsuk-link--text-colour` class in your HTML
-
-This was added in [pull request #1367: Updates to link styles and link hover states](https://github.com/nhsuk/nhsuk-frontend/pull/1367).
-
-#### Style links with muted colours
-
-You can now style links with muted colours by using either the:
-
-- `nhsuk-link-style-muted` mixin in your Sass, or
-- `nhsuk-link--muted` class in your HTML
 
 This was added in [pull request #1367: Updates to link styles and link hover states](https://github.com/nhsuk/nhsuk-frontend/pull/1367).
 

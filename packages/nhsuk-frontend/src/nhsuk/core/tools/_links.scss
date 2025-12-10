@@ -92,30 +92,6 @@
   @include nhsuk-link-style;
 }
 
-/// Muted link styles
-///
-/// Makes links use the secondary text colour. The link will darken if it's
-/// active or a user hovers their cursor over it.
-///
-/// If you use this mixin in a component, you must also include the
-/// `nhsuk-link-style-default` mixin to get the correct focus and hover states.
-///
-/// @example scss
-///   .nhsuk-component__link {
-///     @include nhsuk-link-style-default;
-///     @include nhsuk-link-style-muted;
-///   }
-///
-
-@mixin nhsuk-link-style-muted {
-  @include nhsuk-link-style(
-    $link-colour: $nhsuk-secondary-text-colour,
-    $link-visited-colour: $nhsuk-secondary-text-colour,
-    $link-hover-colour: $nhsuk-text-colour,
-    $link-active-colour: $nhsuk-text-colour
-  );
-}
-
 /// Reverse link styles
 ///
 /// Makes links white, in all states. Use this mixin if you're displaying links
