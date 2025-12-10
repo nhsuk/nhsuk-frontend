@@ -21,19 +21,25 @@ This was added in [pull request #1367: Updates to link styles and link hover sta
 
 #### Style links with text colour
 
-You can now style links with text colour by using either the:
+You can now style links with text colour by adding the `nhsuk-link--text-colour` HTML class, or by including the Sass mixin for custom components:
 
-- `nhsuk-link-style-text` mixin in your Sass, or
-- `nhsuk-link--text-colour` class in your HTML
+```scss
+.app-component__link {
+  @include nhsuk-link-style-text;
+}
+```
 
 This was added in [pull request #1367: Updates to link styles and link hover states](https://github.com/nhsuk/nhsuk-frontend/pull/1367).
 
 #### Style links to remove underlines
 
-You can now remove underlines from links by using either the:
+You can now style links with text colour by adding the `nhsuk-link--no-underline` HTML class, or by including the Sass mixin for custom components:
 
-- `nhsuk-link-style-no-underline` mixin in your Sass, or
-- `nhsuk-link--no-underline` class in your HTML
+```scss
+.app-component__link {
+  @include nhsuk-link-style-no-underline;
+}
+```
 
 An underline still appears when the user hovers their cursor over the link.
 
