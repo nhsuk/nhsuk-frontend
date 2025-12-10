@@ -63,8 +63,9 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
   }
 
   .nhsuk-card__content {
+    padding: $nhsuk-inset-size - $nhsuk-card-border-width;
+
     @include nhsuk-top-and-bottom;
-    @include nhsuk-responsive-padding(5);
   }
 
   .nhsuk-card__heading {
@@ -78,7 +79,7 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
   .nhsuk-card__heading-container,
   // Deprecated, to be removed in v11.0
   .nhsuk-card--care__heading-container {
-    @include nhsuk-responsive-padding(5);
+    padding: $nhsuk-inset-size;
   }
 
   .nhsuk-card__heading-container {
@@ -318,7 +319,7 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
   .nhsuk-card--primary > .nhsuk-card__content,
   // Deprecated, to be removed in v11.0
   .nhsuk-card__content--primary {
-    @include nhsuk-responsive-spacing(5, "padding", $direction: "right", $adjustment: nhsuk-spacing(7));
+    padding-right: $nhsuk-inset-size + nhsuk-spacing(7);
 
     @include nhsuk-media-query($from: tablet) {
       height: 100%;
@@ -333,6 +334,7 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
 
       position: absolute;
       top: 50%;
+      right: $nhsuk-inset-size;
 
       width: nhsuk-px-to-rem($nhsuk-icon-size-large);
       height: nhsuk-px-to-rem($nhsuk-icon-size-large);
@@ -341,7 +343,6 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
       pointer-events: none;
 
       fill: $nhsuk-link-colour;
-      @include nhsuk-responsive-spacing(5, "right");
     }
   }
 
