@@ -11,7 +11,7 @@
 
 @mixin nhsuk-shape-dash() {
   position: relative;
-  padding: 0 0 0 nhsuk-spacing(4);
+  padding: 0 0 0 $nhsuk-inset-size;
 
   &::before {
     content: "";

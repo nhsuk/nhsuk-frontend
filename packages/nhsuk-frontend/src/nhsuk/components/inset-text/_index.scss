@@ -16,6 +16,8 @@
 @include nhsuk-exports("nhsuk/components/inset-text") {
   .nhsuk-inset-text {
     box-sizing: border-box;
+    padding: $nhsuk-inset-size;
+    padding-left: $nhsuk-inset-size - $nhsuk-border-width-inset-text;
     border-left: $nhsuk-border-width-inset-text solid $nhsuk-brand-colour;
 
     @include nhsuk-reading-width; // [2]
@@ -23,7 +25,6 @@
 
     @include nhsuk-responsive-margin(7, "bottom");
     @include nhsuk-responsive-margin(7, "top");
-    @include nhsuk-responsive-padding(4);
 
     @include nhsuk-media-query($media-type: print) {
       border-color: $nhsuk-print-text-colour;
