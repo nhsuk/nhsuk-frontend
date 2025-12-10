@@ -22,16 +22,12 @@
   }
 
   .nhsuk-notification-banner__header {
-    padding: 2px nhsuk-spacing(3) nhsuk-spacing(1);
+    padding: 2px ($nhsuk-inset-size - $nhsuk-border-width) nhsuk-spacing(1);
 
     // Ensures the notification header appears separate to the notification body
     // text in high contrast mode
     border-bottom: 1px solid transparent;
     background-color: $nhsuk-brand-colour;
-
-    @include nhsuk-media-query($from: tablet) {
-      padding: 2px nhsuk-spacing(4) nhsuk-spacing(1);
-    }
   }
 
   .nhsuk-notification-banner__title {
@@ -45,13 +41,9 @@
   }
 
   .nhsuk-notification-banner__content {
-    $padding-tablet: nhsuk-spacing(4);
-    padding: nhsuk-spacing(3);
+    padding: $nhsuk-inset-size - $nhsuk-border-width;
 
     @include nhsuk-text-colour;
-    @include nhsuk-media-query($from: tablet) {
-      padding: $padding-tablet;
-    }
 
     // Wrap content at the same place that a 2/3 grid column ends, to maintain
     // shorter line-lengths when the notification banner is full width
@@ -64,7 +56,7 @@
       $two-col-width: calc($nhsuk-page-width * 2 / 3) - calc($nhsuk-gutter * 1 / 3);
 
       // ...and then factor in the left border and padding
-      $banner-exterior: ($padding-tablet + $nhsuk-border-width);
+      $banner-exterior: ($nhsuk-inset-size + $nhsuk-border-width);
       max-width: $two-col-width - $banner-exterior;
     }
 

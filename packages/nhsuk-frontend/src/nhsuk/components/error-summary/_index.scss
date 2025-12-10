@@ -10,11 +10,11 @@
 
 @include nhsuk-exports("nhsuk/components/error-summary") {
   .nhsuk-error-summary {
+    padding: $nhsuk-inset-size - $nhsuk-border-width;
     border: $nhsuk-border-width solid $nhsuk-error-colour;
 
     @include nhsuk-text-colour;
     @include nhsuk-font($size: 19);
-    @include nhsuk-responsive-padding(4);
     @include nhsuk-responsive-margin(8, "bottom");
 
     &:focus {

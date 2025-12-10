@@ -305,12 +305,12 @@
 ///
 
 @mixin nhsuk-panel-with-label($panel-background-colour, $panel-text-colour, $panel-border-colour) {
+  padding: $nhsuk-inset-size - 1px;
   padding-top: 0 !important;
   border: 1px solid $panel-border-colour;
 
   @include nhsuk-panel($panel-background-colour, $panel-text-colour, $panel-border-colour);
   @include nhsuk-responsive-margin(7, "top");
-  @include nhsuk-responsive-padding(5);
 }
 
 /// Panel with label mixin, inherits panel styling
@@ -349,8 +349,8 @@
 
   margin: 0;
   margin-bottom: nhsuk-spacing(2);
-  margin-left: nhsuk-spacing(-5) - 1px; // [5]
-  padding: nhsuk-spacing(2) nhsuk-spacing(5);
+  margin-left: -$nhsuk-inset-size; // [5]
+  padding: nhsuk-spacing(2) $nhsuk-inset-size;
 
   outline: 1px solid transparent; // [2]
   outline-offset: -1px;
@@ -362,8 +362,6 @@
 
   @include nhsuk-media-query($until: tablet) {
     top: nhsuk-spacing(-2); // [6]
-    margin-left: nhsuk-spacing(-4) - 1px; // [5]
-    padding: nhsuk-spacing(2) nhsuk-spacing(4);
   }
 
   @include nhsuk-print-colour {
