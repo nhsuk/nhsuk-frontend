@@ -264,23 +264,6 @@ export function getComponentPath(component, options) {
 /**
  * Get review app URL
  *
- * @param {Browser} browser - Puppeteer browser object
- * @param {CreatePageOptions} [options] - Puppeteer page options
- */
-export async function getPage(browser, options) {
-  const page = await browser.newPage(options)
-
-  // Throw on JavaScript page errors
-  page.on('pageerror', (error) => {
-    throw error
-  })
-
-  return page
-}
-
-/**
- * Get review app URL
- *
  * @param {string} path - Path to navigate to
  */
 export function getURL(path) {
@@ -335,5 +318,5 @@ export function getOptions(name, example) {
  * @import { MacroRenderOptions } from '@nhsuk/frontend-lib/nunjucks/index.mjs'
  * @import { RuleObject, RunOptions } from 'axe-core'
  * @import { Config, ConfigKey } from 'nhsuk-frontend'
- * @import { Browser, CreatePageOptions, EvaluateFuncWith, Page } from 'puppeteer'
+ * @import { EvaluateFuncWith, Page } from 'puppeteer'
  */
