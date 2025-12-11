@@ -2,9 +2,10 @@ import { readFileSync } from 'node:fs'
 import { basename, join } from 'node:path'
 
 import { paths } from '@nhsuk/frontend-config'
-import camelCase from 'lodash/camelCase.js'
 
-import { files, nunjucks } from './index.mjs'
+import * as files from './files.mjs'
+import * as names from './names.mjs'
+import * as nunjucks from './nunjucks/index.mjs'
 
 /**
  * Load single component data (from source)
@@ -156,9 +157,11 @@ export function render(component, options) {
   ])
 
   // Replace plural directory name with singular macro name
-  const macroName = camelCase(renamed.get(component) ?? component)
-  const macroPath = `nhsuk/components/${component}/macro.njk`
+  const macroName = names.kebabCaseToCamelCase(
+    renamed.get(component) ?? component
+  )
 
+  const macroPath = `nhsuk/components/${component}/macro.njk`
   return nunjucks.renderMacro(macroName, macroPath, options)
 }
 
