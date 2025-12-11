@@ -39,6 +39,8 @@ jobs:
 
       - name: Install and build
         uses: ./.github/workflows/actions/build
+        with:
+          environment: development
 
   linting:
     name: ${{ matrix.task.description }}
@@ -123,6 +125,7 @@ jobs:
             cache: |
               .cache/jest
               .cache/puppeteer
+            coverage: true
 
           - description: Accessibility tests
             name: test-accessibility

@@ -11,11 +11,7 @@ const { headless = true } = jestPuppeteerConfig.launch
 const config = {
   cacheDirectory: '<rootDir>/.cache/jest',
   clearMocks: true,
-  coveragePathIgnorePatterns: [
-    '.test.mjs',
-    'fixtures.mjs',
-    'macro-options.mjs'
-  ],
+  coveragePathIgnorePatterns: ['fixtures.mjs', 'macro-options.mjs'],
 
   // Enable Babel transforms until Jest supports ESM and `import()`
   // See: https://jestjs.io/docs/ecmascript-modules
@@ -34,8 +30,10 @@ const config = {
  * @type {Config}
  */
 module.exports = {
-  collectCoverageFrom: ['packages/*/src/**/*.{js,mjs}'],
-  coverageProvider: 'v8',
+  collectCoverageFrom: [
+    '<rootDir>/packages/*/src/**/*.{js,mjs}',
+    '!<rootDir>/packages/*/src/**/*.test.{js,mjs}'
+  ],
 
   // Reduce CPU usage during project test runs
   maxWorkers: headless
@@ -75,7 +73,11 @@ module.exports = {
   ],
 
   // Enable GitHub Actions reporter UI
-  reporters: ['default', 'github-actions'],
+  reporters: [
+    'default',
+    'jest-puppeteer-istanbul/lib/reporter',
+    'github-actions'
+  ],
 
   // Browser test increased timeout (5s to 15s)
   testTimeout: 15000
