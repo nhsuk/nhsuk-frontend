@@ -208,6 +208,12 @@ export * from './errors/index.mjs'
  */
 
 /**
+ * Component config keys, e.g. `button` and `characterCount`
+ *
+ * @typedef {keyof Omit<Config, 'scope' | 'onError'>} ConfigKey
+ */
+
+/**
  * Component config
  *
  * @template {CompatibleClass} ComponentClass

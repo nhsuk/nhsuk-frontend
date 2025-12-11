@@ -1,4 +1,6 @@
 import { AxePuppeteer } from '@axe-core/puppeteer'
+import { components } from '@nhsuk/frontend-lib'
+import { componentNameToClassName } from '@nhsuk/frontend-lib/names.mjs'
 import slug from 'slug'
 
 const {
@@ -134,6 +136,95 @@ export async function goToComponent(page, component, options) {
 }
 
 /**
+ * Render component HTML with browser preview
+ *
+ * Provide optional handlers to tweak the state of the page before or after
+ * the component gets initialised:
+ *
+ * - `beforeInitialisation()`
+ * - `afterInitialisation()`
+ *
+ * @template {object} HandlerContext
+ * @param {Page} page - Puppeteer page object
+ * @param {string} component - Component name
+ * @param {MacroRenderOptions} [renderOptions] - Nunjucks macro render options
+ * @param {BrowserRenderOptions<HandlerContext>} [browserOptions] - Puppeteer browser render options
+ */
+export async function render(page, component, renderOptions, browserOptions) {
+  const html = components.render(component, renderOptions)
+
+  // Navigate to boilerplate page
+  await goTo(page, './components/boilerplate/')
+
+  // Inject rendered HTML into the page
+  await page.$eval(
+    '.app-placeholder',
+    (placeholder, html) => {
+      placeholder.innerHTML = html
+    },
+    html
+  )
+
+  const selector = `[data-module="nhsuk-${component}"]`
+  const exportName = componentNameToClassName(component)
+
+  // Run custom function before component init
+  if (browserOptions?.beforeInitialisation) {
+    await page.$eval(
+      selector,
+      browserOptions.beforeInitialisation,
+      browserOptions.context
+    )
+  }
+
+  // Init component using JavaScript class
+  if (page.isJavaScriptEnabled()) {
+    const error = await page.evaluate(
+      async (selector, exportName, config) => {
+        const namespace = await import('nhsuk-frontend')
+
+        // Find all component roots
+        const $roots = document.querySelectorAll(selector)
+
+        try {
+          // Loop and initialise all $roots or use default
+          // selector `null` return value when none found
+          ;($roots.length ? $roots : [null]).forEach(
+            ($root) => new namespace[exportName]($root, config)
+          )
+        } catch ({ name, message }) {
+          return { name, message }
+        }
+      },
+      selector,
+      exportName,
+      browserOptions?.config
+    )
+
+    // Throw Puppeteer errors back to Jest
+    if (error) {
+      const message = `Initialising \`new ${exportName}()\` threw:`
+      throw new Error(`${message}\n\t${error.name}: ${error.message}`, {
+        cause: error
+      })
+    }
+  }
+
+  // Run custom function after component init
+  if (browserOptions?.afterInitialisation) {
+    await page.$eval(
+      selector,
+      browserOptions.afterInitialisation,
+      browserOptions.context
+    )
+  }
+
+  await page.evaluateHandle('document.fonts.ready')
+
+  return page
+}
+
+/**
  * Get component preview review app URL
  *
  * @param {string} component - Component name
@@ -229,7 +320,20 @@ export function getOptions(name, example) {
  */
 
 /**
+ * Browser render options
+ *
+ * @template {object} HandlerContext
+ * @typedef {object} BrowserRenderOptions - Component render options
+ * @property {Config[ConfigKey]} [config] - Component JavaScript config
+ * @property {HandlerContext} [context] - Context options for custom functions
+ * @property {EvaluateFuncWith<Element, [HandlerContext]>} [beforeInitialisation] - Custom function to run before initialisation
+ * @property {EvaluateFuncWith<Element, [HandlerContext]>} [afterInitialisation] - Custom function to run after initialisation
+ */
+
+/**
  * @import { MacroExample } from '@nhsuk/frontend-lib/components.mjs'
+ * @import { MacroRenderOptions } from '@nhsuk/frontend-lib/nunjucks/index.mjs'
  * @import { RuleObject, RunOptions } from 'axe-core'
- * @import { Browser, CreatePageOptions, Page } from 'puppeteer'
+ * @import { Config, ConfigKey } from 'nhsuk-frontend'
+ * @import { Browser, CreatePageOptions, EvaluateFuncWith, Page } from 'puppeteer'
  */
