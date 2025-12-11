@@ -123,7 +123,7 @@ export async function goToExample(page, example) {
  * Navigate to component preview page
  *
  * @param {Page} page - Puppeteer page object
- * @param {string} [component] - Component name
+ * @param {string} component - Component name
  * @param {object} [options] - Navigation options
  * @param {string} options.name - Example name
  * @param {string} [options.description] - Example description
@@ -136,7 +136,7 @@ export async function goToComponent(page, component, options) {
 /**
  * Get component preview review app URL
  *
- * @param {string} [component] - Component name
+ * @param {string} component - Component name
  * @param {object} [options] - Navigation options
  * @param {string} options.name - Example name
  * @param {string} [options.description] - Example description
@@ -149,7 +149,7 @@ export function getComponentURL(component, options) {
 /**
  * Get component preview path
  *
- * @param {string} [component] - Component name
+ * @param {string} component - Component name
  * @param {object} [options] - Navigation options
  * @param {string} options.name - Example name
  * @param {string} [options.description] - Example description
