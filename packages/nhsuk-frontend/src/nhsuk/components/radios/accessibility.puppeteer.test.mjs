@@ -1,6 +1,5 @@
 import {
   axe,
-  getPage,
   getOptions,
   goToComponent
 } from '@nhsuk/frontend-helpers/puppeteer.mjs'
@@ -11,9 +10,6 @@ describe('Radios', () => {
   /** @type {RuleObject} */
   let axeRules
 
-  /** @type {Page} */
-  let page
-
   beforeAll(() => {
     axeRules = {
       /**
@@ -23,10 +19,6 @@ describe('Radios', () => {
        */
       'aria-allowed-attr': { enabled: false }
     }
-  })
-
-  beforeAll(async () => {
-    page = await getPage(browser)
   })
 
   describe.each(Object.entries(examples))('%s', (name, example) => {
@@ -42,5 +34,4 @@ describe('Radios', () => {
 
 /**
  * @import { RuleObject } from 'axe-core'
- * @import { Page } from 'puppeteer'
  */
