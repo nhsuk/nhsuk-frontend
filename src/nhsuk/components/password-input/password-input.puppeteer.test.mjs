@@ -1,22 +1,11 @@
-import {
-  getPage,
-  goToExample,
-  render
-} from '@nhsuk/frontend-helpers/puppeteer.mjs'
+import { goToExample, render } from '@nhsuk/frontend-helpers/puppeteer.mjs'
 
 import { examples } from './fixtures.mjs'
 
 describe('Password input', () => {
-  /** @type {Page} */
-  let page
-
   const inputSelector = '.nhsuk-js-password-input-input'
   const buttonSelector = '.nhsuk-js-password-input-toggle'
   const statusSelector = '.nhsuk-password-input__sr-status'
-
-  beforeAll(async () => {
-    page = await getPage(browser)
-  })
 
   describe('when JavaScript is unavailable or fails', () => {
     afterAll(async () => {
@@ -28,7 +17,7 @@ describe('Password input', () => {
     })
 
     it('still renders an unmodified password input', async () => {
-      page = await render(page, 'password-input', examples.default)
+      await render(page, 'password-input', examples.default)
 
       const inputType = await page.$eval(inputSelector, (el) =>
         el.getAttribute('type')
@@ -47,7 +36,7 @@ describe('Password input', () => {
   describe('when JavaScript is available', () => {
     describe('on page load', () => {
       beforeEach(async () => {
-        page = await render(page, 'password-input', examples.default)
+        await render(page, 'password-input', examples.default)
       })
 
       it('renders the status element', async () => {
@@ -87,7 +76,7 @@ describe('Password input', () => {
       [3, itShowsThePassword]
     ])('when clicked %i time(s)', (clicks, expectation) => {
       beforeAll(async () => {
-        page = await render(page, 'password-input', examples.default)
+        await render(page, 'password-input', examples.default)
         for (let i = 0; i < clicks; i++) {
           await page.click(buttonSelector)
         }
@@ -98,7 +87,7 @@ describe('Password input', () => {
 
     describe('when the form is submitted', () => {
       it('reverts the input back to password type', async () => {
-        page = await goToExample(page, 'update-your-account-details')
+        await goToExample(page, 'update-your-account-details')
 
         // Prevent form submissions so that we don't navigate away during the test
         await page.evaluate(() => {
@@ -134,11 +123,7 @@ describe('Password input', () => {
 
     describe('i18n', () => {
       it('uses the correct translations when the password is visible', async () => {
-        page = await render(
-          page,
-          'password-input',
-          examples['with translations']
-        )
+        await render(page, 'password-input', examples['with translations'])
 
         await page.click(buttonSelector)
 
@@ -163,11 +148,7 @@ describe('Password input', () => {
       })
 
       it('uses the correct translations when the password is hidden', async () => {
-        page = await render(
-          page,
-          'password-input',
-          examples['with translations']
-        )
+        await render(page, 'password-input', examples['with translations'])
 
         // This test clicks the toggle twice because the status element is not populated when
         // the component is initialised, it only becomes populated after the first toggle.
@@ -277,7 +258,3 @@ describe('Password input', () => {
     })
   }
 })
-
-/**
- * @import { Page } from 'puppeteer'
- */

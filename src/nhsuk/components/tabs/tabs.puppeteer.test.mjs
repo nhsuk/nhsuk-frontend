@@ -1,4 +1,4 @@
-import { getPage, render } from '@nhsuk/frontend-helpers/puppeteer.mjs'
+import { render } from '@nhsuk/frontend-helpers/puppeteer.mjs'
 import { KnownDevices } from 'puppeteer'
 
 import { examples } from './fixtures.mjs'
@@ -6,13 +6,6 @@ import { examples } from './fixtures.mjs'
 const iPhone = KnownDevices['iPhone 6']
 
 describe('Tabs', () => {
-  /** @type {Page} */
-  let page
-
-  beforeAll(async () => {
-    page = await getPage(browser)
-  })
-
   describe('when JavaScript is unavailable or fails', () => {
     beforeEach(async () => {
       await page.setJavaScriptEnabled(false)
@@ -23,7 +16,7 @@ describe('Tabs', () => {
     })
 
     it('falls back to making all tab containers visible', async () => {
-      page = await render(page, 'tabs', examples.default)
+      await render(page, 'tabs', examples.default)
 
       const isContentVisible = await page.waitForSelector(
         '.nhsuk-tabs__panel',
@@ -35,7 +28,7 @@ describe('Tabs', () => {
 
   describe('when JavaScript is available', () => {
     beforeEach(async () => {
-      page = await render(page, 'tabs', examples.default)
+      await render(page, 'tabs', examples.default)
     })
 
     it('should indicate the open state of the first tab', async () => {
@@ -77,7 +70,7 @@ describe('Tabs', () => {
 
   describe('when a tab is pressed', () => {
     beforeEach(async () => {
-      page = await render(page, 'tabs', examples.default)
+      await render(page, 'tabs', examples.default)
     })
 
     it('should indicate the open state of the pressed tab', async () => {
@@ -116,7 +109,7 @@ describe('Tabs', () => {
 
     describe('when the tab contains a DOM element', () => {
       beforeEach(async () => {
-        page = await render(page, 'tabs', examples.default)
+        await render(page, 'tabs', examples.default)
       })
 
       it('should display the tab panel associated with the selected tab', async () => {
@@ -150,7 +143,7 @@ describe('Tabs', () => {
 
   describe('when first tab is focused and the right arrow key is pressed', () => {
     beforeEach(async () => {
-      page = await render(page, 'tabs', examples.default)
+      await render(page, 'tabs', examples.default)
     })
 
     it('should indicate the open state of the next tab', async () => {
@@ -192,7 +185,7 @@ describe('Tabs', () => {
 
   describe('when a hash associated with a tab panel is passed in the URL', () => {
     it('should indicate the open state of the associated tab', async () => {
-      page = await render(page, 'tabs', examples.default)
+      await render(page, 'tabs', examples.default)
 
       await page.evaluate(() => {
         window.location.hash = '#past-week'
@@ -221,7 +214,7 @@ describe('Tabs', () => {
     })
 
     it('should only update based on hashes that are tabs', async () => {
-      page = await render(page, 'tabs', examples['with anchor in panel'])
+      await render(page, 'tabs', examples['with anchor in panel'])
 
       await page.click('[href="#anchor"]')
 
@@ -235,7 +228,7 @@ describe('Tabs', () => {
   describe('when rendered on a small device', () => {
     it('falls back to making the all tab containers visible', async () => {
       await page.emulate(iPhone)
-      page = await render(page, 'tabs', examples.default)
+      await render(page, 'tabs', examples.default)
       const isContentVisible = await page.waitForSelector(
         '.nhsuk-tabs__panel',
         { visible: true, timeout: 1000 }
@@ -244,7 +237,3 @@ describe('Tabs', () => {
     })
   })
 })
-
-/**
- * @import { Page } from 'puppeteer'
- */
