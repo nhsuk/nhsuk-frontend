@@ -229,7 +229,7 @@ export function getOptions(name, example) {
  */
 
 /**
- * @import { MacroExample } from '@nhsuk/frontend-lib/components.mjs'
  * @import { RuleObject, RunOptions } from 'axe-core'
+ * @import { MacroExample } from 'nhsuk-frontend/lib'
  * @import { Browser, CreatePageOptions, Page } from 'puppeteer'
  */
