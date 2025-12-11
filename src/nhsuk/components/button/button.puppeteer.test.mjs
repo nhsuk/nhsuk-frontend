@@ -1,4 +1,6 @@
-import { getPage, goToComponent } from '@nhsuk/frontend-helpers/puppeteer.mjs'
+import { getPage, render } from '@nhsuk/frontend-helpers/puppeteer.mjs'
+
+import { examples } from './fixtures.mjs'
 
 describe('Button', () => {
   /** @type {Page} */
@@ -12,9 +14,7 @@ describe('Button', () => {
 
   beforeAll(async () => {
     page = await getPage(browser)
-    page = await goToComponent(page, 'button', {
-      name: 'as a link'
-    })
+    page = await render(page, 'button', examples['as a link'])
   })
 
   describe('Button as a link', () => {
@@ -95,7 +95,7 @@ describe('Button', () => {
       let $button
 
       beforeEach(async () => {
-        page = await goToComponent(page, 'button')
+        page = await render(page, 'button', examples.default)
         $button = await setButtonTracking(await page.$('button'))
       })
 
@@ -115,9 +115,11 @@ describe('Button', () => {
       let $button
 
       beforeEach(async () => {
-        page = await goToComponent(page, 'button', {
-          name: 'with double click prevented'
-        })
+        page = await render(
+          page,
+          'button',
+          examples['with double click prevented']
+        )
 
         $button = await setButtonTracking(await page.$('button'))
       })
