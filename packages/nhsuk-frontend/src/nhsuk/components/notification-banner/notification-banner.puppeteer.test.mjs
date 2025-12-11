@@ -1,4 +1,6 @@
-import { getPage, goToComponent } from '@nhsuk/frontend-helpers/puppeteer.mjs'
+import { getPage, render } from '@nhsuk/frontend-helpers/puppeteer.mjs'
+
+import { examples } from './fixtures.mjs'
 
 describe('Notification banner', () => {
   /** @type {Page} */
@@ -10,9 +12,11 @@ describe('Notification banner', () => {
 
   describe('when type is set to "success"', () => {
     beforeAll(async () => {
-      page = await goToComponent(page, 'notification-banner', {
-        name: 'with type as success'
-      })
+      page = await render(
+        page,
+        'notification-banner',
+        examples['with type as success']
+      )
     })
 
     it('has the correct tabindex attribute to be focused with JavaScript', async () => {
@@ -45,9 +49,11 @@ describe('Notification banner', () => {
 
     describe('and auto-focus is disabled using data attributes', () => {
       beforeAll(async () => {
-        page = await goToComponent(page, 'notification-banner', {
-          name: 'auto-focus disabled, with type as success'
-        })
+        page = await render(
+          page,
+          'notification-banner',
+          examples['auto-focus disabled, with type as success']
+        )
       })
 
       it('does not have a tabindex attribute', async () => {
@@ -69,9 +75,11 @@ describe('Notification banner', () => {
 
     describe('and role is overridden to "region"', () => {
       beforeAll(async () => {
-        page = await goToComponent(page, 'notification-banner', {
-          name: 'role=alert overridden to role=region, with type as success'
-        })
+        page = await render(
+          page,
+          'notification-banner',
+          examples['role=alert overridden to role=region, with type as success']
+        )
       })
 
       it('does not have a tabindex attribute', async () => {
@@ -93,9 +101,11 @@ describe('Notification banner', () => {
 
     describe('and a custom tabindex is set', () => {
       beforeAll(async () => {
-        page = await goToComponent(page, 'notification-banner', {
-          name: 'custom tabindex'
-        })
+        page = await render(
+          page,
+          'notification-banner',
+          examples['custom tabindex']
+        )
       })
 
       it('does not remove the tabindex attribute on blur', async () => {
