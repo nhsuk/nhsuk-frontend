@@ -746,8 +746,13 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
 
   // Add service logo underline on hover
   .nhsuk-header .nhsuk-header__service-logo:not(:focus):hover,
-  .nhsuk-header .nhsuk-header__service-logo:not(:focus):hover .nhsuk-header__service-name,
+  .nhsuk-header .nhsuk-header__service-logo:not(:focus):hover .nhsuk-header__service-name {
+    @include nhsuk-link-hover-decoration;
+  }
+
+  // Re-add service name underline on hover 
   .nhsuk-header .nhsuk-header__service-name[href]:not(:focus):hover {
+    text-decoration: underline;
     @include nhsuk-link-hover-decoration;
   }
 
