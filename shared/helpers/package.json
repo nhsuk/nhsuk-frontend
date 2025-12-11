@@ -16,6 +16,7 @@
     "jest-environment-node": "^30.0.0",
     "jest-environment-puppeteer": "^11.0.0",
     "jest-puppeteer": "^11.0.0",
+    "jest-puppeteer-istanbul": "^0.5.3",
     "nhsuk-frontend": "*",
     "outdent": "^0.8.0",
     "slug": "^11.0.1"

@@ -6,6 +6,10 @@ inputs:
     description: Restore or build from branch or SHA
     required: false
 
+  environment:
+    description: NODE_ENV build environment, e.g. development
+    required: false
+
 outputs:
   cache-hit:
     description: Returns true if build restored from cache
@@ -39,7 +43,7 @@ runs:
       shell: bash
       run: npm run build
       env:
-        NODE_ENV: production
+        NODE_ENV: ${{ inputs.environment || 'production' }}
 
     - name: Save build (to cache)
       if: ${{ steps.cache-build.outputs.cache-hit != 'true' }}
