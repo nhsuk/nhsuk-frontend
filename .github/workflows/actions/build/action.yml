@@ -15,23 +15,17 @@ runs:
   using: composite
 
   steps:
+    - name: Install dependencies
+      uses: ./.github/workflows/actions/install
+
     - name: Switch branch or SHA
       if: ${{ inputs.ref }}
       shell: bash
       run: git switch --detach ${{ inputs.ref }}
 
-    - name: Cache dependencies
-      uses: actions/cache@v4
-      id: npm-install-cache
-      with:
-        key: npm-install-${{ hashFiles('package-lock.json') }}
-        path: node_modules
-
-    - name: Setup Node
-      uses: actions/setup-node@v6
-      with:
-        package-manager-cache: ${{ steps.npm-install-cache.outputs.cache-hit != 'true' }}
-        node-version-file: .nvmrc
+    - name: Install dependencies for branch or SHA
+      shell: bash
+      run: npm install
 
     - name: Restore build (from cache)
       uses: actions/cache/restore@v4
@@ -39,11 +33,6 @@ runs:
       with:
         key: build-${{ inputs.ref || github.sha }}
         path: packages/*/dist/
-
-    - name: Install dependencies
-      if: ${{ steps.npm-install-cache.outputs.cache-hit != 'true' }}
-      shell: bash
-      run: npm install
 
     - name: Build
       if: ${{ steps.cache-build.outputs.cache-hit != 'true' }}
