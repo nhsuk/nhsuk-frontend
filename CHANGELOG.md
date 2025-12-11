@@ -1,5 +1,25 @@
 # NHS.UK frontend Changelog
 
+## Unreleased
+
+### :recycle: **Changes**
+
+#### Update the HTML for responsive table cell content
+
+We've updated the HTML for the responsive table component to wrap HTML content within `<span>` elements.
+
+If you are not using Nunjucks macros, update your HTML markup using the [table examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/table) to add the missing `<span> </span>` wrapper:
+
+```patch
+  <td class="nhsuk-table__cell" role="cell">
+    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Cell heading </span>
+-   Example <code>&lt;td&gt;</code> content
++   <span>Example <code>&lt;td&gt;</code> content</span>
+  </td>
+```
+
+This change was introduced in [pull request #1710: Fix responsive table `display: flex` issue with nested HTML](https://github.com/nhsuk/nhsuk-frontend/pull/1710).
+
 ## 10.2.2 - 4 December 2025
 
 Note: This release was created from the `support/10.x` branch.
