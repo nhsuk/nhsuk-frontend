@@ -1,6 +1,6 @@
 import * as timers from 'node:timers/promises'
 
-import { getPage, render } from '@nhsuk/frontend-helpers/puppeteer.mjs'
+import { render } from '@nhsuk/frontend-helpers/puppeteer.mjs'
 
 import { examples } from './fixtures.mjs'
 
@@ -9,13 +9,6 @@ import { examples } from './fixtures.mjs'
 const debouncedWaitTime = 1500
 
 describe('Character count', () => {
-  /** @type {Page} */
-  let page
-
-  beforeAll(async () => {
-    page = await getPage(browser)
-  })
-
   describe('when JavaScript is unavailable or fails', () => {
     afterAll(async () => {
       await page.setJavaScriptEnabled(true)
@@ -26,7 +19,7 @@ describe('Character count', () => {
     })
 
     it('shows the static message', async () => {
-      page = await render(page, 'character-count', examples.default)
+      await render(page, 'character-count', examples.default)
 
       const message = await page.$eval(
         '.nhsuk-character-count__message',
@@ -40,7 +33,7 @@ describe('Character count', () => {
   describe('when JavaScript is available', () => {
     describe('on page load', () => {
       beforeEach(async () => {
-        page = await render(page, 'character-count', examples.default)
+        await render(page, 'character-count', examples.default)
       })
 
       it('injects the visual counter', async () => {
@@ -64,11 +57,7 @@ describe('Character count', () => {
       })
 
       it('retains error class if there is already an error', async () => {
-        page = await render(
-          page,
-          'character-count',
-          examples['with error message']
-        )
+        await render(page, 'character-count', examples['with error message'])
 
         const textareaClasses = await page.$eval(
           '.nhsuk-textarea',
@@ -80,7 +69,7 @@ describe('Character count', () => {
 
     describe('when counting characters', () => {
       beforeEach(async () => {
-        page = await render(page, 'character-count', examples.default)
+        await render(page, 'character-count', examples.default)
       })
 
       it('shows the dynamic message', async () => {
@@ -98,11 +87,7 @@ describe('Character count', () => {
       })
 
       it('shows the characters remaining if the field is pre-filled', async () => {
-        page = await render(
-          page,
-          'character-count',
-          examples['with default value']
-        )
+        await render(page, 'character-count', examples['with default value'])
 
         const message = await page.$eval(
           '.nhsuk-character-count__status',
@@ -156,11 +141,7 @@ describe('Character count', () => {
       })
 
       it('retains error class if there is already an error', async () => {
-        page = await render(
-          page,
-          'character-count',
-          examples['with error message']
-        )
+        await render(page, 'character-count', examples['with error message'])
 
         await page.type('.nhsuk-js-character-count', 'A')
 
@@ -176,7 +157,7 @@ describe('Character count', () => {
 
       describe('when the character limit is exceeded', () => {
         beforeEach(async () => {
-          page = await render(page, 'character-count', examples.default)
+          await render(page, 'character-count', examples.default)
           await page.type('.nhsuk-js-character-count', 'A'.repeat(201))
         })
 
@@ -235,11 +216,7 @@ describe('Character count', () => {
 
       describe('when the character limit is exceeded on page load', () => {
         beforeEach(async () => {
-          page = await render(
-            page,
-            'character-count',
-            examples['with hint and error']
-          )
+          await render(page, 'character-count', examples['with hint and error'])
         })
 
         it('shows the number of characters over the limit', async () => {
@@ -275,11 +252,7 @@ describe('Character count', () => {
 
       describe('when a threshold is set', () => {
         beforeEach(async () => {
-          page = await render(
-            page,
-            'character-count',
-            examples['with threshold']
-          )
+          await render(page, 'character-count', examples['with threshold'])
         })
 
         it('does not show the limit until the threshold is reached', async () => {
@@ -323,7 +296,7 @@ describe('Character count', () => {
 
       describe('when a maxlength attribute is specified on the textarea', () => {
         beforeEach(async () => {
-          page = await render(
+          await render(
             page,
             'character-count',
             examples['with maxlength attribute']
@@ -341,11 +314,7 @@ describe('Character count', () => {
 
     describe('when counting words', () => {
       beforeEach(async () => {
-        page = await render(
-          page,
-          'character-count',
-          examples['with word count']
-        )
+        await render(page, 'character-count', examples['with word count'])
       })
 
       it('shows the dynamic message', async () => {
@@ -402,11 +371,7 @@ describe('Character count', () => {
 
       describe('when the word limit is exceeded', () => {
         beforeEach(async () => {
-          page = await render(
-            page,
-            'character-count',
-            examples['with word count']
-          )
+          await render(page, 'character-count', examples['with word count'])
 
           await page.type('.nhsuk-js-character-count', 'Hello '.repeat(151))
         })
@@ -466,7 +431,3 @@ describe('Character count', () => {
     })
   })
 })
-
-/**
- * @import { Page } from 'puppeteer'
- */

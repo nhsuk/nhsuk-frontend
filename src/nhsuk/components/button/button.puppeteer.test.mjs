@@ -1,11 +1,8 @@
-import { getPage, render } from '@nhsuk/frontend-helpers/puppeteer.mjs'
+import { render } from '@nhsuk/frontend-helpers/puppeteer.mjs'
 
 import { examples } from './fixtures.mjs'
 
 describe('Button', () => {
-  /** @type {Page} */
-  let page
-
   const clickTimeoutTime = 1000 // ms
 
   // The longest possible time a button will ignore unintentional clicks for
@@ -13,8 +10,7 @@ describe('Button', () => {
   const debouncedWaitTime = clickTimeoutTime + 100
 
   beforeAll(async () => {
-    page = await getPage(browser)
-    page = await render(page, 'button', examples['as a link'])
+    await render(page, 'button', examples['as a link'])
   })
 
   describe('Button as a link', () => {
@@ -95,7 +91,7 @@ describe('Button', () => {
       let $button
 
       beforeEach(async () => {
-        page = await render(page, 'button', examples.default)
+        await render(page, 'button', examples.default)
         $button = await setButtonTracking(await page.$('button'))
       })
 
@@ -115,11 +111,7 @@ describe('Button', () => {
       let $button
 
       beforeEach(async () => {
-        page = await render(
-          page,
-          'button',
-          examples['with double click prevented']
-        )
+        await render(page, 'button', examples['with double click prevented'])
 
         $button = await setButtonTracking(await page.$('button'))
       })
@@ -172,5 +164,5 @@ describe('Button', () => {
 })
 
 /**
- * @import { ElementHandle, Page } from 'puppeteer'
+ * @import { ElementHandle } from 'puppeteer'
  */

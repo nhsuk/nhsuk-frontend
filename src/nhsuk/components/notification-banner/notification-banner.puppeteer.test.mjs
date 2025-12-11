@@ -1,18 +1,11 @@
-import { getPage, render } from '@nhsuk/frontend-helpers/puppeteer.mjs'
+import { render } from '@nhsuk/frontend-helpers/puppeteer.mjs'
 
 import { examples } from './fixtures.mjs'
 
 describe('Notification banner', () => {
-  /** @type {Page} */
-  let page
-
-  beforeAll(async () => {
-    page = await getPage(browser)
-  })
-
   describe('when type is set to "success"', () => {
     beforeAll(async () => {
-      page = await render(
+      await render(
         page,
         'notification-banner',
         examples['with type as success']
@@ -49,7 +42,7 @@ describe('Notification banner', () => {
 
     describe('and auto-focus is disabled using data attributes', () => {
       beforeAll(async () => {
-        page = await render(
+        await render(
           page,
           'notification-banner',
           examples['auto-focus disabled, with type as success']
@@ -75,7 +68,7 @@ describe('Notification banner', () => {
 
     describe('and role is overridden to "region"', () => {
       beforeAll(async () => {
-        page = await render(
+        await render(
           page,
           'notification-banner',
           examples['role=alert overridden to role=region, with type as success']
@@ -101,11 +94,7 @@ describe('Notification banner', () => {
 
     describe('and a custom tabindex is set', () => {
       beforeAll(async () => {
-        page = await render(
-          page,
-          'notification-banner',
-          examples['custom tabindex']
-        )
+        await render(page, 'notification-banner', examples['custom tabindex'])
       })
 
       it('does not remove the tabindex attribute on blur', async () => {
@@ -122,7 +111,3 @@ describe('Notification banner', () => {
     })
   })
 })
-
-/**
- * @import { Page } from 'puppeteer'
- */
