@@ -161,13 +161,13 @@ $nhsuk-link-visited-colour: nhsuk-colour("purple") !default;
 ///
 /// @type Colour
 
-$nhsuk-link-hover-colour: nhsuk-colour("dark-pink") !default;
+$nhsuk-link-hover-colour: nhsuk-colour("dark-blue") !default;
 
 /// Active link colour
 ///
 /// @type Colour
 
-$nhsuk-link-active-colour: nhsuk-shade($nhsuk-link-colour, 50%) !default;
+$nhsuk-link-active-colour: nhsuk-colour("black") !default;
 
 // =============================================================================
 // Buttons
