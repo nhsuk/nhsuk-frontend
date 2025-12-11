@@ -209,7 +209,22 @@ You can now add inline buttons to text inputs and select menus using the `formGr
 }) }}
 ```
 
-This was added in [pull request #1643: Add small buttons and inline form groups](https://github.com/nhsuk/nhsuk-frontend/pull/1643).
+You can also use buttons with icons by adding the `nhsuk-button--icon` class:
+
+```njk
+{{ input({
+  formGroup: {
+    afterInput: {
+      html: button({
+        html: nhsukIcon("search", { title: "Find" }),
+        classes: "nhsuk-button--icon nhsuk-button--small"
+      })
+    }
+  }
+}) }}
+```
+
+This was added in pull requests [#1643: Add small buttons and inline form groups](https://github.com/nhsuk/nhsuk-frontend/pull/1643) and [#1712: Add support for icon buttons](https://github.com/nhsuk/nhsuk-frontend/pull/1712).
 
 #### Updated Nunjucks macro options for nested items
 
