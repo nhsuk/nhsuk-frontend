@@ -47,6 +47,14 @@ module.exports = defineConfig({
     'unique-landmark': 'off',
 
     // Allow optional submit buttons in <form> wrapped examples
-    'wcag/h32': 'off'
+    'wcag/h32': 'off',
+
+    // HTML Validate is opinionated about IDs beginning with a letter and
+    // only containing letters, numbers, underscores and dashes – which is
+    // more restrictive than the spec allows.
+    //
+    // Relax the rule to allow anything that is valid according to the
+    // spec.
+    'valid-id': ['error', { relaxed: true }]
   }
 })
