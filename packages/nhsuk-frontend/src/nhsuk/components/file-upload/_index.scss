@@ -10,7 +10,7 @@
 @include nhsuk-exports("nhsuk/components/file-upload") {
   $_button-border-colour: nhsuk-colour("grey-2");
 
-  .nhsuk-file-upload {
+  .nhsuk-file-upload__input {
     max-width: 100%;
     margin-left: nhsuk-spacing(-1);
     padding: nhsuk-spacing(1);
@@ -60,7 +60,7 @@
   // required because disabling pointer events
   // on the button means that the cursor style
   // be applied on the button itself
-  .nhsuk-drop-zone--disabled {
+  .nhsuk-file-upload--disabled .nhsuk-drop-zone {
     cursor: not-allowed;
   }
 
@@ -207,9 +207,5 @@
   .nhsuk-file-upload-button:disabled {
     pointer-events: none;
     opacity: 0.5;
-  }
-
-  .nhsuk-file-upload--disabled {
-    pointer-events: none;
   }
 }
