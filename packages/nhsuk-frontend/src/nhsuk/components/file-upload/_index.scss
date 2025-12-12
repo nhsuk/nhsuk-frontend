@@ -114,7 +114,9 @@
     @include nhsuk-media-query($from: tablet) {
       padding: (nhsuk-spacing(4) + $nhsuk-border-width - $nhsuk-border-width-form-element);
     }
+  }
 
+  .nhsuk-file-upload-button:not(:disabled) {
     &:hover {
       background-color: nhsuk-colour("white");
 
@@ -169,7 +171,9 @@
   .nhsuk-file-upload-button--empty {
     border-style: dashed;
     background-color: $nhsuk-body-background-colour;
+  }
 
+  .nhsuk-file-upload-button--empty:not(:disabled) {
     &:hover,
     &:focus,
     &:active {
