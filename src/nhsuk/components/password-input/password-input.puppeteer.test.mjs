@@ -8,12 +8,12 @@ describe('Password input', () => {
   const statusSelector = '.nhsuk-password-input__sr-status'
 
   describe('when JavaScript is unavailable or fails', () => {
-    afterAll(async () => {
-      await page.setJavaScriptEnabled(true)
+    beforeAll(async () => {
+      await page.setJavaScriptEnabled(false)
     })
 
-    beforeEach(async () => {
-      await page.setJavaScriptEnabled(false)
+    afterAll(async () => {
+      await page.setJavaScriptEnabled(true)
     })
 
     it('still renders an unmodified password input', async () => {
@@ -26,6 +26,8 @@ describe('Password input', () => {
     })
 
     it('renders the toggle button hidden', async () => {
+      await render(page, 'password-input', examples.default)
+
       const buttonHiddenAttribute = await page.$eval(buttonSelector, (el) =>
         el.hasAttribute('hidden')
       )
@@ -35,7 +37,7 @@ describe('Password input', () => {
 
   describe('when JavaScript is available', () => {
     describe('on page load', () => {
-      beforeEach(async () => {
+      beforeAll(async () => {
         await render(page, 'password-input', examples.default)
       })
 
@@ -124,7 +126,6 @@ describe('Password input', () => {
     describe('i18n', () => {
       it('uses the correct translations when the password is visible', async () => {
         await render(page, 'password-input', examples['with translations'])
-
         await page.click(buttonSelector)
 
         const statusText = await page.$eval(statusSelector, (el) =>
@@ -173,6 +174,176 @@ describe('Password input', () => {
 
         // Expect: showPasswordAriaLabelText
         expect(buttonAriaLabel).toBe('Datgelu cyfrinair')
+      })
+    })
+
+    describe('errors at instantiation', () => {
+      it('can throw a SupportError if appropriate', async () => {
+        await expect(
+          render(page, 'password-input', examples.default, {
+            beforeInitialisation() {
+              document.body.classList.remove('nhsuk-frontend-supported')
+            }
+          })
+        ).rejects.toMatchObject({
+          cause: {
+            name: 'SupportError',
+            message:
+              'NHS.UK frontend initialised without `<body class="nhsuk-frontend-supported">` from template `<script>` snippet'
+          }
+        })
+      })
+
+      it('throws when $root is not set', async () => {
+        await expect(
+          render(page, 'password-input', examples.default, {
+            beforeInitialisation($root) {
+              $root.remove()
+            }
+          })
+        ).rejects.toMatchObject({
+          cause: {
+            name: 'ElementError',
+            message: 'nhsuk-password-input: Root element (`$root`) not found'
+          }
+        })
+      })
+
+      it('throws when receiving the wrong type for $root', async () => {
+        await expect(
+          render(page, 'password-input', examples.default, {
+            beforeInitialisation($root) {
+              // Replace with an `<svg>` element which is not an `HTMLElement` in the DOM (but an `SVGElement`)
+              $root.outerHTML = `<svg data-module="nhsuk-password-input"></svg>`
+            }
+          })
+        ).rejects.toMatchObject({
+          cause: {
+            name: 'ElementError',
+            message:
+              'nhsuk-password-input: Root element (`$root`) is not of type HTMLElement'
+          }
+        })
+      })
+
+      it('throws when the input element is missing', async () => {
+        await expect(
+          render(page, 'password-input', examples.default, {
+            beforeInitialisation($root, { selector }) {
+              $root.querySelector(selector).remove()
+            },
+            context: {
+              selector: inputSelector
+            }
+          })
+        ).rejects.toMatchObject({
+          cause: {
+            name: 'ElementError',
+            message:
+              'nhsuk-password-input: Form field (`.nhsuk-js-password-input-input`) not found'
+          }
+        })
+      })
+
+      it('throws when the input is not an <input> element', async () => {
+        await expect(
+          render(page, 'password-input', examples.default, {
+            beforeInitialisation($root, { selector }) {
+              // Replace the input with a textarea
+              $root.querySelector(selector).outerHTML =
+                '<textarea class="nhsuk-js-password-input-input"></textarea>'
+            },
+            context: {
+              selector: inputSelector
+            }
+          })
+        ).rejects.toMatchObject({
+          cause: {
+            name: 'ElementError',
+            message:
+              'nhsuk-password-input: Form field (`.nhsuk-js-password-input-input`) is not of type HTMLInputElement'
+          }
+        })
+      })
+
+      it('throws when the input is not a `password` type', async () => {
+        await expect(
+          render(page, 'password-input', examples.default, {
+            beforeInitialisation($root, { selector }) {
+              // Make the input a number input instead
+              $root.querySelector(selector).setAttribute('type', 'number')
+            },
+            context: {
+              selector: inputSelector
+            }
+          })
+        ).rejects.toMatchObject({
+          cause: {
+            name: 'ElementError',
+            message:
+              'nhsuk-password-input: Form field (`.nhsuk-js-password-input-input`) is not of type HTMLInputElement with attribute (`type="password"`)'
+          }
+        })
+      })
+
+      it('throws when the button is missing', async () => {
+        await expect(
+          render(page, 'password-input', examples.default, {
+            beforeInitialisation($root, { selector }) {
+              $root.querySelector(selector).remove()
+            },
+            context: {
+              selector: buttonSelector
+            }
+          })
+        ).rejects.toMatchObject({
+          cause: {
+            name: 'ElementError',
+            message:
+              'nhsuk-password-input: Button (`.nhsuk-js-password-input-toggle`) not found'
+          }
+        })
+      })
+
+      it('throws when the button is not a <button> element', async () => {
+        await expect(
+          render(page, 'password-input', examples.default, {
+            beforeInitialisation($root, { selector }) {
+              // Replace the button with a <div>
+              $root.querySelector(selector).outerHTML =
+                '<div class="nhsuk-js-password-input-toggle"></div>'
+            },
+            context: {
+              selector: buttonSelector
+            }
+          })
+        ).rejects.toMatchObject({
+          cause: {
+            name: 'ElementError',
+            message:
+              'nhsuk-password-input: Button (`.nhsuk-js-password-input-toggle`) is not of type HTMLButtonElement'
+          }
+        })
+      })
+
+      it('throws when the button is not a `button` type', async () => {
+        await expect(
+          render(page, 'password-input', examples.default, {
+            beforeInitialisation($root, { selector }) {
+              // Make the button a submit button
+              $root.querySelector(selector).setAttribute('type', 'submit')
+            },
+            context: {
+              selector: buttonSelector
+            }
+          })
+        ).rejects.toMatchObject({
+          cause: {
+            name: 'ElementError',
+            message:
+              'nhsuk-password-input: Button (`.nhsuk-js-password-input-toggle`) is not of type HTMLButtonElement with type="button"'
+          }
+        })
       })
     })
   })

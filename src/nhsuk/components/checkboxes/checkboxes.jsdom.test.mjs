@@ -58,7 +58,7 @@ describe('Checkboxes', () => {
 
   describe('Initialisation via init function', () => {
     beforeEach(() => {
-      initExample('with "none of the above" option')
+      initExample('with "none of the above" option, conditional content')
     })
 
     it('should add event listeners', () => {
@@ -155,7 +155,7 @@ describe('Checkboxes', () => {
     let $inputs = []
 
     beforeEach(() => {
-      initExample('with "none of the above" option')
+      initExample('with "none of the above" option, conditional content')
       $inputs = [$input1, $input2, $input3]
     })
 

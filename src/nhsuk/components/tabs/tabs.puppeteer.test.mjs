@@ -7,8 +7,9 @@ const iPhone = KnownDevices['iPhone 6']
 
 describe('Tabs', () => {
   describe('when JavaScript is unavailable or fails', () => {
-    beforeEach(async () => {
+    beforeAll(async () => {
       await page.setJavaScriptEnabled(false)
+      await render(page, 'tabs', examples.default)
     })
 
     afterAll(async () => {
@@ -16,8 +17,6 @@ describe('Tabs', () => {
     })
 
     it('falls back to making all tab containers visible', async () => {
-      await render(page, 'tabs', examples.default)
-
       const isContentVisible = await page.waitForSelector(
         '.nhsuk-tabs__panel',
         { visible: true, timeout: 1000 }
@@ -27,7 +26,7 @@ describe('Tabs', () => {
   })
 
   describe('when JavaScript is available', () => {
-    beforeEach(async () => {
+    beforeAll(async () => {
       await render(page, 'tabs', examples.default)
     })
 
@@ -108,7 +107,7 @@ describe('Tabs', () => {
     })
 
     describe('when the tab contains a DOM element', () => {
-      beforeEach(async () => {
+      beforeAll(async () => {
         await render(page, 'tabs', examples.default)
       })
 
@@ -234,6 +233,114 @@ describe('Tabs', () => {
         { visible: true, timeout: 1000 }
       )
       expect(isContentVisible).toBeTruthy()
+    })
+  })
+
+  describe('errors at instantiation', () => {
+    it('can throw a SupportError if appropriate', async () => {
+      await expect(
+        render(page, 'tabs', examples.default, {
+          beforeInitialisation() {
+            document.body.classList.remove('nhsuk-frontend-supported')
+          }
+        })
+      ).rejects.toMatchObject({
+        cause: {
+          name: 'SupportError',
+          message:
+            'NHS.UK frontend initialised without `<body class="nhsuk-frontend-supported">` from template `<script>` snippet'
+        }
+      })
+    })
+
+    it('throws when initialised twice', async () => {
+      await expect(
+        render(page, 'tabs', examples.default, {
+          async afterInitialisation($root) {
+            const { Tabs } = await import('nhsuk-frontend')
+            new Tabs($root)
+          }
+        })
+      ).rejects.toMatchObject({
+        name: 'InitError',
+        message: 'nhsuk-tabs: Root element (`$root`) already initialised'
+      })
+    })
+
+    it('throws when $root is not set', async () => {
+      await expect(
+        render(page, 'tabs', examples.default, {
+          beforeInitialisation($root) {
+            $root.remove()
+          }
+        })
+      ).rejects.toMatchObject({
+        cause: {
+          name: 'ElementError',
+          message: 'nhsuk-tabs: Root element (`$root`) not found'
+        }
+      })
+    })
+
+    it('throws when there are no tabs', async () => {
+      await expect(
+        render(page, 'tabs', examples.default, {
+          beforeInitialisation($root, { selector }) {
+            $root.querySelectorAll(selector).forEach((item) => item.remove())
+          },
+          context: {
+            selector: 'a.nhsuk-tabs__tab'
+          }
+        })
+      ).rejects.toMatchObject({
+        cause: {
+          name: 'ElementError',
+          message: 'nhsuk-tabs: Links (`<a class="nhsuk-tabs__tab">`) not found'
+        }
+      })
+    })
+
+    it('throws when the tab list is missing', async () => {
+      await expect(
+        render(page, 'tabs', examples.default, {
+          beforeInitialisation($root, { selector }) {
+            $root
+              .querySelector(selector)
+              .setAttribute('class', 'nhsuk-tabs__typo')
+          },
+          context: {
+            selector: '.nhsuk-tabs__list'
+          }
+        })
+      ).rejects.toMatchObject({
+        cause: {
+          name: 'ElementError',
+          message:
+            'nhsuk-tabs: List (`<ul class="nhsuk-tabs__list">`) not found'
+        }
+      })
+    })
+
+    it('throws when there the tab list is empty', async () => {
+      await expect(
+        render(page, 'tabs', examples.default, {
+          beforeInitialisation($root, { selector, className }) {
+            $root
+              .querySelectorAll(selector)
+              .forEach((item) => item.setAttribute('class', className))
+          },
+          context: {
+            selector: '.nhsuk-tabs__list-item',
+            className: 'nhsuk-tabs__list-typo'
+          }
+        })
+      ).rejects.toMatchObject({
+        cause: {
+          name: 'ElementError',
+          message:
+            'nhsuk-tabs: List items (`<li class="nhsuk-tabs__list-item">`) not found'
+        }
+      })
     })
   })
 })
