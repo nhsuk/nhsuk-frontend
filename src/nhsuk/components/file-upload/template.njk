@@ -4,7 +4,7 @@
 {% from "nhsuk/components/hint/macro.njk" import hint %}
 {% from "nhsuk/components/label/macro.njk" import label %}
 
-{#- A record of other elements that we need to associate with the input using
+{#- a record of other elements that we need to associate with the input using
   aria-describedby – for example hints or error messages -#}
 {%- set describedBy = params.describedBy if params.describedBy else "" -%}
 {%- set id = params.id if params.id else params.name -%}
@@ -46,9 +46,7 @@
 {% if params.formGroup.beforeInput %}
   {{ params.formGroup.beforeInput.html | safe | trim | indent(2) if params.formGroup.beforeInput.html else params.formGroup.beforeInput.text }}
 {% endif %}
-  <div
-    class="nhsuk-drop-zone"
-    data-module="nhsuk-file-upload"
+  <div class="nhsuk-drop-zone" data-module="nhsuk-file-upload"
     {{- nhsukI18nAttributes({
       key: 'choose-files-button',
       message: params.chooseFilesButtonText
@@ -74,11 +72,11 @@
       message: params.leftDropZoneText
     }) -}}
   >
-  <input class="nhsuk-file-upload {%- if params.classes %} {{ params.classes }}{% endif %} {%- if params.errorMessage %} nhsuk-file-upload--error{% endif %}" id="{{ id }}" name="{{ params.name }}" type="file"
-  {%- if params.disabled %} disabled{% endif %}
-  {%- if params.multiple %} multiple{% endif %}
-  {%- if describedBy %} aria-describedby="{{ describedBy }}"{% endif %}
-  {{- nhsukAttributes(params.attributes) }}>
+    <input class="nhsuk-file-upload {%- if params.classes %} {{ params.classes }}{% endif %} {%- if params.errorMessage %} nhsuk-file-upload--error{% endif %}" id="{{ id }}" name="{{ params.name }}" type="file"
+      {%- if params.disabled %} disabled{% endif %}
+      {%- if params.multiple %} multiple{% endif %}
+      {%- if describedBy %} aria-describedby="{{ describedBy }}"{% endif %}
+      {{- nhsukAttributes(params.attributes) }}>
   </div>
 {% if params.formGroup.afterInput %}
   {{ params.formGroup.afterInput.html | safe | trim | indent(2) if params.formGroup.afterInput.html else params.formGroup.afterInput.text }}
