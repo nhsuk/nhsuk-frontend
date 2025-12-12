@@ -5,6 +5,7 @@ import {
   CharacterCount,
   Checkboxes,
   ErrorSummary,
+  FileUpload,
   Header,
   NotificationBanner,
   PasswordInput,
@@ -71,6 +72,7 @@ export function initAll(scopeOrConfig = {}) {
     [CharacterCount, config.characterCount],
     [Checkboxes],
     [ErrorSummary, config.errorSummary],
+    [FileUpload, config.fileUpload],
     [Header],
     [NotificationBanner, config.notificationBanner],
     [PasswordInput, config.passwordInput],
@@ -203,6 +205,7 @@ export * from './errors/index.mjs'
  * @property {ComponentConfig<typeof Button>} [button] - Button config
  * @property {ComponentConfig<typeof CharacterCount>} [characterCount] - Character count config
  * @property {ComponentConfig<typeof ErrorSummary>} [errorSummary] - Error Summary config
+ * @property {ComponentConfig<typeof FileUpload>} [fileUpload] - File upload config
  * @property {ComponentConfig<typeof NotificationBanner>} [notificationBanner] - Notification Banner config
  * @property {ComponentConfig<typeof PasswordInput>} [passwordInput] - Password Input config
  */
