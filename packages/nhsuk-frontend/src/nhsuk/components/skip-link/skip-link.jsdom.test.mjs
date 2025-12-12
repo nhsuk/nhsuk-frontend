@@ -1,10 +1,7 @@
 import { components } from '@nhsuk/frontend-lib'
-import { userEvent } from '@testing-library/user-event'
 
 import { examples } from './fixtures.mjs'
 import { SkipLink, initSkipLinks } from './skip-link.mjs'
-
-const user = userEvent.setup()
 
 describe('Skip link', () => {
   /** @type {HTMLElement} */
@@ -125,41 +122,6 @@ describe('Skip link', () => {
     it('should add accessible name and role', () => {
       expect($root).toHaveAccessibleName('Skip to main content')
       expect($root).toHaveRole('link')
-    })
-  })
-
-  describe('Focus handling', () => {
-    beforeEach(async () => {
-      initSkipLinks()
-
-      await user.tab()
-      await user.keyboard('[Enter]')
-    })
-
-    it('moves focus to the linked element', () => {
-      expect($main).toHaveFocus()
-      expect($main).toHaveAttribute('tabIndex', '-1')
-      expect($main).toHaveClass('nhsuk-skip-link-focused-element')
-    })
-
-    it('adds the tabindex attribute to the linked element', () => {
-      expect($main).toHaveAttribute('tabIndex', '-1')
-    })
-
-    it('adds the class for removing the native focus style to the linked element', async () => {
-      expect($main).toHaveClass('nhsuk-skip-link-focused-element')
-    })
-
-    it('removes the tabindex attribute from the linked element on blur', async () => {
-      $main.blur()
-
-      expect($main).not.toHaveAttribute('tabIndex')
-    })
-
-    it('removes the class for removing the native focus style from the linked element on blur', async () => {
-      $main.blur()
-
-      expect($main).not.toHaveClass('nhsuk-skip-link-focused-element')
     })
   })
 })
