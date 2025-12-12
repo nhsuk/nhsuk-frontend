@@ -73,6 +73,10 @@ export class FileUpload extends ConfigurableComponent {
     // Hide the native input
     this.$input.setAttribute('hidden', 'true')
 
+    // Create the file drop zone
+    const $dropZone = document.createElement('div')
+    $dropZone.classList.add('nhsuk-drop-zone')
+
     // Create the file selection button
     const $button = document.createElement('button')
     $button.classList.add('nhsuk-file-upload-button')
@@ -135,15 +139,20 @@ export class FileUpload extends ConfigurableComponent {
       event.preventDefault()
     })
 
+    // Make all these new variables available to the module
+    this.$dropZone = $dropZone
+    this.$button = $button
+    this.$status = $status
+
+    // Replace the native input with the drop zone
+    this.$input.parentElement?.insertBefore(this.$dropZone, this.$input)
+
     // Assemble these all together
-    this.$root.insertAdjacentElement('afterbegin', $button)
+    this.$dropZone.appendChild(this.$input)
+    this.$dropZone.insertAdjacentElement('afterbegin', $button)
 
     this.$input.setAttribute('tabindex', '-1')
     this.$input.setAttribute('aria-hidden', 'true')
-
-    // Make all these new variables available to the module
-    this.$button = $button
-    this.$status = $status
 
     // Bind change event to the underlying input
     this.$input.addEventListener('change', this.onChange.bind(this))
@@ -160,7 +169,7 @@ export class FileUpload extends ConfigurableComponent {
       'nhsuk-u-visually-hidden'
     )
     this.$announcements.setAttribute('aria-live', 'assertive')
-    this.$root.insertAdjacentElement('afterend', this.$announcements)
+    this.$dropZone.insertAdjacentElement('afterend', this.$announcements)
 
     // if there is no CSS and input is hidden
     // button will need to handle drop event
@@ -213,7 +222,7 @@ export class FileUpload extends ConfigurableComponent {
     // DOM interfaces only type `event.target` as `EventTarget`
     // so we first need to make sure it's a `Node`
     if (event.target instanceof Node) {
-      if (this.$root.contains(event.target)) {
+      if (this.$dropZone.contains(event.target)) {
         if (event.dataTransfer && this.canDrop(event.dataTransfer)) {
           // Only update the class and make the announcement if not already visible
           // to avoid repeated announcements on NVDA (2024.4) + Firefox (133)
@@ -367,7 +376,7 @@ export class FileUpload extends ConfigurableComponent {
    * @throws {ElementError} If the `<label>` cannot be found
    */
   findLabel() {
-    // Use `label` in the selector so TypeScript knows the type fo `HTMLElement`
+    // Use `label` in the selector so TypeScript knows the type of `HTMLElement`
     const $label = document.querySelector(`label[for="${this.$input.id}"]`)
 
     if (!$label) {
@@ -414,7 +423,7 @@ export class FileUpload extends ConfigurableComponent {
     this.$button.disabled = this.$input.disabled
 
     this.$root.classList.toggle(
-      'nhsuk-drop-zone--disabled',
+      'nhsuk-file-upload--disabled',
       this.$button.disabled
     )
   }
