@@ -1,5 +1,4 @@
 import { components } from '@nhsuk/frontend-lib'
-import { createEvent, fireEvent } from '@testing-library/dom'
 import { userEvent } from '@testing-library/user-event'
 
 import { Button, initButtons } from './button.mjs'
@@ -100,49 +99,6 @@ describe('Button', () => {
     })
   })
 
-  describe('Double click', () => {
-    it('should not be prevented', () => {
-      initButtons()
-
-      const event = createEvent.click($root)
-      jest.spyOn(event, 'preventDefault')
-
-      fireEvent($root, event)
-      expect(event.preventDefault).not.toHaveBeenCalled()
-
-      fireEvent($root, event)
-      expect(event.preventDefault).not.toHaveBeenCalled()
-    })
-
-    it('should not be prevented with `preventDoubleClick: false`', () => {
-      initExample('with double click not prevented')
-      initButtons()
-
-      const event = createEvent.click($root)
-      jest.spyOn(event, 'preventDefault')
-
-      fireEvent($root, event)
-      expect(event.preventDefault).not.toHaveBeenCalled()
-
-      fireEvent($root, event)
-      expect(event.preventDefault).not.toHaveBeenCalled()
-    })
-
-    it('should be prevented with `preventDoubleClick: true`', () => {
-      initExample('with double click prevented')
-      initButtons()
-
-      const event = createEvent.click($root)
-      jest.spyOn(event, 'preventDefault')
-
-      fireEvent($root, event)
-      expect(event.preventDefault).not.toHaveBeenCalled()
-
-      fireEvent($root, event)
-      expect(event.preventDefault).toHaveBeenCalled()
-    })
-  })
-
   describe('Accessibility (button)', () => {
     beforeEach(() => {
       initButtons()
@@ -214,28 +170,6 @@ describe('Button', () => {
       const button = new Button(
         document.querySelector(`[data-module="${Button.moduleName}"]`)
       )
-
-      expect(button.config).toEqual({
-        preventDoubleClick: false
-      })
-    })
-  })
-
-  describe('JavaScript configuration', () => {
-    it('configures prevent double click explicitly enabled', () => {
-      const button = new Button($root, {
-        preventDoubleClick: true
-      })
-
-      expect(button.config).toEqual({
-        preventDoubleClick: true
-      })
-    })
-
-    it('configures prevent double click disabled', () => {
-      const button = new Button($root, {
-        preventDoubleClick: false
-      })
 
       expect(button.config).toEqual({
         preventDoubleClick: false
