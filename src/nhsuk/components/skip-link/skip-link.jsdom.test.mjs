@@ -52,10 +52,10 @@ describe('Skip link', () => {
       expect(() => initSkipLinks()).not.toThrow()
     })
 
-    it('should throw with missing hash fragment', () => {
+    it('should not throw with external URL', () => {
       $root.setAttribute('href', 'https://example.com')
 
-      expect(() => initSkipLinks()).toThrow(
+      expect(() => initSkipLinks()).not.toThrow(
         `${SkipLink.moduleName}: Target link (\`href="https://example.com"\`) hash fragment not found`
       )
     })
