@@ -12,12 +12,24 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
-    name: Build
+  install:
+    name: Install
     runs-on: ubuntu-latest
 
     env:
       PUPPETEER_SKIP_DOWNLOAD: true
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Install dependencies
+        uses: ./.github/workflows/actions/install
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    needs: [install]
 
     steps:
       - name: Checkout
@@ -27,10 +39,13 @@ jobs:
 
       - name: Install and build
         uses: ./.github/workflows/actions/build
+        with:
+          environment: development
 
   linting:
     name: ${{ matrix.task.description }}
     runs-on: ubuntu-latest
+    needs: [install]
 
     strategy:
       fail-fast: false
@@ -87,7 +102,7 @@ jobs:
   tests:
     name: ${{ matrix.task.description }}
     runs-on: ubuntu-latest
-    needs: [build]
+    needs: [install, build]
 
     strategy:
       fail-fast: false
@@ -110,6 +125,7 @@ jobs:
             cache: |
               .cache/jest
               .cache/puppeteer
+            coverage: true
 
           - description: Accessibility tests
             name: test-accessibility
@@ -170,7 +186,7 @@ jobs:
   exports:
     name: Package ${{ matrix.conditions }}
     runs-on: ubuntu-latest
-    needs: [build]
+    needs: [install, build]
 
     strategy:
       fail-fast: false
@@ -226,7 +242,7 @@ jobs:
 
   sass:
     name: Sass import
-    needs: [build]
+    needs: [install, build]
 
     # Run existing "Sass" workflow
     # (after build has been cached)
@@ -235,7 +251,7 @@ jobs:
   regression:
     name: Visual regression tests
     runs-on: macos-latest
-    needs: [build]
+    needs: [install, build]
 
     if: ${{ github.base_ref == 'main' || startsWith(github.base_ref, 'support/') }}
 
