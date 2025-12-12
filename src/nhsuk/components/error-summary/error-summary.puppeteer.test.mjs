@@ -165,6 +165,11 @@ describe('Error Summary', () => {
       legendOrLabelSelector: '#test-date-input2 legend'
     },
     {
+      name: 'a file upload',
+      inputId: 'file',
+      legendOrLabelSelector: 'label[for="file"]'
+    },
+    {
       name: 'a group of radio buttons',
       inputId: 'radios',
       legendOrLabelSelector: '#test-radios legend'
@@ -214,8 +219,7 @@ describe('Error Summary', () => {
       )
 
       // Allow for high DPI displays (device pixel ratio)
-      // toBeCloseTo(0, 0) allows for a differentiator of 0.5 either side of 0
-      expect(legendOrLabelOffsetFromTop).toBeCloseTo(0, 0)
+      expect(Math.abs(legendOrLabelOffsetFromTop)).toBeLessThanOrEqual(0.5)
     })
 
     it('does not include a hash in the URL', async () => {
