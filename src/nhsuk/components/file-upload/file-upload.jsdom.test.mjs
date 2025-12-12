@@ -4,7 +4,7 @@ import { getByLabelText } from '@testing-library/dom'
 import { FileUpload, initFileUploads } from './file-upload.mjs'
 import { examples } from './fixtures.mjs'
 
-describe('Character count', () => {
+describe('File upload', () => {
   /** @type {HTMLElement} */
   let $root
 

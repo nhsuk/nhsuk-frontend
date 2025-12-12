@@ -1,33 +1,25 @@
 import {
   getAccessibleName,
-  getPage,
-  goToComponent
+  render
 } from '@nhsuk/frontend-helpers/puppeteer.mjs'
 
-describe('File upload', () => {
-  /** @type {Page} */
-  let page
+import { examples } from './fixtures.mjs'
 
+describe('File upload', () => {
   const inputSelector = '.nhsuk-file-upload'
   const wrapperSelector = '.nhsuk-drop-zone'
   const buttonSelector = '.nhsuk-file-upload-button'
   const statusSelector = '.nhsuk-file-upload-button__status'
   const pseudoButtonSelector = '.nhsuk-file-upload-button__pseudo-button'
 
-  beforeAll(async () => {
-    page = await getPage(browser)
-  })
-
   describe('when JavaScript is unavailable or fails', () => {
-    afterAll(async () => {
-      await page.setJavaScriptEnabled(true)
+    beforeAll(async () => {
+      await page.setJavaScriptEnabled(false)
+      await render(page, 'file-upload', examples['with hint'])
     })
 
-    beforeEach(async () => {
-      page = await goToComponent(page, 'file-upload')
-
-      await page.setJavaScriptEnabled(false)
-      await page.reload()
+    afterAll(async () => {
+      await page.setJavaScriptEnabled(true)
     })
 
     it('still renders an unmodified file input', async () => {
@@ -38,9 +30,11 @@ describe('File upload', () => {
     })
 
     it('does not inject additional elements', async () => {
+      const $wrapperElement = await page.$(wrapperSelector)
       const $buttonElement = await page.$(buttonSelector)
       const $statusElement = await page.$(statusSelector)
 
+      expect($wrapperElement).toBeDefined()
       expect($buttonElement).toBeNull()
       expect($statusElement).toBeNull()
     })
@@ -48,19 +42,11 @@ describe('File upload', () => {
 
   describe('when JavaScript is available', () => {
     describe('on page load', () => {
-      beforeEach(async () => {
-        page = await goToComponent(page, 'file-upload', {
-          name: 'with hint'
-        })
+      beforeAll(async () => {
+        await render(page, 'file-upload', examples['with hint'])
       })
 
       describe('wrapper element', () => {
-        it('renders the wrapper element', async () => {
-          const wrapperElement = await page.$eval(wrapperSelector, (el) => el)
-
-          expect(wrapperElement).toBeDefined()
-        })
-
         it('moves the file input inside of the wrapper element', async () => {
           const inputElementParent = await page.$eval(
             inputSelector,
@@ -203,9 +189,7 @@ describe('File upload', () => {
 
     describe('when selecting multiple files', () => {
       beforeEach(async () => {
-        page = await goToComponent(page, 'file-upload', {
-          name: 'with multiple'
-        })
+        await render(page, 'file-upload', examples['with multiple'])
 
         const [fileChooser] = await Promise.all([
           page.waitForFileChooser(),
@@ -248,11 +232,20 @@ describe('File upload', () => {
     })
 
     describe('dropzone', () => {
+      /** @type {ElementHandle} */
       let $wrapper
+
+      /** @type {ElementHandle} */
       let $announcements
+
+      /** @type {BoundingBox} */
       let wrapperBoundingBox
 
-      // Shared data to drag on the element
+      /**
+       * Shared data to drag on the element
+       *
+       * @type {Protocol.Input.DragData}
+       */
       const dragData = {
         items: [],
         files: [__filename],
@@ -265,7 +258,7 @@ describe('File upload', () => {
         '.nhsuk-file-upload-button:not(.nhsuk-file-upload-button--dragging)'
 
       beforeEach(async () => {
-        // await render(page, 'file-upload', examples.enhanced)
+        await render(page, 'file-upload', examples.default)
 
         $wrapper = await page.$('.nhsuk-drop-zone')
         wrapperBoundingBox = await $wrapper.boundingBox()
@@ -364,9 +357,7 @@ describe('File upload', () => {
       })
 
       it('does not appear if button disabled', async () => {
-        page = await goToComponent(page, 'file-upload', {
-          name: 'disabled'
-        })
+        await render(page, 'file-upload', examples.disabled)
 
         await page.mouse.dragEnter(
           { x: wrapperBoundingBox.x + 1, y: wrapperBoundingBox.y + 1 },
@@ -388,7 +379,7 @@ describe('File upload', () => {
       beforeEach(async () => {})
 
       it('includes the label, the status, the pseudo button and instruction', async () => {
-        page = await goToComponent(page, 'file-upload')
+        await render(page, 'file-upload', examples.default)
 
         const $element = await page.$('.nhsuk-file-upload-button')
 
@@ -399,7 +390,7 @@ describe('File upload', () => {
       })
 
       it('includes the label, file name, pseudo button and instruction once a file is selected', async () => {
-        page = await goToComponent(page, 'file-upload')
+        await render(page, 'file-upload', examples.default)
 
         const $element = await page.$('.nhsuk-file-upload-button')
 
@@ -416,9 +407,7 @@ describe('File upload', () => {
       })
 
       it('includes the label, file name, pseudo button and instruction once multiple files are selected', async () => {
-        page = await goToComponent(page, 'file-upload', {
-          name: 'with multiple'
-        })
+        await render(page, 'file-upload', examples['with multiple'])
 
         const $element = await page.$('.nhsuk-file-upload-button')
 
@@ -437,9 +426,7 @@ describe('File upload', () => {
 
     describe('i18n', () => {
       beforeEach(async () => {
-        page = await goToComponent(page, 'file-upload', {
-          name: 'with translations'
-        })
+        await render(page, 'file-upload', examples['with translations'])
       })
 
       it('uses the correct translation for the choose file button', async () => {
@@ -482,9 +469,7 @@ describe('File upload', () => {
 
     describe('disabled state syncing', () => {
       it('disables the button if the input is disabled on page load', async () => {
-        page = await goToComponent(page, 'file-upload', {
-          name: 'disabled'
-        })
+        await render(page, 'file-upload', examples.disabled)
 
         const buttonDisabled = await page.$eval(buttonSelector, (el) =>
           el.hasAttribute('disabled')
@@ -498,7 +483,7 @@ describe('File upload', () => {
       })
 
       it('disables the button if the input is disabled programmatically', async () => {
-        page = await goToComponent(page, 'file-upload')
+        await render(page, 'file-upload', examples.default)
 
         await page.$eval(inputSelector, (el) => el.setAttribute('disabled', ''))
 
@@ -514,9 +499,7 @@ describe('File upload', () => {
       })
 
       it('enables the button if the input is enabled programmatically', async () => {
-        page = await goToComponent(page, 'file-upload', {
-          name: 'disabled'
-        })
+        await render(page, 'file-upload', examples.disabled)
 
         await page.$eval(inputSelector, (el) => el.removeAttribute('disabled'))
 
@@ -534,9 +517,7 @@ describe('File upload', () => {
 
     describe('aria-describedby', () => {
       it('copies the `aria-describedby` attribute from the `<input>` to the `<button>`', async () => {
-        page = await goToComponent(page, 'file-upload', {
-          name: 'with hint and error'
-        })
+        await render(page, 'file-upload', examples['with hint and error'])
 
         const $button = await page.$(buttonSelector)
         const ariaDescribedBy = await $button.evaluate((el) =>
@@ -547,7 +528,7 @@ describe('File upload', () => {
       })
 
       it('does not add an `aria-describedby` attribute to the `<button>` if there is none on the `<input>`', async () => {
-        page = await goToComponent(page, 'file-upload')
+        await render(page, 'file-upload', examples.default)
 
         const $button = await page.$(buttonSelector)
         const ariaDescribedBy = await $button.evaluate((el) =>
@@ -557,9 +538,144 @@ describe('File upload', () => {
         expect(ariaDescribedBy).toBeNull()
       })
     })
+
+    describe('errors at instantiation', () => {
+      it('can throw a SupportError if appropriate', async () => {
+        await expect(
+          render(page, 'file-upload', examples.default, {
+            beforeInitialisation() {
+              document.body.classList.remove('nhsuk-frontend-supported')
+            }
+          })
+        ).rejects.toMatchObject({
+          cause: {
+            name: 'SupportError',
+            message:
+              'NHS.UK frontend initialised without `<body class="nhsuk-frontend-supported">` from template `<script>` snippet'
+          }
+        })
+      })
+
+      it('throws when initialised twice', async () => {
+        await expect(
+          render(page, 'file-upload', examples.default, {
+            async afterInitialisation($root) {
+              const { FileUpload } = await import('nhsuk-frontend')
+              new FileUpload($root)
+            }
+          })
+        ).rejects.toMatchObject({
+          name: 'InitError',
+          message:
+            'nhsuk-file-upload: Root element (`$root`) already initialised'
+        })
+      })
+
+      it('throws when $root is not set', async () => {
+        await expect(
+          render(page, 'file-upload', examples.default, {
+            beforeInitialisation($root) {
+              $root.remove()
+            }
+          })
+        ).rejects.toMatchObject({
+          cause: {
+            name: 'ElementError',
+            message: 'nhsuk-file-upload: Root element (`$root`) not found'
+          }
+        })
+      })
+
+      it('throws when receiving the wrong type for $root', async () => {
+        await expect(
+          render(page, 'file-upload', examples.default, {
+            beforeInitialisation($root) {
+              // Replace with an `<svg>` element which is not an `HTMLElement` in the DOM (but an `SVGElement`)
+              $root.outerHTML = `<svg data-module="nhsuk-file-upload"></svg>`
+            }
+          })
+        ).rejects.toMatchObject({
+          cause: {
+            name: 'ElementError',
+            message:
+              'nhsuk-file-upload: Root element (`$root`) is not of type HTMLElement'
+          }
+        })
+      })
+
+      describe('missing or misconfigured elements', () => {
+        it('throws if the input is missing', async () => {
+          await expect(
+            render(page, 'file-upload', examples.default, {
+              beforeInitialisation() {
+                document.querySelector('[type="file"]').remove()
+              }
+            })
+          ).rejects.toMatchObject({
+            cause: {
+              name: 'ElementError',
+              message: 'nhsuk-file-upload: Form field (`<input>`) not found'
+            }
+          })
+        })
+
+        it('throws if the input has no `id` attribute', async () => {
+          await expect(
+            render(page, 'file-upload', examples.default, {
+              beforeInitialisation() {
+                document.querySelector('[type="file"]').removeAttribute('id')
+              }
+            })
+          ).rejects.toMatchObject({
+            cause: {
+              name: 'ElementError',
+              message:
+                'nhsuk-file-upload: File input (`<input type="file">`) attribute (`id`) not found'
+            }
+          })
+        })
+
+        it('throws if the input type is not "file"', async () => {
+          await expect(
+            render(page, 'file-upload', examples.default, {
+              beforeInitialisation() {
+                document
+                  .querySelector('[type="file"]')
+                  .setAttribute('type', 'text')
+              }
+            })
+          ).rejects.toMatchObject({
+            cause: {
+              name: 'ElementError',
+              message:
+                'nhsuk-file-upload: Form field (`<input>`) is not of type HTMLInputElement with attribute (`type="file"`)'
+            }
+          })
+        })
+
+        it('throws if no label is present', async () => {
+          await expect(
+            render(page, 'file-upload', examples.default, {
+              beforeInitialisation() {
+                document.querySelector('label').remove()
+              }
+            })
+          ).rejects.toMatchObject({
+            cause: {
+              name: 'ElementError',
+              message:
+                'nhsuk-file-upload: Field label (`<label for=file-upload>`) not found'
+            }
+          })
+
+          // Expect the input to still be visible
+          await page.waitForSelector('input', { visible: true, timeout: 100 })
+        })
+      })
+    })
   })
 })
 
 /**
- * @import { Page } from 'puppeteer'
+ * @import { BoundingBox, ElementHandle, Protocol } from 'puppeteer'
  */
