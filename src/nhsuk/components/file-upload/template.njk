@@ -4,12 +4,58 @@
 {% from "nhsuk/components/hint/macro.njk" import hint %}
 {% from "nhsuk/components/label/macro.njk" import label %}
 
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-form-group" -%}
+
+{%- if params.errorMessage %}
+  {% set classNames = classNames ~ " nhsuk-form-group--error" %}
+{% endif %}
+
+{%- if params.formGroup.classes %}
+  {% set classNames = classNames ~ " " ~ params.formGroup.classes %}
+{% endif %}
+
 {#- a record of other elements that we need to associate with the input using
   aria-describedby – for example hints or error messages -#}
 {%- set describedBy = params.describedBy if params.describedBy else "" -%}
 {%- set id = params.id if params.id else params.name -%}
 
-<div class="nhsuk-form-group {%- if params.errorMessage %} nhsuk-form-group--error{% endif %} {%- if params.formGroup.classes %} {{ params.formGroup.classes }}{% endif %} {%- if params.disabled %} nhsuk-file-upload--disabled{% endif %}"
+<div
+  {{- nhsukAttributes({
+    class: classNames ~ " nhsuk-file-upload",
+    "data-module": "nhsuk-file-upload"
+  }) -}}
+
+  {{- nhsukI18nAttributes({
+    key: 'choose-files-button',
+    message: params.chooseFilesButtonText
+  }) -}}
+
+  {{- nhsukI18nAttributes({
+    key: 'no-file-chosen',
+    message: params.noFileChosenText
+  }) -}}
+
+  {{- nhsukI18nAttributes({
+    key: 'multiple-files-chosen',
+    messages: params.multipleFilesChosenText
+  }) -}}
+
+  {{- nhsukI18nAttributes({
+    key: 'drop-instruction',
+    message: params.dropInstructionText
+  }) -}}
+
+  {{- nhsukI18nAttributes({
+    key: 'entered-drop-zone',
+    message: params.enteredDropZoneText
+  }) -}}
+
+  {{- nhsukI18nAttributes({
+    key: 'left-drop-zone',
+    message: params.leftDropZoneText
+  }) -}}
+
   {{- nhsukAttributes(params.formGroup.attributes) }}>
   {{ label({
     html: params.label.html,
@@ -46,38 +92,11 @@
 {% if params.formGroup.beforeInput %}
   {{ params.formGroup.beforeInput.html | safe | trim | indent(2) if params.formGroup.beforeInput.html else params.formGroup.beforeInput.text }}
 {% endif %}
-  <div class="nhsuk-drop-zone" data-module="nhsuk-file-upload"
-    {{- nhsukI18nAttributes({
-      key: 'choose-files-button',
-      message: params.chooseFilesButtonText
-    }) -}}
-    {{- nhsukI18nAttributes({
-      key: 'no-file-chosen',
-      message: params.noFileChosenText
-    }) -}}
-    {{- nhsukI18nAttributes({
-      key: 'multiple-files-chosen',
-      messages: params.multipleFilesChosenText
-    }) -}}
-    {{- nhsukI18nAttributes({
-      key: 'drop-instruction',
-      message: params.dropInstructionText
-    }) -}}
-    {{- nhsukI18nAttributes({
-      key: 'entered-drop-zone',
-      message: params.enteredDropZoneText
-    }) -}}
-    {{- nhsukI18nAttributes({
-      key: 'left-drop-zone',
-      message: params.leftDropZoneText
-    }) -}}
-  >
-    <input class="nhsuk-file-upload {%- if params.classes %} {{ params.classes }}{% endif %} {%- if params.errorMessage %} nhsuk-file-upload--error{% endif %}" id="{{ id }}" name="{{ params.name }}" type="file"
-      {%- if params.disabled %} disabled{% endif %}
-      {%- if params.multiple %} multiple{% endif %}
-      {%- if describedBy %} aria-describedby="{{ describedBy }}"{% endif %}
-      {{- nhsukAttributes(params.attributes) }}>
-  </div>
+  <input class="nhsuk-file-upload__input {%- if params.classes %} {{ params.classes }}{% endif %}" id="{{ id }}" name="{{ params.name }}" type="file"
+    {%- if params.disabled %} disabled{% endif %}
+    {%- if params.multiple %} multiple{% endif %}
+    {%- if describedBy %} aria-describedby="{{ describedBy }}"{% endif %}
+    {{- nhsukAttributes(params.attributes) }}>
 {% if params.formGroup.afterInput %}
   {{ params.formGroup.afterInput.html | safe | trim | indent(2) if params.formGroup.afterInput.html else params.formGroup.afterInput.text }}
 {% endif %}

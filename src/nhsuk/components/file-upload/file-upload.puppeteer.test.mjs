@@ -6,7 +6,8 @@ import {
 import { examples } from './fixtures.mjs'
 
 describe('File upload', () => {
-  const inputSelector = '.nhsuk-file-upload'
+  const moduleSelector = '.nhsuk-file-upload'
+  const inputSelector = '.nhsuk-file-upload__input'
   const wrapperSelector = '.nhsuk-drop-zone'
   const buttonSelector = '.nhsuk-file-upload-button'
   const statusSelector = '.nhsuk-file-upload-button__status'
@@ -34,7 +35,7 @@ describe('File upload', () => {
       const $buttonElement = await page.$(buttonSelector)
       const $statusElement = await page.$(statusSelector)
 
-      expect($wrapperElement).toBeDefined()
+      expect($wrapperElement).toBeNull()
       expect($buttonElement).toBeNull()
       expect($statusElement).toBeNull()
     })
@@ -47,6 +48,12 @@ describe('File upload', () => {
       })
 
       describe('wrapper element', () => {
+        it('renders the wrapper element', async () => {
+          const wrapperElement = await page.$eval(wrapperSelector, (el) => el)
+
+          expect(wrapperElement).toBeDefined()
+        })
+
         it('moves the file input inside of the wrapper element', async () => {
           const inputElementParent = await page.$eval(
             inputSelector,
@@ -474,8 +481,8 @@ describe('File upload', () => {
         const buttonDisabled = await page.$eval(buttonSelector, (el) =>
           el.hasAttribute('disabled')
         )
-        const dropZoneDisabled = await page.$eval(wrapperSelector, (el) =>
-          el.classList.contains('nhsuk-drop-zone--disabled')
+        const dropZoneDisabled = await page.$eval(moduleSelector, (el) =>
+          el.classList.contains('nhsuk-file-upload--disabled')
         )
 
         expect(buttonDisabled).toBeTruthy()
@@ -490,8 +497,8 @@ describe('File upload', () => {
         const buttonDisabledAfter = await page.$eval(buttonSelector, (el) =>
           el.hasAttribute('disabled')
         )
-        const dropZoneDisabled = await page.$eval(wrapperSelector, (el) =>
-          el.classList.contains('nhsuk-drop-zone--disabled')
+        const dropZoneDisabled = await page.$eval(moduleSelector, (el) =>
+          el.classList.contains('nhsuk-file-upload--disabled')
         )
 
         expect(buttonDisabledAfter).toBeTruthy()
@@ -506,8 +513,8 @@ describe('File upload', () => {
         const buttonDisabled = await page.$eval(buttonSelector, (el) =>
           el.hasAttribute('disabled')
         )
-        const dropZoneDisabled = await page.$eval(wrapperSelector, (el) =>
-          el.classList.contains('nhsuk-drop-zone--disabled')
+        const dropZoneDisabled = await page.$eval(moduleSelector, (el) =>
+          el.classList.contains('nhsuk-file-upload--disabled')
         )
 
         expect(buttonDisabled).toBeFalsy()
