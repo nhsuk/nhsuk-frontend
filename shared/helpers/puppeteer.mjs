@@ -294,6 +294,62 @@ export function getOptions(name, example) {
 }
 
 /**
+ * Get property value for element
+ *
+ * @param {ElementHandle} $element - Puppeteer element handle
+ * @param {string} propertyName - Property name to return value for
+ * @returns {Promise<unknown>} Property value
+ */
+export async function getProperty($element, propertyName) {
+  const handle = await $element.getProperty(propertyName)
+  return handle.jsonValue()
+}
+
+/**
+ * Get attribute value for element
+ *
+ * @param {ElementHandle} $element - Puppeteer element handle
+ * @param {string} attributeName - Attribute name to return value for
+ * @returns {Promise<string | null>} Attribute value
+ */
+export function getAttribute($element, attributeName) {
+  return $element.evaluate((el, name) => el.getAttribute(name), attributeName)
+}
+
+/**
+ * Gets the accessible name of the given element, if it exists in the accessibility tree
+ *
+ * @param {Page} page - Puppeteer page object
+ * @param {ElementHandle} $element - Puppeteer element handle
+ * @returns {Promise<string>} The element's accessible name
+ * @throws {TypeError} If the element has no corresponding node in the accessibility tree
+ */
+export async function getAccessibleName(page, $element) {
+  // Purposefully doesn't use `?.` to return undefined if there's no node in the
+  // accessibility tree. This lets us distinguish different kinds of failures:
+  // - assertion on the name failing: we need to figure out
+  //   why the name is not set right
+  // - TypeError accessing `name`: we need to figure out
+  //   why there's no node in the accessibility tree
+  return (
+    await page.accessibility.snapshot({
+      root: $element,
+      interestingOnly: false
+    })
+  ).name
+}
+
+/**
+ * Check if element is visible
+ *
+ * @param {ElementHandle} $element - Puppeteer element handle
+ * @returns {Promise<boolean>} Element visibility
+ */
+export async function isVisible($element) {
+  return !!(await $element.boundingBox())
+}
+
+/**
  * Navigation options
  *
  * @typedef {object} NavigationOptions
@@ -318,5 +374,5 @@ export function getOptions(name, example) {
  * @import { MacroRenderOptions } from '@nhsuk/frontend-lib/nunjucks/index.mjs'
  * @import { RuleObject, RunOptions } from 'axe-core'
  * @import { Config, ConfigKey } from 'nhsuk-frontend'
- * @import { EvaluateFuncWith, Page } from 'puppeteer'
+ * @import { ElementHandle, EvaluateFuncWith, Page } from 'puppeteer'
  */
