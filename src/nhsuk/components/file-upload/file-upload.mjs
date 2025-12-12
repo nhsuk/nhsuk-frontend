@@ -214,7 +214,7 @@ export class FileUpload extends ConfigurableComponent {
     // so we first need to make sure it's a `Node`
     if (event.target instanceof Node) {
       if (this.$root.contains(event.target)) {
-        if (event.dataTransfer && isContainingFiles(event.dataTransfer)) {
+        if (event.dataTransfer && this.canDrop(event.dataTransfer)) {
           // Only update the class and make the announcement if not already visible
           // to avoid repeated announcements on NVDA (2024.4) + Firefox (133)
           if (
@@ -260,7 +260,7 @@ export class FileUpload extends ConfigurableComponent {
   onDrop(event) {
     event.preventDefault()
 
-    if (event.dataTransfer && isContainingFiles(event.dataTransfer)) {
+    if (event.dataTransfer && this.canFillInput(event.dataTransfer)) {
       this.$input.files = event.dataTransfer.files
 
       // Dispatch a `change` event so external code that would rely on the `<input>`
@@ -270,6 +270,55 @@ export class FileUpload extends ConfigurableComponent {
 
       this.hideDraggingState()
     }
+  }
+
+  /**
+   * Confirms if enhanced `<input>` can be filled with files from the given `DataTransfer`
+   *
+   * @param {DataTransfer} dataTransfer - The `DataTransfer` being dropped
+   * @returns {boolean} Whether the `DataTransfer` contains files, in number matching the `multiple` attribute of the original `<input>`
+   */
+  canFillInput(dataTransfer) {
+    return this.matchesInputCapacity(dataTransfer.files.length)
+  }
+
+  /**
+   * Confirms if the content of a `DataTransfer` dragged over component can be dropped
+   *
+   * Unfortunately, there's a certain level of uncertainty in Safari which does not
+   * even provide a list of `items` while dragging (and seems to even miss the `types` sometimes)
+   *
+   * @param {DataTransfer} dataTransfer - The `DataTransfer` being dragged
+   * @returns {boolean} Whether the `DataTransfer` looks OK for filling the input, false otherwise
+   */
+  canDrop(dataTransfer) {
+    // If the browser is kind enough to give a list of items, we'll use that as source of truth
+    if (dataTransfer.items.length) {
+      return this.matchesInputCapacity(countFileItems(dataTransfer.items))
+    }
+
+    // If we have some type information, we'll use that
+    if (dataTransfer.types.length) {
+      return dataTransfer.types.includes('Files')
+    }
+
+    // If we have nothing to go by, we'll assume things are OK
+    // until we have a more accurate picture inside the `drop` event
+    return true
+  }
+
+  /**
+   * Confirms the given number of files matches that allowed by the enhanced `<input>`
+   *
+   * @param {number} numberOfFiles - The number of files
+   * @returns {boolean} Whether the enhanced `<input>` can accept that number of files
+   */
+  matchesInputCapacity(numberOfFiles) {
+    if (this.$input.multiple) {
+      return numberOfFiles > 0
+    }
+
+    return numberOfFiles === 1
   }
 
   /**
@@ -412,21 +461,22 @@ export class FileUpload extends ConfigurableComponent {
 }
 
 /**
- * Checks if the given `DataTransfer` contains files
+ * Counts the number of `DataTransferItem` whose kind is `file`
  *
- * @param {DataTransfer} dataTransfer - The `DataTransfer` to check
- * @returns {boolean} - `true` if it contains files or we can't infer it, `false` otherwise
+ * @param {DataTransferItemList} list - The list
+ * @returns {number} The number of items whose kind is `file` in the list
  */
-function isContainingFiles(dataTransfer) {
-  // Safari sometimes does not provide info about types :'(
-  // In which case best not to assume anything and try to set the files
-  const hasNoTypesInfo = dataTransfer.types.length === 0
+function countFileItems(list) {
+  let result = 0
 
-  // When dragging images, there's a mix of mime types + Files
-  // which we can't assign to the native input
-  const isDraggingFiles = dataTransfer.types.includes('Files')
-
-  return hasNoTypesInfo || isDraggingFiles
+  // `DataTransferItemList` is not iterable
+  // eslint-disable-next-line @typescript-eslint/prefer-for-of
+  for (let i = 0; i < list.length; i++) {
+    if (list[i].kind === 'file') {
+      result++
+    }
+  }
+  return result
 }
 
 /**
@@ -468,9 +518,9 @@ export function initFileUploads(options) {
  * Messages used by the component
  * @property {string} [chooseFilesButton] - The text of the button that opens the file picker
  * @property {string} [dropInstruction] - The text informing users they can drop files
- * @property {string} [noFileChosen] - The text to displayed when no file has been chosen by the user
  * @property {TranslationPluralForms} [multipleFilesChosen] - The text displayed when multiple files
  *   have been chosen by the user
+ * @property {string} [noFileChosen] - The text to displayed when no file has been chosen by the user
  * @property {string} [enteredDropZone] - The text announced by assistive technology
  *   when user drags files and enters the drop zone
  * @property {string} [leftDropZone] - The text announced by assistive technology
