@@ -6,6 +6,7 @@ export * from './header/header.mjs'
 export * from './notification-banner/notification-banner.mjs'
 export * from './password-input/password-input.mjs'
 export * from './radios/radios.mjs'
+export * from './select/select.mjs'
 export * from './skip-link/skip-link.mjs'
 export * from './tabs/tabs.mjs'
 
