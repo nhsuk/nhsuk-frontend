@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+Note: This release was created from the `support/10.x` branch.
+
 ### :new: **New features**
 
 #### Interruption panel
@@ -9,6 +11,10 @@
 We've added a new variant of the panel component with a solid blue background and white text. This can be used as an interruption card.
 
 This was added in [pull request #1196: Add interruption panel variant](https://github.com/nhsuk/nhsuk-frontend/pull/1196).
+
+### :wrench: **Fixes**
+
+- [#1734: Fix appearance of summary lists alongside other elements within card content](https://github.com/nhsuk/nhsuk-frontend/issues/1734)
 
 ## 10.2.2 - 4 December 2025
 
