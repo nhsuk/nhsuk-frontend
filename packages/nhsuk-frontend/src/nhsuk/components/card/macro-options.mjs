@@ -90,6 +90,60 @@ export const params = {
     description:
       'HTML to use within the card content. If `descriptionHtml` is provided, the `description` argument will be ignored.'
   },
+  actions: {
+    type: 'object',
+    required: false,
+    description: 'Can be used to add actions to the card component.',
+    params: {
+      items: {
+        type: 'array',
+        required: false,
+        description: 'Array of actions as links for use in the card component.',
+        params: {
+          href: {
+            type: 'string',
+            required: true,
+            description:
+              "The value of the link's `href` attribute for an action item."
+          },
+          text: {
+            type: 'string',
+            required: true,
+            description:
+              'If `html` is set, this is not required. Text to use within each action item. If `html` is provided, the `text` option will be ignored.'
+          },
+          html: {
+            type: 'string',
+            required: true,
+            description:
+              'If `text` is set, this is not required. HTML to use within each action item. If `html` is provided, the `text` option will be ignored.'
+          },
+          visuallyHiddenText: {
+            type: 'string',
+            required: false,
+            description:
+              'Actions rely on context from the surrounding content so may require additional accessible text. Text supplied to this option is appended to the end. Use `html` for more complicated scenarios.'
+          },
+          classes: {
+            type: 'string',
+            required: false,
+            description: 'Classes to add to the action item.'
+          },
+          attributes: {
+            type: 'object',
+            required: false,
+            description:
+              'HTML attributes (for example data attributes) to add to the action item.'
+          }
+        }
+      },
+      classes: {
+        type: 'string',
+        required: false,
+        description: 'Classes to add to the actions wrapper.'
+      }
+    }
+  },
   caller: {
     type: 'nunjucks-block',
     required: false,
