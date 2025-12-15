@@ -71,7 +71,7 @@ export class FileUpload extends ConfigurableComponent {
     this.$input.id = `${this.id}-input`
 
     // Hide the native input
-    this.$input.setAttribute('hidden', 'true')
+    this.$input.setAttribute('hidden', '')
 
     // Create the file drop zone
     const $dropZone = document.createElement('div')
