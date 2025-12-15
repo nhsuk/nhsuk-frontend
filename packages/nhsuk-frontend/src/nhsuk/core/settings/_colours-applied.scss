@@ -107,6 +107,14 @@ $nhsuk-success-colour: nhsuk-colour("green") !default;
 
 $nhsuk-border-colour: nhsuk-colour("grey-4") !default;
 
+/// Border dark colour
+///
+/// Passes 3:1 on page background. Used in contents list.
+///
+/// @type Colour
+
+$nhsuk-border-dark-colour: nhsuk-colour("grey-2") !default;
+
 /// Border hover colour
 ///
 /// @type Colour
