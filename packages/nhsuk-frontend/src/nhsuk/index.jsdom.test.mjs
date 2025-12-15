@@ -2,6 +2,7 @@ import { names } from '@nhsuk/frontend-lib'
 import { outdent } from 'outdent'
 
 import {
+  Accordion,
   Button,
   CharacterCount,
   Checkboxes,
@@ -19,6 +20,7 @@ import {
 } from './index.mjs'
 import * as NHSUKFrontend from './index.mjs'
 
+jest.mock('./components/accordion/accordion.mjs')
 jest.mock('./components/button/button.mjs')
 jest.mock('./components/character-count/character-count.mjs')
 jest.mock('./components/checkboxes/checkboxes.mjs')
@@ -32,6 +34,7 @@ jest.mock('./components/tabs/tabs.mjs')
 
 describe('NHS.UK frontend', () => {
   const components = [
+    'Accordion',
     'Checkboxes',
     'Header',
     'Radios',
@@ -70,6 +73,7 @@ describe('NHS.UK frontend', () => {
     })
 
     it('should export component classes', () => {
+      expect(NHSUKFrontend).toHaveProperty('Accordion')
       expect(NHSUKFrontend).toHaveProperty('Button')
       expect(NHSUKFrontend).toHaveProperty('CharacterCount')
       expect(NHSUKFrontend).toHaveProperty('Checkboxes')
@@ -88,6 +92,7 @@ describe('NHS.UK frontend', () => {
     })
 
     it('should export component init functions', () => {
+      expect(NHSUKFrontend).toHaveProperty('initAccordions')
       expect(NHSUKFrontend).toHaveProperty('initButtons')
       expect(NHSUKFrontend).toHaveProperty('initCharacterCounts')
       expect(NHSUKFrontend).toHaveProperty('initCheckboxes')
@@ -106,6 +111,7 @@ describe('NHS.UK frontend', () => {
       jest.spyOn(console, 'log').mockImplementation()
 
       document.body.innerHTML = outdent`
+        <div data-module="${Accordion.moduleName}"></div>
         <div data-module="${Button.moduleName}"></div>
         <div data-module="${CharacterCount.moduleName}"></div>
         <div data-module="${Checkboxes.moduleName}"></div>
@@ -274,6 +280,7 @@ describe('NHS.UK frontend', () => {
         })
       )
 
+      expect(Accordion).not.toHaveBeenCalled()
       expect(Button).not.toHaveBeenCalled()
       expect(CharacterCount).not.toHaveBeenCalled()
       expect(Checkboxes).not.toHaveBeenCalled()
@@ -298,6 +305,7 @@ describe('NHS.UK frontend', () => {
         })
       )
 
+      expect(Accordion).not.toHaveBeenCalled()
       expect(Button).not.toHaveBeenCalled()
       expect(CharacterCount).not.toHaveBeenCalled()
       expect(Checkboxes).not.toHaveBeenCalled()
@@ -322,6 +330,7 @@ describe('NHS.UK frontend', () => {
         })
       )
 
+      expect(Accordion).not.toHaveBeenCalled()
       expect(Button).not.toHaveBeenCalled()
       expect(CharacterCount).not.toHaveBeenCalled()
       expect(Checkboxes).not.toHaveBeenCalled()
