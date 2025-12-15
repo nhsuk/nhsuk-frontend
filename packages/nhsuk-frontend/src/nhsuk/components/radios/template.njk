@@ -31,7 +31,7 @@
       <input class="{{ itemClasses }}" id="{{ itemId }}" name="{{ params.name }}" type="radio" value="{{ item.value }}"
         {{- " checked" if isChecked }}
         {{- " disabled" if item.disabled }}
-        {%- if item.conditional.html %} aria-controls="{{ conditionalId }}"{% endif -%}
+        {%- if item.conditional.html %} data-aria-controls="{{ conditionalId }}"{% endif -%}
         {%- if hasHint %} aria-describedby="{{ itemHintId }}"{% endif -%}
         {{- nhsukAttributes(item.attributes) }}>
       {{ label({
