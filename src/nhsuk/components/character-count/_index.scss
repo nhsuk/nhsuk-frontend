@@ -29,7 +29,8 @@
     }
   }
 
-  .nhsuk-character-count__message {
+  .nhsuk-character-count__message,
+  .nhsuk-character-count__status {
     margin-top: 0;
     margin-bottom: 0;
 
@@ -43,7 +44,7 @@
     }
   }
 
-  .nhsuk-character-count__message--disabled {
+  .nhsuk-character-count__status--disabled {
     visibility: hidden;
   }
 }
