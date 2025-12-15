@@ -6,14 +6,23 @@ import { ElementError } from '../../errors/index.mjs'
 /**
  * Checkboxes component
  *
- * Conditionally show content when a checkbox button is checked
- *
  * Test at {@link http://localhost:3000/nhsuk-frontend/components/checkboxes/with-conditional-content/}
  *
  * @augments {ConfigurableComponent<CheckboxesConfig>}
  */
 export class Checkboxes extends ConfigurableComponent {
   /**
+   * Checkboxes can be associated with a 'conditionally revealed' content block
+   * – for example, a checkbox for 'Phone' could reveal an additional form field
+   * for the user to enter their phone number.
+   *
+   * These associations are made using a `data-aria-controls` attribute, which
+   * is promoted to an aria-controls attribute during initialisation.
+   *
+   * We also need to restore the state of any conditional reveals on the page
+   * (for example if the user has navigated back), and set up event handlers to
+   * keep the reveal in sync with the checkbox state.
+   *
    * @param {Element | null} $root - HTML element to use for component
    * @param {Partial<CheckboxesConfig>} [config] - Checkboxes config
    */
@@ -31,9 +40,10 @@ export class Checkboxes extends ConfigurableComponent {
     this.$inputs = $inputs
 
     this.$inputs.forEach(($input) => {
-      const targetId = $input.getAttribute('aria-controls')
+      const targetId =
+        $input.dataset.ariaControls ?? $input.getAttribute('aria-controls')
 
-      // Skip checkboxes without aria-controls attributes
+      // Skip checkboxes without data-aria-controls attributes
       if (!targetId) {
         return
       }
@@ -44,6 +54,13 @@ export class Checkboxes extends ConfigurableComponent {
           component: Checkboxes,
           identifier: `Conditional reveal (\`id="${targetId}"\`)`
         })
+      }
+
+      // Promote the data-aria-controls attribute to an aria-controls attribute
+      // so that the relationship is exposed in the AOM
+      if (!$input.hasAttribute('aria-controls')) {
+        $input.setAttribute('aria-controls', targetId)
+        delete $input.dataset.ariaControls
       }
     })
 
