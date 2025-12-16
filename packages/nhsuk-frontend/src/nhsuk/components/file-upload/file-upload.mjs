@@ -17,7 +17,7 @@ export class FileUpload extends ConfigurableComponent {
 
   /**
    * @param {Element | null} $root - File input element
-   * @param {FileUploadConfig} [config] - File Upload config
+   * @param {Partial<FileUploadConfig>} [config] - File Upload config
    */
   constructor($root, config = {}) {
     super($root, config)
@@ -53,7 +53,18 @@ export class FileUpload extends ConfigurableComponent {
 
     this.id = this.$input.id
 
-    this.i18n = new I18n(this.config.i18n, {
+    const {
+      i18n,
+      dropZoneClass,
+      announcementsClass,
+      buttonClass,
+      statusClass,
+      instructionClass,
+      pseudoButtonClass,
+      pseudoButtonContainerClass
+    } = this.config
+
+    this.i18n = new I18n(i18n, {
       // Read the fallback if necessary rather than have it set in the defaults
       locale: closestAttributeValue(this.$root, 'lang')
     })
@@ -74,82 +85,78 @@ export class FileUpload extends ConfigurableComponent {
     this.$input.setAttribute('hidden', '')
 
     // Create the file drop zone
-    const $dropZone = document.createElement('div')
-    $dropZone.classList.add('nhsuk-drop-zone')
+    this.$dropZone = document.createElement('div')
+    this.$dropZone.classList.add(dropZoneClass)
 
     // Create the file selection button
-    const $button = document.createElement('button')
-    $button.classList.add('nhsuk-file-upload-button')
-    $button.type = 'button'
-    $button.id = this.id
-    $button.classList.add('nhsuk-file-upload-button--empty')
+    this.$button = document.createElement('button')
+    this.$button.classList.add(buttonClass)
+    this.$button.type = 'button'
+    this.$button.id = this.id
+    this.$button.classList.add(`${buttonClass}--empty`)
 
     // Copy `aria-describedby` if present so hints and errors
     // are associated to the `<button>`
     const ariaDescribedBy = this.$input.getAttribute('aria-describedby')
     if (ariaDescribedBy) {
-      $button.setAttribute('aria-describedby', ariaDescribedBy)
+      this.$button.setAttribute('aria-describedby', ariaDescribedBy)
     }
 
     // Create status element that shows what/how many files are selected
-    const $status = document.createElement('span')
-    $status.className = 'nhsuk-body nhsuk-file-upload-button__status'
-    $status.setAttribute('aria-live', 'polite')
-    $status.innerText = this.formatStatusMessage(0)
+    this.$status = document.createElement('span')
+    this.$status.classList.add('nhsuk-body', statusClass)
+    this.$status.setAttribute('aria-live', 'polite')
+    this.$status.innerText = this.formatStatusMessage(0)
 
-    $button.appendChild($status)
+    this.$button.appendChild(this.$status)
 
-    const commaSpan = document.createElement('span')
-    commaSpan.className = 'nhsuk-u-visually-hidden'
-    commaSpan.innerText = ', '
-    commaSpan.id = `${this.id}-comma`
+    const $statusComma = document.createElement('span')
+    $statusComma.classList.add('nhsuk-u-visually-hidden')
+    $statusComma.innerText = ', '
+    $statusComma.id = `${this.id}-comma`
 
-    $button.appendChild(commaSpan)
+    this.$button.appendChild($statusComma)
 
-    const containerSpan = document.createElement('span')
-    containerSpan.className =
-      'nhsuk-file-upload-button__pseudo-button-container'
+    const $pseudoButtonContainer = document.createElement('span')
+    $pseudoButtonContainer.classList.add(pseudoButtonContainerClass)
 
-    const buttonSpan = document.createElement('span')
-    buttonSpan.className =
-      'nhsuk-button nhsuk-button--secondary nhsuk-file-upload-button__pseudo-button'
-    buttonSpan.innerText = this.i18n.t('chooseFilesButton')
+    const $pseudoButton = document.createElement('span')
+    $pseudoButton.classList.add(
+      'nhsuk-button',
+      'nhsuk-button--secondary',
+      pseudoButtonClass
+    )
+    $pseudoButton.innerText = this.i18n.t('chooseFilesButton')
 
-    containerSpan.appendChild(buttonSpan)
+    $pseudoButtonContainer.appendChild($pseudoButton)
 
     // Add a space so the button and instruction read correctly
     // when CSS is disabled
-    containerSpan.append(' ')
+    $pseudoButtonContainer.append(' ')
 
-    const instructionSpan = document.createElement('span')
-    instructionSpan.className =
-      'nhsuk-body nhsuk-file-upload-button__instruction'
-    instructionSpan.innerText = this.i18n.t('dropInstruction')
+    const $instruction = document.createElement('span')
+    $instruction.classList.add('nhsuk-body', instructionClass)
+    $instruction.innerText = this.i18n.t('dropInstruction')
 
-    containerSpan.appendChild(instructionSpan)
+    $pseudoButtonContainer.appendChild($instruction)
 
-    $button.appendChild(containerSpan)
-    $button.setAttribute(
+    this.$button.appendChild($pseudoButtonContainer)
+    this.$button.setAttribute(
       'aria-labelledby',
-      `${$label.id} ${commaSpan.id} ${$button.id}`
+      `${$label.id} ${$statusComma.id} ${this.$button.id}`
     )
-    $button.addEventListener('click', this.onClick.bind(this))
-    $button.addEventListener('dragover', (event) => {
+    this.$button.addEventListener('click', this.onClick.bind(this))
+    this.$button.addEventListener('dragover', (event) => {
       // prevent default to allow drop
       event.preventDefault()
     })
-
-    // Make all these new variables available to the module
-    this.$dropZone = $dropZone
-    this.$button = $button
-    this.$status = $status
 
     // Replace the native input with the drop zone
     this.$input.parentElement?.insertBefore(this.$dropZone, this.$input)
 
     // Assemble these all together
     this.$dropZone.appendChild(this.$input)
-    this.$dropZone.insertAdjacentElement('afterbegin', $button)
+    this.$dropZone.insertAdjacentElement('afterbegin', this.$button)
 
     this.$input.setAttribute('tabindex', '-1')
     this.$input.setAttribute('aria-hidden', 'true')
@@ -165,7 +172,7 @@ export class FileUpload extends ConfigurableComponent {
     // A live region to announce when users enter or leave the drop zone
     this.$announcements = document.createElement('span')
     this.$announcements.classList.add(
-      'nhsuk-file-upload-announcements',
+      announcementsClass,
       'nhsuk-u-visually-hidden'
     )
     this.$announcements.setAttribute('aria-live', 'assertive')
@@ -217,7 +224,11 @@ export class FileUpload extends ConfigurableComponent {
    * @param {DragEvent} event - The `dragenter` event
    */
   updateDropzoneVisibility(event) {
-    if (this.$button.disabled) return
+    if (this.$button.disabled) {
+      return
+    }
+
+    const { buttonClass } = this.config
 
     // DOM interfaces only type `event.target` as `EventTarget`
     // so we first need to make sure it's a `Node`
@@ -226,18 +237,12 @@ export class FileUpload extends ConfigurableComponent {
         if (event.dataTransfer && this.canDrop(event.dataTransfer)) {
           // Only update the class and make the announcement if not already visible
           // to avoid repeated announcements on NVDA (2024.4) + Firefox (133)
-          if (
-            !this.$button.classList.contains(
-              'nhsuk-file-upload-button--dragging'
-            )
-          ) {
+          if (!this.$button.classList.contains(`${buttonClass}--dragging`)) {
             this.showDraggingState()
             this.$announcements.innerText = this.i18n.t('enteredDropZone')
           }
         }
-      } else if (
-        this.$button.classList.contains('nhsuk-file-upload-button--dragging')
-      ) {
+      } else if (this.$button.classList.contains(`${buttonClass}--dragging`)) {
         // Only hide the dropzone if it is visible to prevent announcing user
         // left the drop zone when they enter the page but haven't reached yet
         // the file upload component
@@ -251,14 +256,16 @@ export class FileUpload extends ConfigurableComponent {
    * Show the drop zone visually
    */
   showDraggingState() {
-    this.$button.classList.add('nhsuk-file-upload-button--dragging')
+    const { buttonClass } = this.config
+    this.$button.classList.add(`${buttonClass}--dragging`)
   }
 
   /**
    * Hides the drop zone visually
    */
   hideDraggingState() {
-    this.$button.classList.remove('nhsuk-file-upload-button--dragging')
+    const { buttonClass } = this.config
+    this.$button.classList.remove(`${buttonClass}--dragging`)
   }
 
   /**
@@ -334,12 +341,13 @@ export class FileUpload extends ConfigurableComponent {
    * Check if the value of the underlying input has changed
    */
   onChange() {
+    const { buttonClass } = this.config
     const fileCount = this.$input.files.length
 
     if (fileCount === 0) {
       // If there are no files, show the default selection text
       this.$status.innerText = this.formatStatusMessage(fileCount)
-      this.$button.classList.add('nhsuk-file-upload-button--empty')
+      this.$button.classList.add(`${buttonClass}--empty`)
     } else {
       if (
         // If there is 1 file, just show the file name
@@ -351,7 +359,7 @@ export class FileUpload extends ConfigurableComponent {
         this.$status.innerText = this.formatStatusMessage(fileCount)
       }
 
-      this.$button.classList.remove('nhsuk-file-upload-button--empty')
+      this.$button.classList.remove(`${buttonClass}--empty`)
     }
   }
 
@@ -423,7 +431,7 @@ export class FileUpload extends ConfigurableComponent {
     this.$button.disabled = this.$input.disabled
 
     this.$root.classList.toggle(
-      'nhsuk-file-upload--disabled',
+      `${FileUpload.moduleName}--disabled`,
       this.$button.disabled
     )
   }
@@ -441,6 +449,14 @@ export class FileUpload extends ConfigurableComponent {
    * @type {FileUploadConfig}
    */
   static defaults = Object.freeze({
+    dropZoneClass: 'nhsuk-drop-zone',
+    announcementsClass: 'nhsuk-file-upload-announcements',
+    buttonClass: 'nhsuk-file-upload-button',
+    statusClass: 'nhsuk-file-upload-button__status',
+    instructionClass: 'nhsuk-file-upload-button__instruction',
+    pseudoButtonClass: 'nhsuk-file-upload-button__pseudo-button',
+    pseudoButtonContainerClass:
+      'nhsuk-file-upload-button__pseudo-button-container',
     i18n: {
       chooseFilesButton: 'Choose file',
       dropInstruction: 'or drop file',
@@ -464,6 +480,13 @@ export class FileUpload extends ConfigurableComponent {
    */
   static schema = Object.freeze({
     properties: {
+      dropZoneClass: { type: 'string' },
+      announcementsClass: { type: 'string' },
+      buttonClass: { type: 'string' },
+      statusClass: { type: 'string' },
+      instructionClass: { type: 'string' },
+      pseudoButtonClass: { type: 'string' },
+      pseudoButtonContainerClass: { type: 'string' },
       i18n: { type: 'object' }
     }
   })
@@ -492,7 +515,7 @@ function countFileItems(list) {
  * Initialise file upload component
  *
  * @deprecated Use {@link createAll | `createAll(FileUpload, options)`} instead.
- * @param {InitOptions & FileUploadConfig} [options]
+ * @param {InitOptions & Partial<FileUploadConfig>} [options]
  */
 export function initFileUploads(options) {
   const { scope: $scope } = normaliseOptions(options)
@@ -515,6 +538,13 @@ export function initFileUploads(options) {
  *
  * @see {@link FileUpload.defaults}
  * @typedef {object} FileUploadConfig
+ * @property {string} dropZoneClass - Drop zone class
+ * @property {string} announcementsClass - Announcements class
+ * @property {string} buttonClass - Button class
+ * @property {string} statusClass - Status class
+ * @property {string} instructionClass - Instruction class
+ * @property {string} pseudoButtonClass - Pseudo button class
+ * @property {string} pseudoButtonContainerClass - Pseudo button container class
  * @property {FileUploadTranslations} [i18n=FileUpload.defaults.i18n] - File upload translations
  */
 
