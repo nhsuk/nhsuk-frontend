@@ -24,6 +24,10 @@
     }
   }
 
+  th[aria-sort] {
+    position: relative;
+  }
+
   th[aria-sort="ascending"]::after,
   th[aria-sort="descending"]::after {
     // currently sorted column indicator
