@@ -192,9 +192,7 @@ describe('File upload', () => {
         document.querySelector(`[data-module="${FileUpload.moduleName}"]`)
       )
 
-      expect(fileUpload.config).toEqual({
-        i18n: FileUpload.defaults.i18n
-      })
+      expect(fileUpload.config).toEqual(FileUpload.defaults)
     })
   })
 
