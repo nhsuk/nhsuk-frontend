@@ -1,6 +1,6 @@
 import { normaliseOptions } from '../../common/configuration/index.mjs'
 import { toggleConditionalInput } from '../../common/index.mjs'
-import { Component } from '../../component.mjs'
+import { ConfigurableComponent } from '../../configurable-component.mjs'
 import { ElementError } from '../../errors/index.mjs'
 
 /**
@@ -9,13 +9,16 @@ import { ElementError } from '../../errors/index.mjs'
  * Conditionally show content when a radio button is checked
  *
  * Test at {@link http://localhost:3000/nhsuk-frontend/components/radios/with-conditional-content/}
+ *
+ * @augments {ConfigurableComponent<RadiosConfig>}
  */
-export class Radios extends Component {
+export class Radios extends ConfigurableComponent {
   /**
    * @param {Element | null} $root - HTML element to use for component
+   * @param {Partial<RadiosConfig>} [config] - Radios config
    */
-  constructor($root) {
-    super($root)
+  constructor($root, config) {
+    super($root, config)
 
     const $inputs = this.$root.querySelectorAll('input[type="radio"]')
     if (!$inputs.length) {
@@ -76,7 +79,8 @@ export class Radios extends Component {
    * @param {HTMLInputElement} $input - Radio input
    */
   syncConditionalRevealWithInputState($input) {
-    toggleConditionalInput($input, 'nhsuk-radios__conditional--hidden')
+    const { conditionalClass } = this.config
+    toggleConditionalInput($input, `${conditionalClass}--hidden`)
   }
 
   /**
@@ -118,13 +122,36 @@ export class Radios extends Component {
    * Name for the component used when initialising using data-module attributes
    */
   static moduleName = 'nhsuk-radios'
+
+  /**
+   * Radios default config
+   *
+   * @see {@link RadiosConfig}
+   * @constant
+   * @type {RadiosConfig}
+   */
+  static defaults = Object.freeze({
+    conditionalClass: 'nhsuk-radios__conditional'
+  })
+
+  /**
+   * Radios config schema
+   *
+   * @constant
+   * @satisfies {Schema<RadiosConfig>}
+   */
+  static schema = Object.freeze({
+    properties: {
+      conditionalClass: { type: 'string' }
+    }
+  })
 }
 
 /**
  * Initialise radios component
  *
- * @deprecated Use {@link createAll | `createAll(Radios)`} instead.
- * @param {InitOptions} [options]
+ * @deprecated Use {@link createAll | `createAll(Radios, options)`} instead.
+ * @param {InitOptions & Partial<RadiosConfig>} [options]
  */
 export function initRadios(options) {
   const { scope: $scope } = normaliseOptions(options)
@@ -134,10 +161,18 @@ export function initRadios(options) {
   )
 
   $radios?.forEach(($root) => {
-    new Radios($root)
+    new Radios($root, options)
   })
 }
 
 /**
+ * Radios config
+ *
+ * @typedef {object} RadiosConfig
+ * @property {string} conditionalClass - Conditionally revealed content class
+ */
+
+/**
  * @import { createAll, InitOptions } from '../../index.mjs'
+ * @import { Schema } from '../../common/configuration/index.mjs'
  */
