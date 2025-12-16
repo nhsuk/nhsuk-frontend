@@ -10,6 +10,7 @@ import {
   PasswordInput,
   Radios,
   SkipLink,
+  SortableTable,
   Tabs
 } from './components/index.mjs'
 import { ElementError, SupportError } from './errors/index.mjs'
@@ -76,6 +77,7 @@ export function initAll(scopeOrConfig = {}) {
     [PasswordInput, config.passwordInput],
     [Radios],
     [SkipLink],
+    [SortableTable, config.sortableTable],
     [Tabs]
   ])
 
@@ -205,6 +207,7 @@ export * from './errors/index.mjs'
  * @property {ComponentConfig<typeof ErrorSummary>} [errorSummary] - Error Summary config
  * @property {ComponentConfig<typeof NotificationBanner>} [notificationBanner] - Notification Banner config
  * @property {ComponentConfig<typeof PasswordInput>} [passwordInput] - Password Input config
+ * @property {ComponentConfig<typeof SortableTable>} [sortableTable] - Sortable table config
  */
 
 /**
