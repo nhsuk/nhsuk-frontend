@@ -23,6 +23,7 @@ jest.mock('./components/button/button.mjs')
 jest.mock('./components/character-count/character-count.mjs')
 jest.mock('./components/checkboxes/checkboxes.mjs')
 jest.mock('./components/error-summary/error-summary.mjs')
+jest.mock('./components/file-upload/file-upload.mjs')
 jest.mock('./components/header/header.mjs')
 jest.mock('./components/notification-banner/notification-banner.mjs')
 jest.mock('./components/password-input/password-input.mjs')
@@ -33,6 +34,7 @@ jest.mock('./components/tabs/tabs.mjs')
 describe('NHS.UK frontend', () => {
   const components = [
     'Checkboxes',
+    'FileUpload',
     'Header',
     'Radios',
     'SkipLink',
