@@ -66,6 +66,50 @@ export const examples = {
       viewports: ['watch', 'mobile', 'tablet', 'desktop']
     }
   },
+  'label': {
+    context: {
+      label: {
+        text: 'Upload a file',
+        isPageHeading: true
+      },
+      id: 'file-upload',
+      name: 'file-upload'
+    },
+    variants: [
+      {
+        description: 'with size S',
+        context: {
+          label: {
+            size: 's'
+          }
+        }
+      },
+      {
+        description: 'with size M',
+        context: {
+          label: {
+            size: 'm'
+          }
+        }
+      },
+      {
+        description: 'with size L',
+        context: {
+          label: {
+            size: 'l'
+          }
+        }
+      },
+      {
+        description: 'with size XL',
+        context: {
+          label: {
+            size: 'xl'
+          }
+        }
+      }
+    ]
+  },
   'without page heading': {
     context: {
       label: {
