@@ -66,7 +66,7 @@ describe('File upload', () => {
 
       jest.spyOn(event, 'preventDefault')
 
-      component.$button.dispatchEvent(event)
+      component.$dropButton.dispatchEvent(event)
 
       expect(event.preventDefault).toHaveBeenCalled()
     })
@@ -77,7 +77,7 @@ describe('File upload', () => {
       const clickSpy = jest.spyOn($input, 'click')
 
       const event = new Event('click')
-      component.$button.dispatchEvent(event)
+      component.$dropButton.dispatchEvent(event)
 
       expect(clickSpy).toHaveBeenCalled()
     })
