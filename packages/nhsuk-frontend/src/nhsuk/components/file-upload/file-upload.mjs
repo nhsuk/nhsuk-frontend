@@ -42,7 +42,7 @@ export class FileUpload extends ConfigurableComponent {
       })
     }
 
-    this.$input = /** @type {HTMLFileInputElement} */ ($input)
+    this.$input = $input
 
     if (!this.$input.id) {
       throw new ElementError({
@@ -350,21 +350,21 @@ export class FileUpload extends ConfigurableComponent {
    */
   onChange() {
     const { buttonClass } = this.config
-    const fileCount = this.$input.files.length
+    const { files } = this.$input
 
-    if (fileCount === 0) {
+    if (!files?.length) {
       // If there are no files, show the default selection text
-      this.$status.innerText = this.formatStatusMessage(fileCount)
+      this.$status.innerText = this.formatStatusMessage(0)
       this.$button.classList.add(`${buttonClass}--empty`)
     } else {
       if (
         // If there is 1 file, just show the file name
-        fileCount === 1
+        files.length === 1
       ) {
-        this.$status.innerText = this.$input.files[0].name
+        this.$status.innerText = files[0].name
       } else {
         // Otherwise, tell the user how many files are selected
-        this.$status.innerText = this.formatStatusMessage(fileCount)
+        this.$status.innerText = this.formatStatusMessage(files.length)
       }
 
       this.$button.classList.remove(`${buttonClass}--empty`)
@@ -538,10 +538,6 @@ export function initFileUploads(options) {
     new FileUpload($root, options)
   })
 }
-
-/**
- * @typedef {HTMLInputElement & {files: FileList}} HTMLFileInputElement
- */
 
 /**
  * File upload config
