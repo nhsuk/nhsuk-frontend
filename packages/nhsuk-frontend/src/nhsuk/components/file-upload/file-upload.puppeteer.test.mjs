@@ -8,10 +8,11 @@ import { examples } from './fixtures.mjs'
 describe('File upload', () => {
   const moduleSelector = '.nhsuk-file-upload'
   const inputSelector = '.nhsuk-file-upload__input'
-  const wrapperSelector = '.nhsuk-drop-zone'
-  const buttonSelector = '.nhsuk-file-upload-button'
-  const statusSelector = '.nhsuk-file-upload-button__status'
-  const pseudoButtonSelector = '.nhsuk-file-upload-button__pseudo-button'
+  const dropZoneSelector = '.nhsuk-file-upload__drop-zone'
+  const dropButtonSelector = '.nhsuk-file-upload__drop-button'
+  const chooseFilesButtonSelector = '.nhsuk-file-upload__choose-files-button'
+  const announcementsSelector = '.nhsuk-file-upload__announcements'
+  const statusSelector = '.nhsuk-file-upload__status'
 
   describe('when JavaScript is unavailable or fails', () => {
     beforeAll(async () => {
@@ -31,8 +32,8 @@ describe('File upload', () => {
     })
 
     it('does not inject additional elements', async () => {
-      const $wrapperElement = await page.$(wrapperSelector)
-      const $buttonElement = await page.$(buttonSelector)
+      const $wrapperElement = await page.$(dropZoneSelector)
+      const $buttonElement = await page.$(dropButtonSelector)
       const $statusElement = await page.$(statusSelector)
 
       expect($wrapperElement).toBeNull()
@@ -49,7 +50,7 @@ describe('File upload', () => {
 
       describe('wrapper element', () => {
         it('renders the wrapper element', async () => {
-          const wrapperElement = await page.$eval(wrapperSelector, (el) => el)
+          const wrapperElement = await page.$eval(dropZoneSelector, (el) => el)
 
           expect(wrapperElement).toBeDefined()
         })
@@ -59,7 +60,7 @@ describe('File upload', () => {
             inputSelector,
             (el) => el.parentNode
           )
-          const wrapperElement = await page.$eval(wrapperSelector, (el) => el)
+          const wrapperElement = await page.$eval(dropZoneSelector, (el) => el)
 
           expect(inputElementParent).toStrictEqual(wrapperElement)
         })
@@ -77,7 +78,7 @@ describe('File upload', () => {
 
       describe('label element', () => {
         it('targets the button in its `for` attribute', async () => {
-          const buttonId = await page.$eval(buttonSelector, (el) => el.id)
+          const buttonId = await page.$eval(dropButtonSelector, (el) => el.id)
           const label = await page.$(`[for="${buttonId}"]`)
 
           expect(label).not.toBeNull()
@@ -86,8 +87,8 @@ describe('File upload', () => {
 
       describe('choose file button', () => {
         it('renders the button element', async () => {
-          const buttonElement = await page.$eval(buttonSelector, (el) => el)
-          const buttonElementType = await page.$eval(buttonSelector, (el) =>
+          const buttonElement = await page.$eval(dropButtonSelector, (el) => el)
+          const buttonElementType = await page.$eval(dropButtonSelector, (el) =>
             el.getAttribute('type')
           )
 
@@ -97,7 +98,7 @@ describe('File upload', () => {
 
         it('has same aria-describedby value as input', async () => {
           const buttonElementAriaDescribedBy = await page.$eval(
-            buttonSelector,
+            dropButtonSelector,
             (el) => el.getAttribute('aria-describedby')
           )
 
@@ -106,15 +107,15 @@ describe('File upload', () => {
 
         it('renders the button with default text', async () => {
           const buttonElementText = await page.$eval(
-            `${buttonSelector} ${pseudoButtonSelector}`,
+            `${dropButtonSelector} ${chooseFilesButtonSelector}`,
             (el) => el.innerHTML.trim()
           )
 
           const [statusElementText, statusElementAriaLiveAttribute] =
-            await page.$eval(`${buttonSelector} ${statusSelector}`, (el) => [
-              el.innerHTML.trim(),
-              el.getAttribute('aria-live')
-            ])
+            await page.$eval(
+              `${dropButtonSelector} ${statusSelector}`,
+              (el) => [el.innerHTML.trim(), el.getAttribute('aria-live')]
+            )
 
           expect(buttonElementText).toBe('Choose file')
           expect(statusElementText).toBe('No file chosen')
@@ -124,7 +125,7 @@ describe('File upload', () => {
     })
 
     describe('when clicking the choose file button', () => {
-      it.each([buttonSelector, pseudoButtonSelector, statusSelector])(
+      it.each([dropButtonSelector, chooseFilesButtonSelector, statusSelector])(
         'opens the file picker',
         async (selector) => {
           // It doesn't seem to be possible to check if the file picker dialog
@@ -159,7 +160,7 @@ describe('File upload', () => {
       beforeEach(async () => {
         const [fileChooser] = await Promise.all([
           page.waitForFileChooser(),
-          page.click(buttonSelector)
+          page.click(dropButtonSelector)
         ])
         await fileChooser.accept([testFilename])
       })
@@ -200,7 +201,7 @@ describe('File upload', () => {
 
         const [fileChooser] = await Promise.all([
           page.waitForFileChooser(),
-          page.click(buttonSelector)
+          page.click(dropButtonSelector)
         ])
         await fileChooser.accept(['testfile1.txt', 'testfile2.pdf'])
       })
@@ -259,18 +260,16 @@ describe('File upload', () => {
         dragOperationsMask: 1 // Copy
       }
 
-      const selectorDropzoneVisible =
-        '.nhsuk-file-upload-button.nhsuk-file-upload-button--dragging'
-      const selectorDropzoneHidden =
-        '.nhsuk-file-upload-button:not(.nhsuk-file-upload-button--dragging)'
+      const selectorDropzoneVisible = `${dropButtonSelector}${dropButtonSelector}--dragging`
+      const selectorDropzoneHidden = `${dropButtonSelector}:not(${dropButtonSelector}--dragging)`
 
       beforeEach(async () => {
         await render(page, 'file-upload', examples.default)
 
-        $wrapper = await page.$('.nhsuk-drop-zone')
+        $wrapper = await page.$(dropZoneSelector)
         wrapperBoundingBox = await $wrapper.boundingBox()
 
-        $announcements = await page.$('.nhsuk-file-upload-announcements')
+        $announcements = await page.$(announcementsSelector)
       })
 
       it('is not shown by default', async () => {
@@ -352,7 +351,7 @@ describe('File upload', () => {
 
         // It doesn't seem doable to make Puppeteer drag outside the viewport
         // so instead, we can only mock two 'dragleave' events
-        await page.$eval('.nhsuk-drop-zone', ($el) => {
+        await page.$eval(dropZoneSelector, ($el) => {
           $el.dispatchEvent(new Event('dragleave', { bubbles: true }))
           $el.dispatchEvent(new Event('dragleave', { bubbles: true }))
         })
@@ -371,9 +370,7 @@ describe('File upload', () => {
           structuredClone(dragData)
         )
 
-        const disabledAnnouncement = await page.$(
-          '.nhsuk-file-upload-announcements'
-        )
+        const disabledAnnouncement = await page.$(announcementsSelector)
 
         await expect(page.$(selectorDropzoneHidden)).resolves.toBeTruthy()
         await expect(
@@ -388,7 +385,7 @@ describe('File upload', () => {
       it('includes the label, the status, the pseudo button and instruction', async () => {
         await render(page, 'file-upload', examples.default)
 
-        const $element = await page.$('.nhsuk-file-upload-button')
+        const $element = await page.$(dropButtonSelector)
 
         const accessibleName = await getAccessibleName(page, $element)
         await expect(accessibleName.replaceAll(/\s+/g, ' ')).toBe(
@@ -399,11 +396,11 @@ describe('File upload', () => {
       it('includes the label, file name, pseudo button and instruction once a file is selected', async () => {
         await render(page, 'file-upload', examples.default)
 
-        const $element = await page.$('.nhsuk-file-upload-button')
+        const $element = await page.$(dropButtonSelector)
 
         const [fileChooser] = await Promise.all([
           page.waitForFileChooser(),
-          page.click(buttonSelector)
+          page.click(dropButtonSelector)
         ])
         await fileChooser.accept(['fakefile.txt'])
 
@@ -416,11 +413,11 @@ describe('File upload', () => {
       it('includes the label, file name, pseudo button and instruction once multiple files are selected', async () => {
         await render(page, 'file-upload', examples['with multiple'])
 
-        const $element = await page.$('.nhsuk-file-upload-button')
+        const $element = await page.$(dropButtonSelector)
 
         const [fileChooser] = await Promise.all([
           page.waitForFileChooser(),
-          page.click(buttonSelector)
+          page.click(dropButtonSelector)
         ])
         await fileChooser.accept(['fakefile1.txt', 'fakefile2.txt'])
 
@@ -437,8 +434,9 @@ describe('File upload', () => {
       })
 
       it('uses the correct translation for the choose file button', async () => {
-        const buttonElementText = await page.$eval(pseudoButtonSelector, (el) =>
-          el.innerHTML.trim()
+        const buttonElementText = await page.$eval(
+          chooseFilesButtonSelector,
+          (el) => el.innerHTML.trim()
         )
 
         const statusElementText = await page.$eval(statusSelector, (el) =>
@@ -461,7 +459,7 @@ describe('File upload', () => {
         it('uses the correct translation when multiple files are selected', async () => {
           const [fileChooser] = await Promise.all([
             page.waitForFileChooser(),
-            page.click(buttonSelector)
+            page.click(dropButtonSelector)
           ])
           await fileChooser.accept(['testfile1.txt', 'testfile2.pdf'])
 
@@ -478,7 +476,7 @@ describe('File upload', () => {
       it('disables the button if the input is disabled on page load', async () => {
         await render(page, 'file-upload', examples.disabled)
 
-        const buttonDisabled = await page.$eval(buttonSelector, (el) =>
+        const buttonDisabled = await page.$eval(dropButtonSelector, (el) =>
           el.hasAttribute('disabled')
         )
         const dropZoneDisabled = await page.$eval(moduleSelector, (el) =>
@@ -494,7 +492,7 @@ describe('File upload', () => {
 
         await page.$eval(inputSelector, (el) => el.setAttribute('disabled', ''))
 
-        const buttonDisabledAfter = await page.$eval(buttonSelector, (el) =>
+        const buttonDisabledAfter = await page.$eval(dropButtonSelector, (el) =>
           el.hasAttribute('disabled')
         )
         const dropZoneDisabled = await page.$eval(moduleSelector, (el) =>
@@ -510,7 +508,7 @@ describe('File upload', () => {
 
         await page.$eval(inputSelector, (el) => el.removeAttribute('disabled'))
 
-        const buttonDisabled = await page.$eval(buttonSelector, (el) =>
+        const buttonDisabled = await page.$eval(dropButtonSelector, (el) =>
           el.hasAttribute('disabled')
         )
         const dropZoneDisabled = await page.$eval(moduleSelector, (el) =>
@@ -526,7 +524,7 @@ describe('File upload', () => {
       it('copies the `aria-describedby` attribute from the `<input>` to the `<button>`', async () => {
         await render(page, 'file-upload', examples['with hint and error'])
 
-        const $button = await page.$(buttonSelector)
+        const $button = await page.$(dropButtonSelector)
         const ariaDescribedBy = await $button.evaluate((el) =>
           el.getAttribute('aria-describedby')
         )
@@ -537,7 +535,7 @@ describe('File upload', () => {
       it('does not add an `aria-describedby` attribute to the `<button>` if there is none on the `<input>`', async () => {
         await render(page, 'file-upload', examples.default)
 
-        const $button = await page.$(buttonSelector)
+        const $button = await page.$(dropButtonSelector)
         const ariaDescribedBy = await $button.evaluate((el) =>
           el.getAttribute('aria-describedby')
         )
@@ -687,14 +685,14 @@ describe('File upload', () => {
 
                 // 1. Create drop zone
                 const $dropZone = document.createElement('div')
-                $dropZone.classList.add('nhsuk-drop-zone')
+                $dropZone.classList.add('nhsuk-file-upload__drop-zone')
 
                 // 2. Move input into drop zone
                 $input.replaceWith($dropZone)
                 $dropZone.appendChild($input)
               },
               context: {
-                selector: '.nhsuk-file-upload__input'
+                selector: inputSelector
               }
             })
           ).resolves.not.toThrow()
@@ -711,7 +709,7 @@ describe('File upload', () => {
 
                 // 1. Create drop zone
                 const $dropZone = document.createElement('div')
-                $dropZone.classList.add('nhsuk-drop-zone')
+                $dropZone.classList.add('nhsuk-file-upload__drop-zone')
 
                 // 2. Move input into drop zone
                 $input.replaceWith($dropZone)
@@ -722,7 +720,7 @@ describe('File upload', () => {
                 $dropZone.setAttribute('data-module', 'nhsuk-file-upload')
               },
               context: {
-                selector: '.nhsuk-file-upload__input'
+                selector: inputSelector
               }
             })
           ).resolves.not.toThrow()
