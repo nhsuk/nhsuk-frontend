@@ -97,6 +97,9 @@
     max-width: 5.4ex;
   }
 
+  .nhsuk-input-wrapper__prefix,
+  .nhsuk-input-wrapper__suffix,
+  // Deprecated, to be removed in v11.0
   .nhsuk-input__prefix,
   .nhsuk-input__suffix {
     box-sizing: border-box;
@@ -131,6 +134,8 @@
     }
   }
 
+  .nhsuk-input-wrapper__prefix,
+  // Deprecated, to be removed in v11.0
   .nhsuk-input__prefix {
     @include nhsuk-media-query($until: mobile) {
       border-bottom: 0;
@@ -152,6 +157,8 @@
   }
 
   // Split prefix/suffix onto separate lines on narrow screens
+  .nhsuk-input-wrapper__suffix,
+  // Deprecated, to be removed in v11.0
   .nhsuk-input__suffix {
     @include nhsuk-media-query($until: mobile) {
       border-top: 0;

@@ -10,6 +10,21 @@ We've added a new variant of the panel component with a solid blue background an
 
 This was added in [pull request #1196: Add interruption panel variant](https://github.com/nhsuk/nhsuk-frontend/pull/1196).
 
+### :wastebasket: **Deprecated features**
+
+#### Rename input prefix and suffix HTML class
+
+HTML markup for the input component has been updated to align `nhsuk-input-wrapper` with other wrapping classes such as `nhsuk-main-wrapper` and `nhsuk-label-wrapper`.
+
+If you are not using Nunjucks macros, change the input classes as follows:
+
+- Rename the `<div class="nhsuk-input__prefix"` class attribute to match `<div class="nhsuk-input-wrapper__prefix"`.
+- Rename the `<div class="nhsuk-input__suffix"` class attribute to match `<div class="nhsuk-input-wrapper__suffix"`.
+
+The previous class names are deprecated and will be removed in a future release.
+
+This change was introduced in [pull request #1745: Update input prefix and suffix classes to follow BEM](https://github.com/nhsuk/nhsuk-frontend/pull/1745).
+
 ## 10.2.2 - 4 December 2025
 
 Note: This release was created from the `support/10.x` branch.
