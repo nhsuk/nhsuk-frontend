@@ -14,7 +14,9 @@ export const examples = {
       id: 'file-upload',
       name: 'file-upload'
     },
-    screenshot: true
+    screenshot: {
+      viewports: ['watch', 'mobile', 'tablet', 'desktop']
+    }
   },
   'with hint': {
     context: {
@@ -59,6 +61,9 @@ export const examples = {
       errorMessage: {
         text: 'The selected file must be a JPG, BMP or TIF.'
       }
+    },
+    screenshot: {
+      viewports: ['watch', 'mobile', 'tablet', 'desktop']
     }
   },
   'without page heading': {
