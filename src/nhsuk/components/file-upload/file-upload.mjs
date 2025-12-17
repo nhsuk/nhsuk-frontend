@@ -123,7 +123,7 @@ export class FileUpload extends ConfigurableComponent {
     this.$dropButton.appendChild($statusComma)
 
     const $dropButtonGroup = document.createElement('span')
-    $dropButtonGroup.classList.add(dropButtonGroupClass)
+    $dropButtonGroup.classList.add('nhsuk-button-group', dropButtonGroupClass)
 
     const $chooseFilesButton = document.createElement('span')
     $chooseFilesButton.classList.add(

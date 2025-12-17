@@ -3,6 +3,7 @@
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
 @use "../../core/helpers" as *;
+@use "../../core/objects/button-group" as *;
 @forward "../error-message";
 @forward "../hint";
 @forward "../label";
@@ -69,14 +70,10 @@
   .nhsuk-file-upload__choose-files-button {
     flex-shrink: 0;
     width: auto;
-    margin-right: nhsuk-spacing(2);
-    margin-bottom: $nhsuk-border-width-form-element + 1;
-  }
 
-  .nhsuk-file-upload__drop-instruction {
-    margin-top: nhsuk-spacing(2) - ($nhsuk-border-width-form-element + 1);
-    margin-bottom: 0;
-    text-align: left;
+    @include nhsuk-media-query($from: mobile, $until: tablet) {
+      margin-right: nhsuk-spacing(3);
+    }
   }
 
   .nhsuk-file-upload__status {
@@ -100,9 +97,11 @@
   // https://github.com/philipwalton/flexbugs#flexbug-9
   // so we need a container here
   .nhsuk-file-upload__drop-button-group {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
+    @include nhsuk-media-query($from: mobile) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
   }
 
   .nhsuk-file-upload__drop-button {
