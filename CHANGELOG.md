@@ -6,6 +6,47 @@ Note: This release was created from the `support/10.x` branch.
 
 ### :new: **New features**
 
+#### New file upload component
+
+We've added a new [file upload component](https://service-manual.nhs.uk/design-system/components/file-upload) which:
+
+- makes the file inputs easier to use for drag and drop
+- allows the text of the component to be translated
+- fixes accessibility issues for users of Dragon, a speech recognition software
+
+To use the `fileUpload` Nunjucks macro in your service:
+
+```njk
+{{ fileUpload({
+  label: {
+    text: "Upload your photo"
+  }
+  id: "file-upload",
+  name: "photo"
+}) }}
+```
+
+If you are not using Nunjucks macros, use the following HTML:
+
+```html
+<div class="nhsuk-form-group nhsuk-file-upload" data-module="nhsuk-file-upload">
+  <label class="nhsuk-label" for="file-upload">
+    Upload your photo
+  </label>
+  <input class="nhsuk-file-upload__input" id="file-upload" name="photo" type="file">
+</div>
+```
+
+If you're importing components individually in your JavaScript, which we recommend for better performance, you'll then need to import and initialise the new `FileUpload` component.
+
+```mjs
+import { createAll, FileUpload } from 'nhsuk-frontend'
+
+createAll(FileUpload)
+```
+
+This change was introduced in [pull request #1556: Uplift GOV.UK Frontend file upload component](https://github.com/nhsuk/nhsuk-frontend/pull/1556)
+
 #### Interruption panel
 
 We've added a new variant of the panel component with a solid blue background and white text. This can be used as an interruption card.
