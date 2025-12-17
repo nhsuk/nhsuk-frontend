@@ -1,0 +1,50 @@
+[
+  {
+    "name": "id",
+    "type": "string",
+    "required": false,
+    "description": "The ID of the image."
+  },
+  {
+    "name": "src",
+    "type": "string",
+    "required": true,
+    "description": "The source location of the image."
+  },
+  {
+    "name": "alt",
+    "type": "string",
+    "required": true,
+    "description": "The alt text of the image."
+  },
+  {
+    "name": "caption",
+    "type": "string",
+    "required": false,
+    "description": "Optional caption text for the image."
+  },
+  {
+    "name": "sizes",
+    "type": "string",
+    "required": false,
+    "description": "A list of screen sizes for the browser to load the correct image from the srcset images."
+  },
+  {
+    "name": "srcset",
+    "type": "string",
+    "required": false,
+    "description": "A list of image source URLs and their respective sizes. Separate each image with a comma."
+  },
+  {
+    "name": "classes",
+    "type": "string",
+    "required": false,
+    "description": "Classes to add to the image container."
+  },
+  {
+    "name": "attributes",
+    "type": "object",
+    "required": false,
+    "description": "HTML attributes (for example data attributes) to add to the image container."
+  }
+]

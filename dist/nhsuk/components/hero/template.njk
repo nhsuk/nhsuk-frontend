@@ -1,0 +1,59 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-hero" -%}
+
+{%- if params.imageURL %}
+  {% set classNames = classNames ~ " nhsuk-hero--image" ~
+    (" nhsuk-hero--image-description" if params.heading else "") %}
+{% endif %}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif %}
+
+{%- set hasContent = true if caller or params.heading or params.text or params.html else false %}
+{%- set headingLevel = params.headingLevel if params.headingLevel else 1 %}
+
+{#- Capture the HTML so we can optionally nest it in an image overlay -#}
+{% set innerHtml %}
+  <div class="nhsuk-width-container
+    {%- if params.containerClasses %} {{ params.containerClasses }}{% endif %}
+    {%- if not params.imageURL %} nhsuk-hero--border{% endif %}">
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+        <div class="{{ "nhsuk-hero__wrapper" if not params.imageURL else "nhsuk-hero-content" }}">
+        {% if params.heading %}
+          <h{{ headingLevel }} class="nhsuk-hero__heading
+            {%- if params.headingClasses %} {{ params.headingClasses }}{% endif %}
+            {%- if not (caller or params.text or params.html) %} nhsuk-u-margin-bottom-0{% endif %}">
+            {{- params.heading -}}
+          </h{{ headingLevel }}>
+        {% endif %}
+        {% if caller or params.html %}
+          {{ caller() if caller else params.html | safe | trim | indent(10) }}
+        {% elif params.text %}
+          <p class="nhsuk-body-l nhsuk-u-margin-bottom-0">{{ params.text }}</p>
+        {% endif %}
+        {% if params.imageURL %}
+          <span class="nhsuk-hero__arrow" aria-hidden="true"></span>
+        {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endset -%}
+
+<section {%- if params.id %} id="{{ params.id }}"{% endif %} class="{{ classNames }}"
+  {%- if params.imageURL %} style="background-image: url('{{ params.imageURL }}');"{% endif %}
+  {{- nhsukAttributes(params.attributes) }}>
+{% if params.imageURL and not hasContent %}
+  <div class="nhsuk-hero__overlay"></div>
+{% elif params.imageURL and hasContent %}
+  <div class="nhsuk-hero__overlay">
+    {{ innerHtml | safe | trim | indent(2) }}
+  </div>
+{% elif hasContent %}
+  {{ innerHtml | safe | trim }}
+{% endif %}
+</section>

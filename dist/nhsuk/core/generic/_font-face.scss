@@ -1,0 +1,53 @@
+@use "../settings" as *;
+
+////
+/// Font face
+///
+/// NHS uses the Frutiger font. To use the font you must have a licence.
+/// NHS England has a licence for the Frutiger webfont which all NHS organisations in England can use.
+/// NHS organisations can register here: https://service-manual.nhs.uk/design-system/styles/use-frutiger-font/
+///
+/// @group generic
+////
+
+@function nhsuk-font-url($filename) {
+  @return url($nhsuk-fonts-path + $filename);
+}
+
+@mixin nhsuk-font-face-frutiger {
+  @at-root {
+    @font-face {
+      font-family: "Frutiger W01";
+      font-style: normal;
+      font-weight: $nhsuk-font-normal;
+
+      font-display: swap;
+
+      src: nhsuk-font-url("FrutigerLTW01-55Roman.eot?#iefix");
+      src:
+        nhsuk-font-url("FrutigerLTW01-55Roman.eot?#iefix") format("eot"),
+        nhsuk-font-url("FrutigerLTW01-55Roman.woff2") format("woff2"),
+        nhsuk-font-url("FrutigerLTW01-55Roman.woff") format("woff"),
+        nhsuk-font-url("FrutigerLTW01-55Roman.ttf") format("truetype"),
+        nhsuk-font-url("FrutigerLTW01-55Roman.svg#7def0e34-f28d-434f-b2ec-472bde847115") format("svg");
+    }
+
+    @font-face {
+      font-family: "Frutiger W01";
+      font-style: normal;
+      font-weight: $nhsuk-font-bold;
+
+      font-display: swap;
+
+      src: nhsuk-font-url("FrutigerLTW01-65Bold.eot?#iefix");
+      src:
+        nhsuk-font-url("FrutigerLTW01-65Bold.eot?#iefix") format("eot"),
+        nhsuk-font-url("FrutigerLTW01-65Bold.woff2") format("woff2"),
+        nhsuk-font-url("FrutigerLTW01-65Bold.woff") format("woff"),
+        nhsuk-font-url("FrutigerLTW01-65Bold.ttf") format("truetype"),
+        nhsuk-font-url("FrutigerLTW01-65Bold.svg#eae74276-dd78-47e4-9b27-dac81c3411ca") format("svg");
+    }
+  }
+}
+
+/*# sourceMappingURL=_font-face.scss.map */

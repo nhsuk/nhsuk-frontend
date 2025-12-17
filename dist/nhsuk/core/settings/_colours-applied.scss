@@ -1,0 +1,326 @@
+@use "../helpers/colour" as *;
+
+////
+/// NHS colour variables
+///
+/// @group settings/colours
+///
+
+// =========================================================
+// Generic
+// =========================================================
+
+/// Brand colour
+///
+/// @type Colour
+
+$nhsuk-brand-colour: nhsuk-colour("blue") !default;
+
+/// Text colour
+///
+/// @type Colour
+
+$nhsuk-text-colour: nhsuk-colour("black") !default;
+
+/// Text colour (reverse)
+///
+/// @type Colour
+
+$nhsuk-reverse-text-colour: nhsuk-colour("white") !default;
+
+/// Template background colour
+///
+/// Used by components that want to give the illusion of extending
+/// the template background (such as the footer).
+///
+/// @type Colour
+
+$nhsuk-template-background-colour: nhsuk-colour("grey-4") !default;
+
+/// Body background colour
+///
+/// @type Colour
+
+$nhsuk-body-background-colour: nhsuk-colour("grey-5") !default;
+
+/// Card background colour
+///
+/// @type Colour
+
+$nhsuk-card-background-colour: nhsuk-colour("white") !default;
+
+/// Text colour for print media
+///
+/// Use 'true black' to avoid printers using colour ink to print body text
+///
+/// @type Colour
+
+$nhsuk-print-text-colour: #000000 !default;
+
+/// Secondary text colour
+///
+/// Used in for example 'muted' text and help text.
+///
+/// @type Colour
+
+$nhsuk-secondary-text-colour: nhsuk-colour("grey-1") !default;
+
+/// Focus colour
+///
+/// Used for outline (and background, where appropriate) when interactive
+/// elements (links, form controls) have keyboard focus.
+///
+/// @type Colour
+
+$nhsuk-focus-colour: nhsuk-colour("yellow") !default;
+
+/// Focused text colour
+///
+/// Ensure that the contrast between the text and background colour passes
+/// WCAG Level AA contrast requirements.
+///
+/// @type Colour
+
+$nhsuk-focus-text-colour: nhsuk-colour("black") !default;
+
+/// Error colour
+///
+/// Used to highlight error messages and form controls in an error state
+///
+/// @type Colour
+
+$nhsuk-error-colour: nhsuk-colour("red") !default;
+
+/// Success colour
+///
+/// Used to highlight success messages and banners
+///
+/// @type Colour
+
+$nhsuk-success-colour: nhsuk-colour("green") !default;
+
+/// Border colour
+///
+/// Used in for example borders, separators, rules and keylines.
+///
+/// @type Colour
+
+$nhsuk-border-colour: nhsuk-colour("grey-4") !default;
+
+/// Border hover colour
+///
+/// @type Colour
+
+$nhsuk-border-hover-colour: nhsuk-colour("grey-3") !default;
+
+/// Secondary border colour
+///
+/// @type Colour
+
+$nhsuk-secondary-border-colour: rgba(nhsuk-colour("white"), 0.2) !default;
+
+/// Form border colour
+///
+/// Used for form inputs and controls
+///
+/// @type Colour
+
+$nhsuk-input-border-colour: nhsuk-colour("grey-1") !default;
+
+/// Input hover colour
+///
+/// Used for hover states on form controls
+///
+/// @type Colour
+
+$nhsuk-hover-colour: nhsuk-colour("grey-3") !default;
+
+/// Form element background colour
+///
+/// @type Colour
+
+$nhsuk-input-background-colour: nhsuk-colour("white") !default;
+
+// =============================================================================
+// Links
+// =============================================================================
+
+/// Link colour
+///
+/// @type Colour
+
+$nhsuk-link-colour: nhsuk-colour("blue") !default;
+
+/// Visited link colour
+///
+/// @type Colour
+
+$nhsuk-link-visited-colour: nhsuk-colour("purple") !default;
+
+/// Link hover colour
+///
+/// @type Colour
+
+$nhsuk-link-hover-colour: nhsuk-colour("dark-pink") !default;
+
+/// Active link colour
+///
+/// @type Colour
+
+$nhsuk-link-active-colour: nhsuk-shade($nhsuk-link-colour, 50%) !default;
+
+// =============================================================================
+// Buttons
+// =============================================================================
+
+/// Button background colour
+///
+/// @type Colour
+
+$nhsuk-button-colour: nhsuk-colour("green") !default;
+
+/// Button text colour
+///
+/// @type Colour
+
+$nhsuk-button-text-colour: nhsuk-colour("white") !default;
+
+/// Button background colour (hover)
+///
+/// @type Colour
+
+$nhsuk-button-hover-colour: nhsuk-shade($nhsuk-button-colour, 20%) !default;
+
+/// Button background colour (active)
+///
+/// @type Colour
+
+$nhsuk-button-active-colour: nhsuk-shade($nhsuk-button-colour, 50%) !default;
+
+/// Button shadow colour
+///
+/// @type Colour
+
+$nhsuk-button-shadow-colour: nhsuk-shade($nhsuk-button-colour, 50%) !default;
+
+/// Secondary button background colour
+///
+/// @type Colour
+
+$nhsuk-secondary-button-colour: transparent !default;
+
+/// Secondary button (solid background) background colour
+///
+/// @type Colour
+
+$nhsuk-secondary-button-solid-background-colour: nhsuk-colour("white") !default;
+
+/// Secondary button border colour
+///
+/// @type Colour
+
+$nhsuk-secondary-button-border-colour: $nhsuk-brand-colour !default;
+
+/// Secondary button text colour
+///
+/// @type Colour
+
+$nhsuk-secondary-button-text-colour: $nhsuk-brand-colour !default;
+
+/// Secondary button background colour (hover)
+///
+/// @type Colour
+
+$nhsuk-secondary-button-hover-colour: nhsuk-tint($nhsuk-secondary-button-border-colour, 85%) !default;
+
+/// Secondary button background colour (active)
+///
+/// @type Colour
+
+$nhsuk-secondary-button-active-colour: nhsuk-tint($nhsuk-secondary-button-border-colour, 78%) !default;
+
+/// Secondary button shadow colour
+///
+/// @type Colour
+
+$nhsuk-secondary-button-shadow-colour: $nhsuk-secondary-button-border-colour !default;
+
+/// Reverse button background colour
+///
+/// @type Colour
+
+$nhsuk-reverse-button-colour: nhsuk-colour("white") !default;
+
+/// Reverse button text colour
+///
+/// @type Colour
+
+$nhsuk-reverse-button-text-colour: nhsuk-colour("black") !default;
+
+/// Reverse button background colour (hover)
+///
+/// @type Colour
+
+$nhsuk-reverse-button-hover-colour: nhsuk-shade($nhsuk-reverse-button-colour, 15%) !default;
+
+/// Reverse button background colour (active)
+///
+/// @type Colour
+
+$nhsuk-reverse-button-active-colour: nhsuk-shade($nhsuk-reverse-button-colour, 30%) !default;
+
+/// Reverse button shadow colour
+///
+/// @type Colour
+
+$nhsuk-reverse-button-shadow-colour: nhsuk-shade($nhsuk-reverse-button-colour, 30%) !default;
+
+/// Warning button background colour
+///
+/// @type Colour
+
+$nhsuk-warning-button-colour: nhsuk-colour("red") !default;
+
+/// Warning button background colour (hover)
+///
+/// @type Colour
+
+$nhsuk-warning-button-hover-colour: nhsuk-shade($nhsuk-warning-button-colour, 20%) !default;
+
+/// Warning button background colour (active)
+///
+/// @type Colour
+
+$nhsuk-warning-button-active-colour: nhsuk-shade($nhsuk-warning-button-colour, 50%) !default;
+
+/// Warning button shadow colour
+///
+/// @type Colour
+
+$nhsuk-warning-button-shadow-colour: nhsuk-shade($nhsuk-warning-button-colour, 50%) !default;
+
+/// Login button background colour
+///
+/// @type Colour
+
+$nhsuk-login-button-colour: $nhsuk-brand-colour !default;
+
+/// Login button background colour (hover)
+///
+/// @type Colour
+
+$nhsuk-login-button-hover-colour: nhsuk-shade($nhsuk-login-button-colour, 20%) !default;
+
+/// Login button background colour (active)
+///
+/// @type Colour
+
+$nhsuk-login-button-active-colour: nhsuk-shade($nhsuk-login-button-colour, 50%) !default;
+
+/// Login button shadow colour
+///
+/// @type Colour
+
+$nhsuk-login-button-shadow-colour: nhsuk-shade($nhsuk-login-button-colour, 50%) !default;
+
+/*# sourceMappingURL=_colours-applied.scss.map */

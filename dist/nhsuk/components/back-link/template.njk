@@ -1,0 +1,15 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+
+{% set visuallyHiddenText = params.visuallyHiddenText -%}
+{% set backLinkText = params.html | safe | trim | indent(2) if params.html else (params.text | default("Back", true)) -%}
+{% set element = "button" if params.element == "button" else "a" %}
+
+<{{ element }} {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-back-link {%- if params.classes %} {{ params.classes }}{% endif %}"
+  {%- if element == "a" %} href="{{ params.href | default("#", true) }}"{% endif %}
+  {{- nhsukAttributes(params.attributes) }}>
+  {% if visuallyHiddenText %}
+  <span class="nhsuk-u-visually-hidden">{{ visuallyHiddenText }}</span> {{ backLinkText }}
+  {% else %}
+  {{ backLinkText }}
+  {% endif %}
+</{{ element }}>

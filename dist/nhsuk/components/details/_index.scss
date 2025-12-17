@@ -1,0 +1,277 @@
+@use "sass:math";
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+@use "../../core/helpers" as *;
+
+////
+/// Details component
+///
+/// 1. Style the summary to look like a link...
+/// 2. Make the focus outline shrink-wrap the text content of the summary
+/// 3. Absolutely position the marker against this element
+/// 3. Allow for absolutely positioned marker and align with disclosed text
+/// 4. Only underline the text, not the arrow
+/// 5. Remove the default details marker so we can style our own consistently
+///    and ensure it displays in Firefox
+/// 6. Custom padding to left align the details text with the summary
+///
+/// @group components/details
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+////
+
+$nhsuk-expander-border-width: 1px;
+$nhsuk-expander-border-bottom-width: nhsuk-spacing(1);
+$nhsuk-expander-border-colour: $nhsuk-border-colour;
+$nhsuk-expander-border-hover-colour: $nhsuk-border-hover-colour;
+$nhsuk-expander-icon-size: 27px; // 19px font size + 4px summary text padding
+
+// @deprecated To be removed in v11.0
+$expander-border-width: $nhsuk-expander-border-width;
+$expander-border-bottom-width: $nhsuk-expander-border-bottom-width;
+$expander-border-color: $nhsuk-expander-border-colour;
+$expander-border-colour: $nhsuk-expander-border-colour;
+$expander-border-hover-color: $nhsuk-expander-border-hover-colour;
+$expander-border-hover-colour: $nhsuk-expander-border-hover-colour;
+$expander-icon-size: $nhsuk-expander-icon-size;
+
+@include nhsuk-exports("nhsuk/components/details") {
+  .nhsuk-details {
+    display: block;
+    @include nhsuk-text-colour;
+    @include nhsuk-font-size(19);
+    @include nhsuk-responsive-margin(4, "bottom");
+  }
+
+  .nhsuk-details__summary {
+    display: block;
+  }
+
+  .nhsuk-details__text {
+    @include nhsuk-top-and-bottom;
+  }
+
+  // Hack to support Internet Explorer 11
+  @media screen\0 {
+    .nhsuk-details {
+      margin-top: nhsuk-spacing(2);
+      padding: nhsuk-spacing(3) 0;
+      padding-left: 20px; // [6]
+      border-left: nhsuk-spacing(1) solid $nhsuk-border-colour;
+    }
+
+    .nhsuk-details__summary-text {
+      display: block;
+      font-weight: $nhsuk-font-bold;
+      @include nhsuk-responsive-margin(4, "bottom");
+    }
+  }
+
+  // We wrap styles for newer browsers in a feature query, which is ignored by
+  // older browsers, which always expand the details element.
+  //
+  // Additionally, -ms-ime-align is only supported by Edge 12 - 18
+  //
+  // This ensures we don't use these styles in browsers which:
+  //   - support ES6 modules but not the <details> element (Edge 16 - 18)
+  //   - do not support ES6 modules or the <details> element (eg, IE8+)
+  @supports not (-ms-ime-align: auto) {
+    .nhsuk-details__summary {
+      position: relative; // [3]
+      width: -webkit-fit-content;
+      width: fit-content; // [2]
+      padding-left: nhsuk-spacing(4);
+      color: $nhsuk-link-colour; // [1]
+      cursor: pointer;
+
+      &:hover {
+        color: $nhsuk-link-hover-colour;
+      }
+
+      &:focus {
+        @include nhsuk-focused-text;
+      }
+
+      &:hover,
+      &:focus {
+        .nhsuk-details__summary-text {
+          text-decoration: none;
+        }
+      }
+
+      &::-webkit-details-marker {
+        display: none; // [5]
+      }
+
+      &::before {
+        content: "";
+
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+
+        margin: auto;
+
+        @include nhsuk-shape-arrow($direction: right, $base: 14px);
+      }
+
+      .nhsuk-details[open] > &::before {
+        @include nhsuk-shape-arrow($direction: down, $base: 14px);
+      }
+    }
+
+    .nhsuk-details__summary-text {
+      text-decoration: underline; // [4]
+    }
+
+    .nhsuk-details__text {
+      margin-top: nhsuk-spacing(2);
+      padding: nhsuk-spacing(3) 0;
+      padding-right: 0;
+      padding-left: 20px; // [6]
+      border-left: nhsuk-spacing(1) solid $nhsuk-border-colour;
+    }
+  }
+
+  // Expander variant
+
+  .nhsuk-expander {
+    border: $nhsuk-expander-border-width solid $nhsuk-expander-border-colour;
+    background-color: $nhsuk-card-background-colour;
+
+    .nhsuk-details__summary {
+      display: block;
+      width: auto;
+      padding: nhsuk-spacing(4) - $nhsuk-focus-width nhsuk-spacing(4) 0;
+      border-top: $nhsuk-focus-width solid transparent;
+      background-color: $nhsuk-card-background-colour;
+
+      @include nhsuk-media-query($from: tablet) {
+        padding: nhsuk-spacing(5) - $nhsuk-focus-width nhsuk-spacing(5) 0;
+      }
+    }
+
+    .nhsuk-details__text {
+      margin-top: 0;
+      margin-left: 0;
+      border-left: 0;
+
+      @include nhsuk-responsive-padding(5, "bottom");
+      @include nhsuk-responsive-padding(5, "left");
+      @include nhsuk-responsive-padding(5, "right");
+      @include nhsuk-responsive-padding(0, "top");
+    }
+
+    // Hack to support Internet Explorer 11
+    @media screen\0 {
+      margin-top: 0;
+      padding: 0;
+
+      .nhsuk-details__summary-text {
+        display: block;
+        font-weight: $nhsuk-font-bold;
+        @include nhsuk-font-size(26);
+        @include nhsuk-responsive-margin(4, "bottom");
+      }
+    }
+
+    @supports not (-ms-ime-align: auto) {
+      border-bottom-width: $nhsuk-expander-border-bottom-width;
+
+      &:hover {
+        border-color: $nhsuk-expander-border-hover-colour;
+      }
+
+      .nhsuk-details__summary {
+        padding-bottom: nhsuk-spacing(4);
+      }
+
+      @include nhsuk-media-query($from: tablet) {
+        .nhsuk-details__summary {
+          padding-bottom: nhsuk-spacing(5);
+        }
+      }
+
+      .nhsuk-details__summary::before {
+        display: none;
+      }
+
+      .nhsuk-details__summary:focus {
+        box-shadow: none;
+      }
+
+      .nhsuk-details__summary-text {
+        display: inline-block;
+
+        position: relative;
+
+        padding: nhsuk-spacing(1);
+        padding-left: #{$nhsuk-expander-icon-size + nhsuk-spacing(2)};
+
+        color: $nhsuk-link-colour;
+
+        cursor: pointer;
+      }
+
+      .nhsuk-details__summary:hover .nhsuk-details__summary-text {
+        color: $nhsuk-link-hover-colour;
+      }
+
+      .nhsuk-details__summary:focus .nhsuk-details__summary-text {
+        @include nhsuk-focused-text;
+      }
+
+      // Internet Explorer 11 doesn’t support clip-path, but we don’t show the
+      // ::before pseudo element to users of that browser
+      .nhsuk-details__summary-text::before {
+        content: "";
+
+        position: absolute;
+        top: calc(50% - math.div($nhsuk-expander-icon-size, 2));
+        left: 0;
+
+        width: $nhsuk-expander-icon-size;
+        height: $nhsuk-expander-icon-size;
+
+        -webkit-clip-path: path(
+          "M13.5 1a12.5 12.5 0 1 1 0 25 12.5 12.5 0 0 1 0-25Zm0 6c-.8 0-1.5.7-1.5 1.5V12H8.5c-.8 0-1.4.6-1.5 1.4v.1c0 .8.7 1.5 1.5 1.5H12v3.5c0 .8.6 1.4 1.4 1.5h.1c.8 0 1.5-.7 1.5-1.5V15h3.5c.8 0 1.4-.6 1.5-1.4v-.1c0-.8-.7-1.5-1.5-1.5H15V8.5c0-.8-.6-1.4-1.4-1.5Z"
+        );
+
+                clip-path: path(
+          "M13.5 1a12.5 12.5 0 1 1 0 25 12.5 12.5 0 0 1 0-25Zm0 6c-.8 0-1.5.7-1.5 1.5V12H8.5c-.8 0-1.4.6-1.5 1.4v.1c0 .8.7 1.5 1.5 1.5H12v3.5c0 .8.6 1.4 1.4 1.5h.1c.8 0 1.5-.7 1.5-1.5V15h3.5c.8 0 1.4-.6 1.5-1.4v-.1c0-.8-.7-1.5-1.5-1.5H15V8.5c0-.8-.6-1.4-1.4-1.5Z"
+        ); // Plus icon
+
+        background-color: currentcolor;
+      }
+
+      &[open] {
+        border-bottom-width: $nhsuk-expander-border-width;
+      }
+
+      &[open] .nhsuk-details__summary-text::before {
+        -webkit-clip-path: path(
+          "M13.5 1a12.5 12.5 0 1 1 0 25 12.5 12.5 0 0 1 0-25Zm5 11h-10a1.5 1.5 0 0 0 0 3h10a1.5 1.5 0 0 0 0-3Z"
+        );
+                clip-path: path(
+          "M13.5 1a12.5 12.5 0 1 1 0 25 12.5 12.5 0 0 1 0-25Zm5 11h-10a1.5 1.5 0 0 0 0 3h10a1.5 1.5 0 0 0 0-3Z"
+        ); // Minus icon
+      }
+    }
+  }
+
+  // Reduce margin between a group of expanders so they sit together
+  .nhsuk-expander-group {
+    @include nhsuk-responsive-margin(4, "bottom");
+
+    > .nhsuk-details {
+      @include nhsuk-responsive-margin(2, "bottom");
+    }
+  }
+
+  .nhsuk-details + h2,
+  .nhsuk-details + .nhsuk-heading-l {
+    @include nhsuk-responsive-padding(4, "top");
+  }
+}
+
+/*# sourceMappingURL=_index.scss.map */
