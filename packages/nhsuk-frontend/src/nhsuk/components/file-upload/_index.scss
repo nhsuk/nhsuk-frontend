@@ -6,6 +6,7 @@
 @forward "../error-message";
 @forward "../hint";
 @forward "../label";
+@forward "../button";
 
 @include nhsuk-exports("nhsuk/components/file-upload") {
   $_button-border-colour: nhsuk-colour("grey-2");
