@@ -3,6 +3,7 @@
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
 @use "../../core/helpers" as *;
+@use "../button" as *;
 @forward "../error-message";
 @forward "../hint";
 @forward "../label";
@@ -70,12 +71,16 @@
   .nhsuk-file-upload__choose-files-button {
     flex-shrink: 0;
     width: auto;
-    margin-right: nhsuk-spacing(2);
-    margin-bottom: $nhsuk-border-width-form-element + 1;
+    margin-right: $nhsuk-button-padding-left-right - nhsuk-spacing(1);
+    margin-bottom: $nhsuk-button-shadow-size;
+
+    @include nhsuk-media-query($from: tablet) {
+      margin-right: $nhsuk-button-padding-left-right;
+    }
   }
 
   .nhsuk-file-upload__drop-instruction {
-    margin-top: nhsuk-spacing(2) - ($nhsuk-border-width-form-element + 1);
+    margin-top: nhsuk-spacing(2);
     margin-bottom: 0;
     text-align: left;
   }
