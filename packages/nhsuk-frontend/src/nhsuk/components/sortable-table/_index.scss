@@ -10,17 +10,13 @@
 ////
 
 @include nhsuk-exports("nhsuk/components/sortable-table") {
-  th[aria-sort]:hover {
-    background-color: nhsuk-colour("grey-4");
+  [aria-sort] button:hover {
+    color: $nhsuk-link-hover-colour;
+    text-decoration: none;
     cursor: pointer;
 
-    button {
-      color: $nhsuk-link-hover-colour;
-      text-decoration: none;
-
-      .nhsuk-icon {
-        fill: $nhsuk-link-hover-colour;
-      }
+    .nhsuk-icon {
+      fill: $nhsuk-link-hover-colour;
     }
   }
 
@@ -28,19 +24,42 @@
     position: relative;
   }
 
-  th[aria-sort="ascending"]::after,
-  th[aria-sort="descending"]::after {
-    // currently sorted column indicator
+  // This expands the button to fill the whole
+  // table header element, for a bigger click area
+  th[aria-sort] button::before {
     content: "";
 
     position: absolute;
+    top: 0;
     right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  // This adds a blue border at the bottom off
+  // the currently-sorted header cell
+  th[aria-sort="descending"] button::after,
+  th[aria-sort="ascending"] button::after {
+    content: "";
+
+    position: absolute;
     bottom: -$nhsuk-border-width-form-element;
     left: 0;
 
     height: $nhsuk-border-width-form-element;
 
     background-color: $nhsuk-brand-colour;
+    @include nhsuk-responsive-spacing(4, "right");
+  }
+
+  th[aria-sort="descending"]:last-child button::after,
+  th[aria-sort="ascending"]:last-child button::after {
+    right: 0;
+    @include nhsuk-responsive-spacing(3, "left");
+  }
+
+  th[aria-sort]:hover {
+    background-color: nhsuk-colour("grey-4");
   }
 
   [aria-sort] button {
