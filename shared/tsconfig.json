@@ -4,5 +4,6 @@
     "strictNullChecks": false,
     "types": ["node", "typed-query-selector"]
   },
-  "include": ["**/*.js", "**/*.mjs"]
+  "include": ["**/*.js", "**/*.mjs"],
+  "exclude": ["helpers/jest/**/*.setup.mjs"]
 }

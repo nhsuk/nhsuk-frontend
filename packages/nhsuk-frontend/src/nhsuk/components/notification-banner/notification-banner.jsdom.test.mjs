@@ -136,26 +136,4 @@ describe('Notification banner', () => {
       })
     })
   })
-
-  describe('JavaScript configuration', () => {
-    it('configures auto-focus explicitly enabled', () => {
-      const notificationBanner = new NotificationBanner($root, {
-        disableAutoFocus: false
-      })
-
-      expect(notificationBanner.config).toEqual({
-        disableAutoFocus: false
-      })
-    })
-
-    it('configures auto-focus disabled', () => {
-      const notificationBanner = new NotificationBanner($root, {
-        disableAutoFocus: true
-      })
-
-      expect(notificationBanner.config).toEqual({
-        disableAutoFocus: true
-      })
-    })
-  })
 })

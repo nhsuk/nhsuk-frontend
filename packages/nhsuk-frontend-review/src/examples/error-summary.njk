@@ -1,0 +1,401 @@
+{% extends "layouts/example.njk" %}
+
+{% set heading = "Error summary" %}
+{% set caption = "Link to an input field" %}
+{% set pageName = heading ~ " – " ~ caption %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block beforeContent %}
+  {{ breadcrumb({
+    items: [
+      {
+        text: "NHS.UK frontend",
+        href: baseUrl
+      },
+      {
+        text: "Examples",
+        href: baseUrl ~ "#examples"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="/" method="post" style="margin-bottom: 100vh;">
+
+        {{ errorSummary({
+          titleText: "There is a problem",
+          classes: "optional-extra-class",
+          errorList: [
+            {
+              text: "Problem with input",
+              href: "#input"
+            },
+            {
+              text: "Problem with textarea",
+              href: "#textarea"
+            },
+            {
+              text: "Problem with select",
+              href: "#select"
+            },
+            {
+              text: "Problem with date input",
+              href: "#dateinput-day"
+            },
+            {
+              text: "Problem with date input year",
+              href: "#dateinput2-year"
+            },
+            {
+              text: "Problem with radios",
+              href: "#radios"
+            },
+            {
+              text: "Problem with checkboxes",
+              href: "#checkboxes"
+            },
+            {
+              text: "Problem with single checkbox",
+              href: "#single-checkbox"
+            },
+            {
+              text: "Problem with conditionally-revealed input",
+              href: "#yes-input"
+            },
+            {
+              text: "Problem with radios with big heading",
+              href: "#radios-big-heading"
+            },
+            {
+              text: "Problem with input within large fieldset",
+              href: "#address-postcode"
+            }
+          ]
+        }) }}
+
+        <h1 class="nhsuk-heading-xl">Your details</h1>
+
+        {{ input({
+          label: {
+            text: "Label for input"
+          },
+          id: "input",
+          name: "input",
+          errorMessage: {
+            text: "Problem with input"
+          }
+        }) }}
+
+        {{ textarea({
+          label: {
+            text: "Label for textarea"
+          },
+          id: "textarea",
+          name: "textarea",
+          errorMessage: {
+            text: "Problem with textarea"
+          }
+        }) }}
+
+        {{ select({
+          label: {
+            text: "Label for select"
+          },
+          id: "select",
+          name: "select",
+          errorMessage: {
+            text: "Problem with select"
+          },
+          items:[
+            {
+              text: "Option one",
+              value: "one"
+            },
+            {
+              text: "Option two",
+              value: "two"
+            }
+          ]
+        }) }}
+
+        {{ dateInput({
+          fieldset: {
+            legend: {
+              text: "Label for date input"
+            },
+            attributes: {
+              id: "test-date-input"
+            }
+          },
+          id: "dateinput",
+          namePrefix: "dateinput",
+          errorMessage: {
+            text: "Problem with date input"
+          },
+          items: [
+            {
+              name: "day",
+              classes: "nhsuk-input--width-2 nhsuk-input--error"
+            },
+            {
+              name: "month",
+              classes: "nhsuk-input--width-2 nhsuk-input--error"
+            },
+            {
+              name: "year",
+              classes: "nhsuk-input--width-4 nhsuk-input--error"
+            }
+          ]
+        }) }}
+
+        {{ dateInput({
+          fieldset: {
+            legend: {
+              text: "Label for date input"
+            },
+            attributes: {
+              id: "test-date-input2"
+            }
+          },
+          id: "dateinput2",
+          namePrefix: "dateinput2",
+          errorMessage: {
+            text: "Problem with date input year"
+          },
+          items: [
+            {
+              name: "day",
+              classes: "nhsuk-input--width-2",
+              value: "5"
+            },
+            {
+              name: "month",
+              classes: "nhsuk-input--width-2",
+              value: "12"
+            },
+            {
+              name: "year",
+              classes: "nhsuk-input--width-4 nhsuk-input--error"
+            }
+          ]
+        }) }}
+
+        {{ radios({
+          fieldset: {
+            legend: {
+              text: "Legend for radios"
+            },
+            attributes: {
+              id: "test-radios"
+            }
+          },
+          name: "radios",
+          errorMessage: {
+            text: "Problem with radios"
+          },
+          items:[
+            {
+              text: "Label for first radio button",
+              value: "one",
+              id: "radios"
+            },
+            {
+              text: "Label for second radio button",
+              value: "two"
+            }
+          ]
+        }) }}
+
+        {{ checkboxes({
+          fieldset: {
+            legend: {
+              text: "Legend for checkboxes"
+            },
+            attributes: {
+              id: "test-checkboxes"
+            }
+          },
+          name: "checkboxes",
+          errorMessage: {
+            text: "Problem with checkboxes"
+          },
+          items:[
+            {
+              text: "Label for first checkbox",
+              value: "one",
+              id: "checkboxes"
+            },
+            {
+              text: "Label for second checkbox",
+              value: "two"
+            }
+          ]
+        }) }}
+
+        {{ checkboxes({
+          fieldset: false,
+          name: "single-checkbox",
+          errorMessage: {
+            text: "Problem with single checkbox"
+          },
+          items:[
+            {
+              text: "Label for single checkbox",
+              value: "agree",
+              id: "single-checkbox"
+            }
+          ]
+        }) }}
+
+        {% set yesField %}
+        {{ input({
+          label: {
+            text: "Label for revealed text input"
+          },
+          id: "yes-input",
+          name: "yes-input",
+          errorMessage: {
+            text: "Problem with input"
+          }
+        }) }}
+        {% endset %}
+
+        {% set noField %}
+        {{ input({
+          label: {
+            text: "Label for revealed text input"
+          },
+          id: "no-input",
+          name: "no-input",
+          errorMessage: {
+            text: "Problem with input"
+          }
+        }) }}
+        {% endset %}
+
+        {{ radios({
+          idPrefix: "conditional",
+          name: "conditional",
+          fieldset: {
+            legend: {
+              text: "Legend for conditionally revealed content"
+            },
+            classes: "nhsuk-radios--error",
+            attributes: {
+              id: "test-conditional-reveal"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes",
+              checked: true,
+              conditional: {
+                html: yesField
+              }
+            },
+            {
+              value: "no",
+              text: "No",
+              conditional: {
+                html: noField
+              }
+            }
+          ]
+        }) }}
+
+        {{ radios({
+          classes: "nhsuk-radios--inline",
+          idPrefix: "radios-big-heading",
+          name: "radios-big-heading",
+          fieldset: {
+            legend: {
+              text: "Have you supplied orders signed in triplicate, sent in, sent back, queried, lost, found, subjected to public inquiry, lost again, and finally buried in soft peat for three months and recycled as firelighters?",
+              isPageHeading: true,
+              size: "l"
+            },
+            attributes: {
+              id: "test-radios-big-heading"
+            }
+          },
+          errorMessge: {
+            text: "Select whether you have supplied orders meeting these criteria"
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        {% call fieldset({
+          legend: {
+            text: "What is your address?",
+            size: "l",
+            isPageHeading: true
+          }
+        }) %}
+
+          {{ input({
+            label: {
+              text: "Address line 1"
+            },
+            id: "address-line-1",
+            name: "address-line-1",
+            autocomplete: "address-line1"
+          }) }}
+
+          {{ input({
+            label: {
+              text: "Address line 2 (optional)"
+            },
+            id: "address-line-2",
+            name: "address-line-2",
+            autocomplete: "address-line2"
+          }) }}
+
+          {{ input({
+            label: {
+              text: "Town or city"
+            },
+            classes: "nhsuk-u-width-two-thirds",
+            id: "address-town",
+            name: "address-town",
+            autocomplete: "address-level2"
+          }) }}
+
+          {{ input({
+            label: {
+              text: "Postcode"
+            },
+            errorMessage: {
+              text: "Enter a valid postcode"
+            },
+            classes: "nhsuk-input--width-10",
+            id: "address-postcode",
+            name: "address-postcode",
+            name: "address-postcode",
+            autocomplete: "postal-code"
+          }) }}
+
+        {% endcall %}
+
+        <div class="nhsuk-button-group">
+          {{ button({
+            text: "Continue"
+          }) }}
+        </div>
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

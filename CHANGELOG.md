@@ -2,6 +2,59 @@
 
 ## Unreleased
 
+### :new: **New features**
+
+#### Links are easier to read and have a clearer hover state
+
+Links now have underlines that are consistently thinner and a bit further away from the link text.
+
+Links also have a clearer hover state using dark blue (`#003087`) instead of dark pink (`#7c2855`), where the underline gets thicker to make the link stand out to users.
+
+Please carefully review your pages. If you have created your own link styles, you should review them to ensure their use is consistent across your service.
+
+We've also introduced new mixins and modifier classes for:
+
+- text colour links
+- links without underlines
+
+This was added in [pull request #1367: Updates to link styles and link hover states](https://github.com/nhsuk/nhsuk-frontend/pull/1367).
+
+#### Style links with text colour
+
+You can now style links with text colour by adding the `nhsuk-link--text-colour` HTML class, or by including the Sass mixin for custom components:
+
+```scss
+.app-component__link {
+  @include nhsuk-link-style-text;
+}
+```
+
+This was added in [pull request #1367: Updates to link styles and link hover states](https://github.com/nhsuk/nhsuk-frontend/pull/1367).
+
+#### Style links to remove underlines
+
+You can now style links with text colour by adding the `nhsuk-link--no-underline` HTML class, or by including the Sass mixin for custom components:
+
+```scss
+.app-component__link {
+  @include nhsuk-link-style-no-underline;
+}
+```
+
+An underline still appears when the user hovers their cursor over the link.
+
+This was added in [pull request #1367: Updates to link styles and link hover states](https://github.com/nhsuk/nhsuk-frontend/pull/1367).
+
+### :wastebasket: **Deprecated features**
+
+#### Rename Sass mixin for white link style
+
+If you use the Sass `nhsuk-link-style-white` mixin, you should rename it to `nhsuk-link-style-reverse`.
+
+The previous name is deprecated and will be removed in a future release.
+
+This change was introduced in [pull request #1367: Updates to link styles and link hover states](https://github.com/nhsuk/nhsuk-frontend/pull/1367).
+
 ### :boom: **Breaking changes**
 
 #### Apply grid column widths from tablet (not desktop) width
@@ -84,6 +137,23 @@ If you're not using the Nunjucks macros, you must improve the experience for scr
 This will enable screen reader users to have a better, more coherent experience with the error summary. It will make sure users of JAWS 2022 or later will hear the entire contents of the error summary on page load and therefore have further context on why there is an error on the page they're on.
 
 This change was introduced in [pull request #1036: Add breaking change entry for error summary screen reader improvements](https://github.com/nhsuk/nhsuk-frontend/pull/1036), after previously being recommended in [version 10.1.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.1.0).
+
+#### Make `nhsuk-u-nowrap` apply to mobile and above
+
+We've updated the `nhsuk-u-nowrap` utility class to be applied at mobile width (320px and up).
+
+Previously the utility class did not apply to tablet sized screens (641px and up).
+
+Please carefully review your pages. If necessary, different wrapping behaviour for the tablet and desktop breakpoints can be applied using new classes ending `-from-tablet` and `-from-desktop`.
+
+To restore the previous behaviour, add the new `nhsuk-u-wrap-from-tablet` utility class to override the default `nhsuk-u-nowrap` behaviour for tablet sized screens:
+
+```patch
+- <p class="nhsuk-u-nowrap">
++ <p class="nhsuk-u-nowrap nhsuk-u-wrap-from-tablet">
+```
+
+This was added in [pull request #1668: Add breakpoints to nowrap class](https://github.com/nhsuk/nhsuk-frontend/pull/1668).
 
 ## 10.2.2 - 4 December 2025
 

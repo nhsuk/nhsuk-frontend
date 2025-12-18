@@ -1,21 +1,16 @@
-import { getPage, goToComponent } from '@nhsuk/frontend-helpers/puppeteer.mjs'
+import { render } from '@nhsuk/frontend-helpers/puppeteer.mjs'
+
+import { examples } from './fixtures.mjs'
 
 describe('Notification banner', () => {
-  /** @type {Page} */
-  let page
-
-  beforeAll(async () => {
-    page = await getPage(browser)
-  })
-
   describe('when type is set to "success"', () => {
-    beforeAll(async () => {
-      page = await goToComponent(page, 'notification-banner', {
-        name: 'with type as success'
-      })
-    })
-
     it('has the correct tabindex attribute to be focused with JavaScript', async () => {
+      await render(
+        page,
+        'notification-banner',
+        examples['with type as success']
+      )
+
       const tabindex = await page.$eval('.nhsuk-notification-banner', (el) =>
         el.getAttribute('tabindex')
       )
@@ -24,6 +19,12 @@ describe('Notification banner', () => {
     })
 
     it('is automatically focused when the page loads', async () => {
+      await render(
+        page,
+        'notification-banner',
+        examples['with type as success']
+      )
+
       const activeElement = await page.evaluate(() =>
         document.activeElement.getAttribute('data-module')
       )
@@ -32,6 +33,12 @@ describe('Notification banner', () => {
     })
 
     it('removes the tabindex attribute on blur', async () => {
+      await render(
+        page,
+        'notification-banner',
+        examples['with type as success']
+      )
+
       await page.$eval(
         '.nhsuk-notification-banner',
         (el) => el instanceof window.HTMLElement && el.blur()
@@ -45,9 +52,11 @@ describe('Notification banner', () => {
 
     describe('and auto-focus is disabled using data attributes', () => {
       beforeAll(async () => {
-        page = await goToComponent(page, 'notification-banner', {
-          name: 'auto-focus disabled, with type as success'
-        })
+        await render(
+          page,
+          'notification-banner',
+          examples['auto-focus disabled, with type as success']
+        )
       })
 
       it('does not have a tabindex attribute', async () => {
@@ -67,11 +76,106 @@ describe('Notification banner', () => {
       })
     })
 
+    describe('and auto-focus is disabled using JavaScript configuration', () => {
+      beforeAll(async () => {
+        await render(
+          page,
+          'notification-banner',
+          examples['with type as success'],
+          {
+            config: {
+              disableAutoFocus: true
+            }
+          }
+        )
+      })
+
+      it('does not have a tabindex attribute', async () => {
+        const tabindex = await page.$eval('.nhsuk-notification-banner', (el) =>
+          el.getAttribute('tabindex')
+        )
+
+        expect(tabindex).toBeNull()
+      })
+
+      it('does not focus the notification banner', async () => {
+        const activeElement = await page.evaluate(() =>
+          document.activeElement.getAttribute('data-module')
+        )
+
+        expect(activeElement).not.toBe('nhsuk-notification-banner')
+      })
+    })
+
+    describe('and auto-focus is disabled using options passed to initAll', () => {
+      beforeAll(async () => {
+        await render(
+          page,
+          'notification-banner',
+          examples['with type as success'],
+          {
+            config: {
+              disableAutoFocus: true
+            }
+          }
+        )
+      })
+
+      it('does not have a tabindex attribute', async () => {
+        const tabindex = await page.$eval('.nhsuk-notification-banner', (el) =>
+          el.getAttribute('tabindex')
+        )
+
+        expect(tabindex).toBeNull()
+      })
+
+      it('does not focus the notification banner', async () => {
+        const activeElement = await page.evaluate(() =>
+          document.activeElement.getAttribute('data-module')
+        )
+
+        expect(activeElement).not.toBe('nhsuk-notification-banner')
+      })
+    })
+
+    describe('and autofocus is disabled in JS but enabled in data attributes', () => {
+      beforeAll(async () => {
+        await render(
+          page,
+          'notification-banner',
+          examples['auto-focus explicitly enabled, with type as success'],
+          {
+            config: {
+              disableAutoFocus: true
+            }
+          }
+        )
+      })
+
+      it('has the correct tabindex attribute to be focused with JavaScript', async () => {
+        const tabindex = await page.$eval('.nhsuk-notification-banner', (el) =>
+          el.getAttribute('tabindex')
+        )
+
+        expect(tabindex).toBe('-1')
+      })
+
+      it('is automatically focused when the page loads', async () => {
+        const activeElement = await page.evaluate(() =>
+          document.activeElement.getAttribute('data-module')
+        )
+
+        expect(activeElement).toBe('nhsuk-notification-banner')
+      })
+    })
+
     describe('and role is overridden to "region"', () => {
       beforeAll(async () => {
-        page = await goToComponent(page, 'notification-banner', {
-          name: 'role=alert overridden to role=region, with type as success'
-        })
+        await render(
+          page,
+          'notification-banner',
+          examples['role=alert overridden to role=region, with type as success']
+        )
       })
 
       it('does not have a tabindex attribute', async () => {
@@ -93,9 +197,7 @@ describe('Notification banner', () => {
 
     describe('and a custom tabindex is set', () => {
       beforeAll(async () => {
-        page = await goToComponent(page, 'notification-banner', {
-          name: 'custom tabindex'
-        })
+        await render(page, 'notification-banner', examples['custom tabindex'])
       })
 
       it('does not remove the tabindex attribute on blur', async () => {
@@ -111,8 +213,69 @@ describe('Notification banner', () => {
       })
     })
   })
-})
 
-/**
- * @import { Page } from 'puppeteer'
- */
+  describe('errors at instantiation', () => {
+    it('can throw a SupportError if appropriate', async () => {
+      await expect(
+        render(page, 'notification-banner', examples.default, {
+          beforeInitialisation() {
+            document.body.classList.remove('nhsuk-frontend-supported')
+          }
+        })
+      ).rejects.toMatchObject({
+        cause: {
+          name: 'SupportError',
+          message:
+            'NHS.UK frontend initialised without `<body class="nhsuk-frontend-supported">` from template `<script>` snippet'
+        }
+      })
+    })
+
+    it('throws when initialised twice', async () => {
+      await expect(
+        render(page, 'notification-banner', examples.default, {
+          async afterInitialisation($root) {
+            const { NotificationBanner } = await import('nhsuk-frontend')
+            new NotificationBanner($root)
+          }
+        })
+      ).rejects.toMatchObject({
+        name: 'InitError',
+        message:
+          'nhsuk-notification-banner: Root element (`$root`) already initialised'
+      })
+    })
+
+    it('throws when $root is not set', async () => {
+      await expect(
+        render(page, 'notification-banner', examples.default, {
+          beforeInitialisation($root) {
+            $root.remove()
+          }
+        })
+      ).rejects.toMatchObject({
+        cause: {
+          name: 'ElementError',
+          message: 'nhsuk-notification-banner: Root element (`$root`) not found'
+        }
+      })
+    })
+
+    it('throws when receiving the wrong type for $root', async () => {
+      await expect(
+        render(page, 'notification-banner', examples.default, {
+          beforeInitialisation($root) {
+            // Replace with an `<svg>` element which is not an `HTMLElement` in the DOM (but an `SVGElement`)
+            $root.outerHTML = `<svg data-module="nhsuk-notification-banner"></svg>`
+          }
+        })
+      ).rejects.toMatchObject({
+        cause: {
+          name: 'ElementError',
+          message:
+            'nhsuk-notification-banner: Root element (`$root`) is not of type HTMLElement'
+        }
+      })
+    })
+  })
+})

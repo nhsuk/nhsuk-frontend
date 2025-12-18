@@ -1,0 +1,20 @@
+@use "vendor/nhsuk-frontend/base" as *;
+@use "settings" as *;
+
+// Add styling for inline code
+.app-code {
+  padding: 2px nhsuk-spacing(2);
+  color: $app-code-color;
+  background-color: nhsuk-colour("white");
+  font-family: $app-code-font;
+  word-break: break-word;
+  @include nhsuk-font-size(16);
+
+  // Add styling for code in headings
+  .nhsuk-heading-s &,
+  .nhsuk-heading-m &,
+  .nhsuk-heading-l &,
+  .nhsuk-heading-xl & {
+    font-size: inherit;
+  }
+}

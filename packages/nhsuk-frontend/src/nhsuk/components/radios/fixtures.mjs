@@ -203,6 +203,72 @@ export const examples = {
     },
     variants
   },
+  'with pre-checked value': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'How do you want to be contacted about this?'
+        }
+      },
+      hint: {
+        text: 'Select 1 option'
+      },
+      idPrefix: 'conditional',
+      name: 'example',
+      value: 'email',
+      items: [
+        {
+          value: 'email',
+          text: 'Email',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                label: {
+                  text: 'Email address'
+                },
+                name: 'email',
+                spellcheck: false,
+                classes: 'nhsuk-u-width-two-thirds'
+              }
+            })
+          }
+        },
+        {
+          value: 'phone',
+          text: 'Phone',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                label: {
+                  text: 'Phone number'
+                },
+                name: 'phone',
+                type: 'tel',
+                classes: 'nhsuk-u-width-two-thirds'
+              }
+            })
+          }
+        },
+        {
+          value: 'text',
+          text: 'Text message',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                label: {
+                  text: 'Mobile phone number'
+                },
+                name: 'mobile',
+                type: 'tel',
+                classes: 'nhsuk-u-width-two-thirds'
+              }
+            })
+          }
+        }
+      ]
+    },
+    variants
+  },
   'with divider': {
     context: {
       fieldset: {
@@ -487,6 +553,74 @@ export const examples = {
           }
         }
       ]
+    },
+    variants
+  },
+  'with conditional content, special characters': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'How do you want to be contacted about this?'
+        }
+      },
+      hint: {
+        text: 'Select 1 option'
+      },
+      idPrefix: 'user.profile[contact-prefs]',
+      name: 'example',
+      items: [
+        {
+          value: 'email',
+          text: 'Email',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                label: {
+                  text: 'Email address'
+                },
+                name: 'email',
+                spellcheck: false,
+                classes: 'nhsuk-u-width-two-thirds'
+              }
+            })
+          }
+        },
+        {
+          value: 'phone',
+          text: 'Phone',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                label: {
+                  text: 'Phone number'
+                },
+                name: 'phone',
+                type: 'tel',
+                classes: 'nhsuk-u-width-two-thirds'
+              }
+            })
+          }
+        },
+        {
+          value: 'text',
+          text: 'Text message',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                label: {
+                  text: 'Mobile phone number'
+                },
+                name: 'mobile',
+                type: 'tel',
+                classes: 'nhsuk-u-width-two-thirds'
+              }
+            })
+          }
+        }
+      ]
+    },
+    options: {
+      hidden: true
     },
     variants
   },

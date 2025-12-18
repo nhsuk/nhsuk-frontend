@@ -1,6 +1,5 @@
 import {
   axe,
-  getPage,
   getOptions,
   goToComponent
 } from '@nhsuk/frontend-helpers/puppeteer.mjs'
@@ -8,13 +7,6 @@ import {
 import { examples } from './fixtures.mjs'
 
 describe('Tabs', () => {
-  /** @type {Page} */
-  let page
-
-  beforeAll(async () => {
-    page = await getPage(browser)
-  })
-
   describe.each(Object.entries(examples))('%s', (name, example) => {
     it.each(getOptions(name, example))(
       '$title passes accessibility tests',
@@ -25,7 +17,3 @@ describe('Tabs', () => {
     )
   })
 })
-
-/**
- * @import { Page } from 'puppeteer'
- */

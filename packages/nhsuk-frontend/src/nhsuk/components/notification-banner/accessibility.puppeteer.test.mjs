@@ -1,6 +1,5 @@
 import {
   axe,
-  getPage,
   getOptions,
   goToComponent
 } from '@nhsuk/frontend-helpers/puppeteer.mjs'
@@ -11,9 +10,6 @@ describe('Notification banner', () => {
   /** @type {RuleObject} */
   let axeRules
 
-  /** @type {Page} */
-  let page
-
   beforeAll(() => {
     axeRules = {
       /**
@@ -22,10 +18,6 @@ describe('Notification banner', () => {
        */
       tabindex: { enabled: false }
     }
-  })
-
-  beforeAll(async () => {
-    page = await getPage(browser)
   })
 
   describe.each(Object.entries(examples))('%s', (name, example) => {
@@ -41,5 +33,4 @@ describe('Notification banner', () => {
 
 /**
  * @import { RuleObject } from 'axe-core'
- * @import { Page } from 'puppeteer'
  */

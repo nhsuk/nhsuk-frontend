@@ -1,4 +1,6 @@
 import { AxePuppeteer } from '@axe-core/puppeteer'
+import { components } from '@nhsuk/frontend-lib'
+import { componentNameToClassName } from '@nhsuk/frontend-lib/names.mjs'
 import slug from 'slug'
 
 const {
@@ -123,7 +125,7 @@ export async function goToExample(page, example) {
  * Navigate to component preview page
  *
  * @param {Page} page - Puppeteer page object
- * @param {string} [component] - Component name
+ * @param {string} component - Component name
  * @param {object} [options] - Navigation options
  * @param {string} options.name - Example name
  * @param {string} [options.description] - Example description
@@ -134,9 +136,98 @@ export async function goToComponent(page, component, options) {
 }
 
 /**
+ * Render component HTML with browser preview
+ *
+ * Provide optional handlers to tweak the state of the page before or after
+ * the component gets initialised:
+ *
+ * - `beforeInitialisation()`
+ * - `afterInitialisation()`
+ *
+ * @template {object} HandlerContext
+ * @param {Page} page - Puppeteer page object
+ * @param {string} component - Component name
+ * @param {MacroRenderOptions} [renderOptions] - Nunjucks macro render options
+ * @param {BrowserRenderOptions<HandlerContext>} [browserOptions] - Puppeteer browser render options
+ */
+export async function render(page, component, renderOptions, browserOptions) {
+  const html = components.render(component, renderOptions)
+
+  // Navigate to boilerplate page
+  await goTo(page, './components/boilerplate/')
+
+  // Inject rendered HTML into the page
+  await page.$eval(
+    '.app-placeholder',
+    (placeholder, html) => {
+      placeholder.innerHTML = html
+    },
+    html
+  )
+
+  const selector = `[data-module="nhsuk-${component}"]`
+  const exportName = componentNameToClassName(component)
+
+  // Run custom function before component init
+  if (browserOptions?.beforeInitialisation) {
+    await page.$eval(
+      selector,
+      browserOptions.beforeInitialisation,
+      browserOptions.context
+    )
+  }
+
+  // Init component using JavaScript class
+  if (page.isJavaScriptEnabled()) {
+    const error = await page.evaluate(
+      async (selector, exportName, config) => {
+        const namespace = await import('nhsuk-frontend')
+
+        // Find all component roots
+        const $roots = document.querySelectorAll(selector)
+
+        try {
+          // Loop and initialise all $roots or use default
+          // selector `null` return value when none found
+          ;($roots.length ? $roots : [null]).forEach(
+            ($root) => new namespace[exportName]($root, config)
+          )
+        } catch ({ name, message }) {
+          return { name, message }
+        }
+      },
+      selector,
+      exportName,
+      browserOptions?.config
+    )
+
+    // Throw Puppeteer errors back to Jest
+    if (error) {
+      const message = `Initialising \`new ${exportName}()\` threw:`
+      throw new Error(`${message}\n\t${error.name}: ${error.message}`, {
+        cause: error
+      })
+    }
+  }
+
+  // Run custom function after component init
+  if (browserOptions?.afterInitialisation) {
+    await page.$eval(
+      selector,
+      browserOptions.afterInitialisation,
+      browserOptions.context
+    )
+  }
+
+  await page.evaluateHandle('document.fonts.ready')
+
+  return page
+}
+
+/**
  * Get component preview review app URL
  *
- * @param {string} [component] - Component name
+ * @param {string} component - Component name
  * @param {object} [options] - Navigation options
  * @param {string} options.name - Example name
  * @param {string} [options.description] - Example description
@@ -149,7 +240,7 @@ export function getComponentURL(component, options) {
 /**
  * Get component preview path
  *
- * @param {string} [component] - Component name
+ * @param {string} component - Component name
  * @param {object} [options] - Navigation options
  * @param {string} options.name - Example name
  * @param {string} [options.description] - Example description
@@ -168,23 +259,6 @@ export function getComponentPath(component, options) {
     : '/default/'
 
   return componentPath
-}
-
-/**
- * Get review app URL
- *
- * @param {Browser} browser - Puppeteer browser object
- * @param {CreatePageOptions} [options] - Puppeteer page options
- */
-export async function getPage(browser, options) {
-  const page = await browser.newPage(options)
-
-  // Throw on JavaScript page errors
-  page.on('pageerror', (error) => {
-    throw error
-  })
-
-  return page
 }
 
 /**
@@ -220,6 +294,62 @@ export function getOptions(name, example) {
 }
 
 /**
+ * Get property value for element
+ *
+ * @param {ElementHandle} $element - Puppeteer element handle
+ * @param {string} propertyName - Property name to return value for
+ * @returns {Promise<unknown>} Property value
+ */
+export async function getProperty($element, propertyName) {
+  const handle = await $element.getProperty(propertyName)
+  return handle.jsonValue()
+}
+
+/**
+ * Get attribute value for element
+ *
+ * @param {ElementHandle} $element - Puppeteer element handle
+ * @param {string} attributeName - Attribute name to return value for
+ * @returns {Promise<string | null>} Attribute value
+ */
+export function getAttribute($element, attributeName) {
+  return $element.evaluate((el, name) => el.getAttribute(name), attributeName)
+}
+
+/**
+ * Gets the accessible name of the given element, if it exists in the accessibility tree
+ *
+ * @param {Page} page - Puppeteer page object
+ * @param {ElementHandle} $element - Puppeteer element handle
+ * @returns {Promise<string>} The element's accessible name
+ * @throws {TypeError} If the element has no corresponding node in the accessibility tree
+ */
+export async function getAccessibleName(page, $element) {
+  // Purposefully doesn't use `?.` to return undefined if there's no node in the
+  // accessibility tree. This lets us distinguish different kinds of failures:
+  // - assertion on the name failing: we need to figure out
+  //   why the name is not set right
+  // - TypeError accessing `name`: we need to figure out
+  //   why there's no node in the accessibility tree
+  return (
+    await page.accessibility.snapshot({
+      root: $element,
+      interestingOnly: false
+    })
+  ).name
+}
+
+/**
+ * Check if element is visible
+ *
+ * @param {ElementHandle} $element - Puppeteer element handle
+ * @returns {Promise<boolean>} Element visibility
+ */
+export async function isVisible($element) {
+  return !!(await $element.boundingBox())
+}
+
+/**
  * Navigation options
  *
  * @typedef {object} NavigationOptions
@@ -229,7 +359,20 @@ export function getOptions(name, example) {
  */
 
 /**
+ * Browser render options
+ *
+ * @template {object} HandlerContext
+ * @typedef {object} BrowserRenderOptions - Component render options
+ * @property {Config[ConfigKey]} [config] - Component JavaScript config
+ * @property {HandlerContext} [context] - Context options for custom functions
+ * @property {EvaluateFuncWith<Element, [HandlerContext]>} [beforeInitialisation] - Custom function to run before initialisation
+ * @property {EvaluateFuncWith<Element, [HandlerContext]>} [afterInitialisation] - Custom function to run after initialisation
+ */
+
+/**
  * @import { MacroExample } from '@nhsuk/frontend-lib/components.mjs'
+ * @import { MacroRenderOptions } from '@nhsuk/frontend-lib/nunjucks/index.mjs'
  * @import { RuleObject, RunOptions } from 'axe-core'
- * @import { Browser, CreatePageOptions, Page } from 'puppeteer'
+ * @import { Config, ConfigKey } from 'nhsuk-frontend'
+ * @import { ElementHandle, EvaluateFuncWith, Page } from 'puppeteer'
  */

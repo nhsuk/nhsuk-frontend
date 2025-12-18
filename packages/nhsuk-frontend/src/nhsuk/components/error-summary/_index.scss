@@ -57,17 +57,6 @@
 
   .nhsuk-error-summary__list a {
     @include nhsuk-typography-weight-bold;
-
-    // Override default link styling to use error colour
-    &:link,
-    &:visited,
-    &:hover,
-    &:active {
-      color: $nhsuk-error-colour;
-    }
-
-    &:focus {
-      @include nhsuk-focused-text;
-    }
+    @include nhsuk-link-style-error;
   }
 }

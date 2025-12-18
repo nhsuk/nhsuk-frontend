@@ -28,7 +28,17 @@ export class SkipLink extends Component {
     const hash = this.$root.hash
     const href = this.$root.getAttribute('href') ?? ''
 
+    // Return early for external URLs or links to other pages
+    if (
+      this.$root.origin !== window.location.origin ||
+      this.$root.pathname !== window.location.pathname
+    ) {
+      return
+    }
+
     const linkedElementId = hash.replace('#', '')
+
+    // Check link path matching current page
     if (!linkedElementId) {
       throw new ElementError({
         component: SkipLink,
