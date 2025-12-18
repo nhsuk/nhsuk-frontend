@@ -10,16 +10,6 @@
 ////
 
 @include nhsuk-exports("nhsuk/components/sortable-table") {
-  [aria-sort] button:hover {
-    color: $nhsuk-link-hover-colour;
-    text-decoration: none;
-    cursor: pointer;
-
-    .nhsuk-icon {
-      fill: $nhsuk-link-hover-colour;
-    }
-  }
-
   th[aria-sort] {
     position: relative;
   }
