@@ -1,6 +1,8 @@
+@use "sass:color";
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
 @use "../../core/helpers" as *;
+
 @forward "../tables";
 
 ////
@@ -8,6 +10,12 @@
 ///
 /// @group components/sortable-table
 ////
+
+// NHS pages have a grey background, so we need a slightly darker colour for the hover
+// This produces 1.1:1 contrast, the same as GOV.UK’s
+// This is also used by the Task list component
+$sortable-table-hover-colour: color.adjust(nhsuk-colour("grey-5"), $lightness: -6%);
+
 
 @include nhsuk-exports("nhsuk/components/sortable-table") {
   th[aria-sort] {
@@ -49,7 +57,7 @@
   }
 
   th[aria-sort]:hover {
-    background-color: nhsuk-colour("grey-4");
+    background-color: $sortable-table-hover-colour;
   }
 
   [aria-sort] button {
