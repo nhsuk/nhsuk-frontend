@@ -1,4 +1,4 @@
-import camelCase from 'lodash/camelCase.js'
+import { names } from '@nhsuk/frontend-lib'
 import { outdent } from 'outdent'
 
 import {
@@ -197,7 +197,7 @@ describe('NHS.UK frontend', () => {
         )
 
         // Determine `nhsuk-character-count` → `characterCount` config key
-        const configName = camelCase(
+        const configName = names.kebabCaseToCamelCase(
           NamespaceComponent.moduleName.replace(/^nhsuk-/, '')
         )
 
@@ -238,7 +238,7 @@ describe('NHS.UK frontend', () => {
         )
 
         // Determine `nhsuk-character-count` → `characterCount` config key
-        const configName = camelCase(
+        const configName = names.kebabCaseToCamelCase(
           NamespaceComponent.moduleName.replace(/^nhsuk-/, '')
         )
 

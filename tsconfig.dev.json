@@ -20,7 +20,7 @@
     "./packages/*/.htmlvalidate.js",
     "./packages/*/*.config.js",
     "./packages/*/*.config.mjs",
-    "./shared/helpers/*/*.setup.mjs",
+    "./shared/helpers/jest/**/*.setup.mjs",
     "./tests/backstop/engine_scripts/**/*.js",
     "./.prettierrc.js",
     "./.stylelintrc.js",

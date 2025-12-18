@@ -8,25 +8,27 @@ export const examples = {
     context: {
       previous: {
         labelText: 'Treatments',
-        href: '/section/treatments'
+        href: '#/section/treatments'
       },
       next: {
         labelText: 'Symptoms',
-        href: '/section/symptoms'
+        href: '#/section/symptoms'
       }
     },
     options: {
       width: 'full'
     },
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+      states: ['focus', 'hover', 'active'],
+      selector: '.nhsuk-pagination-item--previous a',
+      viewports: ['mobile', 'tablet', 'desktop']
     }
   },
   'with deprecated parameters': {
     context: {
-      previousUrl: '/section/treatments',
+      previousUrl: '#/section/treatments',
       previousPage: 'Treatments',
-      nextUrl: '/section/symptoms',
+      nextUrl: '#/section/symptoms',
       nextPage: 'Symptoms'
     },
     options: {
@@ -37,7 +39,7 @@ export const examples = {
     context: {
       previous: {
         labelText: 'Treatments',
-        href: '/section/treatments'
+        href: '#/section/treatments'
       }
     },
     options: {
@@ -51,7 +53,7 @@ export const examples = {
     context: {
       next: {
         labelText: 'Symptoms',
-        href: '/section/symptoms'
+        href: '#/section/symptoms'
       }
     },
     options: {
@@ -66,12 +68,12 @@ export const examples = {
       previous: {
         text: 'Blaenorol',
         labelText: 'Driniaethau',
-        href: '/section/driniaethau'
+        href: '#/section/driniaethau'
       },
       next: {
         text: 'Nesaf',
         labelText: 'Symptomau',
-        href: '/section/symptomau'
+        href: '#/section/symptomau'
       }
     },
     options: {

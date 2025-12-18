@@ -58,7 +58,6 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
 
   &:focus,
   &:focus:visited {
-    color: $nhsuk-focus-text-colour;
     box-shadow: inset 0 ($nhsuk-focus-width * -1) $nhsuk-focus-text-colour;
   }
 
@@ -105,12 +104,13 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
 
   .nhsuk-header__service,
   .nhsuk-header__service-logo {
-    margin-right: auto;
     gap: nhsuk-spacing(2) nhsuk-spacing(3);
+    margin-right: auto;
   }
 
   .nhsuk-header__service {
     display: flex;
+    @include nhsuk-font(19, $line-height: 1.1);
 
     @include nhsuk-media-query($from: tablet) {
       flex-grow: 999;
@@ -128,7 +128,6 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     margin-right: auto;
 
     text-wrap: balance;
-    @include nhsuk-font(19, $line-height: 1.1);
 
     &:only-child {
       display: block;
@@ -157,6 +156,9 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     // however Safari doesn’t render anything beyond the bounding box of the SVG.
     // By adding a pseudo element with the same dimensions, we style this instead.
     &:has(svg):not(:focus):hover::before {
+      $underline-offset: if($nhsuk-link-underline-offset, calc(0.2rem + $nhsuk-link-underline-offset), 0.2rem);
+      $underline-thickness: if($nhsuk-link-hover-underline-thickness, $nhsuk-link-hover-underline-thickness, 0.1rem);
+
       content: "";
 
       box-sizing: border-box;
@@ -164,12 +166,12 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
       display: inline;
 
       position: absolute;
-      top: 0.2rem;
+      top: $underline-offset;
 
       width: 100px;
       height: 40px;
 
-      border-bottom: 0.1rem solid currentcolor;
+      border-bottom: $underline-thickness solid currentcolor;
     }
   }
 
@@ -259,11 +261,12 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
 
   .nhsuk-header__account-button,
   .nhsuk-header__account-link {
+    @include nhsuk-link-decoration;
     display: flex;
+    gap: nhsuk-spacing(2);
     margin: nhsuk-spacing(-2) ($_header-item-padding * -1);
     padding: nhsuk-spacing(2) $_header-item-padding;
     overflow-wrap: anywhere;
-    gap: nhsuk-spacing(2);
   }
 
   .nhsuk-header__account-button {
@@ -683,7 +686,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
       width: 60px;
       min-width: auto;
       height: 24px;
-      margin-bottom: 6px;
+      margin-bottom: nhsuk-spacing(2);
 
       @include nhsuk-media-query($from: tablet) {
         width: 80px;
@@ -743,9 +746,14 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
 
   // Add service logo underline on hover
   .nhsuk-header .nhsuk-header__service-logo:not(:focus):hover,
-  .nhsuk-header .nhsuk-header__service-logo:not(:focus):hover .nhsuk-header__service-name,
+  .nhsuk-header .nhsuk-header__service-logo:not(:focus):hover .nhsuk-header__service-name {
+    @include nhsuk-link-hover-decoration;
+  }
+
+  // Re-add service name underline on hover
   .nhsuk-header .nhsuk-header__service-name[href]:not(:focus):hover {
     text-decoration: underline;
+    @include nhsuk-link-hover-decoration;
   }
 
   // Add service logo box shadow on focus
