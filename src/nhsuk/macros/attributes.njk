@@ -28,6 +28,30 @@
   ```
 
   @example
+  Output attribute ` data-attribute="value"` when type is `string` (default)
+
+  ```njk
+  nhsukAttributes({
+    "data-attribute": {
+      value: "value",
+      type: "string"
+    }
+  })
+  ```
+
+  @example
+  Output attribute ` data-attributes='["value1", "value2"]'` when type is `array`
+
+  ```njk
+  nhsukAttributes({
+    "data-attributes": {
+      value: ["value1", "value2"],
+      type: "array"
+    }
+  })
+  ```
+
+  @example
   Output attribute ` hidden=""` when `null`, `undefined` or empty `""` (string)
 
   ```njk
@@ -61,7 +85,7 @@
   ```
 
   @private
-  @param {{ [attribute: string]: string | { value: string, optional?: boolean } } | string} attributes - Component attributes param
+  @param {{ [attribute: string]: string | { value: unknown, type?: 'string' | 'array', optional?: boolean } } | string} attributes - Component attributes param
 #}
 {% macro nhsukAttributes(attributes) -%}
   {#- Default attributes output as string -#}
@@ -77,6 +101,7 @@
       {#- Set default attribute options -#}
       {% set options = item if item is mapping and item is not escaped else {
         value: item,
+        type: "string",
         optional: false
       } %}
 
@@ -91,6 +116,10 @@
         {% set value = options.value.val %}
         {% set valueEscaped = options.value %}
 
+      {#- Use escaped JSON for iterable values -#}
+      {%- elif options.type === "array" and options.value is iterable %}
+        {% set valueEscaped = options.value | dump %}
+
       {#- Otherwise assume escaping is necessary -#}
       {#- https://github.com/alphagov/govuk-frontend/issues/4940 -#}
       {%- else %}
@@ -103,7 +132,11 @@
         {% set attributesHtml = attributesHtml ~ " " ~ name | escape %}
       {#- Skip optional empty attributes or output ` name="value"` pair by default -#}
       {% elif (options.optional === true and value not in [undefined, null, false]) or options.optional !== true %}
-        {% set attributesHtml = attributesHtml ~ " " ~ name | escape ~ '="' ~ valueEscaped ~ '"' %}
+        {% if '"' in valueEscaped %}
+          {% set attributesHtml = attributesHtml ~ " " ~ name | escape ~ "='" ~ valueEscaped ~ "'" %}
+        {% else %}
+          {% set attributesHtml = attributesHtml ~ " " ~ name | escape ~ '="' ~ valueEscaped ~ '"' %}
+        {% endif %}
       {% endif %}
     {% endfor %}
   {% endif -%}

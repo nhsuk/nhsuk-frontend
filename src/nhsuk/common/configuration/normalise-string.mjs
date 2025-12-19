@@ -53,6 +53,46 @@ export function normaliseString(value, property) {
 }
 
 /**
+ * Normalise array of strings
+ *
+ * @param {string | (string | number | boolean | undefined)[] | undefined} value - The value to normalise
+ * @returns Normalised array of data
+ */
+export function normaliseArray(value) {
+  let values = Array.isArray(value) ? value : []
+
+  // Attempt to parse string as array
+  if (typeof value === 'string') {
+    try {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+      values = JSON.parse(decodeURIComponent(value), getArrayValue) ?? []
+    } catch {
+      return []
+    }
+  }
+
+  // Normalise and filter array values
+  return values
+    .map((value) => normaliseString(value))
+    .filter((value) => value !== undefined)
+}
+
+/**
+ * Accept valid array values only
+ *
+ * Used as reviver function in `JSON.parse()`
+ *
+ * @this {unknown}
+ * @param {string} key
+ * @param {unknown} value
+ */
+function getArrayValue(key, value) {
+  return isValid(value) || (key === '' && Array.isArray(value))
+    ? value
+    : undefined
+}
+
+/**
  * Whether value is valid
  *
  * @param {unknown} value
