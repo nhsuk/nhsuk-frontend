@@ -128,7 +128,12 @@
     &:hover {
       background-color: nhsuk-colour("white");
 
-      .nhsuk-file-upload__choose-files-button {
+      .nhsuk-button {
+        background-color: $nhsuk-button-hover-colour;
+      }
+
+      .nhsuk-button--secondary,
+      .nhsuk-button--secondary-solid {
         background-color: $nhsuk-secondary-button-hover-colour;
       }
     }
@@ -155,12 +160,20 @@
     &:active {
       .nhsuk-file-upload__choose-files-button {
         top: $nhsuk-border-width;
-        background-color: $nhsuk-secondary-button-active-colour;
         box-shadow: none;
 
         &::before {
           bottom: -$nhsuk-border-width-form-element;
         }
+      }
+
+      .nhsuk-button {
+        background-color: $nhsuk-button-active-colour;
+      }
+
+      .nhsuk-button--secondary,
+      .nhsuk-button--secondary-solid {
+        background-color: $nhsuk-secondary-button-active-colour;
       }
     }
 
@@ -189,7 +202,12 @@
     }
 
     &:hover {
-      .nhsuk-file-upload__choose-files-button {
+      .nhsuk-button {
+        background-color: $nhsuk-button-hover-colour;
+      }
+
+      .nhsuk-button--secondary,
+      .nhsuk-button--secondary-solid {
         background-color: $nhsuk-secondary-button-hover-colour;
       }
     }
@@ -197,12 +215,20 @@
     &:active {
       .nhsuk-file-upload__choose-files-button {
         top: $nhsuk-border-width;
-        background-color: $nhsuk-secondary-button-active-colour;
         box-shadow: none;
 
         &::before {
           bottom: -$nhsuk-border-width-form-element;
         }
+      }
+
+      .nhsuk-button {
+        background-color: $nhsuk-button-active-colour;
+      }
+
+      .nhsuk-button--secondary,
+      .nhsuk-button--secondary-solid {
+        background-color: $nhsuk-secondary-button-active-colour;
       }
     }
   }
