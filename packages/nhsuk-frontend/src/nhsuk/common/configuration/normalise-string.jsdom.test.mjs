@@ -1,20 +1,115 @@
 import { normaliseString } from './normalise-string.mjs'
 
 describe('normaliseString', () => {
-  it('normalises the string "true" to boolean true', () => {
-    expect(normaliseString('true')).toBe(true)
+  it.each([
+    {
+      name: '"true" to boolean true',
+      input: 'true',
+      output: true
+    },
+    {
+      name: '" true " to boolean true',
+      input: ' true ',
+      output: true
+    },
+    {
+      name: '"false" to boolean false',
+      input: 'false',
+      output: false
+    },
+    {
+      name: '" false " to boolean false',
+      input: ' false ',
+      output: false
+    },
+    {
+      name: '"0" to the number 0',
+      input: '0',
+      output: 0
+    },
+    {
+      name: 'representing positive number to number',
+      input: '1337',
+      output: 1337
+    },
+    {
+      name: 'representing negative number to number',
+      input: '-1337',
+      output: -1337
+    },
+    {
+      name: 'representing decimal numbers to numbers',
+      input: '0.5',
+      output: 0.5
+    },
+    {
+      name: 'representing decimal numbers with extra precision to numbers',
+      input: '100.500',
+      output: 100.5
+    },
+    {
+      name: 'representing decimal numbers with no integer-part to numbers',
+      input: '.5',
+      output: 0.5
+    },
+    {
+      name: 'representing numbers with whitespace to numbers',
+      input: '   1337   ',
+      output: 1337
+    },
+    {
+      name: 'normalises strings that represent very big positive numbers to numbers',
+      input: `${Number.MAX_SAFE_INTEGER + 1}`,
+      output: Number.MAX_SAFE_INTEGER + 1
+    }
+  ])('normalises string $name', ({ input, output }) => {
+    expect(normaliseString(input)).toBe(output)
   })
 
-  it('normalises the string "false" to boolean false', () => {
-    expect(normaliseString('false')).toBe(false)
-  })
-
-  it('normalises the string " true " to boolean true', () => {
-    expect(normaliseString(' true ')).toBe(true)
-  })
-
-  it('normalises the string " false " to boolean false', () => {
-    expect(normaliseString(' false ')).toBe(false)
+  it.each([
+    {
+      name: 'undefined value',
+      input: undefined,
+      output: undefined
+    },
+    {
+      name: 'empty string',
+      input: '',
+      output: ''
+    },
+    {
+      name: 'whitespace only string',
+      input: '   ',
+      output: '   '
+    },
+    {
+      name: 'strings that contain booleans',
+      input: 'true!',
+      output: 'true!'
+    },
+    {
+      name: 'strings that contain numbers',
+      input: '100%',
+      output: '100%'
+    },
+    {
+      name: 'string "null"',
+      input: 'null',
+      output: 'null'
+    },
+    {
+      name: 'string "NaN"',
+      input: 'NaN',
+      output: 'NaN'
+    },
+    {
+      name: 'string "Infinity"',
+      input: 'Infinity',
+      output: 'Infinity'
+    },
+    {}
+  ])('does not normalise $name', ({ input, output }) => {
+    expect(normaliseString(input)).toBe(output)
   })
 
   it('does not normalise non-lowercase booleans', () => {
@@ -22,62 +117,5 @@ describe('normaliseString', () => {
     expect(normaliseString('True')).toBe('True')
     expect(normaliseString('FALSE')).toBe('FALSE')
     expect(normaliseString('False')).toBe('False')
-  })
-
-  it('does not normalise strings that contain booleans', () => {
-    expect(normaliseString('true!')).toBe('true!')
-  })
-
-  it('normalises the string "0" to the number 0', () => {
-    expect(normaliseString('0')).toBe(0)
-  })
-
-  it('normalises strings representing positive numbers to numbers', () => {
-    expect(normaliseString('1337')).toBe(1337)
-  })
-
-  it('normalises strings representing negative numbers to numbers', () => {
-    expect(normaliseString('-1337')).toBe(-1337)
-  })
-
-  it('converts strings representing decimal numbers to numbers', () => {
-    expect(normaliseString('0.5')).toBe(0.5)
-  })
-
-  it('normalises strings representing decimal numbers with extra precision to numbers', () => {
-    expect(normaliseString('100.500')).toBe(100.5)
-  })
-
-  it('normalises strings representing decimal numbers with no integer-part to numbers', () => {
-    expect(normaliseString('.5')).toBe(0.5)
-  })
-
-  it('normalises strings representing numbers with whitespace to numbers', () => {
-    expect(normaliseString('   1337   ')).toBe(1337)
-  })
-
-  it('does not normalise the string "NaN"', () => {
-    expect(normaliseString('NaN')).toBe('NaN')
-  })
-
-  it('does not normalise the string "Infinity"', () => {
-    expect(normaliseString('Infinity')).toBe('Infinity')
-  })
-
-  it('normalises strings that represent very big positive numbers to numbers', () => {
-    const biggestNumber = Number.MAX_SAFE_INTEGER + 1
-    expect(normaliseString(`${biggestNumber}`)).toEqual(biggestNumber)
-  })
-
-  it('does not normalise strings that contain numbers', () => {
-    expect(normaliseString('100%')).toBe('100%')
-  })
-
-  it('does not normalise empty strings', () => {
-    expect(normaliseString('')).toBe('')
-  })
-
-  it('does not normalise whitespace only strings', () => {
-    expect(normaliseString('   ')).toBe('   ')
   })
 })
