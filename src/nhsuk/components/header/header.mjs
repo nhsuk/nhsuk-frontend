@@ -1,11 +1,13 @@
 import { normaliseOptions } from '../../common/configuration/index.mjs'
-import { Component } from '../../component.mjs'
+import { ConfigurableComponent } from '../../configurable-component.mjs'
 import { ElementError } from '../../errors/index.mjs'
 
 /**
  * Header component
+ *
+ * @augments {ConfigurableComponent<HeaderConfig>}
  */
-export class Header extends Component {
+export class Header extends ConfigurableComponent {
   /** @type {HTMLElement | null} */
   $navigation = null
 
@@ -41,58 +43,63 @@ export class Header extends Component {
 
   /**
    * @param {Element | null} $root - HTML element to use for component
+   * @param {Partial<HeaderConfig>} [config] - Header config
    */
-  constructor($root) {
-    super($root)
+  constructor($root, config) {
+    super($root, config)
 
-    const $navigation = this.$root.querySelector('.nhsuk-header__navigation')
-    const $navigationList = this.$root.querySelector(
-      '.nhsuk-header__navigation-list'
-    )
+    const {
+      navigationClass,
+      navigationListClass,
+      navigationItemClass,
+      menuClass,
+      menuToggleClass
+    } = this.config
+
+    const $navigation = this.$root.querySelector(`.${navigationClass}`)
+    const $navigationList = this.$root.querySelector(`.${navigationListClass}`)
 
     const $navigationItems = /** @type {NodeListOf<HTMLElement>} */ (
-      this.$root.querySelectorAll('.nhsuk-header__navigation-item')
+      this.$root.querySelectorAll(`.${navigationItemClass}`)
     )
 
-    const $menu = this.$root.querySelector('.nhsuk-header__menu')
-    const $menuToggle = this.$root.querySelector('.nhsuk-header__menu-toggle')
+    const $menu = this.$root.querySelector(`.${menuClass}`)
+    const $menuToggle = this.$root.querySelector(`.${menuToggleClass}`)
 
     // Check for navigation (optional)
     if ($navigation) {
       if (!($navigation instanceof HTMLElement)) {
         throw new ElementError({
           component: Header,
-          identifier: 'Navigation (`<nav class="nhsuk-header__navigation">`)'
+          identifier: `Navigation (\`<nav class="${navigationClass}">\`)`
         })
       }
 
       if (!$navigationList || !($navigationList instanceof HTMLElement)) {
         throw new ElementError({
           component: Header,
-          identifier: 'List (`<ul class="nhsuk-header__navigation-list">`)'
+          identifier: `List (\`<ul class="${navigationListClass}">\`)`
         })
       }
 
       if (!$navigationItems.length) {
         throw new ElementError({
           component: Header,
-          identifier:
-            'List items (`<li class="nhsuk-header__navigation-item">`)'
+          identifier: `List items (\`<li class="${navigationItemClass}">\`)`
         })
       }
 
       if (!$menu || !($menu instanceof HTMLElement)) {
         throw new ElementError({
           component: Header,
-          identifier: 'Menu item (`<li class="nhsuk-header__menu" hidden>`)'
+          identifier: `Menu item (\`<li class="${menuClass}" hidden>\`)`
         })
       }
 
       if (!$menuToggle || !($menuToggle instanceof HTMLButtonElement)) {
         throw new ElementError({
           component: Header,
-          identifier:
-            'Menu button (`<button class="nhsuk-header__menu-toggle">`)',
+          identifier: `Menu button (\`<button class="${menuToggleClass}">\`)`,
           expectedType: 'HTMLButtonElement'
         })
       }
@@ -173,13 +180,14 @@ export class Header extends Component {
    */
   setupMenu() {
     const { $menu, $menuList } = this
+    const { menuListClass } = this.config
 
     // Skip with no menu or when already appended
     if (!$menu || !$menuList || $menuList.parentElement) {
       return
     }
 
-    $menuList.classList.add('nhsuk-header__menu-list')
+    $menuList.classList.add(menuListClass)
     $menuList.setAttribute('hidden', '')
     $menu.appendChild($menuList)
   }
@@ -370,13 +378,46 @@ export class Header extends Component {
    * Name for the component used when initialising using data-module attributes
    */
   static moduleName = 'nhsuk-header'
+
+  /**
+   * Tabs default config
+   *
+   * @see {@link HeaderConfig}
+   * @constant
+   * @type {HeaderConfig}
+   */
+  static defaults = Object.freeze({
+    navigationClass: 'nhsuk-header__navigation',
+    navigationListClass: 'nhsuk-header__navigation-list',
+    navigationItemClass: 'nhsuk-header__navigation-item',
+    menuClass: 'nhsuk-header__menu',
+    menuToggleClass: 'nhsuk-header__menu-toggle',
+    menuListClass: 'nhsuk-header__menu-list'
+  })
+
+  /**
+   * Tabs config schema
+   *
+   * @constant
+   * @satisfies {Schema<HeaderConfig>}
+   */
+  static schema = Object.freeze({
+    properties: {
+      navigationClass: { type: 'string' },
+      navigationListClass: { type: 'string' },
+      navigationItemClass: { type: 'string' },
+      menuClass: { type: 'string' },
+      menuToggleClass: { type: 'string' },
+      menuListClass: { type: 'string' }
+    }
+  })
 }
 
 /**
  * Initialise header component
  *
- * @deprecated Use {@link createAll | `createAll(Header)`} instead.
- * @param {InitOptions} [options]
+ * @deprecated Use {@link createAll | `createAll(Header, options)`} instead.
+ * @param {InitOptions & Partial<HeaderConfig>} [options]
  */
 export function initHeader(options) {
   const { scope: $scope } = normaliseOptions(options)
@@ -387,9 +428,22 @@ export function initHeader(options) {
     return
   }
 
-  new Header($root)
+  new Header($root, options)
 }
 
 /**
+ * Header config
+ *
+ * @typedef {object} HeaderConfig
+ * @property {string} navigationClass - Navigation class
+ * @property {string} navigationListClass - Navigation list class
+ * @property {string} navigationItemClass - Navigation item class
+ * @property {string} menuClass - Menu class
+ * @property {string} menuToggleClass - Menu toggle button class
+ * @property {string} menuListClass - Menu list class
+ */
+
+/**
  * @import { createAll, InitOptions } from '../../index.mjs'
+ * @import { Schema } from '../../common/configuration/index.mjs'
  */
