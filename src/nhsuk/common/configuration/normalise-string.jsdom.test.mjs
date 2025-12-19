@@ -64,6 +64,7 @@ describe('normaliseString', () => {
     }
   ])('normalises string $name', ({ input, output }) => {
     expect(normaliseString(input)).toBe(output)
+    expect(normaliseString(input, { type: 'string' })).toBe(input)
   })
 
   it.each([
@@ -110,6 +111,7 @@ describe('normaliseString', () => {
     {}
   ])('does not normalise $name', ({ input, output }) => {
     expect(normaliseString(input)).toBe(output)
+    expect(normaliseString(input, { type: 'string' })).toBe(input)
   })
 
   it('does not normalise non-lowercase booleans', () => {
