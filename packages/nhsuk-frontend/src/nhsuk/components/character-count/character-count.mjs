@@ -18,7 +18,7 @@ import { I18n } from '../../i18n.mjs'
  * You can configure the message to only appear after a certain percentage
  * of the available characters/words has been entered.
  *
- * @augments ConfigurableComponent<CharacterCountConfig>
+ * @augments {ConfigurableComponent<CharacterCountConfig>}
  */
 export class CharacterCount extends ConfigurableComponent {
   /**
@@ -34,7 +34,7 @@ export class CharacterCount extends ConfigurableComponent {
 
   /**
    * @param {Element | null} $root - HTML element to use for component
-   * @param {CharacterCountConfig} [config] - Character count config
+   * @param {Partial<CharacterCountConfig>} [config] - Character count config
    */
   constructor($root, config = {}) {
     super($root, config)
@@ -60,13 +60,22 @@ export class CharacterCount extends ConfigurableComponent {
       throw new ConfigError(formatErrorMessage(CharacterCount, errors[0]))
     }
 
-    this.i18n = new I18n(this.config.i18n, {
+    const {
+      i18n,
+      maxwords,
+      maxlength,
+      screenReaderCountMessageClass,
+      textareaDescriptionClass,
+      visibleCountMessageClass
+    } = this.config
+
+    this.i18n = new I18n(i18n, {
       // Read the fallback if necessary rather than have it set in the defaults
       locale: closestAttributeValue(this.$root, 'lang')
     })
 
     // Determine the limit attribute (characters or words)
-    this.maxLength = this.config.maxwords ?? this.config.maxlength ?? Infinity
+    this.maxLength = maxwords ?? maxlength ?? Infinity
 
     this.$textarea = $textarea
 
@@ -98,25 +107,31 @@ export class CharacterCount extends ConfigurableComponent {
 
     // Create the *screen reader* specific live-updating counter
     // This doesn't need any styling classes, as it is never visible
-    const $screenReaderCountMessage = document.createElement('div')
-    $screenReaderCountMessage.className =
-      'nhsuk-character-count__sr-status nhsuk-u-visually-hidden'
-    $screenReaderCountMessage.setAttribute('aria-live', 'polite')
-    this.$screenReaderCountMessage = $screenReaderCountMessage
+    this.$screenReaderCountMessage = document.createElement('div')
+    this.$screenReaderCountMessage.setAttribute('aria-live', 'polite')
+    this.$screenReaderCountMessage.classList.add(
+      screenReaderCountMessageClass,
+      'nhsuk-u-visually-hidden'
+    )
+
     $textareaDescription.insertAdjacentElement(
       'afterend',
-      $screenReaderCountMessage
+      this.$screenReaderCountMessage
     )
 
     // Create our live-updating counter element, copying the classes from the
     // textarea description for backwards compatibility as these may have been
     // configured
-    const $visibleCountMessage = document.createElement('div')
-    $visibleCountMessage.className = $textareaDescription.className
-    $visibleCountMessage.classList.add('nhsuk-character-count__status')
-    $visibleCountMessage.setAttribute('aria-hidden', 'true')
-    this.$visibleCountMessage = $visibleCountMessage
-    $textareaDescription.insertAdjacentElement('afterend', $visibleCountMessage)
+    this.$visibleCountMessage = document.createElement('div')
+    this.$visibleCountMessage.setAttribute('aria-hidden', 'true')
+    this.$visibleCountMessage.className = $textareaDescription.className
+    this.$visibleCountMessage.classList.add(visibleCountMessageClass)
+    this.$visibleCountMessage.classList.remove(textareaDescriptionClass)
+
+    $textareaDescription.insertAdjacentElement(
+      'afterend',
+      this.$visibleCountMessage
+    )
 
     // Hide the textarea description
     $textareaDescription.classList.add('nhsuk-u-visually-hidden')
@@ -220,7 +235,7 @@ export class CharacterCount extends ConfigurableComponent {
     // If input is over the threshold, remove the disabled class which renders
     // the counter invisible.
     this.$visibleCountMessage.classList.toggle(
-      'nhsuk-character-count__message--disabled',
+      `${this.config.visibleCountMessageClass}--disabled`,
       !this.isOverThreshold()
     )
 
@@ -372,6 +387,9 @@ export class CharacterCount extends ConfigurableComponent {
    */
   static defaults = Object.freeze({
     threshold: 0,
+    textareaDescriptionClass: 'nhsuk-character-count__message',
+    visibleCountMessageClass: 'nhsuk-character-count__status',
+    screenReaderCountMessageClass: 'nhsuk-character-count__sr-status',
     i18n: {
       // Characters
       charactersUnderLimit: {
@@ -407,10 +425,13 @@ export class CharacterCount extends ConfigurableComponent {
    */
   static schema = Object.freeze({
     properties: {
-      i18n: { type: 'object' },
       maxwords: { type: 'number' },
       maxlength: { type: 'number' },
-      threshold: { type: 'number' }
+      threshold: { type: 'number' },
+      textareaDescriptionClass: { type: 'string' },
+      visibleCountMessageClass: { type: 'string' },
+      screenReaderCountMessageClass: { type: 'string' },
+      i18n: { type: 'object' }
     },
     anyOf: [
       {
@@ -429,7 +450,7 @@ export class CharacterCount extends ConfigurableComponent {
  * Initialise character count component
  *
  * @deprecated Use {@link createAll | `createAll(CharacterCount, options)`} instead.
- * @param {InitOptions & CharacterCountConfig} [options]
+ * @param {InitOptions & Partial<CharacterCountConfig>} [options]
  */
 export function initCharacterCounts(options) {
   const { scope: $scope } = normaliseOptions(options)
@@ -455,6 +476,9 @@ export function initCharacterCounts(options) {
  * @property {number} [threshold=0] - The percentage value of the limit at
  *   which point the count message is displayed. If this attribute is set, the
  *   count message will be hidden by default.
+ * @property {string} textareaDescriptionClass - Textarea description class
+ * @property {string} visibleCountMessageClass - Visible count message class
+ * @property {string} screenReaderCountMessageClass - Screen reader count message class
  * @property {CharacterCountTranslations} [i18n=CharacterCount.defaults.i18n] - Character count translations
  */
 

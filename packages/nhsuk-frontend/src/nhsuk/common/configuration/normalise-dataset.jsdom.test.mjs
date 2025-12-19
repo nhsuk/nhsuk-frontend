@@ -12,7 +12,7 @@ describe('normaliseDataset', () => {
   }
 
   /**
-   * @augments ConfigurableComponent<MockConfig>
+   * @augments {ConfigurableComponent<MockConfig>}
    */
   class MockConfigurableComponent extends ConfigurableComponent {
     /**

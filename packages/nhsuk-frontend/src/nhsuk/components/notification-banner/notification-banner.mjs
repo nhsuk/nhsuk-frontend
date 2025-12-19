@@ -7,12 +7,12 @@ import { ConfigurableComponent } from '../../configurable-component.mjs'
  *
  * Adapted from https://github.com/alphagov/govuk-frontend/blob/v5.10.2/packages/govuk-frontend/src/govuk/components/notification-banner/notification-banner.mjs
  *
- * @augments ConfigurableComponent<NotificationBannerConfig>
+ * @augments {ConfigurableComponent<NotificationBannerConfig>}
  */
 export class NotificationBanner extends ConfigurableComponent {
   /**
    * @param {Element | null} $root - HTML element to use for component
-   * @param {NotificationBannerConfig} [config] - Notification banner config
+   * @param {Partial<NotificationBannerConfig>} [config] - Notification banner config
    */
   constructor($root, config = {}) {
     super($root, config)
@@ -69,7 +69,7 @@ export class NotificationBanner extends ConfigurableComponent {
  * Initialise notification banner component
  *
  * @deprecated Use {@link createAll | `createAll(NotificationBanner, options)`} instead.
- * @param {InitOptions & NotificationBannerConfig} [options]
+ * @param {InitOptions & Partial<NotificationBannerConfig>} [options]
  */
 export function initNotificationBanners(options) {
   const { scope: $scope } = normaliseOptions(options)

@@ -60,7 +60,7 @@ describe('Radios', () => {
           expect($conditionals).toHaveLength(3)
         })
 
-        it('has ARIA attributes applied', async () => {
+        it('has no ARIA attributes applied', async () => {
           const $inputsWithAriaExpanded = await $component.$$(
             '.nhsuk-radios__input[aria-expanded]'
           )
@@ -69,7 +69,7 @@ describe('Radios', () => {
           )
 
           expect($inputsWithAriaExpanded).toHaveLength(0)
-          expect($inputsWithAriaControls).toHaveLength(3)
+          expect($inputsWithAriaControls).toHaveLength(0)
         })
 
         it('falls back to making all conditional content visible', async () => {
