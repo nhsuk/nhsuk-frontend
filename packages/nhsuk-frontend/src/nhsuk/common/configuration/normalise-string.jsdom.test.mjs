@@ -65,6 +65,10 @@ describe('normaliseString', () => {
   ])('normalises string $name', ({ input, output }) => {
     expect(normaliseString(input)).toBe(output)
     expect(normaliseString(input, { type: 'string' })).toBe(input)
+
+    // Check with already-normalised values
+    expect(normaliseString(output)).toBe(output)
+    expect(normaliseString(output, { type: 'string' })).toBe(output)
   })
 
   it.each([
@@ -119,5 +123,35 @@ describe('normaliseString', () => {
     expect(normaliseString('True')).toBe('True')
     expect(normaliseString('FALSE')).toBe('FALSE')
     expect(normaliseString('False')).toBe('False')
+  })
+
+  it('handles missing property schema', () => {
+    // @ts-expect-error Property 'type' is missing
+    expect(normaliseString('true', {})).toBe(true)
+
+    // @ts-expect-error Property 'type' is missing
+    expect(normaliseString('1337', {})).toBe(1337)
+  })
+
+  it('handles invalid values', () => {
+    // @ts-expect-error Argument of type is not assignable
+    expect(normaliseString(['actual', 'array'], undefined)).toBeUndefined()
+
+    // @ts-expect-error Argument of type is not assignable
+    expect(normaliseString({ not: 'allowed' })).toBeUndefined()
+  })
+
+  it('skips unhandled property schema', () => {
+    const inputArray = '["string", "array"]'
+    const inputObject = '{ not: "allowed" }'
+
+    // Arrays in strings are ignored even with schema property type
+    expect(normaliseString(inputArray)).toBe(inputArray)
+    // @ts-expect-error Property value 'array' does not exist
+    expect(normaliseString(inputArray, { type: 'array' })).toBe(inputArray)
+
+    // Objects in strings are ignored even with schema property type
+    expect(normaliseString(inputObject)).toBe(inputObject)
+    expect(normaliseString(inputObject, { type: 'object' })).toBe(inputObject)
   })
 })

@@ -9,12 +9,16 @@
  * Designed to be used to convert config passed via data attributes (which are
  * always strings) into something sensible.
  *
- * @param {string | undefined} value - The value to normalise
+ * @param {string | number | boolean | undefined} value - The value to normalise
  * @param {SchemaProperty} [property] - Component schema property
  * @returns Normalised data
  */
 export function normaliseString(value, property) {
-  const trimmedValue = value ? value.trim() : ''
+  if (!isValid(value)) {
+    return
+  }
+
+  const trimmedValue = value.toString().trim()
 
   let output
   let outputType = property?.type
@@ -46,6 +50,19 @@ export function normaliseString(value, property) {
   }
 
   return output
+}
+
+/**
+ * Whether value is valid
+ *
+ * @param {unknown} value
+ */
+function isValid(value) {
+  return (
+    typeof value === 'string' ||
+    typeof value === 'number' ||
+    typeof value === 'boolean'
+  )
 }
 
 /**
