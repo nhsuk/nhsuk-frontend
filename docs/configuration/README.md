@@ -28,7 +28,7 @@ The examples below follow our recommended [Import JavaScript using a bundler](./
 
 You can pass a configuration object into `createAll`'s second argument when creating an instance of a component in JavaScript:
 
-```
+```mjs
 import { CharacterCount, createAll } from 'nhsuk-frontend'
 
 createAll(CharacterCount, {
