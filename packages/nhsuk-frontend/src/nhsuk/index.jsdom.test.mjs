@@ -44,10 +44,6 @@ describe('NHS.UK frontend', () => {
     'PasswordInput'
   ]
 
-  const componentsWithoutConfig = components.filter(
-    (name) => !('defaults' in NHSUKFrontend[name])
-  )
-
   const componentsWithConfig = components.filter(
     (name) => 'defaults' in NHSUKFrontend[name]
   )
@@ -117,63 +113,6 @@ describe('NHS.UK frontend', () => {
         <div data-module="${SkipLink.moduleName}"></div>
         <div data-module="${Tabs.moduleName}"></div>
       `
-    })
-
-    describe('Non-configurable components', () => {
-      it.each(componentsWithoutConfig)("should init '%s'", (name) => {
-        const NamespaceComponent = /** @type {CompatibleClass} */ (
-          NHSUKFrontend[name]
-        )
-
-        document.body.innerHTML = outdent`
-          <div data-module="${NamespaceComponent.moduleName}"></div>
-        `
-
-        const $root = document.querySelector(
-          `[data-module="${NamespaceComponent.moduleName}"]`
-        )
-
-        initAll()
-
-        expect(NamespaceComponent).toHaveBeenCalledWith(
-          ...('defaults' in NamespaceComponent ? [$root, undefined] : [$root])
-        )
-      })
-    })
-
-    describe('Non-configurable components (with scope)', () => {
-      it.each(componentsWithoutConfig)("should init scoped '%s'", (name) => {
-        const NamespaceComponent = /** @type {CompatibleClass} */ (
-          NHSUKFrontend[name]
-        )
-
-        document.body.innerHTML = outdent`
-          <div class="app-scope-1">
-            <!-- No components -->
-          </div>
-          <div class="app-scope-2">
-            <div data-module="${NamespaceComponent.moduleName}"></div>
-          </div>
-        `
-
-        const $scope1 = document.querySelector('.app-scope-1')
-        const $scope2 = document.querySelector('.app-scope-2')
-
-        const $root1 = $scope1.querySelector(
-          `[data-module="${NamespaceComponent.moduleName}"]`
-        )
-
-        const $root2 = $scope2.querySelector(
-          `[data-module="${NamespaceComponent.moduleName}"]`
-        )
-
-        initAll($scope1)
-        expect(NamespaceComponent).not.toHaveBeenCalled()
-
-        initAll($scope2)
-        expect(NamespaceComponent).toHaveBeenCalledWith($root2)
-        expect(NamespaceComponent).not.toHaveBeenCalledWith($root1)
-      })
     })
 
     describe('Configurable components', () => {
@@ -358,7 +297,7 @@ describe('NHS.UK frontend', () => {
     }
 
     /**
-     * @augments ConfigurableComponent<MockConfig>
+     * @augments {ConfigurableComponent<MockConfig>}
      */
     class MockConfigurableComponent extends ConfigurableComponent {
       constructor($root, config) {

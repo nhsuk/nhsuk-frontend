@@ -9,9 +9,14 @@ This page lists the options available for the following components:
 
 - [Button](#button)
 - [CharacterCount](#charactercount)
+- [Checkboxes](#checkboxes)
 - [ErrorSummary](#errorsummary)
+- [Header](#header)
 - [NotificationBanner](#notificationbanner)
 - [PasswordInput](#passwordinput)
+- [Radios](#radios)
+- [SkipLink](#skiplink)
+- [Tabs](#tabs)
 
 ## Button
 
@@ -51,6 +56,42 @@ Default:
 
 ```json5
 0
+```
+
+### textareaDescriptionClass
+
+Type: string
+
+Class name used to locate the message made available to assistive technologies, to describe that the component accepts only a limited amount of content
+
+Default:
+
+```json5
+  'nhsuk-character-count__message'
+```
+
+### visibleCountMessageClass
+
+Type: string
+
+Class name added to the visible count message.
+
+Default:
+
+```json5
+  'nhsuk-character-count__status'
+```
+
+### screenReaderCountMessageClass
+
+Type: string
+
+Class name added to the visually hidden screen reader count message.
+
+Default:
+
+```json5
+  'nhsuk-character-count__sr-status'
 ```
 
 ### i18n
@@ -183,6 +224,20 @@ Default:
 }
 ```
 
+## Checkboxes
+
+### conditionalClass
+
+Type: string
+
+Class name used to locate conditionally revealed content for checkboxes.
+
+Default:
+
+```json5
+  'nhsuk-checkboxes__conditional'
+```
+
 ## ErrorSummary
 
 ### disableAutoFocus
@@ -211,7 +266,93 @@ Default:
 false
 ```
 
+## Header
+
+### navigationClass
+
+Type: string
+
+Class name used to locate the header navigation.
+
+Default:
+
+```json5
+  'nhsuk-header__navigation'
+```
+
+### navigationListClass
+
+Type: string
+
+Class name used to locate the header navigation list.
+
+Default:
+
+```json5
+  'nhsuk-header__navigation-list'
+```
+
+### navigationItemClass
+
+Type: string
+
+Class name used to locate the header navigation list items.
+
+Default:
+
+```json5
+  'nhsuk-header__navigation-item'
+```
+
+### menuClass
+
+Type: string
+
+Class name used to locate the header menu item.
+
+Default:
+
+```json5
+  'nhsuk-header__menu'
+```
+
+### menuToggleClass
+
+Type: string
+
+Class name used to locate the header menu toggle button.
+
+Default:
+
+```json5
+  'nhsuk-header__menu-toggle'
+```
+
+### menuListClass
+
+Type: string
+
+Class name used to locate the header menu list.
+
+Default:
+
+```json5
+  'nhsuk-header__menu-list'
+```
+
 ## PasswordInput
+
+### screenReaderStatusMessageClass
+
+Type: string
+
+Class name added to the visually hidden screen reader status message.
+
+Default:
+
+```json5
+  'nhsuk-password-input__sr-status'
+```
 
 ### i18n
 
@@ -287,4 +428,82 @@ Default:
 
 ```json5
   'Show password'
+```
+
+## Radios
+
+### conditionalClass
+
+Type: string
+
+Class name used to locate conditionally revealed content for radio buttons.
+
+Default:
+
+```json5
+  'nhsuk-radios__conditional'
+```
+
+## SkipLink
+
+### focusedElementClassList
+
+Type: array
+
+Class names added to the linked element focused by the skip link. Used to remove the visible focus indicator because the user cannot interact with it.
+
+Default:
+
+```json5
+  ['nhsuk-skip-link-focused-element']
+```
+
+## Tabs
+
+### panelClass
+
+Type: string
+
+Class name used to locate the tab panels.
+
+Default:
+
+```json5
+  'nhsuk-tabs__panel'
+```
+
+### listClass
+
+Type: string
+
+Class name used to locate the tab link list.
+
+Default:
+
+```json5
+  'nhsuk-tabs__list'
+```
+
+### listItemClass
+
+Type: string
+
+Class name used to locate the tab link list items.
+
+Default:
+
+```json5
+  'nhsuk-tabs__list-item'
+```
+
+### tabClass
+
+Type: string
+
+Class name used to locate the tab links.
+
+Default:
+
+```json5
+  'nhsuk-tabs__tab'
 ```
