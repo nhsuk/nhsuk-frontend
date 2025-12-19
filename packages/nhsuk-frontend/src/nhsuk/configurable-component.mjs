@@ -12,7 +12,7 @@ import { ConfigError } from './errors/index.mjs'
  * @abstract
  * @template {Partial<Record<keyof ConfigurationType, unknown>>} [ConfigurationType=ObjectNested]
  * @template {HTMLElement} [RootElementType=HTMLElement]
- * @augments Component<RootElementType>
+ * @augments {Component<RootElementType>}
  */
 export class ConfigurableComponent extends Component {
   /**
@@ -24,7 +24,7 @@ export class ConfigurableComponent extends Component {
    * Constructs a new component, validating that NHS.UK frontend is supported
    *
    * @param {Element | null} $root - HTML element to use for component
-   * @param {ConfigurationType} [config] - HTML element to use for component
+   * @param {Partial<ConfigurationType>} [config] - HTML element to use for component
    */
   constructor($root, config) {
     super($root)
@@ -43,7 +43,7 @@ export class ConfigurableComponent extends Component {
       )
     }
 
-    const datasetConfig = /** @type {ConfigurationType} */ (
+    const datasetConfig = /** @type {Partial<ConfigurationType>} */ (
       normaliseDataset(childConstructor, this.$root.dataset)
     )
 

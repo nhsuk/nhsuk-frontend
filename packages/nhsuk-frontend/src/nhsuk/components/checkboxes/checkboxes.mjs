@@ -1,6 +1,6 @@
 import { normaliseOptions } from '../../common/configuration/index.mjs'
 import { toggleConditionalInput } from '../../common/index.mjs'
-import { Component } from '../../component.mjs'
+import { ConfigurableComponent } from '../../configurable-component.mjs'
 import { ElementError } from '../../errors/index.mjs'
 
 /**
@@ -9,13 +9,16 @@ import { ElementError } from '../../errors/index.mjs'
  * Conditionally show content when a checkbox button is checked
  *
  * Test at {@link http://localhost:3000/nhsuk-frontend/components/checkboxes/with-conditional-content/}
+ *
+ * @augments {ConfigurableComponent<CheckboxesConfig>}
  */
-export class Checkboxes extends Component {
+export class Checkboxes extends ConfigurableComponent {
   /**
    * @param {Element | null} $root - HTML element to use for component
+   * @param {Partial<CheckboxesConfig>} [config] - Checkboxes config
    */
-  constructor($root) {
-    super($root)
+  constructor($root, config) {
+    super($root, config)
 
     const $inputs = this.$root.querySelectorAll('input[type="checkbox"]')
     if (!$inputs.length) {
@@ -76,7 +79,8 @@ export class Checkboxes extends Component {
    * @param {HTMLInputElement} $input - Checkbox input
    */
   syncConditionalRevealWithInputState($input) {
-    toggleConditionalInput($input, 'nhsuk-checkboxes__conditional--hidden')
+    const { conditionalClass } = this.config
+    toggleConditionalInput($input, `${conditionalClass}--hidden`)
   }
 
   /**
@@ -203,13 +207,36 @@ export class Checkboxes extends Component {
    * Name for the component used when initialising using data-module attributes
    */
   static moduleName = 'nhsuk-checkboxes'
+
+  /**
+   * Radios default config
+   *
+   * @see {@link CheckboxesConfig}
+   * @constant
+   * @type {CheckboxesConfig}
+   */
+  static defaults = Object.freeze({
+    conditionalClass: 'nhsuk-checkboxes__conditional'
+  })
+
+  /**
+   * Checkboxes config schema
+   *
+   * @constant
+   * @satisfies {Schema<CheckboxesConfig>}
+   */
+  static schema = Object.freeze({
+    properties: {
+      conditionalClass: { type: 'string' }
+    }
+  })
 }
 
 /**
  * Initialise checkboxes component
  *
- * @deprecated Use {@link createAll | `createAll(Checkboxes)`} instead.
- * @param {InitOptions} [options]
+ * @deprecated Use {@link createAll | `createAll(Checkboxes, options)`} instead.
+ * @param {InitOptions & Partial<CheckboxesConfig>} [options]
  */
 export function initCheckboxes(options) {
   const { scope: $scope } = normaliseOptions(options)
@@ -219,10 +246,18 @@ export function initCheckboxes(options) {
   )
 
   $checkboxes?.forEach(($root) => {
-    new Checkboxes($root)
+    new Checkboxes($root, options)
   })
 }
 
 /**
+ * Checkboxes config
+ *
+ * @typedef {object} CheckboxesConfig
+ * @property {string} conditionalClass - Conditionally revealed content class
+ */
+
+/**
  * @import { createAll, InitOptions } from '../../index.mjs'
+ * @import { Schema } from '../../common/configuration/index.mjs'
  */

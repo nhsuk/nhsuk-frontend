@@ -7,12 +7,12 @@ import { I18n } from '../../i18n.mjs'
 /**
  * Password input component
  *
- * @augments ConfigurableComponent<PasswordInputConfig>
+ * @augments {ConfigurableComponent<PasswordInputConfig>}
  */
 export class PasswordInput extends ConfigurableComponent {
   /**
    * @param {Element | null} $root - HTML element to use for component
-   * @param {PasswordInputConfig} [config] - Password input config
+   * @param {Partial<PasswordInputConfig>} [config] - Password input config
    */
   constructor($root, config = {}) {
     super($root, config)
@@ -60,7 +60,9 @@ export class PasswordInput extends ConfigurableComponent {
     this.$input = $input
     this.$showHideButton = $showHideButton
 
-    this.i18n = new I18n(this.config.i18n, {
+    const { i18n, screenReaderStatusMessageClass } = this.config
+
+    this.i18n = new I18n(i18n, {
       // Read the fallback if necessary rather than have it set in the defaults
       locale: closestAttributeValue(this.$root, 'lang')
     })
@@ -75,7 +77,7 @@ export class PasswordInput extends ConfigurableComponent {
     this.$screenReaderStatusMessage = document.createElement('div')
     this.$screenReaderStatusMessage.setAttribute('aria-live', 'polite')
     this.$screenReaderStatusMessage.classList.add(
-      'nhsuk-password-input__sr-status',
+      screenReaderStatusMessageClass,
       'nhsuk-u-visually-hidden'
     )
 
@@ -181,6 +183,7 @@ export class PasswordInput extends ConfigurableComponent {
    * @type {PasswordInputConfig}
    */
   static defaults = Object.freeze({
+    screenReaderStatusMessageClass: 'nhsuk-password-input__sr-status',
     i18n: {
       showPassword: 'Show',
       hidePassword: 'Hide',
@@ -199,6 +202,7 @@ export class PasswordInput extends ConfigurableComponent {
    */
   static schema = Object.freeze({
     properties: {
+      screenReaderStatusMessageClass: { type: 'string' },
       i18n: { type: 'object' }
     }
   })
@@ -208,7 +212,7 @@ export class PasswordInput extends ConfigurableComponent {
  * Initialise password input component
  *
  * @deprecated Use {@link createAll | `createAll(PasswordInput, options)`} instead.
- * @param {InitOptions & PasswordInputConfig} [options]
+ * @param {InitOptions & Partial<PasswordInputConfig>} [options]
  */
 export function initPasswordInputs(options) {
   const { scope: $scope } = normaliseOptions(options)
@@ -226,6 +230,7 @@ export function initPasswordInputs(options) {
  * Password input config
  *
  * @typedef {object} PasswordInputConfig
+ * @property {string} screenReaderStatusMessageClass - Screen reader status message class
  * @property {PasswordInputTranslations} [i18n=PasswordInput.defaults.i18n] - Password input translations
  */
 
