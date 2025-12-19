@@ -8,7 +8,8 @@ describe('mergeConfigs', () => {
   const config2 = {
     a: 'aardvark',
     b: 'bee',
-    c: { a: 'cat', o: 'cobra' }
+    c: { a: 'cat', o: 'cobra' },
+    f: ['fish', 'frog', 'falcon']
   }
   const config3 = {
     b: 'bat',
@@ -34,7 +35,8 @@ describe('mergeConfigs', () => {
     expect(config).toEqual({
       a: 'aardvark',
       b: 'bee',
-      c: { a: 'cat', o: 'cobra' }
+      c: { a: 'cat', o: 'cobra' },
+      f: ['fish', 'frog', 'falcon']
     })
   })
 
@@ -49,7 +51,8 @@ describe('mergeConfigs', () => {
         l: {
           e: 'elephant'
         }
-      }
+      },
+      f: ['fish', 'frog', 'falcon']
     })
   })
 
@@ -74,7 +77,8 @@ describe('mergeConfigs', () => {
         l: {
           e: 'elephant'
         }
-      }
+      },
+      f: ['fish', 'frog', 'falcon']
     })
   })
 
@@ -90,7 +94,8 @@ describe('mergeConfigs', () => {
       d: 'dog',
       e: {
         l: 'shark'
-      }
+      },
+      f: ['fish', 'frog', 'falcon']
     })
   })
 
