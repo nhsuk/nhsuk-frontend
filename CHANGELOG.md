@@ -155,6 +155,27 @@ To restore the previous behaviour, add the new `nhsuk-u-wrap-from-tablet` utilit
 
 This was added in [pull request #1668: Add breakpoints to nowrap class](https://github.com/nhsuk/nhsuk-frontend/pull/1668).
 
+#### Add icons to buttons
+
+You can now add icons to buttons by using the `nhsukIcon` Nunjucks macro and adding the `nhsuk-button--icon` class:
+
+```njk
+{{ input({
+  formGroup: {
+    afterInput: {
+      html: button({
+        html: nhsukIcon("search", { title: "Find" }),
+        classes: "nhsuk-button--icon nhsuk-button--small"
+      })
+    }
+  }
+}) }}
+```
+
+You can read about [how to use these icons](https://service-manual.nhs.uk/design-system/styles/icons#how-to-use-these-icons) in the NHS digital service manual.
+
+This was added in [pull request #1712: Add support for icon buttons](https://github.com/nhsuk/nhsuk-frontend/pull/1712).
+
 ## 10.2.2 - 4 December 2025
 
 Note: This release was created from the `support/10.x` branch.
