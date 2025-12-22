@@ -678,6 +678,58 @@ describe('File upload', () => {
           // Expect the input to still be visible
           await page.waitForSelector('input', { visible: true, timeout: 100 })
         })
+
+        it('does not throw if the drop zone already exists', async () => {
+          await expect(
+            render(page, 'file-upload', examples.default, {
+              beforeInitialisation($root, { selector }) {
+                const $input = $root.querySelector(selector)
+
+                // 1. Create drop zone
+                const $dropZone = document.createElement('div')
+                $dropZone.classList.add('nhsuk-drop-zone')
+
+                // 2. Move input into drop zone
+                $input.replaceWith($dropZone)
+                $dropZone.appendChild($input)
+              },
+              context: {
+                selector: '.nhsuk-file-upload__input'
+              }
+            })
+          ).resolves.not.toThrow()
+
+          // Expect the input to not be visible
+          await page.waitForSelector('input', { visible: false, timeout: 100 })
+        })
+
+        it('does not throw if the drop zone has `data-module` attribute', async () => {
+          await expect(
+            render(page, 'file-upload', examples.default, {
+              beforeInitialisation($root, { selector }) {
+                const $input = $root.querySelector(selector)
+
+                // 1. Create drop zone
+                const $dropZone = document.createElement('div')
+                $dropZone.classList.add('nhsuk-drop-zone')
+
+                // 2. Move input into drop zone
+                $input.replaceWith($dropZone)
+                $dropZone.appendChild($input)
+
+                // 3. Move the module to the drop zone
+                $root.removeAttribute('data-module')
+                $dropZone.setAttribute('data-module', 'nhsuk-file-upload')
+              },
+              context: {
+                selector: '.nhsuk-file-upload__input'
+              }
+            })
+          ).resolves.not.toThrow()
+
+          // Expect the input to not be visible
+          await page.waitForSelector('input', { visible: false, timeout: 100 })
+        })
       })
     })
   })

@@ -84,9 +84,14 @@ export class FileUpload extends ConfigurableComponent {
     // Hide the native input
     this.$input.setAttribute('hidden', '')
 
-    // Create the file drop zone
-    this.$dropZone = document.createElement('div')
-    this.$dropZone.classList.add(dropZoneClass)
+    // Locate or create the file drop zone
+    this.$dropZone = this.$root.classList.contains(dropZoneClass)
+      ? this.$root
+      : document.createElement('div')
+
+    if (this.$root !== this.$dropZone) {
+      this.$dropZone.classList.add(dropZoneClass)
+    }
 
     // Create the file selection button
     this.$button = document.createElement('button')
@@ -151,11 +156,14 @@ export class FileUpload extends ConfigurableComponent {
       event.preventDefault()
     })
 
-    // Replace the native input with the drop zone
-    this.$input.parentElement?.insertBefore(this.$dropZone, this.$input)
+    // For backwards compatibility with GOV.UK Frontend, optionally replace
+    // the native input with the drop zone unless already in the HTML
+    if (!this.$dropZone.parentElement) {
+      this.$input.parentElement?.insertBefore(this.$dropZone, this.$input)
+      this.$dropZone.appendChild(this.$input)
+    }
 
     // Assemble these all together
-    this.$dropZone.appendChild(this.$input)
     this.$dropZone.insertAdjacentElement('afterbegin', this.$button)
 
     this.$input.setAttribute('tabindex', '-1')
@@ -428,12 +436,14 @@ export class FileUpload extends ConfigurableComponent {
    * Synchronise the `disabled` state between the input and replacement button.
    */
   updateDisabledState() {
-    this.$button.disabled = this.$input.disabled
+    const { dropZoneClass } = this.config
 
-    this.$root.classList.toggle(
-      `${FileUpload.moduleName}--disabled`,
-      this.$button.disabled
-    )
+    const disabledStateClass = this.$root.classList.contains(dropZoneClass)
+      ? `${dropZoneClass}--disabled`
+      : `${FileUpload.moduleName}--disabled`
+
+    this.$button.disabled = this.$input.disabled
+    this.$root.classList.toggle(disabledStateClass, this.$button.disabled)
   }
 
   /**
