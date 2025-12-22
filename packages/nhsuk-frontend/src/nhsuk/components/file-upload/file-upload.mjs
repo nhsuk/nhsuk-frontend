@@ -60,6 +60,7 @@ export class FileUpload extends ConfigurableComponent {
       dropButtonGroupClass,
       dropInstructionClass,
       chooseFilesButtonClass,
+      chooseFilesButtonClassList,
       announcementsClass,
       statusClass
     } = this.config
@@ -128,8 +129,8 @@ export class FileUpload extends ConfigurableComponent {
     const $chooseFilesButton = document.createElement('span')
     $chooseFilesButton.classList.add(
       'nhsuk-button',
-      'nhsuk-button--secondary',
-      chooseFilesButtonClass
+      chooseFilesButtonClass,
+      ...chooseFilesButtonClassList
     )
     $chooseFilesButton.innerText = this.i18n.t('chooseFilesButton')
 
@@ -468,6 +469,7 @@ export class FileUpload extends ConfigurableComponent {
     dropButtonGroupClass: 'nhsuk-file-upload__drop-button-group',
     dropInstructionClass: 'nhsuk-file-upload__drop-instruction',
     chooseFilesButtonClass: 'nhsuk-file-upload__choose-files-button',
+    chooseFilesButtonClassList: ['nhsuk-button--secondary'],
     announcementsClass: 'nhsuk-file-upload__announcements',
     statusClass: 'nhsuk-file-upload__status',
     i18n: {
@@ -498,6 +500,7 @@ export class FileUpload extends ConfigurableComponent {
       dropButtonGroupClass: { type: 'string' },
       dropInstructionClass: { type: 'string' },
       chooseFilesButtonClass: { type: 'string' },
+      chooseFilesButtonClassList: { type: 'array' },
       announcementsClass: { type: 'string' },
       statusClass: { type: 'string' },
       i18n: { type: 'object' }
@@ -552,6 +555,7 @@ export function initFileUploads(options) {
  * @property {string} dropButtonGroupClass - Drop button group class
  * @property {string} dropInstructionClass - Drop instruction class
  * @property {string} chooseFilesButtonClass - Choose files button class
+ * @property {string[]} chooseFilesButtonClassList - Choose files button modifier classes
  * @property {string} announcementsClass - Announcements class
  * @property {string} statusClass - Status class
  * @property {FileUploadTranslations} [i18n=FileUpload.defaults.i18n] - File upload translations
