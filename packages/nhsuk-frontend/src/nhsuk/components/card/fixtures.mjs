@@ -22,7 +22,7 @@ export const examples = {
   'basic with heading link': {
     context: {
       heading: 'Introduction to care and support',
-      headingClasses: 'nhsuk-heading-m',
+      headingSize: 'm',
       headingLevel: 3,
       href: '#',
       description:
@@ -374,7 +374,7 @@ export const examples = {
       primary: true,
       clickable: true,
       heading: 'Breast screening',
-      headingClasses: 'nhsuk-heading-m'
+      headingSize: 'm'
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']
@@ -386,7 +386,7 @@ export const examples = {
       primary: true,
       clickable: true,
       heading: 'Introduction to care and support',
-      headingClasses: 'nhsuk-heading-m',
+      headingSize: 'm',
       description:
         'A quick guide for people who have care and support needs and their carers'
     },
@@ -399,7 +399,7 @@ export const examples = {
       href: '#',
       clickable: true,
       heading: 'Introduction to care and support',
-      headingClasses: 'nhsuk-heading-m',
+      headingSize: 'm',
       description:
         'A quick guide for people who have care and support needs and their carers'
     },
@@ -413,7 +413,7 @@ export const examples = {
       clickable: true,
       secondary: true,
       heading: 'Urgent and emergency care services',
-      headingClasses: 'nhsuk-heading-m',
+      headingSize: 'm',
       description:
         'Services the NHS provides if you need urgent or emergency medical help'
     },
@@ -539,7 +539,7 @@ export const examples = {
       href: '#',
       clickable: true,
       heading: 'Exercise',
-      headingClasses: 'nhsuk-heading-m',
+      headingSize: 'm',
       description:
         'Programmes, workouts and tips to get you moving and improve your fitness and wellbeing'
     },
@@ -553,7 +553,7 @@ export const examples = {
       clickable: true,
       headingLevel: 5,
       heading: 'Order a repeat prescription',
-      headingClasses: 'nhsuk-heading-xs'
+      headingSize: 'xs'
     },
     options: {
       width: 'one-third'
