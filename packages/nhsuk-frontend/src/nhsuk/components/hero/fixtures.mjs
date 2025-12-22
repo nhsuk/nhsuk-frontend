@@ -48,7 +48,8 @@ export const examples = {
   'with html content': {
     context: {
       heading: 'This is a header for the product or service',
-      headingClasses: 'nhsuk-heading-l nhsuk-u-margin-top-5',
+      headingSize: 'l',
+      headingClasses: 'nhsuk-u-margin-top-5',
       html: outdent`
         <p class="nhsuk-body-l">This is some more content which explains the product or service.</p>
         ${components.render('button', {
