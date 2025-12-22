@@ -196,6 +196,60 @@ Please carefully review all custom components to make sure they scale dynamicall
 
 This change was introduced in [pull request #1655: Add support for Dynamic Type on Apple devices](https://github.com/nhsuk/nhsuk-frontend/pull/1655).
 
+#### Update the HTML for tables as a panel
+
+For consistency with other components, the HTML and Nunjucks options for tables as a panel have changed. The previous names are deprecated and will be removed in a future release.
+
+If you're using the `table` Nunjucks macro in your service, you should:
+
+- replace the `heading` option with the nested `card.heading` option
+- replace the `headingLevel` option with the nested `card.headingLevel` option
+- replace the `panel` option with the nested `card.feature` option
+- replace the `panelClasses` option with the nested `card.classes` option
+- replace the `tableClasses` option with the `classes` option
+
+```patch
+  {{ table({
+-   heading: "Skin symptoms and possible causes",
+-   headingLevel: 3,
+-   panel: true,
+-   panelClasses: "nhsuk-u-margin-bottom-8",
++   card: {
++     heading: "Skin symptoms and possible causes",
++     headingLevel: 3,
++     feature: true,
++     classes: "nhsuk-u-margin-bottom-8"
++   },
+-   tableClasses: "nhsuk-u-margin-bottom-0",
++   classes: "nhsuk-u-margin-bottom-0",
+    head: [],
+    rows: []
+  }) }}
+```
+
+If you are not using Nunjucks macros, update your HTML markup using the [card examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/card) as follows:
+
+- Add the wrapper `<div class="nhsuk-card nhsuk-card--feature"> </div>`
+- Rename the panel `<div class="nhsuk-table__panel-with-heading-tab"` class attribute to match `<div class="nhsuk-card__content"`
+- Rename the heading `<h3 class="nhsuk-table__heading-tab"` class attribute to match `<h3 class="nhsuk-card__heading"`
+
+```patch
++ <div class="nhsuk-card nhsuk-card--feature">
+-   <div class="nhsuk-table__panel-with-heading-tab">
++   <div class="nhsuk-card__content">
+-     <h3 class="nhsuk-table__heading-tab">
++     <h3 class="nhsuk-card__heading">
+        Table as a panel heading
+      </h3>
+      <table class="nhsuk-table">
+        <!-- // ... -->
+      </table>
+    </div>
++ </div>
+```
+
+This change was introduced in [pull request #1685: Add card enhancements to summary list, table and warning callout](https://github.com/nhsuk/nhsuk-frontend/pull/1685).
+
 ### :wrench: **Fixes**
 
 - [#1734: Fix appearance of summary lists alongside other elements within card content](https://github.com/nhsuk/nhsuk-frontend/issues/1734)
