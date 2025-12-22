@@ -110,6 +110,40 @@ export const examples = {
       }
     ]
   },
+  'button': {
+    context: {
+      label: {
+        text: 'Upload a file',
+        size: 'l',
+        isPageHeading: true
+      },
+      id: 'file-upload',
+      name: 'file-upload'
+    },
+    variants: [
+      {
+        description: 'with primary',
+        context: {
+          chooseFilesButtonClassList: []
+        }
+      },
+      {
+        description: 'with small primary',
+        context: {
+          chooseFilesButtonClassList: ['nhsuk-button--small']
+        }
+      },
+      {
+        description: 'with small secondary',
+        context: {
+          chooseFilesButtonClassList: [
+            'nhsuk-button--secondary',
+            'nhsuk-button--small'
+          ]
+        }
+      }
+    ]
+  },
   'without page heading': {
     context: {
       label: {

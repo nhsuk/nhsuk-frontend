@@ -23,7 +23,12 @@
 <div
   {{- nhsukAttributes({
     class: classNames ~ " nhsuk-file-upload",
-    "data-module": "nhsuk-file-upload"
+    "data-module": "nhsuk-file-upload",
+    "data-choose-files-button-class-list": {
+      value: params.chooseFilesButtonClassList,
+      type: "array",
+      optional: true
+    }
   }) -}}
 
   {{- nhsukI18nAttributes({

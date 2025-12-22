@@ -112,6 +112,12 @@ export const params = {
       }
     }
   },
+  chooseFilesButtonClassList: {
+    type: 'array',
+    required: false,
+    description:
+      'Classes to add to the button that opens the file picker. Default is `["nhsuk-button--secondary"]`.'
+  },
   chooseFilesButtonText: {
     type: 'string',
     required: false,
