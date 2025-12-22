@@ -60,6 +60,7 @@
   // required because disabling pointer events
   // on the button means that the cursor style
   // be applied on the button itself
+  .nhsuk-drop-zone--disabled,
   .nhsuk-file-upload--disabled .nhsuk-drop-zone {
     cursor: not-allowed;
   }
