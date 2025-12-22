@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+Note: This release was created from the `support/10.x` branch.
+
 ### :new: **New features**
 
 #### Interruption panel
@@ -24,6 +26,10 @@ If you are not using Nunjucks macros, change the input classes as follows:
 The previous class names are deprecated and will be removed in a future release.
 
 This change was introduced in [pull request #1745: Update input prefix and suffix classes to follow BEM](https://github.com/nhsuk/nhsuk-frontend/pull/1745).
+
+### :wrench: **Fixes**
+
+- [#1734: Fix appearance of summary lists alongside other elements within card content](https://github.com/nhsuk/nhsuk-frontend/issues/1734)
 
 ## 10.2.2 - 4 December 2025
 
