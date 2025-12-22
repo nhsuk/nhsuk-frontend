@@ -80,18 +80,50 @@
 {% endif %}
 {% endmacro -%}
 
+{%- macro _cardAction(action, cardHeading) %}
+  <a class="nhsuk-link {%- if action.classes %} {{ action.classes }}{% endif %}" href="{{ action.href }}"
+    {{- nhsukAttributes(action.attributes) }}>
+    {{- action.html | safe | indent(4) if action.html else action.text -}}
+    {%- if action.visuallyHiddenText or cardHeading -%}
+    <span class="nhsuk-u-visually-hidden">
+      {%- if action.visuallyHiddenText %} {{ action.visuallyHiddenText }}{% endif -%}
+      {%- if cardHeading %} ({{ cardHeading }}){% endif -%}
+    </span>
+    {%- endif -%}
+  </a>
+{% endmacro -%}
+
 <div {%- if params.id %} id="{{ params.id }}"{% endif %} class="{{ classNames }}"
   {{- nhsukAttributes(params.attributes) }}>
 {% if params.imgURL %}
   <img class="nhsuk-card__img" src="{{ params.imgURL }}" alt="{{ params.imgALT }}">
 {% endif %}
-{% if params.type %}
+{% if params.type or params.actions %}
   <div class="nhsuk-card__heading-container">
+  {% if params.type %}
     {{ _careHeading(params, classNamesHeading) | trim | indent(2) }}
+  {% else %}
+    {{ _cardHeading(params, classNamesHeading) | trim | indent(2) }}
+  {% endif %}
+    {% if params.actions.items.length == 1 %}
+    <div class="nhsuk-card__actions {%- if params.actions.classes %} {{ params.actions.classes }}{% endif %}">
+      {{ _cardAction(params.actions.items[0], params.heading) | trim | indent(4) }}
+    </div>
+    {% elif params.actions.items.length %}
+    <ul class="nhsuk-card__actions {%- if params.actions.classes %} {{ params.actions.classes }}{% endif %}">
+      {% for action in params.actions.items %}
+      {% if action %}
+      <li class="nhsuk-card__action">
+        {{ _cardAction(action, params.heading) | trim | indent(8) }}
+      </li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+  {% endif %}
   </div>
 {% endif %}
   <div class="nhsuk-card__content">
-  {% if not params.type %}
+  {% if not params.type and not params.actions %}
     {{ _cardHeading(params, classNamesHeading) | trim | indent(2) }}
   {% endif %}
   {% if caller or params.descriptionHtml %}
