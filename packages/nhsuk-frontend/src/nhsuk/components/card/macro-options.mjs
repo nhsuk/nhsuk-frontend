@@ -28,6 +28,12 @@ export const params = {
     required: false,
     description: 'Classes to add to the card heading.'
   },
+  headingSize: {
+    type: 'string',
+    required: false,
+    description:
+      'Size of the heading – `"xss"`, `"xs"`, `"s"`, `"m"`, `"l"` or `"xl"`.'
+  },
   headingLevel: {
     type: 'integer',
     required: false,
