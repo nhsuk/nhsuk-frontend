@@ -29,6 +29,21 @@
   {% set classNames = classNames ~ " " ~ params.classes %}
 {% endif %}
 
+{%- if params.headingSize and
+  params.headingSize in ["xxs", "xs", "s", "m", "l", "xl"] and (
+    not params.headingClasses or (
+      not "nhsuk-heading-xxs" in params.headingClasses and
+      not "nhsuk-heading-xs" in params.headingClasses and
+      not "nhsuk-heading-s" in params.headingClasses and
+      not "nhsuk-heading-m" in params.headingClasses and
+      not "nhsuk-heading-l" in params.headingClasses and
+      not "nhsuk-heading-xl" in params.headingClasses
+    )
+  )
+%}
+  {% set classNamesHeading = classNamesHeading ~ " nhsuk-heading-" ~ params.headingSize %}
+{% endif %}
+
 {%- if params.headingClasses %}
   {% set classNamesHeading = classNamesHeading ~ " " ~ params.headingClasses %}
 {% endif %}
