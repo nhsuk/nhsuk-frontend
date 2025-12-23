@@ -26,7 +26,7 @@
 @mixin nhsuk-typography-common($font-family: $nhsuk-font-family) {
   // If the user is using the default Frutiger font we need to include
   // the font-face declarations.
-  @if $nhsuk-include-font-face {
+  @if $nhsuk-include-default-font-face {
     @include nhsuk-font-face-frutiger;
   }
 

@@ -39,7 +39,7 @@ $nhsuk-fonts-path: "https://assets.nhs.uk/fonts/" !default;
 ///
 /// @type Boolean
 
-$nhsuk-include-font-face: if(list.index($nhsuk-font-family, "Frutiger W01"), true, false) !default;
+$nhsuk-include-default-font-face: if(list.index($nhsuk-font-family, "Frutiger W01"), true, false) !default;
 
 // =========================================================
 // Font weights
@@ -175,3 +175,4 @@ $nhsuk-border-width-mobile: $nhsuk-border-width;
 $nhsuk-font: $nhsuk-font-family;
 $nhsuk-font-bold: $nhsuk-font-weight-bold;
 $nhsuk-font-normal: $nhsuk-font-weight-regular;
+$nhsuk-include-font-face: $nhsuk-include-default-font-face;
