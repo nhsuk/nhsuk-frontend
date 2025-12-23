@@ -7,25 +7,26 @@
 ///
 /// High-level, page-level styling.
 ///
-/// 1. The reason for this is to prevent "centering jumps" when navigating back
-///    and forth between pages with enough content to have a vertical scroll bar
-///    and pages that do not.
-/// 3. Override the user agent style margin of 8px.
-/// 4. Ensure the page always fills at least the entire height of the viewport.
-/// 5. On iOS, set font to -apple-system-body to support system level dynamic
-///    type for a11y, overriding with fallback font to not use iOS system font-family.
-///    font-size-adjust is used to normalise the default size back to our standard.
 /// @group elements
 ////
 
 html {
-  overflow-y: scroll; // [1]
+  // Set the overall page background colour to the same colour as used by the
+  // footer to give the illusion of a long footer.
   background-color: $nhsuk-template-background-colour;
 
   // Prevent automatic text sizing, as we already cater for small devices and
   // would like the browser to stay on 100% text zoom by default.
   text-size-adjust: 100%;
 
+  // Force the scrollbar to always display in IE, to prevent horizontal page
+  // jumps as content height changes (e.g. autocomplete results open).
+  @media screen {
+    overflow-y: scroll;
+  }
+
+  // On Apple devices, uses the -apple-system-body font to enable system-level
+  // Dynamic Type for accessibility but prevents the system body font-family.
   @supports (font: -apple-system-body) and (-webkit-touch-callout: default) {
     & {
       // stylelint-disable-next-line font-family-no-missing-generic-family-keyword
@@ -37,8 +38,14 @@ html {
 }
 
 body {
-  min-height: 100%; // [4]
-  margin: 0; // [3]
+  // Ensure the page always fills at least the entire height of the viewport.
+  min-height: 100%;
+
+  // The default margins set by user-agents are not required since we have our
+  // own containers.
+  margin: 0;
+
+  // Set the overall body of the page back to the typical background colour.
   background-color: $nhsuk-body-background-colour;
 
   // Set the overall text colour, including a suitable override for print.
