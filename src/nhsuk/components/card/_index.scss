@@ -256,6 +256,32 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
     }
   }
 
+  // Card panel shared styles
+
+  .nhsuk-card--feature > .nhsuk-card__heading-container,
+  .nhsuk-card--feature > .nhsuk-card__content,
+  .nhsuk-card--warning > .nhsuk-card__heading-container,
+  .nhsuk-card--warning > .nhsuk-card__content,
+  // Deprecated, to be removed in v11.0
+  .nhsuk-card__content--feature {
+    padding: 0; // [7]
+  }
+
+  .nhsuk-card--feature > .nhsuk-card__heading-container,
+  .nhsuk-card--warning > .nhsuk-card__heading-container {
+    @include nhsuk-media-query($from: tablet) {
+      align-items: flex-start;
+    }
+
+    .nhsuk-card__actions {
+      margin-top: 0;
+
+      @include nhsuk-media-query($from: tablet) {
+        padding-top: nhsuk-spacing(5);
+      }
+    }
+  }
+
   // Card feature
 
   .nhsuk-card--feature {
@@ -271,25 +297,17 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
     @include nhsuk-heading-label($nhsuk-brand-colour, $nhsuk-reverse-text-colour);
   }
 
-  .nhsuk-card--feature > .nhsuk-card__heading-container,
-  .nhsuk-card--feature > .nhsuk-card__content,
-  // Deprecated, to be removed in v11.0
-  .nhsuk-card__content--feature {
-    padding: 0; // [7]
+  // Card warning
+
+  .nhsuk-card--warning {
+    @include nhsuk-panel-with-label(nhsuk-colour("pale-yellow"), $nhsuk-text-colour, nhsuk-colour("yellow"));
   }
 
-  .nhsuk-card--feature > .nhsuk-card__heading-container {
-    @include nhsuk-media-query($from: tablet) {
-      align-items: flex-start;
-    }
-
-    .nhsuk-card__actions {
-      margin-top: 0;
-
-      @include nhsuk-media-query($from: tablet) {
-        padding-top: nhsuk-spacing(5);
-      }
-    }
+  .nhsuk-card--warning > .nhsuk-card__heading-container > .nhsuk-card__heading,
+  .nhsuk-card--warning > .nhsuk-card__content > .nhsuk-card__heading {
+    flex-basis: auto;
+    flex-grow: 0;
+    @include nhsuk-heading-label(nhsuk-colour("yellow"), $nhsuk-text-colour);
   }
 
   // Care card
