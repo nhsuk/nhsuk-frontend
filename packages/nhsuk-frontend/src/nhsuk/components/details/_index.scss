@@ -61,7 +61,7 @@ $expander-icon-size: $nhsuk-expander-icon-size;
 
     .nhsuk-details__summary-text {
       display: block;
-      font-weight: $nhsuk-font-bold;
+      font-weight: $nhsuk-font-weight-bold;
       @include nhsuk-responsive-margin(4, "bottom");
     }
   }
@@ -168,7 +168,7 @@ $expander-icon-size: $nhsuk-expander-icon-size;
 
       .nhsuk-details__summary-text {
         display: block;
-        font-weight: $nhsuk-font-bold;
+        font-weight: $nhsuk-font-weight-bold;
         @include nhsuk-font-size(26);
         @include nhsuk-responsive-margin(4, "bottom");
       }

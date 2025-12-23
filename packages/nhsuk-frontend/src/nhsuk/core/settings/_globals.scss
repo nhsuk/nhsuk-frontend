@@ -13,8 +13,8 @@
 $nhsuk-font: "Frutiger W01" !default;
 $nhsuk-font-fallback: arial, sans-serif !default; // [1]
 $nhsuk-font-family-print: sans-serif !default;
-$nhsuk-font-bold: 600 !default;
-$nhsuk-font-normal: 400 !default;
+$nhsuk-font-weight-bold: 600 !default;
+$nhsuk-font-weight-regular: 400 !default;
 $nhsuk-fonts-path: "https://assets.nhs.uk/fonts/" !default;
 $nhsuk-include-font-face: true !default;
 
@@ -106,3 +106,5 @@ $nhsuk-button-shadow-size: 4px !default;
 // @deprecated To be removed in v11.0
 $nhsuk-border-width-form-element-error: $nhsuk-border-width-form-element;
 $nhsuk-border-width-mobile: $nhsuk-border-width;
+$nhsuk-font-bold: $nhsuk-font-weight-bold;
+$nhsuk-font-normal: $nhsuk-font-weight-regular;

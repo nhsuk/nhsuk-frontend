@@ -593,6 +593,30 @@ describe('Typography tools', () => {
           css: expect.stringContaining('line-height: 1.337;')
         })
       })
+
+      it('throws a deprecation warning if nhsuk-font with `$weight: normal` is used', async () => {
+        const sass = outdent`
+          ${sassBootstrap}
+
+          .foo {
+            @include nhsuk-font($size: 14, $weight: normal)
+          }
+        `
+
+        await compileStringAsync(sass, {
+          loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
+          logger
+        })
+
+        // Expect our mocked @warn function to have been called once with a single
+        // argument, which should be the deprecation notice
+        expect(logger.warn).toHaveBeenCalledWith(
+          'nhsuk-font with `$weight: normal` is deprecated. Use `$weight: regular` instead. ' +
+            'To silence this warning, update $nhsuk-suppressed-warnings with key: ' +
+            '"font-weight-normal"',
+          expect.anything()
+        )
+      })
     })
 
     // nhsuk-typography-responsive is the previous, deprecated version of nhsuk-font-size

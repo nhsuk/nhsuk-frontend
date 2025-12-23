@@ -28,8 +28,10 @@
 
 // Weights
 
+.nhsuk-u-font-weight-regular,
+// @deprecated To be removed in v11.0
 .nhsuk-u-font-weight-normal {
-  @include nhsuk-typography-weight-normal($important: true);
+  @include nhsuk-typography-weight-regular($important: true);
 }
 
 .nhsuk-u-font-weight-bold {
