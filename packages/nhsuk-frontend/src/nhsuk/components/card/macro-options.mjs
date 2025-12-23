@@ -39,6 +39,11 @@ export const params = {
     required: false,
     description: 'Optional heading level for the card heading. Defaults to `2`.'
   },
+  headingVisuallyHiddenText: {
+    type: 'string',
+    required: false,
+    description: 'Optional visually hidden prefix used before the heading.'
+  },
   href: {
     type: 'string',
     required: false,
