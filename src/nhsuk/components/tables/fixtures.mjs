@@ -1,3 +1,4 @@
+import { components } from '@nhsuk/frontend-lib'
 import { outdent } from 'outdent'
 
 /**
@@ -8,7 +9,8 @@ import { outdent } from 'outdent'
 export const examples = {
   'default': {
     context: {
-      caption: 'Skin symptoms and possible causes',
+      caption: 'Impetigo can look similar to other skin conditions',
+      captionSize: 'm',
       head: [
         {
           text: 'Skin symptoms'
@@ -51,6 +53,7 @@ export const examples = {
   'with empty items': {
     context: {
       caption: 'Vaccinations given',
+      captionSize: 'm',
       head: [
         {
           text: 'Date'
@@ -77,6 +80,7 @@ export const examples = {
   'with missing data': {
     context: {
       caption: 'Vaccinations given',
+      captionSize: 'm',
       head: [
         {
           text: 'Date'
@@ -118,6 +122,7 @@ export const examples = {
   'with numeric data': {
     context: {
       caption: 'Prescription prepayment certificate (PPC) charges',
+      captionSize: 'm',
       head: [
         {
           text: 'Item'
@@ -177,6 +182,7 @@ export const examples = {
   'with responsive layout': {
     context: {
       caption: 'Ibuprofen syrup dosages for children',
+      captionSize: 'm',
       responsive: true,
       head: [
         {
@@ -440,6 +446,7 @@ export const examples = {
   'with word breaks': {
     context: {
       caption: 'Users',
+      captionSize: 'm',
       head: [
         {
           text: 'Name'
@@ -467,12 +474,12 @@ export const examples = {
             classes: 'nhsuk-u-text-break-word'
           },
           {
-            text: 'Active'
-          },
-          {
-            html: outdent`
-              <a href="#">Change <span class="nhsuk-u-visually-hidden">status for Stephanie Meyer</span></a>
-            `
+            html: components.render('tag', {
+              context: {
+                text: 'Active',
+                classes: 'nhsuk-tag--green'
+              }
+            })
           }
         ],
         [
@@ -485,12 +492,12 @@ export const examples = {
             classes: 'nhsuk-u-text-break-word'
           },
           {
-            text: 'Inactive'
-          },
-          {
-            html: outdent`
-              <a href="#">Change <span class="nhsuk-u-visually-hidden">status for Aleksandrina Featherstonehaugh-Whitehead</span></a>
-            `
+            html: components.render('tag', {
+              context: {
+                text: 'Inactive',
+                classes: 'nhsuk-tag--grey'
+              }
+            })
           }
         ]
       ]
