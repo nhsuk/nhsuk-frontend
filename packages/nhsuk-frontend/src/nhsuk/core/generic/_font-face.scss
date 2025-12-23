@@ -1,4 +1,5 @@
 @use "../settings" as *;
+@use "../tools/exports" as *;
 
 ////
 /// Font face
@@ -10,30 +11,42 @@
 /// @group generic
 ////
 
+/// Font URL
+///
+/// @param {String} $filename - Font filename
+/// @return {String} URL for the filename, wrapped in `url()`
+
 @function nhsuk-font-url($filename) {
   @return url($nhsuk-fonts-path + $filename);
 }
 
-@mixin nhsuk-font-face-frutiger {
-  @at-root {
-    @font-face {
-      font-family: "Frutiger W01";
-      font-style: normal;
-      font-weight: $nhsuk-font-weight-regular;
-      font-display: fallback;
-      src:
-        nhsuk-font-url("FrutigerLTW01-55Roman.woff2") format("woff2"),
-        nhsuk-font-url("FrutigerLTW01-55Roman.woff") format("woff");
-    }
+/// Font Face - Frutiger W01
+///
+/// Outputs the font-face declaration for Frutiger W01 at the root of the CSS document
+/// the first time it is called.
 
-    @font-face {
-      font-family: "Frutiger W01";
-      font-style: normal;
-      font-weight: $nhsuk-font-weight-bold;
-      font-display: fallback;
-      src:
-        nhsuk-font-url("FrutigerLTW01-65Bold.woff2") format("woff2"),
-        nhsuk-font-url("FrutigerLTW01-65Bold.woff") format("woff");
+@mixin nhsuk-font-face-frutiger {
+  @include nhsuk-exports("nhsuk/core/generic/font-face") {
+    @at-root {
+      @font-face {
+        font-family: "Frutiger W01";
+        font-style: normal;
+        font-weight: $nhsuk-font-weight-regular;
+        font-display: fallback;
+        src:
+          nhsuk-font-url("FrutigerLTW01-55Roman.woff2") format("woff2"),
+          nhsuk-font-url("FrutigerLTW01-55Roman.woff") format("woff");
+      }
+
+      @font-face {
+        font-family: "Frutiger W01";
+        font-style: normal;
+        font-weight: $nhsuk-font-weight-bold;
+        font-display: fallback;
+        src:
+          nhsuk-font-url("FrutigerLTW01-65Bold.woff2") format("woff2"),
+          nhsuk-font-url("FrutigerLTW01-65Bold.woff") format("woff");
+      }
     }
   }
 }

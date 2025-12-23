@@ -1,4 +1,3 @@
-@use "../generic" as *;
 @use "../settings" as *;
 @use "../tools" as *;
 @use "../helpers" as *;
@@ -11,8 +10,6 @@
 /// 1. The reason for this is to prevent "centering jumps" when navigating back
 ///    and forth between pages with enough content to have a vertical scroll bar
 ///    and pages that do not.
-/// 2. Fonts on OSX will look more consistent with other systems that do not
-///    render text using sub-pixel anti-aliasing.
 /// 3. Override the user agent style margin of 8px.
 /// 4. Ensure the page always fills at least the entire height of the viewport.
 /// 5. On iOS, set font to -apple-system-body to support system level dynamic
@@ -24,32 +21,22 @@
 html {
   overflow-y: scroll; // [1]
   background-color: $nhsuk-template-background-colour;
-  font-size: $nhsuk-root-font-size;
 
   @supports (font: -apple-system-body) and (-webkit-touch-callout: default) {
     & {
       // stylelint-disable-next-line font-family-no-missing-generic-family-keyword
       font: -apple-system-body; // [5]
-      font-family: $nhsuk-font-fallback;
     }
   }
 
-  @if $nhsuk-include-font-face {
-    @include nhsuk-font-face-frutiger;
-
-    & {
-      font-family: $nhsuk-font, $nhsuk-font-fallback;
-    }
-  }
+  @include nhsuk-typography-common;
 }
 
 body {
   min-height: 100%; // [4]
   margin: 0; // [3]
-
-  color: $nhsuk-text-colour;
   background-color: $nhsuk-body-background-colour;
 
-  -moz-osx-font-smoothing: grayscale; // [2]
-  -webkit-font-smoothing: antialiased; // [2]
+  // Set the overall text colour, including a suitable override for print.
+  @include nhsuk-text-colour;
 }

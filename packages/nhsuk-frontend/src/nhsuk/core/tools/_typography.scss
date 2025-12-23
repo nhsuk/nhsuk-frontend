@@ -1,6 +1,7 @@
 @use "sass:map";
 @use "sass:math";
 @use "sass:string";
+@use "../generic/font-face" as *;
 @use "../settings" as *;
 @use "functions" as *;
 @use "sass-mq" as *;
@@ -13,6 +14,30 @@
 ///
 /// @group tools
 ////
+
+/// 'Common typography' helper
+///
+/// Sets the font family and associated properties, such as font smoothing. Also
+/// overrides the font for print.
+///
+/// @param {List} $font-family [$nhsuk-font] Font family to use
+/// @access public
+
+@mixin nhsuk-typography-common($font-family: $nhsuk-font) {
+  // If the user is using the default Frutiger font we need to include
+  // the font-face declarations.
+  @if $nhsuk-include-font-face {
+    @include nhsuk-font-face-frutiger;
+  }
+
+  font-family: $nhsuk-font, $nhsuk-font-fallback;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media print {
+    font-family: $nhsuk-font-family-print;
+  }
+}
 
 /// Text colour
 ///
@@ -274,6 +299,8 @@
   }
 
   & {
+    @include nhsuk-typography-common;
+
     @if $weight == regular or $weight == normal {
       @include nhsuk-typography-weight-regular;
     } @else if $weight == bold {
