@@ -7,10 +7,10 @@
 {%- if params.captionSize and
   params.captionSize in ["s", "m", "l", "xl"] and (
     not params.captionClasses or (
-      not "nhsuk-label--s" in params.captionClasses and
-      not "nhsuk-label--m" in params.captionClasses and
-      not "nhsuk-label--l" in params.captionClasses and
-      not "nhsuk-label--xl" in params.captionClasses
+      not "nhsuk-table__caption--s" in params.captionClasses and
+      not "nhsuk-table__caption--m" in params.captionClasses and
+      not "nhsuk-table__caption--l" in params.captionClasses and
+      not "nhsuk-table__caption--xl" in params.captionClasses
     )
   )
 %}
@@ -38,7 +38,7 @@
 {% endif %}
 {% if params.head %}
   <thead class="nhsuk-table__head" {%- if params.responsive %} role="rowgroup"{% endif %}>
-    <tr {%- if params.responsive %} role="row"{% endif %}>
+    <tr class="nhsuk-table__row" {%- if params.responsive %} role="row"{% endif %}>
     {% for item in params.head %}
       {% if item %}
       <th scope="col" class="nhsuk-table__header
@@ -67,10 +67,18 @@
       {{- nhsukAttributes(cell.attributes) -}}
     {% endset %}
     {% set commonContents %}
-      {%- if params.responsive and cell.header -%}
-        <span class="nhsuk-table-responsive__heading" aria-hidden="true">{{ cell.header }} </span>
+      {%- if params.responsive -%}
+        {%- if cell.header -%}
+          <span class="nhsuk-table-responsive__heading" aria-hidden="true">{{ cell.header }} </span>
+        {%- endif -%}
+        {%- if cell.html -%}
+          <span>{{ cell.html | safe }}</span>
+        {%- else -%}
+          {{- cell.text -}}
+        {%- endif -%}
+      {%- else -%}
+        {{- cell.html | safe if cell.html else cell.text -}}
       {%- endif -%}
-      {{- cell.html | safe if cell.html else cell.text -}}
     {% endset %}
     {% if loop.first and params.firstCellIsHeader %}
       <th scope="row" class="nhsuk-table__header
