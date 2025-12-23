@@ -22,6 +22,10 @@ html {
   overflow-y: scroll; // [1]
   background-color: $nhsuk-template-background-colour;
 
+  // Prevent automatic text sizing, as we already cater for small devices and
+  // would like the browser to stay on 100% text zoom by default.
+  text-size-adjust: 100%;
+
   @supports (font: -apple-system-body) and (-webkit-touch-callout: default) {
     & {
       // stylelint-disable-next-line font-family-no-missing-generic-family-keyword
