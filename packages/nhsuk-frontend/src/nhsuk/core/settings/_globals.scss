@@ -21,7 +21,6 @@ $nhsuk-include-font-face: true !default;
 /// Font sizing and spacing
 
 $nhsuk-root-font-size: 16px !default;
-$nhsuk-base-font-size: $nhsuk-root-font-size;
 $nhsuk-base-line-height: 24px !default;
 
 /// Icon default sizing
@@ -72,7 +71,6 @@ $nhsuk-border-width-form-element: 2px !default;
 /// Form group border width when in error state
 ///
 /// @type Number
-/// @access public
 
 $nhsuk-border-width-form-group-error: $nhsuk-border-width !default;
 
@@ -104,5 +102,6 @@ $nhsuk-button-shadow-size: 4px !default;
 ///
 
 // @deprecated To be removed in v11.0
+$nhsuk-base-font-size: $nhsuk-root-font-size;
 $nhsuk-border-width-form-element-error: $nhsuk-border-width-form-element;
 $nhsuk-border-width-mobile: $nhsuk-border-width;
