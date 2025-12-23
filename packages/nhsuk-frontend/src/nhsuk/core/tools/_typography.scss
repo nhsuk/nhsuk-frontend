@@ -30,6 +30,12 @@
     @include nhsuk-font-face-frutiger;
   }
 
+  // If the user is using the Apple Dynamic Type feature we need to include
+  // the @support CSS at-rule to enable it.
+  @if $nhsuk-include-dynamic-type {
+    @include nhsuk-font-dynamic-type;
+  }
+
   font-family: $font-family;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

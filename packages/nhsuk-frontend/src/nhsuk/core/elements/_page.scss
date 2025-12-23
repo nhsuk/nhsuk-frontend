@@ -25,15 +25,6 @@ html {
     overflow-y: scroll;
   }
 
-  // On Apple devices, uses the -apple-system-body font to enable system-level
-  // Dynamic Type for accessibility but prevents the system body font-family.
-  @supports (font: -apple-system-body) and (-webkit-touch-callout: default) {
-    & {
-      // stylelint-disable-next-line font-family-no-missing-generic-family-keyword
-      font: -apple-system-body; // [5]
-    }
-  }
-
   @include nhsuk-typography-common;
 }
 
