@@ -27,6 +27,42 @@ The previous class names are deprecated and will be removed in a future release.
 
 This change was introduced in [pull request #1745: Update input prefix and suffix classes to follow BEM](https://github.com/nhsuk/nhsuk-frontend/pull/1745).
 
+#### Rename Sass variables, mixins and CSS classes for customising fonts
+
+To better align with GOV.UK frontend, we've made some name changes and added the `nhsuk-typography-common` Sass mixin. You can still use the previous names but we'll remove them in a future breaking release.
+
+If you use Sass and you've customised the fonts that NHS.UK frontend uses:
+
+- rename `$nhsuk-font` to `$nhsuk-family` and include default fallback fonts
+- remove `$nhsuk-font-fallback` and (optionally) move fallback fonts to `$nhsuk-family`
+- rename `$nhsuk-font-normal` to `$nhsuk-font-weight-regular`
+- rename `$nhsuk-font-bold` to `$nhsuk-font-weight-bold`
+- rename `$nhsuk-include-font-face` to `$nhsuk-include-default-font-face`
+
+```patch
+- $app-font: Helvetica;
+- $app-font-fallback: Arial, sans-serif;
++ $app-font-family: Helvetica, Arial, sans-serif;
+
+  @forward "nhsuk-frontend/dist/nhsuk" with (
+-   $nhsuk-font: $app-font
+-   $nhsuk-font-fallback: $app-font-fallback,
++   $nhsuk-font-family: $app-font-family,
+-   $nhsuk-include-font-face: false,
++   $nhsuk-include-default-font-face: false
+  );
+```
+
+The following Sass mixins have been renamed:
+
+- `nhsuk-typography-weight-normal` renamed to `nhsuk-typography-weight-regular`
+
+The following CSS classes have been renamed:
+
+- `nhsuk-u-font-weight-normal` renamed to `nhsuk-u-font-weight-regular`
+
+This change was introduced in [pull request #1655: Add support for Dynamic Type on Apple devices](https://github.com/nhsuk/nhsuk-frontend/pull/1655).
+
 ### :recycle: **Changes**
 
 #### Update the HTML for responsive table cell content
