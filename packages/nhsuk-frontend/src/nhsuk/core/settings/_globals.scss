@@ -15,7 +15,7 @@
 ///
 /// @type List
 
-$nhsuk-font: "Frutiger W01" !default;
+$nhsuk-font-family: "Frutiger W01", arial, sans-serif !default;
 $nhsuk-font-fallback: arial, sans-serif !default;
 
 /// Font families to use for print media
@@ -173,5 +173,6 @@ $nhsuk-button-shadow-size: 4px !default;
 $nhsuk-base-font-size: $nhsuk-root-font-size;
 $nhsuk-border-width-form-element-error: $nhsuk-border-width-form-element;
 $nhsuk-border-width-mobile: $nhsuk-border-width;
+$nhsuk-font: $nhsuk-font-family;
 $nhsuk-font-bold: $nhsuk-font-weight-bold;
 $nhsuk-font-normal: $nhsuk-font-weight-regular;

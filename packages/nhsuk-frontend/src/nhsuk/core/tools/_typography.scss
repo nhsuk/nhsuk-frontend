@@ -20,17 +20,17 @@
 /// Sets the font family and associated properties, such as font smoothing. Also
 /// overrides the font for print.
 ///
-/// @param {List} $font-family [$nhsuk-font] Font family to use
+/// @param {List} $font-family [$nhsuk-font-family] Font family to use
 /// @access public
 
-@mixin nhsuk-typography-common($font-family: $nhsuk-font) {
+@mixin nhsuk-typography-common($font-family: $nhsuk-font-family) {
   // If the user is using the default Frutiger font we need to include
   // the font-face declarations.
   @if $nhsuk-include-font-face {
     @include nhsuk-font-face-frutiger;
   }
 
-  font-family: $nhsuk-font, $nhsuk-font-fallback;
+  font-family: $font-family;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
