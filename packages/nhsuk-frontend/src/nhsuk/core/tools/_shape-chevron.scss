@@ -15,7 +15,7 @@
 ///
 /// @param {String} $direction - Direction for chevron: up, right, down, left
 /// @param {Colour} $colour - Colour of chevron
-/// @param {Number} $font-size [14] - Font size to base chevron size on
+/// @param {Number} $font-size [16] - Font size to base chevron size on
 /// @param {String} $display [block] - CSS display property of the arrow
 
 @mixin nhsuk-shape-chevron($direction, $colour, $font-size: 16, $display: block) {

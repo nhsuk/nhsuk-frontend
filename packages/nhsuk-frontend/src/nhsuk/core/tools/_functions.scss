@@ -50,7 +50,7 @@
 
 /// Get the size (△↕) of chevron, from base to tip, given a certain font size
 ///
-/// @param {Number} $font-size [14] - Font size to base chevron size on
+/// @param {Number} $font-size [16] - Font size to base chevron size on
 /// @return {String} Height of chevron as em-based value
 
 @function nhsuk-chevron-size($font-size: 16) {
