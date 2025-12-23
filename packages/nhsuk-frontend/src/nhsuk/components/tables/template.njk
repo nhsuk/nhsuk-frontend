@@ -7,10 +7,10 @@
 {%- if params.captionSize and
   params.captionSize in ["s", "m", "l", "xl"] and (
     not params.captionClasses or (
-      not "nhsuk-label--s" in params.captionClasses and
-      not "nhsuk-label--m" in params.captionClasses and
-      not "nhsuk-label--l" in params.captionClasses and
-      not "nhsuk-label--xl" in params.captionClasses
+      not "nhsuk-table__caption--s" in params.captionClasses and
+      not "nhsuk-table__caption--m" in params.captionClasses and
+      not "nhsuk-table__caption--l" in params.captionClasses and
+      not "nhsuk-table__caption--xl" in params.captionClasses
     )
   )
 %}
