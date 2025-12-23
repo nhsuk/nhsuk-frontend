@@ -21,6 +21,10 @@
   {% set classNames = classNames ~ " nhsuk-card--secondary" %}
 {% endif %}
 
+{%- if params.warning %}
+  {% set classNames = classNames ~ " nhsuk-card--warning" %}
+{% endif %}
+
 {%- if params.type %}
   {% set classNames = classNames ~ " nhsuk-card--care nhsuk-card--care--" ~ params.type %}
 {% endif %}
