@@ -574,12 +574,56 @@ export const examples = {
       ]
     }
   },
-  'as a panel': {
+  'as a card': {
     context: {
-      heading: 'Conditions similar to impetigo',
-      caption: 'Other possible causes of your symptoms',
-      captionClasses: 'nhsuk-u-visually-hidden',
-      panel: true,
+      card: true,
+      caption: 'Impetigo can look similar to other skin conditions',
+      captionSize: 'm',
+      head: [
+        {
+          text: 'Skin symptoms'
+        },
+        {
+          text: 'Possible cause'
+        }
+      ],
+      rows: [
+        [
+          {
+            text: 'Blisters on lips or around the mouth'
+          },
+          {
+            text: 'Cold sores'
+          }
+        ],
+        [
+          {
+            text: 'Itchy, dry, cracked, sore'
+          },
+          {
+            text: 'Eczema'
+          }
+        ],
+        [
+          {
+            text: 'Itchy blisters'
+          },
+          {
+            text: 'Shingles, chickenpox'
+          }
+        ]
+      ]
+    }
+  },
+  'as a card (feature)': {
+    context: {
+      card: {
+        heading: 'Other conditions like impetigo',
+        headingSize: 'm',
+        feature: true
+      },
+      caption: 'Impetigo can look similar to other skin conditions',
+      captionSize: 's',
       head: [
         {
           text: 'Skin symptoms'
@@ -617,6 +661,58 @@ export const examples = {
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']
+    }
+  },
+  'as a card (feature) with responsive layout': {
+    context: {
+      card: {
+        heading: 'Other conditions like impetigo',
+        headingSize: 'm',
+        feature: true
+      },
+      caption: 'Impetigo can look similar to other skin conditions',
+      captionSize: 's',
+      responsive: true,
+      head: [
+        {
+          text: 'Skin symptoms'
+        },
+        {
+          text: 'Possible cause'
+        }
+      ],
+      rows: [
+        [
+          {
+            header: 'Skin problems',
+            text: 'Blisters on lips or around the mouth'
+          },
+          {
+            header: 'Possible cause',
+            text: 'Cold sores'
+          }
+        ],
+        [
+          {
+            header: 'Skin problems',
+            text: 'Itchy, dry, cracked, sore'
+          },
+          {
+            header: 'Possible cause',
+            text: 'Eczema'
+          }
+        ],
+        [
+          {
+            header: 'Skin problems',
+            text: 'Itchy blisters'
+          },
+          {
+            header: 'Possible cause',
+            text: 'Shingles, chickenpox'
+          }
+        ]
+      ]
     }
   }
 }
