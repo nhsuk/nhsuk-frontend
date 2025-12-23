@@ -51,31 +51,28 @@
 {%- set headingLevel = params.headingLevel if params.headingLevel else 2 %}
 
 {%- macro _careHeading(params, classNames) %}
-{% if params.heading %}
-  <h{{ headingLevel }} class="{{ classNames }}">
-  {% if params.href and not params.feature %}
-    <a class="nhsuk-card__link" href="{{ params.href }}">
-      {{- params.heading | safe -}}
-    </a>
-  {% else %}
-    <span role="text">
-      <span class="nhsuk-u-visually-hidden">
-        {%- if params.type == "emergency" -%}
-          Immediate action required:
-        {%- elif params.type == "urgent" -%}
-          Urgent advice:
-        {%- else -%}
-          Non-urgent advice:
-        {%- endif -%}
-      </span> {{ params.heading }}
-    </span>
-  {% endif %}
-  </h{{ headingLevel }}>
-  <span class="nhsuk-card--care__arrow" aria-hidden="true"></span>
-{% endif %}
-{% if params.headingHtml %}
-  {{ params.headingHtml | safe | trim | indent(2) }}
-{% endif %}
+  {%- set headingHtml %}
+    <span class="nhsuk-card--care__arrow" aria-hidden="true"></span>
+  {% endset -%}
+
+  {%- set headingVisuallyHiddenText %}
+    {%- if params.headingVisuallyHiddenText -%}
+      {{ params.headingVisuallyHiddenText }}
+    {%- elif params.type == "emergency" -%}
+      Immediate action required
+    {%- elif params.type == "urgent" -%}
+      Urgent advice
+    {%- else -%}
+      Non-urgent advice
+    {%- endif -%}
+  {% endset -%}
+
+  {{ _cardHeading({
+    heading: params.heading,
+    headingHtml: headingHtml,
+    headingVisuallyHiddenText: headingVisuallyHiddenText,
+    href: params.href
+  }, classNames) | trim }}
 {% endmacro -%}
 
 {%- macro _cardHeading(params, classNames) %}
@@ -85,6 +82,10 @@
     <a class="nhsuk-card__link" href="{{ params.href }}">
       {{- params.heading | safe -}}
     </a>
+  {% elif params.headingVisuallyHiddenText %}
+    <span role="text">
+      <span class="nhsuk-u-visually-hidden">{{- params.headingVisuallyHiddenText -}}:</span> {{ params.heading }}
+    </span>
   {% else %}
     {{ params.heading }}
   {% endif %}
