@@ -79,6 +79,12 @@ export const params = {
     description:
       'If set to `true`, the card will become a secondary card variant.'
   },
+  warning: {
+    type: 'boolean',
+    required: false,
+    description:
+      'If set to `true`, then the card will become a warning card variant used by the warning callout.'
+  },
   imgURL: {
     type: 'string',
     required: false,

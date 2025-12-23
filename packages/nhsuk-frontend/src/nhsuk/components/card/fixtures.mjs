@@ -532,6 +532,14 @@ export const examples = {
       })}
     `
   },
+  'warning': {
+    context: {
+      warning: true,
+      heading: 'School, nursery or work',
+      description:
+        'Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.'
+    }
+  },
   'with image': {
     context: {
       imgURL:
