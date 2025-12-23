@@ -7,49 +7,53 @@ describe('Typography tools', () => {
   `
 
   const sassBootstrap = outdent`
-    @use "core/settings/breakpoints" as * with (
-      $nhsuk-breakpoints: (
-        desktop: 30em
+    $app-breakpoints: (
+      desktop: 30em
+    ) !default;
+
+    $app-typography-scale: (
+      12: (
+        null: (
+          font-size: 12px,
+          line-height: 15px
+        ),
+        print: (
+          font-size: 14pt,
+          line-height: 1.5
+        )
+      ),
+      14: (
+        null: (
+          font-size: 12px,
+          line-height: 15px
+        ),
+        desktop: (
+          font-size: 14px,
+          line-height: 20px
+        )
+      ),
+      16: (
+        null: (
+          font-size: 14px,
+          line-height: 15px
+        ),
+        desktop: (
+          font-size: 16px,
+          line-height: 20px
+        ),
+        deprecation: (
+          key: "test-key",
+          message: "This point on the scale is deprecated."
+        )
       )
+    ) !default;
+
+    @use "core/settings/breakpoints" as * with (
+      $nhsuk-breakpoints: $app-breakpoints
     );
 
     @use "core/settings/typography" as * with (
-      $nhsuk-typography-scale: (
-        12: (
-          null: (
-            font-size: 12px,
-            line-height: 15px
-          ),
-          print: (
-            font-size: 14pt,
-            line-height: 1.5
-          )
-        ),
-        14: (
-          null: (
-            font-size: 12px,
-            line-height: 15px
-          ),
-          desktop: (
-            font-size: 14px,
-            line-height: 20px
-          )
-        ),
-        16: (
-          null: (
-            font-size: 14px,
-            line-height: 15px
-          ),
-          desktop: (
-            font-size: 16px,
-            line-height: 20px
-          ),
-          deprecation: (
-            key: "test-key",
-            message: "This point on the scale is deprecated."
-          )
-        )
-      )
+      $nhsuk-typography-scale: $app-typography-scale
     );
 
     ${sassModules}
@@ -270,28 +274,24 @@ describe('Typography tools', () => {
 
     it('outputs CSS using points as strings', async () => {
       const sass = outdent`
-        @use "core/settings/breakpoints" as * with (
-          $nhsuk-breakpoints: (
-            desktop: 30em
-          )
+        $app-breakpoints: (
+          desktop: 30em
         );
 
-        @use "core/settings/typography" as * with (
-          $nhsuk-typography-scale: (
-            "small": (
-              null: (
-                font-size: 12px,
-                line-height: 15px
-              ),
-              print: (
-                font-size: 14pt,
-                line-height: 1.5
-              )
+        $app-typography-scale: (
+          "small": (
+            null: (
+              font-size: 12px,
+              line-height: 15px
+            ),
+            print: (
+              font-size: 14pt,
+              line-height: 1.5
             )
           )
         );
 
-        @use "core/tools/typography" as *;
+        ${sassBootstrap}
 
         .foo {
           @include nhsuk-font-size($size: "small")
@@ -637,7 +637,7 @@ describe('Typography tools', () => {
         })
       })
 
-      it('throws a deprecation warning if govuk-typography-responsive is used', async () => {
+      it('throws a deprecation warning if nhsuk-typography-responsive is used', async () => {
         const sass = outdent`
           ${sassBootstrap}
 

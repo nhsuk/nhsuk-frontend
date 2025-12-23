@@ -110,16 +110,15 @@
       + "#{$actual-map-type}. Make sure you are using a map to set the responsive spacing in `_settings/spacing.scss`)";
   }
 
+  // [2]
   @each $breakpoint, $breakpoint-value in $scale-map {
-    // [2]
-
     @if $adjustment {
       $breakpoint-value: $breakpoint-value + $adjustment;
     }
 
     & {
+      // [3]
       @if not $breakpoint {
-        // [3]
         @if $direction == all {
           #{$property}: $breakpoint-value if($important, !important, null);
         } @else {
