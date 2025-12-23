@@ -39,6 +39,19 @@ export const copy = gulp.parallel(
       destPath: join(config.paths.root, 'dist'),
       output: { file: `nhsuk-frontend-${NPM_PACKAGE_VERSION}.min.css` }
     })
+  ),
+
+  /**
+   * Copy and version GitHub release styles (dynamic type)
+   */
+  task.name("copy:styles 'versioned, dynamic type'", () =>
+    assets.copy('nhsuk/nhsuk-frontend-dynamic-type.min.css', {
+      srcPath: join(config.paths.pkg, 'dist'),
+      destPath: join(config.paths.root, 'dist'),
+      output: {
+        file: `nhsuk-frontend-dynamic-type-${NPM_PACKAGE_VERSION}.min.css`
+      }
+    })
   )
 )
 

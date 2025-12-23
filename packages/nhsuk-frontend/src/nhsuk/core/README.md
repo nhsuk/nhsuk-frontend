@@ -152,10 +152,10 @@ nhsuk-u-[grid-size]
 <div class="nhsuk-grid-column-one-half nhsuk-u-one-half"></div>
 ```
 
-### Normal font weight
+### Regular font weight
 
 ```html
-<p class="nhsuk-u-font-weight-normal"></p>
+<p class="nhsuk-u-font-weight-regular"></p>
 ```
 
 ### Secondary text colour

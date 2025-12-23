@@ -1,6 +1,7 @@
 @use "sass:map";
 @use "sass:math";
 @use "sass:string";
+@use "../generic/font-face" as *;
 @use "../settings" as *;
 @use "functions" as *;
 @use "sass-mq" as *;
@@ -13,6 +14,36 @@
 ///
 /// @group tools
 ////
+
+/// 'Common typography' helper
+///
+/// Sets the font family and associated properties, such as font smoothing. Also
+/// overrides the font for print.
+///
+/// @param {List} $font-family [$nhsuk-font-family] Font family to use
+/// @access public
+
+@mixin nhsuk-typography-common($font-family: $nhsuk-font-family) {
+  // If the user is using the default Frutiger font we need to include
+  // the font-face declarations.
+  @if $nhsuk-include-default-font-face {
+    @include nhsuk-font-face-frutiger;
+  }
+
+  // If the user is using the Apple Dynamic Type feature we need to include
+  // the @support CSS at-rule to enable it.
+  @if $nhsuk-include-dynamic-type {
+    @include nhsuk-font-dynamic-type;
+  }
+
+  font-family: $font-family;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media print {
+    font-family: $nhsuk-font-family-print;
+  }
+}
 
 /// Text colour
 ///
@@ -38,13 +69,27 @@
   @include nhsuk-text-colour;
 }
 
-/// Normal font weight
+/// Normal font weight (deprecated)
+///
+/// @alias nhsuk-typography-weight-regular
+/// @deprecated To be removed in v11.0, replaced by nhsuk-typography-weight-regular
+
+@mixin nhsuk-typography-weight-normal($important: false) {
+  @include nhsuk-warning(
+    "font-weight-normal",
+    "nhsuk-typography-weight-normal is deprecated. Use nhsuk-typography-weight-regular instead."
+  );
+
+  @include nhsuk-typography-weight-regular($important);
+}
+
+/// Regular font weight
 ///
 /// @param {Boolean} $important [false] - Whether to mark declarations as
 ///   `!important`. Generally Used to create override classes.
 
-@mixin nhsuk-typography-weight-normal($important: false) {
-  font-weight: $nhsuk-font-normal if($important, !important, null);
+@mixin nhsuk-typography-weight-regular($important: false) {
+  font-weight: $nhsuk-font-weight-regular if($important, !important, null);
 }
 
 /// Bold font weight
@@ -53,7 +98,7 @@
 ///   `!important`. Generally Used to create override classes.
 
 @mixin nhsuk-typography-weight-bold($important: false) {
-  font-weight: $nhsuk-font-bold if($important, !important, null);
+  font-weight: $nhsuk-font-weight-bold if($important, !important, null);
 }
 
 /// Word break helper
@@ -248,13 +293,22 @@
 ///
 /// @param {Number} $size - Size of the font as it would appear on desktop -
 ///   uses the responsive font size map
-/// @param {String} $weight [normal] - Weight: `bold` or `normal`
+/// @param {String} $weight [regular] - Weight: `bold` or `regular`
 /// @param {Number} $line-height [false] - Line-height, if overriding the default
 
-@mixin nhsuk-font($size, $weight: normal, $line-height: false) {
+@mixin nhsuk-font($size, $weight: regular, $line-height: false) {
+  @if $weight == normal {
+    @include nhsuk-warning(
+      "font-weight-normal",
+      "nhsuk-font with `$weight: normal` is deprecated. Use `$weight: regular` instead."
+    );
+  }
+
   & {
-    @if $weight == normal {
-      @include nhsuk-typography-weight-normal;
+    @include nhsuk-typography-common;
+
+    @if $weight == regular or $weight == normal {
+      @include nhsuk-typography-weight-regular;
     } @else if $weight == bold {
       @include nhsuk-typography-weight-bold;
     }

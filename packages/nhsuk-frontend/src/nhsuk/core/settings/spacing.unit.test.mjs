@@ -7,7 +7,7 @@ describe('Spacing settings', () => {
   `
 
   const sassBootstrap = outdent`
-    $spacing-point: 2;
+    $app-spacing-point: 2;
 
     @use "core/settings/breakpoints" as * with (
       $nhsuk-breakpoints: (
@@ -37,7 +37,7 @@ describe('Spacing settings', () => {
         ${sassBootstrap}
 
         .foo {
-          top: nhsuk-spacing($spacing-point)
+          top: nhsuk-spacing($app-spacing-point)
         }
       `
 
@@ -159,7 +159,7 @@ describe('Spacing settings', () => {
         ${sassBootstrap}
 
         .foo {
-          @include nhsuk-responsive-spacing($spacing-point, 'margin')
+          @include nhsuk-responsive-spacing($app-spacing-point, 'margin')
         }
       `
 
@@ -186,7 +186,7 @@ describe('Spacing settings', () => {
         ${sassBootstrap}
 
         .foo {
-          @include nhsuk-responsive-spacing($spacing-point, 'padding', 'top');
+          @include nhsuk-responsive-spacing($app-spacing-point, 'padding', 'top');
         }
       `
 
@@ -233,7 +233,7 @@ describe('Spacing settings', () => {
 
           .foo {
             @include nhsuk-responsive-spacing(
-              $spacing-point,
+              $app-spacing-point,
               'margin',
               $important: true
             )
@@ -264,7 +264,7 @@ describe('Spacing settings', () => {
 
           .foo {
             @include nhsuk-responsive-spacing(
-              $spacing-point,
+              $app-spacing-point,
               'margin',
               'top',
               $important: true
@@ -298,7 +298,7 @@ describe('Spacing settings', () => {
 
           .foo {
             @include nhsuk-responsive-spacing(
-              $spacing-point,
+              $app-spacing-point,
               'margin',
               $adjustment: 2px
             )
@@ -329,7 +329,7 @@ describe('Spacing settings', () => {
 
           .foo {
             @include nhsuk-responsive-spacing(
-              $spacing-point,
+              $app-spacing-point,
               'margin',
               'top',
               $adjustment: 2px
@@ -360,12 +360,12 @@ describe('Spacing settings', () => {
   describe('@mixin nhsuk-responsive-margin', () => {
     it('outputs simple responsive margins', async () => {
       const sass = outdent`
-          ${sassBootstrap}
+        ${sassBootstrap}
 
-          .foo {
-            @include nhsuk-responsive-margin($spacing-point)
-          }
-        `
+        .foo {
+          @include nhsuk-responsive-margin($app-spacing-point)
+        }
+      `
 
       const results = compileStringAsync(sass, {
         loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
@@ -387,17 +387,17 @@ describe('Spacing settings', () => {
 
     it('outputs extreme responsive margins', async () => {
       const sass = outdent`
-          ${sassBootstrap}
+        ${sassBootstrap}
 
-          .foo {
-            @include nhsuk-responsive-margin(
-              $spacing-point,
-              'top',
-              $important: true,
-              $adjustment: 2px
-            )
-          }
-        `
+        .foo {
+          @include nhsuk-responsive-margin(
+            $app-spacing-point,
+            'top',
+            $important: true,
+            $adjustment: 2px
+          )
+        }
+      `
 
       const results = compileStringAsync(sass, {
         loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
@@ -421,12 +421,12 @@ describe('Spacing settings', () => {
   describe('@mixin nhsuk-responsive-padding', () => {
     it('outputs simple responsive padding', async () => {
       const sass = outdent`
-          ${sassBootstrap}
+        ${sassBootstrap}
 
-          .foo {
-            @include nhsuk-responsive-padding($spacing-point)
-          }
-        `
+        .foo {
+          @include nhsuk-responsive-padding($app-spacing-point)
+        }
+      `
 
       const results = compileStringAsync(sass, {
         loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
@@ -448,17 +448,17 @@ describe('Spacing settings', () => {
 
     it('outputs extreme responsive padding', async () => {
       const sass = outdent`
-          ${sassBootstrap}
+        ${sassBootstrap}
 
-          .foo {
-            @include nhsuk-responsive-padding(
-              $spacing-point,
-              'top',
-              $important: true,
-              $adjustment: 2px
-            )
-          }
-        `
+        .foo {
+          @include nhsuk-responsive-padding(
+            $app-spacing-point,
+            'top',
+            $important: true,
+            $adjustment: 2px
+          )
+        }
+      `
 
       const results = compileStringAsync(sass, {
         loadPaths: ['packages/nhsuk-frontend/src/nhsuk']

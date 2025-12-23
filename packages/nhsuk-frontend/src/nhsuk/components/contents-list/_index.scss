@@ -31,7 +31,7 @@
       display: block;
 
       position: absolute;
-      top: nhsuk-em(12px);
+      top: nhsuk-em(12, 16);
       left: 0;
 
       width: nhsuk-spacing(3);
@@ -45,6 +45,6 @@
   }
 
   .nhsuk-contents-list__current {
-    font-weight: $nhsuk-font-bold;
+    font-weight: $nhsuk-font-weight-bold;
   }
 }
