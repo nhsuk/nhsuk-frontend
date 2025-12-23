@@ -38,7 +38,7 @@
 {% endif %}
 {% if params.head %}
   <thead class="nhsuk-table__head" {%- if params.responsive %} role="rowgroup"{% endif %}>
-    <tr {%- if params.responsive %} role="row"{% endif %}>
+    <tr class="nhsuk-table__row" {%- if params.responsive %} role="row"{% endif %}>
     {% for item in params.head %}
       {% if item %}
       <th scope="col" class="nhsuk-table__header
