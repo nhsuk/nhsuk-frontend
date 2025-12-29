@@ -10,12 +10,17 @@
 // Font families
 // =========================================================
 
+// @deprecated To be removed in v11.0
+$nhsuk-font: "Frutiger W01" !default;
+
+// @deprecated To be removed in v11.0
+$nhsuk-font-fallback: arial, sans-serif !default;
+
 /// Font families to use for all typography on screen media
 ///
 /// @type List
 
-$nhsuk-font: "Frutiger W01" !default;
-$nhsuk-font-fallback: arial, sans-serif !default;
+$nhsuk-font-family: $nhsuk-font, $nhsuk-font-fallback !default;
 
 /// Font families to use for print media
 ///
