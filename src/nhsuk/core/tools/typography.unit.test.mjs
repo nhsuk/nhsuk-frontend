@@ -207,7 +207,7 @@ describe('Typography tools', () => {
           @media (min-width: 30em) {
             .foo {
               font-size: 0.875rem;
-              line-height: 1.42857;
+              line-height: 1.4285714286;
             }
           }
         `
@@ -265,7 +265,7 @@ describe('Typography tools', () => {
           @media (min-width: 30em) {
             .foo {
               font-size: 0.875rem;
-              line-height: 1.42857;
+              line-height: 1.4285714286;
             }
           }
         `
@@ -381,7 +381,7 @@ describe('Typography tools', () => {
             @media (min-width: 30em) {
               .foo {
                 font-size: 0.875rem !important;
-                line-height: 1.42857 !important;
+                line-height: 1.4285714286 !important;
               }
             }
           `
@@ -475,7 +475,7 @@ describe('Typography tools', () => {
             @media (min-width: 30em) {
               .foo {
                 font-size: 0.875rem;
-                line-height: 1.42857;
+                line-height: 1.4285714286;
               }
             }
           `
