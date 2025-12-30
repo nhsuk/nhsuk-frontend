@@ -17,9 +17,9 @@
     $vertical-gap: nhsuk-spacing(3);
 
     // These need to be kept in sync with the button component's styles
-    $button-padding-top-bottom-mobile: 10px;
-    $button-padding-top-bottom-desktop: 14px;
-    $button-padding-top-bottom-small: 6px;
+    $button-padding-top-bottom-mobile: nhsuk-px-to-rem(10px);
+    $button-padding-top-bottom-desktop: nhsuk-px-to-rem(14px);
+    $button-padding-top-bottom-small: nhsuk-px-to-rem(6px);
 
     // Flexbox is used to center-align links on mobile, align everything along
     // the baseline on tablet and above, and to removes extra whitespace that
@@ -50,7 +50,7 @@
       // with align-items: center
       max-width: 100%;
       margin-top: $button-padding-top-bottom-mobile;
-      margin-bottom: $button-padding-top-bottom-mobile + $nhsuk-button-shadow-size + $vertical-gap;
+      margin-bottom: calc($button-padding-top-bottom-mobile + $nhsuk-button-shadow-size + $vertical-gap);
       text-align: center;
       @include nhsuk-font(19, $line-height: 19px);
     }
@@ -61,7 +61,7 @@
     &--small > .nhsuk-link,
     &--small > a:not(.nhsuk-button) {
       margin-top: $button-padding-top-bottom-small;
-      margin-bottom: $button-padding-top-bottom-small + $vertical-gap + $nhsuk-button-shadow-size;
+      margin-bottom: calc($button-padding-top-bottom-small + $nhsuk-button-shadow-size + $vertical-gap);
     }
 
     // Reduce the bottom margin to the size of the vertical gap (accommodating

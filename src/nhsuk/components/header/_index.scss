@@ -194,7 +194,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     overflow: hidden;
 
     border: 1px solid nhsuk-shade($nhsuk-brand-colour, 20%);
-    border-radius: $nhsuk-border-radius;
+    border-radius: nhsuk-px-to-rem($nhsuk-border-radius);
 
     background-color: nhsuk-shade($nhsuk-brand-colour, 20%);
 
@@ -302,22 +302,19 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
 
   // Disable default search input appearance
   .nhsuk-header__search-input.nhsuk-input {
-    $_header-border-width-form-element: 1px;
     width: 100%;
-    height: 40px;
-    margin-right: -$_header-border-width-form-element;
-    padding-right: $_header-item-padding;
-    padding-left: $_header-item-padding;
+    height: nhsuk-px-to-rem(40px);
+    padding-right: $_header-item-padding - $nhsuk-border-width-form-element;
+    padding-left: $_header-item-padding - $nhsuk-border-width-form-element;
 
-    border: $_header-border-width-form-element solid transparent;
-    border-radius: $nhsuk-border-radius 0 0 $nhsuk-border-radius;
+    border-radius: nhsuk-px-to-rem($nhsuk-border-radius) 0 0 nhsuk-px-to-rem($nhsuk-border-radius);
+    border-color: transparent;
+
     @include nhsuk-font-size(16);
 
     &:focus {
       z-index: 10;
-      padding-right: $_header-item-padding - $_header-border-width-form-element;
-      padding-left: $_header-item-padding - ($_header-border-width-form-element * 2);
-      border: $nhsuk-border-width-form-element solid $nhsuk-focus-text-colour;
+      border-color: $nhsuk-focus-text-colour;
     }
 
     &::placeholder {
@@ -344,12 +341,15 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
   .nhsuk-header__search-submit {
     flex-shrink: 0;
 
-    width: 44px;
-    height: nhsuk-spacing(6);
+    width: nhsuk-px-to-rem(44px);
+    height: nhsuk-px-to-rem(40px);
     margin: 0;
 
+    // Reduce padding to better fit icon
+    padding: 0 nhsuk-spacing(2) - 1px;
+
     border: 1px solid transparent;
-    border-radius: 0 $nhsuk-border-radius $nhsuk-border-radius 0;
+    border-radius: 0 nhsuk-px-to-rem($nhsuk-border-radius) nhsuk-px-to-rem($nhsuk-border-radius) 0;
 
     color: $nhsuk-brand-colour;
     background-color: $nhsuk-header-item-button-colour;
@@ -654,6 +654,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
 
     .nhsuk-header__search-input.nhsuk-input:not(:focus) {
       margin-right: -1px;
+      padding-right: $_header-item-padding;
       padding-left: $_header-item-padding - 1px;
       border-width: 1px;
       border-color: $nhsuk-border-hover-colour;

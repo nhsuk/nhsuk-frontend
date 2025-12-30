@@ -12,22 +12,22 @@
 /// @group components/radios
 ////
 
-$nhsuk-radios-size: nhsuk-spacing(6);
-$nhsuk-radios-small-size: nhsuk-spacing(4);
+$nhsuk-radios-size: nhsuk-px-to-rem(nhsuk-spacing(6));
+$nhsuk-radios-small-size: nhsuk-px-to-rem(nhsuk-spacing(4));
 
-$nhsuk-radios-label-padding-left-right: 12px;
+$nhsuk-radios-label-padding-left-right: nhsuk-px-to-rem(12px);
 
 // When the default focus width is used on a curved edge it looks visually
 // smaller. So for the circular radios we bump the default to make it look
 // visually consistent.
-$nhsuk-radios-focus-width: $nhsuk-focus-width + 1px;
+$nhsuk-radios-focus-width: nhsuk-px-to-rem($nhsuk-focus-width + 1px);
 
 // Offset 2px due to 40px form control with 44px clickable area
 // https://nhsuk.github.io/nhsuk-frontend/examples/form-alignment/
 $nhsuk-radios-offset: $nhsuk-border-width-form-element;
 
 @include nhsuk-exports("nhsuk/components/radios") {
-  $nhsuk-touch-target-gutter: 4px;
+  $nhsuk-touch-target-gutter: nhsuk-px-to-rem(4px);
   $nhsuk-touch-target-size: $nhsuk-radios-size + $nhsuk-touch-target-gutter;
 
   .nhsuk-radios {
@@ -105,7 +105,7 @@ $nhsuk-radios-offset: $nhsuk-border-width-form-element;
   // We create the 'button' entirely out of 'border' so that they remain
   // 'filled' even when colours are overridden in the browser.
   .nhsuk-radios__label::after {
-    $radio-button-size: 10px;
+    $radio-button-size: nhsuk-px-to-rem(10px);
 
     content: "";
 
@@ -201,7 +201,7 @@ $nhsuk-radios-offset: $nhsuk-border-width-form-element;
 
   // Calculate the amount of padding needed to keep the border centered against
   // the radios.
-  $conditional-border-padding: math.div($nhsuk-touch-target-size, 2) - $nhsuk-border-width-form-element;
+  $conditional-border-padding: math.div($nhsuk-touch-target-size, 2) - nhsuk-px-to-rem($nhsuk-border-width-form-element);
   // Move the border centered with the radios
   $conditional-margin-left: $conditional-border-padding;
   // Move the contents of the conditional inline with the label
@@ -265,7 +265,7 @@ $nhsuk-radios-offset: $nhsuk-border-width-form-element;
     //
     // Reduce the size of the 'button' and center it within the ring
     .nhsuk-radios__label::after {
-      $radio-button-size: 5px;
+      $radio-button-size: nhsuk-px-to-rem(5px);
 
       // The same calculation as normal radio buttons but reduce the border width
       top: math.div($nhsuk-touch-target-size, 2) - $radio-button-size;
@@ -287,9 +287,9 @@ $nhsuk-radios-offset: $nhsuk-border-width-form-element;
 
     // Align conditional reveals with small radios
     .nhsuk-radios__conditional {
-      $margin-left: math.div($nhsuk-radios-small-size, 2) - $nhsuk-border-width-form-element;
+      $margin-left: math.div($nhsuk-radios-small-size, 2) - nhsuk-px-to-rem($nhsuk-border-width-form-element);
       margin-left: $margin-left;
-      padding-left: ($nhsuk-touch-target-size - $input-offset) - ($margin-left + $nhsuk-border-width);
+      padding-left: ($nhsuk-touch-target-size - $input-offset) - ($margin-left + nhsuk-px-to-rem($nhsuk-border-width));
     }
 
     .nhsuk-radios__divider {
