@@ -49,8 +49,8 @@
   .nhsuk-fieldset__legend--xl,
   .nhsuk-fieldset__legend--l,
   .nhsuk-fieldset__legend--m {
-    @include nhsuk-typography-weight-bold;
     margin-bottom: nhsuk-spacing(3);
+    @include nhsuk-typography-weight-bold;
   }
 
   .nhsuk-fieldset__legend--xl {
