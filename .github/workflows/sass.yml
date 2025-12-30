@@ -37,6 +37,12 @@ jobs:
           # Release with `import` deprecated
           - 1.80.0
 
+          # Release with `misplaced-rest` deprecated
+          - 1.91.0
+
+          # Release with `if-function` deprecated
+          - 1.95.0
+
           # Dart Sass latest major version
           - latest
 
