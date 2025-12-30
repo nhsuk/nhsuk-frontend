@@ -45,7 +45,7 @@
 
     @include nhsuk-media-query($from: tablet) {
       padding-left: nhsuk-px-to-rem($_large-icon-size + $_large-icon-spacing); // [2]
-      line-height: nhsuk-line-height($_large-icon-size, $font-size: 22);
+      line-height: nhsuk-line-height($_large-icon-size, $font-size: 22px);
     }
 
     .nhsuk-icon {

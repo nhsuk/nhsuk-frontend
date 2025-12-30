@@ -62,7 +62,7 @@ $button-shadow-size: $nhsuk-button-shadow-size;
       width: auto;
       min-height: nhsuk-px-to-rem(56px);
       padding: $nhsuk-button-padding-top-bottom-desktop $nhsuk-button-padding-left-right; // [5]
-      line-height: nhsuk-line-height(24px, $font-size: 19);
+      line-height: nhsuk-line-height(24px, $font-size: 19px);
     }
 
     // [1]
