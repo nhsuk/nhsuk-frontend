@@ -1,3 +1,4 @@
+@use "sass:math";
 @use "../settings" as *;
 @use "../tools/exports" as *;
 
@@ -47,7 +48,7 @@
 @mixin nhsuk-font-dynamic-type {
   @at-root {
     html {
-      font-size: $nhsuk-root-font-size;
+      font-size: math.percentage(math.div($nhsuk-root-font-size, 16px));
 
       @supports (font: -apple-system-body) and (-webkit-touch-callout: default) {
         // stylelint-disable-next-line font-family-no-missing-generic-family-keyword
