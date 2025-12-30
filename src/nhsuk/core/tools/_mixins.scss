@@ -1,3 +1,5 @@
+// stylelint-disable declaration-no-important
+
 @use "../settings" as *;
 @use "../helpers" as *;
 @use "sass-mq" as *;
@@ -70,27 +72,38 @@
 /// @access private
 
 @mixin _nhsuk-visually-hide-content($important: true) {
-  position: absolute if($important, !important, null);
+  $properties: (
+    "position": absolute,
 
-  width: 1px if($important, !important, null);
-  height: 1px if($important, !important, null);
-  // If margin is set to a negative value it can cause text to be announced in
-  // the wrong order in VoiceOver for OSX
-  margin: 0 if($important, !important, null);
-  padding: 0 if($important, !important, null);
+    "width": 1px,
+    "height": 1px,
 
-  overflow: hidden if($important, !important, null);
+    // If margin is set to a negative value it can cause text to be announced in
+    // the wrong order in VoiceOver for OSX
+    "margin": 0,
+    "padding": 0,
 
-  // `clip` is needed for IE11 support
-  clip: rect(0 0 0 0) if($important, !important, null);
-  clip-path: inset(50%) if($important, !important, null);
+    "overflow": hidden,
 
-  border: 0 if($important, !important, null);
+    // `clip` is needed for IE11 support
+    "clip": rect(0 0 0 0),
+    "clip-path": inset(50%),
+    "border": 0,
 
-  // For long content, line feeds are not interpreted as spaces and small width
-  // causes content to wrap 1 word per line:
-  // https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
-  white-space: nowrap if($important, !important, null);
+    // For long content, line feeds are not interpreted as spaces and small width
+    // causes content to wrap 1 word per line:
+    // https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+    "white-space": nowrap
+  );
+
+  // Workaround to avoid deprecated `if()` function
+  @each $property, $value in $properties {
+    @if $important == true {
+      #{$property}: $value !important;
+    } @else {
+      #{$property}: $value;
+    }
+  }
 
   // Prevent users from selecting or copying visually-hidden text. This prevents
   // a user unintentionally copying more text than they intended and needing to
@@ -180,22 +193,33 @@
     "visually-shown is deprecated. Use @media queries to apply `visually-hidden` instead."
   );
 
-  position: static if($important, !important, null);
+  $properties: (
+    "position": static,
 
-  width: auto if($important, !important, null);
-  height: auto if($important, !important, null);
-  margin: 0 if($important, !important, null);
-  padding: 0 if($important, !important, null);
+    "width": auto,
+    "height": auto,
+    "margin": 0,
+    "padding": 0,
 
-  overflow: visible if($important, !important, null);
+    "overflow": visible,
 
-  clip: auto if($important, !important, null);
-  clip-path: none if($important, !important, null);
+    "clip": auto,
+    "clip-path": none,
 
-  border: none if($important, !important, null);
+    "border": none,
 
-  white-space: normal if($important, !important, null);
-  user-select: auto if($important, !important, null);
+    "white-space": normal,
+    "user-select": auto
+  );
+
+  // Workaround to avoid deprecated `if()` function
+  @each $property, $value in $properties {
+    @if $important == true {
+      #{$property}: $value !important;
+    } @else {
+      #{$property}: $value;
+    }
+  }
 
   @if $display {
     display: $display;
@@ -281,7 +305,6 @@
 ///
 
 @mixin nhsuk-panel-with-label($panel-background-colour, $panel-text-colour, $panel-border-colour) {
-  // stylelint-disable-next-line declaration-no-important
   padding-top: 0 !important;
   border: 1px solid $panel-border-colour;
 
