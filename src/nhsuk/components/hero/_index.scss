@@ -102,10 +102,10 @@
   // 16. Prevent overlap using safe area: box offset + arrow height + spacing
 
   .nhsuk-hero--image-description {
-    margin-bottom: calc(70px + 20px + nhsuk-spacing(3)); // [16]
+    margin-bottom: 70px + 20px + nhsuk-spacing(3); // [16]
 
     @include nhsuk-media-query($from: tablet) {
-      margin-bottom: calc(48px + 20px + nhsuk-spacing(4)); // [16]
+      margin-bottom: 48px + 20px + nhsuk-spacing(4); // [16]
     }
 
     .nhsuk-hero-content {
