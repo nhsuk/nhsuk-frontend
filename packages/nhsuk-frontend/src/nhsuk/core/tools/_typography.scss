@@ -85,11 +85,7 @@
 
 @function nhsuk-line-height($line-height, $font-size) {
   @if not math.is-unitless($line-height) and math.unit($line-height) == math.unit($font-size) {
-    // Explicitly rounding to 5 decimal places to match the node-sass/libsass default precision.
-    // This is expanded to 10 in dart-sass and results in significant line height differences
-    // Therefore by rounding it here we achieve consistent rendering across node-sass and dart-sass
-    $ten-to-the-power-five: 100000;
-    $line-height: math.div(round(math.div($line-height, $font-size) * $ten-to-the-power-five), $ten-to-the-power-five);
+    $line-height: math.div($line-height, $font-size);
   }
 
   @return $line-height;
