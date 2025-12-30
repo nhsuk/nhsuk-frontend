@@ -76,6 +76,21 @@ $nhsuk-font-weight-normal: $nhsuk-font-normal !default;
 
 $nhsuk-font-weight-bold: $nhsuk-font-bold !default;
 
+/// Feature flag for Apple Dynamic Type
+///
+/// When set to true, $nhsuk-include-dynamic-type will automatically apply the
+/// user's preferred text size on iOS and iPadOS devices.
+///
+/// Note: This flag adjusts `$nhsuk-root-font-size` from 16px to 17px when set.
+/// Please review all custom sizes not calculated relative to the root font
+/// size as they will not scale dynamically.
+///
+/// @type Boolean
+///
+/// @link https://developer.apple.com/design/human-interface-guidelines/typography#Supporting-Dynamic-Type
+
+$nhsuk-include-dynamic-type: false !default;
+
 /// Root font size
 ///
 /// This is used to calculate rem sizes for the typography, and should match the
@@ -87,7 +102,11 @@ $nhsuk-font-weight-bold: $nhsuk-font-bold !default;
 ///
 /// @type Number
 
-$nhsuk-root-font-size: 17px !default;
+$nhsuk-root-font-size: 16px !default;
+
+@if $nhsuk-include-dynamic-type {
+  $nhsuk-root-font-size: 17px;
+}
 
 // =========================================================
 // Icon sizes

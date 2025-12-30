@@ -214,6 +214,39 @@ describe('Typography tools', () => {
       })
     })
 
+    it('outputs CSS with suitable media queries (with dynamic type enabled)', async () => {
+      const sass = outdent`
+        @use "core/settings/globals" as * with (
+          $nhsuk-include-dynamic-type: true
+        );
+
+        ${sassBootstrap}
+
+        .foo {
+          @include nhsuk-font-size($size: 14)
+        }
+      `
+
+      const results = compileStringAsync(sass, {
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+      })
+
+      await expect(results).resolves.toMatchObject({
+        css: outdent`
+          .foo {
+            font-size: 0.7058823529rem;
+            line-height: 1.25;
+          }
+          @media (min-width: 30em) {
+            .foo {
+              font-size: 0.8235294118rem;
+              line-height: 1.4285714286;
+            }
+          }
+        `
+      })
+    })
+
     it('outputs CSS with suitable media queries for print', async () => {
       const sass = outdent`
         ${sassBootstrap}
@@ -501,6 +534,32 @@ describe('Typography tools', () => {
 
         await expect(results).resolves.toMatchObject({
           css: expect.not.stringContaining('font-size: 0.875rem')
+        })
+      })
+
+      it('sets font-size based on $size (with dynamic type enabled)', async () => {
+        const sass = outdent`
+          @use "core/settings/globals" as * with (
+            $nhsuk-include-dynamic-type: true
+          );
+
+          ${sassBootstrap}
+
+          .foo {
+            @include nhsuk-font($size: 12)
+          }
+        `
+
+        const results = compileStringAsync(sass, {
+          loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+        })
+
+        await expect(results).resolves.toMatchObject({
+          css: expect.stringContaining('font-size: 0.7058823529rem')
+        })
+
+        await expect(results).resolves.toMatchObject({
+          css: expect.not.stringContaining('font-size: 0.8235294118rem')
         })
       })
 
