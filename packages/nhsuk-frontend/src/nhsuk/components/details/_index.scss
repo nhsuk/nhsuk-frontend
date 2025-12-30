@@ -23,7 +23,7 @@ $nhsuk-expander-border-width: 1px;
 $nhsuk-expander-border-bottom-width: nhsuk-spacing(1);
 $nhsuk-expander-border-colour: $nhsuk-border-colour;
 $nhsuk-expander-border-hover-colour: $nhsuk-border-hover-colour;
-$nhsuk-expander-icon-size: 27px; // 19px font size + 4px summary text padding
+$nhsuk-expander-icon-size: $nhsuk-icon-size + 4px; // Icon size within 28px circle
 
 // @deprecated To be removed in v11.0
 $expander-border-width: $nhsuk-expander-border-width;
@@ -78,7 +78,7 @@ $expander-icon-size: $nhsuk-expander-icon-size;
     .nhsuk-details__summary {
       position: relative; // [3]
       width: fit-content; // [2]
-      padding-left: nhsuk-spacing(4);
+      padding-left: nhsuk-px-to-rem($nhsuk-icon-size);
       color: $nhsuk-link-colour; // [1]
       cursor: pointer;
 
@@ -205,7 +205,7 @@ $expander-icon-size: $nhsuk-expander-icon-size;
         position: relative;
 
         padding: nhsuk-spacing(1);
-        padding-left: $nhsuk-expander-icon-size + nhsuk-spacing(2);
+        padding-left: calc(nhsuk-spacing(1) + nhsuk-px-to-rem($nhsuk-expander-icon-size + nhsuk-spacing(2)));
 
         color: $nhsuk-link-colour;
 
@@ -220,32 +220,93 @@ $expander-icon-size: $nhsuk-expander-icon-size;
         @include nhsuk-focused-text;
       }
 
-      // Internet Explorer 11 doesn’t support clip-path, but we don’t show the
-      // ::before pseudo element to users of that browser
-      .nhsuk-details__summary-text::before {
+      .nhsuk-details__summary-text::before,
+      .nhsuk-details__summary-text::after {
         content: "";
-
         position: absolute;
-        top: calc(50% - math.div($nhsuk-expander-icon-size, 2));
+      }
+
+      .nhsuk-details__summary-text::before {
+        top: calc(50% - nhsuk-px-to-rem(math.div($nhsuk-expander-icon-size, 2)));
         left: 0;
 
-        width: $nhsuk-expander-icon-size;
-        height: $nhsuk-expander-icon-size;
+        width: nhsuk-px-to-rem($nhsuk-expander-icon-size);
+        height: nhsuk-px-to-rem($nhsuk-expander-icon-size);
 
-        clip-path: path(
-          "M13.5 1a12.5 12.5 0 1 1 0 25 12.5 12.5 0 0 1 0-25Zm0 6c-.8 0-1.5.7-1.5 1.5V12H8.5c-.8 0-1.4.6-1.5 1.4v.1c0 .8.7 1.5 1.5 1.5H12v3.5c0 .8.6 1.4 1.4 1.5h.1c.8 0 1.5-.7 1.5-1.5V15h3.5c.8 0 1.4-.6 1.5-1.4v-.1c0-.8-.7-1.5-1.5-1.5H15V8.5c0-.8-.6-1.4-1.4-1.5Z"
-        ); // Plus icon
+        border-radius: 50%;
 
         background-color: currentcolor;
+      }
+
+      // Internet Explorer 11 doesn’t support clip-path, but we don’t show the
+      // ::before pseudo element to users of that browser
+      .nhsuk-details__summary-text::after {
+        top: calc(50% - nhsuk-px-to-rem(math.div($nhsuk-icon-size, 2)));
+        left: nhsuk-px-to-rem(math.div($nhsuk-expander-icon-size - $nhsuk-icon-size, 2));
+
+        width: nhsuk-px-to-rem($nhsuk-icon-size);
+        height: nhsuk-px-to-rem($nhsuk-icon-size);
+
+        clip-path: polygon(
+          50% 16.67%,
+          52.6% 17.29%,
+          54.69% 18.97%,
+          56.25% 21.35%,
+          56.25% 43.75%,
+          78.65% 43.75%,
+          81.03% 45.31%,
+          82.71% 47.4%,
+          83.33% 50%,
+          82.71% 52.6%,
+          81.03% 54.69%,
+          78.65% 56.25%,
+          56.25% 56.25%,
+          56.25% 78.65%,
+          54.69% 81.03%,
+          52.6% 82.71%,
+          50% 83.33%,
+          47.4% 82.71%,
+          45.31% 81.03%,
+          43.75% 78.65%,
+          43.75% 56.25%,
+          21.35% 56.25%,
+          18.97% 54.69%,
+          17.29% 52.6%,
+          16.67% 50%,
+          17.29% 47.4%,
+          18.97% 45.31%,
+          21.35% 43.75%,
+          43.75% 43.75%,
+          43.75% 21.35%,
+          45.31% 18.97%,
+          47.4% 17.29%
+        ); // Plus icon
+
+        background-color: nhsuk-colour("white");
       }
 
       &[open] {
         border-bottom-width: $nhsuk-expander-border-width;
       }
 
-      &[open] .nhsuk-details__summary-text::before {
-        clip-path: path(
-          "M13.5 1a12.5 12.5 0 1 1 0 25 12.5 12.5 0 0 1 0-25Zm5 11h-10a1.5 1.5 0 0 0 0 3h10a1.5 1.5 0 0 0 0-3Z"
+      &[open] .nhsuk-details__summary-text::after {
+        clip-path: polygon(
+          22.92% 43.75%,
+          77.08% 43.75%,
+          79.69% 44.27%,
+          81.77% 45.83%,
+          83.33% 48.44%,
+          83.33% 51.56%,
+          81.77% 54.17%,
+          79.69% 55.73%,
+          77.08% 56.25%,
+          22.92% 56.25%,
+          20.31% 55.73%,
+          18.23% 54.17%,
+          16.67% 51.56%,
+          16.67% 48.44%,
+          18.23% 45.83%,
+          20.31% 44.27%
         ); // Minus icon
       }
     }
