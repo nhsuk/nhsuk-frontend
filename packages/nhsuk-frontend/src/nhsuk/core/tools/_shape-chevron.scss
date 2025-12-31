@@ -29,7 +29,7 @@
 
   clip-path: polygon(100% 100%, 100% 0, 0 0);
 
-  border-radius: 2px;
+  border-radius: $outline-width;
 
   // Safari renders a hairline gap if we use borders, so use an inset outline
   // instead. Because outlines are added to all sides of a box, we hide the
