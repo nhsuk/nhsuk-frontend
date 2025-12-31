@@ -28,7 +28,10 @@ describe('normaliseDataset', () => {
         aStringNumber: { type: 'string' },
         anOptionalString: { type: 'string' },
         anObject: { type: 'object' },
-        anArray: { type: 'array' }
+        anArray1: { type: 'array' },
+        anArray2: { type: 'array' },
+        anArray3: { type: 'array' },
+        anArray4: { type: 'array' }
       }
     }
 
@@ -47,7 +50,10 @@ describe('normaliseDataset', () => {
         two: '200',
         three: '300'
       },
-      anArray: ['goose', 'gull', 'gannet']
+      anArray1: [],
+      anArray2: [true],
+      anArray3: [1, 2, 3, 4],
+      anArray4: ['goose', 'gull', 'gannet']
     }
   }
 
@@ -64,7 +70,10 @@ describe('normaliseDataset', () => {
         'anObject.one': '111',
         'anObject.two': '222',
         'anObject.three': '333',
-        'anArray': '["goose", "gull", "gannet"]'
+        'anArray1': '[]',
+        'anArray2': '[true]',
+        'anArray3': '[1, 2, 3, 4]',
+        'anArray4': '["goose", "gull", "gannet"]'
       })
     ).toEqual({
       aNumber: 1000,
@@ -79,7 +88,10 @@ describe('normaliseDataset', () => {
         two: 222,
         three: 333
       },
-      anArray: ['goose', 'gull', 'gannet']
+      anArray1: [],
+      anArray2: [true],
+      anArray3: [1, 2, 3, 4],
+      anArray4: ['goose', 'gull', 'gannet']
     })
   })
 
@@ -100,7 +112,10 @@ describe('normaliseDataset', () => {
  * @property {string} aStringNumber - A string number
  * @property {string} [anOptionalString] - An optional string
  * @property {{ one: string, two: string, three: string }} anObject - An object
- * @property {(string | number | boolean)[]} anArray - An array
+ * @property {(string | number | boolean)[]} anArray1 - An array
+ * @property {(string | number | boolean)[]} anArray2 - An array
+ * @property {(string | number | boolean)[]} anArray3 - An array
+ * @property {(string | number | boolean)[]} anArray4 - An array
  */
 
 /**
