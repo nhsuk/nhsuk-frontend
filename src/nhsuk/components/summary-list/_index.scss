@@ -101,7 +101,7 @@
   }
 
   .nhsuk-summary-list__value > p {
-    margin-bottom: 12px;
+    margin-bottom: nhsuk-px-to-rem(12px);
   }
 
   .nhsuk-summary-list__value > :last-child {
