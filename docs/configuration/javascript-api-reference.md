@@ -11,6 +11,7 @@ This page lists the options available for the following components:
 - [CharacterCount](#charactercount)
 - [Checkboxes](#checkboxes)
 - [ErrorSummary](#errorsummary)
+- [FileUpload](#fileupload)
 - [Header](#header)
 - [NotificationBanner](#notificationbanner)
 - [PasswordInput](#passwordinput)
@@ -264,6 +265,195 @@ Default:
 
 ```json5
 false
+```
+
+## FileUpload
+
+### dropZoneClass
+
+Type: string
+
+Class name added to the file drop zone.
+
+Default:
+
+```json5
+  'nhsuk-file-upload__drop-zone'
+```
+
+### dropButtonClass
+
+Type: string
+
+Class name added to the file selection button.
+
+Default:
+
+```json5
+  'nhsuk-file-upload__drop-button'
+```
+
+### dropButtonGroupClass
+
+Type: string
+
+Class name added to the button group used by the choose files button and instructions.
+
+Default:
+
+```json5
+  'nhsuk-file-upload__drop-button-group'
+```
+
+### dropInstructionClass
+
+Type: string
+
+Class name added to the instructions informing users they can drop files.
+
+Default:
+
+```json5
+  'nhsuk-file-upload__drop-instruction'
+```
+
+### chooseFilesButtonClass
+
+Type: string
+
+Class name added to the choose files button.
+
+Default:
+
+```json5
+  'nhsuk-file-upload__choose-files-button'
+```
+
+### chooseFilesButtonClassList
+
+Type: array
+
+Class names as modifier classes added to the choose files button.
+
+Default:
+
+```json5
+  ['nhsuk-button--secondary']
+```
+
+### announcementsClass
+
+Type: string
+
+Class name added to the visually hidden screen reader announcements relating to
+choosing and dropping files.
+
+Default:
+
+```json5
+  'nhsuk-file-upload__announcements'
+```
+
+### statusClass
+
+Type: string
+
+Class name added to the status message to show how many files are selected.
+
+Default:
+
+```json5
+  'nhsuk-file-upload__status'
+```
+
+### i18n
+
+Type: object
+
+Messages the component uses for screen reader announcements relating to choosing
+and dropping files.
+
+All of these strings should be short and in plain text.
+
+#### Properties
+
+##### chooseFilesButton
+
+Type: string
+
+The text of the button that opens the file picker.
+
+Default:
+
+```json5
+  'Choose file'
+```
+
+##### dropInstruction
+
+Type: string
+
+The text informing users they can drop files.
+
+Default:
+
+```json5
+  'or drop file'
+```
+
+##### noFileChosen
+
+Type: string
+
+The text to display when no file has been chosen by the user.
+
+Default:
+
+```json5
+  'No file chosen'
+```
+
+##### multipleFilesChosen
+
+Type: object
+
+The text displayed when multiple files have been chosen by the user.
+
+Default:
+
+```json5
+  {
+    // the 'one' string isn't used as the component displays the filename
+    // instead, however it's here for coverage's sake
+    one: '%{count} file chosen',
+    other: '%{count} files chosen'
+  },
+```
+
+##### enteredDropZone
+
+Type: string
+
+The text announced by assistive technology when the user drags files and enters
+the drop zone
+
+Default:
+
+```json5
+  'Entered drop zone'
+```
+
+##### leftDropZone
+
+Type: string
+
+The text announced by assistive technology when user drags files and leaves the
+drop zone without dropping
+
+Default:
+
+```json5
+  'Left drop zone'
 ```
 
 ## Header
