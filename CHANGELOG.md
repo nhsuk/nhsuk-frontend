@@ -45,6 +45,30 @@ If you are not using Nunjucks macros, update your HTML markup using the [table e
 
 This change was introduced in [pull request #1710: Fix responsive table `display: flex` issue with nested HTML](https://github.com/nhsuk/nhsuk-frontend/pull/1710).
 
+#### Rename checkbox and radio button 'aria-controls' attributes
+
+For checkboxes and radio buttons with conditionally revealed content, we've renamed the `aria-controls` HTML attribute to `data-aria-controls` to prevent incorrect screen reader announcements when JavaScript is not available.
+
+If you are not using Nunjucks macros, update your HTML markup using the [checkboxes](https://service-manual.nhs.uk/design-system/components/checkboxes) and [radios examples](https://service-manual.nhs.uk/design-system/components/radios) in the NHS digital service manual as follows:
+
+```patch
+  <div class="nhsuk-checkboxes__item">
+-   <input class="nhsuk-checkboxes__input" id="item" name="contact" type="checkbox" value="email" aria-controls="conditional-item">
++   <input class="nhsuk-checkboxes__input" id="item" name="contact" type="checkbox" value="email" data-aria-controls="conditional-item">
+  </div>
+```
+
+```patch
+  <div class="nhsuk-radios__item">
+-   <input class="nhsuk-radios__input" id="item" name="contact" type="radio" value="email" aria-controls="conditional-item">
++   <input class="nhsuk-radios__input" id="item" name="contact" type="radio" value="email" data-aria-controls="conditional-item">
+  </div>
+```
+
+Support for checkbox and radio button `aria-controls` on page load is deprecated and will be removed in a future release.
+
+These changes were introduced in [pull request #1744: Update components for GOV.UK Frontend compatibility](https://github.com/nhsuk/nhsuk-frontend/pull/1744).
+
 ### :wrench: **Fixes**
 
 - [#1734: Fix appearance of summary lists alongside other elements within card content](https://github.com/nhsuk/nhsuk-frontend/issues/1734)
