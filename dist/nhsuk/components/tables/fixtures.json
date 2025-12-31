@@ -1,0 +1,643 @@
+{
+  "name": "Tables",
+  "component": "tables",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "caption": "Impetigo can look similar to other skin conditions",
+        "captionSize": "m",
+        "head": [
+          {
+            "text": "Skin symptoms"
+          },
+          {
+            "text": "Possible cause"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "text": "Blisters on lips or around the mouth"
+            },
+            {
+              "text": "Cold sores"
+            }
+          ],
+          [
+            {
+              "text": "Itchy, dry, cracked, sore"
+            },
+            {
+              "text": "Eczema"
+            }
+          ],
+          [
+            {
+              "text": "Itchy blisters"
+            },
+            {
+              "text": "Shingles, chickenpox"
+            }
+          ]
+        ]
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop"
+        ]
+      },
+      "options": {},
+      "html": "<table class=\"nhsuk-table\">\n  <caption class=\"nhsuk-table__caption nhsuk-table__caption--m\">\n    Impetigo can look similar to other skin conditions\n  </caption>\n  <thead class=\"nhsuk-table__head\">\n    <tr class=\"nhsuk-table__row\">\n      <th scope=\"col\" class=\"nhsuk-table__header\">\n        Skin symptoms\n      </th>\n      <th scope=\"col\" class=\"nhsuk-table__header\">\n        Possible cause\n      </th>\n    </tr>\n  </thead>\n  <tbody class=\"nhsuk-table__body\">\n    <tr class=\"nhsuk-table__row\">\n      <td class=\"nhsuk-table__cell\">\n        Blisters on lips or around the mouth\n      </td>\n      <td class=\"nhsuk-table__cell\">\n        Cold sores\n      </td>\n    </tr>\n    <tr class=\"nhsuk-table__row\">\n      <td class=\"nhsuk-table__cell\">\n        Itchy, dry, cracked, sore\n      </td>\n      <td class=\"nhsuk-table__cell\">\n        Eczema\n      </td>\n    </tr>\n    <tr class=\"nhsuk-table__row\">\n      <td class=\"nhsuk-table__cell\">\n        Itchy blisters\n      </td>\n      <td class=\"nhsuk-table__cell\">\n        Shingles, chickenpox\n      </td>\n    </tr>\n  </tbody>\n</table>"
+    },
+    {
+      "name": "as a panel",
+      "context": {
+        "heading": "Conditions similar to impetigo",
+        "caption": "Other possible causes of your symptoms",
+        "captionClasses": "nhsuk-u-visually-hidden",
+        "panel": true,
+        "head": [
+          {
+            "text": "Skin symptoms"
+          },
+          {
+            "text": "Possible cause"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "text": "Blisters on lips or around the mouth"
+            },
+            {
+              "text": "Cold sores"
+            }
+          ],
+          [
+            {
+              "text": "Itchy, dry, cracked, sore"
+            },
+            {
+              "text": "Eczema"
+            }
+          ],
+          [
+            {
+              "text": "Itchy blisters"
+            },
+            {
+              "text": "Shingles, chickenpox"
+            }
+          ]
+        ]
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop"
+        ]
+      },
+      "options": {},
+      "html": "<div class=\"nhsuk-table__panel-with-heading-tab\">\n  <h3 class=\"nhsuk-table__heading-tab\">\n    Conditions similar to impetigo\n  </h3>\n  <table class=\"nhsuk-table\">\n    <caption class=\"nhsuk-table__caption nhsuk-u-visually-hidden\">\n      Other possible causes of your symptoms\n    </caption>\n    <thead class=\"nhsuk-table__head\">\n      <tr class=\"nhsuk-table__row\">\n        <th scope=\"col\" class=\"nhsuk-table__header\">\n          Skin symptoms\n        </th>\n        <th scope=\"col\" class=\"nhsuk-table__header\">\n          Possible cause\n        </th>\n      </tr>\n    </thead>\n    <tbody class=\"nhsuk-table__body\">\n      <tr class=\"nhsuk-table__row\">\n        <td class=\"nhsuk-table__cell\">\n          Blisters on lips or around the mouth\n        </td>\n        <td class=\"nhsuk-table__cell\">\n          Cold sores\n        </td>\n      </tr>\n      <tr class=\"nhsuk-table__row\">\n        <td class=\"nhsuk-table__cell\">\n          Itchy, dry, cracked, sore\n        </td>\n        <td class=\"nhsuk-table__cell\">\n          Eczema\n        </td>\n      </tr>\n      <tr class=\"nhsuk-table__row\">\n        <td class=\"nhsuk-table__cell\">\n          Itchy blisters\n        </td>\n        <td class=\"nhsuk-table__cell\">\n          Shingles, chickenpox\n        </td>\n      </tr>\n    </tbody>\n  </table>\n</div>"
+    },
+    {
+      "name": "with empty items",
+      "context": {
+        "caption": "Vaccinations given",
+        "captionSize": "m",
+        "head": [
+          {
+            "text": "Date"
+          },
+          {
+            "text": "Vaccine"
+          },
+          false
+        ],
+        "rows": [
+          [
+            {
+              "text": "10 July 2024"
+            },
+            {
+              "text": "RSV"
+            },
+            false
+          ],
+          false
+        ]
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<table class=\"nhsuk-table\">\n  <caption class=\"nhsuk-table__caption nhsuk-table__caption--m\">\n    Vaccinations given\n  </caption>\n  <thead class=\"nhsuk-table__head\">\n    <tr class=\"nhsuk-table__row\">\n      <th scope=\"col\" class=\"nhsuk-table__header\">\n        Date\n      </th>\n      <th scope=\"col\" class=\"nhsuk-table__header\">\n        Vaccine\n      </th>\n    </tr>\n  </thead>\n  <tbody class=\"nhsuk-table__body\">\n    <tr class=\"nhsuk-table__row\">\n      <td class=\"nhsuk-table__cell\">\n        10 July 2024\n      </td>\n      <td class=\"nhsuk-table__cell\">\n        RSV\n      </td>\n    </tr>\n  </tbody>\n</table>"
+    },
+    {
+      "name": "with first cell as header",
+      "context": {
+        "firstCellIsHeader": true,
+        "head": [
+          {
+            "text": "Day of the week"
+          },
+          {
+            "text": "Opening hours"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "text": "Monday"
+            },
+            {
+              "text": "9am to 6pm"
+            }
+          ],
+          [
+            {
+              "text": "Tuesday"
+            },
+            {
+              "text": "9am to 6pm"
+            }
+          ],
+          [
+            {
+              "text": "Wednesday"
+            },
+            {
+              "text": "9am to 6pm"
+            }
+          ],
+          [
+            {
+              "text": "Thursday"
+            },
+            {
+              "text": "9am to 6pm"
+            }
+          ],
+          [
+            {
+              "text": "Friday"
+            },
+            {
+              "text": "9am to 6pm"
+            }
+          ],
+          [
+            {
+              "text": "Saturday"
+            },
+            {
+              "text": "9am to 1pm"
+            }
+          ],
+          [
+            {
+              "text": "Sunday"
+            },
+            {
+              "text": "Closed"
+            }
+          ]
+        ]
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<table class=\"nhsuk-table\">\n  <thead class=\"nhsuk-table__head\">\n    <tr class=\"nhsuk-table__row\">\n      <th scope=\"col\" class=\"nhsuk-table__header\">\n        Day of the week\n      </th>\n      <th scope=\"col\" class=\"nhsuk-table__header\">\n        Opening hours\n      </th>\n    </tr>\n  </thead>\n  <tbody class=\"nhsuk-table__body\">\n    <tr class=\"nhsuk-table__row\">\n      <th scope=\"row\" class=\"nhsuk-table__header\">\n        Monday\n      </th>\n      <td class=\"nhsuk-table__cell\">\n        9am to 6pm\n      </td>\n    </tr>\n    <tr class=\"nhsuk-table__row\">\n      <th scope=\"row\" class=\"nhsuk-table__header\">\n        Tuesday\n      </th>\n      <td class=\"nhsuk-table__cell\">\n        9am to 6pm\n      </td>\n    </tr>\n    <tr class=\"nhsuk-table__row\">\n      <th scope=\"row\" class=\"nhsuk-table__header\">\n        Wednesday\n      </th>\n      <td class=\"nhsuk-table__cell\">\n        9am to 6pm\n      </td>\n    </tr>\n    <tr class=\"nhsuk-table__row\">\n      <th scope=\"row\" class=\"nhsuk-table__header\">\n        Thursday\n      </th>\n      <td class=\"nhsuk-table__cell\">\n        9am to 6pm\n      </td>\n    </tr>\n    <tr class=\"nhsuk-table__row\">\n      <th scope=\"row\" class=\"nhsuk-table__header\">\n        Friday\n      </th>\n      <td class=\"nhsuk-table__cell\">\n        9am to 6pm\n      </td>\n    </tr>\n    <tr class=\"nhsuk-table__row\">\n      <th scope=\"row\" class=\"nhsuk-table__header\">\n        Saturday\n      </th>\n      <td class=\"nhsuk-table__cell\">\n        9am to 1pm\n      </td>\n    </tr>\n    <tr class=\"nhsuk-table__row\">\n      <th scope=\"row\" class=\"nhsuk-table__header\">\n        Sunday\n      </th>\n      <td class=\"nhsuk-table__cell\">\n        Closed\n      </td>\n    </tr>\n  </tbody>\n</table>"
+    },
+    {
+      "name": "with missing data",
+      "context": {
+        "caption": "Vaccinations given",
+        "captionSize": "m",
+        "head": [
+          {
+            "text": "Date"
+          },
+          {
+            "text": "Vaccine"
+          },
+          {
+            "text": "Product"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "text": "10 July 2024"
+            },
+            {
+              "text": "RSV"
+            },
+            {
+              "text": "Abrysvo"
+            }
+          ],
+          [
+            {
+              "text": "6 September 2023"
+            },
+            {
+              "text": "Flu"
+            },
+            {
+              "text": "No data",
+              "classes": "nhsuk-u-secondary-text-colour"
+            }
+          ]
+        ]
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<table class=\"nhsuk-table\">\n  <caption class=\"nhsuk-table__caption nhsuk-table__caption--m\">\n    Vaccinations given\n  </caption>\n  <thead class=\"nhsuk-table__head\">\n    <tr class=\"nhsuk-table__row\">\n      <th scope=\"col\" class=\"nhsuk-table__header\">\n        Date\n      </th>\n      <th scope=\"col\" class=\"nhsuk-table__header\">\n        Vaccine\n      </th>\n      <th scope=\"col\" class=\"nhsuk-table__header\">\n        Product\n      </th>\n    </tr>\n  </thead>\n  <tbody class=\"nhsuk-table__body\">\n    <tr class=\"nhsuk-table__row\">\n      <td class=\"nhsuk-table__cell\">\n        10 July 2024\n      </td>\n      <td class=\"nhsuk-table__cell\">\n        RSV\n      </td>\n      <td class=\"nhsuk-table__cell\">\n        Abrysvo\n      </td>\n    </tr>\n    <tr class=\"nhsuk-table__row\">\n      <td class=\"nhsuk-table__cell\">\n        6 September 2023\n      </td>\n      <td class=\"nhsuk-table__cell\">\n        Flu\n      </td>\n      <td class=\"nhsuk-table__cell nhsuk-u-secondary-text-colour\">\n        No data\n      </td>\n    </tr>\n  </tbody>\n</table>"
+    },
+    {
+      "name": "with numeric data",
+      "context": {
+        "caption": "Prescription prepayment certificate (PPC) charges",
+        "captionSize": "m",
+        "head": [
+          {
+            "text": "Item"
+          },
+          {
+            "text": "Current charge",
+            "format": "numeric"
+          },
+          {
+            "text": "New charge",
+            "format": "numeric"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "text": "3-month"
+            },
+            {
+              "text": "£31.25",
+              "format": "numeric"
+            },
+            {
+              "text": "£32.05",
+              "format": "numeric"
+            }
+          ],
+          [
+            {
+              "text": "12-month"
+            },
+            {
+              "text": "£111.60",
+              "format": "numeric"
+            },
+            {
+              "text": "£114.50",
+              "format": "numeric"
+            }
+          ],
+          [
+            {
+              "text": "HRT"
+            },
+            {
+              "text": "£19.30",
+              "format": "numeric"
+            },
+            {
+              "text": "£19.80",
+              "format": "numeric"
+            }
+          ]
+        ]
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<table class=\"nhsuk-table\">\n  <caption class=\"nhsuk-table__caption nhsuk-table__caption--m\">\n    Prescription prepayment certificate (PPC) charges\n  </caption>\n  <thead class=\"nhsuk-table__head\">\n    <tr class=\"nhsuk-table__row\">\n      <th scope=\"col\" class=\"nhsuk-table__header\">\n        Item\n      </th>\n      <th scope=\"col\" class=\"nhsuk-table__header nhsuk-table__header--numeric\">\n        Current charge\n      </th>\n      <th scope=\"col\" class=\"nhsuk-table__header nhsuk-table__header--numeric\">\n        New charge\n      </th>\n    </tr>\n  </thead>\n  <tbody class=\"nhsuk-table__body\">\n    <tr class=\"nhsuk-table__row\">\n      <td class=\"nhsuk-table__cell\">\n        3-month\n      </td>\n      <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">\n        £31.25\n      </td>\n      <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">\n        £32.05\n      </td>\n    </tr>\n    <tr class=\"nhsuk-table__row\">\n      <td class=\"nhsuk-table__cell\">\n        12-month\n      </td>\n      <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">\n        £111.60\n      </td>\n      <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">\n        £114.50\n      </td>\n    </tr>\n    <tr class=\"nhsuk-table__row\">\n      <td class=\"nhsuk-table__cell\">\n        HRT\n      </td>\n      <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">\n        £19.30\n      </td>\n      <td class=\"nhsuk-table__cell nhsuk-table__cell--numeric\">\n        £19.80\n      </td>\n    </tr>\n  </tbody>\n</table>"
+    },
+    {
+      "name": "with responsive layout",
+      "context": {
+        "caption": "Ibuprofen syrup dosages for children",
+        "captionSize": "m",
+        "responsive": true,
+        "head": [
+          {
+            "text": "Age",
+            "classes": "nhsuk-u-width-one-half"
+          },
+          {
+            "text": "How much?",
+            "classes": "nhsuk-u-width-one-quarter"
+          },
+          {
+            "text": "How often?",
+            "classes": "nhsuk-u-width-one-quarter"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "header": "Age",
+              "text": "3 to 5 months (weighing more than 5kg)"
+            },
+            {
+              "header": "How much?",
+              "text": "2.5ml"
+            },
+            {
+              "header": "How often?",
+              "text": "Max 3 times in 24 hours"
+            }
+          ],
+          [
+            {
+              "header": "Age",
+              "text": "6 to 11 months"
+            },
+            {
+              "header": "How much?",
+              "text": "2.5ml"
+            },
+            {
+              "header": "How often?",
+              "text": "Max 3 to 4 times in 24 hours"
+            }
+          ],
+          [
+            {
+              "header": "Age",
+              "text": "1 to 3 years"
+            },
+            {
+              "header": "How much?",
+              "text": "5ml"
+            },
+            {
+              "header": "How often?",
+              "text": "Max 3 times in 24 hours"
+            }
+          ],
+          [
+            {
+              "header": "Age",
+              "text": "4 to 6 years"
+            },
+            {
+              "header": "How much?",
+              "text": "7.5ml"
+            },
+            {
+              "header": "How often?",
+              "text": "Max 3 times in 24 hours"
+            }
+          ],
+          [
+            {
+              "header": "Age",
+              "text": "7 to 9 years"
+            },
+            {
+              "header": "How much?",
+              "text": "10ml"
+            },
+            {
+              "header": "How often?",
+              "text": "Max 3 times in 24 hours"
+            }
+          ],
+          [
+            {
+              "header": "Age",
+              "text": "10 to 11 years"
+            },
+            {
+              "header": "How much?",
+              "text": "15ml"
+            },
+            {
+              "header": "How often?",
+              "text": "Max 3 times in 24 hours"
+            }
+          ],
+          [
+            {
+              "header": "Age",
+              "text": "12 to 17 years"
+            },
+            {
+              "header": "How much?",
+              "text": "15ml to 20ml"
+            },
+            {
+              "header": "How often?",
+              "text": "Max 3 to 4 times in 24 hours"
+            }
+          ]
+        ]
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop"
+        ]
+      },
+      "options": {},
+      "html": "<table class=\"nhsuk-table-responsive\" role=\"table\">\n  <caption class=\"nhsuk-table__caption nhsuk-table__caption--m\">\n    Ibuprofen syrup dosages for children\n  </caption>\n  <thead class=\"nhsuk-table__head\" role=\"rowgroup\">\n    <tr class=\"nhsuk-table__row\" role=\"row\">\n      <th scope=\"col\" class=\"nhsuk-table__header nhsuk-u-width-one-half\" role=\"columnheader\">\n        Age\n      </th>\n      <th scope=\"col\" class=\"nhsuk-table__header nhsuk-u-width-one-quarter\" role=\"columnheader\">\n        How much?\n      </th>\n      <th scope=\"col\" class=\"nhsuk-table__header nhsuk-u-width-one-quarter\" role=\"columnheader\">\n        How often?\n      </th>\n    </tr>\n  </thead>\n  <tbody class=\"nhsuk-table__body\">\n    <tr class=\"nhsuk-table__row\" role=\"row\">\n      <td class=\"nhsuk-table__cell\" role=\"cell\">\n        <span class=\"nhsuk-table-responsive__heading\" aria-hidden=\"true\">Age </span>3 to 5 months (weighing more than 5kg)\n      </td>\n      <td class=\"nhsuk-table__cell\" role=\"cell\">\n        <span class=\"nhsuk-table-responsive__heading\" aria-hidden=\"true\">How much? </span>2.5ml\n      </td>\n      <td class=\"nhsuk-table__cell\" role=\"cell\">\n        <span class=\"nhsuk-table-responsive__heading\" aria-hidden=\"true\">How often? </span>Max 3 times in 24 hours\n      </td>\n    </tr>\n    <tr class=\"nhsuk-table__row\" role=\"row\">\n      <td class=\"nhsuk-table__cell\" role=\"cell\">\n        <span class=\"nhsuk-table-responsive__heading\" aria-hidden=\"true\">Age </span>6 to 11 months\n      </td>\n      <td class=\"nhsuk-table__cell\" role=\"cell\">\n        <span class=\"nhsuk-table-responsive__heading\" aria-hidden=\"true\">How much? </span>2.5ml\n      </td>\n      <td class=\"nhsuk-table__cell\" role=\"cell\">\n        <span class=\"nhsuk-table-responsive__heading\" aria-hidden=\"true\">How often? </span>Max 3 to 4 times in 24 hours\n      </td>\n    </tr>\n    <tr class=\"nhsuk-table__row\" role=\"row\">\n      <td class=\"nhsuk-table__cell\" role=\"cell\">\n        <span class=\"nhsuk-table-responsive__heading\" aria-hidden=\"true\">Age </span>1 to 3 years\n      </td>\n      <td class=\"nhsuk-table__cell\" role=\"cell\">\n        <span class=\"nhsuk-table-responsive__heading\" aria-hidden=\"true\">How much? </span>5ml\n      </td>\n      <td class=\"nhsuk-table__cell\" role=\"cell\">\n        <span class=\"nhsuk-table-responsive__heading\" aria-hidden=\"true\">How often? </span>Max 3 times in 24 hours\n      </td>\n    </tr>\n    <tr class=\"nhsuk-table__row\" role=\"row\">\n      <td class=\"nhsuk-table__cell\" role=\"cell\">\n        <span class=\"nhsuk-table-responsive__heading\" aria-hidden=\"true\">Age </span>4 to 6 years\n      </td>\n      <td class=\"nhsuk-table__cell\" role=\"cell\">\n        <span class=\"nhsuk-table-responsive__heading\" aria-hidden=\"true\">How much? </span>7.5ml\n      </td>\n      <td class=\"nhsuk-table__cell\" role=\"cell\">\n        <span class=\"nhsuk-table-responsive__heading\" aria-hidden=\"true\">How often? </span>Max 3 times in 24 hours\n      </td>\n    </tr>\n    <tr class=\"nhsuk-table__row\" role=\"row\">\n      <td class=\"nhsuk-table__cell\" role=\"cell\">\n        <span class=\"nhsuk-table-responsive__heading\" aria-hidden=\"true\">Age </span>7 to 9 years\n      </td>\n      <td class=\"nhsuk-table__cell\" role=\"cell\">\n        <span class=\"nhsuk-table-responsive__heading\" aria-hidden=\"true\">How much? </span>10ml\n      </td>\n      <td class=\"nhsuk-table__cell\" role=\"cell\">\n        <span class=\"nhsuk-table-responsive__heading\" aria-hidden=\"true\">How often? </span>Max 3 times in 24 hours\n      </td>\n    </tr>\n    <tr class=\"nhsuk-table__row\" role=\"row\">\n      <td class=\"nhsuk-table__cell\" role=\"cell\">\n        <span class=\"nhsuk-table-responsive__heading\" aria-hidden=\"true\">Age </span>10 to 11 years\n      </td>\n      <td class=\"nhsuk-table__cell\" role=\"cell\">\n        <span class=\"nhsuk-table-responsive__heading\" aria-hidden=\"true\">How much? </span>15ml\n      </td>\n      <td class=\"nhsuk-table__cell\" role=\"cell\">\n        <span class=\"nhsuk-table-responsive__heading\" aria-hidden=\"true\">How often? </span>Max 3 times in 24 hours\n      </td>\n    </tr>\n    <tr class=\"nhsuk-table__row\" role=\"row\">\n      <td class=\"nhsuk-table__cell\" role=\"cell\">\n        <span class=\"nhsuk-table-responsive__heading\" aria-hidden=\"true\">Age </span>12 to 17 years\n      </td>\n      <td class=\"nhsuk-table__cell\" role=\"cell\">\n        <span class=\"nhsuk-table-responsive__heading\" aria-hidden=\"true\">How much? </span>15ml to 20ml\n      </td>\n      <td class=\"nhsuk-table__cell\" role=\"cell\">\n        <span class=\"nhsuk-table-responsive__heading\" aria-hidden=\"true\">How often? </span>Max 3 to 4 times in 24 hours\n      </td>\n    </tr>\n  </tbody>\n</table>"
+    },
+    {
+      "name": "with responsive layout and custom HTML",
+      "context": {
+        "caption": "Nunjucks macro options",
+        "firstCellIsHeader": true,
+        "responsive": true,
+        "head": [
+          {
+            "text": "Name"
+          },
+          {
+            "text": "Type"
+          },
+          {
+            "text": "Description"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "header": "Name",
+              "text": "id"
+            },
+            {
+              "header": "Type",
+              "text": "string"
+            },
+            {
+              "header": "Description",
+              "text": "The ID of the table."
+            }
+          ],
+          [
+            {
+              "header": "Name",
+              "text": "rows"
+            },
+            {
+              "header": "Type",
+              "text": "array"
+            },
+            {
+              "header": "Description",
+              "html": "<strong>Required.</strong> The rows within the table component.\n<a href=\"#/macro-options\">See macro options for rows</a>."
+            }
+          ],
+          [
+            {
+              "header": "Name",
+              "text": "head"
+            },
+            {
+              "header": "Type",
+              "text": "array"
+            },
+            {
+              "header": "Description",
+              "html": "Can be used to add a row of table header cells (<code class=\"app-code\">&lt;th&gt;</code>) at the top of the table component.\n<a href=\"#/macro-options\">See macro options for head</a>."
+            }
+          ],
+          [
+            {
+              "header": "Name",
+              "text": "caption"
+            },
+            {
+              "header": "Type",
+              "text": "string"
+            },
+            {
+              "header": "Description",
+              "text": "Caption text."
+            }
+          ],
+          [
+            {
+              "header": "Name",
+              "text": "captionClasses"
+            },
+            {
+              "header": "Type",
+              "text": "string"
+            },
+            {
+              "header": "Description",
+              "text": "Classes for caption text size. Classes should correspond to the available typography heading classes."
+            }
+          ],
+          [
+            {
+              "header": "Name",
+              "text": "firstCellIsHeader"
+            },
+            {
+              "header": "Type",
+              "text": "string"
+            },
+            {
+              "header": "Description",
+              "html": "If set to <code class=\"app-code\">true</code>, the first cell in each row will be a table header (<code class=\"app-code\">&lt;th&gt;</code>)."
+            }
+          ],
+          [
+            {
+              "header": "Name",
+              "text": "classes"
+            },
+            {
+              "header": "Type",
+              "text": "string"
+            },
+            {
+              "header": "Description",
+              "text": "Classes to add to the table container."
+            }
+          ],
+          [
+            {
+              "header": "Name",
+              "text": "attributes"
+            },
+            {
+              "header": "Type",
+              "text": "object"
+            },
+            {
+              "header": "Description",
+              "text": "\tHTML attributes (for example data attributes) to add to the table container."
+            }
+          ]
+        ]
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<table class=\"nhsuk-table-responsive\" role=\"table\">\n  <caption class=\"nhsuk-table__caption\">\n    Nunjucks macro options\n  </caption>\n  <thead class=\"nhsuk-table__head\" role=\"rowgroup\">\n    <tr class=\"nhsuk-table__row\" role=\"row\">\n      <th scope=\"col\" class=\"nhsuk-table__header\" role=\"columnheader\">\n        Name\n      </th>\n      <th scope=\"col\" class=\"nhsuk-table__header\" role=\"columnheader\">\n        Type\n      </th>\n      <th scope=\"col\" class=\"nhsuk-table__header\" role=\"columnheader\">\n        Description\n      </th>\n    </tr>\n  </thead>\n  <tbody class=\"nhsuk-table__body\">\n    <tr class=\"nhsuk-table__row\" role=\"row\">\n      <th scope=\"row\" class=\"nhsuk-table__header\" role=\"rowheader\">\n        <span class=\"nhsuk-table-responsive__heading\" aria-hidden=\"true\">Name </span>id\n      </th>\n      <td class=\"nhsuk-table__cell\" role=\"cell\">\n        <span class=\"nhsuk-table-responsive__heading\" aria-hidden=\"true\">Type </span>string\n      </td>\n      <td class=\"nhsuk-table__cell\" role=\"cell\">\n        <span class=\"nhsuk-table-responsive__heading\" aria-hidden=\"true\">Description </span>The ID of the table.\n      </td>\n    </tr>\n    <tr class=\"nhsuk-table__row\" role=\"row\">\n      <th scope=\"row\" class=\"nhsuk-table__header\" role=\"rowheader\">\n        <span class=\"nhsuk-table-responsive__heading\" aria-hidden=\"true\">Name </span>rows\n      </th>\n      <td class=\"nhsuk-table__cell\" role=\"cell\">\n        <span class=\"nhsuk-table-responsive__heading\" aria-hidden=\"true\">Type </span>array\n      </td>\n      <td class=\"nhsuk-table__cell\" role=\"cell\">\n        <span class=\"nhsuk-table-responsive__heading\" aria-hidden=\"true\">Description </span><span><strong>Required.</strong> The rows within the table component.\n        <a href=\"#/macro-options\">See macro options for rows</a>.</span>\n      </td>\n    </tr>\n    <tr class=\"nhsuk-table__row\" role=\"row\">\n      <th scope=\"row\" class=\"nhsuk-table__header\" role=\"rowheader\">\n        <span class=\"nhsuk-table-responsive__heading\" aria-hidden=\"true\">Name </span>head\n      </th>\n      <td class=\"nhsuk-table__cell\" role=\"cell\">\n        <span class=\"nhsuk-table-responsive__heading\" aria-hidden=\"true\">Type </span>array\n      </td>\n      <td class=\"nhsuk-table__cell\" role=\"cell\">\n        <span class=\"nhsuk-table-responsive__heading\" aria-hidden=\"true\">Description </span><span>Can be used to add a row of table header cells (<code class=\"app-code\">&lt;th&gt;</code>) at the top of the table component.\n        <a href=\"#/macro-options\">See macro options for head</a>.</span>\n      </td>\n    </tr>\n    <tr class=\"nhsuk-table__row\" role=\"row\">\n      <th scope=\"row\" class=\"nhsuk-table__header\" role=\"rowheader\">\n        <span class=\"nhsuk-table-responsive__heading\" aria-hidden=\"true\">Name </span>caption\n      </th>\n      <td class=\"nhsuk-table__cell\" role=\"cell\">\n        <span class=\"nhsuk-table-responsive__heading\" aria-hidden=\"true\">Type </span>string\n      </td>\n      <td class=\"nhsuk-table__cell\" role=\"cell\">\n        <span class=\"nhsuk-table-responsive__heading\" aria-hidden=\"true\">Description </span>Caption text.\n      </td>\n    </tr>\n    <tr class=\"nhsuk-table__row\" role=\"row\">\n      <th scope=\"row\" class=\"nhsuk-table__header\" role=\"rowheader\">\n        <span class=\"nhsuk-table-responsive__heading\" aria-hidden=\"true\">Name </span>captionClasses\n      </th>\n      <td class=\"nhsuk-table__cell\" role=\"cell\">\n        <span class=\"nhsuk-table-responsive__heading\" aria-hidden=\"true\">Type </span>string\n      </td>\n      <td class=\"nhsuk-table__cell\" role=\"cell\">\n        <span class=\"nhsuk-table-responsive__heading\" aria-hidden=\"true\">Description </span>Classes for caption text size. Classes should correspond to the available typography heading classes.\n      </td>\n    </tr>\n    <tr class=\"nhsuk-table__row\" role=\"row\">\n      <th scope=\"row\" class=\"nhsuk-table__header\" role=\"rowheader\">\n        <span class=\"nhsuk-table-responsive__heading\" aria-hidden=\"true\">Name </span>firstCellIsHeader\n      </th>\n      <td class=\"nhsuk-table__cell\" role=\"cell\">\n        <span class=\"nhsuk-table-responsive__heading\" aria-hidden=\"true\">Type </span>string\n      </td>\n      <td class=\"nhsuk-table__cell\" role=\"cell\">\n        <span class=\"nhsuk-table-responsive__heading\" aria-hidden=\"true\">Description </span><span>If set to <code class=\"app-code\">true</code>, the first cell in each row will be a table header (<code class=\"app-code\">&lt;th&gt;</code>).</span>\n      </td>\n    </tr>\n    <tr class=\"nhsuk-table__row\" role=\"row\">\n      <th scope=\"row\" class=\"nhsuk-table__header\" role=\"rowheader\">\n        <span class=\"nhsuk-table-responsive__heading\" aria-hidden=\"true\">Name </span>classes\n      </th>\n      <td class=\"nhsuk-table__cell\" role=\"cell\">\n        <span class=\"nhsuk-table-responsive__heading\" aria-hidden=\"true\">Type </span>string\n      </td>\n      <td class=\"nhsuk-table__cell\" role=\"cell\">\n        <span class=\"nhsuk-table-responsive__heading\" aria-hidden=\"true\">Description </span>Classes to add to the table container.\n      </td>\n    </tr>\n    <tr class=\"nhsuk-table__row\" role=\"row\">\n      <th scope=\"row\" class=\"nhsuk-table__header\" role=\"rowheader\">\n        <span class=\"nhsuk-table-responsive__heading\" aria-hidden=\"true\">Name </span>attributes\n      </th>\n      <td class=\"nhsuk-table__cell\" role=\"cell\">\n        <span class=\"nhsuk-table-responsive__heading\" aria-hidden=\"true\">Type </span>object\n      </td>\n      <td class=\"nhsuk-table__cell\" role=\"cell\">\n        <span class=\"nhsuk-table-responsive__heading\" aria-hidden=\"true\">Description </span>\tHTML attributes (for example data attributes) to add to the table container.\n      </td>\n    </tr>\n  </tbody>\n</table>"
+    },
+    {
+      "name": "with word breaks",
+      "context": {
+        "caption": "Users",
+        "captionSize": "m",
+        "head": [
+          {
+            "text": "Name"
+          },
+          {
+            "text": "Email address"
+          },
+          {
+            "text": "Status"
+          },
+          {
+            "html": "<span class=\"nhsuk-u-visually-hidden\">Actions</span>"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "text": "Stephanie Meyer",
+              "classes": "nhsuk-u-text-break-word"
+            },
+            {
+              "text": "stephanie.meyer9@test.com",
+              "classes": "nhsuk-u-text-break-word"
+            },
+            {
+              "html": "\n<strong class=\"nhsuk-tag nhsuk-tag--green\">\n  Active\n</strong>\n"
+            }
+          ],
+          [
+            {
+              "text": "Aleksandrina Featherstonehaugh-Whitehead",
+              "classes": "nhsuk-u-text-break-word"
+            },
+            {
+              "text": "aleksandrina.featherstonehaughwhitehead23@folkestonepharmacy.test.com",
+              "classes": "nhsuk-u-text-break-word"
+            },
+            {
+              "html": "\n<strong class=\"nhsuk-tag nhsuk-tag--grey\">\n  Inactive\n</strong>\n"
+            }
+          ]
+        ]
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<table class=\"nhsuk-table\">\n  <caption class=\"nhsuk-table__caption nhsuk-table__caption--m\">\n    Users\n  </caption>\n  <thead class=\"nhsuk-table__head\">\n    <tr class=\"nhsuk-table__row\">\n      <th scope=\"col\" class=\"nhsuk-table__header\">\n        Name\n      </th>\n      <th scope=\"col\" class=\"nhsuk-table__header\">\n        Email address\n      </th>\n      <th scope=\"col\" class=\"nhsuk-table__header\">\n        Status\n      </th>\n      <th scope=\"col\" class=\"nhsuk-table__header\">\n        <span class=\"nhsuk-u-visually-hidden\">Actions</span>\n      </th>\n    </tr>\n  </thead>\n  <tbody class=\"nhsuk-table__body\">\n    <tr class=\"nhsuk-table__row\">\n      <td class=\"nhsuk-table__cell nhsuk-u-text-break-word\">\n        Stephanie Meyer\n      </td>\n      <td class=\"nhsuk-table__cell nhsuk-u-text-break-word\">\n        stephanie.meyer9@test.com\n      </td>\n      <td class=\"nhsuk-table__cell\">\n        <strong class=\"nhsuk-tag nhsuk-tag--green\">\n          Active\n        </strong>\n      </td>\n    </tr>\n    <tr class=\"nhsuk-table__row\">\n      <td class=\"nhsuk-table__cell nhsuk-u-text-break-word\">\n        Aleksandrina Featherstonehaugh-Whitehead\n      </td>\n      <td class=\"nhsuk-table__cell nhsuk-u-text-break-word\">\n        aleksandrina.featherstonehaughwhitehead23@folkestonepharmacy.test.com\n      </td>\n      <td class=\"nhsuk-table__cell\">\n        <strong class=\"nhsuk-tag nhsuk-tag--grey\">\n          Inactive\n        </strong>\n      </td>\n    </tr>\n  </tbody>\n</table>"
+    }
+  ]
+}

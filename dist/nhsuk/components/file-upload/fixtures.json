@@ -1,0 +1,302 @@
+{
+  "name": "File upload",
+  "component": "file-upload",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "label": {
+          "text": "Upload a file",
+          "size": "l",
+          "isPageHeading": true
+        },
+        "id": "file-upload",
+        "name": "file-upload"
+      },
+      "screenshot": {
+        "viewports": [
+          "watch",
+          "mobile",
+          "tablet",
+          "desktop"
+        ]
+      },
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group nhsuk-file-upload\" data-module=\"nhsuk-file-upload\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label nhsuk-label--l\" for=\"file-upload\">\n      Upload a file\n    </label>\n  </h1>\n  <input class=\"nhsuk-file-upload__input\" id=\"file-upload\" name=\"file-upload\" type=\"file\">\n</div>"
+    },
+    {
+      "name": "button",
+      "description": "with primary",
+      "context": {
+        "chooseFilesButtonClassList": [],
+        "label": {
+          "text": "Upload a file",
+          "size": "l",
+          "isPageHeading": true
+        },
+        "id": "file-upload",
+        "name": "file-upload"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group nhsuk-file-upload\" data-module=\"nhsuk-file-upload\" data-choose-files-button-class-list=\"[]\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label nhsuk-label--l\" for=\"file-upload\">\n      Upload a file\n    </label>\n  </h1>\n  <input class=\"nhsuk-file-upload__input\" id=\"file-upload\" name=\"file-upload\" type=\"file\">\n</div>"
+    },
+    {
+      "name": "button",
+      "description": "with small primary",
+      "context": {
+        "chooseFilesButtonClassList": [
+          "nhsuk-button--small"
+        ],
+        "label": {
+          "text": "Upload a file",
+          "size": "l",
+          "isPageHeading": true
+        },
+        "id": "file-upload",
+        "name": "file-upload"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group nhsuk-file-upload\" data-module=\"nhsuk-file-upload\" data-choose-files-button-class-list='[\"nhsuk-button--small\"]'>\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label nhsuk-label--l\" for=\"file-upload\">\n      Upload a file\n    </label>\n  </h1>\n  <input class=\"nhsuk-file-upload__input\" id=\"file-upload\" name=\"file-upload\" type=\"file\">\n</div>"
+    },
+    {
+      "name": "button",
+      "description": "with small secondary",
+      "context": {
+        "chooseFilesButtonClassList": [
+          "nhsuk-button--secondary",
+          "nhsuk-button--small"
+        ],
+        "label": {
+          "text": "Upload a file",
+          "size": "l",
+          "isPageHeading": true
+        },
+        "id": "file-upload",
+        "name": "file-upload"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group nhsuk-file-upload\" data-module=\"nhsuk-file-upload\" data-choose-files-button-class-list='[\"nhsuk-button--secondary\",\"nhsuk-button--small\"]'>\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label nhsuk-label--l\" for=\"file-upload\">\n      Upload a file\n    </label>\n  </h1>\n  <input class=\"nhsuk-file-upload__input\" id=\"file-upload\" name=\"file-upload\" type=\"file\">\n</div>"
+    },
+    {
+      "name": "disabled",
+      "context": {
+        "label": {
+          "text": "Upload a file",
+          "size": "l",
+          "isPageHeading": true
+        },
+        "id": "file-upload",
+        "name": "file-upload",
+        "disabled": true
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group nhsuk-file-upload\" data-module=\"nhsuk-file-upload\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label nhsuk-label--l\" for=\"file-upload\">\n      Upload a file\n    </label>\n  </h1>\n  <input class=\"nhsuk-file-upload__input\" id=\"file-upload\" name=\"file-upload\" type=\"file\" disabled>\n</div>"
+    },
+    {
+      "name": "label",
+      "description": "with size S",
+      "context": {
+        "label": {
+          "size": "s",
+          "text": "Upload a file",
+          "isPageHeading": true
+        },
+        "id": "file-upload",
+        "name": "file-upload"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group nhsuk-file-upload\" data-module=\"nhsuk-file-upload\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label nhsuk-label--s\" for=\"file-upload\">\n      Upload a file\n    </label>\n  </h1>\n  <input class=\"nhsuk-file-upload__input\" id=\"file-upload\" name=\"file-upload\" type=\"file\">\n</div>"
+    },
+    {
+      "name": "label",
+      "description": "with size M",
+      "context": {
+        "label": {
+          "size": "m",
+          "text": "Upload a file",
+          "isPageHeading": true
+        },
+        "id": "file-upload",
+        "name": "file-upload"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group nhsuk-file-upload\" data-module=\"nhsuk-file-upload\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label nhsuk-label--m\" for=\"file-upload\">\n      Upload a file\n    </label>\n  </h1>\n  <input class=\"nhsuk-file-upload__input\" id=\"file-upload\" name=\"file-upload\" type=\"file\">\n</div>"
+    },
+    {
+      "name": "label",
+      "description": "with size L",
+      "context": {
+        "label": {
+          "size": "l",
+          "text": "Upload a file",
+          "isPageHeading": true
+        },
+        "id": "file-upload",
+        "name": "file-upload"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group nhsuk-file-upload\" data-module=\"nhsuk-file-upload\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label nhsuk-label--l\" for=\"file-upload\">\n      Upload a file\n    </label>\n  </h1>\n  <input class=\"nhsuk-file-upload__input\" id=\"file-upload\" name=\"file-upload\" type=\"file\">\n</div>"
+    },
+    {
+      "name": "label",
+      "description": "with size XL",
+      "context": {
+        "label": {
+          "size": "xl",
+          "text": "Upload a file",
+          "isPageHeading": true
+        },
+        "id": "file-upload",
+        "name": "file-upload"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group nhsuk-file-upload\" data-module=\"nhsuk-file-upload\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label nhsuk-label--xl\" for=\"file-upload\">\n      Upload a file\n    </label>\n  </h1>\n  <input class=\"nhsuk-file-upload__input\" id=\"file-upload\" name=\"file-upload\" type=\"file\">\n</div>"
+    },
+    {
+      "name": "to configure in JavaScript",
+      "context": {
+        "label": {
+          "text": "Upload a file",
+          "size": "l",
+          "isPageHeading": true
+        },
+        "id": "to-configure-in-javascript",
+        "name": "file-upload"
+      },
+      "screenshot": false,
+      "options": {
+        "hidden": true
+      },
+      "html": "<div class=\"nhsuk-form-group nhsuk-file-upload\" data-module=\"nhsuk-file-upload\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label nhsuk-label--l\" for=\"to-configure-in-javascript\">\n      Upload a file\n    </label>\n  </h1>\n  <input class=\"nhsuk-file-upload__input\" id=\"to-configure-in-javascript\" name=\"file-upload\" type=\"file\">\n</div>"
+    },
+    {
+      "name": "with error message",
+      "context": {
+        "label": {
+          "text": "Upload a file",
+          "size": "l",
+          "isPageHeading": true
+        },
+        "errorMessage": {
+          "text": "The selected file must be a JPG, BMP or TIF"
+        },
+        "id": "file-upload",
+        "name": "file-upload"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group nhsuk-form-group--error nhsuk-file-upload\" data-module=\"nhsuk-file-upload\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label nhsuk-label--l\" for=\"file-upload\">\n      Upload a file\n    </label>\n  </h1>\n  <span id=\"file-upload-error\" class=\"nhsuk-error-message\">\n    <span class=\"nhsuk-u-visually-hidden\">Error:</span> The selected file must be a JPG, BMP or TIF\n  </span>\n  <input class=\"nhsuk-file-upload__input\" id=\"file-upload\" name=\"file-upload\" type=\"file\" aria-describedby=\"file-upload-error\">\n</div>"
+    },
+    {
+      "name": "with hint",
+      "context": {
+        "label": {
+          "text": "Upload your photo",
+          "size": "l",
+          "isPageHeading": true
+        },
+        "hint": {
+          "text": "Your photo may be in your Pictures, Photos, Downloads or Desktop folder"
+        },
+        "id": "file-upload",
+        "name": "file-upload"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group nhsuk-file-upload\" data-module=\"nhsuk-file-upload\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label nhsuk-label--l\" for=\"file-upload\">\n      Upload your photo\n    </label>\n  </h1>\n  <div id=\"file-upload-hint\" class=\"nhsuk-hint\">\n    Your photo may be in your Pictures, Photos, Downloads or Desktop folder\n  </div>\n  <input class=\"nhsuk-file-upload__input\" id=\"file-upload\" name=\"file-upload\" type=\"file\" aria-describedby=\"file-upload-hint\">\n</div>"
+    },
+    {
+      "name": "with hint and error",
+      "context": {
+        "label": {
+          "text": "Upload a file",
+          "size": "l",
+          "isPageHeading": true
+        },
+        "id": "file-upload",
+        "name": "file-upload",
+        "hint": {
+          "text": "Your photo may be in your Pictures, Photos, Downloads or Desktop folder"
+        },
+        "errorMessage": {
+          "text": "The selected file must be a JPG, BMP or TIF"
+        }
+      },
+      "screenshot": {
+        "viewports": [
+          "watch",
+          "mobile",
+          "tablet",
+          "desktop"
+        ]
+      },
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group nhsuk-form-group--error nhsuk-file-upload\" data-module=\"nhsuk-file-upload\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label nhsuk-label--l\" for=\"file-upload\">\n      Upload a file\n    </label>\n  </h1>\n  <div id=\"file-upload-hint\" class=\"nhsuk-hint\">\n    Your photo may be in your Pictures, Photos, Downloads or Desktop folder\n  </div>\n  <span id=\"file-upload-error\" class=\"nhsuk-error-message\">\n    <span class=\"nhsuk-u-visually-hidden\">Error:</span> The selected file must be a JPG, BMP or TIF\n  </span>\n  <input class=\"nhsuk-file-upload__input\" id=\"file-upload\" name=\"file-upload\" type=\"file\" aria-describedby=\"file-upload-hint file-upload-error\">\n</div>"
+    },
+    {
+      "name": "with multiple",
+      "context": {
+        "label": {
+          "text": "Upload multiple files",
+          "size": "l",
+          "isPageHeading": true
+        },
+        "id": "file-upload",
+        "name": "file-upload",
+        "multiple": true,
+        "chooseFilesButtonText": "Choose files",
+        "dropInstructionText": "or drop files",
+        "noFileChosenText": "No files chosen"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group nhsuk-file-upload\" data-module=\"nhsuk-file-upload\" data-i18n.choose-files-button=\"Choose files\" data-i18n.no-file-chosen=\"No files chosen\" data-i18n.drop-instruction=\"or drop files\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label nhsuk-label--l\" for=\"file-upload\">\n      Upload multiple files\n    </label>\n  </h1>\n  <input class=\"nhsuk-file-upload__input\" id=\"file-upload\" name=\"file-upload\" type=\"file\" multiple>\n</div>"
+    },
+    {
+      "name": "without page heading",
+      "context": {
+        "label": {
+          "text": "Upload a file"
+        },
+        "id": "file-upload",
+        "name": "file-upload"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group nhsuk-file-upload\" data-module=\"nhsuk-file-upload\">\n  <label class=\"nhsuk-label\" for=\"file-upload\">\n    Upload a file\n  </label>\n  <input class=\"nhsuk-file-upload__input\" id=\"file-upload\" name=\"file-upload\" type=\"file\">\n</div>"
+    },
+    {
+      "name": "with translations",
+      "context": {
+        "label": {
+          "text": "Llwythwch ffeil i fyny",
+          "size": "l",
+          "isPageHeading": true
+        },
+        "id": "file-upload",
+        "name": "file-upload",
+        "multiple": true,
+        "chooseFilesButtonText": "Dewiswch ffeil",
+        "dropInstructionText": "neu ollwng ffeil",
+        "noFileChosenText": "Dim ffeil wedi'i dewis",
+        "multipleFilesChosenText": {
+          "other": "%{count} ffeil wedi'u dewis",
+          "one": "%{count} ffeil wedi'i dewis"
+        },
+        "enteredDropZoneText": "Wedi mynd i mewn i'r parth gollwng",
+        "leftDropZoneText": "Parth gollwng i'r chwith"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group nhsuk-file-upload\" data-module=\"nhsuk-file-upload\" data-i18n.choose-files-button=\"Dewiswch ffeil\" data-i18n.no-file-chosen=\"Dim ffeil wedi&#39;i dewis\" data-i18n.multiple-files-chosen.other=\"%{count} ffeil wedi&#39;u dewis\" data-i18n.multiple-files-chosen.one=\"%{count} ffeil wedi&#39;i dewis\" data-i18n.drop-instruction=\"neu ollwng ffeil\" data-i18n.entered-drop-zone=\"Wedi mynd i mewn i&#39;r parth gollwng\" data-i18n.left-drop-zone=\"Parth gollwng i&#39;r chwith\">\n  <h1 class=\"nhsuk-label-wrapper\">\n    <label class=\"nhsuk-label nhsuk-label--l\" for=\"file-upload\">\n      Llwythwch ffeil i fyny\n    </label>\n  </h1>\n  <input class=\"nhsuk-file-upload__input\" id=\"file-upload\" name=\"file-upload\" type=\"file\" multiple>\n</div>"
+    }
+  ]
+}

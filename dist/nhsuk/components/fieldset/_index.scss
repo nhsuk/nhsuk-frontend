@@ -1,0 +1,81 @@
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+@use "../../core/helpers" as *;
+
+////
+/// Fieldset component
+///
+/// @group components/fieldset
+////
+
+@include nhsuk-exports("nhsuk/components/fieldset") {
+  .nhsuk-fieldset {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    @include nhsuk-clearfix;
+  }
+
+  // Fix for Firefox < 53 (https://bugzil.la/504622)
+  // stylelint-disable selector-type-no-unknown -- Ignore 'x:-moz-any-link'
+  @supports not (caret-color: auto) {
+    .nhsuk-fieldset,
+    x:-moz-any-link {
+      display: table-cell;
+    }
+  }
+  // stylelint-enable selector-type-no-unknown
+
+  .nhsuk-fieldset__legend {
+    // Fix legend text wrapping in Edge and IE
+    // 1. IE9-11 & Edge 12-13
+    // 2. IE8-11
+    box-sizing: border-box; // 1
+
+    display: table; // 2
+
+    max-width: 100%; // 1
+    margin-bottom: nhsuk-spacing(2);
+    padding: 0;
+
+    white-space: normal; // 1
+
+    @include nhsuk-text-colour;
+    @include nhsuk-font($size: 19);
+  }
+
+  // Modifiers that make legends look more like their equivalent headings
+  .nhsuk-fieldset__legend--xl,
+  .nhsuk-fieldset__legend--l,
+  .nhsuk-fieldset__legend--m {
+    @include nhsuk-typography-weight-bold;
+    margin-bottom: nhsuk-spacing(3);
+  }
+
+  .nhsuk-fieldset__legend--xl {
+    @include nhsuk-font-size($size: 48);
+  }
+
+  .nhsuk-fieldset__legend--l {
+    @include nhsuk-font-size($size: 36);
+  }
+
+  .nhsuk-fieldset__legend--m {
+    @include nhsuk-font-size($size: 26);
+  }
+
+  .nhsuk-fieldset__legend--s {
+    @include nhsuk-typography-weight-bold;
+  }
+
+  // When the legend contains an H1, we want the H1 to inherit all styles from
+  // the legend. Effectively treat the heading as if it is not there.
+  .nhsuk-fieldset__heading {
+    margin: 0;
+    font-size: inherit;
+    font-weight: inherit;
+  }
+}
+
+/*# sourceMappingURL=_index.scss.map */
