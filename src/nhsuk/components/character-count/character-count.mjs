@@ -117,6 +117,7 @@ export class CharacterCount extends ConfigurableComponent {
     this.$visibleCountMessage.setAttribute('aria-hidden', 'true')
     this.$visibleCountMessage.className = $textareaDescription.className
     this.$visibleCountMessage.classList.add('nhsuk-character-count__status')
+    this.$visibleCountMessage.classList.remove('nhsuk-character-count__message')
 
     $textareaDescription.insertAdjacentElement(
       'afterend',
@@ -225,7 +226,7 @@ export class CharacterCount extends ConfigurableComponent {
     // If input is over the threshold, remove the disabled class which renders
     // the counter invisible.
     this.$visibleCountMessage.classList.toggle(
-      'nhsuk-character-count__message--disabled',
+      'nhsuk-character-count__status--disabled',
       !this.isOverThreshold()
     )
 
