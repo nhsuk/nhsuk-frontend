@@ -26,7 +26,7 @@ export const examples = {
         isPageHeading: true
       },
       hint: {
-        text: 'Your photo may be in your Pictures, Photos, Downloads or Desktop folder. Or in an app like iPhoto.'
+        text: 'Your photo may be in your Pictures, Photos, Downloads or Desktop folder'
       },
       id: 'file-upload',
       name: 'file-upload'
@@ -40,7 +40,7 @@ export const examples = {
         isPageHeading: true
       },
       errorMessage: {
-        text: 'The selected file must be a JPG, BMP or TIF.'
+        text: 'The selected file must be a JPG, BMP or TIF'
       },
       id: 'file-upload',
       name: 'file-upload'
@@ -56,10 +56,10 @@ export const examples = {
       id: 'file-upload',
       name: 'file-upload',
       hint: {
-        text: 'Your photo may be in your Pictures, Photos, Downloads or Desktop folder. Or in an app like iPhoto.'
+        text: 'Your photo may be in your Pictures, Photos, Downloads or Desktop folder'
       },
       errorMessage: {
-        text: 'The selected file must be a JPG, BMP or TIF.'
+        text: 'The selected file must be a JPG, BMP or TIF'
       }
     },
     screenshot: {
