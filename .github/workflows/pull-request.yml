@@ -177,7 +177,7 @@ jobs:
 
       - name: Save test coverage
         if: ${{ matrix.task.coverage }}
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: ${{ matrix.task.description }} coverage
           path: coverage
@@ -277,7 +277,7 @@ jobs:
 
       - name: Save backstop report
         if: ${{ !cancelled() && steps.changes.outputs.changes == 'true' }}
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: Backstop report
           path: tests/backstop/
