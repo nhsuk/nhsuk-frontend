@@ -38,7 +38,7 @@ jobs:
         uses: actions/checkout@v6
 
       - name: Restore dependencies
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         with:
           fail-on-cache-miss: true
           key: npm-install-${{ hashFiles('package-lock.json') }}
