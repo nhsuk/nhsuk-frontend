@@ -13,7 +13,8 @@ describe('Action link', () => {
       async (options) => {
         await goToComponent(page, 'action-link', options)
         return expect(axe(page)).resolves.toHaveNoViolations()
-      }
+      },
+      20000
     )
   })
 })

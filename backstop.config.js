@@ -78,7 +78,12 @@ module.exports = {
     ],
     browser: 'chromium',
     executablePath: executablePath(),
-    gotoParameters: { waitUntil: 'load' },
+
+    // Reduce navigation timeout from 30s to 5s
+    gotoParameters: {
+      waitTimeout: 5000,
+      waitUntil: 'load'
+    },
 
     // Allow headless mode switching using `HEADLESS=false`
     headless: HEADLESS !== 'false'

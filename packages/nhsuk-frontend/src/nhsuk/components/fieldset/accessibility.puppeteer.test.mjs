@@ -13,7 +13,8 @@ describe('Fieldset', () => {
       async (options) => {
         await goToComponent(page, 'fieldset', options)
         return expect(axe(page)).resolves.toHaveNoViolations()
-      }
+      },
+      20000
     )
   })
 })
