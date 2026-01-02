@@ -57,7 +57,7 @@
     "@nhsuk/frontend-tasks": "*",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/user-event": "^14.6.1",
-    "autoprefixer": "^10.4.22",
+    "autoprefixer": "^10.4.23",
     "axe-core": "^4.11.0",
     "cssnano": "^7.1.2",
     "del-cli": "^7.0.0",
@@ -67,7 +67,7 @@
     "postcss": "^8.5.6",
     "postcss-scss": "^4.0.9",
     "puppeteer": "^24.34.0",
-    "sass-embedded": "^1.93.3"
+    "sass-embedded": "^1.97.1"
   },
   "engines": {
     "node": "^20.9.0 || ^22.11.0 || ^24.11.0"

@@ -18,7 +18,7 @@
     "@nhsuk/frontend-config": "*",
     "@nhsuk/frontend-lib": "*",
     "@nhsuk/frontend-tasks": "*",
-    "autoprefixer": "^10.4.22",
+    "autoprefixer": "^10.4.23",
     "cssnano": "^7.1.2",
     "del-cli": "^7.0.0",
     "gulp": "^5.0.1",
