@@ -101,7 +101,7 @@
     "postcss-markdown": "^1.3.0",
     "postcss-scss": "^4.0.9",
     "prettier": "^3.7.4",
-    "puppeteer": "^24.31.0",
+    "puppeteer": "^24.34.0",
     "strip-ansi": "^7.1.2",
     "stylelint": "^16.26.1",
     "stylelint-config-gds": "^2.0.0",
