@@ -1,3 +1,4 @@
+{% from "nhsuk/components/search-input/macro.njk" import searchInput %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
 
@@ -74,13 +75,23 @@
 {% if params.search %}
     <search class="nhsuk-header__search">
       <form class="nhsuk-header__search-form" id="search" action="{{ searchAction }}" method="get">
-        <label class="nhsuk-u-visually-hidden" for="search-field">{{ searchVisuallyHiddenLabel }}</label>
-        <input class="nhsuk-header__search-input nhsuk-input" id="search-field" name="{{ searchName }}" type="search" placeholder="{{ searchPlaceholder }}" autocomplete="off">
-        <button class="nhsuk-header__search-submit" type="submit">
-          {{ nhsukIcon("search", {
-            title: searchVisuallyHiddenButton
-          }) | trim | indent(10) }}
-        </button>
+        {{ searchInput({
+          label: {
+            text: searchVisuallyHiddenLabel,
+            classes: "nhsuk-u-visually-hidden"
+          },
+          button: {
+            visuallyHiddenText: searchVisuallyHiddenButton,
+            classes: "nhsuk-header__search-submit"
+          },
+          formGroup: {
+            classes: "nhsuk-header__search-form-group"
+          },
+          placeholder: searchPlaceholder,
+          id: "search-field",
+          name: searchName,
+          classes: "nhsuk-header__search-input"
+        }) | trim | indent(8) }}
       </form>
     </search>
 {% endif %}
