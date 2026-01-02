@@ -19,7 +19,7 @@
     @font-face {
       font-family: "Frutiger W01";
       font-style: normal;
-      font-weight: $nhsuk-font-normal;
+      font-weight: $nhsuk-font-weight-normal;
       font-display: fallback;
       src:
         nhsuk-font-url("FrutigerLTW01-55Roman.woff2") format("woff2"),
@@ -29,7 +29,7 @@
     @font-face {
       font-family: "Frutiger W01";
       font-style: normal;
-      font-weight: $nhsuk-font-bold;
+      font-weight: $nhsuk-font-weight-bold;
       font-display: fallback;
       src:
         nhsuk-font-url("FrutigerLTW01-65Bold.woff2") format("woff2"),

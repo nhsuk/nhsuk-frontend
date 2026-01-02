@@ -53,17 +53,23 @@ $nhsuk-include-default-font-face: $nhsuk-include-font-face !default;
 // Font weights
 // =========================================================
 
+// @deprecated To be removed in v11.0
+$nhsuk-font-normal: 400 !default;
+
+// @deprecated To be removed in v11.0
+$nhsuk-font-bold: 600 !default;
+
 /// Font weight for normal typography
 ///
 /// @type Number
 
-$nhsuk-font-normal: 400 !default;
+$nhsuk-font-weight-normal: $nhsuk-font-normal !default;
 
 /// Font weight for bold typography
 ///
 /// @type Number
 
-$nhsuk-font-bold: 600 !default;
+$nhsuk-font-weight-bold: $nhsuk-font-bold !default;
 
 /// Root font size
 ///

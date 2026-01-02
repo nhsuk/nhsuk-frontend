@@ -47,9 +47,9 @@
 
 @mixin nhsuk-typography-weight-normal($important: false) {
   @if $important == true {
-    font-weight: $nhsuk-font-normal !important;
+    font-weight: $nhsuk-font-weight-normal !important;
   } @else {
-    font-weight: $nhsuk-font-normal;
+    font-weight: $nhsuk-font-weight-normal;
   }
 }
 
@@ -60,9 +60,9 @@
 
 @mixin nhsuk-typography-weight-bold($important: false) {
   @if $important == true {
-    font-weight: $nhsuk-font-bold !important;
+    font-weight: $nhsuk-font-weight-bold !important;
   } @else {
-    font-weight: $nhsuk-font-bold;
+    font-weight: $nhsuk-font-weight-bold;
   }
 }
 
