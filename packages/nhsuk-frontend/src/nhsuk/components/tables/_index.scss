@@ -157,7 +157,7 @@
 
       @include nhsuk-media-query($until: desktop) {
         .nhsuk-table__row th {
-          font-weight: $nhsuk-font-normal;
+          font-weight: $nhsuk-font-weight-normal;
         }
 
         .nhsuk-table__row th,
