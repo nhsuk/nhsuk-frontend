@@ -113,6 +113,7 @@ These changes were introduced in [pull request #1744: Update components for GOV.
 ### :wrench: **Fixes**
 
 - [#1734: Fix appearance of summary lists alongside other elements within card content](https://github.com/nhsuk/nhsuk-frontend/issues/1734)
+- [#1748: Remove Sass `if()` function and other deprecations](https://github.com/nhsuk/nhsuk-frontend/pull/1748)
 
 ## 10.2.2 - 4 December 2025
 
