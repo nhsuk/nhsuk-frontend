@@ -28,6 +28,10 @@
   }
 
   .nhsuk-input-wrapper {
+    // Prevent users from accidentally selecting wrapper inputs
+    // e.g. When double clicking a disabled stepper button
+    user-select: none;
+
     .nhsuk-input,
     .nhsuk-select,
     .nhsuk-button {
@@ -70,6 +74,11 @@
 
         // Buttons are normally 100% wide on mobile, but we don't want that here
         width: auto;
+      }
+
+      // Remove gap with preceding hidden button
+      .nhsuk-button[hidden] + * {
+        margin-left: 0;
       }
     }
   }
