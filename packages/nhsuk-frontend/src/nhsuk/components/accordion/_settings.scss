@@ -1,0 +1,13 @@
+@use "../../core/helpers/colour" as *;
+@use "../../core/settings/colours-applied" as *;
+
+////
+/// Accordion settings
+///
+/// @group components/accordion
+////
+
+$nhsuk-accordion-base-colour: nhsuk-colour("black");
+$nhsuk-accordion-hover-colour: $nhsuk-target-hover-colour;
+$nhsuk-accordion-icon-focus-colour: $nhsuk-focus-colour;
+$nhsuk-accordion-bottom-border-width: 1px;
