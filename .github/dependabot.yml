@@ -13,6 +13,7 @@ updates:
           - '@rollup/*'
           - 'autoprefixer'
           - 'babel-plugin-*'
+          - 'baseline-browser-mapping'
           - 'caniuse-lite'
           - 'cssnano'
           - 'cssnano-*'
@@ -93,6 +94,8 @@ updates:
       - dependency-type: direct
 
       # Include indirect browser data updates
+      # https://web.dev/baseline
+      - dependency-name: baseline-browser-mapping
       # https://caniuse.com
       - dependency-name: caniuse-lite
 
