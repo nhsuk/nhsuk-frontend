@@ -93,8 +93,8 @@
 
   .nhsuk-pagination__page {
     display: block;
-    @include nhsuk-link-decoration;
     @include nhsuk-font-size(16);
+    @include nhsuk-link-decoration;
 
     .nhsuk-pagination__link:hover & {
       @include nhsuk-link-hover-decoration;

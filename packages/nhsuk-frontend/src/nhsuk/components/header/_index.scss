@@ -269,12 +269,12 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
 
   .nhsuk-header__account-button,
   .nhsuk-header__account-link {
-    @include nhsuk-link-decoration;
     display: flex;
     gap: nhsuk-spacing(2);
     margin: nhsuk-spacing(-2) ($_header-item-padding * -1);
     padding: nhsuk-spacing(2) $_header-item-padding;
     overflow-wrap: anywhere;
+    @include nhsuk-link-decoration;
   }
 
   .nhsuk-header__account-button {
