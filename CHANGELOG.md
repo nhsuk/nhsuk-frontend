@@ -68,6 +68,42 @@ The previous class names are deprecated and will be removed in a future release.
 
 This change was introduced in [pull request #1745: Update input prefix and suffix classes to follow BEM](https://github.com/nhsuk/nhsuk-frontend/pull/1745).
 
+#### Rename Sass variables for customising fonts
+
+We've renamed Sass variables for customising fonts to better align with GOV.UK frontend. You can still use the previous names but we'll remove them in a future breaking release.
+
+If you use Sass and you've customised the fonts that NHS.UK frontend uses:
+
+- replace `$nhsuk-font` and `$nhsuk-font-fallback` with `$nhsuk-font-family`
+- rename `$nhsuk-font-normal` to `$nhsuk-font-weight-normal`
+- rename `$nhsuk-font-bold` to `$nhsuk-font-weight-bold`
+- rename `$nhsuk-include-font-face` to `$nhsuk-include-default-font-face`
+
+```patch
+- $app-font: "Customised name";
+- $app-font-fallback: arial, sans-serif;
++ $app-font-family: "Customised name", arial, sans-serif;
+
+  @forward "nhsuk-frontend/dist/nhsuk" with (
+-   $nhsuk-font: $app-font
+-   $nhsuk-font-fallback: $app-font-fallback,
++   $nhsuk-font-family: $app-font-family,
+-   $nhsuk-include-font-face: false,
++   $nhsuk-include-default-font-face: false
+  );
+```
+
+```patch
+  .app-component {
+    display: block;
+-   font-weight: $nhsuk-font-bold;
++   font-weight: $nhsuk-font-weight-bold;
+    @include nhsuk-responsive-margin(4, "bottom");
+  }
+```
+
+This change was introduced in [pull request #1749: Remove font files for unsupported browsers and align Sass variables with GOV.UK Frontend](https://github.com/nhsuk/nhsuk-frontend/pull/1749).
+
 ### :recycle: **Changes**
 
 #### Update the HTML for responsive table cell content
