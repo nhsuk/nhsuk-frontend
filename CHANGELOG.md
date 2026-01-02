@@ -161,6 +161,31 @@ NHS.UK frontend uses `font-family: "Frutiger W01", arial, sans-serif` by default
 
 This change was introduced in [pull request #1749: Remove font files for unsupported browsers and align Sass variables with GOV.UK Frontend](https://github.com/nhsuk/nhsuk-frontend/pull/1749).
 
+#### Optional support for Dynamic Type on Apple devices
+
+To apply the user's preferred text size, we now support the [Dynamic Type accessibility feature](https://developer.apple.com/design/human-interface-guidelines/typography#Supporting-Dynamic-Type) on iOS and iPadOS.
+
+These changes are optional and are only recommended where browser text size adjustments are not available. For example, in embedded HTML and Progressive Web Apps (PWAs).
+
+To enable this feature, set the feature flag variable `$nhsuk-include-dynamic-type` to `true` before you forward NHS.UK frontend in your Sass files:
+
+```scss
+@forward "nhsuk-frontend/dist/nhsuk" with (
+  $nhsuk-include-dynamic-type: true
+);
+```
+
+If you use the precompiled CSS from NHS.UK frontend, you can swap to our alternative stylesheet for Dynamic Type support:
+
+```patch
+- <link rel="stylesheet" href="/stylesheets/nhsuk-frontend.min.css">
++ <link rel="stylesheet" href="/stylesheets/nhsuk-frontend-dynamic-type.min.css">
+```
+
+Please carefully review all custom components to make sure they scale dynamically when `$nhsuk-root-font-size` is no longer set to 16px.
+
+This change was introduced in [pull request #1655: Add support for Dynamic Type on Apple devices](https://github.com/nhsuk/nhsuk-frontend/pull/1655).
+
 ### :wrench: **Fixes**
 
 - [#1734: Fix appearance of summary lists alongside other elements within card content](https://github.com/nhsuk/nhsuk-frontend/issues/1734)

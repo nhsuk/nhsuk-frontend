@@ -19,7 +19,7 @@
     min-width: 100%;
     max-width: 100%;
     height: nhsuk-px-to-rem(40px);
-    padding: nhsuk-spacing(1);
+    padding: nhsuk-px-to-rem(nhsuk-spacing(1));
 
     border: $nhsuk-border-width-form-element solid $nhsuk-input-border-colour;
 

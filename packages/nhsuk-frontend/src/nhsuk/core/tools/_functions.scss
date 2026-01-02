@@ -22,9 +22,15 @@
   @if math.is-unitless($value) {
     $value: $value * 1px;
   }
+
   @if math.is-unitless($context-font-size) {
     $context-font-size: $context-font-size * 1px;
   }
+
+  @if math.compatible($value, 1rem) {
+    $value: math.div($value, 1rem) * $nhsuk-root-font-size;
+  }
+
   @return math.div($value, $context-font-size) * 1em;
 }
 
@@ -45,20 +51,28 @@
     $value: $value * 1px;
   }
 
+  @if math.compatible($value, 1rem) {
+    @return $value;
+  }
+
   @return math.div($value, $nhsuk-root-font-size) * 1rem;
 }
 
 /// Get the size (△↕) of chevron, from base to tip, given a certain font size
 ///
-/// @param {Number} $font-size [14] - Font size to base chevron size on
-/// @return {String} Height of chevron as em-based value
+/// @param {Number} $font-size [$nhsuk-root-font-size] - Font size to base chevron size on
+/// @return {String} Height of chevron in rems
 
-@function nhsuk-chevron-size($font-size: 16) {
+@function nhsuk-chevron-size($font-size: $nhsuk-root-font-size) {
+  @if math.is-unitless($font-size) {
+    $font-size: $font-size * 1px;
+  }
+
   // Get unitless chevron border width
   $border: math.div($nhsuk-chevron-border, 1px);
 
   // Get unitless length of one side of the chevron, minus the border
-  $box-size: math.div($font-size, 2) - $border;
+  $box-size: math.div($font-size, 2px) - $border;
 
   // Calculate width (△↕) of the chevron, from base to tip
   @return math.sqrt(math.pow($box-size, 2) + math.pow($box-size, 2)) * 0.5;

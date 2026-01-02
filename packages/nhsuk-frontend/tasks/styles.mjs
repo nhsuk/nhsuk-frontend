@@ -37,6 +37,19 @@ export const compile = gulp.series(
   ),
 
   /**
+   * Compile NHS.UK frontend styles bundle
+   * (with dynamic type support)
+   */
+  task.name(
+    "styles:compile 'dynamic type'",
+    styles.compile('nhsuk/nhsuk-dynamic-type.scss', {
+      srcPath: join(config.paths.pkg, 'src'),
+      destPath: join(config.paths.pkg, 'dist'),
+      output: { file: 'nhsuk/nhsuk-frontend-dynamic-type.css' }
+    })
+  ),
+
+  /**
    * Minify NHS.UK frontend styles bundle
    */
   task.name(
@@ -45,6 +58,19 @@ export const compile = gulp.series(
       srcPath: join(config.paths.pkg, 'dist'),
       destPath: join(config.paths.pkg, 'dist'),
       output: { file: 'nhsuk/nhsuk-frontend.min.css' }
+    })
+  ),
+
+  /**
+   * Minify NHS.UK frontend styles bundle
+   * (with dynamic type support)
+   */
+  task.name(
+    "styles:compile 'minified, dynamic type'",
+    styles.compile('nhsuk/nhsuk-frontend-dynamic-type.css', {
+      srcPath: join(config.paths.pkg, 'dist'),
+      destPath: join(config.paths.pkg, 'dist'),
+      output: { file: 'nhsuk/nhsuk-frontend-dynamic-type.min.css' }
     })
   )
 )

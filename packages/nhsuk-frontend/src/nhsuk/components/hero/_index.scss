@@ -57,16 +57,16 @@
 
     @media only screen {
       // [4]
-      min-height: 200px;
+      min-height: nhsuk-px-to-rem(200px);
     }
 
     @include nhsuk-media-query($from: tablet) {
       @media only screen {
         // [4]
-        min-height: 320px; // [5]
+        min-height: nhsuk-px-to-rem(320px); // [5]
 
         .nhsuk-hero__overlay {
-          height: 320px; // [6]
+          height: nhsuk-px-to-rem(320px); // [6]
         }
       }
     }
@@ -80,7 +80,7 @@
 
       @media only screen {
         // [4]
-        min-height: 200px; // [6]
+        min-height: nhsuk-px-to-rem(200px); // [6]
       }
 
       @media screen and (forced-colors: active), (-ms-high-contrast: active) {
@@ -102,17 +102,17 @@
   // 16. Prevent overlap using safe area: box offset + arrow height + spacing
 
   .nhsuk-hero--image-description {
-    margin-bottom: 70px + 20px + nhsuk-spacing(3); // [16]
+    margin-bottom: nhsuk-px-to-rem(70px + 20px + nhsuk-spacing(3)); // [16]
 
     @include nhsuk-media-query($from: tablet) {
-      margin-bottom: 48px + 20px + nhsuk-spacing(4); // [16]
+      margin-bottom: nhsuk-px-to-rem(48px + 20px + nhsuk-spacing(4)); // [16]
     }
 
     .nhsuk-hero-content {
       position: relative;
-      top: 70px;
+      top: nhsuk-px-to-rem(70px);
 
-      margin-bottom: 24px;
+      margin-bottom: nhsuk-px-to-rem(24px);
       padding: nhsuk-spacing(4);
 
       color: $nhsuk-reverse-text-colour;
@@ -122,11 +122,11 @@
         display: block;
 
         position: absolute;
-        bottom: -10px; // [8]
-        left: 32px; // [9]
+        bottom: nhsuk-px-to-rem(-10px); // [8]
+        left: nhsuk-px-to-rem(32px); // [9]
 
-        width: 20px; // [8]
-        height: 20px; // [8]
+        width: nhsuk-px-to-rem(20px); // [8]
+        height: nhsuk-px-to-rem(20px); // [8]
 
         overflow: hidden;
 
@@ -148,7 +148,7 @@
 
         transform: rotate(45deg); // [10]
 
-        border: solid 32px $nhsuk-brand-colour; // [8]
+        border: solid nhsuk-px-to-rem(32px) $nhsuk-brand-colour; // [8]
       }
 
       @include nhsuk-print-colour {
@@ -169,7 +169,7 @@
 
         position: absolute;
         top: auto;
-        bottom: -48px; // [8]
+        bottom: nhsuk-px-to-rem(-48px); // [8]
 
         max-width: nhsuk-em(560); // [11]
         margin-bottom: 0;
@@ -179,7 +179,7 @@
       }
 
       .nhsuk-hero__arrow {
-        left: 46px; // [9]
+        left: nhsuk-px-to-rem(46px); // [9]
       }
     }
 
