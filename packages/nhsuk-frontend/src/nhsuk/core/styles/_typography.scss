@@ -15,7 +15,7 @@
 %nhsuk-heading-xl {
   display: block;
   margin-top: 0;
-  font-weight: $nhsuk-font-bold;
+  font-weight: $nhsuk-font-weight-bold;
 
   @include nhsuk-font-size(48);
   @include nhsuk-responsive-margin(7, "bottom");
@@ -29,7 +29,7 @@ h1,
 %nhsuk-heading-l {
   display: block;
   margin-top: 0;
-  font-weight: $nhsuk-font-bold;
+  font-weight: $nhsuk-font-weight-bold;
 
   @include nhsuk-font-size(36);
   @include nhsuk-responsive-margin(4, "bottom");
@@ -43,7 +43,7 @@ h2,
 %nhsuk-heading-m {
   display: block;
   margin-top: 0;
-  font-weight: $nhsuk-font-bold;
+  font-weight: $nhsuk-font-weight-bold;
 
   @include nhsuk-font-size(26);
   @include nhsuk-responsive-margin(4, "bottom");
@@ -57,7 +57,7 @@ h3,
 %nhsuk-heading-s {
   display: block;
   margin-top: 0;
-  font-weight: $nhsuk-font-bold;
+  font-weight: $nhsuk-font-weight-bold;
 
   @include nhsuk-font-size(22);
   @include nhsuk-responsive-margin(4, "bottom");
@@ -71,7 +71,7 @@ h4,
 %nhsuk-heading-xs {
   display: block;
   margin-top: 0;
-  font-weight: $nhsuk-font-bold;
+  font-weight: $nhsuk-font-weight-bold;
 
   @include nhsuk-font-size(19);
   @include nhsuk-responsive-margin(4, "bottom");
@@ -85,7 +85,7 @@ h5,
 %nhsuk-heading-xxs {
   display: block;
   margin-top: 0;
-  font-weight: $nhsuk-font-bold;
+  font-weight: $nhsuk-font-weight-bold;
 
   @include nhsuk-font-size(19);
   @include nhsuk-responsive-margin(4, "bottom");
@@ -132,7 +132,7 @@ h6,
   display: block;
   margin-top: 0;
 
-  @include nhsuk-font-size(26);
+  @include nhsuk-font(26);
   @include nhsuk-responsive-margin(5, "bottom");
 }
 
@@ -144,11 +144,12 @@ h6,
   display: block;
   margin-top: 0;
 
-  @include nhsuk-font-size(19);
+  @include nhsuk-font(19);
   @include nhsuk-responsive-margin(4, "bottom");
 }
 
 p,
+.nhsuk-body,
 .nhsuk-body-m {
   @extend %nhsuk-body-m;
   color: inherit;
@@ -158,7 +159,7 @@ p,
   display: block;
   margin-top: 0;
 
-  @include nhsuk-font-size(16);
+  @include nhsuk-font(16);
   @include nhsuk-responsive-margin(4, "bottom");
 }
 
@@ -238,7 +239,7 @@ h1 + .nhsuk-lede-text--small {
 
 strong,
 b {
-  font-weight: $nhsuk-font-bold;
+  font-weight: $nhsuk-font-weight-bold;
 }
 
 @include nhsuk-media-query($media-type: print) {
@@ -264,6 +265,7 @@ b {
   p,
   .nhsuk-body-m,
   .nhsuk-body-s,
+  .nhsuk-body,
   address,
   ol,
   ul,

@@ -294,7 +294,7 @@ Bad:
 
 ```scss
 @mixin FONT_STACK() {
-  font-family: $nhsuk-font-stack;
+  font-family: $nhsuk-font-family;
 }
 ```
 
@@ -302,7 +302,7 @@ Good:
 
 ```scss
 @mixin font-stack() {
-  font-family: $nhsuk-font-stack;
+  font-family: $nhsuk-font-family;
 }
 ```
 
