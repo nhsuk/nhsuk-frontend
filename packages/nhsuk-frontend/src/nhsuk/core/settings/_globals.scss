@@ -1,3 +1,4 @@
+@use "sass:list";
 @use "sass:math";
 
 ////
@@ -10,12 +11,20 @@
 // Font families
 // =========================================================
 
+// @deprecated To be removed in v11.0
+$nhsuk-font: "Frutiger W01" !default;
+
+// @deprecated To be removed in v11.0
+$nhsuk-font-fallback: arial, sans-serif !default;
+
+// @deprecated To be removed in v11.0
+$nhsuk-include-font-face: true !default;
+
 /// Font families to use for all typography on screen media
 ///
 /// @type List
 
-$nhsuk-font: "Frutiger W01" !default;
-$nhsuk-font-fallback: arial, sans-serif !default;
+$nhsuk-font-family: $nhsuk-font, $nhsuk-font-fallback !default;
 
 /// Font families to use for print media
 ///
@@ -39,23 +48,33 @@ $nhsuk-fonts-path: "https://assets.nhs.uk/fonts/" !default;
 ///
 /// @type Boolean
 
-$nhsuk-include-font-face: true !default;
+$nhsuk-include-default-font-face: $nhsuk-include-font-face !default;
+
+@if not list.index($nhsuk-font-family, "Frutiger W01") {
+  $nhsuk-include-default-font-face: false;
+}
 
 // =========================================================
 // Font weights
 // =========================================================
 
+// @deprecated To be removed in v11.0
+$nhsuk-font-normal: 400 !default;
+
+// @deprecated To be removed in v11.0
+$nhsuk-font-bold: 600 !default;
+
 /// Font weight for normal typography
 ///
 /// @type Number
 
-$nhsuk-font-normal: 400 !default;
+$nhsuk-font-weight-normal: $nhsuk-font-normal !default;
 
 /// Font weight for bold typography
 ///
 /// @type Number
 
-$nhsuk-font-bold: 600 !default;
+$nhsuk-font-weight-bold: $nhsuk-font-bold !default;
 
 /// Root font size
 ///
@@ -69,7 +88,6 @@ $nhsuk-font-bold: 600 !default;
 /// @type Number
 
 $nhsuk-root-font-size: 16px !default;
-$nhsuk-base-line-height: 24px !default;
 
 // =========================================================
 // Icon sizes
