@@ -1,3 +1,5 @@
+// stylelint-disable declaration-no-important
+
 @use "sass:map";
 @use "sass:math";
 @use "sass:string";
@@ -44,7 +46,11 @@
 ///   `!important`. Generally Used to create override classes.
 
 @mixin nhsuk-typography-weight-normal($important: false) {
-  font-weight: $nhsuk-font-normal if($important, !important, null);
+  @if $important == true {
+    font-weight: $nhsuk-font-weight-normal !important;
+  } @else {
+    font-weight: $nhsuk-font-weight-normal;
+  }
 }
 
 /// Bold font weight
@@ -53,7 +59,11 @@
 ///   `!important`. Generally Used to create override classes.
 
 @mixin nhsuk-typography-weight-bold($important: false) {
-  font-weight: $nhsuk-font-bold if($important, !important, null);
+  @if $important == true {
+    font-weight: $nhsuk-font-weight-bold !important;
+  } @else {
+    font-weight: $nhsuk-font-weight-bold;
+  }
 }
 
 /// Word break helper
@@ -65,11 +75,22 @@
 ///   `!important`. Generally used to create override classes.
 
 @mixin nhsuk-text-break-word($important: false) {
-  // IE 11 and Edge 16–17 only support the non-standard `word-wrap` property
-  word-wrap: break-word if($important, !important, null);
+  $properties: (
+    // IE 11 and Edge 16–17 only support the non-standard `word-wrap` property
+    "word-wrap": break-word,
 
-  // All other browsers support `overflow-wrap`
-  overflow-wrap: break-word if($important, !important, null);
+    // All other browsers support `overflow-wrap`
+    "overflow-wrap": break-word
+  );
+
+  // Workaround to avoid deprecated `if()` function
+  @each $property, $value in $properties {
+    @if $important == true {
+      #{$property}: $value !important;
+    } @else {
+      #{$property}: $value;
+    }
+  }
 }
 
 /// Line height
@@ -85,11 +106,7 @@
 
 @function nhsuk-line-height($line-height, $font-size) {
   @if not math.is-unitless($line-height) and math.unit($line-height) == math.unit($font-size) {
-    // Explicitly rounding to 5 decimal places to match the node-sass/libsass default precision.
-    // This is expanded to 10 in dart-sass and results in significant line height differences
-    // Therefore by rounding it here we achieve consistent rendering across node-sass and dart-sass
-    $ten-to-the-power-five: 100000;
-    $line-height: math.div(round(math.div($line-height, $font-size) * $ten-to-the-power-five), $ten-to-the-power-five);
+    $line-height: math.div($line-height, $font-size);
   }
 
   @return $line-height;
@@ -178,20 +195,26 @@
     // $calculated-line-height is a separate variable from $line-height,
     // as otherwise the value would get redefined with each loop and
     // eventually break nhsuk-line-height.
-    //
+    $calculated-line-height: $line-height;
+    @if $line-height == false {
+      $calculated-line-height: map.get($breakpoint-map, "line-height");
+    }
+
     // We continue to call the param $line-height to stay consistent with the
     // naming with nhsuk-font.
     $calculated-line-height: nhsuk-line-height(
-      $line-height: if($line-height, $line-height, map.get($breakpoint-map, "line-height")),
+      $line-height: $calculated-line-height,
       $font-size: $font-size
     );
 
     // Mark rules as !important if $important is true - this will result in
     // these variables becoming strings, so this needs to happen *after* they
     // are used in calculations
-    $font-size: $font-size if($important, !important, null);
-    $font-size-rem: $font-size-rem if($important, !important, null);
-    $calculated-line-height: $calculated-line-height if($important, !important, null);
+    @if $important == true {
+      $font-size: $font-size !important;
+      $font-size-rem: $font-size-rem !important;
+      $calculated-line-height: $calculated-line-height !important;
+    }
 
     & {
       @if not $breakpoint {

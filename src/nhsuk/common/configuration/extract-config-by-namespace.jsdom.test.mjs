@@ -13,7 +13,8 @@ describe('extractConfigByNamespace', () => {
       c: { type: 'object' },
       d: { type: 'string' },
       e: { type: 'string' },
-      f: { type: 'object' }
+      f: { type: 'object' },
+      g: { type: 'array' }
     }
   }
 
@@ -41,7 +42,8 @@ describe('extractConfigByNamespace', () => {
         data-c.a="camel"
         data-c.o="cow"
         data-d="dog"
-        data-e="element">
+        data-e="elephant"
+        data-g='["goose", "gull", "gannet"]'>
       </div>
     `
 
@@ -54,6 +56,7 @@ describe('extractConfigByNamespace', () => {
     const nonObject1 = extractConfigByNamespace(schema1, dataset, 'a')
     const nonObject2 = extractConfigByNamespace(schema1, dataset, 'd')
     const nonObject3 = extractConfigByNamespace(schema1, dataset, 'e')
+    const nonObject4 = extractConfigByNamespace(schema1, dataset, 'g')
 
     const namespaceKnown = extractConfigByNamespace(schema1, dataset, 'f')
     const namespaceUnknown = extractConfigByNamespace(
@@ -67,6 +70,7 @@ describe('extractConfigByNamespace', () => {
     expect(nonObject1).toBeUndefined()
     expect(nonObject2).toBeUndefined()
     expect(nonObject3).toBeUndefined()
+    expect(nonObject4).toBeUndefined()
 
     // With known namespace, default to empty config
     expect(namespaceKnown).toEqual({})
@@ -77,7 +81,11 @@ describe('extractConfigByNamespace', () => {
 
   it('can extract config from key-value pairs', () => {
     const result = extractConfigByNamespace(schema1, $element.dataset, 'b')
-    expect(result).toEqual({ a: 'bat', e: 'bear', o: 'boar' })
+    expect(result).toEqual({
+      a: 'bat',
+      e: 'bear',
+      o: 'boar'
+    })
   })
 
   it('can extract config from key-value pairs (with invalid namespace, first)', () => {
@@ -112,25 +120,46 @@ describe('extractConfigByNamespace', () => {
     expect(result).toEqual({ key1: 'One', key2: 'Two', key3: 'Three' })
   })
 
+  it('skips non-object values in object property types', () => {
+    document.body.outerHTML = outdent`
+      <div id="app-example"
+        data-b="bat"
+        data-c='["jellyfish"]'>
+      </div>
+    `
+
+    const { dataset } = document.getElementById('app-example')
+
+    const result1 = extractConfigByNamespace(schema1, dataset, 'b')
+    const result2 = extractConfigByNamespace(schema1, dataset, 'c')
+
+    expect(result1).toEqual({})
+    expect(result2).toEqual({})
+  })
+
   it('handles when both shallow and deep keys are set (namespace collision)', () => {
     document.body.outerHTML = outdent`
       <div id="app-example"
         data-a="aardvark"
         data-b="bat"
-        data-c="jellyfish"
+        data-c='["jellyfish"]'
         data-c.a="cat"
         data-c.o="cow"
         data-d="dog"
-        data-e="element"
+        data-e="elephant"
         data-f.e="elk"
-        data-f.e.l="elephant">
+        data-f.e.l="elephant"
+        data-g='["goose", "gull", "gannet"]'>
       </div>
     `
 
     const { dataset } = document.getElementById('app-example')
     const result = extractConfigByNamespace(schema1, dataset, 'c')
 
-    expect(result).toEqual({ a: 'cat', o: 'cow' })
+    expect(result).toEqual({
+      a: 'cat',
+      o: 'cow'
+    })
   })
 
   it('handles when both shallow and deep keys are set (namespace collision + key collision in namespace)', () => {
@@ -139,11 +168,11 @@ describe('extractConfigByNamespace', () => {
         data-a="aardvark"
         data-b="bat"
         data-c.c="crow"
-        data-c="jellyfish"
+        data-c='["jellyfish"]'
         data-c.a="cat"
         data-c.o="cow"
         data-d="dog"
-        data-e="element"
+        data-e="elephant"
         data-f.e="elk"
         data-f.e.l="elephant">
       </div>
@@ -160,12 +189,12 @@ describe('extractConfigByNamespace', () => {
       <div id="app-example"
         data-a="aardvark"
         data-b="bat"
-        data-c="jellyfish"
+        data-c='["jellyfish"]'
         data-c.a="cat"
         data-c.c="crow"
         data-c.o="cow"
         data-d="dog"
-        data-e="element"
+        data-e="elephant"
         data-f.e="elk"
         data-f.e.l="elephant">
       </div>
@@ -182,7 +211,7 @@ describe('extractConfigByNamespace', () => {
       <div id="app-example"
         data-a="aardvark"
         data-b="bat"
-        data-c="jellyfish"
+        data-c='["jellyfish"]'
         data-c.a="cat"
         data-c.o="cow"
         data-d="dog"
@@ -243,11 +272,12 @@ describe('extractConfigByNamespace', () => {
 /**
  * @typedef {object} MockConfig1
  * @property {string} a - Item A
- * @property {string | {[key: string]: string}} b - Item B
- * @property {string | {[key: string]: string}} c - Item C
+ * @property {{ [key: string]: string }} b - Item B
+ * @property {{ [key: string]: string }} c - Item C
  * @property {string} d - Item D
  * @property {string} [e] - Item E
  * @property {{ e: string | { l: string } }} [f] - Item F
+ * @property {(string | number | boolean)[]} [g] - Item G
  */
 
 /**

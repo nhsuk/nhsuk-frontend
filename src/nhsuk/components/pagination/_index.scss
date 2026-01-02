@@ -222,7 +222,7 @@
   // Current number
   .nhsuk-pagination--numbered .nhsuk-pagination__item--current {
     background-color: nhsuk-colour("blue");
-    font-weight: $nhsuk-font-bold;
+    font-weight: $nhsuk-font-weight-bold;
 
     .nhsuk-pagination__link {
       @include nhsuk-link-style-reverse;

@@ -12,7 +12,7 @@ describe('normaliseDataset', () => {
   }
 
   /**
-   * @augments ConfigurableComponent<MockConfig>
+   * @augments {ConfigurableComponent<MockConfig>}
    */
   class MockConfigurableComponent extends ConfigurableComponent {
     /**
@@ -27,7 +27,11 @@ describe('normaliseDataset', () => {
         aStringBoolean: { type: 'string' },
         aStringNumber: { type: 'string' },
         anOptionalString: { type: 'string' },
-        anObject: { type: 'object' }
+        anObject: { type: 'object' },
+        anArray1: { type: 'array' },
+        anArray2: { type: 'array' },
+        anArray3: { type: 'array' },
+        anArray4: { type: 'array' }
       }
     }
 
@@ -45,7 +49,11 @@ describe('normaliseDataset', () => {
         one: '100',
         two: '200',
         three: '300'
-      }
+      },
+      anArray1: [],
+      anArray2: [true],
+      anArray3: [1, 2, 3, 4],
+      anArray4: ['goose', 'gull', 'gannet']
     }
   }
 
@@ -61,7 +69,11 @@ describe('normaliseDataset', () => {
         'anOptionalString': '',
         'anObject.one': '111',
         'anObject.two': '222',
-        'anObject.three': '333'
+        'anObject.three': '333',
+        'anArray1': '[]',
+        'anArray2': '[true]',
+        'anArray3': '[1, 2, 3, 4]',
+        'anArray4': '["goose", "gull", "gannet"]'
       })
     ).toEqual({
       aNumber: 1000,
@@ -75,7 +87,11 @@ describe('normaliseDataset', () => {
         one: 111,
         two: 222,
         three: 333
-      }
+      },
+      anArray1: [],
+      anArray2: [true],
+      anArray3: [1, 2, 3, 4],
+      anArray4: ['goose', 'gull', 'gannet']
     })
   })
 
@@ -96,6 +112,10 @@ describe('normaliseDataset', () => {
  * @property {string} aStringNumber - A string number
  * @property {string} [anOptionalString] - An optional string
  * @property {{ one: string, two: string, three: string }} anObject - An object
+ * @property {(string | number | boolean)[]} anArray1 - An array
+ * @property {(string | number | boolean)[]} anArray2 - An array
+ * @property {(string | number | boolean)[]} anArray3 - An array
+ * @property {(string | number | boolean)[]} anArray4 - An array
  */
 
 /**
