@@ -16,6 +16,9 @@ $nhsuk-font: "Frutiger W01" !default;
 // @deprecated To be removed in v11.0
 $nhsuk-font-fallback: arial, sans-serif !default;
 
+// @deprecated To be removed in v11.0
+$nhsuk-include-font-face: true !default;
+
 /// Font families to use for all typography on screen media
 ///
 /// @type List
@@ -44,7 +47,7 @@ $nhsuk-fonts-path: "https://assets.nhs.uk/fonts/" !default;
 ///
 /// @type Boolean
 
-$nhsuk-include-font-face: true !default;
+$nhsuk-include-default-font-face: $nhsuk-include-font-face !default;
 
 // =========================================================
 // Font weights
