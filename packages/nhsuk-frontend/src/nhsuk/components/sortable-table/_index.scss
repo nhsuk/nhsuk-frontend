@@ -1,0 +1,89 @@
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+@use "../../core/helpers" as *;
+@forward "../tables";
+
+////
+/// Sortable table component
+///
+/// @group components/sortable-table
+////
+
+@include nhsuk-exports("nhsuk/components/sortable-table") {
+  th[aria-sort]:hover {
+    background-color: nhsuk-colour("grey-4");
+    cursor: pointer;
+
+    button {
+      color: $nhsuk-link-hover-colour;
+      text-decoration: none;
+
+      .nhsuk-icon {
+        fill: $nhsuk-link-hover-colour;
+      }
+    }
+  }
+
+  th[aria-sort] {
+    position: relative;
+  }
+
+  th[aria-sort="ascending"]::after,
+  th[aria-sort="descending"]::after {
+    // currently sorted column indicator
+    content: "";
+
+    position: absolute;
+    right: 0;
+    bottom: -$nhsuk-border-width-form-element;
+    left: 0;
+
+    height: $nhsuk-border-width-form-element;
+
+    background-color: $nhsuk-brand-colour;
+  }
+
+  [aria-sort] button {
+    display: inline-flex;
+
+    align-items: center;
+    column-gap: nhsuk-spacing(2) - $nhsuk-border-width-form-element;
+
+    margin: 0;
+    padding: 0;
+    padding-left: $nhsuk-border-width-form-element;
+
+    border-width: 0;
+
+    color: $nhsuk-brand-colour;
+    background-color: transparent;
+    box-shadow: 0 0 0 0;
+
+    font-family: inherit;
+    font-size: inherit;
+    font-size: 1em;
+    font-weight: inherit;
+    line-height: inherit;
+    text-align: inherit;
+
+    cursor: pointer;
+
+    @include nhsuk-link-style-default;
+
+    &:focus {
+      @include nhsuk-focused-button;
+    }
+  }
+
+  [aria-sort].nhsuk-table__header--numeric button {
+    justify-content: end;
+    padding-right: $nhsuk-border-width-form-element;
+    padding-left: 0;
+  }
+
+  [aria-sort] button svg {
+    flex-shrink: 0;
+    width: auto;
+    height: 1.25rem;
+  }
+}
