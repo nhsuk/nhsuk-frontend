@@ -146,6 +146,21 @@ Support for checkbox and radio button `aria-controls` on page load is deprecated
 
 These changes were introduced in [pull request #1744: Update components for GOV.UK Frontend compatibility](https://github.com/nhsuk/nhsuk-frontend/pull/1744).
 
+#### Remove font sources for Internet Explorer 8
+
+We no longer include `@font-face` sources used by Internet Explorer 8 and other older browsers:
+
+- https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.eot
+- https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.svg
+- https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.ttf
+- https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.eot
+- https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.svg
+- https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.ttf
+
+NHS.UK frontend uses `font-family: "Frutiger W01", arial, sans-serif` by default, allowing older browsers to fall back to Arial or sans-serif when Frutiger is not available.
+
+This change was introduced in [pull request #1749: Remove font files for unsupported browsers and align Sass variables with GOV.UK Frontend](https://github.com/nhsuk/nhsuk-frontend/pull/1749).
+
 ### :wrench: **Fixes**
 
 - [#1734: Fix appearance of summary lists alongside other elements within card content](https://github.com/nhsuk/nhsuk-frontend/issues/1734)
