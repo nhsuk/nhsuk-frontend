@@ -1,6 +1,7 @@
 import { normaliseOptions } from './common/configuration/index.mjs'
 import { isObject, isSupported } from './common/index.mjs'
 import {
+  Accordion,
   Button,
   CharacterCount,
   Checkboxes,
@@ -68,6 +69,7 @@ export function initAll(scopeOrConfig = {}) {
   }
 
   const components = /** @type {const} */ ([
+    [Accordion, config.accordion],
     [Button, config.button],
     [CharacterCount, config.characterCount],
     [Checkboxes, config.checkboxes],
@@ -202,6 +204,7 @@ export * from './errors/index.mjs'
  * @typedef {object} Config
  * @property {Element | Document | null} [scope] - Scope of the document to search within
  * @property {OnErrorCallback<CompatibleClass>} [onError] - Initialisation error callback
+ * @property {ComponentConfig<typeof Accordion>} [accordion] - Accordion config
  * @property {ComponentConfig<typeof Button>} [button] - Button config
  * @property {ComponentConfig<typeof CharacterCount>} [characterCount] - Character count config
  * @property {ComponentConfig<typeof Checkboxes>} [checkboxes] - Checkboxes config

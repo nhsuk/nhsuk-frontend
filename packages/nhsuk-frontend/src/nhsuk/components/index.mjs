@@ -1,3 +1,4 @@
+export * from './accordion/accordion.mjs'
 export * from './button/button.mjs'
 export * from './character-count/character-count.mjs'
 export * from './checkboxes/checkboxes.mjs'
