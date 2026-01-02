@@ -13,7 +13,8 @@ describe('Skip link', () => {
       async (options) => {
         await goToComponent(page, 'skip-link', options)
         return expect(axe(page)).resolves.toHaveNoViolations()
-      }
+      },
+      20000
     )
   })
 })

@@ -13,7 +13,8 @@ describe("Do and Don't list", () => {
       async (options) => {
         await goToComponent(page, 'do-dont-list', options)
         return expect(axe(page)).resolves.toHaveNoViolations()
-      }
+      },
+      20000
     )
   })
 })

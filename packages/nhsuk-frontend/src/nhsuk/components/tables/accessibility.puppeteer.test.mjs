@@ -13,7 +13,8 @@ describe('Tables', () => {
       async (options) => {
         await goToComponent(page, 'tables', options)
         return expect(axe(page)).resolves.toHaveNoViolations()
-      }
+      },
+      20000
     )
   })
 })

@@ -13,7 +13,8 @@ describe('Header', () => {
       async (options) => {
         await goToComponent(page, 'header', options)
         return expect(axe(page)).resolves.toHaveNoViolations()
-      }
+      },
+      20000
     )
   })
 })

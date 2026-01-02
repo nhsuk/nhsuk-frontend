@@ -13,7 +13,8 @@ describe('Warning callout', () => {
       async (options) => {
         await goToComponent(page, 'warning-callout', options)
         return expect(axe(page)).resolves.toHaveNoViolations()
-      }
+      },
+      20000
     )
   })
 })

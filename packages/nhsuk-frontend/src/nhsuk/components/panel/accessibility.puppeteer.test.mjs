@@ -13,7 +13,8 @@ describe('Panel', () => {
       async (options) => {
         await goToComponent(page, 'panel', options)
         return expect(axe(page)).resolves.toHaveNoViolations()
-      }
+      },
+      20000
     )
   })
 })

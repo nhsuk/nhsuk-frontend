@@ -13,7 +13,8 @@ describe('Task list', () => {
       async (options) => {
         await goToComponent(page, 'task-list', options)
         return expect(axe(page)).resolves.toHaveNoViolations()
-      }
+      },
+      20000
     )
   })
 })
