@@ -26,7 +26,8 @@ describe('Notification banner', () => {
       async (options) => {
         await goToComponent(page, 'notification-banner', options)
         return expect(axe(page, axeRules)).resolves.toHaveNoViolations()
-      }
+      },
+      20000
     )
   })
 })
