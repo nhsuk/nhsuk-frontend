@@ -1,3 +1,4 @@
+@use "sass:list";
 @use "sass:math";
 
 ////
@@ -48,6 +49,10 @@ $nhsuk-fonts-path: "https://assets.nhs.uk/fonts/" !default;
 /// @type Boolean
 
 $nhsuk-include-default-font-face: $nhsuk-include-font-face !default;
+
+@if not list.index($nhsuk-font-family, "Frutiger W01") {
+  $nhsuk-include-default-font-face: false;
+}
 
 // =========================================================
 // Font weights
