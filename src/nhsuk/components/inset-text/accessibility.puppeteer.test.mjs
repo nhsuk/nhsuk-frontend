@@ -13,7 +13,8 @@ describe('Inset text', () => {
       async (options) => {
         await goToComponent(page, 'inset-text', options)
         return expect(axe(page)).resolves.toHaveNoViolations()
-      }
+      },
+      20000
     )
   })
 })

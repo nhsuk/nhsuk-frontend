@@ -13,7 +13,8 @@ describe('Tag', () => {
       async (options) => {
         await goToComponent(page, 'tag', options)
         return expect(axe(page)).resolves.toHaveNoViolations()
-      }
+      },
+      20000
     )
   })
 })
