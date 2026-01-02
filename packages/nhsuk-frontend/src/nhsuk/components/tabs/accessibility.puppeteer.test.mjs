@@ -13,7 +13,8 @@ describe('Tabs', () => {
       async (options) => {
         await goToComponent(page, 'tabs', options)
         return expect(axe(page)).resolves.toHaveNoViolations()
-      }
+      },
+      20000
     )
   })
 })

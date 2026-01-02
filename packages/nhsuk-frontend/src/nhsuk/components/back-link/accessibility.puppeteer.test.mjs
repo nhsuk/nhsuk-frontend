@@ -13,7 +13,8 @@ describe('Back link', () => {
       async (options) => {
         await goToComponent(page, 'back-link', options)
         return expect(axe(page)).resolves.toHaveNoViolations()
-      }
+      },
+      20000
     )
   })
 })

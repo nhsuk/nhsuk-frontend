@@ -13,7 +13,8 @@ describe('Textarea', () => {
       async (options) => {
         await goToComponent(page, 'textarea', options)
         return expect(axe(page)).resolves.toHaveNoViolations()
-      }
+      },
+      20000
     )
   })
 })

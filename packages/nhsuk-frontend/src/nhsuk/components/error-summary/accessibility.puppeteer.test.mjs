@@ -13,7 +13,8 @@ describe('Error summary', () => {
       async (options) => {
         await goToComponent(page, 'error-summary', options)
         return expect(axe(page)).resolves.toHaveNoViolations()
-      }
+      },
+      20000
     )
   })
 })

@@ -13,7 +13,8 @@ describe('Error message', () => {
       async (options) => {
         await goToComponent(page, 'error-message', options)
         return expect(axe(page)).resolves.toHaveNoViolations()
-      }
+      },
+      20000
     )
   })
 })

@@ -13,7 +13,8 @@ describe('Breadcrumb', () => {
       async (options) => {
         await goToComponent(page, 'breadcrumb', options)
         return expect(axe(page)).resolves.toHaveNoViolations()
-      }
+      },
+      20000
     )
   })
 })

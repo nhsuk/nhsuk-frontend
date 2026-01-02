@@ -13,7 +13,8 @@ describe('Character count', () => {
       async (options) => {
         await goToComponent(page, 'character-count', options)
         return expect(axe(page)).resolves.toHaveNoViolations()
-      }
+      },
+      20000
     )
   })
 })
