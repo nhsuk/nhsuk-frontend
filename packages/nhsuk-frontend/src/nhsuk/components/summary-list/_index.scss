@@ -185,16 +185,12 @@
   }
 
   .nhsuk-card__content {
-    .nhsuk-summary-list {
+    .nhsuk-summary-list:last-child .nhsuk-summary-list__row:last-of-type {
       margin-bottom: 0;
     }
 
-    .nhsuk-summary-list__row:last-of-type {
-      margin-bottom: 0;
-      border-bottom: none;
-    }
-
-    .nhsuk-summary-list__row:last-of-type > :last-child {
+    .nhsuk-summary-list--no-border:last-child .nhsuk-summary-list__row:last-of-type > :last-child,
+    .nhsuk-summary-list:last-child .nhsuk-summary-list__row--no-border:last-of-type > :last-child {
       @include nhsuk-media-query($until: tablet) {
         margin-bottom: 0;
       }

@@ -1,3 +1,4 @@
+@use "sass:list";
 @use "sass:math";
 
 ////
@@ -6,36 +7,108 @@
 /// @group settings/globals
 ////
 
-/// Fonts
-///
-/// 1. Fallback fonts if Frutiger fails to load
+// =========================================================
+// Font families
+// =========================================================
 
+// @deprecated To be removed in v11.0
 $nhsuk-font: "Frutiger W01" !default;
-$nhsuk-font-fallback: arial, sans-serif !default; // [1]
-$nhsuk-font-family-print: sans-serif !default;
-$nhsuk-font-bold: 600 !default;
-$nhsuk-font-normal: 400 !default;
-$nhsuk-fonts-path: "https://assets.nhs.uk/fonts/" !default;
+
+// @deprecated To be removed in v11.0
+$nhsuk-font-fallback: arial, sans-serif !default;
+
+// @deprecated To be removed in v11.0
 $nhsuk-include-font-face: true !default;
 
-/// Font sizing and spacing
+/// Font families to use for all typography on screen media
+///
+/// @type List
+
+$nhsuk-font-family: $nhsuk-font, $nhsuk-font-fallback !default;
+
+/// Font families to use for print media
+///
+/// We recommend that you use system fonts when printing. This will avoid issues
+/// with some printer drivers and operating systems.
+///
+/// @type List
+
+$nhsuk-font-family-print: sans-serif !default;
+
+/// Path or URL to the fonts folder, with trailing slash.
+///
+/// @type String
+
+$nhsuk-fonts-path: "https://assets.nhs.uk/fonts/" !default;
+
+/// Include the default @font-face declarations
+///
+/// Defaults to true if "Frutiger W01" appears in the $nhsuk-font-family
+/// setting.
+///
+/// @type Boolean
+
+$nhsuk-include-default-font-face: $nhsuk-include-font-face !default;
+
+@if not list.index($nhsuk-font-family, "Frutiger W01") {
+  $nhsuk-include-default-font-face: false;
+}
+
+// =========================================================
+// Font weights
+// =========================================================
+
+// @deprecated To be removed in v11.0
+$nhsuk-font-normal: 400 !default;
+
+// @deprecated To be removed in v11.0
+$nhsuk-font-bold: 600 !default;
+
+/// Font weight for normal typography
+///
+/// @type Number
+
+$nhsuk-font-weight-normal: $nhsuk-font-normal !default;
+
+/// Font weight for bold typography
+///
+/// @type Number
+
+$nhsuk-font-weight-bold: $nhsuk-font-bold !default;
+
+/// Root font size
+///
+/// This is used to calculate rem sizes for the typography, and should match the
+/// _effective_ font-size of your root (or html) element.
+///
+/// Ideally you should not be setting the font-size on the html or root element
+/// in order to allow it to scale with user-preference, in which case this
+/// should be set to 16px.
+///
+/// @type Number
 
 $nhsuk-root-font-size: 16px !default;
-$nhsuk-base-font-size: $nhsuk-root-font-size;
-$nhsuk-base-line-height: 24px !default;
 
-/// Icon default sizing
+// =========================================================
+// Icon sizes
+// =========================================================
 
 $nhsuk-icon-size: 24px !default;
 $nhsuk-icon-size-large: 32px !default;
 
-/// Grid spacing
+// =========================================================
+// Page layout
+// =========================================================
+
+/// Width of main container
+///
+/// @type Number
 
 $nhsuk-page-width: 960px !default;
-$nhsuk-gutter: 32px;
-$nhsuk-gutter-half: math.div($nhsuk-gutter, 2);
 
 /// Map of grid column widths
+///
+/// @type Map
 
 $nhsuk-grid-widths: (
   one-quarter: math.percentage(math.div(1, 4)),
@@ -45,6 +118,18 @@ $nhsuk-grid-widths: (
   three-quarters: math.percentage(math.div(3, 4)),
   full: 100%
 ) !default;
+
+/// Width of gutter between grid columns
+///
+/// @type Number
+
+$nhsuk-gutter: 32px !default;
+
+/// Width of half the gutter between grid columns
+///
+/// @type Number
+
+$nhsuk-gutter-half: math.div($nhsuk-gutter, 2);
 
 // =========================================================
 // Borders
@@ -72,7 +157,6 @@ $nhsuk-border-width-form-element: 2px !default;
 /// Form group border width when in error state
 ///
 /// @type Number
-/// @access public
 
 $nhsuk-border-width-form-group-error: $nhsuk-border-width !default;
 
@@ -104,5 +188,6 @@ $nhsuk-button-shadow-size: 4px !default;
 ///
 
 // @deprecated To be removed in v11.0
+$nhsuk-base-font-size: $nhsuk-root-font-size;
 $nhsuk-border-width-form-element-error: $nhsuk-border-width-form-element;
 $nhsuk-border-width-mobile: $nhsuk-border-width;

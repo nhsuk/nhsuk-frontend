@@ -1,3 +1,5 @@
+// stylelint-disable declaration-no-important
+
 @use "sass:map";
 @use "sass:math";
 @use "sass:meta";
@@ -54,7 +56,12 @@
   }
 
   $value: map.get($nhsuk-spacing-points, $spacing-point);
-  @return if($is-negative, $value * -1, $value);
+
+  @if $is-negative {
+    @return $value * -1;
+  }
+
+  @return $value;
 }
 
 /// Responsive spacing
@@ -110,27 +117,30 @@
       + "#{$actual-map-type}. Make sure you are using a map to set the responsive spacing in `_settings/spacing.scss`)";
   }
 
+  // [2]
   @each $breakpoint, $breakpoint-value in $scale-map {
-    // [2]
-
     @if $adjustment {
       $breakpoint-value: $breakpoint-value + $adjustment;
     }
 
+    @if $important == true {
+      $breakpoint-value: $breakpoint-value !important;
+    }
+
     & {
+      // [3]
       @if not $breakpoint {
-        // [3]
         @if $direction == all {
-          #{$property}: $breakpoint-value if($important, !important, null);
+          #{$property}: $breakpoint-value;
         } @else {
-          #{$property}-#{$direction}: $breakpoint-value if($important, !important, null);
+          #{$property}-#{$direction}: $breakpoint-value;
         }
       } @else {
         @include nhsuk-media-query($from: $breakpoint) {
           @if $direction == all {
-            #{$property}: $breakpoint-value if($important, !important, null);
+            #{$property}: $breakpoint-value;
           } @else {
-            #{$property}-#{$direction}: $breakpoint-value if($important, !important, null);
+            #{$property}-#{$direction}: $breakpoint-value;
           }
         }
       }

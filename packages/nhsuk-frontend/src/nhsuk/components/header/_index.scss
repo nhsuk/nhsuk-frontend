@@ -156,8 +156,16 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     // however Safari doesn’t render anything beyond the bounding box of the SVG.
     // By adding a pseudo element with the same dimensions, we style this instead.
     &:has(svg):not(:focus):hover::before {
-      $underline-offset: if($nhsuk-link-underline-offset, calc(0.2rem + $nhsuk-link-underline-offset), 0.2rem);
-      $underline-thickness: if($nhsuk-link-hover-underline-thickness, $nhsuk-link-hover-underline-thickness, 0.1rem);
+      $underline-offset: 0.2rem;
+      $underline-thickness: 0.1rem;
+
+      @if $nhsuk-link-underline-offset {
+        $underline-offset: calc(0.2rem + $nhsuk-link-underline-offset);
+      }
+
+      @if $nhsuk-link-hover-underline-thickness {
+        $underline-thickness: $nhsuk-link-hover-underline-thickness;
+      }
 
       content: "";
 
@@ -261,12 +269,12 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
 
   .nhsuk-header__account-button,
   .nhsuk-header__account-link {
-    @include nhsuk-link-decoration;
     display: flex;
     gap: nhsuk-spacing(2);
     margin: nhsuk-spacing(-2) ($_header-item-padding * -1);
     padding: nhsuk-spacing(2) $_header-item-padding;
     overflow-wrap: anywhere;
+    @include nhsuk-link-decoration;
   }
 
   .nhsuk-header__account-button {
@@ -503,7 +511,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     align-items: center;
 
     margin: 0;
-    padding-right: nhsuk-em($_chevron-font-size);
+    padding-right: nhsuk-em($_chevron-font-size, 16);
 
     border: 0;
     border-radius: 0;

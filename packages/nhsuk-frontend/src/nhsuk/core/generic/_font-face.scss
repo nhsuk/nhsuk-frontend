@@ -19,33 +19,21 @@
     @font-face {
       font-family: "Frutiger W01";
       font-style: normal;
-      font-weight: $nhsuk-font-normal;
-
-      font-display: swap;
-
-      src: nhsuk-font-url("FrutigerLTW01-55Roman.eot?#iefix");
+      font-weight: $nhsuk-font-weight-normal;
+      font-display: fallback;
       src:
-        nhsuk-font-url("FrutigerLTW01-55Roman.eot?#iefix") format("eot"),
         nhsuk-font-url("FrutigerLTW01-55Roman.woff2") format("woff2"),
-        nhsuk-font-url("FrutigerLTW01-55Roman.woff") format("woff"),
-        nhsuk-font-url("FrutigerLTW01-55Roman.ttf") format("truetype"),
-        nhsuk-font-url("FrutigerLTW01-55Roman.svg#7def0e34-f28d-434f-b2ec-472bde847115") format("svg");
+        nhsuk-font-url("FrutigerLTW01-55Roman.woff") format("woff");
     }
 
     @font-face {
       font-family: "Frutiger W01";
       font-style: normal;
-      font-weight: $nhsuk-font-bold;
-
-      font-display: swap;
-
-      src: nhsuk-font-url("FrutigerLTW01-65Bold.eot?#iefix");
+      font-weight: $nhsuk-font-weight-bold;
+      font-display: fallback;
       src:
-        nhsuk-font-url("FrutigerLTW01-65Bold.eot?#iefix") format("eot"),
         nhsuk-font-url("FrutigerLTW01-65Bold.woff2") format("woff2"),
-        nhsuk-font-url("FrutigerLTW01-65Bold.woff") format("woff"),
-        nhsuk-font-url("FrutigerLTW01-65Bold.ttf") format("truetype"),
-        nhsuk-font-url("FrutigerLTW01-65Bold.svg#eae74276-dd78-47e4-9b27-dac81c3411ca") format("svg");
+        nhsuk-font-url("FrutigerLTW01-65Bold.woff") format("woff");
     }
   }
 }

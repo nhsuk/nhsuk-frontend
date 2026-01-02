@@ -155,6 +155,172 @@ To restore the previous behaviour, add the new `nhsuk-u-wrap-from-tablet` utilit
 
 This was added in [pull request #1668: Add breakpoints to nowrap class](https://github.com/nhsuk/nhsuk-frontend/pull/1668).
 
+## Unreleased v10.x
+
+Note: This release was created from the `support/10.x` branch.
+
+### :new: **New features**
+
+#### New file upload component
+
+We've added a new [file upload component](https://service-manual.nhs.uk/design-system/components/file-upload) which:
+
+- makes the file inputs easier to use for drag and drop
+- allows the text of the component to be translated
+- fixes accessibility issues for users of Dragon, a speech recognition software
+
+To use the `fileUpload` Nunjucks macro in your service:
+
+```njk
+{{ fileUpload({
+  label: {
+    text: "Upload your photo"
+  }
+  id: "file-upload",
+  name: "photo"
+}) }}
+```
+
+If you are not using Nunjucks macros, use the following HTML:
+
+```html
+<div class="nhsuk-form-group nhsuk-file-upload" data-module="nhsuk-file-upload">
+  <label class="nhsuk-label" for="file-upload">
+    Upload your photo
+  </label>
+  <input class="nhsuk-file-upload__input" id="file-upload" name="photo" type="file">
+</div>
+```
+
+If you're importing components individually in your JavaScript, which we recommend for better performance, you'll then need to import and initialise the new `FileUpload` component.
+
+```mjs
+import { createAll, FileUpload } from 'nhsuk-frontend'
+
+createAll(FileUpload)
+```
+
+This change was introduced in [pull request #1556: Uplift GOV.UK Frontend file upload component](https://github.com/nhsuk/nhsuk-frontend/pull/1556)
+
+#### Interruption panel
+
+We've added a new variant of the panel component with a solid blue background and white text. This can be used as an interruption card.
+
+This was added in [pull request #1196: Add interruption panel variant](https://github.com/nhsuk/nhsuk-frontend/pull/1196).
+
+### :wastebasket: **Deprecated features**
+
+#### Rename input prefix and suffix HTML class
+
+HTML markup for the input component has been updated to align `nhsuk-input-wrapper` with other wrapping classes such as `nhsuk-main-wrapper` and `nhsuk-label-wrapper`.
+
+If you are not using Nunjucks macros, change the input classes as follows:
+
+- Rename the `<div class="nhsuk-input__prefix"` class attribute to match `<div class="nhsuk-input-wrapper__prefix"`.
+- Rename the `<div class="nhsuk-input__suffix"` class attribute to match `<div class="nhsuk-input-wrapper__suffix"`.
+
+The previous class names are deprecated and will be removed in a future release.
+
+This change was introduced in [pull request #1745: Update input prefix and suffix classes to follow BEM](https://github.com/nhsuk/nhsuk-frontend/pull/1745).
+
+#### Rename Sass variables for customising fonts
+
+We've renamed Sass variables for customising fonts to better align with GOV.UK frontend. You can still use the previous names but we'll remove them in a future breaking release.
+
+If you use Sass and you've customised the fonts that NHS.UK frontend uses:
+
+- replace `$nhsuk-font` and `$nhsuk-font-fallback` with `$nhsuk-font-family`
+- rename `$nhsuk-font-normal` to `$nhsuk-font-weight-normal`
+- rename `$nhsuk-font-bold` to `$nhsuk-font-weight-bold`
+- rename `$nhsuk-include-font-face` to `$nhsuk-include-default-font-face`
+
+```patch
+- $app-font: "Customised name";
+- $app-font-fallback: arial, sans-serif;
++ $app-font-family: "Customised name", arial, sans-serif;
+
+  @forward "nhsuk-frontend/dist/nhsuk" with (
+-   $nhsuk-font: $app-font
+-   $nhsuk-font-fallback: $app-font-fallback,
++   $nhsuk-font-family: $app-font-family,
+-   $nhsuk-include-font-face: false,
++   $nhsuk-include-default-font-face: false
+  );
+```
+
+```patch
+  .app-component {
+    display: block;
+-   font-weight: $nhsuk-font-bold;
++   font-weight: $nhsuk-font-weight-bold;
+    @include nhsuk-responsive-margin(4, "bottom");
+  }
+```
+
+This change was introduced in [pull request #1749: Remove font files for unsupported browsers and align Sass variables with GOV.UK Frontend](https://github.com/nhsuk/nhsuk-frontend/pull/1749).
+
+### :recycle: **Changes**
+
+#### Update the HTML for responsive table cell content
+
+We've updated the HTML for the responsive table component to wrap HTML content within `<span>` elements.
+
+If you are not using Nunjucks macros, update your HTML markup using the [table examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/table) to add the missing `<span> </span>` wrapper:
+
+```patch
+  <td class="nhsuk-table__cell" role="cell">
+    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Cell heading </span>
+-   Example <code>&lt;td&gt;</code> content
++   <span>Example <code>&lt;td&gt;</code> content</span>
+  </td>
+```
+
+This change was introduced in [pull request #1710: Fix responsive table `display: flex` issue with nested HTML](https://github.com/nhsuk/nhsuk-frontend/pull/1710).
+
+#### Rename checkbox and radio button 'aria-controls' attributes
+
+For checkboxes and radio buttons with conditionally revealed content, we've renamed the `aria-controls` HTML attribute to `data-aria-controls` to prevent incorrect screen reader announcements when JavaScript is not available.
+
+If you are not using Nunjucks macros, update your HTML markup using the [checkboxes](https://service-manual.nhs.uk/design-system/components/checkboxes) and [radios examples](https://service-manual.nhs.uk/design-system/components/radios) in the NHS digital service manual as follows:
+
+```patch
+  <div class="nhsuk-checkboxes__item">
+-   <input class="nhsuk-checkboxes__input" id="item" name="contact" type="checkbox" value="email" aria-controls="conditional-item">
++   <input class="nhsuk-checkboxes__input" id="item" name="contact" type="checkbox" value="email" data-aria-controls="conditional-item">
+  </div>
+```
+
+```patch
+  <div class="nhsuk-radios__item">
+-   <input class="nhsuk-radios__input" id="item" name="contact" type="radio" value="email" aria-controls="conditional-item">
++   <input class="nhsuk-radios__input" id="item" name="contact" type="radio" value="email" data-aria-controls="conditional-item">
+  </div>
+```
+
+Support for checkbox and radio button `aria-controls` on page load is deprecated and will be removed in a future release.
+
+These changes were introduced in [pull request #1744: Update components for GOV.UK Frontend compatibility](https://github.com/nhsuk/nhsuk-frontend/pull/1744).
+
+#### Remove font sources for Internet Explorer 8
+
+We no longer include `@font-face` sources used by Internet Explorer 8 and other older browsers:
+
+- https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.eot
+- https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.svg
+- https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.ttf
+- https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.eot
+- https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.svg
+- https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.ttf
+
+NHS.UK frontend uses `font-family: "Frutiger W01", arial, sans-serif` by default, allowing older browsers to fall back to Arial or sans-serif when Frutiger is not available.
+
+This change was introduced in [pull request #1749: Remove font files for unsupported browsers and align Sass variables with GOV.UK Frontend](https://github.com/nhsuk/nhsuk-frontend/pull/1749).
+
+### :wrench: **Fixes**
+
+- [#1734: Fix appearance of summary lists alongside other elements within card content](https://github.com/nhsuk/nhsuk-frontend/issues/1734)
+- [#1748: Remove Sass `if()` function and other deprecations](https://github.com/nhsuk/nhsuk-frontend/pull/1748)
+
 ## 10.2.2 - 4 December 2025
 
 Note: This release was created from the `support/10.x` branch.

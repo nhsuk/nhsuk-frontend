@@ -31,6 +31,7 @@ $app-xray-blue: color.adjust(nhsuk-colour("blue"), $saturation: 50%);
 .app-xray input,
 .app-xray select,
 .app-xray textarea,
+.app-xray button:not(.nhsuk-button),
 .app-xray[type="checkbox"],
 .app-xray[type="radio"] {
   outline: $nhsuk-border-width solid rgba($app-xray-blue, 0.5);

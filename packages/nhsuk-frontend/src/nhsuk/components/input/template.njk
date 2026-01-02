@@ -82,7 +82,7 @@
 {%- endmacro -%}
 
 {%- macro _affixItem(affix, type) %}
-  <div class="nhsuk-input__{{ type }} {%- if affix.classes %} {{ affix.classes }}{% endif %}" aria-hidden="true" {{- nhsukAttributes(affix.attributes) }}>
+  <div class="nhsuk-input-wrapper__{{ type }} {%- if affix.classes %} {{ affix.classes }}{% endif %}" aria-hidden="true" {{- nhsukAttributes(affix.attributes) }}>
     {{- affix.html | safe | trim | indent(4) if affix.html else affix.text -}}
   </div>
 {%- endmacro -%}
