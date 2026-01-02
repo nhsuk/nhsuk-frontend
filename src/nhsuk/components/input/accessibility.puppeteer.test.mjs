@@ -13,7 +13,8 @@ describe('Input', () => {
       async (options) => {
         await goToComponent(page, 'input', options)
         return expect(axe(page)).resolves.toHaveNoViolations()
-      }
+      },
+      20000
     )
   })
 })

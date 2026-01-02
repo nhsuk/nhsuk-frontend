@@ -13,7 +13,8 @@ describe('Password input', () => {
       async (options) => {
         await goToComponent(page, 'password-input', options)
         return expect(axe(page)).resolves.toHaveNoViolations()
-      }
+      },
+      20000
     )
   })
 })

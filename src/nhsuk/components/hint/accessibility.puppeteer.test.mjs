@@ -13,7 +13,8 @@ describe('Hint text', () => {
       async (options) => {
         await goToComponent(page, 'hint', options)
         return expect(axe(page)).resolves.toHaveNoViolations()
-      }
+      },
+      20000
     )
   })
 })

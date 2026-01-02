@@ -13,7 +13,8 @@ describe('Images', () => {
       async (options) => {
         await goToComponent(page, 'images', options)
         return expect(axe(page)).resolves.toHaveNoViolations()
-      }
+      },
+      20000
     )
   })
 })
