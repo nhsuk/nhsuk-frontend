@@ -100,7 +100,8 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
   // Service logo (and optional name)
 
   .nhsuk-header__logo {
-    min-width: 100px;
+    min-width: nhsuk-px-to-rem(100px);
+    height: auto;
   }
 
   .nhsuk-header__service,
@@ -166,8 +167,8 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
       position: absolute;
       top: 0.2rem;
 
-      width: 100px;
-      height: 40px;
+      width: nhsuk-px-to-rem(100px);
+      height: nhsuk-px-to-rem(40px);
 
       border-bottom: 0.1rem solid currentcolor;
     }
@@ -681,14 +682,14 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
 
   .nhsuk-header--organisation {
     .nhsuk-header__logo {
-      width: 60px;
+      width: nhsuk-px-to-rem(60px);
       min-width: auto;
-      height: 24px;
-      margin-bottom: 6px;
+      height: nhsuk-px-to-rem(24px);
+      margin-bottom: nhsuk-px-to-rem(6px);
 
       @include nhsuk-media-query($from: tablet) {
-        width: 80px;
-        height: 32px;
+        width: nhsuk-px-to-rem(80px);
+        height: nhsuk-px-to-rem(32px);
       }
     }
 
@@ -697,12 +698,12 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
 
       // Adjust SVG logo underline position
       &:has(svg):not(:focus):hover::before {
-        width: 60px;
-        height: 24px;
+        width: nhsuk-px-to-rem(60px);
+        height: nhsuk-px-to-rem(24px);
 
         @include nhsuk-media-query($from: tablet) {
-          width: 80px;
-          height: 32px;
+          width: nhsuk-px-to-rem(80px);
+          height: nhsuk-px-to-rem(32px);
         }
       }
     }
@@ -723,17 +724,17 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
   }
 
   .nhsuk-header__organisation-logo {
-    width: 280px;
+    width: nhsuk-px-to-rem(280px);
     height: auto;
     border: 0;
 
     @include nhsuk-media-query($until: 450px) {
-      max-width: 150px;
+      max-width: nhsuk-px-to-rem(150px);
     }
 
     &[src$=".svg"] {
-      width: 220px;
-      max-width: 220px;
+      width: nhsuk-px-to-rem(220px);
+      max-width: nhsuk-px-to-rem(220px);
     }
   }
 
