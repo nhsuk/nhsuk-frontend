@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-deprecated */
-
 import { getBreakpoint } from '../../common/index.mjs'
 import { ConfigurableComponent } from '../../configurable-component.mjs'
 import { ElementError } from '../../errors/index.mjs'
@@ -11,12 +9,6 @@ import { ElementError } from '../../errors/index.mjs'
  */
 export class Tabs extends ConfigurableComponent {
   changingHash = false
-
-  /**
-   * @type {string | undefined}
-   * @deprecated Use {@link Tabs.panelClass} instead.
-   */
-  jsHiddenClass
 
   /**
    * @type {MediaQueryList | null}
@@ -252,7 +244,7 @@ export class Tabs extends ConfigurableComponent {
 
     $panel.setAttribute('role', 'tabpanel')
     $panel.setAttribute('aria-labelledby', $tab.id)
-    $panel.classList.add(this.jsHiddenClass ?? `${panelClass}--hidden`)
+    $panel.classList.add(`${panelClass}--hidden`)
   }
 
   /**
@@ -278,7 +270,7 @@ export class Tabs extends ConfigurableComponent {
 
     $panel.removeAttribute('role')
     $panel.removeAttribute('aria-labelledby')
-    $panel.classList.remove(this.jsHiddenClass ?? `${panelClass}--hidden`)
+    $panel.classList.remove(`${panelClass}--hidden`)
   }
 
   /**
@@ -432,7 +424,7 @@ export class Tabs extends ConfigurableComponent {
 
     const { panelClass } = this.config
 
-    $panel.classList.remove(this.jsHiddenClass ?? `${panelClass}--hidden`)
+    $panel.classList.remove(`${panelClass}--hidden`)
   }
 
   /**
@@ -448,7 +440,7 @@ export class Tabs extends ConfigurableComponent {
 
     const { panelClass } = this.config
 
-    $panel.classList.add(this.jsHiddenClass ?? `${panelClass}--hidden`)
+    $panel.classList.add(`${panelClass}--hidden`)
   }
 
   /**
