@@ -69,7 +69,7 @@ jobs:
 
       - name: Check compilation
         run: |
-          time sass packages/nhsuk-frontend/dist/nhsuk/nhsuk.scss ${{ format(matrix.package.version && '--fatal-deprecation {0}' || '', matrix.package.version) }} --load-path . .tmp/check.css
+          time sass packages/nhsuk-frontend/dist/nhsuk/index.scss ${{ format(matrix.package.version && '--fatal-deprecation {0}' || '', matrix.package.version) }} --load-path . .tmp/check.css
 
       - name: Check load paths
         run: |
