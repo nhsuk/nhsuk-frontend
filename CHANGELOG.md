@@ -55,26 +55,7 @@ The previous name is deprecated and will be removed in a future release.
 
 This change was introduced in [pull request #1367: Updates to link styles and link hover states](https://github.com/nhsuk/nhsuk-frontend/pull/1367).
 
-### :boom: **Breaking changes**
-
-#### Apply grid column widths from tablet (not desktop) width
-
-We've updated our grid column styles to be applied at tablet width (641px and up).
-
-Previously they were applied from desktop width (769px and up) making it difficult to cater for smaller screen sizes.
-
-Please carefully review your pages. If necessary, different grid behaviour for the mobile and desktop breakpoints can be applied using new classes ending `-from-mobile` and `-from-desktop`.
-
-For example, you can make a column three-quarters on tablet but reduce to two-thirds on desktop sized screens:
-
-```patch
-  <div class="nhsuk-grid-row">
--   <div class="nhsuk-grid-column-two-thirds">
-+   <div class="nhsuk-grid-column-three-quarters nhsuk-grid-column-two-thirds-from-desktop">
-      <!-- Component -->
-    </div>
-  </div>
-```
+### :boom: **Breaking changes** to stylesheets
 
 ##### Mobile width override classes
 
@@ -102,42 +83,6 @@ If you're using the following tablet width utility classes, you must:
 
 This change was introduced in [pull request #1296: Apply grid classes from tablet (not desktop)](https://github.com/nhsuk/nhsuk-frontend/pull/1296).
 
-#### Remove global box sizing reset
-
-We have removed the global `box-sizing` reset and added `box-sizing: border-box` only where necessary.
-
-Please review any custom styles, especially those with defined widths, to make sure they have a correctly calculated box size.
-
-This change was introduced in pull requests [#1633: Review global `box-sizing` usage](https://github.com/nhsuk/nhsuk-frontend/pull/1633), [#1711: Review global `box-sizing` usage for v11](https://github.com/nhsuk/nhsuk-frontend/pull/1711) and [#1651: Add `box-sizing: border-box` to width utility classes etc](https://github.com/nhsuk/nhsuk-frontend/pull/1651).
-
-#### Update the HTML for error messages
-
-We've updated the HTML for the error message component to use a `<p>` element instead of a `<span>` element, as this is more semantically correct.
-
-If you're not using Nunjucks macros, swap the `<span class="nhsuk-error-message">` for a `<p class="nhsuk-error-message">`.
-
-```patch
-- <span class="nhsuk-error-message">
-+ <p class="nhsuk-error-message">
-    <span class="nhsuk-u-visually-hidden">Error:</span> Example error message
-- </span>
-+ </p>
-```
-
-This change was introduced in [pull request #1030: Update error messages to use paragraph tags instead of spans](https://github.com/nhsuk/nhsuk-frontend/pull/1030).
-
-#### Update the HTML for the error summary
-
-If you're not using the Nunjucks macros, you must improve the experience for screen reader users by making these changes to the error summary markup:
-
-- Remove `aria-labelledby="error-summary-title"`, `role="alert"` and `tabindex="-1"` from the parent element (`nhsuk-error-summary`)
-- Add a `div` wrapper around the contents of `nhsuk-error-summary` with the attribute `role="alert"`
-- Remove `id="error-summary-title"` from the error summary `h2` (`nhsuk-error-summary__title`)
-
-This will enable screen reader users to have a better, more coherent experience with the error summary. It will make sure users of JAWS 2022 or later will hear the entire contents of the error summary on page load and therefore have further context on why there is an error on the page they're on.
-
-This change was introduced in [pull request #1036: Add breaking change entry for error summary screen reader improvements](https://github.com/nhsuk/nhsuk-frontend/pull/1036), after previously being recommended in [version 10.1.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.1.0).
-
 #### Make `nhsuk-u-nowrap` apply to mobile and above
 
 We've updated the `nhsuk-u-nowrap` utility class to be applied at mobile width (320px and up).
@@ -154,6 +99,65 @@ To restore the previous behaviour, add the new `nhsuk-u-wrap-from-tablet` utilit
 ```
 
 This was added in [pull request #1668: Add breakpoints to nowrap class](https://github.com/nhsuk/nhsuk-frontend/pull/1668).
+
+#### Global box sizing reset removed
+
+We have removed the global `box-sizing` reset and added `box-sizing: border-box` only where necessary.
+
+Please review any custom styles, especially those with defined widths, to make sure they have a correctly calculated box size.
+
+This change was introduced in pull requests [#1633: Review global `box-sizing` usage](https://github.com/nhsuk/nhsuk-frontend/pull/1633), [#1711: Review global `box-sizing` usage for v11](https://github.com/nhsuk/nhsuk-frontend/pull/1711) and [#1651: Add `box-sizing: border-box` to width utility classes etc](https://github.com/nhsuk/nhsuk-frontend/pull/1651).
+
+### :boom: **Breaking changes** to page template
+
+#### Apply grid column widths from tablet (not desktop) width
+
+We've updated our grid column styles to be applied at tablet width (641px and up).
+
+Previously they were applied from desktop width (769px and up) making it difficult to cater for smaller screen sizes.
+
+Please carefully review your pages. If necessary, different grid behaviour for the mobile and desktop breakpoints can be applied using new classes ending `-from-mobile` and `-from-desktop`.
+
+For example, you can make a column three-quarters on tablet but reduce to two-thirds on desktop sized screens:
+
+```patch
+  <div class="nhsuk-grid-row">
+-   <div class="nhsuk-grid-column-two-thirds">
++   <div class="nhsuk-grid-column-three-quarters nhsuk-grid-column-two-thirds-from-desktop">
+      <!-- Component -->
+    </div>
+  </div>
+```
+
+### :boom: **Breaking changes** to components
+
+#### Error message component changes
+
+We've updated the HTML for the error message component to use a `<p>` element instead of a `<span>` element, as this is more semantically correct.
+
+If you're not using Nunjucks macros, swap the `<span class="nhsuk-error-message">` for a `<p class="nhsuk-error-message">`.
+
+```patch
+- <span class="nhsuk-error-message">
++ <p class="nhsuk-error-message">
+    <span class="nhsuk-u-visually-hidden">Error:</span> Example error message
+- </span>
++ </p>
+```
+
+This change was introduced in [pull request #1030: Update error messages to use paragraph tags instead of spans](https://github.com/nhsuk/nhsuk-frontend/pull/1030).
+
+#### Error summary component changes
+
+If you're not using the Nunjucks macros, you must improve the experience for screen reader users by making these changes to the error summary markup:
+
+- Remove `aria-labelledby="error-summary-title"`, `role="alert"` and `tabindex="-1"` from the parent element (`nhsuk-error-summary`)
+- Add a `div` wrapper around the contents of `nhsuk-error-summary` with the attribute `role="alert"`
+- Remove `id="error-summary-title"` from the error summary `h2` (`nhsuk-error-summary__title`)
+
+This will enable screen reader users to have a better, more coherent experience with the error summary. It will make sure users of JAWS 2022 or later will hear the entire contents of the error summary on page load and therefore have further context on why there is an error on the page they're on.
+
+This change was introduced in [pull request #1036: Add breaking change entry for error summary screen reader improvements](https://github.com/nhsuk/nhsuk-frontend/pull/1036), after previously being recommended in [version 10.1.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.1.0).
 
 ## Unreleased v10.x
 
