@@ -24,17 +24,6 @@ export const examples = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
-  'with deprecated parameters': {
-    context: {
-      previousUrl: '#/section/treatments',
-      previousPage: 'Treatments',
-      nextUrl: '#/section/symptoms',
-      nextPage: 'Symptoms'
-    },
-    options: {
-      width: 'full'
-    }
-  },
   'with only previous': {
     context: {
       previous: {
