@@ -108,6 +108,140 @@ Please review any custom styles, especially those with defined widths, to make s
 
 This change was introduced in pull requests [#1633: Review global `box-sizing` usage](https://github.com/nhsuk/nhsuk-frontend/pull/1633), [#1711: Review global `box-sizing` usage for v11](https://github.com/nhsuk/nhsuk-frontend/pull/1711) and [#1651: Add `box-sizing: border-box` to width utility classes etc](https://github.com/nhsuk/nhsuk-frontend/pull/1651).
 
+#### Sass deprecated load paths removed
+
+We've removed Sass `all` import paths that were deprecated in [version 9.5.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v9.5.0).
+
+If you're importing the core NHS.UK frontend Sass only, or individual Sass layers (e.g. settings, tools), then you must remove `/all` from each path.
+
+```patch
+  // Example 1: NHS.UK frontend
+- @import "nhsuk-frontend/packages/core/all";
++ @import "nhsuk-frontend/packages/core";
+
+  // Example 2: NHS.UK frontend layers
+- @import "nhsuk-frontend/packages/core/settings/all";
+- @import "nhsuk-frontend/packages/core/tools/all";
++ @import "nhsuk-frontend/packages/core/settings";
++ @import "nhsuk-frontend/packages/core/tools";
+```
+
+#### Sass deprecated variables for border width and colour removed
+
+We've removed Sass variables for border width and colour that were deprecated in [version 10.1.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.1.0).
+
+If you use Sass and you've extended or created components that use the following border variables, you must:
+
+- rename `$nhsuk-border-width-mobile` to `$nhsuk-border-width`
+- rename `$nhsuk-border-width-form-element-error` to `$nhsuk-border-width-form-element`
+
+This was added in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
+
+#### Sass deprecated variables for customising fonts removed
+
+We've removed Sass variables for customising fonts that were deprecated in [version 10.2.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.2.0) and [10.3.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.3.0).
+
+If you use Sass and you've customised fonts or font sizes that NHS.UK frontend uses, you must:
+
+- replace `$nhsuk-font` and `$nhsuk-font-fallback` with `$nhsuk-font-family`
+- rename `$nhsuk-font-normal` to `$nhsuk-font-weight-normal`
+- rename `$nhsuk-font-bold` to `$nhsuk-font-weight-bold`
+- rename `$nhsuk-include-font-face` to `$nhsuk-include-default-font-face`
+- rename `$nhsuk-base-font-size` to `$nhsuk-root-font-size`
+
+```patch
+- $app-font: "Customised name";
+- $app-font-fallback: arial, sans-serif;
++ $app-font-family: "Customised name", arial, sans-serif;
+
+  @forward "nhsuk-frontend/dist/nhsuk" with (
+-   $nhsuk-font: $app-font
+-   $nhsuk-font-fallback: $app-font-fallback,
++   $nhsuk-font-family: $app-font-family,
+-   $nhsuk-include-font-face: false,
++   $nhsuk-include-default-font-face: false
+  );
+```
+
+```patch
+  .app-component {
+    display: block;
+-   font-weight: $nhsuk-font-bold;
++   font-weight: $nhsuk-font-weight-bold;
+    @include nhsuk-responsive-margin(4, "bottom");
+  }
+```
+
+This was added in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
+
+### :boom: **Breaking changes** to JavaScript
+
+#### Deprecated component init functions removed
+
+We've replaced component init functions with the `createAll` function added in [version 10.0.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.0.0).
+
+For example, if you're using functions such as `initButtons` and `initCheckboxes`, you must replace them with the `createAll` function:
+
+```patch
+- import { initButtons, initCheckboxes } from 'nhsuk-frontend'
++ import { createAll, Button, Checkboxes } from 'nhsuk-frontend'
+
+- initButtons()
+- initCheckboxes()
++ createAll(Button)
++ createAll(Checkboxes)
+```
+
+Where a component config object or scope is required, these can also be passed to the `createAll` function:
+
+```mjs
+- import { initButtons, initCheckboxes } from 'nhsuk-frontend'
++ import { createAll, Button, Checkboxes } from 'nhsuk-frontend'
+
+  const $element = document.querySelector('.app-modal')
+
+- initButtons({
+- createAll(Button, {
+    preventDoubleClick: true,
+    scope: $element,
+  })
+
+- initCheckboxes({ scope: $element })
++ createAll(Checkboxes, $element)
+```
+
+This was added in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
+
+#### Deprecated JavaScript `focusOnPageLoad` config option removed
+
+We've removed the deprecated `focusOnPageLoad` option from the error summary component JavaScript. You must use the [`disableAutoFocus` JavaScript API option](/docs/configuration/javascript-api-reference.md#errorsummary) instead:
+
+```mjs
+import { createAll, ErrorSummary } from 'nhsuk-frontend'
+
+createAll(ErrorSummary, {
+  disableAutoFocus: true
+})
+```
+
+This was added in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
+
+#### Deprecated JavaScript `jsHiddenClass` property removed
+
+We've removed the deprecated `jsHiddenClass` property from the tabs component JavaScript. You must use the [`panelClass` JavaScript API option](/docs/configuration/javascript-api-reference.md#tabs) instead:
+
+```mjs
+import { createAll, Tabs } from 'nhsuk-frontend'
+
+createAll(Tabs, {
+  panelClass: 'nhsuk-tabs__panel'
+})
+```
+
+The modifier `--hidden` is appended automatically to `panelClass` when used to hide a tab panel.
+
+This was added in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
+
 ### :boom: **Breaking changes** to page template
 
 #### Apply grid column widths from tablet (not desktop) width
@@ -130,6 +264,51 @@ For example, you can make a column three-quarters on tablet but reduce to two-th
 ```
 
 ### :boom: **Breaking changes** to components
+
+#### Card component changes
+
+We've removed HTML classes for the card component that were deprecated in [version 10.2.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.2.0).
+
+If you are not using Nunjucks macros, you must change the card classes as follows:
+
+- Add the missing `nhsuk-card--primary` modifier class to primary cards.
+- Remove the unnecessary `nhsuk-card__heading--feature` modifier class from feature card headings.
+- Remove the unnecessary `nhsuk-card__content--feature` modifier class from feature card content.
+- Remove the unnecessary `nhsuk-card__content--primary` modifier class from primary card content.
+- Remove the unnecessary `nhsuk-card__content--secondary` modifier class from secondary card content.
+- Rename the `<div class="nhsuk-card--care__heading-container"` class attribute to match `<div class="nhsuk-card__heading-container"`.
+- Rename the `<div class="nhsuk-card--care__heading"` class attribute to match `<div class="nhsuk-card__heading"`.
+
+This was added in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
+
+#### Do and Don't list component changes
+
+We've removed Nunjucks options for the do and don't list component that were deprecated in [version 10.1.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.1.0).
+
+If you're using the `list` Nunjucks macro in your service, you must update the nested `items` option, using `text` or `html` instead of `item`.
+
+```patch
+  {{ list({
+    title: "Do",
+    type: "tick",
+    items: [
+      {
+-       item: "cover blisters with a soft plaster or padded dressing"
++       text: "cover blisters with a soft plaster or padded dressing"
+      },
+      {
+-       item: "wash your hands before touching a burst blister"
++       text: "wash your hands before touching a burst blister"
+      },
+      {
+-       item: "allow the fluid in a burst blister to drain before covering it with a plaster or dressing"
++       text: "allow the fluid in a burst blister to drain before covering it with a plaster or dressing"
+      }
+    ]
+  }) }}
+```
+
+This was added in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
 
 #### Error message component changes
 
@@ -158,6 +337,69 @@ If you're not using the Nunjucks macros, you must improve the experience for scr
 This will enable screen reader users to have a better, more coherent experience with the error summary. It will make sure users of JAWS 2022 or later will hear the entire contents of the error summary on page load and therefore have further context on why there is an error on the page they're on.
 
 This change was introduced in [pull request #1036: Add breaking change entry for error summary screen reader improvements](https://github.com/nhsuk/nhsuk-frontend/pull/1036), after previously being recommended in [version 10.1.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.1.0).
+
+#### Input component changes
+
+We've removed HTML classes for the input component that were deprecated in [version 10.3.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.3.0).
+
+If you are not using Nunjucks macros, you must change the input classes as follows:
+
+- Rename the `<div class="nhsuk-input__prefix"` class attribute to match `<div class="nhsuk-input-wrapper__prefix"`.
+- Rename the `<div class="nhsuk-input__suffix"` class attribute to match `<div class="nhsuk-input-wrapper__suffix"`.
+
+We've also removed Nunjucks options for the input component that were deprecated in [version 10.1.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.1.0).
+
+If you're using the `input` Nunjucks macro in your service, you must update the `prefix` and `suffix` options to use the nested `text`, `html` options:
+
+```patch
+  {{ input({
+    label: {
+      text: "Cost per item, in pounds"
+    },
+    name: "example",
+-   prefix: "£",
++   prefix: {
++     text: "£"
++   },
+-   suffix: "per item",
++   suffix: {
++     text: "per item"
++   },
+    classes: "nhsuk-input--width-5"
+  }) }}
+```
+
+This was added in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
+
+#### Pagination component changes
+
+We've removed Nunjucks options for the pagination component that were deprecated in [version 10.1.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.1.0).
+
+If you're using the `pagination` Nunjucks macro in your service, you must:
+
+- replace the `previousUrl` option with the nested `previous.href` option
+- replace the `previousPage` option with the nested `previous.labelText` option
+- replace the `nextUrl` option with the nested `next.href` option
+- replace the `nextPage` option with the nested `next.labelText` option
+
+```patch
+  {{ pagination({
+-   previousPage: "Treatments",
+-   previousUrl: "/section/treatments",
++   previous: {
++     labelText: "Treatments",
++     href: "/section/treatments"
++   },
+-   nextPage: "Symptoms",
+-   nextUrl: "/section/symptoms"
++   next: {
++     labelText: "Symptoms",
++     href: "/section/symptoms"
++   }
+  }) }}
+```
+
+This was added in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
 
 ## Unreleased v10.x
 
