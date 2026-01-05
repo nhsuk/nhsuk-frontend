@@ -322,18 +322,6 @@ const fixtures = {
       classes: 'nhsuk-input--width-5'
     }
   },
-  'with deprecated prefix string parameter': {
-    context: {
-      label: {
-        text: 'Cost in pounds',
-        isPageHeading: true
-      },
-      id: 'with-prefix',
-      name: 'example',
-      prefix: '£',
-      classes: 'nhsuk-input--width-5'
-    }
-  },
   'with suffix': {
     context: {
       label: {
@@ -360,18 +348,6 @@ const fixtures = {
       suffix: {
         html: '<span>kg</span>'
       },
-      classes: 'nhsuk-input--width-5'
-    }
-  },
-  'with deprecated suffix string parameter': {
-    context: {
-      label: {
-        text: 'Weight in kilograms',
-        isPageHeading: true
-      },
-      id: 'with-suffix',
-      name: 'example',
-      suffix: 'kg',
       classes: 'nhsuk-input--width-5'
     }
   },
