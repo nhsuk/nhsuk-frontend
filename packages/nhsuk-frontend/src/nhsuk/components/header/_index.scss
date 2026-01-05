@@ -772,7 +772,6 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
 
 .v1 {
   .nhsuk-header__service-logo:has(svg):not(:focus):hover::before {
-    @include nhsuk-link-style-no-underline;
     top: -4px;
     right: 4px;
     bottom: 4px;
@@ -785,6 +784,8 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     border: 0;
 
     background-color: $nhsuk-header-item-hover-colour;
+
+    @include nhsuk-link-style-no-underline;
   }
 
   .nhsuk-header__logo,
