@@ -164,6 +164,7 @@ This change was introduced in [pull request #1749: Remove font files for unsuppo
 ### :wrench: **Fixes**
 
 - [#1734: Fix appearance of summary lists alongside other elements within card content](https://github.com/nhsuk/nhsuk-frontend/issues/1734)
+- [#1741: Update contents list dash colour to improve contrast](https://github.com/nhsuk/nhsuk-frontend/issues/1741)
 - [#1748: Remove Sass `if()` function and other deprecations](https://github.com/nhsuk/nhsuk-frontend/pull/1748)
 
 ## 10.2.2 - 4 December 2025
