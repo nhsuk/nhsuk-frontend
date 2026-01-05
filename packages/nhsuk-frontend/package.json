@@ -31,11 +31,6 @@
       "require": "./dist/nhsuk/lib/index.js",
       "default": "./dist/nhsuk/lib/index.js"
     },
-    "./packages/*": {
-      "sass": "./dist/nhsuk/*",
-      "default": "./dist/nhsuk/*.js"
-    },
-    "./packages/*.js": "./dist/nhsuk/*.js",
     "./package.json": "./package.json"
   },
   "main": "dist/nhsuk/index.js",
