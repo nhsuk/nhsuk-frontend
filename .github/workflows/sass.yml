@@ -90,10 +90,25 @@ jobs:
       - name: Check output
         run: |
           ! grep "\$nhsuk-" .tmp/check.css
+          ! grep ": nhsuk-" .tmp/check.css
+
           ! grep "\$nhsuk-" .tmp/check1.css
+          ! grep ": nhsuk-" .tmp/check1.css
+
           ! grep "\$nhsuk-" .tmp/check2.css
+          ! grep ": nhsuk-" .tmp/check2.css
+
           ! grep "\$nhsuk-" .tmp/check3.css
+          ! grep ": nhsuk-" .tmp/check3.css
+
           ! grep "\$nhsuk-" .tmp/check4.css
+          ! grep ": nhsuk-" .tmp/check4.css
+
           ! grep "\$nhsuk-" .tmp/check5.css
+          ! grep ": nhsuk-" .tmp/check5.css
+
           ! grep "\$nhsuk-" .tmp/check6.css
+          ! grep ": nhsuk-" .tmp/check6.css
+
           ! grep "\$nhsuk-" .tmp/check7.css
+          ! grep ": nhsuk-" .tmp/check7.css
