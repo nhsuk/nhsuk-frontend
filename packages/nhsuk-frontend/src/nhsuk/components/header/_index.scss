@@ -828,6 +828,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
   .nhsuk-action-link,
   .nhsuk-details__summary,
   .nhsuk-details__summary-text,
+  /* stylelint-disable-next-line selector-no-qualifying-type */
   a.nhsuk-tabs__tab,
   .nhsuk-card--clickable .nhsuk-card__link {
     text-decoration: none;
@@ -890,6 +891,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
   .nhsuk-action-link,
   .nhsuk-details__summary,
   .nhsuk-details__summary-text,
+  /* stylelint-disable-next-line selector-no-qualifying-type */
   a.nhsuk-tabs__tab,
   .nhsuk-card--clickable .nhsuk-card__link {
     text-decoration: none;
