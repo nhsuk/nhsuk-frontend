@@ -73,13 +73,9 @@ $nhsuk-card-border-hover-colour: $nhsuk-border-hover-colour;
     }
   }
 
-  .nhsuk-card__heading-container,
-  // Deprecated, to be removed in v11.0
-  .nhsuk-card--care__heading-container {
-    @include nhsuk-responsive-padding(5);
-  }
-
   .nhsuk-card__heading-container {
+    @include nhsuk-responsive-padding(5);
+
     &:last-child {
       @include nhsuk-top-and-bottom;
     }
@@ -264,9 +260,7 @@ $nhsuk-card-border-hover-colour: $nhsuk-border-hover-colour;
   .nhsuk-card--feature > .nhsuk-card__heading-container,
   .nhsuk-card--feature > .nhsuk-card__content,
   .nhsuk-card--warning > .nhsuk-card__heading-container,
-  .nhsuk-card--warning > .nhsuk-card__content,
-  // Deprecated, to be removed in v11.0
-  .nhsuk-card__content--feature {
+  .nhsuk-card--warning > .nhsuk-card__content {
     padding: 0; // [7]
   }
 
@@ -292,9 +286,7 @@ $nhsuk-card-border-hover-colour: $nhsuk-border-hover-colour;
   }
 
   .nhsuk-card--feature > .nhsuk-card__heading-container > .nhsuk-card__heading,
-  .nhsuk-card--feature > .nhsuk-card__content > .nhsuk-card__heading,
-  // Deprecated, to be removed in v11.0
-  .nhsuk-card__heading--feature {
+  .nhsuk-card--feature > .nhsuk-card__content > .nhsuk-card__heading {
     flex-basis: auto;
     flex-grow: 0;
     @include nhsuk-heading-label($nhsuk-brand-colour, $nhsuk-reverse-text-colour);
@@ -320,18 +312,14 @@ $nhsuk-card-border-hover-colour: $nhsuk-border-hover-colour;
     @include nhsuk-responsive-margin(7, "top");
   }
 
-  .nhsuk-card--care > .nhsuk-card__heading-container,
-  // Deprecated, to be removed in v11.0
-  .nhsuk-card--care__heading-container {
+  .nhsuk-card--care > .nhsuk-card__heading-container {
     position: relative;
     padding-top: nhsuk-spacing(3);
     padding-bottom: nhsuk-spacing(3) - $nhsuk-card-border-width;
     border-bottom: $nhsuk-card-border-width solid transparent;
   }
 
-  .nhsuk-card--care > .nhsuk-card__heading-container > .nhsuk-card__heading,
-  // Deprecated, to be removed in v11.0
-  .nhsuk-card--care__heading {
+  .nhsuk-card--care > .nhsuk-card__heading-container > .nhsuk-card__heading {
     margin: 0;
     padding-top: 0; // [13]
 
@@ -460,9 +448,7 @@ $nhsuk-card-border-hover-colour: $nhsuk-border-hover-colour;
 
   // Card primary
 
-  .nhsuk-card--primary > .nhsuk-card__content,
-  // Deprecated, to be removed in v11.0
-  .nhsuk-card__content--primary {
+  .nhsuk-card--primary > .nhsuk-card__content {
     @include nhsuk-responsive-spacing(
       5,
       "padding",
@@ -475,9 +461,7 @@ $nhsuk-card-border-hover-colour: $nhsuk-border-hover-colour;
     }
   }
 
-  .nhsuk-card--primary,
-  // Deprecated, to be removed in v11.0
-  .nhsuk-card__content--primary {
+  .nhsuk-card--primary {
     .nhsuk-icon {
       display: block;
 
@@ -506,9 +490,7 @@ $nhsuk-card-border-hover-colour: $nhsuk-border-hover-colour;
   }
 
   .nhsuk-card--secondary > .nhsuk-card__heading-container,
-  .nhsuk-card--secondary > .nhsuk-card__content,
-  // Deprecated, to be removed in v11.0
-  .nhsuk-card__content--secondary {
+  .nhsuk-card--secondary > .nhsuk-card__content {
     padding-top: 0;
     padding-right: 0;
     padding-left: 0;
