@@ -231,13 +231,6 @@ jobs:
           node --eval "console.log(require.resolve('nhsuk-frontend/dist/nhsuk/components/button/button.js'))" --conditions ${{ matrix.conditions }}
           node --eval "console.log(require.resolve('nhsuk-frontend/dist/nhsuk/components/button/button.mjs'))" --conditions ${{ matrix.conditions }}
 
-      - name: Resolve entry path (legacy paths)
-        run: |
-          node --eval "console.log(require.resolve('nhsuk-frontend/packages/nhsuk'))" --conditions ${{ matrix.conditions }}
-          node --eval "console.log(require.resolve('nhsuk-frontend/packages/nhsuk.js'))" --conditions ${{ matrix.conditions }}
-          node --eval "console.log(require.resolve('nhsuk-frontend/packages/components/button/button'))" --conditions ${{ matrix.conditions }}
-          node --eval "console.log(require.resolve('nhsuk-frontend/packages/components/button/button.js'))" --conditions ${{ matrix.conditions }}
-
   sass:
     name: Sass import
     needs: [install, build]
