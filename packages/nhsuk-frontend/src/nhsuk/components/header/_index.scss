@@ -801,7 +801,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
 
   .nhsuk-header__account-button,
   .nhsuk-header__account-link {
-        @include nhsuk-link-style-no-underline;
+    @include nhsuk-link-style-no-underline;
 
     &:hover {
       background-color: $nhsuk-brand-colour;
@@ -816,7 +816,9 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
       // border-radius: 8px;
       background-color: $nhsuk-header-item-hover-colour;
       // box-shadow: inset 0 6px 0 0 nhsuk-colour("blue"), inset 0 -6px 0 0 nhsuk-colour("blue");
-      box-shadow: 4px 0 0 0 $nhsuk-header-item-hover-colour, -4px 0 0 0 $nhsuk-header-item-hover-colour;
+      box-shadow:
+        4px 0 0 0 $nhsuk-header-item-hover-colour,
+        -4px 0 0 0 $nhsuk-header-item-hover-colour;
       text-decoration: none;
     }
   }
@@ -841,7 +843,6 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     @include nhsuk-link-style-default;
     @include nhsuk-link-hover-decoration;
   }
-
 }
 
 .v2 {
@@ -904,5 +905,4 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     @include nhsuk-link-style-default;
     @include nhsuk-link-hover-decoration;
   }
-
 }
