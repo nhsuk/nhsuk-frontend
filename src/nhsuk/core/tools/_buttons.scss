@@ -1,5 +1,6 @@
 @use "sass:math";
 @use "../settings" as *;
+@use "./functions" as *;
 
 ////
 /// Buttons
@@ -70,7 +71,7 @@
     &:not(:focus)::after {
       right: 0;
       left: 0;
-      border-radius: math.div($nhsuk-button-border-radius, 2);
+      border-radius: nhsuk-px-to-rem(math.div($nhsuk-button-border-radius, 2));
     }
 
     // Remove the pseudo element shadow when focused or pressed

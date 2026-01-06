@@ -202,8 +202,8 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
   .nhsuk-card--care__heading-container {
     position: relative;
     padding-top: nhsuk-spacing(3);
-    padding-bottom: nhsuk-spacing(3) - 1px;
-    border-bottom: 1px solid transparent;
+    padding-bottom: nhsuk-spacing(3) - $nhsuk-card-border-width;
+    border-bottom: $nhsuk-card-border-width solid transparent;
   }
 
   .nhsuk-card--care > .nhsuk-card__heading-container > .nhsuk-card__heading,
@@ -220,11 +220,11 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
     display: block;
 
     position: absolute;
-    bottom: -11px; // [9]
-    left: 30px; // [10]
+    bottom: nhsuk-px-to-rem(-11px); // [9]
+    left: nhsuk-px-to-rem(30px); // [10]
 
-    width: 20px; // [9]
-    height: 20px; // [9]
+    width: nhsuk-px-to-rem(20px); // [9]
+    height: nhsuk-px-to-rem(20px); // [9]
 
     overflow: hidden;
 
@@ -232,7 +232,7 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
     @include nhsuk-print-hide;
 
     @include nhsuk-media-query($from: tablet) {
-      left: 38px; // [10]
+      left: nhsuk-px-to-rem(38px); // [10]
     }
 
     &::before,
@@ -249,7 +249,7 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
 
       transform: rotate(45deg); // [12]
 
-      border: solid 32px $nhsuk-brand-colour; // [9]
+      border: solid nhsuk-px-to-rem(32px) $nhsuk-brand-colour; // [9]
     }
   }
 
@@ -318,7 +318,12 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
   .nhsuk-card--primary > .nhsuk-card__content,
   // Deprecated, to be removed in v11.0
   .nhsuk-card__content--primary {
-    @include nhsuk-responsive-spacing(5, "padding", $direction: "right", $adjustment: nhsuk-spacing(7));
+    @include nhsuk-responsive-spacing(
+      5,
+      "padding",
+      $direction: "right",
+      $adjustment: nhsuk-px-to-rem(nhsuk-spacing(7))
+    );
 
     @include nhsuk-media-query($from: desktop) {
       height: 100%;
@@ -336,7 +341,7 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
 
       width: nhsuk-px-to-rem($nhsuk-icon-size-large);
       height: nhsuk-px-to-rem($nhsuk-icon-size-large);
-      margin-top: math.floor(math.div($nhsuk-icon-size-large, -2));
+      margin-top: nhsuk-px-to-rem(math.floor(math.div($nhsuk-icon-size-large, -2)));
 
       pointer-events: none;
 
