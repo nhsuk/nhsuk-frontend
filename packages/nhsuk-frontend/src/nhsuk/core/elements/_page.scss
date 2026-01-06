@@ -24,6 +24,14 @@ html {
   // would like the browser to stay on 100% text zoom by default.
   text-size-adjust: 100%;
 
+  // If the user is using the Apple Dynamic Type feature we need to include
+  // the @support CSS at-rule to enable it.
+  @if $nhsuk-include-dynamic-type {
+    @include nhsuk-font-dynamic-type;
+  }
+
+  // If the user is using the default Frutiger W01 font we need to include
+  // the font-face declarations.
   @if $nhsuk-include-default-font-face {
     @include nhsuk-font-face-frutiger;
 
