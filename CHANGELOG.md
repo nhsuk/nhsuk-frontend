@@ -250,6 +250,31 @@ If you are not using Nunjucks macros, update your HTML markup using the [card ex
 
 This change was introduced in [pull request #1685: Add card enhancements to summary list, table and warning callout](https://github.com/nhsuk/nhsuk-frontend/pull/1685).
 
+#### Update the HTML for warning callouts
+
+For consistency with the card component, the HTML for warning callouts has changed.
+
+If you are not using Nunjucks macros, update your HTML markup using the [warning callout in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/warning-callout) as follows:
+
+- Add the wrapper `<div class="nhsuk-card nhsuk-card--warning"> </div>`
+- Rename the callout `<div class="nhsuk-warning-callout"` class attribute to match `<div class="nhsuk-card__content"`
+- Rename the heading `<h3 class="nhsuk-warning-callout__label"` class attribute to match `<h3 class="nhsuk-card__heading"`
+
+```patch
++ <div class="nhsuk-card nhsuk-card--warning">
+-   <div class="nhsuk-warning-callout">
++   <div class="nhsuk-card__content">
+-     <h3 class="nhsuk-warning-callout__label">
++     <h3 class="nhsuk-card__heading">
+        Important<span class="nhsuk-u-visually-hidden">:</span>
+      </h3>
+      <!-- // ... -->
+    </div>
++ </div>
+```
+
+This change was introduced in [pull request #1685: Add card enhancements to summary list, table and warning callout](https://github.com/nhsuk/nhsuk-frontend/pull/1685).
+
 ### :wrench: **Fixes**
 
 - [#1734: Fix appearance of summary lists alongside other elements within card content](https://github.com/nhsuk/nhsuk-frontend/issues/1734)
