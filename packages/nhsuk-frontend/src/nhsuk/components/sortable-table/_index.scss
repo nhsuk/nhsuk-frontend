@@ -16,7 +16,6 @@
 // This is also used by the Task list component
 $sortable-table-hover-colour: color.adjust(nhsuk-colour("grey-5"), $lightness: -6%);
 
-
 @include nhsuk-exports("nhsuk/components/sortable-table") {
   th[aria-sort] {
     position: relative;
