@@ -184,11 +184,11 @@ export const examples = {
         items: [
           {
             text: 'Delete',
-            href: '#'
+            href: '#/delete'
           },
           {
             text: 'Withdraw',
-            href: '#'
+            href: '#/withdraw'
           }
         ]
       }
@@ -227,7 +227,7 @@ export const examples = {
         items: [
           {
             text: 'Delete',
-            href: '#'
+            href: '#/delete'
           },
           false
         ]
