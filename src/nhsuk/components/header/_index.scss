@@ -278,6 +278,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
   // Search
 
   .nhsuk-header__search {
+    display: block;
     position: relative;
     z-index: 10;
     flex-grow: 1;
