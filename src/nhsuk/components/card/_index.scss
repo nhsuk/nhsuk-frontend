@@ -114,8 +114,7 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
     padding: 0;
 
     list-style: none;
-
-    @include nhsuk-typography-weight-bold;
+    @include nhsuk-font(19, $weight: bold);
 
     @include nhsuk-media-query($from: tablet) {
       justify-content: right;
