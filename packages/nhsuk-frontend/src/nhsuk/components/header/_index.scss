@@ -312,6 +312,8 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     border-radius: nhsuk-px-to-rem($nhsuk-border-radius) 0 0 nhsuk-px-to-rem($nhsuk-border-radius);
     border-color: transparent;
 
+    background-color: $nhsuk-input-background-colour;
+
     @include nhsuk-font-size(16);
 
     &:focus {
