@@ -182,7 +182,7 @@ const fixtures = {
   },
   'with numeric data, sortable': {
     context: {
-      caption: 'Mountains of the world',
+      caption: 'Screening schedule',
       attributes: {
         'data-module': 'nhsuk-sortable-table'
       },
@@ -194,167 +194,104 @@ const fixtures = {
           }
         },
         {
-          text: 'Elevation',
-          attributes: {
-            'aria-sort': 'descending'
-          }
-        },
-        {
-          text: 'Continent'
-        },
-        {
-          text: 'First summit',
-          attributes: {
-            'aria-sort': 'none'
-          },
+          text: 'NHS number',
           format: 'numeric'
+        },
+        {
+          text: 'Next screening',
+          attributes: {
+            'aria-sort': 'ascending'
+          }
         }
       ],
       rows: [
         [
           {
-            text: 'Aconcagua'
+            text: 'Laura Stone'
           },
           {
-            text: '6,961 meters',
+            html: '<span class="nhsuk-u-nowrap">999 123 4567</span>',
+            format: 'numeric'
+          },
+          {
+            text: '4 January 2027',
             attributes: {
-              'data-sort-value': '6961'
-            }
-          },
-          {
-            text: 'South America'
-          },
-          {
-            text: '1897',
-            format: 'numeric',
-            attributes: {
-              'data-sort-value': '1897'
+              'data-sort-value': '2027-01-04'
             }
           }
         ],
         [
           {
-            text: 'Denali'
+            text: 'Michael Thompson'
           },
           {
-            text: '6,194 meters',
+            html: '<span class="nhsuk-u-nowrap">999 856 2341</span>',
+            format: 'numeric'
+          },
+          {
+            text: '15 March 2027',
             attributes: {
-              'data-sort-value': '6194'
-            }
-          },
-          {
-            text: 'North America'
-          },
-          {
-            text: '1913',
-            format: 'numeric',
-            attributes: {
-              'data-sort-value': '1913'
+              'data-sort-value': '2027-03-15'
             }
           }
         ],
         [
           {
-            text: 'Elbrus'
+            text: 'Sarah Louise Williams'
           },
           {
-            text: '5,642 meters',
+            html: '<span class="nhsuk-u-nowrap">999 512 7834</span>',
+            format: 'numeric'
+          },
+          {
+            text: '22 June 2026',
             attributes: {
-              'data-sort-value': '5642'
-            }
-          },
-          {
-            text: 'Europe'
-          },
-          {
-            text: '1874',
-            format: 'numeric',
-            attributes: {
-              'data-sort-value': '1874'
+              'data-sort-value': '2026-06-22'
             }
           }
         ],
         [
           {
-            text: 'Everest'
+            text: 'David Chen'
           },
           {
-            text: '8,850 meters',
+            html: '<span class="nhsuk-u-nowrap">999 234 9876</span>',
+            format: 'numeric'
+          },
+          {
+            text: '8 September 2027',
             attributes: {
-              'data-sort-value': '8850'
-            }
-          },
-          {
-            text: 'Asia'
-          },
-          {
-            text: '1953',
-            format: 'numeric',
-            attributes: {
-              'data-sort-value': '1953'
+              'data-sort-value': '2027-09-08'
             }
           }
         ],
         [
           {
-            text: 'Kilimanjaro'
+            text: 'Emma Katie-Brown'
           },
           {
-            text: '5,895 meters',
+            html: '<span class="nhsuk-u-nowrap">999 678 4512</span>',
+            format: 'numeric'
+          },
+          {
+            text: '30 November 2026',
             attributes: {
-              'data-sort-value': '5895'
-            }
-          },
-          {
-            text: 'Africa'
-          },
-          {
-            text: '1889',
-            format: 'numeric',
-            attributes: {
-              'data-sort-value': '1889'
+              'data-sort-value': '2026-11-30'
             }
           }
         ],
         [
           {
-            text: 'Puncak Jaya'
+            text: 'Juan Martinez'
           },
           {
-            text: '4,884 meters',
+            html: '<span class="nhsuk-u-nowrap">999 345 1298</span>',
+            format: 'numeric'
+          },
+          {
+            text: '17 February 2028',
             attributes: {
-              'data-sort-value': '4884'
-            }
-          },
-          {
-            text: 'Australia'
-          },
-          {
-            text: '1962',
-            format: 'numeric',
-            attributes: {
-              'data-sort-value': '1962'
-            }
-          }
-        ],
-        [
-          {
-            text: 'Vinson'
-          },
-          {
-            text: '4,897 meters',
-            attributes: {
-              'data-sort-value': '4897'
-            }
-          },
-          {
-            text: 'Antarctica'
-          },
-          {
-            text: '1966',
-            format: 'numeric',
-            attributes: {
-              'data-sort-value': '1966'
+              'data-sort-value': '2028-02-17'
             }
           }
         ]
