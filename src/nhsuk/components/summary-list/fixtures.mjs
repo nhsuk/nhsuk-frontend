@@ -481,7 +481,7 @@ export const examples = {
     context: {
       card: {
         heading: 'Regional Manager',
-        headingSize: 'm',
+        headingSize: 'l',
         actions: {
           items: [
             {
