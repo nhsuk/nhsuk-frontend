@@ -40,19 +40,13 @@ $sortable-table-hover-colour: color.adjust(nhsuk-colour("grey-5"), $lightness: -
     content: "";
 
     position: absolute;
+    right: 0;
     bottom: -$nhsuk-border-width-form-element;
     left: 0;
 
     height: $nhsuk-border-width-form-element;
 
     background-color: $nhsuk-brand-colour;
-    @include nhsuk-responsive-spacing(4, "right");
-  }
-
-  th[aria-sort="descending"]:last-child button::after,
-  th[aria-sort="ascending"]:last-child button::after {
-    right: 0;
-    @include nhsuk-responsive-spacing(3, "left");
   }
 
   th[aria-sort]:hover {
