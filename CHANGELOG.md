@@ -277,6 +277,7 @@ This change was introduced in [pull request #1685: Add card enhancements to summ
 
 ### :wrench: **Fixes**
 
+- [#1761: Align contents list and mobile tabs list styles](https://github.com/nhsuk/nhsuk-frontend/issues/1761)
 - [#1734: Fix appearance of summary lists alongside other elements within card content](https://github.com/nhsuk/nhsuk-frontend/issues/1734)
 - [#1741: Update contents list dash colour to improve contrast](https://github.com/nhsuk/nhsuk-frontend/issues/1741)
 - [#1748: Remove Sass `if()` function and other deprecations](https://github.com/nhsuk/nhsuk-frontend/pull/1748)
