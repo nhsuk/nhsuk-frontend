@@ -200,7 +200,7 @@ This change was introduced in [pull request #1655: Add support for Dynamic Type 
 
 For consistency with other components, the HTML and Nunjucks options for tables as a panel have changed. The previous names are deprecated and will be removed in a future release.
 
-If you're using the `table` Nunjucks macro in your service, you should:
+If you're using the `table` Nunjucks macro with the `panel` option, you should migrate to the feature card enhancement:
 
 - replace the `heading` option with the nested `card.heading` option
 - replace the `headingLevel` option with the nested `card.headingLevel` option
@@ -227,7 +227,7 @@ If you're using the `table` Nunjucks macro in your service, you should:
   }) }}
 ```
 
-If you are not using Nunjucks macros, update your HTML markup using the [card examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/card) as follows:
+If you are not using Nunjucks macros, update your HTML markup using the [table as a card (feature) example on the NHS.UK frontend review app](https://nhsuk.github.io/nhsuk-frontend/components/tables/as-a-card-feature/) as follows:
 
 - Add the wrapper `<div class="nhsuk-card nhsuk-card--feature"> </div>`
 - Rename the panel `<div class="nhsuk-table__panel-with-heading-tab"` class attribute to match `<div class="nhsuk-card__content"`
