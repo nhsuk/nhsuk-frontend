@@ -71,7 +71,7 @@
   .nhsuk-file-upload__choose-files-button {
     flex-shrink: 0;
     width: auto;
-    margin-right: $nhsuk-button-padding-left-right - nhsuk-spacing(1);
+    margin-right: calc($nhsuk-button-padding-left-right - nhsuk-spacing(1));
     margin-bottom: $nhsuk-button-shadow-size;
 
     @include nhsuk-media-query($from: tablet) {

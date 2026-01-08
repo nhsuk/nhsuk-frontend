@@ -120,7 +120,11 @@
   // [2]
   @each $breakpoint, $breakpoint-value in $scale-map {
     @if $adjustment {
-      $breakpoint-value: $breakpoint-value + $adjustment;
+      @if not math.compatible($breakpoint-value, $adjustment) {
+        $breakpoint-value: calc($breakpoint-value + $adjustment);
+      } @else {
+        $breakpoint-value: $breakpoint-value + $adjustment;
+      }
     }
 
     @if $important == true {
