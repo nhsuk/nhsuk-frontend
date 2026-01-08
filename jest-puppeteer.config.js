@@ -12,7 +12,7 @@ module.exports = {
 
   /**
    * Workaround for jest-environment-puppeteer 'uncaughtException'
-   * see error handling in '@nhsuk/frontend-helpers/jest/environment/jest.puppeteer.mjs'
+   * see error handling in '@nhsuk/frontend-helpers/jest/environment/puppeteer/jest.puppeteer.mjs'
    */
   exitOnPageError: false,
 

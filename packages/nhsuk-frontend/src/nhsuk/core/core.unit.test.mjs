@@ -58,8 +58,8 @@ describe('Core', () => {
         --nhsuk-input-background-colour: white;
         --nhsuk-link-colour: #005eb8;
         --nhsuk-link-visited-colour: #330072;
-        --nhsuk-link-hover-colour: #7c2855;
-        --nhsuk-link-active-colour: #002f5c;
+        --nhsuk-link-hover-colour: #003087;
+        --nhsuk-link-active-colour: #212b32;
         --nhsuk-button-colour: #007f3b;
         --nhsuk-button-text-colour: white;
         --nhsuk-button-hover-colour: #00662f;
@@ -112,7 +112,7 @@ describe('Core', () => {
       })
     })
 
-    it('forwards core styles (with settings)', async () => {
+    it('forwards core styles (with custom breakpoints)', async () => {
       const sass = outdent`
         @forward "core" with (
           $nhsuk-breakpoints: (
@@ -120,8 +120,7 @@ describe('Core', () => {
             tablet: 220px,
             desktop: 330px,
             large-desktop: 440px
-          ),
-          $nhsuk-page-width: 1100px,
+          )
         );
       `
 
@@ -138,6 +137,18 @@ describe('Core', () => {
             --nhsuk-breakpoint-desktop: 20.625rem;
             --nhsuk-breakpoint-large-desktop: 27.5rem;
         `)
+      })
+    })
+
+    it('forwards core styles (with custom page width)', async () => {
+      const sass = outdent`
+        @forward "core" with (
+          $nhsuk-page-width: 1100px
+        );
+      `
+
+      const results = compileStringAsync(sass, {
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
       })
 
       await expect(results).resolves.toMatchObject({

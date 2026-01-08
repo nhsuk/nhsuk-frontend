@@ -1,21 +1,33 @@
 import { normaliseOptions } from '../../common/configuration/index.mjs'
 import { toggleConditionalInput } from '../../common/index.mjs'
-import { Component } from '../../component.mjs'
+import { ConfigurableComponent } from '../../configurable-component.mjs'
 import { ElementError } from '../../errors/index.mjs'
 
 /**
  * Checkboxes component
  *
- * Conditionally show content when a checkbox button is checked
- *
  * Test at {@link http://localhost:3000/nhsuk-frontend/components/checkboxes/with-conditional-content/}
+ *
+ * @augments {ConfigurableComponent<CheckboxesConfig>}
  */
-export class Checkboxes extends Component {
+export class Checkboxes extends ConfigurableComponent {
   /**
+   * Checkboxes can be associated with a 'conditionally revealed' content block
+   * – for example, a checkbox for 'Phone' could reveal an additional form field
+   * for the user to enter their phone number.
+   *
+   * These associations are made using a `data-aria-controls` attribute, which
+   * is promoted to an aria-controls attribute during initialisation.
+   *
+   * We also need to restore the state of any conditional reveals on the page
+   * (for example if the user has navigated back), and set up event handlers to
+   * keep the reveal in sync with the checkbox state.
+   *
    * @param {Element | null} $root - HTML element to use for component
+   * @param {Partial<CheckboxesConfig>} [config] - Checkboxes config
    */
-  constructor($root) {
-    super($root)
+  constructor($root, config) {
+    super($root, config)
 
     const $inputs = this.$root.querySelectorAll('input[type="checkbox"]')
     if (!$inputs.length) {
@@ -28,9 +40,10 @@ export class Checkboxes extends Component {
     this.$inputs = $inputs
 
     this.$inputs.forEach(($input) => {
-      const targetId = $input.getAttribute('aria-controls')
+      const targetId =
+        $input.dataset.ariaControls ?? $input.getAttribute('aria-controls')
 
-      // Skip checkboxes without aria-controls attributes
+      // Skip checkboxes without data-aria-controls attributes
       if (!targetId) {
         return
       }
@@ -41,6 +54,13 @@ export class Checkboxes extends Component {
           component: Checkboxes,
           identifier: `Conditional reveal (\`id="${targetId}"\`)`
         })
+      }
+
+      // Promote the data-aria-controls attribute to an aria-controls attribute
+      // so that the relationship is exposed in the AOM
+      if (!$input.hasAttribute('aria-controls')) {
+        $input.setAttribute('aria-controls', targetId)
+        delete $input.dataset.ariaControls
       }
     })
 
@@ -76,7 +96,8 @@ export class Checkboxes extends Component {
    * @param {HTMLInputElement} $input - Checkbox input
    */
   syncConditionalRevealWithInputState($input) {
-    toggleConditionalInput($input, 'nhsuk-checkboxes__conditional--hidden')
+    const { conditionalClass } = this.config
+    toggleConditionalInput($input, `${conditionalClass}--hidden`)
   }
 
   /**
@@ -280,13 +301,36 @@ export class Checkboxes extends Component {
    * Name for the component used when initialising using data-module attributes
    */
   static moduleName = 'nhsuk-checkboxes'
+
+  /**
+   * Radios default config
+   *
+   * @see {@link CheckboxesConfig}
+   * @constant
+   * @type {CheckboxesConfig}
+   */
+  static defaults = Object.freeze({
+    conditionalClass: 'nhsuk-checkboxes__conditional'
+  })
+
+  /**
+   * Checkboxes config schema
+   *
+   * @constant
+   * @satisfies {Schema<CheckboxesConfig>}
+   */
+  static schema = Object.freeze({
+    properties: {
+      conditionalClass: { type: 'string' }
+    }
+  })
 }
 
 /**
  * Initialise checkboxes component
  *
- * @deprecated Use {@link createAll | `createAll(Checkboxes)`} instead.
- * @param {InitOptions} [options]
+ * @deprecated Use {@link createAll | `createAll(Checkboxes, options)`} instead.
+ * @param {InitOptions & Partial<CheckboxesConfig>} [options]
  */
 export function initCheckboxes(options) {
   const { scope: $scope } = normaliseOptions(options)
@@ -296,10 +340,18 @@ export function initCheckboxes(options) {
   )
 
   $checkboxes?.forEach(($root) => {
-    new Checkboxes($root)
+    new Checkboxes($root, options)
   })
 }
 
 /**
+ * Checkboxes config
+ *
+ * @typedef {object} CheckboxesConfig
+ * @property {string} conditionalClass - Conditionally revealed content class
+ */
+
+/**
  * @import { createAll, InitOptions } from '../../index.mjs'
+ * @import { Schema } from '../../common/configuration/index.mjs'
  */

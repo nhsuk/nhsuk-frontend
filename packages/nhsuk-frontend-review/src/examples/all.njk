@@ -50,6 +50,17 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
+      {{ errorSummary({
+        titleText: "There is a problem",
+        descriptionText: "Describe the errors and how to correct them",
+        errorList: [
+          {
+            text: "Enter your NHS number",
+            href: "#nhs-number-error"
+          }
+        ]
+      }) }}
+
       {% call notificationBanner() %}
         <p class="nhsuk-notification-banner__heading">
           You have 7 days left to send your application.
@@ -427,10 +438,60 @@
       </div>
 
       {{ pagination({
-        previousUrl: "/section/treatments",
-        previousPage: "Treatments",
-        nextUrl: "/section/symptoms",
-        nextPage: "Symptoms"
+        previous: {
+          labelText: "Treatments",
+          href: "#"
+        },
+        next: {
+          labelText: "Symptoms",
+          href: "#"
+        }
+      }) }}
+
+      {{ pagination({
+        previous: {
+          href: "#"
+        },
+        next: {
+          href: "#"
+        },
+        items: [
+          {
+            number: 1,
+            href: "#"
+          },
+          {
+            ellipsis: true
+          },
+          {
+            number: 8,
+            href: "#"
+          },
+          {
+            number: 9,
+            href: "#"
+          },
+          {
+            number: 10,
+            href: "#",
+            current: true
+          },
+          {
+            number: 11,
+            href: "#"
+          },
+          {
+            number: 12,
+            href: "#"
+          },
+          {
+            ellipsis: true
+          },
+          {
+            number: 42,
+            href: "#"
+          }
+        ]
       }) }}
 
       {{ list({
@@ -822,10 +883,31 @@
         errorMessage: {
           text: "Enter your NHS number"
         },
-        name: "nhs-number-hint",
+        name: "nhs-number-error",
         classes: "nhsuk-input--width-10 nhsuk-input--code",
         inputmode: "numeric",
         spellcheck: false
+      }) }}
+
+      {{ fileUpload({
+        label: {
+          text: "Upload a file"
+        },
+        name: "file"
+      }) }}
+
+      {{ fileUpload({
+        label: {
+          text: "Upload a file"
+        },
+        hint: {
+          text: "Upload a CSV or Excel file"
+        },
+        errorMessage: {
+          text: "The CSV must be smaller than 2MB"
+        },
+        name: "fileHint",
+        id: "file-hint"
       }) }}
 
       <form method="post" novalidate>

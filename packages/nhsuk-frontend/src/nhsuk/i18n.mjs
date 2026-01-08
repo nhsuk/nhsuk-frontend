@@ -141,7 +141,7 @@ export class I18n {
   hasIntlPluralRulesSupport() {
     return Boolean(
       'PluralRules' in window.Intl &&
-        Intl.PluralRules.supportedLocalesOf(this.locale).length
+      Intl.PluralRules.supportedLocalesOf(this.locale).length
     )
   }
 

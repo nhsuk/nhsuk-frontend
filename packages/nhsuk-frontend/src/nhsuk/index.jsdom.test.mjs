@@ -1,4 +1,4 @@
-import camelCase from 'lodash/camelCase.js'
+import { names } from '@nhsuk/frontend-lib'
 import { outdent } from 'outdent'
 
 import {
@@ -23,6 +23,7 @@ jest.mock('./components/button/button.mjs')
 jest.mock('./components/character-count/character-count.mjs')
 jest.mock('./components/checkboxes/checkboxes.mjs')
 jest.mock('./components/error-summary/error-summary.mjs')
+jest.mock('./components/file-upload/file-upload.mjs')
 jest.mock('./components/header/header.mjs')
 jest.mock('./components/notification-banner/notification-banner.mjs')
 jest.mock('./components/password-input/password-input.mjs')
@@ -33,6 +34,7 @@ jest.mock('./components/tabs/tabs.mjs')
 describe('NHS.UK frontend', () => {
   const components = [
     'Checkboxes',
+    'FileUpload',
     'Header',
     'Radios',
     'SkipLink',
@@ -43,10 +45,6 @@ describe('NHS.UK frontend', () => {
     'NotificationBanner',
     'PasswordInput'
   ]
-
-  const componentsWithoutConfig = components.filter(
-    (name) => !('defaults' in NHSUKFrontend[name])
-  )
 
   const componentsWithConfig = components.filter(
     (name) => 'defaults' in NHSUKFrontend[name]
@@ -119,63 +117,6 @@ describe('NHS.UK frontend', () => {
       `
     })
 
-    describe('Non-configurable components', () => {
-      it.each(componentsWithoutConfig)("should init '%s'", (name) => {
-        const NamespaceComponent = /** @type {CompatibleClass} */ (
-          NHSUKFrontend[name]
-        )
-
-        document.body.innerHTML = outdent`
-          <div data-module="${NamespaceComponent.moduleName}"></div>
-        `
-
-        const $root = document.querySelector(
-          `[data-module="${NamespaceComponent.moduleName}"]`
-        )
-
-        initAll()
-
-        expect(NamespaceComponent).toHaveBeenCalledWith(
-          ...('defaults' in NamespaceComponent ? [$root, undefined] : [$root])
-        )
-      })
-    })
-
-    describe('Non-configurable components (with scope)', () => {
-      it.each(componentsWithoutConfig)("should init scoped '%s'", (name) => {
-        const NamespaceComponent = /** @type {CompatibleClass} */ (
-          NHSUKFrontend[name]
-        )
-
-        document.body.innerHTML = outdent`
-          <div class="app-scope-1">
-            <!-- No components -->
-          </div>
-          <div class="app-scope-2">
-            <div data-module="${NamespaceComponent.moduleName}"></div>
-          </div>
-        `
-
-        const $scope1 = document.querySelector('.app-scope-1')
-        const $scope2 = document.querySelector('.app-scope-2')
-
-        const $root1 = $scope1.querySelector(
-          `[data-module="${NamespaceComponent.moduleName}"]`
-        )
-
-        const $root2 = $scope2.querySelector(
-          `[data-module="${NamespaceComponent.moduleName}"]`
-        )
-
-        initAll($scope1)
-        expect(NamespaceComponent).not.toHaveBeenCalled()
-
-        initAll($scope2)
-        expect(NamespaceComponent).toHaveBeenCalledWith($root2)
-        expect(NamespaceComponent).not.toHaveBeenCalledWith($root1)
-      })
-    })
-
     describe('Configurable components', () => {
       it.each(componentsWithConfig)("should init '%s'", (name) => {
         const NamespaceComponent = /** @type {CompatibleClass} */ (
@@ -191,7 +132,7 @@ describe('NHS.UK frontend', () => {
         )
 
         // Determine `nhsuk-character-count` → `characterCount` config key
-        const configName = camelCase(
+        const configName = names.kebabCaseToCamelCase(
           NamespaceComponent.moduleName.replace(/^nhsuk-/, '')
         )
 
@@ -232,7 +173,7 @@ describe('NHS.UK frontend', () => {
         )
 
         // Determine `nhsuk-character-count` → `characterCount` config key
-        const configName = camelCase(
+        const configName = names.kebabCaseToCamelCase(
           NamespaceComponent.moduleName.replace(/^nhsuk-/, '')
         )
 
@@ -358,7 +299,7 @@ describe('NHS.UK frontend', () => {
     }
 
     /**
-     * @augments ConfigurableComponent<MockConfig>
+     * @augments {ConfigurableComponent<MockConfig>}
      */
     class MockConfigurableComponent extends ConfigurableComponent {
       constructor($root, config) {

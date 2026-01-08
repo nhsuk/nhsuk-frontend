@@ -1,4 +1,4 @@
-name: Pull request
+name: Checks
 
 on:
   pull_request:
@@ -12,12 +12,24 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
-    name: Build
+  install:
+    name: Install
     runs-on: ubuntu-latest
 
     env:
       PUPPETEER_SKIP_DOWNLOAD: true
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Install dependencies
+        uses: ./.github/workflows/actions/install
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    needs: [install]
 
     steps:
       - name: Checkout
@@ -27,22 +39,56 @@ jobs:
 
       - name: Install and build
         uses: ./.github/workflows/actions/build
+        with:
+          environment: development
 
   linting:
-    name: Code style checks
+    name: ${{ matrix.task.description }}
     runs-on: ubuntu-latest
-    needs: [build]
+    needs: [install]
+
+    strategy:
+      fail-fast: false
+
+      matrix:
+        task:
+          - description: Stylelint
+            name: lint-styles
+            run: npm run lint:css
+            cache: .cache/stylelint
+
+          - description: ESLint
+            name: lint-scripts
+            run: npm run lint:js
+            cache: .cache/eslint
+
+          - description: Prettier
+            name: lint-prettier
+            run: npm run lint:prettier
+            cache: .cache/prettier
+
+          - description: TypeScript compiler
+            name: lint-types
+            run: npm run lint:types -- --incremental
+            cache: '**/*.tsbuildinfo'
 
     steps:
       - name: Checkout
         uses: actions/checkout@v6
 
       - name: Restore dependencies (from cache)
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         with:
           fail-on-cache-miss: true
           key: npm-install-${{ hashFiles('package-lock.json') }}
           path: node_modules
+
+      - name: Cache lint task
+        if: ${{ matrix.task.cache }}
+        uses: actions/cache@v5
+        with:
+          key: ${{ matrix.task.name }}
+          path: ${{ matrix.task.cache }}
 
       - name: Setup Node
         uses: actions/setup-node@v6
@@ -50,31 +96,68 @@ jobs:
           node-version-file: .nvmrc
           package-manager-cache: false
 
-      - name: Run linting
-        run: npm run lint
+      - name: Run lint task
+        run: ${{ matrix.task.run }}
 
   tests:
-    name: Javascript unit tests
+    name: ${{ matrix.task.description }}
     runs-on: ubuntu-latest
-    needs: [build]
+    needs: [install, build]
+
+    strategy:
+      fail-fast: false
+
+      matrix:
+        task:
+          - description: JavaScript unit tests
+            name: test-unit
+            cache: .cache/jest
+            coverage: true
+
+          - description: JavaScript behaviour tests
+            name: test-behaviour
+            cache: .cache/jest
+            coverage: true
+
+          - description: JavaScript component tests
+            name: test-component
+            run: npm run install:puppeteer
+            cache: |
+              .cache/jest
+              .cache/puppeteer
+            coverage: true
+
+          - description: Accessibility tests
+            name: test-accessibility
+            run: npm run install:puppeteer
+            cache: |
+              .cache/jest
+              .cache/puppeteer
 
     steps:
       - name: Checkout
         uses: actions/checkout@v6
 
       - name: Restore dependencies (from cache)
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         with:
           fail-on-cache-miss: true
           key: npm-install-${{ hashFiles('package-lock.json') }}
           path: node_modules
 
       - name: Restore build (from cache)
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         with:
           fail-on-cache-miss: true
           key: build-${{ github.sha }}
           path: packages/*/dist/
+
+      - name: Cache task
+        if: ${{ matrix.task.cache }}
+        uses: actions/cache@v5
+        with:
+          key: ${{ matrix.task.name }}
+          path: ${{ matrix.task.cache }}
 
       - name: Setup Node
         uses: actions/setup-node@v6
@@ -82,22 +165,28 @@ jobs:
           node-version-file: .nvmrc
           package-manager-cache: false
 
-      - name: Setup Puppeteer
-        run: npm run install:puppeteer
+      - name: Run test task
+        if: ${{ matrix.task.run }}
+        run: ${{ matrix.task.run }}
 
-      - name: Run tests
-        run: npm run test:js -- --coverage
+      - name: Run test project
+
+        # Use 2x CPU cores for hosted GitHub runners
+        # https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources
+        run: npx jest --color ${{ format('--coverage={0} --coverageDirectory="coverage/{1}" --maxWorkers=2 --selectProjects "{2}"', matrix.task.coverage || false, matrix.task.name, matrix.task.description) }}
 
       - name: Save test coverage
-        uses: actions/upload-artifact@v5
+        if: ${{ matrix.task.coverage }}
+        uses: actions/upload-artifact@v6
         with:
-          name: Javascript unit tests coverage
+          name: ${{ matrix.task.description }} coverage
           path: coverage
+          if-no-files-found: ignore
 
   exports:
     name: Package ${{ matrix.conditions }}
     runs-on: ubuntu-latest
-    needs: [build]
+    needs: [install, build]
 
     strategy:
       fail-fast: false
@@ -112,14 +201,14 @@ jobs:
         uses: actions/checkout@v6
 
       - name: Restore dependencies (from cache)
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         with:
           fail-on-cache-miss: true
           key: npm-install-${{ hashFiles('package-lock.json') }}
           path: node_modules
 
       - name: Restore build (from cache)
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         with:
           fail-on-cache-miss: true
           key: build-${{ github.sha }}
@@ -153,7 +242,7 @@ jobs:
 
   sass:
     name: Sass import
-    needs: [build]
+    needs: [install, build]
 
     # Run existing "Sass" workflow
     # (after build has been cached)
@@ -162,7 +251,7 @@ jobs:
   regression:
     name: Visual regression tests
     runs-on: macos-latest
-    needs: [build]
+    needs: [install, build]
 
     if: ${{ github.base_ref == 'main' || startsWith(github.base_ref, 'support/') }}
 
@@ -188,7 +277,7 @@ jobs:
 
       - name: Save backstop report
         if: ${{ !cancelled() && steps.changes.outputs.changes == 'true' }}
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: Backstop report
           path: tests/backstop/
@@ -213,11 +302,12 @@ jobs:
 
       - name: Restore test coverage
         if: ${{ env.SONAR_TOKEN }}
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v7
         with:
-          name: Javascript unit tests coverage
+          merge-multiple: true
           path: coverage
+          pattern: '* coverage'
 
       - name: Sonar analysis
         if: ${{ env.SONAR_TOKEN }}
-        uses: SonarSource/sonarqube-scan-action@v6
+        uses: SonarSource/sonarqube-scan-action@v7

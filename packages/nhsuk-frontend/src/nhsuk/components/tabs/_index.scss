@@ -21,8 +21,8 @@
 
     // Set the size and weight again because this element is a heading and the
     // user agent font size overrides the inherited font size
-    @include nhsuk-font($size: 19);
     @include nhsuk-text-colour;
+    @include nhsuk-font($size: 19);
   }
 
   .nhsuk-tabs__list {
@@ -102,10 +102,6 @@
         border-bottom: 0;
 
         background-color: $nhsuk-card-background-colour;
-
-        .nhsuk-tabs__tab {
-          text-decoration: none;
-        }
       }
 
       .nhsuk-tabs__tab {

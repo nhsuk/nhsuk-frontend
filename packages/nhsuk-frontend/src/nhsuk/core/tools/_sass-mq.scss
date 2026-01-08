@@ -4,11 +4,7 @@
 @use "../settings" as *;
 @use "../vendor/sass-mq" as * with (
   $mq-breakpoints: $nhsuk-breakpoints,
-  $mq-show-breakpoints: if(
-      meta.variable-exists(nhsuk-show-breakpoints) and $nhsuk-show-breakpoints,
-      map.keys($nhsuk-breakpoints),
-      ()
-    )
+  $mq-show-breakpoints: $nhsuk-show-breakpoints
 );
 
 ////

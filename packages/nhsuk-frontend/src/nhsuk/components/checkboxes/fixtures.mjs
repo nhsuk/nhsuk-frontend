@@ -101,24 +101,63 @@ export const examples = {
     context: {
       fieldset: {
         legend: {
-          text: 'What is your nationality?'
+          text: 'How do you want to be contacted about this?'
         }
       },
-      idPrefix: 'with-values',
-      name: 'example',
-      values: ['british'],
+      hint: {
+        text: 'Select all options that are relevant to you'
+      },
+      idPrefix: 'conditional',
+      name: 'contact',
+      values: ['email', 'text'],
       items: [
         {
-          value: 'british',
-          text: 'British'
+          value: 'email',
+          text: 'Email',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                label: {
+                  text: 'Email address'
+                },
+                name: 'email',
+                spellcheck: false,
+                classes: 'nhsuk-u-width-two-thirds'
+              }
+            })
+          }
         },
         {
-          value: 'irish',
-          text: 'Irish'
+          value: 'phone',
+          text: 'Phone',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                label: {
+                  text: 'Phone number'
+                },
+                name: 'phone',
+                type: 'tel',
+                classes: 'nhsuk-u-width-two-thirds'
+              }
+            })
+          }
         },
         {
-          value: 'other',
-          text: 'Citizen of another country'
+          value: 'text',
+          text: 'Text message',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                label: {
+                  text: 'Mobile phone number'
+                },
+                name: 'mobile',
+                type: 'tel',
+                classes: 'nhsuk-u-width-two-thirds'
+              }
+            })
+          }
         }
       ]
     },
@@ -485,6 +524,74 @@ export const examples = {
     },
     variants
   },
+  'with conditional content, special characters': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'How do you want to be contacted about this?'
+        }
+      },
+      hint: {
+        text: 'Select all options that are relevant to you'
+      },
+      idPrefix: 'user.profile[contact-prefs]',
+      name: 'contact',
+      items: [
+        {
+          value: 'email',
+          text: 'Email',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                label: {
+                  text: 'Email address'
+                },
+                name: 'email',
+                spellcheck: false,
+                classes: 'nhsuk-u-width-two-thirds'
+              }
+            })
+          }
+        },
+        {
+          value: 'phone',
+          text: 'Phone',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                label: {
+                  text: 'Phone number'
+                },
+                name: 'phone',
+                type: 'tel',
+                classes: 'nhsuk-u-width-two-thirds'
+              }
+            })
+          }
+        },
+        {
+          value: 'text',
+          text: 'Text message',
+          conditional: {
+            html: components.render('input', {
+              context: {
+                label: {
+                  text: 'Mobile phone number'
+                },
+                name: 'mobile',
+                type: 'tel',
+                classes: 'nhsuk-u-width-two-thirds'
+              }
+            })
+          }
+        }
+      ]
+    },
+    options: {
+      hidden: true
+    },
+    variants
+  },
   'with conditional content, error message': {
     context: {
       fieldset: {
@@ -674,6 +781,40 @@ export const examples = {
       items: [
         {
           value: 'email',
+          text: 'Email'
+        },
+        {
+          value: 'phone',
+          text: 'Phone'
+        },
+        {
+          value: 'text',
+          text: 'Text message'
+        },
+        {
+          divider: 'or'
+        },
+        {
+          value: 'none',
+          text: 'None of the above',
+          exclusive: true
+        }
+      ]
+    },
+    variants
+  },
+  'with "none of the above" option, conditional content': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'How do you want to be contacted about this?'
+        }
+      },
+      idPrefix: 'conditional',
+      name: 'example',
+      items: [
+        {
+          value: 'email',
           text: 'Email',
           conditional: {
             html: components.render('input', {
@@ -747,53 +888,17 @@ export const examples = {
         {
           value: 'email',
           text: 'Email',
-          exclusiveGroup: 'communication-preferences',
-          conditional: {
-            html: components.render('input', {
-              context: {
-                label: {
-                  text: 'Email address'
-                },
-                name: 'email',
-                spellcheck: false,
-                classes: 'nhsuk-u-width-two-thirds'
-              }
-            })
-          }
+          exclusiveGroup: 'communication-preferences'
         },
         {
           value: 'phone',
           text: 'Phone',
-          exclusiveGroup: 'communication-preferences',
-          conditional: {
-            html: components.render('input', {
-              context: {
-                label: {
-                  text: 'Phone number'
-                },
-                name: 'phone',
-                type: 'tel',
-                classes: 'nhsuk-u-width-two-thirds'
-              }
-            })
-          }
+          exclusiveGroup: 'communication-preferences'
         },
         {
           value: 'text',
           text: 'Text message',
-          exclusiveGroup: 'communication-preferences',
-          conditional: {
-            html: components.render('input', {
-              context: {
-                label: {
-                  text: 'Mobile phone number'
-                },
-                name: 'mobile',
-                type: 'tel',
-                classes: 'nhsuk-u-width-two-thirds'
-              }
-            })
-          }
+          exclusiveGroup: 'communication-preferences'
         },
         {
           divider: 'or'
@@ -828,55 +933,19 @@ export const examples = {
           name: 'preference-email',
           value: 'yes',
           text: 'Email',
-          exclusiveGroup: 'communication-preferences',
-          conditional: {
-            html: components.render('input', {
-              context: {
-                label: {
-                  text: 'Email address'
-                },
-                name: 'email',
-                spellcheck: false,
-                classes: 'nhsuk-u-width-two-thirds'
-              }
-            })
-          }
+          exclusiveGroup: 'communication-preferences'
         },
         {
           name: 'preference-phone',
           value: 'yes',
           text: 'Phone',
-          exclusiveGroup: 'communication-preferences',
-          conditional: {
-            html: components.render('input', {
-              context: {
-                label: {
-                  text: 'Phone number'
-                },
-                name: 'phone',
-                type: 'tel',
-                classes: 'nhsuk-u-width-two-thirds'
-              }
-            })
-          }
+          exclusiveGroup: 'communication-preferences'
         },
         {
           name: 'preference-text',
           value: 'yes',
           text: 'Text message',
-          exclusiveGroup: 'communication-preferences',
-          conditional: {
-            html: components.render('input', {
-              context: {
-                label: {
-                  text: 'Mobile phone number'
-                },
-                name: 'mobile',
-                type: 'tel',
-                classes: 'nhsuk-u-width-two-thirds'
-              }
-            })
-          }
+          exclusiveGroup: 'communication-preferences'
         },
         {
           divider: 'or'

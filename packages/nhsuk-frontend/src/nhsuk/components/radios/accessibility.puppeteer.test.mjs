@@ -1,6 +1,5 @@
 import {
   axe,
-  getPage,
   getOptions,
   goToComponent
 } from '@nhsuk/frontend-helpers/puppeteer.mjs'
@@ -10,9 +9,6 @@ import { examples } from './fixtures.mjs'
 describe('Radios', () => {
   /** @type {RuleObject} */
   let axeRules
-
-  /** @type {Page} */
-  let page
 
   beforeAll(() => {
     axeRules = {
@@ -25,22 +21,18 @@ describe('Radios', () => {
     }
   })
 
-  beforeAll(async () => {
-    page = await getPage(browser)
-  })
-
   describe.each(Object.entries(examples))('%s', (name, example) => {
     it.each(getOptions(name, example))(
       '$title passes accessibility tests',
       async (options) => {
         await goToComponent(page, 'radios', options)
         return expect(axe(page, axeRules)).resolves.toHaveNoViolations()
-      }
+      },
+      20000
     )
   })
 })
 
 /**
  * @import { RuleObject } from 'axe-core'
- * @import { Page } from 'puppeteer'
  */
