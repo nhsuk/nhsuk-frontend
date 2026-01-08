@@ -9,32 +9,15 @@
 ////
 
 @include nhsuk-exports("nhsuk/components/contents-list") {
-  .nhsuk-contents-list {
-    @include nhsuk-responsive-margin(7, "bottom");
-  }
-
   .nhsuk-contents-list__list {
+    margin: 0;
     padding: 0;
     list-style: none;
+    @include nhsuk-responsive-margin(6, "bottom");
   }
 
   .nhsuk-contents-list__item {
-    position: relative;
-    padding: 0 0 0 nhsuk-spacing(5);
-
-    &::before {
-      content: "";
-
-      display: block;
-
-      position: absolute;
-      top: nhsuk-em(12, 16);
-      left: 0;
-
-      width: nhsuk-spacing(3);
-
-      border-top: 1px solid nhsuk-colour("grey-2");
-    }
+    @include nhsuk-shape-dash;
   }
 
   .nhsuk-contents-list__link {
