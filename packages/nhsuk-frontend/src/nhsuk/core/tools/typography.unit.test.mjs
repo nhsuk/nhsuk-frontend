@@ -146,6 +146,10 @@ describe('Typography tools', () => {
         .foo {
           line-height: nhsuk-line-height($line-height: 2em, $font-size: 20px);
         }
+
+        .bar {
+          line-height: nhsuk-line-height($line-height: 32px, $font-size: 1.25em);
+        }
       `
 
       const results = compileStringAsync(sass, {
@@ -157,16 +161,28 @@ describe('Typography tools', () => {
           .foo {
             line-height: 2em;
           }
+
+          .bar {
+            line-height: 32px;
+          }
         `
       })
     })
 
-    it('converts line-height to a relative number', async () => {
+    it('converts line-height to a relative number if units match', async () => {
       const sass = outdent`
         ${sassModules}
 
         .foo {
           line-height: nhsuk-line-height($line-height: 30px, $font-size: 20px);
+        }
+
+        .bar {
+          line-height: nhsuk-line-height($line-height: 1.875rem, $font-size: 1.25rem);
+        }
+
+        .baz {
+          line-height: nhsuk-line-height($line-height: 1.875em, $font-size: 1.25em);
         }
       `
 
@@ -177,6 +193,52 @@ describe('Typography tools', () => {
       await expect(results).resolves.toMatchObject({
         css: outdent`
           .foo {
+            line-height: 1.5;
+          }
+
+          .bar {
+            line-height: 1.5;
+          }
+
+          .baz {
+            line-height: 1.5;
+          }
+        `
+      })
+    })
+
+    it('converts line-height to a relative number if using rems', async () => {
+      const sass = outdent`
+        ${sassModules}
+
+        .foo {
+          line-height: nhsuk-line-height($line-height: 1.875rem, $font-size: 20px);
+        }
+
+        .bar {
+          line-height: nhsuk-line-height($line-height: 1.875rem, $font-size: 20);
+        }
+
+        .baz {
+          line-height: nhsuk-line-height($line-height: 30px, $font-size: 1.25rem);
+        }
+      `
+
+      const results = compileStringAsync(sass, {
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+      })
+
+      await expect(results).resolves.toMatchObject({
+        css: outdent`
+          .foo {
+            line-height: 1.5;
+          }
+
+          .bar {
+            line-height: 1.5;
+          }
+
+          .baz {
             line-height: 1.5;
           }
         `
@@ -207,6 +269,39 @@ describe('Typography tools', () => {
           @media (min-width: 30em) {
             .foo {
               font-size: 0.875rem;
+              line-height: 1.4285714286;
+            }
+          }
+        `
+      })
+    })
+
+    it('outputs CSS with suitable media queries (with dynamic type enabled)', async () => {
+      const sass = outdent`
+        @use "core/settings/globals" as * with (
+          $nhsuk-include-dynamic-type: true
+        );
+
+        ${sassBootstrap}
+
+        .foo {
+          @include nhsuk-font-size($size: 14)
+        }
+      `
+
+      const results = compileStringAsync(sass, {
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+      })
+
+      await expect(results).resolves.toMatchObject({
+        css: outdent`
+          .foo {
+            font-size: 0.7058823529rem;
+            line-height: 1.25;
+          }
+          @media (min-width: 30em) {
+            .foo {
+              font-size: 0.8235294118rem;
               line-height: 1.4285714286;
             }
           }
@@ -501,6 +596,32 @@ describe('Typography tools', () => {
 
         await expect(results).resolves.toMatchObject({
           css: expect.not.stringContaining('font-size: 0.875rem')
+        })
+      })
+
+      it('sets font-size based on $size (with dynamic type enabled)', async () => {
+        const sass = outdent`
+          @use "core/settings/globals" as * with (
+            $nhsuk-include-dynamic-type: true
+          );
+
+          ${sassBootstrap}
+
+          .foo {
+            @include nhsuk-font($size: 12)
+          }
+        `
+
+        const results = compileStringAsync(sass, {
+          loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+        })
+
+        await expect(results).resolves.toMatchObject({
+          css: expect.stringContaining('font-size: 0.7058823529rem')
+        })
+
+        await expect(results).resolves.toMatchObject({
+          css: expect.not.stringContaining('font-size: 0.8235294118rem')
         })
       })
 

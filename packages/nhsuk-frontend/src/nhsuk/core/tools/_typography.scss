@@ -97,16 +97,30 @@
 ///
 ///
 /// Convert line-heights specified in pixels into a relative value, unless
-/// they are already unit-less (and thus already treated as relative values)
-/// or the units do not match the units used for the font size.
+/// they are already unit-less (and thus already treated as relative values),
+/// in rems, or the units do not match the units used for the font size.
 ///
 /// @param {Number} $line-height Line height
 /// @param {Number} $font-size Font size
 /// @return {Number} The line height as either a relative value or unmodified
 
 @function nhsuk-line-height($line-height, $font-size) {
-  @if not math.is-unitless($line-height) and math.unit($line-height) == math.unit($font-size) {
-    $line-height: math.div($line-height, $font-size);
+  @if not math.is-unitless($line-height) {
+    @if math.compatible($line-height, 1rem) and math.compatible($font-size, 1px) {
+      $line-height: math.div($line-height, 1rem) * $nhsuk-root-font-size;
+
+      @if math.is-unitless($font-size) {
+        $font-size: $font-size * 1px;
+      }
+    }
+
+    @if math.compatible($line-height, 1px) and math.compatible($font-size, 1rem) {
+      $font-size: math.div($font-size, 1rem) * $nhsuk-root-font-size;
+    }
+
+    @if math.unit($line-height) == math.unit($font-size) {
+      $line-height: math.div($line-height, $font-size);
+    }
   }
 
   @return $line-height;

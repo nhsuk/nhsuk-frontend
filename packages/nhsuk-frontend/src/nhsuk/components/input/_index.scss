@@ -19,7 +19,7 @@
     width: 100%;
     height: nhsuk-px-to-rem(40px);
     margin-top: 0;
-    padding: nhsuk-spacing(1);
+    padding: nhsuk-px-to-rem(nhsuk-spacing(1));
     // Setting any background-color makes text invisible when changing colours
     // to dark backgrounds in Firefox (https://bugzil.la/1335476). As
     // background-color and color need to always be set together, color should
@@ -113,7 +113,7 @@
 
     min-width: nhsuk-px-to-rem(40px);
     height: nhsuk-px-to-rem(40px);
-    padding: nhsuk-spacing(1);
+    padding: nhsuk-px-to-rem(nhsuk-spacing(1));
 
     border: $nhsuk-border-width-form-element solid $nhsuk-input-border-colour;
 
