@@ -43,7 +43,10 @@ export async function load(component) {
         ["(don't)", '2 do-dont'],
 
         // Sort urgent with non-urgent
-        ['non-', '']
+        ['non-', ''],
+
+        // Sort 'as a' variations to end
+        [/^as a/, 'ZZZ']
       ])) {
         nameA = nameA.replace(find, replace)
         nameB = nameB.replace(find, replace)
