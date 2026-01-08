@@ -1,20 +1,15 @@
 @use "../../core/settings" as *;
-@use "../../core/tools" as *;
-@use "../../core/helpers" as *;
 @forward "../card";
 
 ////
-/// Warning callout component
+/// Warning callout component (deprecated)
 ///
 /// @group components/warning-callout
+/// @deprecated To be removed in v12.0, replaced by components/card
 ////
 
-@include nhsuk-exports("nhsuk/components/warning-callout") {
-  .nhsuk-warning-callout {
-    @include nhsuk-panel-with-label(nhsuk-colour("pale-yellow"), $nhsuk-text-colour, nhsuk-colour("yellow")); // [1]
-  }
-
-  .nhsuk-warning-callout__label {
-    @include nhsuk-heading-label(nhsuk-colour("yellow"), $nhsuk-text-colour); // [2]
-  }
-}
+@include nhsuk-warning(
+  "import-using-warning-callout",
+  "Importing using 'components/warning-callout' is deprecated. Update your import statement to import 'components/card'.",
+  $silence-further-warnings: false
+);
