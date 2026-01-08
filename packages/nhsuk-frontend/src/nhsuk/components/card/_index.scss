@@ -68,7 +68,8 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
   }
 
   .nhsuk-card__heading {
-    margin-bottom: nhsuk-spacing(3);
+    flex-basis: 0;
+    flex-grow: 999;
 
     &:has(+ .nhsuk-icon) {
       margin-bottom: 0;
@@ -92,6 +93,88 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
 
     + .nhsuk-card__content {
       padding-top: 0;
+    }
+
+    @include nhsuk-media-query($from: tablet) {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+  }
+
+  .nhsuk-card__actions {
+    display: flex;
+
+    flex-wrap: wrap;
+    row-gap: 10px;
+
+    margin: nhsuk-spacing(-1) 0 nhsuk-spacing(3);
+    padding: 0;
+
+    list-style: none;
+    @include nhsuk-font(19, $weight: bold);
+
+    @include nhsuk-media-query($from: tablet) {
+      justify-content: right;
+      margin: 0 0 nhsuk-spacing(3) nhsuk-spacing(3);
+      text-align: right;
+    }
+  }
+
+  .nhsuk-card__action {
+    display: inline-block;
+
+    // We use the following media query to target IE11 and 10 only to add margin
+    // between actions.
+    //
+    // We do this because we're using row-gap to create space between actions on
+    // more evergreen browsers which IE doesn't support. @supports currently isn't
+    // a viable solution, see https://github.com/w3c/csswg-drafts/issues/3559.
+    //
+    // Solution taken from https://stackoverflow.com/questions/11173106/apply-style-only-on-ie#answer-36448860
+    // which also includes an explanation of why this works
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+      margin-bottom: nhsuk-spacing(1);
+    }
+  }
+
+  .nhsuk-card__action:last-child {
+    // See above comment for why this is here
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+      margin-bottom: 0;
+    }
+  }
+
+  @include nhsuk-media-query($until: tablet) {
+    .nhsuk-card__action {
+      margin-right: nhsuk-spacing(2);
+      padding-right: nhsuk-spacing(2);
+      border-right: 1px solid $nhsuk-border-colour;
+    }
+
+    .nhsuk-card__action:last-child {
+      margin-right: 0;
+      padding-right: 0;
+      border: 0;
+    }
+  }
+
+  @include nhsuk-media-query($from: tablet) {
+    .nhsuk-card__action {
+      margin-bottom: 0;
+      margin-left: nhsuk-spacing(2);
+      padding-left: nhsuk-spacing(2);
+    }
+
+    .nhsuk-card__action:not(:first-child) {
+      border-left: 1px solid $nhsuk-border-colour;
+    }
+
+    .nhsuk-card__action:first-child {
+      margin-left: 0;
+      padding-left: 0;
+      border: 0;
     }
   }
 
@@ -171,23 +254,58 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
     }
   }
 
+  // Card panel shared styles
+
+  .nhsuk-card--feature > .nhsuk-card__heading-container,
+  .nhsuk-card--feature > .nhsuk-card__content,
+  .nhsuk-card--warning > .nhsuk-card__heading-container,
+  .nhsuk-card--warning > .nhsuk-card__content,
+  // Deprecated, to be removed in v11.0
+  .nhsuk-card__content--feature {
+    padding: 0; // [7]
+  }
+
+  .nhsuk-card--feature > .nhsuk-card__heading-container,
+  .nhsuk-card--warning > .nhsuk-card__heading-container {
+    @include nhsuk-media-query($from: tablet) {
+      align-items: flex-start;
+    }
+
+    .nhsuk-card__actions {
+      margin-top: 0;
+
+      @include nhsuk-media-query($from: tablet) {
+        padding-top: nhsuk-spacing(4);
+      }
+    }
+  }
+
   // Card feature
 
   .nhsuk-card--feature {
     @include nhsuk-panel-with-label($nhsuk-card-background-colour, $nhsuk-text-colour, $nhsuk-card-border-colour);
   }
 
+  .nhsuk-card--feature > .nhsuk-card__heading-container > .nhsuk-card__heading,
   .nhsuk-card--feature > .nhsuk-card__content > .nhsuk-card__heading,
   // Deprecated, to be removed in v11.0
   .nhsuk-card__heading--feature {
+    flex-basis: auto;
+    flex-grow: 0;
     @include nhsuk-heading-label($nhsuk-brand-colour, $nhsuk-reverse-text-colour);
   }
 
-  .nhsuk-card--feature > .nhsuk-card__heading-container,
-  .nhsuk-card--feature > .nhsuk-card__content,
-  // Deprecated, to be removed in v11.0
-  .nhsuk-card__content--feature {
-    padding: 0; // [7]
+  // Card warning
+
+  .nhsuk-card--warning {
+    @include nhsuk-panel-with-label(nhsuk-colour("pale-yellow"), $nhsuk-text-colour, nhsuk-colour("yellow"));
+  }
+
+  .nhsuk-card--warning > .nhsuk-card__heading-container > .nhsuk-card__heading,
+  .nhsuk-card--warning > .nhsuk-card__content > .nhsuk-card__heading {
+    flex-basis: auto;
+    flex-grow: 0;
+    @include nhsuk-heading-label(nhsuk-colour("yellow"), $nhsuk-text-colour);
   }
 
   // Care card
@@ -255,6 +373,28 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
 
   .nhsuk-card--care .nhsuk-card__content {
     @include nhsuk-responsive-padding(5, "top");
+  }
+
+  .nhsuk-card--care--urgent > .nhsuk-card__heading-container,
+  .nhsuk-card--care--non-urgent > .nhsuk-card__heading-container,
+  .nhsuk-card--care--emergency > .nhsuk-card__heading-container {
+    .nhsuk-card__actions {
+      margin-top: nhsuk-spacing(3);
+      margin-bottom: 0;
+
+      @include nhsuk-media-query($from: tablet) {
+        align-self: center;
+        margin-top: 0;
+      }
+    }
+
+    .nhsuk-card__action {
+      border-color: $nhsuk-secondary-border-colour;
+    }
+
+    .nhsuk-card__action a {
+      @include nhsuk-link-style-white;
+    }
   }
 
   .nhsuk-card--care--urgent {

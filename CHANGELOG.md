@@ -53,6 +53,16 @@ We've added a new variant of the panel component with a solid blue background an
 
 This was added in [pull request #1196: Add interruption panel variant](https://github.com/nhsuk/nhsuk-frontend/pull/1196).
 
+#### Use cards to visually separate multiple summary lists on a single page
+
+You can now wrap a [card](https://service-manual.nhs.uk/design-system/components/cards) around [summary lists](https://service-manual.nhs.uk/design-system/components/summary-list) to help you:
+
+- design and build pages with multiple summary lists
+- show visual dividers between summary lists
+- allow users to apply actions to entire lists
+
+This was added in [pull request #1685: Add card enhancement to summary list](https://github.com/nhsuk/nhsuk-frontend/pull/1685).
+
 ### :wastebasket: **Deprecated features**
 
 #### Rename input prefix and suffix HTML class
@@ -185,6 +195,85 @@ If you use the precompiled CSS from NHS.UK frontend, you can swap to our alterna
 Please carefully review all custom components to make sure they scale dynamically when `$nhsuk-root-font-size` is no longer set to 16px.
 
 This change was introduced in [pull request #1655: Add support for Dynamic Type on Apple devices](https://github.com/nhsuk/nhsuk-frontend/pull/1655).
+
+#### Update the HTML for tables as a panel
+
+For consistency with other components, the HTML and Nunjucks options for tables as a panel have changed. The previous names are deprecated and will be removed in a future release.
+
+If you're using the `table` Nunjucks macro with the `panel` option, you should migrate to the feature card enhancement:
+
+- replace the `heading` option with the nested `card.heading` option
+- replace the `headingLevel` option with the nested `card.headingLevel` option
+- replace the `panel` option with the nested `card.feature` option
+- replace the `panelClasses` option with the nested `card.classes` option
+- replace the `tableClasses` option with the `classes` option
+
+```patch
+  {{ table({
+-   heading: "Skin symptoms and possible causes",
+-   headingLevel: 3,
+-   panel: true,
+-   panelClasses: "nhsuk-u-margin-bottom-8",
++   card: {
++     heading: "Skin symptoms and possible causes",
++     headingLevel: 3,
++     feature: true,
++     classes: "nhsuk-u-margin-bottom-8"
++   },
+-   tableClasses: "nhsuk-u-margin-bottom-0",
++   classes: "nhsuk-u-margin-bottom-0",
+    head: [],
+    rows: []
+  }) }}
+```
+
+If you are not using Nunjucks macros, update your HTML markup using the [table as a card (feature) example on the NHS.UK frontend review app](https://nhsuk.github.io/nhsuk-frontend/components/tables/as-a-card-feature/) as follows:
+
+- Add the wrapper `<div class="nhsuk-card nhsuk-card--feature"> </div>`
+- Rename the panel `<div class="nhsuk-table__panel-with-heading-tab"` class attribute to match `<div class="nhsuk-card__content"`
+- Rename the heading `<h3 class="nhsuk-table__heading-tab"` class attribute to match `<h3 class="nhsuk-card__heading"`
+
+```patch
++ <div class="nhsuk-card nhsuk-card--feature">
+-   <div class="nhsuk-table__panel-with-heading-tab">
++   <div class="nhsuk-card__content">
+-     <h3 class="nhsuk-table__heading-tab">
++     <h3 class="nhsuk-card__heading">
+        Table as a panel heading
+      </h3>
+      <table class="nhsuk-table">
+        <!-- // ... -->
+      </table>
+    </div>
++ </div>
+```
+
+This change was introduced in [pull request #1685: Add card enhancements to summary list, table and warning callout](https://github.com/nhsuk/nhsuk-frontend/pull/1685).
+
+#### Update the HTML for warning callouts
+
+For consistency with the card component, the HTML for warning callouts has changed.
+
+If you are not using Nunjucks macros, update your HTML markup using the [warning callout in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/warning-callout) as follows:
+
+- Add the wrapper `<div class="nhsuk-card nhsuk-card--warning"> </div>`
+- Rename the callout `<div class="nhsuk-warning-callout"` class attribute to match `<div class="nhsuk-card__content"`
+- Rename the heading `<h3 class="nhsuk-warning-callout__label"` class attribute to match `<h3 class="nhsuk-card__heading"`
+
+```patch
++ <div class="nhsuk-card nhsuk-card--warning">
+-   <div class="nhsuk-warning-callout">
++   <div class="nhsuk-card__content">
+-     <h3 class="nhsuk-warning-callout__label">
++     <h3 class="nhsuk-card__heading">
+        Important<span class="nhsuk-u-visually-hidden">:</span>
+      </h3>
+      <!-- // ... -->
+    </div>
++ </div>
+```
+
+This change was introduced in [pull request #1685: Add card enhancements to summary list, table and warning callout](https://github.com/nhsuk/nhsuk-frontend/pull/1685).
 
 ### :wrench: **Fixes**
 
