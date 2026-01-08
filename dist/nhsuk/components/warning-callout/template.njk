@@ -1,0 +1,25 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/components/card/macro.njk" import card %}
+
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-warning-callout" -%}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif -%}
+
+{{ card({
+  id: params.id,
+  heading: params.heading,
+  headingClasses: params.headingClasses,
+  headingLevel: params.headingLevel if params.headingLevel else 3,
+  headingVisuallyHiddenText: params.visuallyHiddenText | default("Important", true)
+    if not ("Important" in params.heading or "important" in params.heading)
+    else "",
+  description: params.text,
+  descriptionHtml: caller() if caller else params.html,
+  actions: params.actions,
+  classes: classNames,
+  attributes: params.attributes,
+  warning: true
+}) }}

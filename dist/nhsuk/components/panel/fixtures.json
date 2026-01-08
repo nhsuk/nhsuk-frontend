@@ -1,0 +1,112 @@
+{
+  "name": "Panel",
+  "component": "panel",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "titleText": "Booking complete",
+        "text": "We have sent you a confirmation email"
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop"
+        ]
+      },
+      "options": {},
+      "html": "<div class=\"nhsuk-panel\">\n  <h1 class=\"nhsuk-panel__title\">\n    Booking complete\n  </h1>\n  <div class=\"nhsuk-panel__body\">\n    We have sent you a confirmation email\n  </div>\n</div>"
+    },
+    {
+      "name": "interruption",
+      "context": {
+        "titleText": "Jodie Brown had a COVID-19 vaccine less than 3 months ago",
+        "titleSize": "l",
+        "classes": "nhsuk-panel--interruption",
+        "html": "<p>They had a COVID-19 vaccine on 25 September 2025.</p>\n<p>For most people, the minimum recommended gap between COVID-19 vaccine doses is 3 months.</p>\n<div class=\"nhsuk-button-group\">\n  \n<a class=\"nhsuk-button nhsuk-button--reverse\" data-module=\"nhsuk-button\" href=\"#\" role=\"button\" draggable=\"false\">\n  Continue anyway\n</a>\n  <a href=\"#\">Cancel</a>\n</div>"
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop"
+        ]
+      },
+      "options": {},
+      "html": "<div class=\"nhsuk-panel nhsuk-panel--interruption\">\n  <h1 class=\"nhsuk-panel__title nhsuk-panel__title--l\">\n    Jodie Brown had a COVID-19 vaccine less than 3 months ago\n  </h1>\n  <div class=\"nhsuk-panel__body\">\n    <p>They had a COVID-19 vaccine on 25 September 2025.</p>\n    <p>For most people, the minimum recommended gap between COVID-19 vaccine doses is 3 months.</p>\n    <div class=\"nhsuk-button-group\">\n      \n    <a class=\"nhsuk-button nhsuk-button--reverse\" data-module=\"nhsuk-button\" href=\"#\" role=\"button\" draggable=\"false\">\n      Continue anyway\n    </a>\n      <a href=\"#\">Cancel</a>\n    </div>\n  </div>\n</div>"
+    },
+    {
+      "name": "interruption for confirmation to cancel",
+      "context": {
+        "titleText": "Confirm you want to cancel your hospital appointment",
+        "titleSize": "l",
+        "classes": "nhsuk-panel--interruption",
+        "html": "<p>You will be able to reschedule your appointment for another time, but this may delay your treatment.</p>\n<p>Cancelling your appointment cannot be undone.</p>\n<div class=\"nhsuk-button-group\">\n  \n<a class=\"nhsuk-button nhsuk-button--reverse\" data-module=\"nhsuk-button\" href=\"#\" role=\"button\" draggable=\"false\">\n  Cancel appointment\n</a>\n  <a href=\"#\">Change my weight</a>\n</div>"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-panel nhsuk-panel--interruption\">\n  <h1 class=\"nhsuk-panel__title nhsuk-panel__title--l\">\n    Confirm you want to cancel your hospital appointment\n  </h1>\n  <div class=\"nhsuk-panel__body\">\n    <p>You will be able to reschedule your appointment for another time, but this may delay your treatment.</p>\n    <p>Cancelling your appointment cannot be undone.</p>\n    <div class=\"nhsuk-button-group\">\n      \n    <a class=\"nhsuk-button nhsuk-button--reverse\" data-module=\"nhsuk-button\" href=\"#\" role=\"button\" draggable=\"false\">\n      Cancel appointment\n    </a>\n      <a href=\"#\">Change my weight</a>\n    </div>\n  </div>\n</div>"
+    },
+    {
+      "name": "interruption for confirmation to continue",
+      "context": {
+        "titleText": "Is your weight correct?",
+        "titleSize": "l",
+        "classes": "nhsuk-panel--interruption",
+        "html": "<p>You entered your weight as <b>21.4 kilograms</b>. This is lower than expected.</p>\n<div class=\"nhsuk-button-group\">\n  \n<a class=\"nhsuk-button nhsuk-button--reverse\" data-module=\"nhsuk-button\" href=\"#\" role=\"button\" draggable=\"false\">\n  Yes, this is correct\n</a>\n  <a href=\"#\">Change my weight</a>\n</div>"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-panel nhsuk-panel--interruption\">\n  <h1 class=\"nhsuk-panel__title nhsuk-panel__title--l\">\n    Is your weight correct?\n  </h1>\n  <div class=\"nhsuk-panel__body\">\n    <p>You entered your weight as <b>21.4 kilograms</b>. This is lower than expected.</p>\n    <div class=\"nhsuk-button-group\">\n      \n    <a class=\"nhsuk-button nhsuk-button--reverse\" data-module=\"nhsuk-button\" href=\"#\" role=\"button\" draggable=\"false\">\n      Yes, this is correct\n    </a>\n      <a href=\"#\">Change my weight</a>\n    </div>\n  </div>\n</div>"
+    },
+    {
+      "name": "title",
+      "description": "with size M",
+      "context": {
+        "titleSize": "m",
+        "titleText": "Booking complete",
+        "text": "We have sent you a confirmation email"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-panel\">\n  <h1 class=\"nhsuk-panel__title nhsuk-panel__title--m\">\n    Booking complete\n  </h1>\n  <div class=\"nhsuk-panel__body\">\n    We have sent you a confirmation email\n  </div>\n</div>"
+    },
+    {
+      "name": "title",
+      "description": "with size L",
+      "context": {
+        "titleSize": "l",
+        "titleText": "Booking complete",
+        "text": "We have sent you a confirmation email"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-panel\">\n  <h1 class=\"nhsuk-panel__title nhsuk-panel__title--l\">\n    Booking complete\n  </h1>\n  <div class=\"nhsuk-panel__body\">\n    We have sent you a confirmation email\n  </div>\n</div>"
+    },
+    {
+      "name": "title",
+      "description": "with size XL",
+      "context": {
+        "titleSize": "xl",
+        "titleText": "Booking complete",
+        "text": "We have sent you a confirmation email"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-panel\">\n  <h1 class=\"nhsuk-panel__title nhsuk-panel__title--xl\">\n    Booking complete\n  </h1>\n  <div class=\"nhsuk-panel__body\">\n    We have sent you a confirmation email\n  </div>\n</div>"
+    },
+    {
+      "name": "with title classes and heading level",
+      "context": {
+        "titleText": "Booking complete",
+        "titleClasses": "nhsuk-panel__title--l",
+        "text": "We have sent you a confirmation email",
+        "headingLevel": 2
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-panel\">\n  <h2 class=\"nhsuk-panel__title nhsuk-panel__title--l\">\n    Booking complete\n  </h2>\n  <div class=\"nhsuk-panel__body\">\n    We have sent you a confirmation email\n  </div>\n</div>"
+    }
+  ]
+}

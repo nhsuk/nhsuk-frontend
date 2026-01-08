@@ -1,0 +1,207 @@
+@use "sass:math";
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+
+////
+/// Button component
+///
+/// 1. Ensure that any global link styles are overridden.
+/// 2. Fix unwanted button padding in Firefox.
+/// 3. Use a pseudo element to expand the click target area to include the
+///    button's shadow as well, in case users try to click it.
+/// 4. Use a pseudo element to expand and cover the button's bounds, used to
+///    add a button shadow or border without affecting the total height
+/// 5. Adjust margin and padding to accommodate button shadow
+///
+/// @group components/button
+////
+
+$nhsuk-button-padding-top-bottom-mobile: nhsuk-px-to-rem(10px);
+$nhsuk-button-padding-top-bottom-desktop: nhsuk-px-to-rem(14px);
+$nhsuk-button-padding-top-bottom-small: nhsuk-px-to-rem(6px);
+$nhsuk-button-padding-left-right: nhsuk-px-to-rem(16px);
+$nhsuk-button-padding-left-right-small: nhsuk-px-to-rem(12px);
+
+// @deprecated To be removed in v11.0
+$button-border-radius: $nhsuk-button-border-radius;
+$button-padding-top-bottom-mobile: $nhsuk-button-padding-top-bottom-mobile;
+$button-padding-top-bottom-desktop: $nhsuk-button-padding-top-bottom-desktop;
+$button-padding-left-right: $nhsuk-button-padding-left-right;
+$button-shadow-size: $nhsuk-button-shadow-size;
+
+@include nhsuk-exports("nhsuk/components/button") {
+  .nhsuk-button {
+    box-sizing: border-box;
+
+    display: inline-block;
+
+    position: relative;
+
+    width: 100%;
+    min-height: nhsuk-px-to-rem(44px);
+    margin-top: 0;
+    padding: $nhsuk-button-padding-top-bottom-mobile $nhsuk-button-padding-left-right; // [5]
+
+    overflow: visible;
+
+    border: $nhsuk-border-width-form-element solid transparent;
+    border-radius: nhsuk-px-to-rem($nhsuk-button-border-radius);
+
+    text-align: center;
+    vertical-align: top;
+
+    cursor: pointer;
+
+    -webkit-appearance: none;
+
+            appearance: none;
+
+    @include nhsuk-button-style;
+    @include nhsuk-font(19, $line-height: 19px, $weight: bold);
+    @include nhsuk-responsive-margin(5, "bottom", $adjustment: $nhsuk-button-shadow-size); // [5]
+
+    @include nhsuk-media-query($from: tablet) {
+      width: auto;
+      min-height: nhsuk-px-to-rem(56px);
+      padding: $nhsuk-button-padding-top-bottom-desktop $nhsuk-button-padding-left-right; // [5]
+      line-height: nhsuk-line-height(24px, $font-size: 19px);
+    }
+
+    // [1]
+    &,
+    &:hover,
+    &:active {
+      text-decoration: none;
+    }
+
+    // [2]
+    &::-moz-focus-inner {
+      padding: 0;
+      border: 0;
+    }
+
+    // Reset focus styles added to buttons as links
+    &:focus {
+      outline: none;
+      box-shadow: none;
+    }
+
+    // Add button focus styles ensuring the active "pressed" state has priority
+    &:focus:not(:active),
+    &:focus:not(:active):hover {
+      @include nhsuk-focused-button;
+    }
+
+    // Remove button shadow when pressed
+    &:active,
+    &:active:focus {
+      top: $nhsuk-button-shadow-size;
+      box-shadow: none;
+    }
+
+    &:disabled {
+      pointer-events: none;
+      opacity: (0.5);
+    }
+
+    // Default pseudo element styles for [3] and [4]
+    &::before,
+    &::after {
+      content: "";
+
+      display: block;
+
+      position: absolute;
+      top: -$nhsuk-border-width-form-element;
+      right: -$nhsuk-border-width-form-element;
+      bottom: -$nhsuk-border-width-form-element;
+      left: -$nhsuk-border-width-form-element;
+
+      border-radius: nhsuk-px-to-rem($nhsuk-button-border-radius);
+    }
+
+    // Use a pseudo element to expand the click target area to include the
+    // button's shadow as well, in case users try to click it [3]
+    &::before {
+      bottom: -($nhsuk-border-width-form-element + $nhsuk-button-shadow-size);
+      border: $nhsuk-border-width-form-element solid transparent;
+      background-color: transparent;
+    }
+
+    // When the button is active it is shifted down by $nhsuk-button-shadow-size to
+    // denote a 'pressed' state. If the user happened to click at the very top
+    // of the button, their mouse is no longer over the button (because it has
+    // 'moved beneath them') and so the click event is not fired.
+    //
+    // This corrects that by shifting the top of the pseudo element so that it
+    // continues to cover the area that the user originally clicked, which means
+    // the click event is still fired.
+    &:active::before {
+      top: -($nhsuk-border-width-form-element + $nhsuk-button-shadow-size);
+      bottom: -$nhsuk-border-width-form-element;
+    }
+  }
+
+  // Button variations
+
+  .nhsuk-button--secondary,
+  .nhsuk-button--secondary-solid {
+    @include nhsuk-button-style(
+      $button-colour: $nhsuk-secondary-button-colour,
+      $button-border-colour: $nhsuk-secondary-button-border-colour,
+      $button-hover-colour: $nhsuk-secondary-button-hover-colour,
+      $button-active-colour: $nhsuk-secondary-button-active-colour,
+      $button-text-colour: $nhsuk-secondary-button-text-colour,
+      $button-shadow-colour: $nhsuk-secondary-button-shadow-colour
+    );
+  }
+
+  .nhsuk-button--secondary-solid {
+    background-color: $nhsuk-secondary-button-solid-background-colour;
+  }
+
+  .nhsuk-button--reverse {
+    @include nhsuk-button-style(
+      $button-colour: $nhsuk-reverse-button-colour,
+      $button-hover-colour: $nhsuk-reverse-button-hover-colour,
+      $button-active-colour: $nhsuk-reverse-button-active-colour,
+      $button-text-colour: $nhsuk-reverse-button-text-colour,
+      $button-shadow-colour: $nhsuk-reverse-button-shadow-colour
+    );
+  }
+
+  .nhsuk-button--warning {
+    @include nhsuk-button-style(
+      $button-colour: $nhsuk-warning-button-colour,
+      $button-hover-colour: $nhsuk-warning-button-hover-colour,
+      $button-active-colour: $nhsuk-warning-button-active-colour,
+      $button-shadow-colour: $nhsuk-warning-button-shadow-colour
+    );
+  }
+
+  .nhsuk-button--login {
+    @include nhsuk-button-style(
+      $button-colour: $nhsuk-login-button-colour,
+      $button-hover-colour: $nhsuk-login-button-hover-colour,
+      $button-active-colour: $nhsuk-login-button-active-colour,
+      $button-shadow-colour: $nhsuk-login-button-shadow-colour
+    );
+  }
+
+  // =========================================================
+  // Small buttons
+  // =========================================================
+
+  .nhsuk-button--small {
+    min-height: nhsuk-px-to-rem(36px);
+    padding: $nhsuk-button-padding-top-bottom-small $nhsuk-button-padding-left-right-small; // [5]
+
+    @include nhsuk-responsive-margin(4, "bottom", $adjustment: $nhsuk-button-shadow-size); // [5]
+
+    @include nhsuk-media-query($from: tablet) {
+      @include nhsuk-font(16, $line-height: 19px, $weight: bold);
+    }
+  }
+}
+
+/*# sourceMappingURL=_index.scss.map */

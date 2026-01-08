@@ -1,0 +1,49 @@
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+@use "../../core/helpers" as *;
+
+////
+/// Contents list component
+///
+/// @group components/contents-list
+////
+
+@include nhsuk-exports("nhsuk/components/contents-list") {
+  .nhsuk-contents-list {
+    @include nhsuk-responsive-margin(7, "bottom");
+  }
+
+  .nhsuk-contents-list__list {
+    padding: 0;
+    list-style: none;
+  }
+
+  .nhsuk-contents-list__item {
+    position: relative;
+    padding: 0 0 0 nhsuk-spacing(5);
+
+    &::before {
+      content: "";
+
+      display: block;
+
+      position: absolute;
+      top: nhsuk-em(12, 16);
+      left: 0;
+
+      width: nhsuk-spacing(3);
+
+      border-top: 1px solid nhsuk-colour("grey-2");
+    }
+  }
+
+  .nhsuk-contents-list__link {
+    display: inline-block;
+  }
+
+  .nhsuk-contents-list__current {
+    font-weight: $nhsuk-font-weight-bold;
+  }
+}
+
+/*# sourceMappingURL=_index.scss.map */

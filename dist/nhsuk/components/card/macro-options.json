@@ -1,0 +1,186 @@
+[
+  {
+    "name": "id",
+    "type": "string",
+    "required": false,
+    "description": "The ID of the card."
+  },
+  {
+    "name": "heading",
+    "type": "string",
+    "required": true,
+    "description": "Text to use within the heading of the card component. If `headingHtml` is provided, the `heading` argument will be ignored."
+  },
+  {
+    "name": "headingHtml",
+    "type": "string",
+    "required": true,
+    "description": "HTML to use within the heading of the card component. If `headingHtml` is provided, the `heading` argument will be ignored."
+  },
+  {
+    "name": "headingClasses",
+    "type": "string",
+    "required": false,
+    "description": "Classes to add to the card heading."
+  },
+  {
+    "name": "headingSize",
+    "type": "string",
+    "required": false,
+    "description": "Size of the heading – `\"xss\"`, `\"xs\"`, `\"s\"`, `\"m\"`, `\"l\"` or `\"xl\"`."
+  },
+  {
+    "name": "headingLevel",
+    "type": "integer",
+    "required": false,
+    "description": "Optional heading level for the card heading. Defaults to `2`."
+  },
+  {
+    "name": "headingVisuallyHiddenText",
+    "type": "string",
+    "required": false,
+    "description": "Optional visually hidden prefix used before the heading."
+  },
+  {
+    "name": "href",
+    "type": "string",
+    "required": false,
+    "description": "The value of the card link `href` attribute."
+  },
+  {
+    "name": "clickable",
+    "type": "boolean",
+    "required": false,
+    "description": "If set to `true`, then the whole card will become a clickable card variant."
+  },
+  {
+    "name": "type",
+    "type": "string",
+    "required": false,
+    "description": "Care card variant type – `\"non-urgent\"`, `\"urgent\"` or `\"emergency\"`."
+  },
+  {
+    "name": "feature",
+    "type": "boolean",
+    "required": false,
+    "description": "If set to `true`, then the card will become a feature card variant."
+  },
+  {
+    "name": "primary",
+    "type": "boolean",
+    "required": false,
+    "description": "If set to `true`, the card will become a primary card variant (with chevron)."
+  },
+  {
+    "name": "secondary",
+    "type": "boolean",
+    "required": false,
+    "description": "If set to `true`, the card will become a secondary card variant."
+  },
+  {
+    "name": "warning",
+    "type": "boolean",
+    "required": false,
+    "description": "If set to `true`, then the card will become a warning card variant used by the warning callout."
+  },
+  {
+    "name": "imgURL",
+    "type": "string",
+    "required": false,
+    "description": "The URL of the image in the card."
+  },
+  {
+    "name": "imgALT",
+    "type": "string",
+    "required": false,
+    "description": "The alternative text of the image in the card."
+  },
+  {
+    "name": "description",
+    "type": "string",
+    "required": false,
+    "description": "Text description within the card content. If `descriptionHtml` is provided, the `description` argument will be ignored."
+  },
+  {
+    "name": "descriptionHtml",
+    "type": "string",
+    "required": false,
+    "description": "HTML to use within the card content. If `descriptionHtml` is provided, the `description` argument will be ignored."
+  },
+  {
+    "name": "actions",
+    "type": "object",
+    "required": false,
+    "description": "Can be used to add actions to the card component.",
+    "params": [
+      {
+        "name": "items",
+        "type": "array",
+        "required": false,
+        "description": "Array of actions as links for use in the card component.",
+        "params": [
+          {
+            "name": "href",
+            "type": "string",
+            "required": true,
+            "description": "The value of the link's `href` attribute for an action item."
+          },
+          {
+            "name": "text",
+            "type": "string",
+            "required": true,
+            "description": "If `html` is set, this is not required. Text to use within each action item. If `html` is provided, the `text` option will be ignored."
+          },
+          {
+            "name": "html",
+            "type": "string",
+            "required": true,
+            "description": "If `text` is set, this is not required. HTML to use within each action item. If `html` is provided, the `text` option will be ignored."
+          },
+          {
+            "name": "visuallyHiddenText",
+            "type": "string",
+            "required": false,
+            "description": "Actions rely on context from the surrounding content so may require additional accessible text. Text supplied to this option is appended to the end. Use `html` for more complicated scenarios."
+          },
+          {
+            "name": "classes",
+            "type": "string",
+            "required": false,
+            "description": "Classes to add to the action item."
+          },
+          {
+            "name": "attributes",
+            "type": "object",
+            "required": false,
+            "description": "HTML attributes (for example data attributes) to add to the action item."
+          }
+        ]
+      },
+      {
+        "name": "classes",
+        "type": "string",
+        "required": false,
+        "description": "Classes to add to the actions wrapper."
+      }
+    ]
+  },
+  {
+    "name": "caller",
+    "type": "nunjucks-block",
+    "required": false,
+    "description": "Not strictly a parameter but a Nunjucks code convention. Using a `call` block enables you to call a macro with all the text inside the tag. This is helpful if you want to pass a lot of content into a macro. To use it, you will need to wrap the entire card component in a `call` block."
+  },
+  {
+    "name": "classes",
+    "type": "string",
+    "required": false,
+    "description": "Classes to add to the card."
+  },
+  {
+    "name": "attributes",
+    "type": "object",
+    "required": false,
+    "description": "HTML attributes (for example data attributes) to add to the card."
+  }
+]
