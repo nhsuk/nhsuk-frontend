@@ -21,8 +21,7 @@
 
   .nhsuk-pagination {
     box-sizing: border-box;
-    @include nhsuk-responsive-margin(7, "top");
-    @include nhsuk-responsive-margin(7, "bottom");
+    @include nhsuk-responsive-margin(7, ("top", "bottom"));
   }
 
   .nhsuk-pagination__list {
