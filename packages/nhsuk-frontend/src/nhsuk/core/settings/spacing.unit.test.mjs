@@ -108,7 +108,7 @@ describe('Spacing settings', () => {
       })
 
       await expect(results).rejects.toThrow(
-        'Unknown spacing variable `999`. Make sure you are using a point from the spacing scale in `_settings/spacing.scss`.'
+        'Unknown spacing point `999`. Make sure you are using a point from the spacing scale in `_settings/spacing.scss`.'
       )
     })
 
@@ -126,7 +126,7 @@ describe('Spacing settings', () => {
       })
 
       await expect(results).rejects.toThrow(
-        'Unknown spacing variable `999`. Make sure you are using a point from the spacing scale in `_settings/spacing.scss`.'
+        'Unknown spacing point `999`. Make sure you are using a point from the spacing scale in `_settings/spacing.scss`.'
       )
     })
 
@@ -222,7 +222,7 @@ describe('Spacing settings', () => {
       })
 
       await expect(results).rejects.toThrow(
-        'Unknown spacing point `14px`. Make sure you are using a point from the responsive spacing scale in `_settings/spacing.scss`.'
+        'Unknown responsive spacing point `14px`. Make sure you are using a point from the responsive spacing scale in `_settings/spacing.scss`.'
       )
     })
 
