@@ -1,5 +1,6 @@
 // stylelint-disable declaration-no-important
 
+@use "sass:list";
 @use "sass:map";
 @use "sass:math";
 @use "sass:meta";
@@ -76,7 +77,7 @@
 /// @param {Number} $responsive-spacing-point - Point on the responsive spacing
 ///  scale, corresponds to a map of breakpoints and spacing values
 /// @param {String} $property - Property to add spacing to (e.g. 'margin')
-/// @param {String} $direction [all] - Direction to add spacing to
+/// @param {String | List} $direction [all] - Direction to add spacing to
 ///  (`top`, `right`, `bottom`, `left`, `all`)
 /// @param {Boolean} $important [false] - Whether to mark as `!important`
 /// @param {Number} $adjustment [null] - Offset to adjust spacing by
@@ -103,6 +104,17 @@
   $actual-input-type: meta.type-of($responsive-spacing-point);
   @if $actual-input-type != "number" {
     @error "Expected a number (integer), but got a " + "#{$actual-input-type}.";
+  }
+
+  @if not list.index(("string", "list"), meta.type-of($direction)) {
+    @error "Expected a string or list, but got a " + "#{meta.type-of($direction)}.";
+  }
+
+  $directions: ();
+  @if meta.type-of($direction) == "list" {
+    $directions: list.join($directions, $direction);
+  } @else {
+    $directions: ($direction);
   }
 
   @if not map.has-key($nhsuk-spacing-responsive-scale, $responsive-spacing-point) {
@@ -134,17 +146,21 @@
     & {
       // [3]
       @if not $breakpoint {
-        @if $direction == all {
-          #{$property}: $breakpoint-value;
-        } @else {
-          #{$property}-#{$direction}: $breakpoint-value;
-        }
-      } @else {
-        @include nhsuk-media-query($from: $breakpoint) {
+        @each $direction in $directions {
           @if $direction == all {
             #{$property}: $breakpoint-value;
           } @else {
             #{$property}-#{$direction}: $breakpoint-value;
+          }
+        }
+      } @else {
+        @include nhsuk-media-query($from: $breakpoint) {
+          @each $direction in $directions {
+            @if $direction == all {
+              #{$property}: $breakpoint-value;
+            } @else {
+              #{$property}-#{$direction}: $breakpoint-value;
+            }
           }
         }
       }
@@ -160,7 +176,7 @@
 ///
 /// @param {Number} $responsive-spacing-point - Point on the responsive spacing
 /// scale, corresponds to a map of breakpoints and spacing values
-/// @param {String} $direction [all] - Direction to add spacing to
+/// @param {String | List} $direction [all] - Direction(s) to add spacing to
 ///   (`top`, `right`, `bottom`, `left`, `all`)
 /// @param {Boolean} $important [false] - Whether to mark as `!important`
 /// @param {Number} $adjustment [null] - Offset to adjust spacing by
@@ -184,7 +200,7 @@
 ///
 /// @param {Number} $responsive-spacing-point - Point on the responsive spacing
 ///   scale, corresponds to a map of breakpoints and spacing values
-/// @param {String} $direction [all] - Direction to add spacing to
+/// @param {String | List} $direction [all] - Direction(s) to add spacing to
 ///   (`top`, `right`, `bottom`, `left`, `all`)
 /// @param {Boolean} $important [false] - Whether to mark as `!important`
 /// @param {Number} $adjustment [null] - Offset to adjust spacing by
