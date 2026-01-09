@@ -40,10 +40,9 @@
 /// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
 
 @function nhsuk-spacing($spacing-point) {
-  $actual-input-type: meta.type-of($spacing-point);
-  @if $actual-input-type != "number" {
+  @if meta.type-of($spacing-point) != "number" {
     @error "Expected a number (integer), but got a "
-      + "#{$actual-input-type}.";
+      + "#{meta.type-of($spacing-point)}.";
   }
 
   $is-negative: false;
@@ -101,9 +100,8 @@
   $important: false,
   $adjustment: null
 ) {
-  $actual-input-type: meta.type-of($responsive-spacing-point);
-  @if $actual-input-type != "number" {
-    @error "Expected a number (integer), but got a " + "#{$actual-input-type}.";
+  @if meta.type-of($responsive-spacing-point) != "number" {
+    @error "Expected a number (integer), but got a " + "#{meta.type-of($responsive-spacing-point)}.";
   }
 
   @if not list.index(("string", "list"), meta.type-of($direction)) {
@@ -123,10 +121,9 @@
   }
 
   $scale-map: map.get($nhsuk-spacing-responsive-scale, $responsive-spacing-point); // [1]
-  $actual-map-type: meta.type-of($scale-map);
-  @if $actual-map-type != "map" {
+  @if meta.type-of($scale-map) != "map" {
     @error "Expected a number (integer), but got a "
-      + "#{$actual-map-type}. Make sure you are using a map to set the responsive spacing in `_settings/spacing.scss`)";
+      + "#{meta.type-of($scale-map)}. Make sure you are using a map to set the responsive spacing in `_settings/spacing.scss`)";
   }
 
   // [2]
