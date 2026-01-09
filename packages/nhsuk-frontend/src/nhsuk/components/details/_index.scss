@@ -53,8 +53,9 @@ $expander-icon-size: $nhsuk-expander-icon-size;
     .nhsuk-details {
       margin-top: nhsuk-spacing(2);
       padding: nhsuk-spacing(3) 0;
-      padding-left: $nhsuk-inset-size - $nhsuk-border-width; // [6]
       border-left: $nhsuk-border-width solid $nhsuk-border-colour;
+
+      @include nhsuk-responsive-padding(5, "left", $adjustment: - $nhsuk-border-width, $unit: "rem"); // [5]
     }
 
     .nhsuk-details__summary-text {
@@ -76,9 +77,10 @@ $expander-icon-size: $nhsuk-expander-icon-size;
     .nhsuk-details__summary {
       position: relative; // [2]
       width: fit-content; // [1]
-      padding-left: $nhsuk-inset-size;
       cursor: pointer;
       @include nhsuk-link-style;
+
+      @include nhsuk-responsive-padding(5, "left", $unit: "rem");
 
       &::-webkit-details-marker {
         display: none; // [4]
@@ -115,33 +117,46 @@ $expander-icon-size: $nhsuk-expander-icon-size;
     .nhsuk-details__text {
       margin-top: nhsuk-spacing(2);
       padding: nhsuk-spacing(3) 0;
-      padding-right: 0;
-      padding-left: $nhsuk-inset-size - $nhsuk-border-width; // [6]
       border-left: $nhsuk-border-width solid $nhsuk-border-colour;
+
+      @include nhsuk-responsive-padding(5, "left", $adjustment: - $nhsuk-border-width, $unit: "rem"); // [5]
     }
   }
 
   // Expander variant
 
   .nhsuk-expander {
-    $_expander-padding: $nhsuk-inset-size - $nhsuk-expander-border-width;
-
     border: $nhsuk-expander-border-width solid $nhsuk-expander-border-colour;
     background-color: $nhsuk-card-background-colour;
 
     .nhsuk-details__summary {
       display: block;
       width: auto;
-      padding: $_expander-padding - $nhsuk-focus-width $_expander-padding 0;
-      border-top: $nhsuk-focus-width solid transparent;
       background-color: $nhsuk-card-background-colour;
+
+      @include nhsuk-responsive-padding(5, "top", $adjustment: - $nhsuk-expander-border-width);
+      @include nhsuk-responsive-padding(5, "bottom", $adjustment: - $nhsuk-border-width);
+      @include nhsuk-responsive-padding(
+        5,
+        ("left", "right"),
+        $adjustment: - $nhsuk-expander-border-width,
+        $unit: "rem"
+      );
     }
 
     .nhsuk-details__text {
       margin-top: 0;
       margin-left: 0;
-      padding: 0 $_expander-padding $_expander-padding;
       border-left: 0;
+
+      @include nhsuk-responsive-padding(5, "top", $adjustment: - $nhsuk-expander-border-width);
+      @include nhsuk-responsive-padding(5, "bottom", $adjustment: - $nhsuk-expander-border-width);
+      @include nhsuk-responsive-padding(
+        5,
+        ("left", "right"),
+        $adjustment: - $nhsuk-expander-border-width,
+        $unit: "rem"
+      );
     }
 
     // Hack to support Internet Explorer 11
@@ -167,7 +182,7 @@ $expander-icon-size: $nhsuk-expander-icon-size;
       }
 
       .nhsuk-details__summary {
-        padding-bottom: $_expander-padding;
+        @include nhsuk-responsive-padding(5, "bottom", $adjustment: - $nhsuk-expander-border-width);
       }
 
       .nhsuk-details__summary::before {

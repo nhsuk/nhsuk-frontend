@@ -11,7 +11,8 @@
 
 @mixin nhsuk-shape-dash() {
   position: relative;
-  padding: 0 0 0 $nhsuk-inset-size;
+  padding: 0;
+  @include nhsuk-responsive-padding(5, "left", $unit: "rem");
 
   &::before {
     content: "";
@@ -22,7 +23,7 @@
     top: nhsuk-em(12, 16);
     left: 0;
 
-    width: nhsuk-spacing(3);
+    width: nhsuk-em(12, 16);
 
     border-top: 1px solid nhsuk-colour("grey-2");
   }
