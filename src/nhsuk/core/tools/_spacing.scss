@@ -79,7 +79,7 @@
 /// @param {String} $direction [all] - Direction to add spacing to
 ///  (`top`, `right`, `bottom`, `left`, `all`)
 /// @param {Boolean} $important [false] - Whether to mark as `!important`
-/// @param {Number} $adjustment [false] - Offset to adjust spacing by
+/// @param {Number} $adjustment [null] - Offset to adjust spacing by
 ///
 /// @example scss
 ///   .foo {
@@ -98,7 +98,7 @@
   $property,
   $direction: "all",
   $important: false,
-  $adjustment: false
+  $adjustment: null
 ) {
   $actual-input-type: meta.type-of($responsive-spacing-point);
   @if $actual-input-type != "number" {
@@ -163,7 +163,7 @@
 /// @param {String} $direction [all] - Direction to add spacing to
 ///   (`top`, `right`, `bottom`, `left`, `all`)
 /// @param {Boolean} $important [false] - Whether to mark as `!important`
-/// @param {Number} $adjustment [false] - Offset to adjust spacing by
+/// @param {Number} $adjustment [null] - Offset to adjust spacing by
 ///
 /// @example scss
 ///   .foo {
@@ -172,7 +172,7 @@
 ///
 /// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
 
-@mixin nhsuk-responsive-margin($responsive-spacing-point, $direction: "all", $important: false, $adjustment: false) {
+@mixin nhsuk-responsive-margin($responsive-spacing-point, $direction: "all", $important: false, $adjustment: null) {
   @include nhsuk-responsive-spacing($responsive-spacing-point, "margin", $direction, $important, $adjustment);
 }
 
@@ -187,7 +187,7 @@
 /// @param {String} $direction [all] - Direction to add spacing to
 ///   (`top`, `right`, `bottom`, `left`, `all`)
 /// @param {Boolean} $important [false] - Whether to mark as `!important`
-/// @param {Number} $adjustment [false] - Offset to adjust spacing
+/// @param {Number} $adjustment [null] - Offset to adjust spacing by
 ///
 /// @example scss
 ///   .foo {
@@ -196,6 +196,6 @@
 ///
 /// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
 
-@mixin nhsuk-responsive-padding($responsive-spacing-point, $direction: "all", $important: false, $adjustment: false) {
+@mixin nhsuk-responsive-padding($responsive-spacing-point, $direction: "all", $important: false, $adjustment: null) {
   @include nhsuk-responsive-spacing($responsive-spacing-point, "padding", $direction, $important, $adjustment);
 }
