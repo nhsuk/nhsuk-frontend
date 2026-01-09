@@ -16,8 +16,8 @@
 ////
 
 @include nhsuk-exports("nhsuk/components/pagination") {
-  $_icon-size: nhsuk-px-to-rem(26px);
-  $_small-icon-size: nhsuk-px-to-rem(24px);
+  $_icon-size: nhsuk-em($nhsuk-icon-size-large, 26px);
+  $_small-icon-size: nhsuk-em($nhsuk-icon-size, 19px);
 
   .nhsuk-pagination {
     box-sizing: border-box;
@@ -35,12 +35,11 @@
     text-align: left;
 
     .nhsuk-icon {
-      left: nhsuk-spacing(-1);
-      margin-top: 2px;
+      left: nhsuk-px-to-rem(-6px);
     }
 
     .nhsuk-pagination__title {
-      padding-left: $nhsuk-inset-size; // [1]
+      padding-left: $_icon-size; // [1]
     }
   }
 
@@ -50,12 +49,11 @@
     text-align: right;
 
     .nhsuk-icon {
-      right: nhsuk-spacing(-1);
-      margin-top: 2px;
+      right: nhsuk-px-to-rem(-6px);
     }
 
     .nhsuk-pagination__title {
-      padding-right: $nhsuk-inset-size; // [1]
+      padding-right: $_icon-size; // [1]
     }
   }
 
@@ -257,12 +255,12 @@
   }
 
   .nhsuk-pagination--numbered .nhsuk-pagination__previous .nhsuk-icon {
-    margin-right: nhsuk-spacing(1);
-    margin-left: nhsuk-spacing(-1);
+    margin-right: nhsuk-spacing(2);
+    margin-left: nhsuk-px-to-rem(-3px);
   }
 
   .nhsuk-pagination--numbered .nhsuk-pagination__next .nhsuk-icon {
-    margin-right: nhsuk-spacing(-1);
-    margin-left: nhsuk-spacing(1);
+    margin-right: nhsuk-px-to-rem(-3px);
+    margin-left: nhsuk-spacing(2);
   }
 }
