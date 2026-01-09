@@ -336,6 +336,46 @@ describe('Spacing settings', () => {
       })
     })
 
+    it('outputs CSS for a property and multiple directions based on a responsive spacing point', async () => {
+      const sass = outdent`
+        ${sassBootstrap}
+
+        .foo {
+          @include nhsuk-responsive-spacing($app-spacing-point, 'margin', ('top', 'bottom'));
+          @include nhsuk-responsive-spacing($app-spacing-point, 'padding', ('left', 'right'), $unit: "rem");
+        }
+      `
+
+      const results = compileStringAsync(sass, {
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+      })
+
+      await expect(results).resolves.toMatchObject({
+        css: outdent`
+          .foo {
+            margin-top: 15px;
+            margin-bottom: 15px;
+          }
+          @media (min-width: 30em) {
+            .foo {
+              margin-top: 25px;
+              margin-bottom: 25px;
+            }
+          }
+          .foo {
+            padding-left: 0.9375rem;
+            padding-right: 0.9375rem;
+          }
+          @media (min-width: 30em) {
+            .foo {
+              padding-left: 1.5625rem;
+              padding-right: 1.5625rem;
+            }
+          }
+        `
+      })
+    })
+
     it('throws an exception when passed a non-existent responsive spacing point', async () => {
       const sass = outdent`
         ${sassBootstrap}
@@ -511,6 +551,40 @@ describe('Spacing settings', () => {
             @media (min-width: 30em) {
               .foo {
                 margin-top: 27px;
+              }
+            }
+          `
+        })
+      })
+
+      it('adjusts the value for the property and multiple directions', async () => {
+        const sass = outdent`
+          ${sassBootstrap}
+
+          .foo {
+            @include nhsuk-responsive-spacing(
+              $app-spacing-point,
+              'margin',
+              ('top', 'bottom'),
+              $adjustment: 2px
+            )
+          }
+        `
+
+        const results = compileStringAsync(sass, {
+          loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+        })
+
+        await expect(results).resolves.toMatchObject({
+          css: outdent`
+            .foo {
+              margin-top: 17px;
+              margin-bottom: 17px;
+            }
+            @media (min-width: 30em) {
+              .foo {
+                margin-top: 27px;
+                margin-bottom: 27px;
               }
             }
           `
