@@ -115,8 +115,12 @@
     width: 100%;
     // align the padding to be same as notification banner and error summary accounting for the thicker borders
     padding: (nhsuk-spacing(3) + $nhsuk-border-width - $nhsuk-border-width-form-element);
+
     border: $nhsuk-border-width-form-element solid $_button-border-colour;
+
+    color: $nhsuk-text-colour;
     background-color: nhsuk-colour("white");
+
     cursor: pointer;
 
     @include nhsuk-media-query($from: tablet) {
