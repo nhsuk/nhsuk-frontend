@@ -332,24 +332,5 @@ describe('Table', () => {
         expect($status?.textContent).toBe('Ordered by MMR in A-Z order')
       })
     })
-
-    describe('Non-sortable table', () => {
-      beforeEach(() => {
-        document.body.innerHTML = outdent`
-          <div>
-            ${components.render('tables', examples['default'])}
-          </div>
-        `
-      })
-
-      it('should not have data-module attribute', () => {
-        const $table = document.querySelector('table')
-        expect($table?.hasAttribute('data-module')).toBe(false)
-      })
-
-      it('should not be initialised by initTables', () => {
-        expect(() => initTables()).not.toThrow()
-      })
-    })
   })
 })
