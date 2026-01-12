@@ -266,9 +266,9 @@ export class Table extends ConfigurableComponent {
           ? this.getCellValue($tdB)
           : this.getCellValue($tdA)
 
-      return !(typeof valueA === 'number' && typeof valueB === 'number')
-        ? valueA.toString().localeCompare(valueB.toString())
-        : valueA - valueB
+      return typeof valueA === 'number' && typeof valueB === 'number'
+        ? valueA - valueB
+        : valueA.toString().localeCompare(valueB.toString())
     })
   }
 
