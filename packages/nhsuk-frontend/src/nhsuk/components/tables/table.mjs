@@ -194,7 +194,7 @@ export class Table extends ConfigurableComponent {
     $button.parentElement.setAttribute('aria-sort', direction)
     let message = config.statusMessage
 
-    message = message.replace(/%heading%/, $button.textContent)
+    message = message.replace(/%heading%/, $button.textContent.trim())
     message = message.replace(/%direction%/, directionText)
     $status.textContent = message
   }
