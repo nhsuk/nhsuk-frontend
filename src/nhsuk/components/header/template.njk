@@ -1,5 +1,7 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
+{% from "nhsuk/components/input/macro.njk" import input %}
+{% from "nhsuk/components/button/macro.njk" import button %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-header" -%}
@@ -98,13 +100,27 @@
             optional: true
           }
         }) }} novalidate>
-        <label class="nhsuk-u-visually-hidden" for="search-field">{{ searchVisuallyHiddenLabel }}</label>
-        <input class="nhsuk-header__search-input nhsuk-input" id="search-field" name="{{ searchName }}" type="search" placeholder="{{ searchPlaceholder }}" autocomplete="off">
-        <button class="nhsuk-header__search-submit" type="submit">
-          {{ nhsukIcon("search", {
-            title: searchVisuallyHiddenButton
-          }) | trim | indent(10) }}
-        </button>
+        {{ input({
+          label: {
+            text: searchVisuallyHiddenLabel,
+            classes: "nhsuk-u-visually-hidden"
+          },
+          placeholder: searchPlaceholder,
+          name: searchName,
+          id: "search-field",
+          type: "search",
+          autocomplete: "off",
+          formGroup: {
+            afterInput: {
+              html: button({
+                html: nhsukIcon("search", {
+                  title: searchVisuallyHiddenButton
+                }) | trim | indent(2),
+                classes: "nhsuk-button--small"
+              })
+            }
+          }
+        }) | trim | indent(8) }}
       </form>
     </search>
 {% endif %}
