@@ -22,9 +22,28 @@ export const params = {
     description: 'The alt text of the image.'
   },
   caption: {
-    type: 'string',
+    type: 'object',
     required: false,
-    description: 'Optional caption text for the image.'
+    description: 'Optional caption for the image.',
+    params: {
+      text: {
+        type: 'string',
+        required: true,
+        description:
+          'Text to add within the caption. If `html` is provided, the `text` option will be ignored.'
+      },
+      html: {
+        type: 'string',
+        required: true,
+        description:
+          'HTML to add within the caption. If `html` is provided, the `text` option will be ignored.'
+      },
+      classes: {
+        type: 'string',
+        required: false,
+        description: 'Classes to add to the figcaption element.'
+      }
+    }
   },
   sizes: {
     type: 'string',
