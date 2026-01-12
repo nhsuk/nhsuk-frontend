@@ -72,7 +72,9 @@
     {% endif %}
     </div>
 {% if params.search %}
-    <search class="nhsuk-header__search">
+    <search class="nhsuk-header__search
+      {%- if params.search.classes %} {{ params.search.classes }}{% endif %}"
+      {{- nhsukAttributes(params.search.attributes) }}>
       <form class="nhsuk-header__search-form" id="search" action="{{ searchAction }}" method="get" novalidate>
         <label class="nhsuk-u-visually-hidden" for="search-field">{{ searchVisuallyHiddenLabel }}</label>
         <input class="nhsuk-header__search-input nhsuk-input" id="search-field" name="{{ searchName }}" type="search" placeholder="{{ searchPlaceholder }}" autocomplete="off">
