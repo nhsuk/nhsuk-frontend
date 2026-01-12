@@ -5,9 +5,6 @@
 ////
 /// Contents list component
 ///
-/// 1. Creates a grey line before each list
-///    item using a ASCII number for the symbol.
-///
 /// @group components/contents-list
 ////
 
@@ -36,7 +33,7 @@
 
       width: nhsuk-spacing(3);
 
-      border-top: 1px solid $nhsuk-border-hover-colour;
+      border-top: 1px solid nhsuk-colour("grey-2");
     }
   }
 

@@ -16,7 +16,7 @@
     z-index: 2;
     top: nhsuk-spacing(3);
     left: nhsuk-spacing(3);
-    padding: nhsuk-spacing(2);
+    padding: nhsuk-px-to-rem(nhsuk-spacing(2));
     @include nhsuk-visually-hidden-focusable; // [1]
 
     // Respect 'display cutout' safe area (avoids notches and rounded corners)

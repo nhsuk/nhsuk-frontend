@@ -1,4 +1,5 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/components/card/macro.njk" import card %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-table" if not params.responsive else "nhsuk-table-responsive" -%}
@@ -17,8 +18,8 @@
   {% set classNamesCaption = classNamesCaption ~ " nhsuk-table__caption--" ~ params.captionSize %}
 {% endif %}
 
-{%- if params.tableClasses %}
-  {% set classNames = classNames ~ " " ~ params.tableClasses %}
+{%- if params.classes or params.tableClasses %}
+  {% set classNames = classNames ~ " " ~ (params.classes or params.tableClasses) %}
 {% endif %}
 
 {%- if params.captionClasses %}
@@ -105,15 +106,15 @@
 </table>
 {%- endset %}
 
-{% if params.panel -%}
-<div class="nhsuk-table__panel-with-heading-tab {%- if params.panelClasses %} {{ params.panelClasses }}{% endif %}">
-  {% if params.heading %}
-  <h{{ headingLevel }} class="nhsuk-table__heading-tab">
-    {{ params.heading | safe }}
-  </h{{ headingLevel }}>
-  {% endif %}
-  {{ table | safe | trim | indent(2) }}
-</div>
+{%- if params.card or params.panel -%}
+  {% call card(params.card or {
+    heading: params.heading,
+    headingLevel: headingLevel,
+    classes: params.panelClasses,
+    feature: true
+  }) -%}
+    {{ table | safe | trim | indent(4) }}
+  {%- endcall %}
 {%- else -%}
   {{ table | safe | trim }}
 {%- endif %}

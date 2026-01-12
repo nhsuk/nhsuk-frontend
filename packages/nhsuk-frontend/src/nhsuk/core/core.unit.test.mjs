@@ -161,6 +161,29 @@ describe('Core', () => {
         `)
       })
     })
+
+    it('forwards core styles (with dynamic type enabled)', async () => {
+      const sass = outdent`
+        @forward "core" with (
+          $nhsuk-include-dynamic-type: true
+        );
+      `
+
+      const results = compileStringAsync(sass, {
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+      })
+
+      await expect(results).resolves.toMatchObject({
+        css: expect.stringContaining(outdent`
+          :root {
+            --nhsuk-frontend-version: "development";
+            --nhsuk-breakpoint-mobile: 18.8235294118rem;
+            --nhsuk-breakpoint-tablet: 37.7058823529rem;
+            --nhsuk-breakpoint-desktop: 45.2352941176rem;
+            --nhsuk-breakpoint-large-desktop: 58.2352941176rem;
+        `)
+      })
+    })
   })
 
   describe('importing using "all" files', () => {
