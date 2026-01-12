@@ -826,8 +826,9 @@ export const examples = {
   },
   'with image': {
     context: {
-      imgURL:
-        'https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg',
+      image: {
+        src: 'https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg'
+      },
       href: '#',
       clickable: true,
       heading: 'Exercise',
