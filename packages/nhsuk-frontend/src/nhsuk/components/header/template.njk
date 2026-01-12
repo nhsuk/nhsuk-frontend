@@ -85,7 +85,19 @@
     <search class="nhsuk-header__search
       {%- if params.search.classes %} {{ params.search.classes }}{% endif %}"
       {{- nhsukAttributes(params.search.attributes) }}>
-      <form class="nhsuk-header__search-form" id="search" action="{{ searchAction }}" method="{{ searchMethod }}" novalidate>
+      <form
+        {{- nhsukAttributes({
+          class: "nhsuk-header__search-form",
+          id: "search",
+          action: {
+            value: searchAction,
+            optional: true
+          },
+          method: {
+            value: searchMethod,
+            optional: true
+          }
+        }) }} novalidate>
         <label class="nhsuk-u-visually-hidden" for="search-field">{{ searchVisuallyHiddenLabel }}</label>
         <input class="nhsuk-header__search-input nhsuk-input" id="search-field" name="{{ searchName }}" type="search" placeholder="{{ searchPlaceholder }}" autocomplete="off">
         <button class="nhsuk-header__search-submit" type="submit">
@@ -109,7 +121,18 @@
             {{ _accountItem(item) | indent(12) }}
           </a>
         {% elif item.action %}
-          <form class="nhsuk-header__account-form" action="{{ item.action }}" method="{{ item.method or "post" }}" novalidate>
+          <form
+            {{- nhsukAttributes({
+              class: "nhsuk-header__account-form",
+              action: {
+                value: item.action,
+                optional: true
+              },
+              method: {
+                value: item.method or "post",
+                optional: true
+              }
+            }) }} novalidate>
             <button class="nhsuk-header__account-button">
               {{ _accountItem(item) | indent(14) }}
             </button>
