@@ -229,7 +229,9 @@ export class Table extends ConfigurableComponent {
 
   removeButtonStates() {
     for (const $heading of this.$headings) {
-      $heading.setAttribute('aria-sort', 'none')
+      if ($heading.hasAttribute('aria-sort')) {
+        $heading.setAttribute('aria-sort', 'none')
+      }
     }
   }
 
