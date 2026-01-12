@@ -41,7 +41,7 @@ describe('Table', () => {
       it('should not alter the caption', () => {
         initTables()
         const $caption = $root.querySelector('caption')
-        expect($caption.textContent).toEqual('Staff')
+        expect($caption).toHaveTextContent('Staff')
       })
 
       it('should not add a status box', () => {
