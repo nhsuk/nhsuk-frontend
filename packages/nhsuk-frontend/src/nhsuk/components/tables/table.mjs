@@ -82,7 +82,7 @@ export class Table extends ConfigurableComponent {
     const $button = document.createElement('button')
 
     $button.setAttribute('type', 'button')
-    $button.setAttribute('data-index', `${index}`)
+    $button.dataset.index = `${index}`
     $button.textContent = $heading.textContent
 
     $heading.textContent = ''
@@ -109,10 +109,7 @@ export class Table extends ConfigurableComponent {
     const $sortButton = $heading?.querySelector('button')
     const sortDirection = $heading?.getAttribute('aria-sort')
 
-    const columnNumber = Number.parseInt(
-      $sortButton?.getAttribute('data-index') ?? '0',
-      10
-    )
+    const columnNumber = Number.parseInt($sortButton?.dataset.index ?? '0', 10)
 
     if (
       !$heading ||
@@ -140,10 +137,7 @@ export class Table extends ConfigurableComponent {
     const $heading = $button.parentElement
     const sortDirection = $heading.getAttribute('aria-sort')
 
-    const columnNumber = Number.parseInt(
-      $button.getAttribute('data-index') ?? '0',
-      10
-    )
+    const columnNumber = Number.parseInt($button.dataset.index ?? '0', 10)
 
     const newSortDirection =
       sortDirection === 'none' || sortDirection === 'descending'
@@ -282,7 +276,7 @@ export class Table extends ConfigurableComponent {
    * @param {HTMLElement} $cell
    */
   getCellValue($cell) {
-    const val = $cell.getAttribute('data-sort-value') ?? $cell.innerHTML
+    const val = $cell.dataset.sortValue ?? $cell.innerHTML
     const valAsNumber = Number(val)
 
     return Number.isFinite(valAsNumber)
