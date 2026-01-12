@@ -12,7 +12,7 @@ describe('Table', () => {
     beforeEach(() => {
       document.body.innerHTML = outdent`
         <div>
-          <table data-module="nhsuk-table">
+          <table class="nhsuk-table" data-module="nhsuk-table">
             <caption>Staff</caption>
             <thead>
               <tr>
@@ -49,6 +49,13 @@ describe('Table', () => {
         const $statusBox = document.querySelector('[role=status]')
         expect($statusBox).toBeNull()
       })
+    })
+
+    it('should not add a modifier class to the table element', () => {
+      initTables()
+      expect($root.classList).not.toContain(
+        'nhsuk-table--with-sortable-columns'
+      )
     })
   })
 
@@ -150,6 +157,11 @@ describe('Table', () => {
           `${Table.moduleName}: Root element (\`$root\`) already initialised`
         )
       })
+    })
+
+    it('should add a class to the table element', () => {
+      initTables()
+      expect($root.classList).toContain('nhsuk-table--with-sortable-columns')
     })
 
     describe('Heading buttons', () => {
