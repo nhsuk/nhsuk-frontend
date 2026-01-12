@@ -3,11 +3,11 @@ import { ConfigurableComponent } from '../../configurable-component.mjs'
 import { ElementError } from '../../errors/index.mjs'
 
 /**
- * Sortable table component
+ * Table component
  *
- * @augments {ConfigurableComponent<SortableTableConfig>}
+ * @augments {ConfigurableComponent<TableConfig>}
  */
-export class SortableTable extends ConfigurableComponent {
+export class Table extends ConfigurableComponent {
   $upArrow = `
     <svg width="22" height="22" focusable="false" aria-hidden="true" role="img" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M5.4 8.3L10.4 3.3C10.6 3.1 10.8 3.00001 11.1 3.00001C11.4 3.00001 11.6 3.1 11.8 3.3L16.8 8.3C16.9444 8.49258 17.0145 8.73078 16.9975 8.97089C16.9804 9.211 16.8773 9.4369 16.7071 9.60711C16.5369 9.77732 16.311 9.88042 16.0709 9.89749C15.8308 9.91455 15.5926 9.84443 15.4 9.7L12.1 6.4L12.1 18C12.1 18.2652 11.9946 18.5196 11.8071 18.7071C11.6196 18.8946 11.3652 19 11.1 19C10.8348 19 10.5804 18.8946 10.3929 18.7071C10.2054 18.5196 10.1 18.2652 10.1 18L10.1 6.4L6.8 9.7C6.71404 9.81462 6.60445 9.90943 6.47866 9.97801C6.35286 10.0466 6.2138 10.0873 6.07089 10.0975C5.92798 10.1076 5.78455 10.087 5.65033 10.0369C5.5161 9.98677 5.3942 9.90842 5.29289 9.80711C5.19159 9.7058 5.11323 9.58391 5.06313 9.44968C5.01303 9.31545 4.99236 9.17203 5.00252 9.02911C5.01267 8.8862 5.05342 8.74714 5.122 8.62135C5.19058 8.49556 5.28538 8.38597 5.4 8.3Z" fill="currentColor"/>
@@ -29,7 +29,7 @@ export class SortableTable extends ConfigurableComponent {
 
   /**
    * @param {Element | null} $root - HTML element to use for component
-   * @param {Partial<SortableTableConfig>} [config] - Sortable table config
+   * @param {Partial<TableConfig>} [config] - Sortable table config
    */
   constructor($root, config = {}) {
     super($root, config)
@@ -39,14 +39,14 @@ export class SortableTable extends ConfigurableComponent {
 
     if (!$head) {
       throw new ElementError({
-        component: SortableTable,
+        component: Table,
         identifier: 'Table head (`<thead>`)'
       })
     }
 
     if (!$body) {
       throw new ElementError({
-        component: SortableTable,
+        component: Table,
         identifier: 'Table body (`<tbody>`)'
       })
     }
@@ -291,9 +291,9 @@ export class SortableTable extends ConfigurableComponent {
   /**
    * Sortable table config
    *
-   * @see {@link SortableTableConfig}
+   * @see {@link TableConfig}
    * @constant
-   * @type {SortableTableConfig}
+   * @type {TableConfig}
    */
   static defaults = Object.freeze({
     statusMessage: 'Sort by %heading% (%direction%)',
@@ -305,7 +305,7 @@ export class SortableTable extends ConfigurableComponent {
    * Sortable table config schema
    *
    * @constant
-   * @satisfies {Schema<SortableTableConfig>}
+   * @satisfies {Schema<TableConfig>}
    */
   static schema = Object.freeze({
     properties: {
@@ -318,31 +318,31 @@ export class SortableTable extends ConfigurableComponent {
   /**
    * Name for the component used when initialising using data-module attributes
    */
-  static moduleName = 'nhsuk-sortable-table'
+  static moduleName = 'nhsuk-table'
 }
 
 /**
- * Initialise sortable table component
+ * Initialise table component
  *
- * @deprecated Use {@link createAll | `createAll(SortableTable)`} instead.
+ * @deprecated Use {@link createAll | `createAll(Table)`} instead.
  * @param {InitOptions} [options]
  */
-export function initSortableTables(options) {
+export function initTables(options) {
   const { scope: $scope } = normaliseOptions(options)
 
-  const $sortableTables = $scope?.querySelectorAll(
-    `[data-module="${SortableTable.moduleName}"]`
+  const $tables = $scope?.querySelectorAll(
+    `[data-module="${Table.moduleName}"]`
   )
 
-  $sortableTables?.forEach(($root) => {
-    new SortableTable($root)
+  $tables?.forEach(($root) => {
+    new Table($root)
   })
 }
 
 /**
- * Sortable table config
+ * Table config
  *
- * @typedef {object} SortableTableConfig
+ * @typedef {object} TableConfig
  * @property {string} [statusMessage] - Status message
  * @property {string} [ascendingText] - Ascending text
  * @property {string} [descendingText] - Descending text
