@@ -62,6 +62,7 @@ export class Table extends ConfigurableComponent {
     ).length
 
     if (sortableHeadingsCount > 0) {
+      this.$root.classList.add('nhsuk-table--with-sortable-columns')
       this.createHeadingButtons()
       this.updateCaption()
       this.updateDirectionIndicators()

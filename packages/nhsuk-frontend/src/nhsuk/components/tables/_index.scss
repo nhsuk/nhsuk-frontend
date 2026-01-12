@@ -213,6 +213,13 @@ $sortable-table-hover-colour: color.adjust(nhsuk-colour("grey-5"), $lightness: -
     position: relative;
   }
 
+  // Column headings for sortable tables gain 2px spacing
+  // on the left to avoid the text being right up against
+  // a hover background colour the previous column
+  .nhsuk-table--with-sortable-columns thead th {
+    padding-left: $nhsuk-border-width-form-element;
+  }
+
   // This expands the button to fill the whole
   // table header element, for a bigger click area
   th[aria-sort] button::before {
@@ -253,7 +260,6 @@ $sortable-table-hover-colour: color.adjust(nhsuk-colour("grey-5"), $lightness: -
 
     margin: 0;
     padding: 0;
-    padding-left: $nhsuk-border-width-form-element;
 
     border-width: 0;
 
