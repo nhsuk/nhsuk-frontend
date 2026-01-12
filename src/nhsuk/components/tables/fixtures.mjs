@@ -184,7 +184,7 @@ const fixtures = {
     context: {
       caption: 'Screening schedule',
       attributes: {
-        'data-module': 'nhsuk-sortable-table'
+        'data-module': 'nhsuk-table'
       },
       head: [
         {
