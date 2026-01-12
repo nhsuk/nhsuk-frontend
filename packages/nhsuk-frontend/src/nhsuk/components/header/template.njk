@@ -1,6 +1,17 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
 
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-header" -%}
+
+{%- if params.organisation %}
+  {% set classNames = classNames ~ " nhsuk-header--organisation" %}
+{% endif %}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif %}
+
 {%- set searchAction = params.search.action | default("https://www.nhs.uk/search/") %}
 {%- set searchMethod = params.search.method | default("get") %}
 {%- set searchName = params.search.name | default("q") %}
@@ -46,9 +57,7 @@
 {{- item.html | safe if item.html else item.text -}}
 {% endmacro %}
 
-<header {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-header
-  {%- if params.organisation %} nhsuk-header--organisation{% endif %}
-  {%- if params.classes %} {{ params.classes }}{% endif %}" role="banner"
+<header {%- if params.id %} id="{{ params.id }}"{% endif %} class="{{ classNames }}" role="banner"
   {{- nhsukAttributes(params.attributes) }} data-module="nhsuk-header">
   <div class="nhsuk-header__container nhsuk-width-container {%- if params.containerClasses %} {{ params.containerClasses }}{% endif %}">
     <div class="nhsuk-header__service">
