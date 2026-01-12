@@ -90,15 +90,28 @@ export const params = {
     description:
       'If set to `true`, then the card will become a warning card variant used by the warning callout.'
   },
-  imgURL: {
-    type: 'string',
+  image: {
+    type: 'object',
     required: false,
-    description: 'The URL of the image in the card.'
-  },
-  imgALT: {
-    type: 'string',
-    required: false,
-    description: 'The alternative text of the image in the card.'
+    description: 'Can be used to add an image to the card component.',
+    params: {
+      src: {
+        type: 'string',
+        required: true,
+        description: 'The URL of the image in the card.'
+      },
+      alt: {
+        type: 'string',
+        required: false,
+        description: 'The alternative text of the image in the card.'
+      },
+      html: {
+        type: 'string',
+        required: false,
+        description:
+          'HTML to use for the image content. If `html` is provided, the `src` and `alt` arguments will be ignored.'
+      }
+    }
   },
   description: {
     type: 'string',
