@@ -197,6 +197,17 @@ export const params = {
         required: false,
         description:
           'The label for the visually hidden button. Defaults to `"Search"`.'
+      },
+      classes: {
+        type: 'string',
+        required: false,
+        description: 'Classes to add to the search element.'
+      },
+      attributes: {
+        type: 'object',
+        required: false,
+        description:
+          'HTML attributes (for example data attributes) to add to the search element.'
       }
     }
   },
