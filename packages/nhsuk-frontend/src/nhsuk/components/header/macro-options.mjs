@@ -245,6 +245,12 @@ export const params = {
             required: false,
             description:
               'The value to use for the `method` of the form if `action` is set. Defaults to `"post"`.'
+          },
+          classes: {
+            type: 'string',
+            required: false,
+            description:
+              'Classes to add to the list item containing the account item.'
           }
         }
       },
