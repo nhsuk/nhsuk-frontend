@@ -174,6 +174,11 @@ export const params = {
         description:
           'The search form `action` attribute. Defaults to `"https://www.nhs.uk/search"`.'
       },
+      method: {
+        type: 'string',
+        required: false,
+        description: 'The search form `method` attribute. Defaults to `"get"`.'
+      },
       name: {
         type: 'string',
         required: false,
