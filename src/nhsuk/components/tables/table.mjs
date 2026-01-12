@@ -82,7 +82,7 @@ export class Table extends ConfigurableComponent {
     const $button = document.createElement('button')
 
     $button.setAttribute('type', 'button')
-    $button.setAttribute('data-index', `${index}`)
+    $button.dataset.index = `${index}`
     $button.textContent = $heading.textContent
 
     $heading.textContent = ''
@@ -109,10 +109,7 @@ export class Table extends ConfigurableComponent {
     const $sortButton = $heading?.querySelector('button')
     const sortDirection = $heading?.getAttribute('aria-sort')
 
-    const columnNumber = Number.parseInt(
-      $sortButton?.getAttribute('data-index') ?? '0',
-      10
-    )
+    const columnNumber = Number.parseInt($sortButton?.dataset.index ?? '0', 10)
 
     if (
       !$heading ||
@@ -140,10 +137,7 @@ export class Table extends ConfigurableComponent {
     const $heading = $button.parentElement
     const sortDirection = $heading.getAttribute('aria-sort')
 
-    const columnNumber = Number.parseInt(
-      $button.getAttribute('data-index') ?? '0',
-      10
-    )
+    const columnNumber = Number.parseInt($button.dataset.index ?? '0', 10)
 
     const newSortDirection =
       sortDirection === 'none' || sortDirection === 'descending'
@@ -200,7 +194,7 @@ export class Table extends ConfigurableComponent {
     $button.parentElement.setAttribute('aria-sort', direction)
     let message = config.statusMessage
 
-    message = message.replace(/%heading%/, $button.textContent)
+    message = message.replace(/%heading%/, $button.textContent.trim())
     message = message.replace(/%direction%/, directionText)
     $status.textContent = message
   }
@@ -229,7 +223,9 @@ export class Table extends ConfigurableComponent {
 
   removeButtonStates() {
     for (const $heading of this.$headings) {
-      $heading.setAttribute('aria-sort', 'none')
+      if ($heading.hasAttribute('aria-sort')) {
+        $heading.setAttribute('aria-sort', 'none')
+      }
     }
   }
 
@@ -270,9 +266,9 @@ export class Table extends ConfigurableComponent {
           ? this.getCellValue($tdB)
           : this.getCellValue($tdA)
 
-      return !(typeof valueA === 'number' && typeof valueB === 'number')
-        ? valueA.toString().localeCompare(valueB.toString())
-        : valueA - valueB
+      return typeof valueA === 'number' && typeof valueB === 'number'
+        ? valueA - valueB
+        : valueA.toString().localeCompare(valueB.toString())
     })
   }
 
@@ -280,7 +276,7 @@ export class Table extends ConfigurableComponent {
    * @param {HTMLElement} $cell
    */
   getCellValue($cell) {
-    const val = $cell.getAttribute('data-sort-value') ?? $cell.innerHTML
+    const val = $cell.dataset.sortValue ?? $cell.innerHTML
     const valAsNumber = Number(val)
 
     return Number.isFinite(valAsNumber)
