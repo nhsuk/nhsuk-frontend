@@ -102,6 +102,11 @@ describe('Table', () => {
     })
   })
 
+  it('should add a class to the table element', () => {
+    initTables()
+    expect($root.classList).toContain('nhsuk-table--with-sortable-columns')
+  })
+
   describe('Heading buttons', () => {
     beforeEach(() => {
       initTables()
