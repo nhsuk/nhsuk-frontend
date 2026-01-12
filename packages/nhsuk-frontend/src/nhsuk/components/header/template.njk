@@ -73,7 +73,7 @@
     </div>
 {% if params.search %}
     <search class="nhsuk-header__search">
-      <form class="nhsuk-header__search-form" id="search" action="{{ searchAction }}" method="get">
+      <form class="nhsuk-header__search-form" id="search" action="{{ searchAction }}" method="get" novalidate>
         <label class="nhsuk-u-visually-hidden" for="search-field">{{ searchVisuallyHiddenLabel }}</label>
         <input class="nhsuk-header__search-input nhsuk-input" id="search-field" name="{{ searchName }}" type="search" placeholder="{{ searchPlaceholder }}" autocomplete="off">
         <button class="nhsuk-header__search-submit" type="submit">
@@ -97,7 +97,7 @@
             {{ _accountItem(item) | indent(12) }}
           </a>
         {% elif item.action %}
-          <form class="nhsuk-header__account-form" action="{{ item.action }}" method="{{ item.method or "post" }}">
+          <form class="nhsuk-header__account-form" action="{{ item.action }}" method="{{ item.method or "post" }}" novalidate>
             <button class="nhsuk-header__account-button">
               {{ _accountItem(item) | indent(14) }}
             </button>
