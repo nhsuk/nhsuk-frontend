@@ -182,6 +182,114 @@ const fixtures = {
   },
   'with numeric data, sortable': {
     context: {
+      caption: 'Childhood vaccination coverage',
+      captionSize: 'm',
+      attributes: {
+        'data-module': 'nhsuk-table'
+      },
+      head: [
+        {
+          text: 'Nation',
+          attributes: {
+            'aria-sort': 'ascending'
+          }
+        },
+        {
+          text: 'MMR',
+          format: 'numeric',
+          attributes: {
+            'aria-sort': 'none'
+          }
+        },
+        {
+          text: '6-in-1',
+          format: 'numeric',
+          attributes: {
+            'aria-sort': 'none'
+          }
+        },
+        {
+          text: 'Rotavirus',
+          format: 'numeric',
+          attributes: {
+            'aria-sort': 'none'
+          }
+        }
+      ],
+      rows: [
+        [
+          {
+            text: 'England'
+          },
+          {
+            text: '83.7%',
+            format: 'numeric'
+          },
+          {
+            text: '92.8%',
+            format: 'numeric'
+          },
+          {
+            text: '88.8%',
+            format: 'numeric'
+          }
+        ],
+        [
+          {
+            text: 'Northern Ireland'
+          },
+          {
+            text: '86.4%',
+            format: 'numeric'
+          },
+          {
+            text: '94.6%',
+            format: 'numeric'
+          },
+          {
+            text: '88.0%',
+            format: 'numeric'
+          }
+        ],
+        [
+          {
+            text: 'Scotland'
+          },
+          {
+            text: '89.2%',
+            format: 'numeric'
+          },
+          {
+            text: '96.9%',
+            format: 'numeric'
+          },
+          {
+            text: '92.2%',
+            format: 'numeric'
+          }
+        ],
+        [
+          {
+            text: 'Wales'
+          },
+          {
+            text: '89.5%',
+            format: 'numeric'
+          },
+          {
+            text: '95.4%',
+            format: 'numeric'
+          },
+          {
+            text: '92.0%',
+            format: 'numeric'
+          }
+        ]
+      ]
+    }
+  },
+  'with names and dates, sortable': {
+    context: {
       caption: 'Screening schedule',
       attributes: {
         'data-module': 'nhsuk-table'
