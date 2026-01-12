@@ -2,6 +2,7 @@
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
 
 {%- set searchAction = params.search.action | default("https://www.nhs.uk/search/") %}
+{%- set searchMethod = params.search.method | default("get") %}
 {%- set searchName = params.search.name | default("q") %}
 {%- set searchPlaceholder = params.search.placeholder | default("Search") %}
 {%- set searchVisuallyHiddenButton = params.search.visuallyHiddenButton | default("Search") %}
@@ -75,7 +76,7 @@
     <search class="nhsuk-header__search
       {%- if params.search.classes %} {{ params.search.classes }}{% endif %}"
       {{- nhsukAttributes(params.search.attributes) }}>
-      <form class="nhsuk-header__search-form" id="search" action="{{ searchAction }}" method="get" novalidate>
+      <form class="nhsuk-header__search-form" id="search" action="{{ searchAction }}" method="{{ searchMethod }}" novalidate>
         <label class="nhsuk-u-visually-hidden" for="search-field">{{ searchVisuallyHiddenLabel }}</label>
         <input class="nhsuk-header__search-input nhsuk-input" id="search-field" name="{{ searchName }}" type="search" placeholder="{{ searchPlaceholder }}" autocomplete="off">
         <button class="nhsuk-header__search-submit" type="submit">
