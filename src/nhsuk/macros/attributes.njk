@@ -117,8 +117,15 @@
         {% set valueEscaped = options.value %}
 
       {#- Use escaped JSON for iterable values -#}
+      {#- https://jinja.palletsprojects.com/en/stable/templates/#jinja-filters.tojson -#}
       {%- elif options.type === "array" and options.value is iterable %}
-        {% set valueEscaped = options.value | dump %}
+        {% set valueEscaped = options.value
+          | dump
+          | replace("<", "\\u003c")
+          | replace(">", "\\u003e")
+          | replace("&", "\\u0026")
+          | replace("'", "\\u0027")
+        %}
 
       {#- Otherwise assume escaping is necessary -#}
       {#- https://github.com/alphagov/govuk-frontend/issues/4940 -#}
