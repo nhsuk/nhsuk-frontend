@@ -105,6 +105,10 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
       flex-wrap: nowrap;
       align-items: baseline;
       justify-content: space-between;
+
+      &:has(.nhsuk-card__actions:only-child) {
+        justify-content: right;
+      }
     }
   }
 
@@ -124,6 +128,10 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
       justify-content: right;
       margin: 0 0 nhsuk-spacing(3) nhsuk-spacing(3);
       text-align: right;
+
+      &:only-child {
+        margin-left: 0;
+      }
     }
   }
 
