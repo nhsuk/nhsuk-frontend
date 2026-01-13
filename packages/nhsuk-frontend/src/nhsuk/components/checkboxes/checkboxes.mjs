@@ -163,6 +163,36 @@ export class Checkboxes extends ConfigurableComponent {
   }
 
   /**
+   * Uncheck other checkboxes in inclusive group
+   *
+   * Find any other checkbox inputs with the checkbox inclusive group value, and uncheck them.
+   * This is useful for when a "Select all" checkbox is unchecked.
+   *
+   * @param {HTMLInputElement} $input - Checkbox input
+   */
+  unCheckAllInclusiveInputsExcept($input) {
+    const { checkboxInclusiveGroup: inclusiveGroup } = $input.dataset
+
+    const selectorGroup = inclusiveGroup
+      ? `[data-checkbox-inclusive-group="${inclusiveGroup}"]`
+      : `[name="${$input.name}"]`
+
+    const allInputsWithSameName = document.querySelectorAll(
+      `input[type="checkbox"]${selectorGroup}`
+    )
+
+    allInputsWithSameName.forEach(($inputWithSameName) => {
+      const hasSameFormOwner = $input.form === $inputWithSameName.form
+
+      // Uncheck all with same inclusive group by default, otherwise fall back to
+      // GOV.UK Frontend behaviour to uncheck all with the same name attribute
+      if (hasSameFormOwner && $inputWithSameName !== $input) {
+        this.setInputState($inputWithSameName, false, inclusiveGroup)
+      }
+    })
+  }
+
+  /**
    * Uncheck other checkboxes
    *
    * Find any other checkbox inputs with the checkbox group value, and uncheck them.
@@ -279,7 +309,7 @@ export class Checkboxes extends ConfigurableComponent {
 
     // Uncheck regular checkboxes when "select all" is unchecked
     if (!$clickedInput.checked && isInclusive) {
-      this.unCheckAllInputsExcept($clickedInput)
+      this.unCheckAllInclusiveInputsExcept($clickedInput)
     }
 
     // No further behaviour needed for unchecking
