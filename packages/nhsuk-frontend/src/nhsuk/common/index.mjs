@@ -163,6 +163,7 @@ export function formatErrorMessage(Component, message) {
 }
 
 export * from './closest-attribute-value.mjs'
+export * from './grapheme-count.mjs'
 export * from './nhsuk-frontend-version.mjs'
 
 /**

@@ -4,6 +4,7 @@ import {
   validateConfig
 } from '../../common/configuration/index.mjs'
 import { formatErrorMessage } from '../../common/index.mjs'
+import { graphemeCount } from '../../common/grapheme-count.mjs'
 import { ConfigurableComponent } from '../../configurable-component.mjs'
 import { ConfigError, ElementError } from '../../errors/index.mjs'
 import { I18n } from '../../i18n.mjs'
@@ -160,19 +161,16 @@ export class CharacterCount extends ConfigurableComponent {
   }
 
   /**
-   * Count the number of characters (or words, if `config.maxwords` is set)
-   * in the given text
-   *
-   * @param {string} text - The text to count the characters of
-   * @returns {number} the number of characters (or words) in the text
+   * @param {string} text
+   * @returns {number}
    */
   count(text) {
     if (this.config.maxwords) {
-      const tokens = text.match(/\S+/g) ?? [] // Matches consecutive non-whitespace chars
+      const tokens = text.match(/\S+/g) ?? []
       return tokens.length
     }
 
-    return text.length
+    return graphemeCount(text)
   }
 
   /**
