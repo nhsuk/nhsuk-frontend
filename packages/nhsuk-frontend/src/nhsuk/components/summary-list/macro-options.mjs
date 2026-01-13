@@ -129,6 +129,13 @@ export const params = {
       }
     }
   },
+  card: {
+    type: 'object',
+    required: false,
+    description:
+      'Can be used to wrap a card around the summary list component. If any of these options are present, a card will wrap around the summary list.',
+    isComponent: true
+  },
   classes: {
     type: 'string',
     required: false,

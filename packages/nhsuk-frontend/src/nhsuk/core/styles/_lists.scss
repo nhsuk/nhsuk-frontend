@@ -43,7 +43,7 @@
 }
 
 %nhsuk-list--bullet {
-  padding-left: 20px; // [1]
+  padding-left: nhsuk-px-to-rem(20px); // [1]
   list-style-type: disc;
 }
 
@@ -52,7 +52,7 @@
 }
 
 %nhsuk-list--number {
-  padding-left: 20px; // [1]
+  padding-left: nhsuk-px-to-rem(20px); // [1]
   list-style-type: decimal;
 }
 

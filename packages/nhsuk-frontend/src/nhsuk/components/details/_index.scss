@@ -53,7 +53,7 @@ $expander-icon-size: $nhsuk-expander-icon-size;
     .nhsuk-details {
       margin-top: nhsuk-spacing(2);
       padding: nhsuk-spacing(3) 0;
-      padding-left: 20px; // [5]
+      padding-left: nhsuk-px-to-rem(20px); // [5]
       border-left: nhsuk-spacing(1) solid $nhsuk-border-colour;
     }
 
@@ -64,8 +64,8 @@ $expander-icon-size: $nhsuk-expander-icon-size;
     }
   }
 
-  // We wrap styles for newer browsers in a feature query, which is ignored by
-  // older browsers, which always expand the details element.
+  // Use a feature query to style the <details> element in newer browsers,
+  // leaving older browsers to only show the content
   //
   // Additionally, -ms-ime-align is only supported by Edge 12 - 18
   //
@@ -76,7 +76,7 @@ $expander-icon-size: $nhsuk-expander-icon-size;
     .nhsuk-details__summary {
       position: relative; // [2]
       width: fit-content; // [1]
-      padding-left: nhsuk-spacing(4);
+      padding-left: nhsuk-px-to-rem(nhsuk-spacing(4));
       cursor: pointer;
       @include nhsuk-link-style;
 
@@ -163,6 +163,8 @@ $expander-icon-size: $nhsuk-expander-icon-size;
       }
     }
 
+    // Use a feature query to style the <details> element in newer browsers,
+    // leaving older browsers to show the content in a card style box
     @supports not (-ms-ime-align: auto) {
       border-bottom-width: $nhsuk-expander-border-bottom-width;
 
@@ -237,6 +239,62 @@ $expander-icon-size: $nhsuk-expander-icon-size;
         clip-path: path(
           "M13.5 1a12.5 12.5 0 1 1 0 25 12.5 12.5 0 0 1 0-25Zm5 11h-10a1.5 1.5 0 0 0 0 3h10a1.5 1.5 0 0 0 0-3Z"
         ); // Minus icon
+      }
+
+      // Use a feature query to check for scalable clip-path support,
+      // replacing fixed pixel sizes with rems for text-only zooming
+      @supports (clip-path: shape(from 0% 0%, line to 100% 100%)) {
+        .nhsuk-details__summary-text {
+          padding-left: nhsuk-px-to-rem($nhsuk-expander-icon-size + nhsuk-spacing(2));
+        }
+
+        .nhsuk-details__summary-text::before {
+          top: calc(50% - nhsuk-px-to-rem(math.div($nhsuk-expander-icon-size, 2)));
+          width: nhsuk-px-to-rem($nhsuk-expander-icon-size);
+          height: nhsuk-px-to-rem($nhsuk-expander-icon-size);
+          clip-path: shape(
+            from 50% 3.7%,
+            arc by 0% 92.6% of 46.3% 46.3% large cw,
+            arc by 0% -92.6% of 46.3% 46.3% small cw,
+            close,
+            move by 0% 22.22%,
+            curve by -5.56% 5.56% with -2.96% 0% / -5.56% 2.59%,
+            vline to 44.44%,
+            hline to 31.48%,
+            curve by -5.56% 5.19% with -2.96% 0% / -5.19% 2.22%,
+            vline by 0.37%,
+            curve by 5.56% 5.56% with 0% 2.96% / 2.59% 5.56%,
+            hline to 44.44%,
+            vline by 12.96%,
+            curve by 5.19% 5.56% with 0% 2.96% / 2.22% 5.19%,
+            hline by 0.37%,
+            curve by 5.56% -5.56% with 2.96% 0% / 5.56% -2.59%,
+            vline to 55.56%,
+            hline by 12.96%,
+            curve by 5.56% -5.19% with 2.96% 0% / 5.19% -2.22%,
+            vline by -0.37%,
+            curve by -5.56% -5.56% with 0% -2.96% / -2.59% -5.56%,
+            hline to 55.56%,
+            vline to 31.48%,
+            curve by -5.19% -5.56% with 0% -2.96% / -2.22% -5.19%,
+            close
+          ); // Plus icon, scalable
+        }
+
+        &[open] .nhsuk-details__summary-text::before {
+          clip-path: shape(
+            from 50% 3.7%,
+            arc by 0% 92.6% of 46.3% 46.3% large cw,
+            arc by 0% -92.6% of 46.3% 46.3% small cw,
+            close,
+            move by 18.52% 40.74%,
+            hline by -37.04%,
+            arc by 0% 11.11% of 5.56% 5.56% small ccw,
+            hline by 37.04%,
+            arc by 0% -11.11% of 5.56% 5.56% small ccw,
+            close
+          ); // Minus icon, scalable
+        }
       }
     }
   }

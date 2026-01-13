@@ -16,17 +16,17 @@
 ////
 
 @include nhsuk-exports("nhsuk/components/action-link") {
-  $_small-icon-size: $nhsuk-icon-size;
-  $_small-icon-spacing: math.floor(math.div($_small-icon-size, 10));
+  $_small-icon-size: nhsuk-px-to-rem($nhsuk-icon-size);
+  $_small-icon-spacing: math.div($_small-icon-size, 10);
 
-  $_large-icon-size: 36px;
-  $_large-icon-spacing: math.floor(math.div($_large-icon-size, 10));
+  $_large-icon-size: nhsuk-px-to-rem(36px);
+  $_large-icon-spacing: math.div($_large-icon-size, 10);
 
   .nhsuk-action-link {
     box-sizing: border-box;
     display: inline-block; // [1]
     position: relative; // [3]
-    padding-left: nhsuk-px-to-rem($_small-icon-size + $_small-icon-spacing); // [2]
+    padding-left: $_small-icon-size + $_small-icon-spacing; // [2]
     text-decoration: none; // [4]
 
     @include nhsuk-link-style-no-visited-state;
@@ -39,20 +39,20 @@
     @include nhsuk-responsive-margin(6, "bottom");
 
     @include nhsuk-media-query($from: tablet) {
-      padding-left: nhsuk-px-to-rem($_large-icon-size + $_large-icon-spacing); // [2]
-      line-height: nhsuk-line-height($_large-icon-size, $font-size: 22);
+      padding-left: $_large-icon-size + $_large-icon-spacing; // [2]
+      line-height: nhsuk-line-height($_large-icon-size, $font-size: 22px);
     }
 
     .nhsuk-icon {
       position: absolute;
-      left: nhsuk-px-to-rem(-$_small-icon-spacing);
+      left: -$_small-icon-spacing;
       // stylelint-disable-next-line declaration-no-important
       fill: nhsuk-colour("green") !important;
 
       @include nhsuk-media-query($from: tablet) {
-        left: nhsuk-px-to-rem(-$_large-icon-spacing);
-        width: nhsuk-px-to-rem($_large-icon-size);
-        height: nhsuk-px-to-rem($_large-icon-size);
+        left: -$_large-icon-spacing;
+        width: $_large-icon-size;
+        height: $_large-icon-size;
       }
     }
 

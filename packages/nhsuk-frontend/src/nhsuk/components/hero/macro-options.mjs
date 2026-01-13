@@ -22,6 +22,12 @@ export const params = {
     description:
       'Optional additional classes to add to heading. Separate each class with a space.'
   },
+  headingSize: {
+    type: 'string',
+    required: false,
+    description:
+      'Size of the heading – `"xss"`, `"xs"`, `"s"`, `"m"`, `"l"` or `"xl"`.'
+  },
   headingLevel: {
     type: 'integer',
     required: false,

@@ -2,6 +2,7 @@
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-hero" -%}
+{%- set classNamesHeading = "nhsuk-hero__heading" -%}
 
 {%- if params.imageURL %}
   {% set classNames = classNames ~ " nhsuk-hero--image" ~
@@ -12,8 +13,27 @@
   {% set classNames = classNames ~ " " ~ params.classes %}
 {% endif %}
 
-{%- set hasContent = true if caller or params.heading or params.text or params.html else false %}
+{%- if params.headingSize and
+  params.headingSize in ["xxs", "xs", "s", "m", "l", "xl"] and (
+    not params.headingClasses or (
+      not "nhsuk-heading-xxs" in params.headingClasses and
+      not "nhsuk-heading-xs" in params.headingClasses and
+      not "nhsuk-heading-s" in params.headingClasses and
+      not "nhsuk-heading-m" in params.headingClasses and
+      not "nhsuk-heading-l" in params.headingClasses and
+      not "nhsuk-heading-xl" in params.headingClasses
+    )
+  )
+%}
+  {% set classNamesHeading = classNamesHeading ~ " nhsuk-heading-" ~ params.headingSize %}
+{% endif %}
+
+{%- if params.headingClasses %}
+  {% set classNamesHeading = classNamesHeading ~ " " ~ params.headingClasses %}
+{% endif %}
+
 {%- set headingLevel = params.headingLevel if params.headingLevel else 1 %}
+{%- set hasContent = true if caller or params.heading or params.text or params.html else false %}
 
 {#- Capture the HTML so we can optionally nest it in an image overlay -#}
 {% set innerHtml %}
@@ -24,8 +44,7 @@
       <div class="nhsuk-grid-column-two-thirds">
         <div class="{{ "nhsuk-hero__wrapper" if not params.imageURL else "nhsuk-hero-content" }}">
         {% if params.heading %}
-          <h{{ headingLevel }} class="nhsuk-hero__heading
-            {%- if params.headingClasses %} {{ params.headingClasses }}{% endif %}
+          <h{{ headingLevel }} class="{{ classNamesHeading }}
             {%- if not (caller or params.text or params.html) %} nhsuk-u-margin-bottom-0{% endif %}">
             {{- params.heading -}}
           </h{{ headingLevel }}>
