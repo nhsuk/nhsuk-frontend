@@ -457,6 +457,30 @@ describe('Checkboxes', () => {
 
       expect($inputAll).not.toBeChecked()
     })
+
+    it('should check automatically when all other checkboxes are checked individually', () => {
+      initCheckboxes()
+
+      expect($input1).not.toBeChecked()
+      expect($input2).not.toBeChecked()
+      expect($input3).not.toBeChecked()
+      expect($inputAll).not.toBeChecked()
+
+      // Tick all options individually
+      $input1.click()
+      expect($inputAll).not.toBeChecked()
+
+      $input2.click()
+      expect($inputAll).not.toBeChecked()
+
+      // Tick the last option - this should auto-check "All colours"
+      $input3.click()
+
+      expect($input1).toBeChecked()
+      expect($input2).toBeChecked()
+      expect($input3).toBeChecked()
+      expect($inputAll).toBeChecked()
+    })
   })
 
   describe('Inclusive checkbox (named groups)', () => {
@@ -550,6 +574,30 @@ describe('Checkboxes', () => {
 
       expect($inputAll).not.toBeChecked()
     })
+
+    it('should check automatically when all other checkboxes are checked individually', () => {
+      initCheckboxes()
+
+      expect($input1).not.toBeChecked()
+      expect($input2).not.toBeChecked()
+      expect($input3).not.toBeChecked()
+      expect($inputAll).not.toBeChecked()
+
+      // Tick all options individually
+      $input1.click()
+      expect($inputAll).not.toBeChecked()
+
+      $input2.click()
+      expect($inputAll).not.toBeChecked()
+
+      // Tick the last option - this should auto-check "All colours"
+      $input3.click()
+
+      expect($input1).toBeChecked()
+      expect($input2).toBeChecked()
+      expect($input3).toBeChecked()
+      expect($inputAll).toBeChecked()
+    })
   })
 
   describe('Inclusive checkbox (named groups, unique)', () => {
@@ -642,6 +690,30 @@ describe('Checkboxes', () => {
       $input1.click()
 
       expect($inputAll).not.toBeChecked()
+    })
+
+    it('should check automatically when all other checkboxes are checked individually', () => {
+      initCheckboxes()
+
+      expect($input1).not.toBeChecked()
+      expect($input2).not.toBeChecked()
+      expect($input3).not.toBeChecked()
+      expect($inputAll).not.toBeChecked()
+
+      // Tick all options individually
+      $input1.click()
+      expect($inputAll).not.toBeChecked()
+
+      $input2.click()
+      expect($inputAll).not.toBeChecked()
+
+      // Tick the last option - this should auto-check "All colours"
+      $input3.click()
+
+      expect($input1).toBeChecked()
+      expect($input2).toBeChecked()
+      expect($input3).toBeChecked()
+      expect($inputAll).toBeChecked()
     })
   })
 })
