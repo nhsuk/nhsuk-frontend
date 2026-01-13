@@ -300,10 +300,21 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     display: flex;
     height: 100%;
     overflow: visible;
+
+    .nhsuk-form-group {
+      width: 100%;
+      margin: 0;
+    }
+
+    .nhsuk-input-wrapper {
+      display: flex;
+    }
   }
 
   // Disable default search input appearance
-  .nhsuk-header__search-input.nhsuk-input {
+  .nhsuk-header__search-form .nhsuk-input,
+  // Deprecated, to be removed in v11.0
+  .nhsuk-header__search-input {
     width: 100%;
     height: nhsuk-px-to-rem(40px);
     padding-right: $_header-item-padding - $nhsuk-border-width-form-element;
@@ -319,11 +330,6 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     &:focus {
       z-index: 10;
       border-color: $nhsuk-focus-text-colour;
-    }
-
-    &::placeholder {
-      opacity: 1; // Fixes low contrast of placeholder text in firefox
-      color: nhsuk-colour("grey-1");
     }
 
     // Hide search input clear button (IE)
@@ -342,12 +348,16 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     }
   }
 
+  .nhsuk-header__search-form .nhsuk-button,
+  // Deprecated, to be removed in v11.0
   .nhsuk-header__search-submit {
     flex-shrink: 0;
 
     width: nhsuk-px-to-rem(44px);
     height: nhsuk-px-to-rem(40px);
-    margin: 0;
+
+    // stylelint-disable-next-line declaration-no-important
+    margin: 0 !important;
 
     // Reduce padding to better fit icon
     padding: 0 nhsuk-spacing(2) - 1px;
@@ -357,6 +367,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
 
     color: $nhsuk-brand-colour;
     background-color: $nhsuk-header-item-button-colour;
+    box-shadow: none;
 
     line-height: 1;
 
@@ -371,6 +382,12 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
 
     &:active {
       background-color: $nhsuk-header-item-active-colour;
+    }
+
+    // Prevent height change when pressed
+    &:active,
+    &:active:focus {
+      top: 0;
     }
 
     &:focus {
@@ -656,7 +673,9 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
       outline-color: $nhsuk-border-colour;
     }
 
-    .nhsuk-header__search-input.nhsuk-input:not(:focus) {
+    .nhsuk-header__search-form .nhsuk-input:not(:focus),
+    // Deprecated, to be removed in v11.0
+    .nhsuk-header__search-input:not(:focus) {
       margin-right: -1px;
       padding-right: $_header-item-padding;
       padding-left: $_header-item-padding - 1px;
@@ -664,6 +683,8 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
       border-color: $nhsuk-border-hover-colour;
     }
 
+    .nhsuk-header__search-form .nhsuk-button,
+    // Deprecated, to be removed in v11.0
     .nhsuk-header__search-submit {
       color: $nhsuk-reverse-text-colour;
       background-color: $nhsuk-header-item-colour;
@@ -672,7 +693,6 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
       &:active {
         border-color: $nhsuk-header-item-hover-colour;
         background-color: $nhsuk-header-item-hover-colour;
-        box-shadow: none;
       }
 
       &:active {

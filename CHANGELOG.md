@@ -65,6 +65,57 @@ This was added in [pull request #1685: Add card enhancement to summary list](htt
 
 ### :wastebasket: **Deprecated features**
 
+#### Rename Nunjucks macro options for images
+
+For consistency with other components, Nunjucks macro options for images have changed. The previous names are deprecated and will be removed in a future release.
+
+If you're using the `card` Nunjucks macro with the `imgURL` or `imgALT` options in your service, you should:
+
+- replace the `imgURL` option with the nested `image.src` option
+- replace the `imgALT` option with the nested `image.alt` option
+
+```patch
+  {{ card({
+-   imgURL: "https://service-manual.nhs.uk/assets/blog-prototype-kit.png",
+-   imgALT: "Illustration showing icons, design system components and a terminal app. Each one follows a dotted line into a laptop to become a prototype.",
++   image: {
++     src: "https://service-manual.nhs.uk/assets/blog-prototype-kit.png",
++     alt: "Illustration showing icons, design system components and a terminal app. Each one follows a dotted line into a laptop to become a prototype."
++   },
+    heading: "Why we are reinvesting in the NHS prototype kit"
+  }) }}
+```
+
+If you're using the `hero` Nunjucks macro with the `imageURL` option in your service, you should:
+
+- replace the `imageURL` option with the nested `image.src` option
+
+```patch
+  {{ hero({
+-   imageURL: "https://service-manual.nhs.uk/assets/blog-prototype-kit.png"
++   image: {
++     src: "https://service-manual.nhs.uk/assets/blog-prototype-kit.png"
++   }
+  }) }}
+```
+
+If you're using the `image` Nunjucks macro with the `caption` option in your service, you should:
+
+- replace the `caption` option with the nested `caption.text` option
+
+```patch
+  {{ image({
+    src: "https://service-manual.nhs.uk/assets/image-example-stretch-marks-600w.jpg",
+    alt: "Close-up of a person's tummy showing a number of creases in the skin under their belly button. Shown on light brown skin.",
+-   caption: "Stretch marks can be pink, red, brown, black, silver or purple. They usually start off darker and fade over time."
++   caption: {
++     text: "Stretch marks can be pink, red, brown, black, silver or purple. They usually start off darker and fade over time."
++   }
+  }) }}
+```
+
+This change was introduced in [pull request #1763: Review Nunjucks params for header search and images](https://github.com/nhsuk/nhsuk-frontend/pull/1763).
+
 #### Rename input prefix and suffix HTML class
 
 HTML markup for the input component has been updated to align `nhsuk-input-wrapper` with other wrapping classes such as `nhsuk-main-wrapper` and `nhsuk-label-wrapper`.
@@ -115,6 +166,62 @@ If you use Sass and you've customised the fonts that NHS.UK frontend uses:
 This change was introduced in [pull request #1749: Remove font files for unsupported browsers and align Sass variables with GOV.UK Frontend](https://github.com/nhsuk/nhsuk-frontend/pull/1749).
 
 ### :recycle: **Changes**
+
+#### Update the HTML for header search
+
+For consistency with header navigation and account, we’ve added new Nunjucks macro options:
+
+- Header `search.attributes` option
+- Header `search.classes` option
+- Header `search.method` option
+
+We've also updated the HTML for the header search to use [an inline smaller button](https://service-manual.nhs.uk/design-system/components/buttons#smaller-buttons) from [NHS.UK frontend v10.2.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.2.0).
+
+If you are not using Nunjucks macros, update your HTML markup using the [header examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/header) as follows:
+
+- add the `novalidate` boolean attribute to search form element
+- add the `novalidate` boolean attribute to account item forms
+
+```patch
+  <search class="nhsuk-header__search">
+-   <form class="nhsuk-header__search-form" id="search" action="https://www.nhs.uk/search/" method="get">
++   <form class="nhsuk-header__search-form" id="search" action="https://www.nhs.uk/search/" method="get" novalidate>
+```
+
+```patch
+- <form class="nhsuk-header__account-form" action="/log-out" method="post">
++ <form class="nhsuk-header__account-form" action="/log-out" method="post" novalidate>
+    <button class="nhsuk-header__account-button">
+```
+
+- add the `<div class="form-group"> </div>` wrapper around the search label, input and button
+- add the `<div class="nhsuk-input-wrapper"> </div>` wrapper around the search input and button
+- add the `nhsuk-button` and `nhsuk-button--small` classes to the search button
+- remove the `nhsuk-header__search-submit` class from the search button
+
+```patch
+  <form class="nhsuk-header__search-form" id="search" action="https://www.nhs.uk/search/" method="get" novalidate>
++   <div class="nhsuk-form-group">
+      <label class="nhsuk-label nhsuk-u-visually-hidden" for="search-field">
+        Search the NHS website
+      </label>
++     <div class="nhsuk-input-wrapper">
+        <input class="nhsuk-input nhsuk-header__search-input" id="search-field" name="q" type="search" autocomplete="off" placeholder="Search">
+-       <button class="nhsuk-header__search-submit" data-module="nhsuk-button" type="submit">
++       <button class="nhsuk-button nhsuk-button--small" data-module="nhsuk-button" type="submit">
+          <svg class="nhsuk-icon nhsuk-icon--search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" role="img" aria-label="Search">
+            <title>Search</title>
+            <path d="m20.7 19.3-4.1-4.1a7 7 0 1 0-1.4 1.4l4 4.1a1 1 0 0 0 1.5 0c.4-.4.4-1 0-1.4ZM6 11a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z"/>
+          </svg>
+        </button>
++     </div>
++   </div>
+  </form>
+```
+
+Support for header search HTML without `nhsuk-form-group` and `nhsuk-input-wrapper` wrappers is deprecated and will be removed in a future release.
+
+This change was introduced in [pull request #1763: Review Nunjucks params for header search and images](https://github.com/nhsuk/nhsuk-frontend/pull/1763).
 
 #### Update the HTML for responsive table cell content
 
