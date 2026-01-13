@@ -19,6 +19,12 @@ export const examples = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
+  'basic without heading': {
+    context: {
+      description:
+        'A quick guide for people who have care and support needs and their carers'
+    }
+  },
   'basic with heading link': {
     context: {
       href: '#',
@@ -219,6 +225,49 @@ export const examples = {
       })}
     `
   },
+  'basic with summary list and actions, without heading': {
+    context: {
+      actions: {
+        items: [
+          {
+            text: 'Delete',
+            visuallyHiddenText: '(Karen Francis)',
+            href: '#/delete'
+          },
+          {
+            text: 'Withdraw',
+            visuallyHiddenText: '(Karen Francis)',
+            href: '#/withdraw'
+          }
+        ]
+      }
+    },
+    callBlock: outdent`
+      ${components.render('summary-list', {
+        context: {
+          rows: [
+            {
+              key: {
+                text: 'Name'
+              },
+              value: {
+                text: 'Karen Francis'
+              }
+            },
+            {
+              classes: 'nhsuk-summary-list__row--no-border',
+              key: {
+                text: 'Date of birth'
+              },
+              value: {
+                text: '15 March 1984'
+              }
+            }
+          ]
+        }
+      })}
+    `
+  },
   'basic with summary list and actions (empty items)': {
     context: {
       heading: 'Regional Manager',
@@ -290,6 +339,13 @@ export const examples = {
         }
       })}
     `
+  },
+  'secondary without heading': {
+    context: {
+      secondary: true,
+      description:
+        'A quick guide for people who have care and support needs and their carers'
+    }
   },
   'secondary with heading link': {
     context: {
@@ -454,6 +510,50 @@ export const examples = {
           },
           {
             text: 'Withdraw',
+            href: '#/withdraw'
+          }
+        ]
+      }
+    },
+    callBlock: outdent`
+      ${components.render('summary-list', {
+        context: {
+          rows: [
+            {
+              key: {
+                text: 'Name'
+              },
+              value: {
+                text: 'Karen Francis'
+              }
+            },
+            {
+              classes: 'nhsuk-summary-list__row--no-border',
+              key: {
+                text: 'Date of birth'
+              },
+              value: {
+                text: '15 March 1984'
+              }
+            }
+          ]
+        }
+      })}
+    `
+  },
+  'secondary with summary list and actions, without heading': {
+    context: {
+      secondary: true,
+      actions: {
+        items: [
+          {
+            text: 'Delete',
+            visuallyHiddenText: '(Karen Francis)',
+            href: '#/delete'
+          },
+          {
+            text: 'Withdraw',
+            visuallyHiddenText: '(Karen Francis)',
             href: '#/withdraw'
           }
         ]
