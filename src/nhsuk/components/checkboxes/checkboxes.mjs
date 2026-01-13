@@ -163,6 +163,56 @@ export class Checkboxes extends ConfigurableComponent {
   }
 
   /**
+   * Check inclusive input if all other checkboxes are checked
+   *
+   * Find any checkbox inputs with the same checkbox group value and check if all
+   * regular (non-inclusive) checkboxes are checked. If so, automatically check the
+   * inclusive "Select all" checkbox.
+   *
+   * @param {HTMLInputElement} $input - Checkbox input
+   */
+  checkInclusiveInputIfAllChecked($input) {
+    const { checkboxInclusiveGroup: inclusiveGroup } = $input.dataset
+
+    const selectorGroup = inclusiveGroup
+      ? `[data-checkbox-inclusive-group="${inclusiveGroup}"]`
+      : `[name="${$input.name}"]`
+
+    // Find all regular (non-inclusive) checkboxes in the group
+    const allRegularInputs = document.querySelectorAll(
+      `input[type="checkbox"]${selectorGroup}:not([data-checkbox-inclusive])`
+    )
+
+    // Find the inclusive checkbox in the group
+    const $inclusiveInput = document.querySelector(
+      `input[type="checkbox"][data-checkbox-inclusive]${selectorGroup}`
+    )
+
+    // If there's no inclusive checkbox, nothing to do
+    if (!$inclusiveInput || !($inclusiveInput instanceof HTMLInputElement)) {
+      return
+    }
+
+    const hasSameFormOwner = $input.form === $inclusiveInput.form
+    if (!hasSameFormOwner) {
+      return
+    }
+
+    // Check if any regular inputs are unchecked using a counter
+    let uncheckedCount = 0
+    allRegularInputs.forEach(($regularInput) => {
+      if ($regularInput.form === $input.form && !$regularInput.checked) {
+        uncheckedCount += 1
+      }
+    })
+
+    // If all regular inputs are checked (none unchecked), check the inclusive input
+    if (uncheckedCount === 0) {
+      this.setInputState($inclusiveInput, true, inclusiveGroup)
+    }
+  }
+
+  /**
    * Uncheck other checkboxes in inclusive group
    *
    * Find any other checkbox inputs with the checkbox inclusive group value, and uncheck them.
@@ -324,6 +374,8 @@ export class Checkboxes extends ConfigurableComponent {
       this.checkAllInputsExcept($clickedInput)
     } else {
       this.unCheckExclusiveInputs($clickedInput)
+      // Check if all regular checkboxes are now checked, and if so, check the inclusive one
+      this.checkInclusiveInputIfAllChecked($clickedInput)
     }
   }
 
