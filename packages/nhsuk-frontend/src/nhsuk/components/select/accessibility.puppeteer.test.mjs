@@ -7,6 +7,11 @@ import {
 import { examples } from './fixtures.mjs'
 
 describe('Select', () => {
+  it('Listing page passes accessibility tests', async () => {
+    await goToComponent(page, 'select')
+    return expect(axe(page)).resolves.toHaveNoViolations()
+  })
+
   describe.each(Object.entries(examples))('%s', (name, example) => {
     it.each(getOptions(name, example))(
       '$title passes accessibility tests',
