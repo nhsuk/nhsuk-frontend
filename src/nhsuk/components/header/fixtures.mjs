@@ -379,7 +379,7 @@ export const examples = {
     variants,
     screenshot: {
       states: ['focus'],
-      selector: '.nhsuk-header__search-input',
+      selector: '.nhsuk-header__search-form .nhsuk-input',
       viewports: ['desktop']
     }
   },

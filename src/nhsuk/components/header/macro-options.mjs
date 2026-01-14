@@ -174,6 +174,11 @@ export const params = {
         description:
           'The search form `action` attribute. Defaults to `"https://www.nhs.uk/search"`.'
       },
+      method: {
+        type: 'string',
+        required: false,
+        description: 'The search form `method` attribute. Defaults to `"get"`.'
+      },
       name: {
         type: 'string',
         required: false,
@@ -197,6 +202,17 @@ export const params = {
         required: false,
         description:
           'The label for the visually hidden button. Defaults to `"Search"`.'
+      },
+      classes: {
+        type: 'string',
+        required: false,
+        description: 'Classes to add to the search element.'
+      },
+      attributes: {
+        type: 'object',
+        required: false,
+        description:
+          'HTML attributes (for example data attributes) to add to the search element.'
       }
     }
   },
@@ -245,6 +261,12 @@ export const params = {
             required: false,
             description:
               'The value to use for the `method` of the form if `action` is set. Defaults to `"post"`.'
+          },
+          classes: {
+            type: 'string',
+            required: false,
+            description:
+              'Classes to add to the list item containing the account item.'
           }
         }
       },
