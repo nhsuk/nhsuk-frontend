@@ -14,7 +14,7 @@ export function renderExample(fixture, index) {
 
       // Append unique ID to attribute value
       .replace(
-        / (href|id|for|name)="([^"]*)"/g,
+        / (aria-label|href|id|for|name)="([^"]*)"/g,
         (match, name, value) => ` ${name}="${uniqueValue(name, value, index)}"`
       )
 
@@ -43,6 +43,10 @@ export function uniqueValue(name, value, index) {
     (name === 'href' && ['#', '#maincontent'].includes(value))
   ) {
     return value
+  }
+
+  if (name === 'aria-label') {
+    return `${value} ${index}`
   }
 
   const [, prefix, suffix] =
