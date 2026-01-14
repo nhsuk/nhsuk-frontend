@@ -218,6 +218,7 @@ export function render(component, options) {
  * @property {boolean} [hidden] - Hide example on component listing pages
  * @property {string} [layout] - Nunjucks layout for component preview page
  * @property {MacroExampleWidth | MacroExampleWidth[] | false} [width] - Component grid column width (or set `false` to remove width container)
+ * @property {boolean} [throwOnError] - Whether to throw on error (optional)
  */
 
 /**
