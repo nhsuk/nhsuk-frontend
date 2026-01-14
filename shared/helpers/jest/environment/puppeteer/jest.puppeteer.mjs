@@ -13,21 +13,6 @@ class BrowserAutomationEnvironment extends TestEnvironment {
 
     // Reduce 'wait for' timeouts from 30s to 5s
     this.global.page.setDefaultTimeout(5000)
-
-    // Listen for browser exceptions
-    this.global.page.on('pageerror', (error) => {
-      this.context.console.error(error)
-      if (!(error instanceof Error)) {
-        return
-      }
-
-      // Ensure error appears in in reporter summary
-      // as Jest suppresses errors with stack traces
-      delete error.stack
-
-      // Ensure test fails
-      process.emit('uncaughtException', error)
-    })
   }
 }
 

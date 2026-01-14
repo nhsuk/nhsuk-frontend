@@ -8,7 +8,8 @@ describe('Review app', () => {
 
     expect(initAll).toHaveBeenCalledWith({
       errorSummary: { disableAutoFocus: true },
-      notificationBanner: { disableAutoFocus: true }
+      notificationBanner: { disableAutoFocus: true },
+      onError: expect.any(Function)
     })
   })
 })
