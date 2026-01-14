@@ -255,8 +255,8 @@ export function getComponentPath(component, options) {
 
   // Add example name to URL
   componentPath += exampleName
-    ? `/${slug(exampleName, { lower: true })}/`
-    : '/default/'
+    ? `/${slug(exampleName, { lower: true })}/` // Single example
+    : '/' // All examples (component listing page)
 
   return componentPath
 }
