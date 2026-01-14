@@ -223,7 +223,8 @@ const fixtures = {
       rows: 8
     },
     options: {
-      hidden: true
+      hidden: true,
+      throwOnError: false
     }
   },
   'with neither maxlength, maxwords nor textarea description set': {
@@ -239,7 +240,8 @@ const fixtures = {
       rows: 8
     },
     options: {
-      hidden: true
+      hidden: true,
+      throwOnError: false
     }
   },
   'with translations': {
@@ -284,7 +286,8 @@ const fixtures = {
       name: 'example'
     },
     options: {
-      hidden: true
+      hidden: true,
+      throwOnError: false
     }
   }
 }
