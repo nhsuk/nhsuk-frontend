@@ -221,6 +221,9 @@ const fixtures = {
       name: 'example',
       value: 'This textarea has no maximum character or word count.',
       rows: 8
+    },
+    options: {
+      hidden: true
     }
   },
   'with neither maxlength, maxwords nor textarea description set': {
@@ -234,6 +237,9 @@ const fixtures = {
       name: 'example',
       value: 'This textarea has no maximum character or word count.',
       rows: 8
+    },
+    options: {
+      hidden: true
     }
   },
   'with translations': {
