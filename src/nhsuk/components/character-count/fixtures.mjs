@@ -223,7 +223,8 @@ export const examples = {
       rows: 8
     },
     options: {
-      hidden: true
+      hidden: true,
+      throwOnError: false
     }
   },
   'with neither maxlength, maxwords nor textarea description set': {
@@ -239,7 +240,8 @@ export const examples = {
       rows: 8
     },
     options: {
-      hidden: true
+      hidden: true,
+      throwOnError: false
     }
   },
   'with translations': {
@@ -284,7 +286,8 @@ export const examples = {
       name: 'example'
     },
     options: {
-      hidden: true
+      hidden: true,
+      throwOnError: false
     }
   }
 }
