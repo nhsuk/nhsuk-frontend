@@ -86,15 +86,33 @@ export async function axe(page, overrides = {}) {
 }
 
 /**
+ * Throw on page errors
+ *
+ * @type {Handler<unknown>}
+ */
+function onPageError(error) {
+  throw error
+}
+
+/**
  * Navigate to path
  *
  * @param {Page} page - Puppeteer page object
  * @param {string | URL} pathOrUrl - Path or URL to navigate to
+ * @param {NavigationOptions} [options] - Navigation options
  */
-async function goTo(page, pathOrUrl) {
+async function goTo(page, pathOrUrl, options) {
   const { href, pathname } = !(pathOrUrl instanceof URL)
     ? getURL(pathOrUrl) // Build URL from base
     : pathOrUrl
+
+  // Remove previous error handler
+  page.off('pageerror', onPageError)
+
+  // Add error handler unless suppressed
+  if (options?.throwOnError !== false) {
+    page.on('pageerror', onPageError)
+  }
 
   const response = await page.goto(href)
   const code = response.status()
@@ -125,13 +143,11 @@ export async function goToExample(page, example) {
  *
  * @param {Page} page - Puppeteer page object
  * @param {string} component - Component name
- * @param {object} [options] - Navigation options
- * @param {string} options.name - Example name
- * @param {string} [options.description] - Example description
+ * @param {NavigationOptions} [options] - Navigation options
  */
 export async function goToComponent(page, component, options) {
   const componentPath = getComponentPath(component, options)
-  return goTo(page, `.${componentPath}`)
+  return goTo(page, `.${componentPath}`, options)
 }
 
 /**
@@ -227,9 +243,7 @@ export async function render(page, component, renderOptions, browserOptions) {
  * Get component preview review app URL
  *
  * @param {string} component - Component name
- * @param {object} [options] - Navigation options
- * @param {string} options.name - Example name
- * @param {string} [options.description] - Example description
+ * @param {NavigationOptions} [options] - Navigation options
  */
 export function getComponentURL(component, options) {
   const componentPath = getComponentPath(component, options)
@@ -240,9 +254,7 @@ export function getComponentURL(component, options) {
  * Get component preview path
  *
  * @param {string} component - Component name
- * @param {object} [options] - Navigation options
- * @param {string} options.name - Example name
- * @param {string} [options.description] - Example description
+ * @param {NavigationOptions} [options] - Navigation options
  */
 export function getComponentPath(component, options) {
   let componentPath = `/components/${component}`
@@ -277,18 +289,20 @@ export function getURL(path) {
  * @returns {NavigationOptions[]} Navigation options list
  */
 export function getOptions(name, example) {
-  const { variants = [] } = example
+  const { options = {}, variants = [] } = example
+  const { throwOnError } = options
 
   // Options for single example only
   if (!variants.length) {
-    return [{ name, title: 'example' }]
+    return [{ name, title: 'example', throwOnError }]
   }
 
   // Options for multiple variants
   return variants.map(({ description }) => ({
     name,
     description,
-    title: `'${description}'`
+    title: `'${description}'`,
+    throwOnError
   }))
 }
 
@@ -355,6 +369,7 @@ export async function isVisible($element) {
  * @property {string} name - Example name (e.g. 'with hint')
  * @property {string} [description] - Example description (e.g. 'small')
  * @property {string} [title] - Unique test title (optional)
+ * @property {boolean} [throwOnError] - Whether to throw on error (optional)
  */
 
 /**
@@ -372,5 +387,5 @@ export async function isVisible($element) {
  * @import { MacroExample, MacroRenderOptions } from 'nhsuk-frontend/lib'
  * @import { RuleObject, RunOptions } from 'axe-core'
  * @import { Config, ConfigKey } from 'nhsuk-frontend'
- * @import { ElementHandle, EvaluateFuncWith, Page } from 'puppeteer'
+ * @import { ElementHandle, EvaluateFuncWith, Handler, Page } from 'puppeteer'
  */
