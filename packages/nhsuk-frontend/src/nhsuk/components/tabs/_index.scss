@@ -33,19 +33,11 @@
   }
 
   .nhsuk-tabs__list-item {
-    margin-left: nhsuk-spacing(5);
-
-    &::before {
-      content: "\2014 "; // "— "
-      margin-left: nhsuk-spacing(-5);
-      padding-right: nhsuk-spacing(1);
-      @include nhsuk-text-colour;
-    }
+    @include nhsuk-shape-dash;
   }
 
   .nhsuk-tabs__tab {
     display: inline-block;
-    margin-bottom: nhsuk-spacing(2);
   }
 
   .nhsuk-tabs__panel {

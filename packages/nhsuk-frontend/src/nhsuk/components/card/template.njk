@@ -55,6 +55,11 @@
 {%- set headingLevel = params.headingLevel if params.headingLevel else 2 %}
 {%- set actionsItems = params.actions.items | select("mapping") if params.actions.items | length else [] %}
 
+{%- set image = {
+  src: params.imgURL,
+  alt: params.imgALT
+} if (params.imgURL or params.imgALT) else params.image %}
+
 {%- macro _careHeading(params, classNames) %}
   {%- set headingHtml %}
     <span class="nhsuk-card--care__arrow" aria-hidden="true"></span>
@@ -75,6 +80,7 @@
   {{ _cardHeading({
     heading: params.heading,
     headingHtml: headingHtml,
+    headingId: params.headingId,
     headingVisuallyHiddenText: headingVisuallyHiddenText,
     href: params.href
   }, classNames) | trim }}
@@ -82,7 +88,7 @@
 
 {%- macro _cardHeading(params, classNames) %}
 {% if params.heading %}
-  <h{{ headingLevel }} class="{{ classNames }}">
+  <h{{ headingLevel }} {%- if params.headingId %} id="{{ params.headingId }}"{% endif %} class="{{ classNames }}">
   {% if params.href and not params.feature %}
     <a class="nhsuk-card__link" href="{{ params.href }}">
       {{- params.heading | safe -}}
@@ -116,8 +122,14 @@
 
 <div {%- if params.id %} id="{{ params.id }}"{% endif %} class="{{ classNames }}"
   {{- nhsukAttributes(params.attributes) }}>
-{% if params.imgURL %}
-  <img class="nhsuk-card__img" src="{{ params.imgURL }}" alt="{{ params.imgALT }}">
+{% if image.html %}
+  {{ image.html | safe | trim | indent(2) }}
+{% elif image.src %}
+  <img {{- nhsukAttributes({
+    class: "nhsuk-card__img",
+    src: image.src,
+    alt: image.alt
+  }) }}>
 {% endif %}
 {% if params.type or actionsItems | length %}
   <div class="nhsuk-card__heading-container">
