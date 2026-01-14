@@ -20,7 +20,7 @@ export function renderExample(fixture, index) {
 
       // Append unique ID to attribute value(s)
       .replace(
-        / (aria-controls|aria-describedby|aria-labelledby)="([^"]*)"/g,
+        / (?:data-)?(aria-controls|aria-describedby|aria-labelledby)="([^"]*)"/g,
         (match, name, values) => ` ${name}="${uniqueValues(values, index)}"`
       )
   }
