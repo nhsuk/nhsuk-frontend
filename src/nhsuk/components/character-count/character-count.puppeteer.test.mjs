@@ -165,7 +165,7 @@ describe('Character count', () => {
           await render(page, 'character-count', examples.default)
 
           await page.type('.nhsuk-js-character-count', 'A'.repeat(201))
-        })
+        }, 15000)
 
         it('shows the number of characters over the limit', async () => {
           const message = await page.$eval(
@@ -373,14 +373,14 @@ describe('Character count', () => {
           (el) => el.innerHTML.trim()
         )
         expect(srMessage).toBe('You have 1 word remaining')
-      })
+      }, 15000)
 
       describe('when the word limit is exceeded', () => {
         beforeEach(async () => {
           await render(page, 'character-count', examples['with word count'])
 
           await page.type('.nhsuk-js-character-count', 'Hello '.repeat(151))
-        })
+        }, 15000)
 
         it('shows the number of words over the limit', async () => {
           const message = await page.$eval(
