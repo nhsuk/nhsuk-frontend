@@ -3,8 +3,8 @@ import {
   normaliseOptions,
   validateConfig
 } from '../../common/configuration/index.mjs'
-import { formatErrorMessage } from '../../common/index.mjs'
 import { graphemeCount } from '../../common/grapheme-count.mjs'
+import { formatErrorMessage } from '../../common/index.mjs'
 import { ConfigurableComponent } from '../../configurable-component.mjs'
 import { ConfigError, ElementError } from '../../errors/index.mjs'
 import { I18n } from '../../i18n.mjs'

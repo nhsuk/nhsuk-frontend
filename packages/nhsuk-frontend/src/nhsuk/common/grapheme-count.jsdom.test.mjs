@@ -52,7 +52,7 @@ describe('graphemeCount', () => {
   })
 
   it('handles mixed content', () => {
-    expect(graphemeCount('Hello 👋 World')).toBe(12)
+    expect(graphemeCount('Hello 👋 World')).toBe(13)
     expect(graphemeCount('café 👋🏼')).toBe(6)
   })
 
@@ -64,19 +64,19 @@ describe('graphemeCount', () => {
   it('throws for invalid input', () => {
     expect(() => graphemeCount(null)).toThrow(TypeError)
     expect(() => graphemeCount(undefined)).toThrow(TypeError)
-    // @ts-expect-error
+    // @ts-expect-error invalid type
     expect(() => graphemeCount(123)).toThrow(TypeError)
-    // @ts-expect-error
+    // @ts-expect-error invalid type
     expect(() => graphemeCount({})).toThrow(TypeError)
-    // @ts-expect-error
+    // @ts-expect-error invalid type
     expect(() => graphemeCount([])).toThrow(TypeError)
   })
 
   it('works with real examples', () => {
     expect(graphemeCount('NHS 👨‍⚕️')).toBe(5)
-    expect(graphemeCount('Call 111 🏥')).toBe(8)
-    expect(graphemeCount('Please describe your symptoms')).toBe(33)
-    expect(graphemeCount('Feeling unwell 😷')).toBe(15)
+    expect(graphemeCount('Call 111 🏥')).toBe(10)
+    expect(graphemeCount('Please describe your symptoms')).toBe(29)
+    expect(graphemeCount('Feeling unwell 😷')).toBe(16)
     expect(graphemeCount('José García')).toBe(11)
   })
 })

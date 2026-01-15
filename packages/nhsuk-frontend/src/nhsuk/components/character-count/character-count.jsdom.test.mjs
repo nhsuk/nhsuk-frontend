@@ -356,7 +356,7 @@ describe('Character count: Format count message', () => {
       $textarea.value = '👋👋👋👋👋👋👋👋👋👋'
       component.updateCountMessage()
       const $status = document.querySelector('.nhsuk-character-count__status')
-      expect($status.textContent).toBe('You have 0 characters remaining')
+      expect($status).toHaveTextContent('You have 0 characters remaining')
     })
 
     it('shows error when over limit with emoji', () => {
@@ -366,8 +366,8 @@ describe('Character count: Format count message', () => {
       $textarea.value = '👋👋👋👋👋👋👋👋👋👋👋'
       component.updateCountMessage()
       const $status = document.querySelector('.nhsuk-character-count__status')
-      expect($status.textContent).toBe('You have 1 character too many')
-      expect($status.classList.contains('nhsuk-error-message')).toBe(true)
+      expect($status).toHaveTextContent('You have 1 character too many')
+      expect($status).toHaveClass('nhsuk-error-message')
     })
   })
 })

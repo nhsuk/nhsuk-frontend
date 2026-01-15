@@ -23,19 +23,19 @@ This counting method matches Python's `len()` function for Unicode strings, ensu
 
 ```javascript
 // Simple ASCII
-"Hello" → 5 characters
+"Hello" // 5 characters
 
 // Emoji
-"👋" → 1 character (not 2 code points)
-"👋🏼" → 1 character (emoji with skin tone modifier)
-"👨‍👩‍👧‍👦" → 1 character (family emoji sequence)
+"👋" // 1 character (not 2 code points)
+"👋🏼" // 1 character (emoji with skin tone modifier)
+"👨‍👩‍👧‍👦" // 1 character (family emoji sequence)
 
 // Accented characters
-"café" → 4 characters
-"naïve" → 5 characters
+"café" // 4 characters
+"naïve" // 5 characters
 
 // Mixed content
-"Hello 👋" → 6 characters (5 letters + 1 space + 1 emoji)
+"Hello 👋" // 6 characters (5 letters + 1 space + 1 emoji)
 ```
 
 ### Browser support

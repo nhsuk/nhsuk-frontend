@@ -7,27 +7,27 @@ export function graphemeCount(text) {
     throw new TypeError('graphemeCount expects a string argument')
   }
 
-  if (typeof Intl !== 'undefined' && Intl.Segmenter) {
+  if ('Segmenter' in Intl) {
     try {
       const segmenter = new Intl.Segmenter('en', { granularity: 'grapheme' })
       return [...segmenter.segment(text)].length
-    } catch {
-      // fallback for older browsers
+    } catch (_) {
+      void _
     }
   }
 
-  let result = 0
-  let index = 0
+  let count = 0
+  let i = 0
 
-  while (index < text.length) {
-    const point = text.codePointAt(index)
-    if (point === undefined) {
-      index++
-      continue
+  while (i < text.length) {
+    const codePoint = text.codePointAt(i)
+    if (codePoint !== undefined) {
+      count++
+      i += codePoint > 0xffff ? 2 : 1
+    } else {
+      i++
     }
-    result++
-    index += point > 0xffff ? 2 : 1
   }
 
-  return result
+  return count
 }
