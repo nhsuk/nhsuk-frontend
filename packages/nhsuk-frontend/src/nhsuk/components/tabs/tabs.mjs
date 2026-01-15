@@ -1,14 +1,23 @@
+/* eslint-disable @typescript-eslint/no-deprecated */
+
 import { normaliseOptions } from '../../common/configuration/index.mjs'
 import { getBreakpoint } from '../../common/index.mjs'
-import { Component } from '../../component.mjs'
+import { ConfigurableComponent } from '../../configurable-component.mjs'
 import { ElementError } from '../../errors/index.mjs'
 
 /**
  * Tabs component
+ *
+ * @augments {ConfigurableComponent<TabsConfig>}
  */
-export class Tabs extends Component {
-  jsHiddenClass = 'nhsuk-tabs__panel--hidden'
+export class Tabs extends ConfigurableComponent {
   changingHash = false
+
+  /**
+   * @type {string | undefined}
+   * @deprecated Use {@link Tabs.panelClass} instead.
+   */
+  jsHiddenClass
 
   /**
    * @type {MediaQueryList | null}
@@ -17,15 +26,18 @@ export class Tabs extends Component {
 
   /**
    * @param {Element | null} $root - HTML element to use for component
+   * @param {Partial<TabsConfig>} [config] - Tabs config
    */
-  constructor($root) {
-    super($root)
+  constructor($root, config = {}) {
+    super($root, config)
 
-    const $tabs = this.$root.querySelectorAll('a.nhsuk-tabs__tab')
+    const { listClass, listItemClass, tabClass } = this.config
+
+    const $tabs = this.$root.querySelectorAll(`a.${tabClass}`)
     if (!$tabs.length) {
       throw new ElementError({
         component: Tabs,
-        identifier: 'Links (`<a class="nhsuk-tabs__tab">`)'
+        identifier: `Links (\`<a class="${tabClass}">\`)`
       })
     }
 
@@ -36,22 +48,20 @@ export class Tabs extends Component {
     this.boundTabKeydown = this.onTabKeydown.bind(this)
     this.boundOnHashChange = this.onHashChange.bind(this)
 
-    const $tabList = this.$root.querySelector('.nhsuk-tabs__list')
-    const $tabListItems = this.$root.querySelectorAll(
-      'li.nhsuk-tabs__list-item'
-    )
+    const $tabList = this.$root.querySelector(`ul.${listClass}`)
+    const $tabListItems = this.$root.querySelectorAll(`li.${listItemClass}`)
 
     if (!$tabList) {
       throw new ElementError({
         component: Tabs,
-        identifier: 'List (`<ul class="nhsuk-tabs__list">`)'
+        identifier: `List (\`<ul class="${listClass}">\`)`
       })
     }
 
     if (!$tabListItems.length) {
       throw new ElementError({
         component: Tabs,
-        identifier: 'List items (`<li class="nhsuk-tabs__list-item">`)'
+        identifier: `List items (\`<li class="${listItemClass}">\`)`
       })
     }
 
@@ -211,7 +221,8 @@ export class Tabs extends Component {
    * @returns {HTMLAnchorElement | null} Tab link
    */
   getTab(hash) {
-    return this.$root.querySelector(`a.nhsuk-tabs__tab[href="${hash}"]`)
+    const { tabClass } = this.config
+    return this.$root.querySelector(`a.${tabClass}[href="${hash}"]`)
   }
 
   /**
@@ -238,9 +249,11 @@ export class Tabs extends Component {
       return
     }
 
+    const { panelClass } = this.config
+
     $panel.setAttribute('role', 'tabpanel')
     $panel.setAttribute('aria-labelledby', $tab.id)
-    $panel.classList.add(this.jsHiddenClass)
+    $panel.classList.add(this.jsHiddenClass ?? `${panelClass}--hidden`)
   }
 
   /**
@@ -262,9 +275,11 @@ export class Tabs extends Component {
       return
     }
 
+    const { panelClass } = this.config
+
     $panel.removeAttribute('role')
     $panel.removeAttribute('aria-labelledby')
-    $panel.classList.remove(this.jsHiddenClass)
+    $panel.classList.remove(this.jsHiddenClass ?? `${panelClass}--hidden`)
   }
 
   /**
@@ -349,7 +364,9 @@ export class Tabs extends Component {
       return
     }
 
-    const $nextTab = $nextTabListItem.querySelector('a.nhsuk-tabs__tab')
+    const { tabClass } = this.config
+
+    const $nextTab = $nextTabListItem.querySelector(`a.${tabClass}`)
     if (!$nextTab) {
       return
     }
@@ -375,7 +392,9 @@ export class Tabs extends Component {
       return
     }
 
-    const $previousTab = $previousTabListItem.querySelector('a.nhsuk-tabs__tab')
+    const { tabClass } = this.config
+
+    const $previousTab = $previousTabListItem.querySelector(`a.${tabClass}`)
     if (!$previousTab) {
       return
     }
@@ -412,7 +431,9 @@ export class Tabs extends Component {
       return
     }
 
-    $panel.classList.remove(this.jsHiddenClass)
+    const { panelClass } = this.config
+
+    $panel.classList.remove(this.jsHiddenClass ?? `${panelClass}--hidden`)
   }
 
   /**
@@ -426,7 +447,9 @@ export class Tabs extends Component {
       return
     }
 
-    $panel.classList.add(this.jsHiddenClass)
+    const { panelClass } = this.config
+
+    $panel.classList.add(this.jsHiddenClass ?? `${panelClass}--hidden`)
   }
 
   /**
@@ -439,8 +462,10 @@ export class Tabs extends Component {
       return
     }
 
+    const { listItemClass } = this.config
+
     $tab.setAttribute('aria-selected', 'false')
-    $tab.parentElement.classList.remove('nhsuk-tabs__list-item--selected')
+    $tab.parentElement.classList.remove(`${listItemClass}--selected`)
     $tab.setAttribute('tabindex', '-1')
   }
 
@@ -454,8 +479,10 @@ export class Tabs extends Component {
       return
     }
 
+    const { listItemClass } = this.config
+
     $tab.setAttribute('aria-selected', 'true')
-    $tab.parentElement.classList.add('nhsuk-tabs__list-item--selected')
+    $tab.parentElement.classList.add(`${listItemClass}--selected`)
     $tab.setAttribute('tabindex', '0')
   }
 
@@ -465,22 +492,50 @@ export class Tabs extends Component {
    * @returns {HTMLAnchorElement | null} Tab link
    */
   getCurrentTab() {
-    return this.$root.querySelector(
-      '.nhsuk-tabs__list-item--selected a.nhsuk-tabs__tab'
-    )
+    const { listItemClass, tabClass } = this.config
+    return this.$root.querySelector(`.${listItemClass}--selected a.${tabClass}`)
   }
 
   /**
    * Name for the component used when initialising using data-module attributes
    */
   static moduleName = 'nhsuk-tabs'
+
+  /**
+   * Tabs default config
+   *
+   * @see {@link TabsConfig}
+   * @constant
+   * @type {TabsConfig}
+   */
+  static defaults = Object.freeze({
+    panelClass: 'nhsuk-tabs__panel',
+    listClass: 'nhsuk-tabs__list',
+    listItemClass: 'nhsuk-tabs__list-item',
+    tabClass: 'nhsuk-tabs__tab'
+  })
+
+  /**
+   * Tabs config schema
+   *
+   * @constant
+   * @satisfies {Schema<TabsConfig>}
+   */
+  static schema = Object.freeze({
+    properties: {
+      panelClass: { type: 'string' },
+      listClass: { type: 'string' },
+      listItemClass: { type: 'string' },
+      tabClass: { type: 'string' }
+    }
+  })
 }
 
 /**
  * Initialise tabs component
  *
- * @deprecated Use {@link createAll | `createAll(Tabs)`} instead.
- * @param {InitOptions} [options]
+ * @deprecated Use {@link createAll | `createAll(Tabs, options)`} instead.
+ * @param {InitOptions & Partial<TabsConfig>} [options]
  */
 export function initTabs(options) {
   const { scope: $scope } = normaliseOptions(options)
@@ -488,10 +543,21 @@ export function initTabs(options) {
   const $tabs = $scope?.querySelectorAll(`[data-module="${Tabs.moduleName}"]`)
 
   $tabs?.forEach(($root) => {
-    new Tabs($root)
+    new Tabs($root, options)
   })
 }
 
 /**
+ * Tabs config
+ *
+ * @typedef {object} TabsConfig
+ * @property {string} panelClass - Tabs panel class
+ * @property {string} listClass - Tabs list class
+ * @property {string} listItemClass - Tabs list item class
+ * @property {string} tabClass - Tabs link class
+ */
+
+/**
  * @import { createAll, InitOptions } from '../../index.mjs'
+ * @import { Schema } from '../../common/configuration/index.mjs'
  */

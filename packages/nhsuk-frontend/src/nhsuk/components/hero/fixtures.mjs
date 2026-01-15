@@ -21,8 +21,9 @@ export const examples = {
   },
   'with image': {
     context: {
-      imageURL:
-        'https://assets.nhs.uk/prod/images/S_0818_homepage_hero_1_F0147446.width-1000.jpg'
+      image: {
+        src: 'https://assets.nhs.uk/prod/images/S_0818_homepage_hero_1_F0147446.width-1000.jpg'
+      }
     },
     options: {
       width: false
@@ -35,8 +36,9 @@ export const examples = {
     context: {
       heading: "We're here for you",
       text: 'Helping you take control of your health and wellbeing.',
-      imageURL:
-        'https://assets.nhs.uk/prod/images/S_0818_homepage_hero_1_F0147446.width-1000.jpg'
+      image: {
+        src: 'https://assets.nhs.uk/prod/images/S_0818_homepage_hero_1_F0147446.width-1000.jpg'
+      }
     },
     options: {
       width: false
@@ -48,7 +50,8 @@ export const examples = {
   'with html content': {
     context: {
       heading: 'This is a header for the product or service',
-      headingClasses: 'nhsuk-heading-l nhsuk-u-margin-top-5',
+      headingSize: 'l',
+      headingClasses: 'nhsuk-u-margin-top-5',
       html: outdent`
         <p class="nhsuk-body-l">This is some more content which explains the product or service.</p>
         ${components.render('button', {

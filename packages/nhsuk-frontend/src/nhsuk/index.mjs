@@ -5,6 +5,7 @@ import {
   CharacterCount,
   Checkboxes,
   ErrorSummary,
+  FileUpload,
   Header,
   NotificationBanner,
   PasswordInput,
@@ -69,14 +70,15 @@ export function initAll(scopeOrConfig = {}) {
   const components = /** @type {const} */ ([
     [Button, config.button],
     [CharacterCount, config.characterCount],
-    [Checkboxes],
+    [Checkboxes, config.checkboxes],
     [ErrorSummary, config.errorSummary],
-    [Header],
+    [FileUpload, config.fileUpload],
+    [Header, config.header],
     [NotificationBanner, config.notificationBanner],
     [PasswordInput, config.passwordInput],
-    [Radios],
-    [SkipLink],
-    [Tabs]
+    [Radios, config.radios],
+    [SkipLink, config.skipLink],
+    [Tabs, config.tabs]
   ])
 
   components.forEach(([Component, componentConfig]) => {
@@ -202,9 +204,15 @@ export * from './errors/index.mjs'
  * @property {OnErrorCallback<CompatibleClass>} [onError] - Initialisation error callback
  * @property {ComponentConfig<typeof Button>} [button] - Button config
  * @property {ComponentConfig<typeof CharacterCount>} [characterCount] - Character count config
+ * @property {ComponentConfig<typeof Checkboxes>} [checkboxes] - Checkboxes config
  * @property {ComponentConfig<typeof ErrorSummary>} [errorSummary] - Error Summary config
+ * @property {ComponentConfig<typeof FileUpload>} [fileUpload] - File upload config
+ * @property {ComponentConfig<typeof Header>} [header] - Header config
  * @property {ComponentConfig<typeof NotificationBanner>} [notificationBanner] - Notification Banner config
  * @property {ComponentConfig<typeof PasswordInput>} [passwordInput] - Password Input config
+ * @property {ComponentConfig<typeof Radios>} [radios] - Radios config
+ * @property {ComponentConfig<typeof SkipLink>} [skipLink] - Skip Link config
+ * @property {ComponentConfig<typeof Tabs>} [tabs] - Tabs config
  */
 
 /**

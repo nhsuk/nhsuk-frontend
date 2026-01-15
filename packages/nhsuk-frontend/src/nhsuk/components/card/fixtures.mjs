@@ -19,12 +19,18 @@ export const examples = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
+  'basic without heading': {
+    context: {
+      description:
+        'A quick guide for people who have care and support needs and their carers'
+    }
+  },
   'basic with heading link': {
     context: {
-      heading: 'Introduction to care and support',
-      headingClasses: 'nhsuk-heading-m',
-      headingLevel: 3,
       href: '#',
+      heading: 'Introduction to care and support',
+      headingSize: 'm',
+      headingLevel: 3,
       description:
         'A quick guide for people who have care and support needs and their carers'
     }
@@ -61,6 +67,7 @@ export const examples = {
               }
             },
             {
+              classes: 'nhsuk-summary-list__row--no-border',
               key: {
                 text: 'Date of birth'
               },
@@ -71,13 +78,74 @@ export const examples = {
           ]
         }
       })}
-    `
+    `,
+    screenshot: {
+      viewports: ['mobile', 'tablet']
+    }
   },
-  'basic with summary list and heading link': {
+  'basic with summary lists': {
+    context: {
+      heading: 'Regional Managers',
+      headingLevel: 3
+    },
+    callBlock: outdent`
+      <h4 class="nhsuk-heading-s nhsuk-u-margin-bottom-1">East</h4>
+      ${components.render('summary-list', {
+        context: {
+          rows: [
+            {
+              key: {
+                text: 'Name'
+              },
+              value: {
+                text: 'Karen Francis'
+              }
+            },
+            {
+              key: {
+                text: 'Date of birth'
+              },
+              value: {
+                text: '15 March 1984'
+              }
+            }
+          ]
+        }
+      })}
+
+      <h4 class="nhsuk-heading-s nhsuk-u-margin-bottom-1">West</h4>
+      ${components.render('summary-list', {
+        context: {
+          rows: [
+            {
+              key: {
+                text: 'Name'
+              },
+              value: {
+                text: 'Sarah Philips'
+              }
+            },
+            {
+              classes: 'nhsuk-summary-list__row--no-border',
+              key: {
+                text: 'Date of birth'
+              },
+              value: {
+                text: '5 January 1978'
+              }
+            }
+          ]
+        }
+      })}
+    `,
+    screenshot: {
+      viewports: ['mobile', 'tablet']
+    }
+  },
+  'basic with summary list and button': {
     context: {
       heading: 'Regional Manager',
-      headingLevel: 3,
-      href: '#'
+      headingLevel: 3
     },
     callBlock: outdent`
       ${components.render('summary-list', {
@@ -92,6 +160,493 @@ export const examples = {
               }
             },
             {
+              key: {
+                text: 'Date of birth'
+              },
+              value: {
+                text: '15 March 1984'
+              }
+            }
+          ]
+        }
+      })}
+
+      ${components.render('button', {
+        context: {
+          text: 'Add role',
+          classes: 'nhsuk-button--secondary'
+        }
+      })}
+    `,
+    screenshot: {
+      viewports: ['mobile', 'tablet']
+    }
+  },
+  'basic with summary list and actions': {
+    context: {
+      heading: 'Regional Manager',
+      headingLevel: 3,
+      actions: {
+        items: [
+          {
+            text: 'Delete',
+            href: '#/delete'
+          },
+          {
+            text: 'Withdraw',
+            href: '#/withdraw'
+          }
+        ]
+      }
+    },
+    callBlock: outdent`
+      ${components.render('summary-list', {
+        context: {
+          rows: [
+            {
+              key: {
+                text: 'Name'
+              },
+              value: {
+                text: 'Karen Francis'
+              }
+            },
+            {
+              classes: 'nhsuk-summary-list__row--no-border',
+              key: {
+                text: 'Date of birth'
+              },
+              value: {
+                text: '15 March 1984'
+              }
+            }
+          ]
+        }
+      })}
+    `
+  },
+  'basic with summary list and actions, without heading': {
+    context: {
+      actions: {
+        items: [
+          {
+            text: 'Delete',
+            visuallyHiddenText: '(Karen Francis)',
+            href: '#/delete'
+          },
+          {
+            text: 'Withdraw',
+            visuallyHiddenText: '(Karen Francis)',
+            href: '#/withdraw'
+          }
+        ]
+      }
+    },
+    callBlock: outdent`
+      ${components.render('summary-list', {
+        context: {
+          rows: [
+            {
+              key: {
+                text: 'Name'
+              },
+              value: {
+                text: 'Karen Francis'
+              }
+            },
+            {
+              classes: 'nhsuk-summary-list__row--no-border',
+              key: {
+                text: 'Date of birth'
+              },
+              value: {
+                text: '15 March 1984'
+              }
+            }
+          ]
+        }
+      })}
+    `
+  },
+  'basic with summary list and actions (empty items)': {
+    context: {
+      heading: 'Regional Manager',
+      headingLevel: 3,
+      actions: {
+        items: [
+          {
+            text: 'Delete',
+            href: '#/delete'
+          },
+          false
+        ]
+      }
+    },
+    callBlock: outdent`
+      ${components.render('summary-list', {
+        context: {
+          rows: [
+            {
+              key: {
+                text: 'Name'
+              },
+              value: {
+                text: 'Karen Francis'
+              }
+            },
+            {
+              classes: 'nhsuk-summary-list__row--no-border',
+              key: {
+                text: 'Date of birth'
+              },
+              value: {
+                text: '15 March 1984'
+              }
+            }
+          ]
+        }
+      })}
+    `
+  },
+  'basic with summary list and heading link': {
+    context: {
+      href: '#',
+      heading: 'Regional Manager',
+      headingLevel: 3
+    },
+    callBlock: outdent`
+      ${components.render('summary-list', {
+        context: {
+          rows: [
+            {
+              key: {
+                text: 'Name'
+              },
+              value: {
+                text: 'Karen Francis'
+              }
+            },
+            {
+              classes: 'nhsuk-summary-list__row--no-border',
+              key: {
+                text: 'Date of birth'
+              },
+              value: {
+                text: '15 March 1984'
+              }
+            }
+          ]
+        }
+      })}
+    `
+  },
+  'secondary without heading': {
+    context: {
+      secondary: true,
+      description:
+        'A quick guide for people who have care and support needs and their carers'
+    }
+  },
+  'secondary with heading link': {
+    context: {
+      href: '#',
+      secondary: true,
+      heading: 'Introduction to care and support',
+      headingSize: 'm',
+      headingLevel: 3,
+      description:
+        'A quick guide for people who have care and support needs and their carers'
+    }
+  },
+  'secondary with custom HTML': {
+    context: {
+      secondary: true,
+      heading: 'Help from NHS 111',
+      headingLevel: 3
+    },
+    callBlock: outdent`
+      <p class="nhsuk-body">If you're worried about a symptom and not sure what help you need, NHS 111 can tell you what to do next.</p>
+      <p class="nhsuk-body">Go to <a href="#">111.nhs.uk</a> or <a href="#">call 111</a>.</p>
+      <p class="nhsuk-body">For a life-threatening emergency call 999.</p>
+    `
+  },
+  'secondary with summary list': {
+    context: {
+      secondary: true,
+      heading: 'Regional Manager',
+      headingLevel: 3
+    },
+    callBlock: outdent`
+      ${components.render('summary-list', {
+        context: {
+          rows: [
+            {
+              key: {
+                text: 'Name'
+              },
+              value: {
+                text: 'Karen Francis'
+              }
+            },
+            {
+              classes: 'nhsuk-summary-list__row--no-border',
+              key: {
+                text: 'Date of birth'
+              },
+              value: {
+                text: '15 March 1984'
+              }
+            }
+          ]
+        }
+      })}
+    `
+  },
+  'secondary with summary lists': {
+    context: {
+      secondary: true,
+      heading: 'Regional Managers',
+      headingLevel: 3
+    },
+    callBlock: outdent`
+      <h4 class="nhsuk-heading-s nhsuk-u-margin-bottom-1">East</h4>
+      ${components.render('summary-list', {
+        context: {
+          rows: [
+            {
+              key: {
+                text: 'Name'
+              },
+              value: {
+                text: 'Karen Francis'
+              }
+            },
+            {
+              key: {
+                text: 'Date of birth'
+              },
+              value: {
+                text: '15 March 1984'
+              }
+            }
+          ]
+        }
+      })}
+
+      <h4 class="nhsuk-heading-s nhsuk-u-margin-bottom-1">West</h4>
+      ${components.render('summary-list', {
+        context: {
+          rows: [
+            {
+              key: {
+                text: 'Name'
+              },
+              value: {
+                text: 'Sarah Philips'
+              }
+            },
+            {
+              classes: 'nhsuk-summary-list__row--no-border',
+              key: {
+                text: 'Date of birth'
+              },
+              value: {
+                text: '5 January 1978'
+              }
+            }
+          ]
+        }
+      })}
+    `
+  },
+  'secondary with summary list and button': {
+    context: {
+      secondary: true,
+      heading: 'Regional Manager',
+      headingLevel: 3
+    },
+    callBlock: outdent`
+      ${components.render('summary-list', {
+        context: {
+          rows: [
+            {
+              key: {
+                text: 'Name'
+              },
+              value: {
+                text: 'Karen Francis'
+              }
+            },
+            {
+              key: {
+                text: 'Date of birth'
+              },
+              value: {
+                text: '15 March 1984'
+              }
+            }
+          ]
+        }
+      })}
+
+      ${components.render('button', {
+        context: {
+          text: 'Add role',
+          classes: 'nhsuk-button--secondary'
+        }
+      })}
+    `
+  },
+  'secondary with summary list and actions': {
+    context: {
+      secondary: true,
+      heading: 'Regional Manager',
+      headingLevel: 3,
+      actions: {
+        items: [
+          {
+            text: 'Delete',
+            href: '#/delete'
+          },
+          {
+            text: 'Withdraw',
+            href: '#/withdraw'
+          }
+        ]
+      }
+    },
+    callBlock: outdent`
+      ${components.render('summary-list', {
+        context: {
+          rows: [
+            {
+              key: {
+                text: 'Name'
+              },
+              value: {
+                text: 'Karen Francis'
+              }
+            },
+            {
+              classes: 'nhsuk-summary-list__row--no-border',
+              key: {
+                text: 'Date of birth'
+              },
+              value: {
+                text: '15 March 1984'
+              }
+            }
+          ]
+        }
+      })}
+    `
+  },
+  'secondary with summary list and actions, without heading': {
+    context: {
+      secondary: true,
+      actions: {
+        items: [
+          {
+            text: 'Delete',
+            visuallyHiddenText: '(Karen Francis)',
+            href: '#/delete'
+          },
+          {
+            text: 'Withdraw',
+            visuallyHiddenText: '(Karen Francis)',
+            href: '#/withdraw'
+          }
+        ]
+      }
+    },
+    callBlock: outdent`
+      ${components.render('summary-list', {
+        context: {
+          rows: [
+            {
+              key: {
+                text: 'Name'
+              },
+              value: {
+                text: 'Karen Francis'
+              }
+            },
+            {
+              classes: 'nhsuk-summary-list__row--no-border',
+              key: {
+                text: 'Date of birth'
+              },
+              value: {
+                text: '15 March 1984'
+              }
+            }
+          ]
+        }
+      })}
+    `
+  },
+  'secondary with summary list and actions (empty items)': {
+    context: {
+      secondary: true,
+      heading: 'Regional Manager',
+      headingLevel: 3,
+      actions: {
+        items: [
+          {
+            text: 'Delete',
+            href: '#/delete'
+          },
+          false
+        ]
+      }
+    },
+    callBlock: outdent`
+      ${components.render('summary-list', {
+        context: {
+          rows: [
+            {
+              key: {
+                text: 'Name'
+              },
+              value: {
+                text: 'Karen Francis'
+              }
+            },
+            {
+              classes: 'nhsuk-summary-list__row--no-border',
+              key: {
+                text: 'Date of birth'
+              },
+              value: {
+                text: '15 March 1984'
+              }
+            }
+          ]
+        }
+      })}
+    `
+  },
+  'secondary with summary list and heading link': {
+    context: {
+      href: '#',
+      secondary: true,
+      heading: 'Regional Manager',
+      headingLevel: 3
+    },
+    callBlock: outdent`
+      ${components.render('summary-list', {
+        context: {
+          rows: [
+            {
+              key: {
+                text: 'Name'
+              },
+              value: {
+                text: 'Karen Francis'
+              }
+            },
+            {
+              classes: 'nhsuk-summary-list__row--no-border',
               key: {
                 text: 'Date of birth'
               },
@@ -187,7 +742,7 @@ export const examples = {
       primary: true,
       clickable: true,
       heading: 'Breast screening',
-      headingClasses: 'nhsuk-heading-m'
+      headingSize: 'm'
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']
@@ -199,7 +754,7 @@ export const examples = {
       primary: true,
       clickable: true,
       heading: 'Introduction to care and support',
-      headingClasses: 'nhsuk-heading-m',
+      headingSize: 'm',
       description:
         'A quick guide for people who have care and support needs and their carers'
     },
@@ -212,7 +767,7 @@ export const examples = {
       href: '#',
       clickable: true,
       heading: 'Introduction to care and support',
-      headingClasses: 'nhsuk-heading-m',
+      headingSize: 'm',
       description:
         'A quick guide for people who have care and support needs and their carers'
     },
@@ -226,7 +781,7 @@ export const examples = {
       clickable: true,
       secondary: true,
       heading: 'Urgent and emergency care services',
-      headingClasses: 'nhsuk-heading-m',
+      headingSize: 'm',
       description:
         'Services the NHS provides if you need urgent or emergency medical help'
     },
@@ -259,6 +814,21 @@ export const examples = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
+  'feature with A to Z content': {
+    context: {
+      feature: true,
+      heading: 'A',
+      headingId: 'a',
+      headingSize: 'm',
+      descriptionHtml: outdent`
+        <ul class="nhsuk-list nhsuk-list--border">
+          <li><a href="#/conditions/abdominal-aortic-aneurysm/">AAA, see Abdominal aortic aneurysm</a></li>
+          <li><a href="#/conditions/abdominal-aortic-aneurysm/">Abdominal aortic aneurysm</a></li>
+          <li><a href="#/conditions/abscess/">Abscess</a></li>
+        </ul>
+      `
+    }
+  },
   'feature with summary list': {
     context: {
       feature: true,
@@ -277,6 +847,7 @@ export const examples = {
               }
             },
             {
+              classes: 'nhsuk-summary-list__row--no-border',
               key: {
                 text: 'Date of birth'
               },
@@ -300,64 +871,83 @@ export const examples = {
 
       <h3 class="nhsuk-heading-s">Consent responses</h3>
 
-      ${components.render('card', {
+      ${components.render('summary-list', {
         context: {
-          href: '#',
-          clickable: true,
-          heading: 'Sarah Philips (Mum)',
-          headingLevel: 4
-        },
-        callBlock: outdent`
-          ${components.render('summary-list', {
-            context: {
-              rows: [
-                {
-                  key: {
-                    text: 'Email address'
-                  },
-                  value: {
-                    text: 'sarah.philips@example.com'
+          card: {
+            href: '#',
+            clickable: true,
+            heading: 'Sarah Philips (Mum)',
+            headingLevel: 4
+          },
+          rows: [
+            {
+              key: {
+                text: 'Email address'
+              },
+              value: {
+                text: 'sarah.philips@example.com'
+              }
+            },
+            {
+              key: {
+                text: 'Date'
+              },
+              value: {
+                text: '25 August 2025 at 4:04 pm'
+              }
+            },
+            {
+              classes: 'nhsuk-summary-list__row--no-border',
+              key: {
+                text: 'Response'
+              },
+              value: {
+                html: components.render('tag', {
+                  context: {
+                    text: 'Follow up requested',
+                    classes: 'nhsuk-tag--orange'
                   }
-                },
-                {
-                  key: {
-                    text: 'Date'
-                  },
-                  value: {
-                    text: '25 August 2025 at 4:04 pm'
-                  }
-                },
-                {
-                  classes: 'nhsuk-summary-list__row--no-border',
-                  key: {
-                    text: 'Response'
-                  },
-                  value: {
-                    html: outdent`
-                      ${components.render('tag', {
-                        context: {
-                          text: 'Follow up requested',
-                          classes: 'nhsuk-tag--orange'
-                        }
-                      })}
-                    `
-                  }
-                }
-              ]
+                })
+              }
             }
-          })}
-        `
+          ]
+        }
       })}
     `
   },
+  'warning': {
+    context: {
+      warning: true,
+      heading: 'School, nursery or work',
+      description:
+        'Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.'
+    }
+  },
+  'warning with actions': {
+    context: {
+      warning: true,
+      heading: 'School, nursery or work',
+      description:
+        'Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.',
+      actions: {
+        items: [
+          {
+            text: 'Dismiss',
+            href: '#/dismiss'
+          }
+        ]
+      }
+    }
+  },
   'with image': {
     context: {
-      imgURL:
-        'https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg',
+      image: {
+        src: 'https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg'
+      },
       href: '#',
       clickable: true,
       heading: 'Exercise',
-      headingClasses: 'nhsuk-heading-m',
+      headingSize: 'm',
       description:
         'Programmes, workouts and tips to get you moving and improve your fitness and wellbeing'
     },
@@ -365,13 +955,54 @@ export const examples = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
+  'with image and caption': {
+    context: {
+      image: {
+        html: components.render('images', {
+          context: {
+            src: 'https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg',
+            caption: {
+              classes: 'nhsuk-u-secondary-text-colour',
+              text: 'No specific amount of time is recommended, but a typical training session could take less than 20 minutes.'
+            }
+          }
+        })
+      },
+      href: '#',
+      clickable: true,
+      heading: 'Exercise',
+      headingSize: 'm',
+      description:
+        'Programmes, workouts and tips to get you moving and improve your fitness and wellbeing'
+    }
+  },
+  'with image and custom HTML': {
+    context: {
+      image: {
+        src: 'https://service-manual.nhs.uk/assets/blog-prototype-kit.png'
+      },
+      href: 'https://digital.nhs.uk/blog/design-matters/2025/why-we-are-reinvesting-in-the-nhs-prototype-kit',
+      clickable: true,
+      heading: 'Why we are reinvesting in the NHS prototype kit',
+      headingSize: 'm',
+      headingHtml: outdent`
+        <p class="nhsuk-body-s nhsuk-u-secondary-text-colour nhsuk-u-margin-bottom-0"><span class="nhsuk-u-visually-hidden">Published on: </span>21 July 2025</p>
+        <p class="nhsuk-body-s nhsuk-u-font-weight-bold">NHS England Design Matters blog</p>
+      `,
+      description:
+        'Frankie Roberto and Mike Gallagher explain why we revived the NHS prototype kit, the benefits of prototyping in code and how digital teams in the NHS can get started using it.'
+    },
+    options: {
+      width: 'one-half'
+    }
+  },
   'top task': {
     context: {
       href: '#',
       clickable: true,
-      headingLevel: 5,
       heading: 'Order a repeat prescription',
-      headingClasses: 'nhsuk-heading-xs'
+      headingSize: 'xs',
+      headingLevel: 3
     },
     options: {
       width: 'one-third'

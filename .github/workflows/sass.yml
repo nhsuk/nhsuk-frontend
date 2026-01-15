@@ -6,7 +6,7 @@ on:
 
 jobs:
   sass:
-    name: Dart Sass ${{ matrix.package-version }}
+    name: Dart Sass ${{ matrix.package.version }}
     runs-on: ubuntu-latest
 
     env:
@@ -24,21 +24,27 @@ jobs:
       fail-fast: false
 
       matrix:
-        package-version:
+        package:
           # Release without major deprecations
-          - 1.77.6
+          - version: 1.77.6
 
           # Release with `mixed-decls` deprecated
-          - 1.77.7
+          - version: 1.77.7
 
           # Release with `color-functions` deprecated
-          - 1.79.0
+          - version: 1.79.0
 
           # Release with `import` deprecated
-          - 1.80.0
+          - version: 1.80.0
+
+          # Release with `misplaced-rest` deprecated
+          - version: 1.91.0
+
+          # Release with `if-function` deprecated
+          - version: 1.95.0
 
           # Dart Sass latest major version
-          - latest
+          - tag: latest
 
     steps:
       - name: Checkout
@@ -49,7 +55,7 @@ jobs:
 
       - name: Install package
         run: |
-          npm install -g sass@${{ matrix.package-version }}
+          npm install -g sass@${{ matrix.package.version || matrix.package.tag }}
           sass --version
 
       - name: Create test files
@@ -65,20 +71,20 @@ jobs:
 
       - name: Check compilation
         run: |
-          time sass packages/nhsuk-frontend/dist/nhsuk/nhsuk.scss > .tmp/check.css --load-path .
+          time sass packages/nhsuk-frontend/dist/nhsuk/nhsuk.scss ${{ format(matrix.package.version && '--fatal-deprecation {0}' || '', matrix.package.version) }} --load-path . .tmp/check.css
 
       - name: Check load paths
         run: |
-          time sass .tmp/input1.scss > .tmp/check1.css --load-path packages/nhsuk-frontend/dist
-          time sass .tmp/input2.scss > .tmp/check2.css --load-path packages/nhsuk-frontend/dist
-          time sass .tmp/input3.scss > .tmp/check3.css --load-path packages/nhsuk-frontend/dist
-          time sass .tmp/input4.scss > .tmp/check4.css --load-path .
-          time sass .tmp/input5.scss > .tmp/check5.css --load-path .
-          time sass .tmp/input6.scss > .tmp/check6.css --load-path .
+          time sass .tmp/input1.scss --load-path packages/nhsuk-frontend/dist .tmp/check1.css
+          time sass .tmp/input2.scss --load-path packages/nhsuk-frontend/dist .tmp/check2.css
+          time sass .tmp/input3.scss --load-path packages/nhsuk-frontend/dist .tmp/check3.css
+          time sass .tmp/input4.scss --load-path . .tmp/check4.css
+          time sass .tmp/input5.scss --load-path . .tmp/check5.css
+          time sass .tmp/input6.scss --load-path . .tmp/check6.css
 
       - name: Check package importer
         run: |
-          time sass .tmp/input7.scss > .tmp/check7.css --pkg-importer node
+          time sass .tmp/input7.scss --pkg-importer node .tmp/check7.css
 
       # Check output for uncompiled Sass
       - name: Check output

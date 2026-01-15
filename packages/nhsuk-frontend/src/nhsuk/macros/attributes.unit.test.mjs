@@ -3,7 +3,7 @@ import { outdent } from 'outdent'
 
 describe('attributes.njk', () => {
   describe('nhsukAttributes', () => {
-    it('renders a single attribute', () => {
+    it('renders a string attribute', () => {
       const attributes = nunjucks.renderMacro(
         'nhsukAttributes',
         'nhsuk/macros/attributes.njk',
@@ -18,6 +18,89 @@ describe('attributes.njk', () => {
       expect(attributes).toBe(' data-attribute="value"')
     })
 
+    it('renders a string attribute with item options', () => {
+      const attributes = nunjucks.renderMacro(
+        'nhsukAttributes',
+        'nhsuk/macros/attributes.njk',
+        {
+          context: {
+            'data-attribute': {
+              type: 'string',
+              value: 'value'
+            }
+          }
+        }
+      )
+
+      // Note the starting space so we ensure it doesn't stick to possible other previous attributes
+      expect(attributes).toBe(' data-attribute="value"')
+    })
+
+    it('renders an array attribute with item options', () => {
+      const attributes = nunjucks.renderMacro(
+        'nhsukAttributes',
+        'nhsuk/macros/attributes.njk',
+        {
+          context: {
+            'data-attributes': {
+              type: 'array',
+              value: ['value1', 'value2']
+            }
+          }
+        }
+      )
+
+      // Note the starting space so we ensure it doesn't stick to possible other previous attributes
+      expect(attributes).toBe(' data-attributes=\'["value1","value2"]\'')
+    })
+
+    it('renders array attributes values with escaping', () => {
+      const attributes = nunjucks.renderMacro(
+        'nhsukAttributes',
+        'nhsuk/macros/attributes.njk',
+        {
+          context: {
+            'data-quotes-double': {
+              type: 'array',
+              value: ['value "1"']
+            },
+            'data-quotes-single': {
+              type: 'array',
+              value: ["value '2'"]
+            },
+            'data-quotes-mixed': {
+              type: 'array',
+              value: ['value "\'3\'"']
+            },
+            'data-html-elements': {
+              type: 'array',
+              value: ['value <strong>4</strong>']
+            },
+            'data-html-entities': {
+              type: 'array',
+              value: ['value & 5']
+            },
+            'data-html-entities-double': {
+              type: 'array',
+              value: ['value &amp; 6']
+            }
+          }
+        }
+      )
+
+      // Note that single quotes are only used when rendering arrays that contain double quotes
+      expect(attributes).toBe(
+        [
+          ' data-quotes-double=\'["value \\"1\\""]\'',
+          ' data-quotes-single=\'["value \\u00272\\u0027"]\'',
+          ' data-quotes-mixed=\'["value \\"\\u00273\\u0027\\""]\'',
+          ' data-html-elements=\'["value \\u003cstrong\\u003e4\\u003c/strong\\u003e"]\'',
+          ' data-html-entities=\'["value \\u0026 5"]\'',
+          ' data-html-entities-double=\'["value \\u0026amp; 6"]\''
+        ].join('')
+      )
+    })
+
     it('renders multiple attributes', () => {
       const attributes = nunjucks.renderMacro(
         'nhsukAttributes',
@@ -29,13 +112,33 @@ describe('attributes.njk', () => {
             'data-third-attribute': {
               type: 'string',
               value: 'third-value'
+            },
+            'data-fourth-attribute': {
+              type: 'array',
+              value: ['fourth-value']
+            },
+            'data-fifth-attribute': {
+              type: 'array',
+              value: [true]
+            },
+            'data-sixth-attribute': {
+              type: 'array',
+              value: []
             }
           }
         }
       )
 
+      // Note that single quotes are only used when rendering arrays that contain double quotes
       expect(attributes).toBe(
-        ' data-attribute="value" data-second-attribute="second-value" data-third-attribute="third-value"'
+        [
+          ' data-attribute="value"',
+          ' data-second-attribute="second-value"',
+          ' data-third-attribute="third-value"',
+          ' data-fourth-attribute=\'["fourth-value"]\'',
+          ' data-fifth-attribute="[true]"',
+          ' data-sixth-attribute="[]"'
+        ].join('')
       )
     })
 

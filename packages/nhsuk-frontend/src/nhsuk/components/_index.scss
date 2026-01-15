@@ -2,39 +2,51 @@
 /// Components
 ////
 
-@forward "action-link";
-@forward "back-link";
-@forward "breadcrumb";
+// Form elements
 @forward "button";
-@forward "card";
-@forward "contents-list";
-@forward "date-input";
-@forward "details";
-@forward "do-dont-list";
 @forward "error-message";
 @forward "error-summary";
 @forward "fieldset";
-@forward "footer";
-@forward "header";
-@forward "hero";
 @forward "hint";
-@forward "images";
-@forward "input";
-@forward "inset-text";
 @forward "label";
-@forward "notification-banner";
-@forward "pagination";
-@forward "panel";
+
+// Form components
 @forward "checkboxes";
-@forward "password-input";
+@forward "input";
 @forward "radios";
 @forward "select";
-@forward "skip-link";
+@forward "textarea";
+
+// Form components (composite)
+@forward "character-count";
+@forward "date-input";
+@forward "file-upload";
+@forward "password-input";
+
+// Content presentation
+@forward "details";
+@forward "do-dont-list";
+@forward "hero";
+@forward "images";
+@forward "inset-text";
+@forward "notification-banner";
+@forward "panel";
 @forward "summary-list";
 @forward "tables";
+@forward "tabs";
 @forward "tag";
 @forward "task-list";
-@forward "textarea";
 @forward "warning-callout";
-@forward "character-count";
-@forward "tabs";
+
+// Navigation
+@forward "action-link";
+@forward "back-link";
+@forward "contents-list";
+@forward "footer";
+@forward "pagination";
+@forward "skip-link";
+
+// Navigation (composite)
+@forward "breadcrumb";
+@forward "card";
+@forward "header";

@@ -1,6 +1,6 @@
 import { normaliseOptions } from '../../common/configuration/index.mjs'
 import { setFocus } from '../../common/index.mjs'
-import { Component } from '../../component.mjs'
+import { ConfigurableComponent } from '../../configurable-component.mjs'
 import { ElementError } from '../../errors/index.mjs'
 
 const _self =
@@ -14,16 +14,17 @@ const _self =
  * When using VoiceOver on iOS, focus remains on the skip link anchor
  * when selected so the next focusable element is not at the jumped to area.
  *
- * @augments Component<HTMLAnchorElement>
+ * @augments {ConfigurableComponent<SkipLinkConfig, HTMLAnchorElement>}
  */
-export class SkipLink extends Component {
+export class SkipLink extends ConfigurableComponent {
   static elementType = _self.HTMLAnchorElement
 
   /**
    * @param {Element | null} $root - HTML element to use for component
+   * @param {Partial<SkipLinkConfig>} [config] - Skip link config
    */
-  constructor($root) {
-    super($root)
+  constructor($root, config) {
+    super($root, config)
 
     const hash = this.$root.hash
     const href = this.$root.getAttribute('href') ?? ''
@@ -63,29 +64,54 @@ export class SkipLink extends Component {
      * Adds a helper CSS class to hide native focus styles,
      * but removes it on blur to restore native focus styles
      */
-    this.$root.addEventListener('click', () =>
+    this.$root.addEventListener('click', () => {
+      const { focusedElementClassList } = this.config
+
       setFocus($linkedElement, {
         onBeforeFocus() {
-          $linkedElement.classList.add('nhsuk-skip-link-focused-element')
+          $linkedElement.classList.add(...focusedElementClassList)
         },
         onBlur() {
-          $linkedElement.classList.remove('nhsuk-skip-link-focused-element')
+          $linkedElement.classList.remove(...focusedElementClassList)
         }
       })
-    )
+    })
   }
 
   /**
    * Name for the component used when initialising using data-module attributes
    */
   static moduleName = 'nhsuk-skip-link'
+
+  /**
+   * Skip link default config
+   *
+   * @see {@link SkipLinkConfig}
+   * @constant
+   * @type {SkipLinkConfig}
+   */
+  static defaults = Object.freeze({
+    focusedElementClassList: ['nhsuk-skip-link-focused-element']
+  })
+
+  /**
+   * Skip link config schema
+   *
+   * @constant
+   * @satisfies {Schema<SkipLinkConfig>}
+   */
+  static schema = Object.freeze({
+    properties: {
+      focusedElementClassList: { type: 'array' }
+    }
+  })
 }
 
 /**
  * Initialise skip link component
  *
- * @deprecated Use {@link createAll | `createAll(SkipLink)`} instead.
- * @param {InitOptions} [options]
+ * @deprecated Use {@link createAll | `createAll(SkipLink, options)`} instead.
+ * @param {InitOptions & Partial<SkipLinkConfig>} [options]
  */
 export function initSkipLinks(options) {
   const { scope: $scope } = normaliseOptions(options)
@@ -95,10 +121,18 @@ export function initSkipLinks(options) {
   )
 
   $skipLinks?.forEach(($root) => {
-    new SkipLink($root)
+    new SkipLink($root, options)
   })
 }
 
 /**
+ * Skip link config
+ *
+ * @typedef {object} SkipLinkConfig
+ * @property {string[]} focusedElementClassList - Focused element class list
+ */
+
+/**
  * @import { createAll, InitOptions } from '../../index.mjs'
+ * @import { Schema } from '../../common/configuration/index.mjs'
  */

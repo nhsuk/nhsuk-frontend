@@ -33,11 +33,11 @@
   // Set defaults only without breakpoints
   @each $width in map.keys($nhsuk-grid-widths) {
     @each $breakpoint in $breakpoints {
-      $grid-column-selector: if(
-        $breakpoint == $breakpoint-default,
-        ".nhsuk-grid-column-#{$width}",
-        ".nhsuk-grid-column-#{$width}-from-#{$breakpoint}"
-      );
+      $grid-column-selector: ".nhsuk-grid-column-#{$width}-from-#{$breakpoint}";
+
+      @if $breakpoint == $breakpoint-default {
+        $grid-column-selector: ".nhsuk-grid-column-#{$width}";
+      }
 
       #{$grid-column-selector} {
         @extend %nhsuk-grid-column;
@@ -49,11 +49,11 @@
   @each $breakpoint in $breakpoints {
     @include nhsuk-media-query($from: $breakpoint) {
       @each $width in map.keys($nhsuk-grid-widths) {
-        $grid-column-selector: if(
-          $breakpoint == $breakpoint-default,
-          ".nhsuk-grid-column-#{$width}",
-          ".nhsuk-grid-column-#{$width}-from-#{$breakpoint}"
-        );
+        $grid-column-selector: ".nhsuk-grid-column-#{$width}-from-#{$breakpoint}";
+
+        @if $breakpoint == $breakpoint-default {
+          $grid-column-selector: ".nhsuk-grid-column-#{$width}";
+        }
 
         #{$grid-column-selector} {
           @include nhsuk-grid-column-width($width);

@@ -13,31 +13,39 @@ export const copy = gulp.parallel(
    * Copy GitHub release images, icons and other assets
    */
   task.name('copy:assets', () =>
-    assets.copy('nhsuk/assets/**', {
-      srcPath: join(config.paths.pkg, 'dist'),
+    assets.copy('assets/**', {
+      srcPath: join(config.paths.pkg, 'dist/nhsuk'),
       destPath: join(config.paths.root, 'dist/assets')
     })
   ),
 
   /**
-   * Copy and version GitHub release scripts
+   * Copy versioned GitHub release scripts
    */
   task.name("copy:scripts 'versioned'", () =>
-    assets.copy('nhsuk/nhsuk-frontend.min.js', {
-      srcPath: join(config.paths.pkg, 'dist'),
-      destPath: join(config.paths.root, 'dist'),
-      output: { file: `nhsuk-frontend-${NPM_PACKAGE_VERSION}.min.js` }
+    assets.copy(`nhsuk-frontend-${NPM_PACKAGE_VERSION}.min.js`, {
+      srcPath: join(config.paths.pkg, 'dist/nhsuk'),
+      destPath: join(config.paths.root, 'dist')
     })
   ),
 
   /**
-   * Copy and version GitHub release styles
+   * Copy versioned GitHub release styles
    */
   task.name("copy:styles 'versioned'", () =>
-    assets.copy('nhsuk/nhsuk-frontend.min.css', {
-      srcPath: join(config.paths.pkg, 'dist'),
-      destPath: join(config.paths.root, 'dist'),
-      output: { file: `nhsuk-frontend-${NPM_PACKAGE_VERSION}.min.css` }
+    assets.copy(`nhsuk-frontend-${NPM_PACKAGE_VERSION}.min.css`, {
+      srcPath: join(config.paths.pkg, 'dist/nhsuk'),
+      destPath: join(config.paths.root, 'dist')
+    })
+  ),
+
+  /**
+   * Copy versioned GitHub release styles (dynamic type)
+   */
+  task.name("copy:styles 'versioned, dynamic type'", () =>
+    assets.copy(`nhsuk-frontend-dynamic-type-${NPM_PACKAGE_VERSION}.min.css`, {
+      srcPath: join(config.paths.pkg, 'dist/nhsuk'),
+      destPath: join(config.paths.root, 'dist')
     })
   )
 )

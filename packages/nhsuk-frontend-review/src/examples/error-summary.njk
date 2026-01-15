@@ -51,6 +51,10 @@
               href: "#dateinput2-year"
             },
             {
+              text: "Problem with file",
+              href: "#file"
+            },
+            {
               text: "Problem with radios",
               href: "#radios"
             },
@@ -182,6 +186,17 @@
               classes: "nhsuk-input--width-4 nhsuk-input--error"
             }
           ]
+        }) }}
+
+        {{ fileUpload({
+          label: {
+            text: 'Label for file upload'
+          },
+          id: "file",
+          name: "file",
+          errorMessage: {
+            text: "Problem with file"
+          }
         }) }}
 
         {{ radios({

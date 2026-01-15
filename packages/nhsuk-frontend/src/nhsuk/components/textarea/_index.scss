@@ -17,8 +17,8 @@
     display: block;
 
     width: 100%;
-    min-height: 40px;
-    padding: nhsuk-spacing(1);
+    min-height: nhsuk-px-to-rem(40px);
+    padding: nhsuk-px-to-rem(nhsuk-spacing(1));
 
     resize: vertical;
 

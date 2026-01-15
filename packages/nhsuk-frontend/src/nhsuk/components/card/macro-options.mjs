@@ -28,10 +28,26 @@ export const params = {
     required: false,
     description: 'Classes to add to the card heading.'
   },
+  headingSize: {
+    type: 'string',
+    required: false,
+    description:
+      'Size of the heading – `"xss"`, `"xs"`, `"s"`, `"m"`, `"l"` or `"xl"`.'
+  },
   headingLevel: {
     type: 'integer',
     required: false,
     description: 'Optional heading level for the card heading. Defaults to `2`.'
+  },
+  headingId: {
+    type: 'string',
+    required: false,
+    description: 'Optional `id` attribute for the card heading.'
+  },
+  headingVisuallyHiddenText: {
+    type: 'string',
+    required: false,
+    description: 'Optional visually hidden prefix used before the heading.'
   },
   href: {
     type: 'string',
@@ -68,15 +84,34 @@ export const params = {
     description:
       'If set to `true`, the card will become a secondary card variant.'
   },
-  imgURL: {
-    type: 'string',
+  warning: {
+    type: 'boolean',
     required: false,
-    description: 'The URL of the image in the card.'
+    description:
+      'If set to `true`, then the card will become a warning card variant used by the warning callout.'
   },
-  imgALT: {
-    type: 'string',
+  image: {
+    type: 'object',
     required: false,
-    description: 'The alternative text of the image in the card.'
+    description: 'Can be used to add an image to the card component.',
+    params: {
+      src: {
+        type: 'string',
+        required: true,
+        description: 'The URL of the image in the card.'
+      },
+      alt: {
+        type: 'string',
+        required: false,
+        description: 'The alternative text of the image in the card.'
+      },
+      html: {
+        type: 'string',
+        required: false,
+        description:
+          'HTML to use for the image content. If `html` is provided, the `src` and `alt` arguments will be ignored.'
+      }
+    }
   },
   description: {
     type: 'string',
@@ -89,6 +124,60 @@ export const params = {
     required: false,
     description:
       'HTML to use within the card content. If `descriptionHtml` is provided, the `description` argument will be ignored.'
+  },
+  actions: {
+    type: 'object',
+    required: false,
+    description: 'Can be used to add actions to the card component.',
+    params: {
+      items: {
+        type: 'array',
+        required: false,
+        description: 'Array of actions as links for use in the card component.',
+        params: {
+          href: {
+            type: 'string',
+            required: true,
+            description:
+              "The value of the link's `href` attribute for an action item."
+          },
+          text: {
+            type: 'string',
+            required: true,
+            description:
+              'If `html` is set, this is not required. Text to use within each action item. If `html` is provided, the `text` option will be ignored.'
+          },
+          html: {
+            type: 'string',
+            required: true,
+            description:
+              'If `text` is set, this is not required. HTML to use within each action item. If `html` is provided, the `text` option will be ignored.'
+          },
+          visuallyHiddenText: {
+            type: 'string',
+            required: false,
+            description:
+              'Actions rely on context from the surrounding content so may require additional accessible text. Text supplied to this option is appended to the end. Use `html` for more complicated scenarios.'
+          },
+          classes: {
+            type: 'string',
+            required: false,
+            description: 'Classes to add to the action item.'
+          },
+          attributes: {
+            type: 'object',
+            required: false,
+            description:
+              'HTML attributes (for example data attributes) to add to the action item.'
+          }
+        }
+      },
+      classes: {
+        type: 'string',
+        required: false,
+        description: 'Classes to add to the actions wrapper.'
+      }
+    }
   },
   caller: {
     type: 'nunjucks-block',

@@ -213,7 +213,9 @@
       }) }}
 
       {{ card({
-        imgURL: "https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg",
+        image: {
+          src: "https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg"
+        },
         href: "#",
         clickable: "true",
         heading: "Exercise",
@@ -887,6 +889,27 @@
         classes: "nhsuk-input--width-10 nhsuk-input--code",
         inputmode: "numeric",
         spellcheck: false
+      }) }}
+
+      {{ fileUpload({
+        label: {
+          text: "Upload a file"
+        },
+        name: "file"
+      }) }}
+
+      {{ fileUpload({
+        label: {
+          text: "Upload a file"
+        },
+        hint: {
+          text: "Upload a CSV or Excel file"
+        },
+        errorMessage: {
+          text: "The CSV must be smaller than 2MB"
+        },
+        name: "fileHint",
+        id: "file-hint"
       }) }}
 
       <form method="post" novalidate>

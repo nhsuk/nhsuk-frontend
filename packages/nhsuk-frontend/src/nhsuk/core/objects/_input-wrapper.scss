@@ -3,6 +3,7 @@
 
 @include nhsuk-exports("nhsuk/core/objects/input-wrapper") {
   .nhsuk-input-wrapper,
+  // Deprecated, to be removed in v11.0
   .nhsuk-input__wrapper {
     display: flex;
 

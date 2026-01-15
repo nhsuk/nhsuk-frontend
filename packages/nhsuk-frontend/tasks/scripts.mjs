@@ -1,8 +1,11 @@
 import { join } from 'node:path'
 
 import * as config from '@nhsuk/frontend-config'
-import { scripts, task } from '@nhsuk/frontend-tasks'
+import { assets, scripts, task } from '@nhsuk/frontend-tasks'
 import gulp from 'gulp'
+
+// Prefer release version if available
+const { NPM_PACKAGE_VERSION = config.version } = process.env
 
 /**
  * Rollup build cache
@@ -110,6 +113,17 @@ export const compile = gulp.series(
       }
     })
   )
+)
+
+/**
+ * Copy and version NHS.UK frontend scripts bundle
+ */
+export const version = task.name("scripts:version 'minified'", () =>
+  assets.copy('nhsuk-frontend.min.js', {
+    srcPath: join(config.paths.pkg, 'dist/nhsuk'),
+    destPath: join(config.paths.pkg, 'dist/nhsuk'),
+    output: { file: `nhsuk-frontend-${NPM_PACKAGE_VERSION}.min.js` }
+  })
 )
 
 /**

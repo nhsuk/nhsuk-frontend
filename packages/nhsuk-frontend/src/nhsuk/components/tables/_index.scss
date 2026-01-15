@@ -44,8 +44,23 @@
     @include nhsuk-responsive-margin(7, "bottom");
   }
 
+  .nhsuk-table__caption {
+    display: table-caption;
+    margin-bottom: nhsuk-spacing(3) - nhsuk-spacing(2);
+    @include nhsuk-font($size: 22, $weight: bold);
+
+    @include nhsuk-media-query($from: tablet) {
+      margin-bottom: nhsuk-spacing(4) - nhsuk-spacing(3);
+    }
+  }
+
   .nhsuk-table__caption--xl {
+    margin-bottom: nhsuk-spacing(6) - nhsuk-spacing(2);
     @include nhsuk-font-size(48);
+
+    @include nhsuk-media-query($from: tablet) {
+      margin-bottom: nhsuk-spacing(7) - nhsuk-spacing(3);
+    }
   }
 
   .nhsuk-table__caption--l {
@@ -142,7 +157,7 @@
 
       @include nhsuk-media-query($until: tablet) {
         .nhsuk-table__row th {
-          font-weight: $nhsuk-font-normal;
+          font-weight: $nhsuk-font-weight-normal;
         }
 
         .nhsuk-table__row th,

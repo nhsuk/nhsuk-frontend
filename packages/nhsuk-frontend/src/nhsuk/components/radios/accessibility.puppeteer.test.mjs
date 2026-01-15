@@ -27,7 +27,8 @@ describe('Radios', () => {
       async (options) => {
         await goToComponent(page, 'radios', options)
         return expect(axe(page, axeRules)).resolves.toHaveNoViolations()
-      }
+      },
+      20000
     )
   })
 })

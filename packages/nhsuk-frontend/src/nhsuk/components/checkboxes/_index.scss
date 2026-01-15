@@ -12,19 +12,19 @@
 /// @group components/checkboxes
 ////
 
-$nhsuk-checkboxes-size: nhsuk-spacing(6);
-$nhsuk-checkboxes-small-size: nhsuk-spacing(4);
+$nhsuk-checkboxes-size: nhsuk-px-to-rem(nhsuk-spacing(6));
+$nhsuk-checkboxes-small-size: nhsuk-px-to-rem(nhsuk-spacing(4));
 
-$nhsuk-checkboxes-label-padding-left-right: 12px;
-$nhsuk-checkboxes-check-horizontal-position: 12px;
+$nhsuk-checkboxes-label-padding-left-right: nhsuk-px-to-rem(12px);
+$nhsuk-checkboxes-check-horizontal-position: nhsuk-px-to-rem(12px);
 
 // Offset 2px due to 40px form control with 44px clickable area
 // https://nhsuk.github.io/nhsuk-frontend/examples/form-alignment/
 $nhsuk-checkboxes-offset: $nhsuk-border-width-form-element;
 
 @include nhsuk-exports("nhsuk/components/checkboxes") {
-  $nhsuk-touch-target-gutter: 4px;
-  $nhsuk-touch-target-size: $nhsuk-checkboxes-size + $nhsuk-touch-target-gutter;
+  $nhsuk-touch-target-gutter: nhsuk-px-to-rem(4px);
+  $nhsuk-touch-target-size: $nhsuk-checkboxes-size + nhsuk-px-to-rem($nhsuk-touch-target-gutter);
 
   .nhsuk-checkboxes {
     margin: -$nhsuk-checkboxes-offset;
@@ -108,16 +108,16 @@ $nhsuk-checkboxes-offset: $nhsuk-border-width-form-element;
 
     // Use "magic numbers" to define shape and position of check mark because
     // the complexity of the shape makes it difficult to calculate dynamically.
-    top: 15px;
+    top: nhsuk-px-to-rem(15px);
     left: $nhsuk-checkboxes-check-horizontal-position;
 
-    width: 22px;
-    height: 10px;
+    width: nhsuk-px-to-rem(22px);
+    height: nhsuk-px-to-rem(10px);
 
     transform: rotate(-45deg);
 
     border: solid;
-    border-width: 0 0 4px 4px;
+    border-width: 0 0 nhsuk-px-to-rem(4px) nhsuk-px-to-rem(4px);
     // Fix bug in IE11 caused by transform rotate (-45deg).
     // See: alphagov/nhsuk_elements/issues/518
     border-top-color: transparent;
@@ -182,7 +182,7 @@ $nhsuk-checkboxes-offset: $nhsuk-border-width-form-element;
   // =========================================================
 
   // Calculate the amount of padding needed to keep the border centred against the checkbox.
-  $conditional-border-padding: math.div($nhsuk-touch-target-size, 2) - $nhsuk-border-width-form-element;
+  $conditional-border-padding: math.div($nhsuk-touch-target-size, 2) - nhsuk-px-to-rem($nhsuk-border-width-form-element);
   // Move the border centred with the checkbox
   $conditional-margin-left: $conditional-border-padding;
   // Move the contents of the conditional inline with the label
@@ -246,14 +246,14 @@ $nhsuk-checkboxes-offset: $nhsuk-border-width-form-element;
     //
     // Reduce the size of the check mark and re-align within the checkbox
     .nhsuk-checkboxes__label::after {
-      top: 18px;
+      top: nhsuk-px-to-rem(18px);
 
       // Horizontal position is just the normal sized left value accounting for
       // the new width of the smaller checkbox
-      left: (18px - $nhsuk-checkboxes-check-horizontal-position);
-      width: 12px;
-      height: 6px;
-      border-width: 0 0 3px 3px;
+      left: (nhsuk-px-to-rem(18px) - $nhsuk-checkboxes-check-horizontal-position);
+      width: nhsuk-px-to-rem(12px);
+      height: nhsuk-px-to-rem(6px);
+      border-width: 0 0 nhsuk-px-to-rem(3px) nhsuk-px-to-rem(3px);
     }
 
     // Fix position of hint with small checkboxes
@@ -270,9 +270,9 @@ $nhsuk-checkboxes-offset: $nhsuk-border-width-form-element;
 
     // Align conditional reveals with small checkboxes
     .nhsuk-checkboxes__conditional {
-      $margin-left: math.div($nhsuk-checkboxes-small-size, 2) - $nhsuk-border-width-form-element;
+      $margin-left: math.div($nhsuk-checkboxes-small-size, 2) - nhsuk-px-to-rem($nhsuk-border-width-form-element);
       margin-left: $margin-left;
-      padding-left: ($nhsuk-touch-target-size - $input-offset) - ($margin-left + $nhsuk-border-width);
+      padding-left: ($nhsuk-touch-target-size - $input-offset) - ($margin-left + nhsuk-px-to-rem($nhsuk-border-width));
     }
 
     .nhsuk-checkboxes__divider {

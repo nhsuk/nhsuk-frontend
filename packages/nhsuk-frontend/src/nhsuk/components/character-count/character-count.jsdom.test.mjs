@@ -138,9 +138,9 @@ describe('Character count', () => {
     it('configures the number of characters', () => {
       const characterCount = new CharacterCount($root)
       expect(characterCount.config).toEqual({
+        ...CharacterCount.defaults,
         maxlength: 200,
-        threshold: 0,
-        i18n: CharacterCount.defaults.i18n
+        threshold: 0
       })
     })
 
@@ -149,9 +149,9 @@ describe('Character count', () => {
 
       const characterCount = new CharacterCount($root)
       expect(characterCount.config).toEqual({
+        ...CharacterCount.defaults,
         maxwords: 150,
-        threshold: 0,
-        i18n: CharacterCount.defaults.i18n
+        threshold: 0
       })
     })
 
@@ -160,9 +160,9 @@ describe('Character count', () => {
 
       const characterCount = new CharacterCount($root)
       expect(characterCount.config).toEqual({
+        ...CharacterCount.defaults,
         maxlength: 112,
-        threshold: 75,
-        i18n: CharacterCount.defaults.i18n
+        threshold: 75
       })
     })
 
@@ -183,9 +183,9 @@ describe('Character count', () => {
       )
 
       expect(characterCount.config).toEqual({
+        ...CharacterCount.defaults,
         maxlength: 200,
-        threshold: 0,
-        i18n: CharacterCount.defaults.i18n
+        threshold: 0
       })
     })
   })

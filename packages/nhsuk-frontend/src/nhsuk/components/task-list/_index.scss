@@ -39,8 +39,8 @@ $nhsuk-task-list-hover-color: $nhsuk-task-list-hover-colour;
 
     width: 100%;
     margin-bottom: 0;
-    padding-top: calc(nhsuk-spacing(2) + 4px);
-    padding-bottom: calc(nhsuk-spacing(2) + 4px);
+    padding-top: nhsuk-spacing(2) + 4px;
+    padding-bottom: nhsuk-spacing(2) + 4px;
 
     border-bottom: 1px solid $nhsuk-border-colour;
   }
@@ -75,11 +75,11 @@ $nhsuk-task-list-hover-color: $nhsuk-task-list-hover-colour;
   // adjusting the tag styles to be closer to body text.
   .nhsuk-task-list__status--completed,
   .nhsuk-task-list__status--cannot-start-yet {
-    padding-top: calc(nhsuk-spacing(1) + 2px); // to match the spacing on tags
+    padding-top: nhsuk-spacing(1) + 2px; // to match the spacing on tags
     padding-bottom: nhsuk-spacing(1);
     padding-left: nhsuk-spacing(2);
 
-    @include nhsuk-font($size: 16, $weight: regular, $line-height: 1);
+    @include nhsuk-font($size: 16, $weight: normal, $line-height: 1);
   }
 
   .nhsuk-task-list__status--cannot-start-yet {
