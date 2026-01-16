@@ -3,7 +3,7 @@ import {
   normaliseOptions,
   validateConfig
 } from '../../common/configuration/index.mjs'
-import { graphemeCount } from '../../common/grapheme-count.mjs'
+import { codePointCount, graphemeCount } from '../../common/grapheme-count.mjs'
 import { formatErrorMessage } from '../../common/index.mjs'
 import { ConfigurableComponent } from '../../configurable-component.mjs'
 import { ConfigError, ElementError } from '../../errors/index.mjs'
@@ -185,7 +185,11 @@ export class CharacterCount extends ConfigurableComponent {
       return tokens.length
     }
 
-    return graphemeCount(text)
+    if (this.config.useGraphemeCounting) {
+      return graphemeCount(text)
+    }
+
+    return codePointCount(text)
   }
 
   /**
@@ -388,6 +392,7 @@ export class CharacterCount extends ConfigurableComponent {
     textareaDescriptionClass: 'nhsuk-character-count__message',
     visibleCountMessageClass: 'nhsuk-character-count__status',
     screenReaderCountMessageClass: 'nhsuk-character-count__sr-status',
+    useGraphemeCounting: false,
     i18n: {
       // Characters
       charactersUnderLimit: {
@@ -429,6 +434,7 @@ export class CharacterCount extends ConfigurableComponent {
       textareaDescriptionClass: { type: 'string' },
       visibleCountMessageClass: { type: 'string' },
       screenReaderCountMessageClass: { type: 'string' },
+      useGraphemeCounting: { type: 'boolean' },
       i18n: { type: 'object' }
     },
     anyOf: [
@@ -477,6 +483,10 @@ export function initCharacterCounts(options) {
  * @property {string} textareaDescriptionClass - Textarea description class
  * @property {string} visibleCountMessageClass - Visible count message class
  * @property {string} screenReaderCountMessageClass - Screen reader count message class
+ * @property {boolean} [useGraphemeCounting=false] - If true, uses grapheme cluster
+ *   counting (user-perceived characters) instead of code point counting. Defaults
+ *   to false to ensure consistency with Python's `len()` and server-side validation.
+ *   Only enable if your server-side validation also uses grapheme counting.
  * @property {CharacterCountTranslations} [i18n=CharacterCount.defaults.i18n] - Character count translations
  */
 

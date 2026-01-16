@@ -140,7 +140,13 @@ describe('Character count', () => {
       expect(characterCount.config).toEqual({
         ...CharacterCount.defaults,
         maxlength: 200,
+<<<<<<< HEAD
         threshold: 0
+=======
+        threshold: 0,
+        useGraphemeCounting: false,
+        i18n: CharacterCount.defaults.i18n
+>>>>>>> b5ec1781 (-Added fallback to support gap and server consistency)
       })
     })
 
@@ -185,7 +191,13 @@ describe('Character count', () => {
       expect(characterCount.config).toEqual({
         ...CharacterCount.defaults,
         maxlength: 200,
+<<<<<<< HEAD
         threshold: 0
+=======
+        threshold: 0,
+        useGraphemeCounting: false,
+        i18n: CharacterCount.defaults.i18n
+>>>>>>> b5ec1781 (-Added fallback to support gap and server consistency)
       })
     })
   })
@@ -297,7 +309,8 @@ describe('Character count: Format count message', () => {
       )
 
       component = new CharacterCount($root, {
-        maxlength: 10
+        maxlength: 10,
+        useGraphemeCounting: true
       })
     })
 
