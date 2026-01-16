@@ -64,7 +64,21 @@ export class Select extends ConfigurableComponent {
 
     // Create and append a wrapper to contain input/button and menu
     const $wrapper = document.createElement('div')
-    $wrapper.className = 'nhsuk-select-wrapper'
+    $wrapper.classList.add('nhsuk-select-wrapper')
+
+    const $sizeClassMap = {
+      'nhsuk-select--width-10': 'nhsuk-select-wrapper--width-10',
+      'nhsuk-select--width-20': 'nhsuk-select-wrapper--width-20',
+      'nhsuk-select--width-30': 'nhsuk-select-wrapper--width-30'
+    }
+
+    // Add size class to wrapper if select has size class
+    for (const [selectClass, wrapperClass] of Object.entries($sizeClassMap)) {
+      if (this.$select.classList.contains(selectClass)) {
+        $wrapper.classList.add(wrapperClass)
+      }
+    }
+
     this.$wrapper = $wrapper
     this.$select.insertAdjacentElement('afterend', $wrapper)
 

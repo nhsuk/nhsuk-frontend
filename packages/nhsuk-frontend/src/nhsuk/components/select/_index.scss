@@ -88,6 +88,23 @@
     }
   }
 
+  // The ex measurements are based on the number of W's that can fit inside the input
+  // Extra space is left on the right hand side to allow for the down arrow icon
+
+  .nhsuk-select--width-30,
+  .nhsuk-select-wrapper--width-30 {
+    max-width: 56ex + 3ex;
+  }
+
+  .nhsuk-select--width-20,
+  .nhsuk-select-wrapper--width-20 {
+    max-width: 38ex + 3ex;
+  }
+
+  .nhsuk-select-wrapper--width-10 {
+    max-width: 20ex + 3ex;
+  }
+
   .nhsuk-select__button:has(~ .nhsuk-select__menu:not([hidden])),
   .nhsuk-form-group--error .nhsuk-select__button:focus,
   .nhsuk-select__input:has(~ .nhsuk-select__menu:not([hidden])),
