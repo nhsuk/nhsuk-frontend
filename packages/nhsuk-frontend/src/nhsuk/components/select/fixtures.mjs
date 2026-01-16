@@ -62,7 +62,27 @@ export const examples = {
           text: 'Last name (Z to A)'
         }
       ]
-    }
+    },
+    variants: [
+      {
+        description: 'with 10 character width',
+        context: {
+          classes: 'nhsuk-select--width-10'
+        }
+      },
+      {
+        description: 'with 20 character width',
+        context: {
+          classes: 'nhsuk-select--width-20'
+        }
+      },
+      {
+        description: 'with 30 character width',
+        context: {
+          classes: 'nhsuk-select--width-30'
+        }
+      }
+    ]
   },
   'with disabled item': {
     context: {
