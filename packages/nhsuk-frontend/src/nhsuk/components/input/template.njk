@@ -27,7 +27,7 @@
 
 {#- a record of other elements that we need to associate with the input using
   aria-describedby – for example hints or error messages -#}
-{% set describedBy = params.describedBy if params.describedBy else undefined -%}
+{% set describedBy = params.describedBy if params.describedBy else "" -%}
 {%- set id = params.id if params.id else params.name -%}
 
 {%- set hasPrefix = true if prefix and (prefix.text or prefix.html) else false %}
@@ -57,7 +57,7 @@
         optional: true
       },
       "aria-describedby": {
-        value: describedBy,
+        value: describedBy if describedBy else false,
         optional: true
       },
       autocomplete: {
@@ -72,6 +72,10 @@
         value: params.pattern,
         optional: true
       },
+      placeholder: {
+        value: params.placeholder,
+        optional: true
+      },
       inputmode: {
         value: params.inputmode,
         optional: true
@@ -82,7 +86,7 @@
 {%- endmacro -%}
 
 {%- macro _affixItem(affix, type) %}
-  <div class="nhsuk-input__{{ type }} {%- if affix.classes %} {{ affix.classes }}{% endif %}" aria-hidden="true" {{- nhsukAttributes(affix.attributes) }}>
+  <div class="nhsuk-input-wrapper__{{ type }} {%- if affix.classes %} {{ affix.classes }}{% endif %}" aria-hidden="true" {{- nhsukAttributes(affix.attributes) }}>
     {{- affix.html | safe | trim | indent(4) if affix.html else affix.text -}}
   </div>
 {%- endmacro -%}
@@ -100,7 +104,7 @@
   }) | trim | indent(2) }}
 {% if params.hint %}
   {% set hintId = id ~ "-hint" %}
-  {% set describedBy = describedBy ~ " " ~ hintId if describedBy else hintId %}
+  {% set describedBy = (describedBy ~ " " ~ hintId) | trim %}
   {{ hint({
     id: hintId,
     classes: params.hint.classes,
@@ -111,7 +115,7 @@
 {% endif %}
 {% if params.errorMessage %}
   {% set errorId = id ~ "-error" %}
-  {% set describedBy = describedBy ~ " " ~ errorId if describedBy else errorId %}
+  {% set describedBy = (describedBy ~ " " ~ errorId) | trim %}
   {{ errorMessage({
     id: errorId,
     classes: params.errorMessage.classes,

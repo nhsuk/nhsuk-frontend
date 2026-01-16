@@ -1,0 +1,26 @@
+{% extends "layouts/example.njk" %}
+
+{% set pageName = "Test boilerplate" %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-4">{{ pageName }}</h1>
+      <p class="nhsuk-u-margin-bottom-8">This is a boilerplate component preview. You can use this as a starting point when rendering a component from tests.</p>
+    </div>
+  </div>
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full app-placeholder">
+      <code class="app-placeholder__code app-code">
+        {{- "<!-- Component placeholder -->" -}}
+      </code>
+    </div>
+  </div>
+{% endblock %}
+
+{% block bodyEnd %}
+  <script type="importmap">
+    { "imports": { "nhsuk-frontend": "{{ baseUrl }}javascripts/nhsuk-frontend.min.js" } }
+  </script>
+{% endblock %}}

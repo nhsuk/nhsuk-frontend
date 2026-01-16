@@ -11,7 +11,7 @@ const { headless = true } = jestPuppeteerConfig.launch
 const config = {
   cacheDirectory: '<rootDir>/.cache/jest',
   clearMocks: true,
-  coveragePathIgnorePatterns: ['.test.mjs'],
+  coveragePathIgnorePatterns: ['fixtures.mjs', 'macro-options.mjs'],
 
   // Enable Babel transforms until Jest supports ESM and `import()`
   // See: https://jestjs.io/docs/ecmascript-modules
@@ -30,8 +30,10 @@ const config = {
  * @type {Config}
  */
 module.exports = {
-  collectCoverageFrom: ['packages/*/src/**/*.{js,mjs}'],
-  coverageProvider: 'v8',
+  collectCoverageFrom: [
+    '<rootDir>/packages/*/src/**/*.{js,mjs}',
+    '!<rootDir>/packages/*/src/**/*.test.{js,mjs}'
+  ],
 
   // Reduce CPU usage during project test runs
   maxWorkers: headless
@@ -48,53 +50,34 @@ module.exports = {
     {
       ...config,
       displayName: 'JavaScript behaviour tests',
-      setupFilesAfterEnv: [
-        '@nhsuk/frontend-helpers/jest/environment/jest.jsdom.setup.mjs'
-      ],
-      testEnvironment:
-        '@nhsuk/frontend-helpers/jest/environment/jest.jsdom.mjs',
+      preset: '@nhsuk/frontend-helpers/jest/environment/jsdom',
       testMatch: ['<rootDir>/**/*.jsdom.test.{js,mjs}']
     },
     {
       ...config,
       displayName: 'JavaScript component tests',
-      setupFilesAfterEnv: [
-        '@nhsuk/frontend-helpers/jest/environment/jest.puppeteer.setup.mjs'
-      ],
-      testEnvironment:
-        '@nhsuk/frontend-helpers/jest/environment/jest.puppeteer.mjs',
+      preset: '@nhsuk/frontend-helpers/jest/environment/puppeteer',
       testMatch: [
         '<rootDir>/**/*.puppeteer.test.{js,mjs}',
 
         // Exclude accessibility tests
         '!**/accessibility.puppeteer.test.mjs'
-      ],
-
-      // Web server and browser required
-      globalSetup: 'jest-environment-puppeteer/setup',
-      globalTeardown: '@nhsuk/frontend-helpers/jest/browser/close.mjs'
+      ]
     },
     {
       ...config,
       displayName: 'Accessibility tests',
-      setupFilesAfterEnv: [
-        '@nhsuk/frontend-helpers/jest/environment/jest.puppeteer.setup.mjs'
-      ],
-      testEnvironment:
-        '@nhsuk/frontend-helpers/jest/environment/jest.puppeteer.mjs',
-      testMatch: ['<rootDir>/**/accessibility.puppeteer.test.mjs'],
-
-      // Web server and browser required
-      globalSetup: 'jest-environment-puppeteer/setup',
-      globalTeardown: '@nhsuk/frontend-helpers/jest/browser/close.mjs'
+      preset: '@nhsuk/frontend-helpers/jest/environment/puppeteer',
+      testMatch: ['<rootDir>/**/accessibility.puppeteer.test.mjs']
     }
   ],
 
   // Enable GitHub Actions reporter UI
-  reporters: ['default', 'github-actions'],
-
-  // Browser test increased timeout (5s to 15s)
-  testTimeout: 15000
+  reporters: [
+    'default',
+    'jest-puppeteer-istanbul/lib/reporter',
+    'github-actions'
+  ]
 }
 
 /**

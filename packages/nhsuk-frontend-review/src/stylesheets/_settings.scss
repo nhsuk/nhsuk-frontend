@@ -1,0 +1,19 @@
+/// Code colour
+
+$app-code-color: #dd1144;
+
+/// System ui-monospace font stack
+///
+/// @link https://caniuse.com/extended-system-fonts
+/// @link https://www.w3.org/TR/css-fonts-4/#ui-monospace-def
+///
+/// Android typically avoids the "Courier" based monospace
+/// default but we need to specify fallbacks for others:
+///
+/// * SF Mono - Font for Safari 13.1+ via ui-monospace
+/// * Menlo - Font for older macOS, OS X versions
+/// * Cascadia Mono, Segoe UI Mono, Consolas - Fonts for Windows 11, 10, 8
+/// * Consolas - Font for older Windows versions
+/// * Liberation Mono - Font for Linux used by GitHub
+
+$app-code-font: ui-monospace, menlo, "Cascadia Mono", "Segoe UI Mono", consolas, "Liberation Mono", monospace;

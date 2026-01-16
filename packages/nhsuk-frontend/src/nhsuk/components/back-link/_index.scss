@@ -20,7 +20,7 @@
     position: relative;
 
     padding: 0;
-    padding-left: nhsuk-em($_font-size);
+    padding-left: nhsuk-em($_font-size, $_font-size);
 
     border: 0;
 
@@ -49,6 +49,6 @@
   }
 
   .nhsuk-back-link--reverse {
-    @include nhsuk-link-style-white;
+    @include nhsuk-link-style-reverse;
   }
 }

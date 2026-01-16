@@ -1,5 +1,6 @@
 @use "sass:math";
 @use "../settings" as *;
+@use "../tools/functions" as *;
 
 ////
 /// Shape arrow
@@ -49,6 +50,7 @@
   border-style: solid;
   border-color: transparent; // 1
 
+  $base: nhsuk-px-to-rem($base);
   $perpendicular: math.div($base, 2);
 
   @if not $height {

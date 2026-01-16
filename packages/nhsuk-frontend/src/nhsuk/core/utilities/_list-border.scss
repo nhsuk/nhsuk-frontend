@@ -1,4 +1,5 @@
 @use "../settings" as *;
+@use "../tools/functions" as *;
 @use "../helpers" as *;
 
 ////
@@ -16,6 +17,6 @@
 ////
 
 .nhsuk-list--border li {
-  padding: 8px 0 16px;
+  padding: nhsuk-px-to-rem(8px) 0 nhsuk-px-to-rem(16px);
   border-bottom: 1px solid $nhsuk-border-colour;
 }

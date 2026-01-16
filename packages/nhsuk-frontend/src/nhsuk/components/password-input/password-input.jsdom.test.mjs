@@ -185,9 +185,7 @@ describe('Password input', () => {
         document.querySelector(`[data-module="${PasswordInput.moduleName}"]`)
       )
 
-      expect(component.config).toEqual({
-        i18n: PasswordInput.defaults.i18n
-      })
+      expect(component.config).toEqual(PasswordInput.defaults)
     })
 
     it('configures default text', () => {
@@ -197,9 +195,7 @@ describe('Password input', () => {
         document.querySelector(`[data-module="${PasswordInput.moduleName}"]`)
       )
 
-      expect(component.config).toEqual({
-        i18n: PasswordInput.defaults.i18n
-      })
+      expect(component.config).toEqual(PasswordInput.defaults)
     })
 
     it('configures translated text', () => {
@@ -210,6 +206,7 @@ describe('Password input', () => {
       )
 
       expect(component.config).toEqual({
+        ...PasswordInput.defaults,
         i18n: {
           hidePassword: 'Cuddio',
           hidePasswordAriaLabel: 'Cuddio cyfrinair',
@@ -236,6 +233,7 @@ describe('Password input', () => {
         })
 
         expect(component.config).toEqual({
+          ...PasswordInput.defaults,
           i18n: {
             ...PasswordInput.defaults.i18n,
             hidePassword: 'Custom text'
@@ -251,6 +249,7 @@ describe('Password input', () => {
         const component = new PasswordInput($root)
 
         expect(component.config).toEqual({
+          ...PasswordInput.defaults,
           i18n: {
             ...PasswordInput.defaults.i18n,
             hidePassword: 'Custom text'

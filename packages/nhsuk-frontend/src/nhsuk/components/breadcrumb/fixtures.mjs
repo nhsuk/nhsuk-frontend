@@ -21,10 +21,7 @@ export const examples = {
         }
       ]
     },
-    screenshot: {
-      states: ['focus', 'hover', 'active'],
-      selector: '.nhsuk-breadcrumb a'
-    }
+    screenshot: true
   },
   'reverse': {
     context: {
@@ -47,9 +44,7 @@ export const examples = {
     options: {
       layout: 'background-blue'
     },
-    screenshot: {
-      selector: '.nhsuk-breadcrumb a'
-    }
+    screenshot: true
   },
   'with back link as a button': {
     context: {

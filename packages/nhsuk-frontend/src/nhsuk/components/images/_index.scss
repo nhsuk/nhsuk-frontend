@@ -25,7 +25,7 @@
     @include nhsuk-responsive-margin(6, "bottom");
     @include nhsuk-responsive-margin(6, "top");
 
-    @include nhsuk-media-query($from: desktop) {
+    @include nhsuk-media-query($from: tablet) {
       width: math.percentage(math.div(2, 3)); // [2]
     }
 

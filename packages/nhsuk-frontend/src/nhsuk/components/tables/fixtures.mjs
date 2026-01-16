@@ -1,3 +1,4 @@
+import { components } from '@nhsuk/frontend-lib'
 import { outdent } from 'outdent'
 
 /**
@@ -8,7 +9,8 @@ import { outdent } from 'outdent'
 export const examples = {
   'default': {
     context: {
-      caption: 'Skin symptoms and possible causes',
+      caption: 'Impetigo can look similar to other skin conditions',
+      captionSize: 'm',
       head: [
         {
           text: 'Skin symptoms'
@@ -51,6 +53,7 @@ export const examples = {
   'with empty items': {
     context: {
       caption: 'Vaccinations given',
+      captionSize: 'm',
       head: [
         {
           text: 'Date'
@@ -77,6 +80,7 @@ export const examples = {
   'with missing data': {
     context: {
       caption: 'Vaccinations given',
+      captionSize: 'm',
       head: [
         {
           text: 'Date'
@@ -118,6 +122,7 @@ export const examples = {
   'with numeric data': {
     context: {
       caption: 'Prescription prepayment certificate (PPC) charges',
+      captionSize: 'm',
       head: [
         {
           text: 'Item'
@@ -177,6 +182,7 @@ export const examples = {
   'with responsive layout': {
     context: {
       caption: 'Ibuprofen syrup dosages for children',
+      captionSize: 'm',
       responsive: true,
       head: [
         {
@@ -297,9 +303,150 @@ export const examples = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
+  'with responsive layout and custom HTML': {
+    context: {
+      caption: 'Nunjucks macro options',
+      firstCellIsHeader: true,
+      responsive: true,
+      head: [
+        {
+          text: 'Name'
+        },
+        {
+          text: 'Type'
+        },
+        {
+          text: 'Description'
+        }
+      ],
+      rows: [
+        [
+          {
+            header: 'Name',
+            text: 'id'
+          },
+          {
+            header: 'Type',
+            text: 'string'
+          },
+          {
+            header: 'Description',
+            text: 'The ID of the table.'
+          }
+        ],
+        [
+          {
+            header: 'Name',
+            text: 'rows'
+          },
+          {
+            header: 'Type',
+            text: 'array'
+          },
+          {
+            header: 'Description',
+            html: outdent`
+              <strong>Required.</strong> The rows within the table component.
+              <a href="#/macro-options">See macro options for rows</a>.
+            `
+          }
+        ],
+        [
+          {
+            header: 'Name',
+            text: 'head'
+          },
+          {
+            header: 'Type',
+            text: 'array'
+          },
+          {
+            header: 'Description',
+            html: outdent`
+              Can be used to add a row of table header cells (<code class="app-code">&lt;th&gt;</code>) at the top of the table component.
+              <a href="#/macro-options">See macro options for head</a>.
+            `
+          }
+        ],
+        [
+          {
+            header: 'Name',
+            text: 'caption'
+          },
+          {
+            header: 'Type',
+            text: 'string'
+          },
+          {
+            header: 'Description',
+            text: 'Caption text.'
+          }
+        ],
+        [
+          {
+            header: 'Name',
+            text: 'captionClasses'
+          },
+          {
+            header: 'Type',
+            text: 'string'
+          },
+          {
+            header: 'Description',
+            text: 'Classes for caption text size. Classes should correspond to the available typography heading classes.'
+          }
+        ],
+        [
+          {
+            header: 'Name',
+            text: 'firstCellIsHeader'
+          },
+          {
+            header: 'Type',
+            text: 'string'
+          },
+          {
+            header: 'Description',
+            html: outdent`
+              If set to <code class="app-code">true</code>, the first cell in each row will be a table header (<code class="app-code">&lt;th&gt;</code>).
+            `
+          }
+        ],
+        [
+          {
+            header: 'Name',
+            text: 'classes'
+          },
+          {
+            header: 'Type',
+            text: 'string'
+          },
+          {
+            header: 'Description',
+            text: 'Classes to add to the table container.'
+          }
+        ],
+        [
+          {
+            header: 'Name',
+            text: 'attributes'
+          },
+          {
+            header: 'Type',
+            text: 'object'
+          },
+          {
+            header: 'Description',
+            text: '	HTML attributes (for example data attributes) to add to the table container.'
+          }
+        ]
+      ]
+    }
+  },
   'with word breaks': {
     context: {
       caption: 'Users',
+      captionSize: 'm',
       head: [
         {
           text: 'Name'
@@ -327,12 +474,12 @@ export const examples = {
             classes: 'nhsuk-u-text-break-word'
           },
           {
-            text: 'Active'
-          },
-          {
-            html: outdent`
-              <a href="#">Change <span class="nhsuk-u-visually-hidden">status for Stephanie Meyer</span></a>
-            `
+            html: components.render('tag', {
+              context: {
+                text: 'Active',
+                classes: 'nhsuk-tag--green'
+              }
+            })
           }
         ],
         [
@@ -345,12 +492,12 @@ export const examples = {
             classes: 'nhsuk-u-text-break-word'
           },
           {
-            text: 'Inactive'
-          },
-          {
-            html: outdent`
-              <a href="#">Change <span class="nhsuk-u-visually-hidden">status for Aleksandrina Featherstonehaugh-Whitehead</span></a>
-            `
+            html: components.render('tag', {
+              context: {
+                text: 'Inactive',
+                classes: 'nhsuk-tag--grey'
+              }
+            })
           }
         ]
       ]
@@ -427,12 +574,56 @@ export const examples = {
       ]
     }
   },
-  'as a panel': {
+  'as a card': {
     context: {
-      heading: 'Conditions similar to impetigo',
-      caption: 'Other possible causes of your symptoms',
-      captionClasses: 'nhsuk-u-visually-hidden',
-      panel: true,
+      card: true,
+      caption: 'Impetigo can look similar to other skin conditions',
+      captionSize: 'm',
+      head: [
+        {
+          text: 'Skin symptoms'
+        },
+        {
+          text: 'Possible cause'
+        }
+      ],
+      rows: [
+        [
+          {
+            text: 'Blisters on lips or around the mouth'
+          },
+          {
+            text: 'Cold sores'
+          }
+        ],
+        [
+          {
+            text: 'Itchy, dry, cracked, sore'
+          },
+          {
+            text: 'Eczema'
+          }
+        ],
+        [
+          {
+            text: 'Itchy blisters'
+          },
+          {
+            text: 'Shingles, chickenpox'
+          }
+        ]
+      ]
+    }
+  },
+  'as a card (feature)': {
+    context: {
+      card: {
+        heading: 'Other conditions like impetigo',
+        headingSize: 'm',
+        feature: true
+      },
+      caption: 'Impetigo can look similar to other skin conditions',
+      captionSize: 's',
       head: [
         {
           text: 'Skin symptoms'
@@ -470,6 +661,58 @@ export const examples = {
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']
+    }
+  },
+  'as a card (feature) with responsive layout': {
+    context: {
+      card: {
+        heading: 'Other conditions like impetigo',
+        headingSize: 'm',
+        feature: true
+      },
+      caption: 'Impetigo can look similar to other skin conditions',
+      captionSize: 's',
+      responsive: true,
+      head: [
+        {
+          text: 'Skin symptoms'
+        },
+        {
+          text: 'Possible cause'
+        }
+      ],
+      rows: [
+        [
+          {
+            header: 'Skin problems',
+            text: 'Blisters on lips or around the mouth'
+          },
+          {
+            header: 'Possible cause',
+            text: 'Cold sores'
+          }
+        ],
+        [
+          {
+            header: 'Skin problems',
+            text: 'Itchy, dry, cracked, sore'
+          },
+          {
+            header: 'Possible cause',
+            text: 'Eczema'
+          }
+        ],
+        [
+          {
+            header: 'Skin problems',
+            text: 'Itchy blisters'
+          },
+          {
+            header: 'Possible cause',
+            text: 'Shingles, chickenpox'
+          }
+        ]
+      ]
     }
   }
 }

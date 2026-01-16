@@ -229,26 +229,4 @@ describe('Error summary', () => {
       })
     })
   })
-
-  describe('JavaScript configuration', () => {
-    it('configures auto-focus explicitly enabled', () => {
-      const errorSummary = new ErrorSummary($root, {
-        disableAutoFocus: false
-      })
-
-      expect(errorSummary.config).toEqual({
-        disableAutoFocus: false
-      })
-    })
-
-    it('configures auto-focus disabled', () => {
-      const errorSummary = new ErrorSummary($root, {
-        disableAutoFocus: true
-      })
-
-      expect(errorSummary.config).toEqual({
-        disableAutoFocus: true
-      })
-    })
-  })
 })

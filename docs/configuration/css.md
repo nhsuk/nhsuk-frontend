@@ -44,7 +44,7 @@ Alternatively you can use NHS.UK frontend styles with a custom configuration:
 
 ```scss
 @use "nhsuk-frontend/dist/nhsuk" as * with (
-  $nhsuk-include-font-face: false
+  $nhsuk-include-default-font-face: false
 );
 
 @forward "nhsuk-frontend/dist/nhsuk";

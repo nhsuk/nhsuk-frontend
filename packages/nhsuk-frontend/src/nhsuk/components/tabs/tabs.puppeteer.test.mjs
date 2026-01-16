@@ -1,22 +1,15 @@
-import { getPage, goToComponent } from '@nhsuk/frontend-helpers/puppeteer.mjs'
+import { render } from '@nhsuk/frontend-helpers/puppeteer.mjs'
 import { KnownDevices } from 'puppeteer'
+
+import { examples } from './fixtures.mjs'
 
 const iPhone = KnownDevices['iPhone 6']
 
 describe('Tabs', () => {
-  /** @type {Page} */
-  let page
-
-  beforeAll(async () => {
-    page = await getPage(browser)
-  })
-
   describe('when JavaScript is unavailable or fails', () => {
-    beforeEach(async () => {
-      page = await goToComponent(page, 'tabs')
-
+    beforeAll(async () => {
       await page.setJavaScriptEnabled(false)
-      await page.reload()
+      await render(page, 'tabs', examples.default)
     })
 
     afterAll(async () => {
@@ -33,8 +26,8 @@ describe('Tabs', () => {
   })
 
   describe('when JavaScript is available', () => {
-    beforeEach(async () => {
-      page = await goToComponent(page, 'tabs')
+    beforeAll(async () => {
+      await render(page, 'tabs', examples.default)
     })
 
     it('should indicate the open state of the first tab', async () => {
@@ -76,7 +69,7 @@ describe('Tabs', () => {
 
   describe('when a tab is pressed', () => {
     beforeEach(async () => {
-      page = await goToComponent(page, 'tabs')
+      await render(page, 'tabs', examples.default)
     })
 
     it('should indicate the open state of the pressed tab', async () => {
@@ -114,8 +107,8 @@ describe('Tabs', () => {
     })
 
     describe('when the tab contains a DOM element', () => {
-      beforeEach(async () => {
-        page = await goToComponent(page, 'tabs')
+      beforeAll(async () => {
+        await render(page, 'tabs', examples.default)
       })
 
       it('should display the tab panel associated with the selected tab', async () => {
@@ -149,7 +142,7 @@ describe('Tabs', () => {
 
   describe('when first tab is focused and the right arrow key is pressed', () => {
     beforeEach(async () => {
-      page = await goToComponent(page, 'tabs')
+      await render(page, 'tabs', examples.default)
     })
 
     it('should indicate the open state of the next tab', async () => {
@@ -191,7 +184,7 @@ describe('Tabs', () => {
 
   describe('when a hash associated with a tab panel is passed in the URL', () => {
     it('should indicate the open state of the associated tab', async () => {
-      page = await goToComponent(page, 'tabs')
+      await render(page, 'tabs', examples.default)
 
       await page.evaluate(() => {
         window.location.hash = '#past-week'
@@ -220,9 +213,7 @@ describe('Tabs', () => {
     })
 
     it('should only update based on hashes that are tabs', async () => {
-      page = await goToComponent(page, 'tabs', {
-        name: 'with anchor in panel'
-      })
+      await render(page, 'tabs', examples['with anchor in panel'])
 
       await page.click('[href="#anchor"]')
 
@@ -234,12 +225,9 @@ describe('Tabs', () => {
   })
 
   describe('when rendered on a small device', () => {
-    beforeEach(async () => {
-      page = await goToComponent(page, 'tabs')
-    })
-
     it('falls back to making the all tab containers visible', async () => {
       await page.emulate(iPhone)
+      await render(page, 'tabs', examples.default)
       const isContentVisible = await page.waitForSelector(
         '.nhsuk-tabs__panel',
         { visible: true, timeout: 1000 }
@@ -247,8 +235,112 @@ describe('Tabs', () => {
       expect(isContentVisible).toBeTruthy()
     })
   })
-})
 
-/**
- * @import { Page } from 'puppeteer'
- */
+  describe('errors at instantiation', () => {
+    it('can throw a SupportError if appropriate', async () => {
+      await expect(
+        render(page, 'tabs', examples.default, {
+          beforeInitialisation() {
+            document.body.classList.remove('nhsuk-frontend-supported')
+          }
+        })
+      ).rejects.toMatchObject({
+        cause: {
+          name: 'SupportError',
+          message:
+            'NHS.UK frontend initialised without `<body class="nhsuk-frontend-supported">` from template `<script>` snippet'
+        }
+      })
+    })
+
+    it('throws when initialised twice', async () => {
+      await expect(
+        render(page, 'tabs', examples.default, {
+          async afterInitialisation($root) {
+            const { Tabs } = await import('nhsuk-frontend')
+            new Tabs($root)
+          }
+        })
+      ).rejects.toMatchObject({
+        name: 'InitError',
+        message: 'nhsuk-tabs: Root element (`$root`) already initialised'
+      })
+    })
+
+    it('throws when $root is not set', async () => {
+      await expect(
+        render(page, 'tabs', examples.default, {
+          beforeInitialisation($root) {
+            $root.remove()
+          }
+        })
+      ).rejects.toMatchObject({
+        cause: {
+          name: 'ElementError',
+          message: 'nhsuk-tabs: Root element (`$root`) not found'
+        }
+      })
+    })
+
+    it('throws when there are no tabs', async () => {
+      await expect(
+        render(page, 'tabs', examples.default, {
+          beforeInitialisation($root, { selector }) {
+            $root.querySelectorAll(selector).forEach((item) => item.remove())
+          },
+          context: {
+            selector: 'a.nhsuk-tabs__tab'
+          }
+        })
+      ).rejects.toMatchObject({
+        cause: {
+          name: 'ElementError',
+          message: 'nhsuk-tabs: Links (`<a class="nhsuk-tabs__tab">`) not found'
+        }
+      })
+    })
+
+    it('throws when the tab list is missing', async () => {
+      await expect(
+        render(page, 'tabs', examples.default, {
+          beforeInitialisation($root, { selector }) {
+            $root
+              .querySelector(selector)
+              .setAttribute('class', 'nhsuk-tabs__typo')
+          },
+          context: {
+            selector: '.nhsuk-tabs__list'
+          }
+        })
+      ).rejects.toMatchObject({
+        cause: {
+          name: 'ElementError',
+          message:
+            'nhsuk-tabs: List (`<ul class="nhsuk-tabs__list">`) not found'
+        }
+      })
+    })
+
+    it('throws when there the tab list is empty', async () => {
+      await expect(
+        render(page, 'tabs', examples.default, {
+          beforeInitialisation($root, { selector, className }) {
+            $root
+              .querySelectorAll(selector)
+              .forEach((item) => item.setAttribute('class', className))
+          },
+          context: {
+            selector: '.nhsuk-tabs__list-item',
+            className: 'nhsuk-tabs__list-typo'
+          }
+        })
+      ).rejects.toMatchObject({
+        cause: {
+          name: 'ElementError',
+          message:
+            'nhsuk-tabs: List items (`<li class="nhsuk-tabs__list-item">`) not found'
+        }
+      })
+    })
+  })
+})

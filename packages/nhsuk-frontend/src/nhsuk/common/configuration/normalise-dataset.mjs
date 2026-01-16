@@ -2,7 +2,7 @@ import { ConfigError } from '../../errors/index.mjs'
 import { formatErrorMessage, isObject } from '../index.mjs'
 
 import { extractConfigByNamespace } from './extract-config-by-namespace.mjs'
-import { normaliseString } from './normalise-string.mjs'
+import { normaliseArray, normaliseString } from './normalise-string.mjs'
 
 /**
  * Normalise dataset
@@ -39,7 +39,10 @@ export function normaliseDataset(Component, dataset) {
     const field = namespace.toString()
 
     if (field in dataset) {
-      out[field] = normaliseString(dataset[field], property)
+      out[field] =
+        property?.type === 'array'
+          ? normaliseArray(dataset[field])
+          : normaliseString(dataset[field], property)
     }
 
     /**

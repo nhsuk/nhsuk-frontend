@@ -1,6 +1,5 @@
 import {
   axe,
-  getPage,
   getOptions,
   goToComponent
 } from '@nhsuk/frontend-helpers/puppeteer.mjs'
@@ -8,11 +7,9 @@ import {
 import { examples } from './fixtures.mjs'
 
 describe('Skip link', () => {
-  /** @type {Page} */
-  let page
-
-  beforeAll(async () => {
-    page = await getPage(browser)
+  it('Listing page passes accessibility tests', async () => {
+    await goToComponent(page, 'skip-link')
+    return expect(axe(page)).resolves.toHaveNoViolations()
   })
 
   describe.each(Object.entries(examples))('%s', (name, example) => {
@@ -21,11 +18,8 @@ describe('Skip link', () => {
       async (options) => {
         await goToComponent(page, 'skip-link', options)
         return expect(axe(page)).resolves.toHaveNoViolations()
-      }
+      },
+      20000
     )
   })
 })
-
-/**
- * @import { Page } from 'puppeteer'
- */

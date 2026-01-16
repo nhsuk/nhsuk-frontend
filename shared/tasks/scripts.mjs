@@ -49,7 +49,11 @@ export function compile(
           development: config.version
         }),
         babel({
-          babelHelpers: 'bundled'
+          babelHelpers: 'bundled',
+          plugins:
+            config.environment === 'development'
+              ? ['istanbul'] // Add code coverage instrumentation
+              : undefined
         })
       ],
 

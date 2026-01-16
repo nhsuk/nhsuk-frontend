@@ -7,49 +7,53 @@ describe('Typography tools', () => {
   `
 
   const sassBootstrap = outdent`
-    @use "core/settings/breakpoints" as * with (
-      $nhsuk-breakpoints: (
-        desktop: 30em
+    $app-breakpoints: (
+      desktop: 30em
+    ) !default;
+
+    $app-typography-scale: (
+      12: (
+        null: (
+          font-size: 12px,
+          line-height: 15px
+        ),
+        print: (
+          font-size: 14pt,
+          line-height: 1.5
+        )
+      ),
+      14: (
+        null: (
+          font-size: 12px,
+          line-height: 15px
+        ),
+        desktop: (
+          font-size: 14px,
+          line-height: 20px
+        )
+      ),
+      16: (
+        null: (
+          font-size: 14px,
+          line-height: 15px
+        ),
+        desktop: (
+          font-size: 16px,
+          line-height: 20px
+        ),
+        deprecation: (
+          key: "test-key",
+          message: "This point on the scale is deprecated."
+        )
       )
+    ) !default;
+
+    @use "core/settings/breakpoints" as * with (
+      $nhsuk-breakpoints: $app-breakpoints
     );
 
     @use "core/settings/typography" as * with (
-      $nhsuk-typography-scale: (
-        12: (
-          null: (
-            font-size: 12px,
-            line-height: 15px
-          ),
-          print: (
-            font-size: 14pt,
-            line-height: 1.5
-          )
-        ),
-        14: (
-          null: (
-            font-size: 12px,
-            line-height: 15px
-          ),
-          desktop: (
-            font-size: 14px,
-            line-height: 20px
-          )
-        ),
-        16: (
-          null: (
-            font-size: 14px,
-            line-height: 15px
-          ),
-          desktop: (
-            font-size: 16px,
-            line-height: 20px
-          ),
-          deprecation: (
-            key: "test-key",
-            message: "This point on the scale is deprecated."
-          )
-        )
-      )
+      $nhsuk-typography-scale: $app-typography-scale
     );
 
     ${sassModules}
@@ -142,6 +146,10 @@ describe('Typography tools', () => {
         .foo {
           line-height: nhsuk-line-height($line-height: 2em, $font-size: 20px);
         }
+
+        .bar {
+          line-height: nhsuk-line-height($line-height: 32px, $font-size: 1.25em);
+        }
       `
 
       const results = compileStringAsync(sass, {
@@ -153,16 +161,28 @@ describe('Typography tools', () => {
           .foo {
             line-height: 2em;
           }
+
+          .bar {
+            line-height: 32px;
+          }
         `
       })
     })
 
-    it('converts line-height to a relative number', async () => {
+    it('converts line-height to a relative number if units match', async () => {
       const sass = outdent`
         ${sassModules}
 
         .foo {
           line-height: nhsuk-line-height($line-height: 30px, $font-size: 20px);
+        }
+
+        .bar {
+          line-height: nhsuk-line-height($line-height: 1.875rem, $font-size: 1.25rem);
+        }
+
+        .baz {
+          line-height: nhsuk-line-height($line-height: 1.875em, $font-size: 1.25em);
         }
       `
 
@@ -173,6 +193,52 @@ describe('Typography tools', () => {
       await expect(results).resolves.toMatchObject({
         css: outdent`
           .foo {
+            line-height: 1.5;
+          }
+
+          .bar {
+            line-height: 1.5;
+          }
+
+          .baz {
+            line-height: 1.5;
+          }
+        `
+      })
+    })
+
+    it('converts line-height to a relative number if using rems', async () => {
+      const sass = outdent`
+        ${sassModules}
+
+        .foo {
+          line-height: nhsuk-line-height($line-height: 1.875rem, $font-size: 20px);
+        }
+
+        .bar {
+          line-height: nhsuk-line-height($line-height: 1.875rem, $font-size: 20);
+        }
+
+        .baz {
+          line-height: nhsuk-line-height($line-height: 30px, $font-size: 1.25rem);
+        }
+      `
+
+      const results = compileStringAsync(sass, {
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+      })
+
+      await expect(results).resolves.toMatchObject({
+        css: outdent`
+          .foo {
+            line-height: 1.5;
+          }
+
+          .bar {
+            line-height: 1.5;
+          }
+
+          .baz {
             line-height: 1.5;
           }
         `
@@ -203,7 +269,40 @@ describe('Typography tools', () => {
           @media (min-width: 30em) {
             .foo {
               font-size: 0.875rem;
-              line-height: 1.42857;
+              line-height: 1.4285714286;
+            }
+          }
+        `
+      })
+    })
+
+    it('outputs CSS with suitable media queries (with dynamic type enabled)', async () => {
+      const sass = outdent`
+        @use "core/settings/globals" as * with (
+          $nhsuk-include-dynamic-type: true
+        );
+
+        ${sassBootstrap}
+
+        .foo {
+          @include nhsuk-font-size($size: 14)
+        }
+      `
+
+      const results = compileStringAsync(sass, {
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+      })
+
+      await expect(results).resolves.toMatchObject({
+        css: outdent`
+          .foo {
+            font-size: 0.7058823529rem;
+            line-height: 1.25;
+          }
+          @media (min-width: 30em) {
+            .foo {
+              font-size: 0.8235294118rem;
+              line-height: 1.4285714286;
             }
           }
         `
@@ -261,7 +360,7 @@ describe('Typography tools', () => {
           @media (min-width: 30em) {
             .foo {
               font-size: 0.875rem;
-              line-height: 1.42857;
+              line-height: 1.4285714286;
             }
           }
         `
@@ -270,28 +369,24 @@ describe('Typography tools', () => {
 
     it('outputs CSS using points as strings', async () => {
       const sass = outdent`
-        @use "core/settings/breakpoints" as * with (
-          $nhsuk-breakpoints: (
-            desktop: 30em
-          )
+        $app-breakpoints: (
+          desktop: 30em
         );
 
-        @use "core/settings/typography" as * with (
-          $nhsuk-typography-scale: (
-            "small": (
-              null: (
-                font-size: 12px,
-                line-height: 15px
-              ),
-              print: (
-                font-size: 14pt,
-                line-height: 1.5
-              )
+        $app-typography-scale: (
+          "small": (
+            null: (
+              font-size: 12px,
+              line-height: 15px
+            ),
+            print: (
+              font-size: 14pt,
+              line-height: 1.5
             )
           )
         );
 
-        @use "core/tools/typography" as *;
+        ${sassBootstrap}
 
         .foo {
           @include nhsuk-font-size($size: "small")
@@ -381,7 +476,7 @@ describe('Typography tools', () => {
             @media (min-width: 30em) {
               .foo {
                 font-size: 0.875rem !important;
-                line-height: 1.42857 !important;
+                line-height: 1.4285714286 !important;
               }
             }
           `
@@ -475,7 +570,7 @@ describe('Typography tools', () => {
             @media (min-width: 30em) {
               .foo {
                 font-size: 0.875rem;
-                line-height: 1.42857;
+                line-height: 1.4285714286;
               }
             }
           `
@@ -501,6 +596,32 @@ describe('Typography tools', () => {
 
         await expect(results).resolves.toMatchObject({
           css: expect.not.stringContaining('font-size: 0.875rem')
+        })
+      })
+
+      it('sets font-size based on $size (with dynamic type enabled)', async () => {
+        const sass = outdent`
+          @use "core/settings/globals" as * with (
+            $nhsuk-include-dynamic-type: true
+          );
+
+          ${sassBootstrap}
+
+          .foo {
+            @include nhsuk-font($size: 12)
+          }
+        `
+
+        const results = compileStringAsync(sass, {
+          loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+        })
+
+        await expect(results).resolves.toMatchObject({
+          css: expect.stringContaining('font-size: 0.7058823529rem')
+        })
+
+        await expect(results).resolves.toMatchObject({
+          css: expect.not.stringContaining('font-size: 0.8235294118rem')
         })
       })
 
@@ -637,7 +758,7 @@ describe('Typography tools', () => {
         })
       })
 
-      it('throws a deprecation warning if govuk-typography-responsive is used', async () => {
+      it('throws a deprecation warning if nhsuk-typography-responsive is used', async () => {
         const sass = outdent`
           ${sassBootstrap}
 

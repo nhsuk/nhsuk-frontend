@@ -86,17 +86,6 @@ export const params = {
       }
     }
   },
-  heading: {
-    type: 'string',
-    required: false,
-    description:
-      'Heading/label of the panel if the panel argument is set to true.'
-  },
-  headingLevel: {
-    type: 'integer',
-    required: false,
-    description: 'Optional heading level for the heading. Defaults to `3`.'
-  },
   caption: {
     type: 'string',
     required: false,
@@ -124,7 +113,14 @@ export const params = {
     required: false,
     description: 'If set to `true`, responsive table classes will be applied.'
   },
-  tableClasses: {
+  card: {
+    type: 'object',
+    required: false,
+    description:
+      'Can be used to wrap a card around the table component. If any of these options are present, a card will wrap around the table.',
+    isComponent: true
+  },
+  classes: {
     type: 'string',
     required: false,
     description: 'Classes to add to the table container.'

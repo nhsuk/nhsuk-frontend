@@ -1,7 +1,21 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
+{% from "nhsuk/components/input/macro.njk" import input %}
+{% from "nhsuk/components/button/macro.njk" import button %}
+
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-header" -%}
+
+{%- if params.organisation %}
+  {% set classNames = classNames ~ " nhsuk-header--organisation" %}
+{% endif %}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif %}
 
 {%- set searchAction = params.search.action | default("https://www.nhs.uk/search/") %}
+{%- set searchMethod = params.search.method | default("get") %}
 {%- set searchName = params.search.name | default("q") %}
 {%- set searchPlaceholder = params.search.placeholder | default("Search") %}
 {%- set searchVisuallyHiddenButton = params.search.visuallyHiddenButton | default("Search") %}
@@ -45,9 +59,7 @@
 {{- item.html | safe if item.html else item.text -}}
 {% endmacro %}
 
-<header {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-header
-  {%- if params.organisation %} nhsuk-header--organisation{% endif %}
-  {%- if params.classes %} {{ params.classes }}{% endif %}" role="banner"
+<header {%- if params.id %} id="{{ params.id }}"{% endif %} class="{{ classNames }}" role="banner"
   {{- nhsukAttributes(params.attributes) }} data-module="nhsuk-header">
   <div class="nhsuk-header__container nhsuk-width-container {%- if params.containerClasses %} {{ params.containerClasses }}{% endif %}">
     <div class="nhsuk-header__service">
@@ -72,15 +84,43 @@
     {% endif %}
     </div>
 {% if params.search %}
-    <search class="nhsuk-header__search">
-      <form class="nhsuk-header__search-form" id="search" action="{{ searchAction }}" method="get">
-        <label class="nhsuk-u-visually-hidden" for="search-field">{{ searchVisuallyHiddenLabel }}</label>
-        <input class="nhsuk-header__search-input nhsuk-input" id="search-field" name="{{ searchName }}" type="search" placeholder="{{ searchPlaceholder }}" autocomplete="off">
-        <button class="nhsuk-header__search-submit" type="submit">
-          {{ nhsukIcon("search", {
-            title: searchVisuallyHiddenButton
-          }) | trim | indent(10) }}
-        </button>
+    <search class="nhsuk-header__search
+      {%- if params.search.classes %} {{ params.search.classes }}{% endif %}"
+      {{- nhsukAttributes(params.search.attributes) }}>
+      <form
+        {{- nhsukAttributes({
+          class: "nhsuk-header__search-form",
+          id: "search",
+          action: {
+            value: searchAction,
+            optional: true
+          },
+          method: {
+            value: searchMethod,
+            optional: true
+          }
+        }) }} novalidate>
+        {{ input({
+          label: {
+            text: searchVisuallyHiddenLabel,
+            classes: "nhsuk-u-visually-hidden"
+          },
+          placeholder: searchPlaceholder,
+          name: searchName,
+          id: "search-field",
+          type: "search",
+          autocomplete: "off",
+          formGroup: {
+            afterInput: {
+              html: button({
+                html: nhsukIcon("search", {
+                  title: searchVisuallyHiddenButton
+                }) | trim | indent(2),
+                classes: "nhsuk-button--small"
+              })
+            }
+          }
+        }) | trim | indent(8) }}
       </form>
     </search>
 {% endif %}
@@ -97,7 +137,18 @@
             {{ _accountItem(item) | indent(12) }}
           </a>
         {% elif item.action %}
-          <form class="nhsuk-header__account-form" action="{{ item.action }}" method="{{ item.method or "post" }}">
+          <form
+            {{- nhsukAttributes({
+              class: "nhsuk-header__account-form",
+              action: {
+                value: item.action,
+                optional: true
+              },
+              method: {
+                value: item.method or "post",
+                optional: true
+              }
+            }) }} novalidate>
             <button class="nhsuk-header__account-button">
               {{ _accountItem(item) | indent(14) }}
             </button>

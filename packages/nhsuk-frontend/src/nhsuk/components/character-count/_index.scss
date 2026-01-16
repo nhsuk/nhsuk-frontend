@@ -29,7 +29,8 @@
     }
   }
 
-  .nhsuk-character-count__message {
+  .nhsuk-character-count__message,
+  .nhsuk-character-count__status {
     margin-top: 0;
     margin-bottom: 0;
 
@@ -43,6 +44,8 @@
     }
   }
 
+  .nhsuk-character-count__status--disabled,
+  // Deprecated, to be removed in v11.0
   .nhsuk-character-count__message--disabled {
     visibility: hidden;
   }

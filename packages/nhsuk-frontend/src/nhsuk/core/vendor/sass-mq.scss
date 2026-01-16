@@ -304,7 +304,7 @@ $mq-media-type: all !default;
     // Loop through the breakpoints that should be shown
     @each $show-breakpoint in $show-breakpoints {
       $width: get-breakpoint-width($show-breakpoint, $breakpoints);
-      @include mq($show-breakpoint, $breakpoints: $breakpoints) {
+      @include mq($show-breakpoint, $breakpoints: $breakpoints, $silence-warning: true) {
         content: "#{$show-breakpoint} ≥ #{$width} (#{px2em($width)})";
       }
     }

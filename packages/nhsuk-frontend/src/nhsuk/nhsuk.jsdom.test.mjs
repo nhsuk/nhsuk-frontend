@@ -7,7 +7,7 @@ jest.mock('./index.mjs')
 describe('NHS.UK frontend', () => {
   describe('Automatic initialisation', () => {
     it('should init components on DOMContentLoaded', async () => {
-      await import('./nhsuk.mjs')
+      jest.requireActual('./nhsuk.mjs')
 
       // Should not initialise on import
       expect(initAll).not.toHaveBeenCalled()

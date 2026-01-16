@@ -1,6 +1,7 @@
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
 @use "../../core/helpers" as *;
+@forward "../card";
 
 ////
 /// Warning callout component

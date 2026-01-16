@@ -84,12 +84,9 @@
     key: "words-over-limit",
     messages: params.wordsOverLimitText
   }) -}}
-{% endset -%}
 
-{#- Append form group attributes onto attributes set above #}
-{%- for name, value in params.formGroup.attributes %}
-  {% set attributesHtml = attributesHtml ~ " " ~ name | escape ~ '="' ~ value | escape ~ '"' %}
-{% endfor -%}
+  {{- nhsukAttributes(params.formGroup.attributes) -}}
+{% endset -%}
 
 {{ textarea({
   id: id,

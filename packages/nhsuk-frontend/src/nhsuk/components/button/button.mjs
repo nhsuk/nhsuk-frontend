@@ -6,7 +6,7 @@ const DEBOUNCE_TIMEOUT_IN_SECONDS = 1
 /**
  * Button component
  *
- * @augments ConfigurableComponent<ButtonConfig>
+ * @augments {ConfigurableComponent<ButtonConfig>}
  */
 export class Button extends ConfigurableComponent {
   /**
@@ -16,7 +16,7 @@ export class Button extends ConfigurableComponent {
 
   /**
    * @param {Element | null} $root - HTML element to use for component
-   * @param {ButtonConfig} [config] - Button config
+   * @param {Partial<ButtonConfig>} [config] - Button config
    */
   constructor($root, config = {}) {
     super($root, config)
@@ -116,7 +116,7 @@ export class Button extends ConfigurableComponent {
  * Initialise button component
  *
  * @deprecated Use {@link createAll | `createAll(Button, options)`} instead.
- * @param {InitOptions & ButtonConfig} [options]
+ * @param {InitOptions & Partial<ButtonConfig>} [options]
  */
 export function initButtons(options) {
   const { scope: $scope } = normaliseOptions(options)

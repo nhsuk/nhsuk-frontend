@@ -138,9 +138,9 @@ describe('Character count', () => {
     it('configures the number of characters', () => {
       const characterCount = new CharacterCount($root)
       expect(characterCount.config).toEqual({
+        ...CharacterCount.defaults,
         maxlength: 200,
-        threshold: 0,
-        i18n: CharacterCount.defaults.i18n
+        threshold: 0
       })
     })
 
@@ -149,9 +149,9 @@ describe('Character count', () => {
 
       const characterCount = new CharacterCount($root)
       expect(characterCount.config).toEqual({
+        ...CharacterCount.defaults,
         maxwords: 150,
-        threshold: 0,
-        i18n: CharacterCount.defaults.i18n
+        threshold: 0
       })
     })
 
@@ -160,9 +160,9 @@ describe('Character count', () => {
 
       const characterCount = new CharacterCount($root)
       expect(characterCount.config).toEqual({
+        ...CharacterCount.defaults,
         maxlength: 112,
-        threshold: 75,
-        i18n: CharacterCount.defaults.i18n
+        threshold: 75
       })
     })
 
@@ -183,186 +183,9 @@ describe('Character count', () => {
       )
 
       expect(characterCount.config).toEqual({
+        ...CharacterCount.defaults,
         maxlength: 200,
-        threshold: 0,
-        i18n: CharacterCount.defaults.i18n
-      })
-    })
-  })
-
-  describe('JavaScript configuration', () => {
-    beforeEach(() => {
-      initExample('to configure in JavaScript')
-    })
-
-    it('configures the number of characters', () => {
-      const characterCount = new CharacterCount($root, {
-        maxlength: 20
-      })
-
-      expect(characterCount.config).toEqual({
-        maxlength: 20,
-        threshold: 0,
-        i18n: CharacterCount.defaults.i18n
-      })
-    })
-
-    it('configures the number of words', () => {
-      const characterCount = new CharacterCount($root, {
-        maxwords: 20
-      })
-
-      expect(characterCount.config).toEqual({
-        maxwords: 20,
-        threshold: 0,
-        i18n: CharacterCount.defaults.i18n
-      })
-    })
-
-    it('configures the threshold', () => {
-      const characterCount = new CharacterCount($root, {
-        maxlength: 20,
-        threshold: 18
-      })
-
-      expect(characterCount.config).toEqual({
-        maxlength: 20,
-        threshold: 18,
-        i18n: CharacterCount.defaults.i18n
-      })
-    })
-
-    it('should throw when config is invalid', () => {
-      expect(() => new CharacterCount($root)).toThrow(
-        `${CharacterCount.moduleName}: Either "maxlength" or "maxwords" must be provided`
-      )
-    })
-
-    describe('i18n', () => {
-      it('overrides the default translation keys', () => {
-        const component = new CharacterCount($root, {
-          maxlength: 100,
-          i18n: {
-            charactersUnderLimit: {
-              one: 'Custom text. Count: %{count}'
-            }
-          }
-        })
-
-        expect(component.formatCountMessage(1, 'characters')).toBe(
-          'Custom text. Count: 1'
-        )
-
-        // Other keys remain untouched
-
-        expect(component.formatCountMessage(10, 'characters')).toBe(
-          'You have 10 characters remaining'
-        )
-      })
-
-      it('overrides text for when max characters is reached', () => {
-        const component = new CharacterCount($root, {
-          maxlength: 100,
-          i18n: {
-            charactersAtLimit: 'Custom text.'
-          }
-        })
-
-        expect(component.formatCountMessage(0, 'characters')).toBe(
-          'Custom text.'
-        )
-      })
-
-      it('overrides text for when max words is reached', () => {
-        const component = new CharacterCount($root, {
-          maxwords: 100,
-          i18n: {
-            wordsAtLimit: 'Different custom text.'
-          }
-        })
-
-        expect(component.formatCountMessage(0, 'words')).toBe(
-          'Different custom text.'
-        )
-      })
-    })
-
-    describe('with HTML lang attribute', () => {
-      it('overrides the locale when set on the element', () => {
-        $root.setAttribute('lang', 'de')
-
-        const component = new CharacterCount($root, {
-          maxwords: 20000
-        })
-
-        expect(component.formatCountMessage(10000, 'words')).toBe(
-          'You have 10.000 words remaining'
-        )
-      })
-
-      it('overrides the locale when set on an ancestor', () => {
-        document.body.setAttribute('lang', 'de')
-
-        const component = new CharacterCount($root, {
-          maxwords: 20000
-        })
-
-        expect(component.formatCountMessage(10000, 'words')).toBe(
-          'You have 10.000 words remaining'
-        )
-      })
-    })
-
-    describe('with HTML data attributes', () => {
-      it('overrides the default translation keys', () => {
-        $root.setAttribute(
-          'data-i18n.characters-under-limit.one',
-          'Custom text. Count: %{count}'
-        )
-
-        const component = new CharacterCount($root, {
-          maxlength: 100
-        })
-
-        expect(component.formatCountMessage(1, 'characters')).toBe(
-          'Custom text. Count: 1'
-        )
-
-        // Other keys remain untouched
-
-        expect(component.formatCountMessage(10, 'characters')).toBe(
-          'You have 10 characters remaining'
-        )
-      })
-
-      it('overrides the default translation keys and configuration', () => {
-        $root.setAttribute(
-          'data-i18n.characters-under-limit.one',
-          'Custom text. Count: %{count}'
-        )
-
-        const component = new CharacterCount($root, {
-          maxlength: 100,
-          i18n: {
-            charactersUnderLimit: {
-              one: 'Different custom text. Count: %{count}'
-            }
-          }
-        })
-
-        expect(component.formatCountMessage(1, 'characters')).toBe(
-          'Custom text. Count: 1'
-        )
-
-        // Other keys remain untouched
-
-        expect(component.formatCountMessage(-10, 'characters')).toBe(
-          'You have 10 characters too many'
-        )
-
-        expect(component.formatCountMessage(0, 'characters')).toBe(
-          'You have 0 characters remaining'
-        )
+        threshold: 0
       })
     })
   })

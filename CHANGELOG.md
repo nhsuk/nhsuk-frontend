@@ -4,6 +4,566 @@
 
 ### :new: **New features**
 
+#### Links are easier to read and have a clearer hover state
+
+Links now have underlines that are consistently thinner and a bit further away from the link text.
+
+Links also have a clearer hover state using dark blue (`#003087`) instead of dark pink (`#7c2855`), where the underline gets thicker to make the link stand out to users.
+
+Please carefully review your pages. If you have created your own link styles, you should review them to ensure their use is consistent across your service.
+
+We've also introduced new mixins and modifier classes for:
+
+- text colour links
+- links without underlines
+
+This was added in [pull request #1367: Updates to link styles and link hover states](https://github.com/nhsuk/nhsuk-frontend/pull/1367).
+
+#### Style links with text colour
+
+You can now style links with text colour by adding the `nhsuk-link--text-colour` HTML class, or by including the Sass mixin for custom components:
+
+```scss
+.app-component__link {
+  @include nhsuk-link-style-text;
+}
+```
+
+This was added in [pull request #1367: Updates to link styles and link hover states](https://github.com/nhsuk/nhsuk-frontend/pull/1367).
+
+#### Style links to remove underlines
+
+You can now style links with text colour by adding the `nhsuk-link--no-underline` HTML class, or by including the Sass mixin for custom components:
+
+```scss
+.app-component__link {
+  @include nhsuk-link-style-no-underline;
+}
+```
+
+An underline still appears when the user hovers their cursor over the link.
+
+This was added in [pull request #1367: Updates to link styles and link hover states](https://github.com/nhsuk/nhsuk-frontend/pull/1367).
+
+### :wastebasket: **Deprecated features**
+
+#### Rename Sass mixin for white link style
+
+If you use the Sass `nhsuk-link-style-white` mixin, you should rename it to `nhsuk-link-style-reverse`.
+
+The previous name is deprecated and will be removed in a future release.
+
+This change was introduced in [pull request #1367: Updates to link styles and link hover states](https://github.com/nhsuk/nhsuk-frontend/pull/1367).
+
+### :boom: **Breaking changes**
+
+#### Apply grid column widths from tablet (not desktop) width
+
+We've updated our grid column styles to be applied at tablet width (641px and up).
+
+Previously they were applied from desktop width (769px and up) making it difficult to cater for smaller screen sizes.
+
+Please carefully review your pages. If necessary, different grid behaviour for the mobile and desktop breakpoints can be applied using new classes ending `-from-mobile` and `-from-desktop`.
+
+For example, you can make a column three-quarters on tablet but reduce to two-thirds on desktop sized screens:
+
+```patch
+  <div class="nhsuk-grid-row">
+-   <div class="nhsuk-grid-column-two-thirds">
++   <div class="nhsuk-grid-column-three-quarters nhsuk-grid-column-two-thirds-from-desktop">
+      <!-- Component -->
+    </div>
+  </div>
+```
+
+##### Mobile width override classes
+
+Grid column classes ending `-from-mobile` are applied at mobile width (320px) and above.
+
+If you're using the following mobile width utility classes, you must:
+
+- Replace `nhsuk-u-one-half` with `nhsuk-grid-column-one-half-from-mobile`
+- Replace `nhsuk-u-one-third` with `nhsuk-grid-column-one-third-from-mobile`
+- Replace `nhsuk-u-two-thirds` with `nhsuk-grid-column-two-thirds-from-mobile`
+- Replace `nhsuk-u-one-quarter` with `nhsuk-grid-column-one-quarter-from-mobile`
+- Replace `nhsuk-u-three-quarters` with `nhsuk-grid-column-three-quarters-from-mobile`.
+
+##### Tablet width override classes
+
+Grid column classes not ending `-from-mobile` or `-from-desktop` are applied at tablet width (641px) and above.
+
+If you're using the following tablet width utility classes, you must:
+
+- Replace `nhsuk-u-one-half-tablet` with `nhsuk-grid-column-one-half`
+- Replace `nhsuk-u-one-third-tablet` with `nhsuk-grid-column-one-third`
+- Replace `nhsuk-u-two-thirds-tablet` with `nhsuk-grid-column-two-thirds`
+- Replace `nhsuk-u-one-quarter-tablet` with `nhsuk-grid-column-one-quarter`
+- Replace `nhsuk-u-three-quarters-tablet` with `nhsuk-grid-column-three-quarters`
+
+This change was introduced in [pull request #1296: Apply grid classes from tablet (not desktop)](https://github.com/nhsuk/nhsuk-frontend/pull/1296).
+
+#### Remove global box sizing reset
+
+We have removed the global `box-sizing` reset and added `box-sizing: border-box` only where necessary.
+
+Please review any custom styles, especially those with defined widths, to make sure they have a correctly calculated box size.
+
+This change was introduced in pull requests [#1633: Review global `box-sizing` usage](https://github.com/nhsuk/nhsuk-frontend/pull/1633), [#1711: Review global `box-sizing` usage for v11](https://github.com/nhsuk/nhsuk-frontend/pull/1711) and [#1651: Add `box-sizing: border-box` to width utility classes etc](https://github.com/nhsuk/nhsuk-frontend/pull/1651).
+
+#### Update the HTML for error messages
+
+We've updated the HTML for the error message component to use a `<p>` element instead of a `<span>` element, as this is more semantically correct.
+
+If you're not using Nunjucks macros, swap the `<span class="nhsuk-error-message">` for a `<p class="nhsuk-error-message">`.
+
+```patch
+- <span class="nhsuk-error-message">
++ <p class="nhsuk-error-message">
+    <span class="nhsuk-u-visually-hidden">Error:</span> Example error message
+- </span>
++ </p>
+```
+
+This change was introduced in [pull request #1030: Update error messages to use paragraph tags instead of spans](https://github.com/nhsuk/nhsuk-frontend/pull/1030).
+
+#### Update the HTML for the error summary
+
+If you're not using the Nunjucks macros, you must improve the experience for screen reader users by making these changes to the error summary markup:
+
+- Remove `aria-labelledby="error-summary-title"`, `role="alert"` and `tabindex="-1"` from the parent element (`nhsuk-error-summary`)
+- Add a `div` wrapper around the contents of `nhsuk-error-summary` with the attribute `role="alert"`
+- Remove `id="error-summary-title"` from the error summary `h2` (`nhsuk-error-summary__title`)
+
+This will enable screen reader users to have a better, more coherent experience with the error summary. It will make sure users of JAWS 2022 or later will hear the entire contents of the error summary on page load and therefore have further context on why there is an error on the page they're on.
+
+This change was introduced in [pull request #1036: Add breaking change entry for error summary screen reader improvements](https://github.com/nhsuk/nhsuk-frontend/pull/1036), after previously being recommended in [version 10.1.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.1.0).
+
+#### Make `nhsuk-u-nowrap` apply to mobile and above
+
+We've updated the `nhsuk-u-nowrap` utility class to be applied at mobile width (320px and up).
+
+Previously the utility class did not apply to tablet sized screens (641px and up).
+
+Please carefully review your pages. If necessary, different wrapping behaviour for the tablet and desktop breakpoints can be applied using new classes ending `-from-tablet` and `-from-desktop`.
+
+To restore the previous behaviour, add the new `nhsuk-u-wrap-from-tablet` utility class to override the default `nhsuk-u-nowrap` behaviour for tablet sized screens:
+
+```patch
+- <p class="nhsuk-u-nowrap">
++ <p class="nhsuk-u-nowrap nhsuk-u-wrap-from-tablet">
+```
+
+This was added in [pull request #1668: Add breakpoints to nowrap class](https://github.com/nhsuk/nhsuk-frontend/pull/1668).
+
+## 10.3.0 - 13 January 2026
+
+Note: This release was created from the `support/10.x` branch.
+
+### :new: **New features**
+
+#### New file upload component
+
+We've added a new [file upload component](https://service-manual.nhs.uk/design-system/components/file-upload) which:
+
+- makes the file inputs easier to use for drag and drop
+- allows the text of the component to be translated
+- fixes accessibility issues for users of Dragon, a speech recognition software
+
+To use the `fileUpload` Nunjucks macro in your service:
+
+```njk
+{{ fileUpload({
+  label: {
+    text: "Upload your photo"
+  }
+  id: "file-upload",
+  name: "photo"
+}) }}
+```
+
+If you are not using Nunjucks macros, use the following HTML:
+
+```html
+<div class="nhsuk-form-group nhsuk-file-upload" data-module="nhsuk-file-upload">
+  <label class="nhsuk-label" for="file-upload">
+    Upload your photo
+  </label>
+  <input class="nhsuk-file-upload__input" id="file-upload" name="photo" type="file">
+</div>
+```
+
+If you're importing components individually in your JavaScript, which we recommend for better performance, you'll then need to import and initialise the new `FileUpload` component.
+
+```mjs
+import { createAll, FileUpload } from 'nhsuk-frontend'
+
+createAll(FileUpload)
+```
+
+This change was introduced in [pull request #1556: Uplift GOV.UK Frontend file upload component](https://github.com/nhsuk/nhsuk-frontend/pull/1556)
+
+#### Interruption panel
+
+We've added a new variant of the panel component with a solid blue background and white text. This can be used as an interruption card.
+
+This was added in [pull request #1196: Add interruption panel variant](https://github.com/nhsuk/nhsuk-frontend/pull/1196).
+
+#### Use cards to visually separate multiple summary lists on a single page
+
+You can now wrap a [card](https://service-manual.nhs.uk/design-system/components/cards) around [summary lists](https://service-manual.nhs.uk/design-system/components/summary-list) to help you:
+
+- design and build pages with multiple summary lists
+- show visual dividers between summary lists
+- allow users to apply actions to entire lists
+
+This was added in [pull request #1685: Add card enhancement to summary list](https://github.com/nhsuk/nhsuk-frontend/pull/1685).
+
+### :wastebasket: **Deprecated features**
+
+#### Rename Nunjucks macro options for images
+
+For consistency with other components, Nunjucks macro options for images have changed. The previous names are deprecated and will be removed in a future release.
+
+If you're using the `card` Nunjucks macro with the `imgURL` or `imgALT` options in your service, you should:
+
+- replace the `imgURL` option with the nested `image.src` option
+- replace the `imgALT` option with the nested `image.alt` option
+
+```patch
+  {{ card({
+-   imgURL: "https://service-manual.nhs.uk/assets/blog-prototype-kit.png",
+-   imgALT: "Illustration showing icons, design system components and a terminal app. Each one follows a dotted line into a laptop to become a prototype.",
++   image: {
++     src: "https://service-manual.nhs.uk/assets/blog-prototype-kit.png",
++     alt: "Illustration showing icons, design system components and a terminal app. Each one follows a dotted line into a laptop to become a prototype."
++   },
+    heading: "Why we are reinvesting in the NHS prototype kit"
+  }) }}
+```
+
+If you're using the `hero` Nunjucks macro with the `imageURL` option in your service, you should:
+
+- replace the `imageURL` option with the nested `image.src` option
+
+```patch
+  {{ hero({
+-   imageURL: "https://service-manual.nhs.uk/assets/blog-prototype-kit.png"
++   image: {
++     src: "https://service-manual.nhs.uk/assets/blog-prototype-kit.png"
++   }
+  }) }}
+```
+
+If you're using the `image` Nunjucks macro with the `caption` option in your service, you should:
+
+- replace the `caption` option with the nested `caption.text` option
+
+```patch
+  {{ image({
+    src: "https://service-manual.nhs.uk/assets/image-example-stretch-marks-600w.jpg",
+    alt: "Close-up of a person's tummy showing a number of creases in the skin under their belly button. Shown on light brown skin.",
+-   caption: "Stretch marks can be pink, red, brown, black, silver or purple. They usually start off darker and fade over time."
++   caption: {
++     text: "Stretch marks can be pink, red, brown, black, silver or purple. They usually start off darker and fade over time."
++   }
+  }) }}
+```
+
+This change was introduced in [pull request #1763: Review Nunjucks params for header search and images](https://github.com/nhsuk/nhsuk-frontend/pull/1763).
+
+#### Rename input prefix and suffix HTML class
+
+HTML markup for the input component has been updated to align `nhsuk-input-wrapper` with other wrapping classes such as `nhsuk-main-wrapper` and `nhsuk-label-wrapper`.
+
+If you are not using Nunjucks macros, change the input classes as follows:
+
+- Rename the `<div class="nhsuk-input__prefix"` class attribute to match `<div class="nhsuk-input-wrapper__prefix"`.
+- Rename the `<div class="nhsuk-input__suffix"` class attribute to match `<div class="nhsuk-input-wrapper__suffix"`.
+
+The previous class names are deprecated and will be removed in a future release.
+
+This change was introduced in [pull request #1745: Update input prefix and suffix classes to follow BEM](https://github.com/nhsuk/nhsuk-frontend/pull/1745).
+
+#### Rename Sass variables for customising fonts
+
+We've renamed Sass variables for customising fonts to better align with GOV.UK frontend. You can still use the previous names but we'll remove them in a future breaking release.
+
+If you use Sass and you've customised the fonts that NHS.UK frontend uses:
+
+- replace `$nhsuk-font` and `$nhsuk-font-fallback` with `$nhsuk-font-family`
+- rename `$nhsuk-font-normal` to `$nhsuk-font-weight-normal`
+- rename `$nhsuk-font-bold` to `$nhsuk-font-weight-bold`
+- rename `$nhsuk-include-font-face` to `$nhsuk-include-default-font-face`
+
+```patch
+- $app-font: "Customised name";
+- $app-font-fallback: arial, sans-serif;
++ $app-font-family: "Customised name", arial, sans-serif;
+
+  @forward "nhsuk-frontend/dist/nhsuk" with (
+-   $nhsuk-font: $app-font
+-   $nhsuk-font-fallback: $app-font-fallback,
++   $nhsuk-font-family: $app-font-family,
+-   $nhsuk-include-font-face: false,
++   $nhsuk-include-default-font-face: false
+  );
+```
+
+```patch
+  .app-component {
+    display: block;
+-   font-weight: $nhsuk-font-bold;
++   font-weight: $nhsuk-font-weight-bold;
+    @include nhsuk-responsive-margin(4, "bottom");
+  }
+```
+
+This change was introduced in [pull request #1749: Remove font files for unsupported browsers and align Sass variables with GOV.UK Frontend](https://github.com/nhsuk/nhsuk-frontend/pull/1749).
+
+### :recycle: **Changes**
+
+#### Update the HTML for header search
+
+For consistency with header navigation and account, we’ve added new Nunjucks macro options:
+
+- Header `search.attributes` option
+- Header `search.classes` option
+- Header `search.method` option
+
+We've also updated the HTML for the header search to use [an inline smaller button](https://service-manual.nhs.uk/design-system/components/buttons#smaller-buttons) from [NHS.UK frontend v10.2.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.2.0).
+
+If you are not using Nunjucks macros, update your HTML markup using the [header examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/header) as follows:
+
+- add the `novalidate` boolean attribute to search form element
+- add the `novalidate` boolean attribute to account item forms
+
+```patch
+  <search class="nhsuk-header__search">
+-   <form class="nhsuk-header__search-form" id="search" action="https://www.nhs.uk/search/" method="get">
++   <form class="nhsuk-header__search-form" id="search" action="https://www.nhs.uk/search/" method="get" novalidate>
+```
+
+```patch
+- <form class="nhsuk-header__account-form" action="/log-out" method="post">
++ <form class="nhsuk-header__account-form" action="/log-out" method="post" novalidate>
+    <button class="nhsuk-header__account-button">
+```
+
+- add the `<div class="form-group"> </div>` wrapper around the search label, input and button
+- add the `<div class="nhsuk-input-wrapper"> </div>` wrapper around the search input and button
+- add the `nhsuk-button` and `nhsuk-button--small` classes to the search button
+- remove the `nhsuk-header__search-submit` class from the search button
+
+```patch
+  <form class="nhsuk-header__search-form" id="search" action="https://www.nhs.uk/search/" method="get" novalidate>
++   <div class="nhsuk-form-group">
+      <label class="nhsuk-label nhsuk-u-visually-hidden" for="search-field">
+        Search the NHS website
+      </label>
++     <div class="nhsuk-input-wrapper">
+        <input class="nhsuk-input nhsuk-header__search-input" id="search-field" name="q" type="search" autocomplete="off" placeholder="Search">
+-       <button class="nhsuk-header__search-submit" data-module="nhsuk-button" type="submit">
++       <button class="nhsuk-button nhsuk-button--small" data-module="nhsuk-button" type="submit">
+          <svg class="nhsuk-icon nhsuk-icon--search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" role="img" aria-label="Search">
+            <title>Search</title>
+            <path d="m20.7 19.3-4.1-4.1a7 7 0 1 0-1.4 1.4l4 4.1a1 1 0 0 0 1.5 0c.4-.4.4-1 0-1.4ZM6 11a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z"/>
+          </svg>
+        </button>
++     </div>
++   </div>
+  </form>
+```
+
+Support for header search HTML without `nhsuk-form-group` and `nhsuk-input-wrapper` wrappers is deprecated and will be removed in a future release.
+
+This change was introduced in [pull request #1763: Review Nunjucks params for header search and images](https://github.com/nhsuk/nhsuk-frontend/pull/1763).
+
+#### Update the HTML for responsive table cell content
+
+We've updated the HTML for the responsive table component to wrap HTML content within `<span>` elements.
+
+If you are not using Nunjucks macros, update your HTML markup using the [table examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/table) to add the missing `<span> </span>` wrapper:
+
+```patch
+  <td class="nhsuk-table__cell" role="cell">
+    <span class="nhsuk-table-responsive__heading" aria-hidden="true">Cell heading </span>
+-   Example <code>&lt;td&gt;</code> content
++   <span>Example <code>&lt;td&gt;</code> content</span>
+  </td>
+```
+
+This change was introduced in [pull request #1710: Fix responsive table `display: flex` issue with nested HTML](https://github.com/nhsuk/nhsuk-frontend/pull/1710).
+
+#### Rename checkbox and radio button 'aria-controls' attributes
+
+For checkboxes and radio buttons with conditionally revealed content, we've renamed the `aria-controls` HTML attribute to `data-aria-controls` to prevent incorrect screen reader announcements when JavaScript is not available.
+
+If you are not using Nunjucks macros, update your HTML markup using the [checkboxes](https://service-manual.nhs.uk/design-system/components/checkboxes) and [radios examples](https://service-manual.nhs.uk/design-system/components/radios) in the NHS digital service manual as follows:
+
+```patch
+  <div class="nhsuk-checkboxes__item">
+-   <input class="nhsuk-checkboxes__input" id="item" name="contact" type="checkbox" value="email" aria-controls="conditional-item">
++   <input class="nhsuk-checkboxes__input" id="item" name="contact" type="checkbox" value="email" data-aria-controls="conditional-item">
+  </div>
+```
+
+```patch
+  <div class="nhsuk-radios__item">
+-   <input class="nhsuk-radios__input" id="item" name="contact" type="radio" value="email" aria-controls="conditional-item">
++   <input class="nhsuk-radios__input" id="item" name="contact" type="radio" value="email" data-aria-controls="conditional-item">
+  </div>
+```
+
+Support for checkbox and radio button `aria-controls` on page load is deprecated and will be removed in a future release.
+
+These changes were introduced in [pull request #1744: Update components for GOV.UK Frontend compatibility](https://github.com/nhsuk/nhsuk-frontend/pull/1744).
+
+#### Remove font sources for Internet Explorer 8
+
+We no longer include `@font-face` sources used by Internet Explorer 8 and other older browsers:
+
+- https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.eot
+- https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.svg
+- https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.ttf
+- https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.eot
+- https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.svg
+- https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.ttf
+
+NHS.UK frontend uses `font-family: "Frutiger W01", arial, sans-serif` by default, allowing older browsers to fall back to Arial or sans-serif when Frutiger is not available.
+
+This change was introduced in [pull request #1749: Remove font files for unsupported browsers and align Sass variables with GOV.UK Frontend](https://github.com/nhsuk/nhsuk-frontend/pull/1749).
+
+#### Optional support for Dynamic Type on Apple devices
+
+To apply the user's preferred text size, we now support the [Dynamic Type accessibility feature](https://developer.apple.com/design/human-interface-guidelines/typography#Supporting-Dynamic-Type) on iOS and iPadOS.
+
+These changes are optional and are only recommended where browser text size adjustments are not available. For example, in embedded HTML and Progressive Web Apps (PWAs).
+
+To enable this feature, set the feature flag variable `$nhsuk-include-dynamic-type` to `true` before you forward NHS.UK frontend in your Sass files:
+
+```scss
+@forward "nhsuk-frontend/dist/nhsuk" with (
+  $nhsuk-include-dynamic-type: true
+);
+```
+
+If you use the precompiled CSS from NHS.UK frontend, you can swap to our alternative stylesheet for Dynamic Type support:
+
+```patch
+- <link rel="stylesheet" href="/stylesheets/nhsuk-frontend.min.css">
++ <link rel="stylesheet" href="/stylesheets/nhsuk-frontend-dynamic-type.min.css">
+```
+
+Please carefully review all custom components to make sure they scale dynamically when `$nhsuk-root-font-size` is no longer set to 16px.
+
+This change was introduced in [pull request #1655: Add support for Dynamic Type on Apple devices](https://github.com/nhsuk/nhsuk-frontend/pull/1655).
+
+#### Update the HTML for tables as a panel
+
+For consistency with other components, the HTML and Nunjucks options for tables as a panel have changed. The previous names are deprecated and will be removed in a future release.
+
+If you're using the `table` Nunjucks macro with the `panel` option, you should migrate to the feature card enhancement:
+
+- replace the `heading` option with the nested `card.heading` option
+- replace the `headingLevel` option with the nested `card.headingLevel` option
+- replace the `panel` option with the nested `card.feature` option
+- replace the `panelClasses` option with the nested `card.classes` option
+- replace the `tableClasses` option with the `classes` option
+
+```patch
+  {{ table({
+-   heading: "Skin symptoms and possible causes",
+-   headingLevel: 3,
+-   panel: true,
+-   panelClasses: "nhsuk-u-margin-bottom-8",
++   card: {
++     heading: "Skin symptoms and possible causes",
++     headingLevel: 3,
++     feature: true,
++     classes: "nhsuk-u-margin-bottom-8"
++   },
+-   tableClasses: "nhsuk-u-margin-bottom-0",
++   classes: "nhsuk-u-margin-bottom-0",
+    head: [],
+    rows: []
+  }) }}
+```
+
+If you are not using Nunjucks macros, update your HTML markup using the [table as a card (feature) example on the NHS.UK frontend review app](https://nhsuk.github.io/nhsuk-frontend/components/tables/as-a-card-feature/) as follows:
+
+- Add the wrapper `<div class="nhsuk-card nhsuk-card--feature"> </div>`
+- Rename the panel `<div class="nhsuk-table__panel-with-heading-tab"` class attribute to match `<div class="nhsuk-card__content"`
+- Rename the heading `<h3 class="nhsuk-table__heading-tab"` class attribute to match `<h3 class="nhsuk-card__heading"`
+
+```patch
++ <div class="nhsuk-card nhsuk-card--feature">
+-   <div class="nhsuk-table__panel-with-heading-tab">
++   <div class="nhsuk-card__content">
+-     <h3 class="nhsuk-table__heading-tab">
++     <h3 class="nhsuk-card__heading">
+        Table as a panel heading
+      </h3>
+      <table class="nhsuk-table">
+        <!-- // ... -->
+      </table>
+    </div>
++ </div>
+```
+
+This change was introduced in [pull request #1685: Add card enhancements to summary list, table and warning callout](https://github.com/nhsuk/nhsuk-frontend/pull/1685).
+
+#### Update the HTML for warning callouts
+
+For consistency with the card component, the HTML for warning callouts has changed.
+
+If you are not using Nunjucks macros, update your HTML markup using the [warning callout in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/warning-callout) as follows:
+
+- Add the wrapper `<div class="nhsuk-card nhsuk-card--warning"> </div>`
+- Rename the callout `<div class="nhsuk-warning-callout"` class attribute to match `<div class="nhsuk-card__content"`
+- Rename the heading `<h3 class="nhsuk-warning-callout__label"` class attribute to match `<h3 class="nhsuk-card__heading"`
+
+```patch
++ <div class="nhsuk-card nhsuk-card--warning">
+-   <div class="nhsuk-warning-callout">
++   <div class="nhsuk-card__content">
+-     <h3 class="nhsuk-warning-callout__label">
++     <h3 class="nhsuk-card__heading">
+        Important<span class="nhsuk-u-visually-hidden">:</span>
+      </h3>
+      <!-- // ... -->
+    </div>
++ </div>
+```
+
+This change was introduced in [pull request #1685: Add card enhancements to summary list, table and warning callout](https://github.com/nhsuk/nhsuk-frontend/pull/1685).
+
+### :wrench: **Fixes**
+
+- [#1761: Align contents list and mobile tabs list styles](https://github.com/nhsuk/nhsuk-frontend/issues/1761)
+- [#1734: Fix appearance of summary lists alongside other elements within card content](https://github.com/nhsuk/nhsuk-frontend/issues/1734)
+- [#1741: Update contents list dash colour to improve contrast](https://github.com/nhsuk/nhsuk-frontend/issues/1741)
+- [#1748: Remove Sass `if()` function and other deprecations](https://github.com/nhsuk/nhsuk-frontend/pull/1748)
+
+## 10.2.2 - 4 December 2025
+
+Note: This release was created from the `support/10.x` branch.
+
+### :wrench: **Fixes**
+
+- [#1731: Fix Nunjucks `describedBy` empty string handling](https://github.com/nhsuk/nhsuk-frontend/issues/1731)
+
+## 10.2.1 - 2 December 2025
+
+Note: This release was created from the `support/10.x` branch.
+
+### :wrench: **Fixes**
+
+- [#1726: Fix card modifier scope to allow nested cards](https://github.com/nhsuk/nhsuk-frontend/pull/1726)
+
+## 10.2.0 - 1 December 2025
+
+### :new: **New features**
+
 #### Use the password input component to help users accessibly enter passwords
 
 The [password input component](https://service-manual.nhs.uk/design-system/components/password-input) allows users to choose:
@@ -168,7 +728,7 @@ If you are not using Nunjucks macros, change the card classes as follows:
 
 The previous class names are deprecated and will be removed in a future release.
 
-This change was introduced in [pull request #1684: Uplift GOV.UK Frontend summary list component](https://github.com/nhsuk/nhsuk-frontend/pull/1684).
+This change was introduced in [pull request #1684: Fix inconsistent card BEM modifiers etc](https://github.com/nhsuk/nhsuk-frontend/pull/1684).
 
 #### Rename Sass variable for base font size
 
@@ -203,6 +763,7 @@ If you are not using Nunjucks macros, update your HTML markup using the [top tas
 
 ### :wrench: **Fixes**
 
+- [#1633: Review global `box-sizing` usage](https://github.com/nhsuk/nhsuk-frontend/pull/1633)
 - [#1635: Resolve Nunjucks template issues flagged by Jinja port](https://github.com/nhsuk/nhsuk-frontend/pull/1635)
 - [#1638: Resolve Nunjucks output indentation issues](https://github.com/nhsuk/nhsuk-frontend/pull/1638)
 - [#1653: Only show a task list item if not empty](https://github.com/nhsuk/nhsuk-frontend/pull/1653)
@@ -211,7 +772,7 @@ If you are not using Nunjucks macros, update your HTML markup using the [top tas
 - [#1686: Remove ↑ up and ↓ down arrow key bindings from tabs](https://github.com/nhsuk/nhsuk-frontend/pull/1686)
 - [#1689: Only show header navigation items if not empty](https://github.com/nhsuk/nhsuk-frontend/pull/1689)
 - [#1698: Fix 2px minimum chevron `outline-width` syntax](https://github.com/nhsuk/nhsuk-frontend/pull/1698)
-- [#1699: Prevent date inputs shifting alignment on iOS 18](https://github.com/alphagov/govuk-frontend/pull/1699)
+- [#1699: Prevent date inputs shifting alignment on iOS 18](https://github.com/nhsuk/nhsuk-frontend/pull/1699)
 
 ## 10.1.0 - 15 October 2025
 

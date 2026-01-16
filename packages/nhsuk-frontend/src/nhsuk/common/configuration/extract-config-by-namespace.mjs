@@ -73,7 +73,7 @@ export function extractConfigByNamespace(schema, dataset, namespace) {
  * Schema property for component config
  *
  * @typedef {object} SchemaProperty
- * @property {'string' | 'boolean' | 'number' | 'object'} type - Property type
+ * @property {'string' | 'boolean' | 'number' | 'object' | 'array'} type - Property type
  */
 
 /**
@@ -87,5 +87,5 @@ export function extractConfigByNamespace(schema, dataset, namespace) {
 
 /**
  * @typedef {keyof ObjectNested} NestedKey
- * @typedef {{ [key: string]: string | boolean | number | ObjectNested | undefined }} ObjectNested
+ * @typedef {{ [key: string]: string | boolean | number | (string | number | boolean)[] | ObjectNested | undefined }} ObjectNested
  */

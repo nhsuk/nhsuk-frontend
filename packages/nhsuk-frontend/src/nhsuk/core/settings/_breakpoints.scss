@@ -1,8 +1,13 @@
+@use "sass:map";
+@use "sass:meta";
+
 ////
 /// @group settings/layout
 ////
 
 /// Breakpoint definitions
+///
+/// @type Map
 
 $nhsuk-breakpoints: (
   mobile: 320px,
@@ -14,5 +19,15 @@ $nhsuk-breakpoints: (
 /// Show active breakpoint in top-right corner.
 ///
 /// Only use this during local development.
+///
+/// @type List
 
-$nhsuk-show-breakpoints: false !default;
+$nhsuk-show-breakpoints: () !default;
+
+@if meta.type-of($nhsuk-show-breakpoints) == "bool" {
+  @if $nhsuk-show-breakpoints {
+    $nhsuk-show-breakpoints: map.keys($nhsuk-breakpoints);
+  } @else {
+    $nhsuk-show-breakpoints: ();
+  }
+}

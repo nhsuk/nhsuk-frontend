@@ -22,6 +22,12 @@ export const params = {
     description:
       'Optional additional classes to add to heading. Separate each class with a space.'
   },
+  headingSize: {
+    type: 'string',
+    required: false,
+    description:
+      'Size of the heading – `"xss"`, `"xs"`, `"s"`, `"m"`, `"l"` or `"xl"`.'
+  },
   headingLevel: {
     type: 'integer',
     required: false,
@@ -45,10 +51,17 @@ export const params = {
     description:
       'Not strictly a parameter but a Nunjucks code convention. Using a `call` block enables you to call a macro with all the text inside the tag. This is helpful if you want to pass a lot of content into a macro. To use it, you will need to wrap the entire hero component in a `call` block.'
   },
-  imageURL: {
-    type: 'string',
+  image: {
+    type: 'object',
     required: false,
-    description: 'The URL of the image in the hero.'
+    description: 'Can be used to add an image to the hero component.',
+    params: {
+      src: {
+        type: 'string',
+        required: true,
+        description: 'The URL of the image in the hero.'
+      }
+    }
   },
   containerClasses: {
     type: 'string',

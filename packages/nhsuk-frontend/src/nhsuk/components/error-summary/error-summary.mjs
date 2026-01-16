@@ -7,12 +7,12 @@ import { ConfigurableComponent } from '../../configurable-component.mjs'
  *
  * Adapted from https://github.com/alphagov/govuk-frontend/blob/v2.13.0/src/components/error-summary/error-summary.js
  *
- * @augments ConfigurableComponent<ErrorSummaryConfig>
+ * @augments {ConfigurableComponent<ErrorSummaryConfig>}
  */
 export class ErrorSummary extends ConfigurableComponent {
   /**
    * @param {Element | null} $root - HTML element to use for component
-   * @param {ErrorSummaryConfig} [config] - Error summary config
+   * @param {Partial<ErrorSummaryConfig>} [config] - Error summary config
    */
   constructor($root, config = {}) {
     super($root, config)
@@ -204,7 +204,7 @@ export class ErrorSummary extends ConfigurableComponent {
  * Initialise error summary component
  *
  * @deprecated Use {@link createAll | `createAll(ErrorSummary, options)`} instead.
- * @param {InitOptions & ErrorSummaryConfig} [options]
+ * @param {InitOptions & Partial<ErrorSummaryConfig>} [options]
  */
 export function initErrorSummary(options) {
   const { scope: $scope } = normaliseOptions(options)

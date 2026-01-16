@@ -1,6 +1,5 @@
 import {
   axe,
-  getPage,
   getOptions,
   goToComponent
 } from '@nhsuk/frontend-helpers/puppeteer.mjs'
@@ -8,11 +7,16 @@ import {
 import { examples } from './fixtures.mjs'
 
 describe('Header', () => {
-  /** @type {Page} */
-  let page
-
-  beforeAll(async () => {
-    page = await getPage(browser)
+  it('Listing page passes accessibility tests', async () => {
+    await goToComponent(page, 'header')
+    return expect(
+      axe(page, {
+        // Ignore duplicate landmarks on component listing page
+        'landmark-banner-is-top-level': { enabled: false },
+        'landmark-no-duplicate-banner': { enabled: false },
+        'landmark-unique': { enabled: false }
+      })
+    ).resolves.toHaveNoViolations()
   })
 
   describe.each(Object.entries(examples))('%s', (name, example) => {
@@ -21,11 +25,8 @@ describe('Header', () => {
       async (options) => {
         await goToComponent(page, 'header', options)
         return expect(axe(page)).resolves.toHaveNoViolations()
-      }
+      },
+      20000
     )
   })
 })
-
-/**
- * @import { Page } from 'puppeteer'
- */

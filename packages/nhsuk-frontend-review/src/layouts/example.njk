@@ -2,22 +2,28 @@
 
 {% set htmlAttributes = htmlAttributes | default({ class: "app-template" }) %}
 {% set bodyAttributes = bodyAttributes | default({ class: "app-template__body" }) %}
+{% set classNamesColumn = "" -%}
+
+{# Append grid column width classes #}
+{% for width in ([options.width] if options.width is string else options.width | default([], true)) -%}
+  {% set classNamesColumn = (classNamesColumn ~ " nhsuk-grid-column-" ~ width) | trim %}
+{% endfor -%}
 
 {# Turn the skip link off #}
 {% block skipLink %}{% endblock %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-{{ options.width | default("two-thirds", true) }}">
+    <div class="{{ classNamesColumn | default("nhsuk-grid-column-two-thirds", true) }}">
       {% block example %}{% endblock %}
     </div>
   </div>
 {% endblock %}
 
 {% block bodyEnd %}
-  <script type="module" src="{{ baseUrl }}javascripts/nhsuk-frontend.min.js"></script>
-  <script type="module">
-    import { initAll } from '{{ baseUrl }}javascripts/nhsuk-frontend.min.js'
-    initAll()
-  </script>
-{% endblock %}}
+  {%- if options.throwOnError == false -%}
+    {%- include "partials/scripts.njk" -%}
+  {%- else -%}
+    {%- include "partials/scripts-throw-errors.njk" -%}
+  {%- endif -%}
+{% endblock %}

@@ -230,6 +230,9 @@ export default defineConfig([
       // https://browsersl.ist/#q=supports+es6-module+and+not+supports+object-entries
       'es-x/no-object-entries': 'off',
 
+      // Babel transpiles optional catch binding
+      'es-x/no-optional-catch-binding': 'off',
+
       // Babel transpiles ES2020 optional chaining
       'es-x/no-optional-chaining': 'off',
 
