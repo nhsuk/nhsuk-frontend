@@ -10,23 +10,6 @@ Object.defineProperties(Element.prototype, {
   scrollIntoView: { value: jest.fn() }
 })
 
-/**
- * Polyfill `window.matchMedia()` for NHS.UK frontend tabs
- */
-Object.defineProperty(window, 'matchMedia', {
-  writable: true,
-  value: jest.fn().mockImplementation((query) => ({
-    matches: true,
-    media: query,
-    onchange: null,
-    addListener: jest.fn(),
-    addEventListener: jest.fn(),
-    removeListener: jest.fn(),
-    removeEventListener: jest.fn(),
-    dispatchEvent: jest.fn()
-  }))
-})
-
 beforeEach(() => {
   const stylesheet = document.createElement('style')
 

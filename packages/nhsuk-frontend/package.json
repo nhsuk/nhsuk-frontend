@@ -72,6 +72,7 @@
     "del-cli": "^7.0.0",
     "gulp": "^5.0.1",
     "gulp-zip": "^6.1.0",
+    "jsdom-testing-mocks": "^1.16.0",
     "nunjucks": "^3.2.4",
     "outdent": "^0.8.0",
     "postcss": "^8.5.6",
