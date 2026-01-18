@@ -354,7 +354,7 @@ export class Header extends ConfigurableComponent {
     this.resetNavigation()
 
     // Check for items that overflow
-    let menuItems = this.breakpoints.filter((breakpoint) => {
+    const menuItems = this.breakpoints.filter((breakpoint) => {
       return breakpoint.right > this.width
     })
 
