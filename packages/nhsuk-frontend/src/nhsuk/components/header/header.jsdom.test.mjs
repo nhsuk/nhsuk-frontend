@@ -1,4 +1,4 @@
-import { getByRole } from '@testing-library/dom'
+import { queryByRole } from '@testing-library/dom'
 import { userEvent } from '@testing-library/user-event'
 import { mockResizeObserver } from 'jsdom-testing-mocks'
 
@@ -14,17 +14,17 @@ describe('Header class', () => {
   /** @type {HTMLElement} */
   let $root
 
-  /** @type {HTMLAnchorElement | null} */
+  /** @type {HTMLAnchorElement} */
   let $serviceLogo
 
-  /** @type {HTMLElement} */
-  let $navigation
+  /** @type {HTMLElement | null} */
+  let $navigation = null
 
-  /** @type {HTMLElement} */
-  let $navigationList
+  /** @type {HTMLElement | null} */
+  let $navigationList = null
 
-  /** @type {HTMLElement} */
-  let $menuButton
+  /** @type {HTMLElement | null} */
+  let $menuButton = null
 
   let listHeight = 0
   let listWidth = 0
@@ -43,6 +43,35 @@ describe('Header class', () => {
     $serviceLogo = /** @type {HTMLAnchorElement | null} */ (
       $root.querySelector('.nhsuk-header__service-logo')
     )
+
+    $navigation = queryByRole($root, 'navigation')
+    $navigationList = $navigation ? queryByRole($navigation, 'list') : null
+
+    $menuButton = queryByRole($root, 'button', {
+      name: 'Browse More',
+      hidden: true
+    })
+
+    listHeight = 56
+    listWidth = 800
+    itemWidth = 100
+
+    jest.spyOn(HTMLElement.prototype, 'offsetWidth', 'get').mockImplementation(
+      /** @this {HTMLElement} */
+      function () {
+        return this instanceof HTMLUListElement
+          ? listWidth // Mock list width
+          : itemWidth // Mock item width
+      }
+    )
+
+    jest.spyOn(window, 'addEventListener')
+    jest.spyOn(document, 'addEventListener')
+    jest.spyOn(document, 'removeEventListener')
+
+    if ($menuButton) {
+      jest.spyOn($menuButton, 'addEventListener')
+    }
   }
 
   /**
@@ -62,45 +91,12 @@ describe('Header class', () => {
     return new Promise(requestAnimationFrame)
   }
 
-  beforeEach(() => {
-    document.body.innerHTML = components.render(
-      'header',
-      examples['with navigation (overflow)']
-    )
-
-    $root = /** @type {HTMLElement} */ (
-      document.querySelector(`[data-module="${Header.moduleName}"]`)
-    )
-
-    $navigation = getByRole($root, 'navigation')
-    $navigationList = getByRole($navigation, 'list')
-
-    $menuButton = getByRole($root, 'button', {
-      name: 'Browse More',
-      hidden: true
+  describe('Initialisation via init function', () => {
+    beforeEach(() => {
+      initExample('with navigation (overflow)')
     })
 
-    listHeight = 56
-    listWidth = 800
-    itemWidth = 100
-
-    jest.spyOn(HTMLElement.prototype, 'offsetWidth', 'get').mockImplementation(
-      /** @this {HTMLElement} */
-      function () {
-        return this instanceof HTMLUListElement
-          ? listWidth // Mock list width
-          : itemWidth // Mock item width
-      }
-    )
-
-    jest.spyOn($menuButton, 'addEventListener')
-    jest.spyOn(window, 'addEventListener')
-    jest.spyOn(document, 'addEventListener')
-    jest.spyOn(document, 'removeEventListener')
-  })
-
-  describe('Initialisation via init function', () => {
-    it('should add event listeners', () => {
+    it('should not add menu button event listener by default', () => {
       initHeader()
 
       // Adds listener for window resize
@@ -116,7 +112,7 @@ describe('Header class', () => {
       )
     })
 
-    it('should add event listeners when items overflow', () => {
+    it('should add menu button event listener when items overflow', () => {
       listWidth = 700
 
       initHeader()
@@ -192,6 +188,10 @@ describe('Header class', () => {
   })
 
   describe('Initialisation via class', () => {
+    beforeEach(() => {
+      initExample('with navigation (overflow)')
+    })
+
     it('should not throw with $root element', () => {
       expect(() => new Header($root)).not.toThrow()
     })
@@ -283,13 +283,17 @@ describe('Header class', () => {
   })
 
   describe('Menu button', () => {
+    beforeEach(() => {
+      initExample('with navigation (overflow)')
+    })
+
     it('should be hidden by default', () => {
       expect($menuButton).toHaveRole('button')
       expect($menuButton.parentElement).toHaveAttribute('hidden')
     })
 
     it('should be hidden when items do not overflow', () => {
-      initHeader()
+      new Header($root)
 
       expect($menuButton.parentElement).toHaveAttribute('hidden')
     })
@@ -297,7 +301,7 @@ describe('Header class', () => {
     it('should be visible when items overflow', () => {
       listWidth = 700
 
-      initHeader()
+      new Header($root)
 
       expect($menuButton.parentElement).not.toHaveAttribute('hidden')
     })
@@ -305,7 +309,7 @@ describe('Header class', () => {
     it('should toggle menu via click', () => {
       listWidth = 700
 
-      initHeader()
+      new Header($root)
 
       // Menu closed
       expect($menuButton.nextElementSibling).toHaveAttribute('hidden')
@@ -338,7 +342,7 @@ describe('Header class', () => {
     it('should stay open when resized down', async () => {
       listWidth = 700
 
-      initHeader()
+      new Header($root)
 
       // Open menu
       $menuButton.click()
@@ -356,7 +360,7 @@ describe('Header class', () => {
     it('should close menu when resized up', async () => {
       listWidth = 700
 
-      initHeader()
+      new Header($root)
 
       // Open menu
       $menuButton.click()
@@ -374,7 +378,7 @@ describe('Header class', () => {
     it('should close menu via escape key', async () => {
       listWidth = 700
 
-      initHeader()
+      new Header($root)
 
       // Menu closed
       expect($menuButton.nextElementSibling).toHaveAttribute('hidden')
@@ -394,12 +398,16 @@ describe('Header class', () => {
   })
 
   describe('Menu list', () => {
+    beforeEach(() => {
+      initExample('with navigation (overflow)')
+    })
+
     it('should be skipped by default', () => {
       expect($menuButton.nextElementSibling).not.toBeInTheDocument()
     })
 
     it('should be skipped when items do not overflow', () => {
-      initHeader()
+      new Header($root)
 
       expect($menuButton.nextElementSibling).not.toBeInTheDocument()
     })
@@ -407,7 +415,7 @@ describe('Header class', () => {
     it('should be added when items overflow', () => {
       listWidth = 700
 
-      initHeader()
+      new Header($root)
 
       expect($menuButton.nextElementSibling).toBeInTheDocument()
       expect($menuButton.nextElementSibling).toHaveRole('list')
@@ -415,7 +423,7 @@ describe('Header class', () => {
     })
 
     it('should be added when items overflow when resized', async () => {
-      initHeader()
+      new Header($root)
 
       expect($menuButton.nextElementSibling).not.toBeInTheDocument()
 
@@ -429,6 +437,10 @@ describe('Header class', () => {
   })
 
   describe('Menu items', () => {
+    beforeEach(() => {
+      initExample('with navigation (overflow)')
+    })
+
     const examples = [
       {
         listWidth: 800,
@@ -472,10 +484,10 @@ describe('Header class', () => {
       }
     ]
 
-    it.each(examples)('should be allocated', async (expected) => {
+    it.each(examples)('should be allocated $menuItems', async (expected) => {
       listWidth = expected.listWidth
 
-      initHeader()
+      new Header($root)
 
       const $listItems = $navigation.querySelectorAll('div > ul > li')
       const $menuItems = $navigation.querySelectorAll('div > ul > li li')
@@ -485,11 +497,11 @@ describe('Header class', () => {
     })
 
     it.each(examples)(
-      'should be allocated when resized up',
+      'should be allocated $menuItems when resized up',
       async (expected) => {
         listWidth = 0
 
-        initHeader()
+        new Header($root)
 
         // Trigger resize
         await resizeExample(expected.listWidth)
@@ -503,11 +515,11 @@ describe('Header class', () => {
     )
 
     it.each(examples)(
-      'should be allocated when resized down',
+      'should be allocated $menuItems when resized down',
       async (expected) => {
         listWidth = 900
 
-        initHeader()
+        new Header($root)
 
         // Trigger resize
         await resizeExample(expected.listWidth)
