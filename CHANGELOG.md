@@ -1,5 +1,13 @@
 # NHS.UK frontend Changelog
 
+## Unreleased
+
+Note: This release was created from the `support/10.x` branch.
+
+### :wrench: **Fixes**
+
+- [#1777: Remove extra space when `bodyClasses` is set](https://github.com/nhsuk/nhsuk-frontend/issues/1777)
+
 ## 10.3.0 - 13 January 2026
 
 Note: This release was created from the `support/10.x` branch.
