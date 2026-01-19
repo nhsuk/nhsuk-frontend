@@ -268,13 +268,13 @@ export class Header extends ConfigurableComponent {
   /**
    * Escape key handler
    *
-   * This function is called when the user
-   * presses the escape key to close the menu.
+   * This function is called when the user presses a key to close the menu,
+   * but only the escape key is handled.
    *
-   * @param {KeyboardEvent} event - Key press event
+   * @param {KeyboardEvent} event - Keydown event
    */
   onEscapeKey(event) {
-    if (event.key === 'Escape') {
+    if (this.menuIsOpen && event.key === 'Escape') {
       this.closeMenu()
     }
   }
