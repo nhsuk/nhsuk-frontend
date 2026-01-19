@@ -120,6 +120,7 @@ export class Header extends ConfigurableComponent {
     // Save bound functions so we can remove event listeners when unnecessary
     this.handleClick = this.onClick.bind(this)
     this.handleEscapeKey = this.onEscapeKey.bind(this)
+    this.handleSubmit = this.onSubmit.bind(this)
     this.handleUpdateNavigation = this.updateNavigation.bind(this)
     this.handleResizeMenu = this.resizeMenu.bind(this)
     this.handleToggleMenu = this.toggleMenu.bind(this)
@@ -265,6 +266,7 @@ export class Header extends ConfigurableComponent {
     // Remove listeners to close menu
     document.removeEventListener('click', this.handleClick, true)
     document.removeEventListener('keydown', this.handleEscapeKey, true)
+    this.$root.removeEventListener('submit', this.handleSubmit, true)
   }
 
   /**
@@ -313,6 +315,18 @@ export class Header extends ConfigurableComponent {
   }
 
   /**
+   * Form submit handler
+   *
+   * This function is called when the user submits a form within the header,
+   * for example the search form or account items with actions.
+   */
+  onSubmit() {
+    if (this.menuIsOpen) {
+      this.closeMenu()
+    }
+  }
+
+  /**
    * Open the menu
    *
    * Opens the menu and updates accessibility state.
@@ -347,6 +361,7 @@ export class Header extends ConfigurableComponent {
     // Add listeners to close menu
     document.addEventListener('click', this.handleClick, true)
     document.addEventListener('keydown', this.handleEscapeKey, true)
+    this.$root.addEventListener('submit', this.handleSubmit, true)
   }
 
   /**
