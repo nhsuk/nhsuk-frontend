@@ -121,6 +121,7 @@ export class Header extends ConfigurableComponent {
     this.handleClick = this.onClick.bind(this)
     this.handleEscapeKey = this.onEscapeKey.bind(this)
     this.handleSubmit = this.onSubmit.bind(this)
+    this.handlePageShow = this.onPageShow.bind(this)
     this.handleUpdateNavigation = this.updateNavigation.bind(this)
     this.handleResizeMenu = this.resizeMenu.bind(this)
     this.handleToggleMenu = this.toggleMenu.bind(this)
@@ -267,6 +268,7 @@ export class Header extends ConfigurableComponent {
     document.removeEventListener('click', this.handleClick, true)
     document.removeEventListener('keydown', this.handleEscapeKey, true)
     this.$root.removeEventListener('submit', this.handleSubmit, true)
+    window.removeEventListener('pageshow', this.handlePageShow)
   }
 
   /**
@@ -327,6 +329,20 @@ export class Header extends ConfigurableComponent {
   }
 
   /**
+   * Page show handler
+   *
+   * This function is called when the user navigates to the page, but only
+   * back or forward (bfcache) navigations are handled.
+   *
+   * @param {PageTransitionEvent} event - Page transition event
+   */
+  onPageShow(event) {
+    if (this.menuIsOpen && event.persisted) {
+      this.closeMenu()
+    }
+  }
+
+  /**
    * Open the menu
    *
    * Opens the menu and updates accessibility state.
@@ -362,6 +378,7 @@ export class Header extends ConfigurableComponent {
     document.addEventListener('click', this.handleClick, true)
     document.addEventListener('keydown', this.handleEscapeKey, true)
     this.$root.addEventListener('submit', this.handleSubmit, true)
+    window.addEventListener('pageshow', this.handlePageShow)
   }
 
   /**
