@@ -323,7 +323,8 @@ describe('Header class', () => {
       // Adds listener for escape key
       expect(document.addEventListener).toHaveBeenCalledWith(
         'keydown',
-        expect.any(Function)
+        expect.any(Function),
+        true
       )
 
       // Close menu
@@ -335,7 +336,8 @@ describe('Header class', () => {
       // Removes listener for escape key
       expect(document.removeEventListener).toHaveBeenCalledWith(
         'keydown',
-        expect.any(Function)
+        expect.any(Function),
+        true
       )
     })
 
