@@ -262,7 +262,7 @@ export class Header extends ConfigurableComponent {
     $navigation.style.removeProperty('border-bottom-width')
 
     // Remove escape key listener to close menu
-    document.removeEventListener('keydown', this.handleEscapeKey)
+    document.removeEventListener('keydown', this.handleEscapeKey, true)
   }
 
   /**
@@ -312,7 +312,7 @@ export class Header extends ConfigurableComponent {
     )
 
     // Add escape key listener to close menu
-    document.addEventListener('keydown', this.handleEscapeKey)
+    document.addEventListener('keydown', this.handleEscapeKey, true)
   }
 
   /**
