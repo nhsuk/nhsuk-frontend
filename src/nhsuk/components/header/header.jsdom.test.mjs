@@ -52,6 +52,11 @@ describe('Header class', () => {
       hidden: true
     })
 
+    // Prevent form submission
+    $root
+      .querySelector('.nhsuk-header__search-form')
+      ?.addEventListener('submit', (event) => event.preventDefault())
+
     listHeight = 56
     listWidth = 800
     itemWidth = 100
@@ -282,6 +287,155 @@ describe('Header class', () => {
     })
   })
 
+  describe('Menu', () => {
+    beforeEach(() => {
+      initExample('with navigation (overflow)')
+    })
+
+    it('should stay open when resized down', async () => {
+      listWidth = 700
+
+      new Header($root)
+
+      // Open menu
+      $menuButton.click()
+
+      // Menu open
+      expect($menuButton.nextElementSibling).not.toHaveAttribute('hidden')
+
+      // Trigger resize
+      await resizeExample(500)
+
+      // Menu open (still)
+      expect($menuButton.nextElementSibling).not.toHaveAttribute('hidden')
+    })
+
+    it.each([
+      {
+        description: 'header banner',
+        selector: '.nhsuk-header'
+      },
+      {
+        description: 'header container',
+        selector: '.nhsuk-header__container'
+      },
+      {
+        description: 'search input',
+        selector: '.nhsuk-header__search-form input'
+      },
+      {
+        description: 'navigation list',
+        selector: '.nhsuk-header__navigation-list'
+      },
+      {
+        description: 'menu list',
+        selector: '.nhsuk-header__menu-list'
+      }
+    ])('should stay open when $description clicked', ({ selector }) => {
+      listWidth = 700
+
+      new Header($root)
+
+      const $headerItem = /** @type {HTMLElement} */ (
+        document.querySelector(selector)
+      )
+
+      // Open menu
+      $menuButton.click()
+
+      // Menu open
+      expect($menuButton.nextElementSibling).not.toHaveAttribute('hidden')
+
+      // Click header item
+      $headerItem.click()
+
+      // Menu open (still)
+      expect($menuButton.nextElementSibling).not.toHaveAttribute('hidden')
+    })
+
+    it('should close when resized up', async () => {
+      listWidth = 700
+
+      new Header($root)
+
+      // Open menu
+      $menuButton.click()
+
+      // Menu open
+      expect($menuButton.nextElementSibling).not.toHaveAttribute('hidden')
+
+      // Trigger resize
+      await resizeExample(900)
+
+      // Menu closed
+      expect($menuButton.nextElementSibling).toHaveAttribute('hidden')
+    })
+
+    it('should close via escape key', async () => {
+      listWidth = 700
+
+      new Header($root)
+
+      // Menu closed
+      expect($menuButton.nextElementSibling).toHaveAttribute('hidden')
+
+      // Open menu
+      $menuButton.click()
+
+      // Menu open
+      expect($menuButton.nextElementSibling).not.toHaveAttribute('hidden')
+
+      // Press the escape key to close it
+      await user.keyboard('[Escape]')
+
+      // Menu closed
+      expect($menuButton.nextElementSibling).toHaveAttribute('hidden')
+    })
+
+    it.each([
+      {
+        description: 'body',
+        selector: 'body'
+      },
+      {
+        description: 'service logo',
+        selector: '.nhsuk-header__service-logo'
+      },
+      {
+        description: 'navigation link',
+        selector: '.nhsuk-header__navigation-link'
+      },
+      {
+        description: 'menu link',
+        selector: '.nhsuk-header__menu-list .nhsuk-header__navigation-link'
+      },
+      {
+        description: 'search button',
+        selector: '.nhsuk-header__search-form button'
+      }
+    ])('should close when $description clicked', ({ selector }) => {
+      listWidth = 700
+
+      new Header($root)
+
+      const $headerItem = /** @type {HTMLElement} */ (
+        document.querySelector(selector)
+      )
+
+      // Open menu
+      $menuButton.click()
+
+      // Menu open
+      expect($menuButton.nextElementSibling).not.toHaveAttribute('hidden')
+
+      // Click header item
+      $headerItem.click()
+
+      // Menu closed
+      expect($menuButton.nextElementSibling).toHaveAttribute('hidden')
+    })
+  })
+
   describe('Menu button', () => {
     beforeEach(() => {
       initExample('with navigation (overflow)')
@@ -320,6 +474,13 @@ describe('Header class', () => {
       // Menu open
       expect($menuButton.nextElementSibling).not.toHaveAttribute('hidden')
 
+      // Adds listener for mouse click
+      expect(document.addEventListener).toHaveBeenCalledWith(
+        'click',
+        expect.any(Function),
+        true
+      )
+
       // Adds listener for escape key
       expect(document.addEventListener).toHaveBeenCalledWith(
         'keydown',
@@ -333,69 +494,19 @@ describe('Header class', () => {
       // Menu closed
       expect($menuButton.nextElementSibling).toHaveAttribute('hidden')
 
+      // Removes listener for mouse click
+      expect(document.removeEventListener).toHaveBeenCalledWith(
+        'click',
+        expect.any(Function),
+        true
+      )
+
       // Removes listener for escape key
       expect(document.removeEventListener).toHaveBeenCalledWith(
         'keydown',
         expect.any(Function),
         true
       )
-    })
-
-    it('should stay open when resized down', async () => {
-      listWidth = 700
-
-      new Header($root)
-
-      // Open menu
-      $menuButton.click()
-
-      // Menu open
-      expect($menuButton.nextElementSibling).not.toHaveAttribute('hidden')
-
-      // Trigger resize
-      await resizeExample(500)
-
-      // Menu open (still)
-      expect($menuButton.nextElementSibling).not.toHaveAttribute('hidden')
-    })
-
-    it('should close menu when resized up', async () => {
-      listWidth = 700
-
-      new Header($root)
-
-      // Open menu
-      $menuButton.click()
-
-      // Menu open
-      expect($menuButton.nextElementSibling).not.toHaveAttribute('hidden')
-
-      // Trigger resize
-      await resizeExample(900)
-
-      // Menu closed
-      expect($menuButton.nextElementSibling).toHaveAttribute('hidden')
-    })
-
-    it('should close menu via escape key', async () => {
-      listWidth = 700
-
-      new Header($root)
-
-      // Menu closed
-      expect($menuButton.nextElementSibling).toHaveAttribute('hidden')
-
-      // Open menu
-      $menuButton.click()
-
-      // Menu open
-      expect($menuButton.nextElementSibling).not.toHaveAttribute('hidden')
-
-      // Press the escape key to close it
-      await user.keyboard('[Escape]')
-
-      // Menu closed
-      expect($menuButton.nextElementSibling).toHaveAttribute('hidden')
     })
   })
 

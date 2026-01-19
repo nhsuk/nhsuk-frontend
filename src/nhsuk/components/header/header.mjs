@@ -118,6 +118,7 @@ export class Header extends ConfigurableComponent {
     }
 
     // Save bound functions so we can remove event listeners when unnecessary
+    this.handleClick = this.onClick.bind(this)
     this.handleEscapeKey = this.onEscapeKey.bind(this)
     this.handleUpdateNavigation = this.updateNavigation.bind(this)
     this.handleResizeMenu = this.resizeMenu.bind(this)
@@ -261,8 +262,40 @@ export class Header extends ConfigurableComponent {
     $menuToggle.setAttribute('aria-expanded', 'false')
     $navigation.style.removeProperty('border-bottom-width')
 
-    // Remove escape key listener to close menu
+    // Remove listeners to close menu
+    document.removeEventListener('click', this.handleClick, true)
     document.removeEventListener('keydown', this.handleEscapeKey, true)
+  }
+
+  /**
+   * Click handler
+   *
+   * This function is called when the user clicks anywhere to close the menu,
+   * but only clicks outside the menu (or on menu items) are handled.
+   *
+   * @param {MouseEvent} event - Click event
+   */
+  onClick(event) {
+    const { $root, $menuToggle } = this
+
+    const $target = event.target
+    if (!($target instanceof HTMLElement)) {
+      return
+    }
+
+    // Skip when already open
+    if (!this.menuIsOpen) {
+      return
+    }
+
+    // 1. Close when clicking outside the header
+    // 2. Close when clicking a link or button inside the header
+    if (
+      !$root.contains($target) ||
+      ($target.closest('a, button') && !$menuToggle?.contains($target))
+    ) {
+      this.closeMenu()
+    }
   }
 
   /**
@@ -311,7 +344,8 @@ export class Header extends ConfigurableComponent {
       `${$menuList.offsetHeight}px`
     )
 
-    // Add escape key listener to close menu
+    // Add listeners to close menu
+    document.addEventListener('click', this.handleClick, true)
     document.addEventListener('keydown', this.handleEscapeKey, true)
   }
 
@@ -332,11 +366,15 @@ export class Header extends ConfigurableComponent {
    * Handle menu button click
    *
    * Toggles the menu between open and closed
+   *
+   * @param {MouseEvent} [event] - Click event
    */
-  toggleMenu() {
+  toggleMenu(event) {
     if (!this.menuIsEnabled) {
       return
     }
+
+    event?.preventDefault()
 
     if (this.menuIsOpen) {
       this.closeMenu()
