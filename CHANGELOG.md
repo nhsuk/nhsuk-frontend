@@ -9,6 +9,7 @@ Note: This release was created from the `support/10.x` branch.
 - [#1777: Remove extra space when `bodyClasses` is set](https://github.com/nhsuk/nhsuk-frontend/issues/1777)
 - [#1778: Fix link to file upload pluralisation rules documentation](https://github.com/nhsuk/nhsuk-frontend/issues/1778)
 - [#1779: Fix header menu width when text size changes](https://github.com/nhsuk/nhsuk-frontend/issues/1779)
+- [#1780: Close header menu when clicking or navigating elsewhere](https://github.com/nhsuk/nhsuk-frontend/issues/1780)
 
 ## 10.3.0 - 13 January 2026
 
