@@ -10,6 +10,21 @@ Object.defineProperties(Element.prototype, {
   scrollIntoView: { value: jest.fn() }
 })
 
+/**
+ * Polyfill HTMLFormElement methods for NHS.UK frontend header
+ *
+ * @see {@link https://github.com/jsdom/jsdom/issues/1937}
+ */
+Object.defineProperties(HTMLFormElement.prototype, {
+  submit: {
+    value: jest.fn().mockImplementation(
+      /** @this {HTMLFormElement} */ function () {
+        this.dispatchEvent(new Event('submit'))
+      }
+    )
+  }
+})
+
 beforeEach(() => {
   const stylesheet = document.createElement('style')
 

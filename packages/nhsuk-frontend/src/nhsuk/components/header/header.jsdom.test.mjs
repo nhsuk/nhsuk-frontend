@@ -25,6 +25,9 @@ describe('Header class', () => {
   /** @type {HTMLElement | null} */
   let $menuButton = null
 
+  /** @type {HTMLFormElement | null} */
+  let $searchForm = null
+
   let listHeight = 0
   let listWidth = 0
   let itemWidth = 0
@@ -51,10 +54,12 @@ describe('Header class', () => {
       hidden: true
     })
 
+    $searchForm = /** @type {HTMLFormElement | null} */ (
+      $root.querySelector('.nhsuk-header__search-form')
+    )
+
     // Prevent form submission
-    $root
-      .querySelector('.nhsuk-header__search-form')
-      ?.addEventListener('submit', (event) => event.preventDefault())
+    $searchForm?.addEventListener('submit', (event) => event.preventDefault())
 
     listHeight = 56
     listWidth = 800
@@ -71,6 +76,8 @@ describe('Header class', () => {
 
     jest.spyOn(document, 'addEventListener')
     jest.spyOn(document, 'removeEventListener')
+    jest.spyOn($root, 'addEventListener')
+    jest.spyOn($root, 'removeEventListener')
 
     if ($menuButton) {
       jest.spyOn($menuButton, 'addEventListener')
@@ -378,6 +385,24 @@ describe('Header class', () => {
       expect($menuButton.nextElementSibling).toHaveAttribute('hidden')
     })
 
+    it('should close via search form submit', () => {
+      listWidth = 700
+
+      new Header($root)
+
+      // Open menu
+      $menuButton.click()
+
+      // Menu open
+      expect($menuButton.nextElementSibling).not.toHaveAttribute('hidden')
+
+      // Submit search form
+      $searchForm.submit()
+
+      // Menu closed
+      expect($menuButton.nextElementSibling).toHaveAttribute('hidden')
+    })
+
     it.each([
       {
         description: 'body',
@@ -474,6 +499,13 @@ describe('Header class', () => {
         true
       )
 
+      // Adds listener for form submit
+      expect($root.addEventListener).toHaveBeenCalledWith(
+        'submit',
+        expect.any(Function),
+        true
+      )
+
       // Close menu
       $menuButton.click()
 
@@ -490,6 +522,13 @@ describe('Header class', () => {
       // Removes listener for escape key
       expect(document.removeEventListener).toHaveBeenCalledWith(
         'keydown',
+        expect.any(Function),
+        true
+      )
+
+      // Removes listener for form submit
+      expect($root.removeEventListener).toHaveBeenCalledWith(
+        'submit',
         expect.any(Function),
         true
       )
