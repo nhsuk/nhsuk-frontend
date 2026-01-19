@@ -76,6 +76,7 @@ describe('Header class', () => {
     )
 
     jest.spyOn(window, 'addEventListener')
+    jest.spyOn(window, 'removeEventListener')
     jest.spyOn(document, 'addEventListener')
     jest.spyOn(document, 'removeEventListener')
     jest.spyOn($root, 'addEventListener')
@@ -417,6 +418,38 @@ describe('Header class', () => {
       expect($menuButton.nextElementSibling).toHaveAttribute('hidden')
     })
 
+    it('should close via back/forward navigation', () => {
+      listWidth = 700
+
+      new Header($root)
+
+      // Open menu
+      $menuButton.click()
+
+      // Menu open
+      expect($menuButton.nextElementSibling).not.toHaveAttribute('hidden')
+
+      // Trigger tab switching
+      window.dispatchEvent(
+        new PageTransitionEvent('pageshow', {
+          persisted: false
+        })
+      )
+
+      // Menu open (still)
+      expect($menuButton.nextElementSibling).not.toHaveAttribute('hidden')
+
+      // Trigger back/forward navigation
+      window.dispatchEvent(
+        new PageTransitionEvent('pageshow', {
+          persisted: true
+        })
+      )
+
+      // Menu closed
+      expect($menuButton.nextElementSibling).toHaveAttribute('hidden')
+    })
+
     it.each([
       {
         description: 'body',
@@ -520,6 +553,12 @@ describe('Header class', () => {
         true
       )
 
+      // Adds listener for page show
+      expect(window.addEventListener).toHaveBeenCalledWith(
+        'pageshow',
+        expect.any(Function)
+      )
+
       // Close menu
       $menuButton.click()
 
@@ -545,6 +584,12 @@ describe('Header class', () => {
         'submit',
         expect.any(Function),
         true
+      )
+
+      // Removes listener for page show
+      expect(window.removeEventListener).toHaveBeenCalledWith(
+        'pageshow',
+        expect.any(Function)
       )
     })
   })
