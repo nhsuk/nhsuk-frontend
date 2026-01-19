@@ -155,6 +155,15 @@ To restore the previous behaviour, add the new `nhsuk-u-wrap-from-tablet` utilit
 
 This was added in [pull request #1668: Add breakpoints to nowrap class](https://github.com/nhsuk/nhsuk-frontend/pull/1668).
 
+## 10.3.1 - 19 January 2026
+
+Note: This release was created from the `support/10.x` branch.
+
+### :wrench: **Fixes**
+
+- [#1777: Remove extra space when `bodyClasses` is set](https://github.com/nhsuk/nhsuk-frontend/issues/1777)
+- [#1778: Fix link to file upload pluralisation rules documentation](https://github.com/nhsuk/nhsuk-frontend/issues/1778)
+
 ## 10.3.0 - 13 January 2026
 
 Note: This release was created from the `support/10.x` branch.
