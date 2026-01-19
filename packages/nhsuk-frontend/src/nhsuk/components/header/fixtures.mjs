@@ -262,6 +262,14 @@ const fixtures = {
       logo: {
         href: '#'
       },
+      service: {
+        text: 'Digital service manual',
+        href: '#'
+      },
+      search: {
+        placeholder: 'Search',
+        visuallyHiddenLabel: 'Search the NHS digital service manual'
+      },
       navigation: {
         items: [
           {
@@ -321,6 +329,14 @@ const fixtures = {
     context: {
       logo: {
         href: '#'
+      },
+      service: {
+        text: 'Digital service manual',
+        href: '#'
+      },
+      search: {
+        placeholder: 'Search',
+        visuallyHiddenLabel: 'Search the NHS digital service manual'
       },
       navigation: {
         classes: 'nhsuk-header__navigation--white',
