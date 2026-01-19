@@ -78,8 +78,8 @@ new CharacterCount($root, {
 Or via data attribute:
 
 ```html
-<div data-module="nhsuk-character-count" 
-     data-maxlength="200" 
+<div data-module="nhsuk-character-count"
+     data-maxlength="200"
      data-use-grapheme-counting="true">
 ```
 
