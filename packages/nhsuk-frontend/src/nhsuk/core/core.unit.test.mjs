@@ -55,6 +55,7 @@ describe('Core', () => {
         --nhsuk-secondary-border-colour: rgba(255, 255, 255, 0.2);
         --nhsuk-reverse-border-colour: #337ec6;
         --nhsuk-input-border-colour: #4c6272;
+        --nhsuk-revealed-content-border-colour: #768692;
         --nhsuk-hover-colour: #aeb7bd;
         --nhsuk-input-background-colour: white;
         --nhsuk-code-colour: #d5281b;
