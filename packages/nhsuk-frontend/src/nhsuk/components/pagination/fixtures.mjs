@@ -20,7 +20,7 @@ export const examples = {
     },
     screenshot: {
       states: ['focus', 'hover', 'active'],
-      selector: '.nhsuk-pagination-item--previous a',
+      selector: '.nhsuk-pagination__prev .nhsuk-pagination__link',
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
