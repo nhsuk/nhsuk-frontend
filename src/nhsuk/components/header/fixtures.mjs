@@ -115,13 +115,12 @@ const fixtures = {
   'with account inline (logged in)': {
     context: {
       containerClasses: 'nhsuk-header__container--inline',
+      service: {
+        text: 'Get a self-test kit for HIV',
+        href: '#'
+      },
       account: {
         items: [
-          {
-            href: '#',
-            text: 'Account',
-            icon: true
-          },
           {
             action: '#',
             text: 'Log out'
@@ -156,6 +155,10 @@ const fixtures = {
   'with account inline (logged out)': {
     context: {
       containerClasses: 'nhsuk-header__container--inline',
+      service: {
+        text: 'Get a self-test kit for HIV',
+        href: '#'
+      },
       account: {
         items: [
           {
