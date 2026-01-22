@@ -124,6 +124,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     display: flex;
 
     .nhsuk-header__container--inline & {
+      flex-basis: nhsuk-px-to-rem(220px);
       flex-grow: 999;
     }
 
@@ -203,6 +204,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
 
   .nhsuk-header__account {
     flex-grow: 1;
+    flex-shrink: 0;
 
     margin-top: nhsuk-spacing(3);
 
