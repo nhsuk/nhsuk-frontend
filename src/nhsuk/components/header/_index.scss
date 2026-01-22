@@ -97,11 +97,21 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     }
   }
 
+  .nhsuk-header__container--inline {
+    display: flex;
+    flex-flow: row wrap;
+    gap: nhsuk-spacing(3);
+
+    @include nhsuk-media-query($from: tablet) {
+      gap: nhsuk-spacing(3) nhsuk-spacing(4);
+    }
+  }
+
   // Service logo (and optional name)
 
   .nhsuk-header__logo {
     min-width: nhsuk-px-to-rem(100px);
-    height: auto;
+    height: intrinsic;
   }
 
   .nhsuk-header__service,
@@ -112,6 +122,10 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
 
   .nhsuk-header__service {
     display: flex;
+
+    .nhsuk-header__container--inline & {
+      flex-grow: 999;
+    }
 
     @include nhsuk-media-query($from: tablet) {
       flex-grow: 999;
@@ -206,6 +220,14 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
       fill: currentcolor;
     }
 
+    .nhsuk-header__container--inline & {
+      align-self: start;
+
+      // Expand header account by 1px to ensure the search
+      // input does not appear to be taller when inline
+      margin: -1px;
+    }
+
     @include nhsuk-print-hide;
 
     @include nhsuk-media-query($from: tablet) {
@@ -283,6 +305,10 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     z-index: 10;
     flex-grow: 1;
     margin-top: nhsuk-spacing(3);
+
+    .nhsuk-header__container--inline & {
+      margin-top: 0;
+    }
 
     @include nhsuk-print-hide;
 

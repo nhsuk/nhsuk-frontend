@@ -112,6 +112,28 @@ const fixtures = {
       viewports: ['mobile', 'desktop']
     }
   },
+  'with account inline (logged in)': {
+    context: {
+      containerClasses: 'nhsuk-header__container--inline',
+      account: {
+        items: [
+          {
+            href: '#',
+            text: 'florence.nightingale@nhs.net',
+            icon: true
+          },
+          {
+            action: '#',
+            text: 'Log out'
+          }
+        ]
+      }
+    },
+    options: {
+      width: false
+    },
+    variants
+  },
   'with account (logged out)': {
     context: {
       account: {
@@ -130,6 +152,23 @@ const fixtures = {
     screenshot: {
       viewports: ['mobile', 'desktop']
     }
+  },
+  'with account inline (logged out)': {
+    context: {
+      containerClasses: 'nhsuk-header__container--inline',
+      account: {
+        items: [
+          {
+            href: '#',
+            text: 'Log in'
+          }
+        ]
+      }
+    },
+    options: {
+      width: false
+    },
+    variants
   },
   'with navigation': {
     context: {
@@ -437,6 +476,16 @@ const fixtures = {
       selector: '.nhsuk-header__search-form .nhsuk-input',
       viewports: ['desktop']
     }
+  },
+  'with search inline': {
+    context: {
+      containerClasses: 'nhsuk-header__container--inline',
+      search: true
+    },
+    options: {
+      width: false
+    },
+    variants
   },
   'with service name': {
     context: {
