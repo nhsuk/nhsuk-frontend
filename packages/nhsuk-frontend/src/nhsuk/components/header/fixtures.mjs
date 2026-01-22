@@ -112,6 +112,27 @@ export const examples = {
       viewports: ['mobile', 'desktop']
     }
   },
+  'with account inline (logged in)': {
+    context: {
+      containerClasses: 'nhsuk-header__container--inline',
+      service: {
+        text: 'Get a self-test kit for HIV',
+        href: '#'
+      },
+      account: {
+        items: [
+          {
+            action: '#',
+            text: 'Log out'
+          }
+        ]
+      }
+    },
+    options: {
+      width: false
+    },
+    variants
+  },
   'with account (logged out)': {
     context: {
       account: {
@@ -130,6 +151,27 @@ export const examples = {
     screenshot: {
       viewports: ['mobile', 'desktop']
     }
+  },
+  'with account inline (logged out)': {
+    context: {
+      containerClasses: 'nhsuk-header__container--inline',
+      service: {
+        text: 'Get a self-test kit for HIV',
+        href: '#'
+      },
+      account: {
+        items: [
+          {
+            href: '#',
+            text: 'Log in'
+          }
+        ]
+      }
+    },
+    options: {
+      width: false
+    },
+    variants
   },
   'with navigation': {
     context: {
@@ -398,6 +440,16 @@ export const examples = {
       selector: '.nhsuk-header__search-form .nhsuk-input',
       viewports: ['desktop']
     }
+  },
+  'with search inline': {
+    context: {
+      containerClasses: 'nhsuk-header__container--inline',
+      search: true
+    },
+    options: {
+      width: false
+    },
+    variants
   },
   'with service name': {
     context: {
