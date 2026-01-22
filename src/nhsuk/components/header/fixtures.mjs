@@ -119,7 +119,7 @@ const fixtures = {
         items: [
           {
             href: '#',
-            text: 'florence.nightingale@nhs.net',
+            text: 'Account',
             icon: true
           },
           {
