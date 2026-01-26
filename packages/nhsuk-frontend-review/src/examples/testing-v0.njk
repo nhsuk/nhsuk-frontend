@@ -1,0 +1,484 @@
+{% extends "layouts/page.njk" %}
+
+{% set pageName = "v0 header testing" %}
+
+{% block header %}
+  {{ header({
+      service: {
+        text: 'Digital service manual',
+        href: '#'
+      },
+      account: {
+        items: [
+          {
+            href: '#',
+            text: 'florence.nightingale@nhs.net',
+            icon: true
+          },
+          {
+            text: 'Admin'
+          },
+          {
+            action: '#',
+            text: 'Log out'
+          }
+        ]
+      },
+    navigation: {
+      items: [
+        {
+          href: "#",
+          text: "Health A to Z"
+        },
+        {
+          href: "#",
+          text: "Live Well"
+        },
+        {
+          href: "#",
+          text: "Care and support",
+          active: true
+        },
+        {
+          href: "#",
+          text: "Health news"
+        },
+        {
+          href: "#",
+          text: "Services near you"
+        }
+      ]
+    }
+  }) }}
+{% endblock %}
+
+
+{% block beforeContent %}
+  {{ breadcrumb({
+    classes: "nhsuk-u-display-inline-block",
+    items: [
+      {
+        text: "NHS.UK frontend",
+        href: baseUrl
+      },
+      {
+        text: "Examples",
+        href: baseUrl ~ "#examples"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+{{ backLink({
+  href: "#",
+  text: "Back"
+}) }}
+
+  <section class="nhsuk-main-wrapper nhsuk-main-wrapper--s">
+    <div class="nhsuk-width-container">
+
+      {{ actionLink({
+        text: "Find your nearest A&E",
+        href: "#"
+      }) }}
+
+      {% call details({
+        summaryText: "How to find your NHS number"
+      }) %}
+        <p>An NHS number is a 10 digit number, like 485 777 3456.</p>
+        <p>You can find your NHS number by logging in to a GP online service or on any document the NHS has sent you, such as your:</p>
+        <ul>
+          <li>prescriptions</li>
+          <li>test results</li>
+          <li>hospital referral letters</li>
+          <li>appointment letters</li>
+        </ul>
+        <p>Ask your GP surgery for help if you can't find your NHS number.</p>
+      {% endcall %}
+
+      {% call details({
+        summaryText: "Get your medical records",
+        classes: "nhsuk-expander"
+      }) %}
+        <p>You can see your GP records by:</p>
+        <ul>
+          <li>asking for them at your GP surgery </li>
+          <li>going online to see them (if you have signed up for <a href="/using-the-nhs/nhs-services/gps/gp-online-services/">GP online services</a>) </li>
+        </ul>
+      {% endcall %}
+
+      {% set pastDayContent %}
+        {{ table({
+          responsive: false,
+          panel: false,
+          caption: "Past day",
+          firstCellIsHeader: false,
+          head: [
+            {
+              text: "Case manager"
+            },
+            {
+              text: "Cases opened",
+              format: "numeric"
+            },
+            {
+              text: "Cases closed",
+              format: "numeric"
+            }
+          ],
+          rows: [
+            [
+              {
+                text: "David Francis"
+              },
+              {
+                text: "3",
+                format: "numeric"
+              },
+              {
+                text: "0",
+                format: "numeric"
+              }
+            ],
+            [
+              {
+                text: "Paul Farmer"
+              },
+              {
+                text: "1",
+                format: "numeric"
+              },
+              {
+                text: "0",
+                format: "numeric"
+              }
+            ],
+            [
+              {
+                text: "Rita Patel"
+              },
+              {
+                text: "2",
+                format: "numeric"
+              },
+              {
+                text: "0",
+                format: "numeric"
+              }
+            ]
+          ]
+        }) }}
+      {% endset -%} {% set pastWeekContent %}
+        {{ table({
+          responsive: false,
+          panel: false,
+          caption: "Past week",
+          firstCellIsHeader: false,
+          head: [
+            {
+              text: "Case manager"
+            },
+            {
+              text: "Cases opened",
+              format: "numeric"
+            },
+            {
+              text: "Cases closed",
+              format: "numeric"
+            }
+          ],
+          rows: [
+            [
+              {
+                text: "David Francis"
+              },
+              {
+                text: "24",
+                format: "numeric"
+              },
+              {
+                text: "18",
+                format: "numeric"
+              }
+            ],
+            [
+              {
+                text: "Paul Farmer"
+              },
+              {
+                text: "16",
+                format: "numeric"
+              },
+              {
+                text: "20",
+                format: "numeric"
+              }
+            ],
+            [
+              {
+                text: "Rita Patel"
+              },
+              {
+                text: "24",
+                format: "numeric"
+              },
+              {
+                text: "27",
+                format: "numeric"
+              }
+            ]
+          ]
+        }) }}
+      {% endset -%} {% set pastMonthContent %}
+        {{ table({
+          responsive: false,
+          panel: false,
+          caption: "Past month",
+          firstCellIsHeader: false,
+          head: [
+            {
+              text: "Case manager"
+            },
+            {
+              text: "Cases opened",
+              format: "numeric"
+            },
+            {
+              text: "Cases closed",
+              format: "numeric"
+            }
+          ],
+          rows: [
+            [
+              {
+                text: "David Francis"
+              },
+              {
+                text: "98",
+                format: "numeric"
+              },
+              {
+                text: "95",
+                format: "numeric"
+              }
+            ],
+            [
+              {
+                text: "Paul Farmer"
+              },
+              {
+                text: "122",
+                format: "numeric"
+              },
+              {
+                text: "131",
+                format: "numeric"
+              }
+            ],
+            [
+              {
+                text: "Rita Patel"
+              },
+              {
+                text: "126",
+                format: "numeric"
+              },
+              {
+                text: "142",
+                format: "numeric"
+              }
+            ]
+          ]
+        }) }}
+      {% endset -%} {% set pastYearContent %}
+        {{ table({
+          responsive: false,
+          panel: false,
+          caption: "Past year",
+          firstCellIsHeader: false,
+          head: [
+            {
+              text: "Case manager"
+            },
+            {
+              text: "Cases opened",
+              format: "numeric"
+            },
+            {
+              text: "Cases closed",
+              format: "numeric"
+            }
+          ],
+          rows: [
+            [
+              {
+                text: "David Francis"
+              },
+              {
+                text: "1380",
+                format: "numeric"
+              },
+              {
+                text: "1472",
+                format: "numeric"
+              }
+            ],
+            [
+              {
+                text: "Paul Farmer"
+              },
+              {
+                text: "1129",
+                format: "numeric"
+              },
+              {
+                text: "1083",
+                format: "numeric"
+              }
+            ],
+            [
+              {
+                text: "Rita Patel"
+              },
+              {
+                text: "1539",
+                format: "numeric"
+              },
+              {
+                text: "1265",
+                format: "numeric"
+              }
+            ]
+          ]
+        }) }}
+      {% endset -%}
+      {{ tabs({
+        items: [
+        {
+          label: "Past day",
+          id: "past-day",
+          panel: {
+            html: pastDayContent
+            }
+          },
+          {
+            label: "Past week",
+            id: "past-week",
+            panel: {
+              html: pastWeekContent
+            }
+          },
+          {
+            label: "Past month",
+            id: "past-month",
+            panel: {
+              html: pastMonthContent
+            }
+          },
+          {
+            label: "Past year",
+            id: "past-year",
+            panel: {
+              html: pastYearContent
+            }
+          }
+        ]
+      }) }}
+
+      <ul class="nhsuk-grid-row nhsuk-card-group">
+        <li class="nhsuk-grid-column-two-thirds nhsuk-card-group__item">
+        {{ card({
+          href: "#",
+          primary: "true",
+          clickable: "true",
+          heading: "Introduction to care and support",
+          headingClasses: "nhsuk-heading-m",
+          description: "A quick guide for people who have care and support needs and their carers"
+        }) }}
+        </li>
+      </ul>
+
+      {{ pagination({
+        previous: {
+          href: "#"
+        },
+        next: {
+          href: "#"
+        },
+        items: [
+          {
+            number: 1,
+            href: '#'
+          },
+          {
+            ellipsis: true
+          },
+          {
+            number: 8,
+            href: '#'
+          },
+          {
+            number: 9,
+            href: '#'
+          },
+          {
+            number: 10,
+            href: '#',
+            current: true
+          },
+          {
+            number: 11,
+            href: '#'
+          },
+          {
+            number: 12,
+            href: '#'
+          },
+          {
+            ellipsis: true
+          },
+          {
+            number: 42,
+            href: '#'
+          }
+        ]
+      }) }}
+
+    </div>
+  </section>
+{% endblock %}
+
+
+{% block footer %}
+
+  {{ footer({
+    meta: {
+      items: [
+        {
+          href: "#",
+          text: "Accessibility statement"
+        },
+        {
+          href: "#",
+          text: "Contact us"
+        },
+        {
+          href: "#",
+          text: "Cookies"
+        },
+        {
+          href: "#",
+          text: "Privacy policy"
+        },
+        {
+          href: "#",
+          text: "Terms and conditions"
+        }
+      ]
+    }
+  }) }}
+
+{% endblock %}
+
