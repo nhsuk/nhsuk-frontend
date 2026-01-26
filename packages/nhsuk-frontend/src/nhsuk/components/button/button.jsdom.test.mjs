@@ -1,7 +1,7 @@
 import { components } from '@nhsuk/frontend-lib'
 import { userEvent } from '@testing-library/user-event'
 
-import { Button, initButtons } from './button.mjs'
+import { Button } from './button.mjs'
 import { examples } from './fixtures.mjs'
 
 const user = userEvent.setup()
@@ -28,9 +28,9 @@ describe('Button', () => {
     initExample('default')
   })
 
-  describe('Initialisation via init function', () => {
+  describe('Initialisation via class', () => {
     it('should add event listeners', () => {
-      initButtons()
+      new Button($root)
 
       expect($root.addEventListener).toHaveBeenNthCalledWith(
         1,
@@ -45,23 +45,6 @@ describe('Button', () => {
       )
     })
 
-    it('should not throw with missing button', () => {
-      $root.remove()
-      expect(() => initButtons()).not.toThrow()
-    })
-
-    it('should not throw with empty body', () => {
-      document.body.innerHTML = ''
-      expect(() => initButtons()).not.toThrow()
-    })
-
-    it('should not throw with empty scope', () => {
-      const scope = document.createElement('div')
-      expect(() => initButtons({ scope })).not.toThrow()
-    })
-  })
-
-  describe('Initialisation via class', () => {
     it('should not throw with $root element', () => {
       expect(() => new Button($root)).not.toThrow()
     })
@@ -101,7 +84,7 @@ describe('Button', () => {
 
   describe('Accessibility (button)', () => {
     beforeEach(() => {
-      initButtons()
+      new Button($root)
     })
 
     it('should have accessible name and role', () => {
@@ -120,7 +103,7 @@ describe('Button', () => {
   describe('Accessibility (link)', () => {
     beforeEach(() => {
       initExample('as a link')
-      initButtons()
+      new Button($root)
     })
 
     it('should have accessible name and role', () => {

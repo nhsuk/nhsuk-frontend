@@ -1,5 +1,4 @@
 import { closestAttributeValue } from '../../common/closest-attribute-value.mjs'
-import { normaliseOptions } from '../../common/configuration/index.mjs'
 import { ConfigurableComponent } from '../../configurable-component.mjs'
 import { ElementError } from '../../errors/index.mjs'
 import { I18n } from '../../i18n.mjs'
@@ -528,24 +527,6 @@ function countFileItems(list) {
 }
 
 /**
- * Initialise file upload component
- *
- * @deprecated Use {@link createAll | `createAll(FileUpload, options)`} instead.
- * @param {InitOptions & Partial<FileUploadConfig>} [options]
- */
-export function initFileUploads(options) {
-  const { scope: $scope } = normaliseOptions(options)
-
-  const $fileUploads = $scope?.querySelectorAll(
-    `[data-module="${FileUpload.moduleName}"]`
-  )
-
-  $fileUploads?.forEach(($root) => {
-    new FileUpload($root, options)
-  })
-}
-
-/**
  * File upload config
  *
  * @see {@link FileUpload.defaults}
@@ -581,6 +562,5 @@ export function initFileUploads(options) {
 
 /**
  * @import { Schema } from '../../common/configuration/index.mjs'
- * @import { createAll, InitOptions } from '../../index.mjs'
  * @import { TranslationPluralForms } from '../../i18n.mjs'
  */

@@ -87,24 +87,6 @@
     }
   }
 
-  // Table panel with tab heading
-  //
-  // 1. Margin is removed so there isn't double spacing.
-
-  .nhsuk-table__panel-with-heading-tab {
-    @include nhsuk-panel-with-label($nhsuk-card-background-colour, $nhsuk-text-colour, $nhsuk-border-colour);
-
-    .nhsuk-table,
-    .nhsuk-table-container,
-    .nhsuk-table-responsive {
-      margin: 0; // [1]
-    }
-  }
-
-  .nhsuk-table__heading-tab {
-    @include nhsuk-heading-label($nhsuk-brand-colour, $nhsuk-reverse-text-colour);
-  }
-
   // Responsive table
   //
   // 1. Hide the thead until tablet

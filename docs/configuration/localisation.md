@@ -124,7 +124,7 @@ With data attributes
 
 With JavaScript
 
-```js
+```mjs
 import { CharacterCount, createAll } from 'nhsuk-frontend'
 
 // The same config will be used for all CharacterCount on the page
