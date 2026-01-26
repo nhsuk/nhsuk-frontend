@@ -45,6 +45,27 @@ An underline still appears when the user hovers their cursor over the link.
 
 This was added in [pull request #1367: Updates to link styles and link hover states](https://github.com/nhsuk/nhsuk-frontend/pull/1367).
 
+#### Add icons to buttons
+
+You can now add icons to buttons by using the `nhsukIcon` Nunjucks macro and adding the `nhsuk-button--icon` class:
+
+```njk
+{{ input({
+  formGroup: {
+    afterInput: {
+      html: button({
+        html: nhsukIcon("search", { title: "Find" }),
+        classes: "nhsuk-button--icon nhsuk-button--small"
+      })
+    }
+  }
+}) }}
+```
+
+You can read about [how to use these icons](https://service-manual.nhs.uk/design-system/styles/icons#how-to-use-these-icons) in the NHS digital service manual.
+
+This was added in [pull request #1712: Add support for icon buttons](https://github.com/nhsuk/nhsuk-frontend/pull/1712).
+
 ### :wastebasket: **Deprecated features**
 
 #### Rename Sass mixin for white link style
