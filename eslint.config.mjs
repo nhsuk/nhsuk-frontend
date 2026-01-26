@@ -255,7 +255,10 @@ export default defineConfig([
       // JSDoc @returns is optional
       'jsdoc/require-returns-description': 'off',
       'jsdoc/require-returns-type': 'off',
-      'jsdoc/require-returns': 'off'
+      'jsdoc/require-returns': 'off',
+
+      // Allow optional catch binding
+      'no-empty': ['error', { allowEmptyCatch: true }]
     }
   },
   {
