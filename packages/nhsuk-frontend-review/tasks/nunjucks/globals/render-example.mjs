@@ -1,5 +1,3 @@
-import filters from 'nunjucks/src/filters.js'
-
 /**
  * Render Nunjucks component with unique attributes
  *
@@ -26,7 +24,7 @@ export function renderExample(fixture, index) {
       )
   }
 
-  return filters.safe(html)
+  return html
 }
 
 /**
@@ -72,5 +70,5 @@ export function uniqueValues(name, values, index) {
 }
 
 /**
- * @import { MacroExampleFixture } from '@nhsuk/frontend-lib/components.mjs'
+ * @import { MacroExampleFixture } from 'nhsuk-frontend/lib'
  */
