@@ -6,11 +6,16 @@ import {
   getAllByRole
 } from '@testing-library/dom'
 import { userEvent } from '@testing-library/user-event'
+import { mockViewport } from 'jsdom-testing-mocks'
 
 import { examples } from './fixtures.mjs'
 import { Tabs, initTabs } from './tabs.mjs'
 
 const user = userEvent.setup()
+const viewportMock = mockViewport({
+  width: '1024px',
+  height: '768px'
+})
 
 describe('Tabs', () => {
   /** @type {HTMLElement} */
@@ -164,18 +169,14 @@ describe('Tabs', () => {
   })
 
   describe('Accessibility (mobile)', () => {
-    beforeEach(() => {
-      jest.mocked(window.matchMedia).mockImplementationOnce((query) => ({
-        matches: false,
-        media: query,
-        onchange: null,
-        addListener: jest.fn(),
-        addEventListener: jest.fn(),
-        removeListener: jest.fn(),
-        removeEventListener: jest.fn(),
-        dispatchEvent: jest.fn()
-      }))
+    beforeAll(() => {
+      viewportMock.set({
+        width: '320px',
+        height: '568px'
+      })
+    })
 
+    beforeEach(() => {
       initTabs()
     })
 
@@ -200,6 +201,13 @@ describe('Tabs', () => {
   })
 
   describe('Accessibility (tablet, desktop)', () => {
+    beforeAll(() => {
+      viewportMock.set({
+        width: '1024px',
+        height: '768px'
+      })
+    })
+
     beforeEach(() => {
       initTabs()
     })
