@@ -362,6 +362,7 @@ If you are not using Nunjucks macros, update your HTML markup using the [header 
 - add the `<div class="nhsuk-input-wrapper"> </div>` wrapper around the search input and button
 - add the `nhsuk-button` and `nhsuk-button--small` classes to the search button
 - remove the `nhsuk-header__search-submit` class from the search button
+- remove the `nhsuk-header__search-input` class from the search input
 
 ```patch
   <form class="nhsuk-header__search-form" id="search" action="https://www.nhs.uk/search/" method="get" novalidate>
@@ -370,8 +371,9 @@ If you are not using Nunjucks macros, update your HTML markup using the [header 
         Search the NHS website
       </label>
 +     <div class="nhsuk-input-wrapper">
-        <input class="nhsuk-input nhsuk-header__search-input" id="search-field" name="q" type="search" autocomplete="off" placeholder="Search">
+-       <input class="nhsuk-input nhsuk-header__search-input" id="search-field" name="q" type="search" autocomplete="off" placeholder="Search">
 -       <button class="nhsuk-header__search-submit" data-module="nhsuk-button" type="submit">
++       <input class="nhsuk-input" id="search-field" name="q" type="search" autocomplete="off" placeholder="Search">
 +       <button class="nhsuk-button nhsuk-button--small" data-module="nhsuk-button" type="submit">
           <svg class="nhsuk-icon nhsuk-icon--search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" role="img" aria-label="Search">
             <title>Search</title>
