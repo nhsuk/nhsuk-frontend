@@ -1,0 +1,140 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes -%}
+{% from "nhsuk/macros/icon.njk" import nhsukIcon -%}
+{% from "nhsuk/components/button/macro.njk" import button -%}
+{% from "nhsuk/components/input/macro.njk" import input -%}
+
+{%- set id = params.id if params.id else params.name -%}
+{%- set value = params.value | default(0) -%}
+
+{%- set hasStepDownButtonText = true if params.stepDownButton and (params.stepDownButton.text or params.stepDownButton.html) else false %}
+{%- set hasStepUpButtonText = true if params.stepUpButton and (params.stepUpButton.text or params.stepUpButton.html) else false %}
+
+{% if params.max >= 10000 %}
+  {% set width = 5 %}
+{% elif params.max >= 1000 %}
+  {% set width = 4 %}
+{% else %}
+  {% set width = 3 %}
+{% endif -%}
+
+{% set attributesHtml -%}
+  {{- nhsukAttributes({
+    "data-module": "nhsuk-stepper-input",
+    "data-min": {
+      value: params.min,
+      optional: true
+    },
+    "data-max": {
+      value: params.max,
+      optional: true
+    },
+    "data-step": {
+      value: params.step,
+      optional: true
+    }
+  }) -}}
+
+  {{- nhsukAttributes(params.formGroup.attributes) -}}
+{%- endset -%}
+
+{%- set beforeInputButtonHtml %}
+{{ nhsukIcon("minus", {
+  title: params.stepDownButton.visuallyHiddenText | default("Decrease", true) if not hasStepDownButtonText
+}) | trim }}
+{% if params.stepDownButton.html or params.stepDownButton.text -%}
+  <span>{{- params.stepDownButton.html | safe | trim if params.stepDownButton.html else params.stepDownButton.text -}}</span>
+{%- endif -%}
+{% endset -%}
+
+{%- set beforeInputHtml %}
+{%- if params.formGroup.beforeInput %}
+  {{ params.formGroup.beforeInput.html | safe | trim if params.formGroup.beforeInput.html else params.formGroup.beforeInput.text }}
+{% endif %}
+{{ button({
+  type: "button",
+  classes: "nhsuk-button--secondary nhsuk-button--icon nhsuk-button--small nhsuk-stepper-input__step-down nhsuk-js-stepper-input-step-down",
+  html: beforeInputButtonHtml | trim | indent(2),
+  attributes: {
+    "aria-controls": id,
+    "aria-describedby": id ~ "-label",
+    "disabled": {
+      value: params.min is defined and value <= params.min,
+      optional: true
+    },
+    "hidden": {
+      value: true,
+      optional: true
+    }
+  }
+}) | trim }}
+{% endset -%}
+
+{%- set afterInputButtonHtml %}
+{{ nhsukIcon("plus", {
+  title: params.stepUpButton.visuallyHiddenText | default("Increase", true) if not hasStepUpButtonText
+}) | trim }}
+{% if params.stepUpButton.html or params.stepUpButton.text -%}
+  <span>{{- params.stepUpButton.html | safe | trim if params.stepUpButton.html else params.stepUpButton.text -}}</span>
+{%- endif -%}
+{% endset -%}
+
+{%- set afterInputHtml %}
+{{ button({
+  type: "button",
+  classes: "nhsuk-button--secondary nhsuk-button--icon nhsuk-button--small nhsuk-stepper-input__step-up nhsuk-js-stepper-input-step-up",
+  html: afterInputButtonHtml | trim | indent(2),
+  attributes: {
+    "aria-controls": id,
+    "aria-describedby": id ~ "-label",
+    "disabled": {
+      value: params.max is defined and value >= params.max,
+      optional: true
+    },
+    "hidden": {
+      value: true,
+      optional: true
+    }
+  }
+}) | trim }}
+{% if params.formGroup.afterInput %}
+  {{- params.formGroup.afterInput.html | safe | trim if params.formGroup.afterInput.html else params.formGroup.afterInput.text }}
+{% endif -%}
+{% endset -%}
+
+{{ input({
+  formGroup: {
+    classes: "nhsuk-stepper-input" ~ (" " ~ params.formGroup.classes if params.formGroup.classes),
+    attributes: attributesHtml,
+    beforeInput: {
+      html: beforeInputHtml
+    },
+    afterInput: {
+      html: afterInputHtml
+    }
+  },
+  label: {
+    html: params.label.html,
+    text: params.label.text,
+    id: id ~ "-label",
+    classes: params.label.classes,
+    size: params.label.size,
+    isPageHeading: params.label.isPageHeading,
+    attributes: params.label.attributes,
+    for: id
+  },
+  hint: params.hint,
+  classes: "nhsuk-stepper-input__input nhsuk-input--width-" ~ width ~ " nhsuk-js-stepper-input-input" ~ (" " ~ params.classes if params.classes),
+  errorMessage: params.errorMessage,
+  id: id,
+  name: params.name,
+  type: "text",
+  inputmode: params.inputmode if params.inputmode else "numeric",
+  spellcheck: false,
+  autocapitalize: "none",
+  autocomplete: params.autocomplete,
+  value: params.value,
+  disabled: params.disabled,
+  describedBy: params.describedBy,
+  pattern: params.pattern,
+  attributes: params.attributes
+}) | trim }}
