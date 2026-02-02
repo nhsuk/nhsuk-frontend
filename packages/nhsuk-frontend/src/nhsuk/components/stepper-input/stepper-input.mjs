@@ -135,6 +135,7 @@ export class StepperInput extends ConfigurableComponent {
    */
   handleInput(event) {
     const { $input, config, value } = this
+    const min = config.min ?? 0
 
     // Browsers automatically populate the min or max value using arrow keys
     // but we must handle this manually when clicking step buttons
@@ -143,12 +144,12 @@ export class StepperInput extends ConfigurableComponent {
 
     // Polyfill default value on step down
     if (isEmpty && event?.currentTarget === this.$buttonStepDown) {
-      $input.valueAsNumber = config.min ?? 0
+      $input.valueAsNumber = min
     }
 
     // Polyfill default value on step up
     if (isEmpty && event?.currentTarget === this.$buttonStepUp) {
-      $input.valueAsNumber = config.min ?? 1
+      $input.valueAsNumber = min === 0 ? 1 : min
     }
 
     // Polyfill event dispatch when clicking step buttons
