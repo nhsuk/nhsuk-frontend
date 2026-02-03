@@ -3,6 +3,8 @@ import { join } from 'node:path'
 import * as config from '@nhsuk/frontend-config'
 import { assets, scripts, task } from '@nhsuk/frontend-tasks'
 
+const { NODE_ENV } = process.env
+
 /**
  * Rollup build cache
  *
@@ -29,7 +31,7 @@ export const compile = task.name(
 
     // Customise output
     output: {
-      compact: config.environment === 'production',
+      compact: NODE_ENV === 'production',
       file: 'javascripts/application.min.js',
       format: 'esm',
       paths: { 'nhsuk-frontend': './nhsuk-frontend.min.js' }

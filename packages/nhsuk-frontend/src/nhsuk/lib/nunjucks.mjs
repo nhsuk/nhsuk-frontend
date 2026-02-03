@@ -4,10 +4,6 @@ import { fileURLToPath } from 'node:url'
 import nunjucks from 'nunjucks'
 import { outdent } from 'outdent'
 
-// Node.js environment with default
-// https://nodejs.org/en/learn/getting-started/nodejs-the-difference-between-development-and-production
-export const { NODE_ENV = 'development' } = process.env
-
 // Nunjucks default environment
 export const env = configure([
   resolve(fileURLToPath(new URL('.', import.meta.url)), '../..')
