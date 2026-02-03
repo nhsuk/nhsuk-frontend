@@ -168,62 +168,78 @@ describe('Stepper input', () => {
     })
   })
 
-  it('shows buttons when javascript is enabled', async () => {
-    expect($stepUpButton).toHaveAttribute('hidden')
-    expect($stepDownButton).toHaveAttribute('hidden')
+  describe('Buttons', () => {
+    it('should be hidden by default', () => {
+      expect($stepUpButton).toHaveRole('button')
+      expect($stepUpButton).toHaveAttribute('hidden')
 
-    initStepperInputs()
+      expect($stepDownButton).toHaveRole('button')
+      expect($stepDownButton).toHaveAttribute('hidden')
+    })
 
-    expect($stepUpButton).not.toHaveAttribute('hidden')
-    expect($stepDownButton).not.toHaveAttribute('hidden')
-  })
+    it('should be visible when JavaScript is enabled', () => {
+      new StepperInput($root)
 
-  it('steps up when the button is clicked', async () => {
-    initStepperInputs()
-    expect($input).toHaveValue(2)
+      expect($stepUpButton).not.toHaveAttribute('hidden')
+      expect($stepDownButton).not.toHaveAttribute('hidden')
+    })
 
-    await user.click($stepUpButton)
+    it('should announce changes when clicked', async () => {
+      new StepperInput($root)
 
-    expect($input).toHaveValue(3)
-  })
+      const $liveRegion = /** @type {HTMLElement} */ (
+        document.querySelector("[aria-live='polite']")
+      )
 
-  it('steps down when the button is clicked', async () => {
-    initStepperInputs()
-    expect($input).toHaveValue(2)
+      await user.click($stepUpButton)
+      expect($liveRegion.innerText).toBe('3')
 
-    await user.click($stepDownButton)
+      await user.click($stepDownButton)
+      expect($liveRegion.innerText).toBe('2')
+    })
 
-    expect($input).toHaveValue(1)
-  })
+    describe('Increase', () => {
+      beforeEach(() => {
+        new StepperInput($root)
+      })
 
-  it('announces the change after buttons are clicked', async () => {
-    initStepperInputs()
+      it('steps up when clicked', async () => {
+        expect($input).toHaveValue(2)
 
-    const liveRegion = /** @type {HTMLElement} */ (
-      document.querySelector("[aria-live='polite']")
-    )
+        await user.click($stepUpButton)
 
-    await user.click($stepUpButton)
-    expect(liveRegion.innerText).toBe('3')
-    await user.click($stepDownButton)
-    expect(liveRegion.innerText).toBe('2')
-  })
+        expect($input).toHaveValue(3)
+      })
 
-  it('assumes the min value when stepping down if the input is empty', async () => {
-    initStepperInputs()
-    $input.value = ''
+      it('steps up from 1 if the input is empty and min is 0', async () => {
+        $input.value = ''
 
-    await user.click($stepDownButton)
+        await user.click($stepUpButton)
 
-    expect($input).toHaveValue(0)
-  })
+        expect($input).toHaveValue(1)
+      })
+    })
 
-  it('starts from 1 when stepping up if the input is empty and min is 0', async () => {
-    initStepperInputs()
-    $input.value = ''
+    describe('Decrease', () => {
+      beforeEach(() => {
+        new StepperInput($root)
+      })
 
-    await user.click($stepUpButton)
+      it('steps down when clicked', async () => {
+        expect($input).toHaveValue(2)
 
-    expect($input).toHaveValue(1)
+        await user.click($stepDownButton)
+
+        expect($input).toHaveValue(1)
+      })
+
+      it('steps down to min value if the input is empty', async () => {
+        $input.value = ''
+
+        await user.click($stepDownButton)
+
+        expect($input).toHaveValue(0)
+      })
+    })
   })
 })
