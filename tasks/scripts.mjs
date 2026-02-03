@@ -6,7 +6,7 @@ import { assets, scripts, task } from '@nhsuk/frontend-tasks'
 import gulp from 'gulp'
 
 // Prefer release version if available
-const { NPM_PACKAGE_VERSION = config.version } = process.env
+const { NODE_ENV, NPM_PACKAGE_VERSION = config.version } = process.env
 
 /**
  * Rollup build cache
@@ -120,7 +120,7 @@ export const compile = gulp.series(
 
       // Customise output
       output: {
-        compact: config.environment === 'production',
+        compact: NODE_ENV === 'production',
         file: 'nhsuk/nhsuk-frontend.min.js',
         format: 'esm'
       }
