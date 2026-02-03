@@ -30,6 +30,15 @@ export class StepperInput extends ConfigurableComponent {
       })
     }
 
+    if ($input.type !== 'text') {
+      throw new ElementError({
+        component: StepperInput,
+        element: $input,
+        expectedType: 'HTMLInputElement with attribute (`type="text"`)',
+        identifier: 'Form field (`.nhsuk-js-stepper-input-input`)'
+      })
+    }
+
     const $buttonStepDown = this.$root.querySelector(
       '.nhsuk-js-stepper-input-step-down'
     )
