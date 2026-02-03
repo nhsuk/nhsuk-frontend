@@ -59,7 +59,7 @@
     "start": "npm run watch"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.28.5",
+    "@babel/preset-env": "^7.28.6",
     "@nhsuk/frontend-config": "*",
     "@nhsuk/frontend-helpers": "*",
     "@nhsuk/frontend-lib": "*",
@@ -77,7 +77,7 @@
     "postcss": "^8.5.6",
     "postcss-scss": "^4.0.9",
     "puppeteer": "^24.34.0",
-    "sass-embedded": "^1.97.1"
+    "sass-embedded": "^1.97.3"
   },
   "peerDependencies": {
     "nunjucks": "^3.0.0",
