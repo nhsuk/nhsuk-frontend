@@ -150,6 +150,14 @@ describe('Stepper input', () => {
       )
     })
 
+    it('should throw with wrong $input element type', () => {
+      $input.setAttribute('type', 'email')
+
+      expect(() => new StepperInput($root)).toThrow(
+        `${StepperInput.moduleName}: Form field (\`.nhsuk-js-stepper-input-input\`) is not of type HTMLInputElement with attribute (\`type="text"\`)`
+      )
+    })
+
     it('should throw when initialised twice', () => {
       expect(() => {
         new StepperInput($root)
