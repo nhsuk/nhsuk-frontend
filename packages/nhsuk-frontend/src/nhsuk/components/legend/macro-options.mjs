@@ -1,5 +1,3 @@
-import { components } from '@nhsuk/frontend-lib'
-
 export const name = 'Legend'
 
 /**
@@ -43,8 +41,6 @@ export const params = {
   }
 }
 
-export const options = components.getMacroOptions(params)
-
 /**
- * @import { MacroParam } from '@nhsuk/frontend-lib/components.mjs'
+ * @import { MacroParam } from '#lib'
  */

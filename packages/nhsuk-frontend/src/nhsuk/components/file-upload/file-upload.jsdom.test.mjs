@@ -1,8 +1,9 @@
-import { components } from '@nhsuk/frontend-lib'
 import { getByLabelText } from '@testing-library/dom'
 
 import { FileUpload, initFileUploads } from './file-upload.mjs'
 import { examples } from './fixtures.mjs'
+
+import { components } from '#lib'
 
 describe('File upload', () => {
   /** @type {HTMLElement} */

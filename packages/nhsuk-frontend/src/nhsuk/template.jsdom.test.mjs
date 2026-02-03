@@ -1,6 +1,6 @@
 import { createHash } from 'node:crypto'
 
-import { nunjucks } from '@nhsuk/frontend-lib'
+import { nunjucks } from '#lib/index.mjs'
 
 describe('Template', () => {
   /**

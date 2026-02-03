@@ -1,7 +1,7 @@
-import { components } from '@nhsuk/frontend-lib'
-
 import { examples } from './fixtures.mjs'
 import { SkipLink, initSkipLinks } from './skip-link.mjs'
+
+import { components } from '#lib'
 
 describe('Skip link', () => {
   /** @type {HTMLElement} */
