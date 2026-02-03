@@ -114,6 +114,52 @@ describe('Stepper input', () => {
     })
   })
 
+  describe('Initialisation via class', () => {
+    it('should not throw with $root element', () => {
+      expect(() => new StepperInput($root)).not.toThrow()
+    })
+
+    it('should throw with unsupported browser', () => {
+      document.body.classList.remove('nhsuk-frontend-supported')
+
+      expect(() => new StepperInput($root)).toThrow(
+        'NHS.UK frontend is not supported in this browser'
+      )
+    })
+
+    it('should throw with missing $root element', () => {
+      // @ts-expect-error Parameter '$root' not provided
+      expect(() => new StepperInput()).toThrow(
+        `${StepperInput.moduleName}: Root element (\`$root\`) not found`
+      )
+    })
+
+    it('should throw with wrong $root element type', () => {
+      const $svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+
+      expect(() => new StepperInput($svg)).toThrow(
+        `${StepperInput.moduleName}: Root element (\`$root\`) is not of type HTMLElement`
+      )
+    })
+
+    it('should throw with missing $input element', () => {
+      $input.remove()
+
+      expect(() => new StepperInput($root)).toThrow(
+        `${StepperInput.moduleName}: Form field (\`.nhsuk-js-stepper-input-input\`) not found`
+      )
+    })
+
+    it('should throw when initialised twice', () => {
+      expect(() => {
+        new StepperInput($root)
+        new StepperInput($root)
+      }).toThrow(
+        `${StepperInput.moduleName}: Root element (\`$root\`) already initialised`
+      )
+    })
+  })
+
   it('shows buttons when javascript is enabled', async () => {
     expect($stepUpButton).toHaveAttribute('hidden')
     expect($stepDownButton).toHaveAttribute('hidden')
