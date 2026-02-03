@@ -21,10 +21,13 @@ describe('Stepper input', () => {
   /** @type {HTMLInputElement} */
   let $input
 
-  beforeEach(() => {
+  /**
+   * @param {keyof typeof examples} example
+   */
+  function initExample(example) {
     document.body.innerHTML = components.render(
       'stepper-input',
-      examples['with button text']
+      examples[example]
     )
 
     $root = /** @type {HTMLElement} */ (
@@ -36,6 +39,10 @@ describe('Stepper input', () => {
     $input = getByRole($root, 'textbox', {
       name: 'How many images were taken?'
     })
+  }
+
+  beforeEach(() => {
+    initExample('with button text')
   })
 
   it('shows buttons when javascript is enabled', async () => {
