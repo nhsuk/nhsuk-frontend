@@ -1,5 +1,5 @@
 import { components } from '@nhsuk/frontend-lib'
-import { getByRole, getByText } from '@testing-library/dom'
+import { getByRole, getAllByRole } from '@testing-library/dom'
 import { userEvent } from '@testing-library/user-event'
 
 import { examples } from './fixtures.mjs'
@@ -11,10 +11,10 @@ describe('Stepper input', () => {
   /** @type {HTMLElement} */
   let $root
 
-  /** @type {HTMLElement} */
+  /** @type {HTMLButtonElement} */
   let $stepUpButton
 
-  /** @type {HTMLElement} */
+  /** @type {HTMLButtonElement} */
   let $stepDownButton
 
   /** @type {HTMLInputElement} */
@@ -33,8 +33,15 @@ describe('Stepper input', () => {
       document.querySelector(`[data-module="${StepperInput.moduleName}"]`)
     )
 
-    $stepUpButton = getByText(document.body, 'Increase').parentElement
-    $stepDownButton = getByText(document.body, 'Decrease').parentElement
+    const $buttons = /** @type {HTMLButtonElement[]} */ (
+      getAllByRole($root, 'button', {
+        hidden: true
+      })
+    )
+
+    $stepDownButton = $buttons[0]
+    $stepUpButton = $buttons[1]
+
     $input = getByRole($root, 'textbox', {
       name: 'How many images were taken?'
     })
