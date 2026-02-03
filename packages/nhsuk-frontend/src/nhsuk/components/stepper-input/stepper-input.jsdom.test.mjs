@@ -34,13 +34,12 @@ describe('Stepper input', () => {
       document.querySelector(`[data-module="${StepperInput.moduleName}"]`)
     )
 
-    $stepUpButton = /** @type {HTMLElement} */ (
-      within($root).getByText('Increase').parentElement
-    )
+    const $buttons = within($root).getAllByRole('button', {
+      hidden: true
+    })
 
-    $stepDownButton = /** @type {HTMLElement} */ (
-      within($root).getByText('Decrease').parentElement
-    )
+    $stepDownButton = $buttons[0]
+    $stepUpButton = $buttons[1]
 
     $input = within($root).getByRole('textbox', {
       name: 'How many images were taken?'
