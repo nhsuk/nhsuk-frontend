@@ -1,5 +1,3 @@
-import { components } from '@nhsuk/frontend-lib'
-
 export const name = 'Legend'
 
 /**
@@ -42,8 +40,6 @@ export const params = {
     description: 'Size of the legend – `"s"`, `"m"`, `"l"` or `"xl"`.'
   }
 }
-
-export const options = components.getMacroOptions(params)
 
 /**
  * @import { MacroParam } from '@nhsuk/frontend-lib/components.mjs'
