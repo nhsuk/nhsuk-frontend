@@ -1,5 +1,13 @@
 # NHS.UK frontend Changelog
 
+## Unreleased
+
+Note: This release was created from the `support/10.x` branch.
+
+### :wrench: **Fixes**
+
+- [#1795: Add all page template variables from GOV.UK Frontend](https://github.com/nhsuk/nhsuk-frontend/issues/1795)
+
 ## 10.3.1 - 19 January 2026
 
 Note: This release was created from the `support/10.x` branch.
