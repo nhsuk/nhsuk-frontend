@@ -46,10 +46,72 @@ describe('Stepper input', () => {
     $input = getByRole($root, 'textbox', {
       name: 'How many images were taken?'
     })
+
+    jest.spyOn($stepDownButton, 'addEventListener')
+    jest.spyOn($stepUpButton, 'addEventListener')
   }
 
   beforeEach(() => {
     initExample('with button text')
+  })
+
+  describe('Initialisation via init function', () => {
+    it('should add event listeners', () => {
+      initStepperInputs()
+
+      // Adds listener for step down button click
+      expect($stepDownButton.addEventListener).toHaveBeenNthCalledWith(
+        1,
+        'click',
+        expect.any(Function)
+      )
+
+      // Adds listener for step up button click
+      expect($stepUpButton.addEventListener).toHaveBeenNthCalledWith(
+        1,
+        'click',
+        expect.any(Function)
+      )
+    })
+
+    it('should throw with missing text input', () => {
+      $input.remove()
+
+      expect(() => initStepperInputs()).toThrow(
+        `${StepperInput.moduleName}: Form field (\`.nhsuk-js-stepper-input-input\`) not found`
+      )
+    })
+
+    it('should throw with missing step down button', () => {
+      $stepDownButton.remove()
+
+      expect(() => initStepperInputs()).toThrow(
+        `${StepperInput.moduleName}: Step down button (\`.nhsuk-js-stepper-input-step-down\`) not found`
+      )
+    })
+
+    it('should throw with missing step up button', () => {
+      $stepUpButton.remove()
+
+      expect(() => initStepperInputs()).toThrow(
+        `${StepperInput.moduleName}: Step up button (\`.nhsuk-js-stepper-input-step-up\`) not found`
+      )
+    })
+
+    it('should not throw with missing component', () => {
+      $root.remove()
+      expect(() => initStepperInputs()).not.toThrow()
+    })
+
+    it('should not throw with empty body', () => {
+      document.body.innerHTML = ''
+      expect(() => initStepperInputs()).not.toThrow()
+    })
+
+    it('should not throw with empty scope', () => {
+      const scope = document.createElement('div')
+      expect(() => initStepperInputs({ scope })).not.toThrow()
+    })
   })
 
   it('shows buttons when javascript is enabled', async () => {
