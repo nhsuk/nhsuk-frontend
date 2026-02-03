@@ -210,8 +210,7 @@ describe('Stepper input', () => {
       })
 
       it('steps up from 1 if the input is empty and min is 0', async () => {
-        $input.value = ''
-
+        await user.clear($input)
         await user.click($stepUpButton)
 
         expect($input).toHaveValue(1)
@@ -232,8 +231,7 @@ describe('Stepper input', () => {
       })
 
       it('steps down to min value if the input is empty', async () => {
-        $input.value = ''
-
+        await user.clear($input)
         await user.click($stepDownButton)
 
         expect($input).toHaveValue(0)
