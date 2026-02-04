@@ -31,13 +31,19 @@ $nhsuk-border-width-panel: $nhsuk-panel-border-width;
 @include nhsuk-exports("nhsuk/components/panel") {
   .nhsuk-panel {
     box-sizing: border-box;
-    padding: nhsuk-spacing(5) - $nhsuk-panel-border-width; /* [2] */
-    border: $nhsuk-panel-border-width solid transparent; /* [1] */
+    border: $nhsuk-panel-border-width solid transparent; // [1]
     color: $nhsuk-reverse-text-colour;
     background: $nhsuk-success-colour;
 
     @include nhsuk-font-size(26);
     @include nhsuk-responsive-margin(4, "bottom");
+    @include nhsuk-responsive-padding(5, ("top", "bottom"), $adjustment: - $nhsuk-panel-border-width); // [2]
+    @include nhsuk-responsive-padding(
+      5,
+      ("left", "right"),
+      $adjustment: - $nhsuk-panel-border-width,
+      $unit: "rem"
+    ); // [2]
 
     // Links within the panel should use white text
     .nhsuk-link,
@@ -51,8 +57,7 @@ $nhsuk-border-width-panel: $nhsuk-panel-border-width;
     }
 
     @media #{nhsuk-until-breakpoint(tablet)} {
-      padding: nhsuk-spacing(4) - $nhsuk-panel-border-width; /* [2] */
-      @include nhsuk-text-break-word; /* [3] */
+      @include nhsuk-text-break-word; // [3]
     }
 
     @media print {

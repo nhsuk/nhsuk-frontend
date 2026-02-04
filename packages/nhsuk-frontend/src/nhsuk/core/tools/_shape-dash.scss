@@ -11,8 +11,7 @@
 
 @mixin nhsuk-shape-dash() {
   position: relative;
-  padding: 0;
-  @include nhsuk-responsive-padding(5, "left", $unit: "rem");
+  padding: 0 0 0 nhsuk-spacing(4, $unit: "rem");
 
   &::before {
     content: "";
