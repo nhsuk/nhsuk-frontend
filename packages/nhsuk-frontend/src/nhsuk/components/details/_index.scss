@@ -185,7 +185,8 @@ $expander-icon-size: $nhsuk-expander-icon-size;
         @include nhsuk-responsive-padding(5, "bottom", $adjustment: - $nhsuk-expander-border-width);
       }
 
-      .nhsuk-details__summary::before {
+      .nhsuk-details__summary::before,
+      &[open] .nhsuk-details__summary::before {
         display: none;
       }
 
