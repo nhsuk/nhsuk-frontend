@@ -18,8 +18,7 @@ $nhsuk-footer-border-colour: nhsuk-colour("grey-3");
     background-color: $nhsuk-template-background-colour;
 
     @include nhsuk-print-hide;
-    @include nhsuk-responsive-padding(5, bottom);
-    @include nhsuk-responsive-padding(5, top);
+    @include nhsuk-responsive-padding(5, ("top", "bottom"));
   }
 
   .nhsuk-footer__heading {

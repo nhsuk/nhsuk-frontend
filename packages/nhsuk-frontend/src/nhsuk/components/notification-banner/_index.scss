@@ -1,3 +1,4 @@
+@use "sass:math";
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
 @use "../../core/helpers" as *;
@@ -22,16 +23,15 @@
   }
 
   .nhsuk-notification-banner__header {
-    padding: 2px nhsuk-spacing(3) nhsuk-spacing(1);
+    padding-top: 2px;
+    padding-bottom: nhsuk-spacing(1);
 
     // Ensures the notification header appears separate to the notification body
     // text in high contrast mode
     border-bottom: 1px solid transparent;
     background-color: $nhsuk-brand-colour;
 
-    @include nhsuk-media-query($from: tablet) {
-      padding: 2px nhsuk-spacing(4) nhsuk-spacing(1);
-    }
+    @include nhsuk-responsive-padding(5, ("left", "right"), $adjustment: - $nhsuk-border-width, $unit: "rem");
   }
 
   .nhsuk-notification-banner__title {
@@ -45,13 +45,10 @@
   }
 
   .nhsuk-notification-banner__content {
-    $padding-tablet: nhsuk-spacing(4);
-    padding: nhsuk-spacing(3);
-
     @include nhsuk-text-colour;
-    @include nhsuk-media-query($from: tablet) {
-      padding: $padding-tablet;
-    }
+
+    @include nhsuk-responsive-padding(4, ("top", "bottom"));
+    @include nhsuk-responsive-padding(5, ("left", "right"), $adjustment: - $nhsuk-border-width, $unit: "rem");
 
     // Wrap content at the same place that a 2/3 grid column ends, to maintain
     // shorter line-lengths when the notification banner is full width
@@ -61,11 +58,15 @@
       box-sizing: border-box;
 
       // Calculate the internal width of a two-thirds column...
-      $two-col-width: calc($nhsuk-page-width * 2 / 3) - calc($nhsuk-gutter * 1 / 3);
+      $two-col-width: math.div($nhsuk-page-width, 1.5) - math.div($nhsuk-gutter, 3);
 
       // ...and then factor in the left border and padding
-      $banner-exterior: ($padding-tablet + $nhsuk-border-width);
-      max-width: $two-col-width - $banner-exterior;
+      @include nhsuk-responsive-spacing(
+        -5,
+        "max-width",
+        $adjustment: $two-col-width - ($nhsuk-border-width * 2),
+        $unit: "rem"
+      );
     }
 
     > :last-child {

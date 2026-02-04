@@ -29,8 +29,7 @@
 }
 
 %nhsuk-section-break--xl {
-  @include nhsuk-responsive-margin(8, "top");
-  @include nhsuk-responsive-margin(8, "bottom");
+  @include nhsuk-responsive-margin(8, ("top", "bottom"));
 }
 
 .nhsuk-section-break--xl {
@@ -38,8 +37,7 @@
 }
 
 %nhsuk-section-break--l {
-  @include nhsuk-responsive-margin(6, "top");
-  @include nhsuk-responsive-margin(6, "bottom");
+  @include nhsuk-responsive-margin(6, ("top", "bottom"));
 }
 
 .nhsuk-section-break--l {
@@ -47,8 +45,7 @@
 }
 
 %nhsuk-section-break--m {
-  @include nhsuk-responsive-margin(4, "top");
-  @include nhsuk-responsive-margin(4, "bottom");
+  @include nhsuk-responsive-margin(4, ("top", "bottom"));
 }
 
 .nhsuk-section-break--m {
