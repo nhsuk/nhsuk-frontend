@@ -55,7 +55,7 @@ $expander-icon-size: $nhsuk-expander-icon-size;
       padding: nhsuk-spacing(3) 0;
       border-left: $nhsuk-border-width solid $nhsuk-border-colour;
 
-      @include nhsuk-responsive-padding(5, "left", $adjustment: - $nhsuk-border-width, $unit: "rem"); // [5]
+      @include nhsuk-responsive-padding(4, "left", $adjustment: - $nhsuk-border-width, $unit: "rem"); // [5]
     }
 
     .nhsuk-details__summary-text {
@@ -77,10 +77,10 @@ $expander-icon-size: $nhsuk-expander-icon-size;
     .nhsuk-details__summary {
       position: relative; // [2]
       width: fit-content; // [1]
+      padding-left: nhsuk-spacing(4, $unit: "rem"); // [5]
       cursor: pointer;
-      @include nhsuk-link-style;
 
-      @include nhsuk-responsive-padding(5, "left", $unit: "rem");
+      @include nhsuk-link-style;
 
       &::-webkit-details-marker {
         display: none; // [4]
@@ -117,9 +117,9 @@ $expander-icon-size: $nhsuk-expander-icon-size;
     .nhsuk-details__text {
       margin-top: nhsuk-spacing(2);
       padding: nhsuk-spacing(3) 0;
-      border-left: $nhsuk-border-width solid $nhsuk-border-colour;
 
-      @include nhsuk-responsive-padding(5, "left", $adjustment: - $nhsuk-border-width, $unit: "rem"); // [5]
+      padding-left: nhsuk-spacing(4, $unit: "rem", $adjustment: - $nhsuk-border-width); // [5]
+      border-left: $nhsuk-border-width solid $nhsuk-border-colour;
     }
   }
 
