@@ -15,9 +15,8 @@
   }
 
   .nhsuk-form-group--error {
+    padding-left: nhsuk-spacing(4, $adjustment: - $nhsuk-border-width-form-group-error, $unit: "rem");
     border-left: $nhsuk-border-width-form-group-error solid $nhsuk-error-colour;
-
-    @include nhsuk-responsive-padding(5, "left", $adjustment: - $nhsuk-border-width-form-group-error, $unit: "rem");
 
     .nhsuk-form-group {
       padding: 0;

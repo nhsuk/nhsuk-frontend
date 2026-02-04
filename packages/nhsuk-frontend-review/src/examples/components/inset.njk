@@ -59,6 +59,15 @@
         </p>
       {% endcall %}
 
+      {{ fileUpload({
+        label: {
+          text: "Upload a file",
+          size: "l",
+          isPageHeading: true
+        },
+        name: "file-hint"
+      }) }}
+
       {{ actionLink({
         text: "Find your nearest A&E",
         href: "#"
@@ -370,6 +379,11 @@
             }
           ]
         ]
+      }) }}
+
+      {{ panel({
+        titleText: "Application complete",
+        text: "We have sent you a confirmation email"
       }) }}
 
       {{ warningCallout({
