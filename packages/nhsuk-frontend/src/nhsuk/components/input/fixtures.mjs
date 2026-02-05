@@ -208,6 +208,7 @@ export const examples = {
     context: {
       label: {
         text: 'What is your NHS number?',
+        id: 'custom-size-label',
         isPageHeading: true
       },
       id: 'custom-size',

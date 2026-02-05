@@ -22,6 +22,7 @@ export const examples = {
     context: {
       label: {
         text: 'Can you provide more detail?',
+        id: 'with-hint-label',
         size: 'l',
         isPageHeading: true
       },
