@@ -262,11 +262,11 @@ describe('Character count', () => {
         })
 
         it('does not show the limit until the threshold is reached', async () => {
-          const visibility = await page.$eval(
+          const hidden = await page.$eval(
             '.nhsuk-character-count__status',
-            (el) => window.getComputedStyle(el).visibility
+            (el) => el.getAttribute('hidden')
           )
-          expect(visibility).toBe('hidden')
+          expect(hidden).toBe('')
 
           // Wait for debounced update to happen
           await timers.setTimeout(debouncedWaitTime)
@@ -282,11 +282,11 @@ describe('Character count', () => {
         it('becomes visible once the threshold is reached', async () => {
           await page.type('.nhsuk-js-character-count', 'A'.repeat(8))
 
-          const visibility = await page.$eval(
+          const hidden = await page.$eval(
             '.nhsuk-character-count__status',
-            (el) => window.getComputedStyle(el).visibility
+            (el) => el.getAttribute('hidden')
           )
-          expect(visibility).toBe('visible')
+          expect(hidden).toBeNull()
 
           // Wait for debounced update to happen
           await timers.setTimeout(debouncedWaitTime)
@@ -495,11 +495,11 @@ describe('Character count', () => {
 
           await page.type('.nhsuk-js-character-count', 'A'.repeat(8))
 
-          const visibility = await page.$eval(
+          const hidden = await page.$eval(
             '.nhsuk-character-count__status',
-            (el) => window.getComputedStyle(el).visibility
+            (el) => el.getAttribute('hidden')
           )
-          expect(visibility).toBe('visible')
+          expect(hidden).toBeNull()
         })
 
         it('configures the description of the textarea', async () => {
@@ -590,11 +590,11 @@ describe('Character count', () => {
 
           await page.type('.nhsuk-js-character-count', 'A'.repeat(8))
 
-          const visibility = await page.$eval(
+          const hidden = await page.$eval(
             '.nhsuk-character-count__status',
-            (el) => window.getComputedStyle(el).visibility
+            (el) => el.getAttribute('hidden')
           )
-          expect(visibility).toBe('visible')
+          expect(hidden).toBeNull()
         })
       })
 
