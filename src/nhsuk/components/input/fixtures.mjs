@@ -248,6 +248,17 @@ export const examples = {
             size: 'xl'
           }
         }
+      },
+      {
+        description: 'with id attribute',
+        context: {
+          label: {
+            id: 'custom-id'
+          }
+        },
+        options: {
+          hidden: true
+        }
       }
     ]
   },
