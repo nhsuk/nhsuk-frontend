@@ -236,7 +236,7 @@ export class CharacterCount extends ConfigurableComponent {
     // If input is over the threshold, show the count message
     if (this.isOverThreshold()) {
       this.$visibleCountMessage.removeAttribute('hidden')
-    } else if (!this.$visibleCountMessage.hasAttribute('hidden')) {
+    } else {
       this.$visibleCountMessage.setAttribute('hidden', '')
     }
 
