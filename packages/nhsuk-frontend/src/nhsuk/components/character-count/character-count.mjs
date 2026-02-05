@@ -124,6 +124,7 @@ export class CharacterCount extends ConfigurableComponent {
     // configured
     this.$visibleCountMessage = document.createElement('div')
     this.$visibleCountMessage.setAttribute('aria-hidden', 'true')
+    this.$visibleCountMessage.setAttribute('hidden', '')
     this.$visibleCountMessage.className = $textareaDescription.className
     this.$visibleCountMessage.classList.add(visibleCountMessageClass)
     this.$visibleCountMessage.classList.remove(textareaDescriptionClass)
@@ -232,12 +233,12 @@ export class CharacterCount extends ConfigurableComponent {
     const remainingNumber = this.maxLength - this.count(this.$textarea.value)
     const isError = remainingNumber < 0
 
-    // If input is over the threshold, remove the disabled class which renders
-    // the counter invisible.
-    this.$visibleCountMessage.classList.toggle(
-      `${this.config.visibleCountMessageClass}--disabled`,
-      !this.isOverThreshold()
-    )
+    // If input is over the threshold, show the count message
+    if (this.isOverThreshold()) {
+      this.$visibleCountMessage.removeAttribute('hidden')
+    } else if (!this.$visibleCountMessage.hasAttribute('hidden')) {
+      this.$visibleCountMessage.setAttribute('hidden', '')
+    }
 
     // Update styles
     if (!this.$errorMessage) {
