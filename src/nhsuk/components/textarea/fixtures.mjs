@@ -22,7 +22,6 @@ export const examples = {
     context: {
       label: {
         text: 'Can you provide more detail?',
-        id: 'with-hint-label',
         size: 'l',
         isPageHeading: true
       },
@@ -79,7 +78,7 @@ export const examples = {
         }
       },
       {
-        description: 'with id attribute',
+        description: 'with label id attribute',
         context: {
           label: {
             id: 'custom-id'

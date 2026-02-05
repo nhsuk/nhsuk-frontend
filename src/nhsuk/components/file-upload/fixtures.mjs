@@ -109,11 +109,14 @@ export const examples = {
         }
       },
       {
-        description: 'with id attribute',
+        description: 'with label id attribute',
         context: {
           label: {
             id: 'custom-id'
           }
+        },
+        options: {
+          hidden: true
         }
       }
     ]
