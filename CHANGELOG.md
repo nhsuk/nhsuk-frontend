@@ -2,6 +2,23 @@
 
 ## Unreleased
 
+Note: This release was created from the `support/10.x` branch.
+
+### :recycle: **Changes**
+
+#### Hide the character count messages when unnecessary
+
+We've updated the HTML for the character count to hide the count message and textarea description when unnecessary, rather than always reserve vertical space.
+
+If you are not using Nunjucks macros, update your HTML markup using the [character count examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/character-count) to add the `hidden` boolean attribute to an:
+
+- empty visible count message with a `threshold` set but not yet reached
+- empty textarea description with neither `maxlength` nor `maxwords` set
+
+The previous class names `nhsuk-character-count__status--disabled` and `nhsuk-character-count__message--disabled` are deprecated and will be removed in a future release.
+
+This change was introduced in [pull request #1796: Hide character count message until threshold is reached](https://github.com/nhsuk/nhsuk-frontend/pull/1796).
+
 ### :wrench: **Fixes**
 
 - [#1797: Ensure components pass label.id down to the label](https://github.com/nhsuk/nhsuk-frontend/pull/1797)
