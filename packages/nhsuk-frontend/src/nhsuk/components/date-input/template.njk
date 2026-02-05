@@ -69,6 +69,7 @@
       {{ input({
         label: {
           text: item.label if item.label else item.name | capitalize,
+          id: item.label.id,
           classes: "nhsuk-date-input__label"
         },
         id: item.id if item.id else (params.id ~ "-" ~ item.name),
