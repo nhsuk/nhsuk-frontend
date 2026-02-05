@@ -68,6 +68,7 @@ export const examples = {
     context: {
       label: {
         text: 'Sort by',
+        id: 'with-disabled-item-label',
         isPageHeading: true
       },
       id: 'with-disabled-item',

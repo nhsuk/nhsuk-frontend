@@ -1,5 +1,11 @@
 # NHS.UK frontend Changelog
 
+## Unreleased
+
+### :wrench: **Fixes**
+
+- [#1797: Ensure components pass label.id down to the label](https://github.com/nhsuk/nhsuk-frontend/pull/1797)
+
 ## 10.3.1 - 19 January 2026
 
 Note: This release was created from the `support/10.x` branch.

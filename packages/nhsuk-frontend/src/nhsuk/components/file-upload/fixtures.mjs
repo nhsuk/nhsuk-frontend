@@ -8,6 +8,7 @@ export const examples = {
     context: {
       label: {
         text: 'Upload a file',
+        id: 'file-upload-label',
         size: 'l',
         isPageHeading: true
       },
