@@ -24,7 +24,7 @@ export const compile = gulp.series(
      * - ECMAScript (ES) modules for Node.js or bundler `import`
      *   (External dependencies resolved via `node_modules`)
      */
-    await scripts.compile(['nhsuk/nhsuk.mjs', 'nhsuk/index.mjs'], {
+    await scripts.compile('nhsuk/index.mjs', {
       srcPath: join(config.paths.pkg, 'src'),
       destPath: join(config.paths.pkg, 'dist'),
 
@@ -49,7 +49,7 @@ export const compile = gulp.series(
      * - CommonJS (CJS) modules for Node.js or bundler `require()`
      *   (External dependencies resolved via `node_modules`)
      */
-    await scripts.compile(['nhsuk/nhsuk.mjs', 'nhsuk/index.mjs'], {
+    await scripts.compile('nhsuk/index.mjs', {
       srcPath: join(config.paths.pkg, 'src'),
       destPath: join(config.paths.pkg, 'dist'),
 
