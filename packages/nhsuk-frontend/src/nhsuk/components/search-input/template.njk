@@ -1,0 +1,59 @@
+{% from "nhsuk/components/button/macro.njk" import button -%}
+{% from "nhsuk/components/input/macro.njk" import input -%}
+{% from "nhsuk/macros/icon.njk" import nhsukIcon %}
+
+{%- set id = params.id if params.id else params.name -%}
+
+{%- set hasButtonText = true if params.button and (params.button.text or params.button.html) else false %}
+
+{%- set buttonHtml %}
+{{ nhsukIcon("search") | trim }}
+{% if params.button.html or params.button.text %}
+  <span>{{- params.button.html | safe | trim if params.button.html else params.button.text -}}</span>
+{% endif -%}
+{% endset -%}
+
+{%- set afterInputHtml %}
+{{ button({
+  html: buttonHtml | trim | indent(2),
+  classes: "nhsuk-button--icon nhsuk-button--small nhsuk-search-input__button" + (" " + params.button.classes if params.button.classes),
+  attributes: {
+    "aria-label": {
+      value: params.button.visuallyHiddenText | default("Search", true)
+        if not hasButtonText
+        else false,
+      optional: true
+    }
+  }
+}) | trim }}
+{% if params.formGroup.afterInput %}
+  {{- params.formGroup.afterInput.html | safe | trim if params.formGroup.afterInput.html else params.formGroup.afterInput.text }}
+{% endif -%}
+{% endset -%}
+
+{{ input({
+  formGroup: {
+    classes: "nhsuk-search-input" + (" " + params.formGroup.classes if params.formGroup.classes),
+    attributes: params.formGroup.attributes,
+    beforeInput: params.formGroup.beforeInput,
+    afterInput: {
+      html: afterInputHtml
+    }
+  },
+  label: params.label,
+  hint: params.hint,
+  classes: "nhsuk-search-input__input" + (" " + params.classes if params.classes),
+  errorMessage: params.errorMessage,
+  id: id,
+  name: params.name,
+  type: "search",
+  inputmode: params.inputmode,
+  spellcheck: false,
+  autocapitalize: params.autocapitalize if params.autocapitalize else "none",
+  autocomplete: params.autocomplete if params.autocomplete else "off",
+  placeholder: params.placeholder,
+  value: params.value,
+  disabled: params.disabled,
+  describedBy: params.describedBy,
+  attributes: params.attributes
+}) | trim }}
