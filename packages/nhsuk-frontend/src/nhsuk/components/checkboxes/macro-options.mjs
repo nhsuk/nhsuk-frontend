@@ -148,6 +148,11 @@ export const params = {
           'Subset of options for the label used by each checkbox item within the checkboxes component.',
         isComponent: true,
         params: {
+          id: {
+            type: 'string',
+            required: false,
+            description: 'The ID of the label tag.'
+          },
           classes: {
             type: 'string',
             required: false,
