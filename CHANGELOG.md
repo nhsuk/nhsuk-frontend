@@ -55,6 +55,30 @@ The previous class names `nhsuk-character-count__status--disabled` and `nhsuk-ch
 
 This change was introduced in [pull request #1796: Hide character count message until threshold is reached](https://github.com/nhsuk/nhsuk-frontend/pull/1796).
 
+#### Improve screen reader announcements for header search button
+
+We've updated the HTML for the header search button to improve NVDA screen reader announcements.
+
+If you are not using Nunjucks macros, update your HTML markup using the [header examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/header) as follows:
+
+- add the `aria-label="Search"` attribute to the `<button>` element
+- remove the `aria-label="Search"` and `role="img"` attributes from the `<svg>` icon
+- remove the `<title>Search</title>` child element from the `<svg>` icon
+- add the `aria-hidden="true"` attribute to the `<svg>` icon
+
+```patch
+- <button class="nhsuk-button nhsuk-button--small" data-module="nhsuk-button" type="submit">
++ <button class="nhsuk-button nhsuk-button--small" data-module="nhsuk-button" type="submit" aria-label="Search">
+-   <svg class="nhsuk-icon nhsuk-icon--search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" role="img" aria-label="Search">
++   <svg class="nhsuk-icon nhsuk-icon--search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false">
+-     <title>Search</title>
+      <path d="m20.7 19.3-4.1-4.1a7 7 0 1 0-1.4 1.4l4 4.1a1 1 0 0 0 1.5 0c.4-.4.4-1 0-1.4ZM6 11a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z"/>
+    </svg>
+  </button>
+```
+
+This change was introduced in [pull request #1712: Add support for icon buttons](https://github.com/nhsuk/nhsuk-frontend/pull/1712).
+
 ### :wrench: **Fixes**
 
 - [#1779: Fix header menu width when text size changes](https://github.com/nhsuk/nhsuk-frontend/pull/1779)
