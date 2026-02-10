@@ -8,6 +8,10 @@
 {%- set classNames = "nhsuk-radios" -%}
 {%- set classNamesFormGroup = "nhsuk-form-group" -%}
 
+{%- if params.small and (not params.classes or not "nhsuk-radios--small" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-radios--small" %}
+{% endif %}
+
 {%- if params.errorMessage %}
   {% set classNamesFormGroup = classNamesFormGroup ~ " nhsuk-form-group--error" %}
 {% endif %}
