@@ -21,9 +21,9 @@
 {% endblock %}
 
 {% block bodyEnd %}
-  <script type="module" src="{{ baseUrl }}javascripts/nhsuk-frontend.min.js"></script>
-  <script type="module">
-    import { initAll } from '{{ baseUrl }}javascripts/nhsuk-frontend.min.js'
-    initAll()
-  </script>
-{% endblock %}}
+  {%- if options.throwOnError == false -%}
+    {%- include "partials/scripts.njk" -%}
+  {%- else -%}
+    {%- include "partials/scripts-throw-errors.njk" -%}
+  {%- endif -%}
+{% endblock %}

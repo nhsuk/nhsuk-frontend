@@ -14,14 +14,15 @@ export function renderExample(fixture, index) {
 
       // Append unique ID to attribute value
       .replace(
-        / (href|id|for|name)="([^"]*)"/g,
-        (match, name, value) => ` ${name}="${uniqueValue(value, index)}"`
+        / (aria-label|href|id|for|name)="([^"]*)"/g,
+        (match, name, value) => ` ${name}="${uniqueValue(name, value, index)}"`
       )
 
       // Append unique ID to attribute value(s)
       .replace(
-        / (aria-controls|aria-describedby|aria-labelledby)="([^"]*)"/g,
-        (match, name, values) => ` ${name}="${uniqueValues(values, index)}"`
+        / (?:data-)?(aria-controls|aria-describedby|aria-labelledby)="([^"]*)"/g,
+        (match, name, values) =>
+          ` ${name}="${uniqueValues(name, values, index)}"`
       )
   }
 
@@ -31,12 +32,21 @@ export function renderExample(fixture, index) {
 /**
  * Make value unique
  *
+ * @param {string} name - Attribute name
  * @param {string} value - Attribute value
  * @param {string | number} index - Unique index to append to attribute value
  */
-export function uniqueValue(value, index) {
-  if (!value || value === '#') {
+export function uniqueValue(name, value, index) {
+  if (
+    !value ||
+    (name === 'id' && value === 'maincontent') ||
+    (name === 'href' && ['#', '#maincontent'].includes(value))
+  ) {
     return value
+  }
+
+  if (name === 'aria-label') {
+    return `${value} ${index}`
   }
 
   const [, prefix, suffix] =
@@ -50,13 +60,14 @@ export function uniqueValue(value, index) {
 /**
  * Make space-separated values unique
  *
+ * @param {string} name - Attribute name
  * @param {string} values - Attribute values, space-separated
  * @param {string | number} index - Unique index to append to attribute values
  */
-export function uniqueValues(values, index) {
+export function uniqueValues(name, values, index) {
   return values
     .split(' ')
-    .map((value) => uniqueValue(value, index))
+    .map((value) => uniqueValue(name, value, index))
     .join(' ')
 }
 

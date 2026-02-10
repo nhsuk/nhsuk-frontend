@@ -1,13 +1,6 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/components/card/macro.njk" import card %}
 
-{#- Set classes for this component #}
-{%- set classNames = "nhsuk-warning-callout" -%}
-
-{%- if params.classes %}
-  {% set classNames = classNames ~ " " ~ params.classes %}
-{% endif -%}
-
 {{ card({
   id: params.id,
   heading: params.heading,
@@ -19,7 +12,7 @@
   description: params.text,
   descriptionHtml: caller() if caller else params.html,
   actions: params.actions,
-  classes: classNames,
+  classes: params.classes,
   attributes: params.attributes,
   warning: true
 }) }}

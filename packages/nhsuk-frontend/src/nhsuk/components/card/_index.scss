@@ -54,17 +54,22 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
     @include nhsuk-panel($nhsuk-card-background-colour, $nhsuk-text-colour, $nhsuk-card-border-colour);
   }
 
-  .nhsuk-card__img {
+  .nhsuk-card__img,
+  .nhsuk-card .nhsuk-image {
     display: block;
     width: 100%;
+    margin: 0;
     border-bottom: $nhsuk-card-border-width solid nhsuk-colour("grey-5"); // [2]
-
-    @include nhsuk-print-hide;
   }
 
   .nhsuk-card__content {
     @include nhsuk-top-and-bottom;
     @include nhsuk-responsive-padding(5);
+  }
+
+  .nhsuk-card .nhsuk-image__caption {
+    @include nhsuk-responsive-padding(5, "left");
+    @include nhsuk-responsive-padding(5, "right");
   }
 
   .nhsuk-card__heading {
@@ -100,6 +105,10 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
       flex-wrap: nowrap;
       align-items: baseline;
       justify-content: space-between;
+
+      &:has(.nhsuk-card__actions:only-child) {
+        justify-content: right;
+      }
     }
   }
 
@@ -119,6 +128,10 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
       justify-content: right;
       margin: 0 0 nhsuk-spacing(3) nhsuk-spacing(3);
       text-align: right;
+
+      &:only-child {
+        margin-left: 0;
+      }
     }
   }
 

@@ -19,6 +19,12 @@ export const examples = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
+  'basic without heading': {
+    context: {
+      description:
+        'A quick guide for people who have care and support needs and their carers'
+    }
+  },
   'basic with heading link': {
     context: {
       href: '#',
@@ -219,6 +225,49 @@ export const examples = {
       })}
     `
   },
+  'basic with summary list and actions, without heading': {
+    context: {
+      actions: {
+        items: [
+          {
+            text: 'Delete',
+            visuallyHiddenText: '(Karen Francis)',
+            href: '#/delete'
+          },
+          {
+            text: 'Withdraw',
+            visuallyHiddenText: '(Karen Francis)',
+            href: '#/withdraw'
+          }
+        ]
+      }
+    },
+    callBlock: outdent`
+      ${components.render('summary-list', {
+        context: {
+          rows: [
+            {
+              key: {
+                text: 'Name'
+              },
+              value: {
+                text: 'Karen Francis'
+              }
+            },
+            {
+              classes: 'nhsuk-summary-list__row--no-border',
+              key: {
+                text: 'Date of birth'
+              },
+              value: {
+                text: '15 March 1984'
+              }
+            }
+          ]
+        }
+      })}
+    `
+  },
   'basic with summary list and actions (empty items)': {
     context: {
       heading: 'Regional Manager',
@@ -290,6 +339,13 @@ export const examples = {
         }
       })}
     `
+  },
+  'secondary without heading': {
+    context: {
+      secondary: true,
+      description:
+        'A quick guide for people who have care and support needs and their carers'
+    }
   },
   'secondary with heading link': {
     context: {
@@ -454,6 +510,50 @@ export const examples = {
           },
           {
             text: 'Withdraw',
+            href: '#/withdraw'
+          }
+        ]
+      }
+    },
+    callBlock: outdent`
+      ${components.render('summary-list', {
+        context: {
+          rows: [
+            {
+              key: {
+                text: 'Name'
+              },
+              value: {
+                text: 'Karen Francis'
+              }
+            },
+            {
+              classes: 'nhsuk-summary-list__row--no-border',
+              key: {
+                text: 'Date of birth'
+              },
+              value: {
+                text: '15 March 1984'
+              }
+            }
+          ]
+        }
+      })}
+    `
+  },
+  'secondary with summary list and actions, without heading': {
+    context: {
+      secondary: true,
+      actions: {
+        items: [
+          {
+            text: 'Delete',
+            visuallyHiddenText: '(Karen Francis)',
+            href: '#/delete'
+          },
+          {
+            text: 'Withdraw',
+            visuallyHiddenText: '(Karen Francis)',
             href: '#/withdraw'
           }
         ]
@@ -714,6 +814,21 @@ export const examples = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
+  'feature with A to Z content': {
+    context: {
+      feature: true,
+      heading: 'A',
+      headingId: 'a',
+      headingSize: 'm',
+      descriptionHtml: outdent`
+        <ul class="nhsuk-list nhsuk-list--border">
+          <li><a href="#/conditions/abdominal-aortic-aneurysm/">AAA, see Abdominal aortic aneurysm</a></li>
+          <li><a href="#/conditions/abdominal-aortic-aneurysm/">Abdominal aortic aneurysm</a></li>
+          <li><a href="#/conditions/abscess/">Abscess</a></li>
+        </ul>
+      `
+    }
+  },
   'feature with summary list': {
     context: {
       feature: true,
@@ -826,8 +941,9 @@ export const examples = {
   },
   'with image': {
     context: {
-      imgURL:
-        'https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg',
+      image: {
+        src: 'https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg'
+      },
       href: '#',
       clickable: true,
       heading: 'Exercise',
@@ -839,13 +955,54 @@ export const examples = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
+  'with image and caption': {
+    context: {
+      image: {
+        html: components.render('images', {
+          context: {
+            src: 'https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg',
+            caption: {
+              classes: 'nhsuk-u-secondary-text-colour',
+              text: 'No specific amount of time is recommended, but a typical training session could take less than 20 minutes.'
+            }
+          }
+        })
+      },
+      href: '#',
+      clickable: true,
+      heading: 'Exercise',
+      headingSize: 'm',
+      description:
+        'Programmes, workouts and tips to get you moving and improve your fitness and wellbeing'
+    }
+  },
+  'with image and custom HTML': {
+    context: {
+      image: {
+        src: 'https://service-manual.nhs.uk/assets/blog-prototype-kit.png'
+      },
+      href: 'https://digital.nhs.uk/blog/design-matters/2025/why-we-are-reinvesting-in-the-nhs-prototype-kit',
+      clickable: true,
+      heading: 'Why we are reinvesting in the NHS prototype kit',
+      headingSize: 'm',
+      headingHtml: outdent`
+        <p class="nhsuk-body-s nhsuk-u-secondary-text-colour nhsuk-u-margin-bottom-0"><span class="nhsuk-u-visually-hidden">Published on: </span>21 July 2025</p>
+        <p class="nhsuk-body-s nhsuk-u-font-weight-bold">NHS England Design Matters blog</p>
+      `,
+      description:
+        'Frankie Roberto and Mike Gallagher explain why we revived the NHS prototype kit, the benefits of prototyping in code and how digital teams in the NHS can get started using it.'
+    },
+    options: {
+      width: 'one-half'
+    }
+  },
   'top task': {
     context: {
       href: '#',
       clickable: true,
-      headingLevel: 5,
       heading: 'Order a repeat prescription',
-      headingSize: 'xs'
+      headingSize: 'xs',
+      headingLevel: 3
     },
     options: {
       width: 'one-third'
