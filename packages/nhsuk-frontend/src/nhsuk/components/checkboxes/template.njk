@@ -4,6 +4,17 @@
 {% from "nhsuk/components/hint/macro.njk" import hint %}
 {% from "nhsuk/components/label/macro.njk" import label %}
 
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-checkboxes" -%}
+
+{%- if params.small and (not params.classes or not "nhsuk-checkboxes--small" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-checkboxes--small" %}
+{% endif %}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif %}
+
 {#- If an id 'prefix' is not passed, fall back to using the name attribute
   instead. We need this for error messages and hints as well -#}
 {% set idPrefix = params.idPrefix if params.idPrefix else params.name %}
@@ -94,7 +105,7 @@
     visuallyHiddenText: params.errorMessage.visuallyHiddenText
   }) | trim | indent(2) }}
 {% endif %}
-  <div {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-checkboxes {%- if params.classes %} {{ params.classes }}{% endif %}"
+  <div {%- if params.id %} id="{{ params.id }}"{% endif %} class="{{ classNames }}"
     {{- nhsukAttributes(params.attributes) }} data-module="nhsuk-checkboxes">
     {% if params.formGroup.beforeInputs %}
     {{ params.formGroup.beforeInputs.html | safe | trim | indent(4) if params.formGroup.beforeInputs.html else params.formGroup.beforeInputs.text }}
