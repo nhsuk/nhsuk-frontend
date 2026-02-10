@@ -210,6 +210,11 @@ const options = {
     description:
       'The value for the radio which should be checked when the page loads. Use this as an alternative to setting the `checked` option on each individual item.'
   },
+  small: {
+    type: 'boolean',
+    required: false,
+    description: 'If set to `true`, small radios will be used.'
+  },
   classes: {
     type: 'string',
     required: false,
