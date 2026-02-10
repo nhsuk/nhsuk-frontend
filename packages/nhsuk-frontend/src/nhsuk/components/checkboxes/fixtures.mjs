@@ -21,7 +21,7 @@ export const variants = [
   {
     description: 'small',
     context: {
-      classes: 'nhsuk-checkboxes--small',
+      small: true,
       fieldset: {
         legend: {
           size: 'm',
