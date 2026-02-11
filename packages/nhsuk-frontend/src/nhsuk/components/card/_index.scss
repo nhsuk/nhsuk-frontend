@@ -33,13 +33,13 @@
 ////
 
 $nhsuk-card-border-width: 1px;
-$nhsuk-card-border-bottom-width: nhsuk-spacing(1);
+$nhsuk-card-shadow-size: nhsuk-spacing(1) - 1px;
 $nhsuk-card-border-colour: $nhsuk-border-colour;
 $nhsuk-card-border-hover-colour: $nhsuk-border-hover-colour;
 
 // @deprecated To be removed in v11.0
 $card-border-width: $nhsuk-card-border-width;
-$card-border-bottom-width: $nhsuk-card-border-bottom-width;
+$card-border-bottom-width: $nhsuk-card-shadow-size;
 $card-border-color: $nhsuk-card-border-colour;
 $card-border-colour: $nhsuk-card-border-colour;
 $card-border-hover-color: $nhsuk-card-border-hover-colour;
@@ -198,7 +198,7 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
   // Clickable card
 
   .nhsuk-card--clickable {
-    border-bottom-width: $nhsuk-card-border-bottom-width;
+    box-shadow: 0 $nhsuk-card-shadow-size 0 $nhsuk-border-colour;
 
     .nhsuk-card__heading a,
     .nhsuk-card__link {
@@ -217,9 +217,22 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
       }
     }
 
-    &:active {
-      bottom: -$nhsuk-card-border-width; // [3]
+    &:hover {
       border-color: $nhsuk-card-border-hover-colour;
+      box-shadow: 0 $nhsuk-card-shadow-size 0 $nhsuk-card-border-hover-colour;
+    }
+
+    &:hover .nhsuk-icon {
+      fill: $nhsuk-link-hover-colour;
+    }
+
+    &:active {
+      top: $nhsuk-card-shadow-size; // [3]
+      box-shadow: none;
+    }
+
+    &:active .nhsuk-icon {
+      fill: $nhsuk-link-active-colour;
     }
   }
 
@@ -508,9 +521,9 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
   .nhsuk-card--secondary {
     border-top: 0;
     border-right: 0;
-    border-bottom: $nhsuk-card-border-bottom-width solid $nhsuk-card-border-colour;
     border-left: 0;
     background: transparent;
+    box-shadow: 0 $nhsuk-card-shadow-size 0 $nhsuk-border-colour;
   }
 
   .nhsuk-card--secondary > .nhsuk-card__heading-container,
