@@ -356,7 +356,7 @@ const fixtures = {
   },
   'without border': {
     context: {
-      classes: 'nhsuk-summary-list--no-border',
+      border: false,
       rows: [
         {
           key: {
@@ -405,6 +405,7 @@ const fixtures = {
   },
   'without row border': {
     context: {
+      lastRowBorder: false,
       rows: [
         {
           key: {
@@ -435,7 +436,6 @@ const fixtures = {
           }
         },
         {
-          classes: 'nhsuk-summary-list__row--no-border',
           key: {
             text: 'Contact details'
           },
@@ -458,6 +458,7 @@ const fixtures = {
         heading: 'Regional Manager',
         headingSize: 'm'
       },
+      lastRowBorder: false,
       rows: [
         {
           key: {
@@ -468,7 +469,6 @@ const fixtures = {
           }
         },
         {
-          classes: 'nhsuk-summary-list__row--no-border',
           key: {
             text: 'Date of birth'
           },
@@ -507,7 +507,6 @@ const fixtures = {
           }
         },
         {
-          classes: 'nhsuk-summary-list__row--no-border',
           key: {
             text: 'Date of birth'
           },
@@ -571,7 +570,7 @@ const fixtures = {
           }
         },
         {
-          classes: 'nhsuk-summary-list__row--no-border',
+          border: false,
           key: {
             text: 'Medicines'
           },
@@ -621,6 +620,7 @@ const fixtures = {
           ]
         }
       },
+      lastRowBorder: false,
       rows: [
         {
           key: {
@@ -631,7 +631,6 @@ const fixtures = {
           }
         },
         {
-          classes: 'nhsuk-summary-list__row--no-border',
           key: {
             text: 'Date of birth'
           },
@@ -661,6 +660,7 @@ const fixtures = {
           ]
         }
       },
+      lastRowBorder: false,
       rows: [
         {
           key: {
@@ -671,7 +671,6 @@ const fixtures = {
           }
         },
         {
-          classes: 'nhsuk-summary-list__row--no-border',
           key: {
             text: 'Date of birth'
           },
@@ -701,6 +700,7 @@ const fixtures = {
           ]
         }
       },
+      lastRowBorder: false,
       rows: [
         {
           key: {
@@ -711,7 +711,6 @@ const fixtures = {
           }
         },
         {
-          classes: 'nhsuk-summary-list__row--no-border',
           key: {
             text: 'Date of birth'
           },
@@ -840,6 +839,7 @@ const fixtures = {
         href: '#/card-clickable',
         clickable: true
       },
+      lastRowBorder: false,
       rows: [
         {
           key: {
@@ -850,7 +850,6 @@ const fixtures = {
           }
         },
         {
-          classes: 'nhsuk-summary-list__row--no-border',
           key: {
             text: 'Date of birth'
           },
@@ -879,6 +878,7 @@ const fixtures = {
           ]
         }
       },
+      lastRowBorder: false,
       rows: [
         {
           key: {
@@ -889,7 +889,6 @@ const fixtures = {
           }
         },
         {
-          classes: 'nhsuk-summary-list__row--no-border',
           key: {
             text: 'Date of birth'
           },
@@ -918,6 +917,7 @@ const fixtures = {
           ]
         }
       },
+      lastRowBorder: false,
       rows: [
         {
           key: {
@@ -928,7 +928,6 @@ const fixtures = {
           }
         },
         {
-          classes: 'nhsuk-summary-list__row--no-border',
           key: {
             text: 'Date of birth'
           },
@@ -957,6 +956,7 @@ const fixtures = {
           ]
         }
       },
+      lastRowBorder: false,
       rows: [
         {
           key: {
@@ -967,7 +967,6 @@ const fixtures = {
           }
         },
         {
-          classes: 'nhsuk-summary-list__row--no-border',
           key: {
             text: 'Date of birth'
           },
