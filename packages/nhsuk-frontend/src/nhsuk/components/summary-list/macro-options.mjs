@@ -11,6 +11,11 @@ const options = {
     required: false,
     description: 'The ID of the summary list.'
   },
+  border: {
+    type: 'boolean',
+    required: false,
+    description: 'If set to `false`, remove separating borders from all rows.'
+  },
   rows: {
     type: 'array',
     required: true,
