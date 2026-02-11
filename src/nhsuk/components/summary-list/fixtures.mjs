@@ -356,7 +356,7 @@ const fixtures = {
   },
   'without border': {
     context: {
-      classes: 'nhsuk-summary-list--no-border',
+      border: false,
       rows: [
         {
           key: {
@@ -571,7 +571,7 @@ const fixtures = {
           }
         },
         {
-          classes: 'nhsuk-summary-list__row--no-border',
+          border: false,
           key: {
             text: 'Medicines'
           },
