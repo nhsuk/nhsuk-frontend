@@ -21,6 +21,11 @@ export const params = {
         required: false,
         description: 'Classes to add to the row `div`.'
       },
+      border: {
+        type: 'boolean',
+        required: false,
+        description: 'If set to `false`, remove separating border from the row.'
+      },
       key: {
         type: 'object',
         required: true,
