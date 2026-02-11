@@ -354,7 +354,7 @@ export const examples = {
   },
   'without border': {
     context: {
-      classes: 'nhsuk-summary-list--no-border',
+      border: false,
       rows: [
         {
           key: {
@@ -403,6 +403,7 @@ export const examples = {
   },
   'without row border': {
     context: {
+      lastRowBorder: false,
       rows: [
         {
           key: {
@@ -433,7 +434,6 @@ export const examples = {
           }
         },
         {
-          classes: 'nhsuk-summary-list__row--no-border',
           key: {
             text: 'Contact details'
           },
@@ -456,6 +456,7 @@ export const examples = {
         heading: 'Regional Manager',
         headingSize: 'm'
       },
+      lastRowBorder: false,
       rows: [
         {
           key: {
@@ -466,7 +467,6 @@ export const examples = {
           }
         },
         {
-          classes: 'nhsuk-summary-list__row--no-border',
           key: {
             text: 'Date of birth'
           },
@@ -505,7 +505,6 @@ export const examples = {
           }
         },
         {
-          classes: 'nhsuk-summary-list__row--no-border',
           key: {
             text: 'Date of birth'
           },
@@ -569,7 +568,7 @@ export const examples = {
           }
         },
         {
-          classes: 'nhsuk-summary-list__row--no-border',
+          border: false,
           key: {
             text: 'Medicines'
           },
@@ -619,6 +618,7 @@ export const examples = {
           ]
         }
       },
+      lastRowBorder: false,
       rows: [
         {
           key: {
@@ -629,7 +629,6 @@ export const examples = {
           }
         },
         {
-          classes: 'nhsuk-summary-list__row--no-border',
           key: {
             text: 'Date of birth'
           },
@@ -659,6 +658,7 @@ export const examples = {
           ]
         }
       },
+      lastRowBorder: false,
       rows: [
         {
           key: {
@@ -669,7 +669,6 @@ export const examples = {
           }
         },
         {
-          classes: 'nhsuk-summary-list__row--no-border',
           key: {
             text: 'Date of birth'
           },
@@ -699,6 +698,7 @@ export const examples = {
           ]
         }
       },
+      lastRowBorder: false,
       rows: [
         {
           key: {
@@ -709,7 +709,6 @@ export const examples = {
           }
         },
         {
-          classes: 'nhsuk-summary-list__row--no-border',
           key: {
             text: 'Date of birth'
           },
@@ -728,6 +727,7 @@ export const examples = {
         href: '#/card-clickable',
         clickable: true
       },
+      lastRowBorder: false,
       rows: [
         {
           key: {
@@ -738,7 +738,6 @@ export const examples = {
           }
         },
         {
-          classes: 'nhsuk-summary-list__row--no-border',
           key: {
             text: 'Date of birth'
           },
@@ -767,6 +766,7 @@ export const examples = {
           ]
         }
       },
+      lastRowBorder: false,
       rows: [
         {
           key: {
@@ -777,7 +777,6 @@ export const examples = {
           }
         },
         {
-          classes: 'nhsuk-summary-list__row--no-border',
           key: {
             text: 'Date of birth'
           },
@@ -806,6 +805,7 @@ export const examples = {
           ]
         }
       },
+      lastRowBorder: false,
       rows: [
         {
           key: {
@@ -816,7 +816,6 @@ export const examples = {
           }
         },
         {
-          classes: 'nhsuk-summary-list__row--no-border',
           key: {
             text: 'Date of birth'
           },
@@ -845,6 +844,7 @@ export const examples = {
           ]
         }
       },
+      lastRowBorder: false,
       rows: [
         {
           key: {
@@ -855,7 +855,6 @@ export const examples = {
           }
         },
         {
-          classes: 'nhsuk-summary-list__row--no-border',
           key: {
             text: 'Date of birth'
           },

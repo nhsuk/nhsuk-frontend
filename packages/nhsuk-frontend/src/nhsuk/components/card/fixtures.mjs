@@ -67,7 +67,7 @@ export const examples = {
               }
             },
             {
-              classes: 'nhsuk-summary-list__row--no-border',
+              border: false,
               key: {
                 text: 'Date of birth'
               },
@@ -126,7 +126,7 @@ export const examples = {
               }
             },
             {
-              classes: 'nhsuk-summary-list__row--no-border',
+              border: false,
               key: {
                 text: 'Date of birth'
               },
@@ -212,7 +212,7 @@ export const examples = {
               }
             },
             {
-              classes: 'nhsuk-summary-list__row--no-border',
+              border: false,
               key: {
                 text: 'Date of birth'
               },
@@ -255,7 +255,7 @@ export const examples = {
               }
             },
             {
-              classes: 'nhsuk-summary-list__row--no-border',
+              border: false,
               key: {
                 text: 'Date of birth'
               },
@@ -295,7 +295,7 @@ export const examples = {
               }
             },
             {
-              classes: 'nhsuk-summary-list__row--no-border',
+              border: false,
               key: {
                 text: 'Date of birth'
               },
@@ -327,7 +327,7 @@ export const examples = {
               }
             },
             {
-              classes: 'nhsuk-summary-list__row--no-border',
+              border: false,
               key: {
                 text: 'Date of birth'
               },
@@ -389,7 +389,7 @@ export const examples = {
               }
             },
             {
-              classes: 'nhsuk-summary-list__row--no-border',
+              border: false,
               key: {
                 text: 'Date of birth'
               },
@@ -446,7 +446,7 @@ export const examples = {
               }
             },
             {
-              classes: 'nhsuk-summary-list__row--no-border',
+              border: false,
               key: {
                 text: 'Date of birth'
               },
@@ -528,7 +528,7 @@ export const examples = {
               }
             },
             {
-              classes: 'nhsuk-summary-list__row--no-border',
+              border: false,
               key: {
                 text: 'Date of birth'
               },
@@ -572,7 +572,7 @@ export const examples = {
               }
             },
             {
-              classes: 'nhsuk-summary-list__row--no-border',
+              border: false,
               key: {
                 text: 'Date of birth'
               },
@@ -613,7 +613,7 @@ export const examples = {
               }
             },
             {
-              classes: 'nhsuk-summary-list__row--no-border',
+              border: false,
               key: {
                 text: 'Date of birth'
               },
@@ -646,7 +646,7 @@ export const examples = {
               }
             },
             {
-              classes: 'nhsuk-summary-list__row--no-border',
+              border: false,
               key: {
                 text: 'Date of birth'
               },
@@ -847,7 +847,7 @@ export const examples = {
               }
             },
             {
-              classes: 'nhsuk-summary-list__row--no-border',
+              border: false,
               key: {
                 text: 'Date of birth'
               },
@@ -897,7 +897,7 @@ export const examples = {
               }
             },
             {
-              classes: 'nhsuk-summary-list__row--no-border',
+              border: false,
               key: {
                 text: 'Response'
               },
