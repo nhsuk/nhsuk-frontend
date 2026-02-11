@@ -56,6 +56,16 @@
       }
     }
 
+    &:hover .nhsuk-icon {
+      // stylelint-disable-next-line declaration-no-important
+      fill: $nhsuk-link-hover-colour !important;
+    }
+
+    &:active .nhsuk-icon {
+      // stylelint-disable-next-line declaration-no-important
+      fill: $nhsuk-link-active-colour !important;
+    }
+
     &:focus .nhsuk-icon {
       // stylelint-disable-next-line declaration-no-important
       fill: $nhsuk-focus-text-colour !important;
