@@ -1,6 +1,13 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/components/card/macro.njk" import card %}
 
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-summary-list" -%}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif %}
+
 {%- macro _link(action, cardHeading) %}
   <a class="nhsuk-link {%- if action.classes %} {{ action.classes }}{% endif %}" href="{{ action.href }}"
     {{- nhsukAttributes(action.attributes) }}>
@@ -23,7 +30,7 @@
 {% endfor -%}
 
 {%- set summaryList %}
-<dl {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-summary-list {%- if params.classes %} {{ params.classes }}{% endif %}" {{- nhsukAttributes(params.attributes) }}>
+<dl {%- if params.id %} id="{{ params.id }}"{% endif %} class="{{ classNames }}" {{- nhsukAttributes(params.attributes) }}>
 {% for row in rows %}
   {%- set actionsItems = row.actions.items | select("mapping") if row.actions.items | length else [] %}
   <div class="nhsuk-summary-list__row {%- if anyRowHasActions and not actionsItems | length %} nhsuk-summary-list__row--no-actions{% endif %} {%- if row.classes %} {{ row.classes }}{% endif %}">
