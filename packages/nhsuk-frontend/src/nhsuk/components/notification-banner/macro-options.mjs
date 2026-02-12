@@ -7,7 +7,7 @@ export const name = 'Notification banner'
  *
  * @satisfies {{ [param: string]: MacroParam }}
  */
-export const params = {
+const options = {
   id: {
     type: 'string',
     required: false,
@@ -89,6 +89,14 @@ export const params = {
       'The HTML attributes that you want to add to the notification banner, for example, data attributes.'
   }
 }
+
+/**
+ * Nunjucks macro option params
+ * (with typed keys)
+ *
+ * @type {Record<keyof typeof options, MacroParam>}
+ */
+export const params = options
 
 /**
  * @import { MacroParam } from '#lib'

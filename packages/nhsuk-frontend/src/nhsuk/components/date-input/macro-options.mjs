@@ -5,7 +5,7 @@ export const name = 'Date input'
  *
  * @satisfies {{ [param: string]: MacroParam }}
  */
-export const params = {
+const options = {
   id: {
     type: 'string',
     required: true,
@@ -191,6 +191,14 @@ export const params = {
       'HTML attributes (for example data attributes) to add to the date-input container.'
   }
 }
+
+/**
+ * Nunjucks macro option params
+ * (with typed keys)
+ *
+ * @type {Record<keyof typeof options, MacroParam>}
+ */
+export const params = options
 
 /**
  * @import { MacroParam } from '#lib'
