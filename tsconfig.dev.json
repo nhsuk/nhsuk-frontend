@@ -13,8 +13,6 @@
   },
   "include": [
     "./packages/*/src/**/*.test.mjs",
-    "./packages/*/src/**/fixtures.mjs",
-    "./packages/*/src/**/macro-options.mjs",
     "./packages/*/tasks/**/*.mjs",
     "./packages/*/gulpfile.mjs",
     "./packages/*/.htmlvalidate.js",
