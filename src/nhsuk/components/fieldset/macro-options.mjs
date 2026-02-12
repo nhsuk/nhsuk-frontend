@@ -5,7 +5,7 @@ export const name = 'Fieldset'
  *
  * @satisfies {{ [param: string]: MacroParam }}
  */
-export const params = {
+const options = {
   id: {
     type: 'string',
     required: false,
@@ -51,6 +51,14 @@ export const params = {
       'Not strictly a parameter but Nunjucks code convention. Using a `call` block enables you to call a macro with all the text inside the tag. This is helpful if you want to pass a lot of content into a macro. To use it, you will need to wrap the entire fieldset component in a `call` block.'
   }
 }
+
+/**
+ * Nunjucks macro option params
+ * (with typed keys)
+ *
+ * @type {Record<keyof typeof options, MacroParam>}
+ */
+export const params = options
 
 /**
  * @import { MacroParam } from '#lib'

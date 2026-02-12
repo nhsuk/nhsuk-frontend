@@ -5,7 +5,7 @@ export const name = 'Error message'
  *
  * @satisfies {{ [param: string]: MacroParam }}
  */
-export const params = {
+const options = {
   text: {
     type: 'string',
     required: true,
@@ -41,6 +41,14 @@ export const params = {
       'A visually hidden prefix used before the error message. Defaults to `"Error"`.'
   }
 }
+
+/**
+ * Nunjucks macro option params
+ * (with typed keys)
+ *
+ * @type {Record<keyof typeof options, MacroParam>}
+ */
+export const params = options
 
 /**
  * @import { MacroParam } from '#lib'

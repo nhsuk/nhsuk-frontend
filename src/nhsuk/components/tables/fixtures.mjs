@@ -5,9 +5,9 @@ import { components } from '#lib'
 /**
  * Nunjucks macro option examples
  *
- @satisfies {{ [example: string]: MacroExample }}
+ * @satisfies {{ [example: string]: MacroExample }}
  */
-export const examples = {
+const fixtures = {
   'default': {
     context: {
       caption: 'Impetigo can look similar to other skin conditions',
@@ -717,6 +717,14 @@ export const examples = {
     }
   }
 }
+
+/**
+ * Nunjucks macro option examples
+ * (with typed keys)
+ *
+ * @type {Record<keyof typeof fixtures, MacroExample>}
+ */
+export const examples = fixtures
 
 /**
  * @import { MacroExample } from '#lib'

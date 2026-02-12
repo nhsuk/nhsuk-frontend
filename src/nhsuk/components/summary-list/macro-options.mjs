@@ -5,7 +5,7 @@ export const name = 'Summary list'
  *
  * @satisfies {{ [param: string]: MacroParam }}
  */
-export const params = {
+const options = {
   id: {
     type: 'string',
     required: false,
@@ -148,6 +148,14 @@ export const params = {
       'HTML attributes (for example data attributes) to add to the container.'
   }
 }
+
+/**
+ * Nunjucks macro option params
+ * (with typed keys)
+ *
+ * @type {Record<keyof typeof options, MacroParam>}
+ */
+export const params = options
 
 /**
  * @import { MacroParam } from '#lib'

@@ -5,7 +5,7 @@ export const name = 'Inset text'
  *
  * @satisfies {{ [param: string]: MacroParam }}
  */
-export const params = {
+const options = {
   id: {
     type: 'string',
     required: false,
@@ -47,6 +47,14 @@ export const params = {
       'A visually hidden prefix used before the inset text. Defaults to `"Information"`.'
   }
 }
+
+/**
+ * Nunjucks macro option params
+ * (with typed keys)
+ *
+ * @type {Record<keyof typeof options, MacroParam>}
+ */
+export const params = options
 
 /**
  * @import { MacroParam } from '#lib'

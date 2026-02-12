@@ -7,7 +7,7 @@ import { components } from '#lib'
  *
  * @satisfies {{ [example: string]: MacroExample }}
  */
-export const examples = {
+const fixtures = {
   'default': {
     context: {
       heading: "If you need help now, but it's not an emergency",
@@ -1013,6 +1013,14 @@ export const examples = {
     }
   }
 }
+
+/**
+ * Nunjucks macro option examples
+ * (with typed keys)
+ *
+ * @type {Record<keyof typeof fixtures, MacroExample>}
+ */
+export const examples = fixtures
 
 /**
  * @import { MacroExample } from '#lib'

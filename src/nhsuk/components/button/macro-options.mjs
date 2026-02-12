@@ -5,7 +5,7 @@ export const name = 'Button'
  *
  * @satisfies {{ [param: string]: MacroParam }}
  */
-export const params = {
+const options = {
   id: {
     type: 'string',
     required: false,
@@ -77,6 +77,14 @@ export const params = {
       'Prevent accidental double clicks on submit buttons from submitting forms multiple times.'
   }
 }
+
+/**
+ * Nunjucks macro option params
+ * (with typed keys)
+ *
+ * @type {Record<keyof typeof options, MacroParam>}
+ */
+export const params = options
 
 /**
  * @import { MacroParam } from '#lib'

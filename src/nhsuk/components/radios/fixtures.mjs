@@ -5,7 +5,7 @@ import { components } from '#lib'
 /**
  * Nunjucks macro option variants
  *
- @satisfies {MacroExample[]}
+ * @satisfies {MacroExample[]}
  */
 export const variants = [
   {
@@ -37,7 +37,7 @@ export const variants = [
  *
  * @satisfies {{ [example: string]: MacroExample }}
  */
-export const examples = {
+const fixtures = {
   'default': {
     context: {
       fieldset: {
@@ -859,6 +859,14 @@ export const examples = {
     variants
   }
 }
+
+/**
+ * Nunjucks macro option examples
+ * (with typed keys)
+ *
+ * @type {Record<keyof typeof fixtures, MacroExample>}
+ */
+export const examples = fixtures
 
 /**
  * @import { MacroExample } from '#lib'
