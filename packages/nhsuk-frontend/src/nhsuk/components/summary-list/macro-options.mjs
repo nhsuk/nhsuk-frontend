@@ -16,6 +16,12 @@ const options = {
     required: false,
     description: 'If set to `false`, remove separating borders from all rows.'
   },
+  lastRowBorder: {
+    type: 'boolean',
+    required: false,
+    description:
+      'If set to `false`, remove separating border from the last row.'
+  },
   rows: {
     type: 'array',
     required: true,
