@@ -13,14 +13,23 @@ export const env = configure()
 /**
  * Nunjucks environment factory
  *
- * @param {string[]} [searchPaths] - Nunjucks search paths (optional)
+ * @param {string | string[]} [viewsPath] - Additional custom views path(s) (optional)
  */
-export function configure(searchPaths = []) {
-  searchPaths.push(
+export function configure(viewsPath = []) {
+  const basePath =
     NODE_ENV === 'test'
       ? join(nhsukFrontendPath, 'src') // Use source files for tests
       : join(nhsukFrontendPath, 'dist') // Use build output for review
-  )
+
+  // Append default search paths
+  const searchPaths = [viewsPath]
+    .flat()
+    .concat([
+      join(basePath, 'nhsuk/components'),
+      join(basePath, 'nhsuk/macros'),
+      join(basePath, 'nhsuk'),
+      basePath
+    ])
 
   // Nunjucks environment
   return nunjucks.configure(searchPaths, {
