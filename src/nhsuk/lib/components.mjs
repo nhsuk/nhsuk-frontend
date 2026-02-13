@@ -10,7 +10,7 @@ import * as nunjucks from './nunjucks.mjs'
  */
 export function render(component, options) {
   const macroName = names.componentNameToMacroName(component, options?.prefix)
-  const macroPath = `nhsuk/components/${component}/macro.njk`
+  const macroPath = `${component}/macro.njk`
 
   return nunjucks.renderMacro(macroName, macroPath, options)
 }
