@@ -2,6 +2,7 @@ import { join } from 'node:path'
 
 import { components, files } from '@nhsuk/frontend-lib'
 import mergeWith from 'lodash/mergeWith.js'
+import { render } from 'nhsuk-frontend/src/nhsuk/lib/components.mjs'
 
 /**
  * Component data cache
@@ -100,7 +101,7 @@ export function generateFixture(data) {
         callBlock: example.callBlock,
         screenshot: example.screenshot ?? false,
         options: example.options ?? {},
-        html: components.render(component, example).trim()
+        html: render(component, example).trim()
       }))
     }
   )
@@ -138,6 +139,7 @@ export function mergeExample(example, variant) {
 }
 
 /**
- * @import { ComponentData, MacroExample, MacroExampleFixture, MacroExampleFixtures } from '@nhsuk/frontend-lib/components.mjs'
+ * @import { ComponentData } from '@nhsuk/frontend-lib/components.mjs'
  * @import { FileOptions } from '@nhsuk/frontend-lib/files.mjs'
+ * @import { MacroExample, MacroExampleFixture, MacroExampleFixtures } from 'nhsuk-frontend/lib'
  */

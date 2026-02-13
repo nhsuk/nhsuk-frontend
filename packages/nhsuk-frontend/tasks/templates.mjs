@@ -9,6 +9,7 @@ import { assets, task } from '@nhsuk/frontend-tasks'
 export const copy = task.name('templates:copy', () =>
   assets.copy('nhsuk/**/*.{md,njk}', {
     srcPath: join(config.paths.pkg, 'src'),
-    destPath: join(config.paths.pkg, 'dist/nhsuk')
+    destPath: join(config.paths.pkg, 'dist/nhsuk'),
+    ignore: ['**/fixtures/**']
   })
 )

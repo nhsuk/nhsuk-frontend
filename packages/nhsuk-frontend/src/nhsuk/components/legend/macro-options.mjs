@@ -1,5 +1,3 @@
-import { components } from '@nhsuk/frontend-lib'
-
 export const name = 'Legend'
 
 /**
@@ -7,7 +5,7 @@ export const name = 'Legend'
  *
  * @satisfies {{ [param: string]: MacroParam }}
  */
-export const params = {
+const options = {
   text: {
     type: 'string',
     required: true,
@@ -43,8 +41,14 @@ export const params = {
   }
 }
 
-export const options = components.getMacroOptions(params)
+/**
+ * Nunjucks macro option params
+ * (with typed keys)
+ *
+ * @type {Record<keyof typeof options, MacroParam>}
+ */
+export const params = options
 
 /**
- * @import { MacroParam } from '@nhsuk/frontend-lib/components.mjs'
+ * @import { MacroParam } from '#lib'
  */
