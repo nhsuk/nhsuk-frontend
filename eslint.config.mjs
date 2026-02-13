@@ -167,7 +167,13 @@ export default defineConfig([
 
       // Ignore `nhsuk-frontend` exports as they require auto-generated files
       'n/no-missing-import': ['error', { allowModules: ['nhsuk-frontend'] }],
-      'n/no-missing-require': ['error', { allowModules: ['nhsuk-frontend'] }]
+      'n/no-missing-require': ['error', { allowModules: ['nhsuk-frontend'] }],
+
+      // Rollup polyfills import.meta properties
+      'n/no-unsupported-features/node-builtins': [
+        'error',
+        { ignores: ['import.meta.dirname', 'import.meta.filename'] }
+      ]
     }
   },
   {

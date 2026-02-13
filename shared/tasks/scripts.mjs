@@ -58,7 +58,20 @@ export function compile(
             NODE_ENV === 'development'
               ? ['istanbul'] // Add code coverage instrumentation
               : undefined
-        })
+        }),
+        {
+          name: 'import-meta-resolve',
+          resolveImportMeta(property, { format }) {
+            if (!['dirname', 'filename'].includes(property)) {
+              return null
+            }
+
+            // Polyfill import.meta properties
+            return format === 'cjs'
+              ? `__${property}`
+              : `import.meta.${property}`
+          }
+        }
       ],
 
       // Handle warnings as errors
