@@ -1,6 +1,6 @@
 import { join } from 'node:path'
 
-import * as config from '@nhsuk/frontend-config'
+import { version } from '@nhsuk/frontend-config'
 import { task } from '@nhsuk/frontend-tasks'
 import { babel } from '@rollup/plugin-babel'
 import commonjs from '@rollup/plugin-commonjs'
@@ -10,6 +10,8 @@ import terser from '@rollup/plugin-terser'
 import * as NHSUKFrontend from 'nhsuk-frontend/src/nhsuk/index.mjs'
 import PluginError from 'plugin-error'
 import { rollup } from 'rollup'
+
+const { NODE_ENV } = process.env
 
 /**
  * Compile JavaScript task
@@ -39,22 +41,37 @@ export function compile(
        * Input plugins
        */
       plugins: [
-        nodeResolve(),
+        nodeResolve({
+          preferBuiltins: true
+        }),
         commonjs(),
         replace({
           include: '**/common/nhsuk-frontend-version.mjs',
           preventAssignment: true,
 
           // Add NHS.UK frontend release version
-          development: config.version
+          development: version
         }),
         babel({
           babelHelpers: 'bundled',
           plugins:
-            config.environment === 'development'
+            NODE_ENV === 'development'
               ? ['istanbul'] // Add code coverage instrumentation
               : undefined
-        })
+        }),
+        {
+          name: 'import-meta-resolve',
+          resolveImportMeta(property, { format }) {
+            if (!['dirname', 'filename'].includes(property)) {
+              return null
+            }
+
+            // Polyfill import.meta properties
+            return format === 'cjs'
+              ? `__${property}`
+              : `import.meta.${property}`
+          }
+        }
       ],
 
       // Handle warnings as errors
