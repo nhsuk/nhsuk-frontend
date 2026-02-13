@@ -1,15 +1,11 @@
 import { join, resolve } from 'node:path'
-import { fileURLToPath } from 'node:url'
 
 import nunjucks from 'nunjucks'
 import { outdent } from 'outdent'
 
 const { NODE_ENV } = process.env
 
-export const nhsukFrontendPath = resolve(
-  fileURLToPath(new URL('.', import.meta.url)),
-  '../../..'
-)
+export const nhsukFrontendPath = resolve(import.meta.dirname, '../../..')
 
 // Nunjucks default environment
 export const env = configure()
