@@ -48,19 +48,58 @@ export function kebabCaseToCamelCase(value) {
  * Component names are kebab-cased (button, file-upload), whilst Nunjucks macro
  * names are camel cased (button, fileUpload)
  *
- * @param {string} component - A kebab-cased component name
+ * @param {string} component - A kebab-cased component name with optional prefix
+ * @param {string} [prefix] - Component name prefix (optional)
  * @returns {string} The name of its corresponding Nunjucks macro
  */
-export function componentNameToMacroName(component) {
-  return kebabCaseToCamelCase(renamed.get(component) ?? component)
+export function componentNameToMacroName(component, prefix) {
+  const componentName = moduleNameToComponentName(component, prefix)
+
+  return prefix && prefix !== 'nhsuk'
+    ? kebabCaseToCamelCase(`${prefix}-${componentName}`)
+    : kebabCaseToCamelCase(componentName)
 }
 
 /**
  * Convert component name to its JavaScript class name
  *
- * @param {string} component - A kebab-cased component name
+ * @param {string} component - A kebab-cased component name with optional prefix
+ * @param {string} [prefix] - Component name prefix (optional)
  * @returns {string} The name of its corresponding JavaScript class
  */
-export function componentNameToClassName(component) {
-  return kebabCaseToPascalCase(renamed.get(component) ?? component)
+export function componentNameToClassName(component, prefix) {
+  const componentName = moduleNameToComponentName(component, prefix)
+  return kebabCaseToPascalCase(componentName)
+}
+
+/**
+ * Convert component name to HTML `data-module` name
+ *
+ * Component names are kebab-cased (button, file-upload), whilst `data-module`
+ * names have an added `nhsuk` prefix (nhsuk-button, nhsuk-file-upload)
+ *
+ * @param {string} component - A kebab-cased component name with optional prefix
+ * @param {string} [prefix] - Component name prefix (optional, defaults to `nhsuk`)
+ * @returns {string} The name of its corresponding HTML data-module name
+ */
+export function componentNameToModuleName(component, prefix = 'nhsuk') {
+  const componentName = moduleNameToComponentName(component, prefix)
+  return `${prefix}-${componentName}`
+}
+
+/**
+ * Convert HTML `data-module` name to its component name
+ *
+ * @param {string} moduleName - An HTML data-module name
+ * @param {string} [prefix] - Component name prefix (optional, defaults to `nhsuk`)
+ * @returns {string} The name of its corresponding component
+ */
+export function moduleNameToComponentName(moduleName, prefix = 'nhsuk') {
+  let componentName = moduleName.replace(new RegExp(`^${prefix}-`), '')
+
+  if (prefix === 'nhsuk') {
+    componentName = renamed.get(componentName) ?? componentName
+  }
+
+  return componentName
 }

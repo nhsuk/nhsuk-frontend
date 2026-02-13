@@ -9,7 +9,7 @@ import * as nunjucks from './nunjucks.mjs'
  * @returns HTML rendered by the component
  */
 export function render(component, options) {
-  const macroName = names.componentNameToMacroName(component)
+  const macroName = names.componentNameToMacroName(component, options?.prefix)
   const macroPath = `nhsuk/components/${component}/macro.njk`
 
   return nunjucks.renderMacro(macroName, macroPath, options)
@@ -43,6 +43,7 @@ export function render(component, options) {
  * @property {string | undefined} [description] - Example description (optional)
  * @property {{ [param: string]: unknown }} [context] - Nunjucks context object (optional)
  * @property {string | undefined} [callBlock] - Nunjucks macro `caller()` content (optional)
+ * @property {never} [prefix] - Component name prefix (not available in Nunjucks macro examples)
  * @property {MacroExampleOptions} [options] - Review app example options (optional)
  * @property {MacroExample[]} [variants] - Review app example variants (optional)
  * @property {MacroScreenshot | MacroScreenshot[] | boolean} [screenshot] - Screenshot and include in visual regression tests
@@ -73,7 +74,7 @@ export function render(component, options) {
  * Nunjucks macro example fixture
  * (used by the Design System website)
  *
- * @typedef {Omit<Required<MacroExample>, 'variants'> & {
+ * @typedef {Omit<Required<MacroExample>, 'prefix' | 'variants'> & {
  *   name: string,
  *   html: string
  * }} MacroExampleFixture

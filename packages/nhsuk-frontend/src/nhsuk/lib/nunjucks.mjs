@@ -98,6 +98,7 @@ export function renderTemplate(templatePath, options) {
  * @typedef {object} MacroRenderOptions
  * @property {string | { [param: string]: unknown }} [context] - Nunjucks mixed context (optional)
  * @property {string} [callBlock] - Nunjucks macro `caller()` content (optional)
+ * @property {string} [prefix] - Component name prefix (optional)
  * @property {Environment} [env] - Nunjucks environment (optional)
  */
 

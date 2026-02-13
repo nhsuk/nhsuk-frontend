@@ -134,7 +134,7 @@ describe('NHS.UK frontend', () => {
 
         // Determine `nhsuk-character-count` → `characterCount` config key
         const configName = names.componentNameToMacroName(
-          NamespaceComponent.moduleName.replace(/^nhsuk-/, '')
+          NamespaceComponent.moduleName
         )
 
         initAll({
@@ -175,7 +175,7 @@ describe('NHS.UK frontend', () => {
 
         // Determine `nhsuk-character-count` → `characterCount` config key
         const configName = names.componentNameToMacroName(
-          NamespaceComponent.moduleName.replace(/^nhsuk-/, '')
+          NamespaceComponent.moduleName
         )
 
         initAll({
