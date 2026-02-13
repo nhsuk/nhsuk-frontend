@@ -1,11 +1,12 @@
 import * as timers from 'node:timers/promises'
 
-import { components } from '@nhsuk/frontend-lib'
 import { fireEvent, getByRole } from '@testing-library/dom'
 import { userEvent } from '@testing-library/user-event'
 
 import { examples } from './fixtures.mjs'
 import { Header, initHeader } from './header.mjs'
+
+import { components } from '#lib'
 
 const user = userEvent.setup()
 

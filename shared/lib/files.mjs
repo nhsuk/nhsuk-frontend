@@ -4,14 +4,14 @@ import { basename, dirname, join } from 'node:path'
 import { globSync } from 'glob'
 
 /**
- * Directory listing for path
+ * Directory listing for paths
  *
- * @param {string} directoryPath - Minimatch pattern to directory
+ * @param {string | string[]} paths - Glob pattern to files or directories
  * @param {GlobOptionsWithFileTypesUnset} [options] - Glob options
  * @returns File paths
  */
-export function getListing(directoryPath, options = {}) {
-  const listing = globSync(directoryPath, {
+export function getListing(paths, options = {}) {
+  const listing = globSync(paths, {
     nodir: true,
     ...options
   })
@@ -22,7 +22,7 @@ export function getListing(directoryPath, options = {}) {
 /**
  * Directory listing (directories only)
  *
- * @param {string} directoryPath - Minimatch pattern to directory
+ * @param {string} directoryPath - Glob pattern to directory
  * @param {GlobOptionsWithFileTypesUnset} [options] - Glob options
  * @returns Directory names
  */
@@ -63,6 +63,7 @@ export async function write(inputPath, { destPath, output = {} }) {
  * @typedef {object} FileOptions
  * @property {string} srcPath - Source directory
  * @property {string} destPath - Destination directory
+ * @property {SrcOptions['ignore']} [ignore] - Glob pattern to ignore
  * @property {FileOutputOptions} [output] - Output options
  */
 
@@ -72,4 +73,8 @@ export async function write(inputPath, { destPath, output = {} }) {
  * @typedef {object} FileOutputOptions
  * @property {string} [file] - Output file path
  * @property {string} [contents] - Output file contents
+ */
+
+/**
+ * @import { SrcOptions } from 'vinyl-fs'
  */

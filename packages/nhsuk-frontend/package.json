@@ -12,6 +12,10 @@
   },
   "license": "MIT",
   "sideEffects": false,
+  "imports": {
+    "#lib": "./src/nhsuk/lib/index.mjs",
+    "#lib/*": "./src/nhsuk/lib/*"
+  },
   "exports": {
     ".": {
       "types": "./dist/nhsuk/index.d.mts",
@@ -21,6 +25,12 @@
       "default": "./dist/nhsuk/index.js"
     },
     "./*": "./*",
+    "./lib": {
+      "types": "./dist/nhsuk/lib/index.d.mts",
+      "import": "./dist/nhsuk/lib/index.mjs",
+      "require": "./dist/nhsuk/lib/index.js",
+      "default": "./dist/nhsuk/lib/index.js"
+    },
     "./packages/*": {
       "sass": "./dist/nhsuk/*",
       "default": "./dist/nhsuk/*.js"
@@ -35,8 +45,7 @@
   "files": [
     "dist",
     "src",
-    "!**/fixtures.mjs",
-    "!**/macro-options.mjs",
+    "!**/fixtures",
     "!**/*.test.*"
   ],
   "scripts": {
@@ -63,11 +72,24 @@
     "del-cli": "^7.0.0",
     "gulp": "^5.0.1",
     "gulp-zip": "^6.1.0",
+    "nunjucks": "^3.2.4",
     "outdent": "^0.8.0",
     "postcss": "^8.5.6",
     "postcss-scss": "^4.0.9",
     "puppeteer": "^24.34.0",
     "sass-embedded": "^1.97.3"
+  },
+  "peerDependencies": {
+    "nunjucks": "^3.0.0",
+    "outdent": "^0.8.0"
+  },
+  "peerDependenciesMeta": {
+    "nunjucks": {
+      "optional": true
+    },
+    "outdent": {
+      "optional": true
+    }
   },
   "engines": {
     "node": "^20.9.0 || ^22.11.0 || ^24.11.0"

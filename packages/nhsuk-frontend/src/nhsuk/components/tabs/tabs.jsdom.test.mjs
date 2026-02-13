@@ -1,4 +1,3 @@
-import { components } from '@nhsuk/frontend-lib'
 import {
   createEvent,
   fireEvent,
@@ -9,6 +8,8 @@ import { userEvent } from '@testing-library/user-event'
 
 import { examples } from './fixtures.mjs'
 import { Tabs, initTabs } from './tabs.mjs'
+
+import { components } from '#lib'
 
 const user = userEvent.setup()
 
