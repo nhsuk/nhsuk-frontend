@@ -26,11 +26,24 @@ export function kebabCaseToCamelCase(value) {
 }
 
 /**
+ * Convert component name to Nunjucks macro name
+ *
+ * Component names are kebab-cased (button, file-upload), whilst Nunjucks macro
+ * names are camel cased (button, fileUpload)
+ *
+ * @param {string} component - A kebab-cased component name
+ * @returns {string} The name of its corresponding Nunjucks macro
+ */
+export function componentNameToMacroName(component) {
+  return kebabCaseToCamelCase(component)
+}
+
+/**
  * Convert component name to its JavaScript class name
  *
- * @param {string} componentName - A kebab-cased component name
+ * @param {string} component - A kebab-cased component name
  * @returns {string} The name of its corresponding JavaScript class
  */
-export function componentNameToClassName(componentName) {
-  return kebabCaseToPascalCase(componentName)
+export function componentNameToClassName(component) {
+  return kebabCaseToPascalCase(component)
 }
