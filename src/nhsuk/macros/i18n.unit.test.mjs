@@ -1,4 +1,4 @@
-import { nunjucks } from '@nhsuk/frontend-lib'
+import { nunjucks } from '#lib'
 
 describe('i18n.njk', () => {
   describe('nhsukI18nAttributes', () => {

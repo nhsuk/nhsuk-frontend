@@ -5,17 +5,16 @@
     "declarationMap": true,
     "emitDeclarationOnly": true,
     "lib": ["ESNext", "DOM"],
+    "moduleResolution": "Bundler",
+    "baseUrl": ".",
     "outDir": "./dist",
     "rootDir": "./src",
+    "resolvePackageJsonImports": true,
     "sourceMap": true,
     "strict": true,
     "target": "ES2015",
     "types": ["node", "typed-query-selector"]
   },
   "include": ["src/**/*.js", "src/**/*.mjs"],
-  "exclude": [
-    "src/**/fixtures.mjs",
-    "src/**/macro-options.mjs",
-    "src/**/*.test.mjs"
-  ]
+  "exclude": ["src/**/*.test.mjs"]
 }

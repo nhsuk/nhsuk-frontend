@@ -1,14 +1,15 @@
-import { components } from '@nhsuk/frontend-lib'
 import { outdent } from 'outdent'
 
 import { examples as tablesExamples } from '../tables/fixtures.mjs'
+
+import { components } from '#lib'
 
 /**
  * Nunjucks macro option examples
  *
  * @satisfies {{ [example: string]: MacroExample }}
  */
-export const examples = {
+const fixtures = {
   'default': {
     context: {
       summaryText: 'How to find your NHS number'
@@ -72,5 +73,13 @@ export const examples = {
 }
 
 /**
- * @import { MacroExample } from '@nhsuk/frontend-lib/components.mjs'
+ * Nunjucks macro option examples
+ * (with typed keys)
+ *
+ * @type {Record<keyof typeof fixtures, MacroExample>}
+ */
+export const examples = fixtures
+
+/**
+ * @import { MacroExample } from '#lib'
  */
