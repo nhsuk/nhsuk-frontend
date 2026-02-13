@@ -9,18 +9,9 @@ import * as nunjucks from './nunjucks.mjs'
  * @returns HTML rendered by the component
  */
 export function render(component, options) {
-  const renamed = new Map([
-    ['do-dont-list', 'list'],
-    ['images', 'image'],
-    ['tables', 'table']
-  ])
-
-  // Replace plural directory name with singular macro name
-  const macroName = names.componentNameToMacroName(
-    renamed.get(component) ?? component
-  )
-
+  const macroName = names.componentNameToMacroName(component)
   const macroPath = `nhsuk/components/${component}/macro.njk`
+
   return nunjucks.renderMacro(macroName, macroPath, options)
 }
 

@@ -1,4 +1,21 @@
 /**
+ * Map NHS.UK frontend and design system directory names to macro name
+ */
+const renamed = new Map([
+  ['breadcrumbs', 'breadcrumb'],
+  ['buttons', 'button'],
+  ['care-cards', 'card'],
+  ['do-dont-list', 'list'],
+  ['do-and-dont-lists', 'list'],
+  ['expander', 'details'],
+  ['hint-text', 'hint'],
+  ['images', 'image'],
+  ['tables', 'table'],
+  ['text-input', 'input'],
+  ['notification-banners', 'notification-banner']
+])
+
+/**
  * Convert a kebab-cased string to a PascalCased one
  *
  * @param {string} value - Input kebab-cased string
@@ -35,7 +52,7 @@ export function kebabCaseToCamelCase(value) {
  * @returns {string} The name of its corresponding Nunjucks macro
  */
 export function componentNameToMacroName(component) {
-  return kebabCaseToCamelCase(component)
+  return kebabCaseToCamelCase(renamed.get(component) ?? component)
 }
 
 /**
@@ -45,5 +62,5 @@ export function componentNameToMacroName(component) {
  * @returns {string} The name of its corresponding JavaScript class
  */
 export function componentNameToClassName(component) {
-  return kebabCaseToPascalCase(component)
+  return kebabCaseToPascalCase(renamed.get(component) ?? component)
 }
