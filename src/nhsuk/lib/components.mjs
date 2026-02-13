@@ -16,7 +16,7 @@ export function render(component, options) {
   ])
 
   // Replace plural directory name with singular macro name
-  const macroName = names.kebabCaseToCamelCase(
+  const macroName = names.componentNameToMacroName(
     renamed.get(component) ?? component
   )
 
