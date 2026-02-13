@@ -14,8 +14,9 @@ export const env = configure()
  * Nunjucks environment factory
  *
  * @param {string | string[]} [viewsPath] - Additional custom views path(s) (optional)
+ * @param {ConfigureOptions} [options] - Nunjucks configure options (optional)
  */
-export function configure(viewsPath = []) {
+export function configure(viewsPath = [], options = {}) {
   const basePath =
     NODE_ENV === 'test'
       ? join(nhsukFrontendPath, 'src') // Use source files for tests
@@ -33,8 +34,9 @@ export function configure(viewsPath = []) {
 
   // Nunjucks environment
   return nunjucks.configure(searchPaths, {
-    trimBlocks: true, // automatically remove trailing newlines from a block/tag
-    lstripBlocks: true // automatically remove leading whitespace from a block/tag,
+    lstripBlocks: true, // Remove leading spaces from a block/tag
+    trimBlocks: true, // Remove trailing newlines from a block/tag
+    ...options
   })
 }
 
@@ -117,5 +119,5 @@ export function renderTemplate(templatePath, options) {
  */
 
 /**
- * @import { Environment } from 'nunjucks'
+ * @import { ConfigureOptions, Environment } from 'nunjucks'
  */
