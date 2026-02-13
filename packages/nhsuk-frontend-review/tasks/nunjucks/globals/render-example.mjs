@@ -59,5 +59,5 @@ export function uniqueValues(values, index) {
 }
 
 /**
- * @import { MacroExampleFixture } from '@nhsuk/frontend-lib/components.mjs'
+ * @import { MacroExampleFixture } from 'nhsuk-frontend/lib'
  */

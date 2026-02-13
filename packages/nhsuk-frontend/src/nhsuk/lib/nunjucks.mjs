@@ -1,8 +1,15 @@
-import { join } from 'node:path'
+import { join, resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
 
-import { environment, paths } from '@nhsuk/frontend-config'
 import nunjucks from 'nunjucks'
 import { outdent } from 'outdent'
+
+const { NODE_ENV } = process.env
+
+export const nhsukFrontendPath = resolve(
+  fileURLToPath(new URL('.', import.meta.url)),
+  '../../..'
+)
 
 // Nunjucks default environment
 export const env = configure()
@@ -14,9 +21,9 @@ export const env = configure()
  */
 export function configure(searchPaths = []) {
   searchPaths.push(
-    environment === 'test'
-      ? join(paths.pkg, 'src') // Use source files for tests
-      : join(paths.pkg, 'dist') // Use build output for review
+    NODE_ENV === 'test'
+      ? join(nhsukFrontendPath, 'src') // Use source files for tests
+      : join(nhsukFrontendPath, 'dist') // Use build output for review
   )
 
   // Nunjucks environment

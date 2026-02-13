@@ -1,12 +1,15 @@
 import { join } from 'node:path'
 
 import * as config from '@nhsuk/frontend-config'
-import { nunjucks } from '@nhsuk/frontend-lib'
+import { nunjucks } from 'nhsuk-frontend/src/nhsuk/lib/index.mjs'
 
 import { filters, globals } from './index.mjs'
 
 // Review app Nunjucks default environment
-export const env = nunjucks.configure([join(config.paths.app, 'src')])
+export const env = nunjucks.configure([
+  join(config.paths.app, 'src'),
+  join(config.paths.pkg, 'dist')
+])
 
 // Add Nunjucks filters
 for (const [key, filter] of Object.entries(filters)) {

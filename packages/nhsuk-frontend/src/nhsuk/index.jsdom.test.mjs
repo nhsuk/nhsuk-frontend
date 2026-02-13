@@ -1,4 +1,3 @@
-import { names } from '@nhsuk/frontend-lib'
 import { outdent } from 'outdent'
 
 import {
@@ -18,6 +17,8 @@ import {
   ConfigurableComponent
 } from './index.mjs'
 import * as NHSUKFrontend from './index.mjs'
+
+import { names } from '#lib'
 
 jest.mock('./components/button/button.mjs')
 jest.mock('./components/character-count/character-count.mjs')
