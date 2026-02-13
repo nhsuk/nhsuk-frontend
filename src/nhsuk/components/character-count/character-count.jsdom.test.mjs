@@ -1,9 +1,10 @@
-import { components } from '@nhsuk/frontend-lib'
 import { getByRole } from '@testing-library/dom'
 import { outdent } from 'outdent'
 
 import { CharacterCount, initCharacterCounts } from './character-count.mjs'
 import { examples } from './fixtures.mjs'
+
+import { components } from '#lib'
 
 describe('Character count', () => {
   /** @type {HTMLElement} */
