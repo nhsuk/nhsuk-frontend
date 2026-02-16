@@ -155,10 +155,10 @@ If you use Sass and you've customised fonts or font sizes that NHS.UK frontend u
 + $app-font-family: "Customised name", arial, sans-serif;
 
   @forward "nhsuk-frontend/dist/nhsuk" with (
--   $nhsuk-font: $app-font
+-   $nhsuk-font: $app-font,
 -   $nhsuk-font-fallback: $app-font-fallback,
 +   $nhsuk-font-family: $app-font-family,
--   $nhsuk-include-font-face: false,
+-   $nhsuk-include-font-face: false
 +   $nhsuk-include-default-font-face: false
   );
 ```
@@ -292,14 +292,14 @@ For example, if you're using functions such as `initButtons` and `initCheckboxes
 
 Where a component config object or scope is required, these can also be passed to the `createAll` function:
 
-```mjs
+```patch
 - import { initButtons, initCheckboxes } from 'nhsuk-frontend'
 + import { createAll, Button, Checkboxes } from 'nhsuk-frontend'
 
   const $element = document.querySelector('.app-modal')
 
 - initButtons({
-- createAll(Button, {
++ createAll(Button, {
     preventDoubleClick: true,
     scope: $element,
   })
