@@ -110,7 +110,7 @@ This change was introduced in pull requests [#1633: Review global `box-sizing` u
 
 #### Sass deprecated load paths removed
 
-We've removed Sass `all` import paths that were deprecated in [version 9.5.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v9.5.0).
+We've removed the Sass `nhsuk/nhsuk` and `/all` import paths that were deprecated in [version 9.5.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v9.5.0).
 
 If you're importing the core NHS.UK frontend Sass only, or individual Sass layers (e.g. settings, tools), then you must remove `/all` from each path.
 
@@ -125,6 +125,15 @@ If you're importing the core NHS.UK frontend Sass only, or individual Sass layer
 + @import "nhsuk-frontend/packages/core/settings";
 + @import "nhsuk-frontend/packages/core/tools";
 ```
+
+If you're importing the `nhsuk/nhsuk` Sass entry point, you must import `nhsuk` instead:
+
+```patch
+- @import "nhsuk-frontend/dist/nhsuk/nhsuk";
++ @import "nhsuk-frontend/dist/nhsuk";
+```
+
+This change was introduced in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
 
 #### Sass deprecated variables for border width and colour removed
 
@@ -272,6 +281,66 @@ The following CSS classes have been removed:
 
 This change was introduced in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
 
+#### Sass deprecated mixins and functions without "nhsuk" namespace removed
+
+We've removed deprecated Sass mixins and functions without the `nhsuk` namespace, deprecated in [version 9.5.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v9.5.0) and [version 9.6.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v9.6.0).
+
+The following Sass mixins have been removed:
+
+| Sass mixin removed          | Suggested replacement             |
+| --------------------------- | --------------------------------- |
+| `care-card`                 | `nhsuk-care-card`                 |
+| `clearfix`                  | `nhsuk-clearfix`                  |
+| `flex`                      | `nhsuk-flex`                      |
+| `flex-item`                 | `nhsuk-flex-item`                 |
+| `heading-label`             | `nhsuk-heading-label`             |
+| `panel`                     | `nhsuk-panel`                     |
+| `panel-with-label`          | `nhsuk-panel-with-label`          |
+| `print-color`               | `nhsuk-print-colour`              |
+| `print-hide`                | `nhsuk-print-hide`                |
+| `reading-width`             | `nhsuk-reading-width`             |
+| `remove-margin-mobile`      | `nhsuk-remove-margin-mobile`      |
+| `top-and-bottom`            | `nhsuk-top-and-bottom`            |
+| `visually-hidden`           | `nhsuk-visually-hidden`           |
+| `visually-hidden-focusable` | `nhsuk-visually-hidden-focusable` |
+
+The `visually-shown` mixin has been removed entirely. You must selectively apply `nhsuk-visually-hidden` using media queries instead:
+
+Before:
+
+```scss
+// Hide by default
+@include visually-hidden;
+
+// Show from desktop
+@include nhsuk-media-query($from: desktop) {
+  @include visually-shown;
+}
+```
+
+After:
+
+```scss
+// Hide until desktop only
+@include nhsuk-media-query($until: desktop) {
+  @include nhsuk-visually-hidden;
+}
+```
+
+The following deprecated Sass mixin with the `govuk` namespace have also been removed:
+
+| Sass mixin removed  | Suggested replacement |
+| ------------------- | --------------------- |
+| `govuk-media-query` | `nhsuk-media-query`   |
+
+The following deprecated Sass mixin has also been removed:
+
+| Sass mixin removed            | Suggested replacement |
+| ----------------------------- | --------------------- |
+| `nhsuk-typography-responsive` | `nhsuk-font-size`     |
+
+This change was introduced in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
+
 ### :boom: **Breaking changes** to JavaScript
 
 #### Deprecated component init functions removed
@@ -405,6 +474,13 @@ If you're using the `list` Nunjucks macro in your service, you must update the n
     ]
   }) }}
 ```
+
+We've also removed the `nhsuk-icon__tick` and `nhsuk-icon__cross` CSS classes used by the do and don't list component, deprecated in [version 10.0.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.0.0).
+
+If you are not using Nunjucks macros, you must change the do and don't list classes as follows:
+
+- Rename `nhsuk-icon__tick` to `nhsuk-icon--tick`
+- Rename `nhsuk-icon__cross` to `nhsuk-icon--cross`
 
 This change was introduced in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
 
