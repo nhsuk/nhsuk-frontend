@@ -53,7 +53,7 @@ $nhsuk-panel-border-width: nhsuk-spacing(1);
     // Links within the Panel should use white text
     .nhsuk-link,
     a:not(.nhsuk-button) {
-      @include nhsuk-link-style-white;
+      @include nhsuk-link-style-reverse;
     }
   }
 

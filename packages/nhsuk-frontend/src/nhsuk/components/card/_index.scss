@@ -386,7 +386,7 @@ $nhsuk-card-border-hover-colour: $nhsuk-border-hover-colour;
     }
 
     .nhsuk-card__action a {
-      @include nhsuk-link-style-white;
+      @include nhsuk-link-style-reverse;
     }
   }
 
