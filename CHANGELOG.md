@@ -57,7 +57,7 @@ This change was introduced in [pull request #1367: Updates to link styles and li
 
 ### :boom: **Breaking changes** to stylesheets
 
-##### Mobile width override classes
+#### Mobile width override classes
 
 Grid column classes ending `-from-mobile` are applied at mobile width (320px) and above.
 
@@ -69,7 +69,7 @@ If you're using the following mobile width utility classes, you must:
 - Replace `nhsuk-u-one-quarter` with `nhsuk-grid-column-one-quarter-from-mobile`
 - Replace `nhsuk-u-three-quarters` with `nhsuk-grid-column-three-quarters-from-mobile`.
 
-##### Tablet width override classes
+#### Tablet width override classes
 
 Grid column classes not ending `-from-mobile` or `-from-desktop` are applied at tablet width (641px) and above.
 
