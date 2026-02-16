@@ -98,7 +98,7 @@ To restore the previous behaviour, add the new `nhsuk-u-wrap-from-tablet` utilit
 + <p class="nhsuk-u-nowrap nhsuk-u-wrap-from-tablet">
 ```
 
-This was added in [pull request #1668: Add breakpoints to nowrap class](https://github.com/nhsuk/nhsuk-frontend/pull/1668).
+This change was introduced in [pull request #1668: Add breakpoints to nowrap class](https://github.com/nhsuk/nhsuk-frontend/pull/1668).
 
 #### Global box sizing reset removed
 
@@ -135,7 +135,7 @@ If you use Sass and you've extended or created components that use the following
 - rename `$nhsuk-border-width-mobile` to `$nhsuk-border-width`
 - rename `$nhsuk-border-width-form-element-error` to `$nhsuk-border-width-form-element`
 
-This was added in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
+This change was introduced in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
 
 #### Sass deprecated variables for customising fonts removed
 
@@ -172,7 +172,7 @@ If you use Sass and you've customised fonts or font sizes that NHS.UK frontend u
   }
 ```
 
-This was added in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
+This change was introduced in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
 
 ### :boom: **Breaking changes** to JavaScript
 
@@ -210,7 +210,7 @@ Where a component config object or scope is required, these can also be passed t
 + createAll(Checkboxes, $element)
 ```
 
-This was added in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
+This change was introduced in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
 
 #### Deprecated JavaScript `focusOnPageLoad` config option removed
 
@@ -224,7 +224,7 @@ createAll(ErrorSummary, {
 })
 ```
 
-This was added in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
+This change was introduced in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
 
 #### Deprecated JavaScript `jsHiddenClass` property removed
 
@@ -240,7 +240,7 @@ createAll(Tabs, {
 
 The modifier `--hidden` is appended automatically to `panelClass` when used to hide a tab panel.
 
-This was added in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
+This change was introduced in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
 
 ### :boom: **Breaking changes** to page template
 
@@ -279,7 +279,7 @@ If you are not using Nunjucks macros, you must change the card classes as follow
 - Rename the `<div class="nhsuk-card--care__heading-container"` class attribute to match `<div class="nhsuk-card__heading-container"`.
 - Rename the `<div class="nhsuk-card--care__heading"` class attribute to match `<div class="nhsuk-card__heading"`.
 
-This was added in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
+This change was introduced in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
 
 #### Do and Don't list component changes
 
@@ -308,7 +308,7 @@ If you're using the `list` Nunjucks macro in your service, you must update the n
   }) }}
 ```
 
-This was added in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
+This change was introduced in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
 
 #### Error message component changes
 
@@ -369,7 +369,7 @@ If you're using the `input` Nunjucks macro in your service, you must update the 
   }) }}
 ```
 
-This was added in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
+This change was introduced in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
 
 #### Pagination component changes
 
@@ -399,7 +399,7 @@ If you're using the `pagination` Nunjucks macro in your service, you must:
   }) }}
 ```
 
-This was added in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
+This change was introduced in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
 
 ## Unreleased v10.x
 
