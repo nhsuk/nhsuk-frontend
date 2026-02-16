@@ -174,6 +174,104 @@ If you use Sass and you've customised fonts or font sizes that NHS.UK frontend u
 
 This change was introduced in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
 
+#### Sass deprecated "color" variables, mixins and CSS classes removed
+
+We've removed Sass variables, mixins and CSS classes using the "color" spelling (instead of "colour", e.g. `$color_nhsuk-blue`) that were deprecated in [version 10.0.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.0.0).
+
+If you need to reference a colour within your application you should use the `nhsuk-colour` function:
+
+```patch
+  .nhsuk-example {
+-   color: $color_nhsuk-blue;
++   color: nhsuk-colour("blue");
+  }
+```
+
+The following Sass `$color_nhsuk-*` variables have been removed:
+
+| Sass variable removed      | Suggested replacement         |
+| -------------------------- | ----------------------------- |
+| `$color_nhsuk-blue`        | `nhsuk-colour("blue")`        |
+| `$color_nhsuk-white`       | `nhsuk-colour("white")`       |
+| `$color_nhsuk-black`       | `nhsuk-colour("black")`       |
+| `$color_nhsuk-green`       | `nhsuk-colour("green")`       |
+| `$color_nhsuk-purple`      | `nhsuk-colour("purple")`      |
+| `$color_nhsuk-dark-pink`   | `nhsuk-colour("dark-pink")`   |
+| `$color_nhsuk-red`         | `nhsuk-colour("red")`         |
+| `$color_nhsuk-yellow`      | `nhsuk-colour("yellow")`      |
+| `$color_nhsuk-dark-blue`   | `nhsuk-colour("dark-blue")`   |
+| `$color_nhsuk-pale-yellow` | `nhsuk-colour("pale-yellow")` |
+| `$color_nhsuk-warm-yellow` | `nhsuk-colour("warm-yellow")` |
+| `$color_nhsuk-orange`      | `nhsuk-colour("orange")`      |
+| `$color_nhsuk-aqua-green`  | `nhsuk-colour("aqua-green")`  |
+| `$color_nhsuk-pink`        | `nhsuk-colour("pink")`        |
+| `$color_nhsuk-grey-1`      | `nhsuk-colour("grey-1")`      |
+| `$color_nhsuk-grey-2`      | `nhsuk-colour("grey-2")`      |
+| `$color_nhsuk-grey-3`      | `nhsuk-colour("grey-3")`      |
+| `$color_nhsuk-grey-4`      | `nhsuk-colour("grey-4")`      |
+| `$color_nhsuk-grey-5`      | `nhsuk-colour("grey-5")`      |
+
+The following Sass variables using the "color" spelling (instead of "colour") have been removed:
+
+| Sass variable removed                            | Suggested replacement                             |
+| ------------------------------------------------ | ------------------------------------------------- |
+| `$nhsuk-text-color`                              | `$nhsuk-text-colour`                              |
+| `$nhsuk-reverse-text-color`                      | `$nhsuk-reverse-text-colour`                      |
+| `$nhsuk-print-text-color`                        | `$nhsuk-print-text-colour`                        |
+| `$nhsuk-secondary-text-color`                    | `$nhsuk-secondary-text-colour`                    |
+| `$nhsuk-focus-color`                             | `$nhsuk-focus-colour`                             |
+| `$nhsuk-focus-text-color`                        | `$nhsuk-focus-text-colour`                        |
+| `$nhsuk-error-color`                             | `$nhsuk-error-colour`                             |
+| `$nhsuk-success-color`                           | `$nhsuk-success-colour`                           |
+| `$nhsuk-border-color`                            | `$nhsuk-border-colour`                            |
+| `$nhsuk-secondary-border-color`                  | `$nhsuk-secondary-border-colour`                  |
+| `$nhsuk-form-border-color`                       | `$nhsuk-form-border-colour`                       |
+| `$nhsuk-form-element-background-color`           | `$nhsuk-form-element-background-colour`           |
+| `$nhsuk-link-color`                              | `$nhsuk-link-colour`                              |
+| `$nhsuk-link-visited-color`                      | `$nhsuk-link-visited-colour`                      |
+| `$nhsuk-link-hover-color`                        | `$nhsuk-link-hover-colour`                        |
+| `$nhsuk-link-active-color`                       | `$nhsuk-link-active-colour`                       |
+| `$nhsuk-button-color`                            | `$nhsuk-button-colour`                            |
+| `$nhsuk-button-text-color`                       | `$nhsuk-button-text-colour`                       |
+| `$nhsuk-button-hover-color`                      | `$nhsuk-button-hover-colour`                      |
+| `$nhsuk-button-active-color`                     | `$nhsuk-button-active-colour`                     |
+| `$nhsuk-button-shadow-color`                     | `$nhsuk-button-shadow-colour`                     |
+| `$nhsuk-secondary-button-color`                  | `$nhsuk-secondary-button-colour`                  |
+| `$nhsuk-secondary-button-solid-background-color` | `$nhsuk-secondary-button-solid-background-colour` |
+| `$nhsuk-secondary-button-border-color`           | `$nhsuk-secondary-button-border-colour`           |
+| `$nhsuk-secondary-button-text-color`             | `$nhsuk-secondary-button-text-colour`             |
+| `$nhsuk-secondary-button-hover-color`            | `$nhsuk-secondary-button-hover-colour`            |
+| `$nhsuk-secondary-button-active-color`           | `$nhsuk-secondary-button-active-colour`           |
+| `$nhsuk-secondary-button-shadow-color`           | `$nhsuk-secondary-button-shadow-colour`           |
+| `$nhsuk-reverse-button-color`                    | `$nhsuk-reverse-button-colour`                    |
+| `$nhsuk-reverse-button-text-color`               | `$nhsuk-reverse-button-text-colour`               |
+| `$nhsuk-reverse-button-hover-color`              | `$nhsuk-reverse-button-hover-colour`              |
+| `$nhsuk-reverse-button-active-color`             | `$nhsuk-reverse-button-active-colour`             |
+| `$nhsuk-reverse-button-shadow-color`             | `$nhsuk-reverse-button-shadow-colour`             |
+| `$nhsuk-warning-button-color`                    | `$nhsuk-warning-button-colour`                    |
+| `$nhsuk-warning-button-hover-color`              | `$nhsuk-warning-button-hover-colour`              |
+| `$nhsuk-warning-button-active-color`             | `$nhsuk-warning-button-active-colour`             |
+| `$nhsuk-warning-button-shadow-color`             | `$nhsuk-warning-button-shadow-colour`             |
+| `$nhsuk-login-button-color`                      | `$nhsuk-login-button-colour`                      |
+| `$nhsuk-login-button-hover-color`                | `$nhsuk-login-button-hover-colour`                |
+| `$nhsuk-login-button-active-color`               | `$nhsuk-login-button-active-colour`               |
+| `$nhsuk-login-button-shadow-color`               | `$nhsuk-login-button-shadow-colour`               |
+
+The following Sass mixins have been removed:
+
+| Sass mixin removed  | Suggested replacement |
+| ------------------- | --------------------- |
+| `nhsuk-print-color` | `nhsuk-print-colour`  |
+| `nhsuk-text-color`  | `nhsuk-text-colour`   |
+
+The following CSS classes have been removed:
+
+| CSS class removed              | Suggested replacement           |
+| ------------------------------ | ------------------------------- |
+| `nhsuk-u-secondary-text-color` | `nhsuk-u-secondary-text-colour` |
+
+This change was introduced in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
+
 ### :boom: **Breaking changes** to JavaScript
 
 #### Deprecated component init functions removed
