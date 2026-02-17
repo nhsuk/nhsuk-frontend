@@ -414,6 +414,14 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     }
   }
 
+  .nhsuk-header__search-form .nhsuk-button::before {
+    bottom: -1px;
+  }
+
+  .nhsuk-header__search-form .nhsuk-button:not(:focus)::after {
+    display: none;
+  }
+
   // Navigation
 
   .nhsuk-header__navigation {
