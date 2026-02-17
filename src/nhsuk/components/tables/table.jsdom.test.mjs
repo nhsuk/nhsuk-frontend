@@ -1,8 +1,9 @@
-import { components } from '@nhsuk/frontend-lib'
 import { outdent } from 'outdent'
 
 import { examples } from './fixtures.mjs'
 import { Table, initTables } from './table.mjs'
+
+import { components } from '#lib'
 
 describe('Table', () => {
   describe('where there are no sortable columns', () => {
