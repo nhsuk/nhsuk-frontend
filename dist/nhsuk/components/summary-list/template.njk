@@ -1,0 +1,62 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/components/card/macro.njk" import card %}
+
+{%- macro _link(action, cardHeading) %}
+  <a class="nhsuk-link {%- if action.classes %} {{ action.classes }}{% endif %}" href="{{ action.href }}"
+    {{- nhsukAttributes(action.attributes) }}>
+    {{- action.html | safe | indent(4) if action.html else action.text -}}
+    {%- if action.visuallyHiddenText or cardHeading -%}
+    <span class="nhsuk-u-visually-hidden">
+      {%- if action.visuallyHiddenText %} {{ action.visuallyHiddenText }}{% endif -%}
+      {%- if cardHeading %} ({{ cardHeading }}){% endif -%}
+    </span>
+    {%- endif -%}
+  </a>
+{% endmacro -%}
+
+{#- Determine if we need 2 or 3 columns #}
+{%- set anyRowHasActions = false %}
+{% for row in params.rows %}
+  {% set anyRowHasActions = true if row.actions.items | length else anyRowHasActions %}
+{% endfor -%}
+
+{%- set summaryList %}
+<dl {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-summary-list {%- if params.classes %} {{ params.classes }}{% endif %}" {{- nhsukAttributes(params.attributes) }}>
+{% for row in params.rows %}
+  {% if row %}
+  {%- set actionsItems = row.actions.items | select("mapping") if row.actions.items | length else [] %}
+  <div class="nhsuk-summary-list__row {%- if anyRowHasActions and not actionsItems | length %} nhsuk-summary-list__row--no-actions{% endif %} {%- if row.classes %} {{ row.classes }}{% endif %}">
+    <dt class="nhsuk-summary-list__key {%- if row.key.classes %} {{ row.key.classes }}{% endif %}">
+      {{ row.key.html | safe | trim | indent(6) if row.key.html else row.key.text }}
+    </dt>
+    <dd class="nhsuk-summary-list__value {%- if row.value.classes %} {{ row.value.classes }}{% endif %}">
+      {{ row.value.html | safe | trim | indent(6) if row.value.html else row.value.text }}
+    </dd>
+    {% if actionsItems | length %}
+    <dd class="nhsuk-summary-list__actions {%- if row.actions.classes %} {{ row.actions.classes }}{% endif %}">
+      {% if actionsItems | length == 1 %}
+        {{- _link(actionsItems[0], params.card.heading) | trim | indent(6, true) }}
+      {% else %}
+      <ul class="nhsuk-summary-list__actions-list">
+      {% for action in actionsItems %}
+        <li class="nhsuk-summary-list__actions-list-item">
+          {{ _link(action, params.card.heading) | trim | indent(8) }}
+        </li>
+      {% endfor %}
+      </ul>
+      {% endif %}
+    </dd>
+    {% endif %}
+  </div>
+  {% endif %}
+{% endfor %}
+</dl>
+{%- endset %}
+
+{%- if params.card -%}
+  {% call card(params.card) -%}
+    {{ summaryList | safe | trim | indent(4) }}
+  {%- endcall %}
+{%- else -%}
+  {{ summaryList | safe | trim }}
+{%- endif %}

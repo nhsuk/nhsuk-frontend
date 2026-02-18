@@ -1,0 +1,120 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/components/card/macro.njk" import card %}
+
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-table" if not params.responsive else "nhsuk-table-responsive" -%}
+{%- set classNamesCaption = "nhsuk-table__caption" -%}
+
+{%- if params.captionSize and
+  params.captionSize in ["s", "m", "l", "xl"] and (
+    not params.captionClasses or (
+      not "nhsuk-table__caption--s" in params.captionClasses and
+      not "nhsuk-table__caption--m" in params.captionClasses and
+      not "nhsuk-table__caption--l" in params.captionClasses and
+      not "nhsuk-table__caption--xl" in params.captionClasses
+    )
+  )
+%}
+  {% set classNamesCaption = classNamesCaption ~ " nhsuk-table__caption--" ~ params.captionSize %}
+{% endif %}
+
+{%- if params.classes or params.tableClasses %}
+  {% set classNames = classNames ~ " " ~ (params.classes or params.tableClasses) %}
+{% endif %}
+
+{%- if params.captionClasses %}
+  {% set classNamesCaption = classNamesCaption ~ " " ~ params.captionClasses %}
+{% endif %}
+
+{%- set headingLevel = params.headingLevel if params.headingLevel else 3 %}
+
+{%- set table -%}
+<table {%- if params.id %} id="{{ params.id }}"{% endif %} class="{{ classNames }}"
+  {%- if params.responsive %} role="table"{% endif %}
+  {{- nhsukAttributes(params.attributes) }}>
+{% if params.caption %}
+  <caption class="{{ classNamesCaption }}">
+    {{ params.caption }}
+  </caption>
+{% endif %}
+{% if params.head %}
+  <thead class="nhsuk-table__head" {%- if params.responsive %} role="rowgroup"{% endif %}>
+    <tr class="nhsuk-table__row" {%- if params.responsive %} role="row"{% endif %}>
+    {% for item in params.head %}
+      {% if item %}
+      <th scope="col" class="nhsuk-table__header
+        {%- if item.format %} nhsuk-table__header--{{ item.format }}{% endif %}
+        {%- if item.classes %} {{ item.classes }}{% endif %}"
+        {%- if item.colspan %} colspan="{{ item.colspan }}"{% endif %}
+        {%- if item.rowspan %} rowspan="{{ item.rowspan }}"{% endif %}
+        {%- if params.responsive %} role="columnheader"{% endif %}
+        {{- nhsukAttributes(item.attributes) }}>
+        {{ item.html | safe | trim | indent(8) if item.html else item.text }}
+      </th>
+      {% endif %}
+    {% endfor %}
+    </tr>
+  </thead>
+{% endif %}
+  <tbody class="nhsuk-table__body">
+{% for row in params.rows %}
+  {% if row %}
+    <tr class="nhsuk-table__row" {%- if params.responsive %} role="row"{% endif %}>
+  {% for cell in row %}
+    {% if cell %}
+    {% set commonAttributes %}
+      {%- if cell.colspan %} colspan="{{ cell.colspan }}"{% endif %}
+      {%- if cell.rowspan %} rowspan="{{ cell.rowspan }}"{% endif %}
+      {{- nhsukAttributes(cell.attributes) -}}
+    {% endset %}
+    {% set commonContents %}
+      {%- if params.responsive -%}
+        {%- if cell.header -%}
+          <span class="nhsuk-table-responsive__heading" aria-hidden="true">{{ cell.header }} </span>
+        {%- endif -%}
+        {%- if cell.html -%}
+          <span>{{ cell.html | safe }}</span>
+        {%- else -%}
+          {{- cell.text -}}
+        {%- endif -%}
+      {%- else -%}
+        {{- cell.html | safe if cell.html else cell.text -}}
+      {%- endif -%}
+    {% endset %}
+    {% if loop.first and params.firstCellIsHeader %}
+      <th scope="row" class="nhsuk-table__header
+        {%- if cell.classes %} {{ cell.classes }}{% endif %}"
+        {%- if params.responsive %} role="rowheader"{% endif %}
+        {{- commonAttributes | safe }}>
+        {{ commonContents | safe | trim | indent(8) }}
+      </th>
+    {% else %}
+      <td class="nhsuk-table__cell
+        {%- if cell.format %} nhsuk-table__cell--{{ cell.format }}{% endif %}
+        {%- if cell.classes %} {{ cell.classes }}{% endif %}"
+        {%- if params.responsive %} role="cell"{% endif %}
+        {{- commonAttributes | safe }}>
+        {{ commonContents | safe | trim | indent(8) }}
+      </td>
+    {% endif %}
+    {% endif %}
+  {% endfor %}
+    </tr>
+  {% endif %}
+{% endfor %}
+  </tbody>
+</table>
+{%- endset %}
+
+{%- if params.card or params.panel -%}
+  {% call card(params.card or {
+    heading: params.heading,
+    headingLevel: headingLevel,
+    classes: params.panelClasses,
+    feature: true
+  }) -%}
+    {{ table | safe | trim | indent(4) }}
+  {%- endcall %}
+{%- else -%}
+  {{ table | safe | trim }}
+{%- endif %}

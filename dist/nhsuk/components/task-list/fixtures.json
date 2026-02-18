@@ -1,0 +1,124 @@
+{
+  "name": "Task list",
+  "component": "task-list",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "idPrefix": "your-health",
+        "items": [
+          {
+            "title": {
+              "text": "Exercise"
+            },
+            "href": "#",
+            "status": {
+              "text": "Completed",
+              "classes": "nhsuk-task-list__status--completed"
+            }
+          },
+          {
+            "title": {
+              "text": "Personal health"
+            },
+            "href": "#",
+            "status": {
+              "text": "Completed",
+              "classes": "nhsuk-task-list__status--completed"
+            }
+          },
+          {
+            "title": {
+              "text": "Family health history"
+            },
+            "hint": {
+              "text": "Details of your parents, brothers and sisters"
+            },
+            "href": "#",
+            "status": {
+              "tag": {
+                "text": "Incomplete",
+                "classes": "nhsuk-tag--blue"
+              }
+            }
+          },
+          {
+            "title": {
+              "text": "Smoking history"
+            },
+            "href": "#",
+            "status": {
+              "tag": {
+                "text": "Incomplete",
+                "classes": "nhsuk-tag--blue"
+              }
+            }
+          },
+          {
+            "title": {
+              "text": "Blood test"
+            },
+            "status": {
+              "text": "Cannot start yet",
+              "classes": "nhsuk-task-list__status--cannot-start-yet"
+            }
+          }
+        ]
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop"
+        ]
+      },
+      "options": {},
+      "html": "<ul class=\"nhsuk-task-list\">\n  <li class=\"nhsuk-task-list__item nhsuk-task-list__item--with-link\">\n    <div class=\"nhsuk-task-list__name-and-hint\">\n      <a class=\"nhsuk-link nhsuk-task-list__link\" href=\"#\" aria-describedby=\"your-health-1-status\">\n        Exercise\n      </a>\n    </div>\n    <div class=\"nhsuk-task-list__status nhsuk-task-list__status--completed\" id=\"your-health-1-status\">\n      Completed\n    </div>\n  </li>\n  <li class=\"nhsuk-task-list__item nhsuk-task-list__item--with-link\">\n    <div class=\"nhsuk-task-list__name-and-hint\">\n      <a class=\"nhsuk-link nhsuk-task-list__link\" href=\"#\" aria-describedby=\"your-health-2-status\">\n        Personal health\n      </a>\n    </div>\n    <div class=\"nhsuk-task-list__status nhsuk-task-list__status--completed\" id=\"your-health-2-status\">\n      Completed\n    </div>\n  </li>\n  <li class=\"nhsuk-task-list__item nhsuk-task-list__item--with-link\">\n    <div class=\"nhsuk-task-list__name-and-hint\">\n      <a class=\"nhsuk-link nhsuk-task-list__link\" href=\"#\" aria-describedby=\"your-health-3-hint your-health-3-status\">\n        Family health history\n      </a>\n      <div id=\"your-health-3-hint\" class=\"nhsuk-task-list__hint\">\n        Details of your parents, brothers and sisters\n      </div>\n    </div>\n    <div class=\"nhsuk-task-list__status\" id=\"your-health-3-status\">\n      <strong class=\"nhsuk-tag nhsuk-tag--blue\">\n        Incomplete\n      </strong>\n    </div>\n  </li>\n  <li class=\"nhsuk-task-list__item nhsuk-task-list__item--with-link\">\n    <div class=\"nhsuk-task-list__name-and-hint\">\n      <a class=\"nhsuk-link nhsuk-task-list__link\" href=\"#\" aria-describedby=\"your-health-4-status\">\n        Smoking history\n      </a>\n    </div>\n    <div class=\"nhsuk-task-list__status\" id=\"your-health-4-status\">\n      <strong class=\"nhsuk-tag nhsuk-tag--blue\">\n        Incomplete\n      </strong>\n    </div>\n  </li>\n  <li class=\"nhsuk-task-list__item\">\n    <div class=\"nhsuk-task-list__name-and-hint\">\n      <div>\n        Blood test\n      </div>\n    </div>\n    <div class=\"nhsuk-task-list__status nhsuk-task-list__status--cannot-start-yet\" id=\"your-health-5-status\">\n      Cannot start yet\n    </div>\n  </li>\n</ul>"
+    },
+    {
+      "name": "with empty items",
+      "context": {
+        "idPrefix": "your-health",
+        "items": [
+          {
+            "title": {
+              "text": "Exercise"
+            },
+            "href": "#",
+            "status": {
+              "text": "Completed",
+              "classes": "nhsuk-task-list__status--completed"
+            }
+          },
+          {
+            "title": {
+              "text": "Personal health"
+            },
+            "href": "#",
+            "status": {
+              "text": "Completed",
+              "classes": "nhsuk-task-list__status--completed"
+            }
+          },
+          false,
+          false,
+          {
+            "title": {
+              "text": "Blood test"
+            },
+            "href": "#",
+            "status": {
+              "tag": {
+                "text": "Incomplete",
+                "classes": "nhsuk-tag--blue"
+              }
+            }
+          }
+        ]
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<ul class=\"nhsuk-task-list\">\n  <li class=\"nhsuk-task-list__item nhsuk-task-list__item--with-link\">\n    <div class=\"nhsuk-task-list__name-and-hint\">\n      <a class=\"nhsuk-link nhsuk-task-list__link\" href=\"#\" aria-describedby=\"your-health-1-status\">\n        Exercise\n      </a>\n    </div>\n    <div class=\"nhsuk-task-list__status nhsuk-task-list__status--completed\" id=\"your-health-1-status\">\n      Completed\n    </div>\n  </li>\n  <li class=\"nhsuk-task-list__item nhsuk-task-list__item--with-link\">\n    <div class=\"nhsuk-task-list__name-and-hint\">\n      <a class=\"nhsuk-link nhsuk-task-list__link\" href=\"#\" aria-describedby=\"your-health-2-status\">\n        Personal health\n      </a>\n    </div>\n    <div class=\"nhsuk-task-list__status nhsuk-task-list__status--completed\" id=\"your-health-2-status\">\n      Completed\n    </div>\n  </li>\n\n\n  <li class=\"nhsuk-task-list__item nhsuk-task-list__item--with-link\">\n    <div class=\"nhsuk-task-list__name-and-hint\">\n      <a class=\"nhsuk-link nhsuk-task-list__link\" href=\"#\" aria-describedby=\"your-health-5-status\">\n        Blood test\n      </a>\n    </div>\n    <div class=\"nhsuk-task-list__status\" id=\"your-health-5-status\">\n      <strong class=\"nhsuk-tag nhsuk-tag--blue\">\n        Incomplete\n      </strong>\n    </div>\n  </li>\n</ul>"
+    }
+  ]
+}

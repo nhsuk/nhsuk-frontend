@@ -1,0 +1,342 @@
+@use "sass:color";
+@use "../settings" as *;
+@use "../helpers" as *;
+@use "focused" as *;
+
+////
+/// Links
+///
+/// @group tools
+////
+
+/// Link styling with colour overrides
+///
+/// @param {Colour} $link-colour [$nhsuk-link-colour] - Link colour
+/// @param {Colour} $link-hover-colour [$nhsuk-link-hover-colour] - Link hover colour
+/// @param {Colour} $link-visited-colour [$nhsuk-link-visited-colour] - Link visited colour
+/// @param {Colour} $link-active-colour [$nhsuk-link-active-colour] - Link active colour
+///
+
+@mixin nhsuk-link-style(
+  $link-colour: $nhsuk-link-colour,
+  $link-visited-colour: $nhsuk-link-visited-colour,
+  $link-hover-colour: $nhsuk-link-hover-colour,
+  $link-active-colour: $nhsuk-link-active-colour
+) {
+  & {
+    color: $link-colour;
+    @include nhsuk-link-decoration;
+  }
+
+  .nhsuk-icon {
+    fill: $link-colour;
+  }
+
+  @include nhsuk-link-style-visited($link-visited-colour);
+  @include nhsuk-link-style-hover($link-hover-colour);
+  @include nhsuk-link-style-active($link-active-colour);
+  @include nhsuk-link-style-focus;
+}
+
+/// Link decoration
+///
+/// Provides the text decoration for links, including thickness and underline
+/// offset. Use this mixin only if you cannot use the `nhsuk-link-style-default` mixin.
+
+@mixin nhsuk-link-decoration {
+  & {
+    text-decoration: underline;
+
+    @if $nhsuk-link-underline-thickness {
+      text-decoration-thickness: $nhsuk-link-underline-thickness;
+    }
+
+    @if $nhsuk-link-underline-offset {
+      text-underline-offset: $nhsuk-link-underline-offset;
+    }
+  }
+}
+
+/// Link hover decoration
+///
+/// Provides the text decoration for links in their hover state, for you to use
+/// within a `:hover` pseudo-selector. Use this mixin only if you cannot use the
+/// `nhsuk-link-style-default` mixin.
+
+@mixin nhsuk-link-hover-decoration {
+  & {
+    @if $nhsuk-link-hover-underline-thickness {
+      text-decoration-thickness: $nhsuk-link-hover-underline-thickness;
+      // Disable ink skipping on underlines on hover. Browsers haven't
+      // standardised on this part of the spec yet, so set both properties
+      -webkit-text-decoration-skip-ink: none;
+              text-decoration-skip-ink: none; // Chromium, Firefox
+      -webkit-text-decoration-skip: none;
+              text-decoration-skip: none; // Safari
+    }
+  }
+}
+
+/// Default link styles
+///
+/// Makes links use the default unvisited, visited, hover and active colours.
+///
+/// If you use this mixin in a component, you must also include the
+/// `nhsuk-link-style-default` mixin to get the correct focus and hover states.
+///
+/// @example scss
+///   .nhsuk-component__link {
+///     @include nhsuk-link-style-default;
+///   }
+///
+
+@mixin nhsuk-link-style-default {
+  @include nhsuk-link-style;
+}
+
+/// Reverse link styles
+///
+/// Makes links white, in all states. Use this mixin if you're displaying links
+/// against a dark background.
+///
+/// If you use this mixin in a component, you must also include the
+/// `nhsuk-link-style-default` mixin to get the correct focus and hover states.
+///
+/// @example scss
+///   .nhsuk-component__link {
+///     @include nhsuk-link-style-default;
+///     @include nhsuk-link-style-reverse;
+///   }
+///
+
+@mixin nhsuk-link-style-reverse {
+  @include nhsuk-link-style-text($override-colour: $nhsuk-reverse-text-colour);
+}
+
+/// White link styles (deprecated)
+///
+/// @alias nhsuk-link-style-reverse
+/// @deprecated To be removed in v12.0, replaced by nhsuk-link-style-reverse
+
+@mixin nhsuk-link-style-white {
+  @include nhsuk-link-style-reverse;
+}
+
+/// Default link visited only styling
+///
+/// @param {Colour} $link-visited-colour [$nhsuk-link-visited-colour] - Link visited colour
+///
+/// @example scss
+///   @include nhsuk-link-style-visited;
+///
+
+@mixin nhsuk-link-style-visited($link-visited-colour: $nhsuk-link-visited-colour) {
+  &:visited {
+    color: $link-visited-colour;
+
+    .nhsuk-icon {
+      fill: $link-visited-colour;
+    }
+  }
+}
+
+/// Default link hover only styling
+///
+/// @param {Colour} $link-hover-colour [$nhsuk-link-hover-colour] - Link hover colour
+///
+/// @example scss
+///   @include nhsuk-link-style-hover;
+///
+
+@mixin nhsuk-link-style-hover($link-hover-colour: $nhsuk-link-hover-colour) {
+  &:hover,
+  &:hover:visited {
+    color: $link-hover-colour;
+    @include nhsuk-link-decoration;
+    @include nhsuk-link-hover-decoration;
+
+    .nhsuk-icon {
+      fill: $link-hover-colour;
+    }
+  }
+}
+
+/// Default link focus only styling
+///
+/// @example scss
+///   @include nhsuk-link-style-focus;
+///
+
+@mixin nhsuk-link-style-focus {
+  &:focus,
+  &:focus:visited {
+    @include nhsuk-focused-text;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+/// Default link active only styling
+///
+/// @param {Colour} $link-active-colour [$nhsuk-link-active-colour] - Link active colour
+///
+/// @example scss
+///   @include nhsuk-link-style-active;
+///
+
+@mixin nhsuk-link-style-active($link-active-colour: $nhsuk-link-active-colour) {
+  &:active,
+  &:active:visited {
+    color: $link-active-colour;
+
+    .nhsuk-icon {
+      fill: $link-active-colour;
+    }
+  }
+}
+
+/// Error link styles
+///
+/// Makes links use the error colour. The link will darken if it's active or a
+/// user hovers their cursor over it.
+///
+/// If you use this mixin in a component, you must also include the
+/// `nhsuk-link-style-default` mixin to get the correct focus and hover states.
+///
+/// @example scss
+///   .nhsuk-component__link {
+///     @include nhsuk-link-style-default;
+///     @include nhsuk-link-style-error;
+///   }
+///
+
+@mixin nhsuk-link-style-error {
+  @include nhsuk-link-style(
+    $link-colour: $nhsuk-error-colour,
+    $link-visited-colour: $nhsuk-error-colour,
+    $link-hover-colour: color.scale($nhsuk-error-colour, $lightness: -30%),
+    $link-active-colour: $nhsuk-error-colour
+  );
+}
+
+/// Success link styles
+///
+/// Makes links use the success colour. The link will darken if it's active or a
+/// user hovers their cursor over it.
+///
+/// If you use this mixin in a component you must also include the
+/// `nhsuk-link-style-default` mixin to get the correct focus and hover states.
+///
+/// @example scss
+///   .nhsuk-component__link {
+///     @include nhsuk-link-style-default;
+///     @include nhsuk-link-style-success;
+///   }
+///
+
+@mixin nhsuk-link-style-success {
+  @include nhsuk-link-style(
+    $link-colour: $nhsuk-success-colour,
+    $link-visited-colour: $nhsuk-success-colour,
+    $link-hover-colour: nhsuk-shade($nhsuk-success-colour, 20%),
+    $link-active-colour: nhsuk-shade($nhsuk-success-colour, 50%)
+  );
+}
+
+/// No visited state link mixin
+///
+/// Used in cases where it is not helpful to distinguish between visited and
+/// non-visited links.
+///
+/// For example, navigation links to pages with dynamic content like admin
+/// dashboards. The content on the page is changing all the time, so the fact
+/// that you’ve visited it before is not important.
+///
+/// If you use this mixin in a component, you must also include the
+/// `nhsuk-link-style-default` mixin to get the correct focus and hover states.
+///
+/// @param {Colour} $link-colour [$nhsuk-link-colour] - Link colour for visited state
+///
+/// @example scss
+///   .nhsuk-component__link {
+///     @include nhsuk-link-style-default;
+///     @include nhsuk-link-style-no-visited-state;
+///   }
+///
+
+@mixin nhsuk-link-style-no-visited-state {
+  @include nhsuk-link-style-visited($link-visited-colour: $nhsuk-link-colour);
+}
+
+/// Remove underline from links
+///
+/// Remove underlines from links unless the link is active or a user hovers
+/// their cursor over it.
+///
+/// @example scss
+///   .nhsuk-component__link {
+///     @include nhsuk-link-style-default;
+///     @include nhsuk-link-style-no-underline;
+///   }
+///
+
+@mixin nhsuk-link-style-no-underline {
+  &:not(:hover):not(:active) {
+    text-decoration: none;
+  }
+}
+
+/// Text link styles
+///
+/// Makes links use the primary text colour, in all states. Use this mixin for
+/// navigation components, such as breadcrumbs or the back link.
+///
+/// @param {Colour} $override-colour [$nhsuk-text-colour] - Link colour for all states
+///
+/// @example scss
+///   .nhsuk-component__link {
+///     @include nhsuk-link-style-text;
+///   }
+///
+
+@mixin nhsuk-link-style-text($override-colour: $nhsuk-text-colour) {
+  @include nhsuk-link-style(
+    $link-colour: $override-colour,
+    $link-visited-colour: $override-colour,
+    $link-hover-colour: $override-colour,
+    $link-active-colour: $override-colour
+  );
+
+  // Force a colour change on hover to work around a bug in Safari
+  // Also allows for ':focus' companion classes from postcss-pseudo-classes
+  // which the plugin unfortunately doesn't handle automatically.
+  // https://bugs.webkit.org/show_bug.cgi?id=224483
+  // stylelint-disable-next-line selector-class-pattern
+  &:not(:focus):not(.\:focus):hover {
+    color: rgba($override-colour, 0.99);
+  }
+}
+
+/// Image link styles
+///
+/// Prepares and provides the focus state for links that only contain images
+/// with no accompanying text.
+
+@mixin nhsuk-link-image {
+  // Needed to draw the focus around the entire image
+  display: inline-block;
+
+  // Remove extra space at the bottom of the image that's added by line-height
+  line-height: 0;
+
+  // Don't render an underline
+  text-decoration: none;
+
+  &:focus {
+    @include nhsuk-focused-box;
+  }
+}
+
+/*# sourceMappingURL=_links.scss.map */

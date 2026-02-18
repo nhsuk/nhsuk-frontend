@@ -1,0 +1,61 @@
+@use "sass:math";
+@use "../settings" as *;
+@use "../tools/exports" as *;
+
+////
+/// Font face
+///
+/// NHS uses the Frutiger font. To use the font you must have a licence.
+/// NHS England has a licence for the Frutiger webfont which all NHS organisations in England can use.
+/// NHS organisations can register here: https://service-manual.nhs.uk/design-system/styles/use-frutiger-font/
+///
+/// @group generic
+////
+
+@function nhsuk-font-url($filename) {
+  @return url($nhsuk-fonts-path + $filename);
+}
+
+@mixin nhsuk-font-face-frutiger {
+  @at-root {
+    @font-face {
+      font-family: "Frutiger W01";
+      font-style: normal;
+      font-weight: $nhsuk-font-weight-normal;
+      font-display: fallback;
+      src:
+        nhsuk-font-url("FrutigerLTW01-55Roman.woff2") format("woff2"),
+        nhsuk-font-url("FrutigerLTW01-55Roman.woff") format("woff");
+    }
+
+    @font-face {
+      font-family: "Frutiger W01";
+      font-style: normal;
+      font-weight: $nhsuk-font-weight-bold;
+      font-display: fallback;
+      src:
+        nhsuk-font-url("FrutigerLTW01-65Bold.woff2") format("woff2"),
+        nhsuk-font-url("FrutigerLTW01-65Bold.woff") format("woff");
+    }
+  }
+}
+
+/// Font 'Dynamic Type' support
+///
+/// On Apple devices, uses the -apple-system-body font to enable system-level
+/// Dynamic Type for accessibility but prevents the system body font-family.
+
+@mixin nhsuk-font-dynamic-type {
+  @at-root {
+    html {
+      font-size: math.percentage(math.div($nhsuk-root-font-size, 16px));
+
+      @supports (font: -apple-system-body) and (-webkit-touch-callout: default) {
+        // stylelint-disable-next-line font-family-no-missing-generic-family-keyword
+        font: -apple-system-body;
+      }
+    }
+  }
+}
+
+/*# sourceMappingURL=_font-face.scss.map */

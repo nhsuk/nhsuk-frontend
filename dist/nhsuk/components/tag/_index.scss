@@ -1,0 +1,101 @@
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+@use "../../core/helpers" as *;
+
+////
+/// Tag component
+///
+/// @group components/tag
+////
+
+@include nhsuk-exports("nhsuk/components/tag") {
+  .nhsuk-tag {
+    display: inline-block;
+
+    padding-top: nhsuk-spacing(1);
+    padding-right: nhsuk-spacing(2);
+    padding-bottom: nhsuk-spacing(1);
+    padding-left: nhsuk-spacing(2);
+
+    border: 1px solid nhsuk-shade(nhsuk-colour("blue"), 10%);
+    outline: 2px solid transparent;
+    outline-offset: -2px;
+
+    color: nhsuk-colour("white");
+    background-color: nhsuk-shade(nhsuk-colour("blue"), 10%);
+
+    text-decoration: none;
+
+    @include nhsuk-font($size: 16, $weight: bold, $line-height: 1);
+  }
+
+  // Colour variants
+
+  .nhsuk-tag--white {
+    border-color: nhsuk-colour("black");
+    color: nhsuk-colour("black");
+    background-color: nhsuk-colour("white");
+  }
+
+  .nhsuk-tag--grey {
+    border-color: nhsuk-shade(nhsuk-colour("grey-1"), 30%);
+    color: nhsuk-shade(nhsuk-colour("grey-1"), 30%);
+    background-color: nhsuk-tint(nhsuk-colour("grey-1"), 80%);
+  }
+
+  .nhsuk-tag--green {
+    border-color: nhsuk-shade(nhsuk-colour("green"), 40%);
+    color: nhsuk-shade(nhsuk-colour("green"), 40%);
+    background-color: nhsuk-tint(nhsuk-colour("green"), 80%);
+  }
+
+  .nhsuk-tag--aqua-green {
+    border-color: nhsuk-shade(nhsuk-colour("aqua-green"), 50%);
+    color: nhsuk-shade(nhsuk-colour("aqua-green"), 50%);
+    background-color: nhsuk-tint(nhsuk-colour("aqua-green"), 80%);
+  }
+
+  .nhsuk-tag--blue {
+    border-color: nhsuk-shade(nhsuk-colour("blue"), 30%);
+    color: nhsuk-shade(nhsuk-colour("blue"), 30%);
+    background-color: nhsuk-tint(nhsuk-colour("blue"), 80%);
+  }
+
+  .nhsuk-tag--purple {
+    border-color: nhsuk-shade(nhsuk-colour("purple"), 30%);
+    color: nhsuk-shade(nhsuk-colour("purple"), 30%);
+    background-color: nhsuk-tint(nhsuk-colour("purple"), 80%);
+  }
+
+  .nhsuk-tag--pink {
+    border-color: nhsuk-shade(nhsuk-colour("pink"), 50%);
+    color: nhsuk-shade(nhsuk-colour("pink"), 50%);
+    background-color: nhsuk-tint(nhsuk-colour("pink"), 80%);
+  }
+
+  .nhsuk-tag--red {
+    border-color: nhsuk-shade(nhsuk-colour("red"), 50%);
+    color: nhsuk-shade(nhsuk-colour("red"), 50%);
+    background-color: nhsuk-tint(nhsuk-colour("red"), 80%);
+  }
+
+  .nhsuk-tag--orange {
+    border-color: nhsuk-shade(nhsuk-colour("warm-yellow"), 70%);
+    color: nhsuk-shade(nhsuk-colour("warm-yellow"), 70%);
+    background-color: nhsuk-tint(nhsuk-colour("warm-yellow"), 50%);
+  }
+
+  .nhsuk-tag--yellow {
+    border-color: nhsuk-shade(nhsuk-colour("yellow"), 70%);
+    color: nhsuk-shade(nhsuk-colour("yellow"), 70%);
+    background-color: nhsuk-tint(nhsuk-colour("yellow"), 50%);
+  }
+
+  // Remove tag border
+
+  .nhsuk-tag--no-border {
+    border: 0;
+  }
+}
+
+/*# sourceMappingURL=_index.scss.map */

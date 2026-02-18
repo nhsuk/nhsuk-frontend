@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../../src/nhsuk/core/generic/_index.scss"],"names":[],"mappings":"AAAA,GAAG;AACH,UAAU;AACV,GAAG;;AAEH,oBAAoB","file":"_index.scss","sourcesContent":["////\n/// Generic\n////\n\n@forward \"font-face\";\n"]}
