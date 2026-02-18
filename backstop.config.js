@@ -7,7 +7,7 @@ const { HEADLESS } = process.env
 /**
  * Component example scenarios
  *
- * @type {Scenario[]}
+ * @type {MacroScenario[]}
  */
 const scenarios = components.getNames().flatMap((component) => {
   const { name, fixtures } = components.getFixtures(component)
@@ -27,33 +27,35 @@ const scenarios = components.getNames().flatMap((component) => {
     /**
      * Default scenario
      *
-     * @type {Scenario[]}
+     * @type {MacroScenario}
      */
+    const scenario = { label, url }
+
+    // Return simple scenario
     if (fixture.screenshot === true) {
-      return [{ label, url }]
+      return [scenario]
     }
 
     // Build custom scenarios
     return [fixture.screenshot].flat().flatMap((screenshot, index) => {
-      const viewports = screenshots.getViewports(screenshot.viewports)
+      scenario.viewports = screenshots.getViewports(screenshot.viewports)
 
       if (!screenshot.states || !screenshot.selector) {
-        return [{ label, url, viewports }]
+        return [scenario]
       }
 
       // Start with the default scenario for the first screenshot only,
       // to prevent it being duplicated for the next screenshot config
-      const listStates = !index ? [{ label, url, viewports }] : []
+      const listStates = !index ? [scenario] : []
 
       // Add custom scenario for each state (e.g. 'hover', 'focus')
       return listStates.concat(
         screenshot.states.map((state) => ({
+          ...scenario,
+
           label: screenshot.name
             ? `${label} (${state} ${screenshot.name})` // e.g. 'Header (hover logo)'
             : `${label} (${state})`, // e.g. 'Back link as a button (hover)'
-
-          url,
-          viewports,
 
           // Add 'hoverSelector', 'focusSelector' etc
           [`${state}Selector`]: screenshot.selector
@@ -108,5 +110,6 @@ module.exports = {
 }
 
 /**
- * @import { PlaywrightEngineConfig, Scenario } from 'backstopjs'
+ * @import { PlaywrightEngineConfig } from 'backstopjs'
+ * @import { MacroScenario } from 'nhsuk-frontend/lib'
  */

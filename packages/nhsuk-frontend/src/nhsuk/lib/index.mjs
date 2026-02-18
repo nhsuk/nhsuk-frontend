@@ -11,6 +11,7 @@ export * as nunjucks from './nunjucks.mjs'
  * @typedef {import('./components.mjs').MacroExampleFixtures} MacroExampleFixtures
  * @typedef {import('./components.mjs').MacroOption} MacroOption
  * @typedef {import('./components.mjs').MacroParam} MacroParam
+ * @typedef {import('./components.mjs').MacroScenario} MacroScenario
  * @typedef {import('./nunjucks.mjs').MacroRenderOptions} MacroRenderOptions
  * @typedef {import('./nunjucks.mjs').TemplateRenderOptions} TemplateRenderOptions
  */
