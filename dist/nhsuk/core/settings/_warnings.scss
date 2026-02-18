@@ -1,0 +1,88 @@
+@use "sass:list";
+
+////
+/// Warnings
+///
+/// @group settings/warnings
+////
+
+/// Suppressed warnings map
+///
+/// This map is used to determine which deprecation warnings to **not** show
+/// to users when compiling sass. This is in place for codebases that do not
+/// have the necessary capacity to upgrade and remove the deprecation,
+/// particularly if the deprecation is significant. For example, the removal of
+/// mixins and functions that were previously available to users of frontend.
+///
+/// You can add to this map and define which warnings to suppress by appending to
+/// it using the warning key, found in the warning message. For example:
+///
+/// @example scss
+///   // warning message:
+///   //  $foobar is no longer supported. To silence this warning, update
+///   //  $nhsuk-suppressed-warnings with key: "foobar"
+///   $nhsuk-suppressed-warnings: (
+///     foobar
+///   );
+///
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+
+$nhsuk-suppressed-warnings: () !default;
+
+/// Warnings
+///
+/// Acts as a wrapper for the built in `@warn` sass function
+///
+/// We use this instead of using `@warn` for 3 reasons:
+///
+/// - To check if a warning is being suppressed through `$nhsuk-suppressed-warnings`,
+/// in which case we don't call `@warn` and printing the warning to the user
+/// - To format the passed warning `$message` with the warning key at the end
+/// - To prevent duplicate warnings by adding the passed `$key` to
+/// `$nhsuk-suppressed-warnings` after `@warn` is called to ensure it only runs
+/// once per sass compilation
+///
+/// @param {String} $key - The key to be checked against `$nhsuk-suppressed-warnings`
+/// and then passed to it to prevent multiple of the same warning.
+/// @param {String} $message - The message to use when calling `@warn`
+/// @param {Boolean} $silence-further-warnings - Whether to silence future
+/// warnings that use the same $key
+///
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+
+@mixin nhsuk-warning($key, $message, $silence-further-warnings: true) {
+  @if _should-warn($key) {
+    @warn _warning-text($key, $message);
+
+    @if $silence-further-warnings {
+      $nhsuk-suppressed-warnings: list.append($nhsuk-suppressed-warnings, $key) !global;
+    }
+  }
+}
+
+/// Check whether a key is present in the suppressed warnings list.
+///
+/// @param {String} $key - The key to be checked against `$nhsuk-suppressed-warnings`.
+///
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+///
+/// @access private
+
+@function _should-warn($key) {
+  @return list.index($nhsuk-suppressed-warnings, $key) == null;
+}
+
+/// Format a warning by appending information on how to suppress it.
+///
+/// @param {String} $key - The key needed to suppress the warning.
+/// @param {String} $message - The warning text.
+///
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+///
+/// @access private
+
+@function _warning-text($key, $message) {
+  @return $message + " To silence this warning, update $nhsuk-suppressed-warnings " + 'with key: "#{$key}"';
+}
+
+/*# sourceMappingURL=_warnings.scss.map */

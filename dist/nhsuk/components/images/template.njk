@@ -1,0 +1,36 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-image" -%}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif -%}
+
+{%- set caption = params.caption -%}
+
+{%- if caption and caption is string %}
+  {% set caption = { text: caption } %}
+{% endif %}
+
+<figure {%- if params.id %} id="{{ params.id }}"{% endif %} class="{{ classNames }}"
+  {{- nhsukAttributes(params.attributes) }}>
+  <img class="nhsuk-image__img"
+    {{- nhsukAttributes({
+      src: params.src,
+      alt: params.alt,
+      sizes: {
+        value: params.sizes,
+        optional: true
+      },
+      srcset: {
+        value: params.srcset,
+        optional: true
+      }
+    }) }}>
+{% if caption %}
+  <figcaption class="nhsuk-image__caption {%- if caption.classes %} {{ caption.classes }}{% endif %}">
+    {{ caption.html | safe | trim | indent(4) if caption.html else caption.text }}
+  </figcaption>
+{% endif %}
+</figure>

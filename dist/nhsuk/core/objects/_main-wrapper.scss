@@ -1,0 +1,66 @@
+@use "../tools" as *;
+
+////
+/// Page wrapper for the grid system
+///
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+///
+///
+/// @example html - Example usage with Breadcrumbs, phase banners, back links
+///   <div class="nhsuk-width-container">
+///     <!-- Breadcrumbs, phase banners, back links are placed in here. -->
+///     <div class="nhsuk-main-wrapper">
+///       <!-- Wrapper for the main content of your page which applies padding
+///         to the top / bottom -->
+///     </div>
+///   </div>
+///
+/// @example html - Example usage without Breadcrumbs, phase banners, back links
+///   <div class="nhsuk-width-container">
+///     <div class="nhsuk-main-wrapper nhsuk-main-wrapper--l">
+///       <!-- Wrapper for the main content of your page which applies padding
+///         to the top / bottom -->
+///     </div>
+///   </div>
+///
+/// @group objects/layout
+////
+
+@include nhsuk-exports("nhsuk/core/objects/main-wrapper") {
+  .nhsuk-main-wrapper {
+    // In IE11 the `main` element can be used, but is not recognized  –
+    // meaning it's not defined in IE's default style sheet,
+    // so it uses CSS initial value, which is inline.
+    display: block;
+    padding-top: nhsuk-spacing(4);
+    padding-bottom: nhsuk-spacing(4);
+    @include nhsuk-top-and-bottom;
+
+    @include nhsuk-media-query($from: tablet) {
+      padding-top: nhsuk-spacing(7);
+      padding-bottom: nhsuk-spacing(7);
+    }
+  }
+
+  .nhsuk-main-wrapper--l {
+    padding-top: nhsuk-spacing(6);
+    padding-bottom: nhsuk-spacing(6);
+
+    @include nhsuk-media-query($from: tablet) {
+      padding-top: nhsuk-spacing(8);
+      padding-bottom: nhsuk-spacing(8);
+    }
+  }
+
+  .nhsuk-main-wrapper--s {
+    padding-top: nhsuk-spacing(3);
+    padding-bottom: nhsuk-spacing(3);
+
+    @include nhsuk-media-query($from: tablet) {
+      padding-top: nhsuk-spacing(4);
+      padding-bottom: nhsuk-spacing(4);
+    }
+  }
+}
+
+/*# sourceMappingURL=_main-wrapper.scss.map */

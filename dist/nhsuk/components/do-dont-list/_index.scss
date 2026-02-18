@@ -1,0 +1,37 @@
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+@use "../../core/helpers" as *;
+@forward "../../core/styles/icons";
+@forward "../../core/styles/lists";
+
+////
+/// Do and Don't list component
+///
+/// Do and Don't lists help users understand more easily what they should
+/// and shouldn't do.
+///
+/// @group components/do-dont-list
+////
+
+@include nhsuk-exports("nhsuk/components/do-dont-list") {
+  .nhsuk-do-dont-list {
+    @include nhsuk-panel-with-label($nhsuk-card-background-colour, $nhsuk-text-colour, $nhsuk-border-colour); // [1]
+
+    .nhsuk-icon__cross,
+    .nhsuk-icon--cross {
+      fill: nhsuk-colour("red");
+    }
+
+    .nhsuk-icon__tick,
+    .nhsuk-icon--tick {
+      fill: nhsuk-colour("green");
+    }
+  }
+
+  .nhsuk-do-dont-list__label {
+    @include nhsuk-heading-label($nhsuk-brand-colour, $nhsuk-reverse-text-colour); // [2]
+    @include nhsuk-print-colour;
+  }
+}
+
+/*# sourceMappingURL=_index.scss.map */

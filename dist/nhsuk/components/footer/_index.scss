@@ -1,0 +1,64 @@
+@use "sass:math";
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+@use "../../core/helpers" as *;
+
+////
+/// Footer component
+///
+/// @group components/footer
+////
+
+$nhsuk-footer-link-visited-colour: nhsuk-colour("dark-blue");
+$nhsuk-footer-border-colour: nhsuk-colour("grey-3");
+
+@include nhsuk-exports("nhsuk/components/footer") {
+  .nhsuk-footer {
+    border-top: $nhsuk-border-width solid $nhsuk-brand-colour;
+    background-color: $nhsuk-template-background-colour;
+
+    @include nhsuk-print-hide;
+    @include nhsuk-responsive-padding(5, bottom);
+    @include nhsuk-responsive-padding(5, top);
+  }
+
+  .nhsuk-footer__heading {
+    margin-bottom: nhsuk-spacing(2);
+  }
+
+  .nhsuk-footer__list {
+    margin-bottom: nhsuk-spacing(4);
+    padding: 0;
+    list-style-type: none;
+  }
+
+  .nhsuk-footer__list-item {
+    @include nhsuk-font(16);
+  }
+
+  .nhsuk-footer__list-item-link,
+  .nhsuk-footer__list-item-link:visited {
+    color: $nhsuk-footer-link-visited-colour;
+  }
+
+  .nhsuk-footer__meta {
+    .nhsuk-footer__navigation + & {
+      border-top: 1px solid $nhsuk-footer-border-colour;
+
+      @include nhsuk-responsive-padding(4, top);
+    }
+
+    .nhsuk-footer__list-item {
+      @include nhsuk-media-query($from: desktop) {
+        display: inline-block;
+        margin-right: $nhsuk-gutter;
+      }
+    }
+
+    :last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+/*# sourceMappingURL=_index.scss.map */

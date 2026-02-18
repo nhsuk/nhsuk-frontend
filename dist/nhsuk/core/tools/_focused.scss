@@ -1,0 +1,134 @@
+@use "../settings" as *;
+
+////
+/// Focused
+///
+/// @group tools
+/// @link https://accessibility.blog.gov.uk/2017/03/27/how-users-change-colours-on-websites/
+////
+
+/// Focused text
+///
+/// Provides an outline to clearly indicate when the target element is focused.
+/// Used for interactive text-based elements.
+
+@mixin nhsuk-focused-text {
+  // When colours are overridden, for example when users have a dark mode,
+  // backgrounds and box-shadows disappear, so we need to ensure there's a
+  // transparent outline which will be set to a visible colour.
+  outline: $nhsuk-focus-width solid transparent;
+  background-color: $nhsuk-focus-colour;
+  box-shadow:
+    0 -2px $nhsuk-focus-colour,
+    0 $nhsuk-focus-width $nhsuk-focus-text-colour;
+
+  // When link is focussed, hide the default underline since the
+  // box shadow adds the "underline"
+  text-decoration: none;
+
+  &,
+  .nhsuk-icon {
+    color: $nhsuk-focus-text-colour;
+    fill: $nhsuk-focus-text-colour;
+  }
+}
+
+/// Focused input (form elements)
+///
+/// Provides an additional outline and border to clearly indicate when
+/// the target element has focus. Used for interactive input-based elements such
+/// as text inputs.
+
+@mixin nhsuk-focused-input {
+  border: $nhsuk-border-width-form-element solid $nhsuk-focus-text-colour;
+  outline: $nhsuk-focus-width solid $nhsuk-focus-colour;
+  // Ensure outline appears outside of the element
+  outline-offset: 0;
+  // Double the border by adding its width again. Use `box-shadow` to do
+  // this instead of changing `border-width` (which changes element size)
+  // and since `outline` is already used for the yellow focus state.
+  box-shadow: inset 0 0 0 $nhsuk-border-width-form-element $nhsuk-focus-text-colour;
+}
+
+/// Focused radio input (form element)
+///
+/// Provides an additional outline and border to clearly indicate when
+/// the target element has focus. Used by radios.
+///
+/// @param {Number} $focus-width [$nhsuk-focus-width + 1px] - Focus width
+
+@mixin nhsuk-focused-radio($focus-width: $nhsuk-focus-width + 1px) {
+  border: $nhsuk-focus-width solid $nhsuk-focus-text-colour;
+
+  // When colours are overridden, the yellow box-shadow becomes invisible
+  // which means the focus state is less obvious. By adding a transparent
+  // outline, which becomes solid (text-coloured) in that context, we ensure
+  // the focus remains clearly visible.
+  outline: $nhsuk-focus-width solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 $focus-width $nhsuk-focus-colour;
+
+  // When in an explicit forced-color mode, we can use the Highlight system
+  // color for the outline to better match focus states of native controls
+  @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+    outline-color: Highlight;
+  }
+}
+
+/// Focused checkbox input (form element)
+///
+/// Provides an additional outline and border to clearly indicate when
+/// the target element has focus. Used by checkbox.
+
+@mixin nhsuk-focused-checkbox {
+  border: $nhsuk-focus-width solid $nhsuk-focus-text-colour;
+
+  // When colours are overridden, the yellow box-shadow becomes invisible
+  // which means the focus state is less obvious. By adding a transparent
+  // outline, which becomes solid (text-coloured) in that context, we ensure
+  // the focus remains clearly visible.
+  outline: $nhsuk-focus-width solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-colour;
+
+  // When in an explicit forced-color mode, we can use the Highlight system
+  // color for the outline to better match focus states of native controls
+  @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+    outline-color: Highlight;
+  }
+}
+
+/// Focused button
+///
+/// Provides an additional outline and background to clearly indicate when
+/// the target element has focus. Used for buttons.
+
+@mixin nhsuk-focused-button {
+  outline: $nhsuk-focus-width solid transparent;
+  outline-offset: $nhsuk-focus-width;
+  color: $nhsuk-focus-text-colour;
+  background-color: $nhsuk-focus-colour;
+  box-shadow: 0 $nhsuk-focus-width 0 0 $nhsuk-focus-text-colour;
+
+  &,
+  .nhsuk-icon {
+    color: $nhsuk-focus-text-colour;
+    fill: $nhsuk-focus-text-colour;
+  }
+}
+
+/// Focused box
+///
+/// Provides an outline to clearly indicate when the target element is focused.
+/// Unlike nhsuk-focused-text, which only draws an underline below the element,
+/// nhsuk-focused-box draws an outline around all sides of the element.
+/// Best used for non-text content contained within links.
+
+@mixin nhsuk-focused-box {
+  outline: $nhsuk-focus-width solid transparent;
+  box-shadow:
+    0 0 0 4px $nhsuk-focus-colour,
+    0 0 0 8px $nhsuk-focus-text-colour;
+}
+
+/*# sourceMappingURL=_focused.scss.map */

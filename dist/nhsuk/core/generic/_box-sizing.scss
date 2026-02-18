@@ -1,0 +1,24 @@
+////
+/// Box sizing
+///
+/// Set the global `box-sizing` state to `border-box`.
+///
+/// @link https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice
+/// @link http://paulirish.com/2012/box-sizing-border-box-ftw
+///
+/// @group generic
+////
+
+html {
+  box-sizing: border-box;
+}
+
+* {
+  &,
+  &::before,
+  &::after {
+    box-sizing: inherit;
+  }
+}
+
+/*# sourceMappingURL=_box-sizing.scss.map */

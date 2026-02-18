@@ -1,0 +1,84 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-button" -%}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif %}
+
+{#- Determine type of element to use, if not explicitly set #}
+{%- if params.element %}
+  {% set element = params.element | lower %}
+{% else %}
+  {% if params.href %}
+    {% set element = "a" %}
+  {% else %}
+    {% set element = "button" %}
+  {% endif %}
+{% endif %}
+
+{# Define attributes that we can use across all element types #}
+{%- set attributesHtml %}
+  {{- nhsukAttributes({
+    id: {
+      value: params.id,
+      optional: true
+    },
+    class: classNames,
+    "data-module": "nhsuk-button",
+    "data-prevent-double-click": {
+      value: params.preventDoubleClick | string
+        if params.preventDoubleClick in [true, false]
+        else false,
+      optional: true
+    }
+  }) -}}
+
+  {% if element == "button" or element == "input" %}
+    {{- nhsukAttributes({
+      name: {
+        value: params.name,
+        optional: true
+      },
+      value: {
+        value: params.text if element == "input" else params.value,
+        optional: true
+      },
+      type: params.type if params.type else "submit",
+      disabled: {
+        value: params.disabled,
+        optional: true
+      },
+      "aria-disabled": {
+        value: "true" if params.disabled else false,
+        optional: true
+      }
+    }) -}}
+  {% elif element == "a" %}
+    {{- nhsukAttributes({
+      href: {
+        value: params.href if params.href else "#",
+        optional: true
+      },
+      role: "button",
+      draggable: "false"
+    }) -}}
+  {% endif %}
+
+  {{- nhsukAttributes(params.attributes) -}}
+{% endset %}
+
+{%- if element == "a" %}
+<a {{- attributesHtml | safe }}>
+  {{ params.html | safe if params.html else params.text }}
+</a>
+
+{%- elif element == "button" %}
+<button {{- attributesHtml | safe }}>
+  {{ params.html | safe if params.html else params.text }}
+</button>
+
+{%- elif element == "input" %}
+<input {{- attributesHtml | safe }}>
+{%- endif %}

@@ -1,0 +1,86 @@
+'use strict';
+
+const name = 'Tabs';
+
+/**
+ * Nunjucks macro option params
+ *
+ * @satisfies {{ [param: string]: MacroParam }}
+ */
+const options = {
+  id: {
+    type: 'string',
+    required: false,
+    description: 'This is used for the main component and to compose the `id` attribute for each item.'
+  },
+  idPrefix: {
+    type: 'string',
+    required: false,
+    description: 'String to prefix the `id` for each tab item if no `id` is specified on each item.'
+  },
+  title: {
+    type: 'string',
+    required: false,
+    description: 'Title for the tabs table of contents.'
+  },
+  items: {
+    type: 'array',
+    required: true,
+    description: 'Array of tab items.',
+    params: {
+      id: {
+        type: 'string',
+        required: true,
+        description: 'Specific `id` attribute for the tab item. If omitted, then `idPrefix` string is required instead.'
+      },
+      label: {
+        type: 'string',
+        required: true,
+        description: 'The text label of a tab item.'
+      },
+      attributes: {
+        type: 'object',
+        required: false,
+        description: 'HTML attributes (for example data attributes) to add to the tab.'
+      },
+      panel: {
+        type: 'object',
+        required: true,
+        description: 'Content for the panel.',
+        params: {
+          text: {
+            type: 'string',
+            required: true,
+            description: 'Specific `id` attribute for the tab item. If omitted, then `idPrefix` string is required instead.'
+          },
+          html: {
+            type: 'string',
+            required: true,
+            description: 'The title of the panel.'
+          },
+          attributes: {
+            type: 'object',
+            required: false,
+            description: 'The body of the panel.'
+          }
+        }
+      }
+    }
+  }
+};
+
+/**
+ * Nunjucks macro option params
+ * (with typed keys)
+ *
+ * @type {Record<keyof typeof options, MacroParam>}
+ */
+const params = options;
+
+/**
+ * @import { MacroParam } from '#lib'
+ */
+
+exports.name = name;
+exports.params = params;
+//# sourceMappingURL=macro-options.js.map

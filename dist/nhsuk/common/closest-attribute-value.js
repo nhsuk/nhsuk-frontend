@@ -1,0 +1,16 @@
+'use strict';
+
+/**
+ * Returns the value of the given attribute closest to the given element (including itself)
+ *
+ * @param {Element} $element - The element to start walking the DOM tree up
+ * @param {string} attributeName - The name of the attribute
+ * @returns {string | null} Attribute value
+ */
+function closestAttributeValue($element, attributeName) {
+  const $closestElementWithAttribute = $element.closest(`[${attributeName}]`);
+  return $closestElementWithAttribute ? $closestElementWithAttribute.getAttribute(attributeName) : null;
+}
+
+exports.closestAttributeValue = closestAttributeValue;
+//# sourceMappingURL=closest-attribute-value.js.map

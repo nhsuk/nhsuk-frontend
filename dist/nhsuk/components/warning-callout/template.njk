@@ -1,0 +1,18 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/components/card/macro.njk" import card %}
+
+{{ card({
+  id: params.id,
+  heading: params.heading,
+  headingClasses: params.headingClasses,
+  headingLevel: params.headingLevel if params.headingLevel else 3,
+  headingVisuallyHiddenText: params.visuallyHiddenText | default("Important", true)
+    if not ("Important" in params.heading or "important" in params.heading)
+    else "",
+  description: params.text,
+  descriptionHtml: caller() if caller else params.html,
+  actions: params.actions,
+  classes: params.classes,
+  attributes: params.attributes,
+  warning: true
+}) }}
