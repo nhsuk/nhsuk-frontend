@@ -1,7 +1,6 @@
-import * as timers from 'node:timers/promises'
-
-import { fireEvent, getByRole } from '@testing-library/dom'
+import { getByRole } from '@testing-library/dom'
 import { userEvent } from '@testing-library/user-event'
+import { mockResizeObserver } from 'jsdom-testing-mocks'
 
 import { examples } from './fixtures.mjs'
 import { Header, initHeader } from './header.mjs'
@@ -9,6 +8,7 @@ import { Header, initHeader } from './header.mjs'
 import { components } from '#lib'
 
 const user = userEvent.setup()
+const resizeObserverMock = mockResizeObserver()
 
 describe('Header class', () => {
   /** @type {HTMLElement} */
@@ -26,6 +26,7 @@ describe('Header class', () => {
   /** @type {HTMLElement} */
   let $menuButton
 
+  let listHeight = 0
   let listWidth = 0
   let itemWidth = 0
 
@@ -42,6 +43,23 @@ describe('Header class', () => {
     $serviceLogo = /** @type {HTMLAnchorElement | null} */ (
       $root.querySelector('.nhsuk-header__service-logo')
     )
+  }
+
+  /**
+   * @param {number} width
+   */
+  function resizeExample(width) {
+    listWidth = width
+
+    resizeObserverMock.mockElementSize($navigationList, {
+      contentBoxSize: { inlineSize: listWidth, blockSize: listHeight }
+    })
+
+    // Trigger resize
+    resizeObserverMock.resize()
+
+    // Wait for resize on next frame
+    return new Promise(requestAnimationFrame)
   }
 
   beforeEach(() => {
@@ -62,6 +80,7 @@ describe('Header class', () => {
       hidden: true
     })
 
+    listHeight = 56
     listWidth = 800
     itemWidth = 100
 
@@ -327,11 +346,8 @@ describe('Header class', () => {
       // Menu open
       expect($menuButton.nextElementSibling).not.toHaveAttribute('hidden')
 
-      listWidth = 500
-
       // Trigger resize
-      fireEvent.resize(window)
-      await timers.setTimeout(100)
+      await resizeExample(500)
 
       // Menu open (still)
       expect($menuButton.nextElementSibling).not.toHaveAttribute('hidden')
@@ -348,11 +364,8 @@ describe('Header class', () => {
       // Menu open
       expect($menuButton.nextElementSibling).not.toHaveAttribute('hidden')
 
-      listWidth = 900
-
       // Trigger resize
-      fireEvent.resize(window)
-      await timers.setTimeout(100)
+      await resizeExample(900)
 
       // Menu closed
       expect($menuButton.nextElementSibling).toHaveAttribute('hidden')
@@ -406,11 +419,8 @@ describe('Header class', () => {
 
       expect($menuButton.nextElementSibling).not.toBeInTheDocument()
 
-      listWidth = 700
-
       // Trigger resize
-      fireEvent.resize(window)
-      await timers.setTimeout(100)
+      await resizeExample(700)
 
       expect($menuButton.nextElementSibling).toBeInTheDocument()
       expect($menuButton.nextElementSibling).toHaveRole('list')
@@ -481,11 +491,8 @@ describe('Header class', () => {
 
         initHeader()
 
-        listWidth = expected.listWidth
-
         // Trigger resize
-        fireEvent.resize(window)
-        await timers.setTimeout(100)
+        await resizeExample(expected.listWidth)
 
         const $listItems = $navigation.querySelectorAll('div > ul > li')
         const $menuItems = $navigation.querySelectorAll('div > ul > li li')
@@ -502,11 +509,8 @@ describe('Header class', () => {
 
         initHeader()
 
-        listWidth = expected.listWidth
-
         // Trigger resize
-        fireEvent.resize(window)
-        await timers.setTimeout(100)
+        await resizeExample(expected.listWidth)
 
         const $listItems = $navigation.querySelectorAll('div > ul > li')
         const $menuItems = $navigation.querySelectorAll('div > ul > li li')
@@ -517,3 +521,7 @@ describe('Header class', () => {
     )
   })
 })
+
+/**
+ * @typedef {ReturnType<typeof mockResizeObserver>} MockResizeObserver
+ */
