@@ -34,6 +34,11 @@ export class Header extends ConfigurableComponent {
   breakpoints = []
 
   /**
+   * @type {ResizeObserver | null}
+   */
+  resizeObserver = null
+
+  /**
    * @type {number | null}
    */
   updateNavigationTimer = null
@@ -115,6 +120,7 @@ export class Header extends ConfigurableComponent {
     // Save bound functions so we can remove event listeners when unnecessary
     this.handleEscapeKey = this.onEscapeKey.bind(this)
     this.handleUpdateNavigation = this.updateNavigation.bind(this)
+    this.handleResizeMenu = this.resizeMenu.bind(this)
     this.handleToggleMenu = this.toggleMenu.bind(this)
 
     this.setupNavigation()
@@ -151,10 +157,10 @@ export class Header extends ConfigurableComponent {
    * Add the breakpoints with default positions
    */
   setupNavigation() {
-    const { $navigationItems } = this
+    const { $navigationList, $navigationItems } = this
 
-    // Skip with no navigation items
-    if (!$navigationItems) {
+    // Skip with no navigation items or already set up
+    if (!$navigationList || !$navigationItems || this.breakpoints.length) {
       return
     }
 
@@ -162,17 +168,17 @@ export class Header extends ConfigurableComponent {
       this.breakpoints.push({ element, right: 0 })
     })
 
-    // Add resize listener for next update
-    window.addEventListener('resize', () => {
-      if (this.updateNavigationTimer) {
-        window.clearTimeout(this.updateNavigationTimer)
-      }
+    // Add resize listener for window
+    window.addEventListener('resize', this.handleResizeMenu)
 
-      this.updateNavigationTimer = window.setTimeout(
-        this.handleUpdateNavigation,
-        100
+    // Add resize observer for navigation list (e.g. text-only zoom)
+    if ('ResizeObserver' in window) {
+      this.resizeObserver = new window.ResizeObserver(() =>
+        window.dispatchEvent(new Event('resize'))
       )
-    })
+
+      this.resizeObserver.observe($navigationList)
+    }
   }
 
   /**
@@ -310,6 +316,19 @@ export class Header extends ConfigurableComponent {
   }
 
   /**
+   * Handle menu resize
+   */
+  resizeMenu() {
+    if (this.updateNavigationTimer) {
+      window.cancelAnimationFrame(this.updateNavigationTimer)
+    }
+
+    this.updateNavigationTimer = window.requestAnimationFrame(
+      this.handleUpdateNavigation
+    )
+  }
+
+  /**
    * Handle menu button click
    *
    * Toggles the menu between open and closed
@@ -335,7 +354,7 @@ export class Header extends ConfigurableComponent {
     this.resetNavigation()
 
     // Check for items that overflow
-    let menuItems = this.breakpoints.filter((breakpoint) => {
+    const menuItems = this.breakpoints.filter((breakpoint) => {
       return breakpoint.right > this.width
     })
 

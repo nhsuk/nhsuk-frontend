@@ -1,6 +1,6 @@
 /**
  * @param {Page} page
- * @param {Scenario} scenario
+ * @param {MacroScenario} scenario
  */
 module.exports = async function (page, scenario) {
   const { postInteractionWait = 0, scrollToSelector } = scenario
@@ -64,6 +64,6 @@ function getLocator(page, selector) {
 }
 
 /**
- * @import { Scenario } from 'backstopjs'
+ * @import { MacroScenario } from 'nhsuk-frontend/lib'
  * @import { Page } from 'playwright-core'
  */
