@@ -1,5 +1,7 @@
 {% extends "layouts/page.njk" %}
 
+{% from "nhsuk/macros/icon.njk" import nhsukIcon %}
+
 {% set pageName = "Form elements alignment" %}
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 
@@ -31,6 +33,132 @@
       <form method="post" novalidate>
         {% call fieldset({
           legend: {
+            text: "Input and icon button",
+            size: "m"
+          }
+        }) %}
+          {{ input({
+            label: {
+              text: "Product order number"
+            },
+            name: "example-input-button-1",
+            id: "example-input-button-1",
+            type: "search",
+            classes: "nhsuk-u-width-full",
+            formGroup: {
+              classes: "nhsuk-u-width-one-half",
+              afterInput: {
+                html: button({
+                  html: nhsukIcon("search") ~ "<span>Find</span>",
+                  classes: "nhsuk-button--icon nhsuk-button--small"
+                })
+              }
+            }
+          }) }}
+
+          {{ input({
+            label: {
+              text: "Product order number"
+            },
+            name: "example-input-button-2",
+            id: "example-input-button-2",
+            type: "search",
+            classes: "nhsuk-u-width-full",
+            formGroup: {
+              classes: "nhsuk-u-width-one-half",
+              afterInput: {
+                html: button({
+                  html: nhsukIcon("search"),
+                  classes: "nhsuk-button--icon nhsuk-button--small",
+                  attributes: { "aria-label": "Find" }
+                })
+              }
+            }
+          }) }}
+
+          {{ input({
+            label: {
+              text: "Product order number"
+            },
+            name: "example-input-button-3",
+            id: "example-input-button-3",
+            type: "search",
+            classes: "nhsuk-u-width-full",
+            formGroup: {
+              classes: "nhsuk-u-width-one-half",
+              afterInput: {
+                html: button({
+                  html: "<span>Continue</span>" ~ nhsukIcon("arrow-right"),
+                  classes: "nhsuk-button--icon nhsuk-button--small"
+                })
+              }
+            }
+          }) }}
+
+          {{ input({
+            label: {
+              text: "Product order number"
+            },
+            name: "example-input-button-4",
+            id: "example-input-button-4",
+            type: "search",
+            classes: "nhsuk-u-width-full",
+            formGroup: {
+              classes: "nhsuk-u-width-one-half",
+              afterInput: {
+                html: button({
+                  html: nhsukIcon("arrow-right"),
+                  classes: "nhsuk-button--icon nhsuk-button--small",
+                  attributes: { "aria-label": "Continue" }
+                })
+              }
+            }
+          }) }}
+
+          {{ input({
+            label: {
+              text: "Product order number"
+            },
+            name: "example-input-button-5",
+            id: "example-input-button-5",
+            type: "search",
+            classes: "nhsuk-u-width-full",
+            formGroup: {
+              classes: "nhsuk-u-width-one-half",
+              afterInput: {
+                html: button({
+                  html: nhsukIcon("tick") ~ "<span>Accept</span>",
+                  classes: "nhsuk-button--secondary nhsuk-button--icon nhsuk-button--small"
+                })
+              }
+            }
+          }) }}
+
+          {{ input({
+            label: {
+              text: "Product order number"
+            },
+            name: "example-input-button-6",
+            id: "example-input-button-6",
+            type: "search",
+            classes: "nhsuk-u-width-full",
+            formGroup: {
+              classes: "nhsuk-u-width-one-half",
+              afterInput: {
+                html: button({
+                  html: nhsukIcon("tick"),
+                  classes: "nhsuk-button--secondary nhsuk-button--icon nhsuk-button--small",
+                  attributes: { "aria-label": "Accept" }
+                })
+              }
+            }
+          }) }}
+        {% endcall %}
+      </form>
+
+      <form method="post" novalidate>
+        {% call fieldset({
+          legend: {
             text: "Input and button",
             size: "m"
           }
@@ -39,8 +167,8 @@
             label: {
               text: "NHS number"
             },
-            name: "example-input",
-            id: "example-input",
+            name: "example-input-1",
+            id: "example-input-1",
             classes: "nhsuk-u-width-full nhsuk-input--code",
             inputmode: "numeric",
             spellcheck: false,
