@@ -21,8 +21,7 @@
 
   .nhsuk-pagination {
     box-sizing: border-box;
-    @include nhsuk-responsive-margin(7, "top");
-    @include nhsuk-responsive-margin(7, "bottom");
+    @include nhsuk-responsive-margin(7, ("top", "bottom"));
   }
 
   .nhsuk-pagination__list {
@@ -256,11 +255,11 @@
 
   .nhsuk-pagination--numbered .nhsuk-pagination__previous .nhsuk-icon {
     margin-right: nhsuk-spacing(2);
-    margin-left: -0.175rem;
+    margin-left: nhsuk-px-to-rem(-3px);
   }
 
   .nhsuk-pagination--numbered .nhsuk-pagination__next .nhsuk-icon {
-    margin-right: -0.175rem;
+    margin-right: nhsuk-px-to-rem(-3px);
     margin-left: nhsuk-spacing(2);
   }
 }

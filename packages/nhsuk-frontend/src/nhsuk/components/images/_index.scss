@@ -22,8 +22,7 @@
     border-bottom: 1px solid $nhsuk-border-colour;
     background-color: $nhsuk-card-background-colour;
 
-    @include nhsuk-responsive-margin(6, "bottom");
-    @include nhsuk-responsive-margin(6, "top");
+    @include nhsuk-responsive-margin(6, ("top", "bottom"));
 
     @include nhsuk-media-query($from: tablet) {
       width: math.percentage(math.div(2, 3)); // [2]

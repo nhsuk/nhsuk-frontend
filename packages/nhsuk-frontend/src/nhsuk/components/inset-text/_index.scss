@@ -21,9 +21,10 @@
     @include nhsuk-reading-width; // [2]
     @include nhsuk-top-and-bottom; // [1]
 
-    @include nhsuk-responsive-margin(7, "bottom");
-    @include nhsuk-responsive-margin(7, "top");
-    @include nhsuk-responsive-padding(4);
+    @include nhsuk-responsive-margin(7, ("top", "bottom"));
+    @include nhsuk-responsive-padding(5, ("top", "bottom"));
+    @include nhsuk-responsive-padding(5, "left", $adjustment: - $nhsuk-border-width-inset-text, $unit: "rem");
+    @include nhsuk-responsive-padding(5, "right", $unit: "rem");
 
     @include nhsuk-media-query($media-type: print) {
       border-color: $nhsuk-print-text-colour;

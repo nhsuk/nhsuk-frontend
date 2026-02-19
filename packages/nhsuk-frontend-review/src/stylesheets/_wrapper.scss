@@ -38,3 +38,31 @@
 .app-wrapper--background-white {
   background-color: $nhsuk-card-background-colour;
 }
+
+// stylelint-disable selector-max-id
+#show-guide:target .app-wrapper--guide {
+  position: relative;
+
+  &::before {
+    content: "";
+
+    display: block;
+
+    position: absolute;
+
+    z-index: 99;
+    top: nhsuk-spacing(6);
+    bottom: nhsuk-spacing(6);
+
+    pointer-events: none;
+
+    background-color: rgba(nhsuk-colour("red"), 25%);
+
+    @include nhsuk-responsive-spacing(5, "width", $unit: "rem");
+  }
+
+  &.nhsuk-main-wrapper--s::before {
+    top: nhsuk-spacing(3);
+    bottom: nhsuk-spacing(3);
+  }
+}

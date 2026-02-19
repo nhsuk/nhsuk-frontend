@@ -42,9 +42,8 @@ td {
   vertical-align: top;
 
   @include nhsuk-font-size(19);
-  @include nhsuk-responsive-padding(3, "bottom");
+  @include nhsuk-responsive-padding(3, ("top", "bottom"));
   @include nhsuk-responsive-padding(4, "right");
-  @include nhsuk-responsive-padding(3, "top");
 
   &:last-child {
     padding-right: 0;
