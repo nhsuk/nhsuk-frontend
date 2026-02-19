@@ -39,23 +39,6 @@ const fixtures = {
       ]
     }
   },
-  '(do) with deprecated parameters': {
-    context: {
-      title: 'Do',
-      type: 'tick',
-      items: [
-        {
-          item: 'cover blisters with a soft plaster or padded dressing'
-        },
-        {
-          item: 'wash your hands before touching a burst blister'
-        },
-        {
-          item: 'allow the fluid in a burst blister to drain before covering it with a plaster or dressing'
-        }
-      ]
-    }
-  },
   '(do) with custom prefix': {
     context: {
       title: 'Do',
@@ -112,26 +95,6 @@ const fixtures = {
           item: 'pick at the edges of the remaining skin'
         },
         false
-      ]
-    }
-  },
-  "(don't) with deprecated parameters": {
-    context: {
-      title: "Don't",
-      type: 'cross',
-      items: [
-        {
-          item: 'burst a blister yourself'
-        },
-        {
-          item: 'peel the skin off a burst blister'
-        },
-        {
-          item: 'pick at the edges of the remaining skin'
-        },
-        {
-          item: 'wear the shoes or use the equipment that caused your blister until it heals'
-        }
       ]
     }
   },

@@ -323,9 +323,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
   }
 
   // Disable default search input appearance
-  .nhsuk-header__search-form .nhsuk-input,
-  // Deprecated, to be removed in v11.0
-  .nhsuk-header__search-input {
+  .nhsuk-header__search-form .nhsuk-input {
     width: 100%;
     height: nhsuk-px-to-rem(40px);
     padding-right: $_header-item-padding - $nhsuk-border-width-form-element;
@@ -359,9 +357,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     }
   }
 
-  .nhsuk-header__search-form .nhsuk-button,
-  // Deprecated, to be removed in v11.0
-  .nhsuk-header__search-submit {
+  .nhsuk-header__search-form .nhsuk-button {
     flex-shrink: 0;
 
     width: nhsuk-px-to-rem(44px);
@@ -684,9 +680,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
       outline-color: $nhsuk-border-colour;
     }
 
-    .nhsuk-header__search-form .nhsuk-input:not(:focus),
-    // Deprecated, to be removed in v11.0
-    .nhsuk-header__search-input:not(:focus) {
+    .nhsuk-header__search-form .nhsuk-input:not(:focus) {
       margin-right: -1px;
       padding-right: $_header-item-padding;
       padding-left: $_header-item-padding - 1px;
@@ -694,9 +688,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
       border-color: $nhsuk-border-hover-colour;
     }
 
-    .nhsuk-header__search-form .nhsuk-button,
-    // Deprecated, to be removed in v11.0
-    .nhsuk-header__search-submit {
+    .nhsuk-header__search-form .nhsuk-button {
       color: $nhsuk-reverse-text-colour;
       background-color: $nhsuk-header-item-colour;
 

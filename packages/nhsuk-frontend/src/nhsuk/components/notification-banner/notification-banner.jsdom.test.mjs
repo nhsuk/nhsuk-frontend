@@ -1,8 +1,5 @@
 import { examples } from './fixtures.mjs'
-import {
-  NotificationBanner,
-  initNotificationBanners
-} from './notification-banner.mjs'
+import { NotificationBanner } from './notification-banner.mjs'
 
 import { components } from '#lib'
 
@@ -26,23 +23,6 @@ describe('Notification banner', () => {
 
   beforeEach(() => {
     initExample('with type as success')
-  })
-
-  describe('Initialisation via init function', () => {
-    it('should not throw with missing notification banner', () => {
-      $root.remove()
-      expect(() => initNotificationBanners()).not.toThrow()
-    })
-
-    it('should not throw with empty body', () => {
-      document.body.innerHTML = ''
-      expect(() => initNotificationBanners()).not.toThrow()
-    })
-
-    it('should not throw with empty scope', () => {
-      const scope = document.createElement('div')
-      expect(() => initNotificationBanners({ scope })).not.toThrow()
-    })
   })
 
   describe('Initialisation via class', () => {

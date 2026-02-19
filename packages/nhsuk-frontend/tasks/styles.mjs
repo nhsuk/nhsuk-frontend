@@ -32,7 +32,7 @@ export const compile = gulp.series(
    */
   task.name(
     'styles:compile',
-    styles.compile('nhsuk/nhsuk.scss', {
+    styles.compile('nhsuk/index.scss', {
       srcPath: join(config.paths.pkg, 'src'),
       destPath: join(config.paths.pkg, 'dist'),
       output: { file: 'nhsuk/nhsuk-frontend.css' }

@@ -11,20 +11,11 @@
 // Font families
 // =========================================================
 
-// @deprecated To be removed in v11.0
-$nhsuk-font: "Frutiger W01" !default;
-
-// @deprecated To be removed in v11.0
-$nhsuk-font-fallback: arial, sans-serif !default;
-
-// @deprecated To be removed in v11.0
-$nhsuk-include-font-face: true !default;
-
 /// Font families to use for all typography on screen media
 ///
 /// @type List
 
-$nhsuk-font-family: $nhsuk-font, $nhsuk-font-fallback !default;
+$nhsuk-font-family: "Frutiger W01", arial, sans-serif !default;
 
 /// Font families to use for print media
 ///
@@ -48,7 +39,7 @@ $nhsuk-fonts-path: "https://assets.nhs.uk/fonts/" !default;
 ///
 /// @type Boolean
 
-$nhsuk-include-default-font-face: $nhsuk-include-font-face !default;
+$nhsuk-include-default-font-face: true !default;
 
 @if not list.index($nhsuk-font-family, "Frutiger W01") {
   $nhsuk-include-default-font-face: false;
@@ -58,23 +49,17 @@ $nhsuk-include-default-font-face: $nhsuk-include-font-face !default;
 // Font weights
 // =========================================================
 
-// @deprecated To be removed in v11.0
-$nhsuk-font-normal: 400 !default;
-
-// @deprecated To be removed in v11.0
-$nhsuk-font-bold: 600 !default;
-
 /// Font weight for normal typography
 ///
 /// @type Number
 
-$nhsuk-font-weight-normal: $nhsuk-font-normal !default;
+$nhsuk-font-weight-normal: 400 !default;
 
 /// Font weight for bold typography
 ///
 /// @type Number
 
-$nhsuk-font-weight-bold: $nhsuk-font-bold !default;
+$nhsuk-font-weight-bold: 600 !default;
 
 /// Feature flag for Apple Dynamic Type
 ///
@@ -202,11 +187,3 @@ $nhsuk-button-border-radius: 4px !default;
 /// @type Number
 
 $nhsuk-button-shadow-size: 4px !default;
-
-/// Globals (deprecated)
-///
-
-// @deprecated To be removed in v11.0
-$nhsuk-base-font-size: $nhsuk-root-font-size;
-$nhsuk-border-width-form-element-error: $nhsuk-border-width-form-element;
-$nhsuk-border-width-mobile: $nhsuk-border-width;

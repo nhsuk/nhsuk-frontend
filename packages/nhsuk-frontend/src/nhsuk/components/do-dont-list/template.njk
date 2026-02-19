@@ -4,12 +4,7 @@
 {%- set type = "cross" if params.type == "cross" else "tick" %}
 {%- set headingLevel = params.headingLevel if params.headingLevel else 3 %}
 
-{%- macro _listItem(params, data, type) %}
-  {% set item = {
-    text: data.item if data.item is string,
-    html: data.item if data.item is escaped
-  } if data.item else data -%}
-
+{%- macro _listItem(params, item, type) %}
   {{ nhsukIcon(type) | trim }}
   {% if not params.hidePrefix and (params.prefixText or type == "cross") %}
     {{- (params.prefixText if params.prefixText else "do not") ~ " " -}}
