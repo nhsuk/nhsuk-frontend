@@ -64,6 +64,24 @@ const fixtures = {
       isPageHeading: true
     }
   },
+  'heading level 1': {
+    context: {
+      legend: {
+        text: 'What is your full name?',
+        size: 'l',
+        headingLevel: 1
+      }
+    }
+  },
+  'heading level 2': {
+    context: {
+      legend: {
+        text: 'What is your full name?',
+        size: 'm',
+        headingLevel: 2
+      }
+    }
+  },
   'without page heading': {
     context: {
       text: 'What is your full name?'
