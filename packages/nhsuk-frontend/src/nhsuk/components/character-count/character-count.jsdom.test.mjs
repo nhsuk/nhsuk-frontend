@@ -1,9 +1,10 @@
-import { components } from '@nhsuk/frontend-lib'
 import { getByRole } from '@testing-library/dom'
 import { outdent } from 'outdent'
 
-import { CharacterCount, initCharacterCounts } from './character-count.mjs'
+import { CharacterCount } from './character-count.mjs'
 import { examples } from './fixtures.mjs'
+
+import { components } from '#lib'
 
 describe('Character count', () => {
   /** @type {HTMLElement} */
@@ -38,9 +39,9 @@ describe('Character count', () => {
     initExample('default')
   })
 
-  describe('Initialisation via init function', () => {
+  describe('Initialisation via class', () => {
     it('should add event listeners', () => {
-      initCharacterCounts()
+      new CharacterCount($root)
 
       expect($textarea.addEventListener).toHaveBeenCalledWith(
         'keyup',
@@ -58,34 +59,6 @@ describe('Character count', () => {
       )
     })
 
-    it('should throw with missing textarea', () => {
-      $textarea.remove()
-
-      expect(() => initCharacterCounts()).toThrow(
-        `${CharacterCount.moduleName}: Form field (\`.nhsuk-js-character-count\`) not found`
-      )
-    })
-
-    it('should throw with missing count message', () => {
-      $description.remove()
-
-      expect(() => new CharacterCount($root)).toThrow(
-        `${CharacterCount.moduleName}: Count message (\`id="example-info"\`) not found`
-      )
-    })
-
-    it('should not throw with empty body', () => {
-      document.body.innerHTML = ''
-      expect(() => initCharacterCounts()).not.toThrow()
-    })
-
-    it('should not throw with empty scope', () => {
-      const scope = document.createElement('div')
-      expect(() => initCharacterCounts({ scope })).not.toThrow()
-    })
-  })
-
-  describe('Initialisation via class', () => {
     it('should not throw with $root element', () => {
       expect(() => new CharacterCount($root)).not.toThrow()
     })
@@ -121,6 +94,22 @@ describe('Character count', () => {
 
       expect(() => new CharacterCount($root)).toThrow(
         `${CharacterCount.moduleName}: Form field (\`.nhsuk-js-character-count\`) is not of type HTMLTextareaElement or HTMLInputElement`
+      )
+    })
+
+    it('should throw with missing textarea', () => {
+      $textarea.remove()
+
+      expect(() => new CharacterCount($root)).toThrow(
+        `${CharacterCount.moduleName}: Form field (\`.nhsuk-js-character-count\`) not found`
+      )
+    })
+
+    it('should throw with missing count message', () => {
+      $description.remove()
+
+      expect(() => new CharacterCount($root)).toThrow(
+        `${CharacterCount.moduleName}: Count message (\`id="example-info"\`) not found`
       )
     })
 

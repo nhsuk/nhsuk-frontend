@@ -1,7 +1,8 @@
-import * as config from '@nhsuk/frontend-config'
 import autoprefixer from 'autoprefixer'
 import cssnano from 'cssnano'
 import pseudoclasses from 'postcss-pseudo-classes'
+
+const { NODE_ENV } = process.env
 
 /**
  * PostCSS config
@@ -23,7 +24,7 @@ export default {
     }),
 
     // Minify CSS for production only
-    config.environment === 'production'
+    NODE_ENV === 'production'
       ? cssnano({ preset: ['default', { env: 'stylesheets' }] })
       : false
   ]

@@ -1,4 +1,3 @@
-import { components } from '@nhsuk/frontend-lib'
 import {
   createEvent,
   fireEvent,
@@ -8,7 +7,9 @@ import {
 import { userEvent } from '@testing-library/user-event'
 
 import { examples } from './fixtures.mjs'
-import { Tabs, initTabs } from './tabs.mjs'
+import { Tabs } from './tabs.mjs'
+
+import { components } from '#lib'
 
 const user = userEvent.setup()
 
@@ -47,9 +48,9 @@ describe('Tabs', () => {
     jest.spyOn(window, 'addEventListener')
   })
 
-  describe('Initialisation via init function', () => {
+  describe('Initialisation via class', () => {
     it('should add event listeners', () => {
-      initTabs()
+      new Tabs($root)
 
       expect(window.addEventListener).toHaveBeenCalledWith(
         'hashchange',
@@ -74,50 +75,6 @@ describe('Tabs', () => {
       }
     })
 
-    it('should throw with missing tab links', () => {
-      for (const $tab of $tabs) {
-        $tab.remove()
-      }
-
-      expect(() => initTabs()).toThrow(
-        `${Tabs.moduleName}: Links (\`<a class="nhsuk-tabs__tab">\`) not found`
-      )
-    })
-
-    it('should throw with missing list', () => {
-      // Change selector instead of removing to ensure links are still found
-      $list.classList.remove('nhsuk-tabs__list')
-      $list.classList.add('nhsuk-tabs__typo')
-
-      expect(() => initTabs()).toThrow(
-        `${Tabs.moduleName}: List (\`<ul class="nhsuk-tabs__list">\`) not found`
-      )
-    })
-
-    it('should throw with missing list items', () => {
-      // Change selector instead of removing to ensure links are still found
-      for (const $listItem of $listItems) {
-        $listItem.classList.remove('nhsuk-tabs__list-item')
-        $listItem.classList.add('nhsuk-tabs__typo')
-      }
-
-      expect(() => initTabs()).toThrow(
-        'List items (`<li class="nhsuk-tabs__list-item">`) not found'
-      )
-    })
-
-    it('should not throw with empty body', () => {
-      document.body.innerHTML = ''
-      expect(() => initTabs()).not.toThrow()
-    })
-
-    it('should not throw with empty scope', () => {
-      const scope = document.createElement('div')
-      expect(() => initTabs({ scope })).not.toThrow()
-    })
-  })
-
-  describe('Initialisation via class', () => {
     it('should not throw with $root element', () => {
       expect(() => new Tabs($root)).not.toThrow()
     })
@@ -153,6 +110,38 @@ describe('Tabs', () => {
       )
     })
 
+    it('should throw with missing tab links', () => {
+      for (const $tab of $tabs) {
+        $tab.remove()
+      }
+
+      expect(() => new Tabs($root)).toThrow(
+        `${Tabs.moduleName}: Links (\`<a class="nhsuk-tabs__tab">\`) not found`
+      )
+    })
+
+    it('should throw with missing list', () => {
+      // Change selector instead of removing to ensure links are still found
+      $list.classList.remove('nhsuk-tabs__list')
+      $list.classList.add('nhsuk-tabs__typo')
+
+      expect(() => new Tabs($root)).toThrow(
+        `${Tabs.moduleName}: List (\`<ul class="nhsuk-tabs__list">\`) not found`
+      )
+    })
+
+    it('should throw with missing list items', () => {
+      // Change selector instead of removing to ensure links are still found
+      for (const $listItem of $listItems) {
+        $listItem.classList.remove('nhsuk-tabs__list-item')
+        $listItem.classList.add('nhsuk-tabs__typo')
+      }
+
+      expect(() => new Tabs($root)).toThrow(
+        'List items (`<li class="nhsuk-tabs__list-item">`) not found'
+      )
+    })
+
     it('should throw when initialised twice', () => {
       expect(() => {
         new Tabs($root)
@@ -176,7 +165,7 @@ describe('Tabs', () => {
         dispatchEvent: jest.fn()
       }))
 
-      initTabs()
+      new Tabs($root)
     })
 
     it('should not add accessible name and role', () => {
@@ -201,7 +190,7 @@ describe('Tabs', () => {
 
   describe('Accessibility (tablet, desktop)', () => {
     beforeEach(() => {
-      initTabs()
+      new Tabs($root)
     })
 
     it('should add accessible name and role', () => {
@@ -230,7 +219,7 @@ describe('Tabs', () => {
     beforeEach(() => {
       window.location.hash = ''
 
-      initTabs()
+      new Tabs($root)
     })
 
     it('should be hidden except for first tab', () => {

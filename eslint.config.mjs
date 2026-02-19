@@ -147,6 +147,7 @@ export default defineConfig([
     files: ['**/*.{cjs,js,mjs}'],
     ignores: [
       'packages/nhsuk-frontend/src/**/*.mjs',
+      '!packages/nhsuk-frontend/src/nhsuk/lib/**/*.mjs',
       'packages/nhsuk-frontend-review/src/javascripts/**/*.mjs',
       '!**/fixtures.mjs',
       '!**/macro-options.mjs',
@@ -166,7 +167,13 @@ export default defineConfig([
 
       // Ignore `nhsuk-frontend` exports as they require auto-generated files
       'n/no-missing-import': ['error', { allowModules: ['nhsuk-frontend'] }],
-      'n/no-missing-require': ['error', { allowModules: ['nhsuk-frontend'] }]
+      'n/no-missing-require': ['error', { allowModules: ['nhsuk-frontend'] }],
+
+      // Rollup polyfills import.meta properties
+      'n/no-unsupported-features/node-builtins': [
+        'error',
+        { ignores: ['import.meta.dirname', 'import.meta.filename'] }
+      ]
     }
   },
   {
@@ -176,7 +183,12 @@ export default defineConfig([
       'packages/nhsuk-frontend-review/src/javascripts/**/*.mjs',
       '**/*.md/*.{cjs,js,mjs}'
     ],
-    ignores: ['**/fixtures.mjs', '**/macro-options.mjs', '**/*.test.mjs'],
+    ignores: [
+      'packages/nhsuk-frontend/src/nhsuk/lib/**/*.mjs',
+      '**/fixtures.mjs',
+      '**/macro-options.mjs',
+      '**/*.test.mjs'
+    ],
     extends: [
       pluginTypeScript.configs.strictTypeChecked,
       pluginTypeScript.configs.stylisticTypeChecked,

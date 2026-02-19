@@ -23,14 +23,14 @@
     "gulp": "^5.0.1",
     "gulp-changed": "^5.0.4",
     "gulp-rename": "^2.1.0",
-    "lodash": "^4.17.21",
+    "lodash": "^4.17.23",
     "nhsuk-frontend": "*",
     "plugin-error": "^2.0.1",
     "postcss": "^8.5.6",
     "postcss-load-config": "^6.0.1",
     "postcss-scss": "^4.0.9",
-    "rollup": "^4.54.0",
-    "sass-embedded": "^1.97.1"
+    "rollup": "^4.57.0",
+    "sass-embedded": "^1.97.3"
   },
   "engines": {
     "node": "^24.11.0",

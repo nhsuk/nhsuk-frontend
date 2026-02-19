@@ -5,7 +5,7 @@ export const name = 'File upload'
  *
  * @satisfies {{ [param: string]: MacroParam }}
  */
-export const params = {
+const options = {
   name: {
     type: 'string',
     required: true,
@@ -134,7 +134,7 @@ export const params = {
     type: 'object',
     required: false,
     description:
-      'The text displayed when multiple files have been chosen by the user. The component will replace the `%{count}` placeholder with the number of files selected. [Our pluralisation rules apply to this macro option](https://frontend.design-system.service.gov.uk/localise-govuk-frontend/#understanding-pluralisation-rules).'
+      'The text displayed when multiple files have been chosen by the user. The component will replace the `%{count}` placeholder with the number of files selected. [Our pluralisation rules apply to this macro option](https://github.com/nhsuk/nhsuk-frontend/blob/main/docs/configuration/localisation.md#understanding-pluralisation-rules).'
   },
   noFileChosenText: {
     type: 'string',
@@ -168,5 +168,13 @@ export const params = {
 }
 
 /**
- * @import { MacroParam } from '@nhsuk/frontend-lib/components.mjs'
+ * Nunjucks macro option params
+ * (with typed keys)
+ *
+ * @type {Record<keyof typeof options, MacroParam>}
+ */
+export const params = options
+
+/**
+ * @import { MacroParam } from '#lib'
  */

@@ -55,7 +55,361 @@ The previous name is deprecated and will be removed in a future release.
 
 This change was introduced in [pull request #1367: Updates to link styles and link hover states](https://github.com/nhsuk/nhsuk-frontend/pull/1367).
 
-### :boom: **Breaking changes**
+### :boom: **Breaking changes** to stylesheets
+
+#### Mobile width override classes
+
+Grid column classes ending `-from-mobile` are applied at mobile width (320px) and above.
+
+If you're using the following mobile width utility classes, you must:
+
+- Replace `nhsuk-u-one-half` with `nhsuk-grid-column-one-half-from-mobile`
+- Replace `nhsuk-u-one-third` with `nhsuk-grid-column-one-third-from-mobile`
+- Replace `nhsuk-u-two-thirds` with `nhsuk-grid-column-two-thirds-from-mobile`
+- Replace `nhsuk-u-one-quarter` with `nhsuk-grid-column-one-quarter-from-mobile`
+- Replace `nhsuk-u-three-quarters` with `nhsuk-grid-column-three-quarters-from-mobile`.
+
+#### Tablet width override classes
+
+Grid column classes not ending `-from-mobile` or `-from-desktop` are applied at tablet width (641px) and above.
+
+If you're using the following tablet width utility classes, you must:
+
+- Replace `nhsuk-u-one-half-tablet` with `nhsuk-grid-column-one-half`
+- Replace `nhsuk-u-one-third-tablet` with `nhsuk-grid-column-one-third`
+- Replace `nhsuk-u-two-thirds-tablet` with `nhsuk-grid-column-two-thirds`
+- Replace `nhsuk-u-one-quarter-tablet` with `nhsuk-grid-column-one-quarter`
+- Replace `nhsuk-u-three-quarters-tablet` with `nhsuk-grid-column-three-quarters`
+
+This change was introduced in [pull request #1296: Apply grid classes from tablet (not desktop)](https://github.com/nhsuk/nhsuk-frontend/pull/1296).
+
+#### Make `nhsuk-u-nowrap` apply to mobile and above
+
+We've updated the `nhsuk-u-nowrap` utility class to be applied at mobile width (320px and up).
+
+Previously the utility class did not apply to tablet sized screens (641px and up).
+
+Please carefully review your pages. If necessary, different wrapping behaviour for the tablet and desktop breakpoints can be applied using new classes ending `-from-tablet` and `-from-desktop`.
+
+To restore the previous behaviour, add the new `nhsuk-u-wrap-from-tablet` utility class to override the default `nhsuk-u-nowrap` behaviour for tablet sized screens:
+
+```patch
+- <p class="nhsuk-u-nowrap">
++ <p class="nhsuk-u-nowrap nhsuk-u-wrap-from-tablet">
+```
+
+This change was introduced in [pull request #1668: Add breakpoints to nowrap class](https://github.com/nhsuk/nhsuk-frontend/pull/1668).
+
+#### Global box sizing reset removed
+
+We have removed the global `box-sizing` reset and added `box-sizing: border-box` only where necessary.
+
+Please review any custom styles, especially those with defined widths, to make sure they have a correctly calculated box size.
+
+This change was introduced in pull requests [#1633: Review global `box-sizing` usage](https://github.com/nhsuk/nhsuk-frontend/pull/1633), [#1711: Review global `box-sizing` usage for v11](https://github.com/nhsuk/nhsuk-frontend/pull/1711) and [#1651: Add `box-sizing: border-box` to width utility classes etc](https://github.com/nhsuk/nhsuk-frontend/pull/1651).
+
+#### Sass deprecated load paths removed
+
+We've removed the Sass `nhsuk/nhsuk` and `/all` import paths that were deprecated in [version 9.5.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v9.5.0).
+
+If you're importing the core NHS.UK frontend Sass only, or individual Sass layers (e.g. settings, tools), then you must remove `/all` from each path.
+
+```patch
+  // Example 1: NHS.UK frontend
+- @import "nhsuk-frontend/packages/core/all";
++ @import "nhsuk-frontend/packages/core";
+
+  // Example 2: NHS.UK frontend layers
+- @import "nhsuk-frontend/packages/core/settings/all";
+- @import "nhsuk-frontend/packages/core/tools/all";
++ @import "nhsuk-frontend/packages/core/settings";
++ @import "nhsuk-frontend/packages/core/tools";
+```
+
+If you're importing the `nhsuk/nhsuk` Sass entry point, you must import `nhsuk` instead:
+
+```patch
+- @import "nhsuk-frontend/dist/nhsuk/nhsuk";
++ @import "nhsuk-frontend/dist/nhsuk";
+```
+
+This change was introduced in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
+
+#### Sass deprecated variables for border width and colour removed
+
+We've removed Sass variables for border width and colour that were deprecated in [version 10.1.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.1.0).
+
+If you use Sass and you've extended or created components that use the following border variables, you must:
+
+- rename `$nhsuk-border-width-mobile` to `$nhsuk-border-width`
+- rename `$nhsuk-border-width-form-element-error` to `$nhsuk-border-width-form-element`
+
+This change was introduced in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
+
+#### Sass deprecated variables for customising fonts removed
+
+We've removed Sass variables for customising fonts that were deprecated in [version 10.2.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.2.0) and [10.3.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.3.0).
+
+If you use Sass and you've customised fonts or font sizes that NHS.UK frontend uses, you must:
+
+- replace `$nhsuk-font` and `$nhsuk-font-fallback` with `$nhsuk-font-family`
+- rename `$nhsuk-font-normal` to `$nhsuk-font-weight-normal`
+- rename `$nhsuk-font-bold` to `$nhsuk-font-weight-bold`
+- rename `$nhsuk-include-font-face` to `$nhsuk-include-default-font-face`
+- rename `$nhsuk-base-font-size` to `$nhsuk-root-font-size`
+
+```patch
+- $app-font: "Customised name";
+- $app-font-fallback: arial, sans-serif;
++ $app-font-family: "Customised name", arial, sans-serif;
+
+  @forward "nhsuk-frontend/dist/nhsuk" with (
+-   $nhsuk-font: $app-font,
+-   $nhsuk-font-fallback: $app-font-fallback,
++   $nhsuk-font-family: $app-font-family,
+-   $nhsuk-include-font-face: false
++   $nhsuk-include-default-font-face: false
+  );
+```
+
+```patch
+  .app-component {
+    display: block;
+-   font-weight: $nhsuk-font-bold;
++   font-weight: $nhsuk-font-weight-bold;
+    @include nhsuk-responsive-margin(4, "bottom");
+  }
+```
+
+This change was introduced in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
+
+#### Sass deprecated "color" variables, mixins and CSS classes removed
+
+We've removed Sass variables, mixins and CSS classes using the "color" spelling (instead of "colour", e.g. `$color_nhsuk-blue`) that were deprecated in [version 10.0.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.0.0).
+
+If you need to reference a colour within your application you should use the `nhsuk-colour` function:
+
+```patch
+  .nhsuk-example {
+-   color: $color_nhsuk-blue;
++   color: nhsuk-colour("blue");
+  }
+```
+
+The following Sass `$color_nhsuk-*` variables have been removed:
+
+| Sass variable removed      | Suggested replacement         |
+| -------------------------- | ----------------------------- |
+| `$color_nhsuk-blue`        | `nhsuk-colour("blue")`        |
+| `$color_nhsuk-white`       | `nhsuk-colour("white")`       |
+| `$color_nhsuk-black`       | `nhsuk-colour("black")`       |
+| `$color_nhsuk-green`       | `nhsuk-colour("green")`       |
+| `$color_nhsuk-purple`      | `nhsuk-colour("purple")`      |
+| `$color_nhsuk-dark-pink`   | `nhsuk-colour("dark-pink")`   |
+| `$color_nhsuk-red`         | `nhsuk-colour("red")`         |
+| `$color_nhsuk-yellow`      | `nhsuk-colour("yellow")`      |
+| `$color_nhsuk-dark-blue`   | `nhsuk-colour("dark-blue")`   |
+| `$color_nhsuk-pale-yellow` | `nhsuk-colour("pale-yellow")` |
+| `$color_nhsuk-warm-yellow` | `nhsuk-colour("warm-yellow")` |
+| `$color_nhsuk-orange`      | `nhsuk-colour("orange")`      |
+| `$color_nhsuk-aqua-green`  | `nhsuk-colour("aqua-green")`  |
+| `$color_nhsuk-pink`        | `nhsuk-colour("pink")`        |
+| `$color_nhsuk-grey-1`      | `nhsuk-colour("grey-1")`      |
+| `$color_nhsuk-grey-2`      | `nhsuk-colour("grey-2")`      |
+| `$color_nhsuk-grey-3`      | `nhsuk-colour("grey-3")`      |
+| `$color_nhsuk-grey-4`      | `nhsuk-colour("grey-4")`      |
+| `$color_nhsuk-grey-5`      | `nhsuk-colour("grey-5")`      |
+
+The following Sass variables using the "color" spelling (instead of "colour") have been removed:
+
+| Sass variable removed                            | Suggested replacement                             |
+| ------------------------------------------------ | ------------------------------------------------- |
+| `$nhsuk-text-color`                              | `$nhsuk-text-colour`                              |
+| `$nhsuk-reverse-text-color`                      | `$nhsuk-reverse-text-colour`                      |
+| `$nhsuk-print-text-color`                        | `$nhsuk-print-text-colour`                        |
+| `$nhsuk-secondary-text-color`                    | `$nhsuk-secondary-text-colour`                    |
+| `$nhsuk-focus-color`                             | `$nhsuk-focus-colour`                             |
+| `$nhsuk-focus-text-color`                        | `$nhsuk-focus-text-colour`                        |
+| `$nhsuk-error-color`                             | `$nhsuk-error-colour`                             |
+| `$nhsuk-success-color`                           | `$nhsuk-success-colour`                           |
+| `$nhsuk-border-color`                            | `$nhsuk-border-colour`                            |
+| `$nhsuk-secondary-border-color`                  | `$nhsuk-secondary-border-colour`                  |
+| `$nhsuk-form-border-color`                       | `$nhsuk-form-border-colour`                       |
+| `$nhsuk-form-element-background-color`           | `$nhsuk-form-element-background-colour`           |
+| `$nhsuk-link-color`                              | `$nhsuk-link-colour`                              |
+| `$nhsuk-link-visited-color`                      | `$nhsuk-link-visited-colour`                      |
+| `$nhsuk-link-hover-color`                        | `$nhsuk-link-hover-colour`                        |
+| `$nhsuk-link-active-color`                       | `$nhsuk-link-active-colour`                       |
+| `$nhsuk-button-color`                            | `$nhsuk-button-colour`                            |
+| `$nhsuk-button-text-color`                       | `$nhsuk-button-text-colour`                       |
+| `$nhsuk-button-hover-color`                      | `$nhsuk-button-hover-colour`                      |
+| `$nhsuk-button-active-color`                     | `$nhsuk-button-active-colour`                     |
+| `$nhsuk-button-shadow-color`                     | `$nhsuk-button-shadow-colour`                     |
+| `$nhsuk-secondary-button-color`                  | `$nhsuk-secondary-button-colour`                  |
+| `$nhsuk-secondary-button-solid-background-color` | `$nhsuk-secondary-button-solid-background-colour` |
+| `$nhsuk-secondary-button-border-color`           | `$nhsuk-secondary-button-border-colour`           |
+| `$nhsuk-secondary-button-text-color`             | `$nhsuk-secondary-button-text-colour`             |
+| `$nhsuk-secondary-button-hover-color`            | `$nhsuk-secondary-button-hover-colour`            |
+| `$nhsuk-secondary-button-active-color`           | `$nhsuk-secondary-button-active-colour`           |
+| `$nhsuk-secondary-button-shadow-color`           | `$nhsuk-secondary-button-shadow-colour`           |
+| `$nhsuk-reverse-button-color`                    | `$nhsuk-reverse-button-colour`                    |
+| `$nhsuk-reverse-button-text-color`               | `$nhsuk-reverse-button-text-colour`               |
+| `$nhsuk-reverse-button-hover-color`              | `$nhsuk-reverse-button-hover-colour`              |
+| `$nhsuk-reverse-button-active-color`             | `$nhsuk-reverse-button-active-colour`             |
+| `$nhsuk-reverse-button-shadow-color`             | `$nhsuk-reverse-button-shadow-colour`             |
+| `$nhsuk-warning-button-color`                    | `$nhsuk-warning-button-colour`                    |
+| `$nhsuk-warning-button-hover-color`              | `$nhsuk-warning-button-hover-colour`              |
+| `$nhsuk-warning-button-active-color`             | `$nhsuk-warning-button-active-colour`             |
+| `$nhsuk-warning-button-shadow-color`             | `$nhsuk-warning-button-shadow-colour`             |
+| `$nhsuk-login-button-color`                      | `$nhsuk-login-button-colour`                      |
+| `$nhsuk-login-button-hover-color`                | `$nhsuk-login-button-hover-colour`                |
+| `$nhsuk-login-button-active-color`               | `$nhsuk-login-button-active-colour`               |
+| `$nhsuk-login-button-shadow-color`               | `$nhsuk-login-button-shadow-colour`               |
+
+The following Sass mixins have been removed:
+
+| Sass mixin removed  | Suggested replacement |
+| ------------------- | --------------------- |
+| `nhsuk-print-color` | `nhsuk-print-colour`  |
+| `nhsuk-text-color`  | `nhsuk-text-colour`   |
+
+The following CSS classes have been removed:
+
+| CSS class removed              | Suggested replacement           |
+| ------------------------------ | ------------------------------- |
+| `nhsuk-u-secondary-text-color` | `nhsuk-u-secondary-text-colour` |
+
+This change was introduced in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
+
+#### Sass deprecated mixins and functions without "nhsuk" namespace removed
+
+We've removed deprecated Sass mixins and functions without the `nhsuk` namespace, deprecated in [version 9.5.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v9.5.0) and [version 9.6.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v9.6.0).
+
+The following Sass mixins have been removed:
+
+| Sass mixin removed          | Suggested replacement             |
+| --------------------------- | --------------------------------- |
+| `care-card`                 | `nhsuk-care-card`                 |
+| `clearfix`                  | `nhsuk-clearfix`                  |
+| `flex`                      | `nhsuk-flex`                      |
+| `flex-item`                 | `nhsuk-flex-item`                 |
+| `heading-label`             | `nhsuk-heading-label`             |
+| `panel`                     | `nhsuk-panel`                     |
+| `panel-with-label`          | `nhsuk-panel-with-label`          |
+| `print-color`               | `nhsuk-print-colour`              |
+| `print-hide`                | `nhsuk-print-hide`                |
+| `reading-width`             | `nhsuk-reading-width`             |
+| `remove-margin-mobile`      | `nhsuk-remove-margin-mobile`      |
+| `top-and-bottom`            | `nhsuk-top-and-bottom`            |
+| `visually-hidden`           | `nhsuk-visually-hidden`           |
+| `visually-hidden-focusable` | `nhsuk-visually-hidden-focusable` |
+
+The `visually-shown` mixin has been removed entirely. You must selectively apply `nhsuk-visually-hidden` using media queries instead:
+
+Before:
+
+```scss
+// Hide by default
+@include visually-hidden;
+
+// Show from desktop
+@include nhsuk-media-query($from: desktop) {
+  @include visually-shown;
+}
+```
+
+After:
+
+```scss
+// Hide until desktop only
+@include nhsuk-media-query($until: desktop) {
+  @include nhsuk-visually-hidden;
+}
+```
+
+The following deprecated Sass mixin with the `govuk` namespace have also been removed:
+
+| Sass mixin removed  | Suggested replacement |
+| ------------------- | --------------------- |
+| `govuk-media-query` | `nhsuk-media-query`   |
+
+The following deprecated Sass mixin has also been removed:
+
+| Sass mixin removed            | Suggested replacement |
+| ----------------------------- | --------------------- |
+| `nhsuk-typography-responsive` | `nhsuk-font-size`     |
+
+This change was introduced in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
+
+### :boom: **Breaking changes** to JavaScript
+
+#### Deprecated component init functions removed
+
+We've replaced component init functions with the `createAll` function added in [version 10.0.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.0.0).
+
+For example, if you're using functions such as `initButtons` and `initCheckboxes`, you must replace them with the `createAll` function:
+
+```patch
+- import { initButtons, initCheckboxes } from 'nhsuk-frontend'
++ import { createAll, Button, Checkboxes } from 'nhsuk-frontend'
+
+- initButtons()
+- initCheckboxes()
++ createAll(Button)
++ createAll(Checkboxes)
+```
+
+Where a component config object or scope is required, these can also be passed to the `createAll` function:
+
+```patch
+- import { initButtons, initCheckboxes } from 'nhsuk-frontend'
++ import { createAll, Button, Checkboxes } from 'nhsuk-frontend'
+
+  const $element = document.querySelector('.app-modal')
+
+- initButtons({
++ createAll(Button, {
+    preventDoubleClick: true,
+    scope: $element,
+  })
+
+- initCheckboxes({ scope: $element })
++ createAll(Checkboxes, $element)
+```
+
+This change was introduced in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
+
+#### Deprecated JavaScript `focusOnPageLoad` config option removed
+
+We've removed the deprecated `focusOnPageLoad` option from the error summary component JavaScript. You must use the [`disableAutoFocus` JavaScript API option](/docs/configuration/javascript-api-reference.md#errorsummary) instead:
+
+```mjs
+import { createAll, ErrorSummary } from 'nhsuk-frontend'
+
+createAll(ErrorSummary, {
+  disableAutoFocus: true
+})
+```
+
+This change was introduced in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
+
+#### Deprecated JavaScript `jsHiddenClass` property removed
+
+We've removed the deprecated `jsHiddenClass` property from the tabs component JavaScript. You must use the [`panelClass` JavaScript API option](/docs/configuration/javascript-api-reference.md#tabs) instead:
+
+```mjs
+import { createAll, Tabs } from 'nhsuk-frontend'
+
+createAll(Tabs, {
+  panelClass: 'nhsuk-tabs__panel'
+})
+```
+
+The modifier `--hidden` is appended automatically to `panelClass` when used to hide a tab panel.
+
+This change was introduced in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
+
+### :boom: **Breaking changes** to page template
 
 #### Apply grid column widths from tablet (not desktop) width
 
@@ -76,41 +430,61 @@ For example, you can make a column three-quarters on tablet but reduce to two-th
   </div>
 ```
 
-##### Mobile width override classes
+### :boom: **Breaking changes** to components
 
-Grid column classes ending `-from-mobile` are applied at mobile width (320px) and above.
+#### Card component changes
 
-If you're using the following mobile width utility classes, you must:
+We've removed HTML classes for the card component that were deprecated in [version 10.2.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.2.0).
 
-- Replace `nhsuk-u-one-half` with `nhsuk-grid-column-one-half-from-mobile`
-- Replace `nhsuk-u-one-third` with `nhsuk-grid-column-one-third-from-mobile`
-- Replace `nhsuk-u-two-thirds` with `nhsuk-grid-column-two-thirds-from-mobile`
-- Replace `nhsuk-u-one-quarter` with `nhsuk-grid-column-one-quarter-from-mobile`
-- Replace `nhsuk-u-three-quarters` with `nhsuk-grid-column-three-quarters-from-mobile`.
+If you are not using Nunjucks macros, you must change the card classes as follows:
 
-##### Tablet width override classes
+- Add the missing `nhsuk-card--primary` modifier class to primary cards.
+- Remove the unnecessary `nhsuk-card__heading--feature` modifier class from feature card headings.
+- Remove the unnecessary `nhsuk-card__content--feature` modifier class from feature card content.
+- Remove the unnecessary `nhsuk-card__content--primary` modifier class from primary card content.
+- Remove the unnecessary `nhsuk-card__content--secondary` modifier class from secondary card content.
+- Rename the `<div class="nhsuk-card--care__heading-container"` class attribute to match `<div class="nhsuk-card__heading-container"`.
+- Rename the `<div class="nhsuk-card--care__heading"` class attribute to match `<div class="nhsuk-card__heading"`.
 
-Grid column classes not ending `-from-mobile` or `-from-desktop` are applied at tablet width (641px) and above.
+This change was introduced in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
 
-If you're using the following tablet width utility classes, you must:
+#### Do and Don't list component changes
 
-- Replace `nhsuk-u-one-half-tablet` with `nhsuk-grid-column-one-half`
-- Replace `nhsuk-u-one-third-tablet` with `nhsuk-grid-column-one-third`
-- Replace `nhsuk-u-two-thirds-tablet` with `nhsuk-grid-column-two-thirds`
-- Replace `nhsuk-u-one-quarter-tablet` with `nhsuk-grid-column-one-quarter`
-- Replace `nhsuk-u-three-quarters-tablet` with `nhsuk-grid-column-three-quarters`
+We've removed Nunjucks options for the do and don't list component that were deprecated in [version 10.1.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.1.0).
 
-This change was introduced in [pull request #1296: Apply grid classes from tablet (not desktop)](https://github.com/nhsuk/nhsuk-frontend/pull/1296).
+If you're using the `list` Nunjucks macro in your service, you must update the nested `items` option, using `text` or `html` instead of `item`.
 
-#### Remove global box sizing reset
+```patch
+  {{ list({
+    title: "Do",
+    type: "tick",
+    items: [
+      {
+-       item: "cover blisters with a soft plaster or padded dressing"
++       text: "cover blisters with a soft plaster or padded dressing"
+      },
+      {
+-       item: "wash your hands before touching a burst blister"
++       text: "wash your hands before touching a burst blister"
+      },
+      {
+-       item: "allow the fluid in a burst blister to drain before covering it with a plaster or dressing"
++       text: "allow the fluid in a burst blister to drain before covering it with a plaster or dressing"
+      }
+    ]
+  }) }}
+```
 
-We have removed the global `box-sizing` reset and added `box-sizing: border-box` only where necessary.
+We've also removed the `nhsuk-icon__tick` and `nhsuk-icon__cross` CSS classes used by the do and don't list component, deprecated in [version 10.0.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.0.0).
 
-Please review any custom styles, especially those with defined widths, to make sure they have a correctly calculated box size.
+If you are not using Nunjucks macros, you must change the do and don't list classes as follows:
 
-This change was introduced in pull requests [#1633: Review global `box-sizing` usage](https://github.com/nhsuk/nhsuk-frontend/pull/1633), [#1711: Review global `box-sizing` usage for v11](https://github.com/nhsuk/nhsuk-frontend/pull/1711) and [#1651: Add `box-sizing: border-box` to width utility classes etc](https://github.com/nhsuk/nhsuk-frontend/pull/1651).
+- Rename `nhsuk-icon__tick` to `nhsuk-icon--tick`
+- Rename `nhsuk-icon__cross` to `nhsuk-icon--cross`
 
-#### Update the HTML for error messages
+This change was introduced in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
+
+#### Error message component changes
 
 We've updated the HTML for the error message component to use a `<p>` element instead of a `<span>` element, as this is more semantically correct.
 
@@ -126,7 +500,7 @@ If you're not using Nunjucks macros, swap the `<span class="nhsuk-error-message"
 
 This change was introduced in [pull request #1030: Update error messages to use paragraph tags instead of spans](https://github.com/nhsuk/nhsuk-frontend/pull/1030).
 
-#### Update the HTML for the error summary
+#### Error summary component changes
 
 If you're not using the Nunjucks macros, you must improve the experience for screen reader users by making these changes to the error summary markup:
 
@@ -138,22 +512,101 @@ This will enable screen reader users to have a better, more coherent experience 
 
 This change was introduced in [pull request #1036: Add breaking change entry for error summary screen reader improvements](https://github.com/nhsuk/nhsuk-frontend/pull/1036), after previously being recommended in [version 10.1.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.1.0).
 
-#### Make `nhsuk-u-nowrap` apply to mobile and above
+#### Input component changes
 
-We've updated the `nhsuk-u-nowrap` utility class to be applied at mobile width (320px and up).
+We've removed HTML classes for the input component that were deprecated in [version 10.3.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.3.0).
 
-Previously the utility class did not apply to tablet sized screens (641px and up).
+If you are not using Nunjucks macros, you must change the input classes as follows:
 
-Please carefully review your pages. If necessary, different wrapping behaviour for the tablet and desktop breakpoints can be applied using new classes ending `-from-tablet` and `-from-desktop`.
+- Rename the `<div class="nhsuk-input__prefix"` class attribute to match `<div class="nhsuk-input-wrapper__prefix"`.
+- Rename the `<div class="nhsuk-input__suffix"` class attribute to match `<div class="nhsuk-input-wrapper__suffix"`.
 
-To restore the previous behaviour, add the new `nhsuk-u-wrap-from-tablet` utility class to override the default `nhsuk-u-nowrap` behaviour for tablet sized screens:
+We've also removed Nunjucks options for the input component that were deprecated in [version 10.1.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.1.0).
+
+If you're using the `input` Nunjucks macro in your service, you must update the `prefix` and `suffix` options to use the nested `text`, `html` options:
 
 ```patch
-- <p class="nhsuk-u-nowrap">
-+ <p class="nhsuk-u-nowrap nhsuk-u-wrap-from-tablet">
+  {{ input({
+    label: {
+      text: "Cost per item, in pounds"
+    },
+    name: "example",
+-   prefix: "£",
++   prefix: {
++     text: "£"
++   },
+-   suffix: "per item",
++   suffix: {
++     text: "per item"
++   },
+    classes: "nhsuk-input--width-5"
+  }) }}
 ```
 
-This was added in [pull request #1668: Add breakpoints to nowrap class](https://github.com/nhsuk/nhsuk-frontend/pull/1668).
+This change was introduced in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
+
+#### Pagination component changes
+
+We've removed Nunjucks options for the pagination component that were deprecated in [version 10.1.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.1.0).
+
+If you're using the `pagination` Nunjucks macro in your service, you must:
+
+- replace the `previousUrl` option with the nested `previous.href` option
+- replace the `previousPage` option with the nested `previous.labelText` option
+- replace the `nextUrl` option with the nested `next.href` option
+- replace the `nextPage` option with the nested `next.labelText` option
+
+```patch
+  {{ pagination({
+-   previousPage: "Treatments",
+-   previousUrl: "/section/treatments",
++   previous: {
++     labelText: "Treatments",
++     href: "/section/treatments"
++   },
+-   nextPage: "Symptoms",
+-   nextUrl: "/section/symptoms"
++   next: {
++     labelText: "Symptoms",
++     href: "/section/symptoms"
++   }
+  }) }}
+```
+
+This change was introduced in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
+
+## Unreleased v10.x
+
+Note: This release was created from the `support/10.x` branch.
+
+### :recycle: **Changes**
+
+#### Hide the character count messages when unnecessary
+
+We've updated the HTML for the character count to hide the count message and textarea description when unnecessary, rather than always reserve vertical space.
+
+If you are not using Nunjucks macros, update your HTML markup using the [character count examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/character-count) to add the `hidden` boolean attribute to an:
+
+- empty visible count message with a `threshold` set but not yet reached
+- empty textarea description with neither `maxlength` nor `maxwords` set
+
+The previous class names `nhsuk-character-count__status--disabled` and `nhsuk-character-count__message--disabled` are deprecated and will be removed in a future release.
+
+This change was introduced in [pull request #1796: Hide character count message until threshold is reached](https://github.com/nhsuk/nhsuk-frontend/pull/1796).
+
+### :wrench: **Fixes**
+
+- [#1797: Ensure components pass label.id down to the label](https://github.com/nhsuk/nhsuk-frontend/pull/1797)
+- [#1807: Fix summary list cells becoming vertically misaligned when a multi-line inline-block element is present](https://github.com/nhsuk/nhsuk-frontend/pull/1807)
+
+## 10.3.1 - 19 January 2026
+
+Note: This release was created from the `support/10.x` branch.
+
+### :wrench: **Fixes**
+
+- [#1777: Remove extra space when `bodyClasses` is set](https://github.com/nhsuk/nhsuk-frontend/issues/1777)
+- [#1778: Fix link to file upload pluralisation rules documentation](https://github.com/nhsuk/nhsuk-frontend/issues/1778)
 
 ## 10.3.0 - 13 January 2026
 
@@ -353,6 +806,7 @@ If you are not using Nunjucks macros, update your HTML markup using the [header 
 - add the `<div class="nhsuk-input-wrapper"> </div>` wrapper around the search input and button
 - add the `nhsuk-button` and `nhsuk-button--small` classes to the search button
 - remove the `nhsuk-header__search-submit` class from the search button
+- remove the `nhsuk-header__search-input` class from the search input
 
 ```patch
   <form class="nhsuk-header__search-form" id="search" action="https://www.nhs.uk/search/" method="get" novalidate>
@@ -361,8 +815,9 @@ If you are not using Nunjucks macros, update your HTML markup using the [header 
         Search the NHS website
       </label>
 +     <div class="nhsuk-input-wrapper">
-        <input class="nhsuk-input nhsuk-header__search-input" id="search-field" name="q" type="search" autocomplete="off" placeholder="Search">
+-       <input class="nhsuk-input nhsuk-header__search-input" id="search-field" name="q" type="search" autocomplete="off" placeholder="Search">
 -       <button class="nhsuk-header__search-submit" data-module="nhsuk-button" type="submit">
++       <input class="nhsuk-input" id="search-field" name="q" type="search" autocomplete="off" placeholder="Search">
 +       <button class="nhsuk-button nhsuk-button--small" data-module="nhsuk-button" type="submit">
           <svg class="nhsuk-icon nhsuk-icon--search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" role="img" aria-label="Search">
             <title>Search</title>
@@ -1086,7 +1541,7 @@ createAll(Checkboxes, undefined, $element)
 
 Similarly, the existing `initAll` function can also configure components by including key-value pairs of camel-cased component names with their options:
 
-```js
+```mjs
 import { initAll } from 'nhsuk-frontend'
 
 initAll({
@@ -1274,7 +1729,7 @@ initCheckboxes()
 
 Or alternatively, you can initialise individual component classes:
 
-```js
+```mjs
 import { Button, Checkboxes } from 'nhsuk-frontend'
 
 const $button = document.querySelector('.app-button')
@@ -3875,7 +4330,7 @@ After:
 
   If you are importing component JavaScript with ES6 imports, you will need to remove the imports and initialisation for the feedback banner:
 
-  ```js
+  ```mjs
   import nhsuk_feedbackBanner from 'node_modules/nhsuk-frontend/packages/components/feedback-banner/feedback-banner'
   ```
 
@@ -3893,7 +4348,7 @@ After:
 
   If you are importing component JavaScript with ES6 imports, you will need to update the imports to:
 
-  ```js
+  ```mjs
   // Components
   import Header from './components/header/header'
   import SkipLink from './components/skip-link/skip-link'

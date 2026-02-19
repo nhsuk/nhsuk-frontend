@@ -1,11 +1,13 @@
 import { outdent } from 'outdent'
 
+import { components } from '#lib'
+
 /**
  * Nunjucks macro option examples
  *
- @satisfies {{ [example: string]: MacroExample }}
+ * @satisfies {{ [example: string]: MacroExample }}
  */
-export const examples = {
+const fixtures = {
   'default': {
     context: {
       rows: [
@@ -720,6 +722,116 @@ export const examples = {
       ]
     }
   },
+  'as a card (feature) with custom HTML': {
+    context: {
+      card: {
+        heading: 'Your read',
+        headingSize: 'm',
+        feature: true
+      },
+      rows: [
+        {
+          key: {
+            text: 'Opinion'
+          },
+          value: {
+            html: outdent`
+              <p class="nhsuk-u-margin-bottom-3">
+                ${components.render('tag', {
+                  context: {
+                    text: 'Recall for assessment',
+                    classes: 'nhsuk-tag--red'
+                  }
+                })}
+              </p>
+            `
+          },
+          actions: {
+            items: [
+              {
+                href: '#/change',
+                text: 'Change',
+                visuallyHiddenText: 'opinion'
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: 'Detailed opinion'
+          },
+          value: {
+            html: outdent`
+              <div class="nhsuk-grid-row">
+                <div class="nhsuk-grid-column-one-half-from-desktop">
+                  <p class="nhsuk-u-margin-bottom-1 nhsuk-u-font-weight-bold">
+                    Right breast
+                  </p>
+                  <p class="nhsuk-u-margin-bottom-3">
+                    ${components.render('tag', {
+                      context: {
+                        text: 'Abnormal',
+                        classes: 'nhsuk-tag--red'
+                      }
+                    })}
+                  </p>
+                </div>
+
+                <div class="nhsuk-grid-column-one-half-from-desktop">
+                  <p class="nhsuk-u-margin-bottom-1 nhsuk-u-font-weight-bold">
+                    Left breast
+                  </p>
+                  <p class="nhsuk-u-margin-bottom-3 nhsuk-u-secondary-text-colour">
+                    Not recorded
+                  </p>
+                </div>
+              </div>
+            `
+          },
+          actions: {
+            items: [
+              {
+                href: '#/change',
+                text: 'Change',
+                visuallyHiddenText: 'detailed opinion'
+              }
+            ]
+          }
+        },
+        {
+          classes: 'nhsuk-summary-list__row--no-border',
+          key: {
+            text: 'Annotations'
+          },
+          value: {
+            html: outdent`
+              <p class="nhsuk-u-margin-bottom-1 nhsuk-u-font-weight-bold">
+                Right breast
+              </p>
+              <p class="nhsuk-u-margin-bottom-0">
+                Microcalcification outside a mass, Clinical abnormality – Level 2 (benign)
+              </p>
+            `
+          },
+          actions: {
+            items: [
+              {
+                href: '#/change',
+                text: 'Change',
+                visuallyHiddenText: 'annotations'
+              }
+            ]
+          }
+        }
+      ]
+    },
+    options: {
+      width: 'full'
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
+    }
+  },
   'as a card (clickable) without actions': {
     context: {
       card: {
@@ -869,5 +981,13 @@ export const examples = {
 }
 
 /**
- * @import { MacroExample } from '@nhsuk/frontend-lib/components.mjs'
+ * Nunjucks macro option examples
+ * (with typed keys)
+ *
+ * @type {Record<keyof typeof fixtures, MacroExample>}
+ */
+export const examples = fixtures
+
+/**
+ * @import { MacroExample } from '#lib'
  */

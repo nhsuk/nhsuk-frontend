@@ -3,7 +3,7 @@
  *
  * @satisfies {{ [example: string]: MacroExample }}
  */
-export const examples = {
+const fixtures = {
   'default': {
     context: {
       title: 'Do',
@@ -36,23 +36,6 @@ export const examples = {
           text: 'wash your hands before touching a burst blister'
         },
         false
-      ]
-    }
-  },
-  '(do) with deprecated parameters': {
-    context: {
-      title: 'Do',
-      type: 'tick',
-      items: [
-        {
-          item: 'cover blisters with a soft plaster or padded dressing'
-        },
-        {
-          item: 'wash your hands before touching a burst blister'
-        },
-        {
-          item: 'allow the fluid in a burst blister to drain before covering it with a plaster or dressing'
-        }
       ]
     }
   },
@@ -115,26 +98,6 @@ export const examples = {
       ]
     }
   },
-  "(don't) with deprecated parameters": {
-    context: {
-      title: "Don't",
-      type: 'cross',
-      items: [
-        {
-          item: 'burst a blister yourself'
-        },
-        {
-          item: 'peel the skin off a burst blister'
-        },
-        {
-          item: 'pick at the edges of the remaining skin'
-        },
-        {
-          item: 'wear the shoes or use the equipment that caused your blister until it heals'
-        }
-      ]
-    }
-  },
   "(don't) with custom prefix": {
     context: {
       title: 'Never',
@@ -180,5 +143,13 @@ export const examples = {
 }
 
 /**
- * @import { MacroExample } from '@nhsuk/frontend-lib/components.mjs'
+ * Nunjucks macro option examples
+ * (with typed keys)
+ *
+ * @type {Record<keyof typeof fixtures, MacroExample>}
+ */
+export const examples = fixtures
+
+/**
+ * @import { MacroExample } from '#lib'
  */

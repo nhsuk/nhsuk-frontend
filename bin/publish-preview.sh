@@ -5,7 +5,7 @@ CURRENT_BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
 CURRENT_VERSION=$(npm run version --silent --workspace nhsuk-frontend)
 
 BRANCH_NAME="preview-$CURRENT_BRANCH_NAME"
-VERSION="$CURRENT_VERSION-$CURRENT_BRANCH_NAME"
+VERSION="$CURRENT_VERSION-$BRANCH_NAME"
 
 # Build the package as normal
 echo "✨ Install and build branch preview"
