@@ -52,7 +52,7 @@ runs:
         exit 0
 
     - name: Check for screenshots
-      if: ${{ !contains(github.event.pull_request.labels.*.name, 'screenshots') }}
+      if: ${{ !contains(github.event.pull_request.labels.*.name, 'dependencies') }}
       id: diff-screenshots
       shell: bash
       run: |
