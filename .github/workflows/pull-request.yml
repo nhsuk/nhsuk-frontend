@@ -2,6 +2,11 @@ name: Checks
 
 on:
   pull_request:
+    types:
+      - labeled
+      - opened
+      - reopened
+      - synchronize
 
   push:
     branches:
@@ -244,7 +249,7 @@ jobs:
     runs-on: macos-latest
     needs: [install, build]
 
-    if: ${{ github.base_ref == 'main' || startsWith(github.base_ref, 'support/') }}
+    if: ${{ github.base_ref == 'main' || startsWith(github.base_ref, 'support/') || contains(github.event.pull_request.labels.*.name, 'screenshots') }}
 
     steps:
       - name: Checkout
@@ -257,17 +262,17 @@ jobs:
         id: changes
 
       - name: Download browsers
-        if: ${{ steps.changes.outputs.changes == 'true' }}
+        if: ${{ steps.changes.outputs.changes == 'true' || steps.changes.outputs.screenshots == 'true' }}
         run: |
           npm run install:puppeteer
           npm run install:playwright
 
       - name: Run backstop
-        if: ${{ steps.changes.outputs.changes == 'true' }}
+        if: ${{ steps.changes.outputs.changes == 'true' || steps.changes.outputs.screenshots == 'true' }}
         run: npm run test:visual --ignore-scripts
 
       - name: Save backstop report
-        if: ${{ !cancelled() && steps.changes.outputs.changes == 'true' }}
+        if: ${{ !cancelled() && (steps.changes.outputs.changes == 'true' || steps.changes.outputs.screenshots == 'true') }}
         uses: actions/upload-artifact@v6
         with:
           name: Backstop report
