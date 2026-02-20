@@ -268,4 +268,96 @@ describe('Character count: Format count message', () => {
       'You have 10,000 words too many'
     )
   })
+
+  describe('Unicode and grapheme cluster counting', () => {
+    let component
+
+    beforeEach(() => {
+      const example = examples['to configure in JavaScript']
+
+      document.body.outerHTML = outdent`
+        <body class="nhsuk-frontend-supported">
+          ${components.render('character-count', example)}
+        </body>
+      `
+
+      const $root = document.querySelector(
+        `[data-module="${CharacterCount.moduleName}"]`
+      )
+
+      component = new CharacterCount($root, {
+        maxlength: 10,
+        useGraphemeCounting: true
+      })
+    })
+
+    it('counts emoji correctly', () => {
+      const $textarea = /** @type {HTMLTextAreaElement} */ (
+        document.querySelector('.nhsuk-js-character-count')
+      )
+      $textarea.value = '👋👋👋'
+      expect(component.count($textarea.value)).toBe(3)
+    })
+
+    it('counts emoji with skin tones', () => {
+      const $textarea = /** @type {HTMLTextAreaElement} */ (
+        document.querySelector('.nhsuk-js-character-count')
+      )
+      $textarea.value = '👋🏼👋🏿'
+      expect(component.count($textarea.value)).toBe(2)
+    })
+
+    it('counts emoji sequences', () => {
+      const $textarea = /** @type {HTMLTextAreaElement} */ (
+        document.querySelector('.nhsuk-js-character-count')
+      )
+      $textarea.value = '👨‍👩‍👧‍👦'
+      expect(component.count($textarea.value)).toBe(1)
+    })
+
+    it('counts accented characters', () => {
+      const $textarea = /** @type {HTMLTextAreaElement} */ (
+        document.querySelector('.nhsuk-js-character-count')
+      )
+      $textarea.value = 'café'
+      expect(component.count($textarea.value)).toBe(4)
+    })
+
+    it('counts mixed text and emoji', () => {
+      const $textarea = /** @type {HTMLTextAreaElement} */ (
+        document.querySelector('.nhsuk-js-character-count')
+      )
+      $textarea.value = 'Hi 👋'
+      expect(component.count($textarea.value)).toBe(4)
+    })
+
+    it('counts non-Latin scripts', () => {
+      const $textarea = /** @type {HTMLTextAreaElement} */ (
+        document.querySelector('.nhsuk-js-character-count')
+      )
+      $textarea.value = '你好'
+      expect(component.count($textarea.value)).toBe(2)
+    })
+
+    it('updates message with emoji', () => {
+      const $textarea = /** @type {HTMLTextAreaElement} */ (
+        document.querySelector('.nhsuk-js-character-count')
+      )
+      $textarea.value = '👋👋👋👋👋👋👋👋👋👋'
+      component.updateCountMessage()
+      const $status = document.querySelector('.nhsuk-character-count__status')
+      expect($status).toHaveTextContent('You have 0 characters remaining')
+    })
+
+    it('shows error when over limit with emoji', () => {
+      const $textarea = /** @type {HTMLTextAreaElement} */ (
+        document.querySelector('.nhsuk-js-character-count')
+      )
+      $textarea.value = '👋👋👋👋👋👋👋👋👋👋👋'
+      component.updateCountMessage()
+      const $status = document.querySelector('.nhsuk-character-count__status')
+      expect($status).toHaveTextContent('You have 1 character too many')
+      expect($status).toHaveClass('nhsuk-error-message')
+    })
+  })
 })
