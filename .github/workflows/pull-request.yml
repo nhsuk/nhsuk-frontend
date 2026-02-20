@@ -16,6 +16,10 @@ on:
 
   workflow_dispatch:
 
+concurrency:
+  group: pull-request-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
 jobs:
   install:
     name: Install
