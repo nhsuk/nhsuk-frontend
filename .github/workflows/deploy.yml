@@ -5,6 +5,9 @@ on:
     branches:
       - main
 
+concurrency:
+  group: deploy
+
 jobs:
   install:
     name: Install
