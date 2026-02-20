@@ -21,4 +21,4 @@ runs:
     - name: Install dependencies
       if: ${{ steps.npm-install-cache.outputs.cache-hit != 'true' }}
       shell: bash
-      run: npm install
+      run: npm install --no-save
