@@ -56,7 +56,7 @@
     "test:visual:cli": "concurrently \"npm start --workspace @nhsuk/frontend-review\" \"wait-on --config wait-on.config.js && backstop --color --config backstop.config.js {@}\" --kill-others --passthrough-arguments --prefix none --success first"
   },
   "devDependencies": {
-    "@babel/core": "^7.28.6",
+    "@babel/core": "^7.29.0",
     "@eslint/compat": "^2.0.2",
     "@eslint/js": "^9.39.2",
     "@eslint/markdown": "^7.5.1",
