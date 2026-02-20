@@ -102,9 +102,14 @@ updates:
   # Update GitHub Actions
   - package-ecosystem: github-actions
     directories:
-      - .github/workflows/
-      - .github/workflows/actions/build/
-      - .github/workflows/actions/diff/
+      - /
+      - /.github/workflows/actions/*
+
+    # Group actions into shared PR
+    groups:
+      actions:
+        patterns:
+          - '*'
 
     schedule:
       interval: 'monthly'
