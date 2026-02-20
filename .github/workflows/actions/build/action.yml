@@ -29,7 +29,7 @@ runs:
 
     - name: Install dependencies for branch or SHA
       shell: bash
-      run: npm install
+      run: npm install --no-save
 
     - name: Restore build (from cache)
       uses: actions/cache/restore@v5
