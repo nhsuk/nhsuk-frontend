@@ -63,7 +63,7 @@ runs:
 
     - name: Save GitHub build diff
       if: ${{ !cancelled() && steps.diff-build.outputs.changes != 'false' }}
-      uses: actions/upload-artifact@v5
+      uses: actions/upload-artifact@v6
       with:
         name: Build diff
         path: .cache/diff/
