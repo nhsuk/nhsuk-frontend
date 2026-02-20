@@ -67,7 +67,7 @@ export const compile = task.name('html:render', async () => {
       // Render component example into layout
       const templateHtml = nunjucks.renderTemplate('layouts/preview.njk', {
         blocks: { example: html },
-        context: { ...context, pageName: `${name}: ${exampleName}`, options },
+        context: { ...context, pageName: `${name} ${exampleName}`, options },
         env
       })
 

@@ -4,7 +4,11 @@ description: Install and build NHS.UK frontend, checking for review app changes
 outputs:
   changes:
     description: Returns true if build output has changes
-    value: ${{ steps.diff.outputs.changes || 'true' }}
+    value: ${{ steps.diff-build.outputs.changes || 'true' }}
+
+  screenshots:
+    description: Returns true if screenshots should be tested
+    value: ${{ steps.diff-screenshots.outputs.changes || 'true' }}
 
 runs:
   using: composite
@@ -13,6 +17,8 @@ runs:
     - name: Set up git for temporary commits
       shell: bash
       run: |
+        rm -Rf .cache/diff
+        mkdir -p .cache/diff
         git config user.name github-actions
         git config user.email github-actions@github.com
 
@@ -37,10 +43,28 @@ runs:
         git commit --allow-empty -m "Build output for '${{ github.head_ref }}'" --no-verify
 
     - name: Check for changes
-      id: diff
+      id: diff-build
       shell: bash
       run: |
         set +e
-        git diff HEAD^ --exit-code --quiet -- 'packages/nhsuk-frontend/dist/**/*' 'packages/nhsuk-frontend-review/dist/**/*' 'tests/**/*' 'backstop.config.js'
+        git diff HEAD^ --exit-code -- 'packages/nhsuk-frontend/dist/**/*' 'packages/nhsuk-frontend-review/dist/**/*' > .cache/diff/build.diff
         [ $? -eq 0 ] && echo "changes=false" >> "${GITHUB_OUTPUT}"
         exit 0
+
+    - name: Check for screenshots
+      if: ${{ !contains(github.event.pull_request.labels.*.name, 'dependencies') }}
+      id: diff-screenshots
+      shell: bash
+      run: |
+        set +e
+        git diff HEAD^ --exit-code -- 'tests/backstop/**/*' 'backstop.config.js'
+        [ $? -eq 0 ] && echo "changes=false" >> "${GITHUB_OUTPUT}"
+        exit 0
+
+    - name: Save GitHub build diff
+      if: ${{ !cancelled() && steps.diff-build.outputs.changes != 'false' }}
+      uses: actions/upload-artifact@v6
+      with:
+        name: Build diff
+        path: .cache/diff/
+        if-no-files-found: ignore

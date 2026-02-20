@@ -5,6 +5,9 @@ on:
     branches:
       - main
 
+concurrency:
+  group: deploy
+
 jobs:
   install:
     name: Install
@@ -15,7 +18,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Install dependencies
         uses: ./.github/workflows/actions/install
@@ -35,10 +38,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Restore dependencies
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         with:
           fail-on-cache-miss: true
           key: npm-install-${{ hashFiles('package-lock.json') }}

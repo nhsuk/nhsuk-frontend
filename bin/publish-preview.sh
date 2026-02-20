@@ -9,7 +9,7 @@ VERSION="$CURRENT_VERSION-$BRANCH_NAME"
 
 # Build the package as normal
 echo "✨ Install and build branch preview"
-npm install --silent
+npm install --no-save --silent
 npm run build --workspace nhsuk-frontend
 echo
 

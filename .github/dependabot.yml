@@ -12,6 +12,8 @@ updates:
           - '@babel/*'
           - '@rollup/*'
           - 'autoprefixer'
+          - 'babel-plugin-*'
+          - 'baseline-browser-mapping'
           - 'caniuse-lite'
           - 'cssnano'
           - 'cssnano-*'
@@ -48,9 +50,11 @@ updates:
 
       test:
         patterns:
+          - '@axe-core/*'
           - '@testing-library/*'
           - '@types/jest'
           - '@types/jest-*'
+          - 'axe-core'
           - 'babel-jest'
           - 'backstopjs'
           - 'jest'
@@ -62,15 +66,19 @@ updates:
 
       tools:
         patterns:
+          - '@npmcli/*'
+          - 'browser-sync'
           - 'concurrently'
           - 'del-cli'
           - 'glob'
           - 'gulp'
           - 'gulp-*'
           - 'latest-version'
+          - 'lodash'
           - 'outdent'
           - 'package-json'
           - 'plugin-error'
+          - 'slug'
           - 'strip-ansi'
           - 'wait-on'
 
@@ -86,15 +94,22 @@ updates:
       - dependency-type: direct
 
       # Include indirect browser data updates
+      # https://web.dev/baseline
+      - dependency-name: baseline-browser-mapping
       # https://caniuse.com
       - dependency-name: caniuse-lite
 
   # Update GitHub Actions
   - package-ecosystem: github-actions
     directories:
-      - .github/workflows/
-      - .github/workflows/actions/build/
-      - .github/workflows/actions/diff/
+      - /
+      - /.github/workflows/actions/*
+
+    # Group actions into shared PR
+    groups:
+      actions:
+        patterns:
+          - '*'
 
     schedule:
       interval: 'monthly'
