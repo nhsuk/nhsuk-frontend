@@ -13,6 +13,8 @@ runs:
     - name: Set up git for temporary commits
       shell: bash
       run: |
+        rm -Rf .cache/diff
+        mkdir -p .cache/diff
         git config user.name github-actions
         git config user.email github-actions@github.com
 
@@ -41,6 +43,14 @@ runs:
       shell: bash
       run: |
         set +e
-        git diff HEAD^ --exit-code --quiet -- 'packages/nhsuk-frontend/dist/**/*' 'packages/nhsuk-frontend-review/dist/**/*' 'tests/**/*' 'backstop.config.js'
+        git diff HEAD^ --exit-code -- 'packages/nhsuk-frontend/dist/**/*' 'packages/nhsuk-frontend-review/dist/**/*' 'tests/**/*' 'backstop.config.js' > .cache/diff/build.diff
         [ $? -eq 0 ] && echo "changes=false" >> "${GITHUB_OUTPUT}"
         exit 0
+
+    - name: Save GitHub build diff
+      if: ${{ !cancelled() && steps.diff.outputs.changes != 'false' }}
+      uses: actions/upload-artifact@v5
+      with:
+        name: Build diff
+        path: .cache/diff/
+        if-no-files-found: ignore
