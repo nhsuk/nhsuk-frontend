@@ -4,6 +4,10 @@ on:
   workflow_call:
   workflow_dispatch:
 
+concurrency:
+  group: sass-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
 jobs:
   sass:
     name: Dart Sass ${{ matrix.package.version }}
@@ -48,7 +52,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Install and build
         uses: ./.github/workflows/actions/build
@@ -90,10 +94,25 @@ jobs:
       - name: Check output
         run: |
           ! grep "\$nhsuk-" .tmp/check.css
+          ! grep ": nhsuk-" .tmp/check.css
+
           ! grep "\$nhsuk-" .tmp/check1.css
+          ! grep ": nhsuk-" .tmp/check1.css
+
           ! grep "\$nhsuk-" .tmp/check2.css
+          ! grep ": nhsuk-" .tmp/check2.css
+
           ! grep "\$nhsuk-" .tmp/check3.css
+          ! grep ": nhsuk-" .tmp/check3.css
+
           ! grep "\$nhsuk-" .tmp/check4.css
+          ! grep ": nhsuk-" .tmp/check4.css
+
           ! grep "\$nhsuk-" .tmp/check5.css
+          ! grep ": nhsuk-" .tmp/check5.css
+
           ! grep "\$nhsuk-" .tmp/check6.css
+          ! grep ": nhsuk-" .tmp/check6.css
+
           ! grep "\$nhsuk-" .tmp/check7.css
+          ! grep ": nhsuk-" .tmp/check7.css

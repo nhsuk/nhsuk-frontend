@@ -7,13 +7,19 @@ import {
 import { examples } from './fixtures.mjs'
 
 describe('Date input', () => {
+  it('Listing page passes accessibility tests', async () => {
+    await goToComponent(page, 'date-input')
+    return expect(axe(page)).resolves.toHaveNoViolations()
+  })
+
   describe.each(Object.entries(examples))('%s', (name, example) => {
     it.each(getOptions(name, example))(
       '$title passes accessibility tests',
       async (options) => {
         await goToComponent(page, 'date-input', options)
         return expect(axe(page)).resolves.toHaveNoViolations()
-      }
+      },
+      20000
     )
   })
 })

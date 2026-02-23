@@ -29,10 +29,10 @@ runs:
 
     - name: Install dependencies for branch or SHA
       shell: bash
-      run: npm install
+      run: npm install --no-save
 
     - name: Restore build (from cache)
-      uses: actions/cache/restore@v4
+      uses: actions/cache/restore@v5
       id: cache-build
       with:
         key: build-${{ inputs.ref || github.sha }}
@@ -47,7 +47,7 @@ runs:
 
     - name: Save build (to cache)
       if: ${{ steps.cache-build.outputs.cache-hit != 'true' }}
-      uses: actions/cache/save@v4
+      uses: actions/cache/save@v5
       with:
         key: ${{ steps.cache-build.outputs.cache-primary-key }}
         path: packages/*/dist/

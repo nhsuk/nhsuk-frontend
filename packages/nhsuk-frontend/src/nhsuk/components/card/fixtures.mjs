@@ -1001,9 +1001,9 @@ const fixtures = {
     context: {
       href: '#',
       clickable: true,
-      headingLevel: 5,
       heading: 'Order a repeat prescription',
-      headingSize: 'xs'
+      headingSize: 'xs',
+      headingLevel: 3
     },
     options: {
       width: 'one-third'

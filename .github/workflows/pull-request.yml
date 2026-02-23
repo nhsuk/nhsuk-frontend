@@ -11,6 +11,10 @@ on:
 
   workflow_dispatch:
 
+concurrency:
+  group: pull-request-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
 jobs:
   install:
     name: Install
@@ -33,7 +37,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
@@ -74,10 +78,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Restore dependencies (from cache)
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         with:
           fail-on-cache-miss: true
           key: npm-install-${{ hashFiles('package-lock.json') }}
@@ -85,7 +89,7 @@ jobs:
 
       - name: Cache lint task
         if: ${{ matrix.task.cache }}
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           key: ${{ matrix.task.name }}
           path: ${{ matrix.task.cache }}
@@ -136,17 +140,17 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Restore dependencies (from cache)
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         with:
           fail-on-cache-miss: true
           key: npm-install-${{ hashFiles('package-lock.json') }}
           path: node_modules
 
       - name: Restore build (from cache)
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         with:
           fail-on-cache-miss: true
           key: build-${{ github.sha }}
@@ -154,7 +158,7 @@ jobs:
 
       - name: Cache task
         if: ${{ matrix.task.cache }}
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           key: ${{ matrix.task.name }}
           path: ${{ matrix.task.cache }}
@@ -177,7 +181,7 @@ jobs:
 
       - name: Save test coverage
         if: ${{ matrix.task.coverage }}
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: ${{ matrix.task.description }} coverage
           path: coverage
@@ -198,17 +202,17 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Restore dependencies (from cache)
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         with:
           fail-on-cache-miss: true
           key: npm-install-${{ hashFiles('package-lock.json') }}
           path: node_modules
 
       - name: Restore build (from cache)
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         with:
           fail-on-cache-miss: true
           key: build-${{ github.sha }}
@@ -253,11 +257,11 @@ jobs:
     runs-on: macos-latest
     needs: [install, build]
 
-    if: ${{ github.base_ref == 'main' || startsWith(github.base_ref, 'support/') }}
+    if: ${{ github.base_ref == 'main' || startsWith(github.base_ref, 'support/') || contains(github.event.pull_request.labels.*.name, 'dependencies') }}
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
@@ -266,18 +270,18 @@ jobs:
         id: changes
 
       - name: Download browsers
-        if: ${{ steps.changes.outputs.changes == 'true' }}
+        if: ${{ steps.changes.outputs.changes == 'true' || steps.changes.outputs.screenshots == 'true' }}
         run: |
           npm run install:puppeteer
           npm run install:playwright
 
       - name: Run backstop
-        if: ${{ steps.changes.outputs.changes == 'true' }}
+        if: ${{ steps.changes.outputs.changes == 'true' || steps.changes.outputs.screenshots == 'true' }}
         run: npm run test:visual --ignore-scripts
 
       - name: Save backstop report
-        if: ${{ !cancelled() && steps.changes.outputs.changes == 'true' }}
-        uses: actions/upload-artifact@v5
+        if: ${{ !cancelled() && (steps.changes.outputs.changes == 'true' || steps.changes.outputs.screenshots == 'true') }}
+        uses: actions/upload-artifact@v6
         with:
           name: Backstop report
           path: tests/backstop/
@@ -296,13 +300,13 @@ jobs:
     steps:
       - name: Checkout
         if: ${{ env.SONAR_TOKEN }}
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
       - name: Restore test coverage
         if: ${{ env.SONAR_TOKEN }}
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v7
         with:
           merge-multiple: true
           path: coverage
@@ -310,4 +314,4 @@ jobs:
 
       - name: Sonar analysis
         if: ${{ env.SONAR_TOKEN }}
-        uses: SonarSource/sonarqube-scan-action@v6
+        uses: SonarSource/sonarqube-scan-action@v7

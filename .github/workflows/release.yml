@@ -5,6 +5,9 @@ on:
     tags:
       - 'v*'
 
+concurrency:
+  group: release
+
 jobs:
   build:
     name: Create release
@@ -19,7 +22,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Setup Node
         uses: actions/setup-node@v6
