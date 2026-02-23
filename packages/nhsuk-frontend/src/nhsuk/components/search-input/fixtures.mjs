@@ -16,6 +16,24 @@ const fixtures = {
       inputmode: 'numeric'
     }
   },
+  'reverse': {
+    context: {
+      label: {
+        text: 'Search patients by NHS number',
+        classes: 'nhsuk-u-visually-hidden'
+      },
+      placeholder: 'NHS number',
+      name: 'example',
+      classes: 'nhsuk-input--reverse nhsuk-input--width-10',
+      inputmode: 'numeric',
+      button: {
+        classes: 'nhsuk-button--reverse'
+      }
+    },
+    options: {
+      layout: 'background-blue'
+    }
+  },
   'with hint': {
     context: {
       label: {
