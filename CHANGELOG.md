@@ -6,11 +6,93 @@ Note: This release was created from the `support/10.x` branch.
 
 ### :new: **New features**
 
-#### Add a modifier class for header inline search or account links
+#### Add a 'reverse' Nunjucks option for components on dark back grounds
 
-We've added a new `.nhsuk-header--inline` class for the [header](https://service-manual.nhs.uk/design-system/components/header) component. This positions the search bar (or account links) inline with the NHS logo, depending on the length of your service name.
+We've added a new `reverse` Nunjucks option to action links, back links, buttons and breadcrumbs as a simpler alternative to the reverse modifier class. For example:
 
-This was added in [pull request #1783: Add support for inline header search or account](https://github.com/nhsuk/nhsuk-frontend/pull/1783).
+```patch
+  {{ actionLink({
+    text: "Find your nearest A&E",
+    href: "#",
+-   classes: "nhsuk-action-link--reverse"
++   reverse: true
+  }) }}
+```
+
+This was added in [pull request #1801: Add Nunjucks options for all component modifiers](https://github.com/nhsuk/nhsuk-frontend/pull/1801).
+
+#### Add a 'small' Nunjucks option to buttons, checkboxes and radios
+
+We've added a new `small` Nunjucks option to buttons, checkboxes and radios as a simpler alternative to the small modifier class. For example:
+
+```patch
+  {{ button({
+    text: "Save and continue",
+-   classes: "nhsuk-button--small"
++   small: true
+  }) }}
+```
+
+```patch
+  {{ radios({
+    fieldset: {
+      legend: {
+        text: "How do you want to be contacted about this?",
+        size: "l"
+      }
+    },
+-   classes: "nhsuk-radios--small",
++   small: true,
+    items: []
+  }}
+```
+
+This was added in [pull request #1801: Add Nunjucks options for all component modifiers](https://github.com/nhsuk/nhsuk-frontend/pull/1801).
+
+#### Add an 'inline' Nunjucks option to header and radios
+
+We've added a new `.nhsuk-header--inline` class and `inline` Nunjucks option for the [header](https://service-manual.nhs.uk/design-system/components/header) component. This positions the search bar (or account links) inline with the NHS logo, depending on the length of your service name. For example:
+
+```patch
+  {{ header({
++   inline: true,
+    account: {
+      items: [
+        {
+          text: "Log in",
+          href: "/log-in"
+        }
+      ]
+    }
+  }}
+```
+
+We've also added a new `inline` Nunjucks option to radios as a simpler alternative to the inline modifier class. For example:
+
+```patch
+  {{ radios({
+    fieldset: {
+      legend: {
+        text: "Are you 18 or over?",
+        size: "l"
+      }
+    },
+-   classes: "nhsuk-radios--inline",
++   inline: true,
+    items: [
+      {
+        value: "yes",
+        text: "Yes"
+      },
+      {
+        value: "no",
+        text: "No"
+      }
+    ]
+  }}
+```
+
+This was added in pull requests [#1783: Add support for inline header search or account](https://github.com/nhsuk/nhsuk-frontend/pull/1783) and [#1801: Add Nunjucks options for all component modifiers](https://github.com/nhsuk/nhsuk-frontend/pull/1801).
 
 ### :recycle: **Changes**
 
