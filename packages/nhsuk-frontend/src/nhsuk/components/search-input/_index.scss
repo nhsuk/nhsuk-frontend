@@ -54,6 +54,10 @@
     .nhsuk-search-input__button {
       height: nhsuk-px-to-rem(36px);
 
+      &.nhsuk-button--reverse:not(:focus):not(:hover):not(:active) {
+        background-color: nhsuk-tint($nhsuk-reverse-button-hover-colour, 30%);
+      }
+
       // Prevent height change when pressed
       &:active,
       &:active:focus {
