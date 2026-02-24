@@ -100,6 +100,148 @@ export class Checkboxes extends ConfigurableComponent {
   }
 
   /**
+   * Check other checkboxes
+   *
+   * Find any other checkbox inputs with the checkbox group value, and check them.
+   * This is useful for when a "Select all" checkbox is checked.
+   *
+   * @param {HTMLInputElement} $input - Checkbox input
+   */
+  checkAllInputsExcept($input) {
+    const { checkboxInclusiveGroup: inclusiveGroup } = $input.dataset
+
+    const selectorGroup = inclusiveGroup
+      ? `[data-checkbox-inclusive-group="${inclusiveGroup}"]`
+      : `[name="${$input.name}"]`
+
+    const allInputsWithSameName = document.querySelectorAll(
+      `input[type="checkbox"]${selectorGroup}`
+    )
+
+    allInputsWithSameName.forEach(($inputWithSameName) => {
+      const hasSameFormOwner = $input.form === $inputWithSameName.form
+
+      // Uncheck all with same exclusive group by default, otherwise fall back to
+      // GOV.UK Frontend behaviour to uncheck all with the same name attribute
+      if (hasSameFormOwner && $inputWithSameName !== $input) {
+        this.setInputState($inputWithSameName, true, inclusiveGroup)
+      }
+    })
+  }
+
+  /**
+   * Uncheck inclusive inputs
+   *
+   * Find any checkbox inputs with the same checkbox group value and the 'inclusive' behaviour,
+   * and check them. This helps prevent someone unchecking both a regular checkbox and a
+   * "Select all" checkbox in the same fieldset.
+   *
+   * @param {HTMLInputElement} $input - Checkbox input
+   */
+  unCheckInclusiveInputs($input) {
+    const { checkboxInclusiveGroup: inclusiveGroup } = $input.dataset
+
+    const selectorGroup = inclusiveGroup
+      ? `[data-checkbox-inclusive-group="${inclusiveGroup}"]`
+      : `[name="${$input.name}"]`
+
+    const allInputsWithSameNameAndExclusiveBehaviour =
+      document.querySelectorAll(
+        `input[type="checkbox"][data-checkbox-inclusive]${selectorGroup}`
+      )
+
+    allInputsWithSameNameAndExclusiveBehaviour.forEach(($inclusiveInput) => {
+      const hasSameFormOwner = $input.form === $inclusiveInput.form
+
+      // Uncheck the inclusive input only. When no group is set, fall back to
+      // GOV.UK Frontend behaviour and locate the inclusive input by name
+      if (hasSameFormOwner) {
+        this.setInputState($inclusiveInput, false, inclusiveGroup)
+      }
+    })
+  }
+
+  /**
+   * Check inclusive input if all other checkboxes are checked
+   *
+   * Find any checkbox inputs with the same checkbox group value and check if all
+   * regular (non-inclusive) checkboxes are checked. If so, automatically check the
+   * inclusive "Select all" checkbox.
+   *
+   * @param {HTMLInputElement} $input - Checkbox input
+   */
+  checkInclusiveInputIfAllChecked($input) {
+    const { checkboxInclusiveGroup: inclusiveGroup } = $input.dataset
+
+    const selectorGroup = inclusiveGroup
+      ? `[data-checkbox-inclusive-group="${inclusiveGroup}"]`
+      : `[name="${$input.name}"]`
+
+    // Find all regular (non-inclusive) checkboxes in the group
+    const allRegularInputs = document.querySelectorAll(
+      `input[type="checkbox"]${selectorGroup}:not([data-checkbox-inclusive])`
+    )
+
+    // Find the inclusive checkbox in the group
+    const $inclusiveInput = document.querySelector(
+      `input[type="checkbox"][data-checkbox-inclusive]${selectorGroup}`
+    )
+
+    // If there's no inclusive checkbox, nothing to do
+    if (!$inclusiveInput || !($inclusiveInput instanceof HTMLInputElement)) {
+      return
+    }
+
+    const hasSameFormOwner = $input.form === $inclusiveInput.form
+    if (!hasSameFormOwner) {
+      return
+    }
+
+    // Check if any regular inputs are unchecked using a counter
+    let uncheckedCount = 0
+    allRegularInputs.forEach(($regularInput) => {
+      if ($regularInput.form === $input.form && !$regularInput.checked) {
+        uncheckedCount += 1
+      }
+    })
+
+    // If all regular inputs are checked (none unchecked), check the inclusive input
+    if (uncheckedCount === 0) {
+      this.setInputState($inclusiveInput, true, inclusiveGroup)
+    }
+  }
+
+  /**
+   * Uncheck other checkboxes in inclusive group
+   *
+   * Find any other checkbox inputs with the checkbox inclusive group value, and uncheck them.
+   * This is useful for when a "Select all" checkbox is unchecked.
+   *
+   * @param {HTMLInputElement} $input - Checkbox input
+   */
+  unCheckAllInclusiveInputsExcept($input) {
+    const { checkboxInclusiveGroup: inclusiveGroup } = $input.dataset
+
+    const selectorGroup = inclusiveGroup
+      ? `[data-checkbox-inclusive-group="${inclusiveGroup}"]`
+      : `[name="${$input.name}"]`
+
+    const allInputsWithSameName = document.querySelectorAll(
+      `input[type="checkbox"]${selectorGroup}`
+    )
+
+    allInputsWithSameName.forEach(($inputWithSameName) => {
+      const hasSameFormOwner = $input.form === $inputWithSameName.form
+
+      // Uncheck all with same inclusive group by default, otherwise fall back to
+      // GOV.UK Frontend behaviour to uncheck all with the same name attribute
+      if (hasSameFormOwner && $inputWithSameName !== $input) {
+        this.setInputState($inputWithSameName, false, inclusiveGroup)
+      }
+    })
+  }
+
+  /**
    * Uncheck other checkboxes
    *
    * Find any other checkbox inputs with the checkbox group value, and uncheck them.
@@ -162,20 +304,20 @@ export class Checkboxes extends ConfigurableComponent {
   }
 
   /**
-   * Set input state, optionally for matching exclusive group only
+   * Set input state, optionally for matching group only
    *
    * @param {HTMLInputElement} $input - Checkbox input
    * @param {boolean} checked - Checkbox checked state
-   * @param {string} [exclusiveGroup] - Set state for matching exclusive group only (optional)
+   * @param {string} [group] - Set state for matching group only (optional)
    */
-  setInputState($input, checked, exclusiveGroup) {
-    const { checkboxExclusiveGroup } = $input.dataset
+  setInputState($input, checked, group) {
+    const { checkboxExclusiveGroup, checkboxInclusiveGroup } = $input.dataset
 
-    // Skip input when exclusive group does not match
+    // Skip input when group does not match
     if (
-      exclusiveGroup &&
-      checkboxExclusiveGroup &&
-      checkboxExclusiveGroup !== exclusiveGroup
+      group &&
+      ((checkboxExclusiveGroup && checkboxExclusiveGroup !== group) ||
+        (checkboxInclusiveGroup && checkboxInclusiveGroup !== group))
     ) {
       return
     }
@@ -206,16 +348,33 @@ export class Checkboxes extends ConfigurableComponent {
       this.syncConditionalRevealWithInputState($clickedInput)
     }
 
+    const isExclusive = 'checkboxExclusive' in $clickedInput.dataset
+    const isInclusive = 'checkboxInclusive' in $clickedInput.dataset
+
+    // Uncheck "select all" when unchecking a regular checkbox
+    if (!$clickedInput.checked && !isExclusive && !isInclusive) {
+      this.unCheckInclusiveInputs($clickedInput)
+    }
+
+    // Uncheck regular checkboxes when "select all" is unchecked
+    if (!$clickedInput.checked && isInclusive) {
+      this.unCheckAllInclusiveInputsExcept($clickedInput)
+    }
+
     // No further behaviour needed for unchecking
     if (!$clickedInput.checked) {
       return
     }
 
     // Handle 'exclusive' checkbox behaviour (ie "None of these")
-    if ('checkboxExclusive' in $clickedInput.dataset) {
+    if (isExclusive) {
       this.unCheckAllInputsExcept($clickedInput)
+    } else if (isInclusive) {
+      this.checkAllInputsExcept($clickedInput)
     } else {
       this.unCheckExclusiveInputs($clickedInput)
+      // Check if all regular checkboxes are now checked, and if so, check the inclusive one
+      this.checkInclusiveInputIfAllChecked($clickedInput)
     }
   }
 
