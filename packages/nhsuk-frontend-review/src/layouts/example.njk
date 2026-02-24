@@ -1,7 +1,7 @@
 {% extends "layouts/page.njk" %}
 
-{% set htmlAttributes = htmlAttributes | default({ class: "app-template" }) %}
-{% set bodyAttributes = bodyAttributes | default({ class: "app-template__body" }) %}
+{% set htmlClasses = htmlClasses | default("app-template") %}
+{% set bodyClasses = bodyClasses | default("app-template__body") %}
 {% set classNamesColumn = "" -%}
 
 {# Append grid column width classes #}

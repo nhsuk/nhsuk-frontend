@@ -186,6 +186,54 @@ if ($element) {
 }
 ```
 
+## If our inline JavaScript snippet is blocked by a Content Security Policy
+
+If your site has a Content Security Policy (CSP), the CSP may block the inline JavaScript in the page template. You may see a warning like the following in your browser console:
+
+```
+Refused to execute inline script because it violates the following Content Security Policy directive: "default-src 'self'".
+```
+
+To unblock inline JavaScript, do one of the following:
+
+- include a hash (recommended)
+- use a nonce
+
+Make sure you [understand the security implications of using either option](https://www.w3.org/TR/CSP/#security-considerations), as wrong implementation could affect your service’s security. If you're not sure what to do, talk to a security expert.
+
+### Use a hash to unblock inline JavaScript
+
+You can unblock inline JavaScript by including the following hash in your CSP:
+
+<!--
+This hash should match the one in `nhsuk-frontend` tests:
+https://github.com/nhsuk/nhsuk-frontend/blob/main/packages/nhsuk-frontend/src/nhsuk/template.jsdom.test.mjs
+-->
+
+```
+sha256-tDOvXJi1PXbg0CWjLCCYSNHRXtps26K4JXkE3M6u/c0=
+```
+
+You do not need to make any changes to the HTML.
+
+[Learn more about Content Security Policy on the MDN Web Docs website](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP).
+
+### Use a `nonce` attribute to unblock inline JavaScript
+
+If you're unable to use the hash in your CSP, you can also use a `nonce` on inline JavaScript.
+
+However, you should provide a nonce that hostile actors cannot guess. Otherwise, they could easily find a way around your CSP.
+
+You should use a value which is:
+
+- unique for each HTTP response
+- generated using a cryptographically-secure random generator
+- at least 32 characters for hex, or 24 characters for base64
+
+Make sure your script tags do not have any untrusted or unescaped variables.
+
+If you're using the Nunjucks page template, you can add the `nonce` attribute by setting the `cspNonce` variable.
+
 ## Thanks to the Government Digital Service (GDS)
 
 This documentation has been taken from [Import JavaScript](https://frontend.design-system.service.gov.uk/import-javascript/) with a few minor adaptations.

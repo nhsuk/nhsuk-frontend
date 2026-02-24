@@ -36,6 +36,18 @@ describe('Template', () => {
 
       expect(document.documentElement).toHaveAttribute('lang', 'zu')
     })
+
+    it('can have custom classes added using htmlClasses', () => {
+      replacePageWith(
+        nunjucks.renderTemplate('nhsuk/template.njk', {
+          context: {
+            htmlClasses: 'my-custom-class'
+          }
+        })
+      )
+
+      expect(document.documentElement).toHaveClass('my-custom-class')
+    })
   })
 
   describe('<head>', () => {
@@ -233,6 +245,19 @@ describe('Template', () => {
 
         expect($title).toHaveTextContent('Foo')
       })
+
+      it('can have a lang attribute specified using pageTitleLang', () => {
+        replacePageWith(
+          nunjucks.renderTemplate('nhsuk/template.njk', {
+            context: {
+              pageTitleLang: 'zu'
+            }
+          })
+        )
+        const $title = document.querySelector('head > title')
+
+        expect($title).toHaveAttribute('lang', 'zu')
+      })
     })
   })
 
@@ -304,6 +329,26 @@ describe('Template', () => {
           'sha256-tDOvXJi1PXbg0CWjLCCYSNHRXtps26K4JXkE3M6u/c0='
         )
       })
+
+      it('should not have a nonce attribute by default', () => {
+        replacePageWith(nunjucks.renderTemplate('nhsuk/template.njk'))
+        const $script = document.querySelector('body > script')
+
+        expect($script).not.toHaveAttribute('nonce')
+      })
+
+      it('should have a nonce attribute when nonce is provided', () => {
+        replacePageWith(
+          nunjucks.renderTemplate('nhsuk/template.njk', {
+            context: {
+              cspNonce: 'abcdef'
+            }
+          })
+        )
+        const $script = document.querySelector('body > script')
+
+        expect($script).toHaveAttribute('nonce', 'abcdef')
+      })
     })
 
     describe('skip link', () => {
@@ -353,6 +398,18 @@ describe('Template', () => {
         replacePageWith(nunjucks.renderTemplate('nhsuk/template.njk'))
 
         expect(document.querySelector('main')).not.toHaveAttribute('lang')
+      })
+
+      it('can have a lang attribute specified using mainLang', () => {
+        replacePageWith(
+          nunjucks.renderTemplate('nhsuk/template.njk', {
+            context: {
+              mainLang: 'zu'
+            }
+          })
+        )
+
+        expect(document.querySelector('main')).toHaveAttribute('lang', 'zu')
       })
 
       it('can be overridden using the main block', () => {
