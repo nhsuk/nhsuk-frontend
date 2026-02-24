@@ -52,7 +52,7 @@ describe('Core', () => {
         --nhsuk-success-colour: #007f3b;
         --nhsuk-border-colour: #d8dde0;
         --nhsuk-border-hover-colour: #aeb7bd;
-        --nhsuk-secondary-border-colour: rgba(255, 255, 255, 0.2);
+        --nhsuk-secondary-border-colour: #aeb7bd;
         --nhsuk-reverse-border-colour: #337ec6;
         --nhsuk-input-border-colour: #4c6272;
         --nhsuk-hover-colour: #aeb7bd;
