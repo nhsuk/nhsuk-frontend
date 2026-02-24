@@ -388,8 +388,8 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
     @include nhsuk-responsive-padding(5, "top");
   }
 
-  .nhsuk-card--care--urgent > .nhsuk-card__heading-container,
   .nhsuk-card--care--non-urgent > .nhsuk-card__heading-container,
+  .nhsuk-card--care--urgent > .nhsuk-card__heading-container,
   .nhsuk-card--care--emergency > .nhsuk-card__heading-container {
     .nhsuk-card__actions {
       margin-top: nhsuk-spacing(3);
@@ -401,12 +401,21 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
       }
     }
 
-    .nhsuk-card__action {
-      border-color: $nhsuk-secondary-border-colour;
-    }
-
     .nhsuk-card__action a {
       @include nhsuk-link-style-white;
+    }
+  }
+
+  .nhsuk-card--care--non-urgent > .nhsuk-card__heading-container {
+    .nhsuk-card__action {
+      border-color: $nhsuk-reverse-border-colour;
+    }
+  }
+
+  .nhsuk-card--care--urgent > .nhsuk-card__heading-container,
+  .nhsuk-card--care--emergency > .nhsuk-card__heading-container {
+    .nhsuk-card__action {
+      border-color: nhsuk-tint(nhsuk-colour("red"), 20%);
     }
   }
 

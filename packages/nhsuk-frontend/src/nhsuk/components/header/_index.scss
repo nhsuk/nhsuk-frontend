@@ -626,7 +626,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
   // - Until tablet breakpoint, add negative top margin
   // - From tablet breakpoint, add a top border
   .nhsuk-header__navigation-container {
-    box-shadow: 0 -1px 0 0 $nhsuk-secondary-border-colour;
+    box-shadow: 0 -1px 0 0 $nhsuk-reverse-border-colour;
 
     .nhsuk-header--white .nhsuk-header__navigation--white & {
       box-shadow: 0 -1px 0 0 $nhsuk-border-colour;
@@ -680,7 +680,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
       padding-right: $_header-item-padding;
       padding-left: $_header-item-padding - 1px;
       border-width: 1px;
-      border-color: $nhsuk-border-hover-colour;
+      border-color: $nhsuk-secondary-border-colour;
     }
 
     .nhsuk-header__search-form .nhsuk-button,
