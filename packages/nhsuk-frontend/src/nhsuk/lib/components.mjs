@@ -37,6 +37,18 @@ export function render(component, options) {
  */
 
 /**
+ * Nunjucks macro scenario for BackstopJS
+ * (with support for additional selectors)
+ *
+ * @typedef {Scenario & {
+ *   focusSelector?: string,
+ *   focusSelectors?: string[],
+ *   activeSelector?: string,
+ *   activeSelectors?: string[]
+ * }} MacroScenario
+ */
+
+/**
  * Nunjucks macro example
  *
  * @typedef {object} MacroExample
@@ -106,5 +118,6 @@ export function render(component, options) {
  */
 
 /**
+ * @import { Scenario } from 'backstopjs'
  * @import { MacroRenderOptions } from './nunjucks.mjs'
  */
