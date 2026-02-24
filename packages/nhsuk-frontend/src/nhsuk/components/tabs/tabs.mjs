@@ -59,47 +59,7 @@ export class Tabs extends ConfigurableComponent {
     this.$tabList = $tabList
     this.$tabListItems = $tabListItems
 
-    this.setupResponsiveChecks()
-  }
-
-  /**
-   * Setup viewport resize check
-   */
-  setupResponsiveChecks() {
-    const breakpoint = getBreakpoint('tablet')
-
-    if (!breakpoint.value) {
-      throw new ElementError({
-        component: Tabs,
-        identifier: `CSS custom property (\`${breakpoint.property}\`) on pseudo-class \`:root\``
-      })
-    }
-
-    // Media query list for NHS.UK frontend tablet breakpoint
-    this.mql = window.matchMedia(`(min-width: ${breakpoint.value})`)
-
-    // MediaQueryList.addEventListener isn't supported by Safari < 14 so we need
-    // to be able to fall back to the deprecated MediaQueryList.addListener
-    if ('addEventListener' in this.mql) {
-      this.mql.addEventListener('change', () => this.checkMode())
-    } else {
-      // @ts-expect-error Property 'addListener' does not exist
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-      this.mql.addListener(() => this.checkMode())
-    }
-
-    this.checkMode()
-  }
-
-  /**
-   * Setup or teardown handler for viewport resize check
-   */
-  checkMode() {
-    if (this.mql?.matches) {
-      this.setup()
-    } else {
-      this.teardown()
-    }
+    this.setup()
   }
 
   /**
