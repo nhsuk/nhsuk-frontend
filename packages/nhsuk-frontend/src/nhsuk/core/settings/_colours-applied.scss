@@ -119,6 +119,12 @@ $nhsuk-border-hover-colour: nhsuk-colour("grey-3") !default;
 
 $nhsuk-secondary-border-colour: rgba(nhsuk-colour("white"), 0.2) !default;
 
+/// Reverse border colour
+///
+/// @type Colour
+
+$nhsuk-reverse-border-colour: nhsuk-tint($nhsuk-brand-colour, 20%) !default;
+
 /// Form border colour
 ///
 /// Used for form inputs and controls
