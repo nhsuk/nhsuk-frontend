@@ -171,6 +171,45 @@ const fixtures = {
     },
     variants
   },
+  'with navigation (unlinked item)': {
+    context: {
+      logo: {
+        href: '#'
+      },
+      navigation: {
+        items: [
+          {
+            href: '#',
+            text: 'Health A to Z'
+          },
+          {
+            href: '#',
+            text: 'Live Well'
+          },
+          {
+            href: '#',
+            text: 'Mental health'
+          },
+          {
+            href: '#',
+            text: 'Care and support'
+          },
+          {
+            text: 'Pregnancy',
+            current: true
+          },
+          {
+            href: '#',
+            text: 'NHS services'
+          }
+        ]
+      }
+    },
+    options: {
+      width: false
+    },
+    variants
+  },
   'with navigation (empty items)': {
     context: {
       logo: {
