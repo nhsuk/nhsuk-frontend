@@ -464,10 +464,23 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
   .nhsuk-header__navigation-link,
   .nhsuk-header__navigation-text {
     display: block;
+
     position: relative;
+
+    margin: 0;
     padding: nhsuk-spacing(3) $_header-link-padding;
+
+    border: 0;
+    border-radius: 0;
+
     color: $nhsuk-header-reverse-item-colour;
+
+    background: transparent;
+
+    text-decoration: underline;
     white-space: nowrap;
+
+    cursor: pointer;
     @include nhsuk-font(16);
 
     // Visual indicator for navigation item uses a border on bottom edge
@@ -522,20 +535,9 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     $_chevron-font-size: 19;
 
     display: flex;
-
     align-items: center;
-
-    margin: 0;
     padding-right: nhsuk-em($_chevron-font-size, 16);
-
-    border: 0;
-    border-radius: 0;
-
-    background: transparent;
-
     text-align: center;
-
-    cursor: pointer;
 
     &[hidden] {
       display: none;
