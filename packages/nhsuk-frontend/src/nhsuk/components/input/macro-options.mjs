@@ -158,6 +158,13 @@ const options = {
       'Optional fixed width for the text input component – `2`, `3`, `4`, `5`, `10`, `20` or `30`.',
     released: '10.4.0'
   },
+  variant: {
+    type: 'string',
+    required: false,
+    description:
+      'Optional variant of input. You can use only `"reverse"` or empty values with this option.',
+    released: '10.5.0'
+  },
   formGroup: {
     type: 'object',
     required: false,

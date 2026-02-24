@@ -3,6 +3,9 @@
 {% from "nhsuk/components/hint/macro.njk" import hint %}
 {% from "nhsuk/components/label/macro.njk" import label %}
 
+{#- Set variant for this component #}
+{%- set variant = params.variant -%}
+
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-input" -%}
 {%- set classNamesFormGroup = "nhsuk-form-group" -%}
@@ -25,6 +28,10 @@
   )
 %}
   {% set classNames = classNames ~ " nhsuk-input--width-" ~ params.width %}
+{% endif %}
+
+{%- if variant == "reverse" and (not params.classes or not "nhsuk-input--reverse" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-input--" ~ variant %}
 {% endif %}
 
 {%- if params.errorMessage %}
