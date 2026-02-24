@@ -107,12 +107,6 @@ $nhsuk-success-colour: nhsuk-colour("green") !default;
 
 $nhsuk-border-colour: nhsuk-colour("grey-4") !default;
 
-/// Border hover colour
-///
-/// @type Colour
-
-$nhsuk-border-hover-colour: nhsuk-colour("grey-3") !default;
-
 /// Secondary border colour
 ///
 /// @type Colour
@@ -124,6 +118,14 @@ $nhsuk-secondary-border-colour: nhsuk-colour("grey-3") !default;
 /// @type Colour
 
 $nhsuk-reverse-border-colour: nhsuk-tint($nhsuk-brand-colour, 20%) !default;
+
+/// Border hover colour
+///
+/// @alias $nhsuk-secondary-border-colour
+/// @deprecated To be removed in v11.0, replaced by $nhsuk-secondary-border-colour
+/// @type Colour
+
+$nhsuk-border-hover-colour: $nhsuk-secondary-border-colour;
 
 /// Form border colour
 ///
