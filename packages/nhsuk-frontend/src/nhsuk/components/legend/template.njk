@@ -16,6 +16,10 @@
   {% set classNames = classNames ~ " nhsuk-fieldset__legend--" ~ params.size %}
 {% endif %}
 
+{%- if variant == "reverse" and (not params.classes or not "nhsuk-fieldset__legend--reverse" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-fieldset__legend--" ~ variant %}
+{% endif %}
+
 {%- if params.classes %}
   {% set classNames = classNames ~ " " ~ params.classes %}
 {% endif %}

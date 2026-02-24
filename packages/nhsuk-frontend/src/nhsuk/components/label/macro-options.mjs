@@ -52,6 +52,13 @@ const options = {
     description: 'Size of the label – `"s"`, `"m"`, `"l"` or `"xl"`.',
     released: '10.2.0'
   },
+  variant: {
+    type: 'string',
+    required: false,
+    description:
+      'Optional variant of label. You can use only `"reverse"` or empty values with this option.',
+    released: '10.5.0'
+  },
   classes: {
     type: 'string',
     required: false,
