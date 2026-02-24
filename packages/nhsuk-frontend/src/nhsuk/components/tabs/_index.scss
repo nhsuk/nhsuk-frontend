@@ -10,6 +10,8 @@
 ////
 
 @include nhsuk-exports("nhsuk/components/tabs") {
+  $border-width: 1px;
+
   .nhsuk-tabs {
     @include nhsuk-responsive-margin(1, "top");
     @include nhsuk-responsive-margin(6, "bottom");
@@ -63,11 +65,18 @@
         margin-right: nhsuk-spacing(1);
         margin-bottom: 0;
         margin-left: 0;
-        padding: nhsuk-spacing(2) nhsuk-spacing(4);
+        padding-top: nhsuk-spacing(2);
+        padding-right: nhsuk-spacing(4) - $border-width;
+        padding-bottom: nhsuk-spacing(2);
+
+        // Compensation for border (otherwise we get a shift)
+        padding-left: nhsuk-spacing(4) - $border-width;
 
         float: left;
 
-        background-color: nhsuk-colour("grey-4");
+        border: $border-width solid $nhsuk-border-colour;
+
+        background-color: nhsuk-colour("white");
 
         text-align: center;
 
@@ -76,24 +85,16 @@
         }
       }
 
+      // The selected tab has no border on the bottom, and moves
+      // down to close the gap, so that it appears visually joined
+      // to the main content.
       .nhsuk-tabs__list-item--selected {
-        $border-width: 1px;
-
-        position: relative;
-
         margin-top: nhsuk-spacing(-1);
 
-        // Compensation for border (otherwise we get a shift)
         margin-bottom: -$border-width;
         padding-top: (nhsuk-spacing(2) * 1.5) - $border-width;
-        padding-right: nhsuk-spacing(4) - $border-width;
         padding-bottom: (nhsuk-spacing(2) * 1.5) + $border-width;
-        padding-left: nhsuk-spacing(4) - $border-width;
-
-        border: $border-width solid $nhsuk-border-colour;
         border-bottom: 0;
-
-        background-color: $nhsuk-card-background-colour;
       }
 
       .nhsuk-tabs__tab {
