@@ -171,7 +171,23 @@
       <ul class="nhsuk-header__navigation-list">
       {% for item in params.navigation.items %}
         {% if item %}
-        {% set linkInnerContent %}
+        {% set itemInnerAttributesHtml %}
+          {{- nhsukAttributes({
+            class: "nhsuk-header__navigation-link" if item.href
+              else "nhsuk-header__navigation-text",
+            href: {
+              value: item.href,
+              optional: true
+            },
+            "aria-current": {
+              value: ("page" if item.current else "true")
+                if item.active or item.current
+                else false,
+              optional: true
+            }
+          }) -}}
+        {% endset %}
+        {% set itemInnerContent %}
           {#- Wrap active links in strong element so users who override colours
               or styles still have some indicator of the current nav item. -#}
           {%- if item.active or item.current -%}
@@ -183,9 +199,15 @@
           {%- endif -%}
         {% endset %}
         <li class="nhsuk-header__navigation-item {%- if item.active or item.current %} nhsuk-header__navigation-item--current{% endif %} {%- if item.classes %} {{ item.classes }}{% endif %}" {{- nhsukAttributes(item.attributes) }}>
-          <a class="nhsuk-header__navigation-link" href="{{ item.href }}" {%- if item.active or item.current %} aria-current="{{ "page" if item.current else "true" }}"{% endif %}>
-            {{- linkInnerContent | safe -}}
+        {% if item.href %}
+          <a {{- itemInnerAttributesHtml | safe }}>
+            {{- itemInnerContent | safe -}}
           </a>
+        {% else %}
+          <span {{- itemInnerAttributesHtml | safe }}>
+            {{- itemInnerContent | safe -}}
+          </span>
+        {% endif %}
         </li>
         {% endif %}
       {% endfor %}

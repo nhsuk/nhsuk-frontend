@@ -461,17 +461,14 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     font-weight: inherit;
   }
 
-  .nhsuk-header__navigation-link {
+  .nhsuk-header__navigation-link,
+  .nhsuk-header__navigation-text {
     display: block;
     position: relative;
     padding: nhsuk-spacing(3) $_header-link-padding;
+    color: $nhsuk-header-reverse-item-colour;
     white-space: nowrap;
     @include nhsuk-font(16);
-    @include _header-link-style(
-      $link-colour: $nhsuk-header-reverse-item-colour,
-      $link-hover-colour: $nhsuk-header-reverse-item-hover-colour,
-      $link-active-colour: $nhsuk-header-reverse-item-active-colour
-    );
 
     // Visual indicator for navigation item uses a border on bottom edge
     &::before {
@@ -496,6 +493,14 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     @include nhsuk-media-query($until: tablet) {
       font-size: inherit;
     }
+  }
+
+  .nhsuk-header__navigation-link {
+    @include _header-link-style(
+      $link-colour: $nhsuk-header-reverse-item-colour,
+      $link-hover-colour: $nhsuk-header-reverse-item-hover-colour,
+      $link-active-colour: $nhsuk-header-reverse-item-active-colour
+    );
   }
 
   // Menu (shown when screen can’t fit all navigation items)
@@ -575,8 +580,9 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
       display: none;
     }
 
-    .nhsuk-header__navigation-link {
-      @include _header-link-style;
+    .nhsuk-header__navigation-link,
+    .nhsuk-header__navigation-text {
+      color: $nhsuk-header-item-colour;
 
       // Visual indicator for navigation item uses a border on left edge
       &[aria-current="page"]::before,
@@ -597,6 +603,10 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
       }
     }
 
+    .nhsuk-header__navigation-link {
+      @include _header-link-style;
+    }
+
     .nhsuk-header__navigation-item {
       padding: 0;
       border-bottom: 1px solid nhsuk-colour("grey-5");
@@ -612,6 +622,11 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
   .nhsuk-header__navigation--white {
     color: $nhsuk-brand-colour;
     background-color: nhsuk-colour("white");
+
+    .nhsuk-header__navigation-link,
+    .nhsuk-header__navigation-text {
+      color: $nhsuk-header-item-colour;
+    }
 
     .nhsuk-header__navigation-link {
       @include _header-link-style;

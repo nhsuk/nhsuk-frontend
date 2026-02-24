@@ -93,7 +93,7 @@ const options = {
         params: {
           href: {
             type: 'string',
-            required: true,
+            required: false,
             description: 'The href of a navigation item in the header.'
           },
           text: {
