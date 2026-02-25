@@ -1,6 +1,7 @@
 import {
   mergeConfigs,
-  normaliseDataset
+  normaliseDataset,
+  validateConfig
 } from './common/configuration/index.mjs'
 import { formatErrorMessage, isObject } from './common/index.mjs'
 import { Component } from './component.mjs'
@@ -52,6 +53,10 @@ export class ConfigurableComponent extends Component {
       )
     }
 
+    const schema = /** @type {Schema<ConfigurationType>} */ (
+      childConstructor.schema
+    )
+
     const datasetConfig = /** @type {Partial<ConfigurationType>} */ (
       normaliseDataset(childConstructor, this.$root.dataset)
     )
@@ -69,6 +74,12 @@ export class ConfigurableComponent extends Component {
         datasetConfig
       )
     )
+
+    // Check for valid config
+    const errors = validateConfig(schema, this.config)
+    if (errors[0]) {
+      throw new ConfigError(formatErrorMessage(childConstructor, errors[0]))
+    }
   }
 
   /**
@@ -88,6 +99,6 @@ export class ConfigurableComponent extends Component {
 }
 
 /**
- * @import { ObjectNested } from './common/configuration/index.mjs'
+ * @import { ObjectNested, Schema } from './common/configuration/index.mjs'
  * @import { ComponentConstructor } from './component.mjs'
  */
