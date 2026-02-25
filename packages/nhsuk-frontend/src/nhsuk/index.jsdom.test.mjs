@@ -12,13 +12,16 @@ import {
   SkipLink,
   Tabs,
   initAll,
-  createAll,
-  Component,
-  ConfigurableComponent
+  createAll
 } from './index.mjs'
 import * as NHSUKFrontend from './index.mjs'
 
 import { names } from '#lib'
+import {
+  MockComponent,
+  MockComponentError,
+  MockConfigurableComponentBoolean
+} from '#lib/fixtures/configuration/mock-component.mjs'
 
 jest.mock('./components/button/button.mjs')
 jest.mock('./components/character-count/character-count.mjs')
@@ -139,11 +142,13 @@ describe('NHS.UK frontend', () => {
 
         initAll({
           [configName]: {
-            __test: true
+            example: true
           }
         })
 
-        expect(NamespaceComponent).toHaveBeenCalledWith($root, { __test: true })
+        expect(NamespaceComponent).toHaveBeenCalledWith($root, {
+          example: true
+        })
       })
     })
 
@@ -181,7 +186,7 @@ describe('NHS.UK frontend', () => {
         initAll({
           scope: $scope1,
           [configName]: {
-            __test: true
+            example: true
           }
         })
 
@@ -190,16 +195,16 @@ describe('NHS.UK frontend', () => {
         initAll({
           scope: $scope2,
           [configName]: {
-            __test: true
+            example: true
           }
         })
 
         expect(NamespaceComponent).not.toHaveBeenCalledWith($root1, {
-          __test: true
+          example: true
         })
 
         expect(NamespaceComponent).toHaveBeenCalledWith($root2, {
-          __test: true
+          example: true
         })
       })
     })
@@ -282,49 +287,6 @@ describe('NHS.UK frontend', () => {
       document.body.innerHTML = ''
     })
 
-    class MockComponent extends Component {
-      constructor($root) {
-        super($root)
-        this.args = [$root]
-      }
-    }
-
-    class MockComponentThatErrors extends MockComponent {
-      constructor($root) {
-        super($root)
-
-        if ('boom' in $root.dataset) {
-          throw new Error('Error thrown from constructor')
-        }
-      }
-    }
-
-    /**
-     * @augments {ConfigurableComponent<MockConfig>}
-     */
-    class MockConfigurableComponent extends ConfigurableComponent {
-      constructor($root, config) {
-        super($root, config)
-        this.args = [$root, config]
-      }
-
-      /**
-       * @satisfies {Schema<MockConfig>}
-       */
-      static schema = {
-        properties: {
-          __test: { type: 'boolean' }
-        }
-      }
-
-      /**
-       * @satisfies {MockConfig}
-       */
-      static defaults = {
-        __test: false
-      }
-    }
-
     it('should return initialised components', () => {
       document.body.innerHTML = outdent`
         <div data-module="${MockComponent.moduleName}" id="a"></div>
@@ -347,20 +309,20 @@ describe('NHS.UK frontend', () => {
 
     it('should return initialised components (with failed components omitted)', () => {
       document.body.innerHTML = outdent`
-        <div data-module="${MockComponentThatErrors.moduleName}" id="a"></div>
-        <div data-module="${MockComponentThatErrors.moduleName}" id="b" data-boom></div>
-        <div data-module="${MockComponentThatErrors.moduleName}" id="c"></div>
+        <div data-module="${MockComponentError.moduleName}" id="a"></div>
+        <div data-module="${MockComponentError.moduleName}" id="b" data-boom></div>
+        <div data-module="${MockComponentError.moduleName}" id="c"></div>
       `
 
       const $root1 = document.getElementById('a')
       const $root2 = document.getElementById('b')
       const $root3 = document.getElementById('c')
 
-      const result = createAll(MockComponentThatErrors)
+      const result = createAll(MockComponentError)
 
       expect(result).toStrictEqual([
-        expect.any(MockComponentThatErrors),
-        expect.any(MockComponentThatErrors)
+        expect.any(MockComponentError),
+        expect.any(MockComponentError)
       ])
 
       expect(result[0]).toHaveProperty('args', [$root1])
@@ -433,10 +395,10 @@ describe('NHS.UK frontend', () => {
 
     it('should return empty array with failed component (and log errors)', () => {
       document.body.innerHTML = outdent`
-        <div data-module="${MockComponentThatErrors.moduleName}" data-boom></div>
+        <div data-module="${MockComponentError.moduleName}" data-boom></div>
       `
 
-      const result = createAll(MockComponentThatErrors)
+      const result = createAll(MockComponentError)
 
       expect(result).toStrictEqual([])
 
@@ -487,7 +449,6 @@ describe('NHS.UK frontend', () => {
         expect(result1).toStrictEqual([])
 
         const result2 = createAll(MockComponent, undefined, $scope2)
-
         expect(result2).toStrictEqual([expect.any(MockComponent)])
         expect(result2[0]).toHaveProperty('args', [$root2])
       })
@@ -496,19 +457,22 @@ describe('NHS.UK frontend', () => {
     describe('Configurable components', () => {
       it('initialises component', () => {
         document.body.innerHTML = outdent`
-          <div data-module="${MockConfigurableComponent.moduleName}"></div>
+          <div data-module="${MockConfigurableComponentBoolean.moduleName}"></div>
         `
 
         const $root = document.querySelector(
-          `[data-module="${MockConfigurableComponent.moduleName}"]`
+          `[data-module="${MockConfigurableComponentBoolean.moduleName}"]`
         )
 
-        const result = createAll(MockConfigurableComponent, {
-          __test: true
+        const result = createAll(MockConfigurableComponentBoolean, {
+          example: true
         })
 
-        expect(result).toStrictEqual([expect.any(MockConfigurableComponent)])
-        expect(result[0]).toHaveProperty('args', [$root, { __test: true }])
+        expect(result).toStrictEqual([
+          expect.any(MockConfigurableComponentBoolean)
+        ])
+
+        expect(result[0]).toHaveProperty('args', [$root, { example: true }])
       })
     })
 
@@ -519,7 +483,7 @@ describe('NHS.UK frontend', () => {
             <!-- No components -->
           </div>
           <div class="app-scope-2">
-            <div data-module="${MockConfigurableComponent.moduleName}"></div>
+            <div data-module="${MockConfigurableComponentBoolean.moduleName}"></div>
           </div>
         `
 
@@ -527,36 +491,33 @@ describe('NHS.UK frontend', () => {
         const $scope2 = document.querySelector('.app-scope-2')
 
         const $root2 = $scope2.querySelector(
-          `[data-module="${MockConfigurableComponent.moduleName}"]`
+          `[data-module="${MockConfigurableComponentBoolean.moduleName}"]`
         )
 
         const result1 = createAll(
-          MockConfigurableComponent,
-          { __test: true },
+          MockConfigurableComponentBoolean,
+          { example: true },
           $scope1
         )
 
         expect(result1).toStrictEqual([])
 
         const result2 = createAll(
-          MockConfigurableComponent,
-          { __test: true },
+          MockConfigurableComponentBoolean,
+          { example: true },
           $scope2
         )
 
-        expect(result2).toStrictEqual([expect.any(MockConfigurableComponent)])
-        expect(result2[0]).toHaveProperty('args', [$root2, { __test: true }])
+        expect(result2).toStrictEqual([
+          expect.any(MockConfigurableComponentBoolean)
+        ])
+
+        expect(result2[0]).toHaveProperty('args', [$root2, { example: true }])
       })
     })
   })
 })
 
 /**
- * @typedef {object} MockConfig
- * @property {boolean} __test - Test flag
- */
-
-/**
- * @import { Schema } from './common/configuration/index.mjs'
  * @import { CompatibleClass } from './component.mjs'
  */
