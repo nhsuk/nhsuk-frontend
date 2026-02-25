@@ -157,6 +157,49 @@ export class MockConfigurableComponentNoDefaults extends ConfigurableComponent {
 }
 
 /**
+ * @augments {ConfigurableComponent<MockConfigOptional>}
+ */
+export class MockConfigurableComponentAnyOf extends ConfigurableComponent {
+  static moduleName = 'mock-component'
+
+  /**
+   * @satisfies {Schema<MockConfigOptional>}
+   */
+  static schema = {
+    properties: {
+      example1: { type: 'string' },
+      example2: { type: 'string' },
+      example3: { type: 'number' },
+      example4: { type: 'boolean' }
+    },
+    anyOf: [
+      {
+        required: ['example1', 'example2'],
+        errorMessage: '"example1" and "example2" must be provided'
+      },
+      {
+        required: ['example3'],
+        errorMessage: '"example3" must be provided'
+      },
+      {
+        required: ['example4'],
+        errorMessage: '"example4" must be provided'
+      }
+    ]
+  }
+
+  /**
+   * @satisfies {MockConfigOptional}
+   */
+  static defaults = {
+    example1: '',
+    example2: '',
+    example3: 0,
+    example4: false
+  }
+}
+
+/**
  * @typedef {object} MockConfig
  * @property {number} aNumber - A number
  * @property {number} aDecimalNumber - A decimal number
@@ -180,6 +223,14 @@ export class MockConfigurableComponentNoDefaults extends ConfigurableComponent {
 /**
  * @typedef {object} MockConfigNumber
  * @property {number} example - Example number
+ */
+
+/**
+ * @typedef {object} MockConfigOptional
+ * @property {string} [example1] - Example string
+ * @property {string} [example2] - Example string
+ * @property {number} [example3] - Example number
+ * @property {boolean} [example4] - Example boolean
  */
 
 /**
