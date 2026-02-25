@@ -20,6 +20,8 @@
   {% set classNames = classNames ~ " " ~ params.classes %}
 {% endif %}
 
+{%- set headingLevel = params.headingLevel if params.headingLevel else 1 %}
+
 {%- if caller or params.html or params.text %}
 {% set legendHtml %}
 {% if caller or params.html %}
@@ -30,10 +32,10 @@
 {% endset -%}
 
 <legend {{- nhsukAttributes({ class: classNames }) }}>
-{% if params.isPageHeading %}
-  <h1 class="nhsuk-fieldset__heading">
+{% if params.isPageHeading or params.headingLevel %}
+  <h{{ headingLevel }} class="nhsuk-fieldset__heading">
     {{ legendHtml | safe | trim | indent(4) }}
-  </h1>
+  </h{{ headingLevel }}>
 {% else %}
   {{ legendHtml | safe | trim | indent(2) }}
 {% endif %}

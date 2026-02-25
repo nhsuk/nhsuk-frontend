@@ -45,6 +45,28 @@ An underline still appears when the user hovers their cursor over the link.
 
 This was added in [pull request #1367: Updates to link styles and link hover states](https://github.com/nhsuk/nhsuk-frontend/pull/1367).
 
+#### Add a 'headingLevel' Nunjucks option to labels and legends
+
+The Nunjucks option `isPageHeading` sets whether the label or legend also acts as the heading for the page.
+
+We've added a new `headingLevel` Nunjucks option as a replacement for `isPageHeading` when a custom heading level is necessary, for example when a label or legend acts as the heading for a landmark:
+
+```patch
+<aside>
+  {{ input({
+    label: {
+      text: 'Search',
+-     isPageHeading: true
++     headingLevel: 2
+    }
+  }) }}
+
+  <!-- // … -->
+</aside>
+```
+
+This was added in [pull request #1670: Add label and legend `headingLevel` option](https://github.com/nhsuk/nhsuk-frontend/pull/1670).
+
 ### :wastebasket: **Deprecated features**
 
 #### Rename Sass mixin for white link style
