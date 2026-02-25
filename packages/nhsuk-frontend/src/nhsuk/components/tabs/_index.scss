@@ -95,12 +95,21 @@
         padding-top: (nhsuk-spacing(2) * 1.5) - $border-width;
         padding-bottom: (nhsuk-spacing(2) * 1.5) + $border-width;
         border-bottom: 0;
+
+        // The link on the selected tab uses text colour (black)
+        // and no underline to make it clear that the tab is active,
+        // and because clicking it won’t change the content.
+        .nhsuk-tabs__tab {
+          @include nhsuk-link-style-no-underline;
+          @include nhsuk-link-style-text;
+        }
       }
 
       .nhsuk-tabs__tab {
         margin-bottom: 0;
 
-        @include nhsuk-link-style-text;
+        @include nhsuk-link-style;
+        @include nhsuk-link-style-no-visited-state;
 
         &::after {
           content: "";
