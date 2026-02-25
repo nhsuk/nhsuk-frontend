@@ -22,6 +22,7 @@ This change was introduced in [pull request #1796: Hide character count message 
 ### :wrench: **Fixes**
 
 - [#1779: Fix header menu width when text size changes](https://github.com/nhsuk/nhsuk-frontend/pull/1779)
+- [#1780: Close header menu when clicking or navigating elsewhere](https://github.com/nhsuk/nhsuk-frontend/pull/1780)
 - [#1795: Add all page template variables from GOV.UK Frontend](https://github.com/nhsuk/nhsuk-frontend/pull/1795)
 - [#1797: Ensure components pass label.id down to the label](https://github.com/nhsuk/nhsuk-frontend/pull/1797)
 - [#1807: Fix summary list cells becoming vertically misaligned when a multi-line inline-block element is present](https://github.com/nhsuk/nhsuk-frontend/pull/1807)

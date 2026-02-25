@@ -118,7 +118,10 @@ export class Header extends ConfigurableComponent {
     }
 
     // Save bound functions so we can remove event listeners when unnecessary
+    this.handleClick = this.onClick.bind(this)
     this.handleEscapeKey = this.onEscapeKey.bind(this)
+    this.handleSubmit = this.onSubmit.bind(this)
+    this.handlePageShow = this.onPageShow.bind(this)
     this.handleUpdateNavigation = this.updateNavigation.bind(this)
     this.handleResizeMenu = this.resizeMenu.bind(this)
     this.handleToggleMenu = this.toggleMenu.bind(this)
@@ -261,20 +264,80 @@ export class Header extends ConfigurableComponent {
     $menuToggle.setAttribute('aria-expanded', 'false')
     $navigation.style.removeProperty('border-bottom-width')
 
-    // Remove escape key listener to close menu
-    document.removeEventListener('keydown', this.handleEscapeKey)
+    // Remove listeners to close menu
+    document.removeEventListener('click', this.handleClick, true)
+    document.removeEventListener('keydown', this.handleEscapeKey, true)
+    this.$root.removeEventListener('submit', this.handleSubmit, true)
+    window.removeEventListener('pageshow', this.handlePageShow)
+  }
+
+  /**
+   * Click handler
+   *
+   * This function is called when the user clicks anywhere to close the menu,
+   * but only clicks outside the menu (or on menu items) are handled.
+   *
+   * @param {MouseEvent} event - Click event
+   */
+  onClick(event) {
+    const { $root, $menuToggle } = this
+
+    const $target = event.target
+    if (!($target instanceof HTMLElement)) {
+      return
+    }
+
+    // Skip when already open
+    if (!this.menuIsOpen) {
+      return
+    }
+
+    // 1. Close when clicking outside the header
+    // 2. Close when clicking a link or button inside the header
+    if (
+      !$root.contains($target) ||
+      ($target.closest('a, button') && !$menuToggle?.contains($target))
+    ) {
+      this.closeMenu()
+    }
   }
 
   /**
    * Escape key handler
    *
-   * This function is called when the user
-   * presses the escape key to close the menu.
+   * This function is called when the user presses a key to close the menu,
+   * but only the escape key is handled.
    *
-   * @param {KeyboardEvent} event - Key press event
+   * @param {KeyboardEvent} event - Keydown event
    */
   onEscapeKey(event) {
-    if (event.key === 'Escape') {
+    if (this.menuIsOpen && event.key === 'Escape') {
+      this.closeMenu()
+    }
+  }
+
+  /**
+   * Form submit handler
+   *
+   * This function is called when the user submits a form within the header,
+   * for example the search form or account items with actions.
+   */
+  onSubmit() {
+    if (this.menuIsOpen) {
+      this.closeMenu()
+    }
+  }
+
+  /**
+   * Page show handler
+   *
+   * This function is called when the user navigates to the page, but only
+   * back or forward (bfcache) navigations are handled.
+   *
+   * @param {PageTransitionEvent} event - Page transition event
+   */
+  onPageShow(event) {
+    if (this.menuIsOpen && event.persisted) {
       this.closeMenu()
     }
   }
@@ -311,8 +374,11 @@ export class Header extends ConfigurableComponent {
       `${$menuList.offsetHeight}px`
     )
 
-    // Add escape key listener to close menu
-    document.addEventListener('keydown', this.handleEscapeKey)
+    // Add listeners to close menu
+    document.addEventListener('click', this.handleClick, true)
+    document.addEventListener('keydown', this.handleEscapeKey, true)
+    this.$root.addEventListener('submit', this.handleSubmit, true)
+    window.addEventListener('pageshow', this.handlePageShow)
   }
 
   /**
@@ -332,11 +398,15 @@ export class Header extends ConfigurableComponent {
    * Handle menu button click
    *
    * Toggles the menu between open and closed
+   *
+   * @param {MouseEvent} [event] - Click event
    */
-  toggleMenu() {
+  toggleMenu(event) {
     if (!this.menuIsEnabled) {
       return
     }
+
+    event?.preventDefault()
 
     if (this.menuIsOpen) {
       this.closeMenu()

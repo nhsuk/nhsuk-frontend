@@ -171,6 +171,45 @@ const fixtures = {
     },
     variants
   },
+  'with navigation (unlinked item)': {
+    context: {
+      logo: {
+        href: '#'
+      },
+      navigation: {
+        items: [
+          {
+            href: '#',
+            text: 'Health A to Z'
+          },
+          {
+            href: '#',
+            text: 'Live Well'
+          },
+          {
+            href: '#',
+            text: 'Mental health'
+          },
+          {
+            href: '#',
+            text: 'Care and support'
+          },
+          {
+            text: 'Pregnancy',
+            current: true
+          },
+          {
+            href: '#',
+            text: 'NHS services'
+          }
+        ]
+      }
+    },
+    options: {
+      width: false
+    },
+    variants
+  },
   'with navigation (empty items)': {
     context: {
       logo: {
@@ -262,6 +301,14 @@ const fixtures = {
       logo: {
         href: '#'
       },
+      service: {
+        text: 'Digital service manual',
+        href: '#'
+      },
+      search: {
+        placeholder: 'Search',
+        visuallyHiddenLabel: 'Search the NHS digital service manual'
+      },
       navigation: {
         items: [
           {
@@ -321,6 +368,14 @@ const fixtures = {
     context: {
       logo: {
         href: '#'
+      },
+      service: {
+        text: 'Digital service manual',
+        href: '#'
+      },
+      search: {
+        placeholder: 'Search',
+        visuallyHiddenLabel: 'Search the NHS digital service manual'
       },
       navigation: {
         classes: 'nhsuk-header__navigation--white',
