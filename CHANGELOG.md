@@ -4,6 +4,16 @@
 
 Note: This release was created from the `support/10.x` branch.
 
+### :wastebasket: **Deprecated features**
+
+#### Rename Sass variable for border hover colour
+
+If you use the Sass `$nhsuk-border-hover-colour` variable, you should rename it to `$nhsuk-secondary-border-colour`.
+
+The previous name is deprecated and will be removed in a future release.
+
+This change was introduced in [pull request #1826: Deprecate duplicate border colours](https://github.com/nhsuk/nhsuk-frontend/pull/1826).
+
 ### :recycle: **Changes**
 
 #### Hide the character count messages when unnecessary
@@ -18,6 +28,14 @@ If you are not using Nunjucks macros, update your HTML markup using the [charact
 The previous class names `nhsuk-character-count__status--disabled` and `nhsuk-character-count__message--disabled` are deprecated and will be removed in a future release.
 
 This change was introduced in [pull request #1796: Hide character count message until threshold is reached](https://github.com/nhsuk/nhsuk-frontend/pull/1796).
+
+#### Update secondary border colour
+
+For consistency with other hexadecimal applied colours, the Sass variable `$nhsuk-secondary-border-colour` has changed from `rgba(255, 255, 255, 0.2)` to `#aeb7bd` (or "grey-3").
+
+The previous colour is available via `$nhsuk-reverse-border-colour` as `#337ec6` for use on blue backgrounds only.
+
+This change was introduced in [pull request #1826: Deprecate duplicate border colours](https://github.com/nhsuk/nhsuk-frontend/pull/1826).
 
 ### :wrench: **Fixes**
 
