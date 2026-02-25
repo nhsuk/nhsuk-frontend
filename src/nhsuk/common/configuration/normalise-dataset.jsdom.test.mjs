@@ -44,9 +44,7 @@ describe('normaliseDataset', () => {
     })
   })
 
-  it('throws when component schema is not defined', () => {
-    expect(() => normaliseDataset(MockComponent, {})).toThrow(
-      `${MockComponent.moduleName}: Config passed as parameter into constructor but no schema defined`
-    )
+  it('returns empty object when component schema is not defined', () => {
+    expect(normaliseDataset(MockComponent, {})).toEqual({})
   })
 })

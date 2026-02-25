@@ -34,6 +34,15 @@ export class ConfigurableComponent extends Component {
         this.constructor
       )
 
+    if (!isObject(childConstructor.schema)) {
+      throw new ConfigError(
+        formatErrorMessage(
+          childConstructor,
+          'Config passed as parameter into constructor but no schema defined'
+        )
+      )
+    }
+
     if (!isObject(childConstructor.defaults)) {
       throw new ConfigError(
         formatErrorMessage(
