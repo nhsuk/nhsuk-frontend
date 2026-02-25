@@ -10,6 +10,7 @@ import {
   PasswordInput,
   Radios,
   SkipLink,
+  Table,
   Tabs,
   initAll,
   createAll
@@ -33,6 +34,7 @@ jest.mock('./components/notification-banner/notification-banner.mjs')
 jest.mock('./components/password-input/password-input.mjs')
 jest.mock('./components/radios/radios.mjs')
 jest.mock('./components/skip-link/skip-link.mjs')
+jest.mock('./components/tables/table.mjs')
 jest.mock('./components/tabs/tabs.mjs')
 
 describe('NHS.UK frontend', () => {
@@ -42,6 +44,7 @@ describe('NHS.UK frontend', () => {
     'Header',
     'Radios',
     'SkipLink',
+    'Table',
     'Tabs',
     'Button',
     'CharacterCount',
@@ -81,6 +84,7 @@ describe('NHS.UK frontend', () => {
       expect(NHSUKFrontend).toHaveProperty('PasswordInput')
       expect(NHSUKFrontend).toHaveProperty('Radios')
       expect(NHSUKFrontend).toHaveProperty('SkipLink')
+      expect(NHSUKFrontend).toHaveProperty('Table')
       expect(NHSUKFrontend).toHaveProperty('Tabs')
     })
 
@@ -99,6 +103,7 @@ describe('NHS.UK frontend', () => {
       expect(NHSUKFrontend).toHaveProperty('initPasswordInputs')
       expect(NHSUKFrontend).toHaveProperty('initRadios')
       expect(NHSUKFrontend).toHaveProperty('initSkipLinks')
+      expect(NHSUKFrontend).toHaveProperty('initTables')
       expect(NHSUKFrontend).toHaveProperty('initTabs')
     })
   })
@@ -117,6 +122,7 @@ describe('NHS.UK frontend', () => {
         <div data-module="${PasswordInput.moduleName}"></div>
         <div data-module="${Radios.moduleName}"></div>
         <div data-module="${SkipLink.moduleName}"></div>
+        <div data-module="${Table.moduleName}"></div>
         <div data-module="${Tabs.moduleName}"></div>
       `
     })
@@ -230,6 +236,7 @@ describe('NHS.UK frontend', () => {
       expect(PasswordInput).not.toHaveBeenCalled()
       expect(Radios).not.toHaveBeenCalled()
       expect(SkipLink).not.toHaveBeenCalled()
+      expect(Table).not.toHaveBeenCalled()
       expect(Tabs).not.toHaveBeenCalled()
     })
 
@@ -254,6 +261,7 @@ describe('NHS.UK frontend', () => {
       expect(PasswordInput).not.toHaveBeenCalled()
       expect(Radios).not.toHaveBeenCalled()
       expect(SkipLink).not.toHaveBeenCalled()
+      expect(Table).not.toHaveBeenCalled()
       expect(Tabs).not.toHaveBeenCalled()
     })
 
@@ -278,6 +286,7 @@ describe('NHS.UK frontend', () => {
       expect(PasswordInput).not.toHaveBeenCalled()
       expect(Radios).not.toHaveBeenCalled()
       expect(SkipLink).not.toHaveBeenCalled()
+      expect(Table).not.toHaveBeenCalled()
       expect(Tabs).not.toHaveBeenCalled()
     })
   })
