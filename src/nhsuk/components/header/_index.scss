@@ -123,9 +123,15 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
   .nhsuk-header__service {
     display: flex;
 
+    // Always reserve space for service name when inline
     .nhsuk-header__container--inline & {
       flex-basis: nhsuk-px-to-rem(220px);
       flex-grow: 999;
+    }
+
+    // Unless we know there's no service name
+    .nhsuk-header__container--inline &:not(:has(.nhsuk-header__service-name)) {
+      flex-basis: auto;
     }
 
     @include nhsuk-media-query($from: tablet) {
