@@ -114,7 +114,7 @@ const fixtures = {
   },
   'with account inline (logged in)': {
     context: {
-      containerClasses: 'nhsuk-header__container--inline',
+      classes: 'nhsuk-header--inline',
       logo: {
         href: '#'
       },
@@ -158,7 +158,7 @@ const fixtures = {
   },
   'with account inline (logged out)': {
     context: {
-      containerClasses: 'nhsuk-header__container--inline',
+      classes: 'nhsuk-header--inline',
       logo: {
         href: '#'
       },
@@ -485,7 +485,7 @@ const fixtures = {
   },
   'with search inline': {
     context: {
-      containerClasses: 'nhsuk-header__container--inline',
+      classes: 'nhsuk-header--inline',
       search: true
     },
     options: {
@@ -512,7 +512,7 @@ const fixtures = {
   },
   'with service name, account inline (logged in)': {
     context: {
-      containerClasses: 'nhsuk-header__container--inline',
+      classes: 'nhsuk-header--inline',
       service: {
         text: 'Get a self-test kit for HIV',
         href: '#'
@@ -533,7 +533,7 @@ const fixtures = {
   },
   'with service name, account inline (logged out)': {
     context: {
-      containerClasses: 'nhsuk-header__container--inline',
+      classes: 'nhsuk-header--inline',
       service: {
         text: 'Get a self-test kit for HIV',
         href: '#'

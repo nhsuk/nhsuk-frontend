@@ -90,20 +90,20 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
   .nhsuk-header__container {
     padding: nhsuk-spacing(3) 0;
 
+    .nhsuk-header--inline & {
+      display: flex;
+      flex-flow: row wrap;
+      gap: nhsuk-spacing(3);
+
+      @include nhsuk-media-query($from: tablet) {
+        gap: nhsuk-spacing(3) nhsuk-spacing(4);
+      }
+    }
+
     @include nhsuk-media-query($from: tablet) {
       display: flex;
       flex-flow: row wrap;
       gap: nhsuk-spacing(3);
-    }
-  }
-
-  .nhsuk-header__container--inline {
-    display: flex;
-    flex-flow: row wrap;
-    gap: nhsuk-spacing(3);
-
-    @include nhsuk-media-query($from: tablet) {
-      gap: nhsuk-spacing(3) nhsuk-spacing(4);
     }
   }
 
@@ -124,13 +124,13 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     display: flex;
 
     // Always reserve space for service name when inline
-    .nhsuk-header__container--inline & {
+    .nhsuk-header--inline & {
       flex-basis: nhsuk-px-to-rem(220px);
       flex-grow: 999;
     }
 
     // Unless we know there's no service name
-    .nhsuk-header__container--inline &:not(:has(.nhsuk-header__service-name)) {
+    .nhsuk-header--inline &:not(:has(.nhsuk-header__service-name)) {
       flex-basis: auto;
     }
 
@@ -227,7 +227,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
       fill: currentcolor;
     }
 
-    .nhsuk-header__container--inline & {
+    .nhsuk-header--inline & {
       align-self: start;
 
       // Expand header account by 1px to ensure the search
@@ -313,7 +313,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     flex-grow: 1;
     margin-top: nhsuk-spacing(3);
 
-    .nhsuk-header__container--inline & {
+    .nhsuk-header--inline & {
       margin-top: 0;
     }
 
