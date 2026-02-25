@@ -90,6 +90,16 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
   .nhsuk-header__container {
     padding: nhsuk-spacing(3) 0;
 
+    .nhsuk-header--inline & {
+      display: flex;
+      flex-flow: row wrap;
+      gap: nhsuk-spacing(3);
+
+      @include nhsuk-media-query($from: tablet) {
+        gap: nhsuk-spacing(3) nhsuk-spacing(4);
+      }
+    }
+
     @include nhsuk-media-query($from: tablet) {
       display: flex;
       flex-flow: row wrap;
@@ -101,7 +111,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
 
   .nhsuk-header__logo {
     min-width: nhsuk-px-to-rem(100px);
-    height: auto;
+    height: intrinsic;
   }
 
   .nhsuk-header__service,
@@ -112,6 +122,17 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
 
   .nhsuk-header__service {
     display: flex;
+
+    // Always reserve space for service name when inline
+    .nhsuk-header--inline & {
+      flex-basis: nhsuk-px-to-rem(220px);
+      flex-grow: 999;
+    }
+
+    // Unless we know there's no service name
+    .nhsuk-header--inline &:not(:has(.nhsuk-header__service-name)) {
+      flex-basis: auto;
+    }
 
     @include nhsuk-media-query($from: tablet) {
       flex-grow: 999;
@@ -206,6 +227,14 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
       fill: currentcolor;
     }
 
+    .nhsuk-header--inline & {
+      align-self: start;
+
+      // Expand header account by 1px to ensure the search
+      // input does not appear to be taller when inline
+      margin: -1px;
+    }
+
     @include nhsuk-print-hide;
 
     @include nhsuk-media-query($from: tablet) {
@@ -283,6 +312,10 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     z-index: 10;
     flex-grow: 1;
     margin-top: nhsuk-spacing(3);
+
+    .nhsuk-header--inline & {
+      margin-top: 0;
+    }
 
     @include nhsuk-print-hide;
 

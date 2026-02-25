@@ -112,6 +112,31 @@ const fixtures = {
       viewports: ['mobile', 'desktop']
     }
   },
+  'with account inline (logged in)': {
+    context: {
+      classes: 'nhsuk-header--inline',
+      logo: {
+        href: '#'
+      },
+      account: {
+        items: [
+          {
+            href: '#',
+            text: 'Account',
+            icon: true
+          },
+          {
+            action: '#',
+            text: 'Log out'
+          }
+        ]
+      }
+    },
+    options: {
+      width: false
+    },
+    variants
+  },
   'with account (logged out)': {
     context: {
       account: {
@@ -130,6 +155,26 @@ const fixtures = {
     screenshot: {
       viewports: ['mobile', 'desktop']
     }
+  },
+  'with account inline (logged out)': {
+    context: {
+      classes: 'nhsuk-header--inline',
+      logo: {
+        href: '#'
+      },
+      account: {
+        items: [
+          {
+            href: '#',
+            text: 'Log in'
+          }
+        ]
+      }
+    },
+    options: {
+      width: false
+    },
+    variants
   },
   'with navigation': {
     context: {
@@ -438,6 +483,16 @@ const fixtures = {
       viewports: ['desktop']
     }
   },
+  'with search inline': {
+    context: {
+      classes: 'nhsuk-header--inline',
+      search: true
+    },
+    options: {
+      width: false
+    },
+    variants
+  },
   'with service name': {
     context: {
       logo: {
@@ -454,6 +509,48 @@ const fixtures = {
     screenshot: {
       viewports: ['desktop']
     }
+  },
+  'with service name, account inline (logged in)': {
+    context: {
+      classes: 'nhsuk-header--inline',
+      service: {
+        text: 'Get a self-test kit for HIV',
+        href: '#'
+      },
+      account: {
+        items: [
+          {
+            action: '#',
+            text: 'Log out'
+          }
+        ]
+      }
+    },
+    options: {
+      width: false
+    },
+    variants
+  },
+  'with service name, account inline (logged out)': {
+    context: {
+      classes: 'nhsuk-header--inline',
+      service: {
+        text: 'Get a self-test kit for HIV',
+        href: '#'
+      },
+      account: {
+        items: [
+          {
+            action: '#',
+            text: 'Log in'
+          }
+        ]
+      }
+    },
+    options: {
+      width: false
+    },
+    variants
   },
   'with service name (linked)': {
     context: {

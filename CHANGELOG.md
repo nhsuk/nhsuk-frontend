@@ -4,6 +4,14 @@
 
 Note: This release was created from the `support/10.x` branch.
 
+### :new: **New features**
+
+#### Add a modifier class for header inline search or account links
+
+We've added a new `.nhsuk-header--inline` class for the [header](https://service-manual.nhs.uk/design-system/components/header) component. This positions the search bar (or account links) inline with the NHS logo, depending on the length of your service name.
+
+This was added in [pull request #1783: Add support for inline header search or account](https://github.com/nhsuk/nhsuk-frontend/pull/1783).
+
 ### :recycle: **Changes**
 
 #### Hide the character count messages when unnecessary
