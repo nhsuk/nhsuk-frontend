@@ -222,11 +222,11 @@ export class MockConfigurableComponentAnyOf extends ConfigurableComponent {
       },
       {
         required: ['example3'],
-        errorMessage: '"example3" must be provided'
+        errorMessage: '"example3" or "example4" must be provided'
       },
       {
         required: ['example4'],
-        errorMessage: '"example4" must be provided'
+        errorMessage: '"example3" or "example4" must be provided'
       }
     ]
   }
@@ -261,11 +261,11 @@ export class MockConfigurableComponentMixed extends ConfigurableComponent {
     anyOf: [
       {
         required: ['example1'],
-        errorMessage: '"example1" must be provided'
+        errorMessage: '"example1" or "example2" must be provided'
       },
       {
         required: ['example2'],
-        errorMessage: '"example2" must be provided'
+        errorMessage: '"example1" or "example2" must be provided'
       }
     ],
     allOf: [
