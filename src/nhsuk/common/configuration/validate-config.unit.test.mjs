@@ -87,7 +87,6 @@ describe('validateConfig', () => {
         config: {},
         expected: [
           '"example1" and "example2" must be provided',
-          '"example3" or "example4" must be provided',
           '"example3" or "example4" must be provided'
         ]
       },
@@ -97,7 +96,6 @@ describe('validateConfig', () => {
         },
         expected: [
           '"example1" and "example2" must be provided',
-          '"example3" or "example4" must be provided',
           '"example3" or "example4" must be provided'
         ]
       },
@@ -107,7 +105,6 @@ describe('validateConfig', () => {
         },
         expected: [
           '"example1" and "example2" must be provided',
-          '"example3" or "example4" must be provided',
           '"example3" or "example4" must be provided'
         ]
       },
@@ -155,7 +152,6 @@ describe('validateConfig', () => {
         config: {},
         expected: [
           '"example1" or "example2" must be provided',
-          '"example1" or "example2" must be provided',
           '"example3" must be provided',
           '"example4" must be provided'
         ]
@@ -178,7 +174,6 @@ describe('validateConfig', () => {
         },
         expected: [
           '"example1" or "example2" must be provided',
-          '"example1" or "example2" must be provided',
           '"example4" must be provided'
         ]
       },
@@ -188,7 +183,6 @@ describe('validateConfig', () => {
         },
         expected: [
           '"example1" or "example2" must be provided',
-          '"example1" or "example2" must be provided',
           '"example3" must be provided'
         ]
       },
@@ -197,10 +191,7 @@ describe('validateConfig', () => {
           example3: 100,
           example4: true
         },
-        expected: [
-          '"example1" or "example2" must be provided',
-          '"example1" or "example2" must be provided'
-        ]
+        expected: ['"example1" or "example2" must be provided']
       },
       {
         config: {
