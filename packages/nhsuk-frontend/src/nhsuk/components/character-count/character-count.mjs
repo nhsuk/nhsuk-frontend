@@ -1,11 +1,7 @@
 import { closestAttributeValue } from '../../common/closest-attribute-value.mjs'
-import {
-  normaliseOptions,
-  validateConfig
-} from '../../common/configuration/index.mjs'
-import { formatErrorMessage } from '../../common/index.mjs'
+import { normaliseOptions } from '../../common/configuration/index.mjs'
 import { ConfigurableComponent } from '../../configurable-component.mjs'
-import { ConfigError, ElementError } from '../../errors/index.mjs'
+import { ElementError } from '../../errors/index.mjs'
 import { I18n } from '../../i18n.mjs'
 
 /**
@@ -52,12 +48,6 @@ export class CharacterCount extends ConfigurableComponent {
         expectedType: 'HTMLTextareaElement or HTMLInputElement',
         identifier: 'Form field (`.nhsuk-js-character-count`)'
       })
-    }
-
-    // Check for valid config
-    const errors = validateConfig(CharacterCount.schema, this.config)
-    if (errors[0]) {
-      throw new ConfigError(formatErrorMessage(CharacterCount, errors[0]))
     }
 
     const {

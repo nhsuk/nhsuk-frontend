@@ -12,11 +12,11 @@
  * @returns {string[]} List of validation errors
  */
 export function validateConfig(schema, config) {
-  const validationErrors = []
+  const validationErrors = /** @type {string[]} */ ([])
 
   // Check errors for each schema
   for (const [name, conditions] of Object.entries(schema)) {
-    const errors = []
+    const errors = /** @type {string[]} */ ([])
 
     // Check errors for each schema condition
     if (Array.isArray(conditions)) {
@@ -26,9 +26,23 @@ export function validateConfig(schema, config) {
         }
       }
 
+      // Check all conditions pass or add errors
+      if (name === 'allOf' && errors.length) {
+        validationErrors.push(...errors)
+        for (const error of errors) {
+          if (!validationErrors.includes(error)) {
+            validationErrors.push(error)
+          }
+        }
+      }
+
       // Check one condition passes or add errors
       if (name === 'anyOf' && !(conditions.length - errors.length >= 1)) {
-        validationErrors.push(...errors)
+        for (const error of errors) {
+          if (!validationErrors.includes(error)) {
+            validationErrors.push(error)
+          }
+        }
       }
     }
   }
