@@ -5,7 +5,14 @@
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-search-input" -%}
 {%- set classNamesInput = "nhsuk-search-input__input" -%}
-{%- set classNamesButton = "nhsuk-button--icon nhsuk-button--small nhsuk-search-input__button" -%}
+{%- set classNamesButton = "nhsuk-search-input__button" -%}
+
+{%- if params.large %}
+  {% set classNames = "nhsuk-search-input--large " ~ classNames %}
+  {% set classNamesButton = "nhsuk-button--icon " ~ classNamesButton %}
+{% else %}
+  {% set classNamesButton = "nhsuk-button--icon nhsuk-button--small " ~ classNamesButton %}
+{% endif %}
 
 {%- if params.formGroup.classes %}
   {% set classNames = classNames ~ " " ~ params.formGroup.classes %}
