@@ -216,6 +216,10 @@ $button-shadow-size: $nhsuk-button-shadow-size;
     padding-top: 0;
     padding-bottom: 0;
 
+    // Prevent users from selecting icon button text
+    // e.g. When double clicking a stepper button
+    user-select: none;
+
     .nhsuk-icon {
       margin: 0 nhsuk-spacing(1);
 
