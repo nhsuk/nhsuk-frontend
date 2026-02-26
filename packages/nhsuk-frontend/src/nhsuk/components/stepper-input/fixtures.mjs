@@ -82,7 +82,9 @@ const fixtures = {
         text: 'Increase'
       },
       id: 'with-button-text',
-      name: 'example'
+      name: 'example',
+      min: 0,
+      value: 2
     }
   },
   'without page heading': {
