@@ -220,9 +220,10 @@ $sortable-table-hover-colour: color.adjust(nhsuk-colour("grey-5"), $lightness: -
     padding-left: $nhsuk-border-width-form-element;
   }
 
-  // This expands the button to fill the whole
+  // This expands the button or link to fill the whole
   // table header element, for a bigger click area
-  th[aria-sort] button::before {
+  th[aria-sort] button::before,
+  th[aria-sort] a::before {
     content: "";
 
     position: absolute;
@@ -235,7 +236,9 @@ $sortable-table-hover-colour: color.adjust(nhsuk-colour("grey-5"), $lightness: -
   // This adds a blue border at the bottom off
   // the currently-sorted header cell
   th[aria-sort="descending"] button::after,
-  th[aria-sort="ascending"] button::after {
+  th[aria-sort="ascending"] button::after,
+  th[aria-sort="descending"] a::after,
+  th[aria-sort="ascending"] a::after {
     content: "";
 
     position: absolute;
@@ -252,7 +255,8 @@ $sortable-table-hover-colour: color.adjust(nhsuk-colour("grey-5"), $lightness: -
     background-color: $sortable-table-hover-colour;
   }
 
-  [aria-sort] button {
+  [aria-sort] button,
+  [aria-sort] a {
     display: inline-flex;
 
     align-items: center;
@@ -277,19 +281,23 @@ $sortable-table-hover-colour: color.adjust(nhsuk-colour("grey-5"), $lightness: -
     cursor: pointer;
 
     @include nhsuk-link-style-default;
+    @include nhsuk-link-style-no-visited-state;
+
 
     &:focus {
       @include nhsuk-focused-button;
     }
   }
 
-  [aria-sort].nhsuk-table__header--numeric button {
+  [aria-sort].nhsuk-table__header--numeric button,
+  [aria-sort].nhsuk-table__header--numeric a {
     justify-content: end;
     padding-right: $nhsuk-border-width-form-element;
     padding-left: 0;
   }
 
-  [aria-sort] button svg {
+  [aria-sort] button svg,
+  [aria-sort] a svg {
     flex-shrink: 0;
     width: auto;
     height: 1.25rem;
