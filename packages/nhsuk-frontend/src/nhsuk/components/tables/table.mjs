@@ -57,8 +57,12 @@ export class Table extends ConfigurableComponent {
 
     this.$headings = Array.from(this.$head.querySelectorAll('th'))
 
+    // Count headings which have an aria-sort attribute but which
+    // do not already have a link inside them (for server-side
+    // sorting)
     const sortableHeadingsCount = this.$headings.filter((heading) =>
-      heading.getAttribute('aria-sort')
+      heading.getAttribute('aria-sort') &&
+      !heading.querySelector('a')
     ).length
 
     if (sortableHeadingsCount > 0) {
