@@ -400,6 +400,87 @@ const fixtures = {
       ]
     }
   },
+  'with names and times, sortable server-side': {
+    context: {
+      caption: 'Appointments',
+      head: [
+        {
+          text: "Time",
+          href: "#",
+          attributes: {
+            'aria-sort': 'ascending'
+          }
+        },
+        {
+          href: "#",
+          text: "Name",
+          attributes: {
+            'aria-sort': 'none'
+          }
+        },
+        {
+          text: 'Date of birth'
+        }
+      ],
+      rows: [
+        [
+          {
+            text: '11:00'
+          },
+          {
+            text: 'Laura Stone'
+          },
+          {
+            text: '4 January 1986'
+          }
+        ],
+        [
+          {
+            text: '11:30'
+          },
+          {
+            text: 'Emma Katie-Brown'
+          },
+          {
+            text: '7 February 1976'
+          }
+        ],
+        [
+          {
+            text: '13:10'
+          },
+          {
+            text: 'David Chen'
+          },
+          {
+            text: '19 March 1981'
+          }
+        ],
+        [
+          {
+            text: '13:40'
+          },
+          {
+            text: 'Michael Thompson'
+          },
+          {
+            text: '6 December 1964'
+          }
+        ],
+        [
+          {
+            text: '14:20'
+          },
+          {
+            text: 'Juan Martinez'
+          },
+          {
+            text: '18 April 1975'
+          }
+        ]
+      ]
+    }
+  },
   'with responsive layout': {
     context: {
       caption: 'Ibuprofen syrup dosages for children',
