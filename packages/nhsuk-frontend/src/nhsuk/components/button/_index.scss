@@ -250,11 +250,11 @@ $button-shadow-size: $nhsuk-button-shadow-size;
     }
 
     &:has(.nhsuk-icon:first-child) {
-      padding-left: nhsuk-spacing(3) - $nhsuk-border-width-form-element;
+      padding-left: nhsuk-spacing(2) + nhsuk-spacing(1) - $nhsuk-border-width-form-element;
     }
 
     &:has(.nhsuk-icon:last-child) {
-      padding-right: nhsuk-spacing(3) - $nhsuk-border-width-form-element;
+      padding-right: nhsuk-spacing(2) + nhsuk-spacing(1) - $nhsuk-border-width-form-element;
     }
 
     &.nhsuk-button--small {

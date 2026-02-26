@@ -1,0 +1,85 @@
+{% from "nhsuk/components/button/macro.njk" import button -%}
+{% from "nhsuk/components/input/macro.njk" import input -%}
+{% from "nhsuk/macros/icon.njk" import nhsukIcon %}
+
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-search-input" -%}
+{%- set classNamesInput = "nhsuk-search-input__input" -%}
+{%- set classNamesButton = "nhsuk-search-input__button" -%}
+
+{%- if params.large %}
+  {% set classNames = "nhsuk-search-input--large " ~ classNames %}
+  {% set classNamesButton = "nhsuk-button--icon " ~ classNamesButton %}
+{% else %}
+  {% set classNamesButton = "nhsuk-button--icon nhsuk-button--small " ~ classNamesButton %}
+{% endif %}
+
+{%- if params.formGroup.classes %}
+  {% set classNames = classNames ~ " " ~ params.formGroup.classes %}
+{% endif %}
+
+{%- if params.classes %}
+  {% set classNamesInput = classNamesInput ~ " " ~ params.classes %}
+{% endif %}
+
+{%- if params.button.classes %}
+  {% set classNamesButton = classNamesButton ~ " " ~ params.button.classes %}
+{% endif %}
+
+{%- set id = params.id if params.id else params.name -%}
+
+{%- set hasButtonText = true if params.button and (params.button.text or params.button.html) else false %}
+
+{%- set buttonHtml %}
+{{ nhsukIcon("search") | trim }}
+{% if params.button.html or params.button.text %}
+  <span>{{- params.button.html | safe | trim if params.button.html else params.button.text -}}</span>
+{% endif -%}
+{% endset -%}
+
+{%- set afterInputHtml %}
+{% if params.button not in ["", null, false] %}
+{{ button({
+  html: buttonHtml | trim | indent(2),
+  classes: classNamesButton,
+  attributes: {
+    "aria-label": {
+      value: params.button.visuallyHiddenText | default("Search", true)
+        if not hasButtonText
+        else false,
+      optional: true
+    }
+  }
+}) | trim }}
+{% endif %}
+{% if params.formGroup.afterInput %}
+  {{- params.formGroup.afterInput.html | safe | trim if params.formGroup.afterInput.html else params.formGroup.afterInput.text }}
+{% endif -%}
+{% endset -%}
+
+{{ input({
+  formGroup: {
+    classes: classNames,
+    attributes: params.formGroup.attributes,
+    beforeInput: params.formGroup.beforeInput,
+    afterInput: {
+      html: afterInputHtml
+    }
+  },
+  label: params.label,
+  hint: params.hint,
+  classes: classNamesInput,
+  errorMessage: params.errorMessage,
+  id: id,
+  name: params.name,
+  type: "search",
+  inputmode: params.inputmode,
+  spellcheck: false,
+  autocapitalize: params.autocapitalize if params.autocapitalize else "none",
+  autocomplete: params.autocomplete if params.autocomplete else "off",
+  placeholder: params.placeholder,
+  value: params.value,
+  disabled: params.disabled,
+  describedBy: params.describedBy,
+  attributes: params.attributes
+}) | trim }}

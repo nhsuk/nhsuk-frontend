@@ -39,6 +39,10 @@
     @include nhsuk-typography-weight-bold;
   }
 
+  .nhsuk-label--reverse {
+    color: $nhsuk-reverse-text-colour;
+  }
+
   // When the label is nested inside a heading, override the heading so that it
   // does not have a margin. Effectively we want to be able to treat the heading
   // as if it is not there.

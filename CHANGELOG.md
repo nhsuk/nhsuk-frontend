@@ -34,6 +34,29 @@ We've added a new `small` Nunjucks option to buttons, checkboxes and radios as a
 
 This was added in [pull request #1801: Add button, checkboxes and radios small option](https://github.com/nhsuk/nhsuk-frontend/pull/1801).
 
+#### New search input component
+
+We've added a new [search input component](https://service-manual.nhs.uk/design-system/components/search-input).
+
+To use the `searchInput` Nunjucks macro in your service:
+
+```njk
+{{ searchInput({
+  label: {
+    text: "Search patients by NHS number",
+    classes: "nhsuk-u-visually-hidden"
+  },
+  placeholder: "NHS number",
+  name: "example",
+  classes: "nhsuk-input--width-10",
+  inputmode: "numeric"
+}) }}
+```
+
+If you are not using Nunjucks macros, use the HTML markup from the [search input examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/search-input)
+
+This change was introduced in [pull request #1660: Add search input component](https://github.com/nhsuk/nhsuk-frontend/pull/1660)
+
 #### Add a modifier class for header inline search or account links
 
 We've added a new `.nhsuk-header--inline` class for the [header](https://service-manual.nhs.uk/design-system/components/header) component. This positions the search bar (or account links) inline with the NHS logo, depending on the length of your service name.
