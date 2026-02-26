@@ -113,9 +113,10 @@
           formGroup: {
             afterInput: {
               html: button({
-                html: nhsukIcon("search", {
-                  title: searchVisuallyHiddenButton
-                }) | trim | indent(2),
+                html: nhsukIcon("search") | trim | indent(2),
+                attributes: {
+                  "aria-label": searchVisuallyHiddenButton
+                },
                 small: true
               })
             }
