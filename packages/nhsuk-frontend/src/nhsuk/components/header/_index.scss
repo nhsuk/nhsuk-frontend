@@ -324,32 +324,21 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     }
 
     .nhsuk-icon--search {
-      width: nhsuk-px-to-rem(28px);
-      height: nhsuk-px-to-rem(28px);
+      // Move icon up slightly due to lack of button shadow
+      margin-top: math.div($nhsuk-button-shadow-size, -2);
     }
   }
 
   .nhsuk-header__search-form {
-    display: flex;
-    height: 100%;
-    overflow: visible;
-
     .nhsuk-form-group {
       width: 100%;
       margin: 0;
     }
-
-    .nhsuk-input-wrapper {
-      display: flex;
-    }
   }
 
   // Disable default search input appearance
-  .nhsuk-header__search-form .nhsuk-input,
-  // Deprecated, to be removed in v11.0
-  .nhsuk-header__search-input {
+  .nhsuk-header__search-form .nhsuk-input {
     width: 100%;
-    height: nhsuk-px-to-rem(40px);
     padding-right: $_header-item-padding - $nhsuk-border-width-form-element;
     padding-left: $_header-item-padding - $nhsuk-border-width-form-element;
 
@@ -365,15 +354,8 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
       border-color: $nhsuk-focus-text-colour;
     }
 
-    // Hide search input clear button (IE)
-    &::-ms-clear {
-      display: none;
-    }
-
-    // Hide search input icon and cancel button (WebKit, Blink)
-    &::-webkit-search-decoration,
     &::-webkit-search-cancel-button {
-      appearance: none;
+      display: none;
     }
 
     @include nhsuk-media-query($until: tablet) {
@@ -381,30 +363,18 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     }
   }
 
-  .nhsuk-header__search-form .nhsuk-button,
-  // Deprecated, to be removed in v11.0
-  .nhsuk-header__search-submit {
-    flex-shrink: 0;
-
+  .nhsuk-header__search-form .nhsuk-button {
     width: nhsuk-px-to-rem(44px);
     height: nhsuk-px-to-rem(40px);
 
     // stylelint-disable-next-line declaration-no-important
     margin: 0 !important;
 
-    // Reduce padding to better fit icon
-    padding: 0 nhsuk-spacing(2) - 1px;
-
     border: 1px solid transparent;
-    border-radius: 0 nhsuk-px-to-rem($nhsuk-border-radius) nhsuk-px-to-rem($nhsuk-border-radius) 0;
 
     color: $nhsuk-brand-colour;
     background-color: $nhsuk-header-item-button-colour;
     box-shadow: none;
-
-    line-height: 1;
-
-    cursor: pointer;
 
     &:hover,
     &:active {
@@ -415,23 +385,6 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
 
     &:active {
       background-color: $nhsuk-header-item-active-colour;
-    }
-
-    // Prevent height change when pressed
-    &:active,
-    &:active:focus {
-      top: 0;
-    }
-
-    &:focus {
-      outline: none;
-    }
-
-    &:focus:not(:active),
-    &:focus:not(:active):hover {
-      border-color: transparent;
-
-      @include nhsuk-focused-button;
     }
   }
 
@@ -723,9 +676,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
       outline-color: $nhsuk-border-colour;
     }
 
-    .nhsuk-header__search-form .nhsuk-input:not(:focus),
-    // Deprecated, to be removed in v11.0
-    .nhsuk-header__search-input:not(:focus) {
+    .nhsuk-header__search-form .nhsuk-input:not(:focus) {
       margin-right: -1px;
       padding-right: $_header-item-padding;
       padding-left: $_header-item-padding - 1px;
@@ -733,9 +684,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
       border-color: $nhsuk-border-hover-colour;
     }
 
-    .nhsuk-header__search-form .nhsuk-button,
-    // Deprecated, to be removed in v11.0
-    .nhsuk-header__search-submit {
+    .nhsuk-header__search-form .nhsuk-button {
       color: $nhsuk-reverse-text-colour;
       background-color: $nhsuk-header-item-colour;
 
