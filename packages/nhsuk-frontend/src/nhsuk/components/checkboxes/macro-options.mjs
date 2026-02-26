@@ -234,6 +234,11 @@ const options = {
     description:
       'Array of values for checkboxes which should be checked when the page loads. Use this as an alternative to setting the `checked` option on each individual item.'
   },
+  small: {
+    type: 'boolean',
+    required: false,
+    description: 'If set to `true`, small checkboxes will be used.'
+  },
   classes: {
     type: 'string',
     required: false,

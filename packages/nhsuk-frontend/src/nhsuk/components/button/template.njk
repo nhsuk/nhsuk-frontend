@@ -3,6 +3,10 @@
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-button" -%}
 
+{%- if params.small and (not params.classes or not "nhsuk-button--small" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-button--small" %}
+{% endif %}
+
 {%- if params.classes %}
   {% set classNames = classNames ~ " " ~ params.classes %}
 {% endif %}
