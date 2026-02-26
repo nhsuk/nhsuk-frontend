@@ -1,5 +1,6 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/components/card/macro.njk" import card %}
+{% from "nhsuk/macros/icon.njk" import nhsukIcon %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-table" if not params.responsive else "nhsuk-table-responsive" -%}
@@ -49,7 +50,19 @@
         {%- if item.rowspan %} rowspan="{{ item.rowspan }}"{% endif %}
         {%- if params.responsive %} role="columnheader"{% endif %}
         {{- nhsukAttributes(item.attributes) }}>
-        {{ item.html | safe | trim | indent(8) if item.html else item.text }}
+        {% if item.href %}
+          <a href="{{ item.href }}">{{ item.html | safe | trim | indent(8) if item.html else item.text }}
+            {% if item.attributes['aria-sort'] == 'ascending' %}
+              {{ nhsukIcon("sort-up") }}
+            {% elif item.attributes['aria-sort'] == 'descending' %}
+              {{ nhsukIcon("sort-down") }}
+            {% elif item.attributes['aria-sort'] == 'none' %}
+              {{ nhsukIcon("sort-up-down") }}
+            {% endif %}
+          </a>
+        {% else %}
+          {{ item.html | safe | trim | indent(8) if item.html else item.text }}
+        {% endif %}
       </th>
       {% endif %}
     {% endfor %}
