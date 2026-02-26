@@ -68,6 +68,12 @@ const options = {
         description:
           'If `text` is set, this is not required. HTML for table head cells. If `html` is provided, the `text` argument will be ignored.'
       },
+      href: {
+        type: 'string',
+        required: false,
+        description:
+          'If set, this adds a link within the header cell. This can be in conjunction with setting aria-sort for server-side table sorting.'
+      },
       format: {
         type: 'string',
         required: false,
