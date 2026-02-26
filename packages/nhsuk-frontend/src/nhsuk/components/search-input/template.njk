@@ -38,6 +38,7 @@
 {% endset -%}
 
 {%- set afterInputHtml %}
+{% if params.button not in ["", null, false] %}
 {{ button({
   html: buttonHtml | trim | indent(2),
   classes: classNamesButton,
@@ -50,6 +51,7 @@
     }
   }
 }) | trim }}
+{% endif %}
 {% if params.formGroup.afterInput %}
   {{- params.formGroup.afterInput.html | safe | trim if params.formGroup.afterInput.html else params.formGroup.afterInput.text }}
 {% endif -%}

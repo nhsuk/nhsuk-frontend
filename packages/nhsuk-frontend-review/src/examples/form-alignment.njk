@@ -67,6 +67,21 @@
               text: "Search"
             }
           }) }}
+
+          {{ searchInput({
+            label: {
+              text: "Search patients by NHS number",
+              classes: "nhsuk-u-visually-hidden"
+            },
+            placeholder: "NHS number",
+            name: "example-search-3",
+            id: "example-search-3",
+            classes: "nhsuk-u-width-full",
+            formGroup: {
+              classes: "nhsuk-u-width-one-half"
+            },
+            button: false
+          }) }}
         {% endcall %}
       </form>
 

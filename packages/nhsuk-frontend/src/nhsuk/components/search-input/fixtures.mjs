@@ -111,6 +111,19 @@ const fixtures = {
     options: {
       layout: 'background-grey'
     }
+  },
+  'without button': {
+    context: {
+      label: {
+        text: 'Search patients by NHS number',
+        classes: 'nhsuk-u-visually-hidden'
+      },
+      button: false,
+      placeholder: 'NHS number',
+      name: 'example',
+      classes: 'nhsuk-input--width-10',
+      inputmode: 'numeric'
+    }
   }
 }
 
