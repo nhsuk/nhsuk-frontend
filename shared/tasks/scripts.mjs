@@ -55,7 +55,7 @@ export function compile(
         babel({
           babelHelpers: 'bundled',
           plugins:
-            NODE_ENV === 'development'
+            NODE_ENV === 'test'
               ? ['istanbul'] // Add code coverage instrumentation
               : undefined
         }),
