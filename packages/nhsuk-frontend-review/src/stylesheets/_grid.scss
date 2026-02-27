@@ -1,0 +1,7 @@
+@use "vendor/nhsuk-frontend/base" as *;
+
+.app-grid-column-one-half-at-tablet {
+  @include nhsuk-media-query($until: desktop) {
+    @include nhsuk-grid-column(one-half, $at: tablet);
+  }
+}

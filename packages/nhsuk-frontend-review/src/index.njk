@@ -6,21 +6,21 @@
 
 {% block content %}
   <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-two-thirds-from-desktop">
+    <div class="nhsuk-grid-column-two-thirds">
       <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-4">{{ serviceName }}</h1>
       <p class="nhsuk-body nhsuk-u-margin-bottom-8">Deployed automatically from <a href="https://github.com/nhsuk/nhsuk-frontend/commits/{{ branchName }}" rel="noreferrer noopener" target="_blank"><code>{{ branchName }}</code> branch (opens in new tab).</a></p>
     </div>
   </div>
 
   <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-one-third-from-desktop">
+    <div class="nhsuk-grid-column-one-third">
       <h2 class="nhsuk-heading-l" id="components">Components</h2>
       <h3 class="nhsuk-heading-m">All components</h3>
 
       <div class="nhsuk-grid-row nhsuk-u-margin-bottom-8">
 
         {% for componentsColumn in components | selectattr("fixtures") | slice(2) %}
-        <div class="nhsuk-grid-column-one-half nhsuk-grid-column-full-from-desktop">
+        <div class="app-grid-column-one-half-at-tablet nhsuk-grid-column-full">
           <ul class="nhsuk-list nhsuk-u-margin-bottom-2">
           {% for data in componentsColumn %}
             <li><a href="components/{{ data.component }}/">{{ data.name }}</a></li>
@@ -32,7 +32,7 @@
       </div>
     </div>
 
-    <div class="nhsuk-grid-column-two-thirds-from-desktop">
+    <div class="nhsuk-grid-column-two-thirds">
       <h2 class="nhsuk-heading-l" id="examples">Examples</h2>
 
       <div class="nhsuk-grid-row">
@@ -88,7 +88,7 @@
   </div>
 
   <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-two-thirds-from-desktop">
+    <div class="nhsuk-grid-column-two-thirds">
       <hr class="nhsuk-section-break nhsuk-section-break--xl nhsuk-section-break--visible">
 
       <h2 class="nhsuk-heading-l">Documentation</h2>
