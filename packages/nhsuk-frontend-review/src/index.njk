@@ -14,9 +14,11 @@
 
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-one-third-from-desktop">
-      <h2 id="components" class="nhsuk-heading-l">Components</h2>
+      <h2 class="nhsuk-heading-l" id="components">Components</h2>
+      <h3 class="nhsuk-heading-m">All components</h3>
 
       <div class="nhsuk-grid-row nhsuk-u-margin-bottom-8">
+
         {% for componentsColumn in components | selectattr("fixtures") | slice(2) %}
         <div class="nhsuk-grid-column-one-half nhsuk-grid-column-full-from-desktop">
           <ul class="nhsuk-list nhsuk-u-margin-bottom-2">
@@ -26,37 +28,63 @@
           </ul>
         </div>
         {% endfor %}
+
       </div>
     </div>
 
-    <div class="nhsuk-grid-column-one-third-from-desktop">
-      <h2 id="examples" class="nhsuk-heading-l">Examples</h2>
+    <div class="nhsuk-grid-column-two-thirds-from-desktop">
+      <h2 class="nhsuk-heading-l" id="examples">Examples</h2>
 
-      <ul class="nhsuk-list">
-        <li><a href="examples/all-buttons/">All button examples</a></li>
-        <li><a href="examples/all-icons/">All icon examples</a></li>
-        <li><a href="examples/all-links/">All link examples</a></li>
-        <li><a href="examples/all-tags/">All tag examples</a></li>
-        <li><a href="examples/button-group/">Button group</a></li>
-        <li><a href="examples/card-group/">Card group</a></li>
-        <li><a href="examples/components/">Components</a></li>
-        <li><a href="examples/components/dynamic-type/">Components (dynamic type)</a></li>
-        <li><a href="examples/components/in-details/">Components in details</a></li>
-        <li><a href="examples/components/inset/">Components with inset spacing</a></li>
-        <li><a href="examples/conditional-reveals/">Conditional reveals</a></li>
-        <li><a href="examples/error-summary/">Error summary</a></li>
-        <li><a href="examples/expander-group/">Expander group</a></li>
-        <li><a href="examples/expander-alongside-card/">Expander alongside card</a></li>
-        <li><a href="examples/form-alignment/">Form elements alignment</a></li>
-        <li><a href="examples/form-controls-states/">Form controls states</a></li>
-        <li><a href="examples/grid/">Grid layout</a></li>
-        <li><a href="examples/multiple-radio-groups/">Multiple radio groups</a></li>
-        <li><a href="examples/small-form-controls/">Small form controls</a></li>
-        <li><a href="examples/task-list-multiple-sections/">Task list with multiple sections</a></li>
-        <li><a href="examples/translated/">Translated examples</a></li>
-        <li><a href="examples/typography/">Typography and spacing</a></li>
-        <li><a href="examples/update-your-account-details/">Update your account details</a></li>
-      </ul>
+      <div class="nhsuk-grid-row">
+
+        <div class="nhsuk-grid-column-one-half">
+          <h3 class="nhsuk-heading-m">Full pages</h3>
+
+          <ul class="nhsuk-list">
+            <li><a href="examples/full-page/update-your-account-details/">Update your account details</a></li>
+          </ul>
+
+          <h3 class="nhsuk-heading-m">Variants</h3>
+
+          <ul class="nhsuk-list">
+            <li><a href="examples/all-buttons/">All button examples</a></li>
+            <li><a href="examples/all-icons/">All icon examples</a></li>
+            <li><a href="examples/all-links/">All link examples</a></li>
+            <li><a href="examples/all-tags/">All tag examples</a></li>
+          </ul>
+
+          <h3 class="nhsuk-heading-m">Groups</h3>
+
+          <ul class="nhsuk-list">
+            <li><a href="examples/button-group/">Button group</a></li>
+            <li><a href="examples/card-group/">Card group</a></li>
+            <li><a href="examples/expander-group/">Expander group</a></li>
+            <li><a href="examples/multiple-radio-groups/">Multiple radio groups</a></li>
+          </ul>
+        </div>
+
+        <div class="nhsuk-grid-column-one-half">
+          <h3 class="nhsuk-heading-m">Other examples</h3>
+
+          <ul class="nhsuk-list">
+            <li><a href="examples/components/">Components</a></li>
+            <li><a href="examples/components/dynamic-type/">Components (dynamic type)</a></li>
+            <li><a href="examples/components/in-details/">Components in details</a></li>
+            <li><a href="examples/components/inset/">Components with inset spacing</a></li>
+            <li><a href="examples/conditional-reveals/">Conditional reveals</a></li>
+            <li><a href="examples/error-summary/">Error summary</a></li>
+            <li><a href="examples/expander-alongside-card/">Expander alongside card</a></li>
+            <li><a href="examples/form-alignment/">Form elements alignment</a></li>
+            <li><a href="examples/form-controls-states/">Form controls states</a></li>
+            <li><a href="examples/grid/">Grid layout</a></li>
+            <li><a href="examples/small-form-controls/">Small form controls</a></li>
+            <li><a href="examples/task-list-multiple-sections/">Task list with multiple sections</a></li>
+            <li><a href="examples/translated/">Translated examples</a></li>
+            <li><a href="examples/typography/">Typography and spacing</a></li>
+          </ul>
+        </div>
+
+      </div>
     </div>
   </div>
 
