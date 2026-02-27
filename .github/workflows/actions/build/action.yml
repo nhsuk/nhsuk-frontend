@@ -7,7 +7,7 @@ inputs:
     required: false
 
   environment:
-    description: NODE_ENV build environment, e.g. development
+    description: NODE_ENV build environment, e.g. test
     required: false
 
 outputs:
@@ -35,7 +35,7 @@ runs:
       uses: actions/cache/restore@v5
       id: cache-build
       with:
-        key: build-${{ inputs.ref || github.sha }}
+        key: build-${{ inputs.environment || 'production' }}-${{ inputs.ref || github.sha }}
         path: packages/*/dist/
 
     - name: Build
