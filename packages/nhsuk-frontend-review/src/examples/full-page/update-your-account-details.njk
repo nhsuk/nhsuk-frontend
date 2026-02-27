@@ -1,27 +1,55 @@
-{% extends "layouts/example.njk" %}
+{% extends "layouts/page.njk" %}
 
 {% set pageName = "Update your account details" %}
-{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block header %}
+  {{ header({
+    service: {
+      href: baseUrl,
+      text: "Manage patients"
+    },
+    account: {
+      items: [
+        {
+          href: "#",
+          text: "Florence Nightingale",
+          icon: true
+        },
+        {
+          action: "#",
+          text: "Log out"
+        }
+      ]
+    },
+    navigation: {
+      items: [
+        {
+          href: baseUrl,
+          text: "Home"
+        },
+        {
+          href: "#",
+          text: "Create user"
+        },
+        {
+          href: "#",
+          text: "Find user"
+        }
+      ]
+    }
+  }) }}
+{% endblock %}
 
 {% block beforeContent %}
-  {{ breadcrumb({
-    items: [
-      {
-        text: "NHS.UK frontend",
-        href: baseUrl
-      },
-      {
-        text: "Examples",
-        href: baseUrl ~ "#examples"
-      }
-    ]
+  {{ backLink({
+    href: baseUrl
   }) }}
 {% endblock %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-heading-xl">{{ pageName }}</h1>
+      <h1 class="nhsuk-heading-l">{{ pageName }}</h1>
 
       <form method="post" novalidate>
 
@@ -81,4 +109,33 @@
       </form>
     </div>
   </div>
+{% endblock %}
+
+{% block footer %}
+  {{ footer({
+    meta: {
+      items: [
+        {
+          href: "#",
+          text: "Accessibility statement"
+        },
+        {
+          href: "#",
+          text: "Contact us"
+        },
+        {
+          href: "#",
+          text: "Cookies"
+        },
+        {
+          href: "#",
+          text: "Privacy policy"
+        },
+        {
+          href: "#",
+          text: "Terms and conditions"
+        }
+      ]
+    }
+  }) }}
 {% endblock %}
