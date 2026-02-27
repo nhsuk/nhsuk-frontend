@@ -89,7 +89,7 @@ describe('Password input', () => {
 
     describe('when the form is submitted', () => {
       it('reverts the input back to password type', async () => {
-        await goToExample(page, 'update-your-account-details')
+        await goToExample(page, 'full-page/update-your-account-details')
 
         // Prevent form submissions so that we don't navigate away during the test
         await page.evaluate(() => {
