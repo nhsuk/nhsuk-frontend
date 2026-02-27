@@ -44,7 +44,7 @@
     "lint:css:fix": "npm run lint:css -- --fix",
     "lint:types": "tsc --build tsconfig.json --pretty",
     "publish": "./bin/publish-preview.sh",
-    "pretest": "npm run lint && npm run build",
+    "pretest": "NODE_ENV=test npm run lint && npm run build",
     "test": "npm run test:js",
     "test:js": "jest --color",
     "pretest:visual": "npm run install:playwright && npm run build",

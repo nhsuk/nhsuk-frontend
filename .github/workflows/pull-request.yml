@@ -41,10 +41,13 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Install and build
+      - name: Install and build with code coverage
         uses: ./.github/workflows/actions/build
         with:
-          environment: development
+          environment: test
+
+      - name: Install and build
+        uses: ./.github/workflows/actions/build
 
   linting:
     name: ${{ matrix.task.description }}
@@ -149,11 +152,11 @@ jobs:
           key: npm-install-${{ hashFiles('package-lock.json') }}
           path: node_modules
 
-      - name: Restore build (from cache)
+      - name: Restore build with code coverage (from cache)
         uses: actions/cache/restore@v5
         with:
           fail-on-cache-miss: true
-          key: build-${{ github.sha }}
+          key: build-test-${{ github.sha }}
           path: packages/*/dist/
 
       - name: Cache task
@@ -215,7 +218,7 @@ jobs:
         uses: actions/cache/restore@v5
         with:
           fail-on-cache-miss: true
-          key: build-${{ github.sha }}
+          key: build-production-${{ github.sha }}
           path: packages/*/dist/
 
       - name: Setup Node
