@@ -1,6 +1,17 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/components/card/macro.njk" import card %}
 
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-summary-list" -%}
+
+{%- if params.border === false and (not params.classes or not "nhsuk-summary-list--no-border" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-summary-list--no-border" %}
+{% endif %}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif %}
+
 {%- macro _link(action, cardHeading) %}
   <a class="nhsuk-link {%- if action.classes %} {{ action.classes }}{% endif %}" href="{{ action.href }}"
     {{- nhsukAttributes(action.attributes) }}>
@@ -14,18 +25,22 @@
   </a>
 {% endmacro -%}
 
+{%- set rows = params.rows | select("mapping") if params.rows | length else [] %}
+
 {#- Determine if we need 2 or 3 columns #}
 {%- set anyRowHasActions = false %}
-{% for row in params.rows %}
+{% for row in rows %}
   {% set anyRowHasActions = true if row.actions.items | length else anyRowHasActions %}
 {% endfor -%}
 
 {%- set summaryList %}
-<dl {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-summary-list {%- if params.classes %} {{ params.classes }}{% endif %}" {{- nhsukAttributes(params.attributes) }}>
-{% for row in params.rows %}
-  {% if row %}
+<dl {%- if params.id %} id="{{ params.id }}"{% endif %} class="{{ classNames }}" {{- nhsukAttributes(params.attributes) }}>
+{% for row in rows %}
   {%- set actionsItems = row.actions.items | select("mapping") if row.actions.items | length else [] %}
-  <div class="nhsuk-summary-list__row {%- if anyRowHasActions and not actionsItems | length %} nhsuk-summary-list__row--no-actions{% endif %} {%- if row.classes %} {{ row.classes }}{% endif %}">
+  <div class="nhsuk-summary-list__row
+    {%- if anyRowHasActions and not actionsItems | length %} nhsuk-summary-list__row--no-actions{% endif %}
+    {%- if (row.border === false or params.lastRowBorder === false and loop.last) and not "nhsuk-summary-list--no-border" in classNames %} nhsuk-summary-list__row--no-border{% endif %}
+    {%- if row.classes %} {{ row.classes }}{% endif %}">
     <dt class="nhsuk-summary-list__key {%- if row.key.classes %} {{ row.key.classes }}{% endif %}">
       {{ row.key.html | safe | trim | indent(6) if row.key.html else row.key.text }}
     </dt>
@@ -48,7 +63,6 @@
     </dd>
     {% endif %}
   </div>
-  {% endif %}
 {% endfor %}
 </dl>
 {%- endset %}
