@@ -193,7 +193,7 @@ $nhsuk-checkboxes-offset: $nhsuk-border-width-form-element;
     margin-bottom: $nhsuk-checkboxes-offset;
     margin-left: $conditional-margin-left;
     padding-left: $conditional-padding-left;
-    border-left: $nhsuk-border-width solid $nhsuk-input-border-colour;
+    border-left: $nhsuk-border-width solid $nhsuk-revealed-content-border-colour;
 
     .nhsuk-frontend-supported &--hidden {
       display: none;
