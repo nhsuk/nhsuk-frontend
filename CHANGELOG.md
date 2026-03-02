@@ -6,6 +6,34 @@ Note: This release was created from the `support/10.x` branch.
 
 ### :new: **New features**
 
+#### Add a 'small' Nunjucks option to buttons, checkboxes and radios
+
+We've added a new `small` Nunjucks option to buttons, checkboxes and radios as a simpler alternative to the small modifier class. For example:
+
+```patch
+  {{ button({
+    text: "Save and continue",
+-   classes: "nhsuk-button--small"
++   small: true
+  }) }}
+```
+
+```patch
+  {{ radios({
+    fieldset: {
+      legend: {
+        text: "How do you want to be contacted about this?",
+        size: "l"
+      }
+    },
+-   classes: "nhsuk-radios--small",
++   small: true,
+    items: []
+  }}
+```
+
+This was added in [pull request #1801: Add button, checkboxes and radios small option](https://github.com/nhsuk/nhsuk-frontend/pull/1801).
+
 #### Add a modifier class for header inline search or account links
 
 We've added a new `.nhsuk-header--inline` class for the [header](https://service-manual.nhs.uk/design-system/components/header) component. This positions the search bar (or account links) inline with the NHS logo, depending on the length of your service name.

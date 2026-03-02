@@ -203,7 +203,7 @@
       {{ renderExample({
         html: checkboxes({
           idPrefix: "checkboxes-small",
-          classes: 'nhsuk-checkboxes--small',
+          small: true,
           items: exampleItemsSmall
         })
       }, loop.index) | safe }}
@@ -213,7 +213,7 @@
       {{ renderExample({
         html: radios({
           idPrefix: "radios-small",
-          classes: 'nhsuk-radios--small',
+          small: true,
           items: exampleItemsSmall
         })
       }, loop.index) | safe }}

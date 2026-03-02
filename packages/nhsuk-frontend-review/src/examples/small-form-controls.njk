@@ -37,7 +37,7 @@
         },
         idPrefix: "display",
         name: "display",
-        classes: "nhsuk-checkboxes--small",
+        small: true,
         items: [
           {
             value: "consultations",
@@ -67,7 +67,7 @@
         },
         idPrefix: "include",
         name: "include",
-        classes: "nhsuk-radios--small",
+        small: true,
         items: [
           {
             value: "everything",
@@ -100,7 +100,8 @@
         },
         idPrefix: "sort",
         name: "sort",
-        classes: "nhsuk-radios--small nhsuk-radios--inline",
+        classes: "nhsuk-radios--inline",
+        small: true,
         items: [
           {
             value: "relevance",
@@ -119,7 +120,7 @@
 
       {{ checkboxes({
         name: "grobulate",
-        classes: "nhsuk-checkboxes--small",
+        small: true,
         formGroup: {
           classes: "nhsuk-u-margin-bottom-0"
         },
