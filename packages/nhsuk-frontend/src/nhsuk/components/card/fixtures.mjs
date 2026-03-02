@@ -68,7 +68,7 @@ const fixtures = {
               }
             },
             {
-              classes: 'nhsuk-summary-list__row--no-border',
+              border: false,
               key: {
                 text: 'Date of birth'
               },
@@ -127,7 +127,7 @@ const fixtures = {
               }
             },
             {
-              classes: 'nhsuk-summary-list__row--no-border',
+              border: false,
               key: {
                 text: 'Date of birth'
               },
@@ -213,7 +213,7 @@ const fixtures = {
               }
             },
             {
-              classes: 'nhsuk-summary-list__row--no-border',
+              border: false,
               key: {
                 text: 'Date of birth'
               },
@@ -256,7 +256,7 @@ const fixtures = {
               }
             },
             {
-              classes: 'nhsuk-summary-list__row--no-border',
+              border: false,
               key: {
                 text: 'Date of birth'
               },
@@ -296,7 +296,7 @@ const fixtures = {
               }
             },
             {
-              classes: 'nhsuk-summary-list__row--no-border',
+              border: false,
               key: {
                 text: 'Date of birth'
               },
@@ -328,7 +328,7 @@ const fixtures = {
               }
             },
             {
-              classes: 'nhsuk-summary-list__row--no-border',
+              border: false,
               key: {
                 text: 'Date of birth'
               },
@@ -390,7 +390,7 @@ const fixtures = {
               }
             },
             {
-              classes: 'nhsuk-summary-list__row--no-border',
+              border: false,
               key: {
                 text: 'Date of birth'
               },
@@ -447,7 +447,7 @@ const fixtures = {
               }
             },
             {
-              classes: 'nhsuk-summary-list__row--no-border',
+              border: false,
               key: {
                 text: 'Date of birth'
               },
@@ -529,7 +529,7 @@ const fixtures = {
               }
             },
             {
-              classes: 'nhsuk-summary-list__row--no-border',
+              border: false,
               key: {
                 text: 'Date of birth'
               },
@@ -573,7 +573,7 @@ const fixtures = {
               }
             },
             {
-              classes: 'nhsuk-summary-list__row--no-border',
+              border: false,
               key: {
                 text: 'Date of birth'
               },
@@ -614,7 +614,7 @@ const fixtures = {
               }
             },
             {
-              classes: 'nhsuk-summary-list__row--no-border',
+              border: false,
               key: {
                 text: 'Date of birth'
               },
@@ -647,7 +647,7 @@ const fixtures = {
               }
             },
             {
-              classes: 'nhsuk-summary-list__row--no-border',
+              border: false,
               key: {
                 text: 'Date of birth'
               },
@@ -848,7 +848,7 @@ const fixtures = {
               }
             },
             {
-              classes: 'nhsuk-summary-list__row--no-border',
+              border: false,
               key: {
                 text: 'Date of birth'
               },
@@ -898,7 +898,7 @@ const fixtures = {
               }
             },
             {
-              classes: 'nhsuk-summary-list__row--no-border',
+              border: false,
               key: {
                 text: 'Response'
               },
