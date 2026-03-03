@@ -63,6 +63,7 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
   }
 
   .nhsuk-card__content {
+    box-sizing: border-box;
     @include nhsuk-top-and-bottom;
     @include nhsuk-responsive-padding(5);
   }
