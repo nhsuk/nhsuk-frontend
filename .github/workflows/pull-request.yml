@@ -11,6 +11,10 @@ on:
 
   workflow_dispatch:
 
+concurrency:
+  group: pull-request-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
 jobs:
   install:
     name: Install
@@ -37,10 +41,13 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Install and build
+      - name: Install and build with code coverage
         uses: ./.github/workflows/actions/build
         with:
-          environment: development
+          environment: test
+
+      - name: Install and build
+        uses: ./.github/workflows/actions/build
 
   linting:
     name: ${{ matrix.task.description }}
@@ -145,11 +152,11 @@ jobs:
           key: npm-install-${{ hashFiles('package-lock.json') }}
           path: node_modules
 
-      - name: Restore build (from cache)
+      - name: Restore build with code coverage (from cache)
         uses: actions/cache/restore@v5
         with:
           fail-on-cache-miss: true
-          key: build-${{ github.sha }}
+          key: build-test-${{ github.sha }}
           path: packages/*/dist/
 
       - name: Cache task
@@ -211,7 +218,7 @@ jobs:
         uses: actions/cache/restore@v5
         with:
           fail-on-cache-miss: true
-          key: build-${{ github.sha }}
+          key: build-production-${{ github.sha }}
           path: packages/*/dist/
 
       - name: Setup Node
@@ -228,17 +235,8 @@ jobs:
           node --eval "console.log(require.resolve('nhsuk-frontend/dist/nhsuk/i18n.mjs'))" --conditions ${{ matrix.conditions }}
           node --eval "console.log(require.resolve('nhsuk-frontend/dist/nhsuk/index.js'))" --conditions ${{ matrix.conditions }}
           node --eval "console.log(require.resolve('nhsuk-frontend/dist/nhsuk/index.mjs'))" --conditions ${{ matrix.conditions }}
-          node --eval "console.log(require.resolve('nhsuk-frontend/dist/nhsuk/nhsuk.js'))" --conditions ${{ matrix.conditions }}
-          node --eval "console.log(require.resolve('nhsuk-frontend/dist/nhsuk/nhsuk.mjs'))" --conditions ${{ matrix.conditions }}
           node --eval "console.log(require.resolve('nhsuk-frontend/dist/nhsuk/components/button/button.js'))" --conditions ${{ matrix.conditions }}
           node --eval "console.log(require.resolve('nhsuk-frontend/dist/nhsuk/components/button/button.mjs'))" --conditions ${{ matrix.conditions }}
-
-      - name: Resolve entry path (legacy paths)
-        run: |
-          node --eval "console.log(require.resolve('nhsuk-frontend/packages/nhsuk'))" --conditions ${{ matrix.conditions }}
-          node --eval "console.log(require.resolve('nhsuk-frontend/packages/nhsuk.js'))" --conditions ${{ matrix.conditions }}
-          node --eval "console.log(require.resolve('nhsuk-frontend/packages/components/button/button'))" --conditions ${{ matrix.conditions }}
-          node --eval "console.log(require.resolve('nhsuk-frontend/packages/components/button/button.js'))" --conditions ${{ matrix.conditions }}
 
   sass:
     name: Sass import
@@ -253,7 +251,7 @@ jobs:
     runs-on: macos-latest
     needs: [install, build]
 
-    if: ${{ github.base_ref == 'main' || startsWith(github.base_ref, 'support/') }}
+    if: ${{ github.base_ref == 'main' || startsWith(github.base_ref, 'support/') || contains(github.event.pull_request.labels.*.name, 'dependencies') }}
 
     steps:
       - name: Checkout
@@ -266,17 +264,17 @@ jobs:
         id: changes
 
       - name: Download browsers
-        if: ${{ steps.changes.outputs.changes == 'true' }}
+        if: ${{ steps.changes.outputs.changes == 'true' || steps.changes.outputs.screenshots == 'true' }}
         run: |
           npm run install:puppeteer
           npm run install:playwright
 
       - name: Run backstop
-        if: ${{ steps.changes.outputs.changes == 'true' }}
+        if: ${{ steps.changes.outputs.changes == 'true' || steps.changes.outputs.screenshots == 'true' }}
         run: npm run test:visual --ignore-scripts
 
       - name: Save backstop report
-        if: ${{ !cancelled() && steps.changes.outputs.changes == 'true' }}
+        if: ${{ !cancelled() && (steps.changes.outputs.changes == 'true' || steps.changes.outputs.screenshots == 'true') }}
         uses: actions/upload-artifact@v6
         with:
           name: Backstop report

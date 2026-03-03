@@ -3,7 +3,7 @@ import { outdent } from 'outdent'
 
 import { examples as dateInputExamples } from '../date-input/fixtures.mjs'
 
-import { ErrorSummary, initErrorSummary } from './error-summary.mjs'
+import { ErrorSummary } from './error-summary.mjs'
 import { examples } from './fixtures.mjs'
 
 import { components } from '#lib'
@@ -57,9 +57,9 @@ describe('Error summary', () => {
     initExample('default')
   })
 
-  describe('Initialisation via init function', () => {
+  describe('Initialisation via class', () => {
     it('should add event listeners', () => {
-      initErrorSummary()
+      new ErrorSummary($root)
 
       expect($root.addEventListener).toHaveBeenCalledWith(
         'click',
@@ -67,28 +67,6 @@ describe('Error summary', () => {
       )
     })
 
-    it('should not throw with missing error summary', () => {
-      $root.remove()
-      expect(() => initErrorSummary()).not.toThrow()
-    })
-
-    it('should not throw with missing linked element', () => {
-      $input.remove()
-      expect(() => initErrorSummary()).not.toThrow()
-    })
-
-    it('should not throw with empty body', () => {
-      document.body.innerHTML = ''
-      expect(() => initErrorSummary()).not.toThrow()
-    })
-
-    it('should not throw with empty scope', () => {
-      const scope = document.createElement('div')
-      expect(() => initErrorSummary({ scope })).not.toThrow()
-    })
-  })
-
-  describe('Initialisation via class', () => {
     it('should not throw with $root element', () => {
       expect(() => new ErrorSummary($root)).not.toThrow()
     })
@@ -116,6 +94,16 @@ describe('Error summary', () => {
       )
     })
 
+    it('should not throw with missing error summary', () => {
+      $root.remove()
+      expect(() => new ErrorSummary($root)).not.toThrow()
+    })
+
+    it('should not throw with missing linked element', () => {
+      $input.remove()
+      expect(() => new ErrorSummary($root)).not.toThrow()
+    })
+
     it('should throw when initialised twice', () => {
       expect(() => {
         new ErrorSummary($root)
@@ -128,7 +116,7 @@ describe('Error summary', () => {
 
   describe('Accessibility', () => {
     beforeEach(() => {
-      initErrorSummary()
+      new ErrorSummary($root)
     })
 
     it('should add accessible role', () => {
@@ -139,37 +127,29 @@ describe('Error summary', () => {
   describe('Focus handling', () => {
     describe('Root element', () => {
       it('sets focus automatically', () => {
-        initErrorSummary()
+        new ErrorSummary($root)
 
         expect($root).toHaveFocus()
       })
 
       it('moves focus to the $root element', () => {
-        initErrorSummary()
+        new ErrorSummary($root)
 
         expect($root).toHaveFocus()
       })
 
-      it('moves focus to the $root element with `focusOnPageLoad: true` (deprecated)', () => {
-        initErrorSummary({
-          focusOnPageLoad: true
+      it('moves focus to the $root element with `disableAutoFocus: false`', () => {
+        new ErrorSummary($root, {
+          disableAutoFocus: false
         })
-
-        expect(console.warn).toHaveBeenCalledWith(
-          `${ErrorSummary.moduleName}: Option \`focusOnPageLoad\` is deprecated. Use \`disableAutoFocus\` instead.`
-        )
 
         expect($root).toHaveFocus()
       })
 
-      it('does not move focus to the $root element with `focusOnPageLoad: false` (deprecated)', () => {
-        initErrorSummary({
-          focusOnPageLoad: false
+      it('does not move focus to the $root element with `disableAutoFocus: true`', () => {
+        new ErrorSummary($root, {
+          disableAutoFocus: true
         })
-
-        expect(console.warn).toHaveBeenCalledWith(
-          `${ErrorSummary.moduleName}: Option \`focusOnPageLoad\` is deprecated. Use \`disableAutoFocus\` instead.`
-        )
 
         expect($root).not.toHaveFocus()
       })
@@ -177,7 +157,7 @@ describe('Error summary', () => {
 
     describe('Links', () => {
       it('moves focus to the linked element', () => {
-        initErrorSummary()
+        new ErrorSummary($root)
 
         $links[0].click()
 

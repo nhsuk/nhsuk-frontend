@@ -4,12 +4,11 @@ import * as config from '@nhsuk/frontend-config'
 import { components, files } from '@nhsuk/frontend-lib'
 import { task } from '@nhsuk/frontend-tasks'
 import { HtmlValidate, formatterFactory } from 'html-validate'
-import { nunjucks } from 'nhsuk-frontend/src/nhsuk/lib/index.mjs'
 import PluginError from 'plugin-error'
 
 import validatorConfig from '../.htmlvalidate.js'
 
-import { env, filters } from './nunjucks/index.mjs'
+import { configure, filters, renderTemplate } from './nunjucks/index.mjs'
 
 const { HEROKU_BRANCH = 'main' } = process.env
 
@@ -29,7 +28,10 @@ export const compile = task.name('html:render', async () => {
     ignore: ['**/layouts/**', '**/partials/**']
   })
 
-  // Default Nunjucks context
+  // Review app Nunjucks environment
+  const env = configure()
+
+  // Review app Nunjucks context
   const context = {
     assetPath: `/nhsuk-frontend/assets`,
     baseUrl: '/nhsuk-frontend/',
@@ -46,7 +48,7 @@ export const compile = task.name('html:render', async () => {
     const componentPath = `components/${component}`
 
     // Render component listing
-    const templateHtml = nunjucks.renderTemplate('layouts/listing.njk', {
+    const templateHtml = renderTemplate('layouts/listing.njk', {
       context: { ...context, ...data, pageName: name },
       env
     })
@@ -65,7 +67,7 @@ export const compile = task.name('html:render', async () => {
       const exampleName = `${fixture.description ?? ''} ${fixture.name}`.trim()
 
       // Render component example into layout
-      const templateHtml = nunjucks.renderTemplate('layouts/preview.njk', {
+      const templateHtml = renderTemplate('layouts/preview.njk', {
         blocks: { example: html },
         context: { ...context, pageName: `${name} ${exampleName}`, options },
         env
@@ -89,7 +91,7 @@ export const compile = task.name('html:render', async () => {
     )
 
     // Render page
-    const templateHtml = nunjucks.renderTemplate(path, { context, env })
+    const templateHtml = renderTemplate(path, { context, env })
 
     // Write page to disk
     await files.write(outputPath, {

@@ -31,11 +31,6 @@
       "require": "./dist/nhsuk/lib/index.js",
       "default": "./dist/nhsuk/lib/index.js"
     },
-    "./packages/*": {
-      "sass": "./dist/nhsuk/*",
-      "default": "./dist/nhsuk/*.js"
-    },
-    "./packages/*.js": "./dist/nhsuk/*.js",
     "./package.json": "./package.json"
   },
   "main": "dist/nhsuk/index.js",
@@ -59,15 +54,15 @@
     "start": "npm run watch"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.28.6",
+    "@babel/preset-env": "^7.29.0",
     "@nhsuk/frontend-config": "*",
     "@nhsuk/frontend-helpers": "*",
     "@nhsuk/frontend-lib": "*",
     "@nhsuk/frontend-tasks": "*",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/user-event": "^14.6.1",
-    "autoprefixer": "^10.4.23",
-    "axe-core": "^4.11.0",
+    "autoprefixer": "^10.4.24",
+    "axe-core": "^4.11.1",
     "cssnano": "^7.1.2",
     "del-cli": "^7.0.0",
     "gulp": "^5.0.1",
@@ -76,7 +71,7 @@
     "outdent": "^0.8.0",
     "postcss": "^8.5.6",
     "postcss-scss": "^4.0.9",
-    "puppeteer": "^24.34.0",
+    "puppeteer": "^24.37.5",
     "sass-embedded": "^1.97.3"
   },
   "peerDependencies": {
