@@ -3,7 +3,7 @@
  *
  * @satisfies {{ [example: string]: MacroExample }}
  */
-export const examples = {
+const fixtures = {
   'default': {
     context: {
       previous: {
@@ -22,17 +22,6 @@ export const examples = {
       states: ['focus', 'hover', 'active'],
       selector: '.nhsuk-pagination-item--previous a',
       viewports: ['mobile', 'tablet', 'desktop']
-    }
-  },
-  'with deprecated parameters': {
-    context: {
-      previousUrl: '#/section/treatments',
-      previousPage: 'Treatments',
-      nextUrl: '#/section/symptoms',
-      nextPage: 'Symptoms'
-    },
-    options: {
-      width: 'full'
     }
   },
   'with only previous': {
@@ -297,5 +286,13 @@ export const examples = {
 }
 
 /**
- * @import { MacroExample } from '@nhsuk/frontend-lib/components.mjs'
+ * Nunjucks macro option examples
+ * (with typed keys)
+ *
+ * @type {Record<keyof typeof fixtures, MacroExample>}
+ */
+export const examples = fixtures
+
+/**
+ * @import { MacroExample } from '#lib'
  */

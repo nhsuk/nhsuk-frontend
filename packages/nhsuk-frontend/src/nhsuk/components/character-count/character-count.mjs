@@ -1,8 +1,5 @@
 import { closestAttributeValue } from '../../common/closest-attribute-value.mjs'
-import {
-  normaliseOptions,
-  validateConfig
-} from '../../common/configuration/index.mjs'
+import { validateConfig } from '../../common/configuration/index.mjs'
 import { formatErrorMessage } from '../../common/index.mjs'
 import { ConfigurableComponent } from '../../configurable-component.mjs'
 import { ConfigError, ElementError } from '../../errors/index.mjs'
@@ -124,6 +121,7 @@ export class CharacterCount extends ConfigurableComponent {
     // configured
     this.$visibleCountMessage = document.createElement('div')
     this.$visibleCountMessage.setAttribute('aria-hidden', 'true')
+    this.$visibleCountMessage.setAttribute('hidden', '')
     this.$visibleCountMessage.className = $textareaDescription.className
     this.$visibleCountMessage.classList.add(visibleCountMessageClass)
     this.$visibleCountMessage.classList.remove(textareaDescriptionClass)
@@ -232,12 +230,12 @@ export class CharacterCount extends ConfigurableComponent {
     const remainingNumber = this.maxLength - this.count(this.$textarea.value)
     const isError = remainingNumber < 0
 
-    // If input is over the threshold, remove the disabled class which renders
-    // the counter invisible.
-    this.$visibleCountMessage.classList.toggle(
-      `${this.config.visibleCountMessageClass}--disabled`,
-      !this.isOverThreshold()
-    )
+    // If input is over the threshold, show the count message
+    if (this.isOverThreshold()) {
+      this.$visibleCountMessage.removeAttribute('hidden')
+    } else {
+      this.$visibleCountMessage.setAttribute('hidden', '')
+    }
 
     // Update styles
     if (!this.$errorMessage) {
@@ -447,24 +445,6 @@ export class CharacterCount extends ConfigurableComponent {
 }
 
 /**
- * Initialise character count component
- *
- * @deprecated Use {@link createAll | `createAll(CharacterCount, options)`} instead.
- * @param {InitOptions & Partial<CharacterCountConfig>} [options]
- */
-export function initCharacterCounts(options) {
-  const { scope: $scope } = normaliseOptions(options)
-
-  const $characterCounts = $scope?.querySelectorAll(
-    `[data-module="${CharacterCount.moduleName}"]`
-  )
-
-  $characterCounts?.forEach(($root) => {
-    new CharacterCount($root, options)
-  })
-}
-
-/**
  * Character count config
  *
  * @see {@link CharacterCount.defaults}
@@ -528,6 +508,5 @@ export function initCharacterCounts(options) {
 
 /**
  * @import { TranslationPluralForms } from '../../i18n.mjs'
- * @import { createAll, InitOptions } from '../../index.mjs'
  * @import { Schema } from '../../common/configuration/index.mjs'
  */

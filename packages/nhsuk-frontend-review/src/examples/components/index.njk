@@ -1,53 +1,30 @@
 {% extends "layouts/page.njk" %}
 
 {% set pageName = "Components" %}
-
-{% block header %}
-  {{ header({
-    search: true,
-    navigation: {
-      items: [
-        {
-          href: "https://www.nhs.uk/conditions",
-          text: "Health A to Z"
-        },
-        {
-          href: "https://www.nhs.uk/live-well/",
-          text: "Live Well"
-        },
-        {
-          href: "https://www.nhs.uk/conditions/social-care-and-support/",
-          text: "Care and support"
-        },
-        {
-          href: "https://www.nhs.uk/news/",
-          text: "Health news"
-        },
-        {
-          href: "https://www.nhs.uk/service-search",
-          text: "Services near you"
-        }
-      ]
-    }
-  }) }}
-{% endblock %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
 
 {% block beforeContent %}
   {{ breadcrumb({
     items: [
       {
-        text: "Home",
+        text: "NHS.UK frontend",
         href: baseUrl
       },
       {
-        text: "Health A to Z",
-        href: "#"
+        text: "Examples",
+        href: baseUrl ~ "#examples"
       }
     ]
   }) }}
 {% endblock %}
 
 {% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl">{{ pageName }}</h1>
+    </div>
+  </div>
+
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       {{ errorSummary({
@@ -67,8 +44,6 @@
           <a class="nhsuk-notification-banner__link" href="#">View application</a>.
         </p>
       {% endcall %}
-
-      <h1 class="nhsuk-heading-xl">{{ pageName }}</h1>
 
       {{ contentsList({
         items: [
@@ -1109,45 +1084,4 @@
       }) }}
     </div>
   </div>
-{% endblock %}
-
-{% block footer %}
-  {{ footer({
-    navigation: {
-      items: [
-        {
-          href: "https://www.nhs.uk/nhs-sites",
-          text: "NHS sites"
-        },
-        {
-          href: "https://www.nhs.uk/about-us",
-          text: "About us"
-        },
-        {
-          href: "https://www.nhs.uk/give-feedback-about-the-nhs-website/",
-          text: "Give us feedback"
-        },
-        {
-          href: "https://www.nhs.uk/Personalisation/Login.aspx",
-          text: "Profile editor login"
-        }
-      ]
-    },
-    meta: {
-      items: [
-        {
-          href: "https://www.nhs.uk/about-us/sitemap/",
-          text: "Sitemap"
-        },
-        {
-          href: "https://www.nhs.uk/accessibility/",
-          text: "Accessibility"
-        },
-        {
-          href: "https://www.nhs.uk/our-policies/",
-          text: "Our policies"
-        }
-      ]
-    }
-  }) }}
 {% endblock %}

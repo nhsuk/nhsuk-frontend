@@ -4,6 +4,8 @@ import cssnano from 'cssnano'
 import postcss from 'postcss'
 import scss from 'postcss-scss'
 
+const { NODE_ENV } = process.env
+
 /**
  * PostCSS config
  *
@@ -33,7 +35,7 @@ export default (ctx = {}) => {
       },
 
       // Minify CSS for production only
-      to?.endsWith('.min.css') && config.environment === 'production'
+      to?.endsWith('.min.css') && NODE_ENV === 'production'
         ? cssnano({ preset: ['default', { env: 'stylesheets' }] })
         : false
     ],

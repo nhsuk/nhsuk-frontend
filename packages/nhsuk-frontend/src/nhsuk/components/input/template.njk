@@ -3,17 +3,6 @@
 {% from "nhsuk/components/hint/macro.njk" import hint %}
 {% from "nhsuk/components/label/macro.njk" import label %}
 
-{%- set prefix = params.prefix -%}
-{%- set suffix = params.suffix -%}
-
-{%- if prefix and prefix is string %}
-  {% set prefix = { text: prefix } %}
-{% endif %}
-
-{%- if suffix and suffix is string %}
-  {% set suffix = { text: suffix } %}
-{% endif %}
-
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-input" -%}
 
@@ -30,8 +19,8 @@
 {% set describedBy = params.describedBy if params.describedBy else "" -%}
 {%- set id = params.id if params.id else params.name -%}
 
-{%- set hasPrefix = true if prefix and (prefix.text or prefix.html) else false %}
-{%- set hasSuffix = true if suffix and (suffix.text or suffix.html) else false %}
+{%- set hasPrefix = true if params.prefix and (params.prefix.text or params.prefix.html) else false %}
+{%- set hasSuffix = true if params.suffix and (params.suffix.text or params.suffix.html) else false %}
 {%- set hasBeforeInput = true if params.formGroup.beforeInput and (params.formGroup.beforeInput.text or params.formGroup.beforeInput.html) else false %}
 {%- set hasAfterInput = true if params.formGroup.afterInput and (params.formGroup.afterInput.text or params.formGroup.afterInput.html) else false %}
 
@@ -96,6 +85,7 @@
   {{ label({
     html: params.label.html,
     text: params.label.text,
+    id: params.label.id,
     classes: params.label.classes,
     size: params.label.size,
     isPageHeading: params.label.isPageHeading,
@@ -133,11 +123,11 @@
       {{- params.formGroup.beforeInput.html | safe | trim | indent(4, true) if params.formGroup.beforeInput.html else params.formGroup.beforeInput.text }}
     {% endif %}
     {% if hasPrefix %}
-      {{- _affixItem(prefix, "prefix") | indent(2, true) }}
+      {{- _affixItem(params.prefix, "prefix") | indent(2, true) }}
     {% endif %}
     {{ _inputElement(params) }}
     {% if hasSuffix %}
-      {{- _affixItem(suffix, "suffix") | indent(2, true) }}
+      {{- _affixItem(params.suffix, "suffix") | indent(2, true) }}
     {% endif %}
     {% if hasAfterInput %}
       {{- params.formGroup.afterInput.html | safe | trim | indent(4, true) if params.formGroup.afterInput.html else params.formGroup.afterInput.text }}

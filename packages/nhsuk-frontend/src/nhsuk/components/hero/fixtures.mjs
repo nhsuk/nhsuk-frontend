@@ -1,12 +1,13 @@
-import { components } from '@nhsuk/frontend-lib'
 import { outdent } from 'outdent'
+
+import { components } from '#lib'
 
 /**
  * Nunjucks macro option examples
  *
  * @satisfies {{ [example: string]: MacroExample }}
  */
-export const examples = {
+const fixtures = {
   'default': {
     context: {
       heading: "We're here for you",
@@ -70,5 +71,13 @@ export const examples = {
 }
 
 /**
- * @import { MacroExample } from '@nhsuk/frontend-lib/components.mjs'
+ * Nunjucks macro option examples
+ * (with typed keys)
+ *
+ * @type {Record<keyof typeof fixtures, MacroExample>}
+ */
+export const examples = fixtures
+
+/**
+ * @import { MacroExample } from '#lib'
  */

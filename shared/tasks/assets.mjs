@@ -10,10 +10,12 @@ import rename from 'gulp-rename'
  * @param {string} inputPath - File path to asset
  * @param {FileOptions} options - Asset options
  */
-export function copy(inputPath, { srcPath, destPath, output = {} }) {
-  let stream = gulp.src(join(srcPath, inputPath), {
+export function copy(inputPath, { srcPath, destPath, output = {}, ...rest }) {
+  let stream = gulp.src(inputPath, {
+    cwd: srcPath,
     encoding: false,
-    sourcemaps: true
+    sourcemaps: true,
+    ...rest
   })
 
   // Rename file (optional)

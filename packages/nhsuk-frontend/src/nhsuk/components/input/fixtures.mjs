@@ -1,11 +1,11 @@
-import { components } from '@nhsuk/frontend-lib'
+import { components } from '#lib'
 
 /**
  * Nunjucks macro option examples
  *
  * @satisfies {{ [example: string]: MacroExample }}
  */
-export const examples = {
+const fixtures = {
   'default': {
     context: {
       label: {
@@ -248,6 +248,17 @@ export const examples = {
             size: 'xl'
           }
         }
+      },
+      {
+        description: 'with label id attribute',
+        context: {
+          label: {
+            id: 'custom-id'
+          }
+        },
+        options: {
+          hidden: true
+        }
       }
     ]
   },
@@ -311,18 +322,6 @@ export const examples = {
       classes: 'nhsuk-input--width-5'
     }
   },
-  'with deprecated prefix string parameter': {
-    context: {
-      label: {
-        text: 'Cost in pounds',
-        isPageHeading: true
-      },
-      id: 'with-prefix',
-      name: 'example',
-      prefix: '£',
-      classes: 'nhsuk-input--width-5'
-    }
-  },
   'with suffix': {
     context: {
       label: {
@@ -349,18 +348,6 @@ export const examples = {
       suffix: {
         html: '<span>kg</span>'
       },
-      classes: 'nhsuk-input--width-5'
-    }
-  },
-  'with deprecated suffix string parameter': {
-    context: {
-      label: {
-        text: 'Weight in kilograms',
-        isPageHeading: true
-      },
-      id: 'with-suffix',
-      name: 'example',
-      suffix: 'kg',
       classes: 'nhsuk-input--width-5'
     }
   },
@@ -424,5 +411,13 @@ export const examples = {
 }
 
 /**
- * @import { MacroExample } from '@nhsuk/frontend-lib/components.mjs'
+ * Nunjucks macro option examples
+ * (with typed keys)
+ *
+ * @type {Record<keyof typeof fixtures, MacroExample>}
+ */
+export const examples = fixtures
+
+/**
+ * @import { MacroExample } from '#lib'
  */

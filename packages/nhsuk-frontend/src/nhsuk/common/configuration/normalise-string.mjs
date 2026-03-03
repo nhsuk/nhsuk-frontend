@@ -56,16 +56,17 @@ export function normaliseString(value, property) {
  * Normalise array of strings
  *
  * @param {string | (string | number | boolean | undefined)[] | undefined} value - The value to normalise
+ * @param {Parameters<typeof JSON.parse>[1]} [reviver] - JSON parse reviver function
  * @returns Normalised array of data
  */
-export function normaliseArray(value) {
+export function normaliseArray(value, reviver = getArrayValue) {
   let values = Array.isArray(value) ? value : []
 
   // Attempt to parse string as array
   if (typeof value === 'string') {
     try {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-      values = JSON.parse(decodeURIComponent(value), getArrayValue) ?? []
+      values = JSON.parse(decodeURIComponent(value), reviver) ?? []
     } catch {
       return []
     }

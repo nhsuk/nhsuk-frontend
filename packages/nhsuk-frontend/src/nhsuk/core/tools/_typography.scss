@@ -30,16 +30,6 @@
   }
 }
 
-/// Text colour (deprecated)
-///
-/// @alias nhsuk-text-colour
-/// @deprecated To be removed in v11.0, replaced by nhsuk-text-colour
-
-@mixin nhsuk-text-color {
-  @include nhsuk-warning("color-to-colour", "nhsuk-text-color is deprecated. Use nhsuk-text-colour instead.");
-  @include nhsuk-text-colour;
-}
-
 /// Normal font weight
 ///
 /// @param {Boolean} $important [false] - Whether to mark declarations as
@@ -247,29 +237,6 @@
       }
     }
   }
-}
-
-/// Font size and line height helper (deprecated)
-///
-/// @param {Number | Boolean | String} $size - Point from the typography scale
-///   (the size as it would appear on tablet and above). Use `false` to avoid
-///   setting a size.
-/// @param {Number} $override-line-height [false] - Non responsive custom line
-///   height. Omit to use the line height from the font map.
-/// @param {Boolean} $important [false] - Whether to mark declarations as
-///   `!important`.
-///
-/// @throw if `$size` is not a valid point from the typography scale (or false)
-///
-/// @alias nhsuk-font-size
-/// @deprecated To be removed in v11.0, replaced by nhsuk-font-size
-
-@mixin nhsuk-typography-responsive($size, $override-line-height: false, $important: false) {
-  @include nhsuk-warning(
-    "nhsuk-typography-responsive",
-    "nhsuk-typography-responsive is deprecated. Use nhsuk-font-size instead."
-  );
-  @include nhsuk-font-size($size, $override-line-height, $important);
 }
 
 /// Font helper

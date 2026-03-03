@@ -63,6 +63,11 @@
       padding-top: nhsuk-spacing(2);
       padding-right: nhsuk-spacing(4);
       padding-bottom: nhsuk-spacing(2);
+
+      // Make sure that any multi-line inline-blocks inside of the summary
+      // list (e.g. Tag components) don't cause the text baseline to shift,
+      // causing other cells in the row to be misaligned.
+      vertical-align: top;
     }
   }
 

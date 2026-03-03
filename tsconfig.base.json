@@ -9,6 +9,11 @@
     "noImplicitThis": true,
     "noUnusedLocals": true,
     "paths": {
+      "#lib": ["./packages/nhsuk-frontend/src/nhsuk/lib/index.mjs"],
+      "#lib/*": ["./packages/nhsuk-frontend/src/nhsuk/lib/*"],
+      "nhsuk-frontend/lib": [
+        "./packages/nhsuk-frontend/src/nhsuk/lib/index.mjs"
+      ],
       "nhsuk-frontend": ["./packages/nhsuk-frontend/src/nhsuk/index.mjs"],
       "nhsuk-frontend/*": ["./packages/nhsuk-frontend/*"]
     },

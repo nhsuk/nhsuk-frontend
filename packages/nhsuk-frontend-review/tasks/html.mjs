@@ -1,15 +1,16 @@
 import { join, parse } from 'node:path'
 
 import * as config from '@nhsuk/frontend-config'
-import { components, files, nunjucks } from '@nhsuk/frontend-lib'
+import { components, files } from '@nhsuk/frontend-lib'
 import { task } from '@nhsuk/frontend-tasks'
 import { HtmlValidate, formatterFactory } from 'html-validate'
 import PluginError from 'plugin-error'
 
 import validatorConfig from '../.htmlvalidate.js'
 
+import { configure, filters, renderTemplate } from './nunjucks/index.mjs'
+
 const { HEROKU_BRANCH = 'main' } = process.env
-const { slugify } = nunjucks.filters
 
 // Configure HTML validator
 const validator = new HtmlValidate(validatorConfig)
@@ -27,10 +28,10 @@ export const compile = task.name('html:render', async () => {
     ignore: ['**/layouts/**', '**/partials/**']
   })
 
-  // Configure Nunjucks with review app sources
-  const env = nunjucks.configure([join(config.paths.app, 'src')])
+  // Review app Nunjucks environment
+  const env = configure()
 
-  // Default Nunjucks context
+  // Review app Nunjucks context
   const context = {
     assetPath: `/nhsuk-frontend/assets`,
     baseUrl: '/nhsuk-frontend/',
@@ -47,7 +48,7 @@ export const compile = task.name('html:render', async () => {
     const componentPath = `components/${component}`
 
     // Render component listing
-    const templateHtml = nunjucks.renderTemplate('layouts/listing.njk', {
+    const templateHtml = renderTemplate('layouts/listing.njk', {
       context: { ...context, ...data, pageName: name },
       env
     })
@@ -66,7 +67,7 @@ export const compile = task.name('html:render', async () => {
       const exampleName = `${fixture.description ?? ''} ${fixture.name}`.trim()
 
       // Render component example into layout
-      const templateHtml = nunjucks.renderTemplate('layouts/preview.njk', {
+      const templateHtml = renderTemplate('layouts/preview.njk', {
         blocks: { example: html },
         context: { ...context, pageName: `${name} ${exampleName}`, options },
         env
@@ -74,7 +75,7 @@ export const compile = task.name('html:render', async () => {
 
       // Write component example to disk
       await files.write(
-        join(componentPath, slugify(exampleName), 'index.html'),
+        join(componentPath, filters.slugify(exampleName), 'index.html'),
         { destPath, output: { contents: templateHtml } }
       )
     }
@@ -90,7 +91,7 @@ export const compile = task.name('html:render', async () => {
     )
 
     // Render page
-    const templateHtml = nunjucks.renderTemplate(path, { context, env })
+    const templateHtml = renderTemplate(path, { context, env })
 
     // Write page to disk
     await files.write(outputPath, {

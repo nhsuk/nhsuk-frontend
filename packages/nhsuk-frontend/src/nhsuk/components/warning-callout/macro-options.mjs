@@ -5,7 +5,7 @@ export const name = 'Warning callout'
  *
  * @satisfies {{ [param: string]: MacroParam }}
  */
-export const params = {
+const options = {
   id: {
     type: 'string',
     required: false,
@@ -57,5 +57,13 @@ export const params = {
 }
 
 /**
- * @import { MacroParam } from '@nhsuk/frontend-lib/components.mjs'
+ * Nunjucks macro option params
+ * (with typed keys)
+ *
+ * @type {Record<keyof typeof options, MacroParam>}
+ */
+export const params = options
+
+/**
+ * @import { MacroParam } from '#lib'
  */

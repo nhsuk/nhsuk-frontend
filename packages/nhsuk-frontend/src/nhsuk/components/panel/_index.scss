@@ -25,9 +25,6 @@
 
 $nhsuk-panel-border-width: nhsuk-spacing(1);
 
-// @deprecated To be removed in v11.0
-$nhsuk-border-width-panel: $nhsuk-panel-border-width;
-
 @include nhsuk-exports("nhsuk/components/panel") {
   .nhsuk-panel {
     box-sizing: border-box;
@@ -56,7 +53,7 @@ $nhsuk-border-width-panel: $nhsuk-panel-border-width;
     // Links within the Panel should use white text
     .nhsuk-link,
     a:not(.nhsuk-button) {
-      @include nhsuk-link-style-white;
+      @include nhsuk-link-style-reverse;
     }
   }
 
