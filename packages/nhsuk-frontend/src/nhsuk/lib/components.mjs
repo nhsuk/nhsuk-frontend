@@ -1,5 +1,5 @@
 import * as names from './names.mjs'
-import * as nunjucks from './nunjucks.mjs'
+import * as nunjucks from './nunjucks/index.mjs'
 
 /**
  * Render component HTML
@@ -119,5 +119,5 @@ export function render(component, options) {
 
 /**
  * @import { Scenario } from 'backstopjs'
- * @import { MacroRenderOptions } from './nunjucks.mjs'
+ * @import { MacroRenderOptions } from 'nhsuk-frontend/lib'
  */
