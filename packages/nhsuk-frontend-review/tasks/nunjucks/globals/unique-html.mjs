@@ -9,13 +9,13 @@ export function uniqueHTML(html, index) {
     html = html
 
       // Append unique ID to attribute value
-      .replace(
+      .replaceAll(
         / (aria-label|href|id|for|name)="([^"]*)"/g,
         (match, name, value) => ` ${name}="${uniqueValue(name, value, index)}"`
       )
 
       // Append unique ID to attribute value(s)
-      .replace(
+      .replaceAll(
         / (?:data-)?(aria-controls|aria-describedby|aria-labelledby)="([^"]*)"/g,
         (match, name, values) =>
           ` ${name}="${uniqueValues(name, values, index)}"`
@@ -45,12 +45,19 @@ function uniqueValue(name, value, index) {
     return `${value} ${index}`
   }
 
-  const [, prefix, suffix] =
-    /(.+)-((item-)+?hint|info|label|error)$/.exec(value) ?? []
+  // Check for known value suffix
+  const matches = /-((?:item-)+hint|info|label|error)$/.exec(value)
 
-  return prefix && suffix
-    ? `${prefix}-${index}-${suffix}` // 'example-5-hint'
-    : `${value}-${index}` // 'example-5'
+  if (matches) {
+    const prefix = value.slice(0, matches.index)
+    const suffix = matches[1]
+
+    // 'example-5-hint'
+    return `${prefix}-${index}-${suffix}`
+  }
+
+  // 'example-5'
+  return `${value}-${index}`
 }
 
 /**
