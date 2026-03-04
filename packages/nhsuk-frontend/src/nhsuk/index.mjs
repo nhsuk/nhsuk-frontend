@@ -11,6 +11,7 @@ import {
   PasswordInput,
   Radios,
   SkipLink,
+  Table,
   Tabs
 } from './components/index.mjs'
 import { ElementError, SupportError } from './errors/index.mjs'
@@ -78,6 +79,7 @@ export function initAll(scopeOrConfig = {}) {
     [PasswordInput, config.passwordInput],
     [Radios, config.radios],
     [SkipLink, config.skipLink],
+    [Table, config.table],
     [Tabs, config.tabs]
   ])
 
@@ -213,6 +215,7 @@ export * from './errors/index.mjs'
  * @property {ComponentConfig<typeof PasswordInput>} [passwordInput] - Password Input config
  * @property {ComponentConfig<typeof Radios>} [radios] - Radios config
  * @property {ComponentConfig<typeof SkipLink>} [skipLink] - Skip Link config
+ * @property {ComponentConfig<typeof Table>} [table] - Table config
  * @property {ComponentConfig<typeof Tabs>} [tabs] - Tabs config
  */
 
