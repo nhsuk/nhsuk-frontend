@@ -61,7 +61,7 @@
     "@nhsuk/frontend-tasks": "*",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/user-event": "^14.6.1",
-    "autoprefixer": "^10.4.24",
+    "autoprefixer": "^10.4.27",
     "axe-core": "^4.11.1",
     "cssnano": "^7.1.2",
     "del-cli": "^7.0.0",
