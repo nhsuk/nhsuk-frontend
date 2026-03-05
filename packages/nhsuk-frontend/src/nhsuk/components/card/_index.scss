@@ -219,21 +219,29 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
       }
     }
 
-    &:hover {
+    &:hover,
+    &:has(.nhsuk-card__heading a:hover),
+    &:has(.nhsuk-card__link:hover) {
       border-color: $nhsuk-card-border-hover-colour;
       box-shadow: 0 $nhsuk-card-border-bottom-width 0 $nhsuk-card-border-hover-colour;
     }
 
-    &:hover .nhsuk-icon {
+    &:hover .nhsuk-icon,
+    &:has(.nhsuk-card__heading a:hover) .nhsuk-icon,
+    &:has(.nhsuk-card__link:hover) .nhsuk-icon {
       fill: $nhsuk-link-hover-colour;
     }
 
-    &:active {
+    &:active,
+    &:has(.nhsuk-card__heading a:active),
+    &:has(.nhsuk-card__link:active) {
       top: $nhsuk-card-border-bottom-width; // [3]
       box-shadow: none;
     }
 
-    &:active .nhsuk-icon {
+    &:active .nhsuk-icon,
+    &:has(.nhsuk-card__heading a:active) .nhsuk-icon,
+    &:has(.nhsuk-card__link:active) .nhsuk-icon {
       fill: $nhsuk-link-active-colour;
     }
   }
