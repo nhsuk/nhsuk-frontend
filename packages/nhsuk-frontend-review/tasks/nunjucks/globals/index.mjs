@@ -1,4 +1,4 @@
 /**
  * Nunjucks globals
  */
-export { renderExample } from './render-example.mjs'
+export { uniqueHTML } from './unique-html.mjs'

@@ -1,12 +1,10 @@
 /**
- * Render Nunjucks component with unique attributes
+ * Make component HTML attributes unique
  *
- * @param {MacroExampleFixture} fixture - Nunjucks macro example fixture
+ * @param {string} html - Nunjucks macro example HTML
  * @param {string | number} [index] - Unique index to append to attribute values (optional)
  */
-export function renderExample(fixture, index) {
-  let { html } = fixture
-
+export function uniqueHTML(html, index) {
   if (index) {
     html = html
 
@@ -34,7 +32,7 @@ export function renderExample(fixture, index) {
  * @param {string} value - Attribute value
  * @param {string | number} index - Unique index to append to attribute value
  */
-export function uniqueValue(name, value, index) {
+function uniqueValue(name, value, index) {
   if (
     !value ||
     (name === 'id' && value === 'maincontent') ||
@@ -62,13 +60,9 @@ export function uniqueValue(name, value, index) {
  * @param {string} values - Attribute values, space-separated
  * @param {string | number} index - Unique index to append to attribute values
  */
-export function uniqueValues(name, values, index) {
+function uniqueValues(name, values, index) {
   return values
     .split(' ')
     .map((value) => uniqueValue(name, value, index))
     .join(' ')
 }
-
-/**
- * @import { MacroExampleFixture } from 'nhsuk-frontend/lib'
- */
