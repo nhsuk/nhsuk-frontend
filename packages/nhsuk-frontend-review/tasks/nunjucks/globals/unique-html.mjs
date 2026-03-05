@@ -1,23 +1,21 @@
 /**
- * Render Nunjucks component with unique attributes
+ * Make component HTML attributes unique
  *
- * @param {MacroExampleFixture} fixture - Nunjucks macro example fixture
+ * @param {string} html - Nunjucks macro example HTML
  * @param {string | number} [index] - Unique index to append to attribute values (optional)
  */
-export function renderExample(fixture, index) {
-  let { html } = fixture
-
+export function uniqueHTML(html, index) {
   if (index) {
     html = html
 
       // Append unique ID to attribute value
-      .replace(
+      .replaceAll(
         / (aria-label|href|id|for|name)="([^"]*)"/g,
         (match, name, value) => ` ${name}="${uniqueValue(name, value, index)}"`
       )
 
       // Append unique ID to attribute value(s)
-      .replace(
+      .replaceAll(
         / (?:data-)?(aria-controls|aria-describedby|aria-labelledby)="([^"]*)"/g,
         (match, name, values) =>
           ` ${name}="${uniqueValues(name, values, index)}"`
@@ -34,7 +32,7 @@ export function renderExample(fixture, index) {
  * @param {string} value - Attribute value
  * @param {string | number} index - Unique index to append to attribute value
  */
-export function uniqueValue(name, value, index) {
+function uniqueValue(name, value, index) {
   if (
     !value ||
     (name === 'id' && value === 'maincontent') ||
@@ -47,12 +45,19 @@ export function uniqueValue(name, value, index) {
     return `${value} ${index}`
   }
 
-  const [, prefix, suffix] =
-    /(.+)-((item-)+?hint|info|label|error)$/.exec(value) ?? []
+  // Check for known value suffix
+  const matches = /-((?:item-)+hint|info|label|error)$/.exec(value)
 
-  return prefix && suffix
-    ? `${prefix}-${index}-${suffix}` // 'example-5-hint'
-    : `${value}-${index}` // 'example-5'
+  if (matches) {
+    const prefix = value.slice(0, matches.index)
+    const suffix = matches[1]
+
+    // 'example-5-hint'
+    return `${prefix}-${index}-${suffix}`
+  }
+
+  // 'example-5'
+  return `${value}-${index}`
 }
 
 /**
@@ -62,13 +67,9 @@ export function uniqueValue(name, value, index) {
  * @param {string} values - Attribute values, space-separated
  * @param {string | number} index - Unique index to append to attribute values
  */
-export function uniqueValues(name, values, index) {
+function uniqueValues(name, values, index) {
   return values
     .split(' ')
     .map((value) => uniqueValue(name, value, index))
     .join(' ')
 }
-
-/**
- * @import { MacroExampleFixture } from 'nhsuk-frontend/lib'
- */

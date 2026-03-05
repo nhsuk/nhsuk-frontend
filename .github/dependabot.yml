@@ -59,6 +59,7 @@ updates:
           - 'backstopjs'
           - 'jest'
           - 'jest-*'
+          - 'jsdom-*'
           - 'playwright'
           - 'playwright-*'
           - 'puppeteer'
