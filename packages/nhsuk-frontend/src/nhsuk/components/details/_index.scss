@@ -122,7 +122,7 @@ $nhsuk-expander-icon-size: 27px; // 19px font size + 4px summary text padding
       display: block;
 
       width: auto;
-      padding: nhsuk-spacing(4) - $nhsuk-focus-width nhsuk-spacing(4) 0;
+      padding: nhsuk-spacing(4);
 
       border: $nhsuk-expander-border-width solid $nhsuk-expander-border-colour;
       border-bottom: $nhsuk-expander-border-bottom-width solid $nhsuk-expander-border-colour;
@@ -130,7 +130,7 @@ $nhsuk-expander-icon-size: 27px; // 19px font size + 4px summary text padding
       background-color: $nhsuk-card-background-colour;
 
       @include nhsuk-media-query($from: tablet) {
-        padding: nhsuk-spacing(5) - $nhsuk-focus-width nhsuk-spacing(5) 0;
+        padding: nhsuk-spacing(5);
       }
     }
 
