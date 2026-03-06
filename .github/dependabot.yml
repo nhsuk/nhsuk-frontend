@@ -31,6 +31,7 @@ updates:
       lint:
         patterns:
           - '@eslint/*'
+          - '@prettier/*'
           - '@types/*'
           - 'eslint'
           - 'eslint-*'
