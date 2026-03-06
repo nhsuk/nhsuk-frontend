@@ -1,5 +1,5 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
-{% from "nhsuk/components/card/macro.njk" import card %}
+{% from "nhsuk/components/card/macro.njk" import card -%}
 
 {{ card({
   id: params.id,
@@ -15,4 +15,4 @@
   classes: params.classes,
   attributes: params.attributes,
   warning: true
-}) }}
+}) | trim }}
