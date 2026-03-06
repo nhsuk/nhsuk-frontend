@@ -31,6 +31,7 @@ updates:
       lint:
         patterns:
           - '@eslint/*'
+          - '@prettier/*'
           - '@types/*'
           - 'eslint'
           - 'eslint-*'
@@ -74,6 +75,7 @@ updates:
           - 'glob'
           - 'gulp'
           - 'gulp-*'
+          - 'highlight.js'
           - 'latest-version'
           - 'lodash'
           - 'outdent'

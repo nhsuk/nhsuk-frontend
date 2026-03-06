@@ -1,5 +1,5 @@
 import * as names from './names.mjs'
-import * as nunjucks from './nunjucks.mjs'
+import * as nunjucks from './nunjucks/index.mjs'
 
 /**
  * Render component HTML
@@ -13,6 +13,20 @@ export function render(component, options) {
   const macroPath = `${component}/macro.njk`
 
   return nunjucks.renderMacro(macroName, macroPath, options)
+}
+
+/**
+ * Return component macro
+ *
+ * @param {string} component - Component directory name
+ * @param {MacroRenderOptions | MacroExample} [options] - Nunjucks macro render options
+ * @returns Nunjucks code to render the macro
+ */
+export function macro(component, options) {
+  const macroName = names.componentNameToMacroName(component, options?.prefix)
+  const macroPath = `${component}/macro.njk`
+
+  return nunjucks.macro(macroName, macroPath, options)
 }
 
 /**
@@ -119,5 +133,5 @@ export function render(component, options) {
 
 /**
  * @import { Scenario } from 'backstopjs'
- * @import { MacroRenderOptions } from './nunjucks.mjs'
+ * @import { MacroRenderOptions } from 'nhsuk-frontend/lib'
  */

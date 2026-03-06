@@ -364,7 +364,7 @@ const fixtures = {
           {
             header: 'Description',
             html: outdent`
-              Can be used to add a row of table header cells (<code class="app-code">&lt;th&gt;</code>) at the top of the table component.
+              Can be used to add a row of table header cells (<code>&lt;th&gt;</code>) at the top of the table component.
               <a href="#/macro-options">See macro options for head</a>.
             `
           }
@@ -409,7 +409,7 @@ const fixtures = {
           {
             header: 'Description',
             html: outdent`
-              If set to <code class="app-code">true</code>, the first cell in each row will be a table header (<code class="app-code">&lt;th&gt;</code>).
+              If set to <code>true</code>, the first cell in each row will be a table header (<code>&lt;th&gt;</code>).
             `
           }
         ],

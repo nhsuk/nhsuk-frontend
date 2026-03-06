@@ -43,7 +43,14 @@ export const compile = gulp.series(
       // Customise input
       input: {
         cache,
-        external: ['#lib', 'nunjucks', 'outdent'],
+        external: [
+          '#lib',
+          '@prettier/sync',
+          /highlight\.js(\/lib\/languages\/)?/,
+          'nunjucks',
+          'outdent',
+          'slug'
+        ],
         treeshake: false
       },
 

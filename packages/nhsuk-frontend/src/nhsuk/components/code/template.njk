@@ -1,0 +1,17 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes -%}
+
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-code" -%}
+
+{% if params.classes %}
+  {% set classNames = classNames + " " + params.classes %}
+{% endif -%}
+
+<pre {%- if params.id %} id="{{ params.id }}"{% endif %} class="{{ classNames }}"
+  {{- nhsukAttributes(params.attributes) }} data-module="nhsuk-code"><code class="nhsuk-code__container">
+{%- if caller or params.html %}
+  {{- caller() if caller else params.html | safe -}}
+{% elif params.text %}
+  {{- params.text -}}
+{% endif -%}
+</code></pre>

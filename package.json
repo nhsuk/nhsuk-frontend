@@ -70,6 +70,7 @@
     "@types/gulp": "^4.0.18",
     "@types/gulp-rename": "^2.0.7",
     "@types/gulp-zip": "^4.0.4",
+    "@types/highlight.js": "^9.12.4",
     "@types/jest": "^30.0.0",
     "@types/jest-axe": "^3.5.9",
     "@types/lodash": "^4.17.23",
