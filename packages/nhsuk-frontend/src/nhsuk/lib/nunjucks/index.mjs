@@ -1,3 +1,4 @@
+import prettier from '@prettier/sync'
 import { outdent } from 'outdent'
 
 import { env } from './environment.mjs'
@@ -25,15 +26,28 @@ export function renderMacro(macroName, macroPath, options) {
  * @returns Nunjucks code to render the macro
  */
 export function macro(macroName, macroPath, options) {
-  const paramsFormatted = JSON.stringify(options?.context ?? {}, undefined, 2)
+  let macroString = `{% from "${macroPath}" import ${macroName} -%}\n\n`
+  let macroCall = `${macroName}()`
 
-  let macroString = `{%- from "${macroPath}" import ${macroName} -%}`
+  // Format Nunjucks options without quoted keys
+  if (options?.context && Object.keys(options.context).length) {
+    const paramsFormatted = JSON.stringify(options.context, undefined, 2)
+
+    macroCall = prettier
+      .format(`${macroName}(${paramsFormatted})`, {
+        parser: 'espree',
+        semi: false,
+        singleQuote: false,
+        trailingComma: 'none'
+      })
+      .trim()
+  }
 
   // If we're nesting child components or text, pass the children to the macro
   // using the 'caller' Nunjucks feature
   macroString += options?.callBlock
-    ? `{%- call ${macroName}(${paramsFormatted}) -%}${options.callBlock}{%- endcall -%}`
-    : `{{- ${macroName}(${paramsFormatted}) -}}`
+    ? `{% call ${macroCall} %}\n\n${options.callBlock.trim()}\n\n{% endcall %}`
+    : `{{ ${macroCall} }}`
 
   return macroString
 }

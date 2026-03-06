@@ -45,6 +45,7 @@ export const compile = gulp.series(
         cache,
         external: [
           '#lib',
+          '@prettier/sync',
           /highlight\.js(\/lib\/languages\/)?/,
           'nunjucks',
           'outdent',
