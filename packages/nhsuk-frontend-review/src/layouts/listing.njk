@@ -48,6 +48,9 @@
   {% endfor -%}
 
   {% if not options.hidden %}
+    {% set htmlCode = uniqueHTML(fixture.html, loop.index) %}
+    {% set nunjucksCode = getNunjucksCode(component, fixture) %}
+
   <section id="{{ exampleName | slugify }}" class="nhsuk-main-wrapper app-wrapper {%- if options.layout %} app-wrapper--{{ options.layout }}{%- endif %}">
     <div class="nhsuk-width-container">
       <div class="nhsuk-grid-row">
@@ -65,11 +68,30 @@
               Open this example in a new tab<span class="nhsuk-u-visually-hidden">: {{ name ~ " " ~ exampleName }}</span>
             </a>
           </p>
-          {{ uniqueHTML(fixture.html, loop.index) | safe | indent(10) if not isFullWidth }}
+          {{ htmlCode | safe | indent(10) if not isFullWidth }}
         </div>
       </div>
     </div>
-    {{ uniqueHTML(fixture.html, loop.index) | safe | indent(4) if isFullWidth }}
+    {{ htmlCode | safe | indent(4) if isFullWidth }}
+    <div class="nhsuk-width-container">
+      {% set codeExamplesHtml %}
+        <h3 class="nhsuk-heading-s">Markup</h3>
+        {{ code({
+          html: htmlCode | highlight("html") | safe
+        }) }}
+
+        <h3 class="nhsuk-heading-s">Macro</h3>
+        {{ code({
+          html: nunjucksCode | highlight(["html", "njk"]) | safe
+        }) }}
+      {% endset %}
+
+      {{ details({
+        summaryText: "Code",
+        html: codeExamplesHtml,
+        classes: ("nhsuk-details--reverse " if isReverse else "") ~ "nhsuk-u-margin-top-4 nhsuk-u-margin-bottom-0"
+      }) }}
+    </div>
   </section>
   {% endif %}
 {% endfor %}

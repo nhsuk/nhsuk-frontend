@@ -21,6 +21,10 @@
   .nhsuk-section-break--visible {
     border-color: $nhsuk-secondary-border-colour;
   }
+
+  .nhsuk-code {
+    border-color: transparent;
+  }
 }
 
 .app-wrapper--background-grey {
@@ -32,6 +36,10 @@
   & + &,
   .nhsuk-section-break--visible {
     border-color: $nhsuk-body-background-colour;
+  }
+
+  .nhsuk-code {
+    border-color: nhsuk-colour("grey-3");
   }
 }
 
