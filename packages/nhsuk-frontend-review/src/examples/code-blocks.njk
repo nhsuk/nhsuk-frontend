@@ -1,0 +1,56 @@
+{% extends "layouts/page.njk" %}
+
+{% set pageName = "Code blocks" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block beforeContent %}
+  {{ breadcrumb({
+    items: [
+      {
+        text: "NHS.UK frontend",
+        href: baseUrl
+      },
+      {
+        text: "Examples",
+        href: baseUrl ~ "#examples"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl">{{ pageName }}</h1>
+    </div>
+  </div>
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h2 class="nhsuk-heading-l">Unreleased</h2>
+
+      <h4 class="nhsuk-heading-s">Reversed link style for action link</h4>
+
+      <p class="nhsuk-body">You can now use the action link component on dark backgrounds by using the <code>.nhsuk-action-link--reverse</code> class.</p>
+      <p class="nhsuk-body">This was added in <a class="nhsuk-link nhsuk-link--no-visited-state" href="https://github.com/nhsuk/nhsuk-frontend/pull/1542">pull request #1542: Add reverse action link modifiers and styles</a>.</p>
+
+      <h4 class="nhsuk-heading-s">Sass colour palette <code>nhsuk-colour</code> function</h4>
+
+      <p class="nhsuk-body">The Sass colour palette variables (e.g. <code>$color_nhsuk-blue</code>) have been moved into a new single <code>$nhsuk-colours</code> map. The previous names are deprecated and will be removed in a future release.</p>
+      <p class="nhsuk-body">If you need to reference a colour within your application you should use the new <code>nhsuk-colour</code> function:</p>
+
+      {% set sassExample %}
+          .nhsuk-example {
+        -   color: $color_nhsuk-blue;
+        +   color: nhsuk-colour("blue");
+          }
+      {% endset %}
+
+      {{ code({
+        html: sassExample | highlight("diff") | safe
+      }) }}
+
+    </div>
+  </div>
+{% endblock %}
