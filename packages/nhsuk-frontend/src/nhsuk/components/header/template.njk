@@ -57,7 +57,7 @@
 {%- macro _accountItem(item) %}
 {{- nhsukIcon("user") if item.icon -}}
 {{- item.html | safe if item.html else item.text -}}
-{% endmacro %}
+{% endmacro -%}
 
 <header {%- if params.id %} id="{{ params.id }}"{% endif %} class="{{ classNames }}" role="banner"
   {{- nhsukAttributes(params.attributes) }} data-module="nhsuk-header">

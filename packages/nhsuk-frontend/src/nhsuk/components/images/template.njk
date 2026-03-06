@@ -11,7 +11,7 @@
 
 {%- if caption and caption is string %}
   {% set caption = { text: caption } %}
-{% endif %}
+{% endif -%}
 
 <figure {%- if params.id %} id="{{ params.id }}"{% endif %} class="{{ classNames }}"
   {{- nhsukAttributes(params.attributes) }}>
