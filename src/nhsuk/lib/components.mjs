@@ -16,6 +16,20 @@ export function render(component, options) {
 }
 
 /**
+ * Return component macro
+ *
+ * @param {string} component - Component directory name
+ * @param {MacroRenderOptions | MacroExample} [options] - Nunjucks macro render options
+ * @returns Nunjucks code to render the macro
+ */
+export function macro(component, options) {
+  const macroName = names.componentNameToMacroName(component, options?.prefix)
+  const macroPath = `${component}/macro.njk`
+
+  return nunjucks.macro(macroName, macroPath, options)
+}
+
+/**
  * Nunjucks macro option config
  *
  * @typedef {object} MacroParam
