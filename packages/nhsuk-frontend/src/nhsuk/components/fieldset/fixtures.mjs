@@ -26,7 +26,6 @@ const fixtures = {
           autocomplete: 'address-line1'
         }
       })}
-
       ${components.render('input', {
         context: {
           label: {
@@ -36,7 +35,6 @@ const fixtures = {
           autocomplete: 'address-line2'
         }
       })}
-
       ${components.render('input', {
         context: {
           label: {
@@ -47,7 +45,6 @@ const fixtures = {
           classes: 'nhsuk-u-width-two-thirds'
         }
       })}
-
       ${components.render('input', {
         context: {
           label: {
