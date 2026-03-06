@@ -6,4 +6,10 @@ describe('Nunjucks filter: highlight', () => {
       'hello &lt;br&gt; {{ &quot;world&quot; }}'
     )
   })
+
+  it('applies code highlighting', () => {
+    expect(highlight('hello <br> {{ "world" }}', 'html')).toContain(
+      'hello <span class="nhsuk-code__tag">&lt;<span class="nhsuk-code__name">br</span>&gt;</span> {{ &quot;world&quot; }}'
+    )
+  })
 })
