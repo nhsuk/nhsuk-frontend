@@ -11,6 +11,20 @@ import { env } from './environment.mjs'
  * @returns HTML rendered by the macro
  */
 export function renderMacro(macroName, macroPath, options) {
+  return renderString(macro(macroName, macroPath, options), {
+    env: options?.env
+  })
+}
+
+/**
+ * Return macro
+ *
+ * @param {string} macroName - The name of the macro
+ * @param {string} macroPath - The path to the file containing the macro
+ * @param {MacroRenderOptions} [options] - Nunjucks macro render options
+ * @returns Nunjucks code to render the macro
+ */
+export function macro(macroName, macroPath, options) {
   const paramsFormatted = JSON.stringify(options?.context ?? {}, undefined, 2)
 
   let macroString = `{%- from "${macroPath}" import ${macroName} -%}`
@@ -21,21 +35,7 @@ export function renderMacro(macroName, macroPath, options) {
     ? `{%- call ${macroName}(${paramsFormatted}) -%}${options.callBlock}{%- endcall -%}`
     : `{{- ${macroName}(${paramsFormatted}) -}}`
 
-  return renderString(macroString, {
-    env: options?.env
-  })
-}
-
-/**
- * Render string
- *
- * @param {string} string - Nunjucks string to render
- * @param {TemplateRenderOptions} [options] - Nunjucks render options
- * @returns HTML rendered from the Nunjucks string
- */
-export function renderString(string, options) {
-  const nunjucksEnv = options?.env ?? env
-  return nunjucksEnv.renderString(string, options?.context ?? {})
+  return macroString
 }
 
 /**
@@ -43,9 +43,20 @@ export function renderString(string, options) {
  *
  * @param {string} templatePath - Nunjucks template path
  * @param {TemplateRenderOptions} [options] - Nunjucks template render options
- * @returns HTML rendered by template.njk
+ * @returns HTML rendered by the template
  */
 export function renderTemplate(templatePath, options) {
+  return renderString(template(templatePath, options), options)
+}
+
+/**
+ * Return template
+ *
+ * @param {string} templatePath - Nunjucks template path
+ * @param {TemplateRenderOptions} [options] - Nunjucks template render options
+ * @returns Nunjucks code to render the template
+ */
+export function template(templatePath, options) {
   let viewString = `{% extends "${templatePath}" %}`
 
   if (options?.blocks) {
@@ -58,7 +69,19 @@ export function renderTemplate(templatePath, options) {
     }
   }
 
-  return renderString(viewString, options)
+  return viewString
+}
+
+/**
+ * Render string
+ *
+ * @param {string} string - Nunjucks string to render
+ * @param {TemplateRenderOptions} [options] - Nunjucks render options
+ * @returns HTML rendered from the Nunjucks string
+ */
+export function renderString(string, options) {
+  const nunjucksEnv = options?.env ?? env
+  return nunjucksEnv.renderString(string, options?.context ?? {})
 }
 
 export * from './environment.mjs'
