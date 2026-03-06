@@ -73,6 +73,7 @@
     "del-cli": "^7.0.0",
     "gulp": "^5.0.1",
     "gulp-zip": "^6.1.0",
+    "highlight.js": "^11.11.1",
     "jsdom-testing-mocks": "^1.16.0",
     "nunjucks": "^3.2.4",
     "outdent": "^0.8.0",
@@ -83,11 +84,15 @@
     "slug": "^11.0.1"
   },
   "peerDependencies": {
+    "highlight.js": "^11.0.0",
     "nunjucks": "^3.0.0",
     "outdent": "^0.8.0",
     "slug": "^11.0.0"
   },
   "peerDependenciesMeta": {
+    "highlight.js": {
+      "optional": true
+    },
     "nunjucks": {
       "optional": true
     },
