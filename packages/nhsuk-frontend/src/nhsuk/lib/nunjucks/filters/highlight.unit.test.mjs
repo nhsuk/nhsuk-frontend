@@ -12,4 +12,10 @@ describe('Nunjucks filter: highlight', () => {
       'hello <span class="nhsuk-code__tag">&lt;<span class="nhsuk-code__name">br</span>&gt;</span> {{ &quot;world&quot; }}'
     )
   })
+
+  it('applies code highlighting (multiple languages)', () => {
+    expect(highlight('hello <br> {{ "world" }}', ['html', 'njk'])).toContain(
+      'hello <span class="nhsuk-code__tag">&lt;<span class="nhsuk-code__name">br</span>&gt;</span> </span><span class="nhsuk-code__tag">{{ <span class="nhsuk-code__string">&quot;world&quot;</span> }}'
+    )
+  })
 })
