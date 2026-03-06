@@ -10,3 +10,6 @@ export { default as markdown } from 'highlight.js/lib/languages/markdown'
 export { default as plaintext } from 'highlight.js/lib/languages/plaintext'
 export { default as scss } from 'highlight.js/lib/languages/scss'
 export { default as xml } from 'highlight.js/lib/languages/xml'
+
+// Custom Nunjucks language
+export { default as nunjucks } from './nunjucks.mjs'
