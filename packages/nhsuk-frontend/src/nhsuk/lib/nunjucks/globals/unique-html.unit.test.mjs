@@ -1,8 +1,6 @@
 import { components } from 'nhsuk-frontend/src/nhsuk/lib/index.mjs'
 import { outdent } from 'outdent'
 
-import { configure } from '../environment.mjs'
-
 import { uniqueHTML } from './unique-html.mjs'
 
 describe('Nunjucks global: uniqueHTML', () => {
@@ -24,8 +22,7 @@ describe('Nunjucks global: uniqueHTML', () => {
       classes: 'nhsuk-input--width-10 nhsuk-input--code',
       inputmode: 'numeric',
       spellcheck: false
-    },
-    env: configure()
+    }
   })
 
   it('renders original HTML for component', () => {

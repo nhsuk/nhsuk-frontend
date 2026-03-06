@@ -4,11 +4,14 @@ import * as config from '@nhsuk/frontend-config'
 import { components, files } from '@nhsuk/frontend-lib'
 import { task } from '@nhsuk/frontend-tasks'
 import { HtmlValidate, formatterFactory } from 'html-validate'
+import {
+  configure,
+  filters,
+  renderTemplate
+} from 'nhsuk-frontend/src/nhsuk/lib/nunjucks/index.mjs'
 import PluginError from 'plugin-error'
 
 import validatorConfig from '../.htmlvalidate.js'
-
-import { configure, filters, renderTemplate } from './nunjucks/index.mjs'
 
 const { HEROKU_BRANCH = 'main' } = process.env
 
@@ -29,7 +32,10 @@ export const compile = task.name('html:render', async () => {
   })
 
   // Review app Nunjucks environment
-  const env = configure()
+  const env = configure([
+    join(config.paths.app, 'src'),
+    join(config.paths.pkg, 'dist')
+  ])
 
   // Review app Nunjucks context
   const context = {

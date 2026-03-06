@@ -79,17 +79,22 @@
     "postcss": "^8.5.6",
     "postcss-scss": "^4.0.9",
     "puppeteer": "^24.37.3",
-    "sass-embedded": "^1.97.3"
+    "sass-embedded": "^1.97.3",
+    "slug": "^11.0.1"
   },
   "peerDependencies": {
     "nunjucks": "^3.0.0",
-    "outdent": "^0.8.0"
+    "outdent": "^0.8.0",
+    "slug": "^11.0.0"
   },
   "peerDependenciesMeta": {
     "nunjucks": {
       "optional": true
     },
     "outdent": {
+      "optional": true
+    },
+    "slug": {
       "optional": true
     }
   },
