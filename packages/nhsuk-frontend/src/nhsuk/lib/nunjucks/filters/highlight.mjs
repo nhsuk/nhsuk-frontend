@@ -1,5 +1,7 @@
 import { highlighter } from '../../highlighter/index.mjs'
 
+import { unindent } from './unindent.mjs'
+
 /**
  * Format code with syntax highlighting
  *
@@ -9,5 +11,5 @@ import { highlighter } from '../../highlighter/index.mjs'
  */
 export function highlight(code, language = []) {
   const languages = language ? [language].flat() : undefined
-  return highlighter.highlightAuto(code, languages).value
+  return highlighter.highlightAuto(unindent(code), languages).value
 }
