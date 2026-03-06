@@ -74,6 +74,7 @@ updates:
           - 'glob'
           - 'gulp'
           - 'gulp-*'
+          - 'highlight.js'
           - 'latest-version'
           - 'lodash'
           - 'outdent'
