@@ -1,5 +1,6 @@
 @use "../settings" as *;
 @use "../tools" as *;
+@use "../helpers" as *;
 
 ////
 /// Typography
@@ -287,4 +288,26 @@ b {
   %nhsuk-body-s + %nhsuk-heading-s {
     padding-top: 0.45em;
   }
+}
+
+// Code
+
+li code,
+caption code,
+td code,
+p code {
+  padding: 2px nhsuk-spacing(2);
+  color: $nhsuk-code-colour;
+  background-color: nhsuk-colour("white");
+  font-family: $nhsuk-code-font;
+  word-break: break-word;
+  @include nhsuk-font-size(16);
+}
+
+a code {
+  color: currentcolor;
+}
+
+a:focus code {
+  background-color: transparent;
 }
