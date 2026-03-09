@@ -17,7 +17,7 @@
     "@rollup/plugin-node-resolve": "^16.0.3",
     "@rollup/plugin-replace": "^6.0.3",
     "@rollup/plugin-terser": "^0.4.4",
-    "autoprefixer": "^10.4.24",
+    "autoprefixer": "^10.4.27",
     "browser-sync": "^3.0.4",
     "cssnano": "^7.1.2",
     "gulp": "^5.0.1",
@@ -34,6 +34,6 @@
   },
   "engines": {
     "node": "^24.11.0",
-    "npm": "^11.6.1"
+    "npm": "^11.6.1 <11.6.3 || ^11.6.4"
   }
 }
