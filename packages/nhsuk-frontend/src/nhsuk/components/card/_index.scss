@@ -34,7 +34,7 @@
 ////
 
 $nhsuk-card-border-width: 1px;
-$nhsuk-card-shadow-size: nhsuk-spacing(1) - 1px;
+$nhsuk-card-border-bottom-width: nhsuk-spacing(1) - 1px;
 $nhsuk-card-border-colour: $nhsuk-border-colour;
 $nhsuk-card-border-hover-colour: $nhsuk-border-hover-colour;
 
@@ -188,7 +188,7 @@ $nhsuk-card-border-hover-colour: $nhsuk-border-hover-colour;
   // Clickable card
 
   .nhsuk-card--clickable {
-    box-shadow: 0 $nhsuk-card-shadow-size 0 $nhsuk-border-colour;
+    box-shadow: 0 $nhsuk-card-border-bottom-width 0 $nhsuk-border-colour;
 
     .nhsuk-card__heading a,
     .nhsuk-card__link {
@@ -200,7 +200,7 @@ $nhsuk-card-border-hover-colour: $nhsuk-border-hover-colour;
         position: absolute;
         top: -$nhsuk-card-border-width; // [18]
         right: -$nhsuk-card-border-width; // [18]
-        bottom: -$nhsuk-card-border-width + -$nhsuk-card-shadow-size; // [18]
+        bottom: -$nhsuk-card-border-width + -$nhsuk-card-border-bottom-width; // [18]
         left: -$nhsuk-card-border-width; // [18]
 
         background-color: rgba(255, 255, 255, 0); // [17]
@@ -211,7 +211,7 @@ $nhsuk-card-border-hover-colour: $nhsuk-border-hover-colour;
     &:has(.nhsuk-card__heading a:hover),
     &:has(.nhsuk-card__link:hover) {
       border-color: $nhsuk-card-border-hover-colour;
-      box-shadow: 0 $nhsuk-card-shadow-size 0 $nhsuk-card-border-hover-colour;
+      box-shadow: 0 $nhsuk-card-border-bottom-width 0 $nhsuk-card-border-hover-colour;
     }
 
     &:hover .nhsuk-icon,
@@ -223,7 +223,7 @@ $nhsuk-card-border-hover-colour: $nhsuk-border-hover-colour;
     &:active,
     &:has(.nhsuk-card__heading a:active),
     &:has(.nhsuk-card__link:active) {
-      top: $nhsuk-card-shadow-size; // [3]
+      top: $nhsuk-card-border-bottom-width; // [3]
       box-shadow: none;
     }
 
@@ -509,7 +509,7 @@ $nhsuk-card-border-hover-colour: $nhsuk-border-hover-colour;
     border-right: 0;
     border-left: 0;
     background: transparent;
-    box-shadow: 0 $nhsuk-card-shadow-size 0 $nhsuk-border-colour;
+    box-shadow: 0 $nhsuk-card-border-bottom-width 0 $nhsuk-border-colour;
   }
 
   .nhsuk-card--secondary > .nhsuk-card__heading-container,
