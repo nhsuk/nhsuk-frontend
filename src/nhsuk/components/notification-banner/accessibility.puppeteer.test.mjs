@@ -20,6 +20,14 @@ describe('Notification banner', () => {
     }
   })
 
+  it('Listing page passes accessibility tests', async () => {
+    // Ignore duplicate landmarks on component listing page
+    axeRules['landmark-unique'] = { enabled: false }
+
+    await goToComponent(page, 'notification-banner')
+    return expect(axe(page, axeRules)).resolves.toHaveNoViolations()
+  })
+
   describe.each(Object.entries(examples))('%s', (name, example) => {
     it.each(getOptions(name, example))(
       '$title passes accessibility tests',
