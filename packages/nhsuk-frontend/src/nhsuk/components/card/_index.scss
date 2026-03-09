@@ -55,6 +55,8 @@ $nhsuk-card-border-hover-colour: $nhsuk-border-hover-colour;
   }
 
   .nhsuk-card__content {
+    box-sizing: border-box;
+
     @include nhsuk-top-and-bottom;
     @include nhsuk-responsive-padding(5);
   }
@@ -196,10 +198,10 @@ $nhsuk-card-border-hover-colour: $nhsuk-border-hover-colour;
         display: block;
 
         position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
+        top: -$nhsuk-card-border-width;
+        right: -$nhsuk-card-border-width;
+        bottom: -$nhsuk-card-border-bottom-width;
+        left: -$nhsuk-card-border-width;
 
         background-color: rgba(255, 255, 255, 0); // [17]
       }
