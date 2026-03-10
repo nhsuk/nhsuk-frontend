@@ -730,9 +730,9 @@ const fixtures = {
 
       ${components.render('action-link', {
         context: {
-          classes: 'nhsuk-action-link--reverse',
           text: 'Find your nearest A&E',
-          href: '#'
+          href: '#',
+          reverse: true
         }
       })}
     `
