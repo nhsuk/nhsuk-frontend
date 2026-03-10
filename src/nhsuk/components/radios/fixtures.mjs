@@ -93,7 +93,7 @@ const fixtures = {
   },
   'inline': {
     context: {
-      classes: 'nhsuk-radios--inline',
+      inline: true,
       fieldset: {
         legend: {
           text: 'Are you 18 or over?'

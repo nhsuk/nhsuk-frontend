@@ -215,6 +215,11 @@ const options = {
     required: false,
     description: 'If set to `true`, small radios will be used.'
   },
+  inline: {
+    type: 'boolean',
+    required: false,
+    description: 'If set to `true`, inline radios will be used.'
+  },
   classes: {
     type: 'string',
     required: false,
