@@ -45,6 +45,12 @@ const options = {
     required: true,
     description: 'The value of the parent page link `href` attribute.'
   },
+  reverse: {
+    type: 'boolean',
+    required: false,
+    description:
+      'If set to `true`, show white links and arrows on dark backgrounds.'
+  },
   classes: {
     type: 'string',
     required: false,
