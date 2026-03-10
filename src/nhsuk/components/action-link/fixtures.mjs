@@ -13,9 +13,9 @@ const fixtures = {
   },
   reverse: {
     context: {
-      classes: 'nhsuk-action-link--reverse',
       text: 'Find your nearest A&E',
-      href: '#'
+      href: '#',
+      variant: 'reverse'
     },
     options: {
       layout: 'background-blue'
