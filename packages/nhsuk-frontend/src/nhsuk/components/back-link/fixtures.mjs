@@ -28,7 +28,7 @@ const fixtures = {
     context: {
       text: 'Back',
       href: '#',
-      classes: 'nhsuk-back-link--reverse'
+      variant: 'reverse'
     },
     options: {
       layout: 'background-blue'
