@@ -384,8 +384,8 @@ export async function isVisible($element) {
  */
 
 /**
- * @import { MacroExample, MacroRenderOptions } from 'nhsuk-frontend/lib'
+ * @import { MacroExample, MacroRenderOptions } from 'nhsuk-frontend/src/nhsuk/lib/index.mjs'
  * @import { RuleObject, RunOptions } from 'axe-core'
- * @import { Config, ConfigKey } from 'nhsuk-frontend'
+ * @import { Config, ConfigKey } from 'nhsuk-frontend/src/nhsuk/index.mjs'
  * @import { ElementHandle, EvaluateFuncWith, Handler, Page } from 'puppeteer'
  */
