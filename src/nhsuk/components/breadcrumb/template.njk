@@ -1,8 +1,15 @@
 {% from "nhsuk/components/back-link/macro.njk" import backLink %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
+{#- Set variant for this component #}
+{%- set variant = params.variant -%}
+
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-breadcrumb" -%}
+
+{%- if variant == "reverse" and (not params.classes or not "nhsuk-breadcrumb--reverse" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-breadcrumb--" ~ variant %}
+{% endif %}
 
 {%- if params.classes %}
   {% set classNames = classNames ~ " " ~ params.classes %}
