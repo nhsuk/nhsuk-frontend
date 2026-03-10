@@ -29,8 +29,8 @@ const fixtures = {
           ${components.render('button', {
             context: {
               text: 'Continue anyway',
-              classes: 'nhsuk-button--reverse',
-              href: '#'
+              href: '#',
+              reverse: true
             }
           })}
           <a href="#">Cancel</a>
@@ -53,8 +53,8 @@ const fixtures = {
           ${components.render('button', {
             context: {
               text: 'Cancel appointment',
-              classes: 'nhsuk-button--reverse',
-              href: '#'
+              href: '#',
+              reverse: true
             }
           })}
           <a href="#">Change my weight</a>
@@ -73,8 +73,8 @@ const fixtures = {
           ${components.render('button', {
             context: {
               text: 'Yes, this is correct',
-              classes: 'nhsuk-button--reverse',
-              href: '#'
+              href: '#',
+              reverse: true
             }
           })}
           <a href="#">Change my weight</a>

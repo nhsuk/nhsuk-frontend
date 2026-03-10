@@ -117,7 +117,7 @@ const fixtures = {
   'reverse': {
     context: {
       text: 'Log out',
-      classes: 'nhsuk-button--reverse'
+      reverse: true
     },
     options: {
       layout: 'background-blue'
@@ -130,7 +130,7 @@ const fixtures = {
   'reverse, small': {
     context: {
       text: 'Log out',
-      classes: 'nhsuk-button--reverse',
+      reverse: true,
       small: true
     },
     options: {
@@ -140,8 +140,8 @@ const fixtures = {
   'reverse disabled': {
     context: {
       text: 'Log out',
-      classes: 'nhsuk-button--reverse',
-      disabled: true
+      disabled: true,
+      reverse: true
     },
     options: {
       layout: 'background-blue'
@@ -151,8 +151,8 @@ const fixtures = {
   'reverse disabled, small': {
     context: {
       text: 'Log out',
-      classes: 'nhsuk-button--reverse',
       disabled: true,
+      reverse: true,
       small: true
     },
     options: {
@@ -162,7 +162,7 @@ const fixtures = {
   'reverse as a link': {
     context: {
       text: 'Log out',
-      classes: 'nhsuk-button--reverse',
+      reverse: true,
       href: '#'
     },
     options: {
@@ -176,7 +176,7 @@ const fixtures = {
   'reverse as a link, small': {
     context: {
       text: 'Log out',
-      classes: 'nhsuk-button--reverse',
+      reverse: true,
       small: true,
       href: '#'
     },

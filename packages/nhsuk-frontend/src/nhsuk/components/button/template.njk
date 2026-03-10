@@ -3,6 +3,10 @@
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-button" -%}
 
+{%- if params.reverse and (not params.classes or not "nhsuk-button--reverse" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-button--reverse" %}
+{% endif %}
+
 {%- if params.small and (not params.classes or not "nhsuk-button--small" in params.classes) %}
   {% set classNames = classNames ~ " nhsuk-button--small" %}
 {% endif %}

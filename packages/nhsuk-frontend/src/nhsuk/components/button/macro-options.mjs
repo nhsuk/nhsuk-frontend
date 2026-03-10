@@ -59,6 +59,11 @@ const options = {
     description:
       'The URL that the button should link to. If this is set, `element` will be automatically set to `"a"` if it has not already been defined.'
   },
+  reverse: {
+    type: 'boolean',
+    required: false,
+    description: 'If set to `true`, show a white button on dark backgrounds.'
+  },
   small: {
     type: 'boolean',
     required: false,
