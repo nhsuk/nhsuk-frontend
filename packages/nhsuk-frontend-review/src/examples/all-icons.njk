@@ -1,7 +1,17 @@
-{% extends "layouts/page.njk" %}
+{% extends "layouts/page-full-width.njk" %}
 
 {% set pageName = "Icons" %}
-{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% set examples = {
+  "Arrow left": "arrow-left",
+  "Arrow right": "arrow-right",
+  "Arrow right circle": "arrow-right-circle",
+  "Chevron right circle": "chevron-right-circle",
+  "Cross": "cross",
+  "Tick": "tick",
+  "Search": "search",
+  "User": "user"
+} %}
 
 {% block beforeContent %}
   {{ breadcrumb({
@@ -19,69 +29,136 @@
 {% endblock %}
 
 {% block content %}
-  <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-full">
-      {% set rows = [] %}
+  <section class="nhsuk-main-wrapper nhsuk-main-wrapper--s">
+    <div class="nhsuk-width-container">
 
-      {% for name, modifier in {
-        "Arrow left": "arrow-left",
-        "Arrow right": "arrow-right",
-        "Arrow right circle": "arrow-right-circle",
-        "Chevron right circle": "chevron-right-circle",
-        "Cross": "cross",
-        "Tick": "tick",
-        "Search": "search",
-        "User": "user"
-      } %}
-        {% set modifierHtml %}
-          <code class="nhsuk-body-s">{{ modifier }}</code>
-        {% endset %}
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          <h1 class="nhsuk-heading-xl">{{ pageName }}</h1>
+        </div>
+      </div>
 
-        {% set iconHtml %}
-          {% for size, params in {
-            "100%": {},
-            "125%": { classes: "nhsuk-icon--size-25" },
-            "150%": { classes: "nhsuk-icon--size-50" },
-            "175%": { classes: "nhsuk-icon--size-75" },
-            "200%": { classes: "nhsuk-icon--size-100" }
-          } %}
-            <figure class="nhsuk-u-display-inline-block nhsuk-u-text-align-centre nhsuk-u-margin-1">
-              {{ nhsukIcon(modifier, params) }}
-              <figcaption class="nhsuk-body-s">{{ size }}</figcaption>
-            </figure>
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-full">
+          {% set rows = [] %}
+
+          {% for name, modifier in examples %}
+            {% set modifierHtml %}
+              <var class="nhsuk-body-s">{{ modifier }}</var>
+            {% endset %}
+
+            {% set iconHtml %}
+              {% for size, params in {
+                "100%": {},
+                "125%": { classes: "nhsuk-icon--size-25" },
+                "150%": { classes: "nhsuk-icon--size-50" },
+                "175%": { classes: "nhsuk-icon--size-75" },
+                "200%": { classes: "nhsuk-icon--size-100" }
+              } %}
+                <figure class="nhsuk-u-display-inline-block nhsuk-u-text-align-centre nhsuk-u-margin-1">
+                  {{ nhsukIcon(modifier, params) }}
+                  <figcaption class="nhsuk-body-s">{{ size }}</figcaption>
+                </figure>
+              {% endfor %}
+            {% endset %}
+
+            {% set rows = (rows.push([
+              { text: name, header: "Name" },
+              { html: modifierHtml, header: "Modifier" },
+              { text: iconHtml | safe }
+            ]), rows) %}
           {% endfor %}
-        {% endset %}
 
-        {% set rows = (rows.push([
-          { text: name, header: "Name" },
-          { html: modifierHtml, header: "Modifier" },
-          { text: iconHtml | safe }
-        ]), rows) %}
-      {% endfor %}
+          {{ table({
+            caption: "Page background",
+            captionClasses: "nhsuk-u-margin-bottom-4",
+            captionSize: "l",
+            firstCellIsHeader: true,
+            responsive: true,
+            head: [
+              {
+                text: "Name",
+                classes: "nhsuk-u-width-one-quarter"
+              },
+              {
+                text: "Modifier",
+                classes: "nhsuk-u-width-one-quarter"
+              },
+              {
+                text: "Icon",
+                classes: "nhsuk-u-width-one-half"
+              }
+            ],
+            rows: rows
+          }) }}
 
-      {{ table({
-        caption: pageName,
-        captionClasses: "nhsuk-u-margin-bottom-7",
-        captionSize: "xl",
-        firstCellIsHeader: true,
-        responsive: true,
-        head: [
-          {
-            text: "Name",
-            classes: "nhsuk-u-width-one-quarter"
-          },
-          {
-            text: "Modifier",
-            classes: "nhsuk-u-width-one-quarter"
-          },
-          {
-            text: "Icon",
-            classes: "nhsuk-u-width-one-half"
-          }
-        ],
-        rows: rows
-      }) }}
+        </div>
+      </div>
 
     </div>
-  </div>
+  </section>
+
+  <section class="nhsuk-main-wrapper app-wrapper app-wrapper--background-blue">
+    <div class="nhsuk-width-container">
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-full">
+          {% set rows = [] %}
+
+          {% for name, modifier in examples %}
+            {% set modifierHtml %}
+              <var class="nhsuk-body-s">{{ modifier }}</var>
+            {% endset %}
+
+            {% set iconHtml %}
+              {% for size, params in {
+                "100%": {},
+                "125%": { classes: "nhsuk-icon--size-25" },
+                "150%": { classes: "nhsuk-icon--size-50" },
+                "175%": { classes: "nhsuk-icon--size-75" },
+                "200%": { classes: "nhsuk-icon--size-100" }
+              } %}
+                <figure class="nhsuk-u-display-inline-block nhsuk-u-text-align-centre nhsuk-u-margin-1">
+                  {{ nhsukIcon(modifier, params) }}
+                  <figcaption class="nhsuk-body-s">{{ size }}</figcaption>
+                </figure>
+              {% endfor %}
+            {% endset %}
+
+            {% set rows = (rows.push([
+              { text: name, header: "Name" },
+              { html: modifierHtml, header: "Modifier" },
+              { text: iconHtml | safe }
+            ]), rows) %}
+          {% endfor %}
+
+          {{ table({
+            caption: "Blue background (used in hero)",
+            captionClasses: "nhsuk-u-margin-bottom-4",
+            captionSize: "l",
+            firstCellIsHeader: true,
+            responsive: true,
+            variant: "reverse",
+            head: [
+              {
+                text: "Name",
+                classes: "nhsuk-u-width-one-quarter"
+              },
+              {
+                text: "Modifier",
+                classes: "nhsuk-u-width-one-quarter"
+              },
+              {
+                text: "Icon",
+                classes: "nhsuk-u-width-one-half"
+              }
+            ],
+            rows: rows
+          }) }}
+
+        </div>
+      </div>
+
+    </div>
+  </section>
 {% endblock %}

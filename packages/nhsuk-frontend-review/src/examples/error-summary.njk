@@ -143,15 +143,18 @@
           items: [
             {
               name: "day",
-              classes: "nhsuk-input--width-2 nhsuk-input--error"
+              width: 2,
+              error: true
             },
             {
               name: "month",
-              classes: "nhsuk-input--width-2 nhsuk-input--error"
+              width: 2,
+              error: true
             },
             {
               name: "year",
-              classes: "nhsuk-input--width-4 nhsuk-input--error"
+              width: 4,
+              error: true
             }
           ]
         }) }}
@@ -173,17 +176,18 @@
           items: [
             {
               name: "day",
-              classes: "nhsuk-input--width-2",
-              value: "5"
+              value: "5",
+              width: 2
             },
             {
               name: "month",
-              classes: "nhsuk-input--width-2",
-              value: "12"
+              value: "12",
+              width: 2
             },
             {
               name: "year",
-              classes: "nhsuk-input--width-4 nhsuk-input--error"
+              width: 4,
+              error: true
             }
           ]
         }) }}
@@ -324,7 +328,7 @@
         }) }}
 
         {{ radios({
-          classes: "nhsuk-radios--inline",
+          inline: true,
           idPrefix: "radios-big-heading",
           name: "radios-big-heading",
           fieldset: {
@@ -395,11 +399,10 @@
             errorMessage: {
               text: "Enter a valid postcode"
             },
-            classes: "nhsuk-input--width-10",
             id: "address-postcode",
             name: "address-postcode",
-            name: "address-postcode",
-            autocomplete: "postal-code"
+            autocomplete: "postal-code",
+            width: 10
           }) }}
 
         {% endcall %}
