@@ -175,7 +175,7 @@ const fixtures = {
       ${components.render('button', {
         context: {
           text: 'Add role',
-          classes: 'nhsuk-button--secondary'
+          secondary: true
         }
       })}
     `,
@@ -493,7 +493,7 @@ const fixtures = {
       ${components.render('button', {
         context: {
           text: 'Add role',
-          classes: 'nhsuk-button--secondary'
+          secondary: true
         }
       })}
     `
@@ -868,7 +868,13 @@ const fixtures = {
     },
     callBlock: outdent`
       <p>Sarah Philips (Mum) would like to speak to a member of the team about other options for their child's vaccination.</p>
-      <a class="nhsuk-button nhsuk-button--secondary" href="#">Record a new consent response</a>
+      ${components.render('button', {
+        context: {
+          text: 'Record a new consent response',
+          variant: 'secondary',
+          href: '#'
+        }
+      })}
 
       <h3 class="nhsuk-heading-s">Consent responses</h3>
 
