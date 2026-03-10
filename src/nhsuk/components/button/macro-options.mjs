@@ -59,6 +59,17 @@ const options = {
     description:
       'The URL that the button should link to. If this is set, `element` will be automatically set to `"a"` if it has not already been defined.'
   },
+  login: {
+    type: 'boolean',
+    required: false,
+    description: 'If set to `true`, show a solid blue login button.'
+  },
+  variant: {
+    type: 'string',
+    required: false,
+    description:
+      'Optional variant of button to render – `"login"`, `"reverse"`, `"secondary"`, `"secondary-solid"` or `"warning"`.'
+  },
   small: {
     type: 'boolean',
     required: false,
