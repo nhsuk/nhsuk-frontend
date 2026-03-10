@@ -1,6 +1,13 @@
-{% from "nhsuk/macros/attributes.njk" import nhsukAttributes -%}
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
-<strong {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-tag {%- if params.classes %} {{ params.classes }}{% endif %}"
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-tag" -%}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif -%}
+
+<strong {%- if params.id %} id="{{ params.id }}"{% endif %} class="{{ classNames }}"
   {{- nhsukAttributes(params.attributes) }}>
   {{ params.html | safe | trim | indent(2) if params.html else params.text }}
 </strong>

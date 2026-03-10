@@ -1,6 +1,13 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes -%}
 
-{% set columns = params.columns | default(4, true) -%}
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-footer" -%}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif %}
+
+{%- set columns = params.columns | default(4, true) -%}
 
 {% switch columns %}
   {% case 1 %}
@@ -29,8 +36,7 @@
 </ul>
 {% endmacro -%}
 
-<footer {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-footer
-  {%- if params.classes %} {{ params.classes }}{% endif %}" role="contentinfo"
+<footer {%- if params.id %} id="{{ params.id }}"{% endif %} class="{{ classNames }}" role="contentinfo"
   {{- nhsukAttributes(params.attributes) }}>
   <div class="nhsuk-width-container {%- if params.containerClasses %} {{ params.containerClasses }}{% endif %}">
 {% if params.navigation %}
