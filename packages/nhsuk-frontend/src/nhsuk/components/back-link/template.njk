@@ -3,6 +3,10 @@
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-back-link" -%}
 
+{%- if params.reverse and (not params.classes or not "nhsuk-back-link--reverse" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-back-link--reverse" %}
+{% endif %}
+
 {%- if params.classes %}
   {% set classNames = classNames ~ " " ~ params.classes %}
 {% endif %}

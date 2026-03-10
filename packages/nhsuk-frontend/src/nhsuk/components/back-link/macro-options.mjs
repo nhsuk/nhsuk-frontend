@@ -28,6 +28,12 @@ const options = {
     required: false,
     description: 'The value of the link `href` attribute.'
   },
+  reverse: {
+    type: 'boolean',
+    required: false,
+    description:
+      'If set to `true`, show white links and chevrons on dark backgrounds.'
+  },
   classes: {
     type: 'string',
     required: false,
