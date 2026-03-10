@@ -58,6 +58,12 @@ const options = {
       }
     }
   },
+  inline: {
+    type: 'boolean',
+    required: false,
+    description:
+      'If set to `true`, positions the search box (or account links) inline with the NHS logo.'
+  },
   organisation: {
     type: 'object',
     required: false,
