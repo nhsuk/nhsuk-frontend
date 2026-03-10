@@ -1,7 +1,14 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
+{#- Set variant for this component #}
+{%- set variant = params.variant -%}
+
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-back-link" -%}
+
+{%- if variant == "reverse" and (not params.classes or not "nhsuk-back-link--reverse" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-back-link--" ~ variant %}
+{% endif %}
 
 {%- if params.classes %}
   {% set classNames = classNames ~ " " ~ params.classes %}
