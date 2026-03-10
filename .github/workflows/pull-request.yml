@@ -184,7 +184,7 @@ jobs:
 
       - name: Save test coverage
         if: ${{ matrix.task.coverage }}
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: ${{ matrix.task.description }} coverage
           path: coverage
@@ -284,7 +284,7 @@ jobs:
 
       - name: Save backstop report
         if: ${{ !cancelled() && (steps.changes.outputs.changes == 'true' || steps.changes.outputs.screenshots == 'true') }}
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: Backstop report
           path: tests/backstop/
@@ -309,7 +309,7 @@ jobs:
 
       - name: Restore test coverage
         if: ${{ env.SONAR_TOKEN }}
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           merge-multiple: true
           path: coverage

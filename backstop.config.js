@@ -111,5 +111,5 @@ module.exports = {
 
 /**
  * @import { PlaywrightEngineConfig } from 'backstopjs'
- * @import { MacroScenario } from 'nhsuk-frontend/lib'
+ * @import { MacroScenario } from 'nhsuk-frontend/src/nhsuk/lib/index.mjs'
  */
