@@ -33,6 +33,11 @@ const options = {
     required: false,
     description: 'If set to `true`, then the link will open in a new window.'
   },
+  variant: {
+    type: 'string',
+    required: false,
+    description: 'Optional variant of action link to render – `"reverse"`.'
+  },
   classes: {
     type: 'string',
     required: false,
