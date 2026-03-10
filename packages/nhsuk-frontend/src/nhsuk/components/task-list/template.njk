@@ -1,6 +1,13 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/components/tag/macro.njk" import tag %}
 
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-task-list" -%}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif -%}
+
 {%- set idPrefix = params.idPrefix if params.idPrefix else "task-list" -%}
 
 {%- macro _taskListItem(params, item, index) %}
@@ -33,7 +40,7 @@
   </li>
 {%- endmacro -%}
 
-<ul {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-task-list {%- if params.classes %} {{ params.classes }}{% endif %}"
+<ul {%- if params.id %} id="{{ params.id }}"{% endif %} class="{{ classNames }}"
   {{- nhsukAttributes(params.attributes) }}>
   {% for item in params.items %}
     {{- _taskListItem(params, item, loop.index) if item }}

@@ -5,6 +5,7 @@
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-header" -%}
+{%- set classNamesNavigation = "nhsuk-header__navigation" -%}
 
 {%- if params.organisation %}
   {% set classNames = classNames ~ " nhsuk-header--organisation" %}
@@ -12,6 +13,10 @@
 
 {%- if params.classes %}
   {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif %}
+
+{%- if params.navigation.classes %}
+  {% set classNamesNavigation = classNamesNavigation ~ " " ~ params.navigation.classes %}
 {% endif %}
 
 {%- set searchAction = params.search.action | default("https://www.nhs.uk/search/") %}
@@ -164,8 +169,7 @@
 {% endif %}
   </div>
 {% if params.navigation and params.navigation.items | length %}
-  <nav class="nhsuk-header__navigation
-    {%- if params.navigation.classes %} {{ params.navigation.classes }}{% endif %}" aria-label="{{ params.navigation.ariaLabel | default("Menu") }}"
+  <nav class="{{ classNamesNavigation }}" aria-label="{{ params.navigation.ariaLabel | default("Menu") }}"
     {{- nhsukAttributes(params.navigation.attributes) }}>
     <div class="nhsuk-header__navigation-container nhsuk-width-container {%- if params.containerClasses %} {{ params.containerClasses }}{% endif %}">
       <ul class="nhsuk-header__navigation-list">

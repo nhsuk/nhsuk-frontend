@@ -1,6 +1,17 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
 
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-pagination" -%}
+
+{%- if params.items | length %}
+  {% set classNames = classNames ~ " nhsuk-pagination--numbered" %}
+{% endif %}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif %}
+
 {%- set previous = {
   href: params.previousUrl,
   labelText: params.previousPage
@@ -26,9 +37,7 @@
   </li>
 {%- endmacro -%}
 
-<nav {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-pagination
-  {%- if params.items | length %} nhsuk-pagination--numbered{% endif %}
-  {%- if params.classes %} {{ params.classes }}{% endif %}" role="navigation" aria-label="{{ params.landmarkLabel | default("Pagination", true) }}"
+<nav {%- if params.id %} id="{{ params.id }}"{% endif %} class="{{ classNames }}" role="navigation" aria-label="{{ params.landmarkLabel | default("Pagination", true) }}"
   {{- nhsukAttributes(params.attributes) }}>
 
 {% if previous.href and params.items | length %}
