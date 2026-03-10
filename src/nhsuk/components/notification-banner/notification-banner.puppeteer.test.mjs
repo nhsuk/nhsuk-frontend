@@ -26,7 +26,7 @@ describe('Notification banner', () => {
       )
 
       const activeElement = await page.evaluate(() =>
-        document.activeElement.getAttribute('data-module')
+        document.activeElement?.getAttribute('data-module')
       )
 
       expect(activeElement).toBe('nhsuk-notification-banner')
@@ -69,7 +69,7 @@ describe('Notification banner', () => {
 
       it('does not focus the notification banner', async () => {
         const activeElement = await page.evaluate(() =>
-          document.activeElement.getAttribute('data-module')
+          document.activeElement?.getAttribute('data-module')
         )
 
         expect(activeElement).not.toBe('nhsuk-notification-banner')
@@ -100,7 +100,7 @@ describe('Notification banner', () => {
 
       it('does not focus the notification banner', async () => {
         const activeElement = await page.evaluate(() =>
-          document.activeElement.getAttribute('data-module')
+          document.activeElement?.getAttribute('data-module')
         )
 
         expect(activeElement).not.toBe('nhsuk-notification-banner')
@@ -131,7 +131,7 @@ describe('Notification banner', () => {
 
       it('does not focus the notification banner', async () => {
         const activeElement = await page.evaluate(() =>
-          document.activeElement.getAttribute('data-module')
+          document.activeElement?.getAttribute('data-module')
         )
 
         expect(activeElement).not.toBe('nhsuk-notification-banner')
@@ -162,7 +162,7 @@ describe('Notification banner', () => {
 
       it('is automatically focused when the page loads', async () => {
         const activeElement = await page.evaluate(() =>
-          document.activeElement.getAttribute('data-module')
+          document.activeElement?.getAttribute('data-module')
         )
 
         expect(activeElement).toBe('nhsuk-notification-banner')
@@ -188,7 +188,7 @@ describe('Notification banner', () => {
 
       it('does not focus the notification banner', async () => {
         const activeElement = await page.evaluate(() =>
-          document.activeElement.getAttribute('data-module')
+          document.activeElement?.getAttribute('data-module')
         )
 
         expect(activeElement).not.toBe('nhsuk-notification-banner')

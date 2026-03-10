@@ -170,11 +170,11 @@ describe('NHS.UK frontend', () => {
         const $scope1 = document.querySelector('.app-scope-1')
         const $scope2 = document.querySelector('.app-scope-2')
 
-        const $root1 = $scope1.querySelector(
+        const $root1 = $scope1?.querySelector(
           `[data-module="${NamespaceComponent.moduleName}"]`
         )
 
-        const $root2 = $scope2.querySelector(
+        const $root2 = $scope2?.querySelector(
           `[data-module="${NamespaceComponent.moduleName}"]`
         )
 
@@ -441,7 +441,7 @@ describe('NHS.UK frontend', () => {
         const $scope1 = document.querySelector('.app-scope-1')
         const $scope2 = document.querySelector('.app-scope-2')
 
-        const $root2 = $scope2.querySelector(
+        const $root2 = $scope2?.querySelector(
           `[data-module="${MockComponent.moduleName}"]`
         )
 
@@ -490,7 +490,7 @@ describe('NHS.UK frontend', () => {
         const $scope1 = document.querySelector('.app-scope-1')
         const $scope2 = document.querySelector('.app-scope-2')
 
-        const $root2 = $scope2.querySelector(
+        const $root2 = $scope2?.querySelector(
           `[data-module="${MockConfigurableComponentBoolean.moduleName}"]`
         )
 

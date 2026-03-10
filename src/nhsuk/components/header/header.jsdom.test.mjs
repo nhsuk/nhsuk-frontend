@@ -1,4 +1,4 @@
-import { queryByRole } from '@testing-library/dom'
+import { queryAllByRole, queryByRole } from '@testing-library/dom'
 import { userEvent } from '@testing-library/user-event'
 import { mockResizeObserver } from 'jsdom-testing-mocks'
 
@@ -23,6 +23,9 @@ describe('Header class', () => {
   /** @type {HTMLElement | null} */
   let $navigationList = null
 
+  /** @type {HTMLElement[] | null} */
+  let $navigationItems = null
+
   /** @type {HTMLElement | null} */
   let $menuButton = null
 
@@ -43,12 +46,16 @@ describe('Header class', () => {
       document.querySelector(`[data-module="${Header.moduleName}"]`)
     )
 
-    $serviceLogo = /** @type {HTMLAnchorElement | null} */ (
+    $serviceLogo = /** @type {HTMLAnchorElement} */ (
       $root.querySelector('.nhsuk-header__service-logo')
     )
 
     $navigation = queryByRole($root, 'navigation')
-    $navigationList = $navigation ? queryByRole($navigation, 'list') : null
+
+    if ($navigation) {
+      $navigationList = queryByRole($navigation, 'list')
+      $navigationItems = queryAllByRole($navigation, 'listitem')
+    }
 
     $menuButton = queryByRole($root, 'button', {
       name: 'Browse More',
@@ -93,12 +100,14 @@ describe('Header class', () => {
   function resizeExample(width) {
     listWidth = width
 
-    resizeObserverMock.mockElementSize($navigationList, {
-      contentBoxSize: { inlineSize: listWidth, blockSize: listHeight }
-    })
+    if ($navigationList) {
+      resizeObserverMock.mockElementSize($navigationList, {
+        contentBoxSize: { inlineSize: listWidth, blockSize: listHeight }
+      })
 
-    // Trigger resize
-    resizeObserverMock.resize()
+      // Trigger resize
+      resizeObserverMock.resize()
+    }
 
     // Wait for resize on next frame
     return new Promise(requestAnimationFrame)
@@ -119,7 +128,7 @@ describe('Header class', () => {
       )
 
       // Skips listener for menu button click
-      expect($menuButton.addEventListener).not.toHaveBeenCalledWith(
+      expect($menuButton?.addEventListener).not.toHaveBeenCalledWith(
         'click',
         expect.any(Function)
       )
@@ -137,22 +146,22 @@ describe('Header class', () => {
       )
 
       // Adds listener for menu button click
-      expect($menuButton.addEventListener).toHaveBeenCalledWith(
+      expect($menuButton?.addEventListener).toHaveBeenCalledWith(
         'click',
         expect.any(Function)
       )
     })
 
     it('should throw with missing navigation list', () => {
-      $navigationList.remove()
+      $navigationList?.remove()
 
       expect(() => initHeader()).toThrow(
         `${Header.moduleName}: List (\`<ul class="nhsuk-header__navigation-list">\`) not found`
       )
     })
 
-    it('should throw with missing navigation list items', () => {
-      $navigationList.innerHTML = ''
+    it('should throw with missing navigation items', () => {
+      $navigationItems?.forEach(($navigationItem) => $navigationItem.remove())
 
       expect(() => initHeader()).toThrow(
         `${Header.moduleName}: List items (\`<li class="nhsuk-header__navigation-item">\`) not found`
@@ -160,7 +169,7 @@ describe('Header class', () => {
     })
 
     it('should throw with missing menu item', () => {
-      $menuButton.parentElement.remove()
+      $menuButton?.parentElement?.remove()
 
       expect(() => initHeader()).toThrow(
         `${Header.moduleName}: Menu item (\`<li class="nhsuk-header__menu" hidden>\`) not found`
@@ -168,7 +177,7 @@ describe('Header class', () => {
     })
 
     it('should throw with missing menu button', () => {
-      $menuButton.remove()
+      $menuButton?.remove()
 
       expect(() => initHeader()).toThrow(
         `${Header.moduleName}: Menu button (\`<button class="nhsuk-header__menu-toggle">\`) not found`
@@ -176,15 +185,15 @@ describe('Header class', () => {
     })
 
     it('should not throw with missing navigation', () => {
-      $navigation.remove()
+      $navigation?.remove()
 
       expect(() => initHeader()).not.toThrow()
     })
 
     it('should not throw with missing navigation and related elements', () => {
-      $navigation.remove()
-      $navigationList.remove()
-      $menuButton.remove()
+      $navigation?.remove()
+      $navigationList?.remove()
+      $menuButton?.remove()
 
       expect(() => initHeader()).not.toThrow()
     })
@@ -306,16 +315,16 @@ describe('Header class', () => {
       new Header($root)
 
       // Open menu
-      $menuButton.click()
+      $menuButton?.click()
 
       // Menu open
-      expect($menuButton.nextElementSibling).not.toHaveAttribute('hidden')
+      expect($menuButton?.nextElementSibling).not.toHaveAttribute('hidden')
 
       // Trigger resize
       await resizeExample(500)
 
       // Menu open (still)
-      expect($menuButton.nextElementSibling).not.toHaveAttribute('hidden')
+      expect($menuButton?.nextElementSibling).not.toHaveAttribute('hidden')
     })
 
     it.each([
@@ -349,16 +358,16 @@ describe('Header class', () => {
       )
 
       // Open menu
-      $menuButton.click()
+      $menuButton?.click()
 
       // Menu open
-      expect($menuButton.nextElementSibling).not.toHaveAttribute('hidden')
+      expect($menuButton?.nextElementSibling).not.toHaveAttribute('hidden')
 
       // Click header item
       $headerItem.click()
 
       // Menu open (still)
-      expect($menuButton.nextElementSibling).not.toHaveAttribute('hidden')
+      expect($menuButton?.nextElementSibling).not.toHaveAttribute('hidden')
     })
 
     it('should close when resized up', async () => {
@@ -367,16 +376,16 @@ describe('Header class', () => {
       new Header($root)
 
       // Open menu
-      $menuButton.click()
+      $menuButton?.click()
 
       // Menu open
-      expect($menuButton.nextElementSibling).not.toHaveAttribute('hidden')
+      expect($menuButton?.nextElementSibling).not.toHaveAttribute('hidden')
 
       // Trigger resize
       await resizeExample(900)
 
       // Menu closed
-      expect($menuButton.nextElementSibling).toHaveAttribute('hidden')
+      expect($menuButton?.nextElementSibling).toHaveAttribute('hidden')
     })
 
     it('should close via escape key', async () => {
@@ -385,19 +394,19 @@ describe('Header class', () => {
       new Header($root)
 
       // Menu closed
-      expect($menuButton.nextElementSibling).toHaveAttribute('hidden')
+      expect($menuButton?.nextElementSibling).toHaveAttribute('hidden')
 
       // Open menu
-      $menuButton.click()
+      $menuButton?.click()
 
       // Menu open
-      expect($menuButton.nextElementSibling).not.toHaveAttribute('hidden')
+      expect($menuButton?.nextElementSibling).not.toHaveAttribute('hidden')
 
       // Press the escape key to close it
       await user.keyboard('[Escape]')
 
       // Menu closed
-      expect($menuButton.nextElementSibling).toHaveAttribute('hidden')
+      expect($menuButton?.nextElementSibling).toHaveAttribute('hidden')
     })
 
     it('should close via search form submit', () => {
@@ -406,16 +415,16 @@ describe('Header class', () => {
       new Header($root)
 
       // Open menu
-      $menuButton.click()
+      $menuButton?.click()
 
       // Menu open
-      expect($menuButton.nextElementSibling).not.toHaveAttribute('hidden')
+      expect($menuButton?.nextElementSibling).not.toHaveAttribute('hidden')
 
       // Submit search form
-      $searchForm.submit()
+      $searchForm?.submit()
 
       // Menu closed
-      expect($menuButton.nextElementSibling).toHaveAttribute('hidden')
+      expect($menuButton?.nextElementSibling).toHaveAttribute('hidden')
     })
 
     it('should close via back/forward navigation', () => {
@@ -424,10 +433,10 @@ describe('Header class', () => {
       new Header($root)
 
       // Open menu
-      $menuButton.click()
+      $menuButton?.click()
 
       // Menu open
-      expect($menuButton.nextElementSibling).not.toHaveAttribute('hidden')
+      expect($menuButton?.nextElementSibling).not.toHaveAttribute('hidden')
 
       // Trigger tab switching
       window.dispatchEvent(
@@ -437,7 +446,7 @@ describe('Header class', () => {
       )
 
       // Menu open (still)
-      expect($menuButton.nextElementSibling).not.toHaveAttribute('hidden')
+      expect($menuButton?.nextElementSibling).not.toHaveAttribute('hidden')
 
       // Trigger back/forward navigation
       window.dispatchEvent(
@@ -447,7 +456,7 @@ describe('Header class', () => {
       )
 
       // Menu closed
-      expect($menuButton.nextElementSibling).toHaveAttribute('hidden')
+      expect($menuButton?.nextElementSibling).toHaveAttribute('hidden')
     })
 
     it.each([
@@ -481,16 +490,16 @@ describe('Header class', () => {
       )
 
       // Open menu
-      $menuButton.click()
+      $menuButton?.click()
 
       // Menu open
-      expect($menuButton.nextElementSibling).not.toHaveAttribute('hidden')
+      expect($menuButton?.nextElementSibling).not.toHaveAttribute('hidden')
 
       // Click header item
       $headerItem.click()
 
       // Menu closed
-      expect($menuButton.nextElementSibling).toHaveAttribute('hidden')
+      expect($menuButton?.nextElementSibling).toHaveAttribute('hidden')
     })
   })
 
@@ -501,13 +510,13 @@ describe('Header class', () => {
 
     it('should be hidden by default', () => {
       expect($menuButton).toHaveRole('button')
-      expect($menuButton.parentElement).toHaveAttribute('hidden')
+      expect($menuButton?.parentElement).toHaveAttribute('hidden')
     })
 
     it('should be hidden when items do not overflow', () => {
       new Header($root)
 
-      expect($menuButton.parentElement).toHaveAttribute('hidden')
+      expect($menuButton?.parentElement).toHaveAttribute('hidden')
     })
 
     it('should be visible when items overflow', () => {
@@ -515,7 +524,7 @@ describe('Header class', () => {
 
       new Header($root)
 
-      expect($menuButton.parentElement).not.toHaveAttribute('hidden')
+      expect($menuButton?.parentElement).not.toHaveAttribute('hidden')
     })
 
     it('should toggle menu via click', () => {
@@ -524,13 +533,13 @@ describe('Header class', () => {
       new Header($root)
 
       // Menu closed
-      expect($menuButton.nextElementSibling).toHaveAttribute('hidden')
+      expect($menuButton?.nextElementSibling).toHaveAttribute('hidden')
 
       // Open menu
-      $menuButton.click()
+      $menuButton?.click()
 
       // Menu open
-      expect($menuButton.nextElementSibling).not.toHaveAttribute('hidden')
+      expect($menuButton?.nextElementSibling).not.toHaveAttribute('hidden')
 
       // Adds listener for mouse click
       expect(document.addEventListener).toHaveBeenCalledWith(
@@ -560,10 +569,10 @@ describe('Header class', () => {
       )
 
       // Close menu
-      $menuButton.click()
+      $menuButton?.click()
 
       // Menu closed
-      expect($menuButton.nextElementSibling).toHaveAttribute('hidden')
+      expect($menuButton?.nextElementSibling).toHaveAttribute('hidden')
 
       // Removes listener for mouse click
       expect(document.removeEventListener).toHaveBeenCalledWith(
@@ -600,13 +609,13 @@ describe('Header class', () => {
     })
 
     it('should be skipped by default', () => {
-      expect($menuButton.nextElementSibling).not.toBeInTheDocument()
+      expect($menuButton?.nextElementSibling).not.toBeInTheDocument()
     })
 
     it('should be skipped when items do not overflow', () => {
       new Header($root)
 
-      expect($menuButton.nextElementSibling).not.toBeInTheDocument()
+      expect($menuButton?.nextElementSibling).not.toBeInTheDocument()
     })
 
     it('should be added when items overflow', () => {
@@ -614,22 +623,22 @@ describe('Header class', () => {
 
       new Header($root)
 
-      expect($menuButton.nextElementSibling).toBeInTheDocument()
-      expect($menuButton.nextElementSibling).toHaveRole('list')
-      expect($menuButton.nextElementSibling).toHaveAttribute('hidden')
+      expect($menuButton?.nextElementSibling).toBeInTheDocument()
+      expect($menuButton?.nextElementSibling).toHaveRole('list')
+      expect($menuButton?.nextElementSibling).toHaveAttribute('hidden')
     })
 
     it('should be added when items overflow when resized', async () => {
       new Header($root)
 
-      expect($menuButton.nextElementSibling).not.toBeInTheDocument()
+      expect($menuButton?.nextElementSibling).not.toBeInTheDocument()
 
       // Trigger resize
       await resizeExample(700)
 
-      expect($menuButton.nextElementSibling).toBeInTheDocument()
-      expect($menuButton.nextElementSibling).toHaveRole('list')
-      expect($menuButton.nextElementSibling).toHaveAttribute('hidden')
+      expect($menuButton?.nextElementSibling).toBeInTheDocument()
+      expect($menuButton?.nextElementSibling).toHaveRole('list')
+      expect($menuButton?.nextElementSibling).toHaveAttribute('hidden')
     })
   })
 
@@ -686,8 +695,8 @@ describe('Header class', () => {
 
       new Header($root)
 
-      const $listItems = $navigation.querySelectorAll('div > ul > li')
-      const $menuItems = $navigation.querySelectorAll('div > ul > li li')
+      const $listItems = $navigation?.querySelectorAll('div > ul > li')
+      const $menuItems = $navigation?.querySelectorAll('div > ul > li li')
 
       expect($listItems).toHaveLength(expected.listItems)
       expect($menuItems).toHaveLength(expected.menuItems)
@@ -703,8 +712,8 @@ describe('Header class', () => {
         // Trigger resize
         await resizeExample(expected.listWidth)
 
-        const $listItems = $navigation.querySelectorAll('div > ul > li')
-        const $menuItems = $navigation.querySelectorAll('div > ul > li li')
+        const $listItems = $navigation?.querySelectorAll('div > ul > li')
+        const $menuItems = $navigation?.querySelectorAll('div > ul > li li')
 
         expect($listItems).toHaveLength(expected.listItems)
         expect($menuItems).toHaveLength(expected.menuItems)
@@ -721,8 +730,8 @@ describe('Header class', () => {
         // Trigger resize
         await resizeExample(expected.listWidth)
 
-        const $listItems = $navigation.querySelectorAll('div > ul > li')
-        const $menuItems = $navigation.querySelectorAll('div > ul > li li')
+        const $listItems = $navigation?.querySelectorAll('div > ul > li')
+        const $menuItems = $navigation?.querySelectorAll('div > ul > li li')
 
         expect($listItems).toHaveLength(expected.listItems)
         expect($menuItems).toHaveLength(expected.menuItems)

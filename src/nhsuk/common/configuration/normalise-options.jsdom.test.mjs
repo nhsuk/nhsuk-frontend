@@ -86,6 +86,7 @@ describe('normaliseOptions', () => {
   it("returns defaults for 'null' error handler option", () => {
     expect(
       normaliseOptions({
+        // @ts-expect-error Type 'null' is not assignable
         onError: null
       })
     ).toMatchObject({
