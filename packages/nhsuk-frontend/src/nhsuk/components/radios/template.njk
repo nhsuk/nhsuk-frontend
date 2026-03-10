@@ -11,6 +11,10 @@
   {% set classNames = classNames ~ " nhsuk-radios--small" %}
 {% endif %}
 
+{%- if params.inline and (not params.classes or not "nhsuk-radios--inline" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-radios--inline" %}
+{% endif %}
+
 {%- if params.classes %}
   {% set classNames = classNames ~ " " ~ params.classes %}
 {% endif %}
