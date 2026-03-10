@@ -45,6 +45,11 @@ const options = {
     required: true,
     description: 'The value of the parent page link `href` attribute.'
   },
+  variant: {
+    type: 'string',
+    required: false,
+    description: 'Optional variant of breadcrumb to render – `"reverse"`.'
+  },
   classes: {
     type: 'string',
     required: false,
