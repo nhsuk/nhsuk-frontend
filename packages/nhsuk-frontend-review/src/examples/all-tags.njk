@@ -1,7 +1,52 @@
-{% extends "layouts/page.njk" %}
+{% extends "layouts/page-full-width.njk" %}
 
 {% set pageName = "Tags" %}
-{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% set examples = {
+  "Default": {
+    text: "Default"
+  },
+  "White": {
+    text: "In progress",
+    colour: "white"
+  },
+  "Grey": {
+    text: "Inactive",
+    colour: "grey"
+  },
+  "Green": {
+    text: "New",
+    colour: "green"
+  },
+  "Aqua green": {
+    text: "Active",
+    colour: "aqua-green"
+  },
+  "Blue": {
+    text: "Pending",
+    colour: "blue"
+  },
+  "Purple": {
+    text: "Received",
+    colour: "purple"
+  },
+  "Pink": {
+    text: "Sent",
+    colour: "pink"
+  },
+  "Red": {
+    text: "Rejected",
+    colour: "red"
+  },
+  "Orange": {
+    text: "Declined",
+    colour: "orange"
+  },
+  "Yellow": {
+    text: "Delayed",
+    colour: "yellow"
+  }
+} %}
 
 {% block beforeContent %}
   {{ breadcrumb({
@@ -19,100 +64,129 @@
 {% endblock %}
 
 {% block content %}
-  <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-two-thirds">
-      {% set rows = [] %}
+  <section class="nhsuk-main-wrapper nhsuk-main-wrapper--s">
+    <div class="nhsuk-width-container">
 
-      {% for name, example in {
-        "Default": {
-          text: "Default"
-        },
-        "White": {
-          text: "In progress",
-          modifier: "white"
-        },
-        "Grey": {
-          text: "Inactive",
-          modifier: "grey"
-        },
-        "Green": {
-          text: "New",
-          modifier: "green"
-        },
-        "Aqua green": {
-          text: "Active",
-          modifier: "aqua-green"
-        },
-        "Blue": {
-          text: "Pending",
-          modifier: "blue"
-        },
-        "Purple": {
-          text: "Received",
-          modifier: "purple"
-        },
-        "Pink": {
-          text: "Sent",
-          modifier: "pink"
-        },
-        "Red": {
-          text: "Rejected",
-          modifier: "red"
-        },
-        "Orange": {
-          text: "Declined",
-          modifier: "orange"
-        },
-        "Yellow": {
-          text: "Delayed",
-          modifier: "yellow"
-        }
-      } %}
-        {% set modifierHtml %}
-          {% if example.modifier %}
-            <code class="nhsuk-body-s">{{ example.modifier }}</code>
-          {% else %}
-            None
-          {% endif %}
-        {% endset %}
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          <h1 class="nhsuk-heading-xl">{{ pageName }}</h1>
+        </div>
+      </div>
 
-        {% set tagHtml %}
-          {{ tag({
-            text: example.text,
-            classes: ("nhsuk-tag--" ~ example.modifier) if example.modifier
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          {% set rows = [] %}
+
+          {% for name, params in examples %}
+            {% set colourHtml %}
+              {% if params.colour %}
+                <var class="nhsuk-body-s">{{ params.colour }}</var>
+              {% else %}
+                None
+              {% endif %}
+            {% endset %}
+
+            {% set tagHtml %}
+              {{ tag({
+                text: params.text,
+                colour: params.colour
+              }) }}
+            {% endset %}
+
+            {% set rows = (rows.push([
+              { text: name, header: "Name" },
+              { html: colourHtml, header: "Colour" },
+              { html: tagHtml, header: "Tag" }
+            ]), rows) %}
+          {% endfor %}
+
+          {{ table({
+            caption: "Page background",
+            captionClasses: "nhsuk-u-margin-bottom-4",
+            captionSize: "l",
+            firstCellIsHeader: true,
+            responsive: true,
+            head: [
+              {
+                text: "Name",
+                classes: "nhsuk-u-width-one-third"
+              },
+              {
+                text: "Colour",
+                classes: "nhsuk-u-width-one-third"
+              },
+              {
+                text: "Tag",
+                classes: "nhsuk-u-width-one-third"
+              }
+            ],
+            rows: rows
           }) }}
-        {% endset %}
 
-        {% set rows = (rows.push([
-          { text: name, header: "Name" },
-          { html: modifierHtml, header: "Modifier" },
-          { html: tagHtml, header: "Tag" }
-        ]), rows) %}
-      {% endfor %}
-
-      {{ table({
-        caption: pageName,
-        captionClasses: "nhsuk-u-margin-bottom-7",
-        captionSize: "xl",
-        firstCellIsHeader: true,
-        responsive: true,
-        head: [
-          {
-            text: "Name",
-            classes: "nhsuk-u-width-one-third"
-          },
-          {
-            text: "Modifier",
-            classes: "nhsuk-u-width-one-third"
-          },
-          {
-            text: "Tag",
-            classes: "nhsuk-u-width-one-third"
-          }
-        ],
-        rows: rows
-      }) }}
+        </div>
+      </div>
 
     </div>
-  </div>
+  </section>
+
+  <section class="nhsuk-main-wrapper app-wrapper app-wrapper--background-blue">
+    <div class="nhsuk-width-container">
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          {% set rows = [] %}
+
+          {% for name, params in examples %}
+            {% set colourHtml %}
+              {% if params.colour %}
+                <var class="nhsuk-body-s">{{ params.colour }}</var>
+              {% else %}
+                None
+              {% endif %}
+            {% endset %}
+
+            {% set tagHtml %}
+              {{ tag({
+                text: params.text,
+                colour: params.colour,
+                border: false
+              }) }}
+            {% endset %}
+
+            {% set rows = (rows.push([
+              { text: name, header: "Name" },
+              { html: colourHtml, header: "Colour" },
+              { html: tagHtml, header: "Tag" }
+            ]), rows) %}
+          {% endfor %}
+
+          {{ table({
+            caption: "Blue background (used in hero)",
+            captionClasses: "nhsuk-u-margin-bottom-4",
+            captionSize: "l",
+            firstCellIsHeader: true,
+            responsive: true,
+            variant: "reverse",
+            head: [
+              {
+                text: "Name",
+                classes: "nhsuk-u-width-one-third"
+              },
+              {
+                text: "Colour",
+                classes: "nhsuk-u-width-one-third"
+              },
+              {
+                text: "Tag",
+                classes: "nhsuk-u-width-one-third"
+              }
+            ],
+            rows: rows
+          }) }}
+
+        </div>
+      </div>
+
+    </div>
+  </section>
 {% endblock %}
