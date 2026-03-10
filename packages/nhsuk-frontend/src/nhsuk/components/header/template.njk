@@ -7,6 +7,10 @@
 {%- set classNames = "nhsuk-header" -%}
 {%- set classNamesNavigation = "nhsuk-header__navigation" -%}
 
+{%- if params.inline and (not params.classes or not "nhsuk-header--inline" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-header--inline" %}
+{% endif %}
+
 {%- if params.organisation %}
   {% set classNames = classNames ~ " nhsuk-header--organisation" %}
 {% endif %}
