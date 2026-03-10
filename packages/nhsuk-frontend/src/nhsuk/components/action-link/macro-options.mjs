@@ -33,6 +33,12 @@ const options = {
     required: false,
     description: 'If set to `true`, then the link will open in a new window.'
   },
+  reverse: {
+    type: 'boolean',
+    required: false,
+    description:
+      'If set to `true`, show white links and arrows on dark backgrounds.'
+  },
   classes: {
     type: 'string',
     required: false,
