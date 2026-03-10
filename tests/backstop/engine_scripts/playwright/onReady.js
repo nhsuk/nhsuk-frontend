@@ -18,6 +18,6 @@ module.exports = async function (page, scenario) {
 }
 
 /**
- * @import { MacroScenario } from 'nhsuk-frontend/lib'
+ * @import { MacroScenario } from 'nhsuk-frontend/src/nhsuk/lib/index.mjs'
  * @import { Page } from 'playwright-core'
  */
