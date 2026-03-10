@@ -20,7 +20,10 @@ describe('closestAttributeValue', () => {
         </div>
       `
 
-    const $element = template.content.querySelector('.target')
+    const $element = /** @type {HTMLElement } */ (
+      template.content.querySelector('.target')
+    )
+
     expect(closestAttributeValue($element, 'lang')).toBe('en-GB')
   })
 

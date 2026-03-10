@@ -226,7 +226,7 @@ describe('Tabs', () => {
         // Panel is controlled by the tab link
         expect($tab).toHaveAttribute('id')
         expect($tab).toHaveAttribute('role', 'tab')
-        expect($tab).toHaveAttribute('aria-controls', $panel.id)
+        expect($tab).toHaveAttribute('aria-controls', $panel?.id)
 
         // Panel is labelled by the tab link
         expect($panel).toHaveAttribute('role', 'tabpanel')
@@ -333,7 +333,7 @@ describe('Tabs', () => {
           ($currentPanel) => $currentPanel !== $panel
         )
 
-        $tab.click()
+        $tab?.click()
 
         // Clicked panel visible
         expect($tab).toHaveAttribute('aria-selected', 'true')
@@ -352,7 +352,7 @@ describe('Tabs', () => {
     )
 
     it('should move to next panel using right arrow key', async () => {
-      $tabs.at(0).click()
+      $tabs.at(0)?.click()
       await user.keyboard('[ArrowRight]')
 
       // Activated 2nd tab panel
@@ -373,7 +373,7 @@ describe('Tabs', () => {
     })
 
     it('should not move to next panel using right arrow key (last tab)', async () => {
-      $tabs.at(3).click()
+      $tabs.at(3)?.click()
       await user.keyboard('[ArrowRight]')
 
       // Stuck on last tab panel
@@ -388,7 +388,7 @@ describe('Tabs', () => {
     })
 
     it('should move to previous panel using left arrow key', async () => {
-      $tabs.at(3).click()
+      $tabs.at(3)?.click()
       await user.keyboard('[ArrowLeft]')
 
       // Activated 3rd tab panel
@@ -409,7 +409,7 @@ describe('Tabs', () => {
     })
 
     it('should not move to previous panel using left arrow key (first tab)', async () => {
-      $tabs.at(0).click()
+      $tabs.at(0)?.click()
       await user.keyboard('[ArrowLeft]')
 
       // Stuck on first tab panel

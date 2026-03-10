@@ -110,7 +110,7 @@ describe('File upload', () => {
     it('should throw with missing label', () => {
       const $label = document.querySelector(`label[for="${$input.id}"]`)
 
-      $label.remove()
+      $label?.remove()
 
       expect(() => initFileUploads()).toThrow(
         `${FileUpload.moduleName}: Field label (\`<label for=${$input.id}>\`) not found`
