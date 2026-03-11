@@ -5,7 +5,6 @@
     "outDir": "./dist",
     "rootDir": "./src",
     "lib": ["ESNext", "DOM"],
-    "strict": true,
     "target": "ES2015",
     "types": ["node", "typed-query-selector"]
   },
