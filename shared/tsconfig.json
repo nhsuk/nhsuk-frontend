@@ -5,5 +5,10 @@
     "types": ["node", "typed-query-selector"]
   },
   "include": ["**/*.js", "**/*.mjs"],
-  "exclude": ["helpers/jest/**/*.setup.mjs"]
+  "exclude": ["helpers/jest/**/*.setup.mjs"],
+  "references": [
+    {
+      "path": "../packages/nhsuk-frontend/tsconfig.json"
+    }
+  ]
 }
