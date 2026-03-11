@@ -265,6 +265,7 @@ describe('normaliseArray', () => {
     // @ts-expect-error Parameter 'value' not provided
     expect(normaliseArray()).toEqual([])
     expect(normaliseArray('')).toEqual([])
+    // @ts-expect-error Argument of type 'null' is not assignable
     expect(normaliseArray(null)).toEqual([])
     expect(normaliseArray('null')).toEqual([])
     expect(normaliseArray('[["nested", "array"]]')).toEqual([])

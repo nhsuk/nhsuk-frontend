@@ -230,7 +230,7 @@ describe('Password input', () => {
         await expect(
           render(page, 'password-input', examples.default, {
             beforeInitialisation($root, { selector }) {
-              $root.querySelector(selector).remove()
+              $root.querySelector(selector)?.remove()
             },
             context: {
               selector: inputSelector
@@ -249,9 +249,11 @@ describe('Password input', () => {
         await expect(
           render(page, 'password-input', examples.default, {
             beforeInitialisation($root, { selector }) {
+              const $textarea = document.createElement('textarea')
+              $textarea.classList.add('nhsuk-js-password-input-input')
+
               // Replace the input with a textarea
-              $root.querySelector(selector).outerHTML =
-                '<textarea class="nhsuk-js-password-input-input"></textarea>'
+              $root.querySelector(selector)?.replaceWith($textarea)
             },
             context: {
               selector: inputSelector
@@ -271,7 +273,7 @@ describe('Password input', () => {
           render(page, 'password-input', examples.default, {
             beforeInitialisation($root, { selector }) {
               // Make the input a number input instead
-              $root.querySelector(selector).setAttribute('type', 'number')
+              $root.querySelector(selector)?.setAttribute('type', 'number')
             },
             context: {
               selector: inputSelector
@@ -290,7 +292,7 @@ describe('Password input', () => {
         await expect(
           render(page, 'password-input', examples.default, {
             beforeInitialisation($root, { selector }) {
-              $root.querySelector(selector).remove()
+              $root.querySelector(selector)?.remove()
             },
             context: {
               selector: buttonSelector
@@ -309,9 +311,11 @@ describe('Password input', () => {
         await expect(
           render(page, 'password-input', examples.default, {
             beforeInitialisation($root, { selector }) {
+              const $div = document.createElement('div')
+              $div.classList.add('nhsuk-js-password-input-toggle')
+
               // Replace the button with a <div>
-              $root.querySelector(selector).outerHTML =
-                '<div class="nhsuk-js-password-input-toggle"></div>'
+              $root.querySelector(selector)?.replaceWith($div)
             },
             context: {
               selector: buttonSelector
@@ -331,7 +335,7 @@ describe('Password input', () => {
           render(page, 'password-input', examples.default, {
             beforeInitialisation($root, { selector }) {
               // Make the button a submit button
-              $root.querySelector(selector).setAttribute('type', 'submit')
+              $root.querySelector(selector)?.setAttribute('type', 'submit')
             },
             context: {
               selector: buttonSelector

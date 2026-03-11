@@ -26,7 +26,7 @@ gulp.task('templates', templates.copy)
 /**
  * NHS.UK frontend type declarations
  */
-gulp.task('types', npm.script('types', ['--incremental']))
+gulp.task('types', npm.script('types'))
 
 /**
  * NHS.UK frontend build

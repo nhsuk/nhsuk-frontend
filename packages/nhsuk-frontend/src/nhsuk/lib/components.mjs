@@ -94,9 +94,11 @@ export function render(component, options) {
  * Nunjucks macro example fixture
  * (used by the Design System website)
  *
- * @typedef {Omit<Required<MacroExample>, 'prefix' | 'variants'> & {
+ * @typedef {Omit<Required<MacroExample>, 'callBlock' | 'description' | 'prefix' | 'variants'> & {
  *   name: string,
- *   html: string
+ *   description: string | undefined,
+ *   callBlock: string | undefined
+ *   html: string,
  * }} MacroExampleFixture
  */
 

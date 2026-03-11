@@ -9,10 +9,10 @@ class BrowserAutomationEnvironment extends TestEnvironment {
     await super.setup()
 
     // Reduce navigation timeouts from 30s to 5s
-    this.global.page.setDefaultNavigationTimeout(5000)
+    this.global.page?.setDefaultNavigationTimeout(5000)
 
     // Reduce 'wait for' timeouts from 30s to 5s
-    this.global.page.setDefaultTimeout(5000)
+    this.global.page?.setDefaultTimeout(5000)
   }
 }
 

@@ -110,7 +110,10 @@ export function compile(
       dir: output.preserveModules ? destPath : undefined,
 
       // Write to file when bundling
-      file: !output.preserveModules ? join(destPath, output.file) : undefined,
+      file:
+        output.file && !output.preserveModules
+          ? join(destPath, output.file)
+          : undefined,
 
       // Enable source maps
       sourcemap: true,
@@ -132,6 +135,8 @@ export function compile(
  * @type {ResolveImportMetaHook}
  */
 export function resolveImportMeta(property, { format }) {
+  property ??= 'undefined'
+
   if (['dirname', 'filename'].includes(property)) {
     return format === 'cjs' ? `__${property}` : `import.meta.${property}`
   }
