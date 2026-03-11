@@ -12,6 +12,20 @@ We've added a new `.nhsuk-header--inline` class for the [header](https://service
 
 This was added in [pull request #1783: Add support for inline header search or account](https://github.com/nhsuk/nhsuk-frontend/pull/1783).
 
+### :wastebasket: **Deprecated features**
+
+#### Rename Sass variables for secondary and hover border colours
+
+If you use Sass and you've extended or created components that use the following border variables:
+
+- replace `$nhsuk-secondary-border-colour` with `$nhsuk-reverse-border-colour` for blue backgrounds
+- replace `$nhsuk-secondary-border-colour` with `rgba(nhsuk-colour("white"), 0.2)` to preserve transparency
+- replace `$nhsuk-border-hover-colour` with `nhsuk-colour("grey-3")`
+
+The previous names are deprecated and will be repurposed or removed in a future release.
+
+This change was introduced in [pull request #1851: Deprecate secondary and hover border colours](https://github.com/nhsuk/nhsuk-frontend/pull/1851).
+
 ### :recycle: **Changes**
 
 #### Hide the character count messages when unnecessary
