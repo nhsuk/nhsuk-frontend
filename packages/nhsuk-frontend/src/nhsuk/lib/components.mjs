@@ -1,5 +1,5 @@
 import * as names from './names.mjs'
-import * as nunjucks from './nunjucks.mjs'
+import * as nunjucks from './nunjucks/index.mjs'
 
 /**
  * Render component HTML
