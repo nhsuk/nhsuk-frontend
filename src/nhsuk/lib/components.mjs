@@ -119,5 +119,5 @@ export function render(component, options) {
 
 /**
  * @import { Scenario } from 'backstopjs'
- * @import { MacroRenderOptions } from './nunjucks.mjs'
+ * @import { MacroRenderOptions } from '#lib'
  */
