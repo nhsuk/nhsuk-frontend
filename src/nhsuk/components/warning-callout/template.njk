@@ -7,8 +7,8 @@
   headingClasses: params.headingClasses,
   headingLevel: params.headingLevel if params.headingLevel else 3,
   headingVisuallyHiddenText: params.visuallyHiddenText | default("Important", true)
-    if not ("Important" in params.heading or "important" in params.heading)
-    else "",
+    if params.heading and not ("Important" in params.heading or "important" in params.heading)
+    else undefined,
   description: params.text,
   descriptionHtml: caller() if caller else params.html,
   actions: params.actions,
