@@ -45,6 +45,14 @@ An underline still appears when the user hovers their cursor over the link.
 
 This was added in [pull request #1367: Updates to link styles and link hover states](https://github.com/nhsuk/nhsuk-frontend/pull/1367).
 
+### :recycle: **Changes**
+
+#### Align clickable card styles with expander
+
+Clickable cards now follow the hover and active state styling of expanders. On hover their borders darken, on click they depress like a button. On clickable cards with chevrons, the now icon changes colour to match link styles.
+
+This was added in [pull request #1804: Update card states for consistency](https://github.com/nhsuk/nhsuk-frontend/pull/1804).
+
 ### :wastebasket: **Deprecated features**
 
 #### Rename Sass mixin for white link style
