@@ -31,7 +31,7 @@ describe('Nunjucks global: uniqueHTML', () => {
   it('renders original HTML for component', () => {
     const htmlCode = uniqueHTML(components.render('input', options))
 
-    expect(htmlCode).toBe(outdent`
+    expect(htmlCode).toBe(outdent({ trimTrailingNewline: false })`
       <div class="nhsuk-form-group nhsuk-form-group--error">
         <h1 class="nhsuk-label-wrapper">
           <label class="nhsuk-label nhsuk-label--l" for="with-hint">
@@ -46,7 +46,6 @@ describe('Nunjucks global: uniqueHTML', () => {
         </span>
         <input class="nhsuk-input nhsuk-input--width-10 nhsuk-input--code nhsuk-input--error" id="with-hint" name="example" type="text" spellcheck="false" aria-describedby="with-hint-hint with-hint-error" inputmode="numeric">
       </div>
-
     `)
   })
 
@@ -55,7 +54,7 @@ describe('Nunjucks global: uniqueHTML', () => {
     (index) => {
       const htmlCode = uniqueHTML(components.render('input', options), index)
 
-      expect(htmlCode).toBe(outdent`
+      expect(htmlCode).toBe(outdent({ trimTrailingNewline: false })`
         <div class="nhsuk-form-group nhsuk-form-group--error">
           <h1 class="nhsuk-label-wrapper">
             <label class="nhsuk-label nhsuk-label--l" for="with-hint-${index}">
@@ -70,7 +69,6 @@ describe('Nunjucks global: uniqueHTML', () => {
           </span>
           <input class="nhsuk-input nhsuk-input--width-10 nhsuk-input--code nhsuk-input--error" id="with-hint-${index}" name="example-${index}" type="text" spellcheck="false" aria-describedby="with-hint-hint-${index} with-hint-${index}-error" inputmode="numeric">
         </div>
-
       `)
     }
   )
@@ -86,11 +84,10 @@ describe('Nunjucks global: uniqueHTML', () => {
       1
     )
 
-    expect(htmlCode).toBe(outdent`
+    expect(htmlCode).toBe(outdent({ trimTrailingNewline: false })`
       <a class="nhsuk-skip-link" href="#elsewhere-1" data-module="nhsuk-skip-link">
         Skip to main content
       </a>
-
     `)
   })
 
@@ -105,11 +102,10 @@ describe('Nunjucks global: uniqueHTML', () => {
       1
     )
 
-    expect(htmlCode).toBe(outdent`
+    expect(htmlCode).toBe(outdent({ trimTrailingNewline: false })`
       <a class="nhsuk-skip-link" href="#maincontent" data-module="nhsuk-skip-link">
         Skip to main content
       </a>
-
     `)
   })
 
@@ -123,11 +119,10 @@ describe('Nunjucks global: uniqueHTML', () => {
       })
     )
 
-    expect(htmlCode).toBe(outdent`
+    expect(htmlCode).toBe(outdent({ trimTrailingNewline: false })`
       <a class="nhsuk-skip-link" href="#maincontent" data-module="nhsuk-skip-link">
         Skip to main content
       </a>
-
     `)
   })
 })
