@@ -735,6 +735,129 @@ const fixtures = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
+  'with "select all" option': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'What are your favourite colours?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: true
+        }
+      },
+      idPrefix: 'select-all',
+      name: 'example',
+      items: [
+        {
+          value: 'all',
+          text: 'All colours',
+          inclusive: true
+        },
+        {
+          divider: 'or'
+        },
+        {
+          value: 'red',
+          text: 'Red'
+        },
+        {
+          value: 'green',
+          text: 'Green'
+        },
+        {
+          value: 'blue',
+          text: 'Blue'
+        }
+      ]
+    },
+    variants
+  },
+  'with "select all" option (named group)': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'What are your favourite colours?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: true
+        }
+      },
+      idPrefix: 'select-all',
+      name: 'example',
+      items: [
+        {
+          value: 'all',
+          text: 'All colours',
+          inclusive: true,
+          inclusiveGroup: 'colour-preferences'
+        },
+        {
+          divider: 'or'
+        },
+        {
+          value: 'red',
+          text: 'Red',
+          inclusiveGroup: 'colour-preferences'
+        },
+        {
+          value: 'green',
+          text: 'Green',
+          inclusiveGroup: 'colour-preferences'
+        },
+        {
+          value: 'blue',
+          text: 'Blue',
+          inclusiveGroup: 'colour-preferences'
+        }
+      ]
+    },
+    options: {
+      hidden: true
+    }
+  },
+  'with "select all" option (named group, unique)': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'What are your favourite colours?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: true
+        }
+      },
+      idPrefix: 'select-all',
+      items: [
+        {
+          name: 'colours-all',
+          value: 'yes',
+          text: 'All colours',
+          inclusive: true,
+          inclusiveGroup: 'colour-preferences'
+        },
+        {
+          divider: 'or'
+        },
+        {
+          name: 'colours-red',
+          value: 'yes',
+          text: 'Red',
+          inclusiveGroup: 'colour-preferences'
+        },
+        {
+          name: 'colours-green',
+          value: 'yes',
+          text: 'Green',
+          inclusiveGroup: 'colour-preferences'
+        },
+        {
+          name: 'colours-blue',
+          value: 'yes',
+          text: 'Blue',
+          inclusiveGroup: 'colour-preferences'
+        }
+      ]
+    },
+    options: {
+      hidden: true
+    }
+  },
   'with "none of the above" option': {
     context: {
       fieldset: {

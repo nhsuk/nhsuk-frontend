@@ -350,4 +350,355 @@ describe('Checkboxes', () => {
       expect($inputNone).not.toBeChecked()
     })
   })
+
+  describe('Inclusive checkbox', () => {
+    /** @type {HTMLElement} */
+    let $inputAll
+
+    /**
+     * @param {keyof typeof examples} example
+     */
+    function initSelectAllExample(example) {
+      document.body.innerHTML = components.render(
+        'checkboxes',
+        examples[example]
+      )
+
+      $root = /** @type {HTMLElement} */ (
+        document.querySelector(`[data-module="${Checkboxes.moduleName}"]`)
+      )
+
+      $input1 = getByRole($root, 'checkbox', {
+        name: 'Red'
+      })
+
+      $input2 = getByRole($root, 'checkbox', {
+        name: 'Green'
+      })
+
+      $input3 = getByRole($root, 'checkbox', {
+        name: 'Blue'
+      })
+
+      $inputAll = getByRole($root, 'checkbox', {
+        name: 'All colours'
+      })
+    }
+
+    beforeEach(() => {
+      initSelectAllExample('with "select all" option')
+    })
+
+    it('should check all other checkboxes', () => {
+      initCheckboxes()
+
+      expect($input1).not.toBeChecked()
+      expect($input2).not.toBeChecked()
+      expect($input3).not.toBeChecked()
+      expect($inputAll).not.toBeChecked()
+
+      // Tick "All colours"
+      $inputAll.click()
+
+      expect($input1).toBeChecked()
+      expect($input2).toBeChecked()
+      expect($input3).toBeChecked()
+      expect($inputAll).toBeChecked()
+    })
+
+    it('should uncheck all other checkboxes when unchecked', () => {
+      initCheckboxes()
+
+      // Tick "All colours"
+      $inputAll.click()
+
+      expect($input1).toBeChecked()
+      expect($input2).toBeChecked()
+      expect($input3).toBeChecked()
+      expect($inputAll).toBeChecked()
+
+      // Untick "All colours"
+      $inputAll.click()
+
+      expect($input1).not.toBeChecked()
+      expect($input2).not.toBeChecked()
+      expect($input3).not.toBeChecked()
+      expect($inputAll).not.toBeChecked()
+    })
+
+    it('should uncheck when other checkboxes are unchecked', () => {
+      initCheckboxes()
+
+      // Tick "All colours"
+      $inputAll.click()
+
+      expect($input1).toBeChecked()
+      expect($input2).toBeChecked()
+      expect($input3).toBeChecked()
+      expect($inputAll).toBeChecked()
+
+      // Untick 1st option
+      $input1.click()
+
+      expect($inputAll).not.toBeChecked()
+    })
+
+    it('should check automatically when all other checkboxes are checked individually', () => {
+      initCheckboxes()
+
+      expect($input1).not.toBeChecked()
+      expect($input2).not.toBeChecked()
+      expect($input3).not.toBeChecked()
+      expect($inputAll).not.toBeChecked()
+
+      // Tick all options individually
+      $input1.click()
+      expect($inputAll).not.toBeChecked()
+
+      $input2.click()
+      expect($inputAll).not.toBeChecked()
+
+      // Tick the last option - this should auto-check "All colours"
+      $input3.click()
+
+      expect($input1).toBeChecked()
+      expect($input2).toBeChecked()
+      expect($input3).toBeChecked()
+      expect($inputAll).toBeChecked()
+    })
+  })
+
+  describe('Inclusive checkbox (named groups)', () => {
+    /** @type {HTMLElement} */
+    let $inputAll
+
+    /**
+     * @param {keyof typeof examples} example
+     */
+    function initSelectAllExample(example) {
+      document.body.innerHTML = components.render(
+        'checkboxes',
+        examples[example]
+      )
+
+      $root = /** @type {HTMLElement} */ (
+        document.querySelector(`[data-module="${Checkboxes.moduleName}"]`)
+      )
+
+      $input1 = getByRole($root, 'checkbox', {
+        name: 'Red'
+      })
+
+      $input2 = getByRole($root, 'checkbox', {
+        name: 'Green'
+      })
+
+      $input3 = getByRole($root, 'checkbox', {
+        name: 'Blue'
+      })
+
+      $inputAll = getByRole($root, 'checkbox', {
+        name: 'All colours'
+      })
+    }
+
+    beforeEach(() => {
+      initSelectAllExample('with "select all" option (named group)')
+    })
+
+    it('should check all other checkboxes', () => {
+      initCheckboxes()
+
+      expect($input1).not.toBeChecked()
+      expect($input2).not.toBeChecked()
+      expect($input3).not.toBeChecked()
+      expect($inputAll).not.toBeChecked()
+
+      // Tick "All colours"
+      $inputAll.click()
+
+      expect($input1).toBeChecked()
+      expect($input2).toBeChecked()
+      expect($input3).toBeChecked()
+      expect($inputAll).toBeChecked()
+    })
+
+    it('should uncheck all other checkboxes when unchecked', () => {
+      initCheckboxes()
+
+      // Tick "All colours"
+      $inputAll.click()
+
+      expect($input1).toBeChecked()
+      expect($input2).toBeChecked()
+      expect($input3).toBeChecked()
+      expect($inputAll).toBeChecked()
+
+      // Untick "All colours"
+      $inputAll.click()
+
+      expect($input1).not.toBeChecked()
+      expect($input2).not.toBeChecked()
+      expect($input3).not.toBeChecked()
+      expect($inputAll).not.toBeChecked()
+    })
+
+    it('should uncheck when other checkboxes are unchecked', () => {
+      initCheckboxes()
+
+      // Tick "All colours"
+      $inputAll.click()
+
+      expect($input1).toBeChecked()
+      expect($input2).toBeChecked()
+      expect($input3).toBeChecked()
+      expect($inputAll).toBeChecked()
+
+      // Untick 1st option
+      $input1.click()
+
+      expect($inputAll).not.toBeChecked()
+    })
+
+    it('should check automatically when all other checkboxes are checked individually', () => {
+      initCheckboxes()
+
+      expect($input1).not.toBeChecked()
+      expect($input2).not.toBeChecked()
+      expect($input3).not.toBeChecked()
+      expect($inputAll).not.toBeChecked()
+
+      // Tick all options individually
+      $input1.click()
+      expect($inputAll).not.toBeChecked()
+
+      $input2.click()
+      expect($inputAll).not.toBeChecked()
+
+      // Tick the last option - this should auto-check "All colours"
+      $input3.click()
+
+      expect($input1).toBeChecked()
+      expect($input2).toBeChecked()
+      expect($input3).toBeChecked()
+      expect($inputAll).toBeChecked()
+    })
+  })
+
+  describe('Inclusive checkbox (named groups, unique)', () => {
+    /** @type {HTMLElement} */
+    let $inputAll
+
+    /**
+     * @param {keyof typeof examples} example
+     */
+    function initSelectAllExample(example) {
+      document.body.innerHTML = components.render(
+        'checkboxes',
+        examples[example]
+      )
+
+      $root = /** @type {HTMLElement} */ (
+        document.querySelector(`[data-module="${Checkboxes.moduleName}"]`)
+      )
+
+      $input1 = getByRole($root, 'checkbox', {
+        name: 'Red'
+      })
+
+      $input2 = getByRole($root, 'checkbox', {
+        name: 'Green'
+      })
+
+      $input3 = getByRole($root, 'checkbox', {
+        name: 'Blue'
+      })
+
+      $inputAll = getByRole($root, 'checkbox', {
+        name: 'All colours'
+      })
+    }
+
+    beforeEach(() => {
+      initSelectAllExample('with "select all" option (named group, unique)')
+    })
+
+    it('should check all other checkboxes', () => {
+      initCheckboxes()
+
+      expect($input1).not.toBeChecked()
+      expect($input2).not.toBeChecked()
+      expect($input3).not.toBeChecked()
+      expect($inputAll).not.toBeChecked()
+
+      // Tick "All colours"
+      $inputAll.click()
+
+      expect($input1).toBeChecked()
+      expect($input2).toBeChecked()
+      expect($input3).toBeChecked()
+      expect($inputAll).toBeChecked()
+    })
+
+    it('should uncheck all other checkboxes when unchecked', () => {
+      initCheckboxes()
+
+      // Tick "All colours"
+      $inputAll.click()
+
+      expect($input1).toBeChecked()
+      expect($input2).toBeChecked()
+      expect($input3).toBeChecked()
+      expect($inputAll).toBeChecked()
+
+      // Untick "All colours"
+      $inputAll.click()
+
+      expect($input1).not.toBeChecked()
+      expect($input2).not.toBeChecked()
+      expect($input3).not.toBeChecked()
+      expect($inputAll).not.toBeChecked()
+    })
+
+    it('should uncheck when other checkboxes are unchecked', () => {
+      initCheckboxes()
+
+      // Tick "All colours"
+      $inputAll.click()
+
+      expect($input1).toBeChecked()
+      expect($input2).toBeChecked()
+      expect($input3).toBeChecked()
+      expect($inputAll).toBeChecked()
+
+      // Untick 1st option
+      $input1.click()
+
+      expect($inputAll).not.toBeChecked()
+    })
+
+    it('should check automatically when all other checkboxes are checked individually', () => {
+      initCheckboxes()
+
+      expect($input1).not.toBeChecked()
+      expect($input2).not.toBeChecked()
+      expect($input3).not.toBeChecked()
+      expect($inputAll).not.toBeChecked()
+
+      // Tick all options individually
+      $input1.click()
+      expect($inputAll).not.toBeChecked()
+
+      $input2.click()
+      expect($inputAll).not.toBeChecked()
+
+      // Tick the last option - this should auto-check "All colours"
+      $input3.click()
+
+      expect($input1).toBeChecked()
+      expect($input2).toBeChecked()
+      expect($input3).toBeChecked()
+      expect($inputAll).toBeChecked()
+    })
+  })
 })
