@@ -730,7 +730,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
       padding-right: $_header-item-padding;
       padding-left: $_header-item-padding - 1px;
       border-width: 1px;
-      border-color: nhsuk-colour("grey-3");
+      border-color: $nhsuk-secondary-border-colour;
     }
 
     .nhsuk-header__search-form .nhsuk-button,
