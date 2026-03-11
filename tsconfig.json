@@ -9,15 +9,12 @@
     "declarationMap": true,
     "emitDeclarationOnly": true,
     "lib": ["ESNext", "DOM"],
-    "moduleResolution": "Bundler",
     "noEmit": false,
     "paths": {
       "#lib": ["./src/nhsuk/lib/index.mjs"],
       "#lib/*": ["./src/nhsuk/lib/*"]
     },
-    "resolvePackageJsonImports": true,
     "sourceMap": true,
-    "strict": true,
     "target": "ES2015",
     "types": ["node", "typed-query-selector"]
   },
