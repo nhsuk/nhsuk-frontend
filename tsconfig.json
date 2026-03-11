@@ -22,5 +22,5 @@
     "types": ["node", "typed-query-selector"]
   },
   "include": ["src/**/*.js", "src/**/*.mjs"],
-  "exclude": ["src/**/*.test.mjs"]
+  "exclude": ["**/node_modules", "**/dist", "src/**/*.test.mjs"]
 }
