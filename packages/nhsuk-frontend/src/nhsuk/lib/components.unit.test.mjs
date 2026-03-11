@@ -1,7 +1,7 @@
 import { join } from 'node:path'
 
 import { render } from './components.mjs'
-import { configure } from './nunjucks.mjs'
+import { configure } from './nunjucks/index.mjs'
 
 describe('Node.js API: Components', () => {
   const context = {

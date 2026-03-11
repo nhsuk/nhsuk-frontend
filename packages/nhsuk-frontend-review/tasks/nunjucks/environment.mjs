@@ -27,4 +27,4 @@ export function configure() {
   return env
 }
 
-export { renderTemplate } from 'nhsuk-frontend/src/nhsuk/lib/nunjucks.mjs'
+export { renderTemplate } from 'nhsuk-frontend/src/nhsuk/lib/nunjucks/index.mjs'

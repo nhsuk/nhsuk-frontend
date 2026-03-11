@@ -18,7 +18,7 @@
   {% endif %}
 {% endif %}
 
-{# Define attributes that we can use across all element types #}
+{#- Define attributes that we can use across all element types #}
 {%- set attributesHtml %}
   {{- nhsukAttributes({
     id: {
@@ -73,12 +73,10 @@
 <a {{- attributesHtml | safe }}>
   {{ params.html | safe if params.html else params.text }}
 </a>
-
-{%- elif element == "button" %}
+{% elif element == "button" %}
 <button {{- attributesHtml | safe }}>
   {{ params.html | safe if params.html else params.text }}
 </button>
-
-{%- elif element == "input" %}
+{% elif element == "input" %}
 <input {{- attributesHtml | safe }}>
-{%- endif %}
+{% endif %}
