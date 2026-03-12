@@ -172,6 +172,12 @@ const options = {
         required: false,
         description:
           'If set to `true`, use justified alignment where navigation items appeared evenly spaced out.'
+      },
+      colour: {
+        type: 'string',
+        required: false,
+        description:
+          'Optional colour modifier for the primary navigation – `"white"`.'
       }
     }
   },
