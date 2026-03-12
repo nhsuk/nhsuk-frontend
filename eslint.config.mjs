@@ -150,10 +150,18 @@ export default defineConfig([
       'n/no-missing-import': ['error', { allowModules: ['nhsuk-frontend'] }],
       'n/no-missing-require': ['error', { allowModules: ['nhsuk-frontend'] }],
 
-      // Rollup polyfills import.meta properties
       'n/no-unsupported-features/node-builtins': [
         'error',
-        { ignores: ['import.meta.dirname', 'import.meta.filename'] }
+        {
+          ignores: [
+            // Rollup polyfills import.meta properties
+            'import.meta.dirname',
+            'import.meta.filename',
+
+            // Testing library polyfills Clipboard API
+            'navigator'
+          ]
+        }
       ]
     }
   },
