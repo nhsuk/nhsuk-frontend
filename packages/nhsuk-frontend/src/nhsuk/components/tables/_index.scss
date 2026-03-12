@@ -85,18 +85,6 @@
     @include nhsuk-font-size(22);
   }
 
-  // [2]
-
-  // Table row hover
-  //
-  // Table row hover is used to aid readability for users.
-
-  .nhsuk-table__row {
-    &:hover {
-      background-color: nhsuk-colour("grey-5");
-    }
-  }
-
   // Table panel with tab heading
   //
   // 1. Margin is removed so there isn't double spacing.
