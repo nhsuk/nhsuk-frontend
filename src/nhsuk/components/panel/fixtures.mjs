@@ -85,6 +85,7 @@ const fixtures = {
   'title': {
     context: {
       titleText: 'Booking complete',
+      titleSize: 'l',
       text: 'We have sent you a confirmation email'
     },
     variants: [

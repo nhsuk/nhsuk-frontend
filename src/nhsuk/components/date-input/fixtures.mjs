@@ -176,6 +176,7 @@ const fixtures = {
       fieldset: {
         legend: {
           text: 'What is your date of birth?',
+          size: 'l',
           isPageHeading: true
         }
       },
