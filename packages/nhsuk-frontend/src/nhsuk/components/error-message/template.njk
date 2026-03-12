@@ -10,7 +10,7 @@
 {% set visuallyHiddenText = params.visuallyHiddenText | default("Error") -%}
 {% set errorMessageText = params.html | safe | trim | indent(2) if params.html else params.text -%}
 
-<span {%- if params.id %} id="{{ params.id }}"{% endif %} class="{{ classNames }}"
+<span class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
   {{- nhsukAttributes(params.attributes) }}>
   {% if visuallyHiddenText %}
   <span class="nhsuk-u-visually-hidden">{{ visuallyHiddenText }}:</span> {{ errorMessageText }}

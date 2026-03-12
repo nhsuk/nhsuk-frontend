@@ -42,11 +42,15 @@
 {#- Define attributes that we can use across all element types #}
 {%- set attributesHtml %}
   {{- nhsukAttributes({
+    class: classNames,
     id: {
       value: params.id,
       optional: true
     },
-    class: classNames,
+    name: {
+      value: params.name if element == "button" or element == "input" else false,
+      optional: true
+    },
     "data-module": "nhsuk-button",
     "data-prevent-double-click": {
       value: params.preventDoubleClick | string
@@ -58,15 +62,11 @@
 
   {% if element == "button" or element == "input" %}
     {{- nhsukAttributes({
-      name: {
-        value: params.name,
-        optional: true
-      },
+      type: params.type if params.type else "submit",
       value: {
         value: params.text if element == "input" else params.value,
         optional: true
       },
-      type: params.type if params.type else "submit",
       disabled: {
         value: params.disabled,
         optional: true

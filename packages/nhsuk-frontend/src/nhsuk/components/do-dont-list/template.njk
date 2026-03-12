@@ -24,7 +24,7 @@
   {{- item.html | safe | trim | indent(6) if item.html else item.text }}
 {% endmacro -%}
 
-<div {%- if params.id %} id="{{ params.id }}"{% endif %} class="{{ classNames }}"
+<div class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
   {{- nhsukAttributes(params.attributes) }}>
   <h{{ headingLevel }} class="nhsuk-do-dont-list__label">{{ params.title }}</h{{ headingLevel }}>
   <ul class="nhsuk-list nhsuk-list--{{ type }}" role="list">
