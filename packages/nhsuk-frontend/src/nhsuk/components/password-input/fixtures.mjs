@@ -74,7 +74,7 @@ const fixtures = {
       name: 'example'
     }
   },
-  'with width class': {
+  'with width': {
     context: {
       label: {
         text: 'Password',
@@ -83,7 +83,7 @@ const fixtures = {
       },
       id: 'width-class',
       name: 'example',
-      classes: 'nhsuk-input--width-10'
+      width: 10
     }
   },
   'with autocomplete attribute': {

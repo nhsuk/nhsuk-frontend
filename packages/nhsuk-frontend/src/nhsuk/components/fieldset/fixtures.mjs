@@ -52,7 +52,7 @@ const fixtures = {
           },
           name: 'address-postcode',
           autocomplete: 'postal-code',
-          classes: 'nhsuk-input--width-10'
+          width: 10
         }
       })}
     `,
