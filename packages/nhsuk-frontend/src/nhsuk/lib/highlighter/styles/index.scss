@@ -1,0 +1,96 @@
+@use "../../../core/helpers" as *;
+
+.nhsuk-code__comment,
+.nhsuk-code__quote {
+  color: #545555;
+  font-style: italic;
+}
+
+.nhsuk-code__keyword,
+.nhsuk-code__selector-tag,
+.nhsuk-code__subst {
+  color: #333333;
+  font-weight: bold;
+}
+
+.nhsuk-code__number,
+.nhsuk-code__literal,
+.nhsuk-code__variable,
+.nhsuk-code__template-variable,
+.nhsuk-code__tag .nhsuk-code__attr {
+  color: nhsuk-colour("green");
+}
+
+.nhsuk-code__string,
+.nhsuk-code__doctag {
+  color: nhsuk-colour("red");
+}
+
+.nhsuk-code__title,
+.nhsuk-code__section,
+.nhsuk-code__selector-id {
+  color: #990000;
+  font-weight: bold;
+}
+
+.nhsuk-code__subst {
+  font-weight: normal;
+}
+
+.nhsuk-code__type,
+.nhsuk-code__class .nhsuk-code__title {
+  color: #445588;
+  font-weight: bold;
+}
+
+.nhsuk-code__tag,
+.nhsuk-code__name,
+.nhsuk-code__attribute {
+  color: #003078;
+  font-weight: normal;
+}
+
+.nhsuk-code__regexp,
+.nhsuk-code__link {
+  color: #008020;
+}
+
+.nhsuk-code__symbol,
+.nhsuk-code__bullet {
+  color: #990073;
+}
+
+.nhsuk-code__builtin,
+.nhsuk-code__builtin-name {
+  color: #017ba5;
+}
+
+.nhsuk-code__meta {
+  color: #999999;
+  font-weight: bold;
+}
+
+.nhsuk-code__deletion {
+  color: nhsuk-shade(nhsuk-colour("red"), 10%);
+  background-color: nhsuk-tint(nhsuk-colour("red"), 85%);
+}
+
+.nhsuk-code__addition {
+  color: nhsuk-shade(nhsuk-colour("green"), 8%);
+  background-color: nhsuk-tint(nhsuk-colour("green"), 85%);
+}
+
+// Make sure background colour matches line height
+.nhsuk-code__deletion,
+.nhsuk-code__addition {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.nhsuk-code__emphasis {
+  font-style: italic;
+}
+
+.nhsuk-code__strong {
+  font-weight: bold;
+}

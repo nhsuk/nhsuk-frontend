@@ -33,6 +33,11 @@
   .nhsuk-section-break--visible {
     border-color: $nhsuk-body-background-colour;
   }
+
+  .nhsuk-code__container,
+  .nhsuk-details__text {
+    border-color: nhsuk-colour("grey-3");
+  }
 }
 
 .app-wrapper--background-white {

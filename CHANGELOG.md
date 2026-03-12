@@ -79,7 +79,7 @@ To use the `fileUpload` Nunjucks macro in your service:
 {{ fileUpload({
   label: {
     text: "Upload your photo"
-  }
+  },
   id: "file-upload",
   name: "photo"
 }) }}

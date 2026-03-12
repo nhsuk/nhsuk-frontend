@@ -1,5 +1,6 @@
 @use "../settings" as *;
 @use "../tools" as *;
+@use "../helpers" as *;
 
 ////
 /// Typography
@@ -287,4 +288,52 @@ b {
   %nhsuk-body-s + %nhsuk-heading-s {
     padding-top: 0.45em;
   }
+}
+
+// Code
+
+li code,
+caption code,
+td code,
+p code {
+  width: fit-content;
+  padding: 2px nhsuk-spacing(2);
+
+  color: $nhsuk-code-colour;
+  background-color: nhsuk-colour("white");
+
+  font-family: $nhsuk-code-font;
+  word-break: break-word;
+  @include nhsuk-font-size(16);
+}
+
+samp,
+kbd,
+var {
+  font-family: $nhsuk-code-font;
+  font-style: normal;
+}
+
+kbd > kbd {
+  display: inline-block;
+  margin: 0 nhsuk-em(4px, 19);
+  padding: 0 nhsuk-spacing(1);
+  border: $nhsuk-border-width-form-element solid currentcolor;
+  border-radius: $nhsuk-border-radius;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+a code {
+  color: currentcolor;
+}
+
+a:focus code {
+  background-color: transparent;
 }
