@@ -7,6 +7,22 @@
 {%- set classNames = "nhsuk-input" -%}
 {%- set classNamesFormGroup = "nhsuk-form-group" -%}
 
+{%- if params.width and
+  params.width | string in ["2", "3", "4", "4", "5", "10", "20", "30"] and (
+    not params.classes or (
+      not "nhsuk-input--width-2" in params.classes and
+      not "nhsuk-input--width-3" in params.classes and
+      not "nhsuk-input--width-4" in params.classes and
+      not "nhsuk-input--width-5" in params.classes and
+      not "nhsuk-input--width-10" in params.classes and
+      not "nhsuk-input--width-20" in params.classes and
+      not "nhsuk-input--width-30" in params.classes
+    )
+  )
+%}
+  {% set classNames = classNames ~ " nhsuk-input--width-" ~ params.width %}
+{% endif %}
+
 {%- if params.errorMessage %}
   {% set classNames = classNames ~ " nhsuk-input--error" %}
   {% set classNamesFormGroup = classNamesFormGroup ~ " nhsuk-form-group--error" %}
