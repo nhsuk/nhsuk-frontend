@@ -4,6 +4,7 @@ import {
   Button,
   CharacterCount,
   Checkboxes,
+  Code,
   ErrorSummary,
   Header,
   NotificationBanner,
@@ -26,6 +27,7 @@ import {
 jest.mock('./components/button/button.mjs')
 jest.mock('./components/character-count/character-count.mjs')
 jest.mock('./components/checkboxes/checkboxes.mjs')
+jest.mock('./components/code/code.mjs')
 jest.mock('./components/error-summary/error-summary.mjs')
 jest.mock('./components/file-upload/file-upload.mjs')
 jest.mock('./components/header/header.mjs')
@@ -37,15 +39,16 @@ jest.mock('./components/tabs/tabs.mjs')
 
 describe('NHS.UK frontend', () => {
   const components = [
+    'Button',
+    'CharacterCount',
     'Checkboxes',
+    'Code',
+    'ErrorSummary',
     'FileUpload',
     'Header',
     'Radios',
     'SkipLink',
     'Tabs',
-    'Button',
-    'CharacterCount',
-    'ErrorSummary',
     'NotificationBanner',
     'PasswordInput'
   ]
@@ -75,6 +78,7 @@ describe('NHS.UK frontend', () => {
       expect(NHSUKFrontend).toHaveProperty('Button')
       expect(NHSUKFrontend).toHaveProperty('CharacterCount')
       expect(NHSUKFrontend).toHaveProperty('Checkboxes')
+      expect(NHSUKFrontend).toHaveProperty('Code')
       expect(NHSUKFrontend).toHaveProperty('ErrorSummary')
       expect(NHSUKFrontend).toHaveProperty('Header')
       expect(NHSUKFrontend).toHaveProperty('NotificationBanner')
@@ -93,6 +97,7 @@ describe('NHS.UK frontend', () => {
       expect(NHSUKFrontend).toHaveProperty('initButtons')
       expect(NHSUKFrontend).toHaveProperty('initCharacterCounts')
       expect(NHSUKFrontend).toHaveProperty('initCheckboxes')
+      expect(NHSUKFrontend).toHaveProperty('initCode')
       expect(NHSUKFrontend).toHaveProperty('initErrorSummary')
       expect(NHSUKFrontend).toHaveProperty('initHeader')
       expect(NHSUKFrontend).toHaveProperty('initNotificationBanners')
@@ -111,6 +116,7 @@ describe('NHS.UK frontend', () => {
         <div data-module="${Button.moduleName}"></div>
         <div data-module="${CharacterCount.moduleName}"></div>
         <div data-module="${Checkboxes.moduleName}"></div>
+        <div data-module="${Code.moduleName}"></div>
         <div data-module="${ErrorSummary.moduleName}"></div>
         <div data-module="${Header.moduleName}"></div>
         <div data-module="${NotificationBanner.moduleName}"></div>
@@ -224,6 +230,7 @@ describe('NHS.UK frontend', () => {
       expect(Button).not.toHaveBeenCalled()
       expect(CharacterCount).not.toHaveBeenCalled()
       expect(Checkboxes).not.toHaveBeenCalled()
+      expect(Code).not.toHaveBeenCalled()
       expect(ErrorSummary).not.toHaveBeenCalled()
       expect(Header).not.toHaveBeenCalled()
       expect(NotificationBanner).not.toHaveBeenCalled()
@@ -248,6 +255,7 @@ describe('NHS.UK frontend', () => {
       expect(Button).not.toHaveBeenCalled()
       expect(CharacterCount).not.toHaveBeenCalled()
       expect(Checkboxes).not.toHaveBeenCalled()
+      expect(Code).not.toHaveBeenCalled()
       expect(ErrorSummary).not.toHaveBeenCalled()
       expect(Header).not.toHaveBeenCalled()
       expect(NotificationBanner).not.toHaveBeenCalled()
@@ -272,6 +280,7 @@ describe('NHS.UK frontend', () => {
       expect(Button).not.toHaveBeenCalled()
       expect(CharacterCount).not.toHaveBeenCalled()
       expect(Checkboxes).not.toHaveBeenCalled()
+      expect(Code).not.toHaveBeenCalled()
       expect(ErrorSummary).not.toHaveBeenCalled()
       expect(Header).not.toHaveBeenCalled()
       expect(NotificationBanner).not.toHaveBeenCalled()

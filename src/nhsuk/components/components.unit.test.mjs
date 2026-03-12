@@ -24,6 +24,7 @@ describe('Components', () => {
         @forward "components/breadcrumb/breadcrumb";
         @forward "components/button/button";
         @forward "components/card/card";
+        @forward "components/code/code";
         @forward "components/contents-list/contents-list";
         @forward "components/date-input/date-input";
         @forward "components/details/details";
