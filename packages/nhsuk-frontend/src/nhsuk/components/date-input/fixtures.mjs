@@ -306,17 +306,17 @@ const fixtures = {
         {
           name: 'day',
           width: 2,
-          classes: 'nhsuk-input--error'
+          error: true
         },
         {
           name: 'month',
           width: 2,
-          classes: 'nhsuk-input--error'
+          error: true
         },
         {
           name: 'year',
           width: 4,
-          classes: 'nhsuk-input--error'
+          error: true
         }
       ]
     }
@@ -341,17 +341,17 @@ const fixtures = {
         {
           name: 'day',
           width: 2,
-          classes: 'nhsuk-input--error'
+          error: true
         },
         {
           name: 'month',
           width: 2,
-          classes: 'nhsuk-input--error'
+          error: true
         },
         {
           name: 'year',
           width: 4,
-          classes: 'nhsuk-input--error'
+          error: true
         }
       ]
     },
@@ -377,7 +377,7 @@ const fixtures = {
         {
           name: 'day',
           width: 2,
-          classes: 'nhsuk-input--error'
+          error: true
         },
         {
           name: 'month',
@@ -417,7 +417,7 @@ const fixtures = {
         {
           name: 'month',
           width: 2,
-          classes: 'nhsuk-input--error'
+          error: true
         },
         {
           name: 'year',
@@ -457,7 +457,7 @@ const fixtures = {
         {
           name: 'year',
           width: 4,
-          classes: 'nhsuk-input--error'
+          error: true
         }
       ]
     }
