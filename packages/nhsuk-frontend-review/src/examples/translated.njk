@@ -117,6 +117,22 @@
 
       <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
 
+      {% call code({
+        button: true,
+        copyButtonText: "Copïo cod",
+        copiedButtonText: "Cod wedi'i gopïo",
+        copiedAnnouncementText: "Cod wedi'i gopïo i'r clipfwrdd"
+      }) %}
+        {% filter highlight("diff") %}
+          .nhsuk-example {
+        -   color: $color_nhsuk-blue;
+        +   color: nhsuk-colour("blue");
+          }
+        {% endfilter %}
+      {% endcall %}
+
+      <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
+
       {{ pagination({
         previous: {
           text: "Blaenorol",
