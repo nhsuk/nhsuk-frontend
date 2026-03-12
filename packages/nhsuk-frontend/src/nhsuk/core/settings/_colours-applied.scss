@@ -107,19 +107,11 @@ $nhsuk-success-colour: nhsuk-colour("green") !default;
 
 $nhsuk-border-colour: nhsuk-colour("grey-4") !default;
 
-/// Border hover colour
-///
-/// @deprecated To be removed in v11.0
-/// @type Colour
-
-$nhsuk-border-hover-colour: nhsuk-colour("grey-3") !default;
-
 /// Secondary border colour
 ///
-/// @deprecated To be changed to "grey-3" in v11.0
 /// @type Colour
 
-$nhsuk-secondary-border-colour: rgba(nhsuk-colour("white"), 0.2) !default;
+$nhsuk-secondary-border-colour: nhsuk-colour("grey-3") !default;
 
 /// Reverse border colour
 ///
