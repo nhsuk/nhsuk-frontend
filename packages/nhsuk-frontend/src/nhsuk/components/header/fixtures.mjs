@@ -10,7 +10,7 @@ export const variants = [
   {
     description: 'white',
     context: {
-      classes: 'nhsuk-header--white'
+      colour: 'white'
     }
   }
 ]
@@ -800,7 +800,7 @@ const fixtures = {
   },
   'white linked logo, ARIA label': {
     context: {
-      classes: 'nhsuk-header--white',
+      colour: 'white',
       logo: {
         ariaLabel: 'NHS white homepage',
         href: '#'
@@ -813,7 +813,7 @@ const fixtures = {
   },
   'white linked logo, custom': {
     context: {
-      classes: 'nhsuk-header--white',
+      colour: 'white',
       logo: {
         href: '#',
         src: '/nhsuk-frontend/assets/example-logo.svg',
