@@ -90,13 +90,21 @@
   {{- nhsukAttributes(params.attributes) -}}
 {% endset %}
 
+{%- set innerHtml %}
+{% if caller or params.html %}
+  {{ caller() if caller else params.html | safe }}
+{% elif params.text %}
+  {{ params.text }}
+{% endif %}
+{% endset %}
+
 {%- if element == "a" %}
 <a {{- attributesHtml | safe }}>
-  {{ params.html | safe if params.html else params.text }}
+  {{ innerHtml | safe | trim | indent(2) }}
 </a>
 {% elif element == "button" %}
 <button {{- attributesHtml | safe }}>
-  {{ params.html | safe if params.html else params.text }}
+  {{ innerHtml | safe | trim | indent(2) }}
 </button>
 {% elif element == "input" %}
 <input {{- attributesHtml | safe }}>
