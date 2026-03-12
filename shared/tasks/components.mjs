@@ -121,7 +121,7 @@ export function generateFixture(data) {
  * @returns {MacroExample} Review app example (merged)
  */
 export function mergeExample(example, variant) {
-  return mergeWith({}, variant, example, (target, source, key) => {
+  return mergeWith({}, example, variant, (target, source, key) => {
     if (
       key === 'classes' &&
       typeof target === 'string' &&
@@ -131,6 +131,12 @@ export function mergeExample(example, variant) {
       // Join 'classes' strings without overwriting
       // e.g. `nhsuk-radios--small nhsuk-radios--inline`
       return `${target} ${source}`.trim()
+    }
+
+    // Prevent merging over null values
+    // e.g. `fieldset: null`
+    if (target === null) {
+      return null
     }
 
     // Prefer default merge behaviour

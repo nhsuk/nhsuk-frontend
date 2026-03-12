@@ -64,6 +64,7 @@ const fixtures = {
     context: {
       legend: {
         text: 'What is your address?',
+        size: 'l',
         isPageHeading: true
       }
     },
