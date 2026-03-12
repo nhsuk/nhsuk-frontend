@@ -423,7 +423,7 @@ const fixtures = {
         visuallyHiddenLabel: 'Search the NHS digital service manual'
       },
       navigation: {
-        classes: 'nhsuk-header__navigation--white',
+        colour: 'white',
         items: [
           {
             href: '#',
