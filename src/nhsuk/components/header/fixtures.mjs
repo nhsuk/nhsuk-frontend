@@ -303,7 +303,7 @@ const fixtures = {
         href: '#'
       },
       navigation: {
-        classes: 'nhsuk-header__navigation--justified',
+        justified: true,
         items: [
           {
             href: '#',

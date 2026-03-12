@@ -19,6 +19,10 @@
   {% set classNames = classNames ~ " " ~ params.classes %}
 {% endif %}
 
+{%- if params.navigation.justified and (not params.navigation.classes or not "nhsuk-header__navigation--justified" in params.navigation.classes) %}
+  {% set classNamesNavigation = classNamesNavigation ~ " nhsuk-header__navigation--justified" %}
+{% endif %}
+
 {%- if params.navigation.classes %}
   {% set classNamesNavigation = classNamesNavigation ~ " " ~ params.navigation.classes %}
 {% endif %}
