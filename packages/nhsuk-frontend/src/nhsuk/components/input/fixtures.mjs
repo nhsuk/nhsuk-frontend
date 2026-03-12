@@ -30,7 +30,7 @@ const fixtures = {
       id: 'with-hint',
       name: 'example',
       width: 10,
-      classes: 'nhsuk-input--code',
+      code: true,
       inputmode: 'numeric',
       spellcheck: false
     },
@@ -46,7 +46,7 @@ const fixtures = {
       id: 'with-button',
       name: 'example',
       width: 10,
-      classes: 'nhsuk-input--code',
+      code: true,
       inputmode: 'numeric',
       spellcheck: false,
       formGroup: {
@@ -78,7 +78,7 @@ const fixtures = {
       id: 'with-button-error-message',
       name: 'example',
       width: 10,
-      classes: 'nhsuk-input--code',
+      code: true,
       inputmode: 'numeric',
       spellcheck: false,
       formGroup: {
@@ -110,7 +110,7 @@ const fixtures = {
       id: 'with-error-message',
       name: 'example',
       width: 10,
-      classes: 'nhsuk-input--code',
+      code: true,
       inputmode: 'numeric',
       spellcheck: false
     }
@@ -131,7 +131,7 @@ const fixtures = {
       id: 'with-hint-error',
       name: 'example',
       width: 10,
-      classes: 'nhsuk-input--code',
+      code: true,
       inputmode: 'numeric',
       spellcheck: false
     },
@@ -246,7 +246,7 @@ const fixtures = {
       id: 'custom-size',
       name: 'example',
       width: 10,
-      classes: 'nhsuk-input--code',
+      code: true,
       inputmode: 'numeric',
       spellcheck: false
     },
@@ -304,7 +304,7 @@ const fixtures = {
       id: 'without-heading',
       name: 'example',
       width: 10,
-      classes: 'nhsuk-input--code',
+      code: true,
       inputmode: 'numeric',
       spellcheck: false
     }
@@ -322,7 +322,7 @@ const fixtures = {
       id: 'with-code-input-styling',
       name: 'example',
       width: 10,
-      classes: 'nhsuk-input--code',
+      code: true,
       value: '999 123 4567',
       inputmode: 'numeric',
       spellcheck: false

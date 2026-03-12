@@ -7,6 +7,10 @@
 {%- set classNames = "nhsuk-input" -%}
 {%- set classNamesFormGroup = "nhsuk-form-group" -%}
 
+{%- if params.code and (not params.classes or not "nhsuk-input--code" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-input--code" %}
+{% endif %}
+
 {%- if params.width and
   params.width | string in ["2", "3", "4", "4", "5", "10", "20", "30"] and (
     not params.classes or (

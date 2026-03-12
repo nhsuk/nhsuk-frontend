@@ -123,6 +123,12 @@ const options = {
       }
     }
   },
+  code: {
+    type: 'boolean',
+    required: false,
+    description:
+      'If set to `true`, use a monospace font for codes or sequences.'
+  },
   width: {
     type: 'integer',
     required: false,
