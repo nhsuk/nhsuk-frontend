@@ -15,7 +15,7 @@
   {% set classNames = classNames ~ " " ~ params.classes %}
 {% endif -%}
 
-<nav {%- if params.id %} id="{{ params.id }}"{% endif %} class="{{ classNames }}" aria-label="{{ params.labelText | default("Breadcrumb") }}"
+<nav class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %} aria-label="{{ params.labelText | default("Breadcrumb") }}"
   {{- nhsukAttributes(params.attributes) }}>
   <ol class="nhsuk-breadcrumb__list">
 {% for item in params.items %}

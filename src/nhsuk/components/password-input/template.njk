@@ -6,7 +6,9 @@
 {%- set id = params.id if params.id else params.name -%}
 
 {% set attributesHtml -%}
-  {{- ' data-module="nhsuk-password-input"' | safe }}
+  {{- nhsukAttributes({
+    "data-module": "nhsuk-password-input"
+  }) -}}
 
   {{- nhsukI18nAttributes({
     key: 'show-password',

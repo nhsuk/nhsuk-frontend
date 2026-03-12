@@ -7,7 +7,7 @@
   {% set classNames = classNames ~ " " ~ params.classes %}
 {% endif -%}
 
-<div {%- if params.id %} id="{{ params.id }}"{% endif %} class="{{ classNames }}"
+<div class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
   {{- nhsukAttributes(params.attributes) }}>
   {{ params.html | safe | trim | indent(2) if params.html else params.text }}
 </div>
