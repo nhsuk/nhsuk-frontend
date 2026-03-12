@@ -77,11 +77,12 @@
   errorMessage: params.errorMessage,
   id: id,
   name: params.name,
+  value: params.value,
+  width: params.width,
   type: "password",
   spellcheck: false,
   autocapitalize: "none",
   autocomplete: params.autocomplete if params.autocomplete else "current-password",
-  value: params.value,
   disabled: params.disabled,
   describedBy: params.describedBy,
   attributes: params.attributes

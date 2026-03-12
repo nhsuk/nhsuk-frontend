@@ -123,6 +123,12 @@ const options = {
       }
     }
   },
+  width: {
+    type: 'integer',
+    required: false,
+    description:
+      'Optional fixed width for the text input component – `2`, `3`, `4`, `5`, `10`, `20` or `30`.'
+  },
   formGroup: {
     type: 'object',
     required: false,
