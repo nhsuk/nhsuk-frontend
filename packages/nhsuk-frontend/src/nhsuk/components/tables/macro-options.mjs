@@ -113,6 +113,11 @@ const options = {
     required: false,
     description: 'If set to `true`, responsive table classes will be applied.'
   },
+  variant: {
+    type: 'string',
+    required: false,
+    description: 'Optional variant of table to render – `"reverse"`.'
+  },
   card: {
     type: 'object',
     required: false,
