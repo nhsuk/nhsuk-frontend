@@ -1,8 +1,15 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
+{#- Set variant for this component #}
+{%- set variant = params.variant -%}
+
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-panel" -%}
 {%- set classNamesTitle = "nhsuk-panel__title" -%}
+
+{%- if variant == "interruption" and (not params.classes or not "nhsuk-action-link--interruption" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-panel----" ~ variant %}
+{% endif %}
 
 {%- if params.titleSize and
   params.titleSize in ["m", "l", "xl"] and (
