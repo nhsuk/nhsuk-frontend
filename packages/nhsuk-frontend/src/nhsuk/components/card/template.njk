@@ -88,7 +88,7 @@
 
 {%- macro _cardHeading(params, classNames) %}
 {% if params.heading %}
-  <h{{ headingLevel }} {%- if params.headingId %} id="{{ params.headingId }}"{% endif %} class="{{ classNames }}">
+  <h{{ headingLevel }} class="{{ classNames }}" {%- if params.headingId %} id="{{ params.headingId }}"{% endif %}>
   {% if params.href and not params.feature %}
     <a class="nhsuk-card__link" href="{{ params.href }}">
       {{- params.heading | safe -}}
@@ -120,7 +120,7 @@
   </a>
 {% endmacro -%}
 
-<div {%- if params.id %} id="{{ params.id }}"{% endif %} class="{{ classNames }}"
+<div class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
   {{- nhsukAttributes(params.attributes) }}>
 {% if image.html %}
   {{ image.html | safe | trim | indent(2) }}

@@ -33,8 +33,17 @@
   instead. We need this for error messages and hints as well -#}
 {% set idPrefix = params.idPrefix if params.idPrefix -%}
 
-<div {%- if params.id %} id="{{ params.id }}"{% endif %} class="{{ classNames }}"
-  {{- nhsukAttributes(params.attributes) }} data-module="nhsuk-tabs">
+<div
+  {{- nhsukAttributes({
+    class: classNames,
+    id: {
+      value: params.id,
+      optional: true
+    },
+    "data-module": "nhsuk-tabs"
+  }) -}}
+
+  {{- nhsukAttributes(params.attributes) -}}>
   <h2 class="nhsuk-tabs__title">
     {{ params.title | default ("Contents") }}
   </h2>

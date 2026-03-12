@@ -15,7 +15,7 @@
   {% set classNames = classNames ~ " " ~ params.classes %}
 {% endif -%}
 
-<a {%- if params.id %} id="{{ params.id }}"{% endif %} class="{{ classNames }}" href="{{ params.href | default("#", true) }}"
+<a class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %} href="{{ params.href | default("#", true) }}"
   {%- if params.openInNewWindow %} target="_blank"{% endif %}
   {{- nhsukAttributes(params.attributes) }}>
   {{ nhsukIcon("arrow-right-circle") | trim | indent(2) }}

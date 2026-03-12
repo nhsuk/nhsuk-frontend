@@ -33,7 +33,7 @@
 
 {%- set headingLevel = params.headingLevel if params.headingLevel else 1 -%}
 
-<div {%- if params.id %} id="{{ params.id }}"{% endif %} class="{{ classNames }}" {{- nhsukAttributes(params.attributes) }}>
+<div class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %} {{- nhsukAttributes(params.attributes) }}>
   <h{{ headingLevel }} class="{{ classNamesTitle }}">
     {{ params.titleHtml | safe if params.titleHtml else params.titleText }}
   </h{{ headingLevel }}>

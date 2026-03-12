@@ -111,8 +111,17 @@
     visuallyHiddenText: params.errorMessage.visuallyHiddenText
   }) | trim | indent(2) }}
 {% endif %}
-  <div {%- if params.id %} id="{{ params.id }}"{% endif %} class="{{ classNames }}"
-    {{- nhsukAttributes(params.attributes) }} data-module="nhsuk-checkboxes">
+  <div
+    {{- nhsukAttributes({
+      class: classNames,
+      id: {
+        value: params.id,
+        optional: true
+      },
+      "data-module": "nhsuk-checkboxes"
+    }) -}}
+
+    {{- nhsukAttributes(params.attributes) -}}>
     {% if params.formGroup.beforeInputs %}
     {{ params.formGroup.beforeInputs.html | safe | trim | indent(4) if params.formGroup.beforeInputs.html else params.formGroup.beforeInputs.text }}
     {% endif %}

@@ -13,7 +13,7 @@
   {% set caption = { text: caption } %}
 {% endif -%}
 
-<figure {%- if params.id %} id="{{ params.id }}"{% endif %} class="{{ classNames }}"
+<figure class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
   {{- nhsukAttributes(params.attributes) }}>
   <img class="nhsuk-image__img"
     {{- nhsukAttributes({
