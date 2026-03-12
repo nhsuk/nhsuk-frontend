@@ -166,6 +166,12 @@ const options = {
         required: false,
         description:
           'HTML attributes (for example data attributes) to add to the primary navigation.'
+      },
+      justified: {
+        type: 'boolean',
+        required: false,
+        description:
+          'If set to `true`, use justified alignment where navigation items appeared evenly spaced out.'
       }
     }
   },
