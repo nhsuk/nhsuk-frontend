@@ -210,6 +210,7 @@ const fixtures = {
     context: {
       label: {
         text: 'What is your NHS number?',
+        size: 'l',
         isPageHeading: true
       },
       id: 'custom-size',

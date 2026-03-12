@@ -294,6 +294,7 @@ const fixtures = {
     context: {
       label: {
         text: 'Sort by',
+        size: 'l',
         isPageHeading: true
       },
       id: 'custom-size',

@@ -122,7 +122,8 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: 'Are you 18 or over?'
+          text: 'Are you 18 or over?',
+          size: 'l'
         }
       },
       idPrefix: 'custom-size',
