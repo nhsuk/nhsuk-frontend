@@ -44,6 +44,16 @@
     @include nhsuk-responsive-margin(7, "bottom");
   }
 
+  .nhsuk-table--reverse,
+  .nhsuk-table-responsive--reverse {
+    color: $nhsuk-reverse-text-colour;
+
+    th,
+    td {
+      border-color: $nhsuk-reverse-border-colour;
+    }
+  }
+
   .nhsuk-table__caption {
     display: table-caption;
     margin-bottom: nhsuk-spacing(3) - nhsuk-spacing(2);
@@ -166,7 +176,7 @@
           text-align: right; // [6]
 
           &:last-child {
-            border-bottom: 3px solid $nhsuk-border-colour;
+            border-bottom-width: 3px;
           }
         }
       }

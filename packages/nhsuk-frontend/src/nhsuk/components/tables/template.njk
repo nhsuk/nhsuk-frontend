@@ -1,9 +1,21 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/components/card/macro.njk" import card %}
 
+{#- Set variant for this component #}
+{%- set variant = params.variant -%}
+
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-table" if not params.responsive else "nhsuk-table-responsive" -%}
 {%- set classNamesCaption = "nhsuk-table__caption" -%}
+
+{%- if variant == "reverse" and (
+  not params.classes or (
+    not "nhsuk-table--reverse" in params.classes and
+    not "nhsuk-table-responsive--reverse" in params.classes
+  )
+) %}
+  {% set classNames = classNames ~ (" nhsuk-table--" ~ variant if not params.responsive else " nhsuk-table-responsive--" ~ variant) %}
+{% endif %}
 
 {%- if params.captionSize and
   params.captionSize in ["s", "m", "l", "xl"] and (
