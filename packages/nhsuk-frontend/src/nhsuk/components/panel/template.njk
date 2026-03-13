@@ -7,8 +7,8 @@
 {%- set classNames = "nhsuk-panel" -%}
 {%- set classNamesTitle = "nhsuk-panel__title" -%}
 
-{%- if variant == "interruption" and (not params.classes or not "nhsuk-action-link--interruption" in params.classes) %}
-  {% set classNames = classNames ~ " nhsuk-panel----" ~ variant %}
+{%- if variant == "interruption" and (not params.classes or not "nhsuk-panel--interruption" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-panel--" ~ variant %}
 {% endif %}
 
 {%- if params.titleSize and
