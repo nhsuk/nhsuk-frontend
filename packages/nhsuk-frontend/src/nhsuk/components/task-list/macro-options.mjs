@@ -107,6 +107,12 @@ const options = {
             type: 'string',
             required: false,
             description: 'Classes to add to the status container.'
+          },
+          variant: {
+            type: 'string',
+            required: false,
+            description:
+              'Optional variant of status to render – `"completed"` or `"cannot-start-yet"`.'
           }
         }
       },

@@ -11,6 +11,19 @@
 {%- set idPrefix = params.idPrefix if params.idPrefix else "task-list" -%}
 
 {%- macro _taskListItem(params, item, index) %}
+  {%- set classNamesStatus = "nhsuk-task-list__status" -%}
+
+  {%- if item.status.variant and
+    item.status.variant in ["cannot-start-yet", "completed"] and (
+      not item.status.classes or (
+        not "nhsuk-task-list__status--completed" in item.status.classes and
+        not "nhsuk-task-list__status--cannot-start-yet" in item.status.classes
+      )
+    )
+  %}
+    {% set classNamesStatus = classNamesStatus ~ " nhsuk-task-list__status--" ~ item.status.variant %}
+  {% endif %}
+
   {%- set hintId = idPrefix ~ "-" ~ index ~ "-hint" %}
   {%- set statusId = idPrefix ~ "-" ~ index ~ "-status" %}
   <li class="nhsuk-task-list__item {%- if item.href %} nhsuk-task-list__item--with-link{% endif %}{%- if item.classes %} {{ item.classes }}{% endif %}">
@@ -30,7 +43,7 @@
       </div>
     {% endif %}
     </div>
-    <div class="nhsuk-task-list__status {%- if item.status.classes %} {{ item.status.classes }}{% endif %}" id="{{ statusId }}">
+    <div class="{{ classNamesStatus }}" id="{{ statusId }}">
     {% if item.status.tag %}
       {{ tag(item.status.tag) | trim | indent(6) }}
     {% else %}

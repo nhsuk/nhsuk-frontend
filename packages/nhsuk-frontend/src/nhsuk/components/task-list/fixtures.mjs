@@ -15,7 +15,7 @@ const fixtures = {
           href: '#',
           status: {
             text: 'Completed',
-            classes: 'nhsuk-task-list__status--completed'
+            variant: 'completed'
           }
         },
         {
@@ -25,7 +25,7 @@ const fixtures = {
           href: '#',
           status: {
             text: 'Completed',
-            classes: 'nhsuk-task-list__status--completed'
+            variant: 'completed'
           }
         },
         {
@@ -61,7 +61,7 @@ const fixtures = {
           },
           status: {
             text: 'Cannot start yet',
-            classes: 'nhsuk-task-list__status--cannot-start-yet'
+            variant: 'cannot-start-yet'
           }
         }
       ]
@@ -81,7 +81,7 @@ const fixtures = {
           href: '#',
           status: {
             text: 'Completed',
-            classes: 'nhsuk-task-list__status--completed'
+            variant: 'completed'
           }
         },
         {
@@ -91,7 +91,7 @@ const fixtures = {
           href: '#',
           status: {
             text: 'Completed',
-            classes: 'nhsuk-task-list__status--completed'
+            variant: 'completed'
           }
         },
         false,
