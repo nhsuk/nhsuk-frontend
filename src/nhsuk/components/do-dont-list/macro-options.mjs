@@ -16,10 +16,18 @@ const options = {
     required: true,
     description: "Title to be displayed on the do and don't list component."
   },
+  icon: {
+    type: 'string',
+    required: false,
+    description:
+      'Optional icon modifier for the do and don\'t list items – `"cross"` or `"tick"`. Defaults to `"tick"`.'
+  },
   type: {
     type: 'string',
     required: true,
-    description: 'Type of do and don\'t list component – `"cross"` or `"tick"`.'
+    description:
+      'Optional type of do and don\'t list to render – `"cross"` or `"tick"`. Replaced by the `icon` option.',
+    deprecated: '10.4.0'
   },
   items: {
     type: 'array',
