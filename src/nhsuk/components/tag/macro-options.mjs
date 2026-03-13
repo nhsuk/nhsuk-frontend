@@ -39,6 +39,11 @@ const options = {
     required: false,
     description:
       'Optional colour modifier for the tag – `"white"`, `"grey"`, `"green"`, `"aqua-green"`, `"blue"`, `"purple"`, `"pink"`, `"red"`, `"orange"` or `"yellow"`.'
+  },
+  border: {
+    type: 'boolean',
+    required: false,
+    description: 'If set to `false`, remove border from the tag.'
   }
 }
 
