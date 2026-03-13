@@ -14,22 +14,26 @@
 ////
 
 @include nhsuk-exports("nhsuk/components/do-dont-list") {
+  // Deprecated, to be removed in v11.0
   .nhsuk-do-dont-list {
-    @include nhsuk-panel-with-label($nhsuk-card-background-colour, $nhsuk-text-colour, $nhsuk-border-colour); // [1]
-
-    .nhsuk-icon__cross,
-    .nhsuk-icon--cross {
-      fill: nhsuk-colour("red");
-    }
-
-    .nhsuk-icon__tick,
-    .nhsuk-icon--tick {
-      fill: nhsuk-colour("green");
-    }
+    @include nhsuk-panel-with-label($nhsuk-card-background-colour, $nhsuk-text-colour, $nhsuk-border-colour);
   }
 
+  // Deprecated, to be removed in v11.0
   .nhsuk-do-dont-list__label {
-    @include nhsuk-heading-label($nhsuk-brand-colour, $nhsuk-reverse-text-colour); // [2]
+    @include nhsuk-heading-label($nhsuk-brand-colour, $nhsuk-reverse-text-colour);
     @include nhsuk-print-colour;
+  }
+
+  .nhsuk-list--cross .nhsuk-icon--cross,
+  // Deprecated, to be removed in v11.0
+  .nhsuk-list--cross .nhsuk-icon__cross {
+    fill: nhsuk-colour("red");
+  }
+
+  .nhsuk-list--tick .nhsuk-icon--tick,
+  // Deprecated, to be removed in v11.0
+  .nhsuk-list--tick .nhsuk-icon__tick {
+    fill: nhsuk-colour("green");
   }
 }
