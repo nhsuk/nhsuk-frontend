@@ -123,6 +123,18 @@ const options = {
       }
     }
   },
+  code: {
+    type: 'boolean',
+    required: false,
+    description:
+      'If set to `true`, use a monospace font for codes or sequences.'
+  },
+  width: {
+    type: 'integer',
+    required: false,
+    description:
+      'Optional fixed width for the text input component – `2`, `3`, `4`, `5`, `10`, `20` or `30`.'
+  },
   formGroup: {
     type: 'object',
     required: false,

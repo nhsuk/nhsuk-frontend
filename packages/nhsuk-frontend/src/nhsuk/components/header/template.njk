@@ -5,6 +5,15 @@
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-header" -%}
+{%- set classNamesNavigation = "nhsuk-header__navigation" -%}
+
+{%- if params.colour and params.colour in ["white"] and (not params.classes or not "nhsuk-header--white" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-header--" ~ params.colour %}
+{% endif %}
+
+{%- if params.inline and (not params.classes or not "nhsuk-header--inline" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-header--inline" %}
+{% endif %}
 
 {%- if params.organisation %}
   {% set classNames = classNames ~ " nhsuk-header--organisation" %}
@@ -12,6 +21,18 @@
 
 {%- if params.classes %}
   {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif %}
+
+{%- if params.navigation.colour and params.navigation.colour in ["white"] and (not params.navigation.classes or not "nhsuk-header__navigation--white" in params.navigation.classes) %}
+  {% set classNamesNavigation = classNamesNavigation ~ " nhsuk-header__navigation--" ~ params.navigation.colour %}
+{% endif %}
+
+{%- if params.navigation.justified and (not params.navigation.classes or not "nhsuk-header__navigation--justified" in params.navigation.classes) %}
+  {% set classNamesNavigation = classNamesNavigation ~ " nhsuk-header__navigation--justified" %}
+{% endif %}
+
+{%- if params.navigation.classes %}
+  {% set classNamesNavigation = classNamesNavigation ~ " " ~ params.navigation.classes %}
 {% endif %}
 
 {%- set searchAction = params.search.action | default("https://www.nhs.uk/search/") %}
@@ -59,8 +80,18 @@
 {{- item.html | safe if item.html else item.text -}}
 {% endmacro -%}
 
-<header {%- if params.id %} id="{{ params.id }}"{% endif %} class="{{ classNames }}" role="banner"
-  {{- nhsukAttributes(params.attributes) }} data-module="nhsuk-header">
+<header
+  {{- nhsukAttributes({
+    class: classNames,
+    id: {
+      value: params.id,
+      optional: true
+    },
+    "data-module": "nhsuk-header",
+    role: "banner"
+  }) -}}
+
+  {{- nhsukAttributes(params.attributes) -}}>
   <div class="nhsuk-header__container nhsuk-width-container {%- if params.containerClasses %} {{ params.containerClasses }}{% endif %}">
     <div class="nhsuk-header__service">
     {% if logoHref %}
@@ -116,7 +147,7 @@
                 html: nhsukIcon("search", {
                   title: searchVisuallyHiddenButton
                 }) | trim | indent(2),
-                classes: "nhsuk-button--small"
+                small: true
               })
             }
           }
@@ -164,8 +195,7 @@
 {% endif %}
   </div>
 {% if params.navigation and params.navigation.items | length %}
-  <nav class="nhsuk-header__navigation
-    {%- if params.navigation.classes %} {{ params.navigation.classes }}{% endif %}" aria-label="{{ params.navigation.ariaLabel | default("Menu") }}"
+  <nav class="{{ classNamesNavigation }}" aria-label="{{ params.navigation.ariaLabel | default("Menu") }}"
     {{- nhsukAttributes(params.navigation.attributes) }}>
     <div class="nhsuk-header__navigation-container nhsuk-width-container {%- if params.containerClasses %} {{ params.containerClasses }}{% endif %}">
       <ul class="nhsuk-header__navigation-list">

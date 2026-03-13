@@ -19,7 +19,8 @@ describe('Nunjucks global: uniqueHTML', () => {
       },
       id: 'with-hint',
       name: 'example',
-      classes: 'nhsuk-input--width-10 nhsuk-input--code',
+      width: 10,
+      code: true,
       inputmode: 'numeric',
       spellcheck: false
     }
@@ -35,13 +36,13 @@ describe('Nunjucks global: uniqueHTML', () => {
             What is your NHS number?
           </label>
         </h1>
-        <div id="with-hint-hint" class="nhsuk-hint">
+        <div class="nhsuk-hint" id="with-hint-hint">
           This is a 10 digit number (like <span class="nhsuk-u-nowrap">999 123 4567</span>) that you can find on an NHS letter, prescription or in the NHS App
         </div>
-        <span id="with-hint-error" class="nhsuk-error-message">
+        <span class="nhsuk-error-message" id="with-hint-error">
           <span class="nhsuk-u-visually-hidden">Error:</span> Enter NHS number
         </span>
-        <input class="nhsuk-input nhsuk-input--width-10 nhsuk-input--code nhsuk-input--error" id="with-hint" name="example" type="text" spellcheck="false" aria-describedby="with-hint-hint with-hint-error" inputmode="numeric">
+        <input class="nhsuk-input nhsuk-input--code nhsuk-input--width-10 nhsuk-input--error" id="with-hint" name="example" type="text" spellcheck="false" aria-describedby="with-hint-hint with-hint-error" inputmode="numeric">
       </div>
     `)
   })
@@ -58,13 +59,13 @@ describe('Nunjucks global: uniqueHTML', () => {
               What is your NHS number?
             </label>
           </h1>
-          <div id="with-hint-hint-${index}" class="nhsuk-hint">
+          <div class="nhsuk-hint" id="with-hint-hint-${index}">
             This is a 10 digit number (like <span class="nhsuk-u-nowrap">999 123 4567</span>) that you can find on an NHS letter, prescription or in the NHS App
           </div>
-          <span id="with-hint-${index}-error" class="nhsuk-error-message">
+          <span class="nhsuk-error-message" id="with-hint-${index}-error">
             <span class="nhsuk-u-visually-hidden">Error:</span> Enter NHS number
           </span>
-          <input class="nhsuk-input nhsuk-input--width-10 nhsuk-input--code nhsuk-input--error" id="with-hint-${index}" name="example-${index}" type="text" spellcheck="false" aria-describedby="with-hint-hint-${index} with-hint-${index}-error" inputmode="numeric">
+          <input class="nhsuk-input nhsuk-input--code nhsuk-input--width-10 nhsuk-input--error" id="with-hint-${index}" name="example-${index}" type="text" spellcheck="false" aria-describedby="with-hint-hint-${index} with-hint-${index}-error" inputmode="numeric">
         </div>
       `)
     }
@@ -82,7 +83,7 @@ describe('Nunjucks global: uniqueHTML', () => {
     )
 
     expect(htmlCode).toBe(outdent({ trimTrailingNewline: false })`
-      <a class="nhsuk-skip-link" href="#elsewhere-1" data-module="nhsuk-skip-link">
+      <a class="nhsuk-skip-link" data-module="nhsuk-skip-link" href="#elsewhere-1">
         Skip to main content
       </a>
     `)
@@ -100,7 +101,7 @@ describe('Nunjucks global: uniqueHTML', () => {
     )
 
     expect(htmlCode).toBe(outdent({ trimTrailingNewline: false })`
-      <a class="nhsuk-skip-link" href="#maincontent" data-module="nhsuk-skip-link">
+      <a class="nhsuk-skip-link" data-module="nhsuk-skip-link" href="#maincontent">
         Skip to main content
       </a>
     `)
@@ -117,7 +118,7 @@ describe('Nunjucks global: uniqueHTML', () => {
     )
 
     expect(htmlCode).toBe(outdent({ trimTrailingNewline: false })`
-      <a class="nhsuk-skip-link" href="#maincontent" data-module="nhsuk-skip-link">
+      <a class="nhsuk-skip-link" data-module="nhsuk-skip-link" href="#maincontent">
         Skip to main content
       </a>
     `)

@@ -68,7 +68,7 @@ const fixtures = {
               }
             },
             {
-              classes: 'nhsuk-summary-list__row--no-border',
+              border: false,
               key: {
                 text: 'Date of birth'
               },
@@ -127,7 +127,7 @@ const fixtures = {
               }
             },
             {
-              classes: 'nhsuk-summary-list__row--no-border',
+              border: false,
               key: {
                 text: 'Date of birth'
               },
@@ -175,7 +175,7 @@ const fixtures = {
       ${components.render('button', {
         context: {
           text: 'Add role',
-          classes: 'nhsuk-button--secondary'
+          variant: 'secondary'
         }
       })}
     `,
@@ -213,7 +213,7 @@ const fixtures = {
               }
             },
             {
-              classes: 'nhsuk-summary-list__row--no-border',
+              border: false,
               key: {
                 text: 'Date of birth'
               },
@@ -256,7 +256,7 @@ const fixtures = {
               }
             },
             {
-              classes: 'nhsuk-summary-list__row--no-border',
+              border: false,
               key: {
                 text: 'Date of birth'
               },
@@ -296,7 +296,7 @@ const fixtures = {
               }
             },
             {
-              classes: 'nhsuk-summary-list__row--no-border',
+              border: false,
               key: {
                 text: 'Date of birth'
               },
@@ -328,7 +328,7 @@ const fixtures = {
               }
             },
             {
-              classes: 'nhsuk-summary-list__row--no-border',
+              border: false,
               key: {
                 text: 'Date of birth'
               },
@@ -343,7 +343,7 @@ const fixtures = {
   },
   'secondary without heading': {
     context: {
-      secondary: true,
+      variant: 'secondary',
       description:
         'A quick guide for people who have care and support needs and their carers'
     }
@@ -351,7 +351,7 @@ const fixtures = {
   'secondary with heading link': {
     context: {
       href: '#',
-      secondary: true,
+      variant: 'secondary',
       heading: 'Introduction to care and support',
       headingSize: 'm',
       headingLevel: 3,
@@ -361,7 +361,7 @@ const fixtures = {
   },
   'secondary with custom HTML': {
     context: {
-      secondary: true,
+      variant: 'secondary',
       heading: 'Help from NHS 111',
       headingLevel: 3
     },
@@ -373,7 +373,7 @@ const fixtures = {
   },
   'secondary with summary list': {
     context: {
-      secondary: true,
+      variant: 'secondary',
       heading: 'Regional Manager',
       headingLevel: 3
     },
@@ -390,7 +390,7 @@ const fixtures = {
               }
             },
             {
-              classes: 'nhsuk-summary-list__row--no-border',
+              border: false,
               key: {
                 text: 'Date of birth'
               },
@@ -405,7 +405,7 @@ const fixtures = {
   },
   'secondary with summary lists': {
     context: {
-      secondary: true,
+      variant: 'secondary',
       heading: 'Regional Managers',
       headingLevel: 3
     },
@@ -447,7 +447,7 @@ const fixtures = {
               }
             },
             {
-              classes: 'nhsuk-summary-list__row--no-border',
+              border: false,
               key: {
                 text: 'Date of birth'
               },
@@ -462,7 +462,7 @@ const fixtures = {
   },
   'secondary with summary list and button': {
     context: {
-      secondary: true,
+      variant: 'secondary',
       heading: 'Regional Manager',
       headingLevel: 3
     },
@@ -493,14 +493,14 @@ const fixtures = {
       ${components.render('button', {
         context: {
           text: 'Add role',
-          classes: 'nhsuk-button--secondary'
+          variant: 'secondary'
         }
       })}
     `
   },
   'secondary with summary list and actions': {
     context: {
-      secondary: true,
+      variant: 'secondary',
       heading: 'Regional Manager',
       headingLevel: 3,
       actions: {
@@ -529,7 +529,7 @@ const fixtures = {
               }
             },
             {
-              classes: 'nhsuk-summary-list__row--no-border',
+              border: false,
               key: {
                 text: 'Date of birth'
               },
@@ -544,7 +544,7 @@ const fixtures = {
   },
   'secondary with summary list and actions, without heading': {
     context: {
-      secondary: true,
+      variant: 'secondary',
       actions: {
         items: [
           {
@@ -573,7 +573,7 @@ const fixtures = {
               }
             },
             {
-              classes: 'nhsuk-summary-list__row--no-border',
+              border: false,
               key: {
                 text: 'Date of birth'
               },
@@ -588,7 +588,7 @@ const fixtures = {
   },
   'secondary with summary list and actions (empty items)': {
     context: {
-      secondary: true,
+      variant: 'secondary',
       heading: 'Regional Manager',
       headingLevel: 3,
       actions: {
@@ -614,7 +614,7 @@ const fixtures = {
               }
             },
             {
-              classes: 'nhsuk-summary-list__row--no-border',
+              border: false,
               key: {
                 text: 'Date of birth'
               },
@@ -630,7 +630,7 @@ const fixtures = {
   'secondary with summary list and heading link': {
     context: {
       href: '#',
-      secondary: true,
+      variant: 'secondary',
       heading: 'Regional Manager',
       headingLevel: 3
     },
@@ -647,7 +647,7 @@ const fixtures = {
               }
             },
             {
-              classes: 'nhsuk-summary-list__row--no-border',
+              border: false,
               key: {
                 text: 'Date of birth'
               },
@@ -664,7 +664,7 @@ const fixtures = {
     context: {
       heading: 'Speak to a GP if:',
       headingLevel: 3,
-      type: 'non-urgent'
+      variant: 'non-urgent'
     },
     callBlock: outdent`
       <ul>
@@ -683,7 +683,7 @@ const fixtures = {
     context: {
       heading: 'Ask for an urgent GP appointment if:',
       headingLevel: 3,
-      type: 'urgent'
+      variant: 'urgent'
     },
     callBlock: outdent`
       <ul>
@@ -702,7 +702,7 @@ const fixtures = {
     context: {
       heading: 'Call 999 if you have sudden chest pain that:',
       headingLevel: 3,
-      type: 'emergency'
+      variant: 'emergency'
     },
     callBlock: outdent`
       <ul>
@@ -720,7 +720,7 @@ const fixtures = {
     context: {
       heading: 'Call 999 or go to A&E now if:',
       headingLevel: 3,
-      type: 'emergency'
+      variant: 'emergency'
     },
     callBlock: outdent`
       <ul>
@@ -730,9 +730,9 @@ const fixtures = {
 
       ${components.render('action-link', {
         context: {
-          classes: 'nhsuk-action-link--reverse',
           text: 'Find your nearest A&E',
-          href: '#'
+          href: '#',
+          variant: 'reverse'
         }
       })}
     `
@@ -740,7 +740,7 @@ const fixtures = {
   'primary (with chevron)': {
     context: {
       href: '#',
-      primary: true,
+      variant: 'primary',
       clickable: true,
       heading: 'Breast screening',
       headingSize: 'm'
@@ -752,7 +752,7 @@ const fixtures = {
   'primary (with chevron and description)': {
     context: {
       href: '#',
-      primary: true,
+      variant: 'primary',
       clickable: true,
       heading: 'Introduction to care and support',
       headingSize: 'm',
@@ -780,7 +780,7 @@ const fixtures = {
     context: {
       href: '#',
       clickable: true,
-      secondary: true,
+      variant: 'secondary',
       heading: 'Urgent and emergency care services',
       headingSize: 'm',
       description:
@@ -793,7 +793,7 @@ const fixtures = {
   'secondary non-clickable with custom description': {
     context: {
       href: '#',
-      secondary: true,
+      variant: 'secondary',
       heading: 'Why we are reinvesting in the NHS Prototype kit',
       headingClasses: 'nhsuk-u-font-size-22 nhsuk-u-margin-bottom-2',
       descriptionHtml: outdent`
@@ -807,7 +807,7 @@ const fixtures = {
   },
   'feature': {
     context: {
-      feature: true,
+      variant: 'feature',
       heading: 'Feature card heading',
       description: 'Feature card description.'
     },
@@ -817,7 +817,7 @@ const fixtures = {
   },
   'feature with A to Z content': {
     context: {
-      feature: true,
+      variant: 'feature',
       heading: 'A',
       headingId: 'a',
       headingSize: 'm',
@@ -832,7 +832,7 @@ const fixtures = {
   },
   'feature with summary list': {
     context: {
-      feature: true,
+      variant: 'feature',
       heading: 'Feature card heading'
     },
     callBlock: outdent`
@@ -848,7 +848,7 @@ const fixtures = {
               }
             },
             {
-              classes: 'nhsuk-summary-list__row--no-border',
+              border: false,
               key: {
                 text: 'Date of birth'
               },
@@ -863,12 +863,18 @@ const fixtures = {
   },
   'feature with nested card and summary list': {
     context: {
-      feature: true,
+      variant: 'feature',
       heading: 'Flu: Follow-up requested'
     },
     callBlock: outdent`
       <p>Sarah Philips (Mum) would like to speak to a member of the team about other options for their child's vaccination.</p>
-      <a class="nhsuk-button nhsuk-button--secondary" href="#">Record a new consent response</a>
+      ${components.render('button', {
+        context: {
+          text: 'Record a new consent response',
+          variant: 'secondary',
+          href: '#'
+        }
+      })}
 
       <h3 class="nhsuk-heading-s">Consent responses</h3>
 
@@ -898,7 +904,7 @@ const fixtures = {
               }
             },
             {
-              classes: 'nhsuk-summary-list__row--no-border',
+              border: false,
               key: {
                 text: 'Response'
               },
@@ -918,7 +924,7 @@ const fixtures = {
   },
   'warning': {
     context: {
-      warning: true,
+      variant: 'warning',
       heading: 'School, nursery or work',
       description:
         'Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.'
@@ -926,7 +932,7 @@ const fixtures = {
   },
   'warning with actions': {
     context: {
-      warning: true,
+      variant: 'warning',
       heading: 'School, nursery or work',
       description:
         'Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.',

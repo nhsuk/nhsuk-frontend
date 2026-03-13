@@ -21,7 +21,7 @@ const fixtures = {
     context: {
       titleText: 'Jodie Brown had a COVID-19 vaccine less than 3 months ago',
       titleSize: 'l',
-      classes: 'nhsuk-panel--interruption',
+      variant: 'interruption',
       html: outdent`
         <p>They had a COVID-19 vaccine on 25 September 2025.</p>
         <p>For most people, the minimum recommended gap between COVID-19 vaccine doses is 3 months.</p>
@@ -29,8 +29,8 @@ const fixtures = {
           ${components.render('button', {
             context: {
               text: 'Continue anyway',
-              classes: 'nhsuk-button--reverse',
-              href: '#'
+              href: '#',
+              variant: 'reverse'
             }
           })}
           <a href="#">Cancel</a>
@@ -45,7 +45,7 @@ const fixtures = {
     context: {
       titleText: 'Confirm you want to cancel your hospital appointment',
       titleSize: 'l',
-      classes: 'nhsuk-panel--interruption',
+      variant: 'interruption',
       html: outdent`
         <p>You will be able to reschedule your appointment for another time, but this may delay your treatment.</p>
         <p>Cancelling your appointment cannot be undone.</p>
@@ -53,8 +53,8 @@ const fixtures = {
           ${components.render('button', {
             context: {
               text: 'Cancel appointment',
-              classes: 'nhsuk-button--reverse',
-              href: '#'
+              href: '#',
+              variant: 'reverse'
             }
           })}
           <a href="#">Change my weight</a>
@@ -66,15 +66,15 @@ const fixtures = {
     context: {
       titleText: 'Is your weight correct?',
       titleSize: 'l',
-      classes: 'nhsuk-panel--interruption',
+      variant: 'interruption',
       html: outdent`
         <p>You entered your weight as <b>21.4 kilograms</b>. This is lower than expected.</p>
         <div class="nhsuk-button-group">
           ${components.render('button', {
             context: {
               text: 'Yes, this is correct',
-              classes: 'nhsuk-button--reverse',
-              href: '#'
+              href: '#',
+              variant: 'reverse'
             }
           })}
           <a href="#">Change my weight</a>
@@ -85,6 +85,7 @@ const fixtures = {
   'title': {
     context: {
       titleText: 'Booking complete',
+      titleSize: 'l',
       text: 'We have sent you a confirmation email'
     },
     variants: [

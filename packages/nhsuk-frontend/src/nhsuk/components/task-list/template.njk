@@ -1,9 +1,29 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/components/tag/macro.njk" import tag %}
 
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-task-list" -%}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif -%}
+
 {%- set idPrefix = params.idPrefix if params.idPrefix else "task-list" -%}
 
 {%- macro _taskListItem(params, item, index) %}
+  {%- set classNamesStatus = "nhsuk-task-list__status" -%}
+
+  {%- if item.status.variant and
+    item.status.variant in ["cannot-start-yet", "completed"] and (
+      not item.status.classes or (
+        not "nhsuk-task-list__status--completed" in item.status.classes and
+        not "nhsuk-task-list__status--cannot-start-yet" in item.status.classes
+      )
+    )
+  %}
+    {% set classNamesStatus = classNamesStatus ~ " nhsuk-task-list__status--" ~ item.status.variant %}
+  {% endif %}
+
   {%- set hintId = idPrefix ~ "-" ~ index ~ "-hint" %}
   {%- set statusId = idPrefix ~ "-" ~ index ~ "-status" %}
   <li class="nhsuk-task-list__item {%- if item.href %} nhsuk-task-list__item--with-link{% endif %}{%- if item.classes %} {{ item.classes }}{% endif %}">
@@ -18,12 +38,12 @@
       </div>
     {% endif %}
     {% if item.hint %}
-      <div id="{{ hintId }}" class="nhsuk-task-list__hint">
+      <div class="nhsuk-task-list__hint" id="{{ hintId }}">
         {{ item.hint.html | safe | trim | indent(8) if item.hint.html else item.hint.text }}
       </div>
     {% endif %}
     </div>
-    <div class="nhsuk-task-list__status {%- if item.status.classes %} {{ item.status.classes }}{% endif %}" id="{{ statusId }}">
+    <div class="{{ classNamesStatus }}" id="{{ statusId }}">
     {% if item.status.tag %}
       {{ tag(item.status.tag) | trim | indent(6) }}
     {% else %}
@@ -33,7 +53,7 @@
   </li>
 {%- endmacro -%}
 
-<ul {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-task-list {%- if params.classes %} {{ params.classes }}{% endif %}"
+<ul class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
   {{- nhsukAttributes(params.attributes) }}>
   {% for item in params.items %}
     {{- _taskListItem(params, item, loop.index) if item }}

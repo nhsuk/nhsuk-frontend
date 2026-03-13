@@ -10,7 +10,7 @@ export const variants = [
   {
     description: 'white',
     context: {
-      classes: 'nhsuk-header--white'
+      colour: 'white'
     }
   }
 ]
@@ -114,7 +114,7 @@ const fixtures = {
   },
   'with account inline (logged in)': {
     context: {
-      classes: 'nhsuk-header--inline',
+      inline: true,
       logo: {
         href: '#'
       },
@@ -158,7 +158,7 @@ const fixtures = {
   },
   'with account inline (logged out)': {
     context: {
-      classes: 'nhsuk-header--inline',
+      inline: true,
       logo: {
         href: '#'
       },
@@ -303,7 +303,7 @@ const fixtures = {
         href: '#'
       },
       navigation: {
-        classes: 'nhsuk-header__navigation--justified',
+        justified: true,
         items: [
           {
             href: '#',
@@ -423,7 +423,7 @@ const fixtures = {
         visuallyHiddenLabel: 'Search the NHS digital service manual'
       },
       navigation: {
-        classes: 'nhsuk-header__navigation--white',
+        colour: 'white',
         items: [
           {
             href: '#',
@@ -485,7 +485,7 @@ const fixtures = {
   },
   'with search inline': {
     context: {
-      classes: 'nhsuk-header--inline',
+      inline: true,
       search: true
     },
     options: {
@@ -512,7 +512,7 @@ const fixtures = {
   },
   'with service name, account inline (logged in)': {
     context: {
-      classes: 'nhsuk-header--inline',
+      inline: true,
       service: {
         text: 'Get a self-test kit for HIV',
         href: '#'
@@ -533,7 +533,7 @@ const fixtures = {
   },
   'with service name, account inline (logged out)': {
     context: {
-      classes: 'nhsuk-header--inline',
+      inline: true,
       service: {
         text: 'Get a self-test kit for HIV',
         href: '#'
@@ -800,7 +800,7 @@ const fixtures = {
   },
   'white linked logo, ARIA label': {
     context: {
-      classes: 'nhsuk-header--white',
+      colour: 'white',
       logo: {
         ariaLabel: 'NHS white homepage',
         href: '#'
@@ -813,7 +813,7 @@ const fixtures = {
   },
   'white linked logo, custom': {
     context: {
-      classes: 'nhsuk-header--white',
+      colour: 'white',
       logo: {
         href: '#',
         src: '/nhsuk-frontend/assets/example-logo.svg',

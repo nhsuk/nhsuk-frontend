@@ -60,35 +60,46 @@ const options = {
     description:
       'If set to `true`, then the whole card will become a clickable card variant.'
   },
+  variant: {
+    type: 'string',
+    required: false,
+    description:
+      'Optional variant of card to render – `"feature"`, `"primary"`, `"secondary"`, `"warning"`, `"non-urgent"`, `"urgent"` or `"emergency"`.'
+  },
   type: {
     type: 'string',
     required: false,
     description:
-      'Care card variant type – `"non-urgent"`, `"urgent"` or `"emergency"`.'
+      'Optional type of care card to render – `"non-urgent"`, `"urgent"` or `"emergency"`. Replaced by the `variant` option.',
+    deprecated: '10.4.0'
   },
   feature: {
     type: 'boolean',
     required: false,
     description:
-      'If set to `true`, then the card will become a feature card variant.'
+      'If set to `true`, then the card will become a feature card variant.',
+    deprecated: '10.4.0'
   },
   primary: {
     type: 'boolean',
     required: false,
     description:
-      'If set to `true`, the card will become a primary card variant (with chevron).'
+      'If set to `true`, the card will become a primary card variant (with chevron).',
+    deprecated: '10.4.0'
   },
   secondary: {
     type: 'boolean',
     required: false,
     description:
-      'If set to `true`, the card will become a secondary card variant.'
+      'If set to `true`, the card will become a secondary card variant.',
+    deprecated: '10.4.0'
   },
   warning: {
     type: 'boolean',
     required: false,
     description:
-      'If set to `true`, then the card will become a warning card variant used by the warning callout.'
+      'If set to `true`, then the card will become a warning card variant used by the warning callout.',
+    deprecated: '10.4.0'
   },
   image: {
     type: 'object',

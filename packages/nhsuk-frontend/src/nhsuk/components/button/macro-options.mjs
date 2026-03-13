@@ -29,6 +29,12 @@ const options = {
     description:
       'If `text` is set, this is not required. HTML for the button or link. If `html` is provided, the `text` argument will be ignored and `element` will be automatically set to `"button"` unless `href` is also set, or it has already been defined. This argument has no effect if `element` is set to `"input"`.'
   },
+  caller: {
+    type: 'nunjucks-block',
+    required: false,
+    description:
+      'Not strictly a parameter but Nunjucks code convention. Using a `call` block enables you to call a macro with all the text inside the tag. This is helpful if you want to pass a lot of content into a macro. To use it, you will need to wrap the entire button component in a `call` block.'
+  },
   name: {
     type: 'string',
     required: false,
@@ -58,6 +64,22 @@ const options = {
     required: false,
     description:
       'The URL that the button should link to. If this is set, `element` will be automatically set to `"a"` if it has not already been defined.'
+  },
+  login: {
+    type: 'boolean',
+    required: false,
+    description: 'If set to `true`, show a solid blue login button.'
+  },
+  variant: {
+    type: 'string',
+    required: false,
+    description:
+      'Optional variant of button to render – `"login"`, `"reverse"`, `"secondary"`, `"secondary-solid"` or `"warning"`.'
+  },
+  small: {
+    type: 'boolean',
+    required: false,
+    description: 'If set to `true`, smaller button size will be used.'
   },
   classes: {
     type: 'string',

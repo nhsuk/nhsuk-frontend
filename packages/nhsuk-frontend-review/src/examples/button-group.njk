@@ -47,12 +47,12 @@
           <div class="nhsuk-button-group nhsuk-button-group--small">
             {{ button({
               text: "I'm OK with analytics cookies",
-              classes: "nhsuk-button--small"
+              small: true
             }) }}
 
             {{ button({
               text: "Do not use analytics cookies",
-              classes: "nhsuk-button--small"
+              small: true
             }) }}
 
             <a href="#" class="nhsuk-link">Read more about our cookies</a>
@@ -63,7 +63,7 @@
           <div class="nhsuk-button-group">
             {{ button({
               text: "Delete account",
-              classes: "nhsuk-button--warning"
+              variant: "warning"
             }) }}
 
             <a href="#" class="nhsuk-link">Cancel</a>
@@ -75,7 +75,8 @@
           <div class="nhsuk-button-group nhsuk-button-group--small">
             {{ button({
               text: "Delete account",
-              classes: "nhsuk-button--warning nhsuk-button--small"
+              small: true,
+              variant: "warning"
             }) }}
 
             <a href="#" class="nhsuk-link">Cancel</a>
@@ -109,17 +110,17 @@
 
             {{ button({
               text: "Point it",
-              classes: "nhsuk-button--secondary"
+              variant: "secondary"
             }) }}
 
             {{ button({
               text: "Zoom it",
-              classes: "nhsuk-button--secondary"
+              variant: "secondary"
             }) }}
 
             {{ button({
               text: "Press it",
-              classes: "nhsuk-button--secondary"
+              variant: "secondary"
             }) }}
           </div>
 
@@ -130,12 +131,12 @@
 
             {{ button({
               text: "Use it",
-              classes: "nhsuk-button--small"
+              small: true
             }) }}
 
             {{ button({
               text: "Break it",
-              classes: "nhsuk-button--small"
+              small: true
             }) }}
 
             <a href="#" class="nhsuk-link">Fix it</a>
@@ -144,7 +145,7 @@
 
             {{ button({
               text: "Mail it",
-              classes: "nhsuk-button--small"
+              small: true
             }) }}
 
             <a href="#" class="nhsuk-link">Upgrade it</a>
@@ -153,17 +154,20 @@
 
             {{ button({
               text: "Point it",
-              classes: "nhsuk-button--secondary nhsuk-button--small"
+              variant: "secondary",
+              small: true
             }) }}
 
             {{ button({
               text: "Zoom it",
-              classes: "nhsuk-button--secondary nhsuk-button--small"
+              variant: "secondary",
+              small: true
             }) }}
 
             {{ button({
               text: "Press it",
-              classes: "nhsuk-button--secondary nhsuk-button--small"
+              variant: "secondary",
+              small: true
             }) }}
           </div>
 
@@ -172,7 +176,7 @@
           <div class="nhsuk-button-group">
             {{ button({
               text: "Continue to NHS login",
-              classes: "nhsuk-button--login",
+              variant: "login",
               href: "#"
             }) }}
 
@@ -185,7 +189,8 @@
           <div class="nhsuk-button-group nhsuk-button-group--small">
             {{ button({
               text: "Continue to NHS login",
-              classes: "nhsuk-button--login nhsuk-button--small",
+              variant: "login",
+              small: true,
               href: "#"
             }) }}
 
@@ -202,37 +207,37 @@
       <div class="nhsuk-button-group">
         {{ button({
           text: "Breast cancer",
-          classes: "nhsuk-button--secondary-solid"
+          variant: "secondary-solid"
         }) }}
 
         {{ button({
           text: "Implanted medical device",
-          classes: "nhsuk-button--secondary-solid"
+          variant: "secondary-solid"
         }) }}
 
         {{ button({
           text: "Breast implants or augmentation",
-          classes: "nhsuk-button--secondary-solid"
+          variant: "secondary-solid"
         }) }}
 
         {{ button({
           text: "Mastectomy or lumpectomy",
-          classes: "nhsuk-button--secondary-solid"
+          variant: "secondary-solid"
         }) }}
 
         {{ button({
           text: "Cysts",
-          classes: "nhsuk-button--secondary-solid"
+          variant: "secondary-solid"
         }) }}
 
         {{ button({
           text: "Benign lumps",
-          classes: "nhsuk-button--secondary-solid"
+          variant: "secondary-solid"
         }) }}
 
         {{ button({
           text: "Other procedures",
-          classes: "nhsuk-button--secondary-solid"
+          variant: "secondary-solid"
         }) }}
       </div>
 
@@ -241,37 +246,44 @@
       <div class="nhsuk-button-group nhsuk-button-group--small">
         {{ button({
           text: "Breast cancer",
-          classes: "nhsuk-button--small nhsuk-button--secondary-solid"
+          variant: "secondary-solid",
+          small: true
         }) }}
 
         {{ button({
           text: "Implanted medical device",
-          classes: "nhsuk-button--small nhsuk-button--secondary-solid"
+          variant: "secondary-solid",
+          small: true
         }) }}
 
         {{ button({
           text: "Breast implants or augmentation",
-          classes: "nhsuk-button--small nhsuk-button--secondary-solid"
+          variant: "secondary-solid",
+          small: true
         }) }}
 
         {{ button({
           text: "Mastectomy or lumpectomy",
-          classes: "nhsuk-button--small nhsuk-button--secondary-solid"
+          variant: "secondary-solid",
+          small: true
         }) }}
 
         {{ button({
           text: "Cysts",
-          classes: "nhsuk-button--small nhsuk-button--secondary-solid"
+          variant: "secondary-solid",
+          small: true
         }) }}
 
         {{ button({
           text: "Benign lumps",
-          classes: "nhsuk-button--small nhsuk-button--secondary-solid"
+          variant: "secondary-solid",
+          small: true
         }) }}
 
         {{ button({
           text: "Other procedures",
-          classes: "nhsuk-button--small nhsuk-button--secondary-solid"
+          variant: "secondary-solid",
+          small: true
         }) }}
       </div>
 
@@ -283,8 +295,8 @@
       <div class="nhsuk-button-group">
         {{ button({
           text: "Continue to NHS login",
-          classes: "nhsuk-button--reverse",
-          href: "#"
+          href: "#",
+          variant: "reverse"
         }) }}
 
         <p class="nhsuk-body">alternatively you can <a href="#" class="nhsuk-link nhsuk-link--reverse">register for a new account here</a></p>
@@ -293,8 +305,8 @@
       <div class="nhsuk-button-group">
         {{ button({
           text: "Register now",
-          classes: "nhsuk-button--reverse",
-          href: "#"
+          href: "#",
+          variant: "reverse"
         }) }}
 
         <p class="nhsuk-body">It's free</p>
@@ -305,8 +317,9 @@
       <div class="nhsuk-button-group nhsuk-button-group--small">
         {{ button({
           text: "Continue to NHS login",
-          classes: "nhsuk-button--reverse nhsuk-button--small",
-          href: "#"
+          href: "#",
+          variant: "reverse",
+          small: true
         }) }}
 
         <p class="nhsuk-body-s">alternatively you can <a href="#" class="nhsuk-link nhsuk-link--reverse">register for a new account here</a></p>
@@ -315,8 +328,9 @@
       <div class="nhsuk-button-group nhsuk-button-group--small">
         {{ button({
           text: "Register now",
-          classes: "nhsuk-button--reverse nhsuk-button--small",
-          href: "#"
+          href: "#",
+          variant: "reverse",
+          small: true
         }) }}
 
         <p class="nhsuk-body-s">It's free</p>

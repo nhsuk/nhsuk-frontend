@@ -458,13 +458,19 @@
 
 /// Print hide mixin, hides the element from print
 ///
+/// @param {Boolean} $important [false] - Whether to mark as `!important`
+///
 /// @example scss
 ///   @include nhsuk-print-hide;
 ///
 
-@mixin nhsuk-print-hide {
+@mixin nhsuk-print-hide($important: false) {
   @include nhsuk-media-query($media-type: print) {
-    display: none;
+    @if $important == true {
+      display: none !important;
+    } @else {
+      display: none;
+    }
   }
 }
 

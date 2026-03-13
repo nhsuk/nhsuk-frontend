@@ -13,7 +13,7 @@ import PluginError from 'plugin-error'
 
 import validatorConfig from '../.htmlvalidate.js'
 
-const { HEROKU_BRANCH = 'main', NODE_ENV } = process.env
+const { HEROKU_BRANCH = 'main' } = process.env
 
 // Configure HTML validator
 const validator = new HtmlValidate(validatorConfig)
@@ -111,17 +111,13 @@ export const compile = task.name('html:render', async () => {
  * Validate review app HTML output
  */
 export const validate = task.name('html:validate', async () => {
-  if (NODE_ENV !== 'production') {
-    return
-  }
+  const paths = files.getListing('dist/**/*.html', {
+    cwd: config.paths.app,
+    ignore: ['**/docs/sassdoc/**']
+  })
 
   // HTML validation
-  const report = await validator.validateMultipleFiles(
-    files.getListing('dist/**/*.html', {
-      cwd: config.paths.app,
-      ignore: ['**/docs/sassdoc/**']
-    })
-  )
+  const report = await validator.validateMultipleFiles(paths)
 
   // Throw on HTML validation errors
   if (!report.valid) {
