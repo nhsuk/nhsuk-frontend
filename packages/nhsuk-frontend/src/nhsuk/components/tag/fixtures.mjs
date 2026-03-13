@@ -105,6 +105,18 @@ const fixtures = {
       colour: 'green',
       classes: 'nhsuk-tag--red'
     }
+  },
+  'without border': {
+    context: {
+      border: false
+    },
+    variants,
+    options: {
+      layout: 'background-blue'
+    },
+    screenshot: {
+      viewports: ['mobile']
+    }
   }
 }
 

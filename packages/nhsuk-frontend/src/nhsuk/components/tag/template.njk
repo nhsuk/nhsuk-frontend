@@ -22,6 +22,10 @@
   {% set classNames = classNames ~ " nhsuk-tag--" ~ params.colour %}
 {% endif %}
 
+{%- if params.border === false and (not params.classes or not "nhsuk-tag--no-border" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-tag--no-border" %}
+{% endif %}
+
 {%- if params.classes %}
   {% set classNames = classNames ~ " " ~ params.classes %}
 {% endif -%}
