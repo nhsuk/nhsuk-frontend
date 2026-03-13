@@ -646,7 +646,7 @@ const fixtures = {
       card: {
         heading: 'Regional Manager',
         headingSize: 'm',
-        secondary: true,
+        variant: 'secondary',
         actions: {
           items: [
             {
@@ -686,7 +686,7 @@ const fixtures = {
       card: {
         heading: 'Regional Manager',
         headingSize: 'm',
-        feature: true,
+        variant: 'feature',
         actions: {
           items: [
             {
@@ -726,7 +726,7 @@ const fixtures = {
       card: {
         heading: 'Your read',
         headingSize: 'm',
-        feature: true
+        variant: 'feature'
       },
       rows: [
         {
@@ -864,7 +864,7 @@ const fixtures = {
     context: {
       card: {
         heading: 'Regional Manager',
-        type: 'non-urgent',
+        variant: 'non-urgent',
         actions: {
           items: [
             {
@@ -903,7 +903,7 @@ const fixtures = {
     context: {
       card: {
         heading: 'Regional Manager',
-        type: 'urgent',
+        variant: 'urgent',
         actions: {
           items: [
             {
@@ -942,7 +942,7 @@ const fixtures = {
     context: {
       card: {
         heading: 'Regional Manager',
-        type: 'emergency',
+        variant: 'emergency',
         actions: {
           items: [
             {

@@ -645,7 +645,7 @@ const fixtures = {
       card: {
         heading: 'Other conditions like impetigo',
         headingSize: 'm',
-        feature: true
+        variant: 'feature'
       },
       caption: 'Impetigo can look similar to other skin conditions',
       captionSize: 's',
@@ -693,7 +693,7 @@ const fixtures = {
       card: {
         heading: 'Other conditions like impetigo',
         headingSize: 'm',
-        feature: true
+        variant: 'feature'
       },
       caption: 'Impetigo can look similar to other skin conditions',
       captionSize: 's',
