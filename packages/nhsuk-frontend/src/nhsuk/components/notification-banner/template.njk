@@ -1,5 +1,8 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
+{#- Set variant or (deprecated) type for this component #}
+{%- set variant = params.variant or params.type -%}
+
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-notification-banner" -%}
 
@@ -7,14 +10,14 @@
   {% set classNames = classNames ~ " " ~ params.classes %}
 {% endif %}
 
-{%- if params.type and params.type in ["success"] and (not params.classes or not "nhsuk-notification-banner--success" in params.classes) %}
-  {% set classNames = classNames ~ " nhsuk-notification-banner--" ~ params.type %}
+{%- if variant == "success" and (not params.classes or not "nhsuk-notification-banner--success" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-notification-banner--" ~ variant %}
 {% endif %}
 
 {%- if params.role %}
   {% set role = params.role %}
-{% elif params.type == "success" %}
-  {#- If type is success, add `role="alert"` to prioritise the information in the notification banner to users of assistive technologies -#}
+{% elif variant == "success" %}
+  {#- If variant is success, add `role="alert"` to prioritise the information in the notification banner to users of assistive technologies -#}
   {% set role = "alert" %}
 {% else %}
   {#- Otherwise add `role="region"` to make the notification banner a landmark to help users of assistive technologies to navigate to the banner -#}
@@ -25,7 +28,7 @@
   {% set title = params.titleHtml | safe %}
 {%- elif params.titleText %}
   {% set title = params.titleText %}
-{%- elif params.type == "success" %}
+{%- elif variant == "success" %}
   {% set title = "Success" %}
 {%- else %}
   {% set title = "Important" %}

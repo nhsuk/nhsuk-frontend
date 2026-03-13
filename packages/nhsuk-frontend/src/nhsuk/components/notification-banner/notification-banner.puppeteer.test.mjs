@@ -3,12 +3,12 @@ import { render } from '@nhsuk/frontend-helpers/puppeteer.mjs'
 import { examples } from './fixtures.mjs'
 
 describe('Notification banner', () => {
-  describe('when type is set to "success"', () => {
+  describe('when variant is set to "success"', () => {
     it('has the correct tabindex attribute to be focused with JavaScript', async () => {
       await render(
         page,
         'notification-banner',
-        examples['with type as success']
+        examples['with success variant']
       )
 
       const tabindex = await page.$eval('.nhsuk-notification-banner', (el) =>
@@ -22,7 +22,7 @@ describe('Notification banner', () => {
       await render(
         page,
         'notification-banner',
-        examples['with type as success']
+        examples['with success variant']
       )
 
       const activeElement = await page.evaluate(() =>
@@ -36,7 +36,7 @@ describe('Notification banner', () => {
       await render(
         page,
         'notification-banner',
-        examples['with type as success']
+        examples['with success variant']
       )
 
       await page.$eval(
@@ -55,7 +55,7 @@ describe('Notification banner', () => {
         await render(
           page,
           'notification-banner',
-          examples['auto-focus disabled, with type as success']
+          examples['auto-focus disabled, with success variant']
         )
       })
 
@@ -81,7 +81,7 @@ describe('Notification banner', () => {
         await render(
           page,
           'notification-banner',
-          examples['with type as success'],
+          examples['with success variant'],
           {
             config: {
               disableAutoFocus: true
@@ -112,7 +112,7 @@ describe('Notification banner', () => {
         await render(
           page,
           'notification-banner',
-          examples['with type as success'],
+          examples['with success variant'],
           {
             config: {
               disableAutoFocus: true
@@ -143,7 +143,7 @@ describe('Notification banner', () => {
         await render(
           page,
           'notification-banner',
-          examples['auto-focus explicitly enabled, with type as success'],
+          examples['auto-focus explicitly enabled, with success variant'],
           {
             config: {
               disableAutoFocus: true
@@ -174,7 +174,7 @@ describe('Notification banner', () => {
         await render(
           page,
           'notification-banner',
-          examples['role=alert overridden to role=region, with type as success']
+          examples['role=alert overridden to role=region, with success variant']
         )
       })
 
