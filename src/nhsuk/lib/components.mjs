@@ -36,6 +36,7 @@ export function macro(component, options) {
  * @property {'array' | 'boolean' | 'integer' | 'nunjucks-block' | 'object' | 'string'} type - Option type
  * @property {boolean} required - Option required
  * @property {string} description - Option description
+ * @property {string} [deprecated] - Option is deprecated in NHS.UK frontend version number
  * @property {true} [isComponent] - Option is another component
  * @property {{ [param: string]: MacroParam }} [params] - Nunjucks macro option params
  */

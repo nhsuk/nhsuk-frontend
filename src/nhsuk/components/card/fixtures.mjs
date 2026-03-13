@@ -175,7 +175,7 @@ const fixtures = {
       ${components.render('button', {
         context: {
           text: 'Add role',
-          secondary: true
+          variant: 'secondary'
         }
       })}
     `,
@@ -343,7 +343,7 @@ const fixtures = {
   },
   'secondary without heading': {
     context: {
-      secondary: true,
+      variant: 'secondary',
       description:
         'A quick guide for people who have care and support needs and their carers'
     }
@@ -351,7 +351,7 @@ const fixtures = {
   'secondary with heading link': {
     context: {
       href: '#',
-      secondary: true,
+      variant: 'secondary',
       heading: 'Introduction to care and support',
       headingSize: 'm',
       headingLevel: 3,
@@ -361,7 +361,7 @@ const fixtures = {
   },
   'secondary with custom HTML': {
     context: {
-      secondary: true,
+      variant: 'secondary',
       heading: 'Help from NHS 111',
       headingLevel: 3
     },
@@ -373,7 +373,7 @@ const fixtures = {
   },
   'secondary with summary list': {
     context: {
-      secondary: true,
+      variant: 'secondary',
       heading: 'Regional Manager',
       headingLevel: 3
     },
@@ -405,7 +405,7 @@ const fixtures = {
   },
   'secondary with summary lists': {
     context: {
-      secondary: true,
+      variant: 'secondary',
       heading: 'Regional Managers',
       headingLevel: 3
     },
@@ -462,7 +462,7 @@ const fixtures = {
   },
   'secondary with summary list and button': {
     context: {
-      secondary: true,
+      variant: 'secondary',
       heading: 'Regional Manager',
       headingLevel: 3
     },
@@ -493,14 +493,14 @@ const fixtures = {
       ${components.render('button', {
         context: {
           text: 'Add role',
-          secondary: true
+          variant: 'secondary'
         }
       })}
     `
   },
   'secondary with summary list and actions': {
     context: {
-      secondary: true,
+      variant: 'secondary',
       heading: 'Regional Manager',
       headingLevel: 3,
       actions: {
@@ -544,7 +544,7 @@ const fixtures = {
   },
   'secondary with summary list and actions, without heading': {
     context: {
-      secondary: true,
+      variant: 'secondary',
       actions: {
         items: [
           {
@@ -588,7 +588,7 @@ const fixtures = {
   },
   'secondary with summary list and actions (empty items)': {
     context: {
-      secondary: true,
+      variant: 'secondary',
       heading: 'Regional Manager',
       headingLevel: 3,
       actions: {
@@ -630,7 +630,7 @@ const fixtures = {
   'secondary with summary list and heading link': {
     context: {
       href: '#',
-      secondary: true,
+      variant: 'secondary',
       heading: 'Regional Manager',
       headingLevel: 3
     },
@@ -664,7 +664,7 @@ const fixtures = {
     context: {
       heading: 'Speak to a GP if:',
       headingLevel: 3,
-      type: 'non-urgent'
+      variant: 'non-urgent'
     },
     callBlock: outdent`
       <ul>
@@ -683,7 +683,7 @@ const fixtures = {
     context: {
       heading: 'Ask for an urgent GP appointment if:',
       headingLevel: 3,
-      type: 'urgent'
+      variant: 'urgent'
     },
     callBlock: outdent`
       <ul>
@@ -702,7 +702,7 @@ const fixtures = {
     context: {
       heading: 'Call 999 if you have sudden chest pain that:',
       headingLevel: 3,
-      type: 'emergency'
+      variant: 'emergency'
     },
     callBlock: outdent`
       <ul>
@@ -720,7 +720,7 @@ const fixtures = {
     context: {
       heading: 'Call 999 or go to A&E now if:',
       headingLevel: 3,
-      type: 'emergency'
+      variant: 'emergency'
     },
     callBlock: outdent`
       <ul>
@@ -740,7 +740,7 @@ const fixtures = {
   'primary (with chevron)': {
     context: {
       href: '#',
-      primary: true,
+      variant: 'primary',
       clickable: true,
       heading: 'Breast screening',
       headingSize: 'm'
@@ -752,7 +752,7 @@ const fixtures = {
   'primary (with chevron and description)': {
     context: {
       href: '#',
-      primary: true,
+      variant: 'primary',
       clickable: true,
       heading: 'Introduction to care and support',
       headingSize: 'm',
@@ -780,7 +780,7 @@ const fixtures = {
     context: {
       href: '#',
       clickable: true,
-      secondary: true,
+      variant: 'secondary',
       heading: 'Urgent and emergency care services',
       headingSize: 'm',
       description:
@@ -793,7 +793,7 @@ const fixtures = {
   'secondary non-clickable with custom description': {
     context: {
       href: '#',
-      secondary: true,
+      variant: 'secondary',
       heading: 'Why we are reinvesting in the NHS Prototype kit',
       headingClasses: 'nhsuk-u-font-size-22 nhsuk-u-margin-bottom-2',
       descriptionHtml: outdent`
@@ -807,7 +807,7 @@ const fixtures = {
   },
   'feature': {
     context: {
-      feature: true,
+      variant: 'feature',
       heading: 'Feature card heading',
       description: 'Feature card description.'
     },
@@ -817,7 +817,7 @@ const fixtures = {
   },
   'feature with A to Z content': {
     context: {
-      feature: true,
+      variant: 'feature',
       heading: 'A',
       headingId: 'a',
       headingSize: 'm',
@@ -832,7 +832,7 @@ const fixtures = {
   },
   'feature with summary list': {
     context: {
-      feature: true,
+      variant: 'feature',
       heading: 'Feature card heading'
     },
     callBlock: outdent`
@@ -863,7 +863,7 @@ const fixtures = {
   },
   'feature with nested card and summary list': {
     context: {
-      feature: true,
+      variant: 'feature',
       heading: 'Flu: Follow-up requested'
     },
     callBlock: outdent`
@@ -924,7 +924,7 @@ const fixtures = {
   },
   'warning': {
     context: {
-      warning: true,
+      variant: 'warning',
       heading: 'School, nursery or work',
       description:
         'Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.'
@@ -932,7 +932,7 @@ const fixtures = {
   },
   'warning with actions': {
     context: {
-      warning: true,
+      variant: 'warning',
       heading: 'School, nursery or work',
       description:
         'Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.',
