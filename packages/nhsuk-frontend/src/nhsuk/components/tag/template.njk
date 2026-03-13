@@ -3,6 +3,25 @@
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-tag" -%}
 
+{%- if params.colour and
+  params.colour in ["white", "grey", "green", "aqua-green", "blue", "purple", "pink", "red", "orange", "yellow"] and (
+    not params.classes or (
+      not "nhsuk-tag--white" in params.classes and
+      not "nhsuk-tag--grey" in params.classes and
+      not "nhsuk-tag--green" in params.classes and
+      not "nhsuk-tag--aqua-green" in params.classes and
+      not "nhsuk-tag--blue" in params.classes and
+      not "nhsuk-tag--purple" in params.classes and
+      not "nhsuk-tag--pink" in params.classes and
+      not "nhsuk-tag--red" in params.classes and
+      not "nhsuk-tag--orange" in params.classes and
+      not "nhsuk-tag--yellow" in params.classes
+    )
+  )
+%}
+  {% set classNames = classNames ~ " nhsuk-tag--" ~ params.colour %}
+{% endif %}
+
 {%- if params.classes %}
   {% set classNames = classNames ~ " " ~ params.classes %}
 {% endif -%}
