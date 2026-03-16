@@ -57,13 +57,13 @@ const options = {
     type: 'string',
     required: false,
     description:
-      'Optional variant of notification to render. You can use only `"success"` or `null` values with this option. If you set `variant` to `"success"`, the notification banner sets `role` to `"alert"`. JavaScript then moves the keyboard focus to the notification banner when the page loads. If you do not set `variant`, the notification banner sets `role` to `"region"`.'
+      'Optional variant of notification banner. You can use only `"success"` or empty values with this option. If you set `variant` to `"success"`, the notification banner sets `role` to `"alert"`. JavaScript then moves the keyboard focus to the notification banner when the page loads. If you do not set `variant`, the notification banner sets `role` to `"region"`.'
   },
   type: {
     type: 'string',
     required: false,
     description:
-      'Optional type of notification to render. You can use only `"success"` or `null` values with this option. If you set `type` to `"success"`, the notification banner sets `role` to `"alert"`. JavaScript then moves the keyboard focus to the notification banner when the page loads. If you do not set `type`, the notification banner sets `role` to `"region"`. Replaced by the `variant` option.',
+      'Optional type of notification banner. You can use only `"success"` or empty values with this option. If you set `type` to `"success"`, the notification banner sets `role` to `"alert"`. JavaScript then moves the keyboard focus to the notification banner when the page loads. If you do not set `type`, the notification banner sets `role` to `"region"`. Replaced by the `variant` option.',
     deprecated: '10.4.0'
   },
   role: {

@@ -36,7 +36,8 @@ const options = {
   variant: {
     type: 'string',
     required: false,
-    description: 'Optional variant of action link to render – `"reverse"`.'
+    description:
+      'Optional variant of action link. You can use only `"reverse"` or empty values with this option.'
   },
   classes: {
     type: 'string',

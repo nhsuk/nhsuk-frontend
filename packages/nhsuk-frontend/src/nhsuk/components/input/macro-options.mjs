@@ -20,7 +20,7 @@ const options = {
     type: 'string',
     required: false,
     description:
-      'Type of input control to render, for example, an email input control. Defaults to `"text"`.'
+      'Type of input control, for example, an email input control. Defaults to `"text"`.'
   },
   inputmode: {
     type: 'string',

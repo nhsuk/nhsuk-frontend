@@ -64,13 +64,13 @@ const options = {
     type: 'string',
     required: false,
     description:
-      'Optional variant of card to render – `"feature"`, `"primary"`, `"secondary"`, `"warning"`, `"non-urgent"`, `"urgent"` or `"emergency"`.'
+      'Optional variant of card – `"feature"`, `"primary"`, `"secondary"`, `"warning"`, `"non-urgent"`, `"urgent"` or `"emergency"`.'
   },
   type: {
     type: 'string',
     required: false,
     description:
-      'Optional type of care card to render – `"non-urgent"`, `"urgent"` or `"emergency"`. Replaced by the `variant` option.',
+      'Optional type of care card – `"non-urgent"`, `"urgent"` or `"emergency"`. Replaced by the `variant` option.',
     deprecated: '10.4.0'
   },
   feature: {

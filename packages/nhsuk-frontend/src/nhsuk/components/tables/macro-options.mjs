@@ -116,7 +116,8 @@ const options = {
   variant: {
     type: 'string',
     required: false,
-    description: 'Optional variant of table to render – `"reverse"`.'
+    description:
+      'Optional variant of table. You can use only `"reverse"` or empty values with this option.'
   },
   card: {
     type: 'object',

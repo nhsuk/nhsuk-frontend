@@ -74,7 +74,7 @@ const options = {
     type: 'string',
     required: false,
     description:
-      'Optional variant of button to render – `"login"`, `"reverse"`, `"secondary"`, `"secondary-solid"` or `"warning"`.'
+      'Optional variant of button – `"login"`, `"reverse"`, `"secondary"`, `"secondary-solid"` or `"warning"`.'
   },
   small: {
     type: 'boolean',
