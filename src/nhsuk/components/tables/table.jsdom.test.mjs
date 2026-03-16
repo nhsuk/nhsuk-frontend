@@ -303,17 +303,17 @@ describe('Table', () => {
         const getFirstRowNation = () =>
           $tbody?.querySelector('tr td')?.textContent
 
-        expect(getFirstRowNation().trim()).toBe('England')
+        expect(getFirstRowNation()?.trim()).toBe('England')
 
         // Sort by MMR ascending (England has lowest at 83.7%)
         $mmrButton.click()
 
-        expect(getFirstRowNation().trim()).toBe('England')
+        expect(getFirstRowNation()?.trim()).toBe('England')
 
         // Sort by MMR descending (Wales has highest at 89.5%)
         $mmrButton.click()
 
-        expect(getFirstRowNation().trim()).toBe('Wales')
+        expect(getFirstRowNation()?.trim()).toBe('Wales')
       })
     })
 
