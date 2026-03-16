@@ -27,8 +27,8 @@ const fixtures = {
   'reverse': {
     context: {
       text: 'Back',
-      href: '#',
-      variant: 'reverse'
+      variant: 'reverse',
+      href: '#'
     },
     options: {
       layout: 'background-blue'

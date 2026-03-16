@@ -58,8 +58,8 @@ const fixtures = {
         ${components.render('button', {
           context: {
             text: 'Sign up',
-            href: '#',
-            variant: 'reverse'
+            variant: 'reverse',
+            href: '#'
           }
         })}
       `

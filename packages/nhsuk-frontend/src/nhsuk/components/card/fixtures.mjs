@@ -731,8 +731,8 @@ const fixtures = {
       ${components.render('action-link', {
         context: {
           text: 'Find your nearest A&E',
-          href: '#',
-          variant: 'reverse'
+          variant: 'reverse',
+          href: '#'
         }
       })}
     `
