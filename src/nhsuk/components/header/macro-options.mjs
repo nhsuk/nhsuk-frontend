@@ -177,7 +177,7 @@ const options = {
         type: 'string',
         required: false,
         description:
-          'Optional colour modifier for the primary navigation – `"white"`.'
+          'Optional colour modifier for the primary navigation. You can use only `"white"` or empty values with this option.'
       }
     }
   },
@@ -332,7 +332,8 @@ const options = {
   colour: {
     type: 'string',
     required: false,
-    description: 'Optional colour modifier for the header – `"white"`.'
+    description:
+      'Optional colour modifier for the header. You can use only `"white"` or empty values with this option.'
   }
 }
 
