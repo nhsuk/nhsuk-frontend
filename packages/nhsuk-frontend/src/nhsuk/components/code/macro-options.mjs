@@ -74,7 +74,7 @@ const options = {
     type: 'string',
     required: false,
     description:
-      'Optional background colour for the code element – `"body"`, `"card"` or `"template"`. Defaults to `"card"`.'
+      'Optional background colour for the code element – `"body"` or `"template"`.'
   },
   border: {
     type: 'boolean',
