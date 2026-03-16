@@ -1,5 +1,9 @@
 import { closestAttributeValue } from '../../common/closest-attribute-value.mjs'
-import { validateConfig } from '../../common/configuration/index.mjs'
+import {
+  normaliseOptions,
+  validateConfig
+} from '../../common/configuration/index.mjs'
+import { codePointCount, graphemeCount } from '../../common/grapheme-count.mjs'
 import { formatErrorMessage } from '../../common/index.mjs'
 import { ConfigurableComponent } from '../../configurable-component.mjs'
 import { ConfigError, ElementError } from '../../errors/index.mjs'
@@ -121,7 +125,6 @@ export class CharacterCount extends ConfigurableComponent {
     // configured
     this.$visibleCountMessage = document.createElement('div')
     this.$visibleCountMessage.setAttribute('aria-hidden', 'true')
-    this.$visibleCountMessage.setAttribute('hidden', '')
     this.$visibleCountMessage.className = $textareaDescription.className
     this.$visibleCountMessage.classList.add(visibleCountMessageClass)
     this.$visibleCountMessage.classList.remove(textareaDescriptionClass)
@@ -173,19 +176,20 @@ export class CharacterCount extends ConfigurableComponent {
   }
 
   /**
-   * Count the number of characters (or words, if `config.maxwords` is set)
-   * in the given text
-   *
-   * @param {string} text - The text to count the characters of
-   * @returns {number} the number of characters (or words) in the text
+   * @param {string} text
+   * @returns {number}
    */
   count(text) {
     if (this.config.maxwords) {
-      const tokens = text.match(/\S+/g) ?? [] // Matches consecutive non-whitespace chars
+      const tokens = text.match(/\S+/g) ?? []
       return tokens.length
     }
 
-    return text.length
+    if (this.config.useGraphemeCounting) {
+      return graphemeCount(text)
+    }
+
+    return codePointCount(text)
   }
 
   /**
@@ -230,12 +234,12 @@ export class CharacterCount extends ConfigurableComponent {
     const remainingNumber = this.maxLength - this.count(this.$textarea.value)
     const isError = remainingNumber < 0
 
-    // If input is over the threshold, show the count message
-    if (this.isOverThreshold()) {
-      this.$visibleCountMessage.removeAttribute('hidden')
-    } else {
-      this.$visibleCountMessage.setAttribute('hidden', '')
-    }
+    // If input is over the threshold, remove the disabled class which renders
+    // the counter invisible.
+    this.$visibleCountMessage.classList.toggle(
+      `${this.config.visibleCountMessageClass}--disabled`,
+      !this.isOverThreshold()
+    )
 
     // Update styles
     if (!this.$errorMessage) {
@@ -388,6 +392,7 @@ export class CharacterCount extends ConfigurableComponent {
     textareaDescriptionClass: 'nhsuk-character-count__message',
     visibleCountMessageClass: 'nhsuk-character-count__status',
     screenReaderCountMessageClass: 'nhsuk-character-count__sr-status',
+    useGraphemeCounting: false,
     i18n: {
       // Characters
       charactersUnderLimit: {
@@ -429,6 +434,7 @@ export class CharacterCount extends ConfigurableComponent {
       textareaDescriptionClass: { type: 'string' },
       visibleCountMessageClass: { type: 'string' },
       screenReaderCountMessageClass: { type: 'string' },
+      useGraphemeCounting: { type: 'boolean' },
       i18n: { type: 'object' }
     },
     anyOf: [
@@ -441,6 +447,24 @@ export class CharacterCount extends ConfigurableComponent {
         errorMessage: 'Either "maxlength" or "maxwords" must be provided'
       }
     ]
+  })
+}
+
+/**
+ * Initialise character count component
+ *
+ * @deprecated Use {@link createAll | `createAll(CharacterCount, options)`} instead.
+ * @param {InitOptions & Partial<CharacterCountConfig>} [options]
+ */
+export function initCharacterCounts(options) {
+  const { scope: $scope } = normaliseOptions(options)
+
+  const $characterCounts = $scope?.querySelectorAll(
+    `[data-module="${CharacterCount.moduleName}"]`
+  )
+
+  $characterCounts?.forEach(($root) => {
+    new CharacterCount($root, options)
   })
 }
 
@@ -459,6 +483,10 @@ export class CharacterCount extends ConfigurableComponent {
  * @property {string} textareaDescriptionClass - Textarea description class
  * @property {string} visibleCountMessageClass - Visible count message class
  * @property {string} screenReaderCountMessageClass - Screen reader count message class
+ * @property {boolean} [useGraphemeCounting=false] - If true, uses grapheme cluster
+ *   counting (user-perceived characters) instead of code point counting. Defaults
+ *   to false to ensure consistency with Python's `len()` and server-side validation.
+ *   Only enable if your server-side validation also uses grapheme counting.
  * @property {CharacterCountTranslations} [i18n=CharacterCount.defaults.i18n] - Character count translations
  */
 
@@ -508,5 +536,6 @@ export class CharacterCount extends ConfigurableComponent {
 
 /**
  * @import { TranslationPluralForms } from '../../i18n.mjs'
+ * @import { createAll, InitOptions } from '../../index.mjs'
  * @import { Schema } from '../../common/configuration/index.mjs'
  */
