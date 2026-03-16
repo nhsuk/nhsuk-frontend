@@ -14,8 +14,8 @@ const fixtures = {
   reverse: {
     context: {
       text: 'Find your nearest A&E',
-      href: '#',
-      variant: 'reverse'
+      variant: 'reverse',
+      href: '#'
     },
     options: {
       layout: 'background-blue'

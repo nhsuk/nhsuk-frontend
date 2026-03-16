@@ -79,8 +79,8 @@ const fixtures = {
     context: {
       text: 'Continue',
       variant: 'login',
-      small: true,
-      disabled: true
+      disabled: true,
+      small: true
     }
   },
   'login as a link': {
@@ -140,8 +140,8 @@ const fixtures = {
   'reverse disabled': {
     context: {
       text: 'Log out',
-      disabled: true,
-      variant: 'reverse'
+      variant: 'reverse',
+      disabled: true
     },
     options: {
       layout: 'background-blue'
@@ -151,8 +151,8 @@ const fixtures = {
   'reverse disabled, small': {
     context: {
       text: 'Log out',
-      disabled: true,
       variant: 'reverse',
+      disabled: true,
       small: true
     },
     options: {
@@ -334,8 +334,8 @@ const fixtures = {
   'warning disabled, small': {
     context: {
       text: 'Yes, delete this vaccine',
-      small: true,
       variant: 'warning',
+      small: true,
       disabled: true
     }
   },
