@@ -1,0 +1,66 @@
+@use "../generic" as *;
+@use "../settings" as *;
+@use "../tools" as *;
+@use "../helpers" as *;
+
+////
+/// Page
+///
+/// High-level, page-level styling.
+///
+/// @group elements
+////
+
+html {
+  // Force the scrollbar to always display in IE, to prevent horizontal page
+  // jumps as content height changes (e.g. autocomplete results open).
+  overflow-y: scroll;
+
+  // Set the overall page background colour to the same colour as used by the
+  // footer to give the illusion of a long footer.
+  background-color: $nhsuk-template-background-colour;
+
+  // Prevent automatic text sizing, as we already cater for small devices and
+  // would like the browser to stay on 100% text zoom by default.
+  -webkit-text-size-adjust: 100%;
+     -moz-text-size-adjust: 100%;
+          text-size-adjust: 100%;
+
+  // If the user is using the Apple Dynamic Type feature we need to include
+  // the @support CSS at-rule to enable it.
+  @if $nhsuk-include-dynamic-type {
+    @include nhsuk-font-dynamic-type;
+  }
+
+  // If the user is using the default Frutiger W01 font we need to include
+  // the font-face declarations.
+  @if $nhsuk-include-default-font-face {
+    @include nhsuk-font-face-frutiger;
+
+    & {
+      font-family: $nhsuk-font-family;
+    }
+  }
+}
+
+body {
+  // Ensure the page always fills at least the entire height of the viewport.
+  min-height: 100%;
+
+  // The default margins set by user-agents are not required since we have our
+  // own containers.
+  margin: 0;
+
+  // Set the overall body of the page back to the typical background colour.
+  background-color: $nhsuk-body-background-colour;
+
+  // Fonts on OSX will look more consistent with other systems that do not
+  // render text using sub-pixel anti-aliasing.
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+
+  // Set the overall text colour, including a suitable override for print.
+  @include nhsuk-text-colour;
+}
+
+/*# sourceMappingURL=_page.scss.map */

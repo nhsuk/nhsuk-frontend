@@ -1,0 +1,90 @@
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+@use "../../core/helpers" as *;
+@forward "../button";
+
+////
+/// Code component
+///
+/// @group components/code
+////
+
+@include nhsuk-exports("nhsuk/components/code") {
+  .nhsuk-code {
+    position: relative;
+    @include nhsuk-responsive-margin(6, "bottom");
+  }
+
+  .nhsuk-code__container,
+  .nhsuk-code__content {
+    font-family: $nhsuk-code-font;
+  }
+
+  .nhsuk-code__container {
+    min-height: nhsuk-px-to-rem(64px);
+    margin: 0;
+    border: 1px solid $nhsuk-border-colour;
+    background-color: $nhsuk-card-background-colour;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .nhsuk-code--background-body & {
+      background-color: $nhsuk-body-background-colour;
+    }
+
+    .nhsuk-code--background-template & {
+      background-color: $nhsuk-template-background-colour;
+    }
+
+    .nhsuk-code--no-border & {
+      border-color: transparent;
+    }
+  }
+
+  .nhsuk-code__content {
+    display: block;
+    padding: nhsuk-spacing(3) - 1px;
+    overflow-x: auto;
+    border: $nhsuk-focus-width solid transparent;
+    @include nhsuk-text-colour;
+    @include nhsuk-font(16, $line-height: 1.5);
+
+    &:focus {
+      border: $nhsuk-focus-width solid $nhsuk-focus-text-colour;
+      outline: $nhsuk-focus-width solid $nhsuk-focus-colour;
+    }
+
+    .nhsuk-frontend-supported .nhsuk-code--button & {
+      padding-top: nhsuk-px-to-rem(nhsuk-spacing(9));
+    }
+  }
+
+  .nhsuk-code__button {
+    position: absolute;
+    z-index: 1;
+    top: nhsuk-spacing(3);
+    right: nhsuk-spacing(3);
+
+    width: auto;
+    min-width: nhsuk-px-to-rem(125px);
+    margin-bottom: $nhsuk-button-shadow-size;
+
+    // Hide the button by default, JS removes this attribute
+    &[hidden] {
+      display: none;
+    }
+
+    &:active,
+    &:active:focus {
+      top: nhsuk-spacing(3) + $nhsuk-button-shadow-size;
+    }
+
+    &:active::before {
+      top: nhsuk-spacing(3) - ($nhsuk-border-width-form-element + $nhsuk-button-shadow-size);
+    }
+  }
+}
+
+/*# sourceMappingURL=_index.scss.map */

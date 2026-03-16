@@ -1,0 +1,131 @@
+{
+  "name": "Code",
+  "component": "code",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "text": "This is a plain text code block"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-code\" data-module=\"nhsuk-code\">\n  <pre class=\"nhsuk-code__container\"><code class=\"nhsuk-code__content\">This is a plain text code block</code></pre>\n</div>"
+    },
+    {
+      "name": "button",
+      "description": "with primary",
+      "context": {
+        "copyButtonClassList": [
+          "nhsuk-button--small"
+        ],
+        "text": "This is a plain text code block",
+        "button": true
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-code nhsuk-code--button\" data-module=\"nhsuk-code\">\n  <button class=\"nhsuk-button nhsuk-button--small nhsuk-code__button nhsuk-js-code-button\" data-module=\"nhsuk-button\" type=\"button\" hidden>\n    Copy code\n  </button>\n  <pre class=\"nhsuk-code__container\"><code class=\"nhsuk-code__content\">This is a plain text code block</code></pre>\n</div>"
+    },
+    {
+      "name": "button",
+      "description": "with secondary",
+      "context": {
+        "text": "This is a plain text code block",
+        "button": true
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-code nhsuk-code--button\" data-module=\"nhsuk-code\">\n  <button class=\"nhsuk-button nhsuk-button--secondary nhsuk-button--small nhsuk-code__button nhsuk-js-code-button\" data-module=\"nhsuk-button\" type=\"button\" hidden>\n    Copy code\n  </button>\n  <pre class=\"nhsuk-code__container\"><code class=\"nhsuk-code__content\">This is a plain text code block</code></pre>\n</div>"
+    },
+    {
+      "name": "button",
+      "description": "with secondary, solid background",
+      "context": {
+        "background": "body",
+        "copyButtonClassList": [
+          "nhsuk-button--secondary-solid",
+          "nhsuk-button--small"
+        ],
+        "text": "This is a plain text code block",
+        "button": true
+      },
+      "screenshot": false,
+      "options": {
+        "layout": "background-white"
+      },
+      "html": "<div class=\"nhsuk-code nhsuk-code--button nhsuk-code--background-body\" data-module=\"nhsuk-code\">\n  <button class=\"nhsuk-button nhsuk-button--secondary-solid nhsuk-button--small nhsuk-code__button nhsuk-js-code-button\" data-module=\"nhsuk-button\" type=\"button\" hidden>\n    Copy code\n  </button>\n  <pre class=\"nhsuk-code__container\"><code class=\"nhsuk-code__content\">This is a plain text code block</code></pre>\n</div>"
+    },
+    {
+      "name": "with custom HTML",
+      "context": {
+        "html": "<p>This is an HTML code block.</p>"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-code\" data-module=\"nhsuk-code\">\n  <pre class=\"nhsuk-code__container\"><code class=\"nhsuk-code__content\">&lt;p&gt;This is an HTML code block.&lt;/p&gt;</code></pre>\n</div>"
+    },
+    {
+      "name": "with custom HTML and button",
+      "context": {
+        "html": "<p>This is an HTML code block.</p>",
+        "button": true
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-code nhsuk-code--button\" data-module=\"nhsuk-code\">\n  <button class=\"nhsuk-button nhsuk-button--secondary nhsuk-button--small nhsuk-code__button nhsuk-js-code-button\" data-module=\"nhsuk-button\" type=\"button\" hidden>\n    Copy code\n  </button>\n  <pre class=\"nhsuk-code__container\"><code class=\"nhsuk-code__content\">&lt;p&gt;This is an HTML code block.&lt;/p&gt;</code></pre>\n</div>"
+    },
+    {
+      "name": "with custom HTML (escaped) and button",
+      "context": {
+        "button": true
+      },
+      "callBlock": "&lt;p&gt;This is a code block.&lt;/p&gt;",
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-code nhsuk-code--button\" data-module=\"nhsuk-code\">\n  <button class=\"nhsuk-button nhsuk-button--secondary nhsuk-button--small nhsuk-code__button nhsuk-js-code-button\" data-module=\"nhsuk-button\" type=\"button\" hidden>\n    Copy code\n  </button>\n  <pre class=\"nhsuk-code__container\"><code class=\"nhsuk-code__content\">&lt;p&gt;This is a code block.&lt;/p&gt;</code></pre>\n</div>"
+    },
+    {
+      "name": "without border",
+      "context": {
+        "text": "This is a plain text code block",
+        "border": false
+      },
+      "screenshot": false,
+      "options": {
+        "layout": "background-blue"
+      },
+      "html": "<div class=\"nhsuk-code nhsuk-code--no-border\" data-module=\"nhsuk-code\">\n  <pre class=\"nhsuk-code__container\"><code class=\"nhsuk-code__content\">This is a plain text code block</code></pre>\n</div>"
+    },
+    {
+      "name": "with scroll overflow",
+      "context": {
+        "text": "Supercalifragilisticexpialidocious! Even though the sound of it is something quite atrocious, if you say it loud enough, you'll always sound precocious!"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-code\" data-module=\"nhsuk-code\">\n  <pre class=\"nhsuk-code__container\"><code class=\"nhsuk-code__content\">Supercalifragilisticexpialidocious! Even though the sound of it is something quite atrocious, if you say it loud enough, you&#39;ll always sound precocious!</code></pre>\n</div>"
+    },
+    {
+      "name": "with scroll overflow and button",
+      "context": {
+        "text": "Supercalifragilisticexpialidocious! Even though the sound of it is something quite atrocious, if you say it loud enough, you'll always sound precocious!",
+        "button": true
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-code nhsuk-code--button\" data-module=\"nhsuk-code\">\n  <button class=\"nhsuk-button nhsuk-button--secondary nhsuk-button--small nhsuk-code__button nhsuk-js-code-button\" data-module=\"nhsuk-button\" type=\"button\" hidden>\n    Copy code\n  </button>\n  <pre class=\"nhsuk-code__container\"><code class=\"nhsuk-code__content\">Supercalifragilisticexpialidocious! Even though the sound of it is something quite atrocious, if you say it loud enough, you&#39;ll always sound precocious!</code></pre>\n</div>"
+    },
+    {
+      "name": "with translations",
+      "context": {
+        "html": "<p>Bloc cod HTML yw hwn.</p>",
+        "button": true,
+        "copyButtonText": "Copïo cod",
+        "copiedButtonText": "Cod wedi'i gopïo",
+        "copiedAnnouncementText": "Cod wedi'i gopïo i'r clipfwrdd"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-code nhsuk-code--button\" data-i18n.copy-button=\"Copïo cod\" data-i18n.copied-button=\"Cod wedi&#39;i gopïo\" data-i18n.copied-announcement=\"Cod wedi&#39;i gopïo i&#39;r clipfwrdd\" data-module=\"nhsuk-code\">\n  <button class=\"nhsuk-button nhsuk-button--secondary nhsuk-button--small nhsuk-code__button nhsuk-js-code-button\" data-module=\"nhsuk-button\" type=\"button\" hidden>\n    Copïo cod\n  </button>\n  <pre class=\"nhsuk-code__container\"><code class=\"nhsuk-code__content\">&lt;p&gt;Bloc cod HTML yw hwn.&lt;/p&gt;</code></pre>\n</div>"
+    }
+  ]
+}

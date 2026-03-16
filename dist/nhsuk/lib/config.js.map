@@ -1,0 +1,1 @@
+{"version":3,"file":"config.js","sources":["../../../src/nhsuk/lib/config.mjs"],"names":["fileURLToPath","dirname"],"mappings":";;;;;AAGA,MAAM,OAAO,GAAG,eAAmB,CAAC,6BAA6B;;AAEjE;AACA;AACA;AACY,MAAC,iBAAiB,GAAG,OAAO,CAAC,UAAU,CAAC,OAAO;AAC3D,IAAIA,sBAAa,CAACC,iBAAO,CAAC,OAAO,CAAC,CAAC;AACnC,IAAIA,iBAAO,CAAC,OAAO,EAAC;;;;"}

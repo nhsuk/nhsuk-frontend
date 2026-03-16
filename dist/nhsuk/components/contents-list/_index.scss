@@ -1,0 +1,32 @@
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+@use "../../core/helpers" as *;
+
+////
+/// Contents list component
+///
+/// @group components/contents-list
+////
+
+@include nhsuk-exports("nhsuk/components/contents-list") {
+  .nhsuk-contents-list__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    @include nhsuk-responsive-margin(6, "bottom");
+  }
+
+  .nhsuk-contents-list__item {
+    @include nhsuk-shape-dash;
+  }
+
+  .nhsuk-contents-list__link {
+    display: inline-block;
+  }
+
+  .nhsuk-contents-list__current {
+    font-weight: $nhsuk-font-weight-bold;
+  }
+}
+
+/*# sourceMappingURL=_index.scss.map */

@@ -1,0 +1,18 @@
+@use "../tools" as *;
+
+////
+/// Reading width
+///
+/// Adds a maximum width to large pieces of content
+///
+/// @group utilities
+///
+/// @example html
+///   <div class="nhsuk-u-reading-width"></div>
+////
+
+.nhsuk-u-reading-width {
+  @include nhsuk-reading-width;
+}
+
+/*# sourceMappingURL=_reading-width.scss.map */

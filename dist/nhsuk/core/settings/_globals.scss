@@ -1,0 +1,214 @@
+@use "sass:list";
+@use "sass:math";
+
+////
+/// Globals
+///
+/// @group settings/globals
+////
+
+// =========================================================
+// Font families
+// =========================================================
+
+// @deprecated To be removed in v11.0
+$nhsuk-font: "Frutiger W01" !default;
+
+// @deprecated To be removed in v11.0
+$nhsuk-font-fallback: arial, sans-serif !default;
+
+// @deprecated To be removed in v11.0
+$nhsuk-include-font-face: true !default;
+
+/// Font families to use for all typography on screen media
+///
+/// @type List
+
+$nhsuk-font-family: $nhsuk-font, $nhsuk-font-fallback !default;
+
+/// Font families to use for print media
+///
+/// We recommend that you use system fonts when printing. This will avoid issues
+/// with some printer drivers and operating systems.
+///
+/// @type List
+
+$nhsuk-font-family-print: sans-serif !default;
+
+/// Path or URL to the fonts folder, with trailing slash.
+///
+/// @type String
+
+$nhsuk-fonts-path: "https://assets.nhs.uk/fonts/" !default;
+
+/// Include the default @font-face declarations
+///
+/// Defaults to true if "Frutiger W01" appears in the $nhsuk-font-family
+/// setting.
+///
+/// @type Boolean
+
+$nhsuk-include-default-font-face: $nhsuk-include-font-face !default;
+
+@if not list.index($nhsuk-font-family, "Frutiger W01") {
+  $nhsuk-include-default-font-face: false;
+}
+
+// =========================================================
+// Font weights
+// =========================================================
+
+// @deprecated To be removed in v11.0
+$nhsuk-font-normal: 400 !default;
+
+// @deprecated To be removed in v11.0
+$nhsuk-font-bold: 600 !default;
+
+/// Font weight for normal typography
+///
+/// @type Number
+
+$nhsuk-font-weight-normal: $nhsuk-font-normal !default;
+
+/// Font weight for bold typography
+///
+/// @type Number
+
+$nhsuk-font-weight-bold: $nhsuk-font-bold !default;
+
+/// Feature flag for Apple Dynamic Type
+///
+/// When set to true, $nhsuk-include-dynamic-type will automatically apply the
+/// user's preferred text size on iOS and iPadOS devices.
+///
+/// Note: This flag adjusts `$nhsuk-root-font-size` from 16px to 17px when set.
+/// Please review all custom sizes not calculated relative to the root font
+/// size as they will not scale dynamically.
+///
+/// @type Boolean
+///
+/// @link https://developer.apple.com/design/human-interface-guidelines/typography#Supporting-Dynamic-Type
+
+$nhsuk-include-dynamic-type: false !default;
+
+/// Root font size
+///
+/// This is used to calculate rem sizes for the typography, and should match the
+/// _effective_ font-size of your root (or html) element.
+///
+/// Ideally you should not be setting the font-size on the html or root element
+/// in order to allow it to scale with user-preference, in which case this
+/// should be set to 16px.
+///
+/// @type Number
+
+$nhsuk-root-font-size: 16px !default;
+
+@if $nhsuk-include-dynamic-type {
+  $nhsuk-root-font-size: 17px;
+}
+
+// =========================================================
+// Icon sizes
+// =========================================================
+
+$nhsuk-icon-size: 24px !default;
+$nhsuk-icon-size-large: 32px !default;
+
+// =========================================================
+// Page layout
+// =========================================================
+
+/// Width of main container
+///
+/// @type Number
+
+$nhsuk-page-width: 960px !default;
+
+/// Map of grid column widths
+///
+/// @type Map
+
+$nhsuk-grid-widths: (
+  one-quarter: math.percentage(math.div(1, 4)),
+  one-third: math.percentage(math.div(1, 3)),
+  one-half: math.percentage(math.div(1, 2)),
+  two-thirds: math.percentage(math.div(2, 3)),
+  three-quarters: math.percentage(math.div(3, 4)),
+  full: 100%
+) !default;
+
+/// Width of gutter between grid columns
+///
+/// @type Number
+
+$nhsuk-gutter: 32px !default;
+
+/// Width of half the gutter between grid columns
+///
+/// @type Number
+
+$nhsuk-gutter-half: math.div($nhsuk-gutter, 2);
+
+// =========================================================
+// Borders
+// =========================================================
+
+$nhsuk-border-width-inset-text: 8px !default;
+$nhsuk-chevron-border: 2px !default;
+$nhsuk-hero-border: 1px !default;
+$nhsuk-border-table-header-width: 2px !default;
+$nhsuk-border-table-cell-width: 1px !default;
+$nhsuk-border-radius: 4px !default;
+
+/// Standard border width
+///
+/// @type Number
+
+$nhsuk-border-width: 4px !default;
+
+/// Form control border width
+///
+/// @type Number
+
+$nhsuk-border-width-form-element: 2px !default;
+
+/// Form group border width when in error state
+///
+/// @type Number
+
+$nhsuk-border-width-form-group-error: $nhsuk-border-width !default;
+
+/// Border width of focus outline
+///
+/// @type Number
+
+$nhsuk-focus-width: 4px !default;
+
+/// Hover width for form controls with a hover state
+///
+/// @type Number
+
+$nhsuk-hover-width: 10px !default;
+
+/// Button border radius
+///
+/// @type Number
+
+$nhsuk-button-border-radius: 4px !default;
+
+/// Button shadow size
+///
+/// @type Number
+
+$nhsuk-button-shadow-size: 4px !default;
+
+/// Globals (deprecated)
+///
+
+// @deprecated To be removed in v11.0
+$nhsuk-base-font-size: $nhsuk-root-font-size;
+$nhsuk-border-width-form-element-error: $nhsuk-border-width-form-element;
+$nhsuk-border-width-mobile: $nhsuk-border-width;
+
+/*# sourceMappingURL=_globals.scss.map */
