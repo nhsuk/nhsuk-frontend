@@ -1,0 +1,71 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+
+{#- Set variant or (deprecated) type for this component #}
+{%- set variant = params.variant or params.type -%}
+
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-notification-banner" -%}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif %}
+
+{%- if variant == "success" and (not params.classes or not "nhsuk-notification-banner--success" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-notification-banner--" ~ variant %}
+{% endif %}
+
+{%- if params.role %}
+  {% set role = params.role %}
+{% elif variant == "success" %}
+  {#- If variant is success, add `role="alert"` to prioritise the information in the notification banner to users of assistive technologies -#}
+  {% set role = "alert" %}
+{% else %}
+  {#- Otherwise add `role="region"` to make the notification banner a landmark to help users of assistive technologies to navigate to the banner -#}
+  {% set role = "region" %}
+{% endif %}
+
+{%- if params.titleHtml %}
+  {% set title = params.titleHtml | safe %}
+{%- elif params.titleText %}
+  {% set title = params.titleText %}
+{%- elif variant == "success" %}
+  {% set title = "Success" %}
+{%- else %}
+  {% set title = "Important" %}
+{%- endif -%}
+
+<div
+  {{- nhsukAttributes({
+    class: classNames,
+    id: {
+      value: params.id,
+      optional: true
+    },
+    "data-module": "nhsuk-notification-banner",
+    "data-disable-auto-focus": {
+      value: params.disableAutoFocus | string
+        if params.disableAutoFocus in [true, false]
+        else false,
+      optional: true
+    },
+    role: role,
+    "aria-labelledby": params.titleId | default("nhsuk-notification-banner-title", true)
+  }) -}}
+
+  {{- nhsukAttributes(params.attributes) -}}>
+  <div class="nhsuk-notification-banner__header">
+    <h{{ params.titleHeadingLevel | default(2, true) }} class="nhsuk-notification-banner__title" id="{{ params.titleId | default("nhsuk-notification-banner-title", true) }}">
+      {{ title }}
+    </h{{ params.titleHeadingLevel | default(2, true) }}>
+  </div>
+  <div class="nhsuk-notification-banner__content">
+  {% if caller or params.html %}
+    {{ caller() if caller else params.html | safe | trim | indent(4) }}
+  {% elif params.text %}
+    {# Set default style for single line content -#}
+    <p class="nhsuk-notification-banner__heading">
+      {{ params.text | trim | indent(6) }}
+    </p>
+  {% endif %}
+  </div>
+</div>

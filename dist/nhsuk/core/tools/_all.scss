@@ -1,0 +1,8 @@
+@use "../settings" as *;
+@forward ".";
+
+@include nhsuk-warning(
+  "import-using-all",
+  "Importing using 'core/tools/all' is deprecated. Update your import statement to import 'core/tools'.",
+  $silence-further-warnings: false
+);
