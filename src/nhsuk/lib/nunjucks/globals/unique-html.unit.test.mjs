@@ -1,7 +1,8 @@
-import { components } from 'nhsuk-frontend/src/nhsuk/lib/index.mjs'
 import { outdent } from 'outdent'
 
 import { uniqueHTML } from './unique-html.mjs'
+
+import { components } from '#lib'
 
 describe('Nunjucks global: uniqueHTML', () => {
   const options = /** @type {MacroRenderOptions} */ ({
