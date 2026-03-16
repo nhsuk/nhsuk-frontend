@@ -912,7 +912,7 @@ const fixtures = {
                 html: components.render('tag', {
                   context: {
                     text: 'Follow up requested',
-                    classes: 'nhsuk-tag--orange'
+                    colour: 'orange'
                   }
                 })
               }
