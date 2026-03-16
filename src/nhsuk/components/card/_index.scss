@@ -28,6 +28,7 @@
 /// 15. Reset the positioning to the default [1] to display heading triangle on a coloured background.
 /// 16. Emergency care card <a> needs to be white because the background colour is black.
 /// 17. Trick IE10 into rendering the invisible clickable area. Without this it does not.
+/// 18. Increase the clickable area to the border of the card and the shadow.
 ///
 /// @group components/card
 ////
@@ -209,10 +210,10 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
         display: block;
 
         position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
+        top: -$nhsuk-card-border-width; // [18]
+        right: -$nhsuk-card-border-width; // [18]
+        bottom: -$nhsuk-card-border-width - $nhsuk-card-border-bottom-width; // [18]
+        left: -$nhsuk-card-border-width; // [18]
 
         background-color: rgba(255, 255, 255, 0); // [17]
       }
