@@ -739,7 +739,7 @@ const fixtures = {
                 ${components.render('tag', {
                   context: {
                     text: 'Recall for assessment',
-                    classes: 'nhsuk-tag--red'
+                    colour: 'red'
                   }
                 })}
               </p>
@@ -770,7 +770,7 @@ const fixtures = {
                     ${components.render('tag', {
                       context: {
                         text: 'Abnormal',
-                        classes: 'nhsuk-tag--red'
+                        colour: 'red'
                       }
                     })}
                   </p>

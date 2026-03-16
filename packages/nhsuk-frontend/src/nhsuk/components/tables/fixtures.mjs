@@ -502,7 +502,7 @@ const fixtures = {
             html: components.render('tag', {
               context: {
                 text: 'Active',
-                classes: 'nhsuk-tag--green'
+                colour: 'green'
               }
             })
           }
@@ -520,7 +520,7 @@ const fixtures = {
             html: components.render('tag', {
               context: {
                 text: 'Inactive',
-                classes: 'nhsuk-tag--grey'
+                colour: 'grey'
               }
             })
           }
