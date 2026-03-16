@@ -197,11 +197,17 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
     margin-bottom: 0;
   }
 
+  // Card shadow shared styles
+
+  .nhsuk-card--clickable,
+  .nhsuk-card--secondary {
+    box-shadow: 0 $nhsuk-card-border-bottom-width 0 $nhsuk-border-colour;
+    @include nhsuk-responsive-margin(7, "bottom", $adjustment: $nhsuk-card-border-bottom-width); // [18]
+  }
+
   // Clickable card
 
   .nhsuk-card--clickable {
-    box-shadow: 0 $nhsuk-card-border-bottom-width 0 $nhsuk-border-colour;
-
     .nhsuk-card__heading a,
     .nhsuk-card__link {
       &::before {
@@ -279,13 +285,28 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
       margin-bottom: nhsuk-spacing(5);
     }
 
+    .nhsuk-card--clickable,
+    .nhsuk-card--secondary {
+      margin-bottom: nhsuk-spacing(5) + $nhsuk-card-border-bottom-width; // [18]
+    }
+
     @include nhsuk-media-query($until: desktop) {
       .nhsuk-card {
         margin-bottom: nhsuk-spacing(3);
       }
 
+      .nhsuk-card--clickable,
+      .nhsuk-card--secondary {
+        margin-bottom: nhsuk-spacing(3) + $nhsuk-card-border-bottom-width; // [18]
+      }
+
       &:last-child .nhsuk-card {
         margin-bottom: 0;
+      }
+
+      &:last-child .nhsuk-card--clickable,
+      &:last-child .nhsuk-card--secondary {
+        margin-bottom: $nhsuk-card-border-bottom-width; // [18]
       }
     }
   }
@@ -542,7 +563,6 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
     border-right: 0;
     border-left: 0;
     background: transparent;
-    box-shadow: 0 $nhsuk-card-border-bottom-width 0 $nhsuk-border-colour;
   }
 
   .nhsuk-card--secondary > .nhsuk-card__heading-container,
