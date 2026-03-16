@@ -72,7 +72,8 @@ const options = {
   variant: {
     type: 'string',
     required: false,
-    description: 'Optional variant of panel to render – `"interruption"`.'
+    description:
+      'Optional variant of panel. You can use only `"interruption"` or empty values with this option.'
   }
 }
 

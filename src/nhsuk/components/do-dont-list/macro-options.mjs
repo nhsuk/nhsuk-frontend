@@ -26,7 +26,7 @@ const options = {
     type: 'string',
     required: true,
     description:
-      'Optional type of do and don\'t list to render – `"cross"` or `"tick"`. Replaced by the `icon` option.',
+      'Optional type of do and don\'t list – `"cross"` or `"tick"`. Replaced by the `icon` option.',
     deprecated: '10.4.0'
   },
   items: {

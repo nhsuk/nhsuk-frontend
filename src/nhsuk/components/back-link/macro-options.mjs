@@ -31,7 +31,8 @@ const options = {
   variant: {
     type: 'string',
     required: false,
-    description: 'Optional variant of back link to render – `"reverse"`.'
+    description:
+      'Optional variant of back link. You can use only `"reverse"` or empty values with this option.'
   },
   classes: {
     type: 'string',
