@@ -4,9 +4,6 @@ import nunjucks from 'nunjucks'
 
 import * as config from '../config.mjs'
 
-import * as filters from './filters/index.mjs'
-import * as globals from './globals/index.mjs'
-
 const { NODE_ENV } = process.env
 
 // Nunjucks default environment
@@ -35,27 +32,12 @@ export function configure(viewsPath = [], options = {}) {
     ])
 
   // Nunjucks environment
-  const env = nunjucks.configure(searchPaths, {
+  return nunjucks.configure(searchPaths, {
     lstripBlocks: true, // Remove leading spaces from a block/tag
     trimBlocks: true, // Remove trailing newlines from a block/tag
     ...options
   })
-
-  // Add Nunjucks filters
-  for (const [key, filter] of Object.entries(filters)) {
-    env.addFilter(key, filter)
-  }
-
-  // Add Nunjucks globals
-  for (const [key, global] of Object.entries(globals)) {
-    env.addGlobal(key, global)
-  }
-
-  return env
 }
-
-export * as filters from './filters/index.mjs'
-export * as globals from './globals/index.mjs'
 
 /**
  * @import { ConfigureOptions } from 'nunjucks'
