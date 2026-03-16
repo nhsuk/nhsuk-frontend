@@ -32,6 +32,17 @@ const options = {
         required: true,
         description: 'Text for the option item.'
       },
+      synonyms: {
+        type: 'array',
+        required: false,
+        description:
+          'Alternative values to use when searching options. For example, a previous name, official acronym or common mis-spelling.'
+      },
+      hintText: {
+        type: 'string',
+        required: false,
+        description: 'Hint text to show beside each item.'
+      },
       divider: {
         type: 'boolean',
         required: false,
@@ -85,6 +96,11 @@ const options = {
     required: false,
     description: 'Can be used to add a hint to the select component.',
     isComponent: true
+  },
+  search: {
+    type: 'boolean',
+    required: false,
+    description: 'Whether options available to the select can be searched.'
   },
   errorMessage: {
     type: 'object',
@@ -182,6 +198,24 @@ const options = {
     required: false,
     description:
       'HTML attributes (for example data attributes) to add to the select.'
+  },
+  noResultsText: {
+    type: 'string',
+    required: false,
+    description:
+      'Message shown for search option when no options matching search can be found.'
+  },
+  resultsText: {
+    type: 'object',
+    required: false,
+    description:
+      'Message shown for search option when there options have been found that match a search. The component will replace the `%{count}` placeholder with the number of options found.'
+  },
+  selectDescriptionText: {
+    type: 'string',
+    required: false,
+    description:
+      'Message shown for search option to describe how the component works. The component will replace the `%{count}` placeholder with the total number of options available.'
   }
 }
 
