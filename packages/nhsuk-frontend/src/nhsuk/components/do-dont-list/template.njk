@@ -1,6 +1,7 @@
 {% from "nhsuk/components/card/macro.njk" import card %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
 
+{#- Set icon or (deprecated) type for this component #}
 {%- set icon = "cross" if (params.icon or params.type) == "cross" else "tick" %}
 {%- set items = params.items | select("mapping") if params.items | length else [] %}
 
