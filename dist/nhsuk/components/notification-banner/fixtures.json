@@ -1,0 +1,134 @@
+{
+  "name": "Notification banner",
+  "component": "notification-banner",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "text": "The patient record was updated."
+      },
+      "screenshot": true,
+      "options": {},
+      "html": "<div class=\"nhsuk-notification-banner\" role=\"region\" aria-labelledby=\"nhsuk-notification-banner-title\" data-module=\"nhsuk-notification-banner\">\n  <div class=\"nhsuk-notification-banner__header\">\n    <h2 class=\"nhsuk-notification-banner__title\" id=\"nhsuk-notification-banner-title\">\n      Important\n    </h2>\n  </div>\n  <div class=\"nhsuk-notification-banner__content\">\n    <p class=\"nhsuk-notification-banner__heading\">\n      The patient record was updated.\n    </p>\n  </div>\n</div>"
+    },
+    {
+      "name": "auto-focus disabled, with type as success",
+      "context": {
+        "type": "success",
+        "disableAutoFocus": true,
+        "text": "Email sent to example@email.com"
+      },
+      "screenshot": false,
+      "options": {
+        "hidden": true
+      },
+      "html": "<div class=\"nhsuk-notification-banner nhsuk-notification-banner--success\" role=\"alert\" aria-labelledby=\"nhsuk-notification-banner-title\" data-module=\"nhsuk-notification-banner\" data-disable-auto-focus=\"true\">\n  <div class=\"nhsuk-notification-banner__header\">\n    <h2 class=\"nhsuk-notification-banner__title\" id=\"nhsuk-notification-banner-title\">\n      Success\n    </h2>\n  </div>\n  <div class=\"nhsuk-notification-banner__content\">\n    <p class=\"nhsuk-notification-banner__heading\">\n      Email sent to example@email.com\n    </p>\n  </div>\n</div>"
+    },
+    {
+      "name": "auto-focus explicitly enabled, with type as success",
+      "context": {
+        "type": "success",
+        "disableAutoFocus": false,
+        "text": "Email sent to example@email.com"
+      },
+      "screenshot": false,
+      "options": {
+        "hidden": true
+      },
+      "html": "<div class=\"nhsuk-notification-banner nhsuk-notification-banner--success\" role=\"alert\" aria-labelledby=\"nhsuk-notification-banner-title\" data-module=\"nhsuk-notification-banner\" data-disable-auto-focus=\"false\">\n  <div class=\"nhsuk-notification-banner__header\">\n    <h2 class=\"nhsuk-notification-banner__title\" id=\"nhsuk-notification-banner-title\">\n      Success\n    </h2>\n  </div>\n  <div class=\"nhsuk-notification-banner__content\">\n    <p class=\"nhsuk-notification-banner__heading\">\n      Email sent to example@email.com\n    </p>\n  </div>\n</div>"
+    },
+    {
+      "name": "custom tabindex",
+      "context": {
+        "type": "success",
+        "text": "Email sent to example@email.com",
+        "attributes": {
+          "tabindex": 2
+        }
+      },
+      "screenshot": false,
+      "options": {
+        "hidden": true
+      },
+      "html": "<div class=\"nhsuk-notification-banner nhsuk-notification-banner--success\" role=\"alert\" aria-labelledby=\"nhsuk-notification-banner-title\" data-module=\"nhsuk-notification-banner\" tabindex=\"2\">\n  <div class=\"nhsuk-notification-banner__header\">\n    <h2 class=\"nhsuk-notification-banner__title\" id=\"nhsuk-notification-banner-title\">\n      Success\n    </h2>\n  </div>\n  <div class=\"nhsuk-notification-banner__content\">\n    <p class=\"nhsuk-notification-banner__heading\">\n      Email sent to example@email.com\n    </p>\n  </div>\n</div>"
+    },
+    {
+      "name": "paragraph as html heading",
+      "context": {
+        "html": "<p class=\"nhsuk-notification-banner__heading\">You have 9 days to send a response.</p>"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-notification-banner\" role=\"region\" aria-labelledby=\"nhsuk-notification-banner-title\" data-module=\"nhsuk-notification-banner\">\n  <div class=\"nhsuk-notification-banner__header\">\n    <h2 class=\"nhsuk-notification-banner__title\" id=\"nhsuk-notification-banner-title\">\n      Important\n    </h2>\n  </div>\n  <div class=\"nhsuk-notification-banner__content\">\n    <p class=\"nhsuk-notification-banner__heading\">You have 9 days to send a response.</p>\n  </div>\n</div>"
+    },
+    {
+      "name": "role=alert overridden to role=region, with type as success",
+      "context": {
+        "type": "success",
+        "role": "region",
+        "text": "Email sent to example@email.com"
+      },
+      "screenshot": false,
+      "options": {
+        "hidden": true
+      },
+      "html": "<div class=\"nhsuk-notification-banner nhsuk-notification-banner--success\" role=\"region\" aria-labelledby=\"nhsuk-notification-banner-title\" data-module=\"nhsuk-notification-banner\">\n  <div class=\"nhsuk-notification-banner__header\">\n    <h2 class=\"nhsuk-notification-banner__title\" id=\"nhsuk-notification-banner-title\">\n      Success\n    </h2>\n  </div>\n  <div class=\"nhsuk-notification-banner__content\">\n    <p class=\"nhsuk-notification-banner__heading\">\n      Email sent to example@email.com\n    </p>\n  </div>\n</div>"
+    },
+    {
+      "name": "success with custom html",
+      "context": {
+        "type": "success",
+        "html": "<h3 class=\"nhsuk-notification-banner__heading\">\n  4 files uploaded\n</h3>\n<ul class=\"nhsuk-u-margin-0 nhsuk-list\">\n  <li><a href=\"link-1\" class=\"nhsuk-notification-banner__link\">government-strategy.pdf</a></li>\n  <li><a href=\"link-2\" class=\"nhsuk-notification-banner__link\">government-strategy-v1.pdf</a></li>\n</ul>"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-notification-banner nhsuk-notification-banner--success\" role=\"alert\" aria-labelledby=\"nhsuk-notification-banner-title\" data-module=\"nhsuk-notification-banner\">\n  <div class=\"nhsuk-notification-banner__header\">\n    <h2 class=\"nhsuk-notification-banner__title\" id=\"nhsuk-notification-banner-title\">\n      Success\n    </h2>\n  </div>\n  <div class=\"nhsuk-notification-banner__content\">\n    <h3 class=\"nhsuk-notification-banner__heading\">\n      4 files uploaded\n    </h3>\n    <ul class=\"nhsuk-u-margin-0 nhsuk-list\">\n      <li><a href=\"link-1\" class=\"nhsuk-notification-banner__link\">government-strategy.pdf</a></li>\n      <li><a href=\"link-2\" class=\"nhsuk-notification-banner__link\">government-strategy-v1.pdf</a></li>\n    </ul>\n  </div>\n</div>"
+    },
+    {
+      "name": "with a list",
+      "context": {
+        "html": "<h3 class=\"nhsuk-notification-banner__heading\">4 files uploaded</h3>\n<ul class=\"nhsuk-list nhsuk-list--bullet nhsuk-u-margin-bottom-0\">\n  <li><a href=\"#\" class=\"nhsuk-notification-banner__link\">government-strategy.pdf</a></li>\n  <li><a href=\"#\" class=\"nhsuk-notification-banner__link\">government-strategy-v2.pdf</a></li>\n  <li><a href=\"#\" class=\"nhsuk-notification-banner__link\">government-strategy-v3-FINAL.pdf</a></li>\n  <li><a href=\"#\" class=\"nhsuk-notification-banner__link\">government-strategy-v4-FINAL-v2.pdf</a></li>\n</ul>"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-notification-banner\" role=\"region\" aria-labelledby=\"nhsuk-notification-banner-title\" data-module=\"nhsuk-notification-banner\">\n  <div class=\"nhsuk-notification-banner__header\">\n    <h2 class=\"nhsuk-notification-banner__title\" id=\"nhsuk-notification-banner-title\">\n      Important\n    </h2>\n  </div>\n  <div class=\"nhsuk-notification-banner__content\">\n    <h3 class=\"nhsuk-notification-banner__heading\">4 files uploaded</h3>\n    <ul class=\"nhsuk-list nhsuk-list--bullet nhsuk-u-margin-bottom-0\">\n      <li><a href=\"#\" class=\"nhsuk-notification-banner__link\">government-strategy.pdf</a></li>\n      <li><a href=\"#\" class=\"nhsuk-notification-banner__link\">government-strategy-v2.pdf</a></li>\n      <li><a href=\"#\" class=\"nhsuk-notification-banner__link\">government-strategy-v3-FINAL.pdf</a></li>\n      <li><a href=\"#\" class=\"nhsuk-notification-banner__link\">government-strategy-v4-FINAL-v2.pdf</a></li>\n    </ul>\n  </div>\n</div>"
+    },
+    {
+      "name": "with long heading",
+      "context": {
+        "text": "The patient record was withdrawn on 7 March 2014, before being sent in, sent back, queried, lost, found, subjected to public inquiry, lost again, and finally buried in soft peat for three months and recycled as firelighters."
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-notification-banner\" role=\"region\" aria-labelledby=\"nhsuk-notification-banner-title\" data-module=\"nhsuk-notification-banner\">\n  <div class=\"nhsuk-notification-banner__header\">\n    <h2 class=\"nhsuk-notification-banner__title\" id=\"nhsuk-notification-banner-title\">\n      Important\n    </h2>\n  </div>\n  <div class=\"nhsuk-notification-banner__content\">\n    <p class=\"nhsuk-notification-banner__heading\">\n      The patient record was withdrawn on 7 March 2014, before being sent in, sent back, queried, lost, found, subjected to public inquiry, lost again, and finally buried in soft peat for three months and recycled as firelighters.\n    </p>\n  </div>\n</div>"
+    },
+    {
+      "name": "with lots of content",
+      "context": {
+        "html": "<h3 class=\"nhsuk-notification-banner__heading\">\n  Check if you need to apply the reverse charge to this application\n</h3>\n<p class=\"nhsuk-body\">\n  You will have to apply the <a href=\"#\" class=\"nhsuk-notification-banner__link\">reverse charge</a> if the applicant supplies any of these services:\n</p>\n<ul class=\"nhsuk-list nhsuk-list--bullet\">\n  <li>constructing, altering, repairing, extending, demolishing or dismantling buildings or structures (whether permanent or not), including offshore installation services</li>\n  <li>constructing, altering, repairing, extending, demolishing of any works forming, or planned to form, part of the land, including (in particular) walls, roadworks, power lines, electronic communications equipment, aircraft runways, railways, inland waterways, docks and harbours</li>\n</ul>"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-notification-banner\" role=\"region\" aria-labelledby=\"nhsuk-notification-banner-title\" data-module=\"nhsuk-notification-banner\">\n  <div class=\"nhsuk-notification-banner__header\">\n    <h2 class=\"nhsuk-notification-banner__title\" id=\"nhsuk-notification-banner-title\">\n      Important\n    </h2>\n  </div>\n  <div class=\"nhsuk-notification-banner__content\">\n    <h3 class=\"nhsuk-notification-banner__heading\">\n      Check if you need to apply the reverse charge to this application\n    </h3>\n    <p class=\"nhsuk-body\">\n      You will have to apply the <a href=\"#\" class=\"nhsuk-notification-banner__link\">reverse charge</a> if the applicant supplies any of these services:\n    </p>\n    <ul class=\"nhsuk-list nhsuk-list--bullet\">\n      <li>constructing, altering, repairing, extending, demolishing or dismantling buildings or structures (whether permanent or not), including offshore installation services</li>\n      <li>constructing, altering, repairing, extending, demolishing of any works forming, or planned to form, part of the land, including (in particular) walls, roadworks, power lines, electronic communications equipment, aircraft runways, railways, inland waterways, docks and harbours</li>\n    </ul>\n  </div>\n</div>"
+    },
+    {
+      "name": "with text as html",
+      "context": {
+        "html": "<h3 class=\"nhsuk-notification-banner__heading\">\n  The patient record was updated\n</h3>\n<p class=\"nhsuk-body\">\n  Contact <a class=\"nhsuk-notification-banner__link\" href=\"#\">example@nhs.uk</a> if you think there's a problem.\n</p>"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-notification-banner\" role=\"region\" aria-labelledby=\"nhsuk-notification-banner-title\" data-module=\"nhsuk-notification-banner\">\n  <div class=\"nhsuk-notification-banner__header\">\n    <h2 class=\"nhsuk-notification-banner__title\" id=\"nhsuk-notification-banner-title\">\n      Important\n    </h2>\n  </div>\n  <div class=\"nhsuk-notification-banner__content\">\n    <h3 class=\"nhsuk-notification-banner__heading\">\n      The patient record was updated\n    </h3>\n    <p class=\"nhsuk-body\">\n      Contact <a class=\"nhsuk-notification-banner__link\" href=\"#\">example@nhs.uk</a> if you think there's a problem.\n    </p>\n  </div>\n</div>"
+    },
+    {
+      "name": "with type as success",
+      "context": {
+        "type": "success",
+        "text": "Email sent to example@email.com"
+      },
+      "screenshot": true,
+      "options": {},
+      "html": "<div class=\"nhsuk-notification-banner nhsuk-notification-banner--success\" role=\"alert\" aria-labelledby=\"nhsuk-notification-banner-title\" data-module=\"nhsuk-notification-banner\">\n  <div class=\"nhsuk-notification-banner__header\">\n    <h2 class=\"nhsuk-notification-banner__title\" id=\"nhsuk-notification-banner-title\">\n      Success\n    </h2>\n  </div>\n  <div class=\"nhsuk-notification-banner__content\">\n    <p class=\"nhsuk-notification-banner__heading\">\n      Email sent to example@email.com\n    </p>\n  </div>\n</div>"
+    }
+  ]
+}

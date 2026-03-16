@@ -1,0 +1,82 @@
+[
+  {
+    "name": "id",
+    "type": "string",
+    "required": false,
+    "description": "The ID of the code component."
+  },
+  {
+    "name": "text",
+    "type": "string",
+    "required": true,
+    "description": "If `html` is set, this is not required. Text for the code element. If `html` is provided, the `text` option will be ignored."
+  },
+  {
+    "name": "html",
+    "type": "string",
+    "required": true,
+    "description": "If `text` is set, this is not required. HTML for the code element. If `html` is provided, the `text` option will be ignored."
+  },
+  {
+    "name": "classes",
+    "type": "string",
+    "required": false,
+    "description": "Classes to add to the code container."
+  },
+  {
+    "name": "attributes",
+    "type": "object",
+    "required": false,
+    "description": "HTML attributes (for example data attributes) to add to the code container."
+  },
+  {
+    "name": "copyButtonClassList",
+    "type": "array",
+    "required": false,
+    "description": "Classes to add to the button. Default is `[\"nhsuk-button--secondary\", \"nhsuk-button--small\"]`."
+  },
+  {
+    "name": "copyButtonText",
+    "type": "string",
+    "required": false,
+    "description": "Button text before the code is copied to clipboard. Defaults to `\"Copy code\"`."
+  },
+  {
+    "name": "copiedButtonText",
+    "type": "string",
+    "required": false,
+    "description": "Button text when the code is copied to clipboard. Defaults to `\"Code copied\"`."
+  },
+  {
+    "name": "copiedAnnouncementText",
+    "type": "string",
+    "required": false,
+    "description": "Announcement made to screen reader users when the code is copied to clipboard. Defaults to `\"Code copied to clipboard\"`."
+  },
+  {
+    "name": "button",
+    "type": "object",
+    "required": false,
+    "description": "Optional object allowing customisation of the copy button.",
+    "params": [
+      {
+        "name": "classes",
+        "type": "string",
+        "required": false,
+        "description": "Classes to add to the button."
+      }
+    ]
+  },
+  {
+    "name": "background",
+    "type": "string",
+    "required": false,
+    "description": "Optional background colour for the code element – for example, `\"body\"`, `\"card\"` or `\"template\"`. Defaults to `\"card\"`."
+  },
+  {
+    "name": "border",
+    "type": "boolean",
+    "required": false,
+    "description": "If set to `false`, remove border from the code container."
+  }
+]

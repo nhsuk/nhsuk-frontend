@@ -1,0 +1,75 @@
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+@forward "../../core/styles/lists";
+
+////
+/// Error summary component
+///
+/// @group components/error-summary
+////
+
+@include nhsuk-exports("nhsuk/components/error-summary") {
+  .nhsuk-error-summary {
+    border: $nhsuk-border-width solid $nhsuk-error-colour;
+
+    @include nhsuk-text-colour;
+    @include nhsuk-font($size: 19);
+    @include nhsuk-responsive-padding(4);
+    @include nhsuk-responsive-margin(8, "bottom");
+
+    &:focus {
+      border: $nhsuk-focus-width solid $nhsuk-focus-text-colour;
+      outline: $nhsuk-focus-width solid transparent;
+      box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-colour;
+    }
+  }
+
+  .nhsuk-error-summary__title {
+    margin-top: 0;
+
+    @include nhsuk-font(26, $weight: bold);
+    @include nhsuk-responsive-margin(4, "bottom");
+  }
+
+  .nhsuk-error-summary__body {
+    p {
+      margin-bottom: 0;
+    }
+
+    > * + * {
+      @include nhsuk-responsive-margin(4, "top");
+    }
+
+    > :last-child {
+      @include nhsuk-responsive-margin(1, "bottom");
+    }
+  }
+
+  // Cross-component class - adjusts styling of list component
+  .nhsuk-error-summary__list {
+    margin-bottom: 0;
+  }
+
+  // Remove the bottom margin from the last list item
+  .nhsuk-error-summary__list li:last-child {
+    margin-bottom: 0;
+  }
+
+  .nhsuk-error-summary__list a {
+    @include nhsuk-typography-weight-bold;
+
+    // Override default link styling to use error colour
+    &:link,
+    &:visited,
+    &:hover,
+    &:active {
+      color: $nhsuk-error-colour;
+    }
+
+    &:focus {
+      @include nhsuk-focused-text;
+    }
+  }
+}
+
+/*# sourceMappingURL=_index.scss.map */

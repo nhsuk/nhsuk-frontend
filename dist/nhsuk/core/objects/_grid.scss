@@ -1,0 +1,25 @@
+@use "sass:map";
+@use "../settings" as *;
+@use "../tools" as *;
+
+////
+/// Grid
+///
+/// @group objects/layout
+////
+
+@include nhsuk-exports("nhsuk/core/objects/grid") {
+  .nhsuk-grid-row {
+    margin-right: -($nhsuk-gutter-half);
+    margin-left: -($nhsuk-gutter-half);
+    @include nhsuk-clearfix;
+  }
+
+  @each $width in map.keys($nhsuk-grid-widths) {
+    .nhsuk-grid-column-#{$width} {
+      @include nhsuk-grid-column($width);
+    }
+  }
+}
+
+/*# sourceMappingURL=_grid.scss.map */

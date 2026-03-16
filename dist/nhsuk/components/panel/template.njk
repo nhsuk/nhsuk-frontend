@@ -1,0 +1,38 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-panel" -%}
+{%- set classNamesTitle = "nhsuk-panel__title" -%}
+
+{%- if params.titleSize and
+  params.titleSize in ["m", "l", "xl"] and (
+    not params.titleClasses or (
+      not "nhsuk-panel__title--m" in params.titleClasses and
+      not "nhsuk-panel__title--l" in params.titleClasses and
+      not "nhsuk-panel__title--xl" in params.titleClasses
+    )
+  )
+%}
+  {% set classNamesTitle = classNamesTitle ~ " nhsuk-panel__title--" ~ params.titleSize %}
+{% endif %}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif %}
+
+{%- if params.titleClasses %}
+  {% set classNamesTitle = classNamesTitle ~ " " ~ params.titleClasses %}
+{% endif %}
+
+{%- set headingLevel = params.headingLevel if params.headingLevel else 1 -%}
+
+<div {%- if params.id %} id="{{ params.id }}"{% endif %} class="{{ classNames }}" {{- nhsukAttributes(params.attributes) }}>
+  <h{{ headingLevel }} class="{{ classNamesTitle }}">
+    {{ params.titleHtml | safe if params.titleHtml else params.titleText }}
+  </h{{ headingLevel }}>
+  {% if caller or params.html or params.text %}
+  <div class="nhsuk-panel__body">
+    {{ caller() if caller else (params.html | safe | trim | indent(4) if params.html else params.text) }}
+  </div>
+  {% endif %}
+</div>

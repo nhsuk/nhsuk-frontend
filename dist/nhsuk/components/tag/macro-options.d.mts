@@ -1,0 +1,50 @@
+export const name: "Tag";
+/**
+ * Nunjucks macro option params
+ * (with typed keys)
+ *
+ * @type {Record<keyof typeof options, MacroParam>}
+ */
+export const params: Record<keyof typeof options, MacroParam>;
+declare namespace options {
+    namespace id {
+        let type: "string";
+        let required: false;
+        let description: string;
+    }
+    namespace text {
+        let type_1: "string";
+        export { type_1 as type };
+        let required_1: true;
+        export { required_1 as required };
+        let description_1: string;
+        export { description_1 as description };
+    }
+    namespace html {
+        let type_2: "string";
+        export { type_2 as type };
+        let required_2: true;
+        export { required_2 as required };
+        let description_2: string;
+        export { description_2 as description };
+    }
+    namespace classes {
+        let type_3: "string";
+        export { type_3 as type };
+        let required_3: false;
+        export { required_3 as required };
+        let description_3: string;
+        export { description_3 as description };
+    }
+    namespace attributes {
+        let type_4: "object";
+        export { type_4 as type };
+        let required_4: false;
+        export { required_4 as required };
+        let description_4: string;
+        export { description_4 as description };
+    }
+}
+import type { MacroParam } from '#lib';
+export {};
+//# sourceMappingURL=macro-options.d.mts.map

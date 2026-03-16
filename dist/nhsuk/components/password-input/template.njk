@@ -1,0 +1,86 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes -%}
+{% from "nhsuk/macros/i18n.njk" import nhsukI18nAttributes -%}
+{% from "nhsuk/components/button/macro.njk" import button -%}
+{% from "nhsuk/components/input/macro.njk" import input -%}
+
+{%- set id = params.id if params.id else params.name -%}
+
+{% set attributesHtml -%}
+  {{- ' data-module="nhsuk-password-input"' | safe }}
+
+  {{- nhsukI18nAttributes({
+    key: 'show-password',
+    message: params.showPasswordText
+  }) -}}
+
+  {{- nhsukI18nAttributes({
+    key: 'hide-password',
+    message: params.hidePasswordText
+  }) -}}
+
+  {{- nhsukI18nAttributes({
+    key: 'show-password-aria-label',
+    message: params.showPasswordAriaLabelText
+  }) -}}
+
+  {{- nhsukI18nAttributes({
+    key: 'hide-password-aria-label',
+    message: params.hidePasswordAriaLabelText
+  }) -}}
+
+  {{- nhsukI18nAttributes({
+    key: 'password-shown-announcement',
+    message: params.passwordShownAnnouncementText
+  }) -}}
+
+  {{- nhsukI18nAttributes({
+    key: 'password-hidden-announcement',
+    message: params.passwordHiddenAnnouncementText
+  }) -}}
+
+  {{- nhsukAttributes(params.formGroup.attributes) -}}
+{%- endset -%}
+
+{%- set buttonHtml %}
+{{ button({
+  type: "button",
+  classes: "nhsuk-button--secondary nhsuk-button--small nhsuk-password-input__toggle nhsuk-js-password-input-toggle" ~ (" " ~ params.button.classes if params.button.classes),
+  text: params.showPasswordText | default("Show"),
+  attributes: {
+    "aria-controls": id,
+    "aria-label": params.showPasswordAriaLabelText | default("Show password"),
+    "hidden": {
+      value: true,
+      optional: true
+    }
+  }
+}) | trim }}
+{% if params.formGroup.afterInput %}
+  {{- params.formGroup.afterInput.html | safe | trim if params.formGroup.afterInput.html else params.formGroup.afterInput.text }}
+{% endif -%}
+{% endset -%}
+
+{{ input({
+  formGroup: {
+    classes: "nhsuk-password-input" ~ (" " ~ params.formGroup.classes if params.formGroup.classes),
+    attributes: attributesHtml,
+    beforeInput: params.formGroup.beforeInput,
+    afterInput: {
+      html: buttonHtml
+    }
+  },
+  label: params.label,
+  hint: params.hint,
+  classes: "nhsuk-password-input__input nhsuk-js-password-input-input" ~ (" " ~ params.classes if params.classes),
+  errorMessage: params.errorMessage,
+  id: id,
+  name: params.name,
+  type: "password",
+  spellcheck: false,
+  autocapitalize: "none",
+  autocomplete: params.autocomplete if params.autocomplete else "current-password",
+  value: params.value,
+  disabled: params.disabled,
+  describedBy: params.describedBy,
+  attributes: params.attributes
+}) | trim }}
