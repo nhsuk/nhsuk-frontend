@@ -147,5 +147,5 @@ export function mergeExample(example, variant) {
 /**
  * @import { ComponentData } from '@nhsuk/frontend-lib/components.mjs'
  * @import { FileOptions } from '@nhsuk/frontend-lib/files.mjs'
- * @import { MacroExample, MacroExampleFixture, MacroExampleFixtures } from 'nhsuk-frontend/src/nhsuk/lib/index.mjs'
+ * @import { MacroExample, MacroExampleFixture, MacroExampleFixtures } from 'nhsuk-frontend/lib'
  */

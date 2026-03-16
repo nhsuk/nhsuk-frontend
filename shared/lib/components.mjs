@@ -154,5 +154,5 @@ export function getAllFixtures() {
  */
 
 /**
- * @import { MacroExample, MacroExampleFixtures, MacroOption, MacroParam } from 'nhsuk-frontend/src/nhsuk/lib/index.mjs'
+ * @import { MacroExample, MacroExampleFixtures, MacroOption, MacroParam } from 'nhsuk-frontend/lib'
  */
