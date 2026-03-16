@@ -12,6 +12,14 @@ We've added a new `.nhsuk-header--inline` class for the [header](https://service
 
 This was added in [pull request #1783: Add support for inline header search or account](https://github.com/nhsuk/nhsuk-frontend/pull/1783).
 
+### :recycle: **Changes**
+
+#### Align clickable card styles with expander
+
+Clickable cards now follow the hover and active state styling of expanders. On hover their borders darken, on click they depress like a button. On clickable cards with chevrons, the icon changes colour to match link styles.
+
+This was added in [pull request #1804: Update card states for consistency](https://github.com/nhsuk/nhsuk-frontend/pull/1804).
+
 ### :wastebasket: **Deprecated features**
 
 #### Rename Sass variables for secondary and hover border colours

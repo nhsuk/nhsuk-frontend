@@ -14,6 +14,7 @@
 /// 5. Remove the default details marker so we can style our own consistently
 ///    and ensure it displays in Firefox
 /// 6. Custom padding to left align the details text with the summary
+/// 6. Hide the custom details marker in the expander variant
 ///
 /// @group components/details
 /// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
@@ -152,25 +153,40 @@ $expander-icon-size: $nhsuk-expander-icon-size;
   // Expander variant
 
   .nhsuk-expander {
-    border: $nhsuk-expander-border-width solid $nhsuk-expander-border-colour;
     background-color: $nhsuk-card-background-colour;
 
     .nhsuk-details__summary {
       display: block;
+
       width: auto;
-      padding: nhsuk-spacing(4) - $nhsuk-focus-width nhsuk-spacing(4) 0;
-      border-top: $nhsuk-focus-width solid transparent;
+      padding: nhsuk-spacing(4);
+
+      border: $nhsuk-expander-border-width solid $nhsuk-expander-border-colour;
+      border-bottom: $nhsuk-expander-border-bottom-width solid $nhsuk-expander-border-colour;
+
       background-color: $nhsuk-card-background-colour;
 
       @include nhsuk-media-query($from: tablet) {
-        padding: nhsuk-spacing(5) - $nhsuk-focus-width nhsuk-spacing(5) 0;
+        padding: nhsuk-spacing(5);
       }
+    }
+
+    .nhsuk-details__summary:hover,
+    .nhsuk-details__summary:hover + .nhsuk-details__text,
+    &:has(.nhsuk-details__summary:hover) .nhsuk-details__summary,
+    &:has(.nhsuk-details__summary:hover) .nhsuk-details__text {
+      border-color: $nhsuk-expander-border-hover-colour;
+    }
+
+    &[open] .nhsuk-details__summary {
+      border-bottom: 0;
     }
 
     .nhsuk-details__text {
       margin-top: 0;
       margin-left: 0;
-      border-left: 0;
+      border: $nhsuk-expander-border-width solid $nhsuk-expander-border-colour;
+      border-top: 0;
 
       @include nhsuk-responsive-padding(5, "bottom");
       @include nhsuk-responsive-padding(5, "left");
@@ -196,10 +212,6 @@ $expander-icon-size: $nhsuk-expander-icon-size;
     @supports not (-ms-ime-align: auto) {
       border-bottom-width: $nhsuk-expander-border-bottom-width;
 
-      &:hover {
-        border-color: $nhsuk-expander-border-hover-colour;
-      }
-
       .nhsuk-details__summary {
         padding-bottom: nhsuk-spacing(4);
       }
@@ -210,8 +222,9 @@ $expander-icon-size: $nhsuk-expander-icon-size;
         }
       }
 
-      .nhsuk-details__summary::before {
-        display: none;
+      .nhsuk-details__summary::before,
+      &[open] > .nhsuk-details__summary::before {
+        display: none; // [6]
       }
 
       .nhsuk-details__summary:focus {
