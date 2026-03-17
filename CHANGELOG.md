@@ -8,7 +8,7 @@ Note: This release was created from the `support/10.x` branch.
 
 #### Add a modifier class for header inline search or account links
 
-We've added a new `.nhsuk-header--inline` class and `inline` Nunjucks option for the [header](https://service-manual.nhs.uk/design-system/components/header) component. This positions the search bar (or account links) inline with the NHS logo, depending on the length of your service name. For example:
+We've added a new `.nhsuk-header--inline` class and `inline` Nunjucks option for the [header](https://service-manual.nhs.uk/design-system/components/header) component. This positions the search bar (or account links) inline with the NHS logo on small screens, depending on the length of your service name. For example:
 
 ```patch
   {{ header({
