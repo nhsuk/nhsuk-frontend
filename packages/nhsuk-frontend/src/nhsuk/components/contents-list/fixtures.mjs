@@ -1,3 +1,5 @@
+import { outdent } from 'outdent'
+
 /**
  * Nunjucks macro option examples
  *
@@ -52,6 +54,31 @@ const fixtures = {
         false
       ]
     }
+  },
+  'with nested lists': {
+    context: {
+      items: [
+        {
+          href: '#',
+          text: 'Chapter 1'
+        },
+        {
+          href: '#',
+          html: outdent`
+            Chapter 2
+              <ol class="nhsuk-contents-list__list">
+                <li class="nhsuk-contents-list__item">Section 2.1</li>
+                <li class="nhsuk-contents-list__item">Section 2.2</li>
+              </ol>
+          `
+        },
+        {
+          href: '#',
+          text: 'Chapter 3'
+        }
+      ]
+    },
+    screenshot: true
   }
 }
 
