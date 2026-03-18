@@ -34,14 +34,14 @@ describe('Tabs', () => {
       const firstTabAriaSelected = await page.evaluate(() =>
         document.body
           .querySelector('.nhsuk-tabs__list-item:first-child .nhsuk-tabs__tab')
-          .getAttribute('aria-selected')
+          ?.getAttribute('aria-selected')
       )
       expect(firstTabAriaSelected).toBe('true')
 
       const firstTabClasses = await page.evaluate(
         () =>
           document.body.querySelector('.nhsuk-tabs__list-item:first-child')
-            .className
+            ?.className
       )
       expect(firstTabClasses).toContain('nhsuk-tabs__list-item--selected')
     })
@@ -50,7 +50,7 @@ describe('Tabs', () => {
       const tabPanelIsHidden = await page.evaluate(() =>
         document.body
           .querySelector('.nhsuk-tabs > .nhsuk-tabs__panel')
-          .classList.contains('nhsuk-tabs__panel--hidden')
+          ?.classList.contains('nhsuk-tabs__panel--hidden')
       )
       expect(tabPanelIsHidden).toBeFalsy()
     })
@@ -61,7 +61,7 @@ describe('Tabs', () => {
           .querySelector(
             '.nhsuk-tabs > .nhsuk-tabs__panel ~ .nhsuk-tabs__panel'
           )
-          .classList.contains('nhsuk-tabs__panel--hidden')
+          ?.classList.contains('nhsuk-tabs__panel--hidden')
       )
       expect(tabPanelIsHidden).toBeTruthy()
     })
@@ -79,14 +79,14 @@ describe('Tabs', () => {
       const secondTabAriaSelected = await page.evaluate(() =>
         document.body
           .querySelector('.nhsuk-tabs__list-item:nth-child(2) .nhsuk-tabs__tab')
-          .getAttribute('aria-selected')
+          ?.getAttribute('aria-selected')
       )
       expect(secondTabAriaSelected).toBe('true')
 
       const secondTabClasses = await page.evaluate(
         () =>
           document.body.querySelector('.nhsuk-tabs__list-item:nth-child(2)')
-            .className
+            ?.className
       )
       expect(secondTabClasses).toContain('nhsuk-tabs__list-item--selected')
     })
@@ -98,10 +98,10 @@ describe('Tabs', () => {
       const secondTabPanelIsHidden = await page.evaluate(() => {
         const secondTabAriaControls = document.body
           .querySelector('.nhsuk-tabs__list-item:nth-child(2) .nhsuk-tabs__tab')
-          .getAttribute('aria-controls')
+          ?.getAttribute('aria-controls')
         return document.body
           .querySelector(`[id="${secondTabAriaControls}"]`)
-          .classList.contains('nhsuk-tabs__panel--hidden')
+          ?.classList.contains('nhsuk-tabs__panel--hidden')
       })
       expect(secondTabPanelIsHidden).toBeFalsy()
     })
@@ -117,7 +117,10 @@ describe('Tabs', () => {
           const secondTab = document.body.querySelector(
             '.nhsuk-tabs__list-item:nth-child(2) .nhsuk-tabs__tab'
           )
-          secondTab.innerHTML = '<span>Past week</span>'
+
+          if (secondTab) {
+            secondTab.innerHTML = '<span>Past week</span>'
+          }
         })
 
         // Click the DOM element inside the second tab
@@ -130,10 +133,10 @@ describe('Tabs', () => {
             .querySelector(
               '.nhsuk-tabs__list-item:nth-child(2) .nhsuk-tabs__tab'
             )
-            .getAttribute('aria-controls')
+            ?.getAttribute('aria-controls')
           return document.body
             .querySelector(`[id="${secondTabAriaControls}"]`)
-            .classList.contains('nhsuk-tabs__panel--hidden')
+            ?.classList.contains('nhsuk-tabs__panel--hidden')
         })
         expect(secondTabPanelIsHidden).toBeFalsy()
       })
@@ -153,14 +156,14 @@ describe('Tabs', () => {
       const secondTabAriaSelected = await page.evaluate(() =>
         document.body
           .querySelector('.nhsuk-tabs__list-item:nth-child(2) .nhsuk-tabs__tab')
-          .getAttribute('aria-selected')
+          ?.getAttribute('aria-selected')
       )
       expect(secondTabAriaSelected).toBe('true')
 
       const secondTabClasses = await page.evaluate(
         () =>
           document.body.querySelector('.nhsuk-tabs__list-item:nth-child(2)')
-            .className
+            ?.className
       )
       expect(secondTabClasses).toContain('nhsuk-tabs__list-item--selected')
     })
@@ -173,10 +176,10 @@ describe('Tabs', () => {
       const secondTabPanelIsHidden = await page.evaluate(() => {
         const secondTabAriaControls = document.body
           .querySelector('.nhsuk-tabs__list-item:nth-child(2) .nhsuk-tabs__tab')
-          .getAttribute('aria-controls')
+          ?.getAttribute('aria-controls')
         return document.body
           .querySelector(`[id="${secondTabAriaControls}"]`)
-          .classList.contains('nhsuk-tabs__panel--hidden')
+          ?.classList.contains('nhsuk-tabs__panel--hidden')
       })
       expect(secondTabPanelIsHidden).toBeFalsy()
     })
@@ -193,21 +196,21 @@ describe('Tabs', () => {
       const currentTabAriaSelected = await page.evaluate(() =>
         document.body
           .querySelector('.nhsuk-tabs__tab[href="#past-week"]')
-          .getAttribute('aria-selected')
+          ?.getAttribute('aria-selected')
       )
       expect(currentTabAriaSelected).toBe('true')
 
       const currentTabClasses = await page.evaluate(
         () =>
           document.body.querySelector('.nhsuk-tabs__tab[href="#past-week"]')
-            .parentElement.className
+            ?.parentElement?.className
       )
       expect(currentTabClasses).toContain('nhsuk-tabs__list-item--selected')
 
       const currentTabPanelIsHidden = await page.evaluate(() =>
         document
           .getElementById('past-week')
-          .classList.contains('nhsuk-tabs__panel--hidden')
+          ?.classList.contains('nhsuk-tabs__panel--hidden')
       )
       expect(currentTabPanelIsHidden).toBeFalsy()
     })
@@ -218,7 +221,7 @@ describe('Tabs', () => {
       await page.click('[href="#anchor"]')
 
       const activeElementId = await page.evaluate(
-        () => document.activeElement.id
+        () => document.activeElement?.id
       )
       expect(activeElementId).toBe('anchor')
     })
@@ -306,7 +309,7 @@ describe('Tabs', () => {
           beforeInitialisation($root, { selector }) {
             $root
               .querySelector(selector)
-              .setAttribute('class', 'nhsuk-tabs__typo')
+              ?.setAttribute('class', 'nhsuk-tabs__typo')
           },
           context: {
             selector: '.nhsuk-tabs__list'

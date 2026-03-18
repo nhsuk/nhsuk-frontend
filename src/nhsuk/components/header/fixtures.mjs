@@ -10,7 +10,7 @@ export const variants = [
   {
     description: 'white',
     context: {
-      classes: 'nhsuk-header--white'
+      colour: 'white'
     }
   }
 ]
@@ -112,6 +112,31 @@ const fixtures = {
       viewports: ['mobile', 'desktop']
     }
   },
+  'with account inline (logged in)': {
+    context: {
+      inline: true,
+      logo: {
+        href: '#'
+      },
+      account: {
+        items: [
+          {
+            href: '#',
+            text: 'Account',
+            icon: true
+          },
+          {
+            action: '#',
+            text: 'Log out'
+          }
+        ]
+      }
+    },
+    options: {
+      width: false
+    },
+    variants
+  },
   'with account (logged out)': {
     context: {
       account: {
@@ -130,6 +155,26 @@ const fixtures = {
     screenshot: {
       viewports: ['mobile', 'desktop']
     }
+  },
+  'with account inline (logged out)': {
+    context: {
+      inline: true,
+      logo: {
+        href: '#'
+      },
+      account: {
+        items: [
+          {
+            href: '#',
+            text: 'Log in'
+          }
+        ]
+      }
+    },
+    options: {
+      width: false
+    },
+    variants
   },
   'with navigation': {
     context: {
@@ -158,6 +203,45 @@ const fixtures = {
             href: '#',
             text: 'Pregnancy',
             active: true
+          },
+          {
+            href: '#',
+            text: 'NHS services'
+          }
+        ]
+      }
+    },
+    options: {
+      width: false
+    },
+    variants
+  },
+  'with navigation (unlinked item)': {
+    context: {
+      logo: {
+        href: '#'
+      },
+      navigation: {
+        items: [
+          {
+            href: '#',
+            text: 'Health A to Z'
+          },
+          {
+            href: '#',
+            text: 'Live Well'
+          },
+          {
+            href: '#',
+            text: 'Mental health'
+          },
+          {
+            href: '#',
+            text: 'Care and support'
+          },
+          {
+            text: 'Pregnancy',
+            current: true
           },
           {
             href: '#',
@@ -219,7 +303,7 @@ const fixtures = {
         href: '#'
       },
       navigation: {
-        classes: 'nhsuk-header__navigation--justified',
+        justified: true,
         items: [
           {
             href: '#',
@@ -261,6 +345,14 @@ const fixtures = {
     context: {
       logo: {
         href: '#'
+      },
+      service: {
+        text: 'Digital service manual',
+        href: '#'
+      },
+      search: {
+        placeholder: 'Search',
+        visuallyHiddenLabel: 'Search the NHS digital service manual'
       },
       navigation: {
         items: [
@@ -322,8 +414,16 @@ const fixtures = {
       logo: {
         href: '#'
       },
+      service: {
+        text: 'Digital service manual',
+        href: '#'
+      },
+      search: {
+        placeholder: 'Search',
+        visuallyHiddenLabel: 'Search the NHS digital service manual'
+      },
       navigation: {
-        classes: 'nhsuk-header__navigation--white',
+        colour: 'white',
         items: [
           {
             href: '#',
@@ -383,6 +483,16 @@ const fixtures = {
       viewports: ['desktop']
     }
   },
+  'with search inline': {
+    context: {
+      inline: true,
+      search: true
+    },
+    options: {
+      width: false
+    },
+    variants
+  },
   'with service name': {
     context: {
       logo: {
@@ -399,6 +509,63 @@ const fixtures = {
     screenshot: {
       viewports: ['desktop']
     }
+  },
+  'with service name as separate link': {
+    context: {
+      logo: {
+        href: '#/logo'
+      },
+      service: {
+        text: 'Find your NHS number',
+        href: '#/service'
+      }
+    },
+    options: {
+      width: false
+    },
+    variants
+  },
+  'with service name, account inline (logged in)': {
+    context: {
+      inline: true,
+      service: {
+        text: 'Get a self-test kit for HIV',
+        href: '#'
+      },
+      account: {
+        items: [
+          {
+            action: '#',
+            text: 'Log out'
+          }
+        ]
+      }
+    },
+    options: {
+      width: false
+    },
+    variants
+  },
+  'with service name, account inline (logged out)': {
+    context: {
+      inline: true,
+      service: {
+        text: 'Get a self-test kit for HIV',
+        href: '#'
+      },
+      account: {
+        items: [
+          {
+            action: '#',
+            text: 'Log in'
+          }
+        ]
+      }
+    },
+    options: {
+      width: false
+    },
+    variants
   },
   'with service name (linked)': {
     context: {
@@ -648,7 +815,7 @@ const fixtures = {
   },
   'white linked logo, ARIA label': {
     context: {
-      classes: 'nhsuk-header--white',
+      colour: 'white',
       logo: {
         ariaLabel: 'NHS white homepage',
         href: '#'
@@ -661,7 +828,7 @@ const fixtures = {
   },
   'white linked logo, custom': {
     context: {
-      classes: 'nhsuk-header--white',
+      colour: 'white',
       logo: {
         href: '#',
         src: '/nhsuk-frontend/assets/example-logo.svg',

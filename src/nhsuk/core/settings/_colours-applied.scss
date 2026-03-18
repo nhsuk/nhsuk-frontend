@@ -109,15 +109,23 @@ $nhsuk-border-colour: nhsuk-colour("grey-4") !default;
 
 /// Border hover colour
 ///
+/// @deprecated To be removed in v11.0
 /// @type Colour
 
 $nhsuk-border-hover-colour: nhsuk-colour("grey-3") !default;
 
 /// Secondary border colour
 ///
+/// @deprecated To be changed to "grey-3" in v11.0
 /// @type Colour
 
 $nhsuk-secondary-border-colour: rgba(nhsuk-colour("white"), 0.2) !default;
+
+/// Reverse border colour
+///
+/// @type Colour
+
+$nhsuk-reverse-border-colour: nhsuk-tint($nhsuk-brand-colour, 20%) !default;
 
 /// Form border colour
 ///
@@ -140,6 +148,12 @@ $nhsuk-hover-colour: nhsuk-colour("grey-3") !default;
 /// @type Colour
 
 $nhsuk-input-background-colour: nhsuk-colour("white") !default;
+
+/// Code text colour
+///
+/// @type Colour
+
+$nhsuk-code-colour: nhsuk-colour("red") !default;
 
 // =============================================================================
 // Links

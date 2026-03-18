@@ -1,6 +1,5 @@
 module.exports = {
   browserslistEnv: 'javascripts',
-  ignore: ['./src/nhsuk/lib'],
   presets: [
     [
       '@babel/preset-env',
@@ -12,6 +11,16 @@ module.exports = {
         loose: true
       }
     ]
+  ],
+  overrides: [
+    {
+      browserslistEnv: 'node',
+      include: [
+        './src/nhsuk/lib',
+        './src/nhsuk/components/**/fixtures.mjs',
+        './src/nhsuk/components/**/macro-options.mjs'
+      ]
+    }
   ],
   env: {
     test: {

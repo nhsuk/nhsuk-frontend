@@ -17,6 +17,7 @@ const fixtures = {
   'text': {
     context: {
       text: 'What is your full name?',
+      size: 'l',
       isPageHeading: true
     },
     variants: [

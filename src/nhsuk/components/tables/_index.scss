@@ -44,6 +44,16 @@
     @include nhsuk-responsive-margin(7, "bottom");
   }
 
+  .nhsuk-table--reverse,
+  .nhsuk-table-responsive--reverse {
+    color: $nhsuk-reverse-text-colour;
+
+    th,
+    td {
+      border-color: $nhsuk-reverse-border-colour;
+    }
+  }
+
   .nhsuk-table__caption {
     display: table-caption;
     margin-bottom: nhsuk-spacing(3) - nhsuk-spacing(2);
@@ -73,18 +83,6 @@
 
   .nhsuk-table__caption--s {
     @include nhsuk-font-size(22);
-  }
-
-  // [2]
-
-  // Table row hover
-  //
-  // Table row hover is used to aid readability for users.
-
-  .nhsuk-table__row {
-    &:hover {
-      background-color: nhsuk-colour("grey-5");
-    }
   }
 
   // Responsive table
@@ -148,7 +146,7 @@
           text-align: right; // [6]
 
           &:last-child {
-            border-bottom: 3px solid $nhsuk-border-colour;
+            border-bottom-width: 3px;
           }
         }
       }

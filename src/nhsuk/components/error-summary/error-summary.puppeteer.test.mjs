@@ -17,7 +17,7 @@ describe('Error Summary', () => {
     await render(page, 'error-summary', examples.default)
 
     const moduleName = await page.evaluate(() =>
-      document.activeElement.getAttribute('data-module')
+      document.activeElement?.getAttribute('data-module')
     )
 
     expect(moduleName).toBe('nhsuk-error-summary')
@@ -54,7 +54,7 @@ describe('Error Summary', () => {
 
       it('does not focus on page load', async () => {
         const activeElement = await page.evaluate(() =>
-          document.activeElement.getAttribute('data-module')
+          document.activeElement?.getAttribute('data-module')
         )
 
         expect(activeElement).not.toBe('nhsuk-error-summary')
@@ -80,7 +80,7 @@ describe('Error Summary', () => {
 
       it('does not focus on page load', async () => {
         const activeElement = await page.evaluate(() =>
-          document.activeElement.getAttribute('data-module')
+          document.activeElement?.getAttribute('data-module')
         )
 
         expect(activeElement).not.toBe('nhsuk-error-summary')
@@ -105,7 +105,7 @@ describe('Error Summary', () => {
 
       it('is automatically focused when the page loads', async () => {
         const moduleName = await page.evaluate(() =>
-          document.activeElement.getAttribute('data-module')
+          document.activeElement?.getAttribute('data-module')
         )
         expect(moduleName).toBe('nhsuk-error-summary')
       })
@@ -130,7 +130,7 @@ describe('Error Summary', () => {
 
       it('does not focus on page load', async () => {
         const activeElement = await page.evaluate(() =>
-          document.activeElement.getAttribute('data-module')
+          document.activeElement?.getAttribute('data-module')
         )
 
         expect(activeElement).not.toBe('nhsuk-error-summary')
@@ -208,7 +208,10 @@ describe('Error Summary', () => {
     })
 
     it('focuses the target input', async () => {
-      const activeElement = await page.evaluate(() => document.activeElement.id)
+      const activeElement = await page.evaluate(
+        () => document.activeElement?.id
+      )
+
       expect(activeElement).toBe(inputId)
     })
 

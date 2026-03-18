@@ -784,7 +784,7 @@ describe('Character count', () => {
         await expect(
           render(page, 'character-count', examples.default, {
             beforeInitialisation($root, { selector }) {
-              $root.querySelector(selector).remove()
+              $root.querySelector(selector)?.remove()
             },
             context: {
               selector: '.nhsuk-js-character-count'
@@ -803,9 +803,11 @@ describe('Character count', () => {
         await expect(
           render(page, 'character-count', examples.default, {
             beforeInitialisation($root, { selector }) {
+              const $div = document.createElement('div')
+              $div.classList.add('nhsuk-js-character-count')
+
               // Replace with a tag that's neither an `<input>` or `<textarea>`
-              $root.querySelector(selector).outerHTML =
-                '<div class="nhsuk-js-character-count"></div>'
+              $root.querySelector(selector)?.replaceWith($div)
             },
             context: {
               selector: '.nhsuk-js-character-count'
@@ -824,7 +826,7 @@ describe('Character count', () => {
         await expect(
           render(page, 'character-count', examples.default, {
             beforeInitialisation($root, { selector }) {
-              $root.querySelector(selector).remove()
+              $root.querySelector(selector)?.remove()
             },
             context: {
               selector: '#example-info'

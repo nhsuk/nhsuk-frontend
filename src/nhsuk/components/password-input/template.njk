@@ -6,7 +6,9 @@
 {%- set id = params.id if params.id else params.name -%}
 
 {% set attributesHtml -%}
-  {{- ' data-module="nhsuk-password-input"' | safe }}
+  {{- nhsukAttributes({
+    "data-module": "nhsuk-password-input"
+  }) -}}
 
   {{- nhsukI18nAttributes({
     key: 'show-password',
@@ -44,8 +46,10 @@
 {%- set buttonHtml %}
 {{ button({
   type: "button",
-  classes: "nhsuk-button--secondary nhsuk-button--small nhsuk-password-input__toggle nhsuk-js-password-input-toggle" ~ (" " ~ params.button.classes if params.button.classes),
+  classes: "nhsuk-password-input__toggle nhsuk-js-password-input-toggle" ~ (" " ~ params.button.classes if params.button.classes),
   text: params.showPasswordText | default("Show"),
+  variant: "secondary",
+  small: true,
   attributes: {
     "aria-controls": id,
     "aria-label": params.showPasswordAriaLabelText | default("Show password"),
@@ -75,11 +79,12 @@
   errorMessage: params.errorMessage,
   id: id,
   name: params.name,
+  value: params.value,
+  width: params.width,
   type: "password",
   spellcheck: false,
   autocapitalize: "none",
   autocomplete: params.autocomplete if params.autocomplete else "current-password",
-  value: params.value,
   disabled: params.disabled,
   describedBy: params.describedBy,
   attributes: params.attributes

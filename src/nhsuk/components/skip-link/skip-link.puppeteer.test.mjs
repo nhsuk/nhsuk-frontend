@@ -12,7 +12,7 @@ describe('Skip Link', () => {
 
     it('focuses the linked element', async () => {
       const activeElementId = await page.evaluate(
-        () => document.activeElement.id
+        () => document.activeElement?.id
       )
 
       expect(activeElementId).toBe('maincontent')

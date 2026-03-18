@@ -158,7 +158,7 @@
 /// @param {Colour} $panel-border-colour [null] - Optional panel border colour
 ///
 /// @example scss
-///   @include nhsuk-panel($nhsuk-brand-colour, $nhsuk-reverse-text-colour, $nhsuk-secondary-border-colour);
+///   @include nhsuk-panel($nhsuk-brand-colour, $nhsuk-reverse-text-colour, $nhsuk-reverse-border-colour);
 ///
 
 @mixin nhsuk-panel($panel-background-colour, $panel-text-colour, $panel-border-colour: null) {
@@ -186,7 +186,7 @@
 /// @param {Colour} $panel-border-colour - Panel border colour
 ///
 /// @example scss
-///   @include nhsuk-panel-with-label($nhsuk-brand-colour, $nhsuk-reverse-text-colour, $nhsuk-secondary-border-colour);
+///   @include nhsuk-panel-with-label($nhsuk-brand-colour, $nhsuk-reverse-text-colour, $nhsuk-reverse-border-colour);
 ///
 
 @mixin nhsuk-panel-with-label($panel-background-colour, $panel-text-colour, $panel-border-colour) {
@@ -288,13 +288,19 @@
 
 /// Print hide mixin, hides the element from print
 ///
+/// @param {Boolean} $important [false] - Whether to mark as `!important`
+///
 /// @example scss
 ///   @include nhsuk-print-hide;
 ///
 
-@mixin nhsuk-print-hide {
+@mixin nhsuk-print-hide($important: false) {
   @include nhsuk-media-query($media-type: print) {
-    display: none;
+    @if $important == true {
+      display: none !important;
+    } @else {
+      display: none;
+    }
   }
 }
 

@@ -52,6 +52,35 @@ const fixtures = {
         false
       ]
     }
+  },
+  'with nested lists': {
+    context: {
+      items: [
+        {
+          href: '#',
+          text: 'Chapter 1'
+        },
+        {
+          href: '#',
+          text: 'Chapter 2',
+          items: [
+            {
+              href: '#',
+              text: 'Section 2.1'
+            },
+            {
+              href: '#',
+              text: 'Section 2.2'
+            }
+          ]
+        },
+        {
+          href: '#',
+          text: 'Chapter 3'
+        }
+      ]
+    },
+    screenshot: true
   }
 }
 

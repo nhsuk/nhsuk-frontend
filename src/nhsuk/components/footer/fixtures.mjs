@@ -41,7 +41,6 @@ const fixtures = {
     }
   },
   'with copyright text only': {
-    context: {},
     options: {
       width: false
     }

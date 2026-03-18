@@ -16,6 +16,13 @@
     @include nhsuk-responsive-margin(6, "bottom");
   }
 
+  // Nested lists need to remove the margin at the bottom,
+  // and add the same margin at the top as is between list items.
+  .nhsuk-contents-list__list .nhsuk-contents-list__list {
+    margin-bottom: 0;
+    @include nhsuk-responsive-margin(2, "top");
+  }
+
   .nhsuk-contents-list__item {
     @include nhsuk-shape-dash;
   }

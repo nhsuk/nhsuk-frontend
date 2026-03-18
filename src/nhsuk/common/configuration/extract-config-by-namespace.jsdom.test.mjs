@@ -47,7 +47,9 @@ describe('extractConfigByNamespace', () => {
       </div>
     `
 
-    $element = document.getElementById('app-example')
+    $element = /** @type {HTMLElement} */ (
+      document.getElementById('app-example')
+    )
   })
 
   it('defaults to empty config for known namespaces only', () => {
@@ -98,7 +100,10 @@ describe('extractConfigByNamespace', () => {
       </div>
     `
 
-    const { dataset } = document.getElementById('app-example2')
+    const { dataset } = /** @type {HTMLElement} */ (
+      document.getElementById('app-example2')
+    )
+
     const result = extractConfigByNamespace(schema2, dataset, 'i18n')
 
     expect(result).toEqual({ key1: 'One', key2: 'Two', key3: 'Three' })
@@ -114,7 +119,10 @@ describe('extractConfigByNamespace', () => {
       </div>
     `
 
-    const { dataset } = document.getElementById('app-example2')
+    const { dataset } = /** @type {HTMLElement} */ (
+      document.getElementById('app-example2')
+    )
+
     const result = extractConfigByNamespace(schema2, dataset, 'i18n')
 
     expect(result).toEqual({ key1: 'One', key2: 'Two', key3: 'Three' })
@@ -128,7 +136,9 @@ describe('extractConfigByNamespace', () => {
       </div>
     `
 
-    const { dataset } = document.getElementById('app-example')
+    const { dataset } = /** @type {HTMLElement} */ (
+      document.getElementById('app-example')
+    )
 
     const result1 = extractConfigByNamespace(schema1, dataset, 'b')
     const result2 = extractConfigByNamespace(schema1, dataset, 'c')
@@ -153,7 +163,10 @@ describe('extractConfigByNamespace', () => {
       </div>
     `
 
-    const { dataset } = document.getElementById('app-example')
+    const { dataset } = /** @type {HTMLElement} */ (
+      document.getElementById('app-example')
+    )
+
     const result = extractConfigByNamespace(schema1, dataset, 'c')
 
     expect(result).toEqual({
@@ -178,7 +191,10 @@ describe('extractConfigByNamespace', () => {
       </div>
     `
 
-    const { dataset } = document.getElementById('app-example')
+    const { dataset } = /** @type {HTMLElement} */ (
+      document.getElementById('app-example')
+    )
+
     const result = extractConfigByNamespace(schema1, dataset, 'c')
 
     expect(result).toEqual({ a: 'cat', c: 'crow', o: 'cow' })
@@ -200,7 +216,10 @@ describe('extractConfigByNamespace', () => {
       </div>
     `
 
-    const { dataset } = document.getElementById('app-example')
+    const { dataset } = /** @type {HTMLElement} */ (
+      document.getElementById('app-example')
+    )
+
     const result = extractConfigByNamespace(schema1, dataset, 'c')
 
     expect(result).toEqual({ a: 'cat', c: 'crow', o: 'cow' })
@@ -220,7 +239,10 @@ describe('extractConfigByNamespace', () => {
       </div>
     `
 
-    const { dataset } = document.getElementById('app-example')
+    const { dataset } = /** @type {HTMLElement} */ (
+      document.getElementById('app-example')
+    )
+
     const result = extractConfigByNamespace(schema1, dataset, 'f')
 
     expect(result).toEqual({ e: { l: 'elephant' } })
@@ -235,7 +257,10 @@ describe('extractConfigByNamespace', () => {
       </div>
     `
 
-    const { dataset } = document.getElementById('app-example2')
+    const { dataset } = /** @type {HTMLElement} */ (
+      document.getElementById('app-example2')
+    )
+
     const result = extractConfigByNamespace(schema2, dataset, 'i18n')
 
     expect(result).toEqual({
@@ -259,7 +284,10 @@ describe('extractConfigByNamespace', () => {
       </div>
     `
 
-    const { dataset } = document.getElementById('app-example2')
+    const { dataset } = /** @type {HTMLElement} */ (
+      document.getElementById('app-example2')
+    )
+
     const result = extractConfigByNamespace(schema2, dataset, 'i18n')
 
     expect(result).toEqual({

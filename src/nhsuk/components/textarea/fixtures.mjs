@@ -36,6 +36,7 @@ const fixtures = {
     context: {
       label: {
         text: 'Can you provide more detail?',
+        size: 'l',
         isPageHeading: true
       },
       hint: {

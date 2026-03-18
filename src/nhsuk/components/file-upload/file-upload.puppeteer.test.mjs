@@ -58,8 +58,9 @@ describe('File upload', () => {
         it('moves the file input inside of the wrapper element', async () => {
           const inputElementParent = await page.$eval(
             inputSelector,
-            (el) => el.parentNode
+            (el) => el.parentElement
           )
+
           const wrapperElement = await page.$eval(dropZoneSelector, (el) => el)
 
           expect(inputElementParent).toStrictEqual(wrapperElement)
@@ -266,10 +267,15 @@ describe('File upload', () => {
       beforeEach(async () => {
         await render(page, 'file-upload', examples.default)
 
-        $wrapper = await page.$(dropZoneSelector)
-        wrapperBoundingBox = await $wrapper.boundingBox()
+        $wrapper = /** @type {ElementHandle} */ (await page.$(dropZoneSelector))
 
-        $announcements = await page.$(announcementsSelector)
+        wrapperBoundingBox = /** @type {BoundingBox} */ (
+          await $wrapper.boundingBox()
+        )
+
+        $announcements = /** @type {ElementHandle} */ (
+          await page.$(announcementsSelector)
+        )
       })
 
       it('is not shown by default', async () => {
@@ -370,7 +376,9 @@ describe('File upload', () => {
           structuredClone(dragData)
         )
 
-        const disabledAnnouncement = await page.$(announcementsSelector)
+        const disabledAnnouncement = /** @type {ElementHandle} */ (
+          await page.$(announcementsSelector)
+        )
 
         await expect(page.$(selectorDropzoneHidden)).resolves.toBeTruthy()
         await expect(
@@ -525,7 +533,7 @@ describe('File upload', () => {
         await render(page, 'file-upload', examples['with hint and error'])
 
         const $button = await page.$(dropButtonSelector)
-        const ariaDescribedBy = await $button.evaluate((el) =>
+        const ariaDescribedBy = await $button?.evaluate((el) =>
           el.getAttribute('aria-describedby')
         )
 
@@ -536,7 +544,7 @@ describe('File upload', () => {
         await render(page, 'file-upload', examples.default)
 
         const $button = await page.$(dropButtonSelector)
-        const ariaDescribedBy = await $button.evaluate((el) =>
+        const ariaDescribedBy = await $button?.evaluate((el) =>
           el.getAttribute('aria-describedby')
         )
 
@@ -613,7 +621,7 @@ describe('File upload', () => {
           await expect(
             render(page, 'file-upload', examples.default, {
               beforeInitialisation() {
-                document.querySelector('[type="file"]').remove()
+                document.querySelector('[type="file"]')?.remove()
               }
             })
           ).rejects.toMatchObject({
@@ -628,7 +636,7 @@ describe('File upload', () => {
           await expect(
             render(page, 'file-upload', examples.default, {
               beforeInitialisation() {
-                document.querySelector('[type="file"]').removeAttribute('id')
+                document.querySelector('[type="file"]')?.removeAttribute('id')
               }
             })
           ).rejects.toMatchObject({
@@ -646,7 +654,7 @@ describe('File upload', () => {
               beforeInitialisation() {
                 document
                   .querySelector('[type="file"]')
-                  .setAttribute('type', 'text')
+                  ?.setAttribute('type', 'text')
               }
             })
           ).rejects.toMatchObject({
@@ -662,7 +670,7 @@ describe('File upload', () => {
           await expect(
             render(page, 'file-upload', examples.default, {
               beforeInitialisation() {
-                document.querySelector('label').remove()
+                document.querySelector('label')?.remove()
               }
             })
           ).rejects.toMatchObject({
@@ -681,7 +689,9 @@ describe('File upload', () => {
           await expect(
             render(page, 'file-upload', examples.default, {
               beforeInitialisation($root, { selector }) {
-                const $input = $root.querySelector(selector)
+                const $input = /** @type {HTMLElement} */ (
+                  $root.querySelector(selector)
+                )
 
                 // 1. Create drop zone
                 const $dropZone = document.createElement('div')
@@ -705,7 +715,9 @@ describe('File upload', () => {
           await expect(
             render(page, 'file-upload', examples.default, {
               beforeInitialisation($root, { selector }) {
-                const $input = $root.querySelector(selector)
+                const $input = /** @type {HTMLElement} */ (
+                  $root.querySelector(selector)
+                )
 
                 // 1. Create drop zone
                 const $dropZone = document.createElement('div')

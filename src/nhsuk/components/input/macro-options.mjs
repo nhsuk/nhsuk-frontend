@@ -20,7 +20,7 @@ const options = {
     type: 'string',
     required: false,
     description:
-      'Type of input control to render, for example, an email input control. Defaults to `"text"`.'
+      'Type of input control, for example, an email input control. Defaults to `"text"`.'
   },
   inputmode: {
     type: 'string',
@@ -122,6 +122,18 @@ const options = {
           'HTML attributes (for example data attributes) to add to the suffix element.'
       }
     }
+  },
+  code: {
+    type: 'boolean',
+    required: false,
+    description:
+      'If set to `true`, use a monospace font for codes or sequences.'
+  },
+  width: {
+    type: 'integer',
+    required: false,
+    description:
+      'Optional fixed width for the text input component – `2`, `3`, `4`, `5`, `10`, `20` or `30`.'
   },
   formGroup: {
     type: 'object',

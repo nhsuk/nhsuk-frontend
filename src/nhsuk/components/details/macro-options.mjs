@@ -46,6 +46,12 @@ const options = {
     description:
       'Not strictly a parameter but a Nunjucks code convention. Using a `call` block enables you to call a macro with all the text inside the tag. This is helpful if you want to pass a lot of content into a macro. To use it, you will need to wrap the entire details component in a `call` block.'
   },
+  variant: {
+    type: 'string',
+    required: false,
+    description:
+      'Optional variant of details. You can use only `"reverse"` or empty values with this option.'
+  },
   classes: {
     type: 'string',
     required: false,

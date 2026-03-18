@@ -1,4 +1,4 @@
-import { formatErrorMessage } from '../common/index.mjs'
+import { formatErrorMessage, isScope } from '../common/index.mjs'
 
 /**
  * NHS.UK frontend error
@@ -33,19 +33,20 @@ export class SupportError extends NHSUKFrontendError {
   /**
    * Checks if NHS.UK frontend is supported on this page
    *
-   * @param {HTMLElement | null} [$scope] - HTML element `<body>` checked for browser support
+   * @param {Element | Document | null | string} [scopeOrMessage] - HTML element `<body>` checked for browser support or support error message
    */
-  constructor($scope = document.body) {
-    const supportMessage =
+  constructor(scopeOrMessage = document.body) {
+    let supportMessage =
       'noModule' in HTMLScriptElement.prototype
         ? 'NHS.UK frontend initialised without `<body class="nhsuk-frontend-supported">` from template `<script>` snippet'
         : 'NHS.UK frontend is not supported in this browser'
 
-    super(
-      $scope
-        ? supportMessage
-        : 'NHS.UK frontend initialised without `<script type="module">`'
-    )
+    if (!isScope(scopeOrMessage)) {
+      supportMessage =
+        'NHS.UK frontend initialised without `<script type="module">`'
+    }
+
+    super(typeof scopeOrMessage === 'string' ? scopeOrMessage : supportMessage)
   }
 }
 

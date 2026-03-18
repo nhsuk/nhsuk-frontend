@@ -21,7 +21,7 @@ export const variants = [
   {
     description: 'small',
     context: {
-      classes: 'nhsuk-checkboxes--small',
+      small: true,
       fieldset: {
         legend: {
           size: 'm',
@@ -364,7 +364,8 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: 'How do you want to be contacted about this?'
+          text: 'How do you want to be contacted about this?',
+          size: 'l'
         }
       },
       hint: {

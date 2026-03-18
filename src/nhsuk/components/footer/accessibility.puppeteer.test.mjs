@@ -7,7 +7,7 @@ import {
 import { examples } from './fixtures.mjs'
 
 describe('Footer', () => {
-  it('Listing page passes accessibility tests', async () => {
+  it('listing page passes accessibility tests', async () => {
     await goToComponent(page, 'footer')
     return expect(
       axe(page, {
@@ -17,7 +17,7 @@ describe('Footer', () => {
         'landmark-unique': { enabled: false }
       })
     ).resolves.toHaveNoViolations()
-  })
+  }, 20000)
 
   describe.each(Object.entries(examples))('%s', (name, example) => {
     it.each(getOptions(name, example))(

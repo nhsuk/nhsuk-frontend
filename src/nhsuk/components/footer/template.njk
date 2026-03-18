@@ -1,6 +1,13 @@
-{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes -%}
 
-{% set columns = params.columns | default(4, true) -%}
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-footer" -%}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif %}
+
+{%- set columns = params.columns | default(4, true) -%}
 
 {% switch columns %}
   {% case 1 %}
@@ -29,8 +36,7 @@
 </ul>
 {% endmacro -%}
 
-<footer {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-footer
-  {%- if params.classes %} {{ params.classes }}{% endif %}" role="contentinfo"
+<footer class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %} role="contentinfo"
   {{- nhsukAttributes(params.attributes) }}>
   <div class="nhsuk-width-container {%- if params.containerClasses %} {{ params.containerClasses }}{% endif %}">
 {% if params.navigation %}
@@ -46,7 +52,9 @@
       {% elif navigation.text %}
         <p class="nhsuk-body-s">{{ navigation.text }}</p>
       {% endif %}
+      {% if navigation.items %}
         {{ _footerList(navigation.items) | trim | indent(8) }}
+      {% endif %}
       </div>
     {% endfor %}
     </div>
@@ -56,7 +64,7 @@
 {% if params.meta %}
     {% if params.meta.items %}
       <h2 class="nhsuk-u-visually-hidden">{{ params.meta.visuallyHiddenTitle | default("Support links") }}</h2>
-      {{ _footerList(params.meta.items) | indent(6) }}
+      {{ _footerList(params.meta.items) | trim | indent(6) }}
     {% endif %}
     {% if caller or params.meta.html %}
       {{ caller() if caller else params.meta.html | safe | trim | indent(6) }}

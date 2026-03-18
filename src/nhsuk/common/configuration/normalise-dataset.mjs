@@ -1,5 +1,4 @@
-import { ConfigError } from '../../errors/index.mjs'
-import { formatErrorMessage, isObject } from '../index.mjs'
+import { isObject } from '../index.mjs'
 
 import { extractConfigByNamespace } from './extract-config-by-namespace.mjs'
 import { normaliseArray, normaliseString } from './normalise-string.mjs'
@@ -17,16 +16,11 @@ import { normaliseArray, normaliseString } from './normalise-string.mjs'
  * @returns {ObjectNested} Normalised dataset
  */
 export function normaliseDataset(Component, dataset) {
+  const out = /** @type {ObjectNested} */ ({})
   if (!isObject(Component.schema)) {
-    throw new ConfigError(
-      formatErrorMessage(
-        Component,
-        'Config passed as parameter into constructor but no schema defined'
-      )
-    )
+    return out
   }
 
-  const out = /** @type {ObjectNested} */ ({})
   const entries = /** @type {SchemaEntryType} */ (
     Object.entries(Component.schema.properties)
   )

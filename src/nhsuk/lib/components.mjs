@@ -1,5 +1,5 @@
 import * as names from './names.mjs'
-import * as nunjucks from './nunjucks.mjs'
+import * as nunjucks from './nunjucks/index.mjs'
 
 /**
  * Render component HTML
@@ -16,12 +16,27 @@ export function render(component, options) {
 }
 
 /**
+ * Return component macro
+ *
+ * @param {string} component - Component directory name
+ * @param {MacroRenderOptions | MacroExample} [options] - Nunjucks macro render options
+ * @returns Nunjucks code to render the macro
+ */
+export function macro(component, options) {
+  const macroName = names.componentNameToMacroName(component, options?.prefix)
+  const macroPath = `${component}/macro.njk`
+
+  return nunjucks.macro(macroName, macroPath, options)
+}
+
+/**
  * Nunjucks macro option config
  *
  * @typedef {object} MacroParam
  * @property {'array' | 'boolean' | 'integer' | 'nunjucks-block' | 'object' | 'string'} type - Option type
  * @property {boolean} required - Option required
  * @property {string} description - Option description
+ * @property {string} [deprecated] - Option is deprecated in NHS.UK frontend version number
  * @property {true} [isComponent] - Option is another component
  * @property {{ [param: string]: MacroParam }} [params] - Nunjucks macro option params
  */
@@ -34,6 +49,18 @@ export function render(component, options) {
  * @property {string} [selector] - Selector to apply state (optional)
  * @property {string} [name] - Selector name (optional)
  * @property {('watch' | 'mobile' | 'tablet' | 'desktop' | 'large-desktop' | 'xlarge-desktop')[]} [viewports] - Screenshot viewports (optional)
+ */
+
+/**
+ * Nunjucks macro scenario for BackstopJS
+ * (with support for additional selectors)
+ *
+ * @typedef {Scenario & {
+ *   focusSelector?: string,
+ *   focusSelectors?: string[],
+ *   activeSelector?: string,
+ *   activeSelectors?: string[]
+ * }} MacroScenario
  */
 
 /**
@@ -94,9 +121,11 @@ export function render(component, options) {
  * Nunjucks macro example fixture
  * (used by the Design System website)
  *
- * @typedef {Omit<Required<MacroExample>, 'prefix' | 'variants'> & {
+ * @typedef {Omit<Required<MacroExample>, 'callBlock' | 'description' | 'prefix' | 'variants'> & {
  *   name: string,
- *   html: string
+ *   description: string | undefined,
+ *   callBlock: string | undefined
+ *   html: string,
  * }} MacroExampleFixture
  */
 
@@ -118,5 +147,6 @@ export function render(component, options) {
  */
 
 /**
- * @import { MacroRenderOptions } from './nunjucks.mjs'
+ * @import { Scenario } from 'backstopjs'
+ * @import { MacroRenderOptions } from '#lib'
  */

@@ -40,6 +40,11 @@ const options = {
         description:
           'Item-specific label text. If provided, this will be used instead of `name` for item label text.'
       },
+      error: {
+        type: 'boolean',
+        required: false,
+        description: 'If set to `true`, show a red border on the item input.'
+      },
       inputmode: {
         type: 'string',
         required: false,

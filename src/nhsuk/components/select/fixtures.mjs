@@ -207,7 +207,8 @@ const fixtures = {
           html: components.render('button', {
             context: {
               text: 'Save',
-              classes: 'nhsuk-button--secondary nhsuk-button--small'
+              variant: 'secondary',
+              small: true
             }
           })
         }
@@ -278,7 +279,8 @@ const fixtures = {
           html: components.render('button', {
             context: {
               text: 'Save',
-              classes: 'nhsuk-button--secondary nhsuk-button--small'
+              variant: 'secondary',
+              small: true
             }
           })
         }
@@ -292,6 +294,7 @@ const fixtures = {
     context: {
       label: {
         text: 'Sort by',
+        size: 'l',
         isPageHeading: true
       },
       id: 'custom-size',

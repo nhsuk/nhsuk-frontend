@@ -29,16 +29,16 @@ const fixtures = {
       `
     }
   },
-  'with type as success': {
+  'with success variant': {
     context: {
-      type: 'success',
+      variant: 'success',
       text: 'Email sent to example@email.com'
     },
     screenshot: true
   },
   'success with custom html': {
     context: {
-      type: 'success',
+      variant: 'success',
       html: outdent`
         <h3 class="nhsuk-notification-banner__heading">
           4 files uploaded
@@ -84,9 +84,9 @@ const fixtures = {
       `
     }
   },
-  'auto-focus disabled, with type as success': {
+  'auto-focus disabled, with success variant': {
     context: {
-      type: 'success',
+      variant: 'success',
       disableAutoFocus: true,
       text: 'Email sent to example@email.com'
     },
@@ -94,9 +94,9 @@ const fixtures = {
       hidden: true
     }
   },
-  'auto-focus explicitly enabled, with type as success': {
+  'auto-focus explicitly enabled, with success variant': {
     context: {
-      type: 'success',
+      variant: 'success',
       disableAutoFocus: false,
       text: 'Email sent to example@email.com'
     },
@@ -104,9 +104,9 @@ const fixtures = {
       hidden: true
     }
   },
-  'role=alert overridden to role=region, with type as success': {
+  'role=alert overridden to role=region, with success variant': {
     context: {
-      type: 'success',
+      variant: 'success',
       role: 'region',
       text: 'Email sent to example@email.com'
     },
@@ -116,7 +116,7 @@ const fixtures = {
   },
   'custom tabindex': {
     context: {
-      type: 'success',
+      variant: 'success',
       text: 'Email sent to example@email.com',
       attributes: {
         tabindex: 2

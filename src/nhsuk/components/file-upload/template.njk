@@ -5,14 +5,14 @@
 {% from "nhsuk/components/label/macro.njk" import label %}
 
 {#- Set classes for this component #}
-{%- set classNames = "nhsuk-form-group" -%}
+{%- set classNamesFormGroup = "nhsuk-form-group" -%}
 
 {%- if params.errorMessage %}
-  {% set classNames = classNames ~ " nhsuk-form-group--error" %}
+  {% set classNamesFormGroup = classNamesFormGroup ~ " nhsuk-form-group--error" %}
 {% endif %}
 
 {%- if params.formGroup.classes %}
-  {% set classNames = classNames ~ " " ~ params.formGroup.classes %}
+  {% set classNamesFormGroup = classNamesFormGroup ~ " " ~ params.formGroup.classes %}
 {% endif %}
 
 {#- a record of other elements that we need to associate with the input using
@@ -22,7 +22,7 @@
 
 <div
   {{- nhsukAttributes({
-    class: classNames ~ " nhsuk-file-upload",
+    class: classNamesFormGroup ~ " nhsuk-file-upload",
     "data-module": "nhsuk-file-upload",
     "data-choose-files-button-class-list": {
       value: params.chooseFilesButtonClassList,

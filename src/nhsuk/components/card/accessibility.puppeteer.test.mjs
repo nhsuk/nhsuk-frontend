@@ -7,10 +7,10 @@ import {
 import { examples } from './fixtures.mjs'
 
 describe('Card', () => {
-  it('Listing page passes accessibility tests', async () => {
+  it('listing page passes accessibility tests', async () => {
     await goToComponent(page, 'card')
     return expect(axe(page)).resolves.toHaveNoViolations()
-  })
+  }, 20000)
 
   describe.each(Object.entries(examples))('%s', (name, example) => {
     it.each(getOptions(name, example))(

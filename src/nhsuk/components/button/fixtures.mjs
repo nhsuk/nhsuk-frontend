@@ -16,7 +16,7 @@ const fixtures = {
   'default, small': {
     context: {
       text: 'Save and continue',
-      classes: 'nhsuk-button--small'
+      small: true
     }
   },
   'disabled': {
@@ -29,8 +29,8 @@ const fixtures = {
   'disabled, small': {
     context: {
       text: 'Disabled button',
-      classes: 'nhsuk-button--small',
-      disabled: true
+      disabled: true,
+      small: true
     }
   },
   'as a link': {
@@ -46,14 +46,14 @@ const fixtures = {
   'as a link, small': {
     context: {
       text: 'Link button',
-      classes: 'nhsuk-button--small',
+      small: true,
       href: '#'
     }
   },
   'login': {
     context: {
       text: 'Continue',
-      classes: 'nhsuk-button--login'
+      variant: 'login'
     },
     screenshot: {
       states: ['focus', 'hover', 'active'],
@@ -63,13 +63,14 @@ const fixtures = {
   'login, small': {
     context: {
       text: 'Continue',
-      classes: 'nhsuk-button--login nhsuk-button--small'
+      variant: 'login',
+      small: true
     }
   },
   'login disabled': {
     context: {
       text: 'Continue',
-      classes: 'nhsuk-button--login',
+      variant: 'login',
       disabled: true
     },
     screenshot: true
@@ -77,14 +78,15 @@ const fixtures = {
   'login disabled, small': {
     context: {
       text: 'Continue',
-      classes: 'nhsuk-button--login nhsuk-button--small',
-      disabled: true
+      variant: 'login',
+      disabled: true,
+      small: true
     }
   },
   'login as a link': {
     context: {
       text: 'Continue',
-      classes: 'nhsuk-button--login',
+      variant: 'login',
       href: '#'
     },
     screenshot: {
@@ -95,7 +97,8 @@ const fixtures = {
   'login as a link, small': {
     context: {
       text: 'Continue',
-      classes: 'nhsuk-button--login nhsuk-button--small',
+      variant: 'login',
+      small: true,
       href: '#'
     }
   },
@@ -114,7 +117,7 @@ const fixtures = {
   'reverse': {
     context: {
       text: 'Log out',
-      classes: 'nhsuk-button--reverse'
+      variant: 'reverse'
     },
     options: {
       layout: 'background-blue'
@@ -127,7 +130,8 @@ const fixtures = {
   'reverse, small': {
     context: {
       text: 'Log out',
-      classes: 'nhsuk-button--reverse nhsuk-button--small'
+      variant: 'reverse',
+      small: true
     },
     options: {
       layout: 'background-blue'
@@ -136,7 +140,7 @@ const fixtures = {
   'reverse disabled': {
     context: {
       text: 'Log out',
-      classes: 'nhsuk-button--reverse',
+      variant: 'reverse',
       disabled: true
     },
     options: {
@@ -147,8 +151,9 @@ const fixtures = {
   'reverse disabled, small': {
     context: {
       text: 'Log out',
-      classes: 'nhsuk-button--reverse nhsuk-button--small',
-      disabled: true
+      variant: 'reverse',
+      disabled: true,
+      small: true
     },
     options: {
       layout: 'background-blue'
@@ -157,7 +162,7 @@ const fixtures = {
   'reverse as a link': {
     context: {
       text: 'Log out',
-      classes: 'nhsuk-button--reverse',
+      variant: 'reverse',
       href: '#'
     },
     options: {
@@ -171,7 +176,8 @@ const fixtures = {
   'reverse as a link, small': {
     context: {
       text: 'Log out',
-      classes: 'nhsuk-button--reverse nhsuk-button--small',
+      variant: 'reverse',
+      small: true,
       href: '#'
     },
     options: {
@@ -181,7 +187,7 @@ const fixtures = {
   'secondary': {
     context: {
       text: 'Find my location',
-      classes: 'nhsuk-button--secondary'
+      variant: 'secondary'
     },
     screenshot: {
       states: ['focus', 'hover', 'active'],
@@ -191,13 +197,14 @@ const fixtures = {
   'secondary, small': {
     context: {
       text: 'Find my location',
-      classes: 'nhsuk-button--secondary nhsuk-button--small'
+      variant: 'secondary',
+      small: true
     }
   },
   'secondary disabled': {
     context: {
       text: 'Find my location',
-      classes: 'nhsuk-button--secondary',
+      variant: 'secondary',
       disabled: true
     },
     screenshot: true
@@ -205,14 +212,15 @@ const fixtures = {
   'secondary disabled, small': {
     context: {
       text: 'Find my location',
-      classes: 'nhsuk-button--secondary nhsuk-button--small',
-      disabled: true
+      variant: 'secondary',
+      disabled: true,
+      small: true
     }
   },
   'secondary as a link': {
     context: {
       text: 'Find my location',
-      classes: 'nhsuk-button--secondary',
+      variant: 'secondary',
       href: '#'
     },
     screenshot: {
@@ -223,14 +231,15 @@ const fixtures = {
   'secondary as a link, small': {
     context: {
       text: 'Find my location',
-      classes: 'nhsuk-button--secondary nhsuk-button--small',
+      variant: 'secondary',
+      small: true,
       href: '#'
     }
   },
   'secondary, solid background': {
     context: {
       text: 'Find my location',
-      classes: 'nhsuk-button--secondary-solid'
+      variant: 'secondary-solid'
     },
     options: {
       layout: 'background-grey'
@@ -243,7 +252,8 @@ const fixtures = {
   'secondary, solid background, small': {
     context: {
       text: 'Find my location',
-      classes: 'nhsuk-button--secondary-solid nhsuk-button--small'
+      variant: 'secondary-solid',
+      small: true
     },
     options: {
       layout: 'background-grey'
@@ -252,7 +262,7 @@ const fixtures = {
   'secondary, solid background disabled': {
     context: {
       text: 'Find my location',
-      classes: 'nhsuk-button--secondary-solid',
+      variant: 'secondary-solid',
       disabled: true
     },
     options: {
@@ -263,8 +273,9 @@ const fixtures = {
   'secondary, solid background disabled, small': {
     context: {
       text: 'Find my location',
-      classes: 'nhsuk-button--secondary-solid nhsuk-button--small',
-      disabled: true
+      variant: 'secondary-solid',
+      disabled: true,
+      small: true
     },
     options: {
       layout: 'background-grey'
@@ -273,7 +284,7 @@ const fixtures = {
   'secondary, solid background as a link': {
     context: {
       text: 'Find my location',
-      classes: 'nhsuk-button--secondary-solid',
+      variant: 'secondary-solid',
       href: '#'
     },
     options: {
@@ -287,7 +298,8 @@ const fixtures = {
   'secondary, solid background as a link, small': {
     context: {
       text: 'Find my location',
-      classes: 'nhsuk-button--secondary-solid nhsuk-button--small',
+      variant: 'secondary-solid',
+      small: true,
       href: '#'
     },
     options: {
@@ -297,7 +309,7 @@ const fixtures = {
   'warning': {
     context: {
       text: 'Yes, delete this vaccine',
-      classes: 'nhsuk-button--warning'
+      variant: 'warning'
     },
     screenshot: {
       states: ['focus', 'hover', 'active'],
@@ -307,13 +319,14 @@ const fixtures = {
   'warning, small': {
     context: {
       text: 'Yes, delete this vaccine',
-      classes: 'nhsuk-button--warning nhsuk-button--small'
+      small: true,
+      variant: 'warning'
     }
   },
   'warning disabled': {
     context: {
       text: 'Yes, delete this vaccine',
-      classes: 'nhsuk-button--warning',
+      variant: 'warning',
       disabled: true
     },
     screenshot: true
@@ -321,14 +334,15 @@ const fixtures = {
   'warning disabled, small': {
     context: {
       text: 'Yes, delete this vaccine',
-      classes: 'nhsuk-button--warning nhsuk-button--small',
+      variant: 'warning',
+      small: true,
       disabled: true
     }
   },
   'warning as a link': {
     context: {
       text: 'Yes, delete this vaccine',
-      classes: 'nhsuk-button--warning',
+      variant: 'warning',
       href: '#'
     },
     screenshot: {
@@ -339,7 +353,8 @@ const fixtures = {
   'warning as a link, small': {
     context: {
       text: 'Yes, delete this vaccine',
-      classes: 'nhsuk-button--warning nhsuk-button--small',
+      small: true,
+      variant: 'warning',
       href: '#'
     }
   }

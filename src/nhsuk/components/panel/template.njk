@@ -1,8 +1,15 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
+{#- Set variant for this component #}
+{%- set variant = params.variant -%}
+
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-panel" -%}
 {%- set classNamesTitle = "nhsuk-panel__title" -%}
+
+{%- if variant == "interruption" and (not params.classes or not "nhsuk-panel--interruption" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-panel--" ~ variant %}
+{% endif %}
 
 {%- if params.titleSize and
   params.titleSize in ["m", "l", "xl"] and (
@@ -26,7 +33,7 @@
 
 {%- set headingLevel = params.headingLevel if params.headingLevel else 1 -%}
 
-<div {%- if params.id %} id="{{ params.id }}"{% endif %} class="{{ classNames }}" {{- nhsukAttributes(params.attributes) }}>
+<div class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %} {{- nhsukAttributes(params.attributes) }}>
   <h{{ headingLevel }} class="{{ classNamesTitle }}">
     {{ params.titleHtml | safe if params.titleHtml else params.titleText }}
   </h{{ headingLevel }}>

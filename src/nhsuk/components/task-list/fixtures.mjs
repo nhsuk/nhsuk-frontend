@@ -39,7 +39,7 @@ const fixtures = {
           status: {
             tag: {
               text: 'Incomplete',
-              classes: 'nhsuk-tag--blue'
+              colour: 'blue'
             }
           }
         },
@@ -51,7 +51,7 @@ const fixtures = {
           status: {
             tag: {
               text: 'Incomplete',
-              classes: 'nhsuk-tag--blue'
+              colour: 'blue'
             }
           }
         },
@@ -104,7 +104,7 @@ const fixtures = {
           status: {
             tag: {
               text: 'Incomplete',
-              classes: 'nhsuk-tag--blue'
+              colour: 'blue'
             }
           }
         }

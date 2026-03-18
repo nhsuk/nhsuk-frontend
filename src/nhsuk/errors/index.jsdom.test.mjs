@@ -14,7 +14,7 @@ describe('Errors', () => {
         name = 'CustomName'
       }
 
-      expect(new CustomError().name).toBe('CustomName')
+      expect(new CustomError()).toHaveProperty('name', 'CustomName')
     })
   })
 
@@ -29,18 +29,25 @@ describe('Errors', () => {
     })
 
     it('has its own name set', () => {
-      expect(new SupportError(document.body).name).toBe('SupportError')
+      expect(new SupportError(document.body)).toHaveProperty(
+        'name',
+        'SupportError'
+      )
     })
 
     it('provides feedback regarding browser support', () => {
+      // @ts-expect-error The operand of a 'delete' operator must be optional
       delete window.HTMLScriptElement.prototype.noModule
-      expect(new SupportError(document.body).message).toBe(
+
+      expect(new SupportError(document.body)).toHaveProperty(
+        'message',
         'NHS.UK frontend is not supported in this browser'
       )
     })
 
     it('provides feedback when <body> class is missing', () => {
-      expect(new SupportError(document.body).message).toBe(
+      expect(new SupportError(document.body)).toHaveProperty(
+        'message',
         'NHS.UK frontend initialised without `<body class="nhsuk-frontend-supported">` from template `<script>` snippet'
       )
     })
@@ -48,8 +55,18 @@ describe('Errors', () => {
     it('provides feedback when `document.body` is not set', () => {
       // For example, running `initAll()` in `<head>` without `type="module"`
       // will see support checks run when document.body is still `null`
-      expect(new SupportError(null).message).toBe(
+      expect(new SupportError(null)).toHaveProperty(
+        'message',
         'NHS.UK frontend initialised without `<script type="module">`'
+      )
+    })
+
+    it('allows a custom message to be provided', () => {
+      const supportMessage = 'Support for "navigator.clipboard" required'
+
+      expect(new SupportError(supportMessage)).toHaveProperty(
+        'message',
+        supportMessage
       )
     })
   })
@@ -60,17 +77,21 @@ describe('Errors', () => {
     })
 
     it('has its own name set', () => {
-      expect(new InitError(SkipLink).name).toBe('InitError')
+      expect(new InitError(SkipLink)).toHaveProperty('name', 'InitError')
     })
 
     it('provides feedback for modules already initialised', () => {
-      expect(new InitError(SkipLink).message).toBe(
+      expect(new InitError(SkipLink)).toHaveProperty(
+        'message',
         'nhsuk-skip-link: Root element (`$root`) already initialised'
       )
     })
 
     it('allows a custom message to be provided', () => {
-      expect(new InitError('custom message').message).toBe('custom message')
+      expect(new InitError('custom message')).toHaveProperty(
+        'message',
+        'custom message'
+      )
     })
   })
 

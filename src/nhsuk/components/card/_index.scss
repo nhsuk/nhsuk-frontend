@@ -28,14 +28,15 @@
 /// 15. Reset the positioning to the default [1] to display heading triangle on a coloured background.
 /// 16. Emergency care card <a> needs to be white because the background colour is black.
 /// 17. Trick IE10 into rendering the invisible clickable area. Without this it does not.
+/// 18. Increase the clickable area to the border of the card and the shadow.
 ///
 /// @group components/card
 ////
 
 $nhsuk-card-border-width: 1px;
-$nhsuk-card-border-bottom-width: nhsuk-spacing(1);
+$nhsuk-card-border-bottom-width: nhsuk-spacing(1) - 1px;
 $nhsuk-card-border-colour: $nhsuk-border-colour;
-$nhsuk-card-border-hover-colour: $nhsuk-border-hover-colour;
+$nhsuk-card-border-hover-colour: nhsuk-colour("grey-3");
 
 @include nhsuk-exports("nhsuk/components/card") {
   .nhsuk-card {
@@ -184,11 +185,17 @@ $nhsuk-card-border-hover-colour: $nhsuk-border-hover-colour;
     margin-bottom: 0;
   }
 
+  // Card shadow shared styles
+
+  .nhsuk-card--clickable,
+  .nhsuk-card--secondary {
+    box-shadow: 0 $nhsuk-card-border-bottom-width 0 $nhsuk-border-colour;
+    @include nhsuk-responsive-margin(7, "bottom", $adjustment: $nhsuk-card-border-bottom-width); // [18]
+  }
+
   // Clickable card
 
   .nhsuk-card--clickable {
-    border-bottom-width: $nhsuk-card-border-bottom-width;
-
     .nhsuk-card__heading a,
     .nhsuk-card__link {
       &::before {
@@ -197,18 +204,39 @@ $nhsuk-card-border-hover-colour: $nhsuk-border-hover-colour;
         display: block;
 
         position: absolute;
-        top: -$nhsuk-card-border-width;
-        right: -$nhsuk-card-border-width;
-        bottom: -$nhsuk-card-border-bottom-width;
-        left: -$nhsuk-card-border-width;
+        top: -$nhsuk-card-border-width; // [18]
+        right: -$nhsuk-card-border-width; // [18]
+        bottom: -$nhsuk-card-border-width - $nhsuk-card-border-bottom-width; // [18]
+        left: -$nhsuk-card-border-width; // [18]
 
         background-color: rgba(255, 255, 255, 0); // [17]
       }
     }
 
-    &:active {
-      bottom: -$nhsuk-card-border-width; // [3]
+    &:hover,
+    &:has(.nhsuk-card__heading a:hover),
+    &:has(.nhsuk-card__link:hover) {
       border-color: $nhsuk-card-border-hover-colour;
+      box-shadow: 0 $nhsuk-card-border-bottom-width 0 $nhsuk-card-border-hover-colour;
+    }
+
+    &:hover .nhsuk-icon,
+    &:has(.nhsuk-card__heading a:hover) .nhsuk-icon,
+    &:has(.nhsuk-card__link:hover) .nhsuk-icon {
+      fill: $nhsuk-link-hover-colour;
+    }
+
+    &:active,
+    &:has(.nhsuk-card__heading a:active),
+    &:has(.nhsuk-card__link:active) {
+      top: $nhsuk-card-border-bottom-width; // [3]
+      box-shadow: none;
+    }
+
+    &:active .nhsuk-icon,
+    &:has(.nhsuk-card__heading a:active) .nhsuk-icon,
+    &:has(.nhsuk-card__link:active) .nhsuk-icon {
+      fill: $nhsuk-link-active-colour;
     }
   }
 
@@ -245,13 +273,28 @@ $nhsuk-card-border-hover-colour: $nhsuk-border-hover-colour;
       margin-bottom: nhsuk-spacing(5);
     }
 
+    .nhsuk-card--clickable,
+    .nhsuk-card--secondary {
+      margin-bottom: nhsuk-spacing(5) + $nhsuk-card-border-bottom-width; // [18]
+    }
+
     @include nhsuk-media-query($until: tablet) {
       .nhsuk-card {
         margin-bottom: nhsuk-spacing(3);
       }
 
+      .nhsuk-card--clickable,
+      .nhsuk-card--secondary {
+        margin-bottom: nhsuk-spacing(3) + $nhsuk-card-border-bottom-width; // [18]
+      }
+
       &:last-child .nhsuk-card {
         margin-bottom: 0;
+      }
+
+      &:last-child .nhsuk-card--clickable,
+      &:last-child .nhsuk-card--secondary {
+        margin-bottom: $nhsuk-card-border-bottom-width; // [18]
       }
     }
   }
@@ -369,8 +412,8 @@ $nhsuk-card-border-hover-colour: $nhsuk-border-hover-colour;
     @include nhsuk-responsive-padding(5, "top");
   }
 
-  .nhsuk-card--care--urgent > .nhsuk-card__heading-container,
   .nhsuk-card--care--non-urgent > .nhsuk-card__heading-container,
+  .nhsuk-card--care--urgent > .nhsuk-card__heading-container,
   .nhsuk-card--care--emergency > .nhsuk-card__heading-container {
     .nhsuk-card__actions {
       margin-top: nhsuk-spacing(3);
@@ -382,12 +425,21 @@ $nhsuk-card-border-hover-colour: $nhsuk-border-hover-colour;
       }
     }
 
-    .nhsuk-card__action {
-      border-color: $nhsuk-secondary-border-colour;
-    }
-
     .nhsuk-card__action a {
       @include nhsuk-link-style-reverse;
+    }
+  }
+
+  .nhsuk-card--care--non-urgent > .nhsuk-card__heading-container {
+    .nhsuk-card__action {
+      border-color: $nhsuk-reverse-border-colour;
+    }
+  }
+
+  .nhsuk-card--care--urgent > .nhsuk-card__heading-container,
+  .nhsuk-card--care--emergency > .nhsuk-card__heading-container {
+    .nhsuk-card__action {
+      border-color: nhsuk-tint(nhsuk-colour("red"), 20%);
     }
   }
 
@@ -485,7 +537,6 @@ $nhsuk-card-border-hover-colour: $nhsuk-border-hover-colour;
   .nhsuk-card--secondary {
     border-top: 0;
     border-right: 0;
-    border-bottom: $nhsuk-card-border-bottom-width solid $nhsuk-card-border-colour;
     border-left: 0;
     background: transparent;
   }

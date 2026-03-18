@@ -182,7 +182,7 @@ describe('Radios', () => {
         const $inputOther = $inputs.at(index - 1)
 
         $input.click()
-        $inputOther.click()
+        $inputOther?.click()
 
         // Conditional content hidden for input
         expect($input).toHaveAttribute('aria-expanded', 'false')

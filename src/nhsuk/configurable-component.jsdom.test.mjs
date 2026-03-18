@@ -1,5 +1,10 @@
-import { ConfigurableComponent } from './configurable-component.mjs'
 import { ConfigError } from './errors/index.mjs'
+
+import {
+  MockConfigurableComponentNoSchema,
+  MockConfigurableComponentNoDefaults,
+  MockConfigurableComponentNumber
+} from '#lib/fixtures/configuration/mock-component.mjs'
 
 describe('ConfigurableComponent', () => {
   beforeEach(() => {
@@ -9,35 +14,21 @@ describe('ConfigurableComponent', () => {
 
   describe('throws error', () => {
     it('if no schema defined', () => {
-      class MockConfigurableComponent extends ConfigurableComponent {
-        static moduleName = 'config-component'
-
-        static defaults = {
-          randomAttribute: 0
-        }
-      }
-
-      expect(() => new MockConfigurableComponent(document.body)).toThrow(
+      expect(
+        () => new MockConfigurableComponentNoSchema(document.body)
+      ).toThrow(
         new ConfigError(
-          'config-component: Config passed as parameter into constructor but no schema defined'
+          'mock-component: Config passed as parameter into constructor but no schema defined'
         )
       )
     })
 
     it('if no defaults defined', () => {
-      class MockConfigurableComponent extends ConfigurableComponent {
-        static moduleName = 'config-component'
-
-        static schema = {
-          properties: {
-            randomAttribute: { type: 'number' }
-          }
-        }
-      }
-
-      expect(() => new MockConfigurableComponent(document.body)).toThrow(
+      expect(
+        () => new MockConfigurableComponentNoDefaults(document.body)
+      ).toThrow(
         new ConfigError(
-          'config-component: Config passed as parameter into constructor but no defaults defined'
+          'mock-component: Config passed as parameter into constructor but no defaults defined'
         )
       )
     })
@@ -49,51 +40,21 @@ describe('ConfigurableComponent', () => {
         <div id="test-component"></div>
       `
 
-      class MockConfigurableComponent extends ConfigurableComponent {
-        static moduleName = 'config-component'
-
-        static schema = {
-          properties: {
-            randomAttribute: { type: 'number' }
-          }
-        }
-
-        static defaults = {
-          randomAttribute: 0
-        }
-      }
-
       const testComponent = document.querySelector('#test-component')
+      const configComponent = new MockConfigurableComponentNumber(testComponent)
 
-      const configComponent = new MockConfigurableComponent(testComponent)
-
-      expect(configComponent.config).toMatchObject({ randomAttribute: 0 })
+      expect(configComponent.config).toMatchObject({ example: 0 })
     })
 
     it('dataset of root', () => {
       document.body.innerHTML = `
-        <div id="test-component" data-random-attribute="42"></div>
+        <div id="test-component" data-example="42"></div>
       `
 
-      class MockConfigurableComponent extends ConfigurableComponent {
-        static moduleName = 'config-component'
-
-        static schema = {
-          properties: {
-            randomAttribute: { type: 'number' }
-          }
-        }
-
-        static defaults = {
-          randomAttribute: 0
-        }
-      }
-
       const testComponent = document.querySelector('#test-component')
+      const configComponent = new MockConfigurableComponentNumber(testComponent)
 
-      const configComponent = new MockConfigurableComponent(testComponent)
-
-      expect(configComponent.config).toMatchObject({ randomAttribute: 42 })
+      expect(configComponent.config).toMatchObject({ example: 42 })
     })
 
     it('configuration object from class initialisation', () => {
@@ -101,55 +62,27 @@ describe('ConfigurableComponent', () => {
         <div id="test-component"></div>
       `
 
-      class MockConfigurableComponent extends ConfigurableComponent {
-        static moduleName = 'config-component'
-
-        static schema = {
-          properties: {
-            randomAttribute: { type: 'number' }
-          }
-        }
-
-        static defaults = {
-          randomAttribute: 0
-        }
-      }
-
       const testComponent = document.querySelector('#test-component')
+      const configComponent = new MockConfigurableComponentNumber(
+        testComponent,
+        { example: 100 }
+      )
 
-      const configComponent = new MockConfigurableComponent(testComponent, {
-        randomAttribute: 100
-      })
-
-      expect(configComponent.config).toMatchObject({ randomAttribute: 100 })
+      expect(configComponent.config).toMatchObject({ example: 100 })
     })
 
     it('dataset configuration over the configuration object from class initialisation', () => {
       document.body.innerHTML = `
-        <div id="test-component" data-random-attribute="12"></div>
+        <div id="test-component" data-example="12"></div>
       `
 
-      class MockConfigurableComponent extends ConfigurableComponent {
-        static moduleName = 'config-component'
-
-        static schema = {
-          properties: {
-            randomAttribute: { type: 'number' }
-          }
-        }
-
-        static defaults = {
-          randomAttribute: 0
-        }
-      }
-
       const testComponent = document.querySelector('#test-component')
+      const configComponent = new MockConfigurableComponentNumber(
+        testComponent,
+        { example: 100 }
+      )
 
-      const configComponent = new MockConfigurableComponent(testComponent, {
-        randomAttribute: 100
-      })
-
-      expect(configComponent.config).toMatchObject({ randomAttribute: 12 })
+      expect(configComponent.config).toMatchObject({ example: 12 })
     })
   })
 })

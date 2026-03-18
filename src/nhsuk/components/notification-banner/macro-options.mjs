@@ -36,8 +36,8 @@ const options = {
     required: false,
     description: outdent`
       The title text that displays in the notification banner. You can use any string with this option. Use this option to set text that does not contain HTML. The available default values are \'Important\', \'Success\', and null:
-      - if you do not set \`type\`, \`titleText\` defaults to \`"Important"\`
-      - if you set \`type\` to \`success\`, \`titleText\` defaults to \`"Success"\`
+      - if you do not set \`variant\`, \`titleText\` defaults to \`"Important"\`
+      - if you set \`variant\` to \`success\`, \`titleText\` defaults to \`"Success"\`
       - if you set \`titleHtml\`, this option is ignored
     `
   },
@@ -53,17 +53,24 @@ const options = {
     description:
       'Sets heading level for the title only. You can only use values between `1` and `6` with this option. The default is `2`.'
   },
+  variant: {
+    type: 'string',
+    required: false,
+    description:
+      'Optional variant of notification banner. You can use only `"success"` or empty values with this option. If you set `variant` to `"success"`, the notification banner sets `role` to `"alert"`. JavaScript then moves the keyboard focus to the notification banner when the page loads. If you do not set `variant`, the notification banner sets `role` to `"region"`.'
+  },
   type: {
     type: 'string',
     required: false,
     description:
-      'The type of notification to render. You can use only `"success"` or `null` values with this option. If you set `type` to `"success"`, the notification banner sets `role` to `"alert"`. JavaScript then moves the keyboard focus to the notification banner when the page loads. If you do not set `type`, the notification banner sets `role` to `"region"`.'
+      'Optional type of notification banner. You can use only `"success"` or empty values with this option. If you set `type` to `"success"`, the notification banner sets `role` to `"alert"`. JavaScript then moves the keyboard focus to the notification banner when the page loads. If you do not set `type`, the notification banner sets `role` to `"region"`. Replaced by the `variant` option.',
+    deprecated: '10.4.0'
   },
   role: {
     type: 'string',
     required: false,
     description:
-      'Overrides the value of the `role` attribute for the notification banner. Defaults to `"region"`. If you set `type` to `"success"`, `role` defaults to `"alert"`.'
+      'Overrides the value of the `role` attribute for the notification banner. Defaults to `"region"`. If you set `variant` to `"success"`, `role` defaults to `"alert"`.'
   },
   titleId: {
     type: 'string',
@@ -75,7 +82,7 @@ const options = {
     type: 'boolean',
     required: false,
     description:
-      'If you set `type` to `"success"`, or `role` to `"alert"`, JavaScript moves the keyboard focus to the notification banner when the page loads. To disable this behaviour, set `disableAutoFocus` to `true`.'
+      'If you set `variant` to `"success"`, or `role` to `"alert"`, JavaScript moves the keyboard focus to the notification banner when the page loads. To disable this behaviour, set `disableAutoFocus` to `true`.'
   },
   classes: {
     type: 'string',

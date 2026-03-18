@@ -1,0 +1,126 @@
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+@use "../../core/helpers" as *;
+@forward "../button";
+
+////
+/// Code component
+///
+/// @group components/code
+////
+
+@include nhsuk-exports("nhsuk/components/code") {
+  .nhsuk-code {
+    position: relative;
+    margin: -$nhsuk-focus-width;
+    border: $nhsuk-focus-width solid transparent;
+    @include nhsuk-responsive-margin(6, "bottom", $adjustment: - $nhsuk-focus-width);
+  }
+
+  .nhsuk-code--inline {
+    background-color: nhsuk-colour("white");
+    @include nhsuk-text-break-word;
+  }
+
+  .nhsuk-code--inline.nhsuk-code--reverse {
+    color: nhsuk-tint(nhsuk-colour("red"), 85%);
+    background-color: nhsuk-shade(nhsuk-colour("blue"), 25%);
+  }
+
+  .nhsuk-code--reverse:has(.nhsuk-code__content:focus) {
+    border-color: $nhsuk-card-background-colour;
+  }
+
+  .nhsuk-code__container,
+  .nhsuk-code__content {
+    font-family: $nhsuk-code-font;
+  }
+
+  .nhsuk-code__container {
+    min-height: nhsuk-px-to-rem(64px);
+    margin: 0;
+    border: 1px solid $nhsuk-border-colour;
+    background-color: $nhsuk-card-background-colour;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .nhsuk-code--background-body & {
+      background-color: $nhsuk-body-background-colour;
+    }
+
+    .nhsuk-code--background-template & {
+      background-color: $nhsuk-template-background-colour;
+    }
+
+    .nhsuk-code--no-border &,
+    .nhsuk-code--reverse & {
+      border-color: transparent;
+    }
+
+    .nhsuk-code--reverse & {
+      background-color: nhsuk-colour("black");
+    }
+  }
+
+  .nhsuk-code__content {
+    display: block;
+    padding: nhsuk-spacing(3) - 1px;
+    overflow-x: auto;
+    border: $nhsuk-focus-width solid transparent;
+
+    @include nhsuk-text-colour;
+    @include nhsuk-font(19, $line-height: 1.5);
+
+    &:focus {
+      outline: $nhsuk-focus-width solid $nhsuk-focus-colour;
+      outline-offset: $nhsuk-focus-width;
+      box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-text-colour;
+    }
+
+    .nhsuk-frontend-supported .nhsuk-code--button & {
+      padding-top: nhsuk-px-to-rem(nhsuk-spacing(9));
+    }
+
+    .nhsuk-code--reverse & {
+      color: $nhsuk-reverse-text-colour;
+    }
+
+    .nhsuk-code--reverse &:focus {
+      outline: $nhsuk-focus-width solid $nhsuk-card-background-colour;
+
+      // Add 4px to focus outline to show white gap between reverse background
+      // and focus outline, but add another 1px to compensate for border
+      outline-offset: 1px;
+      box-shadow:
+        0 0 0 (($nhsuk-focus-width * 2) + 1px) $nhsuk-focus-text-colour,
+        0 0 0 (($nhsuk-focus-width * 3) + 1px) $nhsuk-focus-colour;
+    }
+  }
+
+  .nhsuk-code__button {
+    position: absolute;
+    z-index: 1;
+    top: nhsuk-spacing(3);
+    right: nhsuk-spacing(3);
+
+    width: auto;
+    min-width: nhsuk-px-to-rem(125px);
+    margin-bottom: $nhsuk-button-shadow-size;
+
+    // Hide the button by default, JS removes this attribute
+    &[hidden] {
+      display: none;
+    }
+
+    &:active,
+    &:active:focus {
+      top: nhsuk-spacing(3) + $nhsuk-button-shadow-size;
+    }
+
+    &:active::before {
+      top: nhsuk-spacing(3) - ($nhsuk-border-width-form-element + $nhsuk-button-shadow-size);
+    }
+  }
+}
