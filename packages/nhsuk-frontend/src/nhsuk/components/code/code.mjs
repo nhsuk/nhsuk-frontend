@@ -1,5 +1,4 @@
 import { closestAttributeValue } from '../../common/closest-attribute-value.mjs'
-import { normaliseOptions } from '../../common/configuration/index.mjs'
 import { formatErrorMessage } from '../../common/index.mjs'
 import { ConfigurableComponent } from '../../configurable-component.mjs'
 import { ElementError, SupportError } from '../../errors/index.mjs'
@@ -263,22 +262,6 @@ export class Code extends ConfigurableComponent {
 }
 
 /**
- * Initialise code component
- *
- * @deprecated Use {@link createAll | `createAll(Code, options)`} instead.
- * @param {InitOptions & Partial<CodeConfig>} [options]
- */
-export function initCode(options) {
-  const { scope: $scope } = normaliseOptions(options)
-
-  const $codes = $scope?.querySelectorAll(`[data-module="${Code.moduleName}"]`)
-
-  $codes?.forEach(($root) => {
-    new Code($root)
-  })
-}
-
-/**
  * Code config
  *
  * @see {@link Code.defaults}
@@ -304,5 +287,4 @@ export function initCode(options) {
 
 /**
  * @import { Schema } from '../../common/configuration/index.mjs'
- * @import { createAll, InitOptions } from '../../index.mjs'
  */

@@ -1,7 +1,7 @@
 import { userEvent } from '@testing-library/user-event'
 import { mockResizeObserver } from 'jsdom-testing-mocks'
 
-import { Code, initCode } from './code.mjs'
+import { Code } from './code.mjs'
 import { examples } from './fixtures.mjs'
 
 import { components } from '#lib'
@@ -62,9 +62,9 @@ describe('Code', () => {
     initExample('button')
   })
 
-  describe('Initialisation via init function', () => {
+  describe('Initialisation via class', () => {
     it('should add event listeners', () => {
-      initCode()
+      new Code($root)
 
       expect($button.addEventListener).toHaveBeenCalledWith(
         'click',
@@ -72,23 +72,6 @@ describe('Code', () => {
       )
     })
 
-    it('should not throw with missing pre element', () => {
-      $root.remove()
-      expect(() => initCode()).not.toThrow()
-    })
-
-    it('should not throw with empty body', () => {
-      document.body.innerHTML = ''
-      expect(() => initCode()).not.toThrow()
-    })
-
-    it('should not throw with empty scope', () => {
-      const scope = document.createElement('div')
-      expect(() => initCode({ scope })).not.toThrow()
-    })
-  })
-
-  describe('Initialisation via class', () => {
     it('should not throw with $root element', () => {
       expect(() => new Code($root)).not.toThrow()
     })
