@@ -10,7 +10,7 @@
 ////
 
 $nhsuk-footer-link-visited-colour: nhsuk-colour("dark-blue");
-$nhsuk-footer-border-colour: nhsuk-colour("grey-3");
+$nhsuk-footer-border-colour: $nhsuk-secondary-border-colour;
 
 @include nhsuk-exports("nhsuk/components/footer") {
   .nhsuk-footer {
