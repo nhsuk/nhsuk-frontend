@@ -36,7 +36,7 @@
 $nhsuk-card-border-width: 1px;
 $nhsuk-card-border-bottom-width: nhsuk-spacing(1) - 1px;
 $nhsuk-card-border-colour: $nhsuk-border-colour;
-$nhsuk-card-border-hover-colour: nhsuk-colour("grey-3");
+$nhsuk-card-border-hover-colour: $nhsuk-secondary-border-colour;
 
 @include nhsuk-exports("nhsuk/components/card") {
   .nhsuk-card {
