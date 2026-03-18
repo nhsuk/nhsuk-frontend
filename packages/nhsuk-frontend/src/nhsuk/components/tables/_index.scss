@@ -283,7 +283,6 @@ $sortable-table-hover-colour: color.adjust(nhsuk-colour("grey-5"), $lightness: -
     @include nhsuk-link-style-default;
     @include nhsuk-link-style-no-visited-state;
 
-
     &:focus {
       @include nhsuk-focused-button;
     }

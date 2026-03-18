@@ -405,15 +405,15 @@ const fixtures = {
       caption: 'Appointments',
       head: [
         {
-          text: "Time",
-          href: "#",
+          text: 'Time',
+          href: '#',
           attributes: {
             'aria-sort': 'ascending'
           }
         },
         {
-          href: "#",
-          text: "Name",
+          href: '#',
+          text: 'Name',
           attributes: {
             'aria-sort': 'none'
           }
