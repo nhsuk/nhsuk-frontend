@@ -13,7 +13,7 @@
     "axe-core": "^4.11.1",
     "jest-axe": "^10.0.0",
     "jest-environment-jsdom": "^30.3.0",
-    "jest-environment-node": "^30.0.0",
+    "jest-environment-node": "^30.3.0",
     "jest-environment-puppeteer": "^11.0.0",
     "jest-puppeteer": "^11.0.0",
     "jest-puppeteer-istanbul": "^0.5.3",
