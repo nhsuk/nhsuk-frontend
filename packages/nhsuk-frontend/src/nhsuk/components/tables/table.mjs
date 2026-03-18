@@ -349,6 +349,7 @@ export function initTables(options) {
 /**
  * Table config
  *
+ * @see {@link Table.defaults}
  * @typedef {object} TableConfig
  * @property {string} [statusMessage] - Status message
  * @property {string} [ascendingText] - Ascending text
