@@ -510,6 +510,21 @@ const fixtures = {
       viewports: ['desktop']
     }
   },
+  'with service name as separate link': {
+    context: {
+      logo: {
+        href: '#/logo'
+      },
+      service: {
+        text: 'Find your NHS number',
+        href: '#/service'
+      }
+    },
+    options: {
+      width: false
+    },
+    variants
+  },
   'with service name, account inline (logged in)': {
     context: {
       inline: true,
