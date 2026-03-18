@@ -25,7 +25,7 @@ const fixtures = {
   },
   'reverse': {
     context: {
-      classes: 'nhsuk-breadcrumb--reverse',
+      variant: 'reverse',
       items: [
         {
           href: '#',

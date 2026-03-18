@@ -70,11 +70,17 @@ const options = {
       }
     }
   },
+  variant: {
+    type: 'string',
+    required: false,
+    description:
+      'Optional variant of code. You can use only `"reverse"` or empty values with this option.'
+  },
   background: {
     type: 'string',
     required: false,
     description:
-      'Optional background colour for the code element – for example, `"body"`, `"card"` or `"template"`. Defaults to `"card"`.'
+      'Optional background colour for the code element – `"body"` or `"template"`.'
   },
   border: {
     type: 'boolean',

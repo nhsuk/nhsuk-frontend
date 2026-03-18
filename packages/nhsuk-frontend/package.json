@@ -50,6 +50,7 @@
   ],
   "scripts": {
     "clean": "del-cli dist",
+    "postclean": "tsc --build --clean",
     "build": "gulp build --color",
     "watch": "gulp watch --color",
     "fixtures": "gulp fixtures --color",
@@ -88,7 +89,7 @@
     "nunjucks": "^3.0.0",
     "outdent": "^0.8.0",
     "@prettier/sync": "^0.6.0",
-    "slug": "^11.0.0"
+    "slug": "^9.0.0 || ^11.0.0"
   },
   "peerDependenciesMeta": {
     "highlight.js": {

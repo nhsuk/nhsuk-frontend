@@ -104,6 +104,11 @@ export function getMacroOptions(params) {
       description: param.description
     })
 
+    // Optional deprecated version
+    if (param.deprecated) {
+      option.deprecated = param.deprecated
+    }
+
     // Optional component flag
     if (param.isComponent) {
       option.isComponent = true
@@ -154,5 +159,5 @@ export function getAllFixtures() {
  */
 
 /**
- * @import { MacroExample, MacroExampleFixtures, MacroOption, MacroParam } from 'nhsuk-frontend/src/nhsuk/lib/index.mjs'
+ * @import { MacroExample, MacroExampleFixtures, MacroOption, MacroParam } from 'nhsuk-frontend/lib'
  */

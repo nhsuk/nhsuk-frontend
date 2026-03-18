@@ -2,16 +2,23 @@
 {% from "nhsuk/macros/i18n.njk" import nhsukI18nAttributes %}
 {% from "nhsuk/components/button/macro.njk" import button %}
 
+{#- Set variant for this component #}
+{%- set variant = params.variant -%}
+
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-code" -%}
 {%- set classNamesButton = params.copyButtonClassList | default([
-  "nhsuk-button--secondary",
+  "nhsuk-button--reverse" if variant == "reverse" else "nhsuk-button--secondary",
   "nhsuk-button--small"
 ]) | join(" ") ~ " nhsuk-code__button nhsuk-js-code-button" -%}
 
 {%- if params.button %}
   {% set classNames = classNames ~ " nhsuk-code--button" %}
 {% endif -%}
+
+{%- if variant == "reverse" and (not params.classes or not "nhsuk-code--reverse" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-code--" ~ variant %}
+{% endif %}
 
 {%- if params.background %}
   {% set classNames = classNames ~ " nhsuk-code--background-" ~ params.background %}

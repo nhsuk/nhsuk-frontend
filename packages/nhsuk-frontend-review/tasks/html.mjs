@@ -4,16 +4,15 @@ import * as config from '@nhsuk/frontend-config'
 import { components, files } from '@nhsuk/frontend-lib'
 import { task } from '@nhsuk/frontend-tasks'
 import { HtmlValidate, formatterFactory } from 'html-validate'
-import {
-  configure,
-  filters,
-  renderTemplate
-} from 'nhsuk-frontend/src/nhsuk/lib/nunjucks/index.mjs'
+import { nunjucks } from 'nhsuk-frontend/src/nhsuk/lib/index.mjs'
+import * as filters from 'nhsuk-frontend/src/nhsuk/lib/nunjucks/filters/index.mjs'
+import * as globals from 'nhsuk-frontend/src/nhsuk/lib/nunjucks/globals/index.mjs'
 import PluginError from 'plugin-error'
 
 import validatorConfig from '../.htmlvalidate.js'
 
-const { HEROKU_BRANCH = 'main', NODE_ENV } = process.env
+const { configure, renderTemplate } = nunjucks
+const { HEROKU_BRANCH = 'main' } = process.env
 
 // Configure HTML validator
 const validator = new HtmlValidate(validatorConfig)
@@ -36,6 +35,16 @@ export const compile = task.name('html:render', async () => {
     join(config.paths.app, 'src'),
     join(config.paths.pkg, 'dist')
   ])
+
+  // Add Nunjucks filters
+  for (const [key, filter] of Object.entries(filters)) {
+    env.addFilter(key, filter)
+  }
+
+  // Add Nunjucks globals
+  for (const [key, global] of Object.entries(globals)) {
+    env.addGlobal(key, global)
+  }
 
   // Review app Nunjucks context
   const context = {
@@ -111,17 +120,13 @@ export const compile = task.name('html:render', async () => {
  * Validate review app HTML output
  */
 export const validate = task.name('html:validate', async () => {
-  if (NODE_ENV !== 'production') {
-    return
-  }
+  const paths = files.getListing('dist/**/*.html', {
+    cwd: config.paths.app,
+    ignore: ['**/docs/sassdoc/**']
+  })
 
   // HTML validation
-  const report = await validator.validateMultipleFiles(
-    files.getListing('dist/**/*.html', {
-      cwd: config.paths.app,
-      ignore: ['**/docs/sassdoc/**']
-    })
-  )
+  const report = await validator.validateMultipleFiles(paths)
 
   // Throw on HTML validation errors
   if (!report.valid) {

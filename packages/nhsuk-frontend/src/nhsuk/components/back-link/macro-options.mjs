@@ -28,6 +28,12 @@ const options = {
     required: false,
     description: 'The value of the link `href` attribute.'
   },
+  variant: {
+    type: 'string',
+    required: false,
+    description:
+      'Optional variant of back link. You can use only `"reverse"` or empty values with this option.'
+  },
   classes: {
     type: 'string',
     required: false,

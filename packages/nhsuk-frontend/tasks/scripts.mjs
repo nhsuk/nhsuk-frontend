@@ -23,11 +23,14 @@ export const compile = gulp.series(
       [
         'nhsuk/components/*/fixtures.mjs',
         'nhsuk/components/*/macro-options.mjs',
-        'nhsuk/lib/index.mjs',
+        'nhsuk/lib/**/*.mjs',
         'nhsuk/nhsuk.mjs',
         'nhsuk/index.mjs'
       ],
-      { cwd: join(config.paths.pkg, 'src') }
+      {
+        cwd: join(config.paths.pkg, 'src'),
+        ignore: ['**/*.test.*']
+      }
     )
 
     /**

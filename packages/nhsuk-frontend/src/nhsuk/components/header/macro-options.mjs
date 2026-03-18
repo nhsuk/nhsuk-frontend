@@ -58,6 +58,12 @@ const options = {
       }
     }
   },
+  inline: {
+    type: 'boolean',
+    required: false,
+    description:
+      'If set to `true`, positions the search box (or account links) inline with the NHS logo.'
+  },
   organisation: {
     type: 'object',
     required: false,
@@ -160,6 +166,18 @@ const options = {
         required: false,
         description:
           'HTML attributes (for example data attributes) to add to the primary navigation.'
+      },
+      justified: {
+        type: 'boolean',
+        required: false,
+        description:
+          'If set to `true`, use justified alignment where navigation items appeared evenly spaced out.'
+      },
+      colour: {
+        type: 'string',
+        required: false,
+        description:
+          'Optional colour modifier for the primary navigation. You can use only `"white"` or empty values with this option.'
       }
     }
   },
@@ -310,6 +328,12 @@ const options = {
     required: false,
     description:
       'HTML attributes (for example data attributes) to add to the header container.'
+  },
+  colour: {
+    type: 'string',
+    required: false,
+    description:
+      'Optional colour modifier for the header. You can use only `"white"` or empty values with this option.'
   }
 }
 

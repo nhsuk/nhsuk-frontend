@@ -1,4 +1,4 @@
-import { components } from '#lib'
+import { macro } from '../../components.mjs'
 
 /**
  * Component Nunjucks macro code (formatted)
@@ -9,7 +9,7 @@ import { components } from '#lib'
  * @returns {string} Nunjucks code for the component
  */
 export function getComponentMacro(component, options = {}) {
-  return components.macro(component, { env: this.env, ...options })
+  return macro(component, { env: this.env, ...options })
 }
 
 /**

@@ -222,21 +222,22 @@
         <div class="nhsuk-grid-column-one-third">
 
           {{ backLink({
-            classes: "nhsuk-back-link--reverse"
+            variant: "reverse"
           }) }}
 
           <br>
 
           {{ backLink({
             text: "Back to search results",
-            classes: "nhsuk-back-link--reverse"
+            variant: "reverse"
           }) }}
 
           <br>
 
           {{ breadcrumb({
             labelText: "Breadcrumb (reversed)",
-            classes: "nhsuk-breadcrumb--reverse nhsuk-u-margin-bottom-4",
+            classes: "nhsuk-u-margin-bottom-4",
+            variant: "reverse",
             items: [
               {
                 text: 'Home',
@@ -257,7 +258,8 @@
 
           {{ actionLink({
             text: "Action link",
-            classes: "nhsuk-action-link--reverse nhsuk-u-margin-top-2",
+            classes: "nhsuk-u-margin-top-2",
+            variant: "reverse",
             href: "#/example-action-link"
           }) }}
 

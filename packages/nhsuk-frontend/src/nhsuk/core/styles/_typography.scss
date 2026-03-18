@@ -297,20 +297,24 @@ caption code,
 td code,
 p code {
   width: fit-content;
-  padding: 2px nhsuk-spacing(2);
-
+  padding: 2px nhsuk-spacing(1);
   color: $nhsuk-code-colour;
   background-color: nhsuk-colour("white");
+}
 
+code,
+samp,
+kbd,
+var {
   font-family: $nhsuk-code-font;
-  word-break: break-word;
-  @include nhsuk-font-size(16);
+  font-size: inherit;
+  font-size-adjust: 0.5;
+  @include nhsuk-text-break-word;
 }
 
 samp,
 kbd,
 var {
-  font-family: $nhsuk-code-font;
   font-style: normal;
 }
 
@@ -322,11 +326,11 @@ kbd > kbd {
   border-radius: $nhsuk-border-radius;
 
   &:first-child {
-    margin-left: 0;
+    margin-left: nhsuk-em(1px, 19);
   }
 
   &:last-child {
-    margin-right: 0;
+    margin-right: nhsuk-em(1px, 19);
   }
 }
 

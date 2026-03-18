@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "clean": "del-cli dist",
+    "postclean": "tsc --build --clean",
     "build": "gulp build --color",
     "serve": "gulp serve --color",
     "watch": "gulp serve watch --color",

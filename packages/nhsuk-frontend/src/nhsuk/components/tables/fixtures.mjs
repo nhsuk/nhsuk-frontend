@@ -3,6 +3,28 @@ import { outdent } from 'outdent'
 import { components } from '#lib'
 
 /**
+ * Nunjucks macro option variants
+ *
+ * @satisfies {MacroExample[]}
+ */
+export const variants = [
+  {
+    options: {
+      layout: 'background-white'
+    }
+  },
+  {
+    description: 'reverse',
+    context: {
+      variant: 'reverse'
+    },
+    options: {
+      layout: 'background-blue'
+    }
+  }
+]
+
+/**
  * Nunjucks macro option examples
  *
  * @satisfies {{ [example: string]: MacroExample }}
@@ -47,6 +69,7 @@ const fixtures = {
         ]
       ]
     },
+    variants,
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']
     }
@@ -180,7 +203,7 @@ const fixtures = {
       ]
     }
   },
-  'with responsive layout': {
+  'responsive': {
     context: {
       caption: 'Ibuprofen syrup dosages for children',
       captionSize: 'm',
@@ -300,11 +323,12 @@ const fixtures = {
         ]
       ]
     },
+    variants,
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
-  'with responsive layout and custom HTML': {
+  'responsive and custom HTML': {
     context: {
       caption: 'Nunjucks macro options',
       firstCellIsHeader: true,
@@ -478,7 +502,7 @@ const fixtures = {
             html: components.render('tag', {
               context: {
                 text: 'Active',
-                classes: 'nhsuk-tag--green'
+                colour: 'green'
               }
             })
           }
@@ -496,7 +520,7 @@ const fixtures = {
             html: components.render('tag', {
               context: {
                 text: 'Inactive',
-                classes: 'nhsuk-tag--grey'
+                colour: 'grey'
               }
             })
           }
@@ -621,7 +645,7 @@ const fixtures = {
       card: {
         heading: 'Other conditions like impetigo',
         headingSize: 'm',
-        feature: true
+        variant: 'feature'
       },
       caption: 'Impetigo can look similar to other skin conditions',
       captionSize: 's',
@@ -664,12 +688,12 @@ const fixtures = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
-  'as a card (feature) with responsive layout': {
+  'as a card (feature) responsive': {
     context: {
       card: {
         heading: 'Other conditions like impetigo',
         headingSize: 'm',
-        feature: true
+        variant: 'feature'
       },
       caption: 'Impetigo can look similar to other skin conditions',
       captionSize: 's',

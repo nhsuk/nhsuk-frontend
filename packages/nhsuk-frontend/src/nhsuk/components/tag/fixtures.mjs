@@ -1,102 +1,118 @@
 /**
+ * Nunjucks macro option variants
+ *
+ * @satisfies {MacroExample[]}
+ */
+export const variants = [
+  {
+    context: {
+      text: 'Active'
+    }
+  },
+  {
+    description: 'white',
+    context: {
+      text: 'In progress',
+      colour: 'white'
+    }
+  },
+  {
+    description: 'grey',
+    context: {
+      text: 'Inactive',
+      colour: 'grey'
+    }
+  },
+  {
+    description: 'green',
+    context: {
+      text: 'New',
+      colour: 'green'
+    }
+  },
+  {
+    description: 'aqua-green',
+    context: {
+      text: 'Active',
+      colour: 'aqua-green'
+    }
+  },
+  {
+    description: 'blue',
+    context: {
+      text: 'Pending',
+      colour: 'blue'
+    }
+  },
+  {
+    description: 'purple',
+    context: {
+      text: 'Received',
+      colour: 'purple'
+    }
+  },
+  {
+    description: 'pink',
+    context: {
+      text: 'Sent',
+      colour: 'pink'
+    }
+  },
+  {
+    description: 'red',
+    context: {
+      text: 'Rejected',
+      colour: 'red'
+    }
+  },
+  {
+    description: 'orange',
+    context: {
+      text: 'Declined',
+      colour: 'orange'
+    }
+  },
+  {
+    description: 'yellow',
+    context: {
+      text: 'Delayed',
+      colour: 'yellow'
+    }
+  }
+]
+
+/**
  * Nunjucks macro option examples
  *
  * @satisfies {{ [example: string]: MacroExample }}
  */
 const fixtures = {
   'default': {
-    context: {
-      text: 'Active'
-    },
+    variants,
     screenshot: {
       viewports: ['mobile']
     }
   },
-  'white': {
+  'colour class': {
     context: {
-      text: 'In progress',
-      classes: 'nhsuk-tag--white'
-    },
-    screenshot: {
-      viewports: ['mobile']
-    }
-  },
-  'grey': {
-    context: {
-      text: 'Inactive',
-      classes: 'nhsuk-tag--grey'
-    },
-    screenshot: {
-      viewports: ['mobile']
-    }
-  },
-  'green': {
-    context: {
-      text: 'New',
+      text: 'Green',
       classes: 'nhsuk-tag--green'
-    },
-    screenshot: {
-      viewports: ['mobile']
     }
   },
-  'aqua-green': {
+  'colour class overriding colour param': {
     context: {
-      text: 'Active',
-      classes: 'nhsuk-tag--aqua-green'
-    },
-    screenshot: {
-      viewports: ['mobile']
-    }
-  },
-  'blue': {
-    context: {
-      text: 'Pending',
-      classes: 'nhsuk-tag--blue'
-    },
-    screenshot: {
-      viewports: ['mobile']
-    }
-  },
-  'purple': {
-    context: {
-      text: 'Received',
-      classes: 'nhsuk-tag--purple'
-    },
-    screenshot: {
-      viewports: ['mobile']
-    }
-  },
-  'pink': {
-    context: {
-      text: 'Sent',
-      classes: 'nhsuk-tag--pink'
-    },
-    screenshot: {
-      viewports: ['mobile']
-    }
-  },
-  'red': {
-    context: {
-      text: 'Rejected',
+      text: 'Not green',
+      colour: 'green',
       classes: 'nhsuk-tag--red'
-    },
-    screenshot: {
-      viewports: ['mobile']
     }
   },
-  'orange': {
+  'without border': {
     context: {
-      text: 'Declined',
-      classes: 'nhsuk-tag--orange'
+      border: false
     },
-    screenshot: {
-      viewports: ['mobile']
-    }
-  },
-  'yellow': {
-    context: {
-      text: 'Delayed',
-      classes: 'nhsuk-tag--yellow'
+    variants,
+    options: {
+      layout: 'background-blue'
     },
     screenshot: {
       viewports: ['mobile']

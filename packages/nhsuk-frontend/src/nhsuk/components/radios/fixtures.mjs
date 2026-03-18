@@ -21,7 +21,7 @@ export const variants = [
   {
     description: 'small',
     context: {
-      classes: 'nhsuk-radios--small',
+      small: true,
       fieldset: {
         legend: {
           size: 'm',
@@ -93,7 +93,7 @@ const fixtures = {
   },
   'inline': {
     context: {
-      classes: 'nhsuk-radios--inline',
+      inline: true,
       fieldset: {
         legend: {
           text: 'Are you 18 or over?'
@@ -122,7 +122,8 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: 'Are you 18 or over?'
+          text: 'Are you 18 or over?',
+          size: 'l'
         }
       },
       idPrefix: 'custom-size',
