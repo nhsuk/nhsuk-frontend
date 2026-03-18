@@ -309,7 +309,6 @@ var {
   font-family: $nhsuk-code-font;
   font-size: inherit;
   font-size-adjust: 0.5;
-  @include nhsuk-text-break-word;
 }
 
 samp,
