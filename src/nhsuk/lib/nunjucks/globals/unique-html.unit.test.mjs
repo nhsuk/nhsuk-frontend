@@ -40,9 +40,9 @@ describe('Nunjucks global: uniqueHTML', () => {
         <div class="nhsuk-hint" id="with-hint-hint">
           This is a 10 digit number (like <span class="nhsuk-u-nowrap">999 123 4567</span>) that you can find on an NHS letter, prescription or in the NHS App
         </div>
-        <span class="nhsuk-error-message" id="with-hint-error">
+        <p class="nhsuk-error-message" id="with-hint-error">
           <span class="nhsuk-u-visually-hidden">Error:</span> Enter NHS number
-        </span>
+        </p>
         <input class="nhsuk-input nhsuk-input--code nhsuk-input--width-10 nhsuk-input--error" id="with-hint" name="example" type="text" spellcheck="false" aria-describedby="with-hint-hint with-hint-error" inputmode="numeric">
       </div>
     `)
@@ -63,9 +63,9 @@ describe('Nunjucks global: uniqueHTML', () => {
           <div class="nhsuk-hint" id="with-hint-hint-${index}">
             This is a 10 digit number (like <span class="nhsuk-u-nowrap">999 123 4567</span>) that you can find on an NHS letter, prescription or in the NHS App
           </div>
-          <span class="nhsuk-error-message" id="with-hint-${index}-error">
+          <p class="nhsuk-error-message" id="with-hint-${index}-error">
             <span class="nhsuk-u-visually-hidden">Error:</span> Enter NHS number
-          </span>
+          </p>
           <input class="nhsuk-input nhsuk-input--code nhsuk-input--width-10 nhsuk-input--error" id="with-hint-${index}" name="example-${index}" type="text" spellcheck="false" aria-describedby="with-hint-hint-${index} with-hint-${index}-error" inputmode="numeric">
         </div>
       `)
