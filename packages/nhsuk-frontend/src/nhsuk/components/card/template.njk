@@ -43,6 +43,7 @@
 
 {%- set isCareCard = true if variant
   and variant in ["non-urgent", "urgent", "emergency"]
+  and (params.heading or params.headingHtml)
   else false -%}
 
 {%- if isCareCard and (
@@ -162,7 +163,7 @@
   <div class="nhsuk-card__heading-container">
   {% if isCareCard %}
     {{ _careHeading(params, classNamesHeading) | trim | indent(2) }}
-  {% else %}
+  {% elif params.heading or params.headingHtml %}
     {{ _cardHeading(params, classNamesHeading) | trim | indent(2) }}
   {% endif %}
     {% if actionsItems | length == 1 %}
@@ -181,7 +182,7 @@
   </div>
 {% endif %}
   <div class="nhsuk-card__content">
-  {% if not isCareCard and not actionsItems | length %}
+  {% if not isCareCard and not actionsItems | length and (params.heading or params.headingHtml) %}
     {{ _cardHeading(params, classNamesHeading) | trim | indent(2) }}
   {% endif %}
   {% if caller or params.descriptionHtml %}
