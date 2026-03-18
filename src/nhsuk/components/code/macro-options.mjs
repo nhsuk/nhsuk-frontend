@@ -70,6 +70,12 @@ const options = {
       }
     }
   },
+  variant: {
+    type: 'string',
+    required: false,
+    description:
+      'Optional variant of code. You can use only `"reverse"` or empty values with this option.'
+  },
   background: {
     type: 'string',
     required: false,
