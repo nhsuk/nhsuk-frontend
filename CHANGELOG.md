@@ -1,6 +1,6 @@
 # NHS.UK frontend Changelog
 
-## Unreleased
+## 10.4.0 - 18 March 2026
 
 Note: This release was created from the `support/10.x` branch.
 
@@ -112,14 +112,6 @@ We've also added the `colour` option to the tag component as a simpler way to se
 
 This was added in [pull request #1801: Add Nunjucks options for components with modifier classes](https://github.com/nhsuk/nhsuk-frontend/pull/1801).
 
-### :recycle: **Changes**
-
-#### Align clickable card styles with expander
-
-Clickable cards now follow the hover and active state styling of expanders. On hover their borders darken, on click they depress like a button. On clickable cards with chevrons, the icon changes colour to match link styles.
-
-This was added in [pull request #1804: Update card states for consistency](https://github.com/nhsuk/nhsuk-frontend/pull/1804).
-
 ### :wastebasket: **Deprecated features**
 
 #### Rename Sass variables for secondary and hover border colours
@@ -198,6 +190,12 @@ If you are not using Nunjucks macros, update your HTML markup using the [do and 
 ```
 
 This change was introduced in [pull request #1801: Add Nunjucks options for components with modifier classes](https://github.com/nhsuk/nhsuk-frontend/pull/1801).
+
+#### Align clickable card styles with expander
+
+Clickable cards now follow the hover and active state styling of expanders. On hover their borders darken, on click they depress like a button. On clickable cards with chevrons, the icon changes colour to match link styles.
+
+This change was introduced in [pull request #1804: Update card states for consistency](https://github.com/nhsuk/nhsuk-frontend/pull/1804).
 
 ### :wrench: **Fixes**
 
