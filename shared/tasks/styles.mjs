@@ -29,8 +29,11 @@ export function compile(inputPath, { srcPath, destPath, output = {} }) {
     from: join(srcPath, inputPath),
     to: join(destPath, outputPath),
 
-    // Source maps disabled by default
-    map: /** @type {ProcessOptions['map']} */ (false),
+    // Source maps enabled for CSS output only
+    map: /** @type {ProcessOptions['map']} */ ({
+      annotation: outputPath.endsWith('.css'),
+      inline: false
+    }),
 
     // Sass syntax support
     syntax: output.file?.endsWith('.scss') ? scss : postcss
@@ -55,7 +58,7 @@ export function compile(inputPath, { srcPath, destPath, output = {} }) {
       }))
 
       // Make source file:// paths relative
-      if (map?.sources) {
+      if (typeof options.map === 'object' && map?.sources) {
         map.sources = map.sources.map((path) =>
           path.startsWith('file:')
             ? relative(options.from, fileURLToPath(path))
@@ -63,12 +66,8 @@ export function compile(inputPath, { srcPath, destPath, output = {} }) {
         )
 
         // Pass source maps to PostCSS
-        options.map = {
-          annotation: true,
-          inline: false,
-          prev: map,
-          sourcesContent: true
-        }
+        options.map.prev = map
+        options.map.sourcesContent = true
       }
     }
 
