@@ -1,0 +1,320 @@
+{% extends "layouts/page-full-width.njk" %}
+
+{% set pageName = "Code blocks" %}
+
+{% block beforeContent %}
+  {{ breadcrumb({
+    items: [
+      {
+        text: "NHS.UK frontend",
+        href: baseUrl
+      },
+      {
+        text: "Examples",
+        href: baseUrl ~ "#examples"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <section class="nhsuk-main-wrapper nhsuk-main-wrapper--s">
+    <div class="nhsuk-width-container">
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          <h1 class="nhsuk-heading-xl">{{ pageName }}</h1>
+        </div>
+      </div>
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          <header>
+            <h2 class="nhsuk-heading-l" id="setting-up-git">Setting up Git</h2>
+            <p class="nhsuk-lede-text">Git is useful for collaborating with other people and lets you undo mistakes or identify bugs.</p>
+          </header>
+
+          <h3 class="nhsuk-heading-m" id="git-check-installed">1. Check if you have Git installed</h3>
+
+          <p class="nhsuk-body">Open a terminal, type <kbd>git --version</kbd> and press <kbd><kbd>Enter</kbd></kbd>.</p>
+          <p class="nhsuk-body">If git is installed, you will see the version installed, something similar to this:</p>
+
+          {% call code({
+            variant: "reverse"
+          }) %}
+            {% filter highlight("sh") %}
+              MacBook-Pro:~ florence$ git --version
+              git version 2.39.5
+              MacBook-Pro:~ florence$ █
+            {% endfilter %}
+          {% endcall %}
+
+          <p class="nhsuk-body">You can now <a class="nhsuk-link nhsuk-link--no-visited-state" href="#git-username-password">set a username and password</a>.</p>
+          <p class="nhsuk-body">If git is not installed you will see <samp>git: command not found</samp>, something similar to this:</p>
+
+          {% call code({
+            variant: "reverse"
+          }) %}
+            {% filter highlight("sh") %}
+              MacBook-Pro:~ florence$ git --version
+              zsh: git: command not found
+              MacBook-Pro:~ florence$ █
+            {% endfilter %}
+          {% endcall %}
+
+          <p class="nhsuk-body">You will need to <a class="nhsuk-link nhsuk-link--no-visited-state" href="https://git-scm.com/downloads">install Git</a> before continuing.</p>
+
+          <h3 class="nhsuk-heading-m" id="git-username-password">2. Set a username and password</h3>
+
+          <p class="nhsuk-body">Once Git is installed, you should set your user name and email address.</p>
+
+          {% call code() %}
+            {% filter highlight("sh") %}
+              git config --global user.name "YOUR NAME"
+              git config --global user.email "YOUR EMAIL ADDRESS"
+            {% endfilter %}
+          {% endcall %}
+
+          <p class="nhsuk-body">For example, <kbd>git config --global user.name "Kevin Francis"</kbd>.</p>
+          <p class="nhsuk-body">If you have a <a class="nhsuk-link nhsuk-link--no-visited-state" href="https://github.com/">GitHub</a> account, use the same email address for both.</p>
+
+        </div>
+      </div>
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
+
+          <h2 class="nhsuk-heading-l" id="unreleased">Unreleased</h2>
+
+          <h3 class="nhsuk-heading-s">Reversed link style for action link</h3>
+
+          <p class="nhsuk-body">You can now use the action link component on dark backgrounds by using the <code>.nhsuk-action-link--reverse</code> class.</p>
+          <p class="nhsuk-body">This was added in <a class="nhsuk-link nhsuk-link--no-visited-state" href="https://github.com/nhsuk/nhsuk-frontend/pull/1542">pull request #1542: Add reverse action link modifiers and styles</a>.</p>
+
+          <h3 class="nhsuk-heading-s">Sass colour palette <code>nhsuk-colour</code> function</h3>
+
+          <p class="nhsuk-body">The Sass colour palette variables (e.g. <code>$color_nhsuk-blue</code>) have been moved into a new single <code>$nhsuk-colours</code> map. The previous names are deprecated and will be removed in a future release.</p>
+          <p class="nhsuk-body">If you need to reference a colour within your application you should use the new <code>nhsuk-colour</code> function:</p>
+
+          {% call code() %}
+            {% filter highlight("diff") %}
+              .nhsuk-example {
+            -   color: $color_nhsuk-blue;
+            +   color: nhsuk-colour("blue");
+              }
+            {% endfilter %}
+          {% endcall %}
+
+          <h3 class="nhsuk-heading-s">New file upload component</h3>
+
+          <p class="nhsuk-body">We've added a new <a class="nhsuk-link nhsuk-link--no-visited-state" href="https://service-manual.nhs.uk/design-system/components/file-upload">file upload component</a> which:</p>
+
+          <ul class="nhsuk-list nhsuk-list--bullet">
+            <li>makes the file inputs easier to use for drag and drop</li>
+            <li>allows the text of the component to be translated</li>
+            <li>fixes accessibility issues for users of Dragon, a speech recognition software</li>
+          </ul>
+
+          <p class="nhsuk-body">To use the <code>fileUpload</code> Nunjucks macro in your service:</p>
+
+          {% call code({
+            button: true
+          }) %}
+            {% filter highlight("njk") %}
+              {% raw %}
+              {{ fileUpload({
+                label: {
+                  text: "Upload your photo"
+                },
+                id: "file-upload",
+                name: "photo"
+              }) }}
+              {% endraw %}
+            {%- endfilter %}
+          {% endcall %}
+
+          <p class="nhsuk-body">If you are not using Nunjucks macros, use the following HTML:</p>
+
+          {% call code({
+            button: true
+          }) %}
+            {% filter highlight("html") %}
+              <div class="nhsuk-form-group nhsuk-file-upload" data-module="nhsuk-file-upload">
+                <label class="nhsuk-label" for="file-upload">
+                  Upload your photo
+                </label>
+                <input class="nhsuk-file-upload__input" id="file-upload" name="photo" type="file">
+              </div>
+            {% endfilter %}
+          {% endcall %}
+
+          <p class="nhsuk-body">If you're importing components individually in your JavaScript, which we recommend for better performance, you'll then need to import and initialise the new <code>FileUpload</code> component.</p>
+
+          {% call code() %}
+            {% filter highlight("mjs") %}
+              import { createAll, FileUpload } from 'nhsuk-frontend'
+
+              createAll(FileUpload)
+            {% endfilter %}
+          {% endcall %}
+
+          <p class="nhsuk-body">This change was introduced in <a class="nhsuk-link nhsuk-link--no-visited-state" href="https://github.com/nhsuk/nhsuk-frontend/pull/1556">pull request #1556: Uplift GOV.UK Frontend file upload component</a>.</p>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="nhsuk-main-wrapper app-wrapper app-wrapper--background-blue">
+    <div class="nhsuk-width-container">
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          <header>
+            <h2 class="nhsuk-heading-l" id="setting-up-git-blue">Setting up Git</h2>
+            <p class="nhsuk-lede-text">Git is useful for collaborating with other people and lets you undo mistakes or identify bugs.</p>
+          </header>
+
+          <h3 class="nhsuk-heading-m" id="git-check-installed-blue">1. Check if you have Git installed</h3>
+
+          <p class="nhsuk-body">Open a terminal, type <kbd>git --version</kbd> and press <kbd><kbd>Enter</kbd></kbd>.</p>
+          <p class="nhsuk-body">If git is installed, you will see the version installed, something similar to this:</p>
+
+          {% call code({
+            border: false
+          }) %}
+            {% filter highlight("sh") %}
+              MacBook-Pro:~ florence$ git --version
+              git version 2.39.5
+              MacBook-Pro:~ florence$ █
+            {% endfilter %}
+          {% endcall %}
+
+          <p class="nhsuk-body">You can now <a class="nhsuk-link nhsuk-link--reverse nhsuk-link--no-visited-state" href="#git-username-password-dark">set a username and password</a>.</p>
+          <p class="nhsuk-body">If git is not installed you will see <samp>git: command not found</samp>, something similar to this:</p>
+
+          {% call code({
+            border: false
+          }) %}
+            {% filter highlight("sh") %}
+              MacBook-Pro:~ florence$ git --version
+              zsh: git: command not found
+              MacBook-Pro:~ florence$ █
+            {% endfilter %}
+          {% endcall %}
+
+          <p class="nhsuk-body">You will need to <a class="nhsuk-link nhsuk-link--reverse nhsuk-link--no-visited-state" href="https://git-scm.com/downloads">install Git</a> before continuing.</p>
+
+          <h3 class="nhsuk-heading-m" id="git-username-password-blue">2. Set a username and password</h3>
+
+          <p class="nhsuk-body">Once Git is installed, you should set your user name and email address.</p>
+
+          {% call code({
+            variant: "reverse"
+          }) %}
+            {% filter highlight("sh") %}
+              git config --global user.name "YOUR NAME"
+              git config --global user.email "YOUR EMAIL ADDRESS"
+            {% endfilter %}
+          {% endcall %}
+
+          <p class="nhsuk-body">For example, <kbd>git config --global user.name "Kevin Francis"</kbd>.</p>
+          <p class="nhsuk-body">If you have a <a class="nhsuk-link nhsuk-link--reverse nhsuk-link--no-visited-state" href="https://github.com/">GitHub</a> account, use the same email address for both.</p>
+
+        </div>
+      </div>
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
+
+          <h2 class="nhsuk-heading-l" id="unreleased-blue">Unreleased</h2>
+
+          <h3 class="nhsuk-heading-s">Reversed link style for action link</h3>
+
+          <p class="nhsuk-body">You can now use the action link component on dark backgrounds by using the <code class="nhsuk-code--inline nhsuk-code--reverse">.nhsuk-action-link--reverse</code> class.</p>
+          <p class="nhsuk-body">This was added in <a class="nhsuk-link nhsuk-link--reverse nhsuk-link--no-visited-state" href="https://github.com/nhsuk/nhsuk-frontend/pull/1542">pull request #1542: Add reverse action link modifiers and styles</a>.</p>
+
+          <h3 class="nhsuk-heading-s">Sass colour palette <code>nhsuk-colour</code> function</h3>
+
+          <p class="nhsuk-body">The Sass colour palette variables (e.g. <code class="nhsuk-code--inline nhsuk-code--reverse">$color_nhsuk-blue</code>) have been moved into a new single <code class="nhsuk-code--inline nhsuk-code--reverse">$nhsuk-colours</code> map. The previous names are deprecated and will be removed in a future release.</p>
+          <p class="nhsuk-body">If you need to reference a colour within your application you should use the new <code class="nhsuk-code--inline nhsuk-code--reverse">nhsuk-colour</code> function:</p>
+
+          {% call code({
+            variant: "reverse"
+          }) %}
+            {% filter highlight("diff") %}
+              .nhsuk-example {
+            -   color: $color_nhsuk-blue;
+            +   color: nhsuk-colour("blue");
+              }
+            {% endfilter %}
+          {% endcall %}
+
+          <h3 class="nhsuk-heading-s">New file upload component</h3>
+
+          <p class="nhsuk-body">We've added a new <a class="nhsuk-link nhsuk-link--reverse nhsuk-link--no-visited-state" href="https://service-manual.nhs.uk/design-system/components/file-upload">file upload component</a> which:</p>
+
+          <ul class="nhsuk-list nhsuk-list--bullet">
+            <li>makes the file inputs easier to use for drag and drop</li>
+            <li>allows the text of the component to be translated</li>
+            <li>fixes accessibility issues for users of Dragon, a speech recognition software</li>
+          </ul>
+
+          <p class="nhsuk-body">To use the <code class="nhsuk-code--inline nhsuk-code--reverse">fileUpload</code> Nunjucks macro in your service:</p>
+
+          {% call code({
+            variant: "reverse",
+            button: true
+          }) %}
+            {% filter highlight("njk") %}
+              {% raw %}
+              {{ fileUpload({
+                label: {
+                  text: "Upload your photo"
+                },
+                id: "file-upload",
+                name: "photo"
+              }) }}
+              {% endraw %}
+            {%- endfilter %}
+          {% endcall %}
+
+          <p class="nhsuk-body">If you are not using Nunjucks macros, use the following HTML:</p>
+
+          {% call code({
+            variant: "reverse",
+            button: true
+          }) %}
+            {% filter highlight("html") %}
+              <div class="nhsuk-form-group nhsuk-file-upload" data-module="nhsuk-file-upload">
+                <label class="nhsuk-label" for="file-upload">
+                  Upload your photo
+                </label>
+                <input class="nhsuk-file-upload__input" id="file-upload" name="photo" type="file">
+              </div>
+            {% endfilter %}
+          {% endcall %}
+
+          <p class="nhsuk-body">If you're importing components individually in your JavaScript, which we recommend for better performance, you'll then need to import and initialise the new <code class="nhsuk-code--inline nhsuk-code--reverse">FileUpload</code> component.</p>
+
+          {% call code({
+            variant: "reverse"
+          }) %}
+            {% filter highlight("mjs") %}
+              import { createAll, FileUpload } from 'nhsuk-frontend'
+
+              createAll(FileUpload)
+            {% endfilter %}
+          {% endcall %}
+
+          <p class="nhsuk-body">This change was introduced in <a class="nhsuk-link nhsuk-link--reverse nhsuk-link--no-visited-state" href="https://github.com/nhsuk/nhsuk-frontend/pull/1556">pull request #1556: Uplift GOV.UK Frontend file upload component</a>.</p>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+{% endblock %}

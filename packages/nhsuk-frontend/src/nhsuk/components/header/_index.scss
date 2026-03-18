@@ -89,6 +89,16 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
   .nhsuk-header__container {
     padding: nhsuk-spacing(3) 0;
 
+    .nhsuk-header--inline & {
+      display: flex;
+      flex-flow: row wrap;
+      gap: nhsuk-spacing(3);
+
+      @include nhsuk-media-query($from: tablet) {
+        gap: nhsuk-spacing(3) nhsuk-spacing(4);
+      }
+    }
+
     @include nhsuk-media-query($from: tablet) {
       display: flex;
       flex-flow: row wrap;
@@ -100,7 +110,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
 
   .nhsuk-header__logo {
     min-width: nhsuk-px-to-rem(100px);
-    height: auto;
+    height: intrinsic;
   }
 
   .nhsuk-header__service,
@@ -112,6 +122,17 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
   .nhsuk-header__service {
     display: flex;
     @include nhsuk-font(19, $line-height: 1.1);
+
+    // Always reserve space for service name when inline
+    .nhsuk-header--inline & {
+      flex-basis: nhsuk-px-to-rem(220px);
+      flex-grow: 999;
+    }
+
+    // Unless we know there's no service name
+    .nhsuk-header--inline &:not(:has(.nhsuk-header__service-name)) {
+      flex-basis: auto;
+    }
 
     @include nhsuk-media-query($from: tablet) {
       flex-grow: 999;
@@ -216,6 +237,14 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
       fill: currentcolor;
     }
 
+    .nhsuk-header--inline & {
+      align-self: start;
+
+      // Expand header account by 1px to ensure the search
+      // input does not appear to be taller when inline
+      margin: -1px;
+    }
+
     @include nhsuk-print-hide;
 
     @include nhsuk-media-query($from: tablet) {
@@ -294,6 +323,10 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     z-index: 10;
     flex-grow: 1;
     margin-top: nhsuk-spacing(3);
+
+    .nhsuk-header--inline & {
+      margin-top: 0;
+    }
 
     @include nhsuk-print-hide;
 
@@ -468,17 +501,27 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     font-weight: inherit;
   }
 
-  .nhsuk-header__navigation-link {
+  .nhsuk-header__navigation-link,
+  .nhsuk-header__navigation-text {
     display: block;
+
     position: relative;
+
+    margin: 0;
     padding: nhsuk-spacing(3) $_header-link-padding;
+
+    border: 0;
+    border-radius: 0;
+
+    color: $nhsuk-header-reverse-item-colour;
+
+    background: transparent;
+
+    text-decoration: underline;
     white-space: nowrap;
+
+    cursor: pointer;
     @include nhsuk-font(16);
-    @include _header-link-style(
-      $link-colour: $nhsuk-header-reverse-item-colour,
-      $link-hover-colour: $nhsuk-header-reverse-item-hover-colour,
-      $link-active-colour: $nhsuk-header-reverse-item-active-colour
-    );
 
     // Visual indicator for navigation item uses a border on bottom edge
     &::before {
@@ -505,6 +548,14 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     }
   }
 
+  .nhsuk-header__navigation-link {
+    @include _header-link-style(
+      $link-colour: $nhsuk-header-reverse-item-colour,
+      $link-hover-colour: $nhsuk-header-reverse-item-hover-colour,
+      $link-active-colour: $nhsuk-header-reverse-item-active-colour
+    );
+  }
+
   // Menu (shown when screen can’t fit all navigation items)
 
   .nhsuk-header__menu {
@@ -524,20 +575,9 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     $_chevron-font-size: 19;
 
     display: flex;
-
     align-items: center;
-
-    margin: 0;
     padding-right: nhsuk-em($_chevron-font-size, 16);
-
-    border: 0;
-    border-radius: 0;
-
-    background: transparent;
-
     text-align: center;
-
-    cursor: pointer;
 
     &[hidden] {
       display: none;
@@ -582,8 +622,9 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
       display: none;
     }
 
-    .nhsuk-header__navigation-link {
-      @include _header-link-style;
+    .nhsuk-header__navigation-link,
+    .nhsuk-header__navigation-text {
+      color: $nhsuk-header-item-colour;
 
       // Visual indicator for navigation item uses a border on left edge
       &[aria-current="page"]::before,
@@ -604,6 +645,10 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
       }
     }
 
+    .nhsuk-header__navigation-link {
+      @include _header-link-style;
+    }
+
     .nhsuk-header__navigation-item {
       padding: 0;
       border-bottom: 1px solid nhsuk-colour("grey-5");
@@ -620,6 +665,11 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     color: $nhsuk-brand-colour;
     background-color: nhsuk-colour("white");
 
+    .nhsuk-header__navigation-link,
+    .nhsuk-header__navigation-text {
+      color: $nhsuk-header-item-colour;
+    }
+
     .nhsuk-header__navigation-link {
       @include _header-link-style;
     }
@@ -633,7 +683,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
   // - Until tablet breakpoint, add negative top margin
   // - From tablet breakpoint, add a top border
   .nhsuk-header__navigation-container {
-    box-shadow: 0 -1px 0 0 $nhsuk-secondary-border-colour;
+    box-shadow: 0 -1px 0 0 $nhsuk-reverse-border-colour;
 
     .nhsuk-header--white .nhsuk-header__navigation--white & {
       box-shadow: 0 -1px 0 0 $nhsuk-border-colour;
@@ -685,7 +735,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
       padding-right: $_header-item-padding;
       padding-left: $_header-item-padding - 1px;
       border-width: 1px;
-      border-color: $nhsuk-border-hover-colour;
+      border-color: nhsuk-colour("grey-3");
     }
 
     .nhsuk-header__search-form .nhsuk-button {

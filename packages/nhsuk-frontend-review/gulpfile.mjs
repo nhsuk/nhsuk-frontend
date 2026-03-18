@@ -8,6 +8,8 @@ import gulp from 'gulp'
 import browserSyncConfig from './browsersync.config.js'
 import { assets, html, scripts, styles } from './tasks/index.mjs'
 
+const { HEROKU_BRANCH, NODE_ENV } = process.env
+
 /**
  * Utility tasks
  */
@@ -26,7 +28,12 @@ gulp.task(
     npm.script('clean'),
     gulp.parallel(
       gulp.series('styles', 'scripts', 'assets'),
-      gulp.series('html', 'validate'),
+      gulp.series(
+        // Skip HTML validation on review apps and in development
+        ...(!HEROKU_BRANCH && NODE_ENV === 'production'
+          ? ['html', 'validate']
+          : ['html'])
+      ),
       npm.script('sassdoc')
     )
   )

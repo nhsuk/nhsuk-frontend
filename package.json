@@ -25,7 +25,9 @@
   "scripts": {
     "install:playwright": "playwright install chromium --with-deps --only-shell",
     "install:puppeteer": "puppeteer browsers install",
-    "clean": "del-cli dist",
+    "preclean": "del-cli dist",
+    "clean": "npm run clean --if-present --workspaces",
+    "postclean": "tsc --build --clean",
     "build": "npm run build --if-present --workspaces",
     "heroku-postbuild": "npm run build",
     "postheroku-postbuild": "NPM_CONFIG_PRODUCTION=true npm ci --omit=dev --omit=optional --workspace @nhsuk/frontend-review",
@@ -70,6 +72,7 @@
     "@types/gulp": "^4.0.18",
     "@types/gulp-rename": "^2.0.7",
     "@types/gulp-zip": "^4.0.4",
+    "@types/highlight.js": "^9.12.4",
     "@types/jest": "^30.0.0",
     "@types/jest-axe": "^3.5.9",
     "@types/lodash": "^4.17.24",

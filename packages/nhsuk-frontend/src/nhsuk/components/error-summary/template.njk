@@ -1,9 +1,29 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes -%}
 
-<div {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-error-summary
-  {%- if params.classes %} {{ params.classes }}{% endif %}"
-  {%- if params.disableAutoFocus is not undefined %} data-disable-auto-focus="{{ params.disableAutoFocus }}"{% endif %}
-  {{- nhsukAttributes(params.attributes) }} data-module="nhsuk-error-summary">
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-error-summary" -%}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif -%}
+
+<div
+  {{- nhsukAttributes({
+    class: classNames,
+    id: {
+      value: params.id,
+      optional: true
+    },
+    "data-module": "nhsuk-error-summary",
+    "data-disable-auto-focus": {
+      value: params.disableAutoFocus | string
+        if params.disableAutoFocus in [true, false]
+        else false,
+      optional: true
+    }
+  }) -}}
+
+  {{- nhsukAttributes(params.attributes) -}}>
   {#- Keep the role="alert" in a seperate child container to prevent a race condition between
   the focusing js at the alert, resulting in information getting missed in screen reader announcements #}
   <div role="alert">

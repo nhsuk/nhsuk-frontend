@@ -22,7 +22,7 @@ describe('Notification banner', () => {
   }
 
   beforeEach(() => {
-    initExample('with type as success')
+    initExample('with success variant')
   })
 
   describe('Initialisation via class', () => {
@@ -72,7 +72,7 @@ describe('Notification banner', () => {
 
   describe('Nunjucks configuration', () => {
     it('configures auto-focus explicitly enabled', () => {
-      initExample('auto-focus explicitly enabled, with type as success')
+      initExample('auto-focus explicitly enabled, with success variant')
 
       const notificationBanner = new NotificationBanner($root)
       expect(notificationBanner.config).toEqual({
@@ -83,7 +83,7 @@ describe('Notification banner', () => {
     })
 
     it('configures auto-focus disabled', () => {
-      initExample('auto-focus disabled, with type as success')
+      initExample('auto-focus disabled, with success variant')
 
       const notificationBanner = new NotificationBanner($root)
       expect(notificationBanner.config).toEqual({

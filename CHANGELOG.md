@@ -1,6 +1,6 @@
 # NHS.UK frontend Changelog
 
-## Unreleased
+## 10.4.0 - 18 March 2026
 
 ### :new: **New features**
 
@@ -579,6 +579,153 @@ This change was introduced in [pull request #1553: Remove deprecated features ma
 
 Note: This release was created from the `support/10.x` branch.
 
+### :new: **New features**
+
+#### Add a modifier class for header inline search or account links
+
+We've added a new `.nhsuk-header--inline` class and `inline` Nunjucks option for the [header](https://service-manual.nhs.uk/design-system/components/header) component. This positions the search bar (or account links) inline with the NHS logo on small screens, depending on the length of your service name. For example:
+
+```patch
+  {{ header({
++   inline: true,
+    account: {
+      items: [
+        {
+          text: "Log in",
+          href: "/log-in"
+        }
+      ]
+    }
+  }) }}
+```
+
+This was added in pull requests [#1783: Add support for inline header search or account](https://github.com/nhsuk/nhsuk-frontend/pull/1783) and [#1801: Add Nunjucks options for components with modifier classes](https://github.com/nhsuk/nhsuk-frontend/pull/1801).
+
+#### Add Nunjucks options for components with modifier classes
+
+We've added a new `variant` Nunjucks option to action links, back links, buttons, breadcrumbs, panels and tables as a simpler alternative to the variant modifier classes. For example:
+
+```patch
+  {{ button({
+    text: "Yes, delete this vaccine",
+-   classes: "nhsuk-button--warning"
++   variant: "warning"
+  }) }}
+```
+
+For modifiers that can exist together, these are now supported using boolean options, for example:
+
+```patch
+  {{ radios({
+    fieldset: {
+      legend: {
+        text: "Sort by"
+      }
+    },
+-   classes: "nhsuk-radios--small nhsuk-radios--inline",
++   small: true,
++   inline: true,
+```
+
+With the following boolean options now available:
+
+- Button, checkboxes and radios with `small: true`
+- Date input items with `error: true`
+- Radios with `inline: true`
+- Header navigation with `justified: true`
+- Summary lists with `lastRowBorder: false`
+- Summary lists (and rows) with `border: false`
+- Tags with `border: false`
+- Text input with `code: true`
+
+We've also added the `width` option to text and date input items as a simpler alternative to the [fixed width classes](https://service-manual.nhs.uk/design-system/components/text-input#fixed-width-inputs), for example:
+
+```patch
+  items: [
+    {
+      name: "day",
+-     classes: "nhsuk-input--width-2"
++     width: 2
+    },
+    {
+      name: "month",
+-     classes: "nhsuk-input--width-2"
++     width: 2
+    },
+    {
+      name: "year",
+-     classes: "nhsuk-input--width-4"
++     width: 4
+    }
+  ]
+```
+
+Or with both boolean and width modifiers set together:
+
+```patch
+  {{ input({
+    label: {
+      text: "NHS number"
+    },
+-   classes: "nhsuk-input--width-10 nhsuk-input--code",
++   width: 10,
++   code: true,
+    inputmode: "numeric",
+    spellcheck: false
+  }) }}
+```
+
+We've also added the `colour` option to the tag component as a simpler way to set a colour:
+
+```patch
+  {{ tag({
+    text: "Delayed",
+-   classes: "nhsuk-tag--yellow"
++   colour: "yellow"
+  }) }}
+```
+
+This was added in [pull request #1801: Add Nunjucks options for components with modifier classes](https://github.com/nhsuk/nhsuk-frontend/pull/1801).
+
+### :wastebasket: **Deprecated features**
+
+#### Rename Sass variables for secondary and hover border colours
+
+If you use Sass and you've extended or created components that use the following border variables:
+
+- replace `$nhsuk-secondary-border-colour` with `$nhsuk-reverse-border-colour` for blue backgrounds
+- replace `$nhsuk-secondary-border-colour` with `rgba(nhsuk-colour("white"), 0.2)` to preserve transparency
+- replace `$nhsuk-border-hover-colour` with `nhsuk-colour("grey-3")`
+
+The previous names are deprecated and will be repurposed or removed in a future release.
+
+This change was introduced in [pull request #1851: Deprecate secondary and hover border colours](https://github.com/nhsuk/nhsuk-frontend/pull/1851).
+
+#### Rename Nunjucks macro options for component variants
+
+All component variants now use the new `variant` Nunjucks option so we've deprecated the `type` and boolean options for cards, notification banners and do and don't lists.
+
+If you're using the `card` Nunjucks macro:
+
+- replace the `feature: true` option with `variant: "feature"`
+- replace the `primary: true` option with `variant: "primary"`
+- replace the `secondary: true` option with `variant: "secondary"`
+- replace the `warning: true` option with `variant: "warning"`
+- replace the `type: "non-urgent"` option with `variant: "non-urgent"`
+- replace the `type: "urgent"` option with `variant: "urgent"`
+- replace the `type: "emergency"` option with `variant: "emergency"`
+
+If you're using the `notificationBanner` Nunjucks macro:
+
+- replace the `type: "success"` option with `variant: "success"`
+
+If you're using the `list` Nunjucks macro:
+
+- replace the `type: "tick"` option with `icon: "tick"`
+- replace the `type: "cross"` option with `icon: "cross"`
+
+The previous names are deprecated and will be removed in a future release.
+
 ### :recycle: **Changes**
 
 #### Hide the character count messages when unnecessary
@@ -594,10 +741,46 @@ The previous class names `nhsuk-character-count__status--disabled` and `nhsuk-ch
 
 This change was introduced in [pull request #1796: Hide character count message until threshold is reached](https://github.com/nhsuk/nhsuk-frontend/pull/1796).
 
+#### Update the HTML for do and don't lists
+
+For consistency with the card component, the HTML for do and don't lists has changed.
+
+If you are not using Nunjucks macros, update your HTML markup using the [do and don't lists in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/do-and-dont-lists) as follows:
+
+- Add the wrapper `<div class="nhsuk-card nhsuk-card--feature"> </div>`
+- Rename the list `<div class="nhsuk-do-dont-list"` class attribute to match `<div class="nhsuk-card__content"`
+- Rename the heading `<h3 class="nhsuk-do-dont-list__label"` class attribute to match `<h3 class="nhsuk-card__heading"`
+
+```patch
++ <div class="nhsuk-card nhsuk-card--feature">
+-   <div class="nhsuk-do-dont-list">
++   <div class="nhsuk-card__content">
+-     <h3 class="nhsuk-do-dont-list__label">
++     <h3 class="nhsuk-card__heading">
+        Do
+      </h3>
+      <!-- // ... -->
+    </div>
++ </div>
+```
+
+This change was introduced in [pull request #1801: Add Nunjucks options for components with modifier classes](https://github.com/nhsuk/nhsuk-frontend/pull/1801).
+
+#### Align clickable card styles with expander
+
+Clickable cards now follow the hover and active state styling of expanders. On hover their borders darken, on click they depress like a button. On clickable cards with chevrons, the icon changes colour to match link styles.
+
+This change was introduced in [pull request #1804: Update card states for consistency](https://github.com/nhsuk/nhsuk-frontend/pull/1804).
+
 ### :wrench: **Fixes**
 
+- [#1779: Fix header menu width when text size changes](https://github.com/nhsuk/nhsuk-frontend/pull/1779)
+- [#1780: Close header menu when clicking or navigating elsewhere](https://github.com/nhsuk/nhsuk-frontend/pull/1780)
+- [#1795: Add all page template variables from GOV.UK Frontend](https://github.com/nhsuk/nhsuk-frontend/pull/1795)
 - [#1797: Ensure components pass label.id down to the label](https://github.com/nhsuk/nhsuk-frontend/pull/1797)
 - [#1807: Fix summary list cells becoming vertically misaligned when a multi-line inline-block element is present](https://github.com/nhsuk/nhsuk-frontend/pull/1807)
+- [#1829: Always validate component config schema](https://github.com/nhsuk/nhsuk-frontend/pull/1829)
+- [#1854: Fix for nested lists in the contents list](https://github.com/nhsuk/nhsuk-frontend/pull/1854)
 
 ## 10.3.1 - 19 January 2026
 
@@ -628,7 +811,7 @@ To use the `fileUpload` Nunjucks macro in your service:
 {{ fileUpload({
   label: {
     text: "Upload your photo"
-  }
+  },
   id: "file-upload",
   name: "photo"
 }) }}

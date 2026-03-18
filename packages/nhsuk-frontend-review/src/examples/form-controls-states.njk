@@ -87,8 +87,8 @@
     {% for value in [undefined, "Bats are mammals of the order Chiroptera"] %}
       <div class="nhsuk-grid-column-one-half">
         {% for item in examplesText %}
-          {{ renderExample({
-            html: input({
+          {{ uniqueHTML(
+            input({
               label: item.label,
               errorMessage: item.errorMessage,
               value: value,
@@ -97,8 +97,9 @@
               formGroup: item.formGroup,
               attributes: item.attributes,
               disabled: item.disabled
-            })
-          }, loop.index) | safe }}
+            }),
+            loop.index
+          ) | safe }}
         {% endfor %}
       </div>
     {% endfor %}
@@ -110,8 +111,8 @@
     {% for value in [undefined, "This is my password"] %}
       <div class="nhsuk-grid-column-one-half">
         {% for item in examplesText %}
-          {{ renderExample({
-            html: passwordInput({
+          {{ uniqueHTML(
+            passwordInput({
               label: item.label,
               errorMessage: item.errorMessage,
               value: value,
@@ -120,8 +121,9 @@
               formGroup: item.formGroup,
               attributes: item.attributes,
               disabled: item.disabled
-            })
-          }, loop.index) | safe }}
+            }),
+            loop.index
+          ) | safe }}
         {% endfor %}
       </div>
     {% endfor %}
@@ -133,8 +135,8 @@
     {% for value in [undefined, "With their forelimbs adapted as wings, they are the only mammals capable of true and sustained flight. Bats are more agile in flight than most birds, flying with their very long spread-out digits covered with a thin membrane or patagium. The smallest bat, and arguably the smallest extant mammal, is Kitti's hog-nosed bat, which is 29–34 millimetres in length, 150 mm  across the wings and 2–2.6 g in mass. The largest bats are the flying foxes, with the giant golden-crowned flying fox, reaching a weight of 1.6 kg and having a wingspan of 1.7 m."] %}
       <div class="nhsuk-grid-column-one-half">
         {% for item in examplesText %}
-          {{ renderExample({
-            html: textarea({
+          {{ uniqueHTML(
+            textarea({
               label: item.label,
               errorMessage: item.errorMessage,
               value: value,
@@ -143,8 +145,9 @@
               formGroup: item.formGroup,
               attributes: item.attributes,
               disabled: item.disabled
-            })
-          }, loop.index) | safe }}
+            }),
+            loop.index
+          ) | safe }}
         {% endfor %}
       </div>
     {% endfor %}
@@ -156,8 +159,8 @@
     {% for value in [undefined, "Ectophylla alba"] %}
       <div class="nhsuk-grid-column-one-half">
         {% for item in examplesText %}
-          {{ renderExample({
-            html: select({
+          {{ uniqueHTML(
+            select({
               label: item.label,
               errorMessage: item.errorMessage,
               value: value,
@@ -167,8 +170,9 @@
               attributes: item.attributes,
               disabled: item.disabled,
               items: exampleOptions
-            })
-          }, loop.index) | safe }}
+            }),
+            loop.index
+          ) | safe }}
         {% endfor %}
       </div>
     {% endfor %}
@@ -178,21 +182,23 @@
 
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-one-half">
-      {{ renderExample({
-        html: checkboxes({
+      {{ uniqueHTML(
+        checkboxes({
           idPrefix: "checkboxes",
           items: exampleItems
-        })
-      }, loop.index) | safe }}
+        }),
+        loop.index
+      ) | safe }}
     </div>
 
     <div class="nhsuk-grid-column-one-half">
-      {{ renderExample({
-        html: radios({
+      {{ uniqueHTML(
+        radios({
           idPrefix: "radios",
           items: exampleItems
-        })
-      }, loop.index) | safe }}
+        }),
+        loop.index
+      ) | safe }}
     </div>
   </div>
 
@@ -200,23 +206,25 @@
 
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-one-half">
-      {{ renderExample({
-        html: checkboxes({
+      {{ uniqueHTML(
+        checkboxes({
           idPrefix: "checkboxes-small",
-          classes: 'nhsuk-checkboxes--small',
+          small: true,
           items: exampleItemsSmall
-        })
-      }, loop.index) | safe }}
+        }),
+        loop.index
+      ) | safe }}
     </div>
 
     <div class="nhsuk-grid-column-one-half">
-      {{ renderExample({
-        html: radios({
+      {{ uniqueHTML(
+        radios({
           idPrefix: "radios-small",
-          classes: 'nhsuk-radios--small',
+          small: true,
           items: exampleItemsSmall
-        })
-      }, loop.index) | safe }}
+        }),
+        loop.index
+      ) | safe }}
     </div>
   </div>
 
@@ -225,8 +233,8 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       {% for item in examplesFileUpload %}
-        {{ renderExample({
-          html: fileUpload({
+        {{ uniqueHTML(
+          fileUpload({
             label: item.label,
             button: item.button,
             errorMessage: item.errorMessage,
@@ -235,8 +243,9 @@
             formGroup: item.formGroup,
             attributes: item.attributes,
             disabled: item.disabled
-          })
-        }, loop.index) }}
+          }),
+          loop.index
+        ) | safe }}
       {% endfor %}
     </div>
   </div>

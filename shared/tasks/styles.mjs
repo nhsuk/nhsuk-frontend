@@ -29,16 +29,8 @@ export function compile(inputPath, { srcPath, destPath, output = {} }) {
     from: join(srcPath, inputPath),
     to: join(destPath, outputPath),
 
-    /**
-     * Always generate source maps for either:
-     *
-     * 1. PostCSS on Sass compiler result
-     * 2. PostCSS on Sass sources (Autoprefixer only)
-     */
-    map: /** @type {ProcessOptions['map']} */ ({
-      annotation: true,
-      inline: false
-    }),
+    // Source maps disabled by default
+    map: /** @type {ProcessOptions['map']} */ (false),
 
     // Sass syntax support
     syntax: output.file?.endsWith('.scss') ? scss : postcss
@@ -63,7 +55,7 @@ export function compile(inputPath, { srcPath, destPath, output = {} }) {
       }))
 
       // Make source file:// paths relative
-      if (typeof options.map === 'object' && map?.sources) {
+      if (map?.sources) {
         map.sources = map.sources.map((path) =>
           path.startsWith('file:')
             ? relative(options.from, fileURLToPath(path))
@@ -71,8 +63,12 @@ export function compile(inputPath, { srcPath, destPath, output = {} }) {
         )
 
         // Pass source maps to PostCSS
-        options.map.prev = map
-        options.map.sourcesContent = true
+        options.map = {
+          annotation: true,
+          inline: false,
+          prev: map,
+          sourcesContent: true
+        }
       }
     }
 
@@ -94,10 +90,12 @@ export function compile(inputPath, { srcPath, destPath, output = {} }) {
       output: { contents: result.css }
     })
 
-    await files.write(`${outputPath}.map`, {
-      destPath,
-      output: { contents: result.map.toString() }
-    })
+    if (result.map) {
+      await files.write(`${outputPath}.map`, {
+        destPath,
+        output: { contents: result.map.toString() }
+      })
+    }
   })
 }
 

@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Highlight.js Nunjucks language should output HTML for fixtures 1`] = `
+"<span class="nhsuk-code__comment">{% comment %}This is a comment{% endcomment %}</span><span class="language-xml">
+</span><span class="nhsuk-code__comment">{# This is a single line comment #}</span><span class="language-xml">
+</span><span class="nhsuk-code__tag">{{ <span class="nhsuk-code__name">variable</span> }}</span><span class="language-xml">
+</span><span class="nhsuk-code__tag">{{ <span class="nhsuk-code__name">variable</span> <span class="nhsuk-code__operator">|</span> <span class="nhsuk-code__name">filter</span> }}</span><span class="language-xml">
+</span><span class="nhsuk-code__tag">{{ <span class="nhsuk-code__name">variable</span> <span class="nhsuk-code__operator">|</span> <span class="nhsuk-code__title">filter</span>(<span class="nhsuk-code__string">&quot;string&quot;</span>) }}</span><span class="language-xml">
+</span><span class="nhsuk-code__tag">{{ <span class="nhsuk-code__title">macro</span>(<span class="nhsuk-code__string">&quot;string&quot;</span>) <span class="nhsuk-code__operator">|</span> <span class="nhsuk-code__name">filter</span> <span class="nhsuk-code__operator">|</span> <span class="nhsuk-code__title">indent</span>(<span class="nhsuk-code__name">2</span>) }}</span><span class="language-xml">
+</span><span class="nhsuk-code__tag">{{ <span class="nhsuk-code__title">super</span>() }}</span><span class="language-xml">
+</span><span class="nhsuk-code__tag">{{ <span class="nhsuk-code__title">component</span><span class="language-javascript">({
+  <span class="nhsuk-code__attr">thing1</span>: <span class="nhsuk-code__string">&quot;value1&quot;</span>,
+  <span class="nhsuk-code__attr">thing2</span>: <span class="nhsuk-code__string">&quot;value2&quot;</span>
+})</span>}}</span><span class="language-xml">
+</span><span class="nhsuk-code__tag">{{ <span class="nhsuk-code__string">&quot;hello world&quot;</span> }}</span><span class="language-xml">
+
+</span><span class="nhsuk-code__comment">{#
+  This is a multi line comment, line 1
+  This is a multi line comment, line 2
+#}</span><span class="language-xml">
+
+</span><span class="nhsuk-code__tag">{% <span class="nhsuk-code__keyword">if</span> <span class="nhsuk-code__variable">happy</span> <span class="nhsuk-code__variable">and</span> <span class="nhsuk-code__variable">hungry</span> %}</span><span class="language-xml">
+  I am happy *and* hungry; both are true.
+</span><span class="nhsuk-code__tag">{% <span class="nhsuk-code__keyword">elif</span> <span class="nhsuk-code__variable">happy</span> <span class="nhsuk-code__variable">or</span> <span class="nhsuk-code__variable">hungry</span> %}</span><span class="language-xml">
+  I am either happy *or* hungry; one or the other is true.
+</span><span class="nhsuk-code__tag">{% <span class="nhsuk-code__keyword">endif</span> %}</span><span class="language-xml">
+
+</span><span class="nhsuk-code__tag">{% <span class="nhsuk-code__keyword">for</span> <span class="nhsuk-code__variable">item</span> <span class="nhsuk-code__variable">in</span> <span class="nhsuk-code__variable">items</span> %}</span><span class="language-xml">
+  <span class="nhsuk-code__tag">&lt;<span class="nhsuk-code__name">li</span>&gt;</span></span><span class="nhsuk-code__tag">{{ <span class="nhsuk-code__name">item</span>.<span class="nhsuk-code__name">title</span> }}</span><span class="language-xml"><span class="nhsuk-code__tag">&lt;/<span class="nhsuk-code__name">li</span>&gt;</span>
+</span><span class="nhsuk-code__tag">{% <span class="nhsuk-code__keyword">else</span> %}</span><span class="language-xml">
+  <span class="nhsuk-code__tag">&lt;<span class="nhsuk-code__name">li</span>&gt;</span>This would display if the &#x27;item&#x27; collection were empty<span class="nhsuk-code__tag">&lt;/<span class="nhsuk-code__name">li</span>&gt;</span>
+</span><span class="nhsuk-code__tag">{% <span class="nhsuk-code__keyword">endfor</span> %}</span><span class="language-xml">
+
+</span><span class="nhsuk-code__tag">{% <span class="nhsuk-code__keyword">block</span> <span class="nhsuk-code__variable">content</span> %}</span><span class="language-xml">
+Content
+</span><span class="nhsuk-code__tag">{% <span class="nhsuk-code__keyword">endblock</span> %}</span><span class="language-xml">
+
+</span><span class="nhsuk-code__tag">{% <span class="nhsuk-code__keyword">extends</span> <span class="nhsuk-code__string">&quot;base.html&quot;</span> %}</span><span class="language-xml">
+
+</span><span class="nhsuk-code__tag">{% <span class="nhsuk-code__keyword">include</span> <span class="nhsuk-code__string">&#x27;standardModalData.html&#x27;</span> %}</span><span class="language-xml">
+
+</span><span class="nhsuk-code__tag">{% <span class="nhsuk-code__keyword">set</span> <span class="nhsuk-code__variable">username</span> = <span class="nhsuk-code__string">&quot;joe&quot;</span> %}</span><span class="language-xml">
+
+</span><span class="nhsuk-code__tag">{% <span class="nhsuk-code__keyword">set</span> <span class="nhsuk-code__variable">standardModal</span> %}</span><span class="language-xml">
+  <span class="nhsuk-code__comment">&lt;!-- This is an HTML comment --&gt;</span>
+  <span class="nhsuk-code__tag">&lt;<span class="nhsuk-code__name">p</span>&gt;</span>Set<span class="nhsuk-code__tag">&lt;/<span class="nhsuk-code__name">p</span>&gt;</span>
+</span><span class="nhsuk-code__tag">{% <span class="nhsuk-code__keyword">endset</span> %}</span><span class="language-xml">
+
+</span><span class="nhsuk-code__tag">{% <span class="nhsuk-code__keyword">macro</span> <span class="nhsuk-code__variable">field</span>(<span class="nhsuk-code__variable">name</span>, <span class="nhsuk-code__variable">value</span>=<span class="nhsuk-code__string">&#x27;&#x27;</span>, <span class="nhsuk-code__variable">type</span>=<span class="nhsuk-code__string">&#x27;text&#x27;</span>) %}</span><span class="language-xml">
+  <span class="nhsuk-code__comment">&lt;!-- This is an HTML comment --&gt;</span>
+  <span class="nhsuk-code__tag">&lt;<span class="nhsuk-code__name">div</span>&gt;</span>Content<span class="nhsuk-code__tag">&lt;/<span class="nhsuk-code__name">div</span>&gt;</span>
+</span><span class="nhsuk-code__tag">{% <span class="nhsuk-code__keyword">endmacro</span> %}</span><span class="language-xml">
+
+</span><span class="nhsuk-code__tag">{{ <span class="nhsuk-code__title">input</span><span class="language-javascript">({
+  <span class="nhsuk-code__attr">label</span>: {
+    <span class="nhsuk-code__attr">text</span>: <span class="nhsuk-code__string">&quot;Address line 2 (optional)&quot;</span>
+  },
+  <span class="nhsuk-code__attr">id</span>: <span class="nhsuk-code__string">&quot;address-line-2&quot;</span>,
+  <span class="nhsuk-code__attr">name</span>: <span class="nhsuk-code__string">&quot;addressLine2&quot;</span>,
+  <span class="nhsuk-code__attr">autocomplete</span>: <span class="nhsuk-code__string">&quot;address-line2&quot;</span>
+})</span> }}</span><span class="language-xml">
+</span>"
+`;

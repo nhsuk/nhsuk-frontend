@@ -42,7 +42,7 @@ const options = {
   html: {
     type: 'string',
     required: false,
-    description: 'HTML to use/render within the fieldset element.'
+    description: 'HTML to use within the fieldset element.'
   },
   caller: {
     type: 'nunjucks-block',

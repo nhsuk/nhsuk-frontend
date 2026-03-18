@@ -3,6 +3,28 @@ import { outdent } from 'outdent'
 import { components } from '#lib'
 
 /**
+ * Nunjucks macro option variants
+ *
+ * @satisfies {MacroExample[]}
+ */
+export const variants = [
+  {
+    options: {
+      layout: 'background-white'
+    }
+  },
+  {
+    description: 'reverse',
+    context: {
+      variant: 'reverse'
+    },
+    options: {
+      layout: 'background-blue'
+    }
+  }
+]
+
+/**
  * Nunjucks macro option examples
  *
  * @satisfies {{ [example: string]: MacroExample }}
@@ -47,6 +69,7 @@ const fixtures = {
         ]
       ]
     },
+    variants,
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']
     }
@@ -180,7 +203,7 @@ const fixtures = {
       ]
     }
   },
-  'with responsive layout': {
+  'responsive': {
     context: {
       caption: 'Ibuprofen syrup dosages for children',
       captionSize: 'm',
@@ -300,11 +323,12 @@ const fixtures = {
         ]
       ]
     },
+    variants,
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
-  'with responsive layout and custom HTML': {
+  'responsive and custom HTML': {
     context: {
       caption: 'Nunjucks macro options',
       firstCellIsHeader: true,
@@ -364,7 +388,7 @@ const fixtures = {
           {
             header: 'Description',
             html: outdent`
-              Can be used to add a row of table header cells (<code class="app-code">&lt;th&gt;</code>) at the top of the table component.
+              Can be used to add a row of table header cells (<code>&lt;th&gt;</code>) at the top of the table component.
               <a href="#/macro-options">See macro options for head</a>.
             `
           }
@@ -409,7 +433,7 @@ const fixtures = {
           {
             header: 'Description',
             html: outdent`
-              If set to <code class="app-code">true</code>, the first cell in each row will be a table header (<code class="app-code">&lt;th&gt;</code>).
+              If set to <code>true</code>, the first cell in each row will be a table header (<code>&lt;th&gt;</code>).
             `
           }
         ],
@@ -478,7 +502,7 @@ const fixtures = {
             html: components.render('tag', {
               context: {
                 text: 'Active',
-                classes: 'nhsuk-tag--green'
+                colour: 'green'
               }
             })
           }
@@ -496,7 +520,7 @@ const fixtures = {
             html: components.render('tag', {
               context: {
                 text: 'Inactive',
-                classes: 'nhsuk-tag--grey'
+                colour: 'grey'
               }
             })
           }
@@ -621,7 +645,7 @@ const fixtures = {
       card: {
         heading: 'Other conditions like impetigo',
         headingSize: 'm',
-        feature: true
+        variant: 'feature'
       },
       caption: 'Impetigo can look similar to other skin conditions',
       captionSize: 's',
@@ -664,12 +688,12 @@ const fixtures = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
-  'as a card (feature) with responsive layout': {
+  'as a card (feature) responsive': {
     context: {
       card: {
         heading: 'Other conditions like impetigo',
         headingSize: 'm',
-        feature: true
+        variant: 'feature'
       },
       caption: 'Impetigo can look similar to other skin conditions',
       captionSize: 's',

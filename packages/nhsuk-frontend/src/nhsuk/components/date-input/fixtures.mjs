@@ -56,11 +56,11 @@ const fixtures = {
       items: [
         {
           name: 'day',
-          classes: 'nhsuk-input--width-2'
+          width: 2
         },
         {
           name: 'month',
-          classes: 'nhsuk-input--width-2'
+          width: 2
         }
       ]
     }
@@ -81,11 +81,11 @@ const fixtures = {
       items: [
         {
           name: 'day',
-          classes: 'nhsuk-input--width-2'
+          width: 2
         },
         {
           name: 'month',
-          classes: 'nhsuk-input--width-2'
+          width: 2
         },
         false
       ]
@@ -107,11 +107,11 @@ const fixtures = {
       items: [
         {
           name: 'month',
-          classes: 'nhsuk-input--width-2'
+          width: 2
         },
         {
           name: 'year',
-          classes: 'nhsuk-input--width-4'
+          width: 4
         }
       ]
     }
@@ -133,11 +133,11 @@ const fixtures = {
         false,
         {
           name: 'month',
-          classes: 'nhsuk-input--width-2'
+          width: 2
         },
         {
           name: 'year',
-          classes: 'nhsuk-input--width-4'
+          width: 4
         }
       ]
     }
@@ -162,11 +162,11 @@ const fixtures = {
       items: [
         {
           name: 'month',
-          classes: 'nhsuk-input--width-2'
+          width: 2
         },
         {
           name: 'year',
-          classes: 'nhsuk-input--width-4'
+          width: 4
         }
       ]
     }
@@ -176,6 +176,7 @@ const fixtures = {
       fieldset: {
         legend: {
           text: 'What is your date of birth?',
+          size: 'l',
           isPageHeading: true
         }
       },
@@ -256,17 +257,17 @@ const fixtures = {
       items: [
         {
           name: 'day',
-          classes: 'nhsuk-input--width-2',
+          width: 2,
           autocomplete: 'bday-day'
         },
         {
           name: 'month',
-          classes: 'nhsuk-input--width-2',
+          width: 2,
           autocomplete: 'bday-month'
         },
         {
           name: 'year',
-          classes: 'nhsuk-input--width-4',
+          width: 4,
           autocomplete: 'bday-year'
         }
       ]
@@ -304,15 +305,18 @@ const fixtures = {
       items: [
         {
           name: 'day',
-          classes: 'nhsuk-input--width-2 nhsuk-input--error'
+          width: 2,
+          error: true
         },
         {
           name: 'month',
-          classes: 'nhsuk-input--width-2 nhsuk-input--error'
+          width: 2,
+          error: true
         },
         {
           name: 'year',
-          classes: 'nhsuk-input--width-4 nhsuk-input--error'
+          width: 4,
+          error: true
         }
       ]
     }
@@ -336,15 +340,18 @@ const fixtures = {
       items: [
         {
           name: 'day',
-          classes: 'nhsuk-input--width-2 nhsuk-input--error'
+          width: 2,
+          error: true
         },
         {
           name: 'month',
-          classes: 'nhsuk-input--width-2 nhsuk-input--error'
+          width: 2,
+          error: true
         },
         {
           name: 'year',
-          classes: 'nhsuk-input--width-4 nhsuk-input--error'
+          width: 4,
+          error: true
         }
       ]
     },
@@ -369,17 +376,18 @@ const fixtures = {
       items: [
         {
           name: 'day',
-          classes: 'nhsuk-input--width-2 nhsuk-input--error'
+          width: 2,
+          error: true
         },
         {
           name: 'month',
           value: '3',
-          classes: 'nhsuk-input--width-2'
+          width: 2
         },
         {
           name: 'year',
           value: '1980',
-          classes: 'nhsuk-input--width-4'
+          width: 4
         }
       ]
     }
@@ -403,16 +411,17 @@ const fixtures = {
       items: [
         {
           name: 'day',
-          classes: 'nhsuk-input--width-2',
+          width: 2,
           value: '31'
         },
         {
           name: 'month',
-          classes: 'nhsuk-input--width-2 nhsuk-input--error'
+          width: 2,
+          error: true
         },
         {
           name: 'year',
-          classes: 'nhsuk-input--width-4',
+          width: 4,
           value: '1980'
         }
       ]
@@ -437,17 +446,18 @@ const fixtures = {
       items: [
         {
           name: 'day',
-          classes: 'nhsuk-input--width-2',
+          width: 2,
           value: '31'
         },
         {
           name: 'month',
-          classes: 'nhsuk-input--width-2',
+          width: 2,
           value: '3'
         },
         {
           name: 'year',
-          classes: 'nhsuk-input--width-4 nhsuk-input--error'
+          width: 4,
+          error: true
         }
       ]
     }
