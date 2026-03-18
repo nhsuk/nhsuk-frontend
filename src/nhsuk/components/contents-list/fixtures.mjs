@@ -1,5 +1,3 @@
-import { outdent } from 'outdent'
-
 /**
  * Nunjucks macro option examples
  *
@@ -64,13 +62,17 @@ const fixtures = {
         },
         {
           href: '#',
-          html: outdent`
-            Chapter 2
-              <ol class="nhsuk-contents-list__list">
-                <li class="nhsuk-contents-list__item">Section 2.1</li>
-                <li class="nhsuk-contents-list__item">Section 2.2</li>
-              </ol>
-          `
+          text: 'Chapter 2',
+          items: [
+            {
+              href: '#',
+              text: 'Section 2.1'
+            },
+            {
+              href: '#',
+              text: 'Section 2.2'
+            }
+          ]
         },
         {
           href: '#',
