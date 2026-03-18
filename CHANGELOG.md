@@ -1,6 +1,6 @@
 # NHS.UK frontend Changelog
 
-## 10.4.0 - 18 March 2026
+## Unreleased
 
 ### :new: **New features**
 
@@ -575,7 +575,7 @@ If you're using the `pagination` Nunjucks macro in your service, you must:
 
 This change was introduced in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
 
-## Unreleased v10.x
+## 10.4.0 - 18 March 2026
 
 Note: This release was created from the `support/10.x` branch.
 
