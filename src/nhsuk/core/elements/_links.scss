@@ -33,6 +33,14 @@ a {
   @include nhsuk-link-style-text;
 }
 
+.nhsuk-link--no-underline {
+  @include nhsuk-link-style-no-underline;
+}
+
+.nhsuk-link--no-visited-state {
+  @include nhsuk-link-style-no-visited-state;
+}
+
 .nhsuk-link--reverse {
   @include nhsuk-link-style-reverse;
 
@@ -41,14 +49,6 @@ a {
       color: currentcolor;
     }
   }
-}
-
-.nhsuk-link--no-underline {
-  @include nhsuk-link-style-no-underline;
-}
-
-.nhsuk-link--no-visited-state {
-  @include nhsuk-link-style-no-visited-state;
 }
 
 // Links that only contain images
