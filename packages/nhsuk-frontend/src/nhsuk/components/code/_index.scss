@@ -19,6 +19,7 @@
 
   .nhsuk-code--inline {
     background-color: nhsuk-colour("white");
+    @include nhsuk-text-break-word;
   }
 
   .nhsuk-code--inline.nhsuk-code--reverse {
