@@ -76,18 +76,19 @@
     <div class="nhsuk-width-container">
       {% call details({
         summaryText: "Code",
-        classes: ("nhsuk-details--reverse " if isReverse else "") ~ "nhsuk-u-margin-top-4 nhsuk-u-margin-bottom-0"
+        classes: "nhsuk-u-margin-top-4 nhsuk-u-margin-bottom-0",
+        variant: "reverse" if isReverse
       }) %}
         <h3 class="nhsuk-heading-s">Markup</h3>
         {{ code({
-          html: htmlCode | highlight("html"),
-          border: not isReverse
+          html: fixture.html | highlight("html"),
+          variant: "reverse" if isReverse
         }) }}
 
         <h3 class="nhsuk-heading-s">Macro</h3>
         {{ code({
           html: macroCode | highlight(["html", "njk"]),
-          border: not isReverse,
+          variant: "reverse" if isReverse,
           button: true
         }) }}
       {% endcall %}
