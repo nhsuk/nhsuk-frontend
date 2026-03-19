@@ -46,13 +46,13 @@ const fixtures = {
       prefixText: 'always',
       items: [
         {
-          item: 'cover blisters with a soft plaster or padded dressing'
+          text: 'cover blisters with a soft plaster or padded dressing'
         },
         {
-          item: 'wash your hands before touching a burst blister'
+          text: 'wash your hands before touching a burst blister'
         },
         {
-          item: 'allow the fluid in a burst blister to drain before covering it with a plaster or dressing'
+          text: 'allow the fluid in a burst blister to drain before covering it with a plaster or dressing'
         }
       ]
     }
@@ -86,13 +86,13 @@ const fixtures = {
       icon: 'cross',
       items: [
         {
-          item: 'burst a blister yourself'
+          text: 'burst a blister yourself'
         },
         {
-          item: 'peel the skin off a burst blister'
+          text: 'peel the skin off a burst blister'
         },
         {
-          item: 'pick at the edges of the remaining skin'
+          text: 'pick at the edges of the remaining skin'
         },
         false
       ]
