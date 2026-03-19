@@ -207,7 +207,7 @@ This change was introduced in [pull request #1804: Update card states for consis
 
 #### Remove table row hover styles
 
-Table row hover styles were inconsistent, showing only on custom background colours. We have removed them.
+We've removed table row hover styles as they only worked on white backgrounds and were not visible on our default page background colour.
 
 This change was introduced in [pull request #1801: Add Nunjucks options for components with modifier classes](https://github.com/nhsuk/nhsuk-frontend/pull/1801)
 
