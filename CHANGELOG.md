@@ -1,5 +1,13 @@
 # NHS.UK frontend Changelog
 
+## 10.4.2 - 19 March 2026
+
+Note: This release was created from the `support/10.x` branch.
+
+### :wrench: **Fixes**
+
+- Remove table row hover styles. This was part of [#1801: Add Nunjucks options for components with modifier classes](https://github.com/nhsuk/nhsuk-frontend/pull/1801)
+
 ## 10.4.1 - 19 March 2026
 
 Note: This release was created from the `support/10.x` branch.
