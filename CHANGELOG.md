@@ -209,7 +209,7 @@ This change was introduced in [pull request #1804: Update card states for consis
 
 Table row hover styles were inconsistent, showing only on custom background colours. We have removed them.
 
-This was done as part of [#1801: Add Nunjucks options for components with modifier classes](https://github.com/nhsuk/nhsuk-frontend/pull/1801)
+This change was introduced in [pull request #1801: Add Nunjucks options for components with modifier classes](https://github.com/nhsuk/nhsuk-frontend/pull/1801)
 
 ### :wrench: **Fixes**
 
