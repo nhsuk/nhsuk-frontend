@@ -135,16 +135,28 @@ If you're importing the `nhsuk/nhsuk` Sass entry point, you must import `nhsuk` 
 
 This change was introduced in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
 
+#### Sass variable for secondary border colour updated
+
+We've changed the Sass variable `$nhsuk-secondary-border-colour` from `rgba(nhsuk-colour("white"), 0.2)` to `nhsuk-colour("grey-3")` after it was deprecated in [version 10.4.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.4.0).
+
+You must make one of the following changes to restore the previous colour:
+
+- replace `$nhsuk-secondary-border-colour` with `$nhsuk-reverse-border-colour` for blue backgrounds
+- replace `$nhsuk-secondary-border-colour` with `rgba(nhsuk-colour("white"), 0.2)` to preserve transparency
+
+This change was introduced in [pull request #1781: Port released v10.3.1 into v11](https://github.com/nhsuk/nhsuk-frontend/pull/1781).
+
 #### Sass deprecated variables for border width and colour removed
 
-We've removed Sass variables for border width and colour that were deprecated in [version 10.1.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.1.0).
+We've removed Sass variables for border width and colour that were deprecated in versions [10.1.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.1.0) and [10.4.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.4.0).
 
 If you use Sass and you've extended or created components that use the following border variables, you must:
 
-- rename `$nhsuk-border-width-mobile` to `$nhsuk-border-width`
-- rename `$nhsuk-border-width-form-element-error` to `$nhsuk-border-width-form-element`
+- replace `$nhsuk-border-width-mobile` with `$nhsuk-border-width`
+- replace `$nhsuk-border-width-form-element-error` with `$nhsuk-border-width-form-element`
+- replace `$nhsuk-border-hover-colour` with `nhsuk-colour("grey-3")` or `$nhsuk-secondary-border-colour`
 
-This change was introduced in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
+This change was introduced in pull requests [#1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553) and [#1781: Port released v10.3.1 into v11](https://github.com/nhsuk/nhsuk-frontend/pull/1781).
 
 #### Sass deprecated variables for customising fonts removed
 
