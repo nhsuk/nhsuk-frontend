@@ -25,7 +25,7 @@ describe('Skip link', () => {
       </div>
     `
 
-    $main = document.querySelector('main')
+    $main = /** @type {HTMLElement} */ (document.querySelector('main'))
 
     $root = /** @type {HTMLElement} */ (
       document.querySelector(`[data-module="${SkipLink.moduleName}"]`)

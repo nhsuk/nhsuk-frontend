@@ -3,20 +3,23 @@
     "allowJs": true,
     "checkJs": true,
     "esModuleInterop": true,
+    "incremental": true,
     "module": "ESNext",
-    "moduleResolution": "Node",
+    "moduleResolution": "Bundler",
     "noEmit": true,
     "noImplicitThis": true,
     "noUnusedLocals": true,
     "paths": {
-      "#lib": ["./packages/nhsuk-frontend/src/nhsuk/lib/index.mjs"],
-      "#lib/*": ["./packages/nhsuk-frontend/src/nhsuk/lib/*"],
       "nhsuk-frontend": ["./packages/nhsuk-frontend/src/nhsuk/index.mjs"],
+      "nhsuk-frontend/lib": [
+        "./packages/nhsuk-frontend/src/nhsuk/lib/index.mjs"
+      ],
       "nhsuk-frontend/*": ["./packages/nhsuk-frontend/*"]
     },
     "resolveJsonModule": true,
+    "resolvePackageJsonImports": true,
     "skipLibCheck": true,
-    "strict": false,
+    "strict": true,
     "strictBindCallApply": true,
     "strictFunctionTypes": true,
     "strictNullChecks": true,

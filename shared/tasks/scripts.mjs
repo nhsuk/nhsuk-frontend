@@ -61,16 +61,7 @@ export function compile(
         }),
         {
           name: 'import-meta-resolve',
-          resolveImportMeta(property, { format }) {
-            if (!['dirname', 'filename'].includes(property)) {
-              return null
-            }
-
-            // Polyfill import.meta properties
-            return format === 'cjs'
-              ? `__${property}`
-              : `import.meta.${property}`
-          }
+          resolveImportMeta
         }
       ],
 
@@ -119,7 +110,10 @@ export function compile(
       dir: output.preserveModules ? destPath : undefined,
 
       // Write to file when bundling
-      file: !output.preserveModules ? join(destPath, output.file) : undefined,
+      file:
+        output.file && !output.preserveModules
+          ? join(destPath, output.file)
+          : undefined,
 
       // Enable source maps
       sourcemap: true,
@@ -136,6 +130,32 @@ export function compile(
 }
 
 /**
+ * Transform import.meta properties for CommonJS
+ *
+ * @type {ResolveImportMetaHook}
+ */
+export function resolveImportMeta(property, { format }) {
+  property ??= 'undefined'
+
+  if (['dirname', 'filename'].includes(property)) {
+    return format === 'cjs' ? `__${property}` : `import.meta.${property}`
+  }
+
+  if (['main', 'resolve'].includes(property)) {
+    return format === 'cjs' ? `require.${property}` : `import.meta.${property}`
+  }
+
+  throw new PluginError(
+    'scripts:compile',
+    `Unsupported import.meta.${property}`,
+    {
+      name: 'TypeError',
+      showProperties: false
+    }
+  )
+}
+
+/**
  * Compile scripts options
  *
  * @typedef {object} CompileScriptsOptions
@@ -146,5 +166,5 @@ export function compile(
  */
 
 /**
- * @import { InputOptions, OutputOptions } from 'rollup'
+ * @import { InputOptions, OutputOptions, ResolveImportMetaHook } from 'rollup'
  */

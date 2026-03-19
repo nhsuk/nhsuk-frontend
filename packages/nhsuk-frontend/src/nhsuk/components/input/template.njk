@@ -5,19 +5,56 @@
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-input" -%}
+{%- set classNamesFormGroup = "nhsuk-form-group" -%}
+
+{%- if params.code and (not params.classes or not "nhsuk-input--code" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-input--code" %}
+{% endif %}
+
+{%- if params.width and
+  params.width | string in ["2", "3", "4", "4", "5", "10", "20", "30"] and (
+    not params.classes or (
+      not "nhsuk-input--width-2" in params.classes and
+      not "nhsuk-input--width-3" in params.classes and
+      not "nhsuk-input--width-4" in params.classes and
+      not "nhsuk-input--width-5" in params.classes and
+      not "nhsuk-input--width-10" in params.classes and
+      not "nhsuk-input--width-20" in params.classes and
+      not "nhsuk-input--width-30" in params.classes
+    )
+  )
+%}
+  {% set classNames = classNames ~ " nhsuk-input--width-" ~ params.width %}
+{% endif %}
+
+{%- if params.errorMessage %}
+  {% set classNames = classNames ~ " nhsuk-input--error" %}
+  {% set classNamesFormGroup = classNamesFormGroup ~ " nhsuk-form-group--error" %}
+{% endif %}
 
 {%- if params.classes %}
   {% set classNames = classNames ~ " " ~ params.classes %}
 {% endif %}
 
-{%- if params.errorMessage %}
-  {% set classNames = classNames ~ " nhsuk-input--error" %}
+{%- if params.formGroup.classes %}
+  {% set classNamesFormGroup = classNamesFormGroup ~ " " ~ params.formGroup.classes %}
 {% endif %}
 
 {#- a record of other elements that we need to associate with the input using
   aria-describedby – for example hints or error messages -#}
 {% set describedBy = params.describedBy if params.describedBy else "" -%}
 {%- set id = params.id if params.id else params.name -%}
+
+{%- set prefix = params.prefix -%}
+{%- set suffix = params.suffix -%}
+
+{%- if prefix and prefix is string %}
+  {% set prefix = { text: prefix } %}
+{% endif %}
+
+{%- if suffix and suffix is string %}
+  {% set suffix = { text: suffix } %}
+{% endif %}
 
 {%- set hasPrefix = true if params.prefix and (params.prefix.text or params.prefix.html) else false %}
 {%- set hasSuffix = true if params.suffix and (params.suffix.text or params.suffix.html) else false %}
@@ -80,8 +117,7 @@
   </div>
 {%- endmacro -%}
 
-<div class="nhsuk-form-group {%- if params.errorMessage %} nhsuk-form-group--error{% endif %} {%- if params.formGroup.classes %} {{ params.formGroup.classes }}{% endif %}"
-  {{- nhsukAttributes(params.formGroup.attributes) }}>
+<div class="{{ classNamesFormGroup }}" {{- nhsukAttributes(params.formGroup.attributes) }}>
   {{ label({
     html: params.label.html,
     text: params.label.text,

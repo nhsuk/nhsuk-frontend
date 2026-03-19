@@ -7,7 +7,7 @@ const fixtures = {
   'default': {
     context: {
       title: 'Do',
-      type: 'tick',
+      icon: 'tick',
       items: [
         {
           text: 'cover blisters with a soft plaster or padded dressing'
@@ -27,7 +27,7 @@ const fixtures = {
   '(do) with empty items': {
     context: {
       title: 'Do',
-      type: 'tick',
+      icon: 'tick',
       items: [
         {
           text: 'cover blisters with a soft plaster or padded dressing'
@@ -42,7 +42,7 @@ const fixtures = {
   '(do) with custom prefix': {
     context: {
       title: 'Do',
-      type: 'tick',
+      icon: 'tick',
       prefixText: 'always',
       items: [
         {
@@ -60,7 +60,7 @@ const fixtures = {
   "(don't)": {
     context: {
       title: "Don't",
-      type: 'cross',
+      icon: 'cross',
       items: [
         {
           text: 'burst a blister yourself'
@@ -83,7 +83,7 @@ const fixtures = {
   "(don't) with empty items": {
     context: {
       title: "Don't",
-      type: 'cross',
+      icon: 'cross',
       items: [
         {
           item: 'burst a blister yourself'
@@ -101,7 +101,7 @@ const fixtures = {
   "(don't) with custom prefix": {
     context: {
       title: 'Never',
-      type: 'cross',
+      icon: 'cross',
       prefixText: 'never',
       items: [
         {
@@ -122,7 +122,7 @@ const fixtures = {
   "(don't) with hidden prefix": {
     context: {
       title: "Don't",
-      type: 'cross',
+      icon: 'cross',
       hidePrefix: true,
       items: [
         {

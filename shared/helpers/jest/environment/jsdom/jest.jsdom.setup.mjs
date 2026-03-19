@@ -11,20 +11,18 @@ Object.defineProperties(Element.prototype, {
 })
 
 /**
- * Polyfill `window.matchMedia()` for NHS.UK frontend tabs
+ * Polyfill HTMLFormElement methods for NHS.UK frontend header
+ *
+ * @see {@link https://github.com/jsdom/jsdom/issues/1937}
  */
-Object.defineProperty(window, 'matchMedia', {
-  writable: true,
-  value: jest.fn().mockImplementation((query) => ({
-    matches: true,
-    media: query,
-    onchange: null,
-    addListener: jest.fn(),
-    addEventListener: jest.fn(),
-    removeListener: jest.fn(),
-    removeEventListener: jest.fn(),
-    dispatchEvent: jest.fn()
-  }))
+Object.defineProperties(HTMLFormElement.prototype, {
+  submit: {
+    value: jest.fn().mockImplementation(
+      /** @this {HTMLFormElement} */ function () {
+        this.dispatchEvent(new Event('submit'))
+      }
+    )
+  }
 })
 
 beforeEach(() => {

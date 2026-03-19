@@ -21,6 +21,14 @@ const fixtures = {
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']
     }
+  },
+  'without heading': {
+    context: {
+      text: 'Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.'
+    },
+    options: {
+      hidden: true
+    }
   }
 }
 

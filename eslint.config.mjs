@@ -114,30 +114,11 @@ export default defineConfig([
       'no-redeclare': 'off',
       'no-undef': 'off',
       'no-unused-vars': 'off',
-      '@typescript-eslint/no-redeclare': 'error',
       '@typescript-eslint/no-unused-vars': [
         'error',
         {
           argsIgnorePattern: '^_',
           varsIgnorePattern: '^_'
-        }
-      ]
-    }
-  },
-  {
-    // Configure ESLint for ES modules
-    files: ['**/*.mjs'],
-    rules: {
-      'import/extensions': [
-        'error',
-        'always',
-        {
-          ignorePackages: true,
-          pattern: {
-            cjs: 'always',
-            js: 'always',
-            mjs: 'always'
-          }
         }
       ]
     }
@@ -169,10 +150,18 @@ export default defineConfig([
       'n/no-missing-import': ['error', { allowModules: ['nhsuk-frontend'] }],
       'n/no-missing-require': ['error', { allowModules: ['nhsuk-frontend'] }],
 
-      // Rollup polyfills import.meta properties
       'n/no-unsupported-features/node-builtins': [
         'error',
-        { ignores: ['import.meta.dirname', 'import.meta.filename'] }
+        {
+          ignores: [
+            // Rollup polyfills import.meta properties
+            'import.meta.dirname',
+            'import.meta.filename',
+
+            // Testing library polyfills Clipboard API
+            'navigator'
+          ]
+        }
       ]
     }
   },
@@ -327,11 +316,6 @@ export default defineConfig([
   globalIgnores([
     '**/coverage/',
     '**/dist/',
-
-    // Enable dotfile linting
-    '!.*',
-    'node_modules/',
-    'node_modules/.*',
 
     // Prevent CHANGELOG history changes
     'CHANGELOG.md'

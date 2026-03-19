@@ -68,6 +68,12 @@ const options = {
     required: false,
     description:
       'Any extra HTML attributes (for example data attributes) to add to the input component.'
+  },
+  variant: {
+    type: 'string',
+    required: false,
+    description:
+      'Optional variant of panel. You can use only `"interruption"` or empty values with this option.'
   }
 }
 

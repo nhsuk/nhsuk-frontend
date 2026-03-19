@@ -9,10 +9,10 @@ class BrowserVirtualEnvironment extends TestEnvironment {
     await super.setup()
 
     // Access virtual console
-    const { virtualConsole } = this.dom
+    const { virtualConsole } = this.dom ?? {}
 
     // Ensure test fails for browser exceptions
-    virtualConsole.on('jsdomError', (error) =>
+    virtualConsole?.on('jsdomError', (error) =>
       process.emit('uncaughtException', error)
     )
   }

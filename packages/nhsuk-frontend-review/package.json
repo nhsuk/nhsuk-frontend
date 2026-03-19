@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "clean": "del-cli dist",
+    "postclean": "tsc --build --clean",
     "build": "gulp build --color",
     "serve": "gulp serve --color",
     "watch": "gulp serve watch --color",
@@ -28,8 +29,7 @@
     "package-json": "^10.0.1",
     "plugin-error": "^2.0.1",
     "postcss-pseudo-classes": "^0.4.0",
-    "sassdoc": "^2.7.4",
-    "slug": "^11.0.1"
+    "sassdoc": "^2.7.4"
   },
   "engines": {
     "node": "^24.11.0",
