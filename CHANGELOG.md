@@ -205,6 +205,12 @@ Clickable cards now follow the hover and active state styling of expanders. On h
 
 This change was introduced in [pull request #1804: Update card states for consistency](https://github.com/nhsuk/nhsuk-frontend/pull/1804).
 
+#### Remove table row hover styles
+
+We've removed table row hover styles as they only worked on white backgrounds and were not visible on our default page background colour.
+
+This change was introduced in [pull request #1801: Add Nunjucks options for components with modifier classes](https://github.com/nhsuk/nhsuk-frontend/pull/1801).
+
 ### :wrench: **Fixes**
 
 - [#1779: Fix header menu width when text size changes](https://github.com/nhsuk/nhsuk-frontend/pull/1779)
