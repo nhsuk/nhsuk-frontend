@@ -1,13 +1,5 @@
 # NHS.UK frontend Changelog
 
-## 10.4.2 - 19 March 2026
-
-Note: This release was created from the `support/10.x` branch.
-
-### :wrench: **Fixes**
-
-- Remove table row hover styles. This was part of [#1801: Add Nunjucks options for components with modifier classes](https://github.com/nhsuk/nhsuk-frontend/pull/1801)
-
 ## 10.4.1 - 19 March 2026
 
 Note: This release was created from the `support/10.x` branch.
@@ -212,6 +204,12 @@ This change was introduced in [pull request #1801: Add Nunjucks options for comp
 Clickable cards now follow the hover and active state styling of expanders. On hover their borders darken, on click they depress like a button. On clickable cards with chevrons, the icon changes colour to match link styles.
 
 This change was introduced in [pull request #1804: Update card states for consistency](https://github.com/nhsuk/nhsuk-frontend/pull/1804).
+
+#### Remove table row hover styles
+
+Table row hover styles were inconsistent, showing only on custom background colours. We have removed them.
+
+This was done as part of [#1801: Add Nunjucks options for components with modifier classes](https://github.com/nhsuk/nhsuk-frontend/pull/1801)
 
 ### :wrench: **Fixes**
 
