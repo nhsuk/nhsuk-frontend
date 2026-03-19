@@ -587,6 +587,14 @@ If you're using the `pagination` Nunjucks macro in your service, you must:
 
 This change was introduced in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
 
+## 10.4.1 - 19 March 2026
+
+Note: This release was created from the `support/10.x` branch.
+
+### :wrench: **Fixes**
+
+- [#1860: Restore source maps for CSS to CSS output](https://github.com/nhsuk/nhsuk-frontend/pull/1860)
+
 ## 10.4.0 - 18 March 2026
 
 Note: This release was created from the `support/10.x` branch.
