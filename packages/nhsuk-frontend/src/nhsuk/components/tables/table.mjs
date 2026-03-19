@@ -57,11 +57,14 @@ export class Table extends ConfigurableComponent {
 
     this.$headings = Array.from(this.$head.querySelectorAll('th'))
 
-    const sortableHeadingsCount = this.$headings.filter((heading) =>
-      heading.getAttribute('aria-sort')
-    ).length
+    // Count headings which have an aria-sort attribute but which
+    // do not already have a link inside them (for server-side
+    // sorting)
+    const hasSortableHeadings = this.$headings.some((heading) => {
+      return heading.getAttribute('aria-sort') && !heading.querySelector('a')
+    })
 
-    if (sortableHeadingsCount > 0) {
+    if (hasSortableHeadings) {
       this.$root.classList.add('nhsuk-table--with-sortable-columns')
       this.createHeadingButtons()
       this.updateCaption()
@@ -345,6 +348,7 @@ export function initTables(options) {
 /**
  * Table config
  *
+ * @see {@link Table.defaults}
  * @typedef {object} TableConfig
  * @property {string} [statusMessage] - Status message
  * @property {string} [ascendingText] - Ascending text
