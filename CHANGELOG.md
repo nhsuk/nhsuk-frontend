@@ -587,6 +587,17 @@ If you're using the `pagination` Nunjucks macro in your service, you must:
 
 This change was introduced in [pull request #1553: Remove deprecated features marked for removal in v11](https://github.com/nhsuk/nhsuk-frontend/pull/1553).
 
+### :recycle: **Changes**
+
+#### Change border colour for details component and conditionally revealed content
+
+We've changed the border colour shown to the left of details component and conditionally revealed content.
+
+- Details component border colour changed from grey-4 (`#d8dde0`) to grey-3 (`#aeb7bd`)
+- Conditionally revealed border colour changed from grey-1 (`#4c6272`) to grey-3 (`#aeb7bd`)
+
+This change was introduced in [pull request #1788: Change border colour for details component and conditionally revealed content](https://github.com/nhsuk/nhsuk-frontend/pull/1788).
+
 ## 10.4.1 - 19 March 2026
 
 Note: This release was created from the `support/10.x` branch.
