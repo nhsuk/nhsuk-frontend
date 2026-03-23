@@ -401,7 +401,7 @@ describe('Checkboxes', () => {
     })
 
     it('should check all other checkboxes', () => {
-      initCheckboxes()
+      new Checkboxes($root)
 
       expect($input1).not.toBeChecked()
       expect($input2).not.toBeChecked()
@@ -418,7 +418,7 @@ describe('Checkboxes', () => {
     })
 
     it('should uncheck all other checkboxes when unchecked', () => {
-      initCheckboxes()
+      new Checkboxes($root)
 
       // Tick "All colours"
       $inputBehaviour.click()
@@ -438,7 +438,7 @@ describe('Checkboxes', () => {
     })
 
     it('should uncheck when other checkboxes are unchecked', () => {
-      initCheckboxes()
+      new Checkboxes($root)
 
       // Tick "All colours"
       $inputBehaviour.click()
@@ -455,7 +455,7 @@ describe('Checkboxes', () => {
     })
 
     it('should check automatically when all other checkboxes are checked individually', () => {
-      initCheckboxes()
+      new Checkboxes($root)
 
       expect($input1).not.toBeChecked()
       expect($input2).not.toBeChecked()
@@ -485,7 +485,7 @@ describe('Checkboxes', () => {
     })
 
     it('should check all other checkboxes', () => {
-      initCheckboxes()
+      new Checkboxes($root)
 
       expect($input1).not.toBeChecked()
       expect($input2).not.toBeChecked()
@@ -502,7 +502,7 @@ describe('Checkboxes', () => {
     })
 
     it('should uncheck all other checkboxes when unchecked', () => {
-      initCheckboxes()
+      new Checkboxes($root)
 
       // Tick "All colours"
       $inputBehaviour.click()
@@ -522,7 +522,7 @@ describe('Checkboxes', () => {
     })
 
     it('should uncheck when other checkboxes are unchecked', () => {
-      initCheckboxes()
+      new Checkboxes($root)
 
       // Tick "All colours"
       $inputBehaviour.click()
@@ -539,7 +539,7 @@ describe('Checkboxes', () => {
     })
 
     it('should check automatically when all other checkboxes are checked individually', () => {
-      initCheckboxes()
+      new Checkboxes($root)
 
       expect($input1).not.toBeChecked()
       expect($input2).not.toBeChecked()
@@ -572,7 +572,7 @@ describe('Checkboxes', () => {
     })
 
     it('should check all other checkboxes', () => {
-      initCheckboxes()
+      new Checkboxes($root)
 
       expect($input1).not.toBeChecked()
       expect($input2).not.toBeChecked()
@@ -589,7 +589,7 @@ describe('Checkboxes', () => {
     })
 
     it('should uncheck all other checkboxes when unchecked', () => {
-      initCheckboxes()
+      new Checkboxes($root)
 
       // Tick "All colours"
       $inputBehaviour.click()
@@ -609,7 +609,7 @@ describe('Checkboxes', () => {
     })
 
     it('should uncheck when other checkboxes are unchecked', () => {
-      initCheckboxes()
+      new Checkboxes($root)
 
       // Tick "All colours"
       $inputBehaviour.click()
@@ -626,7 +626,7 @@ describe('Checkboxes', () => {
     })
 
     it('should check automatically when all other checkboxes are checked individually', () => {
-      initCheckboxes()
+      new Checkboxes($root)
 
       expect($input1).not.toBeChecked()
       expect($input2).not.toBeChecked()
