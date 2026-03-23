@@ -51,6 +51,13 @@ const options = {
     description:
       'Not strictly a parameter but a Nunjucks code convention. Using a `call` block enables you to call a macro with all the text inside the tag. This is helpful if you want to pass a lot of content into a macro. To use it, you will need to wrap the entire hero component in a `call` block.'
   },
+  imageURL: {
+    type: 'string',
+    required: false,
+    description:
+      'The URL of the image in the hero. Replaced by the `image.src` option.',
+    deprecated: '10.3.0'
+  },
   image: {
     type: 'object',
     required: false,
