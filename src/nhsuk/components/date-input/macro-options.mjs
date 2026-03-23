@@ -45,6 +45,11 @@ const options = {
         required: false,
         description: 'If set to `true`, show a red border on the item input.'
       },
+      width: {
+        type: 'integer',
+        required: false,
+        description: 'Optional fixed width for the item input – `2` or `4`.'
+      },
       inputmode: {
         type: 'string',
         required: false,
