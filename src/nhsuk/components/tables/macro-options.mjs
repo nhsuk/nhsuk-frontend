@@ -126,10 +126,45 @@ const options = {
       'Can be used to wrap a card around the table component. If any of these options are present, a card will wrap around the table.',
     isComponent: true
   },
+  panel: {
+    type: 'boolean',
+    required: false,
+    description:
+      'If set to `true`, the table will render within a panel with a heading. Replaced by the `card` option.',
+    deprecated: '10.3.0'
+  },
+  panelClasses: {
+    type: 'string',
+    required: false,
+    description:
+      'Classes to add to the table panel. Replaced by the `card.classes` option.',
+    deprecated: '10.3.0'
+  },
+  heading: {
+    type: 'string',
+    required: false,
+    description:
+      'Heading text that displays above the table when `panel` is `true`. Replaced by the `card.heading` option.',
+    deprecated: '10.3.0'
+  },
+  headingLevel: {
+    type: 'integer',
+    required: false,
+    description:
+      'Optional heading level for the table panel heading. Defaults to `3`. Replaced by the `card.headingLevel` option.',
+    deprecated: '10.3.0'
+  },
   classes: {
     type: 'string',
     required: false,
     description: 'Classes to add to the table container.'
+  },
+  tableClasses: {
+    type: 'string',
+    required: false,
+    description:
+      'Classes to add to the table element. Replaced by the `classes` option.',
+    deprecated: '10.3.0'
   },
   attributes: {
     type: 'object',

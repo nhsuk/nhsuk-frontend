@@ -101,6 +101,20 @@ const options = {
       'If set to `true`, then the card will become a warning card variant used by the warning callout.',
     deprecated: '10.4.0'
   },
+  imgURL: {
+    type: 'string',
+    required: false,
+    description:
+      'The URL of the image in the card. Replaced by the `image.src` option.',
+    deprecated: '10.3.0'
+  },
+  imgALT: {
+    type: 'string',
+    required: false,
+    description:
+      'The alternative text of the image in the card. Replaced by the `image.alt` option.',
+    deprecated: '10.3.0'
+  },
   image: {
     type: 'object',
     required: false,

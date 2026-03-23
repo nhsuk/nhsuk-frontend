@@ -34,6 +34,13 @@ const options = {
     required: true,
     description: "Array of do and don't items objects.",
     params: {
+      item: {
+        type: 'string',
+        required: true,
+        description:
+          "Text to use within each do and don't item. Replaced by the `text` and `html` options.",
+        deprecated: '10.1.0'
+      },
       text: {
         type: 'string',
         required: true,

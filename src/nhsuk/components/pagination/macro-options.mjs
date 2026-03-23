@@ -89,6 +89,20 @@ const options = {
       }
     }
   },
+  previousUrl: {
+    type: 'string',
+    required: false,
+    description:
+      "The previous page's URL. Replaced by the `previous.href` option.",
+    deprecated: '10.1.0'
+  },
+  previousPage: {
+    type: 'string',
+    required: false,
+    description:
+      'The optional label that goes underneath the link to the previous page, providing further context for the user about where the link goes. Replaced by the `previous.labelText` option.',
+    deprecated: '10.1.0'
+  },
   next: {
     type: 'object',
     required: false,
@@ -124,6 +138,19 @@ const options = {
           'The HTML attributes (for example, data attributes) you want to add to the anchor.'
       }
     }
+  },
+  nextUrl: {
+    type: 'string',
+    required: false,
+    description: "The next page's URL. Replaced by the `next.href` option.",
+    deprecated: '10.1.0'
+  },
+  nextPage: {
+    type: 'string',
+    required: false,
+    description:
+      'The optional label that goes underneath the link to the next page, providing further context for the user about where the link goes. Replaced by the `next.labelText` option.',
+    deprecated: '10.1.0'
   },
   landmarkLabel: {
     type: 'string',
