@@ -30,6 +30,7 @@
       "require": "./dist/nhsuk/lib/index.js",
       "default": "./dist/nhsuk/lib/index.js"
     },
+    "./lib/*": "./dist/nhsuk/lib/*",
     "./packages/*": {
       "sass": "./dist/nhsuk/*",
       "default": "./dist/nhsuk/*.js"
