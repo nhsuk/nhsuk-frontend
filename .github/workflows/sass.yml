@@ -23,6 +23,8 @@ jobs:
       RULE_5: '@forward "node_modules/nhsuk-frontend/dist/nhsuk/core";'
       RULE_6: '@forward "node_modules/nhsuk-frontend/dist/nhsuk/core/all";'
       RULE_7: '@forward "pkg:nhsuk-frontend";'
+      RULE_8: '@forward "pkg:nhsuk-frontend/components/code";'
+      RULE_9: '@forward "pkg:nhsuk-frontend/lib/highlighter/styles";'
 
     strategy:
       fail-fast: false
@@ -72,6 +74,8 @@ jobs:
           echo '${{ env.RULE_5 }}' > .tmp/input5.scss
           echo '${{ env.RULE_6 }}' > .tmp/input6.scss
           echo '${{ env.RULE_7 }}' > .tmp/input7.scss
+          echo '${{ env.RULE_8 }}' > .tmp/input8.scss
+          echo '${{ env.RULE_9 }}' > .tmp/input9.scss
 
       - name: Check compilation
         run: |
@@ -89,6 +93,8 @@ jobs:
       - name: Check package importer
         run: |
           time sass .tmp/input7.scss --pkg-importer node .tmp/check7.css
+          time sass .tmp/input8.scss --pkg-importer node .tmp/check8.css
+          time sass .tmp/input9.scss --pkg-importer node .tmp/check9.css
 
       # Check output for uncompiled Sass
       - name: Check output
@@ -116,3 +122,9 @@ jobs:
 
           ! grep "\$nhsuk-" .tmp/check7.css
           ! grep ": nhsuk-" .tmp/check7.css
+
+          ! grep "\$nhsuk-" .tmp/check8.css
+          ! grep ": nhsuk-" .tmp/check8.css
+
+          ! grep "\$nhsuk-" .tmp/check9.css
+          ! grep ": nhsuk-" .tmp/check9.css
