@@ -1,5 +1,13 @@
 # NHS.UK frontend Changelog
 
+## Unreleased
+
+Note: This release was created from the `support/10.x` branch.
+
+### :wrench: **Fixes**
+
+- [#1867: Update macro options JSON to include release metadata](https://github.com/nhsuk/nhsuk-frontend/pull/1867)
+
 ## 10.4.1 - 19 March 2026
 
 Note: This release was created from the `support/10.x` branch.

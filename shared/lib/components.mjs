@@ -104,6 +104,11 @@ export function getMacroOptions(params) {
       description: param.description
     })
 
+    // Optional released version
+    if (param.released) {
+      option.released = param.released
+    }
+
     // Optional deprecated version
     if (param.deprecated) {
       option.deprecated = param.deprecated
