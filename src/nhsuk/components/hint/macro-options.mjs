@@ -10,29 +10,34 @@ const options = {
     type: 'string',
     required: true,
     description:
-      'If `html` is set, this is not required. Text to use within the hint. If `html` is provided, the `text` argument will be ignored.'
+      'If `html` is set, this is not required. Text to use within the hint. If `html` is provided, the `text` argument will be ignored.',
+    released: '1.0.0'
   },
   html: {
     type: 'string',
     required: true,
     description:
-      'If `text` is set, this is not required. HTML to use within the hint. If `html` is provided, the `text` argument will be ignored.'
+      'If `text` is set, this is not required. HTML to use within the hint. If `html` is provided, the `text` argument will be ignored.',
+    released: '1.0.0'
   },
   id: {
     type: 'string',
     required: false,
-    description: 'The `id` attribute to add to the hint.'
+    description: 'The `id` attribute to add to the hint.',
+    released: '1.0.0'
   },
   classes: {
     type: 'string',
     required: false,
-    description: 'Classes to add to the hint.'
+    description: 'Classes to add to the hint.',
+    released: '1.0.0'
   },
   attributes: {
     type: 'object',
     required: false,
     description:
-      'HTML attributes (for example data attributes) to add to the hint.'
+      'HTML attributes (for example data attributes) to add to the hint.',
+    released: '1.0.0'
   }
 }
 
