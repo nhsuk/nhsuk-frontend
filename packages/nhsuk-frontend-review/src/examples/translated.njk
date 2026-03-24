@@ -93,6 +93,35 @@
         }
       }) }}
 
+      {{ dateInput({
+        fieldset: {
+          legend: {
+            text: "Beth yw eich dyddiad geni?",
+            size: "l",
+            isPageHeading: true
+          }
+        },
+        hint: {
+          text: "Er enghraifft, 31 3 1980"
+        },
+        id: "with-translations-date",
+        day: {
+          label: {
+            text: "Dydd"
+          }
+        },
+        month: {
+          label: {
+            text: "Mis"
+          }
+        },
+        year: {
+          label: {
+            text: "Blwyddyn"
+          }
+        }
+      }) }}
+
       {{ passwordInput({
         label: {
           text: 'Cyfrinair',
