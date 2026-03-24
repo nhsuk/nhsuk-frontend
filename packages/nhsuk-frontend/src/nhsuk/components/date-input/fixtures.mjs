@@ -20,6 +20,30 @@ const fixtures = {
     },
     screenshot: true
   },
+  'with translations': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'Beth yw eich dyddiad geni?',
+          size: 'l',
+          isPageHeading: true
+        }
+      },
+      hint: {
+        text: 'Er enghraifft, 31 3 1980'
+      },
+      id: 'example',
+      day: {
+        label: 'Dydd'
+      },
+      month: {
+        label: 'Mis'
+      },
+      year: {
+        label: 'Blwyddyn'
+      }
+    }
+  },
   'with values': {
     context: {
       fieldset: {
