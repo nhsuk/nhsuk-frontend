@@ -27,27 +27,53 @@
 {#- fieldset is false by default -#}
 {% set hasFieldset = true if params.fieldset else false %}
 
-{%- if params.items | length %}
-  {% set dateInputItems = params.items %}
-{% else %}
-  {% set dateInputItems = [
-    {
-      name: "day",
-      value: params.values.day,
-      width: 2
-    },
-    {
-      name: "month",
-      value: params.values.month,
-      width: 2
-    },
-    {
-      name: "year",
-      value: params.values.year,
-      width: 4
-    }
-  ] %}
-{% endif %}
+{%- set dateInputDay = {
+  id: params.day.id,
+  name: params.day.name if params.day.name else "day",
+  label: params.day.label,
+  error: params.day.error,
+  width: params.day.width if params.day.width else 2,
+  inputmode: params.day.inputmode,
+  value: params.day.value if params.day.value else params.values.day,
+  autocomplete: params.day.autocomplete,
+  pattern: params.day.pattern,
+  classes: params.day.classes,
+  attributes: params.day.attributes
+} if not params.items | length and params.day not in [null, false] -%}
+
+{%- set dateInputMonth = {
+  id: params.month.id,
+  name: params.month.name if params.month.name else "month",
+  label: params.month.label,
+  error: params.month.error,
+  width: params.month.width if params.month.width else 2,
+  inputmode: params.month.inputmode,
+  value: params.month.value if params.month.value else params.values.month,
+  autocomplete: params.month.autocomplete,
+  pattern: params.month.pattern,
+  classes: params.month.classes,
+  attributes: params.month.attributes
+} if not params.items | length and params.month not in [null, false] -%}
+
+{%- set dateInputYear = {
+  id: params.year.id,
+  name: params.year.name if params.year.name else "year",
+  label: params.year.label,
+  error: params.year.error,
+  width: params.year.width if params.year.width else 4,
+  inputmode: params.year.inputmode,
+  value: params.year.value if params.year.value else params.values.year,
+  autocomplete: params.year.autocomplete,
+  pattern: params.year.pattern,
+  classes: params.year.classes,
+  attributes: params.year.attributes
+} if not params.items | length and params.year not in [null, false] -%}
+
+{%- set dateInputItems = (params.items if params.items | length else [
+  dateInputDay,
+  dateInputMonth,
+  dateInputYear
+]) | select("mapping") -%}
 
 {#- Capture the HTML so we can optionally nest it in a fieldset -#}
 {% set innerHtml %}
@@ -79,7 +105,6 @@
     {{ params.formGroup.beforeInputs.html | safe | trim | indent(4) if params.formGroup.beforeInputs.html else params.formGroup.beforeInputs.text }}
     {% endif %}
     {% for item in dateInputItems %}
-    {% if item %}
     <div class="nhsuk-date-input__item">
       {{ input({
         label: {
@@ -99,7 +124,6 @@
         attributes: item.attributes
       }) | trim | indent(6) }}
     </div>
-    {% endif %}
     {% endfor %}
     {% if params.formGroup.afterInputs %}
     {{ params.formGroup.afterInputs.html | safe | trim | indent(4) if params.formGroup.afterInputs.html else params.formGroup.afterInputs.text }}
