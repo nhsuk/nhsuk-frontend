@@ -7,6 +7,7 @@ Note: This release was created from the `support/10.x` branch.
 ### :wrench: **Fixes**
 
 - [#1867: Update macro options JSON to include release metadata](https://github.com/nhsuk/nhsuk-frontend/pull/1867)
+- [#1868: Update package `exports` field for shorter Sass `pkg:` URLs](https://github.com/nhsuk/nhsuk-frontend/pull/1868)
 
 ## 10.4.1 - 19 March 2026
 
