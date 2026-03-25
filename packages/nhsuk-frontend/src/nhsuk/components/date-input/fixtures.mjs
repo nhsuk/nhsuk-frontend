@@ -20,6 +20,30 @@ const fixtures = {
     },
     screenshot: true
   },
+  'with translations': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'Beth yw eich dyddiad geni?',
+          size: 'l',
+          isPageHeading: true
+        }
+      },
+      hint: {
+        text: 'Er enghraifft, 31 3 1980'
+      },
+      id: 'example',
+      day: {
+        label: 'Dydd'
+      },
+      month: {
+        label: 'Mis'
+      },
+      year: {
+        label: 'Blwyddyn'
+      }
+    }
+  },
   'with values': {
     context: {
       fieldset: {
@@ -53,6 +77,22 @@ const fixtures = {
         text: 'For example, 5 12'
       },
       id: 'example',
+      year: false
+    }
+  },
+  'day and month (with items)': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'What is your birthday?',
+          size: 'l',
+          isPageHeading: true
+        }
+      },
+      hint: {
+        text: 'For example, 5 12'
+      },
+      id: 'example',
       items: [
         {
           name: 'day',
@@ -65,7 +105,7 @@ const fixtures = {
       ]
     }
   },
-  'day and month (empty item)': {
+  'day and month (with empty item)': {
     context: {
       fieldset: {
         legend: {
@@ -104,6 +144,22 @@ const fixtures = {
         text: 'For example, 11 2023'
       },
       id: 'example',
+      day: false
+    }
+  },
+  'month and year (with items)': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'When did you start your job?',
+          size: 'l',
+          isPageHeading: true
+        }
+      },
+      hint: {
+        text: 'For example, 11 2023'
+      },
+      id: 'example',
       items: [
         {
           name: 'month',
@@ -116,7 +172,7 @@ const fixtures = {
       ]
     }
   },
-  'month and year (empty item)': {
+  'month and year (with empty item)': {
     context: {
       fieldset: {
         legend: {
@@ -142,7 +198,7 @@ const fixtures = {
       ]
     }
   },
-  'month and year with values': {
+  'month and year with pre-defined fields': {
     context: {
       fieldset: {
         legend: {
@@ -155,20 +211,59 @@ const fixtures = {
         text: 'For example, 11 2023'
       },
       id: 'example',
+      day: false,
+      month: {
+        value: '11'
+      },
+      year: {
+        value: '2023'
+      }
+    }
+  },
+  'month and year with pre-defined fields overriding values': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'When did you start your job?',
+          size: 'l',
+          isPageHeading: true
+        }
+      },
+      hint: {
+        text: 'For example, 11 2023'
+      },
+      id: 'example',
+      day: false,
+      month: {
+        value: '11'
+      },
+      year: {
+        value: '2023'
+      },
       values: {
         month: '8',
         year: '2024'
-      },
-      items: [
-        {
-          name: 'month',
-          width: 2
-        },
-        {
-          name: 'year',
-          width: 4
+      }
+    }
+  },
+  'month and year with pre-defined values': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'When did you start your job?',
+          size: 'l',
+          isPageHeading: true
         }
-      ]
+      },
+      hint: {
+        text: 'For example, 11 2023'
+      },
+      id: 'example',
+      day: false,
+      values: {
+        month: '8',
+        year: '2024'
+      }
     }
   },
   'legend': {
