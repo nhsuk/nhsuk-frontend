@@ -9,51 +9,60 @@ const options = {
   id: {
     type: 'string',
     required: false,
-    description: 'The ID of the textarea. Defaults to the value of `name`.'
+    description: 'The ID of the textarea. Defaults to the value of `name`.',
+    released: '1.0.0'
   },
   name: {
     type: 'string',
     required: true,
     description:
-      'The name of the textarea, which is submitted with the form data.'
+      'The name of the textarea, which is submitted with the form data.',
+    released: '1.0.0'
   },
   spellcheck: {
     type: 'boolean',
     required: false,
     description:
-      'Optional field to enable or disable the `spellcheck` attribute on the textarea.'
+      'Optional field to enable or disable the `spellcheck` attribute on the textarea.',
+    released: '10.1.0'
   },
   rows: {
     type: 'string',
     required: false,
-    description: 'Optional number of textarea rows (default is 5 rows).'
+    description: 'Optional number of textarea rows (default is 5 rows).',
+    released: '1.0.0'
   },
   value: {
     type: 'string',
     required: false,
-    description: 'Optional initial value of the textarea.'
+    description: 'Optional initial value of the textarea.',
+    released: '1.0.0'
   },
   disabled: {
     type: 'boolean',
     required: false,
-    description: 'If `true`, textarea will be disabled.'
+    description: 'If `true`, textarea will be disabled.',
+    released: '10.1.0'
   },
   describedBy: {
     type: 'string',
     required: false,
     description:
-      'One or more element IDs to add to the `aria-describedby` attribute, used to provide additional descriptive information for screenreader users.'
+      'One or more element IDs to add to the `aria-describedby` attribute, used to provide additional descriptive information for screenreader users.',
+    released: '10.0.0'
   },
   label: {
     type: 'object',
     required: true,
     description: 'The label used by the textarea component.',
+    released: '1.0.0',
     isComponent: true
   },
   hint: {
     type: 'object',
     required: false,
     description: 'Can be used to add a hint to the textarea component.',
+    released: '1.0.0',
     isComponent: true
   },
   errorMessage: {
@@ -61,6 +70,7 @@ const options = {
     required: false,
     description:
       'Can be used to add an error message to the textarea component. The error message component will not display if you use a falsy value for `errorMessage`, for example `false` or `null`.',
+    released: '1.0.0',
     isComponent: true
   },
   formGroup: {
@@ -68,36 +78,42 @@ const options = {
     required: false,
     description:
       'Additional options for the form group containing the textarea component.',
+    released: '1.0.0',
     params: {
       classes: {
         type: 'string',
         required: false,
         description:
-          'Classes to add to the form group (for example to show error state for the whole group).'
+          'Classes to add to the form group (for example to show error state for the whole group).',
+        released: '1.0.0'
       },
       attributes: {
         type: 'object',
         required: false,
         description:
-          'HTML attributes (for example data attributes) to add to the form group.'
+          'HTML attributes (for example data attributes) to add to the form group.',
+        released: '10.0.0'
       },
       beforeInput: {
         type: 'object',
         required: false,
         description:
           'Content to add before the textarea used by the textarea component.',
+        released: '10.1.0',
         params: {
           text: {
             type: 'string',
             required: true,
             description:
-              'Text to add before the textarea. If `html` is provided, the `text` option will be ignored.'
+              'Text to add before the textarea. If `html` is provided, the `text` option will be ignored.',
+            released: '10.1.0'
           },
           html: {
             type: 'string',
             required: true,
             description:
-              'HTML to add before the textarea. If `html` is provided, the `text` option will be ignored.'
+              'HTML to add before the textarea. If `html` is provided, the `text` option will be ignored.',
+            released: '10.1.0'
           }
         }
       },
@@ -106,18 +122,21 @@ const options = {
         required: false,
         description:
           'Content to add after the textarea used by the textarea component.',
+        released: '10.1.0',
         params: {
           text: {
             type: 'string',
             required: true,
             description:
-              'Text to add after the textarea. If `html` is provided, the `text` option will be ignored.'
+              'Text to add after the textarea. If `html` is provided, the `text` option will be ignored.',
+            released: '10.1.0'
           },
           html: {
             type: 'string',
             required: true,
             description:
-              'HTML to add after the textarea. If `html` is provided, the `text` option will be ignored.'
+              'HTML to add after the textarea. If `html` is provided, the `text` option will be ignored.',
+            released: '10.1.0'
           }
         }
       }
@@ -126,19 +145,22 @@ const options = {
   classes: {
     type: 'string',
     required: false,
-    description: 'Classes to add to the textarea.'
+    description: 'Classes to add to the textarea.',
+    released: '1.0.0'
   },
   autocomplete: {
     type: 'string',
     required: false,
     description:
-      'Attribute to meet [WCAG success criterion 1.3.5: Identify input purpose](https://www.w3.org/WAI/WCAG22/Understanding/identify-input-purpose.html), for instance `"bday-day"`. See the [Autofill section in the HTML standard](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill) for a full list of attributes that can be used.'
+      'Attribute to meet [WCAG success criterion 1.3.5: Identify input purpose](https://www.w3.org/WAI/WCAG22/Understanding/identify-input-purpose.html), for instance `"bday-day"`. See the [Autofill section in the HTML standard](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill) for a full list of attributes that can be used.',
+    released: '2.1.0'
   },
   attributes: {
     type: 'object',
     required: false,
     description:
-      'HTML attributes (for example data attributes) to add to the textarea.'
+      'HTML attributes (for example data attributes) to add to the textarea.',
+    released: '1.0.0'
   }
 }
 

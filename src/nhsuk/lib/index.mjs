@@ -1,10 +1,12 @@
 /**
  * NHS.UK frontend library
  */
+
 export * as components from './components.mjs'
-export * as highlighter from './highlighter/index.mjs'
 export * as names from './names.mjs'
 export * as nunjucks from './nunjucks/index.mjs'
+
+export * from './highlighter/index.mjs'
 
 /**
  * @typedef {import('./components.mjs').MacroExample} MacroExample

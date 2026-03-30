@@ -10,35 +10,41 @@ const options = {
     type: 'string',
     required: true,
     description:
-      'If `html` is set, this is not required. Text to use within the error message. If `html` is provided, the `text` option will be ignored.'
+      'If `html` is set, this is not required. Text to use within the error message. If `html` is provided, the `text` option will be ignored.',
+    released: '1.0.0'
   },
   html: {
     type: 'string',
     required: true,
     description:
-      'If `text` is set, this is not required. HTML to use within the error message. If `html` is provided, the `text` option will be ignored.'
+      'If `text` is set, this is not required. HTML to use within the error message. If `html` is provided, the `text` option will be ignored.',
+    released: '1.0.0'
   },
   id: {
     type: 'string',
     required: false,
-    description: 'The `id` attribute to add to the error message `<span>` tag.'
+    description: 'The `id` attribute to add to the error message `<span>` tag.',
+    released: '1.0.0'
   },
   classes: {
     type: 'string',
     required: false,
-    description: 'Classes to add to the error message `<span>` tag.'
+    description: 'Classes to add to the error message `<span>` tag.',
+    released: '1.0.0'
   },
   attributes: {
     type: 'object',
     required: false,
     description:
-      'HTML attributes (for example data attributes) to add to the error message `<span>` tag.'
+      'HTML attributes (for example data attributes) to add to the error message `<span>` tag.',
+    released: '1.0.0'
   },
   visuallyHiddenText: {
     type: 'string',
     required: false,
     description:
-      'A visually hidden prefix used before the error message. Defaults to `"Error"`.'
+      'A visually hidden prefix used before the error message. Defaults to `"Error"`.',
+    released: '2.1.0'
   }
 }
 
