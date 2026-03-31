@@ -198,12 +198,12 @@
             {
               value: "red",
               text: "Red",
-              exclusiveGroup: "colour-primary"
+              behaviourGroup: "colour-primary"
             },
             {
               value: "yellow",
               text: "Yellow",
-              exclusiveGroup: "colour-primary",
+              behaviourGroup: "colour-primary",
               conditional: {
                 html: '<p class="nhsuk-body">Orange is much nicer than yellow!</p>'
               }
@@ -211,7 +211,7 @@
             {
               value: "blue",
               text: "Blue",
-              exclusiveGroup: "colour-primary"
+              behaviourGroup: "colour-primary"
             },
             {
               divider: "or"
@@ -219,8 +219,8 @@
             {
               value: "none-primary",
               text: "None of the primary colours",
-              exclusive: true,
-              exclusiveGroup: "colour-primary"
+              behaviour: "exclusive",
+              behaviourGroup: "colour-primary"
             }
           ]
         }) }}
@@ -234,17 +234,17 @@
             {
               value: "green",
               text: "Green",
-              exclusiveGroup: "colour-secondary"
+              behaviourGroup: "colour-secondary"
             },
             {
               value: "purple",
               text: "Purple",
-              exclusiveGroup: "colour-secondary"
+              behaviourGroup: "colour-secondary"
             },
             {
               value: "orange",
               text: "Orange",
-              exclusiveGroup: "colour-secondary",
+              behaviourGroup: "colour-secondary",
               conditional: {
                 html: '<p class="nhsuk-body">I like orange too!</p>'
               }
@@ -255,8 +255,8 @@
             {
               value: "none-secondary",
               text: "None of the secondary colours",
-              exclusive: true,
-              exclusiveGroup: "colour-secondary"
+              behaviour: "exclusive",
+              behaviourGroup: "colour-secondary"
             }
           ]
         }) }}
@@ -270,7 +270,7 @@
             {
               value: "imaginary",
               text: "An imaginary colour",
-              exclusiveGroup: "colour-other"
+              behaviourGroup: "colour-other"
             },
             {
               divider: "or"
@@ -278,7 +278,7 @@
             {
               value: "none",
               text: "None of the above",
-              exclusive: true
+              behaviour: "exclusive"
             }
           ]
         }) }}
