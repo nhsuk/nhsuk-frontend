@@ -75,6 +75,11 @@
         // Buttons are normally 100% wide on mobile, but we don't want that here
         width: auto;
       }
+
+      // Remove gap with preceding hidden button
+      .nhsuk-button[hidden] + * {
+        margin-left: 0;
+      }
     }
   }
 }
