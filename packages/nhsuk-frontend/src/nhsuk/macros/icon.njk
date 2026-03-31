@@ -1,3 +1,5 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes -%}
+
 {#
   Renders inline SVG icon
 
@@ -24,7 +26,35 @@
   @param {string} params.classes - Classes to add to the icon
 #}
 {% macro nhsukIcon(name, params) -%}
-<svg class="nhsuk-icon nhsuk-icon--{{ name }} {%- if params.classes %} {{ params.classes }}{% endif %}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false"{% if params.title %} role="img" aria-label="{{ params.title }}"{% else %} aria-hidden="true"{% endif %}>
+  {%- set classNames = "nhsuk-icon nhsuk-icon--" ~ name -%}
+
+  {%- if params.classes -%}
+    {%- set classNames = classNames ~ " " ~ params.classes -%}
+  {%- endif -%}
+
+<svg
+  {{- nhsukAttributes({
+    class: classNames,
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 24 24",
+    width: "16",
+    height: "16",
+    focusable: "false",
+    role: {
+      value: "img" if params.title else false,
+      optional: true
+    },
+    "aria-label": {
+      value: params.title if params.title else false,
+      optional: true
+    },
+    "aria-hidden": {
+      value: false if params.title else "true",
+      optional: true
+    }
+  }) -}}
+
+  {{- nhsukAttributes(params.attributes) -}}>
 {% if params.title %}
   <title>{{ params.title }}</title>
 {% endif %}
