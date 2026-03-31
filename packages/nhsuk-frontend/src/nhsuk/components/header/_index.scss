@@ -573,6 +573,11 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     padding-right: nhsuk-em($_chevron-font-size, 16);
     text-align: center;
 
+    &,
+    &:hover {
+      text-decoration: none;
+    }
+
     &[hidden] {
       display: none;
     }
