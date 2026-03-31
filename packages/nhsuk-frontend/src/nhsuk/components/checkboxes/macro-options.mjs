@@ -252,14 +252,14 @@ const options = {
         type: 'boolean',
         required: false,
         description:
-          'If set to `true`, marks this checkbox as the None option in a None of these type behaviour. Unchecking all other checkboxes in the group when None is clicked.',
+          'If set to `true`, marks this checkbox with exclusive "None of the above" type behaviour. Unchecking all other checkboxes in the group when clicked.',
         released: '5.2.0'
       },
       exclusiveGroup: {
         type: 'string',
         required: false,
         description:
-          'Used in conjunction with `exclusive` - this should be set to a string which groups checkboxes together into a set for use in a None of these scenario.',
+          'Used in conjunction with `exclusive` - this should be set to a string which groups checkboxes together into a set for use in a "None of the above" scenario.',
         released: '5.2.0'
       }
     }
