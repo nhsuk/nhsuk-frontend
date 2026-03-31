@@ -52,10 +52,10 @@
             {% set iconHtml %}
               {% for size, params in {
                 "100%": {},
-                "125%": { classes: "nhsuk-icon--size-25" },
-                "150%": { classes: "nhsuk-icon--size-50" },
-                "175%": { classes: "nhsuk-icon--size-75" },
-                "200%": { classes: "nhsuk-icon--size-100" }
+                "125%": { size: 25 },
+                "150%": { size: 50 },
+                "175%": { size: 75 },
+                "200%": { size: 100 }
               } %}
                 <figure class="nhsuk-u-display-inline-block nhsuk-u-text-align-centre nhsuk-u-margin-1">
                   {{ nhsukIcon(modifier, params) }}
