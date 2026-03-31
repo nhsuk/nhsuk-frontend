@@ -754,7 +754,8 @@ const fixtures = {
           behaviour: 'inclusive'
         },
         {
-          divider: 'or'
+          divider: 'or',
+          behaviour: 'inclusive'
         },
         {
           value: 'red',
@@ -791,7 +792,8 @@ const fixtures = {
           behaviourGroup: 'colour-preferences'
         },
         {
-          divider: 'or'
+          divider: 'or',
+          behaviour: 'inclusive'
         },
         {
           value: 'red',
@@ -833,7 +835,8 @@ const fixtures = {
           behaviourGroup: 'colour-preferences'
         },
         {
-          divider: 'or'
+          divider: 'or',
+          behaviour: 'inclusive'
         },
         {
           name: 'colours-red',

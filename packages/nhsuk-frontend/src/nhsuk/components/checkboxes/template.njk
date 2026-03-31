@@ -42,7 +42,9 @@
   {% set itemName = item.name if item.name else params.name %}
   {% set conditionalId = "conditional-" ~ itemId %}
   {%- if item.divider %}
-    <div class="nhsuk-checkboxes__divider">{{ item.divider }}</div>
+    <div class="nhsuk-checkboxes__divider {{- " nhsuk-frontend-supported-only" if item.behaviour == "inclusive" else "" }}">
+      {{- item.divider -}}
+    </div>
   {% else %}
     {% set isChecked = item.checked | default((item.value in params.values and item.checked != false) if params.values else false, true) %}
     {% set hasHint = true if item.hint.text or item.hint.html %}
@@ -50,7 +52,7 @@
     {% set itemDescribedBy = describedBy if not hasFieldset else "" %}
     {% set itemDescribedBy = (itemDescribedBy ~ " " ~ itemHintId) | trim %}
     {% set itemClasses = "nhsuk-checkboxes__input" ~ (" " ~ item.classes if item.classes) %}
-    <div class="nhsuk-checkboxes__item">
+    <div class="nhsuk-checkboxes__item {{- " nhsuk-frontend-supported-only" if item.behaviour == "inclusive" else "" }}">
       <input class="{{ itemClasses }}" id="{{ itemId }}" name="{{ itemName }}" type="checkbox" value="{{ item.value }}"
         {{- " checked" if isChecked }}
         {{- " disabled" if item.disabled }}
