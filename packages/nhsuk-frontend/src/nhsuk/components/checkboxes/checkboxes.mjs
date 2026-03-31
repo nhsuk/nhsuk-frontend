@@ -199,11 +199,18 @@ export class Checkboxes extends ConfigurableComponent {
    * @param {'exclusive' | 'inclusive'} [behaviour] - Checkbox behaviour
    */
   getGroup($input, behaviour) {
-    return $input.dataset[
-      behaviour === 'exclusive'
-        ? 'checkboxExclusiveGroup'
-        : 'checkboxInclusiveGroup'
-    ]
+    const { dataset } = $input
+
+    // Check for deprecated `data-checkbox-*` group attributes
+    if (!('behaviourGroup' in dataset)) {
+      return dataset[
+        behaviour === 'exclusive'
+          ? 'checkboxExclusiveGroup'
+          : 'checkboxInclusiveGroup'
+      ]
+    }
+
+    return dataset.behaviourGroup
   }
 
   /**
@@ -213,13 +220,17 @@ export class Checkboxes extends ConfigurableComponent {
    * @param {'exclusive' | 'inclusive'} [behaviour] - Checkbox behaviour
    */
   getGroupSelector($input, behaviour) {
+    const { dataset } = $input
     const behaviourGroup = this.getGroup($input, behaviour)
 
     if (!behaviourGroup) {
       return `[name="${$input.name}"]`
     }
 
-    return `[data-checkbox-${behaviour}-group="${behaviourGroup}"]`
+    // Check for deprecated `data-checkbox-*` group attributes
+    return !('behaviourGroup' in dataset)
+      ? `[data-checkbox-${behaviour}-group="${behaviourGroup}"]`
+      : `[data-behaviour-group="${behaviourGroup}"]`
   }
 
   /**
@@ -247,10 +258,10 @@ export class Checkboxes extends ConfigurableComponent {
    */
   getBehaviourInputs($input, behaviour) {
     const groupSelector = this.getGroupSelector($input, behaviour)
-    const inputSelector = `[data-checkbox-${behaviour}]${groupSelector}`
 
+    // Include deprecated `data-checkbox-*` attributes
     const $behaviourInputs = document.querySelectorAll(
-      `input[type="checkbox"]${inputSelector}`
+      `input[type="checkbox"][data-behaviour="${behaviour}"]${groupSelector}, input[type="checkbox"][data-checkbox-${behaviour}]${groupSelector}`
     )
 
     return Array.from($behaviourInputs).filter(
@@ -269,7 +280,9 @@ export class Checkboxes extends ConfigurableComponent {
     const { dataset } = $input
 
     const group =
-      dataset.checkboxExclusiveGroup ?? dataset.checkboxInclusiveGroup
+      dataset.behaviourGroup ??
+      dataset.checkboxExclusiveGroup ??
+      dataset.checkboxInclusiveGroup
 
     // Skip input when behaviour group does not match
     if (group && behaviourGroup && group !== behaviourGroup) {
@@ -303,8 +316,12 @@ export class Checkboxes extends ConfigurableComponent {
     }
 
     const { dataset } = $clickedInput
-    const isExclusive = 'checkboxExclusive' in dataset
-    const isInclusive = 'checkboxInclusive' in dataset
+
+    const isExclusive =
+      dataset.behaviour === 'exclusive' || 'checkboxExclusive' in dataset
+
+    const isInclusive =
+      dataset.behaviour === 'inclusive' || 'checkboxInclusive' in dataset
 
     if (isExclusive) {
       if ($clickedInput.checked) {

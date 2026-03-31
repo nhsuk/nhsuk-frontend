@@ -751,7 +751,7 @@ const fixtures = {
         {
           value: 'all',
           text: 'All colours',
-          inclusive: true
+          behaviour: 'inclusive'
         },
         {
           divider: 'or'
@@ -787,8 +787,8 @@ const fixtures = {
         {
           value: 'all',
           text: 'All colours',
-          inclusive: true,
-          inclusiveGroup: 'colour-preferences'
+          behaviour: 'inclusive',
+          behaviourGroup: 'colour-preferences'
         },
         {
           divider: 'or'
@@ -796,17 +796,17 @@ const fixtures = {
         {
           value: 'red',
           text: 'Red',
-          inclusiveGroup: 'colour-preferences'
+          behaviourGroup: 'colour-preferences'
         },
         {
           value: 'green',
           text: 'Green',
-          inclusiveGroup: 'colour-preferences'
+          behaviourGroup: 'colour-preferences'
         },
         {
           value: 'blue',
           text: 'Blue',
-          inclusiveGroup: 'colour-preferences'
+          behaviourGroup: 'colour-preferences'
         }
       ]
     },
@@ -829,8 +829,8 @@ const fixtures = {
           name: 'colours-all',
           value: 'yes',
           text: 'All colours',
-          inclusive: true,
-          inclusiveGroup: 'colour-preferences'
+          behaviour: 'inclusive',
+          behaviourGroup: 'colour-preferences'
         },
         {
           divider: 'or'
@@ -839,19 +839,19 @@ const fixtures = {
           name: 'colours-red',
           value: 'yes',
           text: 'Red',
-          inclusiveGroup: 'colour-preferences'
+          behaviourGroup: 'colour-preferences'
         },
         {
           name: 'colours-green',
           value: 'yes',
           text: 'Green',
-          inclusiveGroup: 'colour-preferences'
+          behaviourGroup: 'colour-preferences'
         },
         {
           name: 'colours-blue',
           value: 'yes',
           text: 'Blue',
-          inclusiveGroup: 'colour-preferences'
+          behaviourGroup: 'colour-preferences'
         }
       ]
     },
@@ -887,7 +887,7 @@ const fixtures = {
         {
           value: 'none',
           text: 'None of the above',
-          exclusive: true
+          behaviour: 'exclusive'
         }
       ]
     },
@@ -957,7 +957,7 @@ const fixtures = {
         {
           value: 'none',
           text: 'None of the above',
-          exclusive: true
+          behaviour: 'exclusive'
         }
       ]
     },
@@ -996,7 +996,7 @@ const fixtures = {
         {
           value: 'none',
           text: 'None of the above',
-          exclusive: true,
+          behaviour: 'exclusive',
           exclusiveGroup: 'communication-preferences'
         }
       ]
@@ -1044,7 +1044,7 @@ const fixtures = {
           name: 'preference-none',
           value: 'yes',
           text: 'None of the above',
-          exclusive: true,
+          behaviour: 'exclusive',
           exclusiveGroup: 'communication-preferences'
         }
       ]
