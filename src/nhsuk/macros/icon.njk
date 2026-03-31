@@ -24,9 +24,23 @@
   @param {object} [params] - Icon params
   @param {string} params.title - Accessible name
   @param {string} params.classes - Classes to add to the icon
+  @param {number} params.size - Icon size adjustment in percent (25, 50, 75, 100)
 #}
 {% macro nhsukIcon(name, params) -%}
   {%- set classNames = "nhsuk-icon nhsuk-icon--" ~ name -%}
+
+  {%- if params.size and
+    params.size | string in ["25", "50", "75", "100"] and (
+      not params.classes or (
+        not "nhsuk-icon--size-25" in params.classes and
+        not "nhsuk-icon--size-50" in params.classes and
+        not "nhsuk-icon--size-75" in params.classes and
+        not "nhsuk-icon--size-100" in params.classes
+      )
+    )
+  %}
+    {% set classNames = classNames ~ " nhsuk-icon--size-" ~ params.size %}
+  {% endif %}
 
   {%- if params.classes -%}
     {%- set classNames = classNames ~ " " ~ params.classes -%}
