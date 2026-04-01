@@ -110,17 +110,26 @@
 
             {{ button({
               text: "Point it",
-              variant: "secondary"
+              variant: "secondary",
+              icon: {
+                name: "arrow-right-circle",
+                placement: "end"
+              }
             }) }}
 
             {{ button({
               text: "Zoom it",
-              variant: "secondary"
+              variant: "secondary",
+              icon: "search"
             }) }}
 
             {{ button({
               text: "Press it",
-              variant: "secondary"
+              variant: "secondary",
+              icon: {
+                name: "arrow-down",
+                placement: "end"
+              }
             }) }}
           </div>
 
@@ -155,18 +164,27 @@
             {{ button({
               text: "Point it",
               variant: "secondary",
+              icon: {
+                name: "arrow-right-circle",
+                placement: "end"
+              },
               small: true
             }) }}
 
             {{ button({
               text: "Zoom it",
               variant: "secondary",
+              icon: "search",
               small: true
             }) }}
 
             {{ button({
               text: "Press it",
               variant: "secondary",
+              icon: {
+                name: "arrow-down",
+                placement: "end"
+              },
               small: true
             }) }}
           </div>
