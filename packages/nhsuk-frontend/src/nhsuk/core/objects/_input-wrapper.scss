@@ -28,6 +28,10 @@
   }
 
   .nhsuk-input-wrapper {
+    // Prevent users from selecting wrapper inputs
+    // e.g. When double clicking a disabled button
+    user-select: none;
+
     .nhsuk-input,
     .nhsuk-select,
     .nhsuk-button {
