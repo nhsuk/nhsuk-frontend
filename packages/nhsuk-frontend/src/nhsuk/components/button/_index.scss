@@ -109,7 +109,14 @@ $button-shadow-size: $nhsuk-button-shadow-size;
 
     appearance: none;
 
-    @include nhsuk-button-style;
+    @include nhsuk-button-style(
+      $button-colour: $nhsuk-button-colour,
+      $button-hover-colour: $nhsuk-button-hover-colour,
+      $button-active-colour: $nhsuk-button-active-colour,
+      $button-text-colour: $nhsuk-button-text-colour,
+      $button-shadow-colour: $nhsuk-button-shadow-colour
+    );
+
     @include nhsuk-font(19, $line-height: 19px, $weight: bold);
     @include nhsuk-responsive-margin(5, "bottom", $adjustment: $nhsuk-button-shadow-size); // [5]
 
@@ -228,6 +235,7 @@ $button-shadow-size: $nhsuk-button-shadow-size;
       $button-colour: $nhsuk-warning-button-colour,
       $button-hover-colour: $nhsuk-warning-button-hover-colour,
       $button-active-colour: $nhsuk-warning-button-active-colour,
+      $button-text-colour: $nhsuk-button-text-colour,
       $button-shadow-colour: $nhsuk-warning-button-shadow-colour
     );
   }
@@ -237,6 +245,7 @@ $button-shadow-size: $nhsuk-button-shadow-size;
       $button-colour: $nhsuk-login-button-colour,
       $button-hover-colour: $nhsuk-login-button-hover-colour,
       $button-active-colour: $nhsuk-login-button-active-colour,
+      $button-text-colour: $nhsuk-button-text-colour,
       $button-shadow-colour: $nhsuk-login-button-shadow-colour
     );
   }
