@@ -22,12 +22,67 @@ $nhsuk-button-padding-top-bottom-small: nhsuk-px-to-rem(6px);
 $nhsuk-button-padding-left-right: nhsuk-px-to-rem(16px);
 $nhsuk-button-padding-left-right-small: nhsuk-px-to-rem(12px);
 
+$nhsuk-button-search-icon-size: 28px;
+$nhsuk-button-search-icon-size-large: 38px;
+
 // @deprecated To be removed in v11.0
 $button-border-radius: $nhsuk-button-border-radius;
 $button-padding-top-bottom-mobile: $nhsuk-button-padding-top-bottom-mobile;
 $button-padding-top-bottom-desktop: $nhsuk-button-padding-top-bottom-desktop;
 $button-padding-left-right: $nhsuk-button-padding-left-right;
 $button-shadow-size: $nhsuk-button-shadow-size;
+
+/// Button content styling, full width
+///
+/// @access private
+
+@mixin _nhsuk-button-content-full-width() {
+  .nhsuk-button__content {
+    display: block;
+    width: 100%;
+
+    // Icons are displayed at the start by default, but make sure the text
+    // stays centre-aligned when buttons are full width at small screen sizes
+    padding-right: nhsuk-px-to-rem($nhsuk-icon-size);
+    padding-left: nhsuk-px-to-rem($nhsuk-icon-size);
+  }
+}
+
+/// Button content styling, intrinsic width
+///
+/// Used to adjust button text padding to accommodate for icons when buttons
+/// are intrinsic width (not full width) at tablet and above.
+///
+/// Additionally applied at mobile width when buttons are shown inline with
+/// inputs and select menus, i.e. within `.nhsuk-input-wrapper`
+///
+/// @access private
+
+@mixin _nhsuk-button-content-intrinsic-width() {
+  // Preserve space for icon (small) at the end
+  .nhsuk-button__content {
+    padding-left: 0;
+  }
+
+  // Preserve space for icon (small) at the start
+  .nhsuk-icon + .nhsuk-button__content {
+    padding-right: 0;
+    padding-left: nhsuk-px-to-rem($nhsuk-icon-size);
+  }
+
+  @include nhsuk-media-query($from: tablet) {
+    // Preserve space for icon (large) at the end
+    .nhsuk-button--icon:not(.nhsuk-button--small) .nhsuk-button__content {
+      padding-right: nhsuk-px-to-rem($nhsuk-icon-size-large);
+    }
+
+    // Preserve space for icon (large) at the start
+    .nhsuk-button--icon:not(.nhsuk-button--small) .nhsuk-icon + .nhsuk-button__content {
+      padding-right: 0;
+      padding-left: nhsuk-px-to-rem($nhsuk-icon-size-large);
+    }
+  }
+}
 
 @include nhsuk-exports("nhsuk/components/button") {
   .nhsuk-button {
@@ -205,9 +260,6 @@ $button-shadow-size: $nhsuk-button-shadow-size;
   // Icon buttons
   // =========================================================
 
-  $nhsuk-button-search-icon-size: 28px;
-  $nhsuk-button-search-icon-size-large: 38px;
-
   .nhsuk-button--icon {
     display: flex;
     position: relative;
@@ -223,36 +275,19 @@ $button-shadow-size: $nhsuk-button-shadow-size;
     }
   }
 
-  .nhsuk-button__content {
-    display: block;
-    width: 100%;
+  // Button content styling
+  @include _nhsuk-button-content-full-width;
 
-    // Icons are displayed at the start by default, but make sure the text
-    // stays centre-aligned when buttons are full width at small screen sizes
-    padding-right: nhsuk-px-to-rem($nhsuk-icon-size);
-    padding-left: nhsuk-px-to-rem($nhsuk-icon-size);
-
-    @include nhsuk-media-query($from: tablet) {
-      // Preserve space for icon (small) at the end
-      padding-left: 0;
-
-      // Preserve space for icon (small) at the start
-      .nhsuk-icon + & {
-        padding-right: 0;
-        padding-left: nhsuk-px-to-rem($nhsuk-icon-size);
-      }
-
-      // Preserve space for icon (large) at the end
-      .nhsuk-button--icon:not(.nhsuk-button--small) & {
-        padding-right: nhsuk-px-to-rem($nhsuk-icon-size-large);
-      }
-
-      // Preserve space for icon (large) at the start
-      .nhsuk-button--icon:not(.nhsuk-button--small) .nhsuk-icon + & {
-        padding-right: 0;
-        padding-left: nhsuk-px-to-rem($nhsuk-icon-size-large);
-      }
+  // Button content styling with intrinsic width buttons when inline
+  @include nhsuk-media-query($from: mobile, $until: tablet) {
+    .nhsuk-input-wrapper {
+      @include _nhsuk-button-content-intrinsic-width;
     }
+  }
+
+  // Button content styling with intrinsic width buttons from tablet width
+  @include nhsuk-media-query($from: tablet) {
+    @include _nhsuk-button-content-intrinsic-width;
   }
 
   .nhsuk-button--icon .nhsuk-icon {
