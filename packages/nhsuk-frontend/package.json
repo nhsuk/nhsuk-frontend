@@ -73,7 +73,7 @@
     "@testing-library/dom": "^10.4.1",
     "@testing-library/user-event": "^14.6.1",
     "autoprefixer": "^10.4.27",
-    "axe-core": "^4.11.1",
+    "axe-core": "^4.11.2",
     "cssnano": "^7.1.3",
     "del-cli": "^7.0.0",
     "gulp": "^5.0.1",
