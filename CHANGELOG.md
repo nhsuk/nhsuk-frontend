@@ -4,6 +4,12 @@
 
 ### :new: **New features**
 
+#### Inactive tabs use a white background instead of grey
+
+This is to improve contrast and visibility, and to avoid the inactive tabes being perceived as disabled.
+
+This was added in https://github.com/nhsuk/nhsuk-frontend/pull/1824
+
 #### Links are easier to read and have a clearer hover state
 
 Links now have underlines that are consistently thinner and a bit further away from the link text.
