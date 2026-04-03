@@ -1,0 +1,39 @@
+{% extends "layouts/page.njk" %}
+
+{% set pageName = "Sorry, the service is unavailable" %}
+
+{% block header %}
+  {{ header({
+    service: {
+      href: baseUrl,
+      text: "Service name"
+    }
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhsuk-heading-l">{{ pageName }}</h1>
+
+      <p>The service is experiencing a technical issue. It will be fixed as soon as possible.</p>
+
+      <p>Progress updates will be added to this page.</p>
+
+      {% set insetTextHtml %}
+        <h2 class="nhsuk-heading-s">1:11pm, Thursday 26 Februrary 2026</h2>
+        <p>We have identified the underlying cause of the issue and are working to fix it.</p>
+      {% endset %}
+
+      {{ insetText({
+        html: insetTextHtml
+      }) }}
+
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+  {{ footer() }}
+{% endblock %}
