@@ -20,7 +20,8 @@
   display: block !important;
 }
 
-.nhsuk-u-display-none {
+.nhsuk-u-display-none,
+body:not(.nhsuk-frontend-supported) .nhsuk-frontend-supported-only {
   display: none !important;
 }
 

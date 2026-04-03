@@ -248,19 +248,35 @@ const options = {
           'HTML attributes (for example data attributes) to add to the checkbox input tag.',
         released: '1.0.0'
       },
+      behaviour: {
+        type: 'string',
+        required: false,
+        description:
+          'Behaviour of the checkbox when JavaScript is enabled – `"exclusive"` or `"inclusive"`. Use `"exclusive"` for "None of the above" type behaviour or `"inclusive"` for "Select all" type behaviour.',
+        released: '11.0.0'
+      },
+      behaviourGroup: {
+        type: 'string',
+        required: false,
+        description:
+          'Used in conjunction with `behaviour` - this should be set to a string which groups checkboxes together into a set for use with "None of the above" or "Select all" type behaviours.',
+        released: '11.0.0'
+      },
       exclusive: {
         type: 'boolean',
         required: false,
         description:
-          'If set to `true`, marks this checkbox as the None option in a None of these type behaviour. Unchecking all other checkboxes in the group when None is clicked.',
-        released: '5.2.0'
+          'If set to `true`, marks this checkbox with exclusive "None of the above" type behaviour. Unchecking all other checkboxes in the group when clicked. Replaced by the `behaviour` option.',
+        released: '5.2.0',
+        deprecated: '11.0.0'
       },
       exclusiveGroup: {
         type: 'string',
         required: false,
         description:
-          'Used in conjunction with `exclusive` - this should be set to a string which groups checkboxes together into a set for use in a None of these scenario.',
-        released: '5.2.0'
+          'Used in conjunction with `exclusive` - this should be set to a string which groups checkboxes together into a set for use in a "None of the above" scenario. Replaced by the `behaviourGroup` option.',
+        released: '5.2.0',
+        deprecated: '11.0.0'
       }
     }
   },
