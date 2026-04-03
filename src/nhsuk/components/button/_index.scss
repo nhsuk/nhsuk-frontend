@@ -200,4 +200,141 @@ $button-shadow-size: $nhsuk-button-shadow-size;
       @include nhsuk-font(16, $line-height: 19px, $weight: bold);
     }
   }
+
+  // =========================================================
+  // Icon buttons
+  // =========================================================
+
+  $nhsuk-button-search-icon-size: 28px;
+  $nhsuk-button-search-icon-size-large: 38px;
+
+  .nhsuk-button--icon {
+    display: flex;
+    position: relative;
+    align-items: center;
+
+    // Add minimum width for icon-only buttons
+    min-width: nhsuk-px-to-rem(40px);
+
+    &:not(.nhsuk-button--small) {
+      @include nhsuk-media-query($from: tablet) {
+        min-width: nhsuk-px-to-rem(62px);
+      }
+    }
+  }
+
+  .nhsuk-button__content {
+    display: block;
+    width: 100%;
+
+    // Icons are displayed at the start by default, but make sure the text
+    // stays centre-aligned when buttons are full width at small screen sizes
+    padding-right: nhsuk-px-to-rem($nhsuk-icon-size);
+    padding-left: nhsuk-px-to-rem($nhsuk-icon-size);
+
+    @include nhsuk-media-query($from: tablet) {
+      // Preserve space for icon (small) at the end
+      padding-left: 0;
+
+      // Preserve space for icon (small) at the start
+      .nhsuk-icon + & {
+        padding-right: 0;
+        padding-left: nhsuk-px-to-rem($nhsuk-icon-size);
+      }
+
+      // Preserve space for icon (large) at the end
+      .nhsuk-button--icon:not(.nhsuk-button--small) & {
+        padding-right: nhsuk-px-to-rem($nhsuk-icon-size-large);
+      }
+
+      // Preserve space for icon (large) at the start
+      .nhsuk-button--icon:not(.nhsuk-button--small) .nhsuk-icon + & {
+        padding-right: 0;
+        padding-left: nhsuk-px-to-rem($nhsuk-icon-size-large);
+      }
+    }
+  }
+
+  .nhsuk-button--icon .nhsuk-icon {
+    position: absolute;
+    top: 50%;
+    left: $nhsuk-button-padding-left-right;
+
+    // Offset icon vertically (from top: 50%) into the centre
+    margin-top: nhsuk-px-to-rem(math.div($nhsuk-icon-size, -2));
+
+    // Offset icon to the right when at the end
+    &:not(:only-child):last-child {
+      right: $nhsuk-button-padding-left-right - nhsuk-px-to-rem(6px);
+      left: auto;
+    }
+
+    // Offset icon to the left when at the start
+    &:not(:only-child):first-child {
+      left: $nhsuk-button-padding-left-right - nhsuk-px-to-rem(6px);
+    }
+
+    &:only-child {
+      left: 50%;
+      margin-left: nhsuk-px-to-rem(math.div($nhsuk-icon-size, -2));
+    }
+  }
+
+  // Adjust icon for small buttons
+  .nhsuk-button--icon.nhsuk-button--small .nhsuk-icon {
+    &:not(:only-child):last-child {
+      right: $nhsuk-button-padding-left-right-small - nhsuk-px-to-rem(6px);
+      left: auto;
+    }
+
+    &:not(:only-child):first-child {
+      left: $nhsuk-button-padding-left-right-small - nhsuk-px-to-rem(6px);
+    }
+
+    // Prevent button icon size increase for small buttons (at tablet) by
+    // overriding the core icon size increase back to default size again
+    @include nhsuk-media-query($from: tablet) {
+      width: nhsuk-px-to-rem($nhsuk-icon-size);
+      height: nhsuk-px-to-rem($nhsuk-icon-size);
+    }
+  }
+
+  // Increase icon size (mobile), search only
+  .nhsuk-button--icon.nhsuk-button--small .nhsuk-icon--search:only-child {
+    @include nhsuk-media-query($from: mobile) {
+      width: nhsuk-px-to-rem($nhsuk-button-search-icon-size);
+      height: nhsuk-px-to-rem($nhsuk-button-search-icon-size);
+
+      // Offset icon vertically (from top: 50%) into the centre
+      margin-top: nhsuk-px-to-rem(math.div($nhsuk-button-search-icon-size, -2));
+      margin-left: nhsuk-px-to-rem(math.div($nhsuk-button-search-icon-size, -2));
+    }
+  }
+
+  // Increase icon size (tablet), excluding small buttons
+  .nhsuk-button--icon:not(.nhsuk-button--small) .nhsuk-icon {
+    @include nhsuk-media-query($from: tablet) {
+      width: nhsuk-px-to-rem($nhsuk-icon-size-large);
+      height: nhsuk-px-to-rem($nhsuk-icon-size-large);
+
+      // Offset icon vertically (from top: 50%) into the centre
+      margin-top: nhsuk-px-to-rem(math.div($nhsuk-icon-size-large, -2));
+
+      &:only-child {
+        margin-left: nhsuk-px-to-rem(math.div($nhsuk-icon-size-large, -2));
+      }
+    }
+  }
+
+  // Increase icon size (tablet), search only
+  .nhsuk-button--icon:not(.nhsuk-button--small) .nhsuk-icon--search:only-child {
+    @include nhsuk-media-query($from: tablet) {
+      width: nhsuk-px-to-rem($nhsuk-button-search-icon-size-large);
+      height: nhsuk-px-to-rem($nhsuk-button-search-icon-size-large);
+
+      // Offset icon vertically (from top: 50%) into the centre
+      margin-top: nhsuk-px-to-rem(math.div($nhsuk-button-search-icon-size-large, -2));
+      margin-left: nhsuk-px-to-rem(math.div($nhsuk-button-search-icon-size-large, -2));
+    }
+  }
 }
