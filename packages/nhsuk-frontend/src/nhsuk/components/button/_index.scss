@@ -223,7 +223,7 @@ $button-shadow-size: $nhsuk-button-shadow-size;
     align-items: center;
 
     // Add minimum width for icon-only buttons
-    min-width: nhsuk-px-to-rem(40px);
+    min-width: nhsuk-px-to-rem(44px);
 
     // Prevent users from selecting icon button text
     // e.g. When double clicking the button
@@ -241,7 +241,7 @@ $button-shadow-size: $nhsuk-button-shadow-size;
 
   .nhsuk-button:not(.nhsuk-button--small) {
     @include nhsuk-media-query($from: tablet) {
-      min-width: nhsuk-px-to-rem(62px);
+      min-width: nhsuk-px-to-rem(66px);
     }
   }
 
