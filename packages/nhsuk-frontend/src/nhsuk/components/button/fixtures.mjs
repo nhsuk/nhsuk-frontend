@@ -50,6 +50,56 @@ const fixtures = {
       href: '#'
     }
   },
+  'with icon at start': {
+    context: {
+      text: 'Previous',
+      icon: {
+        name: 'arrow-left',
+        placement: 'start'
+      }
+    }
+  },
+  'with icon at start, small': {
+    context: {
+      text: 'Previous',
+      icon: {
+        name: 'arrow-left',
+        placement: 'start'
+      },
+      small: true
+    }
+  },
+  'with icon at end': {
+    context: {
+      text: 'Next',
+      icon: {
+        name: 'arrow-right',
+        placement: 'end'
+      }
+    }
+  },
+  'with icon at end, small': {
+    context: {
+      text: 'Next',
+      icon: {
+        name: 'arrow-right',
+        placement: 'end'
+      },
+      small: true
+    }
+  },
+  'with double click prevented': {
+    context: {
+      text: 'Save and continue',
+      preventDoubleClick: true
+    }
+  },
+  'with double click not prevented': {
+    context: {
+      text: 'Save and continue',
+      preventDoubleClick: false
+    }
+  },
   'login': {
     context: {
       text: 'Continue',
@@ -102,16 +152,46 @@ const fixtures = {
       href: '#'
     }
   },
-  'with double click prevented': {
+  'login with icon at start': {
     context: {
-      text: 'Save and continue',
-      preventDoubleClick: true
+      text: 'Previous',
+      variant: 'login',
+      icon: {
+        name: 'arrow-left',
+        placement: 'start'
+      }
     }
   },
-  'with double click not prevented': {
+  'login with icon at start, small': {
     context: {
-      text: 'Save and continue',
-      preventDoubleClick: false
+      text: 'Previous',
+      variant: 'login',
+      icon: {
+        name: 'arrow-left',
+        placement: 'start'
+      },
+      small: true
+    }
+  },
+  'login with icon at end': {
+    context: {
+      text: 'Next',
+      variant: 'login',
+      icon: {
+        name: 'arrow-right',
+        placement: 'end'
+      }
+    }
+  },
+  'login with icon at end, small': {
+    context: {
+      text: 'Next',
+      variant: 'login',
+      icon: {
+        name: 'arrow-right',
+        placement: 'end'
+      },
+      small: true
     }
   },
   'reverse': {
@@ -184,6 +264,60 @@ const fixtures = {
       layout: 'background-blue'
     }
   },
+  'reverse with icon at start': {
+    context: {
+      text: 'Previous',
+      variant: 'reverse',
+      icon: {
+        name: 'arrow-left',
+        placement: 'start'
+      }
+    },
+    options: {
+      layout: 'background-blue'
+    }
+  },
+  'reverse with icon at start, small': {
+    context: {
+      text: 'Previous',
+      variant: 'reverse',
+      icon: {
+        name: 'arrow-left',
+        placement: 'start'
+      },
+      small: true
+    },
+    options: {
+      layout: 'background-blue'
+    }
+  },
+  'reverse with icon at end': {
+    context: {
+      text: 'Next',
+      variant: 'reverse',
+      icon: {
+        name: 'arrow-right',
+        placement: 'end'
+      }
+    },
+    options: {
+      layout: 'background-blue'
+    }
+  },
+  'reverse with icon at end, small': {
+    context: {
+      text: 'Next',
+      variant: 'reverse',
+      icon: {
+        name: 'arrow-right',
+        placement: 'end'
+      },
+      small: true
+    },
+    options: {
+      layout: 'background-blue'
+    }
+  },
   'secondary': {
     context: {
       text: 'Find my location',
@@ -234,6 +368,48 @@ const fixtures = {
       variant: 'secondary',
       small: true,
       href: '#'
+    }
+  },
+  'secondary with icon at start': {
+    context: {
+      text: 'Previous',
+      variant: 'secondary',
+      icon: {
+        name: 'arrow-left',
+        placement: 'start'
+      }
+    }
+  },
+  'secondary with icon at start, small': {
+    context: {
+      text: 'Previous',
+      variant: 'secondary',
+      icon: {
+        name: 'arrow-left',
+        placement: 'start'
+      },
+      small: true
+    }
+  },
+  'secondary with icon at end': {
+    context: {
+      text: 'Next',
+      variant: 'secondary',
+      icon: {
+        name: 'arrow-right',
+        placement: 'end'
+      }
+    }
+  },
+  'secondary with icon at end, small': {
+    context: {
+      text: 'Next',
+      variant: 'secondary',
+      icon: {
+        name: 'arrow-right',
+        placement: 'end'
+      },
+      small: true
     }
   },
   'secondary, solid background': {
@@ -306,6 +482,60 @@ const fixtures = {
       layout: 'background-grey'
     }
   },
+  'secondary, solid background with icon at start': {
+    context: {
+      text: 'Previous',
+      variant: 'secondary-solid',
+      icon: {
+        name: 'arrow-left',
+        placement: 'start'
+      }
+    },
+    options: {
+      layout: 'background-grey'
+    }
+  },
+  'secondary, solid background with icon at start, small': {
+    context: {
+      text: 'Previous',
+      variant: 'secondary-solid',
+      icon: {
+        name: 'arrow-left',
+        placement: 'start'
+      },
+      small: true
+    },
+    options: {
+      layout: 'background-grey'
+    }
+  },
+  'secondary, solid background with icon at end': {
+    context: {
+      text: 'Next',
+      variant: 'secondary-solid',
+      icon: {
+        name: 'arrow-right',
+        placement: 'end'
+      }
+    },
+    options: {
+      layout: 'background-grey'
+    }
+  },
+  'secondary, solid background with icon at end, small': {
+    context: {
+      text: 'Next',
+      variant: 'secondary-solid',
+      icon: {
+        name: 'arrow-right',
+        placement: 'end'
+      },
+      small: true
+    },
+    options: {
+      layout: 'background-grey'
+    }
+  },
   'warning': {
     context: {
       text: 'Yes, delete this vaccine',
@@ -356,6 +586,48 @@ const fixtures = {
       small: true,
       variant: 'warning',
       href: '#'
+    }
+  },
+  'warning with icon at start': {
+    context: {
+      text: 'Previous',
+      variant: 'warning',
+      icon: {
+        name: 'arrow-left',
+        placement: 'start'
+      }
+    }
+  },
+  'warning with icon at start, small': {
+    context: {
+      text: 'Previous',
+      variant: 'warning',
+      icon: {
+        name: 'arrow-left',
+        placement: 'start'
+      },
+      small: true
+    }
+  },
+  'warning with icon at end': {
+    context: {
+      text: 'Next',
+      variant: 'warning',
+      icon: {
+        name: 'arrow-right',
+        placement: 'end'
+      }
+    }
+  },
+  'warning with icon at end, small': {
+    context: {
+      text: 'Next',
+      variant: 'warning',
+      icon: {
+        name: 'arrow-right',
+        placement: 'end'
+      },
+      small: true
     }
   }
 }

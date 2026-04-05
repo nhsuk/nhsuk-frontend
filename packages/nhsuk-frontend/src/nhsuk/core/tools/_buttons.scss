@@ -10,20 +10,23 @@
 
 /// Button styling with colour overrides
 ///
-/// @param {Colour} $button-colour [$nhsuk-button-colour] - Button background colour
-/// @param {Colour} $button-hover-colour [$nhsuk-button-hover-colour - Button hover background colour
-/// @param {Colour} $button-text-colour [$nhsuk-button-text-colour] - Button text colour
-/// @param {Colour} $button-shadow-colour [$nhsuk-button-shadow-colour] - Button shadow colour
-/// @param {Colour} $button-border-colour - Button border colour (optional, e.g. secondary button)
+/// @param {Colour} $button-colour [$nhsuk-secondary-button-colour] - Button background colour
+/// @param {Colour} $button-hover-colour [null] - Button hover background colour
+/// @param {Colour} $button-active-colour [null] - Button active background colour
+/// @param {Colour} $button-text-colour [$nhsuk-secondary-button-text-colour] - Button text colour
+/// @param {Colour} $button-shadow-colour [$nhsuk-secondary-button-shadow-colour] - Button shadow colour
+/// @param {Colour} $button-border-colour [null] - Button border colour (optional, e.g. secondary button)
+/// @param {Number} $button-border-radius [$nhsuk-button-border-radius] - Button border radius
 ///
 
 @mixin nhsuk-button-style(
-  $button-colour: $nhsuk-button-colour,
-  $button-hover-colour: $nhsuk-button-hover-colour,
-  $button-active-colour: $nhsuk-button-active-colour,
-  $button-text-colour: $nhsuk-button-text-colour,
-  $button-shadow-colour: $nhsuk-button-shadow-colour,
-  $button-border-colour: null
+  $button-colour: $nhsuk-secondary-button-colour,
+  $button-hover-colour: null,
+  $button-active-colour: null,
+  $button-text-colour: $nhsuk-secondary-button-text-colour,
+  $button-shadow-colour: $nhsuk-secondary-button-shadow-colour,
+  $button-border-colour: null,
+  $button-border-radius: $nhsuk-button-border-radius
 ) {
   background-color: $button-colour;
   box-shadow: 0 $nhsuk-button-shadow-size 0 $button-shadow-colour;
@@ -38,12 +41,29 @@
   }
 
   &:hover {
-    background-color: $button-hover-colour;
+    @if $button-hover-colour {
+      background-color: $button-hover-colour;
+    } @else {
+      background-color: $button-colour;
+    }
   }
 
   &:active,
   &:active:focus {
-    background-color: $button-active-colour;
+    @if $button-active-colour {
+      background-color: $button-active-colour;
+    } @else {
+      background-color: $button-colour;
+    }
+  }
+
+  // Override default border radius
+  @if $button-border-radius != $nhsuk-button-border-radius {
+    &,
+    &::before,
+    &::after {
+      border-radius: nhsuk-px-to-rem($button-border-radius);
+    }
   }
 
   // Handle shadow on both the button and the pseudo element. The button shadow
@@ -71,7 +91,7 @@
     &:not(:focus)::after {
       right: 0;
       left: 0;
-      border-radius: nhsuk-px-to-rem(math.div($nhsuk-button-border-radius, 2));
+      border-radius: nhsuk-px-to-rem($button-border-radius - $nhsuk-border-width-form-element);
     }
 
     // Remove the pseudo element shadow when focused or pressed
