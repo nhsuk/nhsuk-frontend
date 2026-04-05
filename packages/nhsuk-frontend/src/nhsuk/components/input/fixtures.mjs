@@ -17,6 +17,21 @@ const fixtures = {
     },
     screenshot: true
   },
+  'reverse': {
+    context: {
+      label: {
+        text: 'What is your full name?',
+        size: 'l',
+        isPageHeading: true,
+        classes: 'nhsuk-label--reverse'
+      },
+      id: 'reverse',
+      classes: 'nhsuk-input--reverse'
+    },
+    options: {
+      layout: 'background-blue'
+    }
+  },
   'with hint': {
     context: {
       label: {
