@@ -341,6 +341,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
 
     .nhsuk-input-wrapper {
       display: flex;
+      flex-direction: row;
     }
   }
 
