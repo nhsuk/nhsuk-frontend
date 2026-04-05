@@ -9,6 +9,7 @@ import {
   FileUpload,
   Header,
   NotificationBanner,
+  StepperInput,
   PasswordInput,
   Radios,
   SkipLink,
@@ -77,6 +78,7 @@ export function initAll(scopeOrConfig = {}) {
     [FileUpload, config.fileUpload],
     [Header, config.header],
     [NotificationBanner, config.notificationBanner],
+    [StepperInput, config.stepperInput],
     [PasswordInput, config.passwordInput],
     [Radios, config.radios],
     [SkipLink, config.skipLink],
@@ -213,6 +215,7 @@ export * from './errors/index.mjs'
  * @property {ComponentConfig<typeof FileUpload>} [fileUpload] - File upload config
  * @property {ComponentConfig<typeof Header>} [header] - Header config
  * @property {ComponentConfig<typeof NotificationBanner>} [notificationBanner] - Notification Banner config
+ * @property {ComponentConfig<typeof StepperInput>} [stepperInput] - Number Input config
  * @property {ComponentConfig<typeof PasswordInput>} [passwordInput] - Password Input config
  * @property {ComponentConfig<typeof Radios>} [radios] - Radios config
  * @property {ComponentConfig<typeof SkipLink>} [skipLink] - Skip Link config
