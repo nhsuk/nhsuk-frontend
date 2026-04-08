@@ -1,4 +1,4 @@
-import { components } from '#lib'
+import { render } from '../../components.mjs'
 
 /**
  * Component HTML code (formatted)
@@ -9,7 +9,7 @@ import { components } from '#lib'
  * @returns {string} HTML rendered by the component
  */
 export function getComponentHTML(component, options = {}) {
-  return components.render(component, { env: this.env, ...options })
+  return render(component, { env: this.env, ...options })
 }
 
 /**

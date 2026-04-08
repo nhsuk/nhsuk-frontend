@@ -1,6 +1,7 @@
 /**
  * Highlight.js languages
  */
+export { default as bash } from 'highlight.js/lib/languages/bash'
 export { default as css } from 'highlight.js/lib/languages/css'
 export { default as diff } from 'highlight.js/lib/languages/diff'
 export { default as django } from 'highlight.js/lib/languages/django'

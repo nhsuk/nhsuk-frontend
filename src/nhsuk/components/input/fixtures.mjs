@@ -29,7 +29,8 @@ const fixtures = {
       },
       id: 'with-hint',
       name: 'example',
-      classes: 'nhsuk-input--width-10 nhsuk-input--code',
+      width: 10,
+      code: true,
       inputmode: 'numeric',
       spellcheck: false
     },
@@ -44,7 +45,8 @@ const fixtures = {
       },
       id: 'with-button',
       name: 'example',
-      classes: 'nhsuk-input--width-10 nhsuk-input--code',
+      width: 10,
+      code: true,
       inputmode: 'numeric',
       spellcheck: false,
       formGroup: {
@@ -52,7 +54,8 @@ const fixtures = {
           html: components.render('button', {
             context: {
               text: 'Search',
-              classes: 'nhsuk-button--secondary nhsuk-button--small'
+              variant: 'secondary',
+              small: true
             }
           })
         }
@@ -74,7 +77,8 @@ const fixtures = {
       },
       id: 'with-button-error-message',
       name: 'example',
-      classes: 'nhsuk-input--width-10 nhsuk-input--code',
+      width: 10,
+      code: true,
       inputmode: 'numeric',
       spellcheck: false,
       formGroup: {
@@ -82,7 +86,8 @@ const fixtures = {
           html: components.render('button', {
             context: {
               text: 'Search',
-              classes: 'nhsuk-button--secondary nhsuk-button--small'
+              variant: 'secondary',
+              small: true
             }
           })
         }
@@ -104,7 +109,8 @@ const fixtures = {
       },
       id: 'with-error-message',
       name: 'example',
-      classes: 'nhsuk-input--width-10 nhsuk-input--code',
+      width: 10,
+      code: true,
       inputmode: 'numeric',
       spellcheck: false
     }
@@ -124,7 +130,8 @@ const fixtures = {
       },
       id: 'with-hint-error',
       name: 'example',
-      classes: 'nhsuk-input--width-10 nhsuk-input--code',
+      width: 10,
+      code: true,
       inputmode: 'numeric',
       spellcheck: false
     },
@@ -145,7 +152,7 @@ const fixtures = {
           label: {
             text: '2 character width'
           },
-          classes: 'nhsuk-input--width-2'
+          width: 2
         }
       },
       {
@@ -154,7 +161,7 @@ const fixtures = {
           label: {
             text: '3 character width'
           },
-          classes: 'nhsuk-input--width-3'
+          width: 3
         }
       },
       {
@@ -163,7 +170,7 @@ const fixtures = {
           label: {
             text: '4 character width'
           },
-          classes: 'nhsuk-input--width-4'
+          width: 4
         }
       },
       {
@@ -172,7 +179,7 @@ const fixtures = {
           label: {
             text: '5 character width'
           },
-          classes: 'nhsuk-input--width-5'
+          width: 5
         }
       },
       {
@@ -181,7 +188,7 @@ const fixtures = {
           label: {
             text: '10 character width'
           },
-          classes: 'nhsuk-input--width-10'
+          width: 10
         }
       },
       {
@@ -190,7 +197,7 @@ const fixtures = {
           label: {
             text: '20 character width'
           },
-          classes: 'nhsuk-input--width-20'
+          width: 20
         }
       },
       {
@@ -199,20 +206,47 @@ const fixtures = {
           label: {
             text: '30 character width'
           },
-          classes: 'nhsuk-input--width-30'
+          width: 30
         }
       }
     ]
+  },
+  'width class': {
+    context: {
+      label: {
+        text: 'What is your NHS number?',
+        size: 'l',
+        isPageHeading: true
+      },
+      id: 'input-width',
+      name: 'example',
+      classes: 'nhsuk-input--width-10'
+    }
+  },
+  'width class overriding width param': {
+    context: {
+      label: {
+        text: 'What is your NHS number?',
+        size: 'l',
+        isPageHeading: true
+      },
+      id: 'input-width',
+      name: 'example',
+      classes: 'nhsuk-input--width-10',
+      width: 30
+    }
   },
   'label': {
     context: {
       label: {
         text: 'What is your NHS number?',
+        size: 'l',
         isPageHeading: true
       },
       id: 'custom-size',
       name: 'example',
-      classes: 'nhsuk-input--width-10 nhsuk-input--code',
+      width: 10,
+      code: true,
       inputmode: 'numeric',
       spellcheck: false
     },
@@ -269,7 +303,8 @@ const fixtures = {
       },
       id: 'without-heading',
       name: 'example',
-      classes: 'nhsuk-input--width-10 nhsuk-input--code',
+      width: 10,
+      code: true,
       inputmode: 'numeric',
       spellcheck: false
     }
@@ -286,7 +321,8 @@ const fixtures = {
       },
       id: 'with-code-input-styling',
       name: 'example',
-      classes: 'nhsuk-input--width-10 nhsuk-input--code',
+      width: 10,
+      code: true,
       value: '999 123 4567',
       inputmode: 'numeric',
       spellcheck: false
@@ -304,7 +340,7 @@ const fixtures = {
       prefix: {
         text: '£'
       },
-      classes: 'nhsuk-input--width-5'
+      width: 5
     },
     screenshot: true
   },
@@ -319,7 +355,7 @@ const fixtures = {
       prefix: {
         html: '<span>£</span>'
       },
-      classes: 'nhsuk-input--width-5'
+      width: 5
     }
   },
   'with deprecated prefix string parameter': {
@@ -331,7 +367,7 @@ const fixtures = {
       id: 'with-prefix',
       name: 'example',
       prefix: '£',
-      classes: 'nhsuk-input--width-5'
+      width: 5
     }
   },
   'with suffix': {
@@ -345,7 +381,7 @@ const fixtures = {
       suffix: {
         text: 'kg'
       },
-      classes: 'nhsuk-input--width-5'
+      width: 5
     },
     screenshot: true
   },
@@ -360,7 +396,7 @@ const fixtures = {
       suffix: {
         html: '<span>kg</span>'
       },
-      classes: 'nhsuk-input--width-5'
+      width: 5
     }
   },
   'with deprecated suffix string parameter': {
@@ -372,7 +408,7 @@ const fixtures = {
       id: 'with-suffix',
       name: 'example',
       suffix: 'kg',
-      classes: 'nhsuk-input--width-5'
+      width: 5
     }
   },
   'with prefix and suffix': {
@@ -389,7 +425,7 @@ const fixtures = {
       suffix: {
         text: 'per item'
       },
-      classes: 'nhsuk-input--width-5'
+      width: 5
     },
     screenshot: true
   },
@@ -410,7 +446,7 @@ const fixtures = {
       suffix: {
         text: 'per item'
       },
-      classes: 'nhsuk-input--width-5'
+      width: 5
     },
     screenshot: {
       states: ['focus'],
