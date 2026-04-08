@@ -12,7 +12,23 @@
 @include nhsuk-exports("nhsuk/components/code") {
   .nhsuk-code {
     position: relative;
-    @include nhsuk-responsive-margin(6, "bottom");
+    margin: -$nhsuk-focus-width;
+    border: $nhsuk-focus-width solid transparent;
+    @include nhsuk-responsive-margin(6, "bottom", $adjustment: - $nhsuk-focus-width);
+  }
+
+  .nhsuk-code--inline {
+    background-color: nhsuk-colour("white");
+    @include nhsuk-text-break-word;
+  }
+
+  .nhsuk-code--inline.nhsuk-code--reverse {
+    color: nhsuk-tint(nhsuk-colour("red"), 85%);
+    background-color: nhsuk-shade(nhsuk-colour("blue"), 25%);
+  }
+
+  .nhsuk-code--reverse:has(.nhsuk-code__content:focus) {
+    border-color: $nhsuk-card-background-colour;
   }
 
   .nhsuk-code__container,
@@ -38,8 +54,13 @@
       background-color: $nhsuk-template-background-colour;
     }
 
-    .nhsuk-code--no-border & {
+    .nhsuk-code--no-border &,
+    .nhsuk-code--reverse & {
       border-color: transparent;
+    }
+
+    .nhsuk-code--reverse & {
+      background-color: nhsuk-colour("black");
     }
   }
 
@@ -48,16 +69,33 @@
     padding: nhsuk-spacing(3) - 1px;
     overflow-x: auto;
     border: $nhsuk-focus-width solid transparent;
+
     @include nhsuk-text-colour;
-    @include nhsuk-font(16, $line-height: 1.5);
+    @include nhsuk-font(19, $line-height: 1.5);
 
     &:focus {
-      border: $nhsuk-focus-width solid $nhsuk-focus-text-colour;
       outline: $nhsuk-focus-width solid $nhsuk-focus-colour;
+      outline-offset: $nhsuk-focus-width;
+      box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-text-colour;
     }
 
     .nhsuk-frontend-supported .nhsuk-code--button & {
       padding-top: nhsuk-px-to-rem(nhsuk-spacing(9));
+    }
+
+    .nhsuk-code--reverse & {
+      color: $nhsuk-reverse-text-colour;
+    }
+
+    .nhsuk-code--reverse &:focus {
+      outline: $nhsuk-focus-width solid $nhsuk-card-background-colour;
+
+      // Add 4px to focus outline to show white gap between reverse background
+      // and focus outline, but add another 1px to compensate for border
+      outline-offset: 1px;
+      box-shadow:
+        0 0 0 (($nhsuk-focus-width * 2) + 1px) $nhsuk-focus-text-colour,
+        0 0 0 (($nhsuk-focus-width * 3) + 1px) $nhsuk-focus-colour;
     }
   }
 

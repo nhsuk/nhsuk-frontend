@@ -1,7 +1,21 @@
 {% from "nhsuk/components/back-link/macro.njk" import backLink %}
-{% from "nhsuk/macros/attributes.njk" import nhsukAttributes -%}
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
-<nav {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-breadcrumb{% if params.classes %} {{ params.classes }}{% endif %}" aria-label="{{ params.labelText | default("Breadcrumb") }}"
+{#- Set variant for this component #}
+{%- set variant = params.variant -%}
+
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-breadcrumb" -%}
+
+{%- if variant == "reverse" and (not params.classes or not "nhsuk-breadcrumb--reverse" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-breadcrumb--" ~ variant %}
+{% endif %}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif -%}
+
+<nav class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %} aria-label="{{ params.labelText | default("Breadcrumb") }}"
   {{- nhsukAttributes(params.attributes) }}>
   <ol class="nhsuk-breadcrumb__list">
 {% for item in params.items %}
@@ -29,6 +43,7 @@
     text: params.backLink.text if (params.backLink.html or params.backLink.text) else lastText,
     html: params.backLink.html if (params.backLink.html or params.backLink.text),
     href: params.backLink.href if params.backLink.href else lastHref,
+    variant: params.backLink.variant if params.backLink.variant else variant,
     classes: params.backLink.classes,
     attributes: params.backLink.attributes if params.backLink.attributes else lastItem.attributes,
     element: params.backLink.element

@@ -2,9 +2,21 @@
 {% from "nhsuk/components/card/macro.njk" import card %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
 
+{#- Set variant for this component #}
+{%- set variant = params.variant -%}
+
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-table" if not params.responsive else "nhsuk-table-responsive" -%}
 {%- set classNamesCaption = "nhsuk-table__caption" -%}
+
+{%- if variant == "reverse" and (
+  not params.classes or (
+    not "nhsuk-table--reverse" in params.classes and
+    not "nhsuk-table-responsive--reverse" in params.classes
+  )
+) %}
+  {% set classNames = classNames ~ (" nhsuk-table--" ~ variant if not params.responsive else " nhsuk-table-responsive--" ~ variant) %}
+{% endif %}
 
 {%- if params.captionSize and
   params.captionSize in ["s", "m", "l", "xl"] and (
@@ -30,7 +42,7 @@
 {%- set headingLevel = params.headingLevel if params.headingLevel else 3 %}
 
 {%- set table -%}
-<table {%- if params.id %} id="{{ params.id }}"{% endif %} class="{{ classNames }}"
+<table class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
   {%- if params.responsive %} role="table"{% endif %}
   {{- nhsukAttributes(params.attributes) }} data-module="nhsuk-table">
 {% if params.caption %}
@@ -124,7 +136,7 @@
     heading: params.heading,
     headingLevel: headingLevel,
     classes: params.panelClasses,
-    feature: true
+    variant: "feature"
   }) -%}
     {{ table | safe | trim | indent(4) }}
   {%- endcall %}

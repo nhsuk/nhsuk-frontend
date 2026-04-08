@@ -4,6 +4,22 @@
 {% from "nhsuk/components/input/macro.njk" import input %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-date-input" -%}
+{%- set classNamesFormGroup = "nhsuk-form-group" -%}
+
+{%- if params.errorMessage %}
+  {% set classNamesFormGroup = classNamesFormGroup ~ " nhsuk-form-group--error" %}
+{% endif %}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif %}
+
+{%- if params.formGroup.classes %}
+  {% set classNamesFormGroup = classNamesFormGroup ~ " " ~ params.formGroup.classes %}
+{% endif %}
+
 {#- a record of other elements that we need to associate with the input using
   aria-describedby – for example hints or error messages -#}
 {% set describedBy = params.fieldset.describedBy if params.fieldset.describedBy else "" %}
@@ -17,18 +33,18 @@
   {% set dateInputItems = [
     {
       name: "day",
-      classes: "nhsuk-input--width-2",
-      value: params.values.day
+      value: params.values.day,
+      width: 2
     },
     {
       name: "month",
-      classes: "nhsuk-input--width-2",
-      value: params.values.month
+      value: params.values.month,
+      width: 2
     },
     {
       name: "year",
-      classes: "nhsuk-input--width-4",
-      value: params.values.year
+      value: params.values.year,
+      width: 4
     }
   ] %}
 {% endif %}
@@ -58,8 +74,7 @@
     visuallyHiddenText: params.errorMessage.visuallyHiddenText
   }) | trim | indent(2) }}
 {% endif %}
-  <div {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-date-input {%- if params.classes %} {{ params.classes }}{% endif %}"
-    {{- nhsukAttributes(params.attributes) -}}>
+  <div class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %} {{- nhsukAttributes(params.attributes) -}}>
     {% if params.formGroup.beforeInputs %}
     {{ params.formGroup.beforeInputs.html | safe | trim | indent(4) if params.formGroup.beforeInputs.html else params.formGroup.beforeInputs.text }}
     {% endif %}
@@ -73,9 +88,10 @@
           classes: "nhsuk-date-input__label"
         },
         id: item.id if item.id else (params.id ~ "-" ~ item.name),
-        classes: "nhsuk-date-input__input" ~ (" " ~ item.classes if item.classes),
+        classes: ("nhsuk-input--error " if item.error) ~ "nhsuk-date-input__input" ~ (" " ~ item.classes if item.classes),
         name: (params.namePrefix ~ "[" ~ item.name ~ "]") if params.namePrefix else item.name,
         value: item.value or params.values[item.name],
+        width: item.width,
         type: "text",
         inputmode: item.inputmode if item.inputmode else "numeric",
         autocomplete: item.autocomplete,
@@ -91,7 +107,7 @@
   </div>
 {% endset -%}
 
-<div class="nhsuk-form-group {%- if params.errorMessage %} nhsuk-form-group--error{% endif %} {%- if params.formGroup.classes %} {{ params.formGroup.classes }}{% endif %}" {{- nhsukAttributes(params.formGroup.attributes) }}>
+<div class="{{ classNamesFormGroup }}" {{- nhsukAttributes(params.formGroup.attributes) }}>
 {% if hasFieldset %}
   {# We override the fieldset's role to 'group' because otherwise JAWS does not
     announce the description for a fieldset comprised of text inputs, but

@@ -64,6 +64,6 @@ function getLocator(page, selector) {
 }
 
 /**
- * @import { MacroScenario } from 'nhsuk-frontend/src/nhsuk/lib/index.mjs'
+ * @import { MacroScenario } from 'nhsuk-frontend/lib'
  * @import { Page } from 'playwright-core'
  */

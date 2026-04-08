@@ -11,6 +11,10 @@
     "noUnusedLocals": true,
     "paths": {
       "nhsuk-frontend": ["./packages/nhsuk-frontend/src/nhsuk/index.mjs"],
+      "nhsuk-frontend/lib": [
+        "./packages/nhsuk-frontend/src/nhsuk/lib/index.mjs"
+      ],
+      "nhsuk-frontend/lib/*": ["./packages/nhsuk-frontend/src/nhsuk/lib/*"],
       "nhsuk-frontend/*": ["./packages/nhsuk-frontend/*"]
     },
     "resolveJsonModule": true,

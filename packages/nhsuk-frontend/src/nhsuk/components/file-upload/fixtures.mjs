@@ -70,6 +70,7 @@ const fixtures = {
     context: {
       label: {
         text: 'Upload a file',
+        size: 'l',
         isPageHeading: true
       },
       id: 'file-upload',

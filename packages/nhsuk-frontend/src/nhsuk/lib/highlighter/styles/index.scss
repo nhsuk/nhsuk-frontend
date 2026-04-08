@@ -1,16 +1,48 @@
+@use "sass:color";
 @use "../../../core/helpers" as *;
+
+$nhsuk-code-comment-colour: #545555;
+$nhsuk-code-keyword-colour: #333333;
+$nhsuk-code-variable-colour: nhsuk-colour("green");
+$nhsuk-code-string-colour: nhsuk-colour("red");
+$nhsuk-code-title-colour: #990000;
+$nhsuk-code-type-colour: #445588;
+$nhsuk-code-tag-colour: #003078;
+$nhsuk-code-regexp-colour: #008020;
+$nhsuk-code-symbol-colour: #990073;
+$nhsuk-code-builtin-colour: #017ba5;
+$nhsuk-code-meta-colour: #999999;
+$nhsuk-code-deletion-colour: nhsuk-shade(nhsuk-colour("red"), 10%);
+$nhsuk-code-addition-colour: nhsuk-shade(nhsuk-colour("green"), 8%);
+
+/// Lighten colour for reverse backgrounds
+///
+/// @param {Colour} $code-colour - Code colour to reverse
+///
+
+@function _reverse-colour($code-colour) {
+  @return nhsuk-colour-compatible(color.scale($code-colour, $lightness: 80%));
+}
 
 .nhsuk-code__comment,
 .nhsuk-code__quote {
-  color: #545555;
+  color: $nhsuk-code-comment-colour;
   font-style: italic;
+
+  .nhsuk-code--reverse & {
+    color: _reverse-colour($nhsuk-code-comment-colour);
+  }
 }
 
 .nhsuk-code__keyword,
 .nhsuk-code__selector-tag,
 .nhsuk-code__subst {
-  color: #333333;
+  color: $nhsuk-code-keyword-colour;
   font-weight: bold;
+
+  .nhsuk-code--reverse & {
+    color: _reverse-colour($nhsuk-code-keyword-colour);
+  }
 }
 
 .nhsuk-code__number,
@@ -18,19 +50,31 @@
 .nhsuk-code__variable,
 .nhsuk-code__template-variable,
 .nhsuk-code__tag .nhsuk-code__attr {
-  color: nhsuk-colour("green");
+  color: $nhsuk-code-variable-colour;
+
+  .nhsuk-code--reverse & {
+    color: _reverse-colour($nhsuk-code-variable-colour);
+  }
 }
 
 .nhsuk-code__string,
 .nhsuk-code__doctag {
-  color: nhsuk-colour("red");
+  color: $nhsuk-code-string-colour;
+
+  .nhsuk-code--reverse & {
+    color: _reverse-colour($nhsuk-code-string-colour);
+  }
 }
 
 .nhsuk-code__title,
 .nhsuk-code__section,
 .nhsuk-code__selector-id {
-  color: #990000;
+  color: $nhsuk-code-title-colour;
   font-weight: bold;
+
+  .nhsuk-code--reverse & {
+    color: _reverse-colour($nhsuk-code-title-colour);
+  }
 }
 
 .nhsuk-code__subst {
@@ -39,45 +83,79 @@
 
 .nhsuk-code__type,
 .nhsuk-code__class .nhsuk-code__title {
-  color: #445588;
+  color: $nhsuk-code-type-colour;
   font-weight: bold;
+
+  .nhsuk-code--reverse & {
+    color: _reverse-colour($nhsuk-code-type-colour);
+  }
 }
 
 .nhsuk-code__tag,
 .nhsuk-code__name,
 .nhsuk-code__attribute {
-  color: #003078;
+  color: $nhsuk-code-tag-colour;
   font-weight: normal;
+
+  .nhsuk-code--reverse & {
+    color: _reverse-colour($nhsuk-code-tag-colour);
+  }
 }
 
 .nhsuk-code__regexp,
 .nhsuk-code__link {
-  color: #008020;
+  color: $nhsuk-code-regexp-colour;
+
+  .nhsuk-code--reverse & {
+    color: _reverse-colour($nhsuk-code-regexp-colour);
+  }
 }
 
 .nhsuk-code__symbol,
 .nhsuk-code__bullet {
-  color: #990073;
+  color: $nhsuk-code-symbol-colour;
+
+  .nhsuk-code--reverse & {
+    color: _reverse-colour($nhsuk-code-symbol-colour);
+  }
 }
 
 .nhsuk-code__builtin,
 .nhsuk-code__builtin-name {
-  color: #017ba5;
+  color: $nhsuk-code-builtin-colour;
+
+  .nhsuk-code--reverse & {
+    color: _reverse-colour($nhsuk-code-builtin-colour);
+  }
 }
 
 .nhsuk-code__meta {
-  color: #999999;
+  color: $nhsuk-code-meta-colour;
   font-weight: bold;
+
+  .nhsuk-code--reverse & {
+    color: _reverse-colour($nhsuk-code-meta-colour);
+  }
 }
 
 .nhsuk-code__deletion {
-  color: nhsuk-shade(nhsuk-colour("red"), 10%);
-  background-color: nhsuk-tint(nhsuk-colour("red"), 85%);
+  color: $nhsuk-code-deletion-colour;
+  background-color: nhsuk-tint($nhsuk-code-deletion-colour, 85%);
+
+  .nhsuk-code--reverse & {
+    color: _reverse-colour($nhsuk-code-deletion-colour);
+    background-color: nhsuk-shade($nhsuk-code-deletion-colour, 50%);
+  }
 }
 
 .nhsuk-code__addition {
-  color: nhsuk-shade(nhsuk-colour("green"), 8%);
-  background-color: nhsuk-tint(nhsuk-colour("green"), 85%);
+  color: $nhsuk-code-addition-colour;
+  background-color: nhsuk-tint($nhsuk-code-addition-colour, 85%);
+
+  .nhsuk-code--reverse & {
+    color: _reverse-colour($nhsuk-code-addition-colour);
+    background-color: nhsuk-shade($nhsuk-code-addition-colour, 50%);
+  }
 }
 
 // Make sure background colour matches line height

@@ -58,7 +58,7 @@ const fixtures = {
         ${components.render('button', {
           context: {
             text: 'Sign up',
-            classes: 'nhsuk-button--reverse',
+            variant: 'reverse',
             href: '#'
           }
         })}
