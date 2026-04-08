@@ -146,13 +146,26 @@ export class Table extends ConfigurableComponent {
 
     const $heading = $button.parentElement
     const sortDirection = $heading.getAttribute('aria-sort')
+    const initialSortOrder = $heading.dataset.initialSort
 
     const columnNumber = Number.parseInt($button.dataset.index ?? '0', 10)
 
-    const newSortDirection =
-      sortDirection === 'none' || sortDirection === 'descending'
-        ? 'ascending'
-        : 'descending'
+    let newSortDirection
+
+    if (sortDirection === 'descending') {
+      newSortDirection = 'ascending'
+    } else if (sortDirection === 'ascending') {
+      newSortDirection = 'descending'
+    } else {
+      if (
+        initialSortOrder === 'ascending' ||
+        initialSortOrder === 'descending'
+      ) {
+        newSortDirection = initialSortOrder
+      } else {
+        newSortDirection = 'ascending'
+      }
+    }
 
     const $rows = this.getTableRowsArray()
     const $sortedRows = this.sort($rows, columnNumber, newSortDirection)

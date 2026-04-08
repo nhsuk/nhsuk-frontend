@@ -218,21 +218,24 @@ const fixtures = {
           text: 'MMR',
           format: 'numeric',
           attributes: {
-            'aria-sort': 'none'
+            'aria-sort': 'none',
+            'data-initial-sort': 'descending'
           }
         },
         {
           text: '6-in-1',
           format: 'numeric',
           attributes: {
-            'aria-sort': 'none'
+            'aria-sort': 'none',
+            'data-initial-sort': 'descending'
           }
         },
         {
           text: 'Rotavirus',
           format: 'numeric',
           attributes: {
-            'aria-sort': 'none'
+            'aria-sort': 'none',
+            'data-initial-sort': 'descending'
           }
         }
       ],
