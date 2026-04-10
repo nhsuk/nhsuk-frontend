@@ -203,7 +203,311 @@ const fixtures = {
       ]
     }
   },
-  'responsive': {
+  'with numeric data, sortable': {
+    context: {
+      caption: 'Childhood vaccination coverage',
+      captionSize: 'm',
+      head: [
+        {
+          text: 'Nation',
+          attributes: {
+            'aria-sort': 'ascending'
+          }
+        },
+        {
+          text: 'MMR',
+          format: 'numeric',
+          attributes: {
+            'aria-sort': 'none',
+            'data-initial-sort': 'descending'
+          }
+        },
+        {
+          text: '6-in-1',
+          format: 'numeric',
+          attributes: {
+            'aria-sort': 'none',
+            'data-initial-sort': 'descending'
+          }
+        },
+        {
+          text: 'Rotavirus',
+          format: 'numeric',
+          attributes: {
+            'aria-sort': 'none',
+            'data-initial-sort': 'descending'
+          }
+        }
+      ],
+      rows: [
+        [
+          {
+            text: 'England'
+          },
+          {
+            text: '83.7%',
+            format: 'numeric'
+          },
+          {
+            text: '92.8%',
+            format: 'numeric'
+          },
+          {
+            text: '88.8%',
+            format: 'numeric'
+          }
+        ],
+        [
+          {
+            text: 'Northern Ireland'
+          },
+          {
+            text: '86.4%',
+            format: 'numeric'
+          },
+          {
+            text: '94.6%',
+            format: 'numeric'
+          },
+          {
+            text: '88.0%',
+            format: 'numeric'
+          }
+        ],
+        [
+          {
+            text: 'Scotland'
+          },
+          {
+            text: '89.2%',
+            format: 'numeric'
+          },
+          {
+            text: '96.9%',
+            format: 'numeric'
+          },
+          {
+            text: '92.2%',
+            format: 'numeric'
+          }
+        ],
+        [
+          {
+            text: 'Wales'
+          },
+          {
+            text: '89.5%',
+            format: 'numeric'
+          },
+          {
+            text: '95.4%',
+            format: 'numeric'
+          },
+          {
+            text: '92.0%',
+            format: 'numeric'
+          }
+        ]
+      ]
+    }
+  },
+  'with names and dates, sortable': {
+    context: {
+      caption: 'Screening schedule',
+      head: [
+        {
+          text: 'Name',
+          attributes: {
+            'aria-sort': 'none'
+          }
+        },
+        {
+          text: 'NHS number',
+          format: 'numeric'
+        },
+        {
+          text: 'Next screening',
+          attributes: {
+            'aria-sort': 'ascending'
+          }
+        }
+      ],
+      rows: [
+        [
+          {
+            text: 'Laura Stone'
+          },
+          {
+            html: '<span class="nhsuk-u-nowrap">999 123 4567</span>',
+            format: 'numeric'
+          },
+          {
+            text: '4 January 2027',
+            attributes: {
+              'data-sort-value': '2027-01-04'
+            }
+          }
+        ],
+        [
+          {
+            text: 'Michael Thompson'
+          },
+          {
+            html: '<span class="nhsuk-u-nowrap">999 856 2341</span>',
+            format: 'numeric'
+          },
+          {
+            text: '15 March 2027',
+            attributes: {
+              'data-sort-value': '2027-03-15'
+            }
+          }
+        ],
+        [
+          {
+            text: 'Sarah Louise Williams'
+          },
+          {
+            html: '<span class="nhsuk-u-nowrap">999 512 7834</span>',
+            format: 'numeric'
+          },
+          {
+            text: '22 June 2026',
+            attributes: {
+              'data-sort-value': '2026-06-22'
+            }
+          }
+        ],
+        [
+          {
+            text: 'David Chen'
+          },
+          {
+            html: '<span class="nhsuk-u-nowrap">999 234 9876</span>',
+            format: 'numeric'
+          },
+          {
+            text: '8 September 2027',
+            attributes: {
+              'data-sort-value': '2027-09-08'
+            }
+          }
+        ],
+        [
+          {
+            text: 'Emma Katie-Brown'
+          },
+          {
+            html: '<span class="nhsuk-u-nowrap">999 678 4512</span>',
+            format: 'numeric'
+          },
+          {
+            text: '30 November 2026',
+            attributes: {
+              'data-sort-value': '2026-11-30'
+            }
+          }
+        ],
+        [
+          {
+            text: 'Juan Martinez'
+          },
+          {
+            html: '<span class="nhsuk-u-nowrap">999 345 1298</span>',
+            format: 'numeric'
+          },
+          {
+            text: '17 February 2028',
+            attributes: {
+              'data-sort-value': '2028-02-17'
+            }
+          }
+        ]
+      ]
+    }
+  },
+  'with names and times, sortable server-side': {
+    context: {
+      caption: 'Appointments',
+      head: [
+        {
+          text: 'Time',
+          href: '#',
+          attributes: {
+            'aria-sort': 'ascending'
+          }
+        },
+        {
+          href: '#',
+          text: 'Name',
+          attributes: {
+            'aria-sort': 'none'
+          }
+        },
+        {
+          text: 'Date of birth'
+        }
+      ],
+      rows: [
+        [
+          {
+            text: '11:00'
+          },
+          {
+            text: 'Laura Stone'
+          },
+          {
+            text: '4 January 1986'
+          }
+        ],
+        [
+          {
+            text: '11:30'
+          },
+          {
+            text: 'Emma Katie-Brown'
+          },
+          {
+            text: '7 February 1976'
+          }
+        ],
+        [
+          {
+            text: '13:10'
+          },
+          {
+            text: 'David Chen'
+          },
+          {
+            text: '19 March 1981'
+          }
+        ],
+        [
+          {
+            text: '13:40'
+          },
+          {
+            text: 'Michael Thompson'
+          },
+          {
+            text: '6 December 1964'
+          }
+        ],
+        [
+          {
+            text: '14:20'
+          },
+          {
+            text: 'Juan Martinez'
+          },
+          {
+            text: '18 April 1975'
+          }
+        ]
+      ]
+    }
+  },
+  'with responsive layout': {
     context: {
       caption: 'Ibuprofen syrup dosages for children',
       captionSize: 'm',
