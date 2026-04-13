@@ -41,6 +41,14 @@
 
 {%- set headingLevel = params.headingLevel if params.headingLevel else 3 %}
 
+{#- Check if any head items have aria-sort attribute #}
+{%- set isSortable = false -%}
+{%- for item in params.head -%}
+  {%- if item.attributes['aria-sort'] -%}
+    {%- set isSortable = true -%}
+  {%- endif -%}
+{%- endfor -%}
+
 {%- set table -%}
 <table class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
   {%- if params.responsive %} role="table"{% endif %}
@@ -142,4 +150,16 @@
   {%- endcall %}
 {%- else -%}
   {{ table | safe | trim }}
+{% endif %}
+
+{% if isSortable %}
+  <template class="nhsuk-js-arrow-up-icon">
+    {{ nhsukIcon("arrow-up") }}
+  </template>
+  <template class="nhsuk-js-arrow-down-icon">
+    {{ nhsukIcon("arrow-down") }}
+  </template>
+  <template class="nhsuk-js-arrow-up-down-icon">
+    {{ nhsukIcon("arrow-up-down") }}
+  </template>
 {% endif %}
