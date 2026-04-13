@@ -31,6 +31,140 @@
       <form method="post" novalidate>
         {% call fieldset({
           legend: {
+            text: "Input and icon button",
+            size: "m"
+          }
+        }) %}
+          {{ input({
+            label: {
+              text: "Product order number"
+            },
+            name: "example-input-button-1",
+            id: "example-input-button-1",
+            type: "search",
+            classes: "nhsuk-u-width-full",
+            formGroup: {
+              classes: "nhsuk-u-width-one-half",
+              afterInput: {
+                html: button({
+                  text: "Find",
+                  icon: "search",
+                  small: true
+                })
+              }
+            }
+          }) }}
+
+          {{ input({
+            label: {
+              text: "Product order number"
+            },
+            name: "example-input-button-2",
+            id: "example-input-button-2",
+            type: "search",
+            classes: "nhsuk-u-width-full",
+            formGroup: {
+              classes: "nhsuk-u-width-one-half",
+              afterInput: {
+                html: button({
+                  ariaLabel: "Find",
+                  icon: "search",
+                  small: true
+                })
+              }
+            }
+          }) }}
+
+          {{ input({
+            label: {
+              text: "Product order number"
+            },
+            name: "example-input-button-3",
+            id: "example-input-button-3",
+            type: "search",
+            classes: "nhsuk-u-width-full",
+            formGroup: {
+              classes: "nhsuk-u-width-one-half",
+              afterInput: {
+                html: button({
+                  text: "Continue",
+                  icon: {
+                    name: "arrow-right",
+                    placement: "end"
+                  },
+                  small: true
+                })
+              }
+            }
+          }) }}
+
+          {{ input({
+            label: {
+              text: "Product order number"
+            },
+            name: "example-input-button-4",
+            id: "example-input-button-4",
+            type: "search",
+            classes: "nhsuk-u-width-full",
+            formGroup: {
+              classes: "nhsuk-u-width-one-half",
+              afterInput: {
+                html: button({
+                  ariaLabel: "Continue",
+                  icon: "arrow-right",
+                  small: true
+                })
+              }
+            }
+          }) }}
+
+          {{ input({
+            label: {
+              text: "Product order number"
+            },
+            name: "example-input-button-5",
+            id: "example-input-button-5",
+            type: "search",
+            classes: "nhsuk-u-width-full",
+            formGroup: {
+              classes: "nhsuk-u-width-one-half",
+              afterInput: {
+                html: button({
+                  text: "Accept",
+                  variant: "secondary",
+                  icon: "tick",
+                  small: true
+                })
+              }
+            }
+          }) }}
+
+          {{ input({
+            label: {
+              text: "Product order number"
+            },
+            name: "example-input-button-6",
+            id: "example-input-button-6",
+            type: "search",
+            classes: "nhsuk-u-width-full",
+            formGroup: {
+              classes: "nhsuk-u-width-one-half",
+              afterInput: {
+                html: button({
+                  ariaLabel: "Accept",
+                  variant: "secondary",
+                  icon: "tick",
+                  small: true
+                })
+              }
+            }
+          }) }}
+        {% endcall %}
+      </form>
+
+      <form method="post" novalidate>
+        {% call fieldset({
+          legend: {
             text: "Input and button",
             size: "m"
           }

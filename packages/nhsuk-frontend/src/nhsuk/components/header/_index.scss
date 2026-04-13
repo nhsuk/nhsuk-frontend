@@ -224,7 +224,6 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
       flex-shrink: 0;
       width: nhsuk-px-to-rem(24px);
       height: nhsuk-px-to-rem(24px);
-      fill: currentcolor;
     }
 
     .nhsuk-header--inline & {
@@ -341,6 +340,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
 
     .nhsuk-input-wrapper {
       display: flex;
+      flex-direction: row;
     }
   }
 
@@ -571,6 +571,11 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     align-items: center;
     padding-right: nhsuk-em($_chevron-font-size, 16);
     text-align: center;
+
+    &,
+    &:hover {
+      text-decoration: none;
+    }
 
     &[hidden] {
       display: none;

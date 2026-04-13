@@ -22,6 +22,9 @@ $nhsuk-button-padding-top-bottom-small: nhsuk-px-to-rem(6px);
 $nhsuk-button-padding-left-right: nhsuk-px-to-rem(16px);
 $nhsuk-button-padding-left-right-small: nhsuk-px-to-rem(12px);
 
+$nhsuk-button-search-icon-size: 28px;
+$nhsuk-button-search-icon-size-large: 38px;
+
 // @deprecated To be removed in v11.0
 $button-border-radius: $nhsuk-button-border-radius;
 $button-padding-top-bottom-mobile: $nhsuk-button-padding-top-bottom-mobile;
@@ -54,7 +57,14 @@ $button-shadow-size: $nhsuk-button-shadow-size;
 
     appearance: none;
 
-    @include nhsuk-button-style;
+    @include nhsuk-button-style(
+      $button-colour: $nhsuk-button-colour,
+      $button-hover-colour: $nhsuk-button-hover-colour,
+      $button-active-colour: $nhsuk-button-active-colour,
+      $button-text-colour: $nhsuk-button-text-colour,
+      $button-shadow-colour: $nhsuk-button-shadow-colour
+    );
+
     @include nhsuk-font(19, $line-height: 19px, $weight: bold);
     @include nhsuk-responsive-margin(5, "bottom", $adjustment: $nhsuk-button-shadow-size); // [5]
 
@@ -173,6 +183,7 @@ $button-shadow-size: $nhsuk-button-shadow-size;
       $button-colour: $nhsuk-warning-button-colour,
       $button-hover-colour: $nhsuk-warning-button-hover-colour,
       $button-active-colour: $nhsuk-warning-button-active-colour,
+      $button-text-colour: $nhsuk-button-text-colour,
       $button-shadow-colour: $nhsuk-warning-button-shadow-colour
     );
   }
@@ -182,6 +193,7 @@ $button-shadow-size: $nhsuk-button-shadow-size;
       $button-colour: $nhsuk-login-button-colour,
       $button-hover-colour: $nhsuk-login-button-hover-colour,
       $button-active-colour: $nhsuk-login-button-active-colour,
+      $button-text-colour: $nhsuk-button-text-colour,
       $button-shadow-colour: $nhsuk-login-button-shadow-colour
     );
   }
@@ -198,6 +210,199 @@ $button-shadow-size: $nhsuk-button-shadow-size;
 
     @include nhsuk-media-query($from: tablet) {
       @include nhsuk-font(16, $line-height: 19px, $weight: bold);
+    }
+  }
+
+  // =========================================================
+  // Icon buttons
+  // =========================================================
+
+  .nhsuk-button--icon {
+    display: flex;
+    position: relative;
+    align-items: center;
+
+    // Add minimum width for icon-only buttons
+    min-width: nhsuk-px-to-rem(44px);
+
+    // Prevent users from selecting icon button text
+    // e.g. When double clicking the button
+    user-select: none;
+
+    @include nhsuk-media-query($until: tablet) {
+      // Align icon and text in centre of button
+      justify-content: center;
+
+      // Reduce padding to better fit icon
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  .nhsuk-button:not(.nhsuk-button--small) {
+    @include nhsuk-media-query($from: tablet) {
+      min-width: nhsuk-px-to-rem(66px);
+    }
+  }
+
+  .nhsuk-button .nhsuk-icon {
+    flex-shrink: 0;
+
+    // Offset icon to the left when at the end, towards text
+    &:not(:only-child):last-child {
+      margin-right: nhsuk-px-to-rem(-6px);
+      margin-left: nhsuk-px-to-rem(-$nhsuk-icon-size + 6px);
+    }
+
+    // Offset icon to the right when at the start, towards text
+    &:not(:only-child):first-child {
+      margin-right: nhsuk-px-to-rem(-$nhsuk-icon-size + 6px);
+      margin-left: nhsuk-px-to-rem(-6px);
+    }
+
+    &:only-child {
+      margin-right: nhsuk-px-to-rem(-6px);
+      margin-left: nhsuk-px-to-rem(-6px);
+    }
+
+    @include nhsuk-media-query($from: tablet) {
+      position: absolute;
+      top: 50%;
+      left: $nhsuk-button-padding-left-right;
+
+      // Offset icon vertically (from top: 50%) into the centre
+      margin-top: nhsuk-px-to-rem(math.div($nhsuk-icon-size, -2));
+
+      // Offset icon to the left when at the end, towards text
+      &:not(:only-child):last-child {
+        right: $nhsuk-button-padding-left-right;
+        left: auto;
+        margin-right: nhsuk-px-to-rem(-6px);
+        margin-left: 0;
+      }
+
+      // Offset icon to the right when at the start, towards text
+      &:not(:only-child):first-child {
+        left: $nhsuk-button-padding-left-right;
+        margin-right: 0;
+        margin-left: nhsuk-px-to-rem(-6px);
+      }
+
+      &:only-child {
+        left: 50%;
+        margin-right: 0;
+        margin-left: nhsuk-px-to-rem(math.div($nhsuk-icon-size, -2));
+      }
+    }
+  }
+
+  // Increase icon size (tablet), excluding small buttons
+  .nhsuk-button:not(.nhsuk-button--small) .nhsuk-icon {
+    @include nhsuk-media-query($from: tablet) {
+      width: nhsuk-px-to-rem($nhsuk-icon-size-large);
+      height: nhsuk-px-to-rem($nhsuk-icon-size-large);
+
+      // Offset icon vertically (from top: 50%) into the centre
+      margin-top: nhsuk-px-to-rem(math.div($nhsuk-icon-size-large, -2));
+
+      // Offset icon to the left when at the end, towards text
+      &:not(:only-child):last-child {
+        margin-left: nhsuk-px-to-rem(-$nhsuk-icon-size-large + 6px);
+      }
+
+      // Offset icon to the right when at the start, towards text
+      &:not(:only-child):first-child {
+        margin-right: nhsuk-px-to-rem(-$nhsuk-icon-size-large + 6px);
+      }
+
+      &:only-child {
+        left: 50%;
+        margin-right: 0;
+        margin-left: nhsuk-px-to-rem(math.div($nhsuk-icon-size-large, -2));
+      }
+    }
+  }
+
+  // Increase icon size (tablet), search only
+  .nhsuk-button:not(.nhsuk-button--small) .nhsuk-icon--search:only-child {
+    @include nhsuk-media-query($from: tablet) {
+      width: nhsuk-px-to-rem($nhsuk-button-search-icon-size-large);
+      height: nhsuk-px-to-rem($nhsuk-button-search-icon-size-large);
+
+      // Offset icon vertically (from top: 50%) into the centre
+      margin-top: nhsuk-px-to-rem(math.div($nhsuk-button-search-icon-size-large, -2));
+      margin-left: nhsuk-px-to-rem(math.div($nhsuk-button-search-icon-size-large, -2));
+    }
+  }
+
+  // Prevent button icon size increase for small buttons (at tablet) by
+  // overriding the core icon size increase back to default size again
+  .nhsuk-button.nhsuk-button--small .nhsuk-icon {
+    @include nhsuk-media-query($from: tablet) {
+      width: nhsuk-px-to-rem($nhsuk-icon-size);
+      height: nhsuk-px-to-rem($nhsuk-icon-size);
+
+      &:not(:only-child):last-child {
+        right: $nhsuk-button-padding-left-right-small;
+      }
+
+      &:not(:only-child):first-child {
+        left: $nhsuk-button-padding-left-right-small;
+      }
+    }
+  }
+
+  // Increase icon size, search only
+  .nhsuk-button .nhsuk-icon--search:only-child {
+    @include nhsuk-media-query($from: mobile) {
+      width: nhsuk-px-to-rem($nhsuk-button-search-icon-size);
+      height: nhsuk-px-to-rem($nhsuk-button-search-icon-size);
+    }
+  }
+
+  .nhsuk-button.nhsuk-button--small .nhsuk-icon--search:only-child {
+    @include nhsuk-media-query($from: tablet) {
+      // Offset icon vertically (from top: 50%) into the centre
+      margin-top: nhsuk-px-to-rem(math.div($nhsuk-button-search-icon-size, -2));
+      margin-left: nhsuk-px-to-rem(math.div($nhsuk-button-search-icon-size, -2));
+    }
+  }
+
+  .nhsuk-button__content {
+    display: block;
+
+    // Preserve space for icon (small) at the end
+    padding-right: nhsuk-px-to-rem($nhsuk-icon-size);
+    padding-left: 0;
+
+    // Preserve space for icon (small) at the start
+    .nhsuk-icon + & {
+      padding-right: 0;
+      padding-left: nhsuk-px-to-rem($nhsuk-icon-size);
+    }
+
+    // Move padding to content to better fit icon
+    @include nhsuk-media-query($until: tablet) {
+      padding-top: $nhsuk-button-padding-top-bottom-mobile;
+      padding-bottom: $nhsuk-button-padding-top-bottom-mobile;
+
+      .nhsuk-button.nhsuk-button--small & {
+        padding-top: $nhsuk-button-padding-top-bottom-small;
+        padding-bottom: $nhsuk-button-padding-top-bottom-small;
+      }
+    }
+
+    @include nhsuk-media-query($from: tablet) {
+      // Preserve space for icon (large) at the end
+      .nhsuk-button:not(.nhsuk-button--small) & {
+        padding-right: nhsuk-px-to-rem($nhsuk-icon-size-large);
+      }
+
+      // Preserve space for icon (large) at the start
+      .nhsuk-button:not(.nhsuk-button--small) .nhsuk-icon + & {
+        padding-right: 0;
+        padding-left: nhsuk-px-to-rem($nhsuk-icon-size-large);
+      }
     }
   }
 }
