@@ -575,6 +575,7 @@ You can also [add icons](https://service-manual.nhs.uk/design-system/styles/icon
 - `images/nhsuk-icon-arrow-right.svg`
 - `images/nhsuk-icon-arrow-up-circle.svg`
 - `images/nhsuk-icon-arrow-up.svg`
+- `images/nhsuk-icon-arrow-up-down.svg`
 - `images/nhsuk-icon-chevron-down-circle.svg`
 - `images/nhsuk-icon-chevron-left-circle.svg`
 - `images/nhsuk-icon-chevron-right-circle.svg`
