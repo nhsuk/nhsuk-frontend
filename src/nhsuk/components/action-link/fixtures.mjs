@@ -9,7 +9,10 @@ const fixtures = {
       text: 'Find your nearest A&E',
       href: '#'
     },
-    screenshot: true
+    screenshot: {
+      states: ['focus', 'hover', 'active'],
+      selector: '.nhsuk-action-link'
+    }
   },
   reverse: {
     context: {
