@@ -240,6 +240,12 @@ export class Table extends ConfigurableComponent {
   }
 
   updateDirectionIndicators() {
+    const { $upArrow, $downArrow, $upDownArrow } = this
+
+    if (!$upArrow || !$downArrow || !$upDownArrow) {
+      return
+    }
+
     for (const $heading of this.$headings) {
       const $button = $heading.querySelector('button')
 
@@ -249,13 +255,13 @@ export class Table extends ConfigurableComponent {
 
         switch (direction) {
           case 'ascending':
-            $button.insertAdjacentHTML('beforeend', this.$upArrow.innerHTML)
+            $button.insertAdjacentHTML('beforeend', $upArrow.innerHTML)
             break
           case 'descending':
-            $button.insertAdjacentHTML('beforeend', this.$downArrow.innerHTML)
+            $button.insertAdjacentHTML('beforeend', $downArrow.innerHTML)
             break
           default:
-            $button.insertAdjacentHTML('beforeend', this.$upDownArrow.innerHTML)
+            $button.insertAdjacentHTML('beforeend', $upDownArrow.innerHTML)
         }
       }
     }
