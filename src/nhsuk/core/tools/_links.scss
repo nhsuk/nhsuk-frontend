@@ -28,7 +28,7 @@
   }
 
   .nhsuk-icon {
-    fill: $link-colour;
+    fill: currentcolor;
   }
 
   @include nhsuk-link-style-visited($link-visited-colour);
@@ -71,7 +71,7 @@
   &:visited {
     color: $link-visited-colour;
 
-    .nhsuk-icon {
+    &:not(.nhsuk-button) .nhsuk-icon {
       fill: $link-visited-colour;
     }
   }
@@ -91,7 +91,7 @@
     color: $link-hover-colour;
     text-decoration: none;
 
-    .nhsuk-icon {
+    &:not(.nhsuk-button) .nhsuk-icon {
       fill: $link-hover-colour;
     }
   }
@@ -127,7 +127,7 @@
   &:active:visited {
     color: $link-active-colour;
 
-    .nhsuk-icon {
+    &:not(.nhsuk-button) .nhsuk-icon {
       fill: $link-active-colour;
     }
   }

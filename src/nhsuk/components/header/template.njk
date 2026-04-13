@@ -150,9 +150,8 @@
           formGroup: {
             afterInput: {
               html: button({
-                html: nhsukIcon("search", {
-                  title: searchVisuallyHiddenButton
-                }) | trim,
+                ariaLabel: searchVisuallyHiddenButton,
+                icon: "search",
                 small: true
               })
             }
