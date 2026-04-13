@@ -41,11 +41,11 @@
 
 {%- set headingLevel = params.headingLevel if params.headingLevel else 3 %}
 
-{#- Check if any head items have aria-sort attribute #}
-{%- set isSortable = false -%}
+{#- Check if any head items have aria-sort attribute but no href (client-side sorting) #}
+{%- set isClientSideSortable = false -%}
 {%- for item in params.head -%}
-  {%- if item.attributes['aria-sort'] -%}
-    {%- set isSortable = true -%}
+  {%- if item.attributes['aria-sort'] and not item.href -%}
+    {%- set isClientSideSortable = true -%}
   {%- endif -%}
 {%- endfor -%}
 
@@ -152,7 +152,7 @@
   {{ table | safe | trim }}
 {% endif %}
 
-{% if isSortable %}
+{% if isClientSideSortable %}
   <template class="nhsuk-js-arrow-up-icon">
     {{ nhsukIcon("arrow-up") }}
   </template>
