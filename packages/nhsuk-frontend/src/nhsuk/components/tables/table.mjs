@@ -173,15 +173,13 @@ export class Table extends ConfigurableComponent {
       newSortDirection = 'ascending'
     } else if (sortDirection === 'ascending') {
       newSortDirection = 'descending'
+    } else if (
+      initialSortOrder === 'ascending' ||
+      initialSortOrder === 'descending'
+    ) {
+      newSortDirection = initialSortOrder
     } else {
-      if (
-        initialSortOrder === 'ascending' ||
-        initialSortOrder === 'descending'
-      ) {
-        newSortDirection = initialSortOrder
-      } else {
-        newSortDirection = 'ascending'
-      }
+      newSortDirection = 'ascending'
     }
 
     const $rows = this.getTableRowsArray()
