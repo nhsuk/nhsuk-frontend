@@ -1,0 +1,45 @@
+{%- from "nhsuk/macros/attributes.njk" import nhsukAttributes -%}
+
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-secondary-navigation" -%}
+
+{%- if params.classes %}
+  {%- set classNames = classNames ~ " " ~ params.classes -%}
+{%- endif -%}
+
+<nav
+  {{- nhsukAttributes({
+    class: classNames
+  }) }}
+  {%- if params.labelledBy %} aria-labelledby="{{ params.labelledBy }}"
+  {%- else %} aria-label="{{ params.label | default("Secondary navigation") }}"
+  {%- endif %}
+  {{- nhsukAttributes(params.attributes) }}>
+  <ul class="nhsuk-secondary-navigation__list">
+  {%- for item in params.items %}
+    {%- if item %}
+    <li class="nhsuk-secondary-navigation__item{%- if item.current %} nhsuk-secondary-navigation__item--current{%- endif -%}{%- if item.classes %} {{ item.classes }}{%- endif -%}"
+      {{- nhsukAttributes(item.attributes) }}>
+      <a class="nhsuk-secondary-navigation__link" href="{{ item.href }}"
+        {{- nhsukAttributes({
+          "aria-current": {
+            value: "page" if item.current else false,
+            optional: true
+          }
+        }) }}>
+        {%- if item.current -%}
+          <strong class="nhsuk-secondary-navigation__current">
+            {{- item.html | safe if item.html else item.text -}}
+          </strong>
+        {%- else -%}
+          {{- item.html | safe if item.html else item.text -}}
+        {%- endif -%}
+      </a>
+      {%- if item.count is defined -%}
+        <span class="nhsuk-secondary-navigation__count" aria-hidden="true">{{ item.count }}</span>
+      {%- endif -%}
+    </li>
+    {%- endif %}
+  {%- endfor %}
+  </ul>
+</nav>
