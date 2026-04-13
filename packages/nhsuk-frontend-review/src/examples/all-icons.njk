@@ -5,10 +5,20 @@
 {% set examples = {
   "Arrow left": "arrow-left",
   "Arrow right": "arrow-right",
+  "Arrow up": "arrow-up",
+  "Arrow down": "arrow-down",
+  "Arrow left circle": "arrow-left-circle",
   "Arrow right circle": "arrow-right-circle",
+  "Arrow up circle": "arrow-up-circle",
+  "Arrow down circle": "arrow-down-circle",
+  "Chevron left circle": "chevron-left-circle",
   "Chevron right circle": "chevron-right-circle",
+  "Chevron up circle": "chevron-up-circle",
+  "Chevron down circle": "chevron-down-circle",
   "Cross": "cross",
   "Tick": "tick",
+  "Minus": "minus",
+  "Plus": "plus",
   "Search": "search",
   "User": "user"
 } %}
@@ -50,10 +60,10 @@
             {% set iconHtml %}
               {% for size, params in {
                 "100%": {},
-                "125%": { classes: "nhsuk-icon--size-25" },
-                "150%": { classes: "nhsuk-icon--size-50" },
-                "175%": { classes: "nhsuk-icon--size-75" },
-                "200%": { classes: "nhsuk-icon--size-100" }
+                "125%": { size: 25 },
+                "150%": { size: 50 },
+                "175%": { size: 75 },
+                "200%": { size: 100 }
               } %}
                 <figure class="nhsuk-u-display-inline-block nhsuk-u-text-align-centre nhsuk-u-margin-1">
                   {{ nhsukIcon(modifier, params) }}

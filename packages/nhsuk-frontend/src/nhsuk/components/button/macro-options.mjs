@@ -23,14 +23,14 @@ const options = {
     type: 'string',
     required: true,
     description:
-      'If `html` is set, this is not required. Text for the button or link. If `html` is provided, the `text` argument will be ignored and `element` will be automatically set to `"button"` unless `href` is also set, or it has already been defined. This argument has no effect if `element` is set to `"input"`.',
+      'If `html` or `ariaLabel` is set, this is not required. Text for the button or link. If `html` is provided, the `text` argument will be ignored and `element` will be automatically set to `"button"` unless `href` is also set, or it has already been defined. This argument has no effect if `element` is set to `"input"`.',
     released: '1.0.0'
   },
   html: {
     type: 'string',
     required: true,
     description:
-      'If `text` is set, this is not required. HTML for the button or link. If `html` is provided, the `text` argument will be ignored and `element` will be automatically set to `"button"` unless `href` is also set, or it has already been defined. This argument has no effect if `element` is set to `"input"`.',
+      'If `text` or `ariaLabel` is set, this is not required. HTML for the button or link. If `html` is provided, the `text` argument will be ignored and `element` will be automatically set to `"button"` unless `href` is also set, or it has already been defined. This argument has no effect if `element` is set to `"input"`.',
     released: '1.0.0'
   },
   caller: {
@@ -101,12 +101,48 @@ const options = {
       'HTML attributes (for example data attributes) to add to the button component.',
     released: '1.0.0'
   },
+  ariaLabel: {
+    type: 'string',
+    required: false,
+    description:
+      'Button text exposed to assistive technologies, like screen readers, when only an icon is used.',
+    released: '10.5.0'
+  },
   preventDoubleClick: {
     type: 'boolean',
     required: false,
     description:
       'Prevent accidental double clicks on submit buttons from submitting forms multiple times.',
     released: '6.2.0'
+  },
+  icon: {
+    type: 'object',
+    required: false,
+    description: 'Can be used to add an icon to the button component.',
+    released: '10.5.0',
+    params: {
+      name: {
+        type: 'string',
+        required: true,
+        description:
+          'Icon name for the button – for example, `"search"`, `"arrow-right"`, `"plus"` or `"minus"`.',
+        released: '10.5.0'
+      },
+      html: {
+        type: 'string',
+        required: true,
+        description:
+          'HTML to use for the icon, as an alternative to the `name` option. If `html` is provided, the `name` option will be ignored.',
+        released: '10.5.0'
+      },
+      placement: {
+        type: 'string',
+        required: true,
+        description:
+          'Placement of the icon within the button – `"start"` or `"end"`.',
+        released: '10.5.0'
+      }
+    }
   }
 }
 
