@@ -1,0 +1,168 @@
+@use "sass:color";
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+@use "../../core/helpers" as *;
+
+////
+/// Secondary navigation component
+///
+/// A horizontal tab-style navigation bar for secondary (in-page) navigation.
+/// Stacks vertically on mobile, renders as a horizontal list on tablet and above.
+///
+/// @group components/secondary-navigation
+////
+
+@include nhsuk-exports("nhsuk/components/secondary-navigation") {
+  .nhsuk-secondary-navigation {
+    // Bleed to full width on mobile by negating the page gutter
+    margin-right: #{$nhsuk-gutter-half * -1};
+    margin-left: #{$nhsuk-gutter-half * -1};
+
+    @include nhsuk-responsive-margin(5, "bottom");
+
+    @include nhsuk-media-query($from: tablet) {
+      margin-right: auto;
+      margin-left: auto;
+    }
+  }
+
+  .nhsuk-secondary-navigation__list {
+    display: flex;
+    flex-flow: column;
+
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+
+    // Use box-shadow rather than a border so that the current item's active
+    // indicator (also a box-shadow) renders on top of this line.
+    box-shadow: inset 0 -1px 0 $nhsuk-border-colour;
+
+    @include nhsuk-font(19);
+
+    @include nhsuk-media-query($from: tablet) {
+      flex-flow: row wrap;
+      gap: nhsuk-spacing(2) nhsuk-spacing(5);
+    }
+  }
+
+  .nhsuk-secondary-navigation__item {
+    display: flex;
+    align-items: center;
+    gap: nhsuk-spacing(2);
+    margin-bottom: 0;
+  }
+
+  // Active indicator: left inset border on mobile, bottom inset border on tablet+.
+  // Applied to the item (not the link) so it spans the full width including any count badge.
+  .nhsuk-secondary-navigation__item--current {
+    box-shadow: inset $nhsuk-border-width 0 nhsuk-colour("blue");
+
+    @include nhsuk-media-query($from: tablet) {
+      box-shadow: inset 0 ($nhsuk-border-width * -1) nhsuk-colour("blue");
+    }
+  }
+
+  // <strong> is used as a fallback to visually indicate the current page in
+  // environments where CSS is unavailable. We don't want it to appear bold.
+  .nhsuk-secondary-navigation__current {
+    font-weight: inherit;
+  }
+
+  .nhsuk-secondary-navigation__link {
+    flex: 1;
+    display: block;
+
+    padding: nhsuk-spacing(2) $nhsuk-gutter-half;
+
+    &:link {
+      text-decoration: none;
+    }
+
+    @include nhsuk-link-style-default;
+    @include nhsuk-link-style-no-visited-state;
+
+    @include nhsuk-media-query($from: tablet) {
+      padding: nhsuk-spacing(3) 2px;
+    }
+
+    // Active: keep colour and suppress underline on the link; indicator is on the <li>
+    &[aria-current] {
+      color: $nhsuk-text-colour;
+      text-decoration: none;
+    }
+
+    &:focus {
+      box-shadow: inset $nhsuk-focus-width 0 $nhsuk-focus-text-colour;
+
+      @include nhsuk-media-query($from: tablet) {
+        box-shadow: inset 0 ($nhsuk-focus-width * -1) $nhsuk-focus-text-colour;
+      }
+    }
+  }
+
+  // Count badge – for showing a number of items associated with a nav item
+  // (for example, number of results in a filtered list)
+  .nhsuk-secondary-navigation__count {
+    display: inline-block;
+
+    min-width: nhsuk-spacing(5);
+    padding-right: nhsuk-spacing(2);
+    padding-left: nhsuk-spacing(2);
+
+    border-radius: nhsuk-spacing(3);
+
+    // White text on a semi-transparent darkened link-colour background,
+    // so the badge reads as a distinct pill regardless of item state.
+    color: nhsuk-colour("white");
+    background-color: color.scale(
+      color.scale($nhsuk-link-colour, $lightness: -50%),
+      $alpha: -60%
+    );
+
+    text-align: center;
+
+    @include nhsuk-font(16);
+  }
+
+  // Keep count readable when the adjacent link is focused (yellow background)
+  .nhsuk-secondary-navigation__link:focus + .nhsuk-secondary-navigation__count {
+    background-color: color.scale($nhsuk-focus-text-colour, $alpha: -40%);
+  }
+
+  // Reverse variant: for use on coloured (typically blue) backgrounds
+  .nhsuk-secondary-navigation--reverse {
+    color: $nhsuk-reverse-text-colour;
+
+    .nhsuk-secondary-navigation__list {
+      box-shadow: inset 0 -1px 0 rgba($nhsuk-reverse-text-colour, 0.4);
+    }
+
+    .nhsuk-secondary-navigation__item--current {
+      box-shadow: inset $nhsuk-border-width 0 $nhsuk-reverse-text-colour;
+
+      @include nhsuk-media-query($from: tablet) {
+        box-shadow: inset 0 ($nhsuk-border-width * -1) $nhsuk-reverse-text-colour;
+      }
+    }
+
+    .nhsuk-secondary-navigation__link {
+      @include nhsuk-link-style-white;
+
+      &[aria-current] {
+        text-decoration: none;
+      }
+    }
+
+    .nhsuk-secondary-navigation__count {
+      background-color: rgba($nhsuk-reverse-text-colour, 0.25);
+    }
+
+    // When the adjacent link is focused, keep the count readable against yellow
+    .nhsuk-secondary-navigation__link:focus + .nhsuk-secondary-navigation__count {
+      background-color: color.scale($nhsuk-focus-text-colour, $alpha: -40%);
+    }
+  }
+}
