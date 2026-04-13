@@ -55,8 +55,7 @@
     }
 
     &:not(:focus):not(:hover):not(:active) .nhsuk-icon {
-      // stylelint-disable-next-line declaration-no-important
-      fill: nhsuk-colour("green") !important;
+      fill: nhsuk-colour("green");
     }
   }
 
@@ -64,8 +63,7 @@
     @include nhsuk-link-style-reverse;
 
     &:not(:focus):not(:hover):not(:active) .nhsuk-icon {
-      // stylelint-disable-next-line declaration-no-important
-      fill: $nhsuk-reverse-text-colour !important;
+      fill: $nhsuk-reverse-text-colour;
     }
   }
 }
