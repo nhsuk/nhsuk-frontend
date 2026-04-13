@@ -47,6 +47,14 @@
   {% set classNamesCaption = classNamesCaption ~ " " ~ params.captionClasses %}
 {% endif %}
 
+{#- Check if any head items have aria-sort attribute but no href (client-side sorting) #}
+{%- set isClientSideSortable = false -%}
+{%- for item in params.head -%}
+  {%- if item.attributes['aria-sort'] and not item.href -%}
+    {%- set isClientSideSortable = true -%}
+  {%- endif -%}
+{%- endfor -%}
+
 {%- set table -%}
 <table class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
   {%- if params.responsive %} role="table"{% endif %}
@@ -148,4 +156,16 @@
   {%- endcall %}
 {%- else -%}
   {{ table | safe | trim }}
+{% endif %}
+
+{% if isClientSideSortable %}
+  <template class="nhsuk-js-arrow-up-icon">
+    {{ nhsukIcon("arrow-up") }}
+  </template>
+  <template class="nhsuk-js-arrow-down-icon">
+    {{ nhsukIcon("arrow-down") }}
+  </template>
+  <template class="nhsuk-js-arrow-up-down-icon">
+    {{ nhsukIcon("arrow-up-down") }}
+  </template>
 {% endif %}
