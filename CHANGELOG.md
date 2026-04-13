@@ -598,6 +598,12 @@ We've changed the border colour shown to the left of details component and condi
 
 This change was introduced in [pull request #1788: Change border colour for details component and conditionally revealed content](https://github.com/nhsuk/nhsuk-frontend/pull/1788).
 
+#### Change action link icon colour on hover and active
+
+We've changed the hover and active icon colour for the action link component so it matches the link text colour. This is consistent with other components (details, expander and pagination) where icon colour matches link text colour.
+
+This change was introduced in [pull request #1802: Change action link icon colour on hover and active](https://github.com/nhsuk/nhsuk-frontend/pull/1802).
+
 ## 10.4.2 - 25 March 2026
 
 Note: This release was created from the `support/10.x` branch.
