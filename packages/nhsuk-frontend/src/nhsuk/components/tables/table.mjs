@@ -251,15 +251,21 @@ export class Table extends ConfigurableComponent {
         const direction = $heading.getAttribute('aria-sort')
         $button.querySelector('svg')?.remove()
 
+        let $template
         switch (direction) {
           case 'ascending':
-            $button.insertAdjacentHTML('beforeend', $upArrow.innerHTML)
+            $template = $upArrow
             break
           case 'descending':
-            $button.insertAdjacentHTML('beforeend', $downArrow.innerHTML)
+            $template = $downArrow
             break
           default:
-            $button.insertAdjacentHTML('beforeend', $upDownArrow.innerHTML)
+            $template = $upDownArrow
+        }
+
+        const node = document.importNode($template.content, true)
+        if (node.firstElementChild) {
+          $button.appendChild(node.firstElementChild)
         }
       }
     }
