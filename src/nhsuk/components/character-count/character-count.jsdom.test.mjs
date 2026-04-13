@@ -175,7 +175,7 @@ describe('Character count', () => {
     })
 
     it('configures `maxwords`', () => {
-      initExample('with word count')
+      initExample('with maxwords')
 
       const characterCount = new CharacterCount($root)
       expect(characterCount.config).toEqual({
