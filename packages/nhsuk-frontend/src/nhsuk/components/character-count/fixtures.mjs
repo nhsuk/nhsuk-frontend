@@ -177,7 +177,7 @@ const fixtures = {
       hidden: true
     }
   },
-  'with word count': {
+  'with maxwords': {
     context: {
       label: {
         text: 'Enter a job description',

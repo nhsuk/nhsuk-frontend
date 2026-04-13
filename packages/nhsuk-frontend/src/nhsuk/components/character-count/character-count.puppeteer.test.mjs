@@ -298,7 +298,7 @@ describe('Character count', () => {
 
     describe('when counting words', () => {
       beforeEach(async () => {
-        await initExample('with word count')
+        await initExample('with maxwords')
       })
 
       it('shows the dynamic message', async () => {
@@ -343,7 +343,7 @@ describe('Character count', () => {
 
       describe('when the word limit is exceeded', () => {
         beforeEach(async () => {
-          await initExample('with word count')
+          await initExample('with maxwords')
 
           await $textarea.type('Hello '.repeat(151))
         })
@@ -502,7 +502,7 @@ describe('Character count', () => {
         })
 
         it('uses `maxwords` data attribute instead of JavaScript `maxwords`', async () => {
-          await initExample('with word count', {
+          await initExample('with maxwords', {
             config: {
               maxwords: 152
             }
@@ -525,7 +525,7 @@ describe('Character count', () => {
         })
 
         it('uses `maxwords` data attribute instead of JavaScript `maxlength`', async () => {
-          await initExample('with word count', {
+          await initExample('with maxwords', {
             config: {
               maxlength: 150
             }
