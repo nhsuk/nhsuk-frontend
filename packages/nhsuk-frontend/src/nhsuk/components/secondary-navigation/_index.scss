@@ -53,6 +53,23 @@
     align-items: center;
     gap: nhsuk-spacing(2);
     margin-bottom: 0;
+
+    // When the link inside is focused, extend the yellow focus background and
+    // focus indicator across the full item (link + count badge). CSS has no
+    // parent selector, so we use :focus-within on the <li>; the <a>'s own
+    // background and box-shadow are then cleared so they don't double-paint.
+    //
+    // Specificity: 1 class + 1 pseudo-class (0-2-0) — higher than
+    // __item--current (0-1-0), so focus always overrides the active indicator.
+    &:focus-within {
+      background-color: $nhsuk-focus-colour;
+      color: $nhsuk-focus-text-colour;
+      box-shadow: inset $nhsuk-border-width 0 $nhsuk-focus-text-colour;
+
+      @include nhsuk-media-query($from: tablet) {
+        box-shadow: inset 0 ($nhsuk-focus-width * -1) $nhsuk-focus-text-colour;
+      }
+    }
   }
 
   // Active indicator: left inset border on mobile, bottom inset border on tablet+.
@@ -94,12 +111,17 @@
       text-decoration: none;
     }
 
+    // On focus, clear all visual styling from the <a> so the full-width
+    // __item:focus-within styles are the sole visible indicator.
+    // box-shadow: none overrides the outset shadow from nhsuk-focused-text;
+    // background transparent overrides the yellow added by the same mixin.
+    // outline stays as transparent (for high-contrast/forced-colours mode).
     &:focus {
-      box-shadow: inset $nhsuk-focus-width 0 $nhsuk-focus-text-colour;
-
-      @include nhsuk-media-query($from: tablet) {
-        box-shadow: inset 0 ($nhsuk-focus-width * -1) $nhsuk-focus-text-colour;
-      }
+      background-color: transparent;
+      box-shadow: none;
+      outline: $nhsuk-focus-width solid transparent;
+      color: $nhsuk-focus-text-colour;
+      text-decoration: none;
     }
   }
 
@@ -127,9 +149,12 @@
     @include nhsuk-font(16);
   }
 
-  // Keep count readable when the adjacent link is focused (yellow background)
+  // When the adjacent link is focused the item has a yellow background;
+  // show the count as an outlined pill so it remains visually distinct.
   .nhsuk-secondary-navigation__link:focus + .nhsuk-secondary-navigation__count {
-    background-color: color.scale($nhsuk-focus-text-colour, $alpha: -40%);
+    color: $nhsuk-focus-text-colour;
+    background-color: transparent;
+    box-shadow: inset 0 0 0 1px currentColor;
   }
 
   // Reverse variant: for use on coloured (typically blue) backgrounds
@@ -154,15 +179,39 @@
       &[aria-current] {
         text-decoration: none;
       }
+
+      // nhsuk-link-style-white generates .--reverse .link:focus with specificity
+      // 0-3-0, which beats the outer __link:focus override (0-2-0), so we must
+      // explicitly clear focus styles here too at matching specificity.
+      &:focus {
+        background-color: transparent;
+        box-shadow: none;
+        outline: $nhsuk-focus-width solid transparent;
+        color: $nhsuk-focus-text-colour;
+        text-decoration: none;
+      }
+    }
+
+    // __item:focus-within sits at 0-2-0 — same spec as --reverse .item--current
+    // (0-2-0), so cascade order would make --current win. Raise specificity here
+    // so the focus indicator always overrides the active (white) indicator.
+    .nhsuk-secondary-navigation__item:focus-within {
+      box-shadow: inset $nhsuk-border-width 0 $nhsuk-focus-text-colour;
+
+      @include nhsuk-media-query($from: tablet) {
+        box-shadow: inset 0 ($nhsuk-focus-width * -1) $nhsuk-focus-text-colour;
+      }
     }
 
     .nhsuk-secondary-navigation__count {
       background-color: rgba($nhsuk-reverse-text-colour, 0.25);
     }
 
-    // When the adjacent link is focused, keep the count readable against yellow
+    // When the adjacent link is focused, the full item is on a yellow background;
+    // drop the pill to just black text, same as the default variant.
     .nhsuk-secondary-navigation__link:focus + .nhsuk-secondary-navigation__count {
-      background-color: color.scale($nhsuk-focus-text-colour, $alpha: -40%);
+      color: $nhsuk-focus-text-colour;
+      background-color: transparent;
     }
   }
 }
