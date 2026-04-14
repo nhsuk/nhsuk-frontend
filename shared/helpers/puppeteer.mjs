@@ -371,6 +371,26 @@ export async function getAccessibleName(page, $element) {
 }
 
 /**
+ * Get text content for element
+ *
+ * @param {ElementHandle | null} $element - Puppeteer element handle
+ * @returns {Promise<string>} Text content
+ */
+export async function getText($element) {
+  return /** @type {string} */ (await getProperty($element, 'textContent'))
+}
+
+/**
+ * Get HTML content for element
+ *
+ * @param {ElementHandle | null} $element - Puppeteer element handle
+ * @returns {Promise<string>} HTML content
+ */
+export async function getHtml($element) {
+  return /** @type {string} */ (await getProperty($element, 'innerHTML'))
+}
+
+/**
  * Check if element is visible
  *
  * @param {ElementHandle | null} $element - Puppeteer element handle
