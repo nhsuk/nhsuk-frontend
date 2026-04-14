@@ -159,6 +159,33 @@ const fixtures = {
         }
       ]
     }
+  },
+  vertical: {
+    context: {
+      vertical: true,
+      items: [
+        {
+          href: '#',
+          text: 'All clinics'
+        },
+        {
+          href: '#',
+          text: 'Today',
+          current: true
+        },
+        {
+          href: '#',
+          text: 'Upcoming'
+        },
+        {
+          href: '#',
+          text: 'Completed'
+        }
+      ]
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
+    }
   }
 }
 
