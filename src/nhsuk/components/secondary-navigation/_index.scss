@@ -44,6 +44,10 @@
 
     @include nhsuk-media-query($from: tablet) {
       flex-flow: row wrap;
+      gap: nhsuk-spacing(2) nhsuk-spacing(4);
+    }
+
+    @include nhsuk-media-query($from: desktop) {
       gap: nhsuk-spacing(2) nhsuk-spacing(5);
     }
   }
