@@ -51,7 +51,6 @@
   .nhsuk-secondary-navigation__item {
     display: flex;
     align-items: center;
-    gap: nhsuk-spacing(2);
     margin-bottom: 0;
 
     // When the link inside is focused, extend the yellow focus background and
@@ -89,7 +88,6 @@
   }
 
   .nhsuk-secondary-navigation__link {
-    flex: 1;
     display: block;
 
     padding: nhsuk-spacing(2) $nhsuk-gutter-half;
@@ -133,6 +131,7 @@
     min-width: nhsuk-spacing(4);
     padding-right: nhsuk-spacing(2);
     padding-left: nhsuk-spacing(2);
+    margin-left: nhsuk-spacing(2);
 
     border-radius: nhsuk-spacing(3);
 
@@ -146,9 +145,9 @@
     @include nhsuk-font(16);
   }
 
-  // When the adjacent link is focused the item has a yellow background;
-  // show the count as an outlined pill so it remains visually distinct.
-  .nhsuk-secondary-navigation__link:focus + .nhsuk-secondary-navigation__count {
+  // When the link is focused the item has a yellow background;
+  // show the count as an outlined pill with black text so it remains visually distinct.
+  .nhsuk-secondary-navigation__link:focus .nhsuk-secondary-navigation__count {
     color: $nhsuk-focus-text-colour;
     background-color: transparent;
     box-shadow: inset 0 0 0 1px currentColor;
@@ -204,11 +203,12 @@
       background-color: rgba($nhsuk-reverse-text-colour, 0.25);
     }
 
-    // When the adjacent link is focused, the full item is on a yellow background;
-    // drop the pill to just black text, same as the default variant.
-    .nhsuk-secondary-navigation__link:focus + .nhsuk-secondary-navigation__count {
+    // When the link is focused, the full item is on a yellow background;
+    // show the count as an outlined pill with black text, same as the default variant.
+    .nhsuk-secondary-navigation__link:focus .nhsuk-secondary-navigation__count {
       color: $nhsuk-focus-text-colour;
       background-color: transparent;
+      box-shadow: inset 0 0 0 1px currentColor;
     }
   }
 }
