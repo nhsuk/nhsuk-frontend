@@ -28,6 +28,7 @@
 
   .nhsuk-secondary-navigation__list {
     display: flex;
+
     flex-flow: column;
 
     width: 100%;
@@ -65,8 +66,8 @@
     // Specificity: 1 class + 1 pseudo-class (0-2-0) — higher than
     // __item--current (0-1-0), so focus always overrides the active indicator.
     &:focus-within {
-      background-color: $nhsuk-focus-colour;
       color: $nhsuk-focus-text-colour;
+      background-color: $nhsuk-focus-colour;
       box-shadow: inset $nhsuk-border-width 0 $nhsuk-focus-text-colour;
 
       @include nhsuk-media-query($from: tablet) {
@@ -93,7 +94,6 @@
 
   .nhsuk-secondary-navigation__link {
     display: block;
-
     padding: nhsuk-spacing(2) $nhsuk-gutter-half;
 
     &:link {
@@ -119,10 +119,10 @@
     // background transparent overrides the yellow added by the same mixin.
     // outline stays as transparent (for high-contrast/forced-colours mode).
     &:focus {
-      background-color: transparent;
-      box-shadow: none;
       outline: $nhsuk-focus-width solid transparent;
       color: $nhsuk-focus-text-colour;
+      background-color: transparent;
+      box-shadow: none;
       text-decoration: none;
     }
   }
@@ -133,9 +133,9 @@
     display: inline-block;
 
     min-width: nhsuk-spacing(4);
+    margin-left: nhsuk-spacing(2);
     padding-right: nhsuk-spacing(2);
     padding-left: nhsuk-spacing(2);
-    margin-left: nhsuk-spacing(2);
 
     border-radius: nhsuk-spacing(3);
 
@@ -154,7 +154,7 @@
   .nhsuk-secondary-navigation__link:focus .nhsuk-secondary-navigation__count {
     color: $nhsuk-focus-text-colour;
     background-color: transparent;
-    box-shadow: inset 0 0 0 1px currentColor;
+    box-shadow: inset 0 0 0 1px currentcolor;
   }
 
   // Reverse variant: for use on coloured (typically blue) backgrounds
@@ -184,10 +184,10 @@
       // 0-3-0, which beats the outer __link:focus override (0-2-0), so we must
       // explicitly clear focus styles here too at matching specificity.
       &:focus {
-        background-color: transparent;
-        box-shadow: none;
         outline: $nhsuk-focus-width solid transparent;
         color: $nhsuk-focus-text-colour;
+        background-color: transparent;
+        box-shadow: none;
         text-decoration: none;
       }
     }
@@ -212,7 +212,7 @@
     .nhsuk-secondary-navigation__link:focus .nhsuk-secondary-navigation__count {
       color: $nhsuk-focus-text-colour;
       background-color: transparent;
-      box-shadow: inset 0 0 0 1px currentColor;
+      box-shadow: inset 0 0 0 1px currentcolor;
     }
   }
 }
