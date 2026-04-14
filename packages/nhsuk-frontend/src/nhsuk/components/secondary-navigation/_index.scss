@@ -87,9 +87,11 @@
   }
 
   // <strong> is used as a fallback to visually indicate the current page in
-  // environments where CSS is unavailable. We don't want it to appear bold.
+  // environments where CSS is unavailable.
+  // TODO: decide whether we want current items to be bold. Header doesn't but design system nav does.
   .nhsuk-secondary-navigation__current {
-    font-weight: inherit;
+    // font-weight: inherit;
+    font-weight: $nhsuk-font-weight-bold;
   }
 
   .nhsuk-secondary-navigation__link {
@@ -127,8 +129,7 @@
     }
   }
 
-  // Count badge – for showing a number of items associated with a nav item
-  // (for example, number of results in a filtered list)
+  // Count badge – for showing a number of items associated with a nav it f
   .nhsuk-secondary-navigation__count {
     display: inline-block;
 
@@ -155,6 +156,36 @@
     color: $nhsuk-focus-text-colour;
     background-color: transparent;
     box-shadow: inset 0 0 0 1px currentcolor;
+  }
+
+  // Vertical variant: forces the list to remain stacked at all breakpoints.
+  // Overrides the tablet/desktop flex-flow and gap, and keeps the active/focus
+  // indicator as a left inset border (same as the default mobile behaviour).
+  .nhsuk-secondary-navigation--vertical {
+    .nhsuk-secondary-navigation__list {
+      @include nhsuk-media-query($from: tablet) {
+        flex-flow: column;
+        gap: 0;
+      }
+    }
+
+    .nhsuk-secondary-navigation__item--current {
+      @include nhsuk-media-query($from: tablet) {
+        box-shadow: inset $nhsuk-border-width 0 nhsuk-colour("blue");
+      }
+    }
+
+    .nhsuk-secondary-navigation__item:focus-within {
+      @include nhsuk-media-query($from: tablet) {
+        box-shadow: inset $nhsuk-border-width 0 $nhsuk-focus-text-colour;
+      }
+    }
+
+    .nhsuk-secondary-navigation__link {
+      @include nhsuk-media-query($from: tablet) {
+        padding: nhsuk-spacing(2) $nhsuk-gutter-half;
+      }
+    }
   }
 
   // Reverse variant: for use on coloured (typically blue) backgrounds

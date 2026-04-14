@@ -218,6 +218,44 @@
 
   <div class="nhsuk-u-margin-top-4"></div>
 
+  <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
+
+  {# ================================================ #}
+  {# Vertical #}
+  {# ================================================ #}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+      <h2 class="nhsuk-heading-m">Vertical</h2>
+      <p class="nhsuk-body">Use the <code>vertical</code> option to keep the navigation stacked at all breakpoints.</p>
+
+      {{ secondaryNavigation({
+        vertical: true,
+        items: [
+          {
+            href: "#",
+            text: "All clinics"
+          },
+          {
+            href: "#",
+            text: "Today",
+            current: true
+          },
+          {
+            href: "#",
+            text: "Upcoming"
+          },
+          {
+            href: "#",
+            text: "Completed"
+          }
+        ]
+      }) }}
+    </div>
+  </div>
+
+  <div class="nhsuk-u-margin-top-4"></div>
+
   {# Reverse with counts #}
   <h3 class="nhsuk-heading-s nhsuk-u-margin-bottom-2" style="color: #fff; background: #005eb8; padding: 8px 16px 0; margin-top: 0;">Reverse with counts</h3>
   <div style="background-color: #005eb8; padding: 0 0 16px;">

@@ -72,6 +72,12 @@ const options = {
     description:
       'Classes to add to the navigation element. Use `"nhsuk-secondary-navigation--reverse"` for use on coloured backgrounds.'
   },
+  vertical: {
+    type: 'boolean',
+    required: false,
+    description:
+      'If `true`, forces the navigation to remain stacked vertically at all breakpoints, rather than switching to a horizontal layout at tablet width.'
+  },
   visuallyHiddenCountText: {
     type: 'string',
     required: false,
