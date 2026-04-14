@@ -51,7 +51,7 @@ const options = {
         type: 'integer',
         required: false,
         description:
-          'An optional numeric count to display alongside the item (for example, number of results in a filtered view). Rendered as a visually distinct badge and hidden from assistive technology via `aria-hidden`.'
+          'An optional numeric count to display alongside the item (for example, number of results in a filtered view). Rendered as a visually distinct badge. A visually hidden label prefix (defaulting to `"Count"`) is included for assistive technology; override it with `visuallyHiddenCountText`.'
       },
       classes: {
         type: 'string',
@@ -71,6 +71,12 @@ const options = {
     required: false,
     description:
       'Classes to add to the navigation element. Use `"nhsuk-secondary-navigation--reverse"` for use on coloured backgrounds.'
+  },
+  visuallyHiddenCountText: {
+    type: 'string',
+    required: false,
+    description:
+      'Visually hidden text prepended to each count badge for assistive technology (for example, `"Results"`). Defaults to `"Count"`. Only used when one or more items have a `count` value.'
   },
   id: {
     type: 'string',
