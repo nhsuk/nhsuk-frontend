@@ -90,8 +90,8 @@
   // environments where CSS is unavailable.
   // TODO: decide whether we want current items to be bold. Header doesn't but design system nav does.
   .nhsuk-secondary-navigation__current {
-    // font-weight: inherit;
-    font-weight: $nhsuk-font-weight-bold;
+    font-weight: inherit;
+    // font-weight: $nhsuk-font-weight-bold;
   }
 
   .nhsuk-secondary-navigation__link {
