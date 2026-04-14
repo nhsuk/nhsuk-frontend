@@ -4,7 +4,7 @@
  * @satisfies {{ [example: string]: MacroExample }}
  */
 const fixtures = {
-  default: {
+  'default': {
     context: {
       items: [
         {
@@ -76,7 +76,7 @@ const fixtures = {
       ]
     }
   },
-  reverse: {
+  'reverse': {
     context: {
       classes: 'nhsuk-secondary-navigation--reverse',
       items: [
