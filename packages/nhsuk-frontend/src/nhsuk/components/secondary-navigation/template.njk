@@ -7,10 +7,7 @@
   {%- set classNames = classNames ~ " " ~ params.classes -%}
 {%- endif -%}
 
-<nav
-  {{- nhsukAttributes({
-    class: classNames
-  }) }}
+<nav class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
   {%- if params.labelledBy %} aria-labelledby="{{ params.labelledBy }}"
   {%- else %} aria-label="{{ params.label | default("Secondary navigation") }}"
   {%- endif %}
@@ -18,24 +15,42 @@
   <ul class="nhsuk-secondary-navigation__list">
   {%- for item in params.items %}
     {%- if item %}
+    {%- set itemInnerAttributesHtml %}
+      {{- nhsukAttributes({
+        class: "nhsuk-secondary-navigation__link",
+        href: {
+          value: item.href,
+          optional: true
+        },
+        "aria-current": {
+          value: "page" if item.current else false,
+          optional: true
+        }
+      }) -}}
+    {%- endset %}
+    {%- set itemInnerContent %}
+      {%- if item.current -%}
+        {#- Wrap active links in strong element so users who override colours
+          or styles still have some indicator of the current nav item. -#}
+        <strong class="nhsuk-secondary-navigation__current">
+          {{- item.html | safe if item.html else item.text -}}
+        </strong>
+      {%- else -%}
+        {{- item.html | safe if item.html else item.text -}}
+      {%- endif -%}
+    {%- endset %}
     <li class="nhsuk-secondary-navigation__item{%- if item.current %} nhsuk-secondary-navigation__item--current{%- endif -%}{%- if item.classes %} {{ item.classes }}{%- endif -%}"
       {{- nhsukAttributes(item.attributes) }}>
-      <a class="nhsuk-secondary-navigation__link" href="{{ item.href }}"
-        {{- nhsukAttributes({
-          "aria-current": {
-            value: "page" if item.current else false,
-            optional: true
-          }
-        }) }}>
-        {%- if item.current -%}
-          <strong class="nhsuk-secondary-navigation__current">
-            {{- item.html | safe if item.html else item.text -}}
-          </strong>
-        {%- else -%}
-          {{- item.html | safe if item.html else item.text -}}
-        {%- endif -%}
+      {%- if item.href %}
+      <a {{- itemInnerAttributesHtml | safe }}>
+        {{- itemInnerContent | safe -}}
       </a>
-      {%- if item.count is defined -%}
+      {%- else %}
+      <span {{- itemInnerAttributesHtml | safe }}>
+        {{- itemInnerContent | safe -}}
+      </span>
+      {%- endif %}
+      {%- if item.count -%}
         <span class="nhsuk-secondary-navigation__count" aria-hidden="true">{{ item.count }}</span>
       {%- endif -%}
     </li>

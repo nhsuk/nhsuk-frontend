@@ -130,7 +130,7 @@
   .nhsuk-secondary-navigation__count {
     display: inline-block;
 
-    min-width: nhsuk-spacing(5);
+    min-width: nhsuk-spacing(4);
     padding-right: nhsuk-spacing(2);
     padding-left: nhsuk-spacing(2);
 
@@ -139,10 +139,7 @@
     // White text on a semi-transparent darkened link-colour background,
     // so the badge reads as a distinct pill regardless of item state.
     color: nhsuk-colour("white");
-    background-color: color.scale(
-      color.scale($nhsuk-link-colour, $lightness: -50%),
-      $alpha: -60%
-    );
+    background-color: color.scale(color.scale($nhsuk-link-colour, $lightness: -50%), $alpha: -60%);
 
     text-align: center;
 
