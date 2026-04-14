@@ -28,15 +28,24 @@
         }
       }) -}}
     {%- endset %}
+
+    {%- set itemCountHtml -%}
+      {%- if item.count -%}
+        <span class="nhsuk-secondary-navigation__count"><span class="nhsuk-u-visually-hidden">Count: </span>{{ item.count }}</span>
+      {%- endif -%}
+    {%- endset -%}
+
     {%- set itemInnerContent %}
       {%- if item.current -%}
         {#- Wrap active links in strong element so users who override colours
           or styles still have some indicator of the current nav item. -#}
         <strong class="nhsuk-secondary-navigation__current">
           {{- item.html | safe if item.html else item.text -}}
+          {{- itemCountHtml | safe -}}
         </strong>
       {%- else -%}
         {{- item.html | safe if item.html else item.text -}}
+        {{- itemCountHtml | safe -}}  
       {%- endif -%}
     {%- endset %}
     <li class="nhsuk-secondary-navigation__item{%- if item.current %} nhsuk-secondary-navigation__item--current{%- endif -%}{%- if item.classes %} {{ item.classes }}{%- endif -%}"
@@ -50,9 +59,6 @@
         {{- itemInnerContent | safe -}}
       </span>
       {%- endif %}
-      {%- if item.count -%}
-        <span class="nhsuk-secondary-navigation__count" aria-hidden="true">{{ item.count }}</span>
-      {%- endif -%}
     </li>
     {%- endif %}
   {%- endfor %}
