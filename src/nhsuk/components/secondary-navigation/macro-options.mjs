@@ -37,8 +37,9 @@ const options = {
       },
       href: {
         type: 'string',
-        required: true,
-        description: 'The `href` for the navigation item link.'
+        required: false,
+        description:
+          'The `href` for the navigation item link. If omitted, the item is rendered as a `<span>` instead of an `<a>`.'
       },
       current: {
         type: 'boolean',
@@ -70,6 +71,11 @@ const options = {
     required: false,
     description:
       'Classes to add to the navigation element. Use `"nhsuk-secondary-navigation--reverse"` for use on coloured backgrounds.'
+  },
+  id: {
+    type: 'string',
+    required: false,
+    description: 'The `id` of the navigation element.'
   },
   attributes: {
     type: 'object',
