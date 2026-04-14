@@ -32,7 +32,8 @@
     {%- set itemCountHtml -%}
       {# Need to use 'is defined' so that counts of 0 are still rendered #}
       {%- if item.count is defined -%}
-        <span class="nhsuk-secondary-navigation__count"><span class="nhsuk-u-visually-hidden">Count: </span>{{ item.count }}</span>
+        {% set visuallyHiddenCountText = params.visuallyHiddenCountText | default("Count") -%}
+        <span class="nhsuk-secondary-navigation__count"><span class="nhsuk-u-visually-hidden">{{ visuallyHiddenCountText }}: </span>{{ item.count }}</span>
       {%- endif -%}
     {%- endset -%}
 
