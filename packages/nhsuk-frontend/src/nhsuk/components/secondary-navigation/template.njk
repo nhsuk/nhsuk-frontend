@@ -3,6 +3,10 @@
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-secondary-navigation" -%}
 
+{%- if params.vertical and (not params.classes or not "nhsuk-secondary-navigation--vertical" in params.classes) %}
+  {%- set classNames = classNames ~ " nhsuk-secondary-navigation--vertical" -%}
+{%- endif -%}
+
 {%- if params.classes %}
   {%- set classNames = classNames ~ " " ~ params.classes -%}
 {%- endif -%}
