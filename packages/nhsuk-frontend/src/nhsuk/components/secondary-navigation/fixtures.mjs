@@ -160,7 +160,7 @@ const fixtures = {
       ]
     }
   },
-  vertical: {
+  'vertical': {
     context: {
       vertical: true,
       items: [
