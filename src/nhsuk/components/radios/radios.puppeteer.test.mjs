@@ -45,7 +45,7 @@ describe('Radios', () => {
         /** @type {ElementHandle} */
         let $component
 
-        /** @type {ElementHandle[]} */
+        /** @type {ElementHandle<HTMLInputElement>[]} */
         let $inputs
 
         /** @type {ElementHandle[]} */
@@ -54,11 +54,11 @@ describe('Radios', () => {
         beforeAll(async () => {
           await render(page, 'radios', examples['with conditional content'])
 
-          $component = /** @type {ElementHandle} */ (
+          $component = /** @type {ElementHandle<HTMLElement>} */ (
             await page.$('.nhsuk-radios')
           )
 
-          $inputs = await $component.$$('.nhsuk-radios__input')
+          $inputs = await $component.$$('input.nhsuk-radios__input')
           $conditionals = await $component.$$('.nhsuk-radios__conditional')
         })
 
@@ -71,6 +71,7 @@ describe('Radios', () => {
           const $inputsWithAriaExpanded = await $component.$$(
             '.nhsuk-radios__input[aria-expanded]'
           )
+
           const $inputsWithAriaControls = await $component.$$(
             '.nhsuk-radios__input[aria-controls]'
           )
@@ -91,20 +92,20 @@ describe('Radios', () => {
 
     describe('when JavaScript is available', () => {
       describe('with conditional item checked', () => {
-        /** @type {ElementHandle} */
+        /** @type {ElementHandle<HTMLElement>} */
         let $component
 
-        /** @type {ElementHandle[]} */
+        /** @type {ElementHandle<HTMLInputElement>[]} */
         let $inputs
 
         beforeEach(async () => {
           await render(page, 'radios', examples['with pre-checked value'])
 
-          $component = /** @type {ElementHandle} */ (
+          $component = /** @type {ElementHandle<HTMLElement>} */ (
             await page.$('.nhsuk-radios')
           )
 
-          $inputs = await $component.$$('.nhsuk-radios__input')
+          $inputs = await $component.$$('input.nhsuk-radios__input')
         })
 
         it('has conditional content revealed that is associated with a checked input', async () => {
@@ -129,20 +130,20 @@ describe('Radios', () => {
       })
 
       describe('with conditional content', () => {
-        /** @type {ElementHandle} */
+        /** @type {ElementHandle<HTMLElement>} */
         let $component
 
-        /** @type {ElementHandle[]} */
+        /** @type {ElementHandle<HTMLInputElement>[]} */
         let $inputs
 
         beforeEach(async () => {
           await render(page, 'radios', examples['with conditional content'])
 
-          $component = /** @type {ElementHandle} */ (
+          $component = /** @type {ElementHandle<HTMLElement>} */ (
             await page.$('.nhsuk-radios')
           )
 
-          $inputs = await $component.$$('.nhsuk-radios__input')
+          $inputs = await $component.$$('input.nhsuk-radios__input')
         })
 
         it('indicates when conditional content is collapsed or revealed', async () => {
@@ -229,22 +230,24 @@ describe('Radios', () => {
 
   describe('with multiple groups', () => {
     describe('when JavaScript is available', () => {
-      /** @type {ElementHandle[]} */
+      /** @type {ElementHandle<HTMLInputElement>[]} */
       let $inputsWarm
 
-      /** @type {ElementHandle[]} */
+      /** @type {ElementHandle<HTMLInputElement>[]} */
       let $inputsCool
 
-      /** @type {ElementHandle[]} */
+      /** @type {ElementHandle<HTMLInputElement>[]} */
       let $inputsNotInForm
 
       beforeEach(async () => {
         await goToExample(page, 'multiple-radio-groups')
 
-        $inputsWarm = await page.$$('.nhsuk-radios__input[id^="warm"]')
-        $inputsCool = await page.$$('.nhsuk-radios__input[id^="cool"]')
+        $inputsWarm = await page.$$('input.nhsuk-radios__input[id^="warm"]')
+
+        $inputsCool = await page.$$('input.nhsuk-radios__input[id^="cool"]')
+
         $inputsNotInForm = await page.$$(
-          '.nhsuk-radios__input[id^="question-not-in-form"]'
+          'input.nhsuk-radios__input[id^="question-not-in-form"]'
         )
       })
 
@@ -284,19 +287,22 @@ describe('Radios', () => {
 
   describe('with multiple groups and conditional content', () => {
     describe('when JavaScript is available', () => {
-      /** @type {ElementHandle[]} */
+      /** @type {ElementHandle<HTMLInputElement>[]} */
       let $inputsPrimary
 
-      /** @type {ElementHandle[]} */
+      /** @type {ElementHandle<HTMLInputElement>[]} */
       let $inputsOther
 
       beforeEach(async () => {
         await goToExample(page, 'conditional-reveals')
 
         $inputsPrimary = await page.$$(
-          '.nhsuk-radios__input[id^="fave-primary"]'
+          'input.nhsuk-radios__input[id^="fave-primary"]'
         )
-        $inputsOther = await page.$$('.nhsuk-radios__input[id^="fave-other"]')
+
+        $inputsOther = await page.$$(
+          'input.nhsuk-radios__input[id^="fave-other"]'
+        )
       })
 
       it('hides conditional content in other groups', async () => {
