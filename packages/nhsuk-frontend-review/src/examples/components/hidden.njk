@@ -1,0 +1,1239 @@
+{% extends "layouts/page.njk" %}
+
+{% set pageName = "Hidden components" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block beforeContent %}
+  {{ breadcrumb({
+    items: [
+      {
+        text: "NHS.UK frontend",
+        href: baseUrl
+      },
+      {
+        text: "Examples",
+        href: baseUrl ~ "#examples"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl">{{ pageName }}</h1>
+    </div>
+  </div>
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      {{ errorSummary({
+        titleText: "There is a problem",
+        descriptionText: "Describe the errors and how to correct them",
+        errorList: [
+          {
+            text: "Enter your NHS number",
+            href: "#nhs-number-error"
+          }
+        ],
+        attributes: {
+          hidden: "hidden"
+        }
+      }) }}
+
+      {{ notificationBanner({ text: "Test", attributes: { hidden: "hidden"} }) }}
+
+      {{ contentsList({
+        attributes: {
+          hidden: "hidden"
+        },
+        items: [
+          {
+            href: "#",
+            text: "What is AMD?",
+            current: "true"
+          },
+          {
+            href: "#",
+            text: "Symptoms"
+          },
+          {
+            href: "#",
+            text: "Getting diagnosed"
+          }
+          ,
+          {
+            href: "#",
+            text: "Treatments"
+          }
+          ,
+          {
+            href: "#",
+            text: "Living with AMD"
+          }
+        ]
+      }) }}
+    </div>
+  </div>
+  <ul class="nhsuk-grid-row nhsuk-card-group">
+    <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+      {{ card({
+        attributes: {
+          hidden: "hidden"
+        },
+        href: "#",
+        clickable: "true",
+        heading: "Introduction to care and support",
+        headingClasses: "nhsuk-heading-m",
+        description: "A quick guide for people who have care and support needs and their carers."
+      }) }}
+    </li>
+    <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+      {{ card({
+        attributes: {
+          hidden: "hidden"
+        },
+        href: "#",
+        clickable: "true",
+        heading: "Help from social services and charities",
+        headingClasses: "nhsuk-heading-m",
+        description: "Includes helplines, needs assessments, advocacy and reporting abuse."
+      }) }}
+    </li>
+    <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+      {{ card({
+        attributes: {
+          hidden: "hidden"
+        },
+        href: "#",
+        clickable: "true",
+        heading: "Money, work and benefits",
+        headingClasses: "nhsuk-heading-m",
+        description: "How to pay for care and support, and where you can get help with costs."
+      }) }}
+    </li>
+    <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+      {{ card({
+        attributes: {
+          hidden: "hidden"
+        },
+        href: "#",
+        clickable: "true",
+        heading: "Care after a hospital stay",
+        headingClasses: "nhsuk-heading-m",
+        description: "Includes hospital discharge and care and support afterwards."
+      }) }}
+    </li>
+  </ul>
+
+  <ul class="nhsuk-grid-row nhsuk-card-group">
+    <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+      {{ card({
+        attributes: {
+          hidden: "hidden"
+        },
+        href: "#",
+        clickable: "true",
+        heading: "5 steps to mental wellbeing",
+        headingClasses: "nhsuk-heading-m",
+        description: "Practical advice to help you feel mentally and emotionally better."
+      }) }}
+    </li>
+    <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+      {{ card({
+        attributes: {
+          hidden: "hidden"
+        },
+        href: "#",
+        clickable: "true",
+        heading: "Healthy weight",
+        headingClasses: "nhsuk-heading-m",
+        description: "Check your BMI using our healthy weight calculator and find out if you're a healthy weight."
+      }) }}
+    </li>
+    <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+      {{ card({
+        attributes: {
+          hidden: "hidden"
+        },
+        href: "#",
+        clickable: "true",
+        heading: "Exercise",
+        headingClasses: "nhsuk-heading-m",
+        description: "Programmes, workouts and tips to get you moving and improve your fitness and wellbeing."
+      }) }}
+    </li>
+  </ul>
+
+  <ul class="nhsuk-grid-row nhsuk-card-group">
+    <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
+      {{ card({
+        attributes: {
+          hidden: "hidden"
+        },
+        clickable: "true",
+        headingHtml: '<p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">91 <span class="nhsuk-u-visually-hidden">Applicants</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Applicants</a>'
+      }) }}
+    </li>
+    <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
+      {{ card({
+        attributes: {
+          hidden: "hidden"
+        },
+        clickable: "true",
+        headingHtml: '<p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">23 <span class="nhsuk-u-visually-hidden">Jobs</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Jobs</a>'
+      }) }}
+    </li>
+    <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
+      {{ card({
+        attributes: {
+          hidden: "hidden"
+        },
+        clickable: "true",
+        headingHtml: '<p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">8 <span class="nhsuk-u-visually-hidden">Services</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Services</a>'
+      }) }}
+    </li>
+    <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
+      {{ card({
+        attributes: {
+          hidden: "hidden"
+        },
+        clickable: "true",
+        headingHtml: '<p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">33 <span class="nhsuk-u-visually-hidden">Messages</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Messages</a>'
+      }) }}
+    </li>
+  </ul>
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      {% call card({
+        heading: "If you need help now, but it's not an emergency",
+        headingLevel: "3",
+        attributes: {
+          hidden: "hidden"
+        }
+      }) %}
+        <p class="nhsuk-card__description">Go to <a href="#">NHS 111 online</a> or <a href="#">call 111</a>.</p>
+      {% endcall %}
+
+      {{ card({
+        attributes: {
+          hidden: "hidden"
+        },
+        href: "#",
+        clickable: "true",
+        heading: "Introduction to care and support",
+        headingClasses: "nhsuk-heading-m",
+        description: "A quick guide for people who have care and support needs and their carers."
+      }) }}
+
+      {{ card({
+        attributes: {
+          hidden: "hidden"
+        },
+        image: {
+          src: "https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg"
+        },
+        href: "#",
+        clickable: "true",
+        heading: "Exercise",
+        headingClasses: "nhsuk-heading-m",
+        description: "Programmes, workouts and tips to get you moving and improve your fitness and wellbeing."
+      }) }}
+
+      {{ card({
+        attributes: {
+          hidden: "hidden"
+        },
+        feature: "true",
+        heading: "Feature card heading",
+        headingClasses: "nhsuk-heading-m",
+        description: "Feature card description"
+      }) }}
+
+      {% call insetText({
+        attributes: {
+          hidden: "hidden"
+        }
+      }) %}
+        <p>If you drive you must tell the <a href="https://www.gov.uk/contact-the-dvla" title="External website">DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href="https://www.gov.uk/dizziness-and-driving" title="External website">driving with vertigo</a></p>
+      {% endcall %}
+
+      {{ warningCallout({
+        attributes: {
+          hidden: "hidden"
+        },
+        heading: "Important",
+        text: "For safety, tell your doctor or pharmacist if you're taking any other medicines, including herbal medicines, vitamins or supplements."
+      }) }}
+
+      {{ warningCallout({
+        attributes: {
+          hidden: "hidden"
+        },
+        heading: "School, nursery or work",
+        text: "Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared."
+      }) }}
+
+      {% call card({
+        attributes: {
+          hidden: "hidden"
+        },
+        heading: "Speak to a GP if:",
+        headingLevel: 3,
+        variant: "non-urgent"
+      }) %}
+        <ul>
+          <li>you're not sure it's chickenpox</li>
+          <li>the skin around the blisters is red, hot or painful (signs of infection)</li>
+          <li>your child is <a href="https://www.nhs.uk/conditions/dehydration">dehydrated</a></li>
+          <li>you're concerned about your child or they get worse</li>
+        </ul>
+        <p>Tell the receptionist you think it's chickenpox before going in. They may recommend a special appointment time if other patients are at risk.</p>
+      {% endcall %}
+
+      {% call card({
+        attributes: {
+          hidden: "hidden"
+        },
+        heading: "Ask for an urgent GP appointment if:",
+        headingLevel: 3,
+        variant: "urgent"
+      }) %}
+        <ul>
+          <li>you're an adult and have chickenpox</li>
+          <li>you're pregnant and haven't had chickenpox before and you've been near someone with it</li>
+          <li>you have a weakened immune system and you've been near someone with chickenpox</li>
+          <li>you think your newborn baby has chickenpox</li>
+        </ul>
+        <p>In these situations, your GP can prescribe medicine to prevent complications. You need to take it within 24 hours of the spots coming out.</p>
+      {% endcall %}
+
+      {% call card({
+        attributes: {
+          hidden: "hidden"
+        },
+        heading: "Call 999 if you have sudden chest pain that:",
+        headingLevel: 3,
+        variant: "emergency"
+      }) %}
+        <ul>
+          <li>spreads to your arms, back, neck or jaw</li>
+          <li>makes your chest feel tight or heavy</li>
+          <li>also started with shortness of breath, sweating and feeling or being sick</li>
+        </ul>
+        <p>You could be having a heart attack. Call 999 immediately as you need immediate treatment in hospital.</p>
+      {% endcall %}
+
+      {{ image({
+        attributes: {
+          hidden: "hidden"
+        },
+        alt: "Picture of allergic conjunctivitis",
+        src: "https://assets.nhs.uk/prod/images/ABF9YH_GDGeL2X.2e16d0ba.fill-320x213.jpg",
+        caption: "Itchy, red, watering eyes"
+      }) }}
+
+      {{ image({
+        attributes: {
+          hidden: "hidden"
+        },
+        alt: "Picture of allergic conjunctivitis",
+        src: "https://assets.nhs.uk/prod/images/ABF9YH_GDGeL2X.2e16d0ba.fill-320x213.jpg",
+        caption: "Itchy, red, watering eyes"
+      }) }}
+
+      {{ actionLink({
+        attributes: {
+          hidden: "hidden"
+        },
+        text: "Find your nearest A&E",
+        href: "#"
+      }) }}
+
+      {% call details({
+        attributes: {
+          hidden: "hidden"
+        },
+        summaryText: "How to find your NHS number"
+      }) %}
+        <p>An NHS number is a 10 digit number, like <span class="nhsuk-u-nowrap">999 123 4567</span>.</p>
+        <p>You can find your NHS number by logging in to the NHS App or on any document the NHS has sent you, such as your:</p>
+        <ul>
+          <li>prescriptions</li>
+          <li>test results</li>
+          <li>hospital referral letters</li>
+          <li>appointment letters</li>
+        </ul>
+        <p>Ask your GP surgery for help if you cannot find your NHS number.</p>
+      {% endcall %}
+
+      {% call details({
+        attributes: {
+          hidden: "hidden"
+        },
+        summaryText: "Opening times",
+        classes: "nhsuk-expander"
+      }) %}
+        {{ table({
+          firstCellIsHeader: true,
+          head: [
+            {
+              text: "Day of the week"
+            },
+            {
+              text: "Opening hours"
+            }
+          ],
+          rows: [
+            [
+              {
+                text: "Monday"
+              },
+              {
+                text: "9am to 6pm"
+              }
+            ],
+            [
+              {
+                text: "Tuesday"
+              },
+              {
+                text: "9am to 6pm"
+              }
+            ],
+            [
+              {
+                text: "Wednesday"
+              },
+              {
+                text: "9am to 6pm"
+              }
+            ],
+            [
+              {
+                text: "Thursday"
+              },
+              {
+                text: "9am to 6pm"
+              }
+            ],
+            [
+              {
+                text: "Friday"
+              },
+              {
+                text: "9am to 6pm"
+              }
+            ],
+            [
+              {
+                text: "Saturday"
+              },
+              {
+                text: "9am to 1pm"
+              }
+            ],
+            [
+              {
+                text: "Sunday"
+              },
+              {
+                text: "Closed"
+              }
+            ]
+          ]
+        }) }}
+      {% endcall %}
+
+      <div class="nhsuk-expander-group">
+        {% call details({
+          attributes: {
+            hidden: "hidden"
+          },
+          summaryText: "How to measure your blood glucose levels",
+          classes: "nhsuk-expander"
+        }) %}
+          <p>Testing your blood at home is quick and easy, although it can be uncomfortable. It does get better.</p>
+          <p>You would have been given:</p>
+          <ul>
+            <li>a blood glucose metre</li>
+            <li>small needles called lancets</li>
+            <li>a plastic pen to hold the lancest</li>
+            <li>small test strips</li>
+          </ul>
+        {% endcall %}
+
+        {% call details({
+          attributes: {
+            hidden: "hidden"
+          },
+          summaryText: "When to check your blood glucose level",
+          classes: "nhsuk-expander"
+        }) %}
+          <p>Try to check your blood:</p>
+          <ul>
+            <li>before meals</li>
+            <li>2 to 3 hours after meals</li>
+            <li>before, during (take a break) and after exercise</li>
+          </ul>
+          <p>This helps you understand your blood glucose levels and how they're affected by meals and exercise. It should help you have more stable blood glucose levels.</p>
+        {% endcall %}
+      </div>
+
+      {{ pagination({
+        attributes: {
+          hidden: "hidden"
+        },
+        previous: {
+          labelText: "Treatments",
+          href: "#"
+        },
+        next: {
+          labelText: "Symptoms",
+          href: "#"
+        }
+      }) }}
+
+      {{ pagination({
+        attributes: {
+          hidden: "hidden"
+        },
+        previous: {
+          href: "#"
+        },
+        next: {
+          href: "#"
+        },
+        items: [
+          {
+            number: 1,
+            href: "#"
+          },
+          {
+            ellipsis: true
+          },
+          {
+            number: 8,
+            href: "#"
+          },
+          {
+            number: 9,
+            href: "#"
+          },
+          {
+            number: 10,
+            href: "#",
+            current: true
+          },
+          {
+            number: 11,
+            href: "#"
+          },
+          {
+            number: 12,
+            href: "#"
+          },
+          {
+            ellipsis: true
+          },
+          {
+            number: 42,
+            href: "#"
+          }
+        ]
+      }) }}
+
+      {{ list({
+        attributes: {
+          hidden: "hidden"
+        },
+        title: "Do",
+        icon: "tick",
+        items: [
+          {
+            text: "cover blisters that are likely to burst with a soft plaster or dressing"
+          },
+          {
+            text: "wash your hands before touching a burst blister"
+          },
+          {
+            text: "allow the fluid in a burst blister to drain before covering it with a plaster or dressing"
+          }
+        ]
+      }) }}
+
+      {{ list({
+        attributes: {
+          hidden: "hidden"
+        },
+        title: "Don't",
+        icon: "cross",
+        items: [
+          {
+            text: "burst a blister yourself"
+          },
+          {
+            text: "peel the skin off a burst blister"
+          },
+          {
+            text: "pick at the edges of the remaining skin"
+          },
+          {
+            text: "wear the shoes or use the equipment that caused your blister until it heals"
+          }
+        ]
+      }) }}
+
+      {{ table({
+        attributes: {
+          hidden: "hidden"
+        },
+        panel: false,
+        heading: "Skin symptoms and possible causes",
+        caption: "Skin symptoms and possible causes",
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Skin symptoms"
+          },
+          {
+            text: "Possible cause"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "Blisters on lips or around the mouth"
+            },
+            {
+              text: "cold sores"
+            }
+          ],
+          [
+            {
+              text: "Itchy, dry, cracked, sore"
+            },
+            {
+              text: "eczema"
+            }
+          ],
+          [
+            {
+              text: "Itchy blisters"
+            },
+            {
+              text: "shingles, chickenpox"
+            }
+          ]
+        ]
+      }) }}
+
+      {{ table({
+        card: {
+          attributes: {
+            hidden: "hidden"
+          }
+        },
+        panel: true,
+        heading: "Skin symptoms and possible causes",
+        caption: "Skin symptoms and possible causes",
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Skin symptoms"
+          },
+          {
+            text: "Possible cause"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "Blisters on lips or around the mouth"
+            },
+            {
+              text: "cold sores"
+            }
+          ],
+          [
+            {
+              text: "Itchy, dry, cracked, sore"
+            },
+            {
+              text: "eczema"
+            }
+          ],
+          [
+            {
+              text: "Itchy blisters"
+            },
+            {
+              text: "shingles, chickenpox"
+            }
+          ]
+        ]
+      }) }}
+
+      {{ summaryList({
+        attributes: {
+          hidden: "hidden"
+        },
+        lastRowBorder: false,
+        rows: [
+          {
+            key: {
+              text: "Name"
+            },
+            value: {
+              text: "Sarah Philips"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "name"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Date of birth"
+            },
+            value: {
+              text: "5 January 1978"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "date of birth"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Contact information"
+            },
+            value: {
+              html: "72 Guild Street<br>London<br>SE23 6FH"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "contact information"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Contact details"
+            },
+            value: {
+              html: "<p>07700 900457</p><p>sarah.philips@example.com</p>"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Add",
+                  visuallyHiddenText: "new contact details"
+                },
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "contact details"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      {{ summaryList({
+        attributes: {
+          hidden: "hidden"
+        },
+        border: false,
+        rows: [
+          {
+            key: {
+              text: "Name"
+            },
+            value: {
+              text: "Sarah Philips"
+            }
+          },
+          {
+            key: {
+              text: "Date of birth"
+            },
+            value: {
+              text: "5 January 1978"
+            }
+          },
+          {
+            key: {
+              text: "Contact information"
+            },
+            value: {
+              html: "72 Guild Street<br>London<br>SE23 6FH"
+            }
+          },
+          {
+            key: {
+              text: "Contact details"
+            },
+            value: {
+              html: "<p>07700 900457</p><p>sarah.philips@example.com</p>"
+            }
+          }
+        ]
+      }) }}
+
+      {{ table({
+        attributes: {
+          hidden: "hidden"
+        },
+        head: [
+          {
+            text: "Class name",
+            classes: "nhsuk-u-width-two-thirds"
+          },
+          {
+            text: "Tag",
+            classes: "nhsuk-u-width-one-third"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "nhsuk-tag"
+            },
+            {
+              html: tag({
+                text: "Active"
+              }) | safe
+            }
+          ],
+          [
+            {
+              text: "nhsuk-tag--white"
+            },
+            {
+              html: tag({
+                text: "Started",
+                classes: "nhsuk-tag--white"
+              }) | safe
+            }
+          ],
+          [
+            {
+              text: "nhsuk-tag--grey"
+            },
+            {
+              html: tag({
+                text: "Not started",
+                classes: "nhsuk-tag--grey"
+              }) | safe
+            }
+          ],
+          [
+            {
+              text: "nhsuk-tag--green"
+            },
+            {
+              html: tag({
+                text: "New",
+                classes: "nhsuk-tag--green"
+              }) | safe
+            }
+          ],
+          [
+            {
+              text: "nhsuk-tag--aqua-green"
+            },
+            {
+              html: tag({
+                text: "Active",
+                classes: "nhsuk-tag--aqua-green"
+              }) | safe
+            }
+          ],
+          [
+            {
+              text: "nhsuk-tag--blue"
+            },
+            {
+              html: tag({
+                text: "Pending",
+                classes: "nhsuk-tag--blue"
+              }) | safe
+            }
+          ],
+          [
+            {
+              text: "nhsuk-tag--purple"
+            },
+            {
+              html: tag({
+                text: "Received",
+                classes: "nhsuk-tag--purple"
+              }) | safe
+            }
+          ],
+          [
+            {
+              text: "nhsuk-tag--pink"
+            },
+            {
+              html: tag({
+                text: "Sent",
+                classes: "nhsuk-tag--pink"
+              }) | safe
+            }
+          ],
+          [
+            {
+              text: "nhsuk-tag--red"
+            },
+            {
+              html: tag({
+                text: "Rejected",
+                classes: "nhsuk-tag--red"
+              }) | safe
+            }
+          ],
+          [
+            {
+              text: "nhsuk-tag--orange"
+            },
+            {
+              html: tag({
+                text: "Declined",
+                classes: "nhsuk-tag--orange"
+              }) | safe
+            }
+          ],
+          [
+            {
+              text: "nhsuk-tag--yellow"
+            },
+            {
+              html: tag({
+                text: "Delayed",
+                classes: "nhsuk-tag--yellow"
+              }) | safe
+            }
+          ]
+        ]
+      }) }}
+
+      {{ input({
+        formGroup: {
+          attributes: {
+            hidden: "hidden"
+          }
+        },
+        label: {
+          text: "NHS number"
+        },
+        name: "nhs-number",
+        width: 10,
+        code: true,
+        inputmode: "numeric",
+        spellcheck: false
+      }) }}
+
+      {{ input({
+        formGroup: {
+          attributes: {
+            hidden: "hidden"
+          }
+        },
+        label: {
+          text: "NHS number"
+        },
+        hint: {
+          html: 'This is a 10 digit number (like <span class="nhsuk-u-nowrap">999 123 4567</span>) that you can find on an NHS letter, prescription or in the NHS App'
+        },
+        errorMessage: {
+          text: "Enter your NHS number"
+        },
+        name: "nhs-number-error",
+        width: 10,
+        code: true,
+        inputmode: "numeric",
+        spellcheck: false
+      }) }}
+
+      {{ fileUpload({
+        formGroup: {
+          attributes: {
+            hidden: "hidden"
+          }
+        },
+        label: {
+          text: "Upload a file"
+        },
+        name: "file"
+      }) }}
+
+      {{ fileUpload({
+        formGroup: {
+          attributes: {
+            hidden: "hidden"
+          }
+        },
+        label: {
+          text: "Upload a file"
+        },
+        hint: {
+          text: "Upload a CSV or Excel file"
+        },
+        errorMessage: {
+          text: "The CSV must be smaller than 2MB"
+        },
+        name: "fileHint",
+        id: "file-hint"
+      }) }}
+
+      <form method="post" novalidate hidden>
+        {{ checkboxes({
+          attributes: {
+            hidden: "hidden"
+          },
+          fieldset: {
+            legend: {
+              text: "What is your nationality?"
+            }
+          },
+          hint: {
+            text: "If you have more than 1 nationality, select all options that are relevant to you"
+          },
+          name: "nationality",
+          values: ["british"],
+          items: [
+            {
+              value: "british",
+              text: "British"
+            },
+            {
+              value: "irish",
+              text: "Irish"
+            },
+            {
+              value: "other",
+              text: "citizen of another country"
+            }
+          ]
+        }) }}
+      </form>
+
+      {{ radios({
+        formGroup: {
+          attributes: {
+            hidden: "hidden"
+          }
+        },
+        fieldset: {
+          legend: {
+            text: "Have you changed your name?"
+          }
+        },
+        hint: {
+          text: "This includes changing your last name or spelling your name differently"
+        },
+        name: "example",
+        value: "no",
+        items: [
+          {
+            value: "yes",
+            text: "Yes"
+          },
+          {
+            value: "no",
+            text: "No"
+          }
+        ]
+      }) }}
+
+      {{ dateInput({
+        formGroup: {
+          attributes: {
+            hidden: "hidden"
+          }
+        },
+        id: "dob",
+        namePrefix: "dob",
+        fieldset: {
+          legend: {
+            text: "What is your date of birth?"
+          }
+        },
+        hint: {
+          text: "For example, 31 3 1980"
+        },
+        items: [
+          {
+            name: "day",
+            width: 2
+          },
+          {
+            name: "month",
+            width: 2
+          },
+          {
+            name: "year",
+            width: 4
+          }
+        ]
+      }) }}
+
+      {{ textarea({
+        formGroup: {
+          attributes: {
+            hidden: "hidden"
+          }
+        },
+        name: "more-detail-textarea",
+        label: {
+          text: "Can you provide more detail?"
+        },
+        hint: {
+          text: "Do not include personal information like your name, date of birth or NHS number"
+        }
+      }) }}
+
+      {{ characterCount({
+        formGroup: {
+          attributes: {
+            hidden: "hidden"
+          }
+        },
+        label: {
+          text: "Can you provide more detail?"
+        },
+        hint: {
+          text: "Do not include personal information like your name, date of birth or NHS number"
+        },
+        name: "more-detail-character-count",
+        maxlength: 200
+      }) }}
+
+      {{ select({
+        formGroup: {
+          attributes: {
+            hidden: "hidden"
+          }
+        },
+        label: {
+          text: "Sort by"
+        },
+        name: "sort",
+        value: "updated",
+        items: [
+          {
+            value: "published",
+            text: "Recently published"
+          },
+          {
+            value: "updated",
+            text: "Recently updated"
+          },
+          {
+            value: "views",
+            text: "Most views"
+          },
+          {
+            value: "comments",
+            text: "Most comments"
+          }
+        ]
+      }) }}
+
+      <div class="nhsuk-button-group" hidden="hidden">
+
+        {{ button({
+          text: "Save and continue"
+        }) }}
+
+        {{ button({
+          text: "Yes, delete this vaccine",
+          variant: "warning"
+        }) }}
+
+        {{ button({
+          text: "Continue",
+          variant: "login"
+        }) }}
+
+        {{ button({
+          text: "Find my location",
+          variant: "secondary"
+        }) }}
+
+      </div>
+
+      {{ backLink({
+        attributes: {
+          hidden: "hidden"
+        },
+        href: baseUrl
+      }) }}
+
+      <br>
+
+      {% set tab1Content %}
+        <h2>Tab 1 content</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      {% endset -%}
+
+      {% set tab2Content %}
+        <h2>Tab 2 content</h2>
+        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+      {% endset -%}
+
+      {% set tab3Content %}
+        <h2>Tab 3 content</h2>
+        <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+      {% endset -%}
+
+      {{ tabs({
+        attributes: {
+          hidden: "hidden"
+        },
+        items: [
+          {
+            label: "Tab 1",
+            id: "tab-1",
+            panel: {
+              html: tab1Content
+            }
+          },
+          {
+            label: "Tab 2",
+            id: "tab-2",
+            panel: {
+              html: tab2Content
+            }
+          },
+          {
+            label: "Tab 3",
+            id: "tab-3",
+            panel: {
+              html: tab3Content
+            }
+          }
+        ]
+      }) }}
+    </div>
+  </div>
+{% endblock %}

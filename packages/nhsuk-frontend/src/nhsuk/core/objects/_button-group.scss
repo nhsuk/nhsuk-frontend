@@ -3,6 +3,12 @@
 @use "../tools" as *;
 
 @include nhsuk-exports("nhsuk/core/objects/button-group") {
+
+  // Hide hidden button groups
+  .nhsuk-button-group[hidden] {
+    display: none;
+  }
+
   // Button groups can be used to group buttons and links together as a group.
   //
   // Within a button group:
