@@ -311,9 +311,11 @@ export function getOptions(name, example) {
 /**
  * Get property value for element
  *
- * @param {ElementHandle | null} $element - Puppeteer element handle
- * @param {string} propertyName - Property name to return value for
- * @returns {Promise<unknown>} Property value
+ * @template {Element} ElementType
+ * @template {keyof ElementType} PropertyType
+ * @param {ElementHandle<ElementType> | null | undefined} $element - Puppeteer element handle
+ * @param {PropertyType} propertyName - Property name to return value for
+ * @returns {Promise<ElementType[PropertyType]>} Property value
  */
 export async function getProperty($element, propertyName) {
   if (!$element) {
@@ -321,13 +323,13 @@ export async function getProperty($element, propertyName) {
   }
 
   const handle = await $element.getProperty(propertyName)
-  return handle.jsonValue()
+  return /** @type {ElementType[PropertyType]} */ (await handle.jsonValue())
 }
 
 /**
  * Get attribute value for element
  *
- * @param {ElementHandle | null} $element - Puppeteer element handle
+ * @param {ElementHandle | null | undefined} $element - Puppeteer element handle
  * @param {string} attributeName - Attribute name to return value for
  * @returns {Promise<string | null>} Attribute value
  */
@@ -343,7 +345,7 @@ export function getAttribute($element, attributeName) {
  * Gets the accessible name of the given element, if it exists in the accessibility tree
  *
  * @param {Page} page - Puppeteer page object
- * @param {ElementHandle | null} $element - Puppeteer element handle
+ * @param {ElementHandle | null | undefined} $element - Puppeteer element handle
  * @returns {Promise<string>} The element's accessible name
  * @throws {TypeError} If the element has no corresponding node in the accessibility tree
  */
@@ -373,7 +375,7 @@ export async function getAccessibleName(page, $element) {
 /**
  * Get text content for element
  *
- * @param {ElementHandle | null} $element - Puppeteer element handle
+ * @param {ElementHandle | null | undefined} $element - Puppeteer element handle
  * @returns {Promise<string>} Text content
  */
 export async function getText($element) {
@@ -383,7 +385,7 @@ export async function getText($element) {
 /**
  * Get HTML content for element
  *
- * @param {ElementHandle | null} $element - Puppeteer element handle
+ * @param {ElementHandle | null | undefined} $element - Puppeteer element handle
  * @returns {Promise<string>} HTML content
  */
 export async function getHtml($element) {
@@ -393,7 +395,7 @@ export async function getHtml($element) {
 /**
  * Check if element is visible
  *
- * @param {ElementHandle | null} $element - Puppeteer element handle
+ * @param {ElementHandle | null | undefined} $element - Puppeteer element handle
  * @returns {Promise<boolean>} Element visibility
  */
 export async function isVisible($element) {

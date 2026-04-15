@@ -44,7 +44,7 @@ describe('Checkboxes', () => {
         /** @type {ElementHandle} */
         let $component
 
-        /** @type {ElementHandle[]} */
+        /** @type {ElementHandle<HTMLInputElement>[]} */
         let $inputs
 
         /** @type {ElementHandle[]} */
@@ -57,7 +57,7 @@ describe('Checkboxes', () => {
             await page.$('.nhsuk-checkboxes')
           )
 
-          $inputs = await $component.$$('.nhsuk-checkboxes__input')
+          $inputs = await $component.$$('input.nhsuk-checkboxes__input')
           $conditionals = await $component.$$('.nhsuk-checkboxes__conditional')
         })
 
@@ -70,6 +70,7 @@ describe('Checkboxes', () => {
           const $inputsWithAriaExpanded = await $component?.$$(
             '.nhsuk-checkboxes__input[aria-expanded]'
           )
+
           const $inputsWithAriaControls = await $component?.$$(
             '.nhsuk-checkboxes__input[aria-controls]'
           )
@@ -93,7 +94,7 @@ describe('Checkboxes', () => {
         /** @type {ElementHandle} */
         let $component
 
-        /** @type {ElementHandle[]} */
+        /** @type {ElementHandle<HTMLInputElement>[]} */
         let $inputs
 
         beforeAll(async () => {
@@ -103,7 +104,7 @@ describe('Checkboxes', () => {
             await page.$('.nhsuk-checkboxes')
           )
 
-          $inputs = await $component.$$('.nhsuk-checkboxes__input')
+          $inputs = await $component.$$('input.nhsuk-checkboxes__input')
         })
 
         it('has conditional content revealed that is associated with a checked input', async () => {
@@ -131,7 +132,7 @@ describe('Checkboxes', () => {
         /** @type {ElementHandle} */
         let $component
 
-        /** @type {ElementHandle[]} */
+        /** @type {ElementHandle<HTMLInputElement>[]} */
         let $inputs
 
         beforeEach(async () => {
@@ -141,7 +142,7 @@ describe('Checkboxes', () => {
             await page.$('.nhsuk-checkboxes')
           )
 
-          $inputs = await $component.$$('.nhsuk-checkboxes__input')
+          $inputs = await $component.$$('input.nhsuk-checkboxes__input')
         })
 
         it('indicates when conditional content is collapsed or revealed', async () => {
@@ -231,7 +232,7 @@ describe('Checkboxes', () => {
       /** @type {ElementHandle} */
       let $component
 
-      /** @type {ElementHandle[]} */
+      /** @type {ElementHandle<HTMLInputElement>[]} */
       let $inputs
 
       beforeEach(async () => {
@@ -245,7 +246,7 @@ describe('Checkboxes', () => {
           await page.$('.nhsuk-checkboxes')
         )
 
-        $inputs = await $component.$$('.nhsuk-checkboxes__input')
+        $inputs = await $component.$$('input.nhsuk-checkboxes__input')
       })
 
       it('unchecks other checkboxes when the "none of the above" option is checked', async () => {
@@ -281,7 +282,7 @@ describe('Checkboxes', () => {
       /** @type {ElementHandle} */
       let $component
 
-      /** @type {ElementHandle[]} */
+      /** @type {ElementHandle<HTMLInputElement>[]} */
       let $inputs
 
       beforeEach(async () => {
@@ -295,7 +296,7 @@ describe('Checkboxes', () => {
           await page.$('.nhsuk-checkboxes')
         )
 
-        $inputs = await $component.$$('.nhsuk-checkboxes__input')
+        $inputs = await $component.$$('input.nhsuk-checkboxes__input')
       })
 
       it('unchecks other checkboxes and hides conditional content when the "none of the above" option is checked', async () => {
@@ -324,26 +325,28 @@ describe('Checkboxes', () => {
 
   describe('with multiple groups and a "none of the above" option and conditional content', () => {
     describe('when JavaScript is available', () => {
-      /** @type {ElementHandle[]} */
+      /** @type {ElementHandle<HTMLInputElement>[]} */
       let $inputsPrimary
 
-      /** @type {ElementHandle[]} */
+      /** @type {ElementHandle<HTMLInputElement>[]} */
       let $inputsSecondary
 
-      /** @type {ElementHandle[]} */
+      /** @type {ElementHandle<HTMLInputElement>[]} */
       let $inputsOther
 
       beforeEach(async () => {
         await goToExample(page, 'conditional-reveals')
 
         $inputsPrimary = await page.$$(
-          '.nhsuk-checkboxes__input[id^="colour-primary"]'
+          'input.nhsuk-checkboxes__input[id^="colour-primary"]'
         )
+
         $inputsSecondary = await page.$$(
-          '.nhsuk-checkboxes__input[id^="colour-secondary"]'
+          'input.nhsuk-checkboxes__input[id^="colour-secondary"]'
         )
+
         $inputsOther = await page.$$(
-          '.nhsuk-checkboxes__input[id^="colour-other"]'
+          'input.nhsuk-checkboxes__input[id^="colour-other"]'
         )
       })
 
