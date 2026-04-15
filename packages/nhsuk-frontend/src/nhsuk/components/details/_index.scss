@@ -25,7 +25,7 @@ $nhsuk-expander-border-hover-colour: $nhsuk-secondary-border-colour;
 $nhsuk-expander-icon-size: 27px; // 19px font size + 4px summary text padding
 
 @include nhsuk-exports("nhsuk/components/details") {
-  .nhsuk-details:not([hidden]) {
+  .nhsuk-details {
     display: block;
     @include nhsuk-text-colour;
     @include nhsuk-font-size(19);

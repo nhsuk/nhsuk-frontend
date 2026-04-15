@@ -13,7 +13,7 @@
 @include nhsuk-exports("nhsuk/components/back-link") {
   $_font-size: 16;
 
-  .nhsuk-back-link:not([hidden]) {
+  .nhsuk-back-link {
     box-sizing: border-box;
     display: inline-block;
 

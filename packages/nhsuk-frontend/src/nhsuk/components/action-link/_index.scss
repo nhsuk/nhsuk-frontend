@@ -21,7 +21,7 @@
   $_large-icon-size: nhsuk-px-to-rem(36px);
   $_large-icon-spacing: math.div($_large-icon-size, 10);
 
-  .nhsuk-action-link:not([hidden]) {
+  .nhsuk-action-link {
     box-sizing: border-box;
     display: inline-block; // [1]
     position: relative; // [3]

@@ -19,7 +19,7 @@
   $_icon-size: nhsuk-em($nhsuk-icon-size-large, 26px);
   $_small-icon-size: nhsuk-em($nhsuk-icon-size, 19px);
 
-  .nhsuk-pagination:not([hidden]) {
+  .nhsuk-pagination {
     box-sizing: border-box;
     @include nhsuk-responsive-margin(7, "top");
     @include nhsuk-responsive-margin(7, "bottom");
@@ -109,7 +109,7 @@
 
   // Flexbox enhancement for small screen visual design
   // Falls back to a float: left layout on non-flex browsers
-  .nhsuk-pagination--numbered:not([hidden]) {
+  .nhsuk-pagination--numbered {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
