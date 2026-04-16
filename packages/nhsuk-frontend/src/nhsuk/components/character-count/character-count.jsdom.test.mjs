@@ -44,7 +44,7 @@ describe('Character count', () => {
       initCharacterCounts()
 
       expect($textarea.addEventListener).toHaveBeenCalledWith(
-        'keyup',
+        'input',
         expect.any(Function)
       )
 
