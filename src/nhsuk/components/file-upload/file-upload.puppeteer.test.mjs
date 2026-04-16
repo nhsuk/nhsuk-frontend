@@ -237,26 +237,26 @@ describe('File upload', () => {
     })
 
     describe('dropzone', () => {
-      /** @type {BoundingBox} */
-      let wrapperBoundingBox
-
       /**
        * Shared data to drag on the element
        *
        * @type {Protocol.Input.DragData}
        */
-      const dragData = {
-        items: [],
-        files: [__filename],
-        dragOperationsMask: 1 // Copy
-      }
+      let dragData
+
+      /** @type {Point} */
+      let dragPosition
 
       beforeEach(async () => {
         await initExample('default')
 
-        wrapperBoundingBox = /** @type {BoundingBox} */ (
-          await $dropZone?.boundingBox()
-        )
+        dragData = {
+          items: [],
+          files: [import.meta.filename],
+          dragOperationsMask: 1 // Copy
+        }
+
+        dragPosition = await $dropZone.clickablePoint({ x: 0, y: 0 })
       })
 
       it('is not shown by default', async () => {
@@ -273,11 +273,7 @@ describe('File upload', () => {
       })
 
       it('gets shown when entering the field', async () => {
-        // Add a little pixel to make sure we're effectively within the element
-        await page.mouse.dragEnter(
-          { x: wrapperBoundingBox.x + 1, y: wrapperBoundingBox.y + 1 },
-          structuredClone(dragData)
-        )
+        await page.mouse.dragEnter(dragPosition, dragData)
 
         expect(await getAttribute($dropButton, 'class')).toContain(
           'nhsuk-file-upload__drop-button--dragging'
@@ -290,15 +286,8 @@ describe('File upload', () => {
         // Puppeteer's Mouse.drop is meant to do both the `dragEnter` and
         // `drop` in a row but it seems to do this too quickly for the
         // `<input>` to effectively receive the drop
-        await page.mouse.dragEnter(
-          { x: wrapperBoundingBox.x + 1, y: wrapperBoundingBox.y + 1 },
-          structuredClone(dragData)
-        )
-
-        await page.mouse.drop(
-          { x: wrapperBoundingBox.x + 1, y: wrapperBoundingBox.y + 1 },
-          structuredClone(dragData)
-        )
+        await page.mouse.dragEnter(dragPosition, dragData)
+        await page.mouse.drop(dragPosition, dragData)
 
         expect(await getAttribute($dropButton, 'class')).not.toContain(
           'nhsuk-file-upload__drop-button--dragging'
@@ -310,18 +299,13 @@ describe('File upload', () => {
       })
 
       it('gets hidden when dragging a file and leaving the field', async () => {
-        // Add a little pixel to make sure we're effectively within the element
-        await page.mouse.dragEnter(
-          { x: wrapperBoundingBox.x + 1, y: wrapperBoundingBox.y + 1 },
-          structuredClone(dragData)
-        )
+        await page.mouse.dragEnter(dragPosition, dragData)
 
         // Move enough to the left to be out of the wrapper properly
         // but not up or down in case there's other elements in the flow of the page
-        await page.mouse.dragEnter(
-          { x: wrapperBoundingBox.x - 20, y: wrapperBoundingBox.y },
-          structuredClone(dragData)
-        )
+        dragPosition.x -= 20
+
+        await page.mouse.dragEnter(dragPosition, dragData)
 
         expect(await getAttribute($dropButton, 'class')).not.toContain(
           'nhsuk-file-upload__drop-button--dragging'
@@ -331,11 +315,7 @@ describe('File upload', () => {
       })
 
       it('gets hidden when dragging a file and leaving the document', async () => {
-        // Add a little pixel to make sure we're effectively within the element
-        await page.mouse.dragEnter(
-          { x: wrapperBoundingBox.x + 1, y: wrapperBoundingBox.y + 1 },
-          structuredClone(dragData)
-        )
+        await page.mouse.dragEnter(dragPosition, dragData)
 
         // It doesn't seem doable to make Puppeteer drag outside the viewport
         // so instead, we can only mock two 'dragleave' events
@@ -354,10 +334,7 @@ describe('File upload', () => {
       it('does not appear if button disabled', async () => {
         await initExample('disabled')
 
-        await page.mouse.dragEnter(
-          { x: wrapperBoundingBox.x + 1, y: wrapperBoundingBox.y + 1 },
-          structuredClone(dragData)
-        )
+        await page.mouse.dragEnter(dragPosition, dragData)
 
         expect(await getAttribute($dropButton, 'class')).not.toContain(
           'nhsuk-file-upload__drop-button--dragging'
@@ -683,5 +660,5 @@ describe('File upload', () => {
 
 /**
  * @import { BrowserRenderOptions } from '@nhsuk/frontend-helpers/puppeteer.mjs'
- * @import { BoundingBox, ElementHandle, Protocol } from 'puppeteer'
+ * @import { ElementHandle, Point, Protocol } from 'puppeteer'
  */
