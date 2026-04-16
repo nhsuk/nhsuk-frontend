@@ -17,6 +17,8 @@ import { I18n } from '../../i18n.mjs'
  * @augments {ConfigurableComponent<CharacterCountConfig>}
  */
 export class CharacterCount extends ConfigurableComponent {
+  count = 0
+
   /**
    * @type {number | null}
    */
@@ -135,11 +137,20 @@ export class CharacterCount extends ConfigurableComponent {
     // When the page is restored after navigating 'back' in some browsers the
     // state of form controls is not restored until *after* the DOMContentLoaded
     // event is fired, so we need to sync after the pageshow event.
-    window.addEventListener('pageshow', () => this.updateCountMessage())
+    window.addEventListener('pageshow', () => {
+      // If the current value of the textarea is the same as what's
+      // in the HTML, don't re-run when users have not edited the field yet
+      // (new page load or BF cache navigation without having edited).
+      if (this.$textarea.value !== this.$textarea.textContent) {
+        this.updateCount()
+        this.updateCountMessage()
+      }
+    })
 
     // Although we've set up handlers to sync state on the pageshow event, init
     // could be called after those events have fired, for example if they are
     // added to the page dynamically, so update now too.
+    this.updateCount()
     this.updateCountMessage()
   }
 
@@ -167,18 +178,18 @@ export class CharacterCount extends ConfigurableComponent {
 
   /**
    * Count the number of characters (or words, if `config.maxwords` is set)
-   * in the given text
-   *
-   * @param {string} text - The text to count the characters of
-   * @returns {number} the number of characters (or words) in the text
+   * in the given text, and update the component-wide count
    */
-  count(text) {
+  updateCount() {
+    const text = this.$textarea.value
+
     if (this.config.maxwords) {
       const tokens = text.match(/\S+/g) ?? [] // Matches consecutive non-whitespace chars
-      return tokens.length
+      this.count = tokens.length
+      return
     }
 
-    return text.length
+    this.count = text.length
   }
 
   /**
@@ -188,7 +199,7 @@ export class CharacterCount extends ConfigurableComponent {
    * when the user types.
    */
   bindChangeEvents() {
-    this.$textarea.addEventListener('keyup', () => this.handleKeyUp())
+    this.$textarea.addEventListener('input', () => this.handleInput())
 
     // Bind focus/blur events to start/stop polling
     this.$textarea.addEventListener('focus', () => this.handleFocus())
@@ -198,7 +209,7 @@ export class CharacterCount extends ConfigurableComponent {
   /**
    * Update count message if textarea value has changed
    */
-  checkIfValueChanged() {
+  updateIfValueChanged() {
     if (this.$textarea.value !== this.lastInputValue) {
       this.lastInputValue = this.$textarea.value
       this.updateCountMessage()
@@ -220,7 +231,7 @@ export class CharacterCount extends ConfigurableComponent {
    * Update visible count message
    */
   updateVisibleCountMessage() {
-    const remainingNumber = this.maxLength - this.count(this.$textarea.value)
+    const remainingNumber = this.maxLength - this.count
     const isError = remainingNumber < 0
 
     // If input is over the threshold, show the count message
@@ -241,7 +252,7 @@ export class CharacterCount extends ConfigurableComponent {
     this.$visibleCountMessage.classList.toggle('nhsuk-hint', !isError)
 
     // Update message
-    this.$visibleCountMessage.textContent = this.formattedUpdateMessage()
+    this.$visibleCountMessage.textContent = this.getCountMessage()
   }
 
   /**
@@ -257,7 +268,7 @@ export class CharacterCount extends ConfigurableComponent {
     }
 
     // Update message
-    this.$screenReaderCountMessage.textContent = this.formattedUpdateMessage()
+    this.$screenReaderCountMessage.textContent = this.getCountMessage()
   }
 
   /**
@@ -265,8 +276,8 @@ export class CharacterCount extends ConfigurableComponent {
    *
    * @returns {string} Status message
    */
-  formattedUpdateMessage() {
-    const remainingNumber = this.maxLength - this.count(this.$textarea.value)
+  getCountMessage() {
+    const remainingNumber = this.maxLength - this.count
     const countType = this.config.maxwords ? 'words' : 'characters'
     return this.formatCountMessage(remainingNumber, countType)
   }
@@ -309,7 +320,7 @@ export class CharacterCount extends ConfigurableComponent {
     }
 
     // Determine the remaining number of characters/words
-    const currentLength = this.count(this.$textarea.value)
+    const currentLength = this.count
     const maxLength = this.maxLength
 
     const thresholdValue = (maxLength * this.config.threshold) / 100
@@ -318,12 +329,13 @@ export class CharacterCount extends ConfigurableComponent {
   }
 
   /**
-   * Handle key up event
+   * Handle input event
    *
    * Update the visible character counter and keep track of when the last update
    * happened for each keypress
    */
-  handleKeyUp() {
+  handleInput() {
+    this.updateCount()
     this.updateVisibleCountMessage()
     this.lastInputTimestamp = Date.now()
   }
@@ -347,7 +359,7 @@ export class CharacterCount extends ConfigurableComponent {
         !this.lastInputTimestamp ||
         Date.now() - 500 >= this.lastInputTimestamp
       ) {
-        this.checkIfValueChanged()
+        this.updateIfValueChanged()
       }
     }, 1000)
   }
