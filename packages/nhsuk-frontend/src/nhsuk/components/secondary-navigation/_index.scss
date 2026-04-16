@@ -43,11 +43,13 @@
 
     @include nhsuk-font(19);
 
+    // Reduced gap on tablet
     @include nhsuk-media-query($from: tablet) {
       flex-flow: row wrap;
       gap: nhsuk-spacing(2) nhsuk-spacing(4);
     }
 
+    // Larger gap on desktop
     @include nhsuk-media-query($from: desktop) {
       gap: nhsuk-spacing(2) nhsuk-spacing(5);
     }
@@ -133,12 +135,12 @@
   .nhsuk-secondary-navigation__count {
     display: inline-block;
 
-    min-width: nhsuk-spacing(4);
+    min-width: nhsuk-px-to-rem(nhsuk-spacing(2));
     margin-left: nhsuk-spacing(2);
-    padding-right: nhsuk-spacing(2);
-    padding-left: nhsuk-spacing(2);
+    padding-right: nhsuk-px-to-rem(nhsuk-spacing(2));
+    padding-left: nhsuk-px-to-rem(nhsuk-spacing(2));
 
-    border-radius: nhsuk-spacing(3);
+    border-radius: nhsuk-px-to-rem(nhsuk-spacing(3));
 
     // White text on a semi-transparent darkened link-colour background,
     // so the badge reads as a distinct pill regardless of item state.
