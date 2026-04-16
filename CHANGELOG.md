@@ -193,6 +193,7 @@ This change was introduced in [pull request #1898: Update reverse button colour 
 
 ### :wrench: **Fixes**
 
+- [#1890: Refactor character count method to reduce repeated updates](https://github.com/nhsuk/nhsuk-frontend/pull/1890)
 - [#1904: Make sure Nunjucks text-only options for card heading, label and legend are escaped](https://github.com/nhsuk/nhsuk-frontend/pull/1904)
 
 ## 10.4.2 - 25 March 2026
