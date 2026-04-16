@@ -500,22 +500,31 @@ describe('Character count', () => {
         })
       })
 
-      describe('when data-attributes are present', () => {
-        it('uses `maxlength` data attribute instead of the JS one', async () => {
+      describe('with HTML data attributes', () => {
+        it('uses `maxlength` data attribute instead of JavaScript `maxlength`', async () => {
           await initExample('default', {
             config: {
-              maxlength: 202 // JS configuration that would tell 1 character remaining
+              maxlength: 202
             }
           })
 
           await $textarea.type('A'.repeat(201))
 
+          // Wait for debounced update to happen
+          await timers.setTimeout(debouncedWaitTime)
+
+          expect(await getText($visibleCountMessage)).not.toBe(
+            // JavaScript config `maxlength: 202` above is overridden
+            'You have 1 character remaining'
+          )
+
           expect(await getText($visibleCountMessage)).toBe(
+            // HTML data attribute `maxlength: 200` applied from fixture
             'You have 1 character too many'
           )
         })
 
-        it("uses `maxlength` data attribute instead of JS's `maxwords`", async () => {
+        it('uses `maxlength` data attribute instead of JavaScript `maxwords`', async () => {
           await initExample('default', {
             config: {
               maxwords: 202
@@ -524,26 +533,41 @@ describe('Character count', () => {
 
           await $textarea.type('A'.repeat(201))
 
+          expect(await getText($visibleCountMessage)).not.toBe(
+            // JavaScript config `maxwords: 202` above is overridden
+            'You have 201 words remaining'
+          )
+
           expect(await getText($visibleCountMessage)).toBe(
+            // HTML data attribute `maxlength: 200` applied from fixture
             'You have 1 character too many'
           )
         })
 
-        it('uses `maxwords` data attribute instead of the JS one', async () => {
+        it('uses `maxwords` data attribute instead of JavaScript `maxwords`', async () => {
           await initExample('with word count', {
             config: {
-              maxwords: 152 // JS configuration that would tell 1 word remaining
+              maxwords: 152
             }
           })
 
           await $textarea.type('Hello '.repeat(151))
 
+          // Wait for debounced update to happen
+          await timers.setTimeout(debouncedWaitTime)
+
+          expect(await getText($visibleCountMessage)).not.toBe(
+            // JavaScript config `maxwords: 152` above is overridden
+            'You have 1 word remaining'
+          )
+
           expect(await getText($visibleCountMessage)).toBe(
+            // HTML data attribute `maxwords: 150` applied from fixture
             'You have 1 word too many'
           )
         })
 
-        it("uses `maxwords` data attribute instead of the JS's `maxlength`", async () => {
+        it('uses `maxwords` data attribute instead of JavaScript `maxlength`', async () => {
           await initExample('with word count', {
             config: {
               maxlength: 150
@@ -552,7 +576,16 @@ describe('Character count', () => {
 
           await $textarea.type('Hello '.repeat(151))
 
+          // Wait for debounced update to happen
+          await timers.setTimeout(debouncedWaitTime)
+
+          expect(await getText($visibleCountMessage)).not.toBe(
+            // JavaScript config `maxlength: 150` above is overridden
+            'You have 756 characters too many'
+          )
+
           expect(await getText($visibleCountMessage)).toBe(
+            // HTML data attribute `maxwords: 150` applied from fixture
             'You have 1 word too many'
           )
         })
