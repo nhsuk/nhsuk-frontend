@@ -17,8 +17,8 @@
   {%- endif %}
   {{- nhsukAttributes(params.attributes) }}>
   <ul class="nhsuk-secondary-navigation__list">
-  {%- for item in params.items %}
-    {%- if item %}
+  {% for item in params.items -%}
+    {%- if item -%}
     {%- set itemInnerAttributesHtml %}
       {{- nhsukAttributes({
         class: "nhsuk-secondary-navigation__link",
@@ -31,7 +31,7 @@
           optional: true
         }
       }) -}}
-    {%- endset %}
+    {%- endset -%}
 
     {%- set itemCountHtml -%}
       {#- Need to use 'is defined' so that counts of 0 are still rendered -#}
@@ -42,7 +42,7 @@
     {%- endset -%}
 
     {%- set itemInnerContent %}
-      {%- if item.current -%}
+      {% if item.current -%}
         {#- Wrap active links in strong element so users who override colours
           or styles still have some indicator of the current nav item. -#}
         <strong class="nhsuk-secondary-navigation__current">
@@ -56,17 +56,17 @@
     {%- endset %}
     <li class="nhsuk-secondary-navigation__item{%- if item.current %} nhsuk-secondary-navigation__item--current{%- endif -%}{%- if item.classes %} {{ item.classes }}{%- endif -%}"
       {{- nhsukAttributes(item.attributes) }}>
-      {%- if item.href %}
+      {% if item.href %}
       <a {{- itemInnerAttributesHtml | safe }}>
         {{- itemInnerContent | safe -}}
       </a>
-      {%- else %}
+      {% else %}
       <span {{- itemInnerAttributesHtml | safe }}>
         {{- itemInnerContent | safe -}}
       </span>
-      {%- endif %}
+      {% endif %}
     </li>
-    {%- endif %}
+    {% endif %}
   {%- endfor %}
   </ul>
 </nav>
