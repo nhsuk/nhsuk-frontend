@@ -17,7 +17,7 @@ import { I18n } from '../../i18n.mjs'
  * @augments {ConfigurableComponent<CharacterCountConfig>}
  */
 export class CharacterCount extends ConfigurableComponent {
-  count = 0
+  length = 0
 
   /**
    * @type {number | null}
@@ -185,11 +185,11 @@ export class CharacterCount extends ConfigurableComponent {
 
     if (this.config.maxwords) {
       const tokens = text.match(/\S+/g) ?? [] // Matches consecutive non-whitespace chars
-      this.count = tokens.length
+      this.length = tokens.length
       return
     }
 
-    this.count = text.length
+    this.length = text.length
   }
 
   /**
@@ -231,7 +231,7 @@ export class CharacterCount extends ConfigurableComponent {
    * Update visible count message
    */
   updateVisibleCountMessage() {
-    const remainingNumber = this.maxLength - this.count
+    const remainingNumber = this.maxLength - this.length
     const isError = remainingNumber < 0
 
     // If input is over the threshold, show the count message
@@ -277,7 +277,7 @@ export class CharacterCount extends ConfigurableComponent {
    * @returns {string} Status message
    */
   getCountMessage() {
-    const remainingNumber = this.maxLength - this.count
+    const remainingNumber = this.maxLength - this.length
     const countType = this.config.maxwords ? 'words' : 'characters'
     return this.formatCountMessage(remainingNumber, countType)
   }
@@ -320,7 +320,7 @@ export class CharacterCount extends ConfigurableComponent {
     }
 
     // Determine the remaining number of characters/words
-    const currentLength = this.count
+    const currentLength = this.length
     const maxLength = this.maxLength
 
     const thresholdValue = (maxLength * this.config.threshold) / 100
