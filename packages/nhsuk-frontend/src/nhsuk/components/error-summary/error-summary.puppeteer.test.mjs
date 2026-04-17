@@ -143,7 +143,7 @@ describe('Error summary', () => {
 
   describe('JavaScript configuration', () => {
     describe('during initialisation', () => {
-      it("configures 'disableAutoFocus: true' to prevent auto-focus", async () => {
+      it('configures `disableAutoFocus: true` to prevent auto-focus', async () => {
         await initExample('default', {
           config: {
             disableAutoFocus: true
@@ -161,7 +161,7 @@ describe('Error summary', () => {
         expect(activeElementModuleName).not.toBe(ErrorSummary.moduleName)
       })
 
-      it("configures 'disableAutoFocus: false' to explicitly enable auto-focus", async () => {
+      it('configures `disableAutoFocus: false` to explicitly enable auto-focus', async () => {
         await initExample('default', {
           config: {
             disableAutoFocus: false
@@ -181,7 +181,7 @@ describe('Error summary', () => {
     })
 
     describe('with HTML data attributes', () => {
-      it("configures 'disableAutoFocus: true' to prevent auto-focus", async () => {
+      it('configures `disableAutoFocus: true` to prevent auto-focus', async () => {
         await initExample('auto-focus disabled')
 
         const activeElementModuleName = await page.evaluate(() =>
@@ -195,7 +195,7 @@ describe('Error summary', () => {
         expect(activeElementModuleName).not.toBe(ErrorSummary.moduleName)
       })
 
-      it("configures 'disableAutoFocus: false' to explicitly enable auto-focus", async () => {
+      it('configures `disableAutoFocus: false` to explicitly enable auto-focus', async () => {
         await initExample('auto-focus explicitly enabled')
 
         const activeElementModuleName = await page.evaluate(() =>

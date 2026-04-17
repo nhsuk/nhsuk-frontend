@@ -392,7 +392,7 @@ describe('Character count', () => {
 
     describe('JavaScript configuration', () => {
       describe('during initialisation', () => {
-        it("configures 'maxlength'", async () => {
+        it('configures `maxlength`', async () => {
           await initExample('to configure in JavaScript', {
             config: {
               maxlength: 10
@@ -406,7 +406,7 @@ describe('Character count', () => {
           )
         })
 
-        it("configures 'maxwords'", async () => {
+        it('configures `maxwords`', async () => {
           await initExample('to configure in JavaScript', {
             config: {
               maxwords: 10
@@ -420,7 +420,7 @@ describe('Character count', () => {
           )
         })
 
-        it("configures 'threshold'", async () => {
+        it('configures `threshold`', async () => {
           await initExample('to configure in JavaScript', {
             config: {
               maxlength: 10,
