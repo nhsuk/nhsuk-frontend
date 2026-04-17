@@ -1,11 +1,27 @@
-import { render } from '@nhsuk/frontend-helpers/puppeteer.mjs'
+import { getAttribute, render } from '@nhsuk/frontend-helpers/puppeteer.mjs'
 
 import { examples } from './fixtures.mjs'
 
-describe('Skip Link', () => {
+describe('Skip link', () => {
+  /** @type {ElementHandle<HTMLElement>} */
+  let $main
+
+  /**
+   * @template {object} HandlerContext
+   * @param {keyof typeof examples} example
+   * @param {BrowserRenderOptions<HandlerContext>} [browserOptions] - Puppeteer browser render options
+   */
+  async function initExample(example, browserOptions) {
+    await render(page, 'skip-link', examples[example], browserOptions)
+
+    $main = /** @type {ElementHandle<HTMLElement>} */ (
+      await page.$('#maincontent')
+    )
+  }
+
   describe('Focus handling', () => {
     beforeAll(async () => {
-      await render(page, 'skip-link', examples.default)
+      await initExample('default')
       await page.keyboard.press('Tab')
       await page.keyboard.press('Enter')
     })
@@ -15,56 +31,38 @@ describe('Skip Link', () => {
         () => document.activeElement?.id
       )
 
-      expect(activeElementId).toBe('maincontent')
+      expect(activeElementId).toBe(await getAttribute($main, 'id'))
     })
 
     it('adds the tabindex attribute to the linked element', async () => {
-      const tabindex = await page.$eval('#maincontent', (el) =>
-        el.getAttribute('tabindex')
-      )
-
-      expect(tabindex).toBe('-1')
+      expect(await getAttribute($main, 'tabindex')).toBe('-1')
     })
 
     it('adds the class for removing the native focus style to the linked element', async () => {
-      const cssClass = await page.$eval('#maincontent', (el) =>
-        el.classList.contains('nhsuk-skip-link-focused-element')
+      expect(await getAttribute($main, 'class')).toContain(
+        'nhsuk-skip-link-focused-element'
       )
-
-      expect(cssClass).toBeTruthy()
     })
 
     it('removes the tabindex attribute from the linked element on blur', async () => {
-      await page.$eval(
-        '#maincontent',
-        (el) => el instanceof window.HTMLElement && el.blur()
-      )
+      await $main.evaluate(($el) => $el.blur())
 
-      const tabindex = await page.$eval('#maincontent', (el) =>
-        el.getAttribute('tabindex')
-      )
-
-      expect(tabindex).toBeNull()
+      expect(await getAttribute($main, 'tabindex')).toBeNull()
     })
 
     it('removes the class for removing the native focus style from the linked element on blur', async () => {
-      await page.$eval(
-        '#maincontent',
-        (el) => el instanceof window.HTMLElement && el.blur()
-      )
+      await $main.evaluate(($el) => $el.blur())
 
-      const cssClass = await page.$eval('#maincontent', (el) =>
-        el.getAttribute('class')
+      expect(await getAttribute($main, 'class')).not.toContain(
+        'nhsuk-skip-link-focused-element'
       )
-
-      expect(cssClass).not.toContain('nhsuk-skip-link-focused-element')
     })
   })
 
   describe('errors at instantiation', () => {
-    it('can return early without errors for external href', async () => {
+    it('can return early without errors for external href', () => {
       return expect(
-        render(page, 'skip-link', {
+        initExample('default', {
           context: {
             text: 'Exit this page',
             href: 'https://www.bbc.co.uk/weather'
@@ -73,9 +71,9 @@ describe('Skip Link', () => {
       ).resolves.not.toThrow()
     })
 
-    it('can return early without errors when linking to another page (without hash fragment)', async () => {
+    it('can return early without errors when linking to another page (without hash fragment)', () => {
       return expect(
-        render(page, 'skip-link', {
+        initExample('default', {
           context: {
             text: 'Exit this page',
             href: '/clear-session-data'
@@ -84,9 +82,9 @@ describe('Skip Link', () => {
       ).resolves.not.toThrow()
     })
 
-    it('can return early without errors when linking to another page (with hash fragment)', async () => {
+    it('can return early without errors when linking to another page (with hash fragment)', () => {
       return expect(
-        render(page, 'skip-link', {
+        initExample('default', {
           context: {
             text: 'Skip to main content',
             href: '/somewhere-else#main-content'
@@ -95,9 +93,9 @@ describe('Skip Link', () => {
       ).resolves.not.toThrow()
     })
 
-    it('can return early without errors when linking to the current page (with hash fragment)', async () => {
+    it('can return early without errors when linking to the current page (with hash fragment)', () => {
       return expect(
-        render(page, 'skip-link', {
+        initExample('default', {
           context: {
             text: 'Skip to main content',
             href: '#maincontent'
@@ -106,9 +104,9 @@ describe('Skip Link', () => {
       ).resolves.not.toThrow()
     })
 
-    it('can throw a SupportError if appropriate', async () => {
+    it('can throw a SupportError if appropriate', () => {
       return expect(
-        render(page, 'skip-link', examples.default, {
+        initExample('default', {
           beforeInitialisation() {
             document.body.classList.remove('nhsuk-frontend-supported')
           }
@@ -122,9 +120,9 @@ describe('Skip Link', () => {
       })
     })
 
-    it('throws when initialised twice', async () => {
-      await expect(
-        render(page, 'skip-link', examples.default, {
+    it('throws when initialised twice', () => {
+      return expect(
+        initExample('default', {
           async afterInitialisation($root) {
             const { SkipLink } = await import('nhsuk-frontend')
             new SkipLink($root)
@@ -136,9 +134,9 @@ describe('Skip Link', () => {
       })
     })
 
-    it('throws when $root is not set', async () => {
+    it('throws when $root is not set', () => {
       return expect(
-        render(page, 'skip-link', examples.default, {
+        initExample('default', {
           beforeInitialisation($root) {
             $root.remove()
           }
@@ -151,9 +149,9 @@ describe('Skip Link', () => {
       })
     })
 
-    it('throws when receiving the wrong type for $root', async () => {
+    it('throws when receiving the wrong type for $root', () => {
       return expect(
-        render(page, 'skip-link', examples.default, {
+        initExample('default', {
           beforeInitialisation($root) {
             // Replace with an `<svg>` element which is not an `HTMLElement` in the DOM (but an `SVGElement`)
             $root.outerHTML = `<svg data-module="nhsuk-skip-link"></svg>`
@@ -168,15 +166,8 @@ describe('Skip Link', () => {
       })
     })
 
-    it('throws when the linked element is missing', async () => {
-      return expect(
-        render(page, 'skip-link', {
-          context: {
-            text: 'Skip to main content',
-            href: '#this-element-does-not-exist'
-          }
-        })
-      ).rejects.toMatchObject({
+    it('throws when the linked element is missing', () => {
+      return expect(initExample('without link target')).rejects.toMatchObject({
         cause: {
           name: 'ElementError',
           message:
@@ -185,21 +176,21 @@ describe('Skip Link', () => {
       })
     })
 
-    it('throws when the href does not contain a hash', async () => {
-      return expect(
-        render(page, 'skip-link', {
-          context: {
-            text: 'Skip to main content',
-            href: '/nhsuk-frontend/components/boilerplate/'
+    it('throws when the href does not contain a hash', () => {
+      return expect(initExample('without hash fragment')).rejects.toMatchObject(
+        {
+          cause: {
+            name: 'ElementError',
+            message:
+              'nhsuk-skip-link: Target link (`href="/nhsuk-frontend/components/boilerplate/"`) hash fragment not found'
           }
-        })
-      ).rejects.toMatchObject({
-        cause: {
-          name: 'ElementError',
-          message:
-            'nhsuk-skip-link: Target link (`href="/nhsuk-frontend/components/boilerplate/"`) hash fragment not found'
         }
-      })
+      )
     })
   })
 })
+
+/**
+ * @import { BrowserRenderOptions } from '@nhsuk/frontend-helpers/puppeteer.mjs'
+ * @import { ElementHandle } from 'puppeteer'
+ */

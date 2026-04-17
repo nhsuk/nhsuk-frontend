@@ -7,13 +7,30 @@ import {
 } from '@nhsuk/frontend-helpers/puppeteer.mjs'
 
 import { examples } from './fixtures.mjs'
+import { Radios } from './radios.mjs'
 
 describe('Radios', () => {
+  /** @type {ElementHandle<HTMLElement>} */
+  let $component
+
+  /**
+   * @template {object} HandlerContext
+   * @param {keyof typeof examples} example
+   * @param {BrowserRenderOptions<HandlerContext>} [browserOptions] - Puppeteer browser render options
+   */
+  async function initExample(example, browserOptions) {
+    await render(page, 'radios', examples[example], browserOptions)
+
+    $component = /** @type {ElementHandle<HTMLElement>} */ (
+      await page.$(`[data-module="${Radios.moduleName}"]`)
+    )
+  }
+
   describe('input position', () => {
     // Check that the input sits above the label, enabling its proper detection
     // when exploring by touch or using automation tools like Selenium
     it('displays the input above the label', async () => {
-      await render(page, 'radios', examples.default)
+      await initExample('default')
 
       const $firstInput = /** @type {ElementHandle} */ (
         await page.$('.nhsuk-radios__input')
@@ -21,10 +38,9 @@ describe('Radios', () => {
 
       const clickPosition = await $firstInput.clickablePoint()
 
-      const elementTagNames = await page.evaluate(
-        ({ x, y }) => document.elementsFromPoint(x, y).map((el) => el.tagName),
-        clickPosition
-      )
+      const elementTagNames = await page.evaluate(({ x, y }) => {
+        return document.elementsFromPoint(x, y).map(($el) => $el.tagName)
+      }, clickPosition)
 
       expect(elementTagNames[0]).toBe('INPUT')
       expect(elementTagNames[1]).toBe('LABEL')
@@ -42,9 +58,6 @@ describe('Radios', () => {
       })
 
       describe('with conditional content', () => {
-        /** @type {ElementHandle} */
-        let $component
-
         /** @type {ElementHandle<HTMLInputElement>[]} */
         let $inputs
 
@@ -52,11 +65,7 @@ describe('Radios', () => {
         let $conditionals
 
         beforeAll(async () => {
-          await render(page, 'radios', examples['with conditional content'])
-
-          $component = /** @type {ElementHandle<HTMLElement>} */ (
-            await page.$('.nhsuk-radios')
-          )
+          await initExample('with conditional content')
 
           $inputs = await $component.$$('input.nhsuk-radios__input')
           $conditionals = await $component.$$('.nhsuk-radios__conditional')
@@ -80,7 +89,7 @@ describe('Radios', () => {
           expect($inputsWithAriaControls).toHaveLength(0)
         })
 
-        it('falls back to making all conditional content visible', async () => {
+        it('falls back to making all conditional content visible', () => {
           return Promise.all(
             $conditionals.map(async ($conditional) => {
               return expect(await isVisible($conditional)).toBe(true)
@@ -92,18 +101,11 @@ describe('Radios', () => {
 
     describe('when JavaScript is available', () => {
       describe('with conditional item checked', () => {
-        /** @type {ElementHandle<HTMLElement>} */
-        let $component
-
         /** @type {ElementHandle<HTMLInputElement>[]} */
         let $inputs
 
         beforeEach(async () => {
-          await render(page, 'radios', examples['with pre-checked value'])
-
-          $component = /** @type {ElementHandle<HTMLElement>} */ (
-            await page.$('.nhsuk-radios')
-          )
+          await initExample('with pre-checked value')
 
           $inputs = await $component.$$('input.nhsuk-radios__input')
         })
@@ -130,18 +132,11 @@ describe('Radios', () => {
       })
 
       describe('with conditional content', () => {
-        /** @type {ElementHandle<HTMLElement>} */
-        let $component
-
         /** @type {ElementHandle<HTMLInputElement>[]} */
         let $inputs
 
         beforeEach(async () => {
-          await render(page, 'radios', examples['with conditional content'])
-
-          $component = /** @type {ElementHandle<HTMLElement>} */ (
-            await page.$('.nhsuk-radios')
-          )
+          await initExample('with conditional content')
 
           $inputs = await $component.$$('input.nhsuk-radios__input')
         })
@@ -215,13 +210,9 @@ describe('Radios', () => {
       })
 
       describe('with conditional content with special characters', () => {
-        it('does not error when ID of revealed content contains special characters', async () => {
+        it('does not error when ID of revealed content contains special characters', () => {
           return expect(
-            render(
-              page,
-              'radios',
-              examples['with conditional content, special characters']
-            )
+            initExample('with conditional content, special characters')
           ).resolves.not.toThrow()
         })
       })
@@ -255,6 +246,7 @@ describe('Radios', () => {
         const $conditionalWarm = await page.$(
           `[id="${await getAttribute($inputsWarm[0], 'aria-controls')}"]`
         )
+
         const $conditionalCool = await page.$(
           `[id="${await getAttribute($inputsCool[0], 'aria-controls')}"]`
         )
@@ -326,9 +318,9 @@ describe('Radios', () => {
   })
 
   describe('errors at instantiation', () => {
-    it('can throw a SupportError if appropriate', async () => {
-      await expect(
-        render(page, 'radios', examples.default, {
+    it('can throw a SupportError if appropriate', () => {
+      return expect(
+        initExample('default', {
           beforeInitialisation() {
             document.body.classList.remove('nhsuk-frontend-supported')
           }
@@ -342,9 +334,9 @@ describe('Radios', () => {
       })
     })
 
-    it('throws when initialised twice', async () => {
-      await expect(
-        render(page, 'radios', examples.default, {
+    it('throws when initialised twice', () => {
+      return expect(
+        initExample('default', {
           async afterInitialisation($root) {
             const { Radios } = await import('nhsuk-frontend')
             new Radios($root)
@@ -356,9 +348,9 @@ describe('Radios', () => {
       })
     })
 
-    it('throws when $root is not set', async () => {
-      await expect(
-        render(page, 'radios', examples.default, {
+    it('throws when $root is not set', () => {
+      return expect(
+        initExample('default', {
           beforeInitialisation($root) {
             $root.remove()
           }
@@ -371,9 +363,9 @@ describe('Radios', () => {
       })
     })
 
-    it('throws when receiving the wrong type for $root', async () => {
-      await expect(
-        render(page, 'radios', examples.default, {
+    it('throws when receiving the wrong type for $root', () => {
+      return expect(
+        initExample('default', {
           beforeInitialisation($root) {
             // Replace with an `<svg>` element which is not an `HTMLElement` in the DOM (but an `SVGElement`)
             $root.outerHTML = `<svg data-module="nhsuk-radios"></svg>`
@@ -388,9 +380,9 @@ describe('Radios', () => {
       })
     })
 
-    it('throws when the input list is empty', async () => {
-      await expect(
-        render(page, 'radios', examples.default, {
+    it('throws when the input list is empty', () => {
+      return expect(
+        initExample('default', {
           beforeInitialisation($root, { selector }) {
             $root.querySelectorAll(selector).forEach((item) => item.remove())
           },
@@ -407,9 +399,9 @@ describe('Radios', () => {
       })
     })
 
-    it('throws when a conditional target element is not found', async () => {
-      await expect(
-        render(page, 'radios', examples['with conditional content'], {
+    it('throws when a conditional target element is not found', () => {
+      return expect(
+        initExample('with conditional content', {
           beforeInitialisation($root) {
             $root.querySelector('.nhsuk-radios__conditional')?.remove()
           }
@@ -426,5 +418,6 @@ describe('Radios', () => {
 })
 
 /**
+ * @import { BrowserRenderOptions } from '@nhsuk/frontend-helpers/puppeteer.mjs'
  * @import { ElementHandle } from 'puppeteer'
  */

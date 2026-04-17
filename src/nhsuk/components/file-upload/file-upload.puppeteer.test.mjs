@@ -1,23 +1,77 @@
 import {
   getAccessibleName,
+  getAttribute,
+  getProperty,
+  getText,
   render
 } from '@nhsuk/frontend-helpers/puppeteer.mjs'
 
+import { FileUpload } from './file-upload.mjs'
 import { examples } from './fixtures.mjs'
 
 describe('File upload', () => {
-  const moduleSelector = '.nhsuk-file-upload'
-  const inputSelector = '.nhsuk-file-upload__input'
-  const dropZoneSelector = '.nhsuk-file-upload__drop-zone'
-  const dropButtonSelector = '.nhsuk-file-upload__drop-button'
-  const chooseFilesButtonSelector = '.nhsuk-file-upload__choose-files-button'
-  const announcementsSelector = '.nhsuk-file-upload__announcements'
-  const statusSelector = '.nhsuk-file-upload__status'
+  /** @type {ElementHandle<HTMLElement>} */
+  let $component
+
+  /** @type {ElementHandle<HTMLInputElement>} */
+  let $input
+
+  /** @type {ElementHandle<HTMLElement>} */
+  let $dropZone
+
+  /** @type {ElementHandle<HTMLButtonElement>} */
+  let $dropButton
+
+  /** @type {ElementHandle} */
+  let $chooseFilesButton
+
+  /** @type {ElementHandle} */
+  let $status
+
+  /** @type {ElementHandle} */
+  let $announcements
+
+  /**
+   * @template {object} HandlerContext
+   * @param {keyof typeof examples} example
+   * @param {BrowserRenderOptions<HandlerContext>} [browserOptions] - Puppeteer browser render options
+   */
+  async function initExample(example, browserOptions) {
+    await render(page, 'file-upload', examples[example], browserOptions)
+
+    $component = /** @type {ElementHandle<HTMLElement>} */ (
+      await page.$(`[data-module="${FileUpload.moduleName}"]`)
+    )
+
+    $input = /** @type {ElementHandle<HTMLInputElement>} */ (
+      await $component.$('input')
+    )
+
+    $dropZone = /** @type {ElementHandle<HTMLElement>} */ (
+      await $component.$(`.${FileUpload.defaults.dropZoneClass}`)
+    )
+
+    $dropButton = /** @type {ElementHandle<HTMLButtonElement>} */ (
+      await $component.$(`.${FileUpload.defaults.dropButtonClass}`)
+    )
+
+    $chooseFilesButton = /** @type {ElementHandle<HTMLElement>} */ (
+      await $component.$(`.${FileUpload.defaults.chooseFilesButtonClass}`)
+    )
+
+    $status = /** @type {ElementHandle<HTMLElement>} */ (
+      await $component.$(`.${FileUpload.defaults.statusClass}`)
+    )
+
+    $announcements = /** @type {ElementHandle<HTMLElement>} */ (
+      await $component.$(`.${FileUpload.defaults.announcementsClass}`)
+    )
+  }
 
   describe('when JavaScript is unavailable or fails', () => {
     beforeAll(async () => {
       await page.setJavaScriptEnabled(false)
-      await render(page, 'file-upload', examples['with hint'])
+      await initExample('with hint')
     })
 
     afterAll(async () => {
@@ -25,134 +79,98 @@ describe('File upload', () => {
     })
 
     it('still renders an unmodified file input', async () => {
-      const inputType = await page.$eval(inputSelector, (el) =>
-        el.getAttribute('type')
-      )
-      expect(inputType).toBe('file')
+      expect(await getAttribute($input, 'type')).toBe('file')
     })
 
     it('does not inject additional elements', async () => {
-      const $wrapperElement = await page.$(dropZoneSelector)
-      const $buttonElement = await page.$(dropButtonSelector)
-      const $statusElement = await page.$(statusSelector)
-
-      expect($wrapperElement).toBeNull()
-      expect($buttonElement).toBeNull()
-      expect($statusElement).toBeNull()
+      expect($dropZone).toBeNull()
+      expect($dropButton).toBeNull()
+      expect($status).toBeNull()
     })
   })
 
   describe('when JavaScript is available', () => {
     describe('on page load', () => {
       beforeAll(async () => {
-        await render(page, 'file-upload', examples['with hint'])
+        await initExample('with hint')
       })
 
       describe('wrapper element', () => {
         it('renders the wrapper element', async () => {
-          const wrapperElement = await page.$eval(dropZoneSelector, (el) => el)
-
-          expect(wrapperElement).toBeDefined()
+          expect($dropZone).toBeDefined()
         })
 
         it('moves the file input inside of the wrapper element', async () => {
-          const inputElementParent = await page.$eval(
-            inputSelector,
-            (el) => el.parentElement
+          const isDropZoneInputParent = await page.evaluate(
+            ($el1, $el2) => $el1 === $el2.parentElement,
+            $dropZone,
+            $input
           )
 
-          const wrapperElement = await page.$eval(dropZoneSelector, (el) => el)
-
-          expect(inputElementParent).toStrictEqual(wrapperElement)
+          expect(isDropZoneInputParent).toBe(true)
         })
       })
 
       describe('file input', () => {
         it('sets tabindex to -1', async () => {
-          const inputElementTabindex = await page.$eval(inputSelector, (el) =>
-            el.getAttribute('tabindex')
-          )
-
-          expect(inputElementTabindex).toBe('-1')
+          expect(await getAttribute($input, 'tabindex')).toBe('-1')
         })
       })
 
       describe('label element', () => {
         it('targets the button in its `for` attribute', async () => {
-          const buttonId = await page.$eval(dropButtonSelector, (el) => el.id)
-          const label = await page.$(`[for="${buttonId}"]`)
+          const buttonId = await getProperty($dropButton, 'id')
+          const $label = await $component.$(`[for="${buttonId}"]`)
 
-          expect(label).not.toBeNull()
+          expect($label).not.toBeNull()
         })
       })
 
       describe('choose file button', () => {
         it('renders the button element', async () => {
-          const buttonElement = await page.$eval(dropButtonSelector, (el) => el)
-          const buttonElementType = await page.$eval(dropButtonSelector, (el) =>
-            el.getAttribute('type')
-          )
-
-          expect(buttonElement).toBeDefined()
-          expect(buttonElementType).toBe('button')
+          expect($dropButton).toBeDefined()
+          expect(await getAttribute($dropButton, 'type')).toBe('button')
         })
 
         it('has same aria-describedby value as input', async () => {
-          const buttonElementAriaDescribedBy = await page.$eval(
-            dropButtonSelector,
-            (el) => el.getAttribute('aria-describedby')
+          expect(await getAttribute($dropButton, 'aria-describedby')).toBe(
+            'file-upload-hint'
           )
-
-          expect(buttonElementAriaDescribedBy).toBe('file-upload-hint')
         })
 
         it('renders the button with default text', async () => {
-          const buttonElementText = await page.$eval(
-            `${dropButtonSelector} ${chooseFilesButtonSelector}`,
-            (el) => el.innerHTML.trim()
-          )
-
-          const [statusElementText, statusElementAriaLiveAttribute] =
-            await page.$eval(
-              `${dropButtonSelector} ${statusSelector}`,
-              (el) => [el.innerHTML.trim(), el.getAttribute('aria-live')]
-            )
-
-          expect(buttonElementText).toBe('Choose file')
-          expect(statusElementText).toBe('No file chosen')
-          expect(statusElementAriaLiveAttribute).toBe('polite')
+          expect(await getText($chooseFilesButton)).toBe('Choose file')
+          expect(await getText($status)).toBe('No file chosen')
+          expect(await getAttribute($status, 'aria-live')).toBe('polite')
         })
       })
     })
 
     describe('when clicking the choose file button', () => {
-      it.each([dropButtonSelector, chooseFilesButtonSelector, statusSelector])(
-        'opens the file picker',
-        async (selector) => {
-          // It doesn't seem to be possible to check if the file picker dialog
-          // opens as an isolated test, so this test clicks the button, tries to
-          // set a value in the file chooser, then checks if that value was set
-          // on the input as expected.
-          const testFilename = 'test.gif'
+      it.each([
+        `.${FileUpload.defaults.dropButtonClass}`,
+        `.${FileUpload.defaults.chooseFilesButtonClass}`,
+        `.${FileUpload.defaults.statusClass}`
+      ])('opens the file picker', async (selector) => {
+        // It doesn't seem to be possible to check if the file picker dialog
+        // opens as an isolated test, so this test clicks the button, tries to
+        // set a value in the file chooser, then checks if that value was set
+        // on the input as expected.
+        const testFilename = 'test.gif'
 
-          const [fileChooser] = await Promise.all([
-            page.waitForFileChooser(),
-            page.click(selector)
-          ])
+        const [fileChooser] = await Promise.all([
+          page.waitForFileChooser(),
+          page.click(selector)
+        ])
 
-          await fileChooser.accept([testFilename])
+        await fileChooser.accept([testFilename])
 
-          const inputElementValue = await page.$eval(
-            inputSelector,
-            // @ts-expect-error - Property 'value' does not exist
-            (el) => el.value
-          )
-
-          // For Windows and backward compatibility, the values of file inputs
-          // are always formatted starting with `C:\\fakepath\\`
-          expect(inputElementValue).toBe(`C:\\fakepath\\${testFilename}`)
-        }
-      )
+        // For Windows and backward compatibility, the values of file inputs
+        // are always formatted starting with `C:\\fakepath\\`
+        expect(await getProperty($input, 'value')).toBe(
+          `C:\\fakepath\\${testFilename}`
+        )
+      })
     })
 
     describe('when selecting a file', () => {
@@ -161,92 +179,64 @@ describe('File upload', () => {
       beforeEach(async () => {
         const [fileChooser] = await Promise.all([
           page.waitForFileChooser(),
-          page.click(dropButtonSelector)
+          $dropButton?.click()
         ])
+
         await fileChooser.accept([testFilename])
       })
 
       it('updates the file input value', async () => {
-        const inputElementValue = await page.$eval(
-          inputSelector,
-          // @ts-expect-error - Property 'value' does not exist
-          (el) => el.value
-        )
-
-        const inputElementFiles = await page.$eval(
-          inputSelector,
-          // @ts-expect-error - Property 'files' does not exist
-          (el) => el.files
-        )
+        const inputElementFiles = await $input.evaluate(($el) => $el.files)
 
         // For Windows and backward compatibility, the values of file inputs
         // are always formatted starting with `C:\\fakepath\\`
-        expect(inputElementValue).toBe(`C:\\fakepath\\${testFilename}`)
+        expect(await getProperty($input, 'value')).toBe(
+          `C:\\fakepath\\${testFilename}`
+        )
 
         // Also check the files object
-        expect(inputElementFiles[0]).toBeDefined()
+        expect(inputElementFiles?.[0]).toBeDefined()
       })
 
       it('updates the filename in the status element', async () => {
-        const statusElementText = await page.$eval(statusSelector, (el) =>
-          el.innerHTML.trim()
-        )
-
-        expect(statusElementText).toBe(testFilename)
+        expect(await getText($status)).toBe(testFilename)
       })
     })
 
     describe('when selecting multiple files', () => {
       beforeEach(async () => {
-        await render(page, 'file-upload', examples['with multiple'])
+        await initExample('with multiple')
 
         const [fileChooser] = await Promise.all([
           page.waitForFileChooser(),
-          page.click(dropButtonSelector)
+          $dropButton?.click()
         ])
+
         await fileChooser.accept(['testfile1.txt', 'testfile2.pdf'])
       })
 
       it('updates the file input value', async () => {
-        const inputElementValue = await page.$eval(
-          inputSelector,
-          // @ts-expect-error - Property 'value' does not exist
-          (el) => el.value
-        )
-
-        const inputElementFiles = await page.$eval(
-          inputSelector,
-          // @ts-expect-error - Property 'files' does not exist
-          (el) => el.files
-        )
+        const inputElementFiles = await $input.evaluate(($el) => $el.files)
 
         // For Windows and backward compatibility, the values of file inputs
         // are always formatted starting with `C:\\fakepath\\`
         //
         // Additionally, `value` will only ever return the first file selected
-        expect(inputElementValue).toBe(`C:\\fakepath\\testfile1.txt`)
+        expect(await getProperty($input, 'value')).toBe(
+          `C:\\fakepath\\testfile1.txt`
+        )
 
         // Also check the files object
-        expect(inputElementFiles[0]).toBeDefined()
-        expect(inputElementFiles[1]).toBeDefined()
+        expect(inputElementFiles?.[0]).toBeDefined()
+        expect(inputElementFiles?.[1]).toBeDefined()
       })
 
       it('shows the number of files selected in the status element', async () => {
-        const statusElementText = await page.$eval(statusSelector, (el) =>
-          el.innerHTML.trim()
-        )
-
-        expect(statusElementText).toBe('2 files chosen')
+        expect(await getText($status)).toBe('2 files chosen')
       })
     })
 
     describe('dropzone', () => {
-      /** @type {ElementHandle} */
-      let $wrapper
-
-      /** @type {ElementHandle} */
-      let $announcements
-
       /** @type {BoundingBox} */
       let wrapperBoundingBox
 
@@ -261,36 +251,25 @@ describe('File upload', () => {
         dragOperationsMask: 1 // Copy
       }
 
-      const selectorDropzoneVisible = `${dropButtonSelector}${dropButtonSelector}--dragging`
-      const selectorDropzoneHidden = `${dropButtonSelector}:not(${dropButtonSelector}--dragging)`
-
       beforeEach(async () => {
-        await render(page, 'file-upload', examples.default)
-
-        $wrapper = /** @type {ElementHandle} */ (await page.$(dropZoneSelector))
+        await initExample('default')
 
         wrapperBoundingBox = /** @type {BoundingBox} */ (
-          await $wrapper.boundingBox()
-        )
-
-        $announcements = /** @type {ElementHandle} */ (
-          await page.$(announcementsSelector)
+          await $dropZone?.boundingBox()
         )
       })
 
       it('is not shown by default', async () => {
-        await expect(page.$(selectorDropzoneHidden)).resolves.toBeTruthy()
+        expect(await getAttribute($dropButton, 'class')).not.toContain(
+          'nhsuk-file-upload__drop-button--dragging'
+        )
 
-        const [announcementsText, announcementsAriaLive] =
-          await $announcements.evaluate((e) => [
-            e.textContent,
-            e.getAttribute('aria-live')
-          ])
-
-        expect(announcementsText).toBe('')
+        expect(await getText($announcements)).toBe('')
         // As the announcement is feedback while user is dragging,
         // best to announce it as soon as the user enters the zone
-        expect(announcementsAriaLive).toBe('assertive')
+        expect(await getAttribute($announcements, 'aria-live')).toBe(
+          'assertive'
+        )
       })
 
       it('gets shown when entering the field', async () => {
@@ -300,10 +279,11 @@ describe('File upload', () => {
           structuredClone(dragData)
         )
 
-        await expect(page.$(selectorDropzoneVisible)).resolves.toBeTruthy()
-        await expect(
-          $announcements.evaluate((e) => e.textContent)
-        ).resolves.toBe('Entered drop zone')
+        expect(await getAttribute($dropButton, 'class')).toContain(
+          'nhsuk-file-upload__drop-button--dragging'
+        )
+
+        await expect(getText($announcements)).resolves.toBe('Entered drop zone')
       })
 
       it('gets hidden when dropping on the field', async () => {
@@ -320,12 +300,13 @@ describe('File upload', () => {
           structuredClone(dragData)
         )
 
-        await expect(page.$(selectorDropzoneHidden)).resolves.toBeTruthy()
+        expect(await getAttribute($dropButton, 'class')).not.toContain(
+          'nhsuk-file-upload__drop-button--dragging'
+        )
+
         // The presence of 'Entered drop zone' confirms we entered the drop zone
         // rather than being in the initial state
-        await expect(
-          $announcements.evaluate((e) => e.textContent)
-        ).resolves.toBe('Entered drop zone')
+        await expect(getText($announcements)).resolves.toBe('Entered drop zone')
       })
 
       it('gets hidden when dragging a file and leaving the field', async () => {
@@ -342,10 +323,11 @@ describe('File upload', () => {
           structuredClone(dragData)
         )
 
-        await expect(page.$(selectorDropzoneHidden)).resolves.toBeTruthy()
-        await expect(
-          $announcements.evaluate((e) => e.textContent)
-        ).resolves.toBe('Left drop zone')
+        expect(await getAttribute($dropButton, 'class')).not.toContain(
+          'nhsuk-file-upload__drop-button--dragging'
+        )
+
+        await expect(getText($announcements)).resolves.toBe('Left drop zone')
       })
 
       it('gets hidden when dragging a file and leaving the document', async () => {
@@ -357,33 +339,31 @@ describe('File upload', () => {
 
         // It doesn't seem doable to make Puppeteer drag outside the viewport
         // so instead, we can only mock two 'dragleave' events
-        await page.$eval(dropZoneSelector, ($el) => {
+        await $dropZone?.evaluate(($el) => {
           $el.dispatchEvent(new Event('dragleave', { bubbles: true }))
           $el.dispatchEvent(new Event('dragleave', { bubbles: true }))
         })
 
-        await expect(page.$(selectorDropzoneHidden)).resolves.toBeTruthy()
-        await expect(
-          $announcements.evaluate((e) => e.textContent)
-        ).resolves.toBe('Left drop zone')
+        expect(await getAttribute($dropButton, 'class')).not.toContain(
+          'nhsuk-file-upload__drop-button--dragging'
+        )
+
+        await expect(getText($announcements)).resolves.toBe('Left drop zone')
       })
 
       it('does not appear if button disabled', async () => {
-        await render(page, 'file-upload', examples.disabled)
+        await initExample('disabled')
 
         await page.mouse.dragEnter(
           { x: wrapperBoundingBox.x + 1, y: wrapperBoundingBox.y + 1 },
           structuredClone(dragData)
         )
 
-        const disabledAnnouncement = /** @type {ElementHandle} */ (
-          await page.$(announcementsSelector)
+        expect(await getAttribute($dropButton, 'class')).not.toContain(
+          'nhsuk-file-upload__drop-button--dragging'
         )
 
-        await expect(page.$(selectorDropzoneHidden)).resolves.toBeTruthy()
-        await expect(
-          disabledAnnouncement.evaluate((e) => e.textContent)
-        ).resolves.toBe('')
+        await expect(getText($announcements)).resolves.toBe('')
       })
     })
 
@@ -391,171 +371,125 @@ describe('File upload', () => {
       beforeEach(async () => {})
 
       it('includes the label, the status, the pseudo button and instruction', async () => {
-        await render(page, 'file-upload', examples.default)
+        await initExample('default')
 
-        const $element = await page.$(dropButtonSelector)
-
-        const accessibleName = await getAccessibleName(page, $element)
-        await expect(accessibleName.replaceAll(/\s+/g, ' ')).toBe(
-          'Upload a file , No file chosen , Choose file or drop file'
+        expect(await getAccessibleName(page, $dropButton)).toBe(
+          'Upload a file  ,   No file chosen  ,   Choose file or drop file'
         )
       })
 
       it('includes the label, file name, pseudo button and instruction once a file is selected', async () => {
-        await render(page, 'file-upload', examples.default)
-
-        const $element = await page.$(dropButtonSelector)
+        await initExample('default')
 
         const [fileChooser] = await Promise.all([
           page.waitForFileChooser(),
-          page.click(dropButtonSelector)
+          $dropButton?.click()
         ])
+
         await fileChooser.accept(['fakefile.txt'])
 
-        const accessibleName = await getAccessibleName(page, $element)
-        await expect(accessibleName.replaceAll(/\s+/g, ' ')).toBe(
-          'Upload a file , fakefile.txt , Choose file or drop file'
+        expect(await getAccessibleName(page, $dropButton)).toBe(
+          'Upload a file  ,   fakefile.txt  ,   Choose file or drop file'
         )
       })
 
       it('includes the label, file name, pseudo button and instruction once multiple files are selected', async () => {
-        await render(page, 'file-upload', examples['with multiple'])
-
-        const $element = await page.$(dropButtonSelector)
+        await initExample('with multiple')
 
         const [fileChooser] = await Promise.all([
           page.waitForFileChooser(),
-          page.click(dropButtonSelector)
+          $dropButton?.click()
         ])
+
         await fileChooser.accept(['fakefile1.txt', 'fakefile2.txt'])
 
-        const accessibleName = await getAccessibleName(page, $element)
-        await expect(accessibleName.replaceAll(/\s+/g, ' ')).toBe(
-          'Upload multiple files , 2 files chosen , Choose files or drop files'
+        expect(await getAccessibleName(page, $dropButton)).toBe(
+          'Upload multiple files  ,   2 files chosen  ,   Choose files or drop files'
         )
       })
     })
 
     describe('i18n', () => {
       beforeEach(async () => {
-        await render(page, 'file-upload', examples['with translations'])
+        await initExample('with translations')
       })
 
       it('uses the correct translation for the choose file button', async () => {
-        const buttonElementText = await page.$eval(
-          chooseFilesButtonSelector,
-          (el) => el.innerHTML.trim()
-        )
-
-        const statusElementText = await page.$eval(statusSelector, (el) =>
-          el.innerHTML.trim()
-        )
-
-        expect(buttonElementText).toBe('Dewiswch ffeil')
-        expect(statusElementText).toBe("Dim ffeil wedi'i dewis")
+        expect(await getText($chooseFilesButton)).toBe('Dewiswch ffeil')
+        expect(await getText($status)).toBe("Dim ffeil wedi'i dewis")
       })
 
       describe('status element', () => {
         it('uses the correct translation when no files are selected', async () => {
-          const statusText = await page.$eval(statusSelector, (el) =>
-            el.innerHTML.trim()
-          )
-
-          expect(statusText).toBe("Dim ffeil wedi'i dewis")
+          expect(await getText($status)).toBe("Dim ffeil wedi'i dewis")
         })
 
         it('uses the correct translation when multiple files are selected', async () => {
           const [fileChooser] = await Promise.all([
             page.waitForFileChooser(),
-            page.click(dropButtonSelector)
+            $dropButton?.click()
           ])
+
           await fileChooser.accept(['testfile1.txt', 'testfile2.pdf'])
 
-          const statusText = await page.$eval(statusSelector, (el) =>
-            el.innerHTML.trim()
-          )
-
-          expect(statusText).toBe("2 ffeil wedi'u dewis")
+          expect(await getText($status)).toBe("2 ffeil wedi'u dewis")
         })
       })
     })
 
     describe('disabled state syncing', () => {
       it('disables the button if the input is disabled on page load', async () => {
-        await render(page, 'file-upload', examples.disabled)
+        await initExample('disabled')
 
-        const buttonDisabled = await page.$eval(dropButtonSelector, (el) =>
-          el.hasAttribute('disabled')
+        expect(await getProperty($dropButton, 'disabled')).toBe(true)
+        expect(await getAttribute($component, 'class')).toContain(
+          'nhsuk-file-upload--disabled'
         )
-        const dropZoneDisabled = await page.$eval(moduleSelector, (el) =>
-          el.classList.contains('nhsuk-file-upload--disabled')
-        )
-
-        expect(buttonDisabled).toBeTruthy()
-        expect(dropZoneDisabled).toBeTruthy()
       })
 
       it('disables the button if the input is disabled programmatically', async () => {
-        await render(page, 'file-upload', examples.default)
+        await initExample('default')
 
-        await page.$eval(inputSelector, (el) => el.setAttribute('disabled', ''))
+        await $input.evaluate(($el) => $el.setAttribute('disabled', ''))
 
-        const buttonDisabledAfter = await page.$eval(dropButtonSelector, (el) =>
-          el.hasAttribute('disabled')
+        expect(await getProperty($dropButton, 'disabled')).toBe(true)
+        expect(await getAttribute($component, 'class')).toContain(
+          'nhsuk-file-upload--disabled'
         )
-        const dropZoneDisabled = await page.$eval(moduleSelector, (el) =>
-          el.classList.contains('nhsuk-file-upload--disabled')
-        )
-
-        expect(buttonDisabledAfter).toBeTruthy()
-        expect(dropZoneDisabled).toBeTruthy()
       })
 
       it('enables the button if the input is enabled programmatically', async () => {
-        await render(page, 'file-upload', examples.disabled)
+        await initExample('disabled')
 
-        await page.$eval(inputSelector, (el) => el.removeAttribute('disabled'))
+        await $input.evaluate(($el) => $el.removeAttribute('disabled'))
 
-        const buttonDisabled = await page.$eval(dropButtonSelector, (el) =>
-          el.hasAttribute('disabled')
+        expect(await getProperty($dropButton, 'disabled')).toBe(false)
+        expect(await getAttribute($component, 'class')).not.toContain(
+          'nhsuk-file-upload--disabled'
         )
-        const dropZoneDisabled = await page.$eval(moduleSelector, (el) =>
-          el.classList.contains('nhsuk-file-upload--disabled')
-        )
-
-        expect(buttonDisabled).toBeFalsy()
-        expect(dropZoneDisabled).toBeFalsy()
       })
     })
 
     describe('aria-describedby', () => {
       it('copies the `aria-describedby` attribute from the `<input>` to the `<button>`', async () => {
-        await render(page, 'file-upload', examples['with hint and error'])
+        await initExample('with hint and error')
 
-        const $button = await page.$(dropButtonSelector)
-        const ariaDescribedBy = await $button?.evaluate((el) =>
-          el.getAttribute('aria-describedby')
+        expect(await getAttribute($dropButton, 'aria-describedby')).toBe(
+          'file-upload-hint file-upload-error'
         )
-
-        expect(ariaDescribedBy).toBe('file-upload-hint file-upload-error')
       })
 
       it('does not add an `aria-describedby` attribute to the `<button>` if there is none on the `<input>`', async () => {
-        await render(page, 'file-upload', examples.default)
+        await initExample('default')
 
-        const $button = await page.$(dropButtonSelector)
-        const ariaDescribedBy = await $button?.evaluate((el) =>
-          el.getAttribute('aria-describedby')
-        )
-
-        expect(ariaDescribedBy).toBeNull()
+        expect(await getAttribute($dropButton, 'aria-describedby')).toBeNull()
       })
     })
 
     describe('errors at instantiation', () => {
-      it('can throw a SupportError if appropriate', async () => {
-        await expect(
-          render(page, 'file-upload', examples.default, {
+      it('can throw a SupportError if appropriate', () => {
+        return expect(
+          initExample('default', {
             beforeInitialisation() {
               document.body.classList.remove('nhsuk-frontend-supported')
             }
@@ -569,9 +503,9 @@ describe('File upload', () => {
         })
       })
 
-      it('throws when initialised twice', async () => {
-        await expect(
-          render(page, 'file-upload', examples.default, {
+      it('throws when initialised twice', () => {
+        return expect(
+          initExample('default', {
             async afterInitialisation($root) {
               const { FileUpload } = await import('nhsuk-frontend')
               new FileUpload($root)
@@ -584,9 +518,9 @@ describe('File upload', () => {
         })
       })
 
-      it('throws when $root is not set', async () => {
-        await expect(
-          render(page, 'file-upload', examples.default, {
+      it('throws when $root is not set', () => {
+        return expect(
+          initExample('default', {
             beforeInitialisation($root) {
               $root.remove()
             }
@@ -599,9 +533,9 @@ describe('File upload', () => {
         })
       })
 
-      it('throws when receiving the wrong type for $root', async () => {
-        await expect(
-          render(page, 'file-upload', examples.default, {
+      it('throws when receiving the wrong type for $root', () => {
+        return expect(
+          initExample('default', {
             beforeInitialisation($root) {
               // Replace with an `<svg>` element which is not an `HTMLElement` in the DOM (but an `SVGElement`)
               $root.outerHTML = `<svg data-module="nhsuk-file-upload"></svg>`
@@ -617,9 +551,9 @@ describe('File upload', () => {
       })
 
       describe('missing or misconfigured elements', () => {
-        it('throws if the input is missing', async () => {
-          await expect(
-            render(page, 'file-upload', examples.default, {
+        it('throws if the input is missing', () => {
+          return expect(
+            initExample('default', {
               beforeInitialisation() {
                 document.querySelector('[type="file"]')?.remove()
               }
@@ -632,9 +566,9 @@ describe('File upload', () => {
           })
         })
 
-        it('throws if the input has no `id` attribute', async () => {
-          await expect(
-            render(page, 'file-upload', examples.default, {
+        it('throws if the input has no `id` attribute', () => {
+          return expect(
+            initExample('default', {
               beforeInitialisation() {
                 document.querySelector('[type="file"]')?.removeAttribute('id')
               }
@@ -648,9 +582,9 @@ describe('File upload', () => {
           })
         })
 
-        it('throws if the input type is not "file"', async () => {
-          await expect(
-            render(page, 'file-upload', examples.default, {
+        it('throws if the input type is not "file"', () => {
+          return expect(
+            initExample('default', {
               beforeInitialisation() {
                 document
                   .querySelector('[type="file"]')
@@ -668,7 +602,7 @@ describe('File upload', () => {
 
         it('throws if no label is present', async () => {
           await expect(
-            render(page, 'file-upload', examples.default, {
+            initExample('default', {
               beforeInitialisation() {
                 document.querySelector('label')?.remove()
               }
@@ -687,22 +621,23 @@ describe('File upload', () => {
 
         it('does not throw if the drop zone already exists', async () => {
           await expect(
-            render(page, 'file-upload', examples.default, {
-              beforeInitialisation($root, { selector }) {
+            initExample('default', {
+              beforeInitialisation($root, { dropZoneSelector, inputSelector }) {
                 const $input = /** @type {HTMLElement} */ (
-                  $root.querySelector(selector)
+                  $root.querySelector(inputSelector)
                 )
 
                 // 1. Create drop zone
                 const $dropZone = document.createElement('div')
-                $dropZone.classList.add('nhsuk-file-upload__drop-zone')
+                $dropZone.classList.add(dropZoneSelector)
 
                 // 2. Move input into drop zone
                 $input.replaceWith($dropZone)
                 $dropZone.appendChild($input)
               },
               context: {
-                selector: inputSelector
+                dropZoneSelector: FileUpload.defaults.dropZoneClass,
+                inputSelector: 'input'
               }
             })
           ).resolves.not.toThrow()
@@ -713,15 +648,15 @@ describe('File upload', () => {
 
         it('does not throw if the drop zone has `data-module` attribute', async () => {
           await expect(
-            render(page, 'file-upload', examples.default, {
-              beforeInitialisation($root, { selector }) {
+            initExample('default', {
+              beforeInitialisation($root, { dropZoneSelector, inputSelector }) {
                 const $input = /** @type {HTMLElement} */ (
-                  $root.querySelector(selector)
+                  $root.querySelector(inputSelector)
                 )
 
                 // 1. Create drop zone
                 const $dropZone = document.createElement('div')
-                $dropZone.classList.add('nhsuk-file-upload__drop-zone')
+                $dropZone.classList.add(dropZoneSelector)
 
                 // 2. Move input into drop zone
                 $input.replaceWith($dropZone)
@@ -732,7 +667,8 @@ describe('File upload', () => {
                 $dropZone.setAttribute('data-module', 'nhsuk-file-upload')
               },
               context: {
-                selector: inputSelector
+                dropZoneSelector: FileUpload.defaults.dropZoneClass,
+                inputSelector: 'input'
               }
             })
           ).resolves.not.toThrow()
@@ -746,5 +682,6 @@ describe('File upload', () => {
 })
 
 /**
+ * @import { BrowserRenderOptions } from '@nhsuk/frontend-helpers/puppeteer.mjs'
  * @import { BoundingBox, ElementHandle, Protocol } from 'puppeteer'
  */
