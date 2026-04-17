@@ -129,79 +129,15 @@ describe('Button', () => {
     })
   })
 
-  describe('preventing double clicks', () => {
-    describe('using data-attributes', () => {
-      beforeEach(async () => {
-        await initExample('with double click prevented')
-      })
-
-      it('prevents unintentional clicks', async () => {
-        await $component.click({
-          count: 2
-        })
-
-        await expect(getButtonTracking()).resolves.toMatchObject({
-          clicked: 2,
-          prevented: 1
-        })
-      })
-
-      it('does not prevent intentional multiple clicks', async () => {
-        await $component.click({
-          count: 2,
-          delay: debouncedWaitTime
-        })
-
-        await expect(getButtonTracking()).resolves.toMatchObject({
-          clicked: 2,
-          prevented: 0
-        })
-      })
-
-      it('does not prevent subsequent clicks on different buttons', async () => {
-        $component.evaluate(($el) =>
-          $el.parentNode?.appendChild($el.cloneNode(true))
-        )
-
-        // Locate original and cloned button
-        const $button1 = await setButtonTracking(
-          await page.$('button:nth-child(1)')
-        )
-
-        const $button2 = await setButtonTracking(
-          await page.$('button:nth-child(2)')
-        )
-
-        await $button1.click({
-          count: 2
-        })
-
-        await $button2.click()
-
-        // 2nd click on button 1 prevented
-        await expect(getButtonTracking($button1)).resolves.toMatchObject({
-          clicked: 2,
-          prevented: 1
-        })
-
-        // 3rd click on button 2 not prevented
-        await expect(getButtonTracking($button2)).resolves.toMatchObject({
-          clicked: 1,
-          prevented: 0
-        })
-      })
-    })
-
-    describe('using JavaScript configuration', () => {
-      beforeEach(async () => {
+  describe('JavaScript configuration', () => {
+    describe('during initialisation', () => {
+      it("configures 'preventDoubleClick: true' to prevent double clicks", async () => {
         await initExample('default', {
           config: {
             preventDoubleClick: true
           }
         })
-      })
 
-      it('prevents unintentional clicks', async () => {
         await $component.click({
           count: 2
         })
@@ -212,7 +148,13 @@ describe('Button', () => {
         })
       })
 
-      it('does not prevent intentional multiple clicks', async () => {
+      it("configures 'preventDoubleClick: true' but allows multiple intentional clicks", async () => {
+        await initExample('default', {
+          config: {
+            preventDoubleClick: true
+          }
+        })
+
         await $component.click({
           count: 2,
           delay: debouncedWaitTime
@@ -224,7 +166,13 @@ describe('Button', () => {
         })
       })
 
-      it('does not prevent subsequent clicks on different buttons', async () => {
+      it("configures 'preventDoubleClick: true' to prevent double clicks (configured button only)", async () => {
+        await initExample('default', {
+          config: {
+            preventDoubleClick: true
+          }
+        })
+
         $component.evaluate(($el) =>
           $el.parentNode?.appendChild($el.cloneNode(true))
         )
@@ -256,18 +204,57 @@ describe('Button', () => {
           prevented: 0
         })
       })
+
+      it("configures 'preventDoubleClick: false' to explicitly allow double clicks", async () => {
+        await initExample('default', {
+          config: {
+            preventDoubleClick: false
+          }
+        })
+
+        await $component.click()
+        await $component.click()
+
+        await expect(getButtonTracking()).resolves.toMatchObject({
+          clicked: 2,
+          prevented: 0
+        })
+      })
     })
 
-    describe('using JavaScript configuration, but cancelled by data-attributes', () => {
-      beforeEach(async () => {
+    describe('with HTML data attributes', () => {
+      it("configures 'preventDoubleClick: true' to prevent double clicks", async () => {
+        await initExample('with double click prevented')
+        await $component.click({
+          count: 2
+        })
+
+        await expect(getButtonTracking()).resolves.toMatchObject({
+          clicked: 2,
+          prevented: 1
+        })
+      })
+
+      it("configures 'preventDoubleClick: true' but allows multiple intentional clicks", async () => {
+        await initExample('with double click prevented')
+        await $component.click({
+          count: 2,
+          delay: debouncedWaitTime
+        })
+
+        await expect(getButtonTracking()).resolves.toMatchObject({
+          clicked: 2,
+          prevented: 0
+        })
+      })
+
+      it('uses `preventDoubleClick` data attribute instead of JavaScript `preventDoubleClick`', async () => {
         await initExample('with double click not prevented', {
           config: {
             preventDoubleClick: true
           }
         })
-      })
 
-      it('does not prevent multiple clicks', async () => {
         await $component.click({
           count: 2
         })
@@ -278,141 +265,75 @@ describe('Button', () => {
         })
       })
     })
+  })
 
-    describe('using `initAll`', () => {
-      beforeEach(async () => {
-        await initExample('default', {
-          config: {
-            preventDoubleClick: true
+  describe('Error handling', () => {
+    it('can throw a SupportError if appropriate', () => {
+      return expect(
+        initExample('default', {
+          beforeInitialisation() {
+            document.body.classList.remove('nhsuk-frontend-supported')
           }
         })
-      })
-
-      it('prevents unintentional clicks', async () => {
-        await $component.click({
-          count: 2
-        })
-
-        await expect(getButtonTracking()).resolves.toMatchObject({
-          clicked: 2,
-          prevented: 1
-        })
-      })
-
-      it('does not prevent intentional multiple clicks', async () => {
-        await $component.click({
-          count: 2,
-          delay: debouncedWaitTime
-        })
-
-        await expect(getButtonTracking()).resolves.toMatchObject({
-          clicked: 2,
-          prevented: 0
-        })
-      })
-
-      it('does not prevent subsequent clicks on different buttons', async () => {
-        $component.evaluate(($el) =>
-          $el.parentNode?.appendChild($el.cloneNode(true))
-        )
-
-        // Locate original and cloned button
-        const $button1 = await setButtonTracking(
-          await page.$('button:nth-child(1)')
-        )
-
-        const $button2 = await setButtonTracking(
-          await page.$('button:nth-child(2)')
-        )
-
-        await $button1.click({
-          count: 2
-        })
-
-        await $button2.click()
-
-        // 2nd click on button 1 prevented
-        await expect(getButtonTracking($button1)).resolves.toMatchObject({
-          clicked: 2,
-          prevented: 1
-        })
-
-        // 3rd click on button 2 not prevented
-        await expect(getButtonTracking($button2)).resolves.toMatchObject({
-          clicked: 1,
-          prevented: 0
-        })
+      ).rejects.toMatchObject({
+        cause: {
+          name: 'SupportError',
+          message:
+            'NHS.UK frontend initialised without `<body class="nhsuk-frontend-supported">` from template `<script>` snippet'
+        }
       })
     })
 
-    describe('Error handling', () => {
-      it('can throw a SupportError if appropriate', () => {
-        return expect(
-          initExample('default', {
-            beforeInitialisation() {
-              document.body.classList.remove('nhsuk-frontend-supported')
-            }
-          })
-        ).rejects.toMatchObject({
-          cause: {
-            name: 'SupportError',
-            message:
-              'NHS.UK frontend initialised without `<body class="nhsuk-frontend-supported">` from template `<script>` snippet'
+    it('throws when initialised twice', () => {
+      return expect(
+        initExample('default', {
+          async afterInitialisation($root) {
+            const { Button } = await import('nhsuk-frontend')
+            new Button($root)
           }
         })
+      ).rejects.toMatchObject({
+        name: 'InitError',
+        message: 'nhsuk-button: Root element (`$root`) already initialised'
       })
+    })
 
-      it('throws when initialised twice', () => {
-        return expect(
-          initExample('default', {
-            async afterInitialisation($root) {
-              const { Button } = await import('nhsuk-frontend')
-              new Button($root)
-            }
-          })
-        ).rejects.toMatchObject({
-          name: 'InitError',
-          message: 'nhsuk-button: Root element (`$root`) already initialised'
-        })
-      })
-
-      it('throws when $root is not set', () => {
-        return expect(
-          initExample('default', {
-            beforeInitialisation($root) {
-              $root.remove()
-            }
-          })
-        ).rejects.toMatchObject({
-          cause: {
-            name: 'ElementError',
-            message: 'nhsuk-button: Root element (`$root`) not found'
+    it('throws when $root is not set', () => {
+      return expect(
+        initExample('default', {
+          beforeInitialisation($root) {
+            $root.remove()
           }
         })
+      ).rejects.toMatchObject({
+        cause: {
+          name: 'ElementError',
+          message: 'nhsuk-button: Root element (`$root`) not found'
+        }
       })
+    })
 
-      it('throws when receiving the wrong type for $root', () => {
-        return expect(
-          initExample('default', {
-            beforeInitialisation($root) {
-              const $svg = document.createElementNS(
-                'http://www.w3.org/2000/svg',
-                'svg'
-              )
+    it('throws when receiving the wrong type for $root', () => {
+      return expect(
+        initExample('default', {
+          beforeInitialisation($root) {
+            const $svg = document.createElementNS(
+              'http://www.w3.org/2000/svg',
+              'svg'
+            )
 
-              $svg.setAttribute('data-module', 'nhsuk-button')
+            $svg.setAttribute('data-module', 'nhsuk-button')
 
-              // Replace with an `<svg>` element which is not an `HTMLElement` in the DOM (but an `SVGElement`)
-              $root.replaceWith($svg)
-            }
-          })
-        ).rejects.toMatchObject({
-          cause: {
-            name: 'ElementError',
-            message:
-              'nhsuk-button: Root element (`$root`) is not of type HTMLElement'
+            // Replace with an `<svg>` element which is not an `HTMLElement` in the DOM (but an `SVGElement`)
+            $root.replaceWith($svg)
           }
         })
+      ).rejects.toMatchObject({
+        cause: {
+          name: 'ElementError',
+          message:
+            'nhsuk-button: Root element (`$root`) is not of type HTMLElement'
+        }
       })
     })
   })

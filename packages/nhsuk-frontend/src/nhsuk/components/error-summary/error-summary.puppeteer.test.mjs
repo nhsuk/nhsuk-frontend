@@ -48,88 +48,6 @@ describe('Error summary', () => {
     expect(await getAttribute($component, 'tabindex')).toBeNull()
   })
 
-  describe('when auto-focus is disabled', () => {
-    describe('using data-attributes', () => {
-      beforeAll(async () => {
-        await initExample('auto-focus disabled')
-      })
-
-      it('does not have a tabindex attribute', async () => {
-        expect(await getAttribute($component, 'tabindex')).toBeNull()
-      })
-
-      it('does not focus on page load', async () => {
-        const activeElementModuleName = await page.evaluate(() =>
-          document.activeElement?.getAttribute('data-module')
-        )
-
-        expect(activeElementModuleName).not.toBe(ErrorSummary.moduleName)
-      })
-    })
-
-    describe('using JavaScript configuration', () => {
-      beforeAll(async () => {
-        await initExample('default', {
-          config: {
-            disableAutoFocus: true
-          }
-        })
-      })
-
-      it('does not have a tabindex attribute', async () => {
-        expect(await getAttribute($component, 'tabindex')).toBeNull()
-      })
-
-      it('does not focus on page load', async () => {
-        const activeElementModuleName = await page.evaluate(() =>
-          document.activeElement?.getAttribute('data-module')
-        )
-
-        expect(activeElementModuleName).not.toBe(ErrorSummary.moduleName)
-      })
-    })
-
-    describe('using JavaScript configuration, but enabled via data-attributes', () => {
-      beforeAll(async () => {
-        await initExample('auto-focus explicitly enabled')
-      })
-
-      it('adds the tabindex attribute on page load', async () => {
-        expect(await getAttribute($component, 'tabindex')).toBe('-1')
-      })
-
-      it('is automatically focused when the page loads', async () => {
-        const activeElementModuleName = await page.evaluate(() =>
-          document.activeElement?.getAttribute('data-module')
-        )
-
-        expect(activeElementModuleName).toBe(ErrorSummary.moduleName)
-      })
-    })
-
-    describe('using `initAll`', () => {
-      beforeAll(async () => {
-        await initExample('default', {
-          config: {
-            disableAutoFocus: true
-          }
-        })
-      })
-
-      it('does not have a tabindex attribute', async () => {
-        expect(await getAttribute($component, 'tabindex')).toBeNull()
-      })
-
-      it('does not focus on page load', async () => {
-        const activeElementModuleName = await page.evaluate(() =>
-          document.activeElement?.getAttribute('data-module')
-        )
-
-        expect(activeElementModuleName).not.toBe(ErrorSummary.moduleName)
-      })
-    })
-  })
-
   describe.each([
     {
       name: 'an input',
@@ -220,6 +138,94 @@ describe('Error summary', () => {
     it('does not include a hash in the URL', async () => {
       const hash = await page.evaluate(() => window.location.hash)
       expect(hash).toBe('')
+    })
+  })
+
+  describe('JavaScript configuration', () => {
+    describe('during initialisation', () => {
+      it("configures 'disableAutoFocus: true' to prevent auto-focus", async () => {
+        await initExample('default', {
+          config: {
+            disableAutoFocus: true
+          }
+        })
+
+        const activeElementModuleName = await page.evaluate(() =>
+          document.activeElement?.getAttribute('data-module')
+        )
+
+        // Does not add the tabindex attribute on page load
+        expect(await getAttribute($component, 'tabindex')).toBeNull()
+
+        // Does not automatically focus on page load
+        expect(activeElementModuleName).not.toBe(ErrorSummary.moduleName)
+      })
+
+      it("configures 'disableAutoFocus: false' to explicitly enable auto-focus", async () => {
+        await initExample('default', {
+          config: {
+            disableAutoFocus: false
+          }
+        })
+
+        const activeElementModuleName = await page.evaluate(() =>
+          document.activeElement?.getAttribute('data-module')
+        )
+
+        // Adds the tabindex attribute on page load
+        expect(await getAttribute($component, 'tabindex')).toBe('-1')
+
+        // Automatically focused on page load
+        expect(activeElementModuleName).toBe(ErrorSummary.moduleName)
+      })
+    })
+
+    describe('with HTML data attributes', () => {
+      it("configures 'disableAutoFocus: true' to prevent auto-focus", async () => {
+        await initExample('auto-focus disabled')
+
+        const activeElementModuleName = await page.evaluate(() =>
+          document.activeElement?.getAttribute('data-module')
+        )
+
+        // Does not add the tabindex attribute on page load
+        expect(await getAttribute($component, 'tabindex')).toBeNull()
+
+        // Does not automatically focus on page load
+        expect(activeElementModuleName).not.toBe(ErrorSummary.moduleName)
+      })
+
+      it("configures 'disableAutoFocus: false' to explicitly enable auto-focus", async () => {
+        await initExample('auto-focus explicitly enabled')
+
+        const activeElementModuleName = await page.evaluate(() =>
+          document.activeElement?.getAttribute('data-module')
+        )
+
+        // Adds the tabindex attribute on page load
+        expect(await getAttribute($component, 'tabindex')).toBe('-1')
+
+        // Automatically focused on page load
+        expect(activeElementModuleName).toBe(ErrorSummary.moduleName)
+      })
+
+      it('uses `disableAutoFocus` data attribute instead of JavaScript `disableAutoFocus`', async () => {
+        await initExample('auto-focus explicitly enabled', {
+          config: {
+            disableAutoFocus: false
+          }
+        })
+
+        const activeElementModuleName = await page.evaluate(() =>
+          document.activeElement?.getAttribute('data-module')
+        )
+
+        // Adds the tabindex attribute on page load
+        expect(await getAttribute($component, 'tabindex')).toBe('-1')
+
+        // Automatically focused on page load
+        expect(activeElementModuleName).toBe(ErrorSummary.moduleName)
+      })
     })
   })
 

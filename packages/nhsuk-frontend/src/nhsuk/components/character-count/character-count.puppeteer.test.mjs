@@ -457,49 +457,6 @@ describe('Character count', () => {
         })
       })
 
-      describe('via `initAll`', () => {
-        it('configures the number of characters', async () => {
-          await initExample('to configure in JavaScript', {
-            config: {
-              maxlength: 10
-            }
-          })
-
-          await $textarea.type('A'.repeat(11))
-
-          expect(await getText($visibleCountMessage)).toBe(
-            'You have 1 character too many'
-          )
-        })
-
-        it('configures the number of words', async () => {
-          await initExample('to configure in JavaScript', {
-            config: {
-              maxwords: 10
-            }
-          })
-
-          await $textarea.type('Hello '.repeat(11))
-
-          expect(await getText($visibleCountMessage)).toBe(
-            'You have 1 word too many'
-          )
-        })
-
-        it('configures the threshold', async () => {
-          await initExample('to configure in JavaScript', {
-            config: {
-              maxlength: 10,
-              threshold: 75
-            }
-          })
-
-          await $textarea.type('A'.repeat(8))
-
-          expect(await getProperty($visibleCountMessage, 'hidden')).toBe(false)
-        })
-      })
-
       describe('with HTML data attributes', () => {
         it('uses `maxlength` data attribute instead of JavaScript `maxlength`', async () => {
           await initExample('default', {
