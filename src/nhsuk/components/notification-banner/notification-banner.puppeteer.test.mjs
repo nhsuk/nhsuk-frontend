@@ -80,7 +80,7 @@ describe('Notification banner', () => {
 
   describe('JavaScript configuration', () => {
     describe('during initialisation', () => {
-      it("configures 'disableAutoFocus: true' to prevent auto-focus", async () => {
+      it('configures `disableAutoFocus: true` to prevent auto-focus', async () => {
         await initExample('with success variant', {
           config: {
             disableAutoFocus: true
@@ -98,7 +98,7 @@ describe('Notification banner', () => {
         expect(activeElementModuleName).not.toBe(NotificationBanner.moduleName)
       })
 
-      it("configures 'disableAutoFocus: false' to explicitly enable auto-focus", async () => {
+      it('configures `disableAutoFocus: false` to explicitly enable auto-focus', async () => {
         await initExample('with success variant', {
           config: {
             disableAutoFocus: false
@@ -118,7 +118,7 @@ describe('Notification banner', () => {
     })
 
     describe('with HTML data attributes', () => {
-      it("configures 'disableAutoFocus: true' to prevent auto-focus", async () => {
+      it('configures `disableAutoFocus: true` to prevent auto-focus', async () => {
         await initExample('auto-focus disabled, with success variant')
 
         const activeElementModuleName = await page.evaluate(() =>
@@ -132,7 +132,7 @@ describe('Notification banner', () => {
         expect(activeElementModuleName).not.toBe(NotificationBanner.moduleName)
       })
 
-      it("configures 'disableAutoFocus: false' to explicitly enable auto-focus", async () => {
+      it('configures `disableAutoFocus: false` to explicitly enable auto-focus', async () => {
         await initExample('auto-focus explicitly enabled, with success variant')
 
         const activeElementModuleName = await page.evaluate(() =>

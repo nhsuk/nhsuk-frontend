@@ -131,7 +131,7 @@ describe('Button', () => {
 
   describe('JavaScript configuration', () => {
     describe('during initialisation', () => {
-      it("configures 'preventDoubleClick: true' to prevent double clicks", async () => {
+      it('configures `preventDoubleClick: true` to prevent double clicks', async () => {
         await initExample('default', {
           config: {
             preventDoubleClick: true
@@ -148,7 +148,7 @@ describe('Button', () => {
         })
       })
 
-      it("configures 'preventDoubleClick: true' but allows multiple intentional clicks", async () => {
+      it('configures `preventDoubleClick: true` but allows multiple intentional clicks', async () => {
         await initExample('default', {
           config: {
             preventDoubleClick: true
@@ -166,7 +166,7 @@ describe('Button', () => {
         })
       })
 
-      it("configures 'preventDoubleClick: true' to prevent double clicks (configured button only)", async () => {
+      it('configures `preventDoubleClick: true` to prevent double clicks (configured button only)', async () => {
         await initExample('default', {
           config: {
             preventDoubleClick: true
@@ -205,7 +205,7 @@ describe('Button', () => {
         })
       })
 
-      it("configures 'preventDoubleClick: false' to explicitly allow double clicks", async () => {
+      it('configures `preventDoubleClick: false` to explicitly allow double clicks', async () => {
         await initExample('default', {
           config: {
             preventDoubleClick: false
@@ -223,7 +223,7 @@ describe('Button', () => {
     })
 
     describe('with HTML data attributes', () => {
-      it("configures 'preventDoubleClick: true' to prevent double clicks", async () => {
+      it('configures `preventDoubleClick: true` to prevent double clicks', async () => {
         await initExample('with double click prevented')
         await $component.click({
           count: 2
@@ -235,7 +235,7 @@ describe('Button', () => {
         })
       })
 
-      it("configures 'preventDoubleClick: true' but allows multiple intentional clicks", async () => {
+      it('configures `preventDoubleClick: true` but allows multiple intentional clicks', async () => {
         await initExample('with double click prevented')
         await $component.click({
           count: 2,
