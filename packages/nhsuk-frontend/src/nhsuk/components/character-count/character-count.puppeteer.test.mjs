@@ -105,9 +105,6 @@ describe('Character count', () => {
       it('retains error class if there is already an error', async () => {
         await initExample('with error message')
 
-        // Wait for debounced update to happen
-        await timers.setTimeout(debouncedWaitTime)
-
         expect(await getAttribute($textarea, 'class')).toContain(
           'nhsuk-textarea--error'
         )
@@ -177,9 +174,6 @@ describe('Character count', () => {
         await initExample('with error message')
 
         await $textarea.type('A')
-
-        // Wait for debounced update to happen
-        await timers.setTimeout(debouncedWaitTime)
 
         expect(await getAttribute($textarea, 'class')).toContain(
           'nhsuk-textarea--error'
@@ -269,9 +263,6 @@ describe('Character count', () => {
 
         it('does not show the limit until the threshold is reached', async () => {
           expect(await getProperty($visibleCountMessage, 'hidden')).toBe(true)
-
-          // Wait for debounced update to happen
-          await timers.setTimeout(debouncedWaitTime)
 
           // Ensure threshold is hidden for users of assistive technologies
           expect(
