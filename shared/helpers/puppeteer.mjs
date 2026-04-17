@@ -338,7 +338,7 @@ export function getAttribute($element, attributeName) {
     throw new TypeError('Element is not defined')
   }
 
-  return $element.evaluate((el, name) => el.getAttribute(name), attributeName)
+  return $element.evaluate(($el, name) => $el.getAttribute(name), attributeName)
 }
 
 /**

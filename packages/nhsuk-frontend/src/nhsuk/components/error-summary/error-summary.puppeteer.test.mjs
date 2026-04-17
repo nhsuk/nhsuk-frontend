@@ -1,69 +1,75 @@
-import { goToExample, render } from '@nhsuk/frontend-helpers/puppeteer.mjs'
+import {
+  getAttribute,
+  goToExample,
+  render
+} from '@nhsuk/frontend-helpers/puppeteer.mjs'
 
+import { ErrorSummary } from './error-summary.mjs'
 import { examples } from './fixtures.mjs'
 
-describe('Error Summary', () => {
-  it('adds the tabindex attribute on page load', async () => {
-    await render(page, 'error-summary', examples.default)
+describe('Error summary', () => {
+  /** @type {ElementHandle<HTMLElement>} */
+  let $component
 
-    const tabindex = await page.$eval('.nhsuk-error-summary', (el) =>
-      el.getAttribute('tabindex')
+  /**
+   * @template {object} HandlerContext
+   * @param {keyof typeof examples} example
+   * @param {BrowserRenderOptions<HandlerContext>} [browserOptions] - Puppeteer browser render options
+   */
+  async function initExample(example, browserOptions) {
+    await render(page, 'error-summary', examples[example], browserOptions)
+
+    $component = /** @type {ElementHandle<HTMLElement>} */ (
+      await page.$(`[data-module="${ErrorSummary.moduleName}"]`)
     )
+  }
 
-    expect(tabindex).toBe('-1')
+  it('adds the tabindex attribute on page load', async () => {
+    await initExample('default')
+
+    expect(await getAttribute($component, 'tabindex')).toBe('-1')
   })
 
   it('is automatically focused when the page loads', async () => {
-    await render(page, 'error-summary', examples.default)
+    await initExample('default')
 
-    const moduleName = await page.evaluate(() =>
+    const activeElementModuleName = await page.evaluate(() =>
       document.activeElement?.getAttribute('data-module')
     )
 
-    expect(moduleName).toBe('nhsuk-error-summary')
+    expect(activeElementModuleName).toBe(ErrorSummary.moduleName)
   })
 
   it('removes the tabindex attribute on blur', async () => {
-    await render(page, 'error-summary', examples.default)
+    await initExample('default')
 
-    await page.$eval(
-      '.nhsuk-error-summary',
-      (el) => el instanceof window.HTMLElement && el.blur()
-    )
+    await $component.evaluate(($el) => $el.blur())
 
-    const tabindex = await page.$eval('.nhsuk-error-summary', (el) =>
-      el.getAttribute('tabindex')
-    )
-
-    expect(tabindex).toBeNull()
+    expect(await getAttribute($component, 'tabindex')).toBeNull()
   })
 
   describe('when auto-focus is disabled', () => {
     describe('using data-attributes', () => {
       beforeAll(async () => {
-        await render(page, 'error-summary', examples['auto-focus disabled'])
+        await initExample('auto-focus disabled')
       })
 
       it('does not have a tabindex attribute', async () => {
-        const tabindex = await page.$eval('.nhsuk-error-summary', (el) =>
-          el.getAttribute('tabindex')
-        )
-
-        expect(tabindex).toBeNull()
+        expect(await getAttribute($component, 'tabindex')).toBeNull()
       })
 
       it('does not focus on page load', async () => {
-        const activeElement = await page.evaluate(() =>
+        const activeElementModuleName = await page.evaluate(() =>
           document.activeElement?.getAttribute('data-module')
         )
 
-        expect(activeElement).not.toBe('nhsuk-error-summary')
+        expect(activeElementModuleName).not.toBe(ErrorSummary.moduleName)
       })
     })
 
     describe('using JavaScript configuration', () => {
       beforeAll(async () => {
-        await render(page, 'error-summary', examples.default, {
+        await initExample('default', {
           config: {
             disableAutoFocus: true
           }
@@ -71,49 +77,39 @@ describe('Error Summary', () => {
       })
 
       it('does not have a tabindex attribute', async () => {
-        const tabindex = await page.$eval('.nhsuk-error-summary', (el) =>
-          el.getAttribute('tabindex')
-        )
-
-        expect(tabindex).toBeNull()
+        expect(await getAttribute($component, 'tabindex')).toBeNull()
       })
 
       it('does not focus on page load', async () => {
-        const activeElement = await page.evaluate(() =>
+        const activeElementModuleName = await page.evaluate(() =>
           document.activeElement?.getAttribute('data-module')
         )
 
-        expect(activeElement).not.toBe('nhsuk-error-summary')
+        expect(activeElementModuleName).not.toBe(ErrorSummary.moduleName)
       })
     })
 
     describe('using JavaScript configuration, but enabled via data-attributes', () => {
       beforeAll(async () => {
-        await render(
-          page,
-          'error-summary',
-          examples['auto-focus explicitly enabled']
-        )
+        await initExample('auto-focus explicitly enabled')
       })
 
       it('adds the tabindex attribute on page load', async () => {
-        const tabindex = await page.$eval('.nhsuk-error-summary', (el) =>
-          el.getAttribute('tabindex')
-        )
-        expect(tabindex).toBe('-1')
+        expect(await getAttribute($component, 'tabindex')).toBe('-1')
       })
 
       it('is automatically focused when the page loads', async () => {
-        const moduleName = await page.evaluate(() =>
+        const activeElementModuleName = await page.evaluate(() =>
           document.activeElement?.getAttribute('data-module')
         )
-        expect(moduleName).toBe('nhsuk-error-summary')
+
+        expect(activeElementModuleName).toBe(ErrorSummary.moduleName)
       })
     })
 
     describe('using `initAll`', () => {
       beforeAll(async () => {
-        await render(page, 'error-summary', examples.default, {
+        await initExample('default', {
           config: {
             disableAutoFocus: true
           }
@@ -121,19 +117,15 @@ describe('Error Summary', () => {
       })
 
       it('does not have a tabindex attribute', async () => {
-        const tabindex = await page.$eval('.nhsuk-error-summary', (el) =>
-          el.getAttribute('tabindex')
-        )
-
-        expect(tabindex).toBeNull()
+        expect(await getAttribute($component, 'tabindex')).toBeNull()
       })
 
       it('does not focus on page load', async () => {
-        const activeElement = await page.evaluate(() =>
+        const activeElementModuleName = await page.evaluate(() =>
           document.activeElement?.getAttribute('data-module')
         )
 
-        expect(activeElement).not.toBe('nhsuk-error-summary')
+        expect(activeElementModuleName).not.toBe(ErrorSummary.moduleName)
       })
     })
   })
@@ -208,11 +200,11 @@ describe('Error Summary', () => {
     })
 
     it('focuses the target input', async () => {
-      const activeElement = await page.evaluate(
+      const activeElementId = await page.evaluate(
         () => document.activeElement?.id
       )
 
-      expect(activeElement).toBe(inputId)
+      expect(activeElementId).toBe(inputId)
     })
 
     it('scrolls the label or legend to the top of the screen', async () => {
@@ -232,9 +224,9 @@ describe('Error Summary', () => {
   })
 
   describe('errors at instantiation', () => {
-    it('can throw a SupportError if appropriate', async () => {
-      await expect(
-        render(page, 'error-summary', examples.default, {
+    it('can throw a SupportError if appropriate', () => {
+      return expect(
+        initExample('default', {
           beforeInitialisation() {
             document.body.classList.remove('nhsuk-frontend-supported')
           }
@@ -248,9 +240,9 @@ describe('Error Summary', () => {
       })
     })
 
-    it('throws when initialised twice', async () => {
-      await expect(
-        render(page, 'error-summary', examples.default, {
+    it('throws when initialised twice', () => {
+      return expect(
+        initExample('default', {
           async afterInitialisation($root) {
             const { ErrorSummary } = await import('nhsuk-frontend')
             new ErrorSummary($root)
@@ -263,9 +255,9 @@ describe('Error Summary', () => {
       })
     })
 
-    it('throws when $root is not set', async () => {
-      await expect(
-        render(page, 'error-summary', examples.default, {
+    it('throws when $root is not set', () => {
+      return expect(
+        initExample('default', {
           beforeInitialisation($root) {
             $root.remove()
           }
@@ -278,9 +270,9 @@ describe('Error Summary', () => {
       })
     })
 
-    it('throws when receiving the wrong type for $root', async () => {
-      await expect(
-        render(page, 'error-summary', examples.default, {
+    it('throws when receiving the wrong type for $root', () => {
+      return expect(
+        initExample('default', {
           beforeInitialisation($root) {
             // Replace with an `<svg>` element which is not an `HTMLElement` in the DOM (but an `SVGElement`)
             $root.outerHTML = `<svg data-module="nhsuk-error-summary"></svg>`
@@ -296,3 +288,8 @@ describe('Error Summary', () => {
     })
   })
 })
+
+/**
+ * @import { BrowserRenderOptions } from '@nhsuk/frontend-helpers/puppeteer.mjs'
+ * @import { ElementHandle } from 'puppeteer'
+ */
