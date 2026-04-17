@@ -33,6 +33,7 @@ describe('Character count', () => {
     $description = document.getElementById(`${$textarea.id}-info`)
 
     jest.spyOn($textarea, 'addEventListener')
+    jest.spyOn(window, 'addEventListener')
   }
 
   beforeEach(() => {
@@ -55,6 +56,11 @@ describe('Character count', () => {
 
       expect($textarea.addEventListener).toHaveBeenCalledWith(
         'blur',
+        expect.any(Function)
+      )
+
+      expect(window.addEventListener).toHaveBeenCalledWith(
+        'pageshow',
         expect.any(Function)
       )
     })
@@ -215,6 +221,10 @@ describe('Character count', () => {
   })
 
   describe('JavaScript configuration', () => {
+    beforeEach(() => {
+      initExample('to configure in JavaScript')
+    })
+
     describe('during initialisation', () => {
       it('overrides the default translation keys', () => {
         const component = new CharacterCount($root, {
@@ -258,6 +268,64 @@ describe('Character count', () => {
         expect(component.formatCountMessage(0, 'words')).toBe(
           'Different custom text.'
         )
+      })
+
+      it('uses existing textarea value for `maxlength` limit when initialised', () => {
+        $textarea.value = 'Existing value'
+
+        const component = new CharacterCount($root, {
+          maxlength: 100
+        })
+
+        expect(component.getCountMessage()).toBe(
+          'You have 86 characters remaining'
+        )
+      })
+
+      it('uses existing textarea value for `maxwords` limit when initialised', () => {
+        $textarea.value = 'Existing value'
+
+        const component = new CharacterCount($root, {
+          maxwords: 100
+        })
+
+        expect(component.getCountMessage()).toBe('You have 98 words remaining')
+      })
+
+      it('uses current textarea value for `maxlength` limit via back/forward navigation', () => {
+        const component = new CharacterCount($root, {
+          maxlength: 100
+        })
+
+        $textarea.value = 'Newly updated value'
+
+        // Trigger back/forward navigation
+        window.dispatchEvent(
+          new PageTransitionEvent('pageshow', {
+            persisted: true
+          })
+        )
+
+        expect(component.getCountMessage()).toBe(
+          'You have 81 characters remaining'
+        )
+      })
+
+      it('uses current textarea value for `maxwords` limit via back/forward navigation', () => {
+        const component = new CharacterCount($root, {
+          maxwords: 100
+        })
+
+        $textarea.value = 'Newly updated value'
+
+        // Trigger back/forward navigation
+        window.dispatchEvent(
+          new PageTransitionEvent('pageshow', {
+            persisted: true
+          })
+        )
+
+        expect(component.getCountMessage()).toBe('You have 97 words remaining')
       })
     })
 
