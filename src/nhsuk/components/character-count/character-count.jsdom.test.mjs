@@ -213,6 +213,131 @@ describe('Character count', () => {
       })
     })
   })
+
+  describe('JavaScript configuration', () => {
+    describe('during initialisation', () => {
+      it('overrides the default translation keys', () => {
+        const component = new CharacterCount($root, {
+          maxlength: 100,
+          i18n: {
+            charactersUnderLimit: { one: 'Custom text. Count: %{count}' }
+          }
+        })
+
+        expect(component.formatCountMessage(1, 'characters')).toBe(
+          'Custom text. Count: 1'
+        )
+
+        // Other keys remain untouched
+        expect(component.formatCountMessage(10, 'characters')).toBe(
+          'You have 10 characters remaining'
+        )
+      })
+
+      it('uses specific translation keys when `maxlength` limit is reached', () => {
+        const component = new CharacterCount($root, {
+          maxlength: 100,
+          i18n: {
+            charactersAtLimit: 'Custom text.'
+          }
+        })
+
+        expect(component.formatCountMessage(0, 'characters')).toBe(
+          'Custom text.'
+        )
+      })
+
+      it('uses specific translation keys when `maxwords` limit is reached', () => {
+        const component = new CharacterCount($root, {
+          maxwords: 100,
+          i18n: {
+            wordsAtLimit: 'Different custom text.'
+          }
+        })
+
+        expect(component.formatCountMessage(0, 'words')).toBe(
+          'Different custom text.'
+        )
+      })
+    })
+
+    describe('with HTML lang attribute', () => {
+      it('overrides the locale when set on the element', () => {
+        $root.setAttribute('lang', 'de')
+
+        const component = new CharacterCount($root, {
+          maxwords: 20000
+        })
+
+        expect(component.formatCountMessage(10000, 'words')).toBe(
+          'You have 10.000 words remaining'
+        )
+      })
+
+      it('overrides the locale when set on an ancestor', () => {
+        document.body.setAttribute('lang', 'de')
+
+        const component = new CharacterCount($root, {
+          maxwords: 20000
+        })
+
+        expect(component.formatCountMessage(10000, 'words')).toBe(
+          'You have 10.000 words remaining'
+        )
+      })
+    })
+
+    describe('with HTML data attributes', () => {
+      it('overrides the default translation keys', () => {
+        $root.setAttribute(
+          'data-i18n.characters-under-limit.one',
+          'Custom text. Count: %{count}'
+        )
+
+        const component = new CharacterCount($root, {
+          maxlength: 100
+        })
+
+        expect(component.formatCountMessage(1, 'characters')).toBe(
+          'Custom text. Count: 1'
+        )
+
+        // Other keys remain untouched
+        expect(component.formatCountMessage(10, 'characters')).toBe(
+          'You have 10 characters remaining'
+        )
+      })
+
+      it('overrides the default translation keys and configuration', () => {
+        $root.setAttribute(
+          'data-i18n.characters-under-limit.one',
+          'Custom text. Count: %{count}'
+        )
+
+        const component = new CharacterCount($root, {
+          maxlength: 100,
+          i18n: {
+            charactersUnderLimit: {
+              one: 'Different custom text. Count: %{count}'
+            }
+          }
+        })
+
+        expect(component.formatCountMessage(1, 'characters')).toBe(
+          'Custom text. Count: 1'
+        )
+
+        // Other keys remain untouched
+        expect(component.formatCountMessage(-10, 'characters')).toBe(
+          'You have 10 characters too many'
+        )
+
+        expect(component.formatCountMessage(0, 'characters')).toBe(
+          'You have 0 characters remaining'
+        )
+      })
+    })
+  })
 })
 
 describe('Character count: Format count message', () => {
