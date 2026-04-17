@@ -6,6 +6,77 @@ Note: This release was created from the `support/10.x` branch.
 
 ### :new: **New features**
 
+#### Sortable tables
+
+You can now make [tables](https://service-manual.nhs.uk/design-system/components/table) sortable, so that clicking the header sorts the table by that column.
+
+To do this, add the `aria-sort="none"` attribute to the `<th>` header cell of any columns that you want to be sortable.
+
+The 1 column which is sorted by default should have `aria-sort="ascending"` or `aria-sort="descending"`.
+
+For example:
+
+```njk
+{{ table({
+  caption: "Childhood MMR coverage",
+  head: [
+    {
+      text: "Nation",
+      attributes: {
+        "aria-sort": "ascending"
+      }
+    },
+    {
+      text: "MMR",
+      format: "numeric",
+      attributes: {
+        "aria-sort": "none"
+      }
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "England"
+      },
+      {
+        text: "83.7%",
+        format: "numeric"
+      }
+    ],
+    [
+      {
+        text: "Northern Ireland"
+      },
+      {
+        text: "86.4%",
+        format: "numeric"
+      }
+    ],
+    [
+      {
+        text: "Scotland"
+      },
+      {
+        text: "89.2%",
+        format: "numeric"
+      }
+    ],
+    [
+      {
+        text: "Wales"
+      },
+      {
+        text: "89.5%",
+        format: "numeric"
+      }
+    ]
+  ]
+}) }}
+```
+
+This was added in [pull request #1654: Add option to make tables sortable](https://github.com/nhsuk/nhsuk-frontend/pull/1654).
+
 #### Add an "all" option to checkboxes
 
 You can now add an "all" option to checkboxes when JavaScript is available. This gives users the option to quickly select or unselect all the checkboxes.
