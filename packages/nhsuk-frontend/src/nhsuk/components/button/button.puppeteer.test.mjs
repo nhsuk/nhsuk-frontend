@@ -136,7 +136,9 @@ describe('Button', () => {
       })
 
       it('prevents unintentional clicks', async () => {
-        await $component.click({ count: 2 })
+        await $component.click({
+          count: 2
+        })
 
         await expect(getButtonTracking()).resolves.toMatchObject({
           clicked: 2,
@@ -145,7 +147,10 @@ describe('Button', () => {
       })
 
       it('does not prevent intentional multiple clicks', async () => {
-        await $component.click({ count: 2, delay: debouncedWaitTime })
+        await $component.click({
+          count: 2,
+          delay: debouncedWaitTime
+        })
 
         await expect(getButtonTracking()).resolves.toMatchObject({
           clicked: 2,
@@ -167,7 +172,10 @@ describe('Button', () => {
           await page.$('button:nth-child(2)')
         )
 
-        await $button1.click({ count: 2 })
+        await $button1.click({
+          count: 2
+        })
+
         await $button2.click()
 
         // 2nd click on button 1 prevented
@@ -194,7 +202,9 @@ describe('Button', () => {
       })
 
       it('prevents unintentional clicks', async () => {
-        await $component.click({ count: 2 })
+        await $component.click({
+          count: 2
+        })
 
         await expect(getButtonTracking()).resolves.toMatchObject({
           clicked: 2,
@@ -203,7 +213,10 @@ describe('Button', () => {
       })
 
       it('does not prevent intentional multiple clicks', async () => {
-        await $component.click({ count: 2, delay: debouncedWaitTime })
+        await $component.click({
+          count: 2,
+          delay: debouncedWaitTime
+        })
 
         await expect(getButtonTracking()).resolves.toMatchObject({
           clicked: 2,
@@ -225,7 +238,10 @@ describe('Button', () => {
           await page.$('button:nth-child(2)')
         )
 
-        await $button1.click({ count: 2 })
+        await $button1.click({
+          count: 2
+        })
+
         await $button2.click()
 
         // 2nd click on button 1 prevented
@@ -252,7 +268,9 @@ describe('Button', () => {
       })
 
       it('does not prevent multiple clicks', async () => {
-        await $component.click({ count: 2 })
+        await $component.click({
+          count: 2
+        })
 
         await expect(getButtonTracking()).resolves.toMatchObject({
           clicked: 2,
@@ -271,7 +289,9 @@ describe('Button', () => {
       })
 
       it('prevents unintentional clicks', async () => {
-        await $component.click({ count: 2 })
+        await $component.click({
+          count: 2
+        })
 
         await expect(getButtonTracking()).resolves.toMatchObject({
           clicked: 2,
@@ -280,7 +300,10 @@ describe('Button', () => {
       })
 
       it('does not prevent intentional multiple clicks', async () => {
-        await $component.click({ count: 2, delay: debouncedWaitTime })
+        await $component.click({
+          count: 2,
+          delay: debouncedWaitTime
+        })
 
         await expect(getButtonTracking()).resolves.toMatchObject({
           clicked: 2,
@@ -302,7 +325,10 @@ describe('Button', () => {
           await page.$('button:nth-child(2)')
         )
 
-        await $button1.click({ count: 2 })
+        await $button1.click({
+          count: 2
+        })
+
         await $button2.click()
 
         // 2nd click on button 1 prevented
