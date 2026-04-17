@@ -193,7 +193,7 @@ describe('Error summary', () => {
       inputId: 'address-postcode',
       legendOrLabelSelector: 'label[for="address-postcode"]'
     }
-  ])('when linking to $name', ({ inputId, legendOrLabelSelector }) => {
+  ])('Linking to $name', ({ inputId, legendOrLabelSelector }) => {
     beforeAll(async () => {
       await goToExample(page, 'error-summary')
       await page.click(`.nhsuk-error-summary a[href="#${inputId}"]`)
@@ -223,7 +223,7 @@ describe('Error summary', () => {
     })
   })
 
-  describe('errors at instantiation', () => {
+  describe('Error handling', () => {
     it('can throw a SupportError if appropriate', () => {
       return expect(
         initExample('default', {

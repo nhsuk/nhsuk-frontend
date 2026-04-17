@@ -165,7 +165,7 @@ describe('Notification banner', () => {
     })
   })
 
-  describe('errors at instantiation', () => {
+  describe('Error handling', () => {
     it('can throw a SupportError if appropriate', () => {
       return expect(
         initExample('default', {
