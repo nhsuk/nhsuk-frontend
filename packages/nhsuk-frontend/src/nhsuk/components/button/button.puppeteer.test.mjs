@@ -24,6 +24,8 @@ describe('Button', () => {
     $component = /** @type {ElementHandle<HTMLElement>} */ (
       await page.$(`[data-module="${Button.moduleName}"]`)
     )
+
+    await setButtonTracking()
   }
 
   /**
@@ -38,8 +40,8 @@ describe('Button', () => {
     }
 
     const counts = {
-      click: 0,
-      debounce: 0
+      clicked: 0,
+      prevented: 0
     }
 
     // Track number of button clicks
@@ -47,13 +49,13 @@ describe('Button', () => {
       $el.addEventListener(
         'click',
         (event) => {
-          counts.click++
-          $el.dataset.clickCount = `${counts.click}`
+          counts.clicked++
+          $el.dataset.clickedCount = `${counts.clicked}`
 
           // Track number of button clicks that debounced
           event.preventDefault = () => {
-            counts.debounce++
-            $el.dataset.debounceCount = `${counts.debounce}`
+            counts.prevented++
+            $el.dataset.preventedCount = `${counts.prevented}`
           }
         },
         // Add listener during capture phase to spy on event
@@ -68,12 +70,12 @@ describe('Button', () => {
    * Gets the number of times the button was clicked
    *
    * @param {ElementHandle<HTMLElement>} [$button] - Puppeteer button element
-   * @returns {Promise<{ click: number; debounce: number; }>} Number of times the button was clicked
+   * @returns {Promise<{ clicked: number; prevented: number; }>} Number of times the button was clicked
    */
   function getButtonTracking($button = $component) {
     return $button.evaluate(($el) => ({
-      click: parseInt($el.dataset.clickCount ?? '0'),
-      debounce: parseInt($el.dataset.debounceCount ?? '0')
+      clicked: parseInt($el.dataset.clickedCount ?? '0'),
+      prevented: parseInt($el.dataset.preventedCount ?? '0')
     }))
   }
 
@@ -83,15 +85,13 @@ describe('Button', () => {
     })
 
     it('does not prevent double clicks by default', async () => {
-      await setButtonTracking()
-
       await $component.click()
       await $component.click()
 
-      const counts = await getButtonTracking()
-
-      expect(counts.click).toBe(2)
-      expect(counts.debounce).toBe(0)
+      await expect(getButtonTracking()).resolves.toMatchObject({
+        clicked: 2,
+        prevented: 0
+      })
     })
 
     it('triggers the click event when the space key is pressed', async () => {
@@ -119,15 +119,13 @@ describe('Button', () => {
     })
 
     it('does not prevent double clicks by default', async () => {
-      await setButtonTracking()
-
       await $component.click()
       await $component.click()
 
-      const counts = await getButtonTracking()
-
-      expect(counts.click).toBe(2)
-      expect(counts.debounce).toBe(0)
+      await expect(getButtonTracking()).resolves.toMatchObject({
+        clicked: 2,
+        prevented: 0
+      })
     })
   })
 
@@ -135,25 +133,24 @@ describe('Button', () => {
     describe('using data-attributes', () => {
       beforeEach(async () => {
         await initExample('with double click prevented')
-        await setButtonTracking()
       })
 
       it('prevents unintentional clicks', async () => {
         await $component.click({ count: 2 })
 
-        const counts = await getButtonTracking()
-
-        expect(counts.click).toBe(2)
-        expect(counts.debounce).toBe(1)
+        await expect(getButtonTracking()).resolves.toMatchObject({
+          clicked: 2,
+          prevented: 1
+        })
       })
 
       it('does not prevent intentional multiple clicks', async () => {
         await $component.click({ count: 2, delay: debouncedWaitTime })
 
-        const counts = await getButtonTracking()
-
-        expect(counts.click).toBe(2)
-        expect(counts.debounce).toBe(0)
+        await expect(getButtonTracking()).resolves.toMatchObject({
+          clicked: 2,
+          prevented: 0
+        })
       })
 
       it('does not prevent subsequent clicks on different buttons', async () => {
@@ -173,16 +170,17 @@ describe('Button', () => {
         await $button1.click({ count: 2 })
         await $button2.click()
 
-        const button1Counts = await getButtonTracking($button1)
-        const button2Counts = await getButtonTracking($button2)
-
         // 2nd click on button 1 prevented
-        expect(button1Counts.click).toBe(2)
-        expect(button1Counts.debounce).toBe(1)
+        await expect(getButtonTracking($button1)).resolves.toMatchObject({
+          clicked: 2,
+          prevented: 1
+        })
 
         // 3rd click on button 2 not prevented
-        expect(button2Counts.click).toBe(1)
-        expect(button2Counts.debounce).toBe(0)
+        await expect(getButtonTracking($button2)).resolves.toMatchObject({
+          clicked: 1,
+          prevented: 0
+        })
       })
     })
 
@@ -193,26 +191,24 @@ describe('Button', () => {
             preventDoubleClick: true
           }
         })
-
-        await setButtonTracking()
       })
 
       it('prevents unintentional clicks', async () => {
         await $component.click({ count: 2 })
 
-        const counts = await getButtonTracking()
-
-        expect(counts.click).toBe(2)
-        expect(counts.debounce).toBe(1)
+        await expect(getButtonTracking()).resolves.toMatchObject({
+          clicked: 2,
+          prevented: 1
+        })
       })
 
       it('does not prevent intentional multiple clicks', async () => {
         await $component.click({ count: 2, delay: debouncedWaitTime })
 
-        const counts = await getButtonTracking()
-
-        expect(counts.click).toBe(2)
-        expect(counts.debounce).toBe(0)
+        await expect(getButtonTracking()).resolves.toMatchObject({
+          clicked: 2,
+          prevented: 0
+        })
       })
 
       it('does not prevent subsequent clicks on different buttons', async () => {
@@ -232,16 +228,17 @@ describe('Button', () => {
         await $button1.click({ count: 2 })
         await $button2.click()
 
-        const button1Counts = await getButtonTracking($button1)
-        const button2Counts = await getButtonTracking($button2)
-
         // 2nd click on button 1 prevented
-        expect(button1Counts.click).toBe(2)
-        expect(button1Counts.debounce).toBe(1)
+        await expect(getButtonTracking($button1)).resolves.toMatchObject({
+          clicked: 2,
+          prevented: 1
+        })
 
         // 3rd click on button 2 not prevented
-        expect(button2Counts.click).toBe(1)
-        expect(button2Counts.debounce).toBe(0)
+        await expect(getButtonTracking($button2)).resolves.toMatchObject({
+          clicked: 1,
+          prevented: 0
+        })
       })
     })
 
@@ -252,17 +249,15 @@ describe('Button', () => {
             preventDoubleClick: true
           }
         })
-
-        await setButtonTracking()
       })
 
       it('does not prevent multiple clicks', async () => {
         await $component.click({ count: 2 })
 
-        const counts = await getButtonTracking()
-
-        expect(counts.click).toBe(2)
-        expect(counts.debounce).toBe(0)
+        await expect(getButtonTracking()).resolves.toMatchObject({
+          clicked: 2,
+          prevented: 0
+        })
       })
     })
 
@@ -273,26 +268,24 @@ describe('Button', () => {
             preventDoubleClick: true
           }
         })
-
-        await setButtonTracking()
       })
 
       it('prevents unintentional clicks', async () => {
         await $component.click({ count: 2 })
 
-        const counts = await getButtonTracking()
-
-        expect(counts.click).toBe(2)
-        expect(counts.debounce).toBe(1)
+        await expect(getButtonTracking()).resolves.toMatchObject({
+          clicked: 2,
+          prevented: 1
+        })
       })
 
       it('does not prevent intentional multiple clicks', async () => {
         await $component.click({ count: 2, delay: debouncedWaitTime })
 
-        const counts = await getButtonTracking()
-
-        expect(counts.click).toBe(2)
-        expect(counts.debounce).toBe(0)
+        await expect(getButtonTracking()).resolves.toMatchObject({
+          clicked: 2,
+          prevented: 0
+        })
       })
 
       it('does not prevent subsequent clicks on different buttons', async () => {
@@ -312,16 +305,17 @@ describe('Button', () => {
         await $button1.click({ count: 2 })
         await $button2.click()
 
-        const button1Counts = await getButtonTracking($button1)
-        const button2Counts = await getButtonTracking($button2)
-
         // 2nd click on button 1 prevented
-        expect(button1Counts.click).toBe(2)
-        expect(button1Counts.debounce).toBe(1)
+        await expect(getButtonTracking($button1)).resolves.toMatchObject({
+          clicked: 2,
+          prevented: 1
+        })
 
         // 3rd click on button 2 not prevented
-        expect(button2Counts.click).toBe(1)
-        expect(button2Counts.debounce).toBe(0)
+        await expect(getButtonTracking($button2)).resolves.toMatchObject({
+          clicked: 1,
+          prevented: 0
+        })
       })
     })
 
