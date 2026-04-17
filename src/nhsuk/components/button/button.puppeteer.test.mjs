@@ -26,16 +26,76 @@ describe('Button', () => {
     )
   }
 
+  /**
+   * Sets the number of times a button was clicked
+   *
+   * @param {ElementHandle<HTMLElement> | null} [$button] - Puppeteer button element
+   * @returns {Promise<ElementHandle<HTMLElement>>} Puppeteer button element
+   */
+  async function setButtonTracking($button = $component) {
+    if (!$button) {
+      throw new TypeError('Button is not defined')
+    }
+
+    const counts = {
+      click: 0,
+      debounce: 0
+    }
+
+    // Track number of button clicks
+    await $button.evaluate(($el, counts) => {
+      $el.addEventListener(
+        'click',
+        (event) => {
+          counts.click++
+          $el.dataset.clickCount = `${counts.click}`
+
+          // Track number of button clicks that debounced
+          event.preventDefault = () => {
+            counts.debounce++
+            $el.dataset.debounceCount = `${counts.debounce}`
+          }
+        },
+        // Add listener during capture phase to spy on event
+        { capture: true }
+      )
+    }, counts)
+
+    return $button
+  }
+
+  /**
+   * Gets the number of times the button was clicked
+   *
+   * @param {ElementHandle<HTMLElement>} [$button] - Puppeteer button element
+   * @returns {Promise<{ click: number; debounce: number; }>} Number of times the button was clicked
+   */
+  function getButtonTracking($button = $component) {
+    return $button.evaluate(($el) => ({
+      click: parseInt($el.dataset.clickCount ?? '0'),
+      debounce: parseInt($el.dataset.debounceCount ?? '0')
+    }))
+  }
+
   describe('Button as a link', () => {
     beforeEach(async () => {
       await initExample('as a link')
     })
 
-    it('triggers the click event when the space key is pressed', async () => {
-      const $button = /** @type {ElementHandle<HTMLAnchorElement>} */ (
-        await page.$('a.nhsuk-button')
-      )
+    it('does not prevent double clicks by default', async () => {
+      await setButtonTracking()
 
+      await $component.click()
+      await $component.click()
+
+      const counts = await getButtonTracking()
+
+      expect(counts.click).toBe(2)
+      expect(counts.debounce).toBe(0)
+    })
+
+    it('triggers the click event when the space key is pressed', async () => {
+      const $button = await $component.toElement('a')
       await $button.focus()
 
       // we need to start the waitForNavigation() before the keyboard action
@@ -53,78 +113,25 @@ describe('Button', () => {
     })
   })
 
-  describe('preventing double clicks', () => {
-    /**
-     * Sets the number of times a button was clicked
-     *
-     * @param {ElementHandle<HTMLElement> | null} [$button] - Puppeteer button element
-     * @returns {Promise<ElementHandle<HTMLElement>>} Puppeteer button element
-     */
-    async function setButtonTracking($button = $component) {
-      if (!$button) {
-        throw new TypeError('Button is not defined')
-      }
-
-      const counts = {
-        click: 0,
-        debounce: 0
-      }
-
-      // Track number of button clicks
-      await $button.evaluate(
-        ($el, counts) =>
-          $el.addEventListener(
-            'click',
-            (event) => {
-              counts.click++
-              $el.dataset.clickCount = `${counts.click}`
-
-              // Track number of button clicks that debounced
-              event.preventDefault = () => {
-                counts.debounce++
-                $el.dataset.debounceCount = `${counts.debounce}`
-              }
-
-              // Add listener during capture phase to spy on event
-            },
-            { capture: true }
-          ),
-        counts
-      )
-
-      return $button
-    }
-
-    /**
-     * Gets the number of times the button was clicked
-     *
-     * @param {ElementHandle<HTMLElement>} [$button] - Puppeteer button element
-     * @returns {Promise<{ click: number; debounce: number; }>} Number of times the button was clicked
-     */
-    function getButtonTracking($button = $component) {
-      return $button.evaluate(($el) => ({
-        click: parseInt($el.dataset.clickCount ?? '0'),
-        debounce: parseInt($el.dataset.debounceCount ?? '0')
-      }))
-    }
-
-    describe('not enabled', () => {
-      beforeEach(async () => {
-        await initExample('default')
-        await setButtonTracking()
-      })
-
-      it('does not prevent multiple submissions', async () => {
-        await $component.click()
-        await $component.click()
-
-        const counts = await getButtonTracking()
-
-        expect(counts.click).toBe(2)
-        expect(counts.debounce).toBe(0)
-      })
+  describe('Button as a button', () => {
+    beforeEach(async () => {
+      await initExample('default')
     })
 
+    it('does not prevent double clicks by default', async () => {
+      await setButtonTracking()
+
+      await $component.click()
+      await $component.click()
+
+      const counts = await getButtonTracking()
+
+      expect(counts.click).toBe(2)
+      expect(counts.debounce).toBe(0)
+    })
+  })
+
+  describe('preventing double clicks', () => {
     describe('using data-attributes', () => {
       beforeEach(async () => {
         await initExample('with double click prevented')
