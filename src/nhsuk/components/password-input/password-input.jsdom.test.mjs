@@ -225,7 +225,7 @@ describe('Password input', () => {
       initExample('default')
     })
 
-    describe('i18n', () => {
+    describe('during initialisation', () => {
       it('overrides the default translation keys', () => {
         const component = new PasswordInput($root, {
           i18n: {

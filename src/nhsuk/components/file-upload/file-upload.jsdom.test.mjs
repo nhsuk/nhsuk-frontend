@@ -202,7 +202,7 @@ describe('File upload', () => {
       initExample('to configure in JavaScript')
     })
 
-    describe('i18n', () => {
+    describe('during initialisation', () => {
       it('overrides the default translation keys', () => {
         const component = new FileUpload($root, {
           i18n: {

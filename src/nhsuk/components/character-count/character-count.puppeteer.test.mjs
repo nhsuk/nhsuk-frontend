@@ -391,8 +391,8 @@ describe('Character count', () => {
     })
 
     describe('JavaScript configuration', () => {
-      describe('at instantiation', () => {
-        it('configures the number of characters', async () => {
+      describe('during initialisation', () => {
+        it("configures 'maxlength'", async () => {
           await initExample('to configure in JavaScript', {
             config: {
               maxlength: 10
@@ -406,7 +406,7 @@ describe('Character count', () => {
           )
         })
 
-        it('configures the number of words', async () => {
+        it("configures 'maxwords'", async () => {
           await initExample('to configure in JavaScript', {
             config: {
               maxwords: 10
@@ -420,7 +420,7 @@ describe('Character count', () => {
           )
         })
 
-        it('configures the threshold', async () => {
+        it("configures 'threshold'", async () => {
           await initExample('to configure in JavaScript', {
             config: {
               maxlength: 10,
@@ -433,7 +433,7 @@ describe('Character count', () => {
           expect(await getProperty($visibleCountMessage, 'hidden')).toBe(false)
         })
 
-        it('configures the description of the textarea', async () => {
+        it("configures i18n 'textareaDescription'", async () => {
           // This tests that a description can be provided through JavaScript attributes
           // and interpolated with the limit provided to the character count in JS.
 
@@ -629,7 +629,7 @@ describe('Character count', () => {
       })
     })
 
-    describe('errors at instantiation', () => {
+    describe('Error handling', () => {
       it('can throw a SupportError if appropriate', () => {
         return expect(
           initExample('default', {

@@ -59,7 +59,7 @@ describe('Skip link', () => {
     })
   })
 
-  describe('errors at instantiation', () => {
+  describe('Error handling', () => {
     it('can return early without errors for external href', () => {
       return expect(
         initExample('default', {
