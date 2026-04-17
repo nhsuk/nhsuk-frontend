@@ -45,93 +45,6 @@ describe('Notification banner', () => {
       expect(await getAttribute($component, 'tabindex')).toBeNull()
     })
 
-    describe('and auto-focus is disabled using data attributes', () => {
-      beforeAll(async () => {
-        await initExample('auto-focus disabled, with success variant')
-      })
-
-      it('does not have a tabindex attribute', async () => {
-        expect(await getAttribute($component, 'tabindex')).toBeNull()
-      })
-
-      it('does not focus the notification banner', async () => {
-        const activeElementModuleName = await page.evaluate(() =>
-          document.activeElement?.getAttribute('data-module')
-        )
-
-        expect(activeElementModuleName).not.toBe(NotificationBanner.moduleName)
-      })
-    })
-
-    describe('and auto-focus is disabled using JavaScript configuration', () => {
-      beforeAll(async () => {
-        await initExample('with success variant', {
-          config: {
-            disableAutoFocus: true
-          }
-        })
-      })
-
-      it('does not have a tabindex attribute', async () => {
-        expect(await getAttribute($component, 'tabindex')).toBeNull()
-      })
-
-      it('does not focus the notification banner', async () => {
-        const activeElementModuleName = await page.evaluate(() =>
-          document.activeElement?.getAttribute('data-module')
-        )
-
-        expect(activeElementModuleName).not.toBe(NotificationBanner.moduleName)
-      })
-    })
-
-    describe('and auto-focus is disabled using options passed to initAll', () => {
-      beforeAll(async () => {
-        await initExample('with success variant', {
-          config: {
-            disableAutoFocus: true
-          }
-        })
-      })
-
-      it('does not have a tabindex attribute', async () => {
-        expect(await getAttribute($component, 'tabindex')).toBeNull()
-      })
-
-      it('does not focus the notification banner', async () => {
-        const activeElementModuleName = await page.evaluate(() =>
-          document.activeElement?.getAttribute('data-module')
-        )
-
-        expect(activeElementModuleName).not.toBe(NotificationBanner.moduleName)
-      })
-    })
-
-    describe('and autofocus is disabled in JS but enabled in data attributes', () => {
-      beforeAll(async () => {
-        await initExample(
-          'auto-focus explicitly enabled, with success variant',
-          {
-            config: {
-              disableAutoFocus: true
-            }
-          }
-        )
-      })
-
-      it('has the correct tabindex attribute to be focused with JavaScript', async () => {
-        expect(await getAttribute($component, 'tabindex')).toBe('-1')
-      })
-
-      it('is automatically focused when the page loads', async () => {
-        const activeElementModuleName = await page.evaluate(() =>
-          document.activeElement?.getAttribute('data-module')
-        )
-
-        expect(activeElementModuleName).toBe(NotificationBanner.moduleName)
-      })
-    })
-
     describe('and role is overridden to "region"', () => {
       beforeAll(async () => {
         await initExample(
@@ -161,6 +74,97 @@ describe('Notification banner', () => {
         await $component.evaluate(($el) => $el.blur())
 
         expect(await getAttribute($component, 'tabindex')).toBe('2')
+      })
+    })
+  })
+
+  describe('JavaScript configuration', () => {
+    describe('during initialisation', () => {
+      it("configures 'disableAutoFocus: true' to prevent auto-focus", async () => {
+        await initExample('with success variant', {
+          config: {
+            disableAutoFocus: true
+          }
+        })
+
+        const activeElementModuleName = await page.evaluate(() =>
+          document.activeElement?.getAttribute('data-module')
+        )
+
+        // Does not add the tabindex attribute on page load
+        expect(await getAttribute($component, 'tabindex')).toBeNull()
+
+        // Does not automatically focus on page load
+        expect(activeElementModuleName).not.toBe(NotificationBanner.moduleName)
+      })
+
+      it("configures 'disableAutoFocus: false' to explicitly enable auto-focus", async () => {
+        await initExample('with success variant', {
+          config: {
+            disableAutoFocus: false
+          }
+        })
+
+        const activeElementModuleName = await page.evaluate(() =>
+          document.activeElement?.getAttribute('data-module')
+        )
+
+        // Adds the tabindex attribute on page load
+        expect(await getAttribute($component, 'tabindex')).toBe('-1')
+
+        // Automatically focused on page load
+        expect(activeElementModuleName).toBe(NotificationBanner.moduleName)
+      })
+    })
+
+    describe('with HTML data attributes', () => {
+      it("configures 'disableAutoFocus: true' to prevent auto-focus", async () => {
+        await initExample('auto-focus disabled, with success variant')
+
+        const activeElementModuleName = await page.evaluate(() =>
+          document.activeElement?.getAttribute('data-module')
+        )
+
+        // Does not add the tabindex attribute on page load
+        expect(await getAttribute($component, 'tabindex')).toBeNull()
+
+        // Does not automatically focus on page load
+        expect(activeElementModuleName).not.toBe(NotificationBanner.moduleName)
+      })
+
+      it("configures 'disableAutoFocus: false' to explicitly enable auto-focus", async () => {
+        await initExample('auto-focus explicitly enabled, with success variant')
+
+        const activeElementModuleName = await page.evaluate(() =>
+          document.activeElement?.getAttribute('data-module')
+        )
+
+        // Adds the tabindex attribute on page load
+        expect(await getAttribute($component, 'tabindex')).toBe('-1')
+
+        // Automatically focused on page load
+        expect(activeElementModuleName).toBe(NotificationBanner.moduleName)
+      })
+
+      it('uses `disableAutoFocus` data attribute instead of JavaScript `disableAutoFocus`', async () => {
+        await initExample(
+          'auto-focus explicitly enabled, with success variant',
+          {
+            config: {
+              disableAutoFocus: false
+            }
+          }
+        )
+
+        const activeElementModuleName = await page.evaluate(() =>
+          document.activeElement?.getAttribute('data-module')
+        )
+
+        // Adds the tabindex attribute on page load
+        expect(await getAttribute($component, 'tabindex')).toBe('-1')
+
+        // Automatically focused on page load
+        expect(activeElementModuleName).toBe(NotificationBanner.moduleName)
       })
     })
   })
