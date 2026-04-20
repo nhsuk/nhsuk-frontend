@@ -22,7 +22,8 @@ describe('normaliseDataset', () => {
         'anArray1': '[]',
         'anArray2': '[true]',
         'anArray3': '[1, 2, 3, 4]',
-        'anArray4': '["goose", "gull", "gannet"]'
+        'anArray4': '["goose", "gull", "gannet"]',
+        'aFunction': '() => "albatross"'
       })
     ).toEqual({
       aNumber: 1000,
@@ -40,7 +41,8 @@ describe('normaliseDataset', () => {
       anArray1: [],
       anArray2: [true],
       anArray3: [1, 2, 3, 4],
-      anArray4: ['goose', 'gull', 'gannet']
+      anArray4: ['goose', 'gull', 'gannet'],
+      aFunction: undefined // Functions are not normalised from datasets
     })
   })
 

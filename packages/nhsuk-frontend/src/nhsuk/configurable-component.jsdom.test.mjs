@@ -64,10 +64,13 @@ describe('ConfigurableComponent', () => {
 
       const testComponent = document.querySelector('#test-component')
       const configComponent = new MockConfigurableComponent(testComponent, {
-        aNumber: 100
+        aNumber: 100,
+        aFunction: (name) => name
       })
 
-      expect(configComponent.config).toMatchObject({ aNumber: 100 })
+      expect(configComponent.config.aNumber).toBe(100)
+      expect(configComponent.config.aFunction).toBeInstanceOf(Function)
+      expect(configComponent.config.aFunction('albatross')).toBe('albatross')
     })
 
     it('dataset configuration over the configuration object from class initialisation', () => {
@@ -77,10 +80,13 @@ describe('ConfigurableComponent', () => {
 
       const testComponent = document.querySelector('#test-component')
       const configComponent = new MockConfigurableComponent(testComponent, {
-        aNumber: 100
+        aNumber: 100,
+        aFunction: (name) => name
       })
 
-      expect(configComponent.config).toMatchObject({ aNumber: 12 })
+      expect(configComponent.config.aNumber).toBe(12)
+      expect(configComponent.config.aFunction).toBeInstanceOf(Function)
+      expect(configComponent.config.aFunction('albatross')).toBe('albatross')
     })
   })
 })
