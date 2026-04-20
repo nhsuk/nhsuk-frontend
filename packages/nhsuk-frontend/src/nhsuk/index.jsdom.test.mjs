@@ -4,7 +4,7 @@ import { names } from '#lib'
 import {
   MockComponent,
   MockComponentError,
-  MockConfigurableComponentBoolean
+  MockConfigurableComponent
 } from '#lib/fixtures/configuration/mock-component.mjs'
 
 import {
@@ -312,8 +312,8 @@ describe('NHS.UK frontend', () => {
         expect.any(MockComponent)
       ])
 
-      expect(result[0]).toHaveProperty('args', [$root1])
-      expect(result[1]).toHaveProperty('args', [$root2])
+      expect(result[0].$root).toBe($root1)
+      expect(result[1].$root).toBe($root2)
     })
 
     it('should return initialised components (with failed components omitted)', () => {
@@ -334,9 +334,9 @@ describe('NHS.UK frontend', () => {
         expect.any(MockComponentError)
       ])
 
-      expect(result[0]).toHaveProperty('args', [$root1])
-      expect(result[1]).not.toHaveProperty('args', [$root2])
-      expect(result[1]).toHaveProperty('args', [$root3])
+      expect(result[0].$root).toBe($root1)
+      expect(result[1].$root).not.toBe($root2)
+      expect(result[1].$root).toBe($root3)
     })
 
     it('should return empty array without components', () => {
@@ -432,7 +432,7 @@ describe('NHS.UK frontend', () => {
         const result = createAll(MockComponent)
 
         expect(result).toStrictEqual([expect.any(MockComponent)])
-        expect(result[0]).toHaveProperty('args', [$root])
+        expect(result[0].$root).toBe($root)
       })
     })
 
@@ -459,29 +459,27 @@ describe('NHS.UK frontend', () => {
 
         const result2 = createAll(MockComponent, undefined, $scope2)
         expect(result2).toStrictEqual([expect.any(MockComponent)])
-        expect(result2[0]).toHaveProperty('args', [$root2])
+        expect(result2[0].$root).toBe($root2)
       })
     })
 
     describe('Configurable components', () => {
       it('initialises component', () => {
         document.body.innerHTML = outdent`
-          <div data-module="${MockConfigurableComponentBoolean.moduleName}"></div>
+          <div data-module="${MockConfigurableComponent.moduleName}"></div>
         `
 
         const $root = document.querySelector(
-          `[data-module="${MockConfigurableComponentBoolean.moduleName}"]`
+          `[data-module="${MockConfigurableComponent.moduleName}"]`
         )
 
-        const result = createAll(MockConfigurableComponentBoolean, {
-          example: true
+        const result = createAll(MockConfigurableComponent, {
+          aBoolean: true
         })
 
-        expect(result).toStrictEqual([
-          expect.any(MockConfigurableComponentBoolean)
-        ])
-
-        expect(result[0]).toHaveProperty('args', [$root, { example: true }])
+        expect(result).toStrictEqual([expect.any(MockConfigurableComponent)])
+        expect(result[0].$root).toBe($root)
+        expect(result[0].config).toMatchObject({ aBoolean: true })
       })
     })
 
@@ -492,7 +490,7 @@ describe('NHS.UK frontend', () => {
             <!-- No components -->
           </div>
           <div class="app-scope-2">
-            <div data-module="${MockConfigurableComponentBoolean.moduleName}"></div>
+            <div data-module="${MockConfigurableComponent.moduleName}"></div>
           </div>
         `
 
@@ -500,28 +498,26 @@ describe('NHS.UK frontend', () => {
         const $scope2 = document.querySelector('.app-scope-2')
 
         const $root2 = $scope2?.querySelector(
-          `[data-module="${MockConfigurableComponentBoolean.moduleName}"]`
+          `[data-module="${MockConfigurableComponent.moduleName}"]`
         )
 
         const result1 = createAll(
-          MockConfigurableComponentBoolean,
-          { example: true },
+          MockConfigurableComponent,
+          { aBoolean: true },
           $scope1
         )
 
         expect(result1).toStrictEqual([])
 
         const result2 = createAll(
-          MockConfigurableComponentBoolean,
-          { example: true },
+          MockConfigurableComponent,
+          { aBoolean: true },
           $scope2
         )
 
-        expect(result2).toStrictEqual([
-          expect.any(MockConfigurableComponentBoolean)
-        ])
-
-        expect(result2[0]).toHaveProperty('args', [$root2, { example: true }])
+        expect(result2).toStrictEqual([expect.any(MockConfigurableComponent)])
+        expect(result2[0].$root).toBe($root2)
+        expect(result2[0].config).toMatchObject({ aBoolean: true })
       })
     })
   })
