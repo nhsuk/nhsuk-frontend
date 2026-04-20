@@ -40,7 +40,8 @@ export class MockConfigurableComponent extends ConfigurableComponent {
       anArray1: { type: 'array' },
       anArray2: { type: 'array' },
       anArray3: { type: 'array' },
-      anArray4: { type: 'array' }
+      anArray4: { type: 'array' },
+      aFunction: { type: 'function' }
     }
   }
 
@@ -62,7 +63,8 @@ export class MockConfigurableComponent extends ConfigurableComponent {
     anArray1: [],
     anArray2: [true],
     anArray3: [1, 2, 3, 4],
-    anArray4: ['goose', 'gull', 'gannet']
+    anArray4: ['goose', 'gull', 'gannet'],
+    aFunction: (name) => name
   }
 }
 
@@ -233,6 +235,7 @@ export class MockConfigurableComponentMixed extends ConfigurableComponent {
  * @property {(string | number | boolean)[]} anArray2 - An array
  * @property {(string | number | boolean)[]} anArray3 - An array
  * @property {(string | number | boolean)[]} anArray4 - An array
+ * @property {(name: string) => string} aFunction - A function
  */
 
 /**
