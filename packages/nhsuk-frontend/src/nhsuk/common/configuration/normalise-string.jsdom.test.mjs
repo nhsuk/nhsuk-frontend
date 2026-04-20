@@ -147,11 +147,11 @@ describe('normaliseString', () => {
 
     // Arrays in strings are ignored even with schema property type
     expect(normaliseString(inputArray)).toBe(inputArray)
-    expect(normaliseString(inputArray, { type: 'array' })).toBe(inputArray)
+    expect(normaliseString(inputArray, { type: 'array' })).toBeUndefined()
 
     // Objects in strings are ignored even with schema property type
     expect(normaliseString(inputObject)).toBe(inputObject)
-    expect(normaliseString(inputObject, { type: 'object' })).toBe(inputObject)
+    expect(normaliseString(inputObject, { type: 'object' })).toBeUndefined()
   })
 })
 
