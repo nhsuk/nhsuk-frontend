@@ -56,18 +56,34 @@
 {% endif %}
 
 {%- macro _dateInputItem(params, item) %}
+{% set itemName = item.name %}
+{% set itemValue = item.value %}
+{% set itemWidth = item.width | default(2) %}
+
+{%- if item is sameas(dateInputDay) or (item.name and item.name in ["day", dateInputDay.name]) %}
+  {% set itemName = item.name | default("day") %}
+  {% set itemValue = item.value | default(dateInputDay.value) %}
+{% elif item is sameas(dateInputMonth) or (item.name and item.name in ["month", dateInputMonth.name]) %}
+  {% set itemName = item.name | default("month") %}
+  {% set itemValue = item.value | default(dateInputMonth.value) %}
+{% elif item is sameas(dateInputYear) or (item.name and item.name in ["year", dateInputYear.name]) %}
+  {% set itemName = item.name | default("year") %}
+  {% set itemValue = item.value | default(dateInputYear.value) %}
+  {% set itemWidth = item.width | default(4) %}
+{% endif -%}
+
 <div class="nhsuk-date-input__item">
   {{ input({
     label: {
-      text: item.label if item.label else item.name | capitalize,
+      text: item.label if item.label else itemName | capitalize,
       id: item.label.id,
       classes: "nhsuk-date-input__label"
     },
-    id: item.id if item.id else (params.id ~ "-" ~ item.name),
+    id: item.id if item.id else (params.id ~ "-" ~ itemName),
     classes: ("nhsuk-input--error " if item.error) ~ "nhsuk-date-input__input" ~ (" " ~ item.classes if item.classes),
-    name: (params.namePrefix ~ "[" ~ item.name ~ "]") if params.namePrefix else item.name,
-    value: item.value or params.values[item.name],
-    width: item.width,
+    name: (params.namePrefix ~ "[" ~ itemName ~ "]") if params.namePrefix else itemName,
+    value: itemValue | default(params.values[itemName]),
+    width: itemWidth,
     type: "text",
     inputmode: item.inputmode if item.inputmode else "numeric",
     autocomplete: item.autocomplete,
