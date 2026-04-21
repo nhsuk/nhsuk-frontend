@@ -79,7 +79,7 @@ const options = {
     type: 'string',
     required: false,
     description:
-      'Optional variant of button – `"login"`, `"reverse"`, `"secondary"`, `"secondary-solid"` or `"warning"`.',
+      'Optional variant of button – `"login"`, `"reverse"`, `"search"`, `"secondary"`, `"secondary-solid"` or `"warning"`.',
     released: '10.4.0'
   },
   small: {
