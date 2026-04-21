@@ -1,0 +1,137 @@
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+@use "../../core/helpers" as *;
+@use "../button" as *;
+@forward "../../core/styles/icons";
+@forward "../button";
+@forward "../input";
+
+////
+/// Search input component
+///
+/// @group components/search-input
+////
+
+@include nhsuk-exports("nhsuk/components/search-input") {
+  .nhsuk-search-input__wrapper {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .nhsuk-search-input__input {
+    flex: 0 1 auto;
+    margin-right: -$nhsuk-border-width-form-element;
+
+    .nhsuk-search-input--large & {
+      height: nhsuk-px-to-rem(52px);
+      padding-right: nhsuk-px-to-rem(nhsuk-spacing(2));
+      padding-left: nhsuk-px-to-rem(nhsuk-spacing(2));
+    }
+
+    // Hide search input clear button (IE)
+    &::-ms-clear {
+      display: none;
+    }
+
+    // Hide search input icons and buttons (WebKit, Blink)
+    &::-webkit-search-decoration,
+    &::-webkit-search-results-button,
+    &::-webkit-search-results-decoration,
+    &:placeholder-shown::-webkit-search-cancel-button {
+      display: none;
+    }
+
+    &::-webkit-search-cancel-button {
+      align-self: center;
+
+      width: nhsuk-px-to-rem($nhsuk-button-search-icon-size);
+      height: nhsuk-px-to-rem($nhsuk-button-search-icon-size);
+      margin: 0;
+
+      background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23212b32'><path d='M13.41 12l5.3-5.29a1 1 0 1 0-1.42-1.42L12 10.59l-5.29-5.3a1 1 0 0 0-1.42 1.42l5.3 5.29-5.3 5.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l5.29-5.3 5.29 5.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z'/></svg>");
+
+      cursor: pointer;
+
+      appearance: none;
+    }
+
+    @include nhsuk-media-query($from: tablet) {
+      .nhsuk-search-input--large & {
+        height: nhsuk-px-to-rem(56px + $nhsuk-button-shadow-size);
+      }
+    }
+  }
+
+  .nhsuk-search-input__button {
+    flex-shrink: 0;
+    width: auto;
+    height: nhsuk-px-to-rem(36px);
+
+    // Remove unnecessary margin
+    .nhsuk-input-wrapper & {
+      margin-top: 0;
+      margin-left: 0;
+    }
+
+    .nhsuk-search-input--large & {
+      height: nhsuk-px-to-rem(52px - $nhsuk-button-shadow-size);
+    }
+
+    // Prevent height change when pressed
+    &:active,
+    &:active:focus {
+      top: 0;
+      height: nhsuk-px-to-rem(36px + $nhsuk-button-shadow-size);
+      margin-bottom: 0;
+      // stylelint-disable-next-line declaration-no-important
+      box-shadow: none !important;
+
+      .nhsuk-search-input--large & {
+        height: nhsuk-px-to-rem(52px);
+      }
+    }
+
+    // Remove border radius from left side
+    &,
+    &::before,
+    &::after {
+      border-radius: 0 nhsuk-px-to-rem($nhsuk-border-radius) nhsuk-px-to-rem($nhsuk-border-radius) 0;
+    }
+
+    // Remove inner box shadow from left side
+    &:not(:focus)::after {
+      left: -2px;
+    }
+
+    @include nhsuk-media-query($from: tablet) {
+      // Prevent height change when pressed
+      .nhsuk-search-input--large &:active,
+      .nhsuk-search-input--large &:active:focus {
+        height: nhsuk-px-to-rem(56px + $nhsuk-button-shadow-size);
+      }
+    }
+  }
+
+  .nhsuk-search-input--reverse .nhsuk-search-input__button {
+    @include nhsuk-button-style(
+      $button-colour: nhsuk-tint($nhsuk-login-button-colour, 93%),
+      $button-hover-colour: $nhsuk-login-button-hover-colour,
+      $button-active-colour: $nhsuk-login-button-active-colour,
+      $button-text-colour: $nhsuk-login-button-colour,
+      $button-shadow-colour: #b8d2e9
+    );
+
+    &:hover,
+    &:active {
+      color: nhsuk-colour("white");
+    }
+
+    &:hover:not(:focus):not(:active)::before {
+      border-color: nhsuk-colour("white");
+    }
+
+    &:hover:not(:focus):not(:active)::after {
+      box-shadow: 0 $nhsuk-button-shadow-size 0 nhsuk-colour("white");
+    }
+  }
+}

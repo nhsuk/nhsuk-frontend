@@ -188,7 +188,8 @@ $button-shadow-size: $nhsuk-button-shadow-size;
     );
   }
 
-  .nhsuk-button--login {
+  .nhsuk-button--login,
+  .nhsuk-button--search {
     @include nhsuk-button-style(
       $button-colour: $nhsuk-login-button-colour,
       $button-hover-colour: $nhsuk-login-button-hover-colour,

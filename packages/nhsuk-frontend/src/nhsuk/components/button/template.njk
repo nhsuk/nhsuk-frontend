@@ -8,10 +8,11 @@
 {%- set classNames = "nhsuk-button" -%}
 
 {%- if variant and
-  variant in ["login", "reverse", "secondary", "secondary-solid", "warning"] and (
+  variant in ["login", "reverse", "search", "secondary", "secondary-solid", "warning"] and (
     not params.classes or (
       not "nhsuk-button--login" in params.classes and
       not "nhsuk-button--reverse" in params.classes and
+      not "nhsuk-button--search" in params.classes and
       not "nhsuk-button--secondary" in params.classes and
       not "nhsuk-button--secondary-solid" in params.classes and
       not "nhsuk-button--warning" in params.classes
