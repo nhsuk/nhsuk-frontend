@@ -111,27 +111,4 @@
       }
     }
   }
-
-  .nhsuk-search-input--reverse .nhsuk-search-input__button {
-    @include nhsuk-button-style(
-      $button-colour: nhsuk-tint($nhsuk-login-button-colour, 93%),
-      $button-hover-colour: $nhsuk-login-button-hover-colour,
-      $button-active-colour: $nhsuk-login-button-active-colour,
-      $button-text-colour: $nhsuk-login-button-colour,
-      $button-shadow-colour: #b8d2e9
-    );
-
-    &:hover,
-    &:active {
-      color: nhsuk-colour("white");
-    }
-
-    &:hover:not(:focus):not(:active)::before {
-      border-color: nhsuk-colour("white");
-    }
-
-    &:hover:not(:focus):not(:active)::after {
-      box-shadow: 0 $nhsuk-button-shadow-size 0 nhsuk-colour("white");
-    }
-  }
 }
