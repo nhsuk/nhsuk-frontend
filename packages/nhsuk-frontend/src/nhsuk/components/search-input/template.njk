@@ -14,8 +14,8 @@
   {% set classNames = classNames ~ " nhsuk-search-input--large" %}
 {% endif %}
 
-{%- if variant == "reverse" and (not params.formGroup.classes or not "nhsuk-search-input--reverse" in params.formGroup.classes) %}
-  {% set classNames = classNames ~ " nhsuk-search-input--reverse" %}
+{%- if variant == "reverse" and (not params.button.classes or not "nhsuk-button--reverse" in params.button.classes) %}
+  {% set classNamesButton = classNamesButton ~ " nhsuk-button--reverse" %}
 {% endif %}
 
 {%- if params.formGroup.classes %}

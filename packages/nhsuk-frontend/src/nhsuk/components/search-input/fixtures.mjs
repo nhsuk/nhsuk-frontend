@@ -51,9 +51,6 @@ const fixtures = {
         text: 'Search patients by NHS number',
         classes: 'nhsuk-u-visually-hidden'
       },
-      button: {
-        variant: 'search'
-      },
       placeholder: 'NHS number',
       name: 'example',
       variant: 'reverse',
