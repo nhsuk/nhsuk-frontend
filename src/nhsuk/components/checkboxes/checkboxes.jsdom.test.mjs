@@ -1,9 +1,9 @@
 import { fireEvent, getByRole } from '@testing-library/dom'
 
+import { components } from '#lib'
+
 import { Checkboxes, initCheckboxes } from './checkboxes.mjs'
 import { examples } from './fixtures.mjs'
-
-import { components } from '#lib'
 
 describe('Checkboxes', () => {
   /** @type {HTMLElement} */
