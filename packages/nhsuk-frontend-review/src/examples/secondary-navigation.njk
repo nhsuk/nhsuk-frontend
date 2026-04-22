@@ -40,7 +40,6 @@
             text: "All clinics"
           },
           {
-            href: "#",
             text: "Today",
             current: true
           },
@@ -80,9 +79,7 @@
             count: 12
           },
           {
-            href: "#",
             text: "Today",
-            count: 3,
             current: true
           },
           {
@@ -112,9 +109,9 @@
 
       {{ secondaryNavigation({
         items: [
-          { href: "#", text: "Summary", current: true },
+          { text: "Summary", current: true },
           { href: "#", text: "Personal details" },
-          { href: "#", text: "Medical history" },
+          { text: "Medical history" },
           { href: "#", text: "Vaccinations" },
           { href: "#", text: "Consent" },
           { href: "#", text: "Not responded" },
@@ -139,9 +136,9 @@
       {{ secondaryNavigation({
         label: "Patient record sections",
         items: [
-          { href: "#", text: "Overview", current: true },
+          { text: "Overview", current: true },
           { href: "#", text: "Vaccinations" },
-          { href: "#", text: "Consent" },
+          { text: "Consent" },
           { href: "#", text: "Documents" }
         ]
       }) }}
@@ -166,7 +163,6 @@
             html: "Overview"
           },
           {
-            href: "#",
             html: "Vaccinations <strong class=\"nhsuk-tag nhsuk-tag--green nhsuk-u-margin-left-1\">New</strong>",
             current: true
           },
@@ -200,7 +196,6 @@
           text: "All clinics"
         },
         {
-          href: "#",
           text: "Today",
           current: true
         },
@@ -237,7 +232,6 @@
             text: "All clinics"
           },
           {
-            href: "#",
             text: "Today",
             current: true
           },
@@ -264,7 +258,7 @@
       label: "Filtered clinics (reverse with counts)",
       items: [
         { href: "#", text: "All", count: 12 },
-        { href: "#", text: "Today", count: 3, current: true },
+        { text: "Today", count: 3, current: true },
         { href: "#", text: "Upcoming", count: 9 },
         { href: "#", text: "Completed", count: 0 }
       ]
