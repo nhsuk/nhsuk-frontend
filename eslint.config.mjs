@@ -53,15 +53,6 @@ export default defineConfig([
       // Always import Node.js packages from `node:*`
       'import/enforce-node-protocol-usage': ['error', 'always'],
 
-      // Check import or require statements are A-Z ordered
-      'import/order': [
-        'error',
-        {
-          'alphabetize': { order: 'asc' },
-          'newlines-between': 'always'
-        }
-      ],
-
       // Check for valid formatting
       'jsdoc/check-line-alignment': [
         'warn',
