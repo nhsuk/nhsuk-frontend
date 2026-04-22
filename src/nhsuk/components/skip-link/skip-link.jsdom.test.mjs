@@ -1,7 +1,7 @@
+import { components } from '#lib'
+
 import { examples } from './fixtures.mjs'
 import { SkipLink } from './skip-link.mjs'
-
-import { components } from '#lib'
 
 describe('Skip link', () => {
   /** @type {HTMLElement} */

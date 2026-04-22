@@ -1,5 +1,4 @@
 import { env } from '../environment.mjs'
-
 import { highlight } from './highlight.mjs'
 
 describe('Nunjucks filter: highlight', () => {

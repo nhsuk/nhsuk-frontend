@@ -1,7 +1,6 @@
 import { outdent } from 'outdent'
 
 import { env } from '../environment.mjs'
-
 import { getComponentHTML } from './get-component-html.mjs'
 
 describe('Nunjucks global: getComponentHTML', () => {

@@ -1,10 +1,10 @@
-import { validateConfig } from './validate-config.mjs'
-
 import {
   MockConfigurableComponentAllOf,
   MockConfigurableComponentAnyOf,
   MockConfigurableComponentMixed
 } from '#lib/fixtures/configuration/mock-component.mjs'
+
+import { validateConfig } from './validate-config.mjs'
 
 describe('validateConfig', () => {
   describe("schema 'allOf' validation", () => {

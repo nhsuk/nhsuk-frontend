@@ -1,9 +1,9 @@
 import { getByLabelText } from '@testing-library/dom'
 
+import { components } from '#lib'
+
 import { FileUpload } from './file-upload.mjs'
 import { examples } from './fixtures.mjs'
-
-import { components } from '#lib'
 
 describe('File upload', () => {
   /** @type {HTMLElement} */

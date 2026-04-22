@@ -1,5 +1,4 @@
 import { isObject } from '../index.mjs'
-
 import { extractConfigByNamespace } from './extract-config-by-namespace.mjs'
 import { normaliseArray, normaliseString } from './normalise-string.mjs'
 
