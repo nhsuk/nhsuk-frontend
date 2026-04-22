@@ -225,6 +225,7 @@ describe('Button', () => {
     describe('with HTML data attributes', () => {
       it('configures `preventDoubleClick: true` to prevent double clicks', async () => {
         await initExample('with double click prevented')
+
         await $component.click({
           count: 2
         })
@@ -237,6 +238,7 @@ describe('Button', () => {
 
       it('configures `preventDoubleClick: true` but allows multiple intentional clicks', async () => {
         await initExample('with double click prevented')
+
         await $component.click({
           count: 2,
           delay: debouncedWaitTime
