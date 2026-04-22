@@ -263,31 +263,31 @@ $nhsuk-secondary-button-shadow-colour: $nhsuk-secondary-button-border-colour !de
 ///
 /// @type Colour
 
-$nhsuk-reverse-button-colour: nhsuk-colour("white") !default;
+$nhsuk-reverse-button-colour: nhsuk-tint($nhsuk-brand-colour, 93%) !default;
 
 /// Reverse button text colour
 ///
 /// @type Colour
 
-$nhsuk-reverse-button-text-colour: nhsuk-colour("black") !default;
+$nhsuk-reverse-button-text-colour: nhsuk-shade($nhsuk-brand-colour, 30%) !default;
 
 /// Reverse button background colour (hover)
 ///
 /// @type Colour
 
-$nhsuk-reverse-button-hover-colour: nhsuk-shade($nhsuk-reverse-button-colour, 15%) !default;
+$nhsuk-reverse-button-hover-colour: nhsuk-tint($nhsuk-brand-colour, 85%) !default;
 
 /// Reverse button background colour (active)
 ///
 /// @type Colour
 
-$nhsuk-reverse-button-active-colour: nhsuk-shade($nhsuk-reverse-button-colour, 30%) !default;
+$nhsuk-reverse-button-active-colour: nhsuk-tint($nhsuk-brand-colour, 78%) !default;
 
 /// Reverse button shadow colour
 ///
 /// @type Colour
 
-$nhsuk-reverse-button-shadow-colour: nhsuk-shade($nhsuk-reverse-button-colour, 30%) !default;
+$nhsuk-reverse-button-shadow-colour: nhsuk-tint($nhsuk-brand-colour, 65%) !default;
 
 /// Warning button background colour
 ///
