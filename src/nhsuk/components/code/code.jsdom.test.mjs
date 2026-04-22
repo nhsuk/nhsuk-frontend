@@ -259,7 +259,7 @@ describe('Code', () => {
       initExample('default')
     })
 
-    describe('i18n', () => {
+    describe('during initialisation', () => {
       it('overrides the default translation keys', () => {
         const component = new Code($root, {
           i18n: {
