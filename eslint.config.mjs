@@ -6,7 +6,6 @@ import eslint from '@eslint/js'
 import pluginMarkdown from '@eslint/markdown'
 import configPrettier from 'eslint-config-prettier/flat'
 import pluginESx from 'eslint-plugin-es-x'
-import pluginImport from 'eslint-plugin-import'
 import pluginJest from 'eslint-plugin-jest'
 import pluginJestDom from 'eslint-plugin-jest-dom'
 import pluginJsdoc from 'eslint-plugin-jsdoc'
@@ -25,8 +24,6 @@ export default defineConfig([
     files: ['**/*.{cjs,js,mjs}'],
     extends: [
       eslint.configs.recommended,
-      pluginImport.flatConfigs.recommended,
-      pluginImport.flatConfigs.typescript,
       pluginJsdoc.configs['flat/recommended-typescript-flavor'],
       pluginPromise.configs['flat/recommended'],
       configPrettier
@@ -39,18 +36,6 @@ export default defineConfig([
       }
     },
     rules: {
-      // Turn off rules that are handled by TypeScript
-      // https://typescript-eslint.io/troubleshooting/typed-linting/performance/#eslint-plugin-import
-      'import/default': 'off',
-      'import/named': 'off',
-      'import/namespace': 'off',
-      'import/no-cycle': 'off',
-      'import/no-deprecated': 'off',
-      'import/no-named-as-default': 'off',
-      'import/no-named-as-default-member': 'off',
-      'import/no-unresolved': 'off',
-      'import/no-unused-modules': 'off',
-
       // Check for valid formatting
       'jsdoc/check-line-alignment': [
         'warn',
