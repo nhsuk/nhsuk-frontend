@@ -2,10 +2,10 @@ import { queryAllByRole, queryByRole } from '@testing-library/dom'
 import { userEvent } from '@testing-library/user-event'
 import { mockResizeObserver } from 'jsdom-testing-mocks'
 
+import { components } from '#lib'
+
 import { examples } from './fixtures.mjs'
 import { Header } from './header.mjs'
-
-import { components } from '#lib'
 
 const user = userEvent.setup()
 const resizeObserverMock = mockResizeObserver()

@@ -1,8 +1,8 @@
 import { outdent } from 'outdent'
 
-import { uniqueHTML } from './unique-html.mjs'
-
 import { components } from '#lib'
+
+import { uniqueHTML } from './unique-html.mjs'
 
 describe('Nunjucks global: uniqueHTML', () => {
   const options = /** @type {MacroRenderOptions} */ ({

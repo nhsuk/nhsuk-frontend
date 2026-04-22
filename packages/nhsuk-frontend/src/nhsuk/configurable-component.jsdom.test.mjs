@@ -1,10 +1,10 @@
-import { ConfigError } from './errors/index.mjs'
-
 import {
-  MockConfigurableComponentNoSchema,
   MockConfigurableComponentNoDefaults,
+  MockConfigurableComponentNoSchema,
   MockConfigurableComponentNumber
 } from '#lib/fixtures/configuration/mock-component.mjs'
+
+import { ConfigError } from './errors/index.mjs'
 
 describe('ConfigurableComponent', () => {
   beforeEach(() => {

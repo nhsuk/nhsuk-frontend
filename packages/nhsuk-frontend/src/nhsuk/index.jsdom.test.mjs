@@ -1,5 +1,13 @@
 import { outdent } from 'outdent'
 
+import { names } from '#lib'
+import {
+  MockComponent,
+  MockComponentError,
+  MockConfigurableComponentBoolean
+} from '#lib/fixtures/configuration/mock-component.mjs'
+
+import * as NHSUKFrontend from './index.mjs'
 import {
   Button,
   CharacterCount,
@@ -12,17 +20,9 @@ import {
   Radios,
   SkipLink,
   Tabs,
-  initAll,
-  createAll
+  createAll,
+  initAll
 } from './index.mjs'
-import * as NHSUKFrontend from './index.mjs'
-
-import { names } from '#lib'
-import {
-  MockComponent,
-  MockComponentError,
-  MockConfigurableComponentBoolean
-} from '#lib/fixtures/configuration/mock-component.mjs'
 
 jest.mock('./components/button/button.mjs')
 jest.mock('./components/character-count/character-count.mjs')
