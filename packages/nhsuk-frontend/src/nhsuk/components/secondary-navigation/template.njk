@@ -21,7 +21,10 @@
     {%- if item -%}
     {%- set itemInnerAttributesHtml %}
       {{- nhsukAttributes({
-        class: "nhsuk-secondary-navigation__link",
+        class: {
+          value: "nhsuk-secondary-navigation__link" if item.href else false,
+          optional: true
+        },
         href: {
           value: item.href,
           optional: true
