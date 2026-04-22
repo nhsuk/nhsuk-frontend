@@ -61,7 +61,6 @@ export class CharacterCount extends ConfigurableComponent {
     const {
       i18n,
       maxlength,
-      countFunction,
       countType,
       screenReaderCountMessageClass,
       textareaDescriptionClass,
@@ -73,10 +72,7 @@ export class CharacterCount extends ConfigurableComponent {
       locale: closestAttributeValue(this.$root, 'lang')
     })
 
-    if (
-      'Segmenter' in Intl &&
-      (countType === 'characters' || !!countFunction)
-    ) {
+    if ('Segmenter' in Intl) {
       this.segmenter = new Intl.Segmenter(this.i18n.locale, {
         granularity: countType === 'words' ? 'word' : 'grapheme'
       })
