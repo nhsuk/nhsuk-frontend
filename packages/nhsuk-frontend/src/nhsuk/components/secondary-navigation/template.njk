@@ -21,10 +21,6 @@
     {%- if item -%}
     {%- set itemInnerAttributesHtml %}
       {{- nhsukAttributes({
-        class: {
-          value: "nhsuk-secondary-navigation__link" if item.href else false,
-          optional: true
-        },
         href: {
           value: item.href,
           optional: true
@@ -46,7 +42,7 @@
 
     {%- set itemInnerContent %}
       {% if item.current -%}
-        {#- Wrap active links in strong element so users who override colours
+        {#- Wrap active item in strong element so users who override colours
           or styles still have some indicator of the current nav item. -#}
         <strong class="nhsuk-secondary-navigation__current">
           {{- item.html | safe if item.html else item.text -}}
@@ -57,14 +53,15 @@
         {{- itemCountHtml | safe -}}  
       {%- endif -%}
     {%- endset %}
+
     <li class="nhsuk-secondary-navigation__item{%- if item.current %} nhsuk-secondary-navigation__item--current{%- endif -%}{%- if item.classes %} {{ item.classes }}{%- endif -%}"
       {{- nhsukAttributes(item.attributes) }}>
       {% if item.href %}
-      <a {{- itemInnerAttributesHtml | safe }}>
+      <a class="nhsuk-secondary-navigation__link" {{- itemInnerAttributesHtml | safe }}>
         {{- itemInnerContent | safe -}}
       </a>
       {% else %}
-      <span {{- itemInnerAttributesHtml | safe }}>
+      <span class="nhsuk-secondary-navigation__text" {{- itemInnerAttributesHtml | safe }}>
         {{- itemInnerContent | safe -}}
       </span>
       {% endif %}
