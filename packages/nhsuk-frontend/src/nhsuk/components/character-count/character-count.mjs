@@ -90,7 +90,7 @@ export class CharacterCount extends ConfigurableComponent {
     if (countType === 'words' && maxwords === undefined) {
       try {
         this.separator = new RegExp(
-          '[\\p{White_Space}\\p{Dash_Punctuation}\\p{Other_Punctuation}\\p{Emoji}\\p{Join_Control}]+',
+          String.raw`[\p{White_Space}\p{Dash_Punctuation}\p{Other_Punctuation}\p{Emoji}\p{Join_Control}]+`,
           'gu'
         )
       } catch {
