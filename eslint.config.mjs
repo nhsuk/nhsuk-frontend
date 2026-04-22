@@ -215,6 +215,9 @@ export default defineConfig([
       // Babel transpiles ES2020 optional chaining
       'es-x/no-optional-chaining': 'off',
 
+      // Babel transpiles ES2018 RegExp Unicode property escape sequences
+      'es-x/no-regexp-unicode-property-escapes': 'off',
+
       // JSDoc blocks are optional but must be valid
       'jsdoc/require-jsdoc': [
         'error',
