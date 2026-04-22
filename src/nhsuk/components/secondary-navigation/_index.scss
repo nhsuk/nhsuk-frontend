@@ -57,25 +57,8 @@
 
   .nhsuk-secondary-navigation__item {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     margin-bottom: 0;
-
-    // When the link inside is focused, extend the yellow focus background and
-    // focus indicator across the full item (link + count badge). CSS has no
-    // parent selector, so we use :focus-within on the <li>; the <a>'s own
-    // background and box-shadow are then cleared so they don't double-paint.
-    //
-    // Specificity: 1 class + 1 pseudo-class (0-2-0) — higher than
-    // __item--current (0-1-0), so focus always overrides the active indicator.
-    &:focus-within {
-      color: $nhsuk-focus-text-colour;
-      background-color: $nhsuk-focus-colour;
-      box-shadow: inset $nhsuk-border-width 0 $nhsuk-focus-text-colour;
-
-      @include nhsuk-media-query($from: tablet) {
-        box-shadow: inset 0 ($nhsuk-focus-width * -1) $nhsuk-focus-text-colour;
-      }
-    }
   }
 
   // Active indicator: left inset border on mobile, bottom inset border on tablet+.
@@ -85,18 +68,6 @@
 
     @include nhsuk-media-query($from: tablet) {
       box-shadow: inset 0 ($nhsuk-border-width * -1) nhsuk-colour("blue");
-    }
-
-    // Non-linked current item rendered as <span>: apply same layout as __link
-    // without inheriting any link/underline styles.
-    > span {
-      display: block;
-      padding: nhsuk-spacing(2) $nhsuk-gutter-half;
-      color: $nhsuk-text-colour;
-
-      @include nhsuk-media-query($from: tablet) {
-        padding: nhsuk-spacing(3) 2px;
-      }
     }
   }
 
@@ -108,37 +79,33 @@
     // font-weight: $nhsuk-font-weight-bold;
   }
 
-  .nhsuk-secondary-navigation__link {
+  .nhsuk-secondary-navigation__link,
+  .nhsuk-secondary-navigation__text {
     display: block;
     padding: nhsuk-spacing(2) $nhsuk-gutter-half;
-
-    // &:link {
-    //   text-decoration: none;
-    // }
-
-    @include nhsuk-link-style-default;
-    @include nhsuk-link-style-no-visited-state;
 
     @include nhsuk-media-query($from: tablet) {
       padding: nhsuk-spacing(3) 2px;
     }
+  }
+
+  .nhsuk-secondary-navigation__link {
+    @include nhsuk-link-style-default;
+    @include nhsuk-link-style-no-visited-state;
 
     // Active: keep text colour consistent; the active indicator is on the <li>
     &[aria-current] {
       color: $nhsuk-text-colour;
     }
 
-    // On focus, clear all visual styling from the <a> so the full-width
-    // __item:focus-within styles are the sole visible indicator.
-    // box-shadow: none overrides the outset shadow from nhsuk-focused-text;
-    // background transparent overrides the yellow added by the same mixin.
-    // outline stays as transparent (for high-contrast/forced-colours mode).
+    // nhsuk-link-style-default focus uses an outset bottom shadow; replace it
+    // with a directional inset indicator matching the active indicator style.
     &:focus {
-      outline: $nhsuk-focus-width solid transparent;
-      color: $nhsuk-focus-text-colour;
-      background-color: transparent;
-      box-shadow: none;
-      text-decoration: none;
+      box-shadow: inset $nhsuk-border-width 0 $nhsuk-focus-text-colour;
+
+      @include nhsuk-media-query($from: tablet) {
+        box-shadow: inset 0 ($nhsuk-focus-width * -1) $nhsuk-focus-text-colour;
+      }
     }
   }
 
@@ -188,14 +155,16 @@
       }
     }
 
-    .nhsuk-secondary-navigation__item:focus-within {
+    // Keep the left indicator on focus at tablet (overrides the bottom indicator
+    // that the default focus rule adds for horizontal mode).
+    .nhsuk-secondary-navigation__link:focus {
       @include nhsuk-media-query($from: tablet) {
         box-shadow: inset $nhsuk-border-width 0 $nhsuk-focus-text-colour;
       }
     }
 
     .nhsuk-secondary-navigation__link,
-    .nhsuk-secondary-navigation__item--current > span {
+    .nhsuk-secondary-navigation__text {
       @include nhsuk-media-query($from: tablet) {
         padding: nhsuk-spacing(2) $nhsuk-gutter-half;
       }
@@ -216,10 +185,10 @@
       @include nhsuk-media-query($from: tablet) {
         box-shadow: inset 0 ($nhsuk-border-width * -1) $nhsuk-reverse-text-colour;
       }
+    }
 
-      > span {
-        color: $nhsuk-reverse-text-colour;
-      }
+    .nhsuk-secondary-navigation__text {
+      color: $nhsuk-reverse-text-colour;
     }
 
     .nhsuk-secondary-navigation__link {
@@ -229,26 +198,14 @@
         color: $nhsuk-reverse-text-colour;
       }
 
-      // nhsuk-link-style-white generates .--reverse .link:focus with specificity
-      // 0-3-0, which beats the outer __link:focus override (0-2-0), so we must
-      // explicitly clear focus styles here too at matching specificity.
+      // nhsuk-link-style-white sets focus at higher specificity; match the
+      // directional indicator used by the default variant.
       &:focus {
-        outline: $nhsuk-focus-width solid transparent;
-        color: $nhsuk-focus-text-colour;
-        background-color: transparent;
-        box-shadow: none;
-        text-decoration: none;
-      }
-    }
+        box-shadow: inset $nhsuk-border-width 0 $nhsuk-focus-text-colour;
 
-    // __item:focus-within sits at 0-2-0 — same spec as --reverse .item--current
-    // (0-2-0), so cascade order would make --current win. Raise specificity here
-    // so the focus indicator always overrides the active (white) indicator.
-    .nhsuk-secondary-navigation__item:focus-within {
-      box-shadow: inset $nhsuk-border-width 0 $nhsuk-focus-text-colour;
-
-      @include nhsuk-media-query($from: tablet) {
-        box-shadow: inset 0 ($nhsuk-focus-width * -1) $nhsuk-focus-text-colour;
+        @include nhsuk-media-query($from: tablet) {
+          box-shadow: inset 0 ($nhsuk-focus-width * -1) $nhsuk-focus-text-colour;
+        }
       }
     }
 

@@ -24,6 +24,9 @@ const fixtures = {
           text: 'Completed'
         }
       ]
+    },
+    options: {
+      width: 'full'
     }
   },
   'with count': {
@@ -51,6 +54,9 @@ const fixtures = {
         }
       ]
     },
+    options: {
+      width: 'full'
+    },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']
     }
@@ -71,6 +77,9 @@ const fixtures = {
           html: 'Consent'
         }
       ]
+    },
+    options: {
+      width: 'full'
     }
   },
   'reverse': {
@@ -96,7 +105,8 @@ const fixtures = {
       ]
     },
     options: {
-      layout: 'background-blue'
+      layout: 'background-blue',
+      width: 'full'
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']
@@ -129,7 +139,8 @@ const fixtures = {
       ]
     },
     options: {
-      layout: 'background-blue'
+      layout: 'background-blue',
+      width: 'full'
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']
@@ -152,6 +163,9 @@ const fixtures = {
           text: 'Documents'
         }
       ]
+    },
+    options: {
+      width: 'full'
     }
   },
   'vertical': {
@@ -175,6 +189,9 @@ const fixtures = {
           text: 'Completed'
         }
       ]
+    },
+    options: {
+      width: 'full'
     },
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']
@@ -201,6 +218,9 @@ const fixtures = {
           text: 'Completed'
         }
       ]
+    },
+    options: {
+      width: 'full'
     }
   }
 }
