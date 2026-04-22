@@ -1,3 +1,4 @@
+/* eslint-disable es-x/no-global-this */
 import { isInitialised, isSupported } from './common/index.mjs'
 import { ElementError, InitError, SupportError } from './errors/index.mjs'
 
