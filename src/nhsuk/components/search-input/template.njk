@@ -36,7 +36,7 @@
 {% if params.button not in ["", null, false] %}
 {{ button({
   ariaLabel: params.button.ariaLabel | default("Search", true),
-  variant: params.button.variant or (variant if variant else "search"),
+  variant: params.button.variant or (variant if variant == "reverse"),
   classes: classNamesButton,
   text: params.button.text,
   html: params.button.html,

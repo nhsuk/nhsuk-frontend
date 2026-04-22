@@ -29,14 +29,14 @@ const fixtures = {
       inputmode: 'numeric'
     }
   },
-  'large with primary button': {
+  'large with search button': {
     context: {
       label: {
         text: 'Search patients by NHS number',
         classes: 'nhsuk-u-visually-hidden'
       },
       button: {
-        variant: 'primary'
+        variant: 'search'
       },
       placeholder: 'NHS number',
       name: 'example',
@@ -77,14 +77,14 @@ const fixtures = {
       inputmode: 'numeric'
     }
   },
-  'with primary button': {
+  'with search button': {
     context: {
       label: {
         text: 'Search patients by NHS number',
         classes: 'nhsuk-u-visually-hidden'
       },
       button: {
-        variant: 'primary'
+        variant: 'search'
       },
       placeholder: 'NHS number',
       name: 'example',
