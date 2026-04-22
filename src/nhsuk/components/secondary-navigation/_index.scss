@@ -86,6 +86,18 @@
     @include nhsuk-media-query($from: tablet) {
       box-shadow: inset 0 ($nhsuk-border-width * -1) nhsuk-colour("blue");
     }
+
+    // Non-linked current item rendered as <span>: apply same layout as __link
+    // without inheriting any link/underline styles.
+    > span {
+      display: block;
+      padding: nhsuk-spacing(2) $nhsuk-gutter-half;
+      color: $nhsuk-text-colour;
+
+      @include nhsuk-media-query($from: tablet) {
+        padding: nhsuk-spacing(3) 2px;
+      }
+    }
   }
 
   // <strong> is used as a fallback to visually indicate the current page in
@@ -100,9 +112,9 @@
     display: block;
     padding: nhsuk-spacing(2) $nhsuk-gutter-half;
 
-    &:link {
-      text-decoration: none;
-    }
+    // &:link {
+    //   text-decoration: none;
+    // }
 
     @include nhsuk-link-style-default;
     @include nhsuk-link-style-no-visited-state;
@@ -111,10 +123,9 @@
       padding: nhsuk-spacing(3) 2px;
     }
 
-    // Active: keep colour and suppress underline on the link; indicator is on the <li>
+    // Active: keep text colour consistent; the active indicator is on the <li>
     &[aria-current] {
       color: $nhsuk-text-colour;
-      text-decoration: none;
     }
 
     // On focus, clear all visual styling from the <a> so the full-width
@@ -183,7 +194,8 @@
       }
     }
 
-    .nhsuk-secondary-navigation__link {
+    .nhsuk-secondary-navigation__link,
+    .nhsuk-secondary-navigation__item--current > span {
       @include nhsuk-media-query($from: tablet) {
         padding: nhsuk-spacing(2) $nhsuk-gutter-half;
       }
@@ -204,13 +216,17 @@
       @include nhsuk-media-query($from: tablet) {
         box-shadow: inset 0 ($nhsuk-border-width * -1) $nhsuk-reverse-text-colour;
       }
+
+      > span {
+        color: $nhsuk-reverse-text-colour;
+      }
     }
 
     .nhsuk-secondary-navigation__link {
       @include nhsuk-link-style-white;
 
       &[aria-current] {
-        text-decoration: none;
+        color: $nhsuk-reverse-text-colour;
       }
 
       // nhsuk-link-style-white generates .--reverse .link:focus with specificity
