@@ -86,6 +86,10 @@ The button's active state text now has a contrast ratio of 7:1 to help meet the 
 
 This change was introduced in [pull request #1898: Update reverse button colour to light blue](https://github.com/nhsuk/nhsuk-frontend/pull/1898).
 
+### :wrench: **Fixes**
+
+- [#1904: Make sure Nunjucks text-only options for card heading, label and legend are escaped](https://github.com/nhsuk/nhsuk-frontend/pull/1904)
+
 ## 10.4.2 - 25 March 2026
 
 Note: This release was created from the `support/10.x` branch.
