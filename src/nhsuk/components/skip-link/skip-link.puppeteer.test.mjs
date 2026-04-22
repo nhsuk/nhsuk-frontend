@@ -22,6 +22,7 @@ describe('Skip link', () => {
   describe('Focus handling', () => {
     beforeAll(async () => {
       await initExample('default')
+
       await page.keyboard.press('Tab')
       await page.keyboard.press('Enter')
     })

@@ -234,7 +234,6 @@ describe('Radios', () => {
         await goToExample(page, 'multiple-radio-groups')
 
         $inputsWarm = await page.$$('input.nhsuk-radios__input[id^="warm"]')
-
         $inputsCool = await page.$$('input.nhsuk-radios__input[id^="cool"]')
 
         $inputsNotInForm = await page.$$(
