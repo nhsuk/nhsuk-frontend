@@ -267,4 +267,49 @@
       box-shadow: inset 0 0 0 1px currentcolor;
     }
   }
+
+  // Horizontal variant (JS-managed): added at mobile breakpoints when all items
+  // fit in a single row. Switches from the default stacked layout to a wrapping
+  // row — matching the tablet layout — without the full-width bleed.
+  .nhsuk-secondary-navigation--horizontal {
+    @include nhsuk-media-query($until: tablet) {
+      // Items fit side-by-side: remove the mobile bleed to match horizontal layout
+      margin-right: auto;
+      margin-left: auto;
+
+      .nhsuk-secondary-navigation__list {
+        flex-flow: row nowrap;
+        gap: nhsuk-spacing(2) 16px; // matches tablet gap
+      }
+
+      .nhsuk-secondary-navigation__link,
+      .nhsuk-secondary-navigation__text {
+        padding: nhsuk-spacing(3) 2px; // matches tablet padding
+        white-space: nowrap;
+      }
+
+      // Switch active indicator from left (stacked) to bottom (horizontal)
+      .nhsuk-secondary-navigation__item--current {
+        box-shadow: inset 0 ($nhsuk-border-width * -1) nhsuk-colour("blue");
+      }
+
+      // No left indicator in horizontal mode; bottom focus indicator only
+      .nhsuk-secondary-navigation__link[aria-current]:focus {
+        box-shadow: inset 0 ($nhsuk-focus-width * -1) $nhsuk-focus-text-colour;
+      }
+    }
+  }
+
+  // Horizontal + reverse combination
+  .nhsuk-secondary-navigation--reverse.nhsuk-secondary-navigation--horizontal {
+    @include nhsuk-media-query($until: tablet) {
+      .nhsuk-secondary-navigation__item--current {
+        box-shadow: inset 0 ($nhsuk-border-width * -1) $nhsuk-reverse-text-colour;
+      }
+
+      .nhsuk-secondary-navigation__link[aria-current]:focus {
+        box-shadow: inset 0 ($nhsuk-focus-width * -1) $nhsuk-focus-text-colour;
+      }
+    }
+  }
 }

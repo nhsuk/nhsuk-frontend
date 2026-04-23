@@ -12,6 +12,7 @@
 {%- endif -%}
 
 <nav class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
+  data-module="nhsuk-secondary-navigation"
   {%- if params.labelledBy %} aria-labelledby="{{ params.labelledBy }}"
   {%- else %} aria-label="{{ params.label | default("Secondary navigation") }}"
   {%- endif %}
