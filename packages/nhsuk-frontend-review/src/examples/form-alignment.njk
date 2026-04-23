@@ -46,7 +46,8 @@
             classes: "nhsuk-u-width-full",
             formGroup: {
               classes: "nhsuk-u-width-one-half"
-            }
+            },
+            button: false
           }) }}
 
           {{ searchInput({
@@ -60,8 +61,64 @@
             classes: "nhsuk-u-width-full",
             formGroup: {
               classes: "nhsuk-u-width-one-half"
+            }
+          }) }}
+
+          {{ searchInput({
+            label: {
+              text: "Search patients by NHS number",
+              classes: "nhsuk-u-visually-hidden"
             },
-            button: false
+            placeholder: "NHS number",
+            name: "example-search-3",
+            id: "example-search-3",
+            classes: "nhsuk-u-width-full",
+            large: true,
+            formGroup: {
+              classes: "nhsuk-u-width-one-half"
+            }
+          }) }}
+
+          {{ searchInput({
+            label: {
+              text: 'Search patients by NHS number',
+              classes: 'nhsuk-u-visually-hidden'
+            },
+            placeholder: 'NHS number',
+            name: "example-search-4",
+            id: "example-search-4",
+            classes: "nhsuk-u-width-full",
+            formGroup: {
+              classes: "nhsuk-u-width-one-half",
+              afterInput: {
+                html: button({
+                  text: "Advanced search",
+                  variant: "secondary",
+                  small: true
+                })
+              }
+            }
+          }) }}
+
+          {{ searchInput({
+            label: {
+              text: 'Search patients by NHS number',
+              classes: 'nhsuk-u-visually-hidden'
+            },
+            placeholder: 'NHS number',
+            name: "example-search-5",
+            id: "example-search-5",
+            classes: "nhsuk-u-width-full",
+            large: true,
+            formGroup: {
+              classes: "nhsuk-u-width-one-half",
+              afterInput: {
+                html: button({
+                  text: "Advanced search",
+                  variant: "secondary"
+                })
+              }
+            }
           }) }}
         {% endcall %}
       </form>
