@@ -76,13 +76,12 @@
   // TODO: decide whether we want current items to be bold. Header doesn't but design system nav does.
   .nhsuk-secondary-navigation__current {
     font-weight: inherit;
-    // font-weight: $nhsuk-font-weight-bold;
   }
 
   .nhsuk-secondary-navigation__link,
   .nhsuk-secondary-navigation__text {
-    display: block;
-    flex-grow: 1;
+    // display: block;
+    // flex-grow: 1;
     padding: nhsuk-spacing(2) $nhsuk-gutter-half;
 
     @include nhsuk-media-query($from: tablet) {
@@ -97,6 +96,7 @@
     // Active: keep text colour consistent; the active indicator is on the <li>
     &[aria-current] {
       color: $nhsuk-text-colour;
+      // font-weight: 600;
     }
 
     // nhsuk-link-style-default focus uses an outset box-shadow which bleeds
@@ -134,8 +134,15 @@
 
     // White text on a semi-transparent darkened link-colour background,
     // so the badge reads as a distinct pill regardless of item state.
-    color: nhsuk-colour("white");
-    background-color: color.scale(color.scale($nhsuk-link-colour, $lightness: -50%), $alpha: -60%);
+    // color: nhsuk-colour("white");
+    color: nhsuk-colour("black");
+
+    background-color: color.scale(nhsuk-colour("grey-2"), $alpha: -80%);
+
+    // background-color: color.scale(color.scale($nhsuk-link-colour, $lightness: -50%), $alpha: -60%);
+
+    // grey-2 adjusted slightly darker to meet 4.5:1 contrast ratio
+    // background-color: color.scale(nhsuk-colour("grey-2"), $lightness: -11%);
 
     text-align: center;
 
@@ -153,7 +160,13 @@
   // Vertical variant: forces the list to remain stacked at all breakpoints.
   // Overrides the tablet/desktop flex-flow and gap, and keeps the active/focus
   // indicator as a left inset border (same as the default mobile behaviour).
+  // Also reinstates the full-width bleed so text stays on the page grid, matching mobile.
   .nhsuk-secondary-navigation--vertical {
+    @include nhsuk-media-query($from: tablet) {
+      margin-right: #{$nhsuk-gutter-half * -1};
+      margin-left: #{$nhsuk-gutter-half * -1};
+    }
+
     .nhsuk-secondary-navigation__list {
       @include nhsuk-media-query($from: tablet) {
         flex-flow: column;
@@ -163,7 +176,27 @@
 
     .nhsuk-secondary-navigation__item--current {
       @include nhsuk-media-query($from: tablet) {
+        // Clear the bottom indicator from the horizontal tablet rule; the left
+        // indicator is applied directly on the link/text element below so it
+        // renders reliably on top of the painted element.
+        box-shadow: none;
+      }
+    }
+
+    // Apply the left indicator on the link/text directly so it's always visible.
+    // Combined with the bottom focus shadow for focused current items.
+    .nhsuk-secondary-navigation__link[aria-current],
+    .nhsuk-secondary-navigation__text[aria-current] {
+      @include nhsuk-media-query($from: tablet) {
         box-shadow: inset $nhsuk-border-width 0 nhsuk-colour("blue");
+      }
+    }
+
+    .nhsuk-secondary-navigation__link[aria-current]:focus {
+      @include nhsuk-media-query($from: tablet) {
+        box-shadow:
+          inset $nhsuk-border-width 0 nhsuk-colour("black"),
+          inset 0 ($nhsuk-focus-width * -1) $nhsuk-focus-text-colour;
       }
     }
 
@@ -222,7 +255,8 @@
     }
 
     .nhsuk-secondary-navigation__count {
-      background-color: rgba($nhsuk-reverse-text-colour, 0.25);
+      color: nhsuk-colour("white");
+      background-color: color.scale(color.scale($nhsuk-link-colour, $lightness: -50%), $alpha: -60%);
     }
 
     // When the link is focused, the full item is on a yellow background;
