@@ -555,6 +555,38 @@
             classes: "nhsuk-u-width-full"
           }) }}
         {% endcall %}
+      </form>
+
+      <form method="post" novalidate>
+        {% call fieldset({
+          legend: {
+            text: "Large search input and button",
+            size: "m"
+          }
+        }) %}
+          <div class="nhsuk-form-group nhsuk-form-group--inline">
+            {{ searchInput({
+              large: true,
+              label: {
+                text: 'Search patients by NHS number',
+                classes: 'nhsuk-u-visually-hidden'
+              },
+              button: {
+                icon: 'search',
+                variant: 'secondary'
+              },
+              placeholder: 'NHS number',
+              name: 'example',
+              width: 10,
+              inputmode: 'numeric'
+            }) }}
+
+            {{ button({
+              text: "Advanced search",
+              variant: "secondary"
+            }) }}
+          </div>
+        {% endcall %}
 
         {{ button({
           text: "Continue"
