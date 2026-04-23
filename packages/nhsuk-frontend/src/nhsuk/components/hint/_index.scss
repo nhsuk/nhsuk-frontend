@@ -1,5 +1,6 @@
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
+@use "../../core/helpers" as *;
 
 ////
 /// Hint component
@@ -13,6 +14,10 @@
     color: $nhsuk-secondary-text-colour;
 
     @include nhsuk-font($size: 19);
+  }
+
+  .nhsuk-hint--reverse {
+    color: nhsuk-tint($nhsuk-brand-colour, 80%);
   }
 
   // Reduces margin-bottom of hint when used after the default label (no class)

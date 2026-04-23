@@ -38,6 +38,13 @@ const options = {
     description:
       'HTML attributes (for example data attributes) to add to the hint.',
     released: '1.0.0'
+  },
+  variant: {
+    type: 'string',
+    required: false,
+    description:
+      'Optional variant of hint. You can use only `"reverse"` or empty values with this option.',
+    released: '10.5.0'
   }
 }
 
