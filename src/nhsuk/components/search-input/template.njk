@@ -30,7 +30,7 @@
   text: params.button.text,
   html: params.button.html,
   type: "submit",
-  icon: "search",
+  icon: params.button.icon | default("search"),
   small: not params.large
 }) | trim }}
 {% endif %}
