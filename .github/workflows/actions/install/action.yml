@@ -13,7 +13,7 @@ runs:
         path: node_modules
 
     - name: Setup Node
-      uses: actions/setup-node@v6
+      uses: actions/setup-node@v6.3.0
       with:
         package-manager-cache: ${{ steps.npm-install-cache.outputs.cache-hit != 'true' }}
         node-version-file: .nvmrc
