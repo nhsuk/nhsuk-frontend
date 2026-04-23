@@ -41,7 +41,7 @@
   text: params.button.text,
   html: params.button.html,
   type: "submit",
-  icon: "search",
+  icon: (params.button.icon | default("search")),
   small: not "nhsuk-search-input--large" in classNames
 }) | trim }}
 {% endif %}
