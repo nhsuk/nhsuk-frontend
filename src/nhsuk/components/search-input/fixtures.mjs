@@ -7,168 +7,241 @@ const fixtures = {
   'default': {
     context: {
       label: {
-        text: 'Search patients by NHS number',
-        classes: 'nhsuk-u-visually-hidden'
+        text: 'Search by NHS number',
+        size: 'm',
+        isPageHeading: true
       },
       placeholder: 'NHS number',
+      hint: {
+        text: 'This is a 10 digit number (like 999 123 4567) that you can find on an NHS letter, prescription or in the NHS App'
+      },
       name: 'example',
-      inputmode: 'numeric',
-      width: 10
+      width: 20
     }
   },
   'large': {
     context: {
       label: {
-        text: 'Search patients by NHS number',
-        classes: 'nhsuk-u-visually-hidden'
+        text: 'Search by NHS number',
+        size: 'l',
+        isPageHeading: true
       },
-      placeholder: 'NHS number',
       name: 'example',
-      width: 20,
       large: true,
-      inputmode: 'numeric'
+      width: 30
     }
   },
   'large with brand button': {
     context: {
       label: {
-        text: 'Search patients by NHS number',
-        classes: 'nhsuk-u-visually-hidden'
+        text: 'Search by NHS number',
+        size: 'l',
+        isPageHeading: true
       },
       button: {
         variant: 'brand'
       },
-      placeholder: 'NHS number',
       name: 'example',
-      width: 20,
       large: true,
-      inputmode: 'numeric'
-    }
-  },
-  'with hint': {
-    context: {
-      label: {
-        text: 'Search patients by NHS number',
-        classes: 'nhsuk-u-visually-hidden'
-      },
-      hint: {
-        text: 'Your NHS number is a 10 digit number that you find on any letter the NHS has sent you, for example, 485 777 3456'
-      },
-      placeholder: 'NHS number',
-      id: 'with-hint',
-      name: 'example',
-      width: 10,
-      inputmode: 'numeric'
-    }
-  },
-  'with brand button': {
-    context: {
-      label: {
-        text: 'Search patients by NHS number',
-        classes: 'nhsuk-u-visually-hidden'
-      },
-      button: {
-        variant: 'brand'
-      },
-      placeholder: 'NHS number',
-      name: 'example',
-      width: 10,
-      inputmode: 'numeric'
-    }
-  },
-  'with secondary button': {
-    context: {
-      label: {
-        text: 'Search patients by NHS number',
-        classes: 'nhsuk-u-visually-hidden'
-      },
-      button: {
-        variant: 'secondary'
-      },
-      placeholder: 'NHS number',
-      name: 'example',
-      width: 10,
-      inputmode: 'numeric'
-    }
-  },
-  'with secondary button, solid background': {
-    context: {
-      label: {
-        text: 'Search patients by NHS number',
-        classes: 'nhsuk-u-visually-hidden'
-      },
-      button: {
-        variant: 'secondary-solid'
-      },
-      placeholder: 'NHS number',
-      name: 'example',
-      width: 10,
-      inputmode: 'numeric'
-    },
-    options: {
-      layout: 'background-grey'
-    }
-  },
-  'without button': {
-    context: {
-      label: {
-        text: 'Search patients by NHS number',
-        classes: 'nhsuk-u-visually-hidden'
-      },
-      button: false,
-      placeholder: 'NHS number',
-      name: 'example',
-      width: 10,
-      inputmode: 'numeric'
-    }
-  },
-  'with button text': {
-    context: {
-      label: {
-        text: 'Search patients by NHS number',
-        classes: 'nhsuk-u-visually-hidden'
-      },
-      button: {
-        text: 'Search',
-        variant: 'secondary'
-      },
-      placeholder: 'NHS number',
-      name: 'example',
-      width: 10,
-      inputmode: 'numeric'
-    }
-  },
-  'with button text and no icon': {
-    context: {
-      label: {
-        text: 'Search patients by NHS number',
-        classes: 'nhsuk-u-visually-hidden'
-      },
-      button: {
-        icon: false,
-        text: 'Search',
-        variant: 'secondary'
-      },
-      placeholder: 'NHS number',
-      name: 'example',
-      width: 10,
-      inputmode: 'numeric'
+      width: 30
     }
   },
   'with alternative icon': {
     context: {
       label: {
-        text: 'Search patients by NHS number',
-        classes: 'nhsuk-u-visually-hidden'
+        text: 'Search by postcode',
+        size: 'm',
+        isPageHeading: true
       },
       button: {
-        icon: 'plus',
+        icon: 'arrow-right'
+      },
+      name: 'example',
+      width: 10
+    }
+  },
+  'with hint': {
+    context: {
+      label: {
+        text: 'Search by NHS number',
+        size: 'm',
+        isPageHeading: true
+      },
+      hint: {
+        text: 'This is a 10 digit number (like 999 123 4567) that you can find on an NHS letter, prescription or in the NHS App'
+      },
+      id: 'with-hint',
+      name: 'example',
+      width: 20
+    }
+  },
+  'with hint and value': {
+    context: {
+      label: {
+        text: 'Search by NHS number',
+        size: 'm',
+        isPageHeading: true
+      },
+      hint: {
+        text: 'This is a 10 digit number (like 999 123 4567) that you can find on an NHS letter, prescription or in the NHS App'
+      },
+      name: 'example',
+      value: '999 123 4567',
+      width: 20
+    }
+  },
+  'with error message': {
+    context: {
+      label: {
+        text: 'Search by NHS number',
+        size: 'm',
+        isPageHeading: true
+      },
+      errorMessage: {
+        text: 'Enter NHS number'
+      },
+      name: 'example',
+      value: '999 123 4567',
+      width: 20
+    }
+  },
+  'with error message and hint': {
+    context: {
+      label: {
+        text: 'Search by NHS number',
+        size: 'm',
+        isPageHeading: true
+      },
+      hint: {
+        text: 'This is a 10 digit number (like 999 123 4567) that you can find on an NHS letter, prescription or in the NHS App'
+      },
+      errorMessage: {
+        text: 'Enter NHS number'
+      },
+      name: 'example',
+      value: '999 123 4567',
+      width: 20
+    }
+  },
+  'with hidden label': {
+    context: {
+      label: {
+        text: 'Search by NHS number',
+        classes: 'nhsuk-u-visually-hidden'
+      },
+      name: 'example',
+      width: 20
+    }
+  },
+  'with brand button': {
+    context: {
+      label: {
+        text: 'Search by NHS number',
+        size: 'm',
+        isPageHeading: true
+      },
+      button: {
+        variant: 'brand'
+      },
+      name: 'example',
+      width: 20
+    }
+  },
+  'with brand button text': {
+    context: {
+      label: {
+        text: 'Search by NHS number',
+        size: 'm',
+        isPageHeading: true
+      },
+      button: {
+        text: 'Search',
+        variant: 'brand'
+      },
+      name: 'example',
+      width: 20
+    }
+  },
+  'with brand button text only': {
+    context: {
+      label: {
+        text: 'Product order number',
+        size: 'm',
+        isPageHeading: true
+      },
+      button: {
+        icon: false,
+        text: 'Find',
+        variant: 'brand'
+      },
+      name: 'example',
+      width: 20
+    }
+  },
+  'with secondary button': {
+    context: {
+      label: {
+        text: 'Search by NHS number',
+        size: 'm',
+        isPageHeading: true
+      },
+      button: {
         variant: 'secondary'
       },
-      placeholder: 'NHS number',
       name: 'example',
-      width: 10,
-      inputmode: 'numeric'
+      width: 20
+    }
+  },
+  'with secondary button text': {
+    context: {
+      label: {
+        text: 'Search by NHS number',
+        size: 'm',
+        isPageHeading: true
+      },
+      button: {
+        text: 'Search',
+        variant: 'secondary'
+      },
+      name: 'example',
+      width: 20
+    }
+  },
+  'with secondary button text only': {
+    context: {
+      label: {
+        text: 'Product order number',
+        size: 'm',
+        isPageHeading: true
+      },
+      button: {
+        icon: false,
+        text: 'Find',
+        variant: 'secondary'
+      },
+      name: 'example',
+      width: 20
+    }
+  },
+  'without button': {
+    context: {
+      label: {
+        text: 'Search by NHS number',
+        size: 'm',
+        isPageHeading: true
+      },
+      button: false,
+      name: 'example',
+      width: 20
+    }
+  },
+  'without page heading': {
+    context: {
+      label: {
+        text: 'Search by NHS number'
+      },
+      name: 'example',
+      width: 20
     }
   }
 }
