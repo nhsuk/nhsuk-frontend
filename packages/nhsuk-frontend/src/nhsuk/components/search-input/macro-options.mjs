@@ -201,6 +201,35 @@ const options = {
         description:
           'Button text exposed to assistive technologies, like screen readers, when only an icon is used.',
         released: '10.5.0'
+      },
+      icon: {
+        type: 'object',
+        required: false,
+        description: 'Can be used to add an icon to the search button.',
+        released: '10.5.0',
+        params: {
+          name: {
+            type: 'string',
+            required: true,
+            description:
+              'Icon name for the button – for example, `"search"`, `"arrow-right"`, `"plus"` or `"minus"`.',
+            released: '10.5.0'
+          },
+          html: {
+            type: 'string',
+            required: true,
+            description:
+              'HTML to use for the icon, as an alternative to the `name` option. If `html` is provided, the `name` option will be ignored.',
+            released: '10.5.0'
+          },
+          placement: {
+            type: 'string',
+            required: true,
+            description:
+              'Placement of the icon within the button – `"start"` or `"end"`.',
+            released: '10.5.0'
+          }
+        }
       }
     }
   }

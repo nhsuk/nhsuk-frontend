@@ -137,6 +137,39 @@ const fixtures = {
       width: 10,
       inputmode: 'numeric'
     }
+  },
+  'with button text and no icon': {
+    context: {
+      label: {
+        text: 'Search patients by NHS number',
+        classes: 'nhsuk-u-visually-hidden'
+      },
+      button: {
+        icon: false,
+        text: 'Search',
+        variant: 'secondary'
+      },
+      placeholder: 'NHS number',
+      name: 'example',
+      width: 10,
+      inputmode: 'numeric'
+    }
+  },
+  'with alternative icon': {
+    context: {
+      label: {
+        text: 'Search patients by NHS number',
+        classes: 'nhsuk-u-visually-hidden'
+      },
+      button: {
+        icon: 'plus',
+        variant: 'secondary'
+      },
+      placeholder: 'NHS number',
+      name: 'example',
+      width: 10,
+      inputmode: 'numeric'
+    }
   }
 }
 
