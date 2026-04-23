@@ -68,7 +68,7 @@
     "@testing-library/dom": "^10.4.1",
     "@testing-library/user-event": "^14.6.1",
     "autoprefixer": "^10.5.0",
-    "axe-core": "^4.11.2",
+    "axe-core": "^4.11.3",
     "cssnano": "^7.1.5",
     "del-cli": "^7.0.0",
     "gulp": "^5.0.1",
@@ -79,7 +79,7 @@
     "outdent": "^0.8.0",
     "postcss": "^8.5.10",
     "postcss-scss": "^4.0.9",
-    "puppeteer": "^24.40.0",
+    "puppeteer": "^24.41.0",
     "sass-embedded": "^1.99.0",
     "slug": "^11.0.1"
   },
