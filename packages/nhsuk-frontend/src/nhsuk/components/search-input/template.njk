@@ -62,7 +62,16 @@
   inputWrapper: {
     classes: "nhsuk-search-input__wrapper"
   },
-  label: params.label,
+  label: {
+    html: params.label.html,
+    text: params.label.text,
+    variant: params.label.variant or (variant if variant == "reverse"),
+    classes: params.label.classes,
+    size: params.label.size,
+    isPageHeading: params.label.isPageHeading,
+    attributes: params.label.attributes,
+    for: id
+  },
   hint: {
     text: params.hint.text,
     html: params.hint.html,

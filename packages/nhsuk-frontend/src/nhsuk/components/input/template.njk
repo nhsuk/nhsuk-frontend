@@ -131,11 +131,12 @@
     id: params.label.id,
     classes: params.label.classes,
     size: params.label.size,
+    variant: params.hint.variant or (variant if variant == "reverse"),
     isPageHeading: params.label.isPageHeading,
     attributes: params.label.attributes,
     for: id
   }) | trim | indent(2) }}
-{% if params.hint %}
+{% if params.hint.text or params.hint.html %}
   {% set hintId = id ~ "-hint" %}
   {% set describedBy = (describedBy ~ " " ~ hintId) | trim %}
   {{ hint({
