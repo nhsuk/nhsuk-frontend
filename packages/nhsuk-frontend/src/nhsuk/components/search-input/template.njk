@@ -35,13 +35,13 @@
 {%- set afterInputHtml %}
 {% if params.button not in ["", null, false] %}
 {{ button({
-  ariaLabel: params.button.ariaLabel | default("Search", true),
+  ariaLabel: params.button.ariaLabel | default("Search"),
   variant: params.button.variant or (variant if variant == "reverse"),
   classes: classNamesButton,
   text: params.button.text,
   html: params.button.html,
-  type: "submit",
-  icon: (params.button.icon | default("search")),
+  type: params.button.type | default("submit", true),
+  icon: params.button.icon | default("search"),
   small: not "nhsuk-search-input--large" in classNames
 }) | trim }}
 {% endif %}
@@ -72,11 +72,11 @@
   code: params.code,
   value: params.value,
   width: params.width,
-  type: "search",
+  type: params.type | default("search"),
   inputmode: params.inputmode,
   spellcheck: params.spellcheck,
   autocapitalize: params.autocapitalize,
-  autocomplete: params.autocomplete if params.autocomplete else "off",
+  autocomplete: params.autocomplete | default("off"),
   placeholder: params.placeholder,
   disabled: params.disabled,
   describedBy: params.describedBy,
