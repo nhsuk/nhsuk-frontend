@@ -12,6 +12,7 @@ const fixtures = {
           text: 'All clinics'
         },
         {
+          href: '#',
           text: 'Today',
           current: true
         },
@@ -38,6 +39,7 @@ const fixtures = {
           count: 12
         },
         {
+          href: '#',
           text: 'Today',
           count: 3,
           current: true
@@ -45,7 +47,7 @@ const fixtures = {
         {
           href: '#',
           text: 'Upcoming',
-          count: 9
+          count: "New"
         },
         {
           href: '#',
@@ -69,6 +71,7 @@ const fixtures = {
           html: 'Overview'
         },
         {
+          href: '#',
           html: 'Vaccinations <strong class="nhsuk-tag nhsuk-tag--green nhsuk-u-margin-left-1">New</strong>',
           current: true
         },
@@ -91,6 +94,7 @@ const fixtures = {
           text: 'All clinics'
         },
         {
+          href: '#',
           text: 'Today',
           current: true
         },
@@ -122,6 +126,7 @@ const fixtures = {
           count: 12
         },
         {
+          href: '#',
           text: 'Today',
           count: 3,
           current: true
@@ -151,6 +156,7 @@ const fixtures = {
       label: 'Section navigation',
       items: [
         {
+          href: '#',
           text: 'Summary',
           current: true
         },
@@ -177,6 +183,7 @@ const fixtures = {
           text: 'All clinics'
         },
         {
+          href: '#',
           text: 'Today',
           current: true
         },
@@ -197,7 +204,7 @@ const fixtures = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
-  'with linked current item': {
+  'with unlinked current item': {
     context: {
       items: [
         {
@@ -205,7 +212,6 @@ const fixtures = {
           text: 'All clinics'
         },
         {
-          href: '#',
           text: 'Today',
           current: true
         },
