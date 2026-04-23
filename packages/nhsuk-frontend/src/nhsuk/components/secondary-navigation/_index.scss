@@ -82,6 +82,7 @@
   .nhsuk-secondary-navigation__link,
   .nhsuk-secondary-navigation__text {
     display: block;
+    flex-grow: 1;
     padding: nhsuk-spacing(2) $nhsuk-gutter-half;
 
     @include nhsuk-media-query($from: tablet) {
@@ -98,12 +99,23 @@
       color: $nhsuk-text-colour;
     }
 
-    // nhsuk-link-style-default focus uses an outset bottom shadow; replace it
-    // with a directional inset indicator matching the active indicator style.
+    // nhsuk-link-style-default focus uses an outset box-shadow which bleeds
+    // outside the element. Replace it with an inset bottom indicator at all
+    // breakpoints so the focus state is contained within the link's own box.
     &:focus {
-      box-shadow: inset $nhsuk-border-width 0 $nhsuk-focus-text-colour;
+      box-shadow: inset 0 ($nhsuk-focus-width * -1) $nhsuk-focus-text-colour;
+    }
+
+    // When the current item is also focused, the yellow background covers the
+    // <li>'s left indicator. Reinstate it on the link itself using a combined
+    // box-shadow so both indicators are visible simultaneously.
+    &[aria-current]:focus {
+      box-shadow:
+        inset $nhsuk-border-width 0 nhsuk-colour("black"),
+        inset 0 ($nhsuk-focus-width * -1) $nhsuk-focus-text-colour;
 
       @include nhsuk-media-query($from: tablet) {
+        // Horizontal layout: no left indicator, just the bottom one (already set above)
         box-shadow: inset 0 ($nhsuk-focus-width * -1) $nhsuk-focus-text-colour;
       }
     }
@@ -155,14 +167,6 @@
       }
     }
 
-    // Keep the left indicator on focus at tablet (overrides the bottom indicator
-    // that the default focus rule adds for horizontal mode).
-    .nhsuk-secondary-navigation__link:focus {
-      @include nhsuk-media-query($from: tablet) {
-        box-shadow: inset $nhsuk-border-width 0 $nhsuk-focus-text-colour;
-      }
-    }
-
     .nhsuk-secondary-navigation__link,
     .nhsuk-secondary-navigation__text {
       @include nhsuk-media-query($from: tablet) {
@@ -198,10 +202,18 @@
         color: $nhsuk-reverse-text-colour;
       }
 
-      // nhsuk-link-style-white sets focus at higher specificity; match the
-      // directional indicator used by the default variant.
+      // nhsuk-link-style-white sets focus at higher specificity; override with
+      // an inset bottom indicator at all breakpoints to contain the focus state.
       &:focus {
-        box-shadow: inset $nhsuk-border-width 0 $nhsuk-focus-text-colour;
+        box-shadow: inset 0 ($nhsuk-focus-width * -1) $nhsuk-focus-text-colour;
+      }
+
+      // Reinstate the current indicator on the link when focused (yellow
+      // background covers the <li>'s indicator).
+      &[aria-current]:focus {
+        box-shadow:
+          inset $nhsuk-border-width 0 $nhsuk-reverse-text-colour,
+          inset 0 ($nhsuk-focus-width * -1) $nhsuk-focus-text-colour;
 
         @include nhsuk-media-query($from: tablet) {
           box-shadow: inset 0 ($nhsuk-focus-width * -1) $nhsuk-focus-text-colour;
