@@ -7,6 +7,10 @@
 {%- set classNamesInput = "nhsuk-search-input__input" -%}
 {%- set classNamesButton = "nhsuk-search-input__button" -%}
 
+{%- if params.large and (not params.classes or not "nhsuk-search-input--large" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-search-input--large" %}
+{% endif %}
+
 {%- if params.formGroup.classes %}
   {% set classNames = classNames ~ " " ~ params.formGroup.classes %}
 {% endif %}
@@ -24,12 +28,12 @@
 {%- set afterInputHtml %}
 {% if params.button not in ["", null, false] %}
 {{ button({
-  ariaLabel: params.button.ariaLabel | default("Search", true),
+  ariaLabel: params.button.ariaLabel | default("Search"),
   variant: params.button.variant,
   classes: classNamesButton,
   text: params.button.text,
   html: params.button.html,
-  type: "submit",
+  type: params.button.type | default("submit", true),
   icon: params.button.icon | default("search"),
   small: not params.large
 }) | trim }}
@@ -61,11 +65,11 @@
   code: params.code,
   value: params.value,
   width: params.width,
-  type: "search",
+  type: params.type | default("search"),
   inputmode: params.inputmode,
   spellcheck: params.spellcheck,
   autocapitalize: params.autocapitalize,
-  autocomplete: params.autocomplete if params.autocomplete else "off",
+  autocomplete: params.autocomplete | default("off"),
   placeholder: params.placeholder,
   disabled: params.disabled,
   describedBy: params.describedBy,
