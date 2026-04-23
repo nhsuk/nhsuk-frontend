@@ -48,7 +48,8 @@
             classes: "nhsuk-u-width-full",
             formGroup: {
               classes: "nhsuk-u-width-one-half"
-            }
+            },
+            button: false
           }) }}
 
           {{ searchInput({
@@ -62,8 +63,64 @@
             classes: "nhsuk-u-width-full",
             formGroup: {
               classes: "nhsuk-u-width-one-half"
+            }
+          }) }}
+
+          {{ searchInput({
+            label: {
+              text: "Search patients by NHS number",
+              classes: "nhsuk-u-visually-hidden"
             },
-            button: false
+            placeholder: "NHS number",
+            name: "example-search-3",
+            id: "example-search-3",
+            classes: "nhsuk-u-width-full",
+            large: true,
+            formGroup: {
+              classes: "nhsuk-u-width-one-half"
+            }
+          }) }}
+
+          {{ searchInput({
+            label: {
+              text: 'Search patients by NHS number',
+              classes: 'nhsuk-u-visually-hidden'
+            },
+            placeholder: 'NHS number',
+            name: "example-search-4",
+            id: "example-search-4",
+            classes: "nhsuk-u-width-full",
+            formGroup: {
+              classes: "nhsuk-u-width-one-half",
+              afterInput: {
+                html: button({
+                  text: "Advanced search",
+                  variant: "secondary",
+                  small: true
+                })
+              }
+            }
+          }) }}
+
+          {{ searchInput({
+            label: {
+              text: 'Search patients by NHS number',
+              classes: 'nhsuk-u-visually-hidden'
+            },
+            placeholder: 'NHS number',
+            name: "example-search-5",
+            id: "example-search-5",
+            classes: "nhsuk-u-width-full",
+            large: true,
+            formGroup: {
+              classes: "nhsuk-u-width-one-half",
+              afterInput: {
+                html: button({
+                  text: "Advanced search",
+                  variant: "secondary"
+                })
+              }
+            }
           }) }}
         {% endcall %}
       </form>
@@ -554,38 +611,6 @@
             id: "nhsuk-u-width-full",
             classes: "nhsuk-u-width-full"
           }) }}
-        {% endcall %}
-      </form>
-
-      <form method="post" novalidate>
-        {% call fieldset({
-          legend: {
-            text: "Large search input and button",
-            size: "m"
-          }
-        }) %}
-          <div class="nhsuk-form-group nhsuk-form-group--inline">
-            {{ searchInput({
-              large: true,
-              label: {
-                text: 'Search patients by NHS number',
-                classes: 'nhsuk-u-visually-hidden'
-              },
-              button: {
-                icon: 'search',
-                variant: 'secondary'
-              },
-              placeholder: 'NHS number',
-              name: 'example',
-              width: 10,
-              inputmode: 'numeric'
-            }) }}
-
-            {{ button({
-              text: "Advanced search",
-              variant: "secondary"
-            }) }}
-          </div>
         {% endcall %}
 
         {{ button({
