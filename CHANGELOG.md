@@ -72,6 +72,43 @@ Or to change the icon and adjust placement:
 
 This was added in [pull request #1712: Add support for icon buttons](https://github.com/nhsuk/nhsuk-frontend/pull/1712).
 
+### :boom: **Breaking changes**
+
+#### Update header to use search input component
+
+We've updated the HTML for the header to use the search input component.
+
+If you are not using Nunjucks macros, update your HTML markup using the [header examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/header) as follows:
+
+- add the `nhsuk-search-input` class to the `nhsuk-form-group` element
+- add the `nhsuk-search-input__wrapper` class to the `nhsuk-input-wrapper` element
+- add the `nhsuk-search-input__input` class to the text input
+- add the `nhsuk-search-input__button` class to the button
+
+Then to set the correct button colour:
+
+- for the blue header, add the `nhsuk-button--reverse` class to the button
+- for the white header, add the `nhsuk-button--search` class to the button
+
+```patch
+- <div class="nhsuk-form-group">
++ <div class="nhsuk-form-group nhsuk-search-input">
+    <label class="nhsuk-label nhsuk-u-visually-hidden" for="search-field">
+      Search the NHS digital service manual
+    </label>
+-   <div class="nhsuk-input-wrapper">
+-     <input class="nhsuk-input" id="search-field" name="q" type="search" autocomplete="off" placeholder="Search">
+-     <button class="nhsuk-button nhsuk-button--icon nhsuk-button--small" data-module="nhsuk-button" type="submit" aria-label="Search">
++   <div class="nhsuk-input-wrapper nhsuk-search-input__wrapper">
++     <input class="nhsuk-input nhsuk-search-input__input" id="search-field" name="q" type="search" autocomplete="off" placeholder="Search">
++     <button class="nhsuk-button nhsuk-button--reverse nhsuk-button--icon nhsuk-button--small nhsuk-search-input__button" data-module="nhsuk-button" type="submit" aria-label="Search">
+        <svg class="nhsuk-icon nhsuk-icon--search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
+          <path d="m20.7 19.3-4.1-4.1a7 7 0 1 0-1.4 1.4l4 4.1a1 1 0 0 0 1.5 0c.4-.4.4-1 0-1.4ZM6 11a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z"></path>
+        </svg>
+```
+
+This change was introduced in [pull request #1696: Use search input component in header](https://github.com/nhsuk/nhsuk-frontend/pull/1696).
+
 ### :recycle: **Changes**
 
 #### Improve screen reader announcements for header search button
