@@ -46,7 +46,7 @@
     // Reduced gap on tablet
     @include nhsuk-media-query($from: tablet) {
       flex-flow: row wrap;
-      gap: nhsuk-spacing(2) nhsuk-spacing(4);
+      gap: nhsuk-spacing(2) 16px; // to match header at tablet
     }
 
     // Larger gap on desktop
