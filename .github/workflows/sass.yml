@@ -45,8 +45,14 @@ jobs:
           # Release with `misplaced-rest` deprecated
           - version: 1.91.0
 
+          # Release with `with-private` deprecated
+          - version: 1.92.0
+
           # Release with `if-function` deprecated
           - version: 1.95.0
+
+          # Release with `function-name` deprecated
+          - version: 1.98.0
 
           # Dart Sass latest major version
           - tag: latest
