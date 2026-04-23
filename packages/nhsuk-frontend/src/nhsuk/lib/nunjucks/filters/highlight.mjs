@@ -1,5 +1,4 @@
 import { highlighter } from '../../highlighter/index.mjs'
-
 import { unindent } from './unindent.mjs'
 
 /**

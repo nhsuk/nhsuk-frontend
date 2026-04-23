@@ -1,10 +1,10 @@
 import { getByRole } from '@testing-library/dom'
 import { outdent } from 'outdent'
 
+import { components } from '#lib'
+
 import { CharacterCount } from './character-count.mjs'
 import { examples } from './fixtures.mjs'
-
-import { components } from '#lib'
 
 describe('Character count', () => {
   /** @type {HTMLElement} */

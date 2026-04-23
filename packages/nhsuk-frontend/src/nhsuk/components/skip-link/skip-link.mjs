@@ -1,3 +1,4 @@
+/* eslint-disable es-x/no-global-this */
 import { setFocus } from '../../common/index.mjs'
 import { ConfigurableComponent } from '../../configurable-component.mjs'
 import { ElementError } from '../../errors/index.mjs'
