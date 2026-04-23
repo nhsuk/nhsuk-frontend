@@ -1,0 +1,174 @@
+{
+  "name": "Search input",
+  "component": "search-input",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "label": {
+          "text": "Search patients by NHS number",
+          "classes": "nhsuk-u-visually-hidden"
+        },
+        "placeholder": "NHS number",
+        "name": "example",
+        "inputmode": "numeric",
+        "width": 10
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group nhsuk-search-input\">\n  <label class=\"nhsuk-label nhsuk-u-visually-hidden\" for=\"example\">\n    Search patients by NHS number\n  </label>\n  <div class=\"nhsuk-input-wrapper nhsuk-search-input__wrapper\">\n    <input class=\"nhsuk-input nhsuk-input--width-10 nhsuk-search-input__input\" id=\"example\" name=\"example\" type=\"search\" spellcheck=\"false\" autocomplete=\"off\" autocapitalize=\"none\" placeholder=\"NHS number\" inputmode=\"numeric\">\n    <button class=\"nhsuk-button nhsuk-button--icon nhsuk-button--small nhsuk-search-input__button\" data-module=\"nhsuk-button\" type=\"button\" aria-label=\"Search\">\n      <svg class=\"nhsuk-icon nhsuk-icon--search\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n        <path d=\"m20.7 19.3-4.1-4.1a7 7 0 1 0-1.4 1.4l4 4.1a1 1 0 0 0 1.5 0c.4-.4.4-1 0-1.4ZM6 11a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z\"/>\n      </svg>\n    </button>\n  </div>\n</div>"
+    },
+    {
+      "name": "large",
+      "context": {
+        "label": {
+          "text": "Search patients by NHS number",
+          "classes": "nhsuk-u-visually-hidden"
+        },
+        "placeholder": "NHS number",
+        "name": "example",
+        "width": 20,
+        "large": true,
+        "inputmode": "numeric"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group nhsuk-search-input nhsuk-search-input--large\">\n  <label class=\"nhsuk-label nhsuk-u-visually-hidden\" for=\"example\">\n    Search patients by NHS number\n  </label>\n  <div class=\"nhsuk-input-wrapper nhsuk-search-input__wrapper\">\n    <input class=\"nhsuk-input nhsuk-input--width-20 nhsuk-search-input__input\" id=\"example\" name=\"example\" type=\"search\" spellcheck=\"false\" autocomplete=\"off\" autocapitalize=\"none\" placeholder=\"NHS number\" inputmode=\"numeric\">\n    <button class=\"nhsuk-button nhsuk-button--icon nhsuk-search-input__button\" data-module=\"nhsuk-button\" type=\"button\" aria-label=\"Search\">\n      <svg class=\"nhsuk-icon nhsuk-icon--search\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n        <path d=\"m20.7 19.3-4.1-4.1a7 7 0 1 0-1.4 1.4l4 4.1a1 1 0 0 0 1.5 0c.4-.4.4-1 0-1.4ZM6 11a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z\"/>\n      </svg>\n    </button>\n  </div>\n</div>"
+    },
+    {
+      "name": "large with search button",
+      "context": {
+        "label": {
+          "text": "Search patients by NHS number",
+          "classes": "nhsuk-u-visually-hidden"
+        },
+        "button": {
+          "variant": "search"
+        },
+        "placeholder": "NHS number",
+        "name": "example",
+        "width": 20,
+        "large": true,
+        "inputmode": "numeric"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group nhsuk-search-input nhsuk-search-input--large\">\n  <label class=\"nhsuk-label nhsuk-u-visually-hidden\" for=\"example\">\n    Search patients by NHS number\n  </label>\n  <div class=\"nhsuk-input-wrapper nhsuk-search-input__wrapper\">\n    <input class=\"nhsuk-input nhsuk-input--width-20 nhsuk-search-input__input\" id=\"example\" name=\"example\" type=\"search\" spellcheck=\"false\" autocomplete=\"off\" autocapitalize=\"none\" placeholder=\"NHS number\" inputmode=\"numeric\">\n    <button class=\"nhsuk-button nhsuk-button--search nhsuk-button--icon nhsuk-search-input__button\" data-module=\"nhsuk-button\" type=\"button\" aria-label=\"Search\">\n      <svg class=\"nhsuk-icon nhsuk-icon--search\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n        <path d=\"m20.7 19.3-4.1-4.1a7 7 0 1 0-1.4 1.4l4 4.1a1 1 0 0 0 1.5 0c.4-.4.4-1 0-1.4ZM6 11a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z\"/>\n      </svg>\n    </button>\n  </div>\n</div>"
+    },
+    {
+      "name": "reverse",
+      "context": {
+        "label": {
+          "text": "Search patients by NHS number",
+          "classes": "nhsuk-u-visually-hidden"
+        },
+        "placeholder": "NHS number",
+        "name": "example",
+        "variant": "reverse",
+        "width": 10,
+        "inputmode": "numeric"
+      },
+      "screenshot": false,
+      "options": {
+        "layout": "background-blue"
+      },
+      "html": "<div class=\"nhsuk-form-group nhsuk-search-input\">\n  <label class=\"nhsuk-label nhsuk-u-visually-hidden\" for=\"example\">\n    Search patients by NHS number\n  </label>\n  <div class=\"nhsuk-input-wrapper nhsuk-search-input__wrapper\">\n    <input class=\"nhsuk-input nhsuk-input--width-10 nhsuk-input--reverse nhsuk-search-input__input\" id=\"example\" name=\"example\" type=\"search\" spellcheck=\"false\" autocomplete=\"off\" autocapitalize=\"none\" placeholder=\"NHS number\" inputmode=\"numeric\">\n    <button class=\"nhsuk-button nhsuk-button--icon nhsuk-button--small nhsuk-search-input__button nhsuk-button--reverse\" data-module=\"nhsuk-button\" type=\"button\" aria-label=\"Search\">\n      <svg class=\"nhsuk-icon nhsuk-icon--search\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n        <path d=\"m20.7 19.3-4.1-4.1a7 7 0 1 0-1.4 1.4l4 4.1a1 1 0 0 0 1.5 0c.4-.4.4-1 0-1.4ZM6 11a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z\"/>\n      </svg>\n    </button>\n  </div>\n</div>"
+    },
+    {
+      "name": "with hint",
+      "context": {
+        "label": {
+          "text": "Search patients by NHS number",
+          "classes": "nhsuk-u-visually-hidden"
+        },
+        "hint": {
+          "text": "Your NHS number is a 10 digit number that you find on any letter the NHS has sent you, for example, 485 777 3456"
+        },
+        "placeholder": "NHS number",
+        "id": "with-hint",
+        "name": "example",
+        "width": 10,
+        "inputmode": "numeric"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group nhsuk-search-input\">\n  <label class=\"nhsuk-label nhsuk-u-visually-hidden\" for=\"with-hint\">\n    Search patients by NHS number\n  </label>\n  <div class=\"nhsuk-hint\" id=\"with-hint-hint\">\n    Your NHS number is a 10 digit number that you find on any letter the NHS has sent you, for example, 485 777 3456\n  </div>\n  <div class=\"nhsuk-input-wrapper nhsuk-search-input__wrapper\">\n    <input class=\"nhsuk-input nhsuk-input--width-10 nhsuk-search-input__input\" id=\"with-hint\" name=\"example\" type=\"search\" spellcheck=\"false\" aria-describedby=\"with-hint-hint\" autocomplete=\"off\" autocapitalize=\"none\" placeholder=\"NHS number\" inputmode=\"numeric\">\n    <button class=\"nhsuk-button nhsuk-button--icon nhsuk-button--small nhsuk-search-input__button\" data-module=\"nhsuk-button\" type=\"button\" aria-label=\"Search\">\n      <svg class=\"nhsuk-icon nhsuk-icon--search\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n        <path d=\"m20.7 19.3-4.1-4.1a7 7 0 1 0-1.4 1.4l4 4.1a1 1 0 0 0 1.5 0c.4-.4.4-1 0-1.4ZM6 11a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z\"/>\n      </svg>\n    </button>\n  </div>\n</div>"
+    },
+    {
+      "name": "without button",
+      "context": {
+        "label": {
+          "text": "Search patients by NHS number",
+          "classes": "nhsuk-u-visually-hidden"
+        },
+        "button": false,
+        "placeholder": "NHS number",
+        "name": "example",
+        "width": 10,
+        "inputmode": "numeric"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group nhsuk-search-input\">\n  <label class=\"nhsuk-label nhsuk-u-visually-hidden\" for=\"example\">\n    Search patients by NHS number\n  </label>\n  <input class=\"nhsuk-input nhsuk-input--width-10 nhsuk-search-input__input\" id=\"example\" name=\"example\" type=\"search\" spellcheck=\"false\" autocomplete=\"off\" autocapitalize=\"none\" placeholder=\"NHS number\" inputmode=\"numeric\">\n</div>"
+    },
+    {
+      "name": "with search button",
+      "context": {
+        "label": {
+          "text": "Search patients by NHS number",
+          "classes": "nhsuk-u-visually-hidden"
+        },
+        "button": {
+          "variant": "search"
+        },
+        "placeholder": "NHS number",
+        "name": "example",
+        "width": 10,
+        "inputmode": "numeric"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group nhsuk-search-input\">\n  <label class=\"nhsuk-label nhsuk-u-visually-hidden\" for=\"example\">\n    Search patients by NHS number\n  </label>\n  <div class=\"nhsuk-input-wrapper nhsuk-search-input__wrapper\">\n    <input class=\"nhsuk-input nhsuk-input--width-10 nhsuk-search-input__input\" id=\"example\" name=\"example\" type=\"search\" spellcheck=\"false\" autocomplete=\"off\" autocapitalize=\"none\" placeholder=\"NHS number\" inputmode=\"numeric\">\n    <button class=\"nhsuk-button nhsuk-button--search nhsuk-button--icon nhsuk-button--small nhsuk-search-input__button\" data-module=\"nhsuk-button\" type=\"button\" aria-label=\"Search\">\n      <svg class=\"nhsuk-icon nhsuk-icon--search\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n        <path d=\"m20.7 19.3-4.1-4.1a7 7 0 1 0-1.4 1.4l4 4.1a1 1 0 0 0 1.5 0c.4-.4.4-1 0-1.4ZM6 11a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z\"/>\n      </svg>\n    </button>\n  </div>\n</div>"
+    },
+    {
+      "name": "with secondary button",
+      "context": {
+        "label": {
+          "text": "Search patients by NHS number",
+          "classes": "nhsuk-u-visually-hidden"
+        },
+        "button": {
+          "variant": "secondary"
+        },
+        "placeholder": "NHS number",
+        "name": "example",
+        "width": 10,
+        "inputmode": "numeric"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-form-group nhsuk-search-input\">\n  <label class=\"nhsuk-label nhsuk-u-visually-hidden\" for=\"example\">\n    Search patients by NHS number\n  </label>\n  <div class=\"nhsuk-input-wrapper nhsuk-search-input__wrapper\">\n    <input class=\"nhsuk-input nhsuk-input--width-10 nhsuk-search-input__input\" id=\"example\" name=\"example\" type=\"search\" spellcheck=\"false\" autocomplete=\"off\" autocapitalize=\"none\" placeholder=\"NHS number\" inputmode=\"numeric\">\n    <button class=\"nhsuk-button nhsuk-button--secondary nhsuk-button--icon nhsuk-button--small nhsuk-search-input__button\" data-module=\"nhsuk-button\" type=\"button\" aria-label=\"Search\">\n      <svg class=\"nhsuk-icon nhsuk-icon--search\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n        <path d=\"m20.7 19.3-4.1-4.1a7 7 0 1 0-1.4 1.4l4 4.1a1 1 0 0 0 1.5 0c.4-.4.4-1 0-1.4ZM6 11a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z\"/>\n      </svg>\n    </button>\n  </div>\n</div>"
+    },
+    {
+      "name": "with secondary button, solid background",
+      "context": {
+        "label": {
+          "text": "Search patients by NHS number",
+          "classes": "nhsuk-u-visually-hidden"
+        },
+        "button": {
+          "variant": "secondary-solid"
+        },
+        "placeholder": "NHS number",
+        "name": "example",
+        "width": 10,
+        "inputmode": "numeric"
+      },
+      "screenshot": false,
+      "options": {
+        "layout": "background-grey"
+      },
+      "html": "<div class=\"nhsuk-form-group nhsuk-search-input\">\n  <label class=\"nhsuk-label nhsuk-u-visually-hidden\" for=\"example\">\n    Search patients by NHS number\n  </label>\n  <div class=\"nhsuk-input-wrapper nhsuk-search-input__wrapper\">\n    <input class=\"nhsuk-input nhsuk-input--width-10 nhsuk-search-input__input\" id=\"example\" name=\"example\" type=\"search\" spellcheck=\"false\" autocomplete=\"off\" autocapitalize=\"none\" placeholder=\"NHS number\" inputmode=\"numeric\">\n    <button class=\"nhsuk-button nhsuk-button--secondary-solid nhsuk-button--icon nhsuk-button--small nhsuk-search-input__button\" data-module=\"nhsuk-button\" type=\"button\" aria-label=\"Search\">\n      <svg class=\"nhsuk-icon nhsuk-icon--search\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" focusable=\"false\" aria-hidden=\"true\">\n        <path d=\"m20.7 19.3-4.1-4.1a7 7 0 1 0-1.4 1.4l4 4.1a1 1 0 0 0 1.5 0c.4-.4.4-1 0-1.4ZM6 11a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z\"/>\n      </svg>\n    </button>\n  </div>\n</div>"
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+'use strict';
+
+const name = 'Inset text';
+
+/**
+ * Nunjucks macro option params
+ *
+ * @satisfies {{ [param: string]: MacroParam }}
+ */
+const options = {
+  id: {
+    type: 'string',
+    required: false,
+    description: 'The ID of the inset text component.',
+    released: '10.0.0'
+  },
+  text: {
+    type: 'string',
+    required: true,
+    description: 'Text content to be used within the inset text component. If `html` is provided, the `text` argument will be ignored.',
+    released: '9.2.0'
+  },
+  html: {
+    type: 'string',
+    required: true,
+    description: 'HTML content to be used within the inset text component. If `html` is provided, the `text` argument will be ignored.',
+    released: '8.2.0'
+  },
+  caller: {
+    type: 'nunjucks-block',
+    required: false,
+    description: 'Not strictly a parameter but a Nunjucks code convention. Using a `call` block enables you to call a macro with all the text inside the tag. This is helpful if you want to pass a lot of content into a macro. To use it, you will need to wrap the entire inset text component in a `call` block.',
+    released: '9.5.0'
+  },
+  classes: {
+    type: 'string',
+    required: false,
+    description: 'Classes to add to the inset text.',
+    released: '1.0.0'
+  },
+  attributes: {
+    type: 'object',
+    required: false,
+    description: 'HTML attributes (for example data attributes) to add to the inset text.',
+    released: '1.0.0'
+  },
+  visuallyHiddenText: {
+    type: 'string',
+    required: false,
+    description: 'A visually hidden prefix used before the inset text. Defaults to `"Information"`.',
+    released: '10.1.0'
+  }
+};
+
+/**
+ * Nunjucks macro option params
+ * (with typed keys)
+ *
+ * @type {Record<keyof typeof options, MacroParam>}
+ */
+const params = options;
+
+/**
+ * @import { MacroParam } from '#lib'
+ */
+
+exports.name = name;
+exports.params = params;
+//# sourceMappingURL=macro-options.js.map
