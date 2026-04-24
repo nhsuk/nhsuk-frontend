@@ -10,7 +10,10 @@ runs:
       id: npm-install-cache
       with:
         key: npm-install-${{ hashFiles('package-lock.json') }}
-        path: node_modules
+        path: |
+          node_modules
+          packages/*/node_modules
+          shared/*/node_modules
 
     - name: Setup Node
       uses: actions/setup-node@v6.3.0
