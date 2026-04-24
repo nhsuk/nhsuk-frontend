@@ -89,10 +89,10 @@
     "slug": "^11.0.1"
   },
   "peerDependencies": {
+    "@prettier/sync": "^0.6.0",
     "highlight.js": "^11.0.0",
     "nunjucks": "^3.0.0",
     "outdent": "^0.8.0",
-    "@prettier/sync": "^0.6.0",
     "slug": "^9.0.0 || ^11.0.0"
   },
   "peerDependenciesMeta": {
