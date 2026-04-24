@@ -88,7 +88,10 @@ jobs:
         with:
           fail-on-cache-miss: true
           key: npm-install-${{ hashFiles('package-lock.json') }}
-          path: node_modules
+          path: |
+            node_modules
+            packages/*/node_modules
+            shared/*/node_modules
 
       - name: Cache lint task
         if: ${{ matrix.task.cache }}
@@ -150,7 +153,10 @@ jobs:
         with:
           fail-on-cache-miss: true
           key: npm-install-${{ hashFiles('package-lock.json') }}
-          path: node_modules
+          path: |
+            node_modules
+            packages/*/node_modules
+            shared/*/node_modules
 
       - name: Restore build with code coverage (from cache)
         uses: actions/cache/restore@v5
@@ -212,7 +218,10 @@ jobs:
         with:
           fail-on-cache-miss: true
           key: npm-install-${{ hashFiles('package-lock.json') }}
-          path: node_modules
+          path: |
+            node_modules
+            packages/*/node_modules
+            shared/*/node_modules
 
       - name: Restore build (from cache)
         uses: actions/cache/restore@v5

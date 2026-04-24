@@ -79,6 +79,7 @@
     "@types/nunjucks": "^3.2.6",
     "@types/slug": "^5.0.9",
     "@types/wait-on": "^5.3.4",
+    "axe-core": "^4.11.3",
     "babel-jest": "^30.3.0",
     "babel-plugin-transform-import-meta": "^2.3.3",
     "backstopjs": "^6.3.25",
@@ -108,7 +109,7 @@
     "stylelint-config-gds": "^2.0.0",
     "stylelint-order": "^8.1.1",
     "typed-query-selector": "^2.12.1",
-    "typescript": "^6.0.2",
+    "typescript": "^6.0.3",
     "typescript-eslint": "^8.58.2",
     "wait-on": "^9.0.5"
   },
@@ -117,6 +118,7 @@
     "npm": "^11.6.1 <11.6.3 || ^11.6.4"
   },
   "overrides": {
+    "axe-core": "$axe-core",
     "chokidar@^2": {
       "glob-parent": "^5"
     },
