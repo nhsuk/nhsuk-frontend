@@ -79,6 +79,7 @@
     "@types/nunjucks": "^3.2.6",
     "@types/slug": "^5.0.9",
     "@types/wait-on": "^5.3.4",
+    "axe-core": "^4.11.3",
     "babel-jest": "^30.3.0",
     "babel-plugin-transform-import-meta": "^2.3.3",
     "backstopjs": "^6.3.25",
@@ -117,6 +118,7 @@
     "npm": "^11.6.1 <11.6.3 || ^11.6.4"
   },
   "overrides": {
+    "axe-core": "$axe-core",
     "chokidar@^2": {
       "glob-parent": "^5"
     },
