@@ -7,7 +7,7 @@
     "./*": "./*"
   },
   "dependencies": {
-    "@axe-core/puppeteer": "^4.11.1",
+    "@axe-core/puppeteer": "^4.11.2",
     "@nhsuk/frontend-lib": "*",
     "@testing-library/jest-dom": "^6.9.1",
     "axe-core": "^4.11.3",
