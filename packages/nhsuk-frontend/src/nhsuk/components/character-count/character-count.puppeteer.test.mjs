@@ -2,8 +2,8 @@ import * as timers from 'node:timers/promises'
 
 import {
   getAttribute,
-  getProperty,
   getHtml,
+  getProperty,
   getText,
   isVisible,
   render
