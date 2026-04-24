@@ -1,0 +1,30 @@
+{% extends "layouts/page.njk" %}
+
+{% set pageName = "Sorry, the service is unavailable" %}
+
+{% block header %}
+  {{ header({
+    service: {
+      href: baseUrl,
+      text: "Service name"
+    }
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <div class="nhsuk-u-reading-width nhsuk-u-margin-bottom-9">
+        <h1 class="nhsuk-heading-l">{{ pageName }}</h1>
+
+        <p>Contact the hospital if you need to cancel an appointment.</p>
+      </div>
+
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+  {{ footer() }}
+{% endblock %}
