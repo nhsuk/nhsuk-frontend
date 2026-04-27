@@ -1,0 +1,73 @@
+{%- from "nhsuk/macros/attributes.njk" import nhsukAttributes -%}
+
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-secondary-navigation" -%}
+
+{%- if params.vertical and (not params.classes or not "nhsuk-secondary-navigation--vertical" in params.classes) %}
+  {%- set classNames = classNames ~ " nhsuk-secondary-navigation--vertical" -%}
+{%- endif -%}
+
+{%- if params.classes %}
+  {%- set classNames = classNames ~ " " ~ params.classes -%}
+{%- endif -%}
+
+<nav class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
+  data-module="nhsuk-secondary-navigation"
+  {%- if params.labelledBy %} aria-labelledby="{{ params.labelledBy }}"
+  {%- else %} aria-label="{{ params.label | default("Secondary navigation") }}"
+  {%- endif %}
+  {{- nhsukAttributes(params.attributes) }}>
+  <ul class="nhsuk-secondary-navigation__list">
+  {% for item in params.items -%}
+    {%- if item -%}
+    {%- set itemInnerAttributesHtml %}
+      {{- nhsukAttributes({
+        href: {
+          value: item.href,
+          optional: true
+        },
+        "aria-current": {
+          value: "page" if item.current else false,
+          optional: true
+        }
+      }) -}}
+    {%- endset -%}
+
+    {%- set itemCountHtml -%}
+      {#- Need to use 'is defined' so that counts of 0 are still rendered -#}
+      {%- if item.count is defined -%}
+        {%- set visuallyHiddenCountText = params.visuallyHiddenCountText | default("Count") -%}
+        <span class="nhsuk-secondary-navigation__count"><span class="nhsuk-u-visually-hidden">{{ visuallyHiddenCountText }}: </span>{{ item.count }}</span>
+      {%- endif -%}
+    {%- endset -%}
+
+    {%- set itemInnerContent %}
+      {% if item.current -%}
+        {#- Wrap active item in strong element so users who override colours
+          or styles still have some indicator of the current nav item. -#}
+        <strong class="nhsuk-secondary-navigation__current">
+          {{- item.html | safe if item.html else item.text -}}
+          {{- itemCountHtml | safe -}}
+        </strong>
+      {%- else -%}
+        {{- item.html | safe if item.html else item.text -}}
+        {{- itemCountHtml | safe -}}  
+      {%- endif -%}
+    {%- endset %}
+
+    <li class="nhsuk-secondary-navigation__item{%- if item.current %} nhsuk-secondary-navigation__item--current{%- endif -%}{%- if item.classes %} {{ item.classes }}{%- endif -%}"
+      {{- nhsukAttributes(item.attributes) }}>
+      {% if item.href %}
+      <a class="nhsuk-secondary-navigation__link" {{- itemInnerAttributesHtml | safe }}>
+        {{- itemInnerContent | safe -}}
+      </a>
+      {% else %}
+      <span class="nhsuk-secondary-navigation__text" {{- itemInnerAttributesHtml | safe }}>
+        {{- itemInnerContent | safe -}}
+      </span>
+      {% endif %}
+    </li>
+    {% endif %}
+  {%- endfor %}
+  </ul>
+</nav>

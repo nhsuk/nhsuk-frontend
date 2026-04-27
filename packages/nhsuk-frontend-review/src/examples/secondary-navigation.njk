@@ -1,0 +1,268 @@
+{% extends "layouts/page.njk" %}
+
+{% set pageName = "Secondary navigation" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block beforeContent %}
+  {{ breadcrumb({
+    items: [
+      {
+        text: "NHS.UK frontend",
+        href: baseUrl
+      },
+      {
+        text: "Examples",
+        href: baseUrl ~ "#examples"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl">{{ pageName }}</h1>
+    </div>
+  </div>
+
+  {# ================================================ #}
+  {# Default #}
+  {# ================================================ #}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+      <h2 class="nhsuk-heading-m">Default</h2>
+
+      {{ secondaryNavigation({
+        items: [
+          {
+            href: "#",
+            text: "All clinics"
+          },
+          {
+            text: "Today",
+            current: true
+          },
+          {
+            href: "#",
+            text: "Upcoming"
+          },
+          {
+            href: "#",
+            text: "Completed"
+          }
+        ]
+      }) }}
+
+      <p class="nhsuk-body nhsuk-u-secondary-text-colour nhsuk-u-margin-bottom-6">
+        Content for the current "Today" section would appear here.
+      </p>
+    </div>
+  </div>
+
+  <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
+
+  {# ================================================ #}
+  {# With counts #}
+  {# ================================================ #}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+      <h2 class="nhsuk-heading-m">With counts</h2>
+      <p class="nhsuk-body">Use the <code>count</code> option to show a numeric badge alongside each item — for example, the number of results in a filtered view.</p>
+
+      {{ secondaryNavigation({
+        items: [
+          {
+            href: "#",
+            text: "All",
+            count: 12
+          },
+          {
+            text: "Today",
+            current: true
+          },
+          {
+            href: "#",
+            text: "Upcoming",
+            count: 9
+          },
+          {
+            href: "#",
+            text: "Completed",
+            count: 0
+          }
+        ]
+      }) }}
+    </div>
+  </div>
+
+  <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
+
+  {# ================================================ #}
+  {# Many items (wrapping) #}
+  {# ================================================ #}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+      <h2 class="nhsuk-heading-m">Many items (wrapping)</h2>
+
+      {{ secondaryNavigation({
+        items: [
+          { text: "Summary", current: true },
+          { href: "#", text: "Personal details" },
+          { text: "Medical history" },
+          { href: "#", text: "Vaccinations" },
+          { href: "#", text: "Consent" },
+          { href: "#", text: "Not responded" },
+          { href: "#", text: "Gillick" },
+          { href: "#", text: "Triage" }
+        ]
+      }) }}
+    </div>
+  </div>
+
+  <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
+
+  {# ================================================ #}
+  {# With custom aria-label #}
+  {# ================================================ #}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+      <h2 class="nhsuk-heading-m">With custom label</h2>
+      <p class="nhsuk-body">Use the <code>label</code> option to provide a meaningful accessible name when multiple navigation landmarks appear on the same page.</p>
+
+      {{ secondaryNavigation({
+        label: "Patient record sections",
+        items: [
+          { text: "Overview", current: true },
+          { href: "#", text: "Vaccinations" },
+          { text: "Consent" },
+          { href: "#", text: "Documents" }
+        ]
+      }) }}
+    </div>
+  </div>
+
+  <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
+
+  {# ================================================ #}
+  {# With HTML content per item #}
+  {# ================================================ #}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+      <h2 class="nhsuk-heading-m">With HTML per item</h2>
+      <p class="nhsuk-body">Use the <code>html</code> option per item as an escape hatch for arbitrary content such as status indicators or icons.</p>
+
+      {{ secondaryNavigation({
+        items: [
+          {
+            href: "#",
+            html: "Overview"
+          },
+          {
+            html: "Vaccinations <strong class=\"nhsuk-tag nhsuk-tag--green nhsuk-u-margin-left-1\">New</strong>",
+            current: true
+          },
+          {
+            href: "#",
+            html: "Consent"
+          }
+        ]
+      }) }}
+    </div>
+  </div>
+
+  <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
+
+  {# ================================================ #}
+  {# Reverse (on blue background) #}
+  {# ================================================ #}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+      <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-4">Reverse (on coloured background)</h2>
+    </div>
+  </div>
+
+  <div style="background-color: #005eb8; padding: 16px 0 0;">
+    {{ secondaryNavigation({
+      classes: "nhsuk-secondary-navigation--reverse",
+      items: [
+        {
+          href: "#",
+          text: "All clinics"
+        },
+        {
+          text: "Today",
+          current: true
+        },
+        {
+          href: "#",
+          text: "Upcoming"
+        },
+        {
+          href: "#",
+          text: "Completed"
+        }
+      ]
+    }) }}
+  </div>
+
+  <div class="nhsuk-u-margin-top-4"></div>
+
+  <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
+
+  {# ================================================ #}
+  {# Vertical #}
+  {# ================================================ #}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+      <h2 class="nhsuk-heading-m">Vertical</h2>
+      <p class="nhsuk-body">Use the <code>vertical</code> option to keep the navigation stacked at all breakpoints.</p>
+
+      {{ secondaryNavigation({
+        vertical: true,
+        items: [
+          {
+            href: "#",
+            text: "All clinics"
+          },
+          {
+            text: "Today",
+            current: true
+          },
+          {
+            href: "#",
+            text: "Upcoming"
+          },
+          {
+            href: "#",
+            text: "Completed"
+          }
+        ]
+      }) }}
+    </div>
+  </div>
+
+  <div class="nhsuk-u-margin-top-4"></div>
+
+  {# Reverse with counts #}
+  <h3 class="nhsuk-heading-s nhsuk-u-margin-bottom-2" style="color: #fff; background: #005eb8; padding: 8px 16px 0; margin-top: 0;">Reverse with counts</h3>
+  <div style="background-color: #005eb8; padding: 0 0 16px;">
+    {{ secondaryNavigation({
+      classes: "nhsuk-secondary-navigation--reverse",
+      label: "Filtered clinics (reverse with counts)",
+      items: [
+        { href: "#", text: "All", count: 12 },
+        { text: "Today", count: 3, current: true },
+        { href: "#", text: "Upcoming", count: 9 },
+        { href: "#", text: "Completed", count: 0 }
+      ]
+    }) }}
+  </div>
+
+{% endblock %}
