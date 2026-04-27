@@ -18,6 +18,7 @@ import {
   PasswordInput,
   Radios,
   SkipLink,
+  StepperInput,
   Tabs,
   createAll,
   initAll
@@ -32,6 +33,7 @@ jest.mock('./components/error-summary/error-summary.mjs')
 jest.mock('./components/file-upload/file-upload.mjs')
 jest.mock('./components/header/header.mjs')
 jest.mock('./components/notification-banner/notification-banner.mjs')
+jest.mock('./components/stepper-input/stepper-input.mjs')
 jest.mock('./components/password-input/password-input.mjs')
 jest.mock('./components/radios/radios.mjs')
 jest.mock('./components/skip-link/skip-link.mjs')
@@ -50,6 +52,7 @@ describe('NHS.UK frontend', () => {
     'SkipLink',
     'Tabs',
     'NotificationBanner',
+    'StepperInput',
     'PasswordInput'
   ]
 
@@ -82,6 +85,7 @@ describe('NHS.UK frontend', () => {
       expect(NHSUKFrontend).toHaveProperty('ErrorSummary')
       expect(NHSUKFrontend).toHaveProperty('Header')
       expect(NHSUKFrontend).toHaveProperty('NotificationBanner')
+      expect(NHSUKFrontend).toHaveProperty('StepperInput')
       expect(NHSUKFrontend).toHaveProperty('PasswordInput')
       expect(NHSUKFrontend).toHaveProperty('Radios')
       expect(NHSUKFrontend).toHaveProperty('SkipLink')
@@ -101,6 +105,7 @@ describe('NHS.UK frontend', () => {
       expect(NHSUKFrontend).toHaveProperty('initErrorSummary')
       expect(NHSUKFrontend).toHaveProperty('initHeader')
       expect(NHSUKFrontend).toHaveProperty('initNotificationBanners')
+      expect(NHSUKFrontend).toHaveProperty('initStepperInputs')
       expect(NHSUKFrontend).toHaveProperty('initPasswordInputs')
       expect(NHSUKFrontend).toHaveProperty('initRadios')
       expect(NHSUKFrontend).toHaveProperty('initSkipLinks')
@@ -120,6 +125,7 @@ describe('NHS.UK frontend', () => {
         <div data-module="${ErrorSummary.moduleName}"></div>
         <div data-module="${Header.moduleName}"></div>
         <div data-module="${NotificationBanner.moduleName}"></div>
+        <div data-module="${StepperInput.moduleName}"></div>
         <div data-module="${PasswordInput.moduleName}"></div>
         <div data-module="${Radios.moduleName}"></div>
         <div data-module="${SkipLink.moduleName}"></div>
@@ -234,6 +240,7 @@ describe('NHS.UK frontend', () => {
       expect(ErrorSummary).not.toHaveBeenCalled()
       expect(Header).not.toHaveBeenCalled()
       expect(NotificationBanner).not.toHaveBeenCalled()
+      expect(StepperInput).not.toHaveBeenCalled()
       expect(PasswordInput).not.toHaveBeenCalled()
       expect(Radios).not.toHaveBeenCalled()
       expect(SkipLink).not.toHaveBeenCalled()
@@ -259,6 +266,7 @@ describe('NHS.UK frontend', () => {
       expect(ErrorSummary).not.toHaveBeenCalled()
       expect(Header).not.toHaveBeenCalled()
       expect(NotificationBanner).not.toHaveBeenCalled()
+      expect(StepperInput).not.toHaveBeenCalled()
       expect(PasswordInput).not.toHaveBeenCalled()
       expect(Radios).not.toHaveBeenCalled()
       expect(SkipLink).not.toHaveBeenCalled()
@@ -284,6 +292,7 @@ describe('NHS.UK frontend', () => {
       expect(ErrorSummary).not.toHaveBeenCalled()
       expect(Header).not.toHaveBeenCalled()
       expect(NotificationBanner).not.toHaveBeenCalled()
+      expect(StepperInput).not.toHaveBeenCalled()
       expect(PasswordInput).not.toHaveBeenCalled()
       expect(Radios).not.toHaveBeenCalled()
       expect(SkipLink).not.toHaveBeenCalled()

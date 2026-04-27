@@ -33,7 +33,7 @@ export function macro(component, options) {
  * Nunjucks macro option config
  *
  * @typedef {object} MacroParam
- * @property {'array' | 'boolean' | 'integer' | 'nunjucks-block' | 'object' | 'string'} type - Option type
+ * @property {'array' | 'boolean' | 'number' | 'integer' | 'nunjucks-block' | 'object' | 'string'} type - Option type
  * @property {boolean} required - Option required
  * @property {string} description - Option description
  * @property {string} [released] - Option was released in NHS.UK frontend version number
