@@ -192,6 +192,32 @@ const fixtures = {
       viewports: ['tablet']
     }
   },
+  "with 'characters' count type": {
+    context: {
+      label: {
+        text: 'Enter a job description',
+        size: 'l',
+        isPageHeading: true
+      },
+      id: 'with-characters-count-type',
+      name: 'example',
+      countType: 'characters',
+      maxlength: 200
+    }
+  },
+  "with 'words' count type": {
+    context: {
+      label: {
+        text: 'Enter a job description',
+        size: 'l',
+        isPageHeading: true
+      },
+      id: 'with-words-count-type',
+      name: 'example',
+      countType: 'words',
+      maxlength: 150
+    }
+  },
   'with threshold': {
     context: {
       label: {
