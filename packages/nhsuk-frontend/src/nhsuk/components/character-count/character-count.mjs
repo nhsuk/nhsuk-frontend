@@ -26,6 +26,13 @@ export class CharacterCount extends ConfigurableComponent {
   segmenter = null
 
   /**
+   * Split words by consecutive whitespace characters
+   *
+   * @type {RegExp}
+   */
+  separator = /\s+/g
+
+  /**
    * @type {number | null}
    */
   lastInputTimestamp = null
@@ -61,6 +68,7 @@ export class CharacterCount extends ConfigurableComponent {
     const {
       i18n,
       maxlength,
+      maxwords,
       countType,
       screenReaderCountMessageClass,
       textareaDescriptionClass,
@@ -76,6 +84,18 @@ export class CharacterCount extends ConfigurableComponent {
       this.segmenter = new Intl.Segmenter(this.i18n.locale, {
         granularity: countType === 'words' ? 'word' : 'grapheme'
       })
+    }
+
+    // Use improved word splitting if supported
+    if (countType === 'words' && maxwords === undefined) {
+      try {
+        this.separator = new RegExp(
+          '[\\p{White_Space}\\p{Dash_Punctuation}\\p{Other_Punctuation}\\p{Emoji}\\p{Join_Control}]+',
+          'gu'
+        )
+      } catch {
+        this.separator = /[\s\-‑–—.,;:!\\/]+/g
+      }
     }
 
     // Determine the limit attribute (characters or words)
@@ -458,8 +478,7 @@ export class CharacterCount extends ConfigurableComponent {
       return segments.length
     },
     words(text) {
-      const tokens = text.match(/\S+/g) ?? [] // Matches consecutive non-whitespace chars
-      return tokens.length
+      return text.split(this.separator).filter(Boolean).length
     }
   })
 
