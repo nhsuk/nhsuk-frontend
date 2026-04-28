@@ -399,10 +399,11 @@ describe('Character count', () => {
             }
           })
 
-          await $textarea.type('A'.repeat(11))
+          await $textarea.type('👩🏻‍🚀'.repeat(11))
 
+          // Note that code point counting is used by default
           expect(await getText($visibleCountMessage)).toBe(
-            'You have 1 character too many'
+            'You have 67 characters too many'
           )
         })
 
@@ -420,6 +421,21 @@ describe('Character count', () => {
           )
         })
 
+        it('configures `countType: "length"`', async () => {
+          await initExample('to configure in JavaScript', {
+            config: {
+              maxlength: 10,
+              countType: 'length'
+            }
+          })
+
+          await $textarea.type('A'.repeat(11))
+
+          expect(await getText($visibleCountMessage)).toBe(
+            'You have 1 character too many'
+          )
+        })
+
         it('configures `countType: "characters"`', async () => {
           await initExample('to configure in JavaScript', {
             config: {
@@ -428,8 +444,10 @@ describe('Character count', () => {
             }
           })
 
-          await $textarea.type('A'.repeat(11))
+          await $textarea.type('👩🏻‍🚀'.repeat(11))
 
+          // Note that grapheme cluster counting (user-perceived characters) is
+          // used when `countType: "characters"` is configured
           expect(await getText($visibleCountMessage)).toBe(
             'You have 1 character too many'
           )

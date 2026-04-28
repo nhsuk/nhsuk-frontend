@@ -50,7 +50,7 @@ const options = {
     type: 'string',
     required: false,
     description:
-      'The count type used to count the text – `"characters"` or `"words"`. Defaults to `"characters"`.',
+      'The count type used to count the text – `"length"`, `"characters"` or `"words"`. Defaults to `"length"`.',
     released: '10.5.0'
   },
   threshold: {

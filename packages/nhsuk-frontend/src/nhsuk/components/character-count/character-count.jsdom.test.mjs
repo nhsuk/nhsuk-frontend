@@ -1,10 +1,13 @@
 import { getByRole } from '@testing-library/dom'
+import { userEvent } from '@testing-library/user-event'
 import { outdent } from 'outdent'
 
 import { components } from '#lib'
 
 import { CharacterCount, initCharacterCounts } from './character-count.mjs'
 import { examples } from './fixtures.mjs'
+
+const user = userEvent.setup()
 
 describe('Character count', () => {
   /** @type {HTMLElement} */
@@ -190,7 +193,7 @@ describe('Character count', () => {
         ...CharacterCount.defaults,
         maxlength: 200,
         threshold: 0,
-        countType: 'characters'
+        countType: 'length'
       })
     })
 
@@ -209,6 +212,18 @@ describe('Character count', () => {
       expect(console.warn).toHaveBeenCalledWith(
         `${CharacterCount.moduleName}: Option \`maxwords\` is deprecated. Use \`maxlength\` with \`countType: "words"\` instead.`
       )
+    })
+
+    it('configures `countType: "length"`', () => {
+      initExample("with 'length' count type")
+
+      const characterCount = new CharacterCount($root)
+      expect(characterCount.config).toEqual({
+        ...CharacterCount.defaults,
+        maxlength: 200,
+        threshold: 0,
+        countType: 'length'
+      })
     })
 
     it('configures `countType: "characters"`', () => {
@@ -243,7 +258,7 @@ describe('Character count', () => {
         ...CharacterCount.defaults,
         maxlength: 112,
         threshold: 75,
-        countType: 'characters'
+        countType: 'length'
       })
     })
 
@@ -267,7 +282,7 @@ describe('Character count', () => {
         ...CharacterCount.defaults,
         maxlength: 200,
         threshold: 0,
-        countType: 'characters'
+        countType: 'length'
       })
     })
   })
@@ -338,12 +353,13 @@ describe('Character count', () => {
         expect(component.getCountMessage()).toBe('You have 98 words remaining')
       })
 
-      it('uses current textarea value for `maxlength` limit via back/forward navigation', () => {
+      it('uses current textarea value for `maxlength` limit via back/forward navigation', async () => {
         const component = new CharacterCount($root, {
           maxlength: 100
         })
 
-        $textarea.value = 'Newly updated value'
+        $textarea.focus()
+        await user.keyboard('Newly updated value')
 
         // Trigger back/forward navigation
         window.dispatchEvent(
@@ -357,12 +373,13 @@ describe('Character count', () => {
         )
       })
 
-      it('uses current textarea value for `maxwords` limit via back/forward navigation', () => {
+      it('uses current textarea value for `maxwords` limit via back/forward navigation', async () => {
         const component = new CharacterCount($root, {
           maxwords: 100
         })
 
-        $textarea.value = 'Newly updated value'
+        $textarea.focus()
+        await user.keyboard('Newly updated value')
 
         // Trigger back/forward navigation
         window.dispatchEvent(
