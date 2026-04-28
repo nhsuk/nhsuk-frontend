@@ -61,6 +61,7 @@ export class CharacterCount extends ConfigurableComponent {
     const {
       i18n,
       maxlength,
+      countFunction,
       countType,
       screenReaderCountMessageClass,
       textareaDescriptionClass,
@@ -72,9 +73,12 @@ export class CharacterCount extends ConfigurableComponent {
       locale: closestAttributeValue(this.$root, 'lang')
     })
 
-    if ('Segmenter' in Intl && countType === 'characters') {
+    if (
+      'Segmenter' in Intl &&
+      (countType === 'characters' || !!countFunction)
+    ) {
       this.segmenter = new Intl.Segmenter(this.i18n.locale, {
-        granularity: 'grapheme'
+        granularity: countType === 'words' ? 'word' : 'grapheme'
       })
     }
 
@@ -211,20 +215,12 @@ export class CharacterCount extends ConfigurableComponent {
    * @param {string} [text] - Deprecated
    */
   updateCount(text) {
-    const { $textarea } = this
-    const { countType } = this.config
+    const { $textarea, countFunctions } = this
+    let { countType, countFunction } = this.config
 
-    text = text ?? $textarea.value
-
-    if (countType === 'words') {
-      const tokens = text.match(/\S+/g) ?? [] // Matches consecutive non-whitespace chars
-      this.length = tokens.length
-      return
-    }
-
-    this.length = this.segmenter
-      ? Array.from(this.segmenter.segment(text)).length
-      : text.length
+    text ??= $textarea.value
+    countFunction ??= countFunctions[countType]
+    this.length = countFunction.call(this, text)
   }
 
   /**
@@ -448,6 +444,30 @@ export class CharacterCount extends ConfigurableComponent {
   }
 
   /**
+   * Character count functions
+   *
+   * @constant
+   * @satisfies {Record<string, CharacterCountConfig['countFunction']>}
+   */
+  countFunctions = Object.freeze({
+    length(text) {
+      return text.length
+    },
+    characters(text) {
+      if (!this.segmenter) {
+        return text.length
+      }
+
+      const segments = Array.from(this.segmenter.segment(text))
+      return segments.length
+    },
+    words(text) {
+      const tokens = text.match(/\S+/g) ?? [] // Matches consecutive non-whitespace chars
+      return tokens.length
+    }
+  })
+
+  /**
    * Name for the component used when initialising using data-module attributes
    */
   static moduleName = 'nhsuk-character-count'
@@ -504,6 +524,7 @@ export class CharacterCount extends ConfigurableComponent {
       maxlength: { type: 'number' },
       threshold: { type: 'number' },
       countType: { type: 'string' },
+      countFunction: { type: 'function' },
       textareaDescriptionClass: { type: 'string' },
       visibleCountMessageClass: { type: 'string' },
       screenReaderCountMessageClass: { type: 'string' },
@@ -550,6 +571,7 @@ export function initCharacterCounts(options) {
  * @property {number} [threshold=0] - The percentage value of the limit at which point the count message is displayed.
  *   If this attribute is set, the count message will be hidden by default.
  * @property {'length' | 'characters' | 'words'} countType - The count type (`"length"`, `"characters"` or `"words"`) used to count the text.
+ * @property {(this: CharacterCount, text: string) => number} [countFunction] - Custom character or word counting function.
  * @property {string} textareaDescriptionClass - Textarea description class
  * @property {string} visibleCountMessageClass - Visible count message class
  * @property {string} screenReaderCountMessageClass - Screen reader count message class
