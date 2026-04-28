@@ -21,6 +21,11 @@ export class CharacterCount extends ConfigurableComponent {
   length = 0
 
   /**
+   * @type {Intl.Segmenter | null}
+   */
+  segmenter = null
+
+  /**
    * @type {number | null}
    */
   lastInputTimestamp = null
@@ -56,6 +61,7 @@ export class CharacterCount extends ConfigurableComponent {
     const {
       i18n,
       maxlength,
+      countType,
       screenReaderCountMessageClass,
       textareaDescriptionClass,
       visibleCountMessageClass
@@ -65,6 +71,12 @@ export class CharacterCount extends ConfigurableComponent {
       // Read the fallback if necessary rather than have it set in the defaults
       locale: closestAttributeValue(this.$root, 'lang')
     })
+
+    if ('Segmenter' in Intl && countType === 'characters') {
+      this.segmenter = new Intl.Segmenter(this.i18n.locale, {
+        granularity: 'grapheme'
+      })
+    }
 
     // Determine the limit attribute (characters or words)
     this.maxLength = maxlength ?? Infinity
@@ -210,7 +222,9 @@ export class CharacterCount extends ConfigurableComponent {
       return
     }
 
-    this.length = text.length
+    this.length = this.segmenter
+      ? Array.from(this.segmenter.segment(text)).length
+      : text.length
   }
 
   /**
