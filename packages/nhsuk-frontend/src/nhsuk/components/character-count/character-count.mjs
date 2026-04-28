@@ -478,7 +478,12 @@ export class CharacterCount extends ConfigurableComponent {
       return segments.length
     },
     words(text) {
-      return text.split(this.separator).filter(Boolean).length
+      if (!this.segmenter || this.config.maxwords !== undefined) {
+        return text.split(this.separator).filter(Boolean).length
+      }
+
+      const segments = Array.from(this.segmenter.segment(text))
+      return segments.filter((segment) => segment.isWordLike).length
     }
   })
 
