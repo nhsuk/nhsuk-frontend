@@ -192,6 +192,19 @@ const fixtures = {
       viewports: ['tablet']
     }
   },
+  "with 'length' count type": {
+    context: {
+      label: {
+        text: 'Enter a job description',
+        size: 'l',
+        isPageHeading: true
+      },
+      id: 'with-length-count-type',
+      name: 'example',
+      countType: 'length',
+      maxlength: 200
+    }
+  },
   "with 'characters' count type": {
     context: {
       label: {

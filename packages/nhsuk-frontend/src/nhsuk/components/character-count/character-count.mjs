@@ -447,7 +447,7 @@ export class CharacterCount extends ConfigurableComponent {
    */
   static defaults = Object.freeze({
     threshold: 0,
-    countType: 'characters',
+    countType: 'length',
     textareaDescriptionClass: 'nhsuk-character-count__message',
     visibleCountMessageClass: 'nhsuk-character-count__status',
     screenReaderCountMessageClass: 'nhsuk-character-count__sr-status',
@@ -535,7 +535,7 @@ export function initCharacterCounts(options) {
  * @property {number} [maxwords] - Deprecated. Use `maxlength` and `countType: "words"` instead.
  * @property {number} [threshold=0] - The percentage value of the limit at which point the count message is displayed.
  *   If this attribute is set, the count message will be hidden by default.
- * @property {'characters' | 'words'} countType - The count type (`"characters"` or `"words"`) used to count the text.
+ * @property {'length' | 'characters' | 'words'} countType - The count type (`"length"`, `"characters"` or `"words"`) used to count the text.
  * @property {string} textareaDescriptionClass - Textarea description class
  * @property {string} visibleCountMessageClass - Visible count message class
  * @property {string} screenReaderCountMessageClass - Screen reader count message class

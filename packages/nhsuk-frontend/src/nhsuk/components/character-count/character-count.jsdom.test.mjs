@@ -190,7 +190,7 @@ describe('Character count', () => {
         ...CharacterCount.defaults,
         maxlength: 200,
         threshold: 0,
-        countType: 'characters'
+        countType: 'length'
       })
     })
 
@@ -209,6 +209,18 @@ describe('Character count', () => {
       expect(console.warn).toHaveBeenCalledWith(
         `${CharacterCount.moduleName}: Option \`maxwords\` is deprecated. Use \`maxlength\` with \`countType: "words"\` instead.`
       )
+    })
+
+    it('configures `countType: "length"`', () => {
+      initExample("with 'length' count type")
+
+      const characterCount = new CharacterCount($root)
+      expect(characterCount.config).toEqual({
+        ...CharacterCount.defaults,
+        maxlength: 200,
+        threshold: 0,
+        countType: 'length'
+      })
     })
 
     it('configures `countType: "characters"`', () => {
@@ -243,7 +255,7 @@ describe('Character count', () => {
         ...CharacterCount.defaults,
         maxlength: 112,
         threshold: 75,
-        countType: 'characters'
+        countType: 'length'
       })
     })
 
@@ -267,7 +279,7 @@ describe('Character count', () => {
         ...CharacterCount.defaults,
         maxlength: 200,
         threshold: 0,
-        countType: 'characters'
+        countType: 'length'
       })
     })
   })

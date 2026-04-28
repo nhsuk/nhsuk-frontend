@@ -63,12 +63,12 @@ Default:
 
 Type: string
 
-The count type (`'characters'` or `'words'`) used to count the text.
+The count type (`'length'`, `'characters'` or `'words'`) used to count the text.
 
 Default:
 
 ```json5
-'characters'
+'length'
 ```
 
 ### textareaDescriptionClass

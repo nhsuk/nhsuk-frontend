@@ -420,6 +420,21 @@ describe('Character count', () => {
           )
         })
 
+        it('configures `countType: "length"`', async () => {
+          await initExample('to configure in JavaScript', {
+            config: {
+              maxlength: 10,
+              countType: 'length'
+            }
+          })
+
+          await $textarea.type('A'.repeat(11))
+
+          expect(await getText($visibleCountMessage)).toBe(
+            'You have 1 character too many'
+          )
+        })
+
         it('configures `countType: "characters"`', async () => {
           await initExample('to configure in JavaScript', {
             config: {
