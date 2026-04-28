@@ -35,15 +35,23 @@ const options = {
     type: 'string',
     required: true,
     description:
-      'If `maxwords` is set, this is not required. The maximum number of characters. If `maxwords` is provided, the `maxlength` option will be ignored.',
+      'The maximum number of characters (or words if `countType` is set to `"words"`).',
     released: '7.0.0'
   },
   maxwords: {
     type: 'string',
     required: true,
     description:
-      'If `maxlength` is set, this is not required. The maximum number of words. If `maxwords` is provided, the `maxlength` option will be ignored.',
-    released: '7.0.0'
+      'The maximum number of words. Replaced by the `maxlength` and `countType: "words"` options.',
+    released: '7.0.0',
+    deprecated: '10.5.0'
+  },
+  countType: {
+    type: 'string',
+    required: false,
+    description:
+      'The count type used to count the text – `"characters"` or `"words"`. Defaults to `"characters"`.',
+    released: '10.5.0'
   },
   threshold: {
     type: 'string',
@@ -182,7 +190,7 @@ const options = {
     type: 'string',
     required: false,
     description:
-      'Message made available to assistive technologies to describe that the component accepts only a limited amount of content. It is visible on the page when JavaScript is unavailable. The component will replace the `%{count}` placeholder with the value of the `maxlength` or `maxwords` parameter.',
+      'Message made available to assistive technologies to describe that the component accepts only a limited amount of content. It is visible on the page when JavaScript is unavailable. The component will replace the `%{count}` placeholder with the value of the `maxlength` parameter.',
     released: '10.1.0'
   }
 }

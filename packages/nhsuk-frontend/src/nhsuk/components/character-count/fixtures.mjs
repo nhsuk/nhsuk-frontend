@@ -177,7 +177,7 @@ const fixtures = {
       hidden: true
     }
   },
-  'with word count': {
+  'with maxwords': {
     context: {
       label: {
         text: 'Enter a job description',
@@ -190,6 +190,32 @@ const fixtures = {
     },
     screenshot: {
       viewports: ['tablet']
+    }
+  },
+  "with 'characters' count type": {
+    context: {
+      label: {
+        text: 'Enter a job description',
+        size: 'l',
+        isPageHeading: true
+      },
+      id: 'with-characters-count-type',
+      name: 'example',
+      countType: 'characters',
+      maxlength: 200
+    }
+  },
+  "with 'words' count type": {
+    context: {
+      label: {
+        text: 'Enter a job description',
+        size: 'l',
+        isPageHeading: true
+      },
+      id: 'with-words-count-type',
+      name: 'example',
+      countType: 'words',
+      maxlength: 150
     }
   },
   'with threshold': {
