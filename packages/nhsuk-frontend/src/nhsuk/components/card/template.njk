@@ -119,7 +119,7 @@
   <h{{ headingLevel }} class="{{ classNamesHeading }}" {%- if params.headingId %} id="{{ params.headingId }}"{% endif %}>
   {% if params.href and not "nhsuk-card--feature" in classNames %}
     <a class="nhsuk-card__link" href="{{ params.href }}">
-      {{- params.heading | safe -}}
+      {{- params.heading -}}
     </a>
   {% elif params.headingVisuallyHiddenText %}
     <span role="text">

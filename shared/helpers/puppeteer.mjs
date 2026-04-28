@@ -311,9 +311,11 @@ export function getOptions(name, example) {
 /**
  * Get property value for element
  *
- * @param {ElementHandle | null} $element - Puppeteer element handle
- * @param {string} propertyName - Property name to return value for
- * @returns {Promise<unknown>} Property value
+ * @template {Element} ElementType
+ * @template {keyof ElementType} PropertyType
+ * @param {ElementHandle<ElementType> | null | undefined} $element - Puppeteer element handle
+ * @param {PropertyType} propertyName - Property name to return value for
+ * @returns {Promise<ElementType[PropertyType]>} Property value
  */
 export async function getProperty($element, propertyName) {
   if (!$element) {
@@ -321,13 +323,13 @@ export async function getProperty($element, propertyName) {
   }
 
   const handle = await $element.getProperty(propertyName)
-  return handle.jsonValue()
+  return /** @type {ElementType[PropertyType]} */ (await handle.jsonValue())
 }
 
 /**
  * Get attribute value for element
  *
- * @param {ElementHandle | null} $element - Puppeteer element handle
+ * @param {ElementHandle | null | undefined} $element - Puppeteer element handle
  * @param {string} attributeName - Attribute name to return value for
  * @returns {Promise<string | null>} Attribute value
  */
@@ -336,14 +338,14 @@ export function getAttribute($element, attributeName) {
     throw new TypeError('Element is not defined')
   }
 
-  return $element.evaluate((el, name) => el.getAttribute(name), attributeName)
+  return $element.evaluate(($el, name) => $el.getAttribute(name), attributeName)
 }
 
 /**
  * Gets the accessible name of the given element, if it exists in the accessibility tree
  *
  * @param {Page} page - Puppeteer page object
- * @param {ElementHandle | null} $element - Puppeteer element handle
+ * @param {ElementHandle | null | undefined} $element - Puppeteer element handle
  * @returns {Promise<string>} The element's accessible name
  * @throws {TypeError} If the element has no corresponding node in the accessibility tree
  */
@@ -371,9 +373,29 @@ export async function getAccessibleName(page, $element) {
 }
 
 /**
+ * Get text content for element
+ *
+ * @param {ElementHandle | null | undefined} $element - Puppeteer element handle
+ * @returns {Promise<string>} Text content
+ */
+export async function getText($element) {
+  return /** @type {string} */ (await getProperty($element, 'textContent'))
+}
+
+/**
+ * Get HTML content for element
+ *
+ * @param {ElementHandle | null | undefined} $element - Puppeteer element handle
+ * @returns {Promise<string>} HTML content
+ */
+export async function getHtml($element) {
+  return /** @type {string} */ (await getProperty($element, 'innerHTML'))
+}
+
+/**
  * Check if element is visible
  *
- * @param {ElementHandle | null} $element - Puppeteer element handle
+ * @param {ElementHandle | null | undefined} $element - Puppeteer element handle
  * @returns {Promise<boolean>} Element visibility
  */
 export async function isVisible($element) {

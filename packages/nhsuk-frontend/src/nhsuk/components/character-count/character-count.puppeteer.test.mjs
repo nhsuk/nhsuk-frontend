@@ -1,7 +1,15 @@
 import * as timers from 'node:timers/promises'
 
-import { render } from '@nhsuk/frontend-helpers/puppeteer.mjs'
+import {
+  getAttribute,
+  getHtml,
+  getProperty,
+  getText,
+  isVisible,
+  render
+} from '@nhsuk/frontend-helpers/puppeteer.mjs'
 
+import { CharacterCount } from './character-count.mjs'
 import { examples } from './fixtures.mjs'
 
 describe('Character count', () => {
@@ -11,6 +19,50 @@ describe('Character count', () => {
   // The longest possible time from a keyboard user ending input and the screen
   // reader counter being updated (+ 100ms to stay outside the total wait time)
   const debouncedWaitTime = focusIntervalTime + lastInputOffsetTime + 100
+
+  /** @type {ElementHandle} */
+  let $component
+
+  /** @type {ElementHandle} */
+  let $screenReaderCountMessage
+
+  /** @type {ElementHandle} */
+  let $textarea
+
+  /** @type {ElementHandle} */
+  let $textareaDescription
+
+  /** @type {ElementHandle<HTMLElement>} */
+  let $visibleCountMessage
+
+  /**
+   * @template {object} HandlerContext
+   * @param {keyof typeof examples} example
+   * @param {BrowserRenderOptions<HandlerContext>} [browserOptions] - Puppeteer browser render options
+   */
+  async function initExample(example, browserOptions) {
+    await render(page, 'character-count', examples[example], browserOptions)
+
+    $component = /** @type {ElementHandle<HTMLElement>} */ (
+      await page.$(`[data-module="${CharacterCount.moduleName}"]`)
+    )
+
+    $screenReaderCountMessage = /** @type {ElementHandle<HTMLElement>} */ (
+      await $component.$('div.nhsuk-character-count__sr-status')
+    )
+
+    $textarea = /** @type {ElementHandle<HTMLElement>} */ (
+      await $component.$('textarea.nhsuk-textarea')
+    )
+
+    $textareaDescription = /** @type {ElementHandle<HTMLElement>} */ (
+      await $component.$('div.nhsuk-character-count__message')
+    )
+
+    $visibleCountMessage = /** @type {ElementHandle<HTMLElement>} */ (
+      await $component.$('div.nhsuk-character-count__status')
+    )
+  }
 
   describe('when JavaScript is unavailable or fails', () => {
     beforeAll(async () => {
@@ -22,496 +74,371 @@ describe('Character count', () => {
     })
 
     it('shows the textarea description', async () => {
-      await render(page, 'character-count', examples.default)
+      await initExample('default')
 
-      const message = await page.$eval(
-        '.nhsuk-character-count__message',
-        (el) => el.innerHTML.trim()
+      expect((await getText($textareaDescription))?.trim()).toBe(
+        'You can enter up to 200 characters'
       )
-
-      expect(message).toBe('You can enter up to 200 characters')
     })
   })
 
   describe('when JavaScript is available', () => {
     describe('on page load', () => {
       beforeEach(async () => {
-        await render(page, 'character-count', examples.default)
+        await initExample('default')
       })
 
       it('injects the visual counter', async () => {
-        const message =
-          (await page.$('.nhsuk-character-count__status')) !== null
-        expect(message).toBeTruthy()
+        expect(await isVisible($visibleCountMessage)).toBe(true)
       })
 
       it('injects the screen reader counter', async () => {
-        const srMessage =
-          (await page.$('.nhsuk-character-count__sr-status')) !== null
-        expect(srMessage).toBeTruthy()
+        expect(await isVisible($screenReaderCountMessage)).toBe(true)
       })
 
       it('hides the textarea description', async () => {
-        const messageClasses = await page.$eval(
-          '.nhsuk-character-count__message',
-          (el) => el.className
+        expect(await getAttribute($textareaDescription, 'class')).toContain(
+          'nhsuk-u-visually-hidden'
         )
-        expect(messageClasses).toContain('nhsuk-u-visually-hidden')
       })
 
       it('retains error class if there is already an error', async () => {
-        await render(page, 'character-count', examples['with error message'])
+        await initExample('with error message')
 
-        const textareaClasses = await page.$eval(
-          '.nhsuk-textarea',
-          (el) => el.className
+        expect(await getAttribute($textarea, 'class')).toContain(
+          'nhsuk-textarea--error'
         )
-        expect(textareaClasses).toContain('nhsuk-textarea--error')
       })
     })
 
     describe('when counting characters', () => {
       it('shows the dynamic message', async () => {
-        await render(page, 'character-count', examples.default)
+        await initExample('default')
 
-        const message = await page.$eval(
-          '.nhsuk-character-count__status',
-          (el) => el.innerHTML.trim()
+        expect(await getText($visibleCountMessage)).toBe(
+          'You have 200 characters remaining'
         )
-        expect(message).toBe('You have 200 characters remaining')
 
-        const srMessage = await page.$eval(
-          '.nhsuk-character-count__sr-status',
-          (el) => el.innerHTML.trim()
+        expect(await getText($screenReaderCountMessage)).toBe(
+          'You have 200 characters remaining'
         )
-        expect(srMessage).toBe('You have 200 characters remaining')
       })
 
       it('shows the characters remaining if the field is pre-filled', async () => {
-        await render(page, 'character-count', examples['with default value'])
+        await initExample('with default value')
 
-        const message = await page.$eval(
-          '.nhsuk-character-count__status',
-          (el) => el.innerHTML.trim()
+        expect(await getText($visibleCountMessage)).toBe(
+          'You have 57 characters remaining'
         )
-        expect(message).toBe('You have 57 characters remaining')
 
-        const srMessage = await page.$eval(
-          '.nhsuk-character-count__sr-status',
-          (el) => el.innerHTML.trim()
+        expect(await getText($screenReaderCountMessage)).toBe(
+          'You have 57 characters remaining'
         )
-        expect(srMessage).toBe('You have 57 characters remaining')
       })
 
       it('counts down to the character limit', async () => {
-        await render(page, 'character-count', examples.default)
+        await initExample('default')
 
-        await page.type('.nhsuk-js-character-count', 'A')
+        await $textarea.type('A')
 
-        const message = await page.$eval(
-          '.nhsuk-character-count__status',
-          (el) => el.innerHTML.trim()
+        expect(await getText($visibleCountMessage)).toBe(
+          'You have 199 characters remaining'
         )
-        expect(message).toBe('You have 199 characters remaining')
 
         // Wait for debounced update to happen
         await timers.setTimeout(debouncedWaitTime)
 
-        const srMessage = await page.$eval(
-          '.nhsuk-character-count__sr-status',
-          (el) => el.innerHTML.trim()
+        expect(await getText($screenReaderCountMessage)).toBe(
+          'You have 199 characters remaining'
         )
-        expect(srMessage).toBe('You have 199 characters remaining')
       })
 
       it('uses the singular when there is only one character remaining', async () => {
-        await render(page, 'character-count', examples.default)
+        await initExample('default')
 
-        await page.type('.nhsuk-js-character-count', 'A'.repeat(199))
+        await $textarea.type('A'.repeat(199))
 
-        const message = await page.$eval(
-          '.nhsuk-character-count__status',
-          (el) => el.innerHTML.trim()
+        expect(await getText($visibleCountMessage)).toBe(
+          'You have 1 character remaining'
         )
-        expect(message).toBe('You have 1 character remaining')
 
         // Wait for debounced update to happen
         await timers.setTimeout(debouncedWaitTime)
 
-        const srMessage = await page.$eval(
-          '.nhsuk-character-count__sr-status',
-          (el) => el.innerHTML.trim()
+        expect(await getText($screenReaderCountMessage)).toBe(
+          'You have 1 character remaining'
         )
-        expect(srMessage).toBe('You have 1 character remaining')
       })
 
       it('retains error class if there is already an error', async () => {
-        await render(page, 'character-count', examples['with error message'])
+        await initExample('with error message')
 
-        await page.type('.nhsuk-js-character-count', 'A')
+        await $textarea.type('A')
 
-        // Wait for debounced update to happen
-        await timers.setTimeout(debouncedWaitTime)
-
-        const textareaClasses = await page.$eval(
-          '.nhsuk-textarea',
-          (el) => el.className
+        expect(await getAttribute($textarea, 'class')).toContain(
+          'nhsuk-textarea--error'
         )
-        expect(textareaClasses).toContain('nhsuk-textarea--error')
       })
 
       describe('when the character limit is exceeded', () => {
         beforeEach(async () => {
-          await render(page, 'character-count', examples.default)
+          await initExample('default')
 
-          await page.type('.nhsuk-js-character-count', 'A'.repeat(201))
-        }, 15000)
+          await $textarea.type('A'.repeat(201))
+        })
 
         it('shows the number of characters over the limit', async () => {
-          const message = await page.$eval(
-            '.nhsuk-character-count__status',
-            (el) => el.innerHTML.trim()
+          expect(await getText($visibleCountMessage)).toBe(
+            'You have 1 character too many'
           )
-          expect(message).toBe('You have 1 character too many')
 
           // Wait for debounced update to happen
           await timers.setTimeout(debouncedWaitTime)
 
-          const srMessage = await page.$eval(
-            '.nhsuk-character-count__sr-status',
-            (el) => el.innerHTML.trim()
+          expect(await getText($screenReaderCountMessage)).toBe(
+            'You have 1 character too many'
           )
-          expect(srMessage).toBe('You have 1 character too many')
         })
 
         it('uses the plural when the limit is exceeded by 2 or more', async () => {
-          await page.type('.nhsuk-js-character-count', 'A')
+          await $textarea.type('A')
 
-          const message = await page.$eval(
-            '.nhsuk-character-count__status',
-            (el) => el.innerHTML.trim()
+          expect(await getText($visibleCountMessage)).toBe(
+            'You have 2 characters too many'
           )
-          expect(message).toBe('You have 2 characters too many')
 
           // Wait for debounced update to happen
           await timers.setTimeout(debouncedWaitTime)
 
-          const srMessage = await page.$eval(
-            '.nhsuk-character-count__sr-status',
-            (el) => el.innerHTML.trim()
+          expect(await getText($screenReaderCountMessage)).toBe(
+            'You have 2 characters too many'
           )
-          expect(srMessage).toBe('You have 2 characters too many')
         })
 
         it('adds error styles to the textarea', async () => {
-          const textareaClasses = await page.$eval(
-            '.nhsuk-js-character-count',
-            (el) => el.className
+          expect(await getAttribute($textarea, 'class')).toContain(
+            'nhsuk-textarea--error'
           )
-          expect(textareaClasses).toContain('nhsuk-textarea--error')
         })
 
         it('adds error styles to the count message', async () => {
-          const messageClasses = await page.$eval(
-            '.nhsuk-character-count__status',
-            (el) => el.className
+          expect(await getAttribute($visibleCountMessage, 'class')).toContain(
+            'nhsuk-error-message'
           )
-          expect(messageClasses).toContain('nhsuk-error-message')
         })
       })
 
       describe('when the character limit is exceeded on page load', () => {
         beforeEach(async () => {
-          await render(page, 'character-count', examples['with hint and error'])
+          await initExample('with hint and error')
         })
 
         it('shows the number of characters over the limit', async () => {
-          const message = await page.$eval(
-            '.nhsuk-character-count__status',
-            (el) => el.innerHTML.trim()
+          expect(await getText($visibleCountMessage)).toBe(
+            'You have 40 characters too many'
           )
-          expect(message).toBe('You have 40 characters too many')
 
-          const srMessage = await page.$eval(
-            '.nhsuk-character-count__sr-status',
-            (el) => el.innerHTML.trim()
+          expect(await getText($screenReaderCountMessage)).toBe(
+            'You have 40 characters too many'
           )
-          expect(srMessage).toBe('You have 40 characters too many')
         })
 
         it('adds error styles to the textarea', async () => {
-          const textareaClasses = await page.$eval(
-            '.nhsuk-js-character-count',
-            (el) => el.className
+          expect(await getAttribute($textarea, 'class')).toContain(
+            'nhsuk-textarea--error'
           )
-          expect(textareaClasses).toContain('nhsuk-textarea--error')
         })
 
         it('adds error styles to the count message', async () => {
-          const messageClasses = await page.$eval(
-            '.nhsuk-character-count__status',
-            (el) => el.className
+          expect(await getAttribute($visibleCountMessage, 'class')).toContain(
+            'nhsuk-error-message'
           )
-          expect(messageClasses).toContain('nhsuk-error-message')
         })
       })
 
       describe('when a threshold is set', () => {
         beforeEach(async () => {
-          await render(page, 'character-count', examples['with threshold'])
+          await initExample('with threshold')
         })
 
         it('does not show the limit until the threshold is reached', async () => {
-          const hidden = await page.$eval(
-            '.nhsuk-character-count__status',
-            (el) => el.getAttribute('hidden')
-          )
-          expect(hidden).toBe('')
-
-          // Wait for debounced update to happen
-          await timers.setTimeout(debouncedWaitTime)
+          expect(await getProperty($visibleCountMessage, 'hidden')).toBe(true)
 
           // Ensure threshold is hidden for users of assistive technologies
-          const ariaHidden = await page.$eval(
-            '.nhsuk-character-count__sr-status',
-            (el) => el.getAttribute('aria-hidden')
-          )
-          expect(ariaHidden).toBe('true')
+          expect(
+            await getAttribute($screenReaderCountMessage, 'aria-hidden')
+          ).toBe('true')
         })
 
         it('becomes visible once the threshold is reached', async () => {
-          await page.type('.nhsuk-js-character-count', 'A'.repeat(8))
+          await $textarea.type('A'.repeat(8))
 
-          const hidden = await page.$eval(
-            '.nhsuk-character-count__status',
-            (el) => el.getAttribute('hidden')
-          )
-          expect(hidden).toBeNull()
+          expect(await getProperty($visibleCountMessage, 'hidden')).toBe(false)
 
           // Wait for debounced update to happen
           await timers.setTimeout(debouncedWaitTime)
 
           // Ensure threshold is visible for users of assistive technologies
-          const ariaHidden = await page.$eval(
-            '.nhsuk-character-count__sr-status',
-            (el) => el.getAttribute('aria-hidden')
-          )
-          expect(ariaHidden).toBeFalsy()
+          expect(
+            await getAttribute($screenReaderCountMessage, 'aria-hidden')
+          ).toBeNull()
         })
       })
 
       describe('when a maxlength attribute is specified on the textarea', () => {
         beforeEach(async () => {
-          await render(
-            page,
-            'character-count',
-            examples['with maxlength attribute']
-          )
+          await initExample('with maxlength attribute')
         })
 
         it('should not have a maxlength attribute once the JS has run', async () => {
-          const textareaMaxLength = await page.$eval('.nhsuk-textarea', (el) =>
-            el.getAttribute('maxlength')
-          )
-          expect(textareaMaxLength).toBeNull()
+          expect(await getAttribute($textarea, 'maxlength')).toBeNull()
         })
       })
     })
 
     describe('when counting words', () => {
       beforeEach(async () => {
-        await render(page, 'character-count', examples['with word count'])
+        await initExample('with word count')
       })
 
       it('shows the dynamic message', async () => {
-        const message = await page.$eval(
-          '.nhsuk-character-count__status',
-          (el) => el.innerHTML.trim()
+        expect(await getText($visibleCountMessage)).toBe(
+          'You have 150 words remaining'
         )
-        expect(message).toBe('You have 150 words remaining')
 
-        const srMessage = await page.$eval(
-          '.nhsuk-character-count__sr-status',
-          (el) => el.innerHTML.trim()
+        expect(await getText($screenReaderCountMessage)).toBe(
+          'You have 150 words remaining'
         )
-        expect(srMessage).toBe('You have 150 words remaining')
       })
 
       it('counts down to the word limit', async () => {
-        await page.type('.nhsuk-js-character-count', 'Hello world')
+        await $textarea.type('Hello world')
 
-        const message = await page.$eval(
-          '.nhsuk-character-count__status',
-          (el) => el.innerHTML.trim()
+        expect(await getText($visibleCountMessage)).toBe(
+          'You have 148 words remaining'
         )
-        expect(message).toBe('You have 148 words remaining')
 
         // Wait for debounced update to happen
         await timers.setTimeout(debouncedWaitTime)
 
-        const srMessage = await page.$eval(
-          '.nhsuk-character-count__sr-status',
-          (el) => el.innerHTML.trim()
+        expect(await getText($screenReaderCountMessage)).toBe(
+          'You have 148 words remaining'
         )
-        expect(srMessage).toBe('You have 148 words remaining')
       })
 
       it('uses the singular when there is only one word remaining', async () => {
-        await page.type('.nhsuk-js-character-count', 'Hello '.repeat(149))
+        await $textarea.type('Hello '.repeat(149))
 
-        const message = await page.$eval(
-          '.nhsuk-character-count__status',
-          (el) => el.innerHTML.trim()
+        expect(await getText($visibleCountMessage)).toBe(
+          'You have 1 word remaining'
         )
-        expect(message).toBe('You have 1 word remaining')
 
         // Wait for debounced update to happen
         await timers.setTimeout(debouncedWaitTime)
 
-        const srMessage = await page.$eval(
-          '.nhsuk-character-count__sr-status',
-          (el) => el.innerHTML.trim()
+        expect(await getText($screenReaderCountMessage)).toBe(
+          'You have 1 word remaining'
         )
-        expect(srMessage).toBe('You have 1 word remaining')
-      }, 15000)
+      })
 
       describe('when the word limit is exceeded', () => {
         beforeEach(async () => {
-          await render(page, 'character-count', examples['with word count'])
+          await initExample('with word count')
 
-          await page.type('.nhsuk-js-character-count', 'Hello '.repeat(151))
-        }, 15000)
+          await $textarea.type('Hello '.repeat(151))
+        })
 
         it('shows the number of words over the limit', async () => {
-          const message = await page.$eval(
-            '.nhsuk-character-count__status',
-            (el) => el.innerHTML.trim()
+          expect(await getText($visibleCountMessage)).toBe(
+            'You have 1 word too many'
           )
-          expect(message).toBe('You have 1 word too many')
 
           // Wait for debounced update to happen
           await timers.setTimeout(debouncedWaitTime)
 
-          const srMessage = await page.$eval(
-            '.nhsuk-character-count__sr-status',
-            (el) => el.innerHTML.trim()
+          expect(await getText($screenReaderCountMessage)).toBe(
+            'You have 1 word too many'
           )
-          expect(srMessage).toBe('You have 1 word too many')
         })
 
         it('uses the plural when the limit is exceeded by 2 or more', async () => {
-          await page.type('.nhsuk-js-character-count', 'World')
+          await $textarea.type('World')
 
-          const message = await page.$eval(
-            '.nhsuk-character-count__status',
-            (el) => el.innerHTML.trim()
+          expect(await getText($visibleCountMessage)).toBe(
+            'You have 2 words too many'
           )
-          expect(message).toBe('You have 2 words too many')
 
           // Wait for debounced update to happen
           await timers.setTimeout(debouncedWaitTime)
 
-          const srMessage = await page.$eval(
-            '.nhsuk-character-count__sr-status',
-            (el) => el.innerHTML.trim()
+          expect(await getText($screenReaderCountMessage)).toBe(
+            'You have 2 words too many'
           )
-          expect(srMessage).toBe('You have 2 words too many')
         })
 
         it('adds error styles to the textarea', async () => {
-          const textareaClasses = await page.$eval(
-            '.nhsuk-js-character-count',
-            (el) => el.className
+          expect(await getAttribute($textarea, 'class')).toContain(
+            'nhsuk-textarea--error'
           )
-          expect(textareaClasses).toContain('nhsuk-textarea--error')
         })
 
         it('adds error styles to the count message', async () => {
-          const messageClasses = await page.$eval(
-            '.nhsuk-character-count__status',
-            (el) => el.className
+          expect(await getAttribute($visibleCountMessage, 'class')).toContain(
+            'nhsuk-error-message'
           )
-          expect(messageClasses).toContain('nhsuk-error-message')
         })
       })
     })
 
     describe('JavaScript configuration', () => {
-      describe('at instantiation', () => {
-        it('configures the number of characters', async () => {
-          await render(
-            page,
-            'character-count',
-            examples['to configure in JavaScript'],
-            {
-              config: {
-                maxlength: 10
-              }
+      describe('during initialisation', () => {
+        it('configures `maxlength`', async () => {
+          await initExample('to configure in JavaScript', {
+            config: {
+              maxlength: 10
             }
-          )
+          })
 
-          await page.type('.nhsuk-js-character-count', 'A'.repeat(11))
+          await $textarea.type('A'.repeat(11))
 
-          const message = await page.$eval(
-            '.nhsuk-character-count__status',
-            (el) => el.innerHTML.trim()
+          expect(await getText($visibleCountMessage)).toBe(
+            'You have 1 character too many'
           )
-          expect(message).toBe('You have 1 character too many')
         })
 
-        it('configures the number of words', async () => {
-          await render(
-            page,
-            'character-count',
-            examples['to configure in JavaScript'],
-            {
-              config: {
-                maxwords: 10
-              }
+        it('configures `maxwords`', async () => {
+          await initExample('to configure in JavaScript', {
+            config: {
+              maxwords: 10
             }
-          )
+          })
 
-          await page.type('.nhsuk-js-character-count', 'Hello '.repeat(11))
+          await $textarea.type('Hello '.repeat(11))
 
-          const message = await page.$eval(
-            '.nhsuk-character-count__status',
-            (el) => el.innerHTML.trim()
+          expect(await getText($visibleCountMessage)).toBe(
+            'You have 1 word too many'
           )
-          expect(message).toBe('You have 1 word too many')
         })
 
-        it('configures the threshold', async () => {
-          await render(
-            page,
-            'character-count',
-            examples['to configure in JavaScript'],
-            {
-              config: {
-                maxlength: 10,
-                threshold: 75
-              }
+        it('configures `threshold`', async () => {
+          await initExample('to configure in JavaScript', {
+            config: {
+              maxlength: 10,
+              threshold: 75
             }
-          )
+          })
 
-          await page.type('.nhsuk-js-character-count', 'A'.repeat(8))
+          await $textarea.type('A'.repeat(8))
 
-          const hidden = await page.$eval(
-            '.nhsuk-character-count__status',
-            (el) => el.getAttribute('hidden')
-          )
-          expect(hidden).toBeNull()
+          expect(await getProperty($visibleCountMessage, 'hidden')).toBe(false)
         })
 
-        it('configures the description of the textarea', async () => {
+        it("configures i18n 'textareaDescription'", async () => {
           // This tests that a description can be provided through JavaScript attributes
           // and interpolated with the limit provided to the character count in JS.
 
-          await render(
-            page,
-            'character-count',
-            examples[
-              'with neither maxlength, maxwords nor textarea description set'
-            ],
+          await initExample(
+            'with neither maxlength, maxwords nor textarea description set',
             {
               config: {
                 maxlength: 10,
@@ -524,143 +451,100 @@ describe('Character count', () => {
             }
           )
 
-          const message = await page.$eval(
-            '.nhsuk-character-count__message',
-            (el) => el.innerHTML.trim()
+          expect(await getText($textareaDescription)).toBe(
+            'No more than 10 characters'
           )
-          expect(message).toBe('No more than 10 characters')
         })
       })
 
-      describe('via `initAll`', () => {
-        it('configures the number of characters', async () => {
-          await render(
-            page,
-            'character-count',
-            examples['to configure in JavaScript'],
-            {
-              config: {
-                maxlength: 10
-              }
-            }
-          )
-
-          await page.type('.nhsuk-js-character-count', 'A'.repeat(11))
-
-          const message = await page.$eval(
-            '.nhsuk-character-count__status',
-            (el) => el.innerHTML.trim()
-          )
-          expect(message).toBe('You have 1 character too many')
-        })
-
-        it('configures the number of words', async () => {
-          await render(
-            page,
-            'character-count',
-            examples['to configure in JavaScript'],
-            {
-              config: {
-                maxwords: 10
-              }
-            }
-          )
-
-          await page.type('.nhsuk-js-character-count', 'Hello '.repeat(11))
-
-          const message = await page.$eval(
-            '.nhsuk-character-count__status',
-            (el) => el.innerHTML.trim()
-          )
-          expect(message).toBe('You have 1 word too many')
-        })
-
-        it('configures the threshold', async () => {
-          await render(
-            page,
-            'character-count',
-            examples['to configure in JavaScript'],
-            {
-              config: {
-                maxlength: 10,
-                threshold: 75
-              }
-            }
-          )
-
-          await page.type('.nhsuk-js-character-count', 'A'.repeat(8))
-
-          const hidden = await page.$eval(
-            '.nhsuk-character-count__status',
-            (el) => el.getAttribute('hidden')
-          )
-          expect(hidden).toBeNull()
-        })
-      })
-
-      describe('when data-attributes are present', () => {
-        it('uses `maxlength` data attribute instead of the JS one', async () => {
-          await render(page, 'character-count', examples.default, {
+      describe('with HTML data attributes', () => {
+        it('uses `maxlength` data attribute instead of JavaScript `maxlength`', async () => {
+          await initExample('default', {
             config: {
-              maxlength: 202 // JS configuration that would tell 1 character remaining
+              maxlength: 202
             }
           })
 
-          await page.type('.nhsuk-js-character-count', 'A'.repeat(201))
+          await $textarea.type('A'.repeat(201))
 
-          const message = await page.$eval(
-            '.nhsuk-character-count__status',
-            (el) => el.innerHTML.trim()
+          // Wait for debounced update to happen
+          await timers.setTimeout(debouncedWaitTime)
+
+          expect(await getText($visibleCountMessage)).not.toBe(
+            // JavaScript config `maxlength: 202` above is overridden
+            'You have 1 character remaining'
           )
-          expect(message).toBe('You have 1 character too many')
+
+          expect(await getText($visibleCountMessage)).toBe(
+            // HTML data attribute `maxlength: 200` applied from fixture
+            'You have 1 character too many'
+          )
         })
 
-        it("uses `maxlength` data attribute instead of JS's `maxwords`", async () => {
-          await render(page, 'character-count', examples.default, {
+        it('uses `maxlength` data attribute instead of JavaScript `maxwords`', async () => {
+          await initExample('default', {
             config: {
               maxwords: 202
             }
           })
 
-          await page.type('.nhsuk-js-character-count', 'A'.repeat(201))
+          await $textarea.type('A'.repeat(201))
 
-          const message = await page.$eval(
-            '.nhsuk-character-count__status',
-            (el) => el.innerHTML.trim()
+          expect(await getText($visibleCountMessage)).not.toBe(
+            // JavaScript config `maxwords: 202` above is overridden
+            'You have 201 words remaining'
           )
-          expect(message).toBe('You have 1 character too many')
+
+          expect(await getText($visibleCountMessage)).toBe(
+            // HTML data attribute `maxlength: 200` applied from fixture
+            'You have 1 character too many'
+          )
         })
 
-        it('uses `maxwords` data attribute instead of the JS one', async () => {
-          await render(page, 'character-count', examples['with word count'], {
+        it('uses `maxwords` data attribute instead of JavaScript `maxwords`', async () => {
+          await initExample('with word count', {
             config: {
-              maxwords: 152 // JS configuration that would tell 1 word remaining
+              maxwords: 152
             }
           })
 
-          await page.type('.nhsuk-js-character-count', 'Hello '.repeat(151))
+          await $textarea.type('Hello '.repeat(151))
 
-          const message = await page.$eval(
-            '.nhsuk-character-count__status',
-            (el) => el.innerHTML.trim()
+          // Wait for debounced update to happen
+          await timers.setTimeout(debouncedWaitTime)
+
+          expect(await getText($visibleCountMessage)).not.toBe(
+            // JavaScript config `maxwords: 152` above is overridden
+            'You have 1 word remaining'
           )
-          expect(message).toBe('You have 1 word too many')
+
+          expect(await getText($visibleCountMessage)).toBe(
+            // HTML data attribute `maxwords: 150` applied from fixture
+            'You have 1 word too many'
+          )
         })
 
-        it("uses `maxwords` data attribute instead of the JS's `maxlength`", async () => {
-          await render(page, 'character-count', examples['with word count'], {
+        it('uses `maxwords` data attribute instead of JavaScript `maxlength`', async () => {
+          await initExample('with word count', {
             config: {
               maxlength: 150
             }
           })
 
-          await page.type('.nhsuk-js-character-count', 'Hello '.repeat(151))
+          await $textarea.type('Hello '.repeat(151))
 
-          const message = await page.$eval(
-            '.nhsuk-character-count__status',
-            (el) => el.innerHTML.trim()
+          // Wait for debounced update to happen
+          await timers.setTimeout(debouncedWaitTime)
+
+          expect(await getText($visibleCountMessage)).not.toBe(
+            // JavaScript config `maxlength: 150` above is overridden
+            'You have 756 characters too many'
           )
-          expect(message).toBe('You have 1 word too many')
+
+          expect(await getText($visibleCountMessage)).toBe(
+            // HTML data attribute `maxwords: 150` applied from fixture
+            'You have 1 word too many'
+          )
         })
 
         it('interpolates the textarea description in data attributes with the maximum set in JavaScript', async () => {
@@ -670,56 +554,42 @@ describe('Character count', () => {
           // element holding the textarea's accessible description
           // (and interpolated to replace `%{count}` with the maximum)
 
-          await render(
-            page,
-            'character-count',
-            examples['with neither maxlength nor maxwords set'],
-            {
-              config: {
-                maxlength: 150
-              }
+          await initExample('with neither maxlength nor maxwords set', {
+            config: {
+              maxlength: 150
             }
-          )
+          })
 
-          const message = await page.$eval(
-            '.nhsuk-character-count__message',
-            (el) => el.innerHTML.trim()
+          expect(await getText($textareaDescription)).toBe(
+            'No more than 150 characters'
           )
-          expect(message).toBe('No more than 150 characters')
         })
       })
     })
 
     describe('Cross Side Scripting prevention', () => {
       it('injects the localised strings as text not HTML', async () => {
-        await render(
-          page,
-          'character-count',
-          examples['to configure in JavaScript'],
-          {
-            config: {
-              maxlength: 10,
-              i18n: {
-                charactersUnderLimit: {
-                  other: '<strong>%{count}</strong> characters left'
-                }
+        await initExample('to configure in JavaScript', {
+          config: {
+            maxlength: 10,
+            i18n: {
+              charactersUnderLimit: {
+                other: '<strong>%{count}</strong> characters left'
               }
             }
           }
-        )
+        })
 
-        const message = await page.$eval(
-          '.nhsuk-character-count__status',
-          (el) => el.innerHTML.trim()
+        expect((await getHtml($visibleCountMessage))?.trim()).toBe(
+          '&lt;strong&gt;10&lt;/strong&gt; characters left'
         )
-        expect(message).toBe('&lt;strong&gt;10&lt;/strong&gt; characters left')
       })
     })
 
-    describe('errors at instantiation', () => {
-      it('can throw a SupportError if appropriate', async () => {
-        await expect(
-          render(page, 'character-count', examples.default, {
+    describe('Error handling', () => {
+      it('can throw a SupportError if appropriate', () => {
+        return expect(
+          initExample('default', {
             beforeInitialisation() {
               document.body.classList.remove('nhsuk-frontend-supported')
             }
@@ -733,9 +603,9 @@ describe('Character count', () => {
         })
       })
 
-      it('throws when initialised twice', async () => {
-        await expect(
-          render(page, 'character-count', examples.default, {
+      it('throws when initialised twice', () => {
+        return expect(
+          initExample('default', {
             async afterInitialisation($root) {
               const { CharacterCount } = await import('nhsuk-frontend')
               new CharacterCount($root)
@@ -748,9 +618,9 @@ describe('Character count', () => {
         })
       })
 
-      it('throws when $root is not set', async () => {
-        await expect(
-          render(page, 'character-count', examples.default, {
+      it('throws when $root is not set', () => {
+        return expect(
+          initExample('default', {
             beforeInitialisation($root) {
               $root.remove()
             }
@@ -763,9 +633,9 @@ describe('Character count', () => {
         })
       })
 
-      it('throws when receiving the wrong type for $root', async () => {
-        await expect(
-          render(page, 'character-count', examples.default, {
+      it('throws when receiving the wrong type for $root', () => {
+        return expect(
+          initExample('default', {
             beforeInitialisation($root) {
               // Replace with an `<svg>` element which is not an `HTMLElement` in the DOM (but an `SVGElement`)
               $root.outerHTML = `<svg data-module="nhsuk-character-count"></svg>`
@@ -780,9 +650,9 @@ describe('Character count', () => {
         })
       })
 
-      it('throws when the textarea is missing', async () => {
-        await expect(
-          render(page, 'character-count', examples.default, {
+      it('throws when the textarea is missing', () => {
+        return expect(
+          initExample('default', {
             beforeInitialisation($root, { selector }) {
               $root.querySelector(selector)?.remove()
             },
@@ -799,9 +669,9 @@ describe('Character count', () => {
         })
       })
 
-      it('throws when the textarea is not the right type', async () => {
-        await expect(
-          render(page, 'character-count', examples.default, {
+      it('throws when the textarea is not the right type', () => {
+        return expect(
+          initExample('default', {
             beforeInitialisation($root, { selector }) {
               const $div = document.createElement('div')
               $div.classList.add('nhsuk-js-character-count')
@@ -822,9 +692,9 @@ describe('Character count', () => {
         })
       })
 
-      it('throws when the textarea description is missing', async () => {
-        await expect(
-          render(page, 'character-count', examples.default, {
+      it('throws when the textarea description is missing', () => {
+        return expect(
+          initExample('default', {
             beforeInitialisation($root, { selector }) {
               $root.querySelector(selector)?.remove()
             },
@@ -841,13 +711,9 @@ describe('Character count', () => {
         })
       })
 
-      it('throws when receiving invalid JavaScript configuration', async () => {
-        await expect(
-          render(
-            page,
-            'character-count',
-            examples['to configure in JavaScript']
-          )
+      it('throws when receiving invalid JavaScript configuration', () => {
+        return expect(
+          initExample('to configure in JavaScript')
         ).rejects.toMatchObject({
           cause: {
             name: 'ConfigError',
@@ -865,7 +731,7 @@ describe('Character count', () => {
       const pageErrorListener = jest.fn()
       page.on('pageerror', pageErrorListener)
 
-      await render(page, 'character-count', examples.default, {
+      await initExample('default', {
         config: {
           // Override maxlength to 10
           maxlength: 10
@@ -883,10 +749,15 @@ describe('Character count', () => {
 
       // Type 10 characters so we go 'through' all the different forms as we
       // approach 0 characters remaining.
-      await page.type('.nhsuk-js-character-count', 'A'.repeat(10))
+      await $textarea.type('A'.repeat(10))
 
       // Expect the page error event not to have been fired
       expect(pageErrorListener).not.toHaveBeenCalled()
     })
   })
 })
+
+/**
+ * @import { BrowserRenderOptions } from '@nhsuk/frontend-helpers/puppeteer.mjs'
+ * @import { ElementHandle } from 'puppeteer'
+ */

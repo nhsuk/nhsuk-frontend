@@ -45,10 +45,13 @@ jobs:
         with:
           fail-on-cache-miss: true
           key: npm-install-${{ hashFiles('package-lock.json') }}
-          path: node_modules
+          path: |
+            node_modules
+            packages/*/node_modules
+            shared/*/node_modules
 
       - name: Setup Node
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v6.3.0
         with:
           node-version-file: .nvmrc
           package-manager-cache: false
@@ -59,10 +62,10 @@ jobs:
           NODE_ENV: production
 
       - name: Upload GitHub Pages artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v5
         with:
           path: packages/nhsuk-frontend-review/dist
 
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
         id: deployment

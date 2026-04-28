@@ -1,10 +1,10 @@
 import { getByRole } from '@testing-library/dom'
 import { outdent } from 'outdent'
 
+import { components } from '#lib'
+
 import { CharacterCount, initCharacterCounts } from './character-count.mjs'
 import { examples } from './fixtures.mjs'
-
-import { components } from '#lib'
 
 describe('Character count', () => {
   /** @type {HTMLElement} */
@@ -136,7 +136,7 @@ describe('Character count', () => {
   })
 
   describe('Nunjucks configuration', () => {
-    it('configures the number of characters', () => {
+    it('configures `maxlength`', () => {
       const characterCount = new CharacterCount($root)
       expect(characterCount.config).toEqual({
         ...CharacterCount.defaults,
@@ -145,7 +145,7 @@ describe('Character count', () => {
       })
     })
 
-    it('configures the number of words', () => {
+    it('configures `maxwords`', () => {
       initExample('with word count')
 
       const characterCount = new CharacterCount($root)
@@ -156,7 +156,7 @@ describe('Character count', () => {
       })
     })
 
-    it('configures the threshold', () => {
+    it('configures `threshold`', () => {
       initExample('with threshold')
 
       const characterCount = new CharacterCount($root)

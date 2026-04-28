@@ -88,7 +88,10 @@ jobs:
         with:
           fail-on-cache-miss: true
           key: npm-install-${{ hashFiles('package-lock.json') }}
-          path: node_modules
+          path: |
+            node_modules
+            packages/*/node_modules
+            shared/*/node_modules
 
       - name: Cache lint task
         if: ${{ matrix.task.cache }}
@@ -98,7 +101,7 @@ jobs:
           path: ${{ matrix.task.cache }}
 
       - name: Setup Node
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v6.3.0
         with:
           node-version-file: .nvmrc
           package-manager-cache: false
@@ -150,7 +153,10 @@ jobs:
         with:
           fail-on-cache-miss: true
           key: npm-install-${{ hashFiles('package-lock.json') }}
-          path: node_modules
+          path: |
+            node_modules
+            packages/*/node_modules
+            shared/*/node_modules
 
       - name: Restore build with code coverage (from cache)
         uses: actions/cache/restore@v5
@@ -167,7 +173,7 @@ jobs:
           path: ${{ matrix.task.cache }}
 
       - name: Setup Node
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v6.3.0
         with:
           node-version-file: .nvmrc
           package-manager-cache: false
@@ -212,7 +218,10 @@ jobs:
         with:
           fail-on-cache-miss: true
           key: npm-install-${{ hashFiles('package-lock.json') }}
-          path: node_modules
+          path: |
+            node_modules
+            packages/*/node_modules
+            shared/*/node_modules
 
       - name: Restore build (from cache)
         uses: actions/cache/restore@v5
@@ -222,7 +231,7 @@ jobs:
           path: packages/*/dist/
 
       - name: Setup Node
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v6.3.0
         with:
           node-version-file: .nvmrc
           package-manager-cache: false

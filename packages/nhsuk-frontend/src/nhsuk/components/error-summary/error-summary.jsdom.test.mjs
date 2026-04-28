@@ -1,12 +1,11 @@
 import { getAllByRole, getByRole } from '@testing-library/dom'
 import { outdent } from 'outdent'
 
-import { examples as dateInputExamples } from '../date-input/fixtures.mjs'
+import { components } from '#lib'
 
+import { examples as dateInputExamples } from '../date-input/fixtures.mjs'
 import { ErrorSummary, initErrorSummary } from './error-summary.mjs'
 import { examples } from './fixtures.mjs'
-
-import { components } from '#lib'
 
 describe('Error summary', () => {
   /** @type {HTMLElement} */

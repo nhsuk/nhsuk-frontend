@@ -1,10 +1,10 @@
 import { userEvent } from '@testing-library/user-event'
 import { mockResizeObserver } from 'jsdom-testing-mocks'
 
+import { components } from '#lib'
+
 import { Code, initCode } from './code.mjs'
 import { examples } from './fixtures.mjs'
-
-import { components } from '#lib'
 
 const user = userEvent.setup({
   writeToClipboard: true
@@ -259,7 +259,7 @@ describe('Code', () => {
       initExample('default')
     })
 
-    describe('i18n', () => {
+    describe('during initialisation', () => {
       it('overrides the default translation keys', () => {
         const component = new Code($root, {
           i18n: {

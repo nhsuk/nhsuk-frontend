@@ -1,9 +1,9 @@
 import { userEvent } from '@testing-library/user-event'
 
+import { components } from '#lib'
+
 import { examples } from './fixtures.mjs'
 import { PasswordInput, initPasswordInputs } from './password-input.mjs'
-
-import { components } from '#lib'
 
 const user = userEvent.setup()
 
@@ -225,7 +225,7 @@ describe('Password input', () => {
       initExample('default')
     })
 
-    describe('i18n', () => {
+    describe('during initialisation', () => {
       it('overrides the default translation keys', () => {
         const component = new PasswordInput($root, {
           i18n: {
