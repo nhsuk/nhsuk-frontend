@@ -33,6 +33,7 @@ describe('Character count', () => {
     $description = document.getElementById(`${$textarea.id}-info`)
 
     jest.spyOn($textarea, 'addEventListener')
+    jest.spyOn(window, 'addEventListener')
   }
 
   beforeEach(() => {
@@ -44,7 +45,7 @@ describe('Character count', () => {
       initCharacterCounts()
 
       expect($textarea.addEventListener).toHaveBeenCalledWith(
-        'keyup',
+        'input',
         expect.any(Function)
       )
 
@@ -55,6 +56,11 @@ describe('Character count', () => {
 
       expect($textarea.addEventListener).toHaveBeenCalledWith(
         'blur',
+        expect.any(Function)
+      )
+
+      expect(window.addEventListener).toHaveBeenCalledWith(
+        'pageshow',
         expect.any(Function)
       )
     })
@@ -133,6 +139,29 @@ describe('Character count', () => {
         `${CharacterCount.moduleName}: Root element (\`$root\`) already initialised`
       )
     })
+
+    it('should handle deprecated methods', () => {
+      const component = new CharacterCount($root)
+
+      jest.spyOn(component, 'getCountMessage')
+      jest.spyOn(component, 'handleInput')
+      jest.spyOn(component, 'updateCount')
+      jest.spyOn(component, 'updateIfValueChanged')
+
+      expect(() => component.formattedUpdateMessage()).not.toThrow()
+      expect(() => component.handleKeyUp()).not.toThrow()
+      expect(() => component.count('')).not.toThrow()
+      expect(() => component.checkIfValueChanged()).not.toThrow()
+
+      expect(component.count('')).toBe(0)
+      expect(component.count('Existing value')).toBe(14)
+      expect(component.count('Newly updated value')).toBe(19)
+
+      expect(component.getCountMessage).toHaveBeenCalled()
+      expect(component.handleInput).toHaveBeenCalled()
+      expect(component.updateCount).toHaveBeenCalled()
+      expect(component.updateIfValueChanged).toHaveBeenCalled()
+    })
   })
 
   describe('Nunjucks configuration', () => {
@@ -187,6 +216,193 @@ describe('Character count', () => {
         ...CharacterCount.defaults,
         maxlength: 200,
         threshold: 0
+      })
+    })
+  })
+
+  describe('JavaScript configuration', () => {
+    beforeEach(() => {
+      initExample('to configure in JavaScript')
+    })
+
+    describe('during initialisation', () => {
+      it('overrides the default translation keys', () => {
+        const component = new CharacterCount($root, {
+          maxlength: 100,
+          i18n: {
+            charactersUnderLimit: { one: 'Custom text. Count: %{count}' }
+          }
+        })
+
+        expect(component.formatCountMessage(1, 'characters')).toBe(
+          'Custom text. Count: 1'
+        )
+
+        // Other keys remain untouched
+        expect(component.formatCountMessage(10, 'characters')).toBe(
+          'You have 10 characters remaining'
+        )
+      })
+
+      it('uses specific translation keys when `maxlength` limit is reached', () => {
+        const component = new CharacterCount($root, {
+          maxlength: 100,
+          i18n: {
+            charactersAtLimit: 'Custom text.'
+          }
+        })
+
+        expect(component.formatCountMessage(0, 'characters')).toBe(
+          'Custom text.'
+        )
+      })
+
+      it('uses specific translation keys when `maxwords` limit is reached', () => {
+        const component = new CharacterCount($root, {
+          maxwords: 100,
+          i18n: {
+            wordsAtLimit: 'Different custom text.'
+          }
+        })
+
+        expect(component.formatCountMessage(0, 'words')).toBe(
+          'Different custom text.'
+        )
+      })
+
+      it('uses existing textarea value for `maxlength` limit when initialised', () => {
+        $textarea.value = 'Existing value'
+
+        const component = new CharacterCount($root, {
+          maxlength: 100
+        })
+
+        expect(component.getCountMessage()).toBe(
+          'You have 86 characters remaining'
+        )
+      })
+
+      it('uses existing textarea value for `maxwords` limit when initialised', () => {
+        $textarea.value = 'Existing value'
+
+        const component = new CharacterCount($root, {
+          maxwords: 100
+        })
+
+        expect(component.getCountMessage()).toBe('You have 98 words remaining')
+      })
+
+      it('uses current textarea value for `maxlength` limit via back/forward navigation', () => {
+        const component = new CharacterCount($root, {
+          maxlength: 100
+        })
+
+        $textarea.value = 'Newly updated value'
+
+        // Trigger back/forward navigation
+        window.dispatchEvent(
+          new PageTransitionEvent('pageshow', {
+            persisted: true
+          })
+        )
+
+        expect(component.getCountMessage()).toBe(
+          'You have 81 characters remaining'
+        )
+      })
+
+      it('uses current textarea value for `maxwords` limit via back/forward navigation', () => {
+        const component = new CharacterCount($root, {
+          maxwords: 100
+        })
+
+        $textarea.value = 'Newly updated value'
+
+        // Trigger back/forward navigation
+        window.dispatchEvent(
+          new PageTransitionEvent('pageshow', {
+            persisted: true
+          })
+        )
+
+        expect(component.getCountMessage()).toBe('You have 97 words remaining')
+      })
+    })
+
+    describe('with HTML lang attribute', () => {
+      it('overrides the locale when set on the element', () => {
+        $root.setAttribute('lang', 'de')
+
+        const component = new CharacterCount($root, {
+          maxwords: 20000
+        })
+
+        expect(component.formatCountMessage(10000, 'words')).toBe(
+          'You have 10.000 words remaining'
+        )
+      })
+
+      it('overrides the locale when set on an ancestor', () => {
+        document.body.setAttribute('lang', 'de')
+
+        const component = new CharacterCount($root, {
+          maxwords: 20000
+        })
+
+        expect(component.formatCountMessage(10000, 'words')).toBe(
+          'You have 10.000 words remaining'
+        )
+      })
+    })
+
+    describe('with HTML data attributes', () => {
+      it('overrides the default translation keys', () => {
+        $root.setAttribute(
+          'data-i18n.characters-under-limit.one',
+          'Custom text. Count: %{count}'
+        )
+
+        const component = new CharacterCount($root, {
+          maxlength: 100
+        })
+
+        expect(component.formatCountMessage(1, 'characters')).toBe(
+          'Custom text. Count: 1'
+        )
+
+        // Other keys remain untouched
+        expect(component.formatCountMessage(10, 'characters')).toBe(
+          'You have 10 characters remaining'
+        )
+      })
+
+      it('overrides the default translation keys and configuration', () => {
+        $root.setAttribute(
+          'data-i18n.characters-under-limit.one',
+          'Custom text. Count: %{count}'
+        )
+
+        const component = new CharacterCount($root, {
+          maxlength: 100,
+          i18n: {
+            charactersUnderLimit: {
+              one: 'Different custom text. Count: %{count}'
+            }
+          }
+        })
+
+        expect(component.formatCountMessage(1, 'characters')).toBe(
+          'Custom text. Count: 1'
+        )
+
+        // Other keys remain untouched
+        expect(component.formatCountMessage(-10, 'characters')).toBe(
+          'You have 10 characters too many'
+        )
+
+        expect(component.formatCountMessage(0, 'characters')).toBe(
+          'You have 0 characters remaining'
+        )
       })
     })
   })
