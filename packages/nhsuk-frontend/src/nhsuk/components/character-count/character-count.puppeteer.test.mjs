@@ -430,9 +430,6 @@ describe('Character count', () => {
 
           await $textarea.type('A'.repeat(11))
 
-          // Wait for debounced update to happen
-          await timers.setTimeout(debouncedWaitTime)
-
           expect(await getText($visibleCountMessage)).toBe(
             'You have 1 character too many'
           )
@@ -447,9 +444,6 @@ describe('Character count', () => {
           })
 
           await $textarea.type('Hello '.repeat(11))
-
-          // Wait for debounced update to happen
-          await timers.setTimeout(debouncedWaitTime)
 
           expect(await getText($visibleCountMessage)).toBe(
             'You have 1 word too many'
@@ -503,9 +497,6 @@ describe('Character count', () => {
 
           await $textarea.type('A'.repeat(201))
 
-          // Wait for debounced update to happen
-          await timers.setTimeout(debouncedWaitTime)
-
           expect(await getText($visibleCountMessage)).not.toBe(
             // JavaScript config `maxlength: 202` above is overridden
             'You have 1 character remaining'
@@ -546,9 +537,6 @@ describe('Character count', () => {
 
           await $textarea.type('Hello '.repeat(151))
 
-          // Wait for debounced update to happen
-          await timers.setTimeout(debouncedWaitTime)
-
           expect(await getText($visibleCountMessage)).not.toBe(
             // JavaScript config `maxwords: 152` above is overridden
             'You have 1 word remaining'
@@ -568,9 +556,6 @@ describe('Character count', () => {
           })
 
           await $textarea.type('Hello '.repeat(151))
-
-          // Wait for debounced update to happen
-          await timers.setTimeout(debouncedWaitTime)
 
           expect(await getText($visibleCountMessage)).not.toBe(
             // JavaScript config `maxlength: 150` above is overridden
