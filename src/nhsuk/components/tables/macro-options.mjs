@@ -103,6 +103,26 @@ const options = {
         required: false,
         description: 'Specify how many rows a cell extends.',
         released: '1.0.0'
+      },
+      sortable: {
+        type: 'boolean',
+        required: false,
+        description: 'Set to true to allow this column to be sorted',
+        released: '10.6.0'
+      },
+      initialSortColumn: {
+        type: 'boolean',
+        required: false,
+        description:
+          'Set to true if this column is sorted on initial page load. Use `sortFirstDirection` to set the initial direction. Must only be set on a single column.',
+        released: '10.6.0'
+      },
+      sortFirstDirection: {
+        type: 'string',
+        required: false,
+        description:
+          'The first sort direction applied to the column when clicked – `"ascending"` or `"descending"`. Defaults to `"ascending"`',
+        released: '10.6.0'
       }
     }
   },
