@@ -163,7 +163,7 @@ export class Table extends ConfigurableComponent {
 
     const $heading = $button.parentElement
     const sortDirection = $heading.getAttribute('aria-sort')
-    const initialSortOrder = $heading.dataset.initialSort
+    const sortFirstDirection = $heading.dataset.sortFirstDirection
 
     const columnNumber = Number.parseInt($button.dataset.index ?? '0', 10)
 
@@ -174,10 +174,10 @@ export class Table extends ConfigurableComponent {
     } else if (sortDirection === 'ascending') {
       newSortDirection = 'descending'
     } else if (
-      initialSortOrder === 'ascending' ||
-      initialSortOrder === 'descending'
+      sortFirstDirection === 'ascending' ||
+      sortFirstDirection === 'descending'
     ) {
-      newSortDirection = initialSortOrder
+      newSortDirection = sortFirstDirection
     } else {
       newSortDirection = 'ascending'
     }
