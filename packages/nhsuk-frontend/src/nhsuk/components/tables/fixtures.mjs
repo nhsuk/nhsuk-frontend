@@ -210,33 +210,26 @@ const fixtures = {
       head: [
         {
           text: 'Nation',
-          attributes: {
-            'aria-sort': 'ascending'
-          }
+          sortable: true,
+          sorted: 'ascending'
         },
         {
           text: 'MMR',
           format: 'numeric',
-          attributes: {
-            'aria-sort': 'none',
-            'data-sort-first-direction': 'descending'
-          }
+          sortable: true,
+          sortFirstDirection: 'descending'
         },
         {
           text: '6-in-1',
           format: 'numeric',
-          attributes: {
-            'aria-sort': 'none',
-            'data-sort-first-direction': 'descending'
-          }
+          sortable: true,
+          sortFirstDirection: 'descending'
         },
         {
           text: 'Rotavirus',
           format: 'numeric',
-          attributes: {
-            'aria-sort': 'none',
-            'data-sort-first-direction': 'descending'
-          }
+          sortable: true,
+          sortFirstDirection: 'descending'
         }
       ],
       rows: [
