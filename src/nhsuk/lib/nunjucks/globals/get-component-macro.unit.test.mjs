@@ -1,7 +1,6 @@
 import { outdent } from 'outdent'
 
 import { env } from '../environment.mjs'
-
 import { getComponentMacro } from './get-component-macro.mjs'
 
 describe('Nunjucks global: getComponentMacro', () => {

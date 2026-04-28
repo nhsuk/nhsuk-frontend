@@ -1,3 +1,4 @@
+/* eslint-disable es-x/no-global-this */
 import { normaliseOptions } from '../../common/configuration/index.mjs'
 import { setFocus } from '../../common/index.mjs'
 import { ConfigurableComponent } from '../../configurable-component.mjs'

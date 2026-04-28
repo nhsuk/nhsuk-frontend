@@ -74,11 +74,11 @@ describe('Core', () => {
         --nhsuk-secondary-button-hover-colour: #d9e7f4;
         --nhsuk-secondary-button-active-colour: #c7dcef;
         --nhsuk-secondary-button-shadow-colour: #005eb8;
-        --nhsuk-reverse-button-colour: white;
-        --nhsuk-reverse-button-text-colour: #212b32;
-        --nhsuk-reverse-button-hover-colour: #d9d9d9;
-        --nhsuk-reverse-button-active-colour: #b3b3b3;
-        --nhsuk-reverse-button-shadow-colour: #b3b3b3;
+        --nhsuk-reverse-button-colour: #edf4fa;
+        --nhsuk-reverse-button-text-colour: #004281;
+        --nhsuk-reverse-button-hover-colour: #d9e7f4;
+        --nhsuk-reverse-button-active-colour: #c7dcef;
+        --nhsuk-reverse-button-shadow-colour: #a6c7e6;
         --nhsuk-warning-button-colour: #d5281b;
         --nhsuk-warning-button-hover-colour: #aa2016;
         --nhsuk-warning-button-active-colour: #6b140e;

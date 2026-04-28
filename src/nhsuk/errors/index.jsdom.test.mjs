@@ -1,9 +1,8 @@
 import { SkipLink } from '../index.mjs'
-
 import {
   ElementError,
-  NHSUKFrontendError,
   InitError,
+  NHSUKFrontendError,
   SupportError
 } from './index.mjs'
 

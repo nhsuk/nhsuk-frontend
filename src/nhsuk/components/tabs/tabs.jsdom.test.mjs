@@ -1,16 +1,16 @@
 import {
   createEvent,
   fireEvent,
-  getByRole,
-  getAllByRole
+  getAllByRole,
+  getByRole
 } from '@testing-library/dom'
 import { userEvent } from '@testing-library/user-event'
 import { mockViewport } from 'jsdom-testing-mocks'
 
+import { components } from '#lib'
+
 import { examples } from './fixtures.mjs'
 import { Tabs, initTabs } from './tabs.mjs'
-
-import { components } from '#lib'
 
 const user = userEvent.setup()
 const viewportMock = mockViewport({

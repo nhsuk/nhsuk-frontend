@@ -1,9 +1,9 @@
 import { getByLabelText } from '@testing-library/dom'
 
+import { components } from '#lib'
+
 import { FileUpload, initFileUploads } from './file-upload.mjs'
 import { examples } from './fixtures.mjs'
-
-import { components } from '#lib'
 
 describe('File upload', () => {
   /** @type {HTMLElement} */
@@ -202,7 +202,7 @@ describe('File upload', () => {
       initExample('to configure in JavaScript')
     })
 
-    describe('i18n', () => {
+    describe('during initialisation', () => {
       it('overrides the default translation keys', () => {
         const component = new FileUpload($root, {
           i18n: {

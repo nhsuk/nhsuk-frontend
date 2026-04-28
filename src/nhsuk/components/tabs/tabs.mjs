@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-deprecated */
-
 import { normaliseOptions } from '../../common/configuration/index.mjs'
 import { getBreakpoint } from '../../common/index.mjs'
 import { ConfigurableComponent } from '../../configurable-component.mjs'
