@@ -179,9 +179,11 @@ export class CharacterCount extends ConfigurableComponent {
   /**
    * Count the number of characters (or words, if `config.maxwords` is set)
    * in the given text, and update the component-wide count
+   *
+   * @param {string} [text] - Deprecated
    */
-  updateCount() {
-    const text = this.$textarea.value
+  updateCount(text) {
+    text = text ?? this.$textarea.value
 
     if (this.config.maxwords) {
       const tokens = text.match(/\S+/g) ?? [] // Matches consecutive non-whitespace chars
@@ -190,6 +192,15 @@ export class CharacterCount extends ConfigurableComponent {
     }
 
     this.length = text.length
+  }
+
+  /**
+   * @deprecated
+   * @param {string} text - The text to count the characters of
+   */
+  count(text) {
+    this.updateCount(text)
+    return this.length
   }
 
   /**
@@ -214,6 +225,13 @@ export class CharacterCount extends ConfigurableComponent {
       this.lastInputValue = this.$textarea.value
       this.updateCountMessage()
     }
+  }
+
+  /**
+   * @deprecated Use {@link CharacterCount.updateIfValueChanged} instead.
+   */
+  checkIfValueChanged() {
+    this.updateIfValueChanged()
   }
 
   /**
@@ -283,6 +301,13 @@ export class CharacterCount extends ConfigurableComponent {
   }
 
   /**
+   * @deprecated Use {@link CharacterCount.getCountMessage} instead.
+   */
+  formattedUpdateMessage() {
+    return this.getCountMessage()
+  }
+
+  /**
    * Formats the message shown to users according to what's counted
    * and how many remain
    *
@@ -338,6 +363,13 @@ export class CharacterCount extends ConfigurableComponent {
     this.updateCount()
     this.updateVisibleCountMessage()
     this.lastInputTimestamp = Date.now()
+  }
+
+  /**
+   * @deprecated Use {@link CharacterCount.handleInput} instead.
+   */
+  handleKeyUp() {
+    this.handleInput()
   }
 
   /**

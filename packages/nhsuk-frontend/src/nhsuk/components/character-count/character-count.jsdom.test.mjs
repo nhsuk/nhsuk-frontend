@@ -133,6 +133,29 @@ describe('Character count', () => {
         `${CharacterCount.moduleName}: Root element (\`$root\`) already initialised`
       )
     })
+
+    it('should handle deprecated methods', () => {
+      const component = new CharacterCount($root)
+
+      jest.spyOn(component, 'getCountMessage')
+      jest.spyOn(component, 'handleInput')
+      jest.spyOn(component, 'updateCount')
+      jest.spyOn(component, 'updateIfValueChanged')
+
+      expect(() => component.formattedUpdateMessage()).not.toThrow()
+      expect(() => component.handleKeyUp()).not.toThrow()
+      expect(() => component.count('')).not.toThrow()
+      expect(() => component.checkIfValueChanged()).not.toThrow()
+
+      expect(component.count('')).toBe(0)
+      expect(component.count('Existing value')).toBe(14)
+      expect(component.count('Newly updated value')).toBe(19)
+
+      expect(component.getCountMessage).toHaveBeenCalled()
+      expect(component.handleInput).toHaveBeenCalled()
+      expect(component.updateCount).toHaveBeenCalled()
+      expect(component.updateIfValueChanged).toHaveBeenCalled()
+    })
   })
 
   describe('Nunjucks configuration', () => {
