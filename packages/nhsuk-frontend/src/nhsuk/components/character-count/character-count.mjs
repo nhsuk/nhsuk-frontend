@@ -211,20 +211,11 @@ export class CharacterCount extends ConfigurableComponent {
    * @param {string} [text] - Deprecated
    */
   updateCount(text) {
-    const { $textarea } = this
+    const { $textarea, countFunctions } = this
     const { countType } = this.config
 
-    text = text ?? $textarea.value
-
-    if (countType === 'words') {
-      const tokens = text.match(/\S+/g) ?? [] // Matches consecutive non-whitespace chars
-      this.length = tokens.length
-      return
-    }
-
-    this.length = this.segmenter
-      ? Array.from(this.segmenter.segment(text)).length
-      : text.length
+    text ??= $textarea.value
+    this.length = countFunctions[countType].call(this, text)
   }
 
   /**
@@ -446,6 +437,30 @@ export class CharacterCount extends ConfigurableComponent {
       window.clearInterval(this.valueChecker)
     }
   }
+
+  /**
+   * Character count functions
+   *
+   * @constant
+   * @satisfies {Record<string, (this: CharacterCount, text: string) => number>}
+   */
+  countFunctions = Object.freeze({
+    length(text) {
+      return text.length
+    },
+    characters(text) {
+      if (!this.segmenter) {
+        return text.length
+      }
+
+      const segments = Array.from(this.segmenter.segment(text))
+      return segments.length
+    },
+    words(text) {
+      const tokens = text.match(/\S+/g) ?? [] // Matches consecutive non-whitespace chars
+      return tokens.length
+    }
+  })
 
   /**
    * Name for the component used when initialising using data-module attributes
