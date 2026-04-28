@@ -465,7 +465,7 @@ const fixtures = {
           format: 'numeric',
           attributes: {
             'aria-sort': 'none',
-            'data-initial-sort': 'descending'
+            'data-sort-first-direction': 'descending'
           }
         },
         {
@@ -473,7 +473,7 @@ const fixtures = {
           format: 'numeric',
           attributes: {
             'aria-sort': 'none',
-            'data-initial-sort': 'descending'
+            'data-sort-first-direction': 'descending'
           }
         },
         {
@@ -481,7 +481,7 @@ const fixtures = {
           format: 'numeric',
           attributes: {
             'aria-sort': 'none',
-            'data-initial-sort': 'descending'
+            'data-sort-first-direction': 'descending'
           }
         }
       ],
