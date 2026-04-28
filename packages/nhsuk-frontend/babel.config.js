@@ -7,6 +7,12 @@ module.exports = {
         // Apply bug fixes to avoid transforms
         bugfixes: true,
 
+        // Skip unnecessary transforms
+        exclude: [
+          'transform-unicode-regex',
+          'transform-unicode-property-regex'
+        ],
+
         // Apply smaller "loose" transforms for browsers
         loose: true
       }

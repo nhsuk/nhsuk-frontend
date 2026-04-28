@@ -26,6 +26,13 @@ export class CharacterCount extends ConfigurableComponent {
   segmenter = null
 
   /**
+   * Split words by consecutive whitespace characters
+   *
+   * @type {RegExp}
+   */
+  separator = /\s+/g
+
+  /**
    * @type {number | null}
    */
   lastInputTimestamp = null
@@ -61,7 +68,7 @@ export class CharacterCount extends ConfigurableComponent {
     const {
       i18n,
       maxlength,
-      countFunction,
+      maxwords,
       countType,
       screenReaderCountMessageClass,
       textareaDescriptionClass,
@@ -73,13 +80,22 @@ export class CharacterCount extends ConfigurableComponent {
       locale: closestAttributeValue(this.$root, 'lang')
     })
 
-    if (
-      'Segmenter' in Intl &&
-      (countType === 'characters' || !!countFunction)
-    ) {
+    if ('Segmenter' in Intl) {
       this.segmenter = new Intl.Segmenter(this.i18n.locale, {
         granularity: countType === 'words' ? 'word' : 'grapheme'
       })
+    }
+
+    // Use improved word splitting if supported
+    if (countType === 'words' && maxwords === undefined) {
+      try {
+        this.separator = new RegExp(
+          String.raw`[\p{White_Space}\p{Dash_Punctuation}\p{Other_Punctuation}\p{Emoji}\p{Join_Control}]+`,
+          'gu'
+        )
+      } catch {
+        this.separator = /[\s\-‑–—.,;:!\\/]+/g
+      }
     }
 
     // Determine the limit attribute (characters or words)
@@ -462,8 +478,12 @@ export class CharacterCount extends ConfigurableComponent {
       return segments.length
     },
     words(text) {
-      const tokens = text.match(/\S+/g) ?? [] // Matches consecutive non-whitespace chars
-      return tokens.length
+      if (!this.segmenter || this.config.maxwords !== undefined) {
+        return text.split(this.separator).filter(Boolean).length
+      }
+
+      const segments = Array.from(this.segmenter.segment(text))
+      return segments.filter((segment) => segment.isWordLike).length
     }
   })
 

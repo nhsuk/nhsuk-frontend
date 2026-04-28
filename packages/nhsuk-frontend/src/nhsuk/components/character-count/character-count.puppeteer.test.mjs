@@ -410,14 +410,15 @@ describe('Character count', () => {
         it('configures `maxwords` (deprecated)', async () => {
           await initExample('to configure in JavaScript', {
             config: {
-              maxwords: 10
+              maxwords: 5
             }
           })
 
-          await $textarea.type('Hello '.repeat(11))
+          await $textarea.type('My mother-in-law—Wait, what?')
 
+          // Note that only consecutive whitespace separates words
           expect(await getText($visibleCountMessage)).toBe(
-            'You have 1 word too many'
+            'You have 2 words remaining'
           )
         })
 
@@ -456,13 +457,15 @@ describe('Character count', () => {
         it('configures `countType: "words"`', async () => {
           await initExample('to configure in JavaScript', {
             config: {
-              maxlength: 10,
+              maxlength: 5,
               countType: 'words'
             }
           })
 
-          await $textarea.type('Hello '.repeat(11))
+          await $textarea.type('My mother-in-law—Wait, what?')
 
+          // Note that words are counted regardless of punctuation when
+          // `countType: "words"` is configured
           expect(await getText($visibleCountMessage)).toBe(
             'You have 1 word too many'
           )
