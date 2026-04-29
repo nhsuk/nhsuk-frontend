@@ -46,10 +46,10 @@
 {%- set buttonHtml %}
 {{ button({
   type: "button",
-  classes: "nhsuk-password-input__toggle nhsuk-js-password-input-toggle" ~ (" " ~ params.button.classes if params.button.classes),
   text: params.showPasswordText | default("Show"),
   variant: "secondary",
   small: true,
+  classes: "nhsuk-password-input__toggle nhsuk-js-password-input-toggle" ~ (" " ~ params.button.classes if params.button.classes),
   attributes: {
     "aria-controls": id,
     "aria-label": params.showPasswordAriaLabelText | default("Show password"),

@@ -59,17 +59,17 @@
         text: item.text,
         id: item.label.id,
         classes: "nhsuk-radios__label" ~ (" " ~ item.label.classes if item.label.classes),
-        size: item.label.size,
         attributes: item.label.attributes,
+        size: item.label.size,
         for: itemId
       }) | trim | indent(6) }}
       {% if hasHint %}
       {{ hint({
+        html: item.hint.html,
+        text: item.hint.text,
         id: itemHintId,
         classes: "nhsuk-radios__hint" ~ (" " ~ item.hint.classes if item.hint.classes),
-        attributes: item.hint.attributes,
-        html: item.hint.html,
-        text: item.hint.text
+        attributes: item.hint.attributes
       }) | trim | indent(6) }}
       {% endif %}
     </div>
@@ -87,23 +87,23 @@
   {% set hintId = idPrefix ~ "-hint" %}
   {% set describedBy = (describedBy ~ " " ~ hintId) | trim %}
   {{ hint({
+    html: params.hint.html,
+    text: params.hint.text,
     id: hintId,
     classes: params.hint.classes,
-    attributes: params.hint.attributes,
-    html: params.hint.html,
-    text: params.hint.text
+    attributes: params.hint.attributes
   }) | trim | indent(2) }}
 {% endif %}
 {% if params.errorMessage %}
   {% set errorId = idPrefix ~ "-error" %}
   {% set describedBy = (describedBy ~ " " ~ errorId) | trim %}
   {{ errorMessage({
-    id: errorId,
-    classes: params.errorMessage.classes,
-    attributes: params.errorMessage.attributes,
     html: params.errorMessage.html,
     text: params.errorMessage.text,
-    visuallyHiddenText: params.errorMessage.visuallyHiddenText
+    visuallyHiddenText: params.errorMessage.visuallyHiddenText,
+    id: errorId,
+    classes: params.errorMessage.classes,
+    attributes: params.errorMessage.attributes
   }) | trim | indent(2) }}
 {% endif %}
   <div

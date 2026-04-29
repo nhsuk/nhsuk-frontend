@@ -31,32 +31,32 @@
     text: params.label.text,
     id: params.label.id,
     classes: params.label.classes,
+    attributes: params.label.attributes,
     size: params.label.size,
     isPageHeading: params.label.isPageHeading,
-    attributes: params.label.attributes,
     for: id
   }) | trim | indent(2) }}
 {% if params.hint %}
   {% set hintId = id ~ "-hint" %}
   {% set describedBy = (describedBy ~ " " ~ hintId) | trim %}
   {{ hint({
+    html: params.hint.html,
+    text: params.hint.text,
     id: hintId,
     classes: params.hint.classes,
-    attributes: params.hint.attributes,
-    html: params.hint.html,
-    text: params.hint.text
+    attributes: params.hint.attributes
   }) | trim | indent(2) }}
 {% endif %}
 {% if params.errorMessage %}
   {% set errorId = id ~ "-error" %}
   {% set describedBy = (describedBy ~ " " ~ errorId) | trim %}
   {{ errorMessage({
-    id: errorId,
-    classes: params.errorMessage.classes,
-    attributes: params.errorMessage.attributes,
     html: params.errorMessage.html,
     text: params.errorMessage.text,
-    visuallyHiddenText: params.errorMessage.visuallyHiddenText
+    visuallyHiddenText: params.errorMessage.visuallyHiddenText,
+    id: errorId,
+    classes: params.errorMessage.classes,
+    attributes: params.errorMessage.attributes
   }) | trim | indent(2) }}
 {% endif %}
 {% if params.formGroup.beforeInput %}
