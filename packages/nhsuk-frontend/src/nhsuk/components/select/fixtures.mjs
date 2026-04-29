@@ -352,7 +352,7 @@ const fixtures = {
         }
       },
       {
-        description: 'with label id attribute',
+        description: 'with id attribute on',
         context: {
           label: {
             id: 'custom-id'
