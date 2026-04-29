@@ -113,13 +113,15 @@ const options = {
       sorted: {
         type: 'string',
         required: false,
-        description: 'Set to "ascending" or "descending" if the column is sorted on initial page load',
+        description:
+          'Set to "ascending" or "descending" if the column is sorted on initial page load',
         released: '10.x.0'
       },
       sortFirstDirection: {
         type: 'string',
         required: false,
-        description: 'Set to "ascending" or "descending" to set the direction that the column should be first sorted on when clicked. It can then be clicked again to toggle. Default is "ascending".',
+        description:
+          'Set to "ascending" or "descending" to set the direction that the column should be first sorted on when clicked. It can then be clicked again to toggle. Default is "ascending".',
         released: '10.x.0'
       }
     }
