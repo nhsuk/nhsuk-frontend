@@ -25,7 +25,7 @@
   "scripts": {
     "install:playwright": "playwright install chromium --with-deps --only-shell",
     "install:puppeteer": "puppeteer browsers install",
-    "preclean": "del-cli dist",
+    "preclean": "del-cli dist/*",
     "clean": "npm run clean --if-present --workspaces",
     "postclean": "tsc --build --clean",
     "build": "npm run build --if-present --workspaces",
