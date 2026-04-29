@@ -736,6 +736,132 @@ const fixtures = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
+  'with "select all" option': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'What are your favourite colours?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: true
+        }
+      },
+      idPrefix: 'select-all',
+      name: 'example',
+      items: [
+        {
+          value: 'all',
+          text: 'All colours',
+          behaviour: 'inclusive'
+        },
+        {
+          divider: 'or',
+          behaviour: 'inclusive'
+        },
+        {
+          value: 'red',
+          text: 'Red'
+        },
+        {
+          value: 'green',
+          text: 'Green'
+        },
+        {
+          value: 'blue',
+          text: 'Blue'
+        }
+      ]
+    },
+    variants
+  },
+  'with "select all" option (named group)': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'What are your favourite colours?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: true
+        }
+      },
+      idPrefix: 'select-all',
+      name: 'example',
+      items: [
+        {
+          value: 'all',
+          text: 'All colours',
+          behaviour: 'inclusive',
+          behaviourGroup: 'colour-preferences'
+        },
+        {
+          divider: 'or',
+          behaviour: 'inclusive'
+        },
+        {
+          value: 'red',
+          text: 'Red',
+          behaviourGroup: 'colour-preferences'
+        },
+        {
+          value: 'green',
+          text: 'Green',
+          behaviourGroup: 'colour-preferences'
+        },
+        {
+          value: 'blue',
+          text: 'Blue',
+          behaviourGroup: 'colour-preferences'
+        }
+      ]
+    },
+    options: {
+      hidden: true
+    }
+  },
+  'with "select all" option (named group, unique)': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'What are your favourite colours?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: true
+        }
+      },
+      idPrefix: 'select-all',
+      items: [
+        {
+          name: 'colours-all',
+          value: 'yes',
+          text: 'All colours',
+          behaviour: 'inclusive',
+          behaviourGroup: 'colour-preferences'
+        },
+        {
+          divider: 'or',
+          behaviour: 'inclusive'
+        },
+        {
+          name: 'colours-red',
+          value: 'yes',
+          text: 'Red',
+          behaviourGroup: 'colour-preferences'
+        },
+        {
+          name: 'colours-green',
+          value: 'yes',
+          text: 'Green',
+          behaviourGroup: 'colour-preferences'
+        },
+        {
+          name: 'colours-blue',
+          value: 'yes',
+          text: 'Blue',
+          behaviourGroup: 'colour-preferences'
+        }
+      ]
+    },
+    options: {
+      hidden: true
+    }
+  },
   'with "none of the above" option': {
     context: {
       fieldset: {
@@ -764,7 +890,7 @@ const fixtures = {
         {
           value: 'none',
           text: 'None of the above',
-          exclusive: true
+          behaviour: 'exclusive'
         }
       ]
     },
@@ -834,7 +960,7 @@ const fixtures = {
         {
           value: 'none',
           text: 'None of the above',
-          exclusive: true
+          behaviour: 'exclusive'
         }
       ]
     },
@@ -873,7 +999,7 @@ const fixtures = {
         {
           value: 'none',
           text: 'None of the above',
-          exclusive: true,
+          behaviour: 'exclusive',
           exclusiveGroup: 'communication-preferences'
         }
       ]
@@ -921,7 +1047,7 @@ const fixtures = {
           name: 'preference-none',
           value: 'yes',
           text: 'None of the above',
-          exclusive: true,
+          behaviour: 'exclusive',
           exclusiveGroup: 'communication-preferences'
         }
       ]
