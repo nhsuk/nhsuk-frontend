@@ -41,10 +41,10 @@
 
 {%- set headingLevel = params.headingLevel if params.headingLevel else 3 %}
 
-{#- Check if any head items have aria-sort attribute but no href (client-side sorting) #}
+{#- Check if any head items have sortable param aria-sort attribute but no href (client-side sorting) #}
 {%- set isClientSideSortable = false -%}
 {%- for item in params.head -%}
-  {%- if item.attributes['aria-sort'] and not item.href -%}
+  {%- if (item.sortable or item.attributes['aria-sort']) and not item.href -%}
     {%- set isClientSideSortable = true -%}
   {%- endif -%}
 {%- endfor -%}
