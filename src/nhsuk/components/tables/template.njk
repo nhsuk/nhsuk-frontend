@@ -69,8 +69,8 @@
         {%- if item.colspan %} colspan="{{ item.colspan }}"{% endif %}
         {%- if item.rowspan %} rowspan="{{ item.rowspan }}"{% endif %}
         {%- if params.responsive %} role="columnheader"{% endif %}
-        {%- if item.sortable %}aria-sort="{{ item.sorted if item.sorted else 'none' }}"{% endif %}
-        {%- if item.sortable and item.sortFirstDirection %}data-sort-first-direction="{{ item.sortFirstDirection }}"{% endif %}
+        {%- if item.sortable %} aria-sort="{{ item.sorted if item.sorted else 'none' }}"{% endif %}
+        {%- if item.sortable and item.sortFirstDirection %} data-sort-first-direction="{{ item.sortFirstDirection }}"{% endif %}
         {{- nhsukAttributes(item.attributes) }}>
         {% if item.href %}
           <a href="{{ item.href }}">{{ item.html | safe | trim | indent(8) if item.html else item.text }}
