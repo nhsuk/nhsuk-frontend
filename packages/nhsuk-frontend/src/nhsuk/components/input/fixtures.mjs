@@ -17,6 +17,18 @@ const fixtures = {
     },
     screenshot: true
   },
+  'disabled': {
+    context: {
+      label: {
+        text: 'What is your full name?',
+        size: 'l',
+        isPageHeading: true
+      },
+      name: 'example',
+      disabled: true
+    },
+    screenshot: true
+  },
   'with hint': {
     context: {
       label: {

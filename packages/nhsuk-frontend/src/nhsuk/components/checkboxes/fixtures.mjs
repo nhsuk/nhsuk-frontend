@@ -69,6 +69,36 @@ const fixtures = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
+  'disabled': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'How do you want to be contacted about this?'
+        }
+      },
+      hint: {
+        text: 'Select all options that are relevant to you'
+      },
+      name: 'example',
+      disabled: true,
+      items: [
+        {
+          value: 'email',
+          text: 'Email'
+        },
+        {
+          value: 'phone',
+          text: 'Phone'
+        },
+        {
+          value: 'text',
+          text: 'Text message'
+        }
+      ]
+    },
+    variants,
+    screenshot: true
+  },
   'with hint': {
     context: {
       fieldset: {
@@ -215,8 +245,7 @@ const fixtures = {
         },
         {
           value: 'blue',
-          text: 'Blue',
-          disabled: true
+          text: 'Blue'
         }
       ]
     },

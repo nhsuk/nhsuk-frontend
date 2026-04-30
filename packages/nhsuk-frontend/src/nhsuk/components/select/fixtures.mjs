@@ -34,6 +34,35 @@ const fixtures = {
     },
     screenshot: true
   },
+  'disabled': {
+    context: {
+      label: {
+        text: 'Sort by',
+        isPageHeading: true
+      },
+      name: 'example',
+      disabled: true,
+      items: [
+        {
+          value: 'published',
+          text: 'Recently published'
+        },
+        {
+          value: 'updated',
+          text: 'Recently updated'
+        },
+        {
+          value: 'views',
+          text: 'Most views'
+        },
+        {
+          value: 'comments',
+          text: 'Most comments'
+        }
+      ]
+    },
+    screenshot: true
+  },
   'with divider': {
     context: {
       label: {

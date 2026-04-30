@@ -62,6 +62,29 @@ const fixtures = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
+  'disabled': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'Are you 18 or over?'
+        }
+      },
+      name: 'example',
+      disabled: true,
+      items: [
+        {
+          value: 'yes',
+          text: 'Yes'
+        },
+        {
+          value: 'no',
+          text: 'No'
+        }
+      ]
+    },
+    variants,
+    screenshot: true
+  },
   'with hint': {
     context: {
       fieldset: {
