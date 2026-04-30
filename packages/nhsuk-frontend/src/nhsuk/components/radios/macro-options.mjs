@@ -46,7 +46,7 @@ const options = {
         required: false,
         description:
           'Classes to add to the form group (for example to show error state for the whole group).',
-        released: '1.0.0'
+        released: '10.5.0'
       },
       attributes: {
         type: 'object',

@@ -21,6 +21,10 @@
   {% set classNames = classNames ~ " " ~ params.classes %}
 {% endif %}
 
+{%- if params.formGroup.classes %}
+  {% set classNamesFormGroup = classNamesFormGroup ~ " " ~ params.formGroup.classes %}
+{% endif %}
+
 {#- If an id 'prefix' is not passed, fall back to using the name attribute
   instead. We need this for error messages and hints as well -#}
 {% set idPrefix = params.idPrefix if params.idPrefix else params.name %}
