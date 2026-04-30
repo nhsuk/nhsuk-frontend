@@ -96,6 +96,7 @@
         inputmode: item.inputmode if item.inputmode else "numeric",
         autocomplete: item.autocomplete,
         pattern: item.pattern,
+        disabled: item.disabled | default(params.disabled),
         attributes: item.attributes
       }) | trim | indent(6) }}
     </div>

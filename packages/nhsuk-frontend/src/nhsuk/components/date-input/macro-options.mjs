@@ -72,6 +72,12 @@ const options = {
           'If provided, it will be used as the initial `value` attribute of the input.',
         released: '1.0.0'
       },
+      disabled: {
+        type: 'boolean',
+        required: false,
+        description: 'If `true`, item input will be disabled.',
+        released: '10.5.0'
+      },
       autocomplete: {
         type: 'string',
         required: false,
@@ -218,6 +224,13 @@ const options = {
         released: '9.0.0'
       }
     }
+  },
+  disabled: {
+    type: 'boolean',
+    required: false,
+    description:
+      'If `true`, inputs used by the date input component will be disabled.',
+    released: '10.5.0'
   },
   classes: {
     type: 'string',
