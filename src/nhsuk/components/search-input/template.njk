@@ -11,16 +11,16 @@
   {% set classNames = classNames ~ " nhsuk-search-input--large" %}
 {% endif %}
 
-{%- if params.formGroup.classes %}
-  {% set classNames = classNames ~ " " ~ params.formGroup.classes %}
-{% endif %}
-
 {%- if params.classes %}
   {% set classNamesInput = classNamesInput ~ " " ~ params.classes %}
 {% endif %}
 
 {%- if params.button.classes %}
   {% set classNamesButton = classNamesButton ~ " " ~ params.button.classes %}
+{% endif %}
+
+{%- if params.formGroup.classes %}
+  {% set classNames = classNames ~ " " ~ params.formGroup.classes %}
 {% endif %}
 
 {%- set id = params.id if params.id else params.name -%}
