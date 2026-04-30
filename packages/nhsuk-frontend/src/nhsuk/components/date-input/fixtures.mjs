@@ -289,7 +289,7 @@ const fixtures = {
       namePrefix: 'example'
     }
   },
-  'with errors only': {
+  'with error message only': {
     context: {
       fieldset: {
         legend: {
@@ -321,7 +321,7 @@ const fixtures = {
       ]
     }
   },
-  'with errors and hint': {
+  'with error message and hint': {
     context: {
       fieldset: {
         legend: {

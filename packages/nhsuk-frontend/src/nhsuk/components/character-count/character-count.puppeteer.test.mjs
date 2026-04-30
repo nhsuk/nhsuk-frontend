@@ -230,7 +230,7 @@ describe('Character count', () => {
 
       describe('when the character limit is exceeded on page load', () => {
         beforeEach(async () => {
-          await initExample('with hint and error')
+          await initExample('with error message and hint')
         })
 
         it('shows the number of characters over the limit', async () => {

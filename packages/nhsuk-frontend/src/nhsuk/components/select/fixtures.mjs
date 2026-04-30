@@ -446,7 +446,7 @@ const fixtures = {
       ]
     }
   },
-  'with hint and error': {
+  'with error message and hint': {
     context: {
       label: {
         text: 'Choose location',

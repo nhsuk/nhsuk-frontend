@@ -45,7 +45,7 @@ const fixtures = {
       name: 'example'
     }
   },
-  'with hint and error': {
+  'with error message and hint': {
     context: {
       label: {
         text: 'Password',

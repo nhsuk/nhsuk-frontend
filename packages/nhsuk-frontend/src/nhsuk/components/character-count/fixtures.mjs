@@ -54,7 +54,7 @@ const fixtures = {
         'A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels. They make sure appropriate content is shown to a user in the right place and in the best format.'
     }
   },
-  'with hint and error': {
+  'with error message and hint': {
     context: {
       label: {
         text: 'Enter a job description',

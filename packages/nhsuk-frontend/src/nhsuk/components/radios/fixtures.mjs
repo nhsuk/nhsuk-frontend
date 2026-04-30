@@ -414,7 +414,7 @@ const fixtures = {
     },
     variants
   },
-  'with hint and error': {
+  'with error message and hint': {
     context: {
       fieldset: {
         legend: {

@@ -282,7 +282,7 @@ const fixtures = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
-  'with hint and error': {
+  'with error message and hint': {
     context: {
       fieldset: {
         legend: {
