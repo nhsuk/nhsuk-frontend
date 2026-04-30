@@ -3,6 +3,18 @@
 {% from "nhsuk/components/button/macro.njk" import button -%}
 {% from "nhsuk/components/input/macro.njk" import input -%}
 
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-password-input__input nhsuk-js-password-input-input" -%}
+{%- set classNamesFormGroup = "nhsuk-password-input" -%}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif %}
+
+{%- if params.formGroup.classes %}
+  {% set classNamesFormGroup = params.formGroup.classes ~ " " ~ classNamesFormGroup %}
+{% endif %}
+
 {%- set id = params.id if params.id else params.name -%}
 
 {% set attributesHtml -%}
@@ -66,7 +78,7 @@
 
 {{ input({
   formGroup: {
-    classes: "nhsuk-password-input" ~ (" " ~ params.formGroup.classes if params.formGroup.classes),
+    classes: classNamesFormGroup,
     attributes: attributesHtml,
     beforeInput: params.formGroup.beforeInput,
     afterInput: {
@@ -75,7 +87,7 @@
   },
   label: params.label,
   hint: params.hint,
-  classes: "nhsuk-password-input__input nhsuk-js-password-input-input" ~ (" " ~ params.classes if params.classes),
+  classes: classNames,
   errorMessage: params.errorMessage,
   id: id,
   name: params.name,
