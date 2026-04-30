@@ -135,12 +135,6 @@ $nhsuk-reverse-border-colour: nhsuk-tint($nhsuk-brand-colour, 20%) !default;
 
 $nhsuk-input-border-colour: nhsuk-colour("grey-1") !default;
 
-/// Revealed content border colour
-///
-/// @type Colour
-///
-$nhsuk-revealed-content-border-colour: nhsuk-colour("grey-3") !default;
-
 /// Input hover colour
 ///
 /// Used for hover states on form controls
