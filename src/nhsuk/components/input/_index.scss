@@ -47,16 +47,27 @@
       opacity: 1; // Fixes low contrast of placeholder text in firefox
       color: nhsuk-colour("grey-1");
     }
+
+    // Hide input clear button (IE)
+    &::-ms-clear {
+      display: none;
+    }
   }
 
-  .nhsuk-input::-webkit-outer-spin-button,
-  .nhsuk-input::-webkit-inner-spin-button {
-    margin: 0;
-    -webkit-appearance: none;
+  // Reset custom appearance
+  .nhsuk-input[type="number"],
+  .nhsuk-input[type="search"] {
+    appearance: textfield;
   }
 
-  .nhsuk-input[type="number"] {
-    -moz-appearance: textfield;
+  // Hide input icons and buttons (Webkit, Blink)
+  .nhsuk-input[type="number"]::-webkit-inner-spin-button,
+  .nhsuk-input[type="number"]::-webkit-outer-spin-button,
+  .nhsuk-input[type="search"]::-webkit-search-decoration,
+  .nhsuk-input[type="search"]::-webkit-search-cancel-button,
+  .nhsuk-input[type="search"]::-webkit-search-results-button,
+  .nhsuk-input[type="search"]::-webkit-search-results-decoration {
+    display: none;
   }
 
   .nhsuk-input--error {
