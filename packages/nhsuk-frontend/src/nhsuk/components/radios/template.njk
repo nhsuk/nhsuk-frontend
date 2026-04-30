@@ -50,7 +50,7 @@
     <div class="nhsuk-radios__item">
       <input class="{{ itemClasses }}" id="{{ itemId }}" name="{{ params.name }}" type="radio" value="{{ item.value }}"
         {{- " checked" if isChecked }}
-        {{- " disabled" if item.disabled }}
+        {{- " disabled" if params.disabled or item.disabled }}
         {%- if item.conditional.html %} data-aria-controls="{{ conditionalId }}"{% endif -%}
         {%- if hasHint %} aria-describedby="{{ itemHintId }}"{% endif -%}
         {{- nhsukAttributes(item.attributes) }}>

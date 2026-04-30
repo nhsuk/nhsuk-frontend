@@ -243,6 +243,13 @@ const options = {
       'The value for the radio which should be checked when the page loads. Use this as an alternative to setting the `checked` option on each individual item.',
     released: '9.2.0'
   },
+  disabled: {
+    type: 'boolean',
+    required: false,
+    description:
+      'If `true`, radio inputs used by the radios component will be disabled.',
+    released: '10.5.0'
+  },
   small: {
     type: 'boolean',
     required: false,
