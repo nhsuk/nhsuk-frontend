@@ -1,6 +1,7 @@
 @use "sass:math";
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
+@use "../../core/helpers" as *;
 @forward "../error-message";
 @forward "../fieldset";
 @forward "../hint";
@@ -193,7 +194,7 @@ $nhsuk-checkboxes-offset: $nhsuk-border-width-form-element;
     margin-bottom: $nhsuk-checkboxes-offset;
     margin-left: $conditional-margin-left;
     padding-left: $conditional-padding-left;
-    border-left: $nhsuk-border-width solid $nhsuk-input-border-colour;
+    border-left: $nhsuk-border-width solid nhsuk-colour("grey-3");
 
     .nhsuk-frontend-supported &--hidden {
       display: none;

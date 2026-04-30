@@ -54,6 +54,15 @@ This was added in [pull request #1712: Add support for icon buttons](https://git
 
 ### :recycle: **Changes**
 
+#### Change border colour for details component and conditionally revealed content
+
+We've changed the border colour shown to the left of details component and conditionally revealed content.
+
+- Details component border colour changed from grey-4 (`#d8dde0`) to grey-3 (`#aeb7bd`)
+- Conditionally revealed border colour changed from grey-1 (`#4c6272`) to grey-3 (`#aeb7bd`)
+
+This change was introduced in [pull request #1788: Change border colour for details component and conditionally revealed content](https://github.com/nhsuk/nhsuk-frontend/pull/1788).
+
 #### Improve screen reader announcements for header search button
 
 We've updated the HTML for the header search button to improve NVDA screen reader announcements.
