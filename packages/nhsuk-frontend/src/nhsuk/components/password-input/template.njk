@@ -59,6 +59,7 @@
 {{ button({
   type: "button",
   text: params.showPasswordText | default("Show"),
+  disabled: params.disabled,
   variant: "secondary",
   small: true,
   classes: "nhsuk-password-input__toggle nhsuk-js-password-input-toggle" ~ (" " ~ params.button.classes if params.button.classes),
