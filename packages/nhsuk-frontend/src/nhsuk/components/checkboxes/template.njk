@@ -53,7 +53,7 @@
     <div class="nhsuk-checkboxes__item">
       <input class="{{ itemClasses }}" id="{{ itemId }}" name="{{ itemName }}" type="checkbox" value="{{ item.value }}"
         {{- " checked" if isChecked }}
-        {{- " disabled" if item.disabled }}
+        {{- " disabled" if params.disabled or item.disabled }}
         {%- if item.exclusive %} data-checkbox-exclusive{% endif -%}
         {%- if item.exclusiveGroup %} data-checkbox-exclusive-group="{{ item.exclusiveGroup }}"{% endif -%}
         {%- if item.conditional.html %} data-aria-controls="{{ conditionalId }}"{% endif -%}
