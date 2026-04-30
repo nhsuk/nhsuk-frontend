@@ -5,10 +5,15 @@
 {% from "nhsuk/components/label/macro.njk" import label %}
 
 {#- Set classes for this component #}
+{%- set classNames = "nhsuk-file-upload__input" -%}
 {%- set classNamesFormGroup = "nhsuk-form-group" -%}
 
 {%- if params.errorMessage %}
   {% set classNamesFormGroup = classNamesFormGroup ~ " nhsuk-form-group--error" %}
+{% endif %}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
 {% endif %}
 
 {%- if params.formGroup.classes %}
@@ -98,7 +103,7 @@
 {% if params.formGroup.beforeInput %}
   {{ params.formGroup.beforeInput.html | safe | trim | indent(2) if params.formGroup.beforeInput.html else params.formGroup.beforeInput.text }}
 {% endif %}
-  <input class="nhsuk-file-upload__input {%- if params.classes %} {{ params.classes }}{% endif %}" id="{{ id }}" name="{{ params.name }}" type="file"
+  <input class="{{ classNames }}" id="{{ id }}" name="{{ params.name }}" type="file"
     {%- if params.disabled %} disabled{% endif %}
     {%- if params.multiple %} multiple{% endif %}
     {%- if describedBy %} aria-describedby="{{ describedBy }}"{% endif %}

@@ -3,6 +3,18 @@
 {% from "nhsuk/components/textarea/macro.njk" import textarea %}
 {% from "nhsuk/components/hint/macro.njk" import hint %}
 
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-js-character-count" -%}
+{%- set classNamesFormGroup = "nhsuk-character-count" -%}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif %}
+
+{%- if params.formGroup.classes %}
+  {% set classNamesFormGroup = params.formGroup.classes ~ " " ~ classNamesFormGroup %}
+{% endif %}
+
 {%- set countType = params.countType if params.countType
   else ("words" if params.maxwords) -%}
 
@@ -109,14 +121,14 @@
   spellcheck: params.spellcheck,
   value: params.value,
   formGroup: {
-    classes: "nhsuk-character-count" ~ (" " ~ params.formGroup.classes if params.formGroup.classes),
+    classes: classNamesFormGroup,
     attributes: attributesHtml,
     beforeInput: params.formGroup.beforeInput,
     afterInput: {
       html: countMessageHtml
     }
   },
-  classes: "nhsuk-js-character-count" ~ (" " ~ params.classes if params.classes),
+  classes: classNames,
   label: {
     html: params.label.html,
     text: params.label.text,
