@@ -158,6 +158,12 @@ const options = {
       'Optional fixed width for the text input component – `2`, `3`, `4`, `5`, `10`, `20` or `30`.',
     released: '10.4.0'
   },
+  large: {
+    type: 'boolean',
+    required: false,
+    description: 'If set to `true`, larger input size will be used.',
+    released: '10.5.0'
+  },
   formGroup: {
     type: 'object',
     required: false,

@@ -49,7 +49,7 @@
   classes: "nhsuk-password-input__toggle nhsuk-js-password-input-toggle" ~ (" " ~ params.button.classes if params.button.classes),
   text: params.showPasswordText | default("Show"),
   variant: "secondary",
-  small: true,
+  small: not params.large,
   attributes: {
     "aria-controls": id,
     "aria-label": params.showPasswordAriaLabelText | default("Show password"),
@@ -75,6 +75,7 @@
   },
   label: params.label,
   hint: params.hint,
+  large: params.large,
   classes: "nhsuk-password-input__input nhsuk-js-password-input-input" ~ (" " ~ params.classes if params.classes),
   errorMessage: params.errorMessage,
   id: id,
