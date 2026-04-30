@@ -104,6 +104,7 @@
     inputmode: item.inputmode if item.inputmode else "numeric",
     autocomplete: item.autocomplete,
     pattern: item.pattern,
+    disabled: item.disabled | default(params.disabled),
     classes: ("nhsuk-date-input__input" ~ " " ~ itemClasses) | trim,
     attributes: item.attributes
   }) | trim | indent(2) }}

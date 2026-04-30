@@ -283,6 +283,13 @@ const options = {
       }
     }
   },
+  disabled: {
+    type: 'boolean',
+    required: false,
+    description:
+      'If `true`, inputs used by the date input component will be disabled.',
+    released: '10.5.0'
+  },
   classes: {
     type: 'string',
     required: false,
