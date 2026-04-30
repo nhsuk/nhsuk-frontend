@@ -17,6 +17,11 @@
   {% set classNames = classNames ~ " nhsuk-input--code" %}
 {% endif %}
 
+{%- if params.errorMessage %}
+  {% set classNames = classNames ~ " nhsuk-input--error" %}
+  {% set classNamesFormGroup = classNamesFormGroup ~ " nhsuk-form-group--error" %}
+{% endif %}
+
 {%- if params.width and
   params.width | string in ["2", "3", "4", "4", "5", "10", "20", "30"] and (
     not params.classes or (
@@ -31,11 +36,6 @@
   )
 %}
   {% set classNames = classNames ~ " nhsuk-input--width-" ~ params.width %}
-{% endif %}
-
-{%- if params.errorMessage %}
-  {% set classNames = classNames ~ " nhsuk-input--error" %}
-  {% set classNamesFormGroup = classNamesFormGroup ~ " nhsuk-form-group--error" %}
 {% endif %}
 
 {%- if params.classes %}
