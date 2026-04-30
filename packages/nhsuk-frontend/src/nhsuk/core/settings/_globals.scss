@@ -8,6 +8,28 @@
 ////
 
 // =========================================================
+// Asset paths
+// =========================================================
+
+/// Path to the assets directory, with trailing slash.
+///
+/// @type String
+
+$nhsuk-assets-path: "/assets/" !default;
+
+/// Path or URL to the images folder, with trailing slash.
+///
+/// @type String
+
+$nhsuk-images-path: "#{$nhsuk-assets-path}images/" !default;
+
+/// Path or URL to the fonts folder, with trailing slash.
+///
+/// @type String
+
+$nhsuk-fonts-path: "https://assets.nhs.uk/fonts/" !default;
+
+// =========================================================
 // Font families
 // =========================================================
 
@@ -34,12 +56,6 @@ $nhsuk-font-family: $nhsuk-font, $nhsuk-font-fallback !default;
 /// @type List
 
 $nhsuk-font-family-print: sans-serif !default;
-
-/// Path or URL to the fonts folder, with trailing slash.
-///
-/// @type String
-
-$nhsuk-fonts-path: "https://assets.nhs.uk/fonts/" !default;
 
 /// Include the default @font-face declarations
 ///

@@ -1,0 +1,14 @@
+@use "../settings" as *;
+
+////
+/// @group tools
+////
+
+/// Font URL
+///
+/// @param {String} $filename - Image filename
+/// @return {String} URL for the filename, wrapped in `url()`
+
+@function nhsuk-image-url($filename) {
+  @return url($nhsuk-images-path + $filename);
+}
