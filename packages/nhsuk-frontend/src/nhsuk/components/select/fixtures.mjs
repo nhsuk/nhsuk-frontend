@@ -1,5 +1,7 @@
 import { components } from '#lib'
 
+import { examples as buttonExamples } from '../button/fixtures.mjs'
+
 /**
  * Nunjucks macro option examples
  *
@@ -233,13 +235,10 @@ const fixtures = {
       ],
       formGroup: {
         afterInput: {
-          html: components.render('button', {
-            context: {
-              text: 'Save',
-              variant: 'secondary',
-              small: true
-            }
-          })
+          html: components.render(
+            'button',
+            buttonExamples['example secondary save button, small']
+          )
         }
       }
     },
@@ -305,13 +304,10 @@ const fixtures = {
       ],
       formGroup: {
         afterInput: {
-          html: components.render('button', {
-            context: {
-              text: 'Save',
-              variant: 'secondary',
-              small: true
-            }
-          })
+          html: components.render(
+            'button',
+            buttonExamples['example secondary save button, small']
+          )
         }
       }
     },

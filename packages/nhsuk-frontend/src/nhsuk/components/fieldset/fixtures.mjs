@@ -2,6 +2,8 @@ import { outdent } from 'outdent'
 
 import { components } from '#lib'
 
+import { examples as inputExamples } from '../input/fixtures.mjs'
+
 /**
  * Nunjucks macro option examples
  *
@@ -17,44 +19,10 @@ const fixtures = {
       }
     },
     callBlock: outdent`
-      ${components.render('input', {
-        context: {
-          label: {
-            text: 'Address line 1'
-          },
-          name: 'address-line1',
-          autocomplete: 'address-line1'
-        }
-      })}
-      ${components.render('input', {
-        context: {
-          label: {
-            text: 'Address line 2 (optional)'
-          },
-          name: 'address-line2',
-          autocomplete: 'address-line2'
-        }
-      })}
-      ${components.render('input', {
-        context: {
-          label: {
-            text: 'Town or city'
-          },
-          name: 'address-town',
-          autocomplete: 'address-level2',
-          classes: 'nhsuk-u-width-two-thirds'
-        }
-      })}
-      ${components.render('input', {
-        context: {
-          label: {
-            text: 'Postcode'
-          },
-          name: 'address-postcode',
-          autocomplete: 'postal-code',
-          width: 10
-        }
-      })}
+      ${components.render('input', inputExamples['example address line 1'])}
+      ${components.render('input', inputExamples['example address line 2'])}
+      ${components.render('input', inputExamples['example address town or city'])}
+      ${components.render('input', inputExamples['example address postcode'])}
     `,
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']
