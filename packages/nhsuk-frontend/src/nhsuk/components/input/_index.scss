@@ -89,6 +89,17 @@
     cursor: pointer;
 
     appearance: none;
+
+    // Where possible use the cross as a mask instead. This lets us use
+    // currentcolor, increasing the contrast of the image and matching the
+    // user's prefered foreground colour in e.g. forced colors mode.
+    // We test for `mask-position` rather than `mask-image` because of a false
+    // positive in Edge 17.
+    @supports (mask-position: initial) {
+      background: currentcolor;
+      mask: nhsuk-image-url("nhsuk-icon-cross.svg") no-repeat;
+      mask-size: nhsuk-px-to-rem($nhsuk-icon-size) nhsuk-px-to-rem($nhsuk-icon-size);
+    }
   }
 
   .nhsuk-input--error {
@@ -112,6 +123,10 @@
     width: nhsuk-px-to-rem($nhsuk-icon-size-large);
     height: nhsuk-px-to-rem($nhsuk-icon-size-large);
     background-size: nhsuk-px-to-rem($nhsuk-icon-size-large) nhsuk-px-to-rem($nhsuk-icon-size-large);
+
+    @supports (mask-position: initial) {
+      mask-size: nhsuk-px-to-rem($nhsuk-icon-size-large) nhsuk-px-to-rem($nhsuk-icon-size-large);
+    }
   }
 
   // Codes and sequences
