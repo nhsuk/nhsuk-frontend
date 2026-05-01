@@ -79,6 +79,12 @@ const options = {
           'If `text` is set, this is not required. HTML for table head cells. If `html` is provided, the `text` argument will be ignored.',
         released: '1.0.0'
       },
+      href: {
+        type: 'string',
+        required: false,
+        description:
+          'If set, this adds a link within the header cell. This can be in conjunction with setting aria-sort for server-side table sorting.'
+      },
       format: {
         type: 'string',
         required: false,
@@ -97,6 +103,26 @@ const options = {
         required: false,
         description: 'Specify how many rows a cell extends.',
         released: '1.0.0'
+      },
+      sortable: {
+        type: 'boolean',
+        required: false,
+        description: 'Set to true to allow this column to be sorted',
+        released: '10.x.0'
+      },
+      sorted: {
+        type: 'string',
+        required: false,
+        description:
+          'Set to "ascending" or "descending" if the column is sorted on initial page load',
+        released: '10.x.0'
+      },
+      sortFirstDirection: {
+        type: 'string',
+        required: false,
+        description:
+          'The first sort direction applied to the column when clicked – `"ascending"` or `"descending"`. Defaults to `"ascending"`',
+        released: '10.x.0'
       }
     }
   },
