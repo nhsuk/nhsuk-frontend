@@ -52,6 +52,40 @@ Or to change the icon and adjust placement:
 
 This was added in [pull request #1712: Add support for icon buttons](https://github.com/nhsuk/nhsuk-frontend/pull/1712).
 
+#### Add icons using SVGs
+
+You can also [add icons](https://service-manual.nhs.uk/design-system/styles/icons) using SVG files in the `nhsuk-frontend/dist/nhsuk/assets` directory:
+
+- `images/nhsuk-icon-arrow-down-circle.svg`
+- `images/nhsuk-icon-arrow-down.svg`
+- `images/nhsuk-icon-arrow-left-circle.svg`
+- `images/nhsuk-icon-arrow-left.svg`
+- `images/nhsuk-icon-arrow-right-circle.svg`
+- `images/nhsuk-icon-arrow-right.svg`
+- `images/nhsuk-icon-arrow-up-circle.svg`
+- `images/nhsuk-icon-arrow-up.svg`
+- `images/nhsuk-icon-chevron-down-circle.svg`
+- `images/nhsuk-icon-chevron-left-circle.svg`
+- `images/nhsuk-icon-chevron-right-circle.svg`
+- `images/nhsuk-icon-chevron-up-circle.svg`
+- `images/nhsuk-icon-cross.svg`
+- `images/nhsuk-icon-minus.svg`
+- `images/nhsuk-icon-plus.svg`
+- `images/nhsuk-icon-search.svg`
+- `images/nhsuk-icon-tick.svg`
+- `images/nhsuk-icon-user.svg`
+
+If you use Sass and you've changed the default `/assets/` public path (for example, Nunjucks `assetPath`), make sure `$nhsuk-assets-path` is configured:
+
+```scss
+  @forward "nhsuk-frontend/dist/nhsuk" with (
++   $nhsuk-assets-path: "/public/assets/",
+    $nhsuk-fonts-path: "https://assets.nhs.uk/fonts/"
+  );
+```
+
+This was added in [pull request #1915: Render Nunjucks icon macro into SVG files](https://github.com/nhsuk/nhsuk-frontend/pull/1915).
+
 ### :recycle: **Changes**
 
 #### Change border colour for details component and conditionally revealed content
