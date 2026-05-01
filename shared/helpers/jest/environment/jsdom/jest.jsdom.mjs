@@ -8,6 +8,10 @@ class BrowserVirtualEnvironment extends TestEnvironment {
   async setup() {
     await super.setup()
 
+    // Fix missing `structuredClone()` global
+    // https://github.com/jsdom/jsdom/issues/3363
+    this.global.structuredClone = structuredClone
+
     // Access virtual console
     const { virtualConsole } = this.dom ?? {}
 
