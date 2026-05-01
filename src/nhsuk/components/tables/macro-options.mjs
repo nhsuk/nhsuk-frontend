@@ -121,7 +121,7 @@ const options = {
         type: 'string',
         required: false,
         description:
-          'Set to "ascending" or "descending" to set the direction that the column should be first sorted on when clicked. It can then be clicked again to toggle. Default is "ascending".',
+          'The first sort direction applied to the column when clicked – `"ascending"` or `"descending"`. Defaults to `"ascending"`',
         released: '10.x.0'
       }
     }
