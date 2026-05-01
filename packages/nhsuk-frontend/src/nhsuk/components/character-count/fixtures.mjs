@@ -22,6 +22,22 @@ const fixtures = {
       selector: '.nhsuk-textarea'
     }
   },
+  'disabled': {
+    context: {
+      label: {
+        text: 'Can you provide more detail?',
+        size: 'l',
+        isPageHeading: true
+      },
+      hint: {
+        text: 'Do not include personal information like your name, date of birth or NHS number'
+      },
+      name: 'example',
+      maxlength: 200,
+      disabled: true
+    },
+    screenshot: true
+  },
   'with hint': {
     context: {
       label: {
@@ -54,7 +70,7 @@ const fixtures = {
         'A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels. They make sure appropriate content is shown to a user in the right place and in the best format.'
     }
   },
-  'with hint and error': {
+  'with error message and hint': {
     context: {
       label: {
         text: 'Enter a job description',

@@ -5,10 +5,15 @@
 {% from "nhsuk/components/label/macro.njk" import label %}
 
 {#- Set classes for this component #}
+{%- set classNames = "nhsuk-file-upload__input" -%}
 {%- set classNamesFormGroup = "nhsuk-form-group" -%}
 
 {%- if params.errorMessage %}
   {% set classNamesFormGroup = classNamesFormGroup ~ " nhsuk-form-group--error" %}
+{% endif %}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
 {% endif %}
 
 {%- if params.formGroup.classes %}
@@ -67,38 +72,38 @@
     text: params.label.text,
     id: params.label.id,
     classes: params.label.classes,
+    attributes: params.label.attributes,
     size: params.label.size,
     isPageHeading: params.label.isPageHeading,
-    attributes: params.label.attributes,
     for: id
   }) | trim | indent(2) }}
 {% if params.hint %}
   {% set hintId = id ~ "-hint" %}
   {% set describedBy = (describedBy ~ " " ~ hintId) | trim %}
   {{ hint({
+    html: params.hint.html,
+    text: params.hint.text,
     id: hintId,
     classes: params.hint.classes,
-    attributes: params.hint.attributes,
-    html: params.hint.html,
-    text: params.hint.text
+    attributes: params.hint.attributes
   }) | trim | indent(2) }}
 {% endif %}
 {% if params.errorMessage %}
   {% set errorId = id ~ "-error" %}
   {% set describedBy = (describedBy ~ " " ~ errorId) | trim %}
   {{ errorMessage({
-    id: errorId,
-    classes: params.errorMessage.classes,
-    attributes: params.errorMessage.attributes,
     html: params.errorMessage.html,
     text: params.errorMessage.text,
-    visuallyHiddenText: params.errorMessage.visuallyHiddenText
+    visuallyHiddenText: params.errorMessage.visuallyHiddenText,
+    id: errorId,
+    classes: params.errorMessage.classes,
+    attributes: params.errorMessage.attributes
   }) | trim | indent(2) }}
 {% endif %}
 {% if params.formGroup.beforeInput %}
   {{ params.formGroup.beforeInput.html | safe | trim | indent(2) if params.formGroup.beforeInput.html else params.formGroup.beforeInput.text }}
 {% endif %}
-  <input class="nhsuk-file-upload__input {%- if params.classes %} {{ params.classes }}{% endif %}" id="{{ id }}" name="{{ params.name }}" type="file"
+  <input class="{{ classNames }}" id="{{ id }}" name="{{ params.name }}" type="file"
     {%- if params.disabled %} disabled{% endif %}
     {%- if params.multiple %} multiple{% endif %}
     {%- if describedBy %} aria-describedby="{{ describedBy }}"{% endif %}

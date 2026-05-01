@@ -1,5 +1,7 @@
 import { components } from '#lib'
 
+import { examples as buttonExamples } from '../button/fixtures.mjs'
+
 /**
  * Nunjucks macro option examples
  *
@@ -14,6 +16,18 @@ const fixtures = {
         isPageHeading: true
       },
       name: 'example'
+    },
+    screenshot: true
+  },
+  'disabled': {
+    context: {
+      label: {
+        text: 'What is your full name?',
+        size: 'l',
+        isPageHeading: true
+      },
+      name: 'example',
+      disabled: true
     },
     screenshot: true
   },
@@ -51,13 +65,10 @@ const fixtures = {
       spellcheck: false,
       formGroup: {
         afterInput: {
-          html: components.render('button', {
-            context: {
-              text: 'Search',
-              variant: 'secondary',
-              small: true
-            }
-          })
+          html: components.render(
+            'button',
+            buttonExamples['example secondary search button, small']
+          )
         }
       }
     },
@@ -83,13 +94,10 @@ const fixtures = {
       spellcheck: false,
       formGroup: {
         afterInput: {
-          html: components.render('button', {
-            context: {
-              text: 'Search',
-              variant: 'secondary',
-              small: true
-            }
-          })
+          html: components.render(
+            'button',
+            buttonExamples['example secondary search button, small']
+          )
         }
       }
     },
@@ -115,7 +123,7 @@ const fixtures = {
       spellcheck: false
     }
   },
-  'with hint and error': {
+  'with error message and hint': {
     context: {
       label: {
         text: 'What is your NHS number?',
@@ -284,7 +292,7 @@ const fixtures = {
         }
       },
       {
-        description: 'with label id attribute',
+        description: 'with id attribute on',
         context: {
           label: {
             id: 'custom-id'
@@ -358,7 +366,7 @@ const fixtures = {
       width: 5
     }
   },
-  'with deprecated prefix string parameter': {
+  'with prefix deprecated option': {
     context: {
       label: {
         text: 'Cost in pounds',
@@ -399,7 +407,7 @@ const fixtures = {
       width: 5
     }
   },
-  'with deprecated suffix string parameter': {
+  'with suffix deprecated option': {
     context: {
       label: {
         text: 'Weight in kilograms',
@@ -467,6 +475,111 @@ const fixtures = {
       autocomplete: 'postal-code'
     },
     screenshot: true
+  },
+  'example email address': {
+    context: {
+      label: {
+        text: 'Email address'
+      },
+      name: 'contact-by-email',
+      classes: 'nhsuk-u-width-two-thirds',
+      spellcheck: false
+    },
+    options: {
+      hidden: true
+    }
+  },
+  'example phone number': {
+    context: {
+      label: {
+        text: 'Phone number'
+      },
+      type: 'tel',
+      name: 'contact-by-phone',
+      classes: 'nhsuk-u-width-two-thirds'
+    },
+    options: {
+      hidden: true
+    }
+  },
+  'example phone number with error message': {
+    context: {
+      label: {
+        text: 'Phone number'
+      },
+      errorMessage: {
+        text: 'Enter your phone number'
+      },
+      type: 'tel',
+      name: 'contact-by-phone',
+      classes: 'nhsuk-u-width-two-thirds'
+    },
+    options: {
+      hidden: true
+    }
+  },
+  'example mobile phone number': {
+    context: {
+      label: {
+        text: 'Mobile phone number'
+      },
+      type: 'tel',
+      name: 'contact-by-text',
+      classes: 'nhsuk-u-width-two-thirds'
+    },
+    options: {
+      hidden: true
+    }
+  },
+  'example address line 1': {
+    context: {
+      label: {
+        text: 'Address'
+      },
+      name: 'address-line1',
+      autocomplete: 'address-line1'
+    },
+    options: {
+      hidden: true
+    }
+  },
+  'example address line 2': {
+    context: {
+      label: {
+        text: 'Address line 2 (optional)'
+      },
+      name: 'address-line2',
+      autocomplete: 'address-line2'
+    },
+    options: {
+      hidden: true
+    }
+  },
+  'example address town or city': {
+    context: {
+      label: {
+        text: 'Town or city'
+      },
+      name: 'address-town',
+      autocomplete: 'address-level2',
+      classes: 'nhsuk-u-width-two-thirds'
+    },
+    options: {
+      hidden: true
+    }
+  },
+  'example address postcode': {
+    context: {
+      label: {
+        text: 'Postcode'
+      },
+      name: 'address-postcode',
+      autocomplete: 'postal-code',
+      width: 10
+    },
+    options: {
+      hidden: true
+    }
   }
 }
 

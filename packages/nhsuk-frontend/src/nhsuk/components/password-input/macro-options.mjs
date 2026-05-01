@@ -149,6 +149,28 @@ const options = {
       'Attribute to meet [WCAG success criterion 1.3.5: Identify input purpose](https://www.w3.org/WAI/WCAG22/Understanding/identify-input-purpose.html). See the [Autofill section in the HTML standard](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill) for full list of attributes that can be used. Default is `"current-password"`.',
     released: '10.2.0'
   },
+  inputWrapper: {
+    type: 'object',
+    required: false,
+    description:
+      'Additional options for the wrapping element containing the password input component.',
+    released: '10.5.0',
+    params: {
+      classes: {
+        type: 'string',
+        required: false,
+        description: 'Classes to add to the wrapping element.',
+        released: '10.5.0'
+      },
+      attributes: {
+        type: 'object',
+        required: false,
+        description:
+          'HTML attributes (for example data attributes) to add to the wrapping element.',
+        released: '10.5.0'
+      }
+    }
+  },
   attributes: {
     type: 'object',
     required: false,

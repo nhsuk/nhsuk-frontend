@@ -20,6 +20,53 @@ const fixtures = {
     },
     screenshot: true
   },
+  'disabled': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'What is your date of birth?',
+          size: 'l',
+          isPageHeading: true
+        }
+      },
+      hint: {
+        text: 'For example, 31 3 1980'
+      },
+      id: 'example',
+      disabled: true
+    },
+    screenshot: true
+  },
+  'with disabled item': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'What is your date of birth?',
+          size: 'l',
+          isPageHeading: true
+        }
+      },
+      hint: {
+        text: 'For example, 31 3 1980'
+      },
+      id: 'example',
+      items: [
+        {
+          name: 'day',
+          width: 2
+        },
+        {
+          name: 'month',
+          width: 2
+        },
+        {
+          name: 'year',
+          width: 4,
+          disabled: true
+        }
+      ]
+    }
+  },
   'with values': {
     context: {
       fieldset: {
@@ -289,7 +336,7 @@ const fixtures = {
       namePrefix: 'example'
     }
   },
-  'with errors only': {
+  'with error message only': {
     context: {
       fieldset: {
         legend: {
@@ -321,7 +368,7 @@ const fixtures = {
       ]
     }
   },
-  'with errors and hint': {
+  'with error message and hint': {
     context: {
       fieldset: {
         legend: {

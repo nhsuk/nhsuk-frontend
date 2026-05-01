@@ -163,6 +163,12 @@ const options = {
       'Optional field to enable or disable the `spellcheck` attribute on the character count.',
     released: '7.0.0'
   },
+  disabled: {
+    type: 'boolean',
+    required: false,
+    description: 'If `true`, textarea will be disabled.',
+    released: '10.5.0'
+  },
   countMessage: {
     type: 'object',
     required: false,

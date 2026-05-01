@@ -43,7 +43,7 @@ describe('Nunjucks global: uniqueHTML', () => {
         <span class="nhsuk-error-message" id="with-hint-error">
           <span class="nhsuk-u-visually-hidden">Error:</span> Enter NHS number
         </span>
-        <input class="nhsuk-input nhsuk-input--code nhsuk-input--width-10 nhsuk-input--error" id="with-hint" name="example" type="text" spellcheck="false" aria-describedby="with-hint-hint with-hint-error" inputmode="numeric">
+        <input class="nhsuk-input nhsuk-input--code nhsuk-input--error nhsuk-input--width-10" id="with-hint" name="example" type="text" spellcheck="false" aria-describedby="with-hint-hint with-hint-error" inputmode="numeric">
       </div>
     `)
   })
@@ -66,7 +66,7 @@ describe('Nunjucks global: uniqueHTML', () => {
           <span class="nhsuk-error-message" id="with-hint-${index}-error">
             <span class="nhsuk-u-visually-hidden">Error:</span> Enter NHS number
           </span>
-          <input class="nhsuk-input nhsuk-input--code nhsuk-input--width-10 nhsuk-input--error" id="with-hint-${index}" name="example-${index}" type="text" spellcheck="false" aria-describedby="with-hint-hint-${index} with-hint-${index}-error" inputmode="numeric">
+          <input class="nhsuk-input nhsuk-input--code nhsuk-input--error nhsuk-input--width-10" id="with-hint-${index}" name="example-${index}" type="text" spellcheck="false" aria-describedby="with-hint-hint-${index} with-hint-${index}-error" inputmode="numeric">
         </div>
       `)
     }

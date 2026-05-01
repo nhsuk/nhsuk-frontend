@@ -303,7 +303,7 @@ export function getOptions(name, example) {
   return variants.map(({ description }) => ({
     name,
     description,
-    title: `'${description}'`,
+    title: `'${description ?? 'example'}'`,
     throwOnError
   }))
 }

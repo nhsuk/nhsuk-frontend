@@ -5,10 +5,16 @@
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-input" -%}
+{%- set classNamesInputWrapper = "nhsuk-input-wrapper" -%}
 {%- set classNamesFormGroup = "nhsuk-form-group" -%}
 
 {%- if params.code and (not params.classes or not "nhsuk-input--code" in params.classes) %}
   {% set classNames = classNames ~ " nhsuk-input--code" %}
+{% endif %}
+
+{%- if params.errorMessage %}
+  {% set classNames = classNames ~ " nhsuk-input--error" %}
+  {% set classNamesFormGroup = classNamesFormGroup ~ " nhsuk-form-group--error" %}
 {% endif %}
 
 {%- if params.width and
@@ -27,13 +33,12 @@
   {% set classNames = classNames ~ " nhsuk-input--width-" ~ params.width %}
 {% endif %}
 
-{%- if params.errorMessage %}
-  {% set classNames = classNames ~ " nhsuk-input--error" %}
-  {% set classNamesFormGroup = classNamesFormGroup ~ " nhsuk-form-group--error" %}
-{% endif %}
-
 {%- if params.classes %}
   {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif %}
+
+{%- if params.inputWrapper.classes %}
+  {% set classNamesInputWrapper = classNamesInputWrapper ~ " " ~ params.inputWrapper.classes %}
 {% endif %}
 
 {%- if params.formGroup.classes %}
@@ -123,38 +128,37 @@
     text: params.label.text,
     id: params.label.id,
     classes: params.label.classes,
+    attributes: params.label.attributes,
     size: params.label.size,
     isPageHeading: params.label.isPageHeading,
-    attributes: params.label.attributes,
     for: id
   }) | trim | indent(2) }}
 {% if params.hint %}
   {% set hintId = id ~ "-hint" %}
   {% set describedBy = (describedBy ~ " " ~ hintId) | trim %}
   {{ hint({
+    html: params.hint.html,
+    text: params.hint.text,
     id: hintId,
     classes: params.hint.classes,
-    attributes: params.hint.attributes,
-    html: params.hint.html,
-    text: params.hint.text
+    attributes: params.hint.attributes
   }) | trim | indent(2) }}
 {% endif %}
 {% if params.errorMessage %}
   {% set errorId = id ~ "-error" %}
   {% set describedBy = (describedBy ~ " " ~ errorId) | trim %}
   {{ errorMessage({
-    id: errorId,
-    classes: params.errorMessage.classes,
-    attributes: params.errorMessage.attributes,
     html: params.errorMessage.html,
     text: params.errorMessage.text,
-    visuallyHiddenText: params.errorMessage.visuallyHiddenText
+    visuallyHiddenText: params.errorMessage.visuallyHiddenText,
+    id: errorId,
+    classes: params.errorMessage.classes,
+    attributes: params.errorMessage.attributes
   }) | trim | indent(2) }}
 {% endif %}
 
 {%- if hasPrefix or hasSuffix or hasBeforeInput or hasAfterInput %}
-  <div class="nhsuk-input-wrapper {%- if params.inputWrapper.classes %} {{ params.inputWrapper.classes }}{% endif %}"
-    {{- nhsukAttributes(params.inputWrapper.attributes) }}>
+  <div class="{{ classNamesInputWrapper }}" {{- nhsukAttributes(params.inputWrapper.attributes) }}>
     {% if hasBeforeInput %}
       {{- params.formGroup.beforeInput.html | safe | trim | indent(4, true) if params.formGroup.beforeInput.html else params.formGroup.beforeInput.text }}
     {% endif %}

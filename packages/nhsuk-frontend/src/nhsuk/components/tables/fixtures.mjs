@@ -203,6 +203,254 @@ const fixtures = {
       ]
     }
   },
+  'with numeric data (full width, past day)': {
+    context: {
+      caption: 'Past day',
+      head: [
+        {
+          text: 'Case manager'
+        },
+        {
+          text: 'Cases opened',
+          format: 'numeric'
+        },
+        {
+          text: 'Cases closed',
+          format: 'numeric'
+        }
+      ],
+      rows: [
+        [
+          {
+            text: 'David Francis'
+          },
+          {
+            text: '3',
+            format: 'numeric'
+          },
+          {
+            text: '0',
+            format: 'numeric'
+          }
+        ],
+        [
+          {
+            text: 'Paul Farmer'
+          },
+          {
+            text: '1',
+            format: 'numeric'
+          },
+          {
+            text: '0',
+            format: 'numeric'
+          }
+        ],
+        [
+          {
+            text: 'Rita Patel'
+          },
+          {
+            text: '2',
+            format: 'numeric'
+          },
+          {
+            text: '0',
+            format: 'numeric'
+          }
+        ]
+      ]
+    },
+    options: {
+      width: 'full'
+    }
+  },
+  'with numeric data (full width, past week)': {
+    context: {
+      caption: 'Past week',
+      head: [
+        {
+          text: 'Case manager'
+        },
+        {
+          text: 'Cases opened',
+          format: 'numeric'
+        },
+        {
+          text: 'Cases closed',
+          format: 'numeric'
+        }
+      ],
+      rows: [
+        [
+          {
+            text: 'David Francis'
+          },
+          {
+            text: '24',
+            format: 'numeric'
+          },
+          {
+            text: '18',
+            format: 'numeric'
+          }
+        ],
+        [
+          {
+            text: 'Paul Farmer'
+          },
+          {
+            text: '16',
+            format: 'numeric'
+          },
+          {
+            text: '20',
+            format: 'numeric'
+          }
+        ],
+        [
+          {
+            text: 'Rita Patel'
+          },
+          {
+            text: '24',
+            format: 'numeric'
+          },
+          {
+            text: '27',
+            format: 'numeric'
+          }
+        ]
+      ]
+    },
+    options: {
+      width: 'full'
+    }
+  },
+  'with numeric data (full width, past month)': {
+    context: {
+      caption: 'Past month',
+      head: [
+        {
+          text: 'Case manager'
+        },
+        {
+          text: 'Cases opened',
+          format: 'numeric'
+        },
+        {
+          text: 'Cases closed',
+          format: 'numeric'
+        }
+      ],
+      rows: [
+        [
+          {
+            text: 'David Francis'
+          },
+          {
+            text: '98',
+            format: 'numeric'
+          },
+          {
+            text: '95',
+            format: 'numeric'
+          }
+        ],
+        [
+          {
+            text: 'Paul Farmer'
+          },
+          {
+            text: '122',
+            format: 'numeric'
+          },
+          {
+            text: '131',
+            format: 'numeric'
+          }
+        ],
+        [
+          {
+            text: 'Rita Patel'
+          },
+          {
+            text: '126',
+            format: 'numeric'
+          },
+          {
+            text: '142',
+            format: 'numeric'
+          }
+        ]
+      ]
+    },
+    options: {
+      width: 'full'
+    }
+  },
+  'with numeric data (full width, past year)': {
+    context: {
+      caption: 'Past year',
+      head: [
+        {
+          text: 'Case manager'
+        },
+        {
+          text: 'Cases opened',
+          format: 'numeric'
+        },
+        {
+          text: 'Cases closed',
+          format: 'numeric'
+        }
+      ],
+      rows: [
+        [
+          {
+            text: 'David Francis'
+          },
+          {
+            text: '1380',
+            format: 'numeric'
+          },
+          {
+            text: '1472',
+            format: 'numeric'
+          }
+        ],
+        [
+          {
+            text: 'Paul Farmer'
+          },
+          {
+            text: '1129',
+            format: 'numeric'
+          },
+          {
+            text: '1083',
+            format: 'numeric'
+          }
+        ],
+        [
+          {
+            text: 'Rita Patel'
+          },
+          {
+            text: '1539',
+            format: 'numeric'
+          },
+          {
+            text: '1265',
+            format: 'numeric'
+          }
+        ]
+      ]
+    },
+    options: {
+      width: 'full'
+    }
+  },
   'responsive': {
     context: {
       caption: 'Ibuprofen syrup dosages for children',

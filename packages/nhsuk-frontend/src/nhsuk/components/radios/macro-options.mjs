@@ -46,7 +46,7 @@ const options = {
         required: false,
         description:
           'Classes to add to the form group (for example to show error state for the whole group).',
-        released: '1.0.0'
+        released: '10.5.0'
       },
       attributes: {
         type: 'object',
@@ -242,6 +242,13 @@ const options = {
     description:
       'The value for the radio which should be checked when the page loads. Use this as an alternative to setting the `checked` option on each individual item.',
     released: '9.2.0'
+  },
+  disabled: {
+    type: 'boolean',
+    required: false,
+    description:
+      'If `true`, radio inputs used by the radios component will be disabled.',
+    released: '10.5.0'
   },
   small: {
     type: 'boolean',

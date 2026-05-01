@@ -14,6 +14,18 @@ const fixtures = {
       name: 'example'
     }
   },
+  'disabled': {
+    context: {
+      label: {
+        text: 'Password',
+        size: 'l',
+        isPageHeading: true
+      },
+      name: 'example',
+      disabled: true
+    },
+    screenshot: true
+  },
   'with hint': {
     context: {
       label: {
@@ -45,7 +57,7 @@ const fixtures = {
       name: 'example'
     }
   },
-  'with hint and error': {
+  'with error message and hint': {
     context: {
       label: {
         text: 'Password',

@@ -55,23 +55,23 @@
   {% set hintId = params.id ~ "-hint" %}
   {% set describedBy = (describedBy ~ " " ~ hintId) | trim %}
   {{ hint({
+    html: params.hint.html,
+    text: params.hint.text,
     id: hintId,
     classes: params.hint.classes,
-    attributes: params.hint.attributes,
-    html: params.hint.html,
-    text: params.hint.text
+    attributes: params.hint.attributes
   }) | trim | indent(2) }}
 {% endif %}
 {% if params.errorMessage %}
   {% set errorId = params.id ~ "-error" %}
   {% set describedBy = (describedBy ~ " " ~ errorId) | trim %}
   {{ errorMessage({
-    id: errorId,
-    classes: params.errorMessage.classes,
-    attributes: params.errorMessage.attributes,
     html: params.errorMessage.html,
     text: params.errorMessage.text,
-    visuallyHiddenText: params.errorMessage.visuallyHiddenText
+    visuallyHiddenText: params.errorMessage.visuallyHiddenText,
+    id: errorId,
+    classes: params.errorMessage.classes,
+    attributes: params.errorMessage.attributes
   }) | trim | indent(2) }}
 {% endif %}
   <div class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %} {{- nhsukAttributes(params.attributes) -}}>
@@ -96,6 +96,7 @@
         inputmode: item.inputmode if item.inputmode else "numeric",
         autocomplete: item.autocomplete,
         pattern: item.pattern,
+        disabled: item.disabled | default(params.disabled),
         attributes: item.attributes
       }) | trim | indent(6) }}
     </div>
