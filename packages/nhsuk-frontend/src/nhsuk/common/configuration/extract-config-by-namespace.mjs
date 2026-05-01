@@ -1,3 +1,4 @@
+/* eslint-disable jsdoc/reject-any-type */
 import { isObject } from '../index.mjs'
 import { normaliseString } from './normalise-string.mjs'
 
@@ -73,7 +74,7 @@ export function extractConfigByNamespace(schema, dataset, namespace) {
  * Schema property for component config
  *
  * @typedef {object} SchemaProperty
- * @property {'string' | 'boolean' | 'number' | 'object' | 'array'} type - Property type
+ * @property {'string' | 'boolean' | 'number' | 'object' | 'array' | 'function'} type - Property type
  */
 
 /**
@@ -87,5 +88,6 @@ export function extractConfigByNamespace(schema, dataset, namespace) {
 
 /**
  * @typedef {keyof ObjectNested} NestedKey
- * @typedef {{ [key: string]: string | boolean | number | (string | number | boolean)[] | ObjectNested | undefined }} ObjectNested
+ * @typedef {string | boolean | number} NestedValue
+ * @typedef {{ [key: string]: NestedValue | NestedValue[] | ((...args: any[]) => NestedValue) | ObjectNested | undefined }} ObjectNested
  */

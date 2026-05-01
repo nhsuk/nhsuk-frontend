@@ -3,14 +3,6 @@ import { ConfigurableComponent } from '../../../configurable-component.mjs'
 
 export class MockComponent extends Component {
   static moduleName = 'mock-component'
-
-  /**
-   * @param {Element | null} $root - HTML element to use for component
-   */
-  constructor($root) {
-    super($root)
-    this.args = [$root]
-  }
 }
 
 export class MockComponentError extends MockComponent {
@@ -48,7 +40,8 @@ export class MockConfigurableComponent extends ConfigurableComponent {
       anArray1: { type: 'array' },
       anArray2: { type: 'array' },
       anArray3: { type: 'array' },
-      anArray4: { type: 'array' }
+      anArray4: { type: 'array' },
+      aFunction: { type: 'function' }
     }
   }
 
@@ -70,71 +63,8 @@ export class MockConfigurableComponent extends ConfigurableComponent {
     anArray1: [],
     anArray2: [true],
     anArray3: [1, 2, 3, 4],
-    anArray4: ['goose', 'gull', 'gannet']
-  }
-}
-
-/**
- * @augments {ConfigurableComponent<MockConfigBoolean>}
- */
-export class MockConfigurableComponentBoolean extends ConfigurableComponent {
-  /**
-   * @param {Element | null} $root - HTML element to use for component
-   * @param {Partial<MockConfigBoolean>} [config] - Component config
-   */
-  constructor($root, config) {
-    super($root, config)
-    this.args = [$root, config]
-  }
-
-  static moduleName = 'mock-component'
-
-  /**
-   * @satisfies {Schema<MockConfigBoolean>}
-   */
-  static schema = {
-    properties: {
-      example: { type: 'boolean' }
-    }
-  }
-
-  /**
-   * @satisfies {MockConfigBoolean}
-   */
-  static defaults = {
-    example: false
-  }
-}
-
-/**
- * @augments {ConfigurableComponent<MockConfigNumber>}
- */
-export class MockConfigurableComponentNumber extends ConfigurableComponent {
-  /**
-   * @param {Element | null} $root - HTML element to use for component
-   * @param {Partial<MockConfigNumber>} [config] - Component config
-   */
-  constructor($root, config) {
-    super($root, config)
-    this.args = [$root, config]
-  }
-
-  static moduleName = 'mock-component'
-
-  /**
-   * @satisfies {Schema<MockConfigNumber>}
-   */
-  static schema = {
-    properties: {
-      example: { type: 'number' }
-    }
-  }
-
-  /**
-   * @satisfies {MockConfigNumber}
-   */
-  static defaults = {
-    example: 0
+    anArray4: ['goose', 'gull', 'gannet'],
+    aFunction: (name) => name
   }
 }
 
@@ -305,6 +235,7 @@ export class MockConfigurableComponentMixed extends ConfigurableComponent {
  * @property {(string | number | boolean)[]} anArray2 - An array
  * @property {(string | number | boolean)[]} anArray3 - An array
  * @property {(string | number | boolean)[]} anArray4 - An array
+ * @property {(name: string) => string} aFunction - A function
  */
 
 /**

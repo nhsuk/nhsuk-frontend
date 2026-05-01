@@ -14,7 +14,10 @@
  * @returns Normalised data
  */
 export function normaliseString(value, property) {
-  if (!isValid(value)) {
+  if (
+    !isValid(value) ||
+    (property?.type && !['string', 'number', 'boolean'].includes(property.type))
+  ) {
     return
   }
 
