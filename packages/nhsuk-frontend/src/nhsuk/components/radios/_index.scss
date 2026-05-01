@@ -101,6 +101,12 @@ $nhsuk-radios-offset: $nhsuk-border-width-form-element;
     background: $nhsuk-input-background-colour;
   }
 
+  .nhsuk-radios--reverse .nhsuk-radios__label::before {
+    border-color: $nhsuk-reverse-input-border-colour;
+    color: $nhsuk-reverse-text-colour;
+    background-color: $nhsuk-reverse-input-background-colour;
+  }
+
   //  •  Radio button
   //
   // We create the 'button' entirely out of 'border' so that they remain
@@ -129,12 +135,20 @@ $nhsuk-radios-offset: $nhsuk-border-width-form-element;
     background: currentcolor;
   }
 
+  .nhsuk-radios--reverse .nhsuk-radios__label::after {
+    border-color: $nhsuk-reverse-text-colour;
+  }
+
   .nhsuk-radios__hint {
     display: block;
     width: 100%;
     margin-top: nhsuk-spacing(-1);
     padding-right: $nhsuk-radios-label-padding-left-right;
     padding-left: ($nhsuk-radios-label-padding-left-right + $nhsuk-touch-target-size);
+  }
+
+  .nhsuk-radios--reverse .nhsuk-radios__hint {
+    color: $nhsuk-reverse-secondary-text-colour;
   }
 
   // This is to bypass nhsuk-hint's specificity on hints following labels having
@@ -196,6 +210,10 @@ $nhsuk-radios-offset: $nhsuk-border-width-form-element;
     @include nhsuk-font($size: 19);
   }
 
+  .nhsuk-radios--reverse .nhsuk-radios__divider {
+    color: $nhsuk-reverse-text-colour;
+  }
+
   // =========================================================
   // Conditional reveals
   // =========================================================
@@ -218,6 +236,10 @@ $nhsuk-radios-offset: $nhsuk-border-width-form-element;
     .nhsuk-frontend-supported &--hidden {
       display: none;
     }
+  }
+
+  .nhsuk-radios--reverse .nhsuk-radios__conditional {
+    border-left-color: $nhsuk-reverse-border-colour;
   }
 
   // =========================================================
@@ -314,6 +336,11 @@ $nhsuk-radios-offset: $nhsuk-border-width-form-element;
       box-shadow: 0 0 0 $nhsuk-hover-width $nhsuk-hover-colour;
     }
 
+    &.nhsuk-radios--reverse .nhsuk-radios__input:not(:disabled):hover + .nhsuk-radios__label::before,
+    &.nhsuk-radios--reverse .nhsuk-radios__input:not(:disabled) + .nhsuk-radios__label:hover::before {
+      box-shadow: 0 0 0 $nhsuk-hover-width $nhsuk-reverse-hover-colour;
+    }
+
     // Because we've overridden the border-shadow provided by the focus state,
     // we need to redefine that too.
     //
@@ -330,6 +357,14 @@ $nhsuk-radios-offset: $nhsuk-border-width-form-element;
       @media screen and (forced-colors: active), (-ms-high-contrast: active) {
         outline-color: Highlight;
       }
+    }
+
+    &.nhsuk-radios--reverse .nhsuk-radios__input:focus:hover + .nhsuk-radios__label::before,
+    &.nhsuk-radios--reverse .nhsuk-radios__input:focus + .nhsuk-radios__label:hover::before {
+      // prettier-ignore
+      box-shadow:
+        0 0 0 $nhsuk-radios-focus-width $nhsuk-focus-colour, // 1
+        0 0 0 $nhsuk-hover-width $nhsuk-reverse-hover-colour; // 2
     }
 
     // For devices that explicitly don't support hover, don't provide a hover

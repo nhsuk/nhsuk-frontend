@@ -1,4 +1,24 @@
 /**
+ * Nunjucks macro option variants
+ *
+ * @satisfies {MacroExample[]}
+ */
+export const variants = [
+  {
+    // Regular variant
+  },
+  {
+    description: 'reverse',
+    context: {
+      variant: 'reverse'
+    },
+    options: {
+      layout: 'background-blue'
+    }
+  }
+]
+
+/**
  * Nunjucks macro option examples
  *
  * @satisfies {{ [example: string]: MacroExample }}
@@ -17,6 +37,7 @@ const fixtures = {
       name: 'example',
       maxlength: 200
     },
+    variants,
     screenshot: {
       states: ['focus'],
       selector: '.nhsuk-textarea'
@@ -36,6 +57,7 @@ const fixtures = {
       maxlength: 200,
       disabled: true
     },
+    variants,
     screenshot: true
   },
   'with hint': {
@@ -51,7 +73,8 @@ const fixtures = {
       id: 'with-hint',
       name: 'example',
       maxlength: 200
-    }
+    },
+    variants
   },
   'with error message': {
     context: {
@@ -68,7 +91,8 @@ const fixtures = {
       maxlength: 350,
       value:
         'A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels. They make sure appropriate content is shown to a user in the right place and in the best format.'
-    }
+    },
+    variants
   },
   'with error message and hint': {
     context: {
@@ -89,6 +113,7 @@ const fixtures = {
       value:
         'A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels. They make sure appropriate content is shown to a user in the right place and in the best format.'
     },
+    variants,
     screenshot: {
       states: ['focus'],
       selector: '.nhsuk-textarea'

@@ -44,6 +44,13 @@ const options = {
     required: false,
     description: 'Size of the legend – `"s"`, `"m"`, `"l"` or `"xl"`.',
     released: '10.2.0'
+  },
+  variant: {
+    type: 'string',
+    required: false,
+    description:
+      'Optional variant of legend. You can use only `"reverse"` or empty values with this option.',
+    released: '10.5.0'
   }
 }
 

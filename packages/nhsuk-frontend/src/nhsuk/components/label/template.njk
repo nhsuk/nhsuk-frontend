@@ -1,7 +1,14 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
+{#- Set variant for this component #}
+{%- set variant = params.variant -%}
+
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-label" -%}
+
+{%- if variant == "reverse" and (not params.classes or not "nhsuk-label--reverse" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-label--" ~ variant %}
+{% endif %}
 
 {%- if params.size and
   params.size in ["s", "m", "l", "xl"] and (

@@ -14,6 +14,15 @@ export const variants = [
     // Regular variant
   },
   {
+    description: 'reverse',
+    context: {
+      variant: 'reverse'
+    },
+    options: {
+      layout: 'background-blue'
+    }
+  },
+  {
     description: 'small',
     context: {
       small: true,
@@ -22,6 +31,21 @@ export const variants = [
           size: 'm'
         }
       }
+    }
+  },
+  {
+    description: 'small reverse',
+    context: {
+      small: true,
+      variant: 'reverse',
+      fieldset: {
+        legend: {
+          size: 'm'
+        }
+      }
+    },
+    options: {
+      layout: 'background-blue'
     }
   }
 ]
@@ -145,7 +169,7 @@ const fixtures = {
       values: ['email', 'text'],
       items: getItems()
     },
-    variants
+    variants: variants.map(customVariant())
   },
   'with hints on items': {
     context: {
@@ -467,7 +491,7 @@ const fixtures = {
       name: 'contact',
       items: getItems()
     },
-    variants
+    variants: variants.map(customVariant())
   },
   'with conditional content, special characters': {
     context: {
@@ -488,7 +512,7 @@ const fixtures = {
     options: {
       hidden: true
     },
-    variants
+    variants: variants.map(customVariant())
   },
   'with conditional content, error message': {
     context: {
@@ -509,7 +533,7 @@ const fixtures = {
       name: 'contact',
       items: getItems({ invalid: true })
     },
-    variants
+    variants: variants.map(customVariant({ invalid: true }))
   },
   'with conditional content, error message (nested)': {
     context: {
@@ -528,7 +552,7 @@ const fixtures = {
       values: ['phone'],
       items: getItems({ invalid: true })
     },
-    variants,
+    variants: variants.map(customVariant({ invalid: true })),
     screenshot: {
       states: ['focus'],
       selector: '#conditional-2',
@@ -593,7 +617,7 @@ const fixtures = {
         }
       ])
     },
-    variants
+    variants: variants.map(customVariant())
   },
   'with "none of the above" option (named group)': {
     context: {
@@ -690,7 +714,7 @@ const fixtures = {
 /**
  * Get example items by variant
  *
- * @param {{ invalid?: boolean }} [options]
+ * @param {{ variant?: unknown, invalid?: boolean }} [options]
  * @returns {object[]}
  */
 function getItems(options = {}) {
@@ -701,6 +725,18 @@ function getItems(options = {}) {
   // Include error message example (optional)
   if (options.invalid) {
     input2 = inputExamples['example phone number with error message']
+  }
+
+  // Use reverse examples
+  if (options.variant === 'reverse') {
+    input1 = inputExamples['example reverse email address']
+    input2 = inputExamples['example reverse phone number']
+    input3 = inputExamples['example reverse mobile phone number']
+
+    // Include reverse error message example (optional)
+    if (options.invalid) {
+      input2 = inputExamples['example reverse phone number with error message']
+    }
   }
 
   return [
@@ -726,6 +762,24 @@ function getItems(options = {}) {
       }
     }
   ]
+}
+
+/**
+ * Replace example items for each variant
+ *
+ * @param {{ invalid?: boolean }} [options]
+ * @returns {(variant: MacroExample) => MacroExample}
+ */
+function customVariant(options = {}) {
+  return (example) => {
+    example = structuredClone(example)
+    example.context ??= {}
+
+    const { variant } = example.context
+    example.context.items = getItems({ variant, ...options })
+
+    return example
+  }
 }
 
 /**

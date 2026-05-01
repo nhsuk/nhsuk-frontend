@@ -96,6 +96,12 @@ $nhsuk-checkboxes-offset: $nhsuk-border-width-form-element;
     background: $nhsuk-input-background-colour;
   }
 
+  .nhsuk-checkboxes--reverse .nhsuk-checkboxes__label::before {
+    border-color: $nhsuk-reverse-input-border-colour;
+    color: $nhsuk-reverse-text-colour;
+    background-color: $nhsuk-reverse-input-background-colour;
+  }
+
   // ✔ Check mark
   //
   // The check mark is a box with a border on the left and bottom side (└──),
@@ -119,13 +125,21 @@ $nhsuk-checkboxes-offset: $nhsuk-border-width-form-element;
 
     border: solid;
     border-width: 0 0 nhsuk-px-to-rem(4px) nhsuk-px-to-rem(4px);
-    // Fix bug in IE11 caused by transform rotate (-45deg).
-    // See: alphagov/nhsuk_elements/issues/518
-    border-top-color: transparent;
 
     opacity: 0;
 
     background: transparent;
+  }
+
+  .nhsuk-checkboxes__label::after,
+  .nhsuk-checkboxes--reverse .nhsuk-checkboxes__label::after {
+    // Fix bug in IE11 caused by transform rotate (-45deg).
+    // See: alphagov/nhsuk_elements/issues/518
+    border-top-color: transparent;
+  }
+
+  .nhsuk-checkboxes--reverse .nhsuk-checkboxes__label::after {
+    border-color: $nhsuk-reverse-text-colour;
   }
 
   .nhsuk-checkboxes__hint {
@@ -134,6 +148,10 @@ $nhsuk-checkboxes-offset: $nhsuk-border-width-form-element;
     margin-top: nhsuk-spacing(-1);
     padding-right: $nhsuk-checkboxes-label-padding-left-right;
     padding-left: ($nhsuk-checkboxes-label-padding-left-right + $nhsuk-touch-target-size);
+  }
+
+  .nhsuk-checkboxes--reverse .nhsuk-checkboxes__hint {
+    color: $nhsuk-reverse-secondary-text-colour;
   }
 
   // This is to bypass nhsuk-hint's specificity on hints following labels having
@@ -178,6 +196,10 @@ $nhsuk-checkboxes-offset: $nhsuk-border-width-form-element;
     @include nhsuk-font($size: 19);
   }
 
+  .nhsuk-checkboxes--reverse .nhsuk-checkboxes__divider {
+    color: $nhsuk-reverse-text-colour;
+  }
+
   // =========================================================
   // Conditional reveals
   // =========================================================
@@ -199,6 +221,10 @@ $nhsuk-checkboxes-offset: $nhsuk-border-width-form-element;
     .nhsuk-frontend-supported &--hidden {
       display: none;
     }
+  }
+
+  .nhsuk-checkboxes--reverse .nhsuk-checkboxes__conditional {
+    border-left-color: $nhsuk-reverse-border-colour;
   }
 
   // =========================================================
@@ -297,6 +323,11 @@ $nhsuk-checkboxes-offset: $nhsuk-border-width-form-element;
       box-shadow: 0 0 0 $nhsuk-hover-width $nhsuk-hover-colour;
     }
 
+    &.nhsuk-checkboxes--reverse .nhsuk-checkboxes__input:not(:disabled):hover + .nhsuk-checkboxes__label::before,
+    &.nhsuk-checkboxes--reverse .nhsuk-checkboxes__input:not(:disabled) + .nhsuk-checkboxes__label:hover::before {
+      box-shadow: 0 0 0 $nhsuk-hover-width $nhsuk-reverse-hover-colour;
+    }
+
     // Because we've overridden the border-shadow provided by the focus state,
     // we need to redefine that too.
     //
@@ -313,6 +344,14 @@ $nhsuk-checkboxes-offset: $nhsuk-border-width-form-element;
       @media screen and (forced-colors: active), (-ms-high-contrast: active) {
         outline-color: Highlight;
       }
+    }
+
+    &.nhsuk-checkboxes--reverse .nhsuk-checkboxes__input:focus:hover + .nhsuk-checkboxes__label::before,
+    &.nhsuk-checkboxes--reverse .nhsuk-checkboxes__input:focus + .nhsuk-checkboxes__label:hover::before {
+      // prettier-ignore
+      box-shadow:
+        0 0 0 $nhsuk-focus-width $nhsuk-focus-colour, // 1
+        0 0 0 $nhsuk-hover-width $nhsuk-reverse-hover-colour; // 2
     }
 
     // For devices that explicitly don't support hover, don't provide a hover

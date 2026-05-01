@@ -24,6 +24,11 @@
     }
   }
 
+  .nhsuk-error-summary--reverse {
+    border-color: $nhsuk-reverse-error-colour;
+    color: $nhsuk-reverse-text-colour;
+  }
+
   .nhsuk-error-summary__title {
     margin-top: 0;
 
@@ -68,6 +73,16 @@
 
     &:focus {
       @include nhsuk-focused-text;
+    }
+  }
+
+  .nhsuk-error-summary--reverse .nhsuk-error-summary__list a {
+    // Override default link styling to use reverse error colour
+    &:link,
+    &:visited,
+    &:hover,
+    &:active {
+      color: $nhsuk-reverse-error-colour;
     }
   }
 }

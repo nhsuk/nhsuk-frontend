@@ -43,7 +43,7 @@
     text: params.backLink.text if (params.backLink.html or params.backLink.text) else lastText,
     html: params.backLink.html if (params.backLink.html or params.backLink.text),
     href: params.backLink.href if params.backLink.href else lastHref,
-    variant: params.backLink.variant if params.backLink.variant else variant,
+    variant: params.backLink.variant | default(variant),
     classes: params.backLink.classes,
     attributes: params.backLink.attributes if params.backLink.attributes else lastItem.attributes,
     element: params.backLink.element

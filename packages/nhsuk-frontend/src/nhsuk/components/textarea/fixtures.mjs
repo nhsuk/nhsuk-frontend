@@ -1,4 +1,24 @@
 /**
+ * Nunjucks macro option variants
+ *
+ * @satisfies {MacroExample[]}
+ */
+export const variants = [
+  {
+    // Regular variant
+  },
+  {
+    description: 'reverse',
+    context: {
+      variant: 'reverse'
+    },
+    options: {
+      layout: 'background-blue'
+    }
+  }
+]
+
+/**
  * Nunjucks macro option examples
  *
  * @satisfies {{ [example: string]: MacroExample }}
@@ -16,6 +36,7 @@ const fixtures = {
       },
       name: 'example'
     },
+    variants,
     screenshot: true
   },
   'disabled': {
@@ -31,6 +52,7 @@ const fixtures = {
       name: 'example',
       disabled: true
     },
+    variants,
     screenshot: true
   },
   'with hint': {
@@ -45,7 +67,8 @@ const fixtures = {
       },
       id: 'with-hint',
       name: 'example'
-    }
+    },
+    variants
   },
   'label': {
     context: {
@@ -131,6 +154,7 @@ const fixtures = {
       id: 'with-error-message',
       name: 'example'
     },
+    variants,
     screenshot: {
       states: ['focus'],
       selector: '#with-error-message'
@@ -151,7 +175,8 @@ const fixtures = {
       },
       id: 'with-hint-error',
       name: 'example'
-    }
+    },
+    variants
   },
   'with autocomplete attribute': {
     context: {

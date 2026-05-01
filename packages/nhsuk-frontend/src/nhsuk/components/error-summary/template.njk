@@ -1,7 +1,14 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes -%}
 
+{#- Set variant for this component #}
+{%- set variant = params.variant -%}
+
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-error-summary" -%}
+
+{%- if variant == "reverse" and (not params.classes or not "nhsuk-error-summary--reverse" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-error-summary--" ~ variant %}
+{% endif %}
 
 {%- if params.classes %}
   {% set classNames = classNames ~ " " ~ params.classes %}

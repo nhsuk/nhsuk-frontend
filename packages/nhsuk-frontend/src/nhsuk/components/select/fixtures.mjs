@@ -3,6 +3,26 @@ import { components } from '#lib'
 import { examples as buttonExamples } from '../button/fixtures.mjs'
 
 /**
+ * Nunjucks macro option variants
+ *
+ * @satisfies {MacroExample[]}
+ */
+export const variants = [
+  {
+    // Regular variant
+  },
+  {
+    description: 'reverse',
+    context: {
+      variant: 'reverse'
+    },
+    options: {
+      layout: 'background-blue'
+    }
+  }
+]
+
+/**
  * Nunjucks macro option examples
  *
  * @satisfies {{ [example: string]: MacroExample }}
@@ -34,6 +54,7 @@ const fixtures = {
         }
       ]
     },
+    variants,
     screenshot: true
   },
   'disabled': {
@@ -63,6 +84,7 @@ const fixtures = {
         }
       ]
     },
+    variants,
     screenshot: true
   },
   'with divider': {
@@ -178,6 +200,7 @@ const fixtures = {
         }
       ]
     },
+    variants,
     screenshot: true
   },
   'with button': {
@@ -233,15 +256,9 @@ const fixtures = {
           text: 'Yorkshire and the Humber'
         }
       ],
-      formGroup: {
-        afterInput: {
-          html: components.render(
-            'button',
-            buttonExamples['example secondary save button, small']
-          )
-        }
-      }
+      formGroup: getFormGroup()
     },
+    variants: variants.map(customVariant()),
     screenshot: {
       viewports: ['watch', 'mobile', 'tablet', 'desktop']
     }
@@ -302,15 +319,9 @@ const fixtures = {
           text: 'Yorkshire and the Humber'
         }
       ],
-      formGroup: {
-        afterInput: {
-          html: components.render(
-            'button',
-            buttonExamples['example secondary save button, small']
-          )
-        }
-      }
+      formGroup: getFormGroup()
     },
+    variants: variants.map(customVariant()),
     screenshot: {
       viewports: ['watch', 'mobile', 'tablet', 'desktop']
     }
@@ -469,7 +480,8 @@ const fixtures = {
           text: 'Yorkshire and the Humber'
         }
       ]
-    }
+    },
+    variants
   },
   'with error message and hint': {
     context: {
@@ -528,6 +540,7 @@ const fixtures = {
         }
       ]
     },
+    variants,
     screenshot: {
       states: ['focus'],
       selector: '#with-hint-error'
@@ -561,6 +574,41 @@ const fixtures = {
         }
       ]
     }
+  }
+}
+
+/**
+ * Get example form group by variant
+ *
+ * @param {{ variant?: unknown }} [options]
+ */
+function getFormGroup(options = {}) {
+  return {
+    afterInput: {
+      html: components.render(
+        'button',
+        options.variant === 'reverse'
+          ? buttonExamples['example reverse save button, small']
+          : buttonExamples['example secondary save button, small']
+      )
+    }
+  }
+}
+
+/**
+ * Replace form group for each variant
+ *
+ * @returns {(variant: MacroExample) => MacroExample}
+ */
+function customVariant() {
+  return (example) => {
+    example = structuredClone(example)
+    example.context ??= {}
+
+    const { variant } = example.context
+    example.context.formGroup = getFormGroup({ variant })
+
+    return example
   }
 }
 
