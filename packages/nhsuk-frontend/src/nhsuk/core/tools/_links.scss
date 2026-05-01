@@ -73,6 +73,10 @@
 
     &:not(.nhsuk-button) .nhsuk-icon {
       fill: $link-visited-colour;
+
+      @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+        fill: visitedtext;
+      }
     }
   }
 }
@@ -93,6 +97,10 @@
 
     &:not(.nhsuk-button) .nhsuk-icon {
       fill: $link-hover-colour;
+
+      @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+        fill: linktext;
+      }
     }
   }
 }
@@ -129,6 +137,10 @@
 
     &:not(.nhsuk-button) .nhsuk-icon {
       fill: $link-active-colour;
+
+      @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+        fill: activetext;
+      }
     }
   }
 }

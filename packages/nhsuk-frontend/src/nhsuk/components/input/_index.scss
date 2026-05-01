@@ -99,6 +99,13 @@
       background: currentcolor;
       mask: nhsuk-image-url("nhsuk-icon-cross.svg") no-repeat;
       mask-size: nhsuk-px-to-rem($nhsuk-icon-size) nhsuk-px-to-rem($nhsuk-icon-size);
+
+      // currentcolor doesn't seem to be computed correctly in forced colors
+      // mode so force the background color to match the system link color
+      // (matching the text in the link)
+      @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+        background: buttontext;
+      }
     }
   }
 
