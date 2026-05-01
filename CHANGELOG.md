@@ -6,6 +6,48 @@ Note: This release was created from the `support/10.x` branch.
 
 ### :new: **New features**
 
+#### Add date input `day`, `month` and `year` options
+
+We've updated the date input component to add individual `day`, `month` and `year` Nunjucks options.
+
+These new options can be used to partially override the defaults. For example, setting `error: true` on the year item no longer requires all other item defaults to be set:
+
+```patch
+  {{ dateInput({
+    fieldset: {
+      legend: {
+        text: "What is your date of birth?",
+        size: "l",
+        isPageHeading: true
+      }
+    },
+-   items: [
+-     {
+-       name: "dob[day]",
+-       label: "Day",
+-       width: 2
+-     },
+-     {
+-       name: "dob[month]",
+-       label: "Month",
+-       width: 2
+-     },
+-     {
+-       name: "dob[year]",
+-       label: "Year",
+-       width: 4,
+-       error: true
+-     }
+-   ]
++   namePrefix: "dob",
++   year: {
++     error: true
++   }
+  }) }}
+```
+
+This was added in [pull request #1869: Add date input `day`, `month` and `year` options](https://github.com/nhsuk/nhsuk-frontend/pull/1869).
+
 #### Add icons to buttons
 
 You can now [add icons](https://service-manual.nhs.uk/design-system/styles/icons) to buttons using the `icon` Nunjucks options.
