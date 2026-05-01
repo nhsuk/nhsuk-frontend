@@ -15,6 +15,7 @@ export * from './highlighter/index.mjs'
  * @typedef {import('./components.mjs').MacroOption} MacroOption
  * @typedef {import('./components.mjs').MacroParam} MacroParam
  * @typedef {import('./components.mjs').MacroScenario} MacroScenario
+ * @typedef {import('./nunjucks/index.mjs').MacroRenderContext} MacroRenderContext
  * @typedef {import('./nunjucks/index.mjs').MacroRenderOptions} MacroRenderOptions
  * @typedef {import('./nunjucks/index.mjs').TemplateRenderOptions} TemplateRenderOptions
  */

@@ -69,7 +69,7 @@ export function macro(component, options) {
  *
  * @typedef {object} MacroExample
  * @property {string | undefined} [description] - Example description (optional)
- * @property {{ [param: string]: unknown }} [context] - Nunjucks context object (optional)
+ * @property {MacroRenderContext} [context] - Nunjucks context object (optional)
  * @property {string | undefined} [callBlock] - Nunjucks macro `caller()` content (optional)
  * @property {never} [prefix] - Component name prefix (not available in Nunjucks macro examples)
  * @property {MacroExampleOptions} [options] - Review app example options (optional)
@@ -137,5 +137,5 @@ export function macro(component, options) {
 
 /**
  * @import { Scenario } from 'backstopjs'
- * @import { MacroRenderOptions } from '#lib'
+ * @import { MacroRenderContext, MacroRenderOptions } from '#lib'
  */
