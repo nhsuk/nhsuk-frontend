@@ -47,20 +47,93 @@
       opacity: 1; // Fixes low contrast of placeholder text in firefox
       color: nhsuk-colour("grey-1");
     }
+
+    // Hide input clear button (IE)
+    &::-ms-clear {
+      display: none;
+    }
   }
 
-  .nhsuk-input::-webkit-outer-spin-button,
-  .nhsuk-input::-webkit-inner-spin-button {
+  // Reset custom appearance
+  .nhsuk-input[type="number"],
+  .nhsuk-input[type="search"] {
+    appearance: textfield;
+  }
+
+  // Hide input icons and buttons (Webkit, Blink)
+  .nhsuk-input[type="number"]::-webkit-inner-spin-button,
+  .nhsuk-input[type="number"]::-webkit-outer-spin-button,
+  .nhsuk-input[type="search"]::-webkit-search-decoration,
+  .nhsuk-input[type="search"]::-webkit-search-results-button,
+  .nhsuk-input[type="search"]::-webkit-search-results-decoration {
+    display: none;
+  }
+
+  // Only hide cancel button when placeholder would be shown
+  .nhsuk-input[type="search"]:placeholder-shown::-webkit-search-cancel-button {
+    display: none;
+  }
+
+  // Note: This is a non-standard CSS feature and will not do anything in Firefox
+  // https://bugzilla.mozilla.org/show_bug.cgi?id=1417753
+  .nhsuk-input[type="search"]::-webkit-search-cancel-button {
+    align-self: center;
+
+    width: nhsuk-px-to-rem($nhsuk-icon-size);
+    height: nhsuk-px-to-rem($nhsuk-icon-size);
     margin: 0;
-    -webkit-appearance: none;
-  }
 
-  .nhsuk-input[type="number"] {
-    -moz-appearance: textfield;
+    background: nhsuk-image-url("nhsuk-icon-cross.svg") no-repeat;
+    background-size: nhsuk-px-to-rem($nhsuk-icon-size) nhsuk-px-to-rem($nhsuk-icon-size);
+
+    cursor: pointer;
+
+    appearance: none;
+
+    // Where possible use the cross as a mask instead. This lets us use
+    // currentcolor, increasing the contrast of the image and matching the
+    // user's prefered foreground colour in e.g. forced colors mode.
+    // We test for `mask-position` rather than `mask-image` because of a false
+    // positive in Edge 17.
+    @supports (mask-position: initial) {
+      background: currentcolor;
+      mask: nhsuk-image-url("nhsuk-icon-cross.svg") no-repeat;
+      mask-size: nhsuk-px-to-rem($nhsuk-icon-size) nhsuk-px-to-rem($nhsuk-icon-size);
+
+      // currentcolor doesn't seem to be computed correctly in forced colors
+      // mode so force the background color to match the system link color
+      // (matching the text in the link)
+      @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+        background: buttontext;
+      }
+    }
   }
 
   .nhsuk-input--error {
     border-color: $nhsuk-error-colour;
+  }
+
+  // Large inputs
+
+  .nhsuk-input--large {
+    height: nhsuk-px-to-rem(52px);
+    padding-right: nhsuk-px-to-rem(nhsuk-spacing(2));
+    padding-left: nhsuk-px-to-rem(nhsuk-spacing(2));
+    @include nhsuk-font($size: 22);
+
+    @include nhsuk-media-query($from: tablet) {
+      height: nhsuk-px-to-rem(56px + $nhsuk-button-shadow-size);
+    }
+  }
+
+  .nhsuk-input--large[type="search"]::-webkit-search-cancel-button {
+    width: nhsuk-px-to-rem($nhsuk-icon-size-large);
+    height: nhsuk-px-to-rem($nhsuk-icon-size-large);
+    background-size: nhsuk-px-to-rem($nhsuk-icon-size-large) nhsuk-px-to-rem($nhsuk-icon-size-large);
+
+    @supports (mask-position: initial) {
+      mask-size: nhsuk-px-to-rem($nhsuk-icon-size-large) nhsuk-px-to-rem($nhsuk-icon-size-large);
+    }
   }
 
   // Codes and sequences
@@ -136,6 +209,20 @@
       display: block;
       height: 100%;
       white-space: normal;
+    }
+  }
+
+  .nhsuk-input-wrapper--large .nhsuk-input-wrapper__prefix,
+  .nhsuk-input-wrapper--large .nhsuk-input-wrapper__suffix {
+    @include nhsuk-media-query($from: mobile) {
+      height: nhsuk-px-to-rem(52px);
+      padding-right: nhsuk-px-to-rem(nhsuk-spacing(2));
+      padding-left: nhsuk-px-to-rem(nhsuk-spacing(2));
+      @include nhsuk-font($size: 22);
+    }
+
+    @include nhsuk-media-query($from: tablet) {
+      height: nhsuk-px-to-rem(56px + $nhsuk-button-shadow-size);
     }
   }
 

@@ -1,0 +1,75 @@
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+@use "../../core/helpers" as *;
+@use "../button" as *;
+@forward "../../core/styles/icons";
+@forward "../button";
+@forward "../input";
+
+////
+/// Search input component
+///
+/// @group components/search-input
+////
+
+@include nhsuk-exports("nhsuk/components/search-input") {
+  .nhsuk-search-input__wrapper {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .nhsuk-search-input__input {
+    flex: 0 1 auto;
+    margin-right: -$nhsuk-border-width-form-element;
+  }
+
+  .nhsuk-search-input__button {
+    flex-shrink: 0;
+    width: auto;
+    height: nhsuk-px-to-rem(36px);
+
+    // Remove unnecessary margin
+    .nhsuk-input-wrapper & {
+      margin-top: 0;
+      margin-left: 0;
+    }
+
+    .nhsuk-input--large ~ & {
+      height: nhsuk-px-to-rem(52px - $nhsuk-button-shadow-size);
+    }
+
+    // Prevent height change when pressed
+    &:active,
+    &:active:focus {
+      top: 0;
+      height: nhsuk-px-to-rem(36px + $nhsuk-button-shadow-size);
+      margin-bottom: 0;
+      // stylelint-disable-next-line declaration-no-important
+      box-shadow: none !important;
+
+      .nhsuk-input--large ~ & {
+        height: nhsuk-px-to-rem(52px);
+      }
+    }
+
+    // Remove border radius from left side
+    &,
+    &::before,
+    &::after {
+      border-radius: 0 nhsuk-px-to-rem($nhsuk-border-radius) nhsuk-px-to-rem($nhsuk-border-radius) 0;
+    }
+
+    // Remove inner box shadow from left side
+    &:not(:focus)::after {
+      left: -2px;
+    }
+
+    @include nhsuk-media-query($from: tablet) {
+      // Prevent height change when pressed
+      .nhsuk-input--large ~ &:active,
+      .nhsuk-input--large ~ &:active:focus {
+        height: nhsuk-px-to-rem(56px + $nhsuk-button-shadow-size);
+      }
+    }
+  }
+}
