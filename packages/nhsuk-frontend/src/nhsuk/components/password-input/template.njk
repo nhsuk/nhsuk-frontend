@@ -3,6 +3,9 @@
 {% from "nhsuk/components/button/macro.njk" import button -%}
 {% from "nhsuk/components/input/macro.njk" import input -%}
 
+{#- Set variant for this component #}
+{%- set variant = params.variant -%}
+
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-password-input__input nhsuk-js-password-input-input" -%}
 {%- set classNamesFormGroup = "nhsuk-password-input" -%}
@@ -76,7 +79,7 @@
       optional: true
     }
   },
-  variant: params.button.variant | default("secondary")
+  variant: params.button.variant | default(variant or "secondary")
 }) | trim }}
 {% if params.formGroup.afterInput %}
   {{- params.formGroup.afterInput.html | safe | trim if params.formGroup.afterInput.html else params.formGroup.afterInput.text }}
@@ -103,6 +106,7 @@
   describedBy: params.describedBy,
   classes: classNames,
   attributes: params.attributes,
+  variant: variant,
   inputWrapper: params.inputWrapper,
   formGroup: {
     classes: classNamesFormGroup,

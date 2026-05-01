@@ -1,4 +1,24 @@
 /**
+ * Nunjucks macro option variants
+ *
+ * @satisfies {MacroExample[]}
+ */
+export const variants = [
+  {
+    // Regular variant
+  },
+  {
+    description: "reverse",
+    context: {
+      variant: "reverse"
+    },
+    options: {
+      layout: "background-blue"
+    }
+  }
+]
+
+/**
  * Nunjucks macro option examples
  *
  * @satisfies {{ [example: string]: MacroExample }}
@@ -14,6 +34,7 @@ const fixtures = {
         }
       ]
     },
+    variants,
     screenshot: {
       states: ["focus", "hover", "active"],
       selector: ".nhsuk-error-summary a"
@@ -32,7 +53,8 @@ const fixtures = {
           href: "#example-last-name"
         }
       ]
-    }
+    },
+    variants
   },
   "with multiple errors (empty items)": {
     context: {
@@ -68,6 +90,7 @@ const fixtures = {
         }
       ]
     },
+    variants,
     screenshot: true
   },
   "with description HTML": {

@@ -3,10 +3,18 @@
 {% from "nhsuk/components/hint/macro.njk" import hint %}
 {% from "nhsuk/components/label/macro.njk" import label %}
 
+{#- Set variant for this component #}
+{%- set variant = params.variant -%}
+
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-input" -%}
 {%- set classNamesInputWrapper = "nhsuk-input-wrapper" -%}
 {%- set classNamesFormGroup = "nhsuk-form-group" -%}
+
+{%- if variant == "reverse" and (not params.classes or not "nhsuk-input--reverse" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-input--" ~ variant %}
+  {% set classNamesInputWrapper = classNamesInputWrapper ~ " nhsuk-input-wrapper--reverse" %}
+{% endif %}
 
 {%- if params.large and (not params.classes or not "nhsuk-input--large" in params.classes) %}
   {% set classNames = classNames ~ " nhsuk-input--large" %}
@@ -19,7 +27,7 @@
 
 {%- if params.errorMessage %}
   {% set classNames = classNames ~ " nhsuk-input--error" %}
-  {% set classNamesFormGroup = classNamesFormGroup ~ " nhsuk-form-group--error" %}
+  {% set classNamesFormGroup = classNamesFormGroup ~ (" nhsuk-form-group--reverse" if variant == "reverse") ~ " nhsuk-form-group--error" %}
 {% endif %}
 
 {%- if params.width and
@@ -136,7 +144,8 @@
     size: params.label.size,
     isPageHeading: params.label.isPageHeading,
     classes: params.label.classes,
-    attributes: params.label.attributes
+    attributes: params.label.attributes,
+    variant: params.label.variant | default(variant)
   }) | trim | indent(2) }}
 {% if params.hint %}
   {% set hintId = params.hint.id | default(id ~ "-hint") %}
@@ -146,7 +155,8 @@
     text: params.hint.text,
     id: params.hint.id | default(hintId),
     classes: params.hint.classes,
-    attributes: params.hint.attributes
+    attributes: params.hint.attributes,
+    variant: params.hint.variant | default(variant)
   }) | trim | indent(2) }}
 {% endif %}
 {% if params.errorMessage.text or params.errorMessage.html %}
@@ -158,7 +168,8 @@
     visuallyHiddenText: params.errorMessage.visuallyHiddenText,
     id: params.errorMessage.id | default(errorId),
     classes: params.errorMessage.classes,
-    attributes: params.errorMessage.attributes
+    attributes: params.errorMessage.attributes,
+    variant: params.errorMessage.variant | default(variant)
   }) | trim | indent(2) }}
 {% endif %}
 

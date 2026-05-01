@@ -1,4 +1,24 @@
 /**
+ * Nunjucks macro option variants
+ *
+ * @satisfies {MacroExample[]}
+ */
+export const variants = [
+  {
+    // Regular variant
+  },
+  {
+    description: "reverse",
+    context: {
+      variant: "reverse"
+    },
+    options: {
+      layout: "background-blue"
+    }
+  }
+]
+
+/**
  * Nunjucks macro option examples
  *
  * @satisfies {{ [example: string]: MacroExample }}
@@ -12,7 +32,8 @@ const fixtures = {
         isPageHeading: true
       },
       name: "example"
-    }
+    },
+    variants
   },
   "disabled": {
     context: {
@@ -24,6 +45,7 @@ const fixtures = {
       name: "example",
       disabled: true
     },
+    variants,
     screenshot: true
   },
   "disabled with enabled button": {
@@ -38,7 +60,8 @@ const fixtures = {
       button: {
         disabled: false
       }
-    }
+    },
+    variants
   },
   "disabled button": {
     context: {
@@ -51,7 +74,8 @@ const fixtures = {
       button: {
         disabled: true
       }
-    }
+    },
+    variants
   },
   "with button double click prevented": {
     context: {
@@ -92,6 +116,7 @@ const fixtures = {
       id: "with-hint-text",
       name: "example"
     },
+    variants,
     screenshot: {
       viewports: ["watch", "mobile", "tablet", "desktop"]
     }
@@ -108,7 +133,8 @@ const fixtures = {
       },
       id: "with-error-message",
       name: "example"
-    }
+    },
+    variants
   },
   "with error message and hint": {
     context: {
@@ -126,6 +152,7 @@ const fixtures = {
       id: "with-error-message",
       name: "example"
     },
+    variants,
     screenshot: {
       viewports: ["watch", "mobile", "tablet", "desktop"]
     }
@@ -179,7 +206,8 @@ const fixtures = {
       },
       id: "without-heading",
       name: "example"
-    }
+    },
+    variants
   },
   "with width": {
     context: {
@@ -220,7 +248,8 @@ const fixtures = {
       hidePasswordAriaLabelText: "Cuddio cyfrinair",
       passwordShownAnnouncementText: "Mae eich cyfrinair yn weladwy.",
       passwordHiddenAnnouncementText: "Mae eich cyfrinair wedi'i guddio."
-    }
+    },
+    variants
   }
 }
 

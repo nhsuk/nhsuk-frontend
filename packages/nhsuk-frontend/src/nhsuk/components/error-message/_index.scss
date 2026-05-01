@@ -17,4 +17,8 @@
 
     @include nhsuk-font(19, $weight: bold);
   }
+
+  .nhsuk-error-message--reverse {
+    color: $nhsuk-reverse-error-colour;
+  }
 }

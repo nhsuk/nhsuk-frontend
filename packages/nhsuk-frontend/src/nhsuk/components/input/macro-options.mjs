@@ -164,6 +164,13 @@ const options = {
     description: 'If set to `true`, larger input size will be used.',
     released: '10.5.0'
   },
+  variant: {
+    type: 'string',
+    required: false,
+    description:
+      'Optional variant of input. You can use only `"reverse"` or empty values with this option.',
+    released: '10.5.0'
+  },
   formGroup: {
     type: 'object',
     required: false,
