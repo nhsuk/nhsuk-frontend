@@ -1,4 +1,24 @@
 /**
+ * Nunjucks macro option variants
+ *
+ * @satisfies {MacroExample[]}
+ */
+export const variants = [
+  {
+    // Regular variant
+  },
+  {
+    description: 'reverse',
+    context: {
+      variant: 'reverse'
+    },
+    options: {
+      layout: 'background-blue'
+    }
+  }
+]
+
+/**
  * Nunjucks macro option examples
  *
  * @satisfies {{ [example: string]: MacroExample }}
@@ -18,6 +38,7 @@ const fixtures = {
       },
       id: 'example'
     },
+    variants,
     screenshot: true
   },
   'disabled': {
@@ -35,6 +56,7 @@ const fixtures = {
       id: 'example',
       disabled: true
     },
+    variants,
     screenshot: true
   },
   'with disabled item': {
@@ -65,7 +87,8 @@ const fixtures = {
           disabled: true
         }
       ]
-    }
+    },
+    variants
   },
   'with values': {
     context: {
@@ -110,7 +133,8 @@ const fixtures = {
           width: 2
         }
       ]
-    }
+    },
+    variants
   },
   'day and month (empty item)': {
     context: {
@@ -161,7 +185,8 @@ const fixtures = {
           width: 4
         }
       ]
-    }
+    },
+    variants
   },
   'month and year (empty item)': {
     context: {
@@ -366,7 +391,8 @@ const fixtures = {
           error: true
         }
       ]
-    }
+    },
+    variants
   },
   'with error message and hint': {
     context: {
@@ -402,6 +428,7 @@ const fixtures = {
         }
       ]
     },
+    variants,
     screenshot: true
   },
   'with error on day input': {
@@ -437,7 +464,8 @@ const fixtures = {
           width: 4
         }
       ]
-    }
+    },
+    variants
   },
   'with error on month input': {
     context: {
@@ -472,7 +500,8 @@ const fixtures = {
           value: '1980'
         }
       ]
-    }
+    },
+    variants
   },
   'with error on year input': {
     context: {
@@ -507,7 +536,8 @@ const fixtures = {
           error: true
         }
       ]
-    }
+    },
+    variants
   }
 }
 

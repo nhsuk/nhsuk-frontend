@@ -4,12 +4,15 @@
 {% from "nhsuk/components/hint/macro.njk" import hint %}
 {% from "nhsuk/components/label/macro.njk" import label %}
 
+{#- Set variant for this component #}
+{%- set variant = params.variant -%}
+
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-file-upload__input" -%}
 {%- set classNamesFormGroup = "nhsuk-form-group" -%}
 
 {%- if params.errorMessage %}
-  {% set classNamesFormGroup = classNamesFormGroup ~ " nhsuk-form-group--error" %}
+  {% set classNamesFormGroup = classNamesFormGroup ~ (" nhsuk-form-group--reverse" if variant == "reverse") ~ " nhsuk-form-group--error" %}
 {% endif %}
 
 {%- if params.classes %}
@@ -27,10 +30,10 @@
 
 <div
   {{- nhsukAttributes({
-    class: classNamesFormGroup ~ " nhsuk-file-upload",
+    class: classNamesFormGroup ~ " nhsuk-file-upload" ~ (" nhsuk-file-upload--" ~ variant if variant == "reverse"),
     "data-module": "nhsuk-file-upload",
     "data-choose-files-button-class-list": {
-      value: params.chooseFilesButtonClassList,
+      value: params.chooseFilesButtonClassList | default(["nhsuk-button--reverse"] if variant == "reverse" else false),
       type: "array",
       optional: true
     }
@@ -74,6 +77,7 @@
     classes: params.label.classes,
     attributes: params.label.attributes,
     size: params.label.size,
+    variant: params.label.variant | default(variant),
     isPageHeading: params.label.isPageHeading,
     for: id
   }) | trim | indent(2) }}
@@ -85,7 +89,8 @@
     text: params.hint.text,
     id: hintId,
     classes: params.hint.classes,
-    attributes: params.hint.attributes
+    attributes: params.hint.attributes,
+    variant: params.hint.variant | default(variant)
   }) | trim | indent(2) }}
 {% endif %}
 {% if params.errorMessage %}
@@ -97,7 +102,8 @@
     visuallyHiddenText: params.errorMessage.visuallyHiddenText,
     id: errorId,
     classes: params.errorMessage.classes,
-    attributes: params.errorMessage.attributes
+    attributes: params.errorMessage.attributes,
+    variant: params.errorMessage.variant | default(variant)
   }) | trim | indent(2) }}
 {% endif %}
 {% if params.formGroup.beforeInput %}

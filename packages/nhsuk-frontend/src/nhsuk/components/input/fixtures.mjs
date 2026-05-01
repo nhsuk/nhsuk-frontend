@@ -3,6 +3,26 @@ import { components } from '#lib'
 import { examples as buttonExamples } from '../button/fixtures.mjs'
 
 /**
+ * Nunjucks macro option variants
+ *
+ * @satisfies {MacroExample[]}
+ */
+export const variants = [
+  {
+    // Regular variant
+  },
+  {
+    description: 'reverse',
+    context: {
+      variant: 'reverse'
+    },
+    options: {
+      layout: 'background-blue'
+    }
+  }
+]
+
+/**
  * Nunjucks macro option examples
  *
  * @satisfies {{ [example: string]: MacroExample }}
@@ -17,6 +37,7 @@ const fixtures = {
       },
       name: 'example'
     },
+    variants,
     screenshot: true
   },
   'disabled': {
@@ -48,6 +69,7 @@ const fixtures = {
       inputmode: 'numeric',
       spellcheck: false
     },
+    variants,
     screenshot: true
   },
   'with button': {
@@ -63,15 +85,9 @@ const fixtures = {
       code: true,
       inputmode: 'numeric',
       spellcheck: false,
-      formGroup: {
-        afterInput: {
-          html: components.render(
-            'button',
-            buttonExamples['example secondary search button, small']
-          )
-        }
-      }
+      formGroup: getFormGroup()
     },
+    variants: variants.map(customVariant()),
     screenshot: {
       viewports: ['watch', 'mobile', 'tablet', 'desktop']
     }
@@ -92,15 +108,9 @@ const fixtures = {
       code: true,
       inputmode: 'numeric',
       spellcheck: false,
-      formGroup: {
-        afterInput: {
-          html: components.render(
-            'button',
-            buttonExamples['example secondary search button, small']
-          )
-        }
-      }
+      formGroup: getFormGroup()
     },
+    variants: variants.map(customVariant()),
     screenshot: {
       viewports: ['watch', 'mobile', 'tablet', 'desktop']
     }
@@ -121,7 +131,8 @@ const fixtures = {
       code: true,
       inputmode: 'numeric',
       spellcheck: false
-    }
+    },
+    variants
   },
   'with error message and hint': {
     context: {
@@ -143,6 +154,7 @@ const fixtures = {
       inputmode: 'numeric',
       spellcheck: false
     },
+    variants,
     screenshot: {
       states: ['focus'],
       selector: '#with-hint-error'
@@ -350,6 +362,7 @@ const fixtures = {
       },
       width: 5
     },
+    variants,
     screenshot: true
   },
   'with prefix HTML': {
@@ -391,6 +404,7 @@ const fixtures = {
       },
       width: 5
     },
+    variants,
     screenshot: true
   },
   'with suffix HTML': {
@@ -435,6 +449,7 @@ const fixtures = {
       },
       width: 5
     },
+    variants,
     screenshot: true
   },
   'with prefix and suffix and error': {
@@ -456,6 +471,7 @@ const fixtures = {
       },
       width: 5
     },
+    variants,
     screenshot: {
       states: ['focus'],
       selector: '#with-prefix-suffix'
@@ -489,6 +505,21 @@ const fixtures = {
       hidden: true
     }
   },
+  'example reverse email address': {
+    context: {
+      label: {
+        text: 'Email address'
+      },
+      name: 'contact-by-email',
+      classes: 'nhsuk-u-width-two-thirds',
+      variant: 'reverse',
+      spellcheck: false
+    },
+    options: {
+      hidden: true,
+      layout: 'background-blue'
+    }
+  },
   'example phone number': {
     context: {
       label: {
@@ -500,6 +531,21 @@ const fixtures = {
     },
     options: {
       hidden: true
+    }
+  },
+  'example reverse phone number': {
+    context: {
+      label: {
+        text: 'Phone number'
+      },
+      type: 'tel',
+      name: 'contact-by-phone',
+      classes: 'nhsuk-u-width-two-thirds',
+      variant: 'reverse'
+    },
+    options: {
+      hidden: true,
+      layout: 'background-blue'
     }
   },
   'example phone number with error message': {
@@ -518,6 +564,24 @@ const fixtures = {
       hidden: true
     }
   },
+  'example reverse phone number with error message': {
+    context: {
+      label: {
+        text: 'Phone number'
+      },
+      errorMessage: {
+        text: 'Enter your phone number'
+      },
+      type: 'tel',
+      name: 'contact-by-phone',
+      classes: 'nhsuk-u-width-two-thirds',
+      variant: 'reverse'
+    },
+    options: {
+      hidden: true,
+      layout: 'background-blue'
+    }
+  },
   'example mobile phone number': {
     context: {
       label: {
@@ -529,6 +593,21 @@ const fixtures = {
     },
     options: {
       hidden: true
+    }
+  },
+  'example reverse mobile phone number': {
+    context: {
+      label: {
+        text: 'Mobile phone number'
+      },
+      type: 'tel',
+      name: 'contact-by-text',
+      classes: 'nhsuk-u-width-two-thirds',
+      variant: 'reverse'
+    },
+    options: {
+      hidden: true,
+      layout: 'background-blue'
     }
   },
   'example address line 1': {
@@ -580,6 +659,41 @@ const fixtures = {
     options: {
       hidden: true
     }
+  }
+}
+
+/**
+ * Get example form group by variant
+ *
+ * @param {{ variant?: unknown }} [options]
+ */
+function getFormGroup(options = {}) {
+  return {
+    afterInput: {
+      html: components.render(
+        'button',
+        options.variant === 'reverse'
+          ? buttonExamples['example reverse search button, small']
+          : buttonExamples['example secondary search button, small']
+      )
+    }
+  }
+}
+
+/**
+ * Replace form group for each variant
+ *
+ * @returns {(variant: MacroExample) => MacroExample}
+ */
+function customVariant() {
+  return (example) => {
+    example = structuredClone(example)
+    example.context ??= {}
+
+    const { variant } = example.context
+    example.context.formGroup = getFormGroup({ variant })
+
+    return example
   }
 }
 

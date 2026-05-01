@@ -4,12 +4,15 @@
 {% from "nhsuk/components/input/macro.njk" import input %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
+{#- Set variant for this component #}
+{%- set variant = params.variant -%}
+
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-date-input" -%}
 {%- set classNamesFormGroup = "nhsuk-form-group" -%}
 
 {%- if params.errorMessage %}
-  {% set classNamesFormGroup = classNamesFormGroup ~ " nhsuk-form-group--error" %}
+  {% set classNamesFormGroup = classNamesFormGroup ~ (" nhsuk-form-group--reverse" if variant == "reverse") ~ " nhsuk-form-group--error" %}
 {% endif %}
 
 {%- if params.classes %}
@@ -59,7 +62,8 @@
     text: params.hint.text,
     id: hintId,
     classes: params.hint.classes,
-    attributes: params.hint.attributes
+    attributes: params.hint.attributes,
+    variant: params.hint.variant | default(variant)
   }) | trim | indent(2) }}
 {% endif %}
 {% if params.errorMessage %}
@@ -71,7 +75,8 @@
     visuallyHiddenText: params.errorMessage.visuallyHiddenText,
     id: errorId,
     classes: params.errorMessage.classes,
-    attributes: params.errorMessage.attributes
+    attributes: params.errorMessage.attributes,
+    variant: params.errorMessage.variant | default(variant)
   }) | trim | indent(2) }}
 {% endif %}
   <div class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %} {{- nhsukAttributes(params.attributes) -}}>
@@ -93,6 +98,7 @@
         value: item.value or params.values[item.name],
         width: item.width,
         type: "text",
+        variant: item.variant | default(variant),
         inputmode: item.inputmode if item.inputmode else "numeric",
         autocomplete: item.autocomplete,
         pattern: item.pattern,
@@ -119,7 +125,14 @@
     classes: params.fieldset.classes,
     role: "group",
     attributes: params.fieldset.attributes,
-    legend: params.fieldset.legend,
+    legend: {
+      html: params.fieldset.legend.html,
+      text: params.fieldset.legend.text,
+      classes: params.fieldset.legend.classes,
+      size: params.fieldset.legend.size,
+      variant: params.fieldset.legend.variant | default(variant),
+      isPageHeading: params.fieldset.legend.isPageHeading
+    } if params.fieldset.legend,
     html: innerHtml | trim
   }) | trim | indent(2) }}
 {% else %}

@@ -1,4 +1,24 @@
 /**
+ * Nunjucks macro option variants
+ *
+ * @satisfies {MacroExample[]}
+ */
+export const variants = [
+  {
+    // Regular variant
+  },
+  {
+    description: 'reverse',
+    context: {
+      variant: 'reverse'
+    },
+    options: {
+      layout: 'background-blue'
+    }
+  }
+]
+
+/**
  * Nunjucks macro option examples
  *
  * @satisfies {{ [example: string]: MacroExample }}
@@ -14,6 +34,7 @@ const fixtures = {
       id: 'file-upload',
       name: 'file-upload'
     },
+    variants,
     screenshot: {
       viewports: ['watch', 'mobile', 'tablet', 'desktop']
     }
@@ -28,7 +49,8 @@ const fixtures = {
       id: 'file-upload',
       name: 'file-upload',
       disabled: true
-    }
+    },
+    variants
   },
   'with hint': {
     context: {
@@ -42,7 +64,8 @@ const fixtures = {
       },
       id: 'file-upload',
       name: 'file-upload'
-    }
+    },
+    variants
   },
   'with error message': {
     context: {
@@ -56,7 +79,8 @@ const fixtures = {
       },
       id: 'file-upload',
       name: 'file-upload'
-    }
+    },
+    variants
   },
   'with error message and hint': {
     context: {
@@ -74,6 +98,7 @@ const fixtures = {
         text: 'The selected file must be a JPG, BMP or TIF'
       }
     },
+    variants,
     screenshot: {
       viewports: ['watch', 'mobile', 'tablet', 'desktop']
     }
@@ -155,6 +180,19 @@ const fixtures = {
         description: 'with small primary',
         context: {
           chooseFilesButtonClassList: ['nhsuk-button--small']
+        }
+      },
+      {
+        description: 'with small reverse',
+        context: {
+          variant: 'reverse',
+          chooseFilesButtonClassList: [
+            'nhsuk-button--reverse',
+            'nhsuk-button--small'
+          ]
+        },
+        options: {
+          layout: 'background-blue'
         }
       },
       {

@@ -58,4 +58,14 @@
   .nhsuk-select--error {
     border-color: $nhsuk-error-colour;
   }
+
+  .nhsuk-select--reverse {
+    border-color: $nhsuk-reverse-input-border-colour;
+    color: $nhsuk-reverse-text-colour;
+    background-color: $nhsuk-reverse-input-background-colour;
+  }
+
+  .nhsuk-select--reverse.nhsuk-select--error:not(:focus) {
+    border-color: $nhsuk-reverse-error-border-colour;
+  }
 }

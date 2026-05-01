@@ -3,6 +3,9 @@
 {% from "nhsuk/components/textarea/macro.njk" import textarea %}
 {% from "nhsuk/components/hint/macro.njk" import hint %}
 
+{#- Set variant for this component #}
+{%- set variant = params.variant -%}
+
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-js-character-count" -%}
 {%- set classNamesFormGroup = "nhsuk-character-count" -%}
@@ -36,7 +39,8 @@
       value: false if textareaDescriptionTextNoLimit | length else true,
       optional: true
     }
-  }
+  },
+  variant: params.countMessage.variant | default(variant)
 }) | trim }}
 {% if params.formGroup.afterInput %}
   {{- params.formGroup.afterInput.html | safe | trim if params.formGroup.afterInput.html else params.formGroup.afterInput.text }}
@@ -134,5 +138,6 @@
   hint: params.hint,
   errorMessage: params.errorMessage,
   disabled: params.disabled,
-  attributes: params.attributes
+  attributes: params.attributes,
+  variant: variant
 }) | trim }}

@@ -45,7 +45,7 @@
 
     &::placeholder {
       opacity: 1; // Fixes low contrast of placeholder text in firefox
-      color: nhsuk-colour("grey-1");
+      color: $nhsuk-secondary-text-colour;
     }
   }
 
@@ -61,6 +61,20 @@
 
   .nhsuk-input--error {
     border-color: $nhsuk-error-colour;
+  }
+
+  .nhsuk-input--reverse {
+    border-color: $nhsuk-reverse-input-border-colour;
+    color: $nhsuk-reverse-text-colour;
+    background-color: $nhsuk-reverse-input-background-colour;
+
+    &::placeholder {
+      color: $nhsuk-reverse-secondary-text-colour;
+    }
+  }
+
+  .nhsuk-input--reverse.nhsuk-input--error:not(:focus) {
+    border-color: $nhsuk-reverse-error-border-colour;
   }
 
   // Codes and sequences
@@ -118,7 +132,7 @@
 
     min-width: nhsuk-px-to-rem(40px);
     height: nhsuk-px-to-rem(40px);
-    padding: nhsuk-px-to-rem(nhsuk-spacing(1));
+    padding: nhsuk-px-to-rem(nhsuk-spacing(2));
 
     border: $nhsuk-border-width-form-element solid $nhsuk-input-border-colour;
 
@@ -137,6 +151,13 @@
       height: 100%;
       white-space: normal;
     }
+  }
+
+  .nhsuk-input-wrapper--reverse .nhsuk-input-wrapper__prefix,
+  .nhsuk-input-wrapper--reverse .nhsuk-input-wrapper__suffix {
+    border-color: $nhsuk-reverse-input-border-colour;
+    color: $nhsuk-reverse-text-colour;
+    background-color: nhsuk-tint($nhsuk-brand-colour, 10%);
   }
 
   .nhsuk-input-wrapper__prefix,

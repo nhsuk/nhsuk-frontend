@@ -25,6 +25,10 @@
     }
   }
 
+  .nhsuk-form-group--error.nhsuk-form-group--reverse {
+    border-left-color: $nhsuk-reverse-error-border-colour;
+  }
+
   .nhsuk-form-group--inline {
     @include nhsuk-media-query($from: tablet) {
       display: flex;

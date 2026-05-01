@@ -4,9 +4,16 @@
 {% from "nhsuk/components/hint/macro.njk" import hint %}
 {% from "nhsuk/components/label/macro.njk" import label %}
 
+{#- Set variant for this component #}
+{%- set variant = params.variant -%}
+
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-checkboxes" -%}
 {%- set classNamesFormGroup = "nhsuk-form-group" -%}
+
+{%- if variant == "reverse" and (not params.classes or not "nhsuk-checkboxes--reverse" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-checkboxes--" ~ variant %}
+{% endif %}
 
 {%- if params.small and (not params.classes or not "nhsuk-checkboxes--small" in params.classes) %}
   {% set classNames = classNames ~ " nhsuk-checkboxes--small" %}
@@ -14,7 +21,7 @@
 
 {%- if params.errorMessage %}
   {% set classNames = classNames ~ " nhsuk-checkboxes--error" %}
-  {% set classNamesFormGroup = classNamesFormGroup ~ " nhsuk-form-group--error" %}
+  {% set classNamesFormGroup = classNamesFormGroup ~ (" nhsuk-form-group--reverse" if variant == "reverse") ~ " nhsuk-form-group--error" %}
 {% endif %}
 
 {%- if params.classes %}
@@ -70,6 +77,7 @@
         classes: "nhsuk-checkboxes__label" ~ (" " ~ item.label.classes if item.label.classes),
         attributes: item.label.attributes,
         size: item.label.size,
+        variant: item.label.variant | default(variant),
         for: itemId
       }) | trim | indent(6) }}
       {% if hasHint %}
@@ -78,7 +86,8 @@
         text: item.hint.text,
         id: itemHintId,
         classes: "nhsuk-checkboxes__hint" ~ (" " ~ item.hint.classes if item.hint.classes),
-        attributes: item.hint.attributes
+        attributes: item.hint.attributes,
+        variant: item.hint.variant | default(variant)
       }) | trim | indent(6) }}
       {% endif %}
     </div>
@@ -101,7 +110,7 @@
     id: hintId,
     classes: params.hint.classes,
     attributes: params.hint.attributes,
-    variant: params.hint.variant
+    variant: params.hint.variant | default(variant)
   }) | trim | indent(2) }}
 {% endif %}
 {% if params.errorMessage %}
@@ -113,7 +122,8 @@
     visuallyHiddenText: params.errorMessage.visuallyHiddenText,
     id: errorId,
     classes: params.errorMessage.classes,
-    attributes: params.errorMessage.attributes
+    attributes: params.errorMessage.attributes,
+    variant: params.errorMessage.variant | default(variant)
   }) | trim | indent(2) }}
 {% endif %}
   <div
@@ -147,7 +157,14 @@
     describedBy: describedBy,
     classes: params.fieldset.classes,
     attributes: params.fieldset.attributes,
-    legend: params.fieldset.legend,
+    legend: {
+      html: params.fieldset.legend.html,
+      text: params.fieldset.legend.text,
+      classes: params.fieldset.legend.classes,
+      size: params.fieldset.legend.size,
+      variant: params.fieldset.legend.variant | default(variant),
+      isPageHeading: params.fieldset.legend.isPageHeading
+    } if params.fieldset.legend,
     html: innerHtml | trim
   }) | trim }}
 {% else %}
