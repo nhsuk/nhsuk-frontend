@@ -24,7 +24,7 @@ export function copy(inputPath, { srcPath, destPath, output = {}, ...rest }) {
 
     stream = stream
       .pipe(
-        changed('dist', {
+        changed(destPath, {
           transformPath() {
             return join(dir, `${name}${ext}`)
           }

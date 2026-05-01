@@ -1,0 +1,14 @@
+@use "../settings" as *;
+
+////
+/// @group tools
+////
+
+/// Font URL
+///
+/// @param {String} $filename - Font filename
+/// @return {String} URL for the filename, wrapped in `url()`
+
+@function nhsuk-font-url($filename) {
+  @return url($nhsuk-fonts-path + $filename);
+}
