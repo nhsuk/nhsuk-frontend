@@ -22,7 +22,7 @@ export const copy = task.name('assets:copy', () =>
 export const render = task.name('assets:render', async () => {
   for (const icon of icons.getNames()) {
     const svg = nunjucks.renderMacro('nhsukIcon', 'nhsuk/macros/icon.njk', {
-      context: icon
+      context: [icon, { attributes: { fill: '#212b32' } }]
     })
 
     // Write icon SVG to destination
