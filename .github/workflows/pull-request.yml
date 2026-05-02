@@ -101,7 +101,7 @@ jobs:
           path: ${{ matrix.task.cache }}
 
       - name: Setup Node
-        uses: actions/setup-node@v6.3.0
+        uses: actions/setup-node@v6.4.0
         with:
           node-version-file: .nvmrc
           package-manager-cache: false
@@ -173,7 +173,7 @@ jobs:
           path: ${{ matrix.task.cache }}
 
       - name: Setup Node
-        uses: actions/setup-node@v6.3.0
+        uses: actions/setup-node@v6.4.0
         with:
           node-version-file: .nvmrc
           package-manager-cache: false
@@ -231,7 +231,7 @@ jobs:
           path: packages/*/dist/
 
       - name: Setup Node
-        uses: actions/setup-node@v6.3.0
+        uses: actions/setup-node@v6.4.0
         with:
           node-version-file: .nvmrc
           package-manager-cache: false
@@ -317,4 +317,4 @@ jobs:
 
       - name: Sonar analysis
         if: ${{ env.SONAR_TOKEN }}
-        uses: SonarSource/sonarqube-scan-action@v7
+        uses: SonarSource/sonarqube-scan-action@v7.1.0

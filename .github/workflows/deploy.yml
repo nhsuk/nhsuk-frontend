@@ -51,7 +51,7 @@ jobs:
             shared/*/node_modules
 
       - name: Setup Node
-        uses: actions/setup-node@v6.3.0
+        uses: actions/setup-node@v6.4.0
         with:
           node-version-file: .nvmrc
           package-manager-cache: false
