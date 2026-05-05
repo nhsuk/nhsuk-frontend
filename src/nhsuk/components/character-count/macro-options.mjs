@@ -177,6 +177,13 @@ const options = {
     description: 'If `true`, textarea will be disabled.',
     released: '10.5.0'
   },
+  autocomplete: {
+    type: 'string',
+    required: false,
+    description:
+      'Attribute to meet [WCAG success criterion 1.3.5: Identify input purpose](https://www.w3.org/WAI/WCAG22/Understanding/identify-input-purpose.html), for instance `"street-address"`. See the [Autofill section in the HTML standard](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill) for a full list of attributes that can be used.',
+    released: '10.5.0'
+  },
   countMessage: {
     type: 'object',
     required: false,
