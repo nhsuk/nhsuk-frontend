@@ -95,7 +95,7 @@
     "eslint-plugin-promise": "^7.2.1",
     "globals": "^17.5.0",
     "gulp": "^5.0.1",
-    "html-validate": "^10.13.0",
+    "html-validate": "^10.13.1",
     "jest": "^30.3.0",
     "nhsuk-frontend": "*",
     "playwright-core": "^1.59.1",
@@ -108,9 +108,9 @@
     "stylelint": "^16.26.1",
     "stylelint-config-gds": "^2.0.0",
     "stylelint-order": "^8.1.1",
-    "typed-query-selector": "^2.12.1",
+    "typed-query-selector": "^2.12.2",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.58.2",
+    "typescript-eslint": "^8.59.1",
     "wait-on": "^9.0.5"
   },
   "engines": {

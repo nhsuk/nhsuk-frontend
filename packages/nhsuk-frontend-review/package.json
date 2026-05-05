@@ -23,7 +23,7 @@
     "cssnano": "^7.1.5",
     "del-cli": "^7.0.0",
     "gulp": "^5.0.1",
-    "html-validate": "^10.13.0",
+    "html-validate": "^10.13.1",
     "marked": "^18.0.2",
     "nhsuk-frontend": "*",
     "package-json": "^10.0.1",
