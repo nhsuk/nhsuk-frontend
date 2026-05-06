@@ -36,14 +36,15 @@ const options = {
       name: {
         type: 'string',
         required: true,
-        description: 'Item-specific `name` attribute.',
+        description:
+          'Item-specific `name` attribute. Defaults to `"day"`, `"month"` or `"year"`.',
         released: '1.0.0'
       },
       label: {
         type: 'string',
         required: false,
         description:
-          'Item-specific label text. If provided, this will be used instead of `name` for item label text.',
+          'Item-specific label text. Defaults to the `name` option capitalised.',
         released: '1.0.0'
       },
       error: {
@@ -89,7 +90,7 @@ const options = {
       classes: {
         type: 'string',
         required: false,
-        description: 'Classes to add to date input item.',
+        description: 'Classes to add to the date input item.',
         released: '1.0.0'
       },
       attributes: {
@@ -104,7 +105,7 @@ const options = {
   hint: {
     type: 'object',
     required: false,
-    description: 'Can be used to add a hint to a date input component.',
+    description: 'Can be used to add a hint to the date input component.',
     released: '1.0.0',
     isComponent: true
   },
@@ -217,7 +218,7 @@ const options = {
     type: 'object',
     required: false,
     description:
-      'An optional object use to specify `value` attributes for the date parts without setting items.',
+      'An optional object used to specify `value` attributes for the inputs within the date input component without setting `items`.',
     released: '9.0.0',
     params: {
       day: {
