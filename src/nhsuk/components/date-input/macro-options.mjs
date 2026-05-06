@@ -203,7 +203,36 @@ const options = {
       'Can be used to customise the day input within the date input component.',
     alias: 'input',
     released: '10.5.0',
-    isComponent: true
+    isComponent: true,
+    params: {
+      name: {
+        type: 'string',
+        required: false,
+        description:
+          'The `name` attribute for the day input. Defaults to `"day"`.',
+        released: '10.5.0'
+      },
+      value: {
+        type: 'string',
+        required: false,
+        description: 'The `value` attribute for the day input.',
+        released: '10.5.0'
+      },
+      label: {
+        type: 'object',
+        required: false,
+        description:
+          'The label used by the day input. Defaults to the `name` option capitalised.',
+        released: '10.5.0',
+        isComponent: true
+      },
+      error: {
+        type: 'boolean',
+        required: false,
+        description: 'If set to `true`, show a red border on the day input.',
+        released: '10.5.0'
+      }
+    }
   },
   month: {
     type: 'object',
@@ -212,7 +241,36 @@ const options = {
       'Can be used to customise the month input within the date input component.',
     alias: 'input',
     released: '10.5.0',
-    isComponent: true
+    isComponent: true,
+    params: {
+      name: {
+        type: 'string',
+        required: false,
+        description:
+          'The `name` attribute for the month input. Defaults to `"month"`.',
+        released: '10.5.0'
+      },
+      value: {
+        type: 'string',
+        required: false,
+        description: 'The `value` attribute for the month input.',
+        released: '10.5.0'
+      },
+      label: {
+        type: 'object',
+        required: false,
+        description:
+          'The label used by the month input. Defaults to the `name` option capitalised.',
+        released: '10.5.0',
+        isComponent: true
+      },
+      error: {
+        type: 'boolean',
+        required: false,
+        description: 'If set to `true`, show a red border on the month input.',
+        released: '10.5.0'
+      }
+    }
   },
   year: {
     type: 'object',
@@ -221,7 +279,36 @@ const options = {
       'Can be used to customise the year input within the date input component.',
     alias: 'input',
     released: '10.5.0',
-    isComponent: true
+    isComponent: true,
+    params: {
+      name: {
+        type: 'string',
+        required: false,
+        description:
+          'The `name` attribute for the year input. Defaults to `"year"`.',
+        released: '10.5.0'
+      },
+      value: {
+        type: 'string',
+        required: false,
+        description: 'The `value` attribute for the year input.',
+        released: '10.5.0'
+      },
+      label: {
+        type: 'object',
+        required: false,
+        description:
+          'The label used by the year input. Defaults to the `name` option capitalised.',
+        released: '10.5.0',
+        isComponent: true
+      },
+      error: {
+        type: 'boolean',
+        required: false,
+        description: 'If set to `true`, show a red border on the year input.',
+        released: '10.5.0'
+      }
+    }
   },
   values: {
     type: 'object',
