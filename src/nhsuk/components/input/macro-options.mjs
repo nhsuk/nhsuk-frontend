@@ -244,7 +244,7 @@ const options = {
     type: 'string',
     required: false,
     description:
-      'Attribute to provide a regular expression pattern, used to match allowed character combinations for the input value.',
+      'Attribute to [provide a regular expression pattern](https://html.spec.whatwg.org/multipage/input.html#the-pattern-attribute), used to match allowed character combinations for the input value.',
     released: '2.1.0'
   },
   placeholder: {
