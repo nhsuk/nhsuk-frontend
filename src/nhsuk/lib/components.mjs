@@ -36,6 +36,7 @@ export function macro(component, options) {
  * @property {'array' | 'boolean' | 'integer' | 'nunjucks-block' | 'object' | 'string'} type - Option type
  * @property {boolean} required - Option required
  * @property {string} description - Option description
+ * @property {string} [alias] - Option name alias, for example an `items` array of `alias: 'input'` components
  * @property {string} [released] - Option was released in NHS.UK frontend version number
  * @property {string} [deprecated] - Option is deprecated in NHS.UK frontend version number
  * @property {true} [isComponent] - Option is another component
