@@ -41,11 +41,12 @@ const options = {
         released: '1.0.0'
       },
       label: {
-        type: 'string',
+        type: 'object',
         required: false,
         description:
-          'Item-specific label text. Defaults to the `name` option capitalised.',
-        released: '1.0.0'
+          'Item-specific label. Defaults to the `name` option capitalised.',
+        released: '10.5.0',
+        isComponent: true
       },
       error: {
         type: 'boolean',
