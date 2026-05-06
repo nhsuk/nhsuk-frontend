@@ -27,25 +27,31 @@
 {#- fieldset is false by default -#}
 {% set hasFieldset = true if params.fieldset else false %}
 
+{%- set dateInputDay = params.day | default({
+  name: "day",
+  value: params.values.day,
+  width: 2
+}) -%}
+
+{%- set dateInputMonth = params.month | default({
+  name: "month",
+  value: params.values.month,
+  width: 2
+}) -%}
+
+{%- set dateInputYear = params.year | default({
+  name: "year",
+  value: params.values.year,
+  width: 4
+}) -%}
+
 {%- if params.items | length %}
   {% set dateInputItems = params.items %}
 {% else %}
   {% set dateInputItems = [
-    {
-      name: "day",
-      value: params.values.day,
-      width: 2
-    },
-    {
-      name: "month",
-      value: params.values.month,
-      width: 2
-    },
-    {
-      name: "year",
-      value: params.values.year,
-      width: 4
-    }
+    dateInputDay,
+    dateInputMonth,
+    dateInputYear
   ] %}
 {% endif %}
 

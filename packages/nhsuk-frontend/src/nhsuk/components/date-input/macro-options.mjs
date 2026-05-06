@@ -192,6 +192,27 @@ const options = {
     released: '1.0.0',
     isComponent: true
   },
+  day: {
+    type: 'object',
+    required: false,
+    description:
+      'Can be used to customise the day input within the date input component.',
+    released: '10.5.0'
+  },
+  month: {
+    type: 'object',
+    required: false,
+    description:
+      'Can be used to customise the month input within the date input component.',
+    released: '10.5.0'
+  },
+  year: {
+    type: 'object',
+    required: false,
+    description:
+      'Can be used to customise the year input within the date input component.',
+    released: '10.5.0'
+  },
   values: {
     type: 'object',
     required: false,
