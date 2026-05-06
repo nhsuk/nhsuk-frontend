@@ -104,6 +104,11 @@ export function getMacroOptions(params) {
       description: param.description
     })
 
+    // Optional alias
+    if (param.alias) {
+      option.alias = param.alias
+    }
+
     // Optional released version
     if (param.released) {
       option.released = param.released

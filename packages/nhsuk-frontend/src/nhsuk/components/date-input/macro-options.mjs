@@ -24,87 +24,37 @@ const options = {
     type: 'array',
     required: false,
     description: 'The inputs within the date input component.',
+    alias: 'input',
     released: '1.0.0',
+    isComponent: true,
     params: {
-      id: {
-        type: 'string',
-        required: false,
-        description:
-          'Item-specific `id` attribute. If provided, it will be used instead of the generated ID.',
-        released: '1.0.0'
-      },
       name: {
         type: 'string',
         required: true,
-        description: 'Item-specific `name` attribute.',
+        description:
+          'Item-specific `name` attribute. Defaults to `"day"`, `"month"` or `"year"`.',
         released: '1.0.0'
       },
       label: {
-        type: 'string',
+        type: 'object',
         required: false,
         description:
-          'Item-specific label text. If provided, this will be used instead of `name` for item label text.',
-        released: '1.0.0'
+          'Item-specific label. Defaults to the `name` option capitalised.',
+        released: '10.5.0',
+        isComponent: true
       },
       error: {
         type: 'boolean',
         required: false,
         description: 'If set to `true`, show a red border on the item input.',
         released: '10.4.0'
-      },
-      width: {
-        type: 'integer',
-        required: false,
-        description: 'Optional fixed width for the item input – `2` or `4`.',
-        released: '10.4.0'
-      },
-      inputmode: {
-        type: 'string',
-        required: false,
-        description:
-          'Optional value for [the `inputmode` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode). Defaults to `"numeric"`.',
-        released: '4.1.0'
-      },
-      value: {
-        type: 'string',
-        required: false,
-        description:
-          'If provided, it will be used as the initial `value` attribute of the input.',
-        released: '1.0.0'
-      },
-      autocomplete: {
-        type: 'string',
-        required: false,
-        description:
-          'Attribute to meet [WCAG success criterion 1.3.5: Identify input purpose](https://www.w3.org/WAI/WCAG22/Understanding/identify-input-purpose.html), for instance `"bday-day"`. See the [Autofill section in the HTML standard](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill) for a full list of attributes that can be used.',
-        released: '2.1.0'
-      },
-      pattern: {
-        type: 'string',
-        required: false,
-        description:
-          'Attribute to [provide a regular expression pattern](https://html.spec.whatwg.org/multipage/input.html#the-pattern-attribute), used to match allowed character combinations for the input value.',
-        released: '2.1.0'
-      },
-      classes: {
-        type: 'string',
-        required: false,
-        description: 'Classes to add to date input item.',
-        released: '1.0.0'
-      },
-      attributes: {
-        type: 'object',
-        required: false,
-        description:
-          'HTML attributes (for example data attributes) to add to the date input tag.',
-        released: '2.1.0'
       }
     }
   },
   hint: {
     type: 'object',
     required: false,
-    description: 'Can be used to add a hint to a date input component.',
+    description: 'Can be used to add a hint to the date input component.',
     released: '1.0.0',
     isComponent: true
   },
@@ -192,11 +142,125 @@ const options = {
     released: '1.0.0',
     isComponent: true
   },
+  day: {
+    type: 'object',
+    required: false,
+    description:
+      'Can be used to customise the day input within the date input component.',
+    alias: 'input',
+    released: '10.5.0',
+    isComponent: true,
+    params: {
+      name: {
+        type: 'string',
+        required: false,
+        description:
+          'The `name` attribute for the day input. Defaults to `"day"`.',
+        released: '10.5.0'
+      },
+      value: {
+        type: 'string',
+        required: false,
+        description: 'The `value` attribute for the day input.',
+        released: '10.5.0'
+      },
+      label: {
+        type: 'object',
+        required: false,
+        description:
+          'The label used by the day input. Defaults to the `name` option capitalised.',
+        released: '10.5.0',
+        isComponent: true
+      },
+      error: {
+        type: 'boolean',
+        required: false,
+        description: 'If set to `true`, show a red border on the day input.',
+        released: '10.5.0'
+      }
+    }
+  },
+  month: {
+    type: 'object',
+    required: false,
+    description:
+      'Can be used to customise the month input within the date input component.',
+    alias: 'input',
+    released: '10.5.0',
+    isComponent: true,
+    params: {
+      name: {
+        type: 'string',
+        required: false,
+        description:
+          'The `name` attribute for the month input. Defaults to `"month"`.',
+        released: '10.5.0'
+      },
+      value: {
+        type: 'string',
+        required: false,
+        description: 'The `value` attribute for the month input.',
+        released: '10.5.0'
+      },
+      label: {
+        type: 'object',
+        required: false,
+        description:
+          'The label used by the month input. Defaults to the `name` option capitalised.',
+        released: '10.5.0',
+        isComponent: true
+      },
+      error: {
+        type: 'boolean',
+        required: false,
+        description: 'If set to `true`, show a red border on the month input.',
+        released: '10.5.0'
+      }
+    }
+  },
+  year: {
+    type: 'object',
+    required: false,
+    description:
+      'Can be used to customise the year input within the date input component.',
+    alias: 'input',
+    released: '10.5.0',
+    isComponent: true,
+    params: {
+      name: {
+        type: 'string',
+        required: false,
+        description:
+          'The `name` attribute for the year input. Defaults to `"year"`.',
+        released: '10.5.0'
+      },
+      value: {
+        type: 'string',
+        required: false,
+        description: 'The `value` attribute for the year input.',
+        released: '10.5.0'
+      },
+      label: {
+        type: 'object',
+        required: false,
+        description:
+          'The label used by the year input. Defaults to the `name` option capitalised.',
+        released: '10.5.0',
+        isComponent: true
+      },
+      error: {
+        type: 'boolean',
+        required: false,
+        description: 'If set to `true`, show a red border on the year input.',
+        released: '10.5.0'
+      }
+    }
+  },
   values: {
     type: 'object',
     required: false,
     description:
-      'An optional object use to specify `value` attributes for the date parts without setting items.',
+      'An optional object used to specify `value` attributes for the inputs within the date input component without setting `items`.',
     released: '9.0.0',
     params: {
       day: {
