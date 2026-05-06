@@ -59,6 +59,10 @@
 {% set itemName = item.name %}
 {% set itemValue = item.value %}
 {% set itemWidth = item.width | default(2) %}
+{% set itemLabel = item.label if item.label is mapping and item.label is not escaped else {
+  text: item.label if item.label is string else undefined,
+  html: item.label if item.label is escaped else undefined
+} %}
 
 {%- if item is sameas(dateInputDay) or (item.name and item.name in ["day", dateInputDay.name]) %}
   {% set itemName = item.name | default("day") %}
@@ -75,9 +79,12 @@
 <div class="nhsuk-date-input__item">
   {{ input({
     label: {
-      text: item.label if item.label else itemName | capitalize,
-      id: item.label.id,
-      classes: "nhsuk-date-input__label"
+      html: itemLabel.html,
+      text: itemLabel.text | default(itemName | capitalize),
+      id: itemLabel.id,
+      classes: "nhsuk-date-input__label" ~ (" " ~ itemLabel.classes if itemLabel.classes),
+      attributes: itemLabel.attributes,
+      for: itemLabel.for
     },
     id: item.id if item.id else (params.id ~ "-" ~ itemName),
     classes: ("nhsuk-input--error " if item.error) ~ "nhsuk-date-input__input" ~ (" " ~ item.classes if item.classes),
