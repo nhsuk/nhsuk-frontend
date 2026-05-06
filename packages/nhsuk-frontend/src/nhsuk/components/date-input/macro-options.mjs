@@ -24,7 +24,9 @@ const options = {
     type: 'array',
     required: false,
     description: 'The inputs within the date input component.',
+    alias: 'input',
     released: '1.0.0',
+    isComponent: true,
     params: {
       id: {
         type: 'string',
@@ -199,21 +201,27 @@ const options = {
     required: false,
     description:
       'Can be used to customise the day input within the date input component.',
-    released: '10.5.0'
+    alias: 'input',
+    released: '10.5.0',
+    isComponent: true
   },
   month: {
     type: 'object',
     required: false,
     description:
       'Can be used to customise the month input within the date input component.',
-    released: '10.5.0'
+    alias: 'input',
+    released: '10.5.0',
+    isComponent: true
   },
   year: {
     type: 'object',
     required: false,
     description:
       'Can be used to customise the year input within the date input component.',
-    released: '10.5.0'
+    alias: 'input',
+    released: '10.5.0',
+    isComponent: true
   },
   values: {
     type: 'object',
