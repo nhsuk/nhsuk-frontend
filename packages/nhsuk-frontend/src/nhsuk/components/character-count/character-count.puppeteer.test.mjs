@@ -111,7 +111,7 @@ describe('Character count', () => {
       })
     })
 
-    describe('when counting characters', () => {
+    describe('when counting length', () => {
       it('shows the dynamic message', async () => {
         await initExample('default')
 
@@ -298,7 +298,7 @@ describe('Character count', () => {
 
     describe('when counting words', () => {
       beforeEach(async () => {
-        await initExample('with maxwords')
+        await initExample("with count type 'words'")
       })
 
       it('shows the dynamic message', async () => {
@@ -343,7 +343,7 @@ describe('Character count', () => {
 
       describe('when the word limit is exceeded', () => {
         beforeEach(async () => {
-          await initExample('with maxwords')
+          await initExample("with count type 'words'")
 
           await $textarea.type('Hello '.repeat(151))
         })
@@ -406,7 +406,7 @@ describe('Character count', () => {
           )
         })
 
-        it('configures `maxwords`', async () => {
+        it('configures `maxwords` (deprecated)', async () => {
           await initExample('to configure in JavaScript', {
             config: {
               maxwords: 10
@@ -414,6 +414,42 @@ describe('Character count', () => {
           })
 
           await $textarea.type('Hello '.repeat(11))
+
+          expect(await getText($visibleCountMessage)).toBe(
+            'You have 1 word too many'
+          )
+        })
+
+        it('configures `countType: "length"`', async () => {
+          await initExample('to configure in JavaScript', {
+            config: {
+              maxlength: 10,
+              countType: 'length'
+            }
+          })
+
+          await $textarea.type('A'.repeat(11))
+
+          // Wait for debounced update to happen
+          await timers.setTimeout(debouncedWaitTime)
+
+          expect(await getText($visibleCountMessage)).toBe(
+            'You have 1 character too many'
+          )
+        })
+
+        it('configures `countType: "words"`', async () => {
+          await initExample('to configure in JavaScript', {
+            config: {
+              maxlength: 10,
+              countType: 'words'
+            }
+          })
+
+          await $textarea.type('Hello '.repeat(11))
+
+          // Wait for debounced update to happen
+          await timers.setTimeout(debouncedWaitTime)
 
           expect(await getText($visibleCountMessage)).toBe(
             'You have 1 word too many'
