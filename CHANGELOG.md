@@ -6,6 +6,26 @@ Note: This release was created from the `support/10.x` branch.
 
 ### :new: **New features**
 
+#### New search input component
+
+We've added a new [search input component](https://service-manual.nhs.uk/design-system/components/search-input).
+
+To use the `searchInput` Nunjucks macro in your service:
+
+```njk
+{{ searchInput({
+  label: {
+    text: "Find session"
+  },
+  name: "search",
+  width: 10
+}) }}
+```
+
+If you are not using Nunjucks macros, use the HTML markup from the [search input examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/search-input).
+
+This change was introduced in [pull request #1660: Add search input component](https://github.com/nhsuk/nhsuk-frontend/pull/1660).
+
 #### Add date input `day`, `month` and `year` options
 
 We've updated the date input component to add individual `day`, `month` and `year` Nunjucks options.

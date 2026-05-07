@@ -30,6 +30,11 @@
   .nhsuk-icon {
     color: $nhsuk-focus-text-colour;
     fill: $nhsuk-focus-text-colour;
+
+    @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+      color: linktext;
+      fill: linktext;
+    }
   }
 }
 
@@ -106,7 +111,6 @@
 @mixin nhsuk-focused-button {
   outline: $nhsuk-focus-width solid transparent;
   outline-offset: $nhsuk-focus-width;
-  color: $nhsuk-focus-text-colour;
   background-color: $nhsuk-focus-colour;
   box-shadow: 0 $nhsuk-focus-width 0 0 $nhsuk-focus-text-colour;
 
@@ -114,6 +118,11 @@
   .nhsuk-icon {
     color: $nhsuk-focus-text-colour;
     fill: $nhsuk-focus-text-colour;
+
+    @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+      color: linktext;
+      fill: linktext;
+    }
   }
 }
 

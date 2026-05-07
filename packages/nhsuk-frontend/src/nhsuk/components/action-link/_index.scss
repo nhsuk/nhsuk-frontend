@@ -51,8 +51,6 @@
     .nhsuk-icon {
       position: absolute;
       left: -$_small-icon-spacing;
-      // stylelint-disable-next-line declaration-no-important
-      fill: nhsuk-colour("green") !important;
 
       @include nhsuk-media-query($from: tablet) {
         left: -$_large-icon-spacing;
@@ -64,6 +62,21 @@
     &:focus .nhsuk-icon {
       // stylelint-disable-next-line declaration-no-important
       fill: $nhsuk-focus-text-colour !important;
+
+      @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+        // stylelint-disable-next-line declaration-no-important
+        fill: highlight !important;
+      }
+    }
+
+    &:not(:focus) .nhsuk-icon,
+    &:not(:focus):hover .nhsuk-icon,
+    &:not(:focus):active .nhsuk-icon {
+      fill: nhsuk-colour("green");
+
+      @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+        fill: buttontext;
+      }
     }
   }
 
@@ -74,9 +87,14 @@
       text-decoration: none; // [4]
     }
 
-    &:not(:focus) .nhsuk-icon {
-      // stylelint-disable-next-line declaration-no-important
-      fill: $nhsuk-reverse-text-colour !important;
+    &:not(:focus) .nhsuk-icon,
+    &:not(:focus):hover .nhsuk-icon,
+    &:not(:focus):active .nhsuk-icon {
+      fill: $nhsuk-reverse-text-colour;
+
+      @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+        fill: buttontext;
+      }
     }
   }
 }

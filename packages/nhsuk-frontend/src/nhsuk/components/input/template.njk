@@ -5,7 +5,13 @@
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-input" -%}
+{%- set classNamesInputWrapper = "nhsuk-input-wrapper" -%}
 {%- set classNamesFormGroup = "nhsuk-form-group" -%}
+
+{%- if params.large and (not params.classes or not "nhsuk-input--large" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-input--large" %}
+  {% set classNamesInputWrapper = classNamesInputWrapper ~ " nhsuk-input-wrapper--large" %}
+{% endif %}
 
 {%- if params.code and (not params.classes or not "nhsuk-input--code" in params.classes) %}
   {% set classNames = classNames ~ " nhsuk-input--code" %}
@@ -34,6 +40,10 @@
 
 {%- if params.classes %}
   {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif %}
+
+{%- if params.inputWrapper.classes %}
+  {% set classNamesInputWrapper = classNamesInputWrapper ~ " " ~ params.inputWrapper.classes %}
 {% endif %}
 
 {%- if params.formGroup.classes %}
@@ -153,8 +163,7 @@
 {% endif %}
 
 {%- if hasPrefix or hasSuffix or hasBeforeInput or hasAfterInput %}
-  <div class="nhsuk-input-wrapper {%- if params.inputWrapper.classes %} {{ params.inputWrapper.classes }}{% endif %}"
-    {{- nhsukAttributes(params.inputWrapper.attributes) }}>
+  <div class="{{ classNamesInputWrapper }}" {{- nhsukAttributes(params.inputWrapper.attributes) }}>
     {% if hasBeforeInput %}
       {{- params.formGroup.beforeInput.html | safe | trim | indent(4, true) if params.formGroup.beforeInput.html else params.formGroup.beforeInput.text }}
     {% endif %}

@@ -1,0 +1,77 @@
+{% from "nhsuk/components/button/macro.njk" import button -%}
+{% from "nhsuk/components/input/macro.njk" import input -%}
+{% from "nhsuk/macros/icon.njk" import nhsukIcon %}
+
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-search-input" -%}
+{%- set classNamesInput = "nhsuk-search-input__input" -%}
+{%- set classNamesButton = "nhsuk-search-input__button" -%}
+
+{%- if params.large and (not params.classes or not "nhsuk-search-input--large" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-search-input--large" %}
+{% endif %}
+
+{%- if params.formGroup.classes %}
+  {% set classNames = classNames ~ " " ~ params.formGroup.classes %}
+{% endif %}
+
+{%- if params.classes %}
+  {% set classNamesInput = classNamesInput ~ " " ~ params.classes %}
+{% endif %}
+
+{%- if params.button.classes %}
+  {% set classNamesButton = classNamesButton ~ " " ~ params.button.classes %}
+{% endif %}
+
+{%- set id = params.id if params.id else params.name -%}
+
+{%- set afterInputHtml %}
+{% if params.button not in ["", null, false] %}
+{{ button({
+  ariaLabel: params.button.ariaLabel | default("Search"),
+  variant: params.button.variant,
+  classes: classNamesButton,
+  text: params.button.text,
+  html: params.button.html,
+  type: params.button.type | default("submit", true),
+  icon: params.button.icon | default("search"),
+  small: not params.large
+}) | trim }}
+{% endif %}
+{% if params.formGroup.afterInput %}
+  {{- params.formGroup.afterInput.html | safe | trim if params.formGroup.afterInput.html else params.formGroup.afterInput.text }}
+{% endif -%}
+{% endset -%}
+
+{{ input({
+  formGroup: {
+    classes: classNames,
+    attributes: params.formGroup.attributes,
+    beforeInput: params.formGroup.beforeInput,
+    afterInput: {
+      html: afterInputHtml
+    }
+  },
+  inputWrapper: {
+    classes: "nhsuk-search-input__wrapper"
+  },
+  label: params.label,
+  hint: params.hint,
+  large: params.large,
+  classes: classNamesInput,
+  errorMessage: params.errorMessage,
+  id: id,
+  name: params.name,
+  code: params.code,
+  value: params.value,
+  width: params.width,
+  type: params.type | default("search"),
+  inputmode: params.inputmode,
+  spellcheck: params.spellcheck,
+  autocapitalize: params.autocapitalize,
+  autocomplete: params.autocomplete | default("off"),
+  placeholder: params.placeholder,
+  disabled: params.disabled,
+  describedBy: params.describedBy,
+  attributes: params.attributes
+}) | trim }}
