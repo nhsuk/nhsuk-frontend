@@ -1,8 +1,8 @@
 import { outdent } from 'outdent'
 
-import { examples as tablesExamples } from '../tables/fixtures.mjs'
-
 import { components } from '#lib'
+
+import { examples as tablesExamples } from '../tables/fixtures.mjs'
 
 /**
  * Nunjucks macro option examples

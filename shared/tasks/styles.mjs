@@ -29,14 +29,9 @@ export function compile(inputPath, { srcPath, destPath, output = {} }) {
     from: join(srcPath, inputPath),
     to: join(destPath, outputPath),
 
-    /**
-     * Always generate source maps for either:
-     *
-     * 1. PostCSS on Sass compiler result
-     * 2. PostCSS on Sass sources (Autoprefixer only)
-     */
+    // Source maps enabled for CSS output only
     map: /** @type {ProcessOptions['map']} */ ({
-      annotation: true,
+      annotation: outputPath.endsWith('.css'),
       inline: false
     }),
 
@@ -94,10 +89,12 @@ export function compile(inputPath, { srcPath, destPath, output = {} }) {
       output: { contents: result.css }
     })
 
-    await files.write(`${outputPath}.map`, {
-      destPath,
-      output: { contents: result.map.toString() }
-    })
+    if (result.map) {
+      await files.write(`${outputPath}.map`, {
+        destPath,
+        output: { contents: result.map.toString() }
+      })
+    }
   })
 }
 

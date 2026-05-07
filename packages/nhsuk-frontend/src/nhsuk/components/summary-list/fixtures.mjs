@@ -356,7 +356,7 @@ const fixtures = {
   },
   'without border': {
     context: {
-      classes: 'nhsuk-summary-list--no-border',
+      border: false,
       rows: [
         {
           key: {
@@ -405,6 +405,7 @@ const fixtures = {
   },
   'without row border': {
     context: {
+      lastRowBorder: false,
       rows: [
         {
           key: {
@@ -435,7 +436,6 @@ const fixtures = {
           }
         },
         {
-          classes: 'nhsuk-summary-list__row--no-border',
           key: {
             text: 'Contact details'
           },
@@ -458,6 +458,7 @@ const fixtures = {
         heading: 'Regional Manager',
         headingSize: 'm'
       },
+      lastRowBorder: false,
       rows: [
         {
           key: {
@@ -468,7 +469,6 @@ const fixtures = {
           }
         },
         {
-          classes: 'nhsuk-summary-list__row--no-border',
           key: {
             text: 'Date of birth'
           },
@@ -507,7 +507,6 @@ const fixtures = {
           }
         },
         {
-          classes: 'nhsuk-summary-list__row--no-border',
           key: {
             text: 'Date of birth'
           },
@@ -571,7 +570,7 @@ const fixtures = {
           }
         },
         {
-          classes: 'nhsuk-summary-list__row--no-border',
+          border: false,
           key: {
             text: 'Medicines'
           },
@@ -621,6 +620,7 @@ const fixtures = {
           ]
         }
       },
+      lastRowBorder: false,
       rows: [
         {
           key: {
@@ -631,7 +631,6 @@ const fixtures = {
           }
         },
         {
-          classes: 'nhsuk-summary-list__row--no-border',
           key: {
             text: 'Date of birth'
           },
@@ -647,7 +646,7 @@ const fixtures = {
       card: {
         heading: 'Regional Manager',
         headingSize: 'm',
-        secondary: true,
+        variant: 'secondary',
         actions: {
           items: [
             {
@@ -661,6 +660,7 @@ const fixtures = {
           ]
         }
       },
+      lastRowBorder: false,
       rows: [
         {
           key: {
@@ -671,7 +671,6 @@ const fixtures = {
           }
         },
         {
-          classes: 'nhsuk-summary-list__row--no-border',
           key: {
             text: 'Date of birth'
           },
@@ -687,7 +686,7 @@ const fixtures = {
       card: {
         heading: 'Regional Manager',
         headingSize: 'm',
-        feature: true,
+        variant: 'feature',
         actions: {
           items: [
             {
@@ -701,6 +700,7 @@ const fixtures = {
           ]
         }
       },
+      lastRowBorder: false,
       rows: [
         {
           key: {
@@ -711,7 +711,6 @@ const fixtures = {
           }
         },
         {
-          classes: 'nhsuk-summary-list__row--no-border',
           key: {
             text: 'Date of birth'
           },
@@ -727,7 +726,7 @@ const fixtures = {
       card: {
         heading: 'Your read',
         headingSize: 'm',
-        feature: true
+        variant: 'feature'
       },
       rows: [
         {
@@ -740,7 +739,7 @@ const fixtures = {
                 ${components.render('tag', {
                   context: {
                     text: 'Recall for assessment',
-                    classes: 'nhsuk-tag--red'
+                    colour: 'red'
                   }
                 })}
               </p>
@@ -771,7 +770,7 @@ const fixtures = {
                     ${components.render('tag', {
                       context: {
                         text: 'Abnormal',
-                        classes: 'nhsuk-tag--red'
+                        colour: 'red'
                       }
                     })}
                   </p>
@@ -840,6 +839,7 @@ const fixtures = {
         href: '#/card-clickable',
         clickable: true
       },
+      lastRowBorder: false,
       rows: [
         {
           key: {
@@ -850,7 +850,6 @@ const fixtures = {
           }
         },
         {
-          classes: 'nhsuk-summary-list__row--no-border',
           key: {
             text: 'Date of birth'
           },
@@ -865,7 +864,7 @@ const fixtures = {
     context: {
       card: {
         heading: 'Regional Manager',
-        type: 'non-urgent',
+        variant: 'non-urgent',
         actions: {
           items: [
             {
@@ -879,6 +878,7 @@ const fixtures = {
           ]
         }
       },
+      lastRowBorder: false,
       rows: [
         {
           key: {
@@ -889,7 +889,6 @@ const fixtures = {
           }
         },
         {
-          classes: 'nhsuk-summary-list__row--no-border',
           key: {
             text: 'Date of birth'
           },
@@ -904,7 +903,7 @@ const fixtures = {
     context: {
       card: {
         heading: 'Regional Manager',
-        type: 'urgent',
+        variant: 'urgent',
         actions: {
           items: [
             {
@@ -918,6 +917,7 @@ const fixtures = {
           ]
         }
       },
+      lastRowBorder: false,
       rows: [
         {
           key: {
@@ -928,7 +928,6 @@ const fixtures = {
           }
         },
         {
-          classes: 'nhsuk-summary-list__row--no-border',
           key: {
             text: 'Date of birth'
           },
@@ -943,7 +942,7 @@ const fixtures = {
     context: {
       card: {
         heading: 'Regional Manager',
-        type: 'emergency',
+        variant: 'emergency',
         actions: {
           items: [
             {
@@ -957,6 +956,7 @@ const fixtures = {
           ]
         }
       },
+      lastRowBorder: false,
       rows: [
         {
           key: {
@@ -967,7 +967,6 @@ const fixtures = {
           }
         },
         {
-          classes: 'nhsuk-summary-list__row--no-border',
           key: {
             text: 'Date of birth'
           },

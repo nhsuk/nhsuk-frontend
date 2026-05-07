@@ -1,4 +1,3 @@
-@use "../../core/settings" as *;
 @use "../../core/tools" as *;
 @use "../../core/helpers" as *;
 @forward "../../core/styles/icons";
@@ -14,20 +13,11 @@
 ////
 
 @include nhsuk-exports("nhsuk/components/do-dont-list") {
-  .nhsuk-do-dont-list {
-    @include nhsuk-panel-with-label($nhsuk-card-background-colour, $nhsuk-text-colour, $nhsuk-border-colour); // [1]
-
-    .nhsuk-icon--cross {
-      fill: nhsuk-colour("red");
-    }
-
-    .nhsuk-icon--tick {
-      fill: nhsuk-colour("green");
-    }
+  .nhsuk-list--cross .nhsuk-icon--cross {
+    fill: nhsuk-colour("red");
   }
 
-  .nhsuk-do-dont-list__label {
-    @include nhsuk-heading-label($nhsuk-brand-colour, $nhsuk-reverse-text-colour); // [2]
-    @include nhsuk-print-colour;
+  .nhsuk-list--tick .nhsuk-icon--tick {
+    fill: nhsuk-colour("green");
   }
 }

@@ -1,7 +1,7 @@
+import { components } from '#lib'
+
 import { examples } from './fixtures.mjs'
 import { SkipLink } from './skip-link.mjs'
-
-import { components } from '#lib'
 
 describe('Skip link', () => {
   /** @type {HTMLElement} */
@@ -25,7 +25,7 @@ describe('Skip link', () => {
       </div>
     `
 
-    $main = document.querySelector('main')
+    $main = /** @type {HTMLElement} */ (document.querySelector('main'))
 
     $root = /** @type {HTMLElement} */ (
       document.querySelector(`[data-module="${SkipLink.moduleName}"]`)

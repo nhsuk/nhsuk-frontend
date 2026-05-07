@@ -1,11 +1,17 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./src",
     "lib": ["ESNext", "DOM"],
-    "strict": true,
     "target": "ES2015",
     "types": ["node", "typed-query-selector"]
   },
   "include": ["src/javascripts/**/*.mjs"],
-  "exclude": ["src/**/*.test.mjs"]
+  "exclude": ["**/node_modules", "**/dist", "src/**/*.test.mjs"],
+  "references": [
+    {
+      "path": "../nhsuk-frontend/tsconfig.json"
+    }
+  ]
 }

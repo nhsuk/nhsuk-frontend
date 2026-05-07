@@ -1,12 +1,11 @@
 import { getAllByRole, getByRole } from '@testing-library/dom'
 import { outdent } from 'outdent'
 
-import { examples as dateInputExamples } from '../date-input/fixtures.mjs'
+import { components } from '#lib'
 
+import { examples as dateInputExamples } from '../date-input/fixtures.mjs'
 import { ErrorSummary } from './error-summary.mjs'
 import { examples } from './fixtures.mjs'
-
-import { components } from '#lib'
 
 describe('Error summary', () => {
   /** @type {HTMLElement} */
@@ -18,7 +17,7 @@ describe('Error summary', () => {
   /** @type {HTMLInputElement} */
   let $input
 
-  /** @type {HTMLLabelElement} */
+  /** @type {HTMLLabelElement | undefined} */
   let $label
 
   /**
@@ -32,7 +31,9 @@ describe('Error summary', () => {
       </form>
     `
 
-    const $container = document.querySelector('form')
+    const $container = /** @type {HTMLFormElement} */ (
+      document.querySelector('form')
+    )
 
     $root = /** @type {HTMLElement} */ (
       document.querySelector(`[data-module="${ErrorSummary.moduleName}"]`)
@@ -44,11 +45,14 @@ describe('Error summary', () => {
       name: 'Day'
     })
 
-    $label = $input.labels[0]
+    $label = $input.labels?.[0]
 
     jest.spyOn($root, 'addEventListener')
     jest.spyOn($input, 'focus')
-    jest.spyOn($label, 'scrollIntoView')
+
+    if ($label) {
+      jest.spyOn($label, 'scrollIntoView')
+    }
 
     jest.spyOn(console, 'warn').mockImplementation()
   }
@@ -162,7 +166,7 @@ describe('Error summary', () => {
         $links[0].click()
 
         expect($input).toHaveFocus()
-        expect($label.scrollIntoView).toHaveBeenCalled()
+        expect($label?.scrollIntoView).toHaveBeenCalled()
         expect($input.focus).toHaveBeenCalledWith({
           preventScroll: true
         })

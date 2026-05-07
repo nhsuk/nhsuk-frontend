@@ -1,10 +1,10 @@
 import { getByRole } from '@testing-library/dom'
 import { outdent } from 'outdent'
 
+import { components } from '#lib'
+
 import { CharacterCount } from './character-count.mjs'
 import { examples } from './fixtures.mjs'
-
-import { components } from '#lib'
 
 describe('Character count', () => {
   /** @type {HTMLElement} */
@@ -13,7 +13,7 @@ describe('Character count', () => {
   /** @type {HTMLTextAreaElement} */
   let $textarea
 
-  /** @type {HTMLElement} */
+  /** @type {HTMLElement | null} */
   let $description
 
   /**
@@ -106,7 +106,7 @@ describe('Character count', () => {
     })
 
     it('should throw with missing count message', () => {
-      $description.remove()
+      $description?.remove()
 
       expect(() => new CharacterCount($root)).toThrow(
         `${CharacterCount.moduleName}: Count message (\`id="example-info"\`) not found`

@@ -1,9 +1,14 @@
 {
   "extends": "../tsconfig.base.json",
   "compilerOptions": {
-    "strictNullChecks": false,
+    "strict": false,
     "types": ["node", "typed-query-selector"]
   },
   "include": ["**/*.js", "**/*.mjs"],
-  "exclude": ["helpers/jest/**/*.setup.mjs"]
+  "exclude": ["**/node_modules", "**/dist", "helpers/jest/**/*.setup.mjs"],
+  "references": [
+    {
+      "path": "../packages/nhsuk-frontend/tsconfig.json"
+    }
+  ]
 }

@@ -1,5 +1,4 @@
 import { isObject } from '../index.mjs'
-
 import { normaliseString } from './normalise-string.mjs'
 
 /**
@@ -66,7 +65,8 @@ export function extractConfigByNamespace(schema, dataset, namespace) {
  * @template {Partial<Record<keyof ConfigurationType, unknown>>} ConfigurationType
  * @typedef {object} Schema
  * @property {Record<keyof ConfigurationType, SchemaProperty | undefined>} properties - Schema properties
- * @property {SchemaCondition<ConfigurationType>[]} [anyOf] - List of schema conditions
+ * @property {SchemaCondition<ConfigurationType>[]} [allOf] - List of schema conditions, all must pass
+ * @property {SchemaCondition<ConfigurationType>[]} [anyOf] - List of schema conditions, any must pass
  */
 
 /**

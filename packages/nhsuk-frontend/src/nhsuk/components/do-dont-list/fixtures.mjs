@@ -7,7 +7,7 @@ const fixtures = {
   'default': {
     context: {
       title: 'Do',
-      type: 'tick',
+      icon: 'tick',
       items: [
         {
           text: 'cover blisters with a soft plaster or padded dressing'
@@ -27,7 +27,7 @@ const fixtures = {
   '(do) with empty items': {
     context: {
       title: 'Do',
-      type: 'tick',
+      icon: 'tick',
       items: [
         {
           text: 'cover blisters with a soft plaster or padded dressing'
@@ -42,17 +42,17 @@ const fixtures = {
   '(do) with custom prefix': {
     context: {
       title: 'Do',
-      type: 'tick',
+      icon: 'tick',
       prefixText: 'always',
       items: [
         {
-          item: 'cover blisters with a soft plaster or padded dressing'
+          text: 'cover blisters with a soft plaster or padded dressing'
         },
         {
-          item: 'wash your hands before touching a burst blister'
+          text: 'wash your hands before touching a burst blister'
         },
         {
-          item: 'allow the fluid in a burst blister to drain before covering it with a plaster or dressing'
+          text: 'allow the fluid in a burst blister to drain before covering it with a plaster or dressing'
         }
       ]
     }
@@ -60,7 +60,7 @@ const fixtures = {
   "(don't)": {
     context: {
       title: "Don't",
-      type: 'cross',
+      icon: 'cross',
       items: [
         {
           text: 'burst a blister yourself'
@@ -83,16 +83,16 @@ const fixtures = {
   "(don't) with empty items": {
     context: {
       title: "Don't",
-      type: 'cross',
+      icon: 'cross',
       items: [
         {
-          item: 'burst a blister yourself'
+          text: 'burst a blister yourself'
         },
         {
-          item: 'peel the skin off a burst blister'
+          text: 'peel the skin off a burst blister'
         },
         {
-          item: 'pick at the edges of the remaining skin'
+          text: 'pick at the edges of the remaining skin'
         },
         false
       ]
@@ -101,7 +101,7 @@ const fixtures = {
   "(don't) with custom prefix": {
     context: {
       title: 'Never',
-      type: 'cross',
+      icon: 'cross',
       prefixText: 'never',
       items: [
         {
@@ -122,7 +122,7 @@ const fixtures = {
   "(don't) with hidden prefix": {
     context: {
       title: "Don't",
-      type: 'cross',
+      icon: 'cross',
       hidePrefix: true,
       items: [
         {

@@ -1,0 +1,78 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/i18n.njk" import nhsukI18nAttributes %}
+{% from "nhsuk/components/button/macro.njk" import button %}
+
+{#- Set variant for this component #}
+{%- set variant = params.variant -%}
+
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-code" -%}
+{%- set classNamesButton = params.copyButtonClassList | default([
+  "nhsuk-button--reverse" if variant == "reverse" else "nhsuk-button--secondary",
+  "nhsuk-button--small"
+]) | join(" ") ~ " nhsuk-code__button nhsuk-js-code-button" -%}
+
+{%- if params.button %}
+  {% set classNames = classNames ~ " nhsuk-code--button" %}
+{% endif -%}
+
+{%- if variant == "reverse" and (not params.classes or not "nhsuk-code--reverse" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-code--" ~ variant %}
+{% endif %}
+
+{%- if params.background %}
+  {% set classNames = classNames ~ " nhsuk-code--background-" ~ params.background %}
+{% endif -%}
+
+{%- if params.border === false and (not params.classes or not "nhsuk-code--no-border" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-code--no-border" %}
+{% endif %}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif -%}
+
+{%- if params.button.classes %}
+  {% set classNamesButton = classNamesButton ~ " " ~ params.button.classes %}
+{% endif -%}
+
+<div {%- if params.id %} id="{{ params.id }}"{% endif %} class="{{ classNames }}"
+  {{- nhsukI18nAttributes({
+    key: 'copy-button',
+    message: params.copyButtonText
+  }) -}}
+
+  {{- nhsukI18nAttributes({
+    key: 'copied-button',
+    message: params.copiedButtonText
+  }) -}}
+
+  {{- nhsukI18nAttributes({
+    key: 'copied-announcement',
+    message: params.copiedAnnouncementText
+  }) -}}
+
+  {{- nhsukAttributes(params.attributes) }} data-module="nhsuk-code">
+{% if params.button %}
+  {{ button({
+    type: "button",
+    classes: classNamesButton,
+    text: params.copyButtonText | default("Copy code"),
+    attributes: {
+      "hidden": {
+        value: true,
+        optional: true
+      }
+    }
+  }) | trim | indent(2) }}
+{% endif %}
+  <pre class="nhsuk-code__container"><code class="nhsuk-code__content">
+  {%- if caller %}
+    {{- caller() -}}
+  {% elif params.html %}
+    {{- params.html if params.html is escaped else params.html | escape -}}
+  {% elif params.text %}
+    {{- params.text -}}
+  {% endif -%}
+  </code></pre>
+</div>

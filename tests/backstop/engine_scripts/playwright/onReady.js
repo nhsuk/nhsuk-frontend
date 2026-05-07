@@ -2,7 +2,7 @@ const clickAndHoverHelper = require('./clickAndHoverHelper')
 
 /**
  * @param {Page} page
- * @param {Scenario} scenario
+ * @param {MacroScenario} scenario
  */
 module.exports = async function (page, scenario) {
   await page.evaluateHandle('document.fonts.ready')
@@ -18,6 +18,6 @@ module.exports = async function (page, scenario) {
 }
 
 /**
- * @import { Scenario } from 'backstopjs'
+ * @import { MacroScenario } from 'nhsuk-frontend/lib'
  * @import { Page } from 'playwright-core'
  */

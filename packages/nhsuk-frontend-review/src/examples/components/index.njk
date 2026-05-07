@@ -241,7 +241,7 @@
       {% call card({
         heading: "Speak to a GP if:",
         headingLevel: 3,
-        type: "non-urgent"
+        variant: "non-urgent"
       }) %}
         <ul>
           <li>you're not sure it's chickenpox</li>
@@ -255,7 +255,7 @@
       {% call card({
         heading: "Ask for an urgent GP appointment if:",
         headingLevel: 3,
-        type: "urgent"
+        variant: "urgent"
       }) %}
         <ul>
           <li>you're an adult and have chickenpox</li>
@@ -269,7 +269,7 @@
       {% call card({
         heading: "Call 999 if you have sudden chest pain that:",
         headingLevel: 3,
-        type: "emergency"
+        variant: "emergency"
       }) %}
         <ul>
           <li>spreads to your arms, back, neck or jaw</li>
@@ -473,35 +473,35 @@
 
       {{ list({
         title: "Do",
-        type: "tick",
+        icon: "tick",
         items: [
           {
-            item: "cover blisters that are likely to burst with a soft plaster or dressing"
+            text: "cover blisters that are likely to burst with a soft plaster or dressing"
           },
           {
-            item: "wash your hands before touching a burst blister"
+            text: "wash your hands before touching a burst blister"
           },
           {
-            item: "allow the fluid in a burst blister to drain before covering it with a plaster or dressing"
+            text: "allow the fluid in a burst blister to drain before covering it with a plaster or dressing"
           }
         ]
       }) }}
 
       {{ list({
         title: "Don't",
-        type: "cross",
+        icon: "cross",
         items: [
           {
-            item: "burst a blister yourself"
+            text: "burst a blister yourself"
           },
           {
-            item: "peel the skin off a burst blister"
+            text: "peel the skin off a burst blister"
           },
           {
-            item: "pick at the edges of the remaining skin"
+            text: "pick at the edges of the remaining skin"
           },
           {
-            item: "wear the shoes or use the equipment that caused your blister until it heals"
+            text: "wear the shoes or use the equipment that caused your blister until it heals"
           }
         ]
       }) }}
@@ -589,6 +589,7 @@
       }) }}
 
       {{ summaryList({
+        lastRowBorder: false,
         rows: [
           {
             key: {
@@ -642,7 +643,6 @@
             }
           },
           {
-            classes: "nhsuk-summary-list__row--no-border",
             key: {
               text: "Contact details"
             },
@@ -668,7 +668,7 @@
       }) }}
 
       {{ summaryList({
-        classes: "nhsuk-summary-list--no-border",
+        border: false,
         rows: [
           {
             key: {
@@ -845,7 +845,8 @@
           text: "NHS number"
         },
         name: "nhs-number",
-        classes: "nhsuk-input--width-10 nhsuk-input--code",
+        width: 10,
+        code: true,
         inputmode: "numeric",
         spellcheck: false
       }) }}
@@ -861,7 +862,8 @@
           text: "Enter your NHS number"
         },
         name: "nhs-number-error",
-        classes: "nhsuk-input--width-10 nhsuk-input--code",
+        width: 10,
+        code: true,
         inputmode: "numeric",
         spellcheck: false
       }) }}
@@ -953,15 +955,15 @@
         items: [
           {
             name: "day",
-            classes: "nhsuk-input--width-2"
+            width: 2
           },
           {
             name: "month",
-            classes: "nhsuk-input--width-2"
+            width: 2
           },
           {
             name: "year",
-            classes: "nhsuk-input--width-4"
+            width: 4
           }
         ]
       }) }}
@@ -1021,17 +1023,17 @@
 
         {{ button({
           text: "Yes, delete this vaccine",
-          classes: "nhsuk-button--warning"
+          variant: "warning"
         }) }}
 
         {{ button({
           text: "Continue",
-          classes: "nhsuk-button--login"
+          variant: "login"
         }) }}
 
         {{ button({
           text: "Find my location",
-          classes: "nhsuk-button--secondary"
+          variant: "secondary"
         }) }}
 
       </div>

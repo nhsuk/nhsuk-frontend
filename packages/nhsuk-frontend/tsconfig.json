@@ -1,20 +1,22 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "composite": true,
     "declaration": true,
     "declarationMap": true,
     "emitDeclarationOnly": true,
     "lib": ["ESNext", "DOM"],
-    "moduleResolution": "Bundler",
-    "baseUrl": ".",
-    "outDir": "./dist",
-    "rootDir": "./src",
-    "resolvePackageJsonImports": true,
+    "noEmit": false,
+    "paths": {
+      "#lib": ["./src/nhsuk/lib/index.mjs"],
+      "#lib/*": ["./src/nhsuk/lib/*"]
+    },
     "sourceMap": true,
-    "strict": true,
     "target": "ES2015",
     "types": ["node", "typed-query-selector"]
   },
   "include": ["src/**/*.js", "src/**/*.mjs"],
-  "exclude": ["src/**/*.test.mjs"]
+  "exclude": ["**/node_modules", "**/dist", "src/**/*.test.mjs"]
 }

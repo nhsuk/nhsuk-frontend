@@ -1,17 +1,22 @@
 import {
   createEvent,
   fireEvent,
-  getByRole,
-  getAllByRole
+  getAllByRole,
+  getByRole
 } from '@testing-library/dom'
 import { userEvent } from '@testing-library/user-event'
+import { mockViewport } from 'jsdom-testing-mocks'
+
+import { components } from '#lib'
 
 import { examples } from './fixtures.mjs'
 import { Tabs } from './tabs.mjs'
 
-import { components } from '#lib'
-
 const user = userEvent.setup()
+const viewportMock = mockViewport({
+  width: '1024px',
+  height: '768px'
+})
 
 describe('Tabs', () => {
   /** @type {HTMLElement} */
@@ -153,18 +158,14 @@ describe('Tabs', () => {
   })
 
   describe('Accessibility (mobile)', () => {
-    beforeEach(() => {
-      jest.mocked(window.matchMedia).mockImplementationOnce((query) => ({
-        matches: false,
-        media: query,
-        onchange: null,
-        addListener: jest.fn(),
-        addEventListener: jest.fn(),
-        removeListener: jest.fn(),
-        removeEventListener: jest.fn(),
-        dispatchEvent: jest.fn()
-      }))
+    beforeAll(() => {
+      viewportMock.set({
+        width: '320px',
+        height: '568px'
+      })
+    })
 
+    beforeEach(() => {
       new Tabs($root)
     })
 
@@ -189,6 +190,13 @@ describe('Tabs', () => {
   })
 
   describe('Accessibility (tablet, desktop)', () => {
+    beforeAll(() => {
+      viewportMock.set({
+        width: '1024px',
+        height: '768px'
+      })
+    })
+
     beforeEach(() => {
       new Tabs($root)
     })
@@ -206,7 +214,7 @@ describe('Tabs', () => {
         // Panel is controlled by the tab link
         expect($tab).toHaveAttribute('id')
         expect($tab).toHaveAttribute('role', 'tab')
-        expect($tab).toHaveAttribute('aria-controls', $panel.id)
+        expect($tab).toHaveAttribute('aria-controls', $panel?.id)
 
         // Panel is labelled by the tab link
         expect($panel).toHaveAttribute('role', 'tabpanel')
@@ -313,7 +321,7 @@ describe('Tabs', () => {
           ($currentPanel) => $currentPanel !== $panel
         )
 
-        $tab.click()
+        $tab?.click()
 
         // Clicked panel visible
         expect($tab).toHaveAttribute('aria-selected', 'true')
@@ -332,7 +340,7 @@ describe('Tabs', () => {
     )
 
     it('should move to next panel using right arrow key', async () => {
-      $tabs.at(0).click()
+      $tabs.at(0)?.click()
       await user.keyboard('[ArrowRight]')
 
       // Activated 2nd tab panel
@@ -353,7 +361,7 @@ describe('Tabs', () => {
     })
 
     it('should not move to next panel using right arrow key (last tab)', async () => {
-      $tabs.at(3).click()
+      $tabs.at(3)?.click()
       await user.keyboard('[ArrowRight]')
 
       // Stuck on last tab panel
@@ -368,7 +376,7 @@ describe('Tabs', () => {
     })
 
     it('should move to previous panel using left arrow key', async () => {
-      $tabs.at(3).click()
+      $tabs.at(3)?.click()
       await user.keyboard('[ArrowLeft]')
 
       // Activated 3rd tab panel
@@ -389,7 +397,7 @@ describe('Tabs', () => {
     })
 
     it('should not move to previous panel using left arrow key (first tab)', async () => {
-      $tabs.at(0).click()
+      $tabs.at(0)?.click()
       await user.keyboard('[ArrowLeft]')
 
       // Stuck on first tab panel

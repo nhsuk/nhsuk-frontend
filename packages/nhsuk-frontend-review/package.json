@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "clean": "del-cli dist",
+    "postclean": "tsc --build --clean",
     "build": "gulp build --color",
     "serve": "gulp serve --color",
     "watch": "gulp serve watch --color",
@@ -18,21 +19,20 @@
     "@nhsuk/frontend-config": "*",
     "@nhsuk/frontend-lib": "*",
     "@nhsuk/frontend-tasks": "*",
-    "autoprefixer": "^10.4.24",
-    "cssnano": "^7.1.2",
+    "autoprefixer": "^10.5.0",
+    "cssnano": "^7.1.5",
     "del-cli": "^7.0.0",
     "gulp": "^5.0.1",
-    "html-validate": "^10.7.0",
-    "marked": "^17.0.2",
+    "html-validate": "^10.13.1",
+    "marked": "^18.0.2",
     "nhsuk-frontend": "*",
     "package-json": "^10.0.1",
     "plugin-error": "^2.0.1",
     "postcss-pseudo-classes": "^0.4.0",
-    "sassdoc": "^2.7.4",
-    "slug": "^11.0.1"
+    "sassdoc": "^2.7.4"
   },
   "engines": {
     "node": "^24.11.0",
-    "npm": "^11.6.1"
+    "npm": "^11.6.1 <11.6.3 || ^11.6.4"
   }
 }

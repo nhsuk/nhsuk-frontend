@@ -1,6 +1,17 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
 
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-pagination" -%}
+
+{%- if params.items | length %}
+  {% set classNames = classNames ~ " nhsuk-pagination--numbered" %}
+{% endif %}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif %}
+
 {# Numbered page - included as a link within a list item. #}
 {%- macro _pageItem(item) -%}
   <li class="nhsuk-pagination__item {%- if item.current %} nhsuk-pagination__item--current{% endif %} {%- if item.ellipsis %} nhsuk-pagination__item--ellipsis{% endif %} {%- if item.classes %} {{ item.classes }}{% endif %}">
@@ -16,11 +27,8 @@
   </li>
 {%- endmacro -%}
 
-<nav {%- if params.id %} id="{{ params.id }}"{% endif %} class="nhsuk-pagination
-  {%- if params.items | length %} nhsuk-pagination--numbered{% endif %}
-  {%- if params.classes %} {{ params.classes }}{% endif %}" role="navigation" aria-label="{{ params.landmarkLabel | default("Pagination", true) }}"
+<nav class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %} role="navigation" aria-label="{{ params.landmarkLabel | default("Pagination", true) }}"
   {{- nhsukAttributes(params.attributes) }}>
-
 {% if params.previous.href and params.items | length %}
   <a href="{{ params.previous.href }}" class="nhsuk-pagination__previous" rel="prev">
     {{ nhsukIcon("arrow-left") | trim | indent(4) }}
@@ -55,7 +63,7 @@
   </a>
 {% endif %}
 
-{% if not params.items | length %}
+{%- if not params.items | length %}
   <ul class="nhsuk-list nhsuk-pagination__list">
   {% if params.previous.href %}
     <li class="nhsuk-pagination-item--previous">
@@ -77,7 +85,7 @@
     </li>
   {% endif %}
 
-  {% if params.next.href %}
+  {%- if params.next.href %}
     <li class="nhsuk-pagination-item--next">
       <a class="nhsuk-pagination__link nhsuk-pagination__link--next" href="{{ params.next.href }}" rel="next"
         {{- nhsukAttributes(params.next.attributes) }}>

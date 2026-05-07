@@ -1,7 +1,7 @@
 import {
-  goToExample,
   getAttribute,
   getProperty,
+  goToExample,
   isVisible,
   render
 } from '@nhsuk/frontend-helpers/puppeteer.mjs'
@@ -15,13 +15,16 @@ describe('Checkboxes', () => {
     it('displays the input above the label', async () => {
       await render(page, 'checkboxes', examples.default)
 
-      const $firstInput = await page.$('.nhsuk-checkboxes__input')
+      const $firstInput = /** @type {ElementHandle} */ (
+        await page.$('.nhsuk-checkboxes__input')
+      )
 
       const clickPosition = await $firstInput.clickablePoint()
       const elementTagNames = await page.evaluate(
         ({ x, y }) => document.elementsFromPoint(x, y).map((el) => el.tagName),
         clickPosition
       )
+
       expect(elementTagNames[0]).toBe('INPUT')
       expect(elementTagNames[1]).toBe('LABEL')
     })
@@ -50,7 +53,10 @@ describe('Checkboxes', () => {
         beforeEach(async () => {
           await render(page, 'checkboxes', examples['with conditional content'])
 
-          $component = await page.$('.nhsuk-checkboxes')
+          $component = /** @type {ElementHandle} */ (
+            await page.$('.nhsuk-checkboxes')
+          )
+
           $inputs = await $component.$$('.nhsuk-checkboxes__input')
           $conditionals = await $component.$$('.nhsuk-checkboxes__conditional')
         })
@@ -61,10 +67,10 @@ describe('Checkboxes', () => {
         })
 
         it('has no ARIA attributes applied', async () => {
-          const $inputsWithAriaExpanded = await $component.$$(
+          const $inputsWithAriaExpanded = await $component?.$$(
             '.nhsuk-checkboxes__input[aria-expanded]'
           )
-          const $inputsWithAriaControls = await $component.$$(
+          const $inputsWithAriaControls = await $component?.$$(
             '.nhsuk-checkboxes__input[aria-controls]'
           )
 
@@ -93,7 +99,10 @@ describe('Checkboxes', () => {
         beforeAll(async () => {
           await render(page, 'checkboxes', examples['with pre-checked values'])
 
-          $component = await page.$('.nhsuk-checkboxes')
+          $component = /** @type {ElementHandle} */ (
+            await page.$('.nhsuk-checkboxes')
+          )
+
           $inputs = await $component.$$('.nhsuk-checkboxes__input')
         })
 
@@ -128,7 +137,10 @@ describe('Checkboxes', () => {
         beforeEach(async () => {
           await render(page, 'checkboxes', examples['with conditional content'])
 
-          $component = await page.$('.nhsuk-checkboxes')
+          $component = /** @type {ElementHandle} */ (
+            await page.$('.nhsuk-checkboxes')
+          )
+
           $inputs = await $component.$$('.nhsuk-checkboxes__input')
         })
 
@@ -229,7 +241,10 @@ describe('Checkboxes', () => {
           examples['with "none of the above" option']
         )
 
-        $component = await page.$('.nhsuk-checkboxes')
+        $component = /** @type {ElementHandle} */ (
+          await page.$('.nhsuk-checkboxes')
+        )
+
         $inputs = await $component.$$('.nhsuk-checkboxes__input')
       })
 
@@ -276,7 +291,10 @@ describe('Checkboxes', () => {
           examples['with "none of the above" option, conditional content']
         )
 
-        $component = await page.$('.nhsuk-checkboxes')
+        $component = /** @type {ElementHandle} */ (
+          await page.$('.nhsuk-checkboxes')
+        )
+
         $inputs = await $component.$$('.nhsuk-checkboxes__input')
       })
 
@@ -452,7 +470,7 @@ describe('Checkboxes', () => {
           await expect(
             render(page, 'checkboxes', examples['with conditional content'], {
               beforeInitialisation($root, { selector }) {
-                $root.querySelector(selector).remove()
+                $root.querySelector(selector)?.remove()
               },
               context: {
                 selector: '.nhsuk-checkboxes__conditional'

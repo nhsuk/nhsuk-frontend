@@ -121,7 +121,7 @@ export function generateFixture(data) {
  * @returns {MacroExample} Review app example (merged)
  */
 export function mergeExample(example, variant) {
-  return mergeWith({}, variant, example, (target, source, key) => {
+  return mergeWith({}, example, variant, (target, source, key) => {
     if (
       key === 'classes' &&
       typeof target === 'string' &&
@@ -133,6 +133,12 @@ export function mergeExample(example, variant) {
       return `${target} ${source}`.trim()
     }
 
+    // Prevent merging over null values
+    // e.g. `fieldset: null`
+    if (target === null) {
+      return null
+    }
+
     // Prefer default merge behaviour
     return
   })
@@ -141,5 +147,5 @@ export function mergeExample(example, variant) {
 /**
  * @import { ComponentData } from '@nhsuk/frontend-lib/components.mjs'
  * @import { FileOptions } from '@nhsuk/frontend-lib/files.mjs'
- * @import { MacroExample, MacroExampleFixture, MacroExampleFixtures } from 'nhsuk-frontend/lib'
+ * @import { MacroExample, MacroExampleFixture, MacroExampleFixtures } from 'nhsuk-frontend/src/nhsuk/lib/index.mjs'
  */

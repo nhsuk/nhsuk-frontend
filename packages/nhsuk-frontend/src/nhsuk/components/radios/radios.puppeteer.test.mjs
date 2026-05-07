@@ -1,7 +1,7 @@
 import {
-  goToExample,
   getAttribute,
   getProperty,
+  goToExample,
   isVisible,
   render
 } from '@nhsuk/frontend-helpers/puppeteer.mjs'
@@ -15,13 +15,17 @@ describe('Radios', () => {
     it('displays the input above the label', async () => {
       await render(page, 'radios', examples.default)
 
-      const $firstInput = await page.$('.nhsuk-radios__input')
+      const $firstInput = /** @type {ElementHandle} */ (
+        await page.$('.nhsuk-radios__input')
+      )
 
       const clickPosition = await $firstInput.clickablePoint()
+
       const elementTagNames = await page.evaluate(
         ({ x, y }) => document.elementsFromPoint(x, y).map((el) => el.tagName),
         clickPosition
       )
+
       expect(elementTagNames[0]).toBe('INPUT')
       expect(elementTagNames[1]).toBe('LABEL')
     })
@@ -50,7 +54,10 @@ describe('Radios', () => {
         beforeAll(async () => {
           await render(page, 'radios', examples['with conditional content'])
 
-          $component = await page.$('.nhsuk-radios')
+          $component = /** @type {ElementHandle} */ (
+            await page.$('.nhsuk-radios')
+          )
+
           $inputs = await $component.$$('.nhsuk-radios__input')
           $conditionals = await $component.$$('.nhsuk-radios__conditional')
         })
@@ -93,7 +100,10 @@ describe('Radios', () => {
         beforeEach(async () => {
           await render(page, 'radios', examples['with pre-checked value'])
 
-          $component = await page.$('.nhsuk-radios')
+          $component = /** @type {ElementHandle} */ (
+            await page.$('.nhsuk-radios')
+          )
+
           $inputs = await $component.$$('.nhsuk-radios__input')
         })
 
@@ -128,7 +138,10 @@ describe('Radios', () => {
         beforeEach(async () => {
           await render(page, 'radios', examples['with conditional content'])
 
-          $component = await page.$('.nhsuk-radios')
+          $component = /** @type {ElementHandle} */ (
+            await page.$('.nhsuk-radios')
+          )
+
           $inputs = await $component.$$('.nhsuk-radios__input')
         })
 
@@ -392,7 +405,7 @@ describe('Radios', () => {
       await expect(
         render(page, 'radios', examples['with conditional content'], {
           beforeInitialisation($root) {
-            $root.querySelector('.nhsuk-radios__conditional').remove()
+            $root.querySelector('.nhsuk-radios__conditional')?.remove()
           }
         })
       ).rejects.toMatchObject({

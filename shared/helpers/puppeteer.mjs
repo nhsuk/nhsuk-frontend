@@ -115,11 +115,13 @@ async function goTo(page, pathOrUrl, options) {
   }
 
   const response = await page.goto(href)
-  const code = response.status()
+  const code = response?.status()
 
   // Throw on HTTP errors (e.g. component URL typo)
-  if (code >= 400) {
-    throw new Error(`HTTP ${code} for '${pathname}'`)
+  if (!code || code >= 400) {
+    throw code
+      ? new TypeError(`HTTP code for '${pathname}' is not defined`)
+      : new Error(`HTTP ${code} for '${pathname}'`)
   }
 
   await page.evaluateHandle('document.fonts.ready')
@@ -188,7 +190,7 @@ export async function render(page, component, renderOptions, browserOptions) {
     await page.$eval(
       selector,
       browserOptions.beforeInitialisation,
-      browserOptions.context
+      browserOptions.context ?? /** @type {HandlerContext} */ ({ selector })
     )
   }
 
@@ -230,7 +232,7 @@ export async function render(page, component, renderOptions, browserOptions) {
     await page.$eval(
       selector,
       browserOptions.afterInitialisation,
-      browserOptions.context
+      browserOptions.context ?? /** @type {HandlerContext} */ ({ selector })
     )
   }
 
@@ -309,11 +311,15 @@ export function getOptions(name, example) {
 /**
  * Get property value for element
  *
- * @param {ElementHandle} $element - Puppeteer element handle
+ * @param {ElementHandle | null} $element - Puppeteer element handle
  * @param {string} propertyName - Property name to return value for
  * @returns {Promise<unknown>} Property value
  */
 export async function getProperty($element, propertyName) {
+  if (!$element) {
+    throw new TypeError('Element is not defined')
+  }
+
   const handle = await $element.getProperty(propertyName)
   return handle.jsonValue()
 }
@@ -321,11 +327,15 @@ export async function getProperty($element, propertyName) {
 /**
  * Get attribute value for element
  *
- * @param {ElementHandle} $element - Puppeteer element handle
+ * @param {ElementHandle | null} $element - Puppeteer element handle
  * @param {string} attributeName - Attribute name to return value for
  * @returns {Promise<string | null>} Attribute value
  */
 export function getAttribute($element, attributeName) {
+  if (!$element) {
+    throw new TypeError('Element is not defined')
+  }
+
   return $element.evaluate((el, name) => el.getAttribute(name), attributeName)
 }
 
@@ -333,32 +343,44 @@ export function getAttribute($element, attributeName) {
  * Gets the accessible name of the given element, if it exists in the accessibility tree
  *
  * @param {Page} page - Puppeteer page object
- * @param {ElementHandle} $element - Puppeteer element handle
+ * @param {ElementHandle | null} $element - Puppeteer element handle
  * @returns {Promise<string>} The element's accessible name
  * @throws {TypeError} If the element has no corresponding node in the accessibility tree
  */
 export async function getAccessibleName(page, $element) {
+  if (!$element) {
+    throw new TypeError('Element is not defined')
+  }
+
+  const snapshot = await page.accessibility.snapshot({
+    root: $element,
+    interestingOnly: false
+  })
+
   // Purposefully doesn't use `?.` to return undefined if there's no node in the
   // accessibility tree. This lets us distinguish different kinds of failures:
   // - assertion on the name failing: we need to figure out
   //   why the name is not set right
   // - TypeError accessing `name`: we need to figure out
   //   why there's no node in the accessibility tree
-  return (
-    await page.accessibility.snapshot({
-      root: $element,
-      interestingOnly: false
-    })
-  ).name
+  if (!snapshot?.name) {
+    throw new TypeError('Accessible name not found')
+  }
+
+  return snapshot.name
 }
 
 /**
  * Check if element is visible
  *
- * @param {ElementHandle} $element - Puppeteer element handle
+ * @param {ElementHandle | null} $element - Puppeteer element handle
  * @returns {Promise<boolean>} Element visibility
  */
 export async function isVisible($element) {
+  if (!$element) {
+    throw new TypeError('Element is not defined')
+  }
+
   return !!(await $element.boundingBox())
 }
 
@@ -384,8 +406,8 @@ export async function isVisible($element) {
  */
 
 /**
- * @import { MacroExample, MacroRenderOptions } from 'nhsuk-frontend/lib'
  * @import { RuleObject, RunOptions } from 'axe-core'
- * @import { Config, ConfigKey } from 'nhsuk-frontend'
+ * @import { Config, ConfigKey } from 'nhsuk-frontend/src/nhsuk/index.mjs'
+ * @import { MacroExample, MacroRenderOptions } from 'nhsuk-frontend/lib'
  * @import { ElementHandle, EvaluateFuncWith, Handler, Page } from 'puppeteer'
  */

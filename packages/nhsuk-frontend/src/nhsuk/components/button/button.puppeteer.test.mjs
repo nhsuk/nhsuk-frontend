@@ -16,7 +16,7 @@ describe('Button', () => {
 
     it('triggers the click event when the space key is pressed', async () => {
       const href = await page.evaluate(
-        () => document.body.querySelector('a.nhsuk-button').href
+        () => document.body.querySelector('a.nhsuk-button')?.href
       )
 
       await page.focus('a[role="button"]')
@@ -39,10 +39,14 @@ describe('Button', () => {
     /**
      * Sets the number of times a button was clicked
      *
-     * @param {ElementHandle<HTMLButtonElement>} $button - Puppeteer button element
+     * @param {ElementHandle<HTMLButtonElement> | null} $button - Puppeteer button element
      * @returns {Promise<ElementHandle<HTMLButtonElement>>} Puppeteer button element
      */
     async function setButtonTracking($button) {
+      if (!$button) {
+        throw new TypeError('Button is not defined')
+      }
+
       const counts = {
         click: 0,
         debounce: 0
@@ -134,7 +138,7 @@ describe('Button', () => {
       })
 
       it('does not prevent subsequent clicks on different buttons', async () => {
-        $button.evaluate((el) => el.parentNode.appendChild(el.cloneNode(true)))
+        $button.evaluate((el) => el.parentNode?.appendChild(el.cloneNode(true)))
 
         // Locate original and cloned button
         const $button1 = await setButtonTracking(
@@ -193,7 +197,7 @@ describe('Button', () => {
       })
 
       it('does not prevent subsequent clicks on different buttons', async () => {
-        $button.evaluate((el) => el.parentNode.appendChild(el.cloneNode(true)))
+        $button.evaluate((el) => el.parentNode?.appendChild(el.cloneNode(true)))
 
         // Locate original and cloned button
         const $button1 = await setButtonTracking(
@@ -281,7 +285,7 @@ describe('Button', () => {
       })
 
       it('does not prevent subsequent clicks on different buttons', async () => {
-        $button.evaluate((el) => el.parentNode.appendChild(el.cloneNode(true)))
+        $button.evaluate((el) => el.parentNode?.appendChild(el.cloneNode(true)))
 
         // Locate original and cloned button
         const $button1 = await setButtonTracking(
@@ -357,8 +361,15 @@ describe('Button', () => {
         await expect(
           render(page, 'button', examples.default, {
             beforeInitialisation($root) {
+              const $svg = document.createElementNS(
+                'http://www.w3.org/2000/svg',
+                'svg'
+              )
+
+              $svg.setAttribute('data-module', 'nhsuk-button')
+
               // Replace with an `<svg>` element which is not an `HTMLElement` in the DOM (but an `SVGElement`)
-              $root.outerHTML = `<svg data-module="nhsuk-button"></svg>`
+              $root.replaceWith($svg)
             }
           })
         ).rejects.toMatchObject({

@@ -1,10 +1,10 @@
 import { fireEvent, getByRole } from '@testing-library/dom'
 import { outdent } from 'outdent'
 
+import { components } from '#lib'
+
 import { examples } from './fixtures.mjs'
 import { Radios } from './radios.mjs'
-
-import { components } from '#lib'
 
 describe('Radios', () => {
   /** @type {HTMLElement} */
@@ -182,7 +182,7 @@ describe('Radios', () => {
         const $inputOther = $inputs.at(index - 1)
 
         $input.click()
-        $inputOther.click()
+        $inputOther?.click()
 
         // Conditional content hidden for input
         expect($input).toHaveAttribute('aria-expanded', 'false')

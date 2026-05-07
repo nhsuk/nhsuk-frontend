@@ -1,7 +1,7 @@
 {
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "strictNullChecks": false,
+    "strict": false,
     "types": [
       "@testing-library/jest-dom",
       "jest",
