@@ -183,9 +183,12 @@ export class CharacterCount extends ConfigurableComponent {
    * @param {string} [text] - Deprecated
    */
   updateCount(text) {
-    text = text ?? this.$textarea.value
+    const { $textarea } = this
+    const { countType } = this.config
 
-    if (this.config.maxwords) {
+    text = text ?? $textarea.value
+
+    if (countType === 'words') {
       const tokens = text.match(/\S+/g) ?? [] // Matches consecutive non-whitespace chars
       this.length = tokens.length
       return
@@ -343,16 +346,17 @@ export class CharacterCount extends ConfigurableComponent {
    *   (or no threshold is set)
    */
   isOverThreshold() {
+    const { maxLength } = this
+    const { threshold } = this.config
+
     // No threshold means we're always above threshold so save some computation
-    if (!this.config.threshold) {
+    if (!threshold) {
       return true
     }
 
     // Determine the remaining number of characters/words
     const currentLength = this.length
-    const maxLength = this.maxLength
-
-    const thresholdValue = (maxLength * this.config.threshold) / 100
+    const thresholdValue = (maxLength * threshold) / 100
 
     return thresholdValue <= currentLength
   }
