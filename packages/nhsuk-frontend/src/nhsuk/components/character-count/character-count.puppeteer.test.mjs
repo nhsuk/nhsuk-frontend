@@ -454,12 +454,23 @@ describe('Character count', () => {
           await initExample('to configure in JavaScript', {
             config: {
               maxlength: 10,
-              threshold: 75
+              threshold: 80
             }
           })
 
-          await $textarea.type('A'.repeat(8))
+          // Count message initially hidden
+          expect(await getProperty($visibleCountMessage, 'hidden')).toBe(true)
 
+          // Hit 70% threshold
+          await $textarea.type('A'.repeat(7))
+
+          // Count message still hidden
+          expect(await getProperty($visibleCountMessage, 'hidden')).toBe(true)
+
+          // Hit 80% threshold
+          await $textarea.type('A')
+
+          // Count message now visible
           expect(await getProperty($visibleCountMessage, 'hidden')).toBe(false)
         })
 
