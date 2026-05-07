@@ -125,7 +125,7 @@ describe('Character count', () => {
       })
 
       it('shows the characters remaining if the field is pre-filled', async () => {
-        await initExample('with default value')
+        await initExample('with value')
 
         expect(await getText($visibleCountMessage)).toBe(
           'You have 57 characters remaining'
@@ -230,7 +230,7 @@ describe('Character count', () => {
 
       describe('when the character limit is exceeded on page load', () => {
         beforeEach(async () => {
-          await initExample('with hint and error')
+          await initExample('with error message')
         })
 
         it('shows the number of characters over the limit', async () => {

@@ -78,14 +78,14 @@ const fixtures = {
       selector: '.nhsuk-textarea'
     }
   },
-  'with default value': {
+  'with value': {
     context: {
       label: {
         text: 'Enter a job description',
         size: 'l',
         isPageHeading: true
       },
-      id: 'with-default-value',
+      id: 'with-value',
       name: 'example',
       maxlength: 350,
       value:
