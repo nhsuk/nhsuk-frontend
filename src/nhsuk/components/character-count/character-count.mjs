@@ -204,13 +204,17 @@ export class CharacterCount extends ConfigurableComponent {
 
     text = text ?? $textarea.value
 
-    if (countType === 'words') {
-      const tokens = text.match(/\S+/g) ?? [] // Matches consecutive non-whitespace chars
-      this.length = tokens.length
-      return
-    }
+    switch (countType) {
+      case 'length':
+        // Count code points (string length)
+        this.length = text.length
+        break
 
-    this.length = text.length
+      case 'words':
+        // Count consecutive non-whitespace results
+        this.length = text.match(/\S+/g)?.length ?? 0
+        break
+    }
   }
 
   /**
