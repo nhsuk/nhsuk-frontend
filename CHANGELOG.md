@@ -148,6 +148,10 @@ If you use Sass and you've changed the default `/assets/` public path (for examp
 
 This was added in [pull request #1915: Render Nunjucks icon macro into SVG files](https://github.com/nhsuk/nhsuk-frontend/pull/1915).
 
+#### Add a template with all components imported
+
+You can now choose to use `template-with-imports.njk` as a base template, which will import all components.
+
 ### :recycle: **Changes**
 
 #### Change border colour for details component and conditionally revealed content
