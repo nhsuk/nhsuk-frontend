@@ -97,6 +97,17 @@ describe('Character count', () => {
   })
 
   describe('Initialisation via class', () => {
+    /** @type {typeof Intl.Segmenter} */
+    let Segmenter
+
+    beforeEach(() => {
+      Segmenter = Intl.Segmenter
+    })
+
+    afterEach(() => {
+      Object.assign(Intl, { Segmenter })
+    })
+
     it('should not throw with $root element', () => {
       expect(() => new CharacterCount($root)).not.toThrow()
     })
@@ -106,6 +117,19 @@ describe('Character count', () => {
 
       expect(() => new CharacterCount($root)).toThrow(
         'NHS.UK frontend is not supported in this browser'
+      )
+    })
+
+    it('should throw without Intl.Segmenter support', () => {
+      // @ts-expect-error The operand of a 'delete' operator cannot be a read-only property
+      delete Intl.Segmenter
+
+      expect(() => {
+        new CharacterCount($root, {
+          countType: 'characters'
+        })
+      }).toThrow(
+        `${CharacterCount.moduleName}: Support for "Intl.Segmenter" required`
       )
     })
 
@@ -235,6 +259,18 @@ describe('Character count', () => {
         maxlength: 200,
         threshold: 0,
         countType: 'length'
+      })
+    })
+
+    it('configures `countType: "characters"`', () => {
+      initExample("with count type 'characters'")
+
+      const characterCount = new CharacterCount($root)
+      expect(characterCount.config).toEqual({
+        ...CharacterCount.defaults,
+        maxlength: 200,
+        threshold: 0,
+        countType: 'characters'
       })
     })
 
