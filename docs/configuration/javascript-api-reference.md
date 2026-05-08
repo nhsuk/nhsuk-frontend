@@ -39,13 +39,13 @@ false
 
 Type: number
 
-The maximum number of characters. If `maxwords` is provided, the `maxlength` option will be ignored.
+The maximum number of characters (or words if `countType` is set to `'words'`).
 
-### maxwords
+### maxwords (deprecated)
 
 Type: number
 
-The maximum number of words. If `maxwords` is provided, the `maxlength` option will be ignored.
+The maximum number of words. Replaced by the `maxlength` and `countType: 'words'` options.
 
 ### threshold
 
@@ -57,6 +57,18 @@ Default:
 
 ```json5
 0
+```
+
+### countType
+
+Type: string
+
+The count type (`'length'` or `'words'`) used to count the text.
+
+Default:
+
+```json5
+'length'
 ```
 
 ### textareaDescriptionClass
@@ -215,7 +227,7 @@ Default:
 
 Type: object
 
-Message made available to assistive technologies, if none is already present in the HTML, to describe that the component accepts only a limited amount of content. The component will replace the `%{count}` placeholder with the value of the `maxlength` or `maxwords` option.
+Message made available to assistive technologies, if none is already present in the HTML, to describe that the component accepts only a limited amount of content. The component will replace the `%{count}` placeholder with the value of the `maxlength` option.
 
 Default:
 
