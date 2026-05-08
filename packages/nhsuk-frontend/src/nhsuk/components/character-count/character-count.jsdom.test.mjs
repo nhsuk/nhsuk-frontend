@@ -1,10 +1,13 @@
 import { getByRole } from '@testing-library/dom'
+import { userEvent } from '@testing-library/user-event'
 import { outdent } from 'outdent'
 
 import { components } from '#lib'
 
 import { CharacterCount, initCharacterCounts } from './character-count.mjs'
 import { examples } from './fixtures.mjs'
+
+const user = userEvent.setup()
 
 describe('Character count', () => {
   /** @type {HTMLElement} */
@@ -94,6 +97,17 @@ describe('Character count', () => {
   })
 
   describe('Initialisation via class', () => {
+    /** @type {typeof Intl.Segmenter} */
+    let Segmenter
+
+    beforeEach(() => {
+      Segmenter = Intl.Segmenter
+    })
+
+    afterEach(() => {
+      Object.assign(Intl, { Segmenter })
+    })
+
     it('should not throw with $root element', () => {
       expect(() => new CharacterCount($root)).not.toThrow()
     })
@@ -103,6 +117,19 @@ describe('Character count', () => {
 
       expect(() => new CharacterCount($root)).toThrow(
         'NHS.UK frontend is not supported in this browser'
+      )
+    })
+
+    it('should throw without Intl.Segmenter support', () => {
+      // @ts-expect-error The operand of a 'delete' operator cannot be a read-only property
+      delete Intl.Segmenter
+
+      expect(() => {
+        new CharacterCount($root, {
+          countType: 'characters'
+        })
+      }).toThrow(
+        `${CharacterCount.moduleName}: Support for "Intl.Segmenter" required`
       )
     })
 
@@ -164,8 +191,9 @@ describe('Character count', () => {
       expect(component.updateIfValueChanged).toHaveBeenCalled()
     })
 
-    it('should handle deprecated params', () => {
-      $textarea.value = 'Existing value'
+    it('should handle deprecated params', async () => {
+      await user.click($textarea)
+      await user.keyboard('Existing value')
 
       const component = new CharacterCount($root)
 
@@ -234,13 +262,25 @@ describe('Character count', () => {
       })
     })
 
+    it('configures `countType: "characters"`', () => {
+      initExample("with count type 'characters'")
+
+      const characterCount = new CharacterCount($root)
+      expect(characterCount.config).toEqual({
+        ...CharacterCount.defaults,
+        maxlength: 200,
+        threshold: 0,
+        countType: 'characters'
+      })
+    })
+
     it('configures `countType: "words"`', () => {
       initExample("with count type 'words'")
 
       const characterCount = new CharacterCount($root)
       expect(characterCount.config).toEqual({
         ...CharacterCount.defaults,
-        maxlength: 150,
+        maxlength: 50,
         threshold: 0,
         countType: 'words'
       })
@@ -327,8 +367,9 @@ describe('Character count', () => {
         expect(component.formatCountMessage(0)).toBe('Different custom text.')
       })
 
-      it('uses existing textarea value for `maxlength` limit when initialised', () => {
-        $textarea.value = 'Existing value'
+      it('uses existing textarea value for `maxlength` limit when initialised', async () => {
+        await user.click($textarea)
+        await user.keyboard('Existing value')
 
         const component = new CharacterCount($root, {
           maxlength: 100
@@ -339,8 +380,9 @@ describe('Character count', () => {
         )
       })
 
-      it('uses existing textarea value for `maxwords` limit when initialised', () => {
-        $textarea.value = 'Existing value'
+      it('uses existing textarea value for `maxwords` limit when initialised', async () => {
+        await user.click($textarea)
+        await user.keyboard('Existing value')
 
         const component = new CharacterCount($root, {
           maxwords: 100
@@ -349,12 +391,13 @@ describe('Character count', () => {
         expect(component.getCountMessage()).toBe('You have 98 words remaining')
       })
 
-      it('uses current textarea value for `maxlength` limit via back/forward navigation', () => {
+      it('uses current textarea value for `maxlength` limit via back/forward navigation', async () => {
         const component = new CharacterCount($root, {
           maxlength: 100
         })
 
-        $textarea.value = 'Newly updated value'
+        await user.click($textarea)
+        await user.keyboard('Newly updated value')
 
         // Trigger back/forward navigation
         window.dispatchEvent(
@@ -368,12 +411,13 @@ describe('Character count', () => {
         )
       })
 
-      it('uses current textarea value for `maxwords` limit via back/forward navigation', () => {
+      it('uses current textarea value for `maxwords` limit via back/forward navigation', async () => {
         const component = new CharacterCount($root, {
           maxwords: 100
         })
 
-        $textarea.value = 'Newly updated value'
+        await user.click($textarea)
+        await user.keyboard('Newly updated value')
 
         // Trigger back/forward navigation
         window.dispatchEvent(

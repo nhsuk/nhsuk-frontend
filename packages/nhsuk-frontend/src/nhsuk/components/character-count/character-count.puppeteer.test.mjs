@@ -125,14 +125,14 @@ describe('Character count', () => {
       })
 
       it('shows the characters remaining if the field is pre-filled', async () => {
-        await initExample('with default value')
+        await initExample('with value')
 
         expect(await getText($visibleCountMessage)).toBe(
-          'You have 57 characters remaining'
+          'You have 49 characters remaining'
         )
 
         expect(await getText($screenReaderCountMessage)).toBe(
-          'You have 57 characters remaining'
+          'You have 49 characters remaining'
         )
       })
 
@@ -230,16 +230,16 @@ describe('Character count', () => {
 
       describe('when the character limit is exceeded on page load', () => {
         beforeEach(async () => {
-          await initExample('with hint and error')
+          await initExample('with error message')
         })
 
         it('shows the number of characters over the limit', async () => {
           expect(await getText($visibleCountMessage)).toBe(
-            'You have 40 characters too many'
+            'You have 48 characters too many'
           )
 
           expect(await getText($screenReaderCountMessage)).toBe(
-            'You have 40 characters too many'
+            'You have 48 characters too many'
           )
         })
 
@@ -296,38 +296,227 @@ describe('Character count', () => {
       })
     })
 
-    describe('when counting words', () => {
-      beforeEach(async () => {
-        await initExample("with count type 'words'")
-      })
-
+    describe('when counting characters', () => {
       it('shows the dynamic message', async () => {
+        await initExample("with count type 'characters'")
+
         expect(await getText($visibleCountMessage)).toBe(
-          'You have 150 words remaining'
+          'You have 200 characters remaining'
         )
 
         expect(await getText($screenReaderCountMessage)).toBe(
-          'You have 150 words remaining'
+          'You have 200 characters remaining'
         )
       })
 
-      it('counts down to the word limit', async () => {
-        await $textarea.type('Hello world')
+      it('shows the characters remaining if the field is pre-filled', async () => {
+        await initExample("with count type 'characters' and value")
 
         expect(await getText($visibleCountMessage)).toBe(
-          'You have 148 words remaining'
+          'You have 55 characters remaining'
+        )
+
+        expect(await getText($screenReaderCountMessage)).toBe(
+          'You have 55 characters remaining'
+        )
+      })
+
+      it('counts down to the character limit', async () => {
+        await initExample("with count type 'characters'")
+
+        await $textarea.type('A')
+
+        expect(await getText($visibleCountMessage)).toBe(
+          'You have 199 characters remaining'
         )
 
         // Wait for debounced update to happen
         await timers.setTimeout(debouncedWaitTime)
 
         expect(await getText($screenReaderCountMessage)).toBe(
-          'You have 148 words remaining'
+          'You have 199 characters remaining'
+        )
+      })
+
+      it('uses the singular when there is only one character remaining', async () => {
+        await initExample("with count type 'characters'")
+
+        await $textarea.type('A'.repeat(199))
+
+        expect(await getText($visibleCountMessage)).toBe(
+          'You have 1 character remaining'
+        )
+
+        // Wait for debounced update to happen
+        await timers.setTimeout(debouncedWaitTime)
+
+        expect(await getText($screenReaderCountMessage)).toBe(
+          'You have 1 character remaining'
+        )
+      })
+
+      it('retains error class if there is already an error', async () => {
+        await initExample("with count type 'characters' and error message")
+
+        await $textarea.type('A')
+
+        expect(await getAttribute($textarea, 'class')).toContain(
+          'nhsuk-textarea--error'
+        )
+      })
+
+      describe('when the character limit is exceeded', () => {
+        beforeEach(async () => {
+          await initExample("with count type 'characters'")
+
+          await $textarea.type('A'.repeat(201))
+        })
+
+        it('shows the number of characters over the limit', async () => {
+          expect(await getText($visibleCountMessage)).toBe(
+            'You have 1 character too many'
+          )
+
+          // Wait for debounced update to happen
+          await timers.setTimeout(debouncedWaitTime)
+
+          expect(await getText($screenReaderCountMessage)).toBe(
+            'You have 1 character too many'
+          )
+        })
+
+        it('uses the plural when the limit is exceeded by 2 or more', async () => {
+          await $textarea.type('A')
+
+          expect(await getText($visibleCountMessage)).toBe(
+            'You have 2 characters too many'
+          )
+
+          // Wait for debounced update to happen
+          await timers.setTimeout(debouncedWaitTime)
+
+          expect(await getText($screenReaderCountMessage)).toBe(
+            'You have 2 characters too many'
+          )
+        })
+
+        it('adds error styles to the textarea', async () => {
+          expect(await getAttribute($textarea, 'class')).toContain(
+            'nhsuk-textarea--error'
+          )
+        })
+
+        it('adds error styles to the count message', async () => {
+          expect(await getAttribute($visibleCountMessage, 'class')).toContain(
+            'nhsuk-error-message'
+          )
+        })
+      })
+
+      describe('when the character limit is exceeded on page load', () => {
+        beforeEach(async () => {
+          await initExample("with count type 'characters' and error message")
+        })
+
+        it('shows the number of characters over the limit', async () => {
+          expect(await getText($visibleCountMessage)).toBe(
+            'You have 42 characters too many'
+          )
+
+          expect(await getText($screenReaderCountMessage)).toBe(
+            'You have 42 characters too many'
+          )
+        })
+
+        it('adds error styles to the textarea', async () => {
+          expect(await getAttribute($textarea, 'class')).toContain(
+            'nhsuk-textarea--error'
+          )
+        })
+
+        it('adds error styles to the count message', async () => {
+          expect(await getAttribute($visibleCountMessage, 'class')).toContain(
+            'nhsuk-error-message'
+          )
+        })
+      })
+
+      describe('when a threshold is set', () => {
+        beforeEach(async () => {
+          await initExample("with count type 'characters' and threshold")
+        })
+
+        it('does not show the limit until the threshold is reached', async () => {
+          expect(await getProperty($visibleCountMessage, 'hidden')).toBe(true)
+
+          // Ensure threshold is hidden for users of assistive technologies
+          expect(
+            await getAttribute($screenReaderCountMessage, 'aria-hidden')
+          ).toBe('true')
+        })
+
+        it('becomes visible once the threshold is reached', async () => {
+          await $textarea.type('A'.repeat(8))
+
+          expect(await getProperty($visibleCountMessage, 'hidden')).toBe(false)
+
+          // Wait for debounced update to happen
+          await timers.setTimeout(debouncedWaitTime)
+
+          // Ensure threshold is visible for users of assistive technologies
+          expect(
+            await getAttribute($screenReaderCountMessage, 'aria-hidden')
+          ).toBeNull()
+        })
+      })
+    })
+
+    describe('when counting words', () => {
+      it('shows the dynamic message', async () => {
+        await initExample("with count type 'words'")
+
+        expect(await getText($visibleCountMessage)).toBe(
+          'You have 50 words remaining'
+        )
+
+        expect(await getText($screenReaderCountMessage)).toBe(
+          'You have 50 words remaining'
+        )
+      })
+
+      it('shows the words remaining if the field is pre-filled', async () => {
+        await initExample("with count type 'words' and value")
+
+        expect(await getText($visibleCountMessage)).toBe(
+          'You have 1 word remaining'
+        )
+
+        expect(await getText($screenReaderCountMessage)).toBe(
+          'You have 1 word remaining'
+        )
+      })
+
+      it('counts down to the word limit', async () => {
+        await initExample("with count type 'words'")
+
+        await $textarea.type('Hello world')
+
+        expect(await getText($visibleCountMessage)).toBe(
+          'You have 48 words remaining'
+        )
+
+        // Wait for debounced update to happen
+        await timers.setTimeout(debouncedWaitTime)
+
+        expect(await getText($screenReaderCountMessage)).toBe(
+          'You have 48 words remaining'
         )
       })
 
       it('uses the singular when there is only one word remaining', async () => {
-        await $textarea.type('Hello '.repeat(149))
+        await initExample("with count type 'words'")
+
+        await $textarea.type('Hello '.repeat(49))
 
         expect(await getText($visibleCountMessage)).toBe(
           'You have 1 word remaining'
@@ -345,7 +534,7 @@ describe('Character count', () => {
         beforeEach(async () => {
           await initExample("with count type 'words'")
 
-          await $textarea.type('Hello '.repeat(151))
+          await $textarea.type('Hello '.repeat(51))
         })
 
         it('shows the number of words over the limit', async () => {
@@ -404,6 +593,13 @@ describe('Character count', () => {
           expect(await getText($visibleCountMessage)).toBe(
             'You have 1 character too many'
           )
+
+          await $textarea.type('👩🏻‍🚀')
+
+          // Note that code point counting (string length) is used by default
+          expect(await getText($visibleCountMessage)).toBe(
+            'You have 8 characters too many'
+          )
         })
 
         it('configures `maxwords` (deprecated)', async () => {
@@ -417,6 +613,13 @@ describe('Character count', () => {
 
           expect(await getText($visibleCountMessage)).toBe(
             'You have 1 word too many'
+          )
+
+          await $textarea.type("what-d'you-call-it")
+
+          // Note that words are not split on hyphens or apostrophes by default
+          expect(await getText($visibleCountMessage)).toBe(
+            'You have 2 words too many'
           )
         })
 
@@ -433,6 +636,37 @@ describe('Character count', () => {
           expect(await getText($visibleCountMessage)).toBe(
             'You have 1 character too many'
           )
+
+          await $textarea.type('👩🏻‍🚀')
+
+          // Note that code point counting (string length) is used when
+          // `countType: "length"` is configured
+          expect(await getText($visibleCountMessage)).toBe(
+            'You have 8 characters too many'
+          )
+        })
+
+        it('configures `countType: "characters"`', async () => {
+          await initExample('to configure in JavaScript', {
+            config: {
+              maxlength: 10,
+              countType: 'characters'
+            }
+          })
+
+          await $textarea.type('A'.repeat(11))
+
+          expect(await getText($visibleCountMessage)).toBe(
+            'You have 1 character too many'
+          )
+
+          await $textarea.type('👩🏻‍🚀')
+
+          // Note that grapheme cluster counting (user-perceived characters) is
+          // used when `countType: "characters"` is configured
+          expect(await getText($visibleCountMessage)).toBe(
+            'You have 2 characters too many'
+          )
         })
 
         it('configures `countType: "words"`', async () => {
@@ -447,6 +681,14 @@ describe('Character count', () => {
 
           expect(await getText($visibleCountMessage)).toBe(
             'You have 1 word too many'
+          )
+
+          await $textarea.type("what-d'you-call-it")
+
+          // Note that words are not split on hyphens or apostrophes
+          // when `countType: "words"` is configured
+          expect(await getText($visibleCountMessage)).toBe(
+            'You have 2 words too many'
           )
         })
 

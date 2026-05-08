@@ -63,7 +63,7 @@ Default:
 
 Type: string
 
-The count type (`'length'` or `'words'`) used to count the text.
+The count type (`'length'`, `'characters'` or `'words'`) used to count the text.
 
 Default:
 

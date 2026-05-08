@@ -2,7 +2,7 @@ import { closestAttributeValue } from '../../common/closest-attribute-value.mjs'
 import { normaliseOptions } from '../../common/configuration/index.mjs'
 import { formatErrorMessage } from '../../common/index.mjs'
 import { ConfigurableComponent } from '../../configurable-component.mjs'
-import { ElementError } from '../../errors/index.mjs'
+import { ElementError, SupportError } from '../../errors/index.mjs'
 import { I18n } from '../../i18n.mjs'
 
 /**
@@ -19,6 +19,11 @@ import { I18n } from '../../i18n.mjs'
  */
 export class CharacterCount extends ConfigurableComponent {
   length = 0
+
+  /**
+   * @type {Intl.Segmenter | null}
+   */
+  segmenter = null
 
   /**
    * @type {number | null}
@@ -56,6 +61,7 @@ export class CharacterCount extends ConfigurableComponent {
     const {
       i18n,
       maxlength,
+      countType,
       screenReaderCountMessageClass,
       textareaDescriptionClass,
       visibleCountMessageClass
@@ -65,6 +71,21 @@ export class CharacterCount extends ConfigurableComponent {
       // Read the fallback if necessary rather than have it set in the defaults
       locale: closestAttributeValue(this.$root, 'lang')
     })
+
+    if (countType === 'characters') {
+      if (!('Segmenter' in Intl)) {
+        throw new SupportError(
+          formatErrorMessage(
+            CharacterCount,
+            'Support for "Intl.Segmenter" required'
+          )
+        )
+      }
+
+      this.segmenter = new Intl.Segmenter(this.i18n.locale, {
+        granularity: 'grapheme'
+      })
+    }
 
     // Determine the limit attribute (characters or words)
     this.maxLength = maxlength ?? Infinity
@@ -204,13 +225,26 @@ export class CharacterCount extends ConfigurableComponent {
 
     text = text ?? $textarea.value
 
-    if (countType === 'words') {
-      const tokens = text.match(/\S+/g) ?? [] // Matches consecutive non-whitespace chars
-      this.length = tokens.length
-      return
-    }
+    switch (countType) {
+      case 'length':
+        // Count code points (string length)
+        this.length = text.length
+        break
 
-    this.length = text.length
+      case 'characters': {
+        // Count grapheme clusters (user-perceived characters)
+        this.length = this.segmenter
+          ? Array.from(this.segmenter.segment(text)).length
+          : 0
+
+        break
+      }
+
+      case 'words':
+        // Count consecutive non-whitespace results
+        this.length = text.match(/\S+/g)?.length ?? 0
+        break
+    }
   }
 
   /**
@@ -538,8 +572,8 @@ export function initCharacterCounts(options) {
  * @property {number} [threshold=0] - The percentage value of the limit at
  *   which point the count message is displayed. If this attribute is set, the
  *   count message will be hidden by default.
- * @property {'length' | 'words'} countType - The count type (`"length"` or
- *   `"words"`) used to count the text.
+ * @property {'characters' | 'length' | 'words'} countType - The count type
+ *   (`"characters"`, `"length"` or `"words"`) used to count the text.
  * @property {string} textareaDescriptionClass - Textarea description class
  * @property {string} visibleCountMessageClass - Visible count message class
  * @property {string} screenReaderCountMessageClass - Screen reader count message class
