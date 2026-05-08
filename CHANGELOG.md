@@ -150,7 +150,7 @@ This was added in [pull request #1915: Render Nunjucks icon macro into SVG files
 
 #### Add a template with all components imported
 
-You can now choose to use `template-with-imports.njk` as a base template, which will import all components.
+If you are using the Nunjucks macros, you can now extend the `template-with-imports.njk` base template instead of `template.njk`, which will import all components.
 
 ### :recycle: **Changes**
 
