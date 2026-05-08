@@ -215,7 +215,7 @@ const fixtures = {
       id: 'with-words-count-type',
       name: 'example',
       countType: 'words',
-      maxlength: 150
+      maxlength: 50
     }
   },
   'with threshold': {

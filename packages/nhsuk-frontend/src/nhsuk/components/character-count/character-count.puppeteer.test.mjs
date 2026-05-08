@@ -297,37 +297,39 @@ describe('Character count', () => {
     })
 
     describe('when counting words', () => {
-      beforeEach(async () => {
-        await initExample("with count type 'words'")
-      })
-
       it('shows the dynamic message', async () => {
+        await initExample("with count type 'words'")
+
         expect(await getText($visibleCountMessage)).toBe(
-          'You have 150 words remaining'
+          'You have 50 words remaining'
         )
 
         expect(await getText($screenReaderCountMessage)).toBe(
-          'You have 150 words remaining'
+          'You have 50 words remaining'
         )
       })
 
       it('counts down to the word limit', async () => {
+        await initExample("with count type 'words'")
+
         await $textarea.type('Hello world')
 
         expect(await getText($visibleCountMessage)).toBe(
-          'You have 148 words remaining'
+          'You have 48 words remaining'
         )
 
         // Wait for debounced update to happen
         await timers.setTimeout(debouncedWaitTime)
 
         expect(await getText($screenReaderCountMessage)).toBe(
-          'You have 148 words remaining'
+          'You have 48 words remaining'
         )
       })
 
       it('uses the singular when there is only one word remaining', async () => {
-        await $textarea.type('Hello '.repeat(149))
+        await initExample("with count type 'words'")
+
+        await $textarea.type('Hello '.repeat(49))
 
         expect(await getText($visibleCountMessage)).toBe(
           'You have 1 word remaining'
@@ -345,7 +347,7 @@ describe('Character count', () => {
         beforeEach(async () => {
           await initExample("with count type 'words'")
 
-          await $textarea.type('Hello '.repeat(151))
+          await $textarea.type('Hello '.repeat(51))
         })
 
         it('shows the number of words over the limit', async () => {
