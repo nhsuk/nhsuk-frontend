@@ -26,6 +26,13 @@ export class CharacterCount extends ConfigurableComponent {
   segmenter = null
 
   /**
+   * Split words between consecutive whitespace
+   *
+   * @type {RegExp}
+   */
+  separator = /\s+/g
+
+  /**
    * @type {number | null}
    */
   lastInputTimestamp = null
@@ -494,7 +501,7 @@ export class CharacterCount extends ConfigurableComponent {
      */
     words(text) {
       if (this.config.maxwords !== undefined) {
-        return text.split(/\s+/g).filter(Boolean).length
+        return text.split(this.separator).filter(Boolean).length
       }
 
       const segments = this.segmenter
