@@ -615,6 +615,7 @@ describe('Character count', () => {
             'You have 1 word too many'
           )
 
+          await $textarea.press('Space')
           await $textarea.type("what-d'you-call-it")
 
           // Note that words are not split on hyphens or apostrophes by default
@@ -683,6 +684,7 @@ describe('Character count', () => {
             'You have 1 word too many'
           )
 
+          await $textarea.press('Space')
           await $textarea.type("what-d'you-call-it")
 
           // Note that words are not split on hyphens or apostrophes
