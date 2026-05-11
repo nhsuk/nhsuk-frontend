@@ -61,6 +61,7 @@ export class CharacterCount extends ConfigurableComponent {
     const {
       i18n,
       maxlength,
+      countFunction,
       countType,
       screenReaderCountMessageClass,
       textareaDescriptionClass,
@@ -72,7 +73,7 @@ export class CharacterCount extends ConfigurableComponent {
       locale: closestAttributeValue(this.$root, 'lang')
     })
 
-    if (countType === 'characters') {
+    if (countType === 'characters' || !!countFunction) {
       if (!('Segmenter' in Intl)) {
         throw new SupportError(
           formatErrorMessage(
@@ -83,7 +84,7 @@ export class CharacterCount extends ConfigurableComponent {
       }
 
       this.segmenter = new Intl.Segmenter(this.i18n.locale, {
-        granularity: 'grapheme'
+        granularity: countType === 'words' ? 'word' : 'grapheme'
       })
     }
 
@@ -221,10 +222,11 @@ export class CharacterCount extends ConfigurableComponent {
    */
   updateCount(text) {
     const { $textarea, countFunctions } = this
-    const { countType } = this.config
+    let { countType, countFunction } = this.config
 
     text ??= $textarea.value
-    this.length = countFunctions[countType].call(this, text)
+    countFunction ??= countFunctions[countType]
+    this.length = countFunction.call(this, text)
   }
 
   /**
@@ -451,7 +453,7 @@ export class CharacterCount extends ConfigurableComponent {
    * Character count functions
    *
    * @constant
-   * @satisfies {Record<string, (this: CharacterCount, text: string) => number>}
+   * @satisfies {Record<string, CharacterCountConfig['countFunction']>}
    */
   countFunctions = Object.freeze({
     /**
@@ -544,6 +546,7 @@ export class CharacterCount extends ConfigurableComponent {
       maxlength: { type: 'number' },
       threshold: { type: 'number' },
       countType: { type: 'string' },
+      countFunction: { type: 'function' },
       textareaDescriptionClass: { type: 'string' },
       visibleCountMessageClass: { type: 'string' },
       screenReaderCountMessageClass: { type: 'string' },
@@ -594,10 +597,18 @@ export function initCharacterCounts(options) {
  *   count message will be hidden by default.
  * @property {'characters' | 'length' | 'words'} countType - The count type
  *   (`"characters"`, `"length"` or `"words"`) used to count the text.
+ * @property {CharacterCountFunction} [countFunction] - Custom character or
+ *   word counting function.
  * @property {string} textareaDescriptionClass - Textarea description class
  * @property {string} visibleCountMessageClass - Visible count message class
  * @property {string} screenReaderCountMessageClass - Screen reader count message class
  * @property {CharacterCountTranslations} [i18n=CharacterCount.defaults.i18n] - Character count translations
+ */
+
+/**
+ * Character count function
+ *
+ * @typedef {(this: CharacterCount, text: string) => number} CharacterCountFunction
  */
 
 /**
