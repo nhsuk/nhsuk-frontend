@@ -61,6 +61,7 @@ export class CharacterCount extends ConfigurableComponent {
     const {
       i18n,
       maxlength,
+      maxwords,
       countFunction,
       countType,
       screenReaderCountMessageClass,
@@ -73,7 +74,11 @@ export class CharacterCount extends ConfigurableComponent {
       locale: closestAttributeValue(this.$root, 'lang')
     })
 
-    if (countType === 'characters' || !!countFunction) {
+    if (
+      countType === 'characters' ||
+      (countType === 'words' && maxwords === undefined) ||
+      !!countFunction
+    ) {
       if (!('Segmenter' in Intl)) {
         throw new SupportError(
           formatErrorMessage(
