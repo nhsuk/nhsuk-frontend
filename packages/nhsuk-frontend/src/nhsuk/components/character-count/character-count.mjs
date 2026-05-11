@@ -484,13 +484,13 @@ export class CharacterCount extends ConfigurableComponent {
     },
 
     /**
-     * Count consecutive non-whitespace results
+     * Count words between consecutive whitespace
      *
      * @param {string} text - Textarea value
      * @returns {number} Count
      */
     words(text) {
-      return text.match(/\S+/g)?.length ?? 0
+      return text.split(/\s+/g).filter(Boolean).length
     }
   })
 
