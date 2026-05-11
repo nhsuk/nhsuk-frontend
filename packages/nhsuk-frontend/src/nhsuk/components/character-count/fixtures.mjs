@@ -293,7 +293,7 @@ const fixtures = {
       id: 'with-words-count-type-error-message',
       name: 'example',
       countType: 'words',
-      maxlength: 50,
+      maxlength: 51,
       value:
         '👩🏻‍🚀 A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels. They make sure appropriate content is shown to a user in the right place and in the best format.'
     }
@@ -310,7 +310,7 @@ const fixtures = {
       countType: 'words',
       value:
         'Type another word into this field after this message to see the threshold feature',
-      maxlength: 50,
+      maxlength: 51,
       threshold: 30
     }
   },
@@ -324,7 +324,7 @@ const fixtures = {
       id: 'with-words-count-type-value',
       name: 'example',
       countType: 'words',
-      maxlength: 50,
+      maxlength: 51,
       value:
         '👩🏻‍🚀 A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels.'
     }
