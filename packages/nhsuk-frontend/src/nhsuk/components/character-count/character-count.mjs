@@ -220,31 +220,11 @@ export class CharacterCount extends ConfigurableComponent {
    * @param {string} [text] - Deprecated
    */
   updateCount(text) {
-    const { $textarea } = this
+    const { $textarea, countFunctions } = this
     const { countType } = this.config
 
-    text = text ?? $textarea.value
-
-    switch (countType) {
-      case 'length':
-        // Count code points (string length)
-        this.length = text.length
-        break
-
-      case 'characters': {
-        // Count grapheme clusters (user-perceived characters)
-        this.length = this.segmenter
-          ? Array.from(this.segmenter.segment(text)).length
-          : 0
-
-        break
-      }
-
-      case 'words':
-        // Count consecutive non-whitespace results
-        this.length = text.match(/\S+/g)?.length ?? 0
-        break
-    }
+    text ??= $textarea.value
+    this.length = countFunctions[countType].call(this, text)
   }
 
   /**
@@ -466,6 +446,46 @@ export class CharacterCount extends ConfigurableComponent {
       window.clearInterval(this.valueChecker)
     }
   }
+
+  /**
+   * Character count functions
+   *
+   * @constant
+   * @satisfies {Record<string, (this: CharacterCount, text: string) => number>}
+   */
+  countFunctions = Object.freeze({
+    /**
+     * Count code points (string length)
+     *
+     * @param {string} text - Textarea value
+     * @returns {number} Count
+     */
+    length(text) {
+      return text.length
+    },
+
+    /**
+     * Count grapheme clusters (user-perceived characters)
+     *
+     * @param {string} text - Textarea value
+     * @returns {number} Count
+     */
+    characters(text) {
+      return this.segmenter
+        ? Array.from(this.segmenter.segment(text)).length
+        : 0
+    },
+
+    /**
+     * Count consecutive non-whitespace results
+     *
+     * @param {string} text - Textarea value
+     * @returns {number} Count
+     */
+    words(text) {
+      return text.match(/\S+/g)?.length ?? 0
+    }
+  })
 
   /**
    * Name for the component used when initialising using data-module attributes
