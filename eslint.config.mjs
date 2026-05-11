@@ -199,6 +199,9 @@ export default defineConfig([
       // https://browsersl.ist/#q=supports+es6-module+and+not+supports+array-includes
       'es-x/no-array-prototype-includes': 'off',
 
+      // Babel transpiles ES2021 `??=` logical assignment
+      'es-x/no-logical-assignment-operators': 'off',
+
       // Babel transpiles ES2020 `??` nullish coalescing
       'es-x/no-nullish-coalescing-operators': 'off',
 
