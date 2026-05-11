@@ -484,13 +484,25 @@ export class CharacterCount extends ConfigurableComponent {
     },
 
     /**
-     * Count words between consecutive whitespace
+     * Count words
+     *
+     * If the (deprecated) `maxwords` option is set, count words between
+     * consecutive whitespace rather than using the segmenter
      *
      * @param {string} text - Textarea value
      * @returns {number} Count
      */
     words(text) {
-      return text.split(/\s+/g).filter(Boolean).length
+      if (this.config.maxwords !== undefined) {
+        return text.split(/\s+/g).filter(Boolean).length
+      }
+
+      const segments = this.segmenter
+        ? Array.from(this.segmenter.segment(text))
+        : []
+
+      // Filter out punctuation and whitespace, leaving only words
+      return segments.filter((segment) => segment.isWordLike).length
     }
   })
 
