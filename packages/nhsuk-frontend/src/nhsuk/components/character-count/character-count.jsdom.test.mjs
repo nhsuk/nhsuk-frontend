@@ -428,6 +428,40 @@ describe('Character count', () => {
 
         expect(component.getCountMessage()).toBe('You have 97 words remaining')
       })
+
+      it('uses custom `countFunction` for `maxlength` limit when set', async () => {
+        const component = new CharacterCount($root, {
+          maxlength: 100,
+          countFunction: jest.fn().mockReturnValue(10)
+        })
+
+        $textarea.focus()
+        await user.keyboard('Newly updated value')
+
+        expect(component.config.countFunction).toHaveBeenLastCalledWith(
+          'Newly updated value'
+        )
+
+        expect(component.getCountMessage()).toBe(
+          'You have 90 characters remaining'
+        )
+      })
+
+      it('uses custom `countFunction` for `maxwords` limit when set', async () => {
+        const component = new CharacterCount($root, {
+          maxwords: 100,
+          countFunction: jest.fn().mockReturnValue(10)
+        })
+
+        $textarea.focus()
+        await user.keyboard('Newly updated value')
+
+        expect(component.config.countFunction).toHaveBeenLastCalledWith(
+          'Newly updated value'
+        )
+
+        expect(component.getCountMessage()).toBe('You have 90 words remaining')
+      })
     })
 
     describe('with HTML lang attribute', () => {
