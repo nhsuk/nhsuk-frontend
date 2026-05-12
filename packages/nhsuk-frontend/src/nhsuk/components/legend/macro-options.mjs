@@ -39,6 +39,12 @@ const options = {
     description: 'Whether the legend also acts as the heading for the page.',
     released: '10.2.0'
   },
+  headingLevel: {
+    type: 'integer',
+    required: false,
+    description:
+      'Optional legend heading level. Defaults to `1` when `isPageHeading` is `true`.'
+  },
   size: {
     type: 'string',
     required: false,

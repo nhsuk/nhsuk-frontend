@@ -46,6 +46,12 @@ const options = {
     description: 'Whether the label also acts as the heading for the page.',
     released: '1.0.0'
   },
+  headingLevel: {
+    type: 'integer',
+    required: false,
+    description:
+      'Optional label heading level. Defaults to `1` when `isPageHeading` is `true`.'
+  },
   size: {
     type: 'string',
     required: false,
