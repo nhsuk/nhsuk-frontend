@@ -1,0 +1,29 @@
+@use "../settings" as *;
+@use "../tools/spacing" as *;
+@use "../helpers/colour" as *;
+@use "functions" as *;
+
+////
+/// Dash mixin
+///
+/// @group tools
+////
+
+@mixin nhsuk-shape-dash() {
+  position: relative;
+  padding: 0 0 0 nhsuk-spacing(4);
+
+  &::before {
+    content: "";
+
+    display: block;
+
+    position: absolute;
+    top: nhsuk-em(12, 16);
+    left: 0;
+
+    width: nhsuk-spacing(3);
+
+    border-top: 1px solid nhsuk-colour("grey-2");
+  }
+}

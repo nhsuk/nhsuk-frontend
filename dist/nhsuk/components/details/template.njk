@@ -1,0 +1,31 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes -%}
+
+{#- Set variant for this component #}
+{%- set variant = params.variant -%}
+
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-details" -%}
+
+{%- if variant == "reverse" and (not params.classes or not "nhsuk-details--reverse" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-details--" ~ variant %}
+{% endif %}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif -%}
+
+<details class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
+  {{- nhsukAttributes(params.attributes) }} {{- " open" if params.open }}>
+  <summary class="nhsuk-details__summary">
+    <span class="nhsuk-details__summary-text">
+      {{ params.summaryHtml | safe | trim | indent(6) if params.summaryHtml else params.summaryText }}
+    </span>
+  </summary>
+  <div class="nhsuk-details__text">
+  {% if caller or params.html %}
+    {{ caller() if caller else params.html | safe | trim | indent(4) }}
+  {% elif params.text %}
+    {{ params.text }}
+  {% endif %}
+  </div>
+</details>
