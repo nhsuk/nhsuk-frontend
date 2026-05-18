@@ -254,7 +254,7 @@ describe('Table', () => {
 
       // Get initial first row nation
       const getFirstRowNation = () =>
-        $tbody?.querySelector('tr td')?.textContent
+        $tbody?.querySelector('tr th')?.textContent
 
       expect(getFirstRowNation()?.trim()).toBe('England')
 
