@@ -32,6 +32,7 @@ const fixtures = {
     context: {
       caption: 'Impetigo can look similar to other skin conditions',
       captionSize: 'm',
+      firstCellIsHeader: true,
       head: [
         {
           text: 'Skin symptoms'
@@ -76,6 +77,7 @@ const fixtures = {
     context: {
       caption: 'Vaccinations given',
       captionSize: 'm',
+      firstCellIsHeader: true,
       head: [
         {
           text: 'Date'
@@ -103,6 +105,7 @@ const fixtures = {
     context: {
       caption: 'Vaccinations given',
       captionSize: 'm',
+      firstCellIsHeader: true,
       head: [
         {
           text: 'Date'
@@ -145,6 +148,7 @@ const fixtures = {
     context: {
       caption: 'Prescription prepayment certificate (PPC) charges',
       captionSize: 'm',
+      firstCellIsHeader: true,
       head: [
         {
           text: 'Item'
@@ -453,6 +457,7 @@ const fixtures = {
     context: {
       caption: 'Childhood vaccination coverage',
       captionSize: 'm',
+      firstCellIsHeader: true,
       head: [
         {
           text: 'Nation',
@@ -554,6 +559,7 @@ const fixtures = {
   'with names and dates, sortable': {
     context: {
       caption: 'Screening schedule',
+      firstCellIsHeader: true,
       head: [
         {
           text: 'Name',
@@ -669,6 +675,7 @@ const fixtures = {
   'with names and times, sortable server-side': {
     context: {
       caption: 'Appointments',
+      firstCellIsHeader: true,
       head: [
         {
           text: 'Time',
@@ -752,6 +759,7 @@ const fixtures = {
       caption: 'Ibuprofen syrup dosages for children',
       captionSize: 'm',
       responsive: true,
+      firstCellIsHeader: true,
       head: [
         {
           text: 'Age',
@@ -1016,6 +1024,7 @@ const fixtures = {
     context: {
       caption: 'Users',
       captionSize: 'm',
+      firstCellIsHeader: true,
       head: [
         {
           text: 'Name'
@@ -1148,6 +1157,7 @@ const fixtures = {
       card: true,
       caption: 'Impetigo can look similar to other skin conditions',
       captionSize: 'm',
+      firstCellIsHeader: true,
       head: [
         {
           text: 'Skin symptoms'
@@ -1193,6 +1203,7 @@ const fixtures = {
       },
       caption: 'Impetigo can look similar to other skin conditions',
       captionSize: 's',
+      firstCellIsHeader: true,
       head: [
         {
           text: 'Skin symptoms'
@@ -1241,6 +1252,7 @@ const fixtures = {
       },
       caption: 'Impetigo can look similar to other skin conditions',
       captionSize: 's',
+      firstCellIsHeader: true,
       responsive: true,
       head: [
         {
