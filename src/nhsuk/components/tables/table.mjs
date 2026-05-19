@@ -342,7 +342,7 @@ export class Table extends ConfigurableComponent {
    * @type {TableConfig}
    */
   static defaults = Object.freeze({
-    statusMessage: 'Sort by %heading% (%direction%)',
+    statusMessage: 'Sorted by %heading% (%direction%)',
     ascendingText: 'ascending',
     descendingText: 'descending'
   })
