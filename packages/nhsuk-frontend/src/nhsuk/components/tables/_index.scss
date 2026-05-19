@@ -229,7 +229,7 @@ $sortable-table-hover-colour: color.adjust(nhsuk-colour("grey-5"), $lightness: -
     position: absolute;
     top: 0;
     right: 0;
-    bottom: 0;
+    bottom: -$nhsuk-border-table-header-width; // to expand the click area to cover the border-bottom
     left: 0;
   }
 
