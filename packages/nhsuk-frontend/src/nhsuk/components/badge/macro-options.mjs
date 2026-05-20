@@ -1,0 +1,50 @@
+export const name = 'Badge'
+
+/**
+ * Nunjucks macro option params
+ *
+ * @satisfies {{ [param: string]: MacroParam }}
+ */
+const options = {
+  text: {
+    type: 'string',
+    required: true,
+    description:
+      'If `html` is set, this is not required. Text to use within the badge. If `html` is provided, the `text` argument will be ignored.'
+  },
+  html: {
+    type: 'string',
+    required: true,
+    description:
+      'If `text` is set, this is not required. HTML to use within the badge. If `html` is provided, the `text` argument will be ignored.'
+  },
+  visuallyHiddenText: {
+    type: 'string',
+    required: false,
+    description:
+      'Visually hidden text prepended to the badge content for assistive technology. Use this to provide context when the badge value alone may be ambiguous — for example, `"Count:"` so that `12` is read as `"Count: 12"`. Text values like `"New"` or `"Updated"` are typically self-explanatory and do not need this.'
+  },
+  classes: {
+    type: 'string',
+    required: false,
+    description: 'Classes to add to the badge element.'
+  },
+  attributes: {
+    type: 'object',
+    required: false,
+    description:
+      'HTML attributes (for example data attributes) to add to the badge element.'
+  }
+}
+
+/**
+ * Nunjucks macro option params
+ * (with typed keys)
+ *
+ * @type {Record<keyof typeof options, MacroParam>}
+ */
+export const params = options
+
+/**
+ * @import { MacroParam } from '#lib'
+ */
