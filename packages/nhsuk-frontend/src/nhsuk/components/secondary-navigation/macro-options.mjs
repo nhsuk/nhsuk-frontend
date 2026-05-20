@@ -47,11 +47,12 @@ const options = {
         description:
           'If `true`, marks this item as the current page using `aria-current="page"` and wraps the item text in a `<strong>` element as a visual fallback.'
       },
-      count: {
-        type: 'integer',
+      badge: {
+        type: 'object',
         required: false,
         description:
-          'An optional numeric count to display alongside the item (for example, number of results in a filtered view). Rendered as a visually distinct badge. A visually hidden label prefix (defaulting to `"Count"`) is included for assistive technology; override it with `visuallyHiddenCountText`.'
+          'Optional badge to display alongside the item text, for example a count or status label. Accepts the same params as the badge component.',
+        isComponent: true
       },
       classes: {
         type: 'string',
@@ -77,12 +78,6 @@ const options = {
     required: false,
     description:
       'If `true`, forces the navigation to remain stacked vertically at all breakpoints, rather than switching to a horizontal layout at tablet width.'
-  },
-  visuallyHiddenCountText: {
-    type: 'string',
-    required: false,
-    description:
-      'Visually hidden text prepended to each count badge for assistive technology (for example, `"Results"`). Defaults to `"Count"`. Only used when one or more items have a `count` value.'
   },
   id: {
     type: 'string',
