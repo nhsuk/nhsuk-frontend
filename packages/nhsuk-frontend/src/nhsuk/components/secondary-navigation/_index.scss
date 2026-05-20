@@ -121,11 +121,18 @@
     }
   }
 
-  // Badge – spacing wrapper for the badge component used inside nav items.
-  // The badge component itself provides the pill styles; this adds the
-  // left margin to separate the badge from the item text.
-  .nhsuk-secondary-navigation__badge {
+  // Suffix – generic wrapper for content appended after a nav item's label
+  // (for example, a badge). Provides left margin and a visually-hidden word
+  // separator so screen readers don't run the item text into the suffix content.
+  .nhsuk-secondary-navigation__suffix {
+    position: relative;
     margin-left: nhsuk-spacing(2);
+
+    &::before {
+      @include nhsuk-visually-hidden;
+
+      content: "\00a0";
+    }
   }
 
   // When the link is focused the item has a yellow background;
