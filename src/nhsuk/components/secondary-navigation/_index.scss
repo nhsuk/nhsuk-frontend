@@ -229,7 +229,12 @@
 
       // Reinstate the current indicator on the link when focused (yellow
       // background covers the <li>'s indicator).
+      // Also explicitly set the focus text colour: the [aria-current] rule above
+      // has the same specificity as the :focus rule from nhsuk-link-style-white,
+      // so source order determines the winner — Safari follows spec and lets
+      // [aria-current] (later in source) override the focus colour back to white.
       &[aria-current]:focus {
+        color: $nhsuk-focus-text-colour;
         box-shadow:
           inset $nhsuk-border-width 0 $nhsuk-reverse-text-colour,
           inset 0 ($nhsuk-focus-width * -1) $nhsuk-focus-text-colour;
