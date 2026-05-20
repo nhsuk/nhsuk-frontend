@@ -1,4 +1,5 @@
 {%- from "nhsuk/macros/attributes.njk" import nhsukAttributes -%}
+{%- from "nhsuk/components/badge/macro.njk" import badge -%}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-secondary-navigation" -%}
@@ -33,11 +34,9 @@
       }) -}}
     {%- endset -%}
 
-    {%- set itemCountHtml -%}
-      {#- Need to use 'is defined' so that counts of 0 are still rendered -#}
-      {%- if item.count is defined -%}
-        {%- set visuallyHiddenCountText = params.visuallyHiddenCountText | default("Count") -%}
-        <span class="nhsuk-secondary-navigation__count"><span class="nhsuk-u-visually-hidden">{{ visuallyHiddenCountText }}: </span>{{ item.count }}</span>
+    {%- set itemBadgeHtml -%}
+      {%- if item.badge is defined -%}
+        <span class="nhsuk-secondary-navigation__badge">{{ badge(item.badge) }}</span>
       {%- endif -%}
     {%- endset -%}
 
@@ -47,11 +46,11 @@
           or styles still have some indicator of the current nav item. -#}
         <strong class="nhsuk-secondary-navigation__current">
           {{- item.html | safe if item.html else item.text -}}
-          {{- itemCountHtml | safe -}}
+          {{- itemBadgeHtml | safe -}}
         </strong>
       {%- else -%}
         {{- item.html | safe if item.html else item.text -}}
-        {{- itemCountHtml | safe -}}  
+        {{- itemBadgeHtml | safe -}}
       {%- endif -%}
     {%- endset %}
 
