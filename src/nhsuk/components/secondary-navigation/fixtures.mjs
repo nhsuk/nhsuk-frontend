@@ -30,29 +30,29 @@ const fixtures = {
       width: 'full'
     }
   },
-  'with count': {
+  'with badge': {
     context: {
       items: [
         {
           href: '#',
           text: 'All',
-          count: 12
+          badge: { text: '12', visuallyHiddenText: 'Count:' }
         },
         {
           href: '#',
           text: 'Today',
-          count: 3,
+          badge: { text: '3', visuallyHiddenText: 'Count:' },
           current: true
         },
         {
           href: '#',
           text: 'Upcoming',
-          count: "New"
+          badge: { text: 'New' }
         },
         {
           href: '#',
           text: 'Completed',
-          count: 0
+          badge: { text: '0', visuallyHiddenText: 'Count:' }
         }
       ]
     },
@@ -116,30 +116,30 @@ const fixtures = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
-  'reverse with count': {
+  'reverse with badge': {
     context: {
       classes: 'nhsuk-secondary-navigation--reverse',
       items: [
         {
           href: '#',
           text: 'All',
-          count: 12
+          badge: { text: '12', visuallyHiddenText: 'Count:' }
         },
         {
           href: '#',
           text: 'Today',
-          count: 3,
+          badge: { text: '3', visuallyHiddenText: 'Count:' },
           current: true
         },
         {
           href: '#',
           text: 'Upcoming',
-          count: 9
+          badge: { text: '9', visuallyHiddenText: 'Count:' }
         },
         {
           href: '#',
           text: 'Completed',
-          count: 0
+          badge: { text: '0', visuallyHiddenText: 'Count:' }
         }
       ]
     },
