@@ -72,7 +72,7 @@ const fixtures = {
         },
         {
           href: '#',
-          html: 'Vaccinations<span class="nhsuk-u-visually-hidden"> </span><strong class="nhsuk-tag nhsuk-tag--green nhsuk-u-margin-left-2">New</strong>',
+          html: 'Vaccinations<span class="nhsuk-secondary-navigation__suffix"><strong class="nhsuk-tag nhsuk-tag--green">New</strong></span>',
           current: true
         },
         {

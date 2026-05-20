@@ -36,7 +36,7 @@
 
     {%- set itemBadgeHtml -%}
       {%- if item.badge is defined -%}
-        <span class="nhsuk-secondary-navigation__badge">{{ badge(item.badge) }}</span>
+        <span class="nhsuk-secondary-navigation__suffix">{{ badge(item.badge) }}</span>
       {%- endif -%}
     {%- endset -%}
 
