@@ -169,6 +169,28 @@ const options = {
       'Attribute to provide a regular expression pattern, used to match allowed character combinations for the input value.',
     released: '10.5.0'
   },
+  inputWrapper: {
+    type: 'object',
+    required: false,
+    description:
+      'Additional options for the wrapping element containing the search input component.',
+    released: '10.5.0',
+    params: {
+      classes: {
+        type: 'string',
+        required: false,
+        description: 'Classes to add to the wrapping element.',
+        released: '10.5.0'
+      },
+      attributes: {
+        type: 'object',
+        required: false,
+        description:
+          'HTML attributes (for example data attributes) to add to the wrapping element.',
+        released: '10.5.0'
+      }
+    }
+  },
   attributes: {
     type: 'object',
     required: false,
