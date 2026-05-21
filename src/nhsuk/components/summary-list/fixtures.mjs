@@ -976,6 +976,83 @@ const fixtures = {
         }
       ]
     }
+  },
+  'example person: Karen Francis': {
+    context: {
+      rows: [
+        {
+          key: {
+            text: 'Name'
+          },
+          value: {
+            text: 'Karen Francis'
+          }
+        },
+        {
+          key: {
+            text: 'Date of birth'
+          },
+          value: {
+            text: '15 March 1984'
+          }
+        }
+      ]
+    },
+    options: {
+      hidden: true
+    }
+  },
+  'example person: Karen Francis (no border)': {
+    context: {
+      rows: [
+        {
+          key: {
+            text: 'Name'
+          },
+          value: {
+            text: 'Karen Francis'
+          }
+        },
+        {
+          border: false,
+          key: {
+            text: 'Date of birth'
+          },
+          value: {
+            text: '15 March 1984'
+          }
+        }
+      ]
+    },
+    options: {
+      hidden: true
+    }
+  },
+  'example person: Sarah Philips (no border)': {
+    context: {
+      rows: [
+        {
+          key: {
+            text: 'Name'
+          },
+          value: {
+            text: 'Sarah Philips'
+          }
+        },
+        {
+          border: false,
+          key: {
+            text: 'Date of birth'
+          },
+          value: {
+            text: '5 January 1978'
+          }
+        }
+      ]
+    },
+    options: {
+      hidden: true
+    }
   }
 }
 

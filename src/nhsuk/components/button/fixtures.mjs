@@ -629,6 +629,46 @@ const fixtures = {
       },
       small: true
     }
+  },
+  'example reverse search button, small': {
+    context: {
+      text: 'Search',
+      variant: 'reverse',
+      small: true
+    },
+    options: {
+      hidden: true
+    }
+  },
+  'example reverse save button, small': {
+    context: {
+      text: 'Save',
+      variant: 'reverse',
+      small: true
+    },
+    options: {
+      hidden: true
+    }
+  },
+  'example secondary search button, small': {
+    context: {
+      text: 'Search',
+      variant: 'secondary',
+      small: true
+    },
+    options: {
+      hidden: true
+    }
+  },
+  'example secondary save button, small': {
+    context: {
+      text: 'Save',
+      variant: 'secondary',
+      small: true
+    },
+    options: {
+      hidden: true
+    }
   }
 }
 
