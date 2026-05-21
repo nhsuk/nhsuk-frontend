@@ -204,7 +204,7 @@ const fixtures = {
       ]
     }
   },
-  'month and year with pre-defined fields': {
+  'month and year with fields': {
     context: {
       fieldset: {
         legend: {
@@ -226,7 +226,7 @@ const fixtures = {
       }
     }
   },
-  'month and year with pre-defined fields overriding values': {
+  'month and year with fields overriding values': {
     context: {
       fieldset: {
         legend: {
@@ -252,7 +252,7 @@ const fixtures = {
       }
     }
   },
-  'month and year with pre-defined values': {
+  'month and year with values': {
     context: {
       fieldset: {
         legend: {
@@ -414,7 +414,7 @@ const fixtures = {
       namePrefix: 'example'
     }
   },
-  'with errors only': {
+  'with error message': {
     context: {
       fieldset: {
         legend: {
@@ -425,6 +425,37 @@ const fixtures = {
       },
       errorMessage: {
         text: 'Enter your date of birth'
+      },
+      id: 'example'
+    }
+  },
+  'with hint and error': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'What is your date of birth?',
+          size: 'l',
+          isPageHeading: true
+        }
+      },
+      hint: {
+        text: 'For example, 31 3 1980'
+      },
+      errorMessage: {
+        text: 'Enter your date of birth'
+      },
+      id: 'example'
+    },
+    screenshot: true
+  },
+  'with errors only': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'What is your date of birth?',
+          size: 'l',
+          isPageHeading: true
+        }
       },
       id: 'example',
       day: {
@@ -446,72 +477,6 @@ const fixtures = {
           size: 'l',
           isPageHeading: true
         }
-      },
-      errorMessage: {
-        text: 'Enter your date of birth'
-      },
-      id: 'example',
-      items: [
-        {
-          name: 'day',
-          width: 2,
-          error: true
-        },
-        {
-          name: 'month',
-          width: 2,
-          error: true
-        },
-        {
-          name: 'year',
-          width: 4,
-          error: true
-        }
-      ]
-    }
-  },
-  'with errors and hint': {
-    context: {
-      fieldset: {
-        legend: {
-          text: 'What is your date of birth?',
-          size: 'l',
-          isPageHeading: true
-        }
-      },
-      hint: {
-        text: 'For example, 31 3 1980'
-      },
-      errorMessage: {
-        text: 'Enter your date of birth'
-      },
-      id: 'example',
-      day: {
-        error: true
-      },
-      month: {
-        error: true
-      },
-      year: {
-        error: true
-      }
-    },
-    screenshot: true
-  },
-  'with errors and hint (using items)': {
-    context: {
-      fieldset: {
-        legend: {
-          text: 'What is your date of birth?',
-          size: 'l',
-          isPageHeading: true
-        }
-      },
-      hint: {
-        text: 'For example, 31 3 1980'
-      },
-      errorMessage: {
-        text: 'Enter your date of birth'
       },
       id: 'example',
       items: [
