@@ -26,7 +26,7 @@
   .nhsuk-search-input__button {
     flex-shrink: 0;
     width: auto;
-    height: nhsuk-px-to-rem(36px);
+    height: nhsuk-px-to-rem(32px + $nhsuk-button-shadow-size);
 
     // Remove unnecessary margin
     .nhsuk-input-wrapper & {
@@ -35,7 +35,7 @@
     }
 
     .nhsuk-input--large ~ & {
-      height: nhsuk-px-to-rem(52px - $nhsuk-button-shadow-size);
+      height: nhsuk-px-to-rem(40px + $nhsuk-button-shadow-size);
     }
 
     // Prevent height change when pressed
@@ -48,7 +48,7 @@
       box-shadow: none !important;
 
       .nhsuk-input--large ~ & {
-        height: nhsuk-px-to-rem(52px);
+        height: nhsuk-px-to-rem(48px);
       }
     }
 
@@ -68,7 +68,7 @@
       // Prevent height change when pressed
       .nhsuk-input--large ~ &:active,
       .nhsuk-input--large ~ &:active:focus {
-        height: nhsuk-px-to-rem(56px + $nhsuk-button-shadow-size);
+        height: nhsuk-px-to-rem(60px);
       }
     }
   }
