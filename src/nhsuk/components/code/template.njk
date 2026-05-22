@@ -55,9 +55,9 @@
   {{- nhsukAttributes(params.attributes) }} data-module="nhsuk-code">
 {% if params.button %}
   {{ button({
+    text: params.copyButtonText | default("Copy code"),
     type: "button",
     classes: classNamesButton,
-    text: params.copyButtonText | default("Copy code"),
     attributes: {
       "hidden": {
         value: true,

@@ -45,11 +45,10 @@
 
 {%- set buttonHtml %}
 {{ button({
-  type: "button",
-  classes: "nhsuk-password-input__toggle nhsuk-js-password-input-toggle" ~ (" " ~ params.button.classes if params.button.classes),
   text: params.showPasswordText | default("Show"),
-  variant: "secondary",
+  type: "button",
   small: not params.large,
+  classes: "nhsuk-password-input__toggle nhsuk-js-password-input-toggle" ~ (" " ~ params.button.classes if params.button.classes),
   attributes: {
     "aria-controls": id,
     "aria-label": params.showPasswordAriaLabelText | default("Show password"),
@@ -57,7 +56,8 @@
       value: true,
       optional: true
     }
-  }
+  },
+  variant: "secondary"
 }) | trim }}
 {% if params.formGroup.afterInput %}
   {{- params.formGroup.afterInput.html | safe | trim if params.formGroup.afterInput.html else params.formGroup.afterInput.text }}
@@ -65,6 +65,22 @@
 {% endset -%}
 
 {{ input({
+  label: params.label,
+  hint: params.hint,
+  errorMessage: params.errorMessage,
+  id: id,
+  name: params.name,
+  value: params.value,
+  type: "password",
+  width: params.width,
+  large: params.large,
+  spellcheck: false,
+  autocomplete: params.autocomplete if params.autocomplete else "current-password",
+  autocapitalize: "none",
+  disabled: params.disabled,
+  describedBy: params.describedBy,
+  classes: "nhsuk-password-input__input nhsuk-js-password-input-input" ~ (" " ~ params.classes if params.classes),
+  attributes: params.attributes,
   formGroup: {
     classes: "nhsuk-password-input" ~ (" " ~ params.formGroup.classes if params.formGroup.classes),
     attributes: attributesHtml,
@@ -72,21 +88,5 @@
     afterInput: {
       html: buttonHtml
     }
-  },
-  label: params.label,
-  hint: params.hint,
-  large: params.large,
-  classes: "nhsuk-password-input__input nhsuk-js-password-input-input" ~ (" " ~ params.classes if params.classes),
-  errorMessage: params.errorMessage,
-  id: id,
-  name: params.name,
-  value: params.value,
-  width: params.width,
-  type: "password",
-  spellcheck: false,
-  autocapitalize: "none",
-  autocomplete: params.autocomplete if params.autocomplete else "current-password",
-  disabled: params.disabled,
-  describedBy: params.describedBy,
-  attributes: params.attributes
+  }
 }) | trim }}
