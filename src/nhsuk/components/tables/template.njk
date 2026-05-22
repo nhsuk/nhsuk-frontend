@@ -47,14 +47,6 @@
   {% set classNamesCaption = classNamesCaption ~ " " ~ params.captionClasses %}
 {% endif %}
 
-{#- Check if any head items have sortable param aria-sort attribute but no href (client-side sorting) #}
-{%- set isClientSideSortable = false -%}
-{%- for item in params.head -%}
-  {%- if (item.sortable or item.attributes['aria-sort']) and not item.href -%}
-    {%- set isClientSideSortable = true -%}
-  {%- endif -%}
-{%- endfor -%}
-
 {%- set table -%}
 <table class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
   {%- if params.responsive %} role="table"{% endif %}
@@ -79,15 +71,7 @@
         {%- if item.sortable and item.sortFirstDirection %} data-sort-first-direction="{{ item.sortFirstDirection }}"{% endif %}
         {{- nhsukAttributes(item.attributes) }}>
         {% if item.href %}
-          <a href="{{ item.href }}">{{ item.html | safe | trim | indent(8) if item.html else item.text }}
-            {% if item.attributes['aria-sort'] == 'ascending' %}
-              {{ nhsukIcon("arrow-up") }}
-            {% elif item.attributes['aria-sort'] == 'descending' %}
-              {{ nhsukIcon("arrow-down") }}
-            {% elif item.attributes['aria-sort'] == 'none' %}
-              {{ nhsukIcon("arrow-up-down") }}
-            {% endif %}
-          </a>
+          <a href="{{ item.href }}">{{ item.html | safe | trim | indent(8) if item.html else item.text }}</a>
         {% else %}
           {{ item.html | safe | trim | indent(8) if item.html else item.text }}
         {% endif %}
@@ -158,16 +142,4 @@
   {%- endcall %}
 {%- else -%}
   {{ table | safe | trim }}
-{% endif %}
-
-{% if isClientSideSortable %}
-  <template class="nhsuk-js-arrow-up-icon">
-    {{ nhsukIcon("arrow-up") }}
-  </template>
-  <template class="nhsuk-js-arrow-down-icon">
-    {{ nhsukIcon("arrow-down") }}
-  </template>
-  <template class="nhsuk-js-arrow-up-down-icon">
-    {{ nhsukIcon("arrow-up-down") }}
-  </template>
 {% endif %}
