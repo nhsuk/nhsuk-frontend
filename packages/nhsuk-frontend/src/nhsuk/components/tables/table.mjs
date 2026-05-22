@@ -46,46 +46,9 @@ export class Table extends ConfigurableComponent {
     })
 
     if (hasSortableHeadings) {
-      const $upArrow = document.querySelector('template.nhsuk-js-arrow-up-icon')
-      const $downArrow = document.querySelector(
-        'template.nhsuk-js-arrow-down-icon'
-      )
-      const $upDownArrow = document.querySelector(
-        'template.nhsuk-js-arrow-up-down-icon'
-      )
-
-      if (!($upArrow instanceof HTMLTemplateElement)) {
-        throw new ElementError({
-          component: Table,
-          identifier:
-            'Arrow up icon template (`<template class="nhsuk-js-arrow-up-icon">`)'
-        })
-      }
-
-      if (!($downArrow instanceof HTMLTemplateElement)) {
-        throw new ElementError({
-          component: Table,
-          identifier:
-            'Arrow down icon template (`<template class="nhsuk-js-arrow-down-icon">`)'
-        })
-      }
-
-      if (!($upDownArrow instanceof HTMLTemplateElement)) {
-        throw new ElementError({
-          component: Table,
-          identifier:
-            'Arrow up-down icon template (`<template class="nhsuk-js-arrow-up-down-icon">`)'
-        })
-      }
-
-      this.$upArrow = $upArrow
-      this.$downArrow = $downArrow
-      this.$upDownArrow = $upDownArrow
-
       this.$root.classList.add('nhsuk-table--with-sortable-columns')
       this.createHeadingButtons()
       this.updateCaption()
-      this.updateDirectionIndicators()
       this.createStatusBox()
       this.initialiseSortedColumn()
 
@@ -188,7 +151,6 @@ export class Table extends ConfigurableComponent {
     this.addRows($sortedRows)
     this.removeButtonStates()
     this.updateButtonState($button, newSortDirection)
-    this.updateDirectionIndicators()
   }
 
   updateCaption() {
@@ -235,40 +197,6 @@ export class Table extends ConfigurableComponent {
     message = message.replace(/%heading%/, $button.textContent.trim())
     message = message.replace(/%direction%/, directionText)
     $status.textContent = message
-  }
-
-  updateDirectionIndicators() {
-    const { $upArrow, $downArrow, $upDownArrow } = this
-
-    if (!$upArrow || !$downArrow || !$upDownArrow) {
-      return
-    }
-
-    for (const $heading of this.$headings) {
-      const $button = $heading.querySelector('button')
-
-      if ($heading.hasAttribute('aria-sort') && $button) {
-        const direction = $heading.getAttribute('aria-sort')
-        $button.querySelector('svg')?.remove()
-
-        let $template
-        switch (direction) {
-          case 'ascending':
-            $template = $upArrow
-            break
-          case 'descending':
-            $template = $downArrow
-            break
-          default:
-            $template = $upDownArrow
-        }
-
-        const node = document.importNode($template.content, true)
-        if (node.firstElementChild) {
-          $button.appendChild(node.firstElementChild)
-        }
-      }
-    }
   }
 
   removeButtonStates() {
