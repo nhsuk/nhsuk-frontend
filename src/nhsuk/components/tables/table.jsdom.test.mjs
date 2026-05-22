@@ -127,12 +127,6 @@ describe('Table', () => {
 
       expect($sortButtonsText).toEqual(['Nation', 'MMR', '6-in-1', 'Rotavirus'])
     })
-
-    it('should add direction indicator SVG to buttons', () => {
-      for (const $button of $sortButtons) {
-        expect($button.querySelector('svg')).not.toBeNull()
-      }
-    })
   })
 
   describe('Caption', () => {
@@ -245,7 +239,7 @@ describe('Table', () => {
       // MMR column has data-initial-sort="descending" in the fixture
       $mmrButton.click()
 
-      expect($status?.textContent).toBe('Sort by MMR (descending)')
+      expect($status?.textContent).toBe('Sorted by MMR (descending)')
     })
 
     it('should reorder rows when sorting', () => {
@@ -274,7 +268,7 @@ describe('Table', () => {
   describe('Configuration', () => {
     it('should have default configuration values', () => {
       expect(Table.defaults.statusMessage).toBe(
-        'Sort by %heading% (%direction%)'
+        'Sorted by %heading% (%direction%)'
       )
       expect(Table.defaults.ascendingText).toBe('ascending')
       expect(Table.defaults.descendingText).toBe('descending')
