@@ -22,7 +22,8 @@ const options = {
   fieldset: {
     type: 'object',
     required: false,
-    description: 'Can be used to add a fieldset to the checkboxes component.',
+    description:
+      'Can be used to add a fieldset to the checkboxes component. The `fieldset.html` option is not supported.',
     released: '1.0.0',
     isComponent: true
   },
@@ -167,30 +168,9 @@ const options = {
         type: 'object',
         required: false,
         description:
-          'Subset of options for the label used by each checkbox item within the checkboxes component.',
+          'The label used by each checkbox item within the checkboxes component. The `label.size` and `label.isPageHeading` options are not supported.',
         released: '1.0.0',
-        isComponent: true,
-        params: {
-          id: {
-            type: 'string',
-            required: false,
-            description: 'The ID of the label tag.',
-            released: '10.4.0'
-          },
-          classes: {
-            type: 'string',
-            required: false,
-            description: 'Classes to add to the label tag.',
-            released: '1.0.0'
-          },
-          attributes: {
-            type: 'object',
-            required: false,
-            description:
-              'HTML attributes (for example data attributes) to add to the label tag.',
-            released: '1.0.0'
-          }
-        }
+        isComponent: true
       },
       hint: {
         type: 'object',

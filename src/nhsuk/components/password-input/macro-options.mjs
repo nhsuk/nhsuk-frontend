@@ -236,7 +236,8 @@ const options = {
   button: {
     type: 'object',
     required: false,
-    description: 'Optional object allowing customisation of the toggle button.',
+    description:
+      'Optional object allowing customisation of the toggle button. The `button.attributes` and `button.html` options are not supported.',
     released: '10.2.0',
     isComponent: true,
     params: {
