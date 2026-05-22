@@ -220,6 +220,63 @@ $sortable-table-hover-colour: color.adjust(nhsuk-colour("grey-5"), $lightness: -
     padding-left: $nhsuk-border-width-form-element;
   }
 
+  // Add icon for sortable tables. These can can be buttons
+  // (client-side sorting) or links (server-side sorting).
+  th[aria-sort] button::after,
+  th[aria-sort] a::after {
+    content: "";
+
+    flex-shrink: 0;
+
+    width: nhsuk-px-to-rem($nhsuk-icon-size);
+    height: nhsuk-px-to-rem($nhsuk-icon-size);
+
+    background-repeat: no-repeat;
+    background-size: nhsuk-px-to-rem($nhsuk-icon-size) nhsuk-px-to-rem($nhsuk-icon-size);
+
+    // Where possible use the cross as a mask instead. This lets us use
+    // currentcolor, increasing the contrast of the image and matching the
+    // user's prefered foreground colour in e.g. forced colors mode.
+    // We test for `mask-position` rather than `mask-image` because of a false
+    // positive in Edge 17.
+    @supports (mask-position: initial) {
+      background: currentcolor;
+      mask-size: nhsuk-px-to-rem($nhsuk-icon-size) nhsuk-px-to-rem($nhsuk-icon-size);
+    }
+
+    // currentcolor doesn't seem to be computed correctly in forced colors
+    // mode so force the background color to match the system link color
+    // (matching the text in the link)
+    @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+      background: buttontext;
+    }
+  }
+
+  th[aria-sort="ascending"] button::after,
+  th[aria-sort="ascending"] a::after {
+    background-image: nhsuk-image-url("nhsuk-icon-arrow-up.svg");
+
+    @supports (mask-position: initial) {
+      mask-image: nhsuk-image-url("nhsuk-icon-arrow-up.svg");
+    }
+  }
+
+  th[aria-sort="descending"] button::after,
+  th[aria-sort="descending"] a::after {
+    background-image: nhsuk-image-url("nhsuk-icon-arrow-down.svg");
+    @supports (mask-position: initial) {
+      mask-image: nhsuk-image-url("nhsuk-icon-arrow-down.svg");
+    }
+  }
+
+  th[aria-sort="none"] button::after,
+  th[aria-sort="none"] a::after {
+    background-image: nhsuk-image-url("nhsuk-icon-arrow-up-down.svg");
+    @supports (mask-position: initial) {
+      mask-image: nhsuk-image-url("nhsuk-icon-arrow-up-down.svg");
+    }
+  }
+
   // This expands the button or link to fill the whole
   // table header element, for a bigger click area
   th[aria-sort] button::before,
@@ -235,20 +292,13 @@ $sortable-table-hover-colour: color.adjust(nhsuk-colour("grey-5"), $lightness: -
 
   // This adds a blue border at the bottom off
   // the currently-sorted header cell
-  th[aria-sort="descending"] button::after,
-  th[aria-sort="ascending"] button::after,
-  th[aria-sort="descending"] a::after,
-  th[aria-sort="ascending"] a::after {
-    content: "";
-
-    position: absolute;
-    right: 0;
-    bottom: -$nhsuk-border-width-form-element;
-    left: 0;
-
-    height: $nhsuk-border-width-form-element;
-
-    background-color: $nhsuk-brand-colour;
+  th[aria-sort="descending"] button::before,
+  th[aria-sort="ascending"] button::before,
+  th[aria-sort="descending"] a::before,
+  th[aria-sort="ascending"] a::before {
+    border-bottom-width: $nhsuk-border-width-form-element;
+    border-bottom-style: solid;
+    border-color: $nhsuk-brand-colour;
   }
 
   th[aria-sort]:hover {
