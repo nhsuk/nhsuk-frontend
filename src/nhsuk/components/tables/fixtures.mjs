@@ -680,16 +680,14 @@ const fixtures = {
         {
           text: 'Time',
           href: '#',
-          attributes: {
-            'aria-sort': 'ascending'
-          }
+          sortable: true,
+          initialSortColumn: true,
+          sortFirstDirection: 'ascending'
         },
         {
           href: '#',
           text: 'Name',
-          attributes: {
-            'aria-sort': 'none'
-          }
+          sortable: true
         },
         {
           text: 'Date of birth'
