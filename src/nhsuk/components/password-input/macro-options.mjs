@@ -60,6 +60,13 @@ const options = {
     released: '10.2.0',
     isComponent: true
   },
+  code: {
+    type: 'boolean',
+    required: false,
+    description:
+      'If set to `true`, use a monospace font for codes or sequences.',
+    released: '10.5.0'
+  },
   width: {
     type: 'integer',
     required: false,
