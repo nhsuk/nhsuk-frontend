@@ -106,7 +106,8 @@
     pattern: item.pattern,
     disabled: item.disabled | default(params.disabled),
     classes: ("nhsuk-date-input__input" ~ " " ~ itemClasses) | trim,
-    attributes: item.attributes
+    attributes: item.attributes,
+    inputWrapper: item.inputWrapper
   }) | trim | indent(2) }}
 </div>
 {%- endmacro -%}

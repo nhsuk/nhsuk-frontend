@@ -293,14 +293,36 @@ const options = {
   classes: {
     type: 'string',
     required: false,
-    description: 'Classes to add to the date-input container.',
+    description: 'Classes to add to the date input container.',
     released: '1.0.0'
+  },
+  inputWrapper: {
+    type: 'object',
+    required: false,
+    description:
+      'Additional options for the wrapping element containing the date input component.',
+    released: '10.5.0',
+    params: {
+      classes: {
+        type: 'string',
+        required: false,
+        description: 'Classes to add to the wrapping element.',
+        released: '10.5.0'
+      },
+      attributes: {
+        type: 'object',
+        required: false,
+        description:
+          'HTML attributes (for example data attributes) to add to the wrapping element.',
+        released: '10.5.0'
+      }
+    }
   },
   attributes: {
     type: 'object',
     required: false,
     description:
-      'HTML attributes (for example data attributes) to add to the date-input container.',
+      'HTML attributes (for example data attributes) to add to the date input container.',
     released: '1.0.0'
   }
 }
