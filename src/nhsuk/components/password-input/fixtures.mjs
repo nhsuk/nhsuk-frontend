@@ -104,6 +104,48 @@ const fixtures = {
       viewports: ['watch', 'mobile', 'tablet', 'desktop']
     }
   },
+  'with prefix': {
+    context: {
+      label: {
+        text: 'Secret code',
+        size: 'm',
+        isPageHeading: true
+      },
+      prefix: {
+        text: 'PIN'
+      },
+      id: 'with-prefix',
+      name: 'example',
+      value: '3.14159',
+      width: 5,
+      code: true,
+      button: {
+        variant: 'brand'
+      }
+    }
+  },
+  'with prefix and error message': {
+    context: {
+      label: {
+        text: 'Secret code',
+        size: 'm',
+        isPageHeading: true
+      },
+      prefix: {
+        text: 'PIN'
+      },
+      errorMessage: {
+        text: 'Enter secret code'
+      },
+      id: 'with-prefix',
+      name: 'example',
+      width: 5,
+      code: true,
+      button: {
+        variant: 'brand'
+      }
+    }
+  },
   'without page heading': {
     context: {
       label: {
