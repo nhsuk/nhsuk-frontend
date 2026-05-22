@@ -162,7 +162,7 @@
   }) | trim | indent(2) }}
 {% endif %}
 
-{%- if hasPrefix or hasSuffix or hasBeforeInput or hasAfterInput %}
+{%- if hasPrefix or hasSuffix or hasBeforeInput or hasAfterInput or params.inputWrapper.classes or params.inputWrapper.attributes %}
   <div class="{{ classNamesInputWrapper }}" {{- nhsukAttributes(params.inputWrapper.attributes) }}>
     {% if hasBeforeInput %}
       {{- params.formGroup.beforeInput.html | safe | trim | indent(4, true) if params.formGroup.beforeInput.html else params.formGroup.beforeInput.text }}

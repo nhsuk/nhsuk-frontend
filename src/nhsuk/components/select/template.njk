@@ -85,7 +85,7 @@
   }) | trim | indent(2) }}
 {% endif %}
 
-{%- if hasBeforeInput or hasAfterInput %}
+{%- if hasBeforeInput or hasAfterInput or params.inputWrapper.classes or params.inputWrapper.attributes %}
   <div class="nhsuk-input-wrapper {%- if params.inputWrapper.classes %} {{ params.inputWrapper.classes }}{% endif %}"
     {{- nhsukAttributes(params.inputWrapper.attributes) }}>
     {% if hasBeforeInput %}
