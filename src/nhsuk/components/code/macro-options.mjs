@@ -72,6 +72,7 @@ const options = {
     required: false,
     description: 'Optional object allowing customisation of the copy button.',
     released: '10.4.0',
+    isComponent: true,
     params: {
       classes: {
         type: 'string',

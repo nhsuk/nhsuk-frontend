@@ -238,6 +238,7 @@ const options = {
     required: false,
     description: 'Optional object allowing customisation of the toggle button.',
     released: '10.2.0',
+    isComponent: true,
     params: {
       classes: {
         type: 'string',
