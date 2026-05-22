@@ -53,6 +53,32 @@ const fixtures = {
       }
     }
   },
+  'with button double click prevented': {
+    context: {
+      label: {
+        text: 'Password',
+        size: 'l',
+        isPageHeading: true
+      },
+      name: 'example',
+      button: {
+        preventDoubleClick: true
+      }
+    }
+  },
+  'with button double click not prevented': {
+    context: {
+      label: {
+        text: 'Password',
+        size: 'l',
+        isPageHeading: true
+      },
+      name: 'example',
+      button: {
+        preventDoubleClick: false
+      }
+    }
+  },
   'with hint': {
     context: {
       label: {
