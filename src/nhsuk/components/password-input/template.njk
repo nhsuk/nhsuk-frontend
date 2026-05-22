@@ -24,7 +24,7 @@
 
   {{- nhsukI18nAttributes({
     key: "show-password",
-    message: params.showPasswordText
+    message: params.showPasswordText | default(params.button.text)
   }) -}}
 
   {{- nhsukI18nAttributes({
@@ -57,20 +57,26 @@
 
 {%- set buttonHtml %}
 {{ button({
-  text: params.showPasswordText | default("Show"),
-  type: "button",
-  small: not params.large,
+  text: params.showPasswordText | default(params.button.text or "Show"),
+  ariaLabel: params.showPasswordAriaLabelText | default(params.button.ariaLabel or "Show password"),
+  id: params.button.id,
+  href: params.button.href,
+  name: params.button.name,
+  value: params.button.value,
+  type: params.button.type | default("button", true),
+  icon: params.button.icon,
+  small: params.button.small | default(not params.large),
+  preventDoubleClick: params.button.preventDoubleClick,
   disabled: params.button.disabled | default(params.disabled),
   classes: "nhsuk-password-input__toggle nhsuk-js-password-input-toggle" ~ (" " ~ params.button.classes if params.button.classes),
   attributes: {
     "aria-controls": id,
-    "aria-label": params.showPasswordAriaLabelText | default("Show password"),
     "hidden": {
       value: true,
       optional: true
     }
   },
-  variant: "secondary"
+  variant: params.button.variant | default("secondary")
 }) | trim }}
 {% if params.formGroup.afterInput %}
   {{- params.formGroup.afterInput.html | safe | trim if params.formGroup.afterInput.html else params.formGroup.afterInput.text }}

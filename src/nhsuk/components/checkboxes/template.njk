@@ -49,7 +49,7 @@
   {% else %}
     {% set isChecked = item.checked | default((item.value in params.values and item.checked != false) if params.values else false, true) %}
     {% set hasHint = true if item.hint.text or item.hint.html %}
-    {% set itemHintId = itemId ~ "-item-hint" if hasHint else "" %}
+    {% set itemHintId = item.hint.id | default(itemId ~ "-item-hint") if hasHint else "" %}
     {% set itemDescribedBy = describedBy if not hasFieldset else "" %}
     {% set itemDescribedBy = (itemDescribedBy ~ " " ~ itemHintId) | trim %}
     {% set itemClasses = "nhsuk-checkboxes__input" ~ (" " ~ item.classes if item.classes) %}
@@ -63,8 +63,8 @@
         {%- if itemDescribedBy %} aria-describedby="{{ itemDescribedBy }}"{% endif -%}
         {{- nhsukAttributes(item.attributes) }}>
       {{ label({
-        html: item.html,
-        text: item.text,
+        html: item.label.html | default(item.html),
+        text: item.label.text | default(item.text),
         id: item.label.id,
         for: itemId,
         classes: "nhsuk-checkboxes__label" ~ (" " ~ item.label.classes if item.label.classes),
@@ -74,7 +74,7 @@
       {{ hint({
         html: item.hint.html,
         text: item.hint.text,
-        id: itemHintId,
+        id: item.hint.id | default(itemHintId),
         classes: "nhsuk-checkboxes__hint" ~ (" " ~ item.hint.classes if item.hint.classes),
         attributes: item.hint.attributes
       }) | trim | indent(6) }}
@@ -91,24 +91,24 @@
 {#- Capture the HTML so we can optionally nest it in a fieldset -#}
 {% set innerHtml %}
 {% if params.hint %}
-  {% set hintId = idPrefix ~ "-hint" %}
+  {% set hintId = params.hint.id | default(idPrefix ~ "-hint") %}
   {% set describedBy = (describedBy ~ " " ~ hintId) | trim %}
   {{ hint({
     html: params.hint.html,
     text: params.hint.text,
-    id: hintId,
+    id: params.hint.id | default(hintId),
     classes: params.hint.classes,
     attributes: params.hint.attributes
   }) | trim | indent(2) }}
 {% endif %}
 {% if params.errorMessage %}
-  {% set errorId = idPrefix ~ "-error" %}
+  {% set errorId = params.errorMessage.id | default(idPrefix ~ "-error") %}
   {% set describedBy = (describedBy ~ " " ~ errorId) | trim %}
   {{ errorMessage({
     html: params.errorMessage.html,
     text: params.errorMessage.text,
     visuallyHiddenText: params.errorMessage.visuallyHiddenText,
-    id: errorId,
+    id: params.errorMessage.id | default(errorId),
     classes: params.errorMessage.classes,
     attributes: params.errorMessage.attributes
   }) | trim | indent(2) }}
@@ -143,6 +143,8 @@
   {{ fieldset({
     legend: params.fieldset.legend,
     html: innerHtml | trim,
+    id: params.fieldset.id,
+    role: params.fieldset.role,
     describedBy: describedBy,
     classes: params.fieldset.classes,
     attributes: params.fieldset.attributes

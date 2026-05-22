@@ -240,6 +240,13 @@ const options = {
     released: '10.2.0',
     isComponent: true,
     params: {
+      variant: {
+        type: 'string',
+        required: false,
+        description:
+          'Optional variant of password input button – `"brand"`, `"login"`, `"reverse"`, `"secondary"`, `"secondary-solid"` or `"warning"`.',
+        released: '10.5.0'
+      },
       classes: {
         type: 'string',
         required: false,

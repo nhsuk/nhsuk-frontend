@@ -99,15 +99,19 @@
     id: item.id if item.id else (params.id ~ "-" ~ itemName),
     name: (params.namePrefix ~ "[" ~ itemName ~ "]") if params.namePrefix else itemName,
     value: itemValue | default(params.values[itemName]),
-    type: "text",
+    type: item.type | default("text", true),
+    prefix: item.prefix,
+    suffix: item.suffix,
     width: itemWidth,
     inputmode: item.inputmode if item.inputmode else "numeric",
+    spellcheck: item.spellcheck,
     autocomplete: item.autocomplete,
+    autocapitalize: item.autocapitalize,
     pattern: item.pattern,
     disabled: item.disabled | default(params.disabled),
+    describedBy: item.describedBy,
     classes: ("nhsuk-date-input__input" ~ " " ~ itemClasses) | trim,
-    attributes: item.attributes,
-    inputWrapper: item.inputWrapper
+    attributes: item.attributes
   }) | trim | indent(2) }}
 </div>
 {%- endmacro -%}
@@ -121,24 +125,24 @@
 {#- Capture the HTML so we can optionally nest it in a fieldset -#}
 {% set innerHtml %}
 {% if params.hint %}
-  {% set hintId = params.id ~ "-hint" %}
+  {% set hintId = params.hint.id | default(params.id ~ "-hint") %}
   {% set describedBy = (describedBy ~ " " ~ hintId) | trim %}
   {{ hint({
     html: params.hint.html,
     text: params.hint.text,
-    id: hintId,
+    id: params.hint.id | default(hintId),
     classes: params.hint.classes,
     attributes: params.hint.attributes
   }) | trim | indent(2) }}
 {% endif %}
 {% if params.errorMessage %}
-  {% set errorId = params.id ~ "-error" %}
+  {% set errorId = params.errorMessage.id | default(params.id ~ "-error") %}
   {% set describedBy = (describedBy ~ " " ~ errorId) | trim %}
   {{ errorMessage({
     html: params.errorMessage.html,
     text: params.errorMessage.text,
     visuallyHiddenText: params.errorMessage.visuallyHiddenText,
-    id: errorId,
+    id: params.errorMessage.id | default(errorId),
     classes: params.errorMessage.classes,
     attributes: params.errorMessage.attributes
   }) | trim | indent(2) }}
@@ -167,7 +171,8 @@
   {{ fieldset({
     legend: params.fieldset.legend,
     html: innerHtml | trim,
-    role: "group",
+    id: params.fieldset.id,
+    role: params.fieldset.role | default("group"),
     describedBy: describedBy,
     classes: params.fieldset.classes,
     attributes: params.fieldset.attributes

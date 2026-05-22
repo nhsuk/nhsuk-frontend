@@ -132,7 +132,8 @@
   label: {
     html: params.label.html,
     text: params.label.text,
-    for: id,
+    id: params.label.id,
+    for: params.label.for | default(id),
     size: params.label.size,
     isPageHeading: params.label.isPageHeading,
     classes: params.label.classes,
