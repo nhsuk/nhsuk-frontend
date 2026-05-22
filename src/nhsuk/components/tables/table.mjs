@@ -130,6 +130,7 @@ export class Table extends ConfigurableComponent {
 
     const columnNumber = Number.parseInt($button.dataset.index ?? '0', 10)
 
+    /** @type {'ascending' | 'descending'} */
     let newSortDirection
 
     if (sortDirection === 'descending') {
@@ -150,7 +151,7 @@ export class Table extends ConfigurableComponent {
 
     this.addRows($sortedRows)
     this.removeButtonStates()
-    this.updateButtonState($button, newSortDirection)
+    this.updateColumnState($heading, newSortDirection)
   }
 
   updateCaption() {
@@ -171,18 +172,13 @@ export class Table extends ConfigurableComponent {
   }
 
   /**
-   * @param {HTMLButtonElement} $button
-   * @param {string} direction
+   * @param {Element} $heading
+   * @param {'ascending' | 'descending'} direction
    */
-  updateButtonState($button, direction) {
+  updateColumnState($heading, direction) {
     const { config, $status } = this
 
-    if (
-      !(direction === 'ascending' || direction === 'descending') ||
-      !$button.parentElement ||
-      !config.statusMessage ||
-      !$status
-    ) {
+    if (!config.statusMessage || !$status) {
       return
     }
 
@@ -191,10 +187,10 @@ export class Table extends ConfigurableComponent {
       return
     }
 
-    $button.parentElement.setAttribute('aria-sort', direction)
+    $heading.setAttribute('aria-sort', direction)
     let message = config.statusMessage
 
-    message = message.replace(/%heading%/, $button.textContent.trim())
+    message = message.replace(/%heading%/, $heading.textContent.trim())
     message = message.replace(/%direction%/, directionText)
     $status.textContent = message
   }
