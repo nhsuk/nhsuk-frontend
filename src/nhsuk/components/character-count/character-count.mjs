@@ -607,8 +607,8 @@ export function initCharacterCounts(options) {
  * @typedef {object} CharacterCountConfig
  * @property {number} [maxlength] - The maximum number of characters (or words
  *   if `countType` is set to `"words"`).
- * @property {number} [maxwords] - Deprecated. Use `maxlength` with `countType`
- *   set to `"words"` instead.
+ * @property {number} [maxwords] - Deprecated. Use `maxlength` with
+ *   `countType: "words"` instead.
  * @property {number} [threshold=0] - The percentage value of the limit at
  *   which point the count message is displayed. If this attribute is set, the
  *   count message will be hidden by default.
