@@ -1,4 +1,4 @@
-import { getAllByRole, getByRole } from '@testing-library/dom'
+import { within } from '@testing-library/dom'
 import { outdent } from 'outdent'
 
 import { components } from '#lib'
@@ -39,9 +39,9 @@ describe('Error summary', () => {
       document.querySelector(`[data-module="${ErrorSummary.moduleName}"]`)
     )
 
-    $links = getAllByRole($root, 'link')
+    $links = within($root).getAllByRole('link')
 
-    $input = getByRole($container, 'textbox', {
+    $input = within($container).getByRole('textbox', {
       name: 'Day'
     })
 

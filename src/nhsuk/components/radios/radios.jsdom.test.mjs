@@ -1,4 +1,5 @@
-import { fireEvent, getByRole } from '@testing-library/dom'
+import { fireEvent } from '@testing-library/dom'
+import { within } from '@testing-library/dom'
 import { outdent } from 'outdent'
 
 import { components } from '#lib'
@@ -31,15 +32,15 @@ describe('Radios', () => {
       ...$root.querySelectorAll('.nhsuk-radios__conditional')
     ])
 
-    const $input1 = getByRole($root, 'radio', {
+    const $input1 = within($root).getByRole('radio', {
       name: 'Email'
     })
 
-    const $input2 = getByRole($root, 'radio', {
+    const $input2 = within($root).getByRole('radio', {
       name: 'Phone'
     })
 
-    const $input3 = getByRole($root, 'radio', {
+    const $input3 = within($root).getByRole('radio', {
       name: 'Text message'
     })
 

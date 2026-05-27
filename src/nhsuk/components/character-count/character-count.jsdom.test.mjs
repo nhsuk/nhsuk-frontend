@@ -1,4 +1,4 @@
-import { getByRole } from '@testing-library/dom'
+import { within } from '@testing-library/dom'
 import { outdent } from 'outdent'
 
 import { components } from '#lib'
@@ -29,7 +29,7 @@ describe('Character count', () => {
       document.querySelector(`[data-module="${CharacterCount.moduleName}"]`)
     )
 
-    $textarea = getByRole($root, 'textbox')
+    $textarea = within($root).getByRole('textbox')
     $description = document.getElementById(`${$textarea.id}-info`)
 
     jest.spyOn($textarea, 'addEventListener')

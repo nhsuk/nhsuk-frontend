@@ -1,4 +1,4 @@
-import { queryAllByRole, queryByRole } from '@testing-library/dom'
+import { within } from '@testing-library/dom'
 import { userEvent } from '@testing-library/user-event'
 import { mockResizeObserver } from 'jsdom-testing-mocks'
 
@@ -50,14 +50,14 @@ describe('Header class', () => {
       $root.querySelector('.nhsuk-header__service-logo')
     )
 
-    $navigation = queryByRole($root, 'navigation')
+    $navigation = within($root).queryByRole('navigation')
 
     if ($navigation) {
-      $navigationList = queryByRole($navigation, 'list')
-      $navigationItems = queryAllByRole($navigation, 'listitem')
+      $navigationList = within($navigation).queryByRole('list')
+      $navigationItems = within($navigation).queryAllByRole('listitem')
     }
 
-    $menuButton = queryByRole($root, 'button', {
+    $menuButton = within($root).queryByRole('button', {
       name: 'Browse More',
       hidden: true
     })

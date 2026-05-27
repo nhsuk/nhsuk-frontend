@@ -1,4 +1,5 @@
-import { fireEvent, getByRole } from '@testing-library/dom'
+import { fireEvent } from '@testing-library/dom'
+import { within } from '@testing-library/dom'
 
 import { components } from '#lib'
 
@@ -38,19 +39,19 @@ describe('Checkboxes', () => {
       ...$root.querySelectorAll('.nhsuk-checkboxes__conditional')
     ])
 
-    $input1 = getByRole($root, 'checkbox', {
+    $input1 = within($root).getByRole('checkbox', {
       name: 'Email'
     })
 
-    $input2 = getByRole($root, 'checkbox', {
+    $input2 = within($root).getByRole('checkbox', {
       name: 'Phone'
     })
 
-    $input3 = getByRole($root, 'checkbox', {
+    $input3 = within($root).getByRole('checkbox', {
       name: 'Text message'
     })
 
-    $inputNone = getByRole($root, 'checkbox', {
+    $inputNone = within($root).getByRole('checkbox', {
       name: 'None of the above'
     })
 
