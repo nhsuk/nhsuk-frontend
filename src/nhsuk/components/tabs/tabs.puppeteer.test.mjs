@@ -3,12 +3,9 @@ import {
   isVisible,
   render
 } from '@nhsuk/frontend-helpers/puppeteer.mjs'
-import { KnownDevices } from 'puppeteer'
 
 import { examples } from './fixtures.mjs'
 import { Tabs } from './tabs.mjs'
-
-const iPhone = KnownDevices['iPhone 6']
 
 describe('Tabs', () => {
   /** @type {ElementHandle<HTMLElement>} */
@@ -249,7 +246,10 @@ describe('Tabs', () => {
 
   describe('when rendered on a small device', () => {
     it('falls back to making the all tab containers visible', async () => {
-      await page.emulate(iPhone)
+      await page.setViewport({
+        width: 320,
+        height: 480
+      })
 
       await initExample('default')
 
