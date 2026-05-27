@@ -7,12 +7,12 @@
     "./*": "./*"
   },
   "dependencies": {
-    "@axe-core/puppeteer": "^4.11.2",
+    "@axe-core/puppeteer": "^4.11.3",
     "@nhsuk/frontend-lib": "*",
     "@testing-library/jest-dom": "^6.9.1",
-    "axe-core": "^4.11.3",
+    "axe-core": "^4.11.4",
     "jest-axe": "^10.0.0",
-    "jest-environment-jsdom": "^30.3.0",
+    "jest-environment-jsdom": "^30.4.1",
     "jest-environment-node": "^30.3.0",
     "jest-environment-puppeteer": "^11.0.0",
     "jest-puppeteer": "^11.0.0",
