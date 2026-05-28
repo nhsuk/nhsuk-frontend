@@ -11,8 +11,9 @@
       flex: 0 1 auto;
     }
 
+    .nhsuk-input--error,
     .nhsuk-input:focus {
-      // Hack to stop focus style being overlapped by the suffix
+      // Hack to stop error and focus styles being overlapped by the suffix
       z-index: 1;
     }
 
