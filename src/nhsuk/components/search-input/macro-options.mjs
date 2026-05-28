@@ -41,14 +41,14 @@ const options = {
   label: {
     type: 'object',
     required: true,
-    description: 'The label used by the text input component.',
+    description: 'The label used by the search input component.',
     released: '10.5.0',
     isComponent: true
   },
   hint: {
     type: 'object',
     required: false,
-    description: 'Can be used to add a hint to a text input component.',
+    description: 'Can be used to add a hint to a search input component.',
     released: '10.5.0',
     isComponent: true
   },
@@ -56,7 +56,7 @@ const options = {
     type: 'object',
     required: false,
     description:
-      'Can be used to add an error message to the text input component. The error message component will not display if you use a falsy value for `errorMessage`, for example `false` or `null`.',
+      'Can be used to add an error message to the search input component. The error message component will not display if you use a falsy value for `errorMessage`, for example `false` or `null`.',
     released: '10.5.0',
     isComponent: true
   },
@@ -84,7 +84,7 @@ const options = {
     type: 'object',
     required: false,
     description:
-      'Additional options for the form group containing the text input component.',
+      'Additional options for the form group containing the search input component.',
     released: '10.5.0',
     params: {
       classes: {
@@ -105,7 +105,7 @@ const options = {
         type: 'object',
         required: false,
         description:
-          'Content to add before the input used by the text input component.',
+          'Content to add before the input used by the search input component.',
         released: '10.5.0',
         params: {
           text: {
@@ -128,7 +128,7 @@ const options = {
         type: 'object',
         required: false,
         description:
-          'Content to add after the input used by the text input component.',
+          'Content to add after the input used by the search input component.',
         released: '10.5.0',
         params: {
           text: {
@@ -203,6 +203,7 @@ const options = {
     required: false,
     description: 'Optional object allowing customisation of the search button.',
     released: '10.5.0',
+    isComponent: true,
     params: {
       variant: {
         type: 'string',
