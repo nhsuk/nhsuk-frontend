@@ -93,6 +93,10 @@
     height: nhsuk-px-to-rem($nhsuk-icon-size);
     margin: 0;
 
+    pointer-events: auto;
+
+    opacity: 1;
+
     background: nhsuk-image-url("nhsuk-icon-cross.svg") no-repeat;
     background-size: nhsuk-px-to-rem($nhsuk-icon-size) nhsuk-px-to-rem($nhsuk-icon-size);
 
