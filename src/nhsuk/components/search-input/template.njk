@@ -39,6 +39,7 @@
   type: params.button.type | default("submit", true),
   icon: params.button.icon | default("search"),
   small: not params.large,
+  disabled: params.button.disabled | default(params.disabled),
   classes: classNamesButton,
   attributes: params.button.attributes,
   variant: params.button.variant
