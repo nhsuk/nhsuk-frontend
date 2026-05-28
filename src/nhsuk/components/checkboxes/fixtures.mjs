@@ -895,6 +895,7 @@ const fixtures = {
         }
       },
       idPrefix: 'conditional',
+      name: 'example',
       items: [
         {
           name: 'preference-email',
