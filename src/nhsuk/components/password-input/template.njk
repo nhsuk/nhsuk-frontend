@@ -60,6 +60,7 @@
   text: params.showPasswordText | default("Show"),
   type: "button",
   small: not params.large,
+  disabled: params.button.disabled | default(params.disabled),
   classes: "nhsuk-password-input__toggle nhsuk-js-password-input-toggle" ~ (" " ~ params.button.classes if params.button.classes),
   attributes: {
     "aria-controls": id,
