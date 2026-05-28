@@ -29,7 +29,8 @@ const fixtures = {
       name: 'example',
       large: true,
       width: 30
-    }
+    },
+    screenshot: true
   },
   'large with brand button': {
     context: {
@@ -73,7 +74,8 @@ const fixtures = {
       id: 'with-hint',
       name: 'example',
       width: 20
-    }
+    },
+    screenshot: true
   },
   'with hint and value': {
     context: {
@@ -88,7 +90,8 @@ const fixtures = {
       name: 'example',
       value: '999 123 4567',
       width: 20
-    }
+    },
+    screenshot: true
   },
   'with error message': {
     context: {
@@ -121,7 +124,8 @@ const fixtures = {
       name: 'example',
       value: '999 123 4567',
       width: 20
-    }
+    },
+    screenshot: true
   },
   'with prefix': {
     context: {
@@ -234,7 +238,8 @@ const fixtures = {
       },
       name: 'example',
       width: 20
-    }
+    },
+    screenshot: true
   },
   'with secondary button text': {
     context: {
