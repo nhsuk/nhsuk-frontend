@@ -338,26 +338,32 @@ $nhsuk-warning-button-active-colour: nhsuk-shade($nhsuk-warning-button-colour, 5
 
 $nhsuk-warning-button-shadow-colour: nhsuk-shade($nhsuk-warning-button-colour, 50%) !default;
 
-/// Login button background colour
+/// Brand button background colour
 ///
 /// @type Colour
 
-$nhsuk-login-button-colour: $nhsuk-brand-colour !default;
+$nhsuk-brand-button-colour: $nhsuk-brand-colour !default;
 
-/// Login button background colour (hover)
+/// Brand button background colour (hover)
 ///
 /// @type Colour
 
-$nhsuk-login-button-hover-colour: nhsuk-shade($nhsuk-login-button-colour, 20%) !default;
+$nhsuk-brand-button-hover-colour: nhsuk-shade($nhsuk-brand-button-colour, 20%) !default;
 
-/// Login button background colour (active)
+/// Brand button background colour (active)
 ///
 /// @type Colour
 
-$nhsuk-login-button-active-colour: nhsuk-shade($nhsuk-login-button-colour, 50%) !default;
+$nhsuk-brand-button-active-colour: nhsuk-shade($nhsuk-brand-button-colour, 50%) !default;
 
-/// Login button shadow colour
+/// Brand button shadow colour
 ///
 /// @type Colour
 
-$nhsuk-login-button-shadow-colour: nhsuk-shade($nhsuk-login-button-colour, 50%) !default;
+$nhsuk-brand-button-shadow-colour: nhsuk-shade($nhsuk-brand-button-colour, 50%) !default;
+
+// Alias login button colours to brand button colours
+$nhsuk-login-button-colour: $nhsuk-brand-button-colour;
+$nhsuk-login-button-hover-colour: $nhsuk-brand-button-hover-colour;
+$nhsuk-login-button-active-colour: $nhsuk-brand-button-active-colour;
+$nhsuk-login-button-shadow-colour: $nhsuk-brand-button-shadow-colour;
