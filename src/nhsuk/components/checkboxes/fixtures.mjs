@@ -102,6 +102,32 @@ const fixtures = {
     },
     variants
   },
+  'inline': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'Which nipple has changed?'
+        }
+      },
+      idPrefix: 'inline',
+      name: 'example',
+      inline: true,
+      items: [
+        {
+          value: 'right',
+          text: 'Right nipple'
+        },
+        {
+          value: 'left',
+          text: 'Left nipple'
+        }
+      ]
+    },
+    variants,
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
+    }
+  },
   'with pre-checked values': {
     context: {
       fieldset: {

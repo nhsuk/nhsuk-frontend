@@ -164,6 +164,29 @@ $nhsuk-checkboxes-offset: $nhsuk-border-width-form-element;
   }
 
   // =========================================================
+  // Inline checkboxes
+  // =========================================================
+
+  .nhsuk-checkboxes--inline {
+    @include nhsuk-media-query($from: tablet) {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      row-gap: nhsuk-spacing(2) - $nhsuk-checkboxes-offset;
+
+      &.nhsuk-checkboxes--small {
+        row-gap: 0;
+      }
+
+      .nhsuk-checkboxes__item {
+        max-width: calc(50% - $nhsuk-checkboxes-label-padding-left-right - nhsuk-spacing(4));
+        margin-top: 0;
+        margin-right: nhsuk-spacing(4);
+      }
+    }
+  }
+
+  // =========================================================
   // Dividers ('or')
   // =========================================================
 

@@ -277,6 +277,12 @@ const options = {
     description: 'If set to `true`, small checkboxes will be used.',
     released: '10.4.0'
   },
+  inline: {
+    type: 'boolean',
+    required: false,
+    description: 'If set to `true`, inline checkboxes will be used.',
+    released: '10.5.0'
+  },
   classes: {
     type: 'string',
     required: false,

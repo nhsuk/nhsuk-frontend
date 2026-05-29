@@ -12,6 +12,10 @@
   {% set classNames = classNames ~ " nhsuk-checkboxes--small" %}
 {% endif %}
 
+{%- if params.inline and (not params.classes or not "nhsuk-checkboxes--inline" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-checkboxes--inline" %}
+{% endif %}
+
 {%- if params.errorMessage %}
   {% set classNamesFormGroup = classNamesFormGroup ~ " nhsuk-form-group--error" %}
 {% endif %}
