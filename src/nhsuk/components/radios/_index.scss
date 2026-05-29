@@ -245,6 +245,8 @@ $nhsuk-radios-offset: $nhsuk-border-width-form-element;
     }
 
     .nhsuk-radios__label {
+      max-width: calc(100% - $nhsuk-touch-target-size + $input-offset);
+
       // Create a tiny space between the small radio hover state so that it
       // doesn't clash with the label
       padding-left: 1px;

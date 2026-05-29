@@ -226,6 +226,8 @@ $nhsuk-checkboxes-offset: $nhsuk-border-width-form-element;
     }
 
     .nhsuk-checkboxes__label {
+      max-width: calc(100% - $nhsuk-touch-target-size + $input-offset);
+
       // Create a tiny space between the small checkbox hover state so that it
       // doesn't clash with the label
       padding-left: 1px;
