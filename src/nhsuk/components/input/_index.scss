@@ -254,7 +254,7 @@
   // Deprecated, to be removed in v11.0
   .nhsuk-input__prefix {
     @include nhsuk-media-query($until: mobile) {
-      border-bottom: 0;
+      border-bottom-width: 0;
 
       // Remove top margin when preceded by a prefix
       + .nhsuk-input {
@@ -263,7 +263,12 @@
     }
 
     @include nhsuk-media-query($from: mobile) {
-      border-right: 0;
+      margin-left: nhsuk-spacing(2);
+      border-right-width: 0;
+
+      &:first-child {
+        margin-left: 0;
+      }
 
       // Remove left margin when preceded by a prefix
       + .nhsuk-input {
@@ -277,11 +282,11 @@
   // Deprecated, to be removed in v11.0
   .nhsuk-input__suffix {
     @include nhsuk-media-query($until: mobile) {
-      border-top: 0;
+      border-top-width: 0;
     }
 
     @include nhsuk-media-query($from: mobile) {
-      border-left: 0;
+      border-left-width: 0;
     }
   }
 }

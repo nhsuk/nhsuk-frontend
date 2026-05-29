@@ -16,23 +16,81 @@
   .nhsuk-search-input__wrapper {
     flex-direction: row;
     align-items: flex-start;
+
+    // Remove unnecessary margin
+    .nhsuk-search-input__button {
+      margin-left: 0;
+    }
+
+    @include nhsuk-media-query($until: mobile) {
+      // Override input wrapper prefix and suffix to stay inline
+      .nhsuk-input-wrapper__prefix,
+      .nhsuk-input-wrapper__suffix {
+        display: flex;
+        height: nhsuk-px-to-rem(40px);
+        white-space: normal;
+      }
+
+      // Override input wrapper prefix border removal
+      .nhsuk-input-wrapper__prefix {
+        margin-left: nhsuk-spacing(2);
+        border-right-width: 0;
+        border-bottom-width: $nhsuk-border-width-form-element;
+
+        &:first-child {
+          margin-left: 0;
+        }
+
+        // Remove left margin when preceded by a prefix
+        & + .nhsuk-input {
+          margin-left: 0;
+        }
+      }
+
+      // Override input wrapper suffix border removal
+      .nhsuk-input-wrapper__suffix {
+        border-top-width: $nhsuk-border-width-form-element;
+        border-left-width: 0;
+      }
+
+      // Duplicate input wrapper margins to apply them below mobile width
+      .nhsuk-input,
+      .nhsuk-select,
+      .nhsuk-button {
+        margin-top: 0;
+        margin-left: nhsuk-spacing(2);
+
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+
+      // Duplicate input wrapper button styles to apply them below mobile width
+      .nhsuk-button {
+        flex-shrink: 0;
+        width: auto;
+      }
+
+      // Remove unnecessary margin
+      .nhsuk-search-input__button {
+        margin-left: 0;
+      }
+    }
   }
 
   .nhsuk-search-input__input {
-    flex: 0 1 auto;
+    // Hide border when adjacent to button
     margin-right: -$nhsuk-border-width-form-element;
+
+    // But reveal border when adjacent to a suffix
+    & + .nhsuk-input-wrapper__suffix {
+      margin-right: -$nhsuk-border-width-form-element;
+      margin-left: $nhsuk-border-width-form-element;
+    }
   }
 
   .nhsuk-search-input__button {
-    flex-shrink: 0;
-    width: auto;
     height: nhsuk-px-to-rem(32px + $nhsuk-button-shadow-size);
-
-    // Remove unnecessary margin
-    .nhsuk-input-wrapper & {
-      margin-top: 0;
-      margin-left: 0;
-    }
 
     .nhsuk-input--large ~ & {
       height: nhsuk-px-to-rem(40px + $nhsuk-button-shadow-size);
