@@ -48,6 +48,18 @@
     }
   }
 
+  .nhsuk-back-link--forward {
+    padding-right: nhsuk-em($_font-size, $nhsuk-base-font-size);
+    padding-left: 0;
+
+    &::before {
+      right: 0;
+      left: auto;
+
+      @include nhsuk-shape-chevron(right, $colour: currentcolor, $font-size: 19);
+    }
+  }
+
   .nhsuk-back-link--reverse {
     @include nhsuk-link-style-white;
   }
