@@ -54,6 +54,13 @@ const options = {
       'Optional variant of back link. You can use only `"reverse"` or empty values with this option.',
     released: '10.4.0'
   },
+  direction: {
+    type: 'string',
+    required: false,
+    description:
+      'Optional direction for the back link – `"back"` or `"forward"`.',
+    released: '11.0.0'
+  },
   classes: {
     type: 'string',
     required: false,

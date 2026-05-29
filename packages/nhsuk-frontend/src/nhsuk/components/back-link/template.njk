@@ -1,8 +1,22 @@
 {% from "nhsuk/components/link/macro.njk" import link as nhsukLink -%}
 
+{#- Set classes for this component #}
+{%- set classNames = "" %}
+
+{%- if params.direction == "forward" and (not params.classes or not "nhsuk-back-link--forward" in params.classes) %}
+  {%- set classNames = (classNames ~ " nhsuk-back-link--forward") | trim %}
+{%- endif %}
+
+{%- if params.classes %}
+  {%- set classNames = (classNames ~ " " ~ params.classes) | trim %}
+{%- endif %}
+
+{%- set backLinkText = params.html | safe | trim | indent(2) if params.html
+  else params.text | default("Forward" if params.direction == "forward" else "Back", true) -%}
+
 {{ nhsukLink({
   id: params.id,
-  text: params.text | default("Back", true),
+  text: backLinkText,
   html: caller() if caller else params.html,
   visuallyHidden: {
     text: params.visuallyHiddenText,
@@ -11,7 +25,7 @@
   href: params.href,
   type: params.type,
   className: "nhsuk-back-link",
-  classes: params.classes,
+  classes: classNames,
   attributes: params.attributes,
   variant: params.variant
 }) | trim }}
