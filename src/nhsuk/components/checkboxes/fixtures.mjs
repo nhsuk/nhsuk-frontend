@@ -73,26 +73,30 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: 'What is your nationality?'
+          text: 'What medical conditions do you have?'
         }
       },
       hint: {
-        text: 'If you have dual nationality, select all options that are relevant to you'
+        text: 'Select 1 or more'
       },
       idPrefix: 'with-hint',
       name: 'example',
       items: [
         {
-          value: 'british',
-          text: 'British'
+          value: 'alzheimers',
+          text: "Alzheimer's disease or dementia"
         },
         {
-          value: 'irish',
-          text: 'Irish'
+          value: 'asthma',
+          text: 'Asthma'
         },
         {
-          value: 'other',
-          text: 'Citizen of another country'
+          value: 'cancer',
+          text: 'Cancer'
+        },
+        {
+          value: 'diabetes',
+          text: 'Diabetes'
         }
       ]
     },
@@ -168,29 +172,33 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: 'What is your nationality?'
+          text: 'What medical conditions do you have?'
         }
       },
       hint: {
-        text: 'If you have dual nationality, select all options that are relevant to you'
+        text: 'Select 1 or more'
       },
       idPrefix: 'with-hint-item',
       name: 'example',
       items: [
         {
-          value: 'british',
-          text: 'British',
+          value: 'alzheimers',
+          text: "Alzheimer's disease or dementia"
+        },
+        {
+          value: 'asthma',
+          text: 'Asthma'
+        },
+        {
+          value: 'cancer',
+          text: 'Cancer'
+        },
+        {
+          value: 'diabetes',
+          text: 'Diabetes',
           hint: {
-            text: 'including English, Scottish, Welsh and Northern Irish'
+            text: 'including type 1, type 2, and gestational diabetes'
           }
-        },
-        {
-          value: 'irish',
-          text: 'Irish'
-        },
-        {
-          value: 'other',
-          text: 'Citizen of another country'
         }
       ]
     },
