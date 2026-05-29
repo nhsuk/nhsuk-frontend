@@ -72,10 +72,12 @@
     &:not(:focus) .nhsuk-icon,
     &:not(:focus):hover .nhsuk-icon,
     &:not(:focus):active .nhsuk-icon {
-      fill: nhsuk-colour("green");
+      // stylelint-disable-next-line declaration-no-important
+      fill: nhsuk-colour("green") !important;
 
       @media screen and (forced-colors: active), (-ms-high-contrast: active) {
-        fill: buttontext;
+        // stylelint-disable-next-line declaration-no-important
+        fill: buttontext !important;
       }
     }
   }
@@ -90,10 +92,12 @@
     &:not(:focus) .nhsuk-icon,
     &:not(:focus):hover .nhsuk-icon,
     &:not(:focus):active .nhsuk-icon {
-      fill: $nhsuk-reverse-text-colour;
+      // stylelint-disable-next-line declaration-no-important
+      fill: $nhsuk-reverse-text-colour !important;
 
       @media screen and (forced-colors: active), (-ms-high-contrast: active) {
-        fill: buttontext;
+        // stylelint-disable-next-line declaration-no-important
+        fill: buttontext !important;
       }
     }
   }
