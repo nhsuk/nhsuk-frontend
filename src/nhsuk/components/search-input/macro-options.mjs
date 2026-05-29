@@ -60,6 +60,76 @@ const options = {
     released: '10.5.0',
     isComponent: true
   },
+  prefix: {
+    type: 'object',
+    required: false,
+    description: 'Can be used to add a prefix to the search input component.',
+    released: '10.5.0',
+    params: {
+      text: {
+        type: 'string',
+        required: true,
+        description:
+          'Required. If `html` is set, this is not required. Text to use within the prefix. If `html` is provided, the `text` option will be ignored.',
+        released: '10.5.0'
+      },
+      html: {
+        type: 'string',
+        required: true,
+        description:
+          'Required. If `text` is set, this is not required. HTML to use within the prefix. If `html` is provided, the `text` option will be ignored.',
+        released: '10.5.0'
+      },
+      classes: {
+        type: 'string',
+        required: false,
+        description: 'Classes to add to the prefix.',
+        released: '10.5.0'
+      },
+      attributes: {
+        type: 'object',
+        required: false,
+        description:
+          'HTML attributes (for example data attributes) to add to the prefix element.',
+        released: '10.5.0'
+      }
+    }
+  },
+  suffix: {
+    type: 'object',
+    required: false,
+    description: 'Can be used to add a suffix to the search input component.',
+    released: '10.5.0',
+    params: {
+      text: {
+        type: 'string',
+        required: true,
+        description:
+          'If `html` is set, this is not required. Text to use within the suffix. If `html` is provided, the `text` option will be ignored.',
+        released: '10.5.0'
+      },
+      html: {
+        type: 'string',
+        required: true,
+        description:
+          'If `text` is set, this is not required. HTML to use within the suffix. If `html` is provided, the `text` option will be ignored.',
+        released: '10.5.0'
+      },
+      classes: {
+        type: 'string',
+        required: false,
+        description: 'Classes to add to the suffix element.',
+        released: '10.5.0'
+      },
+      attributes: {
+        type: 'object',
+        required: false,
+        description:
+          'HTML attributes (for example data attributes) to add to the suffix element.',
+        released: '10.5.0'
+      }
+    }
+  },
   code: {
     type: 'boolean',
     required: false,

@@ -123,6 +123,50 @@ const fixtures = {
       width: 20
     }
   },
+  'with prefix': {
+    context: {
+      label: {
+        text: 'Code lookup',
+        size: 'm',
+        isPageHeading: true
+      },
+      prefix: {
+        text: 'SNOMED'
+      },
+      id: 'with-prefix',
+      name: 'example',
+      value: '160245001',
+      width: 10,
+      code: true,
+      button: {
+        icon: 'arrow-right',
+        variant: 'brand'
+      }
+    }
+  },
+  'with prefix and error message': {
+    context: {
+      label: {
+        text: 'Code lookup',
+        size: 'm',
+        isPageHeading: true
+      },
+      prefix: {
+        text: 'SNOMED'
+      },
+      errorMessage: {
+        text: 'Enter a SNOMED code'
+      },
+      id: 'with-prefix',
+      name: 'example',
+      width: 10,
+      code: true,
+      button: {
+        icon: 'arrow-right',
+        variant: 'brand'
+      }
+    }
+  },
   'with hidden label': {
     context: {
       label: {
