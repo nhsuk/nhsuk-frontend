@@ -277,13 +277,6 @@ $nhsuk-radios-offset: $nhsuk-border-width-form-element;
     }
 
     // Fix position of hint with small radios
-    //
-    // Do not use hints with small radios – because they're within the input
-    // wrapper they trigger the hover state, but clicking them doesn't actually
-    // activate the control.
-    //
-    // (If you do use them, they won't look completely broken... but seriously,
-    // don't use them)
     .nhsuk-radios__hint {
       padding-left: ($nhsuk-radios-small-size + $input-offset);
     }

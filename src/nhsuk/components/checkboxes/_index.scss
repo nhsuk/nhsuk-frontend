@@ -260,13 +260,6 @@ $nhsuk-checkboxes-offset: $nhsuk-border-width-form-element;
     }
 
     // Fix position of hint with small checkboxes
-    //
-    // Do not use hints with small checkboxes – because they're within the input
-    // wrapper they trigger the hover state, but clicking them doesn't actually
-    // activate the control.
-    //
-    // (If you do use them, they won't look completely broken... but seriously,
-    // don't use them)
     .nhsuk-checkboxes__hint {
       padding-left: ($nhsuk-checkboxes-small-size + $input-offset);
     }
