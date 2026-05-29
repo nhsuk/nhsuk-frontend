@@ -42,18 +42,22 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: 'Are you 18 or over?'
+          text: 'How do you want to be contacted about this?'
         }
       },
       name: 'example',
       items: [
         {
-          value: 'yes',
-          text: 'Yes'
+          value: 'email',
+          text: 'Email'
         },
         {
-          value: 'no',
-          text: 'No'
+          value: 'phone',
+          text: 'Phone'
+        },
+        {
+          value: 'text',
+          text: 'Text message'
         }
       ]
     },
@@ -66,26 +70,27 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: 'Do you know your NHS number?'
+          text: 'How do you want to be contacted about this?',
+          size: 'l'
         }
       },
       hint: {
-        html: 'This is a 10 digit number (like <span class="nhsuk-u-nowrap">999 123 4567</span>) that you can find on an NHS letter, prescription or in the NHS App'
+        text: 'Select 1 option'
       },
       idPrefix: 'with-hint',
       name: 'example',
       items: [
         {
-          value: 'yes',
-          text: 'Yes, I know my NHS number'
+          value: 'email',
+          text: 'Email'
         },
         {
-          value: 'no',
-          text: 'No, I do not know my NHS number'
+          value: 'phone',
+          text: 'Phone'
         },
         {
-          value: 'not sure',
-          text: "I'm not sure"
+          value: 'text',
+          text: 'Text message'
         }
       ]
     },
@@ -93,7 +98,6 @@ const fixtures = {
   },
   'inline': {
     context: {
-      inline: true,
       fieldset: {
         legend: {
           text: 'Are you 18 or over?'
@@ -101,7 +105,7 @@ const fixtures = {
       },
       idPrefix: 'inline',
       name: 'example',
-      value: 'no',
+      inline: true,
       items: [
         {
           value: 'yes',
@@ -122,7 +126,7 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: 'Are you 18 or over?',
+          text: 'How do you want to be contacted about this?',
           size: 'l'
         }
       },
@@ -130,12 +134,16 @@ const fixtures = {
       name: 'example',
       items: [
         {
-          value: 'yes',
-          text: 'Yes'
+          value: 'email',
+          text: 'Email'
         },
         {
-          value: 'no',
-          text: 'No'
+          value: 'phone',
+          text: 'Phone'
+        },
+        {
+          value: 'text',
+          text: 'Text message'
         }
       ]
     },
@@ -186,7 +194,7 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: 'Are you 18 or over?',
+          text: 'How do you want to be contacted about this?',
           isPageHeading: false
         }
       },
@@ -194,12 +202,16 @@ const fixtures = {
       name: 'example',
       items: [
         {
-          value: 'yes',
-          text: 'Yes'
+          value: 'email',
+          text: 'Email'
         },
         {
-          value: 'no',
-          text: 'No'
+          value: 'phone',
+          text: 'Phone'
+        },
+        {
+          value: 'text',
+          text: 'Text message'
         }
       ]
     },
@@ -275,26 +287,29 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: 'How do you want to sign in?'
+          text: 'Do you know your NHS number?'
         }
+      },
+      hint: {
+        html: 'This is a 10 digit number (like <span class="nhsuk-u-nowrap">999 123 4567</span>) that you can find on an NHS letter, prescription or in the NHS App'
       },
       idPrefix: 'with-divider',
       name: 'example',
       items: [
         {
-          value: 'nhsuk-login',
-          text: 'Use NHS login'
+          value: 'yes',
+          text: 'Yes, I know my NHS number'
         },
         {
-          value: 'government-verify',
-          text: 'Use GOV.UK Verify'
+          value: 'no',
+          text: 'No, I do not know my NHS number'
         },
         {
           divider: 'or'
         },
         {
-          value: 'create-account',
-          text: 'Create an account'
+          value: 'not sure',
+          text: "I'm not sure"
         }
       ]
     },
@@ -363,23 +378,23 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: 'Have you changed your name?'
+          text: 'How do you want to be contacted about this?'
         }
-      },
-      hint: {
-        text: 'This includes changing your last name or spelling your name differently'
       },
       idPrefix: 'with-disabled-item',
       name: 'example',
       items: [
         {
-          value: 'yes',
-          text: 'Yes',
-          disabled: true
+          value: 'email',
+          text: 'Email'
         },
         {
-          value: 'no',
-          text: 'No',
+          value: 'phone',
+          text: 'Phone'
+        },
+        {
+          value: 'text',
+          text: 'Text message',
           disabled: true
         }
       ]
@@ -393,22 +408,26 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: 'Have you changed your name?'
+          text: 'How do you want to be contacted about this?'
         }
       },
       errorMessage: {
-        text: 'Select yes if you have changed your name'
+        text: 'Select how you want to be contacted'
       },
       idPrefix: 'with-error-message',
       name: 'example',
       items: [
         {
-          value: 'yes',
-          text: 'Yes'
+          value: 'email',
+          text: 'Email'
         },
         {
-          value: 'no',
-          text: 'No'
+          value: 'phone',
+          text: 'Phone'
+        },
+        {
+          value: 'text',
+          text: 'Text message'
         }
       ]
     },
@@ -418,25 +437,29 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: 'Have you changed your name?'
+          text: 'How do you want to be contacted about this?'
         }
       },
       hint: {
-        text: 'This includes changing your last name or spelling your name differently'
+        text: 'Select 1 option'
       },
       errorMessage: {
-        text: 'Select yes if you have changed your name'
+        text: 'Select how you want to be contacted'
       },
       idPrefix: 'with-hint-error',
       name: 'example',
       items: [
         {
-          value: 'yes',
-          text: 'Yes'
+          value: 'email',
+          text: 'Email'
         },
         {
-          value: 'no',
-          text: 'No'
+          value: 'phone',
+          text: 'Phone'
+        },
+        {
+          value: 'text',
+          text: 'Text message'
         }
       ]
     },
@@ -637,7 +660,7 @@ const fixtures = {
         text: 'Select 1 option'
       },
       errorMessage: {
-        text: 'Select how you prefer to be contacted'
+        text: 'Select how you want to be contacted'
       },
       idPrefix: 'conditional',
       name: 'example',
