@@ -362,6 +362,36 @@ $nhsuk-brand-button-active-colour: nhsuk-shade($nhsuk-brand-button-colour, 50%) 
 
 $nhsuk-brand-button-shadow-colour: nhsuk-shade($nhsuk-brand-button-colour, 50%) !default;
 
+/// Brand reverse button background colour
+///
+/// @type Colour
+
+$nhsuk-brand-reverse-button-colour: nhsuk-tint($nhsuk-brand-colour, 93%) !default;
+
+/// Brand reverse button text colour
+///
+/// @type Colour
+
+$nhsuk-brand-reverse-button-text-colour: nhsuk-shade($nhsuk-brand-colour, 30%) !default;
+
+/// Brand reverse button background colour (hover)
+///
+/// @type Colour
+
+$nhsuk-brand-reverse-button-hover-colour: nhsuk-tint($nhsuk-brand-colour, 85%) !default;
+
+/// Brand reverse button background colour (active)
+///
+/// @type Colour
+
+$nhsuk-brand-reverse-button-active-colour: nhsuk-tint($nhsuk-brand-colour, 78%) !default;
+
+/// Brand reverse button shadow colour
+///
+/// @type Colour
+
+$nhsuk-brand-reverse-button-shadow-colour: nhsuk-tint($nhsuk-brand-colour, 65%) !default;
+
 // Alias login button colours to brand button colours
 $nhsuk-login-button-colour: $nhsuk-brand-button-colour;
 $nhsuk-login-button-hover-colour: $nhsuk-brand-button-hover-colour;

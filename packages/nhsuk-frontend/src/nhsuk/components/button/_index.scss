@@ -209,6 +209,16 @@ $nhsuk-button-search-icon-size-large: 38px;
     );
   }
 
+  .nhsuk-button--brand-reverse {
+    @include nhsuk-button-style(
+      $button-colour: $nhsuk-brand-reverse-button-colour,
+      $button-hover-colour: $nhsuk-brand-reverse-button-hover-colour,
+      $button-active-colour: $nhsuk-brand-reverse-button-active-colour,
+      $button-text-colour: $nhsuk-brand-reverse-button-text-colour,
+      $button-shadow-colour: $nhsuk-brand-reverse-button-shadow-colour
+    );
+  }
+
   // =========================================================
   // Small buttons
   // =========================================================
