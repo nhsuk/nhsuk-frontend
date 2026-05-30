@@ -86,6 +86,15 @@ describe('Core', () => {
         --nhsuk-warning-button-hover-colour: #aa2016;
         --nhsuk-warning-button-active-colour: #6b140e;
         --nhsuk-warning-button-shadow-colour: #6b140e;
+        --nhsuk-brand-button-colour: #005eb8;
+        --nhsuk-brand-button-hover-colour: #004b93;
+        --nhsuk-brand-button-active-colour: #002f5c;
+        --nhsuk-brand-button-shadow-colour: #002f5c;
+        --nhsuk-brand-reverse-button-colour: #edf4fa;
+        --nhsuk-brand-reverse-button-text-colour: #004281;
+        --nhsuk-brand-reverse-button-hover-colour: #d9e7f4;
+        --nhsuk-brand-reverse-button-active-colour: #c7dcef;
+        --nhsuk-brand-reverse-button-shadow-colour: #a6c7e6;
         --nhsuk-login-button-colour: #005eb8;
         --nhsuk-login-button-hover-colour: #004b93;
         --nhsuk-login-button-active-colour: #002f5c;
