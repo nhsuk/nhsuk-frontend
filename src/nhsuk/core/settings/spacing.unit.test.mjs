@@ -59,7 +59,7 @@ describe('Spacing settings', () => {
         ${sassBootstrap}
 
         .foo {
-          top: nhsuk-spacing(-2)
+          top: nhsuk-spacing(-$app-spacing-point)
         }
       `
 
@@ -108,7 +108,7 @@ describe('Spacing settings', () => {
       })
 
       await expect(results).rejects.toThrow(
-        'Unknown spacing variable `999`. Make sure you are using a point from the spacing scale in `_settings/spacing.scss`.'
+        'Unknown spacing point `999`. Make sure you are using a point from the spacing scale in `_settings/spacing.scss`.'
       )
     })
 
@@ -126,7 +126,7 @@ describe('Spacing settings', () => {
       })
 
       await expect(results).rejects.toThrow(
-        'Unknown spacing variable `999`. Make sure you are using a point from the spacing scale in `_settings/spacing.scss`.'
+        'Unknown spacing point `999`. Make sure you are using a point from the spacing scale in `_settings/spacing.scss`.'
       )
     })
 
@@ -181,6 +181,33 @@ describe('Spacing settings', () => {
       })
     })
 
+    it('outputs CSS for a property based on a negative responsive spacing point', async () => {
+      const sass = outdent`
+        ${sassBootstrap}
+
+        .foo {
+          @include nhsuk-responsive-spacing(-$app-spacing-point, 'margin')
+        }
+      `
+
+      const results = compileStringAsync(sass, {
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+      })
+
+      await expect(results).resolves.toMatchObject({
+        css: outdent`
+          .foo {
+            margin: -15px;
+          }
+          @media (min-width: 30em) {
+            .foo {
+              margin: -25px;
+            }
+          }
+        `
+      })
+    })
+
     it('outputs CSS for a property and direction based on a responsive spacing point', async () => {
       const sass = outdent`
         ${sassBootstrap}
@@ -222,7 +249,25 @@ describe('Spacing settings', () => {
       })
 
       await expect(results).rejects.toThrow(
-        'Unknown spacing point `14px`. Make sure you are using a point from the responsive spacing scale in `_settings/spacing.scss`.'
+        'Unknown responsive spacing point `14px`. Make sure you are using a point from the responsive spacing scale in `_settings/spacing.scss`.'
+      )
+    })
+
+    it('throws an error when passed a non-existent negative point', async () => {
+      const sass = outdent`
+        ${sassBootstrap}
+
+        .foo {
+          @include nhsuk-responsive-spacing(-999, 'margin')
+        }
+      `
+
+      const results = compileStringAsync(sass, {
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+      })
+
+      await expect(results).rejects.toThrow(
+        'Unknown responsive spacing point `999`. Make sure you are using a point from the responsive spacing scale in `_settings/spacing.scss`.'
       )
     })
 
@@ -379,6 +424,33 @@ describe('Spacing settings', () => {
           @media (min-width: 30em) {
             .foo {
               margin: 25px;
+            }
+          }
+        `
+      })
+    })
+
+    it('outputs simple responsive margins for a negative responsive spacing point', async () => {
+      const sass = outdent`
+        ${sassBootstrap}
+
+        .foo {
+          @include nhsuk-responsive-margin(-$app-spacing-point)
+        }
+      `
+
+      const results = compileStringAsync(sass, {
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+      })
+
+      await expect(results).resolves.toMatchObject({
+        css: outdent`
+          .foo {
+            margin: -15px;
+          }
+          @media (min-width: 30em) {
+            .foo {
+              margin: -25px;
             }
           }
         `
