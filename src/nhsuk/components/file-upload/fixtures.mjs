@@ -46,7 +46,7 @@ const fixtures = {
       name: 'file-upload'
     }
   },
-  'with hint and error': {
+  'with error message and hint': {
     context: {
       label: {
         text: 'Upload a file',

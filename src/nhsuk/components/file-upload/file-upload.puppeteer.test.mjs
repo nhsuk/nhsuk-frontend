@@ -449,7 +449,7 @@ describe('File upload', () => {
 
     describe('aria-describedby', () => {
       it('copies the `aria-describedby` attribute from the `<input>` to the `<button>`', async () => {
-        await initExample('with hint and error')
+        await initExample('with error message and hint')
 
         expect(await getAttribute($dropButton, 'aria-describedby')).toBe(
           'file-upload-hint file-upload-error'

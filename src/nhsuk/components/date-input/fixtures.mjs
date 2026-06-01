@@ -429,7 +429,7 @@ const fixtures = {
       id: 'example'
     }
   },
-  'with hint and error': {
+  'with error message and hint': {
     context: {
       fieldset: {
         legend: {

@@ -121,7 +121,7 @@ const fixtures = {
       selector: '#with-error-message'
     }
   },
-  'with hint and error': {
+  'with error message and hint': {
     context: {
       label: {
         text: 'Can you provide more detail?',

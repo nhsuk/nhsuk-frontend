@@ -115,7 +115,7 @@ const fixtures = {
       spellcheck: false
     }
   },
-  'with hint and error': {
+  'with error message and hint': {
     context: {
       label: {
         text: 'What is your NHS number?',
@@ -429,7 +429,7 @@ const fixtures = {
     },
     screenshot: true
   },
-  'with prefix and suffix and error': {
+  'with prefix and suffix and error message': {
     context: {
       label: {
         text: 'Cost per item, in pounds',
