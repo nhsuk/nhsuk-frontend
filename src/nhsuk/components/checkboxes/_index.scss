@@ -136,7 +136,7 @@ $nhsuk-checkboxes-offset: $nhsuk-border-width-form-element;
   }
 
   // This is to bypass nhsuk-hint's specificity on hints following labels having
-  // a margin bottom of 10px (nhsuk-spacing(2)). Because checkboxes are flexbox,
+  // a margin bottom of 8px (nhsuk-spacing(2)). Because checkboxes are flexbox,
   // the margin doesn't collapse so we have to do this manually.
   .nhsuk-label:not(.nhsuk-label--m):not(.nhsuk-label--l):not(.nhsuk-label--xl) + .nhsuk-checkboxes__hint {
     margin-bottom: 0;
