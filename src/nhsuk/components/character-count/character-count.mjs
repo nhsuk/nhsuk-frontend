@@ -79,7 +79,15 @@ export class CharacterCount extends ConfigurableComponent {
       (countType === 'words' && maxwords === undefined) ||
       countFunction
     ) {
-      if (!('Segmenter' in Intl)) {
+      if ('Segmenter' in Intl) {
+        this.segmenter = new Intl.Segmenter(this.i18n.locale, {
+          granularity: countType === 'words' ? 'word' : 'grapheme'
+        })
+      }
+
+      // Suppress support error if a custom count function is provided, since
+      // users may provide their own fallback without needing Intl.Segmenter
+      if (!this.segmenter && !countFunction) {
         throw new SupportError(
           formatErrorMessage(
             CharacterCount,
@@ -87,10 +95,6 @@ export class CharacterCount extends ConfigurableComponent {
           )
         )
       }
-
-      this.segmenter = new Intl.Segmenter(this.i18n.locale, {
-        granularity: countType === 'words' ? 'word' : 'grapheme'
-      })
     }
 
     // Determine the count function to use
