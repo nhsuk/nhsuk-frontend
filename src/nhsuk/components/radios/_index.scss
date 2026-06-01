@@ -176,6 +176,7 @@ $nhsuk-radios-offset: $nhsuk-border-width-form-element;
       align-items: flex-start;
 
       .nhsuk-radios__item {
+        max-width: calc(50% - $nhsuk-radios-label-padding-left-right - nhsuk-spacing(4));
         margin-top: 0;
         margin-right: nhsuk-spacing(4);
       }
