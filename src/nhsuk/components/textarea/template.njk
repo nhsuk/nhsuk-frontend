@@ -47,7 +47,7 @@
     attributes: params.hint.attributes
   }) | trim | indent(2) }}
 {% endif %}
-{% if params.errorMessage %}
+{% if params.errorMessage.text or params.errorMessage.html %}
   {% set errorId = params.errorMessage.id | default(id ~ "-error") %}
   {% set describedBy = (describedBy ~ " " ~ errorId) | trim %}
   {{ errorMessage({
