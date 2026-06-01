@@ -2,13 +2,13 @@ import { getByRole } from '@testing-library/dom'
 import { mockResizeObserver } from 'jsdom-testing-mocks'
 
 import { examples } from './fixtures.mjs'
-import { SecondaryNavigation } from './secondary-navigation.mjs'
+import { SectionNavigation } from './section-navigation.mjs'
 
 import { components } from '#lib'
 
 mockResizeObserver()
 
-describe('SecondaryNavigation', () => {
+describe('SectionNavigation', () => {
   /** @type {HTMLElement} */
   let $root
 
@@ -21,13 +21,13 @@ describe('SecondaryNavigation', () => {
 
   beforeEach(() => {
     document.body.innerHTML = components.render(
-      'secondary-navigation',
+      'section-navigation',
       examples.default
     )
 
     $root = /** @type {HTMLElement} */ (
       document.querySelector(
-        `[data-module="${SecondaryNavigation.moduleName}"]`
+        `[data-module="${SectionNavigation.moduleName}"]`
       )
     )
 
@@ -60,7 +60,9 @@ describe('SecondaryNavigation', () => {
         }
 
         if (this === $list) {
-          return this.style.width === 'max-content' ? naturalWidth : availableWidth
+          return this.style.width === 'max-content'
+            ? naturalWidth
+            : availableWidth
         }
 
         return 0
@@ -69,10 +71,10 @@ describe('SecondaryNavigation', () => {
   })
 
   it('adds the vertical modifier when items overflow at tablet and above', () => {
-    new SecondaryNavigation($root)
+    new SectionNavigation($root)
 
-    expect($root).toHaveClass('nhsuk-secondary-navigation--vertical')
-    expect($root).not.toHaveClass('nhsuk-secondary-navigation--horizontal')
+    expect($root).toHaveClass('nhsuk-section-navigation--vertical')
+    expect($root).not.toHaveClass('nhsuk-section-navigation--horizontal')
   })
 
   it('adds the horizontal modifier when items fit on mobile', () => {
@@ -80,23 +82,23 @@ describe('SecondaryNavigation', () => {
     availableWidth = 480
     naturalWidth = 320
 
-    new SecondaryNavigation($root)
+    new SectionNavigation($root)
 
-    expect($root).toHaveClass('nhsuk-secondary-navigation--horizontal')
-    expect($root).not.toHaveClass('nhsuk-secondary-navigation--vertical')
+    expect($root).toHaveClass('nhsuk-section-navigation--horizontal')
+    expect($root).not.toHaveClass('nhsuk-section-navigation--vertical')
   })
 
   it('does not run layout enhancement when pre-rendered as vertical', () => {
-    $root.classList.add('nhsuk-secondary-navigation--vertical')
+    $root.classList.add('nhsuk-section-navigation--vertical')
     const addEventListenerSpy = jest.spyOn(window, 'addEventListener')
 
-    new SecondaryNavigation($root)
+    new SectionNavigation($root)
 
     expect(addEventListenerSpy).not.toHaveBeenCalledWith(
       'resize',
       expect.any(Function)
     )
-    expect($root).toHaveClass('nhsuk-secondary-navigation--vertical')
-    expect($root).not.toHaveClass('nhsuk-secondary-navigation--horizontal')
+    expect($root).toHaveClass('nhsuk-section-navigation--vertical')
+    expect($root).not.toHaveClass('nhsuk-section-navigation--horizontal')
   })
 })

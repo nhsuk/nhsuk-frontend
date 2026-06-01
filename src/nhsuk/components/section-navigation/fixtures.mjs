@@ -72,7 +72,7 @@ const fixtures = {
         },
         {
           href: '#',
-          html: 'Vaccinations<span class="nhsuk-secondary-navigation__suffix"><strong class="nhsuk-tag nhsuk-tag--green">New</strong></span>',
+          html: 'Vaccinations<span class="nhsuk-section-navigation__suffix"><strong class="nhsuk-tag nhsuk-tag--green">New</strong></span>',
           current: true
         },
         {
@@ -87,7 +87,7 @@ const fixtures = {
   },
   'reverse': {
     context: {
-      classes: 'nhsuk-secondary-navigation--reverse',
+      classes: 'nhsuk-section-navigation--reverse',
       items: [
         {
           href: '#',
@@ -118,7 +118,7 @@ const fixtures = {
   },
   'reverse with badge': {
     context: {
-      classes: 'nhsuk-secondary-navigation--reverse',
+      classes: 'nhsuk-section-navigation--reverse',
       items: [
         {
           href: '#',

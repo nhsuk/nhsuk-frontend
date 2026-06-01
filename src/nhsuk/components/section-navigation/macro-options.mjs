@@ -1,4 +1,4 @@
-export const name = 'Secondary navigation'
+export const name = 'Section navigation'
 
 /**
  * Nunjucks macro option params
@@ -10,7 +10,7 @@ const options = {
     type: 'string',
     required: false,
     description:
-      'The `aria-label` for the navigation landmark. Defaults to `"Secondary navigation"`. Use this to provide a meaningful label if multiple navigation landmarks are present on the page. Ignored if `labelledBy` is set.'
+      'The `aria-label` for the navigation landmark. Defaults to `"Section navigation"`. Use this to provide a meaningful label if multiple navigation landmarks are present on the page. Ignored if `labelledBy` is set.'
   },
   labelledBy: {
     type: 'string',
@@ -71,7 +71,7 @@ const options = {
     type: 'string',
     required: false,
     description:
-      'Classes to add to the navigation element. Use `"nhsuk-secondary-navigation--reverse"` for use on coloured backgrounds.'
+      'Classes to add to the navigation element. Use `"nhsuk-section-navigation--reverse"` for use on coloured backgrounds.'
   },
   vertical: {
     type: 'boolean',
