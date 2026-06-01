@@ -22,7 +22,8 @@
     @include nhsuk-top-and-bottom; // [1]
 
     @include nhsuk-responsive-margin(7, ("top", "bottom"));
-    @include nhsuk-responsive-padding(4);
+    @include nhsuk-responsive-padding(4, ("top", "bottom"));
+    @include nhsuk-responsive-padding(4, ("left", "right"), $unit: "rem");
 
     @media print {
       border-color: $nhsuk-print-text-colour;

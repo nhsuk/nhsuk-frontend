@@ -66,11 +66,12 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
   .nhsuk-card__content {
     box-sizing: border-box;
     @include nhsuk-top-and-bottom;
-    @include nhsuk-responsive-padding(5);
+    @include nhsuk-responsive-padding(5, ("top", "bottom"));
+    @include nhsuk-responsive-padding(5, ("left", "right"), $unit: "rem");
   }
 
   .nhsuk-card .nhsuk-image__caption {
-    @include nhsuk-responsive-padding(5, ("left", "right"));
+    @include nhsuk-responsive-padding(5, ("left", "right"), $unit: "rem");
   }
 
   .nhsuk-card__heading {
@@ -85,7 +86,8 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
   .nhsuk-card__heading-container,
   // Deprecated, to be removed in v11.0
   .nhsuk-card--care__heading-container {
-    @include nhsuk-responsive-padding(5);
+    @include nhsuk-responsive-padding(5, ("top", "bottom"));
+    @include nhsuk-responsive-padding(5, ("left", "right"), $unit: "rem");
   }
 
   .nhsuk-card__heading-container {
@@ -561,7 +563,7 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
       pointer-events: none;
 
       fill: $nhsuk-link-colour;
-      @include nhsuk-responsive-spacing(5, "right");
+      @include nhsuk-responsive-spacing(5, "right", $unit: "rem");
 
       @media screen and (forced-colors: active), (-ms-high-contrast: active) {
         fill: ButtonText;

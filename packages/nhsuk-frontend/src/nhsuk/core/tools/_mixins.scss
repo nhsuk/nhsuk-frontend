@@ -311,7 +311,8 @@
 
   @include nhsuk-panel($panel-background-colour, $panel-text-colour, $panel-border-colour);
   @include nhsuk-responsive-margin(7, "top");
-  @include nhsuk-responsive-padding(5, ("bottom", "left", "right"));
+  @include nhsuk-responsive-padding(5, "bottom");
+  @include nhsuk-responsive-padding(5, ("left", "right"), $unit: "rem");
 }
 
 /// Panel with label mixin, inherits panel styling
@@ -350,7 +351,7 @@
 
   margin: 0;
   margin-bottom: nhsuk-spacing(2);
-  padding: nhsuk-spacing(2);
+  padding: nhsuk-spacing(2) nhsuk-spacing(2, $unit: "rem");
 
   outline: 1px solid transparent; // [2]
   outline-offset: -1px;
@@ -360,8 +361,8 @@
 
   @include nhsuk-font-size(26);
 
-  @include nhsuk-responsive-margin(-5, "left", $adjustment: -1px); // [5]
-  @include nhsuk-responsive-padding(5, ("left", "right"));
+  @include nhsuk-responsive-margin(-5, "left", $adjustment: -1px, $unit: "rem"); // [5]
+  @include nhsuk-responsive-padding(5, ("left", "right"), $unit: "rem");
 
   @media print {
     top: 0;
