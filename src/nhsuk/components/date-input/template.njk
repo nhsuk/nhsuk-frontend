@@ -55,14 +55,16 @@
   ] %}
 {% endif %}
 
-{%- macro _dateInputItem(params, item) %}
-{% set itemName = item.name %}
-{% set itemValue = item.value %}
-{% set itemWidth = item.width | default(2) %}
+{%- macro _dateInputItem(params, item, anyItemHasError) %}
 {% set itemLabel = item.label if item.label is mapping and item.label is not escaped else {
   text: item.label if item.label is string else undefined,
   html: item.label if item.label is escaped else undefined
 } %}
+{% set itemName = item.name %}
+{% set itemValue = item.value %}
+{% set itemWidth = item.width | default(2) %}
+{% set itemClasses = "" %}
+{% set itemHasError = true if item.error or (item.classes and "nhsuk-input--error" in item.classes) else false %}
 
 {%- if item is sameas(dateInputDay) or (item.name and item.name in ["day", dateInputDay.name]) %}
   {% set itemName = item.name | default("day") %}
@@ -76,53 +78,73 @@
   {% set itemWidth = item.width | default(4) %}
 {% endif -%}
 
+{%- if itemHasError or (item.error != false and params.errorMessage and not anyItemHasError) %}
+  {% set itemClasses = (itemClasses + " nhsuk-input--error") | trim %}
+{% endif -%}
+
+{%- if item.classes %}
+  {% set itemClasses = (itemClasses + " " + item.classes) | trim %}
+{% endif %}
+
 <div class="nhsuk-date-input__item">
   {{ input({
     label: {
       html: itemLabel.html,
       text: itemLabel.text | default(itemName | capitalize),
       id: itemLabel.id,
+      for: itemLabel.for,
       classes: "nhsuk-date-input__label" ~ (" " ~ itemLabel.classes if itemLabel.classes),
-      attributes: itemLabel.attributes,
-      for: itemLabel.for
+      attributes: itemLabel.attributes
     },
     id: item.id if item.id else (params.id ~ "-" ~ itemName),
-    classes: ("nhsuk-input--error " if item.error) ~ "nhsuk-date-input__input" ~ (" " ~ item.classes if item.classes),
     name: (params.namePrefix ~ "[" ~ itemName ~ "]") if params.namePrefix else itemName,
     value: itemValue | default(params.values[itemName]),
+    type: item.type | default("text", true),
+    prefix: item.prefix,
+    suffix: item.suffix,
     width: itemWidth,
-    type: "text",
     inputmode: item.inputmode if item.inputmode else "numeric",
+    spellcheck: item.spellcheck,
     autocomplete: item.autocomplete,
+    autocapitalize: item.autocapitalize,
     pattern: item.pattern,
+    disabled: item.disabled | default(params.disabled),
+    describedBy: item.describedBy,
+    classes: ("nhsuk-date-input__input" ~ " " ~ itemClasses) | trim,
     attributes: item.attributes
   }) | trim | indent(2) }}
 </div>
 {%- endmacro -%}
 
+{#- Determine if any date input item has an error #}
+{%- set anyItemHasError = false %}
+{% for item in dateInputItems %}
+  {% set anyItemHasError = true if item.error or (item.classes and "nhsuk-input--error" in item.classes) else anyItemHasError %}
+{% endfor -%}
+
 {#- Capture the HTML so we can optionally nest it in a fieldset -#}
 {% set innerHtml %}
 {% if params.hint %}
-  {% set hintId = params.id ~ "-hint" %}
+  {% set hintId = params.hint.id | default(params.id ~ "-hint") %}
   {% set describedBy = (describedBy ~ " " ~ hintId) | trim %}
   {{ hint({
-    id: hintId,
-    classes: params.hint.classes,
-    attributes: params.hint.attributes,
     html: params.hint.html,
-    text: params.hint.text
+    text: params.hint.text,
+    id: params.hint.id | default(hintId),
+    classes: params.hint.classes,
+    attributes: params.hint.attributes
   }) | trim | indent(2) }}
 {% endif %}
 {% if params.errorMessage %}
-  {% set errorId = params.id ~ "-error" %}
+  {% set errorId = params.errorMessage.id | default(params.id ~ "-error") %}
   {% set describedBy = (describedBy ~ " " ~ errorId) | trim %}
   {{ errorMessage({
-    id: errorId,
-    classes: params.errorMessage.classes,
-    attributes: params.errorMessage.attributes,
     html: params.errorMessage.html,
     text: params.errorMessage.text,
-    visuallyHiddenText: params.errorMessage.visuallyHiddenText
+    visuallyHiddenText: params.errorMessage.visuallyHiddenText,
+    id: params.errorMessage.id | default(errorId),
+    classes: params.errorMessage.classes,
+    attributes: params.errorMessage.attributes
   }) | trim | indent(2) }}
 {% endif %}
   <div class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %} {{- nhsukAttributes(params.attributes) -}}>
@@ -131,7 +153,7 @@
     {% endif %}
     {% for item in dateInputItems %}
       {% if item %}
-        {{- _dateInputItem(params, item) | trim | indent(4, true) }}
+        {{- _dateInputItem(params, item, anyItemHasError) | trim | indent(4, true) }}
       {% endif %}
     {% endfor %}
     {% if params.formGroup.afterInputs %}
@@ -147,12 +169,13 @@
     adding the role to the fieldset always makes the output overly verbose for
     radio buttons or checkboxes. -#}
   {{ fieldset({
+    legend: params.fieldset.legend,
+    html: innerHtml | trim,
+    id: params.fieldset.id,
+    role: params.fieldset.role | default("group"),
     describedBy: describedBy,
     classes: params.fieldset.classes,
-    role: "group",
-    attributes: params.fieldset.attributes,
-    legend: params.fieldset.legend,
-    html: innerHtml | trim
+    attributes: params.fieldset.attributes
   }) | trim | indent(2) }}
 {% else %}
   {{ innerHtml | safe | trim }}

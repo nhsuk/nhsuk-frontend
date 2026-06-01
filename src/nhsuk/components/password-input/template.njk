@@ -3,6 +3,18 @@
 {% from "nhsuk/components/button/macro.njk" import button -%}
 {% from "nhsuk/components/input/macro.njk" import input -%}
 
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-password-input__input nhsuk-js-password-input-input" -%}
+{%- set classNamesFormGroup = "nhsuk-password-input" -%}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif %}
+
+{%- if params.formGroup.classes %}
+  {% set classNamesFormGroup = params.formGroup.classes ~ " " ~ classNamesFormGroup %}
+{% endif %}
+
 {%- set id = params.id if params.id else params.name -%}
 
 {% set attributesHtml -%}
@@ -12,7 +24,7 @@
 
   {{- nhsukI18nAttributes({
     key: "show-password",
-    message: params.showPasswordText
+    message: params.showPasswordText | default(params.button.text)
   }) -}}
 
   {{- nhsukI18nAttributes({
@@ -45,19 +57,26 @@
 
 {%- set buttonHtml %}
 {{ button({
-  type: "button",
+  text: params.showPasswordText | default(params.button.text or "Show"),
+  ariaLabel: params.showPasswordAriaLabelText | default(params.button.ariaLabel or "Show password"),
+  id: params.button.id,
+  href: params.button.href,
+  name: params.button.name,
+  value: params.button.value,
+  type: params.button.type | default("button", true),
+  icon: params.button.icon,
+  small: params.button.small | default(not params.large),
+  preventDoubleClick: params.button.preventDoubleClick,
+  disabled: params.button.disabled | default(params.disabled),
   classes: "nhsuk-password-input__toggle nhsuk-js-password-input-toggle" ~ (" " ~ params.button.classes if params.button.classes),
-  text: params.showPasswordText | default("Show"),
-  variant: "secondary",
-  small: not params.large,
   attributes: {
     "aria-controls": id,
-    "aria-label": params.showPasswordAriaLabelText | default("Show password"),
     "hidden": {
       value: true,
       optional: true
     }
-  }
+  },
+  variant: params.button.variant | default("secondary")
 }) | trim }}
 {% if params.formGroup.afterInput %}
   {{- params.formGroup.afterInput.html | safe | trim if params.formGroup.afterInput.html else params.formGroup.afterInput.text }}
@@ -65,28 +84,32 @@
 {% endset -%}
 
 {{ input({
+  label: params.label,
+  hint: params.hint,
+  errorMessage: params.errorMessage,
+  id: id,
+  name: params.name,
+  value: params.value,
+  type: "password",
+  prefix: params.prefix,
+  suffix: params.suffix,
+  code: params.code,
+  width: params.width,
+  large: params.large,
+  spellcheck: false,
+  autocomplete: params.autocomplete if params.autocomplete else "current-password",
+  autocapitalize: "none",
+  disabled: params.disabled,
+  describedBy: params.describedBy,
+  classes: classNames,
+  attributes: params.attributes,
+  inputWrapper: params.inputWrapper,
   formGroup: {
-    classes: "nhsuk-password-input" ~ (" " ~ params.formGroup.classes if params.formGroup.classes),
+    classes: classNamesFormGroup,
     attributes: attributesHtml,
     beforeInput: params.formGroup.beforeInput,
     afterInput: {
       html: buttonHtml
     }
-  },
-  label: params.label,
-  hint: params.hint,
-  large: params.large,
-  classes: "nhsuk-password-input__input nhsuk-js-password-input-input" ~ (" " ~ params.classes if params.classes),
-  errorMessage: params.errorMessage,
-  id: id,
-  name: params.name,
-  value: params.value,
-  width: params.width,
-  type: "password",
-  spellcheck: false,
-  autocapitalize: "none",
-  autocomplete: params.autocomplete if params.autocomplete else "current-password",
-  disabled: params.disabled,
-  describedBy: params.describedBy,
-  attributes: params.attributes
+  }
 }) | trim }}

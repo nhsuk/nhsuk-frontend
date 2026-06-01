@@ -18,6 +18,21 @@ const fixtures = {
     },
     screenshot: true
   },
+  'disabled': {
+    context: {
+      label: {
+        text: 'Can you provide more detail?',
+        size: 'l',
+        isPageHeading: true
+      },
+      hint: {
+        text: 'Do not include personal information like your name, date of birth or NHS number'
+      },
+      name: 'example',
+      disabled: true
+    },
+    screenshot: true
+  },
   'with hint': {
     context: {
       label: {
@@ -79,7 +94,7 @@ const fixtures = {
         }
       },
       {
-        description: 'with label id attribute',
+        description: 'with id attribute on',
         context: {
           label: {
             id: 'custom-id'
@@ -121,7 +136,7 @@ const fixtures = {
       selector: '#with-error-message'
     }
   },
-  'with hint and error': {
+  'with error message and hint': {
     context: {
       label: {
         text: 'Can you provide more detail?',

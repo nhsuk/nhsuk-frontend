@@ -1,5 +1,7 @@
 import { components } from '#lib'
 
+import { examples as buttonExamples } from '../button/fixtures.mjs'
+
 /**
  * Nunjucks macro option examples
  *
@@ -34,6 +36,63 @@ const fixtures = {
     },
     screenshot: true
   },
+  'disabled': {
+    context: {
+      label: {
+        text: 'Sort by',
+        isPageHeading: true
+      },
+      name: 'example',
+      disabled: true,
+      items: [
+        {
+          value: 'published',
+          text: 'Recently published'
+        },
+        {
+          value: 'updated',
+          text: 'Recently updated'
+        },
+        {
+          value: 'views',
+          text: 'Most views'
+        },
+        {
+          value: 'comments',
+          text: 'Most comments'
+        }
+      ]
+    },
+    screenshot: true
+  },
+  'disabled option': {
+    context: {
+      label: {
+        text: 'Sort by',
+        isPageHeading: true
+      },
+      name: 'example',
+      items: [
+        {
+          value: 'published',
+          text: 'Recently published'
+        },
+        {
+          value: 'updated',
+          text: 'Recently updated'
+        },
+        {
+          value: 'views',
+          text: 'Most views'
+        },
+        {
+          value: 'comments',
+          text: 'Most comments',
+          disabled: true
+        }
+      ]
+    }
+  },
   'with divider': {
     context: {
       label: {
@@ -60,35 +119,6 @@ const fixtures = {
         {
           value: 'last-name-descending',
           text: 'Last name (Z to A)'
-        }
-      ]
-    }
-  },
-  'with disabled item': {
-    context: {
-      label: {
-        text: 'Sort by',
-        isPageHeading: true
-      },
-      id: 'with-disabled-item',
-      name: 'example',
-      items: [
-        {
-          value: 'published',
-          text: 'Recently published'
-        },
-        {
-          value: 'updated',
-          text: 'Recently updated'
-        },
-        {
-          value: 'views',
-          text: 'Most views'
-        },
-        {
-          value: 'comments',
-          text: 'Most comments',
-          disabled: true
         }
       ]
     }
@@ -204,13 +234,10 @@ const fixtures = {
       ],
       formGroup: {
         afterInput: {
-          html: components.render('button', {
-            context: {
-              text: 'Save',
-              variant: 'secondary',
-              small: true
-            }
-          })
+          html: components.render(
+            'button',
+            buttonExamples['example secondary save button, small']
+          )
         }
       }
     },
@@ -276,13 +303,10 @@ const fixtures = {
       ],
       formGroup: {
         afterInput: {
-          html: components.render('button', {
-            context: {
-              text: 'Save',
-              variant: 'secondary',
-              small: true
-            }
-          })
+          html: components.render(
+            'button',
+            buttonExamples['example secondary save button, small']
+          )
         }
       }
     },
@@ -352,7 +376,7 @@ const fixtures = {
         }
       },
       {
-        description: 'with label id attribute',
+        description: 'with id attribute on',
         context: {
           label: {
             id: 'custom-id'
@@ -446,7 +470,7 @@ const fixtures = {
       ]
     }
   },
-  'with hint and error': {
+  'with error message and hint': {
     context: {
       label: {
         text: 'Choose location',

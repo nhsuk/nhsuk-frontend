@@ -22,7 +22,7 @@ const fixtures = {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
-  'with deprecated parameters': {
+  'with deprecated options': {
     context: {
       previousUrl: '/section/treatments',
       previousPage: 'Treatments',

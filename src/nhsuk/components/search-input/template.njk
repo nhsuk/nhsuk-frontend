@@ -33,14 +33,21 @@
 {%- set afterInputHtml %}
 {% if params.button not in ["", null, false] %}
 {{ button({
-  ariaLabel: params.button.ariaLabel | default("Search"),
-  variant: params.button.variant,
-  classes: classNamesButton,
-  text: params.button.text,
   html: params.button.html,
+  text: params.button.text,
+  ariaLabel: params.button.ariaLabel | default("Search"),
+  id: params.button.id,
+  href: params.button.href,
+  name: params.button.name,
+  value: params.button.value,
   type: params.button.type | default("submit", true),
   icon: params.button.icon | default("search"),
-  small: not params.large
+  small: params.button.small | default(not params.large),
+  preventDoubleClick: params.button.preventDoubleClick,
+  disabled: params.button.disabled | default(params.disabled),
+  classes: classNamesButton,
+  attributes: params.button.attributes,
+  variant: params.button.variant
 }) | trim }}
 {% endif %}
 {% if params.formGroup.afterInput %}
@@ -49,6 +56,31 @@
 {% endset -%}
 
 {{ input({
+  label: params.label,
+  hint: params.hint,
+  errorMessage: params.errorMessage,
+  id: id,
+  name: params.name,
+  value: params.value,
+  placeholder: params.placeholder,
+  type: params.type | default("search"),
+  prefix: params.prefix,
+  suffix: params.suffix,
+  code: params.code,
+  width: params.width,
+  large: params.large,
+  spellcheck: params.spellcheck,
+  inputmode: params.inputmode,
+  autocomplete: params.autocomplete | default("off"),
+  autocapitalize: params.autocapitalize,
+  disabled: params.disabled,
+  describedBy: params.describedBy,
+  classes: classNamesInput,
+  attributes: params.attributes,
+  inputWrapper: {
+    classes: classNamesInputWrapper,
+    attributes: params.inputWrapper.attributes
+  },
   formGroup: {
     classes: classNames,
     attributes: params.formGroup.attributes,
@@ -56,30 +88,5 @@
     afterInput: {
       html: afterInputHtml
     }
-  },
-  inputWrapper: {
-    classes: classNamesInputWrapper,
-    attributes: params.inputWrapper.attributes
-  },
-  label: params.label,
-  hint: params.hint,
-  large: params.large,
-  classes: classNamesInput,
-  errorMessage: params.errorMessage,
-  id: id,
-  name: params.name,
-  value: params.value,
-  prefix: params.prefix,
-  suffix: params.suffix,
-  code: params.code,
-  width: params.width,
-  type: params.type | default("search"),
-  inputmode: params.inputmode,
-  spellcheck: params.spellcheck,
-  autocapitalize: params.autocapitalize,
-  autocomplete: params.autocomplete | default("off"),
-  placeholder: params.placeholder,
-  disabled: params.disabled,
-  describedBy: params.describedBy,
-  attributes: params.attributes
+  }
 }) | trim }}

@@ -23,7 +23,8 @@ const options = {
   items: {
     type: 'array',
     required: false,
-    description: 'The inputs within the date input component.',
+    description:
+      'The inputs within the date input component. The `input.errorMessage` and `input.hint` options are not supported.',
     alias: 'input',
     released: '1.0.0',
     isComponent: true,
@@ -39,7 +40,7 @@ const options = {
         type: 'object',
         required: false,
         description:
-          'Item-specific label. Defaults to the `name` option capitalised.',
+          'Item-specific label. The `label.size` and `label.isPageHeading` options are not supported. Defaults to the `name` option capitalised.',
         released: '10.5.0',
         isComponent: true
       },
@@ -138,7 +139,8 @@ const options = {
   fieldset: {
     type: 'object',
     required: false,
-    description: 'Can be used to add a fieldset to the date input component.',
+    description:
+      'Can be used to add a fieldset to the date input component. The `fieldset.html` option is not supported.',
     released: '1.0.0',
     isComponent: true
   },
@@ -146,7 +148,7 @@ const options = {
     type: 'object',
     required: false,
     description:
-      'Can be used to customise the day input within the date input component.',
+      'Can be used to customise the day input within the date input component. The `input.formGroup` and `input.inputWrapper` options are not supported.',
     alias: 'input',
     released: '10.5.0',
     isComponent: true,
@@ -168,7 +170,7 @@ const options = {
         type: 'object',
         required: false,
         description:
-          'The label used by the day input. Defaults to the `name` option capitalised.',
+          'The label used by the day input. The `label.size` and `label.isPageHeading` options are not supported. Defaults to the `name` option capitalised.',
         released: '10.5.0',
         isComponent: true
       },
@@ -184,7 +186,7 @@ const options = {
     type: 'object',
     required: false,
     description:
-      'Can be used to customise the month input within the date input component.',
+      'Can be used to customise the month input within the date input component. The `input.formGroup` and `input.inputWrapper` options are not supported.',
     alias: 'input',
     released: '10.5.0',
     isComponent: true,
@@ -206,7 +208,7 @@ const options = {
         type: 'object',
         required: false,
         description:
-          'The label used by the month input. Defaults to the `name` option capitalised.',
+          'The label used by the month input. The `label.size` and `label.isPageHeading` options are not supported. Defaults to the `name` option capitalised.',
         released: '10.5.0',
         isComponent: true
       },
@@ -222,7 +224,7 @@ const options = {
     type: 'object',
     required: false,
     description:
-      'Can be used to customise the year input within the date input component.',
+      'Can be used to customise the year input within the date input component. The `input.formGroup` and `input.inputWrapper` options are not supported.',
     alias: 'input',
     released: '10.5.0',
     isComponent: true,
@@ -244,7 +246,7 @@ const options = {
         type: 'object',
         required: false,
         description:
-          'The label used by the year input. Defaults to the `name` option capitalised.',
+          'The label used by the year input. The `label.size` and `label.isPageHeading` options are not supported. Defaults to the `name` option capitalised.',
         released: '10.5.0',
         isComponent: true
       },
@@ -283,17 +285,46 @@ const options = {
       }
     }
   },
+  disabled: {
+    type: 'boolean',
+    required: false,
+    description:
+      'If `true`, inputs used by the date input component will be disabled.',
+    released: '10.5.0'
+  },
   classes: {
     type: 'string',
     required: false,
-    description: 'Classes to add to the date-input container.',
+    description: 'Classes to add to the date input container.',
     released: '1.0.0'
+  },
+  inputWrapper: {
+    type: 'object',
+    required: false,
+    description:
+      'Additional options for the wrapping element containing the date input component.',
+    released: '10.5.0',
+    params: {
+      classes: {
+        type: 'string',
+        required: false,
+        description: 'Classes to add to the wrapping element.',
+        released: '10.5.0'
+      },
+      attributes: {
+        type: 'object',
+        required: false,
+        description:
+          'HTML attributes (for example data attributes) to add to the wrapping element.',
+        released: '10.5.0'
+      }
+    }
   },
   attributes: {
     type: 'object',
     required: false,
     description:
-      'HTML attributes (for example data attributes) to add to the date-input container.',
+      'HTML attributes (for example data attributes) to add to the date input container.',
     released: '1.0.0'
   }
 }

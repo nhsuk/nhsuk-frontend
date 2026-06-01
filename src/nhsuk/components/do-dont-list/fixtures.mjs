@@ -39,7 +39,7 @@ const fixtures = {
       ]
     }
   },
-  '(do) with deprecated parameters': {
+  '(do) with deprecated options': {
     context: {
       title: 'Do',
       icon: 'tick',
@@ -115,7 +115,7 @@ const fixtures = {
       ]
     }
   },
-  "(don't) with deprecated parameters": {
+  "(don't) with deprecated options": {
     context: {
       title: "Don't",
       icon: 'cross',

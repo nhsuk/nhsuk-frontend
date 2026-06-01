@@ -2,6 +2,8 @@ import { outdent } from 'outdent'
 
 import { components } from '#lib'
 
+import { examples as tableExamples } from '../tables/fixtures.mjs'
+
 /**
  * Nunjucks macro option examples
  *
@@ -15,260 +17,40 @@ const fixtures = {
           label: 'Past day',
           id: 'past-day',
           panel: {
-            html: components.render('tables', {
-              context: {
-                caption: 'Past day',
-                head: [
-                  {
-                    text: 'Case manager'
-                  },
-                  {
-                    text: 'Cases opened',
-                    format: 'numeric'
-                  },
-                  {
-                    text: 'Cases closed',
-                    format: 'numeric'
-                  }
-                ],
-                rows: [
-                  [
-                    {
-                      text: 'David Francis'
-                    },
-                    {
-                      text: '3',
-                      format: 'numeric'
-                    },
-                    {
-                      text: '0',
-                      format: 'numeric'
-                    }
-                  ],
-                  [
-                    {
-                      text: 'Paul Farmer'
-                    },
-                    {
-                      text: '1',
-                      format: 'numeric'
-                    },
-                    {
-                      text: '0',
-                      format: 'numeric'
-                    }
-                  ],
-                  [
-                    {
-                      text: 'Rita Patel'
-                    },
-                    {
-                      text: '2',
-                      format: 'numeric'
-                    },
-                    {
-                      text: '0',
-                      format: 'numeric'
-                    }
-                  ]
-                ]
-              }
-            })
+            html: components.render(
+              'tables',
+              tableExamples['with numeric data (full width, past day)']
+            )
           }
         },
         {
           label: 'Past week',
           id: 'past-week',
           panel: {
-            html: components.render('tables', {
-              context: {
-                caption: 'Past week',
-                head: [
-                  {
-                    text: 'Case manager'
-                  },
-                  {
-                    text: 'Cases opened',
-                    format: 'numeric'
-                  },
-                  {
-                    text: 'Cases closed',
-                    format: 'numeric'
-                  }
-                ],
-                rows: [
-                  [
-                    {
-                      text: 'David Francis'
-                    },
-                    {
-                      text: '24',
-                      format: 'numeric'
-                    },
-                    {
-                      text: '18',
-                      format: 'numeric'
-                    }
-                  ],
-                  [
-                    {
-                      text: 'Paul Farmer'
-                    },
-                    {
-                      text: '16',
-                      format: 'numeric'
-                    },
-                    {
-                      text: '20',
-                      format: 'numeric'
-                    }
-                  ],
-                  [
-                    {
-                      text: 'Rita Patel'
-                    },
-                    {
-                      text: '24',
-                      format: 'numeric'
-                    },
-                    {
-                      text: '27',
-                      format: 'numeric'
-                    }
-                  ]
-                ]
-              }
-            })
+            html: components.render(
+              'tables',
+              tableExamples['with numeric data (full width, past week)']
+            )
           }
         },
         {
           label: 'Past month',
           id: 'past-month',
           panel: {
-            html: components.render('tables', {
-              context: {
-                caption: 'Past month',
-                head: [
-                  {
-                    text: 'Case manager'
-                  },
-                  {
-                    text: 'Cases opened',
-                    format: 'numeric'
-                  },
-                  {
-                    text: 'Cases closed',
-                    format: 'numeric'
-                  }
-                ],
-                rows: [
-                  [
-                    {
-                      text: 'David Francis'
-                    },
-                    {
-                      text: '98',
-                      format: 'numeric'
-                    },
-                    {
-                      text: '95',
-                      format: 'numeric'
-                    }
-                  ],
-                  [
-                    {
-                      text: 'Paul Farmer'
-                    },
-                    {
-                      text: '122',
-                      format: 'numeric'
-                    },
-                    {
-                      text: '131',
-                      format: 'numeric'
-                    }
-                  ],
-                  [
-                    {
-                      text: 'Rita Patel'
-                    },
-                    {
-                      text: '126',
-                      format: 'numeric'
-                    },
-                    {
-                      text: '142',
-                      format: 'numeric'
-                    }
-                  ]
-                ]
-              }
-            })
+            html: components.render(
+              'tables',
+              tableExamples['with numeric data (full width, past month)']
+            )
           }
         },
         {
           label: 'Past year',
           id: 'past-year',
           panel: {
-            html: components.render('tables', {
-              context: {
-                caption: 'Past year',
-                head: [
-                  {
-                    text: 'Case manager'
-                  },
-                  {
-                    text: 'Cases opened',
-                    format: 'numeric'
-                  },
-                  {
-                    text: 'Cases closed',
-                    format: 'numeric'
-                  }
-                ],
-                rows: [
-                  [
-                    {
-                      text: 'David Francis'
-                    },
-                    {
-                      text: '1380',
-                      format: 'numeric'
-                    },
-                    {
-                      text: '1472',
-                      format: 'numeric'
-                    }
-                  ],
-                  [
-                    {
-                      text: 'Paul Farmer'
-                    },
-                    {
-                      text: '1129',
-                      format: 'numeric'
-                    },
-                    {
-                      text: '1083',
-                      format: 'numeric'
-                    }
-                  ],
-                  [
-                    {
-                      text: 'Rita Patel'
-                    },
-                    {
-                      text: '1539',
-                      format: 'numeric'
-                    },
-                    {
-                      text: '1265',
-                      format: 'numeric'
-                    }
-                  ]
-                ]
-              }
-            })
+            html: components.render(
+              'tables',
+              tableExamples['with numeric data (full width, past year)']
+            )
           }
         }
       ]

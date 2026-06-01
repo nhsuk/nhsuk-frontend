@@ -24,6 +24,10 @@
   {% set classNames = classNames ~ " " ~ params.classes %}
 {% endif %}
 
+{%- if params.formGroup.classes %}
+  {% set classNamesFormGroup = classNamesFormGroup ~ " " ~ params.formGroup.classes %}
+{% endif %}
+
 {#- If an id 'prefix' is not passed, fall back to using the name attribute
   instead. We need this for error messages and hints as well -#}
 {% set idPrefix = params.idPrefix if params.idPrefix else params.name %}
@@ -45,31 +49,30 @@
   {% else %}
     {% set isChecked = item.checked | default((item.value == params.value and item.checked != false) if params.value else false, true) %}
     {% set hasHint = true if item.hint.text or item.hint.html %}
-    {% set itemHintId = itemId ~ "-item-hint" %}
+    {% set itemHintId = item.hint.id | default(itemId ~ "-item-hint") %}
     {% set itemClasses = "nhsuk-radios__input" ~ (" " ~ item.classes if item.classes) %}
     <div class="nhsuk-radios__item">
       <input class="{{ itemClasses }}" id="{{ itemId }}" name="{{ params.name }}" type="radio" value="{{ item.value }}"
         {{- " checked" if isChecked }}
-        {{- " disabled" if item.disabled }}
+        {{- " disabled" if item.disabled or (item.disabled != false and params.disabled) }}
         {%- if item.conditional.html %} data-aria-controls="{{ conditionalId }}"{% endif -%}
         {%- if hasHint %} aria-describedby="{{ itemHintId }}"{% endif -%}
         {{- nhsukAttributes(item.attributes) }}>
       {{ label({
-        html: item.html,
-        text: item.text,
+        html: item.label.html | default(item.html),
+        text: item.label.text | default(item.text),
         id: item.label.id,
+        for: itemId,
         classes: "nhsuk-radios__label" ~ (" " ~ item.label.classes if item.label.classes),
-        size: item.label.size,
-        attributes: item.label.attributes,
-        for: itemId
+        attributes: item.label.attributes
       }) | trim | indent(6) }}
       {% if hasHint %}
       {{ hint({
-        id: itemHintId,
-        classes: "nhsuk-radios__hint" ~ (" " ~ item.hint.classes if item.hint.classes),
-        attributes: item.hint.attributes,
         html: item.hint.html,
-        text: item.hint.text
+        text: item.hint.text,
+        id: item.hint.id | default(itemHintId),
+        classes: "nhsuk-radios__hint" ~ (" " ~ item.hint.classes if item.hint.classes),
+        attributes: item.hint.attributes
       }) | trim | indent(6) }}
       {% endif %}
     </div>
@@ -84,26 +87,26 @@
 {#- Capture the HTML so we can optionally nest it in a fieldset -#}
 {% set innerHtml %}
 {% if params.hint %}
-  {% set hintId = idPrefix ~ "-hint" %}
+  {% set hintId = params.hint.id | default(idPrefix ~ "-hint") %}
   {% set describedBy = (describedBy ~ " " ~ hintId) | trim %}
   {{ hint({
-    id: hintId,
-    classes: params.hint.classes,
-    attributes: params.hint.attributes,
     html: params.hint.html,
-    text: params.hint.text
+    text: params.hint.text,
+    id: params.hint.id | default(hintId),
+    classes: params.hint.classes,
+    attributes: params.hint.attributes
   }) | trim | indent(2) }}
 {% endif %}
 {% if params.errorMessage %}
-  {% set errorId = idPrefix ~ "-error" %}
+  {% set errorId = params.errorMessage.id | default(idPrefix ~ "-error") %}
   {% set describedBy = (describedBy ~ " " ~ errorId) | trim %}
   {{ errorMessage({
-    id: errorId,
-    classes: params.errorMessage.classes,
-    attributes: params.errorMessage.attributes,
     html: params.errorMessage.html,
     text: params.errorMessage.text,
-    visuallyHiddenText: params.errorMessage.visuallyHiddenText
+    visuallyHiddenText: params.errorMessage.visuallyHiddenText,
+    id: params.errorMessage.id | default(errorId),
+    classes: params.errorMessage.classes,
+    attributes: params.errorMessage.attributes
   }) | trim | indent(2) }}
 {% endif %}
   <div
@@ -134,11 +137,13 @@
 <div class="{{ classNamesFormGroup }}" {{- nhsukAttributes(params.formGroup.attributes) }}>
 {% if hasFieldset %}
   {{ fieldset({
+    legend: params.fieldset.legend,
+    html: innerHtml | trim,
+    id: params.fieldset.id,
+    role: params.fieldset.role,
     describedBy: describedBy,
     classes: params.fieldset.classes,
-    attributes: params.fieldset.attributes,
-    legend: params.fieldset.legend,
-    html: innerHtml | trim
+    attributes: params.fieldset.attributes
   }) | trim }}
 {% else %}
   {{ innerHtml | safe | trim }}
