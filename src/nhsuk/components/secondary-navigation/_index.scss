@@ -73,15 +73,12 @@
 
   // <strong> is used as a fallback to visually indicate the current page in
   // environments where CSS is unavailable.
-  // TODO: decide whether we want current items to be bold. Header doesn't but design system nav does.
   .nhsuk-secondary-navigation__current {
     font-weight: inherit;
   }
 
   .nhsuk-secondary-navigation__link,
   .nhsuk-secondary-navigation__text {
-    // display: block;
-    // flex-grow: 1;
     padding: nhsuk-spacing(2) $nhsuk-gutter-half;
 
     @include nhsuk-media-query($from: tablet) {
@@ -96,7 +93,6 @@
     // Active: keep text colour consistent; the active indicator is on the <li>
     &[aria-current] {
       color: $nhsuk-text-colour;
-      // font-weight: 600;
     }
 
     // nhsuk-link-style-default focus uses an outset box-shadow which bleeds
@@ -131,6 +127,7 @@
     &::before {
       @include nhsuk-visually-hidden;
 
+      // Non-breaking space
       content: "\00a0";
     }
   }
@@ -194,7 +191,7 @@
     }
   }
 
-  // Reverse variant: for use on coloured (typically blue) backgrounds
+  // Reverse variant: for use on coloured (typically NHS blue) backgrounds
   .nhsuk-secondary-navigation--reverse {
     color: $nhsuk-reverse-text-colour;
 
@@ -245,9 +242,10 @@
       }
     }
 
+    // Custom colours for badges on reverse
     .nhsuk-badge {
       color: nhsuk-colour("white");
-      background-color: color.scale(color.scale($nhsuk-link-colour, $lightness: -50%), $alpha: -60%);
+      background-color: color.scale(color.scale(nhsuk-colour("blue"), $lightness: -50%), $alpha: -60%);
     }
 
     // When the link is focused, the full item is on a yellow background;
