@@ -534,7 +534,7 @@ const fixtures = {
   'example address line 1': {
     context: {
       label: {
-        text: 'Address'
+        text: 'Address line 1'
       },
       name: 'address-line1',
       autocomplete: 'address-line1'
