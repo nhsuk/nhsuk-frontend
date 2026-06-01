@@ -10,11 +10,18 @@
   {% set classNames = classNames ~ " nhsuk-back-link--" ~ variant %}
 {% endif %}
 
+{%- if params.direction == "forward" and (not params.classes or not "nhsuk-back-link--forward" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-back-link--forward" %}
+{% endif %}
+
 {%- if params.classes %}
   {% set classNames = classNames ~ " " ~ params.classes %}
 {% endif %}
 
-{%- set backLinkText = params.html | safe | trim | indent(2) if params.html else (params.text | default("Back", true)) -%}
+
+{%- set backLinkText = params.html | safe | trim | indent(2) if params.html
+  else params.text | default("Forward" if params.direction == "forward" else "Back", true) -%}
+
 {%- set element = "button" if params.element == "button" else "a" -%}
 
 <{{ element }} class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
