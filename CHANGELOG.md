@@ -33,6 +33,14 @@ Read more about [how we provide support for different browsers](/docs/contributi
 
 This was added in [pull request #1972: Add Sass mixins and utility classes for NHS.UK frontend browser support](https://github.com/nhsuk/nhsuk-frontend/pull/1972).
 
+#### Define negative margins using the Sass `nhsuk-responsive-margin()` mixin
+
+You can now pass the negative equivalent of a point from the typography scale to the `nhsuk-responsive-margin()` function to output negative margins.
+
+For example, `nhsuk-responsive-margin(3)` outputs an `8px` margin (`16px` tablet width) in all directions, and `nhsuk-responsive-margin(-3)` outputs an `-8px` margin (`-16px` tablet width).
+
+This was added in [pull request #1940: Allow `nhsuk-responsive-margin()` to output negative margins](https://github.com/nhsuk/nhsuk-frontend/pull/1940).
+
 ## 10.5.2 - 8 June 2026
 
 Note: This release was created from the `support/10.x` branch.
