@@ -23,22 +23,6 @@ const fixtures = {
         {
           href: '#',
           text: 'Completed'
-        },
-        {
-          href: '#',
-          text: 'Cancelled'
-        },
-        {
-          href: '#',
-          text: 'All clinics'
-        },
-        {
-          href: '#',
-          text: 'Today'
-        },
-        {
-          href: '#',
-          text: 'Upcoming'
         }
       ]
     },
