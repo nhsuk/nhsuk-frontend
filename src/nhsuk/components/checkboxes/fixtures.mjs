@@ -202,7 +202,9 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: 'Which nipple has changed?'
+          text: 'Which nipple has changed?',
+          size: 'l',
+          isPageHeading: true
         }
       },
       idPrefix: 'inline',
