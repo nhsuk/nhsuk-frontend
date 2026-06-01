@@ -20,6 +20,90 @@ const fixtures = {
     },
     screenshot: true
   },
+  'disabled': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'What is your date of birth?',
+          size: 'l',
+          isPageHeading: true
+        }
+      },
+      hint: {
+        text: 'For example, 31 3 1980'
+      },
+      id: 'example',
+      disabled: true
+    },
+    screenshot: true
+  },
+  'disabled with enabled input': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'What is your date of birth?',
+          size: 'l',
+          isPageHeading: true
+        }
+      },
+      hint: {
+        text: 'For example, 31 3 1980'
+      },
+      id: 'example',
+      disabled: true,
+      year: {
+        disabled: false
+      }
+    }
+  },
+  'disabled input': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'What is your date of birth?',
+          size: 'l',
+          isPageHeading: true
+        }
+      },
+      hint: {
+        text: 'For example, 31 3 1980'
+      },
+      id: 'example',
+      year: {
+        disabled: true
+      }
+    }
+  },
+  'disabled input (using items)': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'What is your date of birth?',
+          size: 'l',
+          isPageHeading: true
+        }
+      },
+      hint: {
+        text: 'For example, 31 3 1980'
+      },
+      id: 'example',
+      items: [
+        {
+          name: 'day',
+          width: 2
+        },
+        {
+          name: 'month',
+          width: 2
+        },
+        {
+          name: 'year',
+          width: 4,
+          disabled: true
+        }
+      ]
+    }
+  },
   'with translations': {
     context: {
       fieldset: {

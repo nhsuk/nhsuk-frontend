@@ -22,6 +22,22 @@ const fixtures = {
       selector: '.nhsuk-textarea'
     }
   },
+  'disabled': {
+    context: {
+      label: {
+        text: 'Can you provide more detail?',
+        size: 'l',
+        isPageHeading: true
+      },
+      hint: {
+        text: 'Do not include personal information like your name, date of birth or NHS number'
+      },
+      name: 'example',
+      maxlength: 200,
+      disabled: true
+    },
+    screenshot: true
+  },
   'with hint': {
     context: {
       label: {

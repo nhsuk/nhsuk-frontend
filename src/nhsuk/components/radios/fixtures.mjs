@@ -66,6 +66,91 @@ const fixtures = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
+  'disabled': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'How do you want to be contacted about this?'
+        }
+      },
+      idPrefix: 'disabled',
+      name: 'example',
+      disabled: true,
+      items: [
+        {
+          value: 'email',
+          text: 'Email'
+        },
+        {
+          value: 'phone',
+          text: 'Phone'
+        },
+        {
+          value: 'text',
+          text: 'Text message'
+        }
+      ]
+    },
+    variants,
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
+    }
+  },
+  'disabled input': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'How do you want to be contacted about this?'
+        }
+      },
+      idPrefix: 'disabled-input',
+      name: 'example',
+      items: [
+        {
+          value: 'email',
+          text: 'Email'
+        },
+        {
+          value: 'phone',
+          text: 'Phone'
+        },
+        {
+          value: 'text',
+          text: 'Text message',
+          disabled: true
+        }
+      ]
+    },
+    variants
+  },
+  'disabled with enabled input': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'How do you want to be contacted about this?'
+        }
+      },
+      idPrefix: 'disabled-enabled-input',
+      name: 'example',
+      disabled: true,
+      items: [
+        {
+          value: 'email',
+          text: 'Email'
+        },
+        {
+          value: 'phone',
+          text: 'Phone'
+        },
+        {
+          value: 'text',
+          text: 'Text message',
+          disabled: false
+        }
+      ]
+    },
+    variants
+  },
   'with hint': {
     context: {
       fieldset: {
@@ -352,7 +437,7 @@ const fixtures = {
   'without fieldset': {
     context: {
       fieldset: null,
-      id: 'without-fieldset',
+      idPrefix: 'without-fieldset',
       name: 'colours',
       items: [
         {
@@ -366,36 +451,6 @@ const fixtures = {
         {
           value: 'blue',
           text: 'Blue'
-        }
-      ]
-    },
-    variants,
-    screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
-    }
-  },
-  'with disabled item': {
-    context: {
-      fieldset: {
-        legend: {
-          text: 'How do you want to be contacted about this?'
-        }
-      },
-      idPrefix: 'with-disabled-item',
-      name: 'example',
-      items: [
-        {
-          value: 'email',
-          text: 'Email'
-        },
-        {
-          value: 'phone',
-          text: 'Phone'
-        },
-        {
-          value: 'text',
-          text: 'Text message',
-          disabled: true
         }
       ]
     },

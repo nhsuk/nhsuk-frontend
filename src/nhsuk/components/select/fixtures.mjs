@@ -34,6 +34,63 @@ const fixtures = {
     },
     screenshot: true
   },
+  'disabled': {
+    context: {
+      label: {
+        text: 'Sort by',
+        isPageHeading: true
+      },
+      name: 'example',
+      disabled: true,
+      items: [
+        {
+          value: 'published',
+          text: 'Recently published'
+        },
+        {
+          value: 'updated',
+          text: 'Recently updated'
+        },
+        {
+          value: 'views',
+          text: 'Most views'
+        },
+        {
+          value: 'comments',
+          text: 'Most comments'
+        }
+      ]
+    },
+    screenshot: true
+  },
+  'disabled option': {
+    context: {
+      label: {
+        text: 'Sort by',
+        isPageHeading: true
+      },
+      name: 'example',
+      items: [
+        {
+          value: 'published',
+          text: 'Recently published'
+        },
+        {
+          value: 'updated',
+          text: 'Recently updated'
+        },
+        {
+          value: 'views',
+          text: 'Most views'
+        },
+        {
+          value: 'comments',
+          text: 'Most comments',
+          disabled: true
+        }
+      ]
+    }
+  },
   'with divider': {
     context: {
       label: {
@@ -60,35 +117,6 @@ const fixtures = {
         {
           value: 'last-name-descending',
           text: 'Last name (Z to A)'
-        }
-      ]
-    }
-  },
-  'with disabled item': {
-    context: {
-      label: {
-        text: 'Sort by',
-        isPageHeading: true
-      },
-      id: 'with-disabled-item',
-      name: 'example',
-      items: [
-        {
-          value: 'published',
-          text: 'Recently published'
-        },
-        {
-          value: 'updated',
-          text: 'Recently updated'
-        },
-        {
-          value: 'views',
-          text: 'Most views'
-        },
-        {
-          value: 'comments',
-          text: 'Most comments',
-          disabled: true
         }
       ]
     }

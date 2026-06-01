@@ -19,6 +19,48 @@ const fixtures = {
       width: 20
     }
   },
+  'disabled': {
+    context: {
+      label: {
+        text: 'Search by NHS number',
+        size: 'm',
+        isPageHeading: true
+      },
+      placeholder: 'NHS number',
+      name: 'example',
+      disabled: true
+    },
+    screenshot: true
+  },
+  'disabled with enabled button': {
+    context: {
+      label: {
+        text: 'Search by NHS number',
+        size: 'm',
+        isPageHeading: true
+      },
+      placeholder: 'NHS number',
+      name: 'example',
+      disabled: true,
+      button: {
+        disabled: false
+      }
+    }
+  },
+  'disabled button': {
+    context: {
+      label: {
+        text: 'Search by NHS number',
+        size: 'm',
+        isPageHeading: true
+      },
+      placeholder: 'NHS number',
+      name: 'example',
+      button: {
+        disabled: true
+      }
+    }
+  },
   'large': {
     context: {
       label: {
