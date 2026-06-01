@@ -6,12 +6,12 @@ import {
 
 import { examples } from './fixtures.mjs'
 
-describe('Secondary navigation', () => {
+describe('Section navigation', () => {
   describe.each(Object.entries(examples))('%s', (name, example) => {
     it.each(getOptions(name, example))(
       '$title passes accessibility tests',
       async (options) => {
-        await goToComponent(page, 'secondary-navigation', options)
+        await goToComponent(page, 'section-navigation', options)
         return expect(axe(page)).resolves.toHaveNoViolations()
       },
       20000
