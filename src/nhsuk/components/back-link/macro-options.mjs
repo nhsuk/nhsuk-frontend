@@ -26,6 +26,13 @@ const options = {
       'HTML to use within the back link component. If `html` is provided, the `text` argument will be ignored. Defaults to `"Back"`.',
     released: '1.0.0'
   },
+  type: {
+    type: 'string',
+    required: false,
+    description:
+      'Type of `button` – `"button"` or `"submit"`. Defaults to `"submit"`. This has no effect on `a` elements.',
+    released: '10.5.0'
+  },
   href: {
     type: 'string',
     required: false,
@@ -42,14 +49,14 @@ const options = {
   classes: {
     type: 'string',
     required: false,
-    description: 'Classes to add to the container.',
+    description: 'Classes to add to the back link component.',
     released: '1.0.0'
   },
   attributes: {
     type: 'object',
     required: false,
     description:
-      'HTML attributes (for example data attributes) to add to the tag.',
+      'HTML attributes (for example data attributes) to add to the back link component.',
     released: '1.0.0'
   },
   visuallyHiddenText: {
@@ -63,7 +70,7 @@ const options = {
     type: 'string',
     required: false,
     description:
-      'HTML element for the back link component – `"button"` or `"a"`. If not provided, defaults to `"a"`.',
+      'HTML element for the back link component – `"button"` or `"a"`. Defaults to `"a"`.',
     released: '6.2.0'
   }
 }

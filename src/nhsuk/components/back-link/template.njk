@@ -35,7 +35,11 @@
     }
   }) -}}
 
-  {% if element == "a" %}
+  {% if element == "button" %}
+    {{- nhsukAttributes({
+      type: params.type if params.type else "submit"
+    }) -}}
+  {% elif element == "a" %}
     {{- nhsukAttributes({
       href: {
         value: params.href if params.href else "#",
