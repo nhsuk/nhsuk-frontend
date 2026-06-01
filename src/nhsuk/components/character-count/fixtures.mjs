@@ -203,9 +203,6 @@ const fixtures = {
       id: 'with-word-count',
       name: 'example',
       maxwords: 150
-    },
-    screenshot: {
-      viewports: ['tablet']
     }
   },
   "with count type 'length'": {
@@ -294,6 +291,9 @@ const fixtures = {
       name: 'example',
       countType: 'words',
       maxlength: 50
+    },
+    screenshot: {
+      viewports: ['tablet']
     }
   },
   "with count type 'words' and error message": {
