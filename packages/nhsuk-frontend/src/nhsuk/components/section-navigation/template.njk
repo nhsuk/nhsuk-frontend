@@ -2,10 +2,10 @@
 {%- from "nhsuk/components/badge/macro.njk" import badge -%}
 
 {#- Set classes for this component #}
-{%- set classNames = "nhsuk-secondary-navigation" -%}
+{%- set classNames = "nhsuk-section-navigation" -%}
 
-{%- if params.vertical and (not params.classes or not "nhsuk-secondary-navigation--vertical" in params.classes) %}
-  {%- set classNames = classNames ~ " nhsuk-secondary-navigation--vertical" -%}
+{%- if params.vertical and (not params.classes or not "nhsuk-section-navigation--vertical" in params.classes) %}
+  {%- set classNames = classNames ~ " nhsuk-section-navigation--vertical" -%}
 {%- endif -%}
 
 {%- if params.classes %}
@@ -13,12 +13,12 @@
 {%- endif -%}
 
 <nav class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
-  data-module="nhsuk-secondary-navigation"
+  data-module="nhsuk-section-navigation"
   {%- if params.labelledBy %} aria-labelledby="{{ params.labelledBy }}"
-  {%- else %} aria-label="{{ params.label | default("Secondary navigation") }}"
+  {%- else %} aria-label="{{ params.label | default("Section navigation") }}"
   {%- endif %}
   {{- nhsukAttributes(params.attributes) }}>
-  <ul class="nhsuk-secondary-navigation__list">
+  <ul class="nhsuk-section-navigation__list">
   {% for item in params.items -%}
     {%- if item -%}
     {%- set itemInnerAttributesHtml %}
@@ -36,7 +36,7 @@
 
     {%- set itemBadgeHtml -%}
       {%- if item.badge is defined -%}
-        <span class="nhsuk-secondary-navigation__suffix">{{ badge(item.badge) }}</span>
+        <span class="nhsuk-section-navigation__suffix">{{ badge(item.badge) }}</span>
       {%- endif -%}
     {%- endset -%}
 
@@ -44,7 +44,7 @@
       {% if item.current -%}
         {#- Wrap active item in strong element so users who override colours
           or styles still have some indicator of the current nav item. -#}
-        <strong class="nhsuk-secondary-navigation__current">
+        <strong class="nhsuk-section-navigation__current">
           {{- item.html | safe if item.html else item.text -}}
           {{- itemBadgeHtml | safe -}}
         </strong>
@@ -54,14 +54,14 @@
       {%- endif -%}
     {%- endset %}
 
-    <li class="nhsuk-secondary-navigation__item{%- if item.current %} nhsuk-secondary-navigation__item--current{%- endif -%}{%- if item.classes %} {{ item.classes }}{%- endif -%}"
+    <li class="nhsuk-section-navigation__item{%- if item.current %} nhsuk-section-navigation__item--current{%- endif -%}{%- if item.classes %} {{ item.classes }}{%- endif -%}"
       {{- nhsukAttributes(item.attributes) }}>
       {% if item.href %}
-      <a class="nhsuk-secondary-navigation__link" {{- itemInnerAttributesHtml | safe }}>
+      <a class="nhsuk-section-navigation__link" {{- itemInnerAttributesHtml | safe }}>
         {{- itemInnerContent | safe -}}
       </a>
       {% else %}
-      <span class="nhsuk-secondary-navigation__text" {{- itemInnerAttributesHtml | safe }}>
+      <span class="nhsuk-section-navigation__text" {{- itemInnerAttributesHtml | safe }}>
         {{- itemInnerContent | safe -}}
       </span>
       {% endif %}

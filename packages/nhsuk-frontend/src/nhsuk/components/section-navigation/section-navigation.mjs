@@ -1,7 +1,7 @@
 import { Component } from '../../component.mjs'
 
 /**
- * Secondary navigation component
+ * Section navigation component
  *
  * Without JS, CSS defaults to a vertically stacked layout on mobile and a
  * horizontal wrapping layout from tablet upwards.
@@ -15,7 +15,7 @@ import { Component } from '../../component.mjs'
  *
  * @augments {Component}
  */
-export class SecondaryNavigation extends Component {
+export class SectionNavigation extends Component {
   /** @type {HTMLElement | null} */
   $list = null
 
@@ -41,11 +41,11 @@ export class SecondaryNavigation extends Component {
     super($root)
 
     // The --vertical variant is always stacked; no JS behaviour needed
-    if (this.$root.classList.contains('nhsuk-secondary-navigation--vertical')) {
+    if (this.$root.classList.contains('nhsuk-section-navigation--vertical')) {
       return
     }
 
-    const $list = this.$root.querySelector('.nhsuk-secondary-navigation__list')
+    const $list = this.$root.querySelector('.nhsuk-section-navigation__list')
 
     if (!($list instanceof HTMLElement)) {
       return
@@ -99,14 +99,14 @@ export class SecondaryNavigation extends Component {
 
     // Reset both JS-managed modifiers before measuring from a known baseline.
     // On mobile, the base layout is stacked; at tablet+ it is horizontal.
-    $root.classList.remove('nhsuk-secondary-navigation--horizontal')
-    $root.classList.remove('nhsuk-secondary-navigation--vertical')
+    $root.classList.remove('nhsuk-section-navigation--horizontal')
+    $root.classList.remove('nhsuk-section-navigation--vertical')
 
     // On mobile, temporarily apply the horizontal class so links get their
     // horizontal padding rather than the stacked padding. Tablet+ already uses
     // the horizontal layout by default.
     if (mobileMediaQuery.matches) {
-      $root.classList.add('nhsuk-secondary-navigation--horizontal')
+      $root.classList.add('nhsuk-section-navigation--horizontal')
     }
 
     // With the horizontal layout applied, $root.offsetWidth reflects the space
@@ -123,12 +123,12 @@ export class SecondaryNavigation extends Component {
     const fitsHorizontally = naturalWidth <= availableWidth
 
     $root.classList.toggle(
-      'nhsuk-secondary-navigation--horizontal',
+      'nhsuk-section-navigation--horizontal',
       mobileMediaQuery.matches && fitsHorizontally
     )
 
     $root.classList.toggle(
-      'nhsuk-secondary-navigation--vertical',
+      'nhsuk-section-navigation--vertical',
       !fitsHorizontally
     )
   }
@@ -136,5 +136,5 @@ export class SecondaryNavigation extends Component {
   /**
    * Name for the component used when initialising using data-module attributes
    */
-  static moduleName = 'nhsuk-secondary-navigation'
+  static moduleName = 'nhsuk-section-navigation'
 }
