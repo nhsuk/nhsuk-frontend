@@ -37,7 +37,8 @@ describe('Spacing settings', () => {
         ${sassBootstrap}
 
         .foo {
-          top: nhsuk-spacing($app-spacing-point)
+          top: nhsuk-spacing($app-spacing-point);
+          left: nhsuk-spacing($app-spacing-point, $unit: "rem");
         }
       `
 
@@ -49,6 +50,7 @@ describe('Spacing settings', () => {
         css: outdent`
           .foo {
             top: 15px;
+            left: 0.9375rem;
           }
         `
       })
@@ -59,7 +61,8 @@ describe('Spacing settings', () => {
         ${sassBootstrap}
 
         .foo {
-          top: nhsuk-spacing(-$app-spacing-point)
+          top: nhsuk-spacing(-$app-spacing-point);
+          left: nhsuk-spacing(-$app-spacing-point, $unit: "rem");
         }
       `
 
@@ -71,6 +74,7 @@ describe('Spacing settings', () => {
         css: outdent`
           .foo {
             top: -15px;
+            left: -0.9375rem;
           }
         `
       })
@@ -130,12 +134,29 @@ describe('Spacing settings', () => {
       )
     })
 
+    it('throws an error when passed a non-existent unit', async () => {
+      const sass = outdent`
+        ${sassBootstrap}
+
+        .foo {
+          left: nhsuk-spacing($app-spacing-point, $unit: "margin");
+        }
+      `
+
+      const results = compileStringAsync(sass, {
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+      })
+
+      await expect(results).rejects.toThrow('Unknown unit `margin`.')
+    })
+
     it('handles negative zero', async () => {
       const sass = outdent`
         ${sassBootstrap}
 
         .foo {
-          top: nhsuk-spacing(-0)
+          top: nhsuk-spacing(-0);
+          left: nhsuk-spacing(-0, $unit: "rem");
         }
       `
 
@@ -147,6 +168,7 @@ describe('Spacing settings', () => {
         css: outdent`
           .foo {
             top: 0;
+            left: 0rem;
           }
         `
       })
@@ -159,6 +181,7 @@ describe('Spacing settings', () => {
 
           .foo {
             top: nhsuk-spacing($app-spacing-point, $important: true);
+            left: nhsuk-spacing($app-spacing-point, $important: true, $unit: "rem");
           }
         `
 
@@ -170,6 +193,7 @@ describe('Spacing settings', () => {
           css: outdent`
             .foo {
               top: 15px !important;
+              left: 0.9375rem !important;
             }
           `
         })
@@ -183,6 +207,7 @@ describe('Spacing settings', () => {
 
           .foo {
             top: nhsuk-spacing($app-spacing-point, $adjustment: 2px);
+            left: nhsuk-spacing($app-spacing-point, $adjustment: 2px, $unit: "rem");
           }
         `
 
@@ -194,6 +219,7 @@ describe('Spacing settings', () => {
           css: outdent`
             .foo {
               top: 17px;
+              left: calc(0.9375rem + 2px);
             }
           `
         })
@@ -207,7 +233,8 @@ describe('Spacing settings', () => {
         ${sassBootstrap}
 
         .foo {
-          @include nhsuk-responsive-spacing($app-spacing-point, 'margin')
+          @include nhsuk-responsive-spacing($app-spacing-point, 'margin');
+          @include nhsuk-responsive-spacing($app-spacing-point, 'padding', $unit: "rem");
         }
       `
 
@@ -225,6 +252,14 @@ describe('Spacing settings', () => {
               margin: 25px;
             }
           }
+          .foo {
+            padding: 0.9375rem;
+          }
+          @media (min-width: 30em) {
+            .foo {
+              padding: 1.5625rem;
+            }
+          }
         `
       })
     })
@@ -234,7 +269,8 @@ describe('Spacing settings', () => {
         ${sassBootstrap}
 
         .foo {
-          @include nhsuk-responsive-spacing(-$app-spacing-point, 'margin')
+          @include nhsuk-responsive-spacing(-$app-spacing-point, 'margin');
+          @include nhsuk-responsive-spacing(-$app-spacing-point, 'padding', $unit: "rem");
         }
       `
 
@@ -252,6 +288,14 @@ describe('Spacing settings', () => {
               margin: -25px;
             }
           }
+          .foo {
+            padding: -0.9375rem;
+          }
+          @media (min-width: 30em) {
+            .foo {
+              padding: -1.5625rem;
+            }
+          }
         `
       })
     })
@@ -261,7 +305,8 @@ describe('Spacing settings', () => {
         ${sassBootstrap}
 
         .foo {
-          @include nhsuk-responsive-spacing($app-spacing-point, 'padding', 'top');
+          @include nhsuk-responsive-spacing($app-spacing-point, 'margin', 'top');
+          @include nhsuk-responsive-spacing($app-spacing-point, 'padding', 'left', $unit: "rem");
         }
       `
 
@@ -272,11 +317,19 @@ describe('Spacing settings', () => {
       await expect(results).resolves.toMatchObject({
         css: outdent`
           .foo {
-            padding-top: 15px;
+            margin-top: 15px;
           }
           @media (min-width: 30em) {
             .foo {
-              padding-top: 25px;
+              margin-top: 25px;
+            }
+          }
+          .foo {
+            padding-left: 0.9375rem;
+          }
+          @media (min-width: 30em) {
+            .foo {
+              padding-left: 1.5625rem;
             }
           }
         `
@@ -317,6 +370,22 @@ describe('Spacing settings', () => {
       await expect(results).rejects.toThrow(
         'Unknown responsive spacing point `999`. Make sure you are using a point from the responsive spacing scale in `_settings/spacing.scss`.'
       )
+    })
+
+    it('throws an error when passed a non-existent unit', async () => {
+      const sass = outdent`
+        ${sassBootstrap}
+
+        .foo {
+          @include nhsuk-responsive-spacing($app-spacing-point, 'margin', $unit: "margin");
+        }
+      `
+
+      const results = compileStringAsync(sass, {
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+      })
+
+      await expect(results).rejects.toThrow('Unknown unit `margin`.')
     })
 
     describe('when $important is set to true', () => {
