@@ -203,7 +203,7 @@ const options = {
     type: 'string',
     required: false,
     description:
-      'Message made available to assistive technologies to describe that the component accepts only a limited amount of content. It is visible on the page when JavaScript is unavailable. The component will replace the `%{count}` placeholder with the value of the `maxlength` parameter.',
+      'Message made available to assistive technologies to describe that the component accepts only a limited amount of content. It is visible on the page if `countType` is not supported or JavaScript is unavailable. The component will replace the `%{count}` placeholder with the value of the `maxlength` parameter.',
     released: '10.1.0'
   }
 }
