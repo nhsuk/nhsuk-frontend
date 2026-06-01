@@ -1,7 +1,7 @@
 import {
-  goToExample,
   getAttribute,
   getProperty,
+  goToExample,
   isVisible,
   render
 } from '@nhsuk/frontend-helpers/puppeteer.mjs'

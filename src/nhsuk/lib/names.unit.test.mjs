@@ -1,6 +1,6 @@
 import {
-  componentNameToMacroName,
   componentNameToClassName,
+  componentNameToMacroName,
   componentNameToModuleName
 } from './names.mjs'
 

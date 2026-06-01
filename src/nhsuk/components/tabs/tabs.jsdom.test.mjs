@@ -1,16 +1,12 @@
-import {
-  createEvent,
-  fireEvent,
-  getByRole,
-  getAllByRole
-} from '@testing-library/dom'
+import { createEvent, fireEvent } from '@testing-library/dom'
+import { within } from '@testing-library/dom'
 import { userEvent } from '@testing-library/user-event'
 import { mockViewport } from 'jsdom-testing-mocks'
 
+import { components } from '#lib'
+
 import { examples } from './fixtures.mjs'
 import { Tabs } from './tabs.mjs'
-
-import { components } from '#lib'
 
 const user = userEvent.setup()
 const viewportMock = mockViewport({
@@ -41,9 +37,9 @@ describe('Tabs', () => {
       document.querySelector(`[data-module="${Tabs.moduleName}"]`)
     )
 
-    $list = getByRole($root, 'list')
-    $listItems = getAllByRole($root, 'listitem')
-    $tabs = getAllByRole($root, 'link')
+    $list = within($root).getByRole('list')
+    $listItems = within($root).getAllByRole('listitem')
+    $tabs = within($root).getAllByRole('link')
 
     $panels = /** @type {HTMLElement[]} */ ([
       ...document.querySelectorAll('.nhsuk-tabs__panel')

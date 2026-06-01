@@ -1,9 +1,9 @@
 import { userEvent } from '@testing-library/user-event'
 
+import { components } from '#lib'
+
 import { Button } from './button.mjs'
 import { examples } from './fixtures.mjs'
-
-import { components } from '#lib'
 
 const user = userEvent.setup()
 

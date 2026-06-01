@@ -1,9 +1,9 @@
-import { normaliseDataset } from './index.mjs'
-
 import {
   MockComponent,
   MockConfigurableComponent
 } from '#lib/fixtures/configuration/mock-component.mjs'
+
+import { normaliseDataset } from './index.mjs'
 
 describe('normaliseDataset', () => {
   it('normalises the entire dataset', () => {

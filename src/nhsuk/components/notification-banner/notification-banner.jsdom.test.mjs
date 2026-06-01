@@ -1,7 +1,7 @@
+import { components } from '#lib'
+
 import { examples } from './fixtures.mjs'
 import { NotificationBanner } from './notification-banner.mjs'
-
-import { components } from '#lib'
 
 describe('Notification banner', () => {
   /** @type {HTMLElement} */

@@ -1,9 +1,6 @@
 import { render } from '@nhsuk/frontend-helpers/puppeteer.mjs'
-import { KnownDevices } from 'puppeteer'
 
 import { examples } from './fixtures.mjs'
-
-const iPhone = KnownDevices['iPhone 6']
 
 describe('Tabs', () => {
   describe('when JavaScript is unavailable or fails', () => {
@@ -229,8 +226,13 @@ describe('Tabs', () => {
 
   describe('when rendered on a small device', () => {
     it('falls back to making the all tab containers visible', async () => {
-      await page.emulate(iPhone)
+      await page.setViewport({
+        width: 320,
+        height: 480
+      })
+
       await render(page, 'tabs', examples.default)
+
       const isContentVisible = await page.waitForSelector(
         '.nhsuk-tabs__panel',
         { visible: true, timeout: 1000 }

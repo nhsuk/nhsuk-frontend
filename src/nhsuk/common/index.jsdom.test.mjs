@@ -1,6 +1,6 @@
 import { outdent } from 'outdent'
 
-import { isSupported, getBreakpoint, toggleConditionalInput } from './index.mjs'
+import { getBreakpoint, isSupported, toggleConditionalInput } from './index.mjs'
 
 describe('isSupported util', () => {
   it('returns true if the nhsuk-frontend-supported class is set', () => {

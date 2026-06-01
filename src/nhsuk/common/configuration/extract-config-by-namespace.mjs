@@ -1,5 +1,4 @@
 import { isObject } from '../index.mjs'
-
 import { normaliseString } from './normalise-string.mjs'
 
 /**
