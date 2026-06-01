@@ -235,7 +235,8 @@ export class CharacterCount extends ConfigurableComponent {
    * @param {string} [text] - Deprecated
    */
   updateCount(text) {
-    this.length = this.countFunction(
+    this.length = this.countFunction.call(
+      this,
       text ?? this.$textarea.value,
       this.countFunctionContext
     )
