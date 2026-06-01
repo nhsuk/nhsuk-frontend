@@ -583,7 +583,7 @@ const fixtures = {
       },
       idPrefix: 'conditional',
       name: 'contact',
-      items: getItems({ invalid: true })
+      items: getItems()
     },
     variants
   },

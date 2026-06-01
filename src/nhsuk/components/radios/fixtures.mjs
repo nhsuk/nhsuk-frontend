@@ -595,7 +595,7 @@ const fixtures = {
       },
       idPrefix: 'conditional',
       name: 'example',
-      items: getItems({ invalid: true })
+      items: getItems()
     },
     variants
   },
