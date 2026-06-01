@@ -3,10 +3,12 @@ import { Component } from '../../component.mjs'
 /**
  * Secondary navigation component
  *
- * At mobile breakpoints, CSS defaults to a vertically stacked layout.
+ * Without JS, CSS defaults to a vertically stacked layout on mobile and a
+ * horizontal wrapping layout from tablet upwards.
  * When JS is available, this component measures whether all navigation items
- * fit side-by-side and — if they do — adds the `--horizontal` modifier class
- * so CSS can switch to a wrapping row layout.
+ * fit side-by-side. If they do, it preserves the horizontal layout; if not,
+ * it adds the `--vertical` modifier class so CSS can keep the list stacked at
+ * any breakpoint.
  *
  * The `--vertical` modifier opts out of this behaviour: the list stays
  * stacked at all breakpoints regardless.
@@ -84,10 +86,7 @@ export class SecondaryNavigation extends Component {
 
   /**
    * Measure whether all navigation items fit in a single horizontal row
-   * and toggle the `--horizontal` modifier class accordingly.
-   *
-   * Only runs at mobile breakpoints — at tablet+ the CSS media query
-   * already provides a wrapping row layout without any JS involvement.
+   * and toggle the `--horizontal` / `--vertical` modifier classes accordingly.
    */
   updateLayout() {
     this.updateTimer = null
@@ -98,25 +97,20 @@ export class SecondaryNavigation extends Component {
       return
     }
 
-    if (!mobileMediaQuery.matches) {
-      // At tablet+ the CSS handles layout; ensure the mobile JS class is gone
-      $root.classList.remove('nhsuk-secondary-navigation--horizontal')
-      return
+    // Reset both JS-managed modifiers before measuring from a known baseline.
+    // On mobile, the base layout is stacked; at tablet+ it is horizontal.
+    $root.classList.remove('nhsuk-secondary-navigation--horizontal')
+    $root.classList.remove('nhsuk-secondary-navigation--vertical')
+
+    // On mobile, temporarily apply the horizontal class so links get their
+    // horizontal padding rather than the stacked padding. Tablet+ already uses
+    // the horizontal layout by default.
+    if (mobileMediaQuery.matches) {
+      $root.classList.add('nhsuk-secondary-navigation--horizontal')
     }
 
-    // Remove the horizontal class to take measurements from a known stacked
-    // state, where the nav has its negative bleed margins applied.
-    $root.classList.remove('nhsuk-secondary-navigation--horizontal')
-
-    // Temporarily apply the horizontal class so links get their horizontal
-    // padding (2px per side) rather than the stacked padding (16px per side).
-    // This ensures naturalWidth reflects actual rendered horizontal widths.
-    // All reads/writes happen in one synchronous block within a rAF frame so
-    // the browser never paints the intermediate state.
-    $root.classList.add('nhsuk-secondary-navigation--horizontal')
-
-    // With --horizontal applied the nav has no bleed margins, so $root.offsetWidth
-    // equals the parent's content width — the space available for the horizontal layout.
+    // With the horizontal layout applied, $root.offsetWidth reflects the space
+    // available for the navigation to sit on one row.
     const availableWidth = $root.offsetWidth
 
     // Force width: max-content so the list expands to its natural row width
@@ -126,14 +120,16 @@ export class SecondaryNavigation extends Component {
     const naturalWidth = $list.offsetWidth
     $list.style.removeProperty('width')
 
-    $root.classList.toggle(
-      'nhsuk-secondary-navigation--horizontal',
-      naturalWidth <= availableWidth
-    )
+    const fitsHorizontally = naturalWidth <= availableWidth
 
     $root.classList.toggle(
       'nhsuk-secondary-navigation--horizontal',
-      naturalWidth <= availableWidth
+      mobileMediaQuery.matches && fitsHorizontally
+    )
+
+    $root.classList.toggle(
+      'nhsuk-secondary-navigation--vertical',
+      !fitsHorizontally
     )
   }
 
