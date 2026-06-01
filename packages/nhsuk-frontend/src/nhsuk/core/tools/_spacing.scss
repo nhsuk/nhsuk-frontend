@@ -18,8 +18,8 @@
 ///
 /// @param {Number} $spacing-point - Point on the spacing scale
 ///  (set in `settings/_spacing.scss`)
-///
-/// @returns {String} Spacing measurement eg. 8px
+/// @param {Boolean} $important [false] - Whether to mark as `!important`
+/// @return {String} Spacing measurement eg. 8px
 ///
 /// @example scss
 ///   .element {
@@ -38,7 +38,7 @@
 ///
 /// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
 
-@function nhsuk-spacing($spacing-point) {
+@function nhsuk-spacing($spacing-point, $important: false) {
   @if meta.type-of($spacing-point) != "number" {
     @error "Expected a number (integer), but got a "
       + "#{meta.type-of($spacing-point)}.";
@@ -59,6 +59,10 @@
 
   @if $is-negative {
     $spacing-value: $spacing-value * -1;
+  }
+
+  @if $important == true {
+    $spacing-value: $spacing-value !important;
   }
 
   @return $spacing-value;
