@@ -27,15 +27,16 @@
     display: inline-block; // [1]
     position: relative; // [3]
     padding-left: $_small-icon-size + $_small-icon-spacing; // [2]
-    text-decoration: none; // [4]
 
     &:not(:focus):hover {
       .nhsuk-action-link__text {
-        text-decoration: underline; // [5]
+        text-decoration: underline; // [4]
       }
     }
 
     @include nhsuk-font(22, $weight: bold, $line-height: $_small-icon-size);
+    @include nhsuk-link-style-default;
+    @include nhsuk-link-style-no-underline;
 
     @include nhsuk-print-colour {
       @include nhsuk-link-style-text($nhsuk-print-text-colour);
@@ -84,10 +85,6 @@
 
   .nhsuk-action-link--reverse {
     @include nhsuk-link-style-reverse;
-
-    &:link {
-      text-decoration: none; // [4]
-    }
 
     &:not(:focus) .nhsuk-icon,
     &:not(:focus):hover .nhsuk-icon,
