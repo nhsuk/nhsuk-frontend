@@ -93,6 +93,15 @@ export class CharacterCount extends ConfigurableComponent {
       })
     }
 
+    // Determine the count function to use
+    this.countFunction = countFunction ?? this.countFunctions[countType]
+
+    // Cache the count function context
+    this.countFunctionContext = /** @type {CharacterCountContext} */ ({
+      config: this.config,
+      segmenter: this.segmenter
+    })
+
     // Determine the limit attribute (characters or words)
     this.maxLength = maxlength ?? Infinity
 
@@ -226,12 +235,10 @@ export class CharacterCount extends ConfigurableComponent {
    * @param {string} [text] - Deprecated
    */
   updateCount(text) {
-    const { $textarea, countFunctions } = this
-    let { countType, countFunction } = this.config
-
-    text ??= $textarea.value
-    countFunction ??= countFunctions[countType]
-    this.length = countFunction.call(this, text)
+    this.length = this.countFunction(
+      text ?? this.$textarea.value,
+      this.countFunctionContext
+    )
   }
 
   /**
@@ -351,7 +358,7 @@ export class CharacterCount extends ConfigurableComponent {
    * and how many remain
    *
    * @param {number} remainingNumber - The number of words/characters remaining
-   * @param {string} [countType] - Deprecated
+   * @param {CharacterCountConfig['countType']} [countType] - Deprecated
    * @returns {string} Status message
    */
   formatCountMessage(remainingNumber, countType) {
@@ -458,7 +465,7 @@ export class CharacterCount extends ConfigurableComponent {
    * Character count functions
    *
    * @constant
-   * @satisfies {Record<string, CharacterCountConfig['countFunction']>}
+   * @satisfies {Record<string, CharacterCountFunction>}
    */
   countFunctions = Object.freeze({
     /**
@@ -475,11 +482,12 @@ export class CharacterCount extends ConfigurableComponent {
      * Count grapheme clusters (user-perceived characters)
      *
      * @param {string} text - Textarea value
+     * @param {CharacterCountContext} context - Object containing the config and segmenter
      * @returns {number} Count
      */
-    characters(text) {
-      return this.segmenter
-        ? Array.from(this.segmenter.segment(text)).length
+    characters(text, context) {
+      return context.segmenter
+        ? Array.from(context.segmenter.segment(text)).length
         : 0
     },
 
@@ -490,15 +498,16 @@ export class CharacterCount extends ConfigurableComponent {
      * consecutive whitespace rather than using the segmenter
      *
      * @param {string} text - Textarea value
+     * @param {CharacterCountContext} context - Object containing the config and segmenter
      * @returns {number} Count
      */
-    words(text) {
-      if (this.config.maxwords !== undefined) {
+    words(text, context) {
+      if (context.config.maxwords !== undefined) {
         return text.split(/\s+/g).filter(Boolean).length
       }
 
-      const segments = this.segmenter
-        ? Array.from(this.segmenter.segment(text))
+      const segments = context.segmenter
+        ? Array.from(context.segmenter.segment(text))
         : []
 
       // Filter out punctuation and whitespace, leaving only words
@@ -625,7 +634,18 @@ export function initCharacterCounts(options) {
 /**
  * Character count function
  *
- * @typedef {(this: CharacterCount, text: string) => number} CharacterCountFunction
+ * @callback CharacterCountFunction
+ * @param {string} text - Textarea value
+ * @param {CharacterCountContext} context - Object containing the config and segmenter
+ * @returns {number} Count
+ */
+
+/**
+ * Character count context
+ *
+ * @typedef {object} CharacterCountContext
+ * @property {CharacterCountConfig} config - Character count config
+ * @property {CharacterCount['segmenter']} segmenter - Character count segmenter
  */
 
 /**

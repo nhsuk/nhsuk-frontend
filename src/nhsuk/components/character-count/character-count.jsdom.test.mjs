@@ -439,7 +439,11 @@ describe('Character count', () => {
         await user.keyboard('Newly updated value')
 
         expect(component.config.countFunction).toHaveBeenLastCalledWith(
-          'Newly updated value'
+          'Newly updated value',
+          {
+            config: component.config,
+            segmenter: component.segmenter
+          }
         )
 
         expect(component.getCountMessage()).toBe(
@@ -457,7 +461,11 @@ describe('Character count', () => {
         await user.keyboard('Newly updated value')
 
         expect(component.config.countFunction).toHaveBeenLastCalledWith(
-          'Newly updated value'
+          'Newly updated value',
+          {
+            config: component.config,
+            segmenter: component.segmenter
+          }
         )
 
         expect(component.getCountMessage()).toBe('You have 90 words remaining')
