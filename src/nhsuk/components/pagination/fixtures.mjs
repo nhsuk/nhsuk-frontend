@@ -8,25 +8,27 @@ const fixtures = {
     context: {
       previous: {
         labelText: 'Treatments',
-        href: '/section/treatments'
+        href: '#/section/treatments'
       },
       next: {
         labelText: 'Symptoms',
-        href: '/section/symptoms'
+        href: '#/section/symptoms'
       }
     },
     options: {
       width: 'full'
     },
     screenshot: {
+      states: ['focus', 'hover', 'active'],
+      selector: '.nhsuk-pagination-item--previous a',
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
   'with deprecated options': {
     context: {
-      previousUrl: '/section/treatments',
+      previousUrl: '#/section/treatments',
       previousPage: 'Treatments',
-      nextUrl: '/section/symptoms',
+      nextUrl: '#/section/symptoms',
       nextPage: 'Symptoms'
     },
     options: {
@@ -37,7 +39,7 @@ const fixtures = {
     context: {
       previous: {
         labelText: 'Treatments',
-        href: '/section/treatments'
+        href: '#/section/treatments'
       }
     },
     options: {
@@ -51,7 +53,7 @@ const fixtures = {
     context: {
       next: {
         labelText: 'Symptoms',
-        href: '/section/symptoms'
+        href: '#/section/symptoms'
       }
     },
     options: {
@@ -66,12 +68,12 @@ const fixtures = {
       previous: {
         text: 'Blaenorol',
         labelText: 'Driniaethau',
-        href: '/section/driniaethau'
+        href: '#/section/driniaethau'
       },
       next: {
         text: 'Nesaf',
         labelText: 'Symptomau',
-        href: '/section/symptomau'
+        href: '#/section/symptomau'
       }
     },
     options: {
@@ -81,24 +83,24 @@ const fixtures = {
   'numbered': {
     context: {
       previous: {
-        href: '#'
+        href: '#/section/1'
       },
       next: {
-        href: '#'
+        href: '#/section/3'
       },
       items: [
         {
           number: 1,
-          href: '#'
+          href: '#/section/1'
         },
         {
           number: 2,
-          href: '#',
+          href: '#/section/2',
           current: true
         },
         {
           number: 3,
-          href: '#'
+          href: '#/section/3'
         }
       ]
     },
@@ -112,46 +114,46 @@ const fixtures = {
   'numbered with many pages': {
     context: {
       previous: {
-        href: '#'
+        href: '#/section/9'
       },
       next: {
-        href: '#'
+        href: '#/section/11'
       },
       items: [
         {
           number: 1,
-          href: '#'
+          href: '#/section/1'
         },
         {
           ellipsis: true
         },
         {
           number: 8,
-          href: '#'
+          href: '#/section/8'
         },
         {
           number: 9,
-          href: '#'
+          href: '#/section/9'
         },
         {
           number: 10,
-          href: '#',
+          href: '#/section/10',
           current: true
         },
         {
           number: 11,
-          href: '#'
+          href: '#/section/11'
         },
         {
           number: 12,
-          href: '#'
+          href: '#/section/12'
         },
         {
           ellipsis: true
         },
         {
           number: 40,
-          href: '#'
+          href: '#/section/40'
         }
       ]
     },
@@ -165,15 +167,15 @@ const fixtures = {
   'numbered with many pages (empty items)': {
     context: {
       previous: {
-        href: '#'
+        href: '#/section/9'
       },
       next: {
-        href: '#'
+        href: '#/section/11'
       },
       items: [
         {
           number: 1,
-          href: '#'
+          href: '#/section/1'
         },
         {
           ellipsis: true
@@ -181,16 +183,16 @@ const fixtures = {
         false,
         {
           number: 9,
-          href: '#'
+          href: '#/section/9'
         },
         {
           number: 10,
-          href: '#',
+          href: '#/section/10',
           current: true
         },
         {
           number: 11,
-          href: '#'
+          href: '#/section/11'
         },
         false,
         {
@@ -198,7 +200,7 @@ const fixtures = {
         },
         {
           number: 40,
-          href: '#'
+          href: '#/section/40'
         }
       ]
     },
@@ -209,21 +211,21 @@ const fixtures = {
   'numbered first page': {
     context: {
       next: {
-        href: '#'
+        href: '#/section/2'
       },
       items: [
         {
           number: 1,
-          href: '#',
+          href: '#/section/1',
           current: true
         },
         {
           number: 2,
-          href: '#'
+          href: '#/section/2'
         },
         {
           number: 3,
-          href: '#'
+          href: '#/section/3'
         }
       ]
     },
@@ -237,20 +239,20 @@ const fixtures = {
   'numbered last page': {
     context: {
       previous: {
-        href: '#'
+        href: '#/section/2'
       },
       items: [
         {
           number: 1,
-          href: '#'
+          href: '#/section/1'
         },
         {
           number: 2,
-          href: '#'
+          href: '#/section/2'
         },
         {
           number: 3,
-          href: '#',
+          href: '#/section/3',
           current: true
         }
       ]
@@ -266,25 +268,25 @@ const fixtures = {
     context: {
       previous: {
         text: 'Blaenorol',
-        href: '#'
+        href: '#/section/1'
       },
       next: {
         text: 'Nesaf',
-        href: '#'
+        href: '#/section/3'
       },
       items: [
         {
           number: 1,
-          href: '#'
+          href: '#/section/1'
         },
         {
           number: 2,
-          href: '#',
+          href: '#/section/2',
           current: true
         },
         {
           number: 3,
-          href: '#'
+          href: '#/section/3'
         }
       ]
     },
