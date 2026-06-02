@@ -15,7 +15,10 @@ const fixtures = {
         }
       ]
     },
-    screenshot: true
+    screenshot: {
+      states: ['focus', 'hover', 'active'],
+      selector: '.nhsuk-error-summary a'
+    }
   },
   'with multiple errors': {
     context: {
