@@ -83,7 +83,7 @@
   }
 
   .nhsuk-action-link--reverse {
-    @include nhsuk-link-style-white;
+    @include nhsuk-link-style-reverse;
 
     &:link {
       text-decoration: none; // [4]

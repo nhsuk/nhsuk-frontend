@@ -218,7 +218,7 @@
     font-weight: $nhsuk-font-weight-bold;
 
     .nhsuk-pagination__link {
-      @include nhsuk-link-style-white;
+      @include nhsuk-link-style-reverse;
     }
   }
 
