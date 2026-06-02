@@ -26,6 +26,32 @@ a {
   }
 }
 
+.nhsuk-link {
+  @include nhsuk-link-style-default;
+}
+
+// Buttons styled as links
+
+// stylelint-disable-next-line selector-no-qualifying-type
+button.nhsuk-link {
+  display: inline;
+
+  align-items: normal;
+
+  padding: 0;
+
+  border: none;
+
+  background-color: transparent;
+
+  font-size: inherit;
+  text-align: left;
+
+  cursor: pointer;
+
+  appearance: none;
+}
+
 // Variant classes should always be used in conjunction with the .nhsuk-link
 // class or `a` element, to make sure the default link styles are inherited.
 
