@@ -26,6 +26,13 @@ const options = {
       'If `text` is set, this is not required. HTML to use within the action link. If `html` is provided, the `text` option will be ignored.',
     released: '10.2.0'
   },
+  type: {
+    type: 'string',
+    required: false,
+    description:
+      'Type of `button` – `"button"` or `"submit"`. Defaults to `"submit"`. This has no effect on `a` elements.',
+    released: '10.5.0'
+  },
   href: {
     type: 'string',
     required: true,
@@ -35,7 +42,8 @@ const options = {
   openInNewWindow: {
     type: 'boolean',
     required: false,
-    description: 'If set to `true`, then the link will open in a new window.',
+    description:
+      'If set to `true`, then the link will open in a new window. This has no effect on `button` elements.',
     released: '1.0.0'
   },
   variant: {
@@ -48,15 +56,22 @@ const options = {
   classes: {
     type: 'string',
     required: false,
-    description: 'Classes to add to the anchor tag.',
+    description: 'Classes to add to the action link component.',
     released: '1.0.0'
   },
   attributes: {
     type: 'object',
     required: false,
     description:
-      'HTML attributes (for example data attributes) to add to the anchor tag.',
+      'HTML attributes (for example data attributes) to add to the action link component.',
     released: '1.0.0'
+  },
+  element: {
+    type: 'string',
+    required: false,
+    description:
+      'HTML element for the action link component – `"button"` or `"a"`. Defaults to `"a"`.',
+    released: '10.5.0'
   }
 }
 

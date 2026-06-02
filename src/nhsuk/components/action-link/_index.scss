@@ -25,8 +25,18 @@
   .nhsuk-action-link {
     box-sizing: border-box;
     display: inline-block; // [1]
+
     position: relative; // [3]
+
     padding-left: $_small-icon-size + $_small-icon-spacing; // [2]
+
+    border: 0;
+
+    background: none;
+
+    text-align: left;
+
+    cursor: pointer;
 
     &:not(:focus):hover {
       .nhsuk-action-link__text {

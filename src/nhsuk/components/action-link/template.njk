@@ -15,29 +15,50 @@
   {% set classNames = classNames ~ " " ~ params.classes %}
 {% endif -%}
 
+{#- Determine type of element to use, if not explicitly set #}
+{%- if params.element %}
+  {% set element = params.element | lower %}
+{% else %}
+  {% if params.href %}
+    {% set element = "a" %}
+  {% else %}
+    {% set element = "button" %}
+  {% endif %}
+{% endif %}
+
+{#- Define attributes that we can use across all element types #}
 {%- set attributesHtml %}
   {{- nhsukAttributes({
     class: classNames,
     id: {
       value: params.id,
       optional: true
-    },
-    href: {
-      value: params.href if params.href else "#",
-      optional: true
-    },
-    target: {
-      value: "_blank" if params.openInNewWindow else false,
-      optional: true
     }
   }) -}}
+
+  {% if element == "button" %}
+    {{- nhsukAttributes({
+      type: params.type if params.type else "submit"
+    }) -}}
+  {% elif element == "a" %}
+    {{- nhsukAttributes({
+      href: {
+        value: params.href if params.href else "#",
+        optional: true
+      },
+      target: {
+        value: "_blank" if params.openInNewWindow else false,
+        optional: true
+      }
+    }) -}}
+  {% endif %}
 
   {{- nhsukAttributes(params.attributes) -}}
 {% endset -%}
 
-<a {{- attributesHtml | safe }}>
+<{{ element }} {{- attributesHtml | safe }}>
   {{ nhsukIcon("arrow-right-circle") | trim | indent(2) }}
   <span class="nhsuk-action-link__text">
     {{- params.html | safe | trim | indent(2) if params.html else params.text -}}
   </span>
-</a>
+</{{ element }}>

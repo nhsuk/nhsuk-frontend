@@ -4,14 +4,27 @@
  * @satisfies {{ [example: string]: MacroExample }}
  */
 const fixtures = {
-  default: {
+  'default': {
     context: {
       text: 'Find your nearest A&E',
       href: '#'
     },
-    screenshot: true
+    screenshot: {
+      states: ['focus', 'hover', 'active'],
+      selector: '.nhsuk-action-link'
+    }
   },
-  reverse: {
+  'as a button': {
+    context: {
+      text: 'Find your nearest A&E',
+      element: 'button'
+    },
+    screenshot: {
+      states: ['focus', 'hover', 'active'],
+      selector: '.nhsuk-action-link'
+    }
+  },
+  'reverse': {
     context: {
       text: 'Find your nearest A&E',
       variant: 'reverse',
