@@ -189,7 +189,7 @@
   @include nhsuk-link-style(
     $link-colour: $nhsuk-error-colour,
     $link-visited-colour: $nhsuk-error-colour,
-    $link-hover-colour: color.scale($nhsuk-error-colour, $lightness: -30%),
+    $link-hover-colour: nhsuk-colour-compatible(color.scale($nhsuk-error-colour, $lightness: -30%)),
     $link-active-colour: $nhsuk-error-colour
   );
 }
