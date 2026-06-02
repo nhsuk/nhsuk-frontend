@@ -254,7 +254,10 @@
 ///
 
 @mixin nhsuk-link-style-no-underline {
-  &:not(:hover):not(:active) {
+  // Allow ':hover' and ':active' companion classes from postcss-pseudo-classes
+  // which the plugin unfortunately doesn't handle automatically.
+  // stylelint-disable-next-line selector-class-pattern
+  &:not(:hover):not(.\:hover):not(:active):not(.\:active) {
     text-decoration: none;
   }
 
