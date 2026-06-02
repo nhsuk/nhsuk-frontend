@@ -109,11 +109,6 @@
     min-width: nhsuk-px-to-rem(125px);
     margin-bottom: $nhsuk-button-shadow-size;
 
-    // Hide the button by default, JS removes this attribute
-    &[hidden] {
-      display: none;
-    }
-
     &:active,
     &:active:focus {
       top: nhsuk-spacing(3) + $nhsuk-button-shadow-size;

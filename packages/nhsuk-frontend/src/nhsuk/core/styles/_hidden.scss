@@ -1,0 +1,13 @@
+////
+// Hidden
+//
+// Elements with the hidden attribute should not be shown.
+//
+// This is the browser default, but defined here as important
+// to override any display properties that we otherwise set.
+////
+
+*[hidden] {
+  // stylelint-disable-next-line declaration-no-important
+  display: none !important;
+}
