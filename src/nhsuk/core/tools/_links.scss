@@ -257,6 +257,11 @@
   &:not(:hover):not(:active) {
     text-decoration: none;
   }
+
+  &:hover,
+  &:hover:visited {
+    text-decoration: underline;
+  }
 }
 
 /// Text link styles
