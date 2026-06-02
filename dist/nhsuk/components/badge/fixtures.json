@@ -1,0 +1,35 @@
+{
+  "name": "Badge",
+  "component": "badge",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "text": "12",
+        "visuallyHiddenText": "Count:"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<strong class=\"nhsuk-badge\"><span class=\"nhsuk-u-visually-hidden\">Count: </span>12</strong>"
+    },
+    {
+      "name": "text label",
+      "context": {
+        "text": "New"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<strong class=\"nhsuk-badge\">New</strong>"
+    },
+    {
+      "name": "zero count",
+      "context": {
+        "text": "0",
+        "visuallyHiddenText": "Count:"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<strong class=\"nhsuk-badge\"><span class=\"nhsuk-u-visually-hidden\">Count: </span>0</strong>"
+    }
+  ]
+}

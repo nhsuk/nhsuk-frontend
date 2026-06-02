@@ -1,0 +1,69 @@
+@use "sass:math";
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+@use "../../core/helpers" as *;
+@forward "../../core/styles/icons";
+
+////
+/// Action link component
+///
+/// 1. Display inline-block so top and bottom margins are respected.
+/// 2. Add sufficient space between icon and text.
+/// 3. Position is relative so the arrow icon can display absolute.
+///
+/// @group components/action-link
+////
+
+@include nhsuk-exports("nhsuk/components/action-link") {
+  $_small-icon-size: nhsuk-px-to-rem($nhsuk-icon-size);
+  $_small-icon-spacing: math.div($_small-icon-size, 10);
+
+  $_large-icon-size: nhsuk-px-to-rem(36px);
+  $_large-icon-spacing: math.div($_large-icon-size, 10);
+
+  .nhsuk-action-link {
+    box-sizing: border-box;
+    display: inline-block; // [1]
+    position: relative; // [3]
+    padding-left: $_small-icon-size + $_small-icon-spacing; // [2]
+
+    @include nhsuk-link-style-no-underline;
+    @include nhsuk-link-style-no-visited-state;
+
+    @include nhsuk-font(22, $weight: bold, $line-height: $_small-icon-size);
+
+    @include nhsuk-print-colour {
+      @include nhsuk-link-style-text($nhsuk-print-text-colour);
+    }
+
+    @include nhsuk-responsive-margin(6, "bottom");
+
+    @include nhsuk-media-query($from: tablet) {
+      padding-left: $_large-icon-size + $_large-icon-spacing; // [2]
+      line-height: nhsuk-line-height($_large-icon-size, $font-size: 22px);
+    }
+
+    .nhsuk-icon {
+      position: absolute;
+      left: -$_small-icon-spacing;
+
+      @include nhsuk-media-query($from: tablet) {
+        left: -$_large-icon-spacing;
+        width: $_large-icon-size;
+        height: $_large-icon-size;
+      }
+    }
+
+    &:not(:focus):not(:hover):not(:active) .nhsuk-icon {
+      fill: nhsuk-colour("green");
+    }
+  }
+
+  .nhsuk-action-link--reverse {
+    @include nhsuk-link-style-reverse;
+
+    &:not(:focus):not(:hover):not(:active) .nhsuk-icon {
+      fill: $nhsuk-reverse-text-colour;
+    }
+  }
+}

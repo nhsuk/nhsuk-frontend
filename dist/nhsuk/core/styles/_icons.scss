@@ -1,0 +1,43 @@
+@use "sass:math";
+@use "../settings" as *;
+@use "../tools" as *;
+
+////
+/// Icons
+///
+/// @group styles
+////
+
+// Default icon styles
+
+.nhsuk-icon {
+  width: nhsuk-px-to-rem($nhsuk-icon-size);
+  height: nhsuk-px-to-rem($nhsuk-icon-size);
+  fill: currentcolor;
+
+  @include nhsuk-media-query($from: tablet) {
+    width: nhsuk-px-to-rem($nhsuk-icon-size-large);
+    height: nhsuk-px-to-rem($nhsuk-icon-size-large);
+  }
+}
+
+/// Icon size adjustments
+///
+/// @access private
+
+$_icon-sizes: (25%, 50%, 75%, 100%);
+
+@each $size in $_icon-sizes {
+  $ratio: math.div(100% + $size, 100%); // 25% adjustment = 1.25
+  $name: "size-#{math.div($size, 1%)}"; // 25% adjustment = "size-25"
+
+  .nhsuk-icon--#{$name} {
+    width: nhsuk-px-to-rem($nhsuk-icon-size * $ratio);
+    height: nhsuk-px-to-rem($nhsuk-icon-size * $ratio);
+
+    @include nhsuk-media-query($from: tablet) {
+      width: nhsuk-px-to-rem($nhsuk-icon-size-large * $ratio);
+      height: nhsuk-px-to-rem($nhsuk-icon-size-large * $ratio);
+    }
+  }
+}

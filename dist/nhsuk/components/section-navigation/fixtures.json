@@ -1,0 +1,290 @@
+{
+  "name": "Section navigation",
+  "component": "section-navigation",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "items": [
+          {
+            "href": "#",
+            "text": "All clinics"
+          },
+          {
+            "href": "#",
+            "text": "Today",
+            "current": true
+          },
+          {
+            "href": "#",
+            "text": "Upcoming"
+          },
+          {
+            "href": "#",
+            "text": "Completed"
+          }
+        ]
+      },
+      "screenshot": false,
+      "options": {
+        "width": "full"
+      },
+      "html": "<nav class=\"nhsuk-section-navigation\"  data-module=\"nhsuk-section-navigation\" aria-label=\"Section navigation\">\n  <ul class=\"nhsuk-section-navigation__list\">\n\n    <li class=\"nhsuk-section-navigation__item\">\n      <a class=\"nhsuk-section-navigation__link\" href=\"#\">All clinics</a>\n    </li>\n\n    <li class=\"nhsuk-section-navigation__item nhsuk-section-navigation__item--current\">\n      <a class=\"nhsuk-section-navigation__link\" href=\"#\" aria-current=\"page\"><strong class=\"nhsuk-section-navigation__current\">Today</strong></a>\n    </li>\n\n    <li class=\"nhsuk-section-navigation__item\">\n      <a class=\"nhsuk-section-navigation__link\" href=\"#\">Upcoming</a>\n    </li>\n\n    <li class=\"nhsuk-section-navigation__item\">\n      <a class=\"nhsuk-section-navigation__link\" href=\"#\">Completed</a>\n    </li>\n  </ul>\n</nav>"
+    },
+    {
+      "name": "reverse",
+      "context": {
+        "classes": "nhsuk-section-navigation--reverse",
+        "items": [
+          {
+            "href": "#",
+            "text": "All clinics"
+          },
+          {
+            "href": "#",
+            "text": "Today",
+            "current": true
+          },
+          {
+            "href": "#",
+            "text": "Upcoming"
+          },
+          {
+            "href": "#",
+            "text": "Completed"
+          }
+        ]
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop"
+        ]
+      },
+      "options": {
+        "layout": "background-blue",
+        "width": "full"
+      },
+      "html": "<nav class=\"nhsuk-section-navigation nhsuk-section-navigation--reverse\"  data-module=\"nhsuk-section-navigation\" aria-label=\"Section navigation\">\n  <ul class=\"nhsuk-section-navigation__list\">\n\n    <li class=\"nhsuk-section-navigation__item\">\n      <a class=\"nhsuk-section-navigation__link\" href=\"#\">All clinics</a>\n    </li>\n\n    <li class=\"nhsuk-section-navigation__item nhsuk-section-navigation__item--current\">\n      <a class=\"nhsuk-section-navigation__link\" href=\"#\" aria-current=\"page\"><strong class=\"nhsuk-section-navigation__current\">Today</strong></a>\n    </li>\n\n    <li class=\"nhsuk-section-navigation__item\">\n      <a class=\"nhsuk-section-navigation__link\" href=\"#\">Upcoming</a>\n    </li>\n\n    <li class=\"nhsuk-section-navigation__item\">\n      <a class=\"nhsuk-section-navigation__link\" href=\"#\">Completed</a>\n    </li>\n  </ul>\n</nav>"
+    },
+    {
+      "name": "reverse with badge",
+      "context": {
+        "classes": "nhsuk-section-navigation--reverse",
+        "items": [
+          {
+            "href": "#",
+            "text": "All",
+            "badge": {
+              "text": "12",
+              "visuallyHiddenText": "Count:"
+            }
+          },
+          {
+            "href": "#",
+            "text": "Today",
+            "badge": {
+              "text": "3",
+              "visuallyHiddenText": "Count:"
+            },
+            "current": true
+          },
+          {
+            "href": "#",
+            "text": "Upcoming",
+            "badge": {
+              "text": "9",
+              "visuallyHiddenText": "Count:"
+            }
+          },
+          {
+            "href": "#",
+            "text": "Completed",
+            "badge": {
+              "text": "0",
+              "visuallyHiddenText": "Count:"
+            }
+          }
+        ]
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop"
+        ]
+      },
+      "options": {
+        "layout": "background-blue",
+        "width": "full"
+      },
+      "html": "<nav class=\"nhsuk-section-navigation nhsuk-section-navigation--reverse\"  data-module=\"nhsuk-section-navigation\" aria-label=\"Section navigation\">\n  <ul class=\"nhsuk-section-navigation__list\">\n\n    <li class=\"nhsuk-section-navigation__item\">\n      <a class=\"nhsuk-section-navigation__link\" href=\"#\">All<span class=\"nhsuk-section-navigation__suffix\"><strong class=\"nhsuk-badge\"><span class=\"nhsuk-u-visually-hidden\">Count: </span>12</strong>\n</span></a>\n    </li>\n\n    <li class=\"nhsuk-section-navigation__item nhsuk-section-navigation__item--current\">\n      <a class=\"nhsuk-section-navigation__link\" href=\"#\" aria-current=\"page\"><strong class=\"nhsuk-section-navigation__current\">Today<span class=\"nhsuk-section-navigation__suffix\"><strong class=\"nhsuk-badge\"><span class=\"nhsuk-u-visually-hidden\">Count: </span>3</strong>\n</span></strong></a>\n    </li>\n\n    <li class=\"nhsuk-section-navigation__item\">\n      <a class=\"nhsuk-section-navigation__link\" href=\"#\">Upcoming<span class=\"nhsuk-section-navigation__suffix\"><strong class=\"nhsuk-badge\"><span class=\"nhsuk-u-visually-hidden\">Count: </span>9</strong>\n</span></a>\n    </li>\n\n    <li class=\"nhsuk-section-navigation__item\">\n      <a class=\"nhsuk-section-navigation__link\" href=\"#\">Completed<span class=\"nhsuk-section-navigation__suffix\"><strong class=\"nhsuk-badge\"><span class=\"nhsuk-u-visually-hidden\">Count: </span>0</strong>\n</span></a>\n    </li>\n  </ul>\n</nav>"
+    },
+    {
+      "name": "vertical",
+      "context": {
+        "vertical": true,
+        "items": [
+          {
+            "href": "#",
+            "text": "All clinics"
+          },
+          {
+            "href": "#",
+            "text": "Today",
+            "current": true
+          },
+          {
+            "href": "#",
+            "text": "Upcoming"
+          },
+          {
+            "href": "#",
+            "text": "Completed"
+          }
+        ]
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop"
+        ]
+      },
+      "options": {
+        "width": "full"
+      },
+      "html": "<nav class=\"nhsuk-section-navigation nhsuk-section-navigation--vertical\"  data-module=\"nhsuk-section-navigation\" aria-label=\"Section navigation\">\n  <ul class=\"nhsuk-section-navigation__list\">\n\n    <li class=\"nhsuk-section-navigation__item\">\n      <a class=\"nhsuk-section-navigation__link\" href=\"#\">All clinics</a>\n    </li>\n\n    <li class=\"nhsuk-section-navigation__item nhsuk-section-navigation__item--current\">\n      <a class=\"nhsuk-section-navigation__link\" href=\"#\" aria-current=\"page\"><strong class=\"nhsuk-section-navigation__current\">Today</strong></a>\n    </li>\n\n    <li class=\"nhsuk-section-navigation__item\">\n      <a class=\"nhsuk-section-navigation__link\" href=\"#\">Upcoming</a>\n    </li>\n\n    <li class=\"nhsuk-section-navigation__item\">\n      <a class=\"nhsuk-section-navigation__link\" href=\"#\">Completed</a>\n    </li>\n  </ul>\n</nav>"
+    },
+    {
+      "name": "with badge",
+      "context": {
+        "items": [
+          {
+            "href": "#",
+            "text": "All",
+            "badge": {
+              "text": "12",
+              "visuallyHiddenText": "Count:"
+            }
+          },
+          {
+            "href": "#",
+            "text": "Today",
+            "badge": {
+              "text": "3",
+              "visuallyHiddenText": "Count:"
+            },
+            "current": true
+          },
+          {
+            "href": "#",
+            "text": "Upcoming",
+            "badge": {
+              "text": "New"
+            }
+          },
+          {
+            "href": "#",
+            "text": "Completed",
+            "badge": {
+              "text": "0",
+              "visuallyHiddenText": "Count:"
+            }
+          }
+        ]
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop"
+        ]
+      },
+      "options": {
+        "width": "full"
+      },
+      "html": "<nav class=\"nhsuk-section-navigation\"  data-module=\"nhsuk-section-navigation\" aria-label=\"Section navigation\">\n  <ul class=\"nhsuk-section-navigation__list\">\n\n    <li class=\"nhsuk-section-navigation__item\">\n      <a class=\"nhsuk-section-navigation__link\" href=\"#\">All<span class=\"nhsuk-section-navigation__suffix\"><strong class=\"nhsuk-badge\"><span class=\"nhsuk-u-visually-hidden\">Count: </span>12</strong>\n</span></a>\n    </li>\n\n    <li class=\"nhsuk-section-navigation__item nhsuk-section-navigation__item--current\">\n      <a class=\"nhsuk-section-navigation__link\" href=\"#\" aria-current=\"page\"><strong class=\"nhsuk-section-navigation__current\">Today<span class=\"nhsuk-section-navigation__suffix\"><strong class=\"nhsuk-badge\"><span class=\"nhsuk-u-visually-hidden\">Count: </span>3</strong>\n</span></strong></a>\n    </li>\n\n    <li class=\"nhsuk-section-navigation__item\">\n      <a class=\"nhsuk-section-navigation__link\" href=\"#\">Upcoming<span class=\"nhsuk-section-navigation__suffix\"><strong class=\"nhsuk-badge\">New</strong>\n</span></a>\n    </li>\n\n    <li class=\"nhsuk-section-navigation__item\">\n      <a class=\"nhsuk-section-navigation__link\" href=\"#\">Completed<span class=\"nhsuk-section-navigation__suffix\"><strong class=\"nhsuk-badge\"><span class=\"nhsuk-u-visually-hidden\">Count: </span>0</strong>\n</span></a>\n    </li>\n  </ul>\n</nav>"
+    },
+    {
+      "name": "with custom label",
+      "context": {
+        "label": "Section navigation",
+        "items": [
+          {
+            "href": "#",
+            "text": "Summary",
+            "current": true
+          },
+          {
+            "href": "#",
+            "text": "History"
+          },
+          {
+            "href": "#",
+            "text": "Documents"
+          }
+        ]
+      },
+      "screenshot": false,
+      "options": {
+        "width": "full"
+      },
+      "html": "<nav class=\"nhsuk-section-navigation\"  data-module=\"nhsuk-section-navigation\" aria-label=\"Section navigation\">\n  <ul class=\"nhsuk-section-navigation__list\">\n\n    <li class=\"nhsuk-section-navigation__item nhsuk-section-navigation__item--current\">\n      <a class=\"nhsuk-section-navigation__link\" href=\"#\" aria-current=\"page\"><strong class=\"nhsuk-section-navigation__current\">Summary</strong></a>\n    </li>\n\n    <li class=\"nhsuk-section-navigation__item\">\n      <a class=\"nhsuk-section-navigation__link\" href=\"#\">History</a>\n    </li>\n\n    <li class=\"nhsuk-section-navigation__item\">\n      <a class=\"nhsuk-section-navigation__link\" href=\"#\">Documents</a>\n    </li>\n  </ul>\n</nav>"
+    },
+    {
+      "name": "with html",
+      "context": {
+        "items": [
+          {
+            "href": "#",
+            "html": "Overview"
+          },
+          {
+            "href": "#",
+            "html": "Vaccinations<span class=\"nhsuk-section-navigation__suffix\"><strong class=\"nhsuk-tag nhsuk-tag--green\">New</strong></span>",
+            "current": true
+          },
+          {
+            "href": "#",
+            "html": "Consent"
+          }
+        ]
+      },
+      "screenshot": false,
+      "options": {
+        "width": "full"
+      },
+      "html": "<nav class=\"nhsuk-section-navigation\"  data-module=\"nhsuk-section-navigation\" aria-label=\"Section navigation\">\n  <ul class=\"nhsuk-section-navigation__list\">\n\n    <li class=\"nhsuk-section-navigation__item\">\n      <a class=\"nhsuk-section-navigation__link\" href=\"#\">Overview</a>\n    </li>\n\n    <li class=\"nhsuk-section-navigation__item nhsuk-section-navigation__item--current\">\n      <a class=\"nhsuk-section-navigation__link\" href=\"#\" aria-current=\"page\"><strong class=\"nhsuk-section-navigation__current\">Vaccinations<span class=\"nhsuk-section-navigation__suffix\"><strong class=\"nhsuk-tag nhsuk-tag--green\">New</strong></span></strong></a>\n    </li>\n\n    <li class=\"nhsuk-section-navigation__item\">\n      <a class=\"nhsuk-section-navigation__link\" href=\"#\">Consent</a>\n    </li>\n  </ul>\n</nav>"
+    },
+    {
+      "name": "with unlinked current item",
+      "context": {
+        "items": [
+          {
+            "href": "#",
+            "text": "All clinics"
+          },
+          {
+            "text": "Today",
+            "current": true
+          },
+          {
+            "href": "#",
+            "text": "Upcoming"
+          },
+          {
+            "href": "#",
+            "text": "Completed"
+          }
+        ]
+      },
+      "screenshot": false,
+      "options": {
+        "width": "full"
+      },
+      "html": "<nav class=\"nhsuk-section-navigation\"  data-module=\"nhsuk-section-navigation\" aria-label=\"Section navigation\">\n  <ul class=\"nhsuk-section-navigation__list\">\n\n    <li class=\"nhsuk-section-navigation__item\">\n      <a class=\"nhsuk-section-navigation__link\" href=\"#\">All clinics</a>\n    </li>\n\n    <li class=\"nhsuk-section-navigation__item nhsuk-section-navigation__item--current\">\n      <span class=\"nhsuk-section-navigation__text\" aria-current=\"page\"><strong class=\"nhsuk-section-navigation__current\">Today</strong></span>\n    </li>\n\n    <li class=\"nhsuk-section-navigation__item\">\n      <a class=\"nhsuk-section-navigation__link\" href=\"#\">Upcoming</a>\n    </li>\n\n    <li class=\"nhsuk-section-navigation__item\">\n      <a class=\"nhsuk-section-navigation__link\" href=\"#\">Completed</a>\n    </li>\n  </ul>\n</nav>"
+    }
+  ]
+}

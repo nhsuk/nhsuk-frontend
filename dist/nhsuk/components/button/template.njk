@@ -1,0 +1,111 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+
+{#- Set variant for this component #}
+{%- set variant = params.variant -%}
+
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-button" -%}
+
+{%- if variant and
+  variant in ["login", "reverse", "secondary", "secondary-solid", "warning"] and (
+    not params.classes or (
+      not "nhsuk-button--login" in params.classes and
+      not "nhsuk-button--reverse" in params.classes and
+      not "nhsuk-button--secondary" in params.classes and
+      not "nhsuk-button--secondary-solid" in params.classes and
+      not "nhsuk-button--warning" in params.classes
+    )
+  )
+%}
+  {% set classNames = classNames ~ " nhsuk-button--" ~ variant %}
+{% endif %}
+
+{%- if params.small and (not params.classes or not "nhsuk-button--small" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-button--small" %}
+{% endif %}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif %}
+
+{#- Determine type of element to use, if not explicitly set #}
+{%- if params.element %}
+  {% set element = params.element | lower %}
+{% else %}
+  {% if params.href %}
+    {% set element = "a" %}
+  {% else %}
+    {% set element = "button" %}
+  {% endif %}
+{% endif %}
+
+{#- Define attributes that we can use across all element types #}
+{%- set attributesHtml %}
+  {{- nhsukAttributes({
+    class: classNames,
+    id: {
+      value: params.id,
+      optional: true
+    },
+    name: {
+      value: params.name if element == "button" or element == "input" else false,
+      optional: true
+    },
+    "data-module": "nhsuk-button",
+    "data-prevent-double-click": {
+      value: params.preventDoubleClick | string
+        if params.preventDoubleClick in [true, false]
+        else false,
+      optional: true
+    }
+  }) -}}
+
+  {% if element == "button" or element == "input" %}
+    {{- nhsukAttributes({
+      type: params.type if params.type else "submit",
+      value: {
+        value: params.text if element == "input" else params.value,
+        optional: true
+      },
+      disabled: {
+        value: params.disabled,
+        optional: true
+      },
+      "aria-disabled": {
+        value: "true" if params.disabled else false,
+        optional: true
+      }
+    }) -}}
+  {% elif element == "a" %}
+    {{- nhsukAttributes({
+      href: {
+        value: params.href if params.href else "#",
+        optional: true
+      },
+      role: "button",
+      draggable: "false"
+    }) -}}
+  {% endif %}
+
+  {{- nhsukAttributes(params.attributes) -}}
+{% endset %}
+
+{%- set innerHtml %}
+{% if caller or params.html %}
+  {{ caller() if caller else params.html | safe }}
+{% elif params.text %}
+  {{ params.text }}
+{% endif %}
+{% endset %}
+
+{%- if element == "a" %}
+<a {{- attributesHtml | safe }}>
+  {{ innerHtml | safe | trim | indent(2) }}
+</a>
+{% elif element == "button" %}
+<button {{- attributesHtml | safe }}>
+  {{ innerHtml | safe | trim | indent(2) }}
+</button>
+{% elif element == "input" %}
+<input {{- attributesHtml | safe }}>
+{% endif %}

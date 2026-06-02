@@ -1,0 +1,29 @@
+@use "../../core/tools" as *;
+
+////
+/// Display
+///
+/// @group utilities
+////
+
+// stylelint-disable declaration-no-important
+
+.nhsuk-u-display-inline {
+  display: inline !important;
+}
+
+.nhsuk-u-display-inline-block {
+  display: inline-block !important;
+}
+
+.nhsuk-u-display-block {
+  display: block !important;
+}
+
+.nhsuk-u-display-none {
+  display: none !important;
+}
+
+.nhsuk-u-display-none-print {
+  @include nhsuk-print-hide($important: true);
+}
