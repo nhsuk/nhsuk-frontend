@@ -11,9 +11,11 @@
 // Default icon styles
 
 .nhsuk-icon {
+  display: inline-block;
   width: nhsuk-px-to-rem($nhsuk-icon-size);
   height: nhsuk-px-to-rem($nhsuk-icon-size);
   fill: currentcolor;
+  vertical-align: middle;
 
   @include nhsuk-media-query($from: tablet) {
     width: nhsuk-px-to-rem($nhsuk-icon-size-large);

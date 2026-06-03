@@ -56,8 +56,8 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
   @include nhsuk-link-style-active($link-active-colour);
   @include nhsuk-link-style-focus;
 
-  &:focus,
-  &:focus:visited {
+  &:focus {
+    color: $nhsuk-focus-text-colour;
     box-shadow: inset 0 ($nhsuk-focus-width * -1) $nhsuk-focus-text-colour;
   }
 

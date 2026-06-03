@@ -34,10 +34,16 @@
   &,
   &:visited,
   &:hover,
-  &:hover:visited,
-  &:active,
-  &:active:visited {
+  &:active {
     color: $button-text-colour;
+  }
+
+  &[href] .nhsuk-icon {
+    fill: $button-text-colour;
+
+    @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+      fill: currentcolor;
+    }
   }
 
   &:hover {
@@ -75,15 +81,16 @@
     }
 
     &:active,
-    &:active:focus {
-      border-color: $button-border-colour;
-    }
-
+    &:active:focus,
     // Set border on click area for default and hover states which allows the
     // border to render underneath the shadow and hide pixel artifacts, but
     // ensuring the active "pressed" and focus states have priority
     &:not(:focus):not(:active)::before {
       border-color: $button-border-colour;
+
+      @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+        border-color: buttonborder;
+      }
     }
 
     // Inset the pseudo element shadow away from the edges, to restore lost
@@ -98,6 +105,22 @@
     &:focus::after,
     &:active::after {
       box-shadow: none;
+    }
+  }
+
+  // Override high-contrast link colours to match buttons
+  @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+    &,
+    &:visited,
+    &:active {
+      color: buttontext;
+    }
+
+    &:not(:focus):not(:active):hover,
+    &:not(:focus):not(:active):hover::before,
+    &:not(:focus):not(:active):hover::after {
+      border-color: Highlight;
+      color: Highlight;
     }
   }
 }

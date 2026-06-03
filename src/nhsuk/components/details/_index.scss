@@ -78,7 +78,7 @@ $nhsuk-expander-icon-size: 27px; // 19px font size + 4px summary text padding
       width: fit-content; // [1]
       padding-left: nhsuk-px-to-rem(nhsuk-spacing(4));
       cursor: pointer;
-      @include nhsuk-link-style;
+      @include nhsuk-link-style-default;
 
       &::-webkit-details-marker {
         display: none; // [4]

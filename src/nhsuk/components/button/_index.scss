@@ -141,6 +141,16 @@ $nhsuk-button-search-icon-size-large: 38px;
       top: -($nhsuk-border-width-form-element + $nhsuk-button-shadow-size);
       bottom: -$nhsuk-border-width-form-element;
     }
+
+    // Override high-contrast link colours to match buttons
+    @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+      color: buttontext;
+
+      &,
+      &::before {
+        border-color: buttonborder;
+      }
+    }
   }
 
   // Button variations

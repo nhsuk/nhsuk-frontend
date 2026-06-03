@@ -97,6 +97,8 @@ const fixtures = {
       width: 'full'
     },
     screenshot: {
+      states: ['focus', 'hover', 'active'],
+      selector: '.nhsuk-pagination__item--current a',
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
