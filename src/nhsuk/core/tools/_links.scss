@@ -115,8 +115,7 @@
 ///
 
 @mixin nhsuk-link-style-hover($link-hover-colour: $nhsuk-link-hover-colour) {
-  &:hover,
-  &:hover:visited {
+  &:hover {
     color: $link-hover-colour;
     text-decoration: none;
 
@@ -137,13 +136,12 @@
 ///
 
 @mixin nhsuk-link-style-focus {
-  &:focus,
-  &:focus:visited {
+  &:focus {
     @include nhsuk-focused-text;
+  }
 
-    &:hover {
-      text-decoration: none;
-    }
+  &:focus:hover {
+    text-decoration: none;
   }
 }
 
@@ -156,8 +154,7 @@
 ///
 
 @mixin nhsuk-link-style-active($link-active-colour: $nhsuk-link-active-colour) {
-  &:active,
-  &:active:visited {
+  &:active {
     color: $link-active-colour;
 
     &:not(.nhsuk-button) .nhsuk-icon {
@@ -238,7 +235,12 @@
 ///
 
 @mixin nhsuk-link-style-no-visited-state {
-  @include nhsuk-link-style-visited($link-visited-colour: $nhsuk-link-colour);
+  @include nhsuk-link-style(
+    $link-colour: $nhsuk-link-colour,
+    $link-visited-colour: $nhsuk-link-colour,
+    $link-hover-colour: $nhsuk-link-hover-colour,
+    $link-active-colour: $nhsuk-link-active-colour
+  );
 }
 
 /// Remove underline from links
@@ -261,8 +263,7 @@
     text-decoration: none;
   }
 
-  &:hover,
-  &:hover:visited {
+  &:hover {
     text-decoration: underline;
   }
 }

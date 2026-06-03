@@ -34,9 +34,7 @@
   &,
   &:visited,
   &:hover,
-  &:hover:visited,
-  &:active,
-  &:active:visited {
+  &:active {
     color: $button-text-colour;
   }
 
