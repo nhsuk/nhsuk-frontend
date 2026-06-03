@@ -46,6 +46,10 @@
 
 @mixin nhsuk-link-style-default {
   @include nhsuk-link-style;
+
+  @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+    color: linktext;
+  }
 }
 
 /// Reverse link styles
@@ -68,6 +72,14 @@
 
   &:not(:focus) .nhsuk-icon {
     fill: $nhsuk-reverse-text-colour;
+  }
+
+  @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+    color: linktext;
+
+    &:not(:focus) .nhsuk-icon {
+      fill: currentcolor;
+    }
   }
 }
 
@@ -217,6 +229,10 @@
     $link-hover-colour: $nhsuk-link-hover-colour,
     $link-active-colour: $nhsuk-link-active-colour
   );
+
+  &:visited .nhsuk-icon {
+    fill: currentcolor;
+  }
 }
 
 /// Remove underline from links
