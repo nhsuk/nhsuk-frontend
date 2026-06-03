@@ -532,12 +532,7 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
   .nhsuk-card--primary > .nhsuk-card__content,
   // Deprecated, to be removed in v11.0
   .nhsuk-card__content--primary {
-    @include nhsuk-responsive-spacing(
-      5,
-      "padding",
-      $direction: "right",
-      $adjustment: nhsuk-px-to-rem(nhsuk-spacing(7))
-    );
+    @include nhsuk-responsive-padding(5, "right", $adjustment: nhsuk-spacing(7), $unit: "rem");
 
     @include nhsuk-media-query($from: desktop) {
       height: 100%;

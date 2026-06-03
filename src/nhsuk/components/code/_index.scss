@@ -81,7 +81,7 @@
 
     .nhsuk-code--button & {
       @include nhsuk-frontend-supported {
-        padding-top: nhsuk-px-to-rem(nhsuk-spacing(9));
+        padding-top: nhsuk-spacing(9, $unit: "rem");
       }
     }
 
