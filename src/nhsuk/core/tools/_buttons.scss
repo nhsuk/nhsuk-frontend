@@ -38,6 +38,10 @@
     color: $button-text-colour;
   }
 
+  &[href] .nhsuk-icon {
+    fill: $button-text-colour;
+  }
+
   &:hover {
     @if $button-hover-colour {
       background-color: $button-hover-colour;
