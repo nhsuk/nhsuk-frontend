@@ -222,7 +222,14 @@ $expander-icon-size: $nhsuk-expander-icon-size;
       border-bottom: $nhsuk-expander-border-bottom-width solid $nhsuk-expander-border-colour;
       background-color: $nhsuk-card-background-colour;
 
-      @include nhsuk-responsive-padding(5);
+      @include nhsuk-responsive-padding(5, "top", $adjustment: - $nhsuk-expander-border-width);
+      @include nhsuk-responsive-padding(5, "bottom", $adjustment: - $nhsuk-border-width);
+      @include nhsuk-responsive-padding(
+        5,
+        ("left", "right"),
+        $adjustment: - $nhsuk-expander-border-width,
+        $unit: "rem"
+      );
     }
 
     .nhsuk-details__summary:hover,
@@ -243,7 +250,13 @@ $expander-icon-size: $nhsuk-expander-icon-size;
       border: $nhsuk-expander-border-width solid $nhsuk-expander-border-colour;
       border-top: 0;
 
-      @include nhsuk-responsive-padding(5, ("bottom", "left", "right"));
+      @include nhsuk-responsive-padding(5, "bottom", $adjustment: - $nhsuk-expander-border-width);
+      @include nhsuk-responsive-padding(
+        5,
+        ("left", "right"),
+        $adjustment: - $nhsuk-expander-border-width,
+        $unit: "rem"
+      );
     }
 
     // Hack to support Internet Explorer 11
@@ -264,7 +277,7 @@ $expander-icon-size: $nhsuk-expander-icon-size;
       border-bottom-width: $nhsuk-expander-border-bottom-width;
 
       .nhsuk-details__summary {
-        @include nhsuk-responsive-padding(5, "bottom");
+        @include nhsuk-responsive-padding(5, "bottom", $adjustment: - $nhsuk-expander-border-width);
       }
 
       .nhsuk-details__summary::before,
