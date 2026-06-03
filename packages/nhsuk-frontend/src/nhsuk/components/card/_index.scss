@@ -70,8 +70,7 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
   }
 
   .nhsuk-card .nhsuk-image__caption {
-    @include nhsuk-responsive-padding(5, "left");
-    @include nhsuk-responsive-padding(5, "right");
+    @include nhsuk-responsive-padding(5, ("left", "right"));
   }
 
   .nhsuk-card__heading {
@@ -532,7 +531,7 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
   .nhsuk-card--primary > .nhsuk-card__content,
   // Deprecated, to be removed in v11.0
   .nhsuk-card__content--primary {
-    @include nhsuk-responsive-padding(5, "right", $adjustment: nhsuk-spacing(7), $unit: "rem");
+    @include nhsuk-responsive-padding(5, "right", $adjustment: $nhsuk-icon-size-large + nhsuk-spacing(3), $unit: "rem");
 
     @include nhsuk-media-query($from: desktop) {
       height: 100%;
