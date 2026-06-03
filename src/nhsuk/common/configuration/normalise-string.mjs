@@ -14,14 +14,16 @@
  * @returns Normalised data
  */
 export function normaliseString(value, property) {
-  if (!isValid(value)) {
+  let outputType = property?.type
+
+  if (
+    !isValid(value) ||
+    (outputType && !['string', 'number', 'boolean'].includes(outputType))
+  ) {
     return
   }
 
   const trimmedValue = value.toString().trim()
-
-  let output
-  let outputType = property?.type
 
   // No schema type set? Determine automatically
   if (!outputType) {
@@ -35,6 +37,8 @@ export function normaliseString(value, property) {
       outputType = 'number'
     }
   }
+
+  let output
 
   switch (outputType) {
     case 'boolean':

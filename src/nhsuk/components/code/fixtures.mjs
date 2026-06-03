@@ -39,6 +39,22 @@ const fixtures = {
       }
     ]
   },
+  'with button double click prevented': {
+    context: {
+      text: 'This is a plain text code block',
+      button: {
+        preventDoubleClick: true
+      }
+    }
+  },
+  'with button double click not prevented': {
+    context: {
+      text: 'This is a plain text code block',
+      button: {
+        preventDoubleClick: false
+      }
+    }
+  },
   'without border': {
     context: {
       text: 'This is a plain text code block',

@@ -29,7 +29,7 @@ const options = {
     type: 'string',
     required: false,
     description:
-      'Size of the heading – `"xss"`, `"xs"`, `"s"`, `"m"`, `"l"` or `"xl"`.',
+      'Size of the heading – `"xxs"`, `"xs"`, `"s"`, `"m"`, `"l"` or `"xl"`.',
     released: '10.3.0'
   },
   headingLevel: {

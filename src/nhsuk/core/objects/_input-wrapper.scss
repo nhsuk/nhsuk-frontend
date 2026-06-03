@@ -5,6 +5,10 @@
   .nhsuk-input-wrapper {
     display: flex;
 
+    // Prevent users from selecting wrapper inputs
+    // e.g. When double clicking a disabled button
+    user-select: none;
+
     .nhsuk-input,
     .nhsuk-select,
     .nhsuk-button {
@@ -21,19 +25,20 @@
       flex: 0 1 auto;
     }
 
+    .nhsuk-input--error,
     .nhsuk-input:focus {
-      // Hack to stop focus style being overlapped by the suffix
+      // Hack to stop error and focus styles being overlapped by the suffix
       z-index: 1;
     }
 
-    // Remove margin from button when last, but reserve space for button shadow
-    .nhsuk-button:last-child {
+    // Remove margin from buttons when stacked, but reserve space for button shadow
+    .nhsuk-button {
       margin-bottom: $nhsuk-button-shadow-size;
     }
 
     // Split prefix/suffix onto separate lines on narrow screens
     @include nhsuk-media-query($until: mobile) {
-      display: block;
+      flex-direction: column;
 
       .nhsuk-input {
         // Set max-width to override potential width override class on the input
@@ -66,9 +71,11 @@
 
         // Buttons are normally 100% wide on mobile, but we don't want that here
         width: auto;
+      }
 
-        // Move spacing from top to left but reserve space for button shadow
-        margin-bottom: $nhsuk-button-shadow-size;
+      // Remove gap with preceding hidden button
+      .nhsuk-button[hidden] + * {
+        margin-left: 0;
       }
     }
   }

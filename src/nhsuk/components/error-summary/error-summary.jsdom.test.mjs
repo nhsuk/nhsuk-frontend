@@ -27,7 +27,7 @@ describe('Error summary', () => {
     document.body.innerHTML = outdent`
       <form method="post" novalidate>
         ${components.render('error-summary', examples[example])}
-        ${components.render('date-input', dateInputExamples['with errors and hint'])}
+        ${components.render('date-input', dateInputExamples['with error message and hint'])}
       </form>
     `
 

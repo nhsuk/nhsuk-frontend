@@ -1,3 +1,4 @@
+import { createEvent, fireEvent } from '@testing-library/dom'
 import { userEvent } from '@testing-library/user-event'
 
 import { components } from '#lib'
@@ -121,13 +122,29 @@ describe('Button', () => {
   })
 
   describe('Nunjucks configuration', () => {
-    it('configures prevent double click explicitly enabled', () => {
+    it('configures prevent double click enabled', () => {
       initExample('with double click prevented')
 
       const button = new Button($root)
       expect(button.config).toEqual({
         preventDoubleClick: true
       })
+
+      const clickEvent1 = createEvent.click($root)
+      const clickEvent2 = createEvent.click($root)
+
+      jest.spyOn(clickEvent1, 'preventDefault')
+      jest.spyOn(clickEvent2, 'preventDefault')
+
+      // Trigger double click
+      fireEvent($root, clickEvent1)
+      fireEvent($root, clickEvent2)
+
+      // Click 1 not prevented
+      expect(clickEvent1.preventDefault).not.toHaveBeenCalled()
+
+      // Click 2 prevented
+      expect(clickEvent2.preventDefault).toHaveBeenCalled()
     })
 
     it('configures prevent double click disabled', () => {
@@ -137,6 +154,22 @@ describe('Button', () => {
       expect(button.config).toEqual({
         preventDoubleClick: false
       })
+
+      const clickEvent1 = createEvent.click($root)
+      const clickEvent2 = createEvent.click($root)
+
+      jest.spyOn(clickEvent1, 'preventDefault')
+      jest.spyOn(clickEvent2, 'preventDefault')
+
+      // Trigger double click
+      fireEvent($root, clickEvent1)
+      fireEvent($root, clickEvent2)
+
+      // Click 1 not prevented
+      expect(clickEvent1.preventDefault).not.toHaveBeenCalled()
+
+      // Click 2 not prevented
+      expect(clickEvent2.preventDefault).not.toHaveBeenCalled()
     })
 
     it('ignores unknown data attributes', () => {

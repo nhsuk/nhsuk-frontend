@@ -1,0 +1,133 @@
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+@use "../../core/helpers" as *;
+@use "../button" as *;
+@forward "../../core/styles/icons";
+@forward "../button";
+@forward "../input";
+
+////
+/// Search input component
+///
+/// @group components/search-input
+////
+
+@include nhsuk-exports("nhsuk/components/search-input") {
+  .nhsuk-search-input__wrapper {
+    flex-direction: row;
+    align-items: flex-start;
+
+    // Remove unnecessary margin
+    .nhsuk-search-input__button {
+      margin-left: 0;
+    }
+
+    @include nhsuk-media-query($until: mobile) {
+      // Override input wrapper prefix and suffix to stay inline
+      .nhsuk-input-wrapper__prefix,
+      .nhsuk-input-wrapper__suffix {
+        display: flex;
+        height: nhsuk-px-to-rem(40px);
+        white-space: normal;
+      }
+
+      // Override input wrapper prefix border removal
+      .nhsuk-input-wrapper__prefix {
+        margin-left: nhsuk-spacing(2);
+        border-right-width: 0;
+        border-bottom-width: $nhsuk-border-width-form-element;
+
+        &:first-child {
+          margin-left: 0;
+        }
+
+        // Remove left margin when preceded by a prefix
+        & + .nhsuk-input {
+          margin-left: 0;
+        }
+      }
+
+      // Override input wrapper suffix border removal
+      .nhsuk-input-wrapper__suffix {
+        border-top-width: $nhsuk-border-width-form-element;
+        border-left-width: 0;
+      }
+
+      // Duplicate input wrapper margins to apply them below mobile width
+      .nhsuk-input,
+      .nhsuk-select,
+      .nhsuk-button {
+        margin-top: 0;
+        margin-left: nhsuk-spacing(2);
+
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+
+      // Duplicate input wrapper button styles to apply them below mobile width
+      .nhsuk-button {
+        flex-shrink: 0;
+        width: auto;
+      }
+
+      // Remove unnecessary margin
+      .nhsuk-search-input__button {
+        margin-left: 0;
+      }
+    }
+  }
+
+  .nhsuk-search-input__input {
+    // Hide border when adjacent to button
+    margin-right: -$nhsuk-border-width-form-element;
+
+    // But reveal border when adjacent to a suffix
+    & + .nhsuk-input-wrapper__suffix {
+      margin-right: -$nhsuk-border-width-form-element;
+      margin-left: $nhsuk-border-width-form-element;
+    }
+  }
+
+  .nhsuk-search-input__button {
+    height: nhsuk-px-to-rem(32px + $nhsuk-button-shadow-size);
+
+    .nhsuk-input--large ~ & {
+      height: nhsuk-px-to-rem(40px + $nhsuk-button-shadow-size);
+    }
+
+    // Prevent height change when pressed
+    &:active,
+    &:active:focus {
+      top: 0;
+      height: nhsuk-px-to-rem(36px + $nhsuk-button-shadow-size);
+      margin-bottom: 0;
+      // stylelint-disable-next-line declaration-no-important
+      box-shadow: none !important;
+
+      .nhsuk-input--large ~ & {
+        height: nhsuk-px-to-rem(48px);
+      }
+    }
+
+    // Remove border radius from left side
+    &,
+    &::before,
+    &::after {
+      border-radius: 0 nhsuk-px-to-rem($nhsuk-border-radius) nhsuk-px-to-rem($nhsuk-border-radius) 0;
+    }
+
+    // Remove inner box shadow from left side
+    &:not(:focus)::after {
+      left: -2px;
+    }
+
+    @include nhsuk-media-query($from: tablet) {
+      // Prevent height change when pressed
+      .nhsuk-input--large ~ &:active,
+      .nhsuk-input--large ~ &:active:focus {
+        height: nhsuk-px-to-rem(60px);
+      }
+    }
+  }
+}

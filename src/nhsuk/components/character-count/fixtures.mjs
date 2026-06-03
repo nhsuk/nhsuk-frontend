@@ -22,6 +22,22 @@ const fixtures = {
       selector: '.nhsuk-textarea'
     }
   },
+  'disabled': {
+    context: {
+      label: {
+        text: 'Can you provide more detail?',
+        size: 'l',
+        isPageHeading: true
+      },
+      hint: {
+        text: 'Do not include personal information like your name, date of birth or NHS number'
+      },
+      name: 'example',
+      maxlength: 200,
+      disabled: true
+    },
+    screenshot: true
+  },
   'with hint': {
     context: {
       label: {
@@ -51,10 +67,10 @@ const fixtures = {
       name: 'example',
       maxlength: 350,
       value:
-        'A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels. They make sure appropriate content is shown to a user in the right place and in the best format.'
+        '👩🏻‍🚀 A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels. They make sure appropriate content is shown to a user in the right place and in the best format.'
     }
   },
-  'with hint and error': {
+  'with error message and hint': {
     context: {
       label: {
         text: 'Enter a job description',
@@ -71,25 +87,25 @@ const fixtures = {
       name: 'example',
       maxlength: 350,
       value:
-        'A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels. They make sure appropriate content is shown to a user in the right place and in the best format.'
+        '👩🏻‍🚀 A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels. They make sure appropriate content is shown to a user in the right place and in the best format.'
     },
     screenshot: {
       states: ['focus'],
       selector: '.nhsuk-textarea'
     }
   },
-  'with default value': {
+  'with value': {
     context: {
       label: {
         text: 'Enter a job description',
         size: 'l',
         isPageHeading: true
       },
-      id: 'with-default-value',
+      id: 'with-value',
       name: 'example',
       maxlength: 350,
       value:
-        'A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels.'
+        '👩🏻‍🚀 A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels.'
     }
   },
   'with custom rows': {
@@ -177,7 +193,7 @@ const fixtures = {
       hidden: true
     }
   },
-  'with word count': {
+  'with maxwords': {
     context: {
       label: {
         text: 'Enter a job description',
@@ -187,9 +203,146 @@ const fixtures = {
       id: 'with-word-count',
       name: 'example',
       maxwords: 150
+    }
+  },
+  "with count type 'length'": {
+    context: {
+      label: {
+        text: 'Enter a job description',
+        size: 'l',
+        isPageHeading: true
+      },
+      id: 'with-length-count-type',
+      name: 'example',
+      countType: 'length',
+      maxlength: 200
+    }
+  },
+  "with count type 'characters'": {
+    context: {
+      label: {
+        text: 'Enter a job description',
+        size: 'l',
+        isPageHeading: true
+      },
+      id: 'with-characters-count-type',
+      name: 'example',
+      countType: 'characters',
+      maxlength: 200
+    }
+  },
+  "with count type 'characters' and error message": {
+    context: {
+      label: {
+        text: 'Enter a job description',
+        size: 'l',
+        isPageHeading: true
+      },
+      errorMessage: {
+        text: 'Job description must be 200 characters or less'
+      },
+      id: 'with-characters-count-type-error-message',
+      name: 'example',
+      countType: 'characters',
+      maxlength: 350,
+      value:
+        '👩🏻‍🚀 A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels. They make sure appropriate content is shown to a user in the right place and in the best format.'
+    }
+  },
+  "with count type 'characters' and value": {
+    context: {
+      label: {
+        text: 'Enter a job description',
+        size: 'l',
+        isPageHeading: true
+      },
+      id: 'with-characters-count-type-value',
+      name: 'example',
+      countType: 'characters',
+      maxlength: 350,
+      value:
+        '👩🏻‍🚀 A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels.'
+    }
+  },
+  "with count type 'characters' and threshold": {
+    context: {
+      label: {
+        text: 'Enter a job description',
+        size: 'l',
+        isPageHeading: true
+      },
+      id: 'with-characters-count-type-threshold',
+      name: 'example',
+      countType: 'characters',
+      value:
+        'Type another letter into this field after this message to see the threshold feature',
+      maxlength: 112,
+      threshold: 75
+    }
+  },
+  "with count type 'words'": {
+    context: {
+      label: {
+        text: 'Enter a job description',
+        size: 'l',
+        isPageHeading: true
+      },
+      id: 'with-words-count-type',
+      name: 'example',
+      countType: 'words',
+      maxlength: 50
     },
     screenshot: {
       viewports: ['tablet']
+    }
+  },
+  "with count type 'words' and error message": {
+    context: {
+      label: {
+        text: 'Enter a job description',
+        size: 'l',
+        isPageHeading: true
+      },
+      errorMessage: {
+        text: 'Job description must be 40 words or less'
+      },
+      id: 'with-words-count-type-error-message',
+      name: 'example',
+      countType: 'words',
+      maxlength: 51,
+      value:
+        '👩🏻‍🚀 A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels. They make sure appropriate content is shown to a user in the right place and in the best format.'
+    }
+  },
+  "with count type 'words' and threshold": {
+    context: {
+      label: {
+        text: 'Enter a job description',
+        size: 'l',
+        isPageHeading: true
+      },
+      id: 'with-words-count-type-threshold',
+      name: 'example',
+      countType: 'words',
+      value:
+        'Type another word into this field after this message to see the threshold feature',
+      maxlength: 51,
+      threshold: 30
+    }
+  },
+  "with count type 'words' and value": {
+    context: {
+      label: {
+        text: 'Enter a job description',
+        size: 'l',
+        isPageHeading: true
+      },
+      id: 'with-words-count-type-value',
+      name: 'example',
+      countType: 'words',
+      maxlength: 51,
+      value:
+        '👩🏻‍🚀 A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels.'
     }
   },
   'with threshold': {

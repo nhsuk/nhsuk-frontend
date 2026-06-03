@@ -158,6 +158,12 @@ const options = {
       'Optional fixed width for the text input component – `2`, `3`, `4`, `5`, `10`, `20` or `30`.',
     released: '10.4.0'
   },
+  large: {
+    type: 'boolean',
+    required: false,
+    description: 'If set to `true`, larger input size will be used.',
+    released: '10.5.0'
+  },
   formGroup: {
     type: 'object',
     required: false,
@@ -244,7 +250,7 @@ const options = {
     type: 'string',
     required: false,
     description:
-      'Attribute to provide a regular expression pattern, used to match allowed character combinations for the input value.',
+      'Attribute to [provide a regular expression pattern](https://html.spec.whatwg.org/multipage/input.html#the-pattern-attribute), used to match allowed character combinations for the input value.',
     released: '2.1.0'
   },
   placeholder: {

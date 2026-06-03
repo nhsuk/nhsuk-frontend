@@ -3,6 +3,8 @@ import { mockResizeObserver } from 'jsdom-testing-mocks'
 
 import { components } from '#lib'
 
+import { createAll } from '../../index.mjs'
+import { Button } from '../button/button.mjs'
 import { Code } from './code.mjs'
 import { examples } from './fixtures.mjs'
 
@@ -190,6 +192,36 @@ describe('Code', () => {
   })
 
   describe('Nunjucks configuration', () => {
+    it('configures prevent double click enabled', async () => {
+      initExample('with button double click prevented')
+      createAll(Button)
+
+      const component = new Code($root)
+      expect($button.dataset).toHaveProperty('preventDoubleClick', 'true')
+
+      jest.spyOn(component, 'copy')
+
+      // Click to copy code multiple times
+      await user.dblClick($button)
+
+      expect(component.copy).toHaveBeenCalledTimes(1)
+    })
+
+    it('configures prevent double click disabled', async () => {
+      initExample('with button double click not prevented')
+      createAll(Button)
+
+      const component = new Code($root)
+      expect($button.dataset).toHaveProperty('preventDoubleClick', 'false')
+
+      jest.spyOn(component, 'copy')
+
+      // Click to copy code multiple times
+      await user.dblClick($button)
+
+      expect(component.copy).toHaveBeenCalledTimes(2)
+    })
+
     it('ignores unknown data attributes', () => {
       document.body.innerHTML = components.render('code', {
         context: {
@@ -242,7 +274,7 @@ describe('Code', () => {
       initExample('default')
     })
 
-    describe('i18n', () => {
+    describe('during initialisation', () => {
       it('overrides the default translation keys', () => {
         const component = new Code($root, {
           i18n: {

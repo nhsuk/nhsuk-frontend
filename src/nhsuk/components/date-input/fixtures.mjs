@@ -20,6 +20,120 @@ const fixtures = {
     },
     screenshot: true
   },
+  'disabled': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'What is your date of birth?',
+          size: 'l',
+          isPageHeading: true
+        }
+      },
+      hint: {
+        text: 'For example, 31 3 1980'
+      },
+      id: 'example',
+      disabled: true
+    },
+    screenshot: true
+  },
+  'disabled with enabled input': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'What is your date of birth?',
+          size: 'l',
+          isPageHeading: true
+        }
+      },
+      hint: {
+        text: 'For example, 31 3 1980'
+      },
+      id: 'example',
+      disabled: true,
+      year: {
+        disabled: false
+      }
+    }
+  },
+  'disabled input': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'What is your date of birth?',
+          size: 'l',
+          isPageHeading: true
+        }
+      },
+      hint: {
+        text: 'For example, 31 3 1980'
+      },
+      id: 'example',
+      year: {
+        disabled: true
+      }
+    }
+  },
+  'disabled input (using items)': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'What is your date of birth?',
+          size: 'l',
+          isPageHeading: true
+        }
+      },
+      hint: {
+        text: 'For example, 31 3 1980'
+      },
+      id: 'example',
+      items: [
+        {
+          name: 'day',
+          width: 2
+        },
+        {
+          name: 'month',
+          width: 2
+        },
+        {
+          name: 'year',
+          width: 4,
+          disabled: true
+        }
+      ]
+    }
+  },
+  'with translations': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'Beth yw eich dyddiad geni?',
+          size: 'l',
+          isPageHeading: true
+        }
+      },
+      hint: {
+        text: 'Er enghraifft, 31 3 1980'
+      },
+      id: 'example',
+      day: {
+        label: {
+          text: 'Dydd'
+        }
+      },
+      month: {
+        label: {
+          text: 'Mis'
+        }
+      },
+      year: {
+        label: {
+          text: 'Blwyddyn'
+        }
+      }
+    }
+  },
   'with values': {
     context: {
       fieldset: {
@@ -53,6 +167,22 @@ const fixtures = {
         text: 'For example, 5 12'
       },
       id: 'example',
+      year: false
+    }
+  },
+  'day and month (using items)': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'What is your birthday?',
+          size: 'l',
+          isPageHeading: true
+        }
+      },
+      hint: {
+        text: 'For example, 5 12'
+      },
+      id: 'example',
       items: [
         {
           name: 'day',
@@ -65,7 +195,7 @@ const fixtures = {
       ]
     }
   },
-  'day and month (empty item)': {
+  'day and month (with empty item)': {
     context: {
       fieldset: {
         legend: {
@@ -104,6 +234,22 @@ const fixtures = {
         text: 'For example, 11 2023'
       },
       id: 'example',
+      day: false
+    }
+  },
+  'month and year (using items)': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'When did you start your job?',
+          size: 'l',
+          isPageHeading: true
+        }
+      },
+      hint: {
+        text: 'For example, 11 2023'
+      },
+      id: 'example',
       items: [
         {
           name: 'month',
@@ -116,7 +262,7 @@ const fixtures = {
       ]
     }
   },
-  'month and year (empty item)': {
+  'month and year (with empty item)': {
     context: {
       fieldset: {
         legend: {
@@ -142,6 +288,54 @@ const fixtures = {
       ]
     }
   },
+  'month and year with fields': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'When did you start your job?',
+          size: 'l',
+          isPageHeading: true
+        }
+      },
+      hint: {
+        text: 'For example, 11 2023'
+      },
+      id: 'example',
+      day: false,
+      month: {
+        value: '11'
+      },
+      year: {
+        value: '2023'
+      }
+    }
+  },
+  'month and year with fields overriding values': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'When did you start your job?',
+          size: 'l',
+          isPageHeading: true
+        }
+      },
+      hint: {
+        text: 'For example, 11 2023'
+      },
+      id: 'example',
+      day: false,
+      month: {
+        value: '11'
+      },
+      year: {
+        value: '2023'
+      },
+      values: {
+        month: '8',
+        year: '2024'
+      }
+    }
+  },
   'month and year with values': {
     context: {
       fieldset: {
@@ -155,20 +349,11 @@ const fixtures = {
         text: 'For example, 11 2023'
       },
       id: 'example',
+      day: false,
       values: {
         month: '8',
         year: '2024'
-      },
-      items: [
-        {
-          name: 'month',
-          width: 2
-        },
-        {
-          name: 'year',
-          width: 4
-        }
-      ]
+      }
     }
   },
   'legend': {
@@ -254,6 +439,30 @@ const fixtures = {
         text: 'For example, 31 3 1980'
       },
       id: 'example',
+      day: {
+        autocomplete: 'bday-day'
+      },
+      month: {
+        autocomplete: 'bday-month'
+      },
+      year: {
+        autocomplete: 'bday-year'
+      }
+    }
+  },
+  'with autocomplete values (using items)': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'What is your date of birth?',
+          size: 'l',
+          isPageHeading: true
+        }
+      },
+      hint: {
+        text: 'For example, 31 3 1980'
+      },
+      id: 'example',
       items: [
         {
           name: 'day',
@@ -289,7 +498,7 @@ const fixtures = {
       namePrefix: 'example'
     }
   },
-  'with errors only': {
+  'with error message': {
     context: {
       fieldset: {
         legend: {
@@ -300,6 +509,58 @@ const fixtures = {
       },
       errorMessage: {
         text: 'Enter your date of birth'
+      },
+      id: 'example'
+    }
+  },
+  'with error message and hint': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'What is your date of birth?',
+          size: 'l',
+          isPageHeading: true
+        }
+      },
+      hint: {
+        text: 'For example, 31 3 1980'
+      },
+      errorMessage: {
+        text: 'Enter your date of birth'
+      },
+      id: 'example'
+    },
+    screenshot: true
+  },
+  'with errors only': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'What is your date of birth?',
+          size: 'l',
+          isPageHeading: true
+        }
+      },
+      id: 'example',
+      day: {
+        error: true
+      },
+      month: {
+        error: true
+      },
+      year: {
+        error: true
+      }
+    }
+  },
+  'with errors only (using items)': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'What is your date of birth?',
+          size: 'l',
+          isPageHeading: true
+        }
       },
       id: 'example',
       items: [
@@ -321,7 +582,7 @@ const fixtures = {
       ]
     }
   },
-  'with errors and hint': {
+  'with error on day input': {
     context: {
       fieldset: {
         legend: {
@@ -334,30 +595,21 @@ const fixtures = {
         text: 'For example, 31 3 1980'
       },
       errorMessage: {
-        text: 'Enter your date of birth'
+        text: 'Date of birth must include a day'
       },
       id: 'example',
-      items: [
-        {
-          name: 'day',
-          width: 2,
-          error: true
-        },
-        {
-          name: 'month',
-          width: 2,
-          error: true
-        },
-        {
-          name: 'year',
-          width: 4,
-          error: true
-        }
-      ]
-    },
-    screenshot: true
+      day: {
+        error: true
+      },
+      month: {
+        value: '3'
+      },
+      year: {
+        value: '1980'
+      }
+    }
   },
-  'with error on day input': {
+  'with error on day input (using items)': {
     context: {
       fieldset: {
         legend: {
@@ -427,7 +679,61 @@ const fixtures = {
       ]
     }
   },
+  'with error on month input (using items)': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'What is your date of birth?',
+          size: 'l',
+          isPageHeading: true
+        }
+      },
+      hint: {
+        text: 'For example, 31 3 1980'
+      },
+      errorMessage: {
+        text: 'Date of birth must include a month'
+      },
+      id: 'example',
+      day: {
+        value: '31'
+      },
+      month: {
+        error: true
+      },
+      year: {
+        value: '1980'
+      }
+    }
+  },
   'with error on year input': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'What is your date of birth?',
+          size: 'l',
+          isPageHeading: true
+        }
+      },
+      hint: {
+        text: 'For example, 31 3 1980'
+      },
+      errorMessage: {
+        text: 'Date of birth must include a year'
+      },
+      id: 'example',
+      day: {
+        value: '31'
+      },
+      month: {
+        value: '3'
+      },
+      year: {
+        error: true
+      }
+    }
+  },
+  'with error on year input (using items)': {
     context: {
       fieldset: {
         legend: {

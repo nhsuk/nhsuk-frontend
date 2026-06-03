@@ -171,7 +171,7 @@
     float: left; // Float is ignored if flex is active for prev/next links
 
     text-align: center;
-    @include nhsuk-font(19);
+    @include nhsuk-font-size(19);
 
     &:hover {
       background-color: nhsuk-colour("grey-4");
@@ -222,7 +222,7 @@
   // Current number
   .nhsuk-pagination--numbered .nhsuk-pagination__item--current {
     background-color: nhsuk-colour("blue");
-    font-weight: $nhsuk-font-weight-bold;
+    @include nhsuk-typography-weight-bold;
 
     .nhsuk-pagination__link {
       @include nhsuk-link-style-reverse;
@@ -234,8 +234,8 @@
   }
 
   .nhsuk-pagination--numbered .nhsuk-pagination__item--ellipsis {
-    @include nhsuk-typography-weight-bold;
     color: $nhsuk-secondary-text-colour;
+    @include nhsuk-typography-weight-bold;
 
     // Remove hover state for ellipsis items as they don't contain links
     &:hover {

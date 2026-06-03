@@ -12,7 +12,7 @@
 
 // NHS pages have a grey background, so we need a slightly darker colour for the hover
 // This produces 1.1:1 contrast, the same as GOV.UK’s
-$nhsuk-task-list-hover-colour: color.adjust(nhsuk-colour("grey-5"), $lightness: -6%);
+$nhsuk-task-list-hover-colour: nhsuk-colour-compatible(color.adjust(nhsuk-colour("grey-5"), $lightness: -6%));
 
 @include nhsuk-exports("nhsuk/components/task-list") {
   .nhsuk-task-list {

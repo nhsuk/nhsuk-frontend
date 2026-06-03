@@ -110,6 +110,10 @@ export class PasswordInput extends ConfigurableComponent {
    * @param {MouseEvent} event - Click event
    */
   toggle(event) {
+    if (event.defaultPrevented) {
+      return
+    }
+
     event.preventDefault()
 
     // If on this click, the field is type="password", show the value

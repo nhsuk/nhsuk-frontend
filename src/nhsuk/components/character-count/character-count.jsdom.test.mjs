@@ -1,10 +1,13 @@
 import { within } from '@testing-library/dom'
+import { userEvent } from '@testing-library/user-event'
 import { outdent } from 'outdent'
 
 import { components } from '#lib'
 
 import { CharacterCount } from './character-count.mjs'
 import { examples } from './fixtures.mjs'
+
+const user = userEvent.setup()
 
 describe('Character count', () => {
   /** @type {HTMLElement} */
@@ -33,6 +36,8 @@ describe('Character count', () => {
     $description = document.getElementById(`${$textarea.id}-info`)
 
     jest.spyOn($textarea, 'addEventListener')
+    jest.spyOn(window, 'addEventListener')
+    jest.spyOn(console, 'warn').mockImplementation()
   }
 
   beforeEach(() => {
@@ -40,11 +45,22 @@ describe('Character count', () => {
   })
 
   describe('Initialisation via class', () => {
+    /** @type {typeof Intl.Segmenter} */
+    let Segmenter
+
+    beforeEach(() => {
+      Segmenter = Intl.Segmenter
+    })
+
+    afterEach(() => {
+      Object.assign(Intl, { Segmenter })
+    })
+
     it('should add event listeners', () => {
       new CharacterCount($root)
 
       expect($textarea.addEventListener).toHaveBeenCalledWith(
-        'keyup',
+        'input',
         expect.any(Function)
       )
 
@@ -55,6 +71,11 @@ describe('Character count', () => {
 
       expect($textarea.addEventListener).toHaveBeenCalledWith(
         'blur',
+        expect.any(Function)
+      )
+
+      expect(window.addEventListener).toHaveBeenCalledWith(
+        'pageshow',
         expect.any(Function)
       )
     })
@@ -113,6 +134,31 @@ describe('Character count', () => {
       )
     })
 
+    it('should throw without Intl.Segmenter support', () => {
+      // @ts-expect-error The operand of a 'delete' operator cannot be a read-only property
+      delete Intl.Segmenter
+
+      expect(() => {
+        new CharacterCount($root, {
+          countType: 'characters'
+        })
+      }).toThrow(
+        `${CharacterCount.moduleName}: Support for "Intl.Segmenter" required`
+      )
+    })
+
+    it('should not throw without Intl.Segmenter support when count function is provided', () => {
+      // @ts-expect-error The operand of a 'delete' operator cannot be a read-only property
+      delete Intl.Segmenter
+
+      expect(() => {
+        new CharacterCount($root, {
+          countType: 'characters',
+          countFunction: jest.fn()
+        })
+      }).not.toThrow()
+    })
+
     it('should throw when initialised twice', () => {
       expect(() => {
         new CharacterCount($root)
@@ -121,37 +167,134 @@ describe('Character count', () => {
         `${CharacterCount.moduleName}: Root element (\`$root\`) already initialised`
       )
     })
+
+    it('should handle deprecated methods', () => {
+      const component = new CharacterCount($root)
+
+      jest.spyOn(component, 'getCountMessage')
+      jest.spyOn(component, 'handleInput')
+      jest.spyOn(component, 'updateCount')
+      jest.spyOn(component, 'updateIfValueChanged')
+
+      expect(() => component.formattedUpdateMessage()).not.toThrow()
+      expect(() => component.handleKeyUp()).not.toThrow()
+      expect(() => component.count('')).not.toThrow()
+      expect(() => component.checkIfValueChanged()).not.toThrow()
+
+      expect(component.count('')).toBe(0)
+      expect(component.count('Existing value')).toBe(14)
+      expect(component.count('Newly updated value')).toBe(19)
+
+      expect(component.getCountMessage).toHaveBeenCalled()
+      expect(component.handleInput).toHaveBeenCalled()
+      expect(component.updateCount).toHaveBeenCalled()
+      expect(component.updateIfValueChanged).toHaveBeenCalled()
+    })
+
+    it('should handle deprecated params', async () => {
+      await user.click($textarea)
+      await user.keyboard('Existing value')
+
+      const component = new CharacterCount($root)
+
+      expect(component.getCountMessage()).toBe(
+        'You have 186 characters remaining'
+      )
+
+      // Temporarily allow deprecated `text` parameter to update count
+      // even though the textarea value has not been updated
+      component.updateCount('')
+
+      // Temporarily allow deprecated `countType = 'characters'` parameter
+      expect(component.formatCountMessage(200, 'characters')).toBe(
+        'You have 200 characters remaining'
+      )
+
+      // Temporarily allow deprecated `countType = 'length'` parameter
+      expect(component.formatCountMessage(200, 'length')).toBe(
+        'You have 200 characters remaining'
+      )
+
+      // Temporarily allow deprecated `countType = 'words'` parameter
+      expect(component.formatCountMessage(200, 'words')).toBe(
+        'You have 200 words remaining'
+      )
+    })
   })
 
   describe('Nunjucks configuration', () => {
-    it('configures the number of characters', () => {
+    it('configures `maxlength`', () => {
       const characterCount = new CharacterCount($root)
       expect(characterCount.config).toEqual({
         ...CharacterCount.defaults,
         maxlength: 200,
-        threshold: 0
+        threshold: 0,
+        countType: 'length'
       })
     })
 
-    it('configures the number of words', () => {
-      initExample('with word count')
+    it('configures `maxwords` (deprecated)', () => {
+      initExample('with maxwords')
 
       const characterCount = new CharacterCount($root)
       expect(characterCount.config).toEqual({
         ...CharacterCount.defaults,
+        maxlength: 150,
         maxwords: 150,
-        threshold: 0
+        threshold: 0,
+        countType: 'words'
+      })
+
+      expect(console.warn).toHaveBeenCalledWith(
+        `${CharacterCount.moduleName}: Option \`maxwords\` is deprecated. Use \`maxlength\` with \`countType: "words"\` instead.`
+      )
+    })
+
+    it('configures `countType: "length"`', () => {
+      initExample("with count type 'length'")
+
+      const characterCount = new CharacterCount($root)
+      expect(characterCount.config).toEqual({
+        ...CharacterCount.defaults,
+        maxlength: 200,
+        threshold: 0,
+        countType: 'length'
       })
     })
 
-    it('configures the threshold', () => {
+    it('configures `countType: "characters"`', () => {
+      initExample("with count type 'characters'")
+
+      const characterCount = new CharacterCount($root)
+      expect(characterCount.config).toEqual({
+        ...CharacterCount.defaults,
+        maxlength: 200,
+        threshold: 0,
+        countType: 'characters'
+      })
+    })
+
+    it('configures `countType: "words"`', () => {
+      initExample("with count type 'words'")
+
+      const characterCount = new CharacterCount($root)
+      expect(characterCount.config).toEqual({
+        ...CharacterCount.defaults,
+        maxlength: 50,
+        threshold: 0,
+        countType: 'words'
+      })
+    })
+
+    it('configures `threshold`', () => {
       initExample('with threshold')
 
       const characterCount = new CharacterCount($root)
       expect(characterCount.config).toEqual({
         ...CharacterCount.defaults,
         maxlength: 112,
-        threshold: 75
+        threshold: 75,
+        countType: 'length'
       })
     })
 
@@ -174,14 +317,242 @@ describe('Character count', () => {
       expect(characterCount.config).toEqual({
         ...CharacterCount.defaults,
         maxlength: 200,
-        threshold: 0
+        threshold: 0,
+        countType: 'length'
+      })
+    })
+  })
+
+  describe('JavaScript configuration', () => {
+    beforeEach(() => {
+      initExample('to configure in JavaScript')
+    })
+
+    describe('during initialisation', () => {
+      it('overrides the default translation keys', () => {
+        const component = new CharacterCount($root, {
+          maxlength: 100,
+          i18n: {
+            charactersUnderLimit: { one: 'Custom text. Count: %{count}' }
+          }
+        })
+
+        expect(component.formatCountMessage(1)).toBe('Custom text. Count: 1')
+
+        // Other keys remain untouched
+        expect(component.formatCountMessage(10)).toBe(
+          'You have 10 characters remaining'
+        )
+      })
+
+      it('uses specific translation keys when `maxlength` limit is reached', () => {
+        const component = new CharacterCount($root, {
+          maxlength: 100,
+          i18n: {
+            charactersAtLimit: 'Custom text.'
+          }
+        })
+
+        expect(component.formatCountMessage(0)).toBe('Custom text.')
+      })
+
+      it('uses specific translation keys when `maxwords` limit is reached', () => {
+        const component = new CharacterCount($root, {
+          maxwords: 100,
+          i18n: {
+            wordsAtLimit: 'Different custom text.'
+          }
+        })
+
+        expect(component.formatCountMessage(0)).toBe('Different custom text.')
+      })
+
+      it('uses existing textarea value for `maxlength` limit when initialised', async () => {
+        await user.click($textarea)
+        await user.keyboard('Existing value')
+
+        const component = new CharacterCount($root, {
+          maxlength: 100
+        })
+
+        expect(component.getCountMessage()).toBe(
+          'You have 86 characters remaining'
+        )
+      })
+
+      it('uses existing textarea value for `maxwords` limit when initialised', async () => {
+        await user.click($textarea)
+        await user.keyboard('Existing value')
+
+        const component = new CharacterCount($root, {
+          maxwords: 100
+        })
+
+        expect(component.getCountMessage()).toBe('You have 98 words remaining')
+      })
+
+      it('uses current textarea value for `maxlength` limit via back/forward navigation', async () => {
+        const component = new CharacterCount($root, {
+          maxlength: 100
+        })
+
+        await user.click($textarea)
+        await user.keyboard('Newly updated value')
+
+        // Trigger back/forward navigation
+        window.dispatchEvent(
+          new PageTransitionEvent('pageshow', {
+            persisted: true
+          })
+        )
+
+        expect(component.getCountMessage()).toBe(
+          'You have 81 characters remaining'
+        )
+      })
+
+      it('uses current textarea value for `maxwords` limit via back/forward navigation', async () => {
+        const component = new CharacterCount($root, {
+          maxwords: 100
+        })
+
+        await user.click($textarea)
+        await user.keyboard('Newly updated value')
+
+        // Trigger back/forward navigation
+        window.dispatchEvent(
+          new PageTransitionEvent('pageshow', {
+            persisted: true
+          })
+        )
+
+        expect(component.getCountMessage()).toBe('You have 97 words remaining')
+      })
+
+      it('uses custom `countFunction` for `maxlength` limit when set', async () => {
+        const component = new CharacterCount($root, {
+          maxlength: 100,
+          countFunction: jest.fn().mockReturnValue(10)
+        })
+
+        $textarea.focus()
+        await user.keyboard('Newly updated value')
+
+        expect(component.config.countFunction).toHaveBeenLastCalledWith(
+          'Newly updated value',
+          {
+            config: component.config,
+            segmenter: component.segmenter
+          }
+        )
+
+        expect(component.getCountMessage()).toBe(
+          'You have 90 characters remaining'
+        )
+      })
+
+      it('uses custom `countFunction` for `maxwords` limit when set', async () => {
+        const component = new CharacterCount($root, {
+          maxwords: 100,
+          countFunction: jest.fn().mockReturnValue(10)
+        })
+
+        $textarea.focus()
+        await user.keyboard('Newly updated value')
+
+        expect(component.config.countFunction).toHaveBeenLastCalledWith(
+          'Newly updated value',
+          {
+            config: component.config,
+            segmenter: component.segmenter
+          }
+        )
+
+        expect(component.getCountMessage()).toBe('You have 90 words remaining')
+      })
+    })
+
+    describe('with HTML lang attribute', () => {
+      it('overrides the locale when set on the element', () => {
+        $root.setAttribute('lang', 'de')
+
+        const component = new CharacterCount($root, {
+          maxwords: 20000
+        })
+
+        expect(component.formatCountMessage(10000)).toBe(
+          'You have 10.000 words remaining'
+        )
+      })
+
+      it('overrides the locale when set on an ancestor', () => {
+        document.body.setAttribute('lang', 'de')
+
+        const component = new CharacterCount($root, {
+          maxwords: 20000
+        })
+
+        expect(component.formatCountMessage(10000)).toBe(
+          'You have 10.000 words remaining'
+        )
+      })
+    })
+
+    describe('with HTML data attributes', () => {
+      it('overrides the default translation keys', () => {
+        $root.setAttribute(
+          'data-i18n.characters-under-limit.one',
+          'Custom text. Count: %{count}'
+        )
+
+        const component = new CharacterCount($root, {
+          maxlength: 100
+        })
+
+        expect(component.formatCountMessage(1)).toBe('Custom text. Count: 1')
+
+        // Other keys remain untouched
+        expect(component.formatCountMessage(10)).toBe(
+          'You have 10 characters remaining'
+        )
+      })
+
+      it('overrides the default translation keys and configuration', () => {
+        $root.setAttribute(
+          'data-i18n.characters-under-limit.one',
+          'Custom text. Count: %{count}'
+        )
+
+        const component = new CharacterCount($root, {
+          maxlength: 100,
+          i18n: {
+            charactersUnderLimit: {
+              one: 'Different custom text. Count: %{count}'
+            }
+          }
+        })
+
+        expect(component.formatCountMessage(1)).toBe('Custom text. Count: 1')
+
+        // Other keys remain untouched
+        expect(component.formatCountMessage(-10)).toBe(
+          'You have 10 characters too many'
+        )
+
+        expect(component.formatCountMessage(0)).toBe(
+          'You have 0 characters remaining'
+        )
       })
     })
   })
 })
 
 describe('Character count: Format count message', () => {
-  let /** @type {CharacterCount} */ componentWithMaxLength
+  let /** @type {CharacterCount} */ component
+  let /** @type {CharacterCount} */ componentWithCountTypeCharacters
+  let /** @type {CharacterCount} */ componentWithCountTypeWords
+
+  // Deprecated `maxwords` option where `countType` is inferred
   let /** @type {CharacterCount} */ componentWithMaxWords
 
   beforeEach(() => {
@@ -193,6 +564,8 @@ describe('Character count: Format count message', () => {
       <body class="nhsuk-frontend-supported">
         ${components.render('character-count', example)}
         ${components.render('character-count', example)}
+        ${components.render('character-count', example)}
+        ${components.render('character-count', example)}
       </body>
     `
 
@@ -200,11 +573,21 @@ describe('Character count: Format count message', () => {
       `[data-module="${CharacterCount.moduleName}"]`
     )
 
-    componentWithMaxLength = new CharacterCount($roots[0], {
+    component = new CharacterCount($roots[0], {
       maxlength: 100
     })
 
-    componentWithMaxWords = new CharacterCount($roots[1], {
+    componentWithCountTypeCharacters = new CharacterCount($roots[1], {
+      maxlength: 100,
+      countType: 'length'
+    })
+
+    componentWithCountTypeWords = new CharacterCount($roots[2], {
+      maxlength: 100,
+      countType: 'words'
+    })
+
+    componentWithMaxWords = new CharacterCount($roots[3], {
       maxwords: 100
     })
   })
@@ -218,53 +601,38 @@ describe('Character count: Format count message', () => {
   ])(
     'outputs the expected translation for $number characters',
     ({ number, expected }) => {
+      expect(component.formatCountMessage(number)).toEqual(expected)
+
       expect(
-        componentWithMaxLength.formatCountMessage(number, 'characters')
+        componentWithCountTypeCharacters.formatCountMessage(number)
       ).toEqual(expected)
     }
   )
 
   it.each([
-    {
-      number: 1,
-      type: 'words',
-      expected: 'You have 1 word remaining'
-    },
-    {
-      number: 10,
-      type: 'words',
-      expected: 'You have 10 words remaining'
-    },
-    {
-      number: -1,
-      type: 'words',
-      expected: 'You have 1 word too many'
-    },
-    {
-      number: -10,
-      type: 'words',
-      expected: 'You have 10 words too many'
-    },
-    {
-      number: 0,
-      type: 'words',
-      expected: 'You have 0 words remaining'
-    }
+    { number: 1, expected: 'You have 1 word remaining' },
+    { number: 10, expected: 'You have 10 words remaining' },
+    { number: -1, expected: 'You have 1 word too many' },
+    { number: -10, expected: 'You have 10 words too many' },
+    { number: 0, expected: 'You have 0 words remaining' }
   ])(
     'outputs the expected translation for $number words',
     ({ number, expected }) => {
-      expect(componentWithMaxWords.formatCountMessage(number, 'words')).toEqual(
+      expect(componentWithCountTypeWords.formatCountMessage(number)).toEqual(
         expected
       )
+
+      // Deprecated `maxwords` option where `countType` is inferred
+      expect(componentWithMaxWords.formatCountMessage(number)).toEqual(expected)
     }
   )
 
   it('formats the number inserted in the message', () => {
-    expect(componentWithMaxWords.formatCountMessage(10000, 'words')).toBe(
+    expect(componentWithCountTypeWords.formatCountMessage(10000)).toBe(
       'You have 10,000 words remaining'
     )
 
-    expect(componentWithMaxWords.formatCountMessage(-10000, 'words')).toBe(
+    expect(componentWithCountTypeWords.formatCountMessage(-10000)).toBe(
       'You have 10,000 words too many'
     )
   })

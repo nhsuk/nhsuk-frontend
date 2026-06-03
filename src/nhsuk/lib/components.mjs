@@ -36,6 +36,7 @@ export function macro(component, options) {
  * @property {'array' | 'boolean' | 'integer' | 'nunjucks-block' | 'object' | 'string'} type - Option type
  * @property {boolean} required - Option required
  * @property {string} description - Option description
+ * @property {string} [alias] - Option name alias, for example an `items` array of `alias: 'input'` components
  * @property {string} [released] - Option was released in NHS.UK frontend version number
  * @property {string} [deprecated] - Option is deprecated in NHS.UK frontend version number
  * @property {true} [isComponent] - Option is another component
@@ -69,7 +70,7 @@ export function macro(component, options) {
  *
  * @typedef {object} MacroExample
  * @property {string | undefined} [description] - Example description (optional)
- * @property {{ [param: string]: unknown }} [context] - Nunjucks context object (optional)
+ * @property {MacroRenderContext} [context] - Nunjucks context object (optional)
  * @property {string | undefined} [callBlock] - Nunjucks macro `caller()` content (optional)
  * @property {never} [prefix] - Component name prefix (not available in Nunjucks macro examples)
  * @property {MacroExampleOptions} [options] - Review app example options (optional)
@@ -149,5 +150,5 @@ export function macro(component, options) {
 
 /**
  * @import { Scenario } from 'backstopjs'
- * @import { MacroRenderOptions } from '#lib'
+ * @import { MacroRenderContext, MacroRenderOptions } from '#lib'
  */

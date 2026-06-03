@@ -24,13 +24,22 @@
   .nhsuk-action-link {
     box-sizing: border-box;
     display: inline-block; // [1]
+
     position: relative; // [3]
+
     padding-left: $_small-icon-size + $_small-icon-spacing; // [2]
 
-    @include nhsuk-link-style-no-underline;
-    @include nhsuk-link-style-no-visited-state;
+    border: 0;
+
+    background: none;
+
+    text-align: left;
+
+    cursor: pointer;
 
     @include nhsuk-font(22, $weight: bold, $line-height: $_small-icon-size);
+    @include nhsuk-link-style-default;
+    @include nhsuk-link-style-no-underline;
 
     @include nhsuk-print-colour {
       @include nhsuk-link-style-text($nhsuk-print-text-colour);
@@ -54,8 +63,24 @@
       }
     }
 
+    &:focus .nhsuk-icon {
+      // stylelint-disable-next-line declaration-no-important
+      fill: $nhsuk-focus-text-colour !important;
+
+      @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+        // stylelint-disable-next-line declaration-no-important
+        fill: highlight !important;
+      }
+    }
+
     &:not(:focus):not(:hover):not(:active) .nhsuk-icon {
-      fill: nhsuk-colour("green");
+      // stylelint-disable-next-line declaration-no-important
+      fill: nhsuk-colour("green") !important;
+
+      @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+        // stylelint-disable-next-line declaration-no-important
+        fill: buttontext !important;
+      }
     }
   }
 
@@ -63,7 +88,13 @@
     @include nhsuk-link-style-reverse;
 
     &:not(:focus):not(:hover):not(:active) .nhsuk-icon {
-      fill: $nhsuk-reverse-text-colour;
+      // stylelint-disable-next-line declaration-no-important
+      fill: $nhsuk-reverse-text-colour !important;
+
+      @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+        // stylelint-disable-next-line declaration-no-important
+        fill: buttontext !important;
+      }
     }
   }
 }

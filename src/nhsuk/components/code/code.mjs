@@ -138,7 +138,13 @@ export class Code extends ConfigurableComponent {
 
     // Show the copy button
     $button.removeAttribute('hidden')
-    $button.addEventListener('click', () => this.copy())
+    $button.addEventListener('click', (event) => {
+      if (event.defaultPrevented) {
+        return
+      }
+
+      this.copy()
+    })
   }
 
   /**

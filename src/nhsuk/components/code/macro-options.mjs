@@ -70,8 +70,10 @@ const options = {
   button: {
     type: 'object',
     required: false,
-    description: 'Optional object allowing customisation of the copy button.',
+    description:
+      'Optional object allowing customisation of the copy button. The `button.attributes`, `button.html`, `button.small` and `button.variant` options are not supported.',
     released: '10.4.0',
+    isComponent: true,
     params: {
       classes: {
         type: 'string',

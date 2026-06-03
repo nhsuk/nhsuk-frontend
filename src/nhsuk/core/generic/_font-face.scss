@@ -1,6 +1,8 @@
 @use "sass:math";
 @use "../settings" as *;
 @use "../tools/exports" as *;
+@use "../tools/font-url" as *;
+@forward "../tools/font-url" show nhsuk-font-url;
 
 ////
 /// Font face
@@ -11,10 +13,6 @@
 ///
 /// @group generic
 ////
-
-@function nhsuk-font-url($filename) {
-  @return url($nhsuk-fonts-path + $filename);
-}
 
 @mixin nhsuk-font-face-frutiger {
   @at-root {

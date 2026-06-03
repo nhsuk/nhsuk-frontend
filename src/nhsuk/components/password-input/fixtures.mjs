@@ -14,6 +14,71 @@ const fixtures = {
       name: 'example'
     }
   },
+  'disabled': {
+    context: {
+      label: {
+        text: 'Password',
+        size: 'l',
+        isPageHeading: true
+      },
+      name: 'example',
+      disabled: true
+    },
+    screenshot: true
+  },
+  'disabled with enabled button': {
+    context: {
+      label: {
+        text: 'Password',
+        size: 'l',
+        isPageHeading: true
+      },
+      name: 'example',
+      disabled: true,
+      button: {
+        disabled: false
+      }
+    }
+  },
+  'disabled button': {
+    context: {
+      label: {
+        text: 'Password',
+        size: 'l',
+        isPageHeading: true
+      },
+      name: 'example',
+      button: {
+        disabled: true
+      }
+    }
+  },
+  'with button double click prevented': {
+    context: {
+      label: {
+        text: 'Password',
+        size: 'l',
+        isPageHeading: true
+      },
+      name: 'example',
+      button: {
+        preventDoubleClick: true
+      }
+    }
+  },
+  'with button double click not prevented': {
+    context: {
+      label: {
+        text: 'Password',
+        size: 'l',
+        isPageHeading: true
+      },
+      name: 'example',
+      button: {
+        preventDoubleClick: false
+      }
+    }
+  },
   'with hint': {
     context: {
       label: {
@@ -45,7 +110,7 @@ const fixtures = {
       name: 'example'
     }
   },
-  'with hint and error': {
+  'with error message and hint': {
     context: {
       label: {
         text: 'Password',
@@ -63,6 +128,48 @@ const fixtures = {
     },
     screenshot: {
       viewports: ['watch', 'mobile', 'tablet', 'desktop']
+    }
+  },
+  'with prefix': {
+    context: {
+      label: {
+        text: 'Secret code',
+        size: 'm',
+        isPageHeading: true
+      },
+      prefix: {
+        text: 'PIN'
+      },
+      id: 'with-prefix',
+      name: 'example',
+      value: '3.14159',
+      width: 5,
+      code: true,
+      button: {
+        variant: 'brand'
+      }
+    }
+  },
+  'with prefix and error message': {
+    context: {
+      label: {
+        text: 'Secret code',
+        size: 'm',
+        isPageHeading: true
+      },
+      prefix: {
+        text: 'PIN'
+      },
+      errorMessage: {
+        text: 'Enter secret code'
+      },
+      id: 'with-prefix',
+      name: 'example',
+      width: 5,
+      code: true,
+      button: {
+        variant: 'brand'
+      }
     }
   },
   'without page heading': {

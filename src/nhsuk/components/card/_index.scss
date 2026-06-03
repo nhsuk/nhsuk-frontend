@@ -224,6 +224,10 @@ $nhsuk-card-border-hover-colour: $nhsuk-secondary-border-colour;
     &:has(.nhsuk-card__heading a:hover) .nhsuk-icon,
     &:has(.nhsuk-card__link:hover) .nhsuk-icon {
       fill: $nhsuk-link-hover-colour;
+
+      @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+        fill: linktext;
+      }
     }
 
     &:active,
@@ -237,6 +241,10 @@ $nhsuk-card-border-hover-colour: $nhsuk-secondary-border-colour;
     &:has(.nhsuk-card__heading a:active) .nhsuk-icon,
     &:has(.nhsuk-card__link:active) .nhsuk-icon {
       fill: $nhsuk-link-active-colour;
+
+      @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+        fill: activetext;
+      }
     }
   }
 
@@ -529,6 +537,10 @@ $nhsuk-card-border-hover-colour: $nhsuk-secondary-border-colour;
 
       fill: $nhsuk-link-colour;
       @include nhsuk-responsive-spacing(5, "right");
+
+      @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+        fill: buttontext;
+      }
     }
   }
 

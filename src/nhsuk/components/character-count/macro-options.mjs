@@ -35,15 +35,23 @@ const options = {
     type: 'string',
     required: true,
     description:
-      'If `maxwords` is set, this is not required. The maximum number of characters. If `maxwords` is provided, the `maxlength` option will be ignored.',
+      'The maximum number of characters (or words if `countType` is set to `"words"`).',
     released: '7.0.0'
   },
   maxwords: {
     type: 'string',
     required: true,
     description:
-      'If `maxlength` is set, this is not required. The maximum number of words. If `maxwords` is provided, the `maxlength` option will be ignored.',
-    released: '7.0.0'
+      'The maximum number of words. Replaced by the `maxlength` and `countType: "words"` options.',
+    released: '7.0.0',
+    deprecated: '10.5.0'
+  },
+  countType: {
+    type: 'string',
+    required: false,
+    description:
+      'The count type used to count the text – `"length"` or `"words"`. Defaults to `"length"`.',
+    released: '10.5.0'
   },
   threshold: {
     type: 'string',
@@ -163,6 +171,19 @@ const options = {
       'Optional field to enable or disable the `spellcheck` attribute on the character count.',
     released: '7.0.0'
   },
+  disabled: {
+    type: 'boolean',
+    required: false,
+    description: 'If `true`, textarea will be disabled.',
+    released: '10.5.0'
+  },
+  autocomplete: {
+    type: 'string',
+    required: false,
+    description:
+      'Attribute to meet [WCAG success criterion 1.3.5: Identify input purpose](https://www.w3.org/WAI/WCAG22/Understanding/identify-input-purpose.html), for instance `"street-address"`. See the [Autofill section in the HTML standard](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill) for a full list of attributes that can be used.',
+    released: '10.5.0'
+  },
   countMessage: {
     type: 'object',
     required: false,
@@ -182,7 +203,7 @@ const options = {
     type: 'string',
     required: false,
     description:
-      'Message made available to assistive technologies to describe that the component accepts only a limited amount of content. It is visible on the page when JavaScript is unavailable. The component will replace the `%{count}` placeholder with the value of the `maxlength` or `maxwords` parameter.',
+      'Message made available to assistive technologies to describe that the component accepts only a limited amount of content. It is visible on the page if `countType` is not supported or JavaScript is unavailable. The component will replace the `%{count}` placeholder with the value of the `maxlength` parameter.',
     released: '10.1.0'
   }
 }

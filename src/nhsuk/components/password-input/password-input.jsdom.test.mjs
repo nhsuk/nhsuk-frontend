@@ -2,6 +2,8 @@ import { userEvent } from '@testing-library/user-event'
 
 import { components } from '#lib'
 
+import { createAll } from '../../index.mjs'
+import { Button } from '../button/button.mjs'
 import { examples } from './fixtures.mjs'
 import { PasswordInput } from './password-input.mjs'
 
@@ -153,6 +155,44 @@ describe('Password input', () => {
   })
 
   describe('Nunjucks configuration', () => {
+    it('configures prevent double click enabled', async () => {
+      initExample('with button double click prevented')
+      createAll(Button)
+
+      const component = new PasswordInput($root)
+      expect($button.dataset).toHaveProperty('preventDoubleClick', 'true')
+
+      jest.spyOn(component, 'show')
+      jest.spyOn(component, 'hide')
+
+      // Click to show password multiple times
+      await user.dblClick($button)
+
+      expect(component.show).toHaveBeenCalledTimes(1)
+      expect(component.hide).not.toHaveBeenCalled()
+
+      expect($button).toHaveAccessibleName('Hide password')
+    })
+
+    it('configures prevent double click disabled', async () => {
+      initExample('with button double click not prevented')
+      createAll(Button)
+
+      const component = new PasswordInput($root)
+      expect($button.dataset).toHaveProperty('preventDoubleClick', 'false')
+
+      jest.spyOn(component, 'show')
+      jest.spyOn(component, 'hide')
+
+      // Click to show password multiple times
+      await user.dblClick($button)
+
+      expect(component.show).toHaveBeenCalledTimes(1)
+      expect(component.hide).toHaveBeenCalledTimes(1)
+
+      expect($button).toHaveAccessibleName('Show password')
+    })
+
     it('ignores unknown data attributes', () => {
       document.body.innerHTML = components.render('password-input', {
         context: {
@@ -208,7 +248,7 @@ describe('Password input', () => {
       initExample('default')
     })
 
-    describe('i18n', () => {
+    describe('during initialisation', () => {
       it('overrides the default translation keys', () => {
         const component = new PasswordInput($root, {
           i18n: {
@@ -223,6 +263,26 @@ describe('Password input', () => {
             hidePassword: 'Custom text'
           }
         })
+      })
+
+      it('reverts the input back to password type via back/forward navigation', async () => {
+        new PasswordInput($root)
+
+        // Click to show password
+        await user.click($button)
+
+        expect($input).toHaveProperty('type', 'text')
+        expect($button).toHaveAccessibleName('Hide password')
+
+        // Trigger back/forward navigation
+        window.dispatchEvent(
+          new PageTransitionEvent('pageshow', {
+            persisted: true
+          })
+        )
+
+        expect($input).toHaveProperty('type', 'password')
+        expect($button).toHaveAccessibleName('Show password')
       })
     })
 

@@ -6,24 +6,41 @@ import {
   render
 } from '@nhsuk/frontend-helpers/puppeteer.mjs'
 
+import { Checkboxes } from './checkboxes.mjs'
 import { examples } from './fixtures.mjs'
 
 describe('Checkboxes', () => {
+  /** @type {ElementHandle<HTMLElement>} */
+  let $component
+
+  /**
+   * @template {object} HandlerContext
+   * @param {keyof typeof examples} example
+   * @param {BrowserRenderOptions<HandlerContext>} [browserOptions] - Puppeteer browser render options
+   */
+  async function initExample(example, browserOptions) {
+    await render(page, 'checkboxes', examples[example], browserOptions)
+
+    $component = /** @type {ElementHandle<HTMLElement>} */ (
+      await page.$(`[data-module="${Checkboxes.moduleName}"]`)
+    )
+  }
+
   describe('input position', () => {
     // Check that the input sits above the label, enabling its proper detection
     // when exploring by touch or using automation tools like Selenium
     it('displays the input above the label', async () => {
-      await render(page, 'checkboxes', examples.default)
+      await initExample('default')
 
       const $firstInput = /** @type {ElementHandle} */ (
         await page.$('.nhsuk-checkboxes__input')
       )
 
       const clickPosition = await $firstInput.clickablePoint()
-      const elementTagNames = await page.evaluate(
-        ({ x, y }) => document.elementsFromPoint(x, y).map((el) => el.tagName),
-        clickPosition
-      )
+
+      const elementTagNames = await page.evaluate(({ x, y }) => {
+        return document.elementsFromPoint(x, y).map(($el) => $el.tagName)
+      }, clickPosition)
 
       expect(elementTagNames[0]).toBe('INPUT')
       expect(elementTagNames[1]).toBe('LABEL')
@@ -41,23 +58,16 @@ describe('Checkboxes', () => {
       })
 
       describe('with conditional content', () => {
-        /** @type {ElementHandle} */
-        let $component
-
-        /** @type {ElementHandle[]} */
+        /** @type {ElementHandle<HTMLInputElement>[]} */
         let $inputs
 
         /** @type {ElementHandle[]} */
         let $conditionals
 
         beforeEach(async () => {
-          await render(page, 'checkboxes', examples['with conditional content'])
+          await initExample('with conditional content')
 
-          $component = /** @type {ElementHandle} */ (
-            await page.$('.nhsuk-checkboxes')
-          )
-
-          $inputs = await $component.$$('.nhsuk-checkboxes__input')
+          $inputs = await $component.$$('input.nhsuk-checkboxes__input')
           $conditionals = await $component.$$('.nhsuk-checkboxes__conditional')
         })
 
@@ -67,10 +77,11 @@ describe('Checkboxes', () => {
         })
 
         it('has no ARIA attributes applied', async () => {
-          const $inputsWithAriaExpanded = await $component?.$$(
+          const $inputsWithAriaExpanded = await $component.$$(
             '.nhsuk-checkboxes__input[aria-expanded]'
           )
-          const $inputsWithAriaControls = await $component?.$$(
+
+          const $inputsWithAriaControls = await $component.$$(
             '.nhsuk-checkboxes__input[aria-controls]'
           )
 
@@ -78,7 +89,7 @@ describe('Checkboxes', () => {
           expect($inputsWithAriaControls).toHaveLength(0)
         })
 
-        it('falls back to making all conditional content visible', async () => {
+        it('falls back to making all conditional content visible', () => {
           return Promise.all(
             $conditionals.map(async ($conditional) => {
               return expect(await isVisible($conditional)).toBe(true)
@@ -90,20 +101,13 @@ describe('Checkboxes', () => {
 
     describe('when JavaScript is available', () => {
       describe('with conditional item checked', () => {
-        /** @type {ElementHandle} */
-        let $component
-
-        /** @type {ElementHandle[]} */
+        /** @type {ElementHandle<HTMLInputElement>[]} */
         let $inputs
 
         beforeAll(async () => {
-          await render(page, 'checkboxes', examples['with pre-checked values'])
+          await initExample('with pre-checked values')
 
-          $component = /** @type {ElementHandle} */ (
-            await page.$('.nhsuk-checkboxes')
-          )
-
-          $inputs = await $component.$$('.nhsuk-checkboxes__input')
+          $inputs = await $component.$$('input.nhsuk-checkboxes__input')
         })
 
         it('has conditional content revealed that is associated with a checked input', async () => {
@@ -128,20 +132,13 @@ describe('Checkboxes', () => {
       })
 
       describe('with conditional content', () => {
-        /** @type {ElementHandle} */
-        let $component
-
-        /** @type {ElementHandle[]} */
+        /** @type {ElementHandle<HTMLInputElement>[]} */
         let $inputs
 
         beforeEach(async () => {
-          await render(page, 'checkboxes', examples['with conditional content'])
+          await initExample('with conditional content')
 
-          $component = /** @type {ElementHandle} */ (
-            await page.$('.nhsuk-checkboxes')
-          )
-
-          $inputs = await $component.$$('.nhsuk-checkboxes__input')
+          $inputs = await $component.$$('input.nhsuk-checkboxes__input')
         })
 
         it('indicates when conditional content is collapsed or revealed', async () => {
@@ -213,13 +210,9 @@ describe('Checkboxes', () => {
       })
 
       describe('with conditional content, special characters', () => {
-        it('does not error when ID of revealed content contains special characters', async () => {
+        it('does not error when ID of revealed content contains special characters', () => {
           return expect(
-            render(
-              page,
-              'checkboxes',
-              examples['with conditional content, special characters']
-            )
+            initExample('with conditional content, special characters')
           ).resolves.not.toThrow()
         })
       })
@@ -228,24 +221,13 @@ describe('Checkboxes', () => {
 
   describe('with a "none of the above" option', () => {
     describe('when JavaScript is available', () => {
-      /** @type {ElementHandle} */
-      let $component
-
-      /** @type {ElementHandle[]} */
+      /** @type {ElementHandle<HTMLInputElement>[]} */
       let $inputs
 
       beforeEach(async () => {
-        await render(
-          page,
-          'checkboxes',
-          examples['with "none of the above" option']
-        )
+        await initExample('with "none of the above" option')
 
-        $component = /** @type {ElementHandle} */ (
-          await page.$('.nhsuk-checkboxes')
-        )
-
-        $inputs = await $component.$$('.nhsuk-checkboxes__input')
+        $inputs = await $component.$$('input.nhsuk-checkboxes__input')
       })
 
       it('unchecks other checkboxes when the "none of the above" option is checked', async () => {
@@ -278,24 +260,15 @@ describe('Checkboxes', () => {
 
   describe('with a "none of the above" option and conditional content', () => {
     describe('when JavaScript is available', () => {
-      /** @type {ElementHandle} */
-      let $component
-
-      /** @type {ElementHandle[]} */
+      /** @type {ElementHandle<HTMLInputElement>[]} */
       let $inputs
 
       beforeEach(async () => {
-        await render(
-          page,
-          'checkboxes',
-          examples['with "none of the above" option, conditional content']
+        await initExample(
+          'with "none of the above" option, conditional content'
         )
 
-        $component = /** @type {ElementHandle} */ (
-          await page.$('.nhsuk-checkboxes')
-        )
-
-        $inputs = await $component.$$('.nhsuk-checkboxes__input')
+        $inputs = await $component.$$('input.nhsuk-checkboxes__input')
       })
 
       it('unchecks other checkboxes and hides conditional content when the "none of the above" option is checked', async () => {
@@ -324,26 +297,28 @@ describe('Checkboxes', () => {
 
   describe('with multiple groups and a "none of the above" option and conditional content', () => {
     describe('when JavaScript is available', () => {
-      /** @type {ElementHandle[]} */
+      /** @type {ElementHandle<HTMLInputElement>[]} */
       let $inputsPrimary
 
-      /** @type {ElementHandle[]} */
+      /** @type {ElementHandle<HTMLInputElement>[]} */
       let $inputsSecondary
 
-      /** @type {ElementHandle[]} */
+      /** @type {ElementHandle<HTMLInputElement>[]} */
       let $inputsOther
 
       beforeEach(async () => {
         await goToExample(page, 'conditional-reveals')
 
         $inputsPrimary = await page.$$(
-          '.nhsuk-checkboxes__input[id^="colour-primary"]'
+          'input.nhsuk-checkboxes__input[id^="colour-primary"]'
         )
+
         $inputsSecondary = await page.$$(
-          '.nhsuk-checkboxes__input[id^="colour-secondary"]'
+          'input.nhsuk-checkboxes__input[id^="colour-secondary"]'
         )
+
         $inputsOther = await page.$$(
-          '.nhsuk-checkboxes__input[id^="colour-other"]'
+          'input.nhsuk-checkboxes__input[id^="colour-other"]'
         )
       })
 
@@ -381,10 +356,10 @@ describe('Checkboxes', () => {
         expect(await isVisible($conditionalPrimary)).toBe(false)
       })
 
-      describe('errors at instantiation', () => {
-        it('can throw a SupportError if appropriate', async () => {
-          await expect(
-            render(page, 'checkboxes', examples.default, {
+      describe('Error handling', () => {
+        it('can throw a SupportError if appropriate', () => {
+          return expect(
+            initExample('default', {
               beforeInitialisation() {
                 document.body.classList.remove('nhsuk-frontend-supported')
               }
@@ -398,9 +373,9 @@ describe('Checkboxes', () => {
           })
         })
 
-        it('throws when initialised twice', async () => {
-          await expect(
-            render(page, 'checkboxes', examples.default, {
+        it('throws when initialised twice', () => {
+          return expect(
+            initExample('default', {
               async afterInitialisation($root) {
                 const { Checkboxes } = await import('nhsuk-frontend')
                 new Checkboxes($root)
@@ -413,9 +388,9 @@ describe('Checkboxes', () => {
           })
         })
 
-        it('throws when $root is not set', async () => {
-          await expect(
-            render(page, 'checkboxes', examples.default, {
+        it('throws when $root is not set', () => {
+          return expect(
+            initExample('default', {
               beforeInitialisation($root) {
                 $root.remove()
               }
@@ -428,9 +403,9 @@ describe('Checkboxes', () => {
           })
         })
 
-        it('throws when receiving the wrong type for $root', async () => {
-          await expect(
-            render(page, 'checkboxes', examples.default, {
+        it('throws when receiving the wrong type for $root', () => {
+          return expect(
+            initExample('default', {
               beforeInitialisation($root) {
                 // Replace with an `<svg>` element which is not an `HTMLElement` in the DOM (but an `SVGElement`)
                 $root.outerHTML = `<svg data-module="nhsuk-checkboxes"></svg>`
@@ -445,9 +420,9 @@ describe('Checkboxes', () => {
           })
         })
 
-        it('throws when the input list is empty', async () => {
-          await expect(
-            render(page, 'checkboxes', examples.default, {
+        it('throws when the input list is empty', () => {
+          return expect(
+            initExample('default', {
               beforeInitialisation($root, { selector }) {
                 $root
                   .querySelectorAll(selector)
@@ -466,9 +441,9 @@ describe('Checkboxes', () => {
           })
         })
 
-        it('throws when a conditional target element is not found', async () => {
-          await expect(
-            render(page, 'checkboxes', examples['with conditional content'], {
+        it('throws when a conditional target element is not found', () => {
+          return expect(
+            initExample('with conditional content', {
               beforeInitialisation($root, { selector }) {
                 $root.querySelector(selector)?.remove()
               },
@@ -490,5 +465,6 @@ describe('Checkboxes', () => {
 })
 
 /**
+ * @import { BrowserRenderOptions } from '@nhsuk/frontend-helpers/puppeteer.mjs'
  * @import { ElementHandle } from 'puppeteer'
  */

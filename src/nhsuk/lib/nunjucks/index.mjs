@@ -18,6 +18,22 @@ export function renderMacro(macroName, macroPath, options) {
 }
 
 /**
+ * Render macro params
+ *
+ * @param {MacroRenderOptions['context']} [context] - Nunjucks mixed context
+ * @returns Params rendered to pass to the macro
+ */
+export function renderParams(context) {
+  const params = context ? [context].flat() : []
+
+  const paramsFormatted = params
+    .map((param) => JSON.stringify(param, undefined, 2))
+    .join(', ')
+
+  return paramsFormatted
+}
+
+/**
  * Return macro
  *
  * @param {string} macroName - The name of the macro
@@ -31,7 +47,7 @@ export function macro(macroName, macroPath, options) {
 
   // Format Nunjucks options without quoted keys
   if (options?.context && Object.keys(options.context).length) {
-    const paramsFormatted = JSON.stringify(options.context, undefined, 2)
+    const paramsFormatted = renderParams(options.context)
 
     macroCall = prettier
       .format(`${macroName}(${paramsFormatted})`, {
@@ -101,10 +117,16 @@ export function renderString(string, options) {
 export * from './environment.mjs'
 
 /**
+ * Nunjucks macro context
+ *
+ * @typedef {{ [param: string]: unknown }} MacroRenderContext
+ */
+
+/**
  * Nunjucks macro render options
  *
  * @typedef {object} MacroRenderOptions
- * @property {string | { [param: string]: unknown }} [context] - Nunjucks mixed context (optional)
+ * @property {string | MacroRenderContext | (string | MacroRenderContext)[]} [context] - Nunjucks mixed context (optional)
  * @property {string} [callBlock] - Nunjucks macro `caller()` content (optional)
  * @property {string} [prefix] - Component name prefix (optional)
  * @property {Environment} [env] - Nunjucks environment (optional)
@@ -114,7 +136,7 @@ export * from './environment.mjs'
  * Nunjucks template render options
  *
  * @typedef {object} TemplateRenderOptions
- * @property {{ [param: string]: unknown }} [context] - Nunjucks context object (optional)
+ * @property {MacroRenderContext} [context] - Nunjucks context object (optional)
  * @property {{ [block: string]: string }} [blocks] - Nunjucks blocks content in template (optional)
  * @property {Environment} [env] - Nunjucks environment (optional)
  */

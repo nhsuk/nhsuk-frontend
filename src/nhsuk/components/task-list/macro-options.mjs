@@ -103,7 +103,8 @@ const options = {
             required: false,
             description:
               'Can be used to add a tag to the status of the task within the task list component. See tag.',
-            released: '9.1.0'
+            released: '9.1.0',
+            isComponent: true
           },
           text: {
             type: 'string',

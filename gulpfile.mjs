@@ -17,7 +17,7 @@ import types from './tsconfig.json' with { type: 'json' }
 /**
  * Utility tasks
  */
-gulp.task('assets', assets.copy)
+gulp.task('assets', gulp.series(assets.copy, assets.render))
 gulp.task('fixtures', fixtures.compile)
 gulp.task('scripts', gulp.series(scripts.compile, scripts.version))
 gulp.task('styles', gulp.series(styles.compile, styles.version))

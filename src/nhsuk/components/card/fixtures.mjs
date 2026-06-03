@@ -2,6 +2,9 @@ import { outdent } from 'outdent'
 
 import { components } from '#lib'
 
+import { examples as imageExamples } from '../images/fixtures.mjs'
+import { examples as summaryListExamples } from '../summary-list/fixtures.mjs'
+
 /**
  * Nunjucks macro option examples
  *
@@ -56,29 +59,10 @@ const fixtures = {
       headingLevel: 3
     },
     callBlock: outdent`
-      ${components.render('summary-list', {
-        context: {
-          rows: [
-            {
-              key: {
-                text: 'Name'
-              },
-              value: {
-                text: 'Karen Francis'
-              }
-            },
-            {
-              border: false,
-              key: {
-                text: 'Date of birth'
-              },
-              value: {
-                text: '15 March 1984'
-              }
-            }
-          ]
-        }
-      })}
+      ${components.render(
+        'summary-list',
+        summaryListExamples['example person: Karen Francis (no border)']
+      )}
     `,
     screenshot: {
       viewports: ['mobile', 'tablet']
@@ -91,53 +75,16 @@ const fixtures = {
     },
     callBlock: outdent`
       <h4 class="nhsuk-heading-s nhsuk-u-margin-bottom-1">East</h4>
-      ${components.render('summary-list', {
-        context: {
-          rows: [
-            {
-              key: {
-                text: 'Name'
-              },
-              value: {
-                text: 'Karen Francis'
-              }
-            },
-            {
-              key: {
-                text: 'Date of birth'
-              },
-              value: {
-                text: '15 March 1984'
-              }
-            }
-          ]
-        }
-      })}
+      ${components.render(
+        'summary-list',
+        summaryListExamples['example person: Karen Francis']
+      )}
 
       <h4 class="nhsuk-heading-s nhsuk-u-margin-bottom-1">West</h4>
-      ${components.render('summary-list', {
-        context: {
-          rows: [
-            {
-              key: {
-                text: 'Name'
-              },
-              value: {
-                text: 'Sarah Philips'
-              }
-            },
-            {
-              border: false,
-              key: {
-                text: 'Date of birth'
-              },
-              value: {
-                text: '5 January 1978'
-              }
-            }
-          ]
-        }
-      })}
+      ${components.render(
+        'summary-list',
+        summaryListExamples['example person: Sarah Philips (no border)']
+      )}
     `,
     screenshot: {
       viewports: ['mobile', 'tablet']
@@ -149,28 +96,10 @@ const fixtures = {
       headingLevel: 3
     },
     callBlock: outdent`
-      ${components.render('summary-list', {
-        context: {
-          rows: [
-            {
-              key: {
-                text: 'Name'
-              },
-              value: {
-                text: 'Karen Francis'
-              }
-            },
-            {
-              key: {
-                text: 'Date of birth'
-              },
-              value: {
-                text: '15 March 1984'
-              }
-            }
-          ]
-        }
-      })}
+      ${components.render(
+        'summary-list',
+        summaryListExamples['example person: Karen Francis']
+      )}
 
       ${components.render('button', {
         context: {
@@ -201,29 +130,10 @@ const fixtures = {
       }
     },
     callBlock: outdent`
-      ${components.render('summary-list', {
-        context: {
-          rows: [
-            {
-              key: {
-                text: 'Name'
-              },
-              value: {
-                text: 'Karen Francis'
-              }
-            },
-            {
-              border: false,
-              key: {
-                text: 'Date of birth'
-              },
-              value: {
-                text: '15 March 1984'
-              }
-            }
-          ]
-        }
-      })}
+      ${components.render(
+        'summary-list',
+        summaryListExamples['example person: Karen Francis (no border)']
+      )}
     `
   },
   'basic with summary list and actions, without heading': {
@@ -244,29 +154,10 @@ const fixtures = {
       }
     },
     callBlock: outdent`
-      ${components.render('summary-list', {
-        context: {
-          rows: [
-            {
-              key: {
-                text: 'Name'
-              },
-              value: {
-                text: 'Karen Francis'
-              }
-            },
-            {
-              border: false,
-              key: {
-                text: 'Date of birth'
-              },
-              value: {
-                text: '15 March 1984'
-              }
-            }
-          ]
-        }
-      })}
+      ${components.render(
+        'summary-list',
+        summaryListExamples['example person: Karen Francis (no border)']
+      )}
     `
   },
   'basic with summary list and actions (empty items)': {
@@ -284,29 +175,10 @@ const fixtures = {
       }
     },
     callBlock: outdent`
-      ${components.render('summary-list', {
-        context: {
-          rows: [
-            {
-              key: {
-                text: 'Name'
-              },
-              value: {
-                text: 'Karen Francis'
-              }
-            },
-            {
-              border: false,
-              key: {
-                text: 'Date of birth'
-              },
-              value: {
-                text: '15 March 1984'
-              }
-            }
-          ]
-        }
-      })}
+      ${components.render(
+        'summary-list',
+        summaryListExamples['example person: Karen Francis (no border)']
+      )}
     `
   },
   'basic with summary list and heading link': {
@@ -316,29 +188,10 @@ const fixtures = {
       headingLevel: 3
     },
     callBlock: outdent`
-      ${components.render('summary-list', {
-        context: {
-          rows: [
-            {
-              key: {
-                text: 'Name'
-              },
-              value: {
-                text: 'Karen Francis'
-              }
-            },
-            {
-              border: false,
-              key: {
-                text: 'Date of birth'
-              },
-              value: {
-                text: '15 March 1984'
-              }
-            }
-          ]
-        }
-      })}
+      ${components.render(
+        'summary-list',
+        summaryListExamples['example person: Karen Francis (no border)']
+      )}
     `
   },
   'secondary without heading': {
@@ -378,29 +231,10 @@ const fixtures = {
       headingLevel: 3
     },
     callBlock: outdent`
-      ${components.render('summary-list', {
-        context: {
-          rows: [
-            {
-              key: {
-                text: 'Name'
-              },
-              value: {
-                text: 'Karen Francis'
-              }
-            },
-            {
-              border: false,
-              key: {
-                text: 'Date of birth'
-              },
-              value: {
-                text: '15 March 1984'
-              }
-            }
-          ]
-        }
-      })}
+      ${components.render(
+        'summary-list',
+        summaryListExamples['example person: Karen Francis (no border)']
+      )}
     `
   },
   'secondary with summary lists': {
@@ -411,53 +245,16 @@ const fixtures = {
     },
     callBlock: outdent`
       <h4 class="nhsuk-heading-s nhsuk-u-margin-bottom-1">East</h4>
-      ${components.render('summary-list', {
-        context: {
-          rows: [
-            {
-              key: {
-                text: 'Name'
-              },
-              value: {
-                text: 'Karen Francis'
-              }
-            },
-            {
-              key: {
-                text: 'Date of birth'
-              },
-              value: {
-                text: '15 March 1984'
-              }
-            }
-          ]
-        }
-      })}
+      ${components.render(
+        'summary-list',
+        summaryListExamples['example person: Karen Francis']
+      )}
 
       <h4 class="nhsuk-heading-s nhsuk-u-margin-bottom-1">West</h4>
-      ${components.render('summary-list', {
-        context: {
-          rows: [
-            {
-              key: {
-                text: 'Name'
-              },
-              value: {
-                text: 'Sarah Philips'
-              }
-            },
-            {
-              border: false,
-              key: {
-                text: 'Date of birth'
-              },
-              value: {
-                text: '5 January 1978'
-              }
-            }
-          ]
-        }
-      })}
+      ${components.render(
+        'summary-list',
+        summaryListExamples['example person: Sarah Philips (no border)']
+      )}
     `
   },
   'secondary with summary list and button': {
@@ -467,28 +264,10 @@ const fixtures = {
       headingLevel: 3
     },
     callBlock: outdent`
-      ${components.render('summary-list', {
-        context: {
-          rows: [
-            {
-              key: {
-                text: 'Name'
-              },
-              value: {
-                text: 'Karen Francis'
-              }
-            },
-            {
-              key: {
-                text: 'Date of birth'
-              },
-              value: {
-                text: '15 March 1984'
-              }
-            }
-          ]
-        }
-      })}
+      ${components.render(
+        'summary-list',
+        summaryListExamples['example person: Karen Francis']
+      )}
 
       ${components.render('button', {
         context: {
@@ -517,29 +296,10 @@ const fixtures = {
       }
     },
     callBlock: outdent`
-      ${components.render('summary-list', {
-        context: {
-          rows: [
-            {
-              key: {
-                text: 'Name'
-              },
-              value: {
-                text: 'Karen Francis'
-              }
-            },
-            {
-              border: false,
-              key: {
-                text: 'Date of birth'
-              },
-              value: {
-                text: '15 March 1984'
-              }
-            }
-          ]
-        }
-      })}
+      ${components.render(
+        'summary-list',
+        summaryListExamples['example person: Karen Francis (no border)']
+      )}
     `
   },
   'secondary with summary list and actions, without heading': {
@@ -561,29 +321,10 @@ const fixtures = {
       }
     },
     callBlock: outdent`
-      ${components.render('summary-list', {
-        context: {
-          rows: [
-            {
-              key: {
-                text: 'Name'
-              },
-              value: {
-                text: 'Karen Francis'
-              }
-            },
-            {
-              border: false,
-              key: {
-                text: 'Date of birth'
-              },
-              value: {
-                text: '15 March 1984'
-              }
-            }
-          ]
-        }
-      })}
+      ${components.render(
+        'summary-list',
+        summaryListExamples['example person: Karen Francis (no border)']
+      )}
     `
   },
   'secondary with summary list and actions (empty items)': {
@@ -602,29 +343,10 @@ const fixtures = {
       }
     },
     callBlock: outdent`
-      ${components.render('summary-list', {
-        context: {
-          rows: [
-            {
-              key: {
-                text: 'Name'
-              },
-              value: {
-                text: 'Karen Francis'
-              }
-            },
-            {
-              border: false,
-              key: {
-                text: 'Date of birth'
-              },
-              value: {
-                text: '15 March 1984'
-              }
-            }
-          ]
-        }
-      })}
+      ${components.render(
+        'summary-list',
+        summaryListExamples['example person: Karen Francis (no border)']
+      )}
     `
   },
   'secondary with summary list and heading link': {
@@ -635,29 +357,10 @@ const fixtures = {
       headingLevel: 3
     },
     callBlock: outdent`
-      ${components.render('summary-list', {
-        context: {
-          rows: [
-            {
-              key: {
-                text: 'Name'
-              },
-              value: {
-                text: 'Karen Francis'
-              }
-            },
-            {
-              border: false,
-              key: {
-                text: 'Date of birth'
-              },
-              value: {
-                text: '15 March 1984'
-              }
-            }
-          ]
-        }
-      })}
+      ${components.render(
+        'summary-list',
+        summaryListExamples['example person: Karen Francis (no border)']
+      )}
     `
   },
   'non-urgent (blue)': {
@@ -836,29 +539,10 @@ const fixtures = {
       heading: 'Feature card heading'
     },
     callBlock: outdent`
-      ${components.render('summary-list', {
-        context: {
-          rows: [
-            {
-              key: {
-                text: 'Name'
-              },
-              value: {
-                text: 'Karen Francis'
-              }
-            },
-            {
-              border: false,
-              key: {
-                text: 'Date of birth'
-              },
-              value: {
-                text: '15 March 1984'
-              }
-            }
-          ]
-        }
-      })}
+      ${components.render(
+        'summary-list',
+        summaryListExamples['example person: Karen Francis (no border)']
+      )}
     `
   },
   'feature with nested card and summary list': {
@@ -965,15 +649,7 @@ const fixtures = {
   'with image and caption': {
     context: {
       image: {
-        html: components.render('images', {
-          context: {
-            src: 'https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg',
-            caption: {
-              classes: 'nhsuk-u-secondary-text-colour',
-              text: 'No specific amount of time is recommended, but a typical training session could take less than 20 minutes.'
-            }
-          }
-        })
+        html: components.render('images', imageExamples['default'])
       },
       href: '#',
       clickable: true,

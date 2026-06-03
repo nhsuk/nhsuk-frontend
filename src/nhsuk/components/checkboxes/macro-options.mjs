@@ -22,7 +22,8 @@ const options = {
   fieldset: {
     type: 'object',
     required: false,
-    description: 'Can be used to add a fieldset to the checkboxes component.',
+    description:
+      'Can be used to add a fieldset to the checkboxes component. The `fieldset.html` option is not supported.',
     released: '1.0.0',
     isComponent: true
   },
@@ -53,7 +54,7 @@ const options = {
         required: false,
         description:
           'Classes to add to the form group (for example to show error state for the whole group).',
-        released: '1.0.0'
+        released: '10.5.0'
       },
       attributes: {
         type: 'object',
@@ -167,30 +168,9 @@ const options = {
         type: 'object',
         required: false,
         description:
-          'Subset of options for the label used by each checkbox item within the checkboxes component.',
+          'The label used by each checkbox item within the checkboxes component. The `label.size` and `label.isPageHeading` options are not supported.',
         released: '1.0.0',
-        isComponent: true,
-        params: {
-          id: {
-            type: 'string',
-            required: false,
-            description: 'The ID of the label tag.',
-            released: '10.4.0'
-          },
-          classes: {
-            type: 'string',
-            required: false,
-            description: 'Classes to add to the label tag.',
-            released: '1.0.0'
-          },
-          attributes: {
-            type: 'object',
-            required: false,
-            description:
-              'HTML attributes (for example data attributes) to add to the label tag.',
-            released: '1.0.0'
-          }
-        }
+        isComponent: true
       },
       hint: {
         type: 'object',
@@ -271,11 +251,24 @@ const options = {
       'Array of values for checkboxes which should be checked when the page loads. Use this as an alternative to setting the `checked` option on each individual item.',
     released: '9.2.0'
   },
+  disabled: {
+    type: 'boolean',
+    required: false,
+    description:
+      'If `true`, checkbox inputs used by the checkboxes component will be disabled.',
+    released: '10.5.0'
+  },
   small: {
     type: 'boolean',
     required: false,
     description: 'If set to `true`, small checkboxes will be used.',
     released: '10.4.0'
+  },
+  inline: {
+    type: 'boolean',
+    required: false,
+    description: 'If set to `true`, inline checkboxes will be used.',
+    released: '10.5.0'
   },
   classes: {
     type: 'string',

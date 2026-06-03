@@ -1,28 +1,46 @@
 /**
+ * Nunjucks macro option variants
+ *
+ * @satisfies {MacroExample[]}
+ */
+export const variants = [
+  {
+    // Regular variant
+  },
+  {
+    description: 'reverse',
+    context: {
+      variant: 'reverse'
+    },
+    options: {
+      layout: 'background-blue'
+    }
+  }
+]
+
+/**
  * Nunjucks macro option examples
  *
  * @satisfies {{ [example: string]: MacroExample }}
  */
 const fixtures = {
-  default: {
+  'default': {
     context: {
       text: 'Find your nearest A&E',
       href: '#'
     },
+    variants,
     screenshot: {
       states: ['focus', 'hover', 'active'],
       selector: '.nhsuk-action-link'
     }
   },
-  reverse: {
+  'as a button': {
     context: {
       text: 'Find your nearest A&E',
-      variant: 'reverse',
-      href: '#'
+      element: 'button'
     },
-    options: {
-      layout: 'background-blue'
-    },
+    variants,
     screenshot: {
       states: ['focus', 'hover', 'active'],
       selector: '.nhsuk-action-link'

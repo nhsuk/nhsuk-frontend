@@ -2,6 +2,8 @@ import { outdent } from 'outdent'
 
 import { components } from '#lib'
 
+import { examples as inputExamples } from '../input/fixtures.mjs'
+
 /**
  * Nunjucks macro option variants
  *
@@ -9,14 +11,7 @@ import { components } from '#lib'
  */
 export const variants = [
   {
-    context: {
-      fieldset: {
-        legend: {
-          size: 'l',
-          isPageHeading: true
-        }
-      }
-    }
+    // Regular variant
   },
   {
     description: 'small',
@@ -24,8 +19,7 @@ export const variants = [
       small: true,
       fieldset: {
         legend: {
-          size: 'm',
-          isPageHeading: true
+          size: 'm'
         }
       }
     }
@@ -42,7 +36,9 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: 'How do you want to be contacted about this?'
+          text: 'How do you want to be contacted about this?',
+          size: 'l',
+          isPageHeading: true
         }
       },
       hint: {
@@ -69,40 +65,174 @@ const fixtures = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
-  'with hint': {
+  'disabled': {
     context: {
       fieldset: {
         legend: {
-          text: 'What is your nationality?'
+          text: 'How do you want to be contacted about this?',
+          size: 'l',
+          isPageHeading: true
         }
       },
       hint: {
-        text: 'If you have dual nationality, select all options that are relevant to you'
+        text: 'Select all options that are relevant to you'
       },
-      idPrefix: 'with-hint',
+      idPrefix: 'disabled',
+      name: 'example',
+      disabled: true,
+      items: [
+        {
+          value: 'email',
+          text: 'Email'
+        },
+        {
+          value: 'phone',
+          text: 'Phone'
+        },
+        {
+          value: 'text',
+          text: 'Text message'
+        }
+      ]
+    },
+    variants,
+    screenshot: true
+  },
+  'disabled input': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'How do you want to be contacted about this?',
+          size: 'l',
+          isPageHeading: true
+        }
+      },
+      hint: {
+        text: 'Select all options that are relevant to you'
+      },
+      idPrefix: 'disabled-input',
       name: 'example',
       items: [
         {
-          value: 'british',
-          text: 'British'
+          value: 'email',
+          text: 'Email'
         },
         {
-          value: 'irish',
-          text: 'Irish'
+          value: 'phone',
+          text: 'Phone'
         },
         {
-          value: 'other',
-          text: 'Citizen of another country'
+          value: 'text',
+          text: 'Text message',
+          disabled: true
         }
       ]
     },
     variants
   },
+  'disabled with enabled input': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'How do you want to be contacted about this?',
+          size: 'l',
+          isPageHeading: true
+        }
+      },
+      hint: {
+        text: 'Select all options that are relevant to you'
+      },
+      idPrefix: 'disabled-enabled-input',
+      name: 'example',
+      disabled: true,
+      items: [
+        {
+          value: 'email',
+          text: 'Email'
+        },
+        {
+          value: 'phone',
+          text: 'Phone'
+        },
+        {
+          value: 'text',
+          text: 'Text message',
+          disabled: false
+        }
+      ]
+    },
+    variants
+  },
+  'with hint': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'What medical conditions do you have?',
+          size: 'l',
+          isPageHeading: true
+        }
+      },
+      hint: {
+        text: 'Select 1 or more'
+      },
+      idPrefix: 'with-hint',
+      name: 'example',
+      items: [
+        {
+          value: 'alzheimers',
+          text: "Alzheimer's disease or dementia"
+        },
+        {
+          value: 'asthma',
+          text: 'Asthma'
+        },
+        {
+          value: 'cancer',
+          text: 'Cancer'
+        },
+        {
+          value: 'diabetes',
+          text: 'Diabetes'
+        }
+      ]
+    },
+    variants
+  },
+  'inline': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'Which nipple has changed?',
+          size: 'l',
+          isPageHeading: true
+        }
+      },
+      idPrefix: 'inline',
+      name: 'example',
+      inline: true,
+      items: [
+        {
+          value: 'right',
+          text: 'Right nipple'
+        },
+        {
+          value: 'left',
+          text: 'Left nipple'
+        }
+      ]
+    },
+    variants,
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
+    }
+  },
   'with pre-checked values': {
     context: {
       fieldset: {
         legend: {
-          text: 'How do you want to be contacted about this?'
+          text: 'How do you want to be contacted about this?',
+          size: 'l',
+          isPageHeading: true
         }
       },
       hint: {
@@ -111,56 +241,7 @@ const fixtures = {
       idPrefix: 'conditional',
       name: 'contact',
       values: ['email', 'text'],
-      items: [
-        {
-          value: 'email',
-          text: 'Email',
-          conditional: {
-            html: components.render('input', {
-              context: {
-                label: {
-                  text: 'Email address'
-                },
-                name: 'email',
-                spellcheck: false,
-                classes: 'nhsuk-u-width-two-thirds'
-              }
-            })
-          }
-        },
-        {
-          value: 'phone',
-          text: 'Phone',
-          conditional: {
-            html: components.render('input', {
-              context: {
-                label: {
-                  text: 'Phone number'
-                },
-                name: 'phone',
-                type: 'tel',
-                classes: 'nhsuk-u-width-two-thirds'
-              }
-            })
-          }
-        },
-        {
-          value: 'text',
-          text: 'Text message',
-          conditional: {
-            html: components.render('input', {
-              context: {
-                label: {
-                  text: 'Mobile phone number'
-                },
-                name: 'mobile',
-                type: 'tel',
-                classes: 'nhsuk-u-width-two-thirds'
-              }
-            })
-          }
-        }
-      ]
+      items: getItems()
     },
     variants
   },
@@ -168,29 +249,35 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: 'What is your nationality?'
+          text: 'What medical conditions do you have?',
+          size: 'l',
+          isPageHeading: true
         }
       },
       hint: {
-        text: 'If you have dual nationality, select all options that are relevant to you'
+        text: 'Select 1 or more'
       },
       idPrefix: 'with-hint-item',
       name: 'example',
       items: [
         {
-          value: 'british',
-          text: 'British',
+          value: 'alzheimers',
+          text: "Alzheimer's disease or dementia"
+        },
+        {
+          value: 'asthma',
+          text: 'Asthma'
+        },
+        {
+          value: 'cancer',
+          text: 'Cancer'
+        },
+        {
+          value: 'diabetes',
+          text: 'Diabetes',
           hint: {
-            text: 'including English, Scottish, Welsh and Northern Irish'
+            text: 'including type 1, type 2, and gestational diabetes'
           }
-        },
-        {
-          value: 'irish',
-          text: 'Irish'
-        },
-        {
-          value: 'other',
-          text: 'Citizen of another country'
         }
       ]
     },
@@ -202,7 +289,7 @@ const fixtures = {
   'without fieldset': {
     context: {
       fieldset: null,
-      id: 'with-disabled-item',
+      idPrefix: 'without-fieldset',
       name: 'colours',
       items: [
         {
@@ -215,44 +302,19 @@ const fixtures = {
         },
         {
           value: 'blue',
-          text: 'Blue',
-          disabled: true
+          text: 'Blue'
         }
       ]
     },
     variants
   },
-  'with disabled item': {
-    context: {
-      fieldset: null,
-      id: 'with-disabled-item',
-      name: 'colours',
-      items: [
-        {
-          value: 'red',
-          text: 'Red'
-        },
-        {
-          value: 'green',
-          text: 'Green'
-        },
-        {
-          value: 'blue',
-          text: 'Blue',
-          disabled: true
-        }
-      ]
-    },
-    variants,
-    screenshot: {
-      viewports: ['mobile']
-    }
-  },
   'with error message': {
     context: {
       fieldset: {
         legend: {
-          text: 'How do you want to be contacted about this?'
+          text: 'How do you want to be contacted about this?',
+          size: 'l',
+          isPageHeading: true
         }
       },
       errorMessage: {
@@ -282,11 +344,13 @@ const fixtures = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
-  'with hint and error': {
+  'with error message and hint': {
     context: {
       fieldset: {
         legend: {
-          text: 'How do you want to be contacted about this?'
+          text: 'How do you want to be contacted about this?',
+          size: 'l',
+          isPageHeading: true
         }
       },
       hint: {
@@ -318,7 +382,9 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: 'Venenatis Condimentum'
+          text: 'Venenatis Condimentum',
+          size: 'l',
+          isPageHeading: true
         }
       },
       idPrefix: 'with-long-text',
@@ -465,7 +531,9 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: 'How do you want to be contacted about this?'
+          text: 'How do you want to be contacted about this?',
+          size: 'l',
+          isPageHeading: true
         }
       },
       hint: {
@@ -473,56 +541,7 @@ const fixtures = {
       },
       idPrefix: 'conditional',
       name: 'contact',
-      items: [
-        {
-          value: 'email',
-          text: 'Email',
-          conditional: {
-            html: components.render('input', {
-              context: {
-                label: {
-                  text: 'Email address'
-                },
-                name: 'email',
-                spellcheck: false,
-                classes: 'nhsuk-u-width-two-thirds'
-              }
-            })
-          }
-        },
-        {
-          value: 'phone',
-          text: 'Phone',
-          conditional: {
-            html: components.render('input', {
-              context: {
-                label: {
-                  text: 'Phone number'
-                },
-                name: 'phone',
-                type: 'tel',
-                classes: 'nhsuk-u-width-two-thirds'
-              }
-            })
-          }
-        },
-        {
-          value: 'text',
-          text: 'Text message',
-          conditional: {
-            html: components.render('input', {
-              context: {
-                label: {
-                  text: 'Mobile phone number'
-                },
-                name: 'mobile',
-                type: 'tel',
-                classes: 'nhsuk-u-width-two-thirds'
-              }
-            })
-          }
-        }
-      ]
+      items: getItems()
     },
     variants
   },
@@ -530,7 +549,9 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: 'How do you want to be contacted about this?'
+          text: 'How do you want to be contacted about this?',
+          size: 'l',
+          isPageHeading: true
         }
       },
       hint: {
@@ -538,56 +559,7 @@ const fixtures = {
       },
       idPrefix: 'user.profile[contact-prefs]',
       name: 'contact',
-      items: [
-        {
-          value: 'email',
-          text: 'Email',
-          conditional: {
-            html: components.render('input', {
-              context: {
-                label: {
-                  text: 'Email address'
-                },
-                name: 'email',
-                spellcheck: false,
-                classes: 'nhsuk-u-width-two-thirds'
-              }
-            })
-          }
-        },
-        {
-          value: 'phone',
-          text: 'Phone',
-          conditional: {
-            html: components.render('input', {
-              context: {
-                label: {
-                  text: 'Phone number'
-                },
-                name: 'phone',
-                type: 'tel',
-                classes: 'nhsuk-u-width-two-thirds'
-              }
-            })
-          }
-        },
-        {
-          value: 'text',
-          text: 'Text message',
-          conditional: {
-            html: components.render('input', {
-              context: {
-                label: {
-                  text: 'Mobile phone number'
-                },
-                name: 'mobile',
-                type: 'tel',
-                classes: 'nhsuk-u-width-two-thirds'
-              }
-            })
-          }
-        }
-      ]
+      items: getItems()
     },
     options: {
       hidden: true
@@ -598,7 +570,9 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: 'How do you want to be contacted about this?'
+          text: 'How do you want to be contacted about this?',
+          size: 'l',
+          isPageHeading: true
         }
       },
       hint: {
@@ -609,56 +583,7 @@ const fixtures = {
       },
       idPrefix: 'conditional',
       name: 'contact',
-      items: [
-        {
-          value: 'email',
-          text: 'Email',
-          conditional: {
-            html: components.render('input', {
-              context: {
-                label: {
-                  text: 'Email address'
-                },
-                name: 'email',
-                spellcheck: false,
-                classes: 'nhsuk-u-width-two-thirds'
-              }
-            })
-          }
-        },
-        {
-          value: 'phone',
-          text: 'Phone',
-          conditional: {
-            html: components.render('input', {
-              context: {
-                label: {
-                  text: 'Phone number'
-                },
-                name: 'phone',
-                type: 'tel',
-                classes: 'nhsuk-u-width-two-thirds'
-              }
-            })
-          }
-        },
-        {
-          value: 'text',
-          text: 'Text message',
-          conditional: {
-            html: components.render('input', {
-              context: {
-                label: {
-                  text: 'Mobile phone number'
-                },
-                name: 'mobile',
-                type: 'tel',
-                classes: 'nhsuk-u-width-two-thirds'
-              }
-            })
-          }
-        }
-      ]
+      items: getItems()
     },
     variants
   },
@@ -666,7 +591,9 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: 'How do you want to be contacted about this?'
+          text: 'How do you want to be contacted about this?',
+          size: 'l',
+          isPageHeading: true
         }
       },
       hint: {
@@ -675,59 +602,7 @@ const fixtures = {
       idPrefix: 'conditional',
       name: 'example',
       values: ['phone'],
-      items: [
-        {
-          value: 'email',
-          text: 'Email',
-          conditional: {
-            html: components.render('input', {
-              context: {
-                label: {
-                  text: 'Email address'
-                },
-                name: 'email',
-                spellcheck: false,
-                classes: 'nhsuk-u-width-two-thirds'
-              }
-            })
-          }
-        },
-        {
-          value: 'phone',
-          text: 'Phone',
-          conditional: {
-            html: components.render('input', {
-              context: {
-                label: {
-                  text: 'Phone number'
-                },
-                errorMessage: {
-                  text: 'Enter your phone number'
-                },
-                name: 'phone',
-                type: 'tel',
-                classes: 'nhsuk-u-width-two-thirds'
-              }
-            })
-          }
-        },
-        {
-          value: 'text',
-          text: 'Text message',
-          conditional: {
-            html: components.render('input', {
-              context: {
-                label: {
-                  text: 'Mobile phone number'
-                },
-                name: 'mobile',
-                type: 'tel',
-                classes: 'nhsuk-u-width-two-thirds'
-              }
-            })
-          }
-        }
-      ]
+      items: getItems({ invalid: true })
     },
     variants,
     screenshot: {
@@ -740,7 +615,9 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: 'How do you want to be contacted about this?'
+          text: 'How do you want to be contacted about this?',
+          size: 'l',
+          isPageHeading: true
         }
       },
       idPrefix: 'conditional',
@@ -774,60 +651,14 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: 'How do you want to be contacted about this?'
+          text: 'How do you want to be contacted about this?',
+          size: 'l',
+          isPageHeading: true
         }
       },
       idPrefix: 'conditional',
       name: 'example',
-      items: [
-        {
-          value: 'email',
-          text: 'Email',
-          conditional: {
-            html: components.render('input', {
-              context: {
-                label: {
-                  text: 'Email address'
-                },
-                name: 'email',
-                spellcheck: false,
-                classes: 'nhsuk-u-width-two-thirds'
-              }
-            })
-          }
-        },
-        {
-          value: 'phone',
-          text: 'Phone',
-          conditional: {
-            html: components.render('input', {
-              context: {
-                label: {
-                  text: 'Phone number'
-                },
-                name: 'phone',
-                type: 'tel',
-                classes: 'nhsuk-u-width-two-thirds'
-              }
-            })
-          }
-        },
-        {
-          value: 'text',
-          text: 'Text message',
-          conditional: {
-            html: components.render('input', {
-              context: {
-                label: {
-                  text: 'Mobile phone number'
-                },
-                name: 'mobile',
-                type: 'tel',
-                classes: 'nhsuk-u-width-two-thirds'
-              }
-            })
-          }
-        },
+      items: getItems().concat([
         {
           divider: 'or'
         },
@@ -836,7 +667,7 @@ const fixtures = {
           text: 'None of the above',
           exclusive: true
         }
-      ]
+      ])
     },
     variants
   },
@@ -895,6 +726,7 @@ const fixtures = {
         }
       },
       idPrefix: 'conditional',
+      name: 'example',
       items: [
         {
           name: 'preference-email',
@@ -930,6 +762,47 @@ const fixtures = {
       hidden: true
     }
   }
+}
+
+/**
+ * Get example items by variant
+ *
+ * @param {{ invalid?: boolean }} [options]
+ * @returns {object[]}
+ */
+function getItems(options = {}) {
+  let input1 = inputExamples['example email address']
+  let input2 = inputExamples['example phone number']
+  let input3 = inputExamples['example mobile phone number']
+
+  // Include error message example (optional)
+  if (options.invalid) {
+    input2 = inputExamples['example phone number with error message']
+  }
+
+  return [
+    {
+      value: 'email',
+      text: 'Email',
+      conditional: {
+        html: components.render('input', input1)
+      }
+    },
+    {
+      value: 'phone',
+      text: 'Phone',
+      conditional: {
+        html: components.render('input', input2)
+      }
+    },
+    {
+      value: 'text',
+      text: 'Text message',
+      conditional: {
+        html: components.render('input', input3)
+      }
+    }
+  ]
 }
 
 /**

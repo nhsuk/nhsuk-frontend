@@ -38,28 +38,36 @@
 
 <div {%- if params.id %} id="{{ params.id }}"{% endif %} class="{{ classNames }}"
   {{- nhsukI18nAttributes({
-    key: 'copy-button',
-    message: params.copyButtonText
+    key: "copy-button",
+    message: params.copyButtonText | default(params.button.text)
   }) -}}
 
   {{- nhsukI18nAttributes({
-    key: 'copied-button',
+    key: "copied-button",
     message: params.copiedButtonText
   }) -}}
 
   {{- nhsukI18nAttributes({
-    key: 'copied-announcement',
+    key: "copied-announcement",
     message: params.copiedAnnouncementText
   }) -}}
 
   {{- nhsukAttributes(params.attributes) }} data-module="nhsuk-code">
 {% if params.button %}
   {{ button({
-    type: "button",
+    text: params.copyButtonText | default(params.button.text or "Copy code"),
+    ariaLabel: params.button.ariaLabel,
+    id: params.button.id,
+    href: params.button.href,
+    name: params.button.name,
+    value: params.button.value,
+    type: params.button.type | default("button", true),
+    icon: params.button.icon,
+    preventDoubleClick: params.button.preventDoubleClick,
+    disabled: params.button.disabled,
     classes: classNamesButton,
-    text: params.copyButtonText | default("Copy code"),
     attributes: {
-      "hidden": {
+      hidden: {
         value: true,
         optional: true
       }

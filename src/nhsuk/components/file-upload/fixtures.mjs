@@ -18,6 +18,21 @@ const fixtures = {
       viewports: ['watch', 'mobile', 'tablet', 'desktop']
     }
   },
+  'disabled': {
+    context: {
+      label: {
+        text: 'Upload a file',
+        size: 'l',
+        isPageHeading: true
+      },
+      id: 'file-upload',
+      name: 'file-upload',
+      disabled: true
+    },
+    screenshot: {
+      viewports: ['watch', 'mobile', 'tablet', 'desktop']
+    }
+  },
   'with hint': {
     context: {
       label: {
@@ -46,7 +61,7 @@ const fixtures = {
       name: 'file-upload'
     }
   },
-  'with hint and error': {
+  'with error message and hint': {
     context: {
       label: {
         text: 'Upload a file',
@@ -110,7 +125,7 @@ const fixtures = {
         }
       },
       {
-        description: 'with label id attribute',
+        description: 'with id attribute on',
         context: {
           label: {
             id: 'custom-id'
@@ -178,18 +193,6 @@ const fixtures = {
       chooseFilesButtonText: 'Choose files',
       dropInstructionText: 'or drop files',
       noFileChosenText: 'No files chosen'
-    }
-  },
-  'disabled': {
-    context: {
-      label: {
-        text: 'Upload a file',
-        size: 'l',
-        isPageHeading: true
-      },
-      id: 'file-upload',
-      name: 'file-upload',
-      disabled: true
     }
   },
   'with translations': {

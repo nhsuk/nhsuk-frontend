@@ -1,6 +1,7 @@
 import { closestAttributeValue } from '../../common/closest-attribute-value.mjs'
+import { formatErrorMessage } from '../../common/index.mjs'
 import { ConfigurableComponent } from '../../configurable-component.mjs'
-import { ElementError } from '../../errors/index.mjs'
+import { ElementError, SupportError } from '../../errors/index.mjs'
 import { I18n } from '../../i18n.mjs'
 
 /**
@@ -16,6 +17,13 @@ import { I18n } from '../../i18n.mjs'
  * @augments {ConfigurableComponent<CharacterCountConfig>}
  */
 export class CharacterCount extends ConfigurableComponent {
+  length = 0
+
+  /**
+   * @type {Intl.Segmenter | null}
+   */
+  segmenter = null
+
   /**
    * @type {number | null}
    */
@@ -51,8 +59,10 @@ export class CharacterCount extends ConfigurableComponent {
 
     const {
       i18n,
-      maxwords,
       maxlength,
+      maxwords,
+      countFunction,
+      countType,
       screenReaderCountMessageClass,
       textareaDescriptionClass,
       visibleCountMessageClass
@@ -63,8 +73,41 @@ export class CharacterCount extends ConfigurableComponent {
       locale: closestAttributeValue(this.$root, 'lang')
     })
 
+    if (
+      countType === 'characters' ||
+      (countType === 'words' && maxwords === undefined) ||
+      countFunction
+    ) {
+      if ('Segmenter' in Intl) {
+        this.segmenter = new Intl.Segmenter(this.i18n.locale, {
+          granularity: countType === 'words' ? 'word' : 'grapheme'
+        })
+      }
+
+      // Suppress support error if a custom count function is provided, since
+      // users may provide their own fallback without needing Intl.Segmenter
+      if (!this.segmenter && !countFunction) {
+        throw new SupportError(
+          formatErrorMessage(
+            CharacterCount,
+            'Support for "Intl.Segmenter" required'
+          )
+        )
+      }
+    }
+
+    // Determine the count function to use
+    this.countFunction =
+      countFunction ?? CharacterCount.countFunctions[countType]
+
+    // Cache the count function context
+    this.countFunctionContext = /** @type {CharacterCountContext} */ ({
+      config: this.config,
+      segmenter: this.segmenter
+    })
+
     // Determine the limit attribute (characters or words)
-    this.maxLength = maxwords ?? maxlength ?? Infinity
+    this.maxLength = maxlength ?? Infinity
 
     this.$textarea = $textarea
 
@@ -82,8 +125,8 @@ export class CharacterCount extends ConfigurableComponent {
     this.$errorMessage = this.$root.querySelector('.nhsuk-error-message')
 
     // Inject a description for the textarea if none is present already
-    // for when the component was rendered with no maxlength, maxwords
-    // nor custom textareaDescriptionText
+    // for when the component was rendered with no maxlength nor custom
+    // textareaDescriptionText
     if (/^\s*$/.exec($textareaDescription.textContent)) {
       $textareaDescription.textContent = this.i18n.t('textareaDescription', {
         count: this.maxLength
@@ -134,26 +177,37 @@ export class CharacterCount extends ConfigurableComponent {
     // When the page is restored after navigating 'back' in some browsers the
     // state of form controls is not restored until *after* the DOMContentLoaded
     // event is fired, so we need to sync after the pageshow event.
-    window.addEventListener('pageshow', () => this.updateCountMessage())
+    window.addEventListener('pageshow', () => {
+      // If the current value of the textarea is the same as what's
+      // in the HTML, don't re-run when users have not edited the field yet
+      // (new page load or BF cache navigation without having edited).
+      if (this.$textarea.value !== this.$textarea.textContent) {
+        this.updateCount()
+        this.updateCountMessage()
+      }
+    })
 
     // Although we've set up handlers to sync state on the pageshow event, init
     // could be called after those events have fired, for example if they are
     // added to the page dynamically, so update now too.
+    this.updateCount()
     this.updateCountMessage()
   }
 
   /**
    * Character count config override
    *
-   * To ensure data-attributes take complete precedence, even if they change
-   * the type of count, we need to reset the `maxlength` and `maxwords` from
-   * the JavaScript config.
-   *
    * @param {Partial<CharacterCountConfig>} datasetConfig - Config specified by dataset
    * @returns {Partial<CharacterCountConfig>} Config to override by dataset
    */
   configOverride(datasetConfig) {
-    let configOverrides = {}
+    const { maxwords } = this.config
+
+    let configOverrides = /** @type {Partial<CharacterCountConfig>} */ ({})
+
+    // To ensure data-attributes take complete precedence, even if they change
+    // the type of count, we need to reset the `maxlength` and `maxwords` from
+    // the JavaScript config
     if ('maxwords' in datasetConfig || 'maxlength' in datasetConfig) {
       configOverrides = {
         maxlength: undefined,
@@ -161,23 +215,44 @@ export class CharacterCount extends ConfigurableComponent {
       }
     }
 
+    if ('maxwords' in datasetConfig || maxwords !== undefined) {
+      console.warn(
+        formatErrorMessage(
+          CharacterCount,
+          'Option `maxwords` is deprecated. Use `maxlength` with `countType: "words"` instead.'
+        )
+      )
+
+      if (!('maxlength' in datasetConfig)) {
+        configOverrides.maxlength = datasetConfig.maxwords ?? maxwords
+        configOverrides.countType = 'words'
+      }
+    }
+
     return configOverrides
   }
 
   /**
-   * Count the number of characters (or words, if `config.maxwords` is set)
-   * in the given text
+   * Count the number of characters (or words) in the given text, using the
+   * configured count type, and update the component-wide count
    *
+   * @param {string} [text] - Deprecated
+   */
+  updateCount(text) {
+    this.length = this.countFunction.call(
+      this,
+      text ?? this.$textarea.value,
+      this.countFunctionContext
+    )
+  }
+
+  /**
+   * @deprecated
    * @param {string} text - The text to count the characters of
-   * @returns {number} the number of characters (or words) in the text
    */
   count(text) {
-    if (this.config.maxwords) {
-      const tokens = text.match(/\S+/g) ?? [] // Matches consecutive non-whitespace chars
-      return tokens.length
-    }
-
-    return text.length
+    this.updateCount(text)
+    return this.length
   }
 
   /**
@@ -187,7 +262,7 @@ export class CharacterCount extends ConfigurableComponent {
    * when the user types.
    */
   bindChangeEvents() {
-    this.$textarea.addEventListener('keyup', () => this.handleKeyUp())
+    this.$textarea.addEventListener('input', () => this.handleInput())
 
     // Bind focus/blur events to start/stop polling
     this.$textarea.addEventListener('focus', () => this.handleFocus())
@@ -197,11 +272,18 @@ export class CharacterCount extends ConfigurableComponent {
   /**
    * Update count message if textarea value has changed
    */
-  checkIfValueChanged() {
+  updateIfValueChanged() {
     if (this.$textarea.value !== this.lastInputValue) {
       this.lastInputValue = this.$textarea.value
       this.updateCountMessage()
     }
+  }
+
+  /**
+   * @deprecated Use {@link CharacterCount.updateIfValueChanged} instead.
+   */
+  checkIfValueChanged() {
+    this.updateIfValueChanged()
   }
 
   /**
@@ -219,7 +301,7 @@ export class CharacterCount extends ConfigurableComponent {
    * Update visible count message
    */
   updateVisibleCountMessage() {
-    const remainingNumber = this.maxLength - this.count(this.$textarea.value)
+    const remainingNumber = this.maxLength - this.length
     const isError = remainingNumber < 0
 
     // If input is over the threshold, show the count message
@@ -240,7 +322,7 @@ export class CharacterCount extends ConfigurableComponent {
     this.$visibleCountMessage.classList.toggle('nhsuk-hint', !isError)
 
     // Update message
-    this.$visibleCountMessage.textContent = this.formattedUpdateMessage()
+    this.$visibleCountMessage.textContent = this.getCountMessage()
   }
 
   /**
@@ -256,7 +338,7 @@ export class CharacterCount extends ConfigurableComponent {
     }
 
     // Update message
-    this.$screenReaderCountMessage.textContent = this.formattedUpdateMessage()
+    this.$screenReaderCountMessage.textContent = this.getCountMessage()
   }
 
   /**
@@ -264,30 +346,42 @@ export class CharacterCount extends ConfigurableComponent {
    *
    * @returns {string} Status message
    */
+  getCountMessage() {
+    const remainingNumber = this.maxLength - this.length
+    return this.formatCountMessage(remainingNumber)
+  }
+
+  /**
+   * @deprecated Use {@link CharacterCount.getCountMessage} instead.
+   */
   formattedUpdateMessage() {
-    const remainingNumber = this.maxLength - this.count(this.$textarea.value)
-    const countType = this.config.maxwords ? 'words' : 'characters'
-    return this.formatCountMessage(remainingNumber, countType)
+    return this.getCountMessage()
   }
 
   /**
    * Formats the message shown to users according to what's counted
    * and how many remain
    *
-   * @param {number} remainingNumber - The number of words/characaters remaining
-   * @param {string} countType - "words" or "characters"
+   * @param {number} remainingNumber - The number of words/characters remaining
+   * @param {CharacterCountConfig['countType']} [countType] - Deprecated
    * @returns {string} Status message
    */
   formatCountMessage(remainingNumber, countType) {
-    if (remainingNumber === 0) {
-      return this.i18n.t(`${countType}AtLimit`)
+    countType = countType ?? this.config.countType
+
+    let translationKeyPrefix = 'characters'
+    let translationKeySuffix = remainingNumber < 0 ? 'OverLimit' : 'UnderLimit'
+
+    if (countType === 'words') {
+      translationKeyPrefix = 'words'
     }
 
-    const translationKeySuffix =
-      remainingNumber < 0 ? 'OverLimit' : 'UnderLimit'
+    if (remainingNumber === 0) {
+      translationKeySuffix = 'AtLimit'
+    }
 
-    return this.i18n.t(`${countType}${translationKeySuffix}`, {
-      count: Math.abs(remainingNumber)
+    return this.i18n.t(`${translationKeyPrefix}${translationKeySuffix}`, {
+      count: remainingNumber === 0 ? undefined : Math.abs(remainingNumber)
     })
   }
 
@@ -302,29 +396,38 @@ export class CharacterCount extends ConfigurableComponent {
    *   (or no threshold is set)
    */
   isOverThreshold() {
+    const { maxLength } = this
+    const { threshold } = this.config
+
     // No threshold means we're always above threshold so save some computation
-    if (!this.config.threshold) {
+    if (!threshold) {
       return true
     }
 
     // Determine the remaining number of characters/words
-    const currentLength = this.count(this.$textarea.value)
-    const maxLength = this.maxLength
-
-    const thresholdValue = (maxLength * this.config.threshold) / 100
+    const currentLength = this.length
+    const thresholdValue = (maxLength * threshold) / 100
 
     return thresholdValue <= currentLength
   }
 
   /**
-   * Handle key up event
+   * Handle input event
    *
    * Update the visible character counter and keep track of when the last update
    * happened for each keypress
    */
-  handleKeyUp() {
+  handleInput() {
+    this.updateCount()
     this.updateVisibleCountMessage()
     this.lastInputTimestamp = Date.now()
+  }
+
+  /**
+   * @deprecated Use {@link CharacterCount.handleInput} instead.
+   */
+  handleKeyUp() {
+    this.handleInput()
   }
 
   /**
@@ -346,7 +449,7 @@ export class CharacterCount extends ConfigurableComponent {
         !this.lastInputTimestamp ||
         Date.now() - 500 >= this.lastInputTimestamp
       ) {
-        this.checkIfValueChanged()
+        this.updateIfValueChanged()
       }
     }, 1000)
   }
@@ -364,6 +467,60 @@ export class CharacterCount extends ConfigurableComponent {
   }
 
   /**
+   * Character count functions
+   *
+   * @constant
+   * @satisfies {Record<string, CharacterCountFunction>}
+   */
+  static countFunctions = Object.freeze({
+    /**
+     * Count code points (string length)
+     *
+     * @param {string} text - Textarea value
+     * @returns {number} Count
+     */
+    length(text) {
+      return text.length
+    },
+
+    /**
+     * Count grapheme clusters (user-perceived characters)
+     *
+     * @param {string} text - Textarea value
+     * @param {CharacterCountContext} context - Object containing the config and segmenter
+     * @returns {number} Count
+     */
+    characters(text, context) {
+      return context.segmenter
+        ? Array.from(context.segmenter.segment(text)).length
+        : 0
+    },
+
+    /**
+     * Count words
+     *
+     * If the (deprecated) `maxwords` option is set, count words between
+     * consecutive whitespace rather than using the segmenter
+     *
+     * @param {string} text - Textarea value
+     * @param {CharacterCountContext} context - Object containing the config and segmenter
+     * @returns {number} Count
+     */
+    words(text, context) {
+      if (context.config.maxwords !== undefined) {
+        return text.split(/\s+/g).filter(Boolean).length
+      }
+
+      const segments = context.segmenter
+        ? Array.from(context.segmenter.segment(text))
+        : []
+
+      // Filter out punctuation and whitespace, leaving only words
+      return segments.filter((segment) => segment.isWordLike).length
+    }
+  })
+
+  /**
    * Name for the component used when initialising using data-module attributes
    */
   static moduleName = 'nhsuk-character-count'
@@ -377,6 +534,7 @@ export class CharacterCount extends ConfigurableComponent {
    */
   static defaults = Object.freeze({
     threshold: 0,
+    countType: 'length',
     textareaDescriptionClass: 'nhsuk-character-count__message',
     visibleCountMessageClass: 'nhsuk-character-count__status',
     screenReaderCountMessageClass: 'nhsuk-character-count__sr-status',
@@ -418,6 +576,8 @@ export class CharacterCount extends ConfigurableComponent {
       maxwords: { type: 'number' },
       maxlength: { type: 'number' },
       threshold: { type: 'number' },
+      countType: { type: 'string' },
+      countFunction: { type: 'function' },
       textareaDescriptionClass: { type: 'string' },
       visibleCountMessageClass: { type: 'string' },
       screenReaderCountMessageClass: { type: 'string' },
@@ -441,17 +601,38 @@ export class CharacterCount extends ConfigurableComponent {
  *
  * @see {@link CharacterCount.defaults}
  * @typedef {object} CharacterCountConfig
- * @property {number} [maxlength] - The maximum number of characters.
- *   If maxwords is provided, the maxlength option will be ignored.
- * @property {number} [maxwords] - The maximum number of words. If maxwords is
- *   provided, the maxlength option will be ignored.
+ * @property {number} [maxlength] - The maximum number of characters (or words
+ *   if `countType` is set to `"words"`).
+ * @property {number} [maxwords] - Deprecated. Use `maxlength` with
+ *   `countType: "words"` instead.
  * @property {number} [threshold=0] - The percentage value of the limit at
  *   which point the count message is displayed. If this attribute is set, the
  *   count message will be hidden by default.
+ * @property {'characters' | 'length' | 'words'} countType - The count type
+ *   (`"characters"`, `"length"` or `"words"`) used to count the text.
+ * @property {CharacterCountFunction} [countFunction] - Custom character or
+ *   word counting function.
  * @property {string} textareaDescriptionClass - Textarea description class
  * @property {string} visibleCountMessageClass - Visible count message class
  * @property {string} screenReaderCountMessageClass - Screen reader count message class
  * @property {CharacterCountTranslations} [i18n=CharacterCount.defaults.i18n] - Character count translations
+ */
+
+/**
+ * Character count function
+ *
+ * @callback CharacterCountFunction
+ * @param {string} text - Textarea value
+ * @param {CharacterCountContext} context - Object containing the config and segmenter
+ * @returns {number} Count
+ */
+
+/**
+ * Character count context
+ *
+ * @typedef {object} CharacterCountContext
+ * @property {CharacterCountConfig} config - Character count config
+ * @property {CharacterCount['segmenter']} segmenter - Character count segmenter
  */
 
 /**
@@ -493,9 +674,9 @@ export class CharacterCount extends ConfigurableComponent {
  * @property {TranslationPluralForms} [textareaDescription] - Message made
  *   available to assistive technologies, if none is already present in the
  *   HTML, to describe that the component accepts only a limited amount of
- *   content. It is visible on the page when JavaScript is unavailable. The
- *   component will replace the `%{count}` placeholder with the value of the
- *   `maxlength` or `maxwords` parameter.
+ *   content. It is visible on the page if `countType` is not supported or
+ *   JavaScript is unavailable. The component will replace the `%{count}`
+ *   placeholder with the value of the `maxlength` parameter.
  */
 
 /**
