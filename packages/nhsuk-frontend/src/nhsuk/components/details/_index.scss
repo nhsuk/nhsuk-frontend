@@ -170,7 +170,6 @@
     .nhsuk-details__text {
       margin-top: nhsuk-spacing(2);
       padding: nhsuk-spacing(3) 0;
-      padding-right: 0;
       padding-left: nhsuk-spacing(4, $adjustment: - $nhsuk-border-width, $unit: "rem"); // [5]
       border-left: $nhsuk-border-width solid $nhsuk-secondary-border-colour;
 
@@ -229,7 +228,14 @@
       border-bottom: $nhsuk-expander-border-bottom-width solid $nhsuk-expander-border-colour;
       background-color: $nhsuk-card-background-colour;
 
-      @include nhsuk-responsive-padding(5);
+      @include nhsuk-responsive-padding(5, "top", $adjustment: - $nhsuk-expander-border-width);
+      @include nhsuk-responsive-padding(5, "bottom", $adjustment: - $nhsuk-border-width);
+      @include nhsuk-responsive-padding(
+        5,
+        ("left", "right"),
+        $adjustment: - $nhsuk-expander-border-width,
+        $unit: "rem"
+      );
     }
 
     .nhsuk-details__summary:hover,
@@ -250,7 +256,13 @@
       border: $nhsuk-expander-border-width solid $nhsuk-expander-border-colour;
       border-top: 0;
 
-      @include nhsuk-responsive-padding(5, ("bottom", "left", "right"));
+      @include nhsuk-responsive-padding(5, "bottom", $adjustment: - $nhsuk-expander-border-width);
+      @include nhsuk-responsive-padding(
+        5,
+        ("left", "right"),
+        $adjustment: - $nhsuk-expander-border-width,
+        $unit: "rem"
+      );
     }
 
     // Hack to support Internet Explorer 11
@@ -271,7 +283,7 @@
       border-bottom-width: $nhsuk-expander-border-bottom-width;
 
       .nhsuk-details__summary {
-        @include nhsuk-responsive-padding(5, "bottom");
+        @include nhsuk-responsive-padding(5, "bottom", $adjustment: - $nhsuk-expander-border-width);
       }
 
       .nhsuk-details__summary::before,
