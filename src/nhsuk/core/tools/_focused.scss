@@ -114,10 +114,10 @@
   }
 
   @media screen and (forced-colors: active), (-ms-high-contrast: active) {
-    color: linktext;
+    color: buttontext;
 
     .nhsuk-icon {
-      fill: linktext;
+      fill: buttontext;
     }
   }
 }
