@@ -70,25 +70,13 @@
       }
     }
 
-    &:focus .nhsuk-icon {
-      // stylelint-disable-next-line declaration-no-important
-      fill: $nhsuk-focus-text-colour !important;
-
-      @media screen and (forced-colors: active), (-ms-high-contrast: active) {
-        // stylelint-disable-next-line declaration-no-important
-        fill: highlight !important;
-      }
-    }
-
     &:not(:focus) .nhsuk-icon,
     &:not(:focus):hover .nhsuk-icon,
     &:not(:focus):active .nhsuk-icon {
-      // stylelint-disable-next-line declaration-no-important
-      fill: nhsuk-colour("green") !important;
+      fill: nhsuk-colour("green");
 
       @media screen and (forced-colors: active), (-ms-high-contrast: active) {
-        // stylelint-disable-next-line declaration-no-important
-        fill: buttontext !important;
+        fill: buttontext;
       }
     }
   }
@@ -99,12 +87,10 @@
     &:not(:focus) .nhsuk-icon,
     &:not(:focus):hover .nhsuk-icon,
     &:not(:focus):active .nhsuk-icon {
-      // stylelint-disable-next-line declaration-no-important
-      fill: $nhsuk-reverse-text-colour !important;
+      fill: $nhsuk-reverse-text-colour;
 
       @media screen and (forced-colors: active), (-ms-high-contrast: active) {
-        // stylelint-disable-next-line declaration-no-important
-        fill: buttontext !important;
+        fill: buttontext;
       }
     }
   }
