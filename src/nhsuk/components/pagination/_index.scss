@@ -210,6 +210,7 @@
 
   // Current number
   .nhsuk-pagination--numbered .nhsuk-pagination__item--current {
+    outline: 1px solid transparent;
     background-color: nhsuk-colour("blue");
     @include nhsuk-typography-weight-bold;
 
