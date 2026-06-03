@@ -41,6 +41,26 @@ For example, `nhsuk-responsive-margin(3)` outputs an `8px` margin (`16px` tablet
 
 This was added in [pull request #1940: Allow `nhsuk-responsive-margin()` to output negative margins](https://github.com/nhsuk/nhsuk-frontend/pull/1940).
 
+#### Support rem units in Sass spacing functions and mixins
+
+You can now pass `$unit: "rem"` into all Sass spacing functions and mixins.
+
+For example, to output responsive padding in rem units:
+
+```patch
+- @include nhsuk-responsive-padding(5, "right");
++ @include nhsuk-responsive-padding(5, "right", $unit: "rem");
+```
+
+Or removing `nhsuk-px-to-rem()` and using `nhsuk-spacing()` directly:
+
+```patch
+- padding: nhsuk-px-to-rem(nhsuk-spacing(1));
++ padding: nhsuk-spacing(1, $unit: "rem");
+```
+
+This was added in [pull request #1945: Support rem units in Sass spacing functions and mixins](https://github.com/nhsuk/nhsuk-frontend/pull/1945).
+
 ### :wrench: **Fixes**
 
 - [#1942: Update `nhsuk-spacing()` to add missing `$adjustment` and `$important` params](https://github.com/nhsuk/nhsuk-frontend/pull/1942).
