@@ -57,7 +57,7 @@ $expander-icon-size: $nhsuk-expander-icon-size;
     .nhsuk-details {
       margin-top: nhsuk-spacing(2);
       padding: nhsuk-spacing(3) 0;
-      padding-left: nhsuk-px-to-rem(nhsuk-spacing(4) - $nhsuk-border-width); // [5]
+      padding-left: nhsuk-spacing(4, $adjustment: - $nhsuk-border-width, $unit: "rem"); // [5]
       border-left: $nhsuk-border-width solid nhsuk-colour("grey-3");
     }
 
@@ -84,7 +84,7 @@ $expander-icon-size: $nhsuk-expander-icon-size;
     .nhsuk-details__summary {
       position: relative; // [2]
       width: fit-content; // [1]
-      padding-left: nhsuk-px-to-rem(nhsuk-spacing(4));
+      padding-left: nhsuk-spacing(4, $unit: "rem");
       text-decoration: none;
       cursor: pointer;
 
@@ -169,7 +169,7 @@ $expander-icon-size: $nhsuk-expander-icon-size;
       margin-top: nhsuk-spacing(2);
       padding: nhsuk-spacing(3) 0;
       padding-right: 0;
-      padding-left: nhsuk-px-to-rem(nhsuk-spacing(4) - $nhsuk-border-width); // [5]
+      padding-left: nhsuk-spacing(4, $adjustment: - $nhsuk-border-width, $unit: "rem"); // [5]
       border-left: $nhsuk-border-width solid nhsuk-colour("grey-3");
 
       .nhsuk-details--reverse & {
@@ -331,7 +331,7 @@ $expander-icon-size: $nhsuk-expander-icon-size;
       // replacing fixed pixel sizes with rems for text-only zooming
       @supports (clip-path: shape(from 0% 0%, line to 100% 100%)) {
         .nhsuk-details__summary-text {
-          padding-left: nhsuk-px-to-rem($nhsuk-expander-icon-size + nhsuk-spacing(2));
+          padding-left: nhsuk-spacing(2, $adjustment: $nhsuk-expander-icon-size, $unit: "rem");
         }
 
         .nhsuk-details__summary-text::before {
