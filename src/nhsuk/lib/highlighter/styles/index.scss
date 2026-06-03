@@ -1,4 +1,5 @@
 @use "sass:color";
+@use "../../../core/settings" as *;
 @use "../../../core/helpers" as *;
 
 $nhsuk-code-comment-colour: #545555;
@@ -146,6 +147,10 @@ $nhsuk-code-addition-colour: nhsuk-shade(nhsuk-colour("green"), 8%);
     color: _reverse-colour($nhsuk-code-deletion-colour);
     background-color: nhsuk-shade($nhsuk-code-deletion-colour, 50%);
   }
+
+  @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+    outline: $nhsuk-focus-width solid HighlightText;
+  }
 }
 
 .nhsuk-code__addition {
@@ -155,6 +160,10 @@ $nhsuk-code-addition-colour: nhsuk-shade(nhsuk-colour("green"), 8%);
   .nhsuk-code--reverse & {
     color: _reverse-colour($nhsuk-code-addition-colour);
     background-color: nhsuk-shade($nhsuk-code-addition-colour, 50%);
+  }
+
+  @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+    outline: $nhsuk-focus-width solid Highlight;
   }
 }
 
