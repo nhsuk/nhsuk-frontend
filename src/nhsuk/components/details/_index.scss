@@ -86,7 +86,7 @@ $expander-icon-size: $nhsuk-expander-icon-size;
       width: fit-content; // [1]
       padding-left: nhsuk-px-to-rem(nhsuk-spacing(4));
       cursor: pointer;
-      @include nhsuk-link-style;
+      @include nhsuk-link-style-default;
 
       &:hover,
       &:focus {

@@ -191,7 +191,7 @@
   // Numbered item links
   .nhsuk-pagination--numbered .nhsuk-pagination__link {
     position: static;
-    @include nhsuk-link-style;
+    @include nhsuk-link-style-default;
     @include nhsuk-font-size(19);
 
     // Increase the touch area for the link to the parent element.
