@@ -166,12 +166,8 @@
     text-align: center;
     @include nhsuk-font-size(19);
 
-    &:hover {
+    &:not(:focus):hover {
       background-color: nhsuk-colour("grey-4");
-    }
-
-    &:focus {
-      @include nhsuk-link-style-focus;
     }
   }
 
@@ -222,7 +218,7 @@
     }
   }
 
-  .nhsuk-pagination--numbered .nhsuk-pagination__item--current:hover {
+  .nhsuk-pagination--numbered .nhsuk-pagination__item--current:not(:focus):hover {
     background-color: nhsuk-colour("blue");
   }
 
@@ -231,7 +227,7 @@
     @include nhsuk-typography-weight-bold;
 
     // Remove hover state for ellipsis items as they don't contain links
-    &:hover {
+    &:not(:focus):hover {
       background-color: transparent;
     }
   }
