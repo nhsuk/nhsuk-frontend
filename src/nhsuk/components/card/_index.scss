@@ -522,8 +522,8 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
       }
     }
 
-    .nhsuk-action-link__link .nhsuk-icon {
-      fill: $nhsuk-reverse-text-colour; // [14]
+    .nhsuk-action-link:not(.nhsuk-action-link--reverse) {
+      @include nhsuk-link-style-reverse;
     }
   }
 
