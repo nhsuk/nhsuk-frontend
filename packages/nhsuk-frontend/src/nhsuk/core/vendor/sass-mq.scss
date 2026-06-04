@@ -24,19 +24,6 @@ $mq-breakpoints: (
   wide: 1300px
 ) !default;
 
-/// Show breakpoints in the top right corner
-///
-/// If you want to display the currently active breakpoint in the top
-/// right corner of your site during development, add the breakpoints
-/// to this list, ordered by width. For example: (mobile, tablet, desktop).
-///
-/// @example scss
-///   @use 'path/to/mq' with ($mq-show-breakpoints: ('mobile', 'tablet', 'desktop'));
-///
-///
-/// @type map
-$mq-show-breakpoints: () !default;
-
 /// Customize the media type (for example: `@media screen` or `@media print`)
 /// By default sass-mq uses an "all" media type (`@media all and …`)
 ///
@@ -270,47 +257,4 @@ $mq-media-type: all !default;
   );
   $mq-breakpoints: map.merge($mq-breakpoints, $new-breakpoint) !global;
   $mq-breakpoints: _map-sort-by-value($mq-breakpoints) !global;
-}
-
-/// Show the active breakpoint in the top right corner of the viewport
-/// @link https://github.com/sass-mq/sass-mq#seeing-the-currently-active-breakpoint
-///
-/// @param {List} $show-breakpoints [$mq-show-breakpoints] - List of breakpoints to show in the top right corner
-/// @param {Map} $breakpoints [$mq-breakpoints] - Breakpoint names and sizes
-///
-/// @requires {Variable} $mq-breakpoints
-/// @requires {Variable} $mq-show-breakpoints
-///
-/// @example scss
-///  // Show breakpoints using global settings
-///  @include show-breakpoints;
-///
-///  // Show breakpoints using custom settings
-///  @include show-breakpoints((L, XL), (S: 300px, L: 800px, XL: 1200px));
-@mixin show-breakpoints($show-breakpoints: $mq-show-breakpoints, $breakpoints: $mq-breakpoints) {
-  body:before {
-    background-color: #fcf8e3;
-    border-bottom: 1px solid #fbeed5;
-    border-left: 1px solid #fbeed5;
-    color: #c09853;
-    font: small-caption;
-    padding: 3px 6px;
-    pointer-events: none;
-    position: fixed;
-    right: 0;
-    top: 0;
-    z-index: 100;
-
-    // Loop through the breakpoints that should be shown
-    @each $show-breakpoint in $show-breakpoints {
-      $width: get-breakpoint-width($show-breakpoint, $breakpoints);
-      @include mq($show-breakpoint, $breakpoints: $breakpoints, $silence-warning: true) {
-        content: "#{$show-breakpoint} ≥ #{$width} (#{px2em($width)})";
-      }
-    }
-  }
-}
-
-@if list.length($mq-show-breakpoints) > 0 {
-  @include show-breakpoints;
 }
