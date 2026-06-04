@@ -74,23 +74,23 @@
 ///   `!important`. Generally used to create override classes.
 
 @mixin nhsuk-font-monospace($important: false) {
+  $font-family-value: $nhsuk-code-font;
+  $letter-spacing-value: 0.05em;
+  $word-spacing-value: -0.5ch;
+
   @if $important == true {
-    font-family: $nhsuk-code-font !important;
-
-    // Slightly increase space between each letter
-    letter-spacing: 0.05em !important;
-
-    // Reduce space between each word (effectively reduce width of spaces)
-    word-spacing: -0.5ch !important;
-  } @else {
-    font-family: $nhsuk-code-font;
-
-    // Slightly increase space between each letter
-    letter-spacing: 0.05em;
-
-    // Reduce space between each word (effectively reduce width of spaces)
-    word-spacing: -0.5ch;
+    $font-family-value: $font-family-value !important;
+    $letter-spacing-value: $letter-spacing-value !important;
+    $word-spacing-value: $word-spacing-value !important;
   }
+
+  font-family: $font-family-value;
+
+  // Slightly increase space between each letter
+  letter-spacing: $letter-spacing-value;
+
+  // Reduce space between each word (effectively reduce width of spaces)
+  word-spacing: $word-spacing-value;
 }
 
 /// Word break helper
