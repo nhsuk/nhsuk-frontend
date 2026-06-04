@@ -54,7 +54,7 @@
       @include nhsuk-link-style-text($nhsuk-print-text-colour);
     }
 
-    @include nhsuk-media-query($from: tablet) {
+    @media #{nhsuk-from-breakpoint(tablet)} {
       padding-left: $_large-icon-size + $_large-icon-spacing; // [2]
       line-height: nhsuk-line-height($_large-icon-size, $font-size: 22px);
     }
@@ -63,7 +63,7 @@
       position: absolute;
       left: -$_small-icon-spacing;
 
-      @include nhsuk-media-query($from: tablet) {
+      @media #{nhsuk-from-breakpoint(tablet)} {
         left: -$_large-icon-spacing;
         width: $_large-icon-size;
         height: $_large-icon-size;

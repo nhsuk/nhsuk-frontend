@@ -24,7 +24,7 @@
 
     @include nhsuk-responsive-margin(6, ("top", "bottom"));
 
-    @include nhsuk-media-query($from: desktop) {
+    @media #{nhsuk-from-breakpoint(desktop)} {
       width: math.percentage(math.div(2, 3)); // [2]
     }
 

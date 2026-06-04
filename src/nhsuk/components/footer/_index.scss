@@ -51,7 +51,7 @@ $nhsuk-footer-border-colour: nhsuk-colour("grey-3");
     }
 
     .nhsuk-footer__list-item {
-      @include nhsuk-media-query($from: desktop) {
+      @media #{nhsuk-from-breakpoint(desktop)} {
         display: inline-block;
         margin-right: $nhsuk-gutter;
       }

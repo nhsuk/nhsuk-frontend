@@ -101,7 +101,7 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
       padding-top: 0;
     }
 
-    @include nhsuk-media-query($from: tablet) {
+    @media #{nhsuk-from-breakpoint(tablet)} {
       display: flex;
       flex-wrap: nowrap;
       align-items: baseline;
@@ -125,7 +125,7 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
     list-style: none;
     @include nhsuk-font(19, $weight: bold);
 
-    @include nhsuk-media-query($from: tablet) {
+    @media #{nhsuk-from-breakpoint(tablet)} {
       justify-content: right;
       margin: 0 0 nhsuk-spacing(3) nhsuk-spacing(3);
       text-align: right;
@@ -160,7 +160,7 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
     }
   }
 
-  @include nhsuk-media-query($until: tablet) {
+  @media #{nhsuk-until-breakpoint(tablet)} {
     .nhsuk-card__action {
       margin-right: nhsuk-spacing(2);
       padding-right: nhsuk-spacing(2);
@@ -174,7 +174,7 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
     }
   }
 
-  @include nhsuk-media-query($from: tablet) {
+  @media #{nhsuk-from-breakpoint(tablet)} {
     .nhsuk-card__action {
       margin-bottom: 0;
       margin-left: nhsuk-spacing(2);
@@ -270,7 +270,7 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
 
     @include nhsuk-flex;
 
-    @include nhsuk-media-query($until: desktop) {
+    @media #{nhsuk-until-breakpoint(desktop)} {
       margin-bottom: nhsuk-spacing(6);
     }
 
@@ -297,7 +297,7 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
       margin-bottom: nhsuk-spacing(5) + $nhsuk-card-border-bottom-width; // [18]
     }
 
-    @include nhsuk-media-query($until: desktop) {
+    @media #{nhsuk-until-breakpoint(desktop)} {
       .nhsuk-card {
         margin-bottom: nhsuk-spacing(3);
       }
@@ -331,14 +331,14 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
 
   .nhsuk-card--feature > .nhsuk-card__heading-container,
   .nhsuk-card--warning > .nhsuk-card__heading-container {
-    @include nhsuk-media-query($from: tablet) {
+    @media #{nhsuk-from-breakpoint(tablet)} {
       align-items: flex-start;
     }
 
     .nhsuk-card__actions {
       margin-top: 0;
 
-      @include nhsuk-media-query($from: tablet) {
+      @media #{nhsuk-from-breakpoint(tablet)} {
         padding-top: nhsuk-spacing(4);
       }
     }
@@ -419,7 +419,7 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
       display: none;
     }
 
-    @include nhsuk-media-query($from: tablet) {
+    @media #{nhsuk-from-breakpoint(tablet)} {
       left: nhsuk-px-to-rem(38px); // [10]
     }
 
@@ -452,7 +452,7 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
       margin-top: nhsuk-spacing(3);
       margin-bottom: 0;
 
-      @include nhsuk-media-query($from: tablet) {
+      @media #{nhsuk-from-breakpoint(tablet)} {
         align-self: center;
         margin-top: 0;
       }
@@ -540,7 +540,7 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
   .nhsuk-card__content--primary {
     @include nhsuk-responsive-padding(5, "right", $adjustment: $nhsuk-icon-size-large + nhsuk-spacing(3), $unit: "rem");
 
-    @include nhsuk-media-query($from: desktop) {
+    @media #{nhsuk-from-breakpoint(desktop)} {
       height: 100%;
     }
   }

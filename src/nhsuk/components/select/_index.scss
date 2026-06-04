@@ -40,7 +40,7 @@
       cursor: not-allowed;
     }
 
-    @include nhsuk-media-query($from: mobile) {
+    @media #{nhsuk-from-breakpoint(mobile)} {
       // This min-width was chosen because:
       // - it makes the Select wider than it is tall (which is what users expect)
       // - 20ex + 3ex matches the 'length-10' variant of the input component

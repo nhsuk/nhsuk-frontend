@@ -145,7 +145,7 @@
       padding-right: nhsuk-spacing(2, $adjustment: $nhsuk-border-width-form-element, $unit: "rem");
     }
 
-    @include nhsuk-media-query($from: tablet) {
+    @media #{nhsuk-from-breakpoint(tablet)} {
       height: nhsuk-px-to-rem(60px);
     }
   }
@@ -230,7 +230,7 @@
     @include nhsuk-font($size: 19);
 
     // Split prefix/suffix onto separate lines on narrow screens
-    @include nhsuk-media-query($until: mobile) {
+    @media #{nhsuk-until-breakpoint(mobile)} {
       display: block;
       height: 100%;
       white-space: normal;
@@ -239,14 +239,14 @@
 
   .nhsuk-input-wrapper--large .nhsuk-input-wrapper__prefix,
   .nhsuk-input-wrapper--large .nhsuk-input-wrapper__suffix {
-    @include nhsuk-media-query($from: mobile) {
+    @media #{nhsuk-from-breakpoint(mobile)} {
       height: nhsuk-px-to-rem(52px);
       padding-right: nhsuk-spacing(3, $unit: "rem");
       padding-left: nhsuk-spacing(3, $unit: "rem");
       @include nhsuk-font($size: 22);
     }
 
-    @include nhsuk-media-query($from: tablet) {
+    @media #{nhsuk-from-breakpoint(tablet)} {
       height: nhsuk-px-to-rem(56px + $nhsuk-button-shadow-size);
     }
   }
@@ -254,7 +254,7 @@
   .nhsuk-input-wrapper__prefix,
   // Deprecated, to be removed in v11.0
   .nhsuk-input__prefix {
-    @include nhsuk-media-query($until: mobile) {
+    @media #{nhsuk-until-breakpoint(mobile)} {
       border-bottom-width: 0;
 
       // Remove top margin when preceded by a prefix
@@ -263,7 +263,7 @@
       }
     }
 
-    @include nhsuk-media-query($from: mobile) {
+    @media #{nhsuk-from-breakpoint(mobile)} {
       margin-left: nhsuk-spacing(2);
       border-right-width: 0;
 
@@ -282,11 +282,11 @@
   .nhsuk-input-wrapper__suffix,
   // Deprecated, to be removed in v11.0
   .nhsuk-input__suffix {
-    @include nhsuk-media-query($until: mobile) {
+    @media #{nhsuk-until-breakpoint(mobile)} {
       border-top-width: 0;
     }
 
-    @include nhsuk-media-query($from: mobile) {
+    @media #{nhsuk-from-breakpoint(mobile)} {
       border-left-width: 0;
     }
   }
