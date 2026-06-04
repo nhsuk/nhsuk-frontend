@@ -424,12 +424,19 @@
 /// warning callout, do and don't lists and panels
 ///
 /// @param {Colour} $print-colour [$nhsuk-print-text-colour] - Print colour
+/// @param {Boolean} $silence-warning [false] - Whether to silence deprecation
+/// warning when already logged by another deprecated mixin
 ///
-/// @example scss
-///   @include nhsuk-print-colour($print-colour: inherit);
-///
+/// @deprecated To be removed in v11.0
 
-@mixin nhsuk-print-colour($print-colour: $nhsuk-print-text-colour) {
+@mixin nhsuk-print-colour($print-colour: $nhsuk-print-text-colour, $silence-warning: false) {
+  @if not $silence-warning {
+    @include nhsuk-warning(
+      "nhsuk-print-colour",
+      "nhsuk-print-colour is deprecated and will be removed in a future release."
+    );
+  }
+
   @media print {
     color: $print-colour;
     @content;
@@ -440,33 +447,43 @@
 /// warning callout, do and don't lists and panels (deprecated)
 ///
 /// @alias nhsuk-print-colour
-/// @deprecated To be removed in v11.0, replaced by nhsuk-print-colour
+/// @deprecated To be removed in v11.0
 
-@mixin nhsuk-print-color($args...) {
-  @include nhsuk-warning("color-to-colour", "nhsuk-print-color is deprecated. Use nhsuk-print-colour instead.");
-  @include nhsuk-print-colour($args...);
+@mixin nhsuk-print-color($print-colour: $nhsuk-print-text-colour) {
+  @include nhsuk-warning(
+    "nhsuk-print-color",
+    "nhsuk-print-color is deprecated and will be removed in a future release."
+  );
+  @include nhsuk-print-colour($print-colour, $silence-warning: true);
 }
 
 /// Print colour mixin, sets the text print colour
 /// warning callout, do and don't lists and panels (deprecated)
 ///
 /// @alias nhsuk-print-colour
-/// @deprecated To be removed in v11.0, replaced by nhsuk-print-colour
+/// @deprecated To be removed in v11.0
 
-@mixin print-color($args...) {
-  @include nhsuk-warning("print-color", "print-color is deprecated. Use nhsuk-print-colour instead.");
-  @include nhsuk-print-colour($args...);
+@mixin print-color($print-colour: $nhsuk-print-text-colour) {
+  @include nhsuk-warning("print-color", "print-color is deprecated and will be removed in a future release.");
+  @include nhsuk-print-colour($print-colour, $silence-warning: true);
 }
 
 /// Print hide mixin, hides the element from print
 ///
 /// @param {Boolean} $important [false] - Whether to mark as `!important`
+/// @param {Boolean} $silence-warning [false] - Whether to silence deprecation
+/// warning when already logged by another deprecated mixin
 ///
-/// @example scss
-///   @include nhsuk-print-hide;
-///
+/// @deprecated To be removed in v11.0
 
-@mixin nhsuk-print-hide($important: false) {
+@mixin nhsuk-print-hide($important: false, $silence-warning: false) {
+  @if not $silence-warning {
+    @include nhsuk-warning(
+      "nhsuk-print-hide",
+      "nhsuk-print-hide is deprecated and will be removed in a future release."
+    );
+  }
+
   @media print {
     @if $important == true {
       display: none !important;
@@ -479,11 +496,11 @@
 /// Print hide mixin, hides the element from print (deprecated)
 ///
 /// @alias nhsuk-print-hide
-/// @deprecated To be removed in v11.0, replaced by nhsuk-print-hide
+/// @deprecated To be removed in v11.0
 
 @mixin print-hide {
-  @include nhsuk-warning("print-hide", "print-hide is deprecated. Use nhsuk-print-hide instead.");
-  @include nhsuk-print-hide;
+  @include nhsuk-warning("print-hide", "print-hide is deprecated and will be removed in a future release.");
+  @include nhsuk-print-hide($silence-warning: true);
 }
 
 /// NHS.UK frontend supported mixin
