@@ -73,6 +73,50 @@ You can now pass multiple directions into the `nhsuk-responsive-margin()` and `n
 
 This was added in [pull request #1946: Support multiple directions in Sass spacing mixins](https://github.com/nhsuk/nhsuk-frontend/pull/1946).
 
+#### Use Sass functions to create custom media queries
+
+We've added new Sass functions to help write `@media` and `@container` queries, mixins and functions whilst still using NHS.UK frontend's `$nhsuk-breakpoints` setting.
+
+You can create `min-width` and `max-width` queries using the `nhsuk-from-breakpoint` and `nhsuk-until-breakpoint` functions:
+
+```scss
+.app-component__element {
+  color: red;
+
+  @media #{nhsuk-from-breakpoint(mobile)} and #{nhsuk-until-breakpoint(desktop)} {
+    color: blue;
+  }
+}
+```
+
+You can get the configured value of a breakpoint using `nhsuk-breakpoint-value`:
+
+```scss
+@function wider-than-tablet($width) {
+  @return $width > nhsuk-breakpoint-value(tablet);
+}
+```
+
+Each of these functions allows for passing a custom breakpoint map. This can be useful if a particular component needs to change layout at different dimensions to the rest of the site and for authoring `@container` queries.
+
+```scss
+$app-component-breakpoints: (
+  small: 300px,
+  medium: 500px,
+  large: 750px
+);
+
+.app-component__element {
+  color: red;
+
+  @container #{nhsuk-from-breakpoint(small, $app-component-breakpoints)} {
+    color: blue;
+  }
+}
+```
+
+This was added in [pull request #1961: Port Sass media query functions from GOV.UK Frontend and remove `sass-mq` dependency](https://github.com/nhsuk/nhsuk-frontend/pull/1961).
+
 ### :wrench: **Fixes**
 
 - [#1942: Update `nhsuk-spacing()` to add missing `$adjustment` and `$important` params](https://github.com/nhsuk/nhsuk-frontend/pull/1942).
