@@ -39,7 +39,7 @@
   }
 
   // On desktop, add full width gutters
-  @include nhsuk-media-query($from: desktop) {
+  @media #{nhsuk-from-breakpoint(desktop)} {
     margin-right: $nhsuk-gutter;
     margin-left: $nhsuk-gutter;
 
@@ -79,7 +79,7 @@
   margin-left: $nhsuk-gutter-half;
 
   // On desktop, add full width gutters
-  @include nhsuk-media-query($from: desktop) {
+  @media #{nhsuk-from-breakpoint(desktop)} {
     margin-right: $nhsuk-gutter;
     margin-left: $nhsuk-gutter;
   }

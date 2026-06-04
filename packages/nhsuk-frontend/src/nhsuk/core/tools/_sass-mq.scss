@@ -171,7 +171,7 @@
 ///    @include nhsuk-media-query($from: mobile) {
 ///      color: red;
 ///    }
-///    @include nhsuk-media-query($until: tablet) {
+///    @media #{nhsuk-until-breakpoint(tablet)} {
 ///      color: blue;
 ///    }
 ///    @include nhsuk-media-query(mobile, tablet) {

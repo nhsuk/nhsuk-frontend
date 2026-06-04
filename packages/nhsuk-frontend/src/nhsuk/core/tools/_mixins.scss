@@ -369,7 +369,7 @@
     background: none;
   }
 
-  @include nhsuk-media-query($from: tablet) {
+  @media #{nhsuk-from-breakpoint(tablet)} {
     top: nhsuk-spacing(-3); // [6]
   }
 }
@@ -580,7 +580,7 @@
 @mixin nhsuk-flex-item {
   display: flex;
 
-  @include nhsuk-media-query($until: desktop) {
+  @media #{nhsuk-until-breakpoint(desktop)} {
     flex: 0 0 100%;
   }
 }
@@ -600,7 +600,7 @@
 /// Removes left and right margin at tablet breakpoint
 
 @mixin nhsuk-remove-margin-mobile {
-  @include nhsuk-media-query($until: tablet) {
+  @media #{nhsuk-until-breakpoint(tablet)} {
     margin-right: -$nhsuk-gutter-half;
     margin-left: -$nhsuk-gutter-half;
   }

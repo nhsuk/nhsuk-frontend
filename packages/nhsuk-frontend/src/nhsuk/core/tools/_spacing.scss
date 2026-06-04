@@ -195,7 +195,7 @@
           }
         }
       } @else {
-        @include nhsuk-media-query($from: $breakpoint) {
+        @media #{nhsuk-from-breakpoint($breakpoint)} {
           @each $direction in $directions {
             @if $direction == all {
               #{$property}: $breakpoint-value;

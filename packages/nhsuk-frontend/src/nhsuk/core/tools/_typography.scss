@@ -295,7 +295,7 @@
           line-height: $calculated-line-height;
         }
       } @else {
-        @include nhsuk-media-query($from: $breakpoint) {
+        @media #{nhsuk-from-breakpoint($breakpoint)} {
           font-size: $font-size-rem;
           line-height: $calculated-line-height;
         }
