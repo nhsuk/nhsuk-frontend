@@ -1,10 +1,13 @@
 @use "sass:list";
 @use "sass:map";
+@use "sass:math";
 @use "sass:meta";
+@use "sass:string";
 @use "../settings" as *;
 @use "../vendor/sass-mq" as * with (
   $mq-breakpoints: $nhsuk-breakpoints
 );
+@use "functions" as *;
 
 ////
 /// @group tools
@@ -12,6 +15,152 @@
 
 // Wrangle sass-mq config...
 @forward "../vendor/sass-mq";
+
+/// Get the value of a breakpoint by name.
+///
+/// @param {String | Number} $value - If a string, the name of a breakpoint
+///   in $breakpoints. If a number without units, it will convert to px. If a
+///   number with units, it will return the value unaltered.
+/// @param {Map} $breakpoints [$nhsuk-breakpoints] - The map to look for $value.
+/// @returns {Number} - The set (minimum) value of the breakpoint
+///
+/// @example scss
+///  .element {
+///    width: nhsuk-breakpoint-value(tablet);
+///    @media (min-width: #{nhsuk-breakpoint-value(desktop)}) {
+///      color: red;
+///    }
+///    @media (min-width: #{nhsuk-breakpoint-value(400px)}) {
+///      color: green;
+///    }
+///    $custom-breakpoint-map: (
+///      small: 350px,
+///      medium: 769px,
+///      large: 1100px,
+///      extra-large: 1600px
+///    );
+///    @media (orientation: landscape) and (min-width: #{nhsuk-breakpoint-value(extra-large, $custom-breakpoint-map)}) {
+///      color: blue;
+///    }
+///  }
+///
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+
+@function nhsuk-breakpoint-value($value, $breakpoints: $nhsuk-breakpoints) {
+  // If $value is a number
+  @if meta.type-of($value) == "number" {
+    // If the number is unitless, coerce it into a pixel value
+    @if math.is-unitless($value) {
+      $value: $value * 1px;
+    }
+
+    @return $value;
+  }
+
+  // If $value is a string and exists as a key in in $breakpoints,
+  // look up and use the value of it
+  @if meta.type-of($value) == "string" and map.has-key($breakpoints, $value) {
+    @return map.get($breakpoints, $value);
+  }
+
+  // If we get this far, we can't use the value, so return an error
+  @error "Could not find a breakpoint given `#{$value}`.";
+}
+
+/// Generate the `min-width` segment of a media query given a breakpoint key
+///
+/// Pixel values are converted to ems for backwards compatibility with
+/// sass-mq. Unlike sass-mq, non-px and em values can be used as well.
+///
+/// @param {String | Number} $from - If a string, expects the name of a
+///   breakpoint in $breakpoints. If a number, it will use that number.
+/// @param {Map} $breakpoints [$nhsuk-breakpoints] - The map to look for $from.
+/// @returns {String} - A `min-width` media query segment
+///
+/// @example scss
+///  .example {
+///    @media #{nhsuk-from-breakpoint(tablet)} {
+///      color: red;
+///    }
+///    @media #{nhsuk-from-breakpoint(30em)} {
+///      color: green;
+///    }
+///    @media #{nhsuk-from-breakpoint(tablet)} and (orientation: landscape) {
+///      color: blue;
+///    }
+///    $custom-breakpoint-map: (
+///      small: 350px,
+///      medium: 769px,
+///      large: 1100px,
+///      extra-large: 1600px
+///    );
+///    @media #{nhsuk-from-breakpoint(extra-large, $custom-breakpoint-map)} {
+///      color: cyan;
+///    }
+///  }
+///
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+
+@function nhsuk-from-breakpoint($from, $breakpoints: $nhsuk-breakpoints) {
+  $value: nhsuk-breakpoint-value($from, $breakpoints);
+
+  @if meta.type-of($value) == "number" and math.unit($value) == "px" {
+    $value: nhsuk-em($value);
+  }
+
+  @return "(min-width: #{$value})";
+}
+
+/// Generate the `max-width` segment of a media query given a breakpoint key
+///
+/// sass-mq converted pixel values to ems, and only performed subtractions on
+/// named breakpoints. These have been retained for backwards compatibility,
+/// though unlike sass-mq, this also supports using non-px and em values.
+///
+/// @param {String | Number} $until - If a string, expects the name of a
+///   breakpoint in $breakpoints. If a number, it will use that number.
+/// @param {Map} $breakpoints [$nhsuk-breakpoints] - The map to look for $until.
+/// @returns {String} - A `max-width` media query segment
+///
+/// @example scss
+///  .example {
+///    @media #{nhsuk-until-breakpoint(desktop)} {
+///      color: red;
+///    }
+///    @media #{nhsuk-until-breakpoint(40em)} {
+///      color: green;
+///    }
+///    @media #{nhsuk-until-breakpoint(tablet)} and (orientation: landscape) {
+///      color: blue;
+///    }
+///    $custom-breakpoint-map: (
+///      small: 350px,
+///      medium: 769px,
+///      large: 1100px,
+///      extra-large: 1600px
+///    );
+///    @media #{nhsuk-until-breakpoint(extra-large, $custom-breakpoint-map)} {
+///      color: cyan;
+///    }
+///  }
+///
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+
+@function nhsuk-until-breakpoint($until, $breakpoints: $nhsuk-breakpoints) {
+  $value: nhsuk-breakpoint-value($until, $breakpoints);
+
+  @if meta.type-of($value) == "number" and math.unit($value) == "px" {
+    // If it's a pixel value, convert it to ems.
+    $value: nhsuk-em($value);
+  }
+
+  // If $value derives from a named breakpoint, additionally subtract .01em
+  @if meta.type-of($until) != "number" and math.unit($value) == "em" {
+    $value: $value - 0.01em;
+  }
+
+  @return "(max-width: #{$value})";
+}
 
 /// Media query
 ///
