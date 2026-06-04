@@ -142,6 +142,7 @@
 /// @deprecated To be removed in v11.0, replaced by nhsuk-visually-hidden
 
 @mixin visually-hidden() {
+  @include nhsuk-warning("visually-hidden", "visually-hidden is deprecated. Use nhsuk-visually-hidden instead.");
   @include nhsuk-visually-hidden;
 }
 
@@ -250,7 +251,7 @@
 /// @deprecated To be removed in v11.0, replaced by nhsuk-top-and-bottom
 
 @mixin top-and-bottom() {
-  @include nhsuk-warning("top-and-bottom", "top-and-bottom is deprecated and will be removed in a future release.");
+  @include nhsuk-warning("top-and-bottom", "top-and-bottom is deprecated. Use nhsuk-top-and-bottom instead.");
   @include nhsuk-top-and-bottom;
 }
 
