@@ -61,7 +61,9 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     box-shadow: inset 0 ($nhsuk-focus-width * -1) $nhsuk-focus-text-colour;
   }
 
-  @include nhsuk-print-colour($print-colour: inherit) {
+  @media print {
+    color: inherit;
+
     &::after {
       content: "";
     }
@@ -83,7 +85,9 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
       border-bottom: nhsuk-spacing(1) solid $nhsuk-border-colour;
     }
 
-    @include nhsuk-print-colour;
+    @media print {
+      color: $nhsuk-print-text-colour;
+    }
   }
 
   .nhsuk-header__container {
@@ -233,7 +237,9 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
       margin: -1px;
     }
 
-    @include nhsuk-print-hide;
+    @media print {
+      display: none;
+    }
 
     @include nhsuk-media-query($from: tablet) {
       align-self: start;
@@ -315,7 +321,9 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
       margin-top: 0;
     }
 
-    @include nhsuk-print-hide;
+    @media print {
+      display: none;
+    }
 
     @include nhsuk-media-query($from: tablet) {
       margin: 0;
@@ -441,11 +449,13 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     color: nhsuk-colour("white");
     background-color: $nhsuk-brand-colour;
 
+    @media print {
+      display: none;
+    }
+
     @media screen and (forced-colors: active), (-ms-high-contrast: active) {
       border: 0;
     }
-
-    @include nhsuk-print-hide;
   }
 
   .nhsuk-header__navigation-list {
@@ -601,7 +611,9 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
 
     list-style: none;
 
-    @include nhsuk-print-hide;
+    @media print {
+      display: none;
+    }
 
     @include nhsuk-media-query($from: tablet) {
       margin: 0 $nhsuk-gutter-half;

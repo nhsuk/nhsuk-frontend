@@ -24,7 +24,7 @@
     @include nhsuk-responsive-margin(7, ("top", "bottom"));
     @include nhsuk-responsive-padding(4);
 
-    @include nhsuk-media-query($media-type: print) {
+    @media print {
       border-color: $nhsuk-print-text-colour;
     }
   }

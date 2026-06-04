@@ -24,7 +24,10 @@
     color: $nhsuk-text-colour;
 
     @include nhsuk-responsive-margin(4, "top");
-    @include nhsuk-print-hide; // [1]
+
+    @media print {
+      display: none; // [1]
+    }
 
     .nhsuk-back-link {
       margin: 0;

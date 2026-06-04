@@ -296,7 +296,7 @@ large-desktop: 990px
   }
 
   // Apply styling to print media
-  @include nhsuk-media-query($media-type: print) {
+  @media print {
     color: nhsuk-colour("orange");
   }
 }

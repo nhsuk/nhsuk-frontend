@@ -395,7 +395,10 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
     padding-top: 0; // [13]
 
     @include nhsuk-font(26, $weight: bold);
-    @include nhsuk-print-colour;
+
+    @media print {
+      color: $nhsuk-print-text-colour;
+    }
   }
 
   .nhsuk-card--care__arrow {
@@ -411,7 +414,10 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
     overflow: hidden;
 
     transform: rotate(45deg);
-    @include nhsuk-print-hide;
+
+    @media print {
+      display: none;
+    }
 
     @include nhsuk-media-query($from: tablet) {
       left: nhsuk-px-to-rem(38px); // [10]
@@ -501,7 +507,8 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
         @include nhsuk-link-style-reverse;
       }
 
-      @include nhsuk-print-colour {
+      @media print {
+        color: $nhsuk-print-text-colour;
         background-color: $nhsuk-card-background-colour;
       }
     }

@@ -23,7 +23,7 @@ table {
     word-break: break-word; // [3]
   }
 
-  @include nhsuk-media-query($media-type: print) {
+  @media print {
     page-break-inside: avoid;
   }
 }

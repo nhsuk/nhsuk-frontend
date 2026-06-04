@@ -17,7 +17,7 @@
 a {
   @include nhsuk-link-style-default;
 
-  @include nhsuk-media-query($media-type: print) {
+  @media print {
     &::after {
       content: " (Link: " attr(href) ")"; // [1]
       color: currentcolor;
