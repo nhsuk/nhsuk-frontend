@@ -98,12 +98,12 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
       flex-flow: row wrap;
       gap: nhsuk-spacing(3);
 
-      @include nhsuk-media-query($from: tablet) {
+      @media #{nhsuk-from-breakpoint(tablet)} {
         gap: nhsuk-spacing(3) nhsuk-spacing(4);
       }
     }
 
-    @include nhsuk-media-query($from: tablet) {
+    @media #{nhsuk-from-breakpoint(tablet)} {
       display: flex;
       flex-flow: row wrap;
       gap: nhsuk-spacing(3);
@@ -137,7 +137,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
       flex-basis: auto;
     }
 
-    @include nhsuk-media-query($from: tablet) {
+    @media #{nhsuk-from-breakpoint(tablet)} {
       flex-grow: 999;
     }
   }
@@ -241,7 +241,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
       display: none;
     }
 
-    @include nhsuk-media-query($from: tablet) {
+    @media #{nhsuk-from-breakpoint(tablet)} {
       align-self: start;
 
       // Expand header account by 1px to ensure the search
@@ -325,7 +325,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
       display: none;
     }
 
-    @include nhsuk-media-query($from: tablet) {
+    @media #{nhsuk-from-breakpoint(tablet)} {
       margin: 0;
     }
 
@@ -383,7 +383,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
       appearance: none;
     }
 
-    @include nhsuk-media-query($until: tablet) {
+    @media #{nhsuk-until-breakpoint(tablet)} {
       font-size: inherit;
     }
   }
@@ -471,13 +471,13 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
 
     list-style: none;
 
-    @include nhsuk-media-query($from: tablet) {
+    @media #{nhsuk-from-breakpoint(tablet)} {
       width: calc(100% + $nhsuk-gutter);
       margin: 0 math.div($nhsuk-gutter, 2) * -1;
     }
 
     .nhsuk-header__navigation--justified & {
-      @include nhsuk-media-query($from: desktop) {
+      @media #{nhsuk-from-breakpoint(desktop)} {
         justify-content: space-between;
       }
     }
@@ -491,7 +491,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     margin-bottom: 0;
     padding: 0 math.div($nhsuk-gutter-half, 2);
 
-    @include nhsuk-media-query($from: tablet) {
+    @media #{nhsuk-from-breakpoint(tablet)} {
       padding: 0 $nhsuk-gutter-half;
     }
   }
@@ -545,7 +545,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
       border-bottom-width: $_header-item-active-size;
     }
 
-    @include nhsuk-media-query($until: tablet) {
+    @media #{nhsuk-until-breakpoint(tablet)} {
       font-size: inherit;
     }
   }
@@ -564,7 +564,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     align-self: center;
     padding: 0 math.div($nhsuk-gutter-half, 2);
 
-    @include nhsuk-media-query($from: tablet) {
+    @media #{nhsuk-from-breakpoint(tablet)} {
       padding: 0 $nhsuk-gutter-half;
     }
   }
@@ -615,7 +615,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
       display: none;
     }
 
-    @include nhsuk-media-query($from: tablet) {
+    @media #{nhsuk-from-breakpoint(tablet)} {
       margin: 0 $nhsuk-gutter-half;
     }
 
@@ -636,7 +636,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
         border-left-width: $_header-item-active-size;
 
         // stylelint-disable-next-line max-nesting-depth
-        @include nhsuk-media-query($from: desktop) {
+        @media #{nhsuk-from-breakpoint(desktop)} {
           left: -$nhsuk-gutter;
         }
       }
@@ -694,7 +694,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
 
     &,
     .nhsuk-header--white .nhsuk-header__navigation--white & {
-      @include nhsuk-media-query($until: tablet) {
+      @media #{nhsuk-until-breakpoint(tablet)} {
         margin-top: math.div($nhsuk-gutter, 2) * -1;
         box-shadow: none;
       }
@@ -764,7 +764,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
       height: nhsuk-px-to-rem(24px);
       margin-bottom: nhsuk-px-to-rem(6px);
 
-      @include nhsuk-media-query($from: tablet) {
+      @media #{nhsuk-from-breakpoint(tablet)} {
         width: nhsuk-px-to-rem(80px);
         height: nhsuk-px-to-rem(32px);
       }
@@ -778,7 +778,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
         width: nhsuk-px-to-rem(60px);
         height: nhsuk-px-to-rem(24px);
 
-        @include nhsuk-media-query($from: tablet) {
+        @media #{nhsuk-from-breakpoint(tablet)} {
           width: nhsuk-px-to-rem(80px);
           height: nhsuk-px-to-rem(32px);
         }
@@ -805,7 +805,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     height: auto;
     border: 0;
 
-    @include nhsuk-media-query($until: 450px) {
+    @media #{nhsuk-until-breakpoint(450px)} {
       max-width: nhsuk-px-to-rem(150px);
     }
 

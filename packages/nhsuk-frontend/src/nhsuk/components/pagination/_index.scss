@@ -108,7 +108,7 @@
     flex-wrap: wrap;
     align-items: center;
 
-    @include nhsuk-media-query($from: tablet) {
+    @media #{nhsuk-from-breakpoint(tablet)} {
       flex-direction: row;
       align-items: flex-start;
     }
@@ -135,7 +135,7 @@
     // visually sit in the middle of their touch area
     text-align: center;
 
-    @include nhsuk-media-query($from: tablet) {
+    @media #{nhsuk-from-breakpoint(tablet)} {
       display: block;
     }
   }

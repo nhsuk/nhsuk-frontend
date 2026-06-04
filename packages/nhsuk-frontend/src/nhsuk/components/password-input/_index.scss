@@ -23,7 +23,7 @@
   }
 
   .nhsuk-password-input__toggle {
-    @include nhsuk-media-query($from: mobile) {
+    @media #{nhsuk-from-breakpoint(mobile)} {
       flex-basis: 5em;
     }
   }

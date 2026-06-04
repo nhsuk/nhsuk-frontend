@@ -16,7 +16,7 @@
     @include nhsuk-font($size: 19);
     @include nhsuk-responsive-margin(6, "bottom");
 
-    @include nhsuk-media-query($from: tablet) {
+    @media #{nhsuk-from-breakpoint(tablet)} {
       display: table;
       width: 100%;
       table-layout: fixed; // Required to allow us to wrap words that overflow.
@@ -27,11 +27,11 @@
   .nhsuk-summary-list__row {
     border-bottom: 1px solid $nhsuk-border-colour;
 
-    @include nhsuk-media-query($until: tablet) {
+    @media #{nhsuk-until-breakpoint(tablet)} {
       margin-bottom: nhsuk-spacing(3);
     }
 
-    @include nhsuk-media-query($from: tablet) {
+    @media #{nhsuk-from-breakpoint(tablet)} {
       display: table-row;
     }
   }
@@ -44,7 +44,7 @@
   // Provide an empty 'cell' for rows that don't have actions – otherwise the
   // bottom border is not drawn for that part of the row in some browsers.
   .nhsuk-summary-list__row--no-actions {
-    @include nhsuk-media-query($from: tablet) {
+    @media #{nhsuk-from-breakpoint(tablet)} {
       &::after {
         content: "";
         display: table-cell;
@@ -58,7 +58,7 @@
   .nhsuk-summary-list__actions {
     margin: 0; // Reset default user agent styles
 
-    @include nhsuk-media-query($from: tablet) {
+    @media #{nhsuk-from-breakpoint(tablet)} {
       display: table-cell;
       padding-top: nhsuk-spacing(2);
       padding-right: nhsuk-spacing(4);
@@ -75,7 +75,7 @@
     margin-top: nhsuk-spacing(-1);
     margin-bottom: nhsuk-spacing(3);
 
-    @include nhsuk-media-query($from: tablet) {
+    @media #{nhsuk-from-breakpoint(tablet)} {
       width: 20%;
       text-align: right;
     }
@@ -91,13 +91,13 @@
     margin-bottom: nhsuk-spacing(1);
     @include nhsuk-font-weight-bold;
 
-    @include nhsuk-media-query($from: tablet) {
+    @media #{nhsuk-from-breakpoint(tablet)} {
       width: 30%;
     }
   }
 
   .nhsuk-summary-list__value {
-    @include nhsuk-media-query($until: tablet) {
+    @media #{nhsuk-until-breakpoint(tablet)} {
       margin-bottom: nhsuk-spacing(3);
     }
   }
@@ -122,7 +122,7 @@
 
     list-style: none;
 
-    @include nhsuk-media-query($from: tablet) {
+    @media #{nhsuk-from-breakpoint(tablet)} {
       justify-content: right;
       text-align: right;
     }
@@ -132,7 +132,7 @@
     display: inline-block;
   }
 
-  @include nhsuk-media-query($until: tablet) {
+  @media #{nhsuk-until-breakpoint(tablet)} {
     .nhsuk-summary-list__actions-list-item {
       margin-right: nhsuk-spacing(2);
       padding-right: nhsuk-spacing(2);
@@ -146,7 +146,7 @@
     }
   }
 
-  @include nhsuk-media-query($from: tablet) {
+  @media #{nhsuk-from-breakpoint(tablet)} {
     .nhsuk-summary-list__actions-list-item {
       margin-bottom: 0;
       margin-left: nhsuk-spacing(2);
@@ -180,7 +180,7 @@
     }
 
     // Increase padding by 1px to compensate for 'missing' border
-    @include nhsuk-media-query($from: tablet) {
+    @media #{nhsuk-from-breakpoint(tablet)} {
       .nhsuk-summary-list__key,
       .nhsuk-summary-list__value,
       .nhsuk-summary-list__actions {
@@ -194,7 +194,7 @@
     border: 0;
 
     // Increase padding by 1px to compensate for 'missing' border
-    @include nhsuk-media-query($from: tablet) {
+    @media #{nhsuk-from-breakpoint(tablet)} {
       .nhsuk-summary-list__key,
       .nhsuk-summary-list__value,
       .nhsuk-summary-list__actions {
@@ -210,7 +210,7 @@
 
     .nhsuk-summary-list--no-border:last-child .nhsuk-summary-list__row:last-of-type > :last-child,
     .nhsuk-summary-list:last-child .nhsuk-summary-list__row--no-border:last-of-type > :last-child {
-      @include nhsuk-media-query($until: tablet) {
+      @media #{nhsuk-until-breakpoint(tablet)} {
         margin-bottom: 0;
       }
     }

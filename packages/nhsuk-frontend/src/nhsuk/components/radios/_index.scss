@@ -170,7 +170,7 @@ $nhsuk-radios-offset: $nhsuk-border-width-form-element;
   // =========================================================
 
   .nhsuk-radios--inline {
-    @include nhsuk-media-query($from: tablet) {
+    @media #{nhsuk-from-breakpoint(tablet)} {
       display: flex;
       flex-wrap: wrap;
       align-items: flex-start;
