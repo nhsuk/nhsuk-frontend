@@ -4,17 +4,11 @@
 @use "sass:meta";
 @use "sass:string";
 @use "../settings" as *;
-@use "../vendor/sass-mq" as * with (
-  $mq-breakpoints: $nhsuk-breakpoints
-);
 @use "functions" as *;
 
 ////
 /// @group tools
 ////
-
-// Wrangle sass-mq config...
-@forward "../vendor/sass-mq";
 
 /// Get the value of a breakpoint by name.
 ///
