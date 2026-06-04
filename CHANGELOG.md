@@ -117,6 +117,30 @@ $app-component-breakpoints: (
 
 This was added in [pull request #1961: Port Sass media query functions from GOV.UK Frontend and remove `sass-mq` dependency](https://github.com/nhsuk/nhsuk-frontend/pull/1961).
 
+### :wastebasket: **Deprecated features**
+
+#### Replace Sass print mixins with `@media print`
+
+We've deprecated the Sass print mixins `nhsuk-print-colour` and `nhsuk-print-hide`. You should replace them with `@media print` queries instead.
+
+For example:
+
+```patch
+- @include nhsuk-print-colour;
++ @media print {
++   color: $nhsuk-print-text-colour;
++ }
+```
+
+```patch
+- @include nhsuk-print-hide;
++ @media print {
++   display: none;
++ }
+```
+
+You can still use `nhsuk-print-colour` and `nhsuk-print-hide` but we'll remove them in a future breaking release.
+
 ### :wrench: **Fixes**
 
 - [#1942: Update `nhsuk-spacing()` to add missing `$adjustment` and `$important` params](https://github.com/nhsuk/nhsuk-frontend/pull/1942).
