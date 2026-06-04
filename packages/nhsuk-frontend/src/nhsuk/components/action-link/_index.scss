@@ -48,11 +48,11 @@
     @include nhsuk-link-style-default;
     @include nhsuk-link-style-no-underline;
 
-    @include nhsuk-print-colour {
+    @include nhsuk-responsive-margin(6, "bottom");
+
+    @media print {
       @include nhsuk-link-style-text($nhsuk-print-text-colour);
     }
-
-    @include nhsuk-responsive-margin(6, "bottom");
 
     @include nhsuk-media-query($from: tablet) {
       padding-left: $_large-icon-size + $_large-icon-spacing; // [2]

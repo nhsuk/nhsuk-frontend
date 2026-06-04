@@ -63,7 +63,8 @@
     text-decoration: none;
 
     @include nhsuk-font-size(26);
-    @include nhsuk-print-colour {
+
+    @media print {
       @include nhsuk-link-style-text($nhsuk-print-text-colour);
     }
 
@@ -78,7 +79,7 @@
   .nhsuk-pagination__title {
     display: block;
 
-    @include nhsuk-media-query($media-type: print) {
+    @media print {
       &::after {
         content: " page"; // [2]
       }

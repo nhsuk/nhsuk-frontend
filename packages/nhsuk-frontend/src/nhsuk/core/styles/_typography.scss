@@ -237,7 +237,7 @@ b {
   @include nhsuk-font-weight-bold;
 }
 
-@include nhsuk-media-query($media-type: print) {
+@media print {
   .nhsuk-main-wrapper {
     padding-top: 1em;
     padding-bottom: 1em;

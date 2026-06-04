@@ -25,7 +25,7 @@
 @mixin nhsuk-text-colour {
   color: $nhsuk-text-colour;
 
-  @include nhsuk-media-query($media-type: print) {
+  @media print {
     color: $nhsuk-print-text-colour;
   }
 }
@@ -290,7 +290,7 @@
         font-size: $font-size-rem;
         line-height: $calculated-line-height;
       } @else if $breakpoint == "print" {
-        @include nhsuk-media-query($media-type: print) {
+        @media print {
           font-size: $font-size;
           line-height: $calculated-line-height;
         }

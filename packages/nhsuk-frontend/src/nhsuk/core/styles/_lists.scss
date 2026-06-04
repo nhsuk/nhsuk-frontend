@@ -72,7 +72,7 @@
   }
 }
 
-@include nhsuk-media-query($media-type: print) {
+@media print {
   %nhsuk-list + h2,
   %nhsuk-list + h3,
   %nhsuk-list + h4,
