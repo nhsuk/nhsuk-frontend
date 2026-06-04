@@ -65,7 +65,7 @@
 
   padding: 0 $nhsuk-gutter-half;
 
-  @include nhsuk-media-query($from: $at) {
+  @media #{nhsuk-from-breakpoint($at)} {
     width: nhsuk-grid-width($width);
     float: $float;
   }

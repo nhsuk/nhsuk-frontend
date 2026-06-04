@@ -319,7 +319,7 @@ describe('@mixin nhsuk-media-query', () => {
       ${sassBootstrap}
 
       .foo {
-        @include nhsuk-media-query($from: mobile) {
+        @media #{nhsuk-from-breakpoint(mobile)} {
           color: red;
         }
       }

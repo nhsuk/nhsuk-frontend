@@ -204,7 +204,7 @@ h1 + .nhsuk-lede-text--small {
 %nhsuk-body-l + %nhsuk-heading-l {
   padding-top: nhsuk-spacing(1);
 
-  @include nhsuk-media-query($from: tablet) {
+  @media #{nhsuk-from-breakpoint(tablet)} {
     padding-top: nhsuk-spacing(2);
   }
 }
@@ -220,7 +220,7 @@ h1 + .nhsuk-lede-text--small {
 %nhsuk-body-s + %nhsuk-heading-s {
   padding-top: nhsuk-spacing(1);
 
-  @include nhsuk-media-query($from: tablet) {
+  @media #{nhsuk-from-breakpoint(tablet)} {
     padding-top: nhsuk-spacing(2);
   }
 }

@@ -77,7 +77,7 @@
 
     // On tablet and above, we also introduce a 'column gap' between the
     // buttons and links in each row and left align links
-    @include nhsuk-media-query($from: tablet) {
+    @media #{nhsuk-from-breakpoint(tablet)} {
       flex-direction: row;
       flex-wrap: wrap;
       align-items: baseline;

@@ -18,7 +18,7 @@
     }
 
     // Split prefix/suffix onto separate lines on narrow screens
-    @include nhsuk-media-query($until: mobile) {
+    @media #{nhsuk-until-breakpoint(mobile)} {
       flex-direction: column;
 
       .nhsuk-input {
@@ -50,7 +50,7 @@
       margin-bottom: $nhsuk-button-shadow-size;
     }
 
-    @include nhsuk-media-query($from: mobile) {
+    @media #{nhsuk-from-breakpoint(mobile)} {
       flex-direction: row;
 
       // The default of `stretch` makes small buttons appear taller than the

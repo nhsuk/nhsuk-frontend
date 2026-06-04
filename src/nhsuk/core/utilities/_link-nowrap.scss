@@ -13,7 +13,7 @@
 ////
 
 .nhsuk-u-nowrap {
-  @include nhsuk-media-query($until: tablet) {
+  @media #{nhsuk-until-breakpoint(tablet)} {
     white-space: nowrap;
   }
 }
