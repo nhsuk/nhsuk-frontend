@@ -115,6 +115,8 @@ $app-component-breakpoints: (
 }
 ```
 
+We've rewritten the internals of the `nhsuk-media-query` mixin to make use of these new functions. The rewritten mixin should work identically and return the same CSS as the previous version, but you may want to make sure that your existing media queries work as expected.
+
 This was added in [pull request #1961: Port Sass media query functions from GOV.UK Frontend and remove `sass-mq` dependency](https://github.com/nhsuk/nhsuk-frontend/pull/1961).
 
 ### :wastebasket: **Deprecated features**
