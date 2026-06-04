@@ -45,11 +45,11 @@
 @function nhsuk-spacing($spacing-point, $important: false, $adjustment: null, $unit: "px") {
   @if meta.type-of($spacing-point) != "number" {
     @error "Expected a number (integer), but got a "
-      + "#{meta.type-of($spacing-point)}.";
+      + "#{meta.type-of($spacing-point)}";
   }
 
   @if not list.index(("px", "rem"), #{$unit}) {
-    @error "Unknown unit `#{$unit}`.";
+    @error "Unknown unit `#{$unit}`";
   }
 
   $is-negative: false;
@@ -60,7 +60,7 @@
 
   @if not map.has-key($nhsuk-spacing-points, $spacing-point) {
     @error "Unknown spacing point `#{$spacing-point}`. Make sure you are using a point from the "
-      + "spacing scale in `_settings/spacing.scss`.";
+      + "spacing scale in `_settings/spacing.scss`";
   }
 
   $spacing-value: map.get($nhsuk-spacing-points, $spacing-point);
@@ -127,11 +127,11 @@
   $unit: "px"
 ) {
   @if meta.type-of($responsive-spacing-point) != "number" {
-    @error "Expected a number (integer), but got a " + "#{meta.type-of($responsive-spacing-point)}.";
+    @error "Expected a number (integer), but got a " + "#{meta.type-of($responsive-spacing-point)}";
   }
 
   @if not list.index(("px", "rem"), #{$unit}) {
-    @error "Unknown unit `#{$unit}`.";
+    @error "Unknown unit `#{$unit}`";
   }
 
   $is-negative: false;
@@ -141,7 +141,7 @@
   }
 
   @if not list.index(("string", "list"), meta.type-of($direction)) {
-    @error "Expected a string or list, but got a " + "#{meta.type-of($direction)}.";
+    @error "Expected a string or list, but got a " + "#{meta.type-of($direction)}";
   }
 
   $directions: ();
@@ -153,7 +153,7 @@
 
   @if not map.has-key($nhsuk-spacing-responsive-scale, $responsive-spacing-point) {
     @error "Unknown responsive spacing point `#{$responsive-spacing-point}`. Make sure you are using a point from the "
-      + "responsive spacing scale in `_settings/spacing.scss`.";
+      + "responsive spacing scale in `_settings/spacing.scss`";
   }
 
   $scale-map: map.get($nhsuk-spacing-responsive-scale, $responsive-spacing-point); // [1]

@@ -105,7 +105,7 @@ describe('@function nhsuk-breakpoint-value', () => {
       ${sassBootstrap}
 
       .foo {
-        width: nhsuk-breakpoint-value('');
+        width: nhsuk-breakpoint-value(ultra-desktop);
       }
     `
 
@@ -114,7 +114,7 @@ describe('@function nhsuk-breakpoint-value', () => {
     })
 
     await expect(results).rejects.toThrow(
-      'Error: "Could not find a breakpoint given ``."'
+      'Error: "Unknown breakpoint `ultra-desktop`"'
     )
   })
 })
@@ -549,7 +549,7 @@ describe('@mixin nhsuk-media-query', () => {
       ${sassModules}
 
       .foo {
-        @include nhsuk-media-query($until: '') {
+        @include nhsuk-media-query($until: ultra-desktop) {
           color: red;
         }
       }
@@ -560,7 +560,7 @@ describe('@mixin nhsuk-media-query', () => {
     })
 
     await expect(results).rejects.toThrow(
-      'Error: "Could not find a breakpoint given ``."'
+      'Error: "Unknown breakpoint `ultra-desktop`"'
     )
   })
 })
