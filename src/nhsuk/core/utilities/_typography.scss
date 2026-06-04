@@ -28,6 +28,19 @@
 
 // Weights
 
+.nhsuk-u-font-family-code {
+  // stylelint-disable-next-line declaration-no-important
+  font-family: $nhsuk-code-font !important;
+
+  // Slightly increase space between each letter
+  // stylelint-disable-next-line declaration-no-important
+  letter-spacing: 0.05em !important;
+
+  // Reduce space between each word (effectively reduce width of spaces)
+  // stylelint-disable-next-line declaration-no-important
+  word-spacing: -0.5ch !important;
+}
+
 .nhsuk-u-font-weight-normal {
   @include nhsuk-typography-weight-normal($important: true);
 }
