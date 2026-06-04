@@ -268,11 +268,11 @@ desktop: 769px
 large-desktop: 990px
 ```
 
-### Media queries (using [sass-mq](https://github.com/sass-mq/sass-mq))
+### Media queries
 
-`mq()` is a Sass mixin that helps you compose media queries in an elegant way.
+`nhsuk-media-query()` is a Sass mixin that helps you compose media queries in an elegant way.
 
-`mq()` takes up to three optional parameters:
+`nhsuk-media-query()` takes up to three optional parameters:
 
 - `$from`: inclusive `min-width` boundary
 - `$until`: exclusive `max-width` boundary
@@ -284,14 +284,17 @@ large-desktop: 990px
   @include nhsuk-media-query($from: mobile) {
     color: nhsuk-colour("red");
   }
+
   // Apply styling up to devices smaller than tablets (exclude tablets)
   @include nhsuk-media-query($until: tablet) {
     color: nhsuk-colour("blue");
   }
+
   // Same thing, in landscape orientation
-  @include nhsuk-media-query($until: tablet, $and: '(orientation: landscape)') {
+  @include nhsuk-media-query($until: tablet, $and: "(orientation: landscape)") {
     color: nhsuk-colour("green");
   }
+
   // Apply styling to print media
   @include nhsuk-media-query($media-type: print) {
     color: nhsuk-colour("orange");
