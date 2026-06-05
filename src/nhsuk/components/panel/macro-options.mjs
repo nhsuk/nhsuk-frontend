@@ -70,14 +70,14 @@ const options = {
     type: 'string',
     required: false,
     description:
-      'Optional additional classes to add to the panel `div` tag. Separate each class with a space.',
+      'Classes to add to the panel.',
     released: '1.0.0'
   },
   attributes: {
     type: 'object',
     required: false,
     description:
-      'Any extra HTML attributes (for example data attributes) to add to the panel `div` tag.',
+      'HTML attributes (for example data attributes) to add to the panel.',
     released: '1.0.0'
   },
   variant: {
