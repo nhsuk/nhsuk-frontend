@@ -118,7 +118,7 @@
       // mode so force the background color to match the system link color
       // (matching the text in the link)
       @media screen and (forced-colors: active), (-ms-high-contrast: active) {
-        background: buttontext;
+        background: ButtonText;
       }
     }
   }

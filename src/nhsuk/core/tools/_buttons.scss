@@ -89,7 +89,7 @@
       border-color: $button-border-colour;
 
       @media screen and (forced-colors: active), (-ms-high-contrast: active) {
-        border-color: buttonborder;
+        border-color: ButtonBorder;
       }
     }
 
@@ -114,7 +114,7 @@
     &:visited,
     &:hover,
     &:active {
-      color: buttontext;
+      color: ButtonText;
     }
 
     &,

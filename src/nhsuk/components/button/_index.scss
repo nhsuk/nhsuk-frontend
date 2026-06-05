@@ -151,11 +151,11 @@ $button-shadow-size: $nhsuk-button-shadow-size;
 
     // Override high-contrast link colours to match buttons
     @media screen and (forced-colors: active), (-ms-high-contrast: active) {
-      color: buttontext;
+      color: ButtonText;
 
       &,
       &::before {
-        border-color: buttonborder;
+        border-color: ButtonBorder;
       }
 
       &:not(:focus):not(:active):hover,

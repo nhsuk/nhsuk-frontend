@@ -238,7 +238,7 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
       fill: $nhsuk-link-hover-colour;
 
       @media screen and (forced-colors: active), (-ms-high-contrast: active) {
-        fill: linktext;
+        fill: LinkText;
       }
     }
 
@@ -255,7 +255,7 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
       fill: $nhsuk-link-active-colour;
 
       @media screen and (forced-colors: active), (-ms-high-contrast: active) {
-        fill: activetext;
+        fill: ActiveText;
       }
     }
   }
@@ -563,7 +563,7 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
       @include nhsuk-responsive-spacing(5, "right");
 
       @media screen and (forced-colors: active), (-ms-high-contrast: active) {
-        fill: buttontext;
+        fill: ButtonText;
       }
     }
   }
