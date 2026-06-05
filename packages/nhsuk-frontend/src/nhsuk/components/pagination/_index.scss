@@ -16,8 +16,12 @@
 ////
 
 @include nhsuk-exports("nhsuk/components/pagination") {
-  $_icon-size: nhsuk-em($nhsuk-icon-size-large, 26px);
-  $_small-icon-size: nhsuk-em($nhsuk-icon-size, 19px);
+  $_icon-size: nhsuk-px-to-rem($nhsuk-icon-size); // 24px
+  $_icon-offset: nhsuk-spacing(-1, $unit: "rem"); // -4px
+  $_icon-size-tablet: nhsuk-px-to-rem($nhsuk-icon-size-large); // 32px
+  $_icon-offset-tablet: nhsuk-spacing(-1, $adjustment: - 1px, $unit: "rem"); // -5px
+
+  $_small-icon-size: nhsuk-px-to-rem($nhsuk-icon-size - nhsuk-spacing(1)); // 22px
 
   .nhsuk-pagination {
     box-sizing: border-box;
@@ -34,11 +38,15 @@
     text-align: left;
 
     .nhsuk-icon {
-      left: nhsuk-px-to-rem(-6px);
+      left: $_icon-offset;
+
+      @media #{nhsuk-from-breakpoint(tablet)} {
+        left: $_icon-offset-tablet;
+      }
     }
 
     .nhsuk-pagination__title {
-      padding-left: $_icon-size; // [1]
+      @include nhsuk-responsive-padding(5, "left", $unit: "rem"); // [1]
     }
   }
 
@@ -48,11 +56,15 @@
     text-align: right;
 
     .nhsuk-icon {
-      right: nhsuk-px-to-rem(-6px);
+      right: nhsuk-px-to-rem(-4px);
+
+      @media #{nhsuk-from-breakpoint(tablet)} {
+        right: nhsuk-px-to-rem(-5px);
+      }
     }
 
     .nhsuk-pagination__title {
-      padding-right: $_icon-size; // [1]
+      @include nhsuk-responsive-padding(5, "right", $unit: "rem"); // [1]
     }
   }
 
@@ -62,10 +74,14 @@
     width: 100%;
     text-decoration: none;
 
-    @include nhsuk-font-size(26);
+    @include nhsuk-font-size(26, $line-height: $_icon-size);
 
     @media print {
       @include nhsuk-link-style-text($nhsuk-print-text-colour);
+    }
+
+    @media #{nhsuk-from-breakpoint(tablet)} {
+      @include nhsuk-font-size(26, $line-height: $_icon-size-tablet);
     }
 
     .nhsuk-icon {
@@ -73,16 +89,26 @@
       top: 0;
       width: $_icon-size;
       height: $_icon-size;
+
+      @media #{nhsuk-from-breakpoint(tablet)} {
+        width: $_icon-size-tablet;
+        height: $_icon-size-tablet;
+      }
     }
   }
 
   .nhsuk-pagination__title {
     display: block;
+    min-height: $_icon-size;
 
     @media print {
       &::after {
         content: " page"; // [2]
       }
+    }
+
+    @media #{nhsuk-from-breakpoint(tablet)} {
+      min-height: $_icon-size-tablet;
     }
   }
 
@@ -164,7 +190,7 @@
     float: left; // Float is ignored if flex is active for prev/next links
 
     text-align: center;
-    @include nhsuk-font-size(19);
+    @include nhsuk-font-size(19, $_icon-size);
 
     &:not(:focus):hover {
       background-color: $nhsuk-target-hover-colour;
@@ -236,21 +262,27 @@
   // Previous and Next labels next to arrows
   .nhsuk-pagination--numbered .nhsuk-pagination__title {
     display: inline;
+    min-height: auto;
   }
 
   // Arrows within numbered pagination
   .nhsuk-pagination--numbered .nhsuk-icon {
     width: $_small-icon-size;
     height: $_small-icon-size;
+
+    @media #{nhsuk-from-breakpoint(tablet)} {
+      width: $_icon-size;
+      height: $_icon-size;
+    }
   }
 
   .nhsuk-pagination--numbered .nhsuk-pagination__previous .nhsuk-icon {
-    margin-right: nhsuk-spacing(2);
-    margin-left: -0.175rem;
+    margin-left: $_icon-offset;
+    @include nhsuk-responsive-margin(5, "right", $adjustment: - $_icon-size - $_icon-offset, $unit: "rem"); // [1]
   }
 
   .nhsuk-pagination--numbered .nhsuk-pagination__next .nhsuk-icon {
-    margin-right: -0.175rem;
-    margin-left: nhsuk-spacing(2);
+    margin-right: $_icon-offset;
+    @include nhsuk-responsive-margin(5, "left", $adjustment: - $_icon-size - $_icon-offset, $unit: "rem"); // [1]
   }
 }

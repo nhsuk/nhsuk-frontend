@@ -311,8 +311,8 @@
 
   @include nhsuk-panel($panel-background-colour, $panel-text-colour, $panel-border-colour);
   @include nhsuk-responsive-margin(7, "top");
-  @include nhsuk-responsive-padding(5, "bottom");
-  @include nhsuk-responsive-padding(5, ("left", "right"), $unit: "rem");
+  @include nhsuk-responsive-padding(5, "bottom", $adjustment: -1px);
+  @include nhsuk-responsive-padding(5, ("left", "right"), $adjustment: -1px, $unit: "rem");
 }
 
 /// Panel with label mixin, inherits panel styling

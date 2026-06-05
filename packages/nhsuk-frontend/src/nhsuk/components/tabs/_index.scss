@@ -70,7 +70,7 @@
         text-align: center;
 
         @include nhsuk-responsive-padding(2, ("top", "bottom"));
-        @include nhsuk-responsive-padding(4, ("left", "right"), $unit: "rem");
+        @include nhsuk-responsive-padding(5, ("left", "right"), $unit: "rem");
 
         &::before {
           content: none;
@@ -94,7 +94,7 @@
 
         @include nhsuk-responsive-padding(2, "top", $adjustment: nhsuk-spacing(1) - $border-width);
         @include nhsuk-responsive-padding(2, "bottom", $adjustment: nhsuk-spacing(1) + $border-width);
-        @include nhsuk-responsive-padding(4, ("left", "right"), $adjustment: - $border-width, $unit: "rem");
+        @include nhsuk-responsive-padding(5, ("left", "right"), $adjustment: - $border-width, $unit: "rem");
 
         .nhsuk-tabs__tab {
           text-decoration: none;
@@ -119,12 +119,13 @@
 
       .nhsuk-tabs__panel {
         margin-bottom: 0;
-        padding: nhsuk-spacing(6) nhsuk-spacing(4, $adjustment: -1px, $unit: "rem") nhsuk-spacing(6, $adjustment: -1px);
         border: 1px solid $nhsuk-border-colour;
         border-top: 0;
         background-color: $nhsuk-card-background-colour;
 
         @include nhsuk-top-and-bottom;
+        @include nhsuk-responsive-padding(5, ("top", "bottom"), $adjustment: -1px);
+        @include nhsuk-responsive-padding(5, ("left", "right"), $adjustment: -1px, $unit: "rem");
       }
 
       .nhsuk-tabs__panel--hidden {
