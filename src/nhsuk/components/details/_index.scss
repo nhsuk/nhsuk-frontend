@@ -219,6 +219,7 @@ $expander-icon-size: $nhsuk-expander-icon-size;
       }
 
       .nhsuk-details__summary:focus {
+        outline: none;
         box-shadow: none;
       }
 
