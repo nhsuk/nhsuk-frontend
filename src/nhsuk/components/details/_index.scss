@@ -89,6 +89,7 @@ $expander-icon-size: $nhsuk-expander-icon-size;
       cursor: pointer;
 
       @include nhsuk-link-style-focus;
+      @include nhsuk-top-and-bottom;
 
       &::-webkit-details-marker {
         display: none; // [4]
@@ -121,6 +122,11 @@ $expander-icon-size: $nhsuk-expander-icon-size;
     // ...but only underline the text, not the arrow
     .nhsuk-details__summary-text {
       text-decoration: underline; // [3]
+      @include nhsuk-responsive-margin(3, "bottom");
+    }
+
+    .nhsuk-details__summary-text:only-child {
+      margin-bottom: 0;
     }
 
     .nhsuk-details__summary:hover,
