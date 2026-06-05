@@ -38,7 +38,7 @@
     color: $button-text-colour;
   }
 
-  &[href] .nhsuk-icon {
+  &[href]:not(:focus) .nhsuk-icon {
     fill: $button-text-colour;
 
     @media screen and (forced-colors: active), (-ms-high-contrast: active) {

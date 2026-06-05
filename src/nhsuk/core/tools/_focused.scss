@@ -109,16 +109,8 @@
   background-color: $nhsuk-focus-colour;
   box-shadow: 0 $nhsuk-focus-width 0 0 $nhsuk-focus-text-colour;
 
-  .nhsuk-icon {
-    fill: $nhsuk-focus-text-colour;
-  }
-
   @media screen and (forced-colors: active), (-ms-high-contrast: active) {
-    color: buttontext;
-
-    .nhsuk-icon {
-      fill: buttontext;
-    }
+    color: ButtonText;
   }
 }
 

@@ -48,7 +48,7 @@
   @include nhsuk-link-style;
 
   @media screen and (forced-colors: active), (-ms-high-contrast: active) {
-    color: linktext;
+    color: LinkText;
   }
 }
 
@@ -70,16 +70,8 @@
 @mixin nhsuk-link-style-reverse {
   @include nhsuk-link-style-text($override-colour: $nhsuk-reverse-text-colour);
 
-  &:not(:focus) .nhsuk-icon {
-    fill: $nhsuk-reverse-text-colour;
-  }
-
   @media screen and (forced-colors: active), (-ms-high-contrast: active) {
-    color: linktext;
-
-    &:not(:focus) .nhsuk-icon {
-      fill: currentcolor;
-    }
+    color: LinkText;
   }
 }
 
@@ -107,6 +99,10 @@
 @mixin nhsuk-link-style-visited($link-visited-colour: $nhsuk-link-visited-colour) {
   &:visited {
     color: $link-visited-colour;
+
+    @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+      color: VisitedText;
+    }
   }
 }
 
@@ -122,6 +118,10 @@
   &:hover {
     color: $link-hover-colour;
     text-decoration: none;
+
+    @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+      color: LinkText;
+    }
   }
 }
 
@@ -152,6 +152,10 @@
 @mixin nhsuk-link-style-active($link-active-colour: $nhsuk-link-active-colour) {
   &:active {
     color: $link-active-colour;
+
+    @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+      color: ActiveText;
+    }
   }
 }
 
@@ -229,10 +233,6 @@
     $link-hover-colour: $nhsuk-link-hover-colour,
     $link-active-colour: $nhsuk-link-active-colour
   );
-
-  &:visited .nhsuk-icon {
-    fill: currentcolor;
-  }
 }
 
 /// Remove underline from links

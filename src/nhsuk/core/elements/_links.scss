@@ -17,44 +17,10 @@
 a {
   @include nhsuk-link-style-default;
 
-  &:visited .nhsuk-icon {
-    fill: $nhsuk-link-visited-colour;
-  }
-
-  &:hover .nhsuk-icon {
-    fill: $nhsuk-link-hover-colour;
-  }
-
-  &:active .nhsuk-icon {
-    fill: $nhsuk-link-active-colour;
-  }
-
-  &:focus .nhsuk-icon {
-    fill: $nhsuk-focus-text-colour;
-  }
-
-  @media screen and (forced-colors: active), (-ms-high-contrast: active) {
-    &:visited .nhsuk-icon {
-      fill: visitedtext;
-    }
-
-    &:hover .nhsuk-icon {
-      fill: linktext;
-    }
-
-    &:active .nhsuk-icon {
-      fill: activetext;
-    }
-
-    &:focus .nhsuk-icon {
-      fill: linktext;
-    }
-  }
-
   @include nhsuk-media-query($media-type: print) {
     &::after {
       content: " (Link: " attr(href) ")"; // [1]
-      color: $nhsuk-text-colour;
+      color: currentcolor;
       font-size: inherit; // [2]
     }
   }
@@ -100,10 +66,8 @@ button.nhsuk-link {
 .nhsuk-link--reverse {
   @include nhsuk-link-style-reverse;
 
-  @include nhsuk-media-query($media-type: print) {
-    &::after {
-      color: currentcolor;
-    }
+  @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+    color: LinkText;
   }
 }
 
