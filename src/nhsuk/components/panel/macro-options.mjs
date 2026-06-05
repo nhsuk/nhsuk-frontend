@@ -69,8 +69,7 @@ const options = {
   classes: {
     type: 'string',
     required: false,
-    description:
-      'Classes to add to the panel.',
+    description: 'Classes to add to the panel.',
     released: '1.0.0'
   },
   attributes: {
