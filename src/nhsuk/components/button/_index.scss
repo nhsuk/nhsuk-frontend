@@ -157,6 +157,13 @@ $button-shadow-size: $nhsuk-button-shadow-size;
       &::before {
         border-color: buttonborder;
       }
+
+      &:not(:focus):not(:active):hover,
+      &:not(:focus):not(:active):hover::before,
+      &:not(:focus):not(:active):hover::after {
+        border-color: Highlight;
+        color: Highlight;
+      }
     }
   }
 
