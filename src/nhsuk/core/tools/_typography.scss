@@ -70,13 +70,15 @@
 ///
 /// Used for codes and sequences
 ///
+/// @param {Number} $letter-spacing [0.05em] - Letter spacing override.
+/// @param {Number} $word-spacing [-0.5ch] - Word spacing override.
 /// @param {Boolean} $important [false] - Whether to mark declarations as
 ///   `!important`. Generally used to create override classes.
 
-@mixin nhsuk-font-monospace($important: false) {
+@mixin nhsuk-font-monospace($letter-spacing: 0, $word-spacing: 0, $important: false) {
   $font-family-value: $nhsuk-code-font;
-  $letter-spacing-value: 0.05em;
-  $word-spacing-value: -0.5ch;
+  $letter-spacing-value: $letter-spacing;
+  $word-spacing-value: $word-spacing;
 
   @if $important == true {
     $font-family-value: $font-family-value !important;

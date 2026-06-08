@@ -26,11 +26,13 @@
   }
 }
 
-// Weights
+// Font family
 
 .nhsuk-u-font-monospace {
   @include nhsuk-font-monospace($important: true);
 }
+
+// Weights
 
 .nhsuk-u-font-weight-normal {
   @include nhsuk-typography-weight-normal($important: true);
