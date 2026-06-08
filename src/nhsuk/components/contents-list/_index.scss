@@ -32,6 +32,6 @@
   }
 
   .nhsuk-contents-list__current {
-    font-weight: $nhsuk-font-weight-bold;
+    @include nhsuk-font-weight-bold;
   }
 }

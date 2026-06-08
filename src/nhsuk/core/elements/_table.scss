@@ -53,7 +53,7 @@ td {
 }
 
 th {
-  font-weight: $nhsuk-font-weight-bold;
+  @include nhsuk-font-weight-bold;
 }
 
 caption {
