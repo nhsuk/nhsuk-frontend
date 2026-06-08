@@ -165,6 +165,7 @@
   .nhsuk-input--code {
     @include nhsuk-font-code;
     font-size-adjust: none;
+    word-spacing: 0;
   }
 
   // The ex measurements are based on the number of W's that can fit inside the input
