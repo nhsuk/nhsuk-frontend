@@ -20,7 +20,7 @@
   .nhsuk-label--l,
   .nhsuk-label--m {
     margin-bottom: nhsuk-spacing(3);
-    @include nhsuk-typography-weight-bold;
+    @include nhsuk-font-weight-bold;
   }
 
   .nhsuk-label--xl {
@@ -36,7 +36,7 @@
   }
 
   .nhsuk-label--s {
-    @include nhsuk-typography-weight-bold;
+    @include nhsuk-font-weight-bold;
   }
 
   // When the label is nested inside a heading, override the heading so that it

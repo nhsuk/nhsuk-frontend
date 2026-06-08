@@ -56,7 +56,7 @@
   }
 
   .nhsuk-error-summary__list a {
-    @include nhsuk-typography-weight-bold;
+    @include nhsuk-font-weight-bold;
     @include nhsuk-link-style-error;
   }
 }

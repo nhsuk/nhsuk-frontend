@@ -212,7 +212,7 @@
   .nhsuk-pagination--numbered .nhsuk-pagination__item--current {
     outline: 1px solid transparent;
     background-color: nhsuk-colour("blue");
-    @include nhsuk-typography-weight-bold;
+    @include nhsuk-font-weight-bold;
 
     .nhsuk-pagination__link {
       @include nhsuk-link-style-reverse;
@@ -225,7 +225,7 @@
 
   .nhsuk-pagination--numbered .nhsuk-pagination__item--ellipsis {
     color: $nhsuk-secondary-text-colour;
-    @include nhsuk-typography-weight-bold;
+    @include nhsuk-font-weight-bold;
 
     // Remove hover state for ellipsis items as they don't contain links
     &:not(:focus):hover {
