@@ -163,8 +163,7 @@
   // Codes and sequences
 
   .nhsuk-input--code {
-    font-family: $nhsuk-code-font;
-    letter-spacing: 0.1em;
+    @include nhsuk-font-monospace;
   }
 
   // The ex measurements are based on the number of W's that can fit inside the input

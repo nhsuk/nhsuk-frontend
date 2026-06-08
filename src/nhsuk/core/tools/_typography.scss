@@ -66,6 +66,33 @@
   }
 }
 
+/// Monospace font helper
+///
+/// Used for codes and sequences
+///
+/// @param {Boolean} $important [false] - Whether to mark declarations as
+///   `!important`. Generally used to create override classes.
+
+@mixin nhsuk-font-monospace($important: false) {
+  @if $important == true {
+    font-family: $nhsuk-code-font !important;
+
+    // Slightly increase space between each letter
+    letter-spacing: 0.05em !important;
+
+    // Reduce space between each word (effectively reduce width of spaces)
+    word-spacing: -0.5ch !important;
+  } @else {
+    font-family: $nhsuk-code-font;
+
+    // Slightly increase space between each letter
+    letter-spacing: 0.05em;
+
+    // Reduce space between each word (effectively reduce width of spaces)
+    word-spacing: -0.5ch;
+  }
+}
+
 /// Word break helper
 ///
 /// Forcibly breaks long words that lack spaces, such as email addresses,

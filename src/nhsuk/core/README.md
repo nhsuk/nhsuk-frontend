@@ -133,12 +133,12 @@ Automatically clear an elements child elements.
 <div class="nhsuk-u-clear"></div>
 ```
 
-### Code font family
+### Monospace font
 
-Display codes and ID numbers (such as NHS numbers) using a monospace font, without the wide letter-spacing applied by `.nhsuk-input--code`.
+Display codes and ID numbers (such as NHS numbers) using a monospace font.
 
 ```html
-<p class="nhsuk-u-font-family-code">999 123 4567</p>
+<p class="nhsuk-u-font-monospace">999 123 4567</p>
 ```
 
 ### Bold font weight
