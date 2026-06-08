@@ -96,9 +96,20 @@
 
     text-align: left;
 
+    @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+      color: HighlightText;
+      background-color: Highlight;
+      forced-color-adjust: none;
+    }
+
     .nhsuk-file-upload__drop-button--empty & {
       color: $nhsuk-text-colour;
       background-color: color.scale(nhsuk-colour("grey-4"), $alpha: -50%);
+
+      @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+        color: CanvasText;
+        background-color: HighlightText;
+      }
     }
   }
 
@@ -122,6 +133,11 @@
     background-color: nhsuk-colour("white");
 
     cursor: pointer;
+
+    @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+      color: CanvasText;
+      background-color: Canvas;
+    }
 
     @include nhsuk-media-query($from: tablet) {
       padding: (nhsuk-spacing(4) + $nhsuk-border-width - $nhsuk-border-width-form-element);
@@ -233,6 +249,27 @@
       .nhsuk-button--secondary,
       .nhsuk-button--secondary-solid {
         background-color: $nhsuk-secondary-button-active-colour;
+      }
+    }
+  }
+
+  .nhsuk-file-upload__drop-button:not(:disabled),
+  .nhsuk-file-upload__drop-button--empty:not(:disabled) {
+    @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+      &:hover,
+      &:active {
+        color: CanvasText;
+        background-color: Canvas;
+
+        .nhsuk-button {
+          color: Highlight;
+          background-color: ButtonFace;
+
+          &,
+          &::before {
+            border-color: Highlight;
+          }
+        }
       }
     }
   }
