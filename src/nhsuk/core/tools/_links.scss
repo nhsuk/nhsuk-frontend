@@ -26,6 +26,10 @@
   & {
     color: $link-colour;
     text-decoration: underline;
+
+    @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+      color: LinkText;
+    }
   }
 
   @include nhsuk-link-style-visited($link-visited-colour);
@@ -46,10 +50,6 @@
 
 @mixin nhsuk-link-style-default {
   @include nhsuk-link-style;
-
-  @media screen and (forced-colors: active), (-ms-high-contrast: active) {
-    color: LinkText;
-  }
 }
 
 /// Reverse link styles
@@ -288,6 +288,10 @@
   // stylelint-disable-next-line selector-class-pattern
   &:not(:focus):not(.\:focus):hover {
     color: rgba($override-colour, 0.99);
+
+    @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+      color: LinkText;
+    }
   }
 }
 
