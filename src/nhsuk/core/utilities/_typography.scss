@@ -28,6 +28,10 @@
 
 // Font family
 
+.nhsuk-u-font-code {
+  @include nhsuk-font-code($important: true);
+}
+
 .nhsuk-u-font-monospace {
   @include nhsuk-font-monospace($important: true);
 }

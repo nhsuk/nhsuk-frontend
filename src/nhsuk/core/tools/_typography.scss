@@ -66,6 +66,19 @@
   }
 }
 
+/// Code font helper
+///
+/// Used for codes and sequences
+///
+/// @param {Boolean} $important [false] - Whether to mark declarations as
+///   `!important`. Generally used to create override classes.
+
+@mixin nhsuk-font-code($important: false) {
+  @include nhsuk-font-monospace($important);
+  letter-spacing: 0.075em;
+  word-spacing: -0.5ch;
+}
+
 /// Monospace font helper
 ///
 /// @param {Boolean} $important [false] - Whether to mark declarations as
