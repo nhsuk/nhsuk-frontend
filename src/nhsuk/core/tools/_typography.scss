@@ -68,31 +68,17 @@
 
 /// Monospace font helper
 ///
-/// Used for codes and sequences
-///
-/// @param {Number} $letter-spacing [0.05em] - Letter spacing override.
-/// @param {Number} $word-spacing [-0.5ch] - Word spacing override.
 /// @param {Boolean} $important [false] - Whether to mark declarations as
 ///   `!important`. Generally used to create override classes.
 
-@mixin nhsuk-font-monospace($letter-spacing: 0, $word-spacing: 0, $important: false) {
+@mixin nhsuk-font-monospace($important: false) {
   $font-family-value: $nhsuk-code-font;
-  $letter-spacing-value: $letter-spacing;
-  $word-spacing-value: $word-spacing;
 
   @if $important == true {
     $font-family-value: $font-family-value !important;
-    $letter-spacing-value: $letter-spacing-value !important;
-    $word-spacing-value: $word-spacing-value !important;
   }
 
   font-family: $font-family-value;
-
-  // Slightly increase space between each letter
-  letter-spacing: $letter-spacing-value;
-
-  // Reduce space between each word (effectively reduce width of spaces)
-  word-spacing: $word-spacing-value;
 }
 
 /// Word break helper
