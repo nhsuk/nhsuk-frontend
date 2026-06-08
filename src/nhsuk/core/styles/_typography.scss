@@ -306,9 +306,8 @@ code,
 samp,
 kbd,
 var {
-  font-family: $nhsuk-code-font;
+  @include nhsuk-font-monospace;
   font-size: inherit;
-  font-size-adjust: 0.5;
 }
 
 samp,

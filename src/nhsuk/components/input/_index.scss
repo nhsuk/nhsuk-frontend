@@ -164,6 +164,7 @@
 
   .nhsuk-input--code {
     @include nhsuk-font-monospace;
+    font-size-adjust: none;
     letter-spacing: 0.075em;
     word-spacing: -0.5ch;
   }
