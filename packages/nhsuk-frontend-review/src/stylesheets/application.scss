@@ -1,3 +1,5 @@
+@use "vendor/nhsuk-frontend/settings";
+
 @forward "nhsuk-frontend/dist/nhsuk/lib/highlighter/styles";
 @forward "buttons";
 @forward "grid";

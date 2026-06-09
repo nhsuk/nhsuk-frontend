@@ -1,0 +1,5 @@
+@use "settings" with (
+  $nhsuk-include-dynamic-type: true
+);
+
+@forward "nhsuk-frontend/dist/nhsuk";
