@@ -5,6 +5,26 @@ import { components } from "#lib"
 import { examples as tablesExamples } from "../tables/fixtures.mjs"
 
 /**
+ * Nunjucks macro option variants
+ *
+ * @satisfies {MacroExample[]}
+ */
+export const variants = [
+  {
+    // Regular variant
+  },
+  {
+    description: "reverse",
+    context: {
+      variant: "reverse"
+    },
+    options: {
+      layout: "background-blue"
+    }
+  }
+]
+
+/**
  * Nunjucks macro option examples
  *
  * @satisfies {{ [example: string]: MacroExample }}
@@ -25,6 +45,7 @@ const fixtures = {
       </ul>
       <p>Ask your GP surgery for help if you cannot find your NHS number.</p>
     `,
+    variants,
     screenshot: {
       states: ["click"],
       selector: ".nhsuk-details__summary"
@@ -45,16 +66,16 @@ const fixtures = {
         <li>appointment letters</li>
       </ul>
       <p>Ask your GP surgery for help if you cannot find your NHS number.</p>
-    `
+    `,
+    variants
   },
   "expander": {
     context: {
       summaryText: "Opening times",
       classes: "nhsuk-expander"
     },
-    callBlock: outdent`
-      ${components.render("tables", tablesExamples["with first cell as header"])}
-    `,
+    callBlock: getCallBlock(),
+    variants: variants.map(customVariant()),
     screenshot: {
       states: ["click"],
       selector: ".nhsuk-details__summary"
@@ -66,9 +87,43 @@ const fixtures = {
       classes: "nhsuk-expander",
       open: true
     },
-    callBlock: outdent`
-      ${components.render("tables", tablesExamples["with first cell as header"])}
-    `
+    callBlock: getCallBlock(),
+    variants: variants.map(customVariant())
+  }
+}
+
+/**
+ * Get example call block by variant
+ *
+ * @param {{ variant?: unknown }} [options]
+ */
+function getCallBlock(options = {}) {
+  const table = structuredClone(tablesExamples["with first cell as header"])
+
+  if (options.variant === "reverse") {
+    table.context ??= {}
+    table.context.variant = "reverse"
+  }
+
+  return outdent`
+    ${components.render("tables", table)}
+  `
+}
+
+/**
+ * Replace call block for each variant
+ *
+ * @returns {(variant: MacroExample) => MacroExample}
+ */
+function customVariant() {
+  return (example) => {
+    example = structuredClone(example)
+    example.context ??= {}
+
+    const { variant } = example.context
+    example.callBlock = getCallBlock({ variant })
+
+    return example
   }
 }
 
