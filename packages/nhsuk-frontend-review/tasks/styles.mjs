@@ -23,8 +23,8 @@ export const compile = gulp.series(
    */
   task.name(
     "styles:compile 'nhsuk-frontend'",
-    styles.compile('nhsuk/index.scss', {
-      srcPath: join(config.paths.pkg, 'dist'),
+    styles.compile('stylesheets/vendor/nhsuk-frontend/index.scss', {
+      srcPath: join(config.paths.app, 'src'),
       destPath: join(config.paths.app, 'dist'),
       output: { file: 'stylesheets/nhsuk-frontend.min.css' }
     })
@@ -36,8 +36,8 @@ export const compile = gulp.series(
    */
   task.name(
     "styles:compile 'nhsuk-frontend/dynamic-type'",
-    styles.compile('nhsuk/nhsuk-dynamic-type.scss', {
-      srcPath: join(config.paths.pkg, 'dist'),
+    styles.compile('stylesheets/vendor/nhsuk-frontend/dynamic-type.scss', {
+      srcPath: join(config.paths.app, 'src'),
       destPath: join(config.paths.app, 'dist'),
       output: { file: 'stylesheets/nhsuk-frontend-dynamic-type.min.css' }
     })
