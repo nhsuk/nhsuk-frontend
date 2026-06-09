@@ -49,6 +49,12 @@ $nhsuk-body-background-colour: nhsuk-colour("grey-5") !default;
 
 $nhsuk-card-background-colour: nhsuk-colour("white") !default;
 
+/// Reverse card background colour
+///
+/// @type Colour
+
+$nhsuk-reverse-card-background-colour: nhsuk-shade($nhsuk-brand-colour, 10%) !default;
+
 /// Text colour for print media
 ///
 /// Use 'true black' to avoid printers using colour ink to print body text
