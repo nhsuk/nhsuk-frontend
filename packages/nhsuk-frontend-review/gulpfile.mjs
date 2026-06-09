@@ -16,7 +16,7 @@ const { HEROKU_BRANCH, NODE_ENV } = process.env
 gulp.task('assets', assets.copy)
 gulp.task('html', html.compile)
 gulp.task('scripts', gulp.series(scripts.copy, scripts.compile))
-gulp.task('styles', gulp.series(styles.copy, styles.compile))
+gulp.task('styles', styles.compile)
 gulp.task('validate', html.validate)
 
 /**
