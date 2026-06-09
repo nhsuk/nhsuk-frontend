@@ -1,0 +1,3 @@
+@forward "nhsuk-frontend/dist/nhsuk/core/settings" with (
+  $nhsuk-assets-path: "/nhsuk-frontend/assets/"
+);
