@@ -35,7 +35,7 @@
 /// @param {Boolean} $important [false] - Whether to mark declarations as
 ///   `!important`. Generally Used to create override classes.
 
-@mixin nhsuk-typography-weight-normal($important: false) {
+@mixin nhsuk-font-weight-normal($important: false) {
   @if $important == true {
     font-weight: $nhsuk-font-weight-normal !important;
   } @else {
@@ -43,17 +43,72 @@
   }
 }
 
+/// Normal typography weight (deprecated)
+///
+/// @alias nhsuk-font-weight-normal
+/// @deprecated To be removed in v11.0, replaced by nhsuk-font-weight-normal
+
+@mixin nhsuk-typography-weight-normal($important: false) {
+  @include nhsuk-warning(
+    "nhsuk-typography-weight",
+    "nhsuk-typography-weight-normal is deprecated. Use nhsuk-font-weight-normal instead."
+  );
+  @include nhsuk-font-weight-normal($important);
+}
+
 /// Bold font weight
 ///
 /// @param {Boolean} $important [false] - Whether to mark declarations as
 ///   `!important`. Generally Used to create override classes.
 
-@mixin nhsuk-typography-weight-bold($important: false) {
+@mixin nhsuk-font-weight-bold($important: false) {
   @if $important == true {
     font-weight: $nhsuk-font-weight-bold !important;
   } @else {
     font-weight: $nhsuk-font-weight-bold;
   }
+}
+
+/// Bold typography weight (deprecated)
+///
+/// @alias nhsuk-font-weight-bold
+/// @deprecated To be removed in v11.0, replaced by nhsuk-font-weight-bold
+
+@mixin nhsuk-typography-weight-bold($important: false) {
+  @include nhsuk-warning(
+    "nhsuk-typography-weight",
+    "nhsuk-typography-weight-bold is deprecated. Use nhsuk-font-weight-bold instead."
+  );
+  @include nhsuk-font-weight-bold($important);
+}
+
+/// Code font helper
+///
+/// Used for codes and sequences
+///
+/// @param {Boolean} $important [false] - Whether to mark declarations as
+///   `!important`. Generally used to create override classes.
+
+@mixin nhsuk-font-code($important: false) {
+  @include nhsuk-font-monospace($important);
+  letter-spacing: 0.075em;
+  word-spacing: -0.5ch;
+}
+
+/// Monospace font helper
+///
+/// @param {Boolean} $important [false] - Whether to mark declarations as
+///   `!important`. Generally used to create override classes.
+
+@mixin nhsuk-font-monospace($important: false) {
+  $font-family-value: $nhsuk-code-font;
+
+  @if $important == true {
+    $font-family-value: $font-family-value !important;
+  }
+
+  font-family: $font-family-value;
+  font-size-adjust: 0.5;
 }
 
 /// Word break helper
@@ -258,9 +313,9 @@
 @mixin nhsuk-font($size, $weight: normal, $line-height: false) {
   & {
     @if $weight == normal {
-      @include nhsuk-typography-weight-normal;
+      @include nhsuk-font-weight-normal;
     } @else if $weight == bold {
-      @include nhsuk-typography-weight-bold;
+      @include nhsuk-font-weight-bold;
     }
   }
 

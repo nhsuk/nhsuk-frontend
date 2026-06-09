@@ -106,7 +106,7 @@
 
     .nhsuk-table__body {
       .nhsuk-table-responsive__heading {
-        @include nhsuk-typography-weight-bold;
+        @include nhsuk-font-weight-bold;
         padding-right: nhsuk-spacing(3);
         text-align: left; // [7]
       }
@@ -137,7 +137,7 @@
 
       @include nhsuk-media-query($until: tablet) {
         .nhsuk-table__row th {
-          font-weight: $nhsuk-font-weight-normal;
+          @include nhsuk-font-weight-normal;
         }
 
         .nhsuk-table__row th,

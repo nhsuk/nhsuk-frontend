@@ -25,14 +25,24 @@
   }
 }
 
+// Font family
+
+.nhsuk-u-font-code {
+  @include nhsuk-font-code($important: true);
+}
+
+.nhsuk-u-font-monospace {
+  @include nhsuk-font-monospace($important: true);
+}
+
 // Weights
 
 .nhsuk-u-font-weight-normal {
-  @include nhsuk-typography-weight-normal($important: true);
+  @include nhsuk-font-weight-normal($important: true);
 }
 
 .nhsuk-u-font-weight-bold {
-  @include nhsuk-typography-weight-bold($important: true);
+  @include nhsuk-font-weight-bold($important: true);
 }
 
 // Typography helpers

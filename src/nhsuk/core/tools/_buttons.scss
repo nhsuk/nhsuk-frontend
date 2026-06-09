@@ -38,7 +38,7 @@
     color: $button-text-colour;
   }
 
-  &[href] .nhsuk-icon {
+  &[href]:not(:focus) .nhsuk-icon {
     fill: $button-text-colour;
 
     @media screen and (forced-colors: active), (-ms-high-contrast: active) {
@@ -89,7 +89,7 @@
       border-color: $button-border-colour;
 
       @media screen and (forced-colors: active), (-ms-high-contrast: active) {
-        border-color: buttonborder;
+        border-color: ButtonBorder;
       }
     }
 
@@ -108,19 +108,20 @@
     }
   }
 
-  // Override high-contrast link colours to match buttons
+  // Override high-contrast button colours back to defaults
   @media screen and (forced-colors: active), (-ms-high-contrast: active) {
     &,
     &:visited,
+    &:hover,
     &:active {
-      color: buttontext;
+      color: ButtonText;
     }
 
-    &:not(:focus):not(:active):hover,
-    &:not(:focus):not(:active):hover::before,
-    &:not(:focus):not(:active):hover::after {
-      border-color: Highlight;
-      color: Highlight;
+    &,
+    &:hover,
+    &:active,
+    &:active:focus {
+      background-color: ButtonFace;
     }
   }
 }

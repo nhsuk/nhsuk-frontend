@@ -89,7 +89,7 @@
 
   .nhsuk-summary-list__key {
     margin-bottom: nhsuk-spacing(1);
-    @include nhsuk-typography-weight-bold;
+    @include nhsuk-font-weight-bold;
 
     @include nhsuk-media-query($from: tablet) {
       width: 30%;

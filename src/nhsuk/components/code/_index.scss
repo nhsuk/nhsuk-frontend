@@ -33,7 +33,7 @@
 
   .nhsuk-code__container,
   .nhsuk-code__content {
-    font-family: $nhsuk-code-font;
+    @include nhsuk-font-monospace;
   }
 
   .nhsuk-code__container {

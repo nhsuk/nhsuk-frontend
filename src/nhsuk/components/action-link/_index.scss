@@ -67,7 +67,7 @@
       fill: nhsuk-colour("green");
 
       @media screen and (forced-colors: active), (-ms-high-contrast: active) {
-        fill: buttontext;
+        fill: ButtonText;
       }
     }
   }
@@ -79,7 +79,7 @@
       fill: $nhsuk-reverse-text-colour;
 
       @media screen and (forced-colors: active), (-ms-high-contrast: active) {
-        fill: buttontext;
+        fill: ButtonText;
       }
     }
   }

@@ -715,6 +715,118 @@ describe('Typography tools', () => {
         })
       })
     })
+
+    describe('@mixin nhsuk-typography-weight-bold', () => {
+      it('outputs the same CSS as nhsuk-font-weight-bold', async () => {
+        const sass = outdent`
+          ${sassBootstrap}
+
+          .foo {
+            @include nhsuk-typography-weight-bold;
+          }
+        `
+
+        const expectedSass = outdent`
+          ${sassBootstrap}
+
+          .foo {
+            @include nhsuk-font-weight-bold;
+          }
+        `
+
+        const results = compileStringAsync(sass, {
+          loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
+          logger
+        })
+
+        await expect(results).resolves.toMatchObject({
+          css: (
+            await compileStringAsync(expectedSass, {
+              loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
+              logger
+            })
+          ).css
+        })
+      })
+
+      it('throws a deprecation warning if nhsuk-typography-weight-bold is used', async () => {
+        const sass = outdent`
+          ${sassBootstrap}
+
+          .foo {
+            @include nhsuk-typography-weight-bold;
+          }
+        `
+
+        await compileStringAsync(sass, {
+          loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
+          logger
+        })
+
+        // Expect our mocked @warn function to have been called once with a single
+        // argument, which should be the deprecation notice
+        expect(logger.warn).toHaveBeenCalledWith(
+          'nhsuk-typography-weight-bold is deprecated. Use nhsuk-font-weight-bold instead. To silence this warning, update $nhsuk-suppressed-warnings with key: "nhsuk-typography-weight"',
+          expect.anything()
+        )
+      })
+    })
+
+    describe('@mixin nhsuk-typography-weight-normal', () => {
+      it('outputs the same CSS as nhsuk-font-weight-normal', async () => {
+        const sass = outdent`
+          ${sassBootstrap}
+
+          .foo {
+            @include nhsuk-typography-weight-normal;
+          }
+        `
+
+        const expectedSass = outdent`
+          ${sassBootstrap}
+
+          .foo {
+            @include nhsuk-font-weight-normal;
+          }
+        `
+
+        const results = compileStringAsync(sass, {
+          loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
+          logger
+        })
+
+        await expect(results).resolves.toMatchObject({
+          css: (
+            await compileStringAsync(expectedSass, {
+              loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
+              logger
+            })
+          ).css
+        })
+      })
+
+      it('throws a deprecation warning if nhsuk-typography-weight-normal is used', async () => {
+        const sass = outdent`
+          ${sassBootstrap}
+
+          .foo {
+            @include nhsuk-typography-weight-normal;
+          }
+        `
+
+        await compileStringAsync(sass, {
+          loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
+          logger
+        })
+
+        // Expect our mocked @warn function to have been called once with a single
+        // argument, which should be the deprecation notice
+        expect(logger.warn).toHaveBeenCalledWith(
+          'nhsuk-typography-weight-normal is deprecated. Use nhsuk-font-weight-normal instead. To silence this warning, update $nhsuk-suppressed-warnings with key: "nhsuk-typography-weight"',
+          expect.anything()
+        )
+      })
+    })
   })
 })
 

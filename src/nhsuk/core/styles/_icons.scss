@@ -12,10 +12,17 @@
 
 .nhsuk-icon {
   display: inline-block;
+
   width: nhsuk-px-to-rem($nhsuk-icon-size);
   height: nhsuk-px-to-rem($nhsuk-icon-size);
+
   fill: currentcolor;
+
   vertical-align: middle;
+
+  // Work around SVGs not inheriting color from parent in forced color mode
+  // (https://github.com/w3c/csswg-drafts/issues/6310)
+  forced-color-adjust: auto;
 
   @include nhsuk-media-query($from: tablet) {
     width: nhsuk-px-to-rem($nhsuk-icon-size-large);

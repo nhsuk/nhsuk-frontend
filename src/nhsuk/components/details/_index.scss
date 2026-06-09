@@ -59,7 +59,7 @@ $nhsuk-expander-icon-size: 27px; // 19px font size + 4px summary text padding
 
     .nhsuk-details__summary-text {
       display: block;
-      font-weight: $nhsuk-font-weight-bold;
+      @include nhsuk-font-weight-bold;
       @include nhsuk-responsive-margin(4, "bottom");
     }
   }
@@ -77,8 +77,11 @@ $nhsuk-expander-icon-size: 27px; // 19px font size + 4px summary text padding
       position: relative; // [2]
       width: fit-content; // [1]
       padding-left: nhsuk-px-to-rem(nhsuk-spacing(4));
+      text-decoration: none;
       cursor: pointer;
-      @include nhsuk-link-style-default;
+
+      @include nhsuk-link-style-focus;
+      @include nhsuk-top-and-bottom;
 
       &::-webkit-details-marker {
         display: none; // [4]
@@ -100,21 +103,60 @@ $nhsuk-expander-icon-size: 27px; // 19px font size + 4px summary text padding
       .nhsuk-details[open] > &::before {
         @include nhsuk-shape-arrow($direction: down, $base: 14px);
       }
+    }
 
-      .nhsuk-details--reverse &:not(:focus),
-      .nhsuk-details--reverse &:not(:focus):hover {
-        color: $nhsuk-reverse-text-colour;
-      }
+    // Style the arrow and summary text to look like a link...
+    .nhsuk-details__summary::before,
+    .nhsuk-details__summary-text {
+      color: $nhsuk-link-colour;
     }
 
     // ...but only underline the text, not the arrow
     .nhsuk-details__summary-text {
       @include nhsuk-link-decoration; // [3]
+      @include nhsuk-responsive-margin(3, "bottom");
     }
 
-    // Remove the underline when focussed to avoid duplicate borders
-    .nhsuk-details__summary:focus .nhsuk-details__summary-text {
-      text-decoration: none;
+    .nhsuk-details__summary-text:only-child {
+      margin-bottom: 0;
+    }
+
+    .nhsuk-details__summary:hover {
+      &::before,
+      & .nhsuk-details__summary-text {
+        color: $nhsuk-link-hover-colour;
+      }
+
+      & .nhsuk-details__summary-text {
+        @include nhsuk-link-hover-decoration;
+      }
+    }
+
+    .nhsuk-details__summary:active {
+      &::before,
+      & .nhsuk-details__summary-text {
+        color: $nhsuk-link-active-colour;
+      }
+    }
+
+    .nhsuk-details__summary:focus {
+      &::before,
+      & .nhsuk-details__summary-text {
+        color: $nhsuk-focus-text-colour;
+      }
+
+      // Remove the underline when focussed to avoid duplicate borders
+      & .nhsuk-details__summary-text {
+        text-decoration: none;
+      }
+    }
+
+    .nhsuk-details--reverse .nhsuk-details__summary:not(:focus),
+    .nhsuk-details--reverse .nhsuk-details__summary:not(:focus):hover {
+      &::before,
+      & .nhsuk-details__summary-text {
+        color: $nhsuk-reverse-text-colour;
+      }
     }
 
     .nhsuk-details__text {
@@ -126,6 +168,32 @@ $nhsuk-expander-icon-size: 27px; // 19px font size + 4px summary text padding
 
       .nhsuk-details--reverse & {
         border-left-color: $nhsuk-reverse-border-colour;
+      }
+    }
+
+    @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+      .nhsuk-details__summary,
+      .nhsuk-details__summary:hover {
+        &::before,
+        & .nhsuk-details__summary-text {
+          color: LinkText;
+        }
+      }
+
+      .nhsuk-details__summary:active {
+        &::before,
+        & .nhsuk-details__summary-text {
+          color: ActiveText;
+        }
+      }
+
+      .nhsuk-details__summary:focus,
+      .nhsuk-details--reverse .nhsuk-details__summary:not(:focus),
+      .nhsuk-details--reverse .nhsuk-details__summary:not(:focus):hover {
+        &::before,
+        & .nhsuk-details__summary-text {
+          color: LinkText;
+        }
       }
     }
   }
@@ -182,8 +250,7 @@ $nhsuk-expander-icon-size: 27px; // 19px font size + 4px summary text padding
 
       .nhsuk-details__summary-text {
         display: block;
-        font-weight: $nhsuk-font-weight-bold;
-        @include nhsuk-font-size(26);
+        @include nhsuk-font(26, $weight: bold);
         @include nhsuk-responsive-margin(4, "bottom");
       }
     }
@@ -209,25 +276,16 @@ $nhsuk-expander-icon-size: 27px; // 19px font size + 4px summary text padding
       }
 
       .nhsuk-details__summary:focus {
+        outline: none;
         box-shadow: none;
       }
 
       .nhsuk-details__summary-text {
         display: inline-block;
-
         position: relative;
-
         padding: nhsuk-spacing(1);
         padding-left: $nhsuk-expander-icon-size + nhsuk-spacing(2);
-
-        color: $nhsuk-link-colour;
-
         cursor: pointer;
-      }
-
-      .nhsuk-details__summary:hover .nhsuk-details__summary-text {
-        color: $nhsuk-link-hover-colour;
-        @include nhsuk-link-hover-decoration;
       }
 
       .nhsuk-details__summary:focus .nhsuk-details__summary-text {
@@ -250,7 +308,7 @@ $nhsuk-expander-icon-size: 27px; // 19px font size + 4px summary text padding
           "M13.5 1a12.5 12.5 0 1 1 0 25 12.5 12.5 0 0 1 0-25Zm0 6c-.8 0-1.5.7-1.5 1.5V12H8.5c-.8 0-1.4.6-1.5 1.4v.1c0 .8.7 1.5 1.5 1.5H12v3.5c0 .8.6 1.4 1.4 1.5h.1c.8 0 1.5-.7 1.5-1.5V15h3.5c.8 0 1.4-.6 1.5-1.4v-.1c0-.8-.7-1.5-1.5-1.5H15V8.5c0-.8-.6-1.4-1.4-1.5Z"
         ); // Plus icon
 
-        background-color: currentcolor;
+        background-color: ButtonText;
       }
 
       &[open] {
@@ -272,8 +330,10 @@ $nhsuk-expander-icon-size: 27px; // 19px font size + 4px summary text padding
 
         .nhsuk-details__summary-text::before {
           top: calc(50% - nhsuk-px-to-rem(math.div($nhsuk-expander-icon-size, 2)));
+
           width: nhsuk-px-to-rem($nhsuk-expander-icon-size);
           height: nhsuk-px-to-rem($nhsuk-expander-icon-size);
+
           clip-path: shape(
             from 50% 3.7%,
             arc by 0% 92.6% of 46.3% 46.3% large cw,
@@ -301,6 +361,10 @@ $nhsuk-expander-icon-size: 27px; // 19px font size + 4px summary text padding
             curve by -5.19% -5.56% with 0% -2.96% / -2.22% -5.19%,
             close
           ); // Plus icon, scalable
+
+          background-color: currentcolor;
+
+          forced-color-adjust: none;
         }
 
         &[open] .nhsuk-details__summary-text::before {
@@ -316,6 +380,12 @@ $nhsuk-expander-icon-size: 27px; // 19px font size + 4px summary text padding
             arc by 0% -11.11% of 5.56% 5.56% small ccw,
             close
           ); // Minus icon, scalable
+        }
+      }
+
+      @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+        .nhsuk-details__summary:not(:focus):not(:hover):not(:active) .nhsuk-details__summary-text::before {
+          background-color: ButtonText;
         }
       }
     }
