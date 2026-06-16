@@ -149,6 +149,7 @@ const fixtures = {
       caption: 'Prescription prepayment certificate (PPC) charges',
       captionSize: 'm',
       firstCellIsHeader: true,
+      scrollable: true,
       head: [
         {
           text: 'Item'
@@ -1308,6 +1309,14 @@ const fixtures = {
           text: 'Nation'
         },
         {
+          text: '2017 to 2018',
+          format: 'numeric'
+        },
+        {
+          text: '2018 to 2019',
+          format: 'numeric'
+        },
+        {
           text: '2019 to 2020',
           format: 'numeric'
         },
@@ -1340,6 +1349,14 @@ const fixtures = {
         [
           {
             text: 'England'
+          },
+          {
+            text: '91.2%',
+            format: 'numeric'
+          },
+          {
+            text: '91.2%',
+            format: 'numeric'
           },
           {
             text: '91.5%',
@@ -1375,6 +1392,14 @@ const fixtures = {
             text: 'Northern Ireland'
           },
           {
+            text: '95.4%',
+            format: 'numeric'
+          },
+          {
+            text: '95.8%',
+            format: 'numeric'
+          },
+          {
             text: '95.1%',
             format: 'numeric'
           },
@@ -1408,6 +1433,14 @@ const fixtures = {
             text: 'Scotland'
           },
           {
+            text: '96.4%',
+            format: 'numeric'
+          },
+          {
+            text: '96.1%',
+            format: 'numeric'
+          },
+          {
             text: '96.2%',
             format: 'numeric'
           },
@@ -1439,6 +1472,14 @@ const fixtures = {
         [
           {
             text: 'Wales'
+          },
+          {
+            text: '95.0%',
+            format: 'numeric'
+          },
+          {
+            text: '94.9%',
+            format: 'numeric'
           },
           {
             text: '94.8%',
