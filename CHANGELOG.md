@@ -6,6 +6,53 @@ Note: This release was created from the `support/10.x` branch.
 
 ### :new: **New features**
 
+#### Select all checkboxes
+
+You can now add a checkbox which selects or unselects all the other checkboxes. This is a progressive enhancement only shown if JavaScript is available.
+
+To use it, add `behaviour: "inclusive"` to a checkbox item. If this checkbox is separated from the others using a dividier, add the same option to the divider too.
+
+For example, using the Nunjucks macro:
+
+```njk
+{{ checkboxes({
+  fieldset: {
+    legend: {
+      text: "What are your favourite colours?",
+      size: "l",
+      isPageHeading: true
+    }
+  },
+  idPrefix: "select-all",
+  name: "example",
+  items: [
+    {
+      value: "all",
+      text: "All colours",
+      behaviour: "inclusive"
+    },
+    {
+      divider: "or",
+      behaviour: "inclusive"
+    },
+    {
+      value: "red",
+      text: "Red"
+    },
+    {
+      value: "green",
+      text: "Green"
+    },
+    {
+      value: "blue",
+      text: "Blue"
+    }
+  ]
+}) }}
+```
+
+This was added in [pull request #1707: Add checkbox "select all" behaviour](https://github.com/nhsuk/nhsuk-frontend/pull/1707).
+
 #### Show or hide content in supported browsers
 
 You can now show or hide content depending on whether NHS.UK frontend JavaScript is supported:
@@ -120,6 +167,39 @@ We've rewritten the internals of the `nhsuk-media-query` mixin to make use of th
 This was added in [pull request #1961: Port Sass media query functions from GOV.UK Frontend and remove `sass-mq` dependency](https://github.com/nhsuk/nhsuk-frontend/pull/1961).
 
 ### :wastebasket: **Deprecated features**
+
+#### Checkbox 'none of the above' changes
+
+If you're using the checkboxes component with a 'none of the above' option, you'll need to make some changes, as the `exclusive` option has been renamed to be a value of a new `behaviour` option.
+
+If you're using the Nunjucks macro, change the params as follows:
+
+```patch
+    items: [
+      {
+        value: "none",
+-       exclusive: true,
+-       exclusiveGroup: "preferences",
++       behaviour: "exclusive",
++       behaviourGroup: "preferences"
+      }
+    ]
+```
+
+If you're using the HTML, make these changes:
+
+```patch
+  <input type="checkbox" value="none"
+-   data-checkbox-exclusive
+-   data-checkbox-exclusive-group="preferences"
++   data-behaviour="exclusive"
++   data-behaviour-group="preferences"
+  >
+```
+
+The previous names are deprecated and will be removed in a future release.
+
+This change was introduced in [pull request #1707: Add checkbox "select all" behaviour](https://github.com/nhsuk/nhsuk-frontend/pull/1707).
 
 #### Replace Sass print mixins with `@media print`
 
