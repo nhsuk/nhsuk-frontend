@@ -773,6 +773,41 @@ const fixtures = {
     },
     variants
   },
+  'with "none of the above" option, deprecated': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'How do you want to be contacted about this?',
+          size: 'l',
+          isPageHeading: true
+        }
+      },
+      idPrefix: 'conditional',
+      name: 'example',
+      items: [
+        {
+          value: 'email',
+          text: 'Email'
+        },
+        {
+          value: 'phone',
+          text: 'Phone'
+        },
+        {
+          value: 'text',
+          text: 'Text message'
+        },
+        {
+          divider: 'or'
+        },
+        {
+          value: 'none',
+          text: 'None of the above',
+          exclusive: true
+        }
+      ]
+    }
+  },
   'with "none of the above" option, conditional content': {
     context: {
       fieldset: {
