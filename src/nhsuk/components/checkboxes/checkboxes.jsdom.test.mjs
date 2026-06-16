@@ -23,12 +23,27 @@ describe('Checkboxes', () => {
   let $input3
 
   /** @type {HTMLElement} */
-  let $inputNone
+  let $inputBehaviour
+
+  const optionsExclusive = {
+    label1: 'Email',
+    label2: 'Phone',
+    label3: 'Text message',
+    labelBehaviour: 'None of the above'
+  }
+
+  const optionsInclusive = {
+    label1: 'Red',
+    label2: 'Green',
+    label3: 'Blue',
+    labelBehaviour: 'All colours'
+  }
 
   /**
    * @param {keyof typeof examples} example
+   * @param {typeof optionsExclusive | typeof optionsInclusive} options
    */
-  function initExample(example) {
+  function initExample(example, options) {
     document.body.innerHTML = components.render('checkboxes', examples[example])
 
     $root = /** @type {HTMLElement} */ (
@@ -40,19 +55,19 @@ describe('Checkboxes', () => {
     ])
 
     $input1 = within($root).getByRole('checkbox', {
-      name: 'Email'
+      name: options.label1
     })
 
     $input2 = within($root).getByRole('checkbox', {
-      name: 'Phone'
+      name: options.label2
     })
 
     $input3 = within($root).getByRole('checkbox', {
-      name: 'Text message'
+      name: options.label3
     })
 
-    $inputNone = within($root).getByRole('checkbox', {
-      name: 'None of the above'
+    $inputBehaviour = within($root).getByRole('checkbox', {
+      name: options.labelBehaviour
     })
 
     jest.spyOn($root, 'addEventListener')
@@ -60,7 +75,10 @@ describe('Checkboxes', () => {
 
   describe('Initialisation via init function', () => {
     beforeEach(() => {
-      initExample('with "none of the above" option, conditional content')
+      initExample(
+        'with "none of the above" option, conditional content',
+        optionsExclusive
+      )
     })
 
     it('should add event listeners', () => {
@@ -84,7 +102,7 @@ describe('Checkboxes', () => {
       $input1.remove()
       $input2.remove()
       $input3.remove()
-      $inputNone.remove()
+      $inputBehaviour.remove()
 
       expect(() => initCheckboxes()).toThrow(
         `${Checkboxes.moduleName}: Form inputs (\`<input type="checkbox">\`) not found`
@@ -112,7 +130,7 @@ describe('Checkboxes', () => {
 
   describe('Initialisation via class', () => {
     beforeEach(() => {
-      initExample('with "none of the above" option')
+      initExample('with "none of the above" option', optionsExclusive)
     })
 
     it('should not throw with $root element', () => {
@@ -157,7 +175,10 @@ describe('Checkboxes', () => {
     let $inputs = []
 
     beforeEach(() => {
-      initExample('with "none of the above" option, conditional content')
+      initExample(
+        'with "none of the above" option, conditional content',
+        optionsExclusive
+      )
       $inputs = [$input1, $input2, $input3]
     })
 
@@ -235,7 +256,7 @@ describe('Checkboxes', () => {
 
   describe('Exclusive checkbox', () => {
     beforeEach(() => {
-      initExample('with "none of the above" option')
+      initExample('with "none of the above" option', optionsExclusive)
     })
 
     it('should uncheck other checkboxes', () => {
@@ -249,38 +270,41 @@ describe('Checkboxes', () => {
       expect($input1).toBeChecked()
       expect($input2).toBeChecked()
       expect($input3).toBeChecked()
-      expect($inputNone).not.toBeChecked()
+      expect($inputBehaviour).not.toBeChecked()
 
       // Tick "None of the above"
-      $inputNone.click()
+      $inputBehaviour.click()
 
       expect($input1).not.toBeChecked()
       expect($input2).not.toBeChecked()
       expect($input3).not.toBeChecked()
-      expect($inputNone).toBeChecked()
+      expect($inputBehaviour).toBeChecked()
     })
 
     it('should uncheck when other checkboxes are checked', () => {
       initCheckboxes()
 
       // Tick "None of the above"
-      $inputNone.click()
+      $inputBehaviour.click()
 
       expect($input1).not.toBeChecked()
       expect($input2).not.toBeChecked()
       expect($input3).not.toBeChecked()
-      expect($inputNone).toBeChecked()
+      expect($inputBehaviour).toBeChecked()
 
       // Tick 1st option
       $input1.click()
 
-      expect($inputNone).not.toBeChecked()
+      expect($inputBehaviour).not.toBeChecked()
     })
   })
 
   describe('Exclusive checkbox (named groups)', () => {
     beforeEach(() => {
-      initExample('with "none of the above" option (named group)')
+      initExample(
+        'with "none of the above" option (named group)',
+        optionsExclusive
+      )
     })
 
     it('should uncheck other checkboxes', () => {
@@ -294,38 +318,41 @@ describe('Checkboxes', () => {
       expect($input1).toBeChecked()
       expect($input2).toBeChecked()
       expect($input3).toBeChecked()
-      expect($inputNone).not.toBeChecked()
+      expect($inputBehaviour).not.toBeChecked()
 
       // Tick "None of the above"
-      $inputNone.click()
+      $inputBehaviour.click()
 
       expect($input1).not.toBeChecked()
       expect($input2).not.toBeChecked()
       expect($input3).not.toBeChecked()
-      expect($inputNone).toBeChecked()
+      expect($inputBehaviour).toBeChecked()
     })
 
     it('should uncheck when other checkboxes are checked', () => {
       initCheckboxes()
 
       // Tick "None of the above"
-      $inputNone.click()
+      $inputBehaviour.click()
 
       expect($input1).not.toBeChecked()
       expect($input2).not.toBeChecked()
       expect($input3).not.toBeChecked()
-      expect($inputNone).toBeChecked()
+      expect($inputBehaviour).toBeChecked()
 
       // Tick 1st option
       $input1.click()
 
-      expect($inputNone).not.toBeChecked()
+      expect($inputBehaviour).not.toBeChecked()
     })
   })
 
   describe('Exclusive checkbox (named groups, unique)', () => {
     beforeEach(() => {
-      initExample('with "none of the above" option (named group, unique)')
+      initExample(
+        'with "none of the above" option (named group, unique)',
+        optionsExclusive
+      )
     })
 
     it('should uncheck other checkboxes', () => {
@@ -339,32 +366,215 @@ describe('Checkboxes', () => {
       expect($input1).toBeChecked()
       expect($input2).toBeChecked()
       expect($input3).toBeChecked()
-      expect($inputNone).not.toBeChecked()
+      expect($inputBehaviour).not.toBeChecked()
 
       // Tick "None of the above"
-      $inputNone.click()
+      $inputBehaviour.click()
 
       expect($input1).not.toBeChecked()
       expect($input2).not.toBeChecked()
       expect($input3).not.toBeChecked()
-      expect($inputNone).toBeChecked()
+      expect($inputBehaviour).toBeChecked()
     })
 
     it('should uncheck when other checkboxes are checked', () => {
       initCheckboxes()
 
       // Tick "None of the above"
-      $inputNone.click()
+      $inputBehaviour.click()
 
       expect($input1).not.toBeChecked()
       expect($input2).not.toBeChecked()
       expect($input3).not.toBeChecked()
-      expect($inputNone).toBeChecked()
+      expect($inputBehaviour).toBeChecked()
 
       // Tick 1st option
       $input1.click()
 
-      expect($inputNone).not.toBeChecked()
+      expect($inputBehaviour).not.toBeChecked()
+    })
+  })
+
+  describe('Inclusive checkbox', () => {
+    beforeEach(() => {
+      initExample('with "select all" option', optionsInclusive)
+    })
+
+    it('should check all other checkboxes', () => {
+      initCheckboxes()
+
+      expect($input1).not.toBeChecked()
+      expect($input2).not.toBeChecked()
+      expect($input3).not.toBeChecked()
+      expect($inputBehaviour).not.toBeChecked()
+
+      // Tick "All colours"
+      $inputBehaviour.click()
+
+      expect($input1).toBeChecked()
+      expect($input2).toBeChecked()
+      expect($input3).toBeChecked()
+      expect($inputBehaviour).toBeChecked()
+    })
+
+    it('should uncheck all other checkboxes when unchecked', () => {
+      initCheckboxes()
+
+      // Tick "All colours"
+      $inputBehaviour.click()
+
+      expect($input1).toBeChecked()
+      expect($input2).toBeChecked()
+      expect($input3).toBeChecked()
+      expect($inputBehaviour).toBeChecked()
+
+      // Untick "All colours"
+      $inputBehaviour.click()
+
+      expect($input1).not.toBeChecked()
+      expect($input2).not.toBeChecked()
+      expect($input3).not.toBeChecked()
+      expect($inputBehaviour).not.toBeChecked()
+    })
+
+    it('should uncheck when other checkboxes are unchecked', () => {
+      initCheckboxes()
+
+      // Tick "All colours"
+      $inputBehaviour.click()
+
+      expect($input1).toBeChecked()
+      expect($input2).toBeChecked()
+      expect($input3).toBeChecked()
+      expect($inputBehaviour).toBeChecked()
+
+      // Untick 1st option
+      $input1.click()
+
+      expect($inputBehaviour).not.toBeChecked()
+    })
+  })
+
+  describe('Inclusive checkbox (named groups)', () => {
+    beforeEach(() => {
+      initExample('with "select all" option (named group)', optionsInclusive)
+    })
+
+    it('should check all other checkboxes', () => {
+      initCheckboxes()
+
+      expect($input1).not.toBeChecked()
+      expect($input2).not.toBeChecked()
+      expect($input3).not.toBeChecked()
+      expect($inputBehaviour).not.toBeChecked()
+
+      // Tick "All colours"
+      $inputBehaviour.click()
+
+      expect($input1).toBeChecked()
+      expect($input2).toBeChecked()
+      expect($input3).toBeChecked()
+      expect($inputBehaviour).toBeChecked()
+    })
+
+    it('should uncheck all other checkboxes when unchecked', () => {
+      initCheckboxes()
+
+      // Tick "All colours"
+      $inputBehaviour.click()
+
+      expect($input1).toBeChecked()
+      expect($input2).toBeChecked()
+      expect($input3).toBeChecked()
+      expect($inputBehaviour).toBeChecked()
+
+      // Untick "All colours"
+      $inputBehaviour.click()
+
+      expect($input1).not.toBeChecked()
+      expect($input2).not.toBeChecked()
+      expect($input3).not.toBeChecked()
+      expect($inputBehaviour).not.toBeChecked()
+    })
+
+    it('should uncheck when other checkboxes are unchecked', () => {
+      initCheckboxes()
+
+      // Tick "All colours"
+      $inputBehaviour.click()
+
+      expect($input1).toBeChecked()
+      expect($input2).toBeChecked()
+      expect($input3).toBeChecked()
+      expect($inputBehaviour).toBeChecked()
+
+      // Untick 1st option
+      $input1.click()
+
+      expect($inputBehaviour).not.toBeChecked()
+    })
+  })
+
+  describe('Inclusive checkbox (named groups, unique)', () => {
+    beforeEach(() => {
+      initExample(
+        'with "select all" option (named group, unique)',
+        optionsInclusive
+      )
+    })
+
+    it('should check all other checkboxes', () => {
+      initCheckboxes()
+
+      expect($input1).not.toBeChecked()
+      expect($input2).not.toBeChecked()
+      expect($input3).not.toBeChecked()
+      expect($inputBehaviour).not.toBeChecked()
+
+      // Tick "All colours"
+      $inputBehaviour.click()
+
+      expect($input1).toBeChecked()
+      expect($input2).toBeChecked()
+      expect($input3).toBeChecked()
+      expect($inputBehaviour).toBeChecked()
+    })
+
+    it('should uncheck all other checkboxes when unchecked', () => {
+      initCheckboxes()
+
+      // Tick "All colours"
+      $inputBehaviour.click()
+
+      expect($input1).toBeChecked()
+      expect($input2).toBeChecked()
+      expect($input3).toBeChecked()
+      expect($inputBehaviour).toBeChecked()
+
+      // Untick "All colours"
+      $inputBehaviour.click()
+
+      expect($input1).not.toBeChecked()
+      expect($input2).not.toBeChecked()
+      expect($input3).not.toBeChecked()
+      expect($inputBehaviour).not.toBeChecked()
+    })
+
+    it('should uncheck when other checkboxes are unchecked', () => {
+      initCheckboxes()
+
+      // Tick "All colours"
+      $inputBehaviour.click()
+
+      expect($input1).toBeChecked()
+      expect($input2).toBeChecked()
+      expect($input3).toBeChecked()
+      expect($inputBehaviour).toBeChecked()
+
+      // Untick 1st option
+      $input1.click()
+
+      expect($inputBehaviour).not.toBeChecked()
     })
   })
 })
