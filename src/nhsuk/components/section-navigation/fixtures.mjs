@@ -228,6 +228,67 @@ const fixtures = {
     options: {
       width: 'full'
     }
+  },
+  'small': {
+    context: {
+      small: true,
+      items: [
+        {
+          href: '#',
+          text: 'All clinics'
+        },
+        {
+          href: '#',
+          text: 'Today',
+          current: true
+        },
+        {
+          href: '#',
+          text: 'Upcoming'
+        },
+        {
+          href: '#',
+          text: 'Completed'
+        }
+      ]
+    },
+    options: {
+      width: 'full'
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
+    }
+  },
+  'small vertical': {
+    context: {
+      small: true,
+      vertical: true,
+      items: [
+        {
+          href: '#',
+          text: 'All clinics'
+        },
+        {
+          href: '#',
+          text: 'Today',
+          current: true
+        },
+        {
+          href: '#',
+          text: 'Upcoming'
+        },
+        {
+          href: '#',
+          text: 'Completed'
+        }
+      ]
+    },
+    options: {
+      width: 'full'
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
+    }
   }
 }
 

@@ -308,4 +308,48 @@
       }
     }
   }
+
+  // Small variant: fixed 16px font at all breakpoints; mobile-style padding at tablet+.
+  // At tablet and above the font is held at the mobile (16px) size from nhsuk-font(19),
+  // and vertical padding matches the mobile default.
+  .nhsuk-section-navigation--small {
+    .nhsuk-section-navigation__list {
+      // Override the tablet step-up in nhsuk-font(19) (null: 16px → tablet: 19px).
+      // Keep the font at 16px/24px at all breakpoints.
+      @include nhsuk-media-query($from: tablet) {
+        font-size: nhsuk-px-to-rem(16px);
+        line-height: nhsuk-line-height(24px, $font-size: 16px);
+        gap: nhsuk-spacing(2) nhsuk-spacing(3); // tighter column gap than default 16px
+      }
+
+      @include nhsuk-media-query($from: desktop) {
+        gap: nhsuk-spacing(2) nhsuk-spacing(4); // tighter than default nhsuk-spacing(5)
+      }
+    }
+
+    .nhsuk-section-navigation__link,
+    .nhsuk-section-navigation__text {
+      // Reduce vertical padding to match mobile at all breakpoints
+      @include nhsuk-media-query($from: tablet) {
+        padding: nhsuk-spacing(2) 2px;
+      }
+    }
+
+    // Vertical + small: restore full-width bleed padding so it is identical
+    // to the current vertical layout on mobile at all breakpoints.
+    &.nhsuk-section-navigation--vertical {
+      .nhsuk-section-navigation__list {
+        @include nhsuk-media-query($from: tablet) {
+          gap: 0; // reset the horizontal-layout gap set by --small
+        }
+      }
+
+      .nhsuk-section-navigation__link,
+      .nhsuk-section-navigation__text {
+        @include nhsuk-media-query($from: tablet) {
+          padding: nhsuk-spacing(2) $nhsuk-gutter-half;
+        }
+      }
+    }
+  }
 }

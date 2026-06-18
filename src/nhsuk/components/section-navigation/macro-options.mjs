@@ -79,6 +79,12 @@ const options = {
     description:
       'If `true`, forces the navigation to remain stacked vertically at all breakpoints, rather than switching to a horizontal layout at tablet width.'
   },
+  small: {
+    type: 'boolean',
+    required: false,
+    description:
+      'If `true`, uses a smaller text size that does not change responsively. Suitable for compact layouts or secondary navigation.'
+  },
   id: {
     type: 'string',
     required: false,
