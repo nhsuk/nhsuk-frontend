@@ -42,20 +42,12 @@
         // Right cover — hides right shadow when scrolled to the end
         linear-gradient(to left, var(--nhsuk-scrollable-container-bg) nhsuk-spacing(2), transparent) right center /
           nhsuk-spacing(2) 100% local no-repeat,
-        // Left scroll indicator shadow
-        radial-gradient(
-            ellipse nhsuk-spacing(2) 45% at left center,
-            rgba($nhsuk-border-hover-colour, 0.4) 95%,
-            transparent 100%
-          )
-          left center / nhsuk-spacing(2) 100% scroll no-repeat,
-        // Right scroll indicator shadow
-        radial-gradient(
-            ellipse nhsuk-spacing(2) 45% at right center,
-            rgba($nhsuk-border-hover-colour, 0.4) 95%,
-            transparent 100%
-          )
-          right center / nhsuk-spacing(2) 100% scroll no-repeat;
+        // Left scroll indicator line
+        linear-gradient(to bottom, rgba($nhsuk-border-hover-colour, 0.4), rgba($nhsuk-border-hover-colour, 0.4)) left
+          center / nhsuk-spacing(1) 100% scroll no-repeat,
+        // Right scroll indicator line
+        linear-gradient(to bottom, rgba($nhsuk-border-hover-colour, 0.4), rgba($nhsuk-border-hover-colour, 0.4)) right
+          center / nhsuk-spacing(1) 100% scroll no-repeat;
     }
 
     &[role="region"][aria-labelledby][tabindex]:focus-visible {
