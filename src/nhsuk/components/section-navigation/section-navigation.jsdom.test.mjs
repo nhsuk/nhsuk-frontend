@@ -1,10 +1,10 @@
-import { getByRole } from '@testing-library/dom'
+import { within } from '@testing-library/dom'
 import { mockResizeObserver } from 'jsdom-testing-mocks'
+
+import { components } from '#lib'
 
 import { examples } from './fixtures.mjs'
 import { SectionNavigation } from './section-navigation.mjs'
-
-import { components } from '#lib'
 
 mockResizeObserver()
 
@@ -26,12 +26,10 @@ describe('SectionNavigation', () => {
     )
 
     $root = /** @type {HTMLElement} */ (
-      document.querySelector(
-        `[data-module="${SectionNavigation.moduleName}"]`
-      )
+      document.querySelector(`[data-module="${SectionNavigation.moduleName}"]`)
     )
 
-    $list = getByRole($root, 'list')
+    $list = within($root).getByRole('list')
 
     availableWidth = 320
     naturalWidth = 480
