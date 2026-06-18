@@ -58,7 +58,7 @@
           right center / nhsuk-spacing(2) 100% scroll no-repeat;
     }
 
-    &[role="region"][aria-labelledby][tabindex]:focus {
+    &[role="region"][aria-labelledby][tabindex]:focus-visible {
       outline: $nhsuk-focus-width solid $nhsuk-focus-colour;
       outline-offset: $nhsuk-focus-width;
       box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-text-colour;
