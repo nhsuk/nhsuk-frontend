@@ -50,8 +50,8 @@
     @include nhsuk-media-query($from: tablet) {
       // Use box-shadow rather than a border so that the current item's active
       // indicator (also a box-shadow) renders on top of this line.
-      box-shadow: inset 0 -1px 0 $nhsuk-border-colour;
       flex-flow: row wrap;
+      box-shadow: inset 0 -1px 0 $nhsuk-border-colour;
       gap: nhsuk-spacing(2) nhsuk-spacing(3); // to match header at tablet
     }
 
@@ -206,49 +206,47 @@
 
     .nhsuk-section-navigation__text {
       color: $nhsuk-reverse-text-colour;
+    }
 
-      &[aria-current] {
-        box-shadow: $reverse-active-indicator-left;
+    .nhsuk-section-navigation__text[aria-current] {
+      box-shadow: $reverse-active-indicator-left;
 
-        @include nhsuk-media-query($from: tablet) {
-          box-shadow: $reverse-active-indicator-bottom;
-        }
+      @include nhsuk-media-query($from: tablet) {
+        box-shadow: $reverse-active-indicator-bottom;
       }
     }
 
     .nhsuk-section-navigation__link {
       @include nhsuk-link-style-reverse;
 
-      &[aria-current] {
-        color: $nhsuk-reverse-text-colour;
-        box-shadow: $reverse-active-indicator-left;
-
-        @include nhsuk-media-query($from: tablet) {
-          box-shadow: $reverse-active-indicator-bottom;
-        }
-      }
-
       // nhsuk-link-style-white sets focus at higher specificity; override with
       // an inset bottom indicator at all breakpoints to contain the focus state.
       &:focus {
         box-shadow: $focus-indicator;
       }
+    }
 
-      // When focused, swap the left indicator colour to black for contrast against
-      // the yellow focus background, and stack with the bottom focus indicator.
-      // Also explicitly set the focus text colour: the [aria-current] rule above
-      // has the same specificity as the :focus rule from nhsuk-link-style-white,
-      // so source order determines the winner — Safari follows spec and lets
-      // [aria-current] (later in source) override the focus colour back to white.
-      &[aria-current]:focus {
-        color: $nhsuk-focus-text-colour;
-        box-shadow:
-          $reverse-active-indicator-left,
-          $focus-indicator;
+    .nhsuk-section-navigation__link[aria-current] {
+      color: $nhsuk-reverse-text-colour;
+      box-shadow: $reverse-active-indicator-left;
 
-        @include nhsuk-media-query($from: tablet) {
-          box-shadow: $focus-indicator;
-        }
+      @include nhsuk-media-query($from: tablet) {
+        box-shadow: $reverse-active-indicator-bottom;
+      }
+    }
+
+    // When focused, swap the left indicator colour to black for contrast against
+    // the yellow focus background, and stack with the bottom focus indicator.
+    // Also explicitly set the focus text colour: the [aria-current] rule above
+    // has the same specificity as the :focus rule from nhsuk-link-style-white,
+    // so source order determines the winner — Safari follows spec and lets
+    // [aria-current] (later in source) override the focus colour back to white.
+    .nhsuk-section-navigation__link[aria-current]:focus {
+      color: $nhsuk-focus-text-colour;
+      box-shadow: $reverse-active-indicator-left, $focus-indicator;
+
+      @include nhsuk-media-query($from: tablet) {
+        box-shadow: $focus-indicator;
       }
     }
 
@@ -257,7 +255,6 @@
       color: nhsuk-colour("white");
       background-color: $reverse-badge-background;
     }
-
   }
 
   // Horizontal variant (JS-managed): added at mobile breakpoints when all items
@@ -337,21 +334,21 @@
         padding: nhsuk-spacing(2) 2px;
       }
     }
+  }
 
-    // Vertical + small: restore full-width bleed padding so it is identical
-    // to the current vertical layout on mobile at all breakpoints.
-    &.nhsuk-section-navigation--vertical {
-      .nhsuk-section-navigation__list {
-        @include nhsuk-media-query($from: tablet) {
-          gap: 0; // reset the horizontal-layout gap set by --small
-        }
+  // Vertical + small: restore full-width bleed padding so it is identical
+  // to the current vertical layout on mobile at all breakpoints.
+  .nhsuk-section-navigation--small.nhsuk-section-navigation--vertical {
+    .nhsuk-section-navigation__list {
+      @include nhsuk-media-query($from: tablet) {
+        gap: 0; // reset the horizontal-layout gap set by --small
       }
+    }
 
-      .nhsuk-section-navigation__link,
-      .nhsuk-section-navigation__text {
-        @include nhsuk-media-query($from: tablet) {
-          padding: nhsuk-spacing(2) $nhsuk-gutter-half;
-        }
+    .nhsuk-section-navigation__link,
+    .nhsuk-section-navigation__text {
+      @include nhsuk-media-query($from: tablet) {
+        padding: nhsuk-spacing(2) $nhsuk-gutter-half;
       }
     }
   }
