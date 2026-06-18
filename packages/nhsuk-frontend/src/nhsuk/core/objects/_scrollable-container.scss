@@ -32,7 +32,7 @@
     @include nhsuk-responsive-margin(7, "bottom");
 
     &[role="region"][aria-labelledby][tabindex] {
-      overflow-x: scroll;
+      overflow-x: auto;
 
       // Horizontal scroll shadow indicators
       background:
