@@ -306,4 +306,79 @@
     }) }}
   </div>
 
+  <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
+
+  {# ================================================ #}
+  {# Small #}
+  {# ================================================ #}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+      <h2 class="nhsuk-heading-m">Small</h2>
+      <p class="nhsuk-body">Use the <code>small</code> option for compact layouts. The font size is fixed at 16px at all breakpoints.</p>
+
+      {{ sectionNavigation({
+        small: true,
+        items: [
+          {
+            href: "#",
+            text: "All clinics"
+          },
+          {
+            text: "Today",
+            current: true
+          },
+          {
+            href: "#",
+            text: "Upcoming"
+          },
+          {
+            href: "#",
+            text: "Completed"
+          }
+        ]
+      }) }}
+
+      <p class="nhsuk-body nhsuk-u-secondary-text-colour nhsuk-u-margin-bottom-6">
+        Content for the current "Today" section would appear here.
+      </p>
+    </div>
+  </div>
+
+  <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
+
+  {# ================================================ #}
+  {# Small vertical #}
+  {# ================================================ #}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+      <h2 class="nhsuk-heading-m">Small vertical</h2>
+      <p class="nhsuk-body">Combine <code>small</code> and <code>vertical</code> for a compact stacked layout at all breakpoints.</p>
+
+      {{ sectionNavigation({
+        small: true,
+        vertical: true,
+        items: [
+          {
+            href: "#",
+            text: "All clinics"
+          },
+          {
+            text: "Today",
+            current: true
+          },
+          {
+            href: "#",
+            text: "Upcoming"
+          },
+          {
+            href: "#",
+            text: "Completed"
+          }
+        ]
+      }) }}
+    </div>
+  </div>
+
 {% endblock %}

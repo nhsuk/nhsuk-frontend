@@ -8,6 +8,10 @@
   {%- set classNames = classNames ~ " nhsuk-section-navigation--vertical" -%}
 {%- endif -%}
 
+{%- if params.small and (not params.classes or not "nhsuk-section-navigation--small" in params.classes) %}
+  {%- set classNames = classNames ~ " nhsuk-section-navigation--small" -%}
+{%- endif -%}
+
 {%- if params.classes %}
   {%- set classNames = classNames ~ " " ~ params.classes -%}
 {%- endif -%}
