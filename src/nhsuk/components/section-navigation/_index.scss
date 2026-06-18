@@ -67,16 +67,6 @@
     margin-bottom: 0;
   }
 
-  // Active indicator: left inset border on mobile, bottom inset border on tablet+.
-  // Applied to the item (not the link) so it spans the full width including any count badge.
-  .nhsuk-section-navigation__item--current {
-    box-shadow: $active-indicator-left;
-
-    @include nhsuk-media-query($from: tablet) {
-      box-shadow: $active-indicator-bottom;
-    }
-  }
-
   // <strong> is used as a fallback to visually indicate the current page in
   // environments where CSS is unavailable.
   .nhsuk-section-navigation__current {
@@ -96,9 +86,15 @@
     @include nhsuk-link-style-default;
     @include nhsuk-link-style-no-visited-state;
 
-    // Active: keep text colour consistent; the active indicator is on the <li>
+    // Active indicator: left inset border on mobile, bottom inset border on tablet+.
+    // Text colour is explicitly set to prevent link visited/hover styles overriding it.
     &[aria-current] {
       color: $nhsuk-text-colour;
+      box-shadow: $active-indicator-left;
+
+      @include nhsuk-media-query($from: tablet) {
+        box-shadow: $active-indicator-bottom;
+      }
     }
 
     // nhsuk-link-style-default focus uses an outset box-shadow which bleeds
@@ -108,9 +104,9 @@
       box-shadow: $focus-indicator;
     }
 
-    // When the current item is also focused, the yellow background covers the
-    // <li>'s left indicator. Reinstate it on the link itself using a combined
-    // box-shadow so both indicators are visible simultaneously.
+    // When focused, swap the left indicator colour from blue to black for
+    // contrast against the yellow focus background, then stack with the bottom
+    // focus indicator.
     &[aria-current]:focus {
       box-shadow:
         inset $nhsuk-border-width 0 $nhsuk-focus-text-colour,
@@ -135,6 +131,15 @@
 
       // Non-breaking space
       content: "\00a0";
+    }
+  }
+
+  // Non-link (span) current item: same active indicator as the link variant.
+  .nhsuk-section-navigation__text[aria-current] {
+    box-shadow: $active-indicator-left;
+
+    @include nhsuk-media-query($from: tablet) {
+      box-shadow: $active-indicator-bottom;
     }
   }
 
@@ -164,17 +169,8 @@
       }
     }
 
-    .nhsuk-section-navigation__item--current {
-      @include nhsuk-media-query($from: tablet) {
-        // Clear the bottom indicator from the horizontal tablet rule; the left
-        // indicator is applied directly on the link/text element below so it
-        // renders reliably on top of the painted element.
-        box-shadow: none;
-      }
-    }
-
-    // Apply the left indicator on the link/text directly so it's always visible.
-    // Combined with the bottom focus shadow for focused current items.
+    // Active indicator: override the base tablet rule (bottom) back to left
+    // for the vertical stacked layout.
     .nhsuk-section-navigation__link[aria-current],
     .nhsuk-section-navigation__text[aria-current] {
       @include nhsuk-media-query($from: tablet) {
@@ -208,16 +204,16 @@
       }
     }
 
-    .nhsuk-section-navigation__item--current {
-      box-shadow: $reverse-active-indicator-left;
-
-      @include nhsuk-media-query($from: tablet) {
-        box-shadow: $reverse-active-indicator-bottom;
-      }
-    }
-
     .nhsuk-section-navigation__text {
       color: $nhsuk-reverse-text-colour;
+
+      &[aria-current] {
+        box-shadow: $reverse-active-indicator-left;
+
+        @include nhsuk-media-query($from: tablet) {
+          box-shadow: $reverse-active-indicator-bottom;
+        }
+      }
     }
 
     .nhsuk-section-navigation__link {
@@ -225,6 +221,11 @@
 
       &[aria-current] {
         color: $nhsuk-reverse-text-colour;
+        box-shadow: $reverse-active-indicator-left;
+
+        @include nhsuk-media-query($from: tablet) {
+          box-shadow: $reverse-active-indicator-bottom;
+        }
       }
 
       // nhsuk-link-style-white sets focus at higher specificity; override with
@@ -233,8 +234,8 @@
         box-shadow: $focus-indicator;
       }
 
-      // Reinstate the current indicator on the link when focused (yellow
-      // background covers the <li>'s indicator).
+      // When focused, swap the left indicator colour to black for contrast against
+      // the yellow focus background, and stack with the bottom focus indicator.
       // Also explicitly set the focus text colour: the [aria-current] rule above
       // has the same specificity as the :focus rule from nhsuk-link-style-white,
       // so source order determines the winner — Safari follows spec and lets
@@ -281,7 +282,8 @@
       }
 
       // Switch active indicator from left (stacked) to bottom (horizontal)
-      .nhsuk-section-navigation__item--current {
+      .nhsuk-section-navigation__link[aria-current],
+      .nhsuk-section-navigation__text[aria-current] {
         box-shadow: $active-indicator-bottom;
       }
 
@@ -299,7 +301,8 @@
         box-shadow: inset 0 -1px 0 rgba($nhsuk-reverse-text-colour, 0.4);
       }
 
-      .nhsuk-section-navigation__item--current {
+      .nhsuk-section-navigation__link[aria-current],
+      .nhsuk-section-navigation__text[aria-current] {
         box-shadow: $reverse-active-indicator-bottom;
       }
 
