@@ -217,7 +217,7 @@
     }
 
     .nhsuk-section-navigation__link {
-      @include nhsuk-link-style-white;
+      @include nhsuk-link-style-reverse;
 
       &[aria-current] {
         color: $nhsuk-reverse-text-colour;
