@@ -554,10 +554,6 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     align-self: center;
     padding: 0 math.div($nhsuk-gutter-half, 2);
 
-    &[hidden] {
-      display: none;
-    }
-
     @include nhsuk-media-query($from: tablet) {
       padding: 0 $nhsuk-gutter-half;
     }
@@ -574,10 +570,6 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
     &,
     &:hover {
       text-decoration: none;
-    }
-
-    &[hidden] {
-      display: none;
     }
 
     &::after {
@@ -613,10 +605,6 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
 
     @include nhsuk-media-query($from: tablet) {
       margin: 0 $nhsuk-gutter-half;
-    }
-
-    &[hidden] {
-      display: none;
     }
 
     .nhsuk-header__navigation-link,
