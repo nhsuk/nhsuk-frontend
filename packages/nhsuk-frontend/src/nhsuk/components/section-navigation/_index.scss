@@ -127,10 +127,10 @@
     margin-left: nhsuk-spacing(2);
 
     &::before {
-      @include nhsuk-visually-hidden;
-
       // Non-breaking space
       content: "\00a0";
+
+      @include nhsuk-visually-hidden;
     }
   }
 
