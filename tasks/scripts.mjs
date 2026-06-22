@@ -10,8 +10,6 @@ const { NODE_ENV, NPM_PACKAGE_VERSION = config.version } = process.env
 
 /**
  * Rollup build cache
- *
- * @type {RollupCache}
  */
 const cache = {
   modules: []
@@ -147,7 +145,3 @@ export const version = task.name("scripts:version 'minified'", () =>
     output: { file: `nhsuk-frontend-${NPM_PACKAGE_VERSION}.min.js` }
   })
 )
-
-/**
- * @import { RollupCache } from 'rollup'
- */
