@@ -1,0 +1,15 @@
+// stylelint-disable declaration-no-important
+
+@use "../../core/tools" as *;
+
+////
+/// NHS.UK frontend supported
+///
+/// @group utilities
+////
+
+.nhsuk-u-frontend-supported-hidden {
+  @include nhsuk-frontend-supported {
+    display: none !important;
+  }
+}
