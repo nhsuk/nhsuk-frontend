@@ -507,6 +507,29 @@
   }
 }
 
+/// NHS.UK frontend not supported mixin
+///
+/// Applied when NHS.UK frontend JavaScript is not supported
+/// For example, in older browsers without `<script type="module">` support
+///
+/// @example scss
+///   @include nhsuk-frontend-not-supported; {
+///     color: blue;
+///   }
+///
+
+@mixin nhsuk-frontend-not-supported {
+  @if & {
+    body:not(.nhsuk-frontend-supported) & {
+      @content;
+    }
+  } @else {
+    body:not(.nhsuk-frontend-supported) {
+      @content;
+    }
+  }
+}
+
 /// Flex mixin
 ///
 /// @example scss
