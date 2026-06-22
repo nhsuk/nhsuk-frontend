@@ -611,7 +611,7 @@ const fixtures = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
-  'with "select all" option': {
+  'with "all" option': {
     context: {
       fieldset: {
         legend: {
@@ -620,7 +620,7 @@ const fixtures = {
           isPageHeading: true
         }
       },
-      idPrefix: 'select-all',
+      idPrefix: 'all',
       name: 'example',
       items: [
         {
@@ -648,7 +648,7 @@ const fixtures = {
     },
     variants
   },
-  'with "select all" option (named group)': {
+  'with "all" option (named group)': {
     context: {
       fieldset: {
         legend: {
@@ -657,7 +657,7 @@ const fixtures = {
           isPageHeading: true
         }
       },
-      idPrefix: 'select-all',
+      idPrefix: 'all',
       name: 'example',
       items: [
         {
@@ -691,7 +691,7 @@ const fixtures = {
       hidden: true
     }
   },
-  'with "select all" option (named group, unique)': {
+  'with "all" option (named group, unique)': {
     context: {
       fieldset: {
         legend: {
@@ -700,7 +700,7 @@ const fixtures = {
           isPageHeading: true
         }
       },
-      idPrefix: 'select-all',
+      idPrefix: 'all',
       items: [
         {
           name: 'colours-all',
@@ -737,7 +737,7 @@ const fixtures = {
       hidden: true
     }
   },
-  'with "none of the above" option': {
+  'with "none" option': {
     context: {
       fieldset: {
         legend: {
@@ -746,7 +746,7 @@ const fixtures = {
           isPageHeading: true
         }
       },
-      idPrefix: 'conditional',
+      idPrefix: 'none',
       name: 'example',
       items: [
         {
@@ -773,7 +773,7 @@ const fixtures = {
     },
     variants
   },
-  'with "none of the above" option, deprecated': {
+  'with "none" option, deprecated': {
     context: {
       fieldset: {
         legend: {
@@ -782,7 +782,7 @@ const fixtures = {
           isPageHeading: true
         }
       },
-      idPrefix: 'conditional',
+      idPrefix: 'none',
       name: 'example',
       items: [
         {
@@ -808,7 +808,7 @@ const fixtures = {
       ]
     }
   },
-  'with "none of the above" option, conditional content': {
+  'with "none" option, conditional content': {
     context: {
       fieldset: {
         legend: {
@@ -817,7 +817,7 @@ const fixtures = {
           isPageHeading: true
         }
       },
-      idPrefix: 'conditional',
+      idPrefix: 'none',
       name: 'example',
       items: getItems().concat([
         {
@@ -832,7 +832,7 @@ const fixtures = {
     },
     variants
   },
-  'with "none of the above" option (named group)': {
+  'with "none" option (named group)': {
     context: {
       fieldset: {
         legend: {
@@ -841,7 +841,7 @@ const fixtures = {
           isPageHeading: true
         }
       },
-      idPrefix: 'conditional',
+      idPrefix: 'none',
       name: 'example',
       items: [
         {
@@ -877,7 +877,7 @@ const fixtures = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
-  'with "none of the above" option (named group, unique)': {
+  'with "none" option (named group, unique)': {
     context: {
       fieldset: {
         legend: {
@@ -886,7 +886,7 @@ const fixtures = {
           isPageHeading: true
         }
       },
-      idPrefix: 'conditional',
+      idPrefix: 'none',
       name: 'example',
       items: [
         {

@@ -104,7 +104,7 @@ export class Checkboxes extends ConfigurableComponent {
    * Uncheck other checkboxes
    *
    * Find any other checkbox inputs with the checkbox group value, and uncheck them.
-   * This is useful when a “None of the above" checkbox is checked.
+   * This is useful when a "none" checkbox option is checked.
    *
    * @param {HTMLInputElement} $behaviourInput - Checkbox input
    * @param {'exclusive' | 'inclusive'} [behaviour] - Checkbox behaviour
@@ -135,7 +135,7 @@ export class Checkboxes extends ConfigurableComponent {
    *
    * Find any checkbox inputs with the same checkbox group value and behaviour
    * and uncheck them. This helps prevent checking both a regular checkbox and
-   * "None of the above" at the same time
+   * a "none" option at the same time
    *
    * @param {HTMLInputElement} $input - Checkbox input
    * @param {'exclusive' | 'inclusive'} [behaviour] - Checkbox behaviour
@@ -153,7 +153,7 @@ export class Checkboxes extends ConfigurableComponent {
    * Check other checkboxes
    *
    * Find any other checkbox inputs with the checkbox group value, and check them.
-   * This is useful for when a "Select all" checkbox is checked.
+   * This is useful for when an "all" checkbox option is checked.
    *
    * @param {HTMLInputElement} $behaviourInput - Checkbox input
    * @param {'exclusive' | 'inclusive'} [behaviour] - Checkbox behaviour
@@ -173,7 +173,7 @@ export class Checkboxes extends ConfigurableComponent {
    * Check inputs
    *
    * Find any checkbox inputs with the same checkbox group value and behaviour
-   * and check them. This helps prevent "Select all" being left unchecked when
+   * and check them. This helps prevent "all" options being left unchecked when
    * all regular checkboxes are checked
    *
    * @param {HTMLInputElement} $input - Checkbox input

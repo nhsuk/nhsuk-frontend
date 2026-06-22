@@ -75,10 +75,7 @@ describe('Checkboxes', () => {
 
   describe('Initialisation via init function', () => {
     beforeEach(() => {
-      initExample(
-        'with "none of the above" option, conditional content',
-        optionsExclusive
-      )
+      initExample('with "none" option, conditional content', optionsExclusive)
     })
 
     it('should add event listeners', () => {
@@ -130,7 +127,7 @@ describe('Checkboxes', () => {
 
   describe('Initialisation via class', () => {
     beforeEach(() => {
-      initExample('with "none of the above" option', optionsExclusive)
+      initExample('with "none" option', optionsExclusive)
     })
 
     it('should not throw with $root element', () => {
@@ -184,10 +181,7 @@ describe('Checkboxes', () => {
     let $inputs = []
 
     beforeEach(() => {
-      initExample(
-        'with "none of the above" option, conditional content',
-        optionsExclusive
-      )
+      initExample('with "none" option, conditional content', optionsExclusive)
       $inputs = [$input1, $input2, $input3]
     })
 
@@ -265,7 +259,7 @@ describe('Checkboxes', () => {
 
   describe('Exclusive checkbox', () => {
     beforeEach(() => {
-      initExample('with "none of the above" option', optionsExclusive)
+      initExample('with "none" option', optionsExclusive)
     })
 
     it('should uncheck other checkboxes', () => {
@@ -310,10 +304,7 @@ describe('Checkboxes', () => {
 
   describe('Exclusive checkbox (named groups)', () => {
     beforeEach(() => {
-      initExample(
-        'with "none of the above" option (named group)',
-        optionsExclusive
-      )
+      initExample('with "none" option (named group)', optionsExclusive)
     })
 
     it('should uncheck other checkboxes', () => {
@@ -358,10 +349,7 @@ describe('Checkboxes', () => {
 
   describe('Exclusive checkbox (named groups, unique)', () => {
     beforeEach(() => {
-      initExample(
-        'with "none of the above" option (named group, unique)',
-        optionsExclusive
-      )
+      initExample('with "none" option (named group, unique)', optionsExclusive)
     })
 
     it('should uncheck other checkboxes', () => {
@@ -406,7 +394,7 @@ describe('Checkboxes', () => {
 
   describe('Inclusive checkbox', () => {
     beforeEach(() => {
-      initExample('with "select all" option', optionsInclusive)
+      initExample('with "all" option', optionsInclusive)
     })
 
     it('should check all other checkboxes', () => {
@@ -490,7 +478,7 @@ describe('Checkboxes', () => {
 
   describe('Inclusive checkbox (named groups)', () => {
     beforeEach(() => {
-      initExample('with "select all" option (named group)', optionsInclusive)
+      initExample('with "all" option (named group)', optionsInclusive)
     })
 
     it('should check all other checkboxes', () => {
@@ -574,10 +562,7 @@ describe('Checkboxes', () => {
 
   describe('Inclusive checkbox (named groups, unique)', () => {
     beforeEach(() => {
-      initExample(
-        'with "select all" option (named group, unique)',
-        optionsInclusive
-      )
+      initExample('with "all" option (named group, unique)', optionsInclusive)
     })
 
     it('should check all other checkboxes', () => {

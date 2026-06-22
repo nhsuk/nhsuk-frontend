@@ -232,21 +232,21 @@ const options = {
         type: 'string',
         required: false,
         description:
-          'Behaviour of the checkbox when JavaScript is enabled – `"exclusive"` or `"inclusive"`. Use `"exclusive"` for "None of the above" type behaviour or `"inclusive"` for "Select all" type behaviour.',
+          'Behaviour of the checkbox when JavaScript is enabled – `"exclusive"` or `"inclusive"`. Use `"exclusive"` for a "none" option or `"inclusive"` for an "all" option.',
         released: '10.6.0'
       },
       behaviourGroup: {
         type: 'string',
         required: false,
         description:
-          'Used in conjunction with `behaviour` - this should be set to a string which groups checkboxes together into a set for use with "None of the above" or "Select all" type behaviours.',
+          'Used in conjunction with `behaviour` - this should be set to a string which groups checkboxes together into a set for use with a "none" or "all" option.',
         released: '10.6.0'
       },
       exclusive: {
         type: 'boolean',
         required: false,
         description:
-          'If set to `true`, marks this checkbox with exclusive "None of the above" type behaviour. Unchecking all other checkboxes in the group when clicked. Replaced by the `behaviour` option.',
+          'If set to `true`, marks this checkbox as an exclusive "none" option. Unchecking all other checkboxes in the group when clicked. Replaced by the `behaviour` option.',
         released: '5.2.0',
         deprecated: '10.6.0'
       },
@@ -254,7 +254,7 @@ const options = {
         type: 'string',
         required: false,
         description:
-          'Used in conjunction with `exclusive` - this should be set to a string which groups checkboxes together into a set for use in a "None of the above" scenario. Replaced by the `behaviourGroup` option.',
+          'Used in conjunction with `exclusive` - this should be set to a string which groups checkboxes together into a set for use with a "none" option. Replaced by the `behaviourGroup` option.',
         released: '5.2.0',
         deprecated: '10.6.0'
       }
