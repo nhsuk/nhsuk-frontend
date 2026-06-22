@@ -126,7 +126,7 @@
   // IE 11 doesn't support the combined `:not(:active, :focus)` syntax.
   // Also allows for ':focus' companion classes from postcss-pseudo-classes
   // which the plugin unfortunately doesn't handle automatically.
-  // stylelint-disable-next-line selector-class-pattern
+  // stylelint-disable-next-line scss/selector-class-pattern
   &:not(:active):not(:focus):not(.\:focus) {
     @include _nhsuk-visually-hide-content($important: $important);
   }
@@ -174,7 +174,7 @@
 
   @include nhsuk-media-query($media-type: print) {
     border: 1px solid $nhsuk-print-text-colour;
-    page-break-inside: avoid;
+    break-inside: avoid;
   }
 }
 
@@ -266,7 +266,7 @@
 
   @include nhsuk-print-colour {
     border: $print-border-size solid $nhsuk-print-text-colour;
-    page-break-inside: avoid;
+    break-inside: avoid;
   }
 }
 

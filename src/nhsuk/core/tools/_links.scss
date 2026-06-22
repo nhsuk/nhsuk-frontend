@@ -295,7 +295,7 @@
 @mixin nhsuk-link-style-no-underline {
   // Allow ':hover' and ':active' companion classes from postcss-pseudo-classes
   // which the plugin unfortunately doesn't handle automatically.
-  // stylelint-disable-next-line selector-class-pattern
+  // stylelint-disable-next-line scss/selector-class-pattern
   &:not(:hover):not(.\:hover):not(:active):not(.\:active) {
     text-decoration: none;
   }
@@ -331,7 +331,7 @@
   // Also allows for ':focus' companion classes from postcss-pseudo-classes
   // which the plugin unfortunately doesn't handle automatically.
   // https://bugs.webkit.org/show_bug.cgi?id=224483
-  // stylelint-disable-next-line selector-class-pattern
+  // stylelint-disable-next-line scss/selector-class-pattern
   &:not(:focus):not(.\:focus):hover {
     color: rgba($override-colour, 0.99);
 

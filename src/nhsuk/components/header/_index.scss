@@ -47,9 +47,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
   $link-hover-colour: $nhsuk-header-item-hover-colour,
   $link-active-colour: $nhsuk-header-item-active-colour
 ) {
-  & {
-    color: $link-colour;
-  }
+  color: $link-colour;
 
   @include nhsuk-link-style-visited($link-colour);
   @include nhsuk-link-style-hover($link-hover-colour);
@@ -110,7 +108,8 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
 
   .nhsuk-header__logo {
     min-width: nhsuk-px-to-rem(100px);
-    height: intrinsic;
+    height: auto;
+    height: unset;
   }
 
   .nhsuk-header__service,

@@ -18,16 +18,16 @@
 ////
 
 @include nhsuk-exports("nhsuk/core/objects/button-group") {
+  $horizontal-gap: nhsuk-spacing(4);
+  $horizontal-gap-small: nhsuk-spacing(3);
+  $vertical-gap: nhsuk-spacing(3);
+
+  // These need to be kept in sync with the button component's styles
+  $button-padding-top-bottom-mobile: nhsuk-px-to-rem(10px);
+  $button-padding-top-bottom-desktop: nhsuk-px-to-rem(14px);
+  $button-padding-top-bottom-small: nhsuk-px-to-rem(6px);
+
   .nhsuk-button-group {
-    $horizontal-gap: nhsuk-spacing(4);
-    $horizontal-gap-small: nhsuk-spacing(3);
-    $vertical-gap: nhsuk-spacing(3);
-
-    // These need to be kept in sync with the button component's styles
-    $button-padding-top-bottom-mobile: nhsuk-px-to-rem(10px);
-    $button-padding-top-bottom-desktop: nhsuk-px-to-rem(14px);
-    $button-padding-top-bottom-small: nhsuk-px-to-rem(6px);
-
     // Flexbox is used to center-align links on mobile, align everything along
     // the baseline on tablet and above, and to removes extra whitespace that
     // we'd get between the buttons and links because they're inline-blocks.
@@ -51,6 +51,7 @@
     .nhsuk-body-m,
     p,
     > .nhsuk-link,
+    /* stylelint-disable-next-line selector-no-qualifying-type */
     > a:not(.nhsuk-button) {
       display: inline-block;
       // Prevent links overflowing their container in IE10/11 because of bug
@@ -60,15 +61,6 @@
       margin-bottom: calc($button-padding-top-bottom-mobile + $nhsuk-button-shadow-size + $vertical-gap);
       text-align: center;
       @include nhsuk-font(19, $line-height: 19px);
-    }
-
-    &--small .nhsuk-body,
-    &--small .nhsuk-body-m,
-    &--small p,
-    &--small > .nhsuk-link,
-    &--small > a:not(.nhsuk-button) {
-      margin-top: $button-padding-top-bottom-small;
-      margin-bottom: calc($button-padding-top-bottom-small + $nhsuk-button-shadow-size + $vertical-gap);
     }
 
     // Reduce the bottom margin to the size of the vertical gap (accommodating
@@ -100,21 +92,12 @@
       .nhsuk-body-m,
       p,
       > .nhsuk-link,
+      /* stylelint-disable-next-line selector-no-qualifying-type */
       > a:not(.nhsuk-button) {
         margin: $button-padding-top-bottom-desktop 0;
         margin-right: $horizontal-gap;
         line-height: nhsuk-line-height(24px, $font-size: 19px);
         text-align: left;
-      }
-
-      &--small .nhsuk-body,
-      &--small .nhsuk-body-m,
-      &--small p,
-      &--small > .nhsuk-link,
-      &--small > a:not(.nhsuk-button) {
-        margin: $button-padding-top-bottom-small 0;
-        margin-right: $horizontal-gap-small;
-        @include nhsuk-font(16, $line-height: 19px);
       }
 
       > .nhsuk-button {
@@ -123,6 +106,33 @@
 
       > .nhsuk-button--small {
         margin-right: $horizontal-gap-small;
+      }
+    }
+  }
+
+  .nhsuk-button-group--small {
+    .nhsuk-body,
+    .nhsuk-body-m,
+    p,
+    > .nhsuk-link,
+    /* stylelint-disable-next-line selector-no-qualifying-type */
+    > a:not(.nhsuk-button) {
+      margin-top: $button-padding-top-bottom-small;
+      margin-bottom: calc($button-padding-top-bottom-small + $nhsuk-button-shadow-size + $vertical-gap);
+    }
+
+    // On tablet and above, we also introduce a 'column gap' between the
+    // buttons and links in each row and left align links
+    @include nhsuk-media-query($from: tablet) {
+      .nhsuk-body,
+      .nhsuk-body-m,
+      p,
+      > .nhsuk-link,
+      /* stylelint-disable-next-line selector-no-qualifying-type */
+      > a:not(.nhsuk-button) {
+        margin: $button-padding-top-bottom-small 0;
+        margin-right: $horizontal-gap-small;
+        @include nhsuk-font(16, $line-height: 19px);
       }
     }
   }

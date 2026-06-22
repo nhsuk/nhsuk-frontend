@@ -38,6 +38,7 @@ $nhsuk-panel-border-width: nhsuk-spacing(1);
 
     // Links within the panel should use white text
     .nhsuk-link,
+    /* stylelint-disable-next-line selector-no-qualifying-type */
     a:not(.nhsuk-button) {
       @include nhsuk-link-style-reverse;
     }

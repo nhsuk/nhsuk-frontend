@@ -22,6 +22,7 @@
     @include nhsuk-print-colour;
 
     .nhsuk-link,
+    /* stylelint-disable-next-line selector-no-qualifying-type */
     a:not(.nhsuk-button) {
       @include nhsuk-link-style-reverse;
     }

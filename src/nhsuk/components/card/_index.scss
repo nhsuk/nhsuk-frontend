@@ -209,7 +209,7 @@ $nhsuk-card-border-hover-colour: $nhsuk-secondary-border-colour;
         bottom: -$nhsuk-card-border-width - $nhsuk-card-border-bottom-width; // [18]
         left: -$nhsuk-card-border-width; // [18]
 
-        background-color: rgba(255, 255, 255, 0); // [17]
+        background-color: rgb(255, 255, 255, 0); // [17]
       }
     }
 
@@ -478,6 +478,7 @@ $nhsuk-card-border-hover-colour: $nhsuk-secondary-border-colour;
       color: $nhsuk-reverse-text-colour;
       background-color: nhsuk-colour("black");
 
+      // stylelint-disable-next-line selector-no-qualifying-type
       a:not(.nhsuk-action-link):not(.nhsuk-button) {
         @include nhsuk-link-style-reverse;
       }

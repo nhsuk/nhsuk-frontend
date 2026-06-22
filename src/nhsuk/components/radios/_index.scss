@@ -218,10 +218,10 @@ $nhsuk-radios-offset: $nhsuk-border-width-form-element;
     margin-left: $conditional-margin-left;
     padding-left: $conditional-padding-left;
     border-left: nhsuk-px-to-rem($nhsuk-border-width) solid $nhsuk-secondary-border-colour;
+  }
 
-    .nhsuk-frontend-supported &--hidden {
-      display: none;
-    }
+  .nhsuk-frontend-supported .nhsuk-radios__conditional--hidden {
+    display: none;
   }
 
   // =========================================================
