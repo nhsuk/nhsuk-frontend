@@ -2,15 +2,22 @@
 @use "../settings" as *;
 @use "../tools" as *;
 
+////
+/// Button group
+///
+/// Button groups can be used to group buttons and links together as a group.
+///
+/// Within a button group:
+///
+/// - links are styled to line up visually with the buttons, including being
+///   centre-aligned on mobile
+/// - spacing between the buttons and links is handled automatically, including
+///   when they wrap across multiple lines
+///
+/// @group objects/layout
+////
+
 @include nhsuk-exports("nhsuk/core/objects/button-group") {
-  // Button groups can be used to group buttons and links together as a group.
-  //
-  // Within a button group:
-  //
-  // - links are styled to line up visually with the buttons, including being
-  //   centre-aligned on mobile
-  // - spacing between the buttons and links is handled automatically, including
-  //   when they wrap across multiple lines
   .nhsuk-button-group {
     $horizontal-gap: nhsuk-spacing(4);
     $horizontal-gap-small: nhsuk-spacing(3);
