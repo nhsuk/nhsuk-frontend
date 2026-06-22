@@ -59,7 +59,7 @@
     "start": "npm run watch"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.29.5",
+    "@babel/preset-env": "^7.29.7",
     "@nhsuk/frontend-config": "*",
     "@nhsuk/frontend-helpers": "*",
     "@nhsuk/frontend-lib": "*",
@@ -69,7 +69,7 @@
     "@testing-library/user-event": "^14.6.1",
     "autoprefixer": "^10.5.0",
     "axe-core": "^4.11.4",
-    "cssnano": "^8.0.1",
+    "cssnano": "^8.0.2",
     "del-cli": "^7.0.0",
     "gulp": "^5.0.1",
     "gulp-zip": "^6.1.0",
@@ -80,7 +80,7 @@
     "postcss": "^8.5.15",
     "postcss-scss": "^4.0.9",
     "puppeteer": "^25.1.0",
-    "sass-embedded": "^1.99.0",
+    "sass-embedded": "^1.100.0",
     "slug": "^11.0.1"
   },
   "peerDependencies": {
