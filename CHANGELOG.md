@@ -66,7 +66,7 @@ If you are not using Nunjucks macros, use the HTML markup from the [checkboxes e
 
 The utility class `nhsuk-u-frontend-not-supported-hidden` is used to hide content when NHS.UK frontend JavaScript components are not fully supported.
 
-This was added in [pull request #1707: Add checkbox "select all" behaviour](https://github.com/nhsuk/nhsuk-frontend/pull/1707).
+This was added in [pull request #1707: Add checkbox "all" option](https://github.com/nhsuk/nhsuk-frontend/pull/1707).
 
 #### Show or hide content in supported browsers
 
@@ -185,7 +185,7 @@ This was added in [pull request #1961: Port Sass media query functions from GOV.
 
 #### Rename checkboxes "none" options
 
-We've renamed the Nunjucks and HTML data attribute options for checkboxes with 'none of the above' behaviour.
+We've renamed the Nunjucks and HTML data attribute options for checkboxes with an option for "none".
 
 If you're using the `checkboxes` Nunjucks macro, you should:
 
@@ -220,7 +220,7 @@ If you are not using Nunjucks macros, update your HTML markup using the [checkbo
 
 The previous names are deprecated and will be removed in a future release.
 
-This change was introduced in [pull request #1707: Add checkbox "select all" behaviour](https://github.com/nhsuk/nhsuk-frontend/pull/1707).
+This change was introduced in [pull request #1707: Add checkbox "all" option](https://github.com/nhsuk/nhsuk-frontend/pull/1707).
 
 #### Replace Sass print mixins with `@media print`
 

@@ -219,24 +219,24 @@ describe('Checkboxes', () => {
     })
   })
 
-  describe('with a "none of the above" option', () => {
+  describe('with "none" option', () => {
     describe('when JavaScript is available', () => {
       /** @type {ElementHandle<HTMLInputElement>[]} */
       let $inputs
 
       beforeEach(async () => {
-        await initExample('with "none of the above" option')
+        await initExample('with "none" option')
 
         $inputs = await $component.$$('input.nhsuk-checkboxes__input')
       })
 
-      it('unchecks other checkboxes when the "none of the above" option is checked', async () => {
+      it('unchecks other checkboxes when the "none" option is checked', async () => {
         // Check the first 3 checkboxes
         await $inputs[0].click()
         await $inputs[1].click()
         await $inputs[2].click()
 
-        // Check the "none of the above" option
+        // Check the "none" option
         await $inputs[3].click()
 
         // Expect first 3 checkboxes to have been unchecked
@@ -245,33 +245,31 @@ describe('Checkboxes', () => {
         expect(await getProperty($inputs[2], 'checked')).toBe(false)
       })
 
-      it('unchecks the "none of the above" option when any other checkbox is checked', async () => {
-        // Check the "none of the above" option
+      it('unchecks the "none" option when any other checkbox is checked', async () => {
+        // Check the "none" option
         await $inputs[3].click()
 
         // Check the first checkbox
         await $inputs[0].click()
 
-        // Expect the "none of the above" option to have been unchecked
+        // Expect the "none" option to have been unchecked
         expect(await getProperty($inputs[3], 'checked')).toBe(false)
       })
     })
   })
 
-  describe('with a "none of the above" option and conditional content', () => {
+  describe('with "none" option and conditional content', () => {
     describe('when JavaScript is available', () => {
       /** @type {ElementHandle<HTMLInputElement>[]} */
       let $inputs
 
       beforeEach(async () => {
-        await initExample(
-          'with "none of the above" option, conditional content'
-        )
+        await initExample('with "none" option, conditional content')
 
         $inputs = await $component.$$('input.nhsuk-checkboxes__input')
       })
 
-      it('unchecks other checkboxes and hides conditional content when the "none of the above" option is checked', async () => {
+      it('unchecks other checkboxes and hides conditional content when the "none" option is checked', async () => {
         const $input = $inputs[2]
         const $conditional = await $component.$(
           `[id="${await getAttribute($input, 'aria-controls')}"]`
@@ -283,7 +281,7 @@ describe('Checkboxes', () => {
         // Expect conditional content to have been revealed
         expect(await isVisible($conditional)).toBe(true)
 
-        // Check the "none of the above" option
+        // Check the "none" option
         await $inputs[3].click()
 
         // Expect the "Text message" checkbox to have been unchecked
@@ -295,7 +293,7 @@ describe('Checkboxes', () => {
     })
   })
 
-  describe('with multiple groups and a "none of the above" option and conditional content', () => {
+  describe('with multiple groups, "none" option and conditional content', () => {
     describe('when JavaScript is available', () => {
       /** @type {ElementHandle<HTMLInputElement>[]} */
       let $inputsPrimary
@@ -327,7 +325,7 @@ describe('Checkboxes', () => {
         await $inputsPrimary[2].click()
         await $inputsSecondary[1].click()
 
-        // Check the "none of the above" option in the third group
+        // Check the "none" option in the third group
         await $inputsOther[1].click()
 
         // Expect the checkboxes in the first and second groups to be unchecked
@@ -346,7 +344,7 @@ describe('Checkboxes', () => {
         // Assert that conditional content is revealed
         expect(await isVisible($conditionalPrimary)).toBe(true)
 
-        // Check the "none of the above" option in the third group
+        // Check the "none" option in the third group
         await $inputsOther[1].click()
 
         // Assert that the second checkbox in the first group is unchecked
