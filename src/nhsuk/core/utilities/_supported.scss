@@ -13,3 +13,9 @@
     display: none !important;
   }
 }
+
+.nhsuk-u-frontend-not-supported-hidden {
+  @include nhsuk-frontend-not-supported {
+    display: none !important;
+  }
+}
