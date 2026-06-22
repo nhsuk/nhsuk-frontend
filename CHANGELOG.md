@@ -6,13 +6,11 @@ Note: This release was created from the `support/10.x` branch.
 
 ### :new: **New features**
 
-#### Select all checkboxes
+#### Add an "all" option to checkboxes
 
-You can now add a checkbox which selects or unselects all the other checkboxes. This is a progressive enhancement only shown if JavaScript is available.
+You can now add an "all" option to checkboxes when JavaScript is available. This gives users the option to quickly select or unselect all the checkboxes.
 
-To use it, add `behaviour: "inclusive"` to a checkbox item. If this checkbox is separated from the others using a dividier, add the same option to the divider too.
-
-For example, using the Nunjucks macro:
+To use it, add the `behaviour: "inclusive"` Nunjucks option to a checkbox item. If this checkbox is separated from the others using a divider, add the same option to the divider too:
 
 ```njk
 {{ checkboxes({
@@ -50,6 +48,23 @@ For example, using the Nunjucks macro:
   ]
 }) }}
 ```
+
+If you are not using Nunjucks macros, use the HTML markup from the [checkboxes examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/checkboxes) as follows:
+
+- Add the `data-behaviour="inclusive"` attribute to the checkbox
+- Add the `nhsuk-u-frontend-not-supported-hidden` class to the checkbox container and "or" divider
+
+```html
+<div class="nhsuk-checkboxes__item nhsuk-u-frontend-not-supported-hidden">
+  <input class="nhsuk-checkboxes__input" id="select-all" name="example" type="checkbox" value="all" data-behaviour="inclusive">
+  <label class="nhsuk-label nhsuk-checkboxes__label" for="select-all">
+    All colours
+  </label>
+</div>
+<div class="nhsuk-checkboxes__divider nhsuk-u-frontend-not-supported-hidden">or</div>
+```
+
+The utility class `nhsuk-u-frontend-not-supported-hidden` is used to hide content when NHS.UK frontend JavaScript components are not fully supported.
 
 This was added in [pull request #1707: Add checkbox "select all" behaviour](https://github.com/nhsuk/nhsuk-frontend/pull/1707).
 
@@ -168,11 +183,14 @@ This was added in [pull request #1961: Port Sass media query functions from GOV.
 
 ### :wastebasket: **Deprecated features**
 
-#### Checkbox 'none of the above' changes
+#### Rename checkboxes "none" options
 
-If you're using the checkboxes component with a 'none of the above' option, you'll need to make some changes, as the `exclusive` option has been renamed to be a value of a new `behaviour` option.
+We've renamed the Nunjucks and HTML data attribute options for checkboxes with 'none of the above' behaviour.
 
-If you're using the Nunjucks macro, change the params as follows:
+If you're using the `checkboxes` Nunjucks macro, you should:
+
+- replace the `exclusive: true` option with the new `behaviour: "exclusive"` option
+- rename the `exclusiveGroup` option to the new `behaviourGroup` option
 
 ```patch
     items: [
@@ -186,7 +204,10 @@ If you're using the Nunjucks macro, change the params as follows:
     ]
 ```
 
-If you're using the HTML, make these changes:
+If you are not using Nunjucks macros, update your HTML markup using the [checkboxes examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/tabs) as follows:
+
+- replace the `data-checkbox-exclusive` attribute with `data-behaviour="exclusive"`
+- rename the `data-checkbox-exclusive-group` attribute to `data-behaviour-group`
 
 ```patch
   <input type="checkbox" value="none"
