@@ -1,5 +1,38 @@
 # NHS.UK frontend Changelog
 
+## Unreleased
+
+Note: This release was created from the `support/10.x` branch.
+
+### :new: **New features**
+
+#### Show or hide content in supported browsers
+
+You can now show or hide content depending on whether NHS.UK frontend JavaScript is supported:
+
+- Add the `nhsuk-u-frontend-not-supported-hidden` class to hide content in older browsers
+- Add the `nhsuk-u-frontend-supported-hidden` class to hide content in modern browsers
+
+For example, we use this to hide conditionally revealed content for checkboxes and radios. Where our JavaScript is not supported, the revealed content is still shown.
+
+If you use Sass you can also include mixins for custom components:
+
+```scss
+.app-component {
+  @include nhsuk-frontend-supported {
+    background-color: nhsuk-colour("green");
+  }
+
+  @include nhsuk-frontend-not-supported {
+    background-color: nhsuk-colour("red");
+  }
+}
+```
+
+Read more about [how we provide support for different browsers](/docs/contributing/browser-support.md).
+
+This was added in [pull request #1972: Add Sass mixins and utility classes for NHS.UK frontend browser support](https://github.com/nhsuk/nhsuk-frontend/pull/1972).
+
 ## 10.5.2 - 8 June 2026
 
 Note: This release was created from the `support/10.x` branch.

@@ -79,8 +79,10 @@
       box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-text-colour;
     }
 
-    .nhsuk-frontend-supported .nhsuk-code--button & {
-      padding-top: nhsuk-px-to-rem(nhsuk-spacing(9));
+    .nhsuk-code--button & {
+      @include nhsuk-frontend-supported {
+        padding-top: nhsuk-px-to-rem(nhsuk-spacing(9));
+      }
     }
 
     .nhsuk-code--reverse & {
@@ -108,11 +110,6 @@
     width: auto;
     min-width: nhsuk-px-to-rem(125px);
     margin-bottom: $nhsuk-button-shadow-size;
-
-    // Hide the button by default, JS removes this attribute
-    &[hidden] {
-      display: none;
-    }
 
     &:active,
     &:active:focus {

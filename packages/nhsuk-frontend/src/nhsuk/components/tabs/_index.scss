@@ -44,8 +44,7 @@
     @include nhsuk-responsive-margin(8, "bottom");
   }
 
-  // NHS.UK frontend JavaScript enabled
-  .nhsuk-frontend-supported {
+  @include nhsuk-frontend-supported {
     @include nhsuk-media-query($from: tablet) {
       .nhsuk-tabs__list {
         margin-bottom: 0;

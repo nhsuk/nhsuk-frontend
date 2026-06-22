@@ -218,8 +218,10 @@ $nhsuk-radios-offset: $nhsuk-border-width-form-element;
     margin-left: $conditional-margin-left;
     padding-left: $conditional-padding-left;
     border-left: nhsuk-px-to-rem($nhsuk-border-width) solid nhsuk-colour("grey-3");
+  }
 
-    .nhsuk-frontend-supported &--hidden {
+  .nhsuk-radios__conditional--hidden {
+    @include nhsuk-frontend-supported {
       display: none;
     }
   }
