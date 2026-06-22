@@ -628,9 +628,21 @@ const fixtures = {
       width: false
     },
     variants,
-    screenshot: {
-      viewports: ['desktop']
-    }
+    screenshot: true
+  },
+  'with service name (linked with logo and long), search': {
+    context: {
+      service: {
+        text: 'This a really long service name to fully test wrapping',
+        href: '#'
+      },
+      search: true
+    },
+    options: {
+      width: false
+    },
+    variants,
+    screenshot: true
   },
   'with service name, search, account (logged in, complex), navigation': {
     context: {
