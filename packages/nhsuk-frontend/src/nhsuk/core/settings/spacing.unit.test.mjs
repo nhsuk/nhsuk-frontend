@@ -94,7 +94,7 @@ describe('Spacing settings', () => {
       })
 
       await expect(results).rejects.toThrow(
-        'Expected a number (integer), but got a string.'
+        'Expected a number (integer), but got a string'
       )
     })
 
@@ -112,7 +112,7 @@ describe('Spacing settings', () => {
       })
 
       await expect(results).rejects.toThrow(
-        'Unknown spacing point `999`. Make sure you are using a point from the spacing scale in `_settings/spacing.scss`.'
+        'Unknown spacing point `999`. Make sure you are using a point from the spacing scale in `_settings/spacing.scss`'
       )
     })
 
@@ -130,7 +130,7 @@ describe('Spacing settings', () => {
       })
 
       await expect(results).rejects.toThrow(
-        'Unknown spacing point `999`. Make sure you are using a point from the spacing scale in `_settings/spacing.scss`.'
+        'Unknown spacing point `999`. Make sure you are using a point from the spacing scale in `_settings/spacing.scss`'
       )
     })
 
@@ -147,7 +147,7 @@ describe('Spacing settings', () => {
         loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
       })
 
-      await expect(results).rejects.toThrow('Unknown unit `margin`.')
+      await expect(results).rejects.toThrow('Unknown unit `margin`')
     })
 
     it('handles negative zero', async () => {
@@ -390,7 +390,7 @@ describe('Spacing settings', () => {
       })
 
       await expect(results).rejects.toThrow(
-        'Unknown responsive spacing point `14px`. Make sure you are using a point from the responsive spacing scale in `_settings/spacing.scss`.'
+        'Unknown responsive spacing point `14px`. Make sure you are using a point from the responsive spacing scale in `_settings/spacing.scss`'
       )
     })
 
@@ -408,7 +408,7 @@ describe('Spacing settings', () => {
       })
 
       await expect(results).rejects.toThrow(
-        'Unknown responsive spacing point `999`. Make sure you are using a point from the responsive spacing scale in `_settings/spacing.scss`.'
+        'Unknown responsive spacing point `999`. Make sure you are using a point from the responsive spacing scale in `_settings/spacing.scss`'
       )
     })
 
@@ -425,7 +425,7 @@ describe('Spacing settings', () => {
         loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
       })
 
-      await expect(results).rejects.toThrow('Unknown unit `margin`.')
+      await expect(results).rejects.toThrow('Unknown unit `margin`')
     })
 
     describe('when $important is set to true', () => {

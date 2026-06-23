@@ -1,5 +1,6 @@
 @use "sass:map";
 @use "sass:meta";
+@use "warnings" as *;
 
 ////
 /// @group settings/layout
@@ -25,9 +26,8 @@ $nhsuk-breakpoints: (
 $nhsuk-show-breakpoints: () !default;
 
 @if meta.type-of($nhsuk-show-breakpoints) == "bool" {
-  @if $nhsuk-show-breakpoints {
-    $nhsuk-show-breakpoints: map.keys($nhsuk-breakpoints);
-  } @else {
-    $nhsuk-show-breakpoints: ();
-  }
+  @include nhsuk-warning(
+    "nhsuk-show-breakpoints",
+    "The `$nhsuk-show-breakpoints` variable is deprecated and is non-operational. It will be removed in the next major version. "
+  );
 }

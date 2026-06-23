@@ -45,7 +45,7 @@
   }
 
   @include nhsuk-frontend-supported {
-    @include nhsuk-media-query($from: tablet) {
+    @media #{nhsuk-from-breakpoint(tablet)} {
       .nhsuk-tabs__list {
         margin-bottom: 0;
         border-bottom: 1px solid $nhsuk-border-colour;

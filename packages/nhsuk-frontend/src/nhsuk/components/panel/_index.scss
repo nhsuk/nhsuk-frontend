@@ -45,13 +45,14 @@ $nhsuk-border-width-panel: $nhsuk-panel-border-width;
       @include nhsuk-link-style-reverse;
     }
 
-    @include nhsuk-media-query($until: tablet) {
+    @media #{nhsuk-until-breakpoint(tablet)} {
       padding: nhsuk-spacing(4) - $nhsuk-panel-border-width; /* [2] */
       @include nhsuk-text-break-word; /* [3] */
     }
 
-    @include nhsuk-print-colour {
+    @media print {
       border-color: currentcolor;
+      color: $nhsuk-print-text-colour;
       background: none;
     }
   }

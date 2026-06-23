@@ -19,7 +19,9 @@
     color: $nhsuk-reverse-text-colour;
     background-color: $nhsuk-brand-colour;
 
-    @include nhsuk-print-colour;
+    @media print {
+      color: $nhsuk-print-text-colour;
+    }
 
     .nhsuk-link,
     a:not(.nhsuk-button) {
@@ -59,7 +61,7 @@
       min-height: nhsuk-px-to-rem(200px);
     }
 
-    @include nhsuk-media-query($from: tablet) {
+    @media #{nhsuk-from-breakpoint(tablet)} {
       @media only screen {
         // [4]
         min-height: nhsuk-px-to-rem(320px); // [5]
@@ -103,7 +105,7 @@
   .nhsuk-hero--image-description {
     margin-bottom: nhsuk-spacing(3, $adjustment: 70px + 20px, $unit: "rem"); // [16]
 
-    @include nhsuk-media-query($from: tablet) {
+    @media #{nhsuk-from-breakpoint(tablet)} {
       margin-bottom: nhsuk-spacing(4, $adjustment: 48px + 20px, $unit: "rem"); // [16]
     }
 
@@ -130,7 +132,6 @@
         overflow: hidden;
 
         transform: rotate(45deg);
-        @include nhsuk-print-hide;
       }
 
       .nhsuk-hero__arrow::before,
@@ -149,20 +150,27 @@
 
         border: solid nhsuk-px-to-rem(32px) $nhsuk-brand-colour; // [8]
       }
+    }
 
-      @include nhsuk-print-colour {
+    @media print {
+      .nhsuk-hero-content {
         max-width: 100%;
         padding: 0;
+        color: $nhsuk-print-text-colour;
+
+        .nhsuk-hero__arrow {
+          display: none;
+        }
       }
     }
 
-    @include nhsuk-media-query(375px) {
+    @media #{nhsuk-from-breakpoint(375px)} {
       .nhsuk-hero-content {
         width: 85%; // [15]
       }
     }
 
-    @include nhsuk-media-query($from: tablet) {
+    @media #{nhsuk-from-breakpoint(tablet)} {
       .nhsuk-hero-content {
         box-sizing: border-box;
 

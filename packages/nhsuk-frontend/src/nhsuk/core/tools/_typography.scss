@@ -25,7 +25,7 @@
 @mixin nhsuk-text-colour {
   color: $nhsuk-text-colour;
 
-  @include nhsuk-media-query($media-type: print) {
+  @media print {
     color: $nhsuk-print-text-colour;
   }
 }
@@ -241,7 +241,7 @@
 
   // Still no match? Throw error
   @if not $font-map {
-    @error "Unknown font size `#{$size}` - expected a point from the typography scale.";
+    @error "Unknown font size `#{$size}` - expected a point from the typography scale";
   }
 
   // Check for a deprecation within the typography scale
@@ -290,12 +290,12 @@
         font-size: $font-size-rem;
         line-height: $calculated-line-height;
       } @else if $breakpoint == "print" {
-        @include nhsuk-media-query($media-type: print) {
+        @media print {
           font-size: $font-size;
           line-height: $calculated-line-height;
         }
       } @else {
-        @include nhsuk-media-query($from: $breakpoint) {
+        @media #{nhsuk-from-breakpoint($breakpoint)} {
           font-size: $font-size-rem;
           line-height: $calculated-line-height;
         }

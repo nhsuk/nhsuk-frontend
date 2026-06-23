@@ -25,5 +25,7 @@
 }
 
 .nhsuk-u-display-none-print {
-  @include nhsuk-print-hide($important: true);
+  @media print {
+    display: none !important;
+  }
 }
