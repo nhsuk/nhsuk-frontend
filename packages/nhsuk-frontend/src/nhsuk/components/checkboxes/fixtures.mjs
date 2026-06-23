@@ -615,7 +615,7 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: 'What are your favourite colours?',
+          text: 'Which vaccines would you like to include?',
           classes: 'nhsuk-fieldset__legend--l',
           isPageHeading: true
         }
@@ -625,7 +625,7 @@ const fixtures = {
       items: [
         {
           value: 'all',
-          text: 'All colours',
+          text: 'All 9 vaccines',
           behaviour: 'inclusive'
         },
         {
@@ -633,16 +633,40 @@ const fixtures = {
           behaviour: 'inclusive'
         },
         {
-          value: 'red',
-          text: 'Red'
+          value: '4in1',
+          text: '4-in-1 pre-school booster'
         },
         {
-          value: 'green',
-          text: 'Green'
+          value: '6in1',
+          text: '6-in-1'
         },
         {
-          value: 'blue',
-          text: 'Blue'
+          value: 'hpv',
+          text: 'HPV'
+        },
+        {
+          value: 'menb',
+          text: 'MenB'
+        },
+        {
+          value: 'menacwy',
+          text: 'MenACWY'
+        },
+        {
+          value: 'mmrv',
+          text: 'MMRV'
+        },
+        {
+          value: 'rotavirus',
+          text: 'Rotavirus'
+        },
+        {
+          value: 'pneumococcal',
+          text: 'Pneumococcal'
+        },
+        {
+          value: 'tdipv',
+          text: 'Td/IPV'
         }
       ]
     },
@@ -652,7 +676,7 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: 'What are your favourite colours?',
+          text: 'Which vaccines would you like to include?',
           classes: 'nhsuk-fieldset__legend--l',
           isPageHeading: true
         }
@@ -662,28 +686,58 @@ const fixtures = {
       items: [
         {
           value: 'all',
-          text: 'All colours',
+          text: 'All 9 vaccines',
           behaviour: 'inclusive',
-          behaviourGroup: 'colour-preferences'
+          behaviourGroup: 'vaccines-included'
         },
         {
           divider: 'or',
           behaviour: 'inclusive'
         },
         {
-          value: 'red',
-          text: 'Red',
-          behaviourGroup: 'colour-preferences'
+          value: '4in1',
+          text: '4-in-1 pre-school booster',
+          behaviourGroup: 'vaccines-included'
         },
         {
-          value: 'green',
-          text: 'Green',
-          behaviourGroup: 'colour-preferences'
+          value: '6in1',
+          text: '6-in-1',
+          behaviourGroup: 'vaccines-included'
         },
         {
-          value: 'blue',
-          text: 'Blue',
-          behaviourGroup: 'colour-preferences'
+          value: 'hpv',
+          text: 'HPV',
+          behaviourGroup: 'vaccines-included'
+        },
+        {
+          value: 'menb',
+          text: 'MenB',
+          behaviourGroup: 'vaccines-included'
+        },
+        {
+          value: 'menacwy',
+          text: 'MenACWY',
+          behaviourGroup: 'vaccines-included'
+        },
+        {
+          value: 'mmrv',
+          text: 'MMRV',
+          behaviourGroup: 'vaccines-included'
+        },
+        {
+          value: 'rotavirus',
+          text: 'Rotavirus',
+          behaviourGroup: 'vaccines-included'
+        },
+        {
+          value: 'pneumococcal',
+          text: 'Pneumococcal',
+          behaviourGroup: 'vaccines-included'
+        },
+        {
+          value: 'tdipv',
+          text: 'Td/IPV',
+          behaviourGroup: 'vaccines-included'
         }
       ]
     },
@@ -695,7 +749,7 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: 'What are your favourite colours?',
+          text: 'Which vaccines would you like to include?',
           classes: 'nhsuk-fieldset__legend--l',
           isPageHeading: true
         }
@@ -703,33 +757,69 @@ const fixtures = {
       idPrefix: 'all',
       items: [
         {
-          name: 'colours-all',
-          value: 'yes',
-          text: 'All colours',
+          name: 'vaccines-all',
+          value: 'all',
+          text: 'All 9 vaccines',
           behaviour: 'inclusive',
-          behaviourGroup: 'colour-preferences'
+          behaviourGroup: 'vaccines-included'
         },
         {
           divider: 'or',
           behaviour: 'inclusive'
         },
         {
-          name: 'colours-red',
-          value: 'yes',
-          text: 'Red',
-          behaviourGroup: 'colour-preferences'
+          name: 'vaccines-4in1',
+          value: '4in1',
+          text: '4-in-1 pre-school booster',
+          behaviourGroup: 'vaccines-included'
         },
         {
-          name: 'colours-green',
-          value: 'yes',
-          text: 'Green',
-          behaviourGroup: 'colour-preferences'
+          name: 'vaccines-6in1',
+          value: '6in1',
+          text: '6-in-1',
+          behaviourGroup: 'vaccines-included'
         },
         {
-          name: 'colours-blue',
-          value: 'yes',
-          text: 'Blue',
-          behaviourGroup: 'colour-preferences'
+          name: 'vaccines-hpv',
+          value: 'hpv',
+          text: 'HPV',
+          behaviourGroup: 'vaccines-included'
+        },
+        {
+          name: 'vaccines-menb',
+          value: 'menb',
+          text: 'MenB',
+          behaviourGroup: 'vaccines-included'
+        },
+        {
+          name: 'vaccines-menacwy',
+          value: 'menacwy',
+          text: 'MenACWY',
+          behaviourGroup: 'vaccines-included'
+        },
+        {
+          name: 'vaccines-mmrv',
+          value: 'mmrv',
+          text: 'MMRV',
+          behaviourGroup: 'vaccines-included'
+        },
+        {
+          name: 'vaccines-rotavirus',
+          value: 'rotavirus',
+          text: 'Rotavirus',
+          behaviourGroup: 'vaccines-included'
+        },
+        {
+          name: 'vaccines-pneumococcal',
+          value: 'pneumococcal',
+          text: 'Pneumococcal',
+          behaviourGroup: 'vaccines-included'
+        },
+        {
+          name: 'vaccines-tdipv',
+          value: 'tdipv',
+          text: 'Td/IPV',
+          behaviourGroup: 'vaccines-included'
         }
       ]
     },
