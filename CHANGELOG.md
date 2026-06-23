@@ -41,6 +41,10 @@ For example, `nhsuk-responsive-margin(3)` outputs an `8px` margin (`16px` tablet
 
 This was added in [pull request #1940: Allow `nhsuk-responsive-margin()` to output negative margins](https://github.com/nhsuk/nhsuk-frontend/pull/1940).
 
+### :wrench: **Fixes**
+
+- [#1942: Update `nhsuk-spacing()` to add missing `$adjustment` and `$important` params](https://github.com/nhsuk/nhsuk-frontend/pull/1942).
+
 ## 10.5.2 - 8 June 2026
 
 Note: This release was created from the `support/10.x` branch.

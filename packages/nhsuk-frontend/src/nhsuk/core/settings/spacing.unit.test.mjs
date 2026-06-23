@@ -151,6 +151,54 @@ describe('Spacing settings', () => {
         `
       })
     })
+
+    describe('when $important is set to true', () => {
+      it('marks the rule as important for the property', async () => {
+        const sass = outdent`
+          ${sassBootstrap}
+
+          .foo {
+            top: nhsuk-spacing($app-spacing-point, $important: true);
+          }
+        `
+
+        const results = compileStringAsync(sass, {
+          loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+        })
+
+        await expect(results).resolves.toMatchObject({
+          css: outdent`
+            .foo {
+              top: 15px !important;
+            }
+          `
+        })
+      })
+    })
+
+    describe('when an adjustment is provided', () => {
+      it('adjusts the value for the property', async () => {
+        const sass = outdent`
+          ${sassBootstrap}
+
+          .foo {
+            top: nhsuk-spacing($app-spacing-point, $adjustment: 2px);
+          }
+        `
+
+        const results = compileStringAsync(sass, {
+          loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+        })
+
+        await expect(results).resolves.toMatchObject({
+          css: outdent`
+            .foo {
+              top: 17px;
+            }
+          `
+        })
+      })
+    })
   })
 
   describe('@mixin nhsuk-responsive-spacing', () => {
