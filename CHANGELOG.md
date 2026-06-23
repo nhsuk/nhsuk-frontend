@@ -61,6 +61,18 @@ Or removing `nhsuk-px-to-rem()` and using `nhsuk-spacing()` directly:
 
 This was added in [pull request #1945: Support rem units in Sass spacing functions and mixins](https://github.com/nhsuk/nhsuk-frontend/pull/1945).
 
+#### Support multiple directions in Sass spacing mixins
+
+You can now pass multiple directions into the `nhsuk-responsive-margin()` and `nhsuk-responsive-padding()` mixins.
+
+```patch
+- @include nhsuk-responsive-padding(5, "left");
+- @include nhsuk-responsive-padding(5, "right");
++ @include nhsuk-responsive-padding(5, ("left", "right"));
+```
+
+This was added in [pull request #1946: Support multiple directions in Sass spacing mixins](https://github.com/nhsuk/nhsuk-frontend/pull/1946).
+
 ### :wrench: **Fixes**
 
 - [#1942: Update `nhsuk-spacing()` to add missing `$adjustment` and `$important` params](https://github.com/nhsuk/nhsuk-frontend/pull/1942).

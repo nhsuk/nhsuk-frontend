@@ -33,8 +33,7 @@
   }
 
   .nhsuk-hero__wrapper {
-    @include nhsuk-responsive-padding(8, top);
-    @include nhsuk-responsive-padding(8, bottom);
+    @include nhsuk-responsive-padding(8, ("top", "bottom"));
   }
 
   .nhsuk-hero__heading {

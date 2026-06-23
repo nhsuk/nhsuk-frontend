@@ -310,7 +310,7 @@
 
   @include nhsuk-panel($panel-background-colour, $panel-text-colour, $panel-border-colour);
   @include nhsuk-responsive-margin(7, "top");
-  @include nhsuk-responsive-padding(5);
+  @include nhsuk-responsive-padding(5, ("bottom", "left", "right"));
 }
 
 /// Panel with label mixin, inherits panel styling
@@ -345,12 +345,11 @@
   display: inline-block; // [4]
 
   position: relative;
-  top: nhsuk-spacing(-3); // [6]
+  top: nhsuk-spacing(-2); // [6]
 
   margin: 0;
   margin-bottom: nhsuk-spacing(2);
-  margin-left: nhsuk-spacing(-5) - 1px; // [5]
-  padding: nhsuk-spacing(2) nhsuk-spacing(5);
+  padding: nhsuk-spacing(2);
 
   outline: 1px solid transparent; // [2]
   outline-offset: -1px;
@@ -360,15 +359,16 @@
 
   @include nhsuk-font-size(26);
 
-  @include nhsuk-media-query($until: tablet) {
-    top: nhsuk-spacing(-2); // [6]
-    margin-left: nhsuk-spacing(-4) - 1px; // [5]
-    padding: nhsuk-spacing(2) nhsuk-spacing(4);
-  }
-
   @include nhsuk-print-colour {
     top: 0;
     background: none;
+  }
+
+  @include nhsuk-responsive-margin(-5, "left", $adjustment: -1px); // [5]
+  @include nhsuk-responsive-padding(5, ("left", "right"));
+
+  @include nhsuk-media-query($from: tablet) {
+    top: nhsuk-spacing(-3); // [6]
   }
 }
 
