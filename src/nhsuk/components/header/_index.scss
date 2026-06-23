@@ -108,8 +108,8 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
 
   .nhsuk-header__logo {
     min-width: nhsuk-px-to-rem(100px);
-    height: auto;
-    height: unset;
+    // stylelint-disable-next-line declaration-property-value-keyword-no-deprecated
+    height: intrinsic;
   }
 
   .nhsuk-header__service,
