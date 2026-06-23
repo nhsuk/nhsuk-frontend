@@ -1,9 +1,11 @@
 // stylelint-disable declaration-no-important
 
+@use "sass:list";
 @use "sass:map";
 @use "sass:math";
 @use "sass:meta";
 @use "../settings" as *;
+@use "functions" as *;
 @use "sass-mq" as *;
 
 ////
@@ -20,6 +22,7 @@
 ///  (set in `settings/_spacing.scss`)
 /// @param {Boolean} $important [false] - Whether to mark as `!important`
 /// @param {Number} $adjustment [null] - Offset to adjust spacing by
+/// @param {String} $unit ["px"] - Unit to use for spacing
 /// @return {String} Spacing measurement eg. 8px
 ///
 /// @example scss
@@ -39,10 +42,14 @@
 ///
 /// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
 
-@function nhsuk-spacing($spacing-point, $important: false, $adjustment: null) {
+@function nhsuk-spacing($spacing-point, $important: false, $adjustment: null, $unit: "px") {
   @if meta.type-of($spacing-point) != "number" {
     @error "Expected a number (integer), but got a "
       + "#{meta.type-of($spacing-point)}.";
+  }
+
+  @if not list.index(("px", "rem"), #{$unit}) {
+    @error "Unknown unit `#{$unit}`.";
   }
 
   $is-negative: false;
@@ -60,6 +67,10 @@
 
   @if $is-negative {
     $spacing-value: $spacing-value * -1;
+  }
+
+  @if $unit == "rem" {
+    $spacing-value: nhsuk-px-to-rem($spacing-value);
   }
 
   @if $adjustment {
@@ -93,6 +104,7 @@
 ///  (`top`, `right`, `bottom`, `left`, `all`)
 /// @param {Boolean} $important [false] - Whether to mark as `!important`
 /// @param {Number} $adjustment [null] - Offset to adjust spacing by
+/// @param {String} $unit ["px"] - Unit to use for spacing
 ///
 /// @example scss
 ///   .foo {
@@ -111,10 +123,15 @@
   $property,
   $direction: "all",
   $important: false,
-  $adjustment: null
+  $adjustment: null,
+  $unit: "px"
 ) {
   @if meta.type-of($responsive-spacing-point) != "number" {
     @error "Expected a number (integer), but got a " + "#{meta.type-of($responsive-spacing-point)}.";
+  }
+
+  @if not list.index(("px", "rem"), #{$unit}) {
+    @error "Unknown unit `#{$unit}`.";
   }
 
   $is-negative: false;
@@ -138,6 +155,10 @@
   @each $breakpoint, $breakpoint-value in $scale-map {
     @if $is-negative {
       $breakpoint-value: $breakpoint-value * -1;
+    }
+
+    @if $unit == "rem" {
+      $breakpoint-value: nhsuk-px-to-rem($breakpoint-value);
     }
 
     @if $adjustment {
@@ -185,6 +206,7 @@
 ///   (`top`, `right`, `bottom`, `left`, `all`)
 /// @param {Boolean} $important [false] - Whether to mark as `!important`
 /// @param {Number} $adjustment [null] - Offset to adjust spacing by
+/// @param {String} $unit ["px"] - Unit to use for spacing
 ///
 /// @example scss
 ///   .foo {
@@ -193,8 +215,14 @@
 ///
 /// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
 
-@mixin nhsuk-responsive-margin($responsive-spacing-point, $direction: "all", $important: false, $adjustment: null) {
-  @include nhsuk-responsive-spacing($responsive-spacing-point, "margin", $direction, $important, $adjustment);
+@mixin nhsuk-responsive-margin(
+  $responsive-spacing-point,
+  $direction: "all",
+  $important: false,
+  $adjustment: null,
+  $unit: "px"
+) {
+  @include nhsuk-responsive-spacing($responsive-spacing-point, "margin", $direction, $important, $adjustment, $unit);
 }
 
 /// Responsive padding
@@ -209,6 +237,7 @@
 ///   (`top`, `right`, `bottom`, `left`, `all`)
 /// @param {Boolean} $important [false] - Whether to mark as `!important`
 /// @param {Number} $adjustment [null] - Offset to adjust spacing by
+/// @param {String} $unit ["px"] - Unit to use for spacing
 ///
 /// @example scss
 ///   .foo {
@@ -217,6 +246,12 @@
 ///
 /// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
 
-@mixin nhsuk-responsive-padding($responsive-spacing-point, $direction: "all", $important: false, $adjustment: null) {
-  @include nhsuk-responsive-spacing($responsive-spacing-point, "padding", $direction, $important, $adjustment);
+@mixin nhsuk-responsive-padding(
+  $responsive-spacing-point,
+  $direction: "all",
+  $important: false,
+  $adjustment: null,
+  $unit: "px"
+) {
+  @include nhsuk-responsive-spacing($responsive-spacing-point, "padding", $direction, $important, $adjustment, $unit);
 }
