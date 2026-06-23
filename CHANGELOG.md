@@ -33,6 +33,12 @@ Read more about [how we provide support for different browsers](/docs/contributi
 
 This was added in [pull request #1972: Add Sass mixins and utility classes for NHS.UK frontend browser support](https://github.com/nhsuk/nhsuk-frontend/pull/1972).
 
+#### Extend global inline code styles
+
+Inline `<code>` elements are now also styled within definition lists and table headings.
+
+This was added in [pull request #1984: Extend global inline code styles](https://github.com/nhsuk/nhsuk-frontend/pull/1984).
+
 ## 10.5.2 - 8 June 2026
 
 Note: This release was created from the `support/10.x` branch.
