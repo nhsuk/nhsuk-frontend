@@ -22,7 +22,10 @@
   // Deprecated, to be removed in v11.0
   .nhsuk-do-dont-list__label {
     @include nhsuk-heading-label($nhsuk-brand-colour, $nhsuk-reverse-text-colour);
-    @include nhsuk-print-colour;
+
+    @media print {
+      color: $nhsuk-print-text-colour;
+    }
   }
 
   .nhsuk-list--cross .nhsuk-icon--cross,

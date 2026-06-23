@@ -427,7 +427,7 @@ describe('Typography tools', () => {
       })
 
       await expect(results).rejects.toThrow(
-        'Unknown font size `3.1415926536` - expected a point from the typography scale.'
+        'Unknown font size `3.1415926536` - expected a point from the typography scale'
       )
     })
 

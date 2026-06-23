@@ -21,8 +21,7 @@
 
   .nhsuk-pagination {
     box-sizing: border-box;
-    @include nhsuk-responsive-margin(7, "top");
-    @include nhsuk-responsive-margin(7, "bottom");
+    @include nhsuk-responsive-margin(7, ("top", "bottom"));
   }
 
   .nhsuk-pagination__list {
@@ -64,7 +63,8 @@
     text-decoration: none;
 
     @include nhsuk-font-size(26);
-    @include nhsuk-print-colour {
+
+    @media print {
       @include nhsuk-link-style-text($nhsuk-print-text-colour);
     }
 
@@ -79,7 +79,7 @@
   .nhsuk-pagination__title {
     display: block;
 
-    @include nhsuk-media-query($media-type: print) {
+    @media print {
       &::after {
         content: " page"; // [2]
       }
@@ -108,7 +108,7 @@
     flex-wrap: wrap;
     align-items: center;
 
-    @include nhsuk-media-query($from: tablet) {
+    @media #{nhsuk-from-breakpoint(tablet)} {
       flex-direction: row;
       align-items: flex-start;
     }
@@ -135,7 +135,7 @@
     // visually sit in the middle of their touch area
     text-align: center;
 
-    @include nhsuk-media-query($from: tablet) {
+    @media #{nhsuk-from-breakpoint(tablet)} {
       display: block;
     }
   }

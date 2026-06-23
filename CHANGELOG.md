@@ -39,6 +39,120 @@ Inline `<code>` elements are now also styled within definition lists and table h
 
 This was added in [pull request #1984: Extend global inline code styles](https://github.com/nhsuk/nhsuk-frontend/pull/1984).
 
+#### Define negative margins using the Sass `nhsuk-responsive-margin()` mixin
+
+You can now pass the negative equivalent of a point from the typography scale to the `nhsuk-responsive-margin()` function to output negative margins.
+
+For example, `nhsuk-responsive-margin(3)` outputs an `8px` margin (`16px` tablet width) in all directions, and `nhsuk-responsive-margin(-3)` outputs an `-8px` margin (`-16px` tablet width).
+
+This was added in [pull request #1940: Allow `nhsuk-responsive-margin()` to output negative margins](https://github.com/nhsuk/nhsuk-frontend/pull/1940).
+
+#### Support rem units in Sass spacing functions and mixins
+
+You can now pass `$unit: "rem"` into all Sass spacing functions and mixins.
+
+For example, to output responsive padding in rem units:
+
+```patch
+- @include nhsuk-responsive-padding(5, "right");
++ @include nhsuk-responsive-padding(5, "right", $unit: "rem");
+```
+
+Or removing `nhsuk-px-to-rem()` and using `nhsuk-spacing()` directly:
+
+```patch
+- padding: nhsuk-px-to-rem(nhsuk-spacing(1));
++ padding: nhsuk-spacing(1, $unit: "rem");
+```
+
+This was added in [pull request #1945: Support rem units in Sass spacing functions and mixins](https://github.com/nhsuk/nhsuk-frontend/pull/1945).
+
+#### Support multiple directions in Sass spacing mixins
+
+You can now pass multiple directions into the `nhsuk-responsive-margin()` and `nhsuk-responsive-padding()` mixins.
+
+```patch
+- @include nhsuk-responsive-padding(5, "left");
+- @include nhsuk-responsive-padding(5, "right");
++ @include nhsuk-responsive-padding(5, ("left", "right"));
+```
+
+This was added in [pull request #1946: Support multiple directions in Sass spacing mixins](https://github.com/nhsuk/nhsuk-frontend/pull/1946).
+
+#### Use Sass functions to create custom media queries
+
+We've added new Sass functions to help write `@media` and `@container` queries, mixins and functions whilst still using NHS.UK frontend's `$nhsuk-breakpoints` setting.
+
+You can create `min-width` and `max-width` queries using the `nhsuk-from-breakpoint` and `nhsuk-until-breakpoint` functions:
+
+```scss
+.app-component__element {
+  color: red;
+
+  @media #{nhsuk-from-breakpoint(mobile)} and #{nhsuk-until-breakpoint(desktop)} {
+    color: blue;
+  }
+}
+```
+
+You can get the configured value of a breakpoint using `nhsuk-breakpoint-value`:
+
+```scss
+@function wider-than-tablet($width) {
+  @return $width > nhsuk-breakpoint-value(tablet);
+}
+```
+
+Each of these functions allows for passing a custom breakpoint map. This can be useful if a particular component needs to change layout at different dimensions to the rest of the site and for authoring `@container` queries.
+
+```scss
+$app-component-breakpoints: (
+  small: 300px,
+  medium: 500px,
+  large: 750px
+);
+
+.app-component__element {
+  color: red;
+
+  @container #{nhsuk-from-breakpoint(small, $app-component-breakpoints)} {
+    color: blue;
+  }
+}
+```
+
+We've rewritten the internals of the `nhsuk-media-query` mixin to make use of these new functions. The rewritten mixin should work identically and return the same CSS as the previous version, but you may want to make sure that your existing media queries work as expected.
+
+This was added in [pull request #1961: Port Sass media query functions from GOV.UK Frontend and remove `sass-mq` dependency](https://github.com/nhsuk/nhsuk-frontend/pull/1961).
+
+### :wastebasket: **Deprecated features**
+
+#### Replace Sass print mixins with `@media print`
+
+We've deprecated the Sass print mixins `nhsuk-print-colour` and `nhsuk-print-hide`. You should replace them with `@media print` queries instead.
+
+For example:
+
+```patch
+- @include nhsuk-print-colour;
++ @media print {
++   color: $nhsuk-print-text-colour;
++ }
+```
+
+```patch
+- @include nhsuk-print-hide;
++ @media print {
++   display: none;
++ }
+```
+
+You can still use `nhsuk-print-colour` and `nhsuk-print-hide` but we'll remove them in a future breaking release.
+
+### :wrench: **Fixes**
+
+- [#1942: Update `nhsuk-spacing()` to add missing `$adjustment` and `$important` params](https://github.com/nhsuk/nhsuk-frontend/pull/1942).
+
 ## 10.5.2 - 8 June 2026
 
 Note: This release was created from the `support/10.x` branch.

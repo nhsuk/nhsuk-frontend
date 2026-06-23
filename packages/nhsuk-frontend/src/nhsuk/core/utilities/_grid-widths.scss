@@ -55,7 +55,7 @@
 
 .nhsuk-u-one-half-tablet {
   width: 100% !important;
-  @include nhsuk-media-query($from: tablet) {
+  @media #{nhsuk-from-breakpoint(tablet)} {
     width: math.percentage(math.div(1, 2)) !important;
     float: left;
   }
@@ -63,7 +63,7 @@
 
 .nhsuk-u-one-third-tablet {
   width: 100% !important;
-  @include nhsuk-media-query($from: tablet) {
+  @media #{nhsuk-from-breakpoint(tablet)} {
     width: math.percentage(math.div(1, 3)) !important;
     float: left;
   }
@@ -71,7 +71,7 @@
 
 .nhsuk-u-two-thirds-tablet {
   width: 100% !important;
-  @include nhsuk-media-query($from: tablet) {
+  @media #{nhsuk-from-breakpoint(tablet)} {
     width: math.percentage(math.div(2, 3)) !important;
     float: left;
   }
@@ -79,7 +79,7 @@
 
 .nhsuk-u-one-quarter-tablet {
   width: 100% !important;
-  @include nhsuk-media-query($from: tablet) {
+  @media #{nhsuk-from-breakpoint(tablet)} {
     width: math.percentage(math.div(1, 4)) !important;
     float: left;
   }
@@ -87,7 +87,7 @@
 
 .nhsuk-u-three-quarters-tablet {
   width: 100% !important;
-  @include nhsuk-media-query($from: tablet) {
+  @media #{nhsuk-from-breakpoint(tablet)} {
     width: math.percentage(math.div(3, 4)) !important;
     float: left;
   }

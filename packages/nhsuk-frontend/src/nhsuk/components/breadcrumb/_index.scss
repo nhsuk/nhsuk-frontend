@@ -24,12 +24,15 @@
     color: $nhsuk-text-colour;
 
     @include nhsuk-responsive-margin(4, "top");
-    @include nhsuk-print-hide; // [1]
+
+    @media print {
+      display: none; // [1]
+    }
 
     .nhsuk-back-link {
       margin: 0;
 
-      @include nhsuk-media-query($from: tablet) {
+      @media #{nhsuk-from-breakpoint(tablet)} {
         display: none; // [2]
       }
     }
@@ -43,7 +46,7 @@
     @include nhsuk-clearfix;
     @include nhsuk-font($_font-size);
 
-    @include nhsuk-media-query($until: tablet) {
+    @media #{nhsuk-until-breakpoint(tablet)} {
       display: none; // [2]
     }
   }

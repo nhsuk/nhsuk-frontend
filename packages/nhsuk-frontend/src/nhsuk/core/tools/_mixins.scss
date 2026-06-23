@@ -142,6 +142,7 @@
 /// @deprecated To be removed in v11.0, replaced by nhsuk-visually-hidden
 
 @mixin visually-hidden() {
+  @include nhsuk-warning("visually-hidden", "visually-hidden is deprecated. Use nhsuk-visually-hidden instead.");
   @include nhsuk-visually-hidden;
 }
 
@@ -250,7 +251,7 @@
 /// @deprecated To be removed in v11.0, replaced by nhsuk-top-and-bottom
 
 @mixin top-and-bottom() {
-  @include nhsuk-warning("top-and-bottom", "top-and-bottom is deprecated and will be removed in a future release.");
+  @include nhsuk-warning("top-and-bottom", "top-and-bottom is deprecated. Use nhsuk-top-and-bottom instead.");
   @include nhsuk-top-and-bottom;
 }
 
@@ -277,7 +278,7 @@
   @include nhsuk-top-and-bottom;
   @include nhsuk-responsive-margin(7, "bottom");
 
-  @include nhsuk-media-query($media-type: print) {
+  @media print {
     border: 1px solid $nhsuk-print-text-colour;
     page-break-inside: avoid;
   }
@@ -310,7 +311,7 @@
 
   @include nhsuk-panel($panel-background-colour, $panel-text-colour, $panel-border-colour);
   @include nhsuk-responsive-margin(7, "top");
-  @include nhsuk-responsive-padding(5);
+  @include nhsuk-responsive-padding(5, ("bottom", "left", "right"));
 }
 
 /// Panel with label mixin, inherits panel styling
@@ -345,12 +346,11 @@
   display: inline-block; // [4]
 
   position: relative;
-  top: nhsuk-spacing(-3); // [6]
+  top: nhsuk-spacing(-2); // [6]
 
   margin: 0;
   margin-bottom: nhsuk-spacing(2);
-  margin-left: nhsuk-spacing(-5) - 1px; // [5]
-  padding: nhsuk-spacing(2) nhsuk-spacing(5);
+  padding: nhsuk-spacing(2);
 
   outline: 1px solid transparent; // [2]
   outline-offset: -1px;
@@ -360,15 +360,17 @@
 
   @include nhsuk-font-size(26);
 
-  @include nhsuk-media-query($until: tablet) {
-    top: nhsuk-spacing(-2); // [6]
-    margin-left: nhsuk-spacing(-4) - 1px; // [5]
-    padding: nhsuk-spacing(2) nhsuk-spacing(4);
+  @include nhsuk-responsive-margin(-5, "left", $adjustment: -1px); // [5]
+  @include nhsuk-responsive-padding(5, ("left", "right"));
+
+  @media print {
+    top: 0;
+    color: $nhsuk-print-text-colour;
+    background: none;
   }
 
-  @include nhsuk-print-colour {
-    top: 0;
-    background: none;
+  @media #{nhsuk-from-breakpoint(tablet)} {
+    top: nhsuk-spacing(-3); // [6]
   }
 }
 
@@ -401,8 +403,9 @@
     background-color: $heading-background-colour;
   }
 
-  @include nhsuk-print-colour {
+  @media print {
     border: $print-border-size solid $nhsuk-print-text-colour;
+    color: $nhsuk-print-text-colour;
     page-break-inside: avoid;
   }
 }
@@ -422,13 +425,20 @@
 /// warning callout, do and don't lists and panels
 ///
 /// @param {Colour} $print-colour [$nhsuk-print-text-colour] - Print colour
+/// @param {Boolean} $silence-warning [false] - Whether to silence deprecation
+/// warning when already logged by another deprecated mixin
 ///
-/// @example scss
-///   @include nhsuk-print-colour($print-colour: inherit);
-///
+/// @deprecated To be removed in v11.0
 
-@mixin nhsuk-print-colour($print-colour: $nhsuk-print-text-colour) {
-  @include nhsuk-media-query($media-type: print) {
+@mixin nhsuk-print-colour($print-colour: $nhsuk-print-text-colour, $silence-warning: false) {
+  @if not $silence-warning {
+    @include nhsuk-warning(
+      "nhsuk-print-colour",
+      "nhsuk-print-colour is deprecated and will be removed in a future release."
+    );
+  }
+
+  @media print {
     color: $print-colour;
     @content;
   }
@@ -438,34 +448,44 @@
 /// warning callout, do and don't lists and panels (deprecated)
 ///
 /// @alias nhsuk-print-colour
-/// @deprecated To be removed in v11.0, replaced by nhsuk-print-colour
+/// @deprecated To be removed in v11.0
 
-@mixin nhsuk-print-color($args...) {
-  @include nhsuk-warning("color-to-colour", "nhsuk-print-color is deprecated. Use nhsuk-print-colour instead.");
-  @include nhsuk-print-colour($args...);
+@mixin nhsuk-print-color($print-colour: $nhsuk-print-text-colour) {
+  @include nhsuk-warning(
+    "nhsuk-print-color",
+    "nhsuk-print-color is deprecated and will be removed in a future release."
+  );
+  @include nhsuk-print-colour($print-colour, $silence-warning: true);
 }
 
 /// Print colour mixin, sets the text print colour
 /// warning callout, do and don't lists and panels (deprecated)
 ///
 /// @alias nhsuk-print-colour
-/// @deprecated To be removed in v11.0, replaced by nhsuk-print-colour
+/// @deprecated To be removed in v11.0
 
-@mixin print-color($args...) {
-  @include nhsuk-warning("print-color", "print-color is deprecated. Use nhsuk-print-colour instead.");
-  @include nhsuk-print-colour($args...);
+@mixin print-color($print-colour: $nhsuk-print-text-colour) {
+  @include nhsuk-warning("print-color", "print-color is deprecated and will be removed in a future release.");
+  @include nhsuk-print-colour($print-colour, $silence-warning: true);
 }
 
 /// Print hide mixin, hides the element from print
 ///
 /// @param {Boolean} $important [false] - Whether to mark as `!important`
+/// @param {Boolean} $silence-warning [false] - Whether to silence deprecation
+/// warning when already logged by another deprecated mixin
 ///
-/// @example scss
-///   @include nhsuk-print-hide;
-///
+/// @deprecated To be removed in v11.0
 
-@mixin nhsuk-print-hide($important: false) {
-  @include nhsuk-media-query($media-type: print) {
+@mixin nhsuk-print-hide($important: false, $silence-warning: false) {
+  @if not $silence-warning {
+    @include nhsuk-warning(
+      "nhsuk-print-hide",
+      "nhsuk-print-hide is deprecated and will be removed in a future release."
+    );
+  }
+
+  @media print {
     @if $important == true {
       display: none !important;
     } @else {
@@ -477,11 +497,11 @@
 /// Print hide mixin, hides the element from print (deprecated)
 ///
 /// @alias nhsuk-print-hide
-/// @deprecated To be removed in v11.0, replaced by nhsuk-print-hide
+/// @deprecated To be removed in v11.0
 
 @mixin print-hide {
-  @include nhsuk-warning("print-hide", "print-hide is deprecated. Use nhsuk-print-hide instead.");
-  @include nhsuk-print-hide;
+  @include nhsuk-warning("print-hide", "print-hide is deprecated and will be removed in a future release.");
+  @include nhsuk-print-hide($silence-warning: true);
 }
 
 /// NHS.UK frontend supported mixin
@@ -560,7 +580,7 @@
 @mixin nhsuk-flex-item {
   display: flex;
 
-  @include nhsuk-media-query($until: desktop) {
+  @media #{nhsuk-until-breakpoint(desktop)} {
     flex: 0 0 100%;
   }
 }
@@ -580,7 +600,7 @@
 /// Removes left and right margin at tablet breakpoint
 
 @mixin nhsuk-remove-margin-mobile {
-  @include nhsuk-media-query($until: tablet) {
+  @media #{nhsuk-until-breakpoint(tablet)} {
     margin-right: -$nhsuk-gutter-half;
     margin-left: -$nhsuk-gutter-half;
   }
