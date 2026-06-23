@@ -337,16 +337,26 @@
 
           <h2>Override classes</h2>
           {{ summaryList({
-          rows: [
-            {
-              key: { html: "<code class=\"nhsuk-code--inline nhsuk-code--reverse\">nhsuk-u-margin-0</code>", classes: "nhsuk-u-width-one-half" },
-              value: { text: "Responsive margin on all sides" }
-            },
-            {
-              key: { html: "<code class=\"nhsuk-code--inline nhsuk-code--reverse\">nhsuk-u-margin-top-0</code>" },
-              value: { text: "Responsive margin on the top" }
-            }
-          ] }) }}
+            rows: [
+              {
+                key: {
+                  html: "<code class=\"nhsuk-code--inline nhsuk-code--inverse\">nhsuk-u-margin-0</code>",
+                  classes: "nhsuk-u-width-one-half"
+                },
+                value: {
+                  text: "Responsive margin on all sides"
+                }
+              },
+              {
+                key: {
+                  html: "<code class=\"nhsuk-code--inline nhsuk-code--inverse\">nhsuk-u-margin-top-0</code>"
+                },
+                value: {
+                  text: "Responsive margin on the top"
+                }
+              }
+            ]
+          }) }}
 
         </div>
       </div>
