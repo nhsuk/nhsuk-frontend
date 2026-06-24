@@ -44,7 +44,6 @@
   {{- nhsukAttributes(params.attributes) -}}
 {% endset -%}
 
-{#- Capture the HTML so we can optionally nest it in an image overlay -#}
 {% set innerHtml %}
   <div class="nhsuk-width-container
     {%- if params.containerClasses %} {{ params.containerClasses }}{% endif %}
@@ -86,13 +85,10 @@
 {% endset -%}
 
 <section {{- attributesHtml | safe }}>
-{% if image.src and not hasContent %}
-  <div class="nhsuk-hero__overlay"></div>
-{% elif image.src and hasContent %}
-  <div class="nhsuk-hero__overlay">
-    {{ innerHtml | safe | trim | indent(2) }}
-  </div>
-{% elif hasContent %}
+{% if hasContent %}
   {{ innerHtml | safe | trim }}
+{% endif %}
+{% if image.src %}
+  <div class="nhsuk-hero__overlay"></div>
 {% endif %}
 </section>
