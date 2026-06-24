@@ -856,7 +856,7 @@ const fixtures = {
         },
         {
           value: 'none',
-          text: 'None of the above',
+          text: 'I do not want to be contacted',
           behaviour: 'exclusive'
         }
       ]
@@ -892,7 +892,7 @@ const fixtures = {
         },
         {
           value: 'none',
-          text: 'None of the above',
+          text: 'I do not want to be contacted',
           exclusive: true
         }
       ]
@@ -915,7 +915,7 @@ const fixtures = {
         },
         {
           value: 'none',
-          text: 'None of the above',
+          text: 'I do not want to be contacted',
           behaviour: 'exclusive'
         }
       ])
@@ -954,7 +954,7 @@ const fixtures = {
         },
         {
           value: 'none',
-          text: 'None of the above',
+          text: 'I do not want to be contacted',
           behaviour: 'exclusive',
           exclusiveGroup: 'communication-preferences'
         }
@@ -1003,7 +1003,7 @@ const fixtures = {
         {
           name: 'preference-none',
           value: 'yes',
-          text: 'None of the above',
+          text: 'I do not want to be contacted',
           behaviour: 'exclusive',
           exclusiveGroup: 'communication-preferences'
         }

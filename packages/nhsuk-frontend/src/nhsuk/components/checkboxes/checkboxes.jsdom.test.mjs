@@ -30,7 +30,7 @@ describe('Checkboxes', () => {
 
   const optionsExclusive = {
     labels: ['Email', 'Phone', 'Text message'],
-    labelBehaviour: 'None of the above'
+    labelBehaviour: 'I do not want to be contacted'
   }
 
   const optionsInclusive = {
