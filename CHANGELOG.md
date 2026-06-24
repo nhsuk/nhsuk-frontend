@@ -6,6 +6,68 @@ Note: This release was created from the `support/10.x` branch.
 
 ### :new: **New features**
 
+#### Add an "all" option to checkboxes
+
+You can now add an "all" option to checkboxes when JavaScript is available. This gives users the option to quickly select or unselect all the checkboxes.
+
+To use it, add the `behaviour: "inclusive"` Nunjucks option to a checkbox item. If this checkbox is separated from the others using a divider, add the same option to the divider too:
+
+```njk
+{{ checkboxes({
+  fieldset: {
+    legend: {
+      text: "What are your favourite colours?",
+      size: "l",
+      isPageHeading: true
+    }
+  },
+  idPrefix: "select-all",
+  name: "example",
+  items: [
+    {
+      value: "all",
+      text: "All colours",
+      behaviour: "inclusive"
+    },
+    {
+      divider: "or",
+      behaviour: "inclusive"
+    },
+    {
+      value: "red",
+      text: "Red"
+    },
+    {
+      value: "green",
+      text: "Green"
+    },
+    {
+      value: "blue",
+      text: "Blue"
+    }
+  ]
+}) }}
+```
+
+If you are not using Nunjucks macros, use the HTML markup from the [checkboxes examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/checkboxes) as follows:
+
+- Add the `data-behaviour="inclusive"` attribute to the checkbox
+- Add the `nhsuk-u-frontend-not-supported-hidden` class to the checkbox container and "or" divider
+
+```html
+<div class="nhsuk-checkboxes__item nhsuk-u-frontend-not-supported-hidden">
+  <input class="nhsuk-checkboxes__input" id="select-all" name="example" type="checkbox" value="all" data-behaviour="inclusive">
+  <label class="nhsuk-label nhsuk-checkboxes__label" for="select-all">
+    All colours
+  </label>
+</div>
+<div class="nhsuk-checkboxes__divider nhsuk-u-frontend-not-supported-hidden">or</div>
+```
+
+The utility class `nhsuk-u-frontend-not-supported-hidden` is used to hide content when NHS.UK frontend JavaScript components are not fully supported.
+
+This was added in [pull request #1707: Add checkbox "all" option](https://github.com/nhsuk/nhsuk-frontend/pull/1707).
+
 #### Show or hide content in supported browsers
 
 You can now show or hide content depending on whether NHS.UK frontend JavaScript is supported:
@@ -120,6 +182,45 @@ We've rewritten the internals of the `nhsuk-media-query` mixin to make use of th
 This was added in [pull request #1961: Port Sass media query functions from GOV.UK Frontend and remove `sass-mq` dependency](https://github.com/nhsuk/nhsuk-frontend/pull/1961).
 
 ### :wastebasket: **Deprecated features**
+
+#### Rename checkboxes "none" options
+
+We've renamed the Nunjucks and HTML data attribute options for checkboxes with an option for "none".
+
+If you're using the `checkboxes` Nunjucks macro, you should:
+
+- replace the `exclusive: true` option with the new `behaviour: "exclusive"` option
+- rename the `exclusiveGroup` option to the new `behaviourGroup` option
+
+```patch
+    items: [
+      {
+        value: "none",
+-       exclusive: true,
+-       exclusiveGroup: "preferences",
++       behaviour: "exclusive",
++       behaviourGroup: "preferences"
+      }
+    ]
+```
+
+If you are not using Nunjucks macros, update your HTML markup using the [checkboxes examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/tabs) as follows:
+
+- replace the `data-checkbox-exclusive` attribute with `data-behaviour="exclusive"`
+- rename the `data-checkbox-exclusive-group` attribute to `data-behaviour-group`
+
+```patch
+  <input type="checkbox" value="none"
+-   data-checkbox-exclusive
+-   data-checkbox-exclusive-group="preferences"
++   data-behaviour="exclusive"
++   data-behaviour-group="preferences"
+  >
+```
+
+The previous names are deprecated and will be removed in a future release.
+
+This change was introduced in [pull request #1707: Add checkbox "all" option](https://github.com/nhsuk/nhsuk-frontend/pull/1707).
 
 #### Replace Sass print mixins with `@media print`
 

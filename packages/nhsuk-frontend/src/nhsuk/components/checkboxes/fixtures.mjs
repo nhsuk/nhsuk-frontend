@@ -611,7 +611,223 @@ const fixtures = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
-  'with "none of the above" option': {
+  'with "all" option': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'Which vaccines would you like to include?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: true
+        }
+      },
+      idPrefix: 'all',
+      name: 'example',
+      items: [
+        {
+          value: 'all',
+          text: 'All 9 vaccines',
+          behaviour: 'inclusive'
+        },
+        {
+          divider: 'or',
+          behaviour: 'inclusive'
+        },
+        {
+          value: '4in1',
+          text: '4-in-1 pre-school booster'
+        },
+        {
+          value: '6in1',
+          text: '6-in-1'
+        },
+        {
+          value: 'hpv',
+          text: 'HPV'
+        },
+        {
+          value: 'menb',
+          text: 'MenB'
+        },
+        {
+          value: 'menacwy',
+          text: 'MenACWY'
+        },
+        {
+          value: 'mmrv',
+          text: 'MMRV'
+        },
+        {
+          value: 'rotavirus',
+          text: 'Rotavirus'
+        },
+        {
+          value: 'pneumococcal',
+          text: 'Pneumococcal'
+        },
+        {
+          value: 'tdipv',
+          text: 'Td/IPV'
+        }
+      ]
+    },
+    variants
+  },
+  'with "all" option (named group)': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'Which vaccines would you like to include?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: true
+        }
+      },
+      idPrefix: 'all',
+      name: 'example',
+      items: [
+        {
+          value: 'all',
+          text: 'All 9 vaccines',
+          behaviour: 'inclusive',
+          behaviourGroup: 'vaccines-included'
+        },
+        {
+          divider: 'or',
+          behaviour: 'inclusive'
+        },
+        {
+          value: '4in1',
+          text: '4-in-1 pre-school booster',
+          behaviourGroup: 'vaccines-included'
+        },
+        {
+          value: '6in1',
+          text: '6-in-1',
+          behaviourGroup: 'vaccines-included'
+        },
+        {
+          value: 'hpv',
+          text: 'HPV',
+          behaviourGroup: 'vaccines-included'
+        },
+        {
+          value: 'menb',
+          text: 'MenB',
+          behaviourGroup: 'vaccines-included'
+        },
+        {
+          value: 'menacwy',
+          text: 'MenACWY',
+          behaviourGroup: 'vaccines-included'
+        },
+        {
+          value: 'mmrv',
+          text: 'MMRV',
+          behaviourGroup: 'vaccines-included'
+        },
+        {
+          value: 'rotavirus',
+          text: 'Rotavirus',
+          behaviourGroup: 'vaccines-included'
+        },
+        {
+          value: 'pneumococcal',
+          text: 'Pneumococcal',
+          behaviourGroup: 'vaccines-included'
+        },
+        {
+          value: 'tdipv',
+          text: 'Td/IPV',
+          behaviourGroup: 'vaccines-included'
+        }
+      ]
+    },
+    options: {
+      hidden: true
+    }
+  },
+  'with "all" option (named group, unique)': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'Which vaccines would you like to include?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: true
+        }
+      },
+      idPrefix: 'all',
+      items: [
+        {
+          name: 'vaccines-all',
+          value: 'all',
+          text: 'All 9 vaccines',
+          behaviour: 'inclusive',
+          behaviourGroup: 'vaccines-included'
+        },
+        {
+          divider: 'or',
+          behaviour: 'inclusive'
+        },
+        {
+          name: 'vaccines-4in1',
+          value: '4in1',
+          text: '4-in-1 pre-school booster',
+          behaviourGroup: 'vaccines-included'
+        },
+        {
+          name: 'vaccines-6in1',
+          value: '6in1',
+          text: '6-in-1',
+          behaviourGroup: 'vaccines-included'
+        },
+        {
+          name: 'vaccines-hpv',
+          value: 'hpv',
+          text: 'HPV',
+          behaviourGroup: 'vaccines-included'
+        },
+        {
+          name: 'vaccines-menb',
+          value: 'menb',
+          text: 'MenB',
+          behaviourGroup: 'vaccines-included'
+        },
+        {
+          name: 'vaccines-menacwy',
+          value: 'menacwy',
+          text: 'MenACWY',
+          behaviourGroup: 'vaccines-included'
+        },
+        {
+          name: 'vaccines-mmrv',
+          value: 'mmrv',
+          text: 'MMRV',
+          behaviourGroup: 'vaccines-included'
+        },
+        {
+          name: 'vaccines-rotavirus',
+          value: 'rotavirus',
+          text: 'Rotavirus',
+          behaviourGroup: 'vaccines-included'
+        },
+        {
+          name: 'vaccines-pneumococcal',
+          value: 'pneumococcal',
+          text: 'Pneumococcal',
+          behaviourGroup: 'vaccines-included'
+        },
+        {
+          name: 'vaccines-tdipv',
+          value: 'tdipv',
+          text: 'Td/IPV',
+          behaviourGroup: 'vaccines-included'
+        }
+      ]
+    },
+    options: {
+      hidden: true
+    }
+  },
+  'with "none" option': {
     context: {
       fieldset: {
         legend: {
@@ -620,7 +836,7 @@ const fixtures = {
           isPageHeading: true
         }
       },
-      idPrefix: 'conditional',
+      idPrefix: 'none',
       name: 'example',
       items: [
         {
@@ -640,14 +856,14 @@ const fixtures = {
         },
         {
           value: 'none',
-          text: 'None of the above',
-          exclusive: true
+          text: 'I do not want to be contacted',
+          behaviour: 'exclusive'
         }
       ]
     },
     variants
   },
-  'with "none of the above" option, conditional content': {
+  'with "none" option, deprecated': {
     context: {
       fieldset: {
         legend: {
@@ -656,7 +872,42 @@ const fixtures = {
           isPageHeading: true
         }
       },
-      idPrefix: 'conditional',
+      idPrefix: 'none',
+      name: 'example',
+      items: [
+        {
+          value: 'email',
+          text: 'Email'
+        },
+        {
+          value: 'phone',
+          text: 'Phone'
+        },
+        {
+          value: 'text',
+          text: 'Text message'
+        },
+        {
+          divider: 'or'
+        },
+        {
+          value: 'none',
+          text: 'I do not want to be contacted',
+          exclusive: true
+        }
+      ]
+    }
+  },
+  'with "none" option, conditional content': {
+    context: {
+      fieldset: {
+        legend: {
+          text: 'How do you want to be contacted about this?',
+          size: 'l',
+          isPageHeading: true
+        }
+      },
+      idPrefix: 'none',
       name: 'example',
       items: getItems().concat([
         {
@@ -664,14 +915,14 @@ const fixtures = {
         },
         {
           value: 'none',
-          text: 'None of the above',
-          exclusive: true
+          text: 'I do not want to be contacted',
+          behaviour: 'exclusive'
         }
       ])
     },
     variants
   },
-  'with "none of the above" option (named group)': {
+  'with "none" option (named group)': {
     context: {
       fieldset: {
         legend: {
@@ -680,7 +931,7 @@ const fixtures = {
           isPageHeading: true
         }
       },
-      idPrefix: 'conditional',
+      idPrefix: 'none',
       name: 'example',
       items: [
         {
@@ -703,8 +954,8 @@ const fixtures = {
         },
         {
           value: 'none',
-          text: 'None of the above',
-          exclusive: true,
+          text: 'I do not want to be contacted',
+          behaviour: 'exclusive',
           exclusiveGroup: 'communication-preferences'
         }
       ]
@@ -716,7 +967,7 @@ const fixtures = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
-  'with "none of the above" option (named group, unique)': {
+  'with "none" option (named group, unique)': {
     context: {
       fieldset: {
         legend: {
@@ -725,7 +976,7 @@ const fixtures = {
           isPageHeading: true
         }
       },
-      idPrefix: 'conditional',
+      idPrefix: 'none',
       name: 'example',
       items: [
         {
@@ -752,8 +1003,8 @@ const fixtures = {
         {
           name: 'preference-none',
           value: 'yes',
-          text: 'None of the above',
-          exclusive: true,
+          text: 'I do not want to be contacted',
+          behaviour: 'exclusive',
           exclusiveGroup: 'communication-preferences'
         }
       ]
