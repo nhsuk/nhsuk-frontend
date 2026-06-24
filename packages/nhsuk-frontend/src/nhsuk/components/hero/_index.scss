@@ -50,6 +50,8 @@
     border-top: $nhsuk-hero-border solid $nhsuk-reverse-border-colour;
   }
 
+  .nhsuk-hero__content,
+  // Deprecated, to be removed in v11.0
   .nhsuk-hero__wrapper {
     @include nhsuk-responsive-padding(8, ("top", "bottom"));
   }
@@ -148,6 +150,8 @@
       margin-bottom: nhsuk-spacing(4, $adjustment: 48px + 20px, $unit: "rem"); // [16]
     }
 
+    .nhsuk-hero__content,
+    // Deprecated, to be removed in v11.0
     .nhsuk-hero-content {
       box-sizing: border-box;
 
