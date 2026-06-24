@@ -26,6 +26,24 @@
   src: params.imageURL
 } if params.imageURL else params.image %}
 
+{%- set attributesHtml %}
+  {{- nhsukAttributes({
+    class: classNames,
+    id: {
+      value: params.id,
+      optional: true
+    }
+  }) -}}
+
+  {% if image.src %}
+    {{- nhsukAttributes({
+      style: ("background-image: url('" ~ image.src | escape ~ "');") | safe
+    }) -}}
+  {% endif %}
+
+  {{- nhsukAttributes(params.attributes) -}}
+{% endset -%}
+
 {#- Capture the HTML so we can optionally nest it in an image overlay -#}
 {% set innerHtml %}
   <div class="nhsuk-width-container
@@ -67,9 +85,7 @@
   </div>
 {% endset -%}
 
-<section class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
-  {%- if image.src %} style="background-image: url('{{ image.src }}');"{% endif %}
-  {{- nhsukAttributes(params.attributes) }}>
+<section {{- attributesHtml | safe }}>
 {% if image.src and not hasContent %}
   <div class="nhsuk-hero__overlay"></div>
 {% elif image.src and hasContent %}
