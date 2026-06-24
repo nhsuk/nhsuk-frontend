@@ -168,6 +168,15 @@ describe('Checkboxes', () => {
         `${Checkboxes.moduleName}: Root element (\`$root\`) already initialised`
       )
     })
+
+    it('should handle deprecated methods', () => {
+      const component = new Checkboxes($root)
+
+      jest.spyOn(component, 'unCheckInputs')
+
+      expect(() => component.unCheckExclusiveInputs($input1)).not.toThrow()
+      expect(component.unCheckInputs).toHaveBeenCalledWith($input1, 'exclusive')
+    })
   })
 
   describe('Conditional content', () => {
