@@ -4,6 +4,7 @@
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-hero" -%}
 {%- set classNamesHeading = "nhsuk-hero__heading" -%}
+{%- set classNamesColumn = "nhsuk-grid-column" -%}
 
 {%- set image = {
   src: params.imageURL
@@ -20,13 +21,18 @@
   {% set classNames = classNames ~ " " ~ params.classes %}
 {% endif %}
 
-{%- if params.contentWidth and params.contentWidth in ["two-thirds", "one-half", "full"] %}
-  {% set contentClassNames = "nhsuk-grid-column-" + params.contentWidth %}
-{% else %}
-  {% set contentClassNames = "nhsuk-grid-column-two-thirds" %}
-{% endif %}
+{%- set contentWidth = params.contentWidth | default("two-thirds") %}
 
-{%- set hasContent = true if caller or params.heading or params.text or params.html else false %}
+{%- if contentWidth in [
+  "one-quarter",
+  "one-third",
+  "one-half",
+  "two-thirds",
+  "three-quarters",
+  "full"
+] %}
+  {% set classNamesColumn = classNamesColumn ~ "-" ~ contentWidth %}
+{% endif %}
 
 {%- set attributesHtml %}
   {{- nhsukAttributes({
@@ -49,8 +55,8 @@
 {% set innerHtml %}
   <div class="nhsuk-width-container {%- if params.containerClasses %} {{ params.containerClasses }}{% endif %}">
     <div class="nhsuk-grid-row">
-      <div class="{{ contentClassNames }}">
-        <div class="{{ "nhsuk-hero__wrapper" if not image.src else "nhsuk-hero-content" }}">
+      <div class="{{ classNamesColumn }}">
+        <div class="nhsuk-hero__content">
         {% if params.heading %}
           {{ heading({
             text: params.heading,
@@ -85,7 +91,7 @@
 {% endset -%}
 
 <section {{- attributesHtml | safe }}>
-{% if hasContent %}
+{% if caller or params.heading or params.text or params.html %}
   {{ innerHtml | safe | trim }}
 {% endif %}
 {% if image.src %}
