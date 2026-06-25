@@ -33,6 +33,13 @@ const options = {
       'Not strictly a parameter but Nunjucks code convention. Using a `call` block enables you to call a macro with all the text inside the tag. This is helpful if you want to pass a lot of content into a macro. To use it, you will need to wrap the entire heading component in a `call` block.',
     released: '10.6.0'
   },
+  caption: {
+    type: 'object',
+    required: false,
+    description: 'Optional caption for the heading.',
+    released: '10.6.0',
+    isComponent: true
+  },
   size: {
     type: 'string',
     required: false,

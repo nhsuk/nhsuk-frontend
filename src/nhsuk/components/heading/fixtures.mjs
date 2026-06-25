@@ -1,4 +1,36 @@
 /**
+ * Nunjucks macro option variants
+ *
+ * @satisfies {MacroExample[]}
+ */
+export const variants = [
+  {
+    description: 'with size S',
+    context: {
+      size: 's'
+    }
+  },
+  {
+    description: 'with size M',
+    context: {
+      size: 'm'
+    }
+  },
+  {
+    description: 'with size L',
+    context: {
+      size: 'l'
+    }
+  },
+  {
+    description: 'with size XL',
+    context: {
+      size: 'xl'
+    }
+  }
+]
+
+/**
  * Nunjucks macro option examples
  *
  * @satisfies {{ [example: string]: MacroExample }}
@@ -18,32 +50,73 @@ const fixtures = {
       text: 'What is your full name?',
       size: 'l'
     },
-    variants: [
-      {
-        description: 'with size S',
-        context: {
-          size: 's'
-        }
+    variants,
+    screenshot: {
+      viewports: ['tablet']
+    }
+  },
+  'text and caption': {
+    context: {
+      text: 'What is your home address?',
+      caption: {
+        text: 'About you'
       },
-      {
-        description: 'with size M',
-        context: {
-          size: 'm'
-        }
+      size: 'l'
+    },
+    variants
+  },
+  'text and caption "before"': {
+    context: {
+      text: 'What is your home address?',
+      caption: {
+        text: 'About you',
+        placement: 'before'
       },
-      {
-        description: 'with size L',
-        context: {
-          size: 'l'
-        }
+      size: 'l'
+    },
+    variants,
+    screenshot: {
+      viewports: ['tablet']
+    }
+  },
+  'text and caption "after"': {
+    context: {
+      text: 'What is your home address?',
+      caption: {
+        text: 'About you',
+        placement: 'after'
       },
-      {
-        description: 'with size XL',
-        context: {
-          size: 'xl'
-        }
-      }
-    ],
+      size: 'l'
+    },
+    variants,
+    screenshot: {
+      viewports: ['tablet']
+    }
+  },
+  'text and caption "start"': {
+    context: {
+      text: 'What is your home address?',
+      caption: {
+        text: 'About you',
+        placement: 'start'
+      },
+      size: 'l'
+    },
+    variants,
+    screenshot: {
+      viewports: ['tablet']
+    }
+  },
+  'text and caption "end"': {
+    context: {
+      text: 'What is your home address?',
+      caption: {
+        text: 'About you',
+        placement: 'end'
+      },
+      size: 'l'
+    },
+    variants,
     screenshot: {
       viewports: ['tablet']
     }

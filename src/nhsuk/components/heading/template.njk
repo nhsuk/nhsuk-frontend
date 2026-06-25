@@ -1,3 +1,4 @@
+{% from "nhsuk/components/caption/macro.njk" import caption %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set classes for this component #}
@@ -6,6 +7,7 @@
 {%- set classNames = className -%}
 
 {#- Allow permitted sizes only #}
+{%- set size = null -%}
 {%- set sizes = params.sizes | default(["xxs", "xs", "s", "m", "l", "xl"]) -%}
 
 {%- if params.size and
@@ -20,10 +22,11 @@
     )
   )
 %}
+  {% set size = params.size %}
   {% if classPrefix | replace(className, "") == "-" %}
-    {% set classNames = classPrefix ~ params.size %}
+    {% set classNames = classPrefix ~ size %}
   {% else %}
-    {% set classNames = classNames ~ " " ~ classPrefix ~ params.size %}
+    {% set classNames = classNames ~ " " ~ classPrefix ~ size %}
   {% endif %}
 {% endif %}
 
@@ -32,11 +35,31 @@
 {% endif %}
 
 {%- set headingLevel = params.level | default(1) -%}
+{%- set headingCaption = params.caption -%}
+
+{%- set hasCaption = headingCaption.text or headingCaption.html -%}
 
 {%- if caller or params.html or params.text %}
+{%- set captionHtml = caption({
+  id: headingCaption.id,
+  text: headingCaption.text,
+  html: headingCaption.html,
+  placement: headingCaption.placement,
+  size: headingCaption.size | default(size),
+  classes: headingCaption.classes,
+  attributes: headingCaption.attributes
+}) if hasCaption %}
+
+{% if headingCaption.placement == "before" %}
+{{ captionHtml | safe | trim }}
+{% endif -%}
+
 <h{{ headingLevel }} class="{{ classNames }}"
   {%- if params.id %} id="{{ params.id }}"{% endif %}
   {{- nhsukAttributes(params.attributes) }}>
+{% if headingCaption.placement == "start" or (hasCaption and not headingCaption.placement) %}
+  {{ captionHtml | safe | trim | indent(2) }}
+{% endif %}
 {% if caller %}
   {{- caller() }}
 {% elif params.html %}
@@ -44,5 +67,11 @@
 {% else %}
   {{ params.text | trim | indent(2) }}
 {% endif %}
+{% if headingCaption.placement == "end" %}
+  {{ captionHtml | safe | trim | indent(2) }}
+{% endif %}
 </h{{ headingLevel }}>
+{% if headingCaption.placement == "after" %}
+{{ captionHtml | safe | trim }}
+{% endif %}
 {% endif %}
