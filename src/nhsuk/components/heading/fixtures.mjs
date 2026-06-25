@@ -58,9 +58,7 @@ const fixtures = {
   'text and caption': {
     context: {
       text: 'What is your home address?',
-      caption: {
-        text: 'About you'
-      },
+      caption: 'About you',
       size: 'l'
     },
     variants

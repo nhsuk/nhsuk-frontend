@@ -34,8 +34,11 @@
   {% set classNames = classNames ~ " " ~ params.classes %}
 {% endif %}
 
-{%- set headingLevel = params.level | default(1) -%}
-{%- set headingCaption = params.caption -%}
+{%- set headingLevel = params.level if params.level else 1 -%}
+{%- set headingCaption = params.caption if params.caption is mapping and params.caption is not escaped else {
+  text: params.caption if params.caption is string else undefined,
+  html: params.caption if params.caption is escaped else undefined
+} -%}
 
 {%- set hasCaption = headingCaption.text or headingCaption.html -%}
 
