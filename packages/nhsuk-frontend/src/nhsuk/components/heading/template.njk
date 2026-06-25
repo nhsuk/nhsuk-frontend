@@ -1,0 +1,48 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+
+{#- Set classes for this component #}
+{%- set className = params.className | default("nhsuk-heading") -%}
+{%- set classPrefix = params.classPrefix | default(className ~ "-") -%}
+{%- set classNames = className -%}
+
+{#- Allow permitted sizes only #}
+{%- set sizes = params.sizes | default(["xxs", "xs", "s", "m", "l", "xl"]) -%}
+
+{%- if params.size and
+  params.size in sizes and (
+    not params.classes or (
+      not classPrefix ~ "xxs" in params.classes and
+      not classPrefix ~ "xs" in params.classes and
+      not classPrefix ~ "s" in params.classes and
+      not classPrefix ~ "m" in params.classes and
+      not classPrefix ~ "l" in params.classes and
+      not classPrefix ~ "xl" in params.classes
+    )
+  )
+%}
+  {% if classPrefix | replace(className, "") == "-" %}
+    {% set classNames = classPrefix ~ params.size %}
+  {% else %}
+    {% set classNames = classNames ~ " " ~ classPrefix ~ params.size %}
+  {% endif %}
+{% endif %}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif %}
+
+{%- set headingLevel = params.level | default(1) -%}
+
+{%- if caller or params.html or params.text %}
+<h{{ headingLevel }} class="{{ classNames }}"
+  {%- if params.id %} id="{{ params.id }}"{% endif %}
+  {{- nhsukAttributes(params.attributes) }}>
+{% if caller %}
+  {{- caller() }}
+{% elif params.html %}
+  {{ params.html | safe | trim | indent(2) }}
+{% else %}
+  {{ params.text | trim | indent(2) }}
+{% endif %}
+</h{{ headingLevel }}>
+{% endif %}
