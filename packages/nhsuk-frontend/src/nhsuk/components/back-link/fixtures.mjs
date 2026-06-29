@@ -46,12 +46,18 @@ const fixtures = {
       selector: '.nhsuk-back-link'
     }
   },
-  'with visually hidden text': {
+  'with text escaping': {
     context: {
-      visuallyHiddenText: 'Back to',
-      text: 'Search results',
-      href: '#'
+      text: 'What to expect at A&E'
     }
+  },
+  'with HTML': {
+    context: {
+      html: 'What to expect at A&amp;E'
+    }
+  },
+  'with HTML via call block': {
+    callBlock: 'What to expect at A&amp;E'
   }
 }
 
