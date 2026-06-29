@@ -15,13 +15,13 @@
   // 1. Establish an inline-size container so that children can use cqi units
   //    to size themselves relative to the visible container width rather than
   //    the (potentially wider) scrolling content.
-  // 2. Visual scroll indicators use the background-attachment: local trick from
-  //    Lea Verou (https://lea.verou.me/2012/04/background-attachment-local/).
-  //    Gradients with 'local' attachment scroll with content (hiding shadow at edges).
-  //    Gradients with 'scroll' attachment stay fixed to container.
+  // 2. Visual scroll indicators use background-attachment:
+  //    'local' attachment to scroll with content (hiding shadow at edges),
+  //    'scroll' attachment to stay fixed to container.
   //    Left/right covers hide shadows when scrolled to start/end.
   //    Left/right indicator lines show scroll availability.
-  // 3. Margin is removed so there isn't double spacing.
+  // 3. Indicators don't show in forced-colors mode. Use borders instead
+  // 4. Margin is removed so there isn't double spacing.
 
   .nhsuk-table-container {
     --nhsuk-table-container-bg: #{$nhsuk-body-background-colour};
@@ -55,11 +55,17 @@
       box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-text-colour;
     }
 
+    @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+      background: none;
+      border-inline: $nhsuk-border-width-form-element solid $nhsuk-border-colour; // [3]
+      padding-inline: nhsuk-spacing(1);
+    }
+
     @include nhsuk-responsive-margin(7, "bottom");
 
     .nhsuk-table,
     .nhsuk-table-responsive {
-      margin: 0; // [3]
+      margin: 0; // [4]
     }
 
     .nhsuk-table__caption {
