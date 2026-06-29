@@ -51,12 +51,20 @@
   {{- nhsukAttributes(params.attributes) -}}
 {% endset %}
 
-{%- set backLinkText = params.html | safe | trim | indent(2) if params.html else (params.text | default("Back", true)) -%}
+{%- set backLinkText %}
+{% if caller %}
+  {{- caller() }}
+{% elif params.html %}
+  {{- params.html | safe }}
+{% else %}
+  {{- params.text | default("Back", true) }}
+{% endif %}
+{% endset -%}
 
 <{{ element }} {{- attributesHtml | safe }}>
   {% if params.visuallyHiddenText %}
-  <span class="nhsuk-u-visually-hidden">{{ params.visuallyHiddenText }}</span> {{ backLinkText }}
+  <span class="nhsuk-u-visually-hidden">{{ params.visuallyHiddenText }}</span> {{ backLinkText | safe | trim | indent(2) }}
   {% else %}
-  {{ backLinkText }}
+  {{ backLinkText | safe | trim | indent(2) }}
   {% endif %}
 </{{ element }}>
