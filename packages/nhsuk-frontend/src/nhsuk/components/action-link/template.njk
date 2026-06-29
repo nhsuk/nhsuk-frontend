@@ -59,6 +59,12 @@
 <{{ element }} {{- attributesHtml | safe }}>
   {{ nhsukIcon("arrow-right-circle") | trim | indent(2) }}
   <span class="nhsuk-action-link__text">
-    {{- params.html | safe | trim | indent(2) if params.html else params.text -}}
+  {% if caller %}
+    {{- caller() }}
+  {% elif params.html %}
+    {{ params.html | safe | trim | indent(4) }}
+  {% else %}
+    {{ params.text | indent(4) }}
+  {% endif %}
   </span>
 </{{ element }}>
