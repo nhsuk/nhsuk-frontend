@@ -161,6 +161,29 @@
 
           <p class="nhsuk-body">This change was introduced in <a class="nhsuk-link nhsuk-link--no-visited-state" href="https://github.com/nhsuk/nhsuk-frontend/pull/1556">pull request #1556: Uplift GOV.UK Frontend file upload component</a>.</p>
 
+          <h2>Override classes</h2>
+          {{ summaryList({
+            rows: [
+              {
+                key: {
+                  html: "<code>nhsuk-u-margin-0</code>",
+                  classes: "nhsuk-u-width-one-half"
+                },
+                value: {
+                  text: "Responsive margin on all sides"
+                }
+              },
+              {
+                key: {
+                  html: "<code>nhsuk-u-margin-top-0</code>"
+                },
+                value: {
+                  text: "Responsive margin on the top"
+                }
+              }
+            ]
+          }) }}
+
         </div>
       </div>
 
@@ -311,6 +334,29 @@
           {% endcall %}
 
           <p class="nhsuk-body">This change was introduced in <a class="nhsuk-link nhsuk-link--reverse nhsuk-link--no-visited-state" href="https://github.com/nhsuk/nhsuk-frontend/pull/1556">pull request #1556: Uplift GOV.UK Frontend file upload component</a>.</p>
+
+          <h2>Override classes</h2>
+          {{ summaryList({
+            rows: [
+              {
+                key: {
+                  html: '<code class="nhsuk-code--inline nhsuk-code--inverse">nhsuk-u-margin-0</code>',
+                  classes: "nhsuk-u-width-one-half"
+                },
+                value: {
+                  text: "Responsive margin on all sides"
+                }
+              },
+              {
+                key: {
+                  html: '<code class="nhsuk-code--inline nhsuk-code--inverse">nhsuk-u-margin-top-0</code>'
+                },
+                value: {
+                  text: "Responsive margin on the top"
+                }
+              }
+            ]
+          }) }}
 
         </div>
       </div>

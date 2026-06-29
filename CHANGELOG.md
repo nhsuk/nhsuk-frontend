@@ -95,6 +95,12 @@ Read more about [how we provide support for different browsers](/docs/contributi
 
 This was added in [pull request #1972: Add Sass mixins and utility classes for NHS.UK frontend browser support](https://github.com/nhsuk/nhsuk-frontend/pull/1972).
 
+#### Extend global inline code styles
+
+Inline `<code>` elements are now also styled within definition lists and table headings.
+
+This was added in [pull request #1984: Extend global inline code styles](https://github.com/nhsuk/nhsuk-frontend/pull/1984).
+
 #### Define negative margins using the Sass `nhsuk-responsive-margin()` mixin
 
 You can now pass the negative equivalent of a point from the typography scale to the `nhsuk-responsive-margin()` function to output negative margins.
