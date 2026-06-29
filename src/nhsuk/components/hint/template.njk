@@ -9,5 +9,11 @@
 
 <div class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
   {{- nhsukAttributes(params.attributes) }}>
-  {{ params.html | safe | trim | indent(2) if params.html else params.text }}
+{% if caller %}
+  {{- caller() }}
+{% elif params.html %}
+  {{ params.html | safe | trim | indent(2) }}
+{% else %}
+  {{ params.text | trim | indent(2) }}
+{% endif %}
 </div>
