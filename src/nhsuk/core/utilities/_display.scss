@@ -24,6 +24,18 @@
   display: none !important;
 }
 
+.nhsuk-u-display-none-from-tablet {
+  @include nhsuk-media-query($from: tablet) {
+    display: none !important;
+  }
+}
+
+.nhsuk-u-display-none-on-mobile {
+  @include nhsuk-media-query($until: tablet) {
+    display: none !important;
+  }
+}
+
 .nhsuk-u-display-none-print {
   @media print {
     display: none !important;
