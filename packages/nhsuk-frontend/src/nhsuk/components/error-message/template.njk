@@ -14,7 +14,7 @@
   {{- caller() }}
 {% elif params.html %}
   {{- params.html | safe }}
-{% else %}
+{% elif params.text %}
   {{- params.text }}
 {% endif %}
 {% endset -%}
