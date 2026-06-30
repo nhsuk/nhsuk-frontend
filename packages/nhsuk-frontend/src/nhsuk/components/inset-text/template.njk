@@ -15,6 +15,6 @@
 {% elif params.html %}
   {{ params.html | safe | trim | indent(2) }}
 {% elif params.text %}
-  <p>{{ params.text }}</p>
+  <p>{{ params.text | trim | indent(2) }}</p>
 {% endif %}
 </div>

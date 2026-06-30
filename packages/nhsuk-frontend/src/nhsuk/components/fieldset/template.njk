@@ -30,6 +30,6 @@
 {% if caller %}
   {{- caller() }}
 {% elif params.html %}
-  {{ params.html | safe }}
+  {{ params.html | safe | trim }}
 {% endif %}
 </fieldset>

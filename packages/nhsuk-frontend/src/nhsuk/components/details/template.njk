@@ -18,7 +18,11 @@
   {{- nhsukAttributes(params.attributes) }} {{- " open" if params.open }}>
   <summary class="nhsuk-details__summary">
     <span class="nhsuk-details__summary-text">
-      {{ params.summaryHtml | safe | trim | indent(6) if params.summaryHtml else params.summaryText }}
+    {% if params.summaryHtml %}
+      {{ params.summaryHtml | safe | trim | indent(6) }}
+    {% elif params.summaryText %}
+      {{ params.summaryText | trim | indent(6) }}
+    {% endif %}
     </span>
   </summary>
   <div class="nhsuk-details__text">
@@ -27,7 +31,7 @@
   {% elif params.html %}
     {{ params.html | safe | trim | indent(4) }}
   {% elif params.text %}
-    {{ params.text }}
+    {{ params.text | trim | indent(4) }}
   {% endif %}
   </div>
 </details>

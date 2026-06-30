@@ -17,24 +17,38 @@
     <div class="nhsuk-task-list__name-and-hint">
     {% if item.href %}
       <a class="nhsuk-link nhsuk-task-list__link {%- if item.title.classes %} {{ item.title.classes }}{% endif %}" href="{{ item.href }}" aria-describedby="{{ hintId ~ " " if item.hint }}{{ statusId }}">
-        {{ item.title.html | safe | trim | indent(8) if item.title.html else item.title.text }}
+      {% if item.title.html %}
+        {{ item.title.html | safe | trim | indent(8) }}
+      {% elif item.title.text %}
+        {{ item.title.text | trim | indent(8) }}
+      {% endif %}
       </a>
     {% else %}
       <div {%- if item.title.classes %} class="{{ item.title.classes }}"{% endif %}>
-        {{ item.title.html | safe | trim | indent(8) if item.title.html else item.title.text }}
+      {% if item.title.html %}
+        {{ item.title.html | safe | trim | indent(8) }}
+      {% elif item.title.text %}
+        {{ item.title.text | trim | indent(8) }}
+      {% endif %}
       </div>
     {% endif %}
     {% if item.hint %}
       <div class="nhsuk-task-list__hint" id="{{ hintId }}">
-        {{ item.hint.html | safe | trim | indent(8) if item.hint.html else item.hint.text }}
+      {% if item.hint.html %}
+        {{ item.hint.html | safe | trim | indent(8) }}
+      {% elif item.hint.text %}
+        {{ item.hint.text | trim | indent(8) }}
+      {% endif %}
       </div>
     {% endif %}
     </div>
     <div class="nhsuk-task-list__status {%- if item.status.classes %} {{ item.status.classes }}{% endif %}" id="{{ statusId }}">
     {% if item.status.tag %}
       {{ tag(item.status.tag) | trim | indent(6) }}
-    {% else %}
-      {{ item.status.html | safe | trim | indent(6) if item.status.html else item.status.text }}
+    {% elif item.status.html %}
+      {{ item.status.html | safe | trim | indent(6) }}
+    {% elif item.status.text %}
+      {{ item.status.text | trim | indent(6) }}
     {% endif %}
     </div>
   </li>
