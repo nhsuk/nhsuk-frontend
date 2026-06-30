@@ -15,14 +15,30 @@ const options = {
   src: {
     type: 'string',
     required: true,
-    description: 'The source location of the image.',
+    description:
+      'The source location of the image. If `html` is provided, the `src` and `alt` options will be ignored.',
     released: '1.0.0'
   },
   alt: {
     type: 'string',
-    required: true,
-    description: 'The alt text of the image.',
+    required: false,
+    description:
+      'The alt text of the image. If `html` is provided, the `src` and `alt` options will be ignored.',
     released: '1.0.0'
+  },
+  html: {
+    type: 'string',
+    required: true,
+    description:
+      'If `src` is set, this is not required. HTML to use within the image component. If `html` is provided, the `src` and `alt` options will be ignored.',
+    released: '10.6.0'
+  },
+  caller: {
+    type: 'nunjucks-block',
+    required: false,
+    description:
+      'Not strictly a parameter but [Nunjucks code convention](https://mozilla.github.io/nunjucks/templating.html#call). Using a `call` block enables you to call a macro with all the text inside the tag. This is helpful if you want to pass a lot of content into a macro. To use it, you will need to wrap the entire image component in a `call` block.',
+    released: '10.6.0'
   },
   caption: {
     type: 'object',
