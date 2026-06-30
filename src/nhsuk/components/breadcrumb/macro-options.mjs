@@ -44,13 +44,15 @@ const options = {
     type: 'string',
     required: true,
     description: 'Text to use for the parent page.',
-    released: '1.0.0'
+    released: '1.0.0',
+    deprecated: '7.1.0'
   },
   href: {
     type: 'string',
     required: true,
     description: 'The value of the parent page link `href` attribute.',
-    released: '1.0.0'
+    released: '1.0.0',
+    deprecated: '7.1.0'
   },
   variant: {
     type: 'string',
