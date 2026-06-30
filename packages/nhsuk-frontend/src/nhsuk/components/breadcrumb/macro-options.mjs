@@ -25,6 +25,12 @@ const options = {
         description: 'Text to use within the breadcrumbs item.',
         released: '1.0.0'
       },
+      html: {
+        type: 'string',
+        required: true,
+        description: 'HTML to use within the breadcrumbs item.',
+        released: '10.6.0'
+      },
       href: {
         type: 'string',
         required: false,
