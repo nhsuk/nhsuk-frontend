@@ -69,15 +69,23 @@
 
 {%- macro _serviceName(text, href) %}
 {% if href -%}
-<a class="nhsuk-header__service-name" href="{{ href }}">{{ text }}</a>
+<a class="nhsuk-header__service-name" href="{{ href }}">
+  {{- text | trim -}}
+</a>
 {% else -%}
-<span class="nhsuk-header__service-name">{{ text }}</span>
+<span class="nhsuk-header__service-name">
+  {{- text | trim -}}
+</span>
 {%- endif -%}
 {% endmacro %}
 
 {%- macro _accountItem(item) %}
 {{- nhsukIcon("user") if item.icon -}}
-{{- item.html | safe if item.html else item.text -}}
+{% if item.html %}
+  {{- item.html | safe | trim -}}
+{% elif item.text %}
+  {{- item.text | trim -}}
+{% endif -%}
 {% endmacro -%}
 
 <header
@@ -117,7 +125,7 @@
       {{ _serviceLogo(params.logo, params.organisation) | trim | indent(6) }}
     {% endif %}
     {% if params.service.text and not combineLogoAndServiceNameLinks %}
-      {{ _serviceName(params.service.text, params.service.href) | indent(6) }}
+      {{ _serviceName(params.service.text, params.service.href) }}
     {% endif %}
     </div>
 {% if params.search %}

@@ -36,7 +36,11 @@
 {% endif %}
 {% if caption %}
   <figcaption class="nhsuk-image__caption {%- if caption.classes %} {{ caption.classes }}{% endif %}">
-    {{ caption.html | safe | trim | indent(4) if caption.html else caption.text }}
+  {% if caption.html %}
+    {{ caption.html | safe | trim | indent(4) }}
+  {% elif caption.text %}
+    {{ caption.text | trim | indent(4) }}
+  {% endif %}
   </figcaption>
 {% endif %}
 </figure>

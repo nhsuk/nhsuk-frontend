@@ -24,6 +24,6 @@
 {% elif params.html %}
   {{ params.html | safe | trim | indent(2) }}
 {% else %}
-  {{ params.text | default("Skip to main content", true) }}
+  {{ (params.text | default("Skip to main content", true)) | trim | indent(2) }}
 {% endif %}
 </a>
