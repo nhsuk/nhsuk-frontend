@@ -113,24 +113,24 @@
   {{- nhsukAttributes(params.attributes) -}}
 {% endset %}
 
-{%- set buttonText = params.html | safe | trim if params.html else params.text %}
-{%- set buttonIcon = icon.html if icon.html else (nhsukIcon(icon.name) | trim if icon.name) %}
+{%- set buttonText = params.html | safe if params.html else params.text %}
+{%- set buttonIcon = icon.html if icon.html else (nhsukIcon(icon.name) if icon.name) %}
 
 {%- set innerHtml %}
 {% if buttonIcon and icon.placement == "start" %}
-  {{ buttonIcon | indent(2) }}
+  {{ buttonIcon | trim | indent(2) }}
 {% endif %}
 {% if caller %}
   {{ caller() }}
 {% elif (params.text or params.html) and buttonIcon %}
   <span class="nhsuk-button__content">
-    {{- buttonText | indent(2) -}}
+    {{- buttonText | trim | indent(2) -}}
   </span>
 {% elif params.text or params.html %}
-  {{ buttonText | indent(2) }}
+  {{ buttonText | trim | indent(2) }}
 {% endif %}
 {% if buttonIcon and icon.placement == "end" %}
-  {{ buttonIcon | indent(2) }}
+  {{ buttonIcon | trim | indent(2) }}
 {% endif %}
 {% endset %}
 

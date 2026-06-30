@@ -63,8 +63,8 @@
     {{- caller() }}
   {% elif params.html %}
     {{ params.html | safe | trim | indent(4) }}
-  {% else %}
-    {{ params.text | indent(4) }}
+  {% elif params.text %}
+    {{ params.text | trim | indent(4) }}
   {% endif %}
   </span>
 </{{ element }}>

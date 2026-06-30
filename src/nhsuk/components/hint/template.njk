@@ -13,7 +13,7 @@
   {{- caller() }}
 {% elif params.html %}
   {{ params.html | safe | trim | indent(2) }}
-{% else %}
+{% elif params.text %}
   {{ params.text | trim | indent(2) }}
 {% endif %}
 </div>
