@@ -158,6 +158,18 @@ const options = {
     description: 'If set to `true`, responsive table classes will be applied.',
     released: '4.0.0'
   },
+  scrollable: {
+    type: 'boolean',
+    required: false,
+    description:
+      'If set to `true`, the table will be wrapped in a scrollable container. The container uses `role="region"`, `aria-labelledby`, and `tabindex="0"` so that keyboard users can scroll it. A `caption` is required when using this option.'
+  },
+  captionId: {
+    type: 'string',
+    required: false,
+    description:
+      "ID for the table caption, used by the scrollable container's `aria-labelledby`. Auto-generated from the caption text when not provided."
+  },
   variant: {
     type: 'string',
     required: false,

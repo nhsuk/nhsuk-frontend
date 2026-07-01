@@ -1295,6 +1295,185 @@ const fixtures = {
         ]
       ]
     }
+  },
+  'with scrollable container': {
+    context: {
+      caption: 'Childhood vaccination coverage by nation and year',
+      captionSize: 'm',
+      captionId: 'vaccination-coverage-caption',
+      scrollable: true,
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: 'Nation'
+        },
+        {
+          text: '2019 to 2020',
+          format: 'numeric'
+        },
+        {
+          text: '2020 to 2021',
+          format: 'numeric'
+        },
+        {
+          text: '2021 to 2022',
+          format: 'numeric'
+        },
+        {
+          text: '2022 to 2023',
+          format: 'numeric'
+        },
+        {
+          text: '2023 to 2024',
+          format: 'numeric'
+        },
+        {
+          text: '2024 to 2025',
+          format: 'numeric'
+        },
+        {
+          text: '2025 to 2026',
+          format: 'numeric'
+        }
+      ],
+      rows: [
+        [
+          {
+            text: 'England'
+          },
+          {
+            text: '91.5%',
+            format: 'numeric'
+          },
+          {
+            text: '89.2%',
+            format: 'numeric'
+          },
+          {
+            text: '90.1%',
+            format: 'numeric'
+          },
+          {
+            text: '91.0%',
+            format: 'numeric'
+          },
+          {
+            text: '83.7%',
+            format: 'numeric'
+          },
+          {
+            text: '85.1%',
+            format: 'numeric'
+          },
+          {
+            text: '86.4%',
+            format: 'numeric'
+          }
+        ],
+        [
+          {
+            text: 'Northern Ireland'
+          },
+          {
+            text: '95.1%',
+            format: 'numeric'
+          },
+          {
+            text: '94.8%',
+            format: 'numeric'
+          },
+          {
+            text: '95.3%',
+            format: 'numeric'
+          },
+          {
+            text: '95.0%',
+            format: 'numeric'
+          },
+          {
+            text: '86.4%',
+            format: 'numeric'
+          },
+          {
+            text: '87.9%',
+            format: 'numeric'
+          },
+          {
+            text: '89.1%',
+            format: 'numeric'
+          }
+        ],
+        [
+          {
+            text: 'Scotland'
+          },
+          {
+            text: '96.2%',
+            format: 'numeric'
+          },
+          {
+            text: '95.9%',
+            format: 'numeric'
+          },
+          {
+            text: '96.4%',
+            format: 'numeric'
+          },
+          {
+            text: '96.1%',
+            format: 'numeric'
+          },
+          {
+            text: '89.2%',
+            format: 'numeric'
+          },
+          {
+            text: '90.5%',
+            format: 'numeric'
+          },
+          {
+            text: '91.3%',
+            format: 'numeric'
+          }
+        ],
+        [
+          {
+            text: 'Wales'
+          },
+          {
+            text: '94.8%',
+            format: 'numeric'
+          },
+          {
+            text: '94.5%',
+            format: 'numeric'
+          },
+          {
+            text: '95.1%',
+            format: 'numeric'
+          },
+          {
+            text: '94.9%',
+            format: 'numeric'
+          },
+          {
+            text: '89.5%',
+            format: 'numeric'
+          },
+          {
+            text: '91.0%',
+            format: 'numeric'
+          },
+          {
+            text: '92.2%',
+            format: 'numeric'
+          }
+        ]
+      ]
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
+    }
   }
 }
 

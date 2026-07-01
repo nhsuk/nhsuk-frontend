@@ -1,0 +1,67 @@
+@use "../settings" as *;
+@use "../tools" as *;
+@use "../helpers" as *;
+
+////
+/// Scrollable container object
+///
+/// @group objects/scrollable-container
+////
+
+// Wraps content in an accessible scrollable region. The container must
+// include role="region", aria-labelledby (pointing to a label id),
+// and tabindex="0" so that keyboard users can scroll it with arrow keys.
+// Based on https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
+//
+// Visual scroll indicators use the background-attachment: local trick from
+// Lea Verou (https://lea.verou.me/2012/04/background-attachment-local/).
+// Cover gradients scroll with the content (local), hiding the shadow at the
+// edges. The solid shadow (scroll) stays fixed to the container.
+// Override --nhsuk-scrollable-container-bg to match the containing element's
+// background if it is not the default page background.
+
+@include nhsuk-exports("nhsuk/objects/scrollable-container") {
+  .nhsuk-scrollable-container {
+    --nhsuk-scrollable-container-bg: #{$nhsuk-body-background-colour};
+
+    // Establish an inline-size container so that children can use cqi units
+    // to size themselves relative to the visible container width rather than
+    // the (potentially wider) scrolling content.
+    container-type: inline-size;
+
+    @include nhsuk-responsive-margin(7, "bottom");
+
+    &[role="region"][aria-labelledby][tabindex] {
+      overflow-x: scroll;
+
+      // Horizontal scroll shadow indicators
+      background:
+        // Left cover — hides left shadow when scrolled to the start
+        linear-gradient(to right, var(--nhsuk-scrollable-container-bg) nhsuk-spacing(2), transparent) left center /
+          nhsuk-spacing(2) 100% local no-repeat,
+        // Right cover — hides right shadow when scrolled to the end
+        linear-gradient(to left, var(--nhsuk-scrollable-container-bg) nhsuk-spacing(2), transparent) right center /
+          nhsuk-spacing(2) 100% local no-repeat,
+        // Left scroll indicator shadow
+        radial-gradient(
+            ellipse nhsuk-spacing(2) 45% at left center,
+            rgba($nhsuk-border-hover-colour, 0.4) 95%,
+            transparent 100%
+          )
+          left center / nhsuk-spacing(2) 100% scroll no-repeat,
+        // Right scroll indicator shadow
+        radial-gradient(
+            ellipse nhsuk-spacing(2) 45% at right center,
+            rgba($nhsuk-border-hover-colour, 0.4) 95%,
+            transparent 100%
+          )
+          right center / nhsuk-spacing(2) 100% scroll no-repeat;
+    }
+
+    &[role="region"][aria-labelledby][tabindex]:focus {
+      outline: $nhsuk-focus-width solid $nhsuk-focus-colour;
+      outline-offset: $nhsuk-focus-width;
+      box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-text-colour;
+    }
+  }
+}

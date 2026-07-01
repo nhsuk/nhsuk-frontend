@@ -41,12 +41,15 @@
 
 {%- set headingLevel = params.headingLevel if params.headingLevel else 3 %}
 
+{#- Set up scrollable container caption ID when scrollable is enabled #}
+{%- set captionId = params.captionId if params.captionId else (params.id ~ "-caption" if params.id else "table-caption-" ~ params.caption | replace(" ", "-") | lower | truncate(40, true, "")) -%}
+
 {%- set table -%}
 <table class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
   {%- if params.responsive %} role="table"{% endif %}
   {{- nhsukAttributes(params.attributes) }} data-module="nhsuk-table">
 {% if params.caption %}
-  <caption class="{{ classNamesCaption }}">
+  <caption class="{{ classNamesCaption }}"{% if params.scrollable %} id="{{ captionId }}"{% endif %}>
     {{ params.caption }}
   </caption>
 {% endif %}
@@ -134,6 +137,10 @@
   }) -%}
     {{ table | safe | trim | indent(4) }}
   {%- endcall %}
+{%- elif params.scrollable -%}
+  <div class="nhsuk-scrollable-container" role="region"{% if params.caption %} aria-labelledby="{{ captionId }}"{% endif %} tabindex="0">
+    {{ table | safe | trim | indent(4) }}
+  </div>
 {%- else -%}
   {{ table | safe | trim }}
 {% endif %}

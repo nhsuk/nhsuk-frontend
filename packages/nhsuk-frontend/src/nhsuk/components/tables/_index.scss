@@ -375,4 +375,24 @@
       border-color: $nhsuk-reverse-text-colour;
     }
   }
+
+  // Remove bottom margin from tables nested inside a scrollable container
+  // to avoid double spacing (the container provides the margin).
+  //
+  // Pin the caption to the left of the visible scroll area so it
+  // remains readable when the table overflows.
+  // Wrap table caption within visible scroll area with max-inline-size.
+  // (established by container-type: inline-size on .nhsuk-scrollable-container)
+  .nhsuk-scrollable-container {
+    .nhsuk-table {
+      margin: 0;
+    }
+
+    .nhsuk-table__caption {
+      box-sizing: border-box;
+      position: sticky;
+      left: 0;
+      max-inline-size: 100cqi;
+    }
+  }
 }
