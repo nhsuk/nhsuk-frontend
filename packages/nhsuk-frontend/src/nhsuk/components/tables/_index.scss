@@ -12,25 +12,61 @@
 @include nhsuk-exports("nhsuk/components/table") {
   // Table container is used to ensure the table does not break the container.
   //
-  // 1. Margin is removed so there isn't double spacing.
-  // 2. XS size not added because it matches the table header, so it'd be bad for hierarchy
+  // 1. Establish an inline-size container so that children can use cqi units
+  //    to size themselves relative to the visible container width rather than
+  //    the (potentially wider) scrolling content.
+  // 2. Visual scroll indicators use the background-attachment: local trick from
+  //    Lea Verou (https://lea.verou.me/2012/04/background-attachment-local/).
+  //    Gradients with 'local' attachment scroll with content (hiding shadow at edges).
+  //    Gradients with 'scroll' attachment stay fixed to container.
+  //    Left/right covers hide shadows when scrolled to start/end.
+  //    Left/right indicator lines show scroll availability.
+  // 3. Margin is removed so there isn't double spacing.
 
   .nhsuk-table-container {
+    --nhsuk-table-container-bg: #{$nhsuk-body-background-colour};
+
     box-sizing: border-box;
     display: block;
 
     width: 100%;
 
+    container-type: inline-size; // [1]
+
     overflow-x: auto;
 
-    -webkit-overflow-scrolling: touch;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
+    background: // [2]
+      // Left cover — hides left shadow when scrolled to the start
+      linear-gradient(to right, var(--nhsuk-table-container-bg) nhsuk-spacing(2), transparent) left center /
+        nhsuk-spacing(2) 100% local no-repeat,
+      // Right cover — hides right shadow when scrolled to the end
+      linear-gradient(to left, var(--nhsuk-table-container-bg) nhsuk-spacing(2), transparent) right center /
+        nhsuk-spacing(2) 100% local no-repeat,
+      // Left scroll indicator line
+      linear-gradient(to bottom, rgba($nhsuk-border-hover-colour, 0.4), rgba($nhsuk-border-hover-colour, 0.4)) left
+        center / nhsuk-spacing(1) 100% scroll no-repeat,
+      // Right scroll indicator line
+      linear-gradient(to bottom, rgba($nhsuk-border-hover-colour, 0.4), rgba($nhsuk-border-hover-colour, 0.4)) right
+        center / nhsuk-spacing(1) 100% scroll no-repeat;
+
+    &:focus-visible {
+      outline: $nhsuk-focus-width solid $nhsuk-focus-colour;
+      outline-offset: $nhsuk-focus-width;
+      box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-text-colour;
+    }
 
     @include nhsuk-responsive-margin(7, "bottom");
 
     .nhsuk-table,
     .nhsuk-table-responsive {
-      margin: 0; // [1]
+      margin: 0; // [3]
+    }
+
+    .nhsuk-table__caption {
+      box-sizing: border-box;
+      position: sticky;
+      left: 0;
+      max-inline-size: 100cqi;
     }
   }
 
@@ -85,6 +121,7 @@
   .nhsuk-table__caption--s {
     @include nhsuk-font-size(22);
   }
+  // size '--xs' not added because it matches the table header, so it'd be bad for hierarchy
 
   // Table panel with tab heading
   //
@@ -373,26 +410,6 @@
     th[aria-sort="descending"] a::before,
     th[aria-sort="ascending"] a::before {
       border-color: $nhsuk-reverse-text-colour;
-    }
-  }
-
-  // Remove bottom margin from tables nested inside a scrollable container
-  // to avoid double spacing (the container provides the margin).
-  //
-  // Pin the caption to the left of the visible scroll area so it
-  // remains readable when the table overflows.
-  // Wrap table caption within visible scroll area with max-inline-size.
-  // (established by container-type: inline-size on .nhsuk-scrollable-container)
-  .nhsuk-scrollable-container {
-    .nhsuk-table {
-      margin: 0;
-    }
-
-    .nhsuk-table__caption {
-      box-sizing: border-box;
-      position: sticky;
-      left: 0;
-      max-inline-size: 100cqi;
     }
   }
 }
