@@ -37,14 +37,11 @@
 
   {% if element == "button" %}
     {{- nhsukAttributes({
-      type: params.type if params.type else "submit"
+      type: params.type | default("submit")
     }) -}}
   {% elif element == "a" %}
     {{- nhsukAttributes({
-      href: {
-        value: params.href if params.href else "#",
-        optional: true
-      }
+      href: params.href | default("#")
     }) -}}
   {% endif %}
 

@@ -184,14 +184,8 @@
           <form
             {{- nhsukAttributes({
               class: "nhsuk-header__account-form",
-              action: {
-                value: item.action,
-                optional: true
-              },
-              method: {
-                value: item.method or "post",
-                optional: true
-              }
+              action: item.action,
+              method: item.method | default("post")
             }) }} novalidate>
             <button class="nhsuk-header__account-button">
               {{ _accountItem(item) | indent(14) }}
