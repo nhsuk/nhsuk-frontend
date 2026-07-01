@@ -112,6 +112,46 @@ const fixtures = {
       viewports: ['mobile', 'tablet']
     }
   },
+  'basic with summary list and action': {
+    context: {
+      heading: 'Regional Manager',
+      headingLevel: 3,
+      actions: {
+        items: [
+          {
+            text: 'Delete',
+            href: '#/delete'
+          }
+        ]
+      }
+    },
+    callBlock: outdent`
+      ${components.render(
+        'summary-list',
+        summaryListExamples['example person: Karen Francis (no border)']
+      )}
+    `
+  },
+  'basic with summary list and action as a button': {
+    context: {
+      heading: 'Regional Manager',
+      headingLevel: 3,
+      actions: {
+        items: [
+          {
+            element: 'button',
+            text: 'Delete'
+          }
+        ]
+      }
+    },
+    callBlock: outdent`
+      ${components.render(
+        'summary-list',
+        summaryListExamples['example person: Karen Francis (no border)']
+      )}
+    `
+  },
   'basic with summary list and actions': {
     context: {
       heading: 'Regional Manager',
@@ -125,6 +165,30 @@ const fixtures = {
           {
             text: 'Withdraw',
             href: '#/withdraw'
+          }
+        ]
+      }
+    },
+    callBlock: outdent`
+      ${components.render(
+        'summary-list',
+        summaryListExamples['example person: Karen Francis (no border)']
+      )}
+    `
+  },
+  'basic with summary list and actions as buttons': {
+    context: {
+      heading: 'Regional Manager',
+      headingLevel: 3,
+      actions: {
+        items: [
+          {
+            element: 'button',
+            text: 'Delete'
+          },
+          {
+            element: 'button',
+            text: 'Withdraw'
           }
         ]
       }

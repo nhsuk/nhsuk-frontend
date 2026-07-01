@@ -7,20 +7,48 @@
   {% set classNames = classNames ~ " " ~ params.classes %}
 {% endif %}
 
+{#- Determine type of element to use, if not explicitly set #}
+{%- if params.element %}
+  {% set element = params.element | lower %}
+{% else %}
+  {% if params.href %}
+    {% set element = "a" %}
+  {% else %}
+    {% set element = "button" %}
+  {% endif %}
+{% endif %}
+
 {%- set attributesHtml %}
   {{- nhsukAttributes({
     class: classNames,
     id: {
       value: params.id,
       optional: true
-    },
-    href: params.href | default("#")
+    }
   }) -}}
+
+  {% if element == "button" %}
+    {{- nhsukAttributes({
+      name: {
+        value: params.name,
+        optional: true
+      },
+      type: params.type | default("submit"),
+      value: {
+        value: params.value,
+        optional: true
+      }
+    }) -}}
+  {% elif element == "a" %}
+    {{- nhsukAttributes({
+      href: params.href | default("#")
+    }) -}}
+  {% endif %}
 
   {{- nhsukAttributes(params.attributes) -}}
 {% endset %}
 
-<a {{- attributesHtml | safe }}>
+<{{ element }} {{- attributesHtml | safe }}>
   {%- if params.html -%}
     {{- params.html | safe | trim | indent(2) -}}
   {%- elif params.text -%}
@@ -32,4 +60,4 @@
     {%- if parent.params.heading %} ({{ parent.params.heading }}){% endif -%}
   </span>
   {%- endif -%}
-</a>
+</{{ element }}>
