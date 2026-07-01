@@ -1,0 +1,35 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-link" -%}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif %}
+
+{%- set attributesHtml %}
+  {{- nhsukAttributes({
+    class: classNames,
+    id: {
+      value: params.id,
+      optional: true
+    },
+    href: params.href | default("#")
+  }) -}}
+
+  {{- nhsukAttributes(params.attributes) -}}
+{% endset %}
+
+<a {{- attributesHtml | safe }}>
+  {%- if params.html -%}
+    {{- params.html | safe | trim | indent(2) -}}
+  {%- elif params.text -%}
+    {{- params.text | trim | indent(2) -}}
+  {%- endif -%}
+  {%- if params.visuallyHiddenText or parent.params.heading -%}
+  <span class="nhsuk-u-visually-hidden">
+    {%- if params.visuallyHiddenText %} {{ params.visuallyHiddenText }}{% endif -%}
+    {%- if parent.params.heading %} ({{ parent.params.heading }}){% endif -%}
+  </span>
+  {%- endif -%}
+</a>
