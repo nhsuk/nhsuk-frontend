@@ -57,13 +57,19 @@ export class Table extends ConfigurableComponent {
 
     this.$headings = Array.from(this.$head.querySelectorAll('th'))
 
-    this.createHeadingButtons()
-    this.updateCaption()
-    this.updateDirectionIndicators()
-    this.createStatusBox()
-    this.initialiseSortedColumn()
+    const sortableHeadingsCount = this.$headings.filter((heading) =>
+      heading.getAttribute('aria-sort')
+    ).length
 
-    this.$head.addEventListener('click', this.onSortButtonClick.bind(this))
+    if (sortableHeadingsCount > 0) {
+      this.createHeadingButtons()
+      this.updateCaption()
+      this.updateDirectionIndicators()
+      this.createStatusBox()
+      this.initialiseSortedColumn()
+
+      this.$head.addEventListener('click', this.onSortButtonClick.bind(this))
+    }
   }
 
   createHeadingButtons() {
