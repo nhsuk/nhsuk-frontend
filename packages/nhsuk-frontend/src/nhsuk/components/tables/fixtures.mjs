@@ -453,9 +453,6 @@ const fixtures = {
     context: {
       caption: 'Childhood vaccination coverage',
       captionSize: 'm',
-      attributes: {
-        'data-module': 'nhsuk-table'
-      },
       head: [
         {
           text: 'Nation',
@@ -560,9 +557,6 @@ const fixtures = {
   'with names and dates, sortable': {
     context: {
       caption: 'Screening schedule',
-      attributes: {
-        'data-module': 'nhsuk-table'
-      },
       head: [
         {
           text: 'Name',

@@ -6,6 +6,53 @@ import { examples } from './fixtures.mjs'
 import { Table, initTables } from './table.mjs'
 
 describe('Table', () => {
+  describe('where there are no sortable columns', () => {
+    /** @type {HTMLElement} */
+    let $root
+
+    beforeEach(() => {
+      document.body.innerHTML = outdent`
+        <div>
+          <table data-module="nhsuk-table">
+            <caption>Staff</caption>
+            <thead>
+              <tr>
+                <th>Name</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Jamie Brown</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      `
+
+      $root = /** @type {HTMLElement} */ (
+        document.querySelector(`[data-module="${Table.moduleName}"]`)
+      )
+    })
+
+    describe('Initialisation via init function', () => {
+      it('should not throw any errors', () => {
+        expect(() => initTables()).not.toThrow()
+      })
+
+      it('should not alter the caption', () => {
+        initTables()
+        const $caption = $root.querySelector('caption')
+        expect($caption).toHaveTextContent('Staff')
+      })
+
+      it('should not add a status box', () => {
+        initTables()
+        const $statusBox = document.querySelector('[role=status]')
+        expect($statusBox).toBeNull()
+      })
+    })
+  })
+
   describe('with numeric data and sortable columns', () => {
     /** @type {HTMLElement} */
     let $root, $head
