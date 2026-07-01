@@ -53,6 +53,25 @@
     }
   }
 
+  // Provide an empty 'cell' for rows that don't have actions automatically,
+  // using the `:has()` selector not the modifier class in modern browsers.
+  .nhsuk-summary-list:has(.nhsuk-summary-list__actions)
+    .nhsuk-summary-list__row:not(:has(.nhsuk-summary-list__actions)) {
+    @media #{nhsuk-from-breakpoint(tablet)} {
+      &::after {
+        content: "";
+        display: table-cell;
+        width: 20%;
+      }
+
+      // Restore right padding for the last column in the row (removed above)
+      // because the empty 'cell' is now visually the last column
+      > :last-child {
+        padding-right: nhsuk-spacing(4);
+      }
+    }
+  }
+
   .nhsuk-summary-list__key,
   .nhsuk-summary-list__value,
   .nhsuk-summary-list__actions {
