@@ -1,5 +1,6 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
+{% from "nhsuk/components/card/components/action/macro.njk" import cardAction %}
 
 {#- Set variant or (deprecated) type for this component #}
 {%- set variant = params.variant or params.type -%}
@@ -135,19 +136,6 @@
 {% endif %}
 {% endmacro -%}
 
-{%- macro _cardAction(action, cardHeading) %}
-  <a class="nhsuk-link {%- if action.classes %} {{ action.classes }}{% endif %}" href="{{ action.href }}"
-    {{- nhsukAttributes(action.attributes) }}>
-    {{- action.html | safe | indent(4) if action.html else action.text -}}
-    {%- if action.visuallyHiddenText or cardHeading -%}
-    <span class="nhsuk-u-visually-hidden">
-      {%- if action.visuallyHiddenText %} {{ action.visuallyHiddenText }}{% endif -%}
-      {%- if cardHeading %} ({{ cardHeading }}){% endif -%}
-    </span>
-    {%- endif -%}
-  </a>
-{% endmacro -%}
-
 <div class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
   {{- nhsukAttributes(params.attributes) }}>
 {% if image.html %}
@@ -168,13 +156,17 @@
   {% endif %}
     {% if actionsItems | length == 1 %}
     <div class="nhsuk-card__actions {%- if params.actions.classes %} {{ params.actions.classes }}{% endif %}">
-      {{ _cardAction(actionsItems[0], params.heading) | trim | indent(4) }}
+      {{ cardAction(actionsItems[0], {
+        params: params
+      }) | trim | indent(6) }}
     </div>
     {% elif actionsItems | length %}
     <ul class="nhsuk-card__actions {%- if params.actions.classes %} {{ params.actions.classes }}{% endif %}">
       {% for action in actionsItems %}
       <li class="nhsuk-card__action">
-        {{ _cardAction(action, params.heading) | trim | indent(8) }}
+        {{ cardAction(action, {
+          params: params
+        }) | trim | indent(8) }}
       </li>
       {% endfor %}
     </ul>
