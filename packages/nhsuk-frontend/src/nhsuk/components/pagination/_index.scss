@@ -167,7 +167,7 @@
     @include nhsuk-font-size(19);
 
     &:not(:focus):hover {
-      background-color: nhsuk-colour("grey-4");
+      background-color: $nhsuk-target-hover-colour;
     }
   }
 
