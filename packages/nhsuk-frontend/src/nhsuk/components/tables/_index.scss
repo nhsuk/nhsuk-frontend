@@ -37,11 +37,11 @@ $nhsuk-table-overflow-colour: nhsuk-colour("grey-3");
 
     background: // [2]
       // Left cover — hides left shadow when scrolled to the start
-      linear-gradient(to right, #{$nhsuk-body-background-colour} nhsuk-spacing(2), transparent) left center /
-        nhsuk-spacing(2) 100% local no-repeat,
+      linear-gradient(to right, $nhsuk-body-background-colour, transparent) left center / nhsuk-spacing(2) 100% local
+        no-repeat,
       // Right cover — hides right shadow when scrolled to the end
-      linear-gradient(to left, #{$nhsuk-body-background-colour} nhsuk-spacing(2), transparent) right center /
-        nhsuk-spacing(2) 100% local no-repeat,
+      linear-gradient(to left, $nhsuk-body-background-colour, transparent) right center / nhsuk-spacing(2) 100% local
+        no-repeat,
       // Left scroll indicator line
       linear-gradient(to bottom, rgba($nhsuk-table-overflow-colour, 0.4), rgba($nhsuk-table-overflow-colour, 0.4)) left
         center / nhsuk-spacing(1) 100% scroll no-repeat,
