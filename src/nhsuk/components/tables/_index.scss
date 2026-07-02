@@ -13,6 +13,7 @@
 // This produces 1.1:1 contrast, the same as GOV.UK’s
 // This is also used by the Task list component
 $sortable-table-hover-colour: color.adjust(nhsuk-colour("grey-5"), $lightness: -6%);
+$sortable-reverse-table-hover-colour: color.adjust(nhsuk-colour("blue"), $lightness: -6%);
 
 @include nhsuk-exports("nhsuk/components/table") {
   // Table container is used to ensure the table does not break the container.
@@ -384,5 +385,23 @@ $sortable-table-hover-colour: color.adjust(nhsuk-colour("grey-5"), $lightness: -
     flex-shrink: 0;
     width: auto;
     height: 1.25rem;
+  }
+
+  .nhsuk-table--reverse {
+    [aria-sort] button,
+    [aria-sort] a {
+      @include nhsuk-link-style-reverse;
+    }
+
+    th[aria-sort]:hover {
+      background-color: $sortable-reverse-table-hover-colour;
+    }
+
+    th[aria-sort="descending"] button::before,
+    th[aria-sort="ascending"] button::before,
+    th[aria-sort="descending"] a::before,
+    th[aria-sort="ascending"] a::before {
+      border-color: $nhsuk-reverse-text-colour;
+    }
   }
 }
