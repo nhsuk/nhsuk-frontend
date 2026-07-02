@@ -57,7 +57,7 @@ describe('Core', () => {
         --nhsuk-input-border-colour: #4c6272;
         --nhsuk-hover-colour: #aeb7bd;
         --nhsuk-reverse-hover-colour: #004b93;
-        --nhsuk-target-hover-colour: #dee7e9;
+        --nhsuk-target-hover-colour: #e0e4e6;
         --nhsuk-input-background-colour: white;
         --nhsuk-code-colour: #d5281b;
         --nhsuk-link-colour: #005eb8;
