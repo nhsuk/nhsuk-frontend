@@ -13,6 +13,7 @@
 // NHS pages have a grey background, so we need a slightly darker colour for the hover
 // This produces 1.1:1 contrast, the same as GOV.UK’s
 $nhsuk-task-list-hover-colour: $nhsuk-target-hover-colour;
+$nhsuk-task-list-hover-border-colour: nhsuk-colour("grey-3");
 
 // @deprecated To be removed in v11.0
 $nhsuk-task-list-hover-color: $nhsuk-task-list-hover-colour;
@@ -42,18 +43,26 @@ $nhsuk-task-list-hover-color: $nhsuk-task-list-hover-colour;
     padding-top: nhsuk-spacing(2) + 4px;
     padding-bottom: nhsuk-spacing(2) + 4px;
 
-    border-bottom: 1px solid $nhsuk-border-colour;
+    border: 1px solid $nhsuk-border-colour;
+    border-width: 0 0 1px;
   }
 
   .nhsuk-task-list__item:first-child {
-    border-top: 1px solid $nhsuk-border-colour;
+    border-top-width: 1px;
   }
 
   // This class is added to the <li> elements where the task name is a link.
   // The background hover colour is added to help indicate that the whole row is clickable, rather
   // than just the visible link text.
   .nhsuk-task-list__item--with-link:hover {
+    margin-top: -1px;
+    border-width: 1px 0;
+    border-color: $nhsuk-task-list-hover-border-colour;
     background: $nhsuk-task-list-hover-colour;
+  }
+
+  .nhsuk-task-list__item--with-link:first-child:hover {
+    margin-top: 0;
   }
 
   .nhsuk-task-list__name-and-hint {
