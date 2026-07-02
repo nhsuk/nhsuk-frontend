@@ -670,7 +670,8 @@ const fixtures = {
           }
         ]
       ]
-    }
+    },
+    variants
   },
   'with names and times, sortable server-side': {
     context: {
@@ -750,7 +751,8 @@ const fixtures = {
           }
         ]
       ]
-    }
+    },
+    variants
   },
   'responsive': {
     context: {
