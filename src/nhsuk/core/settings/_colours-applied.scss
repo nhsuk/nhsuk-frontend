@@ -159,6 +159,15 @@ $nhsuk-reverse-hover-colour: nhsuk-shade($nhsuk-brand-colour, 20%) !default;
 
 $nhsuk-target-hover-colour: nhsuk-tint(nhsuk-colour("grey-4"), 20%) !default;
 
+/// Reverse target area hover colour
+///
+/// Used for hover states on transparent areas used to expand target areas,
+/// on reverse backgrounds
+///
+/// @type Colour
+
+$nhsuk-reverse-target-hover-colour: nhsuk-shade($nhsuk-brand-colour, 10%) !default;
+
 /// Form element background colour
 ///
 /// @type Colour
