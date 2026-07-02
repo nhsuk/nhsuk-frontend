@@ -9,12 +9,6 @@
 /// @group components/table
 ////
 
-// NHS pages have a grey background, so we need a slightly darker colour for the hover
-// This produces 1.1:1 contrast, the same as GOV.UK’s
-// This is also used by the Task list component
-$sortable-table-hover-colour: color.adjust(nhsuk-colour("grey-5"), $lightness: -6%);
-$sortable-reverse-table-hover-colour: color.adjust(nhsuk-colour("blue"), $lightness: -6%);
-
 @include nhsuk-exports("nhsuk/components/table") {
   // Table container is used to ensure the table does not break the container.
   //
@@ -337,7 +331,7 @@ $sortable-reverse-table-hover-colour: color.adjust(nhsuk-colour("blue"), $lightn
   }
 
   th[aria-sort]:hover {
-    background-color: $sortable-table-hover-colour;
+    background-color: $nhsuk-target-hover-colour;
   }
 
   [aria-sort] button,
@@ -394,7 +388,7 @@ $sortable-reverse-table-hover-colour: color.adjust(nhsuk-colour("blue"), $lightn
     }
 
     th[aria-sort]:hover {
-      background-color: $sortable-reverse-table-hover-colour;
+      background-color: $nhsuk-reverse-target-hover-colour;
     }
 
     th[aria-sort="descending"] button::before,
