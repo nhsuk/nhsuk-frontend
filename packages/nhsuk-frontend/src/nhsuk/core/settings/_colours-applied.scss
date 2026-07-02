@@ -1,4 +1,3 @@
-@use "sass:color";
 @use "../helpers/colour" as *;
 
 ////
@@ -158,7 +157,7 @@ $nhsuk-reverse-hover-colour: nhsuk-shade($nhsuk-brand-colour, 20%) !default;
 ///
 /// @type Colour
 
-$nhsuk-target-hover-colour: nhsuk-colour-compatible(color.adjust(nhsuk-colour("grey-5"), $lightness: -6%)) !default;
+$nhsuk-target-hover-colour: nhsuk-tint(nhsuk-colour("grey-4"), 20%) !default;
 
 /// Form element background colour
 ///
