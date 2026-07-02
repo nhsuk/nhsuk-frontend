@@ -9,6 +9,8 @@
 /// @group components/table
 ////
 
+$nhsuk-table-overflow-colour: nhsuk-colour("grey-3");
+
 @include nhsuk-exports("nhsuk/components/table") {
   // Table container is used to ensure the table does not break the container.
   //
@@ -24,8 +26,6 @@
   // 4. Margin is removed so there isn't double spacing.
 
   .nhsuk-table-container {
-    --nhsuk-table-container-bg: #{$nhsuk-body-background-colour};
-
     box-sizing: border-box;
     display: block;
 
@@ -37,16 +37,16 @@
 
     background: // [2]
       // Left cover — hides left shadow when scrolled to the start
-      linear-gradient(to right, var(--nhsuk-table-container-bg) nhsuk-spacing(2), transparent) left center /
+      linear-gradient(to right, #{$nhsuk-body-background-colour} nhsuk-spacing(2), transparent) left center /
         nhsuk-spacing(2) 100% local no-repeat,
       // Right cover — hides right shadow when scrolled to the end
-      linear-gradient(to left, var(--nhsuk-table-container-bg) nhsuk-spacing(2), transparent) right center /
+      linear-gradient(to left, #{$nhsuk-body-background-colour} nhsuk-spacing(2), transparent) right center /
         nhsuk-spacing(2) 100% local no-repeat,
       // Left scroll indicator line
-      linear-gradient(to bottom, rgba($nhsuk-border-hover-colour, 0.4), rgba($nhsuk-border-hover-colour, 0.4)) left
+      linear-gradient(to bottom, rgba($nhsuk-table-overflow-colour, 0.4), rgba($nhsuk-table-overflow-colour, 0.4)) left
         center / nhsuk-spacing(1) 100% scroll no-repeat,
       // Right scroll indicator line
-      linear-gradient(to bottom, rgba($nhsuk-border-hover-colour, 0.4), rgba($nhsuk-border-hover-colour, 0.4)) right
+      linear-gradient(to bottom, rgba($nhsuk-table-overflow-colour, 0.4), rgba($nhsuk-table-overflow-colour, 0.4)) right
         center / nhsuk-spacing(1) 100% scroll no-repeat;
 
     &:focus-visible {
