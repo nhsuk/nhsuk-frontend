@@ -9,9 +9,7 @@ import { components } from '#lib'
  */
 export const variants = [
   {
-    options: {
-      layout: 'background-white'
-    }
+    // Regular variant
   },
   {
     description: 'reverse',
