@@ -143,6 +143,14 @@ $nhsuk-input-border-colour: nhsuk-colour("grey-1") !default;
 
 $nhsuk-hover-colour: nhsuk-colour("grey-3") !default;
 
+/// Reverse input hover colour
+///
+/// Used for hover states on form controls, on reverse backgrounds
+///
+/// @type Colour
+
+$nhsuk-reverse-hover-colour: nhsuk-shade($nhsuk-brand-colour, 20%) !default;
+
 /// Form element background colour
 ///
 /// @type Colour
