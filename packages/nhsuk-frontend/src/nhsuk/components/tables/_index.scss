@@ -34,6 +34,19 @@
     }
   }
 
+  .nhsuk-table-container::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .nhsuk-table-container::-webkit-scrollbar-track {
+    background: nhsuk-colour("grey-5");
+  }
+
+  .nhsuk-table-container::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background: nhsuk-colour("grey-2");
+  }
+
   .nhsuk-table,
   .nhsuk-table-responsive {
     box-sizing: border-box;
