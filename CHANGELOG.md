@@ -252,7 +252,8 @@ You can still use `nhsuk-print-colour` and `nhsuk-print-hide` but we'll remove t
 
 ### :wrench: **Fixes**
 
-- [#1942: Update `nhsuk-spacing()` to add missing `$adjustment` and `$important` params](https://github.com/nhsuk/nhsuk-frontend/pull/1942).
+- [#1942: Update `nhsuk-spacing()` to add missing `$adjustment` and `$important` params](https://github.com/nhsuk/nhsuk-frontend/pull/1942)
+- [#1996: Update hover colour for task list and pagination](https://github.com/nhsuk/nhsuk-frontend/pull/1996)
 
 ## 10.5.2 - 8 June 2026
 
