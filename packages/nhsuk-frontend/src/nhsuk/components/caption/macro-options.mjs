@@ -12,6 +12,13 @@ const options = {
     description: 'The ID of the caption.',
     released: '10.6.0'
   },
+  element: {
+    type: 'string',
+    required: false,
+    description:
+      'HTML element for the caption – for example, `"span"`, `"p"`, `"h2"` or `"h3"`. Defaults to `"span"`.',
+    released: '10.6.0'
+  },
   text: {
     type: 'string',
     required: true,

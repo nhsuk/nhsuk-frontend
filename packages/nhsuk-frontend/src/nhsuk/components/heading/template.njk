@@ -45,6 +45,7 @@
 {%- if caller or params.html or params.text %}
 {%- set captionHtml = caption({
   id: headingCaption.id,
+  element: headingCaption.element,
   text: headingCaption.text,
   html: headingCaption.html,
   placement: headingCaption.placement,
