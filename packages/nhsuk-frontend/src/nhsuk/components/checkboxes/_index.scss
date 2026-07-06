@@ -46,10 +46,10 @@ $nhsuk-checkboxes-offset: $nhsuk-border-width-form-element;
     margin-top: 0;
   }
 
-  .nhsuk-checkboxes__item.nhsuk-u-hidden-not-supported:first-child {
+  .nhsuk-checkboxes__item.nhsuk-u-frontend-not-supported-hidden:first-child {
     @include nhsuk-frontend-not-supported {
       + .nhsuk-checkboxes__item,
-      + .nhsuk-u-hidden-not-supported + .nhsuk-checkboxes__item {
+      + .nhsuk-u-frontend-not-supported-hidden + .nhsuk-checkboxes__item {
         margin-top: 0;
       }
     }
