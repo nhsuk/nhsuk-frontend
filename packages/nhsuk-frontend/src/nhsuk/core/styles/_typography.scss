@@ -93,28 +93,28 @@ h6,
 
 // Captions to be used inside, before or after headings
 
-.nhsuk-caption-xl {
+.nhsuk-caption-xl,
+.nhsuk-caption-l,
+.nhsuk-caption-m,
+.nhsuk-caption {
   display: block;
-  margin-bottom: nhsuk-spacing(1);
+  margin: 0 0 nhsuk-spacing(1);
+  padding: 0;
   color: $nhsuk-secondary-text-colour;
+  @include nhsuk-font(19);
+}
 
-  @include nhsuk-font(26);
+.nhsuk-caption-xl {
+  @include nhsuk-font-size(26);
 }
 
 .nhsuk-caption-l {
-  display: block;
-  margin-bottom: nhsuk-spacing(1);
-  color: $nhsuk-secondary-text-colour;
-
-  @include nhsuk-font(22);
+  @include nhsuk-font-size(22);
 }
 
 .nhsuk-caption-m,
 .nhsuk-caption {
-  display: block;
-  color: $nhsuk-secondary-text-colour;
-
-  @include nhsuk-font(19);
+  margin-bottom: 0;
 }
 
 h1 + .nhsuk-caption-xl,
@@ -138,8 +138,7 @@ h6 + .nhsuk-caption,
 }
 
 .nhsuk-caption--bottom {
-  margin-top: nhsuk-spacing(1);
-  margin-bottom: nhsuk-spacing(0);
+  margin: nhsuk-spacing(1) 0 0;
 }
 
 // Body (paragraphs)
