@@ -77,6 +77,17 @@ const fixtures = {
       viewports: ['tablet']
     }
   },
+  'text and caption "before" as a heading': {
+    context: {
+      text: 'What is your home address?',
+      caption: {
+        text: 'About you',
+        placement: 'before',
+        element: 'h2'
+      },
+      size: 'l'
+    }
+  },
   'text and caption "after"': {
     context: {
       text: 'What is your home address?',
@@ -89,6 +100,17 @@ const fixtures = {
     variants,
     screenshot: {
       viewports: ['tablet']
+    }
+  },
+  'text and caption "after" as a paragraph': {
+    context: {
+      text: 'What is your home address?',
+      caption: {
+        text: 'About you',
+        placement: 'after',
+        element: 'p'
+      },
+      size: 'l'
     }
   },
   'text and caption "start"': {
