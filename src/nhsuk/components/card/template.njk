@@ -82,7 +82,7 @@
 {% endif %}
 
 {%- set headingLevel = params.headingLevel if params.headingLevel else 2 %}
-{%- set actionsItems = params.actions.items | select("mapping") if params.actions.items | length else [] %}
+{%- set actions = params.actions.items | select("mapping") if params.actions.items | length else [] %}
 
 {%- set image = {
   src: params.imgURL,
@@ -147,22 +147,22 @@
     alt: image.alt
   }) }}>
 {% endif %}
-{% if isCareCard or actionsItems | length %}
+{% if isCareCard or actions | length %}
   <div class="nhsuk-card__heading-container">
   {% if isCareCard %}
     {{ _careHeading(params, classNamesHeading) | trim | indent(2) }}
   {% elif params.heading or params.headingHtml %}
     {{ _cardHeading(params, classNamesHeading) | trim | indent(2) }}
   {% endif %}
-    {% if actionsItems | length == 1 %}
+    {% if actions | length == 1 %}
     <div class="nhsuk-card__actions {%- if params.actions.classes %} {{ params.actions.classes }}{% endif %}">
-      {{ cardAction(actionsItems[0], {
+      {{ cardAction(actions[0], {
         params: params
       }) | trim | indent(6) }}
     </div>
-    {% elif actionsItems | length %}
+    {% elif actions | length %}
     <ul class="nhsuk-card__actions {%- if params.actions.classes %} {{ params.actions.classes }}{% endif %}">
-      {% for action in actionsItems %}
+      {% for action in actions %}
       <li class="nhsuk-card__action">
         {{ cardAction(action, {
           params: params
@@ -174,7 +174,7 @@
   </div>
 {% endif %}
   <div class="nhsuk-card__content">
-  {% if not isCareCard and not actionsItems | length and (params.heading or params.headingHtml) %}
+  {% if not isCareCard and not actions | length and (params.heading or params.headingHtml) %}
     {{ _cardHeading(params, classNamesHeading) | trim | indent(2) }}
   {% endif %}
   {% if caller or params.descriptionHtml %}
