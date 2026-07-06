@@ -253,6 +253,7 @@ You can still use `nhsuk-print-colour` and `nhsuk-print-hide` but we'll remove t
 ### :wrench: **Fixes**
 
 - [#1942: Update `nhsuk-spacing()` to add missing `$adjustment` and `$important` params](https://github.com/nhsuk/nhsuk-frontend/pull/1942).
+- [#1997: Preserve conditionally revealed content margins when JavaScript is not supported](https://github.com/nhsuk/nhsuk-frontend/pull/1997).
 
 ## 10.5.2 - 8 June 2026
 
