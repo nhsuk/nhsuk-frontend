@@ -3,9 +3,9 @@
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-summary-list__row" -%}
 
-{%- set actionsItems = params.actions.items | select("mapping") if params.actions.items | length else [] %}
+{%- set actions = params.actions.items | select("mapping") if params.actions.items | length else [] %}
 
-{%- if parent.hasActions and not actionsItems | length %}
+{%- if parent.hasActions and not actions | length %}
   {% set classNames = classNames ~ " nhsuk-summary-list__row--no-actions" %}
 {% endif %}
 
@@ -34,17 +34,17 @@
     {{ params.value.text | trim | indent(4) }}
   {% endif %}
   </dd>
-  {% if actionsItems | length %}
+  {% if actions | length %}
   <dd class="nhsuk-summary-list__actions {%- if params.actions.classes %} {{ params.actions.classes }}{% endif %}">
-    {% if actionsItems | length == 1 %}
-      {{- cardAction(actionsItems[0], {
+    {% if actions | length == 1 %}
+      {{- cardAction(actions[0], {
         params: parent.params.card
       }) | trim | indent(4, true) }}
     {% else %}
     <ul class="nhsuk-summary-list__actions-list">
-    {% for item in actionsItems %}
+    {% for action in actions %}
       <li class="nhsuk-summary-list__actions-list-item">
-        {{ cardAction(item, {
+        {{ cardAction(action, {
           params: parent.params.card
         }) | trim | indent(8) }}
       </li>
