@@ -209,7 +209,8 @@
   }
 
   // No border on specific rows
-  .nhsuk-summary-list__row--no-border {
+  .nhsuk-summary-list__row--no-border,
+  .nhsuk-summary-list--no-last-row-border .nhsuk-summary-list__row:last-child {
     border: 0;
 
     // Increase padding by 1px to compensate for 'missing' border
@@ -227,8 +228,9 @@
       margin-bottom: 0;
     }
 
+    .nhsuk-summary-list:last-child .nhsuk-summary-list__row--no-border:last-child > :last-child,
     .nhsuk-summary-list--no-border:last-child .nhsuk-summary-list__row:last-child > :last-child,
-    .nhsuk-summary-list:last-child .nhsuk-summary-list__row--no-border:last-child > :last-child {
+    .nhsuk-summary-list--no-last-row-border:last-child .nhsuk-summary-list__row:last-child > :last-child {
       @media #{nhsuk-until-breakpoint(tablet)} {
         margin-bottom: 0;
       }
