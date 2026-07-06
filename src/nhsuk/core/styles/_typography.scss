@@ -245,6 +245,12 @@ h1 + .nhsuk-lede-text--small {
   }
 }
 
+%nhsuk-body-l + [class^="nhsuk-caption"],
+%nhsuk-body-m + [class^="nhsuk-caption"],
+%nhsuk-body-s + [class^="nhsuk-caption"] {
+  padding-top: 0;
+}
+
 // [1]
 .nhsuk-lede-text + %nhsuk-heading-l {
   padding-top: 0;

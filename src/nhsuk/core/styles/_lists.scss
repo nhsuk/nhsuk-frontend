@@ -56,13 +56,13 @@
   list-style-type: decimal;
 }
 
-%nhsuk-list + h2,
+%nhsuk-list + h2:not([class^="nhsuk-caption"]),
 %nhsuk-list + .nhsuk-heading-l {
   @include nhsuk-responsive-padding(4, "top");
 }
 
-%nhsuk-list + h3,
-%nhsuk-list + h4,
+%nhsuk-list + h3:not([class^="nhsuk-caption"]),
+%nhsuk-list + h4:not([class^="nhsuk-caption"]),
 %nhsuk-list + .nhsuk-heading-m,
 %nhsuk-list + .nhsuk-heading-s {
   padding-top: nhsuk-spacing(1);
@@ -73,9 +73,9 @@
 }
 
 @media print {
-  %nhsuk-list + h2,
-  %nhsuk-list + h3,
-  %nhsuk-list + h4,
+  %nhsuk-list + h2:not([class^="nhsuk-caption"]),
+  %nhsuk-list + h3:not([class^="nhsuk-caption"]),
+  %nhsuk-list + h4:not([class^="nhsuk-caption"]),
   %nhsuk-list + .nhsuk-heading-l,
   %nhsuk-list + .nhsuk-heading-m,
   %nhsuk-list + .nhsuk-heading-s {
