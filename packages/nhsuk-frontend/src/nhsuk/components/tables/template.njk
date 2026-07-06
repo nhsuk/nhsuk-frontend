@@ -17,6 +17,15 @@
   {% set classNames = classNames ~ (" nhsuk-table--" ~ variant if not params.responsive else " nhsuk-table-responsive--" ~ variant) %}
 {% endif %}
 
+{%- if params.compact and (
+  not params.classes or (
+    not "nhsuk-table--compact" in params.classes and
+    not "nhsuk-table-responsive--compact" in params.classes
+  )
+) %}
+  {% set classNames = classNames ~ (" nhsuk-table--compact" if not params.responsive else " nhsuk-table-responsive--compact") %}
+{% endif %}
+
 {%- if params.captionSize and
   params.captionSize in ["s", "m", "l", "xl"] and (
     not params.captionClasses or (

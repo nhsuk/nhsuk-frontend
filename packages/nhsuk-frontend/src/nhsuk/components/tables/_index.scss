@@ -54,6 +54,14 @@
     }
   }
 
+  .nhsuk-table--compact,
+  .nhsuk-table-responsive--compact {
+    th,
+    td {
+      @include nhsuk-responsive-padding(2, ("top", "bottom"));
+    }
+  }
+
   .nhsuk-table__caption {
     display: table-caption;
     margin-bottom: nhsuk-spacing(3) - nhsuk-spacing(2);
