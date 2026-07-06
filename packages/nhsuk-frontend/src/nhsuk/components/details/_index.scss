@@ -392,7 +392,7 @@ $expander-icon-size: $nhsuk-expander-icon-size;
     }
   }
 
-  .nhsuk-details + h2,
+  .nhsuk-details + h2:not([class^="nhsuk-caption"]),
   .nhsuk-details + .nhsuk-heading-l {
     @include nhsuk-responsive-padding(4, "top");
   }
