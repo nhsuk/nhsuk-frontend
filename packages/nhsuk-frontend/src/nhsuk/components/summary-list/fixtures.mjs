@@ -593,7 +593,7 @@ const fixtures = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
-  'without row border': {
+  'without last row border': {
     context: {
       lastRowBorder: false,
       rows: [
@@ -626,6 +626,55 @@ const fixtures = {
           }
         },
         {
+          key: {
+            text: 'Contact details'
+          },
+          value: {
+            html: outdent`
+              <p>07700 900362</p>
+              <p>karen.francis@example.com</p>
+            `
+          }
+        }
+      ]
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
+    }
+  },
+  'without specific row border': {
+    context: {
+      rows: [
+        {
+          key: {
+            text: 'Name'
+          },
+          value: {
+            text: 'Karen Francis'
+          }
+        },
+        {
+          key: {
+            text: 'Date of birth'
+          },
+          value: {
+            text: '15 March 1984'
+          }
+        },
+        {
+          key: {
+            text: 'Contact information'
+          },
+          value: {
+            html: outdent`
+              73 Roman Rd<br>
+              Leeds<br>
+              LS2 5ZN
+            `
+          }
+        },
+        {
+          border: false,
           key: {
             text: 'Contact details'
           },
@@ -687,6 +736,7 @@ const fixtures = {
           ]
         }
       },
+      lastRowBorder: false,
       rows: [
         {
           key: {
@@ -760,7 +810,6 @@ const fixtures = {
           }
         },
         {
-          border: false,
           key: {
             text: 'Medicines'
           },
@@ -1027,6 +1076,7 @@ const fixtures = {
         headingSize: 'm',
         variant: 'feature'
       },
+      lastRowBorder: false,
       rows: [
         {
           key: {
@@ -1097,7 +1147,6 @@ const fixtures = {
           }
         },
         {
-          classes: 'nhsuk-summary-list__row--no-border',
           key: {
             text: 'Annotations'
           },
@@ -1303,6 +1352,7 @@ const fixtures = {
   },
   'example person: Karen Francis (no border)': {
     context: {
+      lastRowBorder: false,
       rows: [
         {
           key: {
@@ -1313,7 +1363,6 @@ const fixtures = {
           }
         },
         {
-          border: false,
           key: {
             text: 'Date of birth'
           },
@@ -1329,6 +1378,7 @@ const fixtures = {
   },
   'example person: Sarah Philips (no border)': {
     context: {
+      lastRowBorder: false,
       rows: [
         {
           key: {
@@ -1339,7 +1389,6 @@ const fixtures = {
           }
         },
         {
-          border: false,
           key: {
             text: 'Date of birth'
           },

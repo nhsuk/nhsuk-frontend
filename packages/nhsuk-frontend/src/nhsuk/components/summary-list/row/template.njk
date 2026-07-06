@@ -9,9 +9,12 @@
   {% set classNames = classNames ~ " nhsuk-summary-list__row--no-actions" %}
 {% endif %}
 
-{%- if (params.border === false or parent.params.lastRowBorder === false and parent.loop.last) and
+{%- if params.border === false and
   not (params.classes and "nhsuk-summary-list__row--no-border" in params.classes) and
-  not (parent.params.classes and "nhsuk-summary-list--no-border" in parent.params.classes) %}
+  not (parent.params.classes and (
+    "nhsuk-summary-list--no-border" in parent.params.classes or
+    "nhsuk-summary-list--no-last-row-border" in parent.params.classes)) and
+  not (parent.params.lastRowBorder === false and parent.loop.last) %}
   {% set classNames = classNames ~ " nhsuk-summary-list__row--no-border" %}
 {% endif %}
 

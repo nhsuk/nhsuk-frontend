@@ -5,8 +5,10 @@
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-summary-list" -%}
 
-{%- if params.border === false and (not params.classes or not "nhsuk-summary-list--no-border" in params.classes) %}
+{%- if params.border === false and not (params.classes and "nhsuk-summary-list--no-border" in params.classes) %}
   {% set classNames = classNames ~ " nhsuk-summary-list--no-border" %}
+{% elif params.lastRowBorder === false and not (params.classes and "nhsuk-summary-list--no-last-row-border" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-summary-list--no-last-row-border" %}
 {% endif %}
 
 {%- if params.classes %}
