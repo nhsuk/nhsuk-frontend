@@ -36,14 +36,24 @@ $nhsuk-checkboxes-offset: $nhsuk-border-width-form-element;
     position: relative;
     flex-wrap: wrap;
     margin-top: nhsuk-spacing(2) - $nhsuk-checkboxes-offset;
-
-    .nhsuk-checkboxes__conditional:not(.nhsuk-checkboxes__conditional--hidden) + & {
-      @include nhsuk-responsive-margin(4, "top", $adjustment: - $nhsuk-checkboxes-offset);
-    }
   }
 
   .nhsuk-checkboxes__item:first-child {
     margin-top: 0;
+  }
+
+  // Add default margin to items that follow conditionally revealing content
+  .nhsuk-checkboxes__conditional + .nhsuk-checkboxes__item,
+  .nhsuk-checkboxes--small .nhsuk-checkboxes__conditional + .nhsuk-checkboxes__item {
+    @include nhsuk-responsive-margin(4, "top", $adjustment: - $nhsuk-checkboxes-offset);
+  }
+
+  // Remove margin from items that follow conditionally revealing content,
+  // but only apply when JavaScript is supported and the content is hidden
+  .nhsuk-checkboxes__conditional--hidden + .nhsuk-checkboxes__item {
+    @include nhsuk-frontend-supported {
+      margin-top: nhsuk-spacing(2) - $nhsuk-checkboxes-offset;
+    }
   }
 
   .nhsuk-checkboxes__item.nhsuk-u-frontend-not-supported-hidden:first-child {
@@ -241,6 +251,14 @@ $nhsuk-checkboxes-offset: $nhsuk-border-width-form-element;
 
     .nhsuk-checkboxes__item {
       margin-top: 0;
+    }
+
+    // Remove margin from items that follow conditionally revealing content,
+    // but only apply when JavaScript is supported and the content is hidden
+    .nhsuk-checkboxes__conditional--hidden + .nhsuk-checkboxes__item {
+      @include nhsuk-frontend-supported {
+        margin-top: 0;
+      }
     }
 
     // Shift the touch target into the left margin so that the visible edge of

@@ -41,14 +41,24 @@ $nhsuk-radios-offset: $nhsuk-border-width-form-element;
     position: relative;
     flex-wrap: wrap;
     margin-top: nhsuk-spacing(2) - $nhsuk-radios-offset;
-
-    .nhsuk-radios__conditional:not(.nhsuk-radios__conditional--hidden) + & {
-      @include nhsuk-responsive-margin(4, "top", $adjustment: - $nhsuk-radios-offset);
-    }
   }
 
   .nhsuk-radios__item:first-child {
     margin-top: 0;
+  }
+
+  // Add default margin to items that follow conditionally revealing content
+  .nhsuk-radios__conditional + .nhsuk-radios__item,
+  .nhsuk-radios--small .nhsuk-radios__conditional + .nhsuk-radios__item {
+    @include nhsuk-responsive-margin(4, "top", $adjustment: - $nhsuk-radios-offset);
+  }
+
+  // Remove margin from items that follow conditionally revealing content,
+  // but only apply when JavaScript is supported and the content is hidden
+  .nhsuk-radios__conditional--hidden + .nhsuk-radios__item {
+    @include nhsuk-frontend-supported {
+      margin-top: nhsuk-spacing(2) - $nhsuk-radios-offset;
+    }
   }
 
   .nhsuk-radios__input {
@@ -235,6 +245,14 @@ $nhsuk-radios-offset: $nhsuk-border-width-form-element;
 
     .nhsuk-radios__item {
       margin-top: 0;
+    }
+
+    // Remove margin from items that follow conditionally revealing content,
+    // but only apply when JavaScript is supported and the content is hidden
+    .nhsuk-radios__conditional--hidden + .nhsuk-radios__item {
+      @include nhsuk-frontend-supported {
+        margin-top: 0;
+      }
     }
 
     // Shift the touch target into the left margin so that the visible edge of
