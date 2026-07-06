@@ -91,7 +91,7 @@ h6,
   @extend %nhsuk-heading-xxs;
 }
 
-// Captions to be used inside headings
+// Captions to be used inside, before or after headings
 
 .nhsuk-caption-xl {
   display: block;
@@ -109,7 +109,8 @@ h6,
   @include nhsuk-font(22);
 }
 
-.nhsuk-caption-m {
+.nhsuk-caption-m,
+.nhsuk-caption {
   display: block;
   color: $nhsuk-secondary-text-colour;
 
