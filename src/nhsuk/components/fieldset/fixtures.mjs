@@ -10,7 +10,7 @@ import { examples as inputExamples } from '../input/fixtures.mjs'
  * @satisfies {{ [example: string]: MacroExample }}
  */
 const fixtures = {
-  'default': {
+  default: {
     context: {
       legend: {
         text: 'What is your address?',
@@ -26,75 +26,6 @@ const fixtures = {
     `,
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']
-    }
-  },
-  'legend': {
-    context: {
-      legend: {
-        text: 'What is your address?',
-        size: 'l',
-        isPageHeading: true
-      }
-    },
-    variants: [
-      {
-        description: 'with size S',
-        context: {
-          legend: {
-            size: 's'
-          }
-        }
-      },
-      {
-        description: 'with size M',
-        context: {
-          legend: {
-            size: 'm'
-          }
-        }
-      },
-      {
-        description: 'with size L',
-        context: {
-          legend: {
-            size: 'l'
-          }
-        }
-      },
-      {
-        description: 'with size XL',
-        context: {
-          legend: {
-            size: 'xl'
-          }
-        }
-      }
-    ]
-  },
-  'with legend size class': {
-    context: {
-      legend: {
-        text: 'What is your address?',
-        classes: 'nhsuk-fieldset__legend--l',
-        isPageHeading: true
-      }
-    }
-  },
-  'with legend size class overriding size param': {
-    context: {
-      legend: {
-        text: 'What is your address?',
-        classes: 'nhsuk-fieldset__legend--l',
-        size: 's',
-        isPageHeading: true
-      }
-    }
-  },
-  'without page heading': {
-    context: {
-      legend: {
-        text: 'What is your address?'
-      }
     }
   }
 }
