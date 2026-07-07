@@ -34,6 +34,7 @@
   }
 
   .nhsuk-table,
+  // Deprecated, to be removed in v11.0
   .nhsuk-table-responsive {
     box-sizing: border-box;
     width: 100%;
@@ -45,6 +46,7 @@
   }
 
   .nhsuk-table--reverse,
+  // Deprecated, to be removed in v11.0
   .nhsuk-table-responsive--reverse {
     color: $nhsuk-reverse-text-colour;
 
@@ -55,6 +57,7 @@
   }
 
   .nhsuk-table--compact,
+  // Deprecated, to be removed in v11.0
   .nhsuk-table-responsive--compact {
     th,
     td {
@@ -103,6 +106,7 @@
 
     .nhsuk-table,
     .nhsuk-table-container,
+    // Deprecated, to be removed in v11.0
     .nhsuk-table-responsive {
       margin: 0; // [1]
     }
@@ -125,7 +129,9 @@
   // 8. Hiding mobile specific header from desktop view
   // 9. Adding a display block value due to IE 11 not having full flex support
 
-  .nhsuk-table-responsive {
+  // Deprecated, to be removed in v11.0
+  .nhsuk-table-responsive,
+  .nhsuk-table--responsive {
     thead {
       @media #{nhsuk-until-breakpoint(desktop)} {
         @include nhsuk-visually-hidden; // [1]
