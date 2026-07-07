@@ -60,7 +60,8 @@
 
 <{{ element }} {{- attributesHtml | safe }}>
   {% if params.visuallyHiddenText %}
-  <span class="nhsuk-u-visually-hidden">{{ params.visuallyHiddenText }}</span> {{ backLinkText | safe | trim | indent(2) }}
+  <span class="nhsuk-u-visually-hidden">{{ params.visuallyHiddenText }} </span>
+  {{- backLinkText | safe | trim | indent(2) }}
   {% else %}
   {{ backLinkText | safe | trim | indent(2) }}
   {% endif %}

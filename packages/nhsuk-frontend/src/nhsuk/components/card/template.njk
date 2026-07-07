@@ -115,7 +115,8 @@
   </a>
 {%- elif params.headingVisuallyHiddenText %}
   <span role="text">
-    <span class="nhsuk-u-visually-hidden">{{- params.headingVisuallyHiddenText -}}:</span> {{ params.heading }}
+    <span class="nhsuk-u-visually-hidden">{{ params.headingVisuallyHiddenText }}: </span>
+    {{- params.heading }}
   </span>
 {%- else %}
   {{ params.heading }}
