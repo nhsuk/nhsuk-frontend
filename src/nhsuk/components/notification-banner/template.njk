@@ -63,8 +63,10 @@
     }) | trim | indent(4) }}
   </div>
   <div class="nhsuk-notification-banner__content">
-  {% if caller or params.html %}
-    {{ caller() if caller else params.html | safe | trim | indent(4) }}
+  {% if caller %}
+    {{- caller() }}
+  {% elif params.html %}
+    {{ params.html | safe | trim | indent(4) }}
   {% elif params.text %}
     {# Set default style for single line content -#}
     <p class="nhsuk-notification-banner__heading">

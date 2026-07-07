@@ -23,7 +23,7 @@
   {% set hasActions = true if row.actions.items | length else hasActions %}
 {% endfor -%}
 
-{%- set summaryList %}
+{%- set summaryListHtml %}
 <dl class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %} {{- nhsukAttributes(params.attributes) }}>
 {% if caller %}
   {{- caller() }}
@@ -43,10 +43,10 @@
 </dl>
 {%- endset %}
 
-{%- if params.card -%}
-  {% call card(params.card) -%}
-    {{ summaryList | safe | trim | indent(4) }}
+{%- if params.card %}
+  {%- call card(params.card) %}
+    {{ summaryListHtml | safe | trim | indent(4) }}
   {%- endcall %}
-{%- else -%}
-  {{ summaryList | safe | trim }}
+{% else %}
+  {{- summaryListHtml | safe | trim }}
 {% endif %}
