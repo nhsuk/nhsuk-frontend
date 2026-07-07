@@ -1,4 +1,4 @@
-const { defineConfig } = require('html-validate')
+import { defineConfig } from 'html-validate'
 
 /**
  * HTML validation config
@@ -7,7 +7,7 @@ const { defineConfig } = require('html-validate')
  *
  * @type {ConfigData}
  */
-module.exports = defineConfig({
+export default defineConfig({
   extends: ['html-validate:recommended', 'html-validate:document'],
   rules: {
     // Allow for multiple buttons in the same form to have the same name
