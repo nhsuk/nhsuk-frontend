@@ -206,9 +206,9 @@ You can now reduce the vertical padding of table cells by setting `compact: true
 }) }}
 ```
 
-If you are not using Nunjucks macros, add the `nhsuk-table--compact` class to your table, or `nhsuk-table-responsive--compact` to a responsive table.
+If you are not using Nunjucks macros, add the `nhsuk-table--compact` class to your table, or `nhsuk-table-responsive--compact` to a responsive table. Note the class `nhsuk-table-responsive--compact` is deprecated, see below for details.
 
-### :wastebasket: **Deprecated features**
+This change was introduced in [pull request #1998: Add compact option for tables](https://github.com/nhsuk/nhsuk-frontend/pull/1998).
 
 #### Rename checkboxes "none" options
 
@@ -302,6 +302,18 @@ If you use Sass and you've used the following Sass mixins:
 The previous names are deprecated and will be removed in a future release.
 
 This change was introduced in [pull request #1962: Add code and monospace font utilities](https://github.com/nhsuk/nhsuk-frontend/pull/1962).
+
+#### Replace `nhsuk-table-responsive` CSS class
+
+The `nhsuk-table-responsive` class is deprecated and will be removed in a future major release. Use `nhsuk-table--responsive` instead.
+
+If you use the Nunjucks `table` macro with `responsive: true`, this is handled automatically.
+
+If you use HTML, replace `nhsuk-table-responsive` with `nhsuk-table nhsuk-table--responsive`.
+
+The `nhsuk-table-responsive--reverse` and `nhsuk-table-responsive--compact` modifier classes are also deprecated. Use `nhsuk-table--reverse` and `nhsuk-table--compact` instead.
+
+This change was introduced in [pull request #1998: Add compact option for tables](https://github.com/nhsuk/nhsuk-frontend/pull/1998).
 
 ### :wrench: **Fixes**
 
