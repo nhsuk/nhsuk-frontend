@@ -187,6 +187,27 @@ We've rewritten the internals of the `nhsuk-media-query` mixin to make use of th
 
 This was added in [pull request #1961: Port Sass media query functions from GOV.UK Frontend and remove `sass-mq` dependency](https://github.com/nhsuk/nhsuk-frontend/pull/1961).
 
+#### Add compact mode for tables
+
+You can now reduce the vertical padding of table cells by setting `compact: true` on the tables component.
+
+```njk
+{{ table({
+  caption: "Childhood vaccination coverage",
+  compact: true,
+  head: [
+    { text: "Nation" },
+    { text: "MMR" }
+  ],
+  rows: [
+    [{ text: "England" }, { text: "92.8%" }],
+    [{ text: "Northern Ireland" }, { text: "94.6%" }]
+  ]
+}) }}
+```
+
+If you are not using Nunjucks macros, add the `nhsuk-table--compact` class to your table, or `nhsuk-table-responsive--compact` to a responsive table.
+
 ### :wastebasket: **Deprecated features**
 
 #### Rename checkboxes "none" options
