@@ -106,6 +106,24 @@ const fixtures = {
       classes: 'nhsuk-tag--red'
     }
   },
+  'with text escaping': {
+    context: {
+      text: 'A&E',
+      colour: 'red'
+    }
+  },
+  'with HTML': {
+    context: {
+      html: 'A&amp;E',
+      colour: 'red'
+    }
+  },
+  'with HTML via call block': {
+    context: {
+      colour: 'red'
+    },
+    callBlock: 'A&amp;E'
+  },
   'without border': {
     context: {
       border: false
