@@ -56,9 +56,7 @@
     }
   }
 
-  .nhsuk-table--compact,
-  // Deprecated, to be removed in v11.0
-  .nhsuk-table-responsive--compact {
+  .nhsuk-table--compact {
     th,
     td {
       @include nhsuk-responsive-padding(2, ("top", "bottom"));
@@ -129,9 +127,9 @@
   // 8. Hiding mobile specific header from desktop view
   // 9. Adding a display block value due to IE 11 not having full flex support
 
+  .nhsuk-table--responsive,
   // Deprecated, to be removed in v11.0
-  .nhsuk-table-responsive,
-  .nhsuk-table--responsive {
+  .nhsuk-table-responsive {
     thead {
       @media #{nhsuk-until-breakpoint(desktop)} {
         @include nhsuk-visually-hidden; // [1]
