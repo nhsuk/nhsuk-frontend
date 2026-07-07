@@ -273,17 +273,23 @@ For example:
 
 You can still use `nhsuk-print-colour` and `nhsuk-print-hide` but we'll remove them in a future breaking release.
 
-#### Replace `nhsuk-table-responsive` CSS class
+#### Replace reverse and responsive table HTML classes
 
-The `nhsuk-table-responsive` class is deprecated and will be removed in a future major release. Use `nhsuk-table--responsive` instead.
+We've renamed HTML classes for reverse and responsive tables. You can still use the previous names but we'll remove them in a future breaking release.
 
-If you use the Nunjucks `table` macro with `responsive: true`, this is handled automatically.
+If you are not using Nunjucks macros, update your HTML markup using the [table examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/table) as follows:
 
-If you use HTML, replace `nhsuk-table-responsive` with `nhsuk-table nhsuk-table--responsive`.
+- replace `nhsuk-table-responsive--reverse` with `nhsuk-table--reverse`
+- replace `nhsuk-table-responsive` with `nhsuk-table nhsuk-table--responsive`
 
-The `nhsuk-table-responsive--reverse` modifier class is also deprecated. Use `nhsuk-table--reverse` instead.
+```patch
+- <table class="nhsuk-table-responsive nhsuk-table-responsive--reverse">
++ <table class="nhsuk-table nhsuk-table--reverse nhsuk-table--responsive">
+    <!-- // ... -->
+  </table>
+```
 
-This change was introduced in [pull request #1998: Add compact option for tables](https://github.com/nhsuk/nhsuk-frontend/pull/1998).
+This change was introduced in [pull request #1998: Add `compact` option for tables](https://github.com/nhsuk/nhsuk-frontend/pull/1998).
 
 ### :wrench: **Fixes**
 
