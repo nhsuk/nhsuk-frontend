@@ -121,7 +121,7 @@
   {{ buttonIcon | trim | indent(2) }}
 {% endif %}
 {% if caller %}
-  {{ caller() }}
+  {{- caller() }}
 {% elif (params.text or params.html) and buttonIcon %}
   <span class="nhsuk-button__content">
     {{- buttonText | trim | indent(2) -}}

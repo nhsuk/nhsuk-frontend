@@ -168,8 +168,10 @@
   {% if not isCareCard and not actions | length and (params.heading or params.headingHtml) %}
     {{ _cardHeading(params, classNamesHeading) | trim | indent(4) }}
   {% endif %}
-  {% if caller or params.descriptionHtml %}
-    {{ caller() if caller else params.descriptionHtml | safe | trim | indent(4) }}
+  {% if caller %}
+    {{- caller() }}
+  {% elif params.descriptionHtml %}
+    {{ params.descriptionHtml | safe | trim | indent(4) }}
   {% elif params.description %}
     <p class="nhsuk-card__description">
       {{- params.description -}}

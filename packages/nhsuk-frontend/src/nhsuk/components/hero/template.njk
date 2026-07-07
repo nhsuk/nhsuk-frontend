@@ -38,8 +38,10 @@
               ~ (" " ~ params.headingClasses if params.headingClasses)
           }) | trim | indent(10) }}
         {% endif %}
-        {% if caller or params.html %}
-          {{ caller() if caller else params.html | safe | trim | indent(10) }}
+        {% if caller %}
+          {{- caller() }}
+        {% elif params.html %}
+          {{ params.html | safe | trim | indent(10) }}
         {% elif params.text %}
           <p class="nhsuk-body-l nhsuk-u-margin-bottom-0">{{ params.text }}</p>
         {% endif %}

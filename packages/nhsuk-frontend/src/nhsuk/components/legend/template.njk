@@ -23,22 +23,25 @@
 {% endif %}
 
 {%- if caller or params.html or params.text %}
-{% set legendHtml %}
-{% if caller or params.html %}
-  {{ caller() if caller else params.html | safe | trim | indent(2) }}
+{% set innerHtml %}
+{% if caller %}
+  {{- caller() }}
+{% elif params.html %}
+  {{- params.html | safe }}
 {% elif params.text %}
-  {{ params.text | trim | indent(2) }}
+  {{- params.text }}
 {% endif %}
 {% endset -%}
 
 <legend {{- nhsukAttributes({ class: classNames }) }}>
 {% if params.isPageHeading %}
-  {{ heading({
-    html: legendHtml | safe | trim,
+  {% call heading({
     className: classNamesHeading
-  }) | trim | indent(2) }}
+  }) %}
+    {{ innerHtml | safe | trim | indent(4) }}
+  {%- endcall %}
 {% else %}
-  {{ legendHtml | safe | trim | indent(2) }}
+  {{ innerHtml | safe | trim | indent(2) }}
 {% endif %}
 </legend>
 {% endif %}

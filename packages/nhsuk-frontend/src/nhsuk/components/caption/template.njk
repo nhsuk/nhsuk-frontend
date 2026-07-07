@@ -32,7 +32,7 @@
   {%- if params.id %} id="{{ params.id }}"{% endif %}
   {{- nhsukAttributes(params.attributes) }}>
 {% if caller %}
-  {{- caller() -}}
+  {{- caller() }}
 {% elif params.html %}
   {{ params.html | safe | trim | indent(2) }}
 {% elif params.text %}

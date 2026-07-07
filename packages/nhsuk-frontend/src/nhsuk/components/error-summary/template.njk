@@ -37,7 +37,13 @@
     <div class="nhsuk-error-summary__body">
     {% if caller or params.descriptionHtml or params.descriptionText %}
       <p>
-        {{ caller() if caller else (params.descriptionHtml | safe | trim | indent(8) if params.descriptionHtml else params.descriptionText) }}
+      {% if caller %}
+        {{- caller() }}
+      {% elif params.descriptionHtml %}
+        {{ params.descriptionHtml | safe | trim | indent(8) }}
+      {% else %}
+        {{ params.descriptionText }}
+      {% endif %}
       </p>
     {% endif %}
     {% if params.errorList | length %}
