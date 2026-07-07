@@ -5,7 +5,7 @@
 {%- set variant = params.variant -%}
 
 {#- Set classes for this component #}
-{%- set classNames = "nhsuk-table" if not params.responsive else "nhsuk-table nhsuk-table--responsive" -%}
+{%- set classNames = "nhsuk-table" -%}
 {%- set classNamesCaption = "nhsuk-table__caption" -%}
 
 {%- if variant == "reverse" and (
@@ -19,6 +19,10 @@
 
 {%- if params.compact and (not params.classes or not "nhsuk-table--compact" in params.classes) %}
   {% set classNames = classNames ~ " nhsuk-table--compact" %}
+{% endif %}
+
+{%- if params.responsive and (not params.classes or not "nhsuk-table--responsive" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-table--responsive" %}
 {% endif %}
 
 {%- if params.captionSize and
