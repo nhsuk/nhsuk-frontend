@@ -141,6 +141,26 @@ h6 + .nhsuk-caption,
   margin: nhsuk-spacing(1) 0 0;
 }
 
+h1 + .nhsuk-caption--bottom,
+.nhsuk-heading-xl + .nhsuk-caption--bottom {
+  @include nhsuk-responsive-margin(-7, "top", $adjustment: nhsuk-spacing(1));
+  @include nhsuk-responsive-margin(7, "bottom");
+}
+
+h2 + .nhsuk-caption--bottom,
+h3 + .nhsuk-caption--bottom,
+h4 + .nhsuk-caption--bottom,
+h5 + .nhsuk-caption--bottom,
+h6 + .nhsuk-caption--bottom,
+.nhsuk-heading-l + .nhsuk-caption--bottom,
+.nhsuk-heading-m + .nhsuk-caption--bottom,
+.nhsuk-heading-s + .nhsuk-caption--bottom,
+.nhsuk-heading-xs + .nhsuk-caption--bottom,
+.nhsuk-heading-xxs + .nhsuk-caption--bottom {
+  @include nhsuk-responsive-margin(-4, "top", $adjustment: nhsuk-spacing(1));
+  @include nhsuk-responsive-margin(4, "bottom");
+}
+
 // Body (paragraphs)
 
 %nhsuk-body-l {
