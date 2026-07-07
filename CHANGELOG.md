@@ -210,6 +210,8 @@ If you are not using Nunjucks macros, add the `nhsuk-table--compact` class to yo
 
 This change was introduced in [pull request #1998: Add compact option for tables](https://github.com/nhsuk/nhsuk-frontend/pull/1998).
 
+### :wastebasket: **Deprecated features**
+
 #### Rename checkboxes "none" options
 
 We've renamed the Nunjucks and HTML data attribute options for checkboxes with an option for "none".
@@ -271,6 +273,18 @@ For example:
 
 You can still use `nhsuk-print-colour` and `nhsuk-print-hide` but we'll remove them in a future breaking release.
 
+#### Replace `nhsuk-table-responsive` CSS class
+
+The `nhsuk-table-responsive` class is deprecated and will be removed in a future major release. Use `nhsuk-table--responsive` instead.
+
+If you use the Nunjucks `table` macro with `responsive: true`, this is handled automatically.
+
+If you use HTML, replace `nhsuk-table-responsive` with `nhsuk-table nhsuk-table--responsive`.
+
+The `nhsuk-table-responsive--reverse` modifier class is also deprecated. Use `nhsuk-table--reverse` instead.
+
+This change was introduced in [pull request #1998: Add compact option for tables](https://github.com/nhsuk/nhsuk-frontend/pull/1998).
+
 ### :wrench: **Fixes**
 
 - [#1942: Update `nhsuk-spacing()` to add missing `$adjustment` and `$important` params](https://github.com/nhsuk/nhsuk-frontend/pull/1942).
@@ -302,18 +316,6 @@ If you use Sass and you've used the following Sass mixins:
 The previous names are deprecated and will be removed in a future release.
 
 This change was introduced in [pull request #1962: Add code and monospace font utilities](https://github.com/nhsuk/nhsuk-frontend/pull/1962).
-
-#### Replace `nhsuk-table-responsive` CSS class
-
-The `nhsuk-table-responsive` class is deprecated and will be removed in a future major release. Use `nhsuk-table--responsive` instead.
-
-If you use the Nunjucks `table` macro with `responsive: true`, this is handled automatically.
-
-If you use HTML, replace `nhsuk-table-responsive` with `nhsuk-table nhsuk-table--responsive`.
-
-The `nhsuk-table-responsive--reverse` and `nhsuk-table-responsive--compact` modifier classes are also deprecated. Use `nhsuk-table--reverse` and `nhsuk-table--compact` instead.
-
-This change was introduced in [pull request #1998: Add compact option for tables](https://github.com/nhsuk/nhsuk-frontend/pull/1998).
 
 ### :wrench: **Fixes**
 
