@@ -667,7 +667,9 @@
         ]
       }) }}
 
-      {% call summaryList() %}
+      {% call summaryList({
+        lastRowBorder: false
+      }) %}
         {{ summaryListRow({
           key: {
             text: "Name"
@@ -714,7 +716,6 @@
         }) }}
 
         {{ summaryListRow({
-          border: false,
           key: {
             text: "Contact details"
           },
