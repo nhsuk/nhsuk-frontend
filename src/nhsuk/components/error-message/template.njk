@@ -22,7 +22,8 @@
 <span class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
   {{- nhsukAttributes(params.attributes) }}>
   {% if visuallyHiddenText %}
-  <span class="nhsuk-u-visually-hidden">{{ visuallyHiddenText }}:</span> {{ errorMessageText | safe | trim | indent(2) }}
+  <span class="nhsuk-u-visually-hidden">{{ visuallyHiddenText }}: </span>
+  {{- errorMessageText | safe | trim | indent(2) }}
   {% else %}
   {{ errorMessageText | safe | trim | indent(2) }}
   {% endif %}
