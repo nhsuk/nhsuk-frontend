@@ -17,10 +17,7 @@
   {% set classNames = classNames ~ " nhsuk-table--" ~ variant %}
 {% endif %}
 
-{%- if params.compact and (
-  not params.classes or 
-  not "nhsuk-table--compact" in params.classes
-  ) %}
+{%- if params.compact and (not params.classes or not "nhsuk-table--compact" in params.classes) %}
   {% set classNames = classNames ~ " nhsuk-table--compact" %}
 {% endif %}
 
