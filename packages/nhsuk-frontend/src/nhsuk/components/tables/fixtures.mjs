@@ -990,9 +990,11 @@ const fixtures = {
   },
   'compact': {
     context: {
-      compact: true,
       caption: 'Prescription prepayment certificate (PPC) charges',
       captionSize: 'm',
+      compact: true,
+      responsive: true,
+      firstCellIsHeader: true,
       head: [
         {
           text: 'Item'
