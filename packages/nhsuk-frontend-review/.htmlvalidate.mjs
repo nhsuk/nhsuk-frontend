@@ -1,4 +1,5 @@
 import { defineConfig } from 'html-validate'
+import html5 from 'html-validate/elements/html5'
 
 /**
  * HTML validation config
@@ -75,7 +76,13 @@ export default defineConfig({
       div: {
         attributes: {
           role: { enum: ['alert', 'region'] }
-        }
+        },
+        permittedContent: [
+          ...(html5.div.permittedContent ?? []),
+
+          // Allow separate legend fixtures
+          'legend'
+        ]
       },
 
       // Allow date input component <fieldset role="group">
