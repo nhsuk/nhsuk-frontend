@@ -58,7 +58,33 @@ const fixtures = {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
-  'with meta (links only)': {
+  'with meta text': {
+    context: {
+      meta: {
+        text: 'NHS prototype kit v8.0.0'
+      }
+    },
+    options: {
+      width: false
+    }
+  },
+  'with meta HTML': {
+    context: {
+      meta: {
+        html: '<p class="nhsuk-body-s">NHS prototype kit v8.0.0</p>'
+      }
+    },
+    options: {
+      width: false
+    }
+  },
+  'with meta HTML via call block': {
+    callBlock: '<p class="nhsuk-body-s">NHS prototype kit v8.0.0</p>',
+    options: {
+      width: false
+    }
+  },
+  'with meta links': {
     context: {
       meta: {
         items: [
@@ -92,7 +118,7 @@ const fixtures = {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
-  'with meta (links and text)': {
+  'with meta links and text': {
     context: {
       copyright: {
         text: '© Crown copyright'
@@ -130,7 +156,7 @@ const fixtures = {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
-  'with meta (links and HTML)': {
+  'with meta links and HTML': {
     context: {
       copyright: {
         text: ''
