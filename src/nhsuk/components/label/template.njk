@@ -1,3 +1,4 @@
+{% from "nhsuk/components/heading/macro.njk" import heading %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set classes for this component #}
@@ -45,9 +46,10 @@
 {% endset -%}
 
 {% if params.isPageHeading %}
-<h1 class="nhsuk-label-wrapper">
-  {{ labelHtml | safe | trim | indent(2) }}
-</h1>
+{{ heading({
+  html: labelHtml | safe | trim,
+  className: "nhsuk-label-wrapper"
+}) | trim }}
 {% else %}
 {{ labelHtml | safe | trim }}
 {% endif %}

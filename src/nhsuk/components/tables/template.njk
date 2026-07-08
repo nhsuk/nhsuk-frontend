@@ -38,8 +38,6 @@
   {% set classNamesCaption = classNamesCaption ~ " " ~ params.captionClasses %}
 {% endif %}
 
-{%- set headingLevel = params.headingLevel if params.headingLevel else 3 %}
-
 {%- set table -%}
 <table class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
   {%- if params.responsive %} role="table"{% endif %}
@@ -121,7 +119,7 @@
 {%- if params.card or params.panel -%}
   {% call card(params.card or {
     heading: params.heading,
-    headingLevel: headingLevel,
+    headingLevel: params.headingLevel | default(3),
     classes: params.panelClasses,
     variant: "feature"
   }) -%}

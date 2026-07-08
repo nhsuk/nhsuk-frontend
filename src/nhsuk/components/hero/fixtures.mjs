@@ -20,6 +20,29 @@ const fixtures = {
       viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
     }
   },
+  'heading': {
+    context: {
+      heading: "We're here for you",
+      text: 'Helping you take control of your health and wellbeing.'
+    },
+    options: {
+      width: false
+    },
+    variants: [
+      {
+        description: 'with size L',
+        context: {
+          headingSize: 'l'
+        }
+      },
+      {
+        description: 'with size XL',
+        context: {
+          headingSize: 'xl'
+        }
+      }
+    ]
+  },
   'with image': {
     context: {
       image: {

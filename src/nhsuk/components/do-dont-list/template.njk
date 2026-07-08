@@ -31,7 +31,7 @@
 {{ card({
   id: params.id,
   heading: params.title,
-  headingLevel: params.headingLevel if params.headingLevel else 3,
+  headingLevel: params.headingLevel | default(3),
   descriptionHtml: listHtml,
   classes: params.classes,
   attributes: params.attributes,

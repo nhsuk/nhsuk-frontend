@@ -1,3 +1,4 @@
+{% from "nhsuk/components/heading/macro.njk" import heading %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set variant or (deprecated) type for this component #}
@@ -54,9 +55,12 @@
 
   {{- nhsukAttributes(params.attributes) -}}>
   <div class="nhsuk-notification-banner__header">
-    <h{{ params.titleHeadingLevel | default(2, true) }} class="nhsuk-notification-banner__title" id="{{ params.titleId | default("nhsuk-notification-banner-title", true) }}">
-      {{ title }}
-    </h{{ params.titleHeadingLevel | default(2, true) }}>
+    {{ heading({
+      text: title,
+      id: params.titleId | default("nhsuk-notification-banner-title", true),
+      level: params.titleHeadingLevel | default(2),
+      className: "nhsuk-notification-banner__title"
+    }) | trim | indent(4) }}
   </div>
   <div class="nhsuk-notification-banner__content">
   {% if caller or params.html %}
