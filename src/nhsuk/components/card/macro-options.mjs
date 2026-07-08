@@ -187,12 +187,18 @@ const options = {
         description: 'Array of actions as links for use in the card component.',
         released: '10.3.0',
         params: {
-          href: {
+          id: {
             type: 'string',
-            required: true,
+            required: false,
+            description: 'The ID of the action item.',
+            released: '10.6.0'
+          },
+          element: {
+            type: 'string',
+            required: false,
             description:
-              "The value of the link's `href` attribute for an action item.",
-            released: '10.3.0'
+              'HTML element for the action item – `"button"` or `"a"`. In most cases you will not need to set this as it will be configured automatically if `href` is provided.',
+            released: '10.6.0'
           },
           text: {
             type: 'string',
@@ -213,6 +219,34 @@ const options = {
             required: false,
             description:
               'Actions rely on context from the surrounding content so may require additional accessible text. Text supplied to this option is appended to the end. Use `html` for more complicated scenarios.',
+            released: '10.3.0'
+          },
+          name: {
+            type: 'string',
+            required: false,
+            description:
+              'Name for the `button`. This has no effect on `a` elements.',
+            released: '10.6.0'
+          },
+          type: {
+            type: 'string',
+            required: false,
+            description:
+              'Type of `button` – `"button"`, `"submit"` or `"reset"`. Defaults to `"submit"`. This has no effect on `a` elements.',
+            released: '10.6.0'
+          },
+          value: {
+            type: 'string',
+            required: false,
+            description:
+              'The `value` attribute for the `button`. This has no effect on `a` elements.',
+            released: '10.6.0'
+          },
+          href: {
+            type: 'string',
+            required: true,
+            description:
+              'The URL that the action item should link to. If this is set, `element` will be automatically set to `"a"` if it has not already been defined.',
             released: '10.3.0'
           },
           classes: {
