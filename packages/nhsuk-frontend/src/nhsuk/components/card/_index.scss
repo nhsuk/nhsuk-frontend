@@ -274,10 +274,10 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
       margin-bottom: nhsuk-spacing(6);
     }
 
-    + h2,
-    + .nhsuk-heading-l,
-    + h3,
-    + .nhsuk-heading-m {
+    + h2:not([class^="nhsuk-caption"]),
+    + h3:not([class^="nhsuk-caption"]),
+    + .nhsuk-heading-m,
+    + .nhsuk-heading-l {
       padding-top: 0; // [4]
     }
   }
