@@ -13,6 +13,19 @@ const fixtures = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
+  'with HTML': {
+    context: {
+      heading: 'Important',
+      html: '<p class="nhsuk-card__description">Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.</p>'
+    }
+  },
+  'with HTML via call block': {
+    context: {
+      heading: 'Important'
+    },
+    callBlock:
+      '<p class="nhsuk-card__description">Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.</p>'
+  },
   'with custom heading': {
     context: {
       heading: 'School, nursery or work',

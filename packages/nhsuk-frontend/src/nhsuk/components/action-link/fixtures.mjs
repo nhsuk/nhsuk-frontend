@@ -1,3 +1,5 @@
+import { outdent } from 'outdent'
+
 /**
  * Nunjucks macro option variants
  *
@@ -45,6 +47,20 @@ const fixtures = {
       states: ['focus', 'hover', 'active'],
       selector: '.nhsuk-action-link'
     }
+  },
+  'with HTML': {
+    context: {
+      html: outdent`
+        Start session<br>
+        <span class="nhsuk-u-font-weight-normal nhsuk-u-font-size-19">(11 cases)</span>
+      `
+    }
+  },
+  'with HTML via call block': {
+    callBlock: outdent`
+      Start session<br>
+      <span class="nhsuk-u-font-weight-normal nhsuk-u-font-size-19">(11 cases)</span>
+    `
   }
 }
 

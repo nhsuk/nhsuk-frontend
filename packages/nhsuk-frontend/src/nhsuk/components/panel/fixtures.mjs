@@ -17,6 +17,18 @@ const fixtures = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
+  'with HTML': {
+    context: {
+      titleText: 'Booking complete',
+      html: 'We have sent you a confirmation email'
+    }
+  },
+  'with HTML via call block': {
+    context: {
+      titleText: 'Booking complete'
+    },
+    callBlock: 'We have sent you a confirmation email'
+  },
   'interruption': {
     context: {
       titleText: 'Jodie Brown had a COVID-19 vaccine less than 3 months ago',
