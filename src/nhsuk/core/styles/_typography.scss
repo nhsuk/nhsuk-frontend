@@ -117,6 +117,26 @@ h6,
   @include nhsuk-font(19);
 }
 
+h1 + .nhsuk-caption-xl,
+.nhsuk-heading-xl + .nhsuk-caption-xl {
+  @include nhsuk-responsive-margin(-7, "top", $adjustment: nhsuk-spacing(1));
+  @include nhsuk-responsive-margin(7, "bottom");
+}
+
+h2 + .nhsuk-caption-l,
+h3 + .nhsuk-caption-m,
+h4 + .nhsuk-caption,
+h5 + .nhsuk-caption,
+h6 + .nhsuk-caption,
+.nhsuk-heading-l + .nhsuk-caption-l,
+.nhsuk-heading-m + .nhsuk-caption-m,
+.nhsuk-heading-s + .nhsuk-caption,
+.nhsuk-heading-xs + .nhsuk-caption,
+.nhsuk-heading-xxs + .nhsuk-caption {
+  @include nhsuk-responsive-margin(-4, "top", $adjustment: nhsuk-spacing(1));
+  @include nhsuk-responsive-margin(4, "bottom");
+}
+
 .nhsuk-caption--bottom {
   margin-top: nhsuk-spacing(1);
   margin-bottom: nhsuk-spacing(0);
