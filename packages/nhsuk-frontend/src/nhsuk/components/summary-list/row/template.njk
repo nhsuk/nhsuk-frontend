@@ -1,0 +1,59 @@
+{% from "nhsuk/components/card/action/macro.njk" import cardAction %}
+
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-summary-list__row" -%}
+
+{%- set actions = params.actions.items | select("mapping") if params.actions.items | length else [] %}
+
+{%- if parent.hasActions and not actions | length %}
+  {% set classNames = classNames ~ " nhsuk-summary-list__row--no-actions" %}
+{% endif %}
+
+{%- if params.border === false and
+  not (params.classes and "nhsuk-summary-list__row--no-border" in params.classes) and
+  not (parent.params.classes and (
+    "nhsuk-summary-list--no-border" in parent.params.classes or
+    "nhsuk-summary-list--no-last-row-border" in parent.params.classes)) and
+  not (parent.params.lastRowBorder === false and parent.loop.last) %}
+  {% set classNames = classNames ~ " nhsuk-summary-list__row--no-border" %}
+{% endif %}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif %}
+
+<div class="{{ classNames }}">
+  <dt class="nhsuk-summary-list__key {%- if params.key.classes %} {{ params.key.classes }}{% endif %}">
+  {% if params.key.html %}
+    {{ params.key.html | safe | trim | indent(4) }}
+  {% elif params.key.text %}
+    {{ params.key.text | trim | indent(4) }}
+  {% endif %}
+  </dt>
+  <dd class="nhsuk-summary-list__value {%- if params.value.classes %} {{ params.value.classes }}{% endif %}">
+  {% if params.value.html %}
+    {{ params.value.html | safe | trim | indent(4) }}
+  {% elif params.value.text %}
+    {{ params.value.text | trim | indent(4) }}
+  {% endif %}
+  </dd>
+  {% if actions | length %}
+  <dd class="nhsuk-summary-list__actions {%- if params.actions.classes %} {{ params.actions.classes }}{% endif %}">
+    {% if actions | length == 1 %}
+      {{- cardAction(actions[0], {
+        params: parent.params.card
+      }) | trim | indent(4, true) }}
+    {% else %}
+    <ul class="nhsuk-summary-list__actions-list">
+    {% for action in actions %}
+      <li class="nhsuk-summary-list__actions-list-item">
+        {{ cardAction(action, {
+          params: parent.params.card
+        }) | trim | indent(8) }}
+      </li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+  </dd>
+  {% endif %}
+</div>

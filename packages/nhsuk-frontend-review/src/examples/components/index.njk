@@ -667,6 +667,64 @@
         ]
       }) }}
 
+      {% call summaryList({
+        lastRowBorder: false
+      }) %}
+        {{ summaryListRow({
+          key: {
+            text: "Name"
+          },
+          value: {
+            text: "Sarah Philips"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "name"
+              }
+            ]
+          }
+        }) }}
+
+        {{ summaryListRow({
+          key: {
+            text: "Date of birth"
+          },
+          value: {
+            text: "5 January 1978"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "date of birth"
+              }
+            ]
+          }
+        }) }}
+
+        {{ summaryListRow({
+          key: {
+            text: "Contact information"
+          },
+          value: {
+            html: "72 Guild Street<br>London<br>SE23 6FH"
+          }
+        }) }}
+
+        {{ summaryListRow({
+          key: {
+            text: "Contact details"
+          },
+          value: {
+            html: "<p>07700 900457</p><p>sarah.philips@example.com</p>"
+          }
+        }) }}
+      {% endcall %}
+
       {{ summaryList({
         border: false,
         rows: [

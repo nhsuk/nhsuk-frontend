@@ -68,6 +68,43 @@ The utility class `nhsuk-u-frontend-not-supported-hidden` is used to hide conten
 
 This was added in [pull request #1707: Add checkbox "all" option](https://github.com/nhsuk/nhsuk-frontend/pull/1707).
 
+#### Use buttons for card and summary list actions
+
+You can now configure card and summary list actions as button elements, using new Nunjucks macro options:
+
+- `item.element` to use `"button"` or `"a"` elements
+- `item.id` for the element `id` attribute
+- `item.type` for the button `type` attribute
+- `item.name` for the button `name` attribute
+- `item.value` for the button `value` attribute
+
+Action items using `element: "button"` will be visually styled as links.
+
+```patch
++ <form method="post" novalidate>
+    {{ card({
+      heading: "Regional Manager",
+      actions: {
+        items: [
+          {
+            text: "Delete",
+-           href: "/delete"
++           element: "button",
++           name: "action",
++           value: "delete"
+          },
+          {
+            text: "Withdraw",
+-           href: "/withdraw",
++           element: "button",
++           name: "action",
++           value: "withdraw"
+          }
+        ]
+```
+
+This was added in [pull request #1989: Add support for card and summary list actions as buttons](https://github.com/nhsuk/nhsuk-frontend/pull/1989).
+
 #### Show or hide content in supported browsers
 
 You can now show or hide content depending on whether NHS.UK frontend JavaScript is supported:
