@@ -616,7 +616,7 @@ const fixtures = {
       fieldset: {
         legend: {
           text: 'Which vaccines would you like to include?',
-          classes: 'nhsuk-fieldset__legend--l',
+          size: 'l',
           isPageHeading: true
         }
       },
@@ -677,7 +677,7 @@ const fixtures = {
       fieldset: {
         legend: {
           text: 'Which vaccines would you like to include?',
-          classes: 'nhsuk-fieldset__legend--l',
+          size: 'l',
           isPageHeading: true
         }
       },
@@ -750,7 +750,7 @@ const fixtures = {
       fieldset: {
         legend: {
           text: 'Which vaccines would you like to include?',
-          classes: 'nhsuk-fieldset__legend--l',
+          size: 'l',
           isPageHeading: true
         }
       },
