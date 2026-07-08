@@ -23,6 +23,41 @@ const fixtures = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
+  'heading': {
+    context: {
+      heading: "If you need help now, but it's not an emergency",
+      headingLevel: 3
+    },
+    callBlock: outdent`
+      <p class="nhsuk-card__description">Go to <a href="#">NHS 111 online</a> or <a href="#">call 111</a>.</p>
+    `,
+    variants: [
+      {
+        description: 'basic with size S',
+        context: {
+          headingSize: 's'
+        }
+      },
+      {
+        description: 'basic with size M',
+        context: {
+          headingSize: 'm'
+        }
+      },
+      {
+        description: 'basic with size L',
+        context: {
+          headingSize: 'l'
+        }
+      },
+      {
+        description: 'basic with size XL',
+        context: {
+          headingSize: 'xl'
+        }
+      }
+    ]
+  },
   'basic without heading': {
     context: {
       description:

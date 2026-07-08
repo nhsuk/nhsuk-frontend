@@ -1,3 +1,4 @@
+{% from "nhsuk/components/heading/macro.njk" import heading %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set classes for this component #}
@@ -44,9 +45,11 @@
   }) -}}
 
   {{- nhsukAttributes(params.attributes) -}}>
-  <h2 class="nhsuk-tabs__title">
-    {{ params.title | default ("Contents") }}
-  </h2>
+  {{ heading({
+    text: params.title | default("Contents"),
+    level: 2,
+    className: "nhsuk-tabs__title"
+  }) | trim | indent(2) }}
 {% if params.items | length %}
   <ul class="nhsuk-tabs__list">
     {% for item in params.items %}

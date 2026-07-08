@@ -1,3 +1,4 @@
+{% from "nhsuk/components/heading/macro.njk" import heading %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
 {% from "nhsuk/components/card/action/macro.njk" import cardAction %}
@@ -62,26 +63,6 @@
   {% set classNames = classNames ~ " " ~ params.classes %}
 {% endif %}
 
-{%- if params.headingSize and
-  params.headingSize in ["xxs", "xs", "s", "m", "l", "xl"] and (
-    not params.headingClasses or (
-      not "nhsuk-heading-xxs" in params.headingClasses and
-      not "nhsuk-heading-xs" in params.headingClasses and
-      not "nhsuk-heading-s" in params.headingClasses and
-      not "nhsuk-heading-m" in params.headingClasses and
-      not "nhsuk-heading-l" in params.headingClasses and
-      not "nhsuk-heading-xl" in params.headingClasses
-    )
-  )
-%}
-  {% set classNamesHeading = classNamesHeading ~ " nhsuk-heading-" ~ params.headingSize %}
-{% endif %}
-
-{%- if params.headingClasses %}
-  {% set classNamesHeading = classNamesHeading ~ " " ~ params.headingClasses %}
-{% endif %}
-
-{%- set headingLevel = params.headingLevel if params.headingLevel else 2 %}
 {%- set actions = params.actions.items | select("mapping") if params.actions.items | length else [] %}
 
 {%- set image = {
@@ -109,27 +90,37 @@
 {{ _cardHeading({
   heading: params.heading,
   headingHtml: headingHtml,
-  headingId: params.headingId,
   headingVisuallyHiddenText: headingVisuallyHiddenText,
+  headingLevel: params.headingLevel,
+  headingSize: params.headingSize,
+  headingClasses: params.headingClasses,
+  headingId: params.headingId,
   href: params.href
 }, classNamesHeading) | trim }}
 {% endmacro -%}
 
 {%- macro _cardHeading(params, classNamesHeading) %}
 {% if params.heading %}
-<h{{ headingLevel }} class="{{ classNamesHeading }}" {%- if params.headingId %} id="{{ params.headingId }}"{% endif %}>
+{% call heading({
+  level: params.headingLevel | default(2),
+  size: params.headingSize,
+  classes: params.headingClasses,
+  className: classNamesHeading,
+  classPrefix: "nhsuk-heading-",
+  id: params.headingId
+}) %}
 {% if params.href and not "nhsuk-card--feature" in classNames %}
   <a class="nhsuk-card__link" href="{{ params.href }}">
     {{- params.heading -}}
   </a>
-{% elif params.headingVisuallyHiddenText %}
+{%- elif params.headingVisuallyHiddenText %}
   <span role="text">
     <span class="nhsuk-u-visually-hidden">{{- params.headingVisuallyHiddenText -}}:</span> {{ params.heading }}
   </span>
-{% else %}
+{%- else %}
   {{ params.heading }}
-{% endif %}
-</h{{ headingLevel }}>
+{%- endif %}
+{%- endcall %}
 {% endif %}
 {% if params.headingHtml %}
   {{- params.headingHtml | safe | trim }}
