@@ -19,7 +19,9 @@
   }) -}}
 
   {{- nhsukAttributes(params.attributes) -}}>
-{% if params.html %}
+{% if caller %}
+  {{- caller() }}
+{% elif params.html %}
   {{ params.html | safe | trim | indent(2) }}
 {% else %}
   {{ params.text | default("Skip to main content", true) }}
