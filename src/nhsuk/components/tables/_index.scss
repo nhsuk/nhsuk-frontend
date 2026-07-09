@@ -60,7 +60,11 @@
     th,
     td {
       padding-right: nhsuk-spacing(3);
-      @include nhsuk-responsive-padding(2, ("top", "bottom"));
+      @include nhsuk-responsive-padding(1, ("top", "bottom"));
+
+      @media #{nhsuk-from-breakpoint(tablet)} {
+        @include nhsuk-responsive-padding(2, ("top", "bottom"));
+      }
     }
   }
 
