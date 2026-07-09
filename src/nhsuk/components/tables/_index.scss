@@ -317,19 +317,26 @@
     right: 0;
     bottom: -$nhsuk-border-table-header-width; // to expand the click area to cover the border-bottom
     left: 0;
+
+    border: solid transparent;
+    border-width: 0 0 $nhsuk-border-width-form-element;
   }
 
-  // This adds a blue border at the bottom off
-  // the currently-sorted header cell
+  // Add a blue bottom border to the header cell currently sorted
   th[aria-sort="descending"] button::before,
   th[aria-sort="ascending"] button::before,
   th[aria-sort="descending"] a::before,
   th[aria-sort="ascending"] a::before {
-    border-bottom-width: $nhsuk-border-width-form-element;
-    border-bottom-style: solid;
-    border-color: $nhsuk-brand-colour;
+    border-color: $nhsuk-link-colour;
   }
 
+  // Add a darker grey bottom border to the header cell on hover
+  th[aria-sort]:hover button::before,
+  th[aria-sort]:hover a::before {
+    border-color: nhsuk-colour("grey-3");
+  }
+
+  // Add a grey background colour to the header cell on hover
   th[aria-sort]:hover {
     background-color: $nhsuk-target-hover-colour;
   }
@@ -380,15 +387,23 @@
       @include nhsuk-link-style-reverse;
     }
 
-    th[aria-sort]:hover {
-      background-color: $nhsuk-reverse-target-hover-colour;
-    }
-
+    // Add a white bottom border to the header cell currently sorted
     th[aria-sort="descending"] button::before,
     th[aria-sort="ascending"] button::before,
     th[aria-sort="descending"] a::before,
     th[aria-sort="ascending"] a::before {
       border-color: $nhsuk-reverse-text-colour;
+    }
+
+    // Add a lighter blue bottom border to the header cell on hover
+    th[aria-sort]:hover button::before,
+    th[aria-sort]:hover a::before {
+      border-color: nhsuk-tint($nhsuk-brand-colour, 40%);
+    }
+
+    // Add a darker blue background colour to the header cell on hover
+    th[aria-sort]:hover {
+      background-color: $nhsuk-reverse-target-hover-colour;
     }
   }
 }
