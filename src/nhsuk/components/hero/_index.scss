@@ -55,6 +55,10 @@
   .nhsuk-hero__wrapper {
     @include nhsuk-responsive-padding(8, ("top", "bottom"));
     @include nhsuk-top-and-bottom;
+
+    [class^="nhsuk-caption"] {
+      color: inherit;
+    }
   }
 
   .nhsuk-hero__heading {

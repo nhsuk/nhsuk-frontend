@@ -20,30 +20,11 @@ const options = {
     released: '10.6.0',
     params: {
       heading: {
-        type: 'string',
+        type: 'object',
         required: false,
-        description: 'Heading for content column.',
-        released: '10.6.0'
-      },
-      headingClasses: {
-        type: 'string',
-        required: false,
-        description:
-          'Optional additional classes to add to heading. Separate each class with a space.',
-        released: '10.6.0'
-      },
-      headingSize: {
-        type: 'string',
-        required: false,
-        description:
-          'Size of the heading – `"xxs"`, `"xs"`, `"s"`, `"m"`, `"l"` or `"xl"`.',
-        released: '10.6.0'
-      },
-      headingLevel: {
-        type: 'integer',
-        required: false,
-        description: 'Optional heading level for the heading. Defaults to `1`.',
-        released: '10.6.0'
+        description: 'Optional heading for content column.',
+        released: '10.6.0',
+        isComponent: true
       },
       text: {
         type: 'string',
@@ -75,30 +56,34 @@ const options = {
     }
   },
   heading: {
-    type: 'string',
+    type: 'object',
     required: true,
-    description: 'Text heading of the hero.',
-    released: '1.0.0'
+    description: 'Heading of the hero.',
+    released: '10.6.0',
+    isComponent: true
   },
   headingClasses: {
     type: 'string',
     required: false,
     description:
       'Optional additional classes to add to heading. Separate each class with a space.',
-    released: '9.4.0'
+    released: '9.4.0',
+    deprecated: '10.6.0'
   },
   headingSize: {
     type: 'string',
     required: false,
     description:
       'Size of the heading – `"xxs"`, `"xs"`, `"s"`, `"m"`, `"l"` or `"xl"`.',
-    released: '10.3.0'
+    released: '10.3.0',
+    deprecated: '10.6.0'
   },
   headingLevel: {
     type: 'integer',
     required: false,
     description: 'Optional heading level for the heading. Defaults to `1`.',
-    released: '9.4.0'
+    released: '9.4.0',
+    deprecated: '10.6.0'
   },
   text: {
     type: 'string',
