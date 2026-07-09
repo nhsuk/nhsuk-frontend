@@ -61,10 +61,8 @@
           {{ heading({
             text: params.heading,
             level: params.headingLevel,
-            size: params.headingSize,
-            classes: classNamesHeading
-              ~ ("nhsuk-u-margin-bottom-0" if not (caller or params.text or params.html) else "")
-              ~ (" " ~ params.headingClasses if params.headingClasses)
+            size: params.headingSize | default("xl"),
+            classes: classNamesHeading ~ (" " ~ params.headingClasses if params.headingClasses)
           }) | trim | indent(10) }}
         {% endif %}
         {% if caller %}

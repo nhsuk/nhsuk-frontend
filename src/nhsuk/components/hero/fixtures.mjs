@@ -45,6 +45,14 @@ const fixtures = {
       }
     ]
   },
+  "with heading only": {
+    context: {
+      heading: "Prototyping"
+    },
+    options: {
+      width: false
+    }
+  },
   "with image": {
     context: {
       image: {
