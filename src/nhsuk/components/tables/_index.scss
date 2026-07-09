@@ -59,6 +59,7 @@
   .nhsuk-table--compact {
     th,
     td {
+      padding-right: nhsuk-spacing(3);
       @include nhsuk-responsive-padding(2, ("top", "bottom"));
     }
   }
