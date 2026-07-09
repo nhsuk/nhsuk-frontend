@@ -59,12 +59,18 @@
   .nhsuk-table--compact {
     th,
     td {
-      padding-right: nhsuk-spacing(3);
-      @include nhsuk-responsive-padding(1, ("top", "bottom"));
+      padding-top: nhsuk-spacing(1);
+      padding-bottom: nhsuk-spacing(1);
 
       @media #{nhsuk-from-breakpoint(tablet)} {
-        @include nhsuk-responsive-padding(2, ("top", "bottom"));
+        padding-top: nhsuk-spacing(2);
+        padding-bottom: nhsuk-spacing(2);
       }
+    }
+
+    th:not(:last-child),
+    td:not(:last-child) {
+      padding-right: nhsuk-spacing(3);
     }
   }
 
