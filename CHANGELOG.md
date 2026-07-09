@@ -337,6 +337,7 @@ This change was introduced in [pull request #1998: Add `compact` option for tabl
 - [#1986: Update `nhsuk-font-monospace` font size to better match body text](https://github.com/nhsuk/nhsuk-frontend/pull/1986/changes)
 - [#1996: Update hover colour for task list and pagination](https://github.com/nhsuk/nhsuk-frontend/pull/1996)
 - [#1997: Preserve conditionally revealed content margins when JavaScript is not supported](https://github.com/nhsuk/nhsuk-frontend/pull/1997)
+- [#2000: Update responsive table row margin and border width](https://github.com/nhsuk/nhsuk-frontend/pull/2000)
 
 ## 10.5.2 - 8 June 2026
 
