@@ -12,10 +12,13 @@
 ////
 
 table {
+  box-sizing: border-box;
   width: 100%; // [1]
   border-spacing: 0;
+  border-collapse: collapse;
   vertical-align: top;
 
+  @include nhsuk-font($size: 19);
   @include nhsuk-responsive-margin(7, "bottom");
 
   .nhsuk-u-text-break-word {
@@ -42,7 +45,6 @@ td {
   text-align: left;
   vertical-align: top;
 
-  @include nhsuk-font-size(19);
   @include nhsuk-responsive-padding(3, ("top", "bottom"));
   @include nhsuk-responsive-padding(4, "right");
 

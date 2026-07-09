@@ -34,6 +34,7 @@
   }
 
   .nhsuk-table,
+  // Deprecated, to be removed in v11.0
   .nhsuk-table-responsive {
     box-sizing: border-box;
     width: 100%;
@@ -45,12 +46,31 @@
   }
 
   .nhsuk-table--reverse,
+  // Deprecated, to be removed in v11.0
   .nhsuk-table-responsive--reverse {
     color: $nhsuk-reverse-text-colour;
 
     th,
     td {
       border-color: $nhsuk-reverse-border-colour;
+    }
+  }
+
+  .nhsuk-table--compact {
+    th,
+    td {
+      padding-top: nhsuk-spacing(1);
+      padding-bottom: nhsuk-spacing(1);
+
+      @media #{nhsuk-from-breakpoint(tablet)} {
+        padding-top: nhsuk-spacing(2);
+        padding-bottom: nhsuk-spacing(2);
+      }
+    }
+
+    th:not(:last-child),
+    td:not(:last-child) {
+      padding-right: nhsuk-spacing(3);
     }
   }
 
@@ -95,6 +115,7 @@
 
     .nhsuk-table,
     .nhsuk-table-container,
+    // Deprecated, to be removed in v11.0
     .nhsuk-table-responsive {
       margin: 0; // [1]
     }
@@ -117,6 +138,8 @@
   // 8. Hiding mobile specific header from desktop view
   // 9. Adding a display block value due to IE 11 not having full flex support
 
+  .nhsuk-table--responsive,
+  // Deprecated, to be removed in v11.0
   .nhsuk-table-responsive {
     thead {
       @media #{nhsuk-until-breakpoint(desktop)} {
