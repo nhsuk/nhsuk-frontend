@@ -224,6 +224,32 @@ We've rewritten the internals of the `nhsuk-media-query` mixin to make use of th
 
 This was added in [pull request #1961: Port Sass media query functions from GOV.UK Frontend and remove `sass-mq` dependency](https://github.com/nhsuk/nhsuk-frontend/pull/1961).
 
+#### Add a modifier class for compact tables
+
+We've added a new `.nhsuk-table--compact` class and `compact` Nunjucks option for the [table](https://service-manual.nhs.uk/design-system/components/table) component. This reduces table cell padding at all screen sizes.
+
+```patch
+  {{ table({
+    caption: "Childhood vaccination coverage",
++   compact: true,
+    head: [],
+    rows: []
+  }) }}
+```
+
+If you are not using Nunjucks macros, use the HTML markup from the [table examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/table) as follows:
+
+- Add the `nhsuk-table--compact` class to the `<table>` tag
+
+```patch
+- <table class="nhsuk-table">
++ <table class="nhsuk-table nhsuk-table--compact">
+    <!-- // ... -->
+  </table>
+```
+
+This change was introduced in [pull request #1998: Add compact option for tables](https://github.com/nhsuk/nhsuk-frontend/pull/1998).
+
 ### :wastebasket: **Deprecated features**
 
 #### Rename checkboxes "none" options
@@ -286,6 +312,24 @@ For example:
 ```
 
 You can still use `nhsuk-print-colour` and `nhsuk-print-hide` but we'll remove them in a future breaking release.
+
+#### Rename reverse and responsive table HTML classes
+
+We've renamed HTML classes for reverse and responsive tables. You can still use the previous names but we'll remove them in a future breaking release.
+
+If you are not using Nunjucks macros, update your HTML markup using the [table examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/table) as follows:
+
+- replace `nhsuk-table-responsive--reverse` with `nhsuk-table--reverse`
+- replace `nhsuk-table-responsive` with `nhsuk-table nhsuk-table--responsive`
+
+```patch
+- <table class="nhsuk-table-responsive nhsuk-table-responsive--reverse">
++ <table class="nhsuk-table nhsuk-table--reverse nhsuk-table--responsive">
+    <!-- // ... -->
+  </table>
+```
+
+This change was introduced in [pull request #1998: Add `compact` option for tables](https://github.com/nhsuk/nhsuk-frontend/pull/1998).
 
 ### :wrench: **Fixes**
 
