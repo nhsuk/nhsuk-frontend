@@ -104,6 +104,22 @@
       color: VisitedText;
     }
   }
+
+  // Work around SVGs not inheriting color from `:visited` links in Safari
+  // (https://bugs.webkit.org/show_bug.cgi?id=244025)
+  &:visited .nhsuk-icon {
+    fill: $link-visited-colour;
+
+    @supports (forced-color-adjust: auto) {
+      fill: currentcolor;
+    }
+  }
+
+  &:focus .nhsuk-icon,
+  &:hover .nhsuk-icon,
+  &:active .nhsuk-icon {
+    fill: currentcolor;
+  }
 }
 
 /// Default link hover only styling
