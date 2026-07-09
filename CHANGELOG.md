@@ -192,12 +192,12 @@ This was added in [pull request #1961: Port Sass media query functions from GOV.
 You can now reduce the vertical padding of table cells by setting `compact: true` on the tables component.
 
 ```patch
-{{ table({
-  caption: "Childhood vaccination coverage",
-+ compact: true,
-  head: [],
-  rows: []
-}) }}
+  {{ table({
+    caption: "Childhood vaccination coverage",
++   compact: true,
+    head: [],
+    rows: []
+  }) }}
 ```
 
 If you are not using Nunjucks macros, add the `nhsuk-table--compact` class to your table, or `nhsuk-table-responsive--compact` to a responsive table. Note the class `nhsuk-table-responsive--compact` is deprecated, see below for details.
