@@ -258,8 +258,15 @@
     // We test for `mask-position` rather than `mask-image` because of a false
     // positive in Edge 17.
     @supports (mask-position: initial) {
-      background: currentcolor;
+      background-color: currentcolor;
       mask-size: nhsuk-px-to-rem($nhsuk-icon-size) nhsuk-px-to-rem($nhsuk-icon-size);
+
+      // currentcolor doesn't seem to be computed correctly in forced colors
+      // mode so force the background color to match the system link color
+      // (matching the text in the link)
+      @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+        background-color: ButtonText;
+      }
     }
 
     @media #{nhsuk-until-breakpoint(tablet)} {
@@ -268,16 +275,8 @@
       background-size: nhsuk-px-to-rem($nhsuk-icon-size-small) nhsuk-px-to-rem($nhsuk-icon-size-small);
 
       @supports (mask-position: initial) {
-        background: currentcolor;
         mask-size: nhsuk-px-to-rem($nhsuk-icon-size-small) nhsuk-px-to-rem($nhsuk-icon-size-small);
       }
-    }
-
-    // currentcolor doesn't seem to be computed correctly in forced colors
-    // mode so force the background color to match the system link color
-    // (matching the text in the link)
-    @media screen and (forced-colors: active), (-ms-high-contrast: active) {
-      background: buttontext;
     }
   }
 
@@ -293,6 +292,7 @@
   th[aria-sort="descending"] button::after,
   th[aria-sort="descending"] a::after {
     background-image: nhsuk-image-url("nhsuk-icon-arrow-down.svg");
+
     @supports (mask-position: initial) {
       mask-image: nhsuk-image-url("nhsuk-icon-arrow-down.svg");
     }
@@ -301,6 +301,7 @@
   th[aria-sort="none"] button::after,
   th[aria-sort="none"] a::after {
     background-image: nhsuk-image-url("nhsuk-icon-arrow-up-down.svg");
+
     @supports (mask-position: initial) {
       mask-image: nhsuk-image-url("nhsuk-icon-arrow-up-down.svg");
     }
