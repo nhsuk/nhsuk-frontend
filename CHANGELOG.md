@@ -191,18 +191,12 @@ This was added in [pull request #1961: Port Sass media query functions from GOV.
 
 You can now reduce the vertical padding of table cells by setting `compact: true` on the tables component.
 
-```njk
+```patch
 {{ table({
   caption: "Childhood vaccination coverage",
-  compact: true,
-  head: [
-    { text: "Nation" },
-    { text: "MMR" }
-  ],
-  rows: [
-    [{ text: "England" }, { text: "92.8%" }],
-    [{ text: "Northern Ireland" }, { text: "94.6%" }]
-  ]
++ compact: true,
+  head: [],
+  rows: []
 }) }}
 ```
 
