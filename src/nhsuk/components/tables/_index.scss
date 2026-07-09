@@ -259,6 +259,8 @@
     // positive in Edge 17.
     @supports (mask-position: initial) {
       background-color: currentcolor;
+      // stylelint-disable-next-line declaration-no-important
+      background-image: none !important;
       mask-size: nhsuk-px-to-rem($nhsuk-icon-size) nhsuk-px-to-rem($nhsuk-icon-size);
 
       // currentcolor doesn't seem to be computed correctly in forced colors
