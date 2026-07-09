@@ -49,7 +49,7 @@ td {
   @include nhsuk-responsive-padding(4, "right");
 
   &:last-child {
-    padding-right: 0 !important;
+    padding-right: 0;
   }
 }
 
