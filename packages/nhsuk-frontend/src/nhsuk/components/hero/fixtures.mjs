@@ -10,7 +10,9 @@ import { components } from "#lib"
 const fixtures = {
   "default": {
     context: {
-      heading: "We're here for you",
+      heading: {
+        text: "We're here for you"
+      },
       text: "Helping you take control of your health and wellbeing.",
       border: false
     },
@@ -23,7 +25,9 @@ const fixtures = {
   },
   "heading": {
     context: {
-      heading: "We're here for you",
+      heading: {
+        text: "We're here for you"
+      },
       text: "Helping you take control of your health and wellbeing.",
       border: false
     },
@@ -34,20 +38,37 @@ const fixtures = {
       {
         description: "with size L",
         context: {
-          headingSize: "l"
+          heading: {
+            size: "l"
+          }
         }
       },
       {
         description: "with size XL",
         context: {
-          headingSize: "xl"
+          heading: {
+            size: "xl"
+          }
         }
       }
     ]
   },
+  "with heading and caption": {
+    context: {
+      heading: {
+        text: "Prototyping",
+        caption: "Setup"
+      }
+    },
+    options: {
+      width: false
+    }
+  },
   "with heading only": {
     context: {
-      heading: "Prototyping"
+      heading: {
+        text: "Prototyping"
+      }
     },
     options: {
       width: false
@@ -68,7 +89,9 @@ const fixtures = {
   },
   "with image, content": {
     context: {
-      heading: "We're here for you",
+      heading: {
+        text: "We're here for you"
+      },
       text: "Helping you take control of your health and wellbeing.",
       image: {
         src: "https://assets.nhs.uk/prod/images/S_0818_homepage_hero_1_F0147446.width-1000.jpg"
@@ -85,8 +108,10 @@ const fixtures = {
     context: {
       content: [
         {
-          heading: "This is a header for the product or service",
-          headingSize: "l",
+          heading: {
+            text: "This is a header for the product or service",
+            size: "l"
+          },
           html: outdent`
             <p class="nhsuk-body-l">This is some more content which explains the product or service.</p>
             ${components.render("button", {
