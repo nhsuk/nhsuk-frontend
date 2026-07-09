@@ -54,6 +54,7 @@
   // Deprecated, to be removed in v11.0
   .nhsuk-hero__wrapper {
     @include nhsuk-responsive-padding(8, ("top", "bottom"));
+    @include nhsuk-top-and-bottom;
   }
 
   .nhsuk-hero__heading {
