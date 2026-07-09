@@ -187,9 +187,9 @@ We've rewritten the internals of the `nhsuk-media-query` mixin to make use of th
 
 This was added in [pull request #1961: Port Sass media query functions from GOV.UK Frontend and remove `sass-mq` dependency](https://github.com/nhsuk/nhsuk-frontend/pull/1961).
 
-#### Add compact mode for tables
+#### Add a modifier class for compact tables
 
-You can now reduce the vertical padding of table cells by setting `compact: true` on the tables component.
+We've added a new `.nhsuk-table--compact` class and `compact` Nunjucks option for the [table](https://service-manual.nhs.uk/design-system/components/table) component. This reduces table cell padding at all screen sizes.
 
 ```patch
   {{ table({
@@ -200,7 +200,16 @@ You can now reduce the vertical padding of table cells by setting `compact: true
   }) }}
 ```
 
-If you are not using Nunjucks macros, add the `nhsuk-table--compact` class to your table, or `nhsuk-table-responsive--compact` to a responsive table. Note the class `nhsuk-table-responsive--compact` is deprecated, see below for details.
+If you are not using Nunjucks macros, use the HTML markup from the [table examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/table) as follows:
+
+- Add the `nhsuk-table--compact` class to the `<table>` tag
+
+```patch
+- <table class="nhsuk-table">
++ <table class="nhsuk-table nhsuk-table--compact">
+    <!-- // ... -->
+  </table>
+```
 
 This change was introduced in [pull request #1998: Add compact option for tables](https://github.com/nhsuk/nhsuk-frontend/pull/1998).
 
@@ -267,7 +276,7 @@ For example:
 
 You can still use `nhsuk-print-colour` and `nhsuk-print-hide` but we'll remove them in a future breaking release.
 
-#### Replace reverse and responsive table HTML classes
+#### Rename reverse and responsive table HTML classes
 
 We've renamed HTML classes for reverse and responsive tables. You can still use the previous names but we'll remove them in a future breaking release.
 
