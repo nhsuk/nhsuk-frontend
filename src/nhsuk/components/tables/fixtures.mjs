@@ -1011,39 +1011,48 @@ const fixtures = {
       rows: [
         [
           {
+            header: 'Item',
             text: '3-month'
           },
           {
+            header: 'Current charge',
             text: '£31.25',
             format: 'numeric'
           },
           {
+            header: 'New charge',
             text: '£32.05',
             format: 'numeric'
           }
         ],
         [
           {
+            header: 'Item',
             text: '12-month'
           },
           {
+            header: 'Current charge',
             text: '£111.60',
             format: 'numeric'
           },
           {
+            header: 'New charge',
             text: '£114.50',
             format: 'numeric'
           }
         ],
         [
           {
+            header: 'Item',
             text: 'HRT'
           },
           {
+            header: 'Current charge',
             text: '£19.30',
             format: 'numeric'
           },
           {
+            header: 'New charge',
             text: '£19.80',
             format: 'numeric'
           }
