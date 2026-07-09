@@ -1006,6 +1006,10 @@ const fixtures = {
         {
           text: 'New charge',
           format: 'numeric'
+        },
+        {
+          text: '% Increase',
+          format: 'numeric'
         }
       ],
       rows: [
@@ -1023,6 +1027,11 @@ const fixtures = {
             header: 'New charge',
             text: '£32.05',
             format: 'numeric'
+          },
+          {
+            header: '% Increase',
+            text: '2.56%',
+            format: 'numeric'
           }
         ],
         [
@@ -1039,6 +1048,11 @@ const fixtures = {
             header: 'New charge',
             text: '£114.50',
             format: 'numeric'
+          },
+          {
+            header: '% Increase',
+            text: '2.60%',
+            format: 'numeric'
           }
         ],
         [
@@ -1054,6 +1068,11 @@ const fixtures = {
           {
             header: 'New charge',
             text: '£19.80',
+            format: 'numeric'
+          },
+          {
+            header: '% Increase',
+            text: '2.59%',
             format: 'numeric'
           }
         ]
@@ -1080,6 +1099,10 @@ const fixtures = {
         {
           text: 'New charge',
           format: 'numeric'
+        },
+        {
+          text: '% Increase',
+          format: 'numeric'
         }
       ],
       rows: [
@@ -1094,6 +1117,10 @@ const fixtures = {
           {
             text: '£32.05',
             format: 'numeric'
+          },
+          {
+            text: '2.56%',
+            format: 'numeric'
           }
         ],
         [
@@ -1107,6 +1134,10 @@ const fixtures = {
           {
             text: '£114.50',
             format: 'numeric'
+          },
+          {
+            text: '2.60%',
+            format: 'numeric'
           }
         ],
         [
@@ -1119,6 +1150,10 @@ const fixtures = {
           },
           {
             text: '£19.80',
+            format: 'numeric'
+          },
+          {
+            text: '2.59%',
             format: 'numeric'
           }
         ]
