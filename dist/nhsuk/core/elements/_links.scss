@@ -1,0 +1,85 @@
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+
+////
+/// Links
+///
+/// Our basic `<a>` elements only need very minimal styling.
+/// Anything more opinionated (e.g. buttons, calls-to-action, etc.) will need a
+/// class defining in the Components layer.
+///
+/// 1. Outputs full link URL for print.
+/// 2. Point unit used for print.
+///
+/// @group elements
+////
+
+a {
+  @include nhsuk-link-style-default;
+
+  @media print {
+    &::after {
+      content: " (Link: " attr(href) ")"; // [1]
+      color: currentcolor;
+      font-size: inherit; // [2]
+    }
+  }
+}
+
+.nhsuk-link {
+  @include nhsuk-link-style-default;
+}
+
+// Buttons styled as links
+
+// stylelint-disable-next-line selector-no-qualifying-type
+button.nhsuk-link {
+  display: inline;
+
+  align-items: normal;
+
+  padding: 0;
+
+  border: none;
+
+  background-color: transparent;
+
+  font-size: inherit;
+  font-weight: inherit;
+  text-align: left;
+
+  cursor: pointer;
+
+  -webkit-appearance: none;
+
+          appearance: none;
+}
+
+// Variant classes should always be used in conjunction with the .nhsuk-link
+// class or `a` element, to make sure the default link styles are inherited.
+
+.nhsuk-link--text-colour {
+  @include nhsuk-link-style-text;
+}
+
+.nhsuk-link--no-visited-state {
+  @include nhsuk-link-style-no-visited-state;
+}
+
+.nhsuk-link--reverse {
+  @include nhsuk-link-style-reverse;
+
+  @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+    color: LinkText;
+  }
+}
+
+.nhsuk-link--no-underline {
+  @include nhsuk-link-style-no-underline;
+}
+
+// Links that only contain images
+
+.nhsuk-link-image {
+  @include nhsuk-link-image;
+}

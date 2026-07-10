@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/nhsuk/nhsuk-dynamic-type.scss"],"names":[],"mappings":"AAAA;;CAEC","file":"nhsuk-dynamic-type.scss","sourcesContent":["@forward \".\" with (\n  $nhsuk-include-dynamic-type: true\n);\n"]}
