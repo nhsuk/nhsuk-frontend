@@ -1296,6 +1296,87 @@ const fixtures = {
       ]
     }
   },
+  'compact': {
+    context: {
+      caption: 'Prescription prepayment certificate (PPC) charges',
+      captionSize: 'm',
+      compact: true,
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: 'Item'
+        },
+        {
+          text: 'Current charge',
+          format: 'numeric'
+        },
+        {
+          text: 'New charge',
+          format: 'numeric'
+        },
+        {
+          text: '% Increase',
+          format: 'numeric'
+        }
+      ],
+      rows: [
+        [
+          {
+            text: '3-month'
+          },
+          {
+            text: '£31.25',
+            format: 'numeric'
+          },
+          {
+            text: '£32.05',
+            format: 'numeric'
+          },
+          {
+            text: '2.56%',
+            format: 'numeric'
+          }
+        ],
+        [
+          {
+            text: '12-month'
+          },
+          {
+            text: '£111.60',
+            format: 'numeric'
+          },
+          {
+            text: '£114.50',
+            format: 'numeric'
+          },
+          {
+            text: '2.60%',
+            format: 'numeric'
+          }
+        ],
+        [
+          {
+            text: 'HRT'
+          },
+          {
+            text: '£19.30',
+            format: 'numeric'
+          },
+          {
+            text: '£19.80',
+            format: 'numeric'
+          },
+          {
+            text: '2.59%',
+            format: 'numeric'
+          }
+        ]
+      ]
+    },
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
+    }
+  },
   'compact and responsive': {
     context: {
       caption: 'Prescription prepayment certificate (PPC) charges',
@@ -1380,87 +1461,6 @@ const fixtures = {
           },
           {
             header: '% Increase',
-            text: '2.59%',
-            format: 'numeric'
-          }
-        ]
-      ]
-    },
-    screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
-    }
-  },
-  'compact': {
-    context: {
-      caption: 'Prescription prepayment certificate (PPC) charges',
-      captionSize: 'm',
-      compact: true,
-      firstCellIsHeader: true,
-      head: [
-        {
-          text: 'Item'
-        },
-        {
-          text: 'Current charge',
-          format: 'numeric'
-        },
-        {
-          text: 'New charge',
-          format: 'numeric'
-        },
-        {
-          text: '% Increase',
-          format: 'numeric'
-        }
-      ],
-      rows: [
-        [
-          {
-            text: '3-month'
-          },
-          {
-            text: '£31.25',
-            format: 'numeric'
-          },
-          {
-            text: '£32.05',
-            format: 'numeric'
-          },
-          {
-            text: '2.56%',
-            format: 'numeric'
-          }
-        ],
-        [
-          {
-            text: '12-month'
-          },
-          {
-            text: '£111.60',
-            format: 'numeric'
-          },
-          {
-            text: '£114.50',
-            format: 'numeric'
-          },
-          {
-            text: '2.60%',
-            format: 'numeric'
-          }
-        ],
-        [
-          {
-            text: 'HRT'
-          },
-          {
-            text: '£19.30',
-            format: 'numeric'
-          },
-          {
-            text: '£19.80',
-            format: 'numeric'
-          },
-          {
             text: '2.59%',
             format: 'numeric'
           }
