@@ -1,5 +1,6 @@
 import { closestAttributeValue } from '../../common/closest-attribute-value.mjs'
 import { normaliseOptions } from '../../common/configuration/index.mjs'
+import { normaliseString } from '../../common/configuration/normalise-string.mjs'
 import { ConfigurableComponent } from '../../configurable-component.mjs'
 import { ElementError } from '../../errors/index.mjs'
 import { I18n } from '../../i18n.mjs'
@@ -44,6 +45,18 @@ export class Table extends ConfigurableComponent {
       this.i18n = new I18n(this.config.i18n, {
         // Read the fallback if necessary rather than have it set in the defaults
         locale: closestAttributeValue(this.$root, 'lang')
+      })
+
+      this.collators = Object.freeze({
+        string: new Intl.Collator(this.i18n.locale, {
+          ignorePunctuation: true,
+          sensitivity: 'base'
+        }),
+        number: new Intl.Collator(this.i18n.locale, {
+          ignorePunctuation: true,
+          numeric: true,
+          sensitivity: 'base'
+        })
       })
 
       this.createHeadingButtons()
@@ -196,6 +209,12 @@ export class Table extends ConfigurableComponent {
    * @param {string} sortDirection
    */
   sort($rows, columnNumber, sortDirection) {
+    const { collators } = this
+
+    if (!collators) {
+      return $rows
+    }
+
     return $rows.sort(($rowA, $rowB) => {
       const $tdA = $rowA.querySelectorAll('td, th')[columnNumber]
       const $tdB = $rowB.querySelectorAll('td, th')[columnNumber]
@@ -204,32 +223,33 @@ export class Table extends ConfigurableComponent {
         return 0
       }
 
-      const valueA =
+      const [valueA, isNumericA] =
         sortDirection === 'ascending'
           ? this.getCellValue($tdA)
           : this.getCellValue($tdB)
 
-      const valueB =
+      const [valueB, isNumericB] =
         sortDirection === 'ascending'
           ? this.getCellValue($tdB)
           : this.getCellValue($tdA)
 
-      return typeof valueA === 'number' && typeof valueB === 'number'
-        ? valueA - valueB
-        : valueA.toString().localeCompare(valueB.toString())
+      return isNumericA && isNumericB
+        ? collators.number.compare(valueA, valueB)
+        : collators.string.compare(valueA, valueB)
     })
   }
 
   /**
    * @param {HTMLElement} $cell
+   * @returns {[string, boolean]} - Cell value and whether it is numeric
    */
   getCellValue($cell) {
-    const val = $cell.dataset.sortValue ?? $cell.innerHTML
-    const valAsNumber = Number(val)
+    const { sortValue = $cell.textContent.trim() } = $cell.dataset
 
-    return Number.isFinite(valAsNumber)
-      ? valAsNumber // Exclude invalid numbers, infinity etc
-      : val
+    const output = normaliseString(sortValue)
+    const numeric = typeof output === 'number'
+
+    return [output?.toString() ?? '', numeric]
   }
 
   /**
