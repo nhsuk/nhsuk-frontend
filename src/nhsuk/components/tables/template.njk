@@ -154,6 +154,7 @@
     {% endset %}
     {% if loop.first and params.firstCellIsHeader %}
       <th scope="row" class="nhsuk-table__header
+        {%- if cell.format %} nhsuk-table__header--{{ cell.format }}{% endif %}
         {%- if cell.classes %} {{ cell.classes }}{% endif %}"
         {%- if params.responsive %} role="rowheader"{% endif %}
         {{- commonAttributes | safe }}>
