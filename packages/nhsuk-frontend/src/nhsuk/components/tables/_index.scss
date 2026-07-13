@@ -234,7 +234,7 @@
   // Column headings for sortable tables gain 2px spacing
   // on the left to avoid the text being right up against
   // a hover background colour the previous column
-  .nhsuk-table--with-sortable-columns thead th {
+  .nhsuk-table--sortable thead th {
     padding-left: $nhsuk-border-width-form-element;
   }
 
