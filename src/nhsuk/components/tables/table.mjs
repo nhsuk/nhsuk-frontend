@@ -233,6 +233,11 @@ export class Table extends ConfigurableComponent {
   }
 
   /**
+   * Name for the component used when initialising using data-module attributes
+   */
+  static moduleName = 'nhsuk-table'
+
+  /**
    * Sortable table config
    *
    * @see {@link TableConfig}
@@ -258,11 +263,6 @@ export class Table extends ConfigurableComponent {
       i18n: { type: 'object' }
     }
   })
-
-  /**
-   * Name for the component used when initialising using data-module attributes
-   */
-  static moduleName = 'nhsuk-table'
 }
 
 /**
