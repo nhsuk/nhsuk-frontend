@@ -91,6 +91,60 @@
   {{- nhsukAttributes(params.attributes) -}}
 {% endset %}
 
+{%- macro _tableCell(item, parent) %}
+{%- set element = item.element | lower if item.element else "td" -%}
+{%- set classNameCell = "nhsuk-table__header" if element == "th" else "nhsuk-table__cell" -%}
+{%- set classNamesCell = classNameCell -%}
+
+{%- if item.format == "numeric" and (not item.classes or not classNameCell ~ "--" ~ item.format in item.classes) %}
+  {% set classNamesCell = classNamesCell ~ " " ~ classNameCell ~ "--" ~ item.format %}
+{% endif %}
+
+{%- if item.classes %}
+  {% set classNamesCell = classNamesCell ~ " " ~ item.classes %}
+{% endif -%}
+
+<{{ element }}
+  {{- nhsukAttributes({
+    class: classNamesCell,
+    scope: {
+      value: item.scope,
+      optional: true
+    },
+    role: {
+      value: item.role,
+      optional: true
+    },
+    colspan: {
+      value: item.colspan,
+      optional: true
+    },
+    rowspan: {
+      value: item.rowspan,
+      optional: true
+    }
+  }) -}}
+
+  {{- nhsukAttributes(item.attributes) }}>
+{% set innerHtml %}
+  {% if caller %}
+    {{- caller() }}
+  {% elif item.html %}
+    {{- item.html | safe -}}
+  {% elif item.text %}
+    {{- item.text -}}
+  {% endif %}
+{% endset %}
+{% if item.href %}
+  <a href="{{ item.href }}">
+    {{- innerHtml | safe | trim | indent(2) -}}
+  </a>
+{% else %}
+  {{ innerHtml | safe | trim | indent(2) }}
+{% endif %}
+</{{ element }}>
+{% endmacro -%}
+
 {%- set tableHtml -%}
 <table {{- attributesHtml | safe }}>
 {% if params.caption %}
@@ -106,70 +160,64 @@
   <thead class="nhsuk-table__head" {%- if params.responsive %} role="rowgroup"{% endif %}>
     <tr class="nhsuk-table__row" {%- if params.responsive %} role="row"{% endif %}>
     {% for item in head %}
-      <th scope="col" class="nhsuk-table__header
-        {%- if item.format %} nhsuk-table__header--{{ item.format }}{% endif %}
-        {%- if item.classes %} {{ item.classes }}{% endif %}"
-        {%- if item.colspan %} colspan="{{ item.colspan }}"{% endif %}
-        {%- if item.rowspan %} rowspan="{{ item.rowspan }}"{% endif %}
-        {%- if params.responsive %} role="columnheader"{% endif %}
-        {%- if item.sortable %} aria-sort="{{ item.sortFirstDirection if item.initialSortColumn and item.sortFirstDirection else "none" }}"{% endif %}
-        {%- if item.sortable and item.sortFirstDirection %} data-sort-first-direction="{{ item.sortFirstDirection }}"{% endif %}
-        {{- nhsukAttributes(item.attributes) }}>
-      {% if item.href %}
-        <a href="{{ item.href }}">
-          {{- item.html | safe | trim | indent(8) if item.html else item.text -}}
-        </a>
-      {% else %}
-        {{ item.html | safe | trim | indent(8) if item.html else item.text }}
-      {% endif %}
-      </th>
+      {{ _tableCell({
+        text: item.text,
+        html: item.html,
+        href: item.href,
+        format: item.format,
+        scope: "col",
+        role: "columnheader" if params.responsive else undefined,
+        colspan: item.colspan,
+        rowspan: item.rowspan,
+        classes: item.classes,
+        attributes: nhsukAttributes({
+          "data-sort-first-direction": {
+            value: item.sortFirstDirection if item.sortable and item.sortFirstDirection else false,
+            optional: true
+          },
+          "aria-sort": {
+            value: item.sortFirstDirection if item.sortable and item.initialSortColumn and item.sortFirstDirection else
+              ("none" if item.sortable else false),
+            optional: true
+          }
+        }) ~ nhsukAttributes(item.attributes),
+        element: "th"
+      }, params) | trim | indent(6) }}
     {% endfor %}
     </tr>
   </thead>
 {% endif %}
   <tbody class="nhsuk-table__body">
-{% for row in rows %}
+  {% for row in rows %}
     <tr class="nhsuk-table__row" {%- if params.responsive %} role="row"{% endif %}>
-  {% for cell in row | select("mapping") if row | length else [] %}
-    {% set commonAttributes %}
-      {%- if cell.colspan %} colspan="{{ cell.colspan }}"{% endif %}
-      {%- if cell.rowspan %} rowspan="{{ cell.rowspan }}"{% endif %}
-      {{- nhsukAttributes(cell.attributes) -}}
-    {% endset %}
-    {% set commonContents %}
-      {%- if params.responsive -%}
-        {%- if cell.header -%}
-          <span class="nhsuk-table-responsive__heading" aria-hidden="true">{{ cell.header }} </span>
-        {%- endif -%}
-        {%- if cell.html -%}
-          <span>{{ cell.html | safe }}</span>
-        {%- else -%}
-          {{- cell.text -}}
-        {%- endif -%}
-      {%- else -%}
-        {{- cell.html | safe if cell.html else cell.text -}}
-      {%- endif -%}
-    {% endset %}
-    {% if loop.first and params.firstCellIsHeader %}
-      <th scope="row" class="nhsuk-table__header
-        {%- if cell.format %} nhsuk-table__header--{{ cell.format }}{% endif %}
-        {%- if cell.classes %} {{ cell.classes }}{% endif %}"
-        {%- if params.responsive %} role="rowheader"{% endif %}
-        {{- commonAttributes | safe }}>
-        {{ commonContents | safe | trim | indent(8) }}
-      </th>
-    {% else %}
-      <td class="nhsuk-table__cell
-        {%- if cell.format %} nhsuk-table__cell--{{ cell.format }}{% endif %}
-        {%- if cell.classes %} {{ cell.classes }}{% endif %}"
-        {%- if params.responsive %} role="cell"{% endif %}
-        {{- commonAttributes | safe }}>
-        {{ commonContents | safe | trim | indent(8) }}
-      </td>
-    {% endif %}
-  {% endfor %}
+    {% for item in row | select("mapping") if row | length else [] %}
+      {%- set innerHtml %}
+        {%- if params.responsive and item.header -%}
+          <span class="nhsuk-table-responsive__heading" aria-hidden="true">{{ item.header }} </span>
+        {%- endif %}
+        {% if params.responsive and item.html -%}
+          <span>{{ item.html | safe | trim }}</span>
+        {%- elif item.html %}
+          {{- item.html | safe | trim -}}
+        {% elif item.text %}
+          {{- item.text | trim -}}
+        {% endif %}
+      {% endset %}
+
+      {{- _tableCell({
+        html: innerHtml,
+        format: item.format,
+        scope: "row" if loop.first and params.firstCellIsHeader else undefined,
+        role: ("rowheader" if loop.first and params.firstCellIsHeader else "cell") if params.responsive else undefined,
+        colspan: item.colspan,
+        rowspan: item.rowspan,
+        classes: item.classes,
+        attributes: item.attributes,
+        element: "th" if loop.first and params.firstCellIsHeader else "td"
+      }, params) | trim | indent(6, true) }}
+    {% endfor %}
     </tr>
-{% endfor %}
+  {% endfor %}
   </tbody>
 </table>
 {%- endset %}
