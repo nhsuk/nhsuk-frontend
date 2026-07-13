@@ -589,9 +589,7 @@ const fixtures = {
           },
           {
             text: '4 January 2027',
-            attributes: {
-              'data-sort-value': '2027-01-04'
-            }
+            sortValue: '2027-01-04'
           }
         ],
         [
@@ -604,9 +602,7 @@ const fixtures = {
           },
           {
             text: '15 March 2027',
-            attributes: {
-              'data-sort-value': '2027-03-15'
-            }
+            sortValue: '2027-03-15'
           }
         ],
         [
@@ -619,9 +615,7 @@ const fixtures = {
           },
           {
             text: '22 June 2026',
-            attributes: {
-              'data-sort-value': '2026-06-22'
-            }
+            sortValue: '2026-06-22'
           }
         ],
         [
@@ -634,9 +628,7 @@ const fixtures = {
           },
           {
             text: '8 September 2027',
-            attributes: {
-              'data-sort-value': '2027-09-08'
-            }
+            sortValue: '2027-09-08'
           }
         ],
         [
@@ -649,9 +641,7 @@ const fixtures = {
           },
           {
             text: '30 November 2026',
-            attributes: {
-              'data-sort-value': '2026-11-30'
-            }
+            sortValue: '2026-11-30'
           }
         ],
         [
@@ -664,9 +654,7 @@ const fixtures = {
           },
           {
             text: '17 February 2028',
-            attributes: {
-              'data-sort-value': '2028-02-17'
-            }
+            sortValue: '2028-02-17'
           }
         ]
       ]

@@ -45,6 +45,12 @@ const options = {
           'Specify format of a cell. Currently we only use `"numeric"`.',
         released: '1.0.0'
       },
+      sortValue: {
+        type: 'string',
+        required: false,
+        description: 'Sort value text for cells in table rows.',
+        released: '10.6.0'
+      },
       colspan: {
         type: 'integer',
         required: false,

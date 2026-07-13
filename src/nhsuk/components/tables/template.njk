@@ -206,7 +206,12 @@
         colspan: item.colspan,
         rowspan: item.rowspan,
         classes: item.classes,
-        attributes: item.attributes,
+        attributes: nhsukAttributes({
+          "data-sort-value": {
+            value: item.sortValue if item.sortValue else false,
+            optional: true
+          }
+        }) ~ nhsukAttributes(item.attributes),
         element: "th" if loop.first and params.firstCellIsHeader else "td"
       }, params) | trim | indent(6, true) }}
     {% endfor %}
