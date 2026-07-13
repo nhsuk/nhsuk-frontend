@@ -38,14 +38,7 @@ export class Table extends ConfigurableComponent {
 
     this.$headings = Array.from(this.$head.querySelectorAll('th'))
 
-    // Count headings with an `aria-sort` attribute but no link
-    // (links are for server-side sorting)
-    const hasSortableHeadings = this.$headings.some((heading) => {
-      return heading.getAttribute('aria-sort') && !heading.querySelector('a')
-    })
-
-    if (hasSortableHeadings) {
-      this.$root.classList.add('nhsuk-table--with-sortable-columns')
+    if (this.$root.classList.contains('nhsuk-table--sortable')) {
       this.createHeadingButtons()
       this.updateCaption()
       this.createStatusBox()
