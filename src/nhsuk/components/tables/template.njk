@@ -26,6 +26,10 @@
   {% set classNames = classNames ~ " nhsuk-table--responsive" %}
 {% endif %}
 
+{%- if params.sortable and (not params.classes or not "nhsuk-table--sortable" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-table--sortable" %}
+{% endif %}
+
 {%- if params.captionSize and
   params.captionSize in ["s", "m", "l", "xl"] and (
     not params.captionClasses or (
