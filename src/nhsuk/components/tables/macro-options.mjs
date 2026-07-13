@@ -57,6 +57,12 @@ const options = {
         description: 'Specify how many rows a cell extends.',
         released: '1.0.0'
       },
+      classes: {
+        type: 'string',
+        required: false,
+        description: 'Classes to add to the table cell.',
+        released: '9.4.0'
+      },
       attributes: {
         type: 'object',
         required: false,
@@ -110,6 +116,12 @@ const options = {
         required: false,
         description: 'Specify how many rows a cell extends.',
         released: '1.0.0'
+      },
+      classes: {
+        type: 'string',
+        required: false,
+        description: 'Classes to add to the table head cell.',
+        released: '9.4.0'
       },
       attributes: {
         type: 'object',
