@@ -246,8 +246,12 @@ export class Table extends ConfigurableComponent {
   getCellValue($cell) {
     const { sortValue = $cell.textContent.trim() } = $cell.dataset
 
+    const hasFormatNumeric =
+      $cell.classList.contains('nhsuk-table__header--numeric') ||
+      $cell.classList.contains('nhsuk-table__cell--numeric')
+
     const output = normaliseString(sortValue)
-    const numeric = typeof output === 'number'
+    const numeric = hasFormatNumeric || typeof output === 'number'
 
     return [output?.toString() ?? '', numeric]
   }
