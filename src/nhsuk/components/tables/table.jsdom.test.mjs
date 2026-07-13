@@ -1,44 +1,61 @@
-import { outdent } from 'outdent'
-
 import { components } from '#lib'
 
 import { examples } from './fixtures.mjs'
 import { Table, initTables } from './table.mjs'
 
 describe('Table', () => {
-  /** @type {HTMLElement} */
-  let $root, $head
+  /** @type {HTMLElement | null} */
+  let $root = null
+
+  /** @type {HTMLElement | null} */
+  let $caption = null
+
+  /** @type {HTMLElement | null} */
+  let $head = null
+
+  /** @type {HTMLElement | null} */
+  let $body = null
 
   /** @type {HTMLElement[]} */
-  let $sortButtons
+  let $headings = []
 
-  beforeEach(() => {
-    document.body.innerHTML = outdent`
-      <div>
-        ${components.render('tables', examples['with numeric data, sortable'])}
-      </div>
-    `
+  /**
+   * @param {keyof typeof examples} example
+   */
+  function initExample(example) {
+    document.body.innerHTML = components.render('tables', examples[example])
 
-    $root = /** @type {HTMLElement} */ (
+    $root = /** @type {HTMLElement | null} */ (
       document.querySelector(`[data-module="${Table.moduleName}"]`)
     )
-    $head = /** @type {HTMLElement} */ (document.querySelector(`thead`))
 
-    jest.spyOn($root, 'addEventListener')
-    jest.spyOn($head, 'addEventListener')
+    $caption = document.querySelector('caption')
+    $head = document.querySelector('thead')
+    $body = document.querySelector('tbody')
+
+    $headings = [...document.querySelectorAll('thead th[aria-sort]')]
+
+    if ($head) {
+      jest.spyOn($head, 'addEventListener')
+    }
+  }
+
+  beforeEach(() => {
+    initExample('with numeric data, sortable')
   })
 
   describe('Initialisation via init function', () => {
     it('should add event listeners', () => {
       initTables()
 
-      expect(
-        $root.querySelector('thead')?.addEventListener
-      ).toHaveBeenCalledWith('click', expect.any(Function))
+      expect($head?.addEventListener).toHaveBeenCalledWith(
+        'click',
+        expect.any(Function)
+      )
     })
 
     it('should throw with missing table head', () => {
-      $root.querySelector('thead')?.remove()
+      $head?.remove()
 
       expect(() => initTables()).toThrow(
         `${Table.moduleName}: Table head (\`<thead>\`) not found`
@@ -46,7 +63,7 @@ describe('Table', () => {
     })
 
     it('should throw with missing table body', () => {
-      $root.querySelector('tbody')?.remove()
+      $body?.remove()
 
       expect(() => initTables()).toThrow(
         `${Table.moduleName}: Table body (\`<tbody>\`) not found`
@@ -103,24 +120,26 @@ describe('Table', () => {
   })
 
   describe('Heading buttons', () => {
+    /** @type {HTMLButtonElement[]} */
+    let $sortButtons = []
+
     beforeEach(() => {
       initTables()
 
-      $sortButtons = /** @type {HTMLElement[]} */ ([
-        ...$root.querySelectorAll('thead th[aria-sort] button')
-      ])
+      $sortButtons = $headings
+        .map(($heading) => $heading.querySelector('button'))
+        .filter(($button) => !!$button)
     })
 
     it('should create sort buttons for sortable columns', () => {
+      expect($headings).toHaveLength(4)
       expect($sortButtons).toHaveLength(4)
     })
 
     it('should copy the heading text into the sort button', () => {
-      let $sortButtonsText = $sortButtons.map((button) =>
-        button.textContent.trim()
-      )
+      let buttonsText = $sortButtons.map((button) => button.textContent.trim())
 
-      expect($sortButtonsText).toEqual(['Nation', 'MMR', '6-in-1', 'Rotavirus'])
+      expect(buttonsText).toEqual(['Nation', 'MMR', '6-in-1', 'Rotavirus'])
     })
   })
 
@@ -128,8 +147,8 @@ describe('Table', () => {
     it('should add assistive text to caption', () => {
       initTables()
 
-      const $captionDescription = $root.querySelector(
-        'caption .nhsuk-u-visually-hidden'
+      const $captionDescription = $caption?.querySelector(
+        '.nhsuk-u-visually-hidden'
       )
 
       expect($captionDescription).toHaveTextContent(
@@ -144,7 +163,7 @@ describe('Table', () => {
 
       const $screenReaderStatusMessage = document.querySelector('[role=status]')
 
-      expect($screenReaderStatusMessage).toBe($root.nextElementSibling)
+      expect($screenReaderStatusMessage).toBe($root?.nextElementSibling)
       expect($screenReaderStatusMessage).toHaveAttribute('role', 'status')
       expect($screenReaderStatusMessage).toHaveAttribute('aria-live', 'polite')
       expect($screenReaderStatusMessage).toHaveAttribute('aria-atomic', 'true')
@@ -155,12 +174,15 @@ describe('Table', () => {
   })
 
   describe('Sorting', () => {
+    /** @type {HTMLButtonElement[]} */
+    let $sortButtons = []
+
     beforeEach(() => {
       initTables()
 
-      $sortButtons = /** @type {HTMLElement[]} */ ([
-        ...$root.querySelectorAll('thead th[aria-sort] button')
-      ])
+      $sortButtons = $headings
+        .map(($heading) => $heading.querySelector('button'))
+        .filter(($button) => !!$button)
     })
 
     it('should use data-initial-sort direction when clicking a button on a currently unsorted column', () => {
@@ -170,7 +192,7 @@ describe('Table', () => {
       // MMR column has data-initial-sort="descending" in the fixture
       $mmrButton.click()
 
-      expect($mmrHeading?.getAttribute('aria-sort')).toBe('descending')
+      expect($mmrHeading).toHaveAttribute('aria-sort', 'descending')
     })
 
     it('should default to ascending when data-initial-sort is not set', () => {
@@ -183,22 +205,22 @@ describe('Table', () => {
       // Nation column does NOT have data-initial-sort attribute
       // First click another column to reset Nation to 'none'
       $mmrButton.click()
-      expect($nationHeading?.getAttribute('aria-sort')).toBe('none')
+      expect($nationHeading).toHaveAttribute('aria-sort', 'none')
 
       // Now click Nation - without data-initial-sort it should default to ascending
       $nationButton.click()
-      expect($nationHeading?.getAttribute('aria-sort')).toBe('ascending')
+      expect($nationHeading).toHaveAttribute('aria-sort', 'ascending')
     })
 
     it('should set aria-sort to descending when clicking a button on a column currently in ascending order', () => {
       const $nationButton = $sortButtons[0]
       const $nationHeading = $nationButton.closest('th')
 
-      expect($nationHeading?.getAttribute('aria-sort')).toBe('ascending')
+      expect($nationHeading).toHaveAttribute('aria-sort', 'ascending')
 
       $nationButton.click()
 
-      expect($nationHeading?.getAttribute('aria-sort')).toBe('descending')
+      expect($nationHeading).toHaveAttribute('aria-sort', 'descending')
     })
 
     it('should set aria-sort to ascending when clicking a button on a column currently in descending order', () => {
@@ -207,11 +229,11 @@ describe('Table', () => {
 
       // First click to make it descending
       $nationButton.click()
-      expect($nationHeading?.getAttribute('aria-sort')).toBe('descending')
+      expect($nationHeading).toHaveAttribute('aria-sort', 'descending')
 
       // Second click to make it ascending again
       $nationButton.click()
-      expect($nationHeading?.getAttribute('aria-sort')).toBe('ascending')
+      expect($nationHeading).toHaveAttribute('aria-sort', 'ascending')
     })
 
     it('should reset other columns to "none" when sorting a column', () => {
@@ -220,19 +242,19 @@ describe('Table', () => {
       const $nationHeading = $nationButton.closest('th')
       const $mmrHeading = $mmrButton.closest('th')
 
-      expect($nationHeading?.getAttribute('aria-sort')).toBe('ascending')
+      expect($nationHeading).toHaveAttribute('aria-sort', 'ascending')
 
       // MMR column has data-initial-sort="descending" in the fixture
       $mmrButton.click()
 
-      expect($nationHeading?.getAttribute('aria-sort')).toBe('none')
-      expect($mmrHeading?.getAttribute('aria-sort')).toBe('descending')
+      expect($nationHeading).toHaveAttribute('aria-sort', 'none')
+      expect($mmrHeading).toHaveAttribute('aria-sort', 'descending')
     })
 
     it('should update status message when sorting', () => {
       const $screenReaderStatusMessage = document.querySelector('[role=status]')
 
-      expect($screenReaderStatusMessage).toBe($root.nextElementSibling)
+      expect($screenReaderStatusMessage).toBe($root?.nextElementSibling)
       expect($screenReaderStatusMessage).toBeEmptyDOMElement()
 
       const $mmrButton = $sortButtons[1]
@@ -246,25 +268,24 @@ describe('Table', () => {
     })
 
     it('should reorder rows when sorting', () => {
-      const $tbody = $root.querySelector('tbody')
       const $mmrButton = $sortButtons[1]
 
-      // Get initial first row nation
-      const getFirstRowNation = () =>
-        $tbody?.querySelector('tr th')?.textContent
+      function getRowHeading() {
+        return document.querySelector('tbody tr th')
+      }
 
-      expect(getFirstRowNation()?.trim()).toBe('England')
+      expect(getRowHeading()).toHaveTextContent('England')
 
       // Sort by MMR descending first (Wales has highest at 89.5%)
       // because MMR column has data-initial-sort="descending"
       $mmrButton.click()
 
-      expect(getFirstRowNation()?.trim()).toBe('Wales')
+      expect(getRowHeading()).toHaveTextContent('Wales')
 
       // Sort by MMR ascending (England has lowest at 83.7%)
       $mmrButton.click()
 
-      expect(getFirstRowNation()?.trim()).toBe('England')
+      expect(getRowHeading()).toHaveTextContent('England')
     })
   })
 
@@ -288,17 +309,17 @@ describe('Table', () => {
 
       const $screenReaderStatusMessage = document.querySelector('[role=status]')
 
-      expect($screenReaderStatusMessage).toBe($root.nextElementSibling)
+      expect($screenReaderStatusMessage).toBe($root?.nextElementSibling)
       expect($screenReaderStatusMessage).toBeEmptyDOMElement()
 
-      const $sortButtons = /** @type {HTMLElement[]} */ ([
-        ...$root.querySelectorAll('thead th[aria-sort] button')
-      ])
+      const $sortButtons = document.querySelectorAll(
+        'thead th[aria-sort] button'
+      )
 
       // MMR column has data-initial-sort="descending" in the fixture
       const $mmrButton = $sortButtons[1]
 
-      $mmrButton.click()
+      $mmrButton?.click()
 
       expect($screenReaderStatusMessage).toHaveTextContent(
         'Ordered by MMR in Z-A order'
