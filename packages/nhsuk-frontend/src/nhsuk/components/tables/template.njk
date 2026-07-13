@@ -53,6 +53,8 @@
 {% endif %}
 
 {%- set captionDescriptionText = params.captionDescriptionText | default("Column headers are sortable") %}
+{%- set head = params.head | select("mapping") if params.head | length else [] %}
+{%- set rows = params.rows | select("iterable") if params.rows | length else [] %}
 
 {%- set attributesHtml %}
   {{- nhsukAttributes({
@@ -100,11 +102,10 @@
   {% endif %}
   </caption>
 {% endif %}
-{% if params.head %}
+{% if head | length %}
   <thead class="nhsuk-table__head" {%- if params.responsive %} role="rowgroup"{% endif %}>
     <tr class="nhsuk-table__row" {%- if params.responsive %} role="row"{% endif %}>
-    {% for item in params.head %}
-      {% if item %}
+    {% for item in head %}
       <th scope="col" class="nhsuk-table__header
         {%- if item.format %} nhsuk-table__header--{{ item.format }}{% endif %}
         {%- if item.classes %} {{ item.classes }}{% endif %}"
@@ -122,17 +123,14 @@
         {{ item.html | safe | trim | indent(8) if item.html else item.text }}
       {% endif %}
       </th>
-      {% endif %}
     {% endfor %}
     </tr>
   </thead>
 {% endif %}
   <tbody class="nhsuk-table__body">
-{% for row in params.rows %}
-  {% if row %}
+{% for row in rows %}
     <tr class="nhsuk-table__row" {%- if params.responsive %} role="row"{% endif %}>
-  {% for cell in row %}
-    {% if cell %}
+  {% for cell in row | select("mapping") if row | length else [] %}
     {% set commonAttributes %}
       {%- if cell.colspan %} colspan="{{ cell.colspan }}"{% endif %}
       {%- if cell.rowspan %} rowspan="{{ cell.rowspan }}"{% endif %}
@@ -169,10 +167,8 @@
         {{ commonContents | safe | trim | indent(8) }}
       </td>
     {% endif %}
-    {% endif %}
   {% endfor %}
     </tr>
-  {% endif %}
 {% endfor %}
   </tbody>
 </table>
