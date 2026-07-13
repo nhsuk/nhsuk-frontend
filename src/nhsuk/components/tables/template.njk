@@ -114,11 +114,13 @@
         {%- if item.sortable %} aria-sort="{{ item.sortFirstDirection if item.initialSortColumn and item.sortFirstDirection else "none" }}"{% endif %}
         {%- if item.sortable and item.sortFirstDirection %} data-sort-first-direction="{{ item.sortFirstDirection }}"{% endif %}
         {{- nhsukAttributes(item.attributes) }}>
-        {% if item.href %}
-          <a href="{{ item.href }}">{{ item.html | safe | trim | indent(8) if item.html else item.text }}</a>
-        {% else %}
-          {{ item.html | safe | trim | indent(8) if item.html else item.text }}
-        {% endif %}
+      {% if item.href %}
+        <a href="{{ item.href }}">
+          {{- item.html | safe | trim | indent(8) if item.html else item.text -}}
+        </a>
+      {% else %}
+        {{ item.html | safe | trim | indent(8) if item.html else item.text }}
+      {% endif %}
       </th>
       {% endif %}
     {% endfor %}
