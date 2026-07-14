@@ -143,16 +143,9 @@ export class Table extends ConfigurableComponent {
     )
 
     const index = this.getIndex($heading)
-    if (!$heading || index < 0) {
-      return
-    }
-
-    const sortDirection = $heading.getAttribute('aria-sort')
-    if (!(sortDirection === 'ascending' || sortDirection === 'descending')) {
-      return
-    }
-
+    const sortDirection = this.getDirection($heading)
     const $sortedRows = this.sort(index, sortDirection)
+
     this.addRows($sortedRows)
   }
 
@@ -169,23 +162,18 @@ export class Table extends ConfigurableComponent {
       return
     }
 
-    const sortDirection = $heading.getAttribute('aria-sort')
+    const sortDirection = this.getDirection($heading)
     const { sortFirstDirection } = $heading.dataset
 
     /** @type {'ascending' | 'descending'} */
-    let newSortDirection
+    let newSortDirection = 'ascending'
 
     if (sortDirection === 'descending') {
       newSortDirection = 'ascending'
     } else if (sortDirection === 'ascending') {
       newSortDirection = 'descending'
-    } else if (
-      sortFirstDirection === 'ascending' ||
-      sortFirstDirection === 'descending'
-    ) {
+    } else if (sortFirstDirection === 'descending') {
       newSortDirection = sortFirstDirection
-    } else {
-      newSortDirection = 'ascending'
     }
 
     const $sortedRows = this.sort(index, newSortDirection)
@@ -197,9 +185,13 @@ export class Table extends ConfigurableComponent {
 
   /**
    * @param {Element} $heading
-   * @param {'ascending' | 'descending'} direction
+   * @param {TableSortDirection} [direction]
    */
-  updateColumnState($heading, direction) {
+  updateColumnState($heading, direction = 'ascending') {
+    if (!(direction === 'ascending' || direction === 'descending')) {
+      return
+    }
+
     $heading.setAttribute('aria-sort', direction)
 
     this.$screenReaderStatusMessage.textContent = this.i18n.t(
@@ -230,9 +222,13 @@ export class Table extends ConfigurableComponent {
 
   /**
    * @param {number} index
-   * @param {string} sortDirection
+   * @param {TableSortDirection} [sortDirection]
    */
-  sort(index, sortDirection) {
+  sort(index, sortDirection = 'ascending') {
+    if (!(sortDirection === 'ascending' || sortDirection === 'descending')) {
+      return this.$rows
+    }
+
     return this.$rows.sort(($rowA, $rowB) => {
       const $cellA = $rowA.querySelectorAll('td, th')[index]
       const $cellB = $rowB.querySelectorAll('td, th')[index]
@@ -258,6 +254,17 @@ export class Table extends ConfigurableComponent {
    */
   getIndex($heading) {
     return $heading ? this.$headings.indexOf($heading) : -1
+  }
+
+  /**
+   * @param {HTMLElement | null} [$heading]
+   * @returns {TableSortDirection}
+   */
+  getDirection($heading) {
+    const direction = $heading?.getAttribute('aria-sort')
+    return direction === 'ascending' || direction === 'descending'
+      ? direction
+      : 'none'
   }
 
   /**
@@ -334,6 +341,12 @@ export function initTables(options) {
  * @see {@link Table.defaults}
  * @typedef {object} TableConfig
  * @property {TableTranslations} [i18n=Table.defaults.i18n] - Table translations
+ */
+
+/**
+ * Table sort direction
+ *
+ * @typedef {'ascending' | 'descending' | 'none'} TableSortDirection
  */
 
 /**
