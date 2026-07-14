@@ -128,27 +128,29 @@ describe('Table', () => {
     it('should add assistive text to caption', () => {
       initTables()
 
-      const $caption = $root.querySelector('caption')
-      const $assistiveText = $caption?.querySelector('.nhsuk-u-visually-hidden')
+      const $captionDescription = $root.querySelector(
+        'caption .nhsuk-u-visually-hidden'
+      )
 
-      expect($assistiveText).not.toBeNull()
-      expect($assistiveText?.textContent).toBe(
-        ' (column headers with buttons are sortable).'
+      expect($captionDescription).toHaveTextContent(
+        '(Column headers are sortable)'
       )
     })
   })
 
-  describe('Status box', () => {
-    it('should create a status element after the table', () => {
+  describe('Status message', () => {
+    it('should create a status message after the table', () => {
       initTables()
 
-      const $status = $root.nextElementSibling
+      const $screenReaderStatusMessage = document.querySelector('[role=status]')
 
-      expect($status).not.toBeNull()
-      expect($status?.getAttribute('role')).toBe('status')
-      expect($status?.getAttribute('aria-live')).toBe('polite')
-      expect($status?.getAttribute('aria-atomic')).toBe('true')
-      expect($status?.classList.contains('nhsuk-u-visually-hidden')).toBe(true)
+      expect($screenReaderStatusMessage).toBe($root.nextElementSibling)
+      expect($screenReaderStatusMessage).toHaveAttribute('role', 'status')
+      expect($screenReaderStatusMessage).toHaveAttribute('aria-live', 'polite')
+      expect($screenReaderStatusMessage).toHaveAttribute('aria-atomic', 'true')
+      expect($screenReaderStatusMessage?.classList).toContain(
+        'nhsuk-u-visually-hidden'
+      )
     })
   })
 
@@ -228,13 +230,19 @@ describe('Table', () => {
     })
 
     it('should update status message when sorting', () => {
+      const $screenReaderStatusMessage = document.querySelector('[role=status]')
+
+      expect($screenReaderStatusMessage).toBe($root.nextElementSibling)
+      expect($screenReaderStatusMessage).toBeEmptyDOMElement()
+
       const $mmrButton = $sortButtons[1]
-      const $status = $root.nextElementSibling
 
       // MMR column has data-initial-sort="descending" in the fixture
       $mmrButton.click()
 
-      expect($status?.textContent).toBe('Sorted by MMR (descending)')
+      expect($screenReaderStatusMessage).toHaveTextContent(
+        'Sorted by MMR (descending)'
+      )
     })
 
     it('should reorder rows when sorting', () => {
@@ -262,19 +270,26 @@ describe('Table', () => {
 
   describe('Configuration', () => {
     it('should have default configuration values', () => {
-      expect(Table.defaults.statusMessage).toBe(
-        'Sorted by %heading% (%direction%)'
-      )
-      expect(Table.defaults.ascendingText).toBe('ascending')
-      expect(Table.defaults.descendingText).toBe('descending')
+      expect(Table.defaults.i18n).toMatchObject({
+        sortAnnouncement: 'Sorted by %{heading} (%{direction})',
+        ascending: 'ascending',
+        descending: 'descending'
+      })
     })
 
     it('should accept custom configuration', () => {
       new Table($root, {
-        statusMessage: 'Ordered by %heading% in %direction% order',
-        ascendingText: 'A-Z',
-        descendingText: 'Z-A'
+        i18n: {
+          sortAnnouncement: 'Ordered by %{heading} in %{direction} order',
+          ascending: 'A-Z',
+          descending: 'Z-A'
+        }
       })
+
+      const $screenReaderStatusMessage = document.querySelector('[role=status]')
+
+      expect($screenReaderStatusMessage).toBe($root.nextElementSibling)
+      expect($screenReaderStatusMessage).toBeEmptyDOMElement()
 
       const $sortButtons = /** @type {HTMLElement[]} */ ([
         ...$root.querySelectorAll('thead th[aria-sort] button')
@@ -282,11 +297,12 @@ describe('Table', () => {
 
       // MMR column has data-initial-sort="descending" in the fixture
       const $mmrButton = $sortButtons[1]
-      const $status = $root.nextElementSibling
 
       $mmrButton.click()
 
-      expect($status?.textContent).toBe('Ordered by MMR in Z-A order')
+      expect($screenReaderStatusMessage).toHaveTextContent(
+        'Ordered by MMR in Z-A order'
+      )
     })
   })
 })
