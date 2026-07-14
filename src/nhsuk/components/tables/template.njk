@@ -1,4 +1,5 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/i18n.njk" import nhsukI18nAttributes %}
 {% from "nhsuk/components/card/macro.njk" import card %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
 
@@ -51,13 +52,52 @@
   {% set classNamesCaption = classNamesCaption ~ " " ~ params.captionClasses %}
 {% endif %}
 
-{%- set table -%}
-<table class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
-  {%- if params.responsive %} role="table"{% endif %}
-  {{- nhsukAttributes(params.attributes) }} data-module="nhsuk-table">
+{%- set captionDescriptionText = params.captionDescriptionText | default("Column headers are sortable") %}
+
+{%- set attributesHtml %}
+  {{- nhsukAttributes({
+    class: classNames,
+    id: {
+      value: params.id,
+      optional: true
+    },
+    "data-module": "nhsuk-table"
+  }) -}}
+
+  {{- nhsukI18nAttributes({
+    key: "sort-announcement",
+    message: params.sortAnnouncementText
+  }) -}}
+
+  {{- nhsukI18nAttributes({
+    key: "ascending",
+    message: params.ascendingText
+  }) -}}
+
+  {{- nhsukI18nAttributes({
+    key: "descending",
+    message: params.descendingText
+  }) -}}
+
+  {{- nhsukAttributes({
+    role: {
+      value: "table" if params.responsive else false,
+      optional: true
+    }
+  }) -}}
+
+  {{- nhsukAttributes(params.attributes) -}}
+{% endset %}
+
+{%- set tableHtml -%}
+<table {{- attributesHtml | safe }}>
 {% if params.caption %}
   <caption class="{{ classNamesCaption }}">
+  {% if "nhsuk-table--sortable" in classNames %}
+    {{ params.caption }}<span class="nhsuk-u-visually-hidden"> ({{ captionDescriptionText }})</span>
+  {% else %}
     {{ params.caption }}
+  {% endif %}
   </caption>
 {% endif %}
 {% if params.head %}
@@ -142,8 +182,8 @@
     classes: params.panelClasses,
     variant: "feature"
   }) -%}
-    {{ table | safe | trim | indent(4) }}
+    {{ tableHtml | safe | trim | indent(4) }}
   {%- endcall %}
 {%- else -%}
-  {{ table | safe | trim }}
+  {{ tableHtml | safe | trim }}
 {% endif %}

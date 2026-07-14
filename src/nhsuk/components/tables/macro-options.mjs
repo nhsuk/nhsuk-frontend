@@ -145,6 +145,13 @@ const options = {
     description: 'Size of the caption – `"s"`, `"m"`, `"l"` or `"xl"`.',
     released: '10.2.0'
   },
+  captionDescriptionText: {
+    type: 'string',
+    required: false,
+    description:
+      'Message made available to assistive technologies to describe that the table is sortable. Defaults to `"Column headers are sortable"`.',
+    released: '10.6.0'
+  },
   firstCellIsHeader: {
     type: 'boolean',
     required: false,
@@ -232,6 +239,27 @@ const options = {
     description:
       'HTML attributes (for example data attributes) to add to the table container.',
     released: '1.0.0'
+  },
+  ascendingText: {
+    type: 'string',
+    required: false,
+    description:
+      'Text for columns in ascending sort order, used to populate the `%{direction}` placeholder in `sortAnnouncementText`. Defaults to `"ascending"`.',
+    released: '10.6.0'
+  },
+  descendingText: {
+    type: 'string',
+    required: false,
+    description:
+      'Text for columns in descending sort order, used to populate the `%{direction}` placeholder in `sortAnnouncementText`. Defaults to `"descending"`.',
+    released: '10.6.0'
+  },
+  sortAnnouncementText: {
+    type: 'string',
+    required: false,
+    description:
+      'Announcement made to screen reader users when a table column has been sorted. The component will replace the `%{heading}` placeholder with the column heading, and the `%{direction}` placeholder with the `ascendingText` or `descendingText` option value.',
+    released: '10.6.0'
   }
 }
 
