@@ -144,9 +144,8 @@ export class Table extends ConfigurableComponent {
 
     const index = this.getIndex($heading)
     const direction = this.getDirection($heading)
-    const $sortedRows = this.sort(index, direction)
 
-    this.addRows($sortedRows)
+    this.sort(index, direction)
   }
 
   /**
@@ -176,9 +175,7 @@ export class Table extends ConfigurableComponent {
       directionNext = sortFirstDirection
     }
 
-    const $sortedRows = this.sort(index, directionNext)
-
-    this.addRows($sortedRows)
+    this.sort(index, directionNext)
     this.removeButtonStates()
     this.updateColumnState($heading, directionNext)
   }
@@ -212,24 +209,15 @@ export class Table extends ConfigurableComponent {
   }
 
   /**
-   * @param {HTMLElement[]} $rows
-   */
-  addRows($rows) {
-    for (const $row of $rows) {
-      this.$body.append($row)
-    }
-  }
-
-  /**
    * @param {number} index
    * @param {TableSortDirection} [direction]
    */
   sort(index, direction = 'ascending') {
     if (!(direction === 'ascending' || direction === 'descending')) {
-      return this.$rows
+      return
     }
 
-    return this.$rows.sort(($rowA, $rowB) => {
+    this.$rows.sort(($rowA, $rowB) => {
       const $cellA = $rowA.querySelectorAll('td, th')[index]
       const $cellB = $rowB.querySelectorAll('td, th')[index]
 
@@ -247,6 +235,10 @@ export class Table extends ConfigurableComponent {
         ? this.collators.number.compare(valueA, valueB)
         : this.collators.string.compare(valueA, valueB)
     })
+
+    for (const $row of this.$rows) {
+      this.$body.append($row)
+    }
   }
 
   /**
