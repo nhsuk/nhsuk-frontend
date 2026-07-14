@@ -110,34 +110,12 @@ export class Table extends ConfigurableComponent {
       this.$screenReaderStatusMessage
     )
 
-    this.createHeadingButtons()
-    this.initialiseSortedColumn()
-
-    this.$head.addEventListener('click', (event) => this.handleSort(event))
+    this.setup()
   }
 
-  createHeadingButtons() {
-    for (const $heading of this.$headings) {
-      if ($heading.hasAttribute('aria-sort')) {
-        this.createHeadingButton($heading)
-      }
-    }
-  }
+  setup() {
+    this.setupButtons()
 
-  /**
-   * @param {HTMLElement} $heading
-   */
-  createHeadingButton($heading) {
-    const $button = document.createElement('button')
-
-    $button.setAttribute('type', 'button')
-    $button.textContent = $heading.textContent
-
-    $heading.textContent = ''
-    $heading.appendChild($button)
-  }
-
-  initialiseSortedColumn() {
     const $heading = this.$headings.find(($heading) =>
       $heading.matches('[aria-sort="ascending"], [aria-sort="descending"]')
     )
@@ -145,8 +123,25 @@ export class Table extends ConfigurableComponent {
     const index = this.getIndex($heading)
     const direction = this.getDirection($heading)
 
+    // Apply initial sort
     this.sort(index, direction)
     this.update(index, direction)
+
+    this.$head.addEventListener('click', (event) => this.handleSort(event))
+  }
+
+  setupButtons() {
+    for (const $heading of this.$headings) {
+      if ($heading.hasAttribute('aria-sort')) {
+        const $button = document.createElement('button')
+
+        $button.setAttribute('type', 'button')
+        $button.textContent = $heading.textContent
+
+        $heading.textContent = ''
+        $heading.appendChild($button)
+      }
+    }
   }
 
   /**
