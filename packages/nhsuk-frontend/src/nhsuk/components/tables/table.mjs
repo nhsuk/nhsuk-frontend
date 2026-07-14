@@ -315,8 +315,8 @@ export class Table extends ConfigurableComponent {
 /**
  * Initialise table component
  *
- * @deprecated Use {@link createAll | `createAll(Table)`} instead.
- * @param {InitOptions} [options]
+ * @deprecated Use {@link createAll | `createAll(Table, options)`} instead.
+ * @param {InitOptions & Partial<TableConfig>} [options]
  */
 export function initTables(options) {
   const { scope: $scope } = normaliseOptions(options)
@@ -326,7 +326,7 @@ export function initTables(options) {
   )
 
   $tables?.forEach(($root) => {
-    new Table($root)
+    new Table($root, options)
   })
 }
 
