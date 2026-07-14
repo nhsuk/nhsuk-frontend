@@ -54,13 +54,13 @@ const options = {
       colspan: {
         type: 'integer',
         required: false,
-        description: 'Specify how many columns a cell extends.',
+        description: 'Specify how many columns a cell spans.',
         released: '1.0.0'
       },
       rowspan: {
         type: 'integer',
         required: false,
-        description: 'Specify how many rows a cell extends.',
+        description: 'Specify how many rows a cell spans.',
         released: '1.0.0'
       },
       classes: {
@@ -114,13 +114,13 @@ const options = {
       colspan: {
         type: 'integer',
         required: false,
-        description: 'Specify how many columns a cell extends.',
+        description: 'Specify how many columns a cell spans.',
         released: '1.0.0'
       },
       rowspan: {
         type: 'integer',
         required: false,
-        description: 'Specify how many rows a cell extends.',
+        description: 'Specify how many rows a cell spans.',
         released: '1.0.0'
       },
       classes: {
@@ -139,7 +139,7 @@ const options = {
       sortable: {
         type: 'boolean',
         required: false,
-        description: 'Set to true to allow this column to be sorted',
+        description: 'Set to true to allow this column to be sorted.',
         released: '10.6.0'
       },
       initialSortColumn: {
@@ -153,7 +153,7 @@ const options = {
         type: 'string',
         required: false,
         description:
-          'The first sort direction applied to the column when clicked – `"ascending"` or `"descending"`. Defaults to `"ascending"`',
+          'The first sort direction applied to the column when clicked – `"ascending"` or `"descending"`. Defaults to `"ascending"`.',
         released: '10.6.0'
       }
     }
@@ -188,7 +188,7 @@ const options = {
     type: 'boolean',
     required: false,
     description:
-      'If set to `true`, first cell in table row will be a TH instead of a TD.',
+      'If set to `true`, first cell in table row will be a `th` instead of a `td`.',
     released: '1.0.0'
   },
   responsive: {
