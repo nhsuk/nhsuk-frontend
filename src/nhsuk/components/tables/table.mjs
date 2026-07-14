@@ -1,6 +1,8 @@
+import { closestAttributeValue } from '../../common/closest-attribute-value.mjs'
 import { normaliseOptions } from '../../common/configuration/index.mjs'
 import { ConfigurableComponent } from '../../configurable-component.mjs'
 import { ElementError } from '../../errors/index.mjs'
+import { I18n } from '../../i18n.mjs'
 
 /**
  * Table component
@@ -34,13 +36,17 @@ export class Table extends ConfigurableComponent {
 
     this.$head = $head
     this.$body = $body
-    this.$caption = this.$root.querySelector('caption')
 
+    this.$caption = this.$root.querySelector('caption')
     this.$headings = Array.from(this.$head.querySelectorAll('th'))
 
     if (this.$root.classList.contains('nhsuk-table--sortable')) {
+      this.i18n = new I18n(this.config.i18n, {
+        // Read the fallback if necessary rather than have it set in the defaults
+        locale: closestAttributeValue(this.$root, 'lang')
+      })
+
       this.createHeadingButtons()
-      this.updateCaption()
       this.createStatusBox()
       this.initialiseSortedColumn()
 
@@ -146,45 +152,21 @@ export class Table extends ConfigurableComponent {
     this.updateColumnState($heading, newSortDirection)
   }
 
-  updateCaption() {
-    if (!this.$caption) {
-      return
-    }
-
-    let assistiveText = this.$caption.querySelector('.nhsuk-u-visually-hidden')
-    if (assistiveText) {
-      return
-    }
-
-    assistiveText = document.createElement('span')
-    assistiveText.classList.add('nhsuk-u-visually-hidden')
-    assistiveText.textContent = ' (column headers with buttons are sortable).'
-
-    this.$caption.appendChild(assistiveText)
-  }
-
   /**
    * @param {Element} $heading
    * @param {'ascending' | 'descending'} direction
    */
   updateColumnState($heading, direction) {
-    const { config, $status } = this
-
-    if (!config.statusMessage || !$status) {
-      return
-    }
-
-    const directionText = config[`${direction}Text`]
-    if (!directionText) {
+    if (!this.$status || !this.i18n) {
       return
     }
 
     $heading.setAttribute('aria-sort', direction)
-    let message = config.statusMessage
 
-    message = message.replace(/%heading%/, $heading.textContent.trim())
-    message = message.replace(/%direction%/, directionText)
-    $status.textContent = message
+    this.$status.textContent = this.i18n.t('sortAnnouncement', {
+      heading: $heading.textContent.trim(),
+      direction: this.i18n.t(direction)
+    })
   }
 
   removeButtonStates() {
@@ -258,9 +240,11 @@ export class Table extends ConfigurableComponent {
    * @type {TableConfig}
    */
   static defaults = Object.freeze({
-    statusMessage: 'Sorted by %heading% (%direction%)',
-    ascendingText: 'ascending',
-    descendingText: 'descending'
+    i18n: {
+      sortAnnouncement: 'Sorted by %{heading} (%{direction})',
+      ascending: 'ascending',
+      descending: 'descending'
+    }
   })
 
   /**
@@ -271,9 +255,7 @@ export class Table extends ConfigurableComponent {
    */
   static schema = Object.freeze({
     properties: {
-      statusMessage: { type: 'string' },
-      ascendingText: { type: 'string' },
-      descendingText: { type: 'string' }
+      i18n: { type: 'object' }
     }
   })
 
@@ -306,9 +288,17 @@ export function initTables(options) {
  *
  * @see {@link Table.defaults}
  * @typedef {object} TableConfig
- * @property {string} [statusMessage] - Status message
- * @property {string} [ascendingText] - Ascending text
- * @property {string} [descendingText] - Descending text
+ * @property {TableTranslations} [i18n=Table.defaults.i18n] - Table translations
+ */
+
+/**
+ * Table translations
+ *
+ * @see {@link Table.defaults.i18n}
+ * @typedef {object} TableTranslations
+ * @property {string} [sortAnnouncement] - Status message
+ * @property {string} [ascending] - Ascending text
+ * @property {string} [descending] - Descending text
  */
 
 /**
