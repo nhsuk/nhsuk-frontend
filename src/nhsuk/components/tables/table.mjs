@@ -234,18 +234,18 @@ export class Table extends ConfigurableComponent {
    */
   sort(index, sortDirection) {
     return this.$rows.sort(($rowA, $rowB) => {
-      const $tdA = $rowA.querySelectorAll('td, th')[index]
-      const $tdB = $rowB.querySelectorAll('td, th')[index]
+      const $cellA = $rowA.querySelectorAll('td, th')[index]
+      const $cellB = $rowB.querySelectorAll('td, th')[index]
 
       const [valueA, isNumericA] =
         sortDirection === 'ascending'
-          ? this.getCellValue($tdA)
-          : this.getCellValue($tdB)
+          ? this.getValue($cellA)
+          : this.getValue($cellB)
 
       const [valueB, isNumericB] =
         sortDirection === 'ascending'
-          ? this.getCellValue($tdB)
-          : this.getCellValue($tdA)
+          ? this.getValue($cellB)
+          : this.getValue($cellA)
 
       return isNumericA && isNumericB
         ? this.collators.number.compare(valueA, valueB)
@@ -264,7 +264,7 @@ export class Table extends ConfigurableComponent {
    * @param {HTMLElement} $cell
    * @returns {[string, boolean]} - Cell value and whether it is numeric
    */
-  getCellValue($cell) {
+  getValue($cell) {
     const { sortValue = $cell.textContent.trim() } = $cell.dataset
 
     const hasFormatNumeric =
