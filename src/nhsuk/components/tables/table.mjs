@@ -138,8 +138,8 @@ export class Table extends ConfigurableComponent {
   }
 
   initialiseSortedColumn() {
-    const $heading = this.$root.querySelector(
-      'th[aria-sort="ascending"], th[aria-sort="descending"]'
+    const $heading = this.$headings.find(($heading) =>
+      $heading.matches('[aria-sort="ascending"], [aria-sort="descending"]')
     )
 
     const index = this.getIndex($heading)
