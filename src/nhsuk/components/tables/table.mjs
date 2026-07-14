@@ -143,8 +143,8 @@ export class Table extends ConfigurableComponent {
     )
 
     const index = this.getIndex($heading)
-    const sortDirection = this.getDirection($heading)
-    const $sortedRows = this.sort(index, sortDirection)
+    const direction = this.getDirection($heading)
+    const $sortedRows = this.sort(index, direction)
 
     this.addRows($sortedRows)
   }
@@ -162,25 +162,25 @@ export class Table extends ConfigurableComponent {
       return
     }
 
-    const sortDirection = this.getDirection($heading)
+    const direction = this.getDirection($heading)
     const { sortFirstDirection } = $heading.dataset
 
     /** @type {'ascending' | 'descending'} */
-    let newSortDirection = 'ascending'
+    let directionNext = 'ascending'
 
-    if (sortDirection === 'descending') {
-      newSortDirection = 'ascending'
-    } else if (sortDirection === 'ascending') {
-      newSortDirection = 'descending'
+    if (direction === 'descending') {
+      directionNext = 'ascending'
+    } else if (direction === 'ascending') {
+      directionNext = 'descending'
     } else if (sortFirstDirection === 'descending') {
-      newSortDirection = sortFirstDirection
+      directionNext = sortFirstDirection
     }
 
-    const $sortedRows = this.sort(index, newSortDirection)
+    const $sortedRows = this.sort(index, directionNext)
 
     this.addRows($sortedRows)
     this.removeButtonStates()
-    this.updateColumnState($heading, newSortDirection)
+    this.updateColumnState($heading, directionNext)
   }
 
   /**
@@ -222,10 +222,10 @@ export class Table extends ConfigurableComponent {
 
   /**
    * @param {number} index
-   * @param {TableSortDirection} [sortDirection]
+   * @param {TableSortDirection} [direction]
    */
-  sort(index, sortDirection = 'ascending') {
-    if (!(sortDirection === 'ascending' || sortDirection === 'descending')) {
+  sort(index, direction = 'ascending') {
+    if (!(direction === 'ascending' || direction === 'descending')) {
       return this.$rows
     }
 
@@ -234,12 +234,12 @@ export class Table extends ConfigurableComponent {
       const $cellB = $rowB.querySelectorAll('td, th')[index]
 
       const [valueA, isNumericA] =
-        sortDirection === 'ascending'
+        direction === 'ascending'
           ? this.getValue($cellA)
           : this.getValue($cellB)
 
       const [valueB, isNumericB] =
-        sortDirection === 'ascending'
+        direction === 'ascending'
           ? this.getValue($cellB)
           : this.getValue($cellA)
 
