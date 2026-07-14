@@ -18,28 +18,68 @@ export class Table extends ConfigurableComponent {
   constructor($root, config = {}) {
     super($root, config)
 
-    const $head = this.$root.querySelector('thead')
-    const $body = this.$root.querySelector('tbody')
-
-    if (!$head) {
+    const $head = this.$root.querySelector('.nhsuk-table__head')
+    if (!($head instanceof HTMLTableSectionElement)) {
       throw new ElementError({
         component: Table,
-        identifier: 'Table head (`<thead>`)'
-      })
-    }
-
-    if (!$body) {
-      throw new ElementError({
-        component: Table,
-        identifier: 'Table body (`<tbody>`)'
+        element: $head,
+        expectedType: 'HTMLTableSectionElement',
+        identifier: 'Table head (`<thead class="nhsuk-table__head">`)'
       })
     }
 
     this.$head = $head
+
+    const $body = this.$root.querySelector('.nhsuk-table__body')
+    if (!($body instanceof HTMLTableSectionElement)) {
+      throw new ElementError({
+        component: Table,
+        element: $body,
+        expectedType: 'HTMLTableSectionElement',
+        identifier: 'Table body (`<tbody class="nhsuk-table__body">`)'
+      })
+    }
+
     this.$body = $body
 
-    this.$caption = this.$root.querySelector('caption')
-    this.$headings = Array.from(this.$head.querySelectorAll('th'))
+    const $caption = this.$root.querySelector('.nhsuk-table__caption')
+    if (!($caption instanceof HTMLTableCaptionElement)) {
+      throw new ElementError({
+        component: Table,
+        element: $caption,
+        expectedType: 'HTMLTableCaptionElement',
+        identifier: 'Table caption (`<caption class="nhsuk-table__caption">`)'
+      })
+    }
+
+    this.$caption = $caption
+
+    const $headings = Array.from(
+      this.$head.querySelectorAll('.nhsuk-table__header')
+    )
+
+    if (
+      !$headings.length ||
+      !$headings.every(($heading) => $heading instanceof HTMLElement)
+    ) {
+      throw new ElementError({
+        component: Table,
+        identifier:
+          'Table headings (`<th class="nhsuk-table__header">`) with sortable columns'
+      })
+    }
+
+    this.$headings = $headings
+
+    const $rows = Array.from(this.$body.querySelectorAll('.nhsuk-table__row'))
+    if (!$rows.length || !$rows.every(($row) => $row instanceof HTMLElement)) {
+      throw new ElementError({
+        component: Table,
+        identifier: 'Table rows (`<tr class="nhsuk-table__row">`)'
+      })
+    }
+
+    this.$rows = $rows
 
     this.i18n = new I18n(this.config.i18n, {
       // Read the fallback if necessary rather than have it set in the defaults
@@ -85,7 +125,7 @@ export class Table extends ConfigurableComponent {
   }
 
   /**
-   * @param {HTMLTableCellElement} $heading
+   * @param {HTMLElement} $heading
    */
   createHeadingButton($heading) {
     const index = this.$headings.indexOf($heading)
@@ -100,8 +140,6 @@ export class Table extends ConfigurableComponent {
   }
 
   initialiseSortedColumn() {
-    const $rows = this.getTableRowsArray()
-
     const $heading = this.$root.querySelector(
       'th[aria-sort="ascending"], th[aria-sort="descending"]'
     )
@@ -118,7 +156,7 @@ export class Table extends ConfigurableComponent {
       return
     }
 
-    const $sortedRows = this.sort($rows, columnNumber, sortDirection)
+    const $sortedRows = this.sort(columnNumber, sortDirection)
     this.addRows($sortedRows)
   }
 
@@ -155,8 +193,7 @@ export class Table extends ConfigurableComponent {
       newSortDirection = 'ascending'
     }
 
-    const $rows = this.getTableRowsArray()
-    const $sortedRows = this.sort($rows, columnNumber, newSortDirection)
+    const $sortedRows = this.sort(columnNumber, newSortDirection)
 
     this.addRows($sortedRows)
     this.removeButtonStates()
@@ -188,7 +225,7 @@ export class Table extends ConfigurableComponent {
   }
 
   /**
-   * @param {HTMLTableRowElement[]} $rows
+   * @param {HTMLElement[]} $rows
    */
   addRows($rows) {
     for (const $row of $rows) {
@@ -196,17 +233,12 @@ export class Table extends ConfigurableComponent {
     }
   }
 
-  getTableRowsArray() {
-    return Array.from(this.$body.querySelectorAll('tr'))
-  }
-
   /**
-   * @param {HTMLTableRowElement[]} $rows
    * @param {number} columnNumber
    * @param {string} sortDirection
    */
-  sort($rows, columnNumber, sortDirection) {
-    return $rows.sort(($rowA, $rowB) => {
+  sort(columnNumber, sortDirection) {
+    return this.$rows.sort(($rowA, $rowB) => {
       const $tdA = $rowA.querySelectorAll('td, th')[columnNumber]
       const $tdB = $rowB.querySelectorAll('td, th')[columnNumber]
 
