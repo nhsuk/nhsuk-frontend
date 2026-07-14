@@ -150,6 +150,35 @@ export class Table extends ConfigurableComponent {
   }
 
   /**
+   * @param {number} index
+   * @param {TableSortDirection} [direction]
+   */
+  sort(index, direction = 'ascending') {
+    if (!(direction === 'ascending' || direction === 'descending')) {
+      return
+    }
+
+    this.$rows.sort(($rowA, $rowB) => {
+      const $cellA = $rowA.querySelectorAll('td, th')[index]
+      const $cellB = $rowB.querySelectorAll('td, th')[index]
+
+      const [valueA, isNumericA] =
+        direction === 'ascending'
+          ? this.getValue($cellA)
+          : this.getValue($cellB)
+
+      const [valueB, isNumericB] =
+        direction === 'ascending'
+          ? this.getValue($cellB)
+          : this.getValue($cellA)
+
+      return isNumericA && isNumericB
+        ? this.collators.number.compare(valueA, valueB)
+        : this.collators.string.compare(valueA, valueB)
+    })
+  }
+
+  /**
    * @param {MouseEvent} event - Click event
    */
   handleSort(event) {
@@ -161,23 +190,7 @@ export class Table extends ConfigurableComponent {
     const { parentElement: $heading } = $target
 
     const index = this.getIndex($heading)
-    if (!$heading || index < 0) {
-      return
-    }
-
-    const direction = this.getDirection($heading)
-    const { sortFirstDirection } = $heading.dataset
-
-    /** @type {'ascending' | 'descending'} */
-    let directionNext = 'ascending'
-
-    if (direction === 'descending') {
-      directionNext = 'ascending'
-    } else if (direction === 'ascending') {
-      directionNext = 'descending'
-    } else if (sortFirstDirection === 'descending') {
-      directionNext = sortFirstDirection
-    }
+    const directionNext = this.getDirectionNext($heading)
 
     this.sort(index, directionNext)
     this.update(index, directionNext)
@@ -224,35 +237,6 @@ export class Table extends ConfigurableComponent {
   }
 
   /**
-   * @param {number} index
-   * @param {TableSortDirection} [direction]
-   */
-  sort(index, direction = 'ascending') {
-    if (!(direction === 'ascending' || direction === 'descending')) {
-      return
-    }
-
-    this.$rows.sort(($rowA, $rowB) => {
-      const $cellA = $rowA.querySelectorAll('td, th')[index]
-      const $cellB = $rowB.querySelectorAll('td, th')[index]
-
-      const [valueA, isNumericA] =
-        direction === 'ascending'
-          ? this.getValue($cellA)
-          : this.getValue($cellB)
-
-      const [valueB, isNumericB] =
-        direction === 'ascending'
-          ? this.getValue($cellB)
-          : this.getValue($cellA)
-
-      return isNumericA && isNumericB
-        ? this.collators.number.compare(valueA, valueB)
-        : this.collators.string.compare(valueA, valueB)
-    })
-  }
-
-  /**
    * @param {HTMLElement | null} [$heading]
    */
   getIndex($heading) {
@@ -268,6 +252,28 @@ export class Table extends ConfigurableComponent {
     return direction === 'ascending' || direction === 'descending'
       ? direction
       : 'none'
+  }
+
+  /**
+   * @param {HTMLElement | null} [$heading]
+   * @returns {TableSortDirection}
+   */
+  getDirectionNext($heading) {
+    const direction = this.getDirection($heading)
+    const { sortFirstDirection } = $heading?.dataset ?? {}
+
+    /** @type {'ascending' | 'descending'} */
+    let directionNext = 'ascending'
+
+    if (direction === 'descending') {
+      directionNext = 'ascending'
+    } else if (direction === 'ascending') {
+      directionNext = 'descending'
+    } else if (sortFirstDirection === 'descending') {
+      directionNext = sortFirstDirection
+    }
+
+    return directionNext
   }
 
   /**
