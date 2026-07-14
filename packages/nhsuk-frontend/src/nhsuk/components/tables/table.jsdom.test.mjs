@@ -19,6 +19,9 @@ describe('Table', () => {
   /** @type {HTMLElement[]} */
   let $headings = []
 
+  /** @type {HTMLElement[]} */
+  let $rows = []
+
   /**
    * @param {keyof typeof examples} example
    */
@@ -34,6 +37,7 @@ describe('Table', () => {
     $body = document.querySelector('tbody')
 
     $headings = [...document.querySelectorAll('thead th[aria-sort]')]
+    $rows = [...document.querySelectorAll('tbody tr')]
 
     if ($head) {
       jest.spyOn($head, 'addEventListener')
@@ -54,11 +58,19 @@ describe('Table', () => {
       )
     })
 
+    it('should throw with missing table caption', () => {
+      $caption?.remove()
+
+      expect(() => initTables()).toThrow(
+        `${Table.moduleName}: Table caption (\`<caption class="nhsuk-table__caption">\`) not found`
+      )
+    })
+
     it('should throw with missing table head', () => {
       $head?.remove()
 
       expect(() => initTables()).toThrow(
-        `${Table.moduleName}: Table head (\`<thead>\`) not found`
+        `${Table.moduleName}: Table head (\`<thead class="nhsuk-table__head">\`) not found`
       )
     })
 
@@ -66,7 +78,17 @@ describe('Table', () => {
       $body?.remove()
 
       expect(() => initTables()).toThrow(
-        `${Table.moduleName}: Table body (\`<tbody>\`) not found`
+        `${Table.moduleName}: Table body (\`<tbody class="nhsuk-table__body">\`) not found`
+      )
+    })
+
+    it('should throw with missing table rows', () => {
+      for (const $row of $rows) {
+        $row.remove()
+      }
+
+      expect(() => initTables()).toThrow(
+        `${Table.moduleName}: Table rows (\`<tr class="nhsuk-table__row">\`) not found`
       )
     })
 
