@@ -128,11 +128,9 @@ export class Table extends ConfigurableComponent {
    * @param {HTMLElement} $heading
    */
   createHeadingButton($heading) {
-    const index = this.$headings.indexOf($heading)
     const $button = document.createElement('button')
 
     $button.setAttribute('type', 'button')
-    $button.dataset.index = `${index}`
     $button.textContent = $heading.textContent
 
     $heading.textContent = ''
@@ -143,20 +141,18 @@ export class Table extends ConfigurableComponent {
     const $heading = this.$root.querySelector(
       'th[aria-sort="ascending"], th[aria-sort="descending"]'
     )
-    const $sortButton = $heading?.querySelector('button')
-    const sortDirection = $heading?.getAttribute('aria-sort')
 
-    const columnNumber = Number.parseInt($sortButton?.dataset.index ?? '0', 10)
-
-    if (
-      !$heading ||
-      !$sortButton ||
-      !(sortDirection === 'ascending' || sortDirection === 'descending')
-    ) {
+    const index = this.getIndex($heading)
+    if (!$heading || index < 0) {
       return
     }
 
-    const $sortedRows = this.sort(columnNumber, sortDirection)
+    const sortDirection = $heading.getAttribute('aria-sort')
+    if (!(sortDirection === 'ascending' || sortDirection === 'descending')) {
+      return
+    }
+
+    const $sortedRows = this.sort(index, sortDirection)
     this.addRows($sortedRows)
   }
 
@@ -167,15 +163,14 @@ export class Table extends ConfigurableComponent {
     const $target = /** @type {HTMLElement} */ (event.target)
     const $button = $target.closest('button')
 
-    if (!$button?.parentElement) {
+    const $heading = $button?.parentElement
+    const index = this.getIndex($heading)
+    if (!$heading || index < 0) {
       return
     }
 
-    const $heading = $button.parentElement
     const sortDirection = $heading.getAttribute('aria-sort')
-    const sortFirstDirection = $heading.dataset.sortFirstDirection
-
-    const columnNumber = Number.parseInt($button.dataset.index ?? '0', 10)
+    const { sortFirstDirection } = $heading.dataset
 
     /** @type {'ascending' | 'descending'} */
     let newSortDirection
@@ -193,7 +188,7 @@ export class Table extends ConfigurableComponent {
       newSortDirection = 'ascending'
     }
 
-    const $sortedRows = this.sort(columnNumber, newSortDirection)
+    const $sortedRows = this.sort(index, newSortDirection)
 
     this.addRows($sortedRows)
     this.removeButtonStates()
@@ -234,17 +229,13 @@ export class Table extends ConfigurableComponent {
   }
 
   /**
-   * @param {number} columnNumber
+   * @param {number} index
    * @param {string} sortDirection
    */
-  sort(columnNumber, sortDirection) {
+  sort(index, sortDirection) {
     return this.$rows.sort(($rowA, $rowB) => {
-      const $tdA = $rowA.querySelectorAll('td, th')[columnNumber]
-      const $tdB = $rowB.querySelectorAll('td, th')[columnNumber]
-
-      if (!($tdA instanceof HTMLElement) || !($tdB instanceof HTMLElement)) {
-        return 0
-      }
+      const $tdA = $rowA.querySelectorAll('td, th')[index]
+      const $tdB = $rowB.querySelectorAll('td, th')[index]
 
       const [valueA, isNumericA] =
         sortDirection === 'ascending'
@@ -260,6 +251,13 @@ export class Table extends ConfigurableComponent {
         ? this.collators.number.compare(valueA, valueB)
         : this.collators.string.compare(valueA, valueB)
     })
+  }
+
+  /**
+   * @param {HTMLElement | null} [$heading]
+   */
+  getIndex($heading) {
+    return $heading ? this.$headings.indexOf($heading) : -1
   }
 
   /**
