@@ -41,30 +41,28 @@ export class Table extends ConfigurableComponent {
     this.$caption = this.$root.querySelector('caption')
     this.$headings = Array.from(this.$head.querySelectorAll('th'))
 
-    if (this.$root.classList.contains('nhsuk-table--sortable')) {
-      this.i18n = new I18n(this.config.i18n, {
-        // Read the fallback if necessary rather than have it set in the defaults
-        locale: closestAttributeValue(this.$root, 'lang')
+    this.i18n = new I18n(this.config.i18n, {
+      // Read the fallback if necessary rather than have it set in the defaults
+      locale: closestAttributeValue(this.$root, 'lang')
+    })
+
+    this.collators = Object.freeze({
+      string: new Intl.Collator(this.i18n.locale, {
+        ignorePunctuation: true,
+        sensitivity: 'base'
+      }),
+      number: new Intl.Collator(this.i18n.locale, {
+        ignorePunctuation: true,
+        numeric: true,
+        sensitivity: 'base'
       })
+    })
 
-      this.collators = Object.freeze({
-        string: new Intl.Collator(this.i18n.locale, {
-          ignorePunctuation: true,
-          sensitivity: 'base'
-        }),
-        number: new Intl.Collator(this.i18n.locale, {
-          ignorePunctuation: true,
-          numeric: true,
-          sensitivity: 'base'
-        })
-      })
+    this.createHeadingButtons()
+    this.createStatusBox()
+    this.initialiseSortedColumn()
 
-      this.createHeadingButtons()
-      this.createStatusBox()
-      this.initialiseSortedColumn()
-
-      this.$head.addEventListener('click', this.onSortButtonClick.bind(this))
-    }
+    this.$head.addEventListener('click', this.onSortButtonClick.bind(this))
   }
 
   createHeadingButtons() {
@@ -170,7 +168,7 @@ export class Table extends ConfigurableComponent {
    * @param {'ascending' | 'descending'} direction
    */
   updateColumnState($heading, direction) {
-    if (!this.$status || !this.i18n) {
+    if (!this.$status) {
       return
     }
 
@@ -209,12 +207,6 @@ export class Table extends ConfigurableComponent {
    * @param {string} sortDirection
    */
   sort($rows, columnNumber, sortDirection) {
-    const { collators } = this
-
-    if (!collators) {
-      return $rows
-    }
-
     return $rows.sort(($rowA, $rowB) => {
       const $tdA = $rowA.querySelectorAll('td, th')[columnNumber]
       const $tdB = $rowB.querySelectorAll('td, th')[columnNumber]
@@ -234,8 +226,8 @@ export class Table extends ConfigurableComponent {
           : this.getCellValue($tdA)
 
       return isNumericA && isNumericB
-        ? collators.number.compare(valueA, valueB)
-        : collators.string.compare(valueA, valueB)
+        ? this.collators.number.compare(valueA, valueB)
+        : this.collators.string.compare(valueA, valueB)
     })
   }
 
