@@ -58,8 +58,19 @@ export class Table extends ConfigurableComponent {
       })
     })
 
+    // Create and append the status text for screen readers
+    this.$screenReaderStatusMessage = document.createElement('div')
+    this.$screenReaderStatusMessage.setAttribute('aria-atomic', 'true')
+    this.$screenReaderStatusMessage.setAttribute('aria-live', 'polite')
+    this.$screenReaderStatusMessage.setAttribute('role', 'status')
+    this.$screenReaderStatusMessage.classList.add('nhsuk-u-visually-hidden')
+
+    this.$root.insertAdjacentElement(
+      'afterend',
+      this.$screenReaderStatusMessage
+    )
+
     this.createHeadingButtons()
-    this.createStatusBox()
     this.initialiseSortedColumn()
 
     this.$head.addEventListener('click', this.onSortButtonClick.bind(this))
@@ -86,17 +97,6 @@ export class Table extends ConfigurableComponent {
 
     $heading.textContent = ''
     $heading.appendChild($button)
-  }
-
-  createStatusBox() {
-    this.$status = document.createElement('div')
-
-    this.$status.setAttribute('aria-atomic', 'true')
-    this.$status.setAttribute('aria-live', 'polite')
-    this.$status.setAttribute('class', 'nhsuk-u-visually-hidden')
-    this.$status.setAttribute('role', 'status')
-
-    this.$root.insertAdjacentElement('afterend', this.$status)
   }
 
   initialiseSortedColumn() {
@@ -168,16 +168,15 @@ export class Table extends ConfigurableComponent {
    * @param {'ascending' | 'descending'} direction
    */
   updateColumnState($heading, direction) {
-    if (!this.$status) {
-      return
-    }
-
     $heading.setAttribute('aria-sort', direction)
 
-    this.$status.textContent = this.i18n.t('sortAnnouncement', {
-      heading: $heading.textContent.trim(),
-      direction: this.i18n.t(direction)
-    })
+    this.$screenReaderStatusMessage.textContent = this.i18n.t(
+      'sortAnnouncement',
+      {
+        heading: $heading.textContent.trim(),
+        direction: this.i18n.t(direction)
+      }
+    )
   }
 
   removeButtonStates() {
