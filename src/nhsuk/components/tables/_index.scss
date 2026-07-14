@@ -64,6 +64,16 @@
     }
   }
 
+  .nhsuk-table--striped {
+    .nhsuk-table__row:nth-child(odd) {
+      background-color: rgba($nhsuk-target-hover-colour, 0.5);
+    }
+
+    .nhsuk-table__head .nhsuk-table__row {
+      background-color: transparent;
+    }
+  }
+
   .nhsuk-table--reverse,
   // Deprecated, to be removed in v11.0
   .nhsuk-table-responsive--reverse {
@@ -72,6 +82,12 @@
     .nhsuk-table__header,
     .nhsuk-table__cell {
       border-color: $nhsuk-reverse-border-colour;
+    }
+
+    &.nhsuk-table--striped {
+      .nhsuk-table__body .nhsuk-table__row:nth-child(odd) {
+        background-color: rgba($nhsuk-reverse-target-hover-colour, 0.5);
+      }
     }
   }
 

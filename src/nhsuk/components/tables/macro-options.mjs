@@ -199,6 +199,13 @@ const options = {
     description: 'If set to `true`, responsive table classes will be applied.',
     released: '4.0.0'
   },
+  striped: {
+    type: 'boolean',
+    required: false,
+    description:
+      'Set to true to apply striped background colours to the table rows.',
+    released: '10.6.0'
+  },
   variant: {
     type: 'string',
     required: false,
