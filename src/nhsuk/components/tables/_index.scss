@@ -232,13 +232,6 @@
     position: relative;
   }
 
-  // Column headings for sortable tables gain 2px spacing
-  // on the left to avoid the text being right up against
-  // a hover background colour the previous column
-  .nhsuk-table--sortable thead th {
-    padding-left: $nhsuk-border-width-form-element;
-  }
-
   // Add icon for sortable tables. These can can be buttons
   // (client-side sorting) or links (server-side sorting).
   .nhsuk-table__header[data-sort] button::after,
