@@ -113,7 +113,7 @@ export class Table extends ConfigurableComponent {
     this.createHeadingButtons()
     this.initialiseSortedColumn()
 
-    this.$head.addEventListener('click', this.onSortButtonClick.bind(this))
+    this.$head.addEventListener('click', (event) => this.handleSort(event))
   }
 
   createHeadingButtons() {
@@ -152,7 +152,7 @@ export class Table extends ConfigurableComponent {
   /**
    * @param {MouseEvent} event - Click event
    */
-  onSortButtonClick(event) {
+  handleSort(event) {
     const $target = /** @type {HTMLElement} */ (event.target)
     const $button = $target.closest('button')
 
