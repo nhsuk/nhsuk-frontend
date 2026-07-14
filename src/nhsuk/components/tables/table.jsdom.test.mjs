@@ -143,24 +143,23 @@ describe('Table', () => {
 
   describe('Heading buttons', () => {
     /** @type {HTMLButtonElement[]} */
-    let $sortButtons = []
+    let $buttons = []
 
     beforeEach(() => {
       initTables()
 
-      $sortButtons = $headings
+      $buttons = $headings
         .map(($heading) => $heading.querySelector('button'))
         .filter(($button) => !!$button)
     })
 
     it('should create sort buttons for sortable columns', () => {
       expect($headings).toHaveLength(4)
-      expect($sortButtons).toHaveLength(4)
+      expect($buttons).toHaveLength(4)
     })
 
     it('should copy the heading text into the sort button', () => {
-      let buttonsText = $sortButtons.map((button) => button.textContent.trim())
-
+      let buttonsText = $buttons.map((button) => button.textContent.trim())
       expect(buttonsText).toEqual(['Nation', 'MMR', '6-in-1', 'Rotavirus'])
     })
   })
@@ -197,18 +196,18 @@ describe('Table', () => {
 
   describe('Sorting', () => {
     /** @type {HTMLButtonElement[]} */
-    let $sortButtons = []
+    let $buttons = []
 
     beforeEach(() => {
       initTables()
 
-      $sortButtons = $headings
+      $buttons = $headings
         .map(($heading) => $heading.querySelector('button'))
         .filter(($button) => !!$button)
     })
 
     it('should use data-initial-sort direction when clicking a button on a currently unsorted column', () => {
-      const $mmrButton = $sortButtons[1]
+      const $mmrButton = $buttons[1]
       const $mmrHeading = $mmrButton.closest('th')
 
       // MMR column has data-initial-sort="descending" in the fixture
@@ -220,9 +219,9 @@ describe('Table', () => {
     it('should default to ascending when data-initial-sort is not set', () => {
       // Set up a column without data-initial-sort by clicking on it first
       // to make it descending, then resetting via another column
-      const $nationButton = $sortButtons[0]
+      const $nationButton = $buttons[0]
       const $nationHeading = $nationButton.closest('th')
-      const $mmrButton = $sortButtons[1]
+      const $mmrButton = $buttons[1]
 
       // Nation column does NOT have data-initial-sort attribute
       // First click another column to reset Nation to 'none'
@@ -235,7 +234,7 @@ describe('Table', () => {
     })
 
     it('should set aria-sort to descending when clicking a button on a column currently in ascending order', () => {
-      const $nationButton = $sortButtons[0]
+      const $nationButton = $buttons[0]
       const $nationHeading = $nationButton.closest('th')
 
       expect($nationHeading).toHaveAttribute('aria-sort', 'ascending')
@@ -246,7 +245,7 @@ describe('Table', () => {
     })
 
     it('should set aria-sort to ascending when clicking a button on a column currently in descending order', () => {
-      const $nationButton = $sortButtons[0]
+      const $nationButton = $buttons[0]
       const $nationHeading = $nationButton.closest('th')
 
       // First click to make it descending
@@ -259,8 +258,8 @@ describe('Table', () => {
     })
 
     it('should reset other columns to "none" when sorting a column', () => {
-      const $nationButton = $sortButtons[0]
-      const $mmrButton = $sortButtons[1]
+      const $nationButton = $buttons[0]
+      const $mmrButton = $buttons[1]
       const $nationHeading = $nationButton.closest('th')
       const $mmrHeading = $mmrButton.closest('th')
 
@@ -279,7 +278,7 @@ describe('Table', () => {
       expect($screenReaderStatusMessage).toBe($root?.nextElementSibling)
       expect($screenReaderStatusMessage).toBeEmptyDOMElement()
 
-      const $mmrButton = $sortButtons[1]
+      const $mmrButton = $buttons[1]
 
       // MMR column has data-initial-sort="descending" in the fixture
       $mmrButton.click()
@@ -290,7 +289,7 @@ describe('Table', () => {
     })
 
     it('should reorder rows when sorting', () => {
-      const $mmrButton = $sortButtons[1]
+      const $mmrButton = $buttons[1]
 
       function getRowHeading() {
         return document.querySelector('tbody tr th')
@@ -334,12 +333,10 @@ describe('Table', () => {
       expect($screenReaderStatusMessage).toBe($root?.nextElementSibling)
       expect($screenReaderStatusMessage).toBeEmptyDOMElement()
 
-      const $sortButtons = document.querySelectorAll(
-        'thead th[aria-sort] button'
-      )
+      const $buttons = document.querySelectorAll('thead th[aria-sort] button')
 
       // MMR column has data-initial-sort="descending" in the fixture
-      const $mmrButton = $sortButtons[1]
+      const $mmrButton = $buttons[1]
 
       $mmrButton?.click()
 
