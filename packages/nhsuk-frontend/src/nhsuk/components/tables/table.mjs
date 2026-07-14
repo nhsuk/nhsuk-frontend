@@ -146,6 +146,7 @@ export class Table extends ConfigurableComponent {
     const direction = this.getDirection($heading)
 
     this.sort(index, direction)
+    this.update(index, direction)
   }
 
   /**
@@ -176,20 +177,39 @@ export class Table extends ConfigurableComponent {
     }
 
     this.sort(index, directionNext)
-    this.removeButtonStates()
-    this.updateColumnState($heading, directionNext)
+    this.update(index, directionNext)
+    this.updateScreenReaderStatusMessage(index, directionNext)
   }
 
   /**
-   * @param {Element} $heading
+   * @param {number} index
    * @param {TableSortDirection} [direction]
    */
-  updateColumnState($heading, direction = 'ascending') {
+  update(index, direction = 'ascending') {
     if (!(direction === 'ascending' || direction === 'descending')) {
       return
     }
 
+    for (const $row of this.$rows) {
+      this.$body.append($row)
+    }
+
+    for (const $heading of this.$headings) {
+      if ($heading.hasAttribute('aria-sort')) {
+        $heading.setAttribute('aria-sort', 'none')
+      }
+    }
+
+    const $heading = this.$headings[index]
     $heading.setAttribute('aria-sort', direction)
+  }
+
+  /**
+   * @param {number} index
+   * @param {TableSortDirection} [direction]
+   */
+  updateScreenReaderStatusMessage(index, direction = 'ascending') {
+    const $heading = this.$headings[index]
 
     this.$screenReaderStatusMessage.textContent = this.i18n.t(
       'sortAnnouncement',
@@ -198,14 +218,6 @@ export class Table extends ConfigurableComponent {
         direction: this.i18n.t(direction)
       }
     )
-  }
-
-  removeButtonStates() {
-    for (const $heading of this.$headings) {
-      if ($heading.hasAttribute('aria-sort')) {
-        $heading.setAttribute('aria-sort', 'none')
-      }
-    }
   }
 
   /**
@@ -235,10 +247,6 @@ export class Table extends ConfigurableComponent {
         ? this.collators.number.compare(valueA, valueB)
         : this.collators.string.compare(valueA, valueB)
     })
-
-    for (const $row of this.$rows) {
-      this.$body.append($row)
-    }
   }
 
   /**
