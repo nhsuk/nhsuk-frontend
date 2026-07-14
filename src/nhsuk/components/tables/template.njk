@@ -63,7 +63,10 @@
       value: params.id,
       optional: true
     },
-    "data-module": "nhsuk-table"
+    "data-module": {
+      value: "nhsuk-table" if params.sortable else false,
+      optional: true
+    }
   }) -}}
 
   {{- nhsukI18nAttributes({
