@@ -153,10 +153,13 @@ export class Table extends ConfigurableComponent {
    * @param {MouseEvent} event - Click event
    */
   handleSort(event) {
-    const $target = /** @type {HTMLElement} */ (event.target)
-    const $button = $target.closest('button')
+    const $target = event.target
+    if (!($target instanceof HTMLButtonElement)) {
+      return
+    }
 
-    const $heading = $button?.parentElement
+    const { parentElement: $heading } = $target
+
     const index = this.getIndex($heading)
     if (!$heading || index < 0) {
       return
