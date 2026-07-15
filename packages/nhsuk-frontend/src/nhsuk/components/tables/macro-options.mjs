@@ -146,14 +146,14 @@ const options = {
         type: 'boolean',
         required: false,
         description:
-          'Set to true if this column is sorted on initial page load. Use `sortFirstDirection` to set the initial direction. Must only be set on a single column.',
+          'Set to true if this column is sorted on initial page load. Use `sortNext` to set the initial direction. Must only be set on a single column.',
         released: '10.6.0'
       },
-      sortFirstDirection: {
+      sortNext: {
         type: 'string',
         required: false,
         description:
-          'The first sort direction applied to the column when clicked – `"ascending"` or `"descending"`. Defaults to `"ascending"`.',
+          'The next sort direction applied to the column when clicked – `"ascending"` or `"descending"`. Defaults to `"ascending"`. If you set `sort` to `"ascending"`, `sortNext` defaults to `"descending"`.',
         released: '10.6.0'
       }
     }
