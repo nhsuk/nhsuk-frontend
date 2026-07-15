@@ -182,12 +182,12 @@
         rowspan: item.rowspan,
         classes: item.classes,
         attributes: nhsukAttributes({
-          "data-sort-first-direction": {
-            value: item.sortFirstDirection if item.sortable and item.sortFirstDirection else false,
+          "data-sort-next": {
+            value: item.sortNext if item.sortable and item.sortNext else false,
             optional: true
           },
           "aria-sort": {
-            value: item.sortFirstDirection if item.sortable and item.initialSortColumn and item.sortFirstDirection else
+            value: item.sortNext if item.sortable and item.initialSortColumn and item.sortNext else
               ("none" if item.sortable else false),
             optional: true
           }

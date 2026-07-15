@@ -463,25 +463,25 @@ const fixtures = {
           text: 'Nation',
           sortable: true,
           initialSortColumn: true,
-          sortFirstDirection: 'ascending'
+          sortNext: 'ascending'
         },
         {
           text: 'MMR',
           format: 'numeric',
           sortable: true,
-          sortFirstDirection: 'descending'
+          sortNext: 'descending'
         },
         {
           text: '6-in-1',
           format: 'numeric',
           sortable: true,
-          sortFirstDirection: 'descending'
+          sortNext: 'descending'
         },
         {
           text: 'Rotavirus',
           format: 'numeric',
           sortable: true,
-          sortFirstDirection: 'descending'
+          sortNext: 'descending'
         }
       ],
       rows: [
@@ -573,7 +573,7 @@ const fixtures = {
           text: 'Next screening',
           sortable: true,
           initialSortColumn: true,
-          sortFirstDirection: 'ascending'
+          sortNext: 'ascending'
         }
       ],
       rows: [
@@ -669,7 +669,7 @@ const fixtures = {
           href: '#',
           sortable: true,
           initialSortColumn: true,
-          sortFirstDirection: 'ascending'
+          sortNext: 'ascending'
         },
         {
           href: '#',
