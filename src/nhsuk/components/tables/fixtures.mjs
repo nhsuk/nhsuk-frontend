@@ -457,7 +457,6 @@ const fixtures = {
     context: {
       caption: 'Childhood vaccination coverage',
       captionSize: 'm',
-      sortable: true,
       firstCellIsHeader: true,
       head: [
         {
@@ -560,7 +559,6 @@ const fixtures = {
   'with names and dates, sortable': {
     context: {
       caption: 'Screening schedule',
-      sortable: true,
       firstCellIsHeader: true,
       head: [
         {
@@ -664,7 +662,6 @@ const fixtures = {
   'with names and times, sortable server-side': {
     context: {
       caption: 'Appointments',
-      sortable: true,
       firstCellIsHeader: true,
       head: [
         {
@@ -1371,7 +1368,6 @@ const fixtures = {
       caption: 'Prescription prepayment certificate (PPC) charges',
       captionSize: 'm',
       compact: true,
-      sortable: true,
       firstCellIsHeader: true,
       head: [
         {
@@ -1551,7 +1547,6 @@ const fixtures = {
       captionSize: 'm',
       compact: true,
       responsive: true,
-      sortable: true,
       firstCellIsHeader: true,
       head: [
         {

@@ -27,7 +27,17 @@
   {% set classNames = classNames ~ " nhsuk-table--responsive" %}
 {% endif %}
 
-{%- if params.sortable and (not params.classes or not "nhsuk-table--sortable" in params.classes) %}
+{%- set head = params.head | select("mapping") if params.head | length else [] %}
+{%- set rows = params.rows | select("iterable") if params.rows | length else [] %}
+
+{%- set isSortable = false %}
+
+{#- Determine if the table is sortable #}
+{% for item in head %}
+  {% set isSortable = true if item.sortable else isSortable %}
+{% endfor -%}
+
+{%- if isSortable and (not params.classes or not "nhsuk-table--sortable" in params.classes) %}
   {% set classNames = classNames ~ " nhsuk-table--sortable" %}
 {% endif %}
 
@@ -53,8 +63,6 @@
 {% endif %}
 
 {%- set captionDescriptionText = params.captionDescriptionText | default("Column headers are sortable") %}
-{%- set head = params.head | select("mapping") if params.head | length else [] %}
-{%- set rows = params.rows | select("iterable") if params.rows | length else [] %}
 
 {%- set attributesHtml %}
   {{- nhsukAttributes({
@@ -64,7 +72,7 @@
       optional: true
     },
     "data-module": {
-      value: "nhsuk-table" if params.sortable else false,
+      value: "nhsuk-table" if "nhsuk-table--sortable" in classNames else false,
       optional: true
     }
   }) -}}
