@@ -206,6 +206,8 @@
       }
     }
 
+    .nhsuk-table__heading,
+    // Deprecated, to be removed in v11.0
     .nhsuk-table-responsive__heading {
       @include nhsuk-font-weight-bold;
       padding-right: nhsuk-spacing(3);
