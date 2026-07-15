@@ -10,7 +10,7 @@ Note: This release was created from the `support/10.x` branch.
 
 You can now make [table](https://service-manual.nhs.uk/design-system/components/table) columns sortable, so that clicking the header cell sorts the table by that column.
 
-If you're using the `tables` Nunjucks macro, you can configure header cells:
+If you're using the `tables` Nunjucks macro, to configure header cells:
 
 - Add the `sort: "ascending"` or `sort: "descending"` option to the currently sorted column only
 - Add the `sort: true` option to enable sorting on any other columns
@@ -380,6 +380,28 @@ You can still use `nhsuk-print-colour` and `nhsuk-print-hide` but we'll remove t
 
 We've renamed HTML classes for reverse and responsive tables. You can still use the previous names but we'll remove them in a future breaking release.
 
+If you're using the `table` Nunjucks macro with the `responsive` option, you should:
+
+- remove the unnecessary `header` option from table `rows` nested items
+
+```patch
+  rows: [
+    [
+      {
+-       header: 'Age',
+        text: '3 to 5 months (weighing more than 5kg)'
+      },
+      {
+-       header: 'How much?',
+        text: '2.5ml'
+      },
+      {
+-       header: 'How often?',
+        text: 'Max 3 times in 24 hours'
+      }
+    ],
+```
+
 If you are not using Nunjucks macros, update your HTML markup using the [table examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/table) as follows:
 
 - replace `nhsuk-table-responsive--reverse` with `nhsuk-table--reverse`
@@ -392,7 +414,17 @@ If you are not using Nunjucks macros, update your HTML markup using the [table e
   </table>
 ```
 
-This change was introduced in [pull request #1998: Add `compact` option for tables](https://github.com/nhsuk/nhsuk-frontend/pull/1998).
+- replace `nhsuk-table-responsive__heading` with `nhsuk-table__heading`
+
+```patch
+  <td class="nhsuk-table__cell" role="cell">
+-   <span class="nhsuk-table-responsive__heading" aria-hidden="true">Cell heading </span>
++   <span class="nhsuk-table__heading" aria-hidden="true">Cell heading </span>
+    <span>Example content</span>
+  </td>
+```
+
+This change was introduced in pull requests [#1998: Add `compact` option for tables](https://github.com/nhsuk/nhsuk-frontend/pull/1998) and [#2003: Add `striped` option for tables](https://github.com/nhsuk/nhsuk-frontend/pull/2003).
 
 ### :wrench: **Fixes**
 
