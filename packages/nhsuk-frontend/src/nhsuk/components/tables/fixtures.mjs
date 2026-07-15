@@ -462,7 +462,6 @@ const fixtures = {
         {
           text: 'Nation',
           sortable: true,
-          initialSortColumn: true,
           sortNext: 'ascending'
         },
         {
@@ -572,7 +571,6 @@ const fixtures = {
         {
           text: 'Next screening',
           sortable: true,
-          initialSortColumn: true,
           sortNext: 'ascending'
         }
       ],
@@ -668,7 +666,6 @@ const fixtures = {
           text: 'Time',
           href: '#',
           sortable: true,
-          initialSortColumn: true,
           sortNext: 'ascending'
         },
         {

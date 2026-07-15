@@ -142,13 +142,6 @@ const options = {
         description: 'Set to true to allow this column to be sorted.',
         released: '10.6.0'
       },
-      initialSortColumn: {
-        type: 'boolean',
-        required: false,
-        description:
-          'Set to true if this column is sorted on initial page load. Use `sortNext` to set the initial direction. Must only be set on a single column.',
-        released: '10.6.0'
-      },
       sortNext: {
         type: 'string',
         required: false,
