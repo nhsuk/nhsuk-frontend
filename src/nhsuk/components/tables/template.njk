@@ -187,7 +187,7 @@
             optional: true
           },
           "aria-sort": {
-            value: item.sortNext if item.sortable and item.initialSortColumn and item.sortNext else
+            value: item.sortNext if item.sortable and item.sortNext else
               ("none" if item.sortable else false),
             optional: true
           }
