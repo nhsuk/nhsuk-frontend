@@ -136,10 +136,11 @@ const options = {
           'HTML attributes (for example data attributes) to add to the table head cell.',
         released: '9.4.0'
       },
-      sortable: {
-        type: 'boolean',
+      sort: {
+        type: 'string',
         required: false,
-        description: 'Set to true to allow this column to be sorted.',
+        description:
+          'The sort direction applied to the column when the page loads – `"ascending"`, `"descending"` or `"none"`. To enable sorting without a default direction, set `sort` to `"none"`.',
         released: '10.6.0'
       },
       sortNext: {
