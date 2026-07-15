@@ -255,7 +255,7 @@ export class Table extends ConfigurableComponent {
    */
   getDirectionNext($header) {
     const direction = this.getDirection($header)
-    const { sortFirstDirection } = $header?.dataset ?? {}
+    const { sortNext } = $header?.dataset ?? {}
 
     /** @type {'ascending' | 'descending'} */
     let directionNext = 'ascending'
@@ -264,8 +264,8 @@ export class Table extends ConfigurableComponent {
       directionNext = 'ascending'
     } else if (direction === 'ascending') {
       directionNext = 'descending'
-    } else if (sortFirstDirection === 'descending') {
-      directionNext = sortFirstDirection
+    } else if (sortNext === 'descending') {
+      directionNext = sortNext
     }
 
     return directionNext
