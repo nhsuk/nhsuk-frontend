@@ -180,7 +180,7 @@
 
         .nhsuk-table__header,
         .nhsuk-table__cell {
-          padding-right: 0;
+          padding-right: $nhsuk-border-table-header-width;
           text-align: right; // [6]
         }
 
