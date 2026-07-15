@@ -461,25 +461,24 @@ const fixtures = {
       head: [
         {
           text: 'Nation',
-          sortable: true,
-          sortNext: 'ascending'
+          sort: 'ascending'
         },
         {
           text: 'MMR',
           format: 'numeric',
-          sortable: true,
+          sort: 'none',
           sortNext: 'descending'
         },
         {
           text: '6-in-1',
           format: 'numeric',
-          sortable: true,
+          sort: 'none',
           sortNext: 'descending'
         },
         {
           text: 'Rotavirus',
           format: 'numeric',
-          sortable: true,
+          sort: 'none',
           sortNext: 'descending'
         }
       ],
@@ -562,7 +561,7 @@ const fixtures = {
       head: [
         {
           text: 'Name',
-          sortable: true
+          sort: 'none'
         },
         {
           text: 'NHS number',
@@ -570,8 +569,7 @@ const fixtures = {
         },
         {
           text: 'Next screening',
-          sortable: true,
-          sortNext: 'ascending'
+          sort: 'ascending'
         }
       ],
       rows: [
@@ -665,13 +663,12 @@ const fixtures = {
         {
           text: 'Time',
           href: '#',
-          sortable: true,
-          sortNext: 'ascending'
+          sort: 'ascending'
         },
         {
           href: '#',
           text: 'Name',
-          sortable: true
+          sort: 'none'
         },
         {
           text: 'Date of birth'
@@ -1373,17 +1370,17 @@ const fixtures = {
         {
           text: 'Current charge',
           format: 'numeric',
-          sortable: true
+          sort: 'none'
         },
         {
           text: 'New charge',
           format: 'numeric',
-          sortable: true
+          sort: 'none'
         },
         {
           text: '% Increase',
           format: 'numeric',
-          sortable: true
+          sort: 'none'
         }
       ],
       rows: [
@@ -1552,17 +1549,17 @@ const fixtures = {
         {
           text: 'Current charge',
           format: 'numeric',
-          sortable: true
+          sort: 'none'
         },
         {
           text: 'New charge',
           format: 'numeric',
-          sortable: true
+          sort: 'none'
         },
         {
           text: '% Increase',
           format: 'numeric',
-          sortable: true
+          sort: 'none'
         }
       ],
       rows: [
