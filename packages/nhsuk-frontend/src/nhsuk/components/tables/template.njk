@@ -34,7 +34,7 @@
 
 {#- Determine if the table is sortable #}
 {% for item in head %}
-  {% set isSortable = true if item.sortable else isSortable %}
+  {% set isSortable = true if item.sort else isSortable %}
 {% endfor -%}
 
 {%- if isSortable and (not params.classes or not "nhsuk-table--sortable" in params.classes) %}
@@ -183,12 +183,11 @@
         classes: item.classes,
         attributes: nhsukAttributes({
           "data-sort-next": {
-            value: item.sortNext if item.sortable and item.sortNext else false,
+            value: item.sortNext if item.sortNext and item.sort else false,
             optional: true
           },
           "aria-sort": {
-            value: item.sortNext if item.sortable and item.sortNext else
-              ("none" if item.sortable else false),
+            value: item.sort if item.sort else false,
             optional: true
           }
         }) ~ nhsukAttributes(item.attributes),
