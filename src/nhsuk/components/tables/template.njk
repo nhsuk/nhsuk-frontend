@@ -207,7 +207,7 @@
     {% for item in row | select("mapping") if row | length else [] %}
       {%- set innerHtml %}
         {%- if params.responsive and item.header -%}
-          <span class="nhsuk-table-responsive__heading" aria-hidden="true">{{ item.header }} </span>
+          <span class="nhsuk-table__heading" aria-hidden="true">{{ item.header }} </span>
         {%- endif %}
         {% if params.responsive and item.html -%}
           <span>{{ item.html | safe | trim }}</span>
