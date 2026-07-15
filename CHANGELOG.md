@@ -205,7 +205,7 @@ This was added in [pull request #1972: Add Sass mixins and utility classes for N
 
 #### Extend global inline code styles
 
-Inline `<code>` elements are now also styled within definition lists and table headings.
+Inline `<code>` elements are now also styled within definition lists and table headers.
 
 This was added in [pull request #1984: Extend global inline code styles](https://github.com/nhsuk/nhsuk-frontend/pull/1984).
 

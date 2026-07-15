@@ -290,7 +290,7 @@ const options = {
     type: 'string',
     required: false,
     description:
-      'Announcement made to screen reader users when a table column has been sorted. The component will replace the `%{heading}` placeholder with the column heading, and the `%{direction}` placeholder with the `ascendingText` or `descendingText` option value.',
+      'Announcement made to screen reader users when a table column has been sorted. The component will replace the `%{header}` placeholder with the column header, and the `%{direction}` placeholder with the `ascendingText` or `descendingText` option value.',
     released: '10.6.0'
   }
 }

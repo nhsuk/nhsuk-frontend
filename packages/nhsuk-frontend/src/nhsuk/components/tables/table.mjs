@@ -54,22 +54,22 @@ export class Table extends ConfigurableComponent {
 
     this.$caption = $caption
 
-    const $headings = Array.from(
+    const $headers = Array.from(
       this.$head.querySelectorAll('.nhsuk-table__header')
     )
 
     if (
-      !$headings.length ||
-      !$headings.every(($heading) => $heading instanceof HTMLElement)
+      !$headers.length ||
+      !$headers.every(($header) => $header instanceof HTMLElement)
     ) {
       throw new ElementError({
         component: Table,
         identifier:
-          'Table headings (`<th class="nhsuk-table__header">`) with sortable columns'
+          'Table headers (`<th class="nhsuk-table__header">`) with sortable columns'
       })
     }
 
-    this.$headings = $headings
+    this.$headers = $headers
 
     const $rows = Array.from(this.$body.querySelectorAll('.nhsuk-table__row'))
     if (!$rows.length || !$rows.every(($row) => $row instanceof HTMLElement)) {
@@ -116,12 +116,12 @@ export class Table extends ConfigurableComponent {
   setup() {
     this.setupButtons()
 
-    const $heading = this.$headings.find(($heading) =>
-      $heading.matches('[aria-sort="ascending"], [aria-sort="descending"]')
+    const $header = this.$headers.find(($header) =>
+      $header.matches('[aria-sort="ascending"], [aria-sort="descending"]')
     )
 
-    const index = this.getIndex($heading)
-    const direction = this.getDirection($heading)
+    const index = this.getIndex($header)
+    const direction = this.getDirection($header)
 
     // Apply initial sort
     this.sort(index, direction)
@@ -131,15 +131,15 @@ export class Table extends ConfigurableComponent {
   }
 
   setupButtons() {
-    for (const $heading of this.$headings) {
-      if ($heading.hasAttribute('aria-sort')) {
+    for (const $header of this.$headers) {
+      if ($header.hasAttribute('aria-sort')) {
         const $button = document.createElement('button')
 
         $button.setAttribute('type', 'button')
-        $button.textContent = $heading.textContent
+        $button.textContent = $header.textContent
 
-        $heading.textContent = ''
-        $heading.appendChild($button)
+        $header.textContent = ''
+        $header.appendChild($button)
       }
     }
   }
@@ -182,10 +182,10 @@ export class Table extends ConfigurableComponent {
       return
     }
 
-    const { parentElement: $heading } = $target
+    const { parentElement: $header } = $target
 
-    const index = this.getIndex($heading)
-    const directionNext = this.getDirectionNext($heading)
+    const index = this.getIndex($header)
+    const directionNext = this.getDirectionNext($header)
 
     this.sort(index, directionNext)
     this.update(index, directionNext)
@@ -205,14 +205,14 @@ export class Table extends ConfigurableComponent {
       this.$body.append($row)
     }
 
-    for (const $heading of this.$headings) {
-      if ($heading.hasAttribute('aria-sort')) {
-        $heading.setAttribute('aria-sort', 'none')
+    for (const $header of this.$headers) {
+      if ($header.hasAttribute('aria-sort')) {
+        $header.setAttribute('aria-sort', 'none')
       }
     }
 
-    const $heading = this.$headings[index]
-    $heading.setAttribute('aria-sort', direction)
+    const $header = this.$headers[index]
+    $header.setAttribute('aria-sort', direction)
   }
 
   /**
@@ -220,42 +220,42 @@ export class Table extends ConfigurableComponent {
    * @param {TableSortDirection} [direction]
    */
   updateScreenReaderStatusMessage(index, direction = 'ascending') {
-    const $heading = this.$headings[index]
+    const $header = this.$headers[index]
 
     this.$screenReaderStatusMessage.textContent = this.i18n.t(
       'sortAnnouncement',
       {
-        heading: $heading.textContent.trim(),
+        header: $header.textContent.trim(),
         direction: this.i18n.t(direction)
       }
     )
   }
 
   /**
-   * @param {HTMLElement | null} [$heading]
+   * @param {HTMLElement | null} [$header]
    */
-  getIndex($heading) {
-    return $heading ? this.$headings.indexOf($heading) : -1
+  getIndex($header) {
+    return $header ? this.$headers.indexOf($header) : -1
   }
 
   /**
-   * @param {HTMLElement | null} [$heading]
+   * @param {HTMLElement | null} [$header]
    * @returns {TableSortDirection}
    */
-  getDirection($heading) {
-    const direction = $heading?.getAttribute('aria-sort')
+  getDirection($header) {
+    const direction = $header?.getAttribute('aria-sort')
     return direction === 'ascending' || direction === 'descending'
       ? direction
       : 'none'
   }
 
   /**
-   * @param {HTMLElement | null} [$heading]
+   * @param {HTMLElement | null} [$header]
    * @returns {TableSortDirection}
    */
-  getDirectionNext($heading) {
-    const direction = this.getDirection($heading)
-    const { sortFirstDirection } = $heading?.dataset ?? {}
+  getDirectionNext($header) {
+    const direction = this.getDirection($header)
+    const { sortFirstDirection } = $header?.dataset ?? {}
 
     /** @type {'ascending' | 'descending'} */
     let directionNext = 'ascending'
@@ -302,7 +302,7 @@ export class Table extends ConfigurableComponent {
    */
   static defaults = Object.freeze({
     i18n: {
-      sortAnnouncement: 'Sorted by %{heading} (%{direction})',
+      sortAnnouncement: 'Sorted by %{header} (%{direction})',
       ascending: 'ascending',
       descending: 'descending'
     }
