@@ -206,18 +206,18 @@ describe('Table', () => {
         .filter(($button) => !!$button)
     })
 
-    it('should use data-initial-sort direction when clicking a button on a currently unsorted column', () => {
+    it('should use data-sort-next direction when clicking a button on a currently unsorted column', () => {
       const $mmrButton = $buttons[1]
       const $mmrHeader = $mmrButton.closest('th')
 
-      // MMR column has data-initial-sort="descending" in the fixture
+      // MMR column has data-sort-next="descending" in the fixture
       $mmrButton.click()
 
       expect($mmrHeader).toHaveAttribute('aria-sort', 'descending')
     })
 
-    it('should default to ascending when data-initial-sort is not set', () => {
-      // Set up a column without data-initial-sort by clicking on it first
+    it('should default to ascending when data-sort-next is not set', () => {
+      // Set up a column without data-sort-next by clicking on it first
       // to make it descending, then resetting via another column
       const $nationButton = $buttons[0]
       const $nationHeader = $nationButton.closest('th')
@@ -265,7 +265,7 @@ describe('Table', () => {
 
       expect($nationHeader).toHaveAttribute('aria-sort', 'ascending')
 
-      // MMR column has data-initial-sort="descending" in the fixture
+      // MMR column has data-sort-next="descending" in the fixture
       $mmrButton.click()
 
       expect($nationHeader).toHaveAttribute('aria-sort', 'none')
@@ -280,7 +280,7 @@ describe('Table', () => {
 
       const $mmrButton = $buttons[1]
 
-      // MMR column has data-initial-sort="descending" in the fixture
+      // MMR column has data-sort-next="descending" in the fixture
       $mmrButton.click()
 
       expect($screenReaderStatusMessage).toHaveTextContent(
@@ -298,7 +298,7 @@ describe('Table', () => {
       expect(getRowHeader()).toHaveTextContent('England')
 
       // Sort by MMR descending first (Wales has highest at 89.5%)
-      // because MMR column has data-initial-sort="descending"
+      // because MMR column has data-sort-next="descending"
       $mmrButton.click()
 
       expect(getRowHeader()).toHaveTextContent('Wales')
@@ -335,7 +335,7 @@ describe('Table', () => {
 
       const $buttons = document.querySelectorAll('thead th[aria-sort] button')
 
-      // MMR column has data-initial-sort="descending" in the fixture
+      // MMR column has data-sort-next="descending" in the fixture
       const $mmrButton = $buttons[1]
 
       $mmrButton?.click()
