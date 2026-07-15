@@ -17,7 +17,7 @@ describe('Table', () => {
   let $body = null
 
   /** @type {HTMLElement[]} */
-  let $headings = []
+  let $headers = []
 
   /** @type {HTMLElement[]} */
   let $rows = []
@@ -36,7 +36,7 @@ describe('Table', () => {
     $head = document.querySelector('thead')
     $body = document.querySelector('tbody')
 
-    $headings = [...document.querySelectorAll('thead th[aria-sort]')]
+    $headers = [...document.querySelectorAll('thead th[aria-sort]')]
     $rows = [...document.querySelectorAll('tbody tr')]
 
     if ($head) {
@@ -141,24 +141,24 @@ describe('Table', () => {
     })
   })
 
-  describe('Heading buttons', () => {
+  describe('Header buttons', () => {
     /** @type {HTMLButtonElement[]} */
     let $buttons = []
 
     beforeEach(() => {
       initTables()
 
-      $buttons = $headings
-        .map(($heading) => $heading.querySelector('button'))
+      $buttons = $headers
+        .map(($header) => $header.querySelector('button'))
         .filter(($button) => !!$button)
     })
 
     it('should create sort buttons for sortable columns', () => {
-      expect($headings).toHaveLength(4)
+      expect($headers).toHaveLength(4)
       expect($buttons).toHaveLength(4)
     })
 
-    it('should copy the heading text into the sort button', () => {
+    it('should copy the column header text into the sort button', () => {
       let buttonsText = $buttons.map((button) => button.textContent.trim())
       expect(buttonsText).toEqual(['Nation', 'MMR', '6-in-1', 'Rotavirus'])
     })
@@ -201,75 +201,75 @@ describe('Table', () => {
     beforeEach(() => {
       initTables()
 
-      $buttons = $headings
-        .map(($heading) => $heading.querySelector('button'))
+      $buttons = $headers
+        .map(($header) => $header.querySelector('button'))
         .filter(($button) => !!$button)
     })
 
     it('should use data-initial-sort direction when clicking a button on a currently unsorted column', () => {
       const $mmrButton = $buttons[1]
-      const $mmrHeading = $mmrButton.closest('th')
+      const $mmrHeader = $mmrButton.closest('th')
 
       // MMR column has data-initial-sort="descending" in the fixture
       $mmrButton.click()
 
-      expect($mmrHeading).toHaveAttribute('aria-sort', 'descending')
+      expect($mmrHeader).toHaveAttribute('aria-sort', 'descending')
     })
 
     it('should default to ascending when data-initial-sort is not set', () => {
       // Set up a column without data-initial-sort by clicking on it first
       // to make it descending, then resetting via another column
       const $nationButton = $buttons[0]
-      const $nationHeading = $nationButton.closest('th')
+      const $nationHeader = $nationButton.closest('th')
       const $mmrButton = $buttons[1]
 
       // Nation column does NOT have data-initial-sort attribute
       // First click another column to reset Nation to 'none'
       $mmrButton.click()
-      expect($nationHeading).toHaveAttribute('aria-sort', 'none')
+      expect($nationHeader).toHaveAttribute('aria-sort', 'none')
 
       // Now click Nation - without data-initial-sort it should default to ascending
       $nationButton.click()
-      expect($nationHeading).toHaveAttribute('aria-sort', 'ascending')
+      expect($nationHeader).toHaveAttribute('aria-sort', 'ascending')
     })
 
     it('should set aria-sort to descending when clicking a button on a column currently in ascending order', () => {
       const $nationButton = $buttons[0]
-      const $nationHeading = $nationButton.closest('th')
+      const $nationHeader = $nationButton.closest('th')
 
-      expect($nationHeading).toHaveAttribute('aria-sort', 'ascending')
+      expect($nationHeader).toHaveAttribute('aria-sort', 'ascending')
 
       $nationButton.click()
 
-      expect($nationHeading).toHaveAttribute('aria-sort', 'descending')
+      expect($nationHeader).toHaveAttribute('aria-sort', 'descending')
     })
 
     it('should set aria-sort to ascending when clicking a button on a column currently in descending order', () => {
       const $nationButton = $buttons[0]
-      const $nationHeading = $nationButton.closest('th')
+      const $nationHeader = $nationButton.closest('th')
 
       // First click to make it descending
       $nationButton.click()
-      expect($nationHeading).toHaveAttribute('aria-sort', 'descending')
+      expect($nationHeader).toHaveAttribute('aria-sort', 'descending')
 
       // Second click to make it ascending again
       $nationButton.click()
-      expect($nationHeading).toHaveAttribute('aria-sort', 'ascending')
+      expect($nationHeader).toHaveAttribute('aria-sort', 'ascending')
     })
 
     it('should reset other columns to "none" when sorting a column', () => {
       const $nationButton = $buttons[0]
       const $mmrButton = $buttons[1]
-      const $nationHeading = $nationButton.closest('th')
-      const $mmrHeading = $mmrButton.closest('th')
+      const $nationHeader = $nationButton.closest('th')
+      const $mmrHeader = $mmrButton.closest('th')
 
-      expect($nationHeading).toHaveAttribute('aria-sort', 'ascending')
+      expect($nationHeader).toHaveAttribute('aria-sort', 'ascending')
 
       // MMR column has data-initial-sort="descending" in the fixture
       $mmrButton.click()
 
-      expect($nationHeading).toHaveAttribute('aria-sort', 'none')
-      expect($mmrHeading).toHaveAttribute('aria-sort', 'descending')
+      expect($nationHeader).toHaveAttribute('aria-sort', 'none')
+      expect($mmrHeader).toHaveAttribute('aria-sort', 'descending')
     })
 
     it('should update status message when sorting', () => {
@@ -291,29 +291,29 @@ describe('Table', () => {
     it('should reorder rows when sorting', () => {
       const $mmrButton = $buttons[1]
 
-      function getRowHeading() {
+      function getRowHeader() {
         return document.querySelector('tbody tr th')
       }
 
-      expect(getRowHeading()).toHaveTextContent('England')
+      expect(getRowHeader()).toHaveTextContent('England')
 
       // Sort by MMR descending first (Wales has highest at 89.5%)
       // because MMR column has data-initial-sort="descending"
       $mmrButton.click()
 
-      expect(getRowHeading()).toHaveTextContent('Wales')
+      expect(getRowHeader()).toHaveTextContent('Wales')
 
       // Sort by MMR ascending (England has lowest at 83.7%)
       $mmrButton.click()
 
-      expect(getRowHeading()).toHaveTextContent('England')
+      expect(getRowHeader()).toHaveTextContent('England')
     })
   })
 
   describe('Configuration', () => {
     it('should have default configuration values', () => {
       expect(Table.defaults.i18n).toMatchObject({
-        sortAnnouncement: 'Sorted by %{heading} (%{direction})',
+        sortAnnouncement: 'Sorted by %{header} (%{direction})',
         ascending: 'ascending',
         descending: 'descending'
       })
@@ -322,7 +322,7 @@ describe('Table', () => {
     it('should accept custom configuration', () => {
       new Table($root, {
         i18n: {
-          sortAnnouncement: 'Ordered by %{heading} in %{direction} order',
+          sortAnnouncement: 'Ordered by %{header} in %{direction} order',
           ascending: 'A-Z',
           descending: 'Z-A'
         }
