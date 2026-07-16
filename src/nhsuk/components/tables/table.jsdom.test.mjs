@@ -4,8 +4,8 @@ import { examples } from './fixtures.mjs'
 import { Table, initTables } from './table.mjs'
 
 describe('Table', () => {
-  /** @type {HTMLElement | null} */
-  let $root = null
+  /** @type {HTMLElement} */
+  let $root
 
   /** @type {HTMLElement | null} */
   let $caption = null
@@ -28,7 +28,7 @@ describe('Table', () => {
   function initExample(example) {
     document.body.innerHTML = components.render('tables', examples[example])
 
-    $root = /** @type {HTMLElement | null} */ (
+    $root = /** @type {HTMLElement} */ (
       document.querySelector(`[data-module="${Table.moduleName}"]`)
     )
 
@@ -36,8 +36,8 @@ describe('Table', () => {
     $head = document.querySelector('thead')
     $body = document.querySelector('tbody')
 
-    $headers = [...document.querySelectorAll('thead th[aria-sort]')]
-    $rows = [...document.querySelectorAll('tbody tr')]
+    $headers = Array.from(document.querySelectorAll('thead th'))
+    $rows = Array.from(document.querySelectorAll('tbody tr'))
 
     if ($head) {
       jest.spyOn($head, 'addEventListener')
@@ -71,6 +71,16 @@ describe('Table', () => {
 
       expect(() => initTables()).toThrow(
         `${Table.moduleName}: Table head (\`<thead class="nhsuk-table__head">\`) not found`
+      )
+    })
+
+    it('should throw with missing table headers', () => {
+      for (const $header of $headers) {
+        $header.removeAttribute('data-sort')
+      }
+
+      expect(() => initTables()).toThrow(
+        `${Table.moduleName}: Table headers (\`<th class="nhsuk-table__header">\`) with attribute (\`data-sort\`) not found`
       )
     })
 
@@ -142,24 +152,25 @@ describe('Table', () => {
   })
 
   describe('Header buttons', () => {
-    /** @type {HTMLButtonElement[]} */
+    /** @type {(HTMLButtonElement | null)[]} */
     let $buttons = []
 
     beforeEach(() => {
       initTables()
 
-      $buttons = $headers
-        .map(($header) => $header.querySelector('button'))
-        .filter(($button) => !!$button)
+      $buttons = $headers.map(($header) => $header.querySelector('button'))
     })
 
     it('should create sort buttons for sortable columns', () => {
       expect($headers).toHaveLength(4)
-      expect($buttons).toHaveLength(4)
+      expect($headers).toHaveLength(4)
     })
 
     it('should copy the column header text into the sort button', () => {
-      let buttonsText = $buttons.map((button) => button.textContent.trim())
+      let headersText = $headers.map(($header) => $header.textContent.trim())
+      let buttonsText = $buttons.map(($button) => $button?.textContent.trim())
+
+      expect(headersText).toEqual(['Nation', 'MMR', '6-in-1', 'Rotavirus'])
       expect(buttonsText).toEqual(['Nation', 'MMR', '6-in-1', 'Rotavirus'])
     })
   })
@@ -226,7 +237,7 @@ describe('Table', () => {
       // Nation column does NOT have data-initial-sort attribute
       // First click another column to reset Nation to 'none'
       $mmrButton.click()
-      expect($nationHeader).toHaveAttribute('aria-sort', 'none')
+      expect($nationHeader).not.toHaveProperty('aria-sort')
 
       // Now click Nation - without data-initial-sort it should default to ascending
       $nationButton.click()
@@ -268,7 +279,7 @@ describe('Table', () => {
       // MMR column has data-sort-next="descending" in the fixture
       $mmrButton.click()
 
-      expect($nationHeader).toHaveAttribute('aria-sort', 'none')
+      expect($nationHeader).not.toHaveProperty('aria-sort')
       expect($mmrHeader).toHaveAttribute('aria-sort', 'descending')
     })
 
@@ -333,7 +344,7 @@ describe('Table', () => {
       expect($screenReaderStatusMessage).toBe($root?.nextElementSibling)
       expect($screenReaderStatusMessage).toBeEmptyDOMElement()
 
-      const $buttons = document.querySelectorAll('thead th[aria-sort] button')
+      const $buttons = document.querySelectorAll('thead th[data-sort] button')
 
       // MMR column has data-sort-next="descending" in the fixture
       const $mmrButton = $buttons[1]

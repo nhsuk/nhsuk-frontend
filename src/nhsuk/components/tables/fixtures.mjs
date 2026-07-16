@@ -466,19 +466,19 @@ const fixtures = {
         {
           text: 'MMR',
           format: 'numeric',
-          sort: 'none',
+          sort: true,
           sortNext: 'descending'
         },
         {
           text: '6-in-1',
           format: 'numeric',
-          sort: 'none',
+          sort: true,
           sortNext: 'descending'
         },
         {
           text: 'Rotavirus',
           format: 'numeric',
-          sort: 'none',
+          sort: true,
           sortNext: 'descending'
         }
       ],
@@ -561,7 +561,7 @@ const fixtures = {
       head: [
         {
           text: 'Name',
-          sort: 'none'
+          sort: true
         },
         {
           text: 'NHS number',
@@ -661,14 +661,14 @@ const fixtures = {
       firstCellIsHeader: true,
       head: [
         {
-          text: 'Time',
           href: '#',
+          text: 'Time',
           sort: 'ascending'
         },
         {
           href: '#',
           text: 'Name',
-          sort: 'none'
+          sort: true
         },
         {
           text: 'Date of birth'
@@ -1370,17 +1370,17 @@ const fixtures = {
         {
           text: 'Current charge',
           format: 'numeric',
-          sort: 'none'
+          sort: true
         },
         {
           text: 'New charge',
           format: 'numeric',
-          sort: 'none'
+          sort: true
         },
         {
           text: '% Increase',
           format: 'numeric',
-          sort: 'none'
+          sort: true
         }
       ],
       rows: [
@@ -1549,17 +1549,17 @@ const fixtures = {
         {
           text: 'Current charge',
           format: 'numeric',
-          sort: 'none'
+          sort: true
         },
         {
           text: 'New charge',
           format: 'numeric',
-          sort: 'none'
+          sort: true
         },
         {
           text: '% Increase',
           format: 'numeric',
-          sort: 'none'
+          sort: true
         }
       ],
       rows: [

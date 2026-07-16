@@ -60,12 +60,13 @@ export class Table extends ConfigurableComponent {
 
     if (
       !$headers.length ||
-      !$headers.every(($header) => $header instanceof HTMLElement)
+      !$headers.every(($header) => $header instanceof HTMLElement) ||
+      !$headers.some(($header) => 'sort' in $header.dataset)
     ) {
       throw new ElementError({
         component: Table,
         identifier:
-          'Table headers (`<th class="nhsuk-table__header">`) with sortable columns'
+          'Table headers (`<th class="nhsuk-table__header">`) with attribute (`data-sort`)'
       })
     }
 
@@ -132,7 +133,7 @@ export class Table extends ConfigurableComponent {
 
   setupButtons() {
     for (const $header of this.$headers) {
-      if ($header.hasAttribute('aria-sort')) {
+      if ('sort' in $header.dataset) {
         const $button = document.createElement('button')
 
         $button.setAttribute('type', 'button')
@@ -189,7 +190,6 @@ export class Table extends ConfigurableComponent {
 
     this.sort(index, directionNext)
     this.update(index, directionNext)
-    this.updateScreenReaderStatusMessage(index, directionNext)
   }
 
   /**
@@ -205,14 +205,32 @@ export class Table extends ConfigurableComponent {
       this.$body.append($row)
     }
 
+    const $header = this.$headers[index]
+
+    // Skip header updates unless direction has changed
+    if (direction === this.getDirection($header)) {
+      return
+    }
+
+    $header.setAttribute('aria-sort', direction)
+
     for (const $header of this.$headers) {
-      if ($header.hasAttribute('aria-sort')) {
-        $header.setAttribute('aria-sort', 'none')
+      const isActive = this.getIndex($header) === index
+
+      const directionNext = isActive
+        ? this.getDirectionNext($header)
+        : this.getDirection($header)
+
+      if (directionNext !== 'none') {
+        $header.dataset.sortNext = directionNext
+      }
+
+      if (!isActive) {
+        $header.removeAttribute('aria-sort')
       }
     }
 
-    const $header = this.$headers[index]
-    $header.setAttribute('aria-sort', direction)
+    this.updateScreenReaderStatusMessage(index, direction)
   }
 
   /**
@@ -260,12 +278,13 @@ export class Table extends ConfigurableComponent {
     /** @type {'ascending' | 'descending'} */
     let directionNext = 'ascending'
 
-    if (direction === 'descending') {
-      directionNext = 'ascending'
+    if (
+      direction !== sortNext &&
+      (sortNext === 'ascending' || sortNext === 'descending')
+    ) {
+      directionNext = sortNext
     } else if (direction === 'ascending') {
       directionNext = 'descending'
-    } else if (sortNext === 'descending') {
-      directionNext = sortNext
     }
 
     return directionNext
