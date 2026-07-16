@@ -102,7 +102,7 @@ const options = {
         type: 'string',
         required: false,
         description:
-          'If set, this adds a link within the header cell. This can be in conjunction with setting aria-sort for server-side table sorting.'
+          'If set, the table header will become a link for server-side table sorting. Use `sort` to set the column sort direction.'
       },
       format: {
         type: 'string',
@@ -140,14 +140,14 @@ const options = {
         type: 'string',
         required: false,
         description:
-          'The sort direction applied to the column when the page loads – `"ascending"`, `"descending"` or `"none"`. To enable sorting without a default direction, set `sort` to `"none"`.',
+          'The sort direction applied to the column using `aria-sort` – `"ascending"`, `"descending"`, `"none"` or `true`. To enable sorting without a default direction, set `sort` to `"none"` or `true`.',
         released: '10.6.0'
       },
       sortNext: {
         type: 'string',
         required: false,
         description:
-          'The next sort direction applied to the column when clicked – `"ascending"` or `"descending"`. Defaults to `"ascending"`. If you set `sort` to `"ascending"`, `sortNext` defaults to `"descending"`.',
+          'The next sort direction applied to the column using `aria-sort` when clicked – `"ascending"` or `"descending"`. Defaults to `"ascending"`. If you set `sort` to `"ascending"`, `sortNext` defaults to `"descending"`.',
         released: '10.6.0'
       }
     }

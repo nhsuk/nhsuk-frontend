@@ -227,7 +227,7 @@
 
   // Sortable tables
 
-  th[aria-sort] {
+  th[data-sort] {
     position: relative;
   }
 
@@ -240,8 +240,8 @@
 
   // Add icon for sortable tables. These can can be buttons
   // (client-side sorting) or links (server-side sorting).
-  th[aria-sort] button::after,
-  th[aria-sort] a::after {
+  th[data-sort] button::after,
+  th[data-sort] a::after {
     content: "";
 
     flex-shrink: 0;
@@ -249,7 +249,7 @@
     width: nhsuk-px-to-rem($nhsuk-icon-size);
     height: nhsuk-px-to-rem($nhsuk-icon-size);
 
-    background-repeat: no-repeat;
+    background: nhsuk-image-url("nhsuk-icon-arrow-up-down.svg") no-repeat;
     background-size: nhsuk-px-to-rem($nhsuk-icon-size) nhsuk-px-to-rem($nhsuk-icon-size);
 
     // Where possible use the cross as a mask instead. This lets us use
@@ -261,6 +261,7 @@
       background-color: currentcolor;
       // stylelint-disable-next-line declaration-no-important
       background-image: none !important;
+      mask-image: nhsuk-image-url("nhsuk-icon-arrow-up-down.svg");
       mask-size: nhsuk-px-to-rem($nhsuk-icon-size) nhsuk-px-to-rem($nhsuk-icon-size);
 
       // currentcolor doesn't seem to be computed correctly in forced colors
@@ -300,19 +301,10 @@
     }
   }
 
-  th[aria-sort="none"] button::after,
-  th[aria-sort="none"] a::after {
-    background-image: nhsuk-image-url("nhsuk-icon-arrow-up-down.svg");
-
-    @supports (mask-position: initial) {
-      mask-image: nhsuk-image-url("nhsuk-icon-arrow-up-down.svg");
-    }
-  }
-
   // This expands the button or link to fill the whole
   // table header element, for a bigger click area
-  th[aria-sort] button::before,
-  th[aria-sort] a::before {
+  th[data-sort] button::before,
+  th[data-sort] a::before {
     content: "";
 
     position: absolute;
@@ -334,18 +326,18 @@
   }
 
   // Add a darker grey bottom border to the header cell on hover
-  th[aria-sort]:hover button::before,
-  th[aria-sort]:hover a::before {
+  th[data-sort]:hover button::before,
+  th[data-sort]:hover a::before {
     border-color: nhsuk-colour("grey-3");
   }
 
   // Add a grey background colour to the header cell on hover
-  th[aria-sort]:hover {
+  th[data-sort]:hover {
     background-color: $nhsuk-target-hover-colour;
   }
 
-  [aria-sort] button,
-  [aria-sort] a {
+  [data-sort] button,
+  [data-sort] a {
     display: inline-flex;
 
     align-items: center;
@@ -377,16 +369,16 @@
     }
   }
 
-  [aria-sort].nhsuk-table__header--numeric button,
-  [aria-sort].nhsuk-table__header--numeric a {
+  [data-sort].nhsuk-table__header--numeric button,
+  [data-sort].nhsuk-table__header--numeric a {
     justify-content: end;
     padding-right: $nhsuk-border-width-form-element;
     padding-left: 0;
   }
 
   .nhsuk-table--reverse {
-    [aria-sort] button,
-    [aria-sort] a {
+    [data-sort] button,
+    [data-sort] a {
       @include nhsuk-link-style-reverse;
     }
 
@@ -399,13 +391,13 @@
     }
 
     // Add a lighter blue bottom border to the header cell on hover
-    th[aria-sort]:hover button::before,
-    th[aria-sort]:hover a::before {
+    th[data-sort]:hover button::before,
+    th[data-sort]:hover a::before {
       border-color: nhsuk-tint($nhsuk-brand-colour, 40%);
     }
 
     // Add a darker blue background colour to the header cell on hover
-    th[aria-sort]:hover {
+    th[data-sort]:hover {
       background-color: $nhsuk-reverse-target-hover-colour;
     }
   }
