@@ -233,6 +233,14 @@
         display: none; // [8]
       }
     }
+
+    &.nhsuk-table--striped {
+      @media #{nhsuk-until-breakpoint(desktop)} {
+        .nhsuk-table__body .nhsuk-table__row:nth-child(odd) {
+          background-color: transparent;
+        }
+      }
+    }
   }
 
   // Numeric tables
