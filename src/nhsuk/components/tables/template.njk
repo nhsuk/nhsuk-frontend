@@ -31,10 +31,12 @@
 {%- set rows = params.rows | select("iterable") if params.rows | length else [] %}
 
 {%- set isSortable = false %}
+{%- set isSortableOnServer = false %}
 
 {#- Determine if the table is sortable #}
 {% for item in head %}
   {% set isSortable = true if item.sort else isSortable %}
+  {% set isSortableOnServer = true if isSortable and item.href else isSortableOnServer %}
 {% endfor -%}
 
 {%- if isSortable and (not params.classes or not "nhsuk-table--sortable" in params.classes) %}
@@ -72,7 +74,7 @@
       optional: true
     },
     "data-module": {
-      value: "nhsuk-table" if "nhsuk-table--sortable" in classNames else false,
+      value: "nhsuk-table" if "nhsuk-table--sortable" in classNames and not isSortableOnServer else false,
       optional: true
     }
   }) -}}
@@ -164,7 +166,12 @@
   <thead class="nhsuk-table__head" {%- if params.responsive %} role="rowgroup"{% endif %}>
     <tr class="nhsuk-table__row" {%- if params.responsive %} role="row"{% endif %}>
     {% for item in head %}
-      {{ _tableCell({
+      {%- set sort = item.sort if item.sort is string else
+        ("none" if item.sort == true else undefined) %}
+
+      {%- set sortNext = item.sortNext if item.sortNext is string else undefined %}
+
+      {{- _tableCell({
         text: item.text,
         html: item.html,
         href: item.href,
@@ -175,17 +182,21 @@
         rowspan: item.rowspan,
         classes: item.classes,
         attributes: nhsukAttributes({
+          "data-sort": {
+            value: true if sort and isSortable else false,
+            optional: true
+          },
           "data-sort-next": {
-            value: item.sortNext if item.sortNext and item.sort else false,
+            value: sortNext if sortNext and isSortable and not isSortableOnServer else false,
             optional: true
           },
           "aria-sort": {
-            value: item.sort if item.sort else false,
+            value: sort if sort and sort != "none" and isSortable else false,
             optional: true
           }
         }) ~ nhsukAttributes(item.attributes),
         element: "th"
-      }, params) | trim | indent(6) }}
+      }, params) | trim | indent(6, true) }}
     {% endfor %}
     </tr>
   </thead>
