@@ -1,0 +1,483 @@
+{
+  "name": "Heading",
+  "component": "heading",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "text": "What is your full name?",
+        "size": "l"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<h1 class=\"nhsuk-heading-l\">\n  What is your full name?\n</h1>"
+    },
+    {
+      "name": "size class",
+      "context": {
+        "text": "What is your full name?",
+        "classes": "nhsuk-heading-l"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<h1 class=\"nhsuk-heading nhsuk-heading-l\">\n  What is your full name?\n</h1>"
+    },
+    {
+      "name": "size class overriding size param",
+      "context": {
+        "text": "What is your full name?",
+        "classes": "nhsuk-heading-l",
+        "size": "s"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<h1 class=\"nhsuk-heading nhsuk-heading-l\">\n  What is your full name?\n</h1>"
+    },
+    {
+      "name": "text",
+      "description": "with size S",
+      "context": {
+        "text": "What is your full name?",
+        "size": "s"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<h1 class=\"nhsuk-heading-s\">\n  What is your full name?\n</h1>"
+    },
+    {
+      "name": "text",
+      "description": "with size M",
+      "context": {
+        "text": "What is your full name?",
+        "size": "m"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<h1 class=\"nhsuk-heading-m\">\n  What is your full name?\n</h1>"
+    },
+    {
+      "name": "text",
+      "description": "with size L",
+      "context": {
+        "text": "What is your full name?",
+        "size": "l"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<h1 class=\"nhsuk-heading-l\">\n  What is your full name?\n</h1>"
+    },
+    {
+      "name": "text",
+      "description": "with size XL",
+      "context": {
+        "text": "What is your full name?",
+        "size": "xl"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<h1 class=\"nhsuk-heading-xl\">\n  What is your full name?\n</h1>"
+    },
+    {
+      "name": "text and caption",
+      "description": "with size S",
+      "context": {
+        "text": "What is your home address?",
+        "caption": "About you",
+        "size": "s"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<h1 class=\"nhsuk-heading-s\">\n  <span class=\"nhsuk-caption\">\n    About you\n  </span>\n  What is your home address?\n</h1>"
+    },
+    {
+      "name": "text and caption",
+      "description": "with size M",
+      "context": {
+        "text": "What is your home address?",
+        "caption": "About you",
+        "size": "m"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<h1 class=\"nhsuk-heading-m\">\n  <span class=\"nhsuk-caption-m\">\n    About you\n  </span>\n  What is your home address?\n</h1>"
+    },
+    {
+      "name": "text and caption",
+      "description": "with size L",
+      "context": {
+        "text": "What is your home address?",
+        "caption": "About you",
+        "size": "l"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<h1 class=\"nhsuk-heading-l\">\n  <span class=\"nhsuk-caption-l\">\n    About you\n  </span>\n  What is your home address?\n</h1>"
+    },
+    {
+      "name": "text and caption",
+      "description": "with size XL",
+      "context": {
+        "text": "What is your home address?",
+        "caption": "About you",
+        "size": "xl"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<h1 class=\"nhsuk-heading-xl\">\n  <span class=\"nhsuk-caption-xl\">\n    About you\n  </span>\n  What is your home address?\n</h1>"
+    },
+    {
+      "name": "text and caption \"after\"",
+      "description": "with size S",
+      "context": {
+        "text": "What is your home address?",
+        "caption": {
+          "text": "About you",
+          "placement": "after"
+        },
+        "size": "s"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<h1 class=\"nhsuk-heading-s\">\n  What is your home address?\n</h1>\n<span class=\"nhsuk-caption nhsuk-caption--bottom\">\n  About you\n</span>"
+    },
+    {
+      "name": "text and caption \"after\"",
+      "description": "with size M",
+      "context": {
+        "text": "What is your home address?",
+        "caption": {
+          "text": "About you",
+          "placement": "after"
+        },
+        "size": "m"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<h1 class=\"nhsuk-heading-m\">\n  What is your home address?\n</h1>\n<span class=\"nhsuk-caption-m nhsuk-caption--bottom\">\n  About you\n</span>"
+    },
+    {
+      "name": "text and caption \"after\"",
+      "description": "with size L",
+      "context": {
+        "text": "What is your home address?",
+        "caption": {
+          "text": "About you",
+          "placement": "after"
+        },
+        "size": "l"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<h1 class=\"nhsuk-heading-l\">\n  What is your home address?\n</h1>\n<span class=\"nhsuk-caption-l nhsuk-caption--bottom\">\n  About you\n</span>"
+    },
+    {
+      "name": "text and caption \"after\"",
+      "description": "with size XL",
+      "context": {
+        "text": "What is your home address?",
+        "caption": {
+          "text": "About you",
+          "placement": "after"
+        },
+        "size": "xl"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<h1 class=\"nhsuk-heading-xl\">\n  What is your home address?\n</h1>\n<span class=\"nhsuk-caption-xl nhsuk-caption--bottom\">\n  About you\n</span>"
+    },
+    {
+      "name": "text and caption \"after\" as a paragraph",
+      "context": {
+        "text": "What is your home address?",
+        "caption": {
+          "text": "About you",
+          "placement": "after",
+          "element": "p"
+        },
+        "size": "l"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<h1 class=\"nhsuk-heading-l\">\n  What is your home address?\n</h1>\n<p class=\"nhsuk-caption-l nhsuk-caption--bottom\">\n  About you\n</p>"
+    },
+    {
+      "name": "text and caption \"before\"",
+      "description": "with size S",
+      "context": {
+        "text": "What is your home address?",
+        "caption": {
+          "text": "About you",
+          "placement": "before"
+        },
+        "size": "s"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<span class=\"nhsuk-caption\">\n  About you\n</span>\n<h1 class=\"nhsuk-heading-s\">\n  What is your home address?\n</h1>"
+    },
+    {
+      "name": "text and caption \"before\"",
+      "description": "with size M",
+      "context": {
+        "text": "What is your home address?",
+        "caption": {
+          "text": "About you",
+          "placement": "before"
+        },
+        "size": "m"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<span class=\"nhsuk-caption-m\">\n  About you\n</span>\n<h1 class=\"nhsuk-heading-m\">\n  What is your home address?\n</h1>"
+    },
+    {
+      "name": "text and caption \"before\"",
+      "description": "with size L",
+      "context": {
+        "text": "What is your home address?",
+        "caption": {
+          "text": "About you",
+          "placement": "before"
+        },
+        "size": "l"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<span class=\"nhsuk-caption-l\">\n  About you\n</span>\n<h1 class=\"nhsuk-heading-l\">\n  What is your home address?\n</h1>"
+    },
+    {
+      "name": "text and caption \"before\"",
+      "description": "with size XL",
+      "context": {
+        "text": "What is your home address?",
+        "caption": {
+          "text": "About you",
+          "placement": "before"
+        },
+        "size": "xl"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<span class=\"nhsuk-caption-xl\">\n  About you\n</span>\n<h1 class=\"nhsuk-heading-xl\">\n  What is your home address?\n</h1>"
+    },
+    {
+      "name": "text and caption \"before\" as a heading",
+      "context": {
+        "text": "What is your home address?",
+        "caption": {
+          "text": "About you",
+          "placement": "before",
+          "element": "h2"
+        },
+        "size": "l"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<h2 class=\"nhsuk-caption-l\">\n  About you\n</h2>\n<h1 class=\"nhsuk-heading-l\">\n  What is your home address?\n</h1>"
+    },
+    {
+      "name": "text and caption \"end\"",
+      "description": "with size S",
+      "context": {
+        "text": "What is your home address?",
+        "caption": {
+          "text": "About you",
+          "placement": "end"
+        },
+        "size": "s"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<h1 class=\"nhsuk-heading-s\">\n  What is your home address?\n  <span class=\"nhsuk-caption nhsuk-caption--bottom\">\n    About you\n  </span>\n</h1>"
+    },
+    {
+      "name": "text and caption \"end\"",
+      "description": "with size M",
+      "context": {
+        "text": "What is your home address?",
+        "caption": {
+          "text": "About you",
+          "placement": "end"
+        },
+        "size": "m"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<h1 class=\"nhsuk-heading-m\">\n  What is your home address?\n  <span class=\"nhsuk-caption-m nhsuk-caption--bottom\">\n    About you\n  </span>\n</h1>"
+    },
+    {
+      "name": "text and caption \"end\"",
+      "description": "with size L",
+      "context": {
+        "text": "What is your home address?",
+        "caption": {
+          "text": "About you",
+          "placement": "end"
+        },
+        "size": "l"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<h1 class=\"nhsuk-heading-l\">\n  What is your home address?\n  <span class=\"nhsuk-caption-l nhsuk-caption--bottom\">\n    About you\n  </span>\n</h1>"
+    },
+    {
+      "name": "text and caption \"end\"",
+      "description": "with size XL",
+      "context": {
+        "text": "What is your home address?",
+        "caption": {
+          "text": "About you",
+          "placement": "end"
+        },
+        "size": "xl"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<h1 class=\"nhsuk-heading-xl\">\n  What is your home address?\n  <span class=\"nhsuk-caption-xl nhsuk-caption--bottom\">\n    About you\n  </span>\n</h1>"
+    },
+    {
+      "name": "text and caption \"start\"",
+      "description": "with size S",
+      "context": {
+        "text": "What is your home address?",
+        "caption": {
+          "text": "About you",
+          "placement": "start"
+        },
+        "size": "s"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<h1 class=\"nhsuk-heading-s\">\n  <span class=\"nhsuk-caption\">\n    About you\n  </span>\n  What is your home address?\n</h1>"
+    },
+    {
+      "name": "text and caption \"start\"",
+      "description": "with size M",
+      "context": {
+        "text": "What is your home address?",
+        "caption": {
+          "text": "About you",
+          "placement": "start"
+        },
+        "size": "m"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<h1 class=\"nhsuk-heading-m\">\n  <span class=\"nhsuk-caption-m\">\n    About you\n  </span>\n  What is your home address?\n</h1>"
+    },
+    {
+      "name": "text and caption \"start\"",
+      "description": "with size L",
+      "context": {
+        "text": "What is your home address?",
+        "caption": {
+          "text": "About you",
+          "placement": "start"
+        },
+        "size": "l"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<h1 class=\"nhsuk-heading-l\">\n  <span class=\"nhsuk-caption-l\">\n    About you\n  </span>\n  What is your home address?\n</h1>"
+    },
+    {
+      "name": "text and caption \"start\"",
+      "description": "with size XL",
+      "context": {
+        "text": "What is your home address?",
+        "caption": {
+          "text": "About you",
+          "placement": "start"
+        },
+        "size": "xl"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<h1 class=\"nhsuk-heading-xl\">\n  <span class=\"nhsuk-caption-xl\">\n    About you\n  </span>\n  What is your home address?\n</h1>"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+
+{#- Set classes for this component #}
+{%- set className = "nhsuk-caption" -%}
+{%- set classPrefix = className ~ "-" -%}
+{%- set classNames = className -%}
+
+{%- if params.size and
+  params.size in ["m", "l", "xl"] and (
+    not params.classes or (
+      not classPrefix ~ "m" in params.classes and
+      not classPrefix ~ "l" in params.classes and
+      not classPrefix ~ "xl" in params.classes
+    )
+  )
+%}
+  {% set classNames = classPrefix ~ params.size %}
+{% endif %}
+
+{%- if params.placement and params.placement in ["after", "end"] %}
+  {% set classNames = classNames ~ " " ~ className ~ "--bottom" %}
+{% endif %}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif -%}
+
+{#- Determine type of element to use, if not explicitly set #}
+{%- set element = (params.element | default("span")) | lower -%}
+
+<{{ element }} class="{{ classNames }}"
+  {%- if params.id %} id="{{ params.id }}"{% endif %}
+  {{- nhsukAttributes(params.attributes) }}>
+{% if caller %}
+  {{- caller() -}}
+{% elif params.html %}
+  {{ params.html | safe | trim | indent(2) }}
+{% elif params.text %}
+  {{ params.text | trim | indent(2) }}
+{% endif %}
+</{{ element }}>

@@ -1,0 +1,439 @@
+@use "sass:color";
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+@use "../../core/helpers" as *;
+
+////
+/// Table component
+///
+/// @group components/table
+////
+
+@include nhsuk-exports("nhsuk/components/table") {
+  // Table container is used to ensure the table does not break the container.
+  //
+  // 1. Margin is removed so there isn't double spacing.
+  // 2. XS size not added because it matches the table header, so it'd be bad for hierarchy
+
+  .nhsuk-table-container {
+    box-sizing: border-box;
+    display: block;
+
+    width: 100%;
+
+    overflow-x: auto;
+
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+
+    @include nhsuk-responsive-margin(7, "bottom");
+
+    .nhsuk-table,
+    .nhsuk-table-responsive {
+      margin: 0; // [1]
+    }
+  }
+
+  .nhsuk-table,
+  // Deprecated, to be removed in v11.0
+  .nhsuk-table-responsive {
+    box-sizing: border-box;
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+
+    @include nhsuk-font($size: 19);
+    @include nhsuk-responsive-margin(7, "bottom");
+  }
+
+  .nhsuk-table--compact {
+    .nhsuk-table__header,
+    .nhsuk-table__cell {
+      padding-top: nhsuk-spacing(1);
+      padding-bottom: nhsuk-spacing(1);
+
+      @media #{nhsuk-from-breakpoint(tablet)} {
+        padding-top: nhsuk-spacing(2);
+        padding-bottom: nhsuk-spacing(2);
+      }
+    }
+
+    .nhsuk-table__header:not(:last-child),
+    .nhsuk-table__cell:not(:last-child) {
+      padding-right: nhsuk-spacing(3);
+    }
+  }
+
+  .nhsuk-table--striped {
+    .nhsuk-table__row:nth-child(odd) {
+      background-color: rgba($nhsuk-target-hover-colour, 0.5);
+    }
+
+    .nhsuk-table__head .nhsuk-table__row {
+      background-color: transparent;
+    }
+  }
+
+  .nhsuk-table--reverse,
+  // Deprecated, to be removed in v11.0
+  .nhsuk-table-responsive--reverse {
+    color: $nhsuk-reverse-text-colour;
+
+    .nhsuk-table__header,
+    .nhsuk-table__cell {
+      border-color: $nhsuk-reverse-border-colour;
+    }
+
+    &.nhsuk-table--striped {
+      .nhsuk-table__body .nhsuk-table__row:nth-child(odd) {
+        background-color: rgba($nhsuk-reverse-target-hover-colour, 0.5);
+      }
+    }
+  }
+
+  .nhsuk-table__caption {
+    display: table-caption;
+    margin-bottom: nhsuk-spacing(3) - nhsuk-spacing(2);
+    @include nhsuk-font($size: 22, $weight: bold);
+
+    @media #{nhsuk-from-breakpoint(tablet)} {
+      margin-bottom: nhsuk-spacing(4) - nhsuk-spacing(3);
+    }
+  }
+
+  .nhsuk-table__caption--xl {
+    margin-bottom: nhsuk-spacing(6) - nhsuk-spacing(2);
+    @include nhsuk-font-size(48);
+
+    @media #{nhsuk-from-breakpoint(tablet)} {
+      margin-bottom: nhsuk-spacing(7) - nhsuk-spacing(3);
+    }
+  }
+
+  .nhsuk-table__caption--l {
+    @include nhsuk-font-size(36);
+  }
+
+  .nhsuk-table__caption--m {
+    @include nhsuk-font-size(26);
+  }
+
+  .nhsuk-table__caption--s {
+    @include nhsuk-font-size(22);
+  }
+
+  // Table panel with tab heading
+  //
+  // 1. Margin is removed so there isn't double spacing.
+
+  // Deprecated, to be removed in v11.0
+  .nhsuk-table__panel-with-heading-tab {
+    @include nhsuk-panel-with-label($nhsuk-card-background-colour, $nhsuk-text-colour, $nhsuk-border-colour);
+
+    .nhsuk-table,
+    .nhsuk-table-container,
+    // Deprecated, to be removed in v11.0
+    .nhsuk-table-responsive {
+      margin: 0; // [1]
+    }
+  }
+
+  // Deprecated, to be removed in v11.0
+  .nhsuk-table__heading-tab {
+    @include nhsuk-heading-label($nhsuk-brand-colour, $nhsuk-reverse-text-colour);
+  }
+
+  // Responsive table
+  //
+  // 1. Hide the thead until desktop
+  // 2. Removing default screen reader behaviour
+  // 3. Assigning role of table-row on desktop to give default screen reader behaviour
+  // 4. Using justify content to space out elements in the row on mobile
+  // 5. Assigning a minimum width in case of black cell
+  // 6. Aligning content to the right on mobile
+  // 7. Aligning mobile header to left to split it from the data
+  // 8. Hiding mobile specific header from desktop view
+  // 9. Adding a display block value due to IE 11 not having full flex support
+
+  .nhsuk-table--responsive,
+  // Deprecated, to be removed in v11.0
+  .nhsuk-table-responsive {
+    .nhsuk-table__head {
+      @media #{nhsuk-until-breakpoint(desktop)} {
+        @include nhsuk-visually-hidden; // [1]
+      }
+    }
+
+    .nhsuk-table__body {
+      .nhsuk-table__row {
+        display: block; // [2]
+        margin-bottom: nhsuk-spacing(3) - $nhsuk-border-width;
+      }
+
+      .nhsuk-table__row:last-child {
+        margin-bottom: 0;
+      }
+
+      .nhsuk-table__header,
+      .nhsuk-table__cell {
+        display: block; // For browsers that don't support flexbox
+        display: flex;
+        justify-content: space-between; // [4]
+        min-width: 1px; // [5]
+      }
+
+      @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+        .nhsuk-table__header,
+        .nhsuk-table__cell {
+          display: block; // [9]
+        }
+      }
+
+      @media #{nhsuk-until-breakpoint(desktop)} {
+        .nhsuk-table__header {
+          @include nhsuk-font-weight-normal;
+        }
+
+        .nhsuk-table__header,
+        .nhsuk-table__cell {
+          padding-right: $nhsuk-border-table-header-width;
+          text-align: right; // [6]
+        }
+
+        .nhsuk-table__header:last-child,
+        .nhsuk-table__cell:last-child {
+          border-bottom-width: $nhsuk-border-width;
+        }
+      }
+
+      @media #{nhsuk-from-breakpoint(desktop)} {
+        .nhsuk-table__row {
+          display: table-row; // [3]
+        }
+
+        .nhsuk-table__header {
+          text-align: left;
+        }
+
+        .nhsuk-table__header,
+        .nhsuk-table__cell {
+          display: table-cell;
+        }
+      }
+    }
+
+    .nhsuk-table__heading,
+    // Deprecated, to be removed in v11.0
+    .nhsuk-table-responsive__heading {
+      @include nhsuk-font-weight-bold;
+      padding-right: nhsuk-spacing(3);
+      text-align: left; // [7]
+
+      @media #{nhsuk-from-breakpoint(desktop)} {
+        display: none; // [8]
+      }
+    }
+
+    &.nhsuk-table--striped {
+      @media #{nhsuk-until-breakpoint(desktop)} {
+        .nhsuk-table__body .nhsuk-table__row:nth-child(odd) {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+
+  // Numeric tables
+  //
+  // Right aligns table cells for numeric tables.
+
+  .nhsuk-table__header--numeric,
+  .nhsuk-table__cell--numeric {
+    text-align: right;
+  }
+
+  // Sortable tables
+
+  .nhsuk-table__header[data-sort] {
+    position: relative;
+  }
+
+  // Add icon for sortable tables. These can can be buttons
+  // (client-side sorting) or links (server-side sorting).
+  .nhsuk-table__header[data-sort] button::after,
+  .nhsuk-table__header[data-sort] a::after {
+    content: "";
+
+    flex-shrink: 0;
+
+    width: nhsuk-px-to-rem($nhsuk-icon-size);
+    height: nhsuk-px-to-rem($nhsuk-icon-size);
+    margin-left: nhsuk-px-to-rem(6px);
+
+    background: nhsuk-image-url("nhsuk-icon-arrow-up-down.svg") no-repeat;
+    background-size: nhsuk-px-to-rem($nhsuk-icon-size) nhsuk-px-to-rem($nhsuk-icon-size);
+
+    // Where possible use the cross as a mask instead. This lets us use
+    // currentcolor, increasing the contrast of the image and matching the
+    // user's prefered foreground colour in e.g. forced colors mode.
+    // We test for `mask-position` rather than `mask-image` because of a false
+    // positive in Edge 17.
+    @supports ((-webkit-mask-position: initial) or (mask-position: initial)) {
+      background-color: currentcolor;
+      // stylelint-disable-next-line declaration-no-important
+      background-image: none !important;
+      -webkit-mask-image: nhsuk-image-url("nhsuk-icon-arrow-up-down.svg");
+              mask-image: nhsuk-image-url("nhsuk-icon-arrow-up-down.svg");
+      -webkit-mask-size: nhsuk-px-to-rem($nhsuk-icon-size) nhsuk-px-to-rem($nhsuk-icon-size);
+              mask-size: nhsuk-px-to-rem($nhsuk-icon-size) nhsuk-px-to-rem($nhsuk-icon-size);
+
+      // currentcolor doesn't seem to be computed correctly in forced colors
+      // mode so force the background color to match the system link color
+      // (matching the text in the link)
+      @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+        background-color: ButtonText;
+      }
+    }
+
+    @media #{nhsuk-until-breakpoint(tablet)} {
+      width: nhsuk-px-to-rem($nhsuk-icon-size-small);
+      height: nhsuk-px-to-rem($nhsuk-icon-size-small);
+      margin-left: nhsuk-px-to-rem(5px);
+      background-size: nhsuk-px-to-rem($nhsuk-icon-size-small) nhsuk-px-to-rem($nhsuk-icon-size-small);
+
+      @supports ((-webkit-mask-position: initial) or (mask-position: initial)) {
+        -webkit-mask-size: nhsuk-px-to-rem($nhsuk-icon-size-small) nhsuk-px-to-rem($nhsuk-icon-size-small);
+                mask-size: nhsuk-px-to-rem($nhsuk-icon-size-small) nhsuk-px-to-rem($nhsuk-icon-size-small);
+      }
+    }
+  }
+
+  .nhsuk-table__header[aria-sort="ascending"] button::after,
+  .nhsuk-table__header[aria-sort="ascending"] a::after {
+    background-image: nhsuk-image-url("nhsuk-icon-arrow-up.svg");
+
+    @supports ((-webkit-mask-position: initial) or (mask-position: initial)) {
+      -webkit-mask-image: nhsuk-image-url("nhsuk-icon-arrow-up.svg");
+              mask-image: nhsuk-image-url("nhsuk-icon-arrow-up.svg");
+    }
+  }
+
+  .nhsuk-table__header[aria-sort="descending"] button::after,
+  .nhsuk-table__header[aria-sort="descending"] a::after {
+    background-image: nhsuk-image-url("nhsuk-icon-arrow-down.svg");
+
+    @supports ((-webkit-mask-position: initial) or (mask-position: initial)) {
+      -webkit-mask-image: nhsuk-image-url("nhsuk-icon-arrow-down.svg");
+              mask-image: nhsuk-image-url("nhsuk-icon-arrow-down.svg");
+    }
+  }
+
+  // This expands the button or link to fill the whole
+  // table header element, for a bigger click area
+  .nhsuk-table__header[data-sort] button::before,
+  .nhsuk-table__header[data-sort] a::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: -$nhsuk-border-table-header-width; // to expand the click area to cover the border-bottom
+    left: 0;
+
+    border: solid transparent;
+    border-width: 0 0 $nhsuk-border-width-form-element;
+  }
+
+  // Add a blue bottom border to the header cell currently sorted
+  .nhsuk-table__header[aria-sort] button::before,
+  .nhsuk-table__header[aria-sort] a::before {
+    border-color: $nhsuk-link-colour;
+  }
+
+  // Add a darker grey bottom border to the header cell on hover
+  .nhsuk-table__header[data-sort]:hover button::before,
+  .nhsuk-table__header[data-sort]:hover a::before {
+    border-color: nhsuk-colour("grey-3");
+  }
+
+  // Add a grey background colour to the header cell on hover
+  @include nhsuk-frontend-supported {
+    .nhsuk-table__header[data-sort]:hover {
+      background-color: $nhsuk-target-hover-colour;
+    }
+  }
+
+  .nhsuk-table__header[data-sort] button,
+  .nhsuk-table__header[data-sort] a {
+    display: inline-flex;
+
+    flex-wrap: nowrap;
+
+    align-items: center;
+
+    margin-right: nhsuk-px-to-rem(-6px);
+
+    padding: 0;
+
+    border: none;
+
+    color: $nhsuk-brand-colour;
+    background-color: transparent;
+
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    text-align: inherit;
+
+    cursor: pointer;
+
+    -webkit-appearance: none;
+
+            appearance: none;
+
+    @include nhsuk-link-style-default;
+    @include nhsuk-link-style-no-visited-state;
+
+    @media #{nhsuk-until-breakpoint(tablet)} {
+      margin-right: nhsuk-px-to-rem(-5px);
+    }
+
+    &:focus {
+      @include nhsuk-focused-button;
+    }
+  }
+
+  .nhsuk-table__header--numeric[data-sort] button,
+  .nhsuk-table__header--numeric[data-sort] a {
+    justify-content: end;
+    padding-right: $nhsuk-border-width-form-element;
+    padding-left: 0;
+  }
+
+  .nhsuk-table--reverse {
+    .nhsuk-table__header button,
+    .nhsuk-table__header a {
+      @include nhsuk-link-style-reverse;
+    }
+
+    // Add a white bottom border to the header cell currently sorted
+    .nhsuk-table__header[aria-sort] button::before,
+    .nhsuk-table__header[aria-sort] a::before {
+      border-color: $nhsuk-reverse-text-colour;
+    }
+
+    // Add a lighter blue bottom border to the header cell on hover
+    .nhsuk-table__header[data-sort]:hover button::before,
+    .nhsuk-table__header[data-sort]:hover a::before {
+      border-color: nhsuk-tint($nhsuk-brand-colour, 40%);
+    }
+
+    // Add a darker blue background colour to the header cell on hover
+    @include nhsuk-frontend-supported {
+      .nhsuk-table__header[data-sort]:hover {
+        background-color: $nhsuk-reverse-target-hover-colour;
+      }
+    }
+  }
+}
