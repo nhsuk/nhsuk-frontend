@@ -14,10 +14,10 @@ describe('Table', () => {
 
   beforeEach(() => {
     document.body.innerHTML = outdent`
-        <div>
-          ${components.render('tables', examples['with numeric data, sortable'])}
-        </div>
-      `
+      <div>
+        ${components.render('tables', examples['with numeric data, sortable'])}
+      </div>
+    `
 
     $root = /** @type {HTMLElement} */ (
       document.querySelector(`[data-module="${Table.moduleName}"]`)
