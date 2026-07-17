@@ -276,6 +276,7 @@
     @media #{nhsuk-until-breakpoint(tablet)} {
       width: nhsuk-px-to-rem($nhsuk-icon-size-small);
       height: nhsuk-px-to-rem($nhsuk-icon-size-small);
+      margin-left: nhsuk-px-to-rem(5px);
       background-size: nhsuk-px-to-rem($nhsuk-icon-size-small) nhsuk-px-to-rem($nhsuk-icon-size-small);
 
       @supports (mask-position: initial) {
@@ -339,13 +340,15 @@
     }
   }
 
-  [data-sort] button,
-  [data-sort] a {
+  th[data-sort] button,
+  th[data-sort] a {
     display: inline-flex;
 
     flex-wrap: nowrap;
 
     align-items: center;
+
+    margin-right: nhsuk-px-to-rem(-6px);
 
     padding: 0;
 
@@ -360,12 +363,16 @@
     line-height: inherit;
     text-align: inherit;
 
-    appearance: none;
-
     cursor: pointer;
+
+    appearance: none;
 
     @include nhsuk-link-style-default;
     @include nhsuk-link-style-no-visited-state;
+
+    @media #{nhsuk-until-breakpoint(tablet)} {
+      margin-right: nhsuk-px-to-rem(-5px);
+    }
 
     &:focus {
       @include nhsuk-focused-button;
