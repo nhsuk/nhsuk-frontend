@@ -8,72 +8,64 @@ Note: This release was created from the `support/10.x` branch.
 
 #### Sortable tables
 
-You can now make [tables](https://service-manual.nhs.uk/design-system/components/table) sortable, so that clicking the header sorts the table by that column.
+You can now make [table](https://service-manual.nhs.uk/design-system/components/table) columns sortable, so that clicking the header cell sorts the table by that column.
 
-To do this, add the `aria-sort="none"` attribute to the `<th>` header cell of any columns that you want to be sortable.
+If you're using the `tables` Nunjucks macro, you can configure header cells:
 
-The 1 column which is sorted by default should have `aria-sort="ascending"` or `aria-sort="descending"`.
+- Add the `sort: "ascending"` or `sort: "descending"` option to the currently sorted column only
+- Add the `sort: true` option to enable sorting on any other columns
 
 For example:
 
-```njk
-{{ table({
-  caption: "Childhood MMR coverage",
-  head: [
-    {
-      text: "Nation",
-      attributes: {
-        "aria-sort": "ascending"
-      }
-    },
-    {
-      text: "MMR",
-      format: "numeric",
-      attributes: {
-        "aria-sort": "none"
-      }
-    }
-  ],
-  rows: [
-    [
+```patch
+  {{ table({
+    caption: "Childhood MMR coverage",
+    head: [
       {
-        text: "England"
+-       text: "Nation"
++       text: "Nation",
++       sort: "ascending"
       },
       {
-        text: "83.7%",
-        format: "numeric"
+        text: "MMR",
+-       format: "numeric"
++       format: "numeric",
++       sort: true
       }
     ],
-    [
-      {
-        text: "Northern Ireland"
-      },
-      {
-        text: "86.4%",
-        format: "numeric"
-      }
-    ],
-    [
-      {
-        text: "Scotland"
-      },
-      {
-        text: "89.2%",
-        format: "numeric"
-      }
-    ],
-    [
-      {
-        text: "Wales"
-      },
-      {
-        text: "89.5%",
-        format: "numeric"
-      }
+    rows: [
+      [
+        {
+          text: "Northern Ireland"
+        },
+        {
+          text: "86.4%",
+          format: "numeric"
+        }
+      ],
+      [
+        {
+          text: "Scotland"
+        },
+        {
+          text: "89.2%",
+          format: "numeric"
+        }
+      ],
+      [
+        {
+          text: "Wales"
+        },
+        {
+          text: "89.5%",
+          format: "numeric"
+        }
+      ]
     ]
-  ]
-}) }}
+  }) }}
 ```
+
+If you are not using Nunjucks macros, use the HTML markup from the [table examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/table).
 
 This was added in [pull request #1654: Add option to make tables sortable](https://github.com/nhsuk/nhsuk-frontend/pull/1654).
 
