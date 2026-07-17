@@ -248,6 +248,7 @@
 
     width: nhsuk-px-to-rem($nhsuk-icon-size);
     height: nhsuk-px-to-rem($nhsuk-icon-size);
+    margin-left: nhsuk-px-to-rem(6px);
 
     background: nhsuk-image-url("nhsuk-icon-arrow-up-down.svg") no-repeat;
     background-size: nhsuk-px-to-rem($nhsuk-icon-size) nhsuk-px-to-rem($nhsuk-icon-size);
@@ -342,8 +343,9 @@
   [data-sort] a {
     display: inline-flex;
 
+    flex-wrap: nowrap;
+
     align-items: center;
-    column-gap: nhsuk-spacing(2) - $nhsuk-border-width-form-element;
 
     margin: 0;
     padding: 0;
