@@ -206,8 +206,21 @@
     <tr class="nhsuk-table__row" {%- if params.responsive %} role="row"{% endif %}>
     {% for item in row | select("mapping") if row | length else [] %}
       {%- set innerHtml %}
-        {%- if params.responsive and item.header -%}
-          <span class="nhsuk-table__heading" aria-hidden="true">{{ item.header }} </span>
+        {%- if params.responsive and (item.header or head[loop.index0]) -%}
+          {%- set header = head[loop.index0] %}
+
+          {%- set headingHtml %}
+            {%- if header.html %}
+              {{- header.html | safe | trim -}}
+            {% elif header.text %}
+              {{- header.text | trim -}}
+            {% else %}
+              {{- item.header | trim -}}
+            {% endif %}
+          {%- endset -%}
+
+          <span class="nhsuk-table__heading" aria-hidden="true">{{ headingHtml | safe }} </span>
+
         {%- endif %}
         {% if params.responsive and item.html -%}
           <span>{{ item.html | safe | trim }}</span>

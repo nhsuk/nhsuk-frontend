@@ -36,7 +36,8 @@ const options = {
         type: 'string',
         required: false,
         description: 'Header text for cells in responsive table rows only.',
-        released: '4.0.0'
+        released: '4.0.0',
+        deprecated: '10.6.0'
       },
       format: {
         type: 'string',
