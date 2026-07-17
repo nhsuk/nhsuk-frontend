@@ -18,8 +18,52 @@ export const variants = [
     }
   },
   {
+    description: 'striped',
+    context: {
+      striped: true
+    }
+  },
+  {
+    description: 'striped compact',
+    context: {
+      compact: true,
+      striped: true
+    }
+  },
+  {
     description: 'reverse',
     context: {
+      variant: 'reverse'
+    },
+    options: {
+      layout: 'background-blue'
+    }
+  },
+  {
+    description: 'reverse compact',
+    context: {
+      compact: true,
+      variant: 'reverse'
+    },
+    options: {
+      layout: 'background-blue'
+    }
+  },
+  {
+    description: 'reverse striped',
+    context: {
+      striped: true,
+      variant: 'reverse'
+    },
+    options: {
+      layout: 'background-blue'
+    }
+  },
+  {
+    description: 'reverse striped compact',
+    context: {
+      compact: true,
+      striped: true,
       variant: 'reverse'
     },
     options: {
@@ -855,7 +899,11 @@ const fixtures = {
           }
         ]
       ]
-    }
+    },
+    variants: [
+      variants[0], // Regular variant
+      variants[2] // Striped variant
+    ]
   },
   'as a card (feature)': {
     context: {
@@ -902,6 +950,10 @@ const fixtures = {
         ]
       ]
     },
+    variants: [
+      variants[0], // Regular variant
+      variants[2] // Striped variant
+    ],
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']
     }
@@ -951,7 +1003,11 @@ const fixtures = {
           }
         ]
       ]
-    }
+    },
+    variants: [
+      variants[0], // Regular variant
+      variants[2] // Striped variant
+    ]
   },
   'sortable': {
     context: {
@@ -1194,10 +1250,7 @@ const fixtures = {
         ]
       ]
     },
-    variants,
-    screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
-    }
+    variants
   },
   'sortable with numeric data': {
     context: {
