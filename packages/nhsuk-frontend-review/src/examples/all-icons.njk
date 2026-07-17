@@ -74,8 +74,8 @@
             {% endset %}
 
             {% set rows = (rows.push([
-              { text: icon.name, header: "Name" },
-              { html: modifierHtml, header: "Modifier" },
+              { text: icon.name },
+              { html: modifierHtml },
               { text: iconHtml | safe }
             ]), rows) %}
           {% endfor %}
@@ -137,8 +137,8 @@
             {% endset %}
 
             {% set rows = (rows.push([
-              { text: icon.name, header: "Name" },
-              { html: modifierHtml, header: "Modifier" },
+              { text: icon.name },
+              { html: modifierHtml },
               { text: iconHtml | safe }
             ]), rows) %}
           {% endfor %}
