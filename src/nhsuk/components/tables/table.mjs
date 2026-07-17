@@ -213,6 +213,7 @@ export class Table extends ConfigurableComponent {
     }
 
     $header.setAttribute('aria-sort', direction)
+    $header.firstElementChild?.setAttribute('aria-pressed', 'true')
 
     for (const $header of this.$headers) {
       const isActive = this.getIndex($header) === index
@@ -227,6 +228,7 @@ export class Table extends ConfigurableComponent {
 
       if (!isActive) {
         $header.removeAttribute('aria-sort')
+        $header.firstElementChild?.removeAttribute('aria-pressed')
       }
     }
 
