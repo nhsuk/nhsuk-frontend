@@ -1,3 +1,5 @@
+import { within } from '@testing-library/dom'
+
 import { components } from '#lib'
 
 import { examples } from './fixtures.mjs'
@@ -44,11 +46,11 @@ describe('Table', () => {
     }
   }
 
-  beforeEach(() => {
-    initExample('with numeric data, sortable')
-  })
-
   describe('Initialisation via init function', () => {
+    beforeEach(() => {
+      initExample('sortable with numeric data and sort values')
+    })
+
     it('should add event listeners', () => {
       initTables()
 
@@ -114,6 +116,10 @@ describe('Table', () => {
   })
 
   describe('Initialisation via class', () => {
+    beforeEach(() => {
+      initExample('sortable with numeric data and sort values')
+    })
+
     it('should not throw with $root element', () => {
       expect(() => new Table($root)).not.toThrow()
     })
@@ -156,29 +162,34 @@ describe('Table', () => {
     let $buttons = []
 
     beforeEach(() => {
+      initExample('sortable')
       initTables()
 
       $buttons = $headers.map(($header) => $header.querySelector('button'))
     })
 
     it('should create sort buttons for sortable columns', () => {
-      expect($headers).toHaveLength(4)
-      expect($headers).toHaveLength(4)
+      expect($headers).toHaveLength(3)
+      expect($headers).toHaveLength(3)
+      expect($buttons.filter(($button) => !!$button)).toHaveLength(2)
     })
 
     it('should copy the column header text into the sort button', () => {
       let headersText = $headers.map(($header) => $header.textContent.trim())
       let buttonsText = $buttons.map(($button) => $button?.textContent.trim())
 
-      expect(headersText).toEqual(['Nation', 'MMR', '6-in-1', 'Rotavirus'])
-      expect(buttonsText).toEqual(['Nation', 'MMR', '6-in-1', 'Rotavirus'])
+      expect(headersText).toEqual(['Time', 'Name', 'Date of birth'])
+      expect(buttonsText).toEqual(['Time', 'Name', undefined])
     })
   })
 
   describe('Caption', () => {
-    it('should add assistive text to caption', () => {
+    beforeEach(() => {
+      initExample('sortable')
       initTables()
+    })
 
+    it('should add assistive text to caption', () => {
       const $captionDescription = $caption?.querySelector(
         '.nhsuk-u-visually-hidden'
       )
@@ -190,9 +201,12 @@ describe('Table', () => {
   })
 
   describe('Status message', () => {
-    it('should create a status message after the table', () => {
+    beforeEach(() => {
+      initExample('sortable')
       initTables()
+    })
 
+    it('should create a status message after the table', () => {
       const $screenReaderStatusMessage = document.querySelector('[role=status]')
 
       expect($screenReaderStatusMessage).toBe($root?.nextElementSibling)
@@ -206,81 +220,189 @@ describe('Table', () => {
   })
 
   describe('Sorting', () => {
-    /** @type {HTMLButtonElement[]} */
-    let $buttons = []
+    let /** @type {HTMLElement} */ $header1
+    let /** @type {HTMLElement} */ $header2
+    let /** @type {HTMLElement} */ $header3
+
+    let /** @type {HTMLElement} */ $button1
+    let /** @type {HTMLElement} */ $button2
+    let /** @type {HTMLElement} */ $button3
 
     beforeEach(() => {
+      initExample('sortable with sort values')
       initTables()
 
-      $buttons = $headers
-        .map(($header) => $header.querySelector('button'))
-        .filter(($button) => !!$button)
+      $header1 = $headers[0]
+      $header2 = $headers[1]
+      $header3 = $headers[2]
+
+      $button1 = within($header1).getByRole('button')
+      $button2 = within($header2).getByRole('button')
+      $button3 = within($header3).getByRole('button')
     })
 
-    it('should use data-sort-next direction when clicking a button on a currently unsorted column', () => {
-      const $mmrButton = $buttons[1]
-      const $mmrHeader = $mmrButton.closest('th')
+    it('should sort in ascending order by default', () => {
+      expect($button2).toHaveTextContent('Name')
+      expect($button2).not.toHaveAttribute('aria-pressed')
 
-      // MMR column has data-sort-next="descending" in the fixture
-      $mmrButton.click()
+      // Column 2 not sorted
+      expect($header2).not.toHaveAttribute('aria-sort')
+      expect($header2).not.toHaveAttribute('data-sort-next')
 
-      expect($mmrHeader).toHaveAttribute('aria-sort', 'descending')
+      $button2.click()
+
+      // Column 2 sorted ascending
+      expect($button2).toHaveAttribute('aria-pressed', 'true')
+      expect($header2).toHaveAttribute('aria-sort', 'ascending')
+      expect($header2).toHaveAttribute('data-sort-next', 'descending')
+
+      $button2.click()
+
+      // Column 2 sorted descending
+      expect($button2).toHaveAttribute('aria-pressed', 'true')
+      expect($header2).toHaveAttribute('aria-sort', 'descending')
+      expect($header2).toHaveAttribute('data-sort-next', 'ascending')
     })
 
-    it('should default to ascending when data-sort-next is not set', () => {
-      // Set up a column without data-sort-next by clicking on it first
-      // to make it descending, then resetting via another column
-      const $nationButton = $buttons[0]
-      const $nationHeader = $nationButton.closest('th')
-      const $mmrButton = $buttons[1]
+    it('should sort in descending order when already sorted', () => {
+      expect($button1).toHaveTextContent('Time')
+      expect($button1).not.toHaveAttribute('aria-pressed')
 
-      // Nation column does NOT have data-initial-sort attribute
-      // First click another column to reset Nation to 'none'
-      $mmrButton.click()
-      expect($nationHeader).not.toHaveProperty('aria-sort')
+      // Column 1 sorted ascending
+      expect($header1).toHaveAttribute('aria-sort', 'ascending')
+      expect($header1).not.toHaveAttribute('data-sort-next')
 
-      // Now click Nation - without data-initial-sort it should default to ascending
-      $nationButton.click()
-      expect($nationHeader).toHaveAttribute('aria-sort', 'ascending')
+      $button1.click()
+
+      // Column 1 sorted descending
+      expect($button1).toHaveAttribute('aria-pressed', 'true')
+      expect($header1).toHaveAttribute('aria-sort', 'descending')
+      expect($header1).toHaveAttribute('data-sort-next', 'ascending')
+
+      $button1.click()
+
+      // Column 1 sorted ascending
+      expect($button1).toHaveAttribute('aria-pressed', 'true')
+      expect($header1).toHaveAttribute('aria-sort', 'ascending')
+      expect($header1).toHaveAttribute('data-sort-next', 'descending')
     })
 
-    it('should set aria-sort to descending when clicking a button on a column currently in ascending order', () => {
-      const $nationButton = $buttons[0]
-      const $nationHeader = $nationButton.closest('th')
+    it('should remember sort order when switching columns', () => {
+      // Column 1 sorted descending
+      $button1.click()
 
-      expect($nationHeader).toHaveAttribute('aria-sort', 'ascending')
+      // Column 2 sorted ascending, descending
+      $button2.click()
+      $button2.click()
 
-      $nationButton.click()
+      // Column 3 sorted descending, ascending
+      $button3.click()
+      $button3.click()
 
-      expect($nationHeader).toHaveAttribute('aria-sort', 'descending')
+      // Column next sort updated
+      expect($header1).toHaveAttribute('data-sort-next', 'descending')
+      expect($header2).toHaveAttribute('data-sort-next', 'descending')
+      expect($header3).toHaveAttribute('data-sort-next', 'descending')
+
+      $button1.click()
+      expect($header1).toHaveAttribute('aria-sort', 'descending')
+
+      // Column next sort updated
+      expect($header1).toHaveAttribute('data-sort-next', 'ascending')
+      expect($header2).toHaveAttribute('data-sort-next', 'descending')
+      expect($header3).toHaveAttribute('data-sort-next', 'ascending')
+
+      $button2.click()
+      expect($header2).toHaveAttribute('aria-sort', 'descending')
+
+      // Column next sort updated
+      expect($header1).toHaveAttribute('data-sort-next', 'descending')
+      expect($header2).toHaveAttribute('data-sort-next', 'ascending')
+      expect($header3).toHaveAttribute('data-sort-next', 'ascending')
+
+      $button3.click()
+      expect($header3).toHaveAttribute('aria-sort', 'ascending')
+
+      // Column next sort updated
+      expect($header1).toHaveAttribute('data-sort-next', 'descending')
+      expect($header2).toHaveAttribute('data-sort-next', 'descending')
+      expect($header3).toHaveAttribute('data-sort-next', 'descending')
     })
 
-    it('should set aria-sort to ascending when clicking a button on a column currently in descending order', () => {
-      const $nationButton = $buttons[0]
-      const $nationHeader = $nationButton.closest('th')
+    it('should sort in configured next sort order', () => {
+      expect($button3).toHaveTextContent('Date of birth')
+      expect($button3).not.toHaveAttribute('aria-pressed')
 
-      // First click to make it descending
-      $nationButton.click()
-      expect($nationHeader).toHaveAttribute('aria-sort', 'descending')
+      // Column 3 not sorted
+      expect($header3).not.toHaveAttribute('aria-sort')
+      expect($header3).toHaveAttribute('data-sort-next', 'descending')
 
-      // Second click to make it ascending again
-      $nationButton.click()
-      expect($nationHeader).toHaveAttribute('aria-sort', 'ascending')
+      $button3.click()
+
+      // Column 3 sorted descending
+      expect($button3).toHaveAttribute('aria-pressed', 'true')
+      expect($header3).toHaveAttribute('aria-sort', 'descending')
+      expect($header3).toHaveAttribute('data-sort-next', 'ascending')
+
+      $button3.click()
+
+      // Column 3 sorted ascending
+      expect($button3).toHaveAttribute('aria-pressed', 'true')
+      expect($header3).toHaveAttribute('aria-sort', 'ascending')
+      expect($header3).toHaveAttribute('data-sort-next', 'descending')
     })
 
-    it('should reset other columns to "none" when sorting a column', () => {
-      const $nationButton = $buttons[0]
-      const $mmrButton = $buttons[1]
-      const $nationHeader = $nationButton.closest('th')
-      const $mmrHeader = $mmrButton.closest('th')
+    it('should not sort in configured next sort order when invalid', () => {
+      $header3.setAttribute('aria-sort', 'descending')
+      $header3.setAttribute('data-sort-next', 'descending')
 
-      expect($nationHeader).toHaveAttribute('aria-sort', 'ascending')
+      $button3.click()
 
-      // MMR column has data-sort-next="descending" in the fixture
-      $mmrButton.click()
+      // Column 3 sorted ascending not descending
+      expect($button3).toHaveAttribute('aria-pressed', 'true')
+      expect($header3).toHaveAttribute('aria-sort', 'ascending')
+      expect($header3).toHaveAttribute('data-sort-next', 'descending')
+    })
 
-      expect($nationHeader).not.toHaveProperty('aria-sort')
-      expect($mmrHeader).toHaveAttribute('aria-sort', 'descending')
+    it('should not sort in configured next sort order when "none"', () => {
+      $header3.setAttribute('aria-sort', 'descending')
+      $header3.setAttribute('data-sort-next', 'none')
+
+      $button3.click()
+
+      // Column 3 sorted ascending not none
+      expect($button3).toHaveAttribute('aria-pressed', 'true')
+      expect($header3).toHaveAttribute('aria-sort', 'ascending')
+      expect($header3).toHaveAttribute('data-sort-next', 'descending')
+    })
+
+    it('should reset other columns when sorting a column', () => {
+      $button1.click()
+
+      // Column 1 sorted descending
+      expect($header1).toHaveAttribute('aria-sort', 'descending')
+
+      // Columns 2 and 3 not sorted
+      expect($header2).not.toHaveAttribute('aria-sort', 'none')
+      expect($header3).not.toHaveAttribute('aria-sort', 'none')
+
+      $button2.click()
+
+      // Column 2 sorted ascending
+      expect($header2).toHaveAttribute('aria-sort', 'ascending')
+
+      // Columns 1 and 3 not sorted
+      expect($header1).not.toHaveAttribute('aria-sort', 'none')
+      expect($header3).not.toHaveAttribute('aria-sort', 'none')
+
+      $button3.click()
+
+      // Column 3 sorted descending
+      expect($header3).toHaveAttribute('aria-sort', 'descending')
+
+      // Columns 1 and 2 not sorted
+      expect($header1).not.toHaveAttribute('aria-sort', 'none')
+      expect($header2).not.toHaveAttribute('aria-sort', 'none')
     })
 
     it('should update status message when sorting', () => {
@@ -289,39 +411,63 @@ describe('Table', () => {
       expect($screenReaderStatusMessage).toBe($root?.nextElementSibling)
       expect($screenReaderStatusMessage).toBeEmptyDOMElement()
 
-      const $mmrButton = $buttons[1]
-
-      // MMR column has data-sort-next="descending" in the fixture
-      $mmrButton.click()
+      $button1.click()
 
       expect($screenReaderStatusMessage).toHaveTextContent(
-        'Sorted by MMR (descending)'
+        'Sorted by Time (descending)'
+      )
+
+      $button1.click()
+
+      expect($screenReaderStatusMessage).toHaveTextContent(
+        'Sorted by Time (ascending)'
       )
     })
 
-    it('should reorder rows when sorting', () => {
-      const $mmrButton = $buttons[1]
-
-      function getRowHeader() {
-        return document.querySelector('tbody tr th')
+    it('should reorder column', () => {
+      function getColumnText(number = 1) {
+        const $cells = $root.querySelectorAll(`tr > :nth-child(${number})`)
+        return Array.from($cells).map(($cell) => $cell.textContent.trim())
       }
 
-      expect(getRowHeader()).toHaveTextContent('England')
+      expect(getColumnText()).toEqual([
+        'Time',
+        '11:00am',
+        '11:30am',
+        '1:10pm',
+        '1:40pm',
+        '2:20pm'
+      ])
 
-      // Sort by MMR descending first (Wales has highest at 89.5%)
-      // because MMR column has data-sort-next="descending"
-      $mmrButton.click()
+      $button1.click()
 
-      expect(getRowHeader()).toHaveTextContent('Wales')
+      expect(getColumnText()).toEqual([
+        'Time',
+        '2:20pm',
+        '1:40pm',
+        '1:10pm',
+        '11:30am',
+        '11:00am'
+      ])
 
-      // Sort by MMR ascending (England has lowest at 83.7%)
-      $mmrButton.click()
+      $button1.click()
 
-      expect(getRowHeader()).toHaveTextContent('England')
+      expect(getColumnText()).toEqual([
+        'Time',
+        '11:00am',
+        '11:30am',
+        '1:10pm',
+        '1:40pm',
+        '2:20pm'
+      ])
     })
   })
 
   describe('Configuration', () => {
+    beforeEach(() => {
+      initExample('sortable')
+    })
+
     it('should have default configuration values', () => {
       expect(Table.defaults.i18n).toMatchObject({
         sortAnnouncement: 'Sorted by %{header} (%{direction})',
@@ -344,15 +490,19 @@ describe('Table', () => {
       expect($screenReaderStatusMessage).toBe($root?.nextElementSibling)
       expect($screenReaderStatusMessage).toBeEmptyDOMElement()
 
-      const $buttons = document.querySelectorAll('thead th[data-sort] button')
+      const $header = $headers[1]
+      const $button = within($header).getByRole('button')
 
-      // MMR column has data-sort-next="descending" in the fixture
-      const $mmrButton = $buttons[1]
-
-      $mmrButton?.click()
+      $button.click()
 
       expect($screenReaderStatusMessage).toHaveTextContent(
-        'Ordered by MMR in Z-A order'
+        'Ordered by Name in A-Z order'
+      )
+
+      $button.click()
+
+      expect($screenReaderStatusMessage).toHaveTextContent(
+        'Ordered by Name in Z-A order'
       )
     })
   })
