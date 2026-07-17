@@ -171,7 +171,8 @@ const fixtures = {
       rows: [
         [
           {
-            text: '3-month'
+            text: '3-month',
+            classes: 'nhsuk-u-nowrap'
           },
           {
             text: '£31.25',
@@ -184,7 +185,8 @@ const fixtures = {
         ],
         [
           {
-            text: '12-month'
+            text: '12-month',
+            classes: 'nhsuk-u-nowrap'
           },
           {
             text: '£111.60',
@@ -1016,7 +1018,8 @@ const fixtures = {
           sort: true
         },
         {
-          text: 'Date of birth'
+          text: 'Date of birth',
+          classes: 'nhsuk-u-nowrap'
         }
       ],
       rows: [
@@ -1097,7 +1100,8 @@ const fixtures = {
           sort: true
         },
         {
-          text: 'Date of birth'
+          text: 'Date of birth',
+          classes: 'nhsuk-u-nowrap'
         }
       ],
       rows: [
@@ -1194,7 +1198,8 @@ const fixtures = {
           sort: true
         },
         {
-          text: 'Date of birth'
+          text: 'Date of birth',
+          classes: 'nhsuk-u-nowrap'
         }
       ],
       rows: [
@@ -1285,7 +1290,8 @@ const fixtures = {
       rows: [
         [
           {
-            text: '3-month'
+            text: '3-month',
+            classes: 'nhsuk-u-nowrap'
           },
           {
             text: '£31.25',
@@ -1298,7 +1304,8 @@ const fixtures = {
         ],
         [
           {
-            text: '12-month'
+            text: '12-month',
+            classes: 'nhsuk-u-nowrap'
           },
           {
             text: '£111.60',
@@ -1352,7 +1359,8 @@ const fixtures = {
         [
           {
             text: '3-month',
-            sortValue: '3'
+            sortValue: '3',
+            classes: 'nhsuk-u-nowrap'
           },
           {
             text: '£31.25',
@@ -1368,7 +1376,8 @@ const fixtures = {
         [
           {
             text: '12-month',
-            sortValue: '12'
+            sortValue: '12',
+            classes: 'nhsuk-u-nowrap'
           },
           {
             text: '£111.60',
