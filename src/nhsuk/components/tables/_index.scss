@@ -347,21 +347,20 @@
 
     align-items: center;
 
-    margin: 0;
     padding: 0;
 
-    border-width: 0;
+    border: none;
 
     color: $nhsuk-brand-colour;
     background-color: transparent;
-    box-shadow: 0 0 0 0;
 
     font-family: inherit;
     font-size: inherit;
-    font-size: 1em;
     font-weight: inherit;
     line-height: inherit;
     text-align: inherit;
+
+    appearance: none;
 
     cursor: pointer;
 
