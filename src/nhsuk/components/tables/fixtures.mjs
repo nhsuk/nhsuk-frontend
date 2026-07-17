@@ -12,6 +12,12 @@ export const variants = [
     // Regular variant
   },
   {
+    description: 'compact',
+    context: {
+      compact: true
+    }
+  },
+  {
     description: 'reverse',
     context: {
       variant: 'reverse'
@@ -203,7 +209,8 @@ const fixtures = {
           }
         ]
       ]
-    }
+    },
+    variants
   },
   'with numeric data (full width, past day)': {
     context: {
@@ -452,287 +459,6 @@ const fixtures = {
     options: {
       width: 'full'
     }
-  },
-  'with numeric data, sortable': {
-    context: {
-      caption: 'Childhood vaccination coverage',
-      captionSize: 'm',
-      firstCellIsHeader: true,
-      head: [
-        {
-          text: 'Nation',
-          sort: 'ascending'
-        },
-        {
-          text: 'MMR',
-          format: 'numeric',
-          sort: true,
-          sortNext: 'descending'
-        },
-        {
-          text: '6-in-1',
-          format: 'numeric',
-          sort: true,
-          sortNext: 'descending'
-        },
-        {
-          text: 'Rotavirus',
-          format: 'numeric',
-          sort: true,
-          sortNext: 'descending'
-        }
-      ],
-      rows: [
-        [
-          {
-            text: 'England'
-          },
-          {
-            text: '83.7%',
-            format: 'numeric'
-          },
-          {
-            text: '92.8%',
-            format: 'numeric'
-          },
-          {
-            text: '88.8%',
-            format: 'numeric'
-          }
-        ],
-        [
-          {
-            text: 'Northern Ireland'
-          },
-          {
-            text: '86.4%',
-            format: 'numeric'
-          },
-          {
-            text: '94.6%',
-            format: 'numeric'
-          },
-          {
-            text: '88.0%',
-            format: 'numeric'
-          }
-        ],
-        [
-          {
-            text: 'Scotland'
-          },
-          {
-            text: '89.2%',
-            format: 'numeric'
-          },
-          {
-            text: '96.9%',
-            format: 'numeric'
-          },
-          {
-            text: '92.2%',
-            format: 'numeric'
-          }
-        ],
-        [
-          {
-            text: 'Wales'
-          },
-          {
-            text: '89.5%',
-            format: 'numeric'
-          },
-          {
-            text: '95.4%',
-            format: 'numeric'
-          },
-          {
-            text: '92.0%',
-            format: 'numeric'
-          }
-        ]
-      ]
-    }
-  },
-  'with names and dates, sortable': {
-    context: {
-      caption: 'Screening schedule',
-      firstCellIsHeader: true,
-      head: [
-        {
-          text: 'Name',
-          sort: true
-        },
-        {
-          text: 'NHS number',
-          format: 'numeric'
-        },
-        {
-          text: 'Next screening',
-          sort: 'ascending'
-        }
-      ],
-      rows: [
-        [
-          {
-            text: 'Laura Stone'
-          },
-          {
-            html: '<span class="nhsuk-u-nowrap">999 123 4567</span>',
-            format: 'numeric'
-          },
-          {
-            text: '4 January 2027',
-            sortValue: '2027-01-04'
-          }
-        ],
-        [
-          {
-            text: 'Michael Thompson'
-          },
-          {
-            html: '<span class="nhsuk-u-nowrap">999 856 2341</span>',
-            format: 'numeric'
-          },
-          {
-            text: '15 March 2027',
-            sortValue: '2027-03-15'
-          }
-        ],
-        [
-          {
-            text: 'Sarah Louise Williams'
-          },
-          {
-            html: '<span class="nhsuk-u-nowrap">999 512 7834</span>',
-            format: 'numeric'
-          },
-          {
-            text: '22 June 2026',
-            sortValue: '2026-06-22'
-          }
-        ],
-        [
-          {
-            text: 'David Chen'
-          },
-          {
-            html: '<span class="nhsuk-u-nowrap">999 234 9876</span>',
-            format: 'numeric'
-          },
-          {
-            text: '8 September 2027',
-            sortValue: '2027-09-08'
-          }
-        ],
-        [
-          {
-            text: 'Emma Katie-Brown'
-          },
-          {
-            html: '<span class="nhsuk-u-nowrap">999 678 4512</span>',
-            format: 'numeric'
-          },
-          {
-            text: '30 November 2026',
-            sortValue: '2026-11-30'
-          }
-        ],
-        [
-          {
-            text: 'Juan Martinez'
-          },
-          {
-            html: '<span class="nhsuk-u-nowrap">999 345 1298</span>',
-            format: 'numeric'
-          },
-          {
-            text: '17 February 2028',
-            sortValue: '2028-02-17'
-          }
-        ]
-      ]
-    },
-    variants
-  },
-  'with names and times, sortable server-side': {
-    context: {
-      caption: 'Appointments',
-      firstCellIsHeader: true,
-      head: [
-        {
-          href: '#',
-          text: 'Time',
-          sort: 'ascending'
-        },
-        {
-          href: '#',
-          text: 'Name',
-          sort: true
-        },
-        {
-          text: 'Date of birth'
-        }
-      ],
-      rows: [
-        [
-          {
-            text: '11:00'
-          },
-          {
-            text: 'Laura Stone'
-          },
-          {
-            text: '4 January 1986'
-          }
-        ],
-        [
-          {
-            text: '11:30'
-          },
-          {
-            text: 'Emma Katie-Brown'
-          },
-          {
-            text: '7 February 1976'
-          }
-        ],
-        [
-          {
-            text: '13:10'
-          },
-          {
-            text: 'David Chen'
-          },
-          {
-            text: '19 March 1981'
-          }
-        ],
-        [
-          {
-            text: '13:40'
-          },
-          {
-            text: 'Michael Thompson'
-          },
-          {
-            text: '6 December 1964'
-          }
-        ],
-        [
-          {
-            text: '14:20'
-          },
-          {
-            text: 'Juan Martinez'
-          },
-          {
-            text: '18 April 1975'
-          }
-        ]
-      ]
-    },
-    variants
   },
   'responsive': {
     context: {
@@ -1276,271 +1002,268 @@ const fixtures = {
       ]
     }
   },
-  'compact': {
+  'sortable': {
     context: {
-      caption: 'Prescription prepayment certificate (PPC) charges',
-      captionSize: 'm',
-      compact: true,
+      caption: 'Appointments',
       firstCellIsHeader: true,
       head: [
         {
-          text: 'Item'
+          text: 'Time',
+          sort: 'ascending'
         },
         {
-          text: 'Current charge',
-          format: 'numeric'
+          text: 'Name',
+          sort: true
         },
         {
-          text: 'New charge',
-          format: 'numeric'
-        },
-        {
-          text: '% Increase',
-          format: 'numeric'
+          text: 'Date of birth'
         }
       ],
       rows: [
         [
           {
-            text: '3-month'
+            text: '11:00'
           },
           {
-            text: '£31.25',
-            format: 'numeric'
+            text: 'Laura Stone'
           },
           {
-            text: '£32.05',
-            format: 'numeric'
-          },
-          {
-            text: '2.56%',
-            format: 'numeric'
+            text: '4 January 1986'
           }
         ],
         [
           {
-            text: '12-month'
+            text: '11:30'
           },
           {
-            text: '£111.60',
-            format: 'numeric'
+            text: 'Emma Katie-Brown'
           },
           {
-            text: '£114.50',
-            format: 'numeric'
-          },
-          {
-            text: '2.60%',
-            format: 'numeric'
+            text: '7 February 1976'
           }
         ],
         [
           {
-            text: 'HRT'
+            text: '13:10'
           },
           {
-            text: '£19.30',
-            format: 'numeric'
+            text: 'David Chen'
           },
           {
-            text: '£19.80',
-            format: 'numeric'
+            text: '19 March 1981'
+          }
+        ],
+        [
+          {
+            text: '13:40'
           },
           {
-            text: '2.59%',
-            format: 'numeric'
+            text: 'Michael Thompson'
+          },
+          {
+            text: '6 December 1964'
+          }
+        ],
+        [
+          {
+            text: '14:20'
+          },
+          {
+            text: 'Juan Martinez'
+          },
+          {
+            text: '18 April 1975'
           }
         ]
       ]
     },
+    variants,
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
-  'compact, sortable': {
+  'sortable responsive': {
     context: {
-      caption: 'Prescription prepayment certificate (PPC) charges',
-      captionSize: 'm',
-      compact: true,
-      firstCellIsHeader: true,
-      head: [
-        {
-          text: 'Item'
-        },
-        {
-          text: 'Current charge',
-          format: 'numeric',
-          sort: true
-        },
-        {
-          text: 'New charge',
-          format: 'numeric',
-          sort: true
-        },
-        {
-          text: '% Increase',
-          format: 'numeric',
-          sort: true
-        }
-      ],
-      rows: [
-        [
-          {
-            text: '3-month'
-          },
-          {
-            text: '£31.25',
-            format: 'numeric'
-          },
-          {
-            text: '£32.05',
-            format: 'numeric'
-          },
-          {
-            text: '2.56%',
-            format: 'numeric'
-          }
-        ],
-        [
-          {
-            text: '12-month'
-          },
-          {
-            text: '£111.60',
-            format: 'numeric'
-          },
-          {
-            text: '£114.50',
-            format: 'numeric'
-          },
-          {
-            text: '2.60%',
-            format: 'numeric'
-          }
-        ],
-        [
-          {
-            text: 'HRT'
-          },
-          {
-            text: '£19.30',
-            format: 'numeric'
-          },
-          {
-            text: '£19.80',
-            format: 'numeric'
-          },
-          {
-            text: '2.59%',
-            format: 'numeric'
-          }
-        ]
-      ]
-    },
-    screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
-    }
-  },
-  'compact and responsive': {
-    context: {
-      caption: 'Prescription prepayment certificate (PPC) charges',
-      captionSize: 'm',
-      compact: true,
+      caption: 'Appointments',
       responsive: true,
       firstCellIsHeader: true,
       head: [
         {
-          text: 'Item'
+          text: 'Time',
+          sort: 'ascending'
         },
         {
-          text: 'Current charge',
-          format: 'numeric'
+          text: 'Name',
+          sort: true
         },
         {
-          text: 'New charge',
-          format: 'numeric'
-        },
-        {
-          text: '% Increase',
-          format: 'numeric'
+          text: 'Date of birth'
         }
       ],
       rows: [
         [
           {
-            header: 'Item',
-            text: '3-month'
+            header: 'Time',
+            text: '11:00'
           },
           {
-            header: 'Current charge',
-            text: '£31.25',
-            format: 'numeric'
+            header: 'Name',
+            text: 'Laura Stone'
           },
           {
-            header: 'New charge',
-            text: '£32.05',
-            format: 'numeric'
-          },
-          {
-            header: '% Increase',
-            text: '2.56%',
-            format: 'numeric'
+            header: 'Date of birth',
+            text: '4 January 1986'
           }
         ],
         [
           {
-            header: 'Item',
-            text: '12-month'
+            header: 'Time',
+            text: '11:30'
           },
           {
-            header: 'Current charge',
-            text: '£111.60',
-            format: 'numeric'
+            header: 'Name',
+            text: 'Emma Katie-Brown'
           },
           {
-            header: 'New charge',
-            text: '£114.50',
-            format: 'numeric'
-          },
-          {
-            header: '% Increase',
-            text: '2.60%',
-            format: 'numeric'
+            header: 'Date of birth',
+            text: '7 February 1976'
           }
         ],
         [
           {
-            header: 'Item',
-            text: 'HRT'
+            header: 'Time',
+            text: '13:10'
           },
           {
-            header: 'Current charge',
-            text: '£19.30',
-            format: 'numeric'
+            header: 'Name',
+            text: 'David Chen'
           },
           {
-            header: 'New charge',
-            text: '£19.80',
-            format: 'numeric'
+            header: 'Date of birth',
+            text: '19 March 1981'
+          }
+        ],
+        [
+          {
+            header: 'Time',
+            text: '13:40'
           },
           {
-            header: '% Increase',
-            text: '2.59%',
-            format: 'numeric'
+            header: 'Name',
+            text: 'Michael Thompson'
+          },
+          {
+            header: 'Date of birth',
+            text: '6 December 1964'
+          }
+        ],
+        [
+          {
+            header: 'Time',
+            text: '14:20'
+          },
+          {
+            header: 'Name',
+            text: 'Juan Martinez'
+          },
+          {
+            header: 'Date of birth',
+            text: '18 April 1975'
           }
         ]
       ]
     },
+    variants,
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
-  'compact and responsive, sortable': {
+  'sortable server-side': {
+    context: {
+      caption: 'Appointments',
+      firstCellIsHeader: true,
+      head: [
+        {
+          href: '#',
+          text: 'Time',
+          sort: 'ascending'
+        },
+        {
+          href: '#',
+          text: 'Name',
+          sort: true
+        },
+        {
+          text: 'Date of birth'
+        }
+      ],
+      rows: [
+        [
+          {
+            text: '11:00'
+          },
+          {
+            text: 'Laura Stone'
+          },
+          {
+            text: '4 January 1986'
+          }
+        ],
+        [
+          {
+            text: '11:30'
+          },
+          {
+            text: 'Emma Katie-Brown'
+          },
+          {
+            text: '7 February 1976'
+          }
+        ],
+        [
+          {
+            text: '13:10'
+          },
+          {
+            text: 'David Chen'
+          },
+          {
+            text: '19 March 1981'
+          }
+        ],
+        [
+          {
+            text: '13:40'
+          },
+          {
+            text: 'Michael Thompson'
+          },
+          {
+            text: '6 December 1964'
+          }
+        ],
+        [
+          {
+            text: '14:20'
+          },
+          {
+            text: 'Juan Martinez'
+          },
+          {
+            text: '18 April 1975'
+          }
+        ]
+      ]
+    },
+    variants,
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
+    }
+  },
+  'sortable with numeric data': {
     context: {
       caption: 'Prescription prepayment certificate (PPC) charges',
       captionSize: 'm',
-      compact: true,
-      responsive: true,
       firstCellIsHeader: true,
       head: [
         {
@@ -1549,87 +1272,225 @@ const fixtures = {
         {
           text: 'Current charge',
           format: 'numeric',
-          sort: true
+          sort: true,
+          sortNext: 'descending'
         },
         {
           text: 'New charge',
           format: 'numeric',
-          sort: true
-        },
-        {
-          text: '% Increase',
-          format: 'numeric',
-          sort: true
+          sort: true,
+          sortNext: 'descending'
         }
       ],
       rows: [
         [
           {
-            header: 'Item',
             text: '3-month'
           },
           {
-            header: 'Current charge',
             text: '£31.25',
             format: 'numeric'
           },
           {
-            header: 'New charge',
             text: '£32.05',
-            format: 'numeric'
-          },
-          {
-            header: '% Increase',
-            text: '2.56%',
             format: 'numeric'
           }
         ],
         [
           {
-            header: 'Item',
             text: '12-month'
           },
           {
-            header: 'Current charge',
             text: '£111.60',
             format: 'numeric'
           },
           {
-            header: 'New charge',
             text: '£114.50',
-            format: 'numeric'
-          },
-          {
-            header: '% Increase',
-            text: '2.60%',
             format: 'numeric'
           }
         ],
         [
           {
-            header: 'Item',
             text: 'HRT'
           },
           {
-            header: 'Current charge',
             text: '£19.30',
             format: 'numeric'
           },
           {
-            header: 'New charge',
             text: '£19.80',
-            format: 'numeric'
-          },
-          {
-            header: '% Increase',
-            text: '2.59%',
             format: 'numeric'
           }
         ]
       ]
-    },
-    screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
+    }
+  },
+  'sortable with numeric data and sort values': {
+    context: {
+      caption: 'Prescription prepayment certificate (PPC) charges',
+      captionSize: 'm',
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: 'Item',
+          sort: 'ascending'
+        },
+        {
+          text: 'Current charge',
+          format: 'numeric',
+          sort: true,
+          sortNext: 'descending'
+        },
+        {
+          text: 'New charge',
+          format: 'numeric',
+          sort: true,
+          sortNext: 'descending'
+        }
+      ],
+      rows: [
+        [
+          {
+            text: '3-month',
+            sortValue: '3'
+          },
+          {
+            text: '£31.25',
+            format: 'numeric',
+            sortValue: '31.25'
+          },
+          {
+            text: '£32.05',
+            format: 'numeric',
+            sortValue: '32.05'
+          }
+        ],
+        [
+          {
+            text: '12-month',
+            sortValue: '12'
+          },
+          {
+            text: '£111.60',
+            format: 'numeric',
+            sortValue: '111.60'
+          },
+          {
+            text: '£114.50',
+            format: 'numeric',
+            sortValue: '114.50'
+          }
+        ],
+        [
+          {
+            text: 'HRT',
+            sortValue: '100'
+          },
+          {
+            text: '£19.30',
+            format: 'numeric',
+            sortValue: '19.30'
+          },
+          {
+            text: '£19.80',
+            format: 'numeric',
+            sortValue: '19.80'
+          }
+        ]
+      ]
+    }
+  },
+  'sortable with sort values': {
+    context: {
+      caption: 'Appointments',
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: 'Time',
+          sort: 'ascending'
+        },
+        {
+          text: 'Name',
+          sort: true
+        },
+        {
+          text: 'Date of birth',
+          sort: true,
+          sortNext: 'descending'
+        }
+      ],
+      rows: [
+        [
+          {
+            text: '11:00am',
+            sortValue: '11:00'
+          },
+          {
+            text: 'Laura Stone',
+            sortValue: 'Stone, Laura'
+          },
+          {
+            text: '4 January 1986',
+            sortValue: '1986-01-04'
+          }
+        ],
+        [
+          {
+            text: '11:30am',
+            sortValue: '11:30'
+          },
+          {
+            text: 'Emma Katie-Brown',
+            sortValue: 'Katie-Brown, Emma'
+          },
+          {
+            text: '7 February 1976',
+            sortValue: '1976-02-07'
+          }
+        ],
+        [
+          {
+            text: '1:10pm',
+            sortValue: '13:10'
+          },
+          {
+            text: 'David Chen',
+            sortValue: 'Chen, David'
+          },
+          {
+            text: '19 March 1981',
+            sortValue: '1981-03-19'
+          }
+        ],
+        [
+          {
+            text: '1:40pm',
+            sortValue: '13:40'
+          },
+          {
+            text: 'Michael Thompson',
+            sortValue: 'Thompson, Michael'
+          },
+          {
+            text: '6 December 1964',
+            sortValue: '1964-12-06'
+          }
+        ],
+        [
+          {
+            text: '2:20pm',
+            sortValue: '14:20'
+          },
+          {
+            text: 'Juan Martinez',
+            sortValue: 'Martinez, Juan'
+          },
+          {
+            text: '18 April 1975',
+            sortValue: '1975-04-18'
+          }
+        ]
+      ]
     }
   }
 }
