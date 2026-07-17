@@ -18,44 +18,47 @@ export class Table extends ConfigurableComponent {
   constructor($root, config = {}) {
     super($root, config)
 
-    const $head = this.$root.querySelector('.nhsuk-table__head')
+    const { i18n, bodyClass, captionClass, headClass, headerClass, rowClass } =
+      this.config
+
+    const $head = this.$root.querySelector(`thead.${headClass}`)
     if (!($head instanceof HTMLTableSectionElement)) {
       throw new ElementError({
         component: Table,
         element: $head,
         expectedType: 'HTMLTableSectionElement',
-        identifier: 'Table head (`<thead class="nhsuk-table__head">`)'
+        identifier: `Table head (\`<thead class="${headClass}">\`)`
       })
     }
 
     this.$head = $head
 
-    const $body = this.$root.querySelector('.nhsuk-table__body')
+    const $body = this.$root.querySelector(`tbody.${bodyClass}`)
     if (!($body instanceof HTMLTableSectionElement)) {
       throw new ElementError({
         component: Table,
         element: $body,
         expectedType: 'HTMLTableSectionElement',
-        identifier: 'Table body (`<tbody class="nhsuk-table__body">`)'
+        identifier: `Table body (\`<tbody class="${bodyClass}">\`)`
       })
     }
 
     this.$body = $body
 
-    const $caption = this.$root.querySelector('.nhsuk-table__caption')
+    const $caption = this.$root.querySelector(`caption.${captionClass}`)
     if (!($caption instanceof HTMLTableCaptionElement)) {
       throw new ElementError({
         component: Table,
         element: $caption,
         expectedType: 'HTMLTableCaptionElement',
-        identifier: 'Table caption (`<caption class="nhsuk-table__caption">`)'
+        identifier: `Table caption (\`<caption class="${captionClass}">\`)`
       })
     }
 
     this.$caption = $caption
 
     const $headers = Array.from(
-      this.$head.querySelectorAll('.nhsuk-table__header')
+      this.$head.querySelectorAll(`th.${headerClass}`)
     )
 
     if (
@@ -65,24 +68,23 @@ export class Table extends ConfigurableComponent {
     ) {
       throw new ElementError({
         component: Table,
-        identifier:
-          'Table headers (`<th class="nhsuk-table__header">`) with attribute (`data-sort`)'
+        identifier: `Table headers (\`<th class="${headerClass}">\`) with attribute (\`data-sort\`)`
       })
     }
 
     this.$headers = $headers
 
-    const $rows = Array.from(this.$body.querySelectorAll('.nhsuk-table__row'))
+    const $rows = Array.from(this.$body.querySelectorAll(`.${rowClass}`))
     if (!$rows.length || !$rows.every(($row) => $row instanceof HTMLElement)) {
       throw new ElementError({
         component: Table,
-        identifier: 'Table rows (`<tr class="nhsuk-table__row">`)'
+        identifier: `Table rows (\`<tr class="${rowClass}">\`)`
       })
     }
 
     this.$rows = $rows
 
-    this.i18n = new I18n(this.config.i18n, {
+    this.i18n = new I18n(i18n, {
       // Read the fallback if necessary rather than have it set in the defaults
       locale: closestAttributeValue(this.$root, 'lang')
     })
@@ -184,6 +186,9 @@ export class Table extends ConfigurableComponent {
     }
 
     const { parentElement: $header } = $target
+    if (!($header instanceof HTMLTableCellElement)) {
+      return
+    }
 
     const index = this.getIndex($header)
     const directionNext = this.getDirectionNext($header)
@@ -252,7 +257,7 @@ export class Table extends ConfigurableComponent {
   }
 
   /**
-   * @param {HTMLElement | null} [$header]
+   * @param {HTMLTableCellElement | null} [$header]
    */
   getIndex($header) {
     return $header ? this.$headers.indexOf($header) : -1
@@ -297,11 +302,12 @@ export class Table extends ConfigurableComponent {
    * @returns {[string, boolean]} - Cell value and whether it is numeric
    */
   getValue($cell) {
+    const { cellClass, headerClass } = this.config
     const { sortValue = $cell.textContent.trim() } = $cell.dataset
 
     const hasFormatNumeric =
-      $cell.classList.contains('nhsuk-table__header--numeric') ||
-      $cell.classList.contains('nhsuk-table__cell--numeric')
+      $cell.classList.contains(`${headerClass}--numeric`) ||
+      $cell.classList.contains(`${cellClass}--numeric`)
 
     const output = normaliseString(sortValue)
     const numeric = hasFormatNumeric || typeof output === 'number'
@@ -322,6 +328,12 @@ export class Table extends ConfigurableComponent {
    * @type {TableConfig}
    */
   static defaults = Object.freeze({
+    bodyClass: 'nhsuk-table__body',
+    captionClass: 'nhsuk-table__caption',
+    cellClass: 'nhsuk-table__cell',
+    headClass: 'nhsuk-table__head',
+    headerClass: 'nhsuk-table__header',
+    rowClass: 'nhsuk-table__row',
     i18n: {
       sortAnnouncement: 'Sorted by %{header} (%{direction})',
       ascending: 'ascending',
@@ -337,6 +349,12 @@ export class Table extends ConfigurableComponent {
    */
   static schema = Object.freeze({
     properties: {
+      bodyClass: { type: 'string' },
+      captionClass: { type: 'string' },
+      cellClass: { type: 'string' },
+      headClass: { type: 'string' },
+      headerClass: { type: 'string' },
+      rowClass: { type: 'string' },
       i18n: { type: 'object' }
     }
   })
@@ -365,6 +383,12 @@ export function initTables(options) {
  *
  * @see {@link Table.defaults}
  * @typedef {object} TableConfig
+ * @property {string} bodyClass - Table body class for `<tbody>` element
+ * @property {string} captionClass - Table caption class for `<caption>` element
+ * @property {string} cellClass - Table cell class for `<td>` elements
+ * @property {string} headClass - Table head class for `<thead>` element
+ * @property {string} headerClass - Table header class for `<th>` elements
+ * @property {string} rowClass - Table row class for `<tr>` elements
  * @property {TableTranslations} [i18n=Table.defaults.i18n] - Table translations
  */
 
