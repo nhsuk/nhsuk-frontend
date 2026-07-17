@@ -455,99 +455,78 @@ const fixtures = {
       rows: [
         [
           {
-            header: 'Age',
             text: '3 to 5 months (weighing more than 5kg)'
           },
           {
-            header: 'How much?',
             text: '2.5ml'
           },
           {
-            header: 'How often?',
             text: 'Max 3 times in 24 hours'
           }
         ],
         [
           {
-            header: 'Age',
             text: '6 to 11 months'
           },
           {
-            header: 'How much?',
             text: '2.5ml'
           },
           {
-            header: 'How often?',
             text: 'Max 3 to 4 times in 24 hours'
           }
         ],
         [
           {
-            header: 'Age',
             text: '1 to 3 years'
           },
           {
-            header: 'How much?',
             text: '5ml'
           },
           {
-            header: 'How often?',
             text: 'Max 3 times in 24 hours'
           }
         ],
         [
           {
-            header: 'Age',
             text: '4 to 6 years'
           },
           {
-            header: 'How much?',
             text: '7.5ml'
           },
           {
-            header: 'How often?',
             text: 'Max 3 times in 24 hours'
           }
         ],
         [
           {
-            header: 'Age',
             text: '7 to 9 years'
           },
           {
-            header: 'How much?',
             text: '10ml'
           },
           {
-            header: 'How often?',
             text: 'Max 3 times in 24 hours'
           }
         ],
         [
           {
-            header: 'Age',
             text: '10 to 11 years'
           },
           {
-            header: 'How much?',
             text: '15ml'
           },
           {
-            header: 'How often?',
             text: 'Max 3 times in 24 hours'
           }
         ],
         [
           {
-            header: 'Age',
             text: '12 to 17 years'
           },
           {
-            header: 'How much?',
             text: '15ml to 20ml'
           },
           {
-            header: 'How often?',
             text: 'Max 3 to 4 times in 24 hours'
           }
         ]
@@ -577,29 +556,23 @@ const fixtures = {
       rows: [
         [
           {
-            header: 'Name',
             text: 'id'
           },
           {
-            header: 'Type',
             text: 'string'
           },
           {
-            header: 'Description',
             text: 'The ID of the table.'
           }
         ],
         [
           {
-            header: 'Name',
             text: 'rows'
           },
           {
-            header: 'Type',
             text: 'array'
           },
           {
-            header: 'Description',
             html: outdent`
               <strong>Required.</strong> The rows within the table component.
               <a href="#/macro-options">See macro options for rows</a>.
@@ -608,15 +581,12 @@ const fixtures = {
         ],
         [
           {
-            header: 'Name',
             text: 'head'
           },
           {
-            header: 'Type',
             text: 'array'
           },
           {
-            header: 'Description',
             html: outdent`
               Can be used to add a row of table header cells (<code>&lt;th&gt;</code>) at the top of the table component.
               <a href="#/macro-options">See macro options for head</a>.
@@ -625,43 +595,34 @@ const fixtures = {
         ],
         [
           {
-            header: 'Name',
             text: 'caption'
           },
           {
-            header: 'Type',
             text: 'string'
           },
           {
-            header: 'Description',
             text: 'Caption text.'
           }
         ],
         [
           {
-            header: 'Name',
             text: 'captionClasses'
           },
           {
-            header: 'Type',
             text: 'string'
           },
           {
-            header: 'Description',
             text: 'Classes for caption text size. Classes should correspond to the available typography heading classes.'
           }
         ],
         [
           {
-            header: 'Name',
             text: 'firstCellIsHeader'
           },
           {
-            header: 'Type',
             text: 'string'
           },
           {
-            header: 'Description',
             html: outdent`
               If set to <code>true</code>, the first cell in each row will be a table header (<code>&lt;th&gt;</code>).
             `
@@ -669,29 +630,23 @@ const fixtures = {
         ],
         [
           {
-            header: 'Name',
             text: 'classes'
           },
           {
-            header: 'Type',
             text: 'string'
           },
           {
-            header: 'Description',
             text: 'Classes to add to the table container.'
           }
         ],
         [
           {
-            header: 'Name',
             text: 'attributes'
           },
           {
-            header: 'Type',
             text: 'object'
           },
           {
-            header: 'Description',
             text: '	HTML attributes (for example data attributes) to add to the table container.'
           }
         ]
@@ -943,31 +898,25 @@ const fixtures = {
       rows: [
         [
           {
-            header: 'Skin problems',
             text: 'Blisters on lips or around the mouth'
           },
           {
-            header: 'Possible cause',
             text: 'Cold sores'
           }
         ],
         [
           {
-            header: 'Skin problems',
             text: 'Itchy, dry, cracked, sore'
           },
           {
-            header: 'Possible cause',
             text: 'Eczema'
           }
         ],
         [
           {
-            header: 'Skin problems',
             text: 'Itchy blisters'
           },
           {
-            header: 'Possible cause',
             text: 'Shingles, chickenpox'
           }
         ]
@@ -1077,71 +1026,56 @@ const fixtures = {
       rows: [
         [
           {
-            header: 'Time',
             text: '11:00'
           },
           {
-            header: 'Name',
             text: 'Laura Stone'
           },
           {
-            header: 'Date of birth',
             text: '4 January 1986'
           }
         ],
         [
           {
-            header: 'Time',
             text: '11:30'
           },
           {
-            header: 'Name',
             text: 'Emma Katie-Brown'
           },
           {
-            header: 'Date of birth',
             text: '7 February 1976'
           }
         ],
         [
           {
-            header: 'Time',
             text: '13:10'
           },
           {
-            header: 'Name',
             text: 'David Chen'
           },
           {
-            header: 'Date of birth',
             text: '19 March 1981'
           }
         ],
         [
           {
-            header: 'Time',
             text: '13:40'
           },
           {
-            header: 'Name',
             text: 'Michael Thompson'
           },
           {
-            header: 'Date of birth',
             text: '6 December 1964'
           }
         ],
         [
           {
-            header: 'Time',
             text: '14:20'
           },
           {
-            header: 'Name',
             text: 'Juan Martinez'
           },
           {
-            header: 'Date of birth',
             text: '18 April 1975'
           }
         ]
