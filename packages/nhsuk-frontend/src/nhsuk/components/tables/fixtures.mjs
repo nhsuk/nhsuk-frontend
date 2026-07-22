@@ -175,12 +175,10 @@ const fixtures = {
             classes: 'nhsuk-u-nowrap'
           },
           {
-            text: '£31.25',
-            format: 'numeric'
+            text: '£31.25'
           },
           {
-            text: '£32.05',
-            format: 'numeric'
+            text: '£32.05'
           }
         ],
         [
@@ -189,12 +187,10 @@ const fixtures = {
             classes: 'nhsuk-u-nowrap'
           },
           {
-            text: '£111.60',
-            format: 'numeric'
+            text: '£111.60'
           },
           {
-            text: '£114.50',
-            format: 'numeric'
+            text: '£114.50'
           }
         ],
         [
@@ -202,12 +198,10 @@ const fixtures = {
             text: 'HRT'
           },
           {
-            text: '£19.30',
-            format: 'numeric'
+            text: '£19.30'
           },
           {
-            text: '£19.80',
-            format: 'numeric'
+            text: '£19.80'
           }
         ]
       ]
@@ -236,12 +230,10 @@ const fixtures = {
             text: 'David Francis'
           },
           {
-            text: '3',
-            format: 'numeric'
+            text: '3'
           },
           {
-            text: '0',
-            format: 'numeric'
+            text: '0'
           }
         ],
         [
@@ -249,12 +241,10 @@ const fixtures = {
             text: 'Paul Farmer'
           },
           {
-            text: '1',
-            format: 'numeric'
+            text: '1'
           },
           {
-            text: '0',
-            format: 'numeric'
+            text: '0'
           }
         ],
         [
@@ -262,12 +252,10 @@ const fixtures = {
             text: 'Rita Patel'
           },
           {
-            text: '2',
-            format: 'numeric'
+            text: '2'
           },
           {
-            text: '0',
-            format: 'numeric'
+            text: '0'
           }
         ]
       ]
@@ -298,12 +286,10 @@ const fixtures = {
             text: 'David Francis'
           },
           {
-            text: '24',
-            format: 'numeric'
+            text: '24'
           },
           {
-            text: '18',
-            format: 'numeric'
+            text: '18'
           }
         ],
         [
@@ -311,12 +297,10 @@ const fixtures = {
             text: 'Paul Farmer'
           },
           {
-            text: '16',
-            format: 'numeric'
+            text: '16'
           },
           {
-            text: '20',
-            format: 'numeric'
+            text: '20'
           }
         ],
         [
@@ -324,12 +308,10 @@ const fixtures = {
             text: 'Rita Patel'
           },
           {
-            text: '24',
-            format: 'numeric'
+            text: '24'
           },
           {
-            text: '27',
-            format: 'numeric'
+            text: '27'
           }
         ]
       ]
@@ -360,12 +342,10 @@ const fixtures = {
             text: 'David Francis'
           },
           {
-            text: '98',
-            format: 'numeric'
+            text: '98'
           },
           {
-            text: '95',
-            format: 'numeric'
+            text: '95'
           }
         ],
         [
@@ -373,12 +353,10 @@ const fixtures = {
             text: 'Paul Farmer'
           },
           {
-            text: '122',
-            format: 'numeric'
+            text: '122'
           },
           {
-            text: '131',
-            format: 'numeric'
+            text: '131'
           }
         ],
         [
@@ -386,12 +364,10 @@ const fixtures = {
             text: 'Rita Patel'
           },
           {
-            text: '126',
-            format: 'numeric'
+            text: '126'
           },
           {
-            text: '142',
-            format: 'numeric'
+            text: '142'
           }
         ]
       ]
@@ -422,12 +398,10 @@ const fixtures = {
             text: 'David Francis'
           },
           {
-            text: '1380',
-            format: 'numeric'
+            text: '1380'
           },
           {
-            text: '1472',
-            format: 'numeric'
+            text: '1472'
           }
         ],
         [
@@ -435,12 +409,10 @@ const fixtures = {
             text: 'Paul Farmer'
           },
           {
-            text: '1129',
-            format: 'numeric'
+            text: '1129'
           },
           {
-            text: '1083',
-            format: 'numeric'
+            text: '1083'
           }
         ],
         [
@@ -448,12 +420,10 @@ const fixtures = {
             text: 'Rita Patel'
           },
           {
-            text: '1539',
-            format: 'numeric'
+            text: '1539'
           },
           {
-            text: '1265',
-            format: 'numeric'
+            text: '1265'
           }
         ]
       ]
@@ -1294,12 +1264,10 @@ const fixtures = {
             classes: 'nhsuk-u-nowrap'
           },
           {
-            text: '£31.25',
-            format: 'numeric'
+            text: '£31.25'
           },
           {
-            text: '£32.05',
-            format: 'numeric'
+            text: '£32.05'
           }
         ],
         [
@@ -1308,12 +1276,10 @@ const fixtures = {
             classes: 'nhsuk-u-nowrap'
           },
           {
-            text: '£111.60',
-            format: 'numeric'
+            text: '£111.60'
           },
           {
-            text: '£114.50',
-            format: 'numeric'
+            text: '£114.50'
           }
         ],
         [
@@ -1321,12 +1287,10 @@ const fixtures = {
             text: 'HRT'
           },
           {
-            text: '£19.30',
-            format: 'numeric'
+            text: '£19.30'
           },
           {
-            text: '£19.80',
-            format: 'numeric'
+            text: '£19.80'
           }
         ]
       ]
@@ -1364,12 +1328,10 @@ const fixtures = {
           },
           {
             text: '£31.25',
-            format: 'numeric',
             sortValue: '31.25'
           },
           {
             text: '£32.05',
-            format: 'numeric',
             sortValue: '32.05'
           }
         ],
@@ -1381,12 +1343,10 @@ const fixtures = {
           },
           {
             text: '£111.60',
-            format: 'numeric',
             sortValue: '111.60'
           },
           {
             text: '£114.50',
-            format: 'numeric',
             sortValue: '114.50'
           }
         ],
@@ -1397,12 +1357,10 @@ const fixtures = {
           },
           {
             text: '£19.30',
-            format: 'numeric',
             sortValue: '19.30'
           },
           {
             text: '£19.80',
-            format: 'numeric',
             sortValue: '19.80'
           }
         ]
