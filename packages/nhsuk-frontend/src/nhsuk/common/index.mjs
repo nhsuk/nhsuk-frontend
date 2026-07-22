@@ -14,13 +14,13 @@ export function toggleConditionalInput($input, className) {
     return
   }
 
-  const target = document.getElementById(targetId)
-  if (!target) {
+  const $target = document.getElementById(targetId)
+  if (!$target) {
     return
   }
 
   $input.setAttribute('aria-expanded', $input.checked.toString())
-  target.classList.toggle(className, !$input.checked)
+  $target.classList.toggle(className, !$input.checked)
 }
 
 /**

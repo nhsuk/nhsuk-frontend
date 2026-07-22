@@ -8,48 +8,48 @@
  * {@link https://github.com/alphagov/govuk-frontend}
  *
  * @template {HTMLElement} FocusElement
- * @param {FocusElement} $element - HTML element
+ * @param {FocusElement} $target - HTML element
  * @param {SetFocusOptions<FocusElement>} [options] - Focus options
  */
-export function setFocus($element, options = {}) {
-  const isFocusable = $element.getAttribute('tabindex')
+export function setFocus($target, options = {}) {
+  const isFocusable = $target.getAttribute('tabindex')
 
   if (!isFocusable) {
-    $element.setAttribute('tabindex', '-1')
+    $target.setAttribute('tabindex', '-1')
   }
 
   /**
    * Handle element focus
    */
   function onFocus() {
-    $element.removeEventListener('focus', onFocus)
-    $element.addEventListener('blur', onBlur)
+    $target.removeEventListener('focus', onFocus)
+    $target.addEventListener('blur', onBlur)
   }
 
   /**
    * Handle element blur
    */
   function onBlur() {
-    $element.removeEventListener('blur', onBlur)
+    $target.removeEventListener('blur', onBlur)
 
     if (options.onBlur) {
-      options.onBlur.call($element)
+      options.onBlur.call($target)
     }
 
     if (!isFocusable) {
-      $element.removeAttribute('tabindex')
+      $target.removeAttribute('tabindex')
     }
   }
 
   // Add listener to reset element on blur, after focus
-  $element.addEventListener('focus', onFocus)
+  $target.addEventListener('focus', onFocus)
 
   // Focus element
   if (options.onBeforeFocus) {
-    options.onBeforeFocus.call($element)
+    options.onBeforeFocus.call($target)
   }
 
-  $element.focus()
+  $target.focus()
 }
 
 /**
