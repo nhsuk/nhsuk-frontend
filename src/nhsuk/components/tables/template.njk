@@ -225,6 +225,8 @@
   {% for row in rows %}
     <tr class="nhsuk-table__row" {%- if params.responsive %} role="row"{% endif %}>
     {% for item in row | select("mapping") if row | length else [] %}
+      {%- set header = head[loop.index0] -%}
+
       {%- set innerHtml %}
         {%- if params.responsive and item.header -%}
           <span class="nhsuk-table-responsive__heading" aria-hidden="true">{{ item.header }} </span>
@@ -240,12 +242,12 @@
 
       {{- _tableCell({
         html: innerHtml,
-        format: item.format,
+        format: item.format | default(header.format),
         scope: "row" if loop.first and params.firstCellIsHeader else undefined,
         role: ("rowheader" if loop.first and params.firstCellIsHeader else "cell") if params.responsive else undefined,
         colspan: item.colspan,
         rowspan: item.rowspan,
-        align: item.align,
+        align: item.align | default(header.align),
         classes: item.classes,
         attributes: nhsukAttributes({
           "data-sort-value": {
