@@ -19,6 +19,8 @@ $nhsuk-task-list-hover-color: $nhsuk-task-list-hover-colour;
 @include nhsuk-exports("nhsuk/components/task-list") {
   .nhsuk-task-list {
     margin-top: 0;
+    margin-right: -$nhsuk-border-table-header-width;
+    margin-left: -$nhsuk-border-table-header-width;
     padding: 0;
     list-style-type: none;
 
@@ -38,8 +40,7 @@ $nhsuk-task-list-hover-color: $nhsuk-task-list-hover-colour;
 
     width: 100%;
     margin-bottom: 0;
-    padding-top: nhsuk-spacing(2) + 4px;
-    padding-bottom: nhsuk-spacing(2) + 4px;
+    padding: nhsuk-spacing(2, $adjustment: 4px) $nhsuk-border-table-header-width;
 
     border: 1px solid $nhsuk-border-colour;
     border-width: 0 0 1px;
@@ -82,7 +83,7 @@ $nhsuk-task-list-hover-color: $nhsuk-task-list-hover-colour;
   // adjusting the tag styles to be closer to body text.
   .nhsuk-task-list__status--completed,
   .nhsuk-task-list__status--cannot-start-yet {
-    padding-top: nhsuk-spacing(1) + 2px; // to match the spacing on tags
+    padding-top: nhsuk-spacing(1, $adjustment: 2px); // to match the spacing on tags
     padding-bottom: nhsuk-spacing(1);
     padding-left: nhsuk-spacing(2);
     text-decoration: none;
