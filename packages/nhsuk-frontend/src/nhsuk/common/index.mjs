@@ -109,6 +109,7 @@ export function formatErrorMessage(Component, message) {
 export * from './closest-attribute-value.mjs'
 export * from './nhsuk-frontend-version.mjs'
 export * from './set-focus.mjs'
+export * from './set-scroll.mjs'
 
 /**
  * @import { CompatibleClass } from '../component.mjs'
