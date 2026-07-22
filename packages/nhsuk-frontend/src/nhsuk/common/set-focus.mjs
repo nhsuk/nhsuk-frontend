@@ -12,7 +12,9 @@
  * @param {SetFocusOptions<FocusElement>} [options] - Focus options
  */
 export function setFocus($target, options = {}) {
-  const isFocusable = $target.getAttribute('tabindex')
+  const isFocusable =
+    $target.matches('button, input, select, textarea, a[href]') ||
+    $target.matches('[tabindex]:not([tabindex="-1"])')
 
   if (!isFocusable) {
     $target.setAttribute('tabindex', '-1')
