@@ -6,7 +6,7 @@
  * obscured by a software keyboard
  *
  * @param {HTMLElement} $target - HTML element to scroll to
- * @param {SetScrollOptions} [options] - Scroll options
+ * @param {SetScrollOptions & ScrollIntoViewOptions} [options] - Scroll options
  */
 export function setScroll($target, options = {}) {
   const { scrollTo = [], threshold } = options
@@ -108,7 +108,6 @@ export function isInView($target, options = {}) {
 
 /**
  * @typedef {object} SetScrollOptions
- * @property {ScrollBehavior} [behavior] - Browser scroll behavior, e.g. 'smooth'
  * @property {(Element | null | undefined)[] | Element | null | undefined} [scrollTo] - Additional HTML elements to try scrolling to, should the target element stay in view
  * @property {number} [threshold=50] - The percentage value of the viewport height considered within view
  */

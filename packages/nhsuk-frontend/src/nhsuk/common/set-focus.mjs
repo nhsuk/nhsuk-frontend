@@ -1,3 +1,5 @@
+import { setScroll } from './set-scroll.mjs'
+
 /**
  * Move focus to element
  *
@@ -8,8 +10,8 @@
  * {@link https://github.com/alphagov/govuk-frontend}
  *
  * @template {HTMLElement} FocusElement
- * @param {FocusElement} $target - HTML element
- * @param {SetFocusOptions<FocusElement>} [options] - Focus options
+ * @param {FocusElement} $target - HTML element to focus
+ * @param {SetFocusOptions<FocusElement> & FocusOptions & SetScrollOptions} [options] - Focus options
  */
 export function setFocus($target, options = {}) {
   const isFocusable =
@@ -51,7 +53,15 @@ export function setFocus($target, options = {}) {
     options.onBeforeFocus.call($target)
   }
 
-  $target.focus()
+  if (options.preventScroll) {
+    $target.focus(options)
+    return
+  }
+
+  // Scroll the element into view *before* calling focus on the element to
+  // avoid extra scrolling in browsers that don't support `preventScroll`
+  setScroll($target, options)
+  $target.focus({ preventScroll: true })
 }
 
 /**
@@ -59,4 +69,8 @@ export function setFocus($target, options = {}) {
  * @typedef {object} SetFocusOptions
  * @property {function(this: FocusElement): void} [onBeforeFocus] - Callback before focus
  * @property {function(this: FocusElement): void} [onBlur] - Callback on blur
+ */
+
+/**
+ * @import { SetScrollOptions } from './set-scroll.mjs'
  */
