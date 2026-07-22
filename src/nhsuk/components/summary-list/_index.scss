@@ -12,13 +12,15 @@
 @include nhsuk-exports("nhsuk/components/summary-list") {
   .nhsuk-summary-list {
     margin: 0; // Reset default user agent styles
+    margin-right: -$nhsuk-border-table-header-width;
+    margin-left: -$nhsuk-border-table-header-width;
 
     @include nhsuk-font($size: 19);
     @include nhsuk-responsive-margin(6, "bottom");
 
     @media #{nhsuk-from-breakpoint(tablet)} {
       display: table;
-      width: 100%;
+      width: calc(100% + $nhsuk-border-table-header-width * 2);
       table-layout: fixed; // Required to allow us to wrap words that overflow.
       border-collapse: collapse;
     }
@@ -38,7 +40,7 @@
 
   // Remove right padding from the last column in the row
   .nhsuk-summary-list__row:not(.nhsuk-summary-list__row--no-actions) > :last-child {
-    padding-right: 0;
+    padding-right: $nhsuk-border-width-form-element;
   }
 
   // Provide an empty 'cell' for rows that don't have actions – otherwise the
@@ -67,7 +69,7 @@
       // Restore right padding for the last column in the row (removed above)
       // because the empty 'cell' is now visually the last column
       > :last-child {
-        padding-right: nhsuk-spacing(4);
+        padding-right: nhsuk-spacing(4, $adjustment: - $nhsuk-border-table-header-width);
       }
     }
   }
@@ -76,11 +78,13 @@
   .nhsuk-summary-list__value,
   .nhsuk-summary-list__actions {
     margin: 0; // Reset default user agent styles
+    padding-right: $nhsuk-border-table-header-width;
+    padding-left: $nhsuk-border-table-header-width;
 
     @media #{nhsuk-from-breakpoint(tablet)} {
       display: table-cell;
       padding-top: nhsuk-spacing(2);
-      padding-right: nhsuk-spacing(4);
+      padding-right: nhsuk-spacing(4, $adjustment: - $nhsuk-border-table-header-width);
       padding-bottom: nhsuk-spacing(2);
 
       // Make sure that any multi-line inline-blocks inside of the summary
@@ -203,7 +207,7 @@
       .nhsuk-summary-list__key,
       .nhsuk-summary-list__value,
       .nhsuk-summary-list__actions {
-        padding-bottom: nhsuk-spacing(2) + 1px;
+        padding-bottom: nhsuk-spacing(2, $adjustment: 1px);
       }
     }
   }
@@ -218,7 +222,7 @@
       .nhsuk-summary-list__key,
       .nhsuk-summary-list__value,
       .nhsuk-summary-list__actions {
-        padding-bottom: nhsuk-spacing(2) + 1px;
+        padding-bottom: nhsuk-spacing(2, $adjustment: 1px);
       }
     }
   }
