@@ -63,6 +63,13 @@ const options = {
         description: 'Specify how many rows a cell spans.',
         released: '1.0.0'
       },
+      align: {
+        type: 'string',
+        required: false,
+        description:
+          'Specify the table cell alignment – `"left"`, `"centre"`, or `"right"`. Defaults to `"left"`',
+        released: '10.6.0'
+      },
       classes: {
         type: 'string',
         required: false,
@@ -122,6 +129,13 @@ const options = {
         required: false,
         description: 'Specify how many rows a cell spans.',
         released: '1.0.0'
+      },
+      align: {
+        type: 'string',
+        required: false,
+        description:
+          'Specify the table head cell alignment – `"left"`, `"centre"`, or `"right"`. Defaults to `"left"`',
+        released: '10.6.0'
       },
       classes: {
         type: 'string',

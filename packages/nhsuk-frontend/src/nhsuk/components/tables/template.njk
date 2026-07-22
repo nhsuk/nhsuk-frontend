@@ -113,6 +113,18 @@
   {% set classNamesCell = classNamesCell ~ " " ~ classNameCell ~ "--" ~ item.format %}
 {% endif %}
 
+{%- if item.align and
+  item.align in ["left", "centre", "right"] and (
+    not item.classes or (
+      not "nhsuk-u-text-align-left" in item.classes and
+      not "nhsuk-u-text-align-centre" in item.classes and
+      not "nhsuk-u-text-align-right" in item.classes
+    )
+  )
+%}
+  {% set classNamesCell = classNamesCell ~ " nhsuk-u-text-align-" ~ item.align %}
+{% endif %}
+
 {%- if item.classes %}
   {% set classNamesCell = classNamesCell ~ " " ~ item.classes %}
 {% endif -%}
@@ -187,6 +199,7 @@
         role: "columnheader" if params.responsive else undefined,
         colspan: item.colspan,
         rowspan: item.rowspan,
+        align: item.align,
         classes: item.classes,
         attributes: nhsukAttributes({
           "data-sort": {
@@ -232,6 +245,7 @@
         role: ("rowheader" if loop.first and params.firstCellIsHeader else "cell") if params.responsive else undefined,
         colspan: item.colspan,
         rowspan: item.rowspan,
+        align: item.align,
         classes: item.classes,
         attributes: nhsukAttributes({
           "data-sort-value": {
