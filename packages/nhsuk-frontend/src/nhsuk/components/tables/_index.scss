@@ -276,6 +276,7 @@
     @media #{nhsuk-until-breakpoint(tablet)} {
       width: nhsuk-px-to-rem($nhsuk-icon-size-small);
       height: nhsuk-px-to-rem($nhsuk-icon-size-small);
+      margin-left: nhsuk-px-to-rem(5px);
       background-size: nhsuk-px-to-rem($nhsuk-icon-size-small) nhsuk-px-to-rem($nhsuk-icon-size-small);
 
       @supports (mask-position: initial) {
@@ -339,8 +340,8 @@
     }
   }
 
-  [data-sort] button,
-  [data-sort] a {
+  th[data-sort] button,
+  th[data-sort] a {
     display: inline-flex;
 
     flex-wrap: nowrap;
@@ -369,6 +370,15 @@
 
     &:focus {
       @include nhsuk-focused-button;
+    }
+  }
+
+  th[data-sort]:not(:last-child) button,
+  th[data-sort]:not(:last-child) a {
+    margin-right: nhsuk-px-to-rem(-6px);
+
+    @media #{nhsuk-until-breakpoint(tablet)} {
+      margin-right: nhsuk-px-to-rem(-5px);
     }
   }
 
