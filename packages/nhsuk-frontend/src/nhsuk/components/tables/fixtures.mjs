@@ -18,8 +18,31 @@ export const variants = [
     }
   },
   {
+    description: 'responsive',
+    context: {
+      responsive: true
+    }
+  },
+  {
+    description: 'responsive compact',
+    context: {
+      compact: true,
+      responsive: true
+    }
+  },
+  {
     description: 'reverse',
     context: {
+      variant: 'reverse'
+    },
+    options: {
+      layout: 'background-blue'
+    }
+  },
+  {
+    description: 'reverse compact',
+    context: {
+      compact: true,
       variant: 'reverse'
     },
     options: {
@@ -77,6 +100,296 @@ const fixtures = {
     variants,
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']
+    }
+  },
+  'with column widths': {
+    context: {
+      caption: 'Ibuprofen syrup dosages for children',
+      captionSize: 'm',
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: 'Age',
+          classes: 'nhsuk-u-width-one-half'
+        },
+        {
+          text: 'How much?',
+          classes: 'nhsuk-u-width-one-quarter'
+        },
+        {
+          text: 'How often?',
+          classes: 'nhsuk-u-width-one-quarter'
+        }
+      ],
+      rows: [
+        [
+          {
+            text: '3 to 5 months (weighing more than 5kg)'
+          },
+          {
+            text: '2.5ml'
+          },
+          {
+            text: 'Max 3 times in 24 hours'
+          }
+        ],
+        [
+          {
+            text: '6 to 11 months'
+          },
+          {
+            text: '2.5ml'
+          },
+          {
+            text: 'Max 3 to 4 times in 24 hours'
+          }
+        ],
+        [
+          {
+            text: '1 to 3 years'
+          },
+          {
+            text: '5ml'
+          },
+          {
+            text: 'Max 3 times in 24 hours'
+          }
+        ],
+        [
+          {
+            text: '4 to 6 years'
+          },
+          {
+            text: '7.5ml'
+          },
+          {
+            text: 'Max 3 times in 24 hours'
+          }
+        ],
+        [
+          {
+            text: '7 to 9 years'
+          },
+          {
+            text: '10ml'
+          },
+          {
+            text: 'Max 3 times in 24 hours'
+          }
+        ],
+        [
+          {
+            text: '10 to 11 years'
+          },
+          {
+            text: '15ml'
+          },
+          {
+            text: 'Max 3 times in 24 hours'
+          }
+        ],
+        [
+          {
+            text: '12 to 17 years'
+          },
+          {
+            text: '15ml to 20ml'
+          },
+          {
+            text: 'Max 3 to 4 times in 24 hours'
+          }
+        ]
+      ]
+    },
+    variants,
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
+    }
+  },
+  'with custom HTML': {
+    context: {
+      caption: 'Nunjucks macro options',
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: 'Name'
+        },
+        {
+          text: 'Type'
+        },
+        {
+          text: 'Description'
+        }
+      ],
+      rows: [
+        [
+          {
+            text: 'id'
+          },
+          {
+            text: 'string'
+          },
+          {
+            text: 'The ID of the table.'
+          }
+        ],
+        [
+          {
+            text: 'rows'
+          },
+          {
+            text: 'array'
+          },
+          {
+            html: outdent`
+              <strong>Required.</strong> The rows within the table component.
+              <a href="#/macro-options">See macro options for rows</a>.
+            `
+          }
+        ],
+        [
+          {
+            text: 'head'
+          },
+          {
+            text: 'array'
+          },
+          {
+            html: outdent`
+              Can be used to add a row of table header cells (<code>&lt;th&gt;</code>) at the top of the table component.
+              <a href="#/macro-options">See macro options for head</a>.
+            `
+          }
+        ],
+        [
+          {
+            text: 'caption'
+          },
+          {
+            text: 'string'
+          },
+          {
+            text: 'Caption text.'
+          }
+        ],
+        [
+          {
+            text: 'captionClasses'
+          },
+          {
+            text: 'string'
+          },
+          {
+            text: 'Classes for caption text size. Classes should correspond to the available typography heading classes.'
+          }
+        ],
+        [
+          {
+            text: 'firstCellIsHeader'
+          },
+          {
+            text: 'string'
+          },
+          {
+            html: outdent`
+              If set to <code>true</code>, the first cell in each row will be a table header (<code>&lt;th&gt;</code>).
+            `
+          }
+        ],
+        [
+          {
+            text: 'classes'
+          },
+          {
+            text: 'string'
+          },
+          {
+            text: 'Classes to add to the table container.'
+          }
+        ],
+        [
+          {
+            text: 'attributes'
+          },
+          {
+            text: 'object'
+          },
+          {
+            text: '	HTML attributes (for example data attributes) to add to the table container.'
+          }
+        ]
+      ]
+    }
+  },
+  'with first cell as header': {
+    context: {
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: 'Day of the week'
+        },
+        {
+          text: 'Opening hours'
+        }
+      ],
+      rows: [
+        [
+          {
+            text: 'Monday'
+          },
+          {
+            text: '9am to 6pm'
+          }
+        ],
+        [
+          {
+            text: 'Tuesday'
+          },
+          {
+            text: '9am to 6pm'
+          }
+        ],
+        [
+          {
+            text: 'Wednesday'
+          },
+          {
+            text: '9am to 6pm'
+          }
+        ],
+        [
+          {
+            text: 'Thursday'
+          },
+          {
+            text: '9am to 6pm'
+          }
+        ],
+        [
+          {
+            text: 'Friday'
+          },
+          {
+            text: '9am to 6pm'
+          }
+        ],
+        [
+          {
+            text: 'Saturday'
+          },
+          {
+            text: '9am to 1pm'
+          }
+        ],
+        [
+          {
+            text: 'Sunday'
+          },
+          {
+            text: 'Closed'
+          }
+        ]
+      ]
     }
   },
   'with empty items': {
@@ -432,227 +745,6 @@ const fixtures = {
       width: 'full'
     }
   },
-  'responsive': {
-    context: {
-      caption: 'Ibuprofen syrup dosages for children',
-      captionSize: 'm',
-      responsive: true,
-      firstCellIsHeader: true,
-      head: [
-        {
-          text: 'Age',
-          classes: 'nhsuk-u-width-one-half'
-        },
-        {
-          text: 'How much?',
-          classes: 'nhsuk-u-width-one-quarter'
-        },
-        {
-          text: 'How often?',
-          classes: 'nhsuk-u-width-one-quarter'
-        }
-      ],
-      rows: [
-        [
-          {
-            text: '3 to 5 months (weighing more than 5kg)'
-          },
-          {
-            text: '2.5ml'
-          },
-          {
-            text: 'Max 3 times in 24 hours'
-          }
-        ],
-        [
-          {
-            text: '6 to 11 months'
-          },
-          {
-            text: '2.5ml'
-          },
-          {
-            text: 'Max 3 to 4 times in 24 hours'
-          }
-        ],
-        [
-          {
-            text: '1 to 3 years'
-          },
-          {
-            text: '5ml'
-          },
-          {
-            text: 'Max 3 times in 24 hours'
-          }
-        ],
-        [
-          {
-            text: '4 to 6 years'
-          },
-          {
-            text: '7.5ml'
-          },
-          {
-            text: 'Max 3 times in 24 hours'
-          }
-        ],
-        [
-          {
-            text: '7 to 9 years'
-          },
-          {
-            text: '10ml'
-          },
-          {
-            text: 'Max 3 times in 24 hours'
-          }
-        ],
-        [
-          {
-            text: '10 to 11 years'
-          },
-          {
-            text: '15ml'
-          },
-          {
-            text: 'Max 3 times in 24 hours'
-          }
-        ],
-        [
-          {
-            text: '12 to 17 years'
-          },
-          {
-            text: '15ml to 20ml'
-          },
-          {
-            text: 'Max 3 to 4 times in 24 hours'
-          }
-        ]
-      ]
-    },
-    variants,
-    screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
-    }
-  },
-  'responsive and custom HTML': {
-    context: {
-      caption: 'Nunjucks macro options',
-      firstCellIsHeader: true,
-      responsive: true,
-      head: [
-        {
-          text: 'Name'
-        },
-        {
-          text: 'Type'
-        },
-        {
-          text: 'Description'
-        }
-      ],
-      rows: [
-        [
-          {
-            text: 'id'
-          },
-          {
-            text: 'string'
-          },
-          {
-            text: 'The ID of the table.'
-          }
-        ],
-        [
-          {
-            text: 'rows'
-          },
-          {
-            text: 'array'
-          },
-          {
-            html: outdent`
-              <strong>Required.</strong> The rows within the table component.
-              <a href="#/macro-options">See macro options for rows</a>.
-            `
-          }
-        ],
-        [
-          {
-            text: 'head'
-          },
-          {
-            text: 'array'
-          },
-          {
-            html: outdent`
-              Can be used to add a row of table header cells (<code>&lt;th&gt;</code>) at the top of the table component.
-              <a href="#/macro-options">See macro options for head</a>.
-            `
-          }
-        ],
-        [
-          {
-            text: 'caption'
-          },
-          {
-            text: 'string'
-          },
-          {
-            text: 'Caption text.'
-          }
-        ],
-        [
-          {
-            text: 'captionClasses'
-          },
-          {
-            text: 'string'
-          },
-          {
-            text: 'Classes for caption text size. Classes should correspond to the available typography heading classes.'
-          }
-        ],
-        [
-          {
-            text: 'firstCellIsHeader'
-          },
-          {
-            text: 'string'
-          },
-          {
-            html: outdent`
-              If set to <code>true</code>, the first cell in each row will be a table header (<code>&lt;th&gt;</code>).
-            `
-          }
-        ],
-        [
-          {
-            text: 'classes'
-          },
-          {
-            text: 'string'
-          },
-          {
-            text: 'Classes to add to the table container.'
-          }
-        ],
-        [
-          {
-            text: 'attributes'
-          },
-          {
-            text: 'object'
-          },
-          {
-            text: '	HTML attributes (for example data attributes) to add to the table container.'
-          }
-        ]
-      ]
-    }
-  },
   'with word breaks': {
     context: {
       caption: 'Users',
@@ -714,77 +806,6 @@ const fixtures = {
       ]
     }
   },
-  'with first cell as header': {
-    context: {
-      firstCellIsHeader: true,
-      head: [
-        {
-          text: 'Day of the week'
-        },
-        {
-          text: 'Opening hours'
-        }
-      ],
-      rows: [
-        [
-          {
-            text: 'Monday'
-          },
-          {
-            text: '9am to 6pm'
-          }
-        ],
-        [
-          {
-            text: 'Tuesday'
-          },
-          {
-            text: '9am to 6pm'
-          }
-        ],
-        [
-          {
-            text: 'Wednesday'
-          },
-          {
-            text: '9am to 6pm'
-          }
-        ],
-        [
-          {
-            text: 'Thursday'
-          },
-          {
-            text: '9am to 6pm'
-          }
-        ],
-        [
-          {
-            text: 'Friday'
-          },
-          {
-            text: '9am to 6pm'
-          }
-        ],
-        [
-          {
-            text: 'Saturday'
-          },
-          {
-            text: '9am to 1pm'
-          }
-        ],
-        [
-          {
-            text: 'Sunday'
-          },
-          {
-            text: 'Closed'
-          }
-        ]
-      ]
-    }
-  },
   'as a card': {
     context: {
       card: true,
@@ -825,7 +846,11 @@ const fixtures = {
           }
         ]
       ]
-    }
+    },
+    variants: [
+      variants[0], // Regular variant
+      variants[2] // Responsive variant
+    ]
   },
   'as a card (feature)': {
     context: {
@@ -872,142 +897,17 @@ const fixtures = {
         ]
       ]
     },
+    variants: [
+      variants[0], // Regular variant
+      variants[2] // Responsive variant
+    ],
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']
-    }
-  },
-  'as a card (feature) responsive': {
-    context: {
-      card: {
-        heading: 'Other conditions like impetigo',
-        headingSize: 'm',
-        variant: 'feature'
-      },
-      caption: 'Impetigo can look similar to other skin conditions',
-      captionSize: 's',
-      firstCellIsHeader: true,
-      responsive: true,
-      head: [
-        {
-          text: 'Skin symptoms'
-        },
-        {
-          text: 'Possible cause'
-        }
-      ],
-      rows: [
-        [
-          {
-            text: 'Blisters on lips or around the mouth'
-          },
-          {
-            text: 'Cold sores'
-          }
-        ],
-        [
-          {
-            text: 'Itchy, dry, cracked, sore'
-          },
-          {
-            text: 'Eczema'
-          }
-        ],
-        [
-          {
-            text: 'Itchy blisters'
-          },
-          {
-            text: 'Shingles, chickenpox'
-          }
-        ]
-      ]
     }
   },
   'sortable': {
     context: {
       caption: 'Appointments',
-      firstCellIsHeader: true,
-      head: [
-        {
-          text: 'Time',
-          sort: 'ascending'
-        },
-        {
-          text: 'Name',
-          sort: true
-        },
-        {
-          text: 'Date of birth',
-          classes: 'nhsuk-u-nowrap'
-        }
-      ],
-      rows: [
-        [
-          {
-            text: '11:00'
-          },
-          {
-            text: 'Laura Stone'
-          },
-          {
-            text: '4 January 1986'
-          }
-        ],
-        [
-          {
-            text: '11:30'
-          },
-          {
-            text: 'Emma Katie-Brown'
-          },
-          {
-            text: '7 February 1976'
-          }
-        ],
-        [
-          {
-            text: '13:10'
-          },
-          {
-            text: 'David Chen'
-          },
-          {
-            text: '19 March 1981'
-          }
-        ],
-        [
-          {
-            text: '13:40'
-          },
-          {
-            text: 'Michael Thompson'
-          },
-          {
-            text: '6 December 1964'
-          }
-        ],
-        [
-          {
-            text: '14:20'
-          },
-          {
-            text: 'Juan Martinez'
-          },
-          {
-            text: '18 April 1975'
-          }
-        ]
-      ]
-    },
-    variants,
-    screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
-    }
-  },
-  'sortable responsive': {
-    context: {
-      caption: 'Appointments',
-      responsive: true,
       firstCellIsHeader: true,
       head: [
         {
@@ -1164,10 +1064,7 @@ const fixtures = {
         ]
       ]
     },
-    variants,
-    screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
-    }
+    variants
   },
   'sortable with numeric data': {
     context: {
@@ -1228,7 +1125,11 @@ const fixtures = {
           }
         ]
       ]
-    }
+    },
+    variants: [
+      variants[0], // Regular variant
+      variants[2] // Responsive variant
+    ]
   },
   'sortable with numeric data and sort values': {
     context: {
