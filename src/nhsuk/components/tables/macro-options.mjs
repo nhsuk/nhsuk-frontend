@@ -71,6 +71,13 @@ const options = {
           'Specify the table cell alignment – `"left"`, `"centre"`, or `"right"`. Defaults to `"left"`',
         released: '10.6.0'
       },
+      width: {
+        type: 'string',
+        required: false,
+        description:
+          'Specify the table cell width. You can pass any design system grid width here – for example, `"one-third"`, `"two-thirds"` or `"one-half"`.',
+        released: '10.6.0'
+      },
       classes: {
         type: 'string',
         required: false,
@@ -136,6 +143,13 @@ const options = {
         required: false,
         description:
           'Specify the table head cell alignment – `"left"`, `"centre"`, or `"right"`. Defaults to `"left"`',
+        released: '10.6.0'
+      },
+      width: {
+        type: 'string',
+        required: false,
+        description:
+          'Specify the table head cell width. You can pass any design system grid width here – for example, `"one-third"`, `"two-thirds"` or `"one-half"`.',
         released: '10.6.0'
       },
       classes: {
