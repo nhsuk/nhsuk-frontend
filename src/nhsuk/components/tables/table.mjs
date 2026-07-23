@@ -139,9 +139,9 @@ export class Table extends ConfigurableComponent {
         const $button = document.createElement('button')
 
         $button.setAttribute('type', 'button')
-        $button.textContent = $header.textContent
+        $button.innerHTML = $header.innerHTML
 
-        $header.textContent = ''
+        $header.innerHTML = ''
         $header.appendChild($button)
       }
     }
@@ -250,7 +250,7 @@ export class Table extends ConfigurableComponent {
     this.$screenReaderStatusMessage.textContent = this.i18n.t(
       'sortAnnouncement',
       {
-        header: $header.textContent.trim(),
+        header: $header.innerText.trim(),
         direction: this.i18n.t(direction)
       }
     )
@@ -303,7 +303,7 @@ export class Table extends ConfigurableComponent {
    */
   getValue($cell) {
     const { cellClass, headerClass } = this.config
-    const { sortValue = $cell.textContent.trim() } = $cell.dataset
+    const { sortValue = $cell.innerText.trim() } = $cell.dataset
 
     const hasFormatNumeric =
       $cell.classList.contains(`${headerClass}--numeric`) ||
