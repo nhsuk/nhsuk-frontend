@@ -157,22 +157,17 @@ export class Table extends ConfigurableComponent {
     }
 
     this.$rows.sort(($rowA, $rowB) => {
-      const $cellA = $rowA.querySelectorAll('td, th')[index]
-      const $cellB = $rowB.querySelectorAll('td, th')[index]
+      const valueA = this.getValue(index, $rowA)
+      const valueB = this.getValue(index, $rowB)
 
-      const [valueA, isNumericA] =
-        direction === 'ascending'
-          ? this.getValue($cellA)
-          : this.getValue($cellB)
+      let collator = this.collators.string
 
-      const [valueB, isNumericB] =
-        direction === 'ascending'
-          ? this.getValue($cellB)
-          : this.getValue($cellA)
+      if (valueA.format === 'numeric' && valueB.format === 'numeric') {
+        collator = this.collators.number
+      }
 
-      return isNumericA && isNumericB
-        ? this.collators.number.compare(valueA, valueB)
-        : this.collators.string.compare(valueA, valueB)
+      const rank = collator.compare(valueA.text, valueB.text)
+      return direction === 'ascending' ? rank : -rank
     })
   }
 
@@ -298,21 +293,28 @@ export class Table extends ConfigurableComponent {
   }
 
   /**
-   * @param {HTMLElement} $cell
-   * @returns {[string, boolean]} - Cell value and whether it is numeric
+   * @param {number} index
+   * @param {HTMLElement} [$row]
+   * @returns {{ text: string, format: 'numeric' | 'string' }}
    */
-  getValue($cell) {
+  getValue(index, $row) {
     const { cellClass, headerClass } = this.config
+
+    const $header = this.$headers[index]
+    const $cell = $row?.querySelectorAll('td, th')[index] ?? $header
+
     const { sortValue = $cell.innerText.trim() } = $cell.dataset
+    const value = normaliseString(sortValue)
 
     const hasFormatNumeric =
       $cell.classList.contains(`${headerClass}--numeric`) ||
-      $cell.classList.contains(`${cellClass}--numeric`)
+      $cell.classList.contains(`${cellClass}--numeric`) ||
+      typeof value === 'number'
 
-    const output = normaliseString(sortValue)
-    const numeric = hasFormatNumeric || typeof output === 'number'
-
-    return [output?.toString() ?? '', numeric]
+    return {
+      text: value?.toString() ?? '',
+      format: hasFormatNumeric ? 'numeric' : 'string'
+    }
   }
 
   /**
