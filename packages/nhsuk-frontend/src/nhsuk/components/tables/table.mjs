@@ -162,8 +162,12 @@ export class Table extends ConfigurableComponent {
 
       let collator = this.collators.string
 
-      if (valueA.format === 'numeric' && valueB.format === 'numeric') {
+      if (valueA.format === 'numeric' || valueB.format === 'numeric') {
         collator = this.collators.number
+
+        // Sort string format before numeric unless sort value provided
+        if (valueA.format !== 'numeric' && !valueA.sort) valueA.text = ''
+        if (valueB.format !== 'numeric' && !valueB.sort) valueB.text = ''
       }
 
       const rank = collator.compare(valueA.text, valueB.text)
@@ -295,7 +299,7 @@ export class Table extends ConfigurableComponent {
   /**
    * @param {number} index
    * @param {HTMLElement} [$row]
-   * @returns {{ text: string, format: 'numeric' | 'string' }}
+   * @returns {{ sort: string | undefined, text: string, format: 'numeric' | 'string' }}
    */
   getValue(index, $row) {
     const { cellClass, headerClass } = this.config
@@ -303,8 +307,10 @@ export class Table extends ConfigurableComponent {
     const $header = this.$headers[index]
     const $cell = $row?.querySelectorAll('td, th')[index] ?? $header
 
-    const { sortValue = $cell.innerText.trim() } = $cell.dataset
-    const value = normaliseString(sortValue)
+    const innerText = $cell.innerText.trim()
+    const sortValue = $cell.dataset.sortValue?.trim()
+
+    const value = normaliseString(sortValue ?? innerText)
 
     const hasFormatNumeric =
       $cell.classList.contains(`${headerClass}--numeric`) ||
@@ -312,6 +318,7 @@ export class Table extends ConfigurableComponent {
       typeof value === 'number'
 
     return {
+      sort: sortValue,
       text: value?.toString() ?? '',
       format: hasFormatNumeric ? 'numeric' : 'string'
     }
