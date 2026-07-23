@@ -10,7 +10,7 @@
     "@axe-core/puppeteer": "^4.12.1",
     "@testing-library/jest-dom": "^7.0.0",
     "jest-axe": "^10.0.0",
-    "jest-environment-jsdom": "^30.4.1",
+    "jest-environment-jsdom": "^30.3.0",
     "jest-environment-puppeteer": "^11.0.0",
     "jest-puppeteer": "^11.0.0",
     "jest-puppeteer-istanbul": "^0.5.3",
