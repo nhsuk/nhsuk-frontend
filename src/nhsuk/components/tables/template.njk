@@ -263,7 +263,7 @@
         role: ("rowheader" if loop.first and params.firstCellIsHeader else "cell") if params.responsive else undefined,
         colspan: item.colspan if not params.responsive else undefined,
         rowspan: item.rowspan,
-        align: item.align | default(header.align),
+        align: item.align | default("right" if item.format == "string" and header.format == "numeric" else header.align),
         width: item.width,
         classes: item.classes,
         attributes: nhsukAttributes({

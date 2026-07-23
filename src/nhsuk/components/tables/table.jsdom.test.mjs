@@ -48,7 +48,7 @@ describe('Table', () => {
 
   describe('Initialisation via init function', () => {
     beforeEach(() => {
-      initExample('sortable with numeric data and sort values')
+      initExample('sortable with numeric format and sort values')
     })
 
     it('should add event listeners', () => {
@@ -117,7 +117,7 @@ describe('Table', () => {
 
   describe('Initialisation via class', () => {
     beforeEach(() => {
-      initExample('sortable with numeric data and sort values')
+      initExample('sortable with numeric format and sort values')
     })
 
     it('should not throw with $root element', () => {

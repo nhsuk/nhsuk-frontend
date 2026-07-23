@@ -462,7 +462,7 @@ const fixtures = {
       ]
     }
   },
-  'with numeric data': {
+  'with numeric format': {
     context: {
       caption: 'Prescription prepayment certificate (PPC) charges',
       captionSize: 'm',
@@ -520,7 +520,67 @@ const fixtures = {
     },
     variants
   },
-  'with numeric data (full width, past day)': {
+  'with numeric format and missing data': {
+    context: {
+      caption: 'Prescription prepayment certificate (PPC) charges',
+      captionSize: 'm',
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: 'Item'
+        },
+        {
+          text: 'Current charge',
+          format: 'numeric'
+        },
+        {
+          text: 'New charge',
+          format: 'numeric'
+        }
+      ],
+      rows: [
+        [
+          {
+            text: '3-month',
+            classes: 'nhsuk-u-nowrap'
+          },
+          {
+            text: '£31.25'
+          },
+          {
+            text: '£32.05'
+          }
+        ],
+        [
+          {
+            text: '12-month',
+            classes: 'nhsuk-u-nowrap'
+          },
+          {
+            text: '£111.60'
+          },
+          {
+            text: 'No data',
+            format: 'string',
+            classes: 'nhsuk-u-secondary-text-colour'
+          }
+        ],
+        [
+          {
+            text: 'HRT'
+          },
+          {
+            text: '£19.30'
+          },
+          {
+            text: '£19.80'
+          }
+        ]
+      ]
+    },
+    variants
+  },
+  'with numeric format (full width, past day)': {
     context: {
       caption: 'Past day',
       head: [
@@ -576,7 +636,7 @@ const fixtures = {
       width: 'full'
     }
   },
-  'with numeric data (full width, past week)': {
+  'with numeric format (full width, past week)': {
     context: {
       caption: 'Past week',
       head: [
@@ -632,7 +692,7 @@ const fixtures = {
       width: 'full'
     }
   },
-  'with numeric data (full width, past month)': {
+  'with numeric format (full width, past month)': {
     context: {
       caption: 'Past month',
       head: [
@@ -688,7 +748,7 @@ const fixtures = {
       width: 'full'
     }
   },
-  'with numeric data (full width, past year)': {
+  'with numeric format (full width, past year)': {
     context: {
       caption: 'Past year',
       head: [
@@ -1065,7 +1125,7 @@ const fixtures = {
     },
     variants
   },
-  'sortable with numeric data': {
+  'sortable with numeric format': {
     context: {
       caption: 'Prescription prepayment certificate (PPC) charges',
       captionSize: 'm',
@@ -1130,7 +1190,74 @@ const fixtures = {
       variants[2] // Responsive variant
     ]
   },
-  'sortable with numeric data and sort values': {
+  'sortable with numeric format and missing data': {
+    context: {
+      caption: 'Prescription prepayment certificate (PPC) charges',
+      captionSize: 'm',
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: 'Item'
+        },
+        {
+          text: 'Current charge',
+          format: 'numeric',
+          sort: true,
+          sortNext: 'descending'
+        },
+        {
+          text: 'New charge',
+          format: 'numeric',
+          sort: true,
+          sortNext: 'descending'
+        }
+      ],
+      rows: [
+        [
+          {
+            text: '3-month',
+            classes: 'nhsuk-u-nowrap'
+          },
+          {
+            text: '£31.25'
+          },
+          {
+            text: '£32.05'
+          }
+        ],
+        [
+          {
+            text: '12-month',
+            classes: 'nhsuk-u-nowrap'
+          },
+          {
+            text: '£111.60'
+          },
+          {
+            text: 'No data',
+            format: 'string',
+            classes: 'nhsuk-u-secondary-text-colour'
+          }
+        ],
+        [
+          {
+            text: 'HRT'
+          },
+          {
+            text: '£19.30'
+          },
+          {
+            text: '£19.80'
+          }
+        ]
+      ]
+    },
+    variants: [
+      variants[0], // Regular variant
+      variants[2] // Responsive variant
+    ]
+  },
+  'sortable with numeric format and sort values': {
     context: {
       caption: 'Prescription prepayment certificate (PPC) charges',
       captionSize: 'm',
