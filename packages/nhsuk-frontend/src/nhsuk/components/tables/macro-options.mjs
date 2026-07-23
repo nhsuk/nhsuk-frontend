@@ -43,7 +43,7 @@ const options = {
         type: 'string',
         required: false,
         description:
-          'Specify format of a cell. Currently we only use `"numeric"`.',
+          'Specify format of a cell – `"numeric"` or `"string"`. Defaults to `"string"`',
         released: '1.0.0'
       },
       sortValue: {
@@ -123,7 +123,7 @@ const options = {
         type: 'string',
         required: false,
         description:
-          'Specify format of a cell. Currently we only use `"numeric"`.',
+          'Specify format of a cell – `"numeric"` or `"string"`. Defaults to `"string"`',
         released: '1.0.0'
       },
       colspan: {
