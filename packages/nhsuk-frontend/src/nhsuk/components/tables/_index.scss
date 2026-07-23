@@ -38,7 +38,7 @@
   // Deprecated, to be removed in v11.0
   .nhsuk-table-responsive {
     box-sizing: border-box;
-    width: 100%;
+    width: calc(100% + $nhsuk-border-table-header-width * 2);
     border-spacing: 0;
     border-collapse: collapse;
 
@@ -180,7 +180,7 @@
 
         .nhsuk-table__header,
         .nhsuk-table__cell {
-          padding-right: 0;
+          padding-right: $nhsuk-border-table-header-width;
           text-align: right; // [6]
         }
 
@@ -374,13 +374,6 @@
     @media #{nhsuk-until-breakpoint(tablet)} {
       margin-right: nhsuk-px-to-rem(-5px);
     }
-  }
-
-  .nhsuk-table__header--numeric[data-sort] button,
-  .nhsuk-table__header--numeric[data-sort] a {
-    justify-content: end;
-    padding-right: $nhsuk-border-width-form-element;
-    padding-left: 0;
   }
 
   .nhsuk-table--reverse {
