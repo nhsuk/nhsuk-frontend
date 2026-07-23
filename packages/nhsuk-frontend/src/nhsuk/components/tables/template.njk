@@ -125,6 +125,10 @@
   {% set classNamesCell = classNamesCell ~ " nhsuk-u-text-align-" ~ item.align %}
 {% endif %}
 
+{%- if item.width and (not item.classes or not "nhsuk-u-width-" ~ item.width in item.classes) %}
+  {% set classNamesCell = classNamesCell ~ " nhsuk-u-width-" ~ item.width %}
+{% endif %}
+
 {%- if item.classes %}
   {% set classNamesCell = classNamesCell ~ " " ~ item.classes %}
 {% endif -%}
@@ -200,6 +204,7 @@
         colspan: item.colspan if not params.responsive else undefined,
         rowspan: item.rowspan,
         align: item.align,
+        width: item.width,
         classes: item.classes,
         attributes: nhsukAttributes({
           "data-sort": {
@@ -259,6 +264,7 @@
         colspan: item.colspan if not params.responsive else undefined,
         rowspan: item.rowspan,
         align: item.align | default(header.align),
+        width: item.width,
         classes: item.classes,
         attributes: nhsukAttributes({
           "data-sort-value": {

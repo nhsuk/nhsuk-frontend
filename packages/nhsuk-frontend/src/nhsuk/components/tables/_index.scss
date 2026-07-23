@@ -163,6 +163,8 @@
         display: block; // For browsers that don't support flexbox
         display: flex;
         justify-content: space-between; // [4]
+        // stylelint-disable-next-line declaration-no-important
+        width: auto !important;
         min-width: 1px; // [5]
       }
 

@@ -110,21 +110,20 @@ const fixtures = {
       head: [
         {
           text: 'Age',
-          classes: 'nhsuk-u-width-one-half'
+          width: 'one-third'
         },
         {
           text: 'How much?',
-          classes: 'nhsuk-u-width-one-quarter'
+          width: 'one-quarter'
         },
         {
-          text: 'How often?',
-          classes: 'nhsuk-u-width-one-quarter'
+          text: 'How often?'
         }
       ],
       rows: [
         [
           {
-            text: '3 to 5 months (weighing more than 5kg)'
+            html: '3 to 5 months <span class="nhsuk-u-font-weight-normal">(weighing more than 5kg)</span>'
           },
           {
             text: '2.5ml'
