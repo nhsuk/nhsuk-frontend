@@ -46,17 +46,6 @@
     @include nhsuk-responsive-margin(7, "bottom");
   }
 
-  .nhsuk-table--reverse,
-  // Deprecated, to be removed in v11.0
-  .nhsuk-table-responsive--reverse {
-    color: $nhsuk-reverse-text-colour;
-
-    th,
-    td {
-      border-color: $nhsuk-reverse-border-colour;
-    }
-  }
-
   .nhsuk-table--compact {
     th,
     td {
@@ -72,6 +61,17 @@
     th:not(:last-child),
     td:not(:last-child) {
       padding-right: nhsuk-spacing(3);
+    }
+  }
+
+  .nhsuk-table--reverse,
+  // Deprecated, to be removed in v11.0
+  .nhsuk-table-responsive--reverse {
+    color: $nhsuk-reverse-text-colour;
+
+    th,
+    td {
+      border-color: $nhsuk-reverse-border-colour;
     }
   }
 
