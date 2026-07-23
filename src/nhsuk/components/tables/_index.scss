@@ -246,6 +246,7 @@
 
     width: nhsuk-px-to-rem($nhsuk-icon-size);
     height: nhsuk-px-to-rem($nhsuk-icon-size);
+    margin-bottom: nhsuk-px-to-rem(2px);
     margin-left: nhsuk-px-to-rem(6px);
 
     background: nhsuk-image-url("nhsuk-icon-arrow-up-down.svg") no-repeat;
@@ -342,7 +343,7 @@
 
     flex-wrap: nowrap;
 
-    align-items: center;
+    align-items: end;
 
     padding: 0;
 
