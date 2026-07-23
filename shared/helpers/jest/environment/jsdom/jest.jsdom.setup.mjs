@@ -7,7 +7,17 @@ import { outdent } from 'outdent'
  * @see {@link https://github.com/jsdom/jsdom/issues/1695}
  */
 Object.defineProperties(Element.prototype, {
-  scrollIntoView: { value: jest.fn() }
+  innerText: {
+    get() {
+      return this.textContent
+    },
+    set(value) {
+      this.textContent = value
+    }
+  },
+  scrollIntoView: {
+    value: jest.fn()
+  }
 })
 
 /**
