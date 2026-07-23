@@ -185,18 +185,18 @@ const options = {
       'If set to `true`, first cell in table row will be a `th` instead of a `td`.',
     released: '1.0.0'
   },
-  responsive: {
-    type: 'boolean',
-    required: false,
-    description: 'If set to `true`, responsive table classes will be applied.',
-    released: '4.0.0'
-  },
   compact: {
     type: 'boolean',
     required: false,
     description:
       'If set to `true`, vertical padding will be reduced for table cells.',
     released: '10.6.0'
+  },
+  responsive: {
+    type: 'boolean',
+    required: false,
+    description: 'If set to `true`, responsive table classes will be applied.',
+    released: '4.0.0'
   },
   variant: {
     type: 'string',
