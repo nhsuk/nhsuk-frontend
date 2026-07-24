@@ -5,6 +5,7 @@ import {
   CharacterCount,
   Checkboxes,
   Code,
+  DateInput,
   ErrorSummary,
   FileUpload,
   Header,
@@ -73,6 +74,7 @@ export function initAll(scopeOrConfig = {}) {
     [CharacterCount, config.characterCount],
     [Checkboxes, config.checkboxes],
     [Code, config.code],
+    [DateInput, config.dateInput],
     [ErrorSummary, config.errorSummary],
     [FileUpload, config.fileUpload],
     [Header, config.header],
@@ -209,6 +211,7 @@ export * from './errors/index.mjs'
  * @property {ComponentConfig<typeof CharacterCount>} [characterCount] - Character count config
  * @property {ComponentConfig<typeof Checkboxes>} [checkboxes] - Checkboxes config
  * @property {ComponentConfig<typeof Code>} [code] - Code config
+ * @property {ComponentConfig<typeof DateInput>} [dateInput] - Date input config
  * @property {ComponentConfig<typeof ErrorSummary>} [errorSummary] - Error Summary config
  * @property {ComponentConfig<typeof FileUpload>} [fileUpload] - File upload config
  * @property {ComponentConfig<typeof Header>} [header] - Header config

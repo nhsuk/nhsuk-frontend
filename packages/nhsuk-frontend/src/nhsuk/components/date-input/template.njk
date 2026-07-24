@@ -82,6 +82,15 @@
   {% set itemClasses = (itemClasses + " " + item.classes) | trim %}
 {% endif %}
 
+{%- set itemFieldType = "day" if (item is sameas(dateInputDay) or (item.name and item.name in ["day", dateInputDay.name]))
+  else "month" if (item is sameas(dateInputMonth) or (item.name and item.name in ["month", dateInputMonth.name]))
+  else "year" if (item is sameas(dateInputYear) or (item.name and item.name in ["year", dateInputYear.name])) -%}
+
+{%- set itemAttributes -%}
+  {%- if itemFieldType -%}{{- nhsukAttributes({"data-nhsuk-date-input-field": itemFieldType}) -}}{%- endif -%}
+  {{- nhsukAttributes(item.attributes) -}}
+{%- endset -%}
+
 <div class="nhsuk-date-input__item">
   {{ input({
     label: {
@@ -108,7 +117,7 @@
     disabled: item.disabled | default(params.disabled),
     describedBy: item.describedBy,
     classes: ("nhsuk-date-input__input" ~ " " ~ itemClasses) | trim,
-    attributes: item.attributes
+    attributes: itemAttributes | safe
   }) | trim | indent(2) }}
 </div>
 {%- endmacro -%}
@@ -144,7 +153,7 @@
     attributes: params.errorMessage.attributes
   }) | trim | indent(2) }}
 {% endif %}
-  <div class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %} {{- nhsukAttributes(params.attributes) -}}>
+  <div class="{{ classNames }}" data-module="nhsuk-date-input"{%- if params.id %} id="{{ params.id }}"{% endif %} {{- nhsukAttributes(params.attributes) -}}>
     {% if params.formGroup.beforeInputs %}
     {{ params.formGroup.beforeInputs.html | safe | trim | indent(4) if params.formGroup.beforeInputs.html else params.formGroup.beforeInputs.text }}
     {% endif %}
