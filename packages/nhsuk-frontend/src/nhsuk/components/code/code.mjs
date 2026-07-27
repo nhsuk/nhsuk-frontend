@@ -57,8 +57,9 @@ export class Code extends ConfigurableComponent {
 
     this.$content = $content
 
-    const $button = this.$root.querySelector('.nhsuk-js-code-button')
-    if ($button) {
+    // Check for copy button support
+    if (this.$root.classList.contains(`${Code.moduleName}--button`)) {
+      const $button = this.$root.querySelector('.nhsuk-js-code-button')
       if (!($button instanceof HTMLButtonElement)) {
         throw new ElementError({
           component: Code,
@@ -207,12 +208,23 @@ export class Code extends ConfigurableComponent {
   static moduleName = 'nhsuk-code'
 
   /**
-   * Validate whether components are supported
+   * Validate whether component is supported
+   *
+   * @param {HTMLElement} [$root] - HTML element to use for component
+   * @param {Partial<CodeConfig>} [config] - Code config
    */
-  static checkSupport() {
-    ConfigurableComponent.checkSupport()
+  static checkSupport($root, config) {
+    ConfigurableComponent.checkSupport($root, config)
 
+    // Check for copy button support
+    if (!$root?.classList.contains(`${Code.moduleName}--button`)) {
+      return
+    }
+
+    // Check for clipboard support
     if (!('clipboard' in navigator)) {
+      $root.classList.remove(`${Code.moduleName}--button`)
+
       throw new SupportError(
         formatErrorMessage(Code, 'Support for "navigator.clipboard" required')
       )
