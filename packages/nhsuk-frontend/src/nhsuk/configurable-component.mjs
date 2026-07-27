@@ -80,6 +80,9 @@ export class ConfigurableComponent extends Component {
     if (errors[0]) {
       throw new ConfigError(formatErrorMessage(childConstructor, errors[0]))
     }
+
+    childConstructor.checkSupport(this.$root, this.config)
+    this.setInitialised()
   }
 
   /**
