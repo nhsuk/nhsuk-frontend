@@ -13,7 +13,7 @@ const _self =
  * Centralises the behaviours shared by our components
  *
  * @abstract
- * @template {Element} [RootElementType=HTMLElement]
+ * @template {HTMLElement} [RootElementType=HTMLElement]
  */
 export class Component {
   /**
@@ -47,7 +47,7 @@ export class Component {
 
     this.$root = /** @type {RootElementType} */ ($root)
 
-    childConstructor.checkSupport()
+    childConstructor.checkSupport(this.$root)
     this.setInitialised()
   }
 
@@ -83,9 +83,11 @@ export class Component {
   /**
    * Validate whether component is supported
    *
+   * @template {HTMLElement} [RootElementType=HTMLElement]
+   * @param {RootElementType} [_$root] - HTML element to use for component
    * @throws {SupportError} when component is not supported
    */
-  static checkSupport() {
+  static checkSupport(_$root) {
     if (!isSupported()) {
       throw new SupportError()
     }

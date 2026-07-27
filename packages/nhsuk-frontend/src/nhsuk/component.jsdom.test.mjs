@@ -30,15 +30,48 @@ describe('Component', () => {
     })
 
     describe('when overriden', () => {
-      it('Allows child classes to define their own condition for support', () => {
+      let /** @type {HTMLElement} */ $root1
+      let /** @type {HTMLElement} */ $root2
+
+      beforeEach(() => {
+        $root1 = $root
+        $root2 = document.createElement('div')
+
+        document.body.appendChild($root2)
+      })
+
+      it('Allows child classes to define support checks', () => {
         class ServiceComponent extends MockComponent {
           static checkSupport() {
-            throw new Error('Custom error')
+            throw new Error('Error thrown from support check')
           }
         }
 
-        // Use the message rather than the class as `SupportError` extends `Error`
-        expect(() => new ServiceComponent($root)).toThrow('Custom error')
+        expect(() => new ServiceComponent($root)).toThrow(
+          'Error thrown from support check'
+        )
+      })
+
+      it('Allows child classes to define conditional $root support checks', () => {
+        class ServiceComponent extends MockComponent {
+          /**
+           * @param {HTMLElement} [$root]
+           */
+          static checkSupport($root) {
+            if ($root?.dataset.throw === 'true') {
+              throw new Error('Error thrown from $root support check')
+            }
+          }
+        }
+
+        $root1.dataset.throw = 'false'
+        $root2.dataset.throw = 'true'
+
+        expect(() => new ServiceComponent($root1)).not.toThrow()
+
+        expect(() => new ServiceComponent($root2)).toThrow(
+          'Error thrown from $root support check'
+        )
       })
     })
   })
