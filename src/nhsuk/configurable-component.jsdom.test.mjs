@@ -134,6 +134,30 @@ describe('ConfigurableComponent', () => {
           'Error thrown from $root support check'
         )
       })
+
+      it('Allows child classes to define conditional config support checks', () => {
+        class ServiceComponent extends MockConfigurableComponent {
+          /**
+           * @param {HTMLElement} [$root]
+           * @param {Partial<MockConfig>} [config]
+           */
+          static checkSupport($root, config) {
+            if (config?.aBoolean) {
+              throw new Error('Error thrown from config support check')
+            }
+          }
+        }
+
+        expect(() => new ServiceComponent($root1)).not.toThrow()
+
+        expect(() => new ServiceComponent($root2, { aBoolean: true })).toThrow(
+          'Error thrown from config support check'
+        )
+      })
     })
   })
 })
+
+/**
+ * @import { MockConfig } from '#lib/fixtures/configuration/mock-component.mjs'
+ */

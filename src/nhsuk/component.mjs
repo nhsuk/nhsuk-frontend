@@ -47,8 +47,10 @@ export class Component {
 
     this.$root = /** @type {RootElementType} */ ($root)
 
-    childConstructor.checkSupport(this.$root)
-    this.setInitialised()
+    if (!('defaults' in childConstructor)) {
+      childConstructor.checkSupport(this.$root)
+      this.setInitialised()
+    }
   }
 
   /**
@@ -83,11 +85,13 @@ export class Component {
   /**
    * Validate whether component is supported
    *
+   * @template {Partial<Record<keyof ConfigurationType, unknown>>} [ConfigurationType=ObjectNested]
    * @template {HTMLElement} [RootElementType=HTMLElement]
    * @param {RootElementType} [_$root] - HTML element to use for component
+   * @param {ConfigurationType} [_config] - Config specified by configurable components only
    * @throws {SupportError} when component is not supported
    */
-  static checkSupport(_$root) {
+  static checkSupport(_$root, _config) {
     if (!isSupported()) {
       throw new SupportError()
     }
