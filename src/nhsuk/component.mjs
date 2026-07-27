@@ -81,9 +81,9 @@ export class Component {
   }
 
   /**
-   * Validates whether components are supported
+   * Validate whether component is supported
    *
-   * @throws {SupportError} when the components are not supported
+   * @throws {SupportError} when component is not supported
    */
   static checkSupport() {
     if (!isSupported()) {
