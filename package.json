@@ -98,7 +98,7 @@
     "eslint-plugin-testing-library": "^7.16.2",
     "globals": "^17.8.0",
     "gulp": "^5.0.1",
-    "jest": "^30.3.0",
+    "jest": "^30.4.2",
     "nhsuk-frontend": "*",
     "playwright-core": "^1.61.1",
     "postcss": "^8.5.23",
