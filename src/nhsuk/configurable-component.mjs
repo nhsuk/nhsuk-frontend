@@ -25,7 +25,7 @@ export class ConfigurableComponent extends Component {
    * Constructs a new component, validating that NHS.UK frontend is supported
    *
    * @param {Element | null} $root - HTML element to use for component
-   * @param {Partial<ConfigurationType>} [config] - HTML element to use for component
+   * @param {Partial<ConfigurationType>} [config] - Component config
    */
   constructor($root, config) {
     super($root)
