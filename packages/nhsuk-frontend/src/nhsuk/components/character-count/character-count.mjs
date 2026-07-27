@@ -43,12 +43,10 @@ export class CharacterCount extends ConfigurableComponent {
     super($root, config)
 
     const $textarea = this.$root.querySelector('.nhsuk-js-character-count')
-    if (
-      !(
-        $textarea instanceof HTMLTextAreaElement ||
-        $textarea instanceof HTMLInputElement
-      )
-    ) {
+    if (!(
+      $textarea instanceof HTMLTextAreaElement ||
+      $textarea instanceof HTMLInputElement
+    )) {
       throw new ElementError({
         component: CharacterCount,
         element: $textarea,
