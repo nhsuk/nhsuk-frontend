@@ -48,6 +48,16 @@ export class Component {
     this.$root = /** @type {RootElementType} */ ($root)
 
     childConstructor.checkSupport()
+    this.setInitialised()
+  }
+
+  /**
+   * Set component as initialised
+   */
+  setInitialised() {
+    const childConstructor = /** @type {ComponentConstructor} */ (
+      this.constructor
+    )
 
     this.checkInitialised()
 
