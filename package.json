@@ -58,8 +58,8 @@
     "test:visual:cli": "concurrently \"npm start --workspace @nhsuk/frontend-review\" \"wait-on --config wait-on.config.js && backstop --color --config backstop.config.js {@}\" --kill-others --passthrough-arguments --prefix none --success first"
   },
   "devDependencies": {
-    "@babel/core": "^7.29.7",
-    "@babel/preset-env": "^7.29.7",
+    "@babel/core": "^8.0.1",
+    "@babel/preset-env": "^8.0.2",
     "@eslint/config-helpers": "^0.7.0",
     "@eslint/js": "^10.0.1",
     "@eslint/markdown": "^8.0.3",
@@ -84,7 +84,7 @@
     "@types/wait-on": "^5.3.4",
     "axe-core": "^4.12.1",
     "babel-jest": "^30.3.0",
-    "babel-plugin-transform-import-meta": "^2.3.3",
+    "babel-plugin-transform-import-meta": "^3.0.0",
     "backstopjs": "^6.3.25",
     "concurrently": "^10.0.3",
     "eslint": "^10.8.0",
