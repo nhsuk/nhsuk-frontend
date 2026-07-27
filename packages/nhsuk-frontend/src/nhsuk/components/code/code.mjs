@@ -207,7 +207,7 @@ export class Code extends ConfigurableComponent {
   static moduleName = 'nhsuk-code'
 
   /**
-   * Validates whether components are supported
+   * Validate whether components are supported
    */
   static checkSupport() {
     ConfigurableComponent.checkSupport()
