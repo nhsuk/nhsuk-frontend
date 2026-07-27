@@ -30,10 +30,7 @@ describe('Table', () => {
   function initExample(example) {
     document.body.innerHTML = components.render('tables', examples[example])
 
-    $root = /** @type {HTMLElement} */ (
-      document.querySelector(`[data-module="${Table.moduleName}"]`)
-    )
-
+    $root = /** @type {HTMLElement} */ (document.querySelector('table'))
     $caption = document.querySelector('caption')
     $head = document.querySelector('thead')
     $body = document.querySelector('tbody')
@@ -157,13 +154,59 @@ describe('Table', () => {
     })
   })
 
-  describe('Header buttons', () => {
+  describe('Accessibility', () => {
+    beforeEach(() => {
+      initExample('default')
+    })
+
+    it('should have accessible name and role', () => {
+      expect($root).toHaveAccessibleName(
+        'Impetigo can look similar to other skin conditions'
+      )
+
+      expect($root).toHaveRole('table')
+    })
+
+    it('should not create status message by default', () => {
+      const $screenReaderStatusMessage = document.querySelector('[role=status]')
+      expect($screenReaderStatusMessage).toBeNull()
+    })
+  })
+
+  describe('Accessibility (sortable)', () => {
+    beforeEach(() => {
+      initExample('sortable')
+      new Table($root)
+    })
+
+    it('should have accessible name and role', () => {
+      expect($root).toHaveAccessibleName(
+        'Appointments (Column headers are sortable)'
+      )
+
+      expect($root).toHaveRole('table')
+    })
+
+    it('should create status message', () => {
+      const $screenReaderStatusMessage = document.querySelector('[role=status]')
+
+      expect($screenReaderStatusMessage).toBe($root?.nextElementSibling)
+      expect($screenReaderStatusMessage).toHaveAttribute('role', 'status')
+      expect($screenReaderStatusMessage).toHaveAttribute('aria-live', 'polite')
+      expect($screenReaderStatusMessage).toHaveAttribute('aria-atomic', 'true')
+      expect($screenReaderStatusMessage?.classList).toContain(
+        'nhsuk-u-visually-hidden'
+      )
+    })
+  })
+
+  describe('Sort buttons', () => {
     /** @type {(HTMLButtonElement | null)[]} */
     let $buttons = []
 
     beforeEach(() => {
       initExample('sortable')
-      initTables()
+      new Table($root)
 
       $buttons = $headers.map(($header) => $header.querySelector('button'))
     })
@@ -183,42 +226,6 @@ describe('Table', () => {
     })
   })
 
-  describe('Caption', () => {
-    beforeEach(() => {
-      initExample('sortable')
-      initTables()
-    })
-
-    it('should add assistive text to caption', () => {
-      const $captionDescription = $caption?.querySelector(
-        '.nhsuk-u-visually-hidden'
-      )
-
-      expect($captionDescription).toHaveTextContent(
-        '(Column headers are sortable)'
-      )
-    })
-  })
-
-  describe('Status message', () => {
-    beforeEach(() => {
-      initExample('sortable')
-      initTables()
-    })
-
-    it('should create a status message after the table', () => {
-      const $screenReaderStatusMessage = document.querySelector('[role=status]')
-
-      expect($screenReaderStatusMessage).toBe($root?.nextElementSibling)
-      expect($screenReaderStatusMessage).toHaveAttribute('role', 'status')
-      expect($screenReaderStatusMessage).toHaveAttribute('aria-live', 'polite')
-      expect($screenReaderStatusMessage).toHaveAttribute('aria-atomic', 'true')
-      expect($screenReaderStatusMessage?.classList).toContain(
-        'nhsuk-u-visually-hidden'
-      )
-    })
-  })
-
   describe('Sorting', () => {
     let /** @type {HTMLElement} */ $header1
     let /** @type {HTMLElement} */ $header2
@@ -230,7 +237,7 @@ describe('Table', () => {
 
     beforeEach(() => {
       initExample('sortable with sort values')
-      initTables()
+      new Table($root)
 
       $header1 = $headers[0]
       $header2 = $headers[1]
@@ -463,47 +470,100 @@ describe('Table', () => {
     })
   })
 
-  describe('Configuration', () => {
+  describe('Nunjucks configuration', () => {
+    it('ignores unknown data attributes', () => {
+      document.body.innerHTML = components.render('tables', {
+        context: {
+          ...examples['sortable'].context,
+          attributes: {
+            'data-unknown1': '100',
+            'data-unknown2': 200,
+            'data-unknown3': false
+          }
+        }
+      })
+
+      const component = new Table(
+        document.querySelector(`[data-module="${Table.moduleName}"]`)
+      )
+
+      expect(component.config).toEqual(Table.defaults)
+    })
+
+    it('configures default text', () => {
+      initExample('sortable')
+
+      const component = new Table(
+        document.querySelector(`[data-module="${Table.moduleName}"]`)
+      )
+
+      expect(component.config).toEqual(Table.defaults)
+    })
+  })
+
+  describe('JavaScript configuration', () => {
     beforeEach(() => {
       initExample('sortable')
     })
 
-    it('should have default configuration values', () => {
-      expect(Table.defaults.i18n).toMatchObject({
-        sortAnnouncement: 'Sorted by %{header} (%{direction})',
-        ascending: 'ascending',
-        descending: 'descending'
+    describe('during initialisation', () => {
+      it('overrides the default translation keys', () => {
+        const component = new Table($root, {
+          i18n: {
+            sortAnnouncement: 'Ordered by %{header} in %{direction} order',
+            ascending: 'A-Z',
+            descending: 'Z-A'
+          }
+        })
+
+        expect(component.config).toEqual({
+          ...Table.defaults,
+          i18n: {
+            sortAnnouncement: 'Ordered by %{header} in %{direction} order',
+            ascending: 'A-Z',
+            descending: 'Z-A'
+          }
+        })
+
+        expect(component.formatStatusMessage(1, 'ascending')).toBe(
+          'Ordered by Name in A-Z order'
+        )
+
+        expect(component.formatStatusMessage(1, 'descending')).toBe(
+          'Ordered by Name in Z-A order'
+        )
       })
     })
 
-    it('should accept custom configuration', () => {
-      new Table($root, {
-        i18n: {
-          sortAnnouncement: 'Ordered by %{header} in %{direction} order',
-          ascending: 'A-Z',
-          descending: 'Z-A'
-        }
+    describe('with HTML data attributes', () => {
+      it('overrides the default translation keys', () => {
+        $root.setAttribute(
+          'data-i18n.sort-announcement',
+          'Ordered by %{header} in %{direction} order'
+        )
+
+        $root.setAttribute('data-i18n.ascending', 'A-Z')
+        $root.setAttribute('data-i18n.descending', 'Z-A')
+
+        const component = new Table($root)
+
+        expect(component.config).toEqual({
+          ...Table.defaults,
+          i18n: {
+            sortAnnouncement: 'Ordered by %{header} in %{direction} order',
+            ascending: 'A-Z',
+            descending: 'Z-A'
+          }
+        })
+
+        expect(component.formatStatusMessage(1, 'ascending')).toBe(
+          'Ordered by Name in A-Z order'
+        )
+
+        expect(component.formatStatusMessage(1, 'descending')).toBe(
+          'Ordered by Name in Z-A order'
+        )
       })
-
-      const $screenReaderStatusMessage = document.querySelector('[role=status]')
-
-      expect($screenReaderStatusMessage).toBe($root?.nextElementSibling)
-      expect($screenReaderStatusMessage).toBeEmptyDOMElement()
-
-      const $header = $headers[1]
-      const $button = within($header).getByRole('button')
-
-      $button.click()
-
-      expect($screenReaderStatusMessage).toHaveTextContent(
-        'Ordered by Name in A-Z order'
-      )
-
-      $button.click()
-
-      expect($screenReaderStatusMessage).toHaveTextContent(
-        'Ordered by Name in Z-A order'
-      )
     })
   })
 })
