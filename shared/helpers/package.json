@@ -15,7 +15,7 @@
     "jest-puppeteer": "^11.0.0",
     "jest-puppeteer-istanbul": "^0.5.3",
     "outdent": "^0.8.0",
-    "slug": "^11.0.1"
+    "slug": "^12.0.1"
   },
   "engines": {
     "node": "^24.11.0",
