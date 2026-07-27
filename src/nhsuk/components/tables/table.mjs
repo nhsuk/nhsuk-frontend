@@ -205,11 +205,11 @@ export class Table extends ConfigurableComponent {
       return
     }
 
+    const $header = this.getHeader(index)
+
     for (const $row of this.$rows) {
       this.$body.append($row)
     }
-
-    const $header = this.$headers[index]
 
     // Skip header updates unless direction has changed
     if (direction === this.getDirection($header)) {
@@ -236,23 +236,44 @@ export class Table extends ConfigurableComponent {
       }
     }
 
-    this.updateScreenReaderStatusMessage(index, direction)
+    this.$screenReaderStatusMessage.textContent = this.formatStatusMessage(
+      index,
+      direction
+    )
   }
 
   /**
    * @param {number} index
    * @param {TableSortDirection} [direction]
    */
-  updateScreenReaderStatusMessage(index, direction = 'ascending') {
-    const $header = this.$headers[index]
+  formatStatusMessage(index, direction = 'ascending') {
+    if (!(direction === 'ascending' || direction === 'descending')) {
+      return ''
+    }
 
-    this.$screenReaderStatusMessage.textContent = this.i18n.t(
-      'sortAnnouncement',
-      {
-        header: $header.innerText.trim(),
-        direction: this.i18n.t(direction)
-      }
-    )
+    return this.i18n.t('sortAnnouncement', {
+      header: this.getHeader(index).innerText.trim(),
+      direction: this.i18n.t(direction)
+    })
+  }
+
+  /**
+   * @param {number} index
+   */
+  getHeader(index) {
+    const { headerClass } = this.config
+
+    const $header = this.$headers[index]
+    if (!($header instanceof HTMLTableCellElement)) {
+      throw new ElementError({
+        component: Table,
+        element: $header,
+        expectedType: 'HTMLTableCellElement',
+        identifier: `Table header (\`<th class="${headerClass}">\`)`
+      })
+    }
+
+    return $header
   }
 
   /**
@@ -304,7 +325,7 @@ export class Table extends ConfigurableComponent {
   getValue(index, $row) {
     const { cellClass, headerClass } = this.config
 
-    const $header = this.$headers[index]
+    const $header = this.getHeader(index)
     const $cell = $row?.querySelectorAll('td, th')[index] ?? $header
 
     const innerText = $cell.innerText.trim()
