@@ -86,7 +86,7 @@
     "babel-jest": "^30.3.0",
     "babel-plugin-transform-import-meta": "^2.3.3",
     "backstopjs": "^6.3.25",
-    "concurrently": "^10.0.3",
+    "concurrently": "^10.0.4",
     "eslint": "^10.8.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-es-x": "^10.0.0",
