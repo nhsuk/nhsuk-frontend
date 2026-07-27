@@ -84,7 +84,7 @@
     "@types/wait-on": "^5.3.4",
     "axe-core": "^4.12.1",
     "babel-jest": "^30.3.0",
-    "babel-plugin-transform-import-meta": "^2.3.3",
+    "babel-plugin-transform-import-meta": "^3.0.0",
     "backstopjs": "^6.3.25",
     "concurrently": "^10.0.3",
     "eslint": "^10.8.0",
