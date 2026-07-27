@@ -4,6 +4,7 @@ import {
   MockConfigurableComponentNoSchema
 } from '#lib/fixtures/configuration/mock-component.mjs'
 
+import { SupportError } from './errors/index.mjs'
 import { ConfigError } from './errors/index.mjs'
 
 describe('ConfigurableComponent', () => {
@@ -74,6 +75,65 @@ describe('ConfigurableComponent', () => {
       expect(component.config.aNumber).toBe(12)
       expect(component.config.aFunction).toBeInstanceOf(Function)
       expect(component.config.aFunction('albatross')).toBe('albatross')
+    })
+  })
+
+  describe('checkSupport()', () => {
+    describe('default implementation', () => {
+      it('Makes initialisation throw if NHS.UK frontend is not supported', () => {
+        document.body.classList.remove('nhsuk-frontend-supported')
+        expect(() => new MockConfigurableComponent($root)).toThrow(SupportError)
+      })
+
+      it('Allows initialisation if NHS.UK frontend is supported', () => {
+        expect(() => new MockConfigurableComponent($root)).not.toThrow()
+      })
+    })
+
+    describe('when overriden', () => {
+      let /** @type {HTMLElement} */ $root1
+      let /** @type {HTMLElement} */ $root2
+
+      beforeEach(() => {
+        $root1 = $root
+        $root2 = document.createElement('div')
+
+        document.body.appendChild($root2)
+      })
+
+      it('Allows child classes to define support checks', () => {
+        class ServiceComponent extends MockConfigurableComponent {
+          static checkSupport() {
+            throw new Error('Error thrown from support check')
+          }
+        }
+
+        expect(() => new ServiceComponent($root)).toThrow(
+          'Error thrown from support check'
+        )
+      })
+
+      it('Allows child classes to define conditional $root support checks', () => {
+        class ServiceComponent extends MockConfigurableComponent {
+          /**
+           * @param {HTMLElement} [$root]
+           */
+          static checkSupport($root) {
+            if ($root?.dataset.throw === 'true') {
+              throw new Error('Error thrown from $root support check')
+            }
+          }
+        }
+
+        $root1.dataset.throw = 'false'
+        $root2.dataset.throw = 'true'
+
+        expect(() => new ServiceComponent($root1)).not.toThrow()
+
+        expect(() => new ServiceComponent($root2)).toThrow(
+          'Error thrown from $root support check'
+        )
+      })
     })
   })
 })
