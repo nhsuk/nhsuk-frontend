@@ -3,6 +3,7 @@
 {% set pageName = "Icons" %}
 
 {% set icons = [
+  { name: "Arrow up-down", modifier: "arrow-up-down" },
   { name: "Arrow left", modifier: "arrow-left" },
   { name: "Arrow right", modifier: "arrow-right" },
   { name: "Arrow up", modifier: "arrow-up" },
@@ -73,8 +74,8 @@
             {% endset %}
 
             {% set rows = (rows.push([
-              { text: icon.name, header: "Name" },
-              { html: modifierHtml, header: "Modifier" },
+              { text: icon.name },
+              { html: modifierHtml },
               { text: iconHtml | safe }
             ]), rows) %}
           {% endfor %}
@@ -136,8 +137,8 @@
             {% endset %}
 
             {% set rows = (rows.push([
-              { text: icon.name, header: "Name" },
-              { html: modifierHtml, header: "Modifier" },
+              { text: icon.name },
+              { html: modifierHtml },
               { text: iconHtml | safe }
             ]), rows) %}
           {% endfor %}

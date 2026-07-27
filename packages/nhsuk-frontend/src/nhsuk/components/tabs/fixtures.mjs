@@ -19,7 +19,7 @@ const fixtures = {
           panel: {
             html: components.render(
               'tables',
-              tableExamples['with numeric data (full width, past day)']
+              tableExamples['with numeric format (full width, past day)']
             )
           }
         },
@@ -29,7 +29,7 @@ const fixtures = {
           panel: {
             html: components.render(
               'tables',
-              tableExamples['with numeric data (full width, past week)']
+              tableExamples['with numeric format (full width, past week)']
             )
           }
         },
@@ -39,7 +39,7 @@ const fixtures = {
           panel: {
             html: components.render(
               'tables',
-              tableExamples['with numeric data (full width, past month)']
+              tableExamples['with numeric format (full width, past month)']
             )
           }
         },
@@ -49,7 +49,7 @@ const fixtures = {
           panel: {
             html: components.render(
               'tables',
-              tableExamples['with numeric data (full width, past year)']
+              tableExamples['with numeric format (full width, past year)']
             )
           }
         }

@@ -13,9 +13,9 @@
 ///   <input class="nhsuk-input nhsuk-u-width-full" id="example" name="example" type="text">
 ////
 
-// Utility classes are allowed to use !important;
-// so we disable stylelint for that rule
+// Utility classes are allowed to use `!important` and qualifying types
 // stylelint-disable declaration-no-important
+// stylelint-disable selector-no-qualifying-type
 
 .nhsuk-u-width-full {
   width: 100% !important;
@@ -29,12 +29,22 @@
   }
 }
 
+td.nhsuk-u-width-three-quarters,
+th.nhsuk-u-width-three-quarters {
+  width: math.percentage(math.div(3, 4)) !important;
+}
+
 .nhsuk-u-width-two-thirds {
   width: 100% !important;
 
   @media #{nhsuk-from-breakpoint(tablet)} {
     width: math.percentage(math.div(2, 3)) !important;
   }
+}
+
+td.nhsuk-u-width-two-thirds,
+th.nhsuk-u-width-two-thirds {
+  width: math.percentage(math.div(2, 3)) !important;
 }
 
 .nhsuk-u-width-one-half {
@@ -45,6 +55,11 @@
   }
 }
 
+td.nhsuk-u-width-one-half,
+th.nhsuk-u-width-one-half {
+  width: math.percentage(math.div(1, 2)) !important;
+}
+
 .nhsuk-u-width-one-third {
   width: 100% !important;
 
@@ -53,10 +68,20 @@
   }
 }
 
+td.nhsuk-u-width-one-third,
+th.nhsuk-u-width-one-third {
+  width: math.percentage(math.div(1, 3)) !important;
+}
+
 .nhsuk-u-width-one-quarter {
   width: 100% !important;
 
   @media #{nhsuk-from-breakpoint(tablet)} {
     width: math.percentage(math.div(1, 4)) !important;
   }
+}
+
+td.nhsuk-u-width-one-quarter,
+th.nhsuk-u-width-one-quarter {
+  width: math.percentage(math.div(1, 4)) !important;
 }

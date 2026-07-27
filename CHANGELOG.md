@@ -6,6 +6,69 @@ Note: This release was created from the `support/10.x` branch.
 
 ### :new: **New features**
 
+#### Sortable tables
+
+You can now make [table](https://service-manual.nhs.uk/design-system/components/table) columns sortable, so that clicking the header cell sorts the table by that column.
+
+If you're using the `tables` Nunjucks macro, to configure header cells:
+
+- Add the `sort: "ascending"` or `sort: "descending"` option to the currently sorted column only
+- Add the `sort: true` option to enable sorting on any other columns
+
+For example:
+
+```patch
+  {{ table({
+    caption: "Childhood MMR coverage",
+    head: [
+      {
+-       text: "Nation"
++       text: "Nation",
++       sort: "ascending"
+      },
+      {
+        text: "MMR",
+-       format: "numeric"
++       format: "numeric",
++       sort: true
+      }
+    ],
+    rows: [
+      [
+        {
+          text: "Northern Ireland"
+        },
+        {
+          text: "86.4%",
+          format: "numeric"
+        }
+      ],
+      [
+        {
+          text: "Scotland"
+        },
+        {
+          text: "89.2%",
+          format: "numeric"
+        }
+      ],
+      [
+        {
+          text: "Wales"
+        },
+        {
+          text: "89.5%",
+          format: "numeric"
+        }
+      ]
+    ]
+  }) }}
+```
+
+If you are not using Nunjucks macros, use the HTML markup from the [table examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/table).
+
+This was added in [pull request #1654: Add option to make tables sortable](https://github.com/nhsuk/nhsuk-frontend/pull/1654).
+
 #### Add an "all" option to checkboxes
 
 You can now add an "all" option to checkboxes when JavaScript is available. This gives users the option to quickly select or unselect all the checkboxes.
@@ -134,7 +197,7 @@ This was added in [pull request #1972: Add Sass mixins and utility classes for N
 
 #### Extend global inline code styles
 
-Inline `<code>` elements are now also styled within definition lists and table headings.
+Inline `<code>` elements are now also styled within definition lists and table headers.
 
 This was added in [pull request #1984: Extend global inline code styles](https://github.com/nhsuk/nhsuk-frontend/pull/1984).
 
@@ -317,6 +380,28 @@ You can still use `nhsuk-print-colour` and `nhsuk-print-hide` but we'll remove t
 
 We've renamed HTML classes for reverse and responsive tables. You can still use the previous names but we'll remove them in a future breaking release.
 
+If you're using the `table` Nunjucks macro with the `responsive` option, you should:
+
+- remove the unnecessary `header` option from table `rows` nested items
+
+```patch
+  rows: [
+    [
+      {
+-       header: 'Age',
+        text: '3 to 5 months (weighing more than 5kg)'
+      },
+      {
+-       header: 'How much?',
+        text: '2.5ml'
+      },
+      {
+-       header: 'How often?',
+        text: 'Max 3 times in 24 hours'
+      }
+    ],
+```
+
 If you are not using Nunjucks macros, update your HTML markup using the [table examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/table) as follows:
 
 - replace `nhsuk-table-responsive--reverse` with `nhsuk-table--reverse`
@@ -329,7 +414,17 @@ If you are not using Nunjucks macros, update your HTML markup using the [table e
   </table>
 ```
 
-This change was introduced in [pull request #1998: Add `compact` option for tables](https://github.com/nhsuk/nhsuk-frontend/pull/1998).
+- replace `nhsuk-table-responsive__heading` with `nhsuk-table__heading`
+
+```patch
+  <td class="nhsuk-table__cell" role="cell">
+-   <span class="nhsuk-table-responsive__heading" aria-hidden="true">Cell heading </span>
++   <span class="nhsuk-table__heading" aria-hidden="true">Cell heading </span>
+    <span>Example content</span>
+  </td>
+```
+
+This change was introduced in pull requests [#1998: Add `compact` option for tables](https://github.com/nhsuk/nhsuk-frontend/pull/1998) and [#2003: Add `striped` option for tables](https://github.com/nhsuk/nhsuk-frontend/pull/2003).
 
 ### :wrench: **Fixes**
 
@@ -660,6 +755,7 @@ You can also [add icons](https://service-manual.nhs.uk/design-system/styles/icon
 - `images/nhsuk-icon-arrow-right.svg`
 - `images/nhsuk-icon-arrow-up-circle.svg`
 - `images/nhsuk-icon-arrow-up.svg`
+- `images/nhsuk-icon-arrow-up-down.svg`
 - `images/nhsuk-icon-chevron-down-circle.svg`
 - `images/nhsuk-icon-chevron-left-circle.svg`
 - `images/nhsuk-icon-chevron-right-circle.svg`

@@ -12,8 +12,37 @@ export const variants = [
     // Regular variant
   },
   {
+    description: 'compact',
+    context: {
+      compact: true
+    }
+  },
+  {
+    description: 'responsive',
+    context: {
+      responsive: true
+    }
+  },
+  {
+    description: 'responsive compact',
+    context: {
+      compact: true,
+      responsive: true
+    }
+  },
+  {
     description: 'reverse',
     context: {
+      variant: 'reverse'
+    },
+    options: {
+      layout: 'background-blue'
+    }
+  },
+  {
+    description: 'reverse compact',
+    context: {
+      compact: true,
       variant: 'reverse'
     },
     options: {
@@ -32,6 +61,7 @@ const fixtures = {
     context: {
       caption: 'Impetigo can look similar to other skin conditions',
       captionSize: 'm',
+      firstCellIsHeader: true,
       head: [
         {
           text: 'Skin symptoms'
@@ -72,498 +102,99 @@ const fixtures = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
-  'with empty items': {
-    context: {
-      caption: 'Vaccinations given',
-      captionSize: 'm',
-      head: [
-        {
-          text: 'Date'
-        },
-        {
-          text: 'Vaccine'
-        },
-        false
-      ],
-      rows: [
-        [
-          {
-            text: '10 July 2024'
-          },
-          {
-            text: 'RSV'
-          },
-          false
-        ],
-        false
-      ]
-    }
-  },
-  'with missing data': {
-    context: {
-      caption: 'Vaccinations given',
-      captionSize: 'm',
-      head: [
-        {
-          text: 'Date'
-        },
-        {
-          text: 'Vaccine'
-        },
-        {
-          text: 'Product'
-        }
-      ],
-      rows: [
-        [
-          {
-            text: '10 July 2024'
-          },
-          {
-            text: 'RSV'
-          },
-          {
-            text: 'Abrysvo'
-          }
-        ],
-        [
-          {
-            text: '6 September 2023'
-          },
-          {
-            text: 'Flu'
-          },
-          {
-            text: 'No data',
-            classes: 'nhsuk-u-secondary-text-colour'
-          }
-        ]
-      ]
-    }
-  },
-  'with numeric data': {
-    context: {
-      caption: 'Prescription prepayment certificate (PPC) charges',
-      captionSize: 'm',
-      head: [
-        {
-          text: 'Item'
-        },
-        {
-          text: 'Current charge',
-          format: 'numeric'
-        },
-        {
-          text: 'New charge',
-          format: 'numeric'
-        }
-      ],
-      rows: [
-        [
-          {
-            text: '3-month'
-          },
-          {
-            text: '£31.25',
-            format: 'numeric'
-          },
-          {
-            text: '£32.05',
-            format: 'numeric'
-          }
-        ],
-        [
-          {
-            text: '12-month'
-          },
-          {
-            text: '£111.60',
-            format: 'numeric'
-          },
-          {
-            text: '£114.50',
-            format: 'numeric'
-          }
-        ],
-        [
-          {
-            text: 'HRT'
-          },
-          {
-            text: '£19.30',
-            format: 'numeric'
-          },
-          {
-            text: '£19.80',
-            format: 'numeric'
-          }
-        ]
-      ]
-    }
-  },
-  'with numeric data (full width, past day)': {
-    context: {
-      caption: 'Past day',
-      head: [
-        {
-          text: 'Case manager'
-        },
-        {
-          text: 'Cases opened',
-          format: 'numeric'
-        },
-        {
-          text: 'Cases closed',
-          format: 'numeric'
-        }
-      ],
-      rows: [
-        [
-          {
-            text: 'David Francis'
-          },
-          {
-            text: '3',
-            format: 'numeric'
-          },
-          {
-            text: '0',
-            format: 'numeric'
-          }
-        ],
-        [
-          {
-            text: 'Paul Farmer'
-          },
-          {
-            text: '1',
-            format: 'numeric'
-          },
-          {
-            text: '0',
-            format: 'numeric'
-          }
-        ],
-        [
-          {
-            text: 'Rita Patel'
-          },
-          {
-            text: '2',
-            format: 'numeric'
-          },
-          {
-            text: '0',
-            format: 'numeric'
-          }
-        ]
-      ]
-    },
-    options: {
-      width: 'full'
-    }
-  },
-  'with numeric data (full width, past week)': {
-    context: {
-      caption: 'Past week',
-      head: [
-        {
-          text: 'Case manager'
-        },
-        {
-          text: 'Cases opened',
-          format: 'numeric'
-        },
-        {
-          text: 'Cases closed',
-          format: 'numeric'
-        }
-      ],
-      rows: [
-        [
-          {
-            text: 'David Francis'
-          },
-          {
-            text: '24',
-            format: 'numeric'
-          },
-          {
-            text: '18',
-            format: 'numeric'
-          }
-        ],
-        [
-          {
-            text: 'Paul Farmer'
-          },
-          {
-            text: '16',
-            format: 'numeric'
-          },
-          {
-            text: '20',
-            format: 'numeric'
-          }
-        ],
-        [
-          {
-            text: 'Rita Patel'
-          },
-          {
-            text: '24',
-            format: 'numeric'
-          },
-          {
-            text: '27',
-            format: 'numeric'
-          }
-        ]
-      ]
-    },
-    options: {
-      width: 'full'
-    }
-  },
-  'with numeric data (full width, past month)': {
-    context: {
-      caption: 'Past month',
-      head: [
-        {
-          text: 'Case manager'
-        },
-        {
-          text: 'Cases opened',
-          format: 'numeric'
-        },
-        {
-          text: 'Cases closed',
-          format: 'numeric'
-        }
-      ],
-      rows: [
-        [
-          {
-            text: 'David Francis'
-          },
-          {
-            text: '98',
-            format: 'numeric'
-          },
-          {
-            text: '95',
-            format: 'numeric'
-          }
-        ],
-        [
-          {
-            text: 'Paul Farmer'
-          },
-          {
-            text: '122',
-            format: 'numeric'
-          },
-          {
-            text: '131',
-            format: 'numeric'
-          }
-        ],
-        [
-          {
-            text: 'Rita Patel'
-          },
-          {
-            text: '126',
-            format: 'numeric'
-          },
-          {
-            text: '142',
-            format: 'numeric'
-          }
-        ]
-      ]
-    },
-    options: {
-      width: 'full'
-    }
-  },
-  'with numeric data (full width, past year)': {
-    context: {
-      caption: 'Past year',
-      head: [
-        {
-          text: 'Case manager'
-        },
-        {
-          text: 'Cases opened',
-          format: 'numeric'
-        },
-        {
-          text: 'Cases closed',
-          format: 'numeric'
-        }
-      ],
-      rows: [
-        [
-          {
-            text: 'David Francis'
-          },
-          {
-            text: '1380',
-            format: 'numeric'
-          },
-          {
-            text: '1472',
-            format: 'numeric'
-          }
-        ],
-        [
-          {
-            text: 'Paul Farmer'
-          },
-          {
-            text: '1129',
-            format: 'numeric'
-          },
-          {
-            text: '1083',
-            format: 'numeric'
-          }
-        ],
-        [
-          {
-            text: 'Rita Patel'
-          },
-          {
-            text: '1539',
-            format: 'numeric'
-          },
-          {
-            text: '1265',
-            format: 'numeric'
-          }
-        ]
-      ]
-    },
-    options: {
-      width: 'full'
-    }
-  },
-  'responsive': {
+  'with column widths': {
     context: {
       caption: 'Ibuprofen syrup dosages for children',
       captionSize: 'm',
-      responsive: true,
+      firstCellIsHeader: true,
       head: [
         {
           text: 'Age',
-          classes: 'nhsuk-u-width-one-half'
+          width: 'one-third'
         },
         {
           text: 'How much?',
-          classes: 'nhsuk-u-width-one-quarter'
+          width: 'one-quarter'
         },
         {
-          text: 'How often?',
-          classes: 'nhsuk-u-width-one-quarter'
+          text: 'How often?'
         }
       ],
       rows: [
         [
           {
-            header: 'Age',
-            text: '3 to 5 months (weighing more than 5kg)'
+            html: '3 to 5 months <span class="nhsuk-u-font-weight-normal">(weighing more than 5kg)</span>'
           },
           {
-            header: 'How much?',
             text: '2.5ml'
           },
           {
-            header: 'How often?',
             text: 'Max 3 times in 24 hours'
           }
         ],
         [
           {
-            header: 'Age',
             text: '6 to 11 months'
           },
           {
-            header: 'How much?',
             text: '2.5ml'
           },
           {
-            header: 'How often?',
             text: 'Max 3 to 4 times in 24 hours'
           }
         ],
         [
           {
-            header: 'Age',
             text: '1 to 3 years'
           },
           {
-            header: 'How much?',
             text: '5ml'
           },
           {
-            header: 'How often?',
             text: 'Max 3 times in 24 hours'
           }
         ],
         [
           {
-            header: 'Age',
             text: '4 to 6 years'
           },
           {
-            header: 'How much?',
             text: '7.5ml'
           },
           {
-            header: 'How often?',
             text: 'Max 3 times in 24 hours'
           }
         ],
         [
           {
-            header: 'Age',
             text: '7 to 9 years'
           },
           {
-            header: 'How much?',
             text: '10ml'
           },
           {
-            header: 'How often?',
             text: 'Max 3 times in 24 hours'
           }
         ],
         [
           {
-            header: 'Age',
             text: '10 to 11 years'
           },
           {
-            header: 'How much?',
             text: '15ml'
           },
           {
-            header: 'How often?',
             text: 'Max 3 times in 24 hours'
           }
         ],
         [
           {
-            header: 'Age',
             text: '12 to 17 years'
           },
           {
-            header: 'How much?',
             text: '15ml to 20ml'
           },
           {
-            header: 'How often?',
             text: 'Max 3 to 4 times in 24 hours'
           }
         ]
@@ -574,11 +205,10 @@ const fixtures = {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
-  'responsive and custom HTML': {
+  'with custom HTML': {
     context: {
       caption: 'Nunjucks macro options',
       firstCellIsHeader: true,
-      responsive: true,
       head: [
         {
           text: 'Name'
@@ -593,29 +223,23 @@ const fixtures = {
       rows: [
         [
           {
-            header: 'Name',
             text: 'id'
           },
           {
-            header: 'Type',
             text: 'string'
           },
           {
-            header: 'Description',
             text: 'The ID of the table.'
           }
         ],
         [
           {
-            header: 'Name',
             text: 'rows'
           },
           {
-            header: 'Type',
             text: 'array'
           },
           {
-            header: 'Description',
             html: outdent`
               <strong>Required.</strong> The rows within the table component.
               <a href="#/macro-options">See macro options for rows</a>.
@@ -624,15 +248,12 @@ const fixtures = {
         ],
         [
           {
-            header: 'Name',
             text: 'head'
           },
           {
-            header: 'Type',
             text: 'array'
           },
           {
-            header: 'Description',
             html: outdent`
               Can be used to add a row of table header cells (<code>&lt;th&gt;</code>) at the top of the table component.
               <a href="#/macro-options">See macro options for head</a>.
@@ -641,43 +262,34 @@ const fixtures = {
         ],
         [
           {
-            header: 'Name',
             text: 'caption'
           },
           {
-            header: 'Type',
             text: 'string'
           },
           {
-            header: 'Description',
             text: 'Caption text.'
           }
         ],
         [
           {
-            header: 'Name',
             text: 'captionClasses'
           },
           {
-            header: 'Type',
             text: 'string'
           },
           {
-            header: 'Description',
             text: 'Classes for caption text size. Classes should correspond to the available typography heading classes.'
           }
         ],
         [
           {
-            header: 'Name',
             text: 'firstCellIsHeader'
           },
           {
-            header: 'Type',
             text: 'string'
           },
           {
-            header: 'Description',
             html: outdent`
               If set to <code>true</code>, the first cell in each row will be a table header (<code>&lt;th&gt;</code>).
             `
@@ -685,90 +297,24 @@ const fixtures = {
         ],
         [
           {
-            header: 'Name',
             text: 'classes'
           },
           {
-            header: 'Type',
             text: 'string'
           },
           {
-            header: 'Description',
             text: 'Classes to add to the table container.'
           }
         ],
         [
           {
-            header: 'Name',
             text: 'attributes'
           },
           {
-            header: 'Type',
             text: 'object'
           },
           {
-            header: 'Description',
             text: '	HTML attributes (for example data attributes) to add to the table container.'
-          }
-        ]
-      ]
-    }
-  },
-  'with word breaks': {
-    context: {
-      caption: 'Users',
-      captionSize: 'm',
-      head: [
-        {
-          text: 'Name'
-        },
-        {
-          text: 'Email address'
-        },
-        {
-          text: 'Status'
-        },
-        {
-          html: outdent`
-            <span class="nhsuk-u-visually-hidden">Actions</span>
-          `
-        }
-      ],
-      rows: [
-        [
-          {
-            text: 'Stephanie Meyer',
-            classes: 'nhsuk-u-text-break-word'
-          },
-          {
-            text: 'stephanie.meyer9@test.com',
-            classes: 'nhsuk-u-text-break-word'
-          },
-          {
-            html: components.render('tag', {
-              context: {
-                text: 'Active',
-                colour: 'green'
-              }
-            })
-          }
-        ],
-        [
-          {
-            text: 'Aleksandrina Featherstonehaugh-Whitehead',
-            classes: 'nhsuk-u-text-break-word'
-          },
-          {
-            text: 'aleksandrina.featherstonehaughwhitehead23@folkestonepharmacy.test.com',
-            classes: 'nhsuk-u-text-break-word'
-          },
-          {
-            html: components.render('tag', {
-              context: {
-                text: 'Inactive',
-                colour: 'grey'
-              }
-            })
           }
         ]
       ]
@@ -845,11 +391,486 @@ const fixtures = {
       ]
     }
   },
+  'with empty items': {
+    context: {
+      caption: 'Vaccinations given',
+      captionSize: 'm',
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: 'Date'
+        },
+        {
+          text: 'Vaccine'
+        },
+        false
+      ],
+      rows: [
+        [
+          {
+            text: '10 July 2024'
+          },
+          {
+            text: 'RSV'
+          },
+          false
+        ],
+        false
+      ]
+    }
+  },
+  'with missing data': {
+    context: {
+      caption: 'Vaccinations given',
+      captionSize: 'm',
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: 'Date'
+        },
+        {
+          text: 'Vaccine'
+        },
+        {
+          text: 'Product'
+        }
+      ],
+      rows: [
+        [
+          {
+            text: '10 July 2024'
+          },
+          {
+            text: 'RSV'
+          },
+          {
+            text: 'Abrysvo'
+          }
+        ],
+        [
+          {
+            text: '6 September 2023'
+          },
+          {
+            text: 'Flu'
+          },
+          {
+            text: 'No data',
+            classes: 'nhsuk-u-secondary-text-colour'
+          }
+        ]
+      ]
+    }
+  },
+  'with numeric format': {
+    context: {
+      caption: 'Prescription prepayment certificate (PPC) charges',
+      captionSize: 'm',
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: 'Item'
+        },
+        {
+          text: 'Current charge',
+          format: 'numeric'
+        },
+        {
+          text: 'New charge',
+          format: 'numeric'
+        }
+      ],
+      rows: [
+        [
+          {
+            text: '3-month',
+            classes: 'nhsuk-u-nowrap'
+          },
+          {
+            text: '£31.25'
+          },
+          {
+            text: '£32.05'
+          }
+        ],
+        [
+          {
+            text: '12-month',
+            classes: 'nhsuk-u-nowrap'
+          },
+          {
+            text: '£111.60'
+          },
+          {
+            text: '£114.50'
+          }
+        ],
+        [
+          {
+            text: 'HRT'
+          },
+          {
+            text: '£19.30'
+          },
+          {
+            text: '£19.80'
+          }
+        ]
+      ]
+    },
+    variants
+  },
+  'with numeric format and missing data': {
+    context: {
+      caption: 'Prescription prepayment certificate (PPC) charges',
+      captionSize: 'm',
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: 'Item'
+        },
+        {
+          text: 'Current charge',
+          format: 'numeric'
+        },
+        {
+          text: 'New charge',
+          format: 'numeric'
+        }
+      ],
+      rows: [
+        [
+          {
+            text: '3-month',
+            classes: 'nhsuk-u-nowrap'
+          },
+          {
+            text: '£31.25'
+          },
+          {
+            text: '£32.05'
+          }
+        ],
+        [
+          {
+            text: '12-month',
+            classes: 'nhsuk-u-nowrap'
+          },
+          {
+            text: '£111.60'
+          },
+          {
+            text: 'No data',
+            format: 'string',
+            classes: 'nhsuk-u-secondary-text-colour'
+          }
+        ],
+        [
+          {
+            text: 'HRT'
+          },
+          {
+            text: '£19.30'
+          },
+          {
+            text: '£19.80'
+          }
+        ]
+      ]
+    },
+    variants
+  },
+  'with numeric format (full width, past day)': {
+    context: {
+      caption: 'Past day',
+      head: [
+        {
+          text: 'Case manager'
+        },
+        {
+          text: 'Cases opened',
+          format: 'numeric'
+        },
+        {
+          text: 'Cases closed',
+          format: 'numeric'
+        }
+      ],
+      rows: [
+        [
+          {
+            text: 'David Francis'
+          },
+          {
+            text: '3'
+          },
+          {
+            text: '0'
+          }
+        ],
+        [
+          {
+            text: 'Paul Farmer'
+          },
+          {
+            text: '1'
+          },
+          {
+            text: '0'
+          }
+        ],
+        [
+          {
+            text: 'Rita Patel'
+          },
+          {
+            text: '2'
+          },
+          {
+            text: '0'
+          }
+        ]
+      ]
+    },
+    options: {
+      width: 'full'
+    }
+  },
+  'with numeric format (full width, past week)': {
+    context: {
+      caption: 'Past week',
+      head: [
+        {
+          text: 'Case manager'
+        },
+        {
+          text: 'Cases opened',
+          format: 'numeric'
+        },
+        {
+          text: 'Cases closed',
+          format: 'numeric'
+        }
+      ],
+      rows: [
+        [
+          {
+            text: 'David Francis'
+          },
+          {
+            text: '24'
+          },
+          {
+            text: '18'
+          }
+        ],
+        [
+          {
+            text: 'Paul Farmer'
+          },
+          {
+            text: '16'
+          },
+          {
+            text: '20'
+          }
+        ],
+        [
+          {
+            text: 'Rita Patel'
+          },
+          {
+            text: '24'
+          },
+          {
+            text: '27'
+          }
+        ]
+      ]
+    },
+    options: {
+      width: 'full'
+    }
+  },
+  'with numeric format (full width, past month)': {
+    context: {
+      caption: 'Past month',
+      head: [
+        {
+          text: 'Case manager'
+        },
+        {
+          text: 'Cases opened',
+          format: 'numeric'
+        },
+        {
+          text: 'Cases closed',
+          format: 'numeric'
+        }
+      ],
+      rows: [
+        [
+          {
+            text: 'David Francis'
+          },
+          {
+            text: '98'
+          },
+          {
+            text: '95'
+          }
+        ],
+        [
+          {
+            text: 'Paul Farmer'
+          },
+          {
+            text: '122'
+          },
+          {
+            text: '131'
+          }
+        ],
+        [
+          {
+            text: 'Rita Patel'
+          },
+          {
+            text: '126'
+          },
+          {
+            text: '142'
+          }
+        ]
+      ]
+    },
+    options: {
+      width: 'full'
+    }
+  },
+  'with numeric format (full width, past year)': {
+    context: {
+      caption: 'Past year',
+      head: [
+        {
+          text: 'Case manager'
+        },
+        {
+          text: 'Cases opened',
+          format: 'numeric'
+        },
+        {
+          text: 'Cases closed',
+          format: 'numeric'
+        }
+      ],
+      rows: [
+        [
+          {
+            text: 'David Francis'
+          },
+          {
+            text: '1380'
+          },
+          {
+            text: '1472'
+          }
+        ],
+        [
+          {
+            text: 'Paul Farmer'
+          },
+          {
+            text: '1129'
+          },
+          {
+            text: '1083'
+          }
+        ],
+        [
+          {
+            text: 'Rita Patel'
+          },
+          {
+            text: '1539'
+          },
+          {
+            text: '1265'
+          }
+        ]
+      ]
+    },
+    options: {
+      width: 'full'
+    }
+  },
+  'with word breaks': {
+    context: {
+      caption: 'Users',
+      captionSize: 'm',
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: 'Name'
+        },
+        {
+          text: 'Email address'
+        },
+        {
+          text: 'Status'
+        },
+        {
+          html: outdent`
+            <span class="nhsuk-u-visually-hidden">Actions</span>
+          `
+        }
+      ],
+      rows: [
+        [
+          {
+            text: 'Stephanie Meyer',
+            classes: 'nhsuk-u-text-break-word'
+          },
+          {
+            text: 'stephanie.meyer9@test.com',
+            classes: 'nhsuk-u-text-break-word'
+          },
+          {
+            html: components.render('tag', {
+              context: {
+                text: 'Active',
+                colour: 'green'
+              }
+            })
+          }
+        ],
+        [
+          {
+            text: 'Aleksandrina Featherstonehaugh-Whitehead',
+            classes: 'nhsuk-u-text-break-word'
+          },
+          {
+            text: 'aleksandrina.featherstonehaughwhitehead23@folkestonepharmacy.test.com',
+            classes: 'nhsuk-u-text-break-word'
+          },
+          {
+            html: components.render('tag', {
+              context: {
+                text: 'Inactive',
+                colour: 'grey'
+              }
+            })
+          }
+        ]
+      ]
+    }
+  },
   'as a card': {
     context: {
       card: true,
       caption: 'Impetigo can look similar to other skin conditions',
       captionSize: 'm',
+      firstCellIsHeader: true,
       head: [
         {
           text: 'Skin symptoms'
@@ -884,7 +905,11 @@ const fixtures = {
           }
         ]
       ]
-    }
+    },
+    variants: [
+      variants[0], // Regular variant
+      variants[2] // Responsive variant
+    ]
   },
   'as a card (feature)': {
     context: {
@@ -895,6 +920,7 @@ const fixtures = {
       },
       caption: 'Impetigo can look similar to other skin conditions',
       captionSize: 's',
+      firstCellIsHeader: true,
       head: [
         {
           text: 'Skin symptoms'
@@ -930,68 +956,179 @@ const fixtures = {
         ]
       ]
     },
+    variants: [
+      variants[0], // Regular variant
+      variants[2] // Responsive variant
+    ],
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']
     }
   },
-  'as a card (feature) responsive': {
+  'sortable': {
     context: {
-      card: {
-        heading: 'Other conditions like impetigo',
-        headingSize: 'm',
-        variant: 'feature'
-      },
-      caption: 'Impetigo can look similar to other skin conditions',
-      captionSize: 's',
-      responsive: true,
+      caption: 'Appointments',
+      firstCellIsHeader: true,
       head: [
         {
-          text: 'Skin symptoms'
+          text: 'Time',
+          sort: 'ascending'
         },
         {
-          text: 'Possible cause'
+          text: 'Name',
+          sort: true
+        },
+        {
+          text: 'Date of birth',
+          classes: 'nhsuk-u-nowrap'
         }
       ],
       rows: [
         [
           {
-            header: 'Skin problems',
-            text: 'Blisters on lips or around the mouth'
+            text: '11:00'
           },
           {
-            header: 'Possible cause',
-            text: 'Cold sores'
+            text: 'Laura Stone'
+          },
+          {
+            text: '4 January 1986'
           }
         ],
         [
           {
-            header: 'Skin problems',
-            text: 'Itchy, dry, cracked, sore'
+            text: '11:30'
           },
           {
-            header: 'Possible cause',
-            text: 'Eczema'
+            text: 'Emma Katie-Brown'
+          },
+          {
+            text: '7 February 1976'
           }
         ],
         [
           {
-            header: 'Skin problems',
-            text: 'Itchy blisters'
+            text: '13:10'
           },
           {
-            header: 'Possible cause',
-            text: 'Shingles, chickenpox'
+            text: 'David Chen'
+          },
+          {
+            text: '19 March 1981'
+          }
+        ],
+        [
+          {
+            text: '13:40'
+          },
+          {
+            text: 'Michael Thompson'
+          },
+          {
+            text: '6 December 1964'
+          }
+        ],
+        [
+          {
+            text: '14:20'
+          },
+          {
+            text: 'Juan Martinez'
+          },
+          {
+            text: '18 April 1975'
           }
         ]
       ]
+    },
+    variants,
+    screenshot: {
+      viewports: ['mobile', 'tablet', 'desktop']
     }
   },
-  'compact and responsive': {
+  'sortable server-side': {
+    context: {
+      caption: 'Appointments',
+      firstCellIsHeader: true,
+      head: [
+        {
+          href: '#',
+          text: 'Time',
+          sort: 'ascending'
+        },
+        {
+          href: '#',
+          text: 'Name',
+          sort: true
+        },
+        {
+          text: 'Date of birth',
+          classes: 'nhsuk-u-nowrap'
+        }
+      ],
+      rows: [
+        [
+          {
+            text: '11:00'
+          },
+          {
+            text: 'Laura Stone'
+          },
+          {
+            text: '4 January 1986'
+          }
+        ],
+        [
+          {
+            text: '11:30'
+          },
+          {
+            text: 'Emma Katie-Brown'
+          },
+          {
+            text: '7 February 1976'
+          }
+        ],
+        [
+          {
+            text: '13:10'
+          },
+          {
+            text: 'David Chen'
+          },
+          {
+            text: '19 March 1981'
+          }
+        ],
+        [
+          {
+            text: '13:40'
+          },
+          {
+            text: 'Michael Thompson'
+          },
+          {
+            text: '6 December 1964'
+          }
+        ],
+        [
+          {
+            text: '14:20'
+          },
+          {
+            text: 'Juan Martinez'
+          },
+          {
+            text: '18 April 1975'
+          }
+        ]
+      ]
+    },
+    variants
+  },
+  'sortable with numeric format': {
     context: {
       caption: 'Prescription prepayment certificate (PPC) charges',
       captionSize: 'm',
-      compact: true,
-      responsive: true,
       firstCellIsHeader: true,
       head: [
         {
@@ -999,92 +1136,64 @@ const fixtures = {
         },
         {
           text: 'Current charge',
-          format: 'numeric'
+          format: 'numeric',
+          sort: true,
+          sortNext: 'descending'
         },
         {
           text: 'New charge',
-          format: 'numeric'
-        },
-        {
-          text: '% Increase',
-          format: 'numeric'
+          format: 'numeric',
+          sort: true,
+          sortNext: 'descending'
         }
       ],
       rows: [
         [
           {
-            header: 'Item',
-            text: '3-month'
+            text: '3-month',
+            classes: 'nhsuk-u-nowrap'
           },
           {
-            header: 'Current charge',
-            text: '£31.25',
-            format: 'numeric'
+            text: '£31.25'
           },
           {
-            header: 'New charge',
-            text: '£32.05',
-            format: 'numeric'
-          },
-          {
-            header: '% Increase',
-            text: '2.56%',
-            format: 'numeric'
+            text: '£32.05'
           }
         ],
         [
           {
-            header: 'Item',
-            text: '12-month'
+            text: '12-month',
+            classes: 'nhsuk-u-nowrap'
           },
           {
-            header: 'Current charge',
-            text: '£111.60',
-            format: 'numeric'
+            text: '£111.60'
           },
           {
-            header: 'New charge',
-            text: '£114.50',
-            format: 'numeric'
-          },
-          {
-            header: '% Increase',
-            text: '2.60%',
-            format: 'numeric'
+            text: '£114.50'
           }
         ],
         [
           {
-            header: 'Item',
             text: 'HRT'
           },
           {
-            header: 'Current charge',
-            text: '£19.30',
-            format: 'numeric'
+            text: '£19.30'
           },
           {
-            header: 'New charge',
-            text: '£19.80',
-            format: 'numeric'
-          },
-          {
-            header: '% Increase',
-            text: '2.59%',
-            format: 'numeric'
+            text: '£19.80'
           }
         ]
       ]
     },
-    screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
-    }
+    variants: [
+      variants[0], // Regular variant
+      variants[2] // Responsive variant
+    ]
   },
-  'compact': {
+  'sortable with numeric format and missing data': {
     context: {
       caption: 'Prescription prepayment certificate (PPC) charges',
       captionSize: 'm',
-      compact: true,
       firstCellIsHeader: true,
       head: [
         {
@@ -1092,50 +1201,42 @@ const fixtures = {
         },
         {
           text: 'Current charge',
-          format: 'numeric'
+          format: 'numeric',
+          sort: true,
+          sortNext: 'descending'
         },
         {
           text: 'New charge',
-          format: 'numeric'
-        },
-        {
-          text: '% Increase',
-          format: 'numeric'
+          format: 'numeric',
+          sort: true,
+          sortNext: 'descending'
         }
       ],
       rows: [
         [
           {
-            text: '3-month'
+            text: '3-month',
+            classes: 'nhsuk-u-nowrap'
           },
           {
-            text: '£31.25',
-            format: 'numeric'
+            text: '£31.25'
           },
           {
-            text: '£32.05',
-            format: 'numeric'
-          },
-          {
-            text: '2.56%',
-            format: 'numeric'
+            text: '£32.05'
           }
         ],
         [
           {
-            text: '12-month'
+            text: '12-month',
+            classes: 'nhsuk-u-nowrap'
           },
           {
-            text: '£111.60',
-            format: 'numeric'
+            text: '£111.60'
           },
           {
-            text: '£114.50',
-            format: 'numeric'
-          },
-          {
-            text: '2.60%',
-            format: 'numeric'
+            text: 'No data',
+            format: 'string',
+            classes: 'nhsuk-u-secondary-text-colour'
           }
         ],
         [
@@ -1143,22 +1244,181 @@ const fixtures = {
             text: 'HRT'
           },
           {
-            text: '£19.30',
-            format: 'numeric'
+            text: '£19.30'
           },
           {
-            text: '£19.80',
-            format: 'numeric'
-          },
-          {
-            text: '2.59%',
-            format: 'numeric'
+            text: '£19.80'
           }
         ]
       ]
     },
-    screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
+    variants: [
+      variants[0], // Regular variant
+      variants[2] // Responsive variant
+    ]
+  },
+  'sortable with numeric format and sort values': {
+    context: {
+      caption: 'Prescription prepayment certificate (PPC) charges',
+      captionSize: 'm',
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: 'Item',
+          sort: 'ascending'
+        },
+        {
+          text: 'Current charge',
+          format: 'numeric',
+          sort: true,
+          sortNext: 'descending'
+        },
+        {
+          text: 'New charge',
+          format: 'numeric',
+          sort: true,
+          sortNext: 'descending'
+        }
+      ],
+      rows: [
+        [
+          {
+            text: '3-month',
+            sortValue: '3',
+            classes: 'nhsuk-u-nowrap'
+          },
+          {
+            text: '£31.25',
+            sortValue: '31.25'
+          },
+          {
+            text: '£32.05',
+            sortValue: '32.05'
+          }
+        ],
+        [
+          {
+            text: '12-month',
+            sortValue: '12',
+            classes: 'nhsuk-u-nowrap'
+          },
+          {
+            text: '£111.60',
+            sortValue: '111.60'
+          },
+          {
+            text: '£114.50',
+            sortValue: '114.50'
+          }
+        ],
+        [
+          {
+            text: 'HRT',
+            sortValue: '100'
+          },
+          {
+            text: '£19.30',
+            sortValue: '19.30'
+          },
+          {
+            text: '£19.80',
+            sortValue: '19.80'
+          }
+        ]
+      ]
+    }
+  },
+  'sortable with sort values': {
+    context: {
+      caption: 'Appointments',
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: 'Time',
+          sort: 'ascending'
+        },
+        {
+          text: 'Name',
+          sort: true
+        },
+        {
+          text: 'Date of birth',
+          sort: true,
+          sortNext: 'descending'
+        }
+      ],
+      rows: [
+        [
+          {
+            text: '11:00am',
+            sortValue: '11:00'
+          },
+          {
+            text: 'Laura Stone',
+            sortValue: 'Stone, Laura'
+          },
+          {
+            text: '4 January 1986',
+            sortValue: '1986-01-04'
+          }
+        ],
+        [
+          {
+            text: '11:30am',
+            sortValue: '11:30'
+          },
+          {
+            text: 'Emma Katie-Brown',
+            sortValue: 'Katie-Brown, Emma'
+          },
+          {
+            text: '7 February 1976',
+            sortValue: '1976-02-07'
+          }
+        ],
+        [
+          {
+            text: '1:10pm',
+            sortValue: '13:10'
+          },
+          {
+            text: 'David Chen',
+            sortValue: 'Chen, David'
+          },
+          {
+            text: '19 March 1981',
+            sortValue: '1981-03-19'
+          }
+        ],
+        [
+          {
+            text: '1:40pm',
+            sortValue: '13:40'
+          },
+          {
+            text: 'Michael Thompson',
+            sortValue: 'Thompson, Michael'
+          },
+          {
+            text: '6 December 1964',
+            sortValue: '1964-12-06'
+          }
+        ],
+        [
+          {
+            text: '2:20pm',
+            sortValue: '14:20'
+          },
+          {
+            text: 'Juan Martinez',
+            sortValue: 'Martinez, Juan'
+          },
+          {
+            text: '18 April 1975',
+            sortValue: '1975-04-18'
+          }
+        ]
+      ]
     }
   }
 }

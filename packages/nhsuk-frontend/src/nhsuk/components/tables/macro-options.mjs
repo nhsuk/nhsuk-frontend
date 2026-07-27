@@ -36,26 +36,60 @@ const options = {
         type: 'string',
         required: false,
         description: 'Header text for cells in responsive table rows only.',
-        released: '4.0.0'
+        released: '4.0.0',
+        deprecated: '10.6.0'
       },
       format: {
         type: 'string',
         required: false,
         description:
-          'Specify format of a cell. Currently we only use `"numeric"`.',
+          'Specify format of a cell – `"numeric"` or `"string"`. Defaults to `"string"`',
         released: '1.0.0'
+      },
+      sortValue: {
+        type: 'string',
+        required: false,
+        description: 'Sort value text for cells in table rows.',
+        released: '10.6.0'
       },
       colspan: {
         type: 'integer',
         required: false,
-        description: 'Specify how many columns a cell extends.',
+        description: 'Specify how many columns a cell spans.',
         released: '1.0.0'
       },
       rowspan: {
         type: 'integer',
         required: false,
-        description: 'Specify how many rows a cell extends.',
+        description: 'Specify how many rows a cell spans.',
         released: '1.0.0'
+      },
+      align: {
+        type: 'string',
+        required: false,
+        description:
+          'Specify the table cell alignment – `"left"`, `"centre"`, or `"right"`. Defaults to `"left"`',
+        released: '10.6.0'
+      },
+      width: {
+        type: 'string',
+        required: false,
+        description:
+          'Specify the table cell width. You can pass any design system grid width here – for example, `"one-third"`, `"two-thirds"` or `"one-half"`.',
+        released: '10.6.0'
+      },
+      classes: {
+        type: 'string',
+        required: false,
+        description: 'Classes to add to the table cell.',
+        released: '9.4.0'
+      },
+      attributes: {
+        type: 'object',
+        required: false,
+        description:
+          'HTML attributes (for example data attributes) to add to the table cell.',
+        released: '9.4.0'
       }
     }
   },
@@ -79,24 +113,71 @@ const options = {
           'If `text` is set, this is not required. HTML for table head cells. If `html` is provided, the `text` argument will be ignored.',
         released: '1.0.0'
       },
+      href: {
+        type: 'string',
+        required: false,
+        description:
+          'If set, the table header will become a link for server-side table sorting. Use `sort` to set the column sort direction.'
+      },
       format: {
         type: 'string',
         required: false,
         description:
-          'Specify format of a cell. Currently we only use `"numeric"`.',
+          'Specify format of a cell – `"numeric"` or `"string"`. Defaults to `"string"`',
         released: '1.0.0'
       },
       colspan: {
         type: 'integer',
         required: false,
-        description: 'Specify how many columns a cell extends.',
+        description: 'Specify how many columns a cell spans.',
         released: '1.0.0'
       },
       rowspan: {
         type: 'integer',
         required: false,
-        description: 'Specify how many rows a cell extends.',
+        description: 'Specify how many rows a cell spans.',
         released: '1.0.0'
+      },
+      align: {
+        type: 'string',
+        required: false,
+        description:
+          'Specify the table head cell alignment – `"left"`, `"centre"`, or `"right"`. Defaults to `"left"`',
+        released: '10.6.0'
+      },
+      width: {
+        type: 'string',
+        required: false,
+        description:
+          'Specify the table head cell width. You can pass any design system grid width here – for example, `"one-third"`, `"two-thirds"` or `"one-half"`.',
+        released: '10.6.0'
+      },
+      classes: {
+        type: 'string',
+        required: false,
+        description: 'Classes to add to the table head cell.',
+        released: '9.4.0'
+      },
+      attributes: {
+        type: 'object',
+        required: false,
+        description:
+          'HTML attributes (for example data attributes) to add to the table head cell.',
+        released: '9.4.0'
+      },
+      sort: {
+        type: 'string',
+        required: false,
+        description:
+          'The sort direction applied to the column using `aria-sort` – `"ascending"`, `"descending"`, `"none"` or `true`. To enable sorting without a default direction, set `sort` to `"none"` or `true`.',
+        released: '10.6.0'
+      },
+      sortNext: {
+        type: 'string',
+        required: false,
+        description:
+          'The next sort direction applied to the column using `aria-sort` when clicked – `"ascending"` or `"descending"`. Defaults to `"ascending"`. If you set `sort` to `"ascending"`, `sortNext` defaults to `"descending"`.',
+        released: '10.6.0'
       }
     }
   },
@@ -119,18 +200,19 @@ const options = {
     description: 'Size of the caption – `"s"`, `"m"`, `"l"` or `"xl"`.',
     released: '10.2.0'
   },
+  captionDescriptionText: {
+    type: 'string',
+    required: false,
+    description:
+      'Message made available to assistive technologies to describe that the table is sortable. Defaults to `"Column headers are sortable"`.',
+    released: '10.6.0'
+  },
   firstCellIsHeader: {
     type: 'boolean',
     required: false,
     description:
-      'If set to `true`, first cell in table row will be a TH instead of a TD.',
+      'If set to `true`, first cell in table row will be a `th` instead of a `td`.',
     released: '1.0.0'
-  },
-  responsive: {
-    type: 'boolean',
-    required: false,
-    description: 'If set to `true`, responsive table classes will be applied.',
-    released: '4.0.0'
   },
   compact: {
     type: 'boolean',
@@ -138,6 +220,12 @@ const options = {
     description:
       'If set to `true`, vertical padding will be reduced for table cells.',
     released: '10.6.0'
+  },
+  responsive: {
+    type: 'boolean',
+    required: false,
+    description: 'If set to `true`, responsive table classes will be applied.',
+    released: '4.0.0'
   },
   variant: {
     type: 'string',
@@ -206,6 +294,27 @@ const options = {
     description:
       'HTML attributes (for example data attributes) to add to the table container.',
     released: '1.0.0'
+  },
+  ascendingText: {
+    type: 'string',
+    required: false,
+    description:
+      'Text for columns in ascending sort order, used to populate the `%{direction}` placeholder in `sortAnnouncementText`. Defaults to `"ascending"`.',
+    released: '10.6.0'
+  },
+  descendingText: {
+    type: 'string',
+    required: false,
+    description:
+      'Text for columns in descending sort order, used to populate the `%{direction}` placeholder in `sortAnnouncementText`. Defaults to `"descending"`.',
+    released: '10.6.0'
+  },
+  sortAnnouncementText: {
+    type: 'string',
+    required: false,
+    description:
+      'Announcement made to screen reader users when a table column has been sorted. The component will replace the `%{header}` placeholder with the column header, and the `%{direction}` placeholder with the `ascendingText` or `descendingText` option value.',
+    released: '10.6.0'
   }
 }
 
