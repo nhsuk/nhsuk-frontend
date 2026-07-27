@@ -93,7 +93,7 @@ export class ConfigurableComponent extends Component {
    * @param {Partial<ConfigurationType>} _datasetConfig - Config specified by dataset
    * @returns {Partial<ConfigurationType>} Config to override by dataset
    */
-  configOverride(_datasetConfig = {}) {
+  configOverride(_datasetConfig) {
     return {}
   }
 }
