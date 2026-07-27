@@ -135,6 +135,7 @@ describe('Code', () => {
     })
 
     it('should not throw with missing $button element', () => {
+      $root.classList.remove('nhsuk-code--button')
       $button.remove()
 
       expect(() => new Code($root)).not.toThrow()
