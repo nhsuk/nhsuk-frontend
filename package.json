@@ -69,7 +69,7 @@
     "nunjucks": "^3.2.4",
     "outdent": "^0.8.0",
     "sass-embedded": "^1.100.0",
-    "slug": "^12.0.0"
+    "slug": "^12.0.1"
   },
   "peerDependencies": {
     "@prettier/sync": "^0.6.0",
