@@ -18,6 +18,19 @@ export const variants = [
     }
   },
   {
+    description: 'striped',
+    context: {
+      striped: true
+    }
+  },
+  {
+    description: 'striped compact',
+    context: {
+      compact: true,
+      striped: true
+    }
+  },
+  {
     description: 'responsive',
     context: {
       responsive: true
@@ -28,6 +41,21 @@ export const variants = [
     context: {
       compact: true,
       responsive: true
+    }
+  },
+  {
+    description: 'responsive striped',
+    context: {
+      responsive: true,
+      striped: true
+    }
+  },
+  {
+    description: 'responsive striped compact',
+    context: {
+      compact: true,
+      responsive: true,
+      striped: true
     }
   },
   {
@@ -43,6 +71,27 @@ export const variants = [
     description: 'reverse compact',
     context: {
       compact: true,
+      variant: 'reverse'
+    },
+    options: {
+      layout: 'background-blue'
+    }
+  },
+  {
+    description: 'reverse striped',
+    context: {
+      striped: true,
+      variant: 'reverse'
+    },
+    options: {
+      layout: 'background-blue'
+    }
+  },
+  {
+    description: 'reverse striped compact',
+    context: {
+      compact: true,
+      striped: true,
       variant: 'reverse'
     },
     options: {
@@ -908,7 +957,8 @@ const fixtures = {
     },
     variants: [
       variants[0], // Regular variant
-      variants[2] // Responsive variant
+      variants[2], // Striped variant
+      variants[4] // Responsive variant
     ]
   },
   'as a card (feature)': {
@@ -958,7 +1008,8 @@ const fixtures = {
     },
     variants: [
       variants[0], // Regular variant
-      variants[2] // Responsive variant
+      variants[2], // Striped variant
+      variants[4] // Responsive variant
     ],
     screenshot: {
       viewports: ['mobile', 'tablet', 'desktop']
