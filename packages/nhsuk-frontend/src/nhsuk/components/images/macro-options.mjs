@@ -96,6 +96,13 @@ const options = {
       'If set to `false`, removes the border-bottom from the image component.',
     released: '10.6.0'
   },
+  width: {
+    type: 'string',
+    required: false,
+    description:
+      'Width of the image component. You can pass any design system grid width here – for example, `"one-third"`, `"two-thirds"` or `"one-half"`. Defaults to `"two-thirds"`.',
+    released: '10.6.0'
+  },
   classes: {
     type: 'string',
     required: false,

@@ -17,6 +17,50 @@ const fixtures = {
       viewports: ["mobile", "tablet", "desktop"]
     }
   },
+  "width": {
+    context: {
+      src: "https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg",
+      alt: "A person in a bright pink athletic top, listening to music, pauses for thought during a short training session."
+    },
+    variants: [
+      {
+        description: "with one-quarter",
+        context: {
+          width: "one-quarter"
+        }
+      },
+      {
+        description: "with one-third",
+        context: {
+          width: "one-third"
+        }
+      },
+      {
+        description: "with one-half",
+        context: {
+          width: "one-half"
+        }
+      },
+      {
+        description: "with two-thirds",
+        context: {
+          width: "two-thirds"
+        }
+      },
+      {
+        description: "with three-quarters",
+        context: {
+          width: "three-quarters"
+        }
+      },
+      {
+        description: "with full",
+        context: {
+          width: "full"
+        }
+      }
+    ]
+  },
   "with srcset": {
     context: {
       src: "https://service-manual.nhs.uk/assets/image-example-stretch-marks-600w.jpg",
