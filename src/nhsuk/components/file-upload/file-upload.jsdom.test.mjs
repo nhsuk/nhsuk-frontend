@@ -135,8 +135,9 @@ describe('File upload', () => {
 
     it('should throw with unsupported browser', () => {
       document.body.classList.remove('nhsuk-frontend-supported')
+
       expect(() => new FileUpload($root)).toThrow(
-        'NHS.UK frontend is not supported in this browser'
+        'NHS.UK frontend initialised without `<body class="nhsuk-frontend-supported">` from template `<script>` snippet'
       )
     })
 
