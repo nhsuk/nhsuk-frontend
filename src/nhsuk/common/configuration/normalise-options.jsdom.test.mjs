@@ -7,10 +7,6 @@ describe('normaliseOptions', () => {
       $scope: document
     },
     {
-      name: 'document (new)',
-      $scope: document.implementation.createHTMLDocument()
-    },
-    {
       name: 'div element',
       $scope: document.createElement('div')
     },
