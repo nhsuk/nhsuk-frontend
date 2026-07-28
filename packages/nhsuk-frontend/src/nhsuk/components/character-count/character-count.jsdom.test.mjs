@@ -570,15 +570,12 @@ describe('Character count: Format count message', () => {
   beforeEach(() => {
     const example = examples['to configure in JavaScript']
 
-    // Some tests add attributes to `document.body` so we need to reset it
-    // alongside both character count renders (for maxlength and maxwords)
-    document.body.outerHTML = outdent`
-      <body class="nhsuk-frontend-supported">
-        ${components.render('character-count', example)}
-        ${components.render('character-count', example)}
-        ${components.render('character-count', example)}
-        ${components.render('character-count', example)}
-      </body>
+    document.body.classList.add('nhsuk-frontend-supported')
+    document.body.innerHTML = outdent`
+      ${components.render('character-count', example)}
+      ${components.render('character-count', example)}
+      ${components.render('character-count', example)}
+      ${components.render('character-count', example)}
     `
 
     const $roots = document.querySelectorAll(

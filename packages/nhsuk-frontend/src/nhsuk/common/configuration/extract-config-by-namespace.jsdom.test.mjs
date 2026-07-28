@@ -33,7 +33,7 @@ describe('extractConfigByNamespace', () => {
   let $element
 
   beforeEach(() => {
-    document.body.outerHTML = outdent`
+    document.body.innerHTML = outdent`
       <div id="app-example"
         data-a="aardvark"
         data-b.a="bat"
@@ -91,7 +91,7 @@ describe('extractConfigByNamespace', () => {
   })
 
   it('can extract config from key-value pairs (with invalid namespace, first)', () => {
-    document.body.outerHTML = outdent`
+    document.body.innerHTML = outdent`
       <div id="app-example2"
         data-i18n
         data-i18n.key1="One"
@@ -110,7 +110,7 @@ describe('extractConfigByNamespace', () => {
   })
 
   it('can extract config from key-value pairs (with invalid namespace, last)', () => {
-    document.body.outerHTML = outdent`
+    document.body.innerHTML = outdent`
       <div id="app-example2"
         data-i18n.key1="One"
         data-i18n.key2="Two"
@@ -129,7 +129,7 @@ describe('extractConfigByNamespace', () => {
   })
 
   it('skips non-object values in object property types', () => {
-    document.body.outerHTML = outdent`
+    document.body.innerHTML = outdent`
       <div id="app-example"
         data-b="bat"
         data-c='["jellyfish"]'>
@@ -148,7 +148,7 @@ describe('extractConfigByNamespace', () => {
   })
 
   it('handles when both shallow and deep keys are set (namespace collision)', () => {
-    document.body.outerHTML = outdent`
+    document.body.innerHTML = outdent`
       <div id="app-example"
         data-a="aardvark"
         data-b="bat"
@@ -176,7 +176,7 @@ describe('extractConfigByNamespace', () => {
   })
 
   it('handles when both shallow and deep keys are set (namespace collision + key collision in namespace)', () => {
-    document.body.outerHTML = outdent`
+    document.body.innerHTML = outdent`
       <div id="app-example"
         data-a="aardvark"
         data-b="bat"
@@ -201,7 +201,7 @@ describe('extractConfigByNamespace', () => {
   })
 
   it('handles when both shallow and deep keys are set (namespace collision + key collision in namespace after shallow)', () => {
-    document.body.outerHTML = outdent`
+    document.body.innerHTML = outdent`
       <div id="app-example"
         data-a="aardvark"
         data-b="bat"
@@ -226,7 +226,7 @@ describe('extractConfigByNamespace', () => {
   })
 
   it('handles when both shallow and deep keys are set (deeper collision)', () => {
-    document.body.outerHTML = outdent`
+    document.body.innerHTML = outdent`
       <div id="app-example"
         data-a="aardvark"
         data-b="bat"
@@ -249,7 +249,7 @@ describe('extractConfigByNamespace', () => {
   })
 
   it('can handle multiple levels of nesting', () => {
-    document.body.outerHTML = outdent`
+    document.body.innerHTML = outdent`
       <div id="app-example2"
         data-i18n.key1="This, That"
         data-i18n.key2.one="The"
@@ -273,7 +273,7 @@ describe('extractConfigByNamespace', () => {
   })
 
   it('can handle multiple levels of nesting (prioritises the last parameter provided)', () => {
-    document.body.outerHTML = outdent`
+    document.body.innerHTML = outdent`
       <div id="app-example2"
         data-i18n.key1.one="This"
         data-i18n.key1.other="That"
