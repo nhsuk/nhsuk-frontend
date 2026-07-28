@@ -28,7 +28,7 @@
 
     @include nhsuk-responsive-margin(6, ("top", "bottom"));
 
-    @media #{nhsuk-from-breakpoint(desktop)} {
+    @media #{nhsuk-from-breakpoint(tablet)} {
       width: math.percentage(math.div(2, 3)); // [2]
     }
 
