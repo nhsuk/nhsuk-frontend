@@ -44,71 +44,71 @@ describe('normaliseOptions', () => {
   ]
 
   it('returns defaults', () => {
-    expect(normaliseOptions()).toMatchObject({
-      scope: document,
-      onError: undefined
-    })
+    const options = normaliseOptions()
+
+    expect(options.scope).toBe(document)
+    expect(options.onError).toBeUndefined()
   })
 
   it('returns defaults for empty object', () => {
-    expect(normaliseOptions({})).toMatchObject({
-      scope: document,
-      onError: undefined
-    })
+    const options = normaliseOptions({})
+
+    expect(options.scope).toBe(document)
+    expect(options.onError).toBeUndefined()
   })
 
   it("returns defaults for 'undefined' scope option", () => {
-    expect(
-      normaliseOptions({
-        scope: undefined
-      })
-    ).toMatchObject({
-      scope: document,
-      onError: undefined
+    const options = normaliseOptions({
+      scope: undefined
     })
+
+    expect(options.scope).toBe(document)
+    expect(options.onError).toBeUndefined()
   })
 
   it("returns defaults for 'undefined' error handler option", () => {
-    expect(
-      normaliseOptions({
-        onError: undefined
-      })
-    ).toMatchObject({
-      scope: document,
+    const options = normaliseOptions({
       onError: undefined
     })
+
+    expect(options.scope).toBe(document)
+    expect(options.onError).toBeUndefined()
   })
 
   it("returns defaults for 'null' error handler option", () => {
-    expect(
-      normaliseOptions({
-        // @ts-expect-error Type 'null' is not assignable
-        onError: null
-      })
-    ).toMatchObject({
-      scope: document,
-      onError: undefined
+    const options = normaliseOptions({
+      // @ts-expect-error Type 'null' is not assignable
+      onError: null
     })
+
+    expect(options.scope).toBe(document)
+    expect(options.onError).toBeUndefined()
   })
 
   it("preserves 'null' scope", () => {
-    expect(normaliseOptions(null)).toMatchObject({
-      scope: null,
-      onError: undefined
+    const options = normaliseOptions(null)
+
+    expect(options.scope).toBeNull()
+    expect(options.onError).toBeUndefined()
+  })
+
+  it("preserves 'null' scope option", () => {
+    const options = normaliseOptions({
+      scope: null
     })
 
-    expect(normaliseOptions({ scope: null })).toMatchObject({
-      scope: null,
-      onError: undefined
-    })
+    expect(options.scope).toBeNull()
+    expect(options.onError).toBeUndefined()
   })
 
   describe('with $scope option', () => {
     it.each(scopes)("normalises '$name' option into object", ({ $scope }) => {
-      expect(normaliseOptions({ scope: $scope })).toMatchObject({
-        scope: $scope,
-        onError: undefined
+      const options = normaliseOptions({
+        scope: $scope
       })
+
+      expect(options.scope).toBe($scope)
+      expect(options.onError).toBeUndefined()
     })
   })
 
@@ -116,10 +116,12 @@ describe('normaliseOptions', () => {
     it.each(scopes)(
       "normalises '$name' parameter into object",
       ({ $scope }) => {
-        expect(normaliseOptions($scope)).toMatchObject({
-          scope: $scope,
-          onError: undefined
+        const options = normaliseOptions({
+          scope: $scope
         })
+
+        expect(options.scope).toBe($scope)
+        expect(options.onError).toBeUndefined()
       }
     )
   })
@@ -128,10 +130,12 @@ describe('normaliseOptions', () => {
     it.each(handlers)(
       "normalises '$name' option into object",
       ({ handler }) => {
-        expect(normaliseOptions({ onError: handler })).toMatchObject({
-          scope: document,
+        const options = normaliseOptions({
           onError: handler
         })
+
+        expect(options.scope).toBe(document)
+        expect(options.onError).toBe(handler)
       }
     )
   })
@@ -140,10 +144,10 @@ describe('normaliseOptions', () => {
     it.each(handlers)(
       "normalises '$name' parameter into object",
       ({ handler }) => {
-        expect(normaliseOptions(handler)).toMatchObject({
-          scope: document,
-          onError: handler
-        })
+        const options = normaliseOptions(handler)
+
+        expect(options.scope).toBe(document)
+        expect(options.onError).toBe(handler)
       }
     )
   })
