@@ -439,21 +439,19 @@ describe('Header class', () => {
       expect($menuButton?.nextElementSibling).not.toHaveAttribute('hidden')
 
       // Trigger tab switching
-      window.dispatchEvent(
-        new PageTransitionEvent('pageshow', {
-          persisted: false
-        })
-      )
+      // https://github.com/capricorn86/happy-dom/issues/1848
+      const pageshowEvent1 = new Event('pageshow')
+      Object.defineProperty(pageshowEvent1, 'persisted', { value: false })
+      window.dispatchEvent(pageshowEvent1)
 
       // Menu open (still)
       expect($menuButton?.nextElementSibling).not.toHaveAttribute('hidden')
 
       // Trigger back/forward navigation
-      window.dispatchEvent(
-        new PageTransitionEvent('pageshow', {
-          persisted: true
-        })
-      )
+      // https://github.com/capricorn86/happy-dom/issues/1848
+      const pageshowEvent2 = new Event('pageshow')
+      Object.defineProperty(pageshowEvent2, 'persisted', { value: true })
+      window.dispatchEvent(pageshowEvent2)
 
       // Menu closed
       expect($menuButton?.nextElementSibling).toHaveAttribute('hidden')
