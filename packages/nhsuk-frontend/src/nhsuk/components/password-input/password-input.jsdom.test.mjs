@@ -292,11 +292,10 @@ describe('Password input', () => {
         expect($button).toHaveAccessibleName('Hide password')
 
         // Trigger back/forward navigation
-        window.dispatchEvent(
-          new PageTransitionEvent('pageshow', {
-            persisted: true
-          })
-        )
+        // https://github.com/capricorn86/happy-dom/issues/1848
+        const pageshowEvent = new Event('pageshow')
+        Object.defineProperty(pageshowEvent, 'persisted', { value: true })
+        window.dispatchEvent(pageshowEvent)
 
         expect($input).toHaveProperty('type', 'password')
         expect($button).toHaveAccessibleName('Show password')

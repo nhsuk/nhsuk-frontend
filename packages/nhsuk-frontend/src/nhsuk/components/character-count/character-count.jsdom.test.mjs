@@ -412,11 +412,10 @@ describe('Character count', () => {
         await user.keyboard('Newly updated value')
 
         // Trigger back/forward navigation
-        window.dispatchEvent(
-          new PageTransitionEvent('pageshow', {
-            persisted: true
-          })
-        )
+        // https://github.com/capricorn86/happy-dom/issues/1848
+        const pageshowEvent = new Event('pageshow')
+        Object.defineProperty(pageshowEvent, 'persisted', { value: true })
+        window.dispatchEvent(pageshowEvent)
 
         expect(component.getCountMessage()).toBe(
           'You have 81 characters remaining'
@@ -432,11 +431,10 @@ describe('Character count', () => {
         await user.keyboard('Newly updated value')
 
         // Trigger back/forward navigation
-        window.dispatchEvent(
-          new PageTransitionEvent('pageshow', {
-            persisted: true
-          })
-        )
+        // https://github.com/capricorn86/happy-dom/issues/1848
+        const pageshowEvent = new Event('pageshow')
+        Object.defineProperty(pageshowEvent, 'persisted', { value: true })
+        window.dispatchEvent(pageshowEvent)
 
         expect(component.getCountMessage()).toBe('You have 97 words remaining')
       })
