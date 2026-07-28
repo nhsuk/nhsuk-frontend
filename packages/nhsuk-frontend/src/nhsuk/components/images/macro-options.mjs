@@ -93,20 +93,20 @@ const options = {
     type: 'boolean',
     required: false,
     description:
-      'If set to `false`, removes the border-bottom from the image container.',
+      'If set to `false`, removes the border-bottom from the image component.',
     released: '10.6.0'
   },
   classes: {
     type: 'string',
     required: false,
-    description: 'Classes to add to the image container.',
+    description: 'Classes to add to the image component.',
     released: '1.0.0'
   },
   attributes: {
     type: 'object',
     required: false,
     description:
-      'HTML attributes (for example data attributes) to add to the image container.',
+      'HTML attributes (for example data attributes) to add to the image component.',
     released: '1.0.0'
   }
 }
