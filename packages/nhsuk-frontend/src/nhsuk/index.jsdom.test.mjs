@@ -281,7 +281,8 @@ describe('NHS.UK frontend', () => {
       expect(console.log).toHaveBeenCalledWith(expect.any(Error))
       expect(console.log).toHaveBeenCalledWith(
         expect.objectContaining({
-          message: 'NHS.UK frontend is not supported in this browser'
+          message:
+            'NHS.UK frontend initialised without `<body class="nhsuk-frontend-supported">` from template `<script>` snippet'
         })
       )
 
@@ -406,7 +407,8 @@ describe('NHS.UK frontend', () => {
       expect(console.log).toHaveBeenCalledWith(expect.any(Error))
       expect(console.log).toHaveBeenCalledWith(
         expect.objectContaining({
-          message: 'NHS.UK frontend is not supported in this browser'
+          message:
+            'NHS.UK frontend initialised without `<body class="nhsuk-frontend-supported">` from template `<script>` snippet'
         })
       )
     })
