@@ -421,7 +421,7 @@ describe('Header class', () => {
       expect($menuButton?.nextElementSibling).not.toHaveAttribute('hidden')
 
       // Submit search form
-      $searchForm?.submit()
+      $searchForm?.requestSubmit()
 
       // Menu closed
       expect($menuButton?.nextElementSibling).toHaveAttribute('hidden')
