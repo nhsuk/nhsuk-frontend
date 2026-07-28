@@ -4,7 +4,10 @@
   "description": "NHS.UK frontend shared helpers",
   "license": "MIT",
   "exports": {
-    "./*": "./*"
+    "./*": {
+      "types": "./*/index.d.mts",
+      "default": "./*"
+    }
   },
   "dependencies": {
     "@axe-core/puppeteer": "^4.11.3",
