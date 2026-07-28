@@ -19,6 +19,20 @@ const options = {
       'The source location of the image. If `html` is provided, the `src` and `alt` options will be ignored.',
     released: '1.0.0'
   },
+  srcset: {
+    type: 'string',
+    required: false,
+    description:
+      'A list of image source URLs and their respective sizes. Separate each image with a comma.',
+    released: '3.0.0'
+  },
+  sizes: {
+    type: 'string',
+    required: false,
+    description:
+      'A list of screen sizes for the browser to load the correct image from the srcset images.',
+    released: '3.0.0'
+  },
   alt: {
     type: 'string',
     required: false,
@@ -67,20 +81,6 @@ const options = {
         released: '10.3.0'
       }
     }
-  },
-  sizes: {
-    type: 'string',
-    required: false,
-    description:
-      'A list of screen sizes for the browser to load the correct image from the srcset images.',
-    released: '3.0.0'
-  },
-  srcset: {
-    type: 'string',
-    required: false,
-    description:
-      'A list of image source URLs and their respective sizes. Separate each image with a comma.',
-    released: '3.0.0'
   },
   classes: {
     type: 'string',
