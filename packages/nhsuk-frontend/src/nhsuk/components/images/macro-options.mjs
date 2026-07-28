@@ -82,6 +82,20 @@ const options = {
       }
     }
   },
+  background: {
+    type: 'string',
+    required: false,
+    description:
+      'Background colour for the image component – `"card"` or `false`. Defaults to `"card"`. To remove the background colour, set `background` to `false`.',
+    released: '10.6.0'
+  },
+  border: {
+    type: 'boolean',
+    required: false,
+    description:
+      'If set to `false`, removes the border-bottom from the image container.',
+    released: '10.6.0'
+  },
   classes: {
     type: 'string',
     required: false,

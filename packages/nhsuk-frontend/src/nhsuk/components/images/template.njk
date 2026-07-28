@@ -3,6 +3,14 @@
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-image" -%}
 
+{%- if params.border === false and (not params.classes or not "nhsuk-image--no-border" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-image--no-border" %}
+{% endif -%}
+
+{%- if params.background === false and (not params.classes or not "nhsuk-image--no-background" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-image--no-background" %}
+{% endif -%}
+
 {%- if params.classes %}
   {% set classNames = classNames ~ " " ~ params.classes %}
 {% endif -%}
