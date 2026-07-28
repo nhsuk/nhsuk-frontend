@@ -255,6 +255,11 @@ describe('File upload', () => {
     })
 
     describe('with HTML lang attribute', () => {
+      afterEach(() => {
+        document.body.removeAttribute('lang')
+        $root.removeAttribute('lang')
+      })
+
       it('overrides the locale when set on the element', () => {
         $root.setAttribute('lang', 'de')
 
