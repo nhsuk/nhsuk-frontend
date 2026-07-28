@@ -1,40 +1,6 @@
 import '@testing-library/jest-dom'
 import { outdent } from 'outdent'
 
-/**
- * Polyfill Element methods for NHS.UK frontend error summary
- *
- * @see {@link https://github.com/jsdom/jsdom/issues/1695}
- */
-Object.defineProperties(Element.prototype, {
-  innerText: {
-    get() {
-      return this.textContent
-    },
-    set(value) {
-      this.textContent = value
-    }
-  },
-  scrollIntoView: {
-    value: jest.fn()
-  }
-})
-
-/**
- * Polyfill HTMLFormElement methods for NHS.UK frontend header
- *
- * @see {@link https://github.com/jsdom/jsdom/issues/1937}
- */
-Object.defineProperties(HTMLFormElement.prototype, {
-  submit: {
-    value: jest.fn().mockImplementation(
-      /** @this {HTMLFormElement} */ function () {
-        this.dispatchEvent(new Event('submit'))
-      }
-    )
-  }
-})
-
 beforeEach(() => {
   const stylesheet = document.createElement('style')
 
