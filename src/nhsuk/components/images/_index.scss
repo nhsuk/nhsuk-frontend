@@ -31,10 +31,10 @@
     @media print {
       width: math.percentage(math.div(1, 2)); // [3]
     }
+  }
 
-    & + .nhsuk-image {
-      @include nhsuk-responsive-margin(0, "top"); // [4]
-    }
+  .nhsuk-image + .nhsuk-image {
+    margin-top: 0; // [4]
   }
 
   .nhsuk-image--no-border {
