@@ -1,11 +1,9 @@
-import { ConfigurableComponent } from '../../configurable-component.mjs'
+import { Component } from '../../component.mjs'
 
 /**
  * Date input component
- *
- * @augments {ConfigurableComponent<DateInputConfig>}
  */
-export class DateInput extends ConfigurableComponent {
+export class DateInput extends Component {
   /**
    * @type {HTMLInputElement | undefined}
    */
@@ -48,10 +46,9 @@ export class DateInput extends ConfigurableComponent {
 
   /**
    * @param {Element | null} $root - HTML element to use for component
-   * @param {Partial<DateInputConfig>} [config] - Date input config
    */
-  constructor($root, config = {}) {
-    super($root, config)
+  constructor($root) {
+    super($root)
 
     const $dayInput = this.$root.querySelector(
       '[data-nhsuk-date-input-field="day"]'
@@ -196,33 +193,4 @@ export class DateInput extends ConfigurableComponent {
    * Name for the component used when initialising using data-module attributes
    */
   static moduleName = 'nhsuk-date-input'
-
-  /**
-   * Date input default config
-   *
-   * @see {@link DateInputConfig}
-   * @constant
-   * @type {DateInputConfig}
-   */
-  static defaults = Object.freeze({})
-
-  /**
-   * Date input config schema
-   *
-   * @constant
-   * @satisfies {Schema<DateInputConfig>}
-   */
-  static schema = Object.freeze({
-    properties: {}
-  })
 }
-
-/**
- * Date input config
- *
- * @typedef {object} DateInputConfig
- */
-
-/**
- * @import { Schema } from '../../common/configuration/index.mjs'
- */
