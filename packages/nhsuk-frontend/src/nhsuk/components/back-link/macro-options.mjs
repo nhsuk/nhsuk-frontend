@@ -26,6 +26,13 @@ const options = {
       'HTML to use within the back link component. If `html` is provided, the `text` argument will be ignored. Defaults to `"Back"`.',
     released: '1.0.0'
   },
+  caller: {
+    type: 'nunjucks-block',
+    required: false,
+    description:
+      'Not strictly a parameter but [Nunjucks code convention](https://mozilla.github.io/nunjucks/templating.html#call). Using a `call` block enables you to call a macro with all the text inside the tag. This is helpful if you want to pass a lot of content into a macro. To use it, you will need to wrap the entire back link component in a `call` block.',
+    released: '10.6.0'
+  },
   type: {
     type: 'string',
     required: false,

@@ -37,7 +37,13 @@
     <div class="nhsuk-error-summary__body">
     {% if caller or params.descriptionHtml or params.descriptionText %}
       <p>
-        {{ caller() if caller else (params.descriptionHtml | safe | trim | indent(8) if params.descriptionHtml else params.descriptionText) }}
+      {% if caller %}
+        {{- caller() }}
+      {% elif params.descriptionHtml %}
+        {{ params.descriptionHtml | safe | trim | indent(8) }}
+      {% else %}
+        {{ params.descriptionText | trim | indent(8) }}
+      {% endif %}
       </p>
     {% endif %}
     {% if params.errorList | length %}
@@ -46,12 +52,17 @@
         {% if item %}
         <li>
         {% if item.href %}
-          <a href="{{ item.href }}"
-            {{- nhsukAttributes(item.attributes) }}>
-            {{- item.html | safe | trim | indent(10) if item.html else item.text -}}
+          <a href="{{ item.href }}" {{- nhsukAttributes(item.attributes) }}>
+          {% if item.html %}
+            {{ item.html | safe | trim | indent(12) }}
+          {% elif item.text %}
+            {{ item.text | trim | indent(12) }}
+          {% endif %}
           </a>
-        {% else %}
-          {{ item.html | safe | trim | indent(10) if item.html else item.text }}
+        {% elif item.html %}
+          {{ item.html | safe | trim | indent(10) }}
+        {% elif item.text %}
+          {{ item.text | trim | indent(10) }}
         {% endif %}
         </li>
         {% endif %}

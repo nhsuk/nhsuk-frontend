@@ -65,6 +65,20 @@ const fixtures = {
       isPageHeading: true
     }
   },
+  'with HTML': {
+    context: {
+      html: 'What is your full name?',
+      size: 'l',
+      isPageHeading: true
+    }
+  },
+  'with HTML via call block': {
+    context: {
+      size: 'l',
+      isPageHeading: true
+    },
+    callBlock: 'What is your full name?'
+  },
   'without page heading': {
     context: {
       text: 'What is your full name?'

@@ -1,6 +1,6 @@
 {% from "nhsuk/components/card/macro.njk" import card -%}
 
-{{ card({
+{%- set options = {
   id: params.id,
   heading: params.heading,
   headingClasses: params.headingClasses,
@@ -9,9 +9,17 @@
     if params.heading and not ("Important" in params.heading or "important" in params.heading)
     else undefined,
   description: params.text,
-  descriptionHtml: caller() if caller else params.html,
+  descriptionHtml: params.html,
   actions: params.actions,
   classes: params.classes,
   attributes: params.attributes,
   variant: "warning"
-}) | trim }}
+} -%}
+
+{% if caller %}
+  {%- call card(options) %}
+    {{- caller() }}
+  {%- endcall %}
+{% else %}
+  {{- card(options) | trim }}
+{% endif %}

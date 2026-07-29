@@ -201,6 +201,21 @@ Inline `<code>` elements are now also styled within definition lists and table h
 
 This was added in [pull request #1984: Extend global inline code styles](https://github.com/nhsuk/nhsuk-frontend/pull/1984).
 
+#### Review Nunjucks macro `html` and `call` usage
+
+For consistency with other components, the following Nunjucks macro changes have been included:
+
+1. Added action link component `caller` support
+2. Added back link component `caller` support
+3. Added breadcrumb component `item.html` option
+4. Added error message component `caller` support
+5. Added hint component `caller` support
+6. Added image component `caller` support
+7. Added skip link component `caller` support
+8. Added tag component `caller` support
+
+This was added in [pull request #1999: Add missing `caller` support and fixture coverage to components](https://github.com/nhsuk/nhsuk-frontend/pull/1999).
+
 #### Define negative margins using the Sass `nhsuk-responsive-margin()` mixin
 
 You can now pass the negative equivalent of a point from the typography scale to the `nhsuk-responsive-margin()` function to output negative margins.

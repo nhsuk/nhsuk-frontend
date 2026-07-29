@@ -79,7 +79,7 @@
 {% endif -%}
 
 {%- if item.classes %}
-  {% set itemClasses = (itemClasses + " " + item.classes) | trim %}
+  {% set itemClasses = (itemClasses ~ " " ~ item.classes) | trim %}
 {% endif %}
 
 <div class="nhsuk-date-input__item">

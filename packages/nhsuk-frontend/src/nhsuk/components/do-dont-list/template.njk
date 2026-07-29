@@ -15,7 +15,11 @@
   {% if not params.hidePrefix and (params.prefixText or icon == "cross") %}
     {{- (params.prefixText if params.prefixText else "do not") ~ " " -}}
   {% endif %}
-  {{- item.html | safe | trim | indent(4) if item.html else item.text }}
+  {% if item.html %}
+    {{- item.html | safe | trim }}
+  {% elif item.text %}
+    {{- item.text | trim }}
+  {% endif %}
 {% endmacro -%}
 
 {% set listHtml %}

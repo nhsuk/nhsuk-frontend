@@ -15,7 +15,7 @@
     "./packages/*/src/**/*.test.mjs",
     "./packages/*/tasks/**/*.mjs",
     "./packages/*/gulpfile.mjs",
-    "./packages/*/.htmlvalidate.js",
+    "./packages/*/.htmlvalidate.mjs",
     "./packages/*/*.config.js",
     "./packages/*/*.config.mjs",
     "./shared/helpers/jest/**/*.setup.mjs",

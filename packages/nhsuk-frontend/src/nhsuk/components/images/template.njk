@@ -15,10 +15,15 @@
 
 <figure class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
   {{- nhsukAttributes(params.attributes) }}>
+{% if caller %}
+  {{- caller() }}
+{% elif params.html %}
+  {{ params.html | safe | trim | indent(2) }}
+{% elif params.src %}
   <img class="nhsuk-image__img"
     {{- nhsukAttributes({
       src: params.src,
-      alt: params.alt,
+      alt: params.alt | default(""),
       sizes: {
         value: params.sizes,
         optional: true
@@ -28,9 +33,14 @@
         optional: true
       }
     }) }}>
+{% endif %}
 {% if caption %}
   <figcaption class="nhsuk-image__caption {%- if caption.classes %} {{ caption.classes }}{% endif %}">
-    {{ caption.html | safe | trim | indent(4) if caption.html else caption.text }}
+  {% if caption.html %}
+    {{ caption.html | safe | trim | indent(4) }}
+  {% elif caption.text %}
+    {{ caption.text | trim | indent(4) }}
+  {% endif %}
   </figcaption>
 {% endif %}
 </figure>

@@ -50,7 +50,7 @@
       {% if navigation.html %}
         {{ navigation.html | safe | trim | indent(8) }}
       {% elif navigation.text %}
-        <p class="nhsuk-body-s">{{ navigation.text }}</p>
+        <p class="nhsuk-body-s">{{ navigation.text | trim | indent(8) }}</p>
       {% endif %}
       {% if navigation.items %}
         {{ _footerList(navigation.items) | trim | indent(8) }}
@@ -66,16 +66,18 @@
       <h2 class="nhsuk-u-visually-hidden">{{ params.meta.visuallyHiddenTitle | default("Support links") }}</h2>
       {{ _footerList(params.meta.items) | trim | indent(6) }}
     {% endif %}
-    {% if caller or params.meta.html %}
-      {{ caller() if caller else params.meta.html | safe | trim | indent(6) }}
+    {% if caller %}
+      {{- caller() }}
+    {% elif params.meta.html %}
+      {{ params.meta.html | safe | trim | indent(6) }}
     {% elif params.meta.text %}
-      <p class="nhsuk-body-s">{{ params.meta.text }}</p>
+      <p class="nhsuk-body-s">{{ params.meta.text | trim | indent(6) }}</p>
     {% endif %}
 {% endif %}
     {% if params.copyright.html %}
       {{ params.copyright.html | safe | trim | indent(6) }}
     {% elif params.copyright.text or params.copyright.text not in ["", null, false] %}
-      <p class="nhsuk-body-s">{{ params.copyright.text | default("© NHS England") }}</p>
+      <p class="nhsuk-body-s">{{ (params.copyright.text | default("© NHS England")) | indent(6) }}</p>
     {% endif %}
     </div>
   </div>

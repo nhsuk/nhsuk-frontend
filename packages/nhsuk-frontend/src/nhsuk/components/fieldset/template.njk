@@ -27,9 +27,9 @@
 
   {{- nhsukAttributes(params.attributes) }}>
   {{ legend(params.legend) | trim | indent(2) }}
-{% if caller %} {#- if statement allows usage of `call` to be optional -#}
-  {{ caller() }}
+{% if caller %}
+  {{- caller() }}
 {% elif params.html %}
-  {{ params.html | safe }}
+  {{ params.html | safe | trim }}
 {% endif %}
 </fieldset>

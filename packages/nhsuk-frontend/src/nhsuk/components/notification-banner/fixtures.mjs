@@ -12,12 +12,12 @@ const fixtures = {
     },
     screenshot: true
   },
-  'paragraph as html heading': {
+  'paragraph with heading class': {
     context: {
       html: '<p class="nhsuk-notification-banner__heading">You have 9 days to send a response.</p>'
     }
   },
-  'with text as html': {
+  'with HTML': {
     context: {
       html: outdent`
         <h3 class="nhsuk-notification-banner__heading">
@@ -29,6 +29,16 @@ const fixtures = {
       `
     }
   },
+  'with HTML via call block': {
+    callBlock: outdent`
+      <h3 class="nhsuk-notification-banner__heading">
+        The patient record was updated
+      </h3>
+      <p class="nhsuk-body">
+        Contact <a class="nhsuk-notification-banner__link" href="#">example@nhs.uk</a> if you think there's a problem.
+      </p>
+    `
+  },
   'with success variant': {
     context: {
       variant: 'success',
@@ -36,7 +46,7 @@ const fixtures = {
     },
     screenshot: true
   },
-  'success with custom html': {
+  'success with HTML': {
     context: {
       variant: 'success',
       html: outdent`
@@ -49,6 +59,20 @@ const fixtures = {
         </ul>
       `
     }
+  },
+  'success with HTML via call block': {
+    context: {
+      variant: 'success'
+    },
+    callBlock: outdent`
+      <h3 class="nhsuk-notification-banner__heading">
+        4 files uploaded
+      </h3>
+      <ul class="nhsuk-u-margin-0 nhsuk-list">
+        <li><a href="link-1" class="nhsuk-notification-banner__link">government-strategy.pdf</a></li>
+        <li><a href="link-2" class="nhsuk-notification-banner__link">government-strategy-v1.pdf</a></li>
+      </ul>
+    `
   },
   'with a list': {
     context: {

@@ -25,7 +25,7 @@
 {% if item.panel.html %}
   {{ item.panel.html | safe | trim | indent(2) }}
 {% elif item.panel.text %}
-  <p>{{ item.panel.text }}</p>
+  <p>{{ item.panel.text | trim | indent(2) }}</p>
 {% endif %}
 </div>
 {% endmacro -%}

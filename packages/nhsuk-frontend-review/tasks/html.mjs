@@ -9,7 +9,7 @@ import * as filters from 'nhsuk-frontend/lib/nunjucks/filters/index.mjs'
 import * as globals from 'nhsuk-frontend/lib/nunjucks/globals/index.mjs'
 import PluginError from 'plugin-error'
 
-import validatorConfig from '../.htmlvalidate.js'
+import validatorConfig from '../.htmlvalidate.mjs'
 
 const { configure, renderTemplate } = nunjucks
 const { HEROKU_BRANCH = 'main' } = process.env

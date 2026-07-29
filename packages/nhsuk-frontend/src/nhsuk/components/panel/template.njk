@@ -29,7 +29,13 @@
   }) | trim | indent(2) }}
   {% if caller or params.html or params.text %}
   <div class="nhsuk-panel__body">
-    {{ caller() if caller else (params.html | safe | trim | indent(4) if params.html else params.text) }}
+  {% if caller %}
+    {{- caller() }}
+  {% elif params.html %}
+    {{ params.html | safe | trim | indent(4) }}
+  {% elif params.text %}
+    {{ params.text }}
+  {% endif %}
   </div>
   {% endif %}
 </div>

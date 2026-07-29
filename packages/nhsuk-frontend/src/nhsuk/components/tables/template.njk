@@ -285,15 +285,15 @@
 </table>
 {%- endset %}
 
-{%- if params.card or params.panel -%}
-  {% call card(params.card or {
+{%- if params.card or params.panel %}
+  {%- call card(params.card or {
     heading: params.heading,
     headingLevel: params.headingLevel | default(3),
     classes: params.panelClasses,
     variant: "feature"
-  }) -%}
+  }) %}
     {{ tableHtml | safe | trim | indent(4) }}
   {%- endcall %}
-{%- else -%}
-  {{ tableHtml | safe | trim }}
+{% else %}
+  {{- tableHtml | safe | trim }}
 {% endif %}

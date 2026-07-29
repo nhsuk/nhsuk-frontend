@@ -21,14 +21,22 @@
 {% for item in params.items %}
   {% if item.href %}
     <li class="nhsuk-breadcrumb__list-item">
-      <a class="nhsuk-breadcrumb__link" href="{{ item.href }}" {{- nhsukAttributes(item.attributes) }}>{{ item.text }}</a>
+      <a class="nhsuk-breadcrumb__link" href="{{ item.href }}" {{- nhsukAttributes(item.attributes) }}>
+      {% if item.html %}
+        {{ item.html | safe | trim | indent(8) }}
+      {% elif item.text %}
+        {{ item.text | trim | indent(8) }}
+      {% endif %}
+      </a>
     </li>
   {% endif %}
 {% endfor %}
 {% if params.href %}
-  <li class="nhsuk-breadcrumb__list-item">
-    <a class="nhsuk-breadcrumb__link" href="{{ params.href }}">{{ params.text }}</a>
-  </li>
+    <li class="nhsuk-breadcrumb__list-item">
+      <a class="nhsuk-breadcrumb__link" href="{{ params.href }}">
+        {{ params.text | trim | indent(8) }}
+      </a>
+    </li>
   {% set lastHref = params.href %}
   {% set lastText = params.text %}
 {% else %}
