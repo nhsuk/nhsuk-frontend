@@ -139,6 +139,7 @@ export class Table extends ConfigurableComponent {
         const $button = document.createElement('button')
 
         $button.setAttribute('type', 'button')
+        $button.classList.add('nhsuk-link')
         $button.innerHTML = $header.innerHTML
 
         $header.innerHTML = ''
