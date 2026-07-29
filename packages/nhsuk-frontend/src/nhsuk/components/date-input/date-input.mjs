@@ -50,15 +50,9 @@ export class DateInput extends Component {
   constructor($root) {
     super($root)
 
-    const $dayInput = this.$root.querySelector(
-      '[data-nhsuk-date-input-field="day"]'
-    )
-    const $monthInput = this.$root.querySelector(
-      '[data-nhsuk-date-input-field="month"]'
-    )
-    const $yearInput = this.$root.querySelector(
-      '[data-nhsuk-date-input-field="year"]'
-    )
+    const $dayInput = this.$root.querySelector('[data-purpose="day"]')
+    const $monthInput = this.$root.querySelector('[data-purpose="month"]')
+    const $yearInput = this.$root.querySelector('[data-purpose="year"]')
 
     if (
       !($dayInput instanceof HTMLInputElement) ||

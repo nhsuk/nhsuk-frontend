@@ -69,27 +69,32 @@
 {%- if item is sameas(dateInputDay) or (item.name and item.name in ["day", dateInputDay.name]) %}
   {% set itemName = item.name | default("day") %}
   {% set itemValue = item.value | default(dateInputDay.value) %}
+  {% set itemPurpose = "day" %}
 {% elif item is sameas(dateInputMonth) or (item.name and item.name in ["month", dateInputMonth.name]) %}
   {% set itemName = item.name | default("month") %}
   {% set itemValue = item.value | default(dateInputMonth.value) %}
+  {% set itemPurpose = "month" %}
 {% elif item is sameas(dateInputYear) or (item.name and item.name in ["year", dateInputYear.name]) %}
   {% set itemName = item.name | default("year") %}
   {% set itemValue = item.value | default(dateInputYear.value) %}
   {% set itemWidth = item.width | default(4) %}
+  {% set itemPurpose = "year" %}
 {% endif -%}
 
 {%- if item.classes %}
   {% set itemClasses = (itemClasses + " " + item.classes) | trim %}
 {% endif %}
 
-{%- set itemFieldType = "day" if (item is sameas(dateInputDay) or (item.name and item.name in ["day", dateInputDay.name]))
-  else "month" if (item is sameas(dateInputMonth) or (item.name and item.name in ["month", dateInputMonth.name]))
-  else "year" if (item is sameas(dateInputYear) or (item.name and item.name in ["year", dateInputYear.name])) -%}
+{%- set itemAttributesHtml %}
+  {{- nhsukAttributes({
+    "data-purpose": {
+      value: itemPurpose,
+      optional: true
+    }
+  }) -}}
 
-{%- set itemAttributes -%}
-  {%- if itemFieldType -%}{{- nhsukAttributes({"data-nhsuk-date-input-field": itemFieldType}) -}}{%- endif -%}
   {{- nhsukAttributes(item.attributes) -}}
-{%- endset -%}
+{% endset -%}
 
 <div class="nhsuk-date-input__item">
   {{ input({
@@ -117,7 +122,7 @@
     disabled: item.disabled | default(params.disabled),
     describedBy: item.describedBy,
     classes: ("nhsuk-date-input__input" ~ " " ~ itemClasses) | trim,
-    attributes: itemAttributes | safe
+    attributes: itemAttributesHtml | safe
   }) | trim | indent(2) }}
 </div>
 {%- endmacro -%}
