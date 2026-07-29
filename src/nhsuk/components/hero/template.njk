@@ -4,7 +4,6 @@
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-hero" -%}
 {%- set classNamesHeading = "nhsuk-hero__heading" -%}
-{%- set classNamesColumn = "nhsuk-grid-column" -%}
 
 {%- set image = {
   src: params.imageURL
@@ -52,45 +51,52 @@
   {{- nhsukAttributes(params.attributes) -}}
 {% endset -%}
 
-{% set innerHtml %}
+{%- set rows = ([params.content] if params.content is mapping else params.content) | default([]) %}
+
+{%- if caller or params.heading or params.text or params.html %}
+  {% set rows = (rows.unshift({
+    heading: params.heading,
+    headingSize: params.headingSize,
+    headingLevel: params.headingLevel,
+    headingClasses: params.headingClasses,
+    text: params.text,
+    html: caller() if caller else params.html,
+    width: "two-thirds"
+  }), rows) %}
+{% endif %}
+
+<section {{- attributesHtml | safe }}>
+{% if rows | length %}
   <div class="nhsuk-width-container {%- if params.containerClasses %} {{ params.containerClasses }}{% endif %}">
+  {% for row in rows | batch(2) %}
     <div class="nhsuk-grid-row">
-      <div class="{{ classNamesColumn }}">
-        <div class="nhsuk-hero__content">
-        {% if params.heading %}
+    {% for content in row %}
+      <div class="nhsuk-grid-column-{{ content.width | default("one-half", true) }}">
+        <div class="{{ "nhsuk-hero__content" ~ (" " ~ content.classes if content.classes) }}">
+        {% if content.heading %}
           {{ heading({
-            text: params.heading,
-            level: params.headingLevel,
-            size: params.headingSize | default("xl"),
-            classes: classNamesHeading ~ (" " ~ params.headingClasses if params.headingClasses)
+            text: content.heading,
+            level: content.headingLevel,
+            size: content.headingSize | default("xl"),
+            classes: classNamesHeading ~ (" " ~ content.headingClasses if content.headingClasses)
           }) | trim | indent(10) }}
         {% endif %}
-        {% if caller %}
-          {{- caller() }}
-        {% elif params.html %}
-          {{ params.html | safe | trim | indent(10) }}
-        {% elif params.text %}
-          <p class="nhsuk-body-l nhsuk-u-margin-bottom-0">
-            {{- params.text | trim | indent(10) -}}
-          </p>
-        {% endif %}
-        {% if image.src %}
+        {% if image.src and rows | length == 1 %}
           <span class="nhsuk-hero__arrow" aria-hidden="true"></span>
+        {% endif %}
+        {% if content.html %}
+          {{ content.html | safe | trim | indent(10) }}
+        {% elif content.text %}
+          <p class="nhsuk-body-l">
+            {{- content.text | trim | indent(10) -}}
+          </p>
         {% endif %}
         </div>
       </div>
-      {% if params.secondaryHtml %}
-        <div class="nhsuk-grid-column-one-half">
-          {{ params.secondaryHtml | safe | trim | indent(10) }}
-        </div>
-      {% endif %}
+    {% endfor %}
     </div>
+  {% endfor %}
   </div>
-{% endset -%}
-
-<section {{- attributesHtml | safe }}>
-{% if caller or params.heading or params.text or params.html %}
-  {{ innerHtml | safe | trim }}
 {% endif %}
 {% if image.src %}
   <div class="nhsuk-hero__overlay"></div>
