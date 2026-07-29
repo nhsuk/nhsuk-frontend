@@ -4,82 +4,82 @@
  * @satisfies {{ [example: string]: MacroExample }}
  */
 const fixtures = {
-  'default': {
+  "default": {
     context: {
-      text: 'What is your address?',
-      size: 'l',
+      text: "What is your address?",
+      size: "l",
       isPageHeading: true
     },
     screenshot: true
   },
-  'text': {
+  "text": {
     context: {
-      text: 'What is your address?',
-      size: 'l',
+      text: "What is your address?",
+      size: "l",
       isPageHeading: true
     },
     variants: [
       {
-        description: 'with size S',
+        description: "with size S",
         context: {
-          size: 's'
+          size: "s"
         }
       },
       {
-        description: 'with size M',
+        description: "with size M",
         context: {
-          size: 'm'
+          size: "m"
         }
       },
       {
-        description: 'with size L',
+        description: "with size L",
         context: {
-          size: 'l'
+          size: "l"
         }
       },
       {
-        description: 'with size XL',
+        description: "with size XL",
         context: {
-          size: 'xl'
+          size: "xl"
         }
       }
     ],
     screenshot: {
-      viewports: ['tablet']
+      viewports: ["tablet"]
     }
   },
-  'with size class': {
+  "with size class": {
     context: {
-      text: 'What is your address?',
-      classes: 'nhsuk-fieldset__legend--l',
+      text: "What is your address?",
+      classes: "nhsuk-fieldset__legend--l",
       isPageHeading: true
     }
   },
-  'with size class overriding size param': {
+  "with size class overriding size param": {
     context: {
-      text: 'What is your address?',
-      classes: 'nhsuk-fieldset__legend--l',
-      size: 's',
+      text: "What is your address?",
+      classes: "nhsuk-fieldset__legend--l",
+      size: "s",
       isPageHeading: true
     }
   },
-  'with HTML': {
+  "with HTML": {
     context: {
-      text: 'What is your address?',
-      size: 'l',
+      text: "What is your address?",
+      size: "l",
       isPageHeading: true
     }
   },
-  'with HTML via call block': {
+  "with HTML via call block": {
     context: {
-      size: 'l',
+      size: "l",
       isPageHeading: true
     },
-    callBlock: 'What is your address?'
+    callBlock: "What is your address?"
   },
-  'without page heading': {
+  "without page heading": {
     context: {
-      text: 'What is your address?'
+      text: "What is your address?"
     }
   }
 }

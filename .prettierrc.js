@@ -29,6 +29,12 @@ module.exports = {
         printWidth: 120,
         singleQuote: false
       }
+    },
+    {
+      files: 'fixtures.mjs',
+      options: {
+        singleQuote: false
+      }
     }
   ]
 }

@@ -1,8 +1,8 @@
-import { outdent } from 'outdent'
+import { outdent } from "outdent"
 
-import { components } from '#lib'
+import { components } from "#lib"
 
-import { examples as inputExamples } from '../input/fixtures.mjs'
+import { examples as inputExamples } from "../input/fixtures.mjs"
 
 /**
  * Nunjucks macro option variants
@@ -14,12 +14,12 @@ export const variants = [
     // Regular variant
   },
   {
-    description: 'small',
+    description: "small",
     context: {
       small: true,
       fieldset: {
         legend: {
-          size: 'm'
+          size: "m"
         }
       }
     }
@@ -32,366 +32,366 @@ export const variants = [
  * @satisfies {{ [example: string]: MacroExample }}
  */
 const fixtures = {
-  'default': {
+  "default": {
     context: {
       fieldset: {
         legend: {
-          text: 'How do you want to be contacted about this?',
-          size: 'l',
+          text: "How do you want to be contacted about this?",
+          size: "l",
           isPageHeading: true
         }
       },
       hint: {
-        text: 'Select all options that are relevant to you'
+        text: "Select all options that are relevant to you"
       },
-      name: 'example',
+      name: "example",
       items: [
         {
-          value: 'email',
-          text: 'Email'
+          value: "email",
+          text: "Email"
         },
         {
-          value: 'phone',
-          text: 'Phone'
+          value: "phone",
+          text: "Phone"
         },
         {
-          value: 'text',
-          text: 'Text message'
+          value: "text",
+          text: "Text message"
         }
       ]
     },
     variants,
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
+      viewports: ["mobile", "tablet", "desktop"]
     }
   },
-  'disabled': {
+  "disabled": {
     context: {
       fieldset: {
         legend: {
-          text: 'How do you want to be contacted about this?',
-          size: 'l',
+          text: "How do you want to be contacted about this?",
+          size: "l",
           isPageHeading: true
         }
       },
       hint: {
-        text: 'Select all options that are relevant to you'
+        text: "Select all options that are relevant to you"
       },
-      idPrefix: 'disabled',
-      name: 'example',
+      idPrefix: "disabled",
+      name: "example",
       disabled: true,
       items: [
         {
-          value: 'email',
-          text: 'Email'
+          value: "email",
+          text: "Email"
         },
         {
-          value: 'phone',
-          text: 'Phone'
+          value: "phone",
+          text: "Phone"
         },
         {
-          value: 'text',
-          text: 'Text message'
+          value: "text",
+          text: "Text message"
         }
       ]
     },
     variants,
     screenshot: true
   },
-  'disabled input': {
+  "disabled input": {
     context: {
       fieldset: {
         legend: {
-          text: 'How do you want to be contacted about this?',
-          size: 'l',
+          text: "How do you want to be contacted about this?",
+          size: "l",
           isPageHeading: true
         }
       },
       hint: {
-        text: 'Select all options that are relevant to you'
+        text: "Select all options that are relevant to you"
       },
-      idPrefix: 'disabled-input',
-      name: 'example',
+      idPrefix: "disabled-input",
+      name: "example",
       items: [
         {
-          value: 'email',
-          text: 'Email'
+          value: "email",
+          text: "Email"
         },
         {
-          value: 'phone',
-          text: 'Phone'
+          value: "phone",
+          text: "Phone"
         },
         {
-          value: 'text',
-          text: 'Text message',
+          value: "text",
+          text: "Text message",
           disabled: true
         }
       ]
     },
     variants
   },
-  'disabled with enabled input': {
+  "disabled with enabled input": {
     context: {
       fieldset: {
         legend: {
-          text: 'How do you want to be contacted about this?',
-          size: 'l',
+          text: "How do you want to be contacted about this?",
+          size: "l",
           isPageHeading: true
         }
       },
       hint: {
-        text: 'Select all options that are relevant to you'
+        text: "Select all options that are relevant to you"
       },
-      idPrefix: 'disabled-enabled-input',
-      name: 'example',
+      idPrefix: "disabled-enabled-input",
+      name: "example",
       disabled: true,
       items: [
         {
-          value: 'email',
-          text: 'Email'
+          value: "email",
+          text: "Email"
         },
         {
-          value: 'phone',
-          text: 'Phone'
+          value: "phone",
+          text: "Phone"
         },
         {
-          value: 'text',
-          text: 'Text message',
+          value: "text",
+          text: "Text message",
           disabled: false
         }
       ]
     },
     variants
   },
-  'with hint': {
+  "with hint": {
     context: {
       fieldset: {
         legend: {
-          text: 'What medical conditions do you have?',
-          size: 'l',
+          text: "What medical conditions do you have?",
+          size: "l",
           isPageHeading: true
         }
       },
       hint: {
-        text: 'Select 1 or more'
+        text: "Select 1 or more"
       },
-      idPrefix: 'with-hint',
-      name: 'example',
+      idPrefix: "with-hint",
+      name: "example",
       items: [
         {
-          value: 'alzheimers',
+          value: "alzheimers",
           text: "Alzheimer's disease or dementia"
         },
         {
-          value: 'asthma',
-          text: 'Asthma'
+          value: "asthma",
+          text: "Asthma"
         },
         {
-          value: 'cancer',
-          text: 'Cancer'
+          value: "cancer",
+          text: "Cancer"
         },
         {
-          value: 'diabetes',
-          text: 'Diabetes'
+          value: "diabetes",
+          text: "Diabetes"
         }
       ]
     },
     variants
   },
-  'inline': {
+  "inline": {
     context: {
       fieldset: {
         legend: {
-          text: 'Which nipple has changed?',
-          size: 'l',
+          text: "Which nipple has changed?",
+          size: "l",
           isPageHeading: true
         }
       },
-      idPrefix: 'inline',
-      name: 'example',
+      idPrefix: "inline",
+      name: "example",
       inline: true,
       items: [
         {
-          value: 'right',
-          text: 'Right nipple'
+          value: "right",
+          text: "Right nipple"
         },
         {
-          value: 'left',
-          text: 'Left nipple'
+          value: "left",
+          text: "Left nipple"
         }
       ]
     },
     variants,
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
+      viewports: ["mobile", "tablet", "desktop"]
     }
   },
-  'with pre-checked values': {
+  "with pre-checked values": {
     context: {
       fieldset: {
         legend: {
-          text: 'How do you want to be contacted about this?',
-          size: 'l',
+          text: "How do you want to be contacted about this?",
+          size: "l",
           isPageHeading: true
         }
       },
       hint: {
-        text: 'Select all options that are relevant to you'
+        text: "Select all options that are relevant to you"
       },
-      idPrefix: 'conditional',
-      name: 'contact',
-      values: ['email', 'text'],
+      idPrefix: "conditional",
+      name: "contact",
+      values: ["email", "text"],
       items: getItems()
     },
     variants
   },
-  'with hints on items': {
+  "with hints on items": {
     context: {
       fieldset: {
         legend: {
-          text: 'What medical conditions do you have?',
-          size: 'l',
+          text: "What medical conditions do you have?",
+          size: "l",
           isPageHeading: true
         }
       },
       hint: {
-        text: 'Select 1 or more'
+        text: "Select 1 or more"
       },
-      idPrefix: 'with-hint-item',
-      name: 'example',
+      idPrefix: "with-hint-item",
+      name: "example",
       items: [
         {
-          value: 'alzheimers',
+          value: "alzheimers",
           text: "Alzheimer's disease or dementia"
         },
         {
-          value: 'asthma',
-          text: 'Asthma'
+          value: "asthma",
+          text: "Asthma"
         },
         {
-          value: 'cancer',
-          text: 'Cancer'
+          value: "cancer",
+          text: "Cancer"
         },
         {
-          value: 'diabetes',
-          text: 'Diabetes',
+          value: "diabetes",
+          text: "Diabetes",
           hint: {
-            text: 'including type 1, type 2, and gestational diabetes'
+            text: "including type 1, type 2, and gestational diabetes"
           }
         }
       ]
     },
     variants,
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
+      viewports: ["mobile", "tablet", "desktop"]
     }
   },
-  'without fieldset': {
+  "without fieldset": {
     context: {
       fieldset: null,
-      idPrefix: 'without-fieldset',
-      name: 'colours',
+      idPrefix: "without-fieldset",
+      name: "colours",
       items: [
         {
-          value: 'red',
-          text: 'Red'
+          value: "red",
+          text: "Red"
         },
         {
-          value: 'green',
-          text: 'Green'
+          value: "green",
+          text: "Green"
         },
         {
-          value: 'blue',
-          text: 'Blue'
+          value: "blue",
+          text: "Blue"
         }
       ]
     },
     variants
   },
-  'with error message': {
+  "with error message": {
     context: {
       fieldset: {
         legend: {
-          text: 'How do you want to be contacted about this?',
-          size: 'l',
+          text: "How do you want to be contacted about this?",
+          size: "l",
           isPageHeading: true
         }
       },
       errorMessage: {
-        text: 'Select how you want to be contacted'
+        text: "Select how you want to be contacted"
       },
-      idPrefix: 'with-error-message',
-      name: 'example',
+      idPrefix: "with-error-message",
+      name: "example",
       items: [
         {
-          value: 'email',
-          text: 'Email'
+          value: "email",
+          text: "Email"
         },
         {
-          value: 'phone',
-          text: 'Phone'
+          value: "phone",
+          text: "Phone"
         },
         {
-          value: 'text message',
-          text: 'Text message'
+          value: "text message",
+          text: "Text message"
         }
       ]
     },
     variants,
     screenshot: {
-      states: ['focus'],
-      selector: '#with-error-message',
-      viewports: ['mobile', 'tablet', 'desktop']
+      states: ["focus"],
+      selector: "#with-error-message",
+      viewports: ["mobile", "tablet", "desktop"]
     }
   },
-  'with error message and hint': {
+  "with error message and hint": {
     context: {
       fieldset: {
         legend: {
-          text: 'How do you want to be contacted about this?',
-          size: 'l',
+          text: "How do you want to be contacted about this?",
+          size: "l",
           isPageHeading: true
         }
       },
       hint: {
-        text: 'Select all options that are relevant to you'
+        text: "Select all options that are relevant to you"
       },
       errorMessage: {
-        text: 'Select how you want to be contacted'
+        text: "Select how you want to be contacted"
       },
-      idPrefix: 'with-hint-error',
-      name: 'example',
+      idPrefix: "with-hint-error",
+      name: "example",
       items: [
         {
-          value: 'email',
-          text: 'Email'
+          value: "email",
+          text: "Email"
         },
         {
-          value: 'phone',
-          text: 'Phone'
+          value: "phone",
+          text: "Phone"
         },
         {
-          value: 'text message',
-          text: 'Text message'
+          value: "text message",
+          text: "Text message"
         }
       ]
     },
     variants
   },
-  'with long text': {
+  "with long text": {
     context: {
       fieldset: {
         legend: {
-          text: 'Venenatis Condimentum',
-          size: 'l',
+          text: "Venenatis Condimentum",
+          size: "l",
           isPageHeading: true
         }
       },
-      idPrefix: 'with-long-text',
-      name: 'example',
+      idPrefix: "with-long-text",
+      name: "example",
       items: [
         {
-          value: 'nullam',
+          value: "nullam",
           text: outdent`
             Nullam id dolor id nibh ultricies vehicula ut id elit. Aenean eu leo
             quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
@@ -400,7 +400,7 @@ const fixtures = {
           `
         },
         {
-          value: 'aenean',
+          value: "aenean",
           text: outdent`
             Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis
             vestibulum. Donec sed odio dui. Duis mollis, est non commodo luctus,
@@ -412,7 +412,7 @@ const fixtures = {
           `
         },
         {
-          value: 'fusce',
+          value: "fusce",
           text: outdent`
             Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum
             nibh, ut fermentum massa justo sit amet risus. Etiam porta sem
@@ -426,139 +426,139 @@ const fixtures = {
     },
     variants
   },
-  'legend': {
+  "legend": {
     context: {
       fieldset: {
         legend: {
-          text: 'How do you want to be contacted about this?',
-          size: 'l'
+          text: "How do you want to be contacted about this?",
+          size: "l"
         }
       },
       hint: {
-        text: 'Select all options that are relevant to you'
+        text: "Select all options that are relevant to you"
       },
-      idPrefix: 'custom-size',
-      name: 'example',
+      idPrefix: "custom-size",
+      name: "example",
       items: [
         {
-          value: 'email',
-          text: 'Email'
+          value: "email",
+          text: "Email"
         },
         {
-          value: 'phone',
-          text: 'Phone'
+          value: "phone",
+          text: "Phone"
         },
         {
-          value: 'text message',
-          text: 'Text message'
+          value: "text message",
+          text: "Text message"
         }
       ]
     },
     variants: [
       {
-        description: 'with size S',
+        description: "with size S",
         context: {
           fieldset: {
             legend: {
-              size: 's'
+              size: "s"
             }
           }
         }
       },
       {
-        description: 'with size M',
+        description: "with size M",
         context: {
           fieldset: {
             legend: {
-              size: 'm'
+              size: "m"
             }
           }
         }
       },
       {
-        description: 'with size L',
+        description: "with size L",
         context: {
           fieldset: {
             legend: {
-              size: 'l'
+              size: "l"
             }
           }
         }
       },
       {
-        description: 'with size XL',
+        description: "with size XL",
         context: {
           fieldset: {
             legend: {
-              size: 'xl'
+              size: "xl"
             }
           }
         }
       }
     ]
   },
-  'without page heading': {
+  "without page heading": {
     context: {
       fieldset: {
         legend: {
-          text: 'How do you want to be contacted about this?',
+          text: "How do you want to be contacted about this?",
           isPageHeading: false
         }
       },
       hint: {
-        text: 'Select all options that are relevant to you'
+        text: "Select all options that are relevant to you"
       },
-      idPrefix: 'without-heading',
-      name: 'example',
+      idPrefix: "without-heading",
+      name: "example",
       items: [
         {
-          value: 'email',
-          text: 'Email'
+          value: "email",
+          text: "Email"
         },
         {
-          value: 'phone',
-          text: 'Phone'
+          value: "phone",
+          text: "Phone"
         },
         {
-          value: 'text message',
-          text: 'Text message'
+          value: "text message",
+          text: "Text message"
         }
       ]
     },
     variants
   },
-  'with conditional content': {
+  "with conditional content": {
     context: {
       fieldset: {
         legend: {
-          text: 'How do you want to be contacted about this?',
-          size: 'l',
+          text: "How do you want to be contacted about this?",
+          size: "l",
           isPageHeading: true
         }
       },
       hint: {
-        text: 'Select all options that are relevant to you'
+        text: "Select all options that are relevant to you"
       },
-      idPrefix: 'conditional',
-      name: 'contact',
+      idPrefix: "conditional",
+      name: "contact",
       items: getItems()
     },
     variants
   },
-  'with conditional content, special characters': {
+  "with conditional content, special characters": {
     context: {
       fieldset: {
         legend: {
-          text: 'How do you want to be contacted about this?',
-          size: 'l',
+          text: "How do you want to be contacted about this?",
+          size: "l",
           isPageHeading: true
         }
       },
       hint: {
-        text: 'Select all options that are relevant to you'
+        text: "Select all options that are relevant to you"
       },
-      idPrefix: 'user.profile[contact-prefs]',
-      name: 'contact',
+      idPrefix: "user.profile[contact-prefs]",
+      name: "contact",
       items: getItems()
     },
     options: {
@@ -566,107 +566,107 @@ const fixtures = {
     },
     variants
   },
-  'with conditional content, error message': {
+  "with conditional content, error message": {
     context: {
       fieldset: {
         legend: {
-          text: 'How do you want to be contacted about this?',
-          size: 'l',
+          text: "How do you want to be contacted about this?",
+          size: "l",
           isPageHeading: true
         }
       },
       hint: {
-        text: 'Select all options that are relevant to you'
+        text: "Select all options that are relevant to you"
       },
       errorMessage: {
-        text: 'Select how you like to be contacted'
+        text: "Select how you like to be contacted"
       },
-      idPrefix: 'conditional',
-      name: 'contact',
+      idPrefix: "conditional",
+      name: "contact",
       items: getItems()
     },
     variants
   },
-  'with conditional content, error message (nested)': {
+  "with conditional content, error message (nested)": {
     context: {
       fieldset: {
         legend: {
-          text: 'How do you want to be contacted about this?',
-          size: 'l',
+          text: "How do you want to be contacted about this?",
+          size: "l",
           isPageHeading: true
         }
       },
       hint: {
-        text: 'Select all options that are relevant to you'
+        text: "Select all options that are relevant to you"
       },
-      idPrefix: 'conditional',
-      name: 'example',
-      values: ['phone'],
+      idPrefix: "conditional",
+      name: "example",
+      values: ["phone"],
       items: getItems({ invalid: true })
     },
     variants,
     screenshot: {
-      states: ['focus'],
-      selector: '#conditional-2',
-      viewports: ['mobile', 'tablet', 'desktop']
+      states: ["focus"],
+      selector: "#conditional-2",
+      viewports: ["mobile", "tablet", "desktop"]
     }
   },
   'with "all" option': {
     context: {
       fieldset: {
         legend: {
-          text: 'Which vaccines would you like to include?',
-          size: 'l',
+          text: "Which vaccines would you like to include?",
+          size: "l",
           isPageHeading: true
         }
       },
-      idPrefix: 'all',
-      name: 'example',
+      idPrefix: "all",
+      name: "example",
       items: [
         {
-          value: 'all',
-          text: 'All 9 vaccines',
-          behaviour: 'inclusive'
+          value: "all",
+          text: "All 9 vaccines",
+          behaviour: "inclusive"
         },
         {
-          divider: 'or',
-          behaviour: 'inclusive'
+          divider: "or",
+          behaviour: "inclusive"
         },
         {
-          value: '4in1',
-          text: '4-in-1 pre-school booster'
+          value: "4in1",
+          text: "4-in-1 pre-school booster"
         },
         {
-          value: '6in1',
-          text: '6-in-1'
+          value: "6in1",
+          text: "6-in-1"
         },
         {
-          value: 'hpv',
-          text: 'HPV'
+          value: "hpv",
+          text: "HPV"
         },
         {
-          value: 'menb',
-          text: 'MenB'
+          value: "menb",
+          text: "MenB"
         },
         {
-          value: 'menacwy',
-          text: 'MenACWY'
+          value: "menacwy",
+          text: "MenACWY"
         },
         {
-          value: 'mmrv',
-          text: 'MMRV'
+          value: "mmrv",
+          text: "MMRV"
         },
         {
-          value: 'rotavirus',
-          text: 'Rotavirus'
+          value: "rotavirus",
+          text: "Rotavirus"
         },
         {
-          value: 'pneumococcal',
-          text: 'Pneumococcal'
+          value: "pneumococcal",
+          text: "Pneumococcal"
         },
         {
-          value: 'tdipv',
-          text: 'Td/IPV'
+          value: "tdipv",
+          text: "Td/IPV"
         }
       ]
     },
@@ -676,68 +676,68 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: 'Which vaccines would you like to include?',
-          size: 'l',
+          text: "Which vaccines would you like to include?",
+          size: "l",
           isPageHeading: true
         }
       },
-      idPrefix: 'all',
-      name: 'example',
+      idPrefix: "all",
+      name: "example",
       items: [
         {
-          value: 'all',
-          text: 'All 9 vaccines',
-          behaviour: 'inclusive',
-          behaviourGroup: 'vaccines-included'
+          value: "all",
+          text: "All 9 vaccines",
+          behaviour: "inclusive",
+          behaviourGroup: "vaccines-included"
         },
         {
-          divider: 'or',
-          behaviour: 'inclusive'
+          divider: "or",
+          behaviour: "inclusive"
         },
         {
-          value: '4in1',
-          text: '4-in-1 pre-school booster',
-          behaviourGroup: 'vaccines-included'
+          value: "4in1",
+          text: "4-in-1 pre-school booster",
+          behaviourGroup: "vaccines-included"
         },
         {
-          value: '6in1',
-          text: '6-in-1',
-          behaviourGroup: 'vaccines-included'
+          value: "6in1",
+          text: "6-in-1",
+          behaviourGroup: "vaccines-included"
         },
         {
-          value: 'hpv',
-          text: 'HPV',
-          behaviourGroup: 'vaccines-included'
+          value: "hpv",
+          text: "HPV",
+          behaviourGroup: "vaccines-included"
         },
         {
-          value: 'menb',
-          text: 'MenB',
-          behaviourGroup: 'vaccines-included'
+          value: "menb",
+          text: "MenB",
+          behaviourGroup: "vaccines-included"
         },
         {
-          value: 'menacwy',
-          text: 'MenACWY',
-          behaviourGroup: 'vaccines-included'
+          value: "menacwy",
+          text: "MenACWY",
+          behaviourGroup: "vaccines-included"
         },
         {
-          value: 'mmrv',
-          text: 'MMRV',
-          behaviourGroup: 'vaccines-included'
+          value: "mmrv",
+          text: "MMRV",
+          behaviourGroup: "vaccines-included"
         },
         {
-          value: 'rotavirus',
-          text: 'Rotavirus',
-          behaviourGroup: 'vaccines-included'
+          value: "rotavirus",
+          text: "Rotavirus",
+          behaviourGroup: "vaccines-included"
         },
         {
-          value: 'pneumococcal',
-          text: 'Pneumococcal',
-          behaviourGroup: 'vaccines-included'
+          value: "pneumococcal",
+          text: "Pneumococcal",
+          behaviourGroup: "vaccines-included"
         },
         {
-          value: 'tdipv',
-          text: 'Td/IPV',
-          behaviourGroup: 'vaccines-included'
+          value: "tdipv",
+          text: "Td/IPV",
+          behaviourGroup: "vaccines-included"
         }
       ]
     },
@@ -749,77 +749,77 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: 'Which vaccines would you like to include?',
-          size: 'l',
+          text: "Which vaccines would you like to include?",
+          size: "l",
           isPageHeading: true
         }
       },
-      idPrefix: 'all',
+      idPrefix: "all",
       items: [
         {
-          name: 'vaccines-all',
-          value: 'all',
-          text: 'All 9 vaccines',
-          behaviour: 'inclusive',
-          behaviourGroup: 'vaccines-included'
+          name: "vaccines-all",
+          value: "all",
+          text: "All 9 vaccines",
+          behaviour: "inclusive",
+          behaviourGroup: "vaccines-included"
         },
         {
-          divider: 'or',
-          behaviour: 'inclusive'
+          divider: "or",
+          behaviour: "inclusive"
         },
         {
-          name: 'vaccines-4in1',
-          value: '4in1',
-          text: '4-in-1 pre-school booster',
-          behaviourGroup: 'vaccines-included'
+          name: "vaccines-4in1",
+          value: "4in1",
+          text: "4-in-1 pre-school booster",
+          behaviourGroup: "vaccines-included"
         },
         {
-          name: 'vaccines-6in1',
-          value: '6in1',
-          text: '6-in-1',
-          behaviourGroup: 'vaccines-included'
+          name: "vaccines-6in1",
+          value: "6in1",
+          text: "6-in-1",
+          behaviourGroup: "vaccines-included"
         },
         {
-          name: 'vaccines-hpv',
-          value: 'hpv',
-          text: 'HPV',
-          behaviourGroup: 'vaccines-included'
+          name: "vaccines-hpv",
+          value: "hpv",
+          text: "HPV",
+          behaviourGroup: "vaccines-included"
         },
         {
-          name: 'vaccines-menb',
-          value: 'menb',
-          text: 'MenB',
-          behaviourGroup: 'vaccines-included'
+          name: "vaccines-menb",
+          value: "menb",
+          text: "MenB",
+          behaviourGroup: "vaccines-included"
         },
         {
-          name: 'vaccines-menacwy',
-          value: 'menacwy',
-          text: 'MenACWY',
-          behaviourGroup: 'vaccines-included'
+          name: "vaccines-menacwy",
+          value: "menacwy",
+          text: "MenACWY",
+          behaviourGroup: "vaccines-included"
         },
         {
-          name: 'vaccines-mmrv',
-          value: 'mmrv',
-          text: 'MMRV',
-          behaviourGroup: 'vaccines-included'
+          name: "vaccines-mmrv",
+          value: "mmrv",
+          text: "MMRV",
+          behaviourGroup: "vaccines-included"
         },
         {
-          name: 'vaccines-rotavirus',
-          value: 'rotavirus',
-          text: 'Rotavirus',
-          behaviourGroup: 'vaccines-included'
+          name: "vaccines-rotavirus",
+          value: "rotavirus",
+          text: "Rotavirus",
+          behaviourGroup: "vaccines-included"
         },
         {
-          name: 'vaccines-pneumococcal',
-          value: 'pneumococcal',
-          text: 'Pneumococcal',
-          behaviourGroup: 'vaccines-included'
+          name: "vaccines-pneumococcal",
+          value: "pneumococcal",
+          text: "Pneumococcal",
+          behaviourGroup: "vaccines-included"
         },
         {
-          name: 'vaccines-tdipv',
-          value: 'tdipv',
-          text: 'Td/IPV',
-          behaviourGroup: 'vaccines-included'
+          name: "vaccines-tdipv",
+          value: "tdipv",
+          text: "Td/IPV",
+          behaviourGroup: "vaccines-included"
         }
       ]
     },
@@ -831,33 +831,33 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: 'How do you want to be contacted about this?',
-          size: 'l',
+          text: "How do you want to be contacted about this?",
+          size: "l",
           isPageHeading: true
         }
       },
-      idPrefix: 'none',
-      name: 'example',
+      idPrefix: "none",
+      name: "example",
       items: [
         {
-          value: 'email',
-          text: 'Email'
+          value: "email",
+          text: "Email"
         },
         {
-          value: 'phone',
-          text: 'Phone'
+          value: "phone",
+          text: "Phone"
         },
         {
-          value: 'text',
-          text: 'Text message'
+          value: "text",
+          text: "Text message"
         },
         {
-          divider: 'or'
+          divider: "or"
         },
         {
-          value: 'none',
-          text: 'I do not want to be contacted',
-          behaviour: 'exclusive'
+          value: "none",
+          text: "I do not want to be contacted",
+          behaviour: "exclusive"
         }
       ]
     },
@@ -867,32 +867,32 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: 'How do you want to be contacted about this?',
-          size: 'l',
+          text: "How do you want to be contacted about this?",
+          size: "l",
           isPageHeading: true
         }
       },
-      idPrefix: 'none',
-      name: 'example',
+      idPrefix: "none",
+      name: "example",
       items: [
         {
-          value: 'email',
-          text: 'Email'
+          value: "email",
+          text: "Email"
         },
         {
-          value: 'phone',
-          text: 'Phone'
+          value: "phone",
+          text: "Phone"
         },
         {
-          value: 'text',
-          text: 'Text message'
+          value: "text",
+          text: "Text message"
         },
         {
-          divider: 'or'
+          divider: "or"
         },
         {
-          value: 'none',
-          text: 'I do not want to be contacted',
+          value: "none",
+          text: "I do not want to be contacted",
           exclusive: true
         }
       ]
@@ -902,21 +902,21 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: 'How do you want to be contacted about this?',
-          size: 'l',
+          text: "How do you want to be contacted about this?",
+          size: "l",
           isPageHeading: true
         }
       },
-      idPrefix: 'none',
-      name: 'example',
+      idPrefix: "none",
+      name: "example",
       items: getItems().concat([
         {
-          divider: 'or'
+          divider: "or"
         },
         {
-          value: 'none',
-          text: 'I do not want to be contacted',
-          behaviour: 'exclusive'
+          value: "none",
+          text: "I do not want to be contacted",
+          behaviour: "exclusive"
         }
       ])
     },
@@ -926,37 +926,37 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: 'How do you want to be contacted about this?',
-          size: 'l',
+          text: "How do you want to be contacted about this?",
+          size: "l",
           isPageHeading: true
         }
       },
-      idPrefix: 'none',
-      name: 'example',
+      idPrefix: "none",
+      name: "example",
       items: [
         {
-          value: 'email',
-          text: 'Email',
-          exclusiveGroup: 'communication-preferences'
+          value: "email",
+          text: "Email",
+          exclusiveGroup: "communication-preferences"
         },
         {
-          value: 'phone',
-          text: 'Phone',
-          exclusiveGroup: 'communication-preferences'
+          value: "phone",
+          text: "Phone",
+          exclusiveGroup: "communication-preferences"
         },
         {
-          value: 'text',
-          text: 'Text message',
-          exclusiveGroup: 'communication-preferences'
+          value: "text",
+          text: "Text message",
+          exclusiveGroup: "communication-preferences"
         },
         {
-          divider: 'or'
+          divider: "or"
         },
         {
-          value: 'none',
-          text: 'I do not want to be contacted',
-          behaviour: 'exclusive',
-          exclusiveGroup: 'communication-preferences'
+          value: "none",
+          text: "I do not want to be contacted",
+          behaviour: "exclusive",
+          exclusiveGroup: "communication-preferences"
         }
       ]
     },
@@ -964,48 +964,48 @@ const fixtures = {
       hidden: true
     },
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
+      viewports: ["mobile", "tablet", "desktop"]
     }
   },
   'with "none" option (named group, unique)': {
     context: {
       fieldset: {
         legend: {
-          text: 'How do you want to be contacted about this?',
-          size: 'l',
+          text: "How do you want to be contacted about this?",
+          size: "l",
           isPageHeading: true
         }
       },
-      idPrefix: 'none',
-      name: 'example',
+      idPrefix: "none",
+      name: "example",
       items: [
         {
-          name: 'preference-email',
-          value: 'yes',
-          text: 'Email',
-          exclusiveGroup: 'communication-preferences'
+          name: "preference-email",
+          value: "yes",
+          text: "Email",
+          exclusiveGroup: "communication-preferences"
         },
         {
-          name: 'preference-phone',
-          value: 'yes',
-          text: 'Phone',
-          exclusiveGroup: 'communication-preferences'
+          name: "preference-phone",
+          value: "yes",
+          text: "Phone",
+          exclusiveGroup: "communication-preferences"
         },
         {
-          name: 'preference-text',
-          value: 'yes',
-          text: 'Text message',
-          exclusiveGroup: 'communication-preferences'
+          name: "preference-text",
+          value: "yes",
+          text: "Text message",
+          exclusiveGroup: "communication-preferences"
         },
         {
-          divider: 'or'
+          divider: "or"
         },
         {
-          name: 'preference-none',
-          value: 'yes',
-          text: 'I do not want to be contacted',
-          behaviour: 'exclusive',
-          exclusiveGroup: 'communication-preferences'
+          name: "preference-none",
+          value: "yes",
+          text: "I do not want to be contacted",
+          behaviour: "exclusive",
+          exclusiveGroup: "communication-preferences"
         }
       ]
     },
@@ -1022,35 +1022,35 @@ const fixtures = {
  * @returns {object[]}
  */
 function getItems(options = {}) {
-  let input1 = inputExamples['example email address']
-  let input2 = inputExamples['example phone number']
-  let input3 = inputExamples['example mobile phone number']
+  let input1 = inputExamples["example email address"]
+  let input2 = inputExamples["example phone number"]
+  let input3 = inputExamples["example mobile phone number"]
 
   // Include error message example (optional)
   if (options.invalid) {
-    input2 = inputExamples['example phone number with error message']
+    input2 = inputExamples["example phone number with error message"]
   }
 
   return [
     {
-      value: 'email',
-      text: 'Email',
+      value: "email",
+      text: "Email",
       conditional: {
-        html: components.render('input', input1)
+        html: components.render("input", input1)
       }
     },
     {
-      value: 'phone',
-      text: 'Phone',
+      value: "phone",
+      text: "Phone",
       conditional: {
-        html: components.render('input', input2)
+        html: components.render("input", input2)
       }
     },
     {
-      value: 'text',
-      text: 'Text message',
+      value: "text",
+      text: "Text message",
       conditional: {
-        html: components.render('input', input3)
+        html: components.render("input", input3)
       }
     }
   ]

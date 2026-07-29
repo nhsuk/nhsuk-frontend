@@ -1,4 +1,4 @@
-import { outdent } from 'outdent'
+import { outdent } from "outdent"
 
 /**
  * Nunjucks macro option examples
@@ -6,29 +6,29 @@ import { outdent } from 'outdent'
  * @satisfies {{ [example: string]: MacroExample }}
  */
 const fixtures = {
-  'default': {
+  "default": {
     context: {
       meta: {
         items: [
           {
-            href: '#',
-            text: 'Accessibility statement'
+            href: "#",
+            text: "Accessibility statement"
           },
           {
-            href: '#',
-            text: 'Contact us'
+            href: "#",
+            text: "Contact us"
           },
           {
-            href: '#',
-            text: 'Cookies'
+            href: "#",
+            text: "Cookies"
           },
           {
-            href: '#',
-            text: 'Privacy policy'
+            href: "#",
+            text: "Privacy policy"
           },
           {
-            href: '#',
-            text: 'Terms and conditions'
+            href: "#",
+            text: "Terms and conditions"
           }
         ]
       }
@@ -37,38 +37,38 @@ const fixtures = {
       width: false
     },
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+      viewports: ["mobile", "tablet", "desktop", "large-desktop"]
     }
   },
-  'with copyright text only': {
+  "with copyright text only": {
     options: {
       width: false
     }
   },
-  'with custom copyright text': {
+  "with custom copyright text": {
     context: {
       copyright: {
-        text: '© East London NHS Foundation Trust'
+        text: "© East London NHS Foundation Trust"
       }
     },
     options: {
       width: false
     },
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+      viewports: ["mobile", "tablet", "desktop", "large-desktop"]
     }
   },
-  'with meta text': {
+  "with meta text": {
     context: {
       meta: {
-        text: 'NHS prototype kit v8.0.0'
+        text: "NHS prototype kit v8.0.0"
       }
     },
     options: {
       width: false
     }
   },
-  'with meta HTML': {
+  "with meta HTML": {
     context: {
       meta: {
         html: '<p class="nhsuk-body-s">NHS prototype kit v8.0.0</p>'
@@ -78,35 +78,35 @@ const fixtures = {
       width: false
     }
   },
-  'with meta HTML via call block': {
+  "with meta HTML via call block": {
     callBlock: '<p class="nhsuk-body-s">NHS prototype kit v8.0.0</p>',
     options: {
       width: false
     }
   },
-  'with meta links': {
+  "with meta links": {
     context: {
       meta: {
         items: [
           {
-            href: '#',
-            text: 'Accessibility statement'
+            href: "#",
+            text: "Accessibility statement"
           },
           {
-            href: '#',
-            text: 'Contact us'
+            href: "#",
+            text: "Contact us"
           },
           {
-            href: '#',
-            text: 'Cookies'
+            href: "#",
+            text: "Cookies"
           },
           {
-            href: '#',
-            text: 'Privacy policy'
+            href: "#",
+            text: "Privacy policy"
           },
           {
-            href: '#',
-            text: 'Terms and conditions'
+            href: "#",
+            text: "Terms and conditions"
           }
         ]
       }
@@ -115,36 +115,36 @@ const fixtures = {
       width: false
     },
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+      viewports: ["mobile", "tablet", "desktop", "large-desktop"]
     }
   },
-  'with meta links and text': {
+  "with meta links and text": {
     context: {
       copyright: {
-        text: '© Crown copyright'
+        text: "© Crown copyright"
       },
       meta: {
-        text: 'All content is available under the Open Government Licence v3.0, except where otherwise stated.',
+        text: "All content is available under the Open Government Licence v3.0, except where otherwise stated.",
         items: [
           {
-            href: '#',
-            text: 'Accessibility statement'
+            href: "#",
+            text: "Accessibility statement"
           },
           {
-            href: '#',
-            text: 'Contact us'
+            href: "#",
+            text: "Contact us"
           },
           {
-            href: '#',
-            text: 'Cookies'
+            href: "#",
+            text: "Cookies"
           },
           {
-            href: '#',
-            text: 'Privacy policy'
+            href: "#",
+            text: "Privacy policy"
           },
           {
-            href: '#',
-            text: 'Terms and conditions'
+            href: "#",
+            text: "Terms and conditions"
           }
         ]
       }
@@ -153,13 +153,13 @@ const fixtures = {
       width: false
     },
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+      viewports: ["mobile", "tablet", "desktop", "large-desktop"]
     }
   },
-  'with meta links and HTML': {
+  "with meta links and HTML": {
     context: {
       copyright: {
-        text: ''
+        text: ""
       },
       meta: {
         html: outdent`
@@ -168,24 +168,24 @@ const fixtures = {
         `,
         items: [
           {
-            href: '#',
-            text: 'Accessibility statement'
+            href: "#",
+            text: "Accessibility statement"
           },
           {
-            href: '#',
-            text: 'Contact us'
+            href: "#",
+            text: "Contact us"
           },
           {
-            href: '#',
-            text: 'Cookies'
+            href: "#",
+            text: "Cookies"
           },
           {
-            href: '#',
-            text: 'Privacy policy'
+            href: "#",
+            text: "Privacy policy"
           },
           {
-            href: '#',
-            text: 'Terms and conditions'
+            href: "#",
+            text: "Terms and conditions"
           }
         ]
       }
@@ -194,29 +194,29 @@ const fixtures = {
       width: false
     }
   },
-  'with single navigation group': {
+  "with single navigation group": {
     context: {
       navigation: {
         items: [
           {
-            href: '#',
-            text: 'Accessibility statement'
+            href: "#",
+            text: "Accessibility statement"
           },
           {
-            href: '#',
-            text: 'Contact us'
+            href: "#",
+            text: "Contact us"
           },
           {
-            href: '#',
-            text: 'Cookies'
+            href: "#",
+            text: "Cookies"
           },
           {
-            href: '#',
-            text: 'Privacy policy'
+            href: "#",
+            text: "Privacy policy"
           },
           {
-            href: '#',
-            text: 'Terms and conditions'
+            href: "#",
+            text: "Terms and conditions"
           }
         ]
       }
@@ -225,26 +225,26 @@ const fixtures = {
       width: false
     },
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+      viewports: ["mobile", "tablet", "desktop", "large-desktop"]
     }
   },
-  'with single navigation group (empty items)': {
+  "with single navigation group (empty items)": {
     context: {
       navigation: {
         items: [
           {
-            href: '#',
-            text: 'Accessibility statement'
+            href: "#",
+            text: "Accessibility statement"
           },
           false,
           false,
           {
-            href: '#',
-            text: 'Privacy policy'
+            href: "#",
+            text: "Privacy policy"
           },
           {
-            href: '#',
-            text: 'Terms and conditions'
+            href: "#",
+            text: "Terms and conditions"
           }
         ]
       }
@@ -253,113 +253,113 @@ const fixtures = {
       width: false
     }
   },
-  'with multiple navigation groups': {
+  "with multiple navigation groups": {
     context: {
       copyright: {
-        text: '© Crown copyright'
+        text: "© Crown copyright"
       },
       navigation: [
         {
           items: [
             {
-              href: '#',
-              text: 'Home'
+              href: "#",
+              text: "Home"
             },
             {
-              href: '#',
-              text: 'Health A to Z'
+              href: "#",
+              text: "Health A to Z"
             },
             {
-              href: '#',
-              text: 'NHS services'
+              href: "#",
+              text: "NHS services"
             },
             {
-              href: '#',
-              text: 'Live Well'
+              href: "#",
+              text: "Live Well"
             },
             {
-              href: '#',
-              text: 'Mental health'
+              href: "#",
+              text: "Mental health"
             },
             {
-              href: '#',
-              text: 'Care and support'
+              href: "#",
+              text: "Care and support"
             },
             {
-              href: '#',
-              text: 'Accessibility statement'
+              href: "#",
+              text: "Accessibility statement"
             },
             {
-              href: '#',
-              text: 'Pregnancy'
+              href: "#",
+              text: "Pregnancy"
             },
             {
-              href: '#',
-              text: 'COVID-19'
+              href: "#",
+              text: "COVID-19"
             }
           ]
         },
         {
           items: [
             {
-              href: '#',
-              text: 'NHS App'
+              href: "#",
+              text: "NHS App"
             },
             {
-              href: '#',
-              text: 'Find my NHS number'
+              href: "#",
+              text: "Find my NHS number"
             },
             {
-              href: '#',
-              text: 'View your GP health records'
+              href: "#",
+              text: "View your GP health records"
             },
             {
-              href: '#',
-              text: 'View your test results'
+              href: "#",
+              text: "View your test results"
             },
             {
-              href: '#',
-              text: 'About the NHS'
+              href: "#",
+              text: "About the NHS"
             },
             {
-              href: '#',
-              text: 'Healthcare abroad'
+              href: "#",
+              text: "Healthcare abroad"
             }
           ]
         },
         {
           items: [
             {
-              href: '#',
-              text: 'Other NHS websites'
+              href: "#",
+              text: "Other NHS websites"
             },
             {
-              href: '#',
-              text: 'Profile editor login'
+              href: "#",
+              text: "Profile editor login"
             }
           ]
         },
         {
           items: [
             {
-              href: '#',
-              text: 'About us'
+              href: "#",
+              text: "About us"
             },
             {
-              href: '#',
-              text: 'Give us feedback'
+              href: "#",
+              text: "Give us feedback"
             },
             {
-              href: '#',
-              text: 'Accessibility statement'
+              href: "#",
+              text: "Accessibility statement"
             },
             {
-              href: '#',
-              text: 'Our policies'
+              href: "#",
+              text: "Our policies"
             },
             {
-              href: '#',
-              text: 'Cookies'
+              href: "#",
+              text: "Cookies"
             }
           ]
         }
@@ -369,52 +369,52 @@ const fixtures = {
       width: false
     },
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+      viewports: ["mobile", "tablet", "desktop", "large-desktop"]
     }
   },
-  'with multiple navigation groups and custom HTML': {
+  "with multiple navigation groups and custom HTML": {
     context: {
       copyright: {
-        text: '© 2025 – Manchester University NHS Foundation Trust'
+        text: "© 2025 – Manchester University NHS Foundation Trust"
       },
       columns: 3,
       navigation: [
         {
-          width: 'one-quarter',
+          width: "one-quarter",
           items: [
             {
-              href: '#',
-              text: 'About us'
+              href: "#",
+              text: "About us"
             },
             {
-              href: '#',
-              text: 'Give us feedback'
+              href: "#",
+              text: "Give us feedback"
             },
             {
-              href: '#',
-              text: 'Accessibility statement'
+              href: "#",
+              text: "Accessibility statement"
             }
           ]
         },
         {
-          width: 'one-quarter',
+          width: "one-quarter",
           items: [
             {
-              href: '#',
-              text: 'Cookies'
+              href: "#",
+              text: "Cookies"
             },
             {
-              href: '#',
-              text: 'Privacy policy'
+              href: "#",
+              text: "Privacy policy"
             },
             {
-              href: '#',
-              text: 'Terms and conditions'
+              href: "#",
+              text: "Terms and conditions"
             }
           ]
         },
         {
-          width: 'one-half',
+          width: "one-half",
           html: outdent`
             <p class="nhsuk-body-s nhsuk-u-margin-bottom-6"><strong>Manchester
             University NHS Foundation Trust (MFT)</strong> was formed on 1st
@@ -424,7 +424,7 @@ const fixtures = {
           `
         },
         {
-          width: 'full',
+          width: "full",
           html: outdent`
             <p class="nhsuk-body-s">Cobbett House, Manchester University NHS
             Foundation Trust, Oxford Road, Manchester, M13 9WL</p>
@@ -436,57 +436,57 @@ const fixtures = {
       width: false
     }
   },
-  'with multiple titled navigation groups': {
+  "with multiple titled navigation groups": {
     context: {
       navigation: [
         {
-          title: 'Legal',
+          title: "Legal",
           items: [
             {
-              href: '#',
-              text: 'Looking after your data'
+              href: "#",
+              text: "Looking after your data"
             },
             {
-              href: '#',
-              text: 'Freedom of information'
+              href: "#",
+              text: "Freedom of information"
             },
             {
-              href: '#',
-              text: 'Modern Slavery and human trafficking statement'
+              href: "#",
+              text: "Modern Slavery and human trafficking statement"
             }
           ]
         },
         {
-          title: 'Get in touch',
+          title: "Get in touch",
           items: [
             {
-              href: '#',
-              text: 'Contact us'
+              href: "#",
+              text: "Contact us"
             },
             {
-              href: '#',
-              text: 'Press office'
+              href: "#",
+              text: "Press office"
             },
             {
-              href: '#',
-              text: 'Tell us what you think of our website'
+              href: "#",
+              text: "Tell us what you think of our website"
             },
             {
-              href: '#',
-              text: 'RSS feeds'
+              href: "#",
+              text: "RSS feeds"
             }
           ]
         },
         {
-          title: 'Follow us',
+          title: "Follow us",
           items: [
             {
-              href: '#',
-              text: 'LinkedIn'
+              href: "#",
+              text: "LinkedIn"
             },
             {
-              href: '#',
-              text: 'YouTube'
+              href: "#",
+              text: "YouTube"
             }
           ]
         }
@@ -496,88 +496,88 @@ const fixtures = {
       width: false
     },
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+      viewports: ["mobile", "tablet", "desktop", "large-desktop"]
     }
   },
-  'with meta and navigation': {
+  "with meta and navigation": {
     context: {
       copyright: {
-        text: '© Crown copyright'
+        text: "© Crown copyright"
       },
       navigation: [
         {
           items: [
             {
-              href: '#',
-              text: 'Home'
+              href: "#",
+              text: "Home"
             },
             {
-              href: '#',
-              text: 'Health A to Z'
+              href: "#",
+              text: "Health A to Z"
             },
             {
-              href: '#',
-              text: 'Live Well'
+              href: "#",
+              text: "Live Well"
             },
             {
-              href: '#',
-              text: 'Mental health'
+              href: "#",
+              text: "Mental health"
             },
             {
-              href: '#',
-              text: 'Care and support'
+              href: "#",
+              text: "Care and support"
             },
             {
-              href: '#',
-              text: 'Accessibility statement'
+              href: "#",
+              text: "Accessibility statement"
             },
             {
-              href: '#',
-              text: 'Pregnancy'
+              href: "#",
+              text: "Pregnancy"
             },
             {
-              href: '#',
-              text: 'NHS services'
+              href: "#",
+              text: "NHS services"
             },
             {
-              href: '#',
-              text: 'Coronavirus (COVID-19)'
+              href: "#",
+              text: "Coronavirus (COVID-19)"
             }
           ]
         },
         {
           items: [
             {
-              href: '#',
-              text: 'NHS App'
+              href: "#",
+              text: "NHS App"
             },
             {
-              href: '#',
-              text: 'Find my NHS number'
+              href: "#",
+              text: "Find my NHS number"
             },
             {
-              href: '#',
-              text: 'Your health records'
+              href: "#",
+              text: "Your health records"
             },
             {
-              href: '#',
-              text: 'About the NHS'
+              href: "#",
+              text: "About the NHS"
             },
             {
-              href: '#',
-              text: 'Healthcare abroad'
+              href: "#",
+              text: "Healthcare abroad"
             }
           ]
         },
         {
           items: [
             {
-              href: '#',
-              text: 'Other NHS websites'
+              href: "#",
+              text: "Other NHS websites"
             },
             {
-              href: '#',
-              text: 'Profile editor login'
+              href: "#",
+              text: "Profile editor login"
             }
           ]
         }
@@ -593,24 +593,24 @@ const fixtures = {
         `,
         items: [
           {
-            href: '#',
-            text: 'About us'
+            href: "#",
+            text: "About us"
           },
           {
-            href: '#',
-            text: 'Give us feedback'
+            href: "#",
+            text: "Give us feedback"
           },
           {
-            href: '#',
-            text: 'Accessibility statement'
+            href: "#",
+            text: "Accessibility statement"
           },
           {
-            href: '#',
-            text: 'Our policies'
+            href: "#",
+            text: "Our policies"
           },
           {
-            href: '#',
-            text: 'Cookies'
+            href: "#",
+            text: "Cookies"
           }
         ]
       }
@@ -619,7 +619,7 @@ const fixtures = {
       width: false
     },
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+      viewports: ["mobile", "tablet", "desktop", "large-desktop"]
     }
   }
 }

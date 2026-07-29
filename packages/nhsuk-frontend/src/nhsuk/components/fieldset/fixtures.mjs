@@ -1,8 +1,8 @@
-import { outdent } from 'outdent'
+import { outdent } from "outdent"
 
-import { components } from '#lib'
+import { components } from "#lib"
 
-import { examples as inputExamples } from '../input/fixtures.mjs'
+import { examples as inputExamples } from "../input/fixtures.mjs"
 
 /**
  * Nunjucks macro option examples
@@ -10,47 +10,47 @@ import { examples as inputExamples } from '../input/fixtures.mjs'
  * @satisfies {{ [example: string]: MacroExample }}
  */
 const fixtures = {
-  'default': {
+  "default": {
     context: {
       legend: {
-        text: 'What is your address?',
-        size: 'l',
+        text: "What is your address?",
+        size: "l",
         isPageHeading: true
       }
     },
     screenshot: true
   },
-  'with HTML': {
+  "with HTML": {
     context: {
       legend: {
-        text: 'What is your address?',
-        size: 'l',
+        text: "What is your address?",
+        size: "l",
         isPageHeading: true
       },
       html: outdent`
-        ${components.render('input', inputExamples['example address line 1'])}
-        ${components.render('input', inputExamples['example address line 2'])}
-        ${components.render('input', inputExamples['example address town or city'])}
-        ${components.render('input', inputExamples['example address postcode'])}
+        ${components.render("input", inputExamples["example address line 1"])}
+        ${components.render("input", inputExamples["example address line 2"])}
+        ${components.render("input", inputExamples["example address town or city"])}
+        ${components.render("input", inputExamples["example address postcode"])}
       `
     },
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
+      viewports: ["mobile", "tablet", "desktop"]
     }
   },
-  'with HTML via call block': {
+  "with HTML via call block": {
     context: {
       legend: {
-        text: 'What is your address?',
-        size: 'l',
+        text: "What is your address?",
+        size: "l",
         isPageHeading: true
       }
     },
     callBlock: outdent`
-      ${components.render('input', inputExamples['example address line 1'])}
-      ${components.render('input', inputExamples['example address line 2'])}
-      ${components.render('input', inputExamples['example address town or city'])}
-      ${components.render('input', inputExamples['example address postcode'])}
+      ${components.render("input", inputExamples["example address line 1"])}
+      ${components.render("input", inputExamples["example address line 2"])}
+      ${components.render("input", inputExamples["example address town or city"])}
+      ${components.render("input", inputExamples["example address postcode"])}
     `
   }
 }

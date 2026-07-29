@@ -1,4 +1,4 @@
-import { outdent } from 'outdent'
+import { outdent } from "outdent"
 
 /**
  * Nunjucks macro option examples
@@ -6,18 +6,18 @@ import { outdent } from 'outdent'
  * @satisfies {{ [example: string]: MacroExample }}
  */
 const fixtures = {
-  'default': {
+  "default": {
     context: {
-      text: 'The patient record was updated.'
+      text: "The patient record was updated."
     },
     screenshot: true
   },
-  'paragraph with heading class': {
+  "paragraph with heading class": {
     context: {
       html: '<p class="nhsuk-notification-banner__heading">You have 9 days to send a response.</p>'
     }
   },
-  'with HTML': {
+  "with HTML": {
     context: {
       html: outdent`
         <h3 class="nhsuk-notification-banner__heading">
@@ -29,7 +29,7 @@ const fixtures = {
       `
     }
   },
-  'with HTML via call block': {
+  "with HTML via call block": {
     callBlock: outdent`
       <h3 class="nhsuk-notification-banner__heading">
         The patient record was updated
@@ -39,16 +39,16 @@ const fixtures = {
       </p>
     `
   },
-  'with success variant': {
+  "with success variant": {
     context: {
-      variant: 'success',
-      text: 'Email sent to example@email.com'
+      variant: "success",
+      text: "Email sent to example@email.com"
     },
     screenshot: true
   },
-  'success with HTML': {
+  "success with HTML": {
     context: {
-      variant: 'success',
+      variant: "success",
       html: outdent`
         <h3 class="nhsuk-notification-banner__heading">
           4 files uploaded
@@ -60,9 +60,9 @@ const fixtures = {
       `
     }
   },
-  'success with HTML via call block': {
+  "success with HTML via call block": {
     context: {
-      variant: 'success'
+      variant: "success"
     },
     callBlock: outdent`
       <h3 class="nhsuk-notification-banner__heading">
@@ -74,7 +74,7 @@ const fixtures = {
       </ul>
     `
   },
-  'with a list': {
+  "with a list": {
     context: {
       html: outdent`
         <h3 class="nhsuk-notification-banner__heading">4 files uploaded</h3>
@@ -87,12 +87,12 @@ const fixtures = {
       `
     }
   },
-  'with long heading': {
+  "with long heading": {
     context: {
-      text: 'The patient record was withdrawn on 7 March 2014, before being sent in, sent back, queried, lost, found, subjected to public inquiry, lost again, and finally buried in soft peat for three months and recycled as firelighters.'
+      text: "The patient record was withdrawn on 7 March 2014, before being sent in, sent back, queried, lost, found, subjected to public inquiry, lost again, and finally buried in soft peat for three months and recycled as firelighters."
     }
   },
-  'with lots of content': {
+  "with lots of content": {
     context: {
       html: outdent`
         <h3 class="nhsuk-notification-banner__heading">
@@ -108,40 +108,40 @@ const fixtures = {
       `
     }
   },
-  'auto-focus disabled, with success variant': {
+  "auto-focus disabled, with success variant": {
     context: {
-      variant: 'success',
+      variant: "success",
       disableAutoFocus: true,
-      text: 'Email sent to example@email.com'
+      text: "Email sent to example@email.com"
     },
     options: {
       hidden: true
     }
   },
-  'auto-focus explicitly enabled, with success variant': {
+  "auto-focus explicitly enabled, with success variant": {
     context: {
-      variant: 'success',
+      variant: "success",
       disableAutoFocus: false,
-      text: 'Email sent to example@email.com'
+      text: "Email sent to example@email.com"
     },
     options: {
       hidden: true
     }
   },
-  'role=alert overridden to role=region, with success variant': {
+  "role=alert overridden to role=region, with success variant": {
     context: {
-      variant: 'success',
-      role: 'region',
-      text: 'Email sent to example@email.com'
+      variant: "success",
+      role: "region",
+      text: "Email sent to example@email.com"
     },
     options: {
       hidden: true
     }
   },
-  'custom tabindex': {
+  "custom tabindex": {
     context: {
-      variant: 'success',
-      text: 'Email sent to example@email.com',
+      variant: "success",
+      text: "Email sent to example@email.com",
       attributes: {
         tabindex: 2
       }
