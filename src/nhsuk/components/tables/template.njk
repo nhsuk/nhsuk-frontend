@@ -108,6 +108,26 @@
   {{- nhsukAttributes(params.attributes) -}}
 {% endset %}
 
+{%- macro _tableValue(item) %}
+  {%- set visuallyHiddenText = item.visuallyHiddenText -%}
+
+  {%- if item.html or item.text %}
+    {%- if visuallyHiddenText %}
+      {% set visuallyHiddenText = " " ~ visuallyHiddenText %}
+    {% endif %}
+
+    {%- if item.html %}
+      {{- item.html | safe -}}
+    {% elif item.text %}
+      {{- item.text -}}
+    {% endif -%}
+  {% endif %}
+
+  {%- if visuallyHiddenText -%}
+    <span class="nhsuk-u-visually-hidden">{{ visuallyHiddenText }}</span>
+  {%- endif %}
+{% endmacro -%}
+
 {%- macro _tableCell(item, parent) %}
 {%- set element = item.element | lower if item.element else "td" -%}
 {%- set classNameCell = "nhsuk-table__header" if element == "th" else "nhsuk-table__cell" -%}
@@ -159,19 +179,34 @@
   }) -}}
 
   {{- nhsukAttributes(item.attributes) }}>
+{% set header = head[parent.loop.index0] -%}
+
+{% set isHeader = parent.items is sameas(head) -%}
+{% set isResponsive = true if parent.params.responsive else false -%}
+
 {% set innerHtml %}
-  {% if caller %}
-    {{- caller() }}
-  {% elif item.html %}
-    {{- item.html | safe -}}
-  {% elif item.text %}
-    {{- item.text -}}
+  {% if item.href %}
+    <a class="nhsuk-link" href="{{ item.href }}">
+      {{- _tableValue(item) | safe | trim -}}
+    </a>
+  {% else %}
+    {{- _tableValue(item) | safe | trim -}}
   {% endif %}
-{% endset %}
-{% if item.href %}
-  <a href="{{ item.href }}">
-    {{- innerHtml | safe | trim | indent(2) -}}
-  </a>
+{% endset -%}
+
+{% if isResponsive and not isHeader and (header or item.header) %}
+  <span class="nhsuk-table__heading" aria-hidden="true">
+    {{- _tableValue({
+      text: header.text | default(item.header),
+      html: header.html,
+      visuallyHiddenText: header.visuallyHiddenText
+    }) | safe | trim | indent(2) }} </span>
+
+  {%- if item.html -%}
+    <span>{{ innerHtml | safe | trim | indent(2) }}</span>
+  {% else %}
+    {{- innerHtml | safe | trim | indent(2) }}
+  {% endif %}
 {% else %}
   {{ innerHtml | safe | trim | indent(2) }}
 {% endif %}
@@ -201,8 +236,9 @@
       {{- _tableCell({
         text: item.text,
         html: item.html,
-        href: item.href,
+        visuallyHiddenText: item.visuallyHiddenText,
         format: item.format,
+        href: item.href,
         scope: "col",
         role: "columnheader" if params.responsive else undefined,
         colspan: item.colspan if not params.responsive else undefined,
@@ -225,7 +261,11 @@
           }
         }) ~ nhsukAttributes(item.attributes),
         element: "th"
-      }, params) | trim | indent(6, true) }}
+      }, {
+        params: params,
+        loop: loop,
+        row: head
+      }) | trim | indent(6, true) }}
     {% endfor %}
     </tr>
   </thead>
@@ -233,36 +273,16 @@
   <tbody class="nhsuk-table__body">
   {% for row in rows %}
     <tr class="nhsuk-table__row" {%- if params.responsive %} role="row"{% endif %}>
-    {% for item in row | select("mapping") if row | length else [] %}
+    {% set items = row | select("mapping") if row | length else [] %}
+    {% for item in items %}
       {%- set header = head[loop.index0] -%}
 
-      {%- set innerHtml %}
-        {%- if params.responsive and (header or item.header) -%}
-          {%- set headingHtml %}
-            {%- if header.html %}
-              {{- header.html | safe | trim -}}
-            {% elif header.text %}
-              {{- header.text | trim -}}
-            {% else %}
-              {{- item.header | trim -}}
-            {% endif %}
-          {%- endset -%}
-
-          <span class="nhsuk-table__heading" aria-hidden="true">{{ headingHtml | safe }} </span>
-
-        {%- endif %}
-        {% if params.responsive and item.html -%}
-          <span>{{ item.html | safe | trim }}</span>
-        {%- elif item.html %}
-          {{- item.html | safe | trim -}}
-        {% elif item.text %}
-          {{- item.text | trim -}}
-        {% endif %}
-      {% endset %}
-
       {{- _tableCell({
-        html: innerHtml,
+        text: item.text,
+        html: item.html,
+        visuallyHiddenText: item.visuallyHiddenText,
         format: item.format | default(header.format),
+        href: item.href,
         scope: "row" if loop.first and params.firstCellIsHeader else undefined,
         role: ("rowheader" if loop.first and params.firstCellIsHeader else "cell") if params.responsive else undefined,
         colspan: item.colspan if not params.responsive else undefined,
@@ -277,7 +297,11 @@
           }
         }) ~ nhsukAttributes(item.attributes),
         element: "th" if loop.first and params.firstCellIsHeader else "td"
-      }, params) | trim | indent(6, true) }}
+      }, {
+        params: params,
+        loop: loop,
+        row: items
+      }) | trim | indent(6, true) }}
     {% endfor %}
     </tr>
   {% endfor %}
