@@ -63,23 +63,31 @@
     }
   }
 
-  .nhsuk-hero__content,
-    svg,
-    img {
+  .nhsuk-hero__content {
+    svg:not(.nhsuk-image__img),
+    img:not(.nhsuk-image__img),
+    .nhsuk-image {
       display: block;
-      max-width: math.percentage(math.div(2, 3));
+
+      width: 100%;
+      max-width: 100%;
       height: auto;
       margin-right: auto;
       margin-left: auto;
 
-      @media #{nhsuk-from-breakpoint(desktop)} {
-        max-width: 100%;
+      @media #{nhsuk-from-breakpoint(375px)} and #{nhsuk-until-breakpoint(tablet)} {
+        max-width: 85%; // [15]
+      }
+
+      @media #{nhsuk-from-breakpoint(tablet)} and #{nhsuk-until-breakpoint(desktop)} {
+        max-width: math.percentage(math.div(3, 4));
       }
     }
 
     @media #{nhsuk-until-breakpoint(desktop)} {
-      > svg:first-child,
-      > img:first-child {
+      > svg:not(.nhsuk-image__img):first-child,
+      > img:not(.nhsuk-image__img):first-child,
+      > .nhsuk-image:first-child {
         @include nhsuk-responsive-margin(-8, "top"); // [17]
       }
     }

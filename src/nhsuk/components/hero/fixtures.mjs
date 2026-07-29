@@ -124,18 +124,20 @@ const fixtures = {
           `
         },
         {
-          html: outdent`
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400" focusable="false" role="img" aria-label="Example image">
-              <title>Example image</title>
-              <rect width="600" height="400" fill="LightGray"/>
-            </svg>
-          `
+          image: {
+            src: "/nhsuk-frontend/assets/example-hero-image.svg",
+            background: false,
+            border: false
+          }
         }
       ],
       border: false
     },
     options: {
       width: false
+    },
+    screenshot: {
+      viewports: ["mobile", "tablet", "desktop", "large-desktop"]
     }
   }
 }

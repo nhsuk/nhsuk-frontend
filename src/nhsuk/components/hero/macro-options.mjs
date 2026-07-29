@@ -40,6 +40,14 @@ const options = {
           'Optional HTML to use within each content column. If `html` is provided, the `text` option will be ignored.',
         released: '10.6.0'
       },
+      image: {
+        type: 'object',
+        required: false,
+        description: 'Optional image to use within each content column.',
+        alias: 'images',
+        released: '10.6.0',
+        isComponent: true
+      },
       width: {
         type: 'string',
         required: false,

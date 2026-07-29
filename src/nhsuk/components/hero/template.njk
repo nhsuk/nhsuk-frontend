@@ -1,15 +1,16 @@
 {% from "nhsuk/components/heading/macro.njk" import heading %}
+{% from "nhsuk/components/images/macro.njk" import image %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-hero" -%}
 {%- set classNamesHeading = "nhsuk-hero__heading" -%}
 
-{%- set image = {
+{%- set background = {
   src: params.imageURL
 } if params.imageURL else params.image %}
 
-{%- if image.src %}
+{%- if background.src %}
   {% set classNames = classNames ~ " nhsuk-hero--image" ~
     (" nhsuk-hero--image-description" if params.heading else "") %}
 {% elif params.border != false  %}
@@ -42,9 +43,9 @@
     }
   }) -}}
 
-  {% if image.src %}
+  {% if background.src %}
     {{- nhsukAttributes({
-      style: ("background-image: url('" ~ image.src | escape ~ "');") | safe
+      style: ("background-image: url('" ~ background.src | escape ~ "');") | safe
     }) -}}
   {% endif %}
 
@@ -88,7 +89,7 @@
             attributes: content.heading.attributes
           }) | trim | indent(10) }}
         {% endif %}
-        {% if image.src and rows | length == 1 %}
+        {% if background.src and rows | length == 1 %}
           <span class="nhsuk-hero__arrow" aria-hidden="true"></span>
         {% endif %}
         {% if content.html %}
@@ -98,6 +99,9 @@
             {{- content.text | trim | indent(10) -}}
           </p>
         {% endif %}
+        {% if content.image %}
+          {{ image(content.image) | trim | indent(10) }}
+        {% endif %}
         </div>
       </div>
     {% endfor %}
@@ -105,7 +109,7 @@
   {% endfor %}
   </div>
 {% endif %}
-{% if image.src %}
+{% if background.src %}
   <div class="nhsuk-hero__overlay"></div>
 {% endif %}
 </section>
