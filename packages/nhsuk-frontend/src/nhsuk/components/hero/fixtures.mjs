@@ -121,8 +121,7 @@ const fixtures = {
                 href: "#"
               }
             })}
-          `,
-          classes: "nhsuk-u-margin-top-5"
+          `
         },
         {
           html: outdent`
