@@ -27,11 +27,13 @@
     a:not(.nhsuk-button) {
       @include nhsuk-link-style-reverse;
     }
+  }
 
-    .nhsuk-hero--border {
-      // [2]
-      border-top: $nhsuk-hero-border solid $nhsuk-reverse-border-colour;
-    }
+  // [2]
+  .nhsuk-hero--border .nhsuk-width-container,
+  // Deprecated, to be removed in v11.0
+  .nhsuk-hero .nhsuk-hero--border {
+    border-top: $nhsuk-hero-border solid $nhsuk-reverse-border-colour;
   }
 
   .nhsuk-hero__wrapper {

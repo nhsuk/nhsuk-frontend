@@ -5,9 +5,15 @@
 {%- set classNames = "nhsuk-hero" -%}
 {%- set classNamesHeading = "nhsuk-hero__heading" -%}
 
-{%- if params.image or params.imageURL %}
+{%- set image = {
+  src: params.imageURL
+} if params.imageURL else params.image %}
+
+{%- if image.src %}
   {% set classNames = classNames ~ " nhsuk-hero--image" ~
     (" nhsuk-hero--image-description" if params.heading else "") %}
+{% elif params.border != false  %}
+  {% set classNames = classNames ~ " nhsuk-hero--border" %}
 {% endif %}
 
 {%- if params.classes %}
@@ -21,10 +27,6 @@
 {% endif %}
 
 {%- set hasContent = true if caller or params.heading or params.text or params.html else false %}
-
-{%- set image = {
-  src: params.imageURL
-} if params.imageURL else params.image %}
 
 {%- set attributesHtml %}
   {{- nhsukAttributes({
@@ -45,9 +47,7 @@
 {% endset -%}
 
 {% set innerHtml %}
-  <div class="nhsuk-width-container
-    {%- if params.containerClasses %} {{ params.containerClasses }}{% endif %}
-    {%- if not image.src %} nhsuk-hero--border{% endif %}">
+  <div class="nhsuk-width-container {%- if params.containerClasses %} {{ params.containerClasses }}{% endif %}">
     <div class="nhsuk-grid-row">
       <div class="{{ contentClassNames }}">
         <div class="{{ "nhsuk-hero__wrapper" if not image.src else "nhsuk-hero-content" }}">

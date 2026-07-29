@@ -11,7 +11,8 @@ const fixtures = {
   "default": {
     context: {
       heading: "We're here for you",
-      text: "Helping you take control of your health and wellbeing."
+      text: "Helping you take control of your health and wellbeing.",
+      border: false
     },
     options: {
       width: false
@@ -23,7 +24,8 @@ const fixtures = {
   "heading": {
     context: {
       heading: "We're here for you",
-      text: "Helping you take control of your health and wellbeing."
+      text: "Helping you take control of your health and wellbeing.",
+      border: false
     },
     options: {
       width: false
@@ -94,7 +96,8 @@ const fixtures = {
             <rect width="600" height="400" fill="LightGray"/>
           </svg>
         </div>
-      `
+      `,
+      border: false
     },
     options: {
       width: false
