@@ -16,7 +16,7 @@ const options = {
     type: 'string',
     required: true,
     description:
-      'The source location of the image. If `html` is provided, the `src` and `alt` options will be ignored.',
+      'The source location of the image. If `html` is provided, the `src`, `srcset`, `sizes` and `alt` options will be ignored.',
     released: '1.0.0'
   },
   srcset: {
@@ -37,14 +37,14 @@ const options = {
     type: 'string',
     required: false,
     description:
-      'The alt text of the image. If `html` is provided, the `src` and `alt` options will be ignored.',
+      'The alt text of the image. Defaults to `""`. If `html` is provided, the `src`, `srcset`, `sizes` and `alt` options will be ignored.',
     released: '1.0.0'
   },
   html: {
     type: 'string',
     required: true,
     description:
-      'If `src` is set, this is not required. HTML to use within the image component. If `html` is provided, the `src` and `alt` options will be ignored.',
+      'If `src` is set, this is not required. HTML to use within the image component. If `html` is provided, the `src`, `srcset`, `sizes` and `alt` options will be ignored.',
     released: '10.6.0'
   },
   caller: {
