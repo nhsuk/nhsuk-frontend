@@ -1,3 +1,4 @@
+@use "sass:math";
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
 @use "../../core/helpers" as *;
@@ -22,6 +23,7 @@
 /// 14. Reduce spacing and change positioning for Windows high contrast mode.
 /// 15. Prevent text breaking out of box on smaller sizes.
 /// 16. Prevent overlap using safe area: box offset + arrow height + spacing.
+/// 17. Remove padding top from nhsuk-hero__content with images on small screens.
 ///
 /// @group components/hero
 ///
@@ -58,6 +60,28 @@
 
     [class^="nhsuk-caption"] {
       color: inherit;
+    }
+  }
+
+  .nhsuk-hero__content,
+    svg,
+    img {
+      display: block;
+      max-width: math.percentage(math.div(2, 3));
+      height: auto;
+      margin-right: auto;
+      margin-left: auto;
+
+      @media #{nhsuk-from-breakpoint(desktop)} {
+        max-width: 100%;
+      }
+    }
+
+    @media #{nhsuk-until-breakpoint(desktop)} {
+      > svg:first-child,
+      > img:first-child {
+        @include nhsuk-responsive-margin(-8, "top"); // [17]
+      }
     }
   }
 
