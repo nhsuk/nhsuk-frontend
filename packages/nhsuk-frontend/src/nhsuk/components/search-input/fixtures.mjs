@@ -4,334 +4,334 @@
  * @satisfies {{ [example: string]: MacroExample }}
  */
 const fixtures = {
-  'default': {
+  "default": {
     context: {
       label: {
-        text: 'Search by NHS number',
-        size: 'm',
+        text: "Search by NHS number",
+        size: "m",
         isPageHeading: true
       },
-      placeholder: 'NHS number',
+      placeholder: "NHS number",
       hint: {
-        text: 'This is a 10 digit number (like 999 123 4567) that you can find on an NHS letter, prescription or in the NHS App'
+        text: "This is a 10 digit number (like 999 123 4567) that you can find on an NHS letter, prescription or in the NHS App"
       },
-      name: 'example',
+      name: "example",
       width: 20
     }
   },
-  'disabled': {
+  "disabled": {
     context: {
       label: {
-        text: 'Search by NHS number',
-        size: 'm',
+        text: "Search by NHS number",
+        size: "m",
         isPageHeading: true
       },
-      placeholder: 'NHS number',
-      name: 'example',
+      placeholder: "NHS number",
+      name: "example",
       disabled: true
     },
     screenshot: true
   },
-  'disabled with enabled button': {
+  "disabled with enabled button": {
     context: {
       label: {
-        text: 'Search by NHS number',
-        size: 'm',
+        text: "Search by NHS number",
+        size: "m",
         isPageHeading: true
       },
-      placeholder: 'NHS number',
-      name: 'example',
+      placeholder: "NHS number",
+      name: "example",
       disabled: true,
       button: {
         disabled: false
       }
     }
   },
-  'disabled button': {
+  "disabled button": {
     context: {
       label: {
-        text: 'Search by NHS number',
-        size: 'm',
+        text: "Search by NHS number",
+        size: "m",
         isPageHeading: true
       },
-      placeholder: 'NHS number',
-      name: 'example',
+      placeholder: "NHS number",
+      name: "example",
       button: {
         disabled: true
       }
     }
   },
-  'large': {
+  "large": {
     context: {
       label: {
-        text: 'Search by NHS number',
-        size: 'l',
+        text: "Search by NHS number",
+        size: "l",
         isPageHeading: true
       },
-      name: 'example',
+      name: "example",
       large: true,
       width: 30
     },
     screenshot: true
   },
-  'large with brand button': {
+  "large with brand button": {
     context: {
       label: {
-        text: 'Search by NHS number',
-        size: 'l',
+        text: "Search by NHS number",
+        size: "l",
         isPageHeading: true
       },
       button: {
-        variant: 'brand'
+        variant: "brand"
       },
-      name: 'example',
+      name: "example",
       large: true,
       width: 30
     }
   },
-  'with alternative icon': {
+  "with alternative icon": {
     context: {
       label: {
-        text: 'Search by postcode',
-        size: 'm',
+        text: "Search by postcode",
+        size: "m",
         isPageHeading: true
       },
       button: {
-        icon: 'arrow-right'
+        icon: "arrow-right"
       },
-      name: 'example',
+      name: "example",
       width: 10
     }
   },
-  'with hint': {
+  "with hint": {
     context: {
       label: {
-        text: 'Search by NHS number',
-        size: 'm',
+        text: "Search by NHS number",
+        size: "m",
         isPageHeading: true
       },
       hint: {
-        text: 'This is a 10 digit number (like 999 123 4567) that you can find on an NHS letter, prescription or in the NHS App'
+        text: "This is a 10 digit number (like 999 123 4567) that you can find on an NHS letter, prescription or in the NHS App"
       },
-      id: 'with-hint',
-      name: 'example',
+      id: "with-hint",
+      name: "example",
       width: 20
     },
     screenshot: true
   },
-  'with hint and value': {
+  "with hint and value": {
     context: {
       label: {
-        text: 'Search by NHS number',
-        size: 'm',
+        text: "Search by NHS number",
+        size: "m",
         isPageHeading: true
       },
       hint: {
-        text: 'This is a 10 digit number (like 999 123 4567) that you can find on an NHS letter, prescription or in the NHS App'
+        text: "This is a 10 digit number (like 999 123 4567) that you can find on an NHS letter, prescription or in the NHS App"
       },
-      name: 'example',
-      value: '999 123 4567',
+      name: "example",
+      value: "999 123 4567",
       width: 20
     },
     screenshot: true
   },
-  'with error message': {
+  "with error message": {
     context: {
       label: {
-        text: 'Search by NHS number',
-        size: 'm',
+        text: "Search by NHS number",
+        size: "m",
         isPageHeading: true
       },
       errorMessage: {
-        text: 'Enter NHS number'
+        text: "Enter NHS number"
       },
-      name: 'example',
-      value: '999 123 4567',
+      name: "example",
+      value: "999 123 4567",
       width: 20
     }
   },
-  'with error message and hint': {
+  "with error message and hint": {
     context: {
       label: {
-        text: 'Search by NHS number',
-        size: 'm',
+        text: "Search by NHS number",
+        size: "m",
         isPageHeading: true
       },
       hint: {
-        text: 'This is a 10 digit number (like 999 123 4567) that you can find on an NHS letter, prescription or in the NHS App'
+        text: "This is a 10 digit number (like 999 123 4567) that you can find on an NHS letter, prescription or in the NHS App"
       },
       errorMessage: {
-        text: 'Enter NHS number'
+        text: "Enter NHS number"
       },
-      name: 'example',
-      value: '999 123 4567',
+      name: "example",
+      value: "999 123 4567",
       width: 20
     },
     screenshot: true
   },
-  'with prefix': {
+  "with prefix": {
     context: {
       label: {
-        text: 'Code lookup',
-        size: 'm',
+        text: "Code lookup",
+        size: "m",
         isPageHeading: true
       },
       prefix: {
-        text: 'SNOMED'
+        text: "SNOMED"
       },
-      id: 'with-prefix',
-      name: 'example',
-      value: '160245001',
+      id: "with-prefix",
+      name: "example",
+      value: "160245001",
       width: 10,
       code: true,
       button: {
-        icon: 'arrow-right',
-        variant: 'brand'
+        icon: "arrow-right",
+        variant: "brand"
       }
     }
   },
-  'with prefix and error message': {
+  "with prefix and error message": {
     context: {
       label: {
-        text: 'Code lookup',
-        size: 'm',
+        text: "Code lookup",
+        size: "m",
         isPageHeading: true
       },
       prefix: {
-        text: 'SNOMED'
+        text: "SNOMED"
       },
       errorMessage: {
-        text: 'Enter a SNOMED code'
+        text: "Enter a SNOMED code"
       },
-      id: 'with-prefix',
-      name: 'example',
+      id: "with-prefix",
+      name: "example",
       width: 10,
       code: true,
       button: {
-        icon: 'arrow-right',
-        variant: 'brand'
+        icon: "arrow-right",
+        variant: "brand"
       }
     }
   },
-  'with hidden label': {
+  "with hidden label": {
     context: {
       label: {
-        text: 'Search by NHS number',
-        classes: 'nhsuk-u-visually-hidden'
+        text: "Search by NHS number",
+        classes: "nhsuk-u-visually-hidden"
       },
-      name: 'example',
+      name: "example",
       width: 20
     }
   },
-  'with brand button': {
+  "with brand button": {
     context: {
       label: {
-        text: 'Search by NHS number',
-        size: 'm',
+        text: "Search by NHS number",
+        size: "m",
         isPageHeading: true
       },
       button: {
-        variant: 'brand'
+        variant: "brand"
       },
-      name: 'example',
+      name: "example",
       width: 20
     }
   },
-  'with brand button text': {
+  "with brand button text": {
     context: {
       label: {
-        text: 'Search by NHS number',
-        size: 'm',
+        text: "Search by NHS number",
+        size: "m",
         isPageHeading: true
       },
       button: {
-        text: 'Search',
-        variant: 'brand'
+        text: "Search",
+        variant: "brand"
       },
-      name: 'example',
+      name: "example",
       width: 20
     }
   },
-  'with brand button text only': {
+  "with brand button text only": {
     context: {
       label: {
-        text: 'Product order number',
-        size: 'm',
+        text: "Product order number",
+        size: "m",
         isPageHeading: true
       },
       button: {
         icon: false,
-        text: 'Find',
-        variant: 'brand'
+        text: "Find",
+        variant: "brand"
       },
-      name: 'example',
+      name: "example",
       width: 20
     }
   },
-  'with secondary button': {
+  "with secondary button": {
     context: {
       label: {
-        text: 'Search by NHS number',
-        size: 'm',
+        text: "Search by NHS number",
+        size: "m",
         isPageHeading: true
       },
       button: {
-        variant: 'secondary'
+        variant: "secondary"
       },
-      name: 'example',
+      name: "example",
       width: 20
     },
     screenshot: true
   },
-  'with secondary button text': {
+  "with secondary button text": {
     context: {
       label: {
-        text: 'Search by NHS number',
-        size: 'm',
+        text: "Search by NHS number",
+        size: "m",
         isPageHeading: true
       },
       button: {
-        text: 'Search',
-        variant: 'secondary'
+        text: "Search",
+        variant: "secondary"
       },
-      name: 'example',
+      name: "example",
       width: 20
     }
   },
-  'with secondary button text only': {
+  "with secondary button text only": {
     context: {
       label: {
-        text: 'Product order number',
-        size: 'm',
+        text: "Product order number",
+        size: "m",
         isPageHeading: true
       },
       button: {
         icon: false,
-        text: 'Find',
-        variant: 'secondary'
+        text: "Find",
+        variant: "secondary"
       },
-      name: 'example',
+      name: "example",
       width: 20
     }
   },
-  'without button': {
+  "without button": {
     context: {
       label: {
-        text: 'Search by NHS number',
-        size: 'm',
+        text: "Search by NHS number",
+        size: "m",
         isPageHeading: true
       },
       button: false,
-      name: 'example',
+      name: "example",
       width: 20
     }
   },
-  'without page heading': {
+  "without page heading": {
     context: {
       label: {
-        text: 'Search by NHS number'
+        text: "Search by NHS number"
       },
-      name: 'example',
+      name: "example",
       width: 20
     }
   }

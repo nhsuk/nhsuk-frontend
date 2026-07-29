@@ -4,107 +4,107 @@
  * @satisfies {{ [example: string]: MacroExample }}
  */
 const fixtures = {
-  'default': {
+  "default": {
     context: {
-      idPrefix: 'your-health',
+      idPrefix: "your-health",
       items: [
         {
           title: {
-            text: 'Exercise'
+            text: "Exercise"
           },
-          href: '#',
+          href: "#",
           status: {
-            text: 'Completed',
-            classes: 'nhsuk-task-list__status--completed'
+            text: "Completed",
+            classes: "nhsuk-task-list__status--completed"
           }
         },
         {
           title: {
-            text: 'Personal health'
+            text: "Personal health"
           },
-          href: '#',
+          href: "#",
           status: {
-            text: 'Completed',
-            classes: 'nhsuk-task-list__status--completed'
+            text: "Completed",
+            classes: "nhsuk-task-list__status--completed"
           }
         },
         {
           title: {
-            text: 'Family health history'
+            text: "Family health history"
           },
           hint: {
-            text: 'Details of your parents, brothers and sisters'
+            text: "Details of your parents, brothers and sisters"
           },
-          href: '#',
+          href: "#",
           status: {
             tag: {
-              text: 'Incomplete',
-              colour: 'blue'
+              text: "Incomplete",
+              colour: "blue"
             }
           }
         },
         {
           title: {
-            text: 'Smoking history'
+            text: "Smoking history"
           },
-          href: '#',
+          href: "#",
           status: {
             tag: {
-              text: 'Incomplete',
-              colour: 'blue'
+              text: "Incomplete",
+              colour: "blue"
             }
           }
         },
         {
           title: {
-            text: 'Blood test'
+            text: "Blood test"
           },
           status: {
-            text: 'Cannot start yet',
-            classes: 'nhsuk-task-list__status--cannot-start-yet'
+            text: "Cannot start yet",
+            classes: "nhsuk-task-list__status--cannot-start-yet"
           }
         }
       ]
     },
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
+      viewports: ["mobile", "tablet", "desktop"]
     }
   },
-  'with empty items': {
+  "with empty items": {
     context: {
-      idPrefix: 'your-health',
+      idPrefix: "your-health",
       items: [
         {
           title: {
-            text: 'Exercise'
+            text: "Exercise"
           },
-          href: '#',
+          href: "#",
           status: {
-            text: 'Completed',
-            classes: 'nhsuk-task-list__status--completed'
+            text: "Completed",
+            classes: "nhsuk-task-list__status--completed"
           }
         },
         {
           title: {
-            text: 'Personal health'
+            text: "Personal health"
           },
-          href: '#',
+          href: "#",
           status: {
-            text: 'Completed',
-            classes: 'nhsuk-task-list__status--completed'
+            text: "Completed",
+            classes: "nhsuk-task-list__status--completed"
           }
         },
         false,
         false,
         {
           title: {
-            text: 'Blood test'
+            text: "Blood test"
           },
-          href: '#',
+          href: "#",
           status: {
             tag: {
-              text: 'Incomplete',
-              colour: 'blue'
+              text: "Incomplete",
+              colour: "blue"
             }
           }
         }

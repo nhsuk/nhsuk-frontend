@@ -1,8 +1,8 @@
-import { outdent } from 'outdent'
+import { outdent } from "outdent"
 
-import { components } from '#lib'
+import { components } from "#lib"
 
-import { examples as tableExamples } from '../tables/fixtures.mjs'
+import { examples as tableExamples } from "../tables/fixtures.mjs"
 
 /**
  * Nunjucks macro option examples
@@ -10,64 +10,64 @@ import { examples as tableExamples } from '../tables/fixtures.mjs'
  * @satisfies {{ [example: string]: MacroExample }}
  */
 const fixtures = {
-  'default': {
+  "default": {
     context: {
       items: [
         {
-          label: 'Past day',
-          id: 'past-day',
+          label: "Past day",
+          id: "past-day",
           panel: {
             html: components.render(
-              'tables',
-              tableExamples['with numeric format (full width, past day)']
+              "tables",
+              tableExamples["with numeric format (full width, past day)"]
             )
           }
         },
         {
-          label: 'Past week',
-          id: 'past-week',
+          label: "Past week",
+          id: "past-week",
           panel: {
             html: components.render(
-              'tables',
-              tableExamples['with numeric format (full width, past week)']
+              "tables",
+              tableExamples["with numeric format (full width, past week)"]
             )
           }
         },
         {
-          label: 'Past month',
-          id: 'past-month',
+          label: "Past month",
+          id: "past-month",
           panel: {
             html: components.render(
-              'tables',
-              tableExamples['with numeric format (full width, past month)']
+              "tables",
+              tableExamples["with numeric format (full width, past month)"]
             )
           }
         },
         {
-          label: 'Past year',
-          id: 'past-year',
+          label: "Past year",
+          id: "past-year",
           panel: {
             html: components.render(
-              'tables',
-              tableExamples['with numeric format (full width, past year)']
+              "tables",
+              tableExamples["with numeric format (full width, past year)"]
             )
           }
         }
       ]
     },
     options: {
-      width: 'full'
+      width: "full"
     },
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
+      viewports: ["mobile", "tablet", "desktop"]
     }
   },
-  'with anchor in panel': {
+  "with anchor in panel": {
     context: {
       items: [
         {
-          label: 'Tab 1',
-          id: 'tab-1',
+          label: "Tab 1",
+          id: "tab-1",
           panel: {
             html: outdent`
               <h2>Tab 1 content</h2>
@@ -81,8 +81,8 @@ const fixtures = {
           }
         },
         {
-          label: 'Tab 2',
-          id: 'tab-2',
+          label: "Tab 2",
+          id: "tab-2",
           panel: {
             html: outdent`
               <h2>Tab 2 content</h2>
@@ -91,8 +91,8 @@ const fixtures = {
           }
         },
         {
-          label: 'Tab 3',
-          id: 'tab-3',
+          label: "Tab 3",
+          id: "tab-3",
           panel: {
             html: outdent`
               <h2>Tab 3 content</h2>

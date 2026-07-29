@@ -5,12 +5,12 @@
  */
 export const variants = [
   {
-    description: 'blue'
+    description: "blue"
   },
   {
-    description: 'white',
+    description: "white",
     context: {
-      colour: 'white'
+      colour: "white"
     }
   }
 ]
@@ -21,40 +21,40 @@ export const variants = [
  * @satisfies {{ [example: string]: MacroExample }}
  */
 const fixtures = {
-  'default': {
+  "default": {
     context: {
       logo: {
-        href: '#'
+        href: "#"
       },
       service: {
-        text: 'Digital service manual',
-        href: '#'
+        text: "Digital service manual",
+        href: "#"
       },
       search: {
-        placeholder: 'Search',
-        visuallyHiddenLabel: 'Search the NHS digital service manual'
+        placeholder: "Search",
+        visuallyHiddenLabel: "Search the NHS digital service manual"
       },
       navigation: {
         items: [
           {
-            text: 'NHS service standard',
-            href: '#'
+            text: "NHS service standard",
+            href: "#"
           },
           {
-            text: 'Design system',
-            href: '#'
+            text: "Design system",
+            href: "#"
           },
           {
-            text: 'Content guide',
-            href: '#'
+            text: "Content guide",
+            href: "#"
           },
           {
-            text: 'Accessibility',
-            href: '#'
+            text: "Accessibility",
+            href: "#"
           },
           {
-            text: 'Community and contribution',
-            href: '#'
+            text: "Community and contribution",
+            href: "#"
           }
         ]
       }
@@ -63,13 +63,13 @@ const fixtures = {
       width: false
     },
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+      viewports: ["mobile", "tablet", "desktop", "large-desktop"]
     }
   },
-  'linked logo': {
+  "linked logo": {
     context: {
       logo: {
-        href: '#'
+        href: "#"
       }
     },
     options: {
@@ -77,29 +77,29 @@ const fixtures = {
     },
     variants,
     screenshot: {
-      states: ['hover', 'focus'],
-      selector: '.nhsuk-header__service-logo',
-      viewports: ['desktop']
+      states: ["hover", "focus"],
+      selector: ".nhsuk-header__service-logo",
+      viewports: ["desktop"]
     }
   },
-  'unlinked logo': {
+  "unlinked logo": {
     options: {
       width: false
     },
     variants
   },
-  'with account (logged in)': {
+  "with account (logged in)": {
     context: {
       account: {
         items: [
           {
-            href: '#',
-            text: 'florence.nightingale@nhs.net',
+            href: "#",
+            text: "florence.nightingale@nhs.net",
             icon: true
           },
           {
-            action: '#',
-            text: 'Log out'
+            action: "#",
+            text: "Log out"
           }
         ]
       }
@@ -109,25 +109,25 @@ const fixtures = {
     },
     variants,
     screenshot: {
-      viewports: ['mobile', 'desktop']
+      viewports: ["mobile", "desktop"]
     }
   },
-  'with account inline (logged in)': {
+  "with account inline (logged in)": {
     context: {
       inline: true,
       logo: {
-        href: '#'
+        href: "#"
       },
       account: {
         items: [
           {
-            href: '#',
-            text: 'Account',
+            href: "#",
+            text: "Account",
             icon: true
           },
           {
-            action: '#',
-            text: 'Log out'
+            action: "#",
+            text: "Log out"
           }
         ]
       }
@@ -137,13 +137,13 @@ const fixtures = {
     },
     variants
   },
-  'with account (logged out)': {
+  "with account (logged out)": {
     context: {
       account: {
         items: [
           {
-            href: '#',
-            text: 'Log in'
+            href: "#",
+            text: "Log in"
           }
         ]
       }
@@ -153,20 +153,20 @@ const fixtures = {
     },
     variants,
     screenshot: {
-      viewports: ['mobile', 'desktop']
+      viewports: ["mobile", "desktop"]
     }
   },
-  'with account inline (logged out)': {
+  "with account inline (logged out)": {
     context: {
       inline: true,
       logo: {
-        href: '#'
+        href: "#"
       },
       account: {
         items: [
           {
-            href: '#',
-            text: 'Log in'
+            href: "#",
+            text: "Log in"
           }
         ]
       }
@@ -176,37 +176,37 @@ const fixtures = {
     },
     variants
   },
-  'with navigation': {
+  "with navigation": {
     context: {
       logo: {
-        href: '#'
+        href: "#"
       },
       navigation: {
         items: [
           {
-            href: '#',
-            text: 'Health A to Z'
+            href: "#",
+            text: "Health A to Z"
           },
           {
-            href: '#',
-            text: 'Live Well'
+            href: "#",
+            text: "Live Well"
           },
           {
-            href: '#',
-            text: 'Mental health'
+            href: "#",
+            text: "Mental health"
           },
           {
-            href: '#',
-            text: 'Care and support'
+            href: "#",
+            text: "Care and support"
           },
           {
-            href: '#',
-            text: 'Pregnancy',
+            href: "#",
+            text: "Pregnancy",
             active: true
           },
           {
-            href: '#',
-            text: 'NHS services'
+            href: "#",
+            text: "NHS services"
           }
         ]
       }
@@ -216,36 +216,36 @@ const fixtures = {
     },
     variants
   },
-  'with navigation (unlinked item)': {
+  "with navigation (unlinked item)": {
     context: {
       logo: {
-        href: '#'
+        href: "#"
       },
       navigation: {
         items: [
           {
-            href: '#',
-            text: 'Health A to Z'
+            href: "#",
+            text: "Health A to Z"
           },
           {
-            href: '#',
-            text: 'Live Well'
+            href: "#",
+            text: "Live Well"
           },
           {
-            href: '#',
-            text: 'Mental health'
+            href: "#",
+            text: "Mental health"
           },
           {
-            href: '#',
-            text: 'Care and support'
+            href: "#",
+            text: "Care and support"
           },
           {
-            text: 'Pregnancy',
+            text: "Pregnancy",
             current: true
           },
           {
-            href: '#',
-            text: 'NHS services'
+            href: "#",
+            text: "NHS services"
           }
         ]
       }
@@ -255,39 +255,39 @@ const fixtures = {
     },
     variants
   },
-  'with navigation (empty items)': {
+  "with navigation (empty items)": {
     context: {
       logo: {
-        href: '#'
+        href: "#"
       },
       account: {
         items: [
           {
-            href: '#',
-            text: 'Account',
+            href: "#",
+            text: "Account",
             icon: true
           },
           false,
           false,
           false,
           {
-            action: '#',
-            text: 'Log out'
+            action: "#",
+            text: "Log out"
           }
         ]
       },
       navigation: {
         items: [
           {
-            text: 'Home',
-            href: '/'
+            text: "Home",
+            href: "/"
           },
           false,
           false,
           false,
           {
-            text: 'Reports',
-            href: '/'
+            text: "Reports",
+            href: "/"
           }
         ]
       }
@@ -297,38 +297,38 @@ const fixtures = {
     },
     variants
   },
-  'with navigation (justified)': {
+  "with navigation (justified)": {
     context: {
       logo: {
-        href: '#'
+        href: "#"
       },
       navigation: {
         justified: true,
         items: [
           {
-            href: '#',
-            text: 'Health A to Z'
+            href: "#",
+            text: "Health A to Z"
           },
           {
-            href: '#',
-            text: 'Live Well'
+            href: "#",
+            text: "Live Well"
           },
           {
-            href: '#',
-            text: 'Mental health'
+            href: "#",
+            text: "Mental health"
           },
           {
-            href: '#',
-            text: 'Care and support'
+            href: "#",
+            text: "Care and support"
           },
           {
-            href: '#',
-            text: 'Pregnancy',
+            href: "#",
+            text: "Pregnancy",
             active: true
           },
           {
-            href: '#',
-            text: 'NHS services'
+            href: "#",
+            text: "NHS services"
           }
         ]
       }
@@ -338,56 +338,56 @@ const fixtures = {
     },
     variants,
     screenshot: {
-      viewports: ['desktop']
+      viewports: ["desktop"]
     }
   },
-  'with navigation (overflow)': {
+  "with navigation (overflow)": {
     context: {
       logo: {
-        href: '#'
+        href: "#"
       },
       service: {
-        text: 'Digital service manual',
-        href: '#'
+        text: "Digital service manual",
+        href: "#"
       },
       search: {
-        placeholder: 'Search',
-        visuallyHiddenLabel: 'Search the NHS digital service manual'
+        placeholder: "Search",
+        visuallyHiddenLabel: "Search the NHS digital service manual"
       },
       navigation: {
         items: [
           {
-            href: '#',
-            text: 'Health A to Z'
+            href: "#",
+            text: "Health A to Z"
           },
           {
-            href: '#',
-            text: 'Live Well'
+            href: "#",
+            text: "Live Well"
           },
           {
-            href: '#',
-            text: 'Mental health'
+            href: "#",
+            text: "Mental health"
           },
           {
-            href: '#',
-            text: 'Care and support'
+            href: "#",
+            text: "Care and support"
           },
           {
-            href: '#',
-            text: 'Pregnancy',
+            href: "#",
+            text: "Pregnancy",
             active: true
           },
           {
-            href: '#',
-            text: 'NHS services'
+            href: "#",
+            text: "NHS services"
           },
           {
-            href: '#',
-            text: 'Another item #1'
+            href: "#",
+            text: "Another item #1"
           },
           {
-            href: '#',
-            text: 'Another item #2'
+            href: "#",
+            text: "Another item #2"
           }
         ]
       }
@@ -397,66 +397,66 @@ const fixtures = {
     },
     variants,
     screenshot: {
-      name: 'menu',
-      states: ['click'],
-      selector: '#toggle-menu',
+      name: "menu",
+      states: ["click"],
+      selector: "#toggle-menu",
       viewports: [
-        'mobile',
-        'tablet',
-        'desktop',
-        'large-desktop',
-        'xlarge-desktop'
+        "mobile",
+        "tablet",
+        "desktop",
+        "large-desktop",
+        "xlarge-desktop"
       ]
     }
   },
-  'with navigation (overflow, white)': {
+  "with navigation (overflow, white)": {
     context: {
       logo: {
-        href: '#'
+        href: "#"
       },
       service: {
-        text: 'Digital service manual',
-        href: '#'
+        text: "Digital service manual",
+        href: "#"
       },
       search: {
-        placeholder: 'Search',
-        visuallyHiddenLabel: 'Search the NHS digital service manual'
+        placeholder: "Search",
+        visuallyHiddenLabel: "Search the NHS digital service manual"
       },
       navigation: {
-        colour: 'white',
+        colour: "white",
         items: [
           {
-            href: '#',
-            text: 'Health A to Z'
+            href: "#",
+            text: "Health A to Z"
           },
           {
-            href: '#',
-            text: 'Live Well'
+            href: "#",
+            text: "Live Well"
           },
           {
-            href: '#',
-            text: 'Mental health'
+            href: "#",
+            text: "Mental health"
           },
           {
-            href: '#',
-            text: 'Care and support'
+            href: "#",
+            text: "Care and support"
           },
           {
-            href: '#',
-            text: 'Pregnancy',
+            href: "#",
+            text: "Pregnancy",
             active: true
           },
           {
-            href: '#',
-            text: 'NHS services'
+            href: "#",
+            text: "NHS services"
           },
           {
-            href: '#',
-            text: 'Another item #1'
+            href: "#",
+            text: "Another item #1"
           },
           {
-            href: '#',
-            text: 'Another item #2'
+            href: "#",
+            text: "Another item #2"
           }
         ]
       }
@@ -466,10 +466,10 @@ const fixtures = {
     },
     variants,
     screenshot: {
-      viewports: ['desktop']
+      viewports: ["desktop"]
     }
   },
-  'with search': {
+  "with search": {
     context: {
       search: true
     },
@@ -478,12 +478,12 @@ const fixtures = {
     },
     variants,
     screenshot: {
-      states: ['focus'],
-      selector: '.nhsuk-header__search-form .nhsuk-input',
-      viewports: ['desktop']
+      states: ["focus"],
+      selector: ".nhsuk-header__search-form .nhsuk-input",
+      viewports: ["desktop"]
     }
   },
-  'with search inline': {
+  "with search inline": {
     context: {
       inline: true,
       search: true
@@ -493,13 +493,13 @@ const fixtures = {
     },
     variants
   },
-  'with service name': {
+  "with service name": {
     context: {
       logo: {
-        href: '#'
+        href: "#"
       },
       service: {
-        text: 'Find your NHS number'
+        text: "Find your NHS number"
       }
     },
     options: {
@@ -507,17 +507,17 @@ const fixtures = {
     },
     variants,
     screenshot: {
-      viewports: ['desktop']
+      viewports: ["desktop"]
     }
   },
-  'with service name as separate link': {
+  "with service name as separate link": {
     context: {
       logo: {
-        href: '#/logo'
+        href: "#/logo"
       },
       service: {
-        text: 'Find your NHS number',
-        href: '#/service'
+        text: "Find your NHS number",
+        href: "#/service"
       }
     },
     options: {
@@ -525,18 +525,18 @@ const fixtures = {
     },
     variants
   },
-  'with service name, account inline (logged in)': {
+  "with service name, account inline (logged in)": {
     context: {
       inline: true,
       service: {
-        text: 'Get a self-test kit for HIV',
-        href: '#'
+        text: "Get a self-test kit for HIV",
+        href: "#"
       },
       account: {
         items: [
           {
-            action: '#',
-            text: 'Log out'
+            action: "#",
+            text: "Log out"
           }
         ]
       }
@@ -546,18 +546,18 @@ const fixtures = {
     },
     variants
   },
-  'with service name, account inline (logged out)': {
+  "with service name, account inline (logged out)": {
     context: {
       inline: true,
       service: {
-        text: 'Get a self-test kit for HIV',
-        href: '#'
+        text: "Get a self-test kit for HIV",
+        href: "#"
       },
       account: {
         items: [
           {
-            action: '#',
-            text: 'Log in'
+            action: "#",
+            text: "Log in"
           }
         ]
       }
@@ -567,14 +567,14 @@ const fixtures = {
     },
     variants
   },
-  'with service name (linked)': {
+  "with service name (linked)": {
     context: {
       logo: {
-        href: '#nhs'
+        href: "#nhs"
       },
       service: {
-        text: 'Find your NHS number',
-        href: '#'
+        text: "Find your NHS number",
+        href: "#"
       }
     },
     options: {
@@ -583,24 +583,24 @@ const fixtures = {
     variants,
     screenshot: [
       {
-        name: 'name',
-        states: ['hover', 'focus'],
-        selector: '.nhsuk-header__service-name',
-        viewports: ['desktop']
+        name: "name",
+        states: ["hover", "focus"],
+        selector: ".nhsuk-header__service-name",
+        viewports: ["desktop"]
       },
       {
-        name: 'logo',
-        states: ['hover', 'focus'],
-        selector: '.nhsuk-header__service-logo',
-        viewports: ['desktop']
+        name: "logo",
+        states: ["hover", "focus"],
+        selector: ".nhsuk-header__service-logo",
+        viewports: ["desktop"]
       }
     ]
   },
-  'with service name (linked with logo)': {
+  "with service name (linked with logo)": {
     context: {
       service: {
-        text: 'Prototype kit',
-        href: '#'
+        text: "Prototype kit",
+        href: "#"
       }
     },
     options: {
@@ -608,19 +608,19 @@ const fixtures = {
     },
     variants,
     screenshot: {
-      states: ['hover', 'focus'],
-      selector: '.nhsuk-header__service-logo',
-      viewports: ['desktop']
+      states: ["hover", "focus"],
+      selector: ".nhsuk-header__service-logo",
+      viewports: ["desktop"]
     }
   },
-  'with service name (linked and long), search': {
+  "with service name (linked and long), search": {
     context: {
       logo: {
-        href: '#nhs'
+        href: "#nhs"
       },
       service: {
-        text: 'This a really long service name to fully test wrapping',
-        href: '#'
+        text: "This a really long service name to fully test wrapping",
+        href: "#"
       },
       search: true
     },
@@ -629,52 +629,52 @@ const fixtures = {
     },
     variants,
     screenshot: {
-      viewports: ['desktop']
+      viewports: ["desktop"]
     }
   },
-  'with service name, search, account (logged in, complex), navigation': {
+  "with service name, search, account (logged in, complex), navigation": {
     context: {
       service: {
-        href: '#',
-        text: 'Manage patients'
+        href: "#",
+        text: "Manage patients"
       },
       search: {
-        placeholder: 'Name or NHS number',
-        visuallyHiddenLabel: 'Search patients by name or NHS number'
+        placeholder: "Name or NHS number",
+        visuallyHiddenLabel: "Search patients by name or NHS number"
       },
       account: {
         items: [
           {
-            href: '#',
-            text: 'Florence Nightingale',
+            href: "#",
+            text: "Florence Nightingale",
             icon: true
           },
           {
-            text: 'Regional Manager, Hull and East Yorkshire Hospitals NHS Trust'
+            text: "Regional Manager, Hull and East Yorkshire Hospitals NHS Trust"
           },
           {
-            href: '#',
-            text: 'Change role'
+            href: "#",
+            text: "Change role"
           },
           {
-            action: '#',
-            text: 'Log out'
+            action: "#",
+            text: "Log out"
           }
         ]
       },
       navigation: {
         items: [
           {
-            href: '#',
-            text: 'Home'
+            href: "#",
+            text: "Home"
           },
           {
-            href: '#',
-            text: 'Create user'
+            href: "#",
+            text: "Create user"
           },
           {
-            href: '#',
-            text: 'Find user'
+            href: "#",
+            text: "Find user"
           }
         ]
       }
@@ -684,48 +684,48 @@ const fixtures = {
     },
     variants,
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+      viewports: ["mobile", "tablet", "desktop", "large-desktop"]
     }
   },
-  'with service name, search, account, navigation': {
+  "with service name, search, account, navigation": {
     context: {
       service: {
-        text: 'Search patient directory',
-        href: '#'
+        text: "Search patient directory",
+        href: "#"
       },
       search: {
-        placeholder: 'Name or NHS number',
-        visuallyHiddenLabel: 'Search patients by name or NHS number'
+        placeholder: "Name or NHS number",
+        visuallyHiddenLabel: "Search patients by name or NHS number"
       },
       account: {
         items: [
           {
-            text: 'Florence Nightingale',
+            text: "Florence Nightingale",
             icon: true
           },
           {
-            action: '#',
-            text: 'Log out'
+            action: "#",
+            text: "Log out"
           }
         ]
       },
       navigation: {
         items: [
           {
-            href: '#',
-            text: 'Home'
+            href: "#",
+            text: "Home"
           },
           {
-            href: '#',
-            text: 'Patient list'
+            href: "#",
+            text: "Patient list"
           },
           {
-            href: '#',
-            text: 'Advanced search'
+            href: "#",
+            text: "Advanced search"
           },
           {
-            href: '#',
-            text: 'Help guides'
+            href: "#",
+            text: "Help guides"
           }
         ]
       }
@@ -735,13 +735,13 @@ const fixtures = {
     },
     variants
   },
-  'with organisation name': {
+  "with organisation name": {
     context: {
       logo: {
-        href: '#'
+        href: "#"
       },
       organisation: {
-        name: 'Business Services Authority'
+        name: "Business Services Authority"
       }
     },
     options: {
@@ -749,17 +749,17 @@ const fixtures = {
     },
     variants,
     screenshot: {
-      viewports: ['desktop']
+      viewports: ["desktop"]
     }
   },
-  'with organisation name (and descriptor)': {
+  "with organisation name (and descriptor)": {
     context: {
       logo: {
-        href: '#'
+        href: "#"
       },
       organisation: {
-        name: 'Anytown Anyplace Anywhere',
-        descriptor: 'NHS Foundation Trust'
+        name: "Anytown Anyplace Anywhere",
+        descriptor: "NHS Foundation Trust"
       }
     },
     options: {
@@ -767,18 +767,18 @@ const fixtures = {
     },
     variants,
     screenshot: {
-      viewports: ['desktop']
+      viewports: ["desktop"]
     }
   },
-  'with organisation name (split with descriptor)': {
+  "with organisation name (split with descriptor)": {
     context: {
       logo: {
-        href: '#'
+        href: "#"
       },
       organisation: {
-        name: 'Anytown Anyplace',
-        split: 'Anywhere',
-        descriptor: 'NHS Foundation Trust'
+        name: "Anytown Anyplace",
+        split: "Anywhere",
+        descriptor: "NHS Foundation Trust"
       }
     },
     options: {
@@ -786,23 +786,23 @@ const fixtures = {
     },
     variants,
     screenshot: {
-      states: ['hover', 'focus'],
-      selector: '.nhsuk-header__service-logo',
-      viewports: ['desktop']
+      states: ["hover", "focus"],
+      selector: ".nhsuk-header__service-logo",
+      viewports: ["desktop"]
     }
   },
-  'with organisation name (split with descriptor), search': {
+  "with organisation name (split with descriptor), search": {
     context: {
       logo: {
-        href: '#'
+        href: "#"
       },
       organisation: {
-        name: 'Anytown Anyplace',
-        split: 'Anywhere',
-        descriptor: 'NHS Foundation Trust'
+        name: "Anytown Anyplace",
+        split: "Anywhere",
+        descriptor: "NHS Foundation Trust"
       },
       search: {
-        visuallyHiddenLabel: 'Search the Anytown Anyplace Anywhere website'
+        visuallyHiddenLabel: "Search the Anytown Anyplace Anywhere website"
       }
     },
     options: {
@@ -810,15 +810,15 @@ const fixtures = {
     },
     variants,
     screenshot: {
-      viewports: ['desktop']
+      viewports: ["desktop"]
     }
   },
-  'white linked logo, ARIA label': {
+  "white linked logo, ARIA label": {
     context: {
-      colour: 'white',
+      colour: "white",
       logo: {
-        ariaLabel: 'NHS white homepage',
-        href: '#'
+        ariaLabel: "NHS white homepage",
+        href: "#"
       }
     },
     options: {
@@ -826,22 +826,22 @@ const fixtures = {
       width: false
     }
   },
-  'white linked logo, custom': {
+  "white linked logo, custom": {
     context: {
-      colour: 'white',
+      colour: "white",
       logo: {
-        href: '#',
-        src: '/nhsuk-frontend/assets/example-logo.svg',
-        alt: 'Great Ormond Street Hospital for Children, NHS Foundation Trust'
+        href: "#",
+        src: "/nhsuk-frontend/assets/example-logo.svg",
+        alt: "Great Ormond Street Hospital for Children, NHS Foundation Trust"
       }
     },
     options: {
       width: false
     },
     screenshot: {
-      states: ['focus'],
-      selector: '.nhsuk-header__service-logo',
-      viewports: ['desktop']
+      states: ["focus"],
+      selector: ".nhsuk-header__service-logo",
+      viewports: ["desktop"]
     }
   }
 }

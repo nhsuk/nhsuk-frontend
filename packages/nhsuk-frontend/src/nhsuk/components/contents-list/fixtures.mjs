@@ -4,79 +4,79 @@
  * @satisfies {{ [example: string]: MacroExample }}
  */
 const fixtures = {
-  'default': {
+  "default": {
     context: {
       items: [
         {
-          href: '#',
-          text: 'What is AMD?',
+          href: "#",
+          text: "What is AMD?",
           current: true
         },
         {
-          href: '#',
-          text: 'Symptoms'
+          href: "#",
+          text: "Symptoms"
         },
         {
-          href: '#',
-          text: 'Getting diagnosed'
+          href: "#",
+          text: "Getting diagnosed"
         },
         {
-          href: '#',
-          text: 'Treatments'
+          href: "#",
+          text: "Treatments"
         },
         {
-          href: '#',
-          text: 'Living with AMD'
+          href: "#",
+          text: "Living with AMD"
         }
       ]
     },
     screenshot: true
   },
-  'with empty items': {
+  "with empty items": {
     context: {
       items: [
         {
-          href: '#',
-          text: 'What is AMD?',
+          href: "#",
+          text: "What is AMD?",
           current: true
         },
         {
-          href: '#',
-          text: 'Symptoms'
+          href: "#",
+          text: "Symptoms"
         },
         false,
         {
-          href: '#',
-          text: 'Treatments'
+          href: "#",
+          text: "Treatments"
         },
         false
       ]
     }
   },
-  'with nested lists': {
+  "with nested lists": {
     context: {
       items: [
         {
-          href: '#',
-          text: 'Chapter 1'
+          href: "#",
+          text: "Chapter 1"
         },
         {
-          href: '#',
-          text: 'Chapter 2',
+          href: "#",
+          text: "Chapter 2",
           items: [
             {
-              href: '#',
-              text: 'Section 2.1'
+              href: "#",
+              text: "Section 2.1"
             },
             {
-              href: '#',
-              text: 'Section 2.2'
+              href: "#",
+              text: "Section 2.2"
             }
           ]
         },
         {
-          href: '#',
-          text: 'Chapter 3'
+          href: "#",
+          text: "Chapter 3"
         }
       ]
     },

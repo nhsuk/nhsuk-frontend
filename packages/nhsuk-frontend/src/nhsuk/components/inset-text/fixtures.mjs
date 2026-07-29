@@ -4,19 +4,19 @@
  * @satisfies {{ [example: string]: MacroExample }}
  */
 const fixtures = {
-  'default': {
+  "default": {
     context: {
-      text: 'You can report any suspected side effect using the Yellow Card safety scheme'
+      text: "You can report any suspected side effect using the Yellow Card safety scheme"
     },
     screenshot: true
   },
-  'with HTML': {
+  "with HTML": {
     context: {
       html: '<p>You can report any suspected side effect using the <a href="#">Yellow Card safety scheme</a>.</p>'
     },
     screenshot: true
   },
-  'with HTML via call block': {
+  "with HTML via call block": {
     callBlock:
       '<p>You can report any suspected side effect using the <a href="#">Yellow Card safety scheme</a>.</p>'
   }

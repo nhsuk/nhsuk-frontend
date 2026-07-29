@@ -4,666 +4,666 @@
  * @satisfies {{ [example: string]: MacroExample }}
  */
 const fixtures = {
-  'default': {
+  "default": {
     context: {
-      text: 'Save and continue'
+      text: "Save and continue"
     },
     screenshot: {
-      states: ['focus', 'hover', 'active'],
-      selector: '.nhsuk-button'
+      states: ["focus", "hover", "active"],
+      selector: ".nhsuk-button"
     }
   },
-  'default, small': {
+  "default, small": {
     context: {
-      text: 'Save and continue',
+      text: "Save and continue",
       small: true
     }
   },
-  'disabled': {
+  "disabled": {
     context: {
-      text: 'Disabled button',
+      text: "Disabled button",
       disabled: true
     },
     screenshot: true
   },
-  'disabled, small': {
+  "disabled, small": {
     context: {
-      text: 'Disabled button',
+      text: "Disabled button",
       disabled: true,
       small: true
     }
   },
-  'as a link': {
+  "as a link": {
     context: {
-      text: 'Link button',
-      href: '#'
+      text: "Link button",
+      href: "#"
     },
     screenshot: {
-      states: ['focus', 'hover', 'active'],
-      selector: '.nhsuk-button'
+      states: ["focus", "hover", "active"],
+      selector: ".nhsuk-button"
     }
   },
-  'as a link, small': {
+  "as a link, small": {
     context: {
-      text: 'Link button',
+      text: "Link button",
       small: true,
-      href: '#'
+      href: "#"
     }
   },
-  'with icon at start': {
+  "with icon at start": {
     context: {
-      text: 'Previous',
+      text: "Previous",
       icon: {
-        name: 'arrow-left',
-        placement: 'start'
+        name: "arrow-left",
+        placement: "start"
       }
     }
   },
-  'with icon at start, small': {
+  "with icon at start, small": {
     context: {
-      text: 'Previous',
+      text: "Previous",
       icon: {
-        name: 'arrow-left',
-        placement: 'start'
+        name: "arrow-left",
+        placement: "start"
       },
       small: true
     }
   },
-  'with icon at end': {
+  "with icon at end": {
     context: {
-      text: 'Next',
+      text: "Next",
       icon: {
-        name: 'arrow-right',
-        placement: 'end'
+        name: "arrow-right",
+        placement: "end"
       }
     }
   },
-  'with icon at end, small': {
+  "with icon at end, small": {
     context: {
-      text: 'Next',
+      text: "Next",
       icon: {
-        name: 'arrow-right',
-        placement: 'end'
+        name: "arrow-right",
+        placement: "end"
       },
       small: true
     }
   },
-  'with double click prevented': {
+  "with double click prevented": {
     context: {
-      text: 'Save and continue',
+      text: "Save and continue",
       preventDoubleClick: true
     }
   },
-  'with double click not prevented': {
+  "with double click not prevented": {
     context: {
-      text: 'Save and continue',
+      text: "Save and continue",
       preventDoubleClick: false
     }
   },
-  'login': {
+  "login": {
     context: {
-      text: 'Continue',
-      variant: 'login'
+      text: "Continue",
+      variant: "login"
     },
     screenshot: {
-      states: ['focus', 'hover', 'active'],
-      selector: '.nhsuk-button'
+      states: ["focus", "hover", "active"],
+      selector: ".nhsuk-button"
     }
   },
-  'login, small': {
+  "login, small": {
     context: {
-      text: 'Continue',
-      variant: 'login',
+      text: "Continue",
+      variant: "login",
       small: true
     }
   },
-  'login disabled': {
+  "login disabled": {
     context: {
-      text: 'Continue',
-      variant: 'login',
+      text: "Continue",
+      variant: "login",
       disabled: true
     },
     screenshot: true
   },
-  'login disabled, small': {
+  "login disabled, small": {
     context: {
-      text: 'Continue',
-      variant: 'login',
+      text: "Continue",
+      variant: "login",
       disabled: true,
       small: true
     }
   },
-  'login as a link': {
+  "login as a link": {
     context: {
-      text: 'Continue',
-      variant: 'login',
-      href: '#'
+      text: "Continue",
+      variant: "login",
+      href: "#"
     },
     screenshot: {
-      states: ['focus', 'hover', 'active'],
-      selector: '.nhsuk-button'
+      states: ["focus", "hover", "active"],
+      selector: ".nhsuk-button"
     }
   },
-  'login as a link, small': {
+  "login as a link, small": {
     context: {
-      text: 'Continue',
-      variant: 'login',
+      text: "Continue",
+      variant: "login",
       small: true,
-      href: '#'
+      href: "#"
     }
   },
-  'login with icon at start': {
+  "login with icon at start": {
     context: {
-      text: 'Previous',
-      variant: 'login',
+      text: "Previous",
+      variant: "login",
       icon: {
-        name: 'arrow-left',
-        placement: 'start'
+        name: "arrow-left",
+        placement: "start"
       }
     }
   },
-  'login with icon at start, small': {
+  "login with icon at start, small": {
     context: {
-      text: 'Previous',
-      variant: 'login',
+      text: "Previous",
+      variant: "login",
       icon: {
-        name: 'arrow-left',
-        placement: 'start'
+        name: "arrow-left",
+        placement: "start"
       },
       small: true
     }
   },
-  'login with icon at end': {
+  "login with icon at end": {
     context: {
-      text: 'Next',
-      variant: 'login',
+      text: "Next",
+      variant: "login",
       icon: {
-        name: 'arrow-right',
-        placement: 'end'
+        name: "arrow-right",
+        placement: "end"
       }
     }
   },
-  'login with icon at end, small': {
+  "login with icon at end, small": {
     context: {
-      text: 'Next',
-      variant: 'login',
+      text: "Next",
+      variant: "login",
       icon: {
-        name: 'arrow-right',
-        placement: 'end'
+        name: "arrow-right",
+        placement: "end"
       },
       small: true
     }
   },
-  'reverse': {
+  "reverse": {
     context: {
-      text: 'Log out',
-      variant: 'reverse'
+      text: "Log out",
+      variant: "reverse"
     },
     options: {
-      layout: 'background-blue'
+      layout: "background-blue"
     },
     screenshot: {
-      states: ['focus', 'hover', 'active'],
-      selector: '.nhsuk-button'
+      states: ["focus", "hover", "active"],
+      selector: ".nhsuk-button"
     }
   },
-  'reverse, small': {
+  "reverse, small": {
     context: {
-      text: 'Log out',
-      variant: 'reverse',
+      text: "Log out",
+      variant: "reverse",
       small: true
     },
     options: {
-      layout: 'background-blue'
+      layout: "background-blue"
     }
   },
-  'reverse disabled': {
+  "reverse disabled": {
     context: {
-      text: 'Log out',
-      variant: 'reverse',
+      text: "Log out",
+      variant: "reverse",
       disabled: true
     },
     options: {
-      layout: 'background-blue'
+      layout: "background-blue"
     },
     screenshot: true
   },
-  'reverse disabled, small': {
+  "reverse disabled, small": {
     context: {
-      text: 'Log out',
-      variant: 'reverse',
+      text: "Log out",
+      variant: "reverse",
       disabled: true,
       small: true
     },
     options: {
-      layout: 'background-blue'
+      layout: "background-blue"
     }
   },
-  'reverse as a link': {
+  "reverse as a link": {
     context: {
-      text: 'Log out',
-      variant: 'reverse',
-      href: '#'
+      text: "Log out",
+      variant: "reverse",
+      href: "#"
     },
     options: {
-      layout: 'background-blue'
+      layout: "background-blue"
     },
     screenshot: {
-      states: ['focus', 'hover', 'active'],
-      selector: '.nhsuk-button'
+      states: ["focus", "hover", "active"],
+      selector: ".nhsuk-button"
     }
   },
-  'reverse as a link, small': {
+  "reverse as a link, small": {
     context: {
-      text: 'Log out',
-      variant: 'reverse',
+      text: "Log out",
+      variant: "reverse",
       small: true,
-      href: '#'
+      href: "#"
     },
     options: {
-      layout: 'background-blue'
+      layout: "background-blue"
     }
   },
-  'reverse with icon at start': {
+  "reverse with icon at start": {
     context: {
-      text: 'Previous',
-      variant: 'reverse',
+      text: "Previous",
+      variant: "reverse",
       icon: {
-        name: 'arrow-left',
-        placement: 'start'
+        name: "arrow-left",
+        placement: "start"
       }
     },
     options: {
-      layout: 'background-blue'
+      layout: "background-blue"
     }
   },
-  'reverse with icon at start, small': {
+  "reverse with icon at start, small": {
     context: {
-      text: 'Previous',
-      variant: 'reverse',
+      text: "Previous",
+      variant: "reverse",
       icon: {
-        name: 'arrow-left',
-        placement: 'start'
+        name: "arrow-left",
+        placement: "start"
       },
       small: true
     },
     options: {
-      layout: 'background-blue'
+      layout: "background-blue"
     }
   },
-  'reverse with icon at end': {
+  "reverse with icon at end": {
     context: {
-      text: 'Next',
-      variant: 'reverse',
+      text: "Next",
+      variant: "reverse",
       icon: {
-        name: 'arrow-right',
-        placement: 'end'
+        name: "arrow-right",
+        placement: "end"
       }
     },
     options: {
-      layout: 'background-blue'
+      layout: "background-blue"
     }
   },
-  'reverse with icon at end, small': {
+  "reverse with icon at end, small": {
     context: {
-      text: 'Next',
-      variant: 'reverse',
+      text: "Next",
+      variant: "reverse",
       icon: {
-        name: 'arrow-right',
-        placement: 'end'
+        name: "arrow-right",
+        placement: "end"
       },
       small: true
     },
     options: {
-      layout: 'background-blue'
+      layout: "background-blue"
     }
   },
-  'secondary': {
+  "secondary": {
     context: {
-      text: 'Find my location',
-      variant: 'secondary'
+      text: "Find my location",
+      variant: "secondary"
     },
     screenshot: {
-      states: ['focus', 'hover', 'active'],
-      selector: '.nhsuk-button'
+      states: ["focus", "hover", "active"],
+      selector: ".nhsuk-button"
     }
   },
-  'secondary, small': {
+  "secondary, small": {
     context: {
-      text: 'Find my location',
-      variant: 'secondary',
+      text: "Find my location",
+      variant: "secondary",
       small: true
     }
   },
-  'secondary disabled': {
+  "secondary disabled": {
     context: {
-      text: 'Find my location',
-      variant: 'secondary',
+      text: "Find my location",
+      variant: "secondary",
       disabled: true
     },
     screenshot: true
   },
-  'secondary disabled, small': {
+  "secondary disabled, small": {
     context: {
-      text: 'Find my location',
-      variant: 'secondary',
+      text: "Find my location",
+      variant: "secondary",
       disabled: true,
       small: true
     }
   },
-  'secondary as a link': {
+  "secondary as a link": {
     context: {
-      text: 'Find my location',
-      variant: 'secondary',
-      href: '#'
+      text: "Find my location",
+      variant: "secondary",
+      href: "#"
     },
     screenshot: {
-      states: ['focus', 'hover', 'active'],
-      selector: '.nhsuk-button'
+      states: ["focus", "hover", "active"],
+      selector: ".nhsuk-button"
     }
   },
-  'secondary as a link, small': {
+  "secondary as a link, small": {
     context: {
-      text: 'Find my location',
-      variant: 'secondary',
+      text: "Find my location",
+      variant: "secondary",
       small: true,
-      href: '#'
+      href: "#"
     }
   },
-  'secondary with icon at start': {
+  "secondary with icon at start": {
     context: {
-      text: 'Previous',
-      variant: 'secondary',
+      text: "Previous",
+      variant: "secondary",
       icon: {
-        name: 'arrow-left',
-        placement: 'start'
+        name: "arrow-left",
+        placement: "start"
       }
     }
   },
-  'secondary with icon at start, small': {
+  "secondary with icon at start, small": {
     context: {
-      text: 'Previous',
-      variant: 'secondary',
+      text: "Previous",
+      variant: "secondary",
       icon: {
-        name: 'arrow-left',
-        placement: 'start'
+        name: "arrow-left",
+        placement: "start"
       },
       small: true
     }
   },
-  'secondary with icon at end': {
+  "secondary with icon at end": {
     context: {
-      text: 'Next',
-      variant: 'secondary',
+      text: "Next",
+      variant: "secondary",
       icon: {
-        name: 'arrow-right',
-        placement: 'end'
+        name: "arrow-right",
+        placement: "end"
       }
     }
   },
-  'secondary with icon at end, small': {
+  "secondary with icon at end, small": {
     context: {
-      text: 'Next',
-      variant: 'secondary',
+      text: "Next",
+      variant: "secondary",
       icon: {
-        name: 'arrow-right',
-        placement: 'end'
+        name: "arrow-right",
+        placement: "end"
       },
       small: true
     }
   },
-  'secondary, solid background': {
+  "secondary, solid background": {
     context: {
-      text: 'Find my location',
-      variant: 'secondary-solid'
+      text: "Find my location",
+      variant: "secondary-solid"
     },
     options: {
-      layout: 'background-grey'
+      layout: "background-grey"
     },
     screenshot: {
-      states: ['focus', 'hover', 'active'],
-      selector: '.nhsuk-button'
+      states: ["focus", "hover", "active"],
+      selector: ".nhsuk-button"
     }
   },
-  'secondary, solid background, small': {
+  "secondary, solid background, small": {
     context: {
-      text: 'Find my location',
-      variant: 'secondary-solid',
+      text: "Find my location",
+      variant: "secondary-solid",
       small: true
     },
     options: {
-      layout: 'background-grey'
+      layout: "background-grey"
     }
   },
-  'secondary, solid background disabled': {
+  "secondary, solid background disabled": {
     context: {
-      text: 'Find my location',
-      variant: 'secondary-solid',
+      text: "Find my location",
+      variant: "secondary-solid",
       disabled: true
     },
     options: {
-      layout: 'background-grey'
+      layout: "background-grey"
     },
     screenshot: true
   },
-  'secondary, solid background disabled, small': {
+  "secondary, solid background disabled, small": {
     context: {
-      text: 'Find my location',
-      variant: 'secondary-solid',
+      text: "Find my location",
+      variant: "secondary-solid",
       disabled: true,
       small: true
     },
     options: {
-      layout: 'background-grey'
+      layout: "background-grey"
     }
   },
-  'secondary, solid background as a link': {
+  "secondary, solid background as a link": {
     context: {
-      text: 'Find my location',
-      variant: 'secondary-solid',
-      href: '#'
+      text: "Find my location",
+      variant: "secondary-solid",
+      href: "#"
     },
     options: {
-      layout: 'background-grey'
+      layout: "background-grey"
     },
     screenshot: {
-      states: ['focus', 'hover', 'active'],
-      selector: '.nhsuk-button'
+      states: ["focus", "hover", "active"],
+      selector: ".nhsuk-button"
     }
   },
-  'secondary, solid background as a link, small': {
+  "secondary, solid background as a link, small": {
     context: {
-      text: 'Find my location',
-      variant: 'secondary-solid',
+      text: "Find my location",
+      variant: "secondary-solid",
       small: true,
-      href: '#'
+      href: "#"
     },
     options: {
-      layout: 'background-grey'
+      layout: "background-grey"
     }
   },
-  'secondary, solid background with icon at start': {
+  "secondary, solid background with icon at start": {
     context: {
-      text: 'Previous',
-      variant: 'secondary-solid',
+      text: "Previous",
+      variant: "secondary-solid",
       icon: {
-        name: 'arrow-left',
-        placement: 'start'
+        name: "arrow-left",
+        placement: "start"
       }
     },
     options: {
-      layout: 'background-grey'
+      layout: "background-grey"
     }
   },
-  'secondary, solid background with icon at start, small': {
+  "secondary, solid background with icon at start, small": {
     context: {
-      text: 'Previous',
-      variant: 'secondary-solid',
+      text: "Previous",
+      variant: "secondary-solid",
       icon: {
-        name: 'arrow-left',
-        placement: 'start'
+        name: "arrow-left",
+        placement: "start"
       },
       small: true
     },
     options: {
-      layout: 'background-grey'
+      layout: "background-grey"
     }
   },
-  'secondary, solid background with icon at end': {
+  "secondary, solid background with icon at end": {
     context: {
-      text: 'Next',
-      variant: 'secondary-solid',
+      text: "Next",
+      variant: "secondary-solid",
       icon: {
-        name: 'arrow-right',
-        placement: 'end'
+        name: "arrow-right",
+        placement: "end"
       }
     },
     options: {
-      layout: 'background-grey'
+      layout: "background-grey"
     }
   },
-  'secondary, solid background with icon at end, small': {
+  "secondary, solid background with icon at end, small": {
     context: {
-      text: 'Next',
-      variant: 'secondary-solid',
+      text: "Next",
+      variant: "secondary-solid",
       icon: {
-        name: 'arrow-right',
-        placement: 'end'
+        name: "arrow-right",
+        placement: "end"
       },
       small: true
     },
     options: {
-      layout: 'background-grey'
+      layout: "background-grey"
     }
   },
-  'warning': {
+  "warning": {
     context: {
-      text: 'Yes, delete this vaccine',
-      variant: 'warning'
+      text: "Yes, delete this vaccine",
+      variant: "warning"
     },
     screenshot: {
-      states: ['focus', 'hover', 'active'],
-      selector: '.nhsuk-button'
+      states: ["focus", "hover", "active"],
+      selector: ".nhsuk-button"
     }
   },
-  'warning, small': {
+  "warning, small": {
     context: {
-      text: 'Yes, delete this vaccine',
+      text: "Yes, delete this vaccine",
       small: true,
-      variant: 'warning'
+      variant: "warning"
     }
   },
-  'warning disabled': {
+  "warning disabled": {
     context: {
-      text: 'Yes, delete this vaccine',
-      variant: 'warning',
+      text: "Yes, delete this vaccine",
+      variant: "warning",
       disabled: true
     },
     screenshot: true
   },
-  'warning disabled, small': {
+  "warning disabled, small": {
     context: {
-      text: 'Yes, delete this vaccine',
-      variant: 'warning',
+      text: "Yes, delete this vaccine",
+      variant: "warning",
       small: true,
       disabled: true
     }
   },
-  'warning as a link': {
+  "warning as a link": {
     context: {
-      text: 'Yes, delete this vaccine',
-      variant: 'warning',
-      href: '#'
+      text: "Yes, delete this vaccine",
+      variant: "warning",
+      href: "#"
     },
     screenshot: {
-      states: ['focus', 'hover', 'active'],
-      selector: '.nhsuk-button'
+      states: ["focus", "hover", "active"],
+      selector: ".nhsuk-button"
     }
   },
-  'warning as a link, small': {
+  "warning as a link, small": {
     context: {
-      text: 'Yes, delete this vaccine',
+      text: "Yes, delete this vaccine",
       small: true,
-      variant: 'warning',
-      href: '#'
+      variant: "warning",
+      href: "#"
     }
   },
-  'warning with icon at start': {
+  "warning with icon at start": {
     context: {
-      text: 'Previous',
-      variant: 'warning',
+      text: "Previous",
+      variant: "warning",
       icon: {
-        name: 'arrow-left',
-        placement: 'start'
+        name: "arrow-left",
+        placement: "start"
       }
     }
   },
-  'warning with icon at start, small': {
+  "warning with icon at start, small": {
     context: {
-      text: 'Previous',
-      variant: 'warning',
+      text: "Previous",
+      variant: "warning",
       icon: {
-        name: 'arrow-left',
-        placement: 'start'
+        name: "arrow-left",
+        placement: "start"
       },
       small: true
     }
   },
-  'warning with icon at end': {
+  "warning with icon at end": {
     context: {
-      text: 'Next',
-      variant: 'warning',
+      text: "Next",
+      variant: "warning",
       icon: {
-        name: 'arrow-right',
-        placement: 'end'
+        name: "arrow-right",
+        placement: "end"
       }
     }
   },
-  'warning with icon at end, small': {
+  "warning with icon at end, small": {
     context: {
-      text: 'Next',
-      variant: 'warning',
+      text: "Next",
+      variant: "warning",
       icon: {
-        name: 'arrow-right',
-        placement: 'end'
+        name: "arrow-right",
+        placement: "end"
       },
       small: true
     }
   },
-  'example reverse search button, small': {
+  "example reverse search button, small": {
     context: {
-      text: 'Search',
-      variant: 'reverse',
+      text: "Search",
+      variant: "reverse",
       small: true
     },
     options: {
       hidden: true
     }
   },
-  'example reverse save button, small': {
+  "example reverse save button, small": {
     context: {
-      text: 'Save',
-      variant: 'reverse',
+      text: "Save",
+      variant: "reverse",
       small: true
     },
     options: {
       hidden: true
     }
   },
-  'example secondary search button, small': {
+  "example secondary search button, small": {
     context: {
-      text: 'Search',
-      variant: 'secondary',
+      text: "Search",
+      variant: "secondary",
       small: true
     },
     options: {
       hidden: true
     }
   },
-  'example secondary save button, small': {
+  "example secondary save button, small": {
     context: {
-      text: 'Save',
-      variant: 'secondary',
+      text: "Save",
+      variant: "secondary",
       small: true
     },
     options: {

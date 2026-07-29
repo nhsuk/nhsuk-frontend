@@ -5,27 +5,27 @@
  */
 export const variants = [
   {
-    description: 'with size S',
+    description: "with size S",
     context: {
-      size: 's'
+      size: "s"
     }
   },
   {
-    description: 'with size M',
+    description: "with size M",
     context: {
-      size: 'm'
+      size: "m"
     }
   },
   {
-    description: 'with size L',
+    description: "with size L",
     context: {
-      size: 'l'
+      size: "l"
     }
   },
   {
-    description: 'with size XL',
+    description: "with size XL",
     context: {
-      size: 'xl'
+      size: "xl"
     }
   }
 ]
@@ -36,122 +36,122 @@ export const variants = [
  * @satisfies {{ [example: string]: MacroExample }}
  */
 const fixtures = {
-  'default': {
+  "default": {
     context: {
-      text: 'What is your full name?',
-      size: 'l'
+      text: "What is your full name?",
+      size: "l"
     },
     screenshot: {
-      viewports: ['tablet']
+      viewports: ["tablet"]
     }
   },
-  'text': {
+  "text": {
     context: {
-      text: 'What is your full name?',
-      size: 'l'
+      text: "What is your full name?",
+      size: "l"
     },
     variants,
     screenshot: {
-      viewports: ['tablet']
+      viewports: ["tablet"]
     }
   },
-  'text and caption': {
+  "text and caption": {
     context: {
-      text: 'What is your home address?',
-      caption: 'About you',
-      size: 'l'
+      text: "What is your home address?",
+      caption: "About you",
+      size: "l"
     },
     variants
   },
   'text and caption "before"': {
     context: {
-      text: 'What is your home address?',
+      text: "What is your home address?",
       caption: {
-        text: 'About you',
-        placement: 'before'
+        text: "About you",
+        placement: "before"
       },
-      size: 'l'
+      size: "l"
     },
     variants,
     screenshot: {
-      viewports: ['tablet']
+      viewports: ["tablet"]
     }
   },
   'text and caption "before" as a heading': {
     context: {
-      text: 'What is your home address?',
+      text: "What is your home address?",
       caption: {
-        text: 'About you',
-        placement: 'before',
-        element: 'h2'
+        text: "About you",
+        placement: "before",
+        element: "h2"
       },
-      size: 'l'
+      size: "l"
     }
   },
   'text and caption "after"': {
     context: {
-      text: 'What is your home address?',
+      text: "What is your home address?",
       caption: {
-        text: 'About you',
-        placement: 'after'
+        text: "About you",
+        placement: "after"
       },
-      size: 'l'
+      size: "l"
     },
     variants,
     screenshot: {
-      viewports: ['tablet']
+      viewports: ["tablet"]
     }
   },
   'text and caption "after" as a paragraph': {
     context: {
-      text: 'What is your home address?',
+      text: "What is your home address?",
       caption: {
-        text: 'About you',
-        placement: 'after',
-        element: 'p'
+        text: "About you",
+        placement: "after",
+        element: "p"
       },
-      size: 'l'
+      size: "l"
     }
   },
   'text and caption "start"': {
     context: {
-      text: 'What is your home address?',
+      text: "What is your home address?",
       caption: {
-        text: 'About you',
-        placement: 'start'
+        text: "About you",
+        placement: "start"
       },
-      size: 'l'
+      size: "l"
     },
     variants,
     screenshot: {
-      viewports: ['tablet']
+      viewports: ["tablet"]
     }
   },
   'text and caption "end"': {
     context: {
-      text: 'What is your home address?',
+      text: "What is your home address?",
       caption: {
-        text: 'About you',
-        placement: 'end'
+        text: "About you",
+        placement: "end"
       },
-      size: 'l'
+      size: "l"
     },
     variants,
     screenshot: {
-      viewports: ['tablet']
+      viewports: ["tablet"]
     }
   },
-  'size class': {
+  "size class": {
     context: {
-      text: 'What is your full name?',
-      classes: 'nhsuk-heading-l'
+      text: "What is your full name?",
+      classes: "nhsuk-heading-l"
     }
   },
-  'size class overriding size param': {
+  "size class overriding size param": {
     context: {
-      text: 'What is your full name?',
-      classes: 'nhsuk-heading-l',
-      size: 's'
+      text: "What is your full name?",
+      classes: "nhsuk-heading-l",
+      size: "s"
     }
   }
 }

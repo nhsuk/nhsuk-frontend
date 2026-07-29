@@ -1,4 +1,4 @@
-import { outdent } from 'outdent'
+import { outdent } from "outdent"
 
 /**
  * Nunjucks macro option variants
@@ -10,12 +10,12 @@ export const variants = [
     // Regular variant
   },
   {
-    description: 'reverse',
+    description: "reverse",
     context: {
-      variant: 'reverse'
+      variant: "reverse"
     },
     options: {
-      layout: 'background-blue'
+      layout: "background-blue"
     }
   }
 ]
@@ -26,29 +26,29 @@ export const variants = [
  * @satisfies {{ [example: string]: MacroExample }}
  */
 const fixtures = {
-  'default': {
+  "default": {
     context: {
-      text: 'Find your nearest A&E',
-      href: '#'
+      text: "Find your nearest A&E",
+      href: "#"
     },
     variants,
     screenshot: {
-      states: ['focus', 'hover', 'active'],
-      selector: '.nhsuk-action-link'
+      states: ["focus", "hover", "active"],
+      selector: ".nhsuk-action-link"
     }
   },
-  'as a button': {
+  "as a button": {
     context: {
-      text: 'Find your nearest A&E',
-      element: 'button'
+      text: "Find your nearest A&E",
+      element: "button"
     },
     variants,
     screenshot: {
-      states: ['focus', 'hover', 'active'],
-      selector: '.nhsuk-action-link'
+      states: ["focus", "hover", "active"],
+      selector: ".nhsuk-action-link"
     }
   },
-  'with HTML': {
+  "with HTML": {
     context: {
       html: outdent`
         Start session<br>
@@ -56,7 +56,7 @@ const fixtures = {
       `
     }
   },
-  'with HTML via call block': {
+  "with HTML via call block": {
     callBlock: outdent`
       Start session<br>
       <span class="nhsuk-u-font-weight-normal nhsuk-u-font-size-19">(11 cases)</span>
