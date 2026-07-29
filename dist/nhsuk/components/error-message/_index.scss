@@ -1,0 +1,20 @@
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+
+////
+/// Error message component
+///
+/// @group components/error-message
+////
+
+@include nhsuk-exports("nhsuk/components/error-message") {
+  .nhsuk-error-message {
+    display: block;
+    margin-top: 0; // Reset any default browser margins for paragraphs
+    margin-bottom: nhsuk-spacing(3);
+    clear: both;
+    color: $nhsuk-error-colour;
+
+    @include nhsuk-font(19, $weight: bold);
+  }
+}

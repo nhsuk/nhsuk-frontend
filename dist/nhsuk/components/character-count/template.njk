@@ -1,0 +1,147 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/i18n.njk" import nhsukI18nAttributes %}
+{% from "nhsuk/components/textarea/macro.njk" import textarea %}
+{% from "nhsuk/components/hint/macro.njk" import hint %}
+
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-js-character-count" -%}
+{%- set classNamesFormGroup = "nhsuk-character-count" -%}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif %}
+
+{%- if params.formGroup.classes %}
+  {% set classNamesFormGroup = params.formGroup.classes ~ " " ~ classNamesFormGroup %}
+{% endif %}
+
+{%- set countType = params.countType if params.countType
+  else ("words" if params.maxwords) -%}
+
+{#-
+  If the limit is set in JavaScript, we won't be able to interpolate the message
+  until JavaScript, so we only set a text if the `maxlength` or `maxwords` options
+  were provided to the macro.
+#}
+{%- set hasNoLimit = (not params.maxwords and not params.maxlength) -%}
+{%- set textareaDescriptionLength = params.maxwords or params.maxlength -%}
+{%- set textareaDescriptionText = params.textareaDescriptionText or "You can enter up to %{count} " ~ ("words" if countType == "words" else "characters") -%}
+{%- set textareaDescriptionTextNoLimit = textareaDescriptionText | replace("%{count}", textareaDescriptionLength) if not hasNoLimit -%}
+{%- set id = params.id if params.id else params.name -%}
+
+{%- set countMessageHtml %}
+{{ hint({
+  text: textareaDescriptionTextNoLimit,
+  id: id ~ "-info",
+  classes: "nhsuk-character-count__message" ~ (" " ~ params.countMessage.classes if params.countMessage.classes),
+  attributes: {
+    hidden: {
+      value: false if textareaDescriptionTextNoLimit | length else true,
+      optional: true
+    }
+  }
+}) | trim }}
+{% if params.formGroup.afterInput %}
+  {{- params.formGroup.afterInput.html | safe | trim if params.formGroup.afterInput.html else params.formGroup.afterInput.text }}
+{% endif -%}
+{% endset -%}
+
+{%- set attributesHtml %}
+  {{- nhsukAttributes({
+    "data-module": "nhsuk-character-count",
+    "data-maxlength": {
+      value: params.maxlength,
+      optional: true
+    },
+    "data-maxwords": {
+      value: params.maxwords,
+      optional: true
+    },
+    "data-threshold": {
+      value: params.threshold,
+      optional: true
+    },
+    "data-count-type": {
+      value: countType if countType else false,
+      optional: true
+    }
+  }) -}}
+
+  {#-
+    Without maxlength or maxwords, we can't guess if the component will count words or characters.
+    We can't guess a default textarea description to be interpolated in JavaScript
+    once the maximum gets configured there.
+    So we only add the attribute if a textarea description was explicitely provided.
+  #}
+  {%- if hasNoLimit and params.textareaDescriptionText %}
+    {{- nhsukI18nAttributes({
+      key: "textarea-description",
+      messages: { other: params.textareaDescriptionText }
+    }) -}}
+  {% endif -%}
+
+  {{- nhsukI18nAttributes({
+    key: "characters-under-limit",
+    messages: params.charactersUnderLimitText
+  }) -}}
+
+  {{- nhsukI18nAttributes({
+    key: "characters-at-limit",
+    message: params.charactersAtLimitText
+  }) -}}
+
+  {{- nhsukI18nAttributes({
+    key: "characters-over-limit",
+    messages: params.charactersOverLimitText
+  }) -}}
+
+  {{- nhsukI18nAttributes({
+    key: "words-under-limit",
+    messages: params.wordsUnderLimitText
+  }) -}}
+
+  {{- nhsukI18nAttributes({
+    key: "words-at-limit",
+    message: params.wordsAtLimitText
+  }) -}}
+
+  {{- nhsukI18nAttributes({
+    key: "words-over-limit",
+    messages: params.wordsOverLimitText
+  }) -}}
+
+  {{- nhsukAttributes(params.formGroup.attributes) -}}
+{% endset -%}
+
+{{ textarea({
+  id: id,
+  name: params.name,
+  describedBy: id ~ "-info",
+  rows: params.rows,
+  spellcheck: params.spellcheck,
+  value: params.value,
+  formGroup: {
+    classes: classNamesFormGroup,
+    attributes: attributesHtml,
+    beforeInput: params.formGroup.beforeInput,
+    afterInput: {
+      html: countMessageHtml
+    }
+  },
+  classes: classNames,
+  label: {
+    html: params.label.html,
+    text: params.label.text,
+    id: params.label.id,
+    for: params.label.for | default(id),
+    size: params.label.size,
+    isPageHeading: params.label.isPageHeading,
+    classes: params.label.classes,
+    attributes: params.label.attributes
+  },
+  hint: params.hint,
+  errorMessage: params.errorMessage,
+  disabled: params.disabled,
+  autocomplete: params.autocomplete,
+  attributes: params.attributes
+}) | trim }}

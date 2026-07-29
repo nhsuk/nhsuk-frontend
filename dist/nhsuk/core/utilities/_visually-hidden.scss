@@ -1,0 +1,20 @@
+@use "../tools" as *;
+
+////
+/// Visually hidden
+///
+/// Hide elements visually but keep it in the DOM
+///
+/// @group utilities
+///
+/// @example html
+///   <span class="nhsuk-u-visually-hidden">Error:</span>
+////
+
+.nhsuk-u-visually-hidden {
+  @include nhsuk-visually-hidden;
+}
+
+.nhsuk-u-visually-hidden-focusable {
+  @include nhsuk-visually-hidden-focusable;
+}

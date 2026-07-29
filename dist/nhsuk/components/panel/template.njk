@@ -1,0 +1,41 @@
+{% from "nhsuk/components/heading/macro.njk" import heading %}
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+
+{#- Set variant for this component #}
+{%- set variant = params.variant -%}
+
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-panel" -%}
+{%- set classNamesTitle = "nhsuk-panel__title" -%}
+
+{%- if variant == "interruption" and (not params.classes or not "nhsuk-panel--interruption" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-panel--" ~ variant %}
+{% endif %}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif %}
+
+<div class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %} {{- nhsukAttributes(params.attributes) }}>
+  {{ heading({
+    text: params.titleText,
+    html: params.titleHtml,
+    level: params.headingLevel,
+    size: params.titleSize,
+    sizes: ["m", "l", "xl"],
+    className: classNamesTitle,
+    classPrefix: classNamesTitle ~ "--",
+    classes: params.titleClasses
+  }) | trim | indent(2) }}
+  {% if caller or params.html or params.text %}
+  <div class="nhsuk-panel__body">
+  {% if caller %}
+    {{- caller() }}
+  {% elif params.html %}
+    {{ params.html | safe | trim | indent(4) }}
+  {% elif params.text %}
+    {{ params.text }}
+  {% endif %}
+  </div>
+  {% endif %}
+</div>

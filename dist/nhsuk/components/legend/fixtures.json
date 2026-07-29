@@ -1,0 +1,135 @@
+{
+  "name": "Legend",
+  "component": "legend",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "text": "What is your address?",
+        "size": "l",
+        "isPageHeading": true
+      },
+      "screenshot": true,
+      "options": {},
+      "html": "<legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--l\">\n\n<h1 class=\"nhsuk-fieldset__heading\">\n    What is your address?\n</h1>\n</legend>"
+    },
+    {
+      "name": "text",
+      "description": "with size S",
+      "context": {
+        "text": "What is your address?",
+        "size": "s",
+        "isPageHeading": true
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--s\">\n\n<h1 class=\"nhsuk-fieldset__heading\">\n    What is your address?\n</h1>\n</legend>"
+    },
+    {
+      "name": "text",
+      "description": "with size M",
+      "context": {
+        "text": "What is your address?",
+        "size": "m",
+        "isPageHeading": true
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--m\">\n\n<h1 class=\"nhsuk-fieldset__heading\">\n    What is your address?\n</h1>\n</legend>"
+    },
+    {
+      "name": "text",
+      "description": "with size L",
+      "context": {
+        "text": "What is your address?",
+        "size": "l",
+        "isPageHeading": true
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--l\">\n\n<h1 class=\"nhsuk-fieldset__heading\">\n    What is your address?\n</h1>\n</legend>"
+    },
+    {
+      "name": "text",
+      "description": "with size XL",
+      "context": {
+        "text": "What is your address?",
+        "size": "xl",
+        "isPageHeading": true
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--xl\">\n\n<h1 class=\"nhsuk-fieldset__heading\">\n    What is your address?\n</h1>\n</legend>"
+    },
+    {
+      "name": "with HTML",
+      "context": {
+        "text": "What is your address?",
+        "size": "l",
+        "isPageHeading": true
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--l\">\n\n<h1 class=\"nhsuk-fieldset__heading\">\n    What is your address?\n</h1>\n</legend>"
+    },
+    {
+      "name": "with HTML via call block",
+      "context": {
+        "size": "l",
+        "isPageHeading": true
+      },
+      "callBlock": "What is your address?",
+      "screenshot": false,
+      "options": {},
+      "html": "<legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--l\">\n\n<h1 class=\"nhsuk-fieldset__heading\">\n    What is your address?\n</h1>\n</legend>"
+    },
+    {
+      "name": "without page heading",
+      "context": {
+        "text": "What is your address?"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<legend class=\"nhsuk-fieldset__legend\">\n  What is your address?\n</legend>"
+    },
+    {
+      "name": "with size class",
+      "context": {
+        "text": "What is your address?",
+        "classes": "nhsuk-fieldset__legend--l",
+        "isPageHeading": true
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--l\">\n\n<h1 class=\"nhsuk-fieldset__heading\">\n    What is your address?\n</h1>\n</legend>"
+    },
+    {
+      "name": "with size class overriding size param",
+      "context": {
+        "text": "What is your address?",
+        "classes": "nhsuk-fieldset__legend--l",
+        "size": "s",
+        "isPageHeading": true
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--l\">\n\n<h1 class=\"nhsuk-fieldset__heading\">\n    What is your address?\n</h1>\n</legend>"
+    }
+  ]
+}

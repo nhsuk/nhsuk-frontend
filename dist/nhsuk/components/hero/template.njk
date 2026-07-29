@@ -1,0 +1,115 @@
+{% from "nhsuk/components/heading/macro.njk" import heading %}
+{% from "nhsuk/components/images/macro.njk" import image %}
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-hero" -%}
+{%- set classNamesHeading = "nhsuk-hero__heading" -%}
+
+{%- set background = {
+  src: params.imageURL
+} if params.imageURL else params.image %}
+
+{%- if background.src %}
+  {% set classNames = classNames ~ " nhsuk-hero--image" ~
+    (" nhsuk-hero--image-description" if params.heading else "") %}
+{% elif params.border != false  %}
+  {% set classNames = classNames ~ " nhsuk-hero--border" %}
+{% endif %}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif %}
+
+{%- set contentWidth = params.contentWidth | default("two-thirds") %}
+
+{%- if contentWidth in [
+  "one-quarter",
+  "one-third",
+  "one-half",
+  "two-thirds",
+  "three-quarters",
+  "full"
+] %}
+  {% set classNamesColumn = classNamesColumn ~ "-" ~ contentWidth %}
+{% endif %}
+
+{%- set attributesHtml %}
+  {{- nhsukAttributes({
+    class: classNames,
+    id: {
+      value: params.id,
+      optional: true
+    }
+  }) -}}
+
+  {% if background.src %}
+    {{- nhsukAttributes({
+      style: ("background-image: url('" ~ background.src | escape ~ "');") | safe
+    }) -}}
+  {% endif %}
+
+  {{- nhsukAttributes(params.attributes) -}}
+{% endset -%}
+
+{%- set rows = ([params.content] if params.content is mapping else params.content) | default([]) %}
+
+{%- if caller or params.heading or params.text or params.html %}
+  {%- set rows = (rows.unshift({
+    heading: params.heading if params.heading is mapping and params.heading is not escaped else {
+      text: params.heading if params.heading is string else undefined,
+      html: params.heading if params.heading is escaped else undefined,
+      size: params.headingSize,
+      level: params.headingLevel,
+      classes: params.headingClasses
+    },
+    text: params.text,
+    html: caller() if caller else params.html,
+    width: "two-thirds"
+  }), rows) %}
+{% endif %}
+
+<section {{- attributesHtml | safe }}>
+{% if rows | length %}
+  <div class="nhsuk-width-container {%- if params.containerClasses %} {{ params.containerClasses }}{% endif %}">
+  {% for row in rows | batch(2) %}
+    <div class="nhsuk-grid-row">
+    {% for content in row %}
+      <div class="nhsuk-grid-column-{{ content.width | default("one-half", true) }}">
+        <div class="{{ "nhsuk-hero__content" ~ (" " ~ content.classes if content.classes) }}">
+        {% if content.heading.text or content.heading.html %}
+          {{ heading({
+            id: content.heading.id,
+            text: content.heading.text,
+            html: content.heading.html,
+            caption: content.heading.caption,
+            size: content.heading.size | default("xl"),
+            level: content.heading.level,
+            classes: classNamesHeading ~ (" " ~ content.heading.classes if content.heading.classes),
+            attributes: content.heading.attributes
+          }) | trim | indent(10) }}
+        {% endif %}
+        {% if background.src and rows | length == 1 %}
+          <span class="nhsuk-hero__arrow" aria-hidden="true"></span>
+        {% endif %}
+        {% if content.html %}
+          {{ content.html | safe | trim | indent(10) }}
+        {% elif content.text %}
+          <p class="nhsuk-body-l">
+            {{- content.text | trim | indent(10) -}}
+          </p>
+        {% endif %}
+        {% if content.image %}
+          {{ image(content.image) | trim | indent(10) }}
+        {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+    </div>
+  {% endfor %}
+  </div>
+{% endif %}
+{% if background.src %}
+  <div class="nhsuk-hero__overlay"></div>
+{% endif %}
+</section>

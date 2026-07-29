@@ -1,0 +1,299 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/i18n.njk" import nhsukI18nAttributes %}
+{% from "nhsuk/components/card/macro.njk" import card %}
+{% from "nhsuk/macros/icon.njk" import nhsukIcon %}
+
+{#- Set variant for this component #}
+{%- set variant = params.variant -%}
+
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-table" -%}
+{%- set classNamesCaption = "nhsuk-table__caption" -%}
+
+{%- if variant == "reverse" and (
+  not params.classes or (
+    not "nhsuk-table--reverse" in params.classes and
+    not "nhsuk-table-responsive--reverse" in params.classes
+  )
+) %}
+  {% set classNames = classNames ~ " nhsuk-table--" ~ variant %}
+{% endif %}
+
+{%- if params.compact and (not params.classes or not "nhsuk-table--compact" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-table--compact" %}
+{% endif %}
+
+{%- if params.responsive and (not params.classes or not "nhsuk-table--responsive" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-table--responsive" %}
+{% endif %}
+
+{%- set head = params.head | select("mapping") if params.head | length else [] %}
+{%- set rows = params.rows | select("iterable") if params.rows | length else [] %}
+
+{%- set isSortable = false %}
+{%- set isSortableOnServer = false %}
+
+{#- Determine if the table is sortable #}
+{% for item in head %}
+  {% set isSortable = true if item.sort else isSortable %}
+  {% set isSortableOnServer = true if isSortable and item.href else isSortableOnServer %}
+{% endfor -%}
+
+{%- if isSortable and (not params.classes or not "nhsuk-table--sortable" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-table--sortable" %}
+{% endif %}
+
+{%- if params.striped and (not params.classes or not "nhsuk-table--striped" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-table--striped" %}
+{% endif %}
+
+{%- if params.captionSize and
+  params.captionSize in ["s", "m", "l", "xl"] and (
+    not params.captionClasses or (
+      not "nhsuk-table__caption--s" in params.captionClasses and
+      not "nhsuk-table__caption--m" in params.captionClasses and
+      not "nhsuk-table__caption--l" in params.captionClasses and
+      not "nhsuk-table__caption--xl" in params.captionClasses
+    )
+  )
+%}
+  {% set classNamesCaption = classNamesCaption ~ " nhsuk-table__caption--" ~ params.captionSize %}
+{% endif %}
+
+{%- if params.classes or params.tableClasses %}
+  {% set classNames = classNames ~ " " ~ (params.classes or params.tableClasses) %}
+{% endif %}
+
+{%- if params.captionClasses %}
+  {% set classNamesCaption = classNamesCaption ~ " " ~ params.captionClasses %}
+{% endif %}
+
+{%- set captionDescriptionText = params.captionDescriptionText | default("Column headers are sortable") %}
+
+{%- set attributesHtml %}
+  {{- nhsukAttributes({
+    class: classNames,
+    id: {
+      value: params.id,
+      optional: true
+    },
+    "data-module": {
+      value: "nhsuk-table" if "nhsuk-table--sortable" in classNames and not isSortableOnServer else false,
+      optional: true
+    }
+  }) -}}
+
+  {{- nhsukI18nAttributes({
+    key: "sort-announcement",
+    message: params.sortAnnouncementText
+  }) -}}
+
+  {{- nhsukI18nAttributes({
+    key: "ascending",
+    message: params.ascendingText
+  }) -}}
+
+  {{- nhsukI18nAttributes({
+    key: "descending",
+    message: params.descendingText
+  }) -}}
+
+  {{- nhsukAttributes({
+    role: {
+      value: "table" if params.responsive else false,
+      optional: true
+    }
+  }) -}}
+
+  {{- nhsukAttributes(params.attributes) -}}
+{% endset %}
+
+{%- macro _tableCell(item, parent) %}
+{%- set element = item.element | lower if item.element else "td" -%}
+{%- set classNameCell = "nhsuk-table__header" if element == "th" else "nhsuk-table__cell" -%}
+{%- set classNamesCell = classNameCell -%}
+
+{%- if item.format == "numeric" and (not item.classes or not classNameCell ~ "--" ~ item.format in item.classes) %}
+  {% set classNamesCell = classNamesCell ~ " " ~ classNameCell ~ "--" ~ item.format %}
+{% endif %}
+
+{%- if item.align and
+  item.align in ["left", "centre", "right"] and (
+    not item.classes or (
+      not "nhsuk-u-text-align-left" in item.classes and
+      not "nhsuk-u-text-align-centre" in item.classes and
+      not "nhsuk-u-text-align-right" in item.classes
+    )
+  )
+%}
+  {% set classNamesCell = classNamesCell ~ " nhsuk-u-text-align-" ~ item.align %}
+{% endif %}
+
+{%- if item.width and (not item.classes or not "nhsuk-u-width-" ~ item.width in item.classes) %}
+  {% set classNamesCell = classNamesCell ~ " nhsuk-u-width-" ~ item.width %}
+{% endif %}
+
+{%- if item.classes %}
+  {% set classNamesCell = classNamesCell ~ " " ~ item.classes %}
+{% endif -%}
+
+<{{ element }}
+  {{- nhsukAttributes({
+    class: classNamesCell,
+    scope: {
+      value: item.scope,
+      optional: true
+    },
+    role: {
+      value: item.role,
+      optional: true
+    },
+    colspan: {
+      value: item.colspan,
+      optional: true
+    },
+    rowspan: {
+      value: item.rowspan,
+      optional: true
+    }
+  }) -}}
+
+  {{- nhsukAttributes(item.attributes) }}>
+{% set innerHtml %}
+  {% if caller %}
+    {{- caller() }}
+  {% elif item.html %}
+    {{- item.html | safe -}}
+  {% elif item.text %}
+    {{- item.text -}}
+  {% endif %}
+{% endset %}
+{% if item.href %}
+  <a href="{{ item.href }}">
+    {{- innerHtml | safe | trim | indent(2) -}}
+  </a>
+{% else %}
+  {{ innerHtml | safe | trim | indent(2) }}
+{% endif %}
+</{{ element }}>
+{% endmacro -%}
+
+{%- set tableHtml -%}
+<table {{- attributesHtml | safe }}>
+{% if params.caption %}
+  <caption class="{{ classNamesCaption }}">
+  {% if "nhsuk-table--sortable" in classNames %}
+    {{ params.caption }}<span class="nhsuk-u-visually-hidden"> ({{ captionDescriptionText }})</span>
+  {% else %}
+    {{ params.caption }}
+  {% endif %}
+  </caption>
+{% endif %}
+{% if head | length %}
+  <thead class="nhsuk-table__head" {%- if params.responsive %} role="rowgroup"{% endif %}>
+    <tr class="nhsuk-table__row" {%- if params.responsive %} role="row"{% endif %}>
+    {% for item in head %}
+      {%- set sort = item.sort if item.sort is string else
+        ("none" if item.sort == true else undefined) %}
+
+      {%- set sortNext = item.sortNext if item.sortNext is string else undefined %}
+
+      {{- _tableCell({
+        text: item.text,
+        html: item.html,
+        href: item.href,
+        format: item.format,
+        scope: "col",
+        role: "columnheader" if params.responsive else undefined,
+        colspan: item.colspan if not params.responsive else undefined,
+        rowspan: item.rowspan,
+        align: item.align,
+        width: item.width,
+        classes: item.classes,
+        attributes: nhsukAttributes({
+          "data-sort": {
+            value: true if sort and isSortable else false,
+            optional: true
+          },
+          "data-sort-next": {
+            value: sortNext if sortNext and isSortable and not isSortableOnServer else false,
+            optional: true
+          },
+          "aria-sort": {
+            value: sort if sort and sort != "none" and isSortable else false,
+            optional: true
+          }
+        }) ~ nhsukAttributes(item.attributes),
+        element: "th"
+      }, params) | trim | indent(6, true) }}
+    {% endfor %}
+    </tr>
+  </thead>
+{% endif %}
+  <tbody class="nhsuk-table__body">
+  {% for row in rows %}
+    <tr class="nhsuk-table__row" {%- if params.responsive %} role="row"{% endif %}>
+    {% for item in row | select("mapping") if row | length else [] %}
+      {%- set header = head[loop.index0] -%}
+
+      {%- set innerHtml %}
+        {%- if params.responsive and (header or item.header) -%}
+          {%- set headingHtml %}
+            {%- if header.html %}
+              {{- header.html | safe | trim -}}
+            {% elif header.text %}
+              {{- header.text | trim -}}
+            {% else %}
+              {{- item.header | trim -}}
+            {% endif %}
+          {%- endset -%}
+
+          <span class="nhsuk-table__heading" aria-hidden="true">{{ headingHtml | safe }} </span>
+
+        {%- endif %}
+        {% if params.responsive and item.html -%}
+          <span>{{ item.html | safe | trim }}</span>
+        {%- elif item.html %}
+          {{- item.html | safe | trim -}}
+        {% elif item.text %}
+          {{- item.text | trim -}}
+        {% endif %}
+      {% endset %}
+
+      {{- _tableCell({
+        html: innerHtml,
+        format: item.format | default(header.format),
+        scope: "row" if loop.first and params.firstCellIsHeader else undefined,
+        role: ("rowheader" if loop.first and params.firstCellIsHeader else "cell") if params.responsive else undefined,
+        colspan: item.colspan if not params.responsive else undefined,
+        rowspan: item.rowspan,
+        align: item.align | default("right" if item.format == "string" and header.format == "numeric" else header.align),
+        width: item.width,
+        classes: item.classes,
+        attributes: nhsukAttributes({
+          "data-sort-value": {
+            value: item.sortValue if item.sortValue else false,
+            optional: true
+          }
+        }) ~ nhsukAttributes(item.attributes),
+        element: "th" if loop.first and params.firstCellIsHeader else "td"
+      }, params) | trim | indent(6, true) }}
+    {% endfor %}
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{%- endset %}
+
+{%- if params.card or params.panel %}
+  {%- call card(params.card or {
+    heading: params.heading,
+    headingLevel: params.headingLevel | default(3),
+    classes: params.panelClasses,
+    variant: "feature"
+  }) %}
+    {{ tableHtml | safe | trim | indent(4) }}
+  {%- endcall %}
+{% else %}
+  {{- tableHtml | safe | trim }}
+{% endif %}
