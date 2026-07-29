@@ -412,6 +412,60 @@ The previous names are deprecated and will be removed in a future release.
 
 This change was introduced in [pull request #1707: Add checkbox "all" option](https://github.com/nhsuk/nhsuk-frontend/pull/1707).
 
+#### Update the HTML for heroes
+
+For consistency with other components, the HTML for heroes has changed.
+
+If you are not using Nunjucks macros, update your HTML markup as follows.
+
+For heroes with images:
+
+- Remove the wrapper `<div class="nhsuk-hero__overlay"> </div>` and add it below the width container
+- Rename the content `<div class="nhsuk-hero-content"` class attribute to match `<div class="nhsuk-hero__content"`
+
+```patch
+  <section class="nhsuk-hero nhsuk-hero--image nhsuk-hero--image-description" style="...">
+-   <div class="nhsuk-hero__overlay">
+      <div class="nhsuk-width-container">
+        <div class="nhsuk-grid-row">
+          <div class="nhsuk-grid-column-two-thirds">
+-           <div class="nhsuk-hero-content">
++           <div class="nhsuk-hero__content">
+              <!-- // ... -->
+              <span class="nhsuk-hero__arrow" aria-hidden="true"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+-   </div>
++   <div class="nhsuk-hero__overlay"></div>
+  </section>
+```
+
+For heroes without images:
+
+- Move the `nhsuk-hero--border` class to the top-level
+- Rename the content `<div class="nhsuk-hero__wrapper"` class attribute to match `<div class="nhsuk-hero__content"`
+
+```patch
+- <section class="nhsuk-hero">
+-   <div class="nhsuk-width-container nhsuk-hero--border">
++ <section class="nhsuk-hero nhsuk-hero--border">
++   <div class="nhsuk-width-container">
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+-         <div class="nhsuk-hero__wrapper">
++         <div class="nhsuk-hero__content">
+            <!-- // ... -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+```
+
+This change was introduced in [pull request #1971: Update hero to support content columns](https://github.com/nhsuk/nhsuk-frontend/pull/1971).
+
 #### Replace Sass print mixins with `@media print`
 
 We've deprecated the Sass print mixins `nhsuk-print-colour` and `nhsuk-print-hide`. You should replace them with `@media print` queries instead.
