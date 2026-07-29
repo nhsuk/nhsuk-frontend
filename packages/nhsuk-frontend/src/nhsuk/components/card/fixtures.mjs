@@ -732,7 +732,7 @@ const fixtures = {
   "with image": {
     context: {
       image: {
-        src: "https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg"
+        src: "/nhsuk-frontend/assets/example-image-exercise.jpg"
       },
       href: "#",
       clickable: true,
@@ -761,7 +761,7 @@ const fixtures = {
   "with image and custom HTML": {
     context: {
       image: {
-        src: "https://service-manual.nhs.uk/assets/blog-prototype-kit.png"
+        src: "/nhsuk-frontend/assets/example-image-prototype-kit.png"
       },
       href: "https://digital.nhs.uk/blog/design-matters/2025/why-we-are-reinvesting-in-the-nhs-prototype-kit",
       clickable: true,

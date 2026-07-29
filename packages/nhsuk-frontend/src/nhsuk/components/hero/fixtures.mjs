@@ -77,7 +77,7 @@ const fixtures = {
   "with image": {
     context: {
       image: {
-        src: "https://assets.nhs.uk/prod/images/S_0818_homepage_hero_1_F0147446.width-1000.jpg"
+        src: "/nhsuk-frontend/assets/example-hero-background.jpg"
       }
     },
     options: {
@@ -94,7 +94,7 @@ const fixtures = {
       },
       text: "Helping you take control of your health and wellbeing.",
       image: {
-        src: "https://assets.nhs.uk/prod/images/S_0818_homepage_hero_1_F0147446.width-1000.jpg"
+        src: "/nhsuk-frontend/assets/example-hero-background.jpg"
       }
     },
     options: {
