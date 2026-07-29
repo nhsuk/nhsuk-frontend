@@ -12,6 +12,68 @@ const options = {
     description: 'The ID of the hero.',
     released: '10.0.0'
   },
+  content: {
+    type: 'object',
+    required: false,
+    description:
+      'The content section of the hero. Alternatively supports an array of `content` objects.',
+    released: '10.6.0',
+    params: {
+      heading: {
+        type: 'string',
+        required: false,
+        description: 'Heading for content column.',
+        released: '10.6.0'
+      },
+      headingClasses: {
+        type: 'string',
+        required: false,
+        description:
+          'Optional additional classes to add to heading. Separate each class with a space.',
+        released: '10.6.0'
+      },
+      headingSize: {
+        type: 'string',
+        required: false,
+        description:
+          'Size of the heading – `"xxs"`, `"xs"`, `"s"`, `"m"`, `"l"` or `"xl"`.',
+        released: '10.6.0'
+      },
+      headingLevel: {
+        type: 'integer',
+        required: false,
+        description: 'Optional heading level for the heading. Defaults to `1`.',
+        released: '10.6.0'
+      },
+      text: {
+        type: 'string',
+        required: false,
+        description:
+          'Optional text to use within each content column. If `html` is provided, the `text` option will be ignored.',
+        released: '10.6.0'
+      },
+      html: {
+        type: 'string',
+        required: false,
+        description:
+          'Optional HTML to use within each content column. If `html` is provided, the `text` option will be ignored.',
+        released: '10.6.0'
+      },
+      width: {
+        type: 'string',
+        required: false,
+        description:
+          'Width of each content column. You can pass any design system grid width here – for example, `"one-third"`, `"two-thirds"` or `"one-half"`. Defaults to `"one-half"`.',
+        released: '10.6.0'
+      },
+      classes: {
+        type: 'string',
+        required: false,
+        description: 'Classes to add to the content column.',
+        released: '10.6.0'
+      }
+    }
+  },
   heading: {
     type: 'string',
     required: true,
@@ -58,19 +120,6 @@ const options = {
     description:
       'Not strictly a parameter but a Nunjucks code convention. Using a `call` block enables you to call a macro with all the text inside the tag. This is helpful if you want to pass a lot of content into a macro. To use it, you will need to wrap the entire hero component in a `call` block.',
     released: '9.4.0'
-  },
-  contentWidth: {
-    type: 'string',
-    required: false,
-    description:
-      'Width of the primary content block – `"one-half"`, `"two-thirds"`, `"full"`. Defaults to `"two-thirds"`',
-    released: '10.6.0'
-  },
-  secondaryHtml: {
-    type: 'string',
-    required: false,
-    description: 'html to use in the secondary position in the hero.',
-    released: '10.6.0'
   },
   imageURL: {
     type: 'string',
