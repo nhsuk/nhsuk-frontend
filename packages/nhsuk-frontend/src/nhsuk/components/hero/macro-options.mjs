@@ -59,6 +59,19 @@ const options = {
       'Not strictly a parameter but a Nunjucks code convention. Using a `call` block enables you to call a macro with all the text inside the tag. This is helpful if you want to pass a lot of content into a macro. To use it, you will need to wrap the entire hero component in a `call` block.',
     released: '9.4.0'
   },
+  contentWidth: {
+    type: 'string',
+    required: false,
+    description:
+      'Width of the primary content block – `"one-half"`, `"two-thirds"`, `"full"`. Defaults to `"two-thirds"`',
+    released: '10.6.0'
+  },
+  secondaryHtml: {
+    type: 'string',
+    required: false,
+    description: 'html to use in the secondary position in the hero.',
+    released: '10.6.0'
+  },
   imageURL: {
     type: 'string',
     required: false,
