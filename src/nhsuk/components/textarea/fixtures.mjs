@@ -4,100 +4,100 @@
  * @satisfies {{ [example: string]: MacroExample }}
  */
 const fixtures = {
-  'default': {
+  "default": {
     context: {
       label: {
-        text: 'Can you provide more detail?',
-        size: 'l',
+        text: "Can you provide more detail?",
+        size: "l",
         isPageHeading: true
       },
       hint: {
-        text: 'Do not include personal information like your name, date of birth or NHS number'
+        text: "Do not include personal information like your name, date of birth or NHS number"
       },
-      name: 'example'
+      name: "example"
     },
     screenshot: true
   },
-  'disabled': {
+  "disabled": {
     context: {
       label: {
-        text: 'Can you provide more detail?',
-        size: 'l',
+        text: "Can you provide more detail?",
+        size: "l",
         isPageHeading: true
       },
       hint: {
-        text: 'Do not include personal information like your name, date of birth or NHS number'
+        text: "Do not include personal information like your name, date of birth or NHS number"
       },
-      name: 'example',
+      name: "example",
       disabled: true
     },
     screenshot: true
   },
-  'with hint': {
+  "with hint": {
     context: {
       label: {
-        text: 'Can you provide more detail?',
-        size: 'l',
+        text: "Can you provide more detail?",
+        size: "l",
         isPageHeading: true
       },
       hint: {
-        text: 'Do not include personal information like your name, date of birth or NHS number'
+        text: "Do not include personal information like your name, date of birth or NHS number"
       },
-      id: 'with-hint',
-      name: 'example'
+      id: "with-hint",
+      name: "example"
     }
   },
-  'label': {
+  "label": {
     context: {
       label: {
-        text: 'Can you provide more detail?',
-        size: 'l',
+        text: "Can you provide more detail?",
+        size: "l",
         isPageHeading: true
       },
       hint: {
-        text: 'Do not include personal information like your name, date of birth or NHS number'
+        text: "Do not include personal information like your name, date of birth or NHS number"
       },
-      id: 'custom-size',
-      name: 'example'
+      id: "custom-size",
+      name: "example"
     },
     variants: [
       {
-        description: 'with size S',
+        description: "with size S",
         context: {
           label: {
-            size: 's'
+            size: "s"
           }
         }
       },
       {
-        description: 'with size M',
+        description: "with size M",
         context: {
           label: {
-            size: 'm'
+            size: "m"
           }
         }
       },
       {
-        description: 'with size L',
+        description: "with size L",
         context: {
           label: {
-            size: 'l'
+            size: "l"
           }
         }
       },
       {
-        description: 'with size XL',
+        description: "with size XL",
         context: {
           label: {
-            size: 'xl'
+            size: "xl"
           }
         }
       },
       {
-        description: 'with id attribute on',
+        description: "with id attribute on",
         context: {
           label: {
-            id: 'custom-id'
+            id: "custom-id"
           }
         },
         options: {
@@ -106,63 +106,63 @@ const fixtures = {
       }
     ]
   },
-  'without page heading': {
+  "without page heading": {
     context: {
       label: {
-        text: 'Can you provide more detail?'
+        text: "Can you provide more detail?"
       },
       hint: {
-        text: 'Do not include personal information like your name, date of birth or NHS number'
+        text: "Do not include personal information like your name, date of birth or NHS number"
       },
-      id: 'without-heading',
-      name: 'example'
+      id: "without-heading",
+      name: "example"
     }
   },
-  'with error message': {
+  "with error message": {
     context: {
       label: {
-        text: 'Can you provide more detail?',
-        size: 'l',
+        text: "Can you provide more detail?",
+        size: "l",
         isPageHeading: true
       },
       errorMessage: {
-        text: 'You must provide an explanation'
+        text: "You must provide an explanation"
       },
-      id: 'with-error-message',
-      name: 'example'
+      id: "with-error-message",
+      name: "example"
     },
     screenshot: {
-      states: ['focus'],
-      selector: '#with-error-message'
+      states: ["focus"],
+      selector: "#with-error-message"
     }
   },
-  'with error message and hint': {
+  "with error message and hint": {
     context: {
       label: {
-        text: 'Can you provide more detail?',
-        size: 'l',
+        text: "Can you provide more detail?",
+        size: "l",
         isPageHeading: true
       },
       hint: {
-        text: 'Do not include personal information like your name, date of birth or NHS number'
+        text: "Do not include personal information like your name, date of birth or NHS number"
       },
       errorMessage: {
-        text: 'You must provide an explanation'
+        text: "You must provide an explanation"
       },
-      id: 'with-hint-error',
-      name: 'example'
+      id: "with-hint-error",
+      name: "example"
     }
   },
-  'with autocomplete attribute': {
+  "with autocomplete attribute": {
     context: {
       label: {
-        text: 'Full address',
-        size: 'l',
+        text: "Full address",
+        size: "l",
         isPageHeading: true
       },
-      id: 'with-autocomplete-attribute',
-      name: 'example',
-      autocomplete: 'street-address'
+      id: "with-autocomplete-attribute",
+      name: "example",
+      autocomplete: "street-address"
     }
   }
 }

@@ -1,8 +1,8 @@
-import { outdent } from 'outdent'
+import { outdent } from "outdent"
 
-import { components } from '#lib'
+import { components } from "#lib"
 
-import { examples as tablesExamples } from '../tables/fixtures.mjs'
+import { examples as tablesExamples } from "../tables/fixtures.mjs"
 
 /**
  * Nunjucks macro option examples
@@ -10,9 +10,9 @@ import { examples as tablesExamples } from '../tables/fixtures.mjs'
  * @satisfies {{ [example: string]: MacroExample }}
  */
 const fixtures = {
-  'default': {
+  "default": {
     context: {
-      summaryText: 'How to find your NHS number'
+      summaryText: "How to find your NHS number"
     },
     callBlock: outdent`
       <p>An NHS number is a 10 digit number, like <span class="nhsuk-u-nowrap">999 123 4567</span>.</p>
@@ -26,13 +26,13 @@ const fixtures = {
       <p>Ask your GP surgery for help if you cannot find your NHS number.</p>
     `,
     screenshot: {
-      states: ['click'],
-      selector: '.nhsuk-details__summary'
+      states: ["click"],
+      selector: ".nhsuk-details__summary"
     }
   },
-  'open': {
+  "open": {
     context: {
-      summaryText: 'How to find your NHS number',
+      summaryText: "How to find your NHS number",
       open: true
     },
     callBlock: outdent`
@@ -47,27 +47,27 @@ const fixtures = {
       <p>Ask your GP surgery for help if you cannot find your NHS number.</p>
     `
   },
-  'expander': {
+  "expander": {
     context: {
-      summaryText: 'Opening times',
-      classes: 'nhsuk-expander'
+      summaryText: "Opening times",
+      classes: "nhsuk-expander"
     },
     callBlock: outdent`
-      ${components.render('tables', tablesExamples['with first cell as header'])}
+      ${components.render("tables", tablesExamples["with first cell as header"])}
     `,
     screenshot: {
-      states: ['click'],
-      selector: '.nhsuk-details__summary'
+      states: ["click"],
+      selector: ".nhsuk-details__summary"
     }
   },
-  'expander open': {
+  "expander open": {
     context: {
-      summaryText: 'Opening times',
-      classes: 'nhsuk-expander',
+      summaryText: "Opening times",
+      classes: "nhsuk-expander",
       open: true
     },
     callBlock: outdent`
-      ${components.render('tables', tablesExamples['with first cell as header'])}
+      ${components.render("tables", tablesExamples["with first cell as header"])}
     `
   }
 }

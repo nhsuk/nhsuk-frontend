@@ -6,77 +6,77 @@
 export const variants = [
   {
     context: {
-      text: 'Active'
+      text: "Active"
     }
   },
   {
-    description: 'white',
+    description: "white",
     context: {
-      text: 'In progress',
-      colour: 'white'
+      text: "In progress",
+      colour: "white"
     }
   },
   {
-    description: 'grey',
+    description: "grey",
     context: {
-      text: 'Inactive',
-      colour: 'grey'
+      text: "Inactive",
+      colour: "grey"
     }
   },
   {
-    description: 'green',
+    description: "green",
     context: {
-      text: 'New',
-      colour: 'green'
+      text: "New",
+      colour: "green"
     }
   },
   {
-    description: 'aqua-green',
+    description: "aqua-green",
     context: {
-      text: 'Active',
-      colour: 'aqua-green'
+      text: "Active",
+      colour: "aqua-green"
     }
   },
   {
-    description: 'blue',
+    description: "blue",
     context: {
-      text: 'Pending',
-      colour: 'blue'
+      text: "Pending",
+      colour: "blue"
     }
   },
   {
-    description: 'purple',
+    description: "purple",
     context: {
-      text: 'Received',
-      colour: 'purple'
+      text: "Received",
+      colour: "purple"
     }
   },
   {
-    description: 'pink',
+    description: "pink",
     context: {
-      text: 'Sent',
-      colour: 'pink'
+      text: "Sent",
+      colour: "pink"
     }
   },
   {
-    description: 'red',
+    description: "red",
     context: {
-      text: 'Rejected',
-      colour: 'red'
+      text: "Rejected",
+      colour: "red"
     }
   },
   {
-    description: 'orange',
+    description: "orange",
     context: {
-      text: 'Declined',
-      colour: 'orange'
+      text: "Declined",
+      colour: "orange"
     }
   },
   {
-    description: 'yellow',
+    description: "yellow",
     context: {
-      text: 'Delayed',
-      colour: 'yellow'
+      text: "Delayed",
+      colour: "yellow"
     }
   }
 ]
@@ -87,53 +87,53 @@ export const variants = [
  * @satisfies {{ [example: string]: MacroExample }}
  */
 const fixtures = {
-  'default': {
+  "default": {
     variants,
     screenshot: {
-      viewports: ['mobile']
+      viewports: ["mobile"]
     }
   },
-  'colour class': {
+  "colour class": {
     context: {
-      text: 'Green',
-      classes: 'nhsuk-tag--green'
+      text: "Green",
+      classes: "nhsuk-tag--green"
     }
   },
-  'colour class overriding colour param': {
+  "colour class overriding colour param": {
     context: {
-      text: 'Not green',
-      colour: 'green',
-      classes: 'nhsuk-tag--red'
+      text: "Not green",
+      colour: "green",
+      classes: "nhsuk-tag--red"
     }
   },
-  'with text escaping': {
+  "with text escaping": {
     context: {
-      text: 'A&E',
-      colour: 'red'
+      text: "A&E",
+      colour: "red"
     }
   },
-  'with HTML': {
+  "with HTML": {
     context: {
-      html: 'A&amp;E',
-      colour: 'red'
+      html: "A&amp;E",
+      colour: "red"
     }
   },
-  'with HTML via call block': {
+  "with HTML via call block": {
     context: {
-      colour: 'red'
+      colour: "red"
     },
-    callBlock: 'A&amp;E'
+    callBlock: "A&amp;E"
   },
-  'without border': {
+  "without border": {
     context: {
       border: false
     },
     variants,
     options: {
-      layout: 'background-blue'
+      layout: "background-blue"
     },
     screenshot: {
-      viewports: ['mobile']
+      viewports: ["mobile"]
     }
   }
 }

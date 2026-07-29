@@ -4,84 +4,84 @@
  * @satisfies {{ [example: string]: MacroExample }}
  */
 const fixtures = {
-  'default': {
+  "default": {
     context: {
-      text: 'What is your full name?',
-      size: 'l',
+      text: "What is your full name?",
+      size: "l",
       isPageHeading: true
     },
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
+      viewports: ["mobile", "tablet", "desktop"]
     }
   },
-  'text': {
+  "text": {
     context: {
-      text: 'What is your full name?',
-      size: 'l',
+      text: "What is your full name?",
+      size: "l",
       isPageHeading: true
     },
     variants: [
       {
-        description: 'with size S',
+        description: "with size S",
         context: {
-          size: 's'
+          size: "s"
         }
       },
       {
-        description: 'with size M',
+        description: "with size M",
         context: {
-          size: 'm'
+          size: "m"
         }
       },
       {
-        description: 'with size L',
+        description: "with size L",
         context: {
-          size: 'l'
+          size: "l"
         }
       },
       {
-        description: 'with size XL',
+        description: "with size XL",
         context: {
-          size: 'xl'
+          size: "xl"
         }
       }
     ],
     screenshot: {
-      viewports: ['tablet']
+      viewports: ["tablet"]
     }
   },
-  'size class': {
+  "size class": {
     context: {
-      text: 'What is your full name?',
-      classes: 'nhsuk-label--l',
+      text: "What is your full name?",
+      classes: "nhsuk-label--l",
       isPageHeading: true
     }
   },
-  'size class overriding size param': {
+  "size class overriding size param": {
     context: {
-      text: 'What is your full name?',
-      classes: 'nhsuk-label--l',
-      size: 's',
+      text: "What is your full name?",
+      classes: "nhsuk-label--l",
+      size: "s",
       isPageHeading: true
     }
   },
-  'with HTML': {
+  "with HTML": {
     context: {
-      html: 'What is your full name?',
-      size: 'l',
+      html: "What is your full name?",
+      size: "l",
       isPageHeading: true
     }
   },
-  'with HTML via call block': {
+  "with HTML via call block": {
     context: {
-      size: 'l',
+      size: "l",
       isPageHeading: true
     },
-    callBlock: 'What is your full name?'
+    callBlock: "What is your full name?"
   },
-  'without page heading': {
+  "without page heading": {
     context: {
-      text: 'What is your full name?'
+      text: "What is your full name?"
     }
   }
 }

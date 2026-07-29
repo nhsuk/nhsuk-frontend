@@ -1,9 +1,9 @@
-import { outdent } from 'outdent'
+import { outdent } from "outdent"
 
-import { components } from '#lib'
+import { components } from "#lib"
 
-import { examples as imageExamples } from '../images/fixtures.mjs'
-import { examples as summaryListExamples } from '../summary-list/fixtures.mjs'
+import { examples as imageExamples } from "../images/fixtures.mjs"
+import { examples as summaryListExamples } from "../summary-list/fixtures.mjs"
 
 /**
  * Nunjucks macro option examples
@@ -11,7 +11,7 @@ import { examples as summaryListExamples } from '../summary-list/fixtures.mjs'
  * @satisfies {{ [example: string]: MacroExample }}
  */
 const fixtures = {
-  'default': {
+  "default": {
     context: {
       heading: "If you need help now, but it's not an emergency",
       headingLevel: 3
@@ -20,10 +20,10 @@ const fixtures = {
       <p class="nhsuk-card__description">Go to <a href="#">NHS 111 online</a> or <a href="#">call 111</a>.</p>
     `,
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
+      viewports: ["mobile", "tablet", "desktop"]
     }
   },
-  'heading': {
+  "heading": {
     context: {
       heading: "If you need help now, but it's not an emergency",
       headingLevel: 3
@@ -33,50 +33,50 @@ const fixtures = {
     `,
     variants: [
       {
-        description: 'basic with size S',
+        description: "basic with size S",
         context: {
-          headingSize: 's'
+          headingSize: "s"
         }
       },
       {
-        description: 'basic with size M',
+        description: "basic with size M",
         context: {
-          headingSize: 'm'
+          headingSize: "m"
         }
       },
       {
-        description: 'basic with size L',
+        description: "basic with size L",
         context: {
-          headingSize: 'l'
+          headingSize: "l"
         }
       },
       {
-        description: 'basic with size XL',
+        description: "basic with size XL",
         context: {
-          headingSize: 'xl'
+          headingSize: "xl"
         }
       }
     ]
   },
-  'basic without heading': {
+  "basic without heading": {
     context: {
       description:
-        'A quick guide for people who have care and support needs and their carers'
+        "A quick guide for people who have care and support needs and their carers"
     }
   },
-  'basic with heading link': {
+  "basic with heading link": {
     context: {
-      href: '#',
-      heading: 'Introduction to care and support',
-      headingSize: 'm',
+      href: "#",
+      heading: "Introduction to care and support",
+      headingSize: "m",
       headingLevel: 3,
       description:
-        'A quick guide for people who have care and support needs and their carers'
+        "A quick guide for people who have care and support needs and their carers"
     }
   },
-  'basic with custom HTML': {
+  "basic with custom HTML": {
     context: {
-      heading: 'Help from NHS 111',
+      heading: "Help from NHS 111",
       headingLevel: 3
     },
     callBlock: outdent`
@@ -85,189 +85,189 @@ const fixtures = {
       <p class="nhsuk-body">For a life-threatening emergency call 999.</p>
     `,
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
+      viewports: ["mobile", "tablet", "desktop"]
     }
   },
-  'basic with summary list': {
+  "basic with summary list": {
     context: {
-      heading: 'Regional Manager',
+      heading: "Regional Manager",
       headingLevel: 3
     },
     callBlock: outdent`
       ${components.render(
-        'summary-list',
-        summaryListExamples['example person: Karen Francis (no border)']
+        "summary-list",
+        summaryListExamples["example person: Karen Francis (no border)"]
       )}
     `,
     screenshot: {
-      viewports: ['mobile', 'tablet']
+      viewports: ["mobile", "tablet"]
     }
   },
-  'basic with summary lists': {
+  "basic with summary lists": {
     context: {
-      heading: 'Regional Managers',
+      heading: "Regional Managers",
       headingLevel: 3
     },
     callBlock: outdent`
       <h4 class="nhsuk-heading-s nhsuk-u-margin-bottom-1">East</h4>
       ${components.render(
-        'summary-list',
-        summaryListExamples['example person: Karen Francis']
+        "summary-list",
+        summaryListExamples["example person: Karen Francis"]
       )}
 
       <h4 class="nhsuk-heading-s nhsuk-u-margin-bottom-1">West</h4>
       ${components.render(
-        'summary-list',
-        summaryListExamples['example person: Sarah Philips (no border)']
+        "summary-list",
+        summaryListExamples["example person: Sarah Philips (no border)"]
       )}
     `,
     screenshot: {
-      viewports: ['mobile', 'tablet']
+      viewports: ["mobile", "tablet"]
     }
   },
-  'basic with summary list and button': {
+  "basic with summary list and button": {
     context: {
-      heading: 'Regional Manager',
+      heading: "Regional Manager",
       headingLevel: 3
     },
     callBlock: outdent`
       ${components.render(
-        'summary-list',
-        summaryListExamples['example person: Karen Francis']
+        "summary-list",
+        summaryListExamples["example person: Karen Francis"]
       )}
 
-      ${components.render('button', {
+      ${components.render("button", {
         context: {
-          text: 'Add role',
-          variant: 'secondary'
+          text: "Add role",
+          variant: "secondary"
         }
       })}
     `,
     screenshot: {
-      viewports: ['mobile', 'tablet']
+      viewports: ["mobile", "tablet"]
     }
   },
-  'basic with summary list and action': {
+  "basic with summary list and action": {
     context: {
-      heading: 'Regional Manager',
+      heading: "Regional Manager",
       headingLevel: 3,
       actions: {
         items: [
           {
-            text: 'Delete',
-            href: '#/delete'
+            text: "Delete",
+            href: "#/delete"
           }
         ]
       }
     },
     callBlock: outdent`
       ${components.render(
-        'summary-list',
-        summaryListExamples['example person: Karen Francis (no border)']
+        "summary-list",
+        summaryListExamples["example person: Karen Francis (no border)"]
       )}
     `
   },
-  'basic with summary list and action as a button': {
+  "basic with summary list and action as a button": {
     context: {
-      heading: 'Regional Manager',
+      heading: "Regional Manager",
       headingLevel: 3,
       actions: {
         items: [
           {
-            element: 'button',
-            text: 'Delete'
+            element: "button",
+            text: "Delete"
           }
         ]
       }
     },
     callBlock: outdent`
       ${components.render(
-        'summary-list',
-        summaryListExamples['example person: Karen Francis (no border)']
+        "summary-list",
+        summaryListExamples["example person: Karen Francis (no border)"]
       )}
     `
   },
-  'basic with summary list and actions': {
+  "basic with summary list and actions": {
     context: {
-      heading: 'Regional Manager',
+      heading: "Regional Manager",
       headingLevel: 3,
       actions: {
         items: [
           {
-            text: 'Delete',
-            href: '#/delete'
+            text: "Delete",
+            href: "#/delete"
           },
           {
-            text: 'Withdraw',
-            href: '#/withdraw'
+            text: "Withdraw",
+            href: "#/withdraw"
           }
         ]
       }
     },
     callBlock: outdent`
       ${components.render(
-        'summary-list',
-        summaryListExamples['example person: Karen Francis (no border)']
+        "summary-list",
+        summaryListExamples["example person: Karen Francis (no border)"]
       )}
     `
   },
-  'basic with summary list and actions as buttons': {
+  "basic with summary list and actions as buttons": {
     context: {
-      heading: 'Regional Manager',
+      heading: "Regional Manager",
       headingLevel: 3,
       actions: {
         items: [
           {
-            element: 'button',
-            text: 'Delete'
+            element: "button",
+            text: "Delete"
           },
           {
-            element: 'button',
-            text: 'Withdraw'
+            element: "button",
+            text: "Withdraw"
           }
         ]
       }
     },
     callBlock: outdent`
       ${components.render(
-        'summary-list',
-        summaryListExamples['example person: Karen Francis (no border)']
+        "summary-list",
+        summaryListExamples["example person: Karen Francis (no border)"]
       )}
     `
   },
-  'basic with summary list and actions, without heading': {
+  "basic with summary list and actions, without heading": {
     context: {
       actions: {
         items: [
           {
-            text: 'Delete',
-            visuallyHiddenText: '(Karen Francis)',
-            href: '#/delete'
+            text: "Delete",
+            visuallyHiddenText: "(Karen Francis)",
+            href: "#/delete"
           },
           {
-            text: 'Withdraw',
-            visuallyHiddenText: '(Karen Francis)',
-            href: '#/withdraw'
+            text: "Withdraw",
+            visuallyHiddenText: "(Karen Francis)",
+            href: "#/withdraw"
           }
         ]
       }
     },
     callBlock: outdent`
       ${components.render(
-        'summary-list',
-        summaryListExamples['example person: Karen Francis (no border)']
+        "summary-list",
+        summaryListExamples["example person: Karen Francis (no border)"]
       )}
     `
   },
-  'basic with summary list and actions (empty items)': {
+  "basic with summary list and actions (empty items)": {
     context: {
-      heading: 'Regional Manager',
+      heading: "Regional Manager",
       headingLevel: 3,
       actions: {
         items: [
           {
-            text: 'Delete',
-            href: '#/delete'
+            text: "Delete",
+            href: "#/delete"
           },
           false
         ]
@@ -275,46 +275,46 @@ const fixtures = {
     },
     callBlock: outdent`
       ${components.render(
-        'summary-list',
-        summaryListExamples['example person: Karen Francis (no border)']
+        "summary-list",
+        summaryListExamples["example person: Karen Francis (no border)"]
       )}
     `
   },
-  'basic with summary list and heading link': {
+  "basic with summary list and heading link": {
     context: {
-      href: '#',
-      heading: 'Regional Manager',
+      href: "#",
+      heading: "Regional Manager",
       headingLevel: 3
     },
     callBlock: outdent`
       ${components.render(
-        'summary-list',
-        summaryListExamples['example person: Karen Francis (no border)']
+        "summary-list",
+        summaryListExamples["example person: Karen Francis (no border)"]
       )}
     `
   },
-  'secondary without heading': {
+  "secondary without heading": {
     context: {
-      variant: 'secondary',
+      variant: "secondary",
       description:
-        'A quick guide for people who have care and support needs and their carers'
+        "A quick guide for people who have care and support needs and their carers"
     }
   },
-  'secondary with heading link': {
+  "secondary with heading link": {
     context: {
-      href: '#',
-      variant: 'secondary',
-      heading: 'Introduction to care and support',
-      headingSize: 'm',
+      href: "#",
+      variant: "secondary",
+      heading: "Introduction to care and support",
+      headingSize: "m",
       headingLevel: 3,
       description:
-        'A quick guide for people who have care and support needs and their carers'
+        "A quick guide for people who have care and support needs and their carers"
     }
   },
-  'secondary with custom HTML': {
+  "secondary with custom HTML": {
     context: {
-      variant: 'secondary',
-      heading: 'Help from NHS 111',
+      variant: "secondary",
+      heading: "Help from NHS 111",
       headingLevel: 3
     },
     callBlock: outdent`
@@ -323,119 +323,119 @@ const fixtures = {
       <p class="nhsuk-body">For a life-threatening emergency call 999.</p>
     `
   },
-  'secondary with summary list': {
+  "secondary with summary list": {
     context: {
-      variant: 'secondary',
-      heading: 'Regional Manager',
+      variant: "secondary",
+      heading: "Regional Manager",
       headingLevel: 3
     },
     callBlock: outdent`
       ${components.render(
-        'summary-list',
-        summaryListExamples['example person: Karen Francis (no border)']
+        "summary-list",
+        summaryListExamples["example person: Karen Francis (no border)"]
       )}
     `
   },
-  'secondary with summary lists': {
+  "secondary with summary lists": {
     context: {
-      variant: 'secondary',
-      heading: 'Regional Managers',
+      variant: "secondary",
+      heading: "Regional Managers",
       headingLevel: 3
     },
     callBlock: outdent`
       <h4 class="nhsuk-heading-s nhsuk-u-margin-bottom-1">East</h4>
       ${components.render(
-        'summary-list',
-        summaryListExamples['example person: Karen Francis']
+        "summary-list",
+        summaryListExamples["example person: Karen Francis"]
       )}
 
       <h4 class="nhsuk-heading-s nhsuk-u-margin-bottom-1">West</h4>
       ${components.render(
-        'summary-list',
-        summaryListExamples['example person: Sarah Philips (no border)']
+        "summary-list",
+        summaryListExamples["example person: Sarah Philips (no border)"]
       )}
     `
   },
-  'secondary with summary list and button': {
+  "secondary with summary list and button": {
     context: {
-      variant: 'secondary',
-      heading: 'Regional Manager',
+      variant: "secondary",
+      heading: "Regional Manager",
       headingLevel: 3
     },
     callBlock: outdent`
       ${components.render(
-        'summary-list',
-        summaryListExamples['example person: Karen Francis']
+        "summary-list",
+        summaryListExamples["example person: Karen Francis"]
       )}
 
-      ${components.render('button', {
+      ${components.render("button", {
         context: {
-          text: 'Add role',
-          variant: 'secondary'
+          text: "Add role",
+          variant: "secondary"
         }
       })}
     `
   },
-  'secondary with summary list and actions': {
+  "secondary with summary list and actions": {
     context: {
-      variant: 'secondary',
-      heading: 'Regional Manager',
+      variant: "secondary",
+      heading: "Regional Manager",
       headingLevel: 3,
       actions: {
         items: [
           {
-            text: 'Delete',
-            href: '#/delete'
+            text: "Delete",
+            href: "#/delete"
           },
           {
-            text: 'Withdraw',
-            href: '#/withdraw'
+            text: "Withdraw",
+            href: "#/withdraw"
           }
         ]
       }
     },
     callBlock: outdent`
       ${components.render(
-        'summary-list',
-        summaryListExamples['example person: Karen Francis (no border)']
+        "summary-list",
+        summaryListExamples["example person: Karen Francis (no border)"]
       )}
     `
   },
-  'secondary with summary list and actions, without heading': {
+  "secondary with summary list and actions, without heading": {
     context: {
-      variant: 'secondary',
+      variant: "secondary",
       actions: {
         items: [
           {
-            text: 'Delete',
-            visuallyHiddenText: '(Karen Francis)',
-            href: '#/delete'
+            text: "Delete",
+            visuallyHiddenText: "(Karen Francis)",
+            href: "#/delete"
           },
           {
-            text: 'Withdraw',
-            visuallyHiddenText: '(Karen Francis)',
-            href: '#/withdraw'
+            text: "Withdraw",
+            visuallyHiddenText: "(Karen Francis)",
+            href: "#/withdraw"
           }
         ]
       }
     },
     callBlock: outdent`
       ${components.render(
-        'summary-list',
-        summaryListExamples['example person: Karen Francis (no border)']
+        "summary-list",
+        summaryListExamples["example person: Karen Francis (no border)"]
       )}
     `
   },
-  'secondary with summary list and actions (empty items)': {
+  "secondary with summary list and actions (empty items)": {
     context: {
-      variant: 'secondary',
-      heading: 'Regional Manager',
+      variant: "secondary",
+      heading: "Regional Manager",
       headingLevel: 3,
       actions: {
         items: [
           {
-            text: 'Delete',
-            href: '#/delete'
+            text: "Delete",
+            href: "#/delete"
           },
           false
         ]
@@ -443,30 +443,30 @@ const fixtures = {
     },
     callBlock: outdent`
       ${components.render(
-        'summary-list',
-        summaryListExamples['example person: Karen Francis (no border)']
+        "summary-list",
+        summaryListExamples["example person: Karen Francis (no border)"]
       )}
     `
   },
-  'secondary with summary list and heading link': {
+  "secondary with summary list and heading link": {
     context: {
-      href: '#',
-      variant: 'secondary',
-      heading: 'Regional Manager',
+      href: "#",
+      variant: "secondary",
+      heading: "Regional Manager",
       headingLevel: 3
     },
     callBlock: outdent`
       ${components.render(
-        'summary-list',
-        summaryListExamples['example person: Karen Francis (no border)']
+        "summary-list",
+        summaryListExamples["example person: Karen Francis (no border)"]
       )}
     `
   },
-  'non-urgent (blue)': {
+  "non-urgent (blue)": {
     context: {
-      heading: 'Speak to a GP if:',
+      heading: "Speak to a GP if:",
       headingLevel: 3,
-      variant: 'non-urgent'
+      variant: "non-urgent"
     },
     callBlock: outdent`
       <ul>
@@ -478,14 +478,14 @@ const fixtures = {
       <p>Tell the receptionist you think it's chickenpox before going in. They may recommend a special appointment time if other patients are at risk.</p>
     `,
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
+      viewports: ["mobile", "tablet", "desktop"]
     }
   },
-  'urgent (red)': {
+  "urgent (red)": {
     context: {
-      heading: 'Ask for an urgent GP appointment if:',
+      heading: "Ask for an urgent GP appointment if:",
       headingLevel: 3,
-      variant: 'urgent'
+      variant: "urgent"
     },
     callBlock: outdent`
       <ul>
@@ -497,14 +497,14 @@ const fixtures = {
       <p>In these situations, your GP can prescribe medicine to prevent complications. You need to take it within 24 hours of the spots coming out.</p>
     `,
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
+      viewports: ["mobile", "tablet", "desktop"]
     }
   },
-  'emergency (red and black)': {
+  "emergency (red and black)": {
     context: {
-      heading: 'Call 999 if you have sudden chest pain that:',
+      heading: "Call 999 if you have sudden chest pain that:",
       headingLevel: 3,
-      variant: 'emergency'
+      variant: "emergency"
     },
     callBlock: outdent`
       <ul>
@@ -515,14 +515,14 @@ const fixtures = {
       <p>You could be having a heart attack. Call 999 immediately as you need immediate treatment in hospital.</p>
     `,
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
+      viewports: ["mobile", "tablet", "desktop"]
     }
   },
-  'emergency (red and black) with action link': {
+  "emergency (red and black) with action link": {
     context: {
-      heading: 'Call 999 or go to A&E now if:',
+      heading: "Call 999 or go to A&E now if:",
       headingLevel: 3,
-      variant: 'emergency'
+      variant: "emergency"
     },
     callBlock: outdent`
       <ul>
@@ -530,99 +530,99 @@ const fixtures = {
         <li>you have severe difficulty breathing – you're gasping, choking or not able to get words out</li>
       </ul>
 
-      ${components.render('action-link', {
+      ${components.render("action-link", {
         context: {
-          text: 'Find your nearest A&E',
-          variant: 'reverse',
-          href: '#'
+          text: "Find your nearest A&E",
+          variant: "reverse",
+          href: "#"
         }
       })}
     `
   },
-  'primary (with chevron)': {
+  "primary (with chevron)": {
     context: {
-      href: '#',
-      variant: 'primary',
+      href: "#",
+      variant: "primary",
       clickable: true,
-      heading: 'Breast screening',
-      headingSize: 'm'
+      heading: "Breast screening",
+      headingSize: "m"
     },
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
+      viewports: ["mobile", "tablet", "desktop"]
     }
   },
-  'primary (with chevron and description)': {
+  "primary (with chevron and description)": {
     context: {
-      href: '#',
-      variant: 'primary',
+      href: "#",
+      variant: "primary",
       clickable: true,
-      heading: 'Introduction to care and support',
-      headingSize: 'm',
+      heading: "Introduction to care and support",
+      headingSize: "m",
       description:
-        'A quick guide for people who have care and support needs and their carers'
+        "A quick guide for people who have care and support needs and their carers"
     },
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
+      viewports: ["mobile", "tablet", "desktop"]
     }
   },
-  'clickable': {
+  "clickable": {
     context: {
-      href: '#',
+      href: "#",
       clickable: true,
-      heading: 'Introduction to care and support',
-      headingSize: 'm',
+      heading: "Introduction to care and support",
+      headingSize: "m",
       description:
-        'A quick guide for people who have care and support needs and their carers'
+        "A quick guide for people who have care and support needs and their carers"
     },
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
+      viewports: ["mobile", "tablet", "desktop"]
     }
   },
-  'secondary': {
+  "secondary": {
     context: {
-      href: '#',
+      href: "#",
       clickable: true,
-      variant: 'secondary',
-      heading: 'Urgent and emergency care services',
-      headingSize: 'm',
+      variant: "secondary",
+      heading: "Urgent and emergency care services",
+      headingSize: "m",
       description:
-        'Services the NHS provides if you need urgent or emergency medical help'
+        "Services the NHS provides if you need urgent or emergency medical help"
     },
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
+      viewports: ["mobile", "tablet", "desktop"]
     }
   },
-  'secondary non-clickable with custom description': {
+  "secondary non-clickable with custom description": {
     context: {
-      href: '#',
-      variant: 'secondary',
-      heading: 'Why we are reinvesting in the NHS Prototype kit',
-      headingClasses: 'nhsuk-u-font-size-22 nhsuk-u-margin-bottom-2',
+      href: "#",
+      variant: "secondary",
+      heading: "Why we are reinvesting in the NHS Prototype kit",
+      headingClasses: "nhsuk-u-font-size-22 nhsuk-u-margin-bottom-2",
       descriptionHtml: outdent`
         <p class="nhsuk-body-s nhsuk-u-margin-bottom-2">21 July 2025</p>
         <p class="nhsuk-card__description">Frankie and Mike explain why we revived the NHS prototype kit, the benefits of prototyping in code and how digital teams in the NHS can get started using it.</p>
       `
     },
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
+      viewports: ["mobile", "tablet", "desktop"]
     }
   },
-  'feature': {
+  "feature": {
     context: {
-      variant: 'feature',
-      heading: 'Feature card heading',
-      description: 'Feature card description.'
+      variant: "feature",
+      heading: "Feature card heading",
+      description: "Feature card description."
     },
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
+      viewports: ["mobile", "tablet", "desktop"]
     }
   },
-  'feature with A to Z content': {
+  "feature with A to Z content": {
     context: {
-      variant: 'feature',
-      heading: 'A',
-      headingId: 'a',
-      headingSize: 'm',
+      variant: "feature",
+      heading: "A",
+      headingId: "a",
+      headingSize: "m",
       descriptionHtml: outdent`
         <ul class="nhsuk-list nhsuk-list--border">
           <li><a href="#/conditions/abdominal-aortic-aneurysm/">AAA, see Abdominal aortic aneurysm</a></li>
@@ -632,70 +632,70 @@ const fixtures = {
       `
     }
   },
-  'feature with summary list': {
+  "feature with summary list": {
     context: {
-      variant: 'feature',
-      heading: 'Feature card heading'
+      variant: "feature",
+      heading: "Feature card heading"
     },
     callBlock: outdent`
       ${components.render(
-        'summary-list',
-        summaryListExamples['example person: Karen Francis (no border)']
+        "summary-list",
+        summaryListExamples["example person: Karen Francis (no border)"]
       )}
     `
   },
-  'feature with nested card and summary list': {
+  "feature with nested card and summary list": {
     context: {
-      variant: 'feature',
-      heading: 'Flu: Follow-up requested'
+      variant: "feature",
+      heading: "Flu: Follow-up requested"
     },
     callBlock: outdent`
       <p>Sarah Philips (Mum) would like to speak to a member of the team about other options for their child's vaccination.</p>
-      ${components.render('button', {
+      ${components.render("button", {
         context: {
-          text: 'Record a new consent response',
-          variant: 'secondary',
-          href: '#'
+          text: "Record a new consent response",
+          variant: "secondary",
+          href: "#"
         }
       })}
 
       <h3 class="nhsuk-heading-s">Consent responses</h3>
 
-      ${components.render('summary-list', {
+      ${components.render("summary-list", {
         context: {
           card: {
-            href: '#',
+            href: "#",
             clickable: true,
-            heading: 'Sarah Philips (Mum)',
+            heading: "Sarah Philips (Mum)",
             headingLevel: 4
           },
           rows: [
             {
               key: {
-                text: 'Email address'
+                text: "Email address"
               },
               value: {
-                text: 'sarah.philips@example.com'
+                text: "sarah.philips@example.com"
               }
             },
             {
               key: {
-                text: 'Date'
+                text: "Date"
               },
               value: {
-                text: '25 August 2025 at 4:04 pm'
+                text: "25 August 2025 at 4:04 pm"
               }
             },
             {
               border: false,
               key: {
-                text: 'Response'
+                text: "Response"
               },
               value: {
-                html: components.render('tag', {
+                html: components.render("tag", {
                   context: {
-                    text: 'Follow up requested',
-                    colour: 'orange'
+                    text: "Follow up requested",
+                    colour: "orange"
                   }
                 })
               }
@@ -705,92 +705,92 @@ const fixtures = {
       })}
     `
   },
-  'warning': {
+  "warning": {
     context: {
-      variant: 'warning',
-      heading: 'School, nursery or work',
+      variant: "warning",
+      heading: "School, nursery or work",
       description:
-        'Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.'
+        "Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared."
     }
   },
-  'warning with actions': {
+  "warning with actions": {
     context: {
-      variant: 'warning',
-      heading: 'School, nursery or work',
+      variant: "warning",
+      heading: "School, nursery or work",
       description:
-        'Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.',
+        "Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.",
       actions: {
         items: [
           {
-            text: 'Dismiss',
-            href: '#/dismiss'
+            text: "Dismiss",
+            href: "#/dismiss"
           }
         ]
       }
     }
   },
-  'with image': {
+  "with image": {
     context: {
       image: {
-        src: 'https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg'
+        src: "https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg"
       },
-      href: '#',
+      href: "#",
       clickable: true,
-      heading: 'Exercise',
-      headingSize: 'm',
+      heading: "Exercise",
+      headingSize: "m",
       description:
-        'Programmes, workouts and tips to get you moving and improve your fitness and wellbeing'
+        "Programmes, workouts and tips to get you moving and improve your fitness and wellbeing"
     },
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
+      viewports: ["mobile", "tablet", "desktop"]
     }
   },
-  'with image and caption': {
+  "with image and caption": {
     context: {
       image: {
-        html: components.render('images', imageExamples['default'])
+        html: components.render("images", imageExamples["default"])
       },
-      href: '#',
+      href: "#",
       clickable: true,
-      heading: 'Exercise',
-      headingSize: 'm',
+      heading: "Exercise",
+      headingSize: "m",
       description:
-        'Programmes, workouts and tips to get you moving and improve your fitness and wellbeing'
+        "Programmes, workouts and tips to get you moving and improve your fitness and wellbeing"
     }
   },
-  'with image and custom HTML': {
+  "with image and custom HTML": {
     context: {
       image: {
-        src: 'https://service-manual.nhs.uk/assets/blog-prototype-kit.png'
+        src: "https://service-manual.nhs.uk/assets/blog-prototype-kit.png"
       },
-      href: 'https://digital.nhs.uk/blog/design-matters/2025/why-we-are-reinvesting-in-the-nhs-prototype-kit',
+      href: "https://digital.nhs.uk/blog/design-matters/2025/why-we-are-reinvesting-in-the-nhs-prototype-kit",
       clickable: true,
-      heading: 'Why we are reinvesting in the NHS prototype kit',
-      headingSize: 'm',
+      heading: "Why we are reinvesting in the NHS prototype kit",
+      headingSize: "m",
       headingHtml: outdent`
         <p class="nhsuk-body-s nhsuk-u-secondary-text-colour nhsuk-u-margin-bottom-0"><span class="nhsuk-u-visually-hidden">Published on: </span>21 July 2025</p>
         <p class="nhsuk-body-s nhsuk-u-font-weight-bold">NHS England Design Matters blog</p>
       `,
       description:
-        'Frankie Roberto and Mike Gallagher explain why we revived the NHS prototype kit, the benefits of prototyping in code and how digital teams in the NHS can get started using it.'
+        "Frankie Roberto and Mike Gallagher explain why we revived the NHS prototype kit, the benefits of prototyping in code and how digital teams in the NHS can get started using it."
     },
     options: {
-      width: 'one-half'
+      width: "one-half"
     }
   },
-  'top task': {
+  "top task": {
     context: {
-      href: '#',
+      href: "#",
       clickable: true,
-      heading: 'Order a repeat prescription',
-      headingSize: 'xs',
+      heading: "Order a repeat prescription",
+      headingSize: "xs",
       headingLevel: 3
     },
     options: {
-      width: 'one-third'
+      width: "one-third"
     },
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
+      viewports: ["mobile", "tablet", "desktop"]
     }
   }
 }

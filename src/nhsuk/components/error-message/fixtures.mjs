@@ -4,37 +4,37 @@
  * @satisfies {{ [example: string]: MacroExample }}
  */
 const fixtures = {
-  'default': {
+  "default": {
     context: {
-      text: 'Enter your full name'
+      text: "Enter your full name"
     },
     screenshot: {
-      viewports: ['tablet']
+      viewports: ["tablet"]
     }
   },
-  'with text escaping': {
+  "with text escaping": {
     context: {
-      text: 'Postcode must not include & and <'
+      text: "Postcode must not include & and <"
     }
   },
-  'with HTML': {
+  "with HTML": {
     context: {
-      html: 'Postcode must not include &amp; and &lt;'
+      html: "Postcode must not include &amp; and &lt;"
     }
   },
-  'with HTML via call block': {
-    callBlock: 'Postcode must not include &amp; and &lt;'
+  "with HTML via call block": {
+    callBlock: "Postcode must not include &amp; and &lt;"
   },
-  'with translations': {
+  "with translations": {
     context: {
-      text: 'Rhowch eich enw llawn',
-      visuallyHiddenText: 'Gwall'
+      text: "Rhowch eich enw llawn",
+      visuallyHiddenText: "Gwall"
     }
   },
-  'without visually hidden text': {
+  "without visually hidden text": {
     context: {
-      text: 'There is an error on line 42',
-      visuallyHiddenText: ''
+      text: "There is an error on line 42",
+      visuallyHiddenText: ""
     }
   }
 }
