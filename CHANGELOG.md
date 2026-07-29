@@ -354,6 +354,23 @@ If you are not using Nunjucks macros, use the HTML markup from the [table exampl
 
 This change was introduced in [pull request #2003: Add striped option for tables](https://github.com/nhsuk/nhsuk-frontend/pull/2003).
 
+#### Add image component `background`, `border` and `width` Nunjucks options
+
+We've updated the image component to add `background`, `border` and `width` Nunjucks options.
+
+These new options can be used to override the defaults. For example, setting `background: false` and `border: false` renders the image without a background or bottom border:
+
+```patch
+  {{ image({
++   background: false,
++   border: false,
+    src: "https://service-manual.nhs.uk/assets/image-example-stretch-marks-600w.jpg",
+    alt: "Close-up of a person's tummy showing a number of creases in the skin under their belly button. Shown on light brown skin."
+  }) }}
+```
+
+This was added in [pull request #2002: Add image component `background`, `border` and `width` options](https://github.com/nhsuk/nhsuk-frontend/pull/2002).
+
 ### :wastebasket: **Deprecated features**
 
 #### Rename checkboxes "none" options
@@ -466,6 +483,16 @@ If you are not using Nunjucks macros, update your HTML markup using the [table e
 ```
 
 This change was introduced in pull requests [#1998: Add `compact` option for tables](https://github.com/nhsuk/nhsuk-frontend/pull/1998) and [#2003: Add `striped` option for tables](https://github.com/nhsuk/nhsuk-frontend/pull/2003).
+
+### :recycle: **Changes**
+
+#### Apply image width on tablet sized screens
+
+We've updated the image component to apply its two-thirds width on tablet sized screens (641px and up).
+
+Previously these styles were applied from desktop width (769px and up) making it difficult to cater for smaller screen sizes.
+
+This change was introduced in [pull request #2002: Add image component `background`, `border` and `width` options](https://github.com/nhsuk/nhsuk-frontend/pull/2002).
 
 ### :wrench: **Fixes**
 
