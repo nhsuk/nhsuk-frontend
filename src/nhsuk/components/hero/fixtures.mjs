@@ -76,6 +76,7 @@ const fixtures = {
       heading: "This is a header for the product or service",
       headingSize: "l",
       headingClasses: "nhsuk-u-margin-top-5",
+      contentWidth: "one-half",
       html: outdent`
         <p class="nhsuk-body-l">This is some more content which explains the product or service.</p>
         ${components.render("button", {
@@ -85,6 +86,14 @@ const fixtures = {
             href: "#"
           }
         })}
+      `,
+      secondaryHtml: outdent`
+        <div class="nhsuk-u-padding-top-7">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400" focusable="false" role="img" aria-label="Example image">
+            <title>Example image</title>
+            <rect width="600" height="400" fill="LightGray"/>
+          </svg>
+        </div>
       `
     },
     options: {
