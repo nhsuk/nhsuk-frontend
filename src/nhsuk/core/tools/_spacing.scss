@@ -225,7 +225,7 @@
 ///
 /// @example scss
 ///   .foo {
-///     @include nhsuk-responsive-margin(6, 'left', $adjustment: 1px);
+///     @include nhsuk-responsive-margin(6, "left", $adjustment: 1px);
 ///   }
 ///
 /// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)

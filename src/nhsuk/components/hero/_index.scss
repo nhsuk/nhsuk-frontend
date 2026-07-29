@@ -20,8 +20,8 @@
 /// 12. Remove any heights/min heights in Windows high contrast mode.
 /// 13. Remove the arrow in Windows high contrast mode.
 /// 14. Reduce spacing and change positioning for Windows high contrast mode.
-/// 15. Prevent text breaking out of box on smaller sizes
-/// 16. Prevent overlap using safe area: box offset + arrow height + spacing
+/// 15. Prevent text breaking out of box on smaller sizes.
+/// 16. Prevent overlap using safe area: box offset + arrow height + spacing.
 ///
 /// @group components/hero
 ///
@@ -62,7 +62,7 @@
   }
 
   .nhsuk-hero__heading {
-    @include nhsuk-responsive-margin(3, bottom);
+    @include nhsuk-responsive-margin(3, "bottom");
   }
 
   //  Hero component image styles
