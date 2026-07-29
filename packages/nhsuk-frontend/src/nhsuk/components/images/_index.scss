@@ -17,24 +17,36 @@
 @include nhsuk-exports("nhsuk/components/images") {
   .nhsuk-image {
     box-sizing: border-box;
+
     margin-right: 0; // [1]
     margin-left: 0; // [1]
+
     border-bottom: 1px solid $nhsuk-border-colour;
+
+    color: $nhsuk-text-colour;
     background-color: $nhsuk-card-background-colour;
 
     @include nhsuk-responsive-margin(6, ("top", "bottom"));
 
-    @media #{nhsuk-from-breakpoint(desktop)} {
+    @media #{nhsuk-from-breakpoint(tablet)} {
       width: math.percentage(math.div(2, 3)); // [2]
     }
 
     @media print {
       width: math.percentage(math.div(1, 2)); // [3]
     }
+  }
 
-    & + .nhsuk-image {
-      @include nhsuk-responsive-margin(0, "top"); // [4]
-    }
+  .nhsuk-image + .nhsuk-image {
+    margin-top: 0; // [4]
+  }
+
+  .nhsuk-image--no-border {
+    border-bottom: none;
+  }
+
+  .nhsuk-image--no-background {
+    background-color: transparent;
   }
 
   .nhsuk-image img,
