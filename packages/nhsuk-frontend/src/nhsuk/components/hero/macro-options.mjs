@@ -113,6 +113,12 @@ const options = {
     description:
       'HTML attributes (for example data attributes) to add to the hero.',
     released: '1.0.0'
+  },
+  border: {
+    type: 'boolean',
+    required: false,
+    description: 'If set to `false`, remove border from the hero.',
+    released: '10.6.0'
   }
 }
 
