@@ -1,7 +1,6 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
-{% from "nhsuk/components/input/macro.njk" import input %}
-{% from "nhsuk/components/button/macro.njk" import button %}
+{% from "nhsuk/components/search-input/macro.njk" import searchInput %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-header" -%}
@@ -145,24 +144,17 @@
             optional: true
           }
         }) }} novalidate>
-        {{ input({
+        {{ searchInput({
           label: {
             text: searchVisuallyHiddenLabel,
             classes: "nhsuk-u-visually-hidden"
           },
+          placeholder: searchPlaceholder,
           id: "search-field",
           name: searchName,
-          type: "search",
-          autocomplete: "off",
-          placeholder: searchPlaceholder,
-          formGroup: {
-            afterInput: {
-              html: button({
-                ariaLabel: searchVisuallyHiddenButton,
-                icon: "search",
-                small: true
-              })
-            }
+          button: {
+            ariaLabel: searchVisuallyHiddenButton,
+            variant: "brand" if "nhsuk-header--white" in classNames else "brand-reverse"
           }
         }) | trim | indent(8) }}
       </form>

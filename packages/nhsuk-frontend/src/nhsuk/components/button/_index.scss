@@ -208,11 +208,21 @@ $button-shadow-size: $nhsuk-button-shadow-size;
   .nhsuk-button--brand,
   .nhsuk-button--login {
     @include nhsuk-button-style(
-      $button-colour: $nhsuk-login-button-colour,
-      $button-hover-colour: $nhsuk-login-button-hover-colour,
-      $button-active-colour: $nhsuk-login-button-active-colour,
+      $button-colour: $nhsuk-brand-button-colour,
+      $button-hover-colour: $nhsuk-brand-button-hover-colour,
+      $button-active-colour: $nhsuk-brand-button-active-colour,
       $button-text-colour: $nhsuk-button-text-colour,
-      $button-shadow-colour: $nhsuk-login-button-shadow-colour
+      $button-shadow-colour: $nhsuk-brand-button-shadow-colour
+    );
+  }
+
+  .nhsuk-button--brand-reverse {
+    @include nhsuk-button-style(
+      $button-colour: $nhsuk-brand-reverse-button-colour,
+      $button-hover-colour: $nhsuk-brand-reverse-button-hover-colour,
+      $button-active-colour: $nhsuk-brand-reverse-button-active-colour,
+      $button-text-colour: $nhsuk-brand-reverse-button-text-colour,
+      $button-shadow-colour: $nhsuk-brand-reverse-button-shadow-colour
     );
   }
 
