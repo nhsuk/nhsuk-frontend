@@ -420,7 +420,7 @@ We've rewritten the internals of the `nhsuk-media-query` mixin to make use of th
 
 This was added in [pull request #1961: Port Sass media query functions from GOV.UK Frontend and remove `sass-mq` dependency](https://github.com/nhsuk/nhsuk-frontend/pull/1961).
 
-#### Add image component `background`, `border` and `width` Nunjucks options
+#### Remove image background colour, bottom border or add custom width
 
 We've updated the image component to add `background`, `border` and `width` Nunjucks options.
 
