@@ -29,6 +29,7 @@
     @include nhsuk-responsive-margin(7, "bottom");
 
     .nhsuk-table,
+    // Deprecated, to be removed in v11.0
     .nhsuk-table-responsive {
       margin: 0; // [1]
     }
@@ -243,6 +244,15 @@
         }
       }
     }
+
+    &.nhsuk-table--no-last-row-border {
+      @media #{nhsuk-until-breakpoint(desktop)} {
+        .nhsuk-table__body .nhsuk-table__row:last-child .nhsuk-table__header:not(:last-child),
+        .nhsuk-table__body .nhsuk-table__row:last-child .nhsuk-table__cell:not(:last-child) {
+          border-color: $nhsuk-border-colour;
+        }
+      }
+    }
   }
 
   // Numeric tables
@@ -393,6 +403,22 @@
       .nhsuk-table__header[data-sort]:hover {
         background-color: $nhsuk-reverse-target-hover-colour;
       }
+    }
+  }
+
+  // No border on table body rows
+  .nhsuk-table--no-border {
+    .nhsuk-table__body .nhsuk-table__header,
+    .nhsuk-table__body .nhsuk-table__cell {
+      border-color: transparent;
+    }
+  }
+
+  // No border on last table body row
+  .nhsuk-table--no-last-row-border {
+    .nhsuk-table__body .nhsuk-table__row:last-child .nhsuk-table__header,
+    .nhsuk-table__body .nhsuk-table__row:last-child .nhsuk-table__cell {
+      border-color: transparent;
     }
   }
 }

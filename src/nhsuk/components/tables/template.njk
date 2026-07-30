@@ -27,6 +27,12 @@
   {% set classNames = classNames ~ " nhsuk-table--responsive" %}
 {% endif %}
 
+{%- if params.border === false and not (params.classes and "nhsuk-table--no-border" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-table--no-border" %}
+{% elif params.lastRowBorder === false and not (params.classes and "nhsuk-table--no-last-row-border" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-table--no-last-row-border" %}
+{% endif %}
+
 {%- set head = params.head | select("mapping") if params.head | length else [] %}
 {%- set rows = params.rows | select("iterable") if params.rows | length else [] %}
 
