@@ -12,6 +12,19 @@ const options = {
     description: 'The ID of the table.',
     released: '10.0.0'
   },
+  border: {
+    type: 'boolean',
+    required: false,
+    description: 'If set to `false`, remove separating borders from all rows.',
+    released: '10.6.0'
+  },
+  lastRowBorder: {
+    type: 'boolean',
+    required: false,
+    description:
+      'If set to `false`, remove separating border from the last row.',
+    released: '10.6.0'
+  },
   rows: {
     type: 'array',
     required: true,

@@ -912,12 +912,99 @@ const fixtures = {
       ]
     }
   },
+  "without border": {
+    context: {
+      caption: "Cases per manager",
+      captionClasses: "nhsuk-u-visually-hidden",
+      border: false,
+      head: [
+        {
+          text: "Manager"
+        },
+        {
+          text: "Cases",
+          format: "numeric"
+        }
+      ],
+      rows: [
+        [
+          {
+            text: "David Francis"
+          },
+          {
+            text: "1380"
+          }
+        ],
+        [
+          {
+            text: "Paul Farmer"
+          },
+          {
+            text: "1129"
+          }
+        ],
+        [
+          {
+            text: "Rita Patel"
+          },
+          {
+            text: "24"
+          }
+        ]
+      ]
+    },
+    variants
+  },
+  "without last row border": {
+    context: {
+      caption: "Cases per manager",
+      captionClasses: "nhsuk-u-visually-hidden",
+      lastRowBorder: false,
+      head: [
+        {
+          text: "Manager"
+        },
+        {
+          text: "Cases",
+          format: "numeric"
+        }
+      ],
+      rows: [
+        [
+          {
+            text: "David Francis"
+          },
+          {
+            text: "1380"
+          }
+        ],
+        [
+          {
+            text: "Paul Farmer"
+          },
+          {
+            text: "1129"
+          }
+        ],
+        [
+          {
+            text: "Rita Patel"
+          },
+          {
+            text: "24"
+          }
+        ]
+      ]
+    },
+    variants
+  },
   "as a card": {
     context: {
       card: true,
       caption: "Impetigo can look similar to other skin conditions",
       captionSize: "m",
       firstCellIsHeader: true,
+      lastRowBorder: false,
       head: [
         {
           text: "Skin symptoms"
@@ -969,6 +1056,7 @@ const fixtures = {
       caption: "Impetigo can look similar to other skin conditions",
       captionSize: "s",
       firstCellIsHeader: true,
+      lastRowBorder: false,
       head: [
         {
           text: "Skin symptoms"
