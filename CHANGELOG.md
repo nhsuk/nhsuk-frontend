@@ -135,6 +135,58 @@ If you are not using Nunjucks macros, use the HTML markup from the [table exampl
 
 This was added in pull requests [#1654: Add option to make tables sortable](https://github.com/nhsuk/nhsuk-frontend/pull/1654) and [#2025: Align table component options with summary list](https://github.com/nhsuk/nhsuk-frontend/pull/2025).
 
+#### Add a modifier class for compact tables
+
+We've added a new `.nhsuk-table--compact` class and `compact` Nunjucks option for the [table](https://service-manual.nhs.uk/design-system/components/table) component. This reduces table cell padding at all screen sizes.
+
+```patch
+  {{ table({
+    caption: "Childhood vaccination coverage",
++   compact: true,
+    head: [],
+    rows: []
+  }) }}
+```
+
+If you are not using Nunjucks macros, use the HTML markup from the [table examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/table) as follows:
+
+- Add the `nhsuk-table--compact` class to the `<table>` tag
+
+```patch
+- <table class="nhsuk-table">
++ <table class="nhsuk-table nhsuk-table--compact">
+    <!-- // ... -->
+  </table>
+```
+
+This change was introduced in [pull request #1998: Add compact option for tables](https://github.com/nhsuk/nhsuk-frontend/pull/1998).
+
+#### Add a modifier class for striped tables
+
+We've added a new `.nhsuk-table--striped` class and `striped` Nunjucks option for the [table](https://service-manual.nhs.uk/design-system/components/table) component. This adds table row backround colours on alternate rows.
+
+```patch
+  {{ table({
+    caption: "Childhood vaccination coverage",
++   striped: true,
+    head: [],
+    rows: []
+  }) }}
+```
+
+If you are not using Nunjucks macros, use the HTML markup from the [table examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/table) as follows:
+
+- Add the `nhsuk-table--striped` class to the `<table>` tag
+
+```patch
+- <table class="nhsuk-table">
++ <table class="nhsuk-table nhsuk-table--striped">
+    <!-- // ... -->
+  </table>
+```
+
+This change was introduced in [pull request #2003: Add striped option for tables](https://github.com/nhsuk/nhsuk-frontend/pull/2003).
+
 #### Add an "all" option to checkboxes
 
 You can now add an "all" option to checkboxes when JavaScript is available. This gives users the option to quickly select or unselect all the checkboxes.
@@ -367,58 +419,6 @@ $app-component-breakpoints: (
 We've rewritten the internals of the `nhsuk-media-query` mixin to make use of these new functions. The rewritten mixin should work identically and return the same CSS as the previous version, but you may want to make sure that your existing media queries work as expected.
 
 This was added in [pull request #1961: Port Sass media query functions from GOV.UK Frontend and remove `sass-mq` dependency](https://github.com/nhsuk/nhsuk-frontend/pull/1961).
-
-#### Add a modifier class for compact tables
-
-We've added a new `.nhsuk-table--compact` class and `compact` Nunjucks option for the [table](https://service-manual.nhs.uk/design-system/components/table) component. This reduces table cell padding at all screen sizes.
-
-```patch
-  {{ table({
-    caption: "Childhood vaccination coverage",
-+   compact: true,
-    head: [],
-    rows: []
-  }) }}
-```
-
-If you are not using Nunjucks macros, use the HTML markup from the [table examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/table) as follows:
-
-- Add the `nhsuk-table--compact` class to the `<table>` tag
-
-```patch
-- <table class="nhsuk-table">
-+ <table class="nhsuk-table nhsuk-table--compact">
-    <!-- // ... -->
-  </table>
-```
-
-This change was introduced in [pull request #1998: Add compact option for tables](https://github.com/nhsuk/nhsuk-frontend/pull/1998).
-
-#### Add a modifier class for striped tables
-
-We've added a new `.nhsuk-table--striped` class and `striped` Nunjucks option for the [table](https://service-manual.nhs.uk/design-system/components/table) component. This adds table row backround colours on alternate rows.
-
-```patch
-  {{ table({
-    caption: "Childhood vaccination coverage",
-+   striped: true,
-    head: [],
-    rows: []
-  }) }}
-```
-
-If you are not using Nunjucks macros, use the HTML markup from the [table examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/table) as follows:
-
-- Add the `nhsuk-table--striped` class to the `<table>` tag
-
-```patch
-- <table class="nhsuk-table">
-+ <table class="nhsuk-table nhsuk-table--striped">
-    <!-- // ... -->
-  </table>
-```
-
-This change was introduced in [pull request #2003: Add striped option for tables](https://github.com/nhsuk/nhsuk-frontend/pull/2003).
 
 #### Add image component `background`, `border` and `width` Nunjucks options
 
