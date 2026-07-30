@@ -68,7 +68,8 @@
     @include nhsuk-top-and-bottom;
 
     [class^="nhsuk-caption"] {
-      color: inherit;
+      color: nhsuk-tint($nhsuk-brand-colour, 80%);
+      @include nhsuk-font-weight-bold;
     }
   }
 
