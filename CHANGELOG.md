@@ -65,6 +65,67 @@ For example:
   }) }}
 ```
 
+#### Set table column widths, align text or adjust row borders
+
+We've updated the table component to pass `align`, `href`, `visuallyHiddenText` and `width` Nunjucks options to table cells.
+
+For example, to add a column of "Change" links:
+
+```patch
+  {{ table({
+    caption: "Appointments",
+    firstCellIsHeader: true,
+    head: [
+      {
+        text: "Name",
++       width: "one-half",
+        sort: "descending"
+      },
+      {
+        text: "Last log in",
++       align: "right",
++       width: "one-third",
+        sort: true
+-     }
++     },
++     {
++       visuallyHiddenText: "Action"
++       align: "right"
++     }
+    ],
+    rows: [
+      [
+        {
+          text: "Ro Nkosi"
+        },
+        {
+          text: "28 June 2026"
+-       }
++       },
++       {
++         text: "Change",
++         visuallyHiddenText: "details for Ro Nkosi",
++         href: "/change/1111"
++       }
+      ],
+      [
+        {
+          text: "Stellan Park"
+        },
+        {
+          text: "20 June 2026"
+-       }
++       },
++       {
++         text: "Change",
++         visuallyHiddenText: "details for Stellan Park",
++         href: "/change/2222"
++       }
+      ]
+    ]
+  }) }}
+```
+
 If you are not using Nunjucks macros, use the HTML markup from the [table examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/table).
 
 This was added in [pull request #1654: Add option to make tables sortable](https://github.com/nhsuk/nhsuk-frontend/pull/1654).
