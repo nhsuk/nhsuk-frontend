@@ -14,6 +14,7 @@ If you're using the `tables` Nunjucks macro, to configure header cells:
 
 - Add the `sort: "ascending"` or `sort: "descending"` option to the currently sorted column only
 - Add the `sort: true` option to enable sorting on any other columns
+- Add the `format: "numeric"` option to sort numerically rather than alphabetically
 
 For example:
 
@@ -27,8 +28,8 @@ For example:
 +       sort: "ascending"
       },
       {
-        text: "MMR",
--       format: "numeric"
+-       text: "MMR"
++       text: "MMR",
 +       format: "numeric",
 +       sort: true
       }
@@ -39,8 +40,7 @@ For example:
           text: "Northern Ireland"
         },
         {
-          text: "86.4%",
-          format: "numeric"
+          text: "86.4%"
         }
       ],
       [
@@ -48,8 +48,7 @@ For example:
           text: "Scotland"
         },
         {
-          text: "89.2%",
-          format: "numeric"
+          text: "89.2%"
         }
       ],
       [
@@ -57,8 +56,7 @@ For example:
           text: "Wales"
         },
         {
-          text: "89.5%",
-          format: "numeric"
+          text: "89.5%"
         }
       ]
     ]
