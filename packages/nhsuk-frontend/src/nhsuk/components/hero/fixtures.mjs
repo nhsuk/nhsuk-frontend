@@ -11,9 +11,9 @@ const fixtures = {
   "default": {
     context: {
       heading: {
-        text: "We're here for you"
+        text: "We're here for you"
       },
-      text: "Helping you take control of your health and wellbeing.",
+      text: "Helping you take control of your health and wellbeing.",
       border: false
     },
     options: {
@@ -26,9 +26,9 @@ const fixtures = {
   "heading": {
     context: {
       heading: {
-        text: "We're here for you"
+        text: "We're here for you"
       },
-      text: "Helping you take control of your health and wellbeing.",
+      text: "Helping you take control of your health and wellbeing.",
       border: false
     },
     options: {
@@ -90,9 +90,9 @@ const fixtures = {
   "with image, content": {
     context: {
       heading: {
-        text: "We're here for you"
+        text: "We're here for you"
       },
-      text: "Helping you take control of your health and wellbeing.",
+      text: "Helping you take control of your health and wellbeing.",
       image: {
         src: "/nhsuk-frontend/assets/example-hero-background.jpg"
       }
@@ -104,7 +104,26 @@ const fixtures = {
       viewports: ["mobile", "tablet", "desktop", "large-desktop"]
     }
   },
-  "with content columns": {
+  "with image, content and caption": {
+    context: {
+      heading: {
+        text: "Find information and services to help you manage your health",
+        size: "l",
+        caption: {
+          text: "NHS website for England",
+          size: "xl"
+        }
+      },
+      width: "three-quarters",
+      image: {
+        src: "/nhsuk-frontend/assets/example-hero-background.jpg"
+      }
+    },
+    options: {
+      width: false
+    }
+  },
+  "product page": {
     context: {
       content: [
         {

@@ -5,6 +5,7 @@
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-hero" -%}
 {%- set classNamesHeading = "nhsuk-hero__heading" -%}
+{%- set classNamesColumn = "nhsuk-grid-column" -%}
 
 {%- set background = {
   src: params.imageURL
@@ -19,19 +20,6 @@
 
 {%- if params.classes %}
   {% set classNames = classNames ~ " " ~ params.classes %}
-{% endif %}
-
-{%- set contentWidth = params.contentWidth | default("two-thirds") %}
-
-{%- if contentWidth in [
-  "one-quarter",
-  "one-third",
-  "one-half",
-  "two-thirds",
-  "three-quarters",
-  "full"
-] %}
-  {% set classNamesColumn = classNamesColumn ~ "-" ~ contentWidth %}
 {% endif %}
 
 {%- set attributesHtml %}
@@ -65,7 +53,7 @@
     },
     text: params.text,
     html: caller() if caller else params.html,
-    width: "two-thirds"
+    width: params.width | default("two-thirds")
   }), rows) %}
 {% endif %}
 
@@ -77,6 +65,9 @@
     {% for content in row %}
       <div class="nhsuk-grid-column-{{ content.width | default("one-half", true) }}">
         <div class="{{ "nhsuk-hero__content" ~ (" " ~ content.classes if content.classes) }}">
+        {% if background.src and rows | length == 1 %}
+          <span class="nhsuk-hero__arrow" aria-hidden="true"></span>
+        {% endif %}
         {% if content.heading.text or content.heading.html %}
           {{ heading({
             id: content.heading.id,
@@ -88,9 +79,6 @@
             classes: classNamesHeading ~ (" " ~ content.heading.classes if content.heading.classes),
             attributes: content.heading.attributes
           }) | trim | indent(10) }}
-        {% endif %}
-        {% if background.src and rows | length == 1 %}
-          <span class="nhsuk-hero__arrow" aria-hidden="true"></span>
         {% endif %}
         {% if content.html %}
           {{ content.html | safe | trim | indent(10) }}
