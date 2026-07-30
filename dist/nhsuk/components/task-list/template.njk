@@ -1,0 +1,62 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/components/tag/macro.njk" import tag %}
+
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-task-list" -%}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif -%}
+
+{%- set idPrefix = params.idPrefix if params.idPrefix else "task-list" -%}
+
+{%- macro _taskListItem(params, item, index) %}
+  {%- set hintId = idPrefix ~ "-" ~ index ~ "-hint" %}
+  {%- set statusId = idPrefix ~ "-" ~ index ~ "-status" %}
+  <li class="nhsuk-task-list__item {%- if item.href %} nhsuk-task-list__item--with-link{% endif %}{%- if item.classes %} {{ item.classes }}{% endif %}">
+    <div class="nhsuk-task-list__name-and-hint">
+    {% if item.href %}
+      <a class="nhsuk-link nhsuk-task-list__link {%- if item.title.classes %} {{ item.title.classes }}{% endif %}" href="{{ item.href }}" aria-describedby="{{ hintId ~ " " if item.hint }}{{ statusId }}">
+      {% if item.title.html %}
+        {{ item.title.html | safe | trim | indent(8) }}
+      {% elif item.title.text %}
+        {{ item.title.text | trim | indent(8) }}
+      {% endif %}
+      </a>
+    {% else %}
+      <div {%- if item.title.classes %} class="{{ item.title.classes }}"{% endif %}>
+      {% if item.title.html %}
+        {{ item.title.html | safe | trim | indent(8) }}
+      {% elif item.title.text %}
+        {{ item.title.text | trim | indent(8) }}
+      {% endif %}
+      </div>
+    {% endif %}
+    {% if item.hint %}
+      <div class="nhsuk-task-list__hint" id="{{ hintId }}">
+      {% if item.hint.html %}
+        {{ item.hint.html | safe | trim | indent(8) }}
+      {% elif item.hint.text %}
+        {{ item.hint.text | trim | indent(8) }}
+      {% endif %}
+      </div>
+    {% endif %}
+    </div>
+    <div class="nhsuk-task-list__status {%- if item.status.classes %} {{ item.status.classes }}{% endif %}" id="{{ statusId }}">
+    {% if item.status.tag %}
+      {{ tag(item.status.tag) | trim | indent(6) }}
+    {% elif item.status.html %}
+      {{ item.status.html | safe | trim | indent(6) }}
+    {% elif item.status.text %}
+      {{ item.status.text | trim | indent(6) }}
+    {% endif %}
+    </div>
+  </li>
+{%- endmacro -%}
+
+<ul class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
+  {{- nhsukAttributes(params.attributes) }}>
+  {% for item in params.items %}
+    {{- _taskListItem(params, item, loop.index) if item }}
+  {% endfor %}
+</ul>

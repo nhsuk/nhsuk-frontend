@@ -1,0 +1,201 @@
+{
+  "name": "Images",
+  "component": "images",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "src": "https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg",
+        "caption": {
+          "text": "No specific amount of time is recommended, but a typical training session could take less than 20 minutes."
+        }
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop"
+        ]
+      },
+      "options": {},
+      "html": "<figure class=\"nhsuk-image\">\n  <img class=\"nhsuk-image__img\" src=\"https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg\" alt=\"\">\n  <figcaption class=\"nhsuk-image__caption\">\n    No specific amount of time is recommended, but a typical training session could take less than 20 minutes.\n  </figcaption>\n</figure>"
+    },
+    {
+      "name": "width",
+      "description": "with one-quarter",
+      "context": {
+        "src": "https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg",
+        "alt": "A person in a bright pink athletic top, listening to music, pauses for thought during a short training session.",
+        "width": "one-quarter"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<figure class=\"nhsuk-image nhsuk-u-width-one-quarter\">\n  <img class=\"nhsuk-image__img\" src=\"https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg\" alt=\"A person in a bright pink athletic top, listening to music, pauses for thought during a short training session.\">\n</figure>"
+    },
+    {
+      "name": "width",
+      "description": "with one-third",
+      "context": {
+        "src": "https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg",
+        "alt": "A person in a bright pink athletic top, listening to music, pauses for thought during a short training session.",
+        "width": "one-third"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<figure class=\"nhsuk-image nhsuk-u-width-one-third\">\n  <img class=\"nhsuk-image__img\" src=\"https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg\" alt=\"A person in a bright pink athletic top, listening to music, pauses for thought during a short training session.\">\n</figure>"
+    },
+    {
+      "name": "width",
+      "description": "with one-half",
+      "context": {
+        "src": "https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg",
+        "alt": "A person in a bright pink athletic top, listening to music, pauses for thought during a short training session.",
+        "width": "one-half"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<figure class=\"nhsuk-image nhsuk-u-width-one-half\">\n  <img class=\"nhsuk-image__img\" src=\"https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg\" alt=\"A person in a bright pink athletic top, listening to music, pauses for thought during a short training session.\">\n</figure>"
+    },
+    {
+      "name": "width",
+      "description": "with two-thirds",
+      "context": {
+        "src": "https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg",
+        "alt": "A person in a bright pink athletic top, listening to music, pauses for thought during a short training session.",
+        "width": "two-thirds"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<figure class=\"nhsuk-image nhsuk-u-width-two-thirds\">\n  <img class=\"nhsuk-image__img\" src=\"https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg\" alt=\"A person in a bright pink athletic top, listening to music, pauses for thought during a short training session.\">\n</figure>"
+    },
+    {
+      "name": "width",
+      "description": "with three-quarters",
+      "context": {
+        "src": "https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg",
+        "alt": "A person in a bright pink athletic top, listening to music, pauses for thought during a short training session.",
+        "width": "three-quarters"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<figure class=\"nhsuk-image nhsuk-u-width-three-quarters\">\n  <img class=\"nhsuk-image__img\" src=\"https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg\" alt=\"A person in a bright pink athletic top, listening to music, pauses for thought during a short training session.\">\n</figure>"
+    },
+    {
+      "name": "width",
+      "description": "with full",
+      "context": {
+        "src": "https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg",
+        "alt": "A person in a bright pink athletic top, listening to music, pauses for thought during a short training session.",
+        "width": "full"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<figure class=\"nhsuk-image nhsuk-u-width-full\">\n  <img class=\"nhsuk-image__img\" src=\"https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg\" alt=\"A person in a bright pink athletic top, listening to music, pauses for thought during a short training session.\">\n</figure>"
+    },
+    {
+      "name": "with custom HTML",
+      "context": {
+        "caption": {
+          "text": "No specific amount of time is recommended, but a typical training session could take less than 20 minutes."
+        }
+      },
+      "callBlock": "<img src=\"https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg\" alt=\"\">",
+      "screenshot": false,
+      "options": {},
+      "html": "<figure class=\"nhsuk-image\">\n<img src=\"https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg\" alt=\"\">\n  <figcaption class=\"nhsuk-image__caption\">\n    No specific amount of time is recommended, but a typical training session could take less than 20 minutes.\n  </figcaption>\n</figure>"
+    },
+    {
+      "name": "without background",
+      "context": {
+        "background": false,
+        "src": "https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg",
+        "caption": {
+          "text": "No specific amount of time is recommended, but a typical training session could take less than 20 minutes."
+        }
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<figure class=\"nhsuk-image nhsuk-image--no-background\">\n  <img class=\"nhsuk-image__img\" src=\"https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg\" alt=\"\">\n  <figcaption class=\"nhsuk-image__caption\">\n    No specific amount of time is recommended, but a typical training session could take less than 20 minutes.\n  </figcaption>\n</figure>"
+    },
+    {
+      "name": "without background, border or caption",
+      "context": {
+        "background": false,
+        "border": false,
+        "src": "https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg",
+        "alt": "A person in a bright pink athletic top, listening to music, pauses for thought during a short training session."
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop"
+        ]
+      },
+      "options": {
+        "layout": "background-blue"
+      },
+      "html": "<figure class=\"nhsuk-image nhsuk-image--no-border nhsuk-image--no-background\">\n  <img class=\"nhsuk-image__img\" src=\"https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg\" alt=\"A person in a bright pink athletic top, listening to music, pauses for thought during a short training session.\">\n</figure>"
+    },
+    {
+      "name": "without border",
+      "context": {
+        "border": false,
+        "src": "https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg",
+        "caption": {
+          "text": "No specific amount of time is recommended, but a typical training session could take less than 20 minutes."
+        }
+      },
+      "screenshot": false,
+      "options": {
+        "layout": "background-blue"
+      },
+      "html": "<figure class=\"nhsuk-image nhsuk-image--no-border\">\n  <img class=\"nhsuk-image__img\" src=\"https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg\" alt=\"\">\n  <figcaption class=\"nhsuk-image__caption\">\n    No specific amount of time is recommended, but a typical training session could take less than 20 minutes.\n  </figcaption>\n</figure>"
+    },
+    {
+      "name": "without caption",
+      "context": {
+        "src": "https://service-manual.nhs.uk/assets/image-example-stretch-marks-600w.jpg",
+        "alt": "Close-up of a person's tummy showing a number of creases in the skin under their belly button. Shown on light brown skin."
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<figure class=\"nhsuk-image\">\n  <img class=\"nhsuk-image__img\" src=\"https://service-manual.nhs.uk/assets/image-example-stretch-marks-600w.jpg\" alt=\"Close-up of a person&#39;s tummy showing a number of creases in the skin under their belly button. Shown on light brown skin.\">\n</figure>"
+    },
+    {
+      "name": "with srcset",
+      "context": {
+        "src": "https://service-manual.nhs.uk/assets/image-example-stretch-marks-600w.jpg",
+        "sizes": "(max-width: 768px) 100vw, 66vw",
+        "srcset": "https://service-manual.nhs.uk/assets/image-example-stretch-marks-600w.jpg 600w, https://service-manual.nhs.uk/assets/image-example-stretch-marks-1000w.jpg 1000w",
+        "caption": {
+          "text": "Stretch marks can be pink, red, brown, black, silver or purple. They usually start off darker and fade over time."
+        }
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<figure class=\"nhsuk-image\">\n  <img class=\"nhsuk-image__img\" src=\"https://service-manual.nhs.uk/assets/image-example-stretch-marks-600w.jpg\" alt=\"\" sizes=\"(max-width: 768px) 100vw, 66vw\" srcset=\"https://service-manual.nhs.uk/assets/image-example-stretch-marks-600w.jpg 600w, https://service-manual.nhs.uk/assets/image-example-stretch-marks-1000w.jpg 1000w\">\n  <figcaption class=\"nhsuk-image__caption\">\n    Stretch marks can be pink, red, brown, black, silver or purple. They usually start off darker and fade over time.\n  </figcaption>\n</figure>"
+    },
+    {
+      "name": "with srcset and alt text",
+      "context": {
+        "src": "https://service-manual.nhs.uk/assets/image-example-stretch-marks-600w.jpg",
+        "sizes": "(max-width: 768px) 100vw, 66vw",
+        "srcset": "https://service-manual.nhs.uk/assets/image-example-stretch-marks-600w.jpg 600w, https://service-manual.nhs.uk/assets/image-example-stretch-marks-1000w.jpg 1000w",
+        "alt": "Close-up of a person's tummy showing a number of creases in the skin under their belly button. Shown on light brown skin.",
+        "caption": {
+          "text": "Stretch marks can be pink, red, brown, black, silver or purple. They usually start off darker and fade over time."
+        }
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop"
+        ]
+      },
+      "options": {},
+      "html": "<figure class=\"nhsuk-image\">\n  <img class=\"nhsuk-image__img\" src=\"https://service-manual.nhs.uk/assets/image-example-stretch-marks-600w.jpg\" alt=\"Close-up of a person&#39;s tummy showing a number of creases in the skin under their belly button. Shown on light brown skin.\" sizes=\"(max-width: 768px) 100vw, 66vw\" srcset=\"https://service-manual.nhs.uk/assets/image-example-stretch-marks-600w.jpg 600w, https://service-manual.nhs.uk/assets/image-example-stretch-marks-1000w.jpg 1000w\">\n  <figcaption class=\"nhsuk-image__caption\">\n    Stretch marks can be pink, red, brown, black, silver or purple. They usually start off darker and fade over time.\n  </figcaption>\n</figure>"
+    }
+  ]
+}

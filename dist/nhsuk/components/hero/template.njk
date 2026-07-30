@@ -1,0 +1,71 @@
+{% from "nhsuk/components/heading/macro.njk" import heading %}
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-hero" -%}
+{%- set classNamesHeading = "nhsuk-hero__heading" -%}
+
+{%- if params.image or params.imageURL %}
+  {% set classNames = classNames ~ " nhsuk-hero--image" ~
+    (" nhsuk-hero--image-description" if params.heading else "") %}
+{% endif %}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif %}
+
+{%- set hasContent = true if caller or params.heading or params.text or params.html else false %}
+
+{%- set image = {
+  src: params.imageURL
+} if params.imageURL else params.image %}
+
+{#- Capture the HTML so we can optionally nest it in an image overlay -#}
+{% set innerHtml %}
+  <div class="nhsuk-width-container
+    {%- if params.containerClasses %} {{ params.containerClasses }}{% endif %}
+    {%- if not image.src %} nhsuk-hero--border{% endif %}">
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+        <div class="{{ "nhsuk-hero__wrapper" if not image.src else "nhsuk-hero-content" }}">
+        {% if params.heading %}
+          {{ heading({
+            text: params.heading,
+            level: params.headingLevel,
+            size: params.headingSize,
+            classes: classNamesHeading
+              ~ ("nhsuk-u-margin-bottom-0" if not (caller or params.text or params.html) else "")
+              ~ (" " ~ params.headingClasses if params.headingClasses)
+          }) | trim | indent(10) }}
+        {% endif %}
+        {% if caller %}
+          {{- caller() }}
+        {% elif params.html %}
+          {{ params.html | safe | trim | indent(10) }}
+        {% elif params.text %}
+          <p class="nhsuk-body-l nhsuk-u-margin-bottom-0">
+            {{- params.text | trim | indent(10) -}}
+          </p>
+        {% endif %}
+        {% if image.src %}
+          <span class="nhsuk-hero__arrow" aria-hidden="true"></span>
+        {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endset -%}
+
+<section class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
+  {%- if image.src %} style="background-image: url('{{ image.src }}');"{% endif %}
+  {{- nhsukAttributes(params.attributes) }}>
+{% if image.src and not hasContent %}
+  <div class="nhsuk-hero__overlay"></div>
+{% elif image.src and hasContent %}
+  <div class="nhsuk-hero__overlay">
+    {{ innerHtml | safe | trim | indent(2) }}
+  </div>
+{% elif hasContent %}
+  {{ innerHtml | safe | trim }}
+{% endif %}
+</section>
