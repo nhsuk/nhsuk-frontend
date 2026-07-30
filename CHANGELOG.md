@@ -126,9 +126,14 @@ For example, to add a column of "Change" links:
   }) }}
 ```
 
+For consistency with the summary list component, the following boolean Nunjucks options are also available:
+
+- `border: false` to remove separating borders from all rows
+- `lastRowBorder: false` to remove separating border from the last row
+
 If you are not using Nunjucks macros, use the HTML markup from the [table examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/table).
 
-This was added in [pull request #1654: Add option to make tables sortable](https://github.com/nhsuk/nhsuk-frontend/pull/1654).
+This was added in pull requests [#1654: Add option to make tables sortable](https://github.com/nhsuk/nhsuk-frontend/pull/1654) and [#2025: Align table component options with summary list](https://github.com/nhsuk/nhsuk-frontend/pull/2025).
 
 #### Add an "all" option to checkboxes
 
