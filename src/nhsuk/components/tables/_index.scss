@@ -10,11 +10,7 @@
 ////
 
 @include nhsuk-exports("nhsuk/components/table") {
-  // Table container is used to ensure the table does not break the container.
-  //
-  // 1. Margin is removed so there isn't double spacing.
-  // 2. XS size not added because it matches the table header, so it'd be bad for hierarchy
-
+  // Scrolling container
   .nhsuk-table-container {
     box-sizing: border-box;
     display: block;
@@ -28,10 +24,11 @@
 
     @include nhsuk-responsive-margin(7, "bottom");
 
+    // Remove margin moved to scrolling container
     .nhsuk-table,
     // Deprecated, to be removed in v11.0
     .nhsuk-table-responsive {
-      margin: 0; // [1]
+      margin: 0;
     }
   }
 
