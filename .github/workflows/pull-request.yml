@@ -25,7 +25,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v7.0.0
+        uses: actions/checkout@v7.0.1
 
       - name: Install dependencies
         uses: ./.github/workflows/actions/install
@@ -37,7 +37,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v7.0.0
+        uses: actions/checkout@v7.0.1
         with:
           fetch-depth: 0
 
@@ -81,7 +81,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v7.0.0
+        uses: actions/checkout@v7.0.1
 
       - name: Restore dependencies (from cache)
         uses: actions/cache/restore@v6
@@ -146,7 +146,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v7.0.0
+        uses: actions/checkout@v7.0.1
 
       - name: Restore dependencies (from cache)
         uses: actions/cache/restore@v6
@@ -211,7 +211,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v7.0.0
+        uses: actions/checkout@v7.0.1
 
       - name: Restore dependencies (from cache)
         uses: actions/cache/restore@v6
@@ -264,7 +264,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v7.0.0
+        uses: actions/checkout@v7.0.1
         with:
           fetch-depth: 0
 
@@ -303,7 +303,7 @@ jobs:
     steps:
       - name: Checkout
         if: ${{ env.SONAR_TOKEN }}
-        uses: actions/checkout@v7.0.0
+        uses: actions/checkout@v7.0.1
         with:
           fetch-depth: 0
 
