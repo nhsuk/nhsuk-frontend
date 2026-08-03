@@ -136,6 +136,13 @@ const options = {
       }
     }
   },
+  width: {
+    type: 'string',
+    required: false,
+    description:
+      'Width of the hero content. You can pass any design system grid width here – for example, `"one-third"`, `"two-thirds"` or `"one-half"`. Defaults to `"one-half"`.',
+    released: '10.6.0'
+  },
   containerClasses: {
     type: 'string',
     required: false,
