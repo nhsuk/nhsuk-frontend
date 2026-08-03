@@ -869,9 +869,7 @@ const fixtures = {
           text: "Status"
         },
         {
-          html: outdent`
-            <span class="nhsuk-u-visually-hidden">Actions</span>
-          `
+          visuallyHiddenText: "Actions"
         }
       ],
       rows: [
@@ -914,12 +912,99 @@ const fixtures = {
       ]
     }
   },
+  "without border": {
+    context: {
+      caption: "Cases per manager",
+      captionClasses: "nhsuk-u-visually-hidden",
+      border: false,
+      head: [
+        {
+          text: "Manager"
+        },
+        {
+          text: "Cases",
+          format: "numeric"
+        }
+      ],
+      rows: [
+        [
+          {
+            text: "David Francis"
+          },
+          {
+            text: "1380"
+          }
+        ],
+        [
+          {
+            text: "Paul Farmer"
+          },
+          {
+            text: "1129"
+          }
+        ],
+        [
+          {
+            text: "Rita Patel"
+          },
+          {
+            text: "24"
+          }
+        ]
+      ]
+    },
+    variants
+  },
+  "without last row border": {
+    context: {
+      caption: "Cases per manager",
+      captionClasses: "nhsuk-u-visually-hidden",
+      lastRowBorder: false,
+      head: [
+        {
+          text: "Manager"
+        },
+        {
+          text: "Cases",
+          format: "numeric"
+        }
+      ],
+      rows: [
+        [
+          {
+            text: "David Francis"
+          },
+          {
+            text: "1380"
+          }
+        ],
+        [
+          {
+            text: "Paul Farmer"
+          },
+          {
+            text: "1129"
+          }
+        ],
+        [
+          {
+            text: "Rita Patel"
+          },
+          {
+            text: "24"
+          }
+        ]
+      ]
+    },
+    variants
+  },
   "as a card": {
     context: {
       card: true,
       caption: "Impetigo can look similar to other skin conditions",
       captionSize: "m",
       firstCellIsHeader: true,
+      lastRowBorder: false,
       head: [
         {
           text: "Skin symptoms"
@@ -971,6 +1056,7 @@ const fixtures = {
       caption: "Impetigo can look similar to other skin conditions",
       captionSize: "s",
       firstCellIsHeader: true,
+      lastRowBorder: false,
       head: [
         {
           text: "Skin symptoms"
@@ -1102,74 +1188,152 @@ const fixtures = {
       firstCellIsHeader: true,
       head: [
         {
-          href: "#",
-          text: "Time",
-          sort: "ascending"
-        },
-        {
-          href: "#",
           text: "Name",
-          sort: true
+          href: "#",
+          sort: "descending",
+          width: "one-half"
         },
         {
-          text: "Date of birth",
+          text: "Last log in",
+          href: "#",
+          sort: true,
+          align: "right",
+          width: "one-third",
           classes: "nhsuk-u-nowrap"
+        },
+        {
+          visuallyHiddenText: "Action"
         }
       ],
       rows: [
         [
           {
-            text: "11:00"
+            text: "Ro Nkosi"
           },
           {
-            text: "Laura Stone"
+            text: "28 June 2026"
           },
           {
-            text: "4 January 1986"
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "details for Ro Nkosi"
           }
         ],
         [
           {
-            text: "11:30"
+            text: "Stellan Park"
           },
           {
-            text: "Emma Katie-Brown"
+            text: "20 June 2026"
           },
           {
-            text: "7 February 1976"
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "details for Stellan Park"
           }
         ],
         [
           {
-            text: "13:10"
+            text: "Tamsin Foley-Whitworth"
           },
           {
-            text: "David Chen"
+            text: "14 June 2026"
           },
           {
-            text: "19 March 1981"
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "details for Tamsin Foley-Whitworth"
           }
         ],
         [
           {
-            text: "13:40"
+            text: "Uta Brennan"
           },
           {
-            text: "Michael Thompson"
+            text: "7 June 2026"
           },
           {
-            text: "6 December 1964"
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "details for Uta Brennan"
           }
         ],
         [
           {
-            text: "14:20"
+            text: "Val Cruz"
           },
           {
-            text: "Juan Martinez"
+            text: "1 June 2026"
           },
           {
-            text: "18 April 1975"
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "details for Val Cruz"
+          }
+        ],
+        [
+          {
+            text: "Wendell Shaw"
+          },
+          {
+            text: "25 May 2026"
+          },
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "details for Wendell Shaw"
+          }
+        ],
+        [
+          {
+            text: "Xanthe Beaumont"
+          },
+          {
+            text: "19 May 2026"
+          },
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "details for Xanthe Beaumont"
+          }
+        ],
+        [
+          {
+            text: "Yolanda Pierce"
+          },
+          {
+            text: "13 May 2026"
+          },
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "details for Yolanda Pierce"
+          }
+        ],
+        [
+          {
+            text: "Zadie Munroe"
+          },
+          {
+            text: "7 May 2026"
+          },
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "details for Zadie Munroe"
+          }
+        ],
+        [
+          {
+            text: "Reuben Tate"
+          },
+          {
+            text: "1 May 2026"
+          },
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "details for Reuben Tate"
           }
         ]
       ]

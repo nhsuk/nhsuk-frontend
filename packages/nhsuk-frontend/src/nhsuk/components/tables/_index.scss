@@ -29,6 +29,7 @@
     @include nhsuk-responsive-margin(7, "bottom");
 
     .nhsuk-table,
+    // Deprecated, to be removed in v11.0
     .nhsuk-table-responsive {
       margin: 0; // [1]
     }
@@ -243,6 +244,15 @@
         }
       }
     }
+
+    &.nhsuk-table--no-last-row-border {
+      @media #{nhsuk-until-breakpoint(desktop)} {
+        .nhsuk-table__body .nhsuk-table__row:last-child .nhsuk-table__header:not(:last-child),
+        .nhsuk-table__body .nhsuk-table__row:last-child .nhsuk-table__cell:not(:last-child) {
+          border-color: $nhsuk-border-colour;
+        }
+      }
+    }
   }
 
   // Numeric tables
@@ -262,8 +272,7 @@
 
   // Add icon for sortable tables. These can can be buttons
   // (client-side sorting) or links (server-side sorting).
-  .nhsuk-table__header[data-sort] button::after,
-  .nhsuk-table__header[data-sort] a::after {
+  .nhsuk-table__header[data-sort] .nhsuk-link::after {
     content: "";
 
     flex-shrink: 0;
@@ -308,8 +317,7 @@
     }
   }
 
-  .nhsuk-table__header[aria-sort="ascending"] button::after,
-  .nhsuk-table__header[aria-sort="ascending"] a::after {
+  .nhsuk-table__header[aria-sort="ascending"] .nhsuk-link::after {
     background-image: nhsuk-image-url("nhsuk-icon-arrow-up.svg");
 
     @supports (mask-position: initial) {
@@ -317,8 +325,7 @@
     }
   }
 
-  .nhsuk-table__header[aria-sort="descending"] button::after,
-  .nhsuk-table__header[aria-sort="descending"] a::after {
+  .nhsuk-table__header[aria-sort="descending"] .nhsuk-link::after {
     background-image: nhsuk-image-url("nhsuk-icon-arrow-down.svg");
 
     @supports (mask-position: initial) {
@@ -328,8 +335,7 @@
 
   // This expands the button or link to fill the whole
   // table header element, for a bigger click area
-  .nhsuk-table__header[data-sort] button::before,
-  .nhsuk-table__header[data-sort] a::before {
+  .nhsuk-table__header[data-sort] .nhsuk-link::before {
     content: "";
 
     position: absolute;
@@ -343,14 +349,12 @@
   }
 
   // Add a blue bottom border to the header cell currently sorted
-  .nhsuk-table__header[aria-sort] button::before,
-  .nhsuk-table__header[aria-sort] a::before {
+  .nhsuk-table__header[aria-sort] .nhsuk-link::before {
     border-color: $nhsuk-link-colour;
   }
 
   // Add a darker grey bottom border to the header cell on hover
-  .nhsuk-table__header[data-sort]:hover button::before,
-  .nhsuk-table__header[data-sort]:hover a::before {
+  .nhsuk-table__header[data-sort]:hover .nhsuk-link::before {
     border-color: nhsuk-colour("grey-3");
   }
 
@@ -361,41 +365,15 @@
     }
   }
 
-  .nhsuk-table__header[data-sort] button,
-  .nhsuk-table__header[data-sort] a {
+  .nhsuk-table__header[data-sort] .nhsuk-link {
     display: inline-flex;
-
     flex-wrap: nowrap;
-
     align-items: end;
 
-    padding: 0;
-
-    border: none;
-
-    color: $nhsuk-brand-colour;
-    background-color: transparent;
-
-    font-family: inherit;
-    font-size: inherit;
-    font-weight: inherit;
-    line-height: inherit;
-    text-align: inherit;
-
-    cursor: pointer;
-
-    appearance: none;
-
-    @include nhsuk-link-style-default;
     @include nhsuk-link-style-no-visited-state;
-
-    &:focus {
-      @include nhsuk-focused-button;
-    }
   }
 
-  .nhsuk-table__header[data-sort]:not(:last-child) button,
-  .nhsuk-table__header[data-sort]:not(:last-child) a {
+  .nhsuk-table__header[data-sort]:not(:last-child) .nhsuk-link {
     margin-right: nhsuk-px-to-rem(-6px);
 
     @media #{nhsuk-until-breakpoint(tablet)} {
@@ -404,20 +382,19 @@
   }
 
   .nhsuk-table--reverse {
-    .nhsuk-table__header button,
-    .nhsuk-table__header a {
+    .nhsuk-link,
+    .nhsuk-table__header[data-sort] .nhsuk-link,
+    a:not(.nhsuk-button) {
       @include nhsuk-link-style-reverse;
     }
 
     // Add a white bottom border to the header cell currently sorted
-    .nhsuk-table__header[aria-sort] button::before,
-    .nhsuk-table__header[aria-sort] a::before {
+    .nhsuk-table__header[aria-sort] .nhsuk-link::before {
       border-color: $nhsuk-reverse-text-colour;
     }
 
     // Add a lighter blue bottom border to the header cell on hover
-    .nhsuk-table__header[data-sort]:hover button::before,
-    .nhsuk-table__header[data-sort]:hover a::before {
+    .nhsuk-table__header[data-sort]:hover .nhsuk-link::before {
       border-color: nhsuk-tint($nhsuk-brand-colour, 40%);
     }
 
@@ -426,6 +403,22 @@
       .nhsuk-table__header[data-sort]:hover {
         background-color: $nhsuk-reverse-target-hover-colour;
       }
+    }
+  }
+
+  // No border on table body rows
+  .nhsuk-table--no-border {
+    .nhsuk-table__body .nhsuk-table__header,
+    .nhsuk-table__body .nhsuk-table__cell {
+      border-color: transparent;
+    }
+  }
+
+  // No border on last table body row
+  .nhsuk-table--no-last-row-border {
+    .nhsuk-table__body .nhsuk-table__row:last-child .nhsuk-table__header,
+    .nhsuk-table__body .nhsuk-table__row:last-child .nhsuk-table__cell {
+      border-color: transparent;
     }
   }
 }

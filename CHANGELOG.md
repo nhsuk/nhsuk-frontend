@@ -14,6 +14,7 @@ If you're using the `tables` Nunjucks macro, to configure header cells:
 
 - Add the `sort: "ascending"` or `sort: "descending"` option to the currently sorted column only
 - Add the `sort: true` option to enable sorting on any other columns
+- Add the `format: "numeric"` option to sort numerically rather than alphabetically
 
 For example:
 
@@ -27,8 +28,8 @@ For example:
 +       sort: "ascending"
       },
       {
-        text: "MMR",
--       format: "numeric"
+-       text: "MMR"
++       text: "MMR",
 +       format: "numeric",
 +       sort: true
       }
@@ -39,8 +40,7 @@ For example:
           text: "Northern Ireland"
         },
         {
-          text: "86.4%",
-          format: "numeric"
+          text: "86.4%"
         }
       ],
       [
@@ -48,8 +48,7 @@ For example:
           text: "Scotland"
         },
         {
-          text: "89.2%",
-          format: "numeric"
+          text: "89.2%"
         }
       ],
       [
@@ -57,17 +56,134 @@ For example:
           text: "Wales"
         },
         {
-          text: "89.5%",
-          format: "numeric"
+          text: "89.5%"
         }
       ]
     ]
   }) }}
 ```
 
+#### Set table column widths, align text or adjust row borders
+
+We've updated the table component to pass `align`, `href`, `visuallyHiddenText` and `width` Nunjucks options to table cells.
+
+For example, to add a column of "Change" links:
+
+```patch
+  {{ table({
+    caption: "Appointments",
+    firstCellIsHeader: true,
+    head: [
+      {
+        text: "Name",
++       width: "one-half",
+        sort: "descending"
+      },
+      {
+        text: "Last log in",
++       align: "right",
++       width: "one-third",
+        sort: true
+-     }
++     },
++     {
++       visuallyHiddenText: "Action"
++       align: "right"
++     }
+    ],
+    rows: [
+      [
+        {
+          text: "Ro Nkosi"
+        },
+        {
+          text: "28 June 2026"
+-       }
++       },
++       {
++         text: "Change",
++         visuallyHiddenText: "details for Ro Nkosi",
++         href: "/change/1111"
++       }
+      ],
+      [
+        {
+          text: "Stellan Park"
+        },
+        {
+          text: "20 June 2026"
+-       }
++       },
++       {
++         text: "Change",
++         visuallyHiddenText: "details for Stellan Park",
++         href: "/change/2222"
++       }
+      ]
+    ]
+  }) }}
+```
+
+For consistency with the summary list component, the following boolean Nunjucks options are also available:
+
+- `border: false` to remove separating borders from all rows
+- `lastRowBorder: false` to remove separating border from the last row
+
 If you are not using Nunjucks macros, use the HTML markup from the [table examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/table).
 
-This was added in [pull request #1654: Add option to make tables sortable](https://github.com/nhsuk/nhsuk-frontend/pull/1654).
+This was added in pull requests [#1654: Add option to make tables sortable](https://github.com/nhsuk/nhsuk-frontend/pull/1654) and [#2025: Align table component options with summary list](https://github.com/nhsuk/nhsuk-frontend/pull/2025).
+
+#### Add a modifier class for compact tables
+
+We've added a new `.nhsuk-table--compact` class and `compact` Nunjucks option for the [table](https://service-manual.nhs.uk/design-system/components/table) component. This reduces table cell padding at all screen sizes.
+
+```patch
+  {{ table({
+    caption: "Childhood vaccination coverage",
++   compact: true,
+    head: [],
+    rows: []
+  }) }}
+```
+
+If you are not using Nunjucks macros, use the HTML markup from the [table examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/table) as follows:
+
+- Add the `nhsuk-table--compact` class to the `<table>` tag
+
+```patch
+- <table class="nhsuk-table">
++ <table class="nhsuk-table nhsuk-table--compact">
+    <!-- // ... -->
+  </table>
+```
+
+This change was introduced in [pull request #1998: Add compact option for tables](https://github.com/nhsuk/nhsuk-frontend/pull/1998).
+
+#### Add a modifier class for striped tables
+
+We've added a new `.nhsuk-table--striped` class and `striped` Nunjucks option for the [table](https://service-manual.nhs.uk/design-system/components/table) component. This adds table row backround colours on alternate rows.
+
+```patch
+  {{ table({
+    caption: "Childhood vaccination coverage",
++   striped: true,
+    head: [],
+    rows: []
+  }) }}
+```
+
+If you are not using Nunjucks macros, use the HTML markup from the [table examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/table) as follows:
+
+- Add the `nhsuk-table--striped` class to the `<table>` tag
+
+```patch
+- <table class="nhsuk-table">
++ <table class="nhsuk-table nhsuk-table--striped">
+    <!-- // ... -->
+  </table>
+```
+
+This change was introduced in [pull request #2003: Add striped option for tables](https://github.com/nhsuk/nhsuk-frontend/pull/2003).
 
 #### Add an "all" option to checkboxes
 
@@ -302,59 +418,7 @@ We've rewritten the internals of the `nhsuk-media-query` mixin to make use of th
 
 This was added in [pull request #1961: Port Sass media query functions from GOV.UK Frontend and remove `sass-mq` dependency](https://github.com/nhsuk/nhsuk-frontend/pull/1961).
 
-#### Add a modifier class for compact tables
-
-We've added a new `.nhsuk-table--compact` class and `compact` Nunjucks option for the [table](https://service-manual.nhs.uk/design-system/components/table) component. This reduces table cell padding at all screen sizes.
-
-```patch
-  {{ table({
-    caption: "Childhood vaccination coverage",
-+   compact: true,
-    head: [],
-    rows: []
-  }) }}
-```
-
-If you are not using Nunjucks macros, use the HTML markup from the [table examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/table) as follows:
-
-- Add the `nhsuk-table--compact` class to the `<table>` tag
-
-```patch
-- <table class="nhsuk-table">
-+ <table class="nhsuk-table nhsuk-table--compact">
-    <!-- // ... -->
-  </table>
-```
-
-This change was introduced in [pull request #1998: Add compact option for tables](https://github.com/nhsuk/nhsuk-frontend/pull/1998).
-
-#### Add a modifier class for striped tables
-
-We've added a new `.nhsuk-table--striped` class and `striped` Nunjucks option for the [table](https://service-manual.nhs.uk/design-system/components/table) component. This adds table row backround colours on alternate rows.
-
-```patch
-  {{ table({
-    caption: "Childhood vaccination coverage",
-+   striped: true,
-    head: [],
-    rows: []
-  }) }}
-```
-
-If you are not using Nunjucks macros, use the HTML markup from the [table examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/table) as follows:
-
-- Add the `nhsuk-table--striped` class to the `<table>` tag
-
-```patch
-- <table class="nhsuk-table">
-+ <table class="nhsuk-table nhsuk-table--striped">
-    <!-- // ... -->
-  </table>
-```
-
-This change was introduced in [pull request #2003: Add striped option for tables](https://github.com/nhsuk/nhsuk-frontend/pull/2003).
-
-#### Add image component `background`, `border` and `width` Nunjucks options
+#### Remove image background colour, bottom border or add custom width
 
 We've updated the image component to add `background`, `border` and `width` Nunjucks options.
 

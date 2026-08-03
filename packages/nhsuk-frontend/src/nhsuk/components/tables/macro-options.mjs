@@ -12,6 +12,19 @@ const options = {
     description: 'The ID of the table.',
     released: '10.0.0'
   },
+  border: {
+    type: 'boolean',
+    required: false,
+    description: 'If set to `false`, remove separating borders from all rows.',
+    released: '10.6.0'
+  },
+  lastRowBorder: {
+    type: 'boolean',
+    required: false,
+    description:
+      'If set to `false`, remove separating border from the last row.',
+    released: '10.6.0'
+  },
   rows: {
     type: 'array',
     required: true,
@@ -32,12 +45,24 @@ const options = {
           'If `text` is set, this is not required. HTML for cells in table rows. If `html` is provided, the `text` argument will be ignored.',
         released: '1.0.0'
       },
+      visuallyHiddenText: {
+        type: 'string',
+        required: false,
+        description: 'A visually hidden suffix added to the table cell.',
+        released: '10.6.0'
+      },
       header: {
         type: 'string',
         required: false,
         description: 'Header text for cells in responsive table rows only.',
         released: '4.0.0',
         deprecated: '10.6.0'
+      },
+      href: {
+        type: 'string',
+        required: false,
+        description: 'If set, the table cell will become a link.',
+        released: '10.6.0'
       },
       format: {
         type: 'string',
@@ -113,11 +138,18 @@ const options = {
           'If `text` is set, this is not required. HTML for table head cells. If `html` is provided, the `text` argument will be ignored.',
         released: '1.0.0'
       },
+      visuallyHiddenText: {
+        type: 'string',
+        required: false,
+        description: 'A visually hidden suffix added to the table head cell.',
+        released: '10.6.0'
+      },
       href: {
         type: 'string',
         required: false,
         description:
-          'If set, the table header will become a link for server-side table sorting. Use `sort` to set the column sort direction.'
+          'If set, the table header will become a link for server-side table sorting. Use `sort` to set the column sort direction.',
+        released: '10.6.0'
       },
       format: {
         type: 'string',

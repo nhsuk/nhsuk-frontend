@@ -333,10 +333,15 @@
       }) }}
 
       {{ table({
-        panel: true,
-        heading: "Skin symptoms and possible causes",
-        caption: "Skin symptoms and possible causes",
-        firstCellIsHeader: false,
+        card: {
+          heading: "Other conditions like impetigo",
+          headingSize: "m",
+          variant: "feature"
+        },
+        caption: "Impetigo can look similar to other skin conditions",
+        captionSize: "s",
+        firstCellIsHeader: true,
+        lastRowBorder: false,
         head: [
           {
             text: "Skin symptoms"
