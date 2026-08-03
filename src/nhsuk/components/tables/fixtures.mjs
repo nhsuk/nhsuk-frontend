@@ -1862,93 +1862,15 @@ const fixtures = {
       rows: [
         [
           {
-            text: "Ro Nkosi"
+            text: "Zadie Munroe"
           },
           {
-            text: "28 June 2026"
-          },
-          {
-            href: "#",
-            text: "Change",
-            visuallyHiddenText: "details for Ro Nkosi"
-          }
-        ],
-        [
-          {
-            text: "Stellan Park"
-          },
-          {
-            text: "20 June 2026"
+            text: "7 May 2026"
           },
           {
             href: "#",
             text: "Change",
-            visuallyHiddenText: "details for Stellan Park"
-          }
-        ],
-        [
-          {
-            text: "Tamsin Foley-Whitworth"
-          },
-          {
-            text: "14 June 2026"
-          },
-          {
-            href: "#",
-            text: "Change",
-            visuallyHiddenText: "details for Tamsin Foley-Whitworth"
-          }
-        ],
-        [
-          {
-            text: "Uta Brennan"
-          },
-          {
-            text: "7 June 2026"
-          },
-          {
-            href: "#",
-            text: "Change",
-            visuallyHiddenText: "details for Uta Brennan"
-          }
-        ],
-        [
-          {
-            text: "Val Cruz"
-          },
-          {
-            text: "1 June 2026"
-          },
-          {
-            href: "#",
-            text: "Change",
-            visuallyHiddenText: "details for Val Cruz"
-          }
-        ],
-        [
-          {
-            text: "Wendell Shaw"
-          },
-          {
-            text: "25 May 2026"
-          },
-          {
-            href: "#",
-            text: "Change",
-            visuallyHiddenText: "details for Wendell Shaw"
-          }
-        ],
-        [
-          {
-            text: "Xanthe Beaumont"
-          },
-          {
-            text: "19 May 2026"
-          },
-          {
-            href: "#",
-            text: "Change",
-            visuallyHiddenText: "details for Xanthe Beaumont"
+            visuallyHiddenText: "details for Zadie Munroe"
           }
         ],
         [
@@ -1966,15 +1888,93 @@ const fixtures = {
         ],
         [
           {
-            text: "Zadie Munroe"
+            text: "Xanthe Beaumont"
           },
           {
-            text: "7 May 2026"
+            text: "19 May 2026"
           },
           {
             href: "#",
             text: "Change",
-            visuallyHiddenText: "details for Zadie Munroe"
+            visuallyHiddenText: "details for Xanthe Beaumont"
+          }
+        ],
+        [
+          {
+            text: "Wendell Shaw"
+          },
+          {
+            text: "25 May 2026"
+          },
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "details for Wendell Shaw"
+          }
+        ],
+        [
+          {
+            text: "Val Cruz"
+          },
+          {
+            text: "1 June 2026"
+          },
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "details for Val Cruz"
+          }
+        ],
+        [
+          {
+            text: "Uta Brennan"
+          },
+          {
+            text: "7 June 2026"
+          },
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "details for Uta Brennan"
+          }
+        ],
+        [
+          {
+            text: "Tamsin Foley-Whitworth"
+          },
+          {
+            text: "14 June 2026"
+          },
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "details for Tamsin Foley-Whitworth"
+          }
+        ],
+        [
+          {
+            text: "Stellan Park"
+          },
+          {
+            text: "20 June 2026"
+          },
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "details for Stellan Park"
+          }
+        ],
+        [
+          {
+            text: "Ro Nkosi"
+          },
+          {
+            text: "28 June 2026"
+          },
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "details for Ro Nkosi"
           }
         ],
         [
