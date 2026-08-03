@@ -263,7 +263,7 @@ const options = {
     type: 'boolean',
     required: false,
     description:
-      'Set to true to apply striped background colours to the table rows.',
+      'If set to `true`, striped background colours will be applied to table rows.',
     released: '10.6.0'
   },
   variant: {
