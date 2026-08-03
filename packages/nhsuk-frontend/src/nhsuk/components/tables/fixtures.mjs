@@ -372,6 +372,7 @@ const fixtures = {
   "with first cell as header": {
     context: {
       firstCellIsHeader: true,
+      lastRowBorder: false,
       head: [
         {
           text: "Day of the week"
