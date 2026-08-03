@@ -50,7 +50,7 @@ const options = {
   size: {
     type: 'string',
     required: false,
-    description: 'Size of the caption – `"m"`, `"l"` or `"xl"`.',
+    description: 'Size of the caption – `"m"`, `"l"`, `"xl"` or `"xxl"`.',
     released: '10.6.0'
   },
   classes: {

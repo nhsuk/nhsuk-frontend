@@ -6,11 +6,12 @@
 {%- set classNames = className -%}
 
 {%- if params.size and
-  params.size in ["m", "l", "xl"] and (
+  params.size in ["m", "l", "xl", "xxl"] and (
     not params.classes or (
       not classPrefix ~ "m" in params.classes and
       not classPrefix ~ "l" in params.classes and
-      not classPrefix ~ "xl" in params.classes
+      not classPrefix ~ "xl" in params.classes and
+      not classPrefix ~ "xxl" in params.classes
     )
   )
 %}

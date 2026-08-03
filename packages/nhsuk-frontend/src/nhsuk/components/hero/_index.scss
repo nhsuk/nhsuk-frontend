@@ -17,10 +17,10 @@
 /// 8. 'Random number' for the triangle.
 /// 9. 'Random number' for the triangle positioning.
 /// 10. Needed to enable the triangle to show correctly in high contrast mode.
-/// 11. Give the description box a max width.
+/// 11. Apply three quarters width between tablet and desktop.
 /// 12. Remove any heights/min heights in Windows high contrast mode.
 /// 13. Remove the arrow in Windows high contrast mode.
-/// 14. Reduce spacing and change positioning for Windows high contrast mode.
+/// 14. Add border or adjust colours for Windows high contrast mode.
 /// 15. Prevent text breaking out of box on smaller sizes.
 /// 16. Prevent overlap using safe area: box offset + arrow height + spacing.
 /// 17. Remove padding top from nhsuk-hero__content with images on small screens.
@@ -45,11 +45,20 @@
     }
   }
 
+  .nhsuk-hero .nhsuk-width-container {
+    border: $nhsuk-hero-border solid $nhsuk-reverse-border-colour;
+    border-width: 0;
+
+    @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+      border-bottom-width: $nhsuk-hero-border; // [14]
+    }
+  }
+
   // [2]
   .nhsuk-hero--border .nhsuk-width-container,
   // Deprecated, to be removed in v11.0
   .nhsuk-hero .nhsuk-hero--border {
-    border-top: $nhsuk-hero-border solid $nhsuk-reverse-border-colour;
+    border-top-width: $nhsuk-hero-border;
   }
 
   .nhsuk-hero__content,
@@ -59,7 +68,8 @@
     @include nhsuk-top-and-bottom;
 
     [class^="nhsuk-caption"] {
-      color: inherit;
+      color: nhsuk-tint($nhsuk-brand-colour, 80%);
+      @include nhsuk-font-weight-bold;
     }
   }
 
@@ -100,21 +110,26 @@
   //  Hero component image styles
 
   .nhsuk-hero--image {
-    min-height: nhsuk-px-to-rem(200px);
     background-repeat: no-repeat;
     background-position: center right; // [3]
     background-size: cover;
+  }
+
+  .nhsuk-hero--image:not(.nhsuk-hero--image-description) {
+    min-height: nhsuk-px-to-rem(192px);
 
     @media print {
       min-height: 0; // [4]
     }
 
-    @media screen and (forced-colors: active), (-ms-high-contrast: active) {
-      min-height: 0; // [12]
-    }
-
     @media #{nhsuk-from-breakpoint(tablet)} {
-      min-height: nhsuk-px-to-rem(320px); // [5]
+      min-height: nhsuk-px-to-rem(264px); // [5]
+    }
+  }
+
+  .nhsuk-hero--image .nhsuk-width-container {
+    @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+      border-width: 0;
     }
   }
 
@@ -181,10 +196,10 @@
   //  Hero component image description styles
 
   .nhsuk-hero--image-description {
-    margin-bottom: nhsuk-spacing(3, $adjustment: 70px + 20px, $unit: "rem"); // [16]
+    margin-bottom: nhsuk-spacing(5, $adjustment: nhsuk-px-to-rem(24px)); // [16]
 
     @media #{nhsuk-from-breakpoint(tablet)} {
-      margin-bottom: nhsuk-spacing(4, $adjustment: 48px + 20px, $unit: "rem"); // [16]
+      margin-bottom: nhsuk-spacing(8, $adjustment: nhsuk-px-to-rem(24px)); // [16]
     }
 
     .nhsuk-hero__content,
@@ -194,13 +209,17 @@
 
       position: relative;
       z-index: 1;
-      top: nhsuk-px-to-rem(70px);
+      bottom: 0;
+      bottom: nhsuk-spacing(-4);
 
-      margin-bottom: nhsuk-px-to-rem(24px);
-      padding: nhsuk-spacing(4);
+      margin-top: nhsuk-spacing(5);
+      margin-bottom: nhsuk-px-to-rem(24px); // [8]
 
       color: $nhsuk-reverse-text-colour;
       background-color: $nhsuk-brand-colour;
+
+      @include nhsuk-responsive-padding(5);
+      @include nhsuk-top-and-bottom;
 
       @media print {
         max-width: 100%;
@@ -208,31 +227,33 @@
         color: $nhsuk-print-text-colour;
       }
 
-      @media #{nhsuk-from-breakpoint(375px)} {
+      @media #{nhsuk-from-breakpoint(375px)} and #{nhsuk-until-breakpoint(desktop)} {
         width: 85%; // [15]
       }
 
+      @media #{nhsuk-from-breakpoint(tablet)} and #{nhsuk-until-breakpoint(desktop)} {
+        width: math.percentage(math.div(3, 4)); // [11]
+      }
+
       @media #{nhsuk-from-breakpoint(tablet)} {
-        position: absolute;
-        top: auto;
-        bottom: nhsuk-px-to-rem(-48px); // [8]
+        bottom: nhsuk-spacing(-6);
+        margin-top: nhsuk-spacing(8);
+      }
 
-        max-width: nhsuk-em(560); // [11]
-        margin-bottom: 0;
-        padding: nhsuk-spacing(5) nhsuk-spacing(6);
-
-        @include nhsuk-top-and-bottom;
+      @media #{nhsuk-from-breakpoint(desktop)} {
+        bottom: nhsuk-spacing(-9);
       }
 
       @media screen and (forced-colors: active), (-ms-high-contrast: active) {
-        position: relative;
-        top: 0;
-        bottom: 0; // [14]
-
-        min-height: 0;
-        margin-bottom: 0;
-        padding: nhsuk-spacing(5) 0 0;
+        color: CanvasText; // [14]
+        background-color: HighlightText;
+        forced-color-adjust: none;
       }
     }
+  }
+
+  // Prevent hero content margin-top collapse
+  .nhsuk-hero--image-description .nhsuk-width-container {
+    padding-top: 10px;
   }
 }
