@@ -100,7 +100,7 @@
     "gulp": "^5.0.1",
     "jest": "^30.3.0",
     "nhsuk-frontend": "*",
-    "playwright-core": "^1.61.1",
+    "playwright-core": "^1.62.0",
     "postcss": "^8.5.23",
     "postcss-load-config": "^6.0.1",
     "postcss-markdown": "^1.3.1",
