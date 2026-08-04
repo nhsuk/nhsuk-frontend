@@ -59,6 +59,13 @@
       line-height: nhsuk-line-height($_large-icon-size, $font-size: 22px);
     }
 
+    &:focus .nhsuk-u-secondary-text-colour,
+    &:hover .nhsuk-u-secondary-text-colour,
+    &:active .nhsuk-u-secondary-text-colour {
+      // stylelint-disable-next-line declaration-no-important
+      color: currentcolor !important;
+    }
+
     .nhsuk-icon {
       position: absolute;
       left: -$_small-icon-spacing;
@@ -83,6 +90,11 @@
 
   .nhsuk-action-link--reverse {
     @include nhsuk-link-style-reverse;
+
+    .nhsuk-u-secondary-text-colour {
+      // stylelint-disable-next-line declaration-no-important
+      color: $nhsuk-reverse-secondary-text-colour !important;
+    }
 
     &:not(:focus) .nhsuk-icon,
     &:not(:focus):hover .nhsuk-icon,

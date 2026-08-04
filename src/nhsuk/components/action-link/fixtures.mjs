@@ -52,7 +52,7 @@ const fixtures = {
     context: {
       html: outdent`
         Start session<br>
-        <span class="nhsuk-u-font-weight-normal nhsuk-u-font-size-19">(11 cases)</span>
+        <span class="nhsuk-u-secondary-text-colour nhsuk-u-font-weight-normal nhsuk-u-font-size-19">(11 cases)</span>
       `,
       href: "#/start"
     },
@@ -64,7 +64,7 @@ const fixtures = {
     },
     callBlock: outdent`
       Start session<br>
-      <span class="nhsuk-u-font-weight-normal nhsuk-u-font-size-19">(11 cases)</span>
+      <span class="nhsuk-u-secondary-text-colour nhsuk-u-font-weight-normal nhsuk-u-font-size-19">(11 cases)</span>
     `
   }
 }
