@@ -29,7 +29,7 @@ const fixtures = {
   "default": {
     context: {
       text: "Find your nearest A&E",
-      href: "#"
+      href: "#/find"
     },
     variants,
     screenshot: {
@@ -53,10 +53,15 @@ const fixtures = {
       html: outdent`
         Start session<br>
         <span class="nhsuk-u-font-weight-normal nhsuk-u-font-size-19">(11 cases)</span>
-      `
-    }
+      `,
+      href: "#/start"
+    },
+    variants
   },
   "with HTML via call block": {
+    context: {
+      href: "#/start"
+    },
     callBlock: outdent`
       Start session<br>
       <span class="nhsuk-u-font-weight-normal nhsuk-u-font-size-19">(11 cases)</span>
