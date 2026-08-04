@@ -9,7 +9,12 @@ import { examples } from './fixtures.mjs'
 describe('Tables', () => {
   it('listing page passes accessibility tests', async () => {
     await goToComponent(page, 'tables')
-    return expect(axe(page)).resolves.toHaveNoViolations()
+    return expect(
+      axe(page, {
+        // Ignore duplicate landmarks on component listing page
+        'landmark-unique': { enabled: false }
+      })
+    ).resolves.toHaveNoViolations()
   }, 30000)
 
   describe.each(Object.entries(examples))('%s', (name, example) => {
