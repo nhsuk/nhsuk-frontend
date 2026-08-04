@@ -65,6 +65,14 @@ $nhsuk-print-text-colour: #000000 !default;
 
 $nhsuk-secondary-text-colour: nhsuk-colour("grey-1") !default;
 
+/// Reverse secondary text colour
+///
+/// Used in for example 'muted' text and help text.
+///
+/// @type Colour
+
+$nhsuk-reverse-secondary-text-colour: nhsuk-tint($nhsuk-brand-colour, 78%) !default;
+
 /// Focus colour
 ///
 /// Used for outline (and background, where appropriate) when interactive

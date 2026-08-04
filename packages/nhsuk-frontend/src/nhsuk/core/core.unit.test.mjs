@@ -46,6 +46,7 @@ describe('Core', () => {
         --nhsuk-card-background-colour: white;
         --nhsuk-print-text-colour: black;
         --nhsuk-secondary-text-colour: #4c6272;
+        --nhsuk-reverse-secondary-text-colour: #c7dcef;
         --nhsuk-focus-colour: #ffeb3b;
         --nhsuk-focus-text-colour: #212b32;
         --nhsuk-error-colour: #d5281b;
