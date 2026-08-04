@@ -1103,7 +1103,7 @@ const fixtures = {
   },
   "scrolling": {
     context: {
-      caption: "Childhood vaccination coverage by nation and year",
+      caption: "Childhood vaccination coverage by nation",
       captionId: "scrolling-caption",
       captionSize: "m",
       firstCellIsHeader: true,
@@ -1111,6 +1111,30 @@ const fixtures = {
       head: [
         {
           text: "Nation"
+        },
+        {
+          text: "2013 to 2014",
+          format: "numeric"
+        },
+        {
+          text: "2014 to 2015",
+          format: "numeric"
+        },
+        {
+          text: "2015 to 2016",
+          format: "numeric"
+        },
+        {
+          text: "2016 to 2017",
+          format: "numeric"
+        },
+        {
+          text: "2017 to 2018",
+          format: "numeric"
+        },
+        {
+          text: "2018 to 2019",
+          format: "numeric"
         },
         {
           text: "2019 to 2020",
@@ -1135,10 +1159,6 @@ const fixtures = {
         {
           text: "2024 to 2025",
           format: "numeric"
-        },
-        {
-          text: "2025 to 2026",
-          format: "numeric"
         }
       ],
       rows: [
@@ -1147,51 +1167,81 @@ const fixtures = {
             text: "England"
           },
           {
-            text: "91.5%"
+            text: "94.34%"
           },
           {
-            text: "89.2%"
+            text: "94.23%"
           },
           {
-            text: "90.1%"
+            text: "93.56%"
           },
           {
-            text: "91.0%"
+            text: "93.41%"
           },
           {
-            text: "83.7%"
+            text: "93.12%"
           },
           {
-            text: "85.1%"
+            text: "92.09%"
           },
           {
-            text: "86.4%"
+            text: "92.57%"
+          },
+          {
+            text: "92.04%"
+          },
+          {
+            text: "91.84%"
+          },
+          {
+            text: "91.80%"
+          },
+          {
+            text: "91.22%"
+          },
+          {
+            text: "91.30%"
           }
         ],
         [
           {
-            text: "Northern Ireland"
+            text: "Northern Ireland"
           },
           {
-            text: "95.1%"
+            text: "97.48%"
           },
           {
-            text: "94.8%"
+            text: "96.84%"
           },
           {
-            text: "95.3%"
+            text: "97.22%"
           },
           {
-            text: "95.0%"
+            text: "97.04%"
           },
           {
-            text: "86.4%"
+            text: "96.20%"
           },
           {
-            text: "87.9%"
+            text: "94.52%"
           },
           {
-            text: "89.1%"
+            text: "94.45%"
+          },
+          {
+            text: "94.53%"
+          },
+          {
+            text: "93.52%"
+          },
+          {
+            text: "93.10%"
+          },
+          {
+            text: "91.80%"
+          },
+          {
+            text: "91.00%"
           }
         ],
         [
@@ -1199,25 +1249,40 @@ const fixtures = {
             text: "Scotland"
           },
           {
-            text: "96.2%"
+            text: "97.51%"
           },
           {
-            text: "95.9%"
+            text: "97.39%"
           },
           {
-            text: "96.4%"
+            text: "97.15%"
           },
           {
-            text: "96.1%"
+            text: "96.77%"
           },
           {
-            text: "89.2%"
+            text: "96.51%"
           },
           {
-            text: "90.5%"
+            text: "95.80%"
           },
           {
-            text: "91.3%"
+            text: "96.23%"
+          },
+          {
+            text: "96.54%"
+          },
+          {
+            text: "96.32%"
+          },
+          {
+            text: "95.55%"
+          },
+          {
+            text: "94.84%"
+          },
+          {
+            text: "94.50%"
           }
         ],
         [
@@ -1225,25 +1290,40 @@ const fixtures = {
             text: "Wales"
           },
           {
-            text: "94.8%"
+            text: "96.70%"
           },
           {
-            text: "94.5%"
+            text: "96.57%"
           },
           {
-            text: "95.1%"
+            text: "96.57%"
           },
           {
-            text: "94.9%"
+            text: "96.34%"
           },
           {
-            text: "89.5%"
+            text: "95.92%"
           },
           {
-            text: "91.0%"
+            text: "95.42%"
           },
           {
-            text: "92.2%"
+            text: "95.77%"
+          },
+          {
+            text: "95.56%"
+          },
+          {
+            text: "95.18%"
+          },
+          {
+            text: "94.47%"
+          },
+          {
+            text: "94.19%"
+          },
+          {
+            text: "94.10%"
           }
         ]
       ]
@@ -1259,7 +1339,7 @@ const fixtures = {
   },
   "scrolling sortable": {
     context: {
-      caption: "Childhood vaccination coverage by nation and year",
+      caption: "Childhood vaccination coverage by nation",
       captionId: "scrolling-sortable-caption",
       captionSize: "m",
       firstCellIsHeader: true,
@@ -1268,6 +1348,42 @@ const fixtures = {
         {
           text: "Nation",
           sort: "ascending"
+        },
+        {
+          text: "2013 to 2014",
+          format: "numeric",
+          sort: true,
+          sortNext: "descending"
+        },
+        {
+          text: "2014 to 2015",
+          format: "numeric",
+          sort: true,
+          sortNext: "descending"
+        },
+        {
+          text: "2015 to 2016",
+          format: "numeric",
+          sort: true,
+          sortNext: "descending"
+        },
+        {
+          text: "2016 to 2017",
+          format: "numeric",
+          sort: true,
+          sortNext: "descending"
+        },
+        {
+          text: "2017 to 2018",
+          format: "numeric",
+          sort: true,
+          sortNext: "descending"
+        },
+        {
+          text: "2018 to 2019",
+          format: "numeric",
+          sort: true,
+          sortNext: "descending"
         },
         {
           text: "2019 to 2020",
@@ -1304,12 +1420,6 @@ const fixtures = {
           format: "numeric",
           sort: true,
           sortNext: "descending"
-        },
-        {
-          text: "2025 to 2026",
-          format: "numeric",
-          sort: true,
-          sortNext: "descending"
         }
       ],
       rows: [
@@ -1318,51 +1428,81 @@ const fixtures = {
             text: "England"
           },
           {
-            text: "91.5%"
+            text: "94.34%"
           },
           {
-            text: "89.2%"
+            text: "94.23%"
           },
           {
-            text: "90.1%"
+            text: "93.56%"
           },
           {
-            text: "91.0%"
+            text: "93.41%"
           },
           {
-            text: "83.7%"
+            text: "93.12%"
           },
           {
-            text: "85.1%"
+            text: "92.09%"
           },
           {
-            text: "86.4%"
+            text: "92.57%"
+          },
+          {
+            text: "92.04%"
+          },
+          {
+            text: "91.84%"
+          },
+          {
+            text: "91.80%"
+          },
+          {
+            text: "91.22%"
+          },
+          {
+            text: "91.30%"
           }
         ],
         [
           {
-            text: "Northern Ireland"
+            text: "Northern Ireland"
           },
           {
-            text: "95.1%"
+            text: "97.48%"
           },
           {
-            text: "94.8%"
+            text: "96.84%"
           },
           {
-            text: "95.3%"
+            text: "97.22%"
           },
           {
-            text: "95.0%"
+            text: "97.04%"
           },
           {
-            text: "86.4%"
+            text: "96.20%"
           },
           {
-            text: "87.9%"
+            text: "94.52%"
           },
           {
-            text: "89.1%"
+            text: "94.45%"
+          },
+          {
+            text: "94.53%"
+          },
+          {
+            text: "93.52%"
+          },
+          {
+            text: "93.10%"
+          },
+          {
+            text: "91.80%"
+          },
+          {
+            text: "91.00%"
           }
         ],
         [
@@ -1370,25 +1510,40 @@ const fixtures = {
             text: "Scotland"
           },
           {
-            text: "96.2%"
+            text: "97.51%"
           },
           {
-            text: "95.9%"
+            text: "97.39%"
           },
           {
-            text: "96.4%"
+            text: "97.15%"
           },
           {
-            text: "96.1%"
+            text: "96.77%"
           },
           {
-            text: "89.2%"
+            text: "96.51%"
           },
           {
-            text: "90.5%"
+            text: "95.80%"
           },
           {
-            text: "91.3%"
+            text: "96.23%"
+          },
+          {
+            text: "96.54%"
+          },
+          {
+            text: "96.32%"
+          },
+          {
+            text: "95.55%"
+          },
+          {
+            text: "94.84%"
+          },
+          {
+            text: "94.50%"
           }
         ],
         [
@@ -1396,25 +1551,40 @@ const fixtures = {
             text: "Wales"
           },
           {
-            text: "94.8%"
+            text: "96.70%"
           },
           {
-            text: "94.5%"
+            text: "96.57%"
           },
           {
-            text: "95.1%"
+            text: "96.57%"
           },
           {
-            text: "94.9%"
+            text: "96.34%"
           },
           {
-            text: "89.5%"
+            text: "95.92%"
           },
           {
-            text: "91.0%"
+            text: "95.42%"
           },
           {
-            text: "92.2%"
+            text: "95.77%"
+          },
+          {
+            text: "95.56%"
+          },
+          {
+            text: "95.18%"
+          },
+          {
+            text: "94.47%"
+          },
+          {
+            text: "94.19%"
+          },
+          {
+            text: "94.10%"
           }
         ]
       ]
@@ -1430,7 +1600,7 @@ const fixtures = {
   },
   "scrolling (full width)": {
     context: {
-      caption: "Childhood vaccination coverage by nation and year",
+      caption: "Childhood vaccination coverage by nation",
       captionId: "scrolling-full-width-caption",
       captionSize: "m",
       firstCellIsHeader: true,
@@ -1438,6 +1608,30 @@ const fixtures = {
       head: [
         {
           text: "Nation"
+        },
+        {
+          text: "2013 to 2014",
+          format: "numeric"
+        },
+        {
+          text: "2014 to 2015",
+          format: "numeric"
+        },
+        {
+          text: "2015 to 2016",
+          format: "numeric"
+        },
+        {
+          text: "2016 to 2017",
+          format: "numeric"
+        },
+        {
+          text: "2017 to 2018",
+          format: "numeric"
+        },
+        {
+          text: "2018 to 2019",
+          format: "numeric"
         },
         {
           text: "2019 to 2020",
@@ -1462,10 +1656,6 @@ const fixtures = {
         {
           text: "2024 to 2025",
           format: "numeric"
-        },
-        {
-          text: "2025 to 2026",
-          format: "numeric"
         }
       ],
       rows: [
@@ -1474,51 +1664,81 @@ const fixtures = {
             text: "England"
           },
           {
-            text: "91.5%"
+            text: "94.34%"
           },
           {
-            text: "89.2%"
+            text: "94.23%"
           },
           {
-            text: "90.1%"
+            text: "93.56%"
           },
           {
-            text: "91.0%"
+            text: "93.41%"
           },
           {
-            text: "83.7%"
+            text: "93.12%"
           },
           {
-            text: "85.1%"
+            text: "92.09%"
           },
           {
-            text: "86.4%"
+            text: "92.57%"
+          },
+          {
+            text: "92.04%"
+          },
+          {
+            text: "91.84%"
+          },
+          {
+            text: "91.80%"
+          },
+          {
+            text: "91.22%"
+          },
+          {
+            text: "91.30%"
           }
         ],
         [
           {
-            text: "Northern Ireland"
+            text: "Northern Ireland"
           },
           {
-            text: "95.1%"
+            text: "97.48%"
           },
           {
-            text: "94.8%"
+            text: "96.84%"
           },
           {
-            text: "95.3%"
+            text: "97.22%"
           },
           {
-            text: "95.0%"
+            text: "97.04%"
           },
           {
-            text: "86.4%"
+            text: "96.20%"
           },
           {
-            text: "87.9%"
+            text: "94.52%"
           },
           {
-            text: "89.1%"
+            text: "94.45%"
+          },
+          {
+            text: "94.53%"
+          },
+          {
+            text: "93.52%"
+          },
+          {
+            text: "93.10%"
+          },
+          {
+            text: "91.80%"
+          },
+          {
+            text: "91.00%"
           }
         ],
         [
@@ -1526,25 +1746,40 @@ const fixtures = {
             text: "Scotland"
           },
           {
-            text: "96.2%"
+            text: "97.51%"
           },
           {
-            text: "95.9%"
+            text: "97.39%"
           },
           {
-            text: "96.4%"
+            text: "97.15%"
           },
           {
-            text: "96.1%"
+            text: "96.77%"
           },
           {
-            text: "89.2%"
+            text: "96.51%"
           },
           {
-            text: "90.5%"
+            text: "95.80%"
           },
           {
-            text: "91.3%"
+            text: "96.23%"
+          },
+          {
+            text: "96.54%"
+          },
+          {
+            text: "96.32%"
+          },
+          {
+            text: "95.55%"
+          },
+          {
+            text: "94.84%"
+          },
+          {
+            text: "94.50%"
           }
         ],
         [
@@ -1552,25 +1787,40 @@ const fixtures = {
             text: "Wales"
           },
           {
-            text: "94.8%"
+            text: "96.70%"
           },
           {
-            text: "94.5%"
+            text: "96.57%"
           },
           {
-            text: "95.1%"
+            text: "96.57%"
           },
           {
-            text: "94.9%"
+            text: "96.34%"
           },
           {
-            text: "89.5%"
+            text: "95.92%"
           },
           {
-            text: "91.0%"
+            text: "95.42%"
           },
           {
-            text: "92.2%"
+            text: "95.77%"
+          },
+          {
+            text: "95.56%"
+          },
+          {
+            text: "95.18%"
+          },
+          {
+            text: "94.47%"
+          },
+          {
+            text: "94.19%"
+          },
+          {
+            text: "94.10%"
           }
         ]
       ]
@@ -1586,7 +1836,7 @@ const fixtures = {
   },
   "scrolling sortable (full width)": {
     context: {
-      caption: "Childhood vaccination coverage by nation and year",
+      caption: "Childhood vaccination coverage by nation",
       captionId: "scrolling-sortable-full-width-caption",
       captionSize: "m",
       firstCellIsHeader: true,
@@ -1595,6 +1845,42 @@ const fixtures = {
         {
           text: "Nation",
           sort: "ascending"
+        },
+        {
+          text: "2013 to 2014",
+          format: "numeric",
+          sort: true,
+          sortNext: "descending"
+        },
+        {
+          text: "2014 to 2015",
+          format: "numeric",
+          sort: true,
+          sortNext: "descending"
+        },
+        {
+          text: "2015 to 2016",
+          format: "numeric",
+          sort: true,
+          sortNext: "descending"
+        },
+        {
+          text: "2016 to 2017",
+          format: "numeric",
+          sort: true,
+          sortNext: "descending"
+        },
+        {
+          text: "2017 to 2018",
+          format: "numeric",
+          sort: true,
+          sortNext: "descending"
+        },
+        {
+          text: "2018 to 2019",
+          format: "numeric",
+          sort: true,
+          sortNext: "descending"
         },
         {
           text: "2019 to 2020",
@@ -1631,12 +1917,6 @@ const fixtures = {
           format: "numeric",
           sort: true,
           sortNext: "descending"
-        },
-        {
-          text: "2025 to 2026",
-          format: "numeric",
-          sort: true,
-          sortNext: "descending"
         }
       ],
       rows: [
@@ -1645,51 +1925,81 @@ const fixtures = {
             text: "England"
           },
           {
-            text: "91.5%"
+            text: "94.34%"
           },
           {
-            text: "89.2%"
+            text: "94.23%"
           },
           {
-            text: "90.1%"
+            text: "93.56%"
           },
           {
-            text: "91.0%"
+            text: "93.41%"
           },
           {
-            text: "83.7%"
+            text: "93.12%"
           },
           {
-            text: "85.1%"
+            text: "92.09%"
           },
           {
-            text: "86.4%"
+            text: "92.57%"
+          },
+          {
+            text: "92.04%"
+          },
+          {
+            text: "91.84%"
+          },
+          {
+            text: "91.80%"
+          },
+          {
+            text: "91.22%"
+          },
+          {
+            text: "91.30%"
           }
         ],
         [
           {
-            text: "Northern Ireland"
+            text: "Northern Ireland"
           },
           {
-            text: "95.1%"
+            text: "97.48%"
           },
           {
-            text: "94.8%"
+            text: "96.84%"
           },
           {
-            text: "95.3%"
+            text: "97.22%"
           },
           {
-            text: "95.0%"
+            text: "97.04%"
           },
           {
-            text: "86.4%"
+            text: "96.20%"
           },
           {
-            text: "87.9%"
+            text: "94.52%"
           },
           {
-            text: "89.1%"
+            text: "94.45%"
+          },
+          {
+            text: "94.53%"
+          },
+          {
+            text: "93.52%"
+          },
+          {
+            text: "93.10%"
+          },
+          {
+            text: "91.80%"
+          },
+          {
+            text: "91.00%"
           }
         ],
         [
@@ -1697,25 +2007,40 @@ const fixtures = {
             text: "Scotland"
           },
           {
-            text: "96.2%"
+            text: "97.51%"
           },
           {
-            text: "95.9%"
+            text: "97.39%"
           },
           {
-            text: "96.4%"
+            text: "97.15%"
           },
           {
-            text: "96.1%"
+            text: "96.77%"
           },
           {
-            text: "89.2%"
+            text: "96.51%"
           },
           {
-            text: "90.5%"
+            text: "95.80%"
           },
           {
-            text: "91.3%"
+            text: "96.23%"
+          },
+          {
+            text: "96.54%"
+          },
+          {
+            text: "96.32%"
+          },
+          {
+            text: "95.55%"
+          },
+          {
+            text: "94.84%"
+          },
+          {
+            text: "94.50%"
           }
         ],
         [
@@ -1723,25 +2048,40 @@ const fixtures = {
             text: "Wales"
           },
           {
-            text: "94.8%"
+            text: "96.70%"
           },
           {
-            text: "94.5%"
+            text: "96.57%"
           },
           {
-            text: "95.1%"
+            text: "96.57%"
           },
           {
-            text: "94.9%"
+            text: "96.34%"
           },
           {
-            text: "89.5%"
+            text: "95.92%"
           },
           {
-            text: "91.0%"
+            text: "95.42%"
           },
           {
-            text: "92.2%"
+            text: "95.77%"
+          },
+          {
+            text: "95.56%"
+          },
+          {
+            text: "95.18%"
+          },
+          {
+            text: "94.47%"
+          },
+          {
+            text: "94.19%"
+          },
+          {
+            text: "94.10%"
           }
         ]
       ]
