@@ -43,11 +43,21 @@
 {%- set hasCaption = headingCaption.text or headingCaption.html -%}
 
 {%- if caller or params.html or params.text %}
-{%- set innerHtml %}
+{%- set innerText %}
   {%- if params.html %}
     {{- params.html | safe -}}
   {% elif params.text %}
     {{- params.text -}}
+  {% endif -%}
+{% endset %}
+
+{%- set innerHtml %}
+  {%- if params.href -%}
+    <a class="nhsuk-link" href="{{ params.href }}">
+      {{- innerText | safe | trim -}}
+    </a>
+  {%- else %}
+    {{- innerText | safe | trim -}}
   {% endif -%}
 {% endset %}
 

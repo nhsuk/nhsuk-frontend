@@ -39,6 +39,12 @@ const options = {
     description: 'A visually hidden suffix added to the heading.',
     released: '10.6.0'
   },
+  href: {
+    type: 'string',
+    required: false,
+    description: 'If set, the heading will become a link.',
+    released: '10.6.0'
+  },
   caption: {
     type: 'object',
     required: false,
