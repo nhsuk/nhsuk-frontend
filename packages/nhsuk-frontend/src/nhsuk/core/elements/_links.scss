@@ -67,10 +67,6 @@ button.nhsuk-link {
 
 .nhsuk-link--reverse {
   @include nhsuk-link-style-reverse;
-
-  @media screen and (forced-colors: active), (-ms-high-contrast: active) {
-    color: LinkText;
-  }
 }
 
 .nhsuk-link--no-underline {
