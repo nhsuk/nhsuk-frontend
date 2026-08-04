@@ -58,7 +58,10 @@
 {{ captionHtml | safe | trim }}
 {% endif -%}
 
-<h{{ headingLevel }} class="{{ classNames }}"
+{#- Determine type of element to use, if not explicitly set #}
+{%- set element = (params.element | default("h" ~ headingLevel)) | lower -%}
+
+<{{ element }} class="{{ classNames }}"
   {%- if params.id %} id="{{ params.id }}"{% endif %}
   {{- nhsukAttributes(params.attributes) }}>
 {% if headingCaption.placement == "start" or (hasCaption and not headingCaption.placement) %}
@@ -74,7 +77,7 @@
 {% if headingCaption.placement == "end" %}
   {{ captionHtml | safe | trim | indent(2) }}
 {% endif %}
-</h{{ headingLevel }}>
+</{{ element }}>
 {% if headingCaption.placement == "after" %}
 {{ captionHtml | safe | trim }}
 {% endif %}
