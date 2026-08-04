@@ -1,6 +1,7 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/i18n.njk" import nhsukI18nAttributes %}
 {% from "nhsuk/components/card/macro.njk" import card %}
+{% from "nhsuk/components/heading/macro.njk" import heading %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
 
 {#- Set variant for this component #}
@@ -53,28 +54,11 @@
   {% set classNames = classNames ~ " nhsuk-table--striped" %}
 {% endif %}
 
-{%- if params.captionSize and
-  params.captionSize in ["s", "m", "l", "xl"] and (
-    not params.captionClasses or (
-      not "nhsuk-table__caption--s" in params.captionClasses and
-      not "nhsuk-table__caption--m" in params.captionClasses and
-      not "nhsuk-table__caption--l" in params.captionClasses and
-      not "nhsuk-table__caption--xl" in params.captionClasses
-    )
-  )
-%}
-  {% set classNamesCaption = classNamesCaption ~ " nhsuk-table__caption--" ~ params.captionSize %}
-{% endif %}
-
 {%- if params.classes or params.tableClasses %}
   {% set classNames = classNames ~ " " ~ (params.classes or params.tableClasses) %}
 {% endif %}
 
-{%- if params.captionClasses %}
-  {% set classNamesCaption = classNamesCaption ~ " " ~ params.captionClasses %}
-{% endif %}
-
-{%- set captionDescriptionText = params.captionDescriptionText | default("Column headers are sortable") %}
+{%- set captionDescriptionText = params.captionDescriptionText | default("Column headers are sortable" if "nhsuk-table--sortable" in classNames else undefined) %}
 
 {%- set attributesHtml %}
   {{- nhsukAttributes({
@@ -222,13 +206,16 @@
 {%- set tableHtml -%}
 <table {{- attributesHtml | safe }}>
 {% if params.caption %}
-  <caption class="{{ classNamesCaption }}">
-  {% if "nhsuk-table--sortable" in classNames %}
-    {{ params.caption }}<span class="nhsuk-u-visually-hidden"> ({{ captionDescriptionText }})</span>
-  {% else %}
-    {{ params.caption }}
-  {% endif %}
-  </caption>
+  {{ heading({
+    text: params.caption,
+    visuallyHiddenText: "(" ~ captionDescriptionText ~ ")" if captionDescriptionText else undefined,
+    size: params.captionSize,
+    sizes: ["s", "m", "l", "xl"],
+    className: classNamesCaption,
+    classPrefix: classNamesCaption ~ "--",
+    classes: params.captionClasses,
+    element: "caption"
+  }) | trim | indent(2) }}
 {% endif %}
 {% if head | length %}
   <thead class="nhsuk-table__head" {%- if params.responsive %} role="rowgroup"{% endif %}>
