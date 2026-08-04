@@ -1101,6 +1101,331 @@ const fixtures = {
       viewports: ["mobile", "tablet", "desktop"]
     }
   },
+  "scrolling": {
+    context: {
+      caption: "Childhood vaccination coverage by nation and year",
+      captionId: "scrolling-caption",
+      captionSize: "m",
+      firstCellIsHeader: true,
+      scroll: true,
+      head: [
+        {
+          text: "Nation"
+        },
+        {
+          text: "2019 to 2020",
+          format: "numeric"
+        },
+        {
+          text: "2020 to 2021",
+          format: "numeric"
+        },
+        {
+          text: "2021 to 2022",
+          format: "numeric"
+        },
+        {
+          text: "2022 to 2023",
+          format: "numeric"
+        },
+        {
+          text: "2023 to 2024",
+          format: "numeric"
+        },
+        {
+          text: "2024 to 2025",
+          format: "numeric"
+        },
+        {
+          text: "2025 to 2026",
+          format: "numeric"
+        }
+      ],
+      rows: [
+        [
+          {
+            text: "England"
+          },
+          {
+            text: "91.5%"
+          },
+          {
+            text: "89.2%"
+          },
+          {
+            text: "90.1%"
+          },
+          {
+            text: "91.0%"
+          },
+          {
+            text: "83.7%"
+          },
+          {
+            text: "85.1%"
+          },
+          {
+            text: "86.4%"
+          }
+        ],
+        [
+          {
+            text: "Northern Ireland"
+          },
+          {
+            text: "95.1%"
+          },
+          {
+            text: "94.8%"
+          },
+          {
+            text: "95.3%"
+          },
+          {
+            text: "95.0%"
+          },
+          {
+            text: "86.4%"
+          },
+          {
+            text: "87.9%"
+          },
+          {
+            text: "89.1%"
+          }
+        ],
+        [
+          {
+            text: "Scotland"
+          },
+          {
+            text: "96.2%"
+          },
+          {
+            text: "95.9%"
+          },
+          {
+            text: "96.4%"
+          },
+          {
+            text: "96.1%"
+          },
+          {
+            text: "89.2%"
+          },
+          {
+            text: "90.5%"
+          },
+          {
+            text: "91.3%"
+          }
+        ],
+        [
+          {
+            text: "Wales"
+          },
+          {
+            text: "94.8%"
+          },
+          {
+            text: "94.5%"
+          },
+          {
+            text: "95.1%"
+          },
+          {
+            text: "94.9%"
+          },
+          {
+            text: "89.5%"
+          },
+          {
+            text: "91.0%"
+          },
+          {
+            text: "92.2%"
+          }
+        ]
+      ]
+    },
+    variants: [
+      variants[0], // Regular variant
+      variants[8] // Reverse variant
+    ],
+    screenshot: {
+      viewports: ["mobile", "tablet", "desktop"]
+    }
+  },
+  "scrolling sortable": {
+    context: {
+      caption: "Childhood vaccination coverage by nation and year",
+      captionId: "scrolling-sortable-caption",
+      captionSize: "m",
+      firstCellIsHeader: true,
+      scroll: true,
+      head: [
+        {
+          text: "Nation",
+          sort: "ascending"
+        },
+        {
+          text: "2019 to 2020",
+          format: "numeric",
+          sort: true,
+          sortNext: "descending"
+        },
+        {
+          text: "2020 to 2021",
+          format: "numeric",
+          sort: true,
+          sortNext: "descending"
+        },
+        {
+          text: "2021 to 2022",
+          format: "numeric",
+          sort: true,
+          sortNext: "descending"
+        },
+        {
+          text: "2022 to 2023",
+          format: "numeric",
+          sort: true,
+          sortNext: "descending"
+        },
+        {
+          text: "2023 to 2024",
+          format: "numeric",
+          sort: true,
+          sortNext: "descending"
+        },
+        {
+          text: "2024 to 2025",
+          format: "numeric",
+          sort: true,
+          sortNext: "descending"
+        },
+        {
+          text: "2025 to 2026",
+          format: "numeric",
+          sort: true,
+          sortNext: "descending"
+        }
+      ],
+      rows: [
+        [
+          {
+            text: "England"
+          },
+          {
+            text: "91.5%"
+          },
+          {
+            text: "89.2%"
+          },
+          {
+            text: "90.1%"
+          },
+          {
+            text: "91.0%"
+          },
+          {
+            text: "83.7%"
+          },
+          {
+            text: "85.1%"
+          },
+          {
+            text: "86.4%"
+          }
+        ],
+        [
+          {
+            text: "Northern Ireland"
+          },
+          {
+            text: "95.1%"
+          },
+          {
+            text: "94.8%"
+          },
+          {
+            text: "95.3%"
+          },
+          {
+            text: "95.0%"
+          },
+          {
+            text: "86.4%"
+          },
+          {
+            text: "87.9%"
+          },
+          {
+            text: "89.1%"
+          }
+        ],
+        [
+          {
+            text: "Scotland"
+          },
+          {
+            text: "96.2%"
+          },
+          {
+            text: "95.9%"
+          },
+          {
+            text: "96.4%"
+          },
+          {
+            text: "96.1%"
+          },
+          {
+            text: "89.2%"
+          },
+          {
+            text: "90.5%"
+          },
+          {
+            text: "91.3%"
+          }
+        ],
+        [
+          {
+            text: "Wales"
+          },
+          {
+            text: "94.8%"
+          },
+          {
+            text: "94.5%"
+          },
+          {
+            text: "95.1%"
+          },
+          {
+            text: "94.9%"
+          },
+          {
+            text: "89.5%"
+          },
+          {
+            text: "91.0%"
+          },
+          {
+            text: "92.2%"
+          }
+        ]
+      ]
+    },
+    variants: [
+      variants[0], // Regular variant
+      variants[8] // Reverse variant
+    ],
+    screenshot: {
+      viewports: ["mobile", "tablet", "desktop"]
+    }
+  },
   "sortable": {
     context: {
       caption: "Appointments",

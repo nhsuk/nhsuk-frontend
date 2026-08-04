@@ -219,6 +219,13 @@ const options = {
     description: 'Caption text.',
     released: '1.0.0'
   },
+  captionId: {
+    type: 'string',
+    required: false,
+    description:
+      'The ID of the table caption, and the `aria-labelledby` attribute in the scrolling container. Defaults to the `id` option suffixed with `"-caption"`. If neither are provided, the ID is generated from the caption text.',
+    released: '10.6.0'
+  },
   captionClasses: {
     type: 'string',
     required: false,
@@ -258,6 +265,13 @@ const options = {
     required: false,
     description: 'If set to `true`, responsive table classes will be applied.',
     released: '4.0.0'
+  },
+  scroll: {
+    type: 'boolean',
+    required: false,
+    description:
+      'If set to `true`, wrap a scrolling container around the table component. Scrolling tables require the `caption` and `captionId` options.',
+    released: '10.6.0'
   },
   striped: {
     type: 'boolean',
