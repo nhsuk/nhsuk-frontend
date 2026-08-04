@@ -58,6 +58,7 @@
   {% set classNames = classNames ~ " " ~ (params.classes or params.tableClasses) %}
 {% endif %}
 
+{%- set captionId = params.captionId | default(params.id ~ "-caption" if params.scroll and params.id else undefined) | default(("table-" ~ params.caption | replace(" ", "-") | lower | truncate(40, true, "") ~ "-caption") if params.scroll and params.caption else undefined) -%}
 {%- set captionDescriptionText = params.captionDescriptionText | default("Column headers are sortable" if "nhsuk-table--sortable" in classNames else undefined) %}
 
 {%- set attributesHtml %}
@@ -209,6 +210,7 @@
   {{ heading({
     text: params.caption,
     visuallyHiddenText: "(" ~ captionDescriptionText ~ ")" if captionDescriptionText else undefined,
+    id: captionId,
     size: params.captionSize,
     sizes: ["s", "m", "l", "xl"],
     className: classNamesCaption,
@@ -311,6 +313,10 @@
   }) %}
     {{ tableHtml | safe | trim | indent(4) }}
   {%- endcall %}
+{% elif params.scroll %}
+<div class="nhsuk-table-container" role="region" {%- if captionId %} aria-labelledby="{{ captionId }}"{% endif %} tabindex="0">
+  {{ tableHtml | safe | trim | indent(2) }}
+</div>
 {% else %}
   {{- tableHtml | safe | trim }}
 {% endif %}
