@@ -43,6 +43,11 @@
     a:not(.nhsuk-button) {
       @include nhsuk-link-style-reverse;
     }
+
+    .nhsuk-u-secondary-text-colour {
+      // stylelint-disable-next-line declaration-no-important
+      color: $nhsuk-reverse-secondary-text-colour !important;
+    }
   }
 
   .nhsuk-hero .nhsuk-width-container {
