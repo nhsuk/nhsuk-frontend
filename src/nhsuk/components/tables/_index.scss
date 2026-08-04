@@ -9,18 +9,56 @@
 /// @group components/table
 ////
 
+$nhsuk-table-overflow-colour: nhsuk-colour("grey-3");
+
 @include nhsuk-exports("nhsuk/components/table") {
   // Scrolling container
+  //
+  // 1. Establish an inline-size container so that children can use cqi units
+  //    to size themselves relative to the visible container width rather than
+  //    the (potentially wider) scrolling content.
+  // 2. Visual scroll indicators use background-attachment:
+  //    'local' attachment to scroll with content (hiding shadow at edges),
+  //    'scroll' attachment to stay fixed to container.
+  //    Left/right covers hide shadows when scrolled to start/end.
+  //    Left/right indicator lines show scroll availability.
+  // 3. Indicators don't show in forced-colors mode. Use borders instead
+
   .nhsuk-table-container {
     box-sizing: border-box;
     display: block;
 
     width: 100%;
 
+    container-type: inline-size; // [1]
+
     overflow-x: auto;
 
-    -webkit-overflow-scrolling: touch;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
+    background: // [2]
+      // Left cover — hides left shadow when scrolled to the start
+      linear-gradient(to right, $nhsuk-body-background-colour, transparent) left center / nhsuk-spacing(2) 100% local
+        no-repeat,
+      // Right cover — hides right shadow when scrolled to the end
+      linear-gradient(to left, $nhsuk-body-background-colour, transparent) right center / nhsuk-spacing(2) 100% local
+        no-repeat,
+      // Left scroll indicator line
+      linear-gradient(to bottom, rgba($nhsuk-table-overflow-colour, 0.4), rgba($nhsuk-table-overflow-colour, 0.4)) left
+        center / nhsuk-spacing(1) 100% scroll no-repeat,
+      // Right scroll indicator line
+      linear-gradient(to bottom, rgba($nhsuk-table-overflow-colour, 0.4), rgba($nhsuk-table-overflow-colour, 0.4)) right
+        center / nhsuk-spacing(1) 100% scroll no-repeat;
+
+    &:focus-visible {
+      outline: $nhsuk-focus-width solid $nhsuk-focus-colour;
+      outline-offset: $nhsuk-focus-width;
+      box-shadow: 0 0 0 $nhsuk-focus-width $nhsuk-focus-text-colour;
+    }
+
+    @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+      background: none;
+      border-inline: $nhsuk-border-width-form-element solid $nhsuk-border-colour; // [3]
+      padding-inline: nhsuk-spacing(1);
+    }
 
     @include nhsuk-responsive-margin(7, "bottom");
 
@@ -29,6 +67,14 @@
     // Deprecated, to be removed in v11.0
     .nhsuk-table-responsive {
       margin: 0;
+    }
+
+    // Prevent caption moving with scrolling container
+    .nhsuk-table__caption {
+      box-sizing: border-box;
+      position: sticky;
+      left: 0;
+      max-inline-size: 100cqi;
     }
   }
 
