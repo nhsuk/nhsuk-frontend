@@ -86,6 +86,13 @@ const options = {
     description:
       'HTML attributes (for example data attributes) to add to the heading.',
     released: '10.6.0'
+  },
+  element: {
+    type: 'string',
+    required: false,
+    description:
+      'HTML element for the heading component – for example, `"caption"`. Defaults to the `level` option prefixed with `"h"`.',
+    released: '10.6.0'
   }
 }
 
