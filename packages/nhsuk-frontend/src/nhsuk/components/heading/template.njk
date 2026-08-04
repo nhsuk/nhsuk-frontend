@@ -43,6 +43,24 @@
 {%- set hasCaption = headingCaption.text or headingCaption.html -%}
 
 {%- if caller or params.html or params.text %}
+{%- set innerText %}
+  {%- if params.html %}
+    {{- params.html | safe -}}
+  {% elif params.text %}
+    {{- params.text -}}
+  {% endif -%}
+{% endset %}
+
+{%- set innerHtml %}
+  {%- if params.href -%}
+    <a class="nhsuk-link" href="{{ params.href }}">
+      {{- innerText | safe | trim -}}
+    </a>
+  {%- else %}
+    {{- innerText | safe | trim -}}
+  {% endif -%}
+{% endset %}
+
 {%- set captionHtml = caption({
   id: headingCaption.id,
   element: headingCaption.element,
@@ -58,23 +76,33 @@
 {{ captionHtml | safe | trim }}
 {% endif -%}
 
-<h{{ headingLevel }} class="{{ classNames }}"
+{#- Determine type of element to use, if not explicitly set #}
+{%- set element = (params.element | default("h" ~ headingLevel)) | lower -%}
+
+<{{ element }} class="{{ classNames }}"
   {%- if params.id %} id="{{ params.id }}"{% endif %}
   {{- nhsukAttributes(params.attributes) }}>
 {% if headingCaption.placement == "start" or (hasCaption and not headingCaption.placement) %}
   {{ captionHtml | safe | trim | indent(2) }}
 {% endif %}
-{% if caller %}
-  {{- caller() }}
-{% elif params.html %}
-  {{ params.html | safe | trim | indent(2) }}
+{% if params.visuallyHiddenText %}
+  {% if caller %}
+    {{- caller() }}
+  {% else %}
+    {{- innerHtml | safe | trim | indent(2, true) -}}
+  {% endif -%}
+  <span class="nhsuk-u-visually-hidden"> {{ params.visuallyHiddenText }}</span>
 {% else %}
-  {{ params.text | trim | indent(2) }}
+  {% if caller %}
+    {{- caller() }}
+  {% else %}
+    {{- innerHtml | safe | trim | indent(2, true) }}
+  {% endif %}
 {% endif %}
 {% if headingCaption.placement == "end" %}
   {{ captionHtml | safe | trim | indent(2) }}
 {% endif %}
-</h{{ headingLevel }}>
+</{{ element }}>
 {% if headingCaption.placement == "after" %}
 {{ captionHtml | safe | trim }}
 {% endif %}

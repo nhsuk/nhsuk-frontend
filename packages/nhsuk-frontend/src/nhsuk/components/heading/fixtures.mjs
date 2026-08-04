@@ -153,6 +153,36 @@ const fixtures = {
       classes: "nhsuk-heading-l",
       size: "s"
     }
+  },
+  "with link": {
+    context: {
+      text: "Skin colour changes",
+      href: "#/result/1",
+      size: "l"
+    }
+  },
+  "with link and caption": {
+    context: {
+      text: "Skin colour changes",
+      caption: "A to Z of NHS health writing",
+      href: "#/result/1",
+      size: "l"
+    }
+  },
+  "with visually hidden text": {
+    context: {
+      text: "Home address",
+      visuallyHiddenText: "(Karen Francis)",
+      size: "l"
+    }
+  },
+  "with visually hidden text and caption": {
+    context: {
+      text: "Home address",
+      visuallyHiddenText: "(Karen Francis)",
+      caption: "About you",
+      size: "l"
+    }
   }
 }
 

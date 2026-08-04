@@ -33,6 +33,18 @@ const options = {
       'Not strictly a parameter but Nunjucks code convention. Using a `call` block enables you to call a macro with all the text inside the tag. This is helpful if you want to pass a lot of content into a macro. To use it, you will need to wrap the entire heading component in a `call` block.',
     released: '10.6.0'
   },
+  visuallyHiddenText: {
+    type: 'string',
+    required: false,
+    description: 'A visually hidden suffix added to the heading.',
+    released: '10.6.0'
+  },
+  href: {
+    type: 'string',
+    required: false,
+    description: 'If set, the heading will become a link.',
+    released: '10.6.0'
+  },
   caption: {
     type: 'object',
     required: false,
@@ -85,6 +97,13 @@ const options = {
     required: false,
     description:
       'HTML attributes (for example data attributes) to add to the heading.',
+    released: '10.6.0'
+  },
+  element: {
+    type: 'string',
+    required: false,
+    description:
+      'HTML element for the heading component – for example, `"caption"`. Defaults to the `level` option prefixed with `"h"`.',
     released: '10.6.0'
   }
 }

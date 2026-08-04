@@ -28,6 +28,19 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-one-third">
 
+      {{ searchInput({
+        label: {
+          text: "Search",
+          size: "s"
+        },
+        hint: {
+          text: "Integer posuere erat a ante venenatis dapibus posuere"
+        },
+        name: "search",
+        value: "lorem ipsum",
+        classes: "nhsuk-u-width-two-thirds"
+      }) }}
+
       {{ checkboxes({
         fieldset: {
           legend: {
@@ -37,6 +50,7 @@
         },
         idPrefix: "display",
         name: "display",
+        values: ["consultations"],
         small: true,
         items: [
           {
@@ -67,6 +81,7 @@
         },
         idPrefix: "include",
         name: "include",
+        value: "everything",
         small: true,
         items: [
           {
@@ -86,67 +101,153 @@
 
     </div>
 
-    <div class="nhsuk-grid-column-two-thirds">
-
-      {{ radios({
-        fieldset: {
-          legend: {
-            text: "Sort by",
-            size: "s"
-          }
+    <div class="nhsuk-grid-column-two-thirds nhsuk-u-margin-bottom-7">
+      {{ heading({
+        text: "Search results for lorem ipsum",
+        caption: {
+          text: "1 – 3 of 9 results",
+          placement: "after",
+          element: "p"
         },
-        formGroup: {
-          classes: "nhsuk-u-margin-bottom-0"
-        },
-        idPrefix: "sort",
-        name: "sort",
-        small: true,
-        inline: true,
-        items: [
-          {
-            value: "relevance",
-            text: "Relevance"
-          },
-          {
-            value: "created",
-            text: "Created"
-          },
-          {
-            value: "title",
-            text: "Title"
-          }
-        ]
+        size: "l",
+        level: 2
       }) }}
 
-      {{ checkboxes({
-        name: "grobulate",
-        small: true,
-        formGroup: {
-          classes: "nhsuk-u-margin-bottom-0"
+      {{ select({
+        label: {
+          text: "Sort by"
         },
+        id: "sort-by",
+        name: "sort-by",
+        classes: "nhsuk-u-width-full",
         items: [
           {
-            value: "grobulate",
-            text: "Grobulate results"
+            value: "published",
+            text: "Recently published"
+          },
+          {
+            value: "updated",
+            text: "Recently updated"
+          },
+          {
+            value: "views",
+            text: "Most views"
+          },
+          {
+            value: "comments",
+            text: "Most comments"
           }
-        ]
+        ],
+        formGroup: {
+          classes: "nhsuk-u-width-one-half",
+          afterInput: {
+            html: button({
+              text: "Sort",
+              variant: "secondary",
+              small: true
+            })
+          }
+        }
       }) }}
 
       <hr class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible">
 
-      <h2 class="nhsuk-heading-m">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit</h2>
+      {{ heading({
+        text: "Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit",
+        caption: {
+          text: "4 August 2026",
+          placement: "end"
+        },
+        href: "#/result/1",
+        classes: "nhsuk-u-margin-bottom-3",
+        size: "m",
+        level: 3
+      }) }}
+
       <p class="nhsuk-body">Aenean lacinia bibendum nulla sed consectetur. Vestibulum id ligula porta felis euismod semper. Donec id elit non mi porta gravida at eget metus.</p>
 
       <hr class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible">
 
-      <h2 class="nhsuk-heading-m">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh</h2>
+      {{ heading({
+        text: "Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh",
+        caption: {
+          text: "19 July 2026",
+          placement: "end"
+        },
+        href: "#/result/2",
+        classes: "nhsuk-u-margin-bottom-3",
+        size: "m",
+        level: 3
+      }) }}
+
       <p class="nhsuk-body">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
 
       <hr class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible">
 
-      <h2 class="nhsuk-heading-m">Bibendum Commodo Ullamcorper Vulputate</h2>
+      {{ heading({
+        text: "Bibendum commodo ullamcorper vulputate",
+        caption: {
+          text: "1 July 2026",
+          placement: "end"
+        },
+        href: "#/result/2",
+        classes: "nhsuk-u-margin-bottom-3",
+        size: "m",
+        level: 3
+      }) }}
+
       <p class="nhsuk-body">Cras mattis consectetur purus sit amet fermentum. Curabitur blandit tempus porttitor.</p>
+
+      {{ pagination({
+        next: {
+          href: "#"
+        },
+        items: [
+          {
+            number: 1,
+            href: "#",
+            current: true
+          },
+          {
+            number: 2,
+            href: "#"
+          },
+          {
+            number: 3,
+            href: "#"
+          }
+        ]
+      }) }}
 
     </div>
   </div>
+{% endblock %}
+
+{% block footer %}
+  {{ footer({
+    meta: {
+      items: [
+        {
+          href: "#",
+          text: "Accessibility statement"
+        },
+        {
+          href: "#",
+          text: "Contact us"
+        },
+        {
+          href: "#",
+          text: "Cookies"
+        },
+        {
+          href: "#",
+          text: "Privacy policy"
+        },
+        {
+          href: "#",
+          text: "Terms and conditions"
+        }
+      ]
+    }
+  }) }}
 {% endblock %}
