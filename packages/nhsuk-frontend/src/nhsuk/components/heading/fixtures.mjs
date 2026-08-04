@@ -153,6 +153,21 @@ const fixtures = {
       classes: "nhsuk-heading-l",
       size: "s"
     }
+  },
+  "with visually hidden text": {
+    context: {
+      text: "Home address",
+      visuallyHiddenText: "(Karen Francis)",
+      size: "l"
+    }
+  },
+  "with visually hidden text and caption": {
+    context: {
+      text: "Home address",
+      visuallyHiddenText: "(Karen Francis)",
+      caption: "About you",
+      size: "l"
+    }
   }
 }
 
