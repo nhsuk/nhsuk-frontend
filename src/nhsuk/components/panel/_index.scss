@@ -45,6 +45,11 @@ $nhsuk-border-width-panel: $nhsuk-panel-border-width;
       @include nhsuk-link-style-reverse;
     }
 
+    .nhsuk-u-secondary-text-colour {
+      // stylelint-disable-next-line declaration-no-important
+      color: $nhsuk-reverse-secondary-text-colour !important;
+    }
+
     @media #{nhsuk-until-breakpoint(tablet)} {
       padding: nhsuk-spacing(4) - $nhsuk-panel-border-width; /* [2] */
       @include nhsuk-text-break-word; /* [3] */
