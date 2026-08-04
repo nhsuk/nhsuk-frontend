@@ -388,6 +388,11 @@
       @include nhsuk-link-style-reverse;
     }
 
+    .nhsuk-u-secondary-text-colour {
+      // stylelint-disable-next-line declaration-no-important
+      color: $nhsuk-reverse-secondary-text-colour !important;
+    }
+
     // Add a white bottom border to the header cell currently sorted
     .nhsuk-table__header[aria-sort] .nhsuk-link::before {
       border-color: $nhsuk-reverse-text-colour;
