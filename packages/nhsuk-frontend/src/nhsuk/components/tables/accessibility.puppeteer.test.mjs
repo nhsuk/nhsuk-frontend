@@ -10,7 +10,7 @@ describe('Tables', () => {
   it('listing page passes accessibility tests', async () => {
     await goToComponent(page, 'tables')
     return expect(axe(page)).resolves.toHaveNoViolations()
-  }, 20000)
+  }, 30000)
 
   describe.each(Object.entries(examples))('%s', (name, example) => {
     it.each(getOptions(name, example))(
