@@ -64,8 +64,8 @@ th {
 }
 
 caption {
-  margin-right: $nhsuk-border-table-header-width;
-  margin-left: $nhsuk-border-table-header-width;
+  padding-right: $nhsuk-border-table-header-width;
+  padding-left: $nhsuk-border-table-header-width;
   text-align: left;
 
   @include nhsuk-font($size: 22, $weight: bold);
