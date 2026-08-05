@@ -164,7 +164,20 @@ export default {
         },
         {
           emptyLineBefore: 'threshold',
-          properties: ['transform', 'transition', 'animation']
+          properties: ['pointer-events']
+        },
+        {
+          emptyLineBefore: 'threshold',
+          properties: [
+            'transform',
+            'transition',
+            'transition-behavior',
+            'transition-delay',
+            'transition-duration',
+            'transition-property',
+            'transition-timing-function',
+            'animation'
+          ]
         },
         {
           emptyLineBefore: 'threshold',
@@ -209,13 +222,11 @@ export default {
           ]
         },
         {
-          emptyLineBefore: 'threshold',
-          properties: ['pointer-events', 'opacity']
-        },
-        {
           // Color has been moved to ensure it appears before background
           emptyLineBefore: 'threshold',
           properties: [
+            'opacity',
+
             'color',
             'background',
             'background-color',
