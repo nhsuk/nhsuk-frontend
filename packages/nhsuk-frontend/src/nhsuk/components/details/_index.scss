@@ -42,6 +42,11 @@ $expander-icon-size: $nhsuk-expander-icon-size;
 
   .nhsuk-details--reverse {
     color: $nhsuk-reverse-text-colour;
+
+    .nhsuk-u-secondary-text-colour {
+      // stylelint-disable-next-line declaration-no-important
+      color: $nhsuk-reverse-secondary-text-colour !important;
+    }
   }
 
   .nhsuk-details__summary {
