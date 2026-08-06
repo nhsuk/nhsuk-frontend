@@ -20,6 +20,11 @@ $nhsuk-scroll-shadow-width: nhsuk-spacing(5);
 
     // Use table bottom margin but remove space for scroll bars
     @include nhsuk-responsive-margin(7, "bottom", $adjustment: nhsuk-spacing(-4));
+
+    @media #{nhsuk-from-breakpoint(desktop)} {
+      margin-right: 0;
+      margin-left: 0;
+    }
   }
 
   .nhsuk-card__content > .nhsuk-scroll {
@@ -46,6 +51,11 @@ $nhsuk-scroll-shadow-width: nhsuk-spacing(5);
     overflow-x: auto;
 
     @include nhsuk-top-and-bottom;
+
+    @media #{nhsuk-from-breakpoint(desktop)} {
+      padding-right: 0;
+      padding-left: 0;
+    }
   }
 
   .nhsuk-scroll__content {
