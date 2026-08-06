@@ -1,0 +1,114 @@
+// stylelint-disable declaration-no-important
+
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+@use "../../core/helpers" as *;
+
+////
+/// Scroll component
+///
+/// @group components/scroll
+////
+
+$nhsuk-scroll-offset: $nhsuk-gutter-half;
+$nhsuk-scroll-shadow-width: nhsuk-spacing(5);
+
+@include nhsuk-exports("nhsuk/components/scroll") {
+  .nhsuk-scroll {
+    position: relative;
+    margin: (-$nhsuk-scroll-offset) (-$nhsuk-scroll-offset) 0;
+    @include nhsuk-responsive-margin(7, "bottom", $adjustment: nhsuk-spacing(-3, $adjustment: - $nhsuk-scroll-offset));
+  }
+
+  .nhsuk-scroll__content,
+  // Deprecated, to be removed in v11.0
+  .nhsuk-table-container {
+    box-sizing: content-box;
+    display: block;
+    padding: $nhsuk-scroll-offset;
+    padding-bottom: nhsuk-spacing(3, $adjustment: $nhsuk-scroll-offset);
+    overflow-x: auto;
+
+    @include nhsuk-top-and-bottom;
+  }
+
+  .nhsuk-scroll__content {
+    container-type: inline-size;
+    container-name: scrollable-content;
+
+    &:focus-visible {
+      outline: $nhsuk-focus-width solid transparent;
+    }
+
+    &:focus-visible::before,
+    &:focus-visible::after {
+      display: none;
+      width: auto;
+      height: auto;
+      opacity: 1 !important;
+      background: none !important;
+    }
+
+    &:focus-visible::after {
+      content: "";
+
+      display: block;
+
+      position: absolute;
+      top: $nhsuk-focus-width * 2;
+      right: $nhsuk-focus-width * 2;
+      bottom: 0; // Allow for scroll bar
+      left: $nhsuk-focus-width * 2;
+
+      @include nhsuk-focused-box;
+
+      @media #{nhsuk-from-breakpoint(desktop)} {
+        right: 0;
+        left: 0;
+      }
+    }
+  }
+
+  // Left and right shadows
+  .nhsuk-scroll__content::before,
+  .nhsuk-scroll__content::after {
+    content: "";
+
+    position: absolute;
+    top: 0;
+
+    width: $nhsuk-scroll-shadow-width;
+    height: 100%;
+
+    pointer-events: none;
+
+    transition: opacity 0.2s ease-out;
+
+    opacity: 1;
+
+    background: no-repeat center / $nhsuk-scroll-shadow-width 100%;
+  }
+
+  $_shadow-colour: nhsuk-shade(nhsuk-colour("grey-2"), 30%);
+  $_shadow-colour-reverse: nhsuk-shade($nhsuk-brand-colour, 70%);
+
+  // Left shadow
+  .nhsuk-scroll__content::before {
+    left: 0;
+    background-image: radial-gradient(farthest-side at 0 50%, rgba($_shadow-colour, 0.4), transparent);
+
+    .nhsuk-scroll--reverse & {
+      background-image: radial-gradient(farthest-side at 0 50%, rgba($_shadow-colour-reverse, 0.4), transparent);
+    }
+  }
+
+  // Right shadow
+  .nhsuk-scroll__content::after {
+    right: 0;
+    background-image: radial-gradient(farthest-side at 100% 50%, rgba($_shadow-colour, 0.4), transparent);
+
+    .nhsuk-scroll--reverse & {
+      background-image: radial-gradient(farthest-side at 100% 50%, rgba($_shadow-colour-reverse, 0.4), transparent);
+    }
+  }
+}
