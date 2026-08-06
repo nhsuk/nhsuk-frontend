@@ -38,6 +38,7 @@ $nhsuk-scroll-shadow-width: nhsuk-spacing(5);
 
   .nhsuk-scroll__content {
     container-type: inline-size;
+    container-type: inline-size scroll-state;
     container-name: scrollable-content;
 
     &:focus-visible {
@@ -78,6 +79,8 @@ $nhsuk-scroll-shadow-width: nhsuk-spacing(5);
   .nhsuk-scroll__content::after {
     content: "";
 
+    display: none;
+
     position: absolute;
     top: nhsuk-spacing(2);
 
@@ -91,6 +94,15 @@ $nhsuk-scroll-shadow-width: nhsuk-spacing(5);
     opacity: 1;
 
     background: no-repeat center / $nhsuk-scroll-shadow-width 100%;
+
+    @container scroll-state(scrollable: inline) {
+      display: block;
+      opacity: 0;
+    }
+
+    @supports not (container-type: scroll-state) {
+      display: block;
+    }
   }
 
   $_shadow-colour: nhsuk-shade(nhsuk-colour("grey-2"), 30%);
@@ -104,6 +116,11 @@ $nhsuk-scroll-shadow-width: nhsuk-spacing(5);
     .nhsuk-scroll--reverse & {
       background-image: radial-gradient(farthest-side at 0 50%, rgba($_shadow-colour-reverse, 0.4), transparent);
     }
+
+    @container scroll-state(scrollable: left) {
+      transition-duration: 0.05s;
+      opacity: 1;
+    }
   }
 
   // Right shadow
@@ -113,6 +130,11 @@ $nhsuk-scroll-shadow-width: nhsuk-spacing(5);
 
     .nhsuk-scroll--reverse & {
       background-image: radial-gradient(farthest-side at 100% 50%, rgba($_shadow-colour-reverse, 0.4), transparent);
+    }
+
+    @container scroll-state(scrollable: right) {
+      transition-duration: 0.05s;
+      opacity: 1;
     }
   }
 }
