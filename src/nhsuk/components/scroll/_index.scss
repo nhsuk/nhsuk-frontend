@@ -17,7 +17,13 @@ $nhsuk-scroll-shadow-width: nhsuk-spacing(5);
   .nhsuk-scroll {
     position: relative;
     margin: (-$nhsuk-scroll-offset) (-$nhsuk-scroll-offset) 0;
+
     @include nhsuk-responsive-margin(7, "bottom", $adjustment: nhsuk-spacing(-3, $adjustment: - $nhsuk-scroll-offset));
+
+    @media #{nhsuk-from-breakpoint(desktop)} {
+      margin-right: 0;
+      margin-left: 0;
+    }
   }
 
   .nhsuk-card__content > .nhsuk-scroll {
@@ -42,6 +48,11 @@ $nhsuk-scroll-shadow-width: nhsuk-spacing(5);
     overflow-x: auto;
 
     @include nhsuk-top-and-bottom;
+
+    @media #{nhsuk-from-breakpoint(desktop)} {
+      padding-right: 0;
+      padding-left: 0;
+    }
   }
 
   .nhsuk-scroll__content {
