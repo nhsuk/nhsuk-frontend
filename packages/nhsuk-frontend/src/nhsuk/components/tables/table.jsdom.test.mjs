@@ -147,7 +147,7 @@ describe('Table', () => {
     it('should create status message', () => {
       const $screenReaderStatusMessage = document.querySelector('[role=status]')
 
-      expect($screenReaderStatusMessage).toBe($root?.nextElementSibling)
+      expect($screenReaderStatusMessage).toBe($root?.previousElementSibling)
       expect($screenReaderStatusMessage).toHaveAttribute('role', 'status')
       expect($screenReaderStatusMessage).toHaveAttribute('aria-live', 'polite')
       expect($screenReaderStatusMessage).toHaveAttribute('aria-atomic', 'true')
@@ -372,7 +372,7 @@ describe('Table', () => {
     it('should update status message when sorting', () => {
       const $screenReaderStatusMessage = document.querySelector('[role=status]')
 
-      expect($screenReaderStatusMessage).toBe($root?.nextElementSibling)
+      expect($screenReaderStatusMessage).toBe($root?.previousElementSibling)
       expect($screenReaderStatusMessage).toBeEmptyDOMElement()
 
       $button1.click()
