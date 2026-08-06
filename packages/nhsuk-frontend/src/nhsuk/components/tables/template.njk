@@ -305,6 +305,14 @@
 </table>
 {%- endset %}
 
+{%- if params.scroll %}
+  {% set tableHtml = scroll({
+    html: tableHtml,
+    labelledBy: captionId,
+    variant: variant
+  }) | trim %}
+{% endif %}
+
 {%- if params.card or params.panel %}
   {%- call card(params.card or {
     heading: params.heading,
@@ -314,12 +322,6 @@
   }) %}
     {{ tableHtml | safe | trim | indent(4) }}
   {%- endcall %}
-{% elif params.scroll %}
-  {{- scroll({
-    html: tableHtml,
-    labelledBy: captionId,
-    variant: variant
-  }) | trim }}
 {% else %}
   {{- tableHtml | safe | trim }}
 {% endif %}
