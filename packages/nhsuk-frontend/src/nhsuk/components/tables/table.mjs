@@ -12,59 +12,41 @@ import { I18n } from '../../i18n.mjs'
  */
 export class Table extends ConfigurableComponent {
   /**
+   * @type {HTMLTableCellElement[]}
+   */
+  $headers = []
+
+  /**
+   * @type {HTMLElement[]}
+   */
+  $rows = []
+
+  /**
    * @param {Element | null} $root - HTML element to use for component
    * @param {Partial<TableConfig>} [config] - Sortable table config
    */
   constructor($root, config = {}) {
     super($root, config)
 
-    const { i18n, bodyClass, captionClass, headClass, headerClass, rowClass } =
-      this.config
+    const { i18n, bodyClass, headClass, headerClass, rowClass } = this.config
 
-    const $head = this.$root.querySelector(`thead.${headClass}`)
-    if (!($head instanceof HTMLTableSectionElement)) {
-      throw new ElementError({
-        component: Table,
-        element: $head,
-        expectedType: 'HTMLTableSectionElement',
-        identifier: `Table head (\`<thead class="${headClass}">\`)`
-      })
-    }
+    this.$head = this.$root.querySelector(`thead.${headClass}`)
+    this.$body = this.$root.querySelector(`tbody.${bodyClass}`)
 
-    this.$head = $head
-
-    const $body = this.$root.querySelector(`tbody.${bodyClass}`)
-    if (!($body instanceof HTMLTableSectionElement)) {
-      throw new ElementError({
-        component: Table,
-        element: $body,
-        expectedType: 'HTMLTableSectionElement',
-        identifier: `Table body (\`<tbody class="${bodyClass}">\`)`
-      })
-    }
-
-    this.$body = $body
-
-    const $caption = this.$root.querySelector(`caption.${captionClass}`)
-    if (!($caption instanceof HTMLTableCaptionElement)) {
-      throw new ElementError({
-        component: Table,
-        element: $caption,
-        expectedType: 'HTMLTableCaptionElement',
-        identifier: `Table caption (\`<caption class="${captionClass}">\`)`
-      })
-    }
-
-    this.$caption = $caption
-
-    const $headers = Array.from(
-      this.$head.querySelectorAll(`th.${headerClass}`)
-    )
+    const $headers = this.$head
+      ? Array.from(this.$head.querySelectorAll(`th.${headerClass}`))
+      : []
 
     if (
-      !$headers.length ||
-      !$headers.every(($header) => $header instanceof HTMLElement) ||
+      $headers.some(($header) => $header.querySelector('a')) ||
       !$headers.some(($header) => 'sort' in $header.dataset)
+    ) {
+      return this
+    }
+
+    if (
+      $headers.length &&
+      !$headers.every(($header) => $header instanceof HTMLElement)
     ) {
       throw new ElementError({
         component: Table,
@@ -74,7 +56,10 @@ export class Table extends ConfigurableComponent {
 
     this.$headers = $headers
 
-    const $rows = Array.from(this.$body.querySelectorAll(`.${rowClass}`))
+    const $rows = this.$body
+      ? Array.from(this.$body.querySelectorAll(`.${rowClass}`))
+      : []
+
     if (!$rows.length || !$rows.every(($row) => $row instanceof HTMLElement)) {
       throw new ElementError({
         component: Table,
@@ -117,9 +102,14 @@ export class Table extends ConfigurableComponent {
   }
 
   setup() {
+    const { $head, $headers } = this
+    if (!$head || !$headers.length) {
+      return
+    }
+
     this.setupButtons()
 
-    const $header = this.$headers.find(($header) =>
+    const $header = $headers.find(($header) =>
       $header.matches('[aria-sort="ascending"], [aria-sort="descending"]')
     )
 
@@ -130,7 +120,7 @@ export class Table extends ConfigurableComponent {
     this.sort(index, direction)
     this.update(index, direction)
 
-    this.$head.addEventListener('click', (event) => this.handleSort(event))
+    $head.addEventListener('click', (event) => this.handleSort(event))
   }
 
   setupButtons() {
@@ -153,18 +143,23 @@ export class Table extends ConfigurableComponent {
    * @param {TableSortDirection} [direction]
    */
   sort(index, direction = 'ascending') {
-    if (!(direction === 'ascending' || direction === 'descending')) {
+    const { $rows, collators } = this
+
+    if (
+      !(direction === 'ascending' || direction === 'descending') ||
+      !collators
+    ) {
       return
     }
 
-    this.$rows.sort(($rowA, $rowB) => {
+    $rows.sort(($rowA, $rowB) => {
       const valueA = this.getValue(index, $rowA)
       const valueB = this.getValue(index, $rowB)
 
-      let collator = this.collators.string
+      let collator = collators.string
 
       if (valueA.format === 'numeric' || valueB.format === 'numeric') {
-        collator = this.collators.number
+        collator = collators.number
 
         // Sort string format before numeric unless sort value provided
         if (valueA.format !== 'numeric' && !valueA.sort) valueA.text = ''
@@ -202,14 +197,21 @@ export class Table extends ConfigurableComponent {
    * @param {TableSortDirection} [direction]
    */
   update(index, direction = 'ascending') {
-    if (!(direction === 'ascending' || direction === 'descending')) {
+    const { $body, $headers, $rows, $screenReaderStatusMessage } = this
+
+    if (
+      !(direction === 'ascending' || direction === 'descending') ||
+      !$body ||
+      !$headers.length ||
+      !$screenReaderStatusMessage
+    ) {
       return
     }
 
     const $header = this.getHeader(index)
 
-    for (const $row of this.$rows) {
-      this.$body.append($row)
+    for (const $row of $rows) {
+      $body.append($row)
     }
 
     // Skip header updates unless direction has changed
@@ -220,7 +222,7 @@ export class Table extends ConfigurableComponent {
     $header.setAttribute('aria-sort', direction)
     $header.firstElementChild?.setAttribute('aria-pressed', 'true')
 
-    for (const $header of this.$headers) {
+    for (const $header of $headers) {
       const isActive = this.getIndex($header) === index
 
       const directionNext = isActive
@@ -237,7 +239,7 @@ export class Table extends ConfigurableComponent {
       }
     }
 
-    this.$screenReaderStatusMessage.textContent = this.formatStatusMessage(
+    $screenReaderStatusMessage.textContent = this.formatStatusMessage(
       index,
       direction
     )
@@ -248,13 +250,15 @@ export class Table extends ConfigurableComponent {
    * @param {TableSortDirection} [direction]
    */
   formatStatusMessage(index, direction = 'ascending') {
-    if (!(direction === 'ascending' || direction === 'descending')) {
+    const { i18n } = this
+
+    if (!(direction === 'ascending' || direction === 'descending') || !i18n) {
       return ''
     }
 
-    return this.i18n.t('sortAnnouncement', {
+    return i18n.t('sortAnnouncement', {
       header: this.getHeader(index).innerText.trim(),
-      direction: this.i18n.t(direction)
+      direction: i18n.t(direction)
     })
   }
 
@@ -360,7 +364,6 @@ export class Table extends ConfigurableComponent {
    */
   static defaults = Object.freeze({
     bodyClass: 'nhsuk-table__body',
-    captionClass: 'nhsuk-table__caption',
     cellClass: 'nhsuk-table__cell',
     headClass: 'nhsuk-table__head',
     headerClass: 'nhsuk-table__header',
@@ -381,7 +384,6 @@ export class Table extends ConfigurableComponent {
   static schema = Object.freeze({
     properties: {
       bodyClass: { type: 'string' },
-      captionClass: { type: 'string' },
       cellClass: { type: 'string' },
       headClass: { type: 'string' },
       headerClass: { type: 'string' },
@@ -415,7 +417,6 @@ export function initTables(options) {
  * @see {@link Table.defaults}
  * @typedef {object} TableConfig
  * @property {string} bodyClass - Table body class for `<tbody>` element
- * @property {string} captionClass - Table caption class for `<caption>` element
  * @property {string} cellClass - Table cell class for `<td>` elements
  * @property {string} headClass - Table head class for `<thead>` element
  * @property {string} headerClass - Table header class for `<th>` elements
