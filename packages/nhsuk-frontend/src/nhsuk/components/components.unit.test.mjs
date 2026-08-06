@@ -41,10 +41,13 @@ describe('Components', () => {
         @forward "components/input/input";
         @forward "components/inset-text/inset-text";
         @forward "components/label/label";
+        @forward "components/notification-banner/notification-banner";
         @forward "components/pagination/pagination";
         @forward "components/panel/panel";
+        @forward "components/password-input/password-input";
         @forward "components/checkboxes/checkboxes";
         @forward "components/radios/radios";
+        @forward "components/search-input/search-input";
         @forward "components/select/select";
         @forward "components/skip-link/skip-link";
         @forward "components/summary-list/summary-list";
