@@ -47,6 +47,7 @@ describe('Components', () => {
         @forward "components/password-input/password-input";
         @forward "components/checkboxes/checkboxes";
         @forward "components/radios/radios";
+        @forward "components/scroll/scroll";
         @forward "components/search-input/search-input";
         @forward "components/select/select";
         @forward "components/skip-link/skip-link";
