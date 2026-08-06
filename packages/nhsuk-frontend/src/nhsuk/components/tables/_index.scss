@@ -1,6 +1,7 @@
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
 @use "../../core/helpers" as *;
+@use "../scroll" as *;
 
 ////
 /// Table component
@@ -8,96 +9,7 @@
 /// @group components/table
 ////
 
-$nhsuk-scroll-offset: $nhsuk-gutter-half;
-$nhsuk-scroll-shadow-width: nhsuk-spacing(3);
-
 @include nhsuk-exports("nhsuk/components/table") {
-  .nhsuk-table-wrapper {
-    position: relative;
-    margin: (-$nhsuk-scroll-offset) (-$nhsuk-scroll-offset) 0;
-    @include nhsuk-responsive-margin(7, "bottom", $adjustment: - nhsuk-spacing(3));
-
-    // Left and right shadows
-    &::before,
-    &::after {
-      content: "";
-
-      position: absolute;
-      top: 0;
-
-      width: $nhsuk-scroll-shadow-width;
-      height: calc(100% + nhsuk-spacing(3));
-
-      pointer-events: none;
-
-      opacity: 0.5;
-
-      background-repeat: no-repeat;
-      background-size: $nhsuk-scroll-shadow-width 100%;
-    }
-
-    &:has(.nhsuk-table--reverse)::before,
-    &:has(.nhsuk-table--reverse)::after {
-      opacity: 0.75;
-    }
-
-    // Left shadow
-    &::before {
-      left: 0;
-      background-image: radial-gradient(
-        farthest-side at 0 50%,
-        rgba($nhsuk-text-colour, 0.3),
-        rgba($nhsuk-text-colour, 0)
-      );
-    }
-
-    // Right shadow
-    &::after {
-      right: 0;
-      background-image: radial-gradient(
-        farthest-side at 100% 50%,
-        rgba($nhsuk-text-colour, 0.3),
-        rgba($nhsuk-text-colour, 0)
-      );
-      background-position: 100% 0;
-    }
-  }
-
-  .nhsuk-table-wrapper__container,
-  // Deprecated, to be removed in v11.0
-  .nhsuk-table-container {
-    box-sizing: content-box;
-    display: block;
-
-    padding: $nhsuk-scroll-offset;
-    padding-bottom: $nhsuk-scroll-offset + nhsuk-spacing(3);
-
-    overflow-x: auto;
-
-    container-type: inline-size;
-    container-name: scrollable-content;
-
-    &:focus-visible {
-      outline: $nhsuk-focus-width solid transparent;
-    }
-
-    &:focus-visible::after {
-      content: "";
-
-      position: absolute;
-      top: 0;
-      right: 8px;
-      bottom: 0;
-      left: 8px;
-
-      pointer-events: none;
-
-      box-shadow:
-        0 0 0 4px $nhsuk-focus-colour,
-        0 0 0 8px $nhsuk-focus-text-colour;
-    }
-  }
-
   .nhsuk-table,
   // Deprecated, to be removed in v11.0
   .nhsuk-table-responsive {
@@ -108,11 +20,6 @@ $nhsuk-scroll-shadow-width: nhsuk-spacing(3);
 
     @include nhsuk-font($size: 19);
     @include nhsuk-responsive-margin(7, "bottom");
-
-    // Remove margin moved to scrolling container
-    .nhsuk-table-wrapper & {
-      margin-bottom: 0;
-    }
   }
 
   .nhsuk-table--compact {
@@ -172,7 +79,7 @@ $nhsuk-scroll-shadow-width: nhsuk-spacing(3);
 
   // Prevent caption moving with scrolling container
   @supports (max-width: 100cqw) {
-    .nhsuk-table-wrapper .nhsuk-table__caption {
+    .nhsuk-scroll .nhsuk-table__caption {
       position: sticky;
       left: -$nhsuk-border-table-header-width;
 
