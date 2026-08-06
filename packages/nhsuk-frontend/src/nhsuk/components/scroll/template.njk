@@ -25,7 +25,7 @@
   }) -}}
 
   {{- nhsukAttributes(params.attributes) -}}>
-  <div class="nhsuk-scroll__content" role="region" {%- if params.labelledBy %} aria-labelledby="{{ params.labelledBy }}"{% endif %} tabindex="0">
+  <div class="nhsuk-scroll__content" role="region" {%- if params.labelledBy %} aria-labelledby="{{ params.labelledBy }}"{% endif %}>
   {% if caller %}
     {{- caller() }}
   {% elif params.html %}
