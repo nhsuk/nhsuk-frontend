@@ -413,4 +413,40 @@
       border-color: transparent;
     }
   }
+
+  .nhsuk-card__content > .nhsuk-scroll > .nhsuk-scroll__content {
+    $_card-inset: nhsuk-spacing(4, $adjustment: - $nhsuk-border-table-header-width);
+    $_card-inset-tablet: nhsuk-spacing(5, $adjustment: - $nhsuk-border-table-header-width);
+
+    .nhsuk-table,
+    // Deprecated, to be removed in v11.0
+    .nhsuk-table-responsive {
+      width: calc(100% - $_card-inset * 2);
+      margin-right: $_card-inset;
+      margin-left: $_card-inset;
+
+      @media #{nhsuk-from-breakpoint(tablet)} {
+        width: calc(100% - $_card-inset-tablet * 2);
+        margin-right: $_card-inset-tablet;
+        margin-left: $_card-inset-tablet;
+      }
+    }
+
+    // Prevent caption moving with scrolling container
+    @supports (max-width: 100cqw) {
+      .nhsuk-table__caption {
+        left: $_card-inset;
+
+        // Wrap at container query width
+        max-width: calc(100cqw - $_card-inset * 2);
+
+        @media #{nhsuk-from-breakpoint(tablet)} {
+          left: $_card-inset-tablet;
+
+          // Wrap at container query width
+          max-width: calc(100cqw - $_card-inset-tablet * 2);
+        }
+      }
+    }
+  }
 }

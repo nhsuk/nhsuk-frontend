@@ -20,6 +20,18 @@ $nhsuk-scroll-shadow-width: nhsuk-spacing(5);
     @include nhsuk-responsive-margin(7, "bottom", $adjustment: nhsuk-spacing(-3, $adjustment: - $nhsuk-scroll-offset));
   }
 
+  .nhsuk-card__content > .nhsuk-scroll {
+    @include nhsuk-responsive-margin(-5, ("left", "right"));
+
+    &:first-child {
+      margin-top: -$nhsuk-scroll-offset;
+    }
+
+    &:last-child {
+      @include nhsuk-responsive-margin(-5, "bottom");
+    }
+  }
+
   .nhsuk-scroll__content,
   // Deprecated, to be removed in v11.0
   .nhsuk-table-container {
@@ -64,6 +76,11 @@ $nhsuk-scroll-shadow-width: nhsuk-spacing(5);
       @include nhsuk-focused-box;
 
       @media #{nhsuk-from-breakpoint(desktop)} {
+        right: 0;
+        left: 0;
+      }
+
+      .nhsuk-card__content & {
         right: 0;
         left: 0;
       }
@@ -120,6 +137,14 @@ $nhsuk-scroll-shadow-width: nhsuk-spacing(5);
       background-image: radial-gradient(farthest-side at 0 50%, rgba($_shadow-colour-reverse, 0.4), transparent);
     }
 
+    .nhsuk-card__content > .nhsuk-scroll & {
+      background-image: radial-gradient(farthest-side at 0 50%, rgba($_shadow-colour, 0.2), transparent);
+    }
+
+    .nhsuk-card__content > .nhsuk-scroll--reverse & {
+      background-image: radial-gradient(farthest-side at 0 50%, rgba($_shadow-colour-reverse, 0.2), transparent);
+    }
+
     .nhsuk-scroll--scrollable-left & {
       @supports not (container-type: scroll-state) {
         transition-duration: 0.05s;
@@ -142,6 +167,14 @@ $nhsuk-scroll-shadow-width: nhsuk-spacing(5);
       background-image: radial-gradient(farthest-side at 100% 50%, rgba($_shadow-colour-reverse, 0.4), transparent);
     }
 
+    .nhsuk-card__content > .nhsuk-scroll & {
+      background-image: radial-gradient(farthest-side at 100% 50%, rgba($_shadow-colour, 0.2), transparent);
+    }
+
+    .nhsuk-card__content > .nhsuk-scroll--reverse & {
+      background-image: radial-gradient(farthest-side at 100% 50%, rgba($_shadow-colour-reverse, 0.2), transparent);
+    }
+
     .nhsuk-scroll--scrollable-right & {
       @supports not (container-type: scroll-state) {
         transition-duration: 0.05s;
@@ -153,5 +186,12 @@ $nhsuk-scroll-shadow-width: nhsuk-spacing(5);
       transition-duration: 0.05s;
       opacity: 1;
     }
+  }
+
+  .nhsuk-card__content > .nhsuk-scroll > .nhsuk-scroll__content {
+    padding-right: 0;
+    padding-left: 0;
+
+    @include nhsuk-responsive-padding(5, "bottom");
   }
 }
