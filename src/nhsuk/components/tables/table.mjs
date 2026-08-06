@@ -94,7 +94,7 @@ export class Table extends ConfigurableComponent {
     this.$screenReaderStatusMessage.classList.add('nhsuk-u-visually-hidden')
 
     this.$root.insertAdjacentElement(
-      'afterend',
+      'beforebegin',
       this.$screenReaderStatusMessage
     )
 
