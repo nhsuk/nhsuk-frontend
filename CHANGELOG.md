@@ -63,6 +63,8 @@ For example:
   }) }}
 ```
 
+This was added in [pull request #1969: Add option to make tables sortable](https://github.com/nhsuk/nhsuk-frontend/pull/1654).
+
 #### Set table column widths, align text or adjust row borders
 
 We've updated the table component to pass `align`, `href`, `visuallyHiddenText` and `width` Nunjucks options to table cells.
@@ -157,7 +159,7 @@ If you are not using Nunjucks macros, use the HTML markup from the [table exampl
   </table>
 ```
 
-This change was introduced in [pull request #1998: Add compact option for tables](https://github.com/nhsuk/nhsuk-frontend/pull/1998).
+This was added in [pull request #1998: Add compact option for tables](https://github.com/nhsuk/nhsuk-frontend/pull/1998).
 
 #### Add a modifier class for striped tables
 
@@ -183,7 +185,7 @@ If you are not using Nunjucks macros, use the HTML markup from the [table exampl
   </table>
 ```
 
-This change was introduced in [pull request #2003: Add striped option for tables](https://github.com/nhsuk/nhsuk-frontend/pull/2003).
+This was added in [pull request #2003: Add striped option for tables](https://github.com/nhsuk/nhsuk-frontend/pull/2003).
 
 #### Add an "all" option to checkboxes
 
