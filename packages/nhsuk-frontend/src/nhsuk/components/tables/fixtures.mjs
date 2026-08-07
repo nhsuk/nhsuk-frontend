@@ -153,7 +153,7 @@ const fixtures = {
   },
   "with column widths": {
     context: {
-      caption: "Ibuprofen syrup dosages for children",
+      caption: "Ibuprofen 100mg/5ml liquid dosages for children by age",
       captionSize: "m",
       firstCellIsHeader: true,
       head: [
@@ -172,10 +172,10 @@ const fixtures = {
       rows: [
         [
           {
-            html: '3 to 5 months <span class="nhsuk-u-font-weight-normal">(weighing more than 5kg)</span>'
+            html: "3 to 5 months (weighing more than 5kg)"
           },
           {
-            text: "2.5ml"
+            text: "2.5ml (50mg)"
           },
           {
             text: "Max 3 times in 24 hours"
@@ -186,7 +186,7 @@ const fixtures = {
             text: "6 to 11 months"
           },
           {
-            text: "2.5ml"
+            text: "2.5ml (50mg)"
           },
           {
             text: "Max 3 to 4 times in 24 hours"
@@ -197,7 +197,7 @@ const fixtures = {
             text: "1 to 3 years"
           },
           {
-            text: "5ml"
+            text: "5ml (100mg)"
           },
           {
             text: "Max 3 times in 24 hours"
@@ -208,7 +208,7 @@ const fixtures = {
             text: "4 to 6 years"
           },
           {
-            text: "7.5ml"
+            text: "7.5ml (150mg)"
           },
           {
             text: "Max 3 times in 24 hours"
@@ -219,7 +219,7 @@ const fixtures = {
             text: "7 to 9 years"
           },
           {
-            text: "10ml"
+            text: "10ml (200mg)"
           },
           {
             text: "Max 3 times in 24 hours"
@@ -230,21 +230,10 @@ const fixtures = {
             text: "10 to 11 years"
           },
           {
-            text: "15ml"
+            text: "15ml (300mg)"
           },
           {
             text: "Max 3 times in 24 hours"
-          }
-        ],
-        [
-          {
-            text: "12 to 17 years"
-          },
-          {
-            text: "15ml to 20ml"
-          },
-          {
-            text: "Max 3 to 4 times in 24 hours"
           }
         ]
       ]
