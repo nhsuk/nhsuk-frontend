@@ -294,6 +294,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
 
     &:last-child {
       flex-grow: 0;
+      outline: none;
     }
   }
 
