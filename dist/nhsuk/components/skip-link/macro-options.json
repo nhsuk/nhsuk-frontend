@@ -1,0 +1,44 @@
+[
+  {
+    "name": "id",
+    "type": "string",
+    "required": false,
+    "description": "The ID of the skip link.",
+    "released": "10.0.0"
+  },
+  {
+    "name": "text",
+    "type": "string",
+    "required": true,
+    "description": "If `html` is set, this is not required. Text to use within the skip link. If `html` is provided, the `text` option will be ignored. Defaults to `\"Skip to main content\"`.",
+    "released": "1.0.0"
+  },
+  {
+    "name": "html",
+    "type": "string",
+    "required": true,
+    "description": "If `text` is set, this is not required. HTML to use within the skip link. If `html` is provided, the `text` option will be ignored. Defaults to `\"Skip to main content\"`.",
+    "released": "10.2.0"
+  },
+  {
+    "name": "href",
+    "type": "string",
+    "required": false,
+    "description": "The value of the skip link's `href` attribute. Defaults to `\"#maincontent\"`.",
+    "released": "1.0.0"
+  },
+  {
+    "name": "classes",
+    "type": "string",
+    "required": false,
+    "description": "Classes to add to the skip link.",
+    "released": "1.0.0"
+  },
+  {
+    "name": "attributes",
+    "type": "object",
+    "required": false,
+    "description": "HTML attributes (for example data attributes) to add to the skip link.",
+    "released": "1.0.0"
+  }
+]

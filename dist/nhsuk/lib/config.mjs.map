@@ -1,0 +1,1 @@
+{"version":3,"file":"config.mjs","sources":["../../../src/nhsuk/lib/config.mjs"],"names":["pkgPath","import","nhsukFrontendPath","startsWith","fileURLToPath","dirname"],"mappings":";;;AAGA,MAAMA,OAAO,GAAGC,mBAAmB,CAAC,6BAA6B,CAAC;;AAElE;AACA;AACA;MACaC,iBAAiB,GAAGF,OAAO,CAACG,UAAU,CAAC,OAAO,CAAC,GACxDC,aAAa,CAACC,OAAO,CAACL,OAAO,CAAC,CAAC;AAAC,EAChCK,OAAO,CAACL,OAAO,EAAC;;;;"}

@@ -1,0 +1,242 @@
+'use strict';
+
+/**
+ * Nunjucks macro option examples
+ *
+ * @satisfies {{ [example: string]: MacroExample }}
+ */
+const fixtures = {
+  "default": {
+    context: {
+      label: {
+        text: "Password",
+        size: "l",
+        isPageHeading: true
+      },
+      name: "example"
+    }
+  },
+  "disabled": {
+    context: {
+      label: {
+        text: "Password",
+        size: "l",
+        isPageHeading: true
+      },
+      name: "example",
+      disabled: true
+    },
+    screenshot: true
+  },
+  "disabled with enabled button": {
+    context: {
+      label: {
+        text: "Password",
+        size: "l",
+        isPageHeading: true
+      },
+      name: "example",
+      disabled: true,
+      button: {
+        disabled: false
+      }
+    }
+  },
+  "disabled button": {
+    context: {
+      label: {
+        text: "Password",
+        size: "l",
+        isPageHeading: true
+      },
+      name: "example",
+      button: {
+        disabled: true
+      }
+    }
+  },
+  "with button double click prevented": {
+    context: {
+      label: {
+        text: "Password",
+        size: "l",
+        isPageHeading: true
+      },
+      name: "example",
+      button: {
+        preventDoubleClick: true
+      }
+    }
+  },
+  "with button double click not prevented": {
+    context: {
+      label: {
+        text: "Password",
+        size: "l",
+        isPageHeading: true
+      },
+      name: "example",
+      button: {
+        preventDoubleClick: false
+      }
+    }
+  },
+  "with hint": {
+    context: {
+      label: {
+        text: "Password",
+        size: "l",
+        isPageHeading: true
+      },
+      hint: {
+        text: "It probably has some letters, numbers and maybe even some symbols in it"
+      },
+      id: "with-hint-text",
+      name: "example"
+    },
+    screenshot: {
+      viewports: ["watch", "mobile", "tablet", "desktop"]
+    }
+  },
+  "with error message": {
+    context: {
+      label: {
+        text: "Password",
+        size: "l",
+        isPageHeading: true
+      },
+      errorMessage: {
+        text: "Enter a password"
+      },
+      id: "with-error-message",
+      name: "example"
+    }
+  },
+  "with error message and hint": {
+    context: {
+      label: {
+        text: "Password",
+        size: "l",
+        isPageHeading: true
+      },
+      hint: {
+        text: "It probably has some letters, numbers and maybe even some symbols in it"
+      },
+      errorMessage: {
+        text: "Enter a password"
+      },
+      id: "with-error-message",
+      name: "example"
+    },
+    screenshot: {
+      viewports: ["watch", "mobile", "tablet", "desktop"]
+    }
+  },
+  "with prefix": {
+    context: {
+      label: {
+        text: "Secret code",
+        size: "m",
+        isPageHeading: true
+      },
+      prefix: {
+        text: "PIN"
+      },
+      id: "with-prefix",
+      name: "example",
+      value: "3.14159",
+      width: 5,
+      code: true,
+      button: {
+        variant: "brand"
+      }
+    }
+  },
+  "with prefix and error message": {
+    context: {
+      label: {
+        text: "Secret code",
+        size: "m",
+        isPageHeading: true
+      },
+      prefix: {
+        text: "PIN"
+      },
+      errorMessage: {
+        text: "Enter secret code"
+      },
+      id: "with-prefix",
+      name: "example",
+      width: 5,
+      code: true,
+      button: {
+        variant: "brand"
+      }
+    }
+  },
+  "without page heading": {
+    context: {
+      label: {
+        text: "Password"
+      },
+      id: "without-heading",
+      name: "example"
+    }
+  },
+  "with width": {
+    context: {
+      label: {
+        text: "Password",
+        size: "l",
+        isPageHeading: true
+      },
+      id: "width-class",
+      name: "example",
+      width: 10
+    }
+  },
+  "with autocomplete attribute": {
+    context: {
+      label: {
+        text: "Password",
+        size: "l",
+        isPageHeading: true
+      },
+      id: "new-password",
+      name: "example",
+      autocomplete: "new-password"
+    }
+  },
+  "with translations": {
+    context: {
+      label: {
+        text: "Cyfrinair",
+        size: "l",
+        isPageHeading: true
+      },
+      id: "password-translated",
+      name: "example",
+      showPasswordText: "Datguddia",
+      hidePasswordText: "Cuddio",
+      showPasswordAriaLabelText: "Datgelu cyfrinair",
+      hidePasswordAriaLabelText: "Cuddio cyfrinair",
+      passwordShownAnnouncementText: "Mae eich cyfrinair yn weladwy.",
+      passwordHiddenAnnouncementText: "Mae eich cyfrinair wedi'i guddio."
+    }
+  }
+};
+
+/**
+ * Nunjucks macro option examples
+ * (with typed keys)
+ *
+ * @type {Record<keyof typeof fixtures, MacroExample>}
+ */
+const examples = fixtures;
+
+/**
+ * @import { MacroExample } from '#lib'
+ */
+
+exports.examples = examples;
+//# sourceMappingURL=fixtures.js.map

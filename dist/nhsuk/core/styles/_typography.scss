@@ -1,0 +1,397 @@
+@use "../settings" as *;
+@use "../tools" as *;
+@use "../helpers" as *;
+
+////
+/// Typography
+///
+/// @group styles
+////
+
+// Headings
+//
+// The % (silent class) allows code to be extended (@extend) to other elements
+// without bloating the code.
+
+%nhsuk-heading-xl {
+  display: block;
+  margin-top: 0;
+
+  @include nhsuk-font(48, $weight: bold);
+  @include nhsuk-responsive-margin(7, "bottom");
+}
+
+h1,
+.nhsuk-heading-xl {
+  @extend %nhsuk-heading-xl;
+}
+
+%nhsuk-heading-l {
+  display: block;
+  margin-top: 0;
+
+  @include nhsuk-font(36, $weight: bold);
+  @include nhsuk-responsive-margin(4, "bottom");
+}
+
+h2,
+.nhsuk-heading-l {
+  @extend %nhsuk-heading-l;
+}
+
+%nhsuk-heading-m {
+  display: block;
+  margin-top: 0;
+
+  @include nhsuk-font(26, $weight: bold);
+  @include nhsuk-responsive-margin(4, "bottom");
+}
+
+h3,
+.nhsuk-heading-m {
+  @extend %nhsuk-heading-m;
+}
+
+%nhsuk-heading-s {
+  display: block;
+  margin-top: 0;
+
+  @include nhsuk-font(22, $weight: bold);
+  @include nhsuk-responsive-margin(4, "bottom");
+}
+
+h4,
+.nhsuk-heading-s {
+  @extend %nhsuk-heading-s;
+}
+
+%nhsuk-heading-xs {
+  display: block;
+  margin-top: 0;
+
+  @include nhsuk-font(19, $weight: bold);
+  @include nhsuk-responsive-margin(4, "bottom");
+}
+
+h5,
+.nhsuk-heading-xs {
+  @extend %nhsuk-heading-xs;
+}
+
+%nhsuk-heading-xxs {
+  display: block;
+  margin-top: 0;
+
+  @include nhsuk-font(19, $weight: bold);
+  @include nhsuk-responsive-margin(4, "bottom");
+}
+
+h6,
+.nhsuk-heading-xxs {
+  @extend %nhsuk-heading-xxs;
+}
+
+// Captions to be used inside, before or after headings
+
+.nhsuk-caption-xxl,
+.nhsuk-caption-xl,
+.nhsuk-caption-l,
+.nhsuk-caption-m,
+.nhsuk-caption {
+  display: block;
+  margin: 0 0 nhsuk-spacing(1);
+  padding: 0;
+  color: $nhsuk-secondary-text-colour;
+  @include nhsuk-font(19);
+}
+
+.nhsuk-caption-xxl {
+  margin-bottom: nhsuk-spacing(2);
+  @include nhsuk-font-size(36);
+}
+
+.nhsuk-caption-xl {
+  @include nhsuk-font-size(26);
+}
+
+.nhsuk-caption-l {
+  @include nhsuk-font-size(22);
+}
+
+.nhsuk-caption-m,
+.nhsuk-caption {
+  margin-bottom: 0;
+}
+
+h1 + .nhsuk-caption-xl,
+h1 + .nhsuk-caption-xxl,
+.nhsuk-heading-xl + .nhsuk-caption-xl,
+.nhsuk-heading-xl + .nhsuk-caption-xxl {
+  @include nhsuk-responsive-margin(-7, "top", $adjustment: nhsuk-spacing(1));
+  @include nhsuk-responsive-margin(7, "bottom");
+}
+
+h2 + .nhsuk-caption-l,
+h3 + .nhsuk-caption-m,
+h4 + .nhsuk-caption,
+h5 + .nhsuk-caption,
+h6 + .nhsuk-caption,
+.nhsuk-heading-l + .nhsuk-caption-l,
+.nhsuk-heading-m + .nhsuk-caption-m,
+.nhsuk-heading-s + .nhsuk-caption,
+.nhsuk-heading-xs + .nhsuk-caption,
+.nhsuk-heading-xxs + .nhsuk-caption {
+  @include nhsuk-responsive-margin(-4, "top", $adjustment: nhsuk-spacing(1));
+  @include nhsuk-responsive-margin(4, "bottom");
+}
+
+.nhsuk-caption--bottom {
+  margin: nhsuk-spacing(1) 0 0;
+}
+
+.nhsuk-caption-xxl.nhsuk-caption--bottom {
+  margin-top: nhsuk-spacing(2);
+}
+
+h1 + .nhsuk-caption--bottom,
+.nhsuk-heading-xl + .nhsuk-caption--bottom {
+  @include nhsuk-responsive-margin(-7, "top", $adjustment: nhsuk-spacing(1));
+  @include nhsuk-responsive-margin(7, "bottom");
+}
+
+h2 + .nhsuk-caption--bottom,
+h3 + .nhsuk-caption--bottom,
+h4 + .nhsuk-caption--bottom,
+h5 + .nhsuk-caption--bottom,
+h6 + .nhsuk-caption--bottom,
+.nhsuk-heading-l + .nhsuk-caption--bottom,
+.nhsuk-heading-m + .nhsuk-caption--bottom,
+.nhsuk-heading-s + .nhsuk-caption--bottom,
+.nhsuk-heading-xs + .nhsuk-caption--bottom,
+.nhsuk-heading-xxs + .nhsuk-caption--bottom {
+  @include nhsuk-responsive-margin(-4, "top", $adjustment: nhsuk-spacing(1));
+  @include nhsuk-responsive-margin(4, "bottom");
+}
+
+// Body (paragraphs)
+
+%nhsuk-body-l {
+  display: block;
+  margin-top: 0;
+
+  @include nhsuk-font(26);
+  @include nhsuk-responsive-margin(5, "bottom");
+}
+
+.nhsuk-body-l {
+  @extend %nhsuk-body-l;
+}
+
+%nhsuk-body-m {
+  display: block;
+  margin-top: 0;
+
+  @include nhsuk-font(19);
+  @include nhsuk-responsive-margin(4, "bottom");
+}
+
+p,
+.nhsuk-body,
+.nhsuk-body-m {
+  @extend %nhsuk-body-m;
+  color: inherit;
+}
+
+%nhsuk-body-s {
+  display: block;
+  margin-top: 0;
+
+  @include nhsuk-font(16);
+  @include nhsuk-responsive-margin(4, "bottom");
+}
+
+.nhsuk-body-s {
+  @extend %nhsuk-body-s;
+}
+
+address {
+  @extend %nhsuk-body-m;
+
+  font-style: normal;
+}
+
+// Lede text
+//
+// 1. Apply lede text styling to p and ul within the lede element
+// 2. Reduces the spacing between the page heading and the lede text
+
+.nhsuk-lede-text {
+  @include nhsuk-font(26);
+  @include nhsuk-responsive-margin(7, "bottom");
+
+  // [1]
+  p,
+  ul {
+    @include nhsuk-font(26);
+  }
+}
+
+.nhsuk-lede-text--small {
+  @include nhsuk-font(19);
+  @include nhsuk-responsive-margin(5, "bottom");
+}
+
+// [2]
+h1 + .nhsuk-lede-text,
+h1 + .nhsuk-lede-text--small {
+  margin-top: -(nhsuk-spacing(2));
+}
+
+// Contextual adjustments
+//
+// Add top padding to headings that appear directly after paragraphs.
+//
+// 1. Removes the padding-top because of the lede-text's increased margin-bottom
+
+%nhsuk-body-l + %nhsuk-heading-l {
+  padding-top: nhsuk-spacing(1);
+
+  @media #{nhsuk-from-breakpoint(tablet)} {
+    padding-top: nhsuk-spacing(2);
+  }
+}
+
+%nhsuk-body-m + %nhsuk-heading-l,
+%nhsuk-body-s + %nhsuk-heading-l {
+  @include nhsuk-responsive-padding(4, "top");
+}
+
+%nhsuk-body-m + %nhsuk-heading-m,
+%nhsuk-body-s + %nhsuk-heading-m,
+%nhsuk-body-m + %nhsuk-heading-s,
+%nhsuk-body-s + %nhsuk-heading-s {
+  padding-top: nhsuk-spacing(1);
+
+  @media #{nhsuk-from-breakpoint(tablet)} {
+    padding-top: nhsuk-spacing(2);
+  }
+}
+
+%nhsuk-body-l + [class^="nhsuk-caption"],
+%nhsuk-body-m + [class^="nhsuk-caption"],
+%nhsuk-body-s + [class^="nhsuk-caption"] {
+  padding-top: 0;
+}
+
+// [1]
+.nhsuk-lede-text + %nhsuk-heading-l {
+  padding-top: 0;
+}
+
+// Font weight for <strong> and <b>
+
+strong,
+b {
+  @include nhsuk-font-weight-bold;
+}
+
+@media print {
+  .nhsuk-main-wrapper {
+    padding-top: 1em;
+    padding-bottom: 1em;
+  }
+
+  h1,
+  .nhsuk-heading-xl,
+  h2,
+  .nhsuk-heading-l,
+  h3,
+  .nhsuk-heading-m,
+  h4,
+  .nhsuk-heading-s,
+  h5,
+  .nhsuk-heading-xs,
+  h6,
+  .nhsuk-heading-xxs,
+  .nhsuk-lede-text,
+  .nhsuk-body-l,
+  p,
+  .nhsuk-body-m,
+  .nhsuk-body-s,
+  .nhsuk-body,
+  address,
+  ol,
+  ul,
+  .nhsuk-list {
+    margin-bottom: 7.5pt;
+  }
+
+  h1 {
+    // stylelint-disable-next-line declaration-no-important
+    margin-bottom: 15pt !important;
+  }
+
+  %nhsuk-body-l + %nhsuk-heading-l,
+  %nhsuk-body-m + %nhsuk-heading-l,
+  %nhsuk-body-s + %nhsuk-heading-l,
+  %nhsuk-body-m + %nhsuk-heading-m,
+  %nhsuk-body-s + %nhsuk-heading-m,
+  %nhsuk-body-m + %nhsuk-heading-s,
+  %nhsuk-body-s + %nhsuk-heading-s {
+    padding-top: 0.45em;
+  }
+}
+
+// Code
+
+li code,
+caption code,
+td code,
+th code,
+dt code,
+dd code,
+p code {
+  width: -webkit-fit-content;
+  width: fit-content;
+  padding: 2px nhsuk-spacing(1);
+  color: $nhsuk-code-colour;
+  background-color: nhsuk-colour("white");
+}
+
+code,
+samp,
+kbd,
+var {
+  @include nhsuk-font-monospace;
+  font-size: inherit;
+}
+
+samp,
+kbd,
+var {
+  font-style: normal;
+}
+
+kbd > kbd {
+  display: inline-block;
+  margin: 0 nhsuk-em(4px, 19);
+  padding: 0 nhsuk-spacing(1);
+  border: $nhsuk-border-width-form-element solid currentcolor;
+  border-radius: $nhsuk-border-radius;
+
+  &:first-child {
+    margin-left: nhsuk-em(1px, 19);
+  }
+
+  &:last-child {
+    margin-right: nhsuk-em(1px, 19);
+  }
+}
+
+a code {
+  color: currentcolor;
+}
+
+a:focus code {
+  background-color: transparent;
+}

@@ -1,0 +1,65 @@
+{% from "nhsuk/components/heading/macro.njk" import heading %}
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-label" -%}
+{%- set classNamesHeading = "nhsuk-label-wrapper" -%}
+
+{%- if params.size and
+  params.size in ["s", "m", "l", "xl"] and (
+    not params.classes or (
+      not "nhsuk-label--s" in params.classes and
+      not "nhsuk-label--m" in params.classes and
+      not "nhsuk-label--l" in params.classes and
+      not "nhsuk-label--xl" in params.classes
+    )
+  )
+%}
+  {% set classNames = classNames ~ " nhsuk-label--" ~ params.size %}
+{% endif %}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif %}
+
+{%- if caller or params.html or params.text %}
+{%- set attributesHtml %}
+  {{- nhsukAttributes({
+    class: classNames,
+    id: {
+      value: params.id,
+      optional: true
+    },
+    for: {
+      value: params.for,
+      optional: true
+    }
+  }) -}}
+
+  {{- nhsukAttributes(params.attributes) -}}
+{% endset -%}
+
+{% set innerHtml %}
+{% if caller %}
+  {{- caller() }}
+{% elif params.html %}
+  {{- params.html | safe }}
+{% elif params.text %}
+  {{- params.text }}
+{% endif %}
+{% endset -%}
+
+{% if params.isPageHeading %}
+{% call heading({
+  className: classNamesHeading
+}) %}
+  <label {{- attributesHtml | safe }}>
+    {{ innerHtml | safe | trim | indent(4) }}
+  </label>
+{%- endcall %}
+{% else %}
+<label {{- attributesHtml | safe }}>
+  {{ innerHtml | safe | trim | indent(2) }}
+</label>
+{% endif %}
+{% endif %}

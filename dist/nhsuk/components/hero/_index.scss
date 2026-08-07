@@ -1,0 +1,264 @@
+@use "sass:math";
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+@use "../../core/helpers" as *;
+
+////
+/// Hero component
+///
+/// 1. Position relative to support the description
+///    appearing over the image.
+/// 2. Adds a border between the header and hero, if required
+/// 3. Center the background image.
+/// 4. Stop the height affecting print stylesheets.
+/// 5. Show more of the image for larger screen sizes
+/// 6. Overlay must be min same height as .nhsuk-hero--image to cover the image.
+/// 7. Darken the background image with an overlay.
+/// 8. 'Random number' for the triangle.
+/// 9. 'Random number' for the triangle positioning.
+/// 10. Needed to enable the triangle to show correctly in high contrast mode.
+/// 11. Apply three quarters width between tablet and desktop.
+/// 12. Remove any heights/min heights in Windows high contrast mode.
+/// 13. Remove the arrow in Windows high contrast mode.
+/// 14. Add border or adjust colours for Windows high contrast mode.
+/// 15. Prevent text breaking out of box on smaller sizes.
+/// 16. Prevent overlap using safe area: box offset + arrow height + spacing.
+/// 17. Remove padding top from nhsuk-hero__content with images on small screens.
+///
+/// @group components/hero
+///
+
+@include nhsuk-exports("nhsuk/components/hero") {
+  .nhsuk-hero {
+    box-sizing: border-box;
+    position: relative; // [1]
+    color: $nhsuk-reverse-text-colour;
+    background-color: $nhsuk-brand-colour;
+
+    @media print {
+      color: $nhsuk-print-text-colour;
+    }
+
+    .nhsuk-link,
+    a:not(.nhsuk-button) {
+      @include nhsuk-link-style-reverse;
+    }
+
+    .nhsuk-u-secondary-text-colour {
+      // stylelint-disable-next-line declaration-no-important
+      color: $nhsuk-reverse-secondary-text-colour !important;
+    }
+  }
+
+  .nhsuk-hero .nhsuk-width-container {
+    border: $nhsuk-hero-border solid $nhsuk-reverse-border-colour;
+    border-width: 0;
+
+    @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+      border-bottom-width: $nhsuk-hero-border; // [14]
+    }
+  }
+
+  // [2]
+  .nhsuk-hero--border .nhsuk-width-container,
+  // Deprecated, to be removed in v11.0
+  .nhsuk-hero .nhsuk-hero--border {
+    border-top-width: $nhsuk-hero-border;
+  }
+
+  .nhsuk-hero__content,
+  // Deprecated, to be removed in v11.0
+  .nhsuk-hero__wrapper {
+    @include nhsuk-responsive-padding(8, ("top", "bottom"));
+    @include nhsuk-top-and-bottom;
+
+    [class^="nhsuk-caption"] {
+      color: nhsuk-tint($nhsuk-brand-colour, 80%);
+      @include nhsuk-font-weight-bold;
+    }
+  }
+
+  .nhsuk-hero__content {
+    svg:not(.nhsuk-image__img),
+    img:not(.nhsuk-image__img),
+    .nhsuk-image {
+      display: block;
+
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      margin-right: auto;
+      margin-left: auto;
+
+      @media #{nhsuk-from-breakpoint(375px)} and #{nhsuk-until-breakpoint(tablet)} {
+        max-width: 85%; // [15]
+      }
+
+      @media #{nhsuk-from-breakpoint(tablet)} and #{nhsuk-until-breakpoint(desktop)} {
+        max-width: math.percentage(math.div(3, 4));
+      }
+    }
+
+    @media #{nhsuk-until-breakpoint(desktop)} {
+      > svg:not(.nhsuk-image__img):first-child,
+      > img:not(.nhsuk-image__img):first-child,
+      > .nhsuk-image:first-child {
+        @include nhsuk-responsive-margin(-8, "top"); // [17]
+      }
+    }
+  }
+
+  .nhsuk-hero__heading {
+    @include nhsuk-responsive-margin(3, "bottom");
+  }
+
+  //  Hero component image styles
+
+  .nhsuk-hero--image {
+    background-repeat: no-repeat;
+    background-position: center right; // [3]
+    background-size: cover;
+  }
+
+  .nhsuk-hero--image:not(.nhsuk-hero--image-description) {
+    min-height: nhsuk-px-to-rem(192px);
+
+    @media print {
+      min-height: 0; // [4]
+    }
+
+    @media #{nhsuk-from-breakpoint(tablet)} {
+      min-height: nhsuk-px-to-rem(264px); // [5]
+    }
+  }
+
+  .nhsuk-hero--image .nhsuk-width-container {
+    @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+      border-width: 0;
+    }
+  }
+
+  .nhsuk-hero__arrow {
+    display: block;
+
+    position: absolute;
+    bottom: nhsuk-px-to-rem(-10px); // [8]
+    left: nhsuk-px-to-rem(32px); // [9]
+
+    width: nhsuk-px-to-rem(20px); // [8]
+    height: nhsuk-px-to-rem(20px); // [8]
+
+    overflow: hidden;
+
+    transform: rotate(45deg);
+
+    &::before,
+    &::after {
+      content: "";
+
+      display: block;
+
+      position: absolute;
+      top: 0;
+
+      width: 0;
+      height: 0;
+
+      transform: rotate(45deg); // [10]
+
+      border: solid nhsuk-px-to-rem(32px) $nhsuk-brand-colour; // [8]
+    }
+
+    @media print {
+      display: none;
+    }
+
+    @media #{nhsuk-from-breakpoint(tablet)} {
+      left: nhsuk-px-to-rem(32px); // [9]
+    }
+
+    @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+      display: none; // [13]
+    }
+  }
+
+  .nhsuk-hero__overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0; // [6]
+    left: 0;
+
+    width: 100%;
+
+    background-color: rgba(nhsuk-shade($nhsuk-brand-colour, 50%), 0.1); // [7]
+
+    @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+      display: none;
+    }
+  }
+
+  //  Hero component image description styles
+
+  .nhsuk-hero--image-description {
+    margin-bottom: nhsuk-spacing(5, $adjustment: nhsuk-px-to-rem(24px)); // [16]
+
+    @media #{nhsuk-from-breakpoint(tablet)} {
+      margin-bottom: nhsuk-spacing(8, $adjustment: nhsuk-px-to-rem(24px)); // [16]
+    }
+
+    .nhsuk-hero__content,
+    // Deprecated, to be removed in v11.0
+    .nhsuk-hero-content {
+      box-sizing: border-box;
+
+      position: relative;
+      z-index: 1;
+      bottom: 0;
+      bottom: nhsuk-spacing(-4);
+
+      margin-top: nhsuk-spacing(5);
+      margin-bottom: nhsuk-px-to-rem(24px); // [8]
+
+      color: $nhsuk-reverse-text-colour;
+      background-color: $nhsuk-brand-colour;
+
+      @include nhsuk-responsive-padding(5);
+      @include nhsuk-top-and-bottom;
+
+      @media print {
+        max-width: 100%;
+        padding: 0;
+        color: $nhsuk-print-text-colour;
+      }
+
+      @media #{nhsuk-from-breakpoint(375px)} and #{nhsuk-until-breakpoint(desktop)} {
+        width: 85%; // [15]
+      }
+
+      @media #{nhsuk-from-breakpoint(tablet)} and #{nhsuk-until-breakpoint(desktop)} {
+        width: math.percentage(math.div(3, 4)); // [11]
+      }
+
+      @media #{nhsuk-from-breakpoint(tablet)} {
+        bottom: nhsuk-spacing(-6);
+        margin-top: nhsuk-spacing(8);
+      }
+
+      @media #{nhsuk-from-breakpoint(desktop)} {
+        bottom: nhsuk-spacing(-9);
+      }
+
+      @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+        color: CanvasText; // [14]
+        background-color: HighlightText;
+        forced-color-adjust: none;
+      }
+    }
+  }
+
+  // Prevent hero content margin-top collapse
+  .nhsuk-hero--image-description .nhsuk-width-container {
+    padding-top: 10px;
+  }
+}
