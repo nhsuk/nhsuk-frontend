@@ -11,7 +11,7 @@
 ////
 
 $nhsuk-scroll-offset: $nhsuk-gutter-half;
-$nhsuk-scroll-shadow-width: nhsuk-spacing(5);
+$nhsuk-scroll-shadow-width: nhsuk-spacing(6);
 
 @include nhsuk-exports("nhsuk/components/scroll") {
   .nhsuk-scroll {
@@ -139,20 +139,41 @@ $nhsuk-scroll-shadow-width: nhsuk-spacing(5);
     }
   }
 
-  $_shadow-colour: nhsuk-shade(nhsuk-colour("grey-2"), 30%);
-  $_shadow-colour-reverse: nhsuk-shade($nhsuk-brand-colour, 70%);
+  $_shadow-colour: nhsuk-shade($nhsuk-brand-colour, 70%);
+  $_shadow-colour-reverse: nhsuk-tint($nhsuk-brand-colour, 70%);
+
+  $_shadow-colours: (
+    rgba($_shadow-colour, 0.2),
+    rgba($_shadow-colour, 0.2) $nhsuk-border-width,
+    rgba($_shadow-colour, 0.05) $nhsuk-border-width,
+    rgba($_shadow-colour, 0.05) 100%
+  );
+
+  $_shadow-colours-card: (
+    rgba($_shadow-colour, 0.15),
+    rgba($_shadow-colour, 0.15) $nhsuk-border-width - 1px,
+    rgba($_shadow-colour, 0.05) $nhsuk-border-width - 1px,
+    rgba($_shadow-colour, 0.05) 100%
+  );
+
+  $_shadow-colours-reverse: (
+    rgba($_shadow-colour-reverse, 0.4),
+    rgba($_shadow-colour-reverse, 0.4) $nhsuk-border-width,
+    rgba($_shadow-colour-reverse, 0.1) $nhsuk-border-width,
+    rgba($_shadow-colour-reverse, 0.1) 100%
+  );
 
   // Left shadow
   .nhsuk-scroll__content::before {
     left: 0;
-    background-image: radial-gradient(farthest-side at 0 50%, rgba($_shadow-colour, 0.4), transparent);
+    background-image: linear-gradient(to right, $_shadow-colours...);
 
     .nhsuk-card__content > .nhsuk-scroll & {
-      background-image: radial-gradient(farthest-side at 0 50%, rgba($_shadow-colour, 0.2), transparent);
+      background-image: linear-gradient(to right, $_shadow-colours-card...);
     }
 
     .nhsuk-scroll--reverse & {
-      background-image: radial-gradient(farthest-side at 0 50%, rgba($_shadow-colour-reverse, 0.4), transparent);
+      background-image: linear-gradient(to right, $_shadow-colours-reverse...);
     }
 
     .nhsuk-scroll--scrollable-left & {
@@ -171,14 +192,14 @@ $nhsuk-scroll-shadow-width: nhsuk-spacing(5);
   // Right shadow
   .nhsuk-scroll__content::after {
     right: 0;
-    background-image: radial-gradient(farthest-side at 100% 50%, rgba($_shadow-colour, 0.4), transparent);
+    background-image: linear-gradient(to left, $_shadow-colours...);
 
     .nhsuk-card__content > .nhsuk-scroll & {
-      background-image: radial-gradient(farthest-side at 100% 50%, rgba($_shadow-colour, 0.2), transparent);
+      background-image: linear-gradient(to left, $_shadow-colours-card...);
     }
 
     .nhsuk-scroll--reverse & {
-      background-image: radial-gradient(farthest-side at 100% 50%, rgba($_shadow-colour-reverse, 0.4), transparent);
+      background-image: linear-gradient(to left, $_shadow-colours-reverse...);
     }
 
     .nhsuk-scroll--scrollable-right & {
