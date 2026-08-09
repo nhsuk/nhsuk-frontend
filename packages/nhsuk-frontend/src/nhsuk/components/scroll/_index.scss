@@ -201,6 +201,7 @@ $nhsuk-scroll-bar-height: nhsuk-spacing(4);
 
     &:focus-visible::after {
       right: 0;
+      bottom: 0;
       left: 0;
     }
   }

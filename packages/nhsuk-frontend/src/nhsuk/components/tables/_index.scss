@@ -363,12 +363,27 @@
   // Add a darker grey bottom border to the header cell on hover
   .nhsuk-table__header[data-sort]:hover .nhsuk-link::before {
     border-color: nhsuk-colour("grey-3");
+
+    // Prevent emulated hover state on touch devices (e.g. iOS Safari)
+    @media (hover: none), (pointer: coarse) {
+      border-color: $nhsuk-link-colour;
+    }
   }
 
   // Add a grey background colour to the header cell on hover
-  @include nhsuk-frontend-supported {
-    .nhsuk-table__header[data-sort]:hover {
+  .nhsuk-table__header[data-sort]:hover {
+    &:has(.nhsuk-link) {
       background-color: $nhsuk-target-hover-colour;
+    }
+
+    @include nhsuk-frontend-supported {
+      background-color: $nhsuk-target-hover-colour;
+
+      // Prevent emulated hover state on touch devices (e.g. iOS Safari)
+      @media (hover: none), (pointer: coarse) {
+        // stylelint-disable-next-line declaration-no-important
+        background-color: transparent !important;
+      }
     }
   }
 
@@ -408,12 +423,27 @@
     // Add a lighter blue bottom border to the header cell on hover
     .nhsuk-table__header[data-sort]:hover .nhsuk-link::before {
       border-color: nhsuk-tint($nhsuk-brand-colour, 40%);
+
+      // Prevent emulated hover state on touch devices (e.g. iOS Safari)
+      @media (hover: none), (pointer: coarse) {
+        border-color: $nhsuk-reverse-text-colour;
+      }
     }
 
     // Add a darker blue background colour to the header cell on hover
-    @include nhsuk-frontend-supported {
-      .nhsuk-table__header[data-sort]:hover {
+    .nhsuk-table__header[data-sort]:hover {
+      &:has(.nhsuk-link) {
         background-color: $nhsuk-reverse-target-hover-colour;
+      }
+
+      @include nhsuk-frontend-supported {
+        background-color: $nhsuk-reverse-target-hover-colour;
+      }
+
+      // Prevent emulated hover state on touch devices (e.g. iOS Safari)
+      @media (hover: none), (pointer: coarse) {
+        // stylelint-disable-next-line declaration-no-important
+        background-color: transparent !important;
       }
     }
   }
