@@ -229,8 +229,12 @@ export default {
 
             'color',
             'background',
+            'background-attachment',
+            'background-blend-mode',
+            'background-clip',
             'background-color',
             'background-image',
+            'background-origin',
             'background-repeat',
             'background-position',
             'background-size',
