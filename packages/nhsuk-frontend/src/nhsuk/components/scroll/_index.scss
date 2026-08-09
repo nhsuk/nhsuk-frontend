@@ -11,22 +11,29 @@
 ////
 
 $nhsuk-scroll-shadow-width: nhsuk-spacing(5);
+$nhsuk-scroll-bar-height: nhsuk-spacing(4);
 
 @include nhsuk-exports("nhsuk/components/scroll") {
   .nhsuk-scroll {
     position: relative;
     margin: -$nhsuk-gutter-half;
+    padding-bottom: $nhsuk-focus-width * 2;
+    overflow: hidden;
 
     // Use table bottom margin but remove space for scroll bars
-    @include nhsuk-responsive-margin(7, "bottom", $adjustment: nhsuk-spacing(-4));
+    @include nhsuk-responsive-margin(7, "bottom", $adjustment: - ($nhsuk-scroll-bar-height + $nhsuk-focus-width * 2));
 
     @media #{nhsuk-from-breakpoint(desktop)} {
       margin-right: 0;
       margin-left: 0;
+      overflow: visible;
     }
   }
 
   .nhsuk-card__content .nhsuk-scroll {
+    padding-bottom: 0;
+    overflow: visible;
+
     @include nhsuk-responsive-margin(-5, ("left", "right"));
 
     &:first-child {
@@ -46,7 +53,7 @@ $nhsuk-scroll-shadow-width: nhsuk-spacing(5);
     padding: $nhsuk-gutter-half;
 
     // Add space for scroll bars
-    padding-bottom: nhsuk-spacing(4);
+    padding-bottom: $nhsuk-scroll-bar-height;
     overflow-x: auto;
 
     @include nhsuk-top-and-bottom;
@@ -81,7 +88,7 @@ $nhsuk-scroll-shadow-width: nhsuk-spacing(5);
       position: absolute;
       top: $nhsuk-focus-width * 2;
       right: $nhsuk-focus-width * 2;
-      bottom: 0; // Allow for scroll bar
+      bottom: $nhsuk-focus-width * 2;
       left: $nhsuk-focus-width * 2;
 
       @include nhsuk-focused-box;
