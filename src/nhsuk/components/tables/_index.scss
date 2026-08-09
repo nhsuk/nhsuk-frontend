@@ -375,7 +375,7 @@
   .nhsuk-table__header[data-sort] .nhsuk-link {
     display: inline-flex;
     flex-wrap: nowrap;
-    align-items: end;
+    align-items: flex-end;
 
     @include nhsuk-link-style-no-visited-state;
   }
