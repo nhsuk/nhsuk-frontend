@@ -99,6 +99,14 @@
         max-width: calc(100cqw);
       }
     }
+
+    // Adjust for scroll offset removed by inner scrolling content, but only
+    // when container scroll-state queries are supported in the browser
+    @supports (container-type: inline-size scroll-state) {
+      @container scroll-content {
+        max-width: calc(100cqw);
+      }
+    }
   }
 
   .nhsuk-table__caption--xl {
