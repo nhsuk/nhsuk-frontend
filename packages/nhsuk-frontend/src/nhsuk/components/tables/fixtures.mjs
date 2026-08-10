@@ -1599,6 +1599,234 @@ const fixtures = {
       viewports: ["mobile", "tablet", "desktop"]
     }
   },
+  "scrolling as a card": {
+    context: {
+      card: {
+        heading: "Leeds",
+        headingSize: "m",
+        actions: {
+          items: [
+            {
+              text: "Edit",
+              href: "#/view/leeds"
+            }
+          ]
+        }
+      },
+      caption: "Vaccine types (12 months)",
+      captionId: "scrolling-card-caption",
+      captionSize: "s",
+      lastRowBorder: false,
+      scroll: true,
+      head: [
+        {
+          text: "Location"
+        },
+        {
+          text: "6‑in‑1",
+          format: "numeric",
+          align: "left"
+        },
+        {
+          text: "MenB",
+          format: "numeric",
+          align: "left"
+        },
+        {
+          text: "Pneumococcal",
+          format: "numeric",
+          align: "left"
+        },
+        {
+          text: "Rotavirus",
+          format: "numeric",
+          align: "left"
+        }
+      ],
+      rows: [
+        [
+          {
+            text: "England"
+          },
+          {
+            text: "91.30%"
+          },
+          {
+            text: "91.00%"
+          },
+          {
+            text: "93.10%"
+          },
+          {
+            text: "88.80%"
+          }
+        ],
+        [
+          {
+            text: "Yorkshire"
+          },
+          {
+            text: "91.90%"
+          },
+          {
+            text: "91.80%"
+          },
+          {
+            text: "94.20%"
+          },
+          {
+            text: "89.20%"
+          }
+        ],
+        [
+          {
+            text: "Leeds"
+          },
+          {
+            text: "88.40%"
+          },
+          {
+            text: "88.50%"
+          },
+          {
+            text: "92.20%"
+          },
+          {
+            text: "85.60%"
+          }
+        ]
+      ]
+    },
+    options: {
+      width: "one-half"
+    },
+    variants: [
+      variants[0], // Regular variant
+      variants[2], // Striped variant
+      variants[4] // Responsive variant
+    ],
+    screenshot: {
+      viewports: ["mobile", "tablet", "desktop"]
+    }
+  },
+  "scrolling sortable as a card": {
+    context: {
+      card: {
+        heading: "Leeds",
+        headingSize: "m",
+        actions: {
+          items: [
+            {
+              text: "Edit",
+              href: "#/view/leeds"
+            }
+          ]
+        }
+      },
+      caption: "Vaccine types (12 months)",
+      captionId: "scrolling-card-caption",
+      captionSize: "s",
+      lastRowBorder: false,
+      scroll: true,
+      head: [
+        {
+          text: "Location"
+        },
+        {
+          text: "6‑in‑1",
+          format: "numeric",
+          align: "left",
+          sort: true,
+          sortNext: "descending"
+        },
+        {
+          text: "MenB",
+          format: "numeric",
+          align: "left",
+          sort: true,
+          sortNext: "descending"
+        },
+        {
+          text: "Pneumococcal",
+          format: "numeric",
+          align: "left",
+          sort: true,
+          sortNext: "descending"
+        },
+        {
+          text: "Rotavirus",
+          format: "numeric",
+          align: "left",
+          sort: true,
+          sortNext: "descending"
+        }
+      ],
+      rows: [
+        [
+          {
+            text: "England"
+          },
+          {
+            text: "91.30%"
+          },
+          {
+            text: "91.00%"
+          },
+          {
+            text: "93.10%"
+          },
+          {
+            text: "88.80%"
+          }
+        ],
+        [
+          {
+            text: "Yorkshire"
+          },
+          {
+            text: "91.90%"
+          },
+          {
+            text: "91.80%"
+          },
+          {
+            text: "94.20%"
+          },
+          {
+            text: "89.20%"
+          }
+        ],
+        [
+          {
+            text: "Leeds"
+          },
+          {
+            text: "88.40%"
+          },
+          {
+            text: "88.50%"
+          },
+          {
+            text: "92.20%"
+          },
+          {
+            text: "85.60%"
+          }
+        ]
+      ]
+    },
+    options: {
+      width: "one-half"
+    },
+    variants: [
+      variants[0], // Regular variant
+      variants[2], // Striped variant
+      variants[4] // Responsive variant
+    ],
+    screenshot: {
+      viewports: ["mobile", "tablet", "desktop"]
+    }
+  },
   "scrolling (full width)": {
     context: {
       caption: "Childhood vaccination coverage by nation",
