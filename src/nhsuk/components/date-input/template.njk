@@ -152,7 +152,7 @@
   </div>
 {% endset -%}
 
-{%- if params.errorMessage %}
+{%- if params.errorMessage or anyItemHasError %}
   {% set classNamesFormGroup = classNamesFormGroup ~ " nhsuk-form-group--error" %}
 {% endif %}
 
