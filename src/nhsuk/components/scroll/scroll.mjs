@@ -66,7 +66,7 @@ export class Scroll extends ConfigurableComponent {
     // Toggle right shadow
     $root.classList.toggle(
       `${Scroll.moduleName}--scrollable-right`,
-      $content.scrollLeft < $content.scrollWidth - $content.clientWidth
+      $content.scrollLeft < $content.scrollWidth - $content.clientWidth - 1
     )
 
     if (isOverflowing) {
