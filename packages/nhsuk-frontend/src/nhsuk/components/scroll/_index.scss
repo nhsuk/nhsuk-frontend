@@ -123,17 +123,14 @@ $nhsuk-scroll-bar-height: nhsuk-spacing(4);
 
     @include nhsuk-frontend-not-supported {
       display: block;
-    }
 
-    .nhsuk-scroll--scrollable & {
-      @supports not (container-type: scroll-state) {
-        display: block;
+      @container scroll-state(scrollable: inline) {
         opacity: 0;
       }
     }
 
-    @container scroll-state(scrollable: inline) {
-      display: block !important;
+    .nhsuk-scroll--scrollable & {
+      display: block;
       opacity: 0;
     }
   }
@@ -154,14 +151,14 @@ $nhsuk-scroll-bar-height: nhsuk-spacing(4);
       background-image: radial-gradient(farthest-side at 0 50%, rgba($_shadow-colour-reverse, 0.4), transparent);
     }
 
-    .nhsuk-scroll--scrollable-left & {
-      @supports not (container-type: scroll-state) {
+    @include nhsuk-frontend-not-supported {
+      @container scroll-state(scrollable: left) {
         transition-duration: 0.05s;
         opacity: 1;
       }
     }
 
-    @container scroll-state(scrollable: left) {
+    .nhsuk-scroll--scrollable-left & {
       transition-duration: 0.05s;
       opacity: 1;
     }
@@ -180,14 +177,14 @@ $nhsuk-scroll-bar-height: nhsuk-spacing(4);
       background-image: radial-gradient(farthest-side at 100% 50%, rgba($_shadow-colour-reverse, 0.4), transparent);
     }
 
-    .nhsuk-scroll--scrollable-right & {
-      @supports not (container-type: scroll-state) {
+    @include nhsuk-frontend-not-supported {
+      @container scroll-state(scrollable: right) {
         transition-duration: 0.05s;
         opacity: 1;
       }
     }
 
-    @container scroll-state(scrollable: right) {
+    .nhsuk-scroll--scrollable-right & {
       transition-duration: 0.05s;
       opacity: 1;
     }
