@@ -1,0 +1,37 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes -%}
+
+{#- Set variant for this component #}
+{%- set variant = params.variant -%}
+
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-scroll" -%}
+
+{%- if variant == "reverse" and (not params.classes or not "nhsuk-scroll--reverse" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-scroll--" ~ variant %}
+{% endif %}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif -%}
+
+<div
+  {{- nhsukAttributes({
+    class: classNames,
+    id: {
+      value: params.id,
+      optional: true
+    },
+    "data-module": "nhsuk-scroll"
+  }) -}}
+
+  {{- nhsukAttributes(params.attributes) -}}>
+  <div class="nhsuk-scroll__content" role="region" {%- if params.labelledBy %} aria-labelledby="{{ params.labelledBy }}"{% endif %} tabindex="0">
+  {% if caller %}
+    {{- caller() }}
+  {% elif params.html %}
+    {{ params.html | safe | trim | indent(4) }}
+  {% elif params.text %}
+    <p>{{ params.text | trim | indent(4) }}</p>
+  {% endif %}
+  </div>
+</div>
