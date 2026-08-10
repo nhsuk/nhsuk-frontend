@@ -92,7 +92,8 @@
       classes: "nhsuk-date-input__label" ~ (" " ~ itemLabel.classes if itemLabel.classes),
       attributes: itemLabel.attributes
     },
-    errorMessage: itemHasError or (item.error != false and params.errorMessage and not anyItemHasError),
+    errorMessage: (not item.classes or not "nhsuk-input--error" in itemClasses) and
+      (itemHasError or (item.error != false and params.errorMessage and not anyItemHasError)),
     id: item.id if item.id else (params.id ~ "-" ~ itemName),
     name: (params.namePrefix ~ "[" ~ itemName ~ "]") if params.namePrefix else itemName,
     value: itemValue | default(params.values[itemName]),
