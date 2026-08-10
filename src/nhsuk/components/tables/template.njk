@@ -314,8 +314,10 @@
     {{ tableHtml | safe | trim | indent(4) }}
   {%- endcall %}
 {% elif params.scroll %}
-<div class="nhsuk-table-container" role="region" {%- if captionId %} aria-labelledby="{{ captionId }}"{% endif %} tabindex="0">
-  {{ tableHtml | safe | trim | indent(2) }}
+<div class="nhsuk-table-wrapper">
+  <div class="nhsuk-table-wrapper__container" role="region" {%- if captionId %} aria-labelledby="{{ captionId }}"{% endif %} tabindex="0">
+    {{ tableHtml | safe | trim | indent(4) }}
+  </div>
 </div>
 {% else %}
   {{- tableHtml | safe | trim }}
