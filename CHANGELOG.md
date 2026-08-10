@@ -559,6 +559,10 @@ We've changed the hover and active icon colour for the action link component so 
 
 This change was introduced in [pull request #1802: Change action link icon colour on hover and active](https://github.com/nhsuk/nhsuk-frontend/pull/1802).
 
+### :wrench: **Fixes**
+
+- [#2035: Prevent divider on last account link item](https://github.com/nhsuk/nhsuk-frontend/pull/2035)
+
 ## 10.5.2 - 8 June 2026
 
 Note: This release was created from the `support/10.x` branch.
