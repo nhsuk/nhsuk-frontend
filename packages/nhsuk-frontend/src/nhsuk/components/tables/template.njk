@@ -2,6 +2,7 @@
 {% from "nhsuk/macros/i18n.njk" import nhsukI18nAttributes %}
 {% from "nhsuk/components/card/macro.njk" import card %}
 {% from "nhsuk/components/heading/macro.njk" import heading %}
+{% from "nhsuk/components/scroll/macro.njk" import scroll %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
 
 {#- Set variant for this component #}
@@ -58,6 +59,7 @@
   {% set classNames = classNames ~ " " ~ (params.classes or params.tableClasses) %}
 {% endif %}
 
+{%- set captionId = params.captionId | default(params.id ~ "-caption" if params.scroll and params.id else undefined) | default(("table-" ~ params.caption | replace(" ", "-") | lower | truncate(40, true, "") ~ "-caption") if params.scroll and params.caption else undefined) -%}
 {%- set captionDescriptionText = params.captionDescriptionText | default("Column headers are sortable" if "nhsuk-table--sortable" in classNames else undefined) %}
 
 {%- set attributesHtml %}
@@ -209,6 +211,7 @@
   {{ heading({
     text: params.caption,
     visuallyHiddenText: "(" ~ captionDescriptionText ~ ")" if captionDescriptionText else undefined,
+    id: captionId,
     size: params.captionSize,
     sizes: ["s", "m", "l", "xl"],
     className: classNamesCaption,
@@ -301,6 +304,14 @@
   </tbody>
 </table>
 {%- endset %}
+
+{%- if params.scroll %}
+  {% set tableHtml = scroll({
+    html: tableHtml,
+    labelledBy: captionId,
+    variant: variant
+  }) | trim %}
+{% endif %}
 
 {%- if params.card or params.panel %}
   {%- call card(params.card or {

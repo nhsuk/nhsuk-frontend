@@ -153,7 +153,7 @@ const fixtures = {
   },
   "with column widths": {
     context: {
-      caption: "Ibuprofen syrup dosages for children",
+      caption: "Ibuprofen 100mg/5ml liquid dosages for children by age",
       captionSize: "m",
       firstCellIsHeader: true,
       head: [
@@ -172,10 +172,10 @@ const fixtures = {
       rows: [
         [
           {
-            html: '3 to 5 months <span class="nhsuk-u-font-weight-normal">(weighing more than 5kg)</span>'
+            html: "3 to 5 months (weighing more than 5kg)"
           },
           {
-            text: "2.5ml"
+            text: "2.5ml (50mg)"
           },
           {
             text: "Max 3 times in 24 hours"
@@ -186,7 +186,7 @@ const fixtures = {
             text: "6 to 11 months"
           },
           {
-            text: "2.5ml"
+            text: "2.5ml (50mg)"
           },
           {
             text: "Max 3 to 4 times in 24 hours"
@@ -197,7 +197,7 @@ const fixtures = {
             text: "1 to 3 years"
           },
           {
-            text: "5ml"
+            text: "5ml (100mg)"
           },
           {
             text: "Max 3 times in 24 hours"
@@ -208,7 +208,7 @@ const fixtures = {
             text: "4 to 6 years"
           },
           {
-            text: "7.5ml"
+            text: "7.5ml (150mg)"
           },
           {
             text: "Max 3 times in 24 hours"
@@ -219,7 +219,7 @@ const fixtures = {
             text: "7 to 9 years"
           },
           {
-            text: "10ml"
+            text: "10ml (200mg)"
           },
           {
             text: "Max 3 times in 24 hours"
@@ -230,21 +230,10 @@ const fixtures = {
             text: "10 to 11 years"
           },
           {
-            text: "15ml"
+            text: "15ml (300mg)"
           },
           {
             text: "Max 3 times in 24 hours"
-          }
-        ],
-        [
-          {
-            text: "12 to 17 years"
-          },
-          {
-            text: "15ml to 20ml"
-          },
-          {
-            text: "Max 3 to 4 times in 24 hours"
           }
         ]
       ]
@@ -372,6 +361,7 @@ const fixtures = {
   "with first cell as header": {
     context: {
       firstCellIsHeader: true,
+      lastRowBorder: false,
       head: [
         {
           text: "Day of the week"
@@ -1101,6 +1091,1228 @@ const fixtures = {
       viewports: ["mobile", "tablet", "desktop"]
     }
   },
+  "scrolling": {
+    context: {
+      caption: "Childhood vaccination coverage by nation",
+      captionId: "scrolling-caption",
+      captionSize: "m",
+      firstCellIsHeader: true,
+      scroll: true,
+      head: [
+        {
+          text: "Nation"
+        },
+        {
+          text: "2013 to 2014",
+          format: "numeric"
+        },
+        {
+          text: "2014 to 2015",
+          format: "numeric"
+        },
+        {
+          text: "2015 to 2016",
+          format: "numeric"
+        },
+        {
+          text: "2016 to 2017",
+          format: "numeric"
+        },
+        {
+          text: "2017 to 2018",
+          format: "numeric"
+        },
+        {
+          text: "2018 to 2019",
+          format: "numeric"
+        },
+        {
+          text: "2019 to 2020",
+          format: "numeric"
+        },
+        {
+          text: "2020 to 2021",
+          format: "numeric"
+        },
+        {
+          text: "2021 to 2022",
+          format: "numeric"
+        },
+        {
+          text: "2022 to 2023",
+          format: "numeric"
+        },
+        {
+          text: "2023 to 2024",
+          format: "numeric"
+        },
+        {
+          text: "2024 to 2025",
+          format: "numeric"
+        }
+      ],
+      rows: [
+        [
+          {
+            text: "England"
+          },
+          {
+            text: "94.34%"
+          },
+          {
+            text: "94.23%"
+          },
+          {
+            text: "93.56%"
+          },
+          {
+            text: "93.41%"
+          },
+          {
+            text: "93.12%"
+          },
+          {
+            text: "92.09%"
+          },
+          {
+            text: "92.57%"
+          },
+          {
+            text: "92.04%"
+          },
+          {
+            text: "91.84%"
+          },
+          {
+            text: "91.80%"
+          },
+          {
+            text: "91.22%"
+          },
+          {
+            text: "91.30%"
+          }
+        ],
+        [
+          {
+            text: "Northern Ireland"
+          },
+          {
+            text: "97.48%"
+          },
+          {
+            text: "96.84%"
+          },
+          {
+            text: "97.22%"
+          },
+          {
+            text: "97.04%"
+          },
+          {
+            text: "96.20%"
+          },
+          {
+            text: "94.52%"
+          },
+          {
+            text: "94.45%"
+          },
+          {
+            text: "94.53%"
+          },
+          {
+            text: "93.52%"
+          },
+          {
+            text: "93.10%"
+          },
+          {
+            text: "91.80%"
+          },
+          {
+            text: "91.00%"
+          }
+        ],
+        [
+          {
+            text: "Scotland"
+          },
+          {
+            text: "97.51%"
+          },
+          {
+            text: "97.39%"
+          },
+          {
+            text: "97.15%"
+          },
+          {
+            text: "96.77%"
+          },
+          {
+            text: "96.51%"
+          },
+          {
+            text: "95.80%"
+          },
+          {
+            text: "96.23%"
+          },
+          {
+            text: "96.54%"
+          },
+          {
+            text: "96.32%"
+          },
+          {
+            text: "95.55%"
+          },
+          {
+            text: "94.84%"
+          },
+          {
+            text: "94.50%"
+          }
+        ],
+        [
+          {
+            text: "Wales"
+          },
+          {
+            text: "96.70%"
+          },
+          {
+            text: "96.57%"
+          },
+          {
+            text: "96.57%"
+          },
+          {
+            text: "96.34%"
+          },
+          {
+            text: "95.92%"
+          },
+          {
+            text: "95.42%"
+          },
+          {
+            text: "95.77%"
+          },
+          {
+            text: "95.56%"
+          },
+          {
+            text: "95.18%"
+          },
+          {
+            text: "94.47%"
+          },
+          {
+            text: "94.19%"
+          },
+          {
+            text: "94.10%"
+          }
+        ]
+      ]
+    },
+    variants: [
+      variants[0], // Regular variant
+      variants[2], // Striped variant
+      variants[8] // Reverse variant
+    ],
+    screenshot: {
+      viewports: ["mobile", "tablet", "desktop"]
+    }
+  },
+  "scrolling sortable": {
+    context: {
+      caption: "Childhood vaccination coverage by nation",
+      captionId: "scrolling-sortable-caption",
+      captionSize: "m",
+      firstCellIsHeader: true,
+      scroll: true,
+      head: [
+        {
+          text: "Nation",
+          sort: "ascending"
+        },
+        {
+          text: "2013 to 2014",
+          format: "numeric",
+          sort: true,
+          sortNext: "descending"
+        },
+        {
+          text: "2014 to 2015",
+          format: "numeric",
+          sort: true,
+          sortNext: "descending"
+        },
+        {
+          text: "2015 to 2016",
+          format: "numeric",
+          sort: true,
+          sortNext: "descending"
+        },
+        {
+          text: "2016 to 2017",
+          format: "numeric",
+          sort: true,
+          sortNext: "descending"
+        },
+        {
+          text: "2017 to 2018",
+          format: "numeric",
+          sort: true,
+          sortNext: "descending"
+        },
+        {
+          text: "2018 to 2019",
+          format: "numeric",
+          sort: true,
+          sortNext: "descending"
+        },
+        {
+          text: "2019 to 2020",
+          format: "numeric",
+          sort: true,
+          sortNext: "descending"
+        },
+        {
+          text: "2020 to 2021",
+          format: "numeric",
+          sort: true,
+          sortNext: "descending"
+        },
+        {
+          text: "2021 to 2022",
+          format: "numeric",
+          sort: true,
+          sortNext: "descending"
+        },
+        {
+          text: "2022 to 2023",
+          format: "numeric",
+          sort: true,
+          sortNext: "descending"
+        },
+        {
+          text: "2023 to 2024",
+          format: "numeric",
+          sort: true,
+          sortNext: "descending"
+        },
+        {
+          text: "2024 to 2025",
+          format: "numeric",
+          sort: true,
+          sortNext: "descending"
+        }
+      ],
+      rows: [
+        [
+          {
+            text: "England"
+          },
+          {
+            text: "94.34%"
+          },
+          {
+            text: "94.23%"
+          },
+          {
+            text: "93.56%"
+          },
+          {
+            text: "93.41%"
+          },
+          {
+            text: "93.12%"
+          },
+          {
+            text: "92.09%"
+          },
+          {
+            text: "92.57%"
+          },
+          {
+            text: "92.04%"
+          },
+          {
+            text: "91.84%"
+          },
+          {
+            text: "91.80%"
+          },
+          {
+            text: "91.22%"
+          },
+          {
+            text: "91.30%"
+          }
+        ],
+        [
+          {
+            text: "Northern Ireland"
+          },
+          {
+            text: "97.48%"
+          },
+          {
+            text: "96.84%"
+          },
+          {
+            text: "97.22%"
+          },
+          {
+            text: "97.04%"
+          },
+          {
+            text: "96.20%"
+          },
+          {
+            text: "94.52%"
+          },
+          {
+            text: "94.45%"
+          },
+          {
+            text: "94.53%"
+          },
+          {
+            text: "93.52%"
+          },
+          {
+            text: "93.10%"
+          },
+          {
+            text: "91.80%"
+          },
+          {
+            text: "91.00%"
+          }
+        ],
+        [
+          {
+            text: "Scotland"
+          },
+          {
+            text: "97.51%"
+          },
+          {
+            text: "97.39%"
+          },
+          {
+            text: "97.15%"
+          },
+          {
+            text: "96.77%"
+          },
+          {
+            text: "96.51%"
+          },
+          {
+            text: "95.80%"
+          },
+          {
+            text: "96.23%"
+          },
+          {
+            text: "96.54%"
+          },
+          {
+            text: "96.32%"
+          },
+          {
+            text: "95.55%"
+          },
+          {
+            text: "94.84%"
+          },
+          {
+            text: "94.50%"
+          }
+        ],
+        [
+          {
+            text: "Wales"
+          },
+          {
+            text: "96.70%"
+          },
+          {
+            text: "96.57%"
+          },
+          {
+            text: "96.57%"
+          },
+          {
+            text: "96.34%"
+          },
+          {
+            text: "95.92%"
+          },
+          {
+            text: "95.42%"
+          },
+          {
+            text: "95.77%"
+          },
+          {
+            text: "95.56%"
+          },
+          {
+            text: "95.18%"
+          },
+          {
+            text: "94.47%"
+          },
+          {
+            text: "94.19%"
+          },
+          {
+            text: "94.10%"
+          }
+        ]
+      ]
+    },
+    variants: [
+      variants[0], // Regular variant
+      variants[2], // Striped variant
+      variants[8] // Reverse variant
+    ],
+    screenshot: {
+      viewports: ["mobile", "tablet", "desktop"]
+    }
+  },
+  "scrolling as a card": {
+    context: {
+      card: {
+        heading: "Leeds",
+        headingSize: "m",
+        actions: {
+          items: [
+            {
+              text: "Edit",
+              href: "#/view/leeds"
+            }
+          ]
+        }
+      },
+      caption: "Vaccine types (12 months)",
+      captionId: "scrolling-card-caption",
+      captionSize: "s",
+      lastRowBorder: false,
+      scroll: true,
+      head: [
+        {
+          text: "Location"
+        },
+        {
+          text: "6‑in‑1",
+          format: "numeric",
+          align: "left"
+        },
+        {
+          text: "MenB",
+          format: "numeric",
+          align: "left"
+        },
+        {
+          text: "Pneumococcal",
+          format: "numeric",
+          align: "left"
+        },
+        {
+          text: "Rotavirus",
+          format: "numeric",
+          align: "left"
+        }
+      ],
+      rows: [
+        [
+          {
+            text: "England"
+          },
+          {
+            text: "91.30%"
+          },
+          {
+            text: "91.00%"
+          },
+          {
+            text: "93.10%"
+          },
+          {
+            text: "88.80%"
+          }
+        ],
+        [
+          {
+            text: "Yorkshire"
+          },
+          {
+            text: "91.90%"
+          },
+          {
+            text: "91.80%"
+          },
+          {
+            text: "94.20%"
+          },
+          {
+            text: "89.20%"
+          }
+        ],
+        [
+          {
+            text: "Leeds"
+          },
+          {
+            text: "88.40%"
+          },
+          {
+            text: "88.50%"
+          },
+          {
+            text: "92.20%"
+          },
+          {
+            text: "85.60%"
+          }
+        ]
+      ]
+    },
+    options: {
+      width: "one-half"
+    },
+    variants: [
+      variants[0], // Regular variant
+      variants[2], // Striped variant
+      variants[4] // Responsive variant
+    ],
+    screenshot: {
+      viewports: ["mobile", "tablet", "desktop"]
+    }
+  },
+  "scrolling sortable as a card": {
+    context: {
+      card: {
+        heading: "Leeds",
+        headingSize: "m",
+        actions: {
+          items: [
+            {
+              text: "Edit",
+              href: "#/view/leeds"
+            }
+          ]
+        }
+      },
+      caption: "Vaccine types (12 months)",
+      captionId: "scrolling-card-caption",
+      captionSize: "s",
+      lastRowBorder: false,
+      scroll: true,
+      head: [
+        {
+          text: "Location"
+        },
+        {
+          text: "6‑in‑1",
+          format: "numeric",
+          align: "left",
+          sort: true,
+          sortNext: "descending"
+        },
+        {
+          text: "MenB",
+          format: "numeric",
+          align: "left",
+          sort: true,
+          sortNext: "descending"
+        },
+        {
+          text: "Pneumococcal",
+          format: "numeric",
+          align: "left",
+          sort: true,
+          sortNext: "descending"
+        },
+        {
+          text: "Rotavirus",
+          format: "numeric",
+          align: "left",
+          sort: true,
+          sortNext: "descending"
+        }
+      ],
+      rows: [
+        [
+          {
+            text: "England"
+          },
+          {
+            text: "91.30%"
+          },
+          {
+            text: "91.00%"
+          },
+          {
+            text: "93.10%"
+          },
+          {
+            text: "88.80%"
+          }
+        ],
+        [
+          {
+            text: "Yorkshire"
+          },
+          {
+            text: "91.90%"
+          },
+          {
+            text: "91.80%"
+          },
+          {
+            text: "94.20%"
+          },
+          {
+            text: "89.20%"
+          }
+        ],
+        [
+          {
+            text: "Leeds"
+          },
+          {
+            text: "88.40%"
+          },
+          {
+            text: "88.50%"
+          },
+          {
+            text: "92.20%"
+          },
+          {
+            text: "85.60%"
+          }
+        ]
+      ]
+    },
+    options: {
+      width: "one-half"
+    },
+    variants: [
+      variants[0], // Regular variant
+      variants[2], // Striped variant
+      variants[4] // Responsive variant
+    ],
+    screenshot: {
+      viewports: ["mobile", "tablet", "desktop"]
+    }
+  },
+  "scrolling (full width)": {
+    context: {
+      caption: "Childhood vaccination coverage by nation",
+      captionId: "scrolling-full-width-caption",
+      captionSize: "m",
+      firstCellIsHeader: true,
+      scroll: true,
+      head: [
+        {
+          text: "Nation"
+        },
+        {
+          text: "2013 to 2014",
+          format: "numeric"
+        },
+        {
+          text: "2014 to 2015",
+          format: "numeric"
+        },
+        {
+          text: "2015 to 2016",
+          format: "numeric"
+        },
+        {
+          text: "2016 to 2017",
+          format: "numeric"
+        },
+        {
+          text: "2017 to 2018",
+          format: "numeric"
+        },
+        {
+          text: "2018 to 2019",
+          format: "numeric"
+        },
+        {
+          text: "2019 to 2020",
+          format: "numeric"
+        },
+        {
+          text: "2020 to 2021",
+          format: "numeric"
+        },
+        {
+          text: "2021 to 2022",
+          format: "numeric"
+        },
+        {
+          text: "2022 to 2023",
+          format: "numeric"
+        },
+        {
+          text: "2023 to 2024",
+          format: "numeric"
+        },
+        {
+          text: "2024 to 2025",
+          format: "numeric"
+        }
+      ],
+      rows: [
+        [
+          {
+            text: "England"
+          },
+          {
+            text: "94.34%"
+          },
+          {
+            text: "94.23%"
+          },
+          {
+            text: "93.56%"
+          },
+          {
+            text: "93.41%"
+          },
+          {
+            text: "93.12%"
+          },
+          {
+            text: "92.09%"
+          },
+          {
+            text: "92.57%"
+          },
+          {
+            text: "92.04%"
+          },
+          {
+            text: "91.84%"
+          },
+          {
+            text: "91.80%"
+          },
+          {
+            text: "91.22%"
+          },
+          {
+            text: "91.30%"
+          }
+        ],
+        [
+          {
+            text: "Northern Ireland"
+          },
+          {
+            text: "97.48%"
+          },
+          {
+            text: "96.84%"
+          },
+          {
+            text: "97.22%"
+          },
+          {
+            text: "97.04%"
+          },
+          {
+            text: "96.20%"
+          },
+          {
+            text: "94.52%"
+          },
+          {
+            text: "94.45%"
+          },
+          {
+            text: "94.53%"
+          },
+          {
+            text: "93.52%"
+          },
+          {
+            text: "93.10%"
+          },
+          {
+            text: "91.80%"
+          },
+          {
+            text: "91.00%"
+          }
+        ],
+        [
+          {
+            text: "Scotland"
+          },
+          {
+            text: "97.51%"
+          },
+          {
+            text: "97.39%"
+          },
+          {
+            text: "97.15%"
+          },
+          {
+            text: "96.77%"
+          },
+          {
+            text: "96.51%"
+          },
+          {
+            text: "95.80%"
+          },
+          {
+            text: "96.23%"
+          },
+          {
+            text: "96.54%"
+          },
+          {
+            text: "96.32%"
+          },
+          {
+            text: "95.55%"
+          },
+          {
+            text: "94.84%"
+          },
+          {
+            text: "94.50%"
+          }
+        ],
+        [
+          {
+            text: "Wales"
+          },
+          {
+            text: "96.70%"
+          },
+          {
+            text: "96.57%"
+          },
+          {
+            text: "96.57%"
+          },
+          {
+            text: "96.34%"
+          },
+          {
+            text: "95.92%"
+          },
+          {
+            text: "95.42%"
+          },
+          {
+            text: "95.77%"
+          },
+          {
+            text: "95.56%"
+          },
+          {
+            text: "95.18%"
+          },
+          {
+            text: "94.47%"
+          },
+          {
+            text: "94.19%"
+          },
+          {
+            text: "94.10%"
+          }
+        ]
+      ]
+    },
+    options: {
+      width: "full"
+    },
+    variants: [
+      variants[0], // Regular variant
+      variants[2], // Striped variant
+      variants[8] // Reverse variant
+    ]
+  },
+  "scrolling sortable (full width)": {
+    context: {
+      caption: "Childhood vaccination coverage by nation",
+      captionId: "scrolling-sortable-full-width-caption",
+      captionSize: "m",
+      firstCellIsHeader: true,
+      scroll: true,
+      head: [
+        {
+          text: "Nation",
+          sort: "ascending"
+        },
+        {
+          text: "2013 to 2014",
+          format: "numeric",
+          sort: true,
+          sortNext: "descending"
+        },
+        {
+          text: "2014 to 2015",
+          format: "numeric",
+          sort: true,
+          sortNext: "descending"
+        },
+        {
+          text: "2015 to 2016",
+          format: "numeric",
+          sort: true,
+          sortNext: "descending"
+        },
+        {
+          text: "2016 to 2017",
+          format: "numeric",
+          sort: true,
+          sortNext: "descending"
+        },
+        {
+          text: "2017 to 2018",
+          format: "numeric",
+          sort: true,
+          sortNext: "descending"
+        },
+        {
+          text: "2018 to 2019",
+          format: "numeric",
+          sort: true,
+          sortNext: "descending"
+        },
+        {
+          text: "2019 to 2020",
+          format: "numeric",
+          sort: true,
+          sortNext: "descending"
+        },
+        {
+          text: "2020 to 2021",
+          format: "numeric",
+          sort: true,
+          sortNext: "descending"
+        },
+        {
+          text: "2021 to 2022",
+          format: "numeric",
+          sort: true,
+          sortNext: "descending"
+        },
+        {
+          text: "2022 to 2023",
+          format: "numeric",
+          sort: true,
+          sortNext: "descending"
+        },
+        {
+          text: "2023 to 2024",
+          format: "numeric",
+          sort: true,
+          sortNext: "descending"
+        },
+        {
+          text: "2024 to 2025",
+          format: "numeric",
+          sort: true,
+          sortNext: "descending"
+        }
+      ],
+      rows: [
+        [
+          {
+            text: "England"
+          },
+          {
+            text: "94.34%"
+          },
+          {
+            text: "94.23%"
+          },
+          {
+            text: "93.56%"
+          },
+          {
+            text: "93.41%"
+          },
+          {
+            text: "93.12%"
+          },
+          {
+            text: "92.09%"
+          },
+          {
+            text: "92.57%"
+          },
+          {
+            text: "92.04%"
+          },
+          {
+            text: "91.84%"
+          },
+          {
+            text: "91.80%"
+          },
+          {
+            text: "91.22%"
+          },
+          {
+            text: "91.30%"
+          }
+        ],
+        [
+          {
+            text: "Northern Ireland"
+          },
+          {
+            text: "97.48%"
+          },
+          {
+            text: "96.84%"
+          },
+          {
+            text: "97.22%"
+          },
+          {
+            text: "97.04%"
+          },
+          {
+            text: "96.20%"
+          },
+          {
+            text: "94.52%"
+          },
+          {
+            text: "94.45%"
+          },
+          {
+            text: "94.53%"
+          },
+          {
+            text: "93.52%"
+          },
+          {
+            text: "93.10%"
+          },
+          {
+            text: "91.80%"
+          },
+          {
+            text: "91.00%"
+          }
+        ],
+        [
+          {
+            text: "Scotland"
+          },
+          {
+            text: "97.51%"
+          },
+          {
+            text: "97.39%"
+          },
+          {
+            text: "97.15%"
+          },
+          {
+            text: "96.77%"
+          },
+          {
+            text: "96.51%"
+          },
+          {
+            text: "95.80%"
+          },
+          {
+            text: "96.23%"
+          },
+          {
+            text: "96.54%"
+          },
+          {
+            text: "96.32%"
+          },
+          {
+            text: "95.55%"
+          },
+          {
+            text: "94.84%"
+          },
+          {
+            text: "94.50%"
+          }
+        ],
+        [
+          {
+            text: "Wales"
+          },
+          {
+            text: "96.70%"
+          },
+          {
+            text: "96.57%"
+          },
+          {
+            text: "96.57%"
+          },
+          {
+            text: "96.34%"
+          },
+          {
+            text: "95.92%"
+          },
+          {
+            text: "95.42%"
+          },
+          {
+            text: "95.77%"
+          },
+          {
+            text: "95.56%"
+          },
+          {
+            text: "95.18%"
+          },
+          {
+            text: "94.47%"
+          },
+          {
+            text: "94.19%"
+          },
+          {
+            text: "94.10%"
+          }
+        ]
+      ]
+    },
+    options: {
+      width: "full"
+    },
+    variants: [
+      variants[0], // Regular variant
+      variants[2], // Striped variant
+      variants[8] // Reverse variant
+    ]
+  },
   "sortable": {
     context: {
       caption: "Appointments",
@@ -1208,93 +2420,15 @@ const fixtures = {
       rows: [
         [
           {
-            text: "Ro Nkosi"
+            text: "Zadie Munroe"
           },
           {
-            text: "28 June 2026"
-          },
-          {
-            href: "#",
-            text: "Change",
-            visuallyHiddenText: "details for Ro Nkosi"
-          }
-        ],
-        [
-          {
-            text: "Stellan Park"
-          },
-          {
-            text: "20 June 2026"
+            text: "7 May 2026"
           },
           {
             href: "#",
             text: "Change",
-            visuallyHiddenText: "details for Stellan Park"
-          }
-        ],
-        [
-          {
-            text: "Tamsin Foley-Whitworth"
-          },
-          {
-            text: "14 June 2026"
-          },
-          {
-            href: "#",
-            text: "Change",
-            visuallyHiddenText: "details for Tamsin Foley-Whitworth"
-          }
-        ],
-        [
-          {
-            text: "Uta Brennan"
-          },
-          {
-            text: "7 June 2026"
-          },
-          {
-            href: "#",
-            text: "Change",
-            visuallyHiddenText: "details for Uta Brennan"
-          }
-        ],
-        [
-          {
-            text: "Val Cruz"
-          },
-          {
-            text: "1 June 2026"
-          },
-          {
-            href: "#",
-            text: "Change",
-            visuallyHiddenText: "details for Val Cruz"
-          }
-        ],
-        [
-          {
-            text: "Wendell Shaw"
-          },
-          {
-            text: "25 May 2026"
-          },
-          {
-            href: "#",
-            text: "Change",
-            visuallyHiddenText: "details for Wendell Shaw"
-          }
-        ],
-        [
-          {
-            text: "Xanthe Beaumont"
-          },
-          {
-            text: "19 May 2026"
-          },
-          {
-            href: "#",
-            text: "Change",
-            visuallyHiddenText: "details for Xanthe Beaumont"
+            visuallyHiddenText: "details for Zadie Munroe"
           }
         ],
         [
@@ -1312,15 +2446,93 @@ const fixtures = {
         ],
         [
           {
-            text: "Zadie Munroe"
+            text: "Xanthe Beaumont"
           },
           {
-            text: "7 May 2026"
+            text: "19 May 2026"
           },
           {
             href: "#",
             text: "Change",
-            visuallyHiddenText: "details for Zadie Munroe"
+            visuallyHiddenText: "details for Xanthe Beaumont"
+          }
+        ],
+        [
+          {
+            text: "Wendell Shaw"
+          },
+          {
+            text: "25 May 2026"
+          },
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "details for Wendell Shaw"
+          }
+        ],
+        [
+          {
+            text: "Val Cruz"
+          },
+          {
+            text: "1 June 2026"
+          },
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "details for Val Cruz"
+          }
+        ],
+        [
+          {
+            text: "Uta Brennan"
+          },
+          {
+            text: "7 June 2026"
+          },
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "details for Uta Brennan"
+          }
+        ],
+        [
+          {
+            text: "Tamsin Foley-Whitworth"
+          },
+          {
+            text: "14 June 2026"
+          },
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "details for Tamsin Foley-Whitworth"
+          }
+        ],
+        [
+          {
+            text: "Stellan Park"
+          },
+          {
+            text: "20 June 2026"
+          },
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "details for Stellan Park"
+          }
+        ],
+        [
+          {
+            text: "Ro Nkosi"
+          },
+          {
+            text: "28 June 2026"
+          },
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "details for Ro Nkosi"
           }
         ],
         [

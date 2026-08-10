@@ -1,7 +1,7 @@
-@use "sass:color";
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
 @use "../../core/helpers" as *;
+@use "../scroll" as *;
 
 ////
 /// Table component
@@ -10,31 +10,6 @@
 ////
 
 @include nhsuk-exports("nhsuk/components/table") {
-  // Table container is used to ensure the table does not break the container.
-  //
-  // 1. Margin is removed so there isn't double spacing.
-  // 2. XS size not added because it matches the table header, so it'd be bad for hierarchy
-
-  .nhsuk-table-container {
-    box-sizing: border-box;
-    display: block;
-
-    width: 100%;
-
-    overflow-x: auto;
-
-    -webkit-overflow-scrolling: touch;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
-
-    @include nhsuk-responsive-margin(7, "bottom");
-
-    .nhsuk-table,
-    // Deprecated, to be removed in v11.0
-    .nhsuk-table-responsive {
-      margin: 0; // [1]
-    }
-  }
-
   .nhsuk-table,
   // Deprecated, to be removed in v11.0
   .nhsuk-table-responsive {
@@ -102,6 +77,38 @@
     }
   }
 
+  // Prevent caption moving with scrolling container
+  .nhsuk-scroll .nhsuk-table__caption {
+    position: sticky;
+    left: -$nhsuk-border-table-header-width;
+
+    // Wrap at viewport width
+    max-width: calc(100vw - (($nhsuk-gutter-half * 2) + $nhsuk-border-table-header-width));
+    padding-right: 0;
+
+    // Wrap at container query width
+    @supports (container-type: inline-size) {
+      max-width: calc(100cqw);
+    }
+
+    // Adjust for scroll offset removed from desktop
+    @media #{nhsuk-from-breakpoint(desktop)} {
+      max-width: calc(100vw);
+
+      @supports (container-type: inline-size) {
+        max-width: calc(100cqw);
+      }
+    }
+
+    // Adjust for scroll offset removed by inner scrolling content, but only
+    // when container scroll-state queries are supported in the browser
+    @supports (container-type: inline-size scroll-state) {
+      @container scroll-content {
+        max-width: calc(100cqw);
+      }
+    }
+  }
+
   .nhsuk-table__caption--xl {
     margin-bottom: nhsuk-spacing(6) - nhsuk-spacing(2);
     @include nhsuk-font-size(48);
@@ -132,8 +139,8 @@
     @include nhsuk-panel-with-label($nhsuk-card-background-colour, $nhsuk-text-colour, $nhsuk-border-colour);
 
     .nhsuk-table,
-    .nhsuk-table-container,
     // Deprecated, to be removed in v11.0
+    .nhsuk-table-container,
     .nhsuk-table-responsive {
       margin: 0; // [1]
     }
@@ -356,19 +363,34 @@
   // Add a darker grey bottom border to the header cell on hover
   .nhsuk-table__header[data-sort]:hover .nhsuk-link::before {
     border-color: nhsuk-colour("grey-3");
+
+    // Prevent emulated hover state on touch devices (e.g. iOS Safari)
+    @media (hover: none), (pointer: coarse) {
+      border-color: $nhsuk-link-colour;
+    }
   }
 
   // Add a grey background colour to the header cell on hover
-  @include nhsuk-frontend-supported {
-    .nhsuk-table__header[data-sort]:hover {
+  .nhsuk-table__header[data-sort]:hover {
+    &:has(.nhsuk-link) {
       background-color: $nhsuk-target-hover-colour;
+    }
+
+    @include nhsuk-frontend-supported {
+      background-color: $nhsuk-target-hover-colour;
+
+      // Prevent emulated hover state on touch devices (e.g. iOS Safari)
+      @media (hover: none), (pointer: coarse) {
+        // stylelint-disable-next-line declaration-no-important
+        background-color: transparent !important;
+      }
     }
   }
 
   .nhsuk-table__header[data-sort] .nhsuk-link {
     display: inline-flex;
     flex-wrap: nowrap;
-    align-items: end;
+    align-items: flex-end;
 
     @include nhsuk-link-style-no-visited-state;
   }
@@ -401,12 +423,27 @@
     // Add a lighter blue bottom border to the header cell on hover
     .nhsuk-table__header[data-sort]:hover .nhsuk-link::before {
       border-color: nhsuk-tint($nhsuk-brand-colour, 40%);
+
+      // Prevent emulated hover state on touch devices (e.g. iOS Safari)
+      @media (hover: none), (pointer: coarse) {
+        border-color: $nhsuk-reverse-text-colour;
+      }
     }
 
     // Add a darker blue background colour to the header cell on hover
-    @include nhsuk-frontend-supported {
-      .nhsuk-table__header[data-sort]:hover {
+    .nhsuk-table__header[data-sort]:hover {
+      &:has(.nhsuk-link) {
         background-color: $nhsuk-reverse-target-hover-colour;
+      }
+
+      @include nhsuk-frontend-supported {
+        background-color: $nhsuk-reverse-target-hover-colour;
+      }
+
+      // Prevent emulated hover state on touch devices (e.g. iOS Safari)
+      @media (hover: none), (pointer: coarse) {
+        // stylelint-disable-next-line declaration-no-important
+        background-color: transparent !important;
       }
     }
   }
@@ -424,6 +461,39 @@
     .nhsuk-table__body .nhsuk-table__row:last-child .nhsuk-table__header,
     .nhsuk-table__body .nhsuk-table__row:last-child .nhsuk-table__cell {
       border-color: transparent;
+    }
+  }
+
+  .nhsuk-card__content .nhsuk-scroll__content {
+    .nhsuk-table {
+      width: 100%;
+      margin-right: 0;
+      margin-left: 0;
+    }
+
+    // Adjust caption for card padding
+    .nhsuk-table__caption {
+      left: 0;
+      @include nhsuk-responsive-padding(5, ("left", "right"));
+    }
+
+    // Extend table row borders from card left
+    .nhsuk-table__header:first-child,
+    .nhsuk-table__cell:first-child {
+      @include nhsuk-responsive-padding(5, "left");
+    }
+
+    // Extend table row borders from card right
+    .nhsuk-table__header:last-child,
+    .nhsuk-table__cell:last-child {
+      @include nhsuk-responsive-padding(5, "right");
+    }
+
+    .nhsuk-table--responsive .nhsuk-table__header,
+    .nhsuk-table--responsive .nhsuk-table__cell {
+      @media #{nhsuk-until-breakpoint(desktop)} {
+        @include nhsuk-responsive-padding(5, ("left", "right"));
+      }
     }
   }
 }

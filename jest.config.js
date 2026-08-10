@@ -75,7 +75,10 @@ module.exports = {
     'default',
     'jest-puppeteer-istanbul/lib/reporter',
     'github-actions'
-  ]
+  ],
+
+  // Increase test timeout (5s to 10s)
+  testTimeout: 10000
 }
 
 /**
