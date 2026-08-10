@@ -1,4 +1,24 @@
 /**
+ * Nunjucks macro option variants
+ *
+ * @satisfies {MacroExample[]}
+ */
+export const variants = [
+  {
+    // Regular variant
+  },
+  {
+    description: "reverse",
+    context: {
+      variant: "reverse"
+    },
+    options: {
+      layout: "background-blue"
+    }
+  }
+]
+
+/**
  * Nunjucks macro option examples
  *
  * @satisfies {{ [example: string]: MacroExample }}
@@ -17,7 +37,8 @@ const fixtures = {
       },
       name: "example",
       width: 20
-    }
+    },
+    variants
   },
   "disabled": {
     context: {
@@ -30,7 +51,8 @@ const fixtures = {
       name: "example",
       disabled: true
     },
-    screenshot: true
+    screenshot: true,
+    variants
   },
   "disabled with enabled button": {
     context: {
@@ -45,7 +67,8 @@ const fixtures = {
       button: {
         disabled: false
       }
-    }
+    },
+    variants
   },
   "disabled button": {
     context: {
@@ -59,7 +82,8 @@ const fixtures = {
       button: {
         disabled: true
       }
-    }
+    },
+    variants
   },
   "large": {
     context: {
@@ -72,7 +96,7 @@ const fixtures = {
       large: true,
       width: 30
     },
-    screenshot: true
+    variants
   },
   "large with brand button": {
     context: {
@@ -101,7 +125,8 @@ const fixtures = {
       },
       name: "example",
       width: 10
-    }
+    },
+    variants
   },
   "with hint": {
     context: {
@@ -117,7 +142,7 @@ const fixtures = {
       name: "example",
       width: 20
     },
-    screenshot: true
+    variants
   },
   "with hint and value": {
     context: {
@@ -133,7 +158,7 @@ const fixtures = {
       value: "999 123 4567",
       width: 20
     },
-    screenshot: true
+    variants
   },
   "with error message": {
     context: {
@@ -148,7 +173,8 @@ const fixtures = {
       name: "example",
       value: "999 123 4567",
       width: 20
-    }
+    },
+    variants
   },
   "with error message and hint": {
     context: {
@@ -167,7 +193,7 @@ const fixtures = {
       value: "999 123 4567",
       width: 20
     },
-    screenshot: true
+    variants
   },
   "with prefix": {
     context: {
@@ -221,7 +247,8 @@ const fixtures = {
       },
       name: "example",
       width: 20
-    }
+    },
+    variants
   },
   "with brand button": {
     context: {
@@ -280,8 +307,7 @@ const fixtures = {
       },
       name: "example",
       width: 20
-    },
-    screenshot: true
+    }
   },
   "with secondary button text": {
     context: {
@@ -324,7 +350,8 @@ const fixtures = {
       button: false,
       name: "example",
       width: 20
-    }
+    },
+    variants
   },
   "without page heading": {
     context: {
@@ -333,7 +360,8 @@ const fixtures = {
       },
       name: "example",
       width: 20
-    }
+    },
+    variants
   }
 }
 

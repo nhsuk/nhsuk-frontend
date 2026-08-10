@@ -24,6 +24,11 @@
     }
   }
 
+  .nhsuk-error-summary--reverse {
+    border-color: $nhsuk-reverse-error-colour;
+    color: $nhsuk-reverse-text-colour;
+  }
+
   .nhsuk-error-summary__title {
     margin-top: 0;
 
@@ -58,5 +63,10 @@
   .nhsuk-error-summary__list a {
     @include nhsuk-font-weight-bold;
     @include nhsuk-link-style-error;
+  }
+
+  .nhsuk-error-summary--reverse .nhsuk-error-summary__list a {
+    // Override default link styling to use reverse error colour
+    @include nhsuk-link-style-text($override-colour: $nhsuk-reverse-error-colour);
   }
 }

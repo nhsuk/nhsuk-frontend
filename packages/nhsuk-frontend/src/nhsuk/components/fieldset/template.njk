@@ -1,6 +1,9 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/components/legend/macro.njk" import legend %}
 
+{#- Set variant for this component #}
+{%- set variant = params.variant -%}
+
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-fieldset" -%}
 
@@ -26,7 +29,14 @@
   }) -}}
 
   {{- nhsukAttributes(params.attributes) }}>
-  {{ legend(params.legend) | trim | indent(2) }}
+  {{ legend({
+    html: params.legend.html,
+    text: params.legend.text,
+    size: params.legend.size,
+    isPageHeading: params.legend.isPageHeading,
+    classes: params.legend.classes,
+    variant: params.legend.variant | default(variant)
+  }) | trim | indent(2) }}
 {% if caller %}
   {{- caller() }}
 {% elif params.html %}

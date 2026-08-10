@@ -10,8 +10,6 @@
 @forward "../button";
 
 @include nhsuk-exports("nhsuk/components/file-upload") {
-  $_button-border-colour: nhsuk-colour("grey-2");
-
   .nhsuk-file-upload__input {
     max-width: 100%;
     margin-left: nhsuk-spacing(-1);
@@ -56,7 +54,6 @@
     display: block;
     position: relative;
     z-index: 0;
-    background-color: $nhsuk-body-background-colour;
   }
 
   // required because disabling pointer events
@@ -92,24 +89,37 @@
     padding: nhsuk-spacing(3);
 
     color: $nhsuk-reverse-text-colour;
-    background-color: nhsuk-colour("grey-1");
+    background-color: $nhsuk-secondary-text-colour;
 
     text-align: left;
+
+    .nhsuk-file-upload--reverse & {
+      color: $nhsuk-text-colour;
+      background-color: $nhsuk-reverse-secondary-text-colour;
+    }
+
+    .nhsuk-file-upload__drop-button--empty & {
+      color: $nhsuk-text-colour;
+      background-color: color.scale($nhsuk-border-colour, $alpha: -50%);
+    }
+
+    .nhsuk-file-upload--reverse .nhsuk-file-upload__drop-button--empty & {
+      color: $nhsuk-reverse-text-colour;
+      background-color: color.scale($nhsuk-reverse-border-colour, $alpha: -50%);
+    }
+
+    .nhsuk-file-upload__drop-button--empty &,
+    .nhsuk-file-upload--reverse .nhsuk-file-upload__drop-button--empty & {
+      @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+        color: CanvasText;
+        background-color: HighlightText;
+      }
+    }
 
     @media screen and (forced-colors: active), (-ms-high-contrast: active) {
       color: HighlightText;
       background-color: Highlight;
       forced-color-adjust: none;
-    }
-
-    .nhsuk-file-upload__drop-button--empty & {
-      color: $nhsuk-text-colour;
-      background-color: color.scale(nhsuk-colour("grey-4"), $alpha: -50%);
-
-      @media screen and (forced-colors: active), (-ms-high-contrast: active) {
-        color: CanvasText;
-        background-color: HighlightText;
-      }
     }
   }
 
@@ -127,12 +137,20 @@
     // align the padding to be same as notification banner and error summary accounting for the thicker borders
     padding: (nhsuk-spacing(3) + $nhsuk-border-width - $nhsuk-border-width-form-element);
 
-    border: $nhsuk-border-width-form-element solid $_button-border-colour;
+    border: $nhsuk-border-width-form-element solid nhsuk-shade($nhsuk-hover-colour, 30%);
 
     color: $nhsuk-text-colour;
-    background-color: nhsuk-colour("white");
+    background-color: transparent;
 
     cursor: pointer;
+
+    .nhsuk-file-upload--reverse & {
+      color: $nhsuk-reverse-text-colour;
+    }
+
+    .nhsuk-file-upload--reverse &:not(:focus) {
+      border-color: nhsuk-tint($nhsuk-reverse-hover-colour, 30%);
+    }
 
     @media screen and (forced-colors: active), (-ms-high-contrast: active) {
       color: CanvasText;
@@ -146,10 +164,18 @@
 
   .nhsuk-file-upload__drop-button:not(:disabled) {
     &:hover {
-      background-color: nhsuk-colour("white");
+      background-color: $nhsuk-input-background-colour;
+
+      .nhsuk-file-upload--reverse & {
+        background-color: $nhsuk-reverse-input-background-colour;
+      }
 
       .nhsuk-button {
         background-color: $nhsuk-button-hover-colour;
+      }
+
+      .nhsuk-button--reverse {
+        background-color: $nhsuk-reverse-button-hover-colour;
       }
 
       .nhsuk-button--secondary,
@@ -169,7 +195,7 @@
       outline: $nhsuk-focus-width solid $nhsuk-focus-colour;
       // Ensure outline appears outside of the element
       outline-offset: 0;
-      box-shadow: inset 0 0 0 $nhsuk-border-width-form-element;
+      box-shadow: inset 0 0 0 $nhsuk-border-width-form-element $nhsuk-focus-text-colour;
 
       // Remove the pseudo element shadow when parent button focused or pressed
       .nhsuk-file-upload__choose-files-button::after {
@@ -189,6 +215,10 @@
 
       .nhsuk-button {
         background-color: $nhsuk-button-active-colour;
+      }
+
+      .nhsuk-button--reverse {
+        background-color: $nhsuk-reverse-button-active-colour;
       }
 
       .nhsuk-button--secondary,
@@ -211,19 +241,26 @@
 
   .nhsuk-file-upload__drop-button--empty {
     border-style: dashed;
-    background-color: $nhsuk-body-background-colour;
   }
 
   .nhsuk-file-upload__drop-button--empty:not(:disabled) {
     &:hover,
     &:focus,
     &:active {
-      background-color: nhsuk-colour("white");
+      background-color: $nhsuk-input-background-colour;
+
+      .nhsuk-file-upload--reverse & {
+        background-color: $nhsuk-reverse-input-background-colour;
+      }
     }
 
     &:hover {
       .nhsuk-button {
         background-color: $nhsuk-button-hover-colour;
+      }
+
+      .nhsuk-button--reverse {
+        background-color: $nhsuk-reverse-button-hover-colour;
       }
 
       .nhsuk-button--secondary,
@@ -244,6 +281,10 @@
 
       .nhsuk-button {
         background-color: $nhsuk-button-active-colour;
+      }
+
+      .nhsuk-button--reverse {
+        background-color: $nhsuk-reverse-button-active-colour;
       }
 
       .nhsuk-button--secondary,
@@ -276,7 +317,11 @@
 
   .nhsuk-file-upload__drop-button--dragging {
     border-style: solid;
-    background-color: nhsuk-colour("white");
+    background-color: $nhsuk-input-background-colour;
+
+    .nhsuk-file-upload--reverse & {
+      background-color: $nhsuk-reverse-input-background-colour;
+    }
   }
 
   .nhsuk-file-upload__drop-button:disabled {

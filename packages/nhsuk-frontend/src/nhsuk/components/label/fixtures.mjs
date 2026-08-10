@@ -1,4 +1,24 @@
 /**
+ * Nunjucks macro option variants
+ *
+ * @satisfies {MacroExample[]}
+ */
+export const variants = [
+  {
+    // Regular variant
+  },
+  {
+    description: "reverse",
+    context: {
+      variant: "reverse"
+    },
+    options: {
+      layout: "background-blue"
+    }
+  }
+]
+
+/**
  * Nunjucks macro option examples
  *
  * @satisfies {{ [example: string]: MacroExample }}
@@ -10,6 +30,7 @@ const fixtures = {
       size: "l",
       isPageHeading: true
     },
+    variants,
     screenshot: {
       viewports: ["mobile", "tablet", "desktop"]
     }
@@ -82,7 +103,8 @@ const fixtures = {
   "without page heading": {
     context: {
       text: "What is your full name?"
-    }
+    },
+    variants
   }
 }
 
