@@ -433,4 +433,37 @@
       border-color: transparent;
     }
   }
+
+  .nhsuk-card__content .nhsuk-scroll__content {
+    .nhsuk-table {
+      width: 100%;
+      margin-right: 0;
+      margin-left: 0;
+    }
+
+    // Adjust caption for card padding
+    .nhsuk-table__caption {
+      left: 0;
+      @include nhsuk-responsive-padding(5, ("left", "right"));
+    }
+
+    // Extend table row borders from card left
+    .nhsuk-table__header:first-child,
+    .nhsuk-table__cell:first-child {
+      @include nhsuk-responsive-padding(5, "left");
+    }
+
+    // Extend table row borders from card right
+    .nhsuk-table__header:last-child,
+    .nhsuk-table__cell:last-child {
+      @include nhsuk-responsive-padding(5, "right");
+    }
+
+    .nhsuk-table--responsive .nhsuk-table__header,
+    .nhsuk-table--responsive .nhsuk-table__cell {
+      @media #{nhsuk-until-breakpoint(desktop)} {
+        @include nhsuk-responsive-padding(5, ("left", "right"));
+      }
+    }
+  }
 }
