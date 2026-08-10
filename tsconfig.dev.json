@@ -3,6 +3,7 @@
   "compilerOptions": {
     "strict": false,
     "types": [
+      "@nhsuk/frontend-helpers/jest/environment/jsdom",
       "@testing-library/jest-dom",
       "jest",
       "jest-axe",

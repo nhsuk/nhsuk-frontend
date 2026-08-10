@@ -109,7 +109,7 @@ describe('Password input', () => {
       document.body.classList.remove('nhsuk-frontend-supported')
 
       expect(() => new PasswordInput($root)).toThrow(
-        'NHS.UK frontend is not supported in this browser'
+        'NHS.UK frontend initialised without `<body class="nhsuk-frontend-supported">` from template `<script>` snippet'
       )
     })
 
@@ -292,11 +292,10 @@ describe('Password input', () => {
         expect($button).toHaveAccessibleName('Hide password')
 
         // Trigger back/forward navigation
-        window.dispatchEvent(
-          new PageTransitionEvent('pageshow', {
-            persisted: true
-          })
-        )
+        // https://github.com/capricorn86/happy-dom/issues/1848
+        const pageshowEvent = new Event('pageshow')
+        Object.defineProperty(pageshowEvent, 'persisted', { value: true })
+        window.dispatchEvent(pageshowEvent)
 
         expect($input).toHaveProperty('type', 'password')
         expect($button).toHaveAccessibleName('Show password')

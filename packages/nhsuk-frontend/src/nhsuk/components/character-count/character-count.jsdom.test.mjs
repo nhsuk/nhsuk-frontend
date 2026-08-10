@@ -116,7 +116,7 @@ describe('Character count', () => {
       document.body.classList.remove('nhsuk-frontend-supported')
 
       expect(() => new CharacterCount($root)).toThrow(
-        'NHS.UK frontend is not supported in this browser'
+        'NHS.UK frontend initialised without `<body class="nhsuk-frontend-supported">` from template `<script>` snippet'
       )
     })
 
@@ -412,11 +412,10 @@ describe('Character count', () => {
         await user.keyboard('Newly updated value')
 
         // Trigger back/forward navigation
-        window.dispatchEvent(
-          new PageTransitionEvent('pageshow', {
-            persisted: true
-          })
-        )
+        // https://github.com/capricorn86/happy-dom/issues/1848
+        const pageshowEvent = new Event('pageshow')
+        Object.defineProperty(pageshowEvent, 'persisted', { value: true })
+        window.dispatchEvent(pageshowEvent)
 
         expect(component.getCountMessage()).toBe(
           'You have 81 characters remaining'
@@ -432,11 +431,10 @@ describe('Character count', () => {
         await user.keyboard('Newly updated value')
 
         // Trigger back/forward navigation
-        window.dispatchEvent(
-          new PageTransitionEvent('pageshow', {
-            persisted: true
-          })
-        )
+        // https://github.com/capricorn86/happy-dom/issues/1848
+        const pageshowEvent = new Event('pageshow')
+        Object.defineProperty(pageshowEvent, 'persisted', { value: true })
+        window.dispatchEvent(pageshowEvent)
 
         expect(component.getCountMessage()).toBe('You have 97 words remaining')
       })
@@ -485,6 +483,11 @@ describe('Character count', () => {
     })
 
     describe('with HTML lang attribute', () => {
+      afterEach(() => {
+        document.body.removeAttribute('lang')
+        $root.removeAttribute('lang')
+      })
+
       it('overrides the locale when set on the element', () => {
         $root.setAttribute('lang', 'de')
 
@@ -570,15 +573,12 @@ describe('Character count: Format count message', () => {
   beforeEach(() => {
     const example = examples['to configure in JavaScript']
 
-    // Some tests add attributes to `document.body` so we need to reset it
-    // alongside both character count renders (for maxlength and maxwords)
-    document.body.outerHTML = outdent`
-      <body class="nhsuk-frontend-supported">
-        ${components.render('character-count', example)}
-        ${components.render('character-count', example)}
-        ${components.render('character-count', example)}
-        ${components.render('character-count', example)}
-      </body>
+    document.body.classList.add('nhsuk-frontend-supported')
+    document.body.innerHTML = outdent`
+      ${components.render('character-count', example)}
+      ${components.render('character-count', example)}
+      ${components.render('character-count', example)}
+      ${components.render('character-count', example)}
     `
 
     const $roots = document.querySelectorAll(
