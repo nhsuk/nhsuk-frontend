@@ -10,7 +10,7 @@
 /// @group components/scroll
 ////
 
-$nhsuk-scroll-shadow-width: nhsuk-spacing(6);
+$nhsuk-scroll-shadow-width: nhsuk-spacing(4);
 $nhsuk-scroll-bar-height: nhsuk-spacing(4);
 
 @include nhsuk-exports("nhsuk/components/scroll") {
