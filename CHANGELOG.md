@@ -359,12 +359,6 @@ Read more about [how we provide support for different browsers](/docs/contributi
 
 This was added in [pull request #1972: Add Sass mixins and utility classes for NHS.UK frontend browser support](https://github.com/nhsuk/nhsuk-frontend/pull/1972).
 
-#### Extend global inline code styles
-
-Inline `<code>` elements are now also styled within definition lists and table headers.
-
-This was added in [pull request #1984: Extend global inline code styles](https://github.com/nhsuk/nhsuk-frontend/pull/1984).
-
 #### Review Nunjucks macro `html` and `call` usage
 
 For consistency with other components, the following Nunjucks macro changes have been included:
@@ -663,6 +657,7 @@ This change was introduced in [pull request #2002: Add image component `backgrou
 ### :wrench: **Fixes**
 
 - [#1942: Update `nhsuk-spacing()` to add missing `$adjustment` and `$important` params](https://github.com/nhsuk/nhsuk-frontend/pull/1942)
+- [#1984: Extend global inline code styles](https://github.com/nhsuk/nhsuk-frontend/pull/1984)
 - [#1986: Update `nhsuk-font-monospace` font size to better match body text](https://github.com/nhsuk/nhsuk-frontend/pull/1986/changes)
 - [#1987: Add `nhsuk-u-display-none` override classes for breakpoints](https://github.com/nhsuk/nhsuk-frontend/pull/1987)
 - [#1996: Update hover colour for task list and pagination](https://github.com/nhsuk/nhsuk-frontend/pull/1996)
