@@ -8,6 +8,11 @@
   {% set classNames = classNames ~ " " ~ params.classes %}
 {% endif -%}
 
+{%- set headingOptions = params.heading if params.heading is mapping and params.heading is not escaped else {
+  text: params.heading if params.heading is string else params.titleText,
+  html: params.heading if params.heading is escaped else params.titleHtml
+} -%}
+
 <div
   {{- nhsukAttributes({
     class: classNames,
@@ -29,10 +34,12 @@
   the focusing js at the alert, resulting in information getting missed in screen reader announcements #}
   <div role="alert">
     {{ heading({
-      text: params.titleText,
-      html: params.titleHtml,
-      level: 2,
-      className: "nhsuk-error-summary__title"
+      id: headingOptions.id,
+      text: headingOptions.text,
+      html: headingOptions.html,
+      level: headingOptions.level | default(2),
+      className: "nhsuk-error-summary__title",
+      attributes: headingOptions.attributes
     }) | trim | indent(4) }}
     <div class="nhsuk-error-summary__body">
     {% if caller or params.descriptionHtml or params.descriptionText %}

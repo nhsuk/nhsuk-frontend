@@ -12,19 +12,28 @@ const options = {
     description: 'The ID of the error summary.',
     released: '10.0.0'
   },
+  heading: {
+    type: 'object',
+    required: true,
+    description: 'Heading of the error summary component.',
+    released: '10.6.0',
+    isComponent: true
+  },
   titleText: {
     type: 'string',
     required: true,
     description:
-      'If `titleHtml` is set, this is not required. Text to use for the heading of the error summary block. If `titleHtml` is provided, `titleText` will be ignored.',
-    released: '1.0.0'
+      'If `titleHtml` is set, this is not required. Text to use for the heading of the error summary component. If `titleHtml` is provided, `titleText` will be ignored. Replaced by the `heading.text` option.',
+    released: '1.0.0',
+    deprecated: '10.6.0'
   },
   titleHtml: {
     type: 'string',
     required: true,
     description:
-      'If `titleText` is set, this is not required. HTML to use for the heading of the error summary block. If `titleHtml` is provided, `titleText` will be ignored.',
-    released: '1.0.0'
+      'If `titleText` is set, this is not required. HTML to use for the heading of the error summary component. If `titleHtml` is provided, `titleText` will be ignored. Replaced by the `heading.html` option.',
+    released: '1.0.0',
+    deprecated: '10.6.0'
   },
   descriptionText: {
     type: 'string',
