@@ -35,8 +35,10 @@
             href: "#",
             primary: "true",
             clickable: "true",
-            heading: "Introduction to care and support",
-            headingClasses: "nhsuk-heading-m",
+            heading: {
+              text: "Introduction to care and support",
+              size: "m"
+            },
             description: "A quick guide for people who have care and support needs and their carers"
           }) }}
         </li>
@@ -45,8 +47,10 @@
             href: "#",
             primary: "true",
             clickable: "true",
-            heading: "Help from social services and charities",
-            headingClasses: "nhsuk-heading-m",
+            heading: {
+              text: "Help from social services and charities",
+              size: "m"
+            },
             description: "Includes helplines, needs assessments, advocacy and reporting abuse."
           }) }}
         </li>
@@ -55,8 +59,10 @@
             href: "#",
             primary: "true",
             clickable: "true",
-            heading: "Care services, equipment and care homes",
-            headingClasses: "nhsuk-heading-m",
+            heading: {
+              text: "Care services, equipment and care homes",
+              size: "m"
+            },
             description: "Includes home adaptations, help at home from a carer, social care you can get for free and housing."
           }) }}
         </li>
@@ -65,8 +71,10 @@
             href: "#",
             primary: "true",
             clickable: "true",
-            heading: "Money, work and benefits",
-            headingClasses: "nhsuk-heading-m",
+            heading: {
+              text: "Money, work and benefits",
+              size: "m"
+            },
             description: "How to pay for care and support, and where you can get help with costs"
           }) }}
         </li>
@@ -79,8 +87,10 @@
           {{ card({
             href: "#",
             clickable: "true",
-            heading: "5 steps to mental wellbeing",
-            headingClasses: "nhsuk-heading-m",
+            heading: {
+              text: "5 steps to mental wellbeing",
+              size: "m"
+            },
             description: "Practical advice to help you feel mentally and emotionally better"
           }) }}
         </li>
@@ -88,8 +98,11 @@
           {{ card({
             href: "#",
             clickable: "true",
-            heading: "Healthy weight",
-            headingClasses: "nhsuk-heading-m",
+            size: "m",
+            heading: {
+              text: "Healthy weight",
+              size: "m"
+            },
             description: "Check your BMI using our healthy weight calculator and find out if you're a healthy weight"
           }) }}
         </li>
@@ -97,8 +110,10 @@
           {{ card({
             href: "#",
             clickable: "true",
-            heading: "Exercise",
-            headingClasses: "nhsuk-heading-m",
+            heading: {
+              text: "Exercise",
+              size: "m"
+            },
             description: "Programmes, workouts and tips to get you moving and improve your fitness and wellbeing"
           }) }}
         </li>
@@ -110,25 +125,33 @@
         <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
           {{ card({
             clickable: "true",
-            headingHtml: '<p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">91 <span class="nhsuk-u-visually-hidden">Applicants</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Applicants</a>'
+            heading: {
+              html: '<p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">91 <span class="nhsuk-u-visually-hidden">Applicants</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Applicants</a>'
+            }
           }) }}
         </li>
         <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
           {{ card({
             clickable: "true",
-            headingHtml: '<p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">23 <span class="nhsuk-u-visually-hidden">Jobs</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Jobs</a>'
+            heading: {
+              html: '<p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">23 <span class="nhsuk-u-visually-hidden">Jobs</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Jobs</a>'
+            }
           }) }}
         </li>
         <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
           {{ card({
             clickable: "true",
-            headingHtml: '<p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">8 <span class="nhsuk-u-visually-hidden">Services</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Services</a>'
+            heading: {
+              html: '<p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">8 <span class="nhsuk-u-visually-hidden">Services</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Services</a>'
+            }
           }) }}
         </li>
         <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
           {{ card({
             clickable: "true",
-            headingHtml: '<p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">33 <span class="nhsuk-u-visually-hidden">Messages</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Messages</a>'
+            heading: {
+              html: '<p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">33 <span class="nhsuk-u-visually-hidden">Messages</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Messages</a>'
+            }
           }) }}
         </li>
       </ul>

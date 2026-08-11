@@ -24,8 +24,10 @@
       <h1 class="nhsuk-heading-xl">{{ pageName }}</h1>
 
       {{ card({
-        heading: "Blood glucose",
-        headingLevel: "3",
+        heading: {
+          text: "Blood glucose",
+          level: 3
+        },
         description: "Testing your blood at home is quick and easy."
       }) }}
 

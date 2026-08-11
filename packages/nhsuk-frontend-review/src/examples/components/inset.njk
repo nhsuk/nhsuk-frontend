@@ -167,8 +167,10 @@
       {{ card({
         href: "#",
         clickable: "true",
-        heading: "5 steps to mental wellbeing",
-        headingClasses: "nhsuk-heading-m",
+        heading: {
+          text: "5 steps to mental wellbeing",
+          size: "m"
+        },
         description: "Practical advice to help you feel mentally and emotionally better."
       }) }}
     </li>
@@ -176,8 +178,10 @@
       {{ card({
         href: "#",
         clickable: "true",
-        heading: "Healthy weight",
-        headingClasses: "nhsuk-heading-m",
+        heading: {
+          text: "Healthy weight",
+          size: "m"
+        },
         description: "Check your BMI using our healthy weight calculator and find out if you're a healthy weight."
       }) }}
     </li>
@@ -185,8 +189,10 @@
       {{ card({
         href: "#",
         clickable: "true",
-        heading: "Exercise",
-        headingClasses: "nhsuk-heading-m",
+        heading: {
+          text: "Exercise",
+          size: "m"
+        },
         description: "Programmes, workouts and tips to get you moving and improve your fitness and wellbeing."
       }) }}
     </li>
@@ -196,25 +202,33 @@
     <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
       {{ card({
         clickable: "true",
-        headingHtml: '<p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">91 <span class="nhsuk-u-visually-hidden">Applicants</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Applicants</a>'
+        heading: {
+          html: '<p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">91 <span class="nhsuk-u-visually-hidden">Applicants</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Applicants</a>'
+        }
       }) }}
     </li>
     <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
       {{ card({
         clickable: "true",
-        headingHtml: '<p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">23 <span class="nhsuk-u-visually-hidden">Jobs</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Jobs</a>'
+        heading: {
+          html: '<p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">23 <span class="nhsuk-u-visually-hidden">Jobs</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Jobs</a>'
+        }
       }) }}
     </li>
     <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
       {{ card({
         clickable: "true",
-        headingHtml: '<p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">8 <span class="nhsuk-u-visually-hidden">Services</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Services</a>'
+        heading: {
+          html: '<p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">8 <span class="nhsuk-u-visually-hidden">Services</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Services</a>'
+        }
       }) }}
     </li>
     <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
       {{ card({
         clickable: "true",
-        headingHtml: '<p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">33 <span class="nhsuk-u-visually-hidden">Messages</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Messages</a>'
+        heading: {
+          html: '<p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">33 <span class="nhsuk-u-visually-hidden">Messages</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Messages</a>'
+        }
       }) }}
     </li>
   </ul>
@@ -222,8 +236,10 @@
     <div class="nhsuk-grid-column-two-thirds">
 
       {% call card({
-        heading: "If you need help now, but it's not an emergency",
-        headingLevel: "3"
+        heading: {
+          text: "If you need help now, but it's not an emergency",
+          level: 3
+        }
       }) %}
         <p class="nhsuk-card__description">Go to <a href="#">NHS 111 online</a> or <a href="#">call 111</a>.</p>
       {% endcall %}
@@ -231,8 +247,10 @@
       {{ card({
         href: "#",
         clickable: "true",
-        heading: "Introduction to care and support",
-        headingClasses: "nhsuk-heading-m",
+        heading: {
+          text: "Introduction to care and support",
+          size: "m"
+        },
         description: "A quick guide for people who have care and support needs and their carers."
       }) }}
 
@@ -242,21 +260,27 @@
         },
         href: "#",
         clickable: "true",
-        heading: "Exercise",
-        headingClasses: "nhsuk-heading-m",
+        heading: {
+          text: "Exercise",
+          size: "m"
+        },
         description: "Programmes, workouts and tips to get you moving and improve your fitness and wellbeing."
       }) }}
 
       {{ card({
         feature: "true",
-        heading: "Feature card heading",
-        headingClasses: "nhsuk-heading-m",
+        heading: {
+          text: "Feature card heading",
+          size: "m"
+        },
         description: "Feature card description"
       }) }}
 
       {% call card({
-        heading: "Speak to a GP if:",
-        headingLevel: 3,
+        heading: {
+          text: "Speak to a GP if:",
+          level: 3
+        },
         variant: "non-urgent"
       }) %}
         <ul>
@@ -269,8 +293,10 @@
       {% endcall %}
 
       {% call card({
-        heading: "Ask for an urgent GP appointment if:",
-        headingLevel: 3,
+        heading: {
+          text: "Ask for an urgent GP appointment if:",
+          level: 3
+        },
         variant: "urgent"
       }) %}
         <ul>
@@ -283,8 +309,10 @@
       {% endcall %}
 
       {% call card({
-        heading: "Call 999 if you have sudden chest pain that:",
-        headingLevel: 3,
+        heading: {
+          text: "Call 999 if you have sudden chest pain that:",
+          level: 3
+        },
         variant: "emergency"
       }) %}
         <ul>
@@ -332,8 +360,10 @@
 
       {{ table({
         card: {
-          heading: "Other conditions like impetigo",
-          headingSize: "m",
+          heading: {
+            text: "Other conditions like impetigo",
+            size: "m"
+          },
           variant: "feature"
         },
         caption: "Impetigo can look similar to other skin conditions",
@@ -377,7 +407,9 @@
       }) }}
 
       {{ warningCallout({
-        heading: "School, nursery or work",
+        heading: {
+          text: "School, nursery or work"
+        },
         text: "Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared."
       }) }}
 
