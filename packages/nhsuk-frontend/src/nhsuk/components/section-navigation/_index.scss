@@ -1,0 +1,406 @@
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+@use "../../core/helpers" as *;
+
+////
+/// Section navigation component
+///
+/// A horizontal tab-style navigation bar for navigating between sections.
+/// Stacks vertically on mobile, renders as a horizontal list on tablet and above.
+///
+/// @group components/section-navigation
+////
+
+@include nhsuk-exports("nhsuk/components/section-navigation") {
+  // Shared values for active and focus indicators
+  $active-indicator-bottom: inset 0 ($nhsuk-border-width * -1) nhsuk-colour("blue");
+  $focus-indicator: inset 0 ($nhsuk-focus-width * -1) $nhsuk-focus-text-colour;
+  $reverse-active-indicator-bottom: inset 0 ($nhsuk-border-width * -1) $nhsuk-reverse-text-colour;
+  $reverse-badge-background: rgba(nhsuk-shade(nhsuk-colour("blue"), 50%), 0.4);
+
+  .nhsuk-section-navigation {
+    // Bleed to full width on mobile by negating the page gutter
+    margin-right: #{$nhsuk-gutter-half * -1};
+    margin-left: #{$nhsuk-gutter-half * -1};
+
+    @include nhsuk-responsive-margin(5, "bottom");
+
+    @include nhsuk-media-query($from: tablet) {
+      margin-right: auto;
+      margin-left: auto;
+    }
+  }
+
+  .nhsuk-section-navigation__list {
+    display: flex;
+
+    flex-flow: column;
+
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+
+    @include nhsuk-font(19);
+
+    // Reduced gap on tablet
+    @include nhsuk-media-query($from: tablet) {
+      // Use box-shadow rather than a border so that the current item's active
+      // indicator (also a box-shadow) renders on top of this line.
+      flex-flow: row wrap;
+      box-shadow: inset 0 -1px 0 $nhsuk-border-colour;
+      gap: nhsuk-spacing(2) nhsuk-spacing(3); // to match header at tablet
+    }
+
+    // Larger gap on desktop
+    @include nhsuk-media-query($from: desktop) {
+      gap: nhsuk-spacing(2) nhsuk-spacing(5);
+    }
+  }
+
+  .nhsuk-section-navigation__item {
+    display: flex;
+    align-items: stretch;
+    margin-bottom: 0;
+    padding-inline: $nhsuk-gutter-half;
+
+    @include nhsuk-media-query($from: tablet) {
+      padding-inline: 0;
+    }
+  }
+
+  // <strong> is used as a fallback to visually indicate the current page in
+  // environments where CSS is unavailable.
+  .nhsuk-section-navigation__current {
+    font-weight: inherit;
+  }
+
+  .nhsuk-section-navigation__link,
+  .nhsuk-section-navigation__text {
+    position: relative;
+    padding: nhsuk-spacing(2) 0;
+
+    @include nhsuk-media-query($from: tablet) {
+      padding: nhsuk-spacing(3) 2px;
+    }
+  }
+
+  .nhsuk-section-navigation__link {
+    @include nhsuk-link-style-default;
+    @include nhsuk-link-style-no-visited-state;
+
+    // Active indicator: left pseudo-element on mobile/stacked, bottom inset border
+    // on tablet+. Text colour is explicitly set to prevent link visited/hover
+    // styles overriding it.
+    &[aria-current] {
+      color: $nhsuk-text-colour;
+
+      // Stacked layout: absolutely-positioned pseudo-element sits in the item's
+      // gutter, outdented from the link text.
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: -$nhsuk-gutter-half;
+        width: 0;
+        border-left: $nhsuk-border-width solid nhsuk-colour("blue");
+      }
+
+      @include nhsuk-media-query($from: tablet) {
+        box-shadow: $active-indicator-bottom;
+
+        &::before {
+          content: none;
+        }
+      }
+    }
+
+    // nhsuk-link-style-default focus uses an outset box-shadow which bleeds
+    // outside the element. Replace it with an inset bottom indicator at all
+    // breakpoints so the focus state is contained within the link's own box.
+    &:focus {
+      box-shadow: $focus-indicator;
+    }
+
+    // When focused, the ::before indicator stays its natural colour — it sits in
+    // the gutter outside the link's box and is never against the yellow focus background.
+    &[aria-current]:focus {
+      @include nhsuk-media-query($from: tablet) {
+        box-shadow: $focus-indicator;
+      }
+    }
+  }
+
+  // Suffix – generic wrapper for content appended after a nav item's label
+  // (for example, a badge). Provides left margin and a visually-hidden word
+  // separator so screen readers don't run the item text into the suffix content.
+  .nhsuk-section-navigation__suffix {
+    position: relative;
+    margin-left: nhsuk-spacing(2);
+
+    &::before {
+      // Non-breaking space
+      content: "\00a0";
+
+      @include nhsuk-visually-hidden;
+    }
+  }
+
+  // Non-link (span) current item: same active indicator as the link variant.
+  .nhsuk-section-navigation__text[aria-current] {
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: -$nhsuk-gutter-half;
+      width: 0;
+      border-left: $nhsuk-border-width solid nhsuk-colour("blue");
+    }
+
+    @include nhsuk-media-query($from: tablet) {
+      box-shadow: $active-indicator-bottom;
+
+      &::before {
+        content: none;
+      }
+    }
+  }
+
+  // When the link is focused the item has a yellow background;
+  // show the badge as an outlined pill with black text so it remains visually distinct.
+  .nhsuk-section-navigation__link:focus .nhsuk-badge {
+    color: $nhsuk-focus-text-colour;
+    background-color: transparent;
+    box-shadow: inset 0 0 0 1px currentcolor;
+  }
+
+  // Vertical variant: forces the list to remain stacked at all breakpoints.
+  // Overrides the tablet/desktop flex-flow and gap, and keeps the active/focus
+  // indicator as a left pseudo-element (same as the default mobile behaviour).
+  // Also reinstates the full-width bleed so text stays on the page grid, matching mobile.
+  .nhsuk-section-navigation--vertical {
+    @include nhsuk-media-query($from: tablet) {
+      margin-right: #{$nhsuk-gutter-half * -1};
+      margin-left: #{$nhsuk-gutter-half * -1};
+    }
+
+    .nhsuk-section-navigation__list {
+      @include nhsuk-media-query($from: tablet) {
+        flex-flow: column;
+        gap: 0;
+        box-shadow: none;
+      }
+    }
+
+    .nhsuk-section-navigation__item {
+      @include nhsuk-media-query($from: tablet) {
+        padding-inline: $nhsuk-gutter-half;
+      }
+    }
+
+    // Active indicator: override the base tablet rule (bottom inset border) back
+    // to the left pseudo-element for the vertical stacked layout.
+    .nhsuk-section-navigation__link[aria-current],
+    .nhsuk-section-navigation__text[aria-current] {
+      @include nhsuk-media-query($from: tablet) {
+        box-shadow: none;
+
+        &::before {
+          content: "";
+        }
+      }
+    }
+
+    .nhsuk-section-navigation__link[aria-current]:focus {
+      @include nhsuk-media-query($from: tablet) {
+        box-shadow: $focus-indicator;
+      }
+    }
+
+    .nhsuk-section-navigation__link,
+    .nhsuk-section-navigation__text {
+      @include nhsuk-media-query($from: tablet) {
+        padding: nhsuk-spacing(2) 0;
+      }
+    }
+  }
+
+  // Reverse variant: for use on coloured (typically NHS blue) backgrounds
+  .nhsuk-section-navigation--reverse {
+    color: $nhsuk-reverse-text-colour;
+
+    .nhsuk-section-navigation__list {
+      @include nhsuk-media-query($from: tablet) {
+        box-shadow: inset 0 -1px 0 rgba($nhsuk-reverse-text-colour, 0.4);
+      }
+    }
+
+    .nhsuk-section-navigation__text {
+      color: $nhsuk-reverse-text-colour;
+    }
+
+    .nhsuk-section-navigation__text[aria-current] {
+      &::before {
+        border-left-color: $nhsuk-reverse-text-colour;
+      }
+
+      @include nhsuk-media-query($from: tablet) {
+        box-shadow: $reverse-active-indicator-bottom;
+      }
+    }
+
+    .nhsuk-section-navigation__link {
+      @include nhsuk-link-style-reverse;
+
+      // nhsuk-link-style-white sets focus at higher specificity; override with
+      // an inset bottom indicator at all breakpoints to contain the focus state.
+      &:focus {
+        box-shadow: $focus-indicator;
+      }
+    }
+
+    .nhsuk-section-navigation__link[aria-current] {
+      color: $nhsuk-reverse-text-colour;
+
+      &::before {
+        border-left-color: $nhsuk-reverse-text-colour;
+      }
+
+      @include nhsuk-media-query($from: tablet) {
+        box-shadow: $reverse-active-indicator-bottom;
+      }
+    }
+
+    // When focused, explicitly set the focus text colour.
+    // The [aria-current] rule above has the same specificity as the :focus rule
+    // from nhsuk-link-style-reverse, so source order determines the winner —
+    // Safari follows spec and lets [aria-current] (later in source) override the
+    // focus colour back to white.
+    // The ::before indicator stays white — it is in the gutter outside the link
+    // and is not against the yellow focus background.
+    .nhsuk-section-navigation__link[aria-current]:focus {
+      color: $nhsuk-focus-text-colour;
+
+      @include nhsuk-media-query($from: tablet) {
+        box-shadow: $focus-indicator;
+      }
+    }
+
+    // Custom colours for badges on reverse
+    .nhsuk-badge {
+      color: nhsuk-colour("white");
+      background-color: $reverse-badge-background;
+    }
+  }
+
+  // Horizontal variant (JS-managed): added at mobile breakpoints when all items
+  // fit in a single row. Switches from the default stacked layout to a wrapping
+  // row — matching the tablet layout — without the full-width bleed.
+  .nhsuk-section-navigation--horizontal {
+    @include nhsuk-media-query($until: tablet) {
+      // Items fit side-by-side: remove the mobile bleed to match horizontal layout
+      margin-right: auto;
+      margin-left: auto;
+
+      .nhsuk-section-navigation__item {
+        padding-inline: 0;
+      }
+
+      .nhsuk-section-navigation__list {
+        flex-flow: row nowrap;
+        gap: nhsuk-spacing(2) nhsuk-spacing(3); // matches tablet gap
+        box-shadow: inset 0 -1px 0 $nhsuk-border-colour;
+      }
+
+      .nhsuk-section-navigation__link,
+      .nhsuk-section-navigation__text {
+        padding: nhsuk-spacing(3) 2px; // matches tablet padding
+        white-space: nowrap;
+      }
+
+      // Switch active indicator from left pseudo-element (stacked) to bottom inset border (horizontal)
+      .nhsuk-section-navigation__link[aria-current],
+      .nhsuk-section-navigation__text[aria-current] {
+        box-shadow: $active-indicator-bottom;
+
+        &::before {
+          content: none;
+        }
+      }
+
+      // No left indicator in horizontal mode; bottom focus indicator only
+      .nhsuk-section-navigation__link[aria-current]:focus {
+        box-shadow: $focus-indicator;
+      }
+    }
+  }
+
+  // Horizontal + reverse combination
+  .nhsuk-section-navigation--reverse.nhsuk-section-navigation--horizontal {
+    @include nhsuk-media-query($until: tablet) {
+      .nhsuk-section-navigation__list {
+        box-shadow: inset 0 -1px 0 rgba($nhsuk-reverse-text-colour, 0.4);
+      }
+
+      .nhsuk-section-navigation__link[aria-current],
+      .nhsuk-section-navigation__text[aria-current] {
+        box-shadow: $reverse-active-indicator-bottom;
+
+        &::before {
+          content: none;
+        }
+      }
+
+      .nhsuk-section-navigation__link[aria-current]:focus {
+        box-shadow: $focus-indicator;
+      }
+    }
+  }
+
+  // Small variant: fixed 16px font at all breakpoints; mobile-style padding at tablet+.
+  // At tablet and above the font is held at the mobile (16px) size from nhsuk-font(19),
+  // and vertical padding matches the mobile default.
+  .nhsuk-section-navigation--small {
+    .nhsuk-section-navigation__list {
+      // Override the tablet step-up in nhsuk-font(19) (null: 16px → tablet: 19px).
+      // Keep the font at 16px/24px at all breakpoints.
+      @include nhsuk-media-query($from: tablet) {
+        font-size: nhsuk-px-to-rem(16px);
+        line-height: nhsuk-line-height(24px, $font-size: 16px);
+        gap: nhsuk-spacing(2) nhsuk-spacing(3); // tighter column gap than default 16px
+      }
+
+      @include nhsuk-media-query($from: desktop) {
+        gap: nhsuk-spacing(2) nhsuk-spacing(4); // tighter than default nhsuk-spacing(5)
+      }
+    }
+
+    .nhsuk-section-navigation__link,
+    .nhsuk-section-navigation__text {
+      // Reduce vertical padding to match mobile at all breakpoints
+      @include nhsuk-media-query($from: tablet) {
+        padding: nhsuk-spacing(2) 2px;
+      }
+    }
+  }
+
+  // Vertical + small: remove horizontal padding to match the vertical layout
+  // at all breakpoints. Item gutter padding is inherited from --vertical.
+  .nhsuk-section-navigation--small.nhsuk-section-navigation--vertical {
+    .nhsuk-section-navigation__list {
+      @include nhsuk-media-query($from: tablet) {
+        gap: 0; // reset the horizontal-layout gap set by --small
+      }
+    }
+
+    .nhsuk-section-navigation__link,
+    .nhsuk-section-navigation__text {
+      @include nhsuk-media-query($from: tablet) {
+        padding: nhsuk-spacing(2) 0;
+      }
+    }
+  }
+}

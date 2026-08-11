@@ -1,0 +1,384 @@
+{% extends "layouts/page.njk" %}
+
+{% set pageName = "Section navigation" %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block beforeContent %}
+  {{ breadcrumb({
+    items: [
+      {
+        text: "NHS.UK frontend",
+        href: baseUrl
+      },
+      {
+        text: "Examples",
+        href: baseUrl ~ "#examples"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl">{{ pageName }}</h1>
+    </div>
+  </div>
+
+  {# ================================================ #}
+  {# Default #}
+  {# ================================================ #}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+      <h2 class="nhsuk-heading-m">Default</h2>
+
+      {{ sectionNavigation({
+        items: [
+          {
+            href: "#",
+            text: "All clinics"
+          },
+          {
+            text: "Today",
+            current: true
+          },
+          {
+            href: "#",
+            text: "Upcoming"
+          },
+          {
+            href: "#",
+            text: "Completed"
+          }
+        ]
+      }) }}
+
+      <p class="nhsuk-body nhsuk-u-secondary-text-colour nhsuk-u-margin-bottom-6">
+        Content for the current "Today" section would appear here.
+      </p>
+    </div>
+  </div>
+
+  <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
+
+  {# ================================================ #}
+  {# With badges #}
+  {# ================================================ #}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+      <h2 class="nhsuk-heading-m">With badges</h2>
+      <p class="nhsuk-body">Use the <code>badge</code> option to show a badge alongside each item, for example the number of results in a filtered view.</p>
+
+      {{ sectionNavigation({
+        items: [
+          {
+            href: "#",
+            text: "All",
+            badge: {
+              text: "12",
+              visuallyHiddenText: "Count:"
+            }
+          },
+          {
+            text: "Today",
+            badge: {
+              text: "3",
+              visuallyHiddenText: "Count:"
+            },
+            current: true
+          },
+          {
+            href: "#",
+            text: "Upcoming",
+            badge: {
+              text: "9",
+              visuallyHiddenText: "Count:"
+            }
+          },
+          {
+            href: "#",
+            text: "Completed",
+            badge: {
+              text: "0",
+              visuallyHiddenText: "Count:"
+            }
+          }
+        ]
+      }) }}
+    </div>
+  </div>
+
+  <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
+
+  {# ================================================ #}
+  {# Many items (wrapping) #}
+  {# ================================================ #}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+      <h2 class="nhsuk-heading-m">Many items (wrapping)</h2>
+
+      {{ sectionNavigation({
+        items: [
+          { text: "Summary", current: true },
+          { href: "#", text: "Personal details" },
+          { text: "Medical history" },
+          { href: "#", text: "Vaccinations" },
+          { href: "#", text: "Consent" },
+          { href: "#", text: "Not responded" },
+          { href: "#", text: "Gillick" },
+          { href: "#", text: "Triage" }
+        ]
+      }) }}
+    </div>
+  </div>
+
+  <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
+
+  {# ================================================ #}
+  {# With custom aria-label #}
+  {# ================================================ #}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+      <h2 class="nhsuk-heading-m">With custom label</h2>
+      <p class="nhsuk-body">Use the <code>label</code> option to provide a meaningful accessible name when multiple navigation landmarks appear on the same page.</p>
+
+      {{ sectionNavigation({
+        label: "Patient record sections",
+        items: [
+          { text: "Overview", current: true },
+          { href: "#", text: "Vaccinations" },
+          { text: "Consent" },
+          { href: "#", text: "Documents" }
+        ]
+      }) }}
+    </div>
+  </div>
+
+  <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
+
+  {# ================================================ #}
+  {# With HTML content per item #}
+  {# ================================================ #}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+      <h2 class="nhsuk-heading-m">With HTML per item</h2>
+      <p class="nhsuk-body">Use the <code>html</code> option per item as an escape hatch for arbitrary content such as status indicators or icons.</p>
+
+      {{ sectionNavigation({
+        items: [
+          {
+            href: "#",
+            html: "Overview"
+          },
+          {
+            html: "Vaccinations <strong class=\"nhsuk-tag nhsuk-tag--green nhsuk-u-margin-left-1\">New</strong>",
+            current: true
+          },
+          {
+            href: "#",
+            html: "Consent"
+          }
+        ]
+      }) }}
+    </div>
+  </div>
+
+  <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
+
+  {# ================================================ #}
+  {# Reverse (on blue background) #}
+  {# ================================================ #}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+      <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-4">Reverse (on coloured background)</h2>
+    </div>
+  </div>
+
+  <div class="app-wrapper--background-blue nhsuk-u-static-padding-top-3">
+    {{ sectionNavigation({
+      classes: "nhsuk-section-navigation--reverse",
+      items: [
+        {
+          href: "#",
+          text: "All clinics"
+        },
+        {
+          text: "Today",
+          current: true
+        },
+        {
+          href: "#",
+          text: "Upcoming"
+        },
+        {
+          href: "#",
+          text: "Completed"
+        }
+      ]
+    }) }}
+  </div>
+
+  <div class="nhsuk-u-margin-top-4"></div>
+
+  <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
+
+  {# ================================================ #}
+  {# Vertical #}
+  {# ================================================ #}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+      <h2 class="nhsuk-heading-m">Vertical</h2>
+      <p class="nhsuk-body">Use the <code>vertical</code> option to keep the navigation stacked at all breakpoints.</p>
+
+      {{ sectionNavigation({
+        vertical: true,
+        items: [
+          {
+            href: "#",
+            text: "All clinics"
+          },
+          {
+            text: "Today",
+            current: true
+          },
+          {
+            href: "#",
+            text: "Upcoming"
+          },
+          {
+            href: "#",
+            text: "Completed"
+          }
+        ]
+      }) }}
+    </div>
+  </div>
+
+  <div class="nhsuk-u-margin-top-4"></div>
+
+  {# Reverse with badges #}
+  <div class="app-wrapper--background-blue nhsuk-u-static-padding-top-2 nhsuk-u-static-padding-bottom-3">
+  <h3 class="nhsuk-heading-s nhsuk-u-margin-top-0 nhsuk-u-margin-bottom-2">Reverse with badges</h3>
+    {{ sectionNavigation({
+      classes: "nhsuk-section-navigation--reverse",
+      label: "Filtered clinics (reverse with badges)",
+      items: [
+        {
+          href: "#",
+          text: "All",
+          badge: {
+            text: "12",
+            visuallyHiddenText: "Count:"
+          }
+        },
+        {
+          text: "Today",
+          badge: {
+            text: "3",
+            visuallyHiddenText: "Count:"
+          },
+          current: true
+        },
+        {
+          href: "#",
+          text: "Upcoming",
+          badge: {
+            text: "9",
+            visuallyHiddenText: "Count:"
+          }
+        },
+        {
+          href: "#",
+          text: "Completed",
+          badge: {
+            text: "0",
+            visuallyHiddenText: "Count:"
+          }
+        }
+      ]
+    }) }}
+  </div>
+
+  <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
+
+  {# ================================================ #}
+  {# Small #}
+  {# ================================================ #}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+      <h2 class="nhsuk-heading-m">Small</h2>
+      <p class="nhsuk-body">Use the <code>small</code> option for compact layouts. The font size is fixed at 16px at all breakpoints.</p>
+
+      {{ sectionNavigation({
+        small: true,
+        items: [
+          {
+            href: "#",
+            text: "All clinics"
+          },
+          {
+            text: "Today",
+            current: true
+          },
+          {
+            href: "#",
+            text: "Upcoming"
+          },
+          {
+            href: "#",
+            text: "Completed"
+          }
+        ]
+      }) }}
+
+      <p class="nhsuk-body nhsuk-u-secondary-text-colour nhsuk-u-margin-bottom-6">
+        Content for the current "Today" section would appear here.
+      </p>
+    </div>
+  </div>
+
+  <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
+
+  {# ================================================ #}
+  {# Small vertical #}
+  {# ================================================ #}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+      <h2 class="nhsuk-heading-m">Small vertical</h2>
+      <p class="nhsuk-body">Combine <code>small</code> and <code>vertical</code> for a compact stacked layout at all breakpoints.</p>
+
+      {{ sectionNavigation({
+        small: true,
+        vertical: true,
+        items: [
+          {
+            href: "#",
+            text: "All clinics"
+          },
+          {
+            text: "Today",
+            current: true
+          },
+          {
+            href: "#",
+            text: "Upcoming"
+          },
+          {
+            href: "#",
+            text: "Completed"
+          }
+        ]
+      }) }}
+    </div>
+  </div>
+
+{% endblock %}
