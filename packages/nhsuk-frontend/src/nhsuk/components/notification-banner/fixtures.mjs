@@ -39,6 +39,14 @@ const fixtures = {
       </p>
     `
   },
+  "with custom heading": {
+    context: {
+      title: {
+        text: "Important information"
+      },
+      text: "The patient record was updated."
+    }
+  },
   "with success variant": {
     context: {
       variant: "success",

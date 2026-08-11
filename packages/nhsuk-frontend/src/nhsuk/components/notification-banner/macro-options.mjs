@@ -35,30 +35,50 @@ const options = {
       'Not strictly a parameter but [Nunjucks code convention](https://mozilla.github.io/nunjucks/templating.html#call). Using a `call` block enables you to call a macro with all the text inside the tag. This is helpful if you want to pass a lot of content into a macro. To use it, you will need to wrap the entire notification banner component in a `call` block.',
     released: '10.0.0'
   },
+  title: {
+    type: 'object',
+    required: false,
+    description: outdent`
+      The title that displays in the notification banner:
+      - if you do not set \`variant\`, \`title.text\` defaults to \`"Important"\`
+      - if you set \`variant\` to \`success\`, \`title.text\` defaults to \`"Success"\`
+      - if you set \`title.text\` or \`title.html\`, the defaults are ignored
+    `,
+    alias: 'heading',
+    released: '10.6.0',
+    isComponent: true
+  },
+  titleId: {
+    type: 'string',
+    required: false,
+    description:
+      'The `id` for the banner title, and the `aria-labelledby` attribute in the banner. Defaults to `"nhsuk-notification-banner-title"`. Replaced by the `title.id` option.',
+    released: '10.0.0',
+    deprecated: '10.6.0'
+  },
   titleText: {
     type: 'string',
     required: false,
-    description: outdent`
-      The title text that displays in the notification banner. You can use any string with this option. Use this option to set text that does not contain HTML. The available default values are \'Important\', \'Success\', and null:
-      - if you do not set \`variant\`, \`titleText\` defaults to \`"Important"\`
-      - if you set \`variant\` to \`success\`, \`titleText\` defaults to \`"Success"\`
-      - if you set \`titleHtml\`, this option is ignored
-    `,
-    released: '10.0.0'
+    description:
+      'The title text that displays in the notification banner. You can use any string with this option. Use this option to set text that does not contain HTML. If you set `titleHtml`, the `titleText` option is ignored. Replaced by the `title.text` option.',
+    released: '10.0.0',
+    deprecated: '10.6.0'
   },
   titleHtml: {
     type: 'string',
     required: false,
     description:
-      'The title HTML to use within the notification banner. You can use any string with this option. Use this option to set text that contains HTML. If you set `titleHtml`, the `titleText` option is ignored.',
-    released: '10.0.0'
+      'The title HTML to use within the notification banner. You can use any string with this option. Use this option to set text that contains HTML. If you set `titleHtml`, the `titleText` option is ignored. Replaced by the `title.html` option.',
+    released: '10.0.0',
+    deprecated: '10.6.0'
   },
   titleHeadingLevel: {
     type: 'string',
     required: false,
     description:
-      'Sets heading level for the title only. You can only use values between `1` and `6` with this option. The default is `2`.',
-    released: '10.0.0'
+      'Sets heading level for the title only. You can only use values between `1` and `6` with this option. The default is `2`. Replaced by the `title.level` option.',
+    released: '10.0.0',
+    deprecated: '10.6.0'
   },
   variant: {
     type: 'string',
@@ -80,13 +100,6 @@ const options = {
     required: false,
     description:
       'Overrides the value of the `role` attribute for the notification banner. Defaults to `"region"`. If you set `variant` to `"success"`, `role` defaults to `"alert"`.',
-    released: '10.0.0'
-  },
-  titleId: {
-    type: 'string',
-    required: false,
-    description:
-      'The `id` for the banner title, and the `aria-labelledby` attribute in the banner. Defaults to `"nhsuk-notification-banner-title"`.',
     released: '10.0.0'
   },
   disableAutoFocus: {
