@@ -14,13 +14,13 @@ export function toggleConditionalInput($input, className) {
     return
   }
 
-  const target = document.getElementById(targetId)
-  if (!target) {
+  const $target = document.getElementById(targetId)
+  if (!$target) {
     return
   }
 
   $input.setAttribute('aria-expanded', $input.checked.toString())
-  target.classList.toggle(className, !$input.checked)
+  $target.classList.toggle(className, !$input.checked)
 }
 
 /**
@@ -40,62 +40,6 @@ export function getBreakpoint(name) {
     property,
     value: value || undefined
   }
-}
-
-/**
- * Move focus to element
- *
- * Sets tabindex to -1 to make the element programmatically focusable,
- * but removes it on blur as the element doesn't need to be focused again.
- *
- * Original code taken from GDS (Government Digital Service)
- * {@link https://github.com/alphagov/govuk-frontend}
- *
- * @template {HTMLElement} FocusElement
- * @param {FocusElement} $element - HTML element
- * @param {object} [options] - Handler options
- * @param {function(this: FocusElement): void} [options.onBeforeFocus] - Callback before focus
- * @param {function(this: FocusElement): void} [options.onBlur] - Callback on blur
- */
-export function setFocus($element, options = {}) {
-  const isFocusable = $element.getAttribute('tabindex')
-
-  if (!isFocusable) {
-    $element.setAttribute('tabindex', '-1')
-  }
-
-  /**
-   * Handle element focus
-   */
-  function onFocus() {
-    $element.removeEventListener('focus', onFocus)
-    $element.addEventListener('blur', onBlur)
-  }
-
-  /**
-   * Handle element blur
-   */
-  function onBlur() {
-    $element.removeEventListener('blur', onBlur)
-
-    if (options.onBlur) {
-      options.onBlur.call($element)
-    }
-
-    if (!isFocusable) {
-      $element.removeAttribute('tabindex')
-    }
-  }
-
-  // Add listener to reset element on blur, after focus
-  $element.addEventListener('focus', onFocus)
-
-  // Focus element
-  if (options.onBeforeFocus) {
-    options.onBeforeFocus.call($element)
-  }
-
-  $element.focus()
 }
 
 /**
@@ -164,6 +108,8 @@ export function formatErrorMessage(Component, message) {
 
 export * from './closest-attribute-value.mjs'
 export * from './nhsuk-frontend-version.mjs'
+export * from './set-focus.mjs'
+export * from './set-scroll.mjs'
 
 /**
  * @import { CompatibleClass } from '../component.mjs'
