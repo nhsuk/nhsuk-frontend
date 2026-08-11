@@ -26,11 +26,20 @@ const options = {
       'The navigation section of the footer before the copyright information. Alternatively supports an array of `navigation` objects.',
     released: '10.0.0',
     params: {
+      heading: {
+        type: 'object',
+        required: false,
+        description: 'Heading for group of footer navigation links.',
+        released: '10.6.0',
+        isComponent: true
+      },
       title: {
         type: 'string',
         required: false,
-        description: 'Title for group of footer navigation links.',
-        released: '10.0.0'
+        description:
+          'Title for group of footer navigation links. Replaced by the `navigation.heading.text` option.',
+        released: '10.0.0',
+        deprecated: '10.6.0'
       },
       text: {
         type: 'string',
