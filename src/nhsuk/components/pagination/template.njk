@@ -30,7 +30,8 @@
   {% if item.ellipsis %}
     &ctdot;
   {% else %}
-    <a class="nhsuk-pagination__link" href="{{ item.href }}" aria-label="{{ item.visuallyHiddenText | default("Page " ~ item.number) }}"
+    {%- set itemAriaLabel = item.ariaLabel | default(item.visuallyHiddenText) | default("Page " ~ item.number) %}
+    <a class="nhsuk-pagination__link" href="{{ item.href }}" aria-label="{{ itemAriaLabel }}"
       {%- if item.current %} aria-current="page"{% endif %}
       {{- nhsukAttributes(item.attributes) }}>
       {{ item.number }}
