@@ -6,43 +6,6 @@ Note: This release was created from the `support/10.x` branch.
 
 ### :new: **New features**
 
-#### Scrolling tables
-
-You can now make the [table](https://service-manual.nhs.uk/design-system/components/table) component scrollable, for when your table has many columns and you cannot split it up or use a responsive table.
-
-```patch
-  {{ table({
-    caption: "Childhood vaccination coverage",
-+   scroll: true,
-    head: [],
-    rows: []
-  }) }}
-```
-
-If you are not using Nunjucks macros, use the HTML markup from the [scrolling table example in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/table#scrolling-table) as follows:
-
-- Add the `nhsuk-scroll` scrolling container
-- Add the `nhsuk-scroll__content` scrolling content
-- Add an `id` attribute to your table caption with a unique ID
-- Add an `aria-labelledby` attribute to the scrolling content with the `id` value
-
-```patch
-+ <div class="nhsuk-scroll" data-module="nhsuk-scroll">
-+   <div class="nhsuk-scroll__content" role="region" aria-labelledby="childhood-vaccination-coverage-caption">
-      <table class="nhsuk-table">
--       <caption class="nhsuk-table__caption">
-+       <caption class="nhsuk-table__caption" id="childhood-vaccination-coverage-caption">
-          Childhood vaccination coverage
-        </caption>
-
-        <!-- // ... -->
-      </table>
-+   </div>
-+ </div>
-```
-
-This was added in [pull request #1969: Add option to make tables scroll](https://github.com/nhsuk/nhsuk-frontend/pull/1969).
-
 #### Sortable tables
 
 You can now make [table](https://service-manual.nhs.uk/design-system/components/table) columns sortable, so that clicking the header cell sorts the table by that column.
@@ -101,6 +64,52 @@ For example:
 ```
 
 This was added in [pull request #1969: Add option to make tables sortable](https://github.com/nhsuk/nhsuk-frontend/pull/1654).
+
+#### Scrolling containers
+
+You can now add scrolling containers. These can be used on tables, diagrams or other elements that must retain their horizontal layout to make sense.
+
+```njk
+  {{ scroll({
+    html: '...',
+    labelledBy: "example-heading"
+  }) }}
+```
+
+Apply scrolling to a [table](https://service-manual.nhs.uk/design-system/components/table) component when your table has many columns and you cannot split it up or use a responsive table.
+
+```patch
+  {{ table({
+    caption: "Childhood vaccination coverage",
++   scroll: true,
+    head: [],
+    rows: []
+  }) }}
+```
+
+If you are not using Nunjucks macros, use the HTML markup from the [scrolling table example in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/table#scrolling-table) as follows:
+
+- Add the `nhsuk-scroll` scrolling container
+- Add the `nhsuk-scroll__content` scrolling content
+- Add an `id` attribute to your table caption with a unique ID
+- Add an `aria-labelledby` attribute to the scrolling content with the `id` value
+
+```patch
++ <div class="nhsuk-scroll" data-module="nhsuk-scroll">
++   <div class="nhsuk-scroll__content" role="region" aria-labelledby="childhood-vaccination-coverage-caption">
+      <table class="nhsuk-table">
+-       <caption class="nhsuk-table__caption">
++       <caption class="nhsuk-table__caption" id="childhood-vaccination-coverage-caption">
+          Childhood vaccination coverage
+        </caption>
+
+        <!-- // ... -->
+      </table>
++   </div>
++ </div>
+```
+
+This was added in [pull request #1969: Add scrolling container](https://github.com/nhsuk/nhsuk-frontend/pull/1969).
 
 #### Set table column widths, align text or adjust row borders
 
