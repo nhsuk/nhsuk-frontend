@@ -6,7 +6,9 @@
 const fixtures = {
   "default": {
     context: {
-      titleText: "There is a problem",
+      heading: {
+        text: "There is a problem"
+      },
       errorList: [
         {
           text: "Date of birth must be in the past",
@@ -21,7 +23,9 @@ const fixtures = {
   },
   "with multiple errors": {
     context: {
-      titleText: "There is a problem",
+      heading: {
+        text: "There is a problem"
+      },
       errorList: [
         {
           text: "Enter your first name",
@@ -36,7 +40,9 @@ const fixtures = {
   },
   "with multiple errors (empty items)": {
     context: {
-      titleText: "There is a problem",
+      heading: {
+        text: "There is a problem"
+      },
       errorList: [
         {
           text: "Enter your first name",
@@ -48,7 +54,9 @@ const fixtures = {
   },
   "with title HTML": {
     context: {
-      titleHtml: "There is a <span>problem</span>",
+      heading: {
+        html: "There is a <span>problem</span>"
+      },
       errorList: [
         {
           text: "Date of birth must be in the past",
@@ -59,7 +67,9 @@ const fixtures = {
   },
   "with description": {
     context: {
-      titleText: "There is a problem",
+      heading: {
+        text: "There is a problem"
+      },
       descriptionText: "Describe the errors and how to correct them",
       errorList: [
         {
@@ -72,7 +82,9 @@ const fixtures = {
   },
   "with description HTML": {
     context: {
-      titleText: "There is a problem",
+      heading: {
+        text: "There is a problem"
+      },
       descriptionHtml:
         "Describe the errors and <span>how to correct them</span>",
       errorList: [
@@ -85,7 +97,9 @@ const fixtures = {
   },
   "with description via call block": {
     context: {
-      titleText: "There is a problem",
+      heading: {
+        text: "There is a problem"
+      },
       errorList: [
         {
           text: "Date of birth must be in the past",
@@ -97,13 +111,17 @@ const fixtures = {
   },
   "with description only": {
     context: {
-      titleText: "There is a problem",
+      heading: {
+        text: "There is a problem"
+      },
       descriptionText: "Describe the errors and how to correct them"
     }
   },
   "without error link": {
     context: {
-      titleText: "There is a problem",
+      heading: {
+        text: "There is a problem"
+      },
       errorList: [
         {
           text: "Invalid username or password"
@@ -113,7 +131,9 @@ const fixtures = {
   },
   "without error link (mixed)": {
     context: {
-      titleText: "There is a problem",
+      heading: {
+        text: "There is a problem"
+      },
       errorList: [
         {
           text: "Invalid username or password"
@@ -127,7 +147,9 @@ const fixtures = {
   },
   "auto-focus disabled": {
     context: {
-      titleText: "There is a problem",
+      heading: {
+        text: "There is a problem"
+      },
       errorList: [
         {
           text: "Date of birth must be in the past",
@@ -142,7 +164,9 @@ const fixtures = {
   },
   "auto-focus explicitly enabled": {
     context: {
-      titleText: "There is a problem",
+      heading: {
+        text: "There is a problem"
+      },
       errorList: [
         {
           text: "Date of birth must be in the past",
