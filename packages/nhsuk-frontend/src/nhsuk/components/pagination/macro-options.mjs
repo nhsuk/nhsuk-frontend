@@ -29,8 +29,16 @@ const options = {
         type: 'string',
         required: false,
         description:
-          'The visually hidden label for the pagination item, which will be applied to an `aria-label` and announced by screen readers on the pagination item link. Should include page number. Defaults to, for example "Page 1".',
-        released: '10.1.0'
+          'The visually hidden label for the pagination item, which will be applied to an `aria-label` and announced by screen readers on the pagination item link. Should include page number. Defaults to, for example "Page 1". Replaced by the `item.ariaLabel` option.',
+        released: '10.1.0',
+        deprecated: '10.6.0'
+      },
+      ariaLabel: {
+        type: 'string',
+        required: false,
+        description:
+          'The accessible name for the pagination item, which will be applied to an `aria-label` and announced by screen readers on the pagination item link. Should include page number. Defaults to, for example "Page 1".',
+        released: '10.6.0'
       },
       href: {
         type: 'string',
