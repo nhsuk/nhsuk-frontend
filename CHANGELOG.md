@@ -509,6 +509,195 @@ The previous names are deprecated and will be removed in a future release.
 
 This change was introduced in [pull request #1707: Add checkbox "all" option](https://github.com/nhsuk/nhsuk-frontend/pull/1707).
 
+#### Rename card heading and description options
+
+We've changed the card heading Nunjucks options to support `text`, `html` and nested options:
+
+- Card `heading` has changed to `heading.text`
+- Card `headingHtml` has changed to `heading.html`
+- Card `headingClasses` and `headingId` have changed to `heading.classes` and `heading.id`
+- Card `headingSize` and `headingLevel` have changed to `heading.size` and `heading.level`
+- Card `headingVisuallyHiddenText` has changed to `heading.visuallyHiddenText`
+
+Similarly for description text:
+
+- Card `description` and `descriptionHtml` have changed to `description.text` and `description.html`
+
+```patch
+  {{ card({
+-   heading: "Introduction to care and support",
+-   headingSize: "m"
++   heading: {
++     text: "Introduction to care and support",
++     size: "m"
++   },
+-   description: "A quick guide for people who have care and support needs and their carers"
++   description: {
++     text: "A quick guide for people who have care and support needs and their carers"
++   }
+  }) }}
+```
+
+The previous names are deprecated and will be removed in a future release.
+
+This change was introduced in [pull request #2047: Review Nunjucks options for headings and ARIA labels](https://github.com/nhsuk/nhsuk-frontend/pull/2047).
+
+#### Rename details summary options
+
+We've changed the details summary Nunjucks options to support `text`, `html` and nested options:
+
+- Details `summaryText` has changed to `summary.text`
+- Details `summaryHtml` has changed to `summary.html`
+
+```patch
+  {{ details({
+-   summaryText: "Where can I find my NHS number?",
++   summary: {
++     text: "Where can I find my NHS number?"
++   },
+    html: '<p>An NHS number is a 10 digit number, like <span class="nhsuk-u-nowrap">999 123 4567</span>.</p>'
+  }) }}
+```
+
+The previous names are deprecated and will be removed in a future release.
+
+This change was introduced in [pull request #2047: Review Nunjucks options for headings and ARIA labels](https://github.com/nhsuk/nhsuk-frontend/pull/2047).
+
+#### Rename error summary title and description options
+
+We've changed the error summary title and description Nunjucks options to support `text`, `html` and nested options:
+
+- Error summary `titleText` has changed to `heading.text`
+- Error summary `titleHtml` has changed to `heading.html`
+- Error summary `descriptionText` has changed to `description.text`
+- Error summary `descriptionHtml` has changed to `description.html`
+
+```patch
+  {{ errorSummary({
+-   titleText: "There is a problem",
++   heading: {
++     text: "There is a problem"
++   },
+    errorList: []
+  }) }}
+```
+
+The previous names are deprecated and will be removed in a future release.
+
+This change was introduced in [pull request #2047: Review Nunjucks options for headings and ARIA labels](https://github.com/nhsuk/nhsuk-frontend/pull/2047).
+
+#### Rename notification banner title options
+
+We've changed the notification banner title Nunjucks options to support `text`, `html` and nested options:
+
+- Notification banner `titleText` has changed to `title.text`
+- Notification banner `titleHtml` has changed to `title.html`
+- Notification banner `titleId` has changed to `title.id`
+- Notification banner `titleHeadingLevel` has changed to `title.level`
+- Notification banner `heading` option has been added
+
+```patch
+  {% call notificationBanner({
+-   titleText: "Important"
++   title: {
++     text: "Important"
++   },
++   heading: {
++     text: "The patient record was updated"
++   }
+  }) %}
+-   <h3 class="nhsuk-notification-banner__heading">
+-     The patient record was updated
+-   </h3>
+    <p class="nhsuk-body">
+      Contact <a class="nhsuk-notification-banner__link" href="#">example@nhs.uk</a> if you think there's a problem.
+    </p>
+  {% endcall %}
+```
+
+The previous names are deprecated and will be removed in a future release.
+
+This change was introduced in [pull request #2047: Review Nunjucks options for headings and ARIA labels](https://github.com/nhsuk/nhsuk-frontend/pull/2047).
+
+#### Rename panel title options
+
+We've changed the panel title Nunjucks options to support `text`, `html` and nested options:
+
+- Panel `titleText` has changed to `heading.text`
+- Panel `titleHtml` has changed to `heading.html`
+- Panel `titleSize` has changed to `heading.size`
+- Panel `headingLevel` has changed to `heading.level`
+- Panel `titleClasses` has changed to `heading.classes`
+
+```patch
+  {{ panel({
+-   titleText: "Jodie Brown had a COVID-19 vaccine less than 3 months ago",
+-   titleSize: "l",
++   heading: {
++     text: "Jodie Brown had a COVID-19 vaccine less than 3 months ago",
++     size: "l"
++   },
+    text: "They had a COVID-19 vaccine on 25 September 2025."
+  }) }}
+```
+
+The previous names are deprecated and will be removed in a future release.
+
+This change was introduced in [pull request #2047: Review Nunjucks options for headings and ARIA labels](https://github.com/nhsuk/nhsuk-frontend/pull/2047).
+
+#### Rename table caption options
+
+We've changed the table caption Nunjucks options to support `text`, `html` and nested options:
+
+- Table `captionSize` has changed to `caption.size`
+- Table `captionClasses` has changed to `caption.classes`
+
+```patch
+  {{ table({
+-   caption: "Skin symptoms and possible causes",
+-   captionSize: "l",
++   caption: {
++     text: "Skin symptoms and possible causes",
++     size: "l"
++   },
+    head: [],
+    rows: []
+  }) }}
+```
+
+The previous names are deprecated and will be removed in a future release.
+
+This change was introduced in [pull request #2047: Review Nunjucks options for headings and ARIA labels](https://github.com/nhsuk/nhsuk-frontend/pull/2047).
+
+#### Rename title and heading options
+
+We've changed the Nunjucks options for titles and headings in all other components to support `text`, `html` and nested options:
+
+- Do and don't list `title` has changed to `heading.text`
+- Do and don't list `headingLevel` has changed to `heading.level`
+- Footer `navigation.title` has changed to `navigation.heading.text`
+- Task list `item.title` has changed to `item.heading`
+- Warning callout `headingLevel` has changed to `heading.level`
+
+The previous names are deprecated and will be removed in a future release.
+
+This change was introduced in [pull request #2047: Review Nunjucks options for headings and ARIA labels](https://github.com/nhsuk/nhsuk-frontend/pull/2047).
+
+#### Rename ARIA label and visually hidden text options
+
+We've changed some of the Nunjucks options relating to `aria-label` attributes and visually hidden text. This change makes sure they're named consistently across our components.
+
+- Breadcrumbs `labelText` has changed to `ariaLabel`
+- Contents list `landmarkLabel` has changed to `ariaLabel`
+- Footer `meta.visuallyHiddenTitle` has changed to `meta.visuallyHiddenText`
+- Pagination `item.visuallyHiddenText` has changed to `item.ariaLabel`
+- Pagination `landmarkLabel` has changed to `ariaLabel`
+- Tabs `title` has changed to `visuallyHiddenText`
+
+The previous names are deprecated and will be removed in a future release.
+
+This change was introduced in [pull request #2047: Review Nunjucks options for headings and ARIA labels](https://github.com/nhsuk/nhsuk-frontend/pull/2047).
+
 #### Update the HTML for heroes
 
 For consistency with other components, the HTML for heroes has changed.
