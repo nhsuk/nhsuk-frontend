@@ -100,7 +100,7 @@ If you are not using Nunjucks macros, use the HTML markup from the [scrolling ta
 + </div>
 ```
 
-This was added in [pull request #1969: Add scrolling container](https://github.com/nhsuk/nhsuk-frontend/pull/1969).
+This was added in [pull request #1969: Add option to make tables scroll](https://github.com/nhsuk/nhsuk-frontend/pull/1969).
 
 #### Set table column widths, align text or adjust row borders
 
