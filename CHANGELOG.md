@@ -65,18 +65,9 @@ For example:
 
 This was added in [pull request #1969: Add option to make tables sortable](https://github.com/nhsuk/nhsuk-frontend/pull/1654).
 
-#### Scrolling containers
+#### Scrolling tables
 
-You can now add scrolling containers. These can be used on tables, diagrams or other elements that must retain their horizontal layout to make sense.
-
-```njk
-  {{ scroll({
-    html: '...',
-    labelledBy: "example-heading"
-  }) }}
-```
-
-Apply scrolling to a [table](https://service-manual.nhs.uk/design-system/components/table) component when your table has many columns and you cannot split it up or use a responsive table.
+You can now make the [table](https://service-manual.nhs.uk/design-system/components/table) component scrollable, for when your table has many columns and you cannot split it up or use a responsive table.
 
 ```patch
   {{ table({
