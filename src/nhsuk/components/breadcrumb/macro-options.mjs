@@ -84,8 +84,16 @@ const options = {
     type: 'string',
     required: false,
     description:
-      'Plain text label identifying the landmark to screen readers. Defaults to "Breadcrumb".',
-    released: '9.6.2'
+      'Plain text label identifying the landmark to screen readers. Defaults to "Breadcrumb". Replaced by the `ariaLabel` option.',
+    released: '9.6.2',
+    deprecated: '10.6.0'
+  },
+  ariaLabel: {
+    type: 'string',
+    required: false,
+    description:
+      'Accessible name identifying the landmark to screen readers. Defaults to "Breadcrumb".',
+    released: '10.6.0'
   },
   backLink: {
     type: 'object',
