@@ -73,7 +73,9 @@
     <div class="nhsuk-footer__meta">
 {% if params.meta %}
     {% if params.meta.items %}
-      <h2 class="nhsuk-u-visually-hidden">{{ params.meta.visuallyHiddenTitle | default("Support links") }}</h2>
+      <h2 class="nhsuk-u-visually-hidden">
+        {{- params.meta.visuallyHiddenText | default(params.meta.visuallyHiddenTitle) | default("Support links") -}}
+      </h2>
       {{ _footerList(params.meta.items) | trim | indent(6) }}
     {% endif %}
     {% if caller %}

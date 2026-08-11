@@ -107,12 +107,20 @@ const options = {
       'The meta section of the footer after any navigation, before the copyright information.',
     released: '10.0.0',
     params: {
+      visuallyHiddenText: {
+        type: 'string',
+        required: false,
+        description:
+          'Visually hidden heading for meta `items` links. Defaults to `"Support links"`.',
+        released: '10.6.0'
+      },
       visuallyHiddenTitle: {
         type: 'string',
         required: false,
         description:
-          'Title for meta `items` links. Defaults to `"Support links"`.',
-        released: '10.0.0'
+          'Visually hidden heading for meta `items` links. Defaults to `"Support links"`. Replaced by the `meta.visuallyHiddenText` option.',
+        released: '10.0.0',
+        deprecated: '10.6.0'
       },
       html: {
         type: 'string',
