@@ -81,11 +81,11 @@ const options = {
       'HTML attributes (for example data attributes) to add to the content list container.',
     released: '1.0.0'
   },
-  visuallyHiddenTitle: {
+  visuallyHiddenText: {
     type: 'string',
     required: false,
     description:
-      'Visually hidden title for the contents list items. Defaults to `"Contents"`.',
+      'Visually hidden heading for the contents list items. Defaults to `"Contents"`.',
     released: '10.1.0'
   }
 }
