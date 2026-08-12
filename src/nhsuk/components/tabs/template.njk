@@ -46,7 +46,7 @@
 
   {{- nhsukAttributes(params.attributes) -}}>
   {{ heading({
-    text: params.title | default("Contents"),
+    text: params.visuallyHiddenText | default(params.title) | default("Contents"),
     level: 2,
     className: "nhsuk-tabs__title"
   }) | trim | indent(2) }}
