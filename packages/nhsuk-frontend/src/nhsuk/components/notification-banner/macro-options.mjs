@@ -14,41 +14,13 @@ const options = {
     description: 'The ID of the notification banner.',
     released: '10.0.0'
   },
-  heading: {
-    type: 'object',
-    required: false,
-    description: 'Heading to be used withing the warning callout.',
-    released: '10.6.0',
-    isComponent: true
-  },
-  text: {
-    type: 'string',
-    required: true,
-    description:
-      'The text that displays in the notification banner. You can use any string with this option. If you set `html`, this option is not required and is ignored.',
-    released: '10.0.0'
-  },
-  html: {
-    type: 'string',
-    required: true,
-    description:
-      'The HTML to use within the notification banner. You can use any string with this option. If you set `html`, `text` is not required and is ignored.',
-    released: '10.0.0'
-  },
-  caller: {
-    type: 'nunjucks-block',
-    required: false,
-    description:
-      'Not strictly a parameter but [Nunjucks code convention](https://mozilla.github.io/nunjucks/templating.html#call). Using a `call` block enables you to call a macro with all the text inside the tag. This is helpful if you want to pass a lot of content into a macro. To use it, you will need to wrap the entire notification banner component in a `call` block.',
-    released: '10.0.0'
-  },
   title: {
     type: 'object',
     required: false,
     description: outdent`
       The title that displays in the notification banner:
       - if you do not set \`variant\`, \`title.text\` defaults to \`"Important"\`
-      - if you set \`variant\` to \`success\`, \`title.text\` defaults to \`"Success"\`
+      - if you set \`variant\` to \`"success"\`, \`title.text\` defaults to \`"Success"\`
       - if you set \`title.text\` or \`title.html\`, the defaults are ignored
     `,
     alias: 'heading',
@@ -82,6 +54,34 @@ const options = {
     description: 'Replaced by the `title.level` option.',
     released: '10.0.0',
     deprecated: '10.6.0'
+  },
+  heading: {
+    type: 'object',
+    required: false,
+    description: 'Heading to be used withing the warning callout.',
+    released: '10.6.0',
+    isComponent: true
+  },
+  text: {
+    type: 'string',
+    required: true,
+    description:
+      'The text that displays in the notification banner. You can use any string with this option. If you set `html`, this option is not required and is ignored.',
+    released: '10.0.0'
+  },
+  html: {
+    type: 'string',
+    required: true,
+    description:
+      'The HTML to use within the notification banner. You can use any string with this option. If you set `html`, `text` is not required and is ignored.',
+    released: '10.0.0'
+  },
+  caller: {
+    type: 'nunjucks-block',
+    required: false,
+    description:
+      'Not strictly a parameter but [Nunjucks code convention](https://mozilla.github.io/nunjucks/templating.html#call). Using a `call` block enables you to call a macro with all the text inside the tag. This is helpful if you want to pass a lot of content into a macro. To use it, you will need to wrap the entire notification banner component in a `call` block.',
+    released: '10.0.0'
   },
   variant: {
     type: 'string',
