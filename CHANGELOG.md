@@ -597,16 +597,16 @@ If you're using the `table` Nunjucks macro with the `responsive` option, you sho
   rows: [
     [
       {
--       header: 'Age',
-        text: '3 to 5 months (weighing more than 5kg)'
+-       header: "Age",
+        text: "3 to 5 months (weighing more than 5kg)"
       },
       {
--       header: 'How much?',
-        text: '2.5ml'
+-       header: "How much?",
+        text: "2.5ml"
       },
       {
--       header: 'How often?',
-        text: 'Max 3 times in 24 hours'
+-       header: "How often?",
+        text: "Max 3 times in 24 hours"
       }
     ],
 ```
