@@ -102,6 +102,56 @@ const fixtures = {
         }
       ]
     }
+  },
+  "with visually hidden text": {
+    context: {
+      visuallyHiddenText: "Cases per manager",
+      items: [
+        {
+          label: "Past day",
+          id: "past-day",
+          panel: {
+            html: components.render(
+              "tables",
+              tableExamples["with numeric format (full width, past day)"]
+            )
+          }
+        },
+        {
+          label: "Past week",
+          id: "past-week",
+          panel: {
+            html: components.render(
+              "tables",
+              tableExamples["with numeric format (full width, past week)"]
+            )
+          }
+        },
+        {
+          label: "Past month",
+          id: "past-month",
+          panel: {
+            html: components.render(
+              "tables",
+              tableExamples["with numeric format (full width, past month)"]
+            )
+          }
+        },
+        {
+          label: "Past year",
+          id: "past-year",
+          panel: {
+            html: components.render(
+              "tables",
+              tableExamples["with numeric format (full width, past year)"]
+            )
+          }
+        }
+      ]
+    },
+    options: {
+      width: "full"
+    }
   }
 }
 
