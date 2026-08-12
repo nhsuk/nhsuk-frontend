@@ -41,8 +41,7 @@ const options = {
       title: {
         type: 'object',
         required: true,
-        description:
-          'The main title for the task within the task list component. Replaced by the `item.heading` option.',
+        description: 'Replaced by the `item.heading` option.',
         alias: 'heading',
         released: '9.1.0',
         deprecated: '10.6.0',

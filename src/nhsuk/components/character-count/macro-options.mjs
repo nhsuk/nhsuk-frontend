@@ -42,7 +42,7 @@ const options = {
     type: 'string',
     required: true,
     description:
-      'The maximum number of words. Replaced by the `maxlength` and `countType: "words"` options.',
+      'Replaced by the `maxlength` and `countType: "words"` options.',
     released: '7.0.0',
     deprecated: '10.5.0'
   },

@@ -22,16 +22,14 @@ const options = {
   titleText: {
     type: 'string',
     required: true,
-    description:
-      'If `titleHtml` is set, this is not required. Text to use for the heading of the error summary component. If `titleHtml` is provided, `titleText` will be ignored. Replaced by the `heading.text` option.',
+    description: 'Replaced by the `heading.text` option.',
     released: '1.0.0',
     deprecated: '10.6.0'
   },
   titleHtml: {
     type: 'string',
     required: true,
-    description:
-      'If `titleText` is set, this is not required. HTML to use for the heading of the error summary component. If `titleHtml` is provided, `titleText` will be ignored. Replaced by the `heading.html` option.',
+    description: 'Replaced by the `heading.html` option.',
     released: '1.0.0',
     deprecated: '10.6.0'
   },
@@ -73,16 +71,14 @@ const options = {
   descriptionText: {
     type: 'string',
     required: false,
-    description:
-      'Text to use for the description of the errors. If you set `descriptionHtml`, the component will ignore `descriptionText`. Replaced by the `description.text` option.',
+    description: 'Replaced by the `description.text` option.',
     released: '1.0.0',
     deprecated: '10.6.0'
   },
   descriptionHtml: {
     type: 'string',
     required: false,
-    description:
-      'HTML to use for the description of the errors. If you set this option, the component will ignore `descriptionText`. Replaced by the `description.html` option.',
+    description: 'Replaced by the `description.html` option.',
     released: '1.0.0',
     deprecated: '10.6.0'
   },

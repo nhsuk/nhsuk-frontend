@@ -15,8 +15,7 @@ const options = {
   title: {
     type: 'string',
     required: true,
-    description:
-      "Title to be displayed on the do and don't list component. Replaced by the `heading.text` option.",
+    description: 'Replaced by the `heading.text` option.',
     released: '1.0.0',
     deprecated: '10.6.0'
   },
@@ -30,8 +29,7 @@ const options = {
   headingLevel: {
     type: 'integer',
     required: false,
-    description:
-      'Optional heading level for the title heading. Defaults to `3`. Replaced by the `heading.level` option.',
+    description: 'Replaced by the `heading.level` option.',
     released: '1.0.0',
     deprecated: '10.6.0'
   },
@@ -45,8 +43,7 @@ const options = {
   type: {
     type: 'string',
     required: true,
-    description:
-      'Optional type of do and don\'t list – `"cross"` or `"tick"`. Replaced by the `icon` option.',
+    description: 'Replaced by the `icon` option.',
     released: '1.0.0',
     deprecated: '10.4.0'
   },
@@ -59,8 +56,7 @@ const options = {
       item: {
         type: 'string',
         required: true,
-        description:
-          "Text to use within each do and don't item. Replaced by the `item.text` and `item.html` options.",
+        description: 'Replaced by the `item.text` and `item.html` options.',
         released: '1.0.0',
         deprecated: '10.1.0'
       },

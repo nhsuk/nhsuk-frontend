@@ -22,8 +22,7 @@ const options = {
   headingLevel: {
     type: 'integer',
     required: false,
-    description:
-      'Optional heading level for the heading. Defaults to `3`. Replaced by the `heading.level` option.',
+    description: 'Replaced by the `heading.level` option.',
     released: '1.0.0',
     deprecated: '10.6.0'
   },

@@ -77,8 +77,7 @@ const options = {
   landmarkLabel: {
     type: 'string',
     required: false,
-    description:
-      'The accessible name for the navigation landmark that wraps the contents list. Defaults to `"Pages in this guide"`. Replaced by the `ariaLabel` option.',
+    description: 'Replaced by the `ariaLabel` option.',
     released: '10.1.0',
     deprecated: '10.6.0'
   },

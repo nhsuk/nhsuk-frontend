@@ -58,32 +58,28 @@ const options = {
   titleId: {
     type: 'string',
     required: false,
-    description:
-      'The `id` for the banner title, and the `aria-labelledby` attribute in the banner. Defaults to `"nhsuk-notification-banner-title"`. Replaced by the `title.id` option.',
+    description: 'Replaced by the `title.id` option.',
     released: '10.0.0',
     deprecated: '10.6.0'
   },
   titleText: {
     type: 'string',
     required: false,
-    description:
-      'The title text that displays in the notification banner. You can use any string with this option. Use this option to set text that does not contain HTML. If you set `titleHtml`, the `titleText` option is ignored. Replaced by the `title.text` option.',
+    description: 'Replaced by the `title.text` option.',
     released: '10.0.0',
     deprecated: '10.6.0'
   },
   titleHtml: {
     type: 'string',
     required: false,
-    description:
-      'The title HTML to use within the notification banner. You can use any string with this option. Use this option to set text that contains HTML. If you set `titleHtml`, the `titleText` option is ignored. Replaced by the `title.html` option.',
+    description: 'Replaced by the `title.html` option.',
     released: '10.0.0',
     deprecated: '10.6.0'
   },
   titleHeadingLevel: {
     type: 'string',
     required: false,
-    description:
-      'Sets heading level for the title only. You can only use values between `1` and `6` with this option. The default is `2`. Replaced by the `title.level` option.',
+    description: 'Replaced by the `title.level` option.',
     released: '10.0.0',
     deprecated: '10.6.0'
   },
@@ -97,8 +93,7 @@ const options = {
   type: {
     type: 'string',
     required: false,
-    description:
-      'Optional type of notification banner. You can use only `"success"` or empty values with this option. If you set `type` to `"success"`, the notification banner sets `role` to `"alert"`. JavaScript then moves the keyboard focus to the notification banner when the page loads. If you do not set `type`, the notification banner sets `role` to `"region"`. Replaced by the `variant` option.',
+    description: 'Replaced by the `variant` option.',
     released: '10.0.0',
     deprecated: '10.4.0'
   },
