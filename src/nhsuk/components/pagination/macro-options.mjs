@@ -180,8 +180,16 @@ const options = {
     type: 'string',
     required: false,
     description:
-      'The label for the navigation landmark that wraps the pagination. Defaults to `"Pagination"`.',
-    released: '10.1.0'
+      'The accessible name for the navigation landmark that wraps the pagination. Defaults to `"Pagination"`. Replaced by the `ariaLabel` option.',
+    released: '10.1.0',
+    deprecated: '10.6.0'
+  },
+  ariaLabel: {
+    type: 'string',
+    required: false,
+    description:
+      'The accessible name for the navigation landmark that wraps the pagination. Defaults to `"Pagination"`.',
+    released: '10.6.0'
   },
   classes: {
     type: 'string',
