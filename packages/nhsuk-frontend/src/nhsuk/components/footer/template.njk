@@ -50,10 +50,14 @@
           id: navigation.heading.id,
           text: navigation.heading.text | default(navigation.title),
           html: navigation.heading.html,
+          visuallyHiddenText: navigation.heading.visuallyHiddenText,
+          caption: navigation.heading.caption,
+          href: navigation.heading.href,
           level: 2,
           size: "s",
           className: "nhsuk-footer__heading",
           classPrefix: "nhsuk-heading-",
+          classes: navigation.heading.classes,
           attributes: navigation.heading.attributes
         }) | trim | indent(8) }}
       {% endif %}
