@@ -42,30 +42,19 @@ const options = {
         type: 'object',
         required: true,
         description:
-          'The main title for the task within the task list component.',
+          'The main title for the task within the task list component. Replaced by the `item.heading` option.',
+        alias: 'heading',
         released: '9.1.0',
-        params: {
-          text: {
-            type: 'string',
-            required: true,
-            description:
-              'Text to use within the title. If `html` is provided, the `text` argument will be ignored.',
-            released: '9.1.0'
-          },
-          html: {
-            type: 'string',
-            required: true,
-            description:
-              'HTML to use within the title. If `html` is provided, the `text` argument will be ignored.',
-            released: '9.1.0'
-          },
-          classes: {
-            type: 'string',
-            required: false,
-            description: 'Classes to add to the title wrapper.',
-            released: '9.1.0'
-          }
-        }
+        deprecated: '10.6.0',
+        isComponent: true
+      },
+      heading: {
+        type: 'object',
+        required: true,
+        description:
+          'The main heading for the task within the task list component.',
+        released: '10.6.0',
+        isComponent: true
       },
       hint: {
         type: 'object',
