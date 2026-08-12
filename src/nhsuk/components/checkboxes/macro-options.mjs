@@ -246,7 +246,7 @@ const options = {
         type: 'boolean',
         required: false,
         description:
-          'If set to `true`, marks this checkbox as an exclusive "none" option. Unchecking all other checkboxes in the group when clicked. Replaced by the `behaviour` option.',
+          'If set to `true`, marks this checkbox as an exclusive "none" option. Unchecking all other checkboxes in the group when clicked. Replaced by the `item.behaviour` option.',
         released: '5.2.0',
         deprecated: '10.6.0'
       },
@@ -254,7 +254,7 @@ const options = {
         type: 'string',
         required: false,
         description:
-          'Used in conjunction with `exclusive` - this should be set to a string which groups checkboxes together into a set for use with a "none" option. Replaced by the `behaviourGroup` option.',
+          'Used in conjunction with `exclusive` - this should be set to a string which groups checkboxes together into a set for use with a "none" option. Replaced by the `item.behaviourGroup` option.',
         released: '5.2.0',
         deprecated: '10.6.0'
       }
