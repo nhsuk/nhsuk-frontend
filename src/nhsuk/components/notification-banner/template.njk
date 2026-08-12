@@ -64,13 +64,31 @@
     }) | trim | indent(4) }}
   </div>
   <div class="nhsuk-notification-banner__content">
+  {% if params.heading %}
+    {{ heading({
+      id: params.heading.id,
+      text: params.heading.text,
+      html: params.heading.html,
+      visuallyHiddenText: params.heading.visuallyHiddenText,
+      caption: params.heading.caption,
+      href: params.heading.href,
+      level: params.heading.level | default(3),
+      className: "nhsuk-notification-banner__heading",
+      classes: params.heading.classes,
+      attributes: params.heading.attributes,
+      element: params.heading.element
+    }) | trim | indent(4) }}
+  {% endif %}
   {% if caller %}
     {{- caller() }}
   {% elif params.html %}
     {{ params.html | safe | trim | indent(4) }}
-  {% elif params.text %}
-    {# Set default style for single line content -#}
+  {% elif params.text and not params.heading %}
     <p class="nhsuk-notification-banner__heading">
+      {{ params.text | trim | indent(6) }}
+    </p>
+  {% elif params.text %}
+    <p class="nhsuk-body">
       {{ params.text | trim | indent(6) }}
     </p>
   {% endif %}

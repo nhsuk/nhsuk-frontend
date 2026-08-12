@@ -14,6 +14,13 @@ const options = {
     description: 'The ID of the notification banner.',
     released: '10.0.0'
   },
+  heading: {
+    type: 'object',
+    required: false,
+    description: 'Heading to be used withing the warning callout.',
+    released: '10.6.0',
+    isComponent: true
+  },
   text: {
     type: 'string',
     required: true,
