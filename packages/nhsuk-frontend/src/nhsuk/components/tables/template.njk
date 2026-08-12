@@ -314,11 +314,20 @@
 {% endif %}
 
 {%- if params.card or params.panel %}
-  {%- call card(params.card or {
-    heading: params.heading,
-    headingLevel: params.headingLevel | default(3),
-    classes: params.panelClasses,
-    variant: "feature"
+  {%- set headingOptions = params.card.heading if params.card.heading is mapping and params.card.heading is not escaped else {
+    text: params.card.heading if params.card.heading is string else params.heading,
+    html: params.card.heading if params.card.heading is escaped else undefined,
+    level: params.headingLevel
+  } -%}
+
+  {%- call card({
+    id: params.card.id,
+    heading: headingOptions,
+    href: params.card.href,
+    actions: params.card.actions,
+    classes: params.panelClasses | default(params.card.classes),
+    attributes: params.card.attributes,
+    variant: params.card.variant | default("feature" if params.panel else undefined)
   }) %}
     {{ tableHtml | safe | trim | indent(4) }}
   {%- endcall %}

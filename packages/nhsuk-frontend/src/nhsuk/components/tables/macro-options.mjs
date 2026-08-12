@@ -315,7 +315,7 @@ const options = {
     type: 'string',
     required: false,
     description:
-      'Heading text that displays above the table when `panel` is `true`. Replaced by the `card.heading` option.',
+      'Heading text that displays above the table when `panel` is `true`. Replaced by the `card.heading.text` option.',
     released: '1.0.0',
     deprecated: '10.3.0'
   },
