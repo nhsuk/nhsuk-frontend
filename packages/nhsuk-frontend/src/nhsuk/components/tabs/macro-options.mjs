@@ -23,8 +23,7 @@ const options = {
   title: {
     type: 'string',
     required: false,
-    description:
-      'Visually hidden title for the tabs contents list items. Defaults to `"Contents"`. Replaced by the `visuallyHiddenText` option.',
+    description: 'Replaced by the `visuallyHiddenText` option.',
     released: '7.0.0',
     deprecated: '10.6.0'
   },

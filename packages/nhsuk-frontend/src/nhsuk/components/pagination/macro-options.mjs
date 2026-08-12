@@ -114,16 +114,14 @@ const options = {
   previousUrl: {
     type: 'string',
     required: false,
-    description:
-      "The previous page's URL. Replaced by the `previous.href` option.",
+    description: 'Replaced by the `previous.href` option.',
     released: '1.0.0',
     deprecated: '10.1.0'
   },
   previousPage: {
     type: 'string',
     required: false,
-    description:
-      'The optional label that goes underneath the link to the previous page, providing further context for the user about where the link goes. Replaced by the `previous.labelText` option.',
+    description: 'Replaced by the `previous.labelText` option.',
     released: '1.0.0',
     deprecated: '10.1.0'
   },
@@ -172,23 +170,21 @@ const options = {
   nextUrl: {
     type: 'string',
     required: false,
-    description: "The next page's URL. Replaced by the `next.href` option.",
+    description: 'Replaced by the `next.href` option.',
     released: '1.0.0',
     deprecated: '10.1.0'
   },
   nextPage: {
     type: 'string',
     required: false,
-    description:
-      'The optional label that goes underneath the link to the next page, providing further context for the user about where the link goes. Replaced by the `next.labelText` option.',
+    description: 'Replaced by the `next.labelText` option.',
     released: '1.0.0',
     deprecated: '10.1.0'
   },
   landmarkLabel: {
     type: 'string',
     required: false,
-    description:
-      'The accessible name for the navigation landmark that wraps the pagination. Defaults to `"Pagination"`. Replaced by the `ariaLabel` option.',
+    description: 'Replaced by the `ariaLabel` option.',
     released: '10.1.0',
     deprecated: '10.6.0'
   },

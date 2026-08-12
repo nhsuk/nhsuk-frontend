@@ -73,24 +73,21 @@ const options = {
   headingClasses: {
     type: 'string',
     required: false,
-    description:
-      'Optional additional classes to add to heading. Separate each class with a space. Replaced by the `heading.classes` option.',
+    description: 'Replaced by the `heading.classes` option.',
     released: '9.4.0',
     deprecated: '10.6.0'
   },
   headingSize: {
     type: 'string',
     required: false,
-    description:
-      'Size of the heading – `"xxs"`, `"xs"`, `"s"`, `"m"`, `"l"` or `"xl"`. Replaced by the `heading.size` option.',
+    description: 'Replaced by the `heading.size` option.',
     released: '10.3.0',
     deprecated: '10.6.0'
   },
   headingLevel: {
     type: 'integer',
     required: false,
-    description:
-      'Optional heading level for the heading. Defaults to `1`. Replaced by the `heading.level` option.',
+    description: 'Replaced by the `heading.level` option.',
     released: '9.4.0',
     deprecated: '10.6.0'
   },
@@ -118,8 +115,7 @@ const options = {
   imageURL: {
     type: 'string',
     required: false,
-    description:
-      'The URL of the image in the hero. Replaced by the `image.src` option.',
+    description: 'Replaced by the `image.src` option.',
     released: '1.0.0',
     deprecated: '10.3.0'
   },

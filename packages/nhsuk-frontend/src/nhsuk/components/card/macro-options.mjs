@@ -22,48 +22,42 @@ const options = {
   headingHtml: {
     type: 'string',
     required: true,
-    description:
-      'HTML to use within the heading of the card component. Replaced by the `heading.html` option.',
+    description: 'Replaced by the `heading.html` option.',
     released: '4.0.0',
     deprecated: '10.6.0'
   },
   headingClasses: {
     type: 'string',
     required: false,
-    description:
-      'Classes to add to the card heading. Replaced by the `heading.classes` option.',
+    description: 'Replaced by the `heading.classes` option.',
     released: '4.0.0',
     deprecated: '10.6.0'
   },
   headingSize: {
     type: 'string',
     required: false,
-    description:
-      'Size of the heading – `"xxs"`, `"xs"`, `"s"`, `"m"`, `"l"` or `"xl"`. Replaced by the `heading.size` option.',
+    description: 'Replaced by the `heading.size` option.',
     released: '10.3.0',
     deprecated: '10.6.0'
   },
   headingLevel: {
     type: 'integer',
     required: false,
-    description:
-      'Optional heading level for the card heading. Defaults to `2`. Replaced by the `heading.level` option.',
+    description: 'Replaced by the `heading.level` option.',
     released: '4.0.0',
     deprecated: '10.6.0'
   },
   headingId: {
     type: 'string',
     required: false,
-    description:
-      'Optional `id` attribute for the card heading. Replaced by the `heading.id` option.',
+    description: 'Replaced by the `heading.id` option.',
     released: '10.3.0',
     deprecated: '10.6.0'
   },
   headingVisuallyHiddenText: {
     type: 'string',
     required: false,
-    description:
-      'Optional visually hidden prefix used before the heading. Replaced by the `heading.visuallyHiddenText` option.',
+    description: 'Replaced by the `heading.visuallyHiddenText` option.',
     released: '10.3.0',
     deprecated: '10.6.0'
   },
@@ -90,56 +84,49 @@ const options = {
   type: {
     type: 'string',
     required: false,
-    description:
-      'Optional type of care card – `"non-urgent"`, `"urgent"` or `"emergency"`. Replaced by the `variant` option.',
+    description: 'Replaced by the `variant` option.',
     released: '6.0.0',
     deprecated: '10.4.0'
   },
   feature: {
     type: 'boolean',
     required: false,
-    description:
-      'If set to `true`, then the card will become a feature card variant.',
+    description: 'Replaced by the `variant: "feature"` option.',
     released: '4.0.0',
     deprecated: '10.4.0'
   },
   primary: {
     type: 'boolean',
     required: false,
-    description:
-      'If set to `true`, the card will become a primary card variant (with chevron).',
+    description: 'Replaced by the `variant: "primary"` option.',
     released: '7.1.0',
     deprecated: '10.4.0'
   },
   secondary: {
     type: 'boolean',
     required: false,
-    description:
-      'If set to `true`, the card will become a secondary card variant.',
+    description: 'Replaced by the `variant: "secondary"` option.',
     released: '7.1.0',
     deprecated: '10.4.0'
   },
   warning: {
     type: 'boolean',
     required: false,
-    description:
-      'If set to `true`, then the card will become a warning card variant used by the warning callout.',
+    description: 'Replaced by the `variant: "warning"` option.',
     released: '10.3.0',
     deprecated: '10.4.0'
   },
   imgURL: {
     type: 'string',
     required: false,
-    description:
-      'The URL of the image in the card. Replaced by the `image.src` option.',
+    description: 'Replaced by the `image.src` option.',
     released: '4.0.0',
     deprecated: '10.3.0'
   },
   imgALT: {
     type: 'string',
     required: false,
-    description:
-      'The alternative text of the image in the card. Replaced by the `image.alt` option.',
+    description: 'Replaced by the `image.alt` option.',
     released: '4.0.0',
     deprecated: '10.3.0'
   },
@@ -209,8 +196,7 @@ const options = {
   descriptionHtml: {
     type: 'string',
     required: false,
-    description:
-      'Description HTML to use within the card content. If `descriptionHtml` is provided, the `description` argument will be ignored. Replaced by the `description.html` option.',
+    description: 'Replaced by the `description.html` option.',
     released: '4.0.0',
     deprecated: '10.6.0'
   },

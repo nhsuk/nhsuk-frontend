@@ -45,16 +45,14 @@ const options = {
   summaryText: {
     type: 'string',
     required: true,
-    description:
-      'If `summaryHtml` is set, this is not required. Text to use within the summary element (the visible part of the details element). If `summaryHtml` is provided, the `summaryText` option will be ignored. Replaced by the `summary.text` option.',
+    description: 'Replaced by the `summary.text` option.',
     released: '10.0.0',
     deprecated: '10.6.0'
   },
   summaryHtml: {
     type: 'string',
     required: true,
-    description:
-      'If `summaryText` is set, this is not required. HTML to use within the summary element (the visible part of the details element). If `summaryHtml` is provided, the `summaryText` option will be ignored. Replaced by the `summary.html` option.',
+    description: 'Replaced by the `summary.html` option.',
     released: '10.0.0',
     deprecated: '10.6.0'
   },

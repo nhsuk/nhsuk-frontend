@@ -36,8 +36,7 @@ const options = {
       title: {
         type: 'string',
         required: false,
-        description:
-          'Title for group of footer navigation links. Replaced by the `navigation.heading.text` option.',
+        description: 'Replaced by the `navigation.heading.text` option.',
         released: '10.0.0',
         deprecated: '10.6.0'
       },
@@ -117,8 +116,7 @@ const options = {
       visuallyHiddenTitle: {
         type: 'string',
         required: false,
-        description:
-          'Visually hidden heading for meta `items` links. Defaults to `"Support links"`. Replaced by the `meta.visuallyHiddenText` option.',
+        description: 'Replaced by the `meta.visuallyHiddenText` option.',
         released: '10.0.0',
         deprecated: '10.6.0'
       },
