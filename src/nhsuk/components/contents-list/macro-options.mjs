@@ -61,13 +61,6 @@ const options = {
       }
     }
   },
-  landmarkLabel: {
-    type: 'string',
-    required: false,
-    description:
-      'The label for the navigation landmark that wraps the contents list. Defaults to `"Pages in this guide"`.',
-    released: '10.1.0'
-  },
   classes: {
     type: 'string',
     required: false,
@@ -80,6 +73,21 @@ const options = {
     description:
       'HTML attributes (for example data attributes) to add to the content list container.',
     released: '1.0.0'
+  },
+  landmarkLabel: {
+    type: 'string',
+    required: false,
+    description:
+      'The accessible name for the navigation landmark that wraps the contents list. Defaults to `"Pages in this guide"`. Replaced by the `ariaLabel` option.',
+    released: '10.1.0',
+    deprecated: '10.6.0'
+  },
+  ariaLabel: {
+    type: 'string',
+    required: false,
+    description:
+      'The accessible name for the navigation landmark that wraps the contents list. Defaults to `"Pages in this guide"`.',
+    released: '10.6.0'
   },
   visuallyHiddenText: {
     type: 'string',
