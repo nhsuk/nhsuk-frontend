@@ -1,4 +1,4 @@
-{% from "nhsuk/components/card/macro.njk" import card -%}
+{% from "nhsuk/components/card/macro.njk" import card %}
 
 {%- set headingOptions = params.heading if params.heading is mapping and params.heading is not escaped else {
   text: params.heading if params.heading is string else undefined,
