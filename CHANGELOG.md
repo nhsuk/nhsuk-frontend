@@ -6,43 +6,6 @@ Note: This release was created from the `support/10.x` branch.
 
 ### :new: **New features**
 
-#### Scrolling tables
-
-You can now make the [table](https://service-manual.nhs.uk/design-system/components/table) component scrollable, for when your table has many columns and you cannot split it up or use a responsive table.
-
-```patch
-  {{ table({
-    caption: "Childhood vaccination coverage",
-+   scroll: true,
-    head: [],
-    rows: []
-  }) }}
-```
-
-If you are not using Nunjucks macros, use the HTML markup from the [scrolling table example in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/table#scrolling-table) as follows:
-
-- Add the `nhsuk-scroll` scrolling container
-- Add the `nhsuk-scroll__content` scrolling content
-- Add an `id` attribute to your table caption with a unique ID
-- Add an `aria-labelledby` attribute to the scrolling content with the `id` value
-
-```patch
-+ <div class="nhsuk-scroll" data-module="nhsuk-scroll">
-+   <div class="nhsuk-scroll__content" role="region" aria-labelledby="childhood-vaccination-coverage-caption">
-      <table class="nhsuk-table">
--       <caption class="nhsuk-table__caption">
-+       <caption class="nhsuk-table__caption" id="childhood-vaccination-coverage-caption">
-          Childhood vaccination coverage
-        </caption>
-
-        <!-- // ... -->
-      </table>
-+   </div>
-+ </div>
-```
-
-This was added in [pull request #1969: Add option to make tables scroll](https://github.com/nhsuk/nhsuk-frontend/pull/1969).
-
 #### Sortable tables
 
 You can now make [table](https://service-manual.nhs.uk/design-system/components/table) columns sortable, so that clicking the header cell sorts the table by that column.
@@ -101,6 +64,43 @@ For example:
 ```
 
 This was added in [pull request #1969: Add option to make tables sortable](https://github.com/nhsuk/nhsuk-frontend/pull/1654).
+
+#### Scrolling tables
+
+You can now make the [table](https://service-manual.nhs.uk/design-system/components/table) component scrollable, for when your table has many columns and you cannot split it up or use a responsive table.
+
+```patch
+  {{ table({
+    caption: "Childhood vaccination coverage",
++   scroll: true,
+    head: [],
+    rows: []
+  }) }}
+```
+
+If you are not using Nunjucks macros, use the HTML markup from the [scrolling table example in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/table#scrolling-table) as follows:
+
+- Add the `nhsuk-scroll` scrolling container
+- Add the `nhsuk-scroll__content` scrolling content
+- Add an `id` attribute to your table caption with a unique ID
+- Add an `aria-labelledby` attribute to the scrolling content with the `id` value
+
+```patch
++ <div class="nhsuk-scroll" data-module="nhsuk-scroll">
++   <div class="nhsuk-scroll__content" role="region" aria-labelledby="childhood-vaccination-coverage-caption">
+      <table class="nhsuk-table">
+-       <caption class="nhsuk-table__caption">
++       <caption class="nhsuk-table__caption" id="childhood-vaccination-coverage-caption">
+          Childhood vaccination coverage
+        </caption>
+
+        <!-- // ... -->
+      </table>
++   </div>
++ </div>
+```
+
+This was added in [pull request #1969: Add option to make tables scroll](https://github.com/nhsuk/nhsuk-frontend/pull/1969).
 
 #### Set table column widths, align text or adjust row borders
 
@@ -349,12 +349,6 @@ If you use Sass you can also include mixins for custom components:
 Read more about [how we provide support for different browsers](/docs/contributing/browser-support.md).
 
 This was added in [pull request #1972: Add Sass mixins and utility classes for NHS.UK frontend browser support](https://github.com/nhsuk/nhsuk-frontend/pull/1972).
-
-#### Extend global inline code styles
-
-Inline `<code>` elements are now also styled within definition lists and table headers.
-
-This was added in [pull request #1984: Extend global inline code styles](https://github.com/nhsuk/nhsuk-frontend/pull/1984).
 
 #### Review Nunjucks macro `html` and `call` usage
 
@@ -654,6 +648,7 @@ This change was introduced in [pull request #2002: Add image component `backgrou
 ### :wrench: **Fixes**
 
 - [#1942: Update `nhsuk-spacing()` to add missing `$adjustment` and `$important` params](https://github.com/nhsuk/nhsuk-frontend/pull/1942)
+- [#1984: Extend global inline code styles](https://github.com/nhsuk/nhsuk-frontend/pull/1984)
 - [#1986: Update `nhsuk-font-monospace` font size to better match body text](https://github.com/nhsuk/nhsuk-frontend/pull/1986/changes)
 - [#1987: Add `nhsuk-u-display-none` override classes for breakpoints](https://github.com/nhsuk/nhsuk-frontend/pull/1987)
 - [#1996: Update hover colour for task list and pagination](https://github.com/nhsuk/nhsuk-frontend/pull/1996)
