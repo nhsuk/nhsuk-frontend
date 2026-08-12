@@ -35,15 +35,14 @@ const options = {
   items: {
     type: 'array',
     required: true,
-    description:
-      'The items for each task within the task list component. See items.',
+    description: 'The items for each task within the task list component.',
     released: '9.1.0',
     params: {
       title: {
         type: 'object',
         required: true,
         description:
-          'The main title for the task within the task list component. See title.',
+          'The main title for the task within the task list component.',
         released: '9.1.0',
         params: {
           text: {
@@ -72,7 +71,7 @@ const options = {
         type: 'object',
         required: false,
         description:
-          'Can be used to add a hint to each task within the task list component. See items hint.',
+          'Can be used to add a hint to each task within the task list component.',
         released: '9.1.0',
         params: {
           text: {
@@ -94,15 +93,14 @@ const options = {
       status: {
         type: 'object',
         required: true,
-        description:
-          'The status for each task within the task list component. See items status.',
+        description: 'The status for each task within the task list component.',
         released: '9.1.0',
         params: {
           tag: {
             type: 'object',
             required: false,
             description:
-              'Can be used to add a tag to the status of the task within the task list component. See tag.',
+              'Can be used to add a tag to the status of the task within the task list component.',
             released: '9.1.0',
             isComponent: true
           },
