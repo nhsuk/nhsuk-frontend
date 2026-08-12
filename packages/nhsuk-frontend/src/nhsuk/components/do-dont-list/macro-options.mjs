@@ -15,8 +15,25 @@ const options = {
   title: {
     type: 'string',
     required: true,
-    description: "Title to be displayed on the do and don't list component.",
-    released: '1.0.0'
+    description:
+      "Title to be displayed on the do and don't list component. Replaced by the `heading.text` option.",
+    released: '1.0.0',
+    deprecated: '10.6.0'
+  },
+  heading: {
+    type: 'object',
+    required: true,
+    description: "Heading to be displayed on the do and don't list component.",
+    released: '10.6.0',
+    isComponent: true
+  },
+  headingLevel: {
+    type: 'integer',
+    required: false,
+    description:
+      'Optional heading level for the title heading. Defaults to `3`. Replaced by the `heading.level` option.',
+    released: '1.0.0',
+    deprecated: '10.6.0'
   },
   icon: {
     type: 'string',
@@ -76,13 +93,6 @@ const options = {
     description:
       "If set to `true`, the optional `prefixText` will be removed from each do and don't item.",
     released: '5.0.0'
-  },
-  headingLevel: {
-    type: 'integer',
-    required: false,
-    description:
-      'Optional heading level for the title heading. Defaults to `3`.',
-    released: '1.0.0'
   },
   classes: {
     type: 'string',

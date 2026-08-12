@@ -1,6 +1,12 @@
 {% from "nhsuk/components/card/macro.njk" import card %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
 
+{%- set headingOptions = params.heading if params.heading is mapping and params.heading is not escaped else {
+  text: params.heading if params.heading is string else params.title,
+  html: params.heading if params.heading is escaped else undefined,
+  level: params.headingLevel
+} -%}
+
 {#- Set icon or (deprecated) type for this component #}
 {%- set icon = "cross" if (params.icon or params.type) == "cross" else "tick" %}
 {%- set items = params.items | select("mapping") if params.items | length else [] %}
@@ -34,8 +40,15 @@
 
 {{ card({
   id: params.id,
-  heading: params.title,
-  headingLevel: params.headingLevel | default(3),
+  heading: {
+    id: headingOptions.id,
+    text: headingOptions.text,
+    html: headingOptions.html,
+    visuallyHiddenText: headingOptions.visuallyHiddenText,
+    level: headingOptions.level | default(3),
+    classes: headingOptions.classes,
+    attributes: headingOptions.attributes
+  },
   descriptionHtml: listHtml,
   classes: params.classes,
   attributes: params.attributes,
