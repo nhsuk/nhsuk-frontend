@@ -6,7 +6,9 @@
 const fixtures = {
   "default": {
     context: {
-      heading: "Important",
+      heading: {
+        text: "Important"
+      },
       text: "For safety, tell your doctor or pharmacist if you're taking any other medicines, including herbal medicines, vitamins or supplements."
     },
     screenshot: {
@@ -15,20 +17,26 @@ const fixtures = {
   },
   "with HTML": {
     context: {
-      heading: "Important",
+      heading: {
+        text: "Important"
+      },
       html: '<p class="nhsuk-card__description">Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.</p>'
     }
   },
   "with HTML via call block": {
     context: {
-      heading: "Important"
+      heading: {
+        text: "Important"
+      }
     },
     callBlock:
       '<p class="nhsuk-card__description">Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.</p>'
   },
   "with custom heading": {
     context: {
-      heading: "School, nursery or work",
+      heading: {
+        text: "School, nursery or work"
+      },
       text: "Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared."
     },
     screenshot: {
@@ -38,9 +46,6 @@ const fixtures = {
   "without heading": {
     context: {
       text: "Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared."
-    },
-    options: {
-      hidden: true
     }
   }
 }
