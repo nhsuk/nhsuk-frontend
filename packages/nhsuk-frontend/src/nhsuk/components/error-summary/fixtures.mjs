@@ -70,7 +70,9 @@ const fixtures = {
       heading: {
         text: "There is a problem"
       },
-      descriptionText: "Describe the errors and how to correct them",
+      description: {
+        text: "Describe the errors and how to correct them"
+      },
       errorList: [
         {
           text: "Date of birth must be in the past",
@@ -85,8 +87,9 @@ const fixtures = {
       heading: {
         text: "There is a problem"
       },
-      descriptionHtml:
-        "Describe the errors and <span>how to correct them</span>",
+      description: {
+        html: "Describe the errors and <span>how to correct them</span>"
+      },
       errorList: [
         {
           text: "Date of birth must be in the past",
@@ -114,7 +117,9 @@ const fixtures = {
       heading: {
         text: "There is a problem"
       },
-      descriptionText: "Describe the errors and how to correct them"
+      description: {
+        text: "Describe the errors and how to correct them"
+      }
     }
   },
   "without error link": {

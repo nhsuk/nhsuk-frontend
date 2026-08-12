@@ -35,19 +35,56 @@ const options = {
     released: '1.0.0',
     deprecated: '10.6.0'
   },
+  description: {
+    type: 'object',
+    required: false,
+    description: 'Description of the errors.',
+    released: '10.6.0',
+    params: {
+      text: {
+        type: 'string',
+        required: true,
+        description:
+          'If `html` is set, this is not required. Text to use for the description of the errors. If `html` is provided, the `text` option will be ignored.',
+        released: '10.6.0'
+      },
+      html: {
+        type: 'string',
+        required: true,
+        description:
+          'If `text` is set, this is not required. HTML to use for the description of the errors. If `html` is provided, the `text` option will be ignored.',
+        released: '10.6.0'
+      },
+      classes: {
+        type: 'string',
+        required: false,
+        description: 'Classes to add to the error summary body.',
+        released: '10.6.0'
+      },
+      attributes: {
+        type: 'object',
+        required: false,
+        description:
+          'HTML attributes (for example data attributes) to add to the error summary body.',
+        released: '10.6.0'
+      }
+    }
+  },
   descriptionText: {
     type: 'string',
     required: false,
     description:
-      'Text to use for the description of the errors. If you set `descriptionHtml`, the component will ignore `descriptionText`.',
-    released: '1.0.0'
+      'Text to use for the description of the errors. If you set `descriptionHtml`, the component will ignore `descriptionText`. Replaced by the `description.text` option.',
+    released: '1.0.0',
+    deprecated: '10.6.0'
   },
   descriptionHtml: {
     type: 'string',
     required: false,
     description:
-      'HTML to use for the description of the errors. If you set this option, the component will ignore `descriptionText`.',
-    released: '1.0.0'
+      'HTML to use for the description of the errors. If you set this option, the component will ignore `descriptionText`. Replaced by the `description.html` option.',
+    released: '1.0.0',
+    deprecated: '10.6.0'
   },
   caller: {
     type: 'nunjucks-block',
