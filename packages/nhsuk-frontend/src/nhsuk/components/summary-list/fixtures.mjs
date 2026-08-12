@@ -718,8 +718,10 @@ const fixtures = {
   "as a card": {
     context: {
       card: {
-        heading: "Regional Manager",
-        headingSize: "m"
+        heading: {
+          text: "Regional Manager",
+          size: "m"
+        }
       },
       lastRowBorder: false,
       rows: [
@@ -745,8 +747,10 @@ const fixtures = {
   "as a card with multiple actions": {
     context: {
       card: {
-        heading: "Regional Manager",
-        headingSize: "l",
+        heading: {
+          text: "Regional Manager",
+          size: "l"
+        },
         actions: {
           items: [
             {
@@ -868,8 +872,10 @@ const fixtures = {
   "as a card with action": {
     context: {
       card: {
-        heading: "Regional Manager",
-        headingSize: "m",
+        heading: {
+          text: "Regional Manager",
+          size: "m"
+        },
         actions: {
           items: [
             {
@@ -903,8 +909,10 @@ const fixtures = {
   "as a card with action as a button": {
     context: {
       card: {
-        heading: "Regional Manager",
-        headingSize: "m",
+        heading: {
+          text: "Regional Manager",
+          size: "m"
+        },
         actions: {
           items: [
             {
@@ -938,8 +946,10 @@ const fixtures = {
   "as a card with actions": {
     context: {
       card: {
-        heading: "Regional Manager",
-        headingSize: "m",
+        heading: {
+          text: "Regional Manager",
+          size: "m"
+        },
         actions: {
           items: [
             {
@@ -977,8 +987,10 @@ const fixtures = {
   "as a card with actions as buttons": {
     context: {
       card: {
-        heading: "Regional Manager",
-        headingSize: "m",
+        heading: {
+          text: "Regional Manager",
+          size: "m"
+        },
         actions: {
           items: [
             {
@@ -1016,8 +1028,10 @@ const fixtures = {
   "as a card (secondary) with actions": {
     context: {
       card: {
-        heading: "Regional Manager",
-        headingSize: "m",
+        heading: {
+          text: "Regional Manager",
+          size: "m"
+        },
         variant: "secondary",
         actions: {
           items: [
@@ -1056,8 +1070,10 @@ const fixtures = {
   "as a card (feature) with actions": {
     context: {
       card: {
-        heading: "Regional Manager",
-        headingSize: "m",
+        heading: {
+          text: "Regional Manager",
+          size: "m"
+        },
         variant: "feature",
         actions: {
           items: [
@@ -1096,8 +1112,10 @@ const fixtures = {
   "as a card (feature) with custom HTML": {
     context: {
       card: {
-        heading: "Your read",
-        headingSize: "m",
+        heading: {
+          text: "Your read",
+          size: "m"
+        },
         variant: "feature"
       },
       lastRowBorder: false,
@@ -1206,8 +1224,10 @@ const fixtures = {
   "as a card (clickable) without actions": {
     context: {
       card: {
-        heading: "Regional Manager",
-        headingSize: "m",
+        heading: {
+          text: "Regional Manager",
+          size: "m"
+        },
         href: "#/card-clickable",
         clickable: true
       },
@@ -1235,7 +1255,9 @@ const fixtures = {
   "as a card (type non-urgent) with actions": {
     context: {
       card: {
-        heading: "Regional Manager",
+        heading: {
+          text: "Regional Manager"
+        },
         variant: "non-urgent",
         actions: {
           items: [
@@ -1274,7 +1296,9 @@ const fixtures = {
   "as a card (type urgent) with actions": {
     context: {
       card: {
-        heading: "Regional Manager",
+        heading: {
+          text: "Regional Manager"
+        },
         variant: "urgent",
         actions: {
           items: [
@@ -1313,7 +1337,9 @@ const fixtures = {
   "as a card (type emergency) with actions": {
     context: {
       card: {
-        heading: "Regional Manager",
+        heading: {
+          text: "Regional Manager"
+        },
         variant: "emergency",
         actions: {
           items: [
