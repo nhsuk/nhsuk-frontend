@@ -53,7 +53,48 @@ const options = {
         description:
           'The main heading for the task within the task list component.',
         released: '10.6.0',
-        isComponent: true
+        isComponent: true,
+        params: {
+          id: {
+            type: 'string',
+            required: false,
+            description: 'The ID of the heading.',
+            released: '10.6.0'
+          },
+          text: {
+            type: 'string',
+            required: true,
+            description:
+              'If `html` is set, this is not required. Text for the heading. If `html` is provided, the `text` option will be ignored.',
+            released: '10.6.0'
+          },
+          html: {
+            type: 'string',
+            required: true,
+            description:
+              'If `text` is set, this is not required. HTML for the heading. If `html` is provided, the `text` option will be ignored.',
+            released: '10.6.0'
+          },
+          visuallyHiddenText: {
+            type: 'string',
+            required: false,
+            description: 'A visually hidden suffix added to the heading.',
+            released: '10.6.0'
+          },
+          classes: {
+            type: 'string',
+            required: false,
+            description: 'Classes to add to the heading.',
+            released: '10.6.0'
+          },
+          attributes: {
+            type: 'object',
+            required: false,
+            description:
+              'HTML attributes (for example data attributes) to add to the heading.',
+            released: '10.6.0'
+          }
+        }
       },
       hint: {
         type: 'object',
