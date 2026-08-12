@@ -35,11 +35,10 @@
 
 <legend {{- nhsukAttributes({ class: classNames }) }}>
 {% if params.isPageHeading %}
-  {% call heading({
+  {{ heading({
+    html: innerHtml,
     className: classNamesHeading
-  }) %}
-    {{ innerHtml | safe | trim | indent(4) }}
-  {%- endcall %}
+  }) | trim | indent(2) }}
 {% else %}
   {{ innerHtml | safe | trim | indent(2) }}
 {% endif %}
