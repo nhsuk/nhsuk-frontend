@@ -60,7 +60,7 @@ const options = {
         type: 'string',
         required: true,
         description:
-          "Text to use within each do and don't item. Replaced by the `text` and `html` options.",
+          "Text to use within each do and don't item. Replaced by the `item.text` and `item.html` options.",
         released: '1.0.0',
         deprecated: '10.1.0'
       },
