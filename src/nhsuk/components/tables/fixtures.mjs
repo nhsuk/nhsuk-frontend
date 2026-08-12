@@ -1039,8 +1039,10 @@ const fixtures = {
   "as a card (feature)": {
     context: {
       card: {
-        heading: "Other conditions like impetigo",
-        headingSize: "m",
+        heading: {
+          text: "Other conditions like impetigo",
+          size: "m"
+        },
         variant: "feature"
       },
       caption: "Impetigo can look similar to other skin conditions",
@@ -1591,8 +1593,10 @@ const fixtures = {
   "scrolling as a card": {
     context: {
       card: {
-        heading: "Leeds",
-        headingSize: "m",
+        heading: {
+          text: "Leeds",
+          size: "m"
+        },
         actions: {
           items: [
             {
@@ -1701,8 +1705,10 @@ const fixtures = {
   "scrolling sortable as a card": {
     context: {
       card: {
-        heading: "Leeds",
-        headingSize: "m",
+        heading: {
+          text: "Leeds",
+          size: "m"
+        },
         actions: {
           items: [
             {
