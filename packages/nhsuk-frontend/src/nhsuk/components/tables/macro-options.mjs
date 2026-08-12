@@ -243,6 +243,13 @@ const options = {
           'If `text` is set, this is not required. HTML for the table caption. If `html` is provided, the `text` option will be ignored.',
         released: '10.6.0'
       },
+      visuallyHiddenText: {
+        type: 'string',
+        required: false,
+        description:
+          'Message made available to assistive technologies to describe that the table is sortable. Defaults to `"Column headers are sortable"`.',
+        released: '10.6.0'
+      },
       size: {
         type: 'string',
         required: false,
@@ -262,13 +269,6 @@ const options = {
         required: false,
         description:
           'HTML attributes (for example data attributes) to add to the table caption.',
-        released: '10.6.0'
-      },
-      visuallyHiddenText: {
-        type: 'string',
-        required: false,
-        description:
-          'Message made available to assistive technologies to describe that the table is sortable. Defaults to `"Column headers are sortable"`.',
         released: '10.6.0'
       }
     }
