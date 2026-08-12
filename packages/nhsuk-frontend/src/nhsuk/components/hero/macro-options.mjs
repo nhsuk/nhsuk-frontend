@@ -74,7 +74,7 @@ const options = {
     type: 'string',
     required: false,
     description:
-      'Optional additional classes to add to heading. Separate each class with a space.',
+      'Optional additional classes to add to heading. Separate each class with a space. Replaced by the `heading.classes` option.',
     released: '9.4.0',
     deprecated: '10.6.0'
   },
@@ -82,14 +82,15 @@ const options = {
     type: 'string',
     required: false,
     description:
-      'Size of the heading – `"xxs"`, `"xs"`, `"s"`, `"m"`, `"l"` or `"xl"`.',
+      'Size of the heading – `"xxs"`, `"xs"`, `"s"`, `"m"`, `"l"` or `"xl"`. Replaced by the `heading.size` option.',
     released: '10.3.0',
     deprecated: '10.6.0'
   },
   headingLevel: {
     type: 'integer',
     required: false,
-    description: 'Optional heading level for the heading. Defaults to `1`.',
+    description:
+      'Optional heading level for the heading. Defaults to `1`. Replaced by the `heading.level` option.',
     released: '9.4.0',
     deprecated: '10.6.0'
   },
