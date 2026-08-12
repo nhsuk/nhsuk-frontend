@@ -13,16 +13,19 @@ const options = {
     released: '10.0.0'
   },
   heading: {
-    type: 'string',
+    type: 'object',
     required: true,
     description: 'Heading to be used on the warning callout.',
-    released: '1.0.0'
+    released: '10.6.0',
+    isComponent: true
   },
   headingLevel: {
     type: 'integer',
     required: false,
-    description: 'Optional heading level for the heading. Defaults to `3`.',
-    released: '1.0.0'
+    description:
+      'Optional heading level for the heading. Defaults to `3`. Replaced by the `heading.level` option.',
+    released: '1.0.0',
+    deprecated: '10.6.0'
   },
   text: {
     type: 'string',
