@@ -1,3 +1,4 @@
+{% from "nhsuk/components/heading/macro.njk" import heading %}
 {% from "nhsuk/components/tag/macro.njk" import tag %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
@@ -13,22 +14,28 @@
 {%- macro _taskListItem(params, item, index) %}
   {%- set hintId = idPrefix ~ "-" ~ index ~ "-hint" %}
   {%- set statusId = idPrefix ~ "-" ~ index ~ "-status" %}
+
+  {%- set headingOptions = item.heading if item.heading is mapping and item.heading is not escaped else {
+    text: item.heading if item.heading is string else item.title.text,
+    html: item.heading if item.heading is escaped else item.title.html,
+    classes: item.title.classes
+  } %}
   <li class="nhsuk-task-list__item {%- if item.href %} nhsuk-task-list__item--with-link{% endif %}{%- if item.classes %} {{ item.classes }}{% endif %}">
     <div class="nhsuk-task-list__name-and-hint">
     {% if item.href %}
-      <a class="nhsuk-link nhsuk-task-list__link {%- if item.title.classes %} {{ item.title.classes }}{% endif %}" href="{{ item.href }}" aria-describedby="{{ hintId ~ " " if item.hint }}{{ statusId }}">
-      {% if item.title.html %}
-        {{ item.title.html | safe | trim | indent(8) }}
-      {% elif item.title.text %}
-        {{ item.title.text | trim | indent(8) }}
+      <a class="nhsuk-link nhsuk-task-list__link {%- if headingOptions.classes %} {{ headingOptions.classes }}{% endif %}" href="{{ item.href }}" aria-describedby="{{ hintId ~ " " if item.hint }}{{ statusId }}">
+      {% if headingOptions.html %}
+        {{ headingOptions.html | safe | trim | indent(8) }}
+      {% elif headingOptions.text %}
+        {{ headingOptions.text | trim | indent(8) }}
       {% endif %}
       </a>
     {% else %}
-      <div {%- if item.title.classes %} class="{{ item.title.classes }}"{% endif %}>
-      {% if item.title.html %}
-        {{ item.title.html | safe | trim | indent(8) }}
-      {% elif item.title.text %}
-        {{ item.title.text | trim | indent(8) }}
+      <div {%- if headingOptions.classes %} class="{{ headingOptions.classes }}"{% endif %}>
+      {% if headingOptions.html %}
+        {{ headingOptions.html | safe | trim | indent(8) }}
+      {% elif headingOptions.text %}
+        {{ headingOptions.text | trim | indent(8) }}
       {% endif %}
       </div>
     {% endif %}
