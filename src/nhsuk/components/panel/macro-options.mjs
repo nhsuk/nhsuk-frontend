@@ -16,14 +16,14 @@ const options = {
     type: 'string',
     required: true,
     description:
-      'If `titleHtml` is set, this is not required. Text to use within the panel. If `titleHtml` is provided, the `titleText` option will be ignored.',
+      'If `titleHtml` is set, this is not required. Text to use within the panel heading. If `titleHtml` is provided, the `titleText` option will be ignored.',
     released: '9.3.0'
   },
   titleHtml: {
     type: 'string',
     required: false,
     description:
-      'If `titleText` is set, this is not required. HTML to use within the panel. If `titleHtml` is provided, the `titleText` option will be ignored.',
+      'If `titleText` is set, this is not required. HTML to use within the panel heading. If `titleHtml` is provided, the `titleText` option will be ignored.',
     released: '9.3.0'
   },
   titleSize: {
@@ -56,7 +56,7 @@ const options = {
     type: 'string',
     required: true,
     description:
-      'If `text` is set, this is not required. Text to use within the panel content. If `text` is provided, the `html` option will be ignored.',
+      'If `text` is set, this is not required. HTML to use within the panel content. If `text` is provided, the `html` option will be ignored.',
     released: '9.3.0'
   },
   caller: {
