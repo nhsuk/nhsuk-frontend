@@ -15,30 +15,32 @@
   {%- set hintId = idPrefix ~ "-" ~ index ~ "-hint" %}
   {%- set statusId = idPrefix ~ "-" ~ index ~ "-status" %}
 
-  {%- set headingOptions = item.heading if item.heading is mapping and item.heading is not escaped else {
+  {%- set itemHeading = item.heading if item.heading is mapping and item.heading is not escaped else {
     text: item.heading if item.heading is string else item.title.text,
     html: item.heading if item.heading is escaped else item.title.html,
     classes: item.title.classes
   } %}
   <li class="nhsuk-task-list__item {%- if item.href %} nhsuk-task-list__item--with-link{% endif %}{%- if item.classes %} {{ item.classes }}{% endif %}">
     <div class="nhsuk-task-list__name-and-hint">
-    {% if item.href %}
-      <a class="nhsuk-link nhsuk-task-list__link {%- if headingOptions.classes %} {{ headingOptions.classes }}{% endif %}" href="{{ item.href }}" aria-describedby="{{ hintId ~ " " if item.hint }}{{ statusId }}">
-      {% if headingOptions.html %}
-        {{ headingOptions.html | safe | trim | indent(8) }}
-      {% elif headingOptions.text %}
-        {{ headingOptions.text | trim | indent(8) }}
-      {% endif %}
-      </a>
-    {% else %}
-      <div {%- if headingOptions.classes %} class="{{ headingOptions.classes }}"{% endif %}>
-      {% if headingOptions.html %}
-        {{ headingOptions.html | safe | trim | indent(8) }}
-      {% elif headingOptions.text %}
-        {{ headingOptions.text | trim | indent(8) }}
-      {% endif %}
-      </div>
-    {% endif %}
+      {{ heading({
+        id: itemHeading.id,
+        text: itemHeading.text,
+        html: itemHeading.html,
+        visuallyHiddenText: itemHeading.visuallyHiddenText,
+        className: "nhsuk-task-list__link" if item.href else "",
+        classes: ("nhsuk-link" if item.href else "") ~ (itemHeading.classes if itemHeading.classes else ""),
+        attributes: nhsukAttributes({
+          href: {
+            value: item.href | default(false),
+            optional: true
+          },
+          "aria-describedby": {
+            value: ((hintId ~ " " if item.hint else "") ~ statusId) if item.href else false,
+            optional: true
+          }
+        }) ~ nhsukAttributes(itemHeading.attributes),
+        element: "a" if item.href else "div"
+      }) | trim | indent(6) }}
     {% if item.hint %}
       <div class="nhsuk-task-list__hint" id="{{ hintId }}">
       {% if item.hint.html %}
