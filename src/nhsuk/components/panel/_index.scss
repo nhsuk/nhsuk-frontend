@@ -45,9 +45,10 @@ $nhsuk-border-width-panel: $nhsuk-panel-border-width;
       @include nhsuk-link-style-reverse;
     }
 
+    [class^="nhsuk-caption"],
     .nhsuk-u-secondary-text-colour {
       // stylelint-disable-next-line declaration-no-important
-      color: $nhsuk-reverse-secondary-text-colour !important;
+      color: $nhsuk-reverse-text-colour !important;
     }
 
     @media #{nhsuk-until-breakpoint(tablet)} {
@@ -64,6 +65,12 @@ $nhsuk-border-width-panel: $nhsuk-panel-border-width;
 
   .nhsuk-panel--interruption {
     background-color: $nhsuk-brand-colour;
+
+    [class^="nhsuk-caption"],
+    .nhsuk-u-secondary-text-colour {
+      // stylelint-disable-next-line declaration-no-important
+      color: $nhsuk-reverse-secondary-text-colour !important;
+    }
   }
 
   .nhsuk-panel__title {
