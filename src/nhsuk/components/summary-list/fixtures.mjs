@@ -544,6 +544,30 @@ const fixtures = {
       width: "full"
     }
   },
+  "with item widths": {
+    context: {
+      rows: [
+        {
+          key: {
+            text: "Name",
+            width: "one-half"
+          },
+          value: {
+            text: "Karen Francis"
+          }
+        },
+        {
+          key: {
+            text: "Date of birth",
+            width: "one-half"
+          },
+          value: {
+            text: "15 March 1984"
+          }
+        }
+      ]
+    }
+  },
   "without border": {
     context: {
       border: false,
