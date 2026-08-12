@@ -12,7 +12,9 @@ import { examples as tablesExamples } from "../tables/fixtures.mjs"
 const fixtures = {
   "default": {
     context: {
-      summaryText: "How to find your NHS number"
+      summary: {
+        text: "How to find your NHS number"
+      }
     },
     callBlock: outdent`
       <p>An NHS number is a 10 digit number, like <span class="nhsuk-u-nowrap">999 123 4567</span>.</p>
@@ -32,7 +34,9 @@ const fixtures = {
   },
   "open": {
     context: {
-      summaryText: "How to find your NHS number",
+      summary: {
+        text: "How to find your NHS number"
+      },
       open: true
     },
     callBlock: outdent`
@@ -49,7 +53,9 @@ const fixtures = {
   },
   "expander": {
     context: {
-      summaryText: "Opening times",
+      summary: {
+        text: "Opening times"
+      },
       classes: "nhsuk-expander"
     },
     callBlock: outdent`
@@ -62,7 +68,9 @@ const fixtures = {
   },
   "expander open": {
     context: {
-      summaryText: "Opening times",
+      summary: {
+        text: "Opening times"
+      },
       classes: "nhsuk-expander",
       open: true
     },
