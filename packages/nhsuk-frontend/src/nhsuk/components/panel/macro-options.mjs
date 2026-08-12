@@ -12,38 +12,52 @@ const options = {
     description: 'The ID of the panel.',
     released: '10.0.0'
   },
+  heading: {
+    type: 'object',
+    required: true,
+    description: 'Heading of the panel component.',
+    released: '10.6.0',
+    isComponent: true
+  },
   titleText: {
     type: 'string',
     required: true,
     description:
-      'If `titleHtml` is set, this is not required. Text to use within the panel heading. If `titleHtml` is provided, the `titleText` option will be ignored.',
-    released: '9.3.0'
+      'If `titleHtml` is set, this is not required. Text to use within the panel heading. If `titleHtml` is provided, the `titleText` option will be ignored. Replaced by the `heading.text` option.',
+    released: '9.3.0',
+    deprecated: '10.6.0'
   },
   titleHtml: {
     type: 'string',
     required: false,
     description:
-      'If `titleText` is set, this is not required. HTML to use within the panel heading. If `titleHtml` is provided, the `titleText` option will be ignored.',
-    released: '9.3.0'
+      'If `titleText` is set, this is not required. HTML to use within the panel heading. If `titleHtml` is provided, the `titleText` option will be ignored. Replaced by the `heading.html` option.',
+    released: '9.3.0',
+    deprecated: '10.6.0'
   },
   titleSize: {
     type: 'string',
     required: false,
-    description: 'Size of the title – `"m"`, `"l"` or `"xl"`.',
-    released: '10.3.0'
+    description:
+      'Size of the title – `"m"`, `"l"` or `"xl"`. Replaced by the `heading.size` option.',
+    released: '10.3.0',
+    deprecated: '10.6.0'
   },
   titleClasses: {
     type: 'string',
     required: false,
     description:
-      'Optional additional classes to add to the heading tag. Separate each class with a space.',
-    released: '10.3.0'
+      'Optional additional classes to add to the heading tag. Separate each class with a space. Replaced by the `heading.classes` option.',
+    released: '10.3.0',
+    deprecated: '10.6.0'
   },
   headingLevel: {
     type: 'integer',
     required: false,
-    description: 'Heading level, from `1` to `6`. Defaults to `1`.',
-    released: '1.0.0'
+    description:
+      'Heading level, from `1` to `6`. Defaults to `1`. Replaced by the `heading.level` option.',
+    released: '1.0.0',
+    deprecated: '10.6.0'
   },
   text: {
     type: 'string',

@@ -10,7 +10,9 @@ import { components } from "#lib"
 const fixtures = {
   "default": {
     context: {
-      titleText: "Booking complete",
+      heading: {
+        text: "Booking complete"
+      },
       text: "We have sent you a confirmation email"
     },
     screenshot: {
@@ -19,20 +21,26 @@ const fixtures = {
   },
   "with HTML": {
     context: {
-      titleText: "Booking complete",
+      heading: {
+        text: "Booking complete"
+      },
       html: "We have sent you a confirmation email"
     }
   },
   "with HTML via call block": {
     context: {
-      titleText: "Booking complete"
+      heading: {
+        text: "Booking complete"
+      }
     },
     callBlock: "We have sent you a confirmation email"
   },
   "interruption": {
     context: {
-      titleText: "Jodie Brown had a COVID-19 vaccine less than 3 months ago",
-      titleSize: "l",
+      heading: {
+        text: "Jodie Brown had a COVID-19 vaccine less than 3 months ago",
+        size: "l"
+      },
       variant: "interruption",
       html: outdent`
         <p>They had a COVID-19 vaccine on 25 September 2025.</p>
@@ -55,8 +63,10 @@ const fixtures = {
   },
   "interruption for confirmation to cancel": {
     context: {
-      titleText: "Confirm you want to cancel your hospital appointment",
-      titleSize: "l",
+      heading: {
+        text: "Confirm you want to cancel your hospital appointment",
+        size: "l"
+      },
       variant: "interruption",
       html: outdent`
         <p>You will be able to reschedule your appointment for another time, but this may delay your treatment.</p>
@@ -76,8 +86,10 @@ const fixtures = {
   },
   "interruption for confirmation to continue": {
     context: {
-      titleText: "Is your weight correct?",
-      titleSize: "l",
+      heading: {
+        text: "Is your weight correct?",
+        size: "l"
+      },
       variant: "interruption",
       html: outdent`
         <p>You entered your weight as <b>21.4 kilograms</b>. This is lower than expected.</p>
@@ -96,37 +108,47 @@ const fixtures = {
   },
   "title": {
     context: {
-      titleText: "Booking complete",
-      titleSize: "l",
+      heading: {
+        text: "Booking complete",
+        size: "l"
+      },
       text: "We have sent you a confirmation email"
     },
     variants: [
       {
         description: "with size M",
         context: {
-          titleSize: "m"
+          heading: {
+            size: "m"
+          }
         }
       },
       {
         description: "with size L",
         context: {
-          titleSize: "l"
+          heading: {
+            size: "l"
+          }
         }
       },
       {
         description: "with size XL",
         context: {
-          titleSize: "xl"
+          heading: {
+            size: "xl"
+          }
         }
       }
     ]
   },
   "with title classes and heading level": {
     context: {
-      titleText: "Booking complete",
-      titleClasses: "nhsuk-panel__title--l",
-      text: "We have sent you a confirmation email",
-      headingLevel: 2
+      heading: {
+        text: "Booking complete",
+        level: 2,
+        classes: "nhsuk-panel__title--l"
+      },
+      text: "We have sent you a confirmation email"
     }
   }
 }
