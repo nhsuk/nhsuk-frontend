@@ -6,6 +6,11 @@
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-details" -%}
 
+{%- set summaryOptions = params.summary if params.summary is mapping and params.summary is not escaped else {
+  text: params.summary if params.summary is string else params.summaryText,
+  html: params.summary if params.summary is escaped else params.summaryHtml
+} -%}
+
 {%- if variant == "reverse" and (not params.classes or not "nhsuk-details--reverse" in params.classes) %}
   {% set classNames = classNames ~ " nhsuk-details--" ~ variant %}
 {% endif %}
@@ -16,12 +21,13 @@
 
 <details class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
   {{- nhsukAttributes(params.attributes) }} {{- " open" if params.open }}>
-  <summary class="nhsuk-details__summary">
+  <summary class="nhsuk-details__summary {%- if summaryOptions.classes %} {{ summaryOptions.classes }}{% endif %}"
+    {{- nhsukAttributes(summaryOptions.attributes) }}>
     <span class="nhsuk-details__summary-text">
-    {% if params.summaryHtml %}
-      {{ params.summaryHtml | safe | trim | indent(6) }}
-    {% elif params.summaryText %}
-      {{ params.summaryText | trim | indent(6) }}
+    {% if summaryOptions.html %}
+      {{ summaryOptions.html | safe | trim | indent(6) }}
+    {% elif summaryOptions.text %}
+      {{ summaryOptions.text | trim | indent(6) }}
     {% endif %}
     </span>
   </summary>

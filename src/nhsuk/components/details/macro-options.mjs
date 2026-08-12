@@ -6,19 +6,57 @@ export const name = 'Details'
  * @satisfies {{ [param: string]: MacroParam }}
  */
 const options = {
+  summary: {
+    type: 'object',
+    required: false,
+    description:
+      'Summary element content (the visible part of the details element).',
+    released: '10.6.0',
+    params: {
+      text: {
+        type: 'string',
+        required: true,
+        description:
+          'If `html` is set, this is not required. Text to use within the summary element (the visible part of the details element). If `html` is provided, the `text` option will be ignored.',
+        released: '10.6.0'
+      },
+      html: {
+        type: 'string',
+        required: true,
+        description:
+          'If `text` is set, this is not required. HTML to use within the summary element (the visible part of the details element). If `html` is provided, the `text` option will be ignored.',
+        released: '10.6.0'
+      },
+      classes: {
+        type: 'string',
+        required: false,
+        description: 'Classes to add to the summary element.',
+        released: '10.6.0'
+      },
+      attributes: {
+        type: 'object',
+        required: false,
+        description:
+          'HTML attributes (for example data attributes) to add to the summary element.',
+        released: '10.6.0'
+      }
+    }
+  },
   summaryText: {
     type: 'string',
     required: true,
     description:
-      'If `summmaryHtml` is set, this is not required. Text to use within the summary element (the visible part of the details element). If `summaryHtml` is provided, the `summaryText` option will be ignored.',
-    released: '10.0.0'
+      'If `summaryHtml` is set, this is not required. Text to use within the summary element (the visible part of the details element). If `summaryHtml` is provided, the `summaryText` option will be ignored. Replaced by the `summary.text` option.',
+    released: '10.0.0',
+    deprecated: '10.6.0'
   },
   summaryHtml: {
     type: 'string',
     required: true,
     description:
-      'If `summmaryText` is set, this is not required. HTML to use within the summary element (the visible part of the details element). If `summaryHtml` is provided, the `summaryText` option will be ignored.',
-    released: '10.0.0'
+      'If `summaryText` is set, this is not required. HTML to use within the summary element (the visible part of the details element). If `summaryHtml` is provided, the `summaryText` option will be ignored. Replaced by the `summary.html` option.',
+    released: '10.0.0',
+    deprecated: '10.6.0'
   },
   text: {
     type: 'string',
