@@ -214,37 +214,79 @@ const options = {
     }
   },
   caption: {
-    type: 'string',
+    type: 'object',
     required: false,
-    description: 'Caption text.',
-    released: '1.0.0'
-  },
-  captionId: {
-    type: 'string',
-    required: false,
-    description:
-      'The ID of the table caption, and the `aria-labelledby` attribute in the scrolling container. Defaults to the `id` option suffixed with `"-caption"`. If neither are provided, the ID is generated from the caption text.',
-    released: '10.6.0'
+    description: 'Table caption.',
+    alias: 'heading',
+    released: '10.6.0',
+    isComponent: true,
+    params: {
+      id: {
+        type: 'string',
+        required: false,
+        description:
+          'The ID of the table caption and the `aria-labelledby` attribute in the scrolling container. Defaults to the table `id` option suffixed with `"-caption"`. If neither are provided, the ID is generated from the caption `text` option.',
+        released: '10.6.0'
+      },
+      text: {
+        type: 'string',
+        required: true,
+        description:
+          'If `html` is set, this is not required. Text for the table caption. If `html` is provided, the `text` option will be ignored.',
+        released: '10.6.0'
+      },
+      html: {
+        type: 'string',
+        required: true,
+        description:
+          'If `text` is set, this is not required. HTML for the table caption. If `html` is provided, the `text` option will be ignored.',
+        released: '10.6.0'
+      },
+      size: {
+        type: 'string',
+        required: false,
+        description:
+          'Size of the table caption – `"s"`, `"m"`, `"l"` or `"xl"`.',
+        released: '10.6.0'
+      },
+      classes: {
+        type: 'string',
+        required: false,
+        description:
+          'Classes to add to the table caption, for example `"nhsuk-table__caption--l"`.',
+        released: '10.6.0'
+      },
+      attributes: {
+        type: 'object',
+        required: false,
+        description:
+          'HTML attributes (for example data attributes) to add to the table caption.',
+        released: '10.6.0'
+      },
+      visuallyHiddenText: {
+        type: 'string',
+        required: false,
+        description:
+          'Message made available to assistive technologies to describe that the table is sortable. Defaults to `"Column headers are sortable"`.',
+        released: '10.6.0'
+      }
+    }
   },
   captionClasses: {
     type: 'string',
     required: false,
     description:
-      'Classes for caption text size. Classes to add to the table caption, for example `"nhsuk-table__caption--l"`.',
-    released: '1.0.0'
+      'Classes to add to the table caption, for example `"nhsuk-table__caption--l"`. Replaced by the `caption.classes` option.',
+    released: '1.0.0',
+    deprecated: '10.6.0'
   },
   captionSize: {
     type: 'string',
     required: false,
-    description: 'Size of the caption – `"s"`, `"m"`, `"l"` or `"xl"`.',
-    released: '10.2.0'
-  },
-  captionDescriptionText: {
-    type: 'string',
-    required: false,
     description:
-      'Message made available to assistive technologies to describe that the table is sortable. Defaults to `"Column headers are sortable"`.',
-    released: '10.6.0'
+      'Size of the table caption – `"s"`, `"m"`, `"l"` or `"xl"`. Replaced by the `caption.size` option.',
+    released: '10.2.0',
+    deprecated: '10.6.0'
   },
   firstCellIsHeader: {
     type: 'boolean',
@@ -270,7 +312,7 @@ const options = {
     type: 'boolean',
     required: false,
     description:
-      'If set to `true`, wrap a scrolling container around the table component. Scrolling tables require the `caption` and `captionId` options.',
+      'If set to `true`, wrap a scrolling container around the table component. Scrolling tables require the `caption.text` and `caption.id` options.',
     released: '10.6.0'
   },
   striped: {
