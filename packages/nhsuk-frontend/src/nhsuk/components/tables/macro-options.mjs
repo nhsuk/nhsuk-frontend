@@ -323,7 +323,7 @@ const options = {
     type: 'integer',
     required: false,
     description:
-      'Optional heading level for the table panel heading. Defaults to `3`. Replaced by the `card.headingLevel` option.',
+      'Optional heading level for the table panel heading. Defaults to `3`. Replaced by the `card.heading.level` option.',
     released: '1.0.0',
     deprecated: '10.3.0'
   },

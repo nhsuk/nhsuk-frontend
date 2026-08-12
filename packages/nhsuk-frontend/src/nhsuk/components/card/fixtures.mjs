@@ -13,8 +13,10 @@ import { examples as summaryListExamples } from "../summary-list/fixtures.mjs"
 const fixtures = {
   "default": {
     context: {
-      heading: "If you need help now, but it's not an emergency",
-      headingLevel: 3
+      heading: {
+        text: "If you need help now, but it's not an emergency",
+        level: 3
+      }
     },
     callBlock: outdent`
       <p class="nhsuk-card__description">Go to <a href="#">NHS 111 online</a> or <a href="#">call 111</a>.</p>
@@ -25,8 +27,10 @@ const fixtures = {
   },
   "heading": {
     context: {
-      heading: "If you need help now, but it's not an emergency",
-      headingLevel: 3
+      heading: {
+        text: "If you need help now, but it's not an emergency",
+        level: 3
+      }
     },
     callBlock: outdent`
       <p class="nhsuk-card__description">Go to <a href="#">NHS 111 online</a> or <a href="#">call 111</a>.</p>
@@ -35,25 +39,33 @@ const fixtures = {
       {
         description: "basic with size S",
         context: {
-          headingSize: "s"
+          heading: {
+            size: "s"
+          }
         }
       },
       {
         description: "basic with size M",
         context: {
-          headingSize: "m"
+          heading: {
+            size: "m"
+          }
         }
       },
       {
         description: "basic with size L",
         context: {
-          headingSize: "l"
+          heading: {
+            size: "l"
+          }
         }
       },
       {
         description: "basic with size XL",
         context: {
-          headingSize: "xl"
+          heading: {
+            size: "xl"
+          }
         }
       }
     ]
@@ -67,17 +79,21 @@ const fixtures = {
   "basic with heading link": {
     context: {
       href: "#",
-      heading: "Introduction to care and support",
-      headingSize: "m",
-      headingLevel: 3,
+      heading: {
+        text: "Introduction to care and support",
+        size: "m",
+        level: 3
+      },
       description:
         "A quick guide for people who have care and support needs and their carers"
     }
   },
   "basic with custom HTML": {
     context: {
-      heading: "Help from NHS 111",
-      headingLevel: 3
+      heading: {
+        text: "Help from NHS 111",
+        level: 3
+      }
     },
     callBlock: outdent`
       <p class="nhsuk-body">If you're worried about a symptom and not sure what help you need, NHS 111 can tell you what to do next.</p>
@@ -90,8 +106,10 @@ const fixtures = {
   },
   "basic with summary list": {
     context: {
-      heading: "Regional Manager",
-      headingLevel: 3
+      heading: {
+        text: "Regional Manager",
+        level: 3
+      }
     },
     callBlock: outdent`
       ${components.render(
@@ -105,8 +123,10 @@ const fixtures = {
   },
   "basic with summary lists": {
     context: {
-      heading: "Regional Managers",
-      headingLevel: 3
+      heading: {
+        text: "Regional Managers",
+        level: 3
+      }
     },
     callBlock: outdent`
       <h4 class="nhsuk-heading-s nhsuk-u-margin-bottom-1">East</h4>
@@ -127,8 +147,10 @@ const fixtures = {
   },
   "basic with summary list and button": {
     context: {
-      heading: "Regional Manager",
-      headingLevel: 3
+      heading: {
+        text: "Regional Manager",
+        level: 3
+      }
     },
     callBlock: outdent`
       ${components.render(
@@ -149,8 +171,10 @@ const fixtures = {
   },
   "basic with summary list and action": {
     context: {
-      heading: "Regional Manager",
-      headingLevel: 3,
+      heading: {
+        text: "Regional Manager",
+        level: 3
+      },
       actions: {
         items: [
           {
@@ -169,8 +193,10 @@ const fixtures = {
   },
   "basic with summary list and action as a button": {
     context: {
-      heading: "Regional Manager",
-      headingLevel: 3,
+      heading: {
+        text: "Regional Manager",
+        level: 3
+      },
       actions: {
         items: [
           {
@@ -189,8 +215,10 @@ const fixtures = {
   },
   "basic with summary list and actions": {
     context: {
-      heading: "Regional Manager",
-      headingLevel: 3,
+      heading: {
+        text: "Regional Manager",
+        level: 3
+      },
       actions: {
         items: [
           {
@@ -213,8 +241,10 @@ const fixtures = {
   },
   "basic with summary list and actions as buttons": {
     context: {
-      heading: "Regional Manager",
-      headingLevel: 3,
+      heading: {
+        text: "Regional Manager",
+        level: 3
+      },
       actions: {
         items: [
           {
@@ -261,8 +291,10 @@ const fixtures = {
   },
   "basic with summary list and actions (empty items)": {
     context: {
-      heading: "Regional Manager",
-      headingLevel: 3,
+      heading: {
+        text: "Regional Manager",
+        level: 3
+      },
       actions: {
         items: [
           {
@@ -283,8 +315,10 @@ const fixtures = {
   "basic with summary list and heading link": {
     context: {
       href: "#",
-      heading: "Regional Manager",
-      headingLevel: 3
+      heading: {
+        text: "Regional Manager",
+        level: 3
+      }
     },
     callBlock: outdent`
       ${components.render(
@@ -304,9 +338,11 @@ const fixtures = {
     context: {
       href: "#",
       variant: "secondary",
-      heading: "Introduction to care and support",
-      headingSize: "m",
-      headingLevel: 3,
+      heading: {
+        text: "Introduction to care and support",
+        size: "m",
+        level: 3
+      },
       description:
         "A quick guide for people who have care and support needs and their carers"
     }
@@ -314,8 +350,10 @@ const fixtures = {
   "secondary with custom HTML": {
     context: {
       variant: "secondary",
-      heading: "Help from NHS 111",
-      headingLevel: 3
+      heading: {
+        text: "Help from NHS 111",
+        level: 3
+      }
     },
     callBlock: outdent`
       <p class="nhsuk-body">If you're worried about a symptom and not sure what help you need, NHS 111 can tell you what to do next.</p>
@@ -326,8 +364,10 @@ const fixtures = {
   "secondary with summary list": {
     context: {
       variant: "secondary",
-      heading: "Regional Manager",
-      headingLevel: 3
+      heading: {
+        text: "Regional Manager",
+        level: 3
+      }
     },
     callBlock: outdent`
       ${components.render(
@@ -339,8 +379,10 @@ const fixtures = {
   "secondary with summary lists": {
     context: {
       variant: "secondary",
-      heading: "Regional Managers",
-      headingLevel: 3
+      heading: {
+        text: "Regional Managers",
+        level: 3
+      }
     },
     callBlock: outdent`
       <h4 class="nhsuk-heading-s nhsuk-u-margin-bottom-1">East</h4>
@@ -359,8 +401,10 @@ const fixtures = {
   "secondary with summary list and button": {
     context: {
       variant: "secondary",
-      heading: "Regional Manager",
-      headingLevel: 3
+      heading: {
+        text: "Regional Manager",
+        level: 3
+      }
     },
     callBlock: outdent`
       ${components.render(
@@ -379,8 +423,10 @@ const fixtures = {
   "secondary with summary list and actions": {
     context: {
       variant: "secondary",
-      heading: "Regional Manager",
-      headingLevel: 3,
+      heading: {
+        text: "Regional Manager",
+        level: 3
+      },
       actions: {
         items: [
           {
@@ -429,8 +475,10 @@ const fixtures = {
   "secondary with summary list and actions (empty items)": {
     context: {
       variant: "secondary",
-      heading: "Regional Manager",
-      headingLevel: 3,
+      heading: {
+        text: "Regional Manager",
+        level: 3
+      },
       actions: {
         items: [
           {
@@ -452,8 +500,10 @@ const fixtures = {
     context: {
       href: "#",
       variant: "secondary",
-      heading: "Regional Manager",
-      headingLevel: 3
+      heading: {
+        text: "Regional Manager",
+        level: 3
+      }
     },
     callBlock: outdent`
       ${components.render(
@@ -464,8 +514,10 @@ const fixtures = {
   },
   "non-urgent (blue)": {
     context: {
-      heading: "Speak to a GP if:",
-      headingLevel: 3,
+      heading: {
+        text: "Speak to a GP if:",
+        level: 3
+      },
       variant: "non-urgent"
     },
     callBlock: outdent`
@@ -483,8 +535,10 @@ const fixtures = {
   },
   "urgent (red)": {
     context: {
-      heading: "Ask for an urgent GP appointment if:",
-      headingLevel: 3,
+      heading: {
+        text: "Ask for an urgent GP appointment if:",
+        level: 3
+      },
       variant: "urgent"
     },
     callBlock: outdent`
@@ -502,8 +556,10 @@ const fixtures = {
   },
   "emergency (red and black)": {
     context: {
-      heading: "Call 999 if you have sudden chest pain that:",
-      headingLevel: 3,
+      heading: {
+        text: "Call 999 if you have sudden chest pain that:",
+        level: 3
+      },
       variant: "emergency"
     },
     callBlock: outdent`
@@ -520,8 +576,10 @@ const fixtures = {
   },
   "emergency (red and black) with action link": {
     context: {
-      heading: "Call 999 or go to A&E now if:",
-      headingLevel: 3,
+      heading: {
+        text: "Call 999 or go to A&E now if:",
+        level: 3
+      },
       variant: "emergency"
     },
     callBlock: outdent`
@@ -544,8 +602,10 @@ const fixtures = {
       href: "#",
       variant: "primary",
       clickable: true,
-      heading: "Breast screening",
-      headingSize: "m"
+      heading: {
+        text: "Breast screening",
+        size: "m"
+      }
     },
     screenshot: {
       viewports: ["mobile", "tablet", "desktop"]
@@ -556,8 +616,10 @@ const fixtures = {
       href: "#",
       variant: "primary",
       clickable: true,
-      heading: "Introduction to care and support",
-      headingSize: "m",
+      heading: {
+        text: "Introduction to care and support",
+        size: "m"
+      },
       description:
         "A quick guide for people who have care and support needs and their carers"
     },
@@ -569,8 +631,10 @@ const fixtures = {
     context: {
       href: "#",
       clickable: true,
-      heading: "Introduction to care and support",
-      headingSize: "m",
+      heading: {
+        text: "Introduction to care and support",
+        size: "m"
+      },
       description:
         "A quick guide for people who have care and support needs and their carers"
     },
@@ -583,8 +647,10 @@ const fixtures = {
       href: "#",
       clickable: true,
       variant: "secondary",
-      heading: "Urgent and emergency care services",
-      headingSize: "m",
+      heading: {
+        text: "Urgent and emergency care services",
+        size: "m"
+      },
       description:
         "Services the NHS provides if you need urgent or emergency medical help"
     },
@@ -596,8 +662,10 @@ const fixtures = {
     context: {
       href: "#",
       variant: "secondary",
-      heading: "Why we are reinvesting in the NHS Prototype kit",
-      headingClasses: "nhsuk-u-font-size-22 nhsuk-u-margin-bottom-2",
+      heading: {
+        text: "Why we are reinvesting in the NHS Prototype kit",
+        classes: "nhsuk-u-font-size-22 nhsuk-u-margin-bottom-2"
+      },
       descriptionHtml: outdent`
         <p class="nhsuk-body-s nhsuk-u-margin-bottom-2">21 July 2025</p>
         <p class="nhsuk-card__description">Frankie and Mike explain why we revived the NHS prototype kit, the benefits of prototyping in code and how digital teams in the NHS can get started using it.</p>
@@ -610,7 +678,9 @@ const fixtures = {
   "feature": {
     context: {
       variant: "feature",
-      heading: "Feature card heading",
+      heading: {
+        text: "Feature card heading"
+      },
       description: "Feature card description."
     },
     screenshot: {
@@ -620,9 +690,11 @@ const fixtures = {
   "feature with A to Z content": {
     context: {
       variant: "feature",
-      heading: "A",
-      headingId: "a",
-      headingSize: "m",
+      heading: {
+        text: "A",
+        id: "a",
+        size: "m"
+      },
       descriptionHtml: outdent`
         <ul class="nhsuk-list nhsuk-list--border">
           <li><a href="#/conditions/abdominal-aortic-aneurysm/">AAA, see Abdominal aortic aneurysm</a></li>
@@ -635,7 +707,9 @@ const fixtures = {
   "feature with summary list": {
     context: {
       variant: "feature",
-      heading: "Feature card heading"
+      heading: {
+        text: "Feature card heading"
+      }
     },
     callBlock: outdent`
       ${components.render(
@@ -647,7 +721,9 @@ const fixtures = {
   "feature with nested card and summary list": {
     context: {
       variant: "feature",
-      heading: "Flu: Follow-up requested"
+      heading: {
+        text: "Flu: Follow-up requested"
+      }
     },
     callBlock: outdent`
       <p>Sarah Philips (Mum) would like to speak to a member of the team about other options for their child's vaccination.</p>
@@ -666,8 +742,10 @@ const fixtures = {
           card: {
             href: "#",
             clickable: true,
-            heading: "Sarah Philips (Mum)",
-            headingLevel: 4
+            heading: {
+              text: "Sarah Philips (Mum)",
+              level: 4
+            }
           },
           rows: [
             {
@@ -708,7 +786,9 @@ const fixtures = {
   "warning": {
     context: {
       variant: "warning",
-      heading: "School, nursery or work",
+      heading: {
+        text: "School, nursery or work"
+      },
       description:
         "Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared."
     }
@@ -716,7 +796,9 @@ const fixtures = {
   "warning with actions": {
     context: {
       variant: "warning",
-      heading: "School, nursery or work",
+      heading: {
+        text: "School, nursery or work"
+      },
       description:
         "Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.",
       actions: {
@@ -736,8 +818,10 @@ const fixtures = {
       },
       href: "#",
       clickable: true,
-      heading: "Exercise",
-      headingSize: "m",
+      heading: {
+        text: "Exercise",
+        size: "m"
+      },
       description:
         "Programmes, workouts and tips to get you moving and improve your fitness and wellbeing"
     },
@@ -752,8 +836,10 @@ const fixtures = {
       },
       href: "#",
       clickable: true,
-      heading: "Exercise",
-      headingSize: "m",
+      heading: {
+        text: "Exercise",
+        size: "m"
+      },
       description:
         "Programmes, workouts and tips to get you moving and improve your fitness and wellbeing"
     }
@@ -765,12 +851,14 @@ const fixtures = {
       },
       href: "https://digital.nhs.uk/blog/design-matters/2025/why-we-are-reinvesting-in-the-nhs-prototype-kit",
       clickable: true,
-      heading: "Why we are reinvesting in the NHS prototype kit",
-      headingSize: "m",
-      headingHtml: outdent`
-        <p class="nhsuk-body-s nhsuk-u-secondary-text-colour nhsuk-u-margin-bottom-0"><span class="nhsuk-u-visually-hidden">Published on: </span>21 July 2025</p>
-        <p class="nhsuk-body-s nhsuk-u-font-weight-bold">NHS England Design Matters blog</p>
-      `,
+      heading: {
+        text: "Why we are reinvesting in the NHS prototype kit",
+        html: outdent`
+          <p class="nhsuk-body-s nhsuk-u-secondary-text-colour nhsuk-u-margin-bottom-0"><span class="nhsuk-u-visually-hidden">Published on: </span>21 July 2025</p>
+          <p class="nhsuk-body-s nhsuk-u-font-weight-bold">NHS England Design Matters blog</p>
+        `,
+        size: "m"
+      },
       description:
         "Frankie Roberto and Mike Gallagher explain why we revived the NHS prototype kit, the benefits of prototyping in code and how digital teams in the NHS can get started using it."
     },
@@ -782,9 +870,11 @@ const fixtures = {
     context: {
       href: "#",
       clickable: true,
-      heading: "Order a repeat prescription",
-      headingSize: "xs",
-      headingLevel: 3
+      heading: {
+        text: "Order a repeat prescription",
+        size: "xs",
+        level: 3
+      }
     },
     options: {
       width: "one-third"
