@@ -18,8 +18,10 @@
     classes: headingOptions.classes | default(params.headingClasses),
     attributes: headingOptions.attributes
   },
-  description: params.text,
-  descriptionHtml: params.html,
+  description: {
+    text: params.text,
+    html: params.html
+  },
   actions: params.actions,
   classes: params.classes,
   attributes: params.attributes,

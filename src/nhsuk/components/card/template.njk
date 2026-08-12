@@ -10,6 +10,21 @@
 {%- set classNames = "nhsuk-card" -%}
 {%- set classNamesHeading = "nhsuk-card__heading" -%}
 
+{%- set headingOptions = params.heading if params.heading is mapping and params.heading is not escaped else {
+  id: params.headingId,
+  text: params.heading if params.heading is string else undefined,
+  html: params.heading if params.heading is escaped else params.headingHtml,
+  visuallyHiddenText: params.headingVisuallyHiddenText,
+  size: params.headingSize,
+  level: params.headingLevel,
+  classes: params.headingClasses
+} -%}
+
+{%- set descriptionOptions = params.description if params.description is mapping and params.description is not escaped else {
+  text: params.description if params.description is string else undefined,
+  html: params.description if params.description is escaped else params.descriptionHtml
+} -%}
+
 {%- if params.clickable %}
   {% set classNames = classNames ~ " nhsuk-card--clickable" %}
 {% endif %}
@@ -42,16 +57,6 @@
 %}
   {% set classNames = classNames ~ " nhsuk-card--" ~ variant %}
 {% endif %}
-
-{%- set headingOptions = params.heading if params.heading is mapping and params.heading is not escaped else {
-  id: params.headingId,
-  text: params.heading if params.heading is string else undefined,
-  html: params.heading if params.heading is escaped else params.headingHtml,
-  visuallyHiddenText: params.headingVisuallyHiddenText,
-  size: params.headingSize,
-  level: params.headingLevel,
-  classes: params.headingClasses
-} -%}
 
 {%- set isCareCard = true if variant
   and variant in ["non-urgent", "urgent", "emergency"]
@@ -186,7 +191,8 @@
   {% endif %}
   </div>
 {% endif %}
-  <div class="nhsuk-card__content">
+  <div class="{{ "nhsuk-card__content" ~ (" " ~ descriptionOptions.classes if descriptionOptions.classes) }}"
+    {{- nhsukAttributes(descriptionOptions.attributes) }}>
   {% if not isCareCard and not actions | length and (headingOptions.text or headingOptions.html) %}
     {{ _cardHeading(headingOptions, {
       params: params,
@@ -195,11 +201,11 @@
   {% endif %}
   {% if caller %}
     {{- caller() }}
-  {% elif params.descriptionHtml %}
-    {{ params.descriptionHtml | safe | trim | indent(4) }}
-  {% elif params.description %}
+  {% elif descriptionOptions.html %}
+    {{ descriptionOptions.html | safe | trim | indent(4) }}
+  {% elif descriptionOptions.text %}
     <p class="nhsuk-card__description">
-      {{- params.description | trim | indent(4) -}}
+      {{- descriptionOptions.text | trim | indent(4) -}}
     </p>
   {% endif %}
   {% if "nhsuk-card--primary" in classNames %}

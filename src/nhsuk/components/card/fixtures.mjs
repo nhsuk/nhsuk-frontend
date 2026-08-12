@@ -72,8 +72,9 @@ const fixtures = {
   },
   "basic without heading": {
     context: {
-      description:
-        "A quick guide for people who have care and support needs and their carers"
+      description: {
+        text: "A quick guide for people who have care and support needs and their carers"
+      }
     }
   },
   "basic with heading link": {
@@ -84,8 +85,9 @@ const fixtures = {
         size: "m",
         level: 3
       },
-      description:
-        "A quick guide for people who have care and support needs and their carers"
+      description: {
+        text: "A quick guide for people who have care and support needs and their carers"
+      }
     }
   },
   "basic with custom HTML": {
@@ -330,8 +332,9 @@ const fixtures = {
   "secondary without heading": {
     context: {
       variant: "secondary",
-      description:
-        "A quick guide for people who have care and support needs and their carers"
+      description: {
+        text: "A quick guide for people who have care and support needs and their carers"
+      }
     }
   },
   "secondary with heading link": {
@@ -343,8 +346,9 @@ const fixtures = {
         size: "m",
         level: 3
       },
-      description:
-        "A quick guide for people who have care and support needs and their carers"
+      description: {
+        text: "A quick guide for people who have care and support needs and their carers"
+      }
     }
   },
   "secondary with custom HTML": {
@@ -620,8 +624,9 @@ const fixtures = {
         text: "Introduction to care and support",
         size: "m"
       },
-      description:
-        "A quick guide for people who have care and support needs and their carers"
+      description: {
+        text: "A quick guide for people who have care and support needs and their carers"
+      }
     },
     screenshot: {
       viewports: ["mobile", "tablet", "desktop"]
@@ -635,8 +640,9 @@ const fixtures = {
         text: "Introduction to care and support",
         size: "m"
       },
-      description:
-        "A quick guide for people who have care and support needs and their carers"
+      description: {
+        text: "A quick guide for people who have care and support needs and their carers"
+      }
     },
     screenshot: {
       viewports: ["mobile", "tablet", "desktop"]
@@ -651,8 +657,9 @@ const fixtures = {
         text: "Urgent and emergency care services",
         size: "m"
       },
-      description:
-        "Services the NHS provides if you need urgent or emergency medical help"
+      description: {
+        text: "Services the NHS provides if you need urgent or emergency medical help"
+      }
     },
     screenshot: {
       viewports: ["mobile", "tablet", "desktop"]
@@ -666,10 +673,12 @@ const fixtures = {
         text: "Why we are reinvesting in the NHS Prototype kit",
         classes: "nhsuk-u-font-size-22 nhsuk-u-margin-bottom-2"
       },
-      descriptionHtml: outdent`
-        <p class="nhsuk-body-s nhsuk-u-margin-bottom-2">21 July 2025</p>
-        <p class="nhsuk-card__description">Frankie and Mike explain why we revived the NHS prototype kit, the benefits of prototyping in code and how digital teams in the NHS can get started using it.</p>
-      `
+      description: {
+        html: outdent`
+          <p class="nhsuk-body-s nhsuk-u-margin-bottom-2">21 July 2025</p>
+          <p class="nhsuk-card__description">Frankie and Mike explain why we revived the NHS prototype kit, the benefits of prototyping in code and how digital teams in the NHS can get started using it.</p>
+        `
+      }
     },
     screenshot: {
       viewports: ["mobile", "tablet", "desktop"]
@@ -681,7 +690,9 @@ const fixtures = {
       heading: {
         text: "Feature card heading"
       },
-      description: "Feature card description."
+      description: {
+        text: "Feature card description."
+      }
     },
     screenshot: {
       viewports: ["mobile", "tablet", "desktop"]
@@ -695,13 +706,15 @@ const fixtures = {
         id: "a",
         size: "m"
       },
-      descriptionHtml: outdent`
-        <ul class="nhsuk-list nhsuk-list--border">
-          <li><a href="#/conditions/abdominal-aortic-aneurysm/">AAA, see Abdominal aortic aneurysm</a></li>
-          <li><a href="#/conditions/abdominal-aortic-aneurysm/">Abdominal aortic aneurysm</a></li>
-          <li><a href="#/conditions/abscess/">Abscess</a></li>
-        </ul>
-      `
+      description: {
+        html: outdent`
+          <ul class="nhsuk-list nhsuk-list--border">
+            <li><a href="#/conditions/abdominal-aortic-aneurysm/">AAA, see Abdominal aortic aneurysm</a></li>
+            <li><a href="#/conditions/abdominal-aortic-aneurysm/">Abdominal aortic aneurysm</a></li>
+            <li><a href="#/conditions/abscess/">Abscess</a></li>
+          </ul>
+        `
+      }
     }
   },
   "feature with summary list": {
@@ -789,8 +802,9 @@ const fixtures = {
       heading: {
         text: "School, nursery or work"
       },
-      description:
-        "Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared."
+      description: {
+        text: "Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared."
+      }
     }
   },
   "warning with actions": {
@@ -799,8 +813,9 @@ const fixtures = {
       heading: {
         text: "School, nursery or work"
       },
-      description:
-        "Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.",
+      description: {
+        text: "Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared."
+      },
       actions: {
         items: [
           {
@@ -822,8 +837,9 @@ const fixtures = {
         text: "Exercise",
         size: "m"
       },
-      description:
-        "Programmes, workouts and tips to get you moving and improve your fitness and wellbeing"
+      description: {
+        text: "Programmes, workouts and tips to get you moving and improve your fitness and wellbeing"
+      }
     },
     screenshot: {
       viewports: ["mobile", "tablet", "desktop"]
@@ -840,8 +856,9 @@ const fixtures = {
         text: "Exercise",
         size: "m"
       },
-      description:
-        "Programmes, workouts and tips to get you moving and improve your fitness and wellbeing"
+      description: {
+        text: "Programmes, workouts and tips to get you moving and improve your fitness and wellbeing"
+      }
     }
   },
   "with image and custom HTML": {
@@ -859,8 +876,9 @@ const fixtures = {
         `,
         size: "m"
       },
-      description:
-        "Frankie Roberto and Mike Gallagher explain why we revived the NHS prototype kit, the benefits of prototyping in code and how digital teams in the NHS can get started using it."
+      description: {
+        text: "Frankie Roberto and Mike Gallagher explain why we revived the NHS prototype kit, the benefits of prototyping in code and how digital teams in the NHS can get started using it."
+      }
     },
     options: {
       width: "one-half"

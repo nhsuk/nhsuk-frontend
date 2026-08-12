@@ -3,6 +3,11 @@
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-link" -%}
 
+{%- set headingOptions = parent.params.heading if parent.params.heading is mapping and parent.params.heading is not escaped else {
+  text: parent.params.heading if parent.params.heading is string else undefined,
+  html: parent.params.heading if parent.params.heading is escaped else undefined
+} -%}
+
 {%- if params.classes %}
   {% set classNames = classNames ~ " " ~ params.classes %}
 {% endif %}
@@ -17,11 +22,6 @@
     {% set element = "button" %}
   {% endif %}
 {% endif %}
-
-{%- set headingOptions = parent.params.heading if parent.params.heading is mapping and parent.params.heading is not escaped else {
-  text: parent.params.heading if parent.params.heading is string else undefined,
-  html: parent.params.heading if parent.params.heading is escaped else undefined
-} -%}
 
 {%- set attributesHtml %}
   {{- nhsukAttributes({
