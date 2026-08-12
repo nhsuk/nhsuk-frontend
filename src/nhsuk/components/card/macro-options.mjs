@@ -13,50 +13,59 @@ const options = {
     released: '10.0.0'
   },
   heading: {
-    type: 'string',
+    type: 'object',
     required: true,
-    description:
-      'Text to use within the heading of the card component. If `headingHtml` is provided, the `heading` argument will be ignored.',
-    released: '4.0.0'
+    description: 'Heading of the card component.',
+    released: '10.6.0',
+    isComponent: true
   },
   headingHtml: {
     type: 'string',
     required: true,
     description:
-      'HTML to use within the heading of the card component. If `headingHtml` is provided, the `heading` argument will be ignored.',
-    released: '4.0.0'
+      'HTML to use within the heading of the card component. Replaced by the `heading.html` option.',
+    released: '4.0.0',
+    deprecated: '10.6.0'
   },
   headingClasses: {
     type: 'string',
     required: false,
-    description: 'Classes to add to the card heading.',
-    released: '4.0.0'
+    description:
+      'Classes to add to the card heading. Replaced by the `heading.classes` option.',
+    released: '4.0.0',
+    deprecated: '10.6.0'
   },
   headingSize: {
     type: 'string',
     required: false,
     description:
-      'Size of the heading – `"xxs"`, `"xs"`, `"s"`, `"m"`, `"l"` or `"xl"`.',
-    released: '10.3.0'
+      'Size of the heading – `"xxs"`, `"xs"`, `"s"`, `"m"`, `"l"` or `"xl"`. Replaced by the `heading.size` option.',
+    released: '10.3.0',
+    deprecated: '10.6.0'
   },
   headingLevel: {
     type: 'integer',
     required: false,
     description:
-      'Optional heading level for the card heading. Defaults to `2`.',
-    released: '4.0.0'
+      'Optional heading level for the card heading. Defaults to `2`. Replaced by the `heading.level` option.',
+    released: '4.0.0',
+    deprecated: '10.6.0'
   },
   headingId: {
     type: 'string',
     required: false,
-    description: 'Optional `id` attribute for the card heading.',
-    released: '10.3.0'
+    description:
+      'Optional `id` attribute for the card heading. Replaced by the `heading.id` option.',
+    released: '10.3.0',
+    deprecated: '10.6.0'
   },
   headingVisuallyHiddenText: {
     type: 'string',
     required: false,
-    description: 'Optional visually hidden prefix used before the heading.',
-    released: '10.3.0'
+    description:
+      'Optional visually hidden prefix used before the heading. Replaced by the `heading.visuallyHiddenText` option.',
+    released: '10.3.0',
+    deprecated: '10.6.0'
   },
   href: {
     type: 'string',
