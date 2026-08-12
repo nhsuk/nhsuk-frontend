@@ -171,18 +171,48 @@ const options = {
     }
   },
   description: {
-    type: 'string',
+    type: 'object',
     required: false,
     description:
-      'Text description within the card content. If `descriptionHtml` is provided, the `description` argument will be ignored.',
-    released: '4.0.0'
+      'Description to use within the card content. If `descriptionHtml` is provided, the `description` argument will be ignored.',
+    released: '10.6.0',
+    params: {
+      text: {
+        type: 'string',
+        required: true,
+        description:
+          'If `html` is set, this is not required. Text to use within the card content. If `html` is provided, the `text` option will be ignored.',
+        released: '10.6.0'
+      },
+      html: {
+        type: 'string',
+        required: true,
+        description:
+          'If `text` is set, this is not required. HTML to use within the card content. If `html` is provided, the `text` option will be ignored.',
+        released: '10.6.0'
+      },
+      classes: {
+        type: 'string',
+        required: false,
+        description: 'Classes to add to the card content.',
+        released: '10.6.0'
+      },
+      attributes: {
+        type: 'object',
+        required: false,
+        description:
+          'HTML attributes (for example data attributes) to add to the card content.',
+        released: '10.6.0'
+      }
+    }
   },
   descriptionHtml: {
     type: 'string',
     required: false,
     description:
-      'HTML to use within the card content. If `descriptionHtml` is provided, the `description` argument will be ignored.',
-    released: '4.0.0'
+      'Description HTML to use within the card content. If `descriptionHtml` is provided, the `description` argument will be ignored. Replaced by the `description.html` option.',
+    released: '4.0.0',
+    deprecated: '10.6.0'
   },
   actions: {
     type: 'object',
