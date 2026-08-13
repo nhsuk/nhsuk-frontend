@@ -172,6 +172,32 @@ If you are not using Nunjucks macros, use the HTML markup from the [table exampl
 
 This was added in pull requests [#1654: Add option to make tables sortable](https://github.com/nhsuk/nhsuk-frontend/pull/1654) and [#2025: Align table component options with summary list](https://github.com/nhsuk/nhsuk-frontend/pull/2025).
 
+#### Set summary list widths, IDs and attributes
+
+We've updated the summary list component to pass `width`, `id` and `attributes` Nunjucks options to the key, value and actions items.
+
+Summary list rows also support the `id` and `attributes` options:
+
+```patch
+  {{ summaryList({
+    rows: [
+      {
++       id: "row-1233",
+        key: {
+-         text: "Name"
++         text: "Name",
++         width: "one-half"
+        },
+        value: {
+          text: "Karen Francis"
+        }
+      }
+    ]
+  }) }}
+```
+
+This was added in [pull request #2047: Review Nunjucks options for headings and ARIA labels](https://github.com/nhsuk/nhsuk-frontend/pull/2047).
+
 #### Add a modifier class for compact tables
 
 We've added a new `.nhsuk-table--compact` class and `compact` Nunjucks option for the [table](https://service-manual.nhs.uk/design-system/components/table) component. This reduces table cell padding at all screen sizes.
@@ -692,7 +718,7 @@ This change was introduced in [pull request #2047: Review Nunjucks options for h
 
 #### Rename title and heading options
 
-We've changed the Nunjucks options for titles and headings in all other components to support `text`, `html` and nested options:
+We've changed the Nunjucks options for titles and headings in all other components to support `text` and `html` and nested options:
 
 - Do and don't list `title` has changed to `heading.text`
 - Do and don't list `headingLevel` has changed to `heading.level`
@@ -716,9 +742,32 @@ We've changed some of the Nunjucks options relating to `aria-label` attributes a
 - Header `search.visuallyHiddenButton` has changed to `search.button.ariaLabel`
 - Pagination `item.visuallyHiddenText` has changed to `item.ariaLabel`
 - Pagination `landmarkLabel` has changed to `ariaLabel`
+- Pagination `previous.labelText` has changed to `previous.label.text`
+- Pagination `next.labelText` has changed to `next.label.text`
 - Password input `showPasswordAriaLabelText` has changed to `showPasswordAriaLabel`
 - Password input `hidePasswordAriaLabelText` has changed to `hidePasswordAriaLabel`
 - Tabs `title` has changed to `visuallyHiddenText`
+
+For Nunjucks options with `text` and `html` nested options, alternative string values are also supported:
+
+```patch
+  {{ pagination({
+    previous: {
+-     label: {
+-       text: "Treatments"
+-     },
++     label: "Treatments",
+      href: "/section/treatments"
+    },
+    next: {
+-     label: {
+-       text: "Symptoms"
+-     },
++     label: "Symptoms",
+      href: "/section/symptoms"
+    }
+  }) }}
+```
 
 The previous names are deprecated and will be removed in a future release.
 
