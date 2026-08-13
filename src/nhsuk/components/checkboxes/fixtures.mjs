@@ -308,6 +308,34 @@ const fixtures = {
     },
     variants
   },
+  "with error only": {
+    context: {
+      fieldset: {
+        legend: {
+          text: "How do you want to be contacted about this?",
+          size: "l",
+          isPageHeading: true
+        }
+      },
+      errorMessage: true,
+      idPrefix: "with-error-only",
+      name: "example",
+      items: [
+        {
+          value: "email",
+          text: "Email"
+        },
+        {
+          value: "phone",
+          text: "Phone"
+        },
+        {
+          value: "text message",
+          text: "Text message"
+        }
+      ]
+    }
+  },
   "with error message": {
     context: {
       fieldset: {
@@ -500,13 +528,7 @@ const fixtures = {
   "without page heading": {
     context: {
       fieldset: {
-        legend: {
-          text: "How do you want to be contacted about this?",
-          isPageHeading: false
-        }
-      },
-      hint: {
-        text: "Select all options that are relevant to you"
+        legend: "How do you want to be contacted about this?"
       },
       idPrefix: "without-heading",
       name: "example",
@@ -524,8 +546,7 @@ const fixtures = {
           text: "Text message"
         }
       ]
-    },
-    variants
+    }
   },
   "with conditional content": {
     context: {

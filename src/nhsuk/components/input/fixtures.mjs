@@ -105,6 +105,22 @@ const fixtures = {
       viewports: ["watch", "mobile", "tablet", "desktop"]
     }
   },
+  "with error only": {
+    context: {
+      label: {
+        text: "What is your NHS number?",
+        size: "l",
+        isPageHeading: true
+      },
+      errorMessage: true,
+      id: "with-error-only",
+      name: "example",
+      width: 10,
+      code: true,
+      inputmode: "numeric",
+      spellcheck: false
+    }
+  },
   "with error message": {
     context: {
       label: {
@@ -306,9 +322,7 @@ const fixtures = {
   },
   "without page heading": {
     context: {
-      label: {
-        text: "What is your NHS number?"
-      },
+      label: "What is your NHS number?",
       id: "without-heading",
       name: "example",
       width: 10,

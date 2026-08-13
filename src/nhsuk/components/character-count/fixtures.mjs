@@ -53,6 +53,21 @@ const fixtures = {
       maxlength: 200
     }
   },
+  "with error only": {
+    context: {
+      label: {
+        text: "Enter a job description",
+        size: "l",
+        isPageHeading: true
+      },
+      errorMessage: true,
+      id: "with-error-only",
+      name: "example",
+      maxlength: 350,
+      value:
+        "👩🏻‍🚀 A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels. They make sure appropriate content is shown to a user in the right place and in the best format."
+    }
+  },
   "with error message": {
     context: {
       label: {
@@ -169,9 +184,7 @@ const fixtures = {
   },
   "without page heading": {
     context: {
-      label: {
-        text: "Tell us more about what happened"
-      },
+      label: "Tell us more about what happened",
       id: "without-heading",
       name: "example",
       maxlength: 150

@@ -108,13 +108,21 @@ const fixtures = {
   },
   "without page heading": {
     context: {
-      label: {
-        text: "Can you provide more detail?"
-      },
-      hint: {
-        text: "Do not include personal information like your name, date of birth or NHS number"
-      },
+      label: "Can you provide more detail?",
+      hint: "Do not include personal information like your name, date of birth or NHS number",
       id: "without-heading",
+      name: "example"
+    }
+  },
+  "with error only": {
+    context: {
+      label: {
+        text: "Can you provide more detail?",
+        size: "l",
+        isPageHeading: true
+      },
+      errorMessage: true,
+      id: "with-error-only",
       name: "example"
     }
   },
