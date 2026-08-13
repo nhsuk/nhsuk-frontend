@@ -1,0 +1,67 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/icon.njk" import nhsukIcon %}
+
+{#- Set variant for this component #}
+{%- set variant = params.variant -%}
+
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-action-link" -%}
+
+{%- if variant == "reverse" and (not params.classes or not "nhsuk-action-link--reverse" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-action-link--" ~ variant %}
+{% endif %}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif -%}
+
+{#- Determine type of element to use, if not explicitly set #}
+{%- if params.element %}
+  {% set element = params.element | lower %}
+{% else %}
+  {% if params.href and not params.type %}
+    {% set element = "a" %}
+  {% else %}
+    {% set element = "button" %}
+  {% endif %}
+{% endif %}
+
+{#- Define attributes that we can use across all element types #}
+{%- set attributesHtml %}
+  {{- nhsukAttributes({
+    class: classNames,
+    id: {
+      value: params.id,
+      optional: true
+    }
+  }) -}}
+
+  {% if element == "button" %}
+    {{- nhsukAttributes({
+      type: params.type | default("submit")
+    }) -}}
+  {% elif element == "a" %}
+    {{- nhsukAttributes({
+      href: params.href | default("#"),
+      target: {
+        value: "_blank" if params.openInNewWindow else false,
+        optional: true
+      }
+    }) -}}
+  {% endif %}
+
+  {{- nhsukAttributes(params.attributes) -}}
+{% endset -%}
+
+<{{ element }} {{- attributesHtml | safe }}>
+  {{ nhsukIcon("arrow-right-circle") | trim | indent(2) }}
+  <span class="nhsuk-action-link__text">
+  {% if caller %}
+    {{- caller() }}
+  {% elif params.html %}
+    {{ params.html | safe | trim | indent(4) }}
+  {% elif params.text %}
+    {{ params.text | trim | indent(4) }}
+  {% endif %}
+  </span>
+</{{ element }}>

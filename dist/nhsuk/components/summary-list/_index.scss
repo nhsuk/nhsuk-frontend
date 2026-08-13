@@ -1,0 +1,243 @@
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+@use "../../core/helpers" as *;
+
+////
+/// Summary list component
+///
+/// @group components/summary-list
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+////
+
+@include nhsuk-exports("nhsuk/components/summary-list") {
+  .nhsuk-summary-list {
+    margin: 0; // Reset default user agent styles
+    margin-right: -$nhsuk-border-table-header-width;
+    margin-left: -$nhsuk-border-table-header-width;
+
+    @include nhsuk-font($size: 19);
+    @include nhsuk-responsive-margin(6, "bottom");
+
+    @media #{nhsuk-from-breakpoint(tablet)} {
+      display: table;
+      width: calc(100% + $nhsuk-border-table-header-width * 2);
+      table-layout: fixed; // Required to allow us to wrap words that overflow.
+      border-collapse: collapse;
+    }
+  }
+
+  .nhsuk-summary-list__row {
+    border-bottom: 1px solid $nhsuk-border-colour;
+
+    @media #{nhsuk-until-breakpoint(tablet)} {
+      margin-bottom: nhsuk-spacing(3);
+    }
+
+    @media #{nhsuk-from-breakpoint(tablet)} {
+      display: table-row;
+    }
+  }
+
+  // Remove right padding from the last column in the row
+  .nhsuk-summary-list__row:not(.nhsuk-summary-list__row--no-actions) > :last-child {
+    padding-right: $nhsuk-border-width-form-element;
+  }
+
+  // Provide an empty 'cell' for rows that don't have actions – otherwise the
+  // bottom border is not drawn for that part of the row in some browsers.
+  .nhsuk-summary-list__row--no-actions {
+    @media #{nhsuk-from-breakpoint(tablet)} {
+      &::after {
+        content: "";
+        display: table-cell;
+        width: 20%;
+      }
+    }
+  }
+
+  // Provide an empty 'cell' for rows that don't have actions automatically,
+  // using the `:has()` selector not the modifier class in modern browsers.
+  .nhsuk-summary-list:has(.nhsuk-summary-list__actions)
+    .nhsuk-summary-list__row:not(:has(.nhsuk-summary-list__actions)) {
+    @media #{nhsuk-from-breakpoint(tablet)} {
+      &::after {
+        content: "";
+        display: table-cell;
+        width: 20%;
+      }
+
+      // Restore right padding for the last column in the row (removed above)
+      // because the empty 'cell' is now visually the last column
+      > :last-child {
+        padding-right: nhsuk-spacing(4, $adjustment: - $nhsuk-border-table-header-width);
+      }
+    }
+  }
+
+  .nhsuk-summary-list__key,
+  .nhsuk-summary-list__value,
+  .nhsuk-summary-list__actions {
+    margin: 0; // Reset default user agent styles
+    padding-right: $nhsuk-border-table-header-width;
+    padding-left: $nhsuk-border-table-header-width;
+
+    @media #{nhsuk-from-breakpoint(tablet)} {
+      display: table-cell;
+      padding-top: nhsuk-spacing(2);
+      padding-right: nhsuk-spacing(4, $adjustment: - $nhsuk-border-table-header-width);
+      padding-bottom: nhsuk-spacing(2);
+
+      // Make sure that any multi-line inline-blocks inside of the summary
+      // list (e.g. Tag components) don't cause the text baseline to shift,
+      // causing other cells in the row to be misaligned.
+      vertical-align: top;
+    }
+  }
+
+  .nhsuk-summary-list__actions {
+    margin-top: nhsuk-spacing(-1);
+    margin-bottom: nhsuk-spacing(3);
+
+    @media #{nhsuk-from-breakpoint(tablet)} {
+      width: 20%;
+      text-align: right;
+    }
+  }
+
+  .nhsuk-summary-list__key,
+  .nhsuk-summary-list__value {
+    // Automatic wrapping for unbreakable text (e.g. URLs)
+    @include nhsuk-text-break-word;
+  }
+
+  .nhsuk-summary-list__key {
+    margin-bottom: nhsuk-spacing(1);
+    @include nhsuk-font-weight-bold;
+
+    @media #{nhsuk-from-breakpoint(tablet)} {
+      width: 30%;
+    }
+  }
+
+  .nhsuk-summary-list__value {
+    @media #{nhsuk-until-breakpoint(tablet)} {
+      margin-bottom: nhsuk-spacing(3);
+    }
+  }
+
+  .nhsuk-summary-list__value > p {
+    margin-bottom: nhsuk-spacing(2);
+  }
+
+  .nhsuk-summary-list__value > :last-child {
+    margin-bottom: 0;
+  }
+
+  .nhsuk-summary-list__actions-list {
+    display: flex;
+
+    flex-wrap: wrap;
+    row-gap: 10px;
+
+    width: 100%;
+    margin: 0; // Reset default user agent styles
+    padding: 0; // Reset default user agent styles
+
+    list-style: none;
+
+    @media #{nhsuk-from-breakpoint(tablet)} {
+      justify-content: right;
+      text-align: right;
+    }
+  }
+
+  .nhsuk-summary-list__actions-list-item {
+    display: inline-block;
+  }
+
+  @media #{nhsuk-until-breakpoint(tablet)} {
+    .nhsuk-summary-list__actions-list-item {
+      margin-right: nhsuk-spacing(2);
+      padding-right: nhsuk-spacing(2);
+      border-right: 1px solid $nhsuk-border-colour;
+    }
+
+    .nhsuk-summary-list__actions-list-item:last-child {
+      margin-right: 0;
+      padding-right: 0;
+      border: 0;
+    }
+  }
+
+  @media #{nhsuk-from-breakpoint(tablet)} {
+    .nhsuk-summary-list__actions-list-item {
+      margin-bottom: 0;
+      margin-left: nhsuk-spacing(2);
+      padding-left: nhsuk-spacing(2);
+    }
+
+    .nhsuk-summary-list__actions-list-item:not(:first-child) {
+      border-left: 1px solid $nhsuk-border-colour;
+    }
+
+    .nhsuk-summary-list__actions-list-item:first-child {
+      margin-left: 0;
+      padding-left: 0;
+      border: 0;
+    }
+  }
+
+  // Large groups of action links may wrap onto multiple lines. Because the link
+  // focus styles are applied outside of the link's bounding box, there are
+  // situations where the focus style on a link can be overlapped by subsequent
+  // links. We don't want this, so let's create a new stacking context on focus
+  // so the link always appears to be 'on top'.
+  .nhsuk-summary-list__actions-list-item .nhsuk-link:focus {
+    isolation: isolate;
+  }
+
+  // No border on entire summary list
+  .nhsuk-summary-list--no-border {
+    .nhsuk-summary-list__row {
+      border: 0;
+    }
+
+    // Increase padding by 1px to compensate for 'missing' border
+    @media #{nhsuk-from-breakpoint(tablet)} {
+      .nhsuk-summary-list__key,
+      .nhsuk-summary-list__value,
+      .nhsuk-summary-list__actions {
+        padding-bottom: nhsuk-spacing(2, $adjustment: 1px);
+      }
+    }
+  }
+
+  // No border on specific rows
+  .nhsuk-summary-list__row--no-border,
+  .nhsuk-summary-list--no-last-row-border .nhsuk-summary-list__row:last-child {
+    border: 0;
+
+    // Increase padding by 1px to compensate for 'missing' border
+    @media #{nhsuk-from-breakpoint(tablet)} {
+      .nhsuk-summary-list__key,
+      .nhsuk-summary-list__value,
+      .nhsuk-summary-list__actions {
+        padding-bottom: nhsuk-spacing(2, $adjustment: 1px);
+      }
+    }
+  }
+
+  .nhsuk-card__content {
+    .nhsuk-summary-list:last-child .nhsuk-summary-list__row:last-child {
+      margin-bottom: 0;
+    }
+
+    .nhsuk-summary-list:last-child .nhsuk-summary-list__row--no-border:last-child > :last-child,
+    .nhsuk-summary-list--no-border:last-child .nhsuk-summary-list__row:last-child > :last-child,
+    .nhsuk-summary-list--no-last-row-border:last-child .nhsuk-summary-list__row:last-child > :last-child {
+      @media #{nhsuk-until-breakpoint(tablet)} {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

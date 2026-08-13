@@ -1,0 +1,189 @@
+{
+  "name": "Hero",
+  "component": "hero",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "heading": {
+          "text": "We're here for you"
+        },
+        "text": "Helping you take control of your health and wellbeing.",
+        "border": false
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop",
+          "large-desktop"
+        ]
+      },
+      "options": {
+        "width": false
+      },
+      "html": "<section class=\"nhsuk-hero\">\n  <div class=\"nhsuk-width-container\">\n    <div class=\"nhsuk-grid-row\">\n      <div class=\"nhsuk-grid-column-two-thirds\">\n        <div class=\"nhsuk-hero__content\">\n          <h1 class=\"nhsuk-heading-xl nhsuk-hero__heading\">\n            We&#39;re here for you\n          </h1>\n          <p class=\"nhsuk-body-l\">Helping you take control of your health and wellbeing.</p>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>"
+    },
+    {
+      "name": "heading",
+      "description": "with size L",
+      "context": {
+        "heading": {
+          "text": "We're here for you",
+          "size": "l"
+        },
+        "text": "Helping you take control of your health and wellbeing.",
+        "border": false
+      },
+      "screenshot": false,
+      "options": {
+        "width": false
+      },
+      "html": "<section class=\"nhsuk-hero\">\n  <div class=\"nhsuk-width-container\">\n    <div class=\"nhsuk-grid-row\">\n      <div class=\"nhsuk-grid-column-two-thirds\">\n        <div class=\"nhsuk-hero__content\">\n          <h1 class=\"nhsuk-heading-l nhsuk-hero__heading\">\n            We&#39;re here for you\n          </h1>\n          <p class=\"nhsuk-body-l\">Helping you take control of your health and wellbeing.</p>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>"
+    },
+    {
+      "name": "heading",
+      "description": "with size XL",
+      "context": {
+        "heading": {
+          "text": "We're here for you",
+          "size": "xl"
+        },
+        "text": "Helping you take control of your health and wellbeing.",
+        "border": false
+      },
+      "screenshot": false,
+      "options": {
+        "width": false
+      },
+      "html": "<section class=\"nhsuk-hero\">\n  <div class=\"nhsuk-width-container\">\n    <div class=\"nhsuk-grid-row\">\n      <div class=\"nhsuk-grid-column-two-thirds\">\n        <div class=\"nhsuk-hero__content\">\n          <h1 class=\"nhsuk-heading-xl nhsuk-hero__heading\">\n            We&#39;re here for you\n          </h1>\n          <p class=\"nhsuk-body-l\">Helping you take control of your health and wellbeing.</p>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>"
+    },
+    {
+      "name": "product page",
+      "context": {
+        "content": [
+          {
+            "heading": {
+              "text": "This is a header for the product or service",
+              "size": "l"
+            },
+            "html": "<p class=\"nhsuk-body-l\">This is some more content which explains the product or service.</p>\n<a class=\"nhsuk-button nhsuk-button--reverse\" data-module=\"nhsuk-button\" href=\"#\" role=\"button\" draggable=\"false\">\n  Sign up\n</a>\n"
+          },
+          {
+            "image": {
+              "src": "/nhsuk-frontend/assets/example-hero-image.svg",
+              "background": false,
+              "border": false
+            }
+          }
+        ],
+        "border": false
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop",
+          "large-desktop"
+        ]
+      },
+      "options": {
+        "width": false
+      },
+      "html": "<section class=\"nhsuk-hero\">\n  <div class=\"nhsuk-width-container\">\n    <div class=\"nhsuk-grid-row\">\n      <div class=\"nhsuk-grid-column-one-half\">\n        <div class=\"nhsuk-hero__content\">\n          <h1 class=\"nhsuk-heading-l nhsuk-hero__heading\">\n            This is a header for the product or service\n          </h1>\n          <p class=\"nhsuk-body-l\">This is some more content which explains the product or service.</p>\n          <a class=\"nhsuk-button nhsuk-button--reverse\" data-module=\"nhsuk-button\" href=\"#\" role=\"button\" draggable=\"false\">\n            Sign up\n          </a>\n        </div>\n      </div>\n      <div class=\"nhsuk-grid-column-one-half\">\n        <div class=\"nhsuk-hero__content\">\n          <figure class=\"nhsuk-image nhsuk-image--no-border nhsuk-image--no-background\">\n            <img class=\"nhsuk-image__img\" src=\"/nhsuk-frontend/assets/example-hero-image.svg\" alt=\"\">\n          </figure>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>"
+    },
+    {
+      "name": "with heading and caption",
+      "context": {
+        "heading": {
+          "text": "Prototyping",
+          "caption": "Setup"
+        }
+      },
+      "screenshot": false,
+      "options": {
+        "width": false
+      },
+      "html": "<section class=\"nhsuk-hero nhsuk-hero--border\">\n  <div class=\"nhsuk-width-container\">\n    <div class=\"nhsuk-grid-row\">\n      <div class=\"nhsuk-grid-column-two-thirds\">\n        <div class=\"nhsuk-hero__content\">\n          <h1 class=\"nhsuk-heading-xl nhsuk-hero__heading\">\n            <span class=\"nhsuk-caption-xl\">\n              Setup\n            </span>\n            Prototyping\n          </h1>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>"
+    },
+    {
+      "name": "with heading only",
+      "context": {
+        "heading": {
+          "text": "Prototyping"
+        }
+      },
+      "screenshot": false,
+      "options": {
+        "width": false
+      },
+      "html": "<section class=\"nhsuk-hero nhsuk-hero--border\">\n  <div class=\"nhsuk-width-container\">\n    <div class=\"nhsuk-grid-row\">\n      <div class=\"nhsuk-grid-column-two-thirds\">\n        <div class=\"nhsuk-hero__content\">\n          <h1 class=\"nhsuk-heading-xl nhsuk-hero__heading\">\n            Prototyping\n          </h1>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>"
+    },
+    {
+      "name": "with image",
+      "context": {
+        "image": {
+          "src": "/nhsuk-frontend/assets/example-hero-background.jpg"
+        }
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop",
+          "large-desktop"
+        ]
+      },
+      "options": {
+        "width": false
+      },
+      "html": "<section class=\"nhsuk-hero nhsuk-hero--image\" style=\"background-image: url('/nhsuk-frontend/assets/example-hero-background.jpg');\">\n  <div class=\"nhsuk-hero__overlay\"></div>\n</section>"
+    },
+    {
+      "name": "with image, content",
+      "context": {
+        "heading": {
+          "text": "We're here for you"
+        },
+        "text": "Helping you take control of your health and wellbeing.",
+        "image": {
+          "src": "/nhsuk-frontend/assets/example-hero-background.jpg"
+        }
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop",
+          "large-desktop"
+        ]
+      },
+      "options": {
+        "width": false
+      },
+      "html": "<section class=\"nhsuk-hero nhsuk-hero--image nhsuk-hero--image-description\" style=\"background-image: url('/nhsuk-frontend/assets/example-hero-background.jpg');\">\n  <div class=\"nhsuk-width-container\">\n    <div class=\"nhsuk-grid-row\">\n      <div class=\"nhsuk-grid-column-two-thirds\">\n        <div class=\"nhsuk-hero__content\">\n          <span class=\"nhsuk-hero__arrow\" aria-hidden=\"true\"></span>\n          <h1 class=\"nhsuk-heading-xl nhsuk-hero__heading\">\n            We&#39;re here for you\n          </h1>\n          <p class=\"nhsuk-body-l\">Helping you take control of your health and wellbeing.</p>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"nhsuk-hero__overlay\"></div>\n</section>"
+    },
+    {
+      "name": "with image, content and caption",
+      "context": {
+        "heading": {
+          "text": "Find information and services to help you manage your health",
+          "size": "l",
+          "caption": {
+            "text": "NHS website for England",
+            "size": "xl"
+          }
+        },
+        "width": "three-quarters",
+        "image": {
+          "src": "/nhsuk-frontend/assets/example-hero-background.jpg"
+        }
+      },
+      "screenshot": false,
+      "options": {
+        "width": false
+      },
+      "html": "<section class=\"nhsuk-hero nhsuk-hero--image nhsuk-hero--image-description\" style=\"background-image: url('/nhsuk-frontend/assets/example-hero-background.jpg');\">\n  <div class=\"nhsuk-width-container\">\n    <div class=\"nhsuk-grid-row\">\n      <div class=\"nhsuk-grid-column-three-quarters\">\n        <div class=\"nhsuk-hero__content\">\n          <span class=\"nhsuk-hero__arrow\" aria-hidden=\"true\"></span>\n          <h1 class=\"nhsuk-heading-l nhsuk-hero__heading\">\n            <span class=\"nhsuk-caption-xl\">\n              NHS website for England\n            </span>\n            Find information and services to help you manage your health\n          </h1>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"nhsuk-hero__overlay\"></div>\n</section>"
+    }
+  ]
+}
