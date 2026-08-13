@@ -17,10 +17,22 @@
   labelText: params.previousPage
 } if (params.previousUrl or params.previousPage) else params.previous -%}
 
+{#- Support previous label as string (with deprecated options) #}
+{%- set previousLabel = previous.label if previous.label is mapping and previous.label is not escaped else {
+  text: previous.label if previous.label is string else previous.labelText,
+  html: previous.label if previous.label is escaped else undefined
+} -%}
+
 {%- set next = {
   href: params.nextUrl,
   labelText: params.nextPage
 } if (params.nextUrl or params.nextPage) else params.next -%}
+
+{#- Support next label as string (with deprecated options) #}
+{%- set nextLabel = next.label if next.label is mapping and next.label is not escaped else {
+  text: next.label if next.label is string else next.labelText,
+  html: next.label if next.label is escaped else undefined
+} -%}
 
 {%- set ariaLabel = params.ariaLabel | default(params.landmarkLabel, true) | default("Pagination", true) -%}
 
@@ -95,9 +107,11 @@
           Previous<span class="nhsuk-u-visually-hidden"> page</span>
         {% endif %}
         </span>
-        {% if previous.labelText %}
+        {% if previousLabel.text or previousLabel.html %}
         <span class="nhsuk-u-visually-hidden">:</span>
-        <span class="nhsuk-pagination__page">{{ previous.labelText | trim }}</span>
+        <span class="nhsuk-pagination__page">
+          {{- previousLabel.html | safe | trim if previousLabel.html else previousLabel.text | trim -}}
+        </span>
         {% endif %}
         {{ nhsukIcon("arrow-left") | trim | indent(8) }}
       </a>
@@ -117,9 +131,11 @@
           Next<span class="nhsuk-u-visually-hidden"> page</span>
         {% endif %}
         </span>
-        {% if next.labelText %}
+        {% if nextLabel.text or nextLabel.html %}
         <span class="nhsuk-u-visually-hidden">:</span>
-        <span class="nhsuk-pagination__page">{{ next.labelText | trim }}</span>
+        <span class="nhsuk-pagination__page">
+          {{- nextLabel.html | safe | trim if nextLabel.html else nextLabel.text | trim -}}
+        </span>
         {% endif %}
         {{ nhsukIcon("arrow-right") | trim | indent(8) }}
       </a>

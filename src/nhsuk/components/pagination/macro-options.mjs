@@ -92,9 +92,32 @@ const options = {
       labelText: {
         type: 'string',
         required: false,
+        description: 'Replaced by the `previous.label.text` option.',
+        released: '10.1.0',
+        deprecated: '10.6.0'
+      },
+      label: {
+        type: 'object',
+        required: false,
         description:
           'The optional label that goes underneath the link to the previous page, providing further context for the user about where the link goes.',
-        released: '10.1.0'
+        released: '10.6.0',
+        params: {
+          text: {
+            type: 'string',
+            required: true,
+            description:
+              'If `html` is set, this is not required. Text to use within the label. If `html` is provided, the `text` option will be ignored.',
+            released: '10.6.0'
+          },
+          html: {
+            type: 'string',
+            required: true,
+            description:
+              'If `text` is set, this is not required. HTML to use within the label. If `html` is provided, the `text` option will be ignored.',
+            released: '10.6.0'
+          }
+        }
       },
       href: {
         type: 'string',
@@ -121,7 +144,7 @@ const options = {
   previousPage: {
     type: 'string',
     required: false,
-    description: 'Replaced by the `previous.labelText` option.',
+    description: 'Replaced by the `previous.label.text` option.',
     released: '1.0.0',
     deprecated: '10.1.0'
   },
@@ -148,9 +171,32 @@ const options = {
       labelText: {
         type: 'string',
         required: false,
+        description: 'Replaced by the `next.label.text` option.',
+        released: '10.1.0',
+        deprecated: '10.6.0'
+      },
+      label: {
+        type: 'object',
+        required: false,
         description:
           'The optional label that goes underneath the link to the next page, providing further context for the user about where the link goes.',
-        released: '10.1.0'
+        released: '10.6.0',
+        params: {
+          text: {
+            type: 'string',
+            required: true,
+            description:
+              'If `html` is set, this is not required. Text to use within the label. If `html` is provided, the `text` option will be ignored.',
+            released: '10.6.0'
+          },
+          html: {
+            type: 'string',
+            required: true,
+            description:
+              'If `text` is set, this is not required. HTML to use within the label. If `html` is provided, the `text` option will be ignored.',
+            released: '10.6.0'
+          }
+        }
       },
       href: {
         type: 'string',
@@ -177,7 +223,7 @@ const options = {
   nextPage: {
     type: 'string',
     required: false,
-    description: 'Replaced by the `next.labelText` option.',
+    description: 'Replaced by the `next.label.text` option.',
     released: '1.0.0',
     deprecated: '10.1.0'
   },
