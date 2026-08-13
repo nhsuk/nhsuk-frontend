@@ -15,7 +15,9 @@
   {% set classNames = classNames ~ " " ~ params.classes %}
 {% endif -%}
 
-<nav class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %} aria-label="{{ params.labelText | default("Breadcrumb") }}"
+{%- set ariaLabel = params.ariaLabel | default(params.labelText, true) | default("Breadcrumb", true) -%}
+
+<nav class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %} aria-label="{{ ariaLabel }}"
   {{- nhsukAttributes(params.attributes) }}>
   <ol class="nhsuk-breadcrumb__list">
 {% for item in params.items %}
@@ -47,12 +49,13 @@
   </ol>
   {{ backLink({
     id: params.backLink.id,
-    visuallyHiddenText: params.backLink.visuallyHiddenText if params.backLink.visuallyHiddenText else "Back to",
+    visuallyHiddenText: params.backLink.visuallyHiddenText | default("Back to"),
     text: params.backLink.text if (params.backLink.html or params.backLink.text) else lastText,
     html: params.backLink.html if (params.backLink.html or params.backLink.text),
-    href: params.backLink.href if params.backLink.href else lastHref,
+    href: params.backLink.href | default(lastHref),
+    type: params.backLink.type,
     classes: params.backLink.classes,
-    attributes: params.backLink.attributes if params.backLink.attributes else lastItem.attributes,
+    attributes: params.backLink.attributes | default(lastItem.attributes),
     variant: params.backLink.variant | default(variant),
     element: params.backLink.element
   }) | indent(2) }}

@@ -81,6 +81,34 @@ const fixtures = {
       ]
     },
     screenshot: true
+  },
+  "with visually hidden text": {
+    context: {
+      visuallyHiddenText: "Table of contents",
+      items: [
+        {
+          href: "#",
+          text: "What is AMD?",
+          current: true
+        },
+        {
+          href: "#",
+          text: "Symptoms"
+        },
+        {
+          href: "#",
+          text: "Getting diagnosed"
+        },
+        {
+          href: "#",
+          text: "Treatments"
+        },
+        {
+          href: "#",
+          text: "Living with AMD"
+        }
+      ]
+    }
   }
 }
 

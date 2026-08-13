@@ -118,19 +118,13 @@ const fixtures = {
       },
       id: "example",
       day: {
-        label: {
-          text: "Dydd"
-        }
+        label: "Dydd"
       },
       month: {
-        label: {
-          text: "Mis"
-        }
+        label: "Mis"
       },
       year: {
-        label: {
-          text: "Blwyddyn"
-        }
+        label: "Blwyddyn"
       }
     }
   },
@@ -416,12 +410,7 @@ const fixtures = {
   "without page heading": {
     context: {
       fieldset: {
-        legend: {
-          text: "What is your date of birth?"
-        }
-      },
-      hint: {
-        text: "For example, 31 3 1980"
+        legend: "What is your date of birth?"
       },
       id: "example"
     }
@@ -496,6 +485,19 @@ const fixtures = {
       },
       id: "example",
       namePrefix: "example"
+    }
+  },
+  "with error only": {
+    context: {
+      fieldset: {
+        legend: {
+          text: "What is your date of birth?",
+          size: "l",
+          isPageHeading: true
+        }
+      },
+      errorMessage: true,
+      id: "example"
     }
   },
   "with error message": {

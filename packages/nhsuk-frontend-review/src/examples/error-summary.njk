@@ -25,7 +25,9 @@
       <form action="/" method="post" style="margin-bottom: 100vh;">
 
         {{ errorSummary({
-          titleText: "There is a problem",
+          heading: {
+            text: "There is a problem"
+          },
           classes: "optional-extra-class",
           errorList: [
             {

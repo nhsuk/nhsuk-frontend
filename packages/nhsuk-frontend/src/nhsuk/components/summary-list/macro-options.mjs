@@ -31,11 +31,24 @@ const options = {
     description: 'The rows within the summary list component.',
     released: '2.0.0',
     params: {
+      id: {
+        type: 'string',
+        required: false,
+        description: 'The ID of the row.',
+        released: '10.6.0'
+      },
       classes: {
         type: 'string',
         required: false,
-        description: 'Classes to add to the row `div`.',
+        description: 'Classes to add to the row.',
         released: '9.0.0'
+      },
+      attributes: {
+        type: 'string',
+        required: false,
+        description:
+          'HTML attributes (for example data attributes) to add to the row.',
+        released: '10.6.0'
       },
       border: {
         type: 'boolean',
@@ -51,6 +64,12 @@ const options = {
           'The reference content (key) for each row item in the summary list component.',
         released: '2.0.0',
         params: {
+          id: {
+            type: 'string',
+            required: false,
+            description: 'The ID of the key item.',
+            released: '10.6.0'
+          },
           text: {
             type: 'string',
             required: true,
@@ -65,11 +84,25 @@ const options = {
               'If `text` is set, this is not required. HTML to use within each key. If `html` is provided, the `text` option will be ignored.',
             released: '2.0.0'
           },
+          width: {
+            type: 'string',
+            required: false,
+            description:
+              'Specify the key wrapper width. You can pass any design system grid width here – for example, `"one-third"`, `"two-thirds"` or `"one-half"`.',
+            released: '10.6.0'
+          },
           classes: {
             type: 'string',
             required: false,
             description: 'Classes to add to the key wrapper.',
             released: '2.0.0'
+          },
+          attributes: {
+            type: 'string',
+            required: false,
+            description:
+              'HTML attributes (for example data attributes) to add to the key wrapper.',
+            released: '10.6.0'
           }
         }
       },
@@ -80,6 +113,12 @@ const options = {
           'The value for each row item in the summary list component.',
         released: '2.0.0',
         params: {
+          id: {
+            type: 'string',
+            required: false,
+            description: 'The ID of the value item.',
+            released: '10.6.0'
+          },
           text: {
             type: 'string',
             required: true,
@@ -94,11 +133,25 @@ const options = {
               'If `text` is set, this is not required. HTML to use within each value. If `html` is provided, the `text` option will be ignored.',
             released: '2.0.0'
           },
+          width: {
+            type: 'string',
+            required: false,
+            description:
+              'Specify the value wrapper width. You can pass any design system grid width here – for example, `"one-third"`, `"two-thirds"` or `"one-half"`.',
+            released: '10.6.0'
+          },
           classes: {
             type: 'string',
             required: false,
             description: 'Classes to add to the value wrapper.',
             released: '2.0.0'
+          },
+          attributes: {
+            type: 'string',
+            required: false,
+            description:
+              'HTML attributes (for example data attributes) to add to the value wrapper.',
+            released: '10.6.0'
           }
         }
       },
@@ -120,13 +173,6 @@ const options = {
                 type: 'string',
                 required: false,
                 description: 'The ID of the action item.',
-                released: '10.6.0'
-              },
-              element: {
-                type: 'string',
-                required: false,
-                description:
-                  'HTML element for the action item – `"button"` or `"a"`. In most cases you will not need to set this as it will be configured automatically if `href` is provided.',
                 released: '10.6.0'
               },
               text: {
@@ -193,11 +239,25 @@ const options = {
               }
             }
           },
+          width: {
+            type: 'string',
+            required: false,
+            description:
+              'Specify the actions wrapper width. You can pass any design system grid width here – for example, `"one-third"`, `"two-thirds"` or `"one-half"`.',
+            released: '10.6.0'
+          },
           classes: {
             type: 'string',
             required: false,
             description: 'Classes to add to the actions wrapper.',
             released: '10.2.0'
+          },
+          attributes: {
+            type: 'string',
+            required: false,
+            description:
+              'HTML attributes (for example data attributes) to add to the actions wrapper.',
+            released: '10.6.0'
           }
         }
       }

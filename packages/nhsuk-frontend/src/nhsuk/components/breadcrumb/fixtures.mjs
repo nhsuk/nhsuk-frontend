@@ -59,7 +59,7 @@ const fixtures = {
         }
       ],
       backLink: {
-        element: "button"
+        type: "submit"
       }
     }
   },

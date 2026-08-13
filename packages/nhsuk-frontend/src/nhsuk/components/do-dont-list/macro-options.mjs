@@ -15,8 +15,70 @@ const options = {
   title: {
     type: 'string',
     required: true,
-    description: "Title to be displayed on the do and don't list component.",
-    released: '1.0.0'
+    description: 'Replaced by the `heading.text` option.',
+    released: '1.0.0',
+    deprecated: '10.6.0'
+  },
+  heading: {
+    type: 'object',
+    required: true,
+    description: "Heading to be displayed on the do and don't list component.",
+    released: '10.6.0',
+    isComponent: true,
+    params: {
+      id: {
+        type: 'string',
+        required: false,
+        description: 'The ID of the heading.',
+        released: '10.6.0'
+      },
+      text: {
+        type: 'string',
+        required: true,
+        description:
+          'If `html` is set, this is not required. Text for the heading. If `html` is provided, the `text` option will be ignored.',
+        released: '10.6.0'
+      },
+      html: {
+        type: 'string',
+        required: true,
+        description:
+          'If `text` is set, this is not required. HTML for the heading. If `html` is provided, the `text` option will be ignored.',
+        released: '10.6.0'
+      },
+      visuallyHiddenText: {
+        type: 'string',
+        required: false,
+        description: 'A visually hidden suffix added to the heading.',
+        released: '10.6.0'
+      },
+      level: {
+        type: 'integer',
+        required: false,
+        description: 'Optional heading level. Defaults to `3`.',
+        released: '10.6.0'
+      },
+      classes: {
+        type: 'string',
+        required: false,
+        description: 'Classes to add to the heading.',
+        released: '10.6.0'
+      },
+      attributes: {
+        type: 'object',
+        required: false,
+        description:
+          'HTML attributes (for example data attributes) to add to the heading.',
+        released: '10.6.0'
+      }
+    }
+  },
+  headingLevel: {
+    type: 'integer',
+    required: false,
+    description: 'Replaced by the `heading.level` option.',
+    released: '1.0.0',
+    deprecated: '10.6.0'
   },
   icon: {
     type: 'string',
@@ -28,8 +90,7 @@ const options = {
   type: {
     type: 'string',
     required: true,
-    description:
-      'Optional type of do and don\'t list – `"cross"` or `"tick"`. Replaced by the `icon` option.',
+    description: 'Replaced by the `icon` option.',
     released: '1.0.0',
     deprecated: '10.4.0'
   },
@@ -42,8 +103,7 @@ const options = {
       item: {
         type: 'string',
         required: true,
-        description:
-          "Text to use within each do and don't item. Replaced by the `text` and `html` options.",
+        description: 'Replaced by the `item.text` and `item.html` options.',
         released: '1.0.0',
         deprecated: '10.1.0'
       },
@@ -76,13 +136,6 @@ const options = {
     description:
       "If set to `true`, the optional `prefixText` will be removed from each do and don't item.",
     released: '5.0.0'
-  },
-  headingLevel: {
-    type: 'integer',
-    required: false,
-    description:
-      'Optional heading level for the title heading. Defaults to `3`.',
-    released: '1.0.0'
   },
   classes: {
     type: 'string',

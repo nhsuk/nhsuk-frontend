@@ -1,8 +1,8 @@
-{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
-{% from "nhsuk/macros/i18n.njk" import nhsukI18nAttributes %}
 {% from "nhsuk/components/card/macro.njk" import card %}
 {% from "nhsuk/components/heading/macro.njk" import heading %}
 {% from "nhsuk/components/scroll/macro.njk" import scroll %}
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/i18n.njk" import nhsukI18nAttributes %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
 
 {#- Set variant for this component #}
@@ -11,6 +11,15 @@
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-table" -%}
 {%- set classNamesCaption = "nhsuk-table__caption" -%}
+
+{#- Support caption as string (with deprecated options) #}
+{%- set captionOptions = params.caption if params.caption is mapping and params.caption is not escaped else {
+  id: params.captionId,
+  text: params.caption if params.caption is string else undefined,
+  html: params.caption if params.caption is escaped else undefined,
+  size: params.captionSize,
+  classes: params.captionClasses
+} -%}
 
 {%- if variant == "reverse" and (
   not params.classes or (
@@ -59,8 +68,8 @@
   {% set classNames = classNames ~ " " ~ (params.classes or params.tableClasses) %}
 {% endif %}
 
-{%- set captionId = params.captionId | default(params.id ~ "-caption" if params.scroll and params.id else undefined) | default(("table-" ~ params.caption | replace(" ", "-") | lower | truncate(40, true, "") ~ "-caption") if params.scroll and params.caption else undefined) -%}
-{%- set captionDescriptionText = params.captionDescriptionText | default("Column headers are sortable" if "nhsuk-table--sortable" in classNames else undefined) %}
+{%- set captionId = captionOptions.id | default(params.id ~ "-caption" if params.scroll and params.id else undefined) | default(("table-" ~ captionOptions.text | replace(" ", "-") | lower | truncate(40, true, "") ~ "-caption") if params.scroll and captionOptions.text else undefined) -%}
+{%- set captionVisuallyHiddenText = params.caption.visuallyHiddenText | default("Column headers are sortable" if "nhsuk-table--sortable" in classNames else undefined) %}
 
 {%- set attributesHtml %}
   {{- nhsukAttributes({
@@ -207,16 +216,19 @@
 
 {%- set tableHtml -%}
 <table {{- attributesHtml | safe }}>
-{% if params.caption %}
+{% if captionOptions.text or captionOptions.html %}
   {{ heading({
-    text: params.caption,
-    visuallyHiddenText: "(" ~ captionDescriptionText ~ ")" if captionDescriptionText else undefined,
     id: captionId,
-    size: params.captionSize,
+    text: captionOptions.text,
+    html: captionOptions.html,
+    visuallyHiddenText: "(" ~ captionVisuallyHiddenText ~ ")" if captionVisuallyHiddenText else undefined,
+    caption: captionOptions.caption,
+    size: captionOptions.size,
     sizes: ["s", "m", "l", "xl"],
     className: classNamesCaption,
     classPrefix: classNamesCaption ~ "--",
-    classes: params.captionClasses,
+    classes: captionOptions.classes,
+    attributes: captionOptions.attributes,
     element: "caption"
   }) | trim | indent(2) }}
 {% endif %}
@@ -314,11 +326,20 @@
 {% endif %}
 
 {%- if params.card or params.panel %}
-  {%- call card(params.card or {
-    heading: params.heading,
-    headingLevel: params.headingLevel | default(3),
-    classes: params.panelClasses,
-    variant: "feature"
+  {%- set headingOptions = params.card.heading if params.card.heading is mapping and params.card.heading is not escaped else {
+    text: params.card.heading if params.card.heading is string else params.heading,
+    html: params.card.heading if params.card.heading is escaped else undefined,
+    level: params.headingLevel
+  } -%}
+
+  {%- call card({
+    id: params.card.id,
+    heading: headingOptions,
+    href: params.card.href,
+    actions: params.card.actions,
+    classes: params.panelClasses | default(params.card.classes),
+    attributes: params.card.attributes,
+    variant: params.card.variant | default("feature" if params.panel else undefined)
   }) %}
     {{ tableHtml | safe | trim | indent(4) }}
   {%- endcall %}

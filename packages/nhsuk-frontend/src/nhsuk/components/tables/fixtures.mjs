@@ -108,8 +108,10 @@ export const variants = [
 const fixtures = {
   "default": {
     context: {
-      caption: "Impetigo can look similar to other skin conditions",
-      captionSize: "m",
+      caption: {
+        text: "Impetigo can look similar to other skin conditions",
+        size: "m"
+      },
       firstCellIsHeader: true,
       head: [
         {
@@ -153,8 +155,10 @@ const fixtures = {
   },
   "with column widths": {
     context: {
-      caption: "Ibuprofen 100mg/5ml liquid dosages for children by age",
-      captionSize: "m",
+      caption: {
+        text: "Ibuprofen 100mg/5ml liquid dosages for children by age",
+        size: "m"
+      },
       firstCellIsHeader: true,
       head: [
         {
@@ -432,8 +436,10 @@ const fixtures = {
   },
   "with empty items": {
     context: {
-      caption: "Vaccinations given",
-      captionSize: "m",
+      caption: {
+        text: "Vaccinations given",
+        size: "m"
+      },
       firstCellIsHeader: true,
       head: [
         {
@@ -460,8 +466,10 @@ const fixtures = {
   },
   "with missing data": {
     context: {
-      caption: "Vaccinations given",
-      captionSize: "m",
+      caption: {
+        text: "Vaccinations given",
+        size: "m"
+      },
       firstCellIsHeader: true,
       head: [
         {
@@ -503,8 +511,10 @@ const fixtures = {
   },
   "with numeric format": {
     context: {
-      caption: "Prescription prepayment certificate (PPC) charges",
-      captionSize: "m",
+      caption: {
+        text: "Prescription prepayment certificate (PPC) charges",
+        size: "m"
+      },
       firstCellIsHeader: true,
       head: [
         {
@@ -561,8 +571,10 @@ const fixtures = {
   },
   "with numeric format and missing data": {
     context: {
-      caption: "Prescription prepayment certificate (PPC) charges",
-      captionSize: "m",
+      caption: {
+        text: "Prescription prepayment certificate (PPC) charges",
+        size: "m"
+      },
       firstCellIsHeader: true,
       head: [
         {
@@ -845,8 +857,10 @@ const fixtures = {
   },
   "with word breaks": {
     context: {
-      caption: "Users",
-      captionSize: "m",
+      caption: {
+        text: "Users",
+        size: "m"
+      },
       firstCellIsHeader: true,
       head: [
         {
@@ -904,8 +918,10 @@ const fixtures = {
   },
   "without border": {
     context: {
-      caption: "Cases per manager",
-      captionClasses: "nhsuk-u-visually-hidden",
+      caption: {
+        text: "Cases per manager",
+        classes: "nhsuk-u-visually-hidden"
+      },
       border: false,
       head: [
         {
@@ -947,8 +963,10 @@ const fixtures = {
   },
   "without last row border": {
     context: {
-      caption: "Cases per manager",
-      captionClasses: "nhsuk-u-visually-hidden",
+      caption: {
+        text: "Cases per manager",
+        classes: "nhsuk-u-visually-hidden"
+      },
       lastRowBorder: false,
       head: [
         {
@@ -991,8 +1009,10 @@ const fixtures = {
   "as a card": {
     context: {
       card: true,
-      caption: "Impetigo can look similar to other skin conditions",
-      captionSize: "m",
+      caption: {
+        text: "Impetigo can look similar to other skin conditions",
+        size: "m"
+      },
       firstCellIsHeader: true,
       lastRowBorder: false,
       head: [
@@ -1039,12 +1059,16 @@ const fixtures = {
   "as a card (feature)": {
     context: {
       card: {
-        heading: "Other conditions like impetigo",
-        headingSize: "m",
+        heading: {
+          text: "Other conditions like impetigo",
+          size: "m"
+        },
         variant: "feature"
       },
-      caption: "Impetigo can look similar to other skin conditions",
-      captionSize: "s",
+      caption: {
+        text: "Impetigo can look similar to other skin conditions",
+        size: "s"
+      },
       firstCellIsHeader: true,
       lastRowBorder: false,
       head: [
@@ -1093,9 +1117,11 @@ const fixtures = {
   },
   "scrolling": {
     context: {
-      caption: "Childhood vaccination coverage by nation",
-      captionId: "scrolling-caption",
-      captionSize: "m",
+      caption: {
+        id: "scrolling-caption",
+        text: "Childhood vaccination coverage by nation",
+        size: "m"
+      },
       firstCellIsHeader: true,
       scroll: true,
       head: [
@@ -1329,9 +1355,11 @@ const fixtures = {
   },
   "scrolling sortable": {
     context: {
-      caption: "Childhood vaccination coverage by nation",
-      captionId: "scrolling-sortable-caption",
-      captionSize: "m",
+      caption: {
+        id: "scrolling-sortable-caption",
+        text: "Childhood vaccination coverage by nation",
+        size: "m"
+      },
       firstCellIsHeader: true,
       scroll: true,
       head: [
@@ -1591,8 +1619,10 @@ const fixtures = {
   "scrolling as a card": {
     context: {
       card: {
-        heading: "Leeds",
-        headingSize: "m",
+        heading: {
+          text: "Leeds",
+          size: "m"
+        },
         actions: {
           items: [
             {
@@ -1602,9 +1632,11 @@ const fixtures = {
           ]
         }
       },
-      caption: "Vaccine types (12 months)",
-      captionId: "scrolling-card-caption",
-      captionSize: "s",
+      caption: {
+        id: "scrolling-card-caption",
+        text: "Vaccine types (12 months)",
+        size: "s"
+      },
       lastRowBorder: false,
       scroll: true,
       head: [
@@ -1701,8 +1733,10 @@ const fixtures = {
   "scrolling sortable as a card": {
     context: {
       card: {
-        heading: "Leeds",
-        headingSize: "m",
+        heading: {
+          text: "Leeds",
+          size: "m"
+        },
         actions: {
           items: [
             {
@@ -1712,9 +1746,11 @@ const fixtures = {
           ]
         }
       },
-      caption: "Vaccine types (12 months)",
-      captionId: "scrolling-card-caption",
-      captionSize: "s",
+      caption: {
+        id: "scrolling-card-caption",
+        text: "Vaccine types (12 months)",
+        size: "s"
+      },
       lastRowBorder: false,
       scroll: true,
       head: [
@@ -1818,9 +1854,11 @@ const fixtures = {
   },
   "scrolling (full width)": {
     context: {
-      caption: "Childhood vaccination coverage by nation",
-      captionId: "scrolling-full-width-caption",
-      captionSize: "m",
+      caption: {
+        id: "scrolling-full-width-caption",
+        text: "Childhood vaccination coverage by nation",
+        size: "m"
+      },
       firstCellIsHeader: true,
       scroll: true,
       head: [
@@ -2054,9 +2092,11 @@ const fixtures = {
   },
   "scrolling sortable (full width)": {
     context: {
-      caption: "Childhood vaccination coverage by nation",
-      captionId: "scrolling-sortable-full-width-caption",
-      captionSize: "m",
+      caption: {
+        id: "scrolling-sortable-full-width-caption",
+        text: "Childhood vaccination coverage by nation",
+        size: "m"
+      },
       firstCellIsHeader: true,
       scroll: true,
       head: [
@@ -2554,8 +2594,10 @@ const fixtures = {
   },
   "sortable with numeric format": {
     context: {
-      caption: "Prescription prepayment certificate (PPC) charges",
-      captionSize: "m",
+      caption: {
+        text: "Prescription prepayment certificate (PPC) charges",
+        size: "m"
+      },
       firstCellIsHeader: true,
       head: [
         {
@@ -2619,8 +2661,10 @@ const fixtures = {
   },
   "sortable with numeric format and missing data": {
     context: {
-      caption: "Prescription prepayment certificate (PPC) charges",
-      captionSize: "m",
+      caption: {
+        text: "Prescription prepayment certificate (PPC) charges",
+        size: "m"
+      },
       firstCellIsHeader: true,
       head: [
         {
@@ -2686,8 +2730,10 @@ const fixtures = {
   },
   "sortable with numeric format and sort values": {
     context: {
-      caption: "Prescription prepayment certificate (PPC) charges",
-      captionSize: "m",
+      caption: {
+        text: "Prescription prepayment certificate (PPC) charges",
+        size: "m"
+      },
       firstCellIsHeader: true,
       head: [
         {

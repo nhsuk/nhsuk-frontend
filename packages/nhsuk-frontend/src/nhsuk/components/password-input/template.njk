@@ -1,7 +1,7 @@
-{% from "nhsuk/macros/attributes.njk" import nhsukAttributes -%}
-{% from "nhsuk/macros/i18n.njk" import nhsukI18nAttributes -%}
-{% from "nhsuk/components/button/macro.njk" import button -%}
-{% from "nhsuk/components/input/macro.njk" import input -%}
+{% from "nhsuk/components/button/macro.njk" import button %}
+{% from "nhsuk/components/input/macro.njk" import input %}
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/i18n.njk" import nhsukI18nAttributes %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-password-input__input nhsuk-js-password-input-input" -%}
@@ -34,12 +34,12 @@
 
   {{- nhsukI18nAttributes({
     key: "show-password-aria-label",
-    message: params.showPasswordAriaLabelText
+    message: params.showPasswordAriaLabel | default(params.showPasswordAriaLabelText) | default(params.button.ariaLabel)
   }) -}}
 
   {{- nhsukI18nAttributes({
     key: "hide-password-aria-label",
-    message: params.hidePasswordAriaLabelText
+    message: params.hidePasswordAriaLabel | default(params.hidePasswordAriaLabelText)
   }) -}}
 
   {{- nhsukI18nAttributes({
@@ -58,7 +58,7 @@
 {%- set buttonHtml %}
 {{ button({
   text: params.showPasswordText | default(params.button.text) | default("Show"),
-  ariaLabel: params.showPasswordAriaLabelText | default(params.button.ariaLabel) | default("Show password"),
+  ariaLabel: params.showPasswordAriaLabel | default(params.showPasswordAriaLabelText) | default(params.button.ariaLabel) | default("Show password"),
   id: params.button.id,
   href: params.button.href,
   name: params.button.name,

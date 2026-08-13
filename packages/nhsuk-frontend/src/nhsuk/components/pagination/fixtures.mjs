@@ -7,11 +7,11 @@ const fixtures = {
   "default": {
     context: {
       previous: {
-        labelText: "Treatments",
+        label: "Treatments",
         href: "#/section/treatments"
       },
       next: {
-        labelText: "Symptoms",
+        label: "Symptoms",
         href: "#/section/symptoms"
       }
     },
@@ -38,7 +38,7 @@ const fixtures = {
   "with only previous": {
     context: {
       previous: {
-        labelText: "Treatments",
+        label: "Treatments",
         href: "#/section/treatments"
       }
     },
@@ -52,7 +52,7 @@ const fixtures = {
   "with only next": {
     context: {
       next: {
-        labelText: "Symptoms",
+        label: "Symptoms",
         href: "#/section/symptoms"
       }
     },
@@ -67,12 +67,12 @@ const fixtures = {
     context: {
       previous: {
         text: "Blaenorol",
-        labelText: "Driniaethau",
+        label: "Driniaethau",
         href: "#/section/driniaethau"
       },
       next: {
         text: "Nesaf",
-        labelText: "Symptomau",
+        label: "Symptomau",
         href: "#/section/symptomau"
       }
     },

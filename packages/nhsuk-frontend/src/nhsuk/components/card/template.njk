@@ -1,7 +1,7 @@
 {% from "nhsuk/components/heading/macro.njk" import heading %}
+{% from "nhsuk/components/card/action/macro.njk" import cardAction %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
-{% from "nhsuk/components/card/action/macro.njk" import cardAction %}
 
 {#- Set variant or (deprecated) type for this component #}
 {%- set variant = params.variant or params.type -%}
@@ -9,6 +9,23 @@
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-card" -%}
 {%- set classNamesHeading = "nhsuk-card__heading" -%}
+
+{#- Support heading as string (with deprecated options) #}
+{%- set headingOptions = params.heading if params.heading is mapping and params.heading is not escaped else {
+  id: params.headingId,
+  text: params.heading if params.heading is string else undefined,
+  html: params.heading if params.heading is escaped else params.headingHtml,
+  visuallyHiddenText: params.headingVisuallyHiddenText,
+  size: params.headingSize,
+  level: params.headingLevel,
+  classes: params.headingClasses
+} -%}
+
+{#- Support description as string (with deprecated options) #}
+{%- set descriptionOptions = params.description if params.description is mapping and params.description is not escaped else {
+  text: params.description if params.description is string else undefined,
+  html: params.description if params.description is escaped else params.descriptionHtml
+} -%}
 
 {%- if params.clickable %}
   {% set classNames = classNames ~ " nhsuk-card--clickable" %}
@@ -45,7 +62,7 @@
 
 {%- set isCareCard = true if variant
   and variant in ["non-urgent", "urgent", "emergency"]
-  and (params.heading or params.headingHtml)
+  and (headingOptions.text or headingOptions.html)
   else false -%}
 
 {%- if isCareCard and (
@@ -70,14 +87,10 @@
   alt: params.imgALT
 } if (params.imgURL or params.imgALT) else params.image %}
 
-{%- macro _careHeading(params, classNamesHeading) %}
-{%- set headingHtml %}
-<span class="nhsuk-card--care__arrow" aria-hidden="true"></span>
-{% endset -%}
-
+{%- macro _careHeading(params, parent, classNamesHeading) %}
 {%- set headingVisuallyHiddenText %}
-  {%- if params.headingVisuallyHiddenText -%}
-    {{ params.headingVisuallyHiddenText | trim }}
+  {%- if headingOptions.visuallyHiddenText -%}
+    {{ headingOptions.visuallyHiddenText | trim }}
   {%- elif variant == "emergency" -%}
     Immediate action required
   {%- elif variant == "urgent" -%}
@@ -88,43 +101,52 @@
 {% endset -%}
 
 {{ _cardHeading({
-  heading: params.heading,
-  headingHtml: headingHtml,
-  headingVisuallyHiddenText: headingVisuallyHiddenText,
-  headingLevel: params.headingLevel,
-  headingSize: params.headingSize,
-  headingClasses: params.headingClasses,
-  headingId: params.headingId,
-  href: params.href
+  id: headingOptions.id,
+  text: headingOptions.text,
+  html: headingOptions.html,
+  visuallyHiddenText: headingVisuallyHiddenText,
+  caption: headingOptions.caption,
+  size: headingOptions.size,
+  level: headingOptions.level,
+  classes: headingOptions.classes,
+  attributes: headingOptions.attributes
+}, {
+  params: params,
+  isCareCard: isCareCard
 }, classNamesHeading) | trim }}
 {% endmacro -%}
 
-{%- macro _cardHeading(params, classNamesHeading) %}
-{% if params.heading %}
+{%- macro _cardHeading(params, parent, classNamesHeading) %}
+{% if params.text %}
 {% call heading({
-  level: params.headingLevel | default(2),
-  size: params.headingSize,
-  classes: params.headingClasses,
+  id: params.id,
+  caption: params.caption,
+  size: params.size,
+  level: params.level | default(2),
+  classes: params.classes,
   className: classNamesHeading,
   classPrefix: "nhsuk-heading-",
-  id: params.headingId
+  attributes: params.attributes
 }) %}
-{% if params.href and not "nhsuk-card--feature" in classNames %}
-  <a class="nhsuk-card__link" href="{{ params.href }}">
-    {{- params.heading -}}
+{% if parent.params.href and not "nhsuk-card--feature" in classNames %}
+  <a class="nhsuk-card__link" href="{{ parent.params.href }}">
+    {{- params.text | trim | indent(2) -}}
   </a>
-{%- elif params.headingVisuallyHiddenText %}
+{%- elif params.visuallyHiddenText %}
   <span role="text">
-    <span class="nhsuk-u-visually-hidden">{{ params.headingVisuallyHiddenText }}: </span>
-    {{- params.heading }}
+    <span class="nhsuk-u-visually-hidden">{{ params.visuallyHiddenText }}: </span>
+    {{- params.text | trim | indent(4) }}
   </span>
-{%- else %}
-  {{ params.heading }}
+{%- elif params.text %}
+  {{ params.text | trim | indent(2) }}
 {%- endif %}
 {%- endcall %}
 {% endif %}
-{% if params.headingHtml %}
-  {{- params.headingHtml | safe | trim }}
+{% if params.html %}
+  {{- params.html | safe | trim }}
+{% endif %}
+{% if parent.isCareCard -%}
+  <span class="nhsuk-card--care__arrow" aria-hidden="true"></span>
 {% endif %}
 {% endmacro -%}
 
@@ -142,9 +164,15 @@
 {% if isCareCard or actions | length %}
   <div class="nhsuk-card__heading-container">
   {% if isCareCard %}
-    {{ _careHeading(params, classNamesHeading) | trim | indent(4) }}
-  {% elif params.heading or params.headingHtml %}
-    {{ _cardHeading(params, classNamesHeading) | trim | indent(4) }}
+    {{ _careHeading(headingOptions, {
+      params: params,
+      isCareCard: isCareCard
+    }, classNamesHeading) | trim | indent(4) }}
+  {% elif headingOptions.text or headingOptions.html %}
+    {{ _cardHeading(headingOptions, {
+      params: params,
+      isCareCard: isCareCard
+    }, classNamesHeading) | trim | indent(4) }}
   {% endif %}
     {% if actions | length == 1 %}
     <div class="nhsuk-card__actions {%- if params.actions.classes %} {{ params.actions.classes }}{% endif %}">
@@ -165,17 +193,21 @@
   {% endif %}
   </div>
 {% endif %}
-  <div class="nhsuk-card__content">
-  {% if not isCareCard and not actions | length and (params.heading or params.headingHtml) %}
-    {{ _cardHeading(params, classNamesHeading) | trim | indent(4) }}
+  <div class="{{ "nhsuk-card__content" ~ (" " ~ descriptionOptions.classes if descriptionOptions.classes) }}"
+    {{- nhsukAttributes(descriptionOptions.attributes) }}>
+  {% if not isCareCard and not actions | length and (headingOptions.text or headingOptions.html) %}
+    {{ _cardHeading(headingOptions, {
+      params: params,
+      isCareCard: isCareCard
+    }, classNamesHeading) | trim | indent(4) }}
   {% endif %}
   {% if caller %}
     {{- caller() }}
-  {% elif params.descriptionHtml %}
-    {{ params.descriptionHtml | safe | trim | indent(4) }}
-  {% elif params.description %}
+  {% elif descriptionOptions.html %}
+    {{ descriptionOptions.html | safe | trim | indent(4) }}
+  {% elif descriptionOptions.text %}
     <p class="nhsuk-card__description">
-      {{- params.description | trim | indent(4) -}}
+      {{- descriptionOptions.text | trim | indent(4) -}}
     </p>
   {% endif %}
   {% if "nhsuk-card--primary" in classNames %}

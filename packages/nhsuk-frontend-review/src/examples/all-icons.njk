@@ -81,23 +81,25 @@
           {% endfor %}
 
           {{ table({
-            caption: "Page background",
-            captionClasses: "nhsuk-u-margin-bottom-4",
-            captionSize: "l",
+            caption: {
+              text: "Page background",
+              classes: "nhsuk-u-margin-bottom-4",
+              size: "l"
+            },
             firstCellIsHeader: true,
             responsive: true,
             head: [
               {
                 text: "Name",
-                classes: "nhsuk-u-width-one-quarter"
+                width: "one-quarter"
               },
               {
                 text: "Modifier",
-                classes: "nhsuk-u-width-one-quarter"
+                width: "one-quarter"
               },
               {
                 text: "Icon",
-                classes: "nhsuk-u-width-one-half"
+                width: "one-half"
               }
             ],
             rows: rows
@@ -144,24 +146,26 @@
           {% endfor %}
 
           {{ table({
-            caption: "Blue background (used in hero)",
-            captionClasses: "nhsuk-u-margin-bottom-4",
-            captionSize: "l",
+            caption: {
+              text: "Blue background (used in hero)",
+              classes: "nhsuk-u-margin-bottom-4",
+              size: "l"
+            },
             variant: "reverse",
             firstCellIsHeader: true,
             responsive: true,
             head: [
               {
                 text: "Name",
-                classes: "nhsuk-u-width-one-quarter"
+                width: "one-quarter"
               },
               {
                 text: "Modifier",
-                classes: "nhsuk-u-width-one-quarter"
+                width: "one-quarter"
               },
               {
                 text: "Icon",
-                classes: "nhsuk-u-width-one-half"
+                width: "one-half"
               }
             ],
             rows: rows

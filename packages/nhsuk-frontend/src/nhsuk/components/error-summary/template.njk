@@ -1,8 +1,20 @@
 {% from "nhsuk/components/heading/macro.njk" import heading %}
-{% from "nhsuk/macros/attributes.njk" import nhsukAttributes -%}
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-error-summary" -%}
+
+{#- Support heading as string (with deprecated options) #}
+{%- set headingOptions = params.heading if params.heading is mapping and params.heading is not escaped else {
+  text: params.heading if params.heading is string else params.titleText,
+  html: params.heading if params.heading is escaped else params.titleHtml
+} -%}
+
+{#- Support description as string (with deprecated options) #}
+{%- set descriptionOptions = params.description if params.description is mapping and params.description is not escaped else {
+  text: params.description if params.description is string else params.descriptionText,
+  html: params.description if params.description is escaped else params.descriptionHtml
+} -%}
 
 {%- if params.classes %}
   {% set classNames = classNames ~ " " ~ params.classes %}
@@ -29,20 +41,22 @@
   the focusing js at the alert, resulting in information getting missed in screen reader announcements #}
   <div role="alert">
     {{ heading({
-      text: params.titleText,
-      html: params.titleHtml,
+      id: headingOptions.id,
+      text: headingOptions.text,
+      html: headingOptions.html,
       level: 2,
-      className: "nhsuk-error-summary__title"
+      className: "nhsuk-error-summary__title",
+      attributes: headingOptions.attributes
     }) | trim | indent(4) }}
     <div class="nhsuk-error-summary__body">
-    {% if caller or params.descriptionHtml or params.descriptionText %}
+    {% if caller or descriptionOptions.text or descriptionOptions.html %}
       <p>
       {% if caller %}
         {{- caller() }}
-      {% elif params.descriptionHtml %}
-        {{ params.descriptionHtml | safe | trim | indent(8) }}
+      {% elif descriptionOptions.html %}
+        {{ descriptionOptions.html | safe | trim | indent(8) }}
       {% else %}
-        {{ params.descriptionText | trim | indent(8) }}
+        {{ descriptionOptions.text | trim | indent(8) }}
       {% endif %}
       </p>
     {% endif %}

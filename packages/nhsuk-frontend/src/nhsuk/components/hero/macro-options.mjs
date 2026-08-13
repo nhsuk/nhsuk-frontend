@@ -24,7 +24,74 @@ const options = {
         required: false,
         description: 'Optional heading for content column.',
         released: '10.6.0',
-        isComponent: true
+        isComponent: true,
+        params: {
+          id: {
+            type: 'string',
+            required: false,
+            description: 'The ID of the heading.',
+            released: '10.6.0'
+          },
+          text: {
+            type: 'string',
+            required: true,
+            description:
+              'If `html` is set, this is not required. Text for the heading. If `html` is provided, the `text` option will be ignored.',
+            released: '10.6.0'
+          },
+          html: {
+            type: 'string',
+            required: true,
+            description:
+              'If `text` is set, this is not required. HTML for the heading. If `html` is provided, the `text` option will be ignored.',
+            released: '10.6.0'
+          },
+          visuallyHiddenText: {
+            type: 'string',
+            required: false,
+            description: 'A visually hidden suffix added to the heading.',
+            released: '10.6.0'
+          },
+          href: {
+            type: 'string',
+            required: false,
+            description: 'If set, the heading will become a link.',
+            released: '10.6.0'
+          },
+          caption: {
+            type: 'object',
+            required: false,
+            description: 'Optional caption for the heading.',
+            released: '10.6.0',
+            isComponent: true
+          },
+          size: {
+            type: 'string',
+            required: false,
+            description:
+              'Size of the heading – `"m"`, `"l"` or `"xl"`. Defaults to `"xl"`.',
+            released: '10.6.0'
+          },
+          level: {
+            type: 'integer',
+            required: false,
+            description: 'Optional heading level. Defaults to `1`.',
+            released: '10.6.0'
+          },
+          classes: {
+            type: 'string',
+            required: false,
+            description: 'Classes to add to the heading.',
+            released: '10.6.0'
+          },
+          attributes: {
+            type: 'object',
+            required: false,
+            description:
+              'HTML attributes (for example data attributes) to add to the heading.',
+            released: '10.6.0'
+          }
+        }
       },
       text: {
         type: 'string',
@@ -68,28 +135,93 @@ const options = {
     required: true,
     description: 'Heading of the hero.',
     released: '10.6.0',
-    isComponent: true
+    isComponent: true,
+    params: {
+      id: {
+        type: 'string',
+        required: false,
+        description: 'The ID of the heading.',
+        released: '10.6.0'
+      },
+      text: {
+        type: 'string',
+        required: true,
+        description:
+          'If `html` is set, this is not required. Text for the heading. If `html` is provided, the `text` option will be ignored.',
+        released: '10.6.0'
+      },
+      html: {
+        type: 'string',
+        required: true,
+        description:
+          'If `text` is set, this is not required. HTML for the heading. If `html` is provided, the `text` option will be ignored.',
+        released: '10.6.0'
+      },
+      visuallyHiddenText: {
+        type: 'string',
+        required: false,
+        description: 'A visually hidden suffix added to the heading.',
+        released: '10.6.0'
+      },
+      href: {
+        type: 'string',
+        required: false,
+        description: 'If set, the heading will become a link.',
+        released: '10.6.0'
+      },
+      caption: {
+        type: 'object',
+        required: false,
+        description: 'Optional caption for the heading.',
+        released: '10.6.0',
+        isComponent: true
+      },
+      size: {
+        type: 'string',
+        required: false,
+        description:
+          'Size of the heading – `"m"`, `"l"` or `"xl"`. Defaults to `"xl"`.',
+        released: '10.6.0'
+      },
+      level: {
+        type: 'integer',
+        required: false,
+        description: 'Optional heading level. Defaults to `1`.',
+        released: '10.6.0'
+      },
+      classes: {
+        type: 'string',
+        required: false,
+        description: 'Classes to add to the heading.',
+        released: '10.6.0'
+      },
+      attributes: {
+        type: 'object',
+        required: false,
+        description:
+          'HTML attributes (for example data attributes) to add to the heading.',
+        released: '10.6.0'
+      }
+    }
   },
   headingClasses: {
     type: 'string',
     required: false,
-    description:
-      'Optional additional classes to add to heading. Separate each class with a space.',
+    description: 'Replaced by the `heading.classes` option.',
     released: '9.4.0',
     deprecated: '10.6.0'
   },
   headingSize: {
     type: 'string',
     required: false,
-    description:
-      'Size of the heading – `"xxs"`, `"xs"`, `"s"`, `"m"`, `"l"` or `"xl"`.',
+    description: 'Replaced by the `heading.size` option.',
     released: '10.3.0',
     deprecated: '10.6.0'
   },
   headingLevel: {
     type: 'integer',
     required: false,
-    description: 'Optional heading level for the heading. Defaults to `1`.',
+    description: 'Replaced by the `heading.level` option.',
     released: '9.4.0',
     deprecated: '10.6.0'
   },
@@ -117,8 +249,7 @@ const options = {
   imageURL: {
     type: 'string',
     required: false,
-    description:
-      'The URL of the image in the hero. Replaced by the `image.src` option.',
+    description: 'Replaced by the `image.src` option.',
     released: '1.0.0',
     deprecated: '10.3.0'
   },

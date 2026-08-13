@@ -76,9 +76,9 @@ const options = {
   element: {
     type: 'string',
     required: false,
-    description:
-      'HTML element for the back link component – `"button"` or `"a"`. Defaults to `"a"`.',
-    released: '6.2.0'
+    description: 'Configured automatically if `href` is provided.',
+    released: '6.2.0',
+    deprecated: '10.6.0'
   }
 }
 

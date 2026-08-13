@@ -38,6 +38,7 @@ $nhsuk-footer-border-colour: nhsuk-colour("grey-3");
     @include nhsuk-font(16);
   }
 
+  .nhsuk-footer__heading .nhsuk-link,
   .nhsuk-footer__list-item-link {
     color: $nhsuk-footer-link-visited-colour;
     @include nhsuk-link-style-visited($nhsuk-footer-link-visited-colour);

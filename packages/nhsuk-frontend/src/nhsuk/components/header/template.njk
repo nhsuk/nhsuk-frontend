@@ -1,7 +1,7 @@
-{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
 {% from "nhsuk/components/input/macro.njk" import input %}
 {% from "nhsuk/components/button/macro.njk" import button %}
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-header" -%}
@@ -38,9 +38,9 @@
 {%- set searchAction = params.search.action | default("https://www.nhs.uk/search/") %}
 {%- set searchMethod = params.search.method | default("get") %}
 {%- set searchName = params.search.name | default("q") %}
-{%- set searchPlaceholder = params.search.placeholder | default("Search") %}
-{%- set searchVisuallyHiddenButton = params.search.visuallyHiddenButton | default("Search") %}
-{%- set searchVisuallyHiddenLabel = params.search.visuallyHiddenLabel | default("Search the NHS website") %}
+{%- set searchInputPlaceholder = params.search.input.placeholder | default(params.search.placeholder) | default("Search") %}
+{%- set searchButtonAriaLabel = params.search.button.ariaLabel | default(params.search.visuallyHiddenButton) | default("Search") %}
+{%- set searchLabelVisuallyHiddenText = params.search.label.visuallyHiddenText | default(params.search.visuallyHiddenLabel) | default("Search the NHS website") %}
 
 {#- The NHS logo and service name are combined into a single link if either
     the logo doesn’t have an `href` set but the service name does, or if both
@@ -147,18 +147,18 @@
         }) }} novalidate>
         {{ input({
           label: {
-            text: searchVisuallyHiddenLabel,
+            text: searchLabelVisuallyHiddenText,
             classes: "nhsuk-u-visually-hidden"
           },
           id: "search-field",
           name: searchName,
           type: "search",
           autocomplete: "off",
-          placeholder: searchPlaceholder,
+          placeholder: searchInputPlaceholder,
           formGroup: {
             afterInput: {
               html: button({
-                ariaLabel: searchVisuallyHiddenButton,
+                ariaLabel: searchButtonAriaLabel,
                 icon: "search",
                 small: true
               })

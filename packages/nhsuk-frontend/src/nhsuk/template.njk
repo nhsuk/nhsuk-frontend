@@ -1,10 +1,10 @@
-{% from "nhsuk/macros/attributes.njk" import nhsukAttributes -%}
-{% from "nhsuk/components/skip-link/macro.njk" import skipLink -%}
-{% from "nhsuk/components/header/macro.njk" import header -%}
-{% from "nhsuk/components/footer/macro.njk" import footer -%}
+{% from "nhsuk/components/skip-link/macro.njk" import skipLink %}
+{% from "nhsuk/components/header/macro.njk" import header %}
+{% from "nhsuk/components/footer/macro.njk" import footer %}
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
-{% set assetPath = assetPath | default("/assets", true) -%}
-{% set themeColor = themeColor | default("#005eb8", true) -%}
+{%- set assetPath = assetPath | default("/assets", true) -%}
+{%- set themeColor = themeColor | default("#005eb8", true) -%}
 
 <!DOCTYPE html>
   <html lang="{{ htmlLang | default("en", true) }}" {%- if htmlClasses %} class="{{ htmlClasses }}"{% endif %} {{- nhsukAttributes(htmlAttributes) }}>

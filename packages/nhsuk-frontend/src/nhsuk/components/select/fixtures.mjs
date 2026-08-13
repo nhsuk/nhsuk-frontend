@@ -390,9 +390,7 @@ const fixtures = {
   },
   "without page heading": {
     context: {
-      label: {
-        text: "Sort by"
-      },
+      label: "Sort by",
       id: "without-heading",
       name: "example",
       items: [
@@ -411,6 +409,59 @@ const fixtures = {
         {
           value: "comments",
           text: "Most comments"
+        }
+      ]
+    }
+  },
+  "with error only": {
+    context: {
+      label: {
+        text: "Choose location",
+        isPageHeading: true
+      },
+      errorMessage: true,
+      id: "with-error-only",
+      name: "example",
+      items: [
+        {
+          value: "choose",
+          text: "Choose location"
+        },
+        {
+          value: "eastmidlands",
+          text: "East Midlands"
+        },
+        {
+          value: "eastofengland",
+          text: "East of England"
+        },
+        {
+          value: "london",
+          text: "London"
+        },
+        {
+          value: "northeast",
+          text: "North East"
+        },
+        {
+          value: "northwest",
+          text: "North West"
+        },
+        {
+          value: "southeast",
+          text: "South East"
+        },
+        {
+          value: "southwest",
+          text: "South West"
+        },
+        {
+          value: "westmidlands",
+          text: "West Midlands"
+        },
+        {
+          value: "yorkshire",
+          text: "Yorkshire and the Humber"
         }
       ]
     }

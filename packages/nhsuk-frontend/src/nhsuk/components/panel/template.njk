@@ -8,6 +8,15 @@
 {%- set classNames = "nhsuk-panel" -%}
 {%- set classNamesTitle = "nhsuk-panel__title" -%}
 
+{#- Support heading as string (with deprecated options) #}
+{%- set headingOptions = params.heading if params.heading is mapping and params.heading is not escaped else {
+  text: params.heading if params.heading is string else params.titleText,
+  html: params.heading if params.heading is escaped else params.titleHtml,
+  level: params.headingLevel,
+  size: params.titleSize,
+  classes: params.titleClasses
+} -%}
+
 {%- if variant == "interruption" and (not params.classes or not "nhsuk-panel--interruption" in params.classes) %}
   {% set classNames = classNames ~ " nhsuk-panel--" ~ variant %}
 {% endif %}
@@ -18,14 +27,19 @@
 
 <div class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %} {{- nhsukAttributes(params.attributes) }}>
   {{ heading({
-    text: params.titleText,
-    html: params.titleHtml,
-    level: params.headingLevel,
-    size: params.titleSize,
+    id: headingOptions.id,
+    text: headingOptions.text,
+    html: headingOptions.html,
+    visuallyHiddenText: headingOptions.visuallyHiddenText,
+    caption: headingOptions.caption,
+    href: headingOptions.href,
+    level: headingOptions.level,
+    size: headingOptions.size,
     sizes: ["m", "l", "xl"],
     className: classNamesTitle,
     classPrefix: classNamesTitle ~ "--",
-    classes: params.titleClasses
+    classes: headingOptions.classes,
+    attributes: headingOptions.attributes
   }) | trim | indent(2) }}
   {% if caller or params.html or params.text %}
   <div class="nhsuk-panel__body">

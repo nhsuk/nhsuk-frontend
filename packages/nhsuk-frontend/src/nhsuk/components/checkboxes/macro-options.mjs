@@ -245,16 +245,14 @@ const options = {
       exclusive: {
         type: 'boolean',
         required: false,
-        description:
-          'If set to `true`, marks this checkbox as an exclusive "none" option. Unchecking all other checkboxes in the group when clicked. Replaced by the `behaviour` option.',
+        description: 'Replaced by `item.behaviour` in the `items` option.',
         released: '5.2.0',
         deprecated: '10.6.0'
       },
       exclusiveGroup: {
         type: 'string',
         required: false,
-        description:
-          'Used in conjunction with `exclusive` - this should be set to a string which groups checkboxes together into a set for use with a "none" option. Replaced by the `behaviourGroup` option.',
+        description: 'Replaced by `item.behaviourGroup` in the `items` option.',
         released: '5.2.0',
         deprecated: '10.6.0'
       }

@@ -440,7 +440,9 @@ const fixtures = {
     context: {
       navigation: [
         {
-          title: "Legal",
+          heading: {
+            text: "Legal"
+          },
           items: [
             {
               href: "#",
@@ -457,7 +459,9 @@ const fixtures = {
           ]
         },
         {
-          title: "Get in touch",
+          heading: {
+            text: "Get in touch"
+          },
           items: [
             {
               href: "#",
@@ -478,7 +482,9 @@ const fixtures = {
           ]
         },
         {
-          title: "Follow us",
+          heading: {
+            text: "Follow us"
+          },
           items: [
             {
               href: "#",

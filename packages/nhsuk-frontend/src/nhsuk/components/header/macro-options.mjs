@@ -234,29 +234,81 @@ const options = {
         type: 'string',
         required: false,
         description:
-          'The `name` attribute for the search field. Defaults to `"q"`.',
+          'The `name` attribute for the search input. Defaults to `"q"`.',
         released: '10.0.0'
       },
       placeholder: {
         type: 'string',
         required: false,
-        description:
-          'The placeholder text for the search field. Defaults to `"Search"`.',
-        released: '10.0.0'
+        description: 'Replaced by the `search.input.placeholder` option.',
+        released: '10.0.0',
+        deprecated: '10.6.0'
       },
       visuallyHiddenLabel: {
         type: 'string',
         required: false,
         description:
-          'The label for the search field. Defaults to `"Search the NHS website"`.',
-        released: '10.0.0'
+          'Replaced by the `search.label.visuallyHiddenText` option.',
+        released: '10.0.0',
+        deprecated: '10.6.0'
       },
       visuallyHiddenButton: {
         type: 'string',
         required: false,
+        description: 'Replaced by the `search.button.ariaLabel` option.',
+        released: '10.0.0',
+        deprecated: '10.6.0'
+      },
+      label: {
+        type: 'object',
+        required: false,
         description:
-          'The label for the visually hidden button. Defaults to `"Search"`.',
-        released: '10.0.0'
+          'Optional object allowing customisation of the search input label.',
+        released: '10.6.0',
+        isComponent: true,
+        params: {
+          visuallyHiddenText: {
+            type: 'string',
+            required: false,
+            description:
+              'The visually hidden label text for the search input. Defaults to `"Search the NHS website"`.',
+            released: '10.6.0'
+          }
+        }
+      },
+      input: {
+        type: 'object',
+        required: false,
+        description:
+          'Optional object allowing customisation of the search input.',
+        released: '10.6.0',
+        isComponent: true,
+        params: {
+          placeholder: {
+            type: 'string',
+            required: false,
+            description:
+              'The placeholder text for the search input. Defaults to `"Search"`.',
+            released: '10.6.0'
+          }
+        }
+      },
+      button: {
+        type: 'object',
+        required: false,
+        description:
+          'Optional object allowing customisation of the search button.',
+        released: '10.6.0',
+        isComponent: true,
+        params: {
+          ariaLabel: {
+            type: 'string',
+            required: false,
+            description:
+              'Search button text exposed to assistive technologies, like screen readers, when only an icon is used. Defaults to `"Search"`.',
+            released: '10.6.0'
+          }
+        }
       },
       classes: {
         type: 'string',

@@ -14,15 +14,18 @@ const fixtures = {
   },
   "paragraph with heading class": {
     context: {
-      html: '<p class="nhsuk-notification-banner__heading">You have 9 days to send a response.</p>'
+      heading: {
+        text: "You have 9 days to send a response.",
+        element: "p"
+      }
     }
   },
   "with HTML": {
     context: {
+      heading: {
+        text: "The patient record was updated"
+      },
       html: outdent`
-        <h3 class="nhsuk-notification-banner__heading">
-          The patient record was updated
-        </h3>
         <p class="nhsuk-body">
           Contact <a class="nhsuk-notification-banner__link" href="#">example@nhs.uk</a> if you think there's a problem.
         </p>
@@ -30,14 +33,24 @@ const fixtures = {
     }
   },
   "with HTML via call block": {
+    context: {
+      heading: {
+        text: "The patient record was updated"
+      }
+    },
     callBlock: outdent`
-      <h3 class="nhsuk-notification-banner__heading">
-        The patient record was updated
-      </h3>
       <p class="nhsuk-body">
         Contact <a class="nhsuk-notification-banner__link" href="#">example@nhs.uk</a> if you think there's a problem.
       </p>
     `
+  },
+  "with custom title": {
+    context: {
+      title: {
+        text: "Important information"
+      },
+      text: "The patient record was updated."
+    }
   },
   "with success variant": {
     context: {
@@ -49,11 +62,11 @@ const fixtures = {
   "success with HTML": {
     context: {
       variant: "success",
+      heading: {
+        text: "4 files uploaded"
+      },
       html: outdent`
-        <h3 class="nhsuk-notification-banner__heading">
-          4 files uploaded
-        </h3>
-        <ul class="nhsuk-u-margin-0 nhsuk-list">
+        <ul class="nhsuk-list">
           <li><a href="link-1" class="nhsuk-notification-banner__link">government-strategy.pdf</a></li>
           <li><a href="link-2" class="nhsuk-notification-banner__link">government-strategy-v1.pdf</a></li>
         </ul>
@@ -62,13 +75,13 @@ const fixtures = {
   },
   "success with HTML via call block": {
     context: {
-      variant: "success"
+      variant: "success",
+      heading: {
+        text: "4 files uploaded"
+      }
     },
     callBlock: outdent`
-      <h3 class="nhsuk-notification-banner__heading">
-        4 files uploaded
-      </h3>
-      <ul class="nhsuk-u-margin-0 nhsuk-list">
+      <ul class="nhsuk-list">
         <li><a href="link-1" class="nhsuk-notification-banner__link">government-strategy.pdf</a></li>
         <li><a href="link-2" class="nhsuk-notification-banner__link">government-strategy-v1.pdf</a></li>
       </ul>
@@ -76,9 +89,11 @@ const fixtures = {
   },
   "with a list": {
     context: {
+      heading: {
+        text: "4 files uploaded"
+      },
       html: outdent`
-        <h3 class="nhsuk-notification-banner__heading">4 files uploaded</h3>
-        <ul class="nhsuk-list nhsuk-list--bullet nhsuk-u-margin-bottom-0">
+        <ul class="nhsuk-list nhsuk-list--bullet">
           <li><a href="#" class="nhsuk-notification-banner__link">government-strategy.pdf</a></li>
           <li><a href="#" class="nhsuk-notification-banner__link">government-strategy-v2.pdf</a></li>
           <li><a href="#" class="nhsuk-notification-banner__link">government-strategy-v3-FINAL.pdf</a></li>
@@ -94,10 +109,10 @@ const fixtures = {
   },
   "with lots of content": {
     context: {
+      heading: {
+        text: "Check if you need to apply the reverse charge to this application"
+      },
       html: outdent`
-        <h3 class="nhsuk-notification-banner__heading">
-          Check if you need to apply the reverse charge to this application
-        </h3>
         <p class="nhsuk-body">
           You will have to apply the <a href="#" class="nhsuk-notification-banner__link">reverse charge</a> if the applicant supplies any of these services:
         </p>
