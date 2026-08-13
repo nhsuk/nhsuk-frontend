@@ -711,8 +711,13 @@ We've changed some of the Nunjucks options relating to `aria-label` attributes a
 - Breadcrumbs `labelText` has changed to `ariaLabel`
 - Contents list `landmarkLabel` has changed to `ariaLabel`
 - Footer `meta.visuallyHiddenTitle` has changed to `meta.visuallyHiddenText`
+- Header `search.placeholder` has changed to `search.input.placeholder`
+- Header `search.visuallyHiddenLabel` has changed to `search.label.visuallyHiddenText`
+- Header `search.visuallyHiddenButton` has changed to `search.button.ariaLabel`
 - Pagination `item.visuallyHiddenText` has changed to `item.ariaLabel`
 - Pagination `landmarkLabel` has changed to `ariaLabel`
+- Password input `showPasswordAriaLabelText` has changed to `showPasswordAriaLabel`
+- Password input `hidePasswordAriaLabelText` has changed to `hidePasswordAriaLabel`
 - Tabs `title` has changed to `visuallyHiddenText`
 
 The previous names are deprecated and will be removed in a future release.
