@@ -7,6 +7,11 @@
 {%- set classNames = "nhsuk-js-character-count" -%}
 {%- set classNamesFormGroup = "nhsuk-character-count" -%}
 
+{%- set labelOptions = params.label if params.label is mapping and params.label is not escaped else {
+  text: params.label if params.label is string else undefined,
+  html: params.label if params.label is escaped else undefined
+} -%}
+
 {%- if params.classes %}
   {% set classNames = classNames ~ " " ~ params.classes %}
 {% endif %}
@@ -130,14 +135,14 @@
   },
   classes: classNames,
   label: {
-    html: params.label.html,
-    text: params.label.text,
-    id: params.label.id,
-    for: params.label.for | default(id),
-    size: params.label.size,
-    isPageHeading: params.label.isPageHeading,
-    classes: params.label.classes,
-    attributes: params.label.attributes
+    html: labelOptions.html,
+    text: labelOptions.text,
+    id: labelOptions.id,
+    for: labelOptions.for | default(id),
+    size: labelOptions.size,
+    isPageHeading: labelOptions.isPageHeading,
+    classes: labelOptions.classes,
+    attributes: labelOptions.attributes
   },
   hint: params.hint,
   errorMessage: params.errorMessage,

@@ -96,6 +96,18 @@ const fixtures = {
       viewports: ["watch", "mobile", "tablet", "desktop"]
     }
   },
+  "with error only": {
+    context: {
+      label: {
+        text: "Password",
+        size: "l",
+        isPageHeading: true
+      },
+      errorMessage: true,
+      id: "with-error-only",
+      name: "example"
+    }
+  },
   "with error message": {
     context: {
       label: {
@@ -174,9 +186,7 @@ const fixtures = {
   },
   "without page heading": {
     context: {
-      label: {
-        text: "Password"
-      },
+      label: "Password",
       id: "without-heading",
       name: "example"
     }

@@ -323,6 +323,28 @@ Action items using `element: "button"` will be visually styled as links.
 
 This was added in [pull request #1989: Add support for card and summary list actions as buttons](https://github.com/nhsuk/nhsuk-frontend/pull/1989).
 
+#### Use simpler label, legend, hint and error message options
+
+We've updated all form components to support alternative string values for labels, legends, hints and error messages.
+
+For example, when no other nested options are necessary:
+
+```patch
+  {{ textarea({
+-   label: {
+-     text: "Can you provide more detail?"
+-   },
+-   hint: {
+-     text: "Do not include personal information like your name, date of birth or NHS number"
+-   },
++   label: "Can you provide more detail?",
++   hint: "Do not include personal information like your name, date of birth or NHS number",
+    name: "more-detail"
+  }) }}
+```
+
+This was added in [pull request #2047: Review Nunjucks options for headings and ARIA labels](https://github.com/nhsuk/nhsuk-frontend/pull/2047).
+
 #### Show or hide content in supported browsers
 
 You can now show or hide content depending on whether NHS.UK frontend JavaScript is supported:

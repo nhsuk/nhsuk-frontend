@@ -135,6 +135,19 @@ const fixtures = {
     },
     screenshot: true
   },
+  "with error only": {
+    context: {
+      label: {
+        text: "Search by NHS number",
+        size: "m",
+        isPageHeading: true
+      },
+      errorMessage: true,
+      name: "example",
+      value: "999 123 4567",
+      width: 20
+    }
+  },
   "with error message": {
     context: {
       label: {
@@ -328,9 +341,7 @@ const fixtures = {
   },
   "without page heading": {
     context: {
-      label: {
-        text: "Search by NHS number"
-      },
+      label: "Search by NHS number",
       name: "example",
       width: 20
     }

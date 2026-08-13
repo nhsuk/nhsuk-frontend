@@ -8,7 +8,22 @@
 {%- set classNames = "nhsuk-file-upload__input" -%}
 {%- set classNamesFormGroup = "nhsuk-form-group" -%}
 
-{%- if params.errorMessage %}
+{%- set labelOptions = params.label if params.label is mapping and params.label is not escaped else {
+  text: params.label if params.label is string else undefined,
+  html: params.label if params.label is escaped else undefined
+} -%}
+
+{%- set hintOptions = params.hint if params.hint is mapping and params.hint is not escaped else {
+  text: params.hint if params.hint is string else undefined,
+  html: params.hint if params.hint is escaped else undefined
+} -%}
+
+{%- set errorMessageOptions = params.errorMessage if params.errorMessage is mapping and params.errorMessage is not escaped else {
+  text: params.errorMessage if params.errorMessage is string else undefined,
+  html: params.errorMessage if params.errorMessage is escaped else undefined
+} -%}
+
+{%- if errorMessageOptions.text or errorMessageOptions.html or params.errorMessage == true %}
   {% set classNamesFormGroup = classNamesFormGroup ~ " nhsuk-form-group--error" %}
 {% endif %}
 
@@ -68,36 +83,36 @@
 
   {{- nhsukAttributes(params.formGroup.attributes) }}>
   {{ label({
-    html: params.label.html,
-    text: params.label.text,
-    id: params.label.id,
-    for: params.label.for | default(id),
-    size: params.label.size,
-    isPageHeading: params.label.isPageHeading,
-    classes: params.label.classes,
-    attributes: params.label.attributes
+    html: labelOptions.html,
+    text: labelOptions.text,
+    id: labelOptions.id,
+    for: labelOptions.for | default(id),
+    size: labelOptions.size,
+    isPageHeading: labelOptions.isPageHeading,
+    classes: labelOptions.classes,
+    attributes: labelOptions.attributes
   }) | trim | indent(2) }}
-{% if params.hint %}
-  {% set hintId = params.hint.id | default(id ~ "-hint") %}
+{% if hintOptions.text or hintOptions.html %}
+  {% set hintId = hintOptions.id | default(id ~ "-hint") %}
   {% set describedBy = (describedBy ~ " " ~ hintId) | trim %}
   {{ hint({
-    html: params.hint.html,
-    text: params.hint.text,
-    id: params.hint.id | default(hintId),
-    classes: params.hint.classes,
-    attributes: params.hint.attributes
+    html: hintOptions.html,
+    text: hintOptions.text,
+    id: hintOptions.id | default(hintId),
+    classes: hintOptions.classes,
+    attributes: hintOptions.attributes
   }) | trim | indent(2) }}
 {% endif %}
-{% if params.errorMessage.text or params.errorMessage.html %}
-  {% set errorId = params.errorMessage.id | default(id ~ "-error") %}
+{% if errorMessageOptions.text or errorMessageOptions.html %}
+  {% set errorId = errorMessageOptions.id | default(id ~ "-error") %}
   {% set describedBy = (describedBy ~ " " ~ errorId) | trim %}
   {{ errorMessage({
-    html: params.errorMessage.html,
-    text: params.errorMessage.text,
-    visuallyHiddenText: params.errorMessage.visuallyHiddenText,
-    id: params.errorMessage.id | default(errorId),
-    classes: params.errorMessage.classes,
-    attributes: params.errorMessage.attributes
+    html: errorMessageOptions.html,
+    text: errorMessageOptions.text,
+    visuallyHiddenText: errorMessageOptions.visuallyHiddenText,
+    id: errorMessageOptions.id | default(errorId),
+    classes: errorMessageOptions.classes,
+    attributes: errorMessageOptions.attributes
   }) | trim | indent(2) }}
 {% endif %}
 {% if params.formGroup.beforeInput %}

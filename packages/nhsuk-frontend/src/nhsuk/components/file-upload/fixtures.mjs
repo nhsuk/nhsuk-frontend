@@ -47,6 +47,18 @@ const fixtures = {
       name: "file-upload"
     }
   },
+  "with error only": {
+    context: {
+      label: {
+        text: "Upload a file",
+        size: "l",
+        isPageHeading: true
+      },
+      errorMessage: true,
+      id: "file-upload",
+      name: "file-upload"
+    }
+  },
   "with error message": {
     context: {
       label: {
@@ -173,9 +185,7 @@ const fixtures = {
   },
   "without page heading": {
     context: {
-      label: {
-        text: "Upload a file"
-      },
+      label: "Upload a file",
       id: "file-upload",
       name: "file-upload"
     }

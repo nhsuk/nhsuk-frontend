@@ -283,10 +283,7 @@ const fixtures = {
   "without page heading": {
     context: {
       fieldset: {
-        legend: {
-          text: "How do you want to be contacted about this?",
-          isPageHeading: false
-        }
+        legend: "How do you want to be contacted about this?"
       },
       idPrefix: "without-heading",
       name: "example",
@@ -304,8 +301,7 @@ const fixtures = {
           text: "Text message"
         }
       ]
-    },
-    variants
+    }
   },
   "with pre-checked value": {
     context: {
@@ -419,6 +415,34 @@ const fixtures = {
     variants,
     screenshot: {
       viewports: ["mobile", "tablet", "desktop"]
+    }
+  },
+  "with error only": {
+    context: {
+      fieldset: {
+        legend: {
+          text: "How do you want to be contacted about this?",
+          size: "l",
+          isPageHeading: true
+        }
+      },
+      errorMessage: true,
+      idPrefix: "with-error-only",
+      name: "example",
+      items: [
+        {
+          value: "email",
+          text: "Email"
+        },
+        {
+          value: "phone",
+          text: "Phone"
+        },
+        {
+          value: "text",
+          text: "Text message"
+        }
+      ]
     }
   },
   "with error message": {
