@@ -18,10 +18,6 @@
   // Reduces margin-bottom of hint when used after the default label (no class)
   // or nhsuk-label--s for better vertical alignment.
 
-  // This adjustment will not work when the label is inside the <h1>, however it
-  // is unlikely that the default or nhsuk-label--s class would be used in this
-  // case.
-
   // This adjustment will not work in browsers that do not support :not().
   // Users with these browsers will see the default size margin (5px larger).
 
@@ -29,12 +25,12 @@
     margin-bottom: nhsuk-spacing(2);
   }
 
+  .nhsuk-label-wrapper:has(.nhsuk-label:not(.nhsuk-label--m):not(.nhsuk-label--l):not(.nhsuk-label--xl)) + .nhsuk-hint {
+    margin-bottom: nhsuk-spacing(2);
+  }
+
   // Reduces margin-bottom of hint when used after the default legend (no class)
   // or nhsuk-fieldset__legend--s for better vertical alignment.
-
-  // This adjustment will not work when the legend is outside the <h1>, however
-  // it is unlikely that the default or nhsuk-fieldset__legend--s class would be
-  // used in this case.
 
   // This adjustment will not work in browsers that do not support :not().
   // Users with these browsers will see the default size margin (5px larger).
