@@ -8,11 +8,13 @@
 {%- set classNames = "nhsuk-date-input" -%}
 {%- set classNamesFormGroup = "nhsuk-form-group" -%}
 
+{#- Support hint as string #}
 {%- set hintOptions = params.hint if params.hint is mapping and params.hint is not escaped else {
   text: params.hint if params.hint is string else undefined,
   html: params.hint if params.hint is escaped else undefined
 } -%}
 
+{#- Support error message as string #}
 {%- set errorMessageOptions = params.errorMessage if params.errorMessage is mapping and params.errorMessage is not escaped else {
   text: params.errorMessage if params.errorMessage is string else undefined,
   html: params.errorMessage if params.errorMessage is escaped else undefined
@@ -58,10 +60,12 @@
 {% endif %}
 
 {%- macro _dateInputItem(params, item, anyItemHasError) %}
-{% set itemLabel = item.label if item.label is mapping and item.label is not escaped else {
+{#- Support item label as string #}
+{%- set itemLabel = item.label if item.label is mapping and item.label is not escaped else {
   text: item.label if item.label is string else undefined,
   html: item.label if item.label is escaped else undefined
-} %}
+} -%}
+
 {% set itemName = item.name %}
 {% set itemValue = item.value %}
 {% set itemWidth = item.width | default(2) %}

@@ -7,6 +7,7 @@
 {%- set classNames = "nhsuk-js-character-count" -%}
 {%- set classNamesFormGroup = "nhsuk-character-count" -%}
 
+{#- Support label as string #}
 {%- set labelOptions = params.label if params.label is mapping and params.label is not escaped else {
   text: params.label if params.label is string else undefined,
   html: params.label if params.label is escaped else undefined
