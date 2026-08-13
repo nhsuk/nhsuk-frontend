@@ -88,7 +88,7 @@
 
     // Wrap at container query width
     @supports (container-type: inline-size) {
-      max-width: calc(100cqw);
+      max-width: calc(100cqw - (($nhsuk-gutter-half * 2) + $nhsuk-border-table-header-width));
     }
 
     // Adjust for scroll offset removed from desktop
