@@ -116,22 +116,22 @@ $nhsuk-radios-offset: $nhsuk-border-width-form-element;
   // We create the 'button' entirely out of 'border' so that they remain
   // 'filled' even when colours are overridden in the browser.
   .nhsuk-radios__label::after {
-    $radio-button-size: nhsuk-px-to-rem(10px);
-
     content: "";
 
     position: absolute;
 
     // Positioned by getting half the touch target, so we have the centre of the
-    // input, and then moving back by the button's border width, thus positioning
+    // input, then moving into position using CSS translate, thus positioning
     // the centre of the button in the centre of the input.
-    top: math.div($nhsuk-touch-target-size, 2) - $radio-button-size;
-    left: math.div($nhsuk-touch-target-size, 2) - $radio-button-size;
+    top: math.div($nhsuk-touch-target-size, 2);
+    left: math.div($nhsuk-touch-target-size, 2);
 
     width: 0;
     height: 0;
 
-    border: $radio-button-size solid currentcolor;
+    transform: translate(-50%, -50%);
+
+    border: nhsuk-px-to-rem(10px) solid currentcolor;
     border-radius: 50%;
 
     opacity: 0;
@@ -289,15 +289,11 @@ $nhsuk-radios-offset: $nhsuk-border-width-form-element;
 
     //  •  Radio button
     //
-    // Reduce the size of the 'button' and center it within the ring
+    // Reduce the size of the 'button' within the ring
     .nhsuk-radios__label::after {
-      $radio-button-size: nhsuk-px-to-rem(5px);
-
-      // The same calculation as normal radio buttons but reduce the border width
-      top: math.div($nhsuk-touch-target-size, 2) - $radio-button-size;
-      left: (math.div($nhsuk-touch-target-size, 2) - $radio-button-size) - $input-offset +
-        nhsuk-px-to-rem($nhsuk-radios-offset);
-      border-width: $radio-button-size;
+      top: math.div($nhsuk-touch-target-size, 2);
+      left: math.div($nhsuk-touch-target-size, 2) - $input-offset + nhsuk-px-to-rem($nhsuk-radios-offset);
+      border-width: nhsuk-px-to-rem(5px);
     }
 
     // Fix position of hint with small radios
