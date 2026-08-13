@@ -15,17 +15,20 @@
   {%- set hintId = idPrefix ~ "-" ~ index ~ "-hint" %}
   {%- set statusId = idPrefix ~ "-" ~ index ~ "-status" %}
 
+  {#- Support item heading as string (with deprecated options) #}
   {%- set itemHeading = item.heading if item.heading is mapping and item.heading is not escaped else {
     text: item.heading if item.heading is string else item.title.text,
     html: item.heading if item.heading is escaped else item.title.html,
     classes: item.title.classes
   } %}
 
+  {#- Support item hint as string #}
   {%- set itemHint = item.hint if item.hint is mapping and item.hint is not escaped else {
     text: item.hint if item.hint is string else undefined,
     html: item.hint if item.hint is escaped else undefined
   } %}
 
+  {#- Support item status as string #}
   {%- set itemStatus = item.status if item.status is mapping and item.status is not escaped else {
     text: item.status if item.status is string else undefined,
     html: item.status if item.status is escaped else undefined

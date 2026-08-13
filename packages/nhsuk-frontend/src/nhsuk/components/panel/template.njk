@@ -8,6 +8,7 @@
 {%- set classNames = "nhsuk-panel" -%}
 {%- set classNamesTitle = "nhsuk-panel__title" -%}
 
+{#- Support heading as string (with deprecated options) #}
 {%- set headingOptions = params.heading if params.heading is mapping and params.heading is not escaped else {
   text: params.heading if params.heading is string else params.titleText,
   html: params.heading if params.heading is escaped else params.titleHtml,

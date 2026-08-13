@@ -6,6 +6,7 @@
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-details" -%}
 
+{#- Support summary as string (with deprecated options) #}
 {%- set summaryOptions = params.summary if params.summary is mapping and params.summary is not escaped else {
   text: params.summary if params.summary is string else params.summaryText,
   html: params.summary if params.summary is escaped else params.summaryHtml

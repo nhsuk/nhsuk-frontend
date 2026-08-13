@@ -1,6 +1,7 @@
 {% from "nhsuk/components/card/macro.njk" import card %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
 
+{#- Support heading as string (with deprecated options) #}
 {%- set headingOptions = params.heading if params.heading is mapping and params.heading is not escaped else {
   text: params.heading if params.heading is string else params.title,
   html: params.heading if params.heading is escaped else undefined,

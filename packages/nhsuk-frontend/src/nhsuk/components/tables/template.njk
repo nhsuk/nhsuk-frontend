@@ -12,6 +12,7 @@
 {%- set classNames = "nhsuk-table" -%}
 {%- set classNamesCaption = "nhsuk-table__caption" -%}
 
+{#- Support caption as string (with deprecated options) #}
 {%- set captionOptions = params.caption if params.caption is mapping and params.caption is not escaped else {
   id: params.captionId,
   text: params.caption if params.caption is string else undefined,

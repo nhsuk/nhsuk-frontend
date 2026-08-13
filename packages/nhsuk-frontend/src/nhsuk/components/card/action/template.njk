@@ -3,6 +3,7 @@
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-link" -%}
 
+{#- Support heading as string #}
 {%- set headingOptions = parent.params.heading if parent.params.heading is mapping and parent.params.heading is not escaped else {
   text: parent.params.heading if parent.params.heading is string else undefined,
   html: parent.params.heading if parent.params.heading is escaped else undefined
