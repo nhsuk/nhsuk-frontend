@@ -175,13 +175,6 @@ const options = {
                 description: 'The ID of the action item.',
                 released: '10.6.0'
               },
-              element: {
-                type: 'string',
-                required: false,
-                description:
-                  'HTML element for the action item – `"button"` or `"a"`. In most cases you will not need to set this as it will be configured automatically if `href` is provided.',
-                released: '10.6.0'
-              },
               text: {
                 type: 'string',
                 required: true,

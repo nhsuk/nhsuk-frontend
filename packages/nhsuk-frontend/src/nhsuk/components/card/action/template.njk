@@ -13,14 +13,10 @@
 {% endif %}
 
 {#- Determine type of element to use, if not explicitly set #}
-{%- if params.element %}
-  {% set element = params.element | lower %}
+{%- if params.href and not params.type %}
+  {% set element = "a" %}
 {% else %}
-  {% if params.href %}
-    {% set element = "a" %}
-  {% else %}
-    {% set element = "button" %}
-  {% endif %}
+  {% set element = "button" %}
 {% endif %}
 
 {%- set attributesHtml %}

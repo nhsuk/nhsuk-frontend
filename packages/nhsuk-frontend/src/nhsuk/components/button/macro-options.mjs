@@ -17,7 +17,8 @@ const options = {
     required: false,
     description:
       'HTML element for the button component – `"input"`, `"button"` or `"a"`. In most cases you will not need to set this as it will be configured automatically if `href` is provided.',
-    released: '1.0.0'
+    released: '1.0.0',
+    deprecated: '10.6.0'
   },
   text: {
     type: 'string',

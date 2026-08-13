@@ -290,13 +290,12 @@ This was added in [pull request #1707: Add checkbox "all" option](https://github
 
 You can now configure card and summary list actions as button elements, using new Nunjucks macro options:
 
-- `item.element` to use `"button"` or `"a"` elements
 - `item.id` for the element `id` attribute
 - `item.type` for the button `type` attribute
 - `item.name` for the button `name` attribute
 - `item.value` for the button `value` attribute
 
-Action items using `element: "button"` will be visually styled as links.
+Action items without `href` will be visually styled as links.
 
 ```patch
 + <form method="post" novalidate>
@@ -307,14 +306,14 @@ Action items using `element: "button"` will be visually styled as links.
           {
             text: "Delete",
 -           href: "/delete"
-+           element: "button",
++           type: "submit",
 +           name: "action",
 +           value: "delete"
           },
           {
             text: "Withdraw",
 -           href: "/withdraw",
-+           element: "button",
++           type: "submit",
 +           name: "action",
 +           value: "withdraw"
           }
@@ -845,6 +844,22 @@ If you are not using Nunjucks macros, update your HTML markup using the [table e
 ```
 
 This change was introduced in pull requests [#1998: Add `compact` option for tables](https://github.com/nhsuk/nhsuk-frontend/pull/1998) and [#2003: Add `striped` option for tables](https://github.com/nhsuk/nhsuk-frontend/pull/2003).
+
+#### Stop using the `element` option on action links, back links and buttons
+
+We’ve deprecated the `element` Nunjucks option for action links, back links and button components.
+
+In a future release, if the `href` parameter is set the component will automatically use the `<a>` element. If the `href` parameter is not set the component will automatically use the `<button>` element. It will not be possible to override this change.
+
+```patch
+  {{ actionLink({
+    text: "Action link",
+-   element: "button"
++   type: "submit"
+  }) }}
+```
+
+This change was introduced in [pull request #2047: Review Nunjucks options for headings and ARIA labels](https://github.com/nhsuk/nhsuk-frontend/pull/2047).
 
 ### :recycle: **Changes**
 

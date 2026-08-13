@@ -153,7 +153,7 @@ const fixtures = {
           actions: {
             items: [
               {
-                element: "button",
+                type: "submit",
                 text: "Change",
                 visuallyHiddenText: "name"
               }
@@ -170,7 +170,7 @@ const fixtures = {
           actions: {
             items: [
               {
-                element: "button",
+                type: "submit",
                 text: "Change",
                 visuallyHiddenText: "date of birth"
               }
@@ -191,7 +191,7 @@ const fixtures = {
           actions: {
             items: [
               {
-                element: "button",
+                type: "submit",
                 text: "Change",
                 visuallyHiddenText: "contact information"
               }
@@ -211,7 +211,7 @@ const fixtures = {
           actions: {
             items: [
               {
-                element: "button",
+                type: "submit",
                 text: "Change",
                 visuallyHiddenText: "contact details"
               }
@@ -351,7 +351,7 @@ const fixtures = {
           actions: {
             items: [
               {
-                element: "button",
+                type: "submit",
                 text: "Change",
                 visuallyHiddenText: "date of birth"
               }
@@ -372,7 +372,7 @@ const fixtures = {
           actions: {
             items: [
               {
-                element: "button",
+                type: "submit",
                 text: "Change",
                 visuallyHiddenText: "contact information"
               }
@@ -392,12 +392,12 @@ const fixtures = {
           actions: {
             items: [
               {
-                element: "button",
+                type: "submit",
                 text: "Add",
                 visuallyHiddenText: "new contact details"
               },
               {
-                element: "button",
+                type: "submit",
                 text: "Change",
                 visuallyHiddenText: "contact details"
               }
@@ -418,12 +418,12 @@ const fixtures = {
           actions: {
             items: [
               {
-                element: "button",
+                type: "submit",
                 text: "Add",
                 visuallyHiddenText: "new medicine"
               },
               {
-                element: "button",
+                type: "submit",
                 text: "Change",
                 visuallyHiddenText: "medicines"
               }
@@ -916,7 +916,7 @@ const fixtures = {
         actions: {
           items: [
             {
-              element: "button",
+              type: "submit",
               text: "Delete"
             }
           ]
@@ -994,11 +994,11 @@ const fixtures = {
         actions: {
           items: [
             {
-              element: "button",
+              type: "submit",
               text: "Delete"
             },
             {
-              element: "button",
+              type: "submit",
               text: "Withdraw"
             }
           ]
