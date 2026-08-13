@@ -1,0 +1,38 @@
+{% from "nhsuk/components/card/macro.njk" import card %}
+
+{#- Support heading as string (with deprecated options) #}
+{%- set headingOptions = params.heading if params.heading is mapping and params.heading is not escaped else {
+  text: params.heading if params.heading is string else undefined,
+  html: params.heading if params.heading is escaped else params.headingHtml
+} -%}
+
+{%- set cardOptions = {
+  id: params.id,
+  heading: {
+    id: headingOptions.id,
+    text: headingOptions.text,
+    html: headingOptions.html,
+    visuallyHiddenText: headingOptions.visuallyHiddenText | default(params.visuallyHiddenText) | default("Important", true)
+      if headingOptions.text and not ("Important" in headingOptions.text or "important" in headingOptions.text)
+      else undefined,
+    level: headingOptions.level | default(params.headingLevel) | default(3),
+    classes: headingOptions.classes | default(params.headingClasses),
+    attributes: headingOptions.attributes
+  },
+  description: {
+    text: params.text,
+    html: params.html
+  },
+  actions: params.actions,
+  classes: params.classes,
+  attributes: params.attributes,
+  variant: "warning"
+} -%}
+
+{% if caller %}
+  {%- call card(cardOptions) %}
+    {{- caller() }}
+  {%- endcall %}
+{% else %}
+  {{- card(cardOptions) | trim }}
+{% endif %}

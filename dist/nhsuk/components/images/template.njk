@@ -1,0 +1,58 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-image" -%}
+
+{%- if params.border === false and (not params.classes or not "nhsuk-image--no-border" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-image--no-border" %}
+{% endif -%}
+
+{%- if params.background === false and (not params.classes or not "nhsuk-image--no-background" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-image--no-background" %}
+{% endif -%}
+
+{%- if params.width and (not params.classes or not "nhsuk-u-width-" ~ params.width in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-u-width-" ~ params.width %}
+{% endif %}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif -%}
+
+{%- set caption = params.caption -%}
+
+{%- if caption and caption is string %}
+  {% set caption = { text: caption } %}
+{% endif -%}
+
+<figure class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
+  {{- nhsukAttributes(params.attributes) }}>
+{% if caller %}
+  {{- caller() }}
+{% elif params.html %}
+  {{ params.html | safe | trim | indent(2) }}
+{% elif params.src %}
+  <img class="nhsuk-image__img"
+    {{- nhsukAttributes({
+      src: params.src,
+      alt: params.alt | default(""),
+      sizes: {
+        value: params.sizes,
+        optional: true
+      },
+      srcset: {
+        value: params.srcset,
+        optional: true
+      }
+    }) }}>
+{% endif %}
+{% if caption %}
+  <figcaption class="nhsuk-image__caption {%- if caption.classes %} {{ caption.classes }}{% endif %}">
+  {% if caption.html %}
+    {{ caption.html | safe | trim | indent(4) }}
+  {% elif caption.text %}
+    {{ caption.text | trim | indent(4) }}
+  {% endif %}
+  </figcaption>
+{% endif %}
+</figure>
