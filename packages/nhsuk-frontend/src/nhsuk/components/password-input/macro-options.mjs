@@ -208,16 +208,30 @@ const options = {
   showPasswordAriaLabelText: {
     type: 'string',
     required: false,
+    description: 'Replaced by `showPasswordAriaLabel`.',
+    released: '10.2.0',
+    deprecated: '10.6.0'
+  },
+  showPasswordAriaLabel: {
+    type: 'string',
+    required: false,
     description:
       'Button text exposed to assistive technologies, like screen readers, when the password is hidden. Defaults to `"Show password"`.',
-    released: '10.2.0'
+    released: '10.6.0'
   },
   hidePasswordAriaLabelText: {
     type: 'string',
     required: false,
+    description: 'Replaced by `hidePasswordAriaLabel`.',
+    released: '10.2.0',
+    deprecated: '10.6.0'
+  },
+  hidePasswordAriaLabel: {
+    type: 'string',
+    required: false,
     description:
       'Button text exposed to assistive technologies, like screen readers, when the password is visible. Defaults to `"Hide password"`.',
-    released: '10.2.0'
+    released: '10.6.0'
   },
   passwordShownAnnouncementText: {
     type: 'string',

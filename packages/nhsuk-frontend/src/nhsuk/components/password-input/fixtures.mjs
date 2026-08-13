@@ -226,8 +226,8 @@ const fixtures = {
       name: "example",
       showPasswordText: "Datguddia",
       hidePasswordText: "Cuddio",
-      showPasswordAriaLabelText: "Datgelu cyfrinair",
-      hidePasswordAriaLabelText: "Cuddio cyfrinair",
+      showPasswordAriaLabel: "Datgelu cyfrinair",
+      hidePasswordAriaLabel: "Cuddio cyfrinair",
       passwordShownAnnouncementText: "Mae eich cyfrinair yn weladwy.",
       passwordHiddenAnnouncementText: "Mae eich cyfrinair wedi'i guddio."
     }
