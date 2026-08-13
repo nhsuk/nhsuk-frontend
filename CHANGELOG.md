@@ -230,41 +230,41 @@ You can now add an "all" option to checkboxes when JavaScript is available. This
 
 To use it, add the `behaviour: "inclusive"` Nunjucks option to a checkbox item. If this checkbox is separated from the others using a divider, add the same option to the divider too:
 
-```njk
-{{ checkboxes({
-  fieldset: {
-    legend: {
-      text: "What are your favourite colours?",
-      size: "l",
-      isPageHeading: true
-    }
-  },
-  idPrefix: "select-all",
-  name: "example",
-  items: [
-    {
-      value: "all",
-      text: "All colours",
-      behaviour: "inclusive"
+```patch
+  {{ checkboxes({
+    fieldset: {
+      legend: {
+        text: "What are your favourite colours?",
+        size: "l",
+        isPageHeading: true
+      }
     },
-    {
-      divider: "or",
-      behaviour: "inclusive"
-    },
-    {
-      value: "red",
-      text: "Red"
-    },
-    {
-      value: "green",
-      text: "Green"
-    },
-    {
-      value: "blue",
-      text: "Blue"
-    }
-  ]
-}) }}
+    idPrefix: "select-all",
+    name: "example",
+    items: [
++     {
++       value: "all",
++       text: "All colours",
++       behaviour: "inclusive"
++     },
++     {
++       divider: "or",
++       behaviour: "inclusive"
++     },
+      {
+        value: "red",
+        text: "Red"
+      },
+      {
+        value: "green",
+        text: "Green"
+      },
+      {
+        value: "blue",
+        text: "Blue"
+      }
+    ]
+  }) }}
 ```
 
 If you are not using Nunjucks macros, use the HTML markup from the [checkboxes examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/checkboxes) as follows:
