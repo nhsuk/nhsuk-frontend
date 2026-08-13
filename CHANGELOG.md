@@ -937,6 +937,7 @@ This change was introduced in [pull request #2002: Add image component `backgrou
 - [#2032: Fix secondary text colour override when reversed](https://github.com/nhsuk/nhsuk-frontend/pull/2032)
 - [#2035: Prevent divider on last account link item](https://github.com/nhsuk/nhsuk-frontend/pull/2035)
 - [#2048: Fix margin and line height issues for labels and legends as page headings](https://github.com/nhsuk/nhsuk-frontend/pull/2048)
+- [#2049: Fix radio button and check mark alignment on Windows 125% scaling](https://github.com/nhsuk/nhsuk-frontend/pull/2049)
 
 ## 10.5.2 - 8 June 2026
 

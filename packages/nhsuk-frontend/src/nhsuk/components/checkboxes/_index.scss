@@ -121,6 +121,9 @@ $nhsuk-checkboxes-offset: $nhsuk-border-width-form-element;
   // The check mark is a box with a border on the left and bottom side (└──),
   // rotated 45 degrees
   .nhsuk-checkboxes__label::after {
+    $check-mark-width: nhsuk-px-to-rem(22px);
+    $check-mark-height: nhsuk-px-to-rem(10px);
+
     content: "";
 
     box-sizing: border-box;
@@ -129,13 +132,13 @@ $nhsuk-checkboxes-offset: $nhsuk-border-width-form-element;
 
     // Use "magic numbers" to define shape and position of check mark because
     // the complexity of the shape makes it difficult to calculate dynamically.
-    top: nhsuk-px-to-rem(15px);
-    left: nhsuk-px-to-rem(12px);
+    top: $check-mark-height;
+    left: $check-mark-width + nhsuk-px-to-rem(1px);
 
-    width: nhsuk-px-to-rem(22px);
-    height: nhsuk-px-to-rem(10px);
+    width: $check-mark-width;
+    height: $check-mark-height;
 
-    transform: rotate(-45deg);
+    transform: rotate(-45deg) translate(-50%, -50%);
 
     border: solid;
     border-width: 0 0 nhsuk-px-to-rem(4px) nhsuk-px-to-rem(4px);
@@ -299,10 +302,13 @@ $nhsuk-checkboxes-offset: $nhsuk-border-width-form-element;
     //
     // Reduce the size of the check mark and re-align within the checkbox
     .nhsuk-checkboxes__label::after {
-      top: nhsuk-px-to-rem(18px);
-      left: nhsuk-px-to-rem(8px);
-      width: nhsuk-px-to-rem(12px);
-      height: nhsuk-px-to-rem(6px);
+      $check-mark-width: nhsuk-px-to-rem(12px);
+      $check-mark-height: nhsuk-px-to-rem(6px);
+
+      top: $check-mark-height + $input-offset - nhsuk-px-to-rem(0.5px);
+      left: $check-mark-width + nhsuk-px-to-rem($nhsuk-checkboxes-offset + 1px);
+      width: $check-mark-width;
+      height: $check-mark-height;
       border-width: 0 0 nhsuk-px-to-rem(3px) nhsuk-px-to-rem(3px);
     }
 
