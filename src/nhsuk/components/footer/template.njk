@@ -10,17 +10,16 @@
 
 {%- set columns = params.columns | default(4, true) -%}
 
-{% switch columns %}
-  {% case 1 %}
-    {% set width = "full" %}
-  {% case 2 %}
-    {% set width = "one-half" %}
-  {% case 3 %}
-    {% set width = "one-third" %}
-  {% default %}
-    {% set width = "one-quarter" %}
-    {% set columns = 4 %}
-{% endswitch -%}
+{% if columns == 1 %}
+  {% set width = "full" %}
+{% elif columns == 2 %}
+  {% set width = "one-half" %}
+{% elif columns == 3 %}
+  {% set width = "one-third" %}
+{% else %}
+  {% set width = "one-quarter" %}
+  {% set columns = 4 %}
+{% endif -%}
 
 {% macro _footerList(items, modifier) %}
 <ul class="nhsuk-footer__list">
