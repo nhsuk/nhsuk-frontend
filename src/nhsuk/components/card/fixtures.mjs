@@ -202,7 +202,7 @@ const fixtures = {
       actions: {
         items: [
           {
-            element: "button",
+            type: "submit",
             text: "Delete"
           }
         ]
@@ -250,11 +250,11 @@ const fixtures = {
       actions: {
         items: [
           {
-            element: "button",
+            type: "submit",
             text: "Delete"
           },
           {
-            element: "button",
+            type: "submit",
             text: "Withdraw"
           }
         ]

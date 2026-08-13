@@ -40,7 +40,7 @@ const fixtures = {
   "as a button": {
     context: {
       text: "Find your nearest A&E",
-      element: "button"
+      type: "submit"
     },
     variants,
     screenshot: {

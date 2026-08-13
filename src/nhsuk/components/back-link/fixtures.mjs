@@ -38,7 +38,7 @@ const fixtures = {
   "as a button": {
     context: {
       text: "Back",
-      element: "button"
+      type: "submit"
     },
     variants,
     screenshot: {

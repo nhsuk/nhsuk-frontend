@@ -76,9 +76,9 @@ const options = {
   element: {
     type: 'string',
     required: false,
-    description:
-      'HTML element for the action link component – `"button"` or `"a"`. Defaults to `"a"`.',
-    released: '10.5.0'
+    description: 'Configured automatically if `href` is provided.',
+    released: '10.5.0',
+    deprecated: '10.6.0'
   }
 }
 
