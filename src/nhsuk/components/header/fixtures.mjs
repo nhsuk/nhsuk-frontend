@@ -31,8 +31,12 @@ const fixtures = {
         href: "#"
       },
       search: {
-        placeholder: "Search",
-        visuallyHiddenLabel: "Search the NHS digital service manual"
+        input: {
+          placeholder: "Search"
+        },
+        label: {
+          visuallyHiddenText: "Search the NHS digital service manual"
+        }
       },
       navigation: {
         items: [
@@ -351,8 +355,12 @@ const fixtures = {
         href: "#"
       },
       search: {
-        placeholder: "Search",
-        visuallyHiddenLabel: "Search the NHS digital service manual"
+        input: {
+          placeholder: "Search"
+        },
+        label: {
+          visuallyHiddenText: "Search the NHS digital service manual"
+        }
       },
       navigation: {
         items: [
@@ -419,8 +427,12 @@ const fixtures = {
         href: "#"
       },
       search: {
-        placeholder: "Search",
-        visuallyHiddenLabel: "Search the NHS digital service manual"
+        input: {
+          placeholder: "Search"
+        },
+        label: {
+          visuallyHiddenText: "Search the NHS digital service manual"
+        }
       },
       navigation: {
         colour: "white",
@@ -639,8 +651,12 @@ const fixtures = {
         text: "Manage patients"
       },
       search: {
-        placeholder: "Name or NHS number",
-        visuallyHiddenLabel: "Search patients by name or NHS number"
+        input: {
+          placeholder: "Name or NHS number"
+        },
+        label: {
+          visuallyHiddenText: "Search patients by name or NHS number"
+        }
       },
       account: {
         items: [
@@ -694,8 +710,12 @@ const fixtures = {
         href: "#"
       },
       search: {
-        placeholder: "Name or NHS number",
-        visuallyHiddenLabel: "Search patients by name or NHS number"
+        input: {
+          placeholder: "Name or NHS number"
+        },
+        label: {
+          visuallyHiddenText: "Search patients by name or NHS number"
+        }
       },
       account: {
         items: [
@@ -802,7 +822,9 @@ const fixtures = {
         descriptor: "NHS Foundation Trust"
       },
       search: {
-        visuallyHiddenLabel: "Search the Anytown Anyplace Anywhere website"
+        label: {
+          visuallyHiddenText: "Search the Anytown Anyplace Anywhere website"
+        }
       }
     },
     options: {
