@@ -936,6 +936,7 @@ This change was introduced in [pull request #2002: Add image component `backgrou
 - [#2000: Update responsive table row margin and border width](https://github.com/nhsuk/nhsuk-frontend/pull/2000)
 - [#2032: Fix secondary text colour override when reversed](https://github.com/nhsuk/nhsuk-frontend/pull/2032)
 - [#2035: Prevent divider on last account link item](https://github.com/nhsuk/nhsuk-frontend/pull/2035)
+- [#2048: Fix margin and line height issues for labels and legends as page headings](https://github.com/nhsuk/nhsuk-frontend/pull/2048)
 
 ## 10.5.2 - 8 June 2026
 
