@@ -33,7 +33,7 @@
     </li>
   {% endif %}
 {% endfor %}
-{% if params.href %}
+{% if params.text and params.href %}
     <li class="nhsuk-breadcrumb__list-item">
       <a class="nhsuk-breadcrumb__link" href="{{ params.href }}">
         {{ params.text | trim | indent(8) }}

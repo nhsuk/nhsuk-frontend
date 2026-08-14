@@ -123,11 +123,11 @@
   classPrefix: "nhsuk-heading-",
   attributes: params.attributes
 }) %}
-{% if parent.params.href and not "nhsuk-card--feature" in classNames %}
+{% if params.text and parent.params.href and not "nhsuk-card--feature" in classNames %}
   <a class="nhsuk-card__link" href="{{ parent.params.href }}">
     {{- params.text | trim | indent(2) -}}
   </a>
-{%- elif params.visuallyHiddenText %}
+{%- elif params.text and params.visuallyHiddenText %}
   <span role="text">
     <span class="nhsuk-u-visually-hidden">{{ params.visuallyHiddenText }}: </span>
     {{- params.text | trim | indent(4) }}
