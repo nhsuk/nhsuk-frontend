@@ -272,15 +272,32 @@ The following Sass mixins have been removed:
 | `heading-label`             | `nhsuk-heading-label`             |
 | `panel`                     | `nhsuk-panel`                     |
 | `panel-with-label`          | `nhsuk-panel-with-label`          |
-| `print-color`               | `nhsuk-print-colour`              |
-| `print-hide`                | `nhsuk-print-hide`                |
+| `print-color`               | Removed, see example              |
+| `print-hide`                | Removed, see example              |
 | `reading-width`             | `nhsuk-reading-width`             |
 | `remove-margin-mobile`      | `nhsuk-remove-margin-mobile`      |
 | `top-and-bottom`            | `nhsuk-top-and-bottom`            |
 | `visually-hidden`           | `nhsuk-visually-hidden`           |
 | `visually-hidden-focusable` | `nhsuk-visually-hidden-focusable` |
+| `visually-shown`            | Removed, see example              |
 
-The `visually-shown` mixin has been removed entirely. You must selectively apply `nhsuk-visually-hidden` using media queries instead:
+You must replace the Sass print mixins `nhsuk-print-colour` and `nhsuk-print-hide` with `@media print` queries:
+
+```patch
+- @include nhsuk-print-colour;
++ @media print {
++   color: $nhsuk-print-text-colour;
++ }
+```
+
+```patch
+- @include nhsuk-print-hide;
++ @media print {
++   display: none;
++ }
+```
+
+The Sass mixin `visually-shown` has been removed entirely. You must selectively apply `nhsuk-visually-hidden` using media queries instead:
 
 Before:
 
@@ -528,22 +545,22 @@ We've removed Nunjucks options for the pagination component that were deprecated
 If you're using the `pagination` Nunjucks macro in your service, you must:
 
 - replace the `previousUrl` option with the nested `previous.href` option
-- replace the `previousPage` option with the nested `previous.labelText` option
+- replace the `previousPage` option with the nested `previous.label` option
 - replace the `nextUrl` option with the nested `next.href` option
-- replace the `nextPage` option with the nested `next.labelText` option
+- replace the `nextPage` option with the nested `next.label` option
 
 ```patch
   {{ pagination({
 -   previousPage: "Treatments",
 -   previousUrl: "/section/treatments",
 +   previous: {
-+     labelText: "Treatments",
++     label: "Treatments",
 +     href: "/section/treatments"
 +   },
 -   nextPage: "Symptoms",
 -   nextUrl: "/section/symptoms"
 +   next: {
-+     labelText: "Symptoms",
++     label: "Symptoms",
 +     href: "/section/symptoms"
 +   }
   }) }}
