@@ -22,7 +22,7 @@
       margin-left: 0;
     }
 
-    @include nhsuk-media-query($until: mobile) {
+    @media #{nhsuk-until-breakpoint(mobile)} {
       // Override input wrapper prefix and suffix to stay inline
       .nhsuk-input-wrapper__prefix,
       .nhsuk-input-wrapper__suffix {
@@ -122,7 +122,7 @@
       left: -2px;
     }
 
-    @include nhsuk-media-query($from: tablet) {
+    @media #{nhsuk-from-breakpoint(tablet)} {
       // Prevent height change when pressed
       .nhsuk-input--large ~ &:active,
       .nhsuk-input--large ~ &:active:focus {

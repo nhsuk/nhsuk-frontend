@@ -80,26 +80,177 @@
 
       <hr>
 
-      <span class="nhsuk-caption-xl">Heading caption</span>
-      <h1>Page heading</h1>
+      {{ heading({
+        text: "nhsuk-heading-xl",
+        caption: {
+          text: "nhsuk-caption-xl",
+          placement: "start"
+        },
+        size: "xl"
+      }) }}
 
-      <span class="nhsuk-caption-l">Heading caption</span>
-      <h1>Page heading</h1>
+      {{ heading({
+        text: "nhsuk-heading-xl",
+        caption: {
+          text: "nhsuk-caption-l",
+          placement: "start",
+          size: "l"
+        },
+        size: "xl"
+      }) }}
 
-      <span class="nhsuk-caption-m">Heading caption</span>
-      <h1>Page heading</h1>
+      {{ heading({
+        text: "nhsuk-heading-l",
+        caption: {
+          text: "nhsuk-caption-l",
+          placement: "start"
+        },
+        size: "l"
+      }) }}
 
-      <h1><span class="nhsuk-caption-xl">Heading caption</span> Page heading</h1>
+      {{ heading({
+        text: "nhsuk-heading-l",
+        caption: {
+          text: "nhsuk-caption-m",
+          placement: "start",
+          size: "m"
+        },
+        size: "l"
+      }) }}
 
-      <h1><span class="nhsuk-caption-l">Heading caption</span> Page heading</h1>
+      {{ heading({
+        text: "nhsuk-heading-m",
+        caption: {
+          text: "nhsuk-caption-m",
+          placement: "start"
+        },
+        size: "m"
+      }) }}
 
-      <h1><span class="nhsuk-caption-m">Heading caption</span> Page heading</h1>
+      {{ heading({
+        text: "nhsuk-heading-s",
+        caption: {
+          text: "nhsuk-caption",
+          placement: "start"
+        },
+        size: "s"
+      }) }}
 
-      <h1>Page heading <span class="nhsuk-caption-xl nhsuk-caption--bottom">Heading caption</span></h1>
+      <hr>
 
-      <h1>Page heading <span class="nhsuk-caption-l nhsuk-caption--bottom">Heading caption</span></h1>
+      {{ heading({
+        text: "nhsuk-heading-xl",
+        caption: {
+          text: "nhsuk-caption-xl",
+          placement: "end"
+        },
+        size: "xl"
+      }) }}
 
-      <h1>Page heading <span class="nhsuk-caption-m nhsuk-caption--bottom">Heading caption</span></h1>
+      {{ heading({
+        text: "nhsuk-heading-xl",
+        caption: {
+          text: "nhsuk-caption-l",
+          placement: "end",
+          size: "l"
+        },
+        size: "xl"
+      }) }}
+
+      {{ heading({
+        text: "nhsuk-heading-l",
+        caption: {
+          text: "nhsuk-caption-l",
+          placement: "end"
+        },
+        size: "l"
+      }) }}
+
+      {{ heading({
+        text: "nhsuk-heading-l",
+        caption: {
+          text: "nhsuk-caption-m",
+          placement: "end",
+          size: "m"
+        },
+        size: "l"
+      }) }}
+
+      {{ heading({
+        text: "nhsuk-heading-m",
+        caption: {
+          text: "nhsuk-caption-m",
+          placement: "end"
+        },
+        size: "m"
+      }) }}
+
+      {{ heading({
+        text: "nhsuk-heading-s",
+        caption: {
+          text: "nhsuk-caption",
+          placement: "end"
+        },
+        size: "s"
+      }) }}
+
+      <hr>
+
+      {{ heading({
+        text: "nhsuk-heading-xl",
+        caption: {
+          text: "nhsuk-caption-xl nhsuk-caption--bottom",
+          placement: "after"
+        },
+        size: "xl"
+      }) }}
+
+      {{ heading({
+        text: "nhsuk-heading-xl",
+        caption: {
+          text: "nhsuk-caption-l nhsuk-caption--bottom",
+          placement: "after",
+          size: "l"
+        },
+        size: "xl"
+      }) }}
+
+      {{ heading({
+        text: "nhsuk-heading-l",
+        caption: {
+          text: "nhsuk-caption-l nhsuk-caption--bottom",
+          placement: "after"
+        },
+        size: "l"
+      }) }}
+
+      {{ heading({
+        text: "nhsuk-heading-l",
+        caption: {
+          text: "nhsuk-caption-m nhsuk-caption--bottom",
+          placement: "after",
+          size: "m"
+        },
+        size: "l"
+      }) }}
+
+      {{ heading({
+        text: "nhsuk-heading-m",
+        caption: {
+          text: "nhsuk-caption-m nhsuk-caption--bottom",
+          placement: "after"
+        },
+        size: "m"
+      }) }}
+
+      {{ heading({
+        text: "nhsuk-heading-s",
+        caption: {
+          text: "nhsuk-caption nhsuk-caption--bottom",
+          placement: "after"
+        },
+        size: "s"
+      }) }}
 
       <hr>
 
@@ -152,37 +303,50 @@
       <h2>Typography with images</h2>
 
       {{ image({
-        alt: "Picture of allergic conjunctivitis",
-        src: "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
-        caption: "Itchy, red, watering eyes"
+        src: "/nhsuk-frontend/assets/example-image-stretch-marks-1000w.jpg",
+        alt: "Close-up of a person's tummy showing a number of creases in the skin under their belly button. Shown on light brown skin.",
+        width: "one-half",
+        caption: {
+          text: "Stretch marks can be pink, red, brown, black, silver or purple. They usually start off darker and fade over time."
+        }
       }) }}
 
       {{ image({
-        alt: "Picture of allergic conjunctivitis",
-        src: "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
-        caption: "Itchy, red, watering eyes"
+        src: "/nhsuk-frontend/assets/example-image-stretch-marks-1000w.jpg",
+        alt: "Close-up of a person's tummy showing a number of creases in the skin under their belly button. Shown on light brown skin.",
+        width: "two-thirds",
+        caption: {
+          text: "Stretch marks can be pink, red, brown, black, silver or purple. They usually start off darker and fade over time."
+        }
       }) }}
 
       {{ image({
-        alt: "Picture of allergic conjunctivitis",
-        src: "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
-        caption: "Itchy, red, watering eyes"
+        src: "/nhsuk-frontend/assets/example-image-stretch-marks-1000w.jpg",
+        alt: "Close-up of a person's tummy showing a number of creases in the skin under their belly button. Shown on light brown skin.",
+        width: "three-quarters",
+        caption: {
+          text: "Stretch marks can be pink, red, brown, black, silver or purple. They usually start off darker and fade over time."
+        }
       }) }}
 
       <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
 
       {{ image({
-        alt: "Picture of allergic conjunctivitis",
-        src: "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
-        caption: "Itchy, red, watering eyes"
+        src: "/nhsuk-frontend/assets/example-image-stretch-marks-1000w.jpg",
+        alt: "Close-up of a person's tummy showing a number of creases in the skin under their belly button. Shown on light brown skin.",
+        caption: {
+          text: "Stretch marks can be pink, red, brown, black, silver or purple. They usually start off darker and fade over time."
+        }
       }) }}
 
       <h3>H3 heading</h3>
 
       {{ image({
-        alt: "Picture of allergic conjunctivitis",
-        src: "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
-        caption: "Itchy, red, watering eyes"
+        src: "/nhsuk-frontend/assets/example-image-stretch-marks-1000w.jpg",
+        alt: "Close-up of a person's tummy showing a number of creases in the skin under their belly button. Shown on light brown skin.",
+        caption: {
+          text: "Stretch marks can be pink, red, brown, black, silver or purple. They usually start off darker and fade over time."
+        }
       }) }}
 
       <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
@@ -198,8 +362,10 @@
       <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
 
       {% call card({
-        heading: "Speak to a GP if:",
-        headingLevel: 3,
+        heading: {
+          text: "Speak to a GP if:",
+          level: 3
+        },
         variant: "non-urgent"
       }) %}
         <ul>
@@ -222,8 +388,10 @@
       <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
 
       {% call card({
-        heading: "Speak to a GP if:",
-        headingLevel: 3,
+        heading: {
+          text: "Speak to a GP if:",
+          level: 3
+        },
         variant: "non-urgent"
       }) %}
         <ul>
@@ -246,8 +414,10 @@
       </ul>
 
       {% call card({
-        heading: "Ask for an urgent GP appointment if:",
-        headingLevel: 3,
+        heading: {
+          text: "Ask for an urgent GP appointment if:",
+          level: 3
+        },
         variant: "urgent"
       }) %}
         <ul>
@@ -260,8 +430,10 @@
       {% endcall %}
 
       {% call card({
-        heading: "Call 999 if you have sudden chest pain that:",
-        headingLevel: 3,
+        heading: {
+          text: "Call 999 if you have sudden chest pain that:",
+          level: 3
+        },
         variant: "emergency"
       }) %}
         <ul>
@@ -275,8 +447,10 @@
       <h2>H2 heading</h2>
 
       {% call card({
-        heading: "Speak to a GP if:",
-        headingLevel: 3,
+        heading: {
+          text: "Speak to a GP if:",
+          level: 3
+        },
         variant: "non-urgent"
       }) %}
         <ul>
@@ -334,7 +508,7 @@
       <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
 
       {% call details({
-        summaryText: "How to find your NHS number"
+        summary: "How to find your NHS number"
       }) %}
         <p>An NHS number is a 10 digit number, like <span class="nhsuk-u-nowrap">999 123 4567</span>.</p>
         <p>You can find your NHS number by logging in to the NHS App or on any document the NHS has sent you, such as your:</p>
@@ -354,14 +528,18 @@
       <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
 
       {{ warningCallout({
-        heading: "Important",
+        heading: {
+          text: "Important"
+        },
         text: "For safety, tell your doctor or pharmacist if you're taking any other medicines, including herbal medicines, vitamins or supplements."
       }) }}
 
       <h2>H2 heading</h2>
 
       {{ warningCallout({
-        heading: "Important",
+        heading: {
+          text: "Important"
+        },
         text: "For safety, tell your doctor or pharmacist if you're taking any other medicines, including herbal medicines, vitamins or supplements."
       }) }}
 
@@ -370,10 +548,19 @@
       <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
 
       {{ table({
-        panel: true,
-        heading: "Skin symptoms and possible causes",
-        caption: "Skin symptoms and possible causes",
-        firstCellIsHeader: false,
+        card: {
+          heading: {
+            text: "Other conditions like impetigo",
+            size: "m"
+          },
+          variant: "feature"
+        },
+        caption: {
+          text: "Impetigo can look similar to other skin conditions",
+          size: "s"
+        },
+        firstCellIsHeader: true,
+        lastRowBorder: false,
         head: [
           {
             text: "Skin symptoms"
@@ -429,9 +616,11 @@
       <h2>Content with images</h2>
 
       {{ image({
-        alt: "Picture of allergic conjunctivitis",
-        src: "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
-        caption: "Itchy, red, watering eyes"
+        src: "/nhsuk-frontend/assets/example-image-stretch-marks-1000w.jpg",
+        alt: "Close-up of a person's tummy showing a number of creases in the skin under their belly button. Shown on light brown skin.",
+        caption: {
+          text: "Stretch marks can be pink, red, brown, black, silver or purple. They usually start off darker and fade over time."
+        }
       }) }}
 
       <h3>H3 heading</h3>
@@ -439,21 +628,30 @@
       <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
 
       {{ image({
-        alt: "Picture of allergic conjunctivitis",
-        src: "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
-        caption: "Itchy, red, watering eyes"
+        src: "/nhsuk-frontend/assets/example-image-stretch-marks-1000w.jpg",
+        alt: "Close-up of a person's tummy showing a number of creases in the skin under their belly button. Shown on light brown skin.",
+        width: "one-half",
+        caption: {
+          text: "Stretch marks can be pink, red, brown, black, silver or purple. They usually start off darker and fade over time."
+        }
       }) }}
 
       {{ image({
-        alt: "Picture of allergic conjunctivitis",
-        src: "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
-        caption: "Itchy, red, watering eyes"
+        src: "/nhsuk-frontend/assets/example-image-stretch-marks-1000w.jpg",
+        alt: "Close-up of a person's tummy showing a number of creases in the skin under their belly button. Shown on light brown skin.",
+        width: "two-thirds",
+        caption: {
+          text: "Stretch marks can be pink, red, brown, black, silver or purple. They usually start off darker and fade over time."
+        }
       }) }}
 
       {{ image({
-        alt: "Picture of allergic conjunctivitis",
-        src: "https://assets.nhs.uk/prod/images/S_1017_allergic-conjunctivitis_M15.2e16d0ba.fill-320x213.jpg",
-        caption: "Itchy, red, watering eyes"
+        src: "/nhsuk-frontend/assets/example-image-stretch-marks-1000w.jpg",
+        alt: "Close-up of a person's tummy showing a number of creases in the skin under their belly button. Shown on light brown skin.",
+        width: "three-quarters",
+        caption: {
+          text: "Stretch marks can be pink, red, brown, black, silver or purple. They usually start off darker and fade over time."
+        }
       }) }}
 
       <p>This is a paragraph using no class. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>

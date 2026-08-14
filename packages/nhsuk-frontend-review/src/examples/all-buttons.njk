@@ -3,6 +3,10 @@
 {% set pageName = "Buttons" %}
 
 {% set examples = [
+  { name: "Arrow up-down", modifier: "arrow-up-down" },
+  null,
+  null,
+  null,
   { name: "Arrow left", modifier: "arrow-left" },
   { name: "Arrow right", modifier: "arrow-right" },
   { name: "Arrow up", modifier: "arrow-up" },
@@ -53,7 +57,7 @@
         <div class="nhsuk-grid-column-one-third">
           <p class="nhsuk-body nhsuk-u-margin-top-6">Button element</p>
 
-          <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
+          <div class="nhsuk-button-group app-button-group">
             {{ button({
               text: "Save and continue"
             }) }}
@@ -78,7 +82,7 @@
         <div class="nhsuk-grid-column-one-third">
           <p class="nhsuk-body nhsuk-u-margin-top-6">Link element</p>
 
-          <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
+          <div class="nhsuk-button-group app-button-group">
             {{ button({
               text: "Save and continue",
               href: "#"
@@ -107,7 +111,7 @@
         <div class="nhsuk-grid-column-one-third">
           <p class="nhsuk-body nhsuk-u-margin-top-6">Disabled</p>
 
-          <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
+          <div class="nhsuk-button-group app-button-group">
             {{ button({
               text: "Save and continue",
               disabled: true
@@ -236,13 +240,13 @@
           <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
 
           {% for row in examples | batch(4) %}
-          <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
-            {% for item in row %}
+          <div class="nhsuk-button-group nhsuk-button-group--small app-button-group app-button-group--nowrap">
+            {% for item in row | select("mapping") %}
             {{ button({
               ariaLabel: item.name,
               icon: item.modifier,
               small: true
-            }) }}
+            }) | trim | indent(12) }}
             {% endfor %}
           </div>
           {% endfor %}
@@ -250,14 +254,14 @@
           <hr class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible">
 
           {% for row in examples | batch(4) %}
-          <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
-            {% for item in row %}
+          <div class="nhsuk-button-group nhsuk-button-group--small app-button-group app-button-group--nowrap">
+            {% for item in row | select("mapping") %}
             {{ button({
               ariaLabel: item.name,
               variant: "warning",
               icon: item.modifier,
               small: true
-            }) }}
+            }) | trim | indent(12) }}
             {% endfor %}
           </div>
           {% endfor %}
@@ -265,14 +269,14 @@
           <hr class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible">
 
           {% for row in examples | batch(4) %}
-          <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
-            {% for item in row %}
+          <div class="nhsuk-button-group nhsuk-button-group--small app-button-group app-button-group--nowrap">
+            {% for item in row | select("mapping") %}
             {{ button({
               ariaLabel: item.name,
               variant: "login",
               icon: item.modifier,
               small: true
-            }) }}
+            }) | trim | indent(12) }}
             {% endfor %}
           </div>
           {% endfor %}
@@ -280,14 +284,14 @@
           <hr class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible">
 
           {% for row in examples | batch(4) %}
-          <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
-            {% for item in row %}
+          <div class="nhsuk-button-group nhsuk-button-group--small app-button-group app-button-group--nowrap">
+            {% for item in row | select("mapping") %}
             {{ button({
               ariaLabel: item.name,
               variant: "secondary",
               icon: item.modifier,
               small: true
-            }) }}
+            }) | trim | indent(12) }}
             {% endfor %}
           </div>
           {% endfor %}
@@ -297,14 +301,14 @@
           <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
 
           {% for row in examples | batch(4) %}
-          <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
-            {% for item in row %}
+          <div class="nhsuk-button-group nhsuk-button-group--small app-button-group app-button-group--nowrap">
+            {% for item in row | select("mapping") %}
             {{ button({
               ariaLabel: item.name,
               icon: item.modifier,
               small: true,
               href: "#"
-            }) }}
+            }) | trim | indent(12) }}
             {% endfor %}
           </div>
           {% endfor %}
@@ -312,15 +316,15 @@
           <hr class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible">
 
           {% for row in examples | batch(4) %}
-          <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
-            {% for item in row %}
+          <div class="nhsuk-button-group nhsuk-button-group--small app-button-group app-button-group--nowrap">
+            {% for item in row | select("mapping") %}
             {{ button({
               ariaLabel: item.name,
               variant: "warning",
               icon: item.modifier,
               small: true,
               href: "#"
-            }) }}
+            }) | trim | indent(12) }}
             {% endfor %}
           </div>
           {% endfor %}
@@ -328,15 +332,15 @@
           <hr class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible">
 
           {% for row in examples | batch(4) %}
-          <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
-            {% for item in row %}
+          <div class="nhsuk-button-group nhsuk-button-group--small app-button-group app-button-group--nowrap">
+            {% for item in row | select("mapping") %}
             {{ button({
               ariaLabel: item.name,
               variant: "login",
               icon: item.modifier,
               small: true,
               href: "#"
-            }) }}
+            }) | trim | indent(12) }}
             {% endfor %}
           </div>
           {% endfor %}
@@ -344,15 +348,15 @@
           <hr class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible">
 
           {% for row in examples | batch(4) %}
-          <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
-            {% for item in row %}
+          <div class="nhsuk-button-group nhsuk-button-group--small app-button-group app-button-group--nowrap">
+            {% for item in row | select("mapping") %}
             {{ button({
               ariaLabel: item.name,
               variant: "secondary",
               icon: item.modifier,
               small: true,
               href: "#"
-            }) }}
+            }) | trim | indent(12) }}
             {% endfor %}
           </div>
           {% endfor %}
@@ -362,14 +366,14 @@
           <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
 
           {% for row in examples | batch(4) %}
-          <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
-            {% for item in row %}
+          <div class="nhsuk-button-group nhsuk-button-group--small app-button-group app-button-group--nowrap">
+            {% for item in row | select("mapping") %}
             {{ button({
               ariaLabel: item.name,
               icon: item.modifier,
               small: true,
               disabled: true
-            }) }}
+            }) | trim | indent(12) }}
             {% endfor %}
           </div>
           {% endfor %}
@@ -377,15 +381,15 @@
           <hr class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible">
 
           {% for row in examples | batch(4) %}
-          <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
-            {% for item in row %}
+          <div class="nhsuk-button-group nhsuk-button-group--small app-button-group app-button-group--nowrap">
+            {% for item in row | select("mapping") %}
             {{ button({
               ariaLabel: item.name,
               variant: "warning",
               icon: item.modifier,
               small: true,
               disabled: true
-            }) }}
+            }) | trim | indent(12) }}
             {% endfor %}
           </div>
           {% endfor %}
@@ -393,15 +397,15 @@
           <hr class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible">
 
           {% for row in examples | batch(4) %}
-          <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
-            {% for item in row %}
+          <div class="nhsuk-button-group nhsuk-button-group--small app-button-group app-button-group--nowrap">
+            {% for item in row | select("mapping") %}
             {{ button({
               ariaLabel: item.name,
               variant: "login",
               icon: item.modifier,
               small: true,
               disabled: true
-            }) }}
+            }) | trim | indent(12) }}
             {% endfor %}
           </div>
           {% endfor %}
@@ -409,15 +413,15 @@
           <hr class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible">
 
           {% for row in examples | batch(4) %}
-          <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
-            {% for item in row %}
+          <div class="nhsuk-button-group nhsuk-button-group--small app-button-group app-button-group--nowrap">
+            {% for item in row | select("mapping") %}
             {{ button({
               ariaLabel: item.name,
               variant: "secondary",
               icon: item.modifier,
               small: true,
               disabled: true
-            }) }}
+            }) | trim | indent(12) }}
             {% endfor %}
           </div>
           {% endfor %}
@@ -439,7 +443,7 @@
         <div class="nhsuk-grid-column-one-third">
           <p class="nhsuk-body nhsuk-u-margin-top-6">Button element</p>
 
-          <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
+          <div class="nhsuk-button-group app-button-group">
             {{ button({
               text: "Save and continue"
             }) }}
@@ -464,7 +468,7 @@
         <div class="nhsuk-grid-column-one-third">
           <p class="nhsuk-body nhsuk-u-margin-top-6">Link element</p>
 
-          <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
+          <div class="nhsuk-button-group app-button-group">
             {{ button({
               text: "Save and continue",
               href: "#"
@@ -493,7 +497,7 @@
         <div class="nhsuk-grid-column-one-third">
           <p class="nhsuk-body nhsuk-u-margin-top-6">Disabled</p>
 
-          <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
+          <div class="nhsuk-button-group app-button-group">
             {{ button({
               text: "Save and continue",
               disabled: true
@@ -622,13 +626,13 @@
           <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
 
           {% for row in examples | batch(4) %}
-          <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
-            {% for item in row %}
+          <div class="nhsuk-button-group nhsuk-button-group--small app-button-group app-button-group--nowrap">
+            {% for item in row | select("mapping") %}
             {{ button({
               ariaLabel: item.name,
               icon: item.modifier,
               small: true
-            }) }}
+            }) | trim | indent(12) }}
             {% endfor %}
           </div>
           {% endfor %}
@@ -636,14 +640,14 @@
           <hr class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible">
 
           {% for row in examples | batch(4) %}
-          <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
-            {% for item in row %}
+          <div class="nhsuk-button-group nhsuk-button-group--small app-button-group app-button-group--nowrap">
+            {% for item in row | select("mapping") %}
             {{ button({
               ariaLabel: item.name,
               variant: "warning",
               icon: item.modifier,
               small: true
-            }) }}
+            }) | trim | indent(12) }}
             {% endfor %}
           </div>
           {% endfor %}
@@ -651,14 +655,14 @@
           <hr class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible">
 
           {% for row in examples | batch(4) %}
-          <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
-            {% for item in row %}
+          <div class="nhsuk-button-group nhsuk-button-group--small app-button-group app-button-group--nowrap">
+            {% for item in row | select("mapping") %}
             {{ button({
               ariaLabel: item.name,
               variant: "login",
               icon: item.modifier,
               small: true
-            }) }}
+            }) | trim | indent(12) }}
             {% endfor %}
           </div>
           {% endfor %}
@@ -666,14 +670,14 @@
           <hr class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible">
 
           {% for row in examples | batch(4) %}
-          <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
-            {% for item in row %}
+          <div class="nhsuk-button-group nhsuk-button-group--small app-button-group app-button-group--nowrap">
+            {% for item in row | select("mapping") %}
             {{ button({
               ariaLabel: item.name,
               variant: "secondary",
               icon: item.modifier,
               small: true
-            }) }}
+            }) | trim | indent(12) }}
             {% endfor %}
           </div>
           {% endfor %}
@@ -683,14 +687,14 @@
           <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
 
           {% for row in examples | batch(4) %}
-          <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
-            {% for item in row %}
+          <div class="nhsuk-button-group nhsuk-button-group--small app-button-group app-button-group--nowrap">
+            {% for item in row | select("mapping") %}
             {{ button({
               ariaLabel: item.name,
               icon: item.modifier,
               small: true,
               href: "#"
-            }) }}
+            }) | trim | indent(12) }}
             {% endfor %}
           </div>
           {% endfor %}
@@ -698,15 +702,15 @@
           <hr class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible">
 
           {% for row in examples | batch(4) %}
-          <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
-            {% for item in row %}
+          <div class="nhsuk-button-group nhsuk-button-group--small app-button-group app-button-group--nowrap">
+            {% for item in row | select("mapping") %}
             {{ button({
               ariaLabel: item.name,
               variant: "warning",
               icon: item.modifier,
               small: true,
               href: "#"
-            }) }}
+            }) | trim | indent(12) }}
             {% endfor %}
           </div>
           {% endfor %}
@@ -714,15 +718,15 @@
           <hr class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible">
 
           {% for row in examples | batch(4) %}
-          <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
-            {% for item in row %}
+          <div class="nhsuk-button-group nhsuk-button-group--small app-button-group app-button-group--nowrap">
+            {% for item in row | select("mapping") %}
             {{ button({
               ariaLabel: item.name,
               variant: "login",
               icon: item.modifier,
               small: true,
               href: "#"
-            }) }}
+            }) | trim | indent(12) }}
             {% endfor %}
           </div>
           {% endfor %}
@@ -730,15 +734,15 @@
           <hr class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible">
 
           {% for row in examples | batch(4) %}
-          <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
-            {% for item in row %}
+          <div class="nhsuk-button-group nhsuk-button-group--small app-button-group app-button-group--nowrap">
+            {% for item in row | select("mapping") %}
             {{ button({
               ariaLabel: item.name,
               variant: "secondary",
               icon: item.modifier,
               small: true,
               href: "#"
-            }) }}
+            }) | trim | indent(12) }}
             {% endfor %}
           </div>
           {% endfor %}
@@ -748,14 +752,14 @@
           <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
 
           {% for row in examples | batch(4) %}
-          <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
-            {% for item in row %}
+          <div class="nhsuk-button-group nhsuk-button-group--small app-button-group app-button-group--nowrap">
+            {% for item in row | select("mapping") %}
             {{ button({
               ariaLabel: item.name,
               icon: item.modifier,
               small: true,
               disabled: true
-            }) }}
+            }) | trim | indent(12) }}
             {% endfor %}
           </div>
           {% endfor %}
@@ -763,15 +767,15 @@
           <hr class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible">
 
           {% for row in examples | batch(4) %}
-          <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
-            {% for item in row %}
+          <div class="nhsuk-button-group nhsuk-button-group--small app-button-group app-button-group--nowrap">
+            {% for item in row | select("mapping") %}
             {{ button({
               ariaLabel: item.name,
               variant: "warning",
               icon: item.modifier,
               small: true,
               disabled: true
-            }) }}
+            }) | trim | indent(12) }}
             {% endfor %}
           </div>
           {% endfor %}
@@ -779,15 +783,15 @@
           <hr class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible">
 
           {% for row in examples | batch(4) %}
-          <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
-            {% for item in row %}
+          <div class="nhsuk-button-group nhsuk-button-group--small app-button-group app-button-group--nowrap">
+            {% for item in row | select("mapping") %}
             {{ button({
               ariaLabel: item.name,
               variant: "login",
               icon: item.modifier,
               small: true,
               disabled: true
-            }) }}
+            }) | trim | indent(12) }}
             {% endfor %}
           </div>
           {% endfor %}
@@ -795,15 +799,15 @@
           <hr class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible">
 
           {% for row in examples | batch(4) %}
-          <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
-            {% for item in row %}
+          <div class="nhsuk-button-group nhsuk-button-group--small app-button-group app-button-group--nowrap">
+            {% for item in row | select("mapping") %}
             {{ button({
               ariaLabel: item.name,
               variant: "secondary",
               icon: item.modifier,
               small: true,
               disabled: true
-            }) }}
+            }) | trim | indent(12) }}
             {% endfor %}
           </div>
           {% endfor %}
@@ -825,7 +829,7 @@
         <div class="nhsuk-grid-column-one-third">
           <p class="nhsuk-body nhsuk-u-margin-top-6">Button element</p>
 
-          <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
+          <div class="nhsuk-button-group app-button-group">
             {{ button({
               text: "Find my location",
               variant: "secondary-solid"
@@ -836,7 +840,7 @@
         <div class="nhsuk-grid-column-one-third">
           <p class="nhsuk-body nhsuk-u-margin-top-6">Link element</p>
 
-          <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
+          <div class="nhsuk-button-group app-button-group">
             {{ button({
               text: "Find my location",
               variant: "secondary-solid",
@@ -848,7 +852,7 @@
         <div class="nhsuk-grid-column-one-third">
           <p class="nhsuk-body nhsuk-u-margin-top-6">Disabled</p>
 
-          <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
+          <div class="nhsuk-button-group app-button-group">
             {{ button({
               text: "Find my location",
               variant: "secondary-solid",
@@ -903,14 +907,14 @@
           <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
 
           {% for row in examples | batch(4) %}
-          <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
-            {% for item in row %}
+          <div class="nhsuk-button-group nhsuk-button-group--small app-button-group app-button-group--nowrap">
+            {% for item in row | select("mapping") %}
             {{ button({
               ariaLabel: item.name,
               variant: "secondary-solid",
               icon: item.modifier,
               small: true
-            }) }}
+            }) | trim | indent(12) }}
             {% endfor %}
           </div>
           {% endfor %}
@@ -920,15 +924,15 @@
           <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
 
           {% for row in examples | batch(4) %}
-          <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
-            {% for item in row %}
+          <div class="nhsuk-button-group nhsuk-button-group--small app-button-group app-button-group--nowrap">
+            {% for item in row | select("mapping") %}
             {{ button({
               ariaLabel: item.name,
               variant: "secondary-solid",
               icon: item.modifier,
               small: true,
               href: "#"
-            }) }}
+            }) | trim | indent(12) }}
             {% endfor %}
           </div>
           {% endfor %}
@@ -938,15 +942,15 @@
           <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
 
           {% for row in examples | batch(4) %}
-          <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
-            {% for item in row %}
+          <div class="nhsuk-button-group nhsuk-button-group--small app-button-group app-button-group--nowrap">
+            {% for item in row | select("mapping") %}
             {{ button({
               ariaLabel: item.name,
               variant: "secondary-solid",
               icon: item.modifier,
               small: true,
               disabled: true
-            }) }}
+            }) | trim | indent(12) }}
             {% endfor %}
           </div>
           {% endfor %}
@@ -968,7 +972,7 @@
         <div class="nhsuk-grid-column-one-third">
           <p class="nhsuk-body nhsuk-u-margin-top-6">Button element</p>
 
-          <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
+          <div class="nhsuk-button-group app-button-group">
             {{ button({
               text: "Log out",
               variant: "reverse"
@@ -985,7 +989,7 @@
         <div class="nhsuk-grid-column-one-third">
           <p class="nhsuk-body nhsuk-u-margin-top-6">Link element</p>
 
-          <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
+          <div class="nhsuk-button-group app-button-group">
             {{ button({
               text: "Log out",
               href: "#",
@@ -1004,7 +1008,7 @@
         <div class="nhsuk-grid-column-one-third">
           <p class="nhsuk-body nhsuk-u-margin-top-6">Disabled</p>
 
-          <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
+          <div class="nhsuk-button-group app-button-group">
             {{ button({
               text: "Log out",
               variant: "reverse",
@@ -1089,14 +1093,14 @@
           <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
 
           {% for row in examples | batch(4) %}
-          <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
-            {% for item in row %}
+          <div class="nhsuk-button-group nhsuk-button-group--small app-button-group app-button-group--nowrap">
+            {% for item in row | select("mapping") %}
             {{ button({
               ariaLabel: item.name,
               variant: "reverse",
               icon: item.modifier,
               small: true
-            }) }}
+            }) | trim | indent(12) }}
             {% endfor %}
           </div>
           {% endfor %}
@@ -1106,15 +1110,15 @@
           <p class="nhsuk-body-s">Shadow removed using: <br><code class="nhsuk-code--inline nhsuk-code--reverse">.app-button--no-shadow</code></p>
 
           {% for row in examples | batch(4) %}
-          <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
-            {% for item in row %}
+          <div class="nhsuk-button-group nhsuk-button-group--small app-button-group app-button-group--nowrap">
+            {% for item in row | select("mapping") %}
             {{ button({
               ariaLabel: item.name,
               variant: "reverse",
               classes: "app-button--no-shadow",
               icon: item.modifier,
               small: true
-            }) }}
+            }) | trim | indent(12) }}
             {% endfor %}
           </div>
           {% endfor %}
@@ -1124,15 +1128,15 @@
           <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
 
           {% for row in examples | batch(4) %}
-          <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
-            {% for item in row %}
+          <div class="nhsuk-button-group nhsuk-button-group--small app-button-group app-button-group--nowrap">
+            {% for item in row | select("mapping") %}
             {{ button({
               ariaLabel: item.name,
               variant: "reverse",
               icon: item.modifier,
               small: true,
               href: "#"
-            }) }}
+            }) | trim | indent(12) }}
             {% endfor %}
           </div>
           {% endfor %}
@@ -1142,8 +1146,8 @@
           <p class="nhsuk-body-s">Shadow removed using: <br><code class="nhsuk-code--inline nhsuk-code--reverse">.app-button--no-shadow</code></p>
 
           {% for row in examples | batch(4) %}
-          <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
-            {% for item in row %}
+          <div class="nhsuk-button-group nhsuk-button-group--small app-button-group app-button-group--nowrap">
+            {% for item in row | select("mapping") %}
             {{ button({
               ariaLabel: item.name,
               variant: "reverse",
@@ -1151,7 +1155,7 @@
               icon: item.modifier,
               small: true,
               href: "#"
-            }) }}
+            }) | trim | indent(12) }}
             {% endfor %}
           </div>
           {% endfor %}
@@ -1161,15 +1165,15 @@
           <hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
 
           {% for row in examples | batch(4) %}
-          <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
-            {% for item in row %}
+          <div class="nhsuk-button-group nhsuk-button-group--small app-button-group app-button-group--nowrap">
+            {% for item in row | select("mapping") %}
             {{ button({
               ariaLabel: item.name,
               variant: "reverse",
               icon: item.modifier,
               small: true,
               disabled: true
-            }) }}
+            }) | trim | indent(12) }}
             {% endfor %}
           </div>
           {% endfor %}
@@ -1179,8 +1183,8 @@
           <p class="nhsuk-body-s">Shadow removed using: <br><code class="nhsuk-code--inline nhsuk-code--reverse">.app-button--no-shadow</code></p>
 
           {% for row in examples | batch(4) %}
-          <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
-            {% for item in row %}
+          <div class="nhsuk-button-group nhsuk-button-group--small app-button-group app-button-group--nowrap">
+            {% for item in row | select("mapping") %}
             {{ button({
               ariaLabel: item.name,
               variant: "reverse",
@@ -1188,7 +1192,7 @@
               icon: item.modifier,
               small: true,
               disabled: true
-            }) }}
+            }) | trim | indent(12) }}
             {% endfor %}
           </div>
           {% endfor %}

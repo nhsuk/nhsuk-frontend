@@ -1,7 +1,6 @@
 import { createEvent, fireEvent } from '@testing-library/dom'
 import { within } from '@testing-library/dom'
 import { userEvent } from '@testing-library/user-event'
-import { mockViewport } from 'jsdom-testing-mocks'
 
 import { components } from '#lib'
 
@@ -9,10 +8,6 @@ import { examples } from './fixtures.mjs'
 import { Tabs } from './tabs.mjs'
 
 const user = userEvent.setup()
-const viewportMock = mockViewport({
-  width: '1024px',
-  height: '768px'
-})
 
 describe('Tabs', () => {
   /** @type {HTMLElement} */
@@ -29,6 +24,13 @@ describe('Tabs', () => {
 
   /** @type {HTMLElement[]} */
   let $panels
+
+  beforeAll(() => {
+    happyDOM.setViewport({
+      width: 1024,
+      height: 768
+    })
+  })
 
   beforeEach(() => {
     document.body.innerHTML = components.render('tabs', examples.default)
@@ -84,7 +86,7 @@ describe('Tabs', () => {
       document.body.classList.remove('nhsuk-frontend-supported')
 
       expect(() => new Tabs($root)).toThrow(
-        'NHS.UK frontend is not supported in this browser'
+        'NHS.UK frontend initialised without `<body class="nhsuk-frontend-supported">` from template `<script>` snippet'
       )
     })
 
@@ -155,9 +157,9 @@ describe('Tabs', () => {
 
   describe('Accessibility (mobile)', () => {
     beforeAll(() => {
-      viewportMock.set({
-        width: '320px',
-        height: '568px'
+      happyDOM.setViewport({
+        width: 320,
+        height: 568
       })
     })
 
@@ -187,9 +189,9 @@ describe('Tabs', () => {
 
   describe('Accessibility (tablet, desktop)', () => {
     beforeAll(() => {
-      viewportMock.set({
-        width: '1024px',
-        height: '768px'
+      happyDOM.setViewport({
+        width: 1024,
+        height: 768
       })
     })
 

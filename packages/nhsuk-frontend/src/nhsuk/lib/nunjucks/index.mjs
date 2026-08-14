@@ -62,7 +62,7 @@ export function macro(macroName, macroPath, options) {
   // If we're nesting child components or text, pass the children to the macro
   // using the 'caller' Nunjucks feature
   macroString += options?.callBlock
-    ? `{% call ${macroCall} -%}\n\n${options.callBlock.trim()}\n\n{%- endcall %}`
+    ? `{% call ${macroCall} %}\n${options.callBlock.trim()}\n{%- endcall %}`
     : `{{ ${macroCall} }}`
 
   return macroString

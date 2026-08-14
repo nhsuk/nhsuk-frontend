@@ -1,12 +1,24 @@
-{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
-{% from "nhsuk/components/error-message/macro.njk" import errorMessage -%}
+{% from "nhsuk/components/error-message/macro.njk" import errorMessage %}
 {% from "nhsuk/components/fieldset/macro.njk" import fieldset %}
 {% from "nhsuk/components/hint/macro.njk" import hint %}
 {% from "nhsuk/components/label/macro.njk" import label %}
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-radios" -%}
 {%- set classNamesFormGroup = "nhsuk-form-group" -%}
+
+{#- Support hint as string #}
+{%- set hintOptions = params.hint if params.hint is mapping and params.hint is not escaped else {
+  text: params.hint if params.hint is string else undefined,
+  html: params.hint if params.hint is escaped else undefined
+} -%}
+
+{#- Support error message as string #}
+{%- set errorMessageOptions = params.errorMessage if params.errorMessage is mapping and params.errorMessage is not escaped else {
+  text: params.errorMessage if params.errorMessage is string else undefined,
+  html: params.errorMessage if params.errorMessage is escaped else undefined
+} -%}
 
 {%- if params.small and (not params.classes or not "nhsuk-radios--small" in params.classes) %}
   {% set classNames = classNames ~ " nhsuk-radios--small" %}
@@ -16,7 +28,7 @@
   {% set classNames = classNames ~ " nhsuk-radios--inline" %}
 {% endif %}
 
-{%- if params.errorMessage %}
+{%- if errorMessageOptions.text or errorMessageOptions.html or params.errorMessage == true %}
   {% set classNamesFormGroup = classNamesFormGroup ~ " nhsuk-form-group--error" %}
 {% endif %}
 
@@ -40,6 +52,18 @@
 {% set hasFieldset = true if params.fieldset else false %}
 
 {%- macro _radioItem(params, item, index) %}
+  {#- Support item label as string #}
+  {%- set itemLabel = item.label if item.label is mapping and item.label is not escaped else {
+    text: item.label if item.label is string else undefined,
+    html: item.label if item.label is escaped else undefined
+  } -%}
+
+  {#- Support item hint as string #}
+  {%- set itemHint = item.hint if item.hint is mapping and item.hint is not escaped else {
+    text: item.hint if item.hint is string else undefined,
+    html: item.hint if item.hint is escaped else undefined
+  } -%}
+
   {#- If the user explicitly sets an id, use this instead of the regular idPrefix -#}
   {#- The first id should not have a number suffix so it's easy to link to from the error summary component -#}
   {% set itemId = item.id if item.id else idPrefix ~ ("-" ~ index if index > 1 else "") %}
@@ -48,8 +72,8 @@
     <div class="nhsuk-radios__divider">{{ item.divider }}</div>
   {% else %}
     {% set isChecked = item.checked | default((item.value == params.value and item.checked != false) if params.value else false, true) %}
-    {% set hasHint = true if item.hint.text or item.hint.html %}
-    {% set itemHintId = item.hint.id | default(itemId ~ "-item-hint") %}
+    {% set hasHint = true if itemHint.text or itemHint.html %}
+    {% set itemHintId = itemHint.id | default(itemId ~ "-item-hint") %}
     {% set itemClasses = "nhsuk-radios__input" ~ (" " ~ item.classes if item.classes) %}
     <div class="nhsuk-radios__item">
       <input class="{{ itemClasses }}" id="{{ itemId }}" name="{{ params.name }}" type="radio" value="{{ item.value }}"
@@ -59,20 +83,20 @@
         {%- if hasHint %} aria-describedby="{{ itemHintId }}"{% endif -%}
         {{- nhsukAttributes(item.attributes) }}>
       {{ label({
-        html: item.label.html | default(item.html),
-        text: item.label.text | default(item.text),
-        id: item.label.id,
+        html: itemLabel.html | default(item.html),
+        text: itemLabel.text | default(item.text),
+        id: itemLabel.id,
         for: itemId,
-        classes: "nhsuk-radios__label" ~ (" " ~ item.label.classes if item.label.classes),
-        attributes: item.label.attributes
+        classes: "nhsuk-radios__label" ~ (" " ~ itemLabel.classes if itemLabel.classes),
+        attributes: itemLabel.attributes
       }) | trim | indent(6) }}
       {% if hasHint %}
       {{ hint({
-        html: item.hint.html,
-        text: item.hint.text,
-        id: item.hint.id | default(itemHintId),
-        classes: "nhsuk-radios__hint" ~ (" " ~ item.hint.classes if item.hint.classes),
-        attributes: item.hint.attributes
+        html: itemHint.html,
+        text: itemHint.text,
+        id: itemHint.id | default(itemHintId),
+        classes: "nhsuk-radios__hint" ~ (" " ~ itemHint.classes if itemHint.classes),
+        attributes: itemHint.attributes
       }) | trim | indent(6) }}
       {% endif %}
     </div>
@@ -86,27 +110,27 @@
 
 {#- Capture the HTML so we can optionally nest it in a fieldset -#}
 {% set innerHtml %}
-{% if params.hint %}
-  {% set hintId = params.hint.id | default(idPrefix ~ "-hint") %}
+{% if hintOptions.text or hintOptions.html %}
+  {% set hintId = hintOptions.id | default(idPrefix ~ "-hint") %}
   {% set describedBy = (describedBy ~ " " ~ hintId) | trim %}
   {{ hint({
-    html: params.hint.html,
-    text: params.hint.text,
-    id: params.hint.id | default(hintId),
-    classes: params.hint.classes,
-    attributes: params.hint.attributes
+    html: hintOptions.html,
+    text: hintOptions.text,
+    id: hintOptions.id | default(hintId),
+    classes: hintOptions.classes,
+    attributes: hintOptions.attributes
   }) | trim | indent(2) }}
 {% endif %}
-{% if params.errorMessage.text or params.errorMessage.html %}
-  {% set errorId = params.errorMessage.id | default(idPrefix ~ "-error") %}
+{% if errorMessageOptions.text or errorMessageOptions.html %}
+  {% set errorId = errorMessageOptions.id | default(idPrefix ~ "-error") %}
   {% set describedBy = (describedBy ~ " " ~ errorId) | trim %}
   {{ errorMessage({
-    html: params.errorMessage.html,
-    text: params.errorMessage.text,
-    visuallyHiddenText: params.errorMessage.visuallyHiddenText,
-    id: params.errorMessage.id | default(errorId),
-    classes: params.errorMessage.classes,
-    attributes: params.errorMessage.attributes
+    html: errorMessageOptions.html,
+    text: errorMessageOptions.text,
+    visuallyHiddenText: errorMessageOptions.visuallyHiddenText,
+    id: errorMessageOptions.id | default(errorId),
+    classes: errorMessageOptions.classes,
+    attributes: errorMessageOptions.attributes
   }) | trim | indent(2) }}
 {% endif %}
   <div

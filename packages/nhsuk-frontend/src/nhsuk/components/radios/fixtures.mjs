@@ -1,8 +1,8 @@
-import { outdent } from 'outdent'
+import { outdent } from "outdent"
 
-import { components } from '#lib'
+import { components } from "#lib"
 
-import { examples as inputExamples } from '../input/fixtures.mjs'
+import { examples as inputExamples } from "../input/fixtures.mjs"
 
 /**
  * Nunjucks macro option variants
@@ -14,12 +14,12 @@ export const variants = [
     // Regular variant
   },
   {
-    description: 'small',
+    description: "small",
     context: {
       small: true,
       fieldset: {
         legend: {
-          size: 'm'
+          size: "m"
         }
       }
     }
@@ -32,479 +32,503 @@ export const variants = [
  * @satisfies {{ [example: string]: MacroExample }}
  */
 const fixtures = {
-  'default': {
+  "default": {
     context: {
       fieldset: {
         legend: {
-          text: 'How do you want to be contacted about this?',
-          size: 'l',
+          text: "How do you want to be contacted about this?",
+          size: "l",
           isPageHeading: true
         }
       },
-      name: 'example',
+      name: "example",
       items: [
         {
-          value: 'email',
-          text: 'Email'
+          value: "email",
+          text: "Email"
         },
         {
-          value: 'phone',
-          text: 'Phone'
+          value: "phone",
+          text: "Phone"
         },
         {
-          value: 'text',
-          text: 'Text message'
+          value: "text",
+          text: "Text message"
         }
       ]
     },
     variants,
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
+      viewports: ["mobile", "tablet", "desktop"]
     }
   },
-  'disabled': {
+  "disabled": {
     context: {
       fieldset: {
         legend: {
-          text: 'How do you want to be contacted about this?',
-          size: 'l',
+          text: "How do you want to be contacted about this?",
+          size: "l",
           isPageHeading: true
         }
       },
-      idPrefix: 'disabled',
-      name: 'example',
+      idPrefix: "disabled",
+      name: "example",
       disabled: true,
       items: [
         {
-          value: 'email',
-          text: 'Email'
+          value: "email",
+          text: "Email"
         },
         {
-          value: 'phone',
-          text: 'Phone'
+          value: "phone",
+          text: "Phone"
         },
         {
-          value: 'text',
-          text: 'Text message'
+          value: "text",
+          text: "Text message"
         }
       ]
     },
     variants,
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
+      viewports: ["mobile", "tablet", "desktop"]
     }
   },
-  'disabled input': {
+  "disabled input": {
     context: {
       fieldset: {
         legend: {
-          text: 'How do you want to be contacted about this?',
-          size: 'l',
+          text: "How do you want to be contacted about this?",
+          size: "l",
           isPageHeading: true
         }
       },
-      idPrefix: 'disabled-input',
-      name: 'example',
+      idPrefix: "disabled-input",
+      name: "example",
       items: [
         {
-          value: 'email',
-          text: 'Email'
+          value: "email",
+          text: "Email"
         },
         {
-          value: 'phone',
-          text: 'Phone'
+          value: "phone",
+          text: "Phone"
         },
         {
-          value: 'text',
-          text: 'Text message',
+          value: "text",
+          text: "Text message",
           disabled: true
         }
       ]
     },
     variants
   },
-  'disabled with enabled input': {
+  "disabled with enabled input": {
     context: {
       fieldset: {
         legend: {
-          text: 'How do you want to be contacted about this?',
-          size: 'l',
+          text: "How do you want to be contacted about this?",
+          size: "l",
           isPageHeading: true
         }
       },
-      idPrefix: 'disabled-enabled-input',
-      name: 'example',
+      idPrefix: "disabled-enabled-input",
+      name: "example",
       disabled: true,
       items: [
         {
-          value: 'email',
-          text: 'Email'
+          value: "email",
+          text: "Email"
         },
         {
-          value: 'phone',
-          text: 'Phone'
+          value: "phone",
+          text: "Phone"
         },
         {
-          value: 'text',
-          text: 'Text message',
+          value: "text",
+          text: "Text message",
           disabled: false
         }
       ]
     },
     variants
   },
-  'with hint': {
+  "with hint": {
     context: {
       fieldset: {
         legend: {
-          text: 'How do you want to be contacted about this?',
-          size: 'l',
+          text: "How do you want to be contacted about this?",
+          size: "l",
           isPageHeading: true
         }
       },
       hint: {
-        text: 'Select 1 option'
+        text: "Select 1 option"
       },
-      idPrefix: 'with-hint',
-      name: 'example',
+      idPrefix: "with-hint",
+      name: "example",
       items: [
         {
-          value: 'email',
-          text: 'Email'
+          value: "email",
+          text: "Email"
         },
         {
-          value: 'phone',
-          text: 'Phone'
+          value: "phone",
+          text: "Phone"
         },
         {
-          value: 'text',
-          text: 'Text message'
+          value: "text",
+          text: "Text message"
         }
       ]
     },
     variants
   },
-  'inline': {
+  "inline": {
     context: {
       fieldset: {
         legend: {
-          text: 'Are you 18 or over?',
-          size: 'l',
+          text: "Are you 18 or over?",
+          size: "l",
           isPageHeading: true
         }
       },
-      idPrefix: 'inline',
-      name: 'example',
+      idPrefix: "inline",
+      name: "example",
       inline: true,
       items: [
         {
-          value: 'yes',
-          text: 'Yes'
+          value: "yes",
+          text: "Yes"
         },
         {
-          value: 'no',
-          text: 'No'
+          value: "no",
+          text: "No"
         }
       ]
     },
     variants,
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
+      viewports: ["mobile", "tablet", "desktop"]
     }
   },
-  'legend': {
+  "legend": {
     context: {
       fieldset: {
         legend: {
-          text: 'How do you want to be contacted about this?',
-          size: 'l'
+          text: "How do you want to be contacted about this?",
+          size: "l"
         }
       },
-      idPrefix: 'custom-size',
-      name: 'example',
+      idPrefix: "custom-size",
+      name: "example",
       items: [
         {
-          value: 'email',
-          text: 'Email'
+          value: "email",
+          text: "Email"
         },
         {
-          value: 'phone',
-          text: 'Phone'
+          value: "phone",
+          text: "Phone"
         },
         {
-          value: 'text',
-          text: 'Text message'
+          value: "text",
+          text: "Text message"
         }
       ]
     },
     variants: [
       {
-        description: 'with size S',
+        description: "with size S",
         context: {
           fieldset: {
             legend: {
-              size: 's'
+              size: "s"
             }
           }
         }
       },
       {
-        description: 'with size M',
+        description: "with size M",
         context: {
           fieldset: {
             legend: {
-              size: 'm'
+              size: "m"
             }
           }
         }
       },
       {
-        description: 'with size L',
+        description: "with size L",
         context: {
           fieldset: {
             legend: {
-              size: 'l'
+              size: "l"
             }
           }
         }
       },
       {
-        description: 'with size XL',
+        description: "with size XL",
         context: {
           fieldset: {
             legend: {
-              size: 'xl'
+              size: "xl"
             }
           }
         }
       }
     ]
   },
-  'without page heading': {
+  "without page heading": {
     context: {
       fieldset: {
-        legend: {
-          text: 'How do you want to be contacted about this?',
-          isPageHeading: false
-        }
+        legend: "How do you want to be contacted about this?"
       },
-      idPrefix: 'without-heading',
-      name: 'example',
+      idPrefix: "without-heading",
+      name: "example",
       items: [
         {
-          value: 'email',
-          text: 'Email'
+          value: "email",
+          text: "Email"
         },
         {
-          value: 'phone',
-          text: 'Phone'
+          value: "phone",
+          text: "Phone"
         },
         {
-          value: 'text',
-          text: 'Text message'
+          value: "text",
+          text: "Text message"
         }
       ]
-    },
-    variants
+    }
   },
-  'with pre-checked value': {
+  "with pre-checked value": {
     context: {
       fieldset: {
         legend: {
-          text: 'How do you want to be contacted about this?',
-          size: 'l',
+          text: "How do you want to be contacted about this?",
+          size: "l",
           isPageHeading: true
         }
       },
       hint: {
-        text: 'Select 1 option'
+        text: "Select 1 option"
       },
-      idPrefix: 'conditional',
-      name: 'example',
-      value: 'email',
+      idPrefix: "conditional",
+      name: "example",
+      value: "email",
       items: getItems()
     },
     variants
   },
-  'with divider': {
+  "with divider": {
     context: {
       fieldset: {
         legend: {
-          text: 'Do you know your NHS number?',
-          size: 'l',
+          text: "Do you know your NHS number?",
+          size: "l",
           isPageHeading: true
         }
       },
       hint: {
         html: 'This is a 10 digit number (like <span class="nhsuk-u-nowrap">999 123 4567</span>) that you can find on an NHS letter, prescription or in the NHS App'
       },
-      idPrefix: 'with-divider',
-      name: 'example',
+      idPrefix: "with-divider",
+      name: "example",
       items: [
         {
-          value: 'yes',
-          text: 'Yes, I know my NHS number'
+          value: "yes",
+          text: "Yes, I know my NHS number"
         },
         {
-          value: 'no',
-          text: 'No, I do not know my NHS number'
+          value: "no",
+          text: "No, I do not know my NHS number"
         },
         {
-          divider: 'or'
+          divider: "or"
         },
         {
-          value: 'not sure',
+          value: "not sure",
           text: "I'm not sure"
         }
       ]
     },
     variants,
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
+      viewports: ["mobile", "tablet", "desktop"]
     }
   },
-  'with hints on items': {
+  "with hints on items": {
     context: {
       fieldset: {
         legend: {
-          text: 'Do you have a mobile phone with signal?',
-          size: 'l',
+          text: "Do you have a mobile phone with signal?",
+          size: "l",
           isPageHeading: true
         }
       },
-      idPrefix: 'with-hint-item',
-      name: 'example',
+      idPrefix: "with-hint-item",
+      name: "example",
       items: [
         {
-          value: 'mobile',
-          text: 'Yes, I have a mobile phone with signal',
+          value: "mobile",
+          text: "Yes, I have a mobile phone with signal",
           hint: {
-            text: 'We will text you a 6 digit security code'
+            text: "We will text you a 6 digit security code"
           }
         },
         {
-          value: 'landline',
-          text: 'No, I want to use my landline',
+          value: "landline",
+          text: "No, I want to use my landline",
           hint: {
-            text: 'We will call you to give you a 6 digit security code'
+            text: "We will call you to give you a 6 digit security code"
           }
         }
       ]
     },
     variants,
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
+      viewports: ["mobile", "tablet", "desktop"]
     }
   },
-  'without fieldset': {
+  "without fieldset": {
     context: {
       fieldset: null,
-      idPrefix: 'without-fieldset',
-      name: 'colours',
+      idPrefix: "without-fieldset",
+      name: "colours",
       items: [
         {
-          value: 'red',
-          text: 'Red'
+          value: "red",
+          text: "Red"
         },
         {
-          value: 'green',
-          text: 'Green'
+          value: "green",
+          text: "Green"
         },
         {
-          value: 'blue',
-          text: 'Blue'
+          value: "blue",
+          text: "Blue"
         }
       ]
     },
     variants,
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
+      viewports: ["mobile", "tablet", "desktop"]
     }
   },
-  'with error message': {
+  "with error only": {
     context: {
       fieldset: {
         legend: {
-          text: 'How do you want to be contacted about this?',
-          size: 'l',
+          text: "How do you want to be contacted about this?",
+          size: "l",
+          isPageHeading: true
+        }
+      },
+      errorMessage: true,
+      idPrefix: "with-error-only",
+      name: "example",
+      items: [
+        {
+          value: "email",
+          text: "Email"
+        },
+        {
+          value: "phone",
+          text: "Phone"
+        },
+        {
+          value: "text",
+          text: "Text message"
+        }
+      ]
+    }
+  },
+  "with error message": {
+    context: {
+      fieldset: {
+        legend: {
+          text: "How do you want to be contacted about this?",
+          size: "l",
           isPageHeading: true
         }
       },
       errorMessage: {
-        text: 'Select how you want to be contacted'
+        text: "Select how you want to be contacted"
       },
-      idPrefix: 'with-error-message',
-      name: 'example',
+      idPrefix: "with-error-message",
+      name: "example",
       items: [
         {
-          value: 'email',
-          text: 'Email'
+          value: "email",
+          text: "Email"
         },
         {
-          value: 'phone',
-          text: 'Phone'
+          value: "phone",
+          text: "Phone"
         },
         {
-          value: 'text',
-          text: 'Text message'
+          value: "text",
+          text: "Text message"
         }
       ]
     },
     variants
   },
-  'with error message and hint': {
+  "with error message and hint": {
     context: {
       fieldset: {
         legend: {
-          text: 'How do you want to be contacted about this?',
-          size: 'l',
+          text: "How do you want to be contacted about this?",
+          size: "l",
           isPageHeading: true
         }
       },
       hint: {
-        text: 'Select 1 option'
+        text: "Select 1 option"
       },
       errorMessage: {
-        text: 'Select how you want to be contacted'
+        text: "Select how you want to be contacted"
       },
-      idPrefix: 'with-hint-error',
-      name: 'example',
+      idPrefix: "with-hint-error",
+      name: "example",
       items: [
         {
-          value: 'email',
-          text: 'Email'
+          value: "email",
+          text: "Email"
         },
         {
-          value: 'phone',
-          text: 'Phone'
+          value: "phone",
+          text: "Phone"
         },
         {
-          value: 'text',
-          text: 'Text message'
+          value: "text",
+          text: "Text message"
         }
       ]
     },
     variants,
     screenshot: {
-      states: ['focus'],
-      selector: '#with-hint-error',
-      viewports: ['mobile', 'tablet', 'desktop']
+      states: ["focus"],
+      selector: "#with-hint-error",
+      viewports: ["mobile", "tablet", "desktop"]
     }
   },
-  'with long text': {
+  "with long text": {
     context: {
       fieldset: {
         legend: {
-          text: 'Venenatis Condimentum',
-          size: 'l',
+          text: "Venenatis Condimentum",
+          size: "l",
           isPageHeading: true
         }
       },
-      idPrefix: 'with-long-text',
-      name: 'example',
+      idPrefix: "with-long-text",
+      name: "example",
       items: [
         {
-          value: 'nullam',
+          value: "nullam",
           text: outdent`
             Nullam id dolor id nibh ultricies vehicula ut id elit. Aenean eu leo
             quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
@@ -513,7 +537,7 @@ const fixtures = {
           `
         },
         {
-          value: 'aenean',
+          value: "aenean",
           text: outdent`
             Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis
             vestibulum. Donec sed odio dui. Duis mollis, est non commodo luctus,
@@ -525,7 +549,7 @@ const fixtures = {
           `
         },
         {
-          value: 'fusce',
+          value: "fusce",
           text: outdent`
             Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum
             nibh, ut fermentum massa justo sit amet risus. Etiam porta sem
@@ -539,38 +563,38 @@ const fixtures = {
     },
     variants
   },
-  'with conditional content': {
+  "with conditional content": {
     context: {
       fieldset: {
         legend: {
-          text: 'How do you want to be contacted about this?',
-          size: 'l',
+          text: "How do you want to be contacted about this?",
+          size: "l",
           isPageHeading: true
         }
       },
       hint: {
-        text: 'Select 1 option'
+        text: "Select 1 option"
       },
-      idPrefix: 'conditional',
-      name: 'example',
+      idPrefix: "conditional",
+      name: "example",
       items: getItems()
     },
     variants
   },
-  'with conditional content, special characters': {
+  "with conditional content, special characters": {
     context: {
       fieldset: {
         legend: {
-          text: 'How do you want to be contacted about this?',
-          size: 'l',
+          text: "How do you want to be contacted about this?",
+          size: "l",
           isPageHeading: true
         }
       },
       hint: {
-        text: 'Select 1 option'
+        text: "Select 1 option"
       },
-      idPrefix: 'user.profile[contact-prefs]',
-      name: 'example',
+      idPrefix: "user.profile[contact-prefs]",
+      name: "example",
       items: getItems()
     },
     options: {
@@ -578,86 +602,86 @@ const fixtures = {
     },
     variants
   },
-  'with conditional content, error message': {
+  "with conditional content, error message": {
     context: {
       fieldset: {
         legend: {
-          text: 'How do you want to be contacted about this?',
-          size: 'l',
+          text: "How do you want to be contacted about this?",
+          size: "l",
           isPageHeading: true
         }
       },
       hint: {
-        text: 'Select 1 option'
+        text: "Select 1 option"
       },
       errorMessage: {
-        text: 'Select how you want to be contacted'
+        text: "Select how you want to be contacted"
       },
-      idPrefix: 'conditional',
-      name: 'example',
+      idPrefix: "conditional",
+      name: "example",
       items: getItems()
     },
     variants
   },
-  'with conditional content, error message (nested)': {
+  "with conditional content, error message (nested)": {
     context: {
       fieldset: {
         legend: {
-          text: 'How do you want to be contacted about this?',
-          size: 'l',
+          text: "How do you want to be contacted about this?",
+          size: "l",
           isPageHeading: true
         }
       },
       hint: {
-        text: 'Select 1 option'
+        text: "Select 1 option"
       },
-      idPrefix: 'conditional',
-      name: 'example',
-      value: 'phone',
+      idPrefix: "conditional",
+      name: "example",
+      value: "phone",
       items: getItems({ invalid: true })
     },
     variants,
     screenshot: {
-      states: ['focus'],
-      selector: '#conditional-2',
-      viewports: ['mobile', 'tablet', 'desktop']
+      states: ["focus"],
+      selector: "#conditional-2",
+      viewports: ["mobile", "tablet", "desktop"]
     }
   },
-  'with nested conditional radios': {
+  "with nested conditional radios": {
     context: {
       fieldset: {
         legend: {
-          text: 'How do you want to be contacted about this?',
-          size: 'l',
+          text: "How do you want to be contacted about this?",
+          size: "l",
           isPageHeading: true
         }
       },
       hint: {
-        text: 'Select 1 option'
+        text: "Select 1 option"
       },
-      idPrefix: 'conditional-nested',
-      name: 'example-outer',
+      idPrefix: "conditional-nested",
+      name: "example-outer",
       items: [
         {
-          value: 'no-conditional',
-          text: 'No conditional'
+          value: "no-conditional",
+          text: "No conditional"
         },
         {
-          value: 'nested',
-          text: 'Nested conditional',
+          value: "nested",
+          text: "Nested conditional",
           conditional: {
-            html: components.render('radios', {
+            html: components.render("radios", {
               context: {
                 fieldset: {
                   legend: {
-                    text: 'How do you want to be contacted about this?',
-                    size: 's'
+                    text: "How do you want to be contacted about this?",
+                    size: "s"
                   }
                 },
                 hint: {
-                  text: 'Select 1 option'
+                  text: "Select 1 option"
                 },
-                name: 'example-inner',
+                name: "example-inner",
                 items: getItems()
               }
             })
@@ -675,35 +699,35 @@ const fixtures = {
  * @returns {object[]}
  */
 function getItems(options = {}) {
-  let input1 = inputExamples['example email address']
-  let input2 = inputExamples['example phone number']
-  let input3 = inputExamples['example mobile phone number']
+  let input1 = inputExamples["example email address"]
+  let input2 = inputExamples["example phone number"]
+  let input3 = inputExamples["example mobile phone number"]
 
   // Include error message example (optional)
   if (options.invalid) {
-    input2 = inputExamples['example phone number with error message']
+    input2 = inputExamples["example phone number with error message"]
   }
 
   return [
     {
-      value: 'email',
-      text: 'Email',
+      value: "email",
+      text: "Email",
       conditional: {
-        html: components.render('input', input1)
+        html: components.render("input", input1)
       }
     },
     {
-      value: 'phone',
-      text: 'Phone',
+      value: "phone",
+      text: "Phone",
       conditional: {
-        html: components.render('input', input2)
+        html: components.render("input", input2)
       }
     },
     {
-      value: 'text',
-      text: 'Text message',
+      value: "text",
+      text: "Text message",
       conditional: {
-        html: components.render('input', input3)
+        html: components.render("input", input3)
       }
     }
   ]

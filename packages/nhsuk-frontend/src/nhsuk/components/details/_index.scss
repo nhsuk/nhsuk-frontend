@@ -34,6 +34,11 @@ $nhsuk-expander-icon-size: 27px; // 19px font size + 4px summary text padding
 
   .nhsuk-details--reverse {
     color: $nhsuk-reverse-text-colour;
+
+    .nhsuk-u-secondary-text-colour {
+      // stylelint-disable-next-line declaration-no-important
+      color: $nhsuk-reverse-secondary-text-colour !important;
+    }
   }
 
   .nhsuk-details__summary {
@@ -49,7 +54,7 @@ $nhsuk-expander-icon-size: 27px; // 19px font size + 4px summary text padding
     .nhsuk-details {
       margin-top: nhsuk-spacing(2);
       padding: nhsuk-spacing(3) 0;
-      padding-left: nhsuk-px-to-rem(nhsuk-spacing(4) - $nhsuk-border-width); // [5]
+      padding-left: nhsuk-spacing(4, $adjustment: - $nhsuk-border-width, $unit: "rem"); // [5]
       border-left: $nhsuk-border-width solid $nhsuk-secondary-border-colour;
     }
 
@@ -76,7 +81,7 @@ $nhsuk-expander-icon-size: 27px; // 19px font size + 4px summary text padding
     .nhsuk-details__summary {
       position: relative; // [2]
       width: fit-content; // [1]
-      padding-left: nhsuk-px-to-rem(nhsuk-spacing(4));
+      padding-left: nhsuk-spacing(4, $unit: "rem");
       text-decoration: none;
       cursor: pointer;
 
@@ -121,6 +126,13 @@ $nhsuk-expander-icon-size: 27px; // 19px font size + 4px summary text padding
       margin-bottom: 0;
     }
 
+    .nhsuk-details__summary:hover,
+    .nhsuk-details__summary:focus {
+      & .nhsuk-details__summary-text {
+        text-decoration: none;
+      }
+    }
+
     .nhsuk-details__summary:hover {
       &::before,
       & .nhsuk-details__summary-text {
@@ -163,7 +175,7 @@ $nhsuk-expander-icon-size: 27px; // 19px font size + 4px summary text padding
       margin-top: nhsuk-spacing(2);
       padding: nhsuk-spacing(3) 0;
       padding-right: 0;
-      padding-left: nhsuk-px-to-rem(nhsuk-spacing(4) - $nhsuk-border-width); // [5]
+      padding-left: nhsuk-spacing(4, $adjustment: - $nhsuk-border-width, $unit: "rem"); // [5]
       border-left: $nhsuk-border-width solid $nhsuk-secondary-border-colour;
 
       .nhsuk-details--reverse & {
@@ -206,18 +218,12 @@ $nhsuk-expander-icon-size: 27px; // 19px font size + 4px summary text padding
 
     .nhsuk-details__summary {
       display: block;
-
       width: auto;
-      padding: nhsuk-spacing(4);
-
       border: $nhsuk-expander-border-width solid $nhsuk-expander-border-colour;
       border-bottom: $nhsuk-expander-border-bottom-width solid $nhsuk-expander-border-colour;
-
       background-color: $nhsuk-card-background-colour;
 
-      @include nhsuk-media-query($from: tablet) {
-        padding: nhsuk-spacing(5);
-      }
+      @include nhsuk-responsive-padding(5);
     }
 
     .nhsuk-details__summary:hover,
@@ -234,13 +240,11 @@ $nhsuk-expander-icon-size: 27px; // 19px font size + 4px summary text padding
     .nhsuk-details__text {
       margin-top: 0;
       margin-left: 0;
+      padding-top: 0;
       border: $nhsuk-expander-border-width solid $nhsuk-expander-border-colour;
       border-top: 0;
 
-      @include nhsuk-responsive-padding(5, "bottom");
-      @include nhsuk-responsive-padding(5, "left");
-      @include nhsuk-responsive-padding(5, "right");
-      @include nhsuk-responsive-padding(0, "top");
+      @include nhsuk-responsive-padding(5, ("bottom", "left", "right"));
     }
 
     // Hack to support Internet Explorer 11
@@ -261,13 +265,7 @@ $nhsuk-expander-icon-size: 27px; // 19px font size + 4px summary text padding
       border-bottom-width: $nhsuk-expander-border-bottom-width;
 
       .nhsuk-details__summary {
-        padding-bottom: nhsuk-spacing(4);
-      }
-
-      @include nhsuk-media-query($from: tablet) {
-        .nhsuk-details__summary {
-          padding-bottom: nhsuk-spacing(5);
-        }
+        @include nhsuk-responsive-padding(5, "bottom");
       }
 
       .nhsuk-details__summary::before,
@@ -284,7 +282,7 @@ $nhsuk-expander-icon-size: 27px; // 19px font size + 4px summary text padding
         display: inline-block;
         position: relative;
         padding: nhsuk-spacing(1);
-        padding-left: $nhsuk-expander-icon-size + nhsuk-spacing(2);
+        padding-left: nhsuk-spacing(2, $adjustment: $nhsuk-expander-icon-size);
         cursor: pointer;
       }
 
@@ -325,7 +323,7 @@ $nhsuk-expander-icon-size: 27px; // 19px font size + 4px summary text padding
       // replacing fixed pixel sizes with rems for text-only zooming
       @supports (clip-path: shape(from 0% 0%, line to 100% 100%)) {
         .nhsuk-details__summary-text {
-          padding-left: nhsuk-px-to-rem($nhsuk-expander-icon-size + nhsuk-spacing(2));
+          padding-left: nhsuk-spacing(2, $adjustment: $nhsuk-expander-icon-size, $unit: "rem");
         }
 
         .nhsuk-details__summary-text::before {
@@ -400,7 +398,7 @@ $nhsuk-expander-icon-size: 27px; // 19px font size + 4px summary text padding
     }
   }
 
-  .nhsuk-details + h2,
+  .nhsuk-details + h2:not([class^="nhsuk-caption"]),
   .nhsuk-details + .nhsuk-heading-l {
     @include nhsuk-responsive-padding(4, "top");
   }

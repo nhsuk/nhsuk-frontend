@@ -1,8 +1,8 @@
 {% extends "layouts/example.njk" %}
 
-{% set heading = "Task list" %}
+{% set title = "Task list" %}
 {% set caption = "Multiple sections" %}
-{% set pageName = heading ~ " – " ~ caption %}
+{% set pageName = title ~ " – " ~ caption %}
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 
 {% block beforeContent %}
@@ -23,10 +23,26 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-heading-xl">{{ heading }} <span class="nhsuk-caption-xl nhsuk-caption--bottom">{{ caption }}</span></h1>
+      {{ heading({
+        text: title,
+        caption: {
+          text: caption,
+          placement: "end"
+        },
+        size: "xl"
+      }) }}
 
-      <h2 class="nhsuk-heading-l">Your service</h2>
-      <h3 class="nhsuk-heading-m">Check before you start</h3>
+      {{ heading({
+        text: "Your service",
+        size: "l",
+        level: 2
+      }) }}
+
+      {{ heading({
+        text: "Check before you start",
+        size: "m",
+        level: 3
+      }) }}
 
       {{ taskList({
         idPrefix: "before-you-start",
@@ -56,7 +72,11 @@
         ]
       }) }}
 
-      <h3 class="nhsuk-heading-m">Prepare application</h3>
+      {{ heading({
+        text: "Prepare application",
+        size: "m",
+        level: 3
+      }) }}
 
       {{ taskList({
         idPrefix: "your-health",

@@ -28,8 +28,12 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       {{ errorSummary({
-        titleText: "There is a problem",
-        descriptionText: "Describe the errors and how to correct them",
+        heading: {
+          text: "There is a problem"
+        },
+        description: {
+          text: "Describe the errors and how to correct them"
+        },
         errorList: [
           {
             text: "Enter your NHS number",
@@ -59,13 +63,11 @@
           {
             href: "#",
             text: "Getting diagnosed"
-          }
-          ,
+          },
           {
             href: "#",
             text: "Treatments"
-          }
-          ,
+          },
           {
             href: "#",
             text: "Living with AMD"
@@ -79,8 +81,10 @@
       {{ card({
         href: "#",
         clickable: "true",
-        heading: "Introduction to care and support",
-        headingClasses: "nhsuk-heading-m",
+        heading: {
+          text: "Introduction to care and support",
+          size: "m"
+        },
         description: "A quick guide for people who have care and support needs and their carers."
       }) }}
     </li>
@@ -88,8 +92,10 @@
       {{ card({
         href: "#",
         clickable: "true",
-        heading: "Help from social services and charities",
-        headingClasses: "nhsuk-heading-m",
+        heading: {
+          text: "Help from social services and charities",
+          size: "m"
+        },
         description: "Includes helplines, needs assessments, advocacy and reporting abuse."
       }) }}
     </li>
@@ -97,8 +103,10 @@
       {{ card({
         href: "#",
         clickable: "true",
-        heading: "Money, work and benefits",
-        headingClasses: "nhsuk-heading-m",
+        heading: {
+          text: "Money, work and benefits",
+          size: "m"
+        },
         description: "How to pay for care and support, and where you can get help with costs."
       }) }}
     </li>
@@ -106,8 +114,10 @@
       {{ card({
         href: "#",
         clickable: "true",
-        heading: "Care after a hospital stay",
-        headingClasses: "nhsuk-heading-m",
+        heading: {
+          text: "Care after a hospital stay",
+          size: "m"
+        },
         description: "Includes hospital discharge and care and support afterwards."
       }) }}
     </li>
@@ -118,8 +128,10 @@
       {{ card({
         href: "#",
         clickable: "true",
-        heading: "5 steps to mental wellbeing",
-        headingClasses: "nhsuk-heading-m",
+        heading: {
+          text: "5 steps to mental wellbeing",
+          size: "m"
+        },
         description: "Practical advice to help you feel mentally and emotionally better."
       }) }}
     </li>
@@ -127,8 +139,10 @@
       {{ card({
         href: "#",
         clickable: "true",
-        heading: "Healthy weight",
-        headingClasses: "nhsuk-heading-m",
+        heading: {
+          text: "Healthy weight",
+          size: "m"
+        },
         description: "Check your BMI using our healthy weight calculator and find out if you're a healthy weight."
       }) }}
     </li>
@@ -136,8 +150,10 @@
       {{ card({
         href: "#",
         clickable: "true",
-        heading: "Exercise",
-        headingClasses: "nhsuk-heading-m",
+        heading: {
+          text: "Exercise",
+          size: "m"
+        },
         description: "Programmes, workouts and tips to get you moving and improve your fitness and wellbeing."
       }) }}
     </li>
@@ -147,25 +163,33 @@
     <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
       {{ card({
         clickable: "true",
-        headingHtml: '<p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">91 <span class="nhsuk-u-visually-hidden">Applicants</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Applicants</a>'
+        heading: {
+          html: '<p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">91 <span class="nhsuk-u-visually-hidden">Applicants</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Applicants</a>'
+        }
       }) }}
     </li>
     <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
       {{ card({
         clickable: "true",
-        headingHtml: '<p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">23 <span class="nhsuk-u-visually-hidden">Jobs</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Jobs</a>'
+        heading: {
+          html: '<p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">23 <span class="nhsuk-u-visually-hidden">Jobs</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Jobs</a>'
+        }
       }) }}
     </li>
     <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
       {{ card({
         clickable: "true",
-        headingHtml: '<p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">8 <span class="nhsuk-u-visually-hidden">Services</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Services</a>'
+        heading: {
+          html: '<p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">8 <span class="nhsuk-u-visually-hidden">Services</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Services</a>'
+        }
       }) }}
     </li>
     <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
       {{ card({
         clickable: "true",
-        headingHtml: '<p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">33 <span class="nhsuk-u-visually-hidden">Messages</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Messages</a>'
+        heading: {
+          html: '<p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">33 <span class="nhsuk-u-visually-hidden">Messages</span></p><a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Messages</a>'
+        }
       }) }}
     </li>
   </ul>
@@ -173,8 +197,10 @@
     <div class="nhsuk-grid-column-two-thirds">
 
       {% call card({
-        heading: "If you need help now, but it's not an emergency",
-        headingLevel: "3"
+        heading: {
+          text: "If you need help now, but it's not an emergency",
+          level: 3
+        }
       }) %}
         <p class="nhsuk-card__description">Go to <a href="#">NHS 111 online</a> or <a href="#">call 111</a>.</p>
       {% endcall %}
@@ -182,26 +208,32 @@
       {{ card({
         href: "#",
         clickable: "true",
-        heading: "Introduction to care and support",
-        headingClasses: "nhsuk-heading-m",
+        heading: {
+          text: "Introduction to care and support",
+          size: "m"
+        },
         description: "A quick guide for people who have care and support needs and their carers."
       }) }}
 
       {{ card({
         image: {
-          src: "https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg"
+          src: "/nhsuk-frontend/assets/example-image-exercise.jpg"
         },
         href: "#",
         clickable: "true",
-        heading: "Exercise",
-        headingClasses: "nhsuk-heading-m",
+        heading: {
+          text: "Exercise",
+          size: "m"
+        },
         description: "Programmes, workouts and tips to get you moving and improve your fitness and wellbeing."
       }) }}
 
       {{ card({
         feature: "true",
-        heading: "Feature card heading",
-        headingClasses: "nhsuk-heading-m",
+        heading: {
+          text: "Feature card heading",
+          size: "m"
+        },
         description: "Feature card description"
       }) }}
 
@@ -229,18 +261,24 @@
       {% endcall %}
 
       {{ warningCallout({
-        heading: "Important",
+        heading: {
+          text: "Important"
+        },
         text: "For safety, tell your doctor or pharmacist if you're taking any other medicines, including herbal medicines, vitamins or supplements."
       }) }}
 
       {{ warningCallout({
-        heading: "School, nursery or work",
+        heading: {
+          text: "School, nursery or work"
+        },
         text: "Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared."
       }) }}
 
       {% call card({
-        heading: "Speak to a GP if:",
-        headingLevel: 3,
+        heading: {
+          text: "Speak to a GP if:",
+          level: 3
+        },
         variant: "non-urgent"
       }) %}
         <ul>
@@ -253,8 +291,10 @@
       {% endcall %}
 
       {% call card({
-        heading: "Ask for an urgent GP appointment if:",
-        headingLevel: 3,
+        heading: {
+          text: "Ask for an urgent GP appointment if:",
+          level: 3
+        },
         variant: "urgent"
       }) %}
         <ul>
@@ -267,8 +307,10 @@
       {% endcall %}
 
       {% call card({
-        heading: "Call 999 if you have sudden chest pain that:",
-        headingLevel: 3,
+        heading: {
+          text: "Call 999 if you have sudden chest pain that:",
+          level: 3
+        },
         variant: "emergency"
       }) %}
         <ul>
@@ -280,15 +322,30 @@
       {% endcall %}
 
       {{ image({
-        alt: "Picture of allergic conjunctivitis",
-        src: "https://assets.nhs.uk/prod/images/ABF9YH_GDGeL2X.2e16d0ba.fill-320x213.jpg",
-        caption: "Itchy, red, watering eyes"
+        src: "/nhsuk-frontend/assets/example-image-stretch-marks-1000w.jpg",
+        alt: "Close-up of a person's tummy showing a number of creases in the skin under their belly button. Shown on light brown skin.",
+        width: "one-half",
+        caption: {
+          text: "Stretch marks can be pink, red, brown, black, silver or purple. They usually start off darker and fade over time."
+        }
       }) }}
 
       {{ image({
-        alt: "Picture of allergic conjunctivitis",
-        src: "https://assets.nhs.uk/prod/images/ABF9YH_GDGeL2X.2e16d0ba.fill-320x213.jpg",
-        caption: "Itchy, red, watering eyes"
+        src: "/nhsuk-frontend/assets/example-image-stretch-marks-1000w.jpg",
+        alt: "Close-up of a person's tummy showing a number of creases in the skin under their belly button. Shown on light brown skin.",
+        width: "two-thirds",
+        caption: {
+          text: "Stretch marks can be pink, red, brown, black, silver or purple. They usually start off darker and fade over time."
+        }
+      }) }}
+
+      {{ image({
+        src: "/nhsuk-frontend/assets/example-image-stretch-marks-1000w.jpg",
+        alt: "Close-up of a person's tummy showing a number of creases in the skin under their belly button. Shown on light brown skin.",
+        width: "three-quarters",
+        caption: {
+          text: "Stretch marks can be pink, red, brown, black, silver or purple. They usually start off darker and fade over time."
+        }
       }) }}
 
       {{ actionLink({
@@ -297,7 +354,7 @@
       }) }}
 
       {% call details({
-        summaryText: "How to find your NHS number"
+        summary: "How to find your NHS number"
       }) %}
         <p>An NHS number is a 10 digit number, like <span class="nhsuk-u-nowrap">999 123 4567</span>.</p>
         <p>You can find your NHS number by logging in to the NHS App or on any document the NHS has sent you, such as your:</p>
@@ -311,7 +368,7 @@
       {% endcall %}
 
       {% call details({
-        summaryText: "Opening times",
+        summary: "Opening times",
         classes: "nhsuk-expander"
       }) %}
         {{ table({
@@ -387,7 +444,7 @@
 
       <div class="nhsuk-expander-group">
         {% call details({
-          summaryText: "How to measure your blood glucose levels",
+          summary: "How to measure your blood glucose levels",
           classes: "nhsuk-expander"
         }) %}
           <p>Testing your blood at home is quick and easy, although it can be uncomfortable. It does get better.</p>
@@ -401,7 +458,7 @@
         {% endcall %}
 
         {% call details({
-          summaryText: "When to check your blood glucose level",
+          summary: "When to check your blood glucose level",
           classes: "nhsuk-expander"
         }) %}
           <p>Try to check your blood:</p>
@@ -416,11 +473,11 @@
 
       {{ pagination({
         previous: {
-          labelText: "Treatments",
+          label: "Treatments",
           href: "#"
         },
         next: {
-          labelText: "Symptoms",
+          label: "Symptoms",
           href: "#"
         }
       }) }}
@@ -507,10 +564,19 @@
       }) }}
 
       {{ table({
-        panel: false,
-        heading: "Skin symptoms and possible causes",
-        caption: "Skin symptoms and possible causes",
-        firstCellIsHeader: false,
+        card: {
+          heading: {
+            text: "Other conditions like impetigo",
+            size: "m"
+          },
+          variant: "feature"
+        },
+        caption: {
+          text: "Impetigo can look similar to other skin conditions",
+          size: "s"
+        },
+        firstCellIsHeader: true,
+        lastRowBorder: false,
         head: [
           {
             text: "Skin symptoms"
@@ -548,10 +614,19 @@
       }) }}
 
       {{ table({
-        panel: true,
-        heading: "Skin symptoms and possible causes",
-        caption: "Skin symptoms and possible causes",
-        firstCellIsHeader: false,
+        card: {
+          heading: {
+            text: "Other conditions like impetigo",
+            size: "m"
+          },
+          variant: "feature"
+        },
+        caption: {
+          text: "Impetigo can look similar to other skin conditions",
+          size: "s"
+        },
+        firstCellIsHeader: true,
+        lastRowBorder: false,
         head: [
           {
             text: "Skin symptoms"
@@ -667,6 +742,64 @@
         ]
       }) }}
 
+      {% call summaryList({
+        lastRowBorder: false
+      }) %}
+        {{ summaryListRow({
+          key: {
+            text: "Name"
+          },
+          value: {
+            text: "Sarah Philips"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "name"
+              }
+            ]
+          }
+        }) }}
+
+        {{ summaryListRow({
+          key: {
+            text: "Date of birth"
+          },
+          value: {
+            text: "5 January 1978"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "date of birth"
+              }
+            ]
+          }
+        }) }}
+
+        {{ summaryListRow({
+          key: {
+            text: "Contact information"
+          },
+          value: {
+            html: "72 Guild Street<br>London<br>SE23 6FH"
+          }
+        }) }}
+
+        {{ summaryListRow({
+          key: {
+            text: "Contact details"
+          },
+          value: {
+            html: "<p>07700 900457</p><p>sarah.philips@example.com</p>"
+          }
+        }) }}
+      {% endcall %}
+
       {{ summaryList({
         border: false,
         rows: [
@@ -709,11 +842,11 @@
         head: [
           {
             text: "Class name",
-            classes: "nhsuk-u-width-two-thirds"
+            width: "two-thirds"
           },
           {
             text: "Tag",
-            classes: "nhsuk-u-width-one-third"
+            width: "one-third"
           }
         ],
         rows: [

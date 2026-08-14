@@ -65,7 +65,7 @@ For example, use the `text` option to configure the text on [buttons](https://se
 
 To see the options for a component, go to [any component page](https://service-manual.nhs.uk/design-system/components) on the design system in the NHS digital service manual, select the **Nunjucks** tab of an example, then select **Nunjucks macro options**.
 
-You must sanitise any HTML you pass in to Nunjucks macros you're using in your live application to protect your website against cross-site scripting (XSS) attacks. You can read more about [XSS](https://developer.mozilla.org/en-US/docs/Web/Security/Attacks/XSS) on the MDN website.
+You must sanitise any HTML you pass in to Nunjucks macros you're using in your live application to protect your website against cross-site scripting (XSS) attacks. You can read more about [XSS](https://developer.mozilla.org/en-US/docs/Web/Security/Attacks/XSS).
 
 ## Thanks to the Government Digital Service (GDS)
 

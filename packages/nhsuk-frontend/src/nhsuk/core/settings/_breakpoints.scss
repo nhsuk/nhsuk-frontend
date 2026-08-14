@@ -1,5 +1,6 @@
 @use "sass:map";
 @use "sass:meta";
+@use "warnings" as *;
 
 ////
 /// @group settings/layout
@@ -15,19 +16,3 @@ $nhsuk-breakpoints: (
   desktop: 769px,
   large-desktop: 990px
 ) !default;
-
-/// Show active breakpoint in top-right corner.
-///
-/// Only use this during local development.
-///
-/// @type List
-
-$nhsuk-show-breakpoints: () !default;
-
-@if meta.type-of($nhsuk-show-breakpoints) == "bool" {
-  @if $nhsuk-show-breakpoints {
-    $nhsuk-show-breakpoints: map.keys($nhsuk-breakpoints);
-  } @else {
-    $nhsuk-show-breakpoints: ();
-  }
-}

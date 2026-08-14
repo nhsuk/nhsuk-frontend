@@ -1,8 +1,6 @@
 {% extends "layouts/example.njk" %}
 
-{% set heading = "Error summary" %}
-{% set caption = "Link to an input field" %}
-{% set pageName = heading ~ " – " ~ caption %}
+{% set pageName = "Error summary – Link to an input field" %}
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 
 {% block beforeContent %}
@@ -27,7 +25,9 @@
       <form action="/" method="post" style="margin-bottom: 100vh;">
 
         {{ errorSummary({
-          titleText: "There is a problem",
+          heading: {
+            text: "There is a problem"
+          },
           classes: "optional-extra-class",
           errorList: [
             {

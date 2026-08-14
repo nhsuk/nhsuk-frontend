@@ -1,6 +1,6 @@
-import { outdent } from 'outdent'
+import { outdent } from "outdent"
 
-import { components } from '#lib'
+import { components } from "#lib"
 
 /**
  * Nunjucks macro option examples
@@ -8,29 +8,49 @@ import { components } from '#lib'
  * @satisfies {{ [example: string]: MacroExample }}
  */
 const fixtures = {
-  'default': {
+  "default": {
     context: {
-      titleText: 'Booking complete',
-      text: 'We have sent you a confirmation email'
+      heading: {
+        text: "Booking complete"
+      },
+      text: "We have sent you a confirmation email"
     },
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
+      viewports: ["mobile", "tablet", "desktop"]
     }
   },
-  'interruption': {
+  "with HTML": {
     context: {
-      titleText: 'Jodie Brown had a COVID-19 vaccine less than 3 months ago',
-      titleSize: 'l',
-      variant: 'interruption',
+      heading: {
+        text: "Booking complete"
+      },
+      html: "We have sent you a confirmation email"
+    }
+  },
+  "with HTML via call block": {
+    context: {
+      heading: {
+        text: "Booking complete"
+      }
+    },
+    callBlock: "We have sent you a confirmation email"
+  },
+  "interruption": {
+    context: {
+      heading: {
+        text: "Jodie Brown had a COVID-19 vaccine less than 3 months ago",
+        size: "l"
+      },
+      variant: "interruption",
       html: outdent`
         <p>They had a COVID-19 vaccine on 25 September 2025.</p>
         <p>For most people, the minimum recommended gap between COVID-19 vaccine doses is 3 months.</p>
         <div class="nhsuk-button-group">
-          ${components.render('button', {
+          ${components.render("button", {
             context: {
-              text: 'Continue anyway',
-              variant: 'reverse',
-              href: '#'
+              text: "Continue anyway",
+              variant: "reverse",
+              href: "#"
             }
           })}
           <a href="#">Cancel</a>
@@ -38,23 +58,25 @@ const fixtures = {
       `
     },
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
+      viewports: ["mobile", "tablet", "desktop"]
     }
   },
-  'interruption for confirmation to cancel': {
+  "interruption for confirmation to cancel": {
     context: {
-      titleText: 'Confirm you want to cancel your hospital appointment',
-      titleSize: 'l',
-      variant: 'interruption',
+      heading: {
+        text: "Confirm you want to cancel your hospital appointment",
+        size: "l"
+      },
+      variant: "interruption",
       html: outdent`
         <p>You will be able to reschedule your appointment for another time, but this may delay your treatment.</p>
         <p>Cancelling your appointment cannot be undone.</p>
         <div class="nhsuk-button-group">
-          ${components.render('button', {
+          ${components.render("button", {
             context: {
-              text: 'Cancel appointment',
-              variant: 'reverse',
-              href: '#'
+              text: "Cancel appointment",
+              variant: "reverse",
+              href: "#"
             }
           })}
           <a href="#">Change my weight</a>
@@ -62,19 +84,21 @@ const fixtures = {
       `
     }
   },
-  'interruption for confirmation to continue': {
+  "interruption for confirmation to continue": {
     context: {
-      titleText: 'Is your weight correct?',
-      titleSize: 'l',
-      variant: 'interruption',
+      heading: {
+        text: "Is your weight correct?",
+        size: "l"
+      },
+      variant: "interruption",
       html: outdent`
         <p>You entered your weight as <b>21.4 kilograms</b>. This is lower than expected.</p>
         <div class="nhsuk-button-group">
-          ${components.render('button', {
+          ${components.render("button", {
             context: {
-              text: 'Yes, this is correct',
-              variant: 'reverse',
-              href: '#'
+              text: "Yes, this is correct",
+              variant: "reverse",
+              href: "#"
             }
           })}
           <a href="#">Change my weight</a>
@@ -82,39 +106,49 @@ const fixtures = {
       `
     }
   },
-  'title': {
+  "title": {
     context: {
-      titleText: 'Booking complete',
-      titleSize: 'l',
-      text: 'We have sent you a confirmation email'
+      heading: {
+        text: "Booking complete",
+        size: "l"
+      },
+      text: "We have sent you a confirmation email"
     },
     variants: [
       {
-        description: 'with size M',
+        description: "with size M",
         context: {
-          titleSize: 'm'
+          heading: {
+            size: "m"
+          }
         }
       },
       {
-        description: 'with size L',
+        description: "with size L",
         context: {
-          titleSize: 'l'
+          heading: {
+            size: "l"
+          }
         }
       },
       {
-        description: 'with size XL',
+        description: "with size XL",
         context: {
-          titleSize: 'xl'
+          heading: {
+            size: "xl"
+          }
         }
       }
     ]
   },
-  'with title classes and heading level': {
+  "with title classes and heading level": {
     context: {
-      titleText: 'Booking complete',
-      titleClasses: 'nhsuk-panel__title--l',
-      text: 'We have sent you a confirmation email',
-      headingLevel: 2
+      heading: {
+        text: "Booking complete",
+        level: 2,
+        classes: "nhsuk-panel__title--l"
+      },
+      text: "We have sent you a confirmation email"
     }
   }
 }

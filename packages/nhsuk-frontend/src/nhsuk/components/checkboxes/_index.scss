@@ -36,14 +36,35 @@ $nhsuk-checkboxes-offset: $nhsuk-border-width-form-element;
     position: relative;
     flex-wrap: wrap;
     margin-top: nhsuk-spacing(2) - $nhsuk-checkboxes-offset;
-
-    .nhsuk-checkboxes__conditional:not(.nhsuk-checkboxes__conditional--hidden) + & {
-      @include nhsuk-responsive-margin(4, "top", $adjustment: - $nhsuk-checkboxes-offset);
-    }
   }
 
   .nhsuk-checkboxes__item:first-child {
     margin-top: 0;
+  }
+
+  // Add default margin to items that follow conditionally revealing content
+  .nhsuk-checkboxes__conditional + .nhsuk-checkboxes__item,
+  .nhsuk-checkboxes--small .nhsuk-checkboxes__conditional + .nhsuk-checkboxes__item {
+    @include nhsuk-responsive-margin(4, "top", $adjustment: - $nhsuk-checkboxes-offset);
+  }
+
+  // Remove margin from items that follow conditionally revealing content,
+  // but only apply when JavaScript is supported and the content is hidden
+  .nhsuk-checkboxes__conditional--hidden + .nhsuk-checkboxes__item {
+    @include nhsuk-frontend-supported {
+      margin-top: nhsuk-spacing(2) - $nhsuk-checkboxes-offset;
+    }
+  }
+
+  // Remove margin from items that follow hidden "all" options or dividers,
+  // but only apply when JavaScript is **not** supported
+  .nhsuk-checkboxes__item.nhsuk-u-frontend-not-supported-hidden:first-child {
+    @include nhsuk-frontend-not-supported {
+      + .nhsuk-checkboxes__item,
+      + .nhsuk-u-frontend-not-supported-hidden + .nhsuk-checkboxes__item {
+        margin-top: 0;
+      }
+    }
   }
 
   .nhsuk-checkboxes__input {
@@ -100,6 +121,9 @@ $nhsuk-checkboxes-offset: $nhsuk-border-width-form-element;
   // The check mark is a box with a border on the left and bottom side (└──),
   // rotated 45 degrees
   .nhsuk-checkboxes__label::after {
+    $check-mark-width: nhsuk-px-to-rem(22px);
+    $check-mark-height: nhsuk-px-to-rem(10px);
+
     content: "";
 
     box-sizing: border-box;
@@ -108,13 +132,13 @@ $nhsuk-checkboxes-offset: $nhsuk-border-width-form-element;
 
     // Use "magic numbers" to define shape and position of check mark because
     // the complexity of the shape makes it difficult to calculate dynamically.
-    top: nhsuk-px-to-rem(15px);
-    left: nhsuk-px-to-rem(12px);
+    top: $check-mark-height;
+    left: $check-mark-width + nhsuk-px-to-rem(1px);
 
-    width: nhsuk-px-to-rem(22px);
-    height: nhsuk-px-to-rem(10px);
+    width: $check-mark-width;
+    height: $check-mark-height;
 
-    transform: rotate(-45deg);
+    transform: rotate(-45deg) translate(-50%, -50%);
 
     border: solid;
     border-width: 0 0 nhsuk-px-to-rem(4px) nhsuk-px-to-rem(4px);
@@ -168,7 +192,7 @@ $nhsuk-checkboxes-offset: $nhsuk-border-width-form-element;
   // =========================================================
 
   .nhsuk-checkboxes--inline {
-    @include nhsuk-media-query($from: tablet) {
+    @media #{nhsuk-from-breakpoint(tablet)} {
       display: flex;
       flex-wrap: wrap;
       align-items: flex-start;
@@ -217,8 +241,10 @@ $nhsuk-checkboxes-offset: $nhsuk-border-width-form-element;
     border-left: nhsuk-px-to-rem($nhsuk-border-width) solid $nhsuk-secondary-border-colour;
   }
 
-  .nhsuk-frontend-supported .nhsuk-checkboxes__conditional--hidden {
-    display: none;
+  .nhsuk-checkboxes__conditional--hidden {
+    @include nhsuk-frontend-supported {
+      display: none;
+    }
   }
 
   // =========================================================
@@ -230,6 +256,14 @@ $nhsuk-checkboxes-offset: $nhsuk-border-width-form-element;
 
     .nhsuk-checkboxes__item {
       margin-top: 0;
+    }
+
+    // Remove margin from items that follow conditionally revealing content,
+    // but only apply when JavaScript is supported and the content is hidden
+    .nhsuk-checkboxes__conditional--hidden + .nhsuk-checkboxes__item {
+      @include nhsuk-frontend-supported {
+        margin-top: 0;
+      }
     }
 
     // Shift the touch target into the left margin so that the visible edge of
@@ -268,10 +302,13 @@ $nhsuk-checkboxes-offset: $nhsuk-border-width-form-element;
     //
     // Reduce the size of the check mark and re-align within the checkbox
     .nhsuk-checkboxes__label::after {
-      top: nhsuk-px-to-rem(18px);
-      left: nhsuk-px-to-rem(8px);
-      width: nhsuk-px-to-rem(12px);
-      height: nhsuk-px-to-rem(6px);
+      $check-mark-width: nhsuk-px-to-rem(12px);
+      $check-mark-height: nhsuk-px-to-rem(6px);
+
+      top: $check-mark-height + $input-offset - nhsuk-px-to-rem(0.5px);
+      left: $check-mark-width + nhsuk-px-to-rem($nhsuk-checkboxes-offset + 1px);
+      width: $check-mark-width;
+      height: $check-mark-height;
       border-width: 0 0 nhsuk-px-to-rem(3px) nhsuk-px-to-rem(3px);
     }
 
