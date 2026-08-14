@@ -625,6 +625,18 @@ const fixtures = {
       viewports: ["desktop"]
     }
   },
+  "with service name (linked with logo, empty)": {
+    context: {
+      service: {
+        text: null,
+        href: "#"
+      }
+    },
+    options: {
+      hidden: true,
+      width: false
+    }
+  },
   "with service name (linked and long), search": {
     context: {
       logo: {
