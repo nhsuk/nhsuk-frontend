@@ -45,7 +45,7 @@
 {#- The NHS logo and service name are combined into a single link if either
     the logo doesn’t have an `href` set but the service name does, or if both
     have an exact `href`. This avoids having 2 links to same destination. -#}
-{%- set combineLogoAndServiceNameLinks = (params.service.href and not (params.logo.href)) or (params.service.href and (params.service.href == params.logo.href)) %}
+{%- set combineLogoAndServiceNameLinks = params.service.text | length and (params.service.href and not params.logo.href) or (params.service.href and (params.service.href == params.logo.href)) %}
 
 {%- set logoAlt = params.logo.alt | default("NHS") %}
 {%- set logoHref = params.service.href if combineLogoAndServiceNameLinks else params.logo.href %}
@@ -68,11 +68,11 @@
 {% endmacro %}
 
 {%- macro _serviceName(text, href) %}
-{% if href -%}
+{% if text and href -%}
 <a class="nhsuk-header__service-name" href="{{ href }}">
   {{- text | trim -}}
 </a>
-{% else -%}
+{% elif text -%}
 <span class="nhsuk-header__service-name">
   {{- text | trim -}}
 </span>
