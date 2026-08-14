@@ -61,7 +61,7 @@
   "devDependencies": {
     "@prettier/sync": "^0.6.1",
     "autoprefixer": "^10.5.4",
-    "cssnano": "^8.0.2",
+    "cssnano": "^8.0.4",
     "del-cli": "^7.0.0",
     "gulp-zip": "^6.1.0",
     "highlight.js": "^11.11.1",
