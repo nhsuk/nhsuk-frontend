@@ -117,19 +117,6 @@
   }
 }
 
-/// White link styles (deprecated)
-///
-/// @alias nhsuk-link-style-reverse
-/// @deprecated To be removed in v11.0, replaced by nhsuk-link-style-reverse
-
-@mixin nhsuk-link-style-white {
-  @include nhsuk-warning(
-    "nhsuk-link-style-white",
-    "nhsuk-link-style-white is deprecated. Use nhsuk-link-style-reverse instead."
-  );
-  @include nhsuk-link-style-reverse;
-}
-
 /// Default link visited only styling
 ///
 /// @param {Colour} $link-visited-colour [$nhsuk-link-visited-colour] - Link visited colour
@@ -145,6 +132,22 @@
     @media screen and (forced-colors: active), (-ms-high-contrast: active) {
       color: VisitedText;
     }
+  }
+
+  // Work around SVGs not inheriting color from `:visited` links in Safari
+  // (https://bugs.webkit.org/show_bug.cgi?id=244025)
+  &:visited .nhsuk-icon {
+    fill: $link-visited-colour;
+
+    @supports (forced-color-adjust: auto) {
+      fill: currentcolor;
+    }
+  }
+
+  &:focus .nhsuk-icon,
+  &:hover .nhsuk-icon,
+  &:active .nhsuk-icon {
+    fill: currentcolor;
   }
 }
 

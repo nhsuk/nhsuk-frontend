@@ -1,11 +1,17 @@
-{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
-{% from "nhsuk/macros/i18n.njk" import nhsukI18nAttributes %}
 {% from "nhsuk/components/textarea/macro.njk" import textarea %}
 {% from "nhsuk/components/hint/macro.njk" import hint %}
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/i18n.njk" import nhsukI18nAttributes %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-js-character-count" -%}
 {%- set classNamesFormGroup = "nhsuk-character-count" -%}
+
+{#- Support label as string #}
+{%- set labelOptions = params.label if params.label is mapping and params.label is not escaped else {
+  text: params.label if params.label is string else undefined,
+  html: params.label if params.label is escaped else undefined
+} -%}
 
 {%- if params.classes %}
   {% set classNames = classNames ~ " " ~ params.classes %}
@@ -15,18 +21,13 @@
   {% set classNamesFormGroup = params.formGroup.classes ~ " " ~ classNamesFormGroup %}
 {% endif %}
 
-{%- set countType = params.countType if params.countType
-  else ("words" if params.maxwords) -%}
-
 {#-
   If the limit is set in JavaScript, we won't be able to interpolate the message
-  until JavaScript, so we only set a text if the `maxlength` or `maxwords` options
-  were provided to the macro.
+  until JavaScript, so we only set a text if the `maxlength` option was provided
+  to the macro.
 #}
-{%- set hasNoLimit = (not params.maxwords and not params.maxlength) -%}
-{%- set textareaDescriptionLength = params.maxwords or params.maxlength -%}
-{%- set textareaDescriptionText = params.textareaDescriptionText or "You can enter up to %{count} " ~ ("words" if countType == "words" else "characters") -%}
-{%- set textareaDescriptionTextNoLimit = textareaDescriptionText | replace("%{count}", textareaDescriptionLength) if not hasNoLimit -%}
+{%- set textareaDescriptionText = params.textareaDescriptionText or "You can enter up to %{count} " ~ ("words" if params.countType == "words" else "characters") -%}
+{%- set textareaDescriptionTextNoLimit = textareaDescriptionText | replace("%{count}", params.maxlength) if params.maxlength -%}
 {%- set id = params.id if params.id else params.name -%}
 
 {%- set countMessageHtml %}
@@ -53,27 +54,21 @@
       value: params.maxlength,
       optional: true
     },
-    "data-maxwords": {
-      value: params.maxwords,
-      optional: true
-    },
     "data-threshold": {
       value: params.threshold,
       optional: true
     },
     "data-count-type": {
-      value: countType if countType else false,
+      value: params.countType | default(false),
       optional: true
     }
   }) -}}
 
   {#-
-    Without maxlength or maxwords, we can't guess if the component will count words or characters.
-    We can't guess a default textarea description to be interpolated in JavaScript
-    once the maximum gets configured there.
-    So we only add the attribute if a textarea description was explicitely provided.
+    If the limit is set in JavaScript, only add the attribute if a textarea
+    description was explicitly provided.
   #}
-  {%- if hasNoLimit and params.textareaDescriptionText %}
+  {%- if not params.maxlength and params.textareaDescriptionText %}
     {{- nhsukI18nAttributes({
       key: "textarea-description",
       messages: { other: params.textareaDescriptionText }
@@ -130,14 +125,14 @@
   },
   classes: classNames,
   label: {
-    html: params.label.html,
-    text: params.label.text,
-    id: params.label.id,
-    for: params.label.for | default(id),
-    size: params.label.size,
-    isPageHeading: params.label.isPageHeading,
-    classes: params.label.classes,
-    attributes: params.label.attributes
+    html: labelOptions.html,
+    text: labelOptions.text,
+    id: labelOptions.id,
+    for: labelOptions.for | default(id),
+    size: labelOptions.size,
+    isPageHeading: labelOptions.isPageHeading,
+    classes: labelOptions.classes,
+    attributes: labelOptions.attributes
   },
   hint: params.hint,
   errorMessage: params.errorMessage,

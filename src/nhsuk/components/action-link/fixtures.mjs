@@ -1,3 +1,5 @@
+import { outdent } from "outdent"
+
 /**
  * Nunjucks macro option variants
  *
@@ -8,12 +10,12 @@ export const variants = [
     // Regular variant
   },
   {
-    description: 'reverse',
+    description: "reverse",
     context: {
-      variant: 'reverse'
+      variant: "reverse"
     },
     options: {
-      layout: 'background-blue'
+      layout: "background-blue"
     }
   }
 ]
@@ -24,27 +26,46 @@ export const variants = [
  * @satisfies {{ [example: string]: MacroExample }}
  */
 const fixtures = {
-  'default': {
+  "default": {
     context: {
-      text: 'Find your nearest A&E',
-      href: '#'
+      text: "Find your nearest A&E",
+      href: "#/find"
     },
     variants,
     screenshot: {
-      states: ['focus', 'hover', 'active'],
-      selector: '.nhsuk-action-link'
+      states: ["focus", "hover", "active"],
+      selector: ".nhsuk-action-link"
     }
   },
-  'as a button': {
+  "as a button": {
     context: {
-      text: 'Find your nearest A&E',
-      element: 'button'
+      text: "Find your nearest A&E",
+      type: "submit"
     },
     variants,
     screenshot: {
-      states: ['focus', 'hover', 'active'],
-      selector: '.nhsuk-action-link'
+      states: ["focus", "hover", "active"],
+      selector: ".nhsuk-action-link"
     }
+  },
+  "with HTML": {
+    context: {
+      html: outdent`
+        Start session<br>
+        <span class="nhsuk-u-secondary-text-colour nhsuk-u-font-weight-normal nhsuk-u-font-size-19">(11 cases)</span>
+      `,
+      href: "#/start"
+    },
+    variants
+  },
+  "with HTML via call block": {
+    context: {
+      href: "#/start"
+    },
+    callBlock: outdent`
+      Start session<br>
+      <span class="nhsuk-u-secondary-text-colour nhsuk-u-font-weight-normal nhsuk-u-font-size-19">(11 cases)</span>
+    `
   }
 }
 

@@ -1,4 +1,4 @@
-{% from "nhsuk/macros/attributes.njk" import nhsukAttributes -%}
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-hint" -%}
@@ -9,5 +9,11 @@
 
 <div class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
   {{- nhsukAttributes(params.attributes) }}>
-  {{ params.html | safe | trim | indent(2) if params.html else params.text }}
+{% if caller %}
+  {{- caller() }}
+{% elif params.html %}
+  {{ params.html | safe | trim | indent(2) }}
+{% elif params.text %}
+  {{ params.text | trim | indent(2) }}
+{% endif %}
 </div>

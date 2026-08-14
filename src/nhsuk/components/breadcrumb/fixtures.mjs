@@ -4,107 +4,107 @@
  * @satisfies {{ [example: string]: MacroExample }}
  */
 const fixtures = {
-  'default': {
+  "default": {
     context: {
       items: [
         {
-          href: '#',
-          text: 'Home'
+          href: "#",
+          text: "Home"
         },
         {
-          href: '#',
-          text: 'NHS services'
+          href: "#",
+          text: "NHS services"
         },
         {
-          href: '#',
-          text: 'Hospitals'
+          href: "#",
+          text: "Hospitals"
         }
       ]
     },
     screenshot: true
   },
-  'reverse': {
+  "reverse": {
     context: {
-      variant: 'reverse',
+      variant: "reverse",
       items: [
         {
-          href: '#',
-          text: 'Home'
+          href: "#",
+          text: "Home"
         },
         {
-          href: '#',
-          text: 'NHS services'
+          href: "#",
+          text: "NHS services"
         },
         {
-          href: '#',
-          text: 'Hospitals'
+          href: "#",
+          text: "Hospitals"
         }
       ]
     },
     options: {
-      layout: 'background-blue'
+      layout: "background-blue"
     },
     screenshot: true
   },
-  'with back link as a button': {
+  "with back link as a button": {
     context: {
       items: [
         {
-          href: '#',
-          text: 'Home'
+          href: "#",
+          text: "Home"
         },
         {
-          href: '#',
-          text: 'Search results'
+          href: "#",
+          text: "Search results"
         }
       ],
       backLink: {
-        element: 'button'
+        type: "submit"
       }
     }
   },
-  'with back link custom text': {
+  "with back link custom text": {
     context: {
       items: [
         {
-          href: '#',
-          text: 'Home'
+          href: "#",
+          text: "Home"
         },
         {
-          href: '#',
-          text: 'Advanced search'
+          href: "#",
+          text: "Advanced search"
         }
       ],
       backLink: {
-        text: 'Search results',
-        href: '#'
+        text: "Search results",
+        href: "#"
       }
     }
   },
-  'attributes': {
+  "attributes": {
     context: {
-      id: 'with-attributes',
+      id: "with-attributes",
       items: [
         {
-          href: '#',
-          text: 'Home',
-          attributes: { lang: 'en' }
+          href: "#",
+          text: "Home",
+          attributes: { lang: "en" }
         },
         {
-          href: '#',
-          text: 'NHS services',
-          attributes: { lang: 'en' }
+          href: "#",
+          text: "NHS services",
+          attributes: { lang: "en" }
         },
         {
-          href: '#',
-          text: 'Hospitals',
-          classes: 'example-class-one example-class-two',
-          attributes: { lang: 'en' }
+          href: "#",
+          text: "Hospitals",
+          classes: "example-class-one example-class-two",
+          attributes: { lang: "en" }
         }
       ],
       backLink: {
-        id: 'back-link-with-attributes',
-        attributes: { lang: 'en' }
+        id: "back-link-with-attributes",
+        attributes: { lang: "en" }
       }
     },
     options: {

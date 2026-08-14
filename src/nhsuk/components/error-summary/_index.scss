@@ -14,8 +14,8 @@
 
     @include nhsuk-text-colour;
     @include nhsuk-font($size: 19);
-    @include nhsuk-responsive-padding(4);
     @include nhsuk-responsive-margin(8, "bottom");
+    @include nhsuk-responsive-padding(4);
 
     &:focus {
       border: $nhsuk-focus-width solid $nhsuk-focus-text-colour;

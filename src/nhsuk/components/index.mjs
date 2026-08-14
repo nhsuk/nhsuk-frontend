@@ -8,7 +8,9 @@ export * from './header/header.mjs'
 export * from './notification-banner/notification-banner.mjs'
 export * from './password-input/password-input.mjs'
 export * from './radios/radios.mjs'
+export * from './scroll/scroll.mjs'
 export * from './skip-link/skip-link.mjs'
+export * from './tables/table.mjs'
 export * from './tabs/tabs.mjs'
 
 // Base components

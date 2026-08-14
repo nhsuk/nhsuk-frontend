@@ -1,3 +1,4 @@
+@use "../../core/settings" as *;
 @use "../../core/tools" as *;
 
 ////
@@ -24,6 +25,22 @@
   display: none !important;
 }
 
+@each $name, $value in $nhsuk-breakpoints {
+  @include nhsuk-media-query($until: $name) {
+    .nhsuk-u-display-none-until-#{$name} {
+      display: none !important;
+    }
+  }
+
+  @include nhsuk-media-query($from: $name) {
+    .nhsuk-u-display-none-from-#{$name} {
+      display: none !important;
+    }
+  }
+}
+
 .nhsuk-u-display-none-print {
-  @include nhsuk-print-hide($important: true);
+  @media print {
+    display: none !important;
+  }
 }

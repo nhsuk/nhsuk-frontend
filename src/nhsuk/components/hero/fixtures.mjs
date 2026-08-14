@@ -1,6 +1,6 @@
-import { outdent } from 'outdent'
+import { outdent } from "outdent"
 
-import { components } from '#lib'
+import { components } from "#lib"
 
 /**
  * Nunjucks macro option examples
@@ -8,64 +8,155 @@ import { components } from '#lib'
  * @satisfies {{ [example: string]: MacroExample }}
  */
 const fixtures = {
-  'default': {
+  "default": {
     context: {
-      heading: "We're here for you",
-      text: 'Helping you take control of your health and wellbeing.'
+      heading: {
+        text: "We're here for you"
+      },
+      text: "Helping you take control of your health and wellbeing.",
+      border: false
     },
     options: {
       width: false
     },
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
+      viewports: ["mobile", "tablet", "desktop", "large-desktop"]
     }
   },
-  'with image': {
+  "heading": {
     context: {
-      image: {
-        src: 'https://assets.nhs.uk/prod/images/S_0818_homepage_hero_1_F0147446.width-1000.jpg'
-      }
+      heading: {
+        text: "We're here for you"
+      },
+      text: "Helping you take control of your health and wellbeing.",
+      border: false
     },
     options: {
       width: false
     },
-    screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
-    }
-  },
-  'with image, content': {
-    context: {
-      heading: "We're here for you",
-      text: 'Helping you take control of your health and wellbeing.',
-      image: {
-        src: 'https://assets.nhs.uk/prod/images/S_0818_homepage_hero_1_F0147446.width-1000.jpg'
-      }
-    },
-    options: {
-      width: false
-    },
-    screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop', 'large-desktop']
-    }
-  },
-  'with html content': {
-    context: {
-      heading: 'This is a header for the product or service',
-      headingSize: 'l',
-      headingClasses: 'nhsuk-u-margin-top-5',
-      html: outdent`
-        <p class="nhsuk-body-l">This is some more content which explains the product or service.</p>
-        ${components.render('button', {
-          context: {
-            text: 'Sign up',
-            variant: 'reverse',
-            href: '#'
+    variants: [
+      {
+        description: "with size L",
+        context: {
+          heading: {
+            size: "l"
           }
-        })}
-      `
+        }
+      },
+      {
+        description: "with size XL",
+        context: {
+          heading: {
+            size: "xl"
+          }
+        }
+      }
+    ]
+  },
+  "with heading and caption": {
+    context: {
+      heading: {
+        text: "Prototyping",
+        caption: "Setup"
+      }
     },
     options: {
       width: false
+    }
+  },
+  "with heading only": {
+    context: {
+      heading: {
+        text: "Prototyping"
+      }
+    },
+    options: {
+      width: false
+    }
+  },
+  "with image": {
+    context: {
+      image: {
+        src: "/nhsuk-frontend/assets/example-hero-background.jpg"
+      }
+    },
+    options: {
+      width: false
+    },
+    screenshot: {
+      viewports: ["mobile", "tablet", "desktop", "large-desktop"]
+    }
+  },
+  "with image, content": {
+    context: {
+      heading: {
+        text: "We're here for you"
+      },
+      text: "Helping you take control of your health and wellbeing.",
+      image: {
+        src: "/nhsuk-frontend/assets/example-hero-background.jpg"
+      }
+    },
+    options: {
+      width: false
+    },
+    screenshot: {
+      viewports: ["mobile", "tablet", "desktop", "large-desktop"]
+    }
+  },
+  "with image, content and caption": {
+    context: {
+      heading: {
+        text: "Find information and services to help you manage your health",
+        size: "l",
+        caption: {
+          text: "NHS website for England",
+          size: "xl"
+        }
+      },
+      width: "three-quarters",
+      image: {
+        src: "/nhsuk-frontend/assets/example-hero-background.jpg"
+      }
+    },
+    options: {
+      width: false
+    }
+  },
+  "product page": {
+    context: {
+      content: [
+        {
+          heading: {
+            text: "This is a header for the product or service",
+            size: "l"
+          },
+          html: outdent`
+            <p class="nhsuk-body-l">This is some more content which explains the product or service.</p>
+            ${components.render("button", {
+              context: {
+                text: "Sign up",
+                variant: "reverse",
+                href: "#"
+              }
+            })}
+          `
+        },
+        {
+          image: {
+            src: "/nhsuk-frontend/assets/example-hero-image.svg",
+            background: false,
+            border: false
+          }
+        }
+      ],
+      border: false
+    },
+    options: {
+      width: false
+    },
+    screenshot: {
+      viewports: ["mobile", "tablet", "desktop", "large-desktop"]
     }
   }
 }
