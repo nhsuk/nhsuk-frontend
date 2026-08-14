@@ -12,33 +12,110 @@ const options = {
     description: 'The ID of the error summary.',
     released: '10.0.0'
   },
+  heading: {
+    type: 'object',
+    required: true,
+    description: 'Heading of the error summary component.',
+    released: '10.6.0',
+    isComponent: true,
+    params: {
+      id: {
+        type: 'string',
+        required: false,
+        description: 'The ID of the heading.',
+        released: '10.6.0'
+      },
+      text: {
+        type: 'string',
+        required: true,
+        description:
+          'If `html` is set, this is not required. Text for the heading. If `html` is provided, the `text` option will be ignored.',
+        released: '10.6.0'
+      },
+      html: {
+        type: 'string',
+        required: true,
+        description:
+          'If `text` is set, this is not required. HTML for the heading. If `html` is provided, the `text` option will be ignored.',
+        released: '10.6.0'
+      },
+      classes: {
+        type: 'string',
+        required: false,
+        description: 'Classes to add to the heading.',
+        released: '10.6.0'
+      },
+      attributes: {
+        type: 'object',
+        required: false,
+        description:
+          'HTML attributes (for example data attributes) to add to the heading.',
+        released: '10.6.0'
+      }
+    }
+  },
   titleText: {
     type: 'string',
     required: true,
-    description:
-      'If `titleHtml` is set, this is not required. Text to use for the heading of the error summary block. If `titleHtml` is provided, `titleText` will be ignored.',
-    released: '1.0.0'
+    description: 'Replaced by the `heading.text` option.',
+    released: '1.0.0',
+    deprecated: '10.6.0'
   },
   titleHtml: {
     type: 'string',
     required: true,
-    description:
-      'If `titleText` is set, this is not required. HTML to use for the heading of the error summary block. If `titleHtml` is provided, `titleText` will be ignored.',
-    released: '1.0.0'
+    description: 'Replaced by the `heading.html` option.',
+    released: '1.0.0',
+    deprecated: '10.6.0'
+  },
+  description: {
+    type: 'object',
+    required: false,
+    description: 'Description of the errors.',
+    released: '10.6.0',
+    params: {
+      text: {
+        type: 'string',
+        required: true,
+        description:
+          'If `html` is set, this is not required. Text to use for the description of the errors. If `html` is provided, the `text` option will be ignored.',
+        released: '10.6.0'
+      },
+      html: {
+        type: 'string',
+        required: true,
+        description:
+          'If `text` is set, this is not required. HTML to use for the description of the errors. If `html` is provided, the `text` option will be ignored.',
+        released: '10.6.0'
+      },
+      classes: {
+        type: 'string',
+        required: false,
+        description: 'Classes to add to the error summary body.',
+        released: '10.6.0'
+      },
+      attributes: {
+        type: 'object',
+        required: false,
+        description:
+          'HTML attributes (for example data attributes) to add to the error summary body.',
+        released: '10.6.0'
+      }
+    }
   },
   descriptionText: {
     type: 'string',
     required: false,
-    description:
-      'Text to use for the description of the errors. If you set `descriptionHtml`, the component will ignore `descriptionText`.',
-    released: '1.0.0'
+    description: 'Replaced by the `description.text` option.',
+    released: '1.0.0',
+    deprecated: '10.6.0'
   },
   descriptionHtml: {
     type: 'string',
     required: false,
-    description:
-      'HTML to use for the description of the errors. If you set this option, the component will ignore `descriptionText`.',
-    released: '1.0.0'
+    description: 'Replaced by the `description.html` option.',
+    released: '1.0.0',
+    deprecated: '10.6.0'
   },
   caller: {
     type: 'nunjucks-block',

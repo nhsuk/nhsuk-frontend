@@ -43,19 +43,32 @@ $nhsuk-panel-border-width: nhsuk-spacing(1);
       @include nhsuk-link-style-reverse;
     }
 
-    @include nhsuk-media-query($until: tablet) {
+    [class^="nhsuk-caption"],
+    .nhsuk-u-secondary-text-colour {
+      // stylelint-disable-next-line declaration-no-important
+      color: $nhsuk-reverse-text-colour !important;
+    }
+
+    @media #{nhsuk-until-breakpoint(tablet)} {
       padding: nhsuk-spacing(4) - $nhsuk-panel-border-width; /* [2] */
       @include nhsuk-text-break-word; /* [3] */
     }
 
-    @include nhsuk-print-colour {
+    @media print {
       border-color: currentcolor;
+      color: $nhsuk-print-text-colour;
       background: none;
     }
   }
 
   .nhsuk-panel--interruption {
     background-color: $nhsuk-brand-colour;
+
+    [class^="nhsuk-caption"],
+    .nhsuk-u-secondary-text-colour {
+      // stylelint-disable-next-line declaration-no-important
+      color: $nhsuk-reverse-secondary-text-colour !important;
+    }
   }
 
   .nhsuk-panel__title {

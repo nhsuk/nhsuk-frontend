@@ -13,22 +13,46 @@ describe('Checkboxes', () => {
   /** @type {HTMLDivElement[]} */
   let $conditionals
 
-  /** @type {HTMLElement} */
+  /** @type {HTMLInputElement[]} */
+  let $inputs = []
+
+  /** @type {HTMLInputElement} */
   let $input1
 
-  /** @type {HTMLElement} */
+  /** @type {HTMLInputElement} */
   let $input2
 
-  /** @type {HTMLElement} */
+  /** @type {HTMLInputElement} */
   let $input3
 
-  /** @type {HTMLElement} */
-  let $inputNone
+  /** @type {HTMLInputElement} */
+  let $inputBehaviour
+
+  const optionsExclusive = {
+    labels: ['Email', 'Phone', 'Text message'],
+    labelBehaviour: 'I do not want to be contacted'
+  }
+
+  const optionsInclusive = {
+    labels: [
+      '4-in-1 pre-school booster',
+      '6-in-1',
+      'HPV',
+      'MenB',
+      'MenACWY',
+      'MMRV',
+      'Rotavirus',
+      'Pneumococcal',
+      'Td/IPV'
+    ],
+    labelBehaviour: 'All 9 vaccines'
+  }
 
   /**
    * @param {keyof typeof examples} example
+   * @param {typeof optionsExclusive | typeof optionsInclusive} options
    */
-  function initExample(example) {
+  function initExample(example, options) {
     document.body.innerHTML = components.render('checkboxes', examples[example])
 
     $root = /** @type {HTMLElement} */ (
@@ -39,20 +63,16 @@ describe('Checkboxes', () => {
       ...$root.querySelectorAll('.nhsuk-checkboxes__conditional')
     ])
 
-    $input1 = within($root).getByRole('checkbox', {
-      name: 'Email'
-    })
+    $inputs = options.labels.map((label) =>
+      within($root).getByRole('checkbox', { name: label })
+    )
 
-    $input2 = within($root).getByRole('checkbox', {
-      name: 'Phone'
-    })
+    $input1 = $inputs[0]
+    $input2 = $inputs[1]
+    $input3 = $inputs[2]
 
-    $input3 = within($root).getByRole('checkbox', {
-      name: 'Text message'
-    })
-
-    $inputNone = within($root).getByRole('checkbox', {
-      name: 'None of the above'
+    $inputBehaviour = within($root).getByRole('checkbox', {
+      name: options.labelBehaviour
     })
 
     jest.spyOn($root, 'addEventListener')
@@ -60,7 +80,7 @@ describe('Checkboxes', () => {
 
   describe('Initialisation via class', () => {
     beforeEach(() => {
-      initExample('with "none of the above" option, conditional content')
+      initExample('with "none" option, conditional content', optionsExclusive)
     })
 
     it('should add event listeners', () => {
@@ -80,7 +100,7 @@ describe('Checkboxes', () => {
       document.body.classList.remove('nhsuk-frontend-supported')
 
       expect(() => new Checkboxes($root)).toThrow(
-        'NHS.UK frontend is not supported in this browser'
+        'NHS.UK frontend initialised without `<body class="nhsuk-frontend-supported">` from template `<script>` snippet'
       )
     })
 
@@ -111,7 +131,7 @@ describe('Checkboxes', () => {
       $input1.remove()
       $input2.remove()
       $input3.remove()
-      $inputNone.remove()
+      $inputBehaviour.remove()
 
       expect(() => new Checkboxes($root)).toThrow(
         `${Checkboxes.moduleName}: Form inputs (\`<input type="checkbox">\`) not found`
@@ -137,12 +157,8 @@ describe('Checkboxes', () => {
   })
 
   describe('Conditional content', () => {
-    /** @type {HTMLElement[]} */
-    let $inputs = []
-
     beforeEach(() => {
-      initExample('with "none of the above" option, conditional content')
-      $inputs = [$input1, $input2, $input3]
+      initExample('with "none" option, conditional content', optionsExclusive)
     })
 
     it('should be hidden by default', () => {
@@ -219,136 +235,434 @@ describe('Checkboxes', () => {
 
   describe('Exclusive checkbox', () => {
     beforeEach(() => {
-      initExample('with "none of the above" option')
+      initExample('with "none" option', optionsExclusive)
     })
 
     it('should uncheck other checkboxes', () => {
       new Checkboxes($root)
 
-      // Tick all options
-      $input1.click()
-      $input2.click()
-      $input3.click()
+      // Check all options
+      for (const $input of $inputs) {
+        $input.click()
+      }
 
-      expect($input1).toBeChecked()
-      expect($input2).toBeChecked()
-      expect($input3).toBeChecked()
-      expect($inputNone).not.toBeChecked()
+      // Confirm that all are checked
+      for (const $input of $inputs) {
+        expect($input).toBeChecked()
+      }
 
-      // Tick "None of the above"
-      $inputNone.click()
+      expect($inputBehaviour).not.toBeChecked()
 
-      expect($input1).not.toBeChecked()
-      expect($input2).not.toBeChecked()
-      expect($input3).not.toBeChecked()
-      expect($inputNone).toBeChecked()
+      // Check "None" option
+      $inputBehaviour.click()
+
+      // Confirm that all are not checked
+      for (const $input of $inputs) {
+        expect($input).not.toBeChecked()
+      }
+
+      expect($inputBehaviour).toBeChecked()
     })
 
     it('should uncheck when other checkboxes are checked', () => {
       new Checkboxes($root)
 
-      // Tick "None of the above"
-      $inputNone.click()
+      // Check "None" option
+      $inputBehaviour.click()
 
-      expect($input1).not.toBeChecked()
-      expect($input2).not.toBeChecked()
-      expect($input3).not.toBeChecked()
-      expect($inputNone).toBeChecked()
+      // Confirm that all are not checked
+      for (const $input of $inputs) {
+        expect($input).not.toBeChecked()
+      }
 
-      // Tick 1st option
+      expect($inputBehaviour).toBeChecked()
+
+      // Check 1st option
       $input1.click()
 
-      expect($inputNone).not.toBeChecked()
+      expect($inputBehaviour).not.toBeChecked()
     })
   })
 
   describe('Exclusive checkbox (named groups)', () => {
     beforeEach(() => {
-      initExample('with "none of the above" option (named group)')
+      initExample('with "none" option (named group)', optionsExclusive)
     })
 
     it('should uncheck other checkboxes', () => {
       new Checkboxes($root)
 
-      // Tick all options
-      $input1.click()
-      $input2.click()
-      $input3.click()
+      // Check all options
+      for (const $input of $inputs) {
+        $input.click()
+      }
 
-      expect($input1).toBeChecked()
-      expect($input2).toBeChecked()
-      expect($input3).toBeChecked()
-      expect($inputNone).not.toBeChecked()
+      // Confirm that all are checked
+      for (const $input of $inputs) {
+        expect($input).toBeChecked()
+      }
 
-      // Tick "None of the above"
-      $inputNone.click()
+      expect($inputBehaviour).not.toBeChecked()
 
-      expect($input1).not.toBeChecked()
-      expect($input2).not.toBeChecked()
-      expect($input3).not.toBeChecked()
-      expect($inputNone).toBeChecked()
+      // Check "None" option
+      $inputBehaviour.click()
+
+      // Confirm that all are not checked
+      for (const $input of $inputs) {
+        expect($input).not.toBeChecked()
+      }
+
+      expect($inputBehaviour).toBeChecked()
     })
 
     it('should uncheck when other checkboxes are checked', () => {
       new Checkboxes($root)
 
-      // Tick "None of the above"
-      $inputNone.click()
+      // Check "None" option
+      $inputBehaviour.click()
 
-      expect($input1).not.toBeChecked()
-      expect($input2).not.toBeChecked()
-      expect($input3).not.toBeChecked()
-      expect($inputNone).toBeChecked()
+      // Confirm that all are not checked
+      for (const $input of $inputs) {
+        expect($input).not.toBeChecked()
+      }
 
-      // Tick 1st option
+      expect($inputBehaviour).toBeChecked()
+
+      // Check 1st option
       $input1.click()
 
-      expect($inputNone).not.toBeChecked()
+      expect($inputBehaviour).not.toBeChecked()
     })
   })
 
   describe('Exclusive checkbox (named groups, unique)', () => {
     beforeEach(() => {
-      initExample('with "none of the above" option (named group, unique)')
+      initExample('with "none" option (named group, unique)', optionsExclusive)
     })
 
     it('should uncheck other checkboxes', () => {
       new Checkboxes($root)
 
-      // Tick all options
-      $input1.click()
-      $input2.click()
-      $input3.click()
+      // Check all options
+      for (const $input of $inputs) {
+        $input.click()
+      }
 
-      expect($input1).toBeChecked()
-      expect($input2).toBeChecked()
-      expect($input3).toBeChecked()
-      expect($inputNone).not.toBeChecked()
+      // Confirm that all are checked
+      for (const $input of $inputs) {
+        expect($input).toBeChecked()
+      }
 
-      // Tick "None of the above"
-      $inputNone.click()
+      expect($inputBehaviour).not.toBeChecked()
 
-      expect($input1).not.toBeChecked()
-      expect($input2).not.toBeChecked()
-      expect($input3).not.toBeChecked()
-      expect($inputNone).toBeChecked()
+      // Check "None" option
+      $inputBehaviour.click()
+
+      // Confirm that all are not checked
+      for (const $input of $inputs) {
+        expect($input).not.toBeChecked()
+      }
+
+      expect($inputBehaviour).toBeChecked()
     })
 
     it('should uncheck when other checkboxes are checked', () => {
       new Checkboxes($root)
 
-      // Tick "None of the above"
-      $inputNone.click()
+      // Check "None" option
+      $inputBehaviour.click()
 
-      expect($input1).not.toBeChecked()
-      expect($input2).not.toBeChecked()
-      expect($input3).not.toBeChecked()
-      expect($inputNone).toBeChecked()
+      // Confirm that all are not checked
+      for (const $input of $inputs) {
+        expect($input).not.toBeChecked()
+      }
 
-      // Tick 1st option
+      expect($inputBehaviour).toBeChecked()
+
+      // Check 1st option
       $input1.click()
 
-      expect($inputNone).not.toBeChecked()
+      expect($inputBehaviour).not.toBeChecked()
+    })
+  })
+
+  describe('Inclusive checkbox', () => {
+    beforeEach(() => {
+      initExample('with "all" option', optionsInclusive)
+    })
+
+    it('should check all other checkboxes', () => {
+      new Checkboxes($root)
+
+      // Confirm that all are not checked
+      for (const $input of $inputs) {
+        expect($input).not.toBeChecked()
+      }
+
+      expect($inputBehaviour).not.toBeChecked()
+
+      // Check "All 9 vaccines"
+      $inputBehaviour.click()
+
+      // Confirm that all are checked
+      for (const $input of $inputs) {
+        expect($input).toBeChecked()
+      }
+
+      expect($inputBehaviour).toBeChecked()
+    })
+
+    it('should uncheck all other checkboxes when unchecked', () => {
+      new Checkboxes($root)
+
+      // Check "All 9 vaccines"
+      $inputBehaviour.click()
+
+      // Confirm that all are checked
+      for (const $input of $inputs) {
+        expect($input).toBeChecked()
+      }
+
+      expect($inputBehaviour).toBeChecked()
+
+      // Uncheck "All 9 vaccines"
+      $inputBehaviour.click()
+
+      // Confirm that all are not checked
+      for (const $input of $inputs) {
+        expect($input).not.toBeChecked()
+      }
+
+      expect($inputBehaviour).not.toBeChecked()
+    })
+
+    it('should uncheck when other checkboxes are unchecked', () => {
+      new Checkboxes($root)
+
+      // Check "All 9 vaccines"
+      $inputBehaviour.click()
+
+      // Confirm that all are checked
+      for (const $input of $inputs) {
+        expect($input).toBeChecked()
+      }
+
+      expect($inputBehaviour).toBeChecked()
+
+      // Uncheck 1st option
+      $input1.click()
+
+      expect($inputBehaviour).not.toBeChecked()
+    })
+
+    it('should check automatically when all other checkboxes are checked individually', () => {
+      new Checkboxes($root)
+
+      // Confirm that all are not checked
+      for (const $input of $inputs) {
+        expect($input).not.toBeChecked()
+      }
+
+      expect($inputBehaviour).not.toBeChecked()
+
+      // Check all options
+      for (const $input of $inputs) {
+        $input.click()
+
+        // Last option automatically checks "All 9 vaccines"
+        expect($inputBehaviour.checked).toBe(
+          $inputs.indexOf($input) === $inputs.length - 1 ? true : false
+        )
+      }
+
+      // Confirm that all are checked
+      for (const $input of $inputs) {
+        expect($input).toBeChecked()
+      }
+    })
+  })
+
+  describe('Inclusive checkbox (named groups)', () => {
+    beforeEach(() => {
+      initExample('with "all" option (named group)', optionsInclusive)
+    })
+
+    it('should check all other checkboxes', () => {
+      new Checkboxes($root)
+
+      // Confirm that all are not checked
+      for (const $input of $inputs) {
+        expect($input).not.toBeChecked()
+      }
+
+      expect($inputBehaviour).not.toBeChecked()
+
+      // Check "All 9 vaccines"
+      $inputBehaviour.click()
+
+      // Confirm that all are checked
+      for (const $input of $inputs) {
+        expect($input).toBeChecked()
+      }
+
+      expect($inputBehaviour).toBeChecked()
+    })
+
+    it('should uncheck all other checkboxes when unchecked', () => {
+      new Checkboxes($root)
+
+      // Check "All 9 vaccines"
+      $inputBehaviour.click()
+
+      // Confirm that all are checked
+      for (const $input of $inputs) {
+        expect($input).toBeChecked()
+      }
+
+      expect($inputBehaviour).toBeChecked()
+
+      // Uncheck "All 9 vaccines"
+      $inputBehaviour.click()
+
+      // Confirm that all are not checked
+      for (const $input of $inputs) {
+        expect($input).not.toBeChecked()
+      }
+
+      expect($inputBehaviour).not.toBeChecked()
+    })
+
+    it('should uncheck when other checkboxes are unchecked', () => {
+      new Checkboxes($root)
+
+      // Check "All 9 vaccines"
+      $inputBehaviour.click()
+
+      // Confirm that all are checked
+      for (const $input of $inputs) {
+        expect($input).toBeChecked()
+      }
+
+      expect($inputBehaviour).toBeChecked()
+
+      // Uncheck 1st option
+      $input1.click()
+
+      expect($inputBehaviour).not.toBeChecked()
+    })
+
+    it('should check automatically when all other checkboxes are checked individually', () => {
+      new Checkboxes($root)
+
+      // Confirm that all are not checked
+      for (const $input of $inputs) {
+        expect($input).not.toBeChecked()
+      }
+
+      expect($inputBehaviour).not.toBeChecked()
+
+      // Check all options
+      for (const $input of $inputs) {
+        $input.click()
+
+        // Last option automatically checks "All 9 vaccines"
+        expect($inputBehaviour.checked).toBe(
+          $inputs.indexOf($input) === $inputs.length - 1 ? true : false
+        )
+      }
+
+      // Confirm that all are checked
+      for (const $input of $inputs) {
+        expect($input).toBeChecked()
+      }
+    })
+  })
+
+  describe('Inclusive checkbox (named groups, unique)', () => {
+    beforeEach(() => {
+      initExample('with "all" option (named group, unique)', optionsInclusive)
+    })
+
+    it('should check all other checkboxes', () => {
+      new Checkboxes($root)
+
+      expect($inputs[0]).not.toBeChecked()
+      expect($inputs[1]).not.toBeChecked()
+      expect($inputs[2]).not.toBeChecked()
+      expect($inputBehaviour).not.toBeChecked()
+
+      // Check "All 9 vaccines"
+      $inputBehaviour.click()
+
+      expect($inputs[0]).toBeChecked()
+      expect($inputs[1]).toBeChecked()
+      expect($inputs[2]).toBeChecked()
+      expect($inputBehaviour).toBeChecked()
+    })
+
+    it('should uncheck all other checkboxes when unchecked', () => {
+      new Checkboxes($root)
+
+      // Check "All 9 vaccines"
+      $inputBehaviour.click()
+
+      expect($inputs[0]).toBeChecked()
+      expect($inputs[1]).toBeChecked()
+      expect($inputs[2]).toBeChecked()
+      expect($inputBehaviour).toBeChecked()
+
+      // Uncheck "All 9 vaccines"
+      $inputBehaviour.click()
+
+      expect($inputs[0]).not.toBeChecked()
+      expect($inputs[1]).not.toBeChecked()
+      expect($inputs[2]).not.toBeChecked()
+      expect($inputBehaviour).not.toBeChecked()
+    })
+
+    it('should uncheck when other checkboxes are unchecked', () => {
+      new Checkboxes($root)
+
+      // Check "All 9 vaccines"
+      $inputBehaviour.click()
+
+      // Confirm that all are checked
+      for (const $input of $inputs) {
+        expect($input).toBeChecked()
+      }
+
+      expect($inputBehaviour).toBeChecked()
+
+      // Uncheck 1st option
+      $input1.click()
+
+      expect($inputBehaviour).not.toBeChecked()
+    })
+
+    it('should check automatically when all other checkboxes are checked individually', () => {
+      new Checkboxes($root)
+
+      // Confirm that all are not checked
+      for (const $input of $inputs) {
+        expect($input).not.toBeChecked()
+      }
+
+      expect($inputBehaviour).not.toBeChecked()
+
+      // Check all options
+      for (const $input of $inputs) {
+        $input.click()
+
+        // Last option automatically checks "All 9 vaccines"
+        expect($inputBehaviour.checked).toBe(
+          $inputs.indexOf($input) === $inputs.length - 1 ? true : false
+        )
+      }
+
+      // Confirm that all are checked
+      for (const $input of $inputs) {
+        expect($input).toBeChecked()
+      }
     })
   })
 })

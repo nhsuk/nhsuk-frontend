@@ -8,12 +8,12 @@ export const variants = [
     // Regular variant
   },
   {
-    description: 'reverse',
+    description: "reverse",
     context: {
-      variant: 'reverse'
+      variant: "reverse"
     },
     options: {
-      layout: 'background-blue'
+      layout: "background-blue"
     }
   }
 ]
@@ -24,34 +24,40 @@ export const variants = [
  * @satisfies {{ [example: string]: MacroExample }}
  */
 const fixtures = {
-  'default': {
+  "default": {
     context: {
-      text: 'Back',
-      href: '#'
+      text: "Back",
+      href: "#"
     },
     variants,
     screenshot: {
-      states: ['focus', 'hover', 'active'],
-      selector: '.nhsuk-back-link'
+      states: ["focus", "hover", "active"],
+      selector: ".nhsuk-back-link"
     }
   },
-  'as a button': {
+  "as a button": {
     context: {
-      text: 'Back',
-      element: 'button'
+      text: "Back",
+      type: "submit"
     },
     variants,
     screenshot: {
-      states: ['focus', 'hover', 'active'],
-      selector: '.nhsuk-back-link'
+      states: ["focus", "hover", "active"],
+      selector: ".nhsuk-back-link"
     }
   },
-  'with visually hidden text': {
+  "with text escaping": {
     context: {
-      visuallyHiddenText: 'Back to',
-      text: 'Search results',
-      href: '#'
+      text: "What to expect at A&E"
     }
+  },
+  "with HTML": {
+    context: {
+      html: "What to expect at A&amp;E"
+    }
+  },
+  "with HTML via call block": {
+    callBlock: "What to expect at A&amp;E"
   }
 }
 

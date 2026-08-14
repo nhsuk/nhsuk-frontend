@@ -88,7 +88,7 @@ describe('Character count', () => {
       document.body.classList.remove('nhsuk-frontend-supported')
 
       expect(() => new CharacterCount($root)).toThrow(
-        'NHS.UK frontend is not supported in this browser'
+        'NHS.UK frontend initialised without `<body class="nhsuk-frontend-supported">` from template `<script>` snippet'
       )
     })
 
@@ -167,59 +167,6 @@ describe('Character count', () => {
         `${CharacterCount.moduleName}: Root element (\`$root\`) already initialised`
       )
     })
-
-    it('should handle deprecated methods', () => {
-      const component = new CharacterCount($root)
-
-      jest.spyOn(component, 'getCountMessage')
-      jest.spyOn(component, 'handleInput')
-      jest.spyOn(component, 'updateCount')
-      jest.spyOn(component, 'updateIfValueChanged')
-
-      expect(() => component.formattedUpdateMessage()).not.toThrow()
-      expect(() => component.handleKeyUp()).not.toThrow()
-      expect(() => component.count('')).not.toThrow()
-      expect(() => component.checkIfValueChanged()).not.toThrow()
-
-      expect(component.count('')).toBe(0)
-      expect(component.count('Existing value')).toBe(14)
-      expect(component.count('Newly updated value')).toBe(19)
-
-      expect(component.getCountMessage).toHaveBeenCalled()
-      expect(component.handleInput).toHaveBeenCalled()
-      expect(component.updateCount).toHaveBeenCalled()
-      expect(component.updateIfValueChanged).toHaveBeenCalled()
-    })
-
-    it('should handle deprecated params', async () => {
-      await user.click($textarea)
-      await user.keyboard('Existing value')
-
-      const component = new CharacterCount($root)
-
-      expect(component.getCountMessage()).toBe(
-        'You have 186 characters remaining'
-      )
-
-      // Temporarily allow deprecated `text` parameter to update count
-      // even though the textarea value has not been updated
-      component.updateCount('')
-
-      // Temporarily allow deprecated `countType = 'characters'` parameter
-      expect(component.formatCountMessage(200, 'characters')).toBe(
-        'You have 200 characters remaining'
-      )
-
-      // Temporarily allow deprecated `countType = 'length'` parameter
-      expect(component.formatCountMessage(200, 'length')).toBe(
-        'You have 200 characters remaining'
-      )
-
-      // Temporarily allow deprecated `countType = 'words'` parameter
-      expect(component.formatCountMessage(200, 'words')).toBe(
-        'You have 200 words remaining'
-      )
-    })
   })
 
   describe('Nunjucks configuration', () => {
@@ -229,25 +176,8 @@ describe('Character count', () => {
         ...CharacterCount.defaults,
         maxlength: 200,
         threshold: 0,
-        countType: 'length'
+        countType: 'characters'
       })
-    })
-
-    it('configures `maxwords` (deprecated)', () => {
-      initExample('with maxwords')
-
-      const characterCount = new CharacterCount($root)
-      expect(characterCount.config).toEqual({
-        ...CharacterCount.defaults,
-        maxlength: 150,
-        maxwords: 150,
-        threshold: 0,
-        countType: 'words'
-      })
-
-      expect(console.warn).toHaveBeenCalledWith(
-        `${CharacterCount.moduleName}: Option \`maxwords\` is deprecated. Use \`maxlength\` with \`countType: "words"\` instead.`
-      )
     })
 
     it('configures `countType: "length"`', () => {
@@ -294,7 +224,7 @@ describe('Character count', () => {
         ...CharacterCount.defaults,
         maxlength: 112,
         threshold: 75,
-        countType: 'length'
+        countType: 'characters'
       })
     })
 
@@ -318,7 +248,7 @@ describe('Character count', () => {
         ...CharacterCount.defaults,
         maxlength: 200,
         threshold: 0,
-        countType: 'length'
+        countType: 'characters'
       })
     })
   })
@@ -356,9 +286,10 @@ describe('Character count', () => {
         expect(component.formatCountMessage(0)).toBe('Custom text.')
       })
 
-      it('uses specific translation keys when `maxwords` limit is reached', () => {
+      it('uses specific translation keys when `maxlength` limit with `countType: "words"` is reached', () => {
         const component = new CharacterCount($root, {
-          maxwords: 100,
+          maxlength: 100,
+          countType: 'words',
           i18n: {
             wordsAtLimit: 'Different custom text.'
           }
@@ -380,12 +311,13 @@ describe('Character count', () => {
         )
       })
 
-      it('uses existing textarea value for `maxwords` limit when initialised', async () => {
+      it('uses existing textarea value for `maxlength` limit with `countType: "words"` when initialised', async () => {
         await user.click($textarea)
         await user.keyboard('Existing value')
 
         const component = new CharacterCount($root, {
-          maxwords: 100
+          maxlength: 100,
+          countType: 'words'
         })
 
         expect(component.getCountMessage()).toBe('You have 98 words remaining')
@@ -400,31 +332,30 @@ describe('Character count', () => {
         await user.keyboard('Newly updated value')
 
         // Trigger back/forward navigation
-        window.dispatchEvent(
-          new PageTransitionEvent('pageshow', {
-            persisted: true
-          })
-        )
+        // https://github.com/capricorn86/happy-dom/issues/1848
+        const pageshowEvent = new Event('pageshow')
+        Object.defineProperty(pageshowEvent, 'persisted', { value: true })
+        window.dispatchEvent(pageshowEvent)
 
         expect(component.getCountMessage()).toBe(
           'You have 81 characters remaining'
         )
       })
 
-      it('uses current textarea value for `maxwords` limit via back/forward navigation', async () => {
+      it('uses current textarea value for `maxlength` limit with `countType: "words"` via back/forward navigation', async () => {
         const component = new CharacterCount($root, {
-          maxwords: 100
+          maxlength: 100,
+          countType: 'words'
         })
 
         await user.click($textarea)
         await user.keyboard('Newly updated value')
 
         // Trigger back/forward navigation
-        window.dispatchEvent(
-          new PageTransitionEvent('pageshow', {
-            persisted: true
-          })
-        )
+        // https://github.com/capricorn86/happy-dom/issues/1848
+        const pageshowEvent = new Event('pageshow')
+        Object.defineProperty(pageshowEvent, 'persisted', { value: true })
+        window.dispatchEvent(pageshowEvent)
 
         expect(component.getCountMessage()).toBe('You have 97 words remaining')
       })
@@ -451,9 +382,10 @@ describe('Character count', () => {
         )
       })
 
-      it('uses custom `countFunction` for `maxwords` limit when set', async () => {
+      it('uses custom `countFunction` for `maxlength` limit with `countType: "words"` when set', async () => {
         const component = new CharacterCount($root, {
-          maxwords: 100,
+          maxlength: 100,
+          countType: 'words',
           countFunction: jest.fn().mockReturnValue(10)
         })
 
@@ -473,11 +405,17 @@ describe('Character count', () => {
     })
 
     describe('with HTML lang attribute', () => {
+      afterEach(() => {
+        document.body.removeAttribute('lang')
+        $root.removeAttribute('lang')
+      })
+
       it('overrides the locale when set on the element', () => {
         $root.setAttribute('lang', 'de')
 
         const component = new CharacterCount($root, {
-          maxwords: 20000
+          maxlength: 20000,
+          countType: 'words'
         })
 
         expect(component.formatCountMessage(10000)).toBe(
@@ -489,7 +427,8 @@ describe('Character count', () => {
         document.body.setAttribute('lang', 'de')
 
         const component = new CharacterCount($root, {
-          maxwords: 20000
+          maxlength: 20000,
+          countType: 'words'
         })
 
         expect(component.formatCountMessage(10000)).toBe(
@@ -552,21 +491,15 @@ describe('Character count: Format count message', () => {
   let /** @type {CharacterCount} */ componentWithCountTypeCharacters
   let /** @type {CharacterCount} */ componentWithCountTypeWords
 
-  // Deprecated `maxwords` option where `countType` is inferred
-  let /** @type {CharacterCount} */ componentWithMaxWords
-
   beforeEach(() => {
     const example = examples['to configure in JavaScript']
 
-    // Some tests add attributes to `document.body` so we need to reset it
-    // alongside both character count renders (for maxlength and maxwords)
-    document.body.outerHTML = outdent`
-      <body class="nhsuk-frontend-supported">
-        ${components.render('character-count', example)}
-        ${components.render('character-count', example)}
-        ${components.render('character-count', example)}
-        ${components.render('character-count', example)}
-      </body>
+    document.body.classList.add('nhsuk-frontend-supported')
+    document.body.innerHTML = outdent`
+      ${components.render('character-count', example)}
+      ${components.render('character-count', example)}
+      ${components.render('character-count', example)}
+      ${components.render('character-count', example)}
     `
 
     const $roots = document.querySelectorAll(
@@ -585,10 +518,6 @@ describe('Character count: Format count message', () => {
     componentWithCountTypeWords = new CharacterCount($roots[2], {
       maxlength: 100,
       countType: 'words'
-    })
-
-    componentWithMaxWords = new CharacterCount($roots[3], {
-      maxwords: 100
     })
   })
 
@@ -621,9 +550,6 @@ describe('Character count: Format count message', () => {
       expect(componentWithCountTypeWords.formatCountMessage(number)).toEqual(
         expected
       )
-
-      // Deprecated `maxwords` option where `countType` is inferred
-      expect(componentWithMaxWords.formatCountMessage(number)).toEqual(expected)
     }
   )
 

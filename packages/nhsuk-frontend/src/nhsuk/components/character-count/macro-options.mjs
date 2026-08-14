@@ -38,14 +38,6 @@ const options = {
       'The maximum number of characters (or words if `countType` is set to `"words"`).',
     released: '7.0.0'
   },
-  maxwords: {
-    type: 'string',
-    required: true,
-    description:
-      'The maximum number of words. Replaced by the `maxlength` and `countType: "words"` options.',
-    released: '7.0.0',
-    deprecated: '10.5.0'
-  },
   countType: {
     type: 'string',
     required: false,

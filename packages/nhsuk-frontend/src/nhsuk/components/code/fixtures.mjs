@@ -4,99 +4,99 @@
  * @satisfies {{ [example: string]: MacroExample }}
  */
 const fixtures = {
-  'default': {
+  "default": {
     context: {
-      text: 'This is a plain text code block'
+      text: "This is a plain text code block"
     }
   },
-  'button': {
+  "button": {
     context: {
-      text: 'This is a plain text code block',
+      text: "This is a plain text code block",
       button: true
     },
     variants: [
       {
-        description: 'with primary',
+        description: "with primary",
         context: {
-          copyButtonClassList: ['nhsuk-button--small']
+          copyButtonClassList: ["nhsuk-button--small"]
         }
       },
       {
-        description: 'with secondary'
+        description: "with secondary"
       },
       {
-        description: 'with secondary, solid background',
+        description: "with secondary, solid background",
         context: {
-          background: 'body',
+          background: "body",
           copyButtonClassList: [
-            'nhsuk-button--secondary-solid',
-            'nhsuk-button--small'
+            "nhsuk-button--secondary-solid",
+            "nhsuk-button--small"
           ]
         },
         options: {
-          layout: 'background-white'
+          layout: "background-white"
         }
       }
     ]
   },
-  'with button double click prevented': {
+  "with button double click prevented": {
     context: {
-      text: 'This is a plain text code block',
+      text: "This is a plain text code block",
       button: {
         preventDoubleClick: true
       }
     }
   },
-  'with button double click not prevented': {
+  "with button double click not prevented": {
     context: {
-      text: 'This is a plain text code block',
+      text: "This is a plain text code block",
       button: {
         preventDoubleClick: false
       }
     }
   },
-  'without border': {
+  "without border": {
     context: {
-      text: 'This is a plain text code block',
+      text: "This is a plain text code block",
       border: false
     },
     options: {
-      layout: 'background-blue'
+      layout: "background-blue"
     }
   },
-  'with custom HTML': {
+  "with custom HTML": {
     context: {
-      html: '<p>This is an HTML code block.</p>'
+      html: "<p>This is an HTML code block.</p>"
     }
   },
-  'with custom HTML and button': {
+  "with custom HTML and button": {
     context: {
-      html: '<p>This is an HTML code block.</p>',
+      html: "<p>This is an HTML code block.</p>",
       button: true
     }
   },
-  'with custom HTML (escaped) and button': {
+  "with custom HTML (escaped) and button": {
     context: {
       button: true
     },
-    callBlock: '&lt;p&gt;This is a code block.&lt;/p&gt;'
+    callBlock: "&lt;p&gt;This is a code block.&lt;/p&gt;"
   },
-  'with scroll overflow': {
+  "with scroll overflow": {
     context: {
       text: "Supercalifragilisticexpialidocious! Even though the sound of it is something quite atrocious, if you say it loud enough, you'll always sound precocious!"
     }
   },
-  'with scroll overflow and button': {
+  "with scroll overflow and button": {
     context: {
       text: "Supercalifragilisticexpialidocious! Even though the sound of it is something quite atrocious, if you say it loud enough, you'll always sound precocious!",
       button: true
     }
   },
-  'with translations': {
+  "with translations": {
     context: {
-      html: '<p>Bloc cod HTML yw hwn.</p>',
+      html: "<p>Bloc cod HTML yw hwn.</p>",
       button: true,
-      copyButtonText: 'Copïo cod',
+      copyButtonText: "Copïo cod",
       copiedButtonText: "Cod wedi'i gopïo",
       copiedAnnouncementText: "Cod wedi'i gopïo i'r clipfwrdd"
     }

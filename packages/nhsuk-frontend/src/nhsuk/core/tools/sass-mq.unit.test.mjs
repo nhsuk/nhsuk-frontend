@@ -1,30 +1,177 @@
 import { outdent } from 'outdent'
 import { compileStringAsync } from 'sass-embedded'
 
-describe('@mixin nhsuk-media-query', () => {
-  const sassModules = outdent`
-    @use "core/tools/sass-mq" as *;
-  `
+const sassModules = outdent`
+  @use "core/tools/sass-mq" as *;
+`
 
-  const sassBootstrap = outdent`
-    @use "core/settings/breakpoints" as * with (
-      $nhsuk-breakpoints: (
-        mobile: 110px,
-        tablet: 220px,
-        desktop: 330px,
-        large-desktop: 440px
-      )
-    );
+const sassBootstrap = outdent`
+  @use "core/settings/breakpoints" as * with (
+    $nhsuk-breakpoints: (
+      mobile: 110px,
+      tablet: 220px,
+      desktop: 330px,
+      large-desktop: 440px
+    )
+  );
 
-    ${sassModules}
-  `
+  ${sassModules}
+`
 
-  it('allows you to target min-width using a numeric value', async () => {
+describe('@function nhsuk-breakpoint-value', () => {
+  it.each([
+    {
+      value: '20rem',
+      expected: '20rem'
+    },
+    {
+      value: '20em',
+      expected: '20em'
+    },
+    {
+      value: '20px',
+      expected: '20px'
+    },
+    {
+      value: '20',
+      expected: '20px'
+    }
+  ])('returns value for numeric input: $value', async ({ value, expected }) => {
     const sass = outdent`
-      ${sassModules}
+      ${sassBootstrap}
 
       .foo {
-        @include nhsuk-media-query($from: 20em) {
+        width: nhsuk-breakpoint-value(${value});
+      }
+    `
+
+    const results = compileStringAsync(sass, {
+      loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+    })
+
+    await expect(results).resolves.toMatchObject({
+      css: outdent`
+        .foo {
+          width: ${expected};
+        }
+      `
+    })
+  })
+
+  it.each([
+    {
+      value: 'mobile',
+      expected: '110px'
+    },
+    {
+      value: 'tablet',
+      expected: '220px'
+    },
+    {
+      value: 'desktop',
+      expected: '330px'
+    },
+    {
+      value: 'large-desktop',
+      expected: '440px'
+    }
+  ])(
+    'returns value for predefined breakpoint: $value',
+    async ({ value, expected }) => {
+      const sass = outdent`
+        ${sassBootstrap}
+
+        .foo {
+          width: nhsuk-breakpoint-value(${value});
+        }
+      `
+
+      const results = compileStringAsync(sass, {
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+      })
+
+      await expect(results).resolves.toMatchObject({
+        css: outdent`
+          .foo {
+            width: ${expected};
+          }
+        `
+      })
+    }
+  )
+
+  it('throws an error if an invalid breakpoint is used', async () => {
+    const sass = outdent`
+      ${sassBootstrap}
+
+      .foo {
+        width: nhsuk-breakpoint-value(ultra-desktop);
+      }
+    `
+
+    const results = compileStringAsync(sass, {
+      loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+    })
+
+    await expect(results).rejects.toThrow(
+      'Error: "Unknown breakpoint `ultra-desktop`"'
+    )
+  })
+})
+
+describe('@function nhsuk-from-breakpoint', () => {
+  it.each([
+    {
+      value: '20em',
+      expected: '20em'
+    },
+    {
+      value: '20px',
+      expected: '1.25em'
+    },
+    {
+      value: '20',
+      expected: '1.25em'
+    },
+    {
+      value: '20rem',
+      expected: '20rem'
+    }
+  ])(
+    'allows you to target min-width using a numeric value: $value',
+    async ({ value, expected }) => {
+      const sass = outdent`
+      ${sassBootstrap}
+
+      .foo {
+        @media #{nhsuk-from-breakpoint(${value})} {
+          color: red;
+        }
+      }
+    `
+
+      const results = compileStringAsync(sass, {
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+      })
+
+      await expect(results).resolves.toMatchObject({
+        css: outdent`
+        @media (min-width: ${expected}) {
+          .foo {
+            color: red;
+          }
+        }
+      `
+      })
+    }
+  )
+
+  it('allows you to target min-width using a predefined breakpoint', async () => {
+    const sass = outdent`
+      ${sassBootstrap}
+
+      .foo {
+        @media #{nhsuk-from-breakpoint(mobile)} {
           color: red;
         }
       }
@@ -36,7 +183,7 @@ describe('@mixin nhsuk-media-query', () => {
 
     await expect(results).resolves.toMatchObject({
       css: outdent`
-        @media (min-width: 20em) {
+        @media (min-width: 6.875em) {
           .foo {
             color: red;
           }
@@ -44,13 +191,135 @@ describe('@mixin nhsuk-media-query', () => {
       `
     })
   })
+})
+
+describe('@function nhsuk-until-breakpoint', () => {
+  it.each([
+    {
+      value: '20em',
+      expected: '20em'
+    },
+    {
+      value: '20px',
+      expected: '1.25em'
+    },
+    {
+      value: '20',
+      expected: '1.25em'
+    },
+    {
+      value: '20rem',
+      expected: '20rem'
+    }
+  ])(
+    'allows you to target max-width using a numeric value: $value',
+    async ({ value, expected }) => {
+      const sass = outdent`
+      ${sassBootstrap}
+
+      .foo {
+        @media #{nhsuk-until-breakpoint(${value})} {
+          color: red;
+        }
+      }
+    `
+
+      const results = compileStringAsync(sass, {
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+      })
+
+      await expect(results).resolves.toMatchObject({
+        css: outdent`
+        @media (max-width: ${expected}) {
+          .foo {
+            color: red;
+          }
+        }
+      `
+      })
+    }
+  )
+
+  it('allows you to target max-width using a predefined breakpoint', async () => {
+    const sass = outdent`
+      ${sassBootstrap}
+
+      .foo {
+        @media #{nhsuk-until-breakpoint(mobile)} {
+          color: red;
+        }
+      }
+    `
+
+    const results = compileStringAsync(sass, {
+      loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+    })
+
+    await expect(results).resolves.toMatchObject({
+      css: outdent`
+        @media (max-width: 6.865em) {
+          .foo {
+            color: red;
+          }
+        }
+      `
+    })
+  })
+})
+
+describe('@mixin nhsuk-media-query', () => {
+  it.each([
+    {
+      value: '20em',
+      expected: '20em'
+    },
+    {
+      value: '20px',
+      expected: '1.25em'
+    },
+    {
+      value: '20',
+      expected: '1.25em'
+    },
+    {
+      value: '20rem',
+      expected: '20rem'
+    }
+  ])(
+    'allows you to target min-width using a numeric value: $value',
+    async ({ value, expected }) => {
+      const sass = outdent`
+      ${sassModules}
+
+      .foo {
+        @include nhsuk-media-query($from: ${value}) {
+          color: red;
+        }
+      }
+    `
+
+      const results = compileStringAsync(sass, {
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+      })
+
+      await expect(results).resolves.toMatchObject({
+        css: outdent`
+        @media (min-width: ${expected}) {
+          .foo {
+            color: red;
+          }
+        }
+      `
+      })
+    }
+  )
 
   it('allows you to target min-width using a predefined breakpoint', async () => {
     const sass = outdent`
       ${sassBootstrap}
 
       .foo {
-        @include nhsuk-media-query($from: mobile) {
+        @media #{nhsuk-from-breakpoint(mobile)} {
           color: red;
         }
       }
@@ -71,31 +340,51 @@ describe('@mixin nhsuk-media-query', () => {
     })
   })
 
-  it('allows you to target max-width using a numeric value', async () => {
-    const sass = outdent`
+  it.each([
+    {
+      value: '20em',
+      expected: '20em'
+    },
+    {
+      value: '20px',
+      expected: '1.25em'
+    },
+    {
+      value: '20',
+      expected: '1.25em'
+    },
+    {
+      value: '20rem',
+      expected: '20rem'
+    }
+  ])(
+    'allows you to target max-width using a numeric value: $value',
+    async ({ value, expected }) => {
+      const sass = outdent`
       ${sassModules}
 
       .foo {
-        @include nhsuk-media-query($until: 20em) {
+        @include nhsuk-media-query($until: ${value}) {
           color: red;
         }
       }
     `
 
-    const results = compileStringAsync(sass, {
-      loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
-    })
+      const results = compileStringAsync(sass, {
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+      })
 
-    await expect(results).resolves.toMatchObject({
-      css: outdent`
-        @media (max-width: 20em) {
+      await expect(results).resolves.toMatchObject({
+        css: outdent`
+        @media (max-width: ${expected}) {
           .foo {
             color: red;
           }
         }
       `
-    })
-  })
+      })
+    }
+  )
 
   it('allows you to target max-width using a predefined breakpoint', async () => {
     const sass = outdent`
@@ -123,31 +412,59 @@ describe('@mixin nhsuk-media-query', () => {
     })
   })
 
-  it('allows you to target combined min-width and max-width using numeric values', async () => {
-    const sass = outdent`
+  it.each([
+    {
+      min: '20em',
+      max: '40em',
+      expectedMin: '20em',
+      expectedMax: '40em'
+    },
+    {
+      min: '20px',
+      max: '40px',
+      expectedMin: '1.25em',
+      expectedMax: '2.5em'
+    },
+    {
+      min: '20',
+      max: '40',
+      expectedMin: '1.25em',
+      expectedMax: '2.5em'
+    },
+    {
+      min: '20rem',
+      max: '30rem',
+      expectedMin: '20rem',
+      expectedMax: '30rem'
+    }
+  ])(
+    'allows you to target combined min-width and max-width using numeric values: ($min, $max)',
+    async ({ min, max, expectedMin, expectedMax }) => {
+      const sass = outdent`
       ${sassModules}
 
       .foo {
-        @include nhsuk-media-query($from: 20em, $until: 40em) {
+        @include nhsuk-media-query($from: ${min}, $until: ${max}) {
           color: red;
         }
       }
     `
 
-    const results = compileStringAsync(sass, {
-      loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
-    })
+      const results = compileStringAsync(sass, {
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+      })
 
-    await expect(results).resolves.toMatchObject({
-      css: outdent`
-        @media (min-width: 20em) and (max-width: 40em) {
+      await expect(results).resolves.toMatchObject({
+        css: outdent`
+        @media (min-width: ${expectedMin}) and (max-width: ${expectedMax}) {
           .foo {
             color: red;
           }
         }
       `
-    })
-  })
+      })
+    }
+  )
 
   it('allows you to target combined min-width and max-width using predefined breakpoints', async () => {
     const sass = outdent`
@@ -225,5 +542,25 @@ describe('@mixin nhsuk-media-query', () => {
         }
       `
     })
+  })
+
+  it('throws an error if an invalid breakpoint is used', async () => {
+    const sass = outdent`
+      ${sassModules}
+
+      .foo {
+        @include nhsuk-media-query($until: ultra-desktop) {
+          color: red;
+        }
+      }
+    `
+
+    const results = compileStringAsync(sass, {
+      loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+    })
+
+    await expect(results).rejects.toThrow(
+      'Error: "Unknown breakpoint `ultra-desktop`"'
+    )
   })
 })

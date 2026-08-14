@@ -1,6 +1,7 @@
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
 @use "../../core/helpers" as *;
+@use "../scroll" as *;
 
 ////
 /// Table component
@@ -9,34 +10,9 @@
 ////
 
 @include nhsuk-exports("nhsuk/components/table") {
-  // Table container is used to ensure the table does not break the container.
-  //
-  // 1. Margin is removed so there isn't double spacing.
-  // 2. XS size not added because it matches the table header, so it'd be bad for hierarchy
-
-  .nhsuk-table-container {
+  .nhsuk-table {
     box-sizing: border-box;
-    display: block;
-
-    width: 100%;
-
-    overflow-x: auto;
-
-    -webkit-overflow-scrolling: touch;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
-
-    @include nhsuk-responsive-margin(7, "bottom");
-
-    .nhsuk-table,
-    .nhsuk-table-responsive {
-      margin: 0; // [1]
-    }
-  }
-
-  .nhsuk-table,
-  .nhsuk-table-responsive {
-    box-sizing: border-box;
-    width: 100%;
+    width: calc(100% + $nhsuk-border-table-header-width * 2);
     border-spacing: 0;
     border-collapse: collapse;
 
@@ -44,13 +20,46 @@
     @include nhsuk-responsive-margin(7, "bottom");
   }
 
-  .nhsuk-table--reverse,
-  .nhsuk-table-responsive--reverse {
+  .nhsuk-table--compact {
+    .nhsuk-table__header,
+    .nhsuk-table__cell {
+      padding-top: nhsuk-spacing(1);
+      padding-bottom: nhsuk-spacing(1);
+
+      @media #{nhsuk-from-breakpoint(tablet)} {
+        padding-top: nhsuk-spacing(2);
+        padding-bottom: nhsuk-spacing(2);
+      }
+    }
+
+    .nhsuk-table__header:not(:last-child),
+    .nhsuk-table__cell:not(:last-child) {
+      padding-right: nhsuk-spacing(3);
+    }
+  }
+
+  .nhsuk-table--striped {
+    .nhsuk-table__row:nth-child(odd) {
+      background-color: rgba($nhsuk-target-hover-colour, 0.5);
+    }
+
+    .nhsuk-table__head .nhsuk-table__row {
+      background-color: transparent;
+    }
+  }
+
+  .nhsuk-table--reverse {
     color: $nhsuk-reverse-text-colour;
 
-    th,
-    td {
+    .nhsuk-table__header,
+    .nhsuk-table__cell {
       border-color: $nhsuk-reverse-border-colour;
+    }
+
+    &.nhsuk-table--striped {
+      .nhsuk-table__body .nhsuk-table__row:nth-child(odd) {
+        background-color: rgba($nhsuk-reverse-target-hover-colour, 0.5);
+      }
     }
   }
 
@@ -59,8 +68,40 @@
     margin-bottom: nhsuk-spacing(3) - nhsuk-spacing(2);
     @include nhsuk-font($size: 22, $weight: bold);
 
-    @include nhsuk-media-query($from: tablet) {
+    @media #{nhsuk-from-breakpoint(tablet)} {
       margin-bottom: nhsuk-spacing(4) - nhsuk-spacing(3);
+    }
+  }
+
+  // Prevent caption moving with scrolling container
+  .nhsuk-scroll .nhsuk-table__caption {
+    position: sticky;
+    left: -$nhsuk-border-table-header-width;
+
+    // Wrap at viewport width
+    max-width: calc(100vw - (($nhsuk-gutter-half * 2) + $nhsuk-border-table-header-width));
+    padding-right: 0;
+
+    // Wrap at container query width
+    @supports (container-type: inline-size) {
+      max-width: calc(100cqw - (($nhsuk-gutter-half * 2) + $nhsuk-border-table-header-width));
+    }
+
+    // Adjust for scroll offset removed from tablet
+    @media #{nhsuk-from-breakpoint(tablet)} {
+      max-width: calc(100vw);
+
+      @supports (container-type: inline-size) {
+        max-width: calc(100cqw);
+      }
+    }
+
+    // Adjust for scroll offset removed by inner scrolling content, but only
+    // when container scroll-state queries are supported in the browser
+    @supports (container-type: inline-size scroll-state) {
+      @container scroll-content {
+        max-width: calc(100cqw);
+      }
     }
   }
 
@@ -68,7 +109,7 @@
     margin-bottom: nhsuk-spacing(6) - nhsuk-spacing(2);
     @include nhsuk-font-size(48);
 
-    @include nhsuk-media-query($from: tablet) {
+    @media #{nhsuk-from-breakpoint(tablet)} {
       margin-bottom: nhsuk-spacing(7) - nhsuk-spacing(3);
     }
   }
@@ -97,76 +138,96 @@
   // 8. Hiding mobile specific header from tablet view
   // 9. Adding a display block value due to IE 11 not having full flex support
 
-  .nhsuk-table-responsive {
-    thead {
-      @include nhsuk-media-query($until: tablet) {
+  .nhsuk-table--responsive {
+    .nhsuk-table__head {
+      @media #{nhsuk-until-breakpoint(tablet)} {
         @include nhsuk-visually-hidden; // [1]
       }
     }
 
     .nhsuk-table__body {
-      .nhsuk-table-responsive__heading {
-        @include nhsuk-font-weight-bold;
-        padding-right: nhsuk-spacing(3);
-        text-align: left; // [7]
-      }
-
       .nhsuk-table__row {
         display: block; // [2]
-        margin-bottom: nhsuk-spacing(4);
-
-        &:last-child {
-          margin-bottom: 0;
-        }
+        margin-bottom: nhsuk-spacing(3) - $nhsuk-border-width;
       }
 
-      .nhsuk-table__row th,
-      .nhsuk-table__row td {
+      .nhsuk-table__row:last-child {
+        margin-bottom: 0;
+      }
+
+      .nhsuk-table__header,
+      .nhsuk-table__cell {
         display: block; // For browsers that don't support flexbox
         display: flex;
         justify-content: space-between; // [4]
+        // stylelint-disable-next-line declaration-no-important
+        width: auto !important;
         min-width: 1px; // [5]
       }
 
       @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-        .nhsuk-table__row th,
-        .nhsuk-table__row td {
+        .nhsuk-table__header,
+        .nhsuk-table__cell {
           display: block; // [9]
         }
       }
 
-      @include nhsuk-media-query($until: tablet) {
-        .nhsuk-table__row th {
+      @media #{nhsuk-until-breakpoint(tablet)} {
+        .nhsuk-table__header {
           @include nhsuk-font-weight-normal;
         }
 
-        .nhsuk-table__row th,
-        .nhsuk-table__row td {
-          padding-right: 0;
+        .nhsuk-table__header,
+        .nhsuk-table__cell {
+          padding-right: $nhsuk-border-table-header-width;
           text-align: right; // [6]
+        }
 
-          &:last-child {
-            border-bottom-width: 3px;
-          }
+        .nhsuk-table__header:last-child,
+        .nhsuk-table__cell:last-child {
+          border-bottom-width: $nhsuk-border-width;
         }
       }
 
-      @include nhsuk-media-query($from: tablet) {
-        .nhsuk-table-responsive__heading {
-          display: none; // [8]
-        }
-
+      @media #{nhsuk-from-breakpoint(tablet)} {
         .nhsuk-table__row {
           display: table-row; // [3]
         }
 
-        .nhsuk-table__row th {
+        .nhsuk-table__header {
           text-align: left;
         }
 
-        .nhsuk-table__row th,
-        .nhsuk-table__row td {
+        .nhsuk-table__header,
+        .nhsuk-table__cell {
           display: table-cell;
+        }
+      }
+    }
+
+    .nhsuk-table__heading {
+      @include nhsuk-font-weight-bold;
+      padding-right: nhsuk-spacing(3);
+      text-align: left; // [7]
+
+      @media #{nhsuk-from-breakpoint(tablet)} {
+        display: none; // [8]
+      }
+    }
+
+    &.nhsuk-table--striped {
+      @media #{nhsuk-until-breakpoint(tablet)} {
+        .nhsuk-table__body .nhsuk-table__row:nth-child(odd) {
+          background-color: transparent;
+        }
+      }
+    }
+
+    &.nhsuk-table--no-last-row-border {
+      @media #{nhsuk-until-breakpoint(tablet)} {
+        .nhsuk-table__body .nhsuk-table__row:last-child .nhsuk-table__header:not(:last-child),
+        .nhsuk-table__body .nhsuk-table__row:last-child .nhsuk-table__cell:not(:last-child) {
+          border-color: $nhsuk-border-colour;
         }
       }
     }
@@ -179,5 +240,232 @@
   .nhsuk-table__header--numeric,
   .nhsuk-table__cell--numeric {
     text-align: right;
+  }
+
+  // Sortable tables
+
+  .nhsuk-table__header[data-sort] {
+    position: relative;
+  }
+
+  // Add icon for sortable tables. These can can be buttons
+  // (client-side sorting) or links (server-side sorting).
+  .nhsuk-table__header[data-sort] .nhsuk-link::after {
+    content: "";
+
+    flex-shrink: 0;
+
+    width: nhsuk-px-to-rem($nhsuk-icon-size);
+    height: nhsuk-px-to-rem($nhsuk-icon-size);
+    margin-bottom: nhsuk-px-to-rem(2px);
+    margin-left: nhsuk-px-to-rem(6px);
+
+    background: nhsuk-image-url("nhsuk-icon-arrow-up-down.svg") no-repeat;
+    background-size: nhsuk-px-to-rem($nhsuk-icon-size) nhsuk-px-to-rem($nhsuk-icon-size);
+
+    // Where possible use the cross as a mask instead. This lets us use
+    // currentcolor, increasing the contrast of the image and matching the
+    // user's prefered foreground colour in e.g. forced colors mode.
+    // We test for `mask-position` rather than `mask-image` because of a false
+    // positive in Edge 17.
+    @supports (mask-position: initial) {
+      background-color: currentcolor;
+      // stylelint-disable-next-line declaration-no-important
+      background-image: none !important;
+      mask-image: nhsuk-image-url("nhsuk-icon-arrow-up-down.svg");
+      mask-size: nhsuk-px-to-rem($nhsuk-icon-size) nhsuk-px-to-rem($nhsuk-icon-size);
+
+      // currentcolor doesn't seem to be computed correctly in forced colors
+      // mode so force the background color to match the system link color
+      // (matching the text in the link)
+      @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+        background-color: ButtonText;
+      }
+    }
+
+    @media #{nhsuk-until-breakpoint(tablet)} {
+      width: nhsuk-px-to-rem($nhsuk-icon-size-small);
+      height: nhsuk-px-to-rem($nhsuk-icon-size-small);
+      margin-left: nhsuk-px-to-rem(5px);
+      background-size: nhsuk-px-to-rem($nhsuk-icon-size-small) nhsuk-px-to-rem($nhsuk-icon-size-small);
+
+      @supports (mask-position: initial) {
+        mask-size: nhsuk-px-to-rem($nhsuk-icon-size-small) nhsuk-px-to-rem($nhsuk-icon-size-small);
+      }
+    }
+  }
+
+  .nhsuk-table__header[aria-sort="ascending"] .nhsuk-link::after {
+    background-image: nhsuk-image-url("nhsuk-icon-arrow-up.svg");
+
+    @supports (mask-position: initial) {
+      mask-image: nhsuk-image-url("nhsuk-icon-arrow-up.svg");
+    }
+  }
+
+  .nhsuk-table__header[aria-sort="descending"] .nhsuk-link::after {
+    background-image: nhsuk-image-url("nhsuk-icon-arrow-down.svg");
+
+    @supports (mask-position: initial) {
+      mask-image: nhsuk-image-url("nhsuk-icon-arrow-down.svg");
+    }
+  }
+
+  // This expands the button or link to fill the whole
+  // table header element, for a bigger click area
+  .nhsuk-table__header[data-sort] .nhsuk-link::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: -$nhsuk-border-table-header-width; // to expand the click area to cover the border-bottom
+    left: 0;
+
+    border: solid transparent;
+    border-width: 0 0 $nhsuk-border-width-form-element;
+  }
+
+  // Add a blue bottom border to the header cell currently sorted
+  .nhsuk-table__header[aria-sort] .nhsuk-link::before {
+    border-color: $nhsuk-link-colour;
+  }
+
+  // Add a darker grey bottom border to the header cell on hover
+  .nhsuk-table__header[data-sort]:hover .nhsuk-link::before {
+    border-color: $nhsuk-secondary-border-colour;
+
+    // Prevent emulated hover state on touch devices (e.g. iOS Safari)
+    @media (hover: none), (pointer: coarse) {
+      border-color: $nhsuk-link-colour;
+    }
+  }
+
+  // Add a grey background colour to the header cell on hover
+  .nhsuk-table__header[data-sort]:hover {
+    &:has(.nhsuk-link) {
+      background-color: $nhsuk-target-hover-colour;
+    }
+
+    @include nhsuk-frontend-supported {
+      background-color: $nhsuk-target-hover-colour;
+
+      // Prevent emulated hover state on touch devices (e.g. iOS Safari)
+      @media (hover: none), (pointer: coarse) {
+        // stylelint-disable-next-line declaration-no-important
+        background-color: transparent !important;
+      }
+    }
+  }
+
+  .nhsuk-table__header[data-sort] .nhsuk-link {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    align-items: flex-end;
+
+    @include nhsuk-link-style-no-visited-state;
+  }
+
+  .nhsuk-table__header[data-sort]:not(:last-child) .nhsuk-link {
+    margin-right: nhsuk-px-to-rem(-6px);
+
+    @media #{nhsuk-until-breakpoint(tablet)} {
+      margin-right: nhsuk-px-to-rem(-5px);
+    }
+  }
+
+  .nhsuk-table--reverse {
+    .nhsuk-link,
+    .nhsuk-table__header[data-sort] .nhsuk-link,
+    /* stylelint-disable-next-line selector-no-qualifying-type */
+    a:not(.nhsuk-button) {
+      @include nhsuk-link-style-reverse;
+    }
+
+    .nhsuk-u-secondary-text-colour {
+      // stylelint-disable-next-line declaration-no-important
+      color: $nhsuk-reverse-secondary-text-colour !important;
+    }
+
+    // Add a white bottom border to the header cell currently sorted
+    .nhsuk-table__header[aria-sort] .nhsuk-link::before {
+      border-color: $nhsuk-reverse-text-colour;
+    }
+
+    // Add a lighter blue bottom border to the header cell on hover
+    .nhsuk-table__header[data-sort]:hover .nhsuk-link::before {
+      border-color: nhsuk-tint($nhsuk-brand-colour, 40%);
+
+      // Prevent emulated hover state on touch devices (e.g. iOS Safari)
+      @media (hover: none), (pointer: coarse) {
+        border-color: $nhsuk-reverse-text-colour;
+      }
+    }
+
+    // Add a darker blue background colour to the header cell on hover
+    .nhsuk-table__header[data-sort]:hover {
+      &:has(.nhsuk-link) {
+        background-color: $nhsuk-reverse-target-hover-colour;
+      }
+
+      @include nhsuk-frontend-supported {
+        background-color: $nhsuk-reverse-target-hover-colour;
+      }
+
+      // Prevent emulated hover state on touch devices (e.g. iOS Safari)
+      @media (hover: none), (pointer: coarse) {
+        // stylelint-disable-next-line declaration-no-important
+        background-color: transparent !important;
+      }
+    }
+  }
+
+  // No border on table body rows
+  .nhsuk-table--no-border {
+    .nhsuk-table__body .nhsuk-table__header,
+    .nhsuk-table__body .nhsuk-table__cell {
+      border-color: transparent;
+    }
+  }
+
+  // No border on last table body row
+  .nhsuk-table--no-last-row-border {
+    .nhsuk-table__body .nhsuk-table__row:last-child .nhsuk-table__header,
+    .nhsuk-table__body .nhsuk-table__row:last-child .nhsuk-table__cell {
+      border-color: transparent;
+    }
+  }
+
+  .nhsuk-card__content .nhsuk-scroll__content {
+    .nhsuk-table {
+      width: 100%;
+      margin-right: 0;
+      margin-left: 0;
+    }
+
+    // Adjust caption for card padding
+    .nhsuk-table__caption {
+      left: 0;
+      @include nhsuk-responsive-padding(5, ("left", "right"));
+    }
+
+    // Extend table row borders from card left
+    .nhsuk-table__header:first-child,
+    .nhsuk-table__cell:first-child {
+      @include nhsuk-responsive-padding(5, "left");
+    }
+
+    // Extend table row borders from card right
+    .nhsuk-table__header:last-child,
+    .nhsuk-table__cell:last-child {
+      @include nhsuk-responsive-padding(5, "right");
+    }
+
+    .nhsuk-table--responsive .nhsuk-table__header,
+    .nhsuk-table--responsive .nhsuk-table__cell {
+      @media #{nhsuk-until-breakpoint(tablet)} {
+        @include nhsuk-responsive-padding(5, ("left", "right"));
+      }
+    }
   }
 }

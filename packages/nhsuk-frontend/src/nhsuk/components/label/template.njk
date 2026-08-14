@@ -1,7 +1,9 @@
+{% from "nhsuk/components/heading/macro.njk" import heading %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-label" -%}
+{%- set classNamesHeading = "nhsuk-label-wrapper" -%}
 
 {%- if params.size and
   params.size in ["s", "m", "l", "xl"] and (
@@ -21,8 +23,7 @@
 {% endif %}
 
 {%- if caller or params.html or params.text %}
-{% set labelHtml %}
-<label
+{%- set attributesHtml %}
   {{- nhsukAttributes({
     class: classNames,
     id: {
@@ -35,20 +36,30 @@
     }
   }) -}}
 
-  {{- nhsukAttributes(params.attributes) }}>
-{% if caller or params.html %}
-  {{ caller() if caller else params.html | safe | trim | indent(2) }}
+  {{- nhsukAttributes(params.attributes) -}}
+{% endset -%}
+
+{% set innerHtml %}
+{% if caller %}
+  {{- caller() }}
+{% elif params.html %}
+  {{- params.html | safe }}
 {% elif params.text %}
-  {{ params.text | trim | indent(2) }}
+  {{- params.text }}
 {% endif %}
-</label>
 {% endset -%}
 
 {% if params.isPageHeading %}
-<h1 class="nhsuk-label-wrapper">
-  {{ labelHtml | safe | trim | indent(2) }}
-</h1>
+{% call heading({
+  className: classNamesHeading
+}) %}
+  <label {{- attributesHtml | safe }}>
+    {{ innerHtml | safe | trim | indent(4) }}
+  </label>
+{%- endcall %}
 {% else %}
-{{ labelHtml | safe | trim }}
+<label {{- attributesHtml | safe }}>
+  {{ innerHtml | safe | trim | indent(2) }}
+</label>
 {% endif %}
 {% endif %}

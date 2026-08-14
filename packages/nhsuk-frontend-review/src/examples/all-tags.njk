@@ -94,30 +94,32 @@
             {% endset %}
 
             {% set rows = (rows.push([
-              { text: name, header: "Name" },
-              { html: colourHtml, header: "Colour" },
-              { html: tagHtml, header: "Tag" }
+              { text: name },
+              { html: colourHtml },
+              { html: tagHtml }
             ]), rows) %}
           {% endfor %}
 
           {{ table({
-            caption: "Page background",
-            captionClasses: "nhsuk-u-margin-bottom-4",
-            captionSize: "l",
+            caption: {
+              text: "Page background",
+              classes: "nhsuk-u-margin-bottom-4",
+              size: "l"
+            },
             firstCellIsHeader: true,
             responsive: true,
             head: [
               {
                 text: "Name",
-                classes: "nhsuk-u-width-one-third"
+                width: "one-third"
               },
               {
                 text: "Colour",
-                classes: "nhsuk-u-width-one-third"
+                width: "one-third"
               },
               {
                 text: "Tag",
-                classes: "nhsuk-u-width-one-third"
+                width: "one-third"
               }
             ],
             rows: rows
@@ -154,31 +156,33 @@
             {% endset %}
 
             {% set rows = (rows.push([
-              { text: name, header: "Name" },
-              { html: colourHtml, header: "Colour" },
-              { html: tagHtml, header: "Tag" }
+              { text: name },
+              { html: colourHtml },
+              { html: tagHtml }
             ]), rows) %}
           {% endfor %}
 
           {{ table({
-            caption: "Blue background (used in hero)",
-            captionClasses: "nhsuk-u-margin-bottom-4",
-            captionSize: "l",
+            caption: {
+              text: "Blue background (used in hero)",
+              classes: "nhsuk-u-margin-bottom-4",
+              size: "l"
+            },
             variant: "reverse",
             firstCellIsHeader: true,
             responsive: true,
             head: [
               {
                 text: "Name",
-                classes: "nhsuk-u-width-one-third"
+                width: "one-third"
               },
               {
                 text: "Colour",
-                classes: "nhsuk-u-width-one-third"
+                width: "one-third"
               },
               {
                 text: "Tag",
-                classes: "nhsuk-u-width-one-third"
+                width: "one-third"
               }
             ],
             rows: rows

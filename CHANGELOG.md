@@ -272,15 +272,32 @@ The following Sass mixins have been removed:
 | `heading-label`             | `nhsuk-heading-label`             |
 | `panel`                     | `nhsuk-panel`                     |
 | `panel-with-label`          | `nhsuk-panel-with-label`          |
-| `print-color`               | `nhsuk-print-colour`              |
-| `print-hide`                | `nhsuk-print-hide`                |
+| `print-color`               | Removed, see example              |
+| `print-hide`                | Removed, see example              |
 | `reading-width`             | `nhsuk-reading-width`             |
 | `remove-margin-mobile`      | `nhsuk-remove-margin-mobile`      |
 | `top-and-bottom`            | `nhsuk-top-and-bottom`            |
 | `visually-hidden`           | `nhsuk-visually-hidden`           |
 | `visually-hidden-focusable` | `nhsuk-visually-hidden-focusable` |
+| `visually-shown`            | Removed, see example              |
 
-The `visually-shown` mixin has been removed entirely. You must selectively apply `nhsuk-visually-hidden` using media queries instead:
+You must replace the Sass print mixins `nhsuk-print-colour` and `nhsuk-print-hide` with `@media print` queries:
+
+```patch
+- @include nhsuk-print-colour;
++ @media print {
++   color: $nhsuk-print-text-colour;
++ }
+```
+
+```patch
+- @include nhsuk-print-hide;
++ @media print {
++   display: none;
++ }
+```
+
+The Sass mixin `visually-shown` has been removed entirely. You must selectively apply `nhsuk-visually-hidden` using media queries instead:
 
 Before:
 
@@ -528,22 +545,22 @@ We've removed Nunjucks options for the pagination component that were deprecated
 If you're using the `pagination` Nunjucks macro in your service, you must:
 
 - replace the `previousUrl` option with the nested `previous.href` option
-- replace the `previousPage` option with the nested `previous.labelText` option
+- replace the `previousPage` option with the nested `previous.label` option
 - replace the `nextUrl` option with the nested `next.href` option
-- replace the `nextPage` option with the nested `next.labelText` option
+- replace the `nextPage` option with the nested `next.label` option
 
 ```patch
   {{ pagination({
 -   previousPage: "Treatments",
 -   previousUrl: "/section/treatments",
 +   previous: {
-+     labelText: "Treatments",
++     label: "Treatments",
 +     href: "/section/treatments"
 +   },
 -   nextPage: "Symptoms",
 -   nextUrl: "/section/symptoms"
 +   next: {
-+     labelText: "Symptoms",
++     label: "Symptoms",
 +     href: "/section/symptoms"
 +   }
   }) }}
@@ -559,9 +576,944 @@ We've changed the hover and active icon colour for the action link component so 
 
 This change was introduced in [pull request #1802: Change action link icon colour on hover and active](https://github.com/nhsuk/nhsuk-frontend/pull/1802).
 
+## 10.6.0 - 13 August 2026
+
+Note: This release was created from the `support/10.x` branch.
+
+### :new: **New features**
+
+#### Sortable tables
+
+You can now make [table](https://service-manual.nhs.uk/design-system/components/table) columns sortable, so that clicking the header cell sorts the table by that column.
+
+If you're using the `tables` Nunjucks macro, to configure header cells:
+
+- Add the `sort: "ascending"` or `sort: "descending"` option to the currently sorted column only
+- Add the `sort: true` option to enable sorting on any other columns
+- Add the `format: "numeric"` option to sort numerically rather than alphabetically
+
+For example:
+
+```patch
+  {{ table({
+    caption: "Childhood MMR coverage",
+    head: [
+      {
+-       text: "Nation"
++       text: "Nation",
++       sort: "ascending"
+      },
+      {
+-       text: "MMR"
++       text: "MMR",
++       format: "numeric",
++       sort: true
+      }
+    ],
+    rows: [
+      [
+        {
+          text: "Northern Ireland"
+        },
+        {
+          text: "86.4%"
+        }
+      ],
+      [
+        {
+          text: "Scotland"
+        },
+        {
+          text: "89.2%"
+        }
+      ],
+      [
+        {
+          text: "Wales"
+        },
+        {
+          text: "89.5%"
+        }
+      ]
+    ]
+  }) }}
+```
+
+This was added in [pull request #1969: Add option to make tables sortable](https://github.com/nhsuk/nhsuk-frontend/pull/1654).
+
+#### Scrolling tables
+
+You can now make the [table](https://service-manual.nhs.uk/design-system/components/table) component scrollable, for when your table has many columns and you cannot split it up or use a responsive table.
+
+```patch
+  {{ table({
+    caption: "Childhood vaccination coverage",
++   scroll: true,
+    head: [],
+    rows: []
+  }) }}
+```
+
+If you are not using Nunjucks macros, use the HTML markup from the [scrolling table example in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/table#scrolling-table) as follows:
+
+- Add the `nhsuk-scroll` scrolling container
+- Add the `nhsuk-scroll__content` scrolling content
+- Add an `id` attribute to your table caption with a unique ID
+- Add an `aria-labelledby` attribute to the scrolling content with the `id` value
+
+```patch
++ <div class="nhsuk-scroll" data-module="nhsuk-scroll">
++   <div class="nhsuk-scroll__content" role="region" aria-labelledby="childhood-vaccination-coverage-caption">
+      <table class="nhsuk-table">
+-       <caption class="nhsuk-table__caption">
++       <caption class="nhsuk-table__caption" id="childhood-vaccination-coverage-caption">
+          Childhood vaccination coverage
+        </caption>
+
+        <!-- // ... -->
+      </table>
++   </div>
++ </div>
+```
+
+This was added in [pull request #1969: Add option to make tables scroll](https://github.com/nhsuk/nhsuk-frontend/pull/1969).
+
+#### Set table column widths, align text or adjust row borders
+
+We've updated the table component to pass `align`, `href`, `visuallyHiddenText` and `width` Nunjucks options to table cells.
+
+For example, to add a column of "Change" links:
+
+```patch
+  {{ table({
+    caption: "Appointments",
+    firstCellIsHeader: true,
+    head: [
+      {
+        text: "Name",
++       width: "one-half",
+        sort: "descending"
+      },
+      {
+        text: "Last log in",
++       align: "right",
++       width: "one-third",
+        sort: true
+-     }
++     },
++     {
++       visuallyHiddenText: "Action"
++       align: "right"
++     }
+    ],
+    rows: [
+      [
+        {
+          text: "Ro Nkosi"
+        },
+        {
+          text: "28 June 2026"
+-       }
++       },
++       {
++         text: "Change",
++         visuallyHiddenText: "details for Ro Nkosi",
++         href: "/change/1111"
++       }
+      ],
+      [
+        {
+          text: "Stellan Park"
+        },
+        {
+          text: "20 June 2026"
+-       }
++       },
++       {
++         text: "Change",
++         visuallyHiddenText: "details for Stellan Park",
++         href: "/change/2222"
++       }
+      ]
+    ]
+  }) }}
+```
+
+For consistency with the summary list component, the following boolean Nunjucks options are also available:
+
+- `border: false` to remove separating borders from all rows
+- `lastRowBorder: false` to remove separating border from the last row
+
+If you are not using Nunjucks macros, use the HTML markup from the [table examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/table).
+
+This was added in pull requests [#1654: Add option to make tables sortable](https://github.com/nhsuk/nhsuk-frontend/pull/1654) and [#2025: Align table component options with summary list](https://github.com/nhsuk/nhsuk-frontend/pull/2025).
+
+#### Set summary list widths, IDs and attributes
+
+We've updated the summary list component to pass `width`, `id` and `attributes` Nunjucks options to the key, value and actions items.
+
+Summary list rows also support the `id` and `attributes` options:
+
+```patch
+  {{ summaryList({
+    rows: [
+      {
++       id: "row-1233",
+        key: {
+-         text: "Name"
++         text: "Name",
++         width: "one-half"
+        },
+        value: {
+          text: "Karen Francis"
+        }
+      }
+    ]
+  }) }}
+```
+
+This was added in [pull request #2047: Review Nunjucks options for headings and ARIA labels](https://github.com/nhsuk/nhsuk-frontend/pull/2047).
+
+#### Add a modifier class for compact tables
+
+We've added a new `.nhsuk-table--compact` class and `compact` Nunjucks option for the [table](https://service-manual.nhs.uk/design-system/components/table) component. This reduces table cell padding at all screen sizes.
+
+```patch
+  {{ table({
+    caption: "Childhood vaccination coverage",
++   compact: true,
+    head: [],
+    rows: []
+  }) }}
+```
+
+If you are not using Nunjucks macros, use the HTML markup from the [table examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/table) as follows:
+
+- Add the `nhsuk-table--compact` class to the `<table>` tag
+
+```patch
+- <table class="nhsuk-table">
++ <table class="nhsuk-table nhsuk-table--compact">
+    <!-- // ... -->
+  </table>
+```
+
+This was added in [pull request #1998: Add compact option for tables](https://github.com/nhsuk/nhsuk-frontend/pull/1998).
+
+#### Add a modifier class for striped tables
+
+We've added a new `.nhsuk-table--striped` class and `striped` Nunjucks option for the [table](https://service-manual.nhs.uk/design-system/components/table) component. This adds table row backround colours on alternate rows.
+
+```patch
+  {{ table({
+    caption: "Childhood vaccination coverage",
++   striped: true,
+    head: [],
+    rows: []
+  }) }}
+```
+
+If you are not using Nunjucks macros, use the HTML markup from the [table examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/table) as follows:
+
+- Add the `nhsuk-table--striped` class to the `<table>` tag
+
+```patch
+- <table class="nhsuk-table">
++ <table class="nhsuk-table nhsuk-table--striped">
+    <!-- // ... -->
+  </table>
+```
+
+This was added in [pull request #2003: Add striped option for tables](https://github.com/nhsuk/nhsuk-frontend/pull/2003).
+
+#### Add an "all" option to checkboxes
+
+You can now add an "all" option to checkboxes when JavaScript is available. This gives users the option to quickly select or unselect all the checkboxes.
+
+To use it, add the `behaviour: "inclusive"` Nunjucks option to a checkbox item. If this checkbox is separated from the others using a divider, add the same option to the divider too:
+
+```patch
+  {{ checkboxes({
+    fieldset: {
+      legend: {
+        text: "What are your favourite colours?",
+        size: "l",
+        isPageHeading: true
+      }
+    },
+    idPrefix: "select-all",
+    name: "example",
+    items: [
++     {
++       value: "all",
++       text: "All colours",
++       behaviour: "inclusive"
++     },
++     {
++       divider: "or",
++       behaviour: "inclusive"
++     },
+      {
+        value: "red",
+        text: "Red"
+      },
+      {
+        value: "green",
+        text: "Green"
+      },
+      {
+        value: "blue",
+        text: "Blue"
+      }
+    ]
+  }) }}
+```
+
+If you are not using Nunjucks macros, use the HTML markup from the [checkboxes examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/checkboxes) as follows:
+
+- Add the `data-behaviour="inclusive"` attribute to the checkbox
+- Add the `nhsuk-u-frontend-not-supported-hidden` class to the checkbox container and "or" divider
+
+```html
+<div class="nhsuk-checkboxes__item nhsuk-u-frontend-not-supported-hidden">
+  <input class="nhsuk-checkboxes__input" id="select-all" name="example" type="checkbox" value="all" data-behaviour="inclusive">
+  <label class="nhsuk-label nhsuk-checkboxes__label" for="select-all">
+    All colours
+  </label>
+</div>
+<div class="nhsuk-checkboxes__divider nhsuk-u-frontend-not-supported-hidden">or</div>
+```
+
+The utility class `nhsuk-u-frontend-not-supported-hidden` is used to hide content when NHS.UK frontend JavaScript components are not fully supported.
+
+This was added in [pull request #1707: Add checkbox "all" option](https://github.com/nhsuk/nhsuk-frontend/pull/1707).
+
+#### Use buttons for card and summary list actions
+
+You can now configure card and summary list actions as button elements, using new Nunjucks macro options:
+
+- `item.id` for the element `id` attribute
+- `item.type` for the button `type` attribute
+- `item.name` for the button `name` attribute
+- `item.value` for the button `value` attribute
+
+Action items without `href` will be visually styled as links.
+
+```patch
++ <form method="post" novalidate>
+    {{ card({
+      heading: "Regional Manager",
+      actions: {
+        items: [
+          {
+            text: "Delete",
+-           href: "/delete"
++           type: "submit",
++           name: "action",
++           value: "delete"
+          },
+          {
+            text: "Withdraw",
+-           href: "/withdraw",
++           type: "submit",
++           name: "action",
++           value: "withdraw"
+          }
+        ]
+```
+
+This was added in [pull request #1989: Add support for card and summary list actions as buttons](https://github.com/nhsuk/nhsuk-frontend/pull/1989).
+
+#### Use simpler label, legend, hint and error message options
+
+We've updated all form components to support alternative string values for labels, legends, hints and error messages.
+
+For example, when no other nested options are necessary:
+
+```patch
+  {{ textarea({
+-   label: {
+-     text: "Can you provide more detail?"
+-   },
+-   hint: {
+-     text: "Do not include personal information like your name, date of birth or NHS number"
+-   },
++   label: "Can you provide more detail?",
++   hint: "Do not include personal information like your name, date of birth or NHS number",
+    name: "more-detail"
+  }) }}
+```
+
+This was added in [pull request #2047: Review Nunjucks options for headings and ARIA labels](https://github.com/nhsuk/nhsuk-frontend/pull/2047).
+
+#### Show or hide content in supported browsers
+
+You can now show or hide content depending on whether NHS.UK frontend JavaScript is supported:
+
+- Add the `nhsuk-u-frontend-not-supported-hidden` class to hide content in older browsers
+- Add the `nhsuk-u-frontend-supported-hidden` class to hide content in modern browsers
+
+For example, we use this to hide conditionally revealed content for checkboxes and radios. Where our JavaScript is not supported, the revealed content is still shown.
+
+If you use Sass you can also include mixins for custom components:
+
+```scss
+.app-component {
+  @include nhsuk-frontend-supported {
+    background-color: nhsuk-colour("green");
+  }
+
+  @include nhsuk-frontend-not-supported {
+    background-color: nhsuk-colour("red");
+  }
+}
+```
+
+Read more about [how we provide support for different browsers](/docs/contributing/browser-support.md).
+
+This was added in [pull request #1972: Add Sass mixins and utility classes for NHS.UK frontend browser support](https://github.com/nhsuk/nhsuk-frontend/pull/1972).
+
+#### Review Nunjucks macro `html` and `call` usage
+
+For consistency with other components, the following Nunjucks macro changes have been included:
+
+1. Added action link component `caller` support
+2. Added back link component `caller` support
+3. Added breadcrumb component `item.html` option
+4. Added error message component `caller` support
+5. Added hint component `caller` support
+6. Added image component `caller` support
+7. Added skip link component `caller` support
+8. Added tag component `caller` support
+
+This was added in [pull request #1999: Add missing `caller` support and fixture coverage to components](https://github.com/nhsuk/nhsuk-frontend/pull/1999).
+
+#### Define negative margins using the Sass `nhsuk-responsive-margin()` mixin
+
+You can now pass the negative equivalent of a point from the typography scale to the `nhsuk-responsive-margin()` function to output negative margins.
+
+For example, `nhsuk-responsive-margin(3)` outputs an `8px` margin (`16px` tablet width) in all directions, and `nhsuk-responsive-margin(-3)` outputs an `-8px` margin (`-16px` tablet width).
+
+This was added in [pull request #1940: Allow `nhsuk-responsive-margin()` to output negative margins](https://github.com/nhsuk/nhsuk-frontend/pull/1940).
+
+#### Support rem units in Sass spacing functions and mixins
+
+You can now pass `$unit: "rem"` into all Sass spacing functions and mixins.
+
+For example, to output responsive padding in rem units:
+
+```patch
+- @include nhsuk-responsive-padding(5, "right");
++ @include nhsuk-responsive-padding(5, "right", $unit: "rem");
+```
+
+Or removing `nhsuk-px-to-rem()` and using `nhsuk-spacing()` directly:
+
+```patch
+- padding: nhsuk-px-to-rem(nhsuk-spacing(1));
++ padding: nhsuk-spacing(1, $unit: "rem");
+```
+
+This was added in [pull request #1945: Support rem units in Sass spacing functions and mixins](https://github.com/nhsuk/nhsuk-frontend/pull/1945).
+
+#### Support multiple directions in Sass spacing mixins
+
+You can now pass multiple directions into the `nhsuk-responsive-margin()` and `nhsuk-responsive-padding()` mixins.
+
+```patch
+- @include nhsuk-responsive-padding(5, "left");
+- @include nhsuk-responsive-padding(5, "right");
++ @include nhsuk-responsive-padding(5, ("left", "right"));
+```
+
+This was added in [pull request #1946: Support multiple directions in Sass spacing mixins](https://github.com/nhsuk/nhsuk-frontend/pull/1946).
+
+#### Use Sass functions to create custom media queries
+
+We've added new Sass functions to help write `@media` and `@container` queries, mixins and functions whilst still using NHS.UK frontend's `$nhsuk-breakpoints` setting.
+
+You can create `min-width` and `max-width` queries using the `nhsuk-from-breakpoint` and `nhsuk-until-breakpoint` functions:
+
+```scss
+.app-component__element {
+  color: red;
+
+  @media #{nhsuk-from-breakpoint(mobile)} and #{nhsuk-until-breakpoint(desktop)} {
+    color: blue;
+  }
+}
+```
+
+You can get the configured value of a breakpoint using `nhsuk-breakpoint-value`:
+
+```scss
+@function wider-than-tablet($width) {
+  @return $width > nhsuk-breakpoint-value(tablet);
+}
+```
+
+Each of these functions allows for passing a custom breakpoint map. This can be useful if a particular component needs to change layout at different dimensions to the rest of the site and for authoring `@container` queries.
+
+```scss
+$app-component-breakpoints: (
+  small: 300px,
+  medium: 500px,
+  large: 750px
+);
+
+.app-component__element {
+  color: red;
+
+  @container #{nhsuk-from-breakpoint(small, $app-component-breakpoints)} {
+    color: blue;
+  }
+}
+```
+
+We've rewritten the internals of the `nhsuk-media-query` mixin to make use of these new functions. The rewritten mixin should work identically and return the same CSS as the previous version, but you may want to make sure that your existing media queries work as expected.
+
+This was added in [pull request #1961: Port Sass media query functions from GOV.UK Frontend and remove `sass-mq` dependency](https://github.com/nhsuk/nhsuk-frontend/pull/1961).
+
+#### Remove image background colour, bottom border or add custom width
+
+We've updated the image component to add `background`, `border` and `width` Nunjucks options.
+
+These new options can be used to override the defaults. For example, setting `background: false` and `border: false` renders the image without a background or bottom border:
+
+```patch
+  {{ image({
++   background: false,
++   border: false,
+    src: "https://service-manual.nhs.uk/assets/image-example-stretch-marks-600w.jpg",
+    alt: "Close-up of a person's tummy showing a number of creases in the skin under their belly button. Shown on light brown skin."
+  }) }}
+```
+
+This was added in [pull request #2002: Add image component `background`, `border` and `width` options](https://github.com/nhsuk/nhsuk-frontend/pull/2002).
+
+### :wastebasket: **Deprecated features**
+
+#### Rename checkboxes "none" options
+
+We've renamed the Nunjucks and HTML data attribute options for checkboxes with an option for "none".
+
+If you're using the `checkboxes` Nunjucks macro, you should:
+
+- replace the `exclusive: true` option with the new `behaviour: "exclusive"` option
+- rename the `exclusiveGroup` option to the new `behaviourGroup` option
+
+```patch
+    items: [
+      {
+        value: "none",
+-       exclusive: true,
+-       exclusiveGroup: "preferences",
++       behaviour: "exclusive",
++       behaviourGroup: "preferences"
+      }
+    ]
+```
+
+If you are not using Nunjucks macros, update your HTML markup using the [checkboxes examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/tabs) as follows:
+
+- replace the `data-checkbox-exclusive` attribute with `data-behaviour="exclusive"`
+- rename the `data-checkbox-exclusive-group` attribute to `data-behaviour-group`
+
+```patch
+  <input type="checkbox" value="none"
+-   data-checkbox-exclusive
+-   data-checkbox-exclusive-group="preferences"
++   data-behaviour="exclusive"
++   data-behaviour-group="preferences"
+  >
+```
+
+The previous names are deprecated and will be removed in a future release.
+
+This change was introduced in [pull request #1707: Add checkbox "all" option](https://github.com/nhsuk/nhsuk-frontend/pull/1707).
+
+#### Rename card heading and description options
+
+We've changed the card heading Nunjucks options to support `text`, `html` and nested options:
+
+- Card `heading` has changed to `heading.text`
+- Card `headingHtml` has changed to `heading.html`
+- Card `headingClasses` and `headingId` have changed to `heading.classes` and `heading.id`
+- Card `headingSize` and `headingLevel` have changed to `heading.size` and `heading.level`
+- Card `headingVisuallyHiddenText` has changed to `heading.visuallyHiddenText`
+
+Similarly for description text:
+
+- Card `description` and `descriptionHtml` have changed to `description.text` and `description.html`
+
+```patch
+  {{ card({
+-   heading: "Introduction to care and support",
+-   headingSize: "m"
++   heading: {
++     text: "Introduction to care and support",
++     size: "m"
++   },
+-   description: "A quick guide for people who have care and support needs and their carers"
++   description: {
++     text: "A quick guide for people who have care and support needs and their carers"
++   }
+  }) }}
+```
+
+The previous names are deprecated and will be removed in a future release.
+
+This change was introduced in [pull request #2047: Review Nunjucks options for headings and ARIA labels](https://github.com/nhsuk/nhsuk-frontend/pull/2047).
+
+#### Rename details summary options
+
+We've changed the details summary Nunjucks options to support `text`, `html` and nested options:
+
+- Details `summaryText` has changed to `summary.text`
+- Details `summaryHtml` has changed to `summary.html`
+
+```patch
+  {{ details({
+-   summaryText: "Where can I find my NHS number?",
++   summary: {
++     text: "Where can I find my NHS number?"
++   },
+    html: '<p>An NHS number is a 10 digit number, like <span class="nhsuk-u-nowrap">999 123 4567</span>.</p>'
+  }) }}
+```
+
+The previous names are deprecated and will be removed in a future release.
+
+This change was introduced in [pull request #2047: Review Nunjucks options for headings and ARIA labels](https://github.com/nhsuk/nhsuk-frontend/pull/2047).
+
+#### Rename error summary title and description options
+
+We've changed the error summary title and description Nunjucks options to support `text`, `html` and nested options:
+
+- Error summary `titleText` has changed to `heading.text`
+- Error summary `titleHtml` has changed to `heading.html`
+- Error summary `descriptionText` has changed to `description.text`
+- Error summary `descriptionHtml` has changed to `description.html`
+
+```patch
+  {{ errorSummary({
+-   titleText: "There is a problem",
++   heading: {
++     text: "There is a problem"
++   },
+    errorList: []
+  }) }}
+```
+
+The previous names are deprecated and will be removed in a future release.
+
+This change was introduced in [pull request #2047: Review Nunjucks options for headings and ARIA labels](https://github.com/nhsuk/nhsuk-frontend/pull/2047).
+
+#### Rename notification banner title options
+
+We've changed the notification banner title Nunjucks options to support `text`, `html` and nested options:
+
+- Notification banner `titleText` has changed to `title.text`
+- Notification banner `titleHtml` has changed to `title.html`
+- Notification banner `titleId` has changed to `title.id`
+- Notification banner `titleHeadingLevel` has changed to `title.level`
+- Notification banner `heading` option has been added
+
+```patch
+  {% call notificationBanner({
+-   titleText: "Important"
++   title: {
++     text: "Important"
++   },
++   heading: {
++     text: "The patient record was updated"
++   }
+  }) %}
+-   <h3 class="nhsuk-notification-banner__heading">
+-     The patient record was updated
+-   </h3>
+    <p class="nhsuk-body">
+      Contact <a class="nhsuk-notification-banner__link" href="#">example@nhs.uk</a> if you think there's a problem.
+    </p>
+  {% endcall %}
+```
+
+The previous names are deprecated and will be removed in a future release.
+
+This change was introduced in [pull request #2047: Review Nunjucks options for headings and ARIA labels](https://github.com/nhsuk/nhsuk-frontend/pull/2047).
+
+#### Rename panel title options
+
+We've changed the panel title Nunjucks options to support `text`, `html` and nested options:
+
+- Panel `titleText` has changed to `heading.text`
+- Panel `titleHtml` has changed to `heading.html`
+- Panel `titleSize` has changed to `heading.size`
+- Panel `headingLevel` has changed to `heading.level`
+- Panel `titleClasses` has changed to `heading.classes`
+
+```patch
+  {{ panel({
+-   titleText: "Jodie Brown had a COVID-19 vaccine less than 3 months ago",
+-   titleSize: "l",
++   heading: {
++     text: "Jodie Brown had a COVID-19 vaccine less than 3 months ago",
++     size: "l"
++   },
+    text: "They had a COVID-19 vaccine on 25 September 2025."
+  }) }}
+```
+
+The previous names are deprecated and will be removed in a future release.
+
+This change was introduced in [pull request #2047: Review Nunjucks options for headings and ARIA labels](https://github.com/nhsuk/nhsuk-frontend/pull/2047).
+
+#### Rename table caption options
+
+We've changed the table caption Nunjucks options to support `text`, `html` and nested options:
+
+- Table `captionSize` has changed to `caption.size`
+- Table `captionClasses` has changed to `caption.classes`
+
+```patch
+  {{ table({
+-   caption: "Skin symptoms and possible causes",
+-   captionSize: "l",
++   caption: {
++     text: "Skin symptoms and possible causes",
++     size: "l"
++   },
+    head: [],
+    rows: []
+  }) }}
+```
+
+The previous names are deprecated and will be removed in a future release.
+
+This change was introduced in [pull request #2047: Review Nunjucks options for headings and ARIA labels](https://github.com/nhsuk/nhsuk-frontend/pull/2047).
+
+#### Rename title and heading options
+
+We've changed the Nunjucks options for titles and headings in all other components to support `text` and `html` and nested options:
+
+- Do and don't list `title` has changed to `heading.text`
+- Do and don't list `headingLevel` has changed to `heading.level`
+- Footer `navigation.title` has changed to `navigation.heading.text`
+- Task list `item.title` has changed to `item.heading`
+- Warning callout `headingLevel` has changed to `heading.level`
+
+The previous names are deprecated and will be removed in a future release.
+
+This change was introduced in [pull request #2047: Review Nunjucks options for headings and ARIA labels](https://github.com/nhsuk/nhsuk-frontend/pull/2047).
+
+#### Rename ARIA label and visually hidden text options
+
+We've changed some of the Nunjucks options relating to `aria-label` attributes and visually hidden text. This change makes sure they're named consistently across our components.
+
+- Breadcrumbs `labelText` has changed to `ariaLabel`
+- Contents list `landmarkLabel` has changed to `ariaLabel`
+- Footer `meta.visuallyHiddenTitle` has changed to `meta.visuallyHiddenText`
+- Header `search.placeholder` has changed to `search.input.placeholder`
+- Header `search.visuallyHiddenLabel` has changed to `search.label.visuallyHiddenText`
+- Header `search.visuallyHiddenButton` has changed to `search.button.ariaLabel`
+- Pagination `item.visuallyHiddenText` has changed to `item.ariaLabel`
+- Pagination `landmarkLabel` has changed to `ariaLabel`
+- Pagination `previous.labelText` has changed to `previous.label.text`
+- Pagination `next.labelText` has changed to `next.label.text`
+- Password input `showPasswordAriaLabelText` has changed to `showPasswordAriaLabel`
+- Password input `hidePasswordAriaLabelText` has changed to `hidePasswordAriaLabel`
+- Tabs `title` has changed to `visuallyHiddenText`
+
+For Nunjucks options with `text` and `html` nested options, alternative string values are also supported:
+
+```patch
+  {{ pagination({
+    previous: {
+-     label: {
+-       text: "Treatments"
+-     },
++     label: "Treatments",
+      href: "/section/treatments"
+    },
+    next: {
+-     label: {
+-       text: "Symptoms"
+-     },
++     label: "Symptoms",
+      href: "/section/symptoms"
+    }
+  }) }}
+```
+
+The previous names are deprecated and will be removed in a future release.
+
+This change was introduced in [pull request #2047: Review Nunjucks options for headings and ARIA labels](https://github.com/nhsuk/nhsuk-frontend/pull/2047).
+
+#### Update the HTML for heroes
+
+For consistency with other components, the HTML for heroes has changed.
+
+If you are not using Nunjucks macros, update your HTML markup as follows.
+
+For heroes with images:
+
+- Remove the wrapper `<div class="nhsuk-hero__overlay"> </div>` and add it below the width container
+- Rename the content `<div class="nhsuk-hero-content"` class attribute to match `<div class="nhsuk-hero__content"`
+
+```patch
+  <section class="nhsuk-hero nhsuk-hero--image nhsuk-hero--image-description" style="...">
+-   <div class="nhsuk-hero__overlay">
+      <div class="nhsuk-width-container">
+        <div class="nhsuk-grid-row">
+          <div class="nhsuk-grid-column-two-thirds">
+-           <div class="nhsuk-hero-content">
++           <div class="nhsuk-hero__content">
+              <!-- // ... -->
+              <span class="nhsuk-hero__arrow" aria-hidden="true"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+-   </div>
++   <div class="nhsuk-hero__overlay"></div>
+  </section>
+```
+
+For heroes without images:
+
+- Move the `nhsuk-hero--border` class to the top-level
+- Rename the content `<div class="nhsuk-hero__wrapper"` class attribute to match `<div class="nhsuk-hero__content"`
+
+```patch
+- <section class="nhsuk-hero">
+-   <div class="nhsuk-width-container nhsuk-hero--border">
++ <section class="nhsuk-hero nhsuk-hero--border">
++   <div class="nhsuk-width-container">
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+-         <div class="nhsuk-hero__wrapper">
++         <div class="nhsuk-hero__content">
+            <!-- // ... -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+```
+
+This change was introduced in [pull request #1971: Update hero to support content columns](https://github.com/nhsuk/nhsuk-frontend/pull/1971).
+
+#### Replace Sass print mixins with `@media print`
+
+We've deprecated the Sass print mixins `nhsuk-print-colour` and `nhsuk-print-hide`. You should replace them with `@media print` queries instead.
+
+For example:
+
+```patch
+- @include nhsuk-print-colour;
++ @media print {
++   color: $nhsuk-print-text-colour;
++ }
+```
+
+```patch
+- @include nhsuk-print-hide;
++ @media print {
++   display: none;
++ }
+```
+
+You can still use `nhsuk-print-colour` and `nhsuk-print-hide` but we'll remove them in a future breaking release.
+
+#### Rename reverse and responsive table HTML classes
+
+We've renamed HTML classes for reverse and responsive tables. You can still use the previous names but we'll remove them in a future breaking release.
+
+If you're using the `table` Nunjucks macro with the `responsive` option, you should:
+
+- remove the unnecessary `header` option from table `rows` nested items
+
+```patch
+  rows: [
+    [
+      {
+-       header: "Age",
+        text: "3 to 5 months (weighing more than 5kg)"
+      },
+      {
+-       header: "How much?",
+        text: "2.5ml"
+      },
+      {
+-       header: "How often?",
+        text: "Max 3 times in 24 hours"
+      }
+    ],
+```
+
+If you are not using Nunjucks macros, update your HTML markup using the [table examples in the NHS digital service manual](https://service-manual.nhs.uk/design-system/components/table) as follows:
+
+- replace `nhsuk-table-responsive--reverse` with `nhsuk-table--reverse`
+- replace `nhsuk-table-responsive` with `nhsuk-table nhsuk-table--responsive`
+
+```patch
+- <table class="nhsuk-table-responsive nhsuk-table-responsive--reverse">
++ <table class="nhsuk-table nhsuk-table--reverse nhsuk-table--responsive">
+    <!-- // ... -->
+  </table>
+```
+
+- replace `nhsuk-table-responsive__heading` with `nhsuk-table__heading`
+
+```patch
+  <td class="nhsuk-table__cell" role="cell">
+-   <span class="nhsuk-table-responsive__heading" aria-hidden="true">Cell heading </span>
++   <span class="nhsuk-table__heading" aria-hidden="true">Cell heading </span>
+    <span>Example content</span>
+  </td>
+```
+
+This change was introduced in pull requests [#1998: Add `compact` option for tables](https://github.com/nhsuk/nhsuk-frontend/pull/1998) and [#2003: Add `striped` option for tables](https://github.com/nhsuk/nhsuk-frontend/pull/2003).
+
+#### Stop using the `element` option on action links, back links and buttons
+
+We’ve deprecated the `element` Nunjucks option for action links, back links and button components.
+
+In a future release, if the `href` parameter is set the component will automatically use the `<a>` element. If the `href` parameter is not set the component will automatically use the `<button>` element. It will not be possible to override this change.
+
+```patch
+  {{ actionLink({
+    text: "Action link",
+-   element: "button"
++   type: "submit"
+  }) }}
+```
+
+This change was introduced in [pull request #2047: Review Nunjucks options for headings and ARIA labels](https://github.com/nhsuk/nhsuk-frontend/pull/2047).
+
+### :recycle: **Changes**
+
+#### Apply image width on tablet sized screens
+
+We've updated the image component to apply its two-thirds width on tablet sized screens (641px and up).
+
+Previously these styles were applied from desktop width (769px and up) making it difficult to cater for smaller screen sizes.
+
+This change was introduced in [pull request #2002: Add image component `background`, `border` and `width` options](https://github.com/nhsuk/nhsuk-frontend/pull/2002).
+
 ### :wrench: **Fixes**
 
+- [#1942: Update `nhsuk-spacing()` to add missing `$adjustment` and `$important` params](https://github.com/nhsuk/nhsuk-frontend/pull/1942)
+- [#1984: Extend global inline code styles](https://github.com/nhsuk/nhsuk-frontend/pull/1984)
+- [#1986: Update `nhsuk-font-monospace` font size to better match body text](https://github.com/nhsuk/nhsuk-frontend/pull/1986/changes)
+- [#1987: Add `nhsuk-u-display-none` override classes for breakpoints](https://github.com/nhsuk/nhsuk-frontend/pull/1987)
+- [#1996: Update hover colour for task list and pagination](https://github.com/nhsuk/nhsuk-frontend/pull/1996)
+- [#1997: Preserve conditionally revealed content margins when JavaScript is not supported](https://github.com/nhsuk/nhsuk-frontend/pull/1997)
+- [#2000: Update responsive table row margin and border width](https://github.com/nhsuk/nhsuk-frontend/pull/2000)
+- [#2032: Fix secondary text colour override when reversed](https://github.com/nhsuk/nhsuk-frontend/pull/2032)
 - [#2035: Prevent divider on last account link item](https://github.com/nhsuk/nhsuk-frontend/pull/2035)
+- [#2048: Fix margin and line height issues for labels and legends as page headings](https://github.com/nhsuk/nhsuk-frontend/pull/2048)
+- [#2049: Fix radio button and check mark alignment on Windows 125% scaling](https://github.com/nhsuk/nhsuk-frontend/pull/2049)
 
 ## 10.5.2 - 8 June 2026
 

@@ -1,82 +1,101 @@
+{% from "nhsuk/components/heading/macro.njk" import heading %}
+{% from "nhsuk/components/images/macro.njk" import image %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-hero" -%}
 {%- set classNamesHeading = "nhsuk-hero__heading" -%}
+{%- set classNamesColumn = "nhsuk-grid-column" -%}
 
-{%- if params.image or params.imageURL %}
+{%- if params.image.src %}
   {% set classNames = classNames ~ " nhsuk-hero--image" ~
     (" nhsuk-hero--image-description" if params.heading else "") %}
+{% elif params.border != false  %}
+  {% set classNames = classNames ~ " nhsuk-hero--border" %}
 {% endif %}
 
 {%- if params.classes %}
   {% set classNames = classNames ~ " " ~ params.classes %}
 {% endif %}
 
-{%- if params.headingSize and
-  params.headingSize in ["xxs", "xs", "s", "m", "l", "xl"] and (
-    not params.headingClasses or (
-      not "nhsuk-heading-xxs" in params.headingClasses and
-      not "nhsuk-heading-xs" in params.headingClasses and
-      not "nhsuk-heading-s" in params.headingClasses and
-      not "nhsuk-heading-m" in params.headingClasses and
-      not "nhsuk-heading-l" in params.headingClasses and
-      not "nhsuk-heading-xl" in params.headingClasses
-    )
-  )
-%}
-  {% set classNamesHeading = classNamesHeading ~ " nhsuk-heading-" ~ params.headingSize %}
+{%- set attributesHtml %}
+  {{- nhsukAttributes({
+    class: classNames,
+    id: {
+      value: params.id,
+      optional: true
+    }
+  }) -}}
+
+  {% if params.image.src %}
+    {{- nhsukAttributes({
+      style: ("background-image: url('" ~ params.image.src | escape ~ "');") | safe
+    }) -}}
+  {% endif %}
+
+  {{- nhsukAttributes(params.attributes) -}}
+{% endset -%}
+
+{%- set rows = ([params.content] if params.content is mapping else params.content) | default([]) %}
+
+{%- if caller or params.heading or params.text or params.html %}
+  {%- set rows = (rows.unshift({
+    heading: params.heading if params.heading is mapping and params.heading is not escaped else {
+      text: params.heading if params.heading is string else undefined,
+      html: params.heading if params.heading is escaped else undefined,
+      size: params.headingSize,
+      level: params.headingLevel,
+      classes: params.headingClasses
+    },
+    text: params.text,
+    html: caller() if caller else params.html,
+    width: params.width | default("two-thirds")
+  }), rows) %}
 {% endif %}
 
-{%- if params.headingClasses %}
-  {% set classNamesHeading = classNamesHeading ~ " " ~ params.headingClasses %}
-{% endif %}
-
-{%- set headingLevel = params.headingLevel if params.headingLevel else 1 %}
-{%- set hasContent = true if caller or params.heading or params.text or params.html else false %}
-
-{%- set image = {
-  src: params.imageURL
-} if params.imageURL else params.image %}
-
-{#- Capture the HTML so we can optionally nest it in an image overlay -#}
-{% set innerHtml %}
-  <div class="nhsuk-width-container
-    {%- if params.containerClasses %} {{ params.containerClasses }}{% endif %}
-    {%- if not image.src %} nhsuk-hero--border{% endif %}">
+<section {{- attributesHtml | safe }}>
+{% if rows | length %}
+  <div class="nhsuk-width-container {%- if params.containerClasses %} {{ params.containerClasses }}{% endif %}">
+  {% for row in rows | batch(2) %}
     <div class="nhsuk-grid-row">
-      <div class="nhsuk-grid-column-two-thirds">
-        <div class="{{ "nhsuk-hero__wrapper" if not image.src else "nhsuk-hero-content" }}">
-        {% if params.heading %}
-          <h{{ headingLevel }} class="{{ classNamesHeading }}
-            {%- if not (caller or params.text or params.html) %} nhsuk-u-margin-bottom-0{% endif %}">
-            {{- params.heading -}}
-          </h{{ headingLevel }}>
-        {% endif %}
-        {% if caller or params.html %}
-          {{ caller() if caller else params.html | safe | trim | indent(10) }}
-        {% elif params.text %}
-          <p class="nhsuk-body-l nhsuk-u-margin-bottom-0">{{ params.text }}</p>
-        {% endif %}
-        {% if image.src %}
+    {% for content in row %}
+      <div class="nhsuk-grid-column-{{ content.width | default("one-half", true) }}">
+        <div class="{{ "nhsuk-hero__content" ~ (" " ~ content.classes if content.classes) }}">
+        {% if params.image.src and rows | length == 1 %}
           <span class="nhsuk-hero__arrow" aria-hidden="true"></span>
+        {% endif %}
+        {% if content.heading.text or content.heading.html %}
+          {{ heading({
+            id: content.heading.id,
+            text: content.heading.text,
+            html: content.heading.html,
+            visuallyHiddenText: content.heading.visuallyHiddenText,
+            caption: content.heading.caption,
+            href: content.heading.href,
+            size: content.heading.size | default("xl"),
+            level: content.heading.level,
+            classes: classNamesHeading ~ (" " ~ content.heading.classes if content.heading.classes),
+            attributes: content.heading.attributes
+          }) | trim | indent(10) }}
+        {% endif %}
+        {% if content.html %}
+          {{ content.html | safe | trim | indent(10) }}
+        {% elif content.text %}
+          <p class="nhsuk-body-l">
+            {{- content.text | trim | indent(10) -}}
+          </p>
+        {% endif %}
+        {% if content.image %}
+          {{ image(content.image) | trim | indent(10) }}
         {% endif %}
         </div>
       </div>
+    {% endfor %}
     </div>
+  {% endfor %}
   </div>
-{% endset -%}
-
-<section class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
-  {%- if image.src %} style="background-image: url('{{ image.src }}');"{% endif %}
-  {{- nhsukAttributes(params.attributes) }}>
-{% if image.src and not hasContent %}
+{% endif %}
+{% if params.image.src %}
   <div class="nhsuk-hero__overlay"></div>
-{% elif image.src and hasContent %}
-  <div class="nhsuk-hero__overlay">
-    {{ innerHtml | safe | trim | indent(2) }}
-  </div>
-{% elif hasContent %}
-  {{ innerHtml | safe | trim }}
 {% endif %}
 </section>

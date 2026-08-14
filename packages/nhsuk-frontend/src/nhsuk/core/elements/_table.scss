@@ -12,10 +12,18 @@
 ////
 
 table {
-  width: 100%; // [1]
+  box-sizing: border-box;
+
+  width: calc(100% + $nhsuk-border-table-header-width * 2); // [1]
+  margin-right: -$nhsuk-border-table-header-width;
+  margin-left: -$nhsuk-border-table-header-width;
+
   border-spacing: 0;
+  border-collapse: collapse;
+
   vertical-align: top;
 
+  @include nhsuk-font($size: 19);
   @include nhsuk-responsive-margin(7, "bottom");
 
   .nhsuk-u-text-break-word {
@@ -24,7 +32,7 @@ table {
     word-break: break-word; // [3]
   }
 
-  @include nhsuk-media-query($media-type: print) {
+  @media print {
     break-inside: avoid;
   }
 }
@@ -32,24 +40,23 @@ table {
 thead {
   th {
     border-bottom-width: $nhsuk-border-table-header-width;
+    vertical-align: bottom;
   }
 }
 
 th,
 td {
-  padding-left: 0;
+  padding-left: $nhsuk-border-table-header-width;
   border: solid $nhsuk-border-colour;
   border-width: 0 0 $nhsuk-border-table-cell-width;
   text-align: left;
   vertical-align: top;
 
-  @include nhsuk-font-size(19);
-  @include nhsuk-responsive-padding(3, "bottom");
-  @include nhsuk-responsive-padding(4, "right");
-  @include nhsuk-responsive-padding(3, "top");
+  @include nhsuk-responsive-padding(3, ("top", "bottom"));
+  @include nhsuk-responsive-padding(4, "right", $adjustment: - $nhsuk-border-table-header-width);
 
   &:last-child {
-    padding-right: 0;
+    padding-right: $nhsuk-border-table-header-width;
   }
 }
 
@@ -58,6 +65,9 @@ th {
 }
 
 caption {
+  padding-right: $nhsuk-border-table-header-width;
+  padding-left: $nhsuk-border-table-header-width;
   text-align: left;
+
   @include nhsuk-font($size: 22, $weight: bold);
 }

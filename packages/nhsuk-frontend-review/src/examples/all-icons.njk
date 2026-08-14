@@ -3,6 +3,7 @@
 {% set pageName = "Icons" %}
 
 {% set icons = [
+  { name: "Arrow up-down", modifier: "arrow-up-down" },
   { name: "Arrow left", modifier: "arrow-left" },
   { name: "Arrow right", modifier: "arrow-right" },
   { name: "Arrow up", modifier: "arrow-up" },
@@ -73,30 +74,32 @@
             {% endset %}
 
             {% set rows = (rows.push([
-              { text: icon.name, header: "Name" },
-              { html: modifierHtml, header: "Modifier" },
+              { text: icon.name },
+              { html: modifierHtml },
               { text: iconHtml | safe }
             ]), rows) %}
           {% endfor %}
 
           {{ table({
-            caption: "Page background",
-            captionClasses: "nhsuk-u-margin-bottom-4",
-            captionSize: "l",
+            caption: {
+              text: "Page background",
+              classes: "nhsuk-u-margin-bottom-4",
+              size: "l"
+            },
             firstCellIsHeader: true,
             responsive: true,
             head: [
               {
                 text: "Name",
-                classes: "nhsuk-u-width-one-quarter"
+                width: "one-quarter"
               },
               {
                 text: "Modifier",
-                classes: "nhsuk-u-width-one-quarter"
+                width: "one-quarter"
               },
               {
                 text: "Icon",
-                classes: "nhsuk-u-width-one-half"
+                width: "one-half"
               }
             ],
             rows: rows
@@ -136,31 +139,33 @@
             {% endset %}
 
             {% set rows = (rows.push([
-              { text: icon.name, header: "Name" },
-              { html: modifierHtml, header: "Modifier" },
+              { text: icon.name },
+              { html: modifierHtml },
               { text: iconHtml | safe }
             ]), rows) %}
           {% endfor %}
 
           {{ table({
-            caption: "Blue background (used in hero)",
-            captionClasses: "nhsuk-u-margin-bottom-4",
-            captionSize: "l",
+            caption: {
+              text: "Blue background (used in hero)",
+              classes: "nhsuk-u-margin-bottom-4",
+              size: "l"
+            },
             variant: "reverse",
             firstCellIsHeader: true,
             responsive: true,
             head: [
               {
                 text: "Name",
-                classes: "nhsuk-u-width-one-quarter"
+                width: "one-quarter"
               },
               {
                 text: "Modifier",
-                classes: "nhsuk-u-width-one-quarter"
+                width: "one-quarter"
               },
               {
                 text: "Icon",
-                classes: "nhsuk-u-width-one-half"
+                width: "one-half"
               }
             ],
             rows: rows

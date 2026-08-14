@@ -1,6 +1,6 @@
-import { components } from '#lib'
+import { components } from "#lib"
 
-import { examples as buttonExamples } from '../button/fixtures.mjs'
+import { examples as buttonExamples } from "../button/fixtures.mjs"
 
 /**
  * Nunjucks macro option examples
@@ -8,378 +8,378 @@ import { examples as buttonExamples } from '../button/fixtures.mjs'
  * @satisfies {{ [example: string]: MacroExample }}
  */
 const fixtures = {
-  'default': {
+  "default": {
     context: {
       label: {
-        text: 'Sort by',
+        text: "Sort by",
         isPageHeading: true
       },
-      name: 'example',
+      name: "example",
       items: [
         {
-          value: 'published',
-          text: 'Recently published'
+          value: "published",
+          text: "Recently published"
         },
         {
-          value: 'updated',
-          text: 'Recently updated'
+          value: "updated",
+          text: "Recently updated"
         },
         {
-          value: 'views',
-          text: 'Most views'
+          value: "views",
+          text: "Most views"
         },
         {
-          value: 'comments',
-          text: 'Most comments'
+          value: "comments",
+          text: "Most comments"
         }
       ]
     },
     screenshot: true
   },
-  'disabled': {
+  "disabled": {
     context: {
       label: {
-        text: 'Sort by',
+        text: "Sort by",
         isPageHeading: true
       },
-      name: 'example',
+      name: "example",
       disabled: true,
       items: [
         {
-          value: 'published',
-          text: 'Recently published'
+          value: "published",
+          text: "Recently published"
         },
         {
-          value: 'updated',
-          text: 'Recently updated'
+          value: "updated",
+          text: "Recently updated"
         },
         {
-          value: 'views',
-          text: 'Most views'
+          value: "views",
+          text: "Most views"
         },
         {
-          value: 'comments',
-          text: 'Most comments'
+          value: "comments",
+          text: "Most comments"
         }
       ]
     },
     screenshot: true
   },
-  'disabled option': {
+  "disabled option": {
     context: {
       label: {
-        text: 'Sort by',
+        text: "Sort by",
         isPageHeading: true
       },
-      name: 'example',
+      name: "example",
       items: [
         {
-          value: 'published',
-          text: 'Recently published'
+          value: "published",
+          text: "Recently published"
         },
         {
-          value: 'updated',
-          text: 'Recently updated'
+          value: "updated",
+          text: "Recently updated"
         },
         {
-          value: 'views',
-          text: 'Most views'
+          value: "views",
+          text: "Most views"
         },
         {
-          value: 'comments',
-          text: 'Most comments',
+          value: "comments",
+          text: "Most comments",
           disabled: true
         }
       ]
     }
   },
-  'with divider': {
+  "with divider": {
     context: {
       label: {
-        text: 'Sort by',
+        text: "Sort by",
         isPageHeading: true
       },
-      name: 'example',
+      name: "example",
       items: [
         {
-          value: 'first-name-ascending',
-          text: 'First name (A to Z)'
+          value: "first-name-ascending",
+          text: "First name (A to Z)"
         },
         {
-          value: 'first-name-descending',
-          text: 'First name (Z to A)'
+          value: "first-name-descending",
+          text: "First name (Z to A)"
         },
         {
           divider: true
         },
         {
-          value: 'last-name-ascending',
-          text: 'Last name (A to Z)'
+          value: "last-name-ascending",
+          text: "Last name (A to Z)"
         },
         {
-          value: 'last-name-descending',
-          text: 'Last name (Z to A)'
+          value: "last-name-descending",
+          text: "Last name (Z to A)"
         }
       ]
     }
   },
-  'with hint': {
+  "with hint": {
     context: {
       label: {
-        text: 'Choose location',
+        text: "Choose location",
         isPageHeading: true
       },
       hint: {
-        text: 'This can be different to where you went before'
+        text: "This can be different to where you went before"
       },
-      id: 'with-hint',
-      name: 'example',
+      id: "with-hint",
+      name: "example",
       items: [
         {
-          value: 'choose',
-          text: 'Choose location'
+          value: "choose",
+          text: "Choose location"
         },
         {
-          value: 'eastmidlands',
-          text: 'East Midlands'
+          value: "eastmidlands",
+          text: "East Midlands"
         },
         {
-          value: 'eastofengland',
-          text: 'East of England'
+          value: "eastofengland",
+          text: "East of England"
         },
         {
-          value: 'london',
-          text: 'London'
+          value: "london",
+          text: "London"
         },
         {
-          value: 'northeast',
-          text: 'North East'
+          value: "northeast",
+          text: "North East"
         },
         {
-          value: 'northwest',
-          text: 'North West'
+          value: "northwest",
+          text: "North West"
         },
         {
-          value: 'southeast',
-          text: 'South East'
+          value: "southeast",
+          text: "South East"
         },
         {
-          value: 'southwest',
-          text: 'South West'
+          value: "southwest",
+          text: "South West"
         },
         {
-          value: 'westmidlands',
-          text: 'West Midlands'
+          value: "westmidlands",
+          text: "West Midlands"
         },
         {
-          value: 'yorkshire',
-          text: 'Yorkshire and the Humber'
+          value: "yorkshire",
+          text: "Yorkshire and the Humber"
         }
       ]
     },
     screenshot: true
   },
-  'with button': {
+  "with button": {
     context: {
       label: {
-        text: 'Choose location',
+        text: "Choose location",
         isPageHeading: true
       },
       hint: {
-        text: 'This can be different to where you went before'
+        text: "This can be different to where you went before"
       },
-      id: 'with-hint',
-      name: 'example',
+      id: "with-hint",
+      name: "example",
       items: [
         {
-          value: 'choose',
-          text: 'Choose location'
+          value: "choose",
+          text: "Choose location"
         },
         {
-          value: 'eastmidlands',
-          text: 'East Midlands'
+          value: "eastmidlands",
+          text: "East Midlands"
         },
         {
-          value: 'eastofengland',
-          text: 'East of England'
+          value: "eastofengland",
+          text: "East of England"
         },
         {
-          value: 'london',
-          text: 'London'
+          value: "london",
+          text: "London"
         },
         {
-          value: 'northeast',
-          text: 'North East'
+          value: "northeast",
+          text: "North East"
         },
         {
-          value: 'northwest',
-          text: 'North West'
+          value: "northwest",
+          text: "North West"
         },
         {
-          value: 'southeast',
-          text: 'South East'
+          value: "southeast",
+          text: "South East"
         },
         {
-          value: 'southwest',
-          text: 'South West'
+          value: "southwest",
+          text: "South West"
         },
         {
-          value: 'westmidlands',
-          text: 'West Midlands'
+          value: "westmidlands",
+          text: "West Midlands"
         },
         {
-          value: 'yorkshire',
-          text: 'Yorkshire and the Humber'
+          value: "yorkshire",
+          text: "Yorkshire and the Humber"
         }
       ],
       formGroup: {
         afterInput: {
           html: components.render(
-            'button',
-            buttonExamples['example secondary save button, small']
+            "button",
+            buttonExamples["example secondary save button, small"]
           )
         }
       }
     },
     screenshot: {
-      viewports: ['watch', 'mobile', 'tablet', 'desktop']
+      viewports: ["watch", "mobile", "tablet", "desktop"]
     }
   },
-  'with button and error message': {
+  "with button and error message": {
     context: {
       label: {
-        text: 'Choose location',
+        text: "Choose location",
         isPageHeading: true
       },
       hint: {
-        text: 'This can be different to where you went before'
+        text: "This can be different to where you went before"
       },
       errorMessage: {
-        text: 'Select a location'
+        text: "Select a location"
       },
-      id: 'with-hint',
-      name: 'example',
+      id: "with-hint",
+      name: "example",
       items: [
         {
-          value: 'choose',
-          text: 'Choose location'
+          value: "choose",
+          text: "Choose location"
         },
         {
-          value: 'eastmidlands',
-          text: 'East Midlands'
+          value: "eastmidlands",
+          text: "East Midlands"
         },
         {
-          value: 'eastofengland',
-          text: 'East of England'
+          value: "eastofengland",
+          text: "East of England"
         },
         {
-          value: 'london',
-          text: 'London'
+          value: "london",
+          text: "London"
         },
         {
-          value: 'northeast',
-          text: 'North East'
+          value: "northeast",
+          text: "North East"
         },
         {
-          value: 'northwest',
-          text: 'North West'
+          value: "northwest",
+          text: "North West"
         },
         {
-          value: 'southeast',
-          text: 'South East'
+          value: "southeast",
+          text: "South East"
         },
         {
-          value: 'southwest',
-          text: 'South West'
+          value: "southwest",
+          text: "South West"
         },
         {
-          value: 'westmidlands',
-          text: 'West Midlands'
+          value: "westmidlands",
+          text: "West Midlands"
         },
         {
-          value: 'yorkshire',
-          text: 'Yorkshire and the Humber'
+          value: "yorkshire",
+          text: "Yorkshire and the Humber"
         }
       ],
       formGroup: {
         afterInput: {
           html: components.render(
-            'button',
-            buttonExamples['example secondary save button, small']
+            "button",
+            buttonExamples["example secondary save button, small"]
           )
         }
       }
     },
     screenshot: {
-      viewports: ['watch', 'mobile', 'tablet', 'desktop']
+      viewports: ["watch", "mobile", "tablet", "desktop"]
     }
   },
-  'label': {
+  "label": {
     context: {
       label: {
-        text: 'Sort by',
-        size: 'l',
+        text: "Sort by",
+        size: "l",
         isPageHeading: true
       },
-      id: 'custom-size',
-      name: 'example',
+      id: "custom-size",
+      name: "example",
       items: [
         {
-          value: 'published',
-          text: 'Recently published'
+          value: "published",
+          text: "Recently published"
         },
         {
-          value: 'updated',
-          text: 'Recently updated'
+          value: "updated",
+          text: "Recently updated"
         },
         {
-          value: 'views',
-          text: 'Most views'
+          value: "views",
+          text: "Most views"
         },
         {
-          value: 'comments',
-          text: 'Most comments'
+          value: "comments",
+          text: "Most comments"
         }
       ]
     },
     variants: [
       {
-        description: 'with size S',
+        description: "with size S",
         context: {
           label: {
-            size: 's'
+            size: "s"
           }
         }
       },
       {
-        description: 'with size M',
+        description: "with size M",
         context: {
           label: {
-            size: 'm'
+            size: "m"
           }
         }
       },
       {
-        description: 'with size L',
+        description: "with size L",
         context: {
           label: {
-            size: 'l'
+            size: "l"
           }
         }
       },
       {
-        description: 'with size XL',
+        description: "with size XL",
         context: {
           label: {
-            size: 'xl'
+            size: "xl"
           }
         }
       },
       {
-        description: 'with id attribute on',
+        description: "with id attribute on",
         context: {
           label: {
-            id: 'custom-id'
+            id: "custom-id"
           }
         },
         options: {
@@ -388,175 +388,226 @@ const fixtures = {
       }
     ]
   },
-  'without page heading': {
+  "without page heading": {
     context: {
-      label: {
-        text: 'Sort by'
-      },
-      id: 'without-heading',
-      name: 'example',
+      label: "Sort by",
+      id: "without-heading",
+      name: "example",
       items: [
         {
-          value: 'published',
-          text: 'Recently published'
+          value: "published",
+          text: "Recently published"
         },
         {
-          value: 'updated',
-          text: 'Recently updated'
+          value: "updated",
+          text: "Recently updated"
         },
         {
-          value: 'views',
-          text: 'Most views'
+          value: "views",
+          text: "Most views"
         },
         {
-          value: 'comments',
-          text: 'Most comments'
+          value: "comments",
+          text: "Most comments"
         }
       ]
     }
   },
-  'with error message': {
+  "with error only": {
     context: {
       label: {
-        text: 'Choose location',
+        text: "Choose location",
+        isPageHeading: true
+      },
+      errorMessage: true,
+      id: "with-error-only",
+      name: "example",
+      items: [
+        {
+          value: "choose",
+          text: "Choose location"
+        },
+        {
+          value: "eastmidlands",
+          text: "East Midlands"
+        },
+        {
+          value: "eastofengland",
+          text: "East of England"
+        },
+        {
+          value: "london",
+          text: "London"
+        },
+        {
+          value: "northeast",
+          text: "North East"
+        },
+        {
+          value: "northwest",
+          text: "North West"
+        },
+        {
+          value: "southeast",
+          text: "South East"
+        },
+        {
+          value: "southwest",
+          text: "South West"
+        },
+        {
+          value: "westmidlands",
+          text: "West Midlands"
+        },
+        {
+          value: "yorkshire",
+          text: "Yorkshire and the Humber"
+        }
+      ]
+    }
+  },
+  "with error message": {
+    context: {
+      label: {
+        text: "Choose location",
         isPageHeading: true
       },
       errorMessage: {
-        text: 'Select a location'
+        text: "Select a location"
       },
-      id: 'with-error-message',
-      name: 'example',
+      id: "with-error-message",
+      name: "example",
       items: [
         {
-          value: 'choose',
-          text: 'Choose location'
+          value: "choose",
+          text: "Choose location"
         },
         {
-          value: 'eastmidlands',
-          text: 'East Midlands'
+          value: "eastmidlands",
+          text: "East Midlands"
         },
         {
-          value: 'eastofengland',
-          text: 'East of England'
+          value: "eastofengland",
+          text: "East of England"
         },
         {
-          value: 'london',
-          text: 'London'
+          value: "london",
+          text: "London"
         },
         {
-          value: 'northeast',
-          text: 'North East'
+          value: "northeast",
+          text: "North East"
         },
         {
-          value: 'northwest',
-          text: 'North West'
+          value: "northwest",
+          text: "North West"
         },
         {
-          value: 'southeast',
-          text: 'South East'
+          value: "southeast",
+          text: "South East"
         },
         {
-          value: 'southwest',
-          text: 'South West'
+          value: "southwest",
+          text: "South West"
         },
         {
-          value: 'westmidlands',
-          text: 'West Midlands'
+          value: "westmidlands",
+          text: "West Midlands"
         },
         {
-          value: 'yorkshire',
-          text: 'Yorkshire and the Humber'
+          value: "yorkshire",
+          text: "Yorkshire and the Humber"
         }
       ]
     }
   },
-  'with error message and hint': {
+  "with error message and hint": {
     context: {
       label: {
-        text: 'Choose location',
+        text: "Choose location",
         isPageHeading: true
       },
       hint: {
-        text: 'This can be different to where you went before'
+        text: "This can be different to where you went before"
       },
       errorMessage: {
-        text: 'Select a location'
+        text: "Select a location"
       },
-      id: 'with-hint-error',
-      name: 'example',
+      id: "with-hint-error",
+      name: "example",
       items: [
         {
-          value: 'choose',
-          text: 'Choose location'
+          value: "choose",
+          text: "Choose location"
         },
         {
-          value: 'eastmidlands',
-          text: 'East Midlands'
+          value: "eastmidlands",
+          text: "East Midlands"
         },
         {
-          value: 'eastofengland',
-          text: 'East of England'
+          value: "eastofengland",
+          text: "East of England"
         },
         {
-          value: 'london',
-          text: 'London'
+          value: "london",
+          text: "London"
         },
         {
-          value: 'northeast',
-          text: 'North East'
+          value: "northeast",
+          text: "North East"
         },
         {
-          value: 'northwest',
-          text: 'North West'
+          value: "northwest",
+          text: "North West"
         },
         {
-          value: 'southeast',
-          text: 'South East'
+          value: "southeast",
+          text: "South East"
         },
         {
-          value: 'southwest',
-          text: 'South West'
+          value: "southwest",
+          text: "South West"
         },
         {
-          value: 'westmidlands',
-          text: 'West Midlands'
+          value: "westmidlands",
+          text: "West Midlands"
         },
         {
-          value: 'yorkshire',
-          text: 'Yorkshire and the Humber'
+          value: "yorkshire",
+          text: "Yorkshire and the Humber"
         }
       ]
     },
     screenshot: {
-      states: ['focus'],
-      selector: '#with-hint-error'
+      states: ["focus"],
+      selector: "#with-hint-error"
     }
   },
-  'with selected value': {
+  "with selected value": {
     context: {
       label: {
-        text: 'Sort by',
+        text: "Sort by",
         isPageHeading: true
       },
-      id: 'with-value',
-      name: 'example',
-      value: 'updated',
+      id: "with-value",
+      name: "example",
+      value: "updated",
       items: [
         {
-          value: 'published',
-          text: 'Recently published'
+          value: "published",
+          text: "Recently published"
         },
         {
-          value: 'updated',
-          text: 'Recently updated'
+          value: "updated",
+          text: "Recently updated"
         },
         {
-          value: 'views',
-          text: 'Most views'
+          value: "views",
+          text: "Most views"
         },
         {
-          value: 'comments',
-          text: 'Most comments'
+          value: "comments",
+          text: "Most comments"
         }
       ]
     }

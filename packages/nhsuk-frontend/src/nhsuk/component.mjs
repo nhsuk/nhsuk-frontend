@@ -13,7 +13,7 @@ const _self =
  * Centralises the behaviours shared by our components
  *
  * @abstract
- * @template {Element} [RootElementType=HTMLElement]
+ * @template {HTMLElement} [RootElementType=HTMLElement]
  */
 export class Component {
   /**
@@ -47,7 +47,19 @@ export class Component {
 
     this.$root = /** @type {RootElementType} */ ($root)
 
-    childConstructor.checkSupport()
+    if (!('defaults' in childConstructor)) {
+      childConstructor.checkSupport(this.$root)
+      this.setInitialised()
+    }
+  }
+
+  /**
+   * Set component as initialised
+   */
+  setInitialised() {
+    const childConstructor = /** @type {ComponentConstructor} */ (
+      this.constructor
+    )
 
     this.checkInitialised()
 
@@ -71,11 +83,15 @@ export class Component {
   }
 
   /**
-   * Validates whether components are supported
+   * Validate whether component is supported
    *
-   * @throws {SupportError} when the components are not supported
+   * @template {Partial<Record<keyof ConfigurationType, unknown>>} [ConfigurationType=ObjectNested]
+   * @template {HTMLElement} [RootElementType=HTMLElement]
+   * @param {RootElementType} [_$root] - HTML element to use for component
+   * @param {ConfigurationType} [_config] - Config specified by configurable components only
+   * @throws {SupportError} when component is not supported
    */
-  static checkSupport() {
+  static checkSupport(_$root, _config) {
     if (!isSupported()) {
       throw new SupportError()
     }

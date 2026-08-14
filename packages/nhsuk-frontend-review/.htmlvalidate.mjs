@@ -1,4 +1,5 @@
-const { defineConfig } = require('html-validate')
+import { defineConfig } from 'html-validate'
+import html5 from 'html-validate/elements/html5'
 
 /**
  * HTML validation config
@@ -7,7 +8,7 @@ const { defineConfig } = require('html-validate')
  *
  * @type {ConfigData}
  */
-module.exports = defineConfig({
+export default defineConfig({
   extends: ['html-validate:recommended', 'html-validate:document'],
   rules: {
     // Allow for multiple buttons in the same form to have the same name
@@ -75,7 +76,13 @@ module.exports = defineConfig({
       div: {
         attributes: {
           role: { enum: ['alert', 'region'] }
-        }
+        },
+        permittedContent: [
+          ...(html5.div.permittedContent ?? []),
+
+          // Allow separate legend fixtures
+          'legend'
+        ]
       },
 
       // Allow date input component <fieldset role="group">

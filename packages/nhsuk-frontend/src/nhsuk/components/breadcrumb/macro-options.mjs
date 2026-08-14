@@ -25,6 +25,12 @@ const options = {
         description: 'Text to use within the breadcrumbs item.',
         released: '1.0.0'
       },
+      html: {
+        type: 'string',
+        required: true,
+        description: 'HTML to use within the breadcrumbs item.',
+        released: '10.6.0'
+      },
       href: {
         type: 'string',
         required: false,
@@ -43,14 +49,16 @@ const options = {
   text: {
     type: 'string',
     required: true,
-    description: 'Text to use for the parent page.',
-    released: '1.0.0'
+    description: 'Replaced by `item.text` in the `items` option.',
+    released: '1.0.0',
+    deprecated: '7.1.0'
   },
   href: {
     type: 'string',
     required: true,
-    description: 'The value of the parent page link `href` attribute.',
-    released: '1.0.0'
+    description: 'Replaced by `item.href` in the `items` option.',
+    released: '1.0.0',
+    deprecated: '7.1.0'
   },
   variant: {
     type: 'string',
@@ -75,9 +83,16 @@ const options = {
   labelText: {
     type: 'string',
     required: false,
+    description: 'Replaced by the `ariaLabel` option.',
+    released: '9.6.2',
+    deprecated: '10.6.0'
+  },
+  ariaLabel: {
+    type: 'string',
+    required: false,
     description:
-      'Plain text label identifying the landmark to screen readers. Defaults to "Breadcrumb".',
-    released: '9.6.2'
+      'Accessible name identifying the landmark to screen readers. Defaults to "Breadcrumb".',
+    released: '10.6.0'
   },
   backLink: {
     type: 'object',

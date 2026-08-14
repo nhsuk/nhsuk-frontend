@@ -61,13 +61,6 @@ const options = {
       }
     }
   },
-  landmarkLabel: {
-    type: 'string',
-    required: false,
-    description:
-      'The label for the navigation landmark that wraps the contents list. Defaults to `"Pages in this guide"`.',
-    released: '10.1.0'
-  },
   classes: {
     type: 'string',
     required: false,
@@ -81,11 +74,25 @@ const options = {
       'HTML attributes (for example data attributes) to add to the content list container.',
     released: '1.0.0'
   },
-  visuallyHiddenTitle: {
+  landmarkLabel: {
+    type: 'string',
+    required: false,
+    description: 'Replaced by the `ariaLabel` option.',
+    released: '10.1.0',
+    deprecated: '10.6.0'
+  },
+  ariaLabel: {
     type: 'string',
     required: false,
     description:
-      'Visually hidden title for the contents list items. Defaults to `"Contents"`.',
+      'The accessible name for the navigation landmark that wraps the contents list. Defaults to `"Pages in this guide"`.',
+    released: '10.6.0'
+  },
+  visuallyHiddenText: {
+    type: 'string',
+    required: false,
+    description:
+      'Visually hidden heading for the contents list items. Defaults to `"Contents"`.',
     released: '10.1.0'
   }
 }

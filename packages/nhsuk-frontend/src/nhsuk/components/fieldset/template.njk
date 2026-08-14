@@ -1,8 +1,14 @@
-{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/components/legend/macro.njk" import legend %}
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-fieldset" -%}
+
+{#- Support legend as string #}
+{%- set legendOptions = params.legend if params.legend is mapping and params.legend is not escaped else {
+  text: params.legend if params.legend is string else undefined,
+  html: params.legend if params.legend is escaped else undefined
+} -%}
 
 {%- if params.classes %}
   {% set classNames = classNames ~ " " ~ params.classes %}
@@ -26,10 +32,16 @@
   }) -}}
 
   {{- nhsukAttributes(params.attributes) }}>
-  {{ legend(params.legend) | trim | indent(2) }}
-{% if caller %} {#- if statement allows usage of `call` to be optional -#}
-  {{ caller() }}
+  {{ legend({
+    text: legendOptions.text,
+    html: legendOptions.html,
+    classes: legendOptions.classes,
+    isPageHeading: legendOptions.isPageHeading,
+    size: legendOptions.size
+  }) | trim | indent(2) }}
+{% if caller %}
+  {{- caller() }}
 {% elif params.html %}
-  {{ params.html | safe }}
+  {{ params.html | safe | trim }}
 {% endif %}
 </fieldset>

@@ -12,25 +12,18 @@ const options = {
     description: 'The ID of the button.',
     released: '10.0.0'
   },
-  element: {
-    type: 'string',
-    required: false,
-    description:
-      'HTML element for the button component – `"input"`, `"button"` or `"a"`. In most cases you will not need to set this as it will be configured automatically if `href` is provided.',
-    released: '1.0.0'
-  },
   text: {
     type: 'string',
     required: true,
     description:
-      'If `html` or `ariaLabel` is set, this is not required. Text for the button or link. If `html` is provided, the `text` argument will be ignored and `element` will be automatically set to `"button"` unless `href` is also set, or it has already been defined. This argument has no effect if `element` is set to `"input"`.',
+      'If `html` or `ariaLabel` is set, this is not required. Text for the button or link. If `html` is provided, the `text` argument will be ignored.',
     released: '1.0.0'
   },
   html: {
     type: 'string',
     required: true,
     description:
-      'If `text` or `ariaLabel` is set, this is not required. HTML for the button or link. If `html` is provided, the `text` argument will be ignored and `element` will be automatically set to `"button"` unless `href` is also set, or it has already been defined. This argument has no effect if `element` is set to `"input"`.',
+      'If `text` or `ariaLabel` is set, this is not required. HTML for the button or link. If `html` is provided, the `text` argument will be ignored.',
     released: '1.0.0'
   },
   caller: {
@@ -43,36 +36,34 @@ const options = {
   name: {
     type: 'string',
     required: false,
-    description:
-      'Name for the `input` or `button`. This has no effect on `a` elements.',
+    description: 'Name for the `button`.',
     released: '1.0.0'
   },
   type: {
     type: 'string',
     required: false,
     description:
-      'Type of `input` or `button` – `"button"`, `"submit"` or `"reset"`. Defaults to `"submit"`. This has no effect on `a` elements.',
+      'Type of `button` – `"button"`, `"submit"` or `"reset"`. Defaults to `"submit"`.',
     released: '1.0.0'
   },
   value: {
     type: 'string',
     required: false,
-    description:
-      'The `value` attribute for the `button` tag. This has no effect on `a` or `input` elements.',
+    description: 'The `value` attribute for the button element.',
     released: '1.0.0'
   },
   disabled: {
     type: 'boolean',
     required: false,
     description:
-      'Whether the button should be disabled. For button and input elements, `disabled` and `aria-disabled` attributes will be set automatically.',
+      'Whether the button should be disabled. For button elements, `disabled` and `aria-disabled` attributes will be set automatically.',
     released: '1.0.0'
   },
   href: {
     type: 'string',
     required: false,
     description:
-      'The URL that the button should link to. If this is set, `element` will be automatically set to `"a"` if it has not already been defined.',
+      'The URL that the button should link to. This has no effect when `type` is set.',
     released: '1.0.0'
   },
   variant: {

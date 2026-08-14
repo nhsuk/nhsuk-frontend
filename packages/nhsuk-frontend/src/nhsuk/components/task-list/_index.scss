@@ -10,13 +10,14 @@
 /// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
 ////
 
-// NHS pages have a grey background, so we need a slightly darker colour for the hover
-// This produces 1.1:1 contrast, the same as GOV.UK’s
-$nhsuk-task-list-hover-colour: nhsuk-colour-compatible(color.adjust(nhsuk-colour("grey-5"), $lightness: -6%));
+$nhsuk-task-list-hover-colour: $nhsuk-target-hover-colour;
+$nhsuk-task-list-hover-border-colour: $nhsuk-secondary-border-colour;
 
 @include nhsuk-exports("nhsuk/components/task-list") {
   .nhsuk-task-list {
     margin-top: 0;
+    margin-right: -$nhsuk-border-table-header-width;
+    margin-left: -$nhsuk-border-table-header-width;
     padding: 0;
     list-style-type: none;
 
@@ -36,21 +37,28 @@ $nhsuk-task-list-hover-colour: nhsuk-colour-compatible(color.adjust(nhsuk-colour
 
     width: 100%;
     margin-bottom: 0;
-    padding-top: nhsuk-spacing(2) + 4px;
-    padding-bottom: nhsuk-spacing(2) + 4px;
+    padding: nhsuk-spacing(2, $adjustment: 4px) $nhsuk-border-table-header-width;
 
-    border-bottom: 1px solid $nhsuk-border-colour;
+    border: 1px solid $nhsuk-border-colour;
+    border-width: 0 0 1px;
   }
 
   .nhsuk-task-list__item:first-child {
-    border-top: 1px solid $nhsuk-border-colour;
+    border-top-width: 1px;
   }
 
   // This class is added to the <li> elements where the task name is a link.
   // The background hover colour is added to help indicate that the whole row is clickable, rather
   // than just the visible link text.
   .nhsuk-task-list__item--with-link:hover {
+    margin-top: -1px;
+    border-width: 1px 0;
+    border-color: $nhsuk-task-list-hover-border-colour;
     background: $nhsuk-task-list-hover-colour;
+  }
+
+  .nhsuk-task-list__item--with-link:first-child:hover {
+    margin-top: 0;
   }
 
   .nhsuk-task-list__name-and-hint {
@@ -72,7 +80,7 @@ $nhsuk-task-list-hover-colour: nhsuk-colour-compatible(color.adjust(nhsuk-colour
   // adjusting the tag styles to be closer to body text.
   .nhsuk-task-list__status--completed,
   .nhsuk-task-list__status--cannot-start-yet {
-    padding-top: nhsuk-spacing(1) + 2px; // to match the spacing on tags
+    padding-top: nhsuk-spacing(1, $adjustment: 2px); // to match the spacing on tags
     padding-bottom: nhsuk-spacing(1);
     padding-left: nhsuk-spacing(2);
 

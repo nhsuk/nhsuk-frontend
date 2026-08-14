@@ -29,8 +29,16 @@ const options = {
         type: 'string',
         required: false,
         description:
-          'The visually hidden label for the pagination item, which will be applied to an `aria-label` and announced by screen readers on the pagination item link. Should include page number. Defaults to, for example "Page 1".',
-        released: '10.1.0'
+          'The visually hidden label for the pagination item, which will be applied to an `aria-label` and announced by screen readers on the pagination item link. Should include page number. Defaults to, for example "Page 1". Replaced by the `item.ariaLabel` option.',
+        released: '10.1.0',
+        deprecated: '10.6.0'
+      },
+      ariaLabel: {
+        type: 'string',
+        required: false,
+        description:
+          'The accessible name for the pagination item, which will be applied to an `aria-label` and announced by screen readers on the pagination item link. Should include page number. Defaults to, for example "Page 1".',
+        released: '10.6.0'
       },
       href: {
         type: 'string',
@@ -84,9 +92,32 @@ const options = {
       labelText: {
         type: 'string',
         required: false,
+        description: 'Replaced by the `previous.label.text` option.',
+        released: '10.1.0',
+        deprecated: '10.6.0'
+      },
+      label: {
+        type: 'object',
+        required: false,
         description:
           'The optional label that goes underneath the link to the previous page, providing further context for the user about where the link goes.',
-        released: '10.1.0'
+        released: '10.6.0',
+        params: {
+          text: {
+            type: 'string',
+            required: true,
+            description:
+              'If `html` is set, this is not required. Text to use within the label. If `html` is provided, the `text` option will be ignored.',
+            released: '10.6.0'
+          },
+          html: {
+            type: 'string',
+            required: true,
+            description:
+              'If `text` is set, this is not required. HTML to use within the label. If `html` is provided, the `text` option will be ignored.',
+            released: '10.6.0'
+          }
+        }
       },
       href: {
         type: 'string',
@@ -102,22 +133,6 @@ const options = {
         released: '10.1.0'
       }
     }
-  },
-  previousUrl: {
-    type: 'string',
-    required: false,
-    description:
-      "The previous page's URL. Replaced by the `previous.href` option.",
-    released: '1.0.0',
-    deprecated: '10.1.0'
-  },
-  previousPage: {
-    type: 'string',
-    required: false,
-    description:
-      'The optional label that goes underneath the link to the previous page, providing further context for the user about where the link goes. Replaced by the `previous.labelText` option.',
-    released: '1.0.0',
-    deprecated: '10.1.0'
   },
   next: {
     type: 'object',
@@ -142,9 +157,32 @@ const options = {
       labelText: {
         type: 'string',
         required: false,
+        description: 'Replaced by the `next.label.text` option.',
+        released: '10.1.0',
+        deprecated: '10.6.0'
+      },
+      label: {
+        type: 'object',
+        required: false,
         description:
           'The optional label that goes underneath the link to the next page, providing further context for the user about where the link goes.',
-        released: '10.1.0'
+        released: '10.6.0',
+        params: {
+          text: {
+            type: 'string',
+            required: true,
+            description:
+              'If `html` is set, this is not required. Text to use within the label. If `html` is provided, the `text` option will be ignored.',
+            released: '10.6.0'
+          },
+          html: {
+            type: 'string',
+            required: true,
+            description:
+              'If `text` is set, this is not required. HTML to use within the label. If `html` is provided, the `text` option will be ignored.',
+            released: '10.6.0'
+          }
+        }
       },
       href: {
         type: 'string',
@@ -161,27 +199,19 @@ const options = {
       }
     }
   },
-  nextUrl: {
-    type: 'string',
-    required: false,
-    description: "The next page's URL. Replaced by the `next.href` option.",
-    released: '1.0.0',
-    deprecated: '10.1.0'
-  },
-  nextPage: {
-    type: 'string',
-    required: false,
-    description:
-      'The optional label that goes underneath the link to the next page, providing further context for the user about where the link goes. Replaced by the `next.labelText` option.',
-    released: '1.0.0',
-    deprecated: '10.1.0'
-  },
   landmarkLabel: {
     type: 'string',
     required: false,
+    description: 'Replaced by the `ariaLabel` option.',
+    released: '10.1.0',
+    deprecated: '10.6.0'
+  },
+  ariaLabel: {
+    type: 'string',
+    required: false,
     description:
-      'The label for the navigation landmark that wraps the pagination. Defaults to `"Pagination"`.',
-    released: '10.1.0'
+      'The accessible name for the navigation landmark that wraps the pagination. Defaults to `"Pagination"`.',
+    released: '10.6.0'
   },
   classes: {
     type: 'string',

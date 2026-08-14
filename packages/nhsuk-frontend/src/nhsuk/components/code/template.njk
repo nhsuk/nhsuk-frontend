@@ -1,6 +1,6 @@
+{% from "nhsuk/components/button/macro.njk" import button %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/i18n.njk" import nhsukI18nAttributes %}
-{% from "nhsuk/components/button/macro.njk" import button %}
 
 {#- Set variant for this component #}
 {%- set variant = params.variant -%}
@@ -36,6 +36,9 @@
   {% set classNamesButton = classNamesButton ~ " " ~ params.button.classes %}
 {% endif -%}
 
+{%- set buttonText = params.copyButtonText | default(params.button.text) | default("Copy code") -%}
+{%- set buttonAriaLabel = params.button.ariaLabel | default("Copy code" if not buttonText else undefined) -%}
+
 <div {%- if params.id %} id="{{ params.id }}"{% endif %} class="{{ classNames }}"
   {{- nhsukI18nAttributes({
     key: "copy-button",
@@ -55,8 +58,8 @@
   {{- nhsukAttributes(params.attributes) }} data-module="nhsuk-code">
 {% if params.button %}
   {{ button({
-    text: params.copyButtonText | default(params.button.text or "Copy code"),
-    ariaLabel: params.button.ariaLabel,
+    text: buttonText,
+    ariaLabel: buttonAriaLabel,
     id: params.button.id,
     href: params.button.href,
     name: params.button.name,

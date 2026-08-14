@@ -1,6 +1,6 @@
-import { outdent } from 'outdent'
+import { outdent } from "outdent"
 
-import { components } from '#lib'
+import { components } from "#lib"
 
 /**
  * Nunjucks macro option examples
@@ -8,326 +8,28 @@ import { components } from '#lib'
  * @satisfies {{ [example: string]: MacroExample }}
  */
 const fixtures = {
-  'default': {
+  "default": {
     context: {
       rows: [
         {
           key: {
-            text: 'Name'
+            text: "Name"
           },
           value: {
-            text: 'Karen Francis'
-          },
-          actions: {
-            items: [
-              {
-                href: '#/change',
-                text: 'Change',
-                visuallyHiddenText: 'name'
-              }
-            ]
+            text: "Karen Francis"
           }
         },
         {
           key: {
-            text: 'Date of birth'
+            text: "Date of birth"
           },
           value: {
-            text: '15 March 1984'
-          },
-          actions: {
-            items: [
-              {
-                href: '#/change',
-                text: 'Change',
-                visuallyHiddenText: 'date of birth'
-              }
-            ]
+            text: "15 March 1984"
           }
         },
         {
           key: {
-            text: 'Contact information'
-          },
-          value: {
-            html: outdent`
-              73 Roman Rd<br>
-              Leeds<br>
-              LS2 5ZN
-            `
-          },
-          actions: {
-            items: [
-              {
-                href: '#/change',
-                text: 'Change',
-                visuallyHiddenText: 'contact information'
-              }
-            ]
-          }
-        },
-        {
-          key: {
-            text: 'Contact details'
-          },
-          value: {
-            html: outdent`
-              <p>07700 900362</p>
-              <p>karen.francis@example.com</p>
-            `
-          },
-          actions: {
-            items: [
-              {
-                href: '#/change',
-                text: 'Change',
-                visuallyHiddenText: 'contact details'
-              }
-            ]
-          }
-        }
-      ]
-    },
-    screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
-    }
-  },
-  'with multiple actions': {
-    context: {
-      rows: [
-        {
-          key: {
-            text: 'Name'
-          },
-          value: {
-            text: 'Karen Francis'
-          }
-        },
-        {
-          key: {
-            text: 'Date of birth'
-          },
-          value: {
-            text: '15 March 1984'
-          },
-          actions: {
-            items: [
-              {
-                href: '#/change',
-                text: 'Change',
-                visuallyHiddenText: 'date of birth'
-              }
-            ]
-          }
-        },
-        {
-          key: {
-            text: 'Contact information'
-          },
-          value: {
-            html: outdent`
-              73 Roman Rd<br>
-              Leeds<br>
-              LS2 5ZN
-            `
-          },
-          actions: {
-            items: [
-              {
-                href: '#/change',
-                text: 'Change',
-                visuallyHiddenText: 'contact information'
-              }
-            ]
-          }
-        },
-        {
-          key: {
-            text: 'Contact details'
-          },
-          value: {
-            html: outdent`
-              <p>07700 900362</p>
-              <p>karen.francis@example.com</p>
-            `
-          },
-          actions: {
-            items: [
-              {
-                href: '#/add',
-                text: 'Add',
-                visuallyHiddenText: 'new contact details'
-              },
-              {
-                href: '#/change',
-                text: 'Change',
-                visuallyHiddenText: 'contact details'
-              }
-            ]
-          }
-        },
-        {
-          key: {
-            text: 'Medicines'
-          },
-          value: {
-            html: outdent`
-              <p>Isotretinoin capsules (Roaccutane)</p>
-              <p>Isotretinoin gel (Isotrex)</p>
-              <p>Pepto-Bismol (bismuth subsalicylate)</p>
-            `
-          },
-          actions: {
-            items: [
-              {
-                href: '#/add',
-                text: 'Add',
-                visuallyHiddenText: 'new medicine'
-              },
-              {
-                href: '#/change',
-                text: 'Change',
-                visuallyHiddenText: 'medicines'
-              }
-            ]
-          }
-        }
-      ]
-    },
-    options: {
-      width: 'full'
-    }
-  },
-  'with multiple actions (empty items)': {
-    context: {
-      rows: [
-        {
-          key: {
-            text: 'Name'
-          },
-          value: {
-            text: 'Karen Francis'
-          }
-        },
-        {
-          key: {
-            text: 'Date of birth'
-          },
-          value: {
-            text: '15 March 1984'
-          },
-          actions: {
-            items: [
-              false,
-              {
-                href: '#/change',
-                text: 'Change',
-                visuallyHiddenText: 'date of birth'
-              }
-            ]
-          }
-        },
-        {
-          key: {
-            text: 'Contact information'
-          },
-          value: {
-            html: outdent`
-              73 Roman Rd<br>
-              Leeds<br>
-              LS2 5ZN
-            `
-          },
-          actions: {
-            items: [
-              false,
-              {
-                href: '#/change',
-                text: 'Change',
-                visuallyHiddenText: 'contact information'
-              }
-            ]
-          }
-        },
-        {
-          key: {
-            text: 'Contact details'
-          },
-          value: {
-            html: outdent`
-              <p>07700 900362</p>
-              <p>karen.francis@example.com</p>
-            `
-          },
-          actions: {
-            items: [
-              {
-                href: '#/add',
-                text: 'Add',
-                visuallyHiddenText: 'new contact details'
-              },
-              {
-                href: '#/change',
-                text: 'Change',
-                visuallyHiddenText: 'contact details'
-              }
-            ]
-          }
-        },
-        {
-          key: {
-            text: 'Medicines'
-          },
-          value: {
-            html: outdent`
-              <p>Isotretinoin capsules (Roaccutane)</p>
-              <p>Isotretinoin gel (Isotrex)</p>
-              <p>Pepto-Bismol (bismuth subsalicylate)</p>
-            `
-          },
-          actions: {
-            items: [
-              {
-                href: '#/add',
-                text: 'Add',
-                visuallyHiddenText: 'new medicine'
-              },
-              {
-                href: '#/change',
-                text: 'Change',
-                visuallyHiddenText: 'medicines'
-              }
-            ]
-          }
-        }
-      ]
-    },
-    options: {
-      width: 'full'
-    }
-  },
-  'without actions': {
-    context: {
-      rows: [
-        {
-          key: {
-            text: 'Name'
-          },
-          value: {
-            text: 'Karen Francis'
-          }
-        },
-        {
-          key: {
-            text: 'Date of birth'
-          },
-          value: {
-            text: '15 March 1984'
-          }
-        },
-        {
-          key: {
-            text: 'Contact information'
+            text: "Contact information"
           },
           value: {
             html: outdent`
@@ -339,7 +41,7 @@ const fixtures = {
         },
         {
           key: {
-            text: 'Contact details'
+            text: "Contact details"
           },
           value: {
             html: outdent`
@@ -351,32 +53,544 @@ const fixtures = {
       ]
     },
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
+      viewports: ["mobile", "tablet", "desktop"]
     }
   },
-  'without border': {
+  "with actions": {
+    context: {
+      rows: [
+        {
+          key: {
+            text: "Name"
+          },
+          value: {
+            text: "Karen Francis"
+          },
+          actions: {
+            items: [
+              {
+                href: "#/change",
+                text: "Change",
+                visuallyHiddenText: "name"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Date of birth"
+          },
+          value: {
+            text: "15 March 1984"
+          },
+          actions: {
+            items: [
+              {
+                href: "#/change",
+                text: "Change",
+                visuallyHiddenText: "date of birth"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Contact information"
+          },
+          value: {
+            html: outdent`
+              73 Roman Rd<br>
+              Leeds<br>
+              LS2 5ZN
+            `
+          },
+          actions: {
+            items: [
+              {
+                href: "#/change",
+                text: "Change",
+                visuallyHiddenText: "contact information"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Contact details"
+          },
+          value: {
+            html: outdent`
+              <p>07700 900362</p>
+              <p>karen.francis@example.com</p>
+            `
+          },
+          actions: {
+            items: [
+              {
+                href: "#/change",
+                text: "Change",
+                visuallyHiddenText: "contact details"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    screenshot: {
+      viewports: ["mobile", "tablet", "desktop"]
+    }
+  },
+  "with actions as buttons": {
+    context: {
+      rows: [
+        {
+          key: {
+            text: "Name"
+          },
+          value: {
+            text: "Karen Francis"
+          },
+          actions: {
+            items: [
+              {
+                type: "submit",
+                text: "Change",
+                visuallyHiddenText: "name"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Date of birth"
+          },
+          value: {
+            text: "15 March 1984"
+          },
+          actions: {
+            items: [
+              {
+                type: "submit",
+                text: "Change",
+                visuallyHiddenText: "date of birth"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Contact information"
+          },
+          value: {
+            html: outdent`
+              73 Roman Rd<br>
+              Leeds<br>
+              LS2 5ZN
+            `
+          },
+          actions: {
+            items: [
+              {
+                type: "submit",
+                text: "Change",
+                visuallyHiddenText: "contact information"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Contact details"
+          },
+          value: {
+            html: outdent`
+              <p>07700 900362</p>
+              <p>karen.francis@example.com</p>
+            `
+          },
+          actions: {
+            items: [
+              {
+                type: "submit",
+                text: "Change",
+                visuallyHiddenText: "contact details"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    screenshot: {
+      viewports: ["mobile", "tablet", "desktop"]
+    }
+  },
+  "with multiple actions": {
+    context: {
+      rows: [
+        {
+          key: {
+            text: "Name"
+          },
+          value: {
+            text: "Karen Francis"
+          }
+        },
+        {
+          key: {
+            text: "Date of birth"
+          },
+          value: {
+            text: "15 March 1984"
+          },
+          actions: {
+            items: [
+              {
+                href: "#/change",
+                text: "Change",
+                visuallyHiddenText: "date of birth"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Contact information"
+          },
+          value: {
+            html: outdent`
+              73 Roman Rd<br>
+              Leeds<br>
+              LS2 5ZN
+            `
+          },
+          actions: {
+            items: [
+              {
+                href: "#/change",
+                text: "Change",
+                visuallyHiddenText: "contact information"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Contact details"
+          },
+          value: {
+            html: outdent`
+              <p>07700 900362</p>
+              <p>karen.francis@example.com</p>
+            `
+          },
+          actions: {
+            items: [
+              {
+                href: "#/add",
+                text: "Add",
+                visuallyHiddenText: "new contact details"
+              },
+              {
+                href: "#/change",
+                text: "Change",
+                visuallyHiddenText: "contact details"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Medicines"
+          },
+          value: {
+            html: outdent`
+              <p>Isotretinoin capsules (Roaccutane)</p>
+              <p>Isotretinoin gel (Isotrex)</p>
+              <p>Pepto-Bismol (bismuth subsalicylate)</p>
+            `
+          },
+          actions: {
+            items: [
+              {
+                href: "#/add",
+                text: "Add",
+                visuallyHiddenText: "new medicine"
+              },
+              {
+                href: "#/change",
+                text: "Change",
+                visuallyHiddenText: "medicines"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    options: {
+      width: "full"
+    }
+  },
+  "with multiple actions as buttons": {
+    context: {
+      rows: [
+        {
+          key: {
+            text: "Name"
+          },
+          value: {
+            text: "Karen Francis"
+          }
+        },
+        {
+          key: {
+            text: "Date of birth"
+          },
+          value: {
+            text: "15 March 1984"
+          },
+          actions: {
+            items: [
+              {
+                type: "submit",
+                text: "Change",
+                visuallyHiddenText: "date of birth"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Contact information"
+          },
+          value: {
+            html: outdent`
+              73 Roman Rd<br>
+              Leeds<br>
+              LS2 5ZN
+            `
+          },
+          actions: {
+            items: [
+              {
+                type: "submit",
+                text: "Change",
+                visuallyHiddenText: "contact information"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Contact details"
+          },
+          value: {
+            html: outdent`
+              <p>07700 900362</p>
+              <p>karen.francis@example.com</p>
+            `
+          },
+          actions: {
+            items: [
+              {
+                type: "submit",
+                text: "Add",
+                visuallyHiddenText: "new contact details"
+              },
+              {
+                type: "submit",
+                text: "Change",
+                visuallyHiddenText: "contact details"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Medicines"
+          },
+          value: {
+            html: outdent`
+              <p>Isotretinoin capsules (Roaccutane)</p>
+              <p>Isotretinoin gel (Isotrex)</p>
+              <p>Pepto-Bismol (bismuth subsalicylate)</p>
+            `
+          },
+          actions: {
+            items: [
+              {
+                type: "submit",
+                text: "Add",
+                visuallyHiddenText: "new medicine"
+              },
+              {
+                type: "submit",
+                text: "Change",
+                visuallyHiddenText: "medicines"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    options: {
+      width: "full"
+    }
+  },
+  "with multiple actions (empty items)": {
+    context: {
+      rows: [
+        {
+          key: {
+            text: "Name"
+          },
+          value: {
+            text: "Karen Francis"
+          }
+        },
+        {
+          key: {
+            text: "Date of birth"
+          },
+          value: {
+            text: "15 March 1984"
+          },
+          actions: {
+            items: [
+              false,
+              {
+                href: "#/change",
+                text: "Change",
+                visuallyHiddenText: "date of birth"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Contact information"
+          },
+          value: {
+            html: outdent`
+              73 Roman Rd<br>
+              Leeds<br>
+              LS2 5ZN
+            `
+          },
+          actions: {
+            items: [
+              false,
+              {
+                href: "#/change",
+                text: "Change",
+                visuallyHiddenText: "contact information"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Contact details"
+          },
+          value: {
+            html: outdent`
+              <p>07700 900362</p>
+              <p>karen.francis@example.com</p>
+            `
+          },
+          actions: {
+            items: [
+              {
+                href: "#/add",
+                text: "Add",
+                visuallyHiddenText: "new contact details"
+              },
+              {
+                href: "#/change",
+                text: "Change",
+                visuallyHiddenText: "contact details"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Medicines"
+          },
+          value: {
+            html: outdent`
+              <p>Isotretinoin capsules (Roaccutane)</p>
+              <p>Isotretinoin gel (Isotrex)</p>
+              <p>Pepto-Bismol (bismuth subsalicylate)</p>
+            `
+          },
+          actions: {
+            items: [
+              {
+                href: "#/add",
+                text: "Add",
+                visuallyHiddenText: "new medicine"
+              },
+              {
+                href: "#/change",
+                text: "Change",
+                visuallyHiddenText: "medicines"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    options: {
+      width: "full"
+    }
+  },
+  "with item widths": {
+    context: {
+      rows: [
+        {
+          key: {
+            text: "Name",
+            width: "one-half"
+          },
+          value: {
+            text: "Karen Francis"
+          }
+        },
+        {
+          key: {
+            text: "Date of birth",
+            width: "one-half"
+          },
+          value: {
+            text: "15 March 1984"
+          }
+        }
+      ]
+    }
+  },
+  "without border": {
     context: {
       border: false,
       rows: [
         {
           key: {
-            text: 'Name'
+            text: "Name"
           },
           value: {
-            text: 'Karen Francis'
+            text: "Karen Francis"
           }
         },
         {
           key: {
-            text: 'Date of birth'
+            text: "Date of birth"
           },
           value: {
-            text: '15 March 1984'
+            text: "15 March 1984"
           }
         },
         {
           key: {
-            text: 'Contact information'
+            text: "Contact information"
           },
           value: {
             html: outdent`
@@ -388,7 +602,7 @@ const fixtures = {
         },
         {
           key: {
-            text: 'Contact details'
+            text: "Contact details"
           },
           value: {
             html: outdent`
@@ -400,32 +614,32 @@ const fixtures = {
       ]
     },
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
+      viewports: ["mobile", "tablet", "desktop"]
     }
   },
-  'without row border': {
+  "without last row border": {
     context: {
       lastRowBorder: false,
       rows: [
         {
           key: {
-            text: 'Name'
+            text: "Name"
           },
           value: {
-            text: 'Karen Francis'
+            text: "Karen Francis"
           }
         },
         {
           key: {
-            text: 'Date of birth'
+            text: "Date of birth"
           },
           value: {
-            text: '15 March 1984'
+            text: "15 March 1984"
           }
         },
         {
           key: {
-            text: 'Contact information'
+            text: "Contact information"
           },
           value: {
             html: outdent`
@@ -437,7 +651,7 @@ const fixtures = {
         },
         {
           key: {
-            text: 'Contact details'
+            text: "Contact details"
           },
           value: {
             html: outdent`
@@ -449,83 +663,31 @@ const fixtures = {
       ]
     },
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
+      viewports: ["mobile", "tablet", "desktop"]
     }
   },
-  'as a card': {
+  "without specific row border": {
     context: {
-      card: {
-        heading: 'Regional Manager',
-        headingSize: 'm'
-      },
-      lastRowBorder: false,
       rows: [
         {
           key: {
-            text: 'Name'
+            text: "Name"
           },
           value: {
-            text: 'Karen Francis'
+            text: "Karen Francis"
           }
         },
         {
           key: {
-            text: 'Date of birth'
+            text: "Date of birth"
           },
           value: {
-            text: '15 March 1984'
-          }
-        }
-      ]
-    }
-  },
-  'as a card with multiple actions': {
-    context: {
-      card: {
-        heading: 'Regional Manager',
-        headingSize: 'l',
-        actions: {
-          items: [
-            {
-              text: 'Delete',
-              href: '#/delete'
-            },
-            {
-              text: 'Withdraw',
-              href: '#/withdraw'
-            }
-          ]
-        }
-      },
-      rows: [
-        {
-          key: {
-            text: 'Name'
-          },
-          value: {
-            text: 'Karen Francis'
+            text: "15 March 1984"
           }
         },
         {
           key: {
-            text: 'Date of birth'
-          },
-          value: {
-            text: '15 March 1984'
-          },
-          actions: {
-            items: [
-              {
-                href: '#/change',
-                text: 'Change',
-                visuallyHiddenText: 'date of birth'
-              }
-            ]
-          }
-        },
-        {
-          key: {
-            text: 'Contact information'
+            text: "Contact information"
           },
           value: {
             html: outdent`
@@ -533,46 +695,151 @@ const fixtures = {
               Leeds<br>
               LS2 5ZN
             `
-          },
-          actions: {
-            items: [
-              {
-                href: '#/change',
-                text: 'Change',
-                visuallyHiddenText: 'contact information'
-              }
-            ]
-          }
-        },
-        {
-          key: {
-            text: 'Contact details'
-          },
-          value: {
-            html: outdent`
-              <p>07700 900362</p>
-              <p>karen.francis@example.com</p>
-            `
-          },
-          actions: {
-            items: [
-              {
-                href: '#/add',
-                text: 'Add',
-                visuallyHiddenText: 'new contact details'
-              },
-              {
-                href: '#/change',
-                text: 'Change',
-                visuallyHiddenText: 'contact details'
-              }
-            ]
           }
         },
         {
           border: false,
           key: {
-            text: 'Medicines'
+            text: "Contact details"
+          },
+          value: {
+            html: outdent`
+              <p>07700 900362</p>
+              <p>karen.francis@example.com</p>
+            `
+          }
+        }
+      ]
+    },
+    screenshot: {
+      viewports: ["mobile", "tablet", "desktop"]
+    }
+  },
+  "as a card": {
+    context: {
+      card: {
+        heading: {
+          text: "Regional Manager",
+          size: "m"
+        }
+      },
+      lastRowBorder: false,
+      rows: [
+        {
+          key: {
+            text: "Name"
+          },
+          value: {
+            text: "Karen Francis"
+          }
+        },
+        {
+          key: {
+            text: "Date of birth"
+          },
+          value: {
+            text: "15 March 1984"
+          }
+        }
+      ]
+    }
+  },
+  "as a card with multiple actions": {
+    context: {
+      card: {
+        heading: {
+          text: "Regional Manager",
+          size: "l"
+        },
+        actions: {
+          items: [
+            {
+              text: "Delete",
+              href: "#/delete"
+            },
+            {
+              text: "Withdraw",
+              href: "#/withdraw"
+            }
+          ]
+        }
+      },
+      lastRowBorder: false,
+      rows: [
+        {
+          key: {
+            text: "Name"
+          },
+          value: {
+            text: "Karen Francis"
+          }
+        },
+        {
+          key: {
+            text: "Date of birth"
+          },
+          value: {
+            text: "15 March 1984"
+          },
+          actions: {
+            items: [
+              {
+                href: "#/change",
+                text: "Change",
+                visuallyHiddenText: "date of birth"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Contact information"
+          },
+          value: {
+            html: outdent`
+              73 Roman Rd<br>
+              Leeds<br>
+              LS2 5ZN
+            `
+          },
+          actions: {
+            items: [
+              {
+                href: "#/change",
+                text: "Change",
+                visuallyHiddenText: "contact information"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Contact details"
+          },
+          value: {
+            html: outdent`
+              <p>07700 900362</p>
+              <p>karen.francis@example.com</p>
+            `
+          },
+          actions: {
+            items: [
+              {
+                href: "#/add",
+                text: "Add",
+                visuallyHiddenText: "new contact details"
+              },
+              {
+                href: "#/change",
+                text: "Change",
+                visuallyHiddenText: "contact details"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Medicines"
           },
           value: {
             html: outdent`
@@ -584,14 +851,14 @@ const fixtures = {
           actions: {
             items: [
               {
-                href: '#/add',
-                text: 'Add',
-                visuallyHiddenText: 'new medicine'
+                href: "#/add",
+                text: "Add",
+                visuallyHiddenText: "new medicine"
               },
               {
-                href: '#/change',
-                text: 'Change',
-                visuallyHiddenText: 'medicines'
+                href: "#/change",
+                text: "Change",
+                visuallyHiddenText: "medicines"
               }
             ]
           }
@@ -599,23 +866,21 @@ const fixtures = {
       ]
     },
     options: {
-      width: 'full'
+      width: "full"
     }
   },
-  'as a card with actions': {
+  "as a card with action": {
     context: {
       card: {
-        heading: 'Regional Manager',
-        headingSize: 'm',
+        heading: {
+          text: "Regional Manager",
+          size: "m"
+        },
         actions: {
           items: [
             {
-              text: 'Delete',
-              href: '#/delete'
-            },
-            {
-              text: 'Withdraw',
-              href: '#/withdraw'
+              text: "Delete",
+              href: "#/delete"
             }
           ]
         }
@@ -624,38 +889,35 @@ const fixtures = {
       rows: [
         {
           key: {
-            text: 'Name'
+            text: "Name"
           },
           value: {
-            text: 'Karen Francis'
+            text: "Karen Francis"
           }
         },
         {
           key: {
-            text: 'Date of birth'
+            text: "Date of birth"
           },
           value: {
-            text: '15 March 1984'
+            text: "15 March 1984"
           }
         }
       ]
     }
   },
-  'as a card (secondary) with actions': {
+  "as a card with action as a button": {
     context: {
       card: {
-        heading: 'Regional Manager',
-        headingSize: 'm',
-        variant: 'secondary',
+        heading: {
+          text: "Regional Manager",
+          size: "m"
+        },
         actions: {
           items: [
             {
-              text: 'Delete',
-              href: '#/delete'
-            },
-            {
-              text: 'Withdraw',
-              href: '#/withdraw'
+              type: "submit",
+              text: "Delete"
             }
           ]
         }
@@ -664,38 +926,39 @@ const fixtures = {
       rows: [
         {
           key: {
-            text: 'Name'
+            text: "Name"
           },
           value: {
-            text: 'Karen Francis'
+            text: "Karen Francis"
           }
         },
         {
           key: {
-            text: 'Date of birth'
+            text: "Date of birth"
           },
           value: {
-            text: '15 March 1984'
+            text: "15 March 1984"
           }
         }
       ]
     }
   },
-  'as a card (feature) with actions': {
+  "as a card with actions": {
     context: {
       card: {
-        heading: 'Regional Manager',
-        headingSize: 'm',
-        variant: 'feature',
+        heading: {
+          text: "Regional Manager",
+          size: "m"
+        },
         actions: {
           items: [
             {
-              text: 'Delete',
-              href: '#/delete'
+              text: "Delete",
+              href: "#/delete"
             },
             {
-              text: 'Withdraw',
-              href: '#/withdraw'
+              text: "Withdraw",
+              href: "#/withdraw"
             }
           ]
         }
@@ -704,42 +967,170 @@ const fixtures = {
       rows: [
         {
           key: {
-            text: 'Name'
+            text: "Name"
           },
           value: {
-            text: 'Karen Francis'
+            text: "Karen Francis"
           }
         },
         {
           key: {
-            text: 'Date of birth'
+            text: "Date of birth"
           },
           value: {
-            text: '15 March 1984'
+            text: "15 March 1984"
           }
         }
       ]
     }
   },
-  'as a card (feature) with custom HTML': {
+  "as a card with actions as buttons": {
     context: {
       card: {
-        heading: 'Your read',
-        headingSize: 'm',
-        variant: 'feature'
+        heading: {
+          text: "Regional Manager",
+          size: "m"
+        },
+        actions: {
+          items: [
+            {
+              type: "submit",
+              text: "Delete"
+            },
+            {
+              type: "submit",
+              text: "Withdraw"
+            }
+          ]
+        }
       },
+      lastRowBorder: false,
       rows: [
         {
           key: {
-            text: 'Opinion'
+            text: "Name"
+          },
+          value: {
+            text: "Karen Francis"
+          }
+        },
+        {
+          key: {
+            text: "Date of birth"
+          },
+          value: {
+            text: "15 March 1984"
+          }
+        }
+      ]
+    }
+  },
+  "as a card (secondary) with actions": {
+    context: {
+      card: {
+        heading: {
+          text: "Regional Manager",
+          size: "m"
+        },
+        variant: "secondary",
+        actions: {
+          items: [
+            {
+              text: "Delete",
+              href: "#/delete"
+            },
+            {
+              text: "Withdraw",
+              href: "#/withdraw"
+            }
+          ]
+        }
+      },
+      lastRowBorder: false,
+      rows: [
+        {
+          key: {
+            text: "Name"
+          },
+          value: {
+            text: "Karen Francis"
+          }
+        },
+        {
+          key: {
+            text: "Date of birth"
+          },
+          value: {
+            text: "15 March 1984"
+          }
+        }
+      ]
+    }
+  },
+  "as a card (feature) with actions": {
+    context: {
+      card: {
+        heading: {
+          text: "Regional Manager",
+          size: "m"
+        },
+        variant: "feature",
+        actions: {
+          items: [
+            {
+              text: "Delete",
+              href: "#/delete"
+            },
+            {
+              text: "Withdraw",
+              href: "#/withdraw"
+            }
+          ]
+        }
+      },
+      lastRowBorder: false,
+      rows: [
+        {
+          key: {
+            text: "Name"
+          },
+          value: {
+            text: "Karen Francis"
+          }
+        },
+        {
+          key: {
+            text: "Date of birth"
+          },
+          value: {
+            text: "15 March 1984"
+          }
+        }
+      ]
+    }
+  },
+  "as a card (feature) with custom HTML": {
+    context: {
+      card: {
+        heading: {
+          text: "Your read",
+          size: "m"
+        },
+        variant: "feature"
+      },
+      lastRowBorder: false,
+      rows: [
+        {
+          key: {
+            text: "Opinion"
           },
           value: {
             html: outdent`
               <p class="nhsuk-u-margin-bottom-3">
-                ${components.render('tag', {
+                ${components.render("tag", {
                   context: {
-                    text: 'Recall for assessment',
-                    colour: 'red'
+                    text: "Recall for assessment",
+                    colour: "red"
                   }
                 })}
               </p>
@@ -748,16 +1139,16 @@ const fixtures = {
           actions: {
             items: [
               {
-                href: '#/change',
-                text: 'Change',
-                visuallyHiddenText: 'opinion'
+                href: "#/change",
+                text: "Change",
+                visuallyHiddenText: "opinion"
               }
             ]
           }
         },
         {
           key: {
-            text: 'Detailed opinion'
+            text: "Detailed opinion"
           },
           value: {
             html: outdent`
@@ -767,10 +1158,10 @@ const fixtures = {
                     Right breast
                   </p>
                   <p class="nhsuk-u-margin-bottom-3">
-                    ${components.render('tag', {
+                    ${components.render("tag", {
                       context: {
-                        text: 'Abnormal',
-                        colour: 'red'
+                        text: "Abnormal",
+                        colour: "red"
                       }
                     })}
                   </p>
@@ -790,17 +1181,16 @@ const fixtures = {
           actions: {
             items: [
               {
-                href: '#/change',
-                text: 'Change',
-                visuallyHiddenText: 'detailed opinion'
+                href: "#/change",
+                text: "Change",
+                visuallyHiddenText: "detailed opinion"
               }
             ]
           }
         },
         {
-          classes: 'nhsuk-summary-list__row--no-border',
           key: {
-            text: 'Annotations'
+            text: "Annotations"
           },
           value: {
             html: outdent`
@@ -815,9 +1205,9 @@ const fixtures = {
           actions: {
             items: [
               {
-                href: '#/change',
-                text: 'Change',
-                visuallyHiddenText: 'annotations'
+                href: "#/change",
+                text: "Change",
+                visuallyHiddenText: "annotations"
               }
             ]
           }
@@ -825,55 +1215,59 @@ const fixtures = {
       ]
     },
     options: {
-      width: 'full'
+      width: "full"
     },
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
+      viewports: ["mobile", "tablet", "desktop"]
     }
   },
-  'as a card (clickable) without actions': {
+  "as a card (clickable) without actions": {
     context: {
       card: {
-        heading: 'Regional Manager',
-        headingSize: 'm',
-        href: '#/card-clickable',
+        heading: {
+          text: "Regional Manager",
+          size: "m"
+        },
+        href: "#/card-clickable",
         clickable: true
       },
       lastRowBorder: false,
       rows: [
         {
           key: {
-            text: 'Name'
+            text: "Name"
           },
           value: {
-            text: 'Karen Francis'
+            text: "Karen Francis"
           }
         },
         {
           key: {
-            text: 'Date of birth'
+            text: "Date of birth"
           },
           value: {
-            text: '15 March 1984'
+            text: "15 March 1984"
           }
         }
       ]
     }
   },
-  'as a card (type non-urgent) with actions': {
+  "as a card (type non-urgent) with actions": {
     context: {
       card: {
-        heading: 'Regional Manager',
-        variant: 'non-urgent',
+        heading: {
+          text: "Regional Manager"
+        },
+        variant: "non-urgent",
         actions: {
           items: [
             {
-              text: 'Delete',
-              href: '#/delete'
+              text: "Delete",
+              href: "#/delete"
             },
             {
-              text: 'Withdraw',
-              href: '#/withdraw'
+              text: "Withdraw",
+              href: "#/withdraw"
             }
           ]
         }
@@ -882,37 +1276,39 @@ const fixtures = {
       rows: [
         {
           key: {
-            text: 'Name'
+            text: "Name"
           },
           value: {
-            text: 'Karen Francis'
+            text: "Karen Francis"
           }
         },
         {
           key: {
-            text: 'Date of birth'
+            text: "Date of birth"
           },
           value: {
-            text: '15 March 1984'
+            text: "15 March 1984"
           }
         }
       ]
     }
   },
-  'as a card (type urgent) with actions': {
+  "as a card (type urgent) with actions": {
     context: {
       card: {
-        heading: 'Regional Manager',
-        variant: 'urgent',
+        heading: {
+          text: "Regional Manager"
+        },
+        variant: "urgent",
         actions: {
           items: [
             {
-              text: 'Delete',
-              href: '#/delete'
+              text: "Delete",
+              href: "#/delete"
             },
             {
-              text: 'Withdraw',
-              href: '#/withdraw'
+              text: "Withdraw",
+              href: "#/withdraw"
             }
           ]
         }
@@ -921,37 +1317,39 @@ const fixtures = {
       rows: [
         {
           key: {
-            text: 'Name'
+            text: "Name"
           },
           value: {
-            text: 'Karen Francis'
+            text: "Karen Francis"
           }
         },
         {
           key: {
-            text: 'Date of birth'
+            text: "Date of birth"
           },
           value: {
-            text: '15 March 1984'
+            text: "15 March 1984"
           }
         }
       ]
     }
   },
-  'as a card (type emergency) with actions': {
+  "as a card (type emergency) with actions": {
     context: {
       card: {
-        heading: 'Regional Manager',
-        variant: 'emergency',
+        heading: {
+          text: "Regional Manager"
+        },
+        variant: "emergency",
         actions: {
           items: [
             {
-              text: 'Delete',
-              href: '#/delete'
+              text: "Delete",
+              href: "#/delete"
             },
             {
-              text: 'Withdraw',
-              href: '#/withdraw'
+              text: "Withdraw",
+              href: "#/withdraw"
             }
           ]
         }
@@ -960,40 +1358,40 @@ const fixtures = {
       rows: [
         {
           key: {
-            text: 'Name'
+            text: "Name"
           },
           value: {
-            text: 'Karen Francis'
+            text: "Karen Francis"
           }
         },
         {
           key: {
-            text: 'Date of birth'
+            text: "Date of birth"
           },
           value: {
-            text: '15 March 1984'
+            text: "15 March 1984"
           }
         }
       ]
     }
   },
-  'example person: Karen Francis': {
+  "example person: Karen Francis": {
     context: {
       rows: [
         {
           key: {
-            text: 'Name'
+            text: "Name"
           },
           value: {
-            text: 'Karen Francis'
+            text: "Karen Francis"
           }
         },
         {
           key: {
-            text: 'Date of birth'
+            text: "Date of birth"
           },
           value: {
-            text: '15 March 1984'
+            text: "15 March 1984"
           }
         }
       ]
@@ -1002,24 +1400,24 @@ const fixtures = {
       hidden: true
     }
   },
-  'example person: Karen Francis (no border)': {
+  "example person: Karen Francis (no border)": {
     context: {
+      lastRowBorder: false,
       rows: [
         {
           key: {
-            text: 'Name'
+            text: "Name"
           },
           value: {
-            text: 'Karen Francis'
+            text: "Karen Francis"
           }
         },
         {
-          border: false,
           key: {
-            text: 'Date of birth'
+            text: "Date of birth"
           },
           value: {
-            text: '15 March 1984'
+            text: "15 March 1984"
           }
         }
       ]
@@ -1028,24 +1426,24 @@ const fixtures = {
       hidden: true
     }
   },
-  'example person: Sarah Philips (no border)': {
+  "example person: Sarah Philips (no border)": {
     context: {
+      lastRowBorder: false,
       rows: [
         {
           key: {
-            text: 'Name'
+            text: "Name"
           },
           value: {
-            text: 'Sarah Philips'
+            text: "Sarah Philips"
           }
         },
         {
-          border: false,
           key: {
-            text: 'Date of birth'
+            text: "Date of birth"
           },
           value: {
-            text: '5 January 1978'
+            text: "5 January 1978"
           }
         }
       ]

@@ -24,7 +24,7 @@
       <h1 class="nhsuk-heading-xl">{{ pageName }}</h1>
 
       {% call details({
-        summaryText: "Checkboxes",
+        summary: "Checkboxes",
         open: true
       }) %}
 
@@ -58,7 +58,7 @@
       {% endcall %}
 
       {% call details({
-        summaryText: "Radios",
+        summary: "Radios",
         open: true
       }) %}
 
@@ -90,7 +90,7 @@
 
       {% call details({
         classes: "nhsuk-u-width-one-third",
-        summaryText: "Small checkboxes",
+        summary: "Small checkboxes",
         open: true
       }) %}
 
@@ -128,7 +128,7 @@
 
       {% call details({
         classes: "nhsuk-u-width-one-third",
-        summaryText: "Small radios",
+        summary: "Small radios",
         open: true
       }) %}
 
@@ -160,7 +160,10 @@
 
       {% endcall %}
 
-      {% call details({summaryText: "Inputs", open: true}) %}
+      {% call details({
+        summary: "Inputs",
+        open: true
+      }) %}
 
         {{ input({
           label: {
@@ -194,7 +197,10 @@
 
       {% endcall %}
 
-      {% call details({summaryText: "Buttons", open: true}) %}
+      {% call details({
+        summary: "Buttons",
+        open: true
+      }) %}
 
         <div class="nhsuk-button-group">
           {{ button({
@@ -220,13 +226,13 @@
       {% endcall %}
 
       {% call details({
-        summaryText: "Expander",
+        summary: "Expander",
         open: true
       }) %}
 
         {{ details({
           classes: "nhsuk-expander",
-          summaryText: "Get your medical records",
+          summary: "Get your medical records",
           html: "
             <p>You can see your GP records by:</p>
             <ul>
@@ -239,7 +245,7 @@
       {% endcall %}
 
       {% call details({
-        summaryText: "Lists",
+        summary: "Lists",
         open: true
       }) %}
 

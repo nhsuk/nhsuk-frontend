@@ -18,11 +18,6 @@ describe('Errors', () => {
   })
 
   describe('SupportError', () => {
-    beforeEach(() => {
-      // JSDOM hasn't yet implemented `noModule`, so we have to mock this
-      window.HTMLScriptElement.prototype.noModule = true
-    })
-
     it('is an instance of NHSUKFrontendError', () => {
       expect(new SupportError(document.body)).toBeInstanceOf(NHSUKFrontendError)
     })
@@ -45,6 +40,8 @@ describe('Errors', () => {
     })
 
     it('provides feedback when <body> class is missing', () => {
+      window.HTMLScriptElement.prototype.noModule = true
+
       expect(new SupportError(document.body)).toHaveProperty(
         'message',
         'NHS.UK frontend initialised without `<body class="nhsuk-frontend-supported">` from template `<script>` snippet'

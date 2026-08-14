@@ -4,55 +4,55 @@
  * @satisfies {{ [example: string]: MacroExample }}
  */
 const fixtures = {
-  'default': {
+  "default": {
     context: {
-      title: 'Do',
-      icon: 'tick',
+      title: "Do",
+      icon: "tick",
       items: [
         {
-          text: 'cover blisters with a soft plaster or padded dressing'
+          text: "cover blisters with a soft plaster or padded dressing"
         },
         {
-          text: 'wash your hands before touching a burst blister'
+          text: "wash your hands before touching a burst blister"
         },
         {
-          text: 'allow the fluid in a burst blister to drain before covering it with a plaster or dressing'
+          text: "allow the fluid in a burst blister to drain before covering it with a plaster or dressing"
         }
       ]
     },
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
+      viewports: ["mobile", "tablet", "desktop"]
     }
   },
-  '(do) with empty items': {
+  "(do) with empty items": {
     context: {
-      title: 'Do',
-      icon: 'tick',
+      title: "Do",
+      icon: "tick",
       items: [
         {
-          text: 'cover blisters with a soft plaster or padded dressing'
+          text: "cover blisters with a soft plaster or padded dressing"
         },
         {
-          text: 'wash your hands before touching a burst blister'
+          text: "wash your hands before touching a burst blister"
         },
         false
       ]
     }
   },
-  '(do) with custom prefix': {
+  "(do) with custom prefix": {
     context: {
-      title: 'Do',
-      icon: 'tick',
-      prefixText: 'always',
+      title: "Do",
+      icon: "tick",
+      prefixText: "always",
       items: [
         {
-          text: 'cover blisters with a soft plaster or padded dressing'
+          text: "cover blisters with a soft plaster or padded dressing"
         },
         {
-          text: 'wash your hands before touching a burst blister'
+          text: "wash your hands before touching a burst blister"
         },
         {
-          text: 'allow the fluid in a burst blister to drain before covering it with a plaster or dressing'
+          text: "allow the fluid in a burst blister to drain before covering it with a plaster or dressing"
         }
       ]
     }
@@ -60,39 +60,39 @@ const fixtures = {
   "(don't)": {
     context: {
       title: "Don't",
-      icon: 'cross',
+      icon: "cross",
       items: [
         {
-          text: 'burst a blister yourself'
+          text: "burst a blister yourself"
         },
         {
-          text: 'peel the skin off a burst blister'
+          text: "peel the skin off a burst blister"
         },
         {
-          text: 'pick at the edges of the remaining skin'
+          text: "pick at the edges of the remaining skin"
         },
         {
-          text: 'wear the shoes or use the equipment that caused your blister until it heals'
+          text: "wear the shoes or use the equipment that caused your blister until it heals"
         }
       ]
     },
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
+      viewports: ["mobile", "tablet", "desktop"]
     }
   },
   "(don't) with empty items": {
     context: {
       title: "Don't",
-      icon: 'cross',
+      icon: "cross",
       items: [
         {
-          text: 'burst a blister yourself'
+          text: "burst a blister yourself"
         },
         {
-          text: 'peel the skin off a burst blister'
+          text: "peel the skin off a burst blister"
         },
         {
-          text: 'pick at the edges of the remaining skin'
+          text: "pick at the edges of the remaining skin"
         },
         false
       ]
@@ -100,21 +100,21 @@ const fixtures = {
   },
   "(don't) with custom prefix": {
     context: {
-      title: 'Never',
-      icon: 'cross',
-      prefixText: 'never',
+      title: "Never",
+      icon: "cross",
+      prefixText: "never",
       items: [
         {
-          text: 'burst a blister yourself'
+          text: "burst a blister yourself"
         },
         {
-          text: 'peel the skin off a burst blister'
+          text: "peel the skin off a burst blister"
         },
         {
-          text: 'pick at the edges of the remaining skin'
+          text: "pick at the edges of the remaining skin"
         },
         {
-          text: 'wear the shoes or use the equipment that caused your blister until it heals'
+          text: "wear the shoes or use the equipment that caused your blister until it heals"
         }
       ]
     }
@@ -122,17 +122,17 @@ const fixtures = {
   "(don't) with hidden prefix": {
     context: {
       title: "Don't",
-      icon: 'cross',
+      icon: "cross",
       hidePrefix: true,
       items: [
         {
-          text: 'avoid bursting a blister yourself'
+          text: "avoid bursting a blister yourself"
         },
         {
           text: "certainly don't peel the skin off a burst blister"
         },
         {
-          text: 'absolutely do not pick at the edges of the remaining skin'
+          text: "absolutely do not pick at the edges of the remaining skin"
         },
         {
           text: "please don't wear the shoes or use the equipment that caused your blister until it heals"
