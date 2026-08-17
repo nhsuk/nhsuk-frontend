@@ -6,7 +6,7 @@
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-panel" -%}
-{%- set classNamesTitle = "nhsuk-panel__title" -%}
+{%- set classNamesHeading = "nhsuk-panel__heading" -%}
 
 {#- Support heading as string (with deprecated options) #}
 {%- set headingOptions = params.heading if params.heading is mapping and params.heading is not escaped else {
@@ -36,8 +36,8 @@
     level: headingOptions.level,
     size: headingOptions.size,
     sizes: ["m", "l", "xl"],
-    className: classNamesTitle,
-    classPrefix: classNamesTitle ~ "--",
+    className: classNamesHeading,
+    classPrefix: classNamesHeading ~ "--",
     classes: headingOptions.classes,
     attributes: headingOptions.attributes
   }) | trim | indent(2) }}
