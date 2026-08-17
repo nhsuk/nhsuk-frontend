@@ -1,5 +1,13 @@
 # NHS.UK frontend Changelog
 
+## Unreleased
+
+Note: This release was created from the `support/10.x` branch.
+
+### :wrench: **Fixes**
+
+- [#2055: Guard against Nunjucks filter errors on `undefined` text](https://github.com/nhsuk/nhsuk-frontend/pull/2055)
+
 ## 10.6.0 - 13 August 2026
 
 Note: This release was created from the `support/10.x` branch.
