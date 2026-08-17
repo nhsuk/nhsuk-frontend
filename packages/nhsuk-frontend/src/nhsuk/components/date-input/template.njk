@@ -75,18 +75,32 @@
 {%- if item is sameas(dateInputDay) or (item.name and item.name in ["day", dateInputDay.name]) %}
   {% set itemName = item.name | default("day") %}
   {% set itemValue = item.value | default(dateInputDay.value) %}
+  {% set itemPurpose = "day" %}
 {% elif item is sameas(dateInputMonth) or (item.name and item.name in ["month", dateInputMonth.name]) %}
   {% set itemName = item.name | default("month") %}
   {% set itemValue = item.value | default(dateInputMonth.value) %}
+  {% set itemPurpose = "month" %}
 {% elif item is sameas(dateInputYear) or (item.name and item.name in ["year", dateInputYear.name]) %}
   {% set itemName = item.name | default("year") %}
   {% set itemValue = item.value | default(dateInputYear.value) %}
   {% set itemWidth = item.width | default(4) %}
+  {% set itemPurpose = "year" %}
 {% endif -%}
 
 {%- if item.classes %}
   {% set itemClasses = (itemClasses ~ " " ~ item.classes) | trim %}
 {% endif %}
+
+{%- set itemAttributesHtml %}
+  {{- nhsukAttributes({
+    "data-purpose": {
+      value: itemPurpose,
+      optional: true
+    }
+  }) -}}
+
+  {{- nhsukAttributes(item.attributes) -}}
+{% endset -%}
 
 <div class="nhsuk-date-input__item">
   {{ input({
@@ -115,7 +129,7 @@
     disabled: item.disabled | default(params.disabled),
     describedBy: item.describedBy,
     classes: ("nhsuk-date-input__input" ~ " " ~ itemClasses) | trim,
-    attributes: item.attributes
+    attributes: itemAttributesHtml | safe
   }) | trim | indent(2) }}
 </div>
 {%- endmacro -%}
@@ -151,7 +165,7 @@
     attributes: errorMessageOptions.attributes
   }) | trim | indent(2) }}
 {% endif %}
-  <div class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %} {{- nhsukAttributes(params.attributes) -}}>
+  <div class="{{ classNames }}" data-module="nhsuk-date-input"{%- if params.id %} id="{{ params.id }}"{% endif %} {{- nhsukAttributes(params.attributes) -}}>
     {% if params.formGroup.beforeInputs %}
     {{ params.formGroup.beforeInputs.html | safe | trim | indent(4) if params.formGroup.beforeInputs.html else params.formGroup.beforeInputs.text }}
     {% endif %}
