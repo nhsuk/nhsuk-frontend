@@ -213,9 +213,9 @@ Default:
 Type: object
 
 Message displayed when the number of words is under the configured maximum,
-`maxwords`. This message is displayed visually and through assistive
-technologies. The component will replace the `%{count}` placeholder with the
-number of remaining words. This is a [pluralised list of
+`maxlength` with `countType: "words"`. This message is displayed visually and
+through assistive technologies. The component will replace the `%{count}`
+placeholder with the number of remaining words. This is a [pluralised list of
 messages](./localisation.md).
 
 Default:
@@ -232,8 +232,8 @@ Default:
 Type: string
 
 Message displayed when the number of words reaches the configured maximum,
-`maxwords`. This message is displayed visually and through assistive
-technologies.
+`maxlength` with `countType: "words"`. This message is displayed visually and
+through assistive technologies.
 
 Default:
 
@@ -246,9 +246,9 @@ Default:
 Type: object
 
 Message displayed when the number of words is over the configured maximum,
-`maxwords`. This message is displayed visually and through assistive
-technologies. The component will replace the `%{count}` placeholder with the
-number of remaining words. This is a [pluralised list of
+`maxlength` with `countType: "words"`. This message is displayed visually and
+through assistive technologies. The component will replace the `%{count}`
+placeholder with the number of remaining words. This is a [pluralised list of
 messages](./localisation.md).
 
 Default:
