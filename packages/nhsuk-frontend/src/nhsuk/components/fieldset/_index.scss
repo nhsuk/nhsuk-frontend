@@ -73,6 +73,7 @@
   .nhsuk-body-m,
   .nhsuk-body-s,
   .nhsuk-body {
+    &:has(+ .nhsuk-fieldset > .nhsuk-fieldset__legend:first-child),
     &:has(+ .nhsuk-form-group > .nhsuk-fieldset:first-child > .nhsuk-fieldset__legend:first-child) {
       margin-bottom: nhsuk-spacing(3) + nhsuk-spacing(1);
 
@@ -83,6 +84,7 @@
   }
 
   .nhsuk-body-l {
+    &:has(+ .nhsuk-fieldset > .nhsuk-fieldset__legend:first-child),
     &:has(+ .nhsuk-form-group > .nhsuk-fieldset:first-child > .nhsuk-fieldset__legend:first-child) {
       margin-bottom: nhsuk-spacing(4);
 
@@ -91,6 +93,8 @@
       }
     }
 
+    &:has(+ .nhsuk-fieldset > .nhsuk-fieldset__legend--m:first-child),
+    &:has(+ .nhsuk-fieldset > .nhsuk-fieldset__legend--l:first-child),
     &:has(+ .nhsuk-form-group > .nhsuk-fieldset:first-child > .nhsuk-fieldset__legend--m:first-child),
     &:has(+ .nhsuk-form-group > .nhsuk-fieldset:first-child > .nhsuk-fieldset__legend--l:first-child) {
       margin-bottom: nhsuk-spacing(4) + nhsuk-spacing(1);
