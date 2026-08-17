@@ -9,6 +9,22 @@ Note: This release was created from the `support/10.x` branch.
 - [#2055: Guard against Nunjucks filter errors on `undefined` text](https://github.com/nhsuk/nhsuk-frontend/pull/2055)
 - [#2056: Remove negative margin top from caption when heading has margin override](https://github.com/nhsuk/nhsuk-frontend/pull/2056)
 
+### :recycle: **Changes**
+
+#### Rename title and heading HTML classes
+
+HTML classes for the error summary, panel and tabs component headings have been renamed from `__title` to `__heading` to match their corresponding Nunjucks option.
+
+If you are not using Nunjucks macros, change the classes as follows:
+
+- Rename the `<h2 class="nhsuk-error-summary__title"` class attribute to match `<h2 class="nhsuk-error-summary__heading"`.
+- Rename the `<h1 class="nhsuk-panel__title"` class attribute to match `<h1 class="nhsuk-panel__heading"`.
+- Rename the `<h2 class="nhsuk-tabs__title"` class attribute to match `<h2 class="nhsuk-tabs__heading"`.
+
+The previous class names are deprecated and will be removed in a future release.
+
+This change was introduced in [pull request #2057: Rename title and heading HTML classes](https://github.com/nhsuk/nhsuk-frontend/pull/2057).
+
 ## 10.6.0 - 13 August 2026
 
 Note: This release was created from the `support/10.x` branch.
