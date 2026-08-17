@@ -173,6 +173,24 @@ h6 + .nhsuk-caption--bottom,
   @include nhsuk-responsive-margin(4, "bottom");
 }
 
+h1,
+.nhsuk-heading-xl,
+h2,
+.nhsuk-heading-l,
+h3,
+.nhsuk-heading-m,
+h4,
+.nhsuk-heading-s,
+h5,
+.nhsuk-heading-xs,
+h6,
+.nhsuk-heading-xxs {
+  // Remove negative top margin from caption when heading has manual bottom margin
+  &[class*="nhsuk-u-margin-bottom-"] + [class^="nhsuk-caption"] {
+    margin-top: 0;
+  }
+}
+
 // Body (paragraphs)
 
 %nhsuk-body-l {
