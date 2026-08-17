@@ -43,6 +43,7 @@
   .nhsuk-body-m,
   .nhsuk-body-s,
   .nhsuk-body {
+    &:has(+ .nhsuk-form-group > .nhsuk-label:first-child),
     &:has(+ .nhsuk-form-group > .nhsuk-label-wrapper:first-child .nhsuk-label) {
       margin-bottom: nhsuk-spacing(3) + nhsuk-spacing(1);
 
@@ -53,6 +54,7 @@
   }
 
   .nhsuk-body-l {
+    &:has(+ .nhsuk-form-group > .nhsuk-label:first-child),
     &:has(+ .nhsuk-form-group > .nhsuk-label-wrapper:first-child .nhsuk-label) {
       margin-bottom: nhsuk-spacing(4);
 
@@ -61,6 +63,8 @@
       }
     }
 
+    &:has(+ .nhsuk-form-group > .nhsuk-label--m:first-child),
+    &:has(+ .nhsuk-form-group > .nhsuk-label--l:first-child),
     &:has(+ .nhsuk-form-group > .nhsuk-label-wrapper:first-child .nhsuk-label--m),
     &:has(+ .nhsuk-form-group > .nhsuk-label-wrapper:first-child .nhsuk-label--l) {
       margin-bottom: nhsuk-spacing(4) + nhsuk-spacing(1);
