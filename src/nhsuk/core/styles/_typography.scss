@@ -379,6 +379,15 @@ h1 + .nhsuk-lede-text--small {
   }
 }
 
+.nhsuk-form-group + h2:not([class^="nhsuk-heading"]),
+.nhsuk-form-group + .nhsuk-heading-l {
+  padding-top: nhsuk-spacing(3, $adjustment: nhsuk-spacing(-2));
+
+  @media #{nhsuk-from-breakpoint(tablet)} {
+    padding-top: nhsuk-spacing(4, $adjustment: nhsuk-spacing(-2));
+  }
+}
+
 %nhsuk-body-l + [class^="nhsuk-caption"],
 %nhsuk-body-m + [class^="nhsuk-caption"],
 %nhsuk-body-s + [class^="nhsuk-caption"] {
