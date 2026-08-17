@@ -7,6 +7,7 @@ Note: This release was created from the `support/10.x` branch.
 ### :wrench: **Fixes**
 
 - [#2055: Guard against Nunjucks filter errors on `undefined` text](https://github.com/nhsuk/nhsuk-frontend/pull/2055)
+- [#2056: Remove negative margin top from caption when heading has margin override](https://github.com/nhsuk/nhsuk-frontend/pull/2056)
 
 ## 10.6.0 - 13 August 2026
 
