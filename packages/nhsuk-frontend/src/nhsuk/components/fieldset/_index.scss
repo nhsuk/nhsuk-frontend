@@ -72,7 +72,10 @@
   p,
   .nhsuk-body-m,
   .nhsuk-body-s,
-  .nhsuk-body {
+  .nhsuk-body,
+  ol,
+  ul,
+  .nhsuk-list {
     &:has(+ .nhsuk-fieldset > .nhsuk-fieldset__legend:first-child),
     &:has(+ .nhsuk-form-group > .nhsuk-fieldset:first-child > .nhsuk-fieldset__legend:first-child) {
       margin-bottom: nhsuk-spacing(3) + nhsuk-spacing(1);
