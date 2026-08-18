@@ -40,9 +40,11 @@
     //
     // Because we want the focus state to be tight around the link text, we use
     // margins where the buttons would use padding.
-    .nhsuk-body,
-    .nhsuk-body-m,
+
     p,
+    .nhsuk-body-m,
+    .nhsuk-body-s,
+    .nhsuk-body,
     > .nhsuk-link,
     > a:not(.nhsuk-button) {
       display: inline-block;
@@ -55,9 +57,10 @@
       @include nhsuk-font(19, $line-height: 19px);
     }
 
-    &--small .nhsuk-body,
-    &--small .nhsuk-body-m,
     &--small p,
+    &--small .nhsuk-body-m,
+    &--small .nhsuk-body-s,
+    &--small .nhsuk-body,
     &--small > .nhsuk-link,
     &--small > a:not(.nhsuk-button) {
       margin-top: $button-padding-top-bottom-small;
@@ -89,9 +92,10 @@
         margin-right: ($horizontal-gap-small * -1);
       }
 
-      .nhsuk-body,
-      .nhsuk-body-m,
       p,
+      .nhsuk-body-m,
+      .nhsuk-body-s,
+      .nhsuk-body,
       > .nhsuk-link,
       > a:not(.nhsuk-button) {
         margin: $button-padding-top-bottom-desktop 0;
@@ -100,9 +104,10 @@
         text-align: left;
       }
 
-      &--small .nhsuk-body,
-      &--small .nhsuk-body-m,
       &--small p,
+      &--small .nhsuk-body-m,
+      &--small .nhsuk-body-s,
+      &--small .nhsuk-body,
       &--small > .nhsuk-link,
       &--small > a:not(.nhsuk-button) {
         margin: $button-padding-top-bottom-small 0;

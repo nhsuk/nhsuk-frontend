@@ -12,6 +12,7 @@ const fixtures = {
     context: {
       label: {
         text: "Sort by",
+        size: "l",
         isPageHeading: true
       },
       name: "example",
@@ -40,6 +41,7 @@ const fixtures = {
     context: {
       label: {
         text: "Sort by",
+        size: "l",
         isPageHeading: true
       },
       name: "example",
@@ -69,6 +71,7 @@ const fixtures = {
     context: {
       label: {
         text: "Sort by",
+        size: "l",
         isPageHeading: true
       },
       name: "example",
@@ -97,6 +100,7 @@ const fixtures = {
     context: {
       label: {
         text: "Sort by",
+        size: "l",
         isPageHeading: true
       },
       name: "example",
@@ -127,6 +131,7 @@ const fixtures = {
     context: {
       label: {
         text: "Choose location",
+        size: "l",
         isPageHeading: true
       },
       hint: {
@@ -183,6 +188,7 @@ const fixtures = {
     context: {
       label: {
         text: "Choose location",
+        size: "l",
         isPageHeading: true
       },
       hint: {
@@ -249,6 +255,7 @@ const fixtures = {
     context: {
       label: {
         text: "Choose location",
+        size: "l",
         isPageHeading: true
       },
       hint: {
@@ -417,6 +424,7 @@ const fixtures = {
     context: {
       label: {
         text: "Choose location",
+        size: "l",
         isPageHeading: true
       },
       errorMessage: true,
@@ -470,6 +478,7 @@ const fixtures = {
     context: {
       label: {
         text: "Choose location",
+        size: "l",
         isPageHeading: true
       },
       errorMessage: {
@@ -525,6 +534,7 @@ const fixtures = {
     context: {
       label: {
         text: "Choose location",
+        size: "l",
         isPageHeading: true
       },
       hint: {
@@ -583,10 +593,122 @@ const fixtures = {
       selector: "#with-hint-error"
     }
   },
+  "with error message, without page heading": {
+    context: {
+      label: {
+        text: "Choose location"
+      },
+      errorMessage: {
+        text: "Select a location"
+      },
+      id: "with-error-message",
+      name: "example",
+      items: [
+        {
+          value: "choose",
+          text: "Choose location"
+        },
+        {
+          value: "eastmidlands",
+          text: "East Midlands"
+        },
+        {
+          value: "eastofengland",
+          text: "East of England"
+        },
+        {
+          value: "london",
+          text: "London"
+        },
+        {
+          value: "northeast",
+          text: "North East"
+        },
+        {
+          value: "northwest",
+          text: "North West"
+        },
+        {
+          value: "southeast",
+          text: "South East"
+        },
+        {
+          value: "southwest",
+          text: "South West"
+        },
+        {
+          value: "westmidlands",
+          text: "West Midlands"
+        },
+        {
+          value: "yorkshire",
+          text: "Yorkshire and the Humber"
+        }
+      ]
+    }
+  },
+  "with error message and hint, without page heading": {
+    context: {
+      label: {
+        text: "Choose location"
+      },
+      hint: {
+        text: "This can be different to where you went before"
+      },
+      errorMessage: {
+        text: "Select a location"
+      },
+      id: "with-hint-error",
+      name: "example",
+      items: [
+        {
+          value: "choose",
+          text: "Choose location"
+        },
+        {
+          value: "eastmidlands",
+          text: "East Midlands"
+        },
+        {
+          value: "eastofengland",
+          text: "East of England"
+        },
+        {
+          value: "london",
+          text: "London"
+        },
+        {
+          value: "northeast",
+          text: "North East"
+        },
+        {
+          value: "northwest",
+          text: "North West"
+        },
+        {
+          value: "southeast",
+          text: "South East"
+        },
+        {
+          value: "southwest",
+          text: "South West"
+        },
+        {
+          value: "westmidlands",
+          text: "West Midlands"
+        },
+        {
+          value: "yorkshire",
+          text: "Yorkshire and the Humber"
+        }
+      ]
+    }
+  },
   "with selected value": {
     context: {
       label: {
         text: "Sort by",
+        size: "l",
         isPageHeading: true
       },
       id: "with-value",

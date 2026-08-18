@@ -93,6 +93,33 @@ const fixtures = {
       viewports: ["watch", "mobile", "tablet", "desktop"]
     }
   },
+  "with error message, without page heading": {
+    context: {
+      label: {
+        text: "Upload a file"
+      },
+      errorMessage: {
+        text: "The selected file must be a JPG, BMP or TIF"
+      },
+      id: "file-upload",
+      name: "file-upload"
+    }
+  },
+  "with error message and hint, without page heading": {
+    context: {
+      label: {
+        text: "Upload a file"
+      },
+      id: "file-upload",
+      name: "file-upload",
+      hint: {
+        text: "Your photo may be in your Pictures, Photos, Downloads or Desktop folder"
+      },
+      errorMessage: {
+        text: "The selected file must be a JPG, BMP or TIF"
+      }
+    }
+  },
   "label": {
     context: {
       label: {

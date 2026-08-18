@@ -161,6 +161,33 @@ const fixtures = {
       name: "example"
     }
   },
+  "with error message, without page heading": {
+    context: {
+      label: {
+        text: "Can you provide more detail?"
+      },
+      errorMessage: {
+        text: "You must provide an explanation"
+      },
+      id: "with-error-message",
+      name: "example"
+    }
+  },
+  "with error message and hint, without page heading": {
+    context: {
+      label: {
+        text: "Can you provide more detail?"
+      },
+      hint: {
+        text: "Do not include personal information like your name, date of birth or NHS number"
+      },
+      errorMessage: {
+        text: "You must provide an explanation"
+      },
+      id: "with-hint-error",
+      name: "example"
+    }
+  },
   "with autocomplete attribute": {
     context: {
       label: {

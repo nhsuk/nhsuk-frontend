@@ -534,6 +534,31 @@ const fixtures = {
     },
     screenshot: true
   },
+  "with error message, without page heading": {
+    context: {
+      fieldset: {
+        legend: "What is your date of birth?"
+      },
+      errorMessage: {
+        text: "Enter your date of birth"
+      },
+      id: "example"
+    }
+  },
+  "with error message and hint, without page heading": {
+    context: {
+      fieldset: {
+        legend: "What is your date of birth?"
+      },
+      hint: {
+        text: "For example, 31 3 1980"
+      },
+      errorMessage: {
+        text: "Enter your date of birth"
+      },
+      id: "example"
+    }
+  },
   "with errors only": {
     context: {
       fieldset: {

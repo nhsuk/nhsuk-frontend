@@ -16,6 +16,7 @@ $nhsuk-scroll-bar-height: nhsuk-spacing(4);
 @include nhsuk-exports("nhsuk/components/scroll") {
   .nhsuk-scroll {
     position: relative;
+    container: scroll / inline-size;
     margin: -$nhsuk-gutter-half;
     padding-bottom: $nhsuk-focus-width * 2;
     overflow: hidden;
