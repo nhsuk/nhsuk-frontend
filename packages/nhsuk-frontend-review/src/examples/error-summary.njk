@@ -28,7 +28,6 @@
           heading: {
             text: "There is a problem"
           },
-          classes: "optional-extra-class",
           errorList: [
             {
               text: "Problem with input",
@@ -81,11 +80,26 @@
           ]
         }) }}
 
-        <h1 class="nhsuk-heading-xl">Your details</h1>
+        {{ heading({
+          text: "Your details",
+          size: "xl"
+        }) }}
+
+        <p class="nhsuk-lede-text">Advice, tips and tools to help you make the best choices about your health and wellbeing.</p>
+
+        {{ heading({
+          text: "Heading for input",
+          classes: "nhsuk-u-margin-bottom-2",
+          size: "l",
+          level: 2
+        }) }}
+
+        <p class="nhsuk-body">Integer posuere erat a ante venenatis dapibus posuere.</p>
 
         {{ input({
           label: {
-            text: "Label for input"
+            text: "Label for input",
+            size: "l"
           },
           id: "input",
           name: "input",
@@ -94,9 +108,19 @@
           }
         }) }}
 
+        {{ heading({
+          caption: "Caption for textarea",
+          text: "Heading for textarea",
+          size: "l",
+          level: 2
+        }) }}
+
+        <p class="nhsuk-body">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+
         {{ textarea({
           label: {
-            text: "Label for textarea"
+            text: "Label for textarea",
+            size: "l"
           },
           id: "textarea",
           name: "textarea",
@@ -105,16 +129,26 @@
           }
         }) }}
 
+        {{ heading({
+          caption: "Caption for select",
+          text: "Heading for select",
+          size: "l",
+          level: 2
+        }) }}
+
+        <p class="nhsuk-body">Aenean lacinia bibendum nulla sed consectetur. Vestibulum id ligula porta felis euismod semper. Donec id elit non mi porta gravida at eget metus.</p>
+
         {{ select({
           label: {
-            text: "Label for select"
+            text: "Label for select",
+            size: "l"
           },
           id: "select",
           name: "select",
           errorMessage: {
             text: "Problem with select"
           },
-          items:[
+          items: [
             {
               text: "Option one",
               value: "one"
@@ -126,10 +160,20 @@
           ]
         }) }}
 
+        {{ heading({
+          caption: "Caption for date input",
+          text: "Heading for date input",
+          size: "l",
+          level: 2
+        }) }}
+
+        <p class="nhsuk-body">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+
         {{ dateInput({
           fieldset: {
             legend: {
-              text: "Label for date input"
+              text: "Label for date input",
+              size: "l"
             },
             attributes: {
               id: "test-date-input"
@@ -159,10 +203,20 @@
           ]
         }) }}
 
+        {{ heading({
+          caption: "Caption for date input",
+          text: "Heading for date input",
+          size: "l",
+          level: 2
+        }) }}
+
+        <p class="nhsuk-body">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+
         {{ dateInput({
           fieldset: {
             legend: {
-              text: "Label for date input"
+              text: "Label for date input",
+              size: "l"
             },
             attributes: {
               id: "test-date-input2"
@@ -192,9 +246,23 @@
           ]
         }) }}
 
+        {{ heading({
+          caption: "Caption for file upload",
+          text: "Heading for file upload",
+          size: "l",
+          level: 2
+        }) }}
+
+        <p class="nhsuk-body">Bibendum commodo ullamcorper vulputate.</p>
+
+        <ul class="nhsuk-list nhsuk-list--bullet">
+          <li>whatever mix of text, paragraphs, lists and examples best explains your question to users</li>
+        </ul>
+
         {{ fileUpload({
           label: {
-            text: "Label for file upload"
+            text: "Label for file upload",
+              size: "l"
           },
           id: "file",
           name: "file",
@@ -203,10 +271,20 @@
           }
         }) }}
 
+        {{ heading({
+          caption: "Caption for radios",
+          text: "Heading for radios",
+          size: "l",
+          level: 2
+        }) }}
+
+        <p class="nhsuk-body">Cras mattis consectetur purus sit amet fermentum. Curabitur blandit tempus porttitor.</p>
+
         {{ radios({
           fieldset: {
             legend: {
-              text: "Legend for radios"
+              text: "Legend for radios",
+              size: "l"
             },
             attributes: {
               id: "test-radios"
@@ -216,7 +294,7 @@
           errorMessage: {
             text: "Problem with radios"
           },
-          items:[
+          items: [
             {
               text: "Label for first radio button",
               value: "one",
@@ -229,10 +307,24 @@
           ]
         }) }}
 
+        {{ heading({
+          caption: "Caption for checkboxes",
+          text: "Heading for checkboxes",
+          size: "l",
+          level: 2
+        }) }}
+
+        <p class="nhsuk-body">Integer posuere erat a ante venenatis dapibus posuere.</p>
+
+        <ul class="nhsuk-list nhsuk-list--bullet">
+          <li>a label, above the form input, that asks users a specific question – for example, 'Do you have any interview needs?'</li>
+        </ul>
+
         {{ checkboxes({
           fieldset: {
             legend: {
-              text: "Legend for checkboxes"
+              text: "Legend for checkboxes",
+              size: "l"
             },
             attributes: {
               id: "test-checkboxes"
@@ -242,7 +334,7 @@
           errorMessage: {
             text: "Problem with checkboxes"
           },
-          items:[
+          items: [
             {
               text: "Label for first checkbox",
               value: "one",
@@ -255,13 +347,22 @@
           ]
         }) }}
 
+        {{ heading({
+          caption: "Caption for single checkbox",
+          text: "Heading for single checkbox",
+          size: "l",
+          level: 2
+        }) }}
+
+        <p class="nhsuk-body">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+
         {{ checkboxes({
           fieldset: false,
           name: "single-checkbox",
           errorMessage: {
             text: "Problem with single checkbox"
           },
-          items:[
+          items: [
             {
               text: "Label for single checkbox",
               value: "agree",
@@ -273,7 +374,8 @@
         {% set yesField %}
         {{ input({
           label: {
-            text: "Label for revealed text input"
+            text: "Label for revealed text input",
+            size: "s"
           },
           id: "yes-input",
           name: "yes-input",
@@ -286,7 +388,8 @@
         {% set noField %}
         {{ input({
           label: {
-            text: "Label for revealed text input"
+            text: "Label for revealed text input",
+            size: "s"
           },
           id: "no-input",
           name: "no-input",
@@ -296,12 +399,22 @@
         }) }}
         {% endset %}
 
+        {{ heading({
+          caption: "Caption for radios",
+          text: "Heading for radios",
+          size: "l",
+          level: 2
+        }) }}
+
+        <p class="nhsuk-body">Aenean lacinia bibendum nulla sed consectetur. Vestibulum id ligula porta felis euismod semper. Donec id elit non mi porta gravida at eget metus.</p>
+
         {{ radios({
           idPrefix: "conditional",
           name: "conditional",
           fieldset: {
             legend: {
-              text: "Legend for conditionally revealed content"
+              text: "Legend for conditionally revealed content",
+              size: "l"
             },
             classes: "nhsuk-radios--error",
             attributes: {
@@ -327,6 +440,15 @@
           ]
         }) }}
 
+        {{ heading({
+          caption: "Caption for radios",
+          text: "Heading for radios",
+          size: "l",
+          level: 2
+        }) }}
+
+        <p class="nhsuk-body">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+
         {{ radios({
           inline: true,
           idPrefix: "radios-big-heading",
@@ -334,7 +456,6 @@
           fieldset: {
             legend: {
               text: "Have you supplied orders signed in triplicate, sent in, sent back, queried, lost, found, subjected to public inquiry, lost again, and finally buried in soft peat for three months and recycled as firelighters?",
-              isPageHeading: true,
               size: "l"
             },
             attributes: {
@@ -356,14 +477,21 @@
           ]
         }) }}
 
+        {{ heading({
+          caption: "Caption for address",
+          text: "Heading for address",
+          size: "l",
+          level: 2
+        }) }}
+
+        <p class="nhsuk-body">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+
         {% call fieldset({
           legend: {
             text: "What is your address?",
-            size: "l",
-            isPageHeading: true
+            size: "l"
           }
         }) %}
-
           {{ input({
             label: {
               text: "Address line 1"
