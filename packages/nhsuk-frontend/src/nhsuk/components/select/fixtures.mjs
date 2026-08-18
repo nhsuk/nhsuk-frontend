@@ -12,6 +12,7 @@ const fixtures = {
     context: {
       label: {
         text: "Sort by",
+        size: "l",
         isPageHeading: true
       },
       name: "example",
@@ -40,6 +41,7 @@ const fixtures = {
     context: {
       label: {
         text: "Sort by",
+        size: "l",
         isPageHeading: true
       },
       name: "example",
@@ -69,6 +71,7 @@ const fixtures = {
     context: {
       label: {
         text: "Sort by",
+        size: "l",
         isPageHeading: true
       },
       name: "example",
@@ -97,6 +100,7 @@ const fixtures = {
     context: {
       label: {
         text: "Sort by",
+        size: "l",
         isPageHeading: true
       },
       name: "example",
@@ -127,6 +131,7 @@ const fixtures = {
     context: {
       label: {
         text: "Choose location",
+        size: "l",
         isPageHeading: true
       },
       hint: {
@@ -183,6 +188,7 @@ const fixtures = {
     context: {
       label: {
         text: "Choose location",
+        size: "l",
         isPageHeading: true
       },
       hint: {
@@ -249,6 +255,7 @@ const fixtures = {
     context: {
       label: {
         text: "Choose location",
+        size: "l",
         isPageHeading: true
       },
       hint: {
@@ -417,6 +424,7 @@ const fixtures = {
     context: {
       label: {
         text: "Choose location",
+        size: "l",
         isPageHeading: true
       },
       errorMessage: true,
@@ -470,6 +478,7 @@ const fixtures = {
     context: {
       label: {
         text: "Choose location",
+        size: "l",
         isPageHeading: true
       },
       errorMessage: {
@@ -525,6 +534,7 @@ const fixtures = {
     context: {
       label: {
         text: "Choose location",
+        size: "l",
         isPageHeading: true
       },
       hint: {
@@ -587,6 +597,7 @@ const fixtures = {
     context: {
       label: {
         text: "Sort by",
+        size: "l",
         isPageHeading: true
       },
       id: "with-value",
