@@ -164,6 +164,41 @@ const fixtures = {
       selector: "#with-hint-error"
     }
   },
+  "with error message, without page heading": {
+    context: {
+      label: {
+        text: "What is your NHS number?"
+      },
+      errorMessage: {
+        text: "Enter NHS number"
+      },
+      id: "with-error-message",
+      name: "example",
+      width: 10,
+      code: true,
+      inputmode: "numeric",
+      spellcheck: false
+    }
+  },
+  "with error message and hint, without page heading": {
+    context: {
+      label: {
+        text: "What is your NHS number?"
+      },
+      hint: {
+        html: 'This is a 10 digit number (like <span class="nhsuk-u-nowrap">999 123 4567</span>) that you can find on an NHS letter, prescription or in the NHS App'
+      },
+      errorMessage: {
+        text: "Enter NHS number"
+      },
+      id: "with-hint-error",
+      name: "example",
+      width: 10,
+      code: true,
+      inputmode: "numeric",
+      spellcheck: false
+    }
+  },
   "width": {
     context: {
       name: "example",

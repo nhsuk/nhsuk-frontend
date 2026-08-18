@@ -182,6 +182,35 @@ const fixtures = {
     },
     screenshot: true
   },
+  "with error message, without page heading": {
+    context: {
+      label: {
+        text: "Search by NHS number"
+      },
+      errorMessage: {
+        text: "Enter NHS number"
+      },
+      name: "example",
+      value: "999 123 4567",
+      width: 20
+    }
+  },
+  "with error message and hint, without page heading": {
+    context: {
+      label: {
+        text: "Search by NHS number"
+      },
+      hint: {
+        text: "This is a 10 digit number (like 999 123 4567) that you can find on an NHS letter, prescription or in the NHS App"
+      },
+      errorMessage: {
+        text: "Enter NHS number"
+      },
+      name: "example",
+      value: "999 123 4567",
+      width: 20
+    }
+  },
   "with prefix": {
     context: {
       label: {

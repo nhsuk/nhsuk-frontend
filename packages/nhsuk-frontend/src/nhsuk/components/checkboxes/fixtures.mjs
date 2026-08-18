@@ -406,6 +406,69 @@ const fixtures = {
     },
     variants
   },
+  "with error message, without page heading": {
+    context: {
+      fieldset: {
+        legend: {
+          text: "How do you want to be contacted about this?",
+          size: null
+        }
+      },
+      errorMessage: {
+        text: "Select how you want to be contacted"
+      },
+      idPrefix: "with-error-message",
+      name: "example",
+      items: [
+        {
+          value: "email",
+          text: "Email"
+        },
+        {
+          value: "phone",
+          text: "Phone"
+        },
+        {
+          value: "text message",
+          text: "Text message"
+        }
+      ]
+    },
+    variants
+  },
+  "with error message and hint, without page heading": {
+    context: {
+      fieldset: {
+        legend: {
+          text: "How do you want to be contacted about this?",
+          size: null
+        }
+      },
+      hint: {
+        text: "Select all options that are relevant to you"
+      },
+      errorMessage: {
+        text: "Select how you want to be contacted"
+      },
+      idPrefix: "with-hint-error",
+      name: "example",
+      items: [
+        {
+          value: "email",
+          text: "Email"
+        },
+        {
+          value: "phone",
+          text: "Phone"
+        },
+        {
+          value: "text message",
+          text: "Text message"
+        }
+      ]
+    },
+    variants
+  },
   "with long text": {
     context: {
       fieldset: {
