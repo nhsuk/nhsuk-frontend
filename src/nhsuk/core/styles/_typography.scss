@@ -344,13 +344,7 @@ h1 + .nhsuk-lede-text--small {
 //
 // 1. Removes the padding-top because of the lede-text's increased margin-bottom
 
-%nhsuk-body-l + %nhsuk-heading-l,
-%nhsuk-body-m + .nhsuk-form-group > .nhsuk-label-wrapper:first-child .nhsuk-label,
-%nhsuk-body-s + .nhsuk-form-group > .nhsuk-label-wrapper:first-child .nhsuk-label,
-%nhsuk-body-l + .nhsuk-form-group > .nhsuk-label-wrapper:first-child .nhsuk-label--l,
-%nhsuk-body-m + .nhsuk-form-group > .nhsuk-fieldset:first-child > .nhsuk-fieldset__legend:first-child,
-%nhsuk-body-s + .nhsuk-form-group > .nhsuk-fieldset:first-child > .nhsuk-fieldset__legend:first-child,
-%nhsuk-body-l + .nhsuk-form-group > .nhsuk-fieldset:first-child > .nhsuk-fieldset__legend--l:first-child {
+%nhsuk-body-l + %nhsuk-heading-l {
   padding-top: nhsuk-spacing(1);
 
   @media #{nhsuk-from-breakpoint(tablet)} {
@@ -359,11 +353,7 @@ h1 + .nhsuk-lede-text--small {
 }
 
 %nhsuk-body-m + %nhsuk-heading-l,
-%nhsuk-body-s + %nhsuk-heading-l,
-%nhsuk-body-m + .nhsuk-form-group > .nhsuk-label-wrapper:first-child .nhsuk-label--l,
-%nhsuk-body-s + .nhsuk-form-group > .nhsuk-label-wrapper:first-child .nhsuk-label--l,
-%nhsuk-body-m + .nhsuk-form-group > .nhsuk-fieldset:first-child > .nhsuk-fieldset__legend--l:first-child,
-%nhsuk-body-s + .nhsuk-form-group > .nhsuk-fieldset:first-child > .nhsuk-fieldset__legend--l:first-child {
+%nhsuk-body-s + %nhsuk-heading-l {
   padding-top: nhsuk-spacing(1);
 
   @media #{nhsuk-from-breakpoint(tablet)} {
@@ -374,11 +364,7 @@ h1 + .nhsuk-lede-text--small {
 %nhsuk-body-m + %nhsuk-heading-m,
 %nhsuk-body-s + %nhsuk-heading-m,
 %nhsuk-body-m + %nhsuk-heading-s,
-%nhsuk-body-s + %nhsuk-heading-s,
-%nhsuk-body-m + .nhsuk-form-group > .nhsuk-label-wrapper:first-child .nhsuk-label--s,
-%nhsuk-body-s + .nhsuk-form-group > .nhsuk-label-wrapper:first-child .nhsuk-label--s,
-%nhsuk-body-m + .nhsuk-form-group > .nhsuk-fieldset:first-child > .nhsuk-fieldset__legend--s:first-child,
-%nhsuk-body-s + .nhsuk-form-group > .nhsuk-fieldset:first-child > .nhsuk-fieldset__legend--s:first-child {
+%nhsuk-body-s + %nhsuk-heading-s {
   padding-top: nhsuk-spacing(1);
 
   @media #{nhsuk-from-breakpoint(tablet)} {
