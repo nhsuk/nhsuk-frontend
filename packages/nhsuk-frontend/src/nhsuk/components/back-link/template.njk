@@ -48,7 +48,7 @@
   {{- nhsukAttributes(params.attributes) -}}
 {% endset %}
 
-{%- set backLinkText %}
+{%- set innerHtml %}
 {% if caller %}
   {{- caller() }}
 {% elif params.html %}
@@ -61,8 +61,8 @@
 <{{ element }} {{- attributesHtml | safe }}>
   {% if params.visuallyHiddenText %}
   <span class="nhsuk-u-visually-hidden">{{ params.visuallyHiddenText }} </span>
-  {{- backLinkText | safe | trim | indent(2) }}
+  {{- innerHtml | safe | trim | indent(2) }}
   {% else %}
-  {{ backLinkText | safe | trim | indent(2) }}
+  {{ innerHtml | safe | trim | indent(2) }}
   {% endif %}
 </{{ element }}>

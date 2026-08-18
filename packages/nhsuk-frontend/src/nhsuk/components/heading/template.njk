@@ -7,7 +7,7 @@
 {%- set classNames = className | default("") -%}
 
 {#- Allow permitted sizes only #}
-{%- set size = null -%}
+{%- set size = undefined -%}
 {%- set sizes = params.sizes | default(["xxs", "xs", "s", "m", "l", "xl"]) -%}
 
 {%- if params.size and
@@ -54,7 +54,7 @@
 {%- set hasCaption = caption.text or caption.html -%}
 
 {%- if caller or params.html or params.text %}
-{%- set innerText %}
+{%- set innerHtml %}
   {%- if params.html %}
     {{- params.html | safe -}}
   {% elif params.text %}
@@ -65,10 +65,10 @@
 {%- set innerHtml %}
   {%- if params.href -%}
     <a class="nhsuk-link" href="{{ params.href }}">
-      {{- innerText | safe | trim -}}
+      {{- innerHtml | safe | trim -}}
     </a>
   {%- else %}
-    {{- innerText | safe | trim -}}
+    {{- innerHtml | safe | trim -}}
   {% endif -%}
 {% endset %}
 

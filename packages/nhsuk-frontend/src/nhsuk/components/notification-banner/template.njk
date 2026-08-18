@@ -31,7 +31,7 @@
 {% else %}
   {#- Otherwise add `role="region"` to make the notification banner a landmark to help users of assistive technologies to navigate to the banner -#}
   {% set role = "region" %}
-{% endif %}
+{% endif -%}
 
 <div
   {{- nhsukAttributes({

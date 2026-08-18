@@ -48,7 +48,7 @@
 
 {%- if params.actions.classes %}
   {% set classNamesActions = classNamesActions ~ " " ~ params.actions.classes %}
-{% endif %}
+{% endif -%}
 
 <div class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %} {{- nhsukAttributes(params.attributes) }}>
   <dt class="{{ classNamesKey }}" {%- if params.key.id %} id="{{ params.key.id }}"{% endif %} {{- nhsukAttributes(params.key.attributes) }}>
