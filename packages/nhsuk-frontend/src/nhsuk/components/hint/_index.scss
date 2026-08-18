@@ -40,8 +40,19 @@
     margin-bottom: nhsuk-spacing(2);
   }
 
-  // Reduces visual spacing of legend when there is a hint
-  .nhsuk-fieldset__legend + .nhsuk-hint {
-    margin-top: nhsuk-spacing(-1);
+  // Reduce top margin from subsequent error message or hint
+  .nhsuk-label--xl,
+  .nhsuk-label--l,
+  .nhsuk-label--m,
+  .nhsuk-label-wrapper:has(.nhsuk-label--xl),
+  .nhsuk-label-wrapper:has(.nhsuk-label--l),
+  .nhsuk-label-wrapper:has(.nhsuk-label--m),
+  .nhsuk-fieldset__legend--xl,
+  .nhsuk-fieldset__legend--l,
+  .nhsuk-fieldset__legend--m {
+    + .nhsuk-error-message,
+    + .nhsuk-hint {
+      margin-top: nhsuk-spacing(-1);
+    }
   }
 }
