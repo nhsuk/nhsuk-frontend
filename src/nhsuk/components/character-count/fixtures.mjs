@@ -109,6 +109,39 @@ const fixtures = {
       selector: ".nhsuk-textarea"
     }
   },
+  "with error message, without page heading": {
+    context: {
+      label: {
+        text: "Enter a job description"
+      },
+      errorMessage: {
+        text: "Job description must be 350 characters or less"
+      },
+      id: "with-error-message",
+      name: "example",
+      maxlength: 350,
+      value:
+        "👩🏻‍🚀 A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels. They make sure appropriate content is shown to a user in the right place and in the best format."
+    }
+  },
+  "with error message and hint, without page heading": {
+    context: {
+      label: {
+        text: "Enter a job description"
+      },
+      hint: {
+        text: "Do not include personal information like your name, date of birth or NHS number"
+      },
+      errorMessage: {
+        text: "Job description must be 350 characters or less"
+      },
+      id: "with-error-message",
+      name: "example",
+      maxlength: 350,
+      value:
+        "👩🏻‍🚀 A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels. They make sure appropriate content is shown to a user in the right place and in the best format."
+    }
+  },
   "with value": {
     context: {
       label: {

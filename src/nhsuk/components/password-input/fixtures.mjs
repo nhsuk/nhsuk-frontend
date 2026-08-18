@@ -142,6 +142,37 @@ const fixtures = {
       viewports: ["watch", "mobile", "tablet", "desktop"]
     }
   },
+  "with error message, without page heading": {
+    context: {
+      label: {
+        text: "Password",
+        size: "l",
+        isPageHeading: true
+      },
+      errorMessage: {
+        text: "Enter a password"
+      },
+      id: "with-error-message",
+      name: "example"
+    }
+  },
+  "with error message and hint, without page heading": {
+    context: {
+      label: {
+        text: "Password",
+        size: "l",
+        isPageHeading: true
+      },
+      hint: {
+        text: "It probably has some letters, numbers and maybe even some symbols in it"
+      },
+      errorMessage: {
+        text: "Enter a password"
+      },
+      id: "with-error-message",
+      name: "example"
+    }
+  },
   "with prefix": {
     context: {
       label: {
