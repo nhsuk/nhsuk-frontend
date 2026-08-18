@@ -26,11 +26,12 @@
   </div>
 
   <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-one-third">
+    <aside class="nhsuk-grid-column-one-third">
 
       {{ searchInput({
         label: {
-          text: "Search",
+          heading: "Search",
+          headingLevel: 2,
           size: "s"
         },
         hint: {
@@ -99,7 +100,7 @@
         ]
       }) }}
 
-    </div>
+    </aside>
 
     <div class="nhsuk-grid-column-two-thirds nhsuk-u-margin-bottom-7">
       {{ heading({
