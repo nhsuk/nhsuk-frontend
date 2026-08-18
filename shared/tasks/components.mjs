@@ -2,6 +2,7 @@ import { join } from 'node:path'
 
 import { components, files } from '@nhsuk/frontend-lib'
 import mergeWith from 'lodash/mergeWith.js'
+import { isObject } from 'nhsuk-frontend/src/nhsuk/common/index.mjs'
 import { render } from 'nhsuk-frontend/src/nhsuk/lib/components.mjs'
 
 /**
@@ -129,7 +130,7 @@ export function mergeExample(example, variant) {
       !target.includes(source)
     ) {
       // Join 'classes' strings without overwriting
-      // e.g. `nhsuk-radios--small nhsuk-radios--inline`
+      // e.g. `"nhsuk-radios--small nhsuk-radios--inline"`
       return `${target} ${source}`.trim()
     }
 
@@ -137,6 +138,12 @@ export function mergeExample(example, variant) {
     // e.g. `fieldset: null`
     if (target === null) {
       return null
+    }
+
+    // Prevent merging over string values
+    // e.g. `"Example legend"` with `{ size: "m" }`
+    if (typeof target === 'string' && isObject(source)) {
+      return { text: target, ...source }
     }
 
     // Prefer default merge behaviour
