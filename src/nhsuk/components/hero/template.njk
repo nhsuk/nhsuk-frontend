@@ -14,7 +14,7 @@
 {%- if background.src %}
   {% set classNames = classNames ~ " nhsuk-hero--image" ~
     (" nhsuk-hero--image-description" if params.heading else "") %}
-{% elif params.border != false  %}
+{% elif params.border != false %}
   {% set classNames = classNames ~ " nhsuk-hero--border" %}
 {% endif %}
 
@@ -55,7 +55,7 @@
     html: caller() if caller else params.html,
     width: params.width | default("two-thirds")
   }), rows) %}
-{% endif %}
+{% endif -%}
 
 <section {{- attributesHtml | safe }}>
 {% if rows | length %}

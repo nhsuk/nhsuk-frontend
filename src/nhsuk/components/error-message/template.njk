@@ -9,7 +9,7 @@
 
 {% set visuallyHiddenText = params.visuallyHiddenText | default("Error") -%}
 
-{%- set errorMessageText %}
+{%- set innerHtml %}
 {% if caller %}
   {{- caller() }}
 {% elif params.html %}
@@ -23,8 +23,8 @@
   {{- nhsukAttributes(params.attributes) }}>
   {% if visuallyHiddenText %}
   <span class="nhsuk-u-visually-hidden">{{ visuallyHiddenText }}: </span>
-  {{- errorMessageText | safe | trim | indent(2) }}
+  {{- innerHtml | safe | trim | indent(2) }}
   {% else %}
-  {{ errorMessageText | safe | trim | indent(2) }}
+  {{ innerHtml | safe | trim | indent(2) }}
   {% endif %}
 </span>

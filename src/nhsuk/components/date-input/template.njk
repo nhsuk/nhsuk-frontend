@@ -86,7 +86,7 @@
 
 {%- if item.classes %}
   {% set itemClasses = (itemClasses ~ " " ~ item.classes) | trim %}
-{% endif %}
+{% endif -%}
 
 <div class="nhsuk-date-input__item">
   {{ nhsukInput({

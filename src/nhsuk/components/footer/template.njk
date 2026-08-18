@@ -92,7 +92,7 @@
     {% if params.copyright.html %}
       {{ params.copyright.html | safe | trim | indent(6) }}
     {% elif params.copyright.text or params.copyright.text not in ["", null, false] %}
-      <p class="nhsuk-body-s">{{ (params.copyright.text | default("© NHS England")) | indent(6) }}</p>
+      <p class="nhsuk-body-s">{{ (params.copyright.text | default("© NHS England", true)) | indent(6) }}</p>
     {% endif %}
     </div>
   </div>
