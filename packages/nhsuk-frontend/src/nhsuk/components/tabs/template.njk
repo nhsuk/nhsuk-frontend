@@ -48,7 +48,7 @@
   {{ heading({
     text: params.visuallyHiddenText | default(params.title) | default("Contents"),
     level: 2,
-    className: "nhsuk-tabs__title"
+    className: "nhsuk-tabs__heading"
   }) | trim | indent(2) }}
 {% if params.items | length %}
   <ul class="nhsuk-tabs__list">

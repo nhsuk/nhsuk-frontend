@@ -16,6 +16,8 @@
     @include nhsuk-font($size: 19);
   }
 
+  .nhsuk-tabs__heading,
+  // Deprecated, to be removed in a future release
   .nhsuk-tabs__title {
     margin-bottom: nhsuk-spacing(2);
 
@@ -52,6 +54,8 @@
         @include nhsuk-clearfix;
       }
 
+      .nhsuk-tabs__heading,
+      // Deprecated, to be removed in a future release
       .nhsuk-tabs__title {
         display: none;
       }
