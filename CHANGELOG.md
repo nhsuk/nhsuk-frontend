@@ -8,6 +8,7 @@ Note: This release was created from the `support/10.x` branch.
 
 - [#2055: Guard against Nunjucks filter errors on `undefined` text](https://github.com/nhsuk/nhsuk-frontend/pull/2055)
 - [#2056: Remove negative margin top from caption when heading has margin override](https://github.com/nhsuk/nhsuk-frontend/pull/2056)
+- [#2061: Fix margin and line height issues for all form field combinations](https://github.com/nhsuk/nhsuk-frontend/pull/2061)
 
 ### :recycle: **Changes**
 
