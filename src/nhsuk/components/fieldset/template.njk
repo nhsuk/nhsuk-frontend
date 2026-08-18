@@ -36,8 +36,8 @@
     text: legendOptions.text,
     html: legendOptions.html,
     classes: legendOptions.classes,
-    isPageHeading: legendOptions.isPageHeading,
-    size: legendOptions.size
+    size: legendOptions.size,
+    isPageHeading: legendOptions.isPageHeading
   }) | trim | indent(2) }}
 {% if caller %}
   {{- caller() }}
