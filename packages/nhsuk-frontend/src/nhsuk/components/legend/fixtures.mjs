@@ -110,9 +110,30 @@ const fixtures = {
     },
     callBlock: "What is your address?"
   },
+  "with heading level 1": {
+    context: {
+      text: "What is your address?",
+      size: "l",
+      headingLevel: 1
+    }
+  },
+  "with heading level 2": {
+    context: {
+      text: "What is your address?",
+      size: "m",
+      headingLevel: 2
+    }
+  },
   "without page heading": {
     context: {
       text: "What is your address?"
+    }
+  },
+  "without page heading overriding heading level": {
+    context: {
+      text: "What is your address?",
+      isPageHeading: false,
+      headingLevel: 2
     }
   }
 }
