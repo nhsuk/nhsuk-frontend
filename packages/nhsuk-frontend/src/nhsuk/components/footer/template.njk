@@ -4,6 +4,18 @@
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-footer" -%}
 
+{#- Support meta as string #}
+{%- set meta = params.meta if params.meta is mapping and params.meta is not escaped else {
+  text: params.meta if params.meta is string else undefined,
+  html: params.meta if params.meta is escaped else undefined
+} -%}
+
+{#- Support copyright as string #}
+{%- set copyright = params.copyright if params.copyright is mapping and params.copyright is not escaped else {
+  text: params.copyright if params.copyright is string else undefined,
+  html: params.copyright if params.copyright is escaped else undefined
+} -%}
+
 {%- if params.classes %}
   {% set classNames = classNames ~ " " ~ params.classes %}
 {% endif %}
@@ -45,20 +57,26 @@
     {% for navigation in row %}
       <div class="nhsuk-grid-column-{{ navigation.width | default(width, true) }}">
       {% if navigation.heading or navigation.title %}
-        {{ nhsukHeading({
-          id: navigation.heading.id,
-          text: navigation.heading.text | default(navigation.title),
-          html: navigation.heading.html,
-          visuallyHiddenText: navigation.heading.visuallyHiddenText,
-          caption: navigation.heading.caption,
-          href: navigation.heading.href,
+        {#- Support navigation heading as string (with deprecated options) #}
+        {%- set heading = navigation.heading if navigation.heading is mapping and navigation.heading is not escaped else {
+          text: navigation.heading if navigation.heading is string else navigation.title,
+          html: navigation.heading if navigation.heading is escaped else undefined
+        } -%}
+
+        {{- nhsukHeading({
+          id: heading.id,
+          text: heading.text,
+          html: heading.html,
+          visuallyHiddenText: heading.visuallyHiddenText,
+          caption: heading.caption,
+          href: heading.href,
           level: 2,
           size: "s",
           className: "nhsuk-footer__heading",
           classPrefix: "nhsuk-heading-",
-          classes: navigation.heading.classes,
-          attributes: navigation.heading.attributes
-        }) | trim | indent(8) }}
+          classes: heading.classes,
+          attributes: heading.attributes
+        }) | trim | indent(8, true) }}
       {% endif %}
       {% if navigation.html %}
         {{ navigation.html | safe | trim | indent(8) }}
@@ -74,25 +92,25 @@
   {% endfor %}
 {% endif %}
     <div class="nhsuk-footer__meta">
-{% if params.meta %}
-    {% if params.meta.items %}
+{% if caller or meta.items | length or meta.text or meta.html %}
+    {% if meta.items %}
       <h2 class="nhsuk-u-visually-hidden">
-        {{- params.meta.visuallyHiddenText | default(params.meta.visuallyHiddenTitle) | default("Support links") -}}
+        {{- meta.visuallyHiddenText | default(meta.visuallyHiddenTitle) | default("Support links") -}}
       </h2>
-      {{ _footerList(params.meta.items) | trim | indent(6) }}
+      {{ _footerList(meta.items) | trim | indent(6) }}
     {% endif %}
     {% if caller %}
       {{- caller() }}
-    {% elif params.meta.html %}
-      {{ params.meta.html | safe | trim | indent(6) }}
-    {% elif params.meta.text %}
-      <p class="nhsuk-body-s">{{ params.meta.text | trim | indent(6) }}</p>
+    {% elif meta.html %}
+      {{ meta.html | safe | trim | indent(6) }}
+    {% elif meta.text %}
+      <p class="nhsuk-body-s">{{ meta.text | trim | indent(6) }}</p>
     {% endif %}
 {% endif %}
-    {% if params.copyright.html %}
-      {{ params.copyright.html | safe | trim | indent(6) }}
-    {% elif params.copyright.text or params.copyright.text not in ["", null, false] %}
-      <p class="nhsuk-body-s">{{ (params.copyright.text | default("© NHS England", true)) | indent(6) }}</p>
+    {% if copyright.html %}
+      {{ copyright.html | safe | trim | indent(6) }}
+    {% elif copyright.text or copyright.text not in ["", null, false] %}
+      <p class="nhsuk-body-s">{{ (copyright.text | default("© NHS England", true)) | indent(6) }}</p>
     {% endif %}
     </div>
   </div>
