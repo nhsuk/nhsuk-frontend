@@ -19,7 +19,9 @@
   html: params.value if params.value is escaped else undefined
 } %}
 
-{%- set actions = params.actions.items | select("mapping") if params.actions.items | length else [] %}
+{#- Support actions as array #}
+{%- set actions = params.actions | select("mapping") if params.actions | length and params.actions is iterable else [] %}
+{%- set actions = params.actions.items | select("mapping") if params.actions.items | length and not actions | length else actions %}
 
 {%- if parent.hasActions and not actions | length %}
   {% set classNames = classNames ~ " nhsuk-summary-list__row--no-actions" %}

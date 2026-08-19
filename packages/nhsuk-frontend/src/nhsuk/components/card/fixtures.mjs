@@ -252,6 +252,30 @@ const fixtures = {
       )}
     `
   },
+  "basic with summary list and actions array": {
+    context: {
+      heading: {
+        text: "Regional Manager",
+        level: 3
+      },
+      actions: [
+        {
+          text: "Delete",
+          href: "#/delete"
+        },
+        {
+          text: "Withdraw",
+          href: "#/withdraw"
+        }
+      ]
+    },
+    callBlock: outdent`
+      ${components.render(
+        "summary-list",
+        summaryListExamples["example person: Karen Francis (no border)"]
+      )}
+    `
+  },
   "basic with summary list and actions as buttons": {
     context: {
       heading: {

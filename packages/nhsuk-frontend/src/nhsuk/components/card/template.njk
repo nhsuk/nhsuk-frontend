@@ -80,7 +80,9 @@
   {% set classNames = classNames ~ " " ~ params.classes %}
 {% endif %}
 
-{%- set actions = params.actions.items | select("mapping") if params.actions.items | length else [] %}
+{#- Support actions as array #}
+{%- set actions = params.actions | select("mapping") if params.actions | length and params.actions is iterable else [] %}
+{%- set actions = params.actions.items | select("mapping") if params.actions.items | length and not actions | length else actions %}
 
 {%- set image = {
   src: params.imgURL,
