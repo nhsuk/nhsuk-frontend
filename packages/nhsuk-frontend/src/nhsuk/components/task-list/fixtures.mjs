@@ -9,6 +9,72 @@ const fixtures = {
       idPrefix: "your-health",
       items: [
         {
+          heading: {
+            text: "Exercise"
+          },
+          href: "#",
+          status: {
+            text: "Completed",
+            classes: "nhsuk-task-list__status--completed"
+          }
+        },
+        {
+          heading: {
+            text: "Personal health"
+          },
+          href: "#",
+          status: {
+            text: "Completed",
+            classes: "nhsuk-task-list__status--completed"
+          }
+        },
+        {
+          heading: {
+            text: "Family health history"
+          },
+          hint: {
+            text: "Details of your parents, brothers and sisters"
+          },
+          href: "#",
+          status: {
+            tag: {
+              text: "Incomplete",
+              colour: "blue"
+            }
+          }
+        },
+        {
+          heading: {
+            text: "Smoking history"
+          },
+          href: "#",
+          status: {
+            tag: {
+              text: "Incomplete",
+              colour: "blue"
+            }
+          }
+        },
+        {
+          heading: {
+            text: "Blood test"
+          },
+          status: {
+            text: "Cannot start yet",
+            classes: "nhsuk-task-list__status--cannot-start-yet"
+          }
+        }
+      ]
+    },
+    screenshot: {
+      viewports: ["mobile", "tablet", "desktop"]
+    }
+  },
+  "with deprecated titles": {
+    context: {
+      idPrefix: "your-health",
+      items: [
+        {
           title: {
             text: "Exercise"
           },
@@ -65,9 +131,59 @@ const fixtures = {
           }
         }
       ]
-    },
-    screenshot: {
-      viewports: ["mobile", "tablet", "desktop"]
+    }
+  },
+  "with headings as strings": {
+    context: {
+      idPrefix: "your-health",
+      items: [
+        {
+          heading: "Exercise",
+          href: "#",
+          status: {
+            text: "Completed",
+            classes: "nhsuk-task-list__status--completed"
+          }
+        },
+        {
+          heading: "Personal health",
+          href: "#",
+          status: {
+            text: "Completed",
+            classes: "nhsuk-task-list__status--completed"
+          }
+        },
+        {
+          heading: "Family health history",
+          hint: {
+            text: "Details of your parents, brothers and sisters"
+          },
+          href: "#",
+          status: {
+            tag: {
+              text: "Incomplete",
+              colour: "blue"
+            }
+          }
+        },
+        {
+          heading: "Smoking history",
+          href: "#",
+          status: {
+            tag: {
+              text: "Incomplete",
+              colour: "blue"
+            }
+          }
+        },
+        {
+          heading: "Blood test",
+          status: {
+            text: "Cannot start yet",
+            classes: "nhsuk-task-list__status--cannot-start-yet"
+          }
+        }
+      ]
     }
   },
   "with empty items": {
@@ -75,7 +191,7 @@ const fixtures = {
       idPrefix: "your-health",
       items: [
         {
-          title: {
+          heading: {
             text: "Exercise"
           },
           href: "#",
@@ -85,7 +201,7 @@ const fixtures = {
           }
         },
         {
-          title: {
+          heading: {
             text: "Personal health"
           },
           href: "#",
@@ -97,7 +213,7 @@ const fixtures = {
         false,
         false,
         {
-          title: {
+          heading: {
             text: "Blood test"
           },
           href: "#",
