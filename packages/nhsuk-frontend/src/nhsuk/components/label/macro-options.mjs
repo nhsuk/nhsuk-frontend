@@ -106,6 +106,12 @@ const options = {
   headingLevel: {
     type: 'integer',
     required: false,
+    description: 'Optional alias for the label heading `level` option.',
+    released: '10.6.1'
+  },
+  level: {
+    type: 'integer',
+    required: false,
     description: 'Optional label heading level. Defaults to `1`.',
     released: '10.6.1'
   },

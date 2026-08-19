@@ -59,6 +59,12 @@ const options = {
         description: 'Optional heading level for the title. Defaults to `2`.',
         released: '10.6.0'
       },
+      headingLevel: {
+        type: 'integer',
+        required: false,
+        description: 'Optional alias for the title heading `level` option.',
+        released: '10.6.1'
+      },
       classes: {
         type: 'string',
         required: false,

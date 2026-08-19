@@ -105,6 +105,12 @@ const options = {
   headingLevel: {
     type: 'integer',
     required: false,
+    description: 'Optional alias for the legend heading `level` option.',
+    released: '10.6.1'
+  },
+  level: {
+    type: 'integer',
+    required: false,
     description: 'Optional legend heading level. Defaults to `1`.',
     released: '10.6.1'
   },
