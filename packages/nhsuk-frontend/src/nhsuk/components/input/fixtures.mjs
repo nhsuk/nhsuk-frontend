@@ -415,7 +415,7 @@ const fixtures = {
       width: 5
     }
   },
-  "with prefix deprecated option": {
+  "with prefix as string": {
     context: {
       label: {
         text: "Cost in pounds",
@@ -456,7 +456,7 @@ const fixtures = {
       width: 5
     }
   },
-  "with suffix deprecated option": {
+  "with suffix as string": {
     context: {
       label: {
         text: "Weight in kilograms",
