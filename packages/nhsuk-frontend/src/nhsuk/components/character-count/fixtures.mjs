@@ -212,6 +212,17 @@ const fixtures = {
             size: "xl"
           }
         }
+      },
+      {
+        description: "with id attribute on",
+        context: {
+          label: {
+            id: "custom-id"
+          }
+        },
+        options: {
+          hidden: true
+        }
       }
     ]
   },
