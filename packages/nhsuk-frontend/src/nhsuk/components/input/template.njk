@@ -73,19 +73,20 @@
 {% set describedBy = params.describedBy if params.describedBy else "" -%}
 {%- set id = params.id if params.id else params.name -%}
 
-{%- set prefix = params.prefix -%}
-{%- set suffix = params.suffix -%}
+{#- Support prefix as string #}
+{%- set prefix = params.prefix if params.prefix is mapping and params.prefix is not escaped else {
+  text: params.prefix if params.prefix is string else undefined,
+  html: params.prefix if params.prefix is escaped else undefined
+} -%}
 
-{%- if prefix and prefix is string %}
-  {% set prefix = { text: prefix } %}
-{% endif %}
+{#- Support suffix as string #}
+{%- set suffix = params.suffix if params.suffix is mapping and params.suffix is not escaped else {
+  text: params.suffix if params.suffix is string else undefined,
+  html: params.suffix if params.suffix is escaped else undefined
+} -%}
 
-{%- if suffix and suffix is string %}
-  {% set suffix = { text: suffix } %}
-{% endif %}
-
-{%- set hasPrefix = true if prefix and (prefix.text or prefix.html) else false %}
-{%- set hasSuffix = true if suffix and (suffix.text or suffix.html) else false %}
+{%- set hasPrefix = true if prefix.text or prefix.html else false %}
+{%- set hasSuffix = true if suffix.text or suffix.html else false %}
 {%- set hasBeforeInput = true if params.formGroup.beforeInput and (params.formGroup.beforeInput.text or params.formGroup.beforeInput.html) else false %}
 {%- set hasAfterInput = true if params.formGroup.afterInput and (params.formGroup.afterInput.text or params.formGroup.afterInput.html) else false %}
 
