@@ -45,6 +45,14 @@ const fixtures = {
       width: false
     }
   },
+  "with copyright text string": {
+    context: {
+      copyright: "© East London NHS Foundation Trust"
+    },
+    options: {
+      width: false
+    }
+  },
   "with custom copyright text": {
     context: {
       copyright: {
@@ -63,6 +71,14 @@ const fixtures = {
       meta: {
         text: "NHS prototype kit v8.0.0"
       }
+    },
+    options: {
+      width: false
+    }
+  },
+  "with meta text string": {
+    context: {
+      meta: "NHS prototype kit v8.0.0"
     },
     options: {
       width: false
@@ -440,9 +456,7 @@ const fixtures = {
     context: {
       navigation: [
         {
-          heading: {
-            text: "Legal"
-          },
+          heading: "Legal",
           items: [
             {
               href: "#",
@@ -459,9 +473,7 @@ const fixtures = {
           ]
         },
         {
-          heading: {
-            text: "Get in touch"
-          },
+          heading: "Get in touch",
           items: [
             {
               href: "#",
@@ -482,9 +494,7 @@ const fixtures = {
           ]
         },
         {
-          heading: {
-            text: "Follow us"
-          },
+          heading: "Follow us",
           items: [
             {
               href: "#",
