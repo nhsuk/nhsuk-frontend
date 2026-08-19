@@ -49,14 +49,11 @@
   {% set classNames = classNames ~ " nhsuk-table--no-last-row-border" %}
 {% endif %}
 
-{%- set head = params.head | select("mapping") if params.head | length else [] %}
-{%- set rows = params.rows | select("iterable") if params.rows | length else [] %}
-
 {%- set isSortable = false %}
 {%- set isSortableOnServer = false %}
 
 {#- Determine if the table is sortable #}
-{% for item in head %}
+{% for item in params.head %}
   {% set isSortable = true if item.sort else isSortable %}
   {% set isSortableOnServer = true if isSortable and item.href else isSortableOnServer %}
 {% endfor -%}
@@ -185,9 +182,7 @@
   }) -}}
 
   {{- nhsukAttributes(item.attributes) }}>
-{% set header = head[parent.loop.index0] -%}
-
-{% set isHeader = parent.items is sameas(head) -%}
+{% set isHeader = params.head and parent.items is sameas(params.head) -%}
 {% set isResponsive = true if parent.params.responsive else false -%}
 
 {% set innerHtml %}
@@ -200,12 +195,12 @@
   {% endif %}
 {% endset -%}
 
-{% if isResponsive and not isHeader and (header or item.header) %}
+{% if isResponsive and not isHeader and (parent.header or item.header) %}
   <span class="nhsuk-table__heading" aria-hidden="true">
     {{- _tableValue({
-      text: header.text | default(item.header),
-      html: header.html,
-      visuallyHiddenText: header.visuallyHiddenText
+      text: parent.header.text | default(item.header),
+      html: parent.header.html,
+      visuallyHiddenText: parent.header.visuallyHiddenText
     }) | safe | trim | indent(2) }} </span>
 
   {%- if item.html -%}
@@ -246,28 +241,36 @@
     element: "caption"
   }) | trim | indent(2) }}
 {% endif %}
-{% if head | length %}
+{% if params.head | length %}
   <thead class="nhsuk-table__head" {%- if params.responsive %} role="rowgroup"{% endif %}>
     <tr class="nhsuk-table__row" {%- if params.responsive %} role="row"{% endif %}>
-    {% for item in head %}
-      {%- set sort = item.sort if item.sort is string else
-        ("none" if item.sort == true else undefined) %}
+    {% for item in params.head %}
+      {% if item is string or item is mapping %}
 
-      {%- set sortNext = item.sortNext if item.sortNext is string else undefined %}
+      {#- Support table header as string #}
+      {%- set header = item if item is mapping and item is not escaped else {
+        text: item if item is string else undefined,
+        html: item if item is escaped else undefined
+      } -%}
+
+      {%- set sort = header.sort if header.sort is string else
+        ("none" if header.sort == true else undefined) %}
+
+      {%- set sortNext = header.sortNext if header.sortNext is string else undefined %}
 
       {{- _tableCell({
-        text: item.text,
-        html: item.html,
-        visuallyHiddenText: item.visuallyHiddenText,
-        format: item.format,
-        href: item.href,
+        text: header.text,
+        html: header.html,
+        visuallyHiddenText: header.visuallyHiddenText,
+        format: header.format,
+        href: header.href,
         scope: "col",
         role: "columnheader" if params.responsive else undefined,
-        colspan: item.colspan if not params.responsive else undefined,
-        rowspan: item.rowspan,
-        align: item.align,
-        width: item.width,
-        classes: item.classes,
+        colspan: header.colspan if not params.responsive else undefined,
+        rowspan: header.rowspan,
+        align: header.align,
+        width: header.width,
+        classes: header.classes,
         attributes: nhsukAttributes({
           "data-sort": {
             value: true if sort and isSortable else false,
@@ -281,49 +284,64 @@
             value: sort if sort and sort != "none" and isSortable else false,
             optional: true
           }
-        }) ~ nhsukAttributes(item.attributes),
+        }) ~ nhsukAttributes(header.attributes),
         element: "th"
       }, {
         params: params,
         loop: loop,
-        row: head
+        row: params.head
       }) | trim | indent(6, true) }}
+    {% endif %}
     {% endfor %}
     </tr>
   </thead>
 {% endif %}
   <tbody class="nhsuk-table__body">
-  {% for row in rows %}
+  {% for row in params.rows %}
     <tr class="nhsuk-table__row" {%- if params.responsive %} role="row"{% endif %}>
-    {% set items = row | select("mapping") if row | length else [] %}
-    {% for item in items %}
-      {%- set header = head[loop.index0] -%}
+    {% for item in row %}
+      {% if item is string or item is mapping %}
+      {%- set itemHead = params.head[loop.index0] -%}
+
+      {#- Support table header as string #}
+      {%- set header = itemHead if itemHead is mapping and itemHead is not escaped else {
+        text: itemHead if itemHead is string else undefined,
+        html: itemHead if itemHead is escaped else undefined
+      } -%}
+
+      {#- Support table data as string #}
+      {%- set data = item if item is mapping and item is not escaped else {
+        text: item if item is string else undefined,
+        html: item if item is escaped else undefined
+      } -%}
 
       {{- _tableCell({
-        text: item.text,
-        html: item.html,
-        visuallyHiddenText: item.visuallyHiddenText,
-        format: item.format | default(header.format),
-        href: item.href,
+        text: data.text,
+        html: data.html,
+        visuallyHiddenText: data.visuallyHiddenText,
+        format: data.format | default(header.format),
+        href: data.href,
         scope: "row" if loop.first and params.firstCellIsHeader else undefined,
         role: ("rowheader" if loop.first and params.firstCellIsHeader else "cell") if params.responsive else undefined,
-        colspan: item.colspan if not params.responsive else undefined,
-        rowspan: item.rowspan,
-        align: item.align | default("right" if item.format == "string" and header.format == "numeric" else header.align),
-        width: item.width,
-        classes: item.classes,
+        colspan: data.colspan if not params.responsive else undefined,
+        rowspan: data.rowspan,
+        align: data.align | default("right" if data.format == "string" and header.format == "numeric" else header.align),
+        width: data.width,
+        classes: data.classes,
         attributes: nhsukAttributes({
           "data-sort-value": {
-            value: item.sortValue if item.sortValue else false,
+            value: data.sortValue if data.sortValue else false,
             optional: true
           }
-        }) ~ nhsukAttributes(item.attributes),
+        }) ~ nhsukAttributes(data.attributes),
         element: "th" if loop.first and params.firstCellIsHeader else "td"
       }, {
         params: params,
         loop: loop,
-        row: items
+        row: row,
+        header: header
       }) | trim | indent(6, true) }}
+    {% endif %}
     {% endfor %}
     </tr>
   {% endfor %}
