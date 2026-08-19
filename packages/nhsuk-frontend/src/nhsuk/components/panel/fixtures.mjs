@@ -106,7 +106,7 @@ const fixtures = {
       `
     }
   },
-  "title": {
+  "heading": {
     context: {
       heading: {
         text: "Booking complete",
@@ -138,15 +138,26 @@ const fixtures = {
             size: "xl"
           }
         }
+      },
+      {
+        description: "with id attribute on",
+        context: {
+          heading: {
+            id: "custom-id"
+          }
+        },
+        options: {
+          hidden: true
+        }
       }
     ]
   },
-  "with title classes and heading level": {
+  "with heading classes and heading level": {
     context: {
       heading: {
         text: "Booking complete",
         level: 2,
-        classes: "nhsuk-panel__title--l"
+        classes: "nhsuk-panel__heading--l"
       },
       text: "We have sent you a confirmation email"
     }

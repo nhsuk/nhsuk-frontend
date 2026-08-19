@@ -67,6 +67,17 @@ const fixtures = {
             size: "xl"
           }
         }
+      },
+      {
+        description: "basic with id attribute on",
+        context: {
+          heading: {
+            id: "custom-id"
+          }
+        },
+        options: {
+          hidden: true
+        }
       }
     ]
   },
