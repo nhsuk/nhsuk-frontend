@@ -58,5 +58,5 @@
     attributes: params.backLink.attributes | default(lastItem.attributes),
     variant: params.backLink.variant | default(variant),
     element: params.backLink.element
-  }) | indent(2) }}
+  }) | trim | indent(2) }}
 </nav>
