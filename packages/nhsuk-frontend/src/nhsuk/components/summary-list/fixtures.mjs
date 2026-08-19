@@ -568,6 +568,20 @@ const fixtures = {
       ]
     }
   },
+  "with item strings": {
+    context: {
+      rows: [
+        {
+          key: "Name",
+          value: "Karen Francis"
+        },
+        {
+          key: "Date of birth",
+          value: "15 March 1984"
+        }
+      ]
+    }
+  },
   "without border": {
     context: {
       border: false,

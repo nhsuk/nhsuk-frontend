@@ -7,6 +7,18 @@
 {%- set classNamesValue = "nhsuk-summary-list__value" -%}
 {%- set classNamesActions = "nhsuk-summary-list__actions" -%}
 
+{#- Support row key as string #}
+{%- set key = params.key if params.key is mapping and params.key is not escaped else {
+  text: params.key if params.key is string else undefined,
+  html: params.key if params.key is escaped else undefined
+} %}
+
+{#- Support row value as string #}
+{%- set value = params.value if params.value is mapping and params.value is not escaped else {
+  text: params.value if params.value is string else undefined,
+  html: params.value if params.value is escaped else undefined
+} %}
+
 {%- set actions = params.actions.items | select("mapping") if params.actions.items | length else [] %}
 
 {%- if parent.hasActions and not actions | length %}
@@ -26,20 +38,20 @@
   {% set classNames = classNames ~ " " ~ params.classes %}
 {% endif %}
 
-{%- if params.key.width and (not params.key.classes or not "nhsuk-u-width-" ~ params.key.width in params.key.classes) %}
-  {% set classNamesKey = classNamesKey ~ " nhsuk-u-width-" ~ params.key.width %}
+{%- if key.width and (not key.classes or not "nhsuk-u-width-" ~ key.width in key.classes) %}
+  {% set classNamesKey = classNamesKey ~ " nhsuk-u-width-" ~ key.width %}
 {% endif %}
 
-{%- if params.key.classes %}
-  {% set classNamesKey = classNamesKey ~ " " ~ params.key.classes %}
+{%- if key.classes %}
+  {% set classNamesKey = classNamesKey ~ " " ~ key.classes %}
 {% endif %}
 
-{%- if params.value.width and (not params.value.classes or not "nhsuk-u-width-" ~ params.value.width in params.value.classes) %}
-  {% set classNamesValue = classNamesValue ~ " nhsuk-u-width-" ~ params.value.width %}
+{%- if value.width and (not value.classes or not "nhsuk-u-width-" ~ value.width in value.classes) %}
+  {% set classNamesValue = classNamesValue ~ " nhsuk-u-width-" ~ value.width %}
 {% endif %}
 
-{%- if params.value.classes %}
-  {% set classNamesValue = classNamesValue ~ " " ~ params.value.classes %}
+{%- if value.classes %}
+  {% set classNamesValue = classNamesValue ~ " " ~ value.classes %}
 {% endif %}
 
 {%- if params.actions.width and (not params.actions.classes or not "nhsuk-u-width-" ~ params.actions.width in params.actions.classes) %}
@@ -51,18 +63,18 @@
 {% endif %}
 
 <div class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %} {{- nhsukAttributes(params.attributes) }}>
-  <dt class="{{ classNamesKey }}" {%- if params.key.id %} id="{{ params.key.id }}"{% endif %} {{- nhsukAttributes(params.key.attributes) }}>
-  {% if params.key.html %}
-    {{ params.key.html | safe | trim | indent(4) }}
-  {% elif params.key.text %}
-    {{ params.key.text | trim | indent(4) }}
+  <dt class="{{ classNamesKey }}" {%- if key.id %} id="{{ key.id }}"{% endif %} {{- nhsukAttributes(key.attributes) }}>
+  {% if key.html %}
+    {{ key.html | safe | trim | indent(4) }}
+  {% elif key.text %}
+    {{ key.text | trim | indent(4) }}
   {% endif %}
   </dt>
-  <dd class="{{ classNamesValue }}" {%- if params.value.id %} id="{{ params.value.id }}"{% endif %} {{- nhsukAttributes(params.value.attributes) }}>
-  {% if params.value.html %}
-    {{ params.value.html | safe | trim | indent(4) }}
-  {% elif params.value.text %}
-    {{ params.value.text | trim | indent(4) }}
+  <dd class="{{ classNamesValue }}" {%- if value.id %} id="{{ value.id }}"{% endif %} {{- nhsukAttributes(value.attributes) }}>
+  {% if value.html %}
+    {{ value.html | safe | trim | indent(4) }}
+  {% elif value.text %}
+    {{ value.text | trim | indent(4) }}
   {% endif %}
   </dd>
   {% if actions | length %}
