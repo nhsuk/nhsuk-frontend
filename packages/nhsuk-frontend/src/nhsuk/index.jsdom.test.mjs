@@ -19,6 +19,7 @@ import {
   Radios,
   Scroll,
   SkipLink,
+  StepperInput,
   Table,
   Tabs,
   createAll,
@@ -38,6 +39,7 @@ jest.mock('./components/password-input/password-input.mjs')
 jest.mock('./components/radios/radios.mjs')
 jest.mock('./components/scroll/scroll.mjs')
 jest.mock('./components/skip-link/skip-link.mjs')
+jest.mock('./components/stepper-input/stepper-input.mjs')
 jest.mock('./components/tables/table.mjs')
 jest.mock('./components/tabs/tabs.mjs')
 
@@ -50,13 +52,14 @@ describe('NHS.UK frontend', () => {
     'ErrorSummary',
     'FileUpload',
     'Header',
+    'NotificationBanner',
+    'PasswordInput',
     'Radios',
     'Scroll',
     'SkipLink',
+    'StepperInput',
     'Table',
-    'Tabs',
-    'NotificationBanner',
-    'PasswordInput'
+    'Tabs'
   ]
 
   const componentsWithConfig = components.filter(
@@ -92,6 +95,7 @@ describe('NHS.UK frontend', () => {
       expect(NHSUKFrontend).toHaveProperty('Radios')
       expect(NHSUKFrontend).toHaveProperty('Scroll')
       expect(NHSUKFrontend).toHaveProperty('SkipLink')
+      expect(NHSUKFrontend).toHaveProperty('StepperInput')
       expect(NHSUKFrontend).toHaveProperty('Table')
       expect(NHSUKFrontend).toHaveProperty('Tabs')
     })
@@ -113,6 +117,7 @@ describe('NHS.UK frontend', () => {
       expect(NHSUKFrontend).toHaveProperty('initRadios')
       expect(NHSUKFrontend).toHaveProperty('initScroll')
       expect(NHSUKFrontend).toHaveProperty('initSkipLinks')
+      expect(NHSUKFrontend).toHaveProperty('initStepperInputs')
       expect(NHSUKFrontend).toHaveProperty('initTables')
       expect(NHSUKFrontend).toHaveProperty('initTabs')
     })
@@ -134,6 +139,7 @@ describe('NHS.UK frontend', () => {
         <div data-module="${Radios.moduleName}"></div>
         <div data-module="${Scroll.moduleName}"></div>
         <div data-module="${SkipLink.moduleName}"></div>
+        <div data-module="${StepperInput.moduleName}"></div>
         <div data-module="${Table.moduleName}"></div>
         <div data-module="${Tabs.moduleName}"></div>
       `
@@ -250,6 +256,7 @@ describe('NHS.UK frontend', () => {
       expect(Radios).not.toHaveBeenCalled()
       expect(Scroll).not.toHaveBeenCalled()
       expect(SkipLink).not.toHaveBeenCalled()
+      expect(StepperInput).not.toHaveBeenCalled()
       expect(Table).not.toHaveBeenCalled()
       expect(Tabs).not.toHaveBeenCalled()
     })
@@ -277,6 +284,7 @@ describe('NHS.UK frontend', () => {
       expect(Radios).not.toHaveBeenCalled()
       expect(Scroll).not.toHaveBeenCalled()
       expect(SkipLink).not.toHaveBeenCalled()
+      expect(StepperInput).not.toHaveBeenCalled()
       expect(Table).not.toHaveBeenCalled()
       expect(Tabs).not.toHaveBeenCalled()
     })
@@ -305,6 +313,7 @@ describe('NHS.UK frontend', () => {
       expect(Radios).not.toHaveBeenCalled()
       expect(Scroll).not.toHaveBeenCalled()
       expect(SkipLink).not.toHaveBeenCalled()
+      expect(StepperInput).not.toHaveBeenCalled()
       expect(Table).not.toHaveBeenCalled()
       expect(Tabs).not.toHaveBeenCalled()
     })
