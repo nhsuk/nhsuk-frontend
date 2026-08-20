@@ -40,7 +40,7 @@ const options = {
         type: 'object',
         required: false,
         description:
-          'Item-specific label. The `label.size` and `label.isPageHeading` options are not supported. Defaults to the `name` option capitalised.',
+          'Item-specific label. The `label.size` and `label.heading` options are not supported. Defaults to the `name` option capitalised.',
         released: '10.5.0',
         isComponent: true
       },
@@ -170,7 +170,7 @@ const options = {
         type: 'object',
         required: false,
         description:
-          'The label used by the day input. The `label.size` and `label.isPageHeading` options are not supported. Defaults to the `name` option capitalised.',
+          'The label used by the day input. The `label.size` and `label.heading` options are not supported. Defaults to the `name` option capitalised.',
         released: '10.5.0',
         isComponent: true
       },
@@ -208,7 +208,7 @@ const options = {
         type: 'object',
         required: false,
         description:
-          'The label used by the month input. The `label.size` and `label.isPageHeading` options are not supported. Defaults to the `name` option capitalised.',
+          'The label used by the month input. The `label.size` and `label.heading` options are not supported. Defaults to the `name` option capitalised.',
         released: '10.5.0',
         isComponent: true
       },
@@ -246,7 +246,7 @@ const options = {
         type: 'object',
         required: false,
         description:
-          'The label used by the year input. The `label.size` and `label.isPageHeading` options are not supported. Defaults to the `name` option capitalised.',
+          'The label used by the year input. The `label.size` and `label.heading` options are not supported. Defaults to the `name` option capitalised.',
         released: '10.5.0',
         isComponent: true
       },

@@ -6,15 +6,32 @@
 {%- set classNames = "nhsuk-fieldset__legend" -%}
 {%- set classNamesHeading = "nhsuk-fieldset__heading" -%}
 
+{#- Set heading default (optional) #}
+{%- set heading = params.heading -%}
+
+{#- Support heading as string (optional) #}
+{%- if heading and (heading is string or heading is escaped) %}
+  {% set heading = {
+    text: heading if heading is string else undefined,
+    html: heading if heading is escaped else undefined
+  } %}
+{% endif -%}
+
 {#- Set heading level default (optional) #}
 {%- set headingLevel = params.level | default(params.headingLevel, true) -%}
-{%- set hasHeading = params.isPageHeading or (params.isPageHeading != false and headingLevel) -%}
+{%- set hasHeading = true if (params.isPageHeading and heading != false) or
+  (params.isPageHeading != false and (heading or (headingLevel and heading != false))) else false -%}
+
+{#- Set caption from heading or caption options #}
+{%- set legendCaption = heading.caption | default(params.caption) if hasHeading else params.caption -%}
 
 {#- Support heading caption as string #}
-{%- set headingCaption = params.caption if params.caption is mapping and params.caption is not escaped else {
-  text: params.caption if params.caption is string else undefined,
-  html: params.caption if params.caption is escaped else undefined
+{%- set headingCaption = legendCaption if legendCaption is mapping and legendCaption is not escaped else {
+  text: legendCaption if legendCaption is string else undefined,
+  html: legendCaption if legendCaption is escaped else undefined
 } -%}
+
+{%- set size = heading.size | default(params.size) if hasHeading else params.size -%}
 
 {#- Limit heading caption to allowed options only #}
 {%- set caption = {
@@ -22,7 +39,7 @@
   text: headingCaption.text,
   html: headingCaption.html,
   placement: "start" if headingCaption.placement == "before" else headingCaption.placement,
-  size: headingCaption.size | default(params.size),
+  size: headingCaption.size | default(size),
   classes: headingCaption.classes,
   attributes: headingCaption.attributes,
   element: headingCaption.element
@@ -30,11 +47,12 @@
 
 {%- set legend = {
   id: params.id,
-  text: params.text,
-  html: params.html,
-  visuallyHiddenText: params.visuallyHiddenText,
+  text: heading.text | default(params.text) if hasHeading else params.text | default(heading.text),
+  html: heading.html | default(params.html) if hasHeading else params.html | default(heading.html),
+  visuallyHiddenText: heading.visuallyHiddenText | default(params.visuallyHiddenText) if hasHeading else params.visuallyHiddenText,
   caption: caption if not caption.placement or caption.placement in ["start", "end"] else undefined,
-  size: params.size,
+  headingLevel: heading.level | default(headingLevel, true) if hasHeading else headingLevel,
+  size: size,
   classes: params.classes,
   attributes: params.attributes
 } -%}
@@ -74,7 +92,7 @@
     html: innerHtml,
     visuallyHiddenText: legend.visuallyHiddenText,
     caption: legend.caption,
-    level: headingLevel,
+    level: legend.headingLevel,
     className: classNamesHeading
   }) | trim | indent(2) }}
 </legend>

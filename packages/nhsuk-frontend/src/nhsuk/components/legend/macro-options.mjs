@@ -52,6 +52,56 @@ const options = {
     description: 'Size of the legend – `"s"`, `"m"`, `"l"` or `"xl"`.',
     released: '10.2.0'
   },
+  heading: {
+    type: 'object',
+    required: false,
+    description: 'Whether the legend also acts as a heading.',
+    released: '10.6.1',
+    isComponent: true,
+    params: {
+      text: {
+        type: 'string',
+        required: false,
+        description:
+          'If `html` is set, this is not required. Text to use within the legend as a heading. If `html` is provided, the `text` option will be ignored.',
+        released: '10.6.1'
+      },
+      html: {
+        type: 'string',
+        required: false,
+        description:
+          'If `text` is set, this is not required. HTML to use within the legend as a heading. If `html` is provided, the `text` option will be ignored.',
+        released: '10.6.1'
+      },
+      visuallyHiddenText: {
+        type: 'string',
+        required: false,
+        description:
+          'A visually hidden suffix added to the legend as a heading.',
+        released: '10.6.1'
+      },
+      caption: {
+        type: 'object',
+        required: false,
+        description: 'Optional caption for the legend as a heading.',
+        released: '10.6.1',
+        isComponent: true
+      },
+      size: {
+        type: 'string',
+        required: false,
+        description:
+          'Size of the legend as a heading – `"s"`, `"m"`, `"l"` or `"xl"`.',
+        released: '10.6.1'
+      },
+      level: {
+        type: 'integer',
+        required: false,
+        description: 'Optional legend heading level. Defaults to `1`.',
+        released: '10.6.1'
+      }
+    }
+  },
   headingLevel: {
     type: 'integer',
     required: false,
@@ -61,8 +111,9 @@ const options = {
   isPageHeading: {
     type: 'boolean',
     required: false,
-    description: 'Whether the legend also acts as a page heading.',
-    released: '10.2.0'
+    description: 'Replaced by the `heading` option.',
+    released: '10.2.0',
+    deprecated: '10.6.1'
   },
   classes: {
     type: 'string',
