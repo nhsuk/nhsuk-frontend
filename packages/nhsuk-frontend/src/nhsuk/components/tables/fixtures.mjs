@@ -1141,6 +1141,53 @@ const fixtures = {
       viewports: ["mobile", "tablet", "desktop"]
     }
   },
+  "as a card (feature) with deprecated options": {
+    context: {
+      heading: "Other conditions like impetigo",
+      headingLevel: 3,
+      caption: {
+        text: "Impetigo can look similar to other skin conditions",
+        size: "s"
+      },
+      firstCellIsHeader: true,
+      lastRowBorder: false,
+      panel: true,
+      head: [
+        {
+          text: "Skin symptoms"
+        },
+        {
+          text: "Possible cause"
+        }
+      ],
+      rows: [
+        [
+          {
+            text: "Blisters on lips or around the mouth"
+          },
+          {
+            text: "Cold sores"
+          }
+        ],
+        [
+          {
+            text: "Itchy, dry, cracked, sore"
+          },
+          {
+            text: "Eczema"
+          }
+        ],
+        [
+          {
+            text: "Itchy blisters"
+          },
+          {
+            text: "Shingles, chickenpox"
+          }
+        ]
+      ]
+    }
+  },
   "scrolling": {
     context: {
       caption: {

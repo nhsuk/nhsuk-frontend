@@ -133,7 +133,7 @@ const fixtures = {
       ]
     }
   },
-  "with headings as strings": {
+  "with headings and hints as strings": {
     context: {
       idPrefix: "your-health",
       items: [
@@ -155,9 +155,7 @@ const fixtures = {
         },
         {
           heading: "Family health history",
-          hint: {
-            text: "Details of your parents, brothers and sisters"
-          },
+          hint: "Details of your parents, brothers and sisters",
           href: "#",
           status: {
             tag: {
@@ -182,6 +180,28 @@ const fixtures = {
             text: "Cannot start yet",
             classes: "nhsuk-task-list__status--cannot-start-yet"
           }
+        }
+      ]
+    }
+  },
+  "with headings and status text as strings": {
+    context: {
+      idPrefix: "your-health",
+      items: [
+        {
+          heading: "Exercise",
+          href: "#/task/exercise",
+          status: "Not applicable"
+        },
+        {
+          heading: "Personal health",
+          href: "#/task/personal-health",
+          status: "Not applicable"
+        },
+        {
+          heading: "Blood test",
+          href: "#/task/blood-test",
+          status: "Not applicable"
         }
       ]
     }

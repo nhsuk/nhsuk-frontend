@@ -99,7 +99,7 @@ const fixtures = {
       classes: "nhsuk-tag--green"
     }
   },
-  "colour class overriding colour param": {
+  "colour class overriding colour option": {
     context: {
       text: "Not green",
       colour: "green",

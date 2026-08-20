@@ -38,9 +38,8 @@ const variants = [
 const fixtures = {
   "default": {
     context: {
-      text: "What is your full name?",
-      size: "l",
-      isPageHeading: true
+      heading: "What is your full name?",
+      size: "l"
     },
     screenshot: {
       viewports: ["mobile", "tablet", "desktop"]
@@ -48,9 +47,8 @@ const fixtures = {
   },
   "text": {
     context: {
-      text: "What is your full name?",
-      size: "l",
-      isPageHeading: true
+      heading: "What is your full name?",
+      size: "l"
     },
     variants,
     screenshot: {
@@ -100,57 +98,88 @@ const fixtures = {
   },
   "size class": {
     context: {
-      text: "What is your full name?",
-      classes: "nhsuk-label--l",
-      isPageHeading: true
+      heading: "What is your full name?",
+      classes: "nhsuk-label--l"
     }
   },
-  "size class overriding size param": {
+  "size class overriding size option": {
     context: {
-      text: "What is your full name?",
+      heading: "What is your full name?",
       classes: "nhsuk-label--l",
-      size: "s",
-      isPageHeading: true
+      size: "s"
     }
   },
   "with HTML": {
     context: {
       html: "What is your full name?",
-      size: "l",
-      isPageHeading: true
+      heading: true,
+      size: "l"
     }
   },
   "with HTML via call block": {
     context: {
-      size: "l",
-      isPageHeading: true
+      heading: true,
+      size: "l"
     },
     callBlock: "What is your full name?"
   },
   "with heading level 1": {
     context: {
-      text: "What is your full name?",
-      size: "l",
-      headingLevel: 1
+      heading: "What is your full name?",
+      headingLevel: 1,
+      size: "l"
     }
   },
   "with heading level 2": {
     context: {
+      heading: "What is your full name?",
+      headingLevel: 2,
+      size: "m"
+    }
+  },
+  "with heading options": {
+    context: {
       text: "What is your full name?",
-      size: "m",
+      heading: {
+        level: 3,
+        size: "s"
+      }
+    }
+  },
+  "with heading overriding heading level": {
+    context: {
+      text: "What is your full name?",
+      heading: false,
       headingLevel: 2
     }
   },
-  "without page heading": {
+  "without heading": {
     context: {
       text: "What is your full name?"
     }
   },
-  "without page heading overriding heading level": {
+  "with deprecated page heading": {
     context: {
       text: "What is your full name?",
-      isPageHeading: false,
-      headingLevel: 2
+      size: "m",
+      isPageHeading: true
+    }
+  },
+  "with deprecated page heading overriding heading": {
+    context: {
+      heading: "What is your full name?",
+      headingLevel: 2,
+      isPageHeading: false
+    }
+  },
+  "with deprecated page heading overriding heading options": {
+    context: {
+      text: "What is your full name?",
+      heading: {
+        level: 3,
+        size: "s"
+      },
+      isPageHeading: false
     }
   }
 }
