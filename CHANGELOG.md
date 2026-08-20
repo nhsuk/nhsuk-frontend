@@ -4,46 +4,30 @@
 
 Note: This release was created from the `support/10.x` branch.
 
+### :wastebasket: **Deprecated features**
+
+#### Rename title and heading HTML classes
+
+HTML classes for the error summary, panel and tabs component headings have been renamed from `__title` to `__heading` to match their corresponding Nunjucks option.
+
+If you are not using Nunjucks macros, change the classes as follows:
+
+- Rename the `<h2 class="nhsuk-error-summary__title"` class attribute to match `<h2 class="nhsuk-error-summary__heading"`.
+- Rename the `<h1 class="nhsuk-panel__title"` class attribute to match `<h1 class="nhsuk-panel__heading"`.
+- Rename the `<h2 class="nhsuk-tabs__title"` class attribute to match `<h2 class="nhsuk-tabs__heading"`.
+
+The previous class names are deprecated and will be removed in a future release.
+
+This change was introduced in [pull request #2059: Rename title and heading HTML classes](https://github.com/nhsuk/nhsuk-frontend/pull/2059).
+
 ### :wrench: **Fixes**
 
 We've made fixes to NHS.UK frontend in the following pull requests:
 
-- [#2055: Guard against Nunjucks filter errors on `undefined` text](https://github.com/nhsuk/nhsuk-frontend/pull/2055)
-- [#2056: Remove negative margin top from caption when heading has margin override](https://github.com/nhsuk/nhsuk-frontend/pull/2056)
+- [#2056: Guard against Nunjucks filter errors on `undefined` text](https://github.com/nhsuk/nhsuk-frontend/pull/2056)
+- [#2057: Remove negative margin top from caption when heading has margin override](https://github.com/nhsuk/nhsuk-frontend/pull/2057)
 - [#2061: Fix margin and line height issues for all form field combinations](https://github.com/nhsuk/nhsuk-frontend/pull/2061)
 - [#2069: Support Vite Sass imports with nested paths](https://github.com/nhsuk/nhsuk-frontend/pull/2069)
-
-### :recycle: **Changes**
-
-#### Rename title and heading HTML classes
-
-HTML classes for the error summary, panel and tabs component headings have been renamed from `__title` to `__heading` to match their corresponding Nunjucks option.
-
-If you are not using Nunjucks macros, change the classes as follows:
-
-- Rename the `<h2 class="nhsuk-error-summary__title"` class attribute to match `<h2 class="nhsuk-error-summary__heading"`.
-- Rename the `<h1 class="nhsuk-panel__title"` class attribute to match `<h1 class="nhsuk-panel__heading"`.
-- Rename the `<h2 class="nhsuk-tabs__title"` class attribute to match `<h2 class="nhsuk-tabs__heading"`.
-
-The previous class names are deprecated and will be removed in a future release.
-
-This change was introduced in [pull request #2057: Rename title and heading HTML classes](https://github.com/nhsuk/nhsuk-frontend/pull/2057).
-
-### :recycle: **Changes**
-
-#### Rename title and heading HTML classes
-
-HTML classes for the error summary, panel and tabs component headings have been renamed from `__title` to `__heading` to match their corresponding Nunjucks option.
-
-If you are not using Nunjucks macros, change the classes as follows:
-
-- Rename the `<h2 class="nhsuk-error-summary__title"` class attribute to match `<h2 class="nhsuk-error-summary__heading"`.
-- Rename the `<h1 class="nhsuk-panel__title"` class attribute to match `<h1 class="nhsuk-panel__heading"`.
-- Rename the `<h2 class="nhsuk-tabs__title"` class attribute to match `<h2 class="nhsuk-tabs__heading"`.
-
-The previous class names are deprecated and will be removed in a future release.
-
-This change was introduced in [pull request #2057: Rename title and heading HTML classes](https://github.com/nhsuk/nhsuk-frontend/pull/2057).
 
 ## 10.6.0 - 13 August 2026
 
@@ -948,7 +932,7 @@ This change was introduced in pull requests [#1998: Add `compact` option for tab
 
 We’ve deprecated the `element` Nunjucks option for action links, back links and button components.
 
-In a future release, if the `href` parameter is set the component will automatically use the `<a>` element. If the `href` parameter is not set the component will automatically use the `<button>` element. It will not be possible to override this change.
+In a future release, if the `href` option is set the component will automatically use the `<a>` element. If the `href` option is not set the component will automatically use the `<button>` element. It will not be possible to override this change.
 
 ```patch
   {{ actionLink({
