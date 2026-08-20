@@ -23,6 +23,7 @@ const fixtures = {
   "with HTML": {
     context: {
       legend: {
+        caption: "About you",
         text: "What is your address?",
         size: "l",
         isPageHeading: true
@@ -41,6 +42,7 @@ const fixtures = {
   "with HTML via call block": {
     context: {
       legend: {
+        caption: "About you",
         text: "What is your address?",
         size: "l",
         isPageHeading: true
