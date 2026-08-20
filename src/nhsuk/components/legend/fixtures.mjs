@@ -1,4 +1,36 @@
 /**
+ * Nunjucks macro option variants
+ *
+ * @satisfies {MacroExample[]}
+ */
+const variants = [
+  {
+    description: "with size S",
+    context: {
+      size: "s"
+    }
+  },
+  {
+    description: "with size M",
+    context: {
+      size: "m"
+    }
+  },
+  {
+    description: "with size L",
+    context: {
+      size: "l"
+    }
+  },
+  {
+    description: "with size XL",
+    context: {
+      size: "xl"
+    }
+  }
+]
+
+/**
  * Nunjucks macro option examples
  *
  * @satisfies {{ [example: string]: MacroExample }}
@@ -18,32 +50,33 @@ const fixtures = {
       size: "l",
       isPageHeading: true
     },
-    variants: [
-      {
-        description: "with size S",
-        context: {
-          size: "s"
-        }
+    variants,
+    screenshot: {
+      viewports: ["tablet"]
+    }
+  },
+  "text and caption": {
+    context: {
+      text: "What is your home address?",
+      caption: "About you",
+      size: "l"
+    },
+    variants,
+    screenshot: {
+      viewports: ["tablet"]
+    }
+  },
+  'text and caption "after" as a paragraph': {
+    context: {
+      text: "What is your home address?",
+      caption: {
+        text: "About you",
+        placement: "after",
+        element: "p"
       },
-      {
-        description: "with size M",
-        context: {
-          size: "m"
-        }
-      },
-      {
-        description: "with size L",
-        context: {
-          size: "l"
-        }
-      },
-      {
-        description: "with size XL",
-        context: {
-          size: "xl"
-        }
-      }
-    ],
+      size: "l"
+    },
+    variants,
     screenshot: {
       viewports: ["tablet"]
     }
