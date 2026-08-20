@@ -1,4 +1,4 @@
-{% from "nhsuk/components/heading/macro.njk" import heading %}
+{% from "nhsuk/components/heading/macro.njk" import heading as nhsukHeading %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set classes for this component #}
@@ -35,7 +35,7 @@
 
 <legend {{- nhsukAttributes({ class: classNames }) }}>
 {% if params.isPageHeading %}
-  {{ heading({
+  {{ nhsukHeading({
     html: innerHtml,
     className: classNamesHeading
   }) | trim | indent(2) }}

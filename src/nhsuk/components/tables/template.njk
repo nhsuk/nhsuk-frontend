@@ -1,6 +1,6 @@
-{% from "nhsuk/components/card/macro.njk" import card %}
-{% from "nhsuk/components/heading/macro.njk" import heading %}
-{% from "nhsuk/components/scroll/macro.njk" import scroll %}
+{% from "nhsuk/components/card/macro.njk" import card as nhsukCard %}
+{% from "nhsuk/components/heading/macro.njk" import heading as nhsukHeading %}
+{% from "nhsuk/components/scroll/macro.njk" import scroll as nhsukScroll %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/i18n.njk" import nhsukI18nAttributes %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
@@ -13,7 +13,7 @@
 {%- set classNamesCaption = "nhsuk-table__caption" -%}
 
 {#- Support caption as string (with deprecated options) #}
-{%- set captionOptions = params.caption if params.caption is mapping and params.caption is not escaped else {
+{%- set caption = params.caption if params.caption is mapping and params.caption is not escaped else {
   id: params.captionId,
   text: params.caption if params.caption is string else undefined,
   html: params.caption if params.caption is escaped else undefined,
@@ -68,7 +68,7 @@
   {% set classNames = classNames ~ " " ~ (params.classes or params.tableClasses) %}
 {% endif %}
 
-{%- set captionId = captionOptions.id | default(params.id ~ "-caption" if params.scroll and params.id else undefined) | default(("table-" ~ captionOptions.text | replace(" ", "-") | lower | truncate(40, true, "") ~ "-caption") if params.scroll and captionOptions.text else undefined) -%}
+{%- set captionId = caption.id | default(params.id ~ "-caption" if params.scroll and params.id else undefined) | default(("table-" ~ caption.text | replace(" ", "-") | lower | truncate(40, true, "") ~ "-caption") if params.scroll and caption.text else undefined) -%}
 {%- set captionVisuallyHiddenText = params.caption.visuallyHiddenText | default("Column headers are sortable" if "nhsuk-table--sortable" in classNames else undefined) %}
 
 {%- set attributesHtml %}
@@ -216,19 +216,19 @@
 
 {%- set tableHtml -%}
 <table {{- attributesHtml | safe }}>
-{% if captionOptions.text or captionOptions.html %}
-  {{ heading({
+{% if caption.text or caption.html %}
+  {{ nhsukHeading({
     id: captionId,
-    text: captionOptions.text,
-    html: captionOptions.html,
+    text: caption.text,
+    html: caption.html,
     visuallyHiddenText: "(" ~ captionVisuallyHiddenText ~ ")" if captionVisuallyHiddenText else undefined,
-    caption: captionOptions.caption,
-    size: captionOptions.size,
+    caption: caption.caption,
+    size: caption.size,
     sizes: ["s", "m", "l", "xl"],
     className: classNamesCaption,
     classPrefix: classNamesCaption ~ "--",
-    classes: captionOptions.classes,
-    attributes: captionOptions.attributes,
+    classes: caption.classes,
+    attributes: caption.attributes,
     element: "caption"
   }) | trim | indent(2) }}
 {% endif %}
@@ -318,7 +318,7 @@
 {%- endset %}
 
 {%- if params.scroll %}
-  {% set tableHtml = scroll({
+  {% set tableHtml = nhsukScroll({
     html: tableHtml,
     labelledBy: captionId,
     variant: variant
@@ -326,15 +326,15 @@
 {% endif %}
 
 {%- if params.card or params.panel %}
-  {%- set headingOptions = params.card.heading if params.card.heading is mapping and params.card.heading is not escaped else {
+  {%- set cardHeading = params.card.heading if params.card.heading is mapping and params.card.heading is not escaped else {
     text: params.card.heading if params.card.heading is string else params.heading,
     html: params.card.heading if params.card.heading is escaped else undefined,
     level: params.headingLevel
   } -%}
 
-  {%- call card({
+  {%- call nhsukCard({
     id: params.card.id,
-    heading: headingOptions,
+    heading: cardHeading,
     href: params.card.href,
     actions: params.card.actions,
     classes: params.panelClasses | default(params.card.classes),

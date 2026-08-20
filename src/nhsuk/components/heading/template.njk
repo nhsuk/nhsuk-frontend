@@ -1,4 +1,4 @@
-{% from "nhsuk/components/caption/macro.njk" import caption %}
+{% from "nhsuk/components/caption/macro.njk" import caption as nhsukCaption %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set classes for this component #}
@@ -40,7 +40,18 @@
   html: params.caption if params.caption is escaped else undefined
 } -%}
 
-{%- set hasCaption = headingCaption.text or headingCaption.html -%}
+{%- set caption = {
+  id: headingCaption.id,
+  element: headingCaption.element,
+  text: headingCaption.text,
+  html: headingCaption.html,
+  placement: headingCaption.placement,
+  size: headingCaption.size | default(size),
+  classes: headingCaption.classes,
+  attributes: headingCaption.attributes
+} %}
+
+{%- set hasCaption = caption.text or caption.html -%}
 
 {%- if caller or params.html or params.text %}
 {%- set innerText %}
@@ -61,19 +72,8 @@
   {% endif -%}
 {% endset %}
 
-{%- set captionHtml = caption({
-  id: headingCaption.id,
-  element: headingCaption.element,
-  text: headingCaption.text,
-  html: headingCaption.html,
-  placement: headingCaption.placement,
-  size: headingCaption.size | default(size),
-  classes: headingCaption.classes,
-  attributes: headingCaption.attributes
-}) if hasCaption %}
-
-{% if headingCaption.placement == "before" %}
-{{ captionHtml | safe | trim }}
+{% if caption.placement == "before" %}
+{{ nhsukCaption(caption) | safe | trim }}
 {% endif -%}
 
 {#- Determine type of element to use, if not explicitly set #}
@@ -92,8 +92,8 @@
   }) -}}
 
   {{- nhsukAttributes(params.attributes) }}>
-{% if headingCaption.placement == "start" or (hasCaption and not headingCaption.placement) %}
-  {{ captionHtml | safe | trim | indent(2) }}
+{% if caption.placement == "start" or (hasCaption and not caption.placement) %}
+  {{ nhsukCaption(caption) | safe | trim | indent(2) }}
 {% endif %}
 {% if params.visuallyHiddenText %}
   {% if caller %}
@@ -109,11 +109,11 @@
     {{- innerHtml | safe | trim | indent(2, true) }}
   {% endif %}
 {% endif %}
-{% if headingCaption.placement == "end" %}
-  {{ captionHtml | safe | trim | indent(2) }}
+{% if caption.placement == "end" %}
+  {{ nhsukCaption(caption) | safe | trim | indent(2) }}
 {% endif %}
 </{{ element }}>
-{% if headingCaption.placement == "after" %}
-{{ captionHtml | safe | trim }}
+{% if caption.placement == "after" %}
+{{ nhsukCaption(caption) | safe | trim }}
 {% endif %}
 {% endif %}

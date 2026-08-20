@@ -4,7 +4,7 @@
 {%- set classNames = "nhsuk-link" -%}
 
 {#- Support heading as string #}
-{%- set headingOptions = parent.params.heading if parent.params.heading is mapping and parent.params.heading is not escaped else {
+{%- set heading = parent.params.heading if parent.params.heading is mapping and parent.params.heading is not escaped else {
   text: parent.params.heading if parent.params.heading is string else undefined,
   html: parent.params.heading if parent.params.heading is escaped else undefined
 } -%}
@@ -56,10 +56,10 @@
   {%- elif params.text -%}
     {{- params.text | trim | indent(2) -}}
   {%- endif -%}
-  {%- if params.visuallyHiddenText or headingOptions.text or headingOptions.html -%}
+  {%- if params.visuallyHiddenText or heading.text or heading.html -%}
   <span class="nhsuk-u-visually-hidden">
     {%- if params.visuallyHiddenText %} {{ params.visuallyHiddenText }}{% endif -%}
-    {%- if headingOptions.text or headingOptions.html %} ({{ headingOptions.html | safe if headingOptions.html else headingOptions.text }}){% endif -%}
+    {%- if heading.text or heading.html %} ({{ heading.html | safe if heading.html else heading.text }}){% endif -%}
   </span>
   {%- endif -%}
 </{{ element }}>

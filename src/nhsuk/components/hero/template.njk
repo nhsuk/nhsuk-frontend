@@ -1,5 +1,5 @@
-{% from "nhsuk/components/heading/macro.njk" import heading %}
-{% from "nhsuk/components/images/macro.njk" import image %}
+{% from "nhsuk/components/heading/macro.njk" import heading as nhsukHeading %}
+{% from "nhsuk/components/images/macro.njk" import image as nhsukImage %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set classes for this component #}
@@ -69,7 +69,7 @@
           <span class="nhsuk-hero__arrow" aria-hidden="true"></span>
         {% endif %}
         {% if content.heading.text or content.heading.html %}
-          {{ heading({
+          {{ nhsukHeading({
             id: content.heading.id,
             text: content.heading.text,
             html: content.heading.html,
@@ -90,7 +90,7 @@
           </p>
         {% endif %}
         {% if content.image %}
-          {{ image(content.image) | trim | indent(10) }}
+          {{ nhsukImage(content.image) | trim | indent(10) }}
         {% endif %}
         </div>
       </div>
