@@ -1,0 +1,24 @@
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+@forward "../button";
+@forward "../input";
+
+////
+/// Stepper input component
+///
+/// @group components/stepper-input
+////
+
+@include nhsuk-exports("nhsuk/components/stepper-input") {
+  // Hide the buttons by default, JS removes this attribute
+  .nhsuk-stepper-input__step-down[hidden],
+  .nhsuk-stepper-input__step-up[hidden] {
+    display: none;
+  }
+
+  @include nhsuk-media-query($from: mobile) {
+    .nhsuk-stepper-input__input {
+      text-align: center;
+    }
+  }
+}
