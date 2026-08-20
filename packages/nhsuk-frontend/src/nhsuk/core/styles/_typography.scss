@@ -229,6 +229,23 @@ h6 + .nhsuk-caption--bottom,
   margin-bottom: nhsuk-spacing(3);
 }
 
+.nhsuk-label + .nhsuk-caption--bottom,
+.nhsuk-label-wrapper + .nhsuk-caption--bottom {
+  margin-top: nhsuk-spacing(-3, $adjustment: nhsuk-spacing(1));
+  margin-bottom: nhsuk-spacing(3);
+}
+
+.nhsuk-label:not(.nhsuk-label--m):not(.nhsuk-label--l):not(.nhsuk-label--xl) + .nhsuk-caption--bottom {
+  margin-top: 0;
+  margin-bottom: nhsuk-spacing(1);
+}
+
+.nhsuk-label-wrapper:has(.nhsuk-label:not(.nhsuk-label--m):not(.nhsuk-label--l):not(.nhsuk-label--xl))
+  + .nhsuk-caption--bottom {
+  margin-top: 0;
+  margin-bottom: nhsuk-spacing(1);
+}
+
 h1,
 .nhsuk-heading-xl,
 h2,
