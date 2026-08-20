@@ -5,61 +5,40 @@
 {%- set classNames = "nhsuk-label" -%}
 {%- set classNamesHeading = "nhsuk-label-wrapper" -%}
 
-{%- if params.size and
-  params.size in ["s", "m", "l", "xl"] and (
-    not params.classes or (
-      not "nhsuk-label--s" in params.classes and
-      not "nhsuk-label--m" in params.classes and
-      not "nhsuk-label--l" in params.classes and
-      not "nhsuk-label--xl" in params.classes
-    )
-  )
-%}
-  {% set classNames = classNames ~ " nhsuk-label--" ~ params.size %}
-{% endif %}
-
-{%- if params.classes %}
-  {% set classNames = classNames ~ " " ~ params.classes %}
-{% endif %}
-
-{%- if caller or params.html or params.text %}
-{%- set attributesHtml %}
-  {{- nhsukAttributes({
-    class: classNames,
-    id: {
-      value: params.id,
-      optional: true
-    },
+{%- set label = {
+  id: params.id,
+  text: params.text,
+  html: params.html,
+  size: params.size,
+  sizes: ["s", "m", "l", "xl"],
+  className: classNames,
+  classPrefix: classNames ~ "--",
+  classes: params.classes,
+  attributes: nhsukAttributes({
     for: {
       value: params.for,
       optional: true
     }
-  }) -}}
+  }) ~ nhsukAttributes(params.attributes),
+  element: "label"
+} -%}
 
-  {{- nhsukAttributes(params.attributes) -}}
-{% endset -%}
-
-{% set innerHtml %}
+{%- if caller or label.html or label.text %}
+{%- set innerHtml %}
 {% if caller %}
-  {{- caller() }}
-{% elif params.html %}
-  {{- params.html | safe }}
-{% elif params.text %}
-  {{- params.text }}
+  {%- call nhsukHeading(label) %}
+    {{- caller() }}
+  {%- endcall %}
+{% else %}
+  {{- nhsukHeading(label) | trim }}
 {% endif %}
 {% endset -%}
 
 {% if params.isPageHeading %}
-{% call nhsukHeading({
-  className: classNamesHeading
-}) %}
-  <label {{- attributesHtml | safe }}>
-    {{ innerHtml | safe | trim | indent(4) }}
-  </label>
-{%- endcall %}
-{% else %}
-<label {{- attributesHtml | safe }}>
+<h1 class="{{ classNamesHeading }}">
   {{ innerHtml | safe | trim | indent(2) }}
-</label>
+</h1>
+{% else %}
+  {{- innerHtml | safe | trim }}
 {% endif %}
 {% endif %}
