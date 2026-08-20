@@ -85,6 +85,7 @@
       {{ nhsukLabel({
         html: itemLabel.html | default(item.html),
         text: itemLabel.text | default(item.text),
+        visuallyHiddenText: itemLabel.visuallyHiddenText,
         id: itemLabel.id,
         for: itemId,
         classes: "nhsuk-radios__label" ~ (" " ~ itemLabel.classes if itemLabel.classes),
