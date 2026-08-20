@@ -1,5 +1,5 @@
-{% from "nhsuk/components/button/macro.njk" import button %}
-{% from "nhsuk/components/input/macro.njk" import input %}
+{% from "nhsuk/components/button/macro.njk" import button as nhsukButton %}
+{% from "nhsuk/components/input/macro.njk" import input as nhsukInput %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
 
 {#- Set classes for this component #}
@@ -32,7 +32,7 @@
 
 {%- set afterInputHtml %}
 {% if params.button not in ["", null, false] %}
-{{ button({
+{{ nhsukButton({
   html: params.button.html,
   text: params.button.text,
   ariaLabel: params.button.ariaLabel | default("Search"),
@@ -55,7 +55,7 @@
 {% endif -%}
 {% endset -%}
 
-{{ input({
+{{ nhsukInput({
   label: params.label,
   hint: params.hint,
   errorMessage: params.errorMessage,

@@ -1,4 +1,4 @@
-{% from "nhsuk/components/heading/macro.njk" import heading %}
+{% from "nhsuk/components/heading/macro.njk" import heading as nhsukHeading %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set classes for this component #}
@@ -45,7 +45,7 @@
     {% for navigation in row %}
       <div class="nhsuk-grid-column-{{ navigation.width | default(width, true) }}">
       {% if navigation.heading or navigation.title %}
-        {{ heading({
+        {{ nhsukHeading({
           id: navigation.heading.id,
           text: navigation.heading.text | default(navigation.title),
           html: navigation.heading.html,
