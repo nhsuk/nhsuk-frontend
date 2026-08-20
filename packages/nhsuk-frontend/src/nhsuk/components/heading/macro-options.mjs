@@ -66,6 +66,12 @@ const options = {
       'Allowed sizes for the heading – Defaults to `["xxs", "xs", "s", "m", "l", "xl"]`.',
     released: '10.6.0'
   },
+  headingLevel: {
+    type: 'integer',
+    required: false,
+    description: 'Optional alias for the heading `level` option.',
+    released: '10.6.1'
+  },
   level: {
     type: 'integer',
     required: false,

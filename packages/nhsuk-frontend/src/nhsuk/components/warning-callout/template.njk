@@ -3,7 +3,8 @@
 {#- Support heading as string (with deprecated options) #}
 {%- set heading = params.heading if params.heading is mapping and params.heading is not escaped else {
   text: params.heading if params.heading is string else undefined,
-  html: params.heading if params.heading is escaped else params.headingHtml
+  html: params.heading if params.heading is escaped else undefined,
+  level: params.headingLevel
 } -%}
 
 {%- set card = {
@@ -15,7 +16,7 @@
     visuallyHiddenText: heading.visuallyHiddenText | default(params.visuallyHiddenText) | default("Important", true)
       if heading.text and not ("Important" in heading.text or "important" in heading.text)
       else undefined,
-    level: heading.level | default(params.headingLevel) | default(3),
+    level: heading.level | default(heading.headingLevel) | default(3),
     classes: heading.classes | default(params.headingClasses),
     attributes: heading.attributes
   },

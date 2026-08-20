@@ -77,7 +77,7 @@
             caption: content.heading.caption,
             href: content.heading.href,
             size: content.heading.size | default("xl"),
-            level: content.heading.level,
+            level: content.heading.level | default(content.heading.headingLevel),
             classes: classNamesHeading ~ (" " ~ content.heading.classes if content.heading.classes),
             attributes: content.heading.attributes
           }) | trim | indent(10) }}

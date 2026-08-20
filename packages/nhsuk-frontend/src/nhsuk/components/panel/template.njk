@@ -33,7 +33,7 @@
     visuallyHiddenText: heading.visuallyHiddenText,
     caption: heading.caption,
     href: heading.href,
-    level: heading.level,
+    level: heading.level | default(heading.headingLevel),
     size: heading.size,
     sizes: ["m", "l", "xl"],
     className: classNamesHeading,

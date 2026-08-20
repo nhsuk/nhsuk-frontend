@@ -46,7 +46,7 @@
     text: heading.text,
     html: heading.html,
     visuallyHiddenText: heading.visuallyHiddenText,
-    level: heading.level | default(3),
+    level: heading.level | default(heading.headingLevel) | default(3),
     classes: heading.classes,
     attributes: heading.attributes
   },

@@ -107,7 +107,7 @@
   visuallyHiddenText: headingVisuallyHiddenText,
   caption: heading.caption,
   size: heading.size,
-  level: heading.level,
+  level: heading.level | default(heading.headingLevel),
   classes: heading.classes,
   attributes: heading.attributes
 }, {
