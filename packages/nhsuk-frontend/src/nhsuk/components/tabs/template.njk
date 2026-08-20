@@ -1,4 +1,4 @@
-{% from "nhsuk/components/heading/macro.njk" import heading %}
+{% from "nhsuk/components/heading/macro.njk" import heading as nhsukHeading %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set classes for this component #}
@@ -45,7 +45,7 @@
   }) -}}
 
   {{- nhsukAttributes(params.attributes) -}}>
-  {{ heading({
+  {{ nhsukHeading({
     text: params.visuallyHiddenText | default(params.title) | default("Contents"),
     level: 2,
     className: "nhsuk-tabs__heading"
