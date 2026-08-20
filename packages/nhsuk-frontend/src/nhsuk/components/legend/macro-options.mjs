@@ -52,10 +52,16 @@ const options = {
     description: 'Size of the legend – `"s"`, `"m"`, `"l"` or `"xl"`.',
     released: '10.2.0'
   },
+  headingLevel: {
+    type: 'integer',
+    required: false,
+    description: 'Optional legend heading level. Defaults to `1`.',
+    released: '10.6.1'
+  },
   isPageHeading: {
     type: 'boolean',
     required: false,
-    description: 'Whether the legend also acts as the heading for the page.',
+    description: 'Whether the legend also acts as a page heading.',
     released: '10.2.0'
   },
   classes: {
