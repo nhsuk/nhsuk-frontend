@@ -6,6 +6,12 @@ export const name = 'Legend'
  * @satisfies {{ [param: string]: MacroParam }}
  */
 const options = {
+  id: {
+    type: 'string',
+    required: false,
+    description: 'The ID of the legend.',
+    released: '10.6.1'
+  },
   text: {
     type: 'string',
     required: true,
@@ -27,6 +33,19 @@ const options = {
       'Not strictly a parameter but Nunjucks code convention. Using a `call` block enables you to call a macro with all the text inside the tag. This is helpful if you want to pass a lot of content into a macro. To use it, you will need to wrap the entire legend component in a `call` block.',
     released: '10.2.0'
   },
+  visuallyHiddenText: {
+    type: 'string',
+    required: false,
+    description: 'A visually hidden suffix added to the legend.',
+    released: '10.6.1'
+  },
+  caption: {
+    type: 'object',
+    required: false,
+    description: 'Optional caption for the legend.',
+    released: '10.6.1',
+    isComponent: true
+  },
   size: {
     type: 'string',
     required: false,
@@ -44,6 +63,13 @@ const options = {
     required: false,
     description: 'Classes to add to the legend.',
     released: '10.2.0'
+  },
+  attributes: {
+    type: 'object',
+    required: false,
+    description:
+      'HTML attributes (for example data attributes) to add to the legend.',
+    released: '10.6.1'
   }
 }
 

@@ -404,6 +404,19 @@ const fixtures = {
             }
           }
         }
+      },
+      {
+        description: "with id attribute on",
+        context: {
+          fieldset: {
+            legend: {
+              id: "custom-id"
+            }
+          }
+        },
+        options: {
+          hidden: true
+        }
       }
     ]
   },

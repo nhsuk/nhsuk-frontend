@@ -33,12 +33,15 @@
 
   {{- nhsukAttributes(params.attributes) }}>
   {{ nhsukLegend({
+    id: legend.id,
     text: legend.text,
     html: legend.html,
-    classes: legend.classes,
+    visuallyHiddenText: legend.visuallyHiddenText,
+    caption: legend.caption,
     size: legend.size,
     isPageHeading: legend.isPageHeading,
-    classes: legend.classes
+    classes: legend.classes,
+    attributes: legend.attributes
   }) | trim | indent(2) }}
 {% if caller %}
   {{- caller() }}
