@@ -15,6 +15,12 @@
   level: params.titleHeadingLevel
 } -%}
 
+{#- Support heading as string #}
+{%- set heading = params.heading if params.heading is mapping and params.heading is not escaped else {
+  text: params.heading if params.heading is string else undefined,
+  html: params.heading if params.heading is escaped else undefined
+} -%}
+
 {%- if params.classes %}
   {% set classNames = classNames ~ " " ~ params.classes %}
 {% endif %}
@@ -65,26 +71,26 @@
     }) | trim | indent(4) }}
   </div>
   <div class="nhsuk-notification-banner__content">
-  {% if params.heading %}
+  {% if heading.text or heading.html %}
     {{ nhsukHeading({
-      id: params.heading.id,
-      text: params.heading.text,
-      html: params.heading.html,
-      visuallyHiddenText: params.heading.visuallyHiddenText,
-      caption: params.heading.caption,
-      href: params.heading.href,
-      level: params.heading.level | default(3),
+      id: heading.id,
+      text: heading.text,
+      html: heading.html,
+      visuallyHiddenText: heading.visuallyHiddenText,
+      caption: heading.caption,
+      href: heading.href,
+      level: heading.level | default(3),
       className: "nhsuk-notification-banner__heading",
-      classes: params.heading.classes,
-      attributes: params.heading.attributes,
-      element: params.heading.element
+      classes: heading.classes,
+      attributes: heading.attributes,
+      element: heading.element
     }) | trim | indent(4) }}
   {% endif %}
   {% if caller %}
     {{- caller() }}
   {% elif params.html %}
     {{ params.html | safe | trim | indent(4) }}
-  {% elif params.text and not params.heading %}
+  {% elif params.text and not (heading.text or heading.html) %}
     <p class="nhsuk-notification-banner__heading">
       {{ params.text | trim | indent(6) }}
     </p>
