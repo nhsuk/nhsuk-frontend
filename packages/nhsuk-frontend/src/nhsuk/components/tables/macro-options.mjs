@@ -250,6 +250,13 @@ const options = {
           'Message made available to assistive technologies to describe that the table is sortable. Defaults to `"Column headers are sortable"`.',
         released: '10.6.0'
       },
+      caption: {
+        type: 'object',
+        required: false,
+        description: 'Optional caption for the table caption.',
+        released: '10.6.0',
+        isComponent: true
+      },
       size: {
         type: 'string',
         required: false,

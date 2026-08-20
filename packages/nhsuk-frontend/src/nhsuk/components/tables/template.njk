@@ -14,11 +14,16 @@
 
 {#- Support caption as string (with deprecated options) #}
 {%- set caption = params.caption if params.caption is mapping and params.caption is not escaped else {
-  id: params.captionId,
   text: params.caption if params.caption is string else undefined,
   html: params.caption if params.caption is escaped else undefined,
   size: params.captionSize,
   classes: params.captionClasses
+} -%}
+
+{#- Support heading caption as string #}
+{%- set headingCaption = caption.caption if caption.caption is mapping and caption.caption is not escaped else {
+  text: caption.caption if caption.caption is string else undefined,
+  html: caption.caption if caption.caption is escaped else undefined
 } -%}
 
 {%- if variant == "reverse" and (
@@ -222,7 +227,16 @@
     text: caption.text,
     html: caption.html,
     visuallyHiddenText: "(" ~ captionVisuallyHiddenText ~ ")" if captionVisuallyHiddenText else undefined,
-    caption: caption.caption,
+    caption: {
+      id: headingCaption.id,
+      text: headingCaption.text,
+      html: headingCaption.html,
+      placement: headingCaption.placement if not headingCaption.placement or
+        headingCaption.placement in ["start", "end"] else undefined,
+      size: headingCaption.size | default(caption.size),
+      classes: headingCaption.classes,
+      attributes: headingCaption.attributes
+    },
     size: caption.size,
     sizes: ["s", "m", "l", "xl"],
     className: classNamesCaption,
