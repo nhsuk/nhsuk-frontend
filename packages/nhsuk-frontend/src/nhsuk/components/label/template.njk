@@ -6,6 +6,10 @@
 {%- set classNames = "nhsuk-label" -%}
 {%- set classNamesHeading = "nhsuk-label-wrapper" -%}
 
+{#- Set heading level default (optional) #}
+{%- set headingLevel = params.level | default(params.headingLevel, true) -%}
+{%- set hasHeading = params.isPageHeading or (params.isPageHeading != false and headingLevel) -%}
+
 {#- Support heading caption as string #}
 {%- set headingCaption = params.caption if params.caption is mapping and params.caption is not escaped else {
   text: params.caption if params.caption is string else undefined,
@@ -59,10 +63,13 @@
 {{ nhsukCaption(caption) | safe | trim }}
 {% endif -%}
 
+{#- Determine type of element to use #}
+{%- set element = "h" ~ headingLevel | default("1", true) -%}
+
 {% if hasHeading %}
-<h1 class="{{ classNamesHeading }}">
+<{{ element }} class="{{ classNamesHeading }}">
   {{ innerHtml | safe | trim | indent(2) }}
-</h1>
+</{{ element }}>
 {% else %}
   {{- innerHtml | safe | trim }}
 {% endif %}

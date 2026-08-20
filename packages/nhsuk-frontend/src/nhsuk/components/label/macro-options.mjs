@@ -53,10 +53,16 @@ const options = {
       'The value of the `for` attribute, the ID of the input the label is associated with.',
     released: '1.0.0'
   },
+  headingLevel: {
+    type: 'integer',
+    required: false,
+    description: 'Optional label heading level. Defaults to `1`.',
+    released: '10.6.1'
+  },
   isPageHeading: {
     type: 'boolean',
     required: false,
-    description: 'Whether the label also acts as the heading for the page.',
+    description: 'Whether the label also acts as a page heading.',
     released: '1.0.0'
   },
   size: {

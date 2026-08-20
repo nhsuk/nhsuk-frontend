@@ -94,6 +94,7 @@
     for: label.for | default(id),
     size: label.size,
     isPageHeading: label.isPageHeading,
+    headingLevel: label.headingLevel | default(label.level),
     classes: label.classes,
     attributes: label.attributes
   }) | trim | indent(2) }}
