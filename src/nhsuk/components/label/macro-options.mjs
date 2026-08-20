@@ -33,6 +33,19 @@ const options = {
       'Not strictly a parameter but Nunjucks code convention. Using a `call` block enables you to call a macro with all the text inside the tag. This is helpful if you want to pass a lot of content into a macro. To use it, you will need to wrap the entire label component in a `call` block.',
     released: '10.2.0'
   },
+  visuallyHiddenText: {
+    type: 'string',
+    required: false,
+    description: 'A visually hidden suffix added to the label.',
+    released: '10.6.1'
+  },
+  caption: {
+    type: 'object',
+    required: false,
+    description: 'Optional caption for the label.',
+    released: '10.6.1',
+    isComponent: true
+  },
   for: {
     type: 'string',
     required: false,

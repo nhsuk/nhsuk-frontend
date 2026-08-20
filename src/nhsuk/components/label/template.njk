@@ -1,3 +1,4 @@
+{% from "nhsuk/components/caption/macro.njk" import caption as nhsukCaption %}
 {% from "nhsuk/components/heading/macro.njk" import heading as nhsukHeading %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
@@ -5,10 +6,30 @@
 {%- set classNames = "nhsuk-label" -%}
 {%- set classNamesHeading = "nhsuk-label-wrapper" -%}
 
+{#- Support heading caption as string #}
+{%- set headingCaption = params.caption if params.caption is mapping and params.caption is not escaped else {
+  text: params.caption if params.caption is string else undefined,
+  html: params.caption if params.caption is escaped else undefined
+} -%}
+
+{#- Limit heading caption to allowed options only #}
+{%- set caption = {
+  id: headingCaption.id,
+  text: headingCaption.text,
+  html: headingCaption.html,
+  placement: headingCaption.placement,
+  size: headingCaption.size | default(params.size),
+  classes: headingCaption.classes,
+  attributes: headingCaption.attributes,
+  element: headingCaption.element
+} -%}
+
 {%- set label = {
   id: params.id,
   text: params.text,
   html: params.html,
+  visuallyHiddenText: params.visuallyHiddenText,
+  caption: caption if not caption.placement or caption.placement in ["start", "end"] else undefined,
   size: params.size,
   sizes: ["s", "m", "l", "xl"],
   className: classNames,
@@ -34,11 +55,18 @@
 {% endif %}
 {% endset -%}
 
-{% if params.isPageHeading %}
+{% if caption.placement == "before" %}
+{{ nhsukCaption(caption) | safe | trim }}
+{% endif -%}
+
+{% if hasHeading %}
 <h1 class="{{ classNamesHeading }}">
   {{ innerHtml | safe | trim | indent(2) }}
 </h1>
 {% else %}
   {{- innerHtml | safe | trim }}
+{% endif %}
+{% if caption.placement == "after" %}
+{{ nhsukCaption(caption) | safe | trim }}
 {% endif %}
 {% endif %}

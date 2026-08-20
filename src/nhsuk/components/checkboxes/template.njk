@@ -99,6 +99,7 @@
       {{ nhsukLabel({
         html: itemLabel.html | default(item.html),
         text: itemLabel.text | default(item.text),
+        visuallyHiddenText: itemLabel.visuallyHiddenText,
         id: itemLabel.id,
         for: itemId,
         classes: "nhsuk-checkboxes__label" ~ (" " ~ itemLabel.classes if itemLabel.classes),

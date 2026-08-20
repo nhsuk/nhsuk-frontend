@@ -93,6 +93,7 @@
     label: {
       html: itemLabel.html,
       text: itemLabel.text | default(itemName | capitalize),
+      visuallyHiddenText: itemLabel.visuallyHiddenText,
       id: itemLabel.id,
       for: itemLabel.for,
       classes: "nhsuk-date-input__label" ~ (" " ~ itemLabel.classes if itemLabel.classes),
