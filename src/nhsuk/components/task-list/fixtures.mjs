@@ -12,20 +12,28 @@ const fixtures = {
           heading: {
             text: "Exercise"
           },
-          href: "#",
+          href: "#/task/exercise",
           status: {
-            text: "Completed",
-            classes: "nhsuk-task-list__status--completed"
+            tag: {
+              text: "Completed",
+              border: false,
+              colour: false,
+              classes: "nhsuk-u-font-weight-normal"
+            }
           }
         },
         {
           heading: {
             text: "Personal health"
           },
-          href: "#",
+          href: "#/task/personal-health",
           status: {
-            text: "Completed",
-            classes: "nhsuk-task-list__status--completed"
+            tag: {
+              text: "Completed",
+              border: false,
+              colour: false,
+              classes: "nhsuk-u-font-weight-normal"
+            }
           }
         },
         {
@@ -35,7 +43,7 @@ const fixtures = {
           hint: {
             text: "Details of your parents, brothers and sisters"
           },
-          href: "#",
+          href: "#/task/family-health-history",
           status: {
             tag: {
               text: "Incomplete",
@@ -47,7 +55,7 @@ const fixtures = {
           heading: {
             text: "Smoking history"
           },
-          href: "#",
+          href: "#/task/smoking-history",
           status: {
             tag: {
               text: "Incomplete",
@@ -60,8 +68,13 @@ const fixtures = {
             text: "Blood test"
           },
           status: {
-            text: "Cannot start yet",
-            classes: "nhsuk-task-list__status--cannot-start-yet"
+            tag: {
+              text: "Cannot start yet",
+              border: false,
+              colour: false,
+              classes:
+                "nhsuk-u-font-weight-normal nhsuk-u-secondary-text-colour"
+            }
           }
         }
       ]
@@ -78,7 +91,83 @@ const fixtures = {
           title: {
             text: "Exercise"
           },
-          href: "#",
+          href: "#/task/exercise",
+          status: {
+            tag: {
+              text: "Completed",
+              border: false,
+              colour: false,
+              classes: "nhsuk-u-font-weight-normal"
+            }
+          }
+        },
+        {
+          title: {
+            text: "Personal health"
+          },
+          href: "#/task/personal-health",
+          status: {
+            tag: {
+              text: "Completed",
+              border: false,
+              colour: false,
+              classes: "nhsuk-u-font-weight-normal"
+            }
+          }
+        },
+        {
+          title: {
+            text: "Family health history"
+          },
+          hint: {
+            text: "Details of your parents, brothers and sisters"
+          },
+          href: "#/task/family-health-history",
+          status: {
+            tag: {
+              text: "Incomplete",
+              colour: "blue"
+            }
+          }
+        },
+        {
+          title: {
+            text: "Smoking history"
+          },
+          href: "#/task/smoking-history",
+          status: {
+            tag: {
+              text: "Incomplete",
+              colour: "blue"
+            }
+          }
+        },
+        {
+          title: {
+            text: "Blood test"
+          },
+          status: {
+            tag: {
+              text: "Cannot start yet",
+              border: false,
+              colour: false,
+              classes:
+                "nhsuk-u-font-weight-normal nhsuk-u-secondary-text-colour"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "with deprecated status classes": {
+    context: {
+      idPrefix: "your-health",
+      items: [
+        {
+          title: {
+            text: "Exercise"
+          },
+          href: "#/task/exercise",
           status: {
             text: "Completed",
             classes: "nhsuk-task-list__status--completed"
@@ -88,7 +177,7 @@ const fixtures = {
           title: {
             text: "Personal health"
           },
-          href: "#",
+          href: "#/task/personal-health",
           status: {
             text: "Completed",
             classes: "nhsuk-task-list__status--completed"
@@ -101,7 +190,7 @@ const fixtures = {
           hint: {
             text: "Details of your parents, brothers and sisters"
           },
-          href: "#",
+          href: "#/task/family-health-history",
           status: {
             tag: {
               text: "Incomplete",
@@ -113,7 +202,7 @@ const fixtures = {
           title: {
             text: "Smoking history"
           },
-          href: "#",
+          href: "#/task/smoking-history",
           status: {
             tag: {
               text: "Incomplete",
@@ -139,24 +228,32 @@ const fixtures = {
       items: [
         {
           heading: "Exercise",
-          href: "#",
+          href: "#/task/exercise",
           status: {
-            text: "Completed",
-            classes: "nhsuk-task-list__status--completed"
+            tag: {
+              text: "Completed",
+              border: false,
+              colour: false,
+              classes: "nhsuk-u-font-weight-normal"
+            }
           }
         },
         {
           heading: "Personal health",
-          href: "#",
+          href: "#/task/personal-health",
           status: {
-            text: "Completed",
-            classes: "nhsuk-task-list__status--completed"
+            tag: {
+              text: "Completed",
+              border: false,
+              colour: false,
+              classes: "nhsuk-u-font-weight-normal"
+            }
           }
         },
         {
           heading: "Family health history",
           hint: "Details of your parents, brothers and sisters",
-          href: "#",
+          href: "#/task/family-health-history",
           status: {
             tag: {
               text: "Incomplete",
@@ -166,7 +263,7 @@ const fixtures = {
         },
         {
           heading: "Smoking history",
-          href: "#",
+          href: "#/task/smoking-history",
           status: {
             tag: {
               text: "Incomplete",
@@ -177,8 +274,13 @@ const fixtures = {
         {
           heading: "Blood test",
           status: {
-            text: "Cannot start yet",
-            classes: "nhsuk-task-list__status--cannot-start-yet"
+            tag: {
+              text: "Cannot start yet",
+              border: false,
+              colour: false,
+              classes:
+                "nhsuk-u-font-weight-normal nhsuk-u-secondary-text-colour"
+            }
           }
         }
       ]
@@ -214,20 +316,28 @@ const fixtures = {
           heading: {
             text: "Exercise"
           },
-          href: "#",
+          href: "#/task/exercise",
           status: {
-            text: "Completed",
-            classes: "nhsuk-task-list__status--completed"
+            tag: {
+              text: "Completed",
+              border: false,
+              colour: false,
+              classes: "nhsuk-u-font-weight-normal"
+            }
           }
         },
         {
           heading: {
             text: "Personal health"
           },
-          href: "#",
+          href: "#/task/personal-health",
           status: {
-            text: "Completed",
-            classes: "nhsuk-task-list__status--completed"
+            tag: {
+              text: "Completed",
+              border: false,
+              colour: false,
+              classes: "nhsuk-u-font-weight-normal"
+            }
           }
         },
         false,
@@ -236,7 +346,7 @@ const fixtures = {
           heading: {
             text: "Blood test"
           },
-          href: "#",
+          href: "#/task/blood-test",
           status: {
             tag: {
               text: "Incomplete",
