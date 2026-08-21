@@ -19,6 +19,12 @@ const fixtures = {
       viewports: ["mobile", "tablet", "desktop"]
     }
   },
+  "with heading as string": {
+    context: {
+      heading: "Booking complete",
+      text: "We have sent you a confirmation email"
+    }
+  },
   "with HTML": {
     context: {
       heading: {
@@ -106,7 +112,7 @@ const fixtures = {
       `
     }
   },
-  "title": {
+  "heading": {
     context: {
       heading: {
         text: "Booking complete",
@@ -138,15 +144,43 @@ const fixtures = {
             size: "xl"
           }
         }
+      },
+      {
+        description: "with id attribute on",
+        context: {
+          heading: {
+            id: "custom-id"
+          }
+        },
+        options: {
+          hidden: true
+        }
       }
     ]
   },
-  "with title classes and heading level": {
+  "with heading classes": {
     context: {
       heading: {
         text: "Booking complete",
-        level: 2,
-        classes: "nhsuk-panel__title--l"
+        classes: "nhsuk-panel__heading--l"
+      },
+      text: "We have sent you a confirmation email"
+    }
+  },
+  "with heading level 1": {
+    context: {
+      heading: {
+        text: "Booking complete",
+        level: 1
+      },
+      text: "We have sent you a confirmation email"
+    }
+  },
+  "with heading level 2": {
+    context: {
+      heading: {
+        text: "Booking complete",
+        level: 2
       },
       text: "We have sent you a confirmation email"
     }

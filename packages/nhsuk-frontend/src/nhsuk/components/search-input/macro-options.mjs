@@ -19,6 +19,20 @@ const options = {
       'The name of the input, which is submitted with the form data.',
     released: '10.5.0'
   },
+  type: {
+    type: 'string',
+    required: false,
+    description:
+      'Type of input control, for example, an email input control. Defaults to `"search"`.',
+    released: '10.5.0'
+  },
+  inputmode: {
+    type: 'string',
+    required: false,
+    description:
+      'Optional value for [the `inputmode` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode).',
+    released: '10.5.0'
+  },
   value: {
     type: 'string',
     required: false,
@@ -232,11 +246,24 @@ const options = {
       'Attribute to meet [WCAG success criterion 1.3.5: Identify input purpose](https://www.w3.org/WAI/WCAG22/Understanding/identify-input-purpose.html), for instance `"bday-day"`. See the [Autofill section in the HTML standard](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill) for a full list of attributes that can be used. Default is `"off"`.',
     released: '10.5.0'
   },
-  pattern: {
+  placeholder: {
+    type: 'string',
+    required: false,
+    description: 'Attribute to provide placeholder text for the search input.',
+    released: '10.5.0'
+  },
+  spellcheck: {
+    type: 'boolean',
+    required: false,
+    description:
+      'Optional field to enable or disable the `spellcheck` attribute on the search input.',
+    released: '10.5.0'
+  },
+  autocapitalize: {
     type: 'string',
     required: false,
     description:
-      'Attribute to provide a regular expression pattern, used to match allowed character combinations for the input value.',
+      'Optional field to enable or disable autocapitalisation of user input. See the [Autocapitalization section in the HTML standard](https://html.spec.whatwg.org/multipage/interaction.html#autocapitalization) for a full list of values that can be used.',
     released: '10.5.0'
   },
   inputWrapper: {

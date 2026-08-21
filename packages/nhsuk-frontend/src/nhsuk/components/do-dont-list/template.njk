@@ -1,8 +1,8 @@
-{% from "nhsuk/components/card/macro.njk" import card %}
+{% from "nhsuk/components/card/macro.njk" import card as nhsukCard %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
 
 {#- Support heading as string (with deprecated options) #}
-{%- set headingOptions = params.heading if params.heading is mapping and params.heading is not escaped else {
+{%- set heading = params.heading if params.heading is mapping and params.heading is not escaped else {
   text: params.heading if params.heading is string else params.title,
   html: params.heading if params.heading is escaped else undefined,
   level: params.headingLevel
@@ -39,16 +39,16 @@
 </ul>
 {% endset -%}
 
-{{ card({
+{{ nhsukCard({
   id: params.id,
   heading: {
-    id: headingOptions.id,
-    text: headingOptions.text,
-    html: headingOptions.html,
-    visuallyHiddenText: headingOptions.visuallyHiddenText,
-    level: headingOptions.level | default(3),
-    classes: headingOptions.classes,
-    attributes: headingOptions.attributes
+    id: heading.id,
+    text: heading.text,
+    html: heading.html,
+    visuallyHiddenText: heading.visuallyHiddenText,
+    level: heading.level | default(heading.headingLevel) | default(3),
+    classes: heading.classes,
+    attributes: heading.attributes
   },
   description: {
     html: listHtml

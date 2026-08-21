@@ -1,23 +1,24 @@
-{% from "nhsuk/components/card/macro.njk" import card %}
+{% from "nhsuk/components/card/macro.njk" import card as nhsukCard %}
 
 {#- Support heading as string (with deprecated options) #}
-{%- set headingOptions = params.heading if params.heading is mapping and params.heading is not escaped else {
+{%- set heading = params.heading if params.heading is mapping and params.heading is not escaped else {
   text: params.heading if params.heading is string else undefined,
-  html: params.heading if params.heading is escaped else params.headingHtml
+  html: params.heading if params.heading is escaped else undefined,
+  level: params.headingLevel
 } -%}
 
-{%- set cardOptions = {
+{%- set card = {
   id: params.id,
   heading: {
-    id: headingOptions.id,
-    text: headingOptions.text,
-    html: headingOptions.html,
-    visuallyHiddenText: headingOptions.visuallyHiddenText | default(params.visuallyHiddenText) | default("Important", true)
-      if headingOptions.text and not ("Important" in headingOptions.text or "important" in headingOptions.text)
+    id: heading.id,
+    text: heading.text,
+    html: heading.html,
+    visuallyHiddenText: heading.visuallyHiddenText | default(params.visuallyHiddenText) | default("Important", true)
+      if heading.text and not ("Important" in heading.text or "important" in heading.text)
       else undefined,
-    level: headingOptions.level | default(params.headingLevel) | default(3),
-    classes: headingOptions.classes | default(params.headingClasses),
-    attributes: headingOptions.attributes
+    level: heading.level | default(heading.headingLevel) | default(3),
+    classes: heading.classes | default(params.headingClasses),
+    attributes: heading.attributes
   },
   description: {
     text: params.text,
@@ -30,9 +31,9 @@
 } -%}
 
 {% if caller %}
-  {%- call card(cardOptions) %}
+  {%- call nhsukCard(card) %}
     {{- caller() }}
   {%- endcall %}
 {% else %}
-  {{- card(cardOptions) | trim }}
+  {{- nhsukCard(card) | trim }}
 {% endif %}

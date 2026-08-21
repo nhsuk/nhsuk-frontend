@@ -196,7 +196,7 @@ Type: object
 Message displayed when the number of characters is over the configured maximum,
 `maxlength`. This message is displayed visually and through assistive
 technologies. The component will replace the `%{count}` placeholder with the
-number of remaining characters. This is a [pluralised list of
+number of characters above the maximum. This is a [pluralised list of
 messages](./localisation.md).
 
 Default:

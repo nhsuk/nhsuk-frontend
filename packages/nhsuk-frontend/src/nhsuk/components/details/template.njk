@@ -7,7 +7,7 @@
 {%- set classNames = "nhsuk-details" -%}
 
 {#- Support summary as string (with deprecated options) #}
-{%- set summaryOptions = params.summary if params.summary is mapping and params.summary is not escaped else {
+{%- set summary = params.summary if params.summary is mapping and params.summary is not escaped else {
   text: params.summary if params.summary is string else params.summaryText,
   html: params.summary if params.summary is escaped else params.summaryHtml
 } -%}
@@ -22,13 +22,13 @@
 
 <details class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
   {{- nhsukAttributes(params.attributes) }} {{- " open" if params.open }}>
-  <summary class="nhsuk-details__summary {%- if summaryOptions.classes %} {{ summaryOptions.classes }}{% endif %}"
-    {{- nhsukAttributes(summaryOptions.attributes) }}>
+  <summary class="nhsuk-details__summary {%- if summary.classes %} {{ summary.classes }}{% endif %}"
+    {{- nhsukAttributes(summary.attributes) }}>
     <span class="nhsuk-details__summary-text">
-    {% if summaryOptions.html %}
-      {{ summaryOptions.html | safe | trim | indent(6) }}
-    {% elif summaryOptions.text %}
-      {{ summaryOptions.text | trim | indent(6) }}
+    {% if summary.html %}
+      {{ summary.html | safe | trim | indent(6) }}
+    {% elif summary.text %}
+      {{ summary.text | trim | indent(6) }}
     {% endif %}
     </span>
   </summary>

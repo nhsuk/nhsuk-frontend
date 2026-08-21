@@ -140,6 +140,81 @@ const fixtures = {
       viewports: ["mobile", "tablet", "desktop"]
     }
   },
+  "with actions array": {
+    context: {
+      rows: [
+        {
+          key: {
+            text: "Name"
+          },
+          value: {
+            text: "Karen Francis"
+          },
+          actions: [
+            {
+              href: "#/change",
+              text: "Change",
+              visuallyHiddenText: "name"
+            }
+          ]
+        },
+        {
+          key: {
+            text: "Date of birth"
+          },
+          value: {
+            text: "15 March 1984"
+          },
+          actions: [
+            {
+              href: "#/change",
+              text: "Change",
+              visuallyHiddenText: "date of birth"
+            }
+          ]
+        },
+        {
+          key: {
+            text: "Contact information"
+          },
+          value: {
+            html: outdent`
+              73 Roman Rd<br>
+              Leeds<br>
+              LS2 5ZN
+            `
+          },
+          actions: {
+            items: [
+              {
+                href: "#/change",
+                text: "Change",
+                visuallyHiddenText: "contact information"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Contact details"
+          },
+          value: {
+            html: outdent`
+              <p>07700 900362</p>
+              <p>karen.francis@example.com</p>
+            `
+          },
+          actions: [
+            {
+              href: "#/change",
+              text: "Change",
+              visuallyHiddenText: "contact details"
+            }
+          ]
+        }
+      ]
+    }
+  },
   "with actions as buttons": {
     context: {
       rows: [
@@ -564,6 +639,20 @@ const fixtures = {
           value: {
             text: "15 March 1984"
           }
+        }
+      ]
+    }
+  },
+  "with item strings": {
+    context: {
+      rows: [
+        {
+          key: "Name",
+          value: "Karen Francis"
+        },
+        {
+          key: "Date of birth",
+          value: "15 March 1984"
         }
       ]
     }

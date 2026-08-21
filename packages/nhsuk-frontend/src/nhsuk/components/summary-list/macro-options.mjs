@@ -263,6 +263,19 @@ const options = {
       }
     }
   },
+  html: {
+    type: 'string',
+    required: false,
+    description: 'HTML to use within the summary list.',
+    released: '10.6.0'
+  },
+  caller: {
+    type: 'nunjucks-block',
+    required: false,
+    description:
+      'Not strictly an option but supports the [`call` block](https://mozilla.github.io/nunjucks/templating.html#call) as an alternative to the `html` option. To use it, you will need to wrap the entire summary list component in a `call` block.',
+    released: '10.6.0'
+  },
   card: {
     type: 'object',
     required: false,

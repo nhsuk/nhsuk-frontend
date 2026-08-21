@@ -59,6 +59,12 @@ const options = {
         description: 'Optional heading level for the title. Defaults to `2`.',
         released: '10.6.0'
       },
+      headingLevel: {
+        type: 'integer',
+        required: false,
+        description: 'Optional alias for the title heading `level` option.',
+        released: '10.6.1'
+      },
       classes: {
         type: 'string',
         required: false,
@@ -96,7 +102,7 @@ const options = {
     deprecated: '10.6.0'
   },
   titleHeadingLevel: {
-    type: 'string',
+    type: 'integer',
     required: false,
     description: 'Replaced by the `title.level` option.',
     released: '10.0.0',
@@ -105,7 +111,7 @@ const options = {
   heading: {
     type: 'object',
     required: false,
-    description: 'Heading to be used withing the warning callout.',
+    description: 'Heading to be used within the notification banner.',
     released: '10.6.0',
     isComponent: true,
     params: {
@@ -194,7 +200,7 @@ const options = {
     type: 'nunjucks-block',
     required: false,
     description:
-      'Not strictly a parameter but [Nunjucks code convention](https://mozilla.github.io/nunjucks/templating.html#call). Using a `call` block enables you to call a macro with all the text inside the tag. This is helpful if you want to pass a lot of content into a macro. To use it, you will need to wrap the entire notification banner component in a `call` block.',
+      'Not strictly an option but supports the [`call` block](https://mozilla.github.io/nunjucks/templating.html#call) as an alternative to the `html` option. To use it, you will need to wrap the entire notification banner component in a `call` block.',
     released: '10.0.0'
   },
   variant: {

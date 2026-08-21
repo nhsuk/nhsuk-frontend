@@ -32,6 +32,16 @@ const fixtures = {
       `
     }
   },
+  "with HTML and heading as string": {
+    context: {
+      heading: "The patient record was updated",
+      html: outdent`
+        <p class="nhsuk-body">
+          Contact <a class="nhsuk-notification-banner__link" href="#">example@nhs.uk</a> if you think there's a problem.
+        </p>
+      `
+    }
+  },
   "with HTML via call block": {
     context: {
       heading: {
@@ -49,6 +59,12 @@ const fixtures = {
       title: {
         text: "Important information"
       },
+      text: "The patient record was updated."
+    }
+  },
+  "with custom title as string": {
+    context: {
+      title: "Important information",
       text: "The patient record was updated."
     }
   },

@@ -73,6 +73,13 @@ const options = {
     released: '1.0.0',
     deprecated: '10.6.0'
   },
+  headingClasses: {
+    type: 'string',
+    required: false,
+    description: 'Replaced by the `heading.classes` option.',
+    released: '10.3.0',
+    deprecated: '10.6.0'
+  },
   text: {
     type: 'string',
     required: true,
@@ -85,11 +92,102 @@ const options = {
     description: 'HTML content to be used within the warning callout.',
     released: '9.5.0'
   },
+  actions: {
+    type: 'object',
+    required: false,
+    description: 'Can be used to add actions to the warning callout.',
+    released: '10.3.0',
+    params: {
+      items: {
+        type: 'array',
+        required: false,
+        description:
+          'Array of actions as links for use in the warning callout.',
+        released: '10.3.0',
+        params: {
+          id: {
+            type: 'string',
+            required: false,
+            description: 'The ID of the action item.',
+            released: '10.6.0'
+          },
+          text: {
+            type: 'string',
+            required: true,
+            description:
+              'If `html` is set, this is not required. Text to use within each action item. If `html` is provided, the `text` option will be ignored.',
+            released: '10.3.0'
+          },
+          html: {
+            type: 'string',
+            required: true,
+            description:
+              'If `text` is set, this is not required. HTML to use within each action item. If `html` is provided, the `text` option will be ignored.',
+            released: '10.3.0'
+          },
+          visuallyHiddenText: {
+            type: 'string',
+            required: false,
+            description:
+              'Actions rely on context from the surrounding content so may require additional accessible text. Text supplied to this option is appended to the end. Use `html` for more complicated scenarios.',
+            released: '10.3.0'
+          },
+          name: {
+            type: 'string',
+            required: false,
+            description:
+              'Name for the `button`. This has no effect on `a` elements.',
+            released: '10.6.0'
+          },
+          type: {
+            type: 'string',
+            required: false,
+            description:
+              'Type of `button` – `"button"`, `"submit"` or `"reset"`. Defaults to `"submit"`. This has no effect on `a` elements.',
+            released: '10.6.0'
+          },
+          value: {
+            type: 'string',
+            required: false,
+            description:
+              'The `value` attribute for the `button`. This has no effect on `a` elements.',
+            released: '10.6.0'
+          },
+          href: {
+            type: 'string',
+            required: true,
+            description:
+              'The URL that the action item should link to. If this is set, `element` will be automatically set to `"a"` if it has not already been defined.',
+            released: '10.3.0'
+          },
+          classes: {
+            type: 'string',
+            required: false,
+            description: 'Classes to add to the action item.',
+            released: '10.3.0'
+          },
+          attributes: {
+            type: 'object',
+            required: false,
+            description:
+              'HTML attributes (for example data attributes) to add to the action item.',
+            released: '10.3.0'
+          }
+        }
+      },
+      classes: {
+        type: 'string',
+        required: false,
+        description: 'Classes to add to the actions wrapper.',
+        released: '10.3.0'
+      }
+    }
+  },
   caller: {
     type: 'nunjucks-block',
     required: false,
     description:
-      'Not strictly a parameter but a Nunjucks code convention. Using a `call` block enables you to call a macro with all the text inside the tag. This is helpful if you want to pass a lot of content into a macro. To use it, you will need to wrap the entire warning callout component in a `call` block.',
+      'Not strictly an option but supports the [`call` block](https://mozilla.github.io/nunjucks/templating.html#call) as an alternative to the `html` option. To use it, you will need to wrap the entire warning callout component in a `call` block.',
     released: '9.5.0'
   },
   classes: {

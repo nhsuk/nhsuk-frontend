@@ -1,4 +1,4 @@
-{% from "nhsuk/components/back-link/macro.njk" import backLink %}
+{% from "nhsuk/components/back-link/macro.njk" import backLink as nhsukBackLink %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set variant for this component #}
@@ -47,7 +47,7 @@
   {% set lastText = lastItem.text %}
 {% endif %}
   </ol>
-  {{ backLink({
+  {{ nhsukBackLink({
     id: params.backLink.id,
     visuallyHiddenText: params.backLink.visuallyHiddenText | default("Back to"),
     text: params.backLink.text if (params.backLink.html or params.backLink.text) else lastText,
@@ -58,5 +58,5 @@
     attributes: params.backLink.attributes | default(lastItem.attributes),
     variant: params.backLink.variant | default(variant),
     element: params.backLink.element
-  }) | indent(2) }}
+  }) | trim | indent(2) }}
 </nav>

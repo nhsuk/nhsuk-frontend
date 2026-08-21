@@ -838,141 +838,6 @@
         ]
       }) }}
 
-      {{ table({
-        head: [
-          {
-            text: "Class name",
-            width: "two-thirds"
-          },
-          {
-            text: "Tag",
-            width: "one-third"
-          }
-        ],
-        rows: [
-          [
-            {
-              text: "nhsuk-tag"
-            },
-            {
-              html: tag({
-                text: "Active"
-              }) | safe
-            }
-          ],
-          [
-            {
-              text: "nhsuk-tag--white"
-            },
-            {
-              html: tag({
-                text: "Started",
-                classes: "nhsuk-tag--white"
-              }) | safe
-            }
-          ],
-          [
-            {
-              text: "nhsuk-tag--grey"
-            },
-            {
-              html: tag({
-                text: "Not started",
-                classes: "nhsuk-tag--grey"
-              }) | safe
-            }
-          ],
-          [
-            {
-              text: "nhsuk-tag--green"
-            },
-            {
-              html: tag({
-                text: "New",
-                classes: "nhsuk-tag--green"
-              }) | safe
-            }
-          ],
-          [
-            {
-              text: "nhsuk-tag--aqua-green"
-            },
-            {
-              html: tag({
-                text: "Active",
-                classes: "nhsuk-tag--aqua-green"
-              }) | safe
-            }
-          ],
-          [
-            {
-              text: "nhsuk-tag--blue"
-            },
-            {
-              html: tag({
-                text: "Pending",
-                classes: "nhsuk-tag--blue"
-              }) | safe
-            }
-          ],
-          [
-            {
-              text: "nhsuk-tag--purple"
-            },
-            {
-              html: tag({
-                text: "Received",
-                classes: "nhsuk-tag--purple"
-              }) | safe
-            }
-          ],
-          [
-            {
-              text: "nhsuk-tag--pink"
-            },
-            {
-              html: tag({
-                text: "Sent",
-                classes: "nhsuk-tag--pink"
-              }) | safe
-            }
-          ],
-          [
-            {
-              text: "nhsuk-tag--red"
-            },
-            {
-              html: tag({
-                text: "Rejected",
-                classes: "nhsuk-tag--red"
-              }) | safe
-            }
-          ],
-          [
-            {
-              text: "nhsuk-tag--orange"
-            },
-            {
-              html: tag({
-                text: "Declined",
-                classes: "nhsuk-tag--orange"
-              }) | safe
-            }
-          ],
-          [
-            {
-              text: "nhsuk-tag--yellow"
-            },
-            {
-              html: tag({
-                text: "Delayed",
-                classes: "nhsuk-tag--yellow"
-              }) | safe
-            }
-          ]
-        ]
-      }) }}
-
       {{ input({
         label: {
           text: "NHS number"
@@ -1150,7 +1015,6 @@
       }) }}
 
       <div class="nhsuk-button-group">
-
         {{ button({
           text: "Save and continue"
         }) }}
@@ -1161,7 +1025,7 @@
         }) }}
 
         {{ button({
-          text: "Continue",
+          text: "Continue to NHS login",
           variant: "login"
         }) }}
 
@@ -1169,12 +1033,7 @@
           text: "Find my location",
           variant: "secondary"
         }) }}
-
       </div>
-
-      {{ backLink({
-        href: baseUrl
-      }) }}
 
       <br>
 

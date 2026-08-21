@@ -66,12 +66,12 @@ const fixtures = {
   },
   "with custom HTML": {
     context: {
-      html: "<p>This is an HTML code block.</p>"
+      html: "&lt;p&gt;This is a code block.&lt;/p&gt;"
     }
   },
   "with custom HTML and button": {
     context: {
-      html: "<p>This is an HTML code block.</p>",
+      html: "&lt;p&gt;This is a code block.&lt;/p&gt;",
       button: true
     }
   },
@@ -94,7 +94,7 @@ const fixtures = {
   },
   "with translations": {
     context: {
-      html: "<p>Bloc cod HTML yw hwn.</p>",
+      html: "&lt;p&gt;Bloc cod HTML yw hwn.&lt;/p&gt;",
       button: true,
       copyButtonText: "Copïo cod",
       copiedButtonText: "Cod wedi'i gopïo",

@@ -30,7 +30,7 @@ const options = {
     type: 'nunjucks-block',
     required: false,
     description:
-      'Not strictly a parameter but [Nunjucks code convention](https://mozilla.github.io/nunjucks/templating.html#call). Using a `call` block enables you to call a macro with all the text inside the tag. This is helpful if you want to pass a lot of content into a macro. To use it, you will need to wrap the entire tag component in a `call` block.',
+      'Not strictly an option but supports the [`call` block](https://mozilla.github.io/nunjucks/templating.html#call) as an alternative to the `html` option. To use it, you will need to wrap the entire tag component in a `call` block.',
     released: '10.6.0'
   },
   classes: {
@@ -50,7 +50,7 @@ const options = {
     type: 'string',
     required: false,
     description:
-      'Optional colour modifier for the tag – `"white"`, `"grey"`, `"green"`, `"aqua-green"`, `"blue"`, `"purple"`, `"pink"`, `"red"`, `"orange"` or `"yellow"`.',
+      'Optional colour modifier for the tag – `"white"`, `"grey"`, `"green"`, `"aqua-green"`, `"blue"`, `"purple"`, `"pink"`, `"red"`, `"orange"` or `"yellow"`. If set to `false`, remove colour from the tag.',
     released: '10.4.0'
   },
   border: {

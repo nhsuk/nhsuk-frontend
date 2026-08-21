@@ -1,4 +1,36 @@
 /**
+ * Nunjucks macro option variants
+ *
+ * @satisfies {MacroExample[]}
+ */
+const variants = [
+  {
+    description: "with size S",
+    context: {
+      size: "s"
+    }
+  },
+  {
+    description: "with size M",
+    context: {
+      size: "m"
+    }
+  },
+  {
+    description: "with size L",
+    context: {
+      size: "l"
+    }
+  },
+  {
+    description: "with size XL",
+    context: {
+      size: "xl"
+    }
+  }
+]
+
+/**
  * Nunjucks macro option examples
  *
  * @satisfies {{ [example: string]: MacroExample }}
@@ -6,9 +38,8 @@
 const fixtures = {
   "default": {
     context: {
-      text: "What is your full name?",
-      size: "l",
-      isPageHeading: true
+      heading: "What is your full name?",
+      size: "l"
     },
     screenshot: {
       viewports: ["mobile", "tablet", "desktop"]
@@ -16,72 +47,139 @@ const fixtures = {
   },
   "text": {
     context: {
-      text: "What is your full name?",
-      size: "l",
-      isPageHeading: true
+      heading: "What is your full name?",
+      size: "l"
     },
-    variants: [
-      {
-        description: "with size S",
-        context: {
-          size: "s"
-        }
+    variants,
+    screenshot: {
+      viewports: ["tablet"]
+    }
+  },
+  "text and caption": {
+    context: {
+      text: "What is your full name?",
+      caption: "About you",
+      size: "l"
+    },
+    variants,
+    screenshot: {
+      viewports: ["tablet"]
+    }
+  },
+  'text and caption "before" as a paragraph': {
+    context: {
+      text: "What is your full name?",
+      caption: {
+        text: "About you",
+        placement: "before",
+        element: "p"
       },
-      {
-        description: "with size M",
-        context: {
-          size: "m"
-        }
+      size: "l"
+    },
+    variants,
+    screenshot: {
+      viewports: ["tablet"]
+    }
+  },
+  'text and caption "after" as a paragraph': {
+    context: {
+      text: "What is your full name?",
+      caption: {
+        text: "About you",
+        placement: "after",
+        element: "p"
       },
-      {
-        description: "with size L",
-        context: {
-          size: "l"
-        }
-      },
-      {
-        description: "with size XL",
-        context: {
-          size: "xl"
-        }
-      }
-    ],
+      size: "l"
+    },
+    variants,
     screenshot: {
       viewports: ["tablet"]
     }
   },
   "size class": {
     context: {
-      text: "What is your full name?",
-      classes: "nhsuk-label--l",
-      isPageHeading: true
+      heading: "What is your full name?",
+      classes: "nhsuk-label--l"
     }
   },
-  "size class overriding size param": {
+  "size class overriding size option": {
     context: {
-      text: "What is your full name?",
+      heading: "What is your full name?",
       classes: "nhsuk-label--l",
-      size: "s",
-      isPageHeading: true
+      size: "s"
     }
   },
   "with HTML": {
     context: {
       html: "What is your full name?",
-      size: "l",
-      isPageHeading: true
+      heading: true,
+      size: "l"
     }
   },
   "with HTML via call block": {
     context: {
-      size: "l",
-      isPageHeading: true
+      heading: true,
+      size: "l"
     },
     callBlock: "What is your full name?"
   },
-  "without page heading": {
+  "with heading level 1": {
+    context: {
+      heading: "What is your full name?",
+      headingLevel: 1,
+      size: "l"
+    }
+  },
+  "with heading level 2": {
+    context: {
+      heading: "What is your full name?",
+      headingLevel: 2,
+      size: "m"
+    }
+  },
+  "with heading options": {
+    context: {
+      text: "What is your full name?",
+      heading: {
+        level: 3,
+        size: "s"
+      }
+    }
+  },
+  "with heading overriding heading level": {
+    context: {
+      text: "What is your full name?",
+      heading: false,
+      headingLevel: 2
+    }
+  },
+  "without heading": {
     context: {
       text: "What is your full name?"
+    }
+  },
+  "with deprecated page heading": {
+    context: {
+      text: "What is your full name?",
+      size: "m",
+      isPageHeading: true
+    }
+  },
+  "with deprecated page heading overriding heading": {
+    context: {
+      heading: "What is your full name?",
+      headingLevel: 2,
+      isPageHeading: false
+    }
+  },
+  "with deprecated page heading overriding heading options": {
+    context: {
+      text: "What is your full name?",
+      heading: {
+        level: 3,
+        size: "s"
+      },
+      isPageHeading: false
     }
   }
 }

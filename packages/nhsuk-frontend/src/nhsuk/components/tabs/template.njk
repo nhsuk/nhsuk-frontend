@@ -1,4 +1,4 @@
-{% from "nhsuk/components/heading/macro.njk" import heading %}
+{% from "nhsuk/components/heading/macro.njk" import heading as nhsukHeading %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set classes for this component #}
@@ -30,9 +30,9 @@
 </div>
 {% endmacro -%}
 
-{#- If an id 'prefix' is not passed, fall back to using the name attribute
-  instead. We need this for error messages and hints as well -#}
-{% set idPrefix = params.idPrefix if params.idPrefix -%}
+{#- If an id 'prefix' is not passed, fall back to using the id attribute
+  instead. We need this for tab items and panels as well -#}
+{% set idPrefix = params.idPrefix if params.idPrefix else params.id -%}
 
 <div
   {{- nhsukAttributes({
@@ -45,7 +45,7 @@
   }) -}}
 
   {{- nhsukAttributes(params.attributes) -}}>
-  {{ heading({
+  {{ nhsukHeading({
     text: params.visuallyHiddenText | default(params.title) | default("Contents"),
     level: 2,
     className: "nhsuk-tabs__heading"

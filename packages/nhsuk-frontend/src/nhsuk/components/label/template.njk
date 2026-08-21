@@ -1,65 +1,96 @@
-{% from "nhsuk/components/heading/macro.njk" import heading %}
+{% from "nhsuk/components/caption/macro.njk" import caption as nhsukCaption %}
+{% from "nhsuk/components/heading/macro.njk" import heading as nhsukHeading %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-label" -%}
 {%- set classNamesHeading = "nhsuk-label-wrapper" -%}
 
-{%- if params.size and
-  params.size in ["s", "m", "l", "xl"] and (
-    not params.classes or (
-      not "nhsuk-label--s" in params.classes and
-      not "nhsuk-label--m" in params.classes and
-      not "nhsuk-label--l" in params.classes and
-      not "nhsuk-label--xl" in params.classes
-    )
-  )
-%}
-  {% set classNames = classNames ~ " nhsuk-label--" ~ params.size %}
-{% endif %}
+{#- Set heading default (optional) #}
+{%- set heading = params.heading -%}
 
-{%- if params.classes %}
-  {% set classNames = classNames ~ " " ~ params.classes %}
-{% endif %}
+{#- Support heading as string (optional) #}
+{%- if heading and (heading is string or heading is escaped) %}
+  {% set heading = {
+    text: heading if heading is string else undefined,
+    html: heading if heading is escaped else undefined
+  } %}
+{% endif -%}
 
-{%- if caller or params.html or params.text %}
-{%- set attributesHtml %}
-  {{- nhsukAttributes({
-    class: classNames,
-    id: {
-      value: params.id,
-      optional: true
-    },
+{#- Set heading level default (optional) #}
+{%- set headingLevel = params.level | default(params.headingLevel, true) -%}
+{%- set hasHeading = true if (params.isPageHeading and heading != false) or
+  (params.isPageHeading != false and (heading or (headingLevel and heading != false))) else false -%}
+
+{#- Set caption from heading or caption options #}
+{%- set labelCaption = heading.caption | default(params.caption) if hasHeading else params.caption -%}
+
+{#- Support heading caption as string #}
+{%- set headingCaption = labelCaption if labelCaption is mapping and labelCaption is not escaped else {
+  text: labelCaption if labelCaption is string else undefined,
+  html: labelCaption if labelCaption is escaped else undefined
+} -%}
+
+{%- set size = heading.size | default(params.size) if hasHeading else params.size -%}
+
+{#- Limit heading caption to allowed options only #}
+{%- set caption = {
+  id: headingCaption.id,
+  text: headingCaption.text,
+  html: headingCaption.html,
+  placement: headingCaption.placement,
+  size: headingCaption.size | default(size),
+  classes: headingCaption.classes,
+  attributes: headingCaption.attributes,
+  element: headingCaption.element
+} -%}
+
+{%- set label = {
+  id: params.id,
+  text: heading.text | default(params.text) if hasHeading else params.text | default(heading.text),
+  html: heading.html | default(params.html) if hasHeading else params.html | default(heading.html),
+  visuallyHiddenText: heading.visuallyHiddenText | default(params.visuallyHiddenText) if hasHeading else params.visuallyHiddenText,
+  caption: caption if not caption.placement or caption.placement in ["start", "end"] else undefined,
+  size: size,
+  sizes: ["s", "m", "l", "xl"],
+  className: classNames,
+  classPrefix: classNames ~ "--",
+  classes: params.classes,
+  attributes: nhsukAttributes({
     for: {
       value: params.for,
       optional: true
     }
-  }) -}}
+  }) ~ nhsukAttributes(params.attributes),
+  element: "label"
+} -%}
 
-  {{- nhsukAttributes(params.attributes) -}}
-{% endset -%}
-
-{% set innerHtml %}
+{%- if caller or label.html or label.text %}
+{%- set innerHtml %}
 {% if caller %}
-  {{- caller() }}
-{% elif params.html %}
-  {{- params.html | safe }}
-{% elif params.text %}
-  {{- params.text }}
+  {%- call nhsukHeading(label) %}
+    {{- caller() }}
+  {%- endcall %}
+{% else %}
+  {{- nhsukHeading(label) | trim }}
 {% endif %}
 {% endset -%}
 
-{% if params.isPageHeading %}
-{% call heading({
-  className: classNamesHeading
-}) %}
-  <label {{- attributesHtml | safe }}>
-    {{ innerHtml | safe | trim | indent(4) }}
-  </label>
-{%- endcall %}
-{% else %}
-<label {{- attributesHtml | safe }}>
+{% if caption.placement == "before" %}
+{{ nhsukCaption(caption) | safe | trim }}
+{% endif -%}
+
+{#- Determine type of element to use #}
+{%- set element = "h" ~ heading.level | default(headingLevel, true) | default("1", true) -%}
+
+{% if hasHeading %}
+<{{ element }} class="{{ classNamesHeading }}">
   {{ innerHtml | safe | trim | indent(2) }}
-</label>
+</{{ element }}>
+{% else %}
+  {{- innerHtml | safe | trim }}
+{% endif %}
+{% if caption.placement == "after" %}
+{{ nhsukCaption(caption) | safe | trim }}
 {% endif %}
 {% endif %}
