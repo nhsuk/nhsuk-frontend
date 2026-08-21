@@ -50,7 +50,7 @@ const options = {
     type: 'string',
     required: false,
     description:
-      'Optional colour modifier for the tag – `"white"`, `"grey"`, `"green"`, `"aqua-green"`, `"blue"`, `"purple"`, `"pink"`, `"red"`, `"orange"` or `"yellow"`.',
+      'Optional colour modifier for the tag – `"white"`, `"grey"`, `"green"`, `"aqua-green"`, `"blue"`, `"purple"`, `"pink"`, `"red"`, `"orange"` or `"yellow"`. If set to `false`, remove colour from the tag.',
     released: '10.4.0'
   },
   border: {

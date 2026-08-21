@@ -91,6 +91,14 @@
     background-color: nhsuk-tint(nhsuk-colour("yellow"), 50%);
   }
 
+  // Remove tag colour
+
+  .nhsuk-tag--no-colour {
+    border-color: nhsuk-colour("grey-3");
+    color: inherit;
+    background-color: transparent;
+  }
+
   // Remove tag border
 
   .nhsuk-tag--no-border {
