@@ -520,10 +520,8 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
 
     background: transparent;
 
-    text-decoration: underline;
     white-space: nowrap;
 
-    cursor: pointer;
     @include nhsuk-font(16);
 
     // Visual indicator for navigation item uses a border on bottom edge
@@ -552,6 +550,9 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
   }
 
   .nhsuk-header__navigation-link {
+    text-decoration: underline;
+    cursor: pointer;
+
     @include _header-link-style(
       $link-colour: $nhsuk-header-reverse-item-colour,
       $link-hover-colour: $nhsuk-header-reverse-item-hover-colour,
