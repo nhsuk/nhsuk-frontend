@@ -102,7 +102,7 @@ const options = {
     deprecated: '10.6.0'
   },
   titleHeadingLevel: {
-    type: 'string',
+    type: 'integer',
     required: false,
     description: 'Replaced by the `title.level` option.',
     released: '10.0.0',
@@ -111,7 +111,7 @@ const options = {
   heading: {
     type: 'object',
     required: false,
-    description: 'Heading to be used withing the warning callout.',
+    description: 'Heading to be used within the notification banner.',
     released: '10.6.0',
     isComponent: true,
     params: {
