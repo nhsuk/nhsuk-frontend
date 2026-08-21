@@ -292,7 +292,7 @@ describe('Tabs', () => {
       }
     )
 
-    it.each(['#past-day', '#past-week', '#past-month', '#past-year'])(
+    it.each(['#example-1', '#example-2', '#example-3', '#example-4'])(
       'should be visible when %s is active',
       (selector) => {
         window.location.hash = selector
@@ -322,7 +322,7 @@ describe('Tabs', () => {
       }
     )
 
-    it.each(['#past-day', '#past-week', '#past-month', '#past-year'])(
+    it.each(['#example-1', '#example-2', '#example-3', '#example-4'])(
       'should be visible when %s is clicked',
       (selector) => {
         const $tab = document.querySelector(`a[href="${selector}"]`)

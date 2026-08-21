@@ -9,15 +9,14 @@ const options = {
   id: {
     type: 'string',
     required: false,
-    description:
-      'This is used for the main component and to compose the `id` attribute for each item.',
+    description: 'The ID of the tabs component.',
     released: '7.0.0'
   },
   idPrefix: {
     type: 'string',
     required: false,
     description:
-      'String to prefix the `id` for each tab item if no `id` is specified on each item.',
+      'Optional prefix. This is used to prefix the `id` attribute for each tab item and panel, separated by `-`. Defaults to the `id` option value.',
     released: '7.0.0'
   },
   title: {
