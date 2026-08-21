@@ -410,12 +410,6 @@ const options = {
       }
     }
   },
-  baseUrl: {
-    type: 'string',
-    required: false,
-    description: 'Base URL to prepend to the `logo.src` path.',
-    released: '10.0.0'
-  },
   containerClasses: {
     type: 'string',
     required: false,

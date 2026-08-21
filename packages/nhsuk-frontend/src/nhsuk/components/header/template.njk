@@ -54,7 +54,7 @@
     organisation name (with can be split and include a descriptor) -#}
 {%- macro _serviceLogo(logo, organisation) %}
 {% if logo.src %}
-<img class="nhsuk-header__organisation-logo" src="{{ baseUrl }}{{ logo.src }}" width="280" alt="{{ logo.alt | default("NHS") }}">
+<img class="nhsuk-header__organisation-logo" src="{{ logo.src }}" width="280" alt="{{ logo.alt | default("NHS") }}">
 {% else %}
 <svg class="nhsuk-header__logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" height="40" width="100" focusable="false" role="img" aria-label="{{ logo.alt | default("NHS") }}">
   <title>{{ logo.alt | default("NHS") }}</title>
