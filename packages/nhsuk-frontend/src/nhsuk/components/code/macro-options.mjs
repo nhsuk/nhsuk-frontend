@@ -26,6 +26,13 @@ const options = {
       'If `text` is set, this is not required. HTML for the code element. If `html` is provided, the `text` option will be ignored.',
     released: '10.4.0'
   },
+  caller: {
+    type: 'nunjucks-block',
+    required: false,
+    description:
+      'Not strictly an option but supports the [`call` block](https://mozilla.github.io/nunjucks/templating.html#call) as an alternative to the `html` option. To use it, you will need to wrap the entire code component in a `call` block.',
+    released: '10.4.0'
+  },
   classes: {
     type: 'string',
     required: false,
