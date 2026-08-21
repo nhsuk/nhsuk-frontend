@@ -89,6 +89,19 @@ const options = {
         }
       }
     }
+  },
+  classes: {
+    type: 'string',
+    required: false,
+    description: 'Classes to add to the tabs component.',
+    released: '7.0.0'
+  },
+  attributes: {
+    type: 'object',
+    required: false,
+    description:
+      'HTML attributes (for example data attributes) to add to the tabs components.',
+    released: '7.0.0'
   }
 }
 

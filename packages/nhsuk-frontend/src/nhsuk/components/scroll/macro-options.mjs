@@ -6,6 +6,19 @@ export const name = 'Scroll'
  * @satisfies {{ [param: string]: MacroParam }}
  */
 const options = {
+  id: {
+    type: 'string',
+    required: false,
+    description: 'The `id` to add to the scroll component.',
+    released: '10.6.0'
+  },
+  labelledBy: {
+    type: 'string',
+    required: false,
+    description:
+      'One or more element IDs to add to the scrolling content `aria-labelledby` attribute, used to provide accessible names for screenreader users.',
+    released: '10.6.0'
+  },
   text: {
     type: 'string',
     required: true,
@@ -18,12 +31,6 @@ const options = {
     required: true,
     description:
       'If `text` is set, this is not required. HTML to use within the scrolling content. If `html` is provided, the `text` option will be ignored.',
-    released: '10.6.0'
-  },
-  id: {
-    type: 'string',
-    required: false,
-    description: 'The `id` to add to the scroll component.',
     released: '10.6.0'
   },
   caller: {
