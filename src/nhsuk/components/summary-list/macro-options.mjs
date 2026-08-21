@@ -263,6 +263,12 @@ const options = {
       }
     }
   },
+  html: {
+    type: 'string',
+    required: false,
+    description: 'HTML to use within the summary list.',
+    released: '10.6.0'
+  },
   caller: {
     type: 'nunjucks-block',
     required: false,
