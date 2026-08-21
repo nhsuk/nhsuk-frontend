@@ -12,6 +12,66 @@ Note: This release was created from the `support/10.x` branch.
 
 ### :wastebasket: **Deprecated features**
 
+#### Rename the label and legend `isPageHeading` option
+
+We've deprecated the `isPageHeading` Nunjucks option for labels and legends and added the `heading` and `headingLevel` options.
+
+If you're using any form component Nunjucks macro with the `isPageHeading` option, you should:
+
+- rename `text` to `heading`
+- remove `isPageHeading: true`
+
+```patch
+  {{ characterCount({
+    label: {
+-     text: "Can you provide more detail?",
++     heading: "Can you provide more detail?",
+-     isPageHeading: true,
+      size: "l"
+    },
+    name: "more-detail",
+    maxlength: 350,
+    countType: "characters"
+  }) }}
+```
+
+You will not need the label or legend `headingLevel` option unless it acts as the heading for a landmark. For example, using an `<h2>` for a search input label in an `<aside>` element:
+
+```patch
+<aside>
+  {{ searchInput({
+    label: {
+-     text: "Search"
++     heading: "Search",
++     headingLevel: 2
+    }
+  }) }}
+
+  <!-- // … -->
+</aside>
+```
+
+For consistency with other components, legends now support the following Nunjucks options:
+
+- `id`
+- `caption`
+- `visuallyHiddenText`
+- `level` (or `headingLevel`)
+- `attributes`
+
+Labels now also support:
+
+- `caption`
+- `visuallyHiddenText`
+- `level` (or `headingLevel`)
+
+Similarly, for all components with nested headings:
+
+- Component nested headings support `heading.level` or `heading.headingLevel`
+- Notification banner title supports `title.level` or `title.headingLevel`
+
+This change was introduced in [pull request #1670: Add label and legend `caption`, `headingLevel` and other options](https://github.com/nhsuk/nhsuk-frontend/pull/1670).
+
 #### Rename title and heading HTML classes
 
 HTML classes for the error summary, panel and tabs component headings have been renamed from `__title` to `__heading` to match their corresponding Nunjucks option.
@@ -25,6 +85,176 @@ If you are not using Nunjucks macros, change the classes as follows:
 The previous class names are deprecated and will be removed in a future release.
 
 This change was introduced in [pull request #2059: Rename title and heading HTML classes](https://github.com/nhsuk/nhsuk-frontend/pull/2059).
+
+### :recycle: **Changes**
+
+#### Use more Nunjucks options as strings
+
+We added support for alternative string values for labels, legends, hints and error messages in [version 10.6.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.6.0).
+
+The following component options now support alternative string values:
+
+- Component `heading` and `title` options
+- Card and error summary `description` options
+- Details `summary` option
+- Footer `meta` and `copyright` options
+- Image `caption` option
+- Input `prefix` and `suffix` options
+- Summary list `key` and `value` options
+- Task list `status` option
+- Table `head` and `rows` options items
+
+For example, using the table component:
+
+```patch
+  {{ table ({
+    caption: "Appointments",
+    firstCellIsHeader: true,
+-   head: [
+-     {
+-       text: "Time"
+-     },
+-     {
+-       text: "Name"
+-     },
+-     {
+-       text: "Date of birth"
+-     }
+-   ],
++   head: ["Time", "Name", "Date of birth"],
+-   rows: [
+-     [
+-       {
+-         text: "11:00"
+-       },
+-       {
+-         text: "Laura Stone"
+-       },
+-       {
+-         text: "4 January 1986"
+-       }
+-     ],
+-     [
+-       {
+-         text: "11:30"
+-       },
+-       {
+-         text: "Emma Katie-Brown"
+-       },
+-       {
+-         text: "7 February 1976"
+-       }
+-     ],
+-     [
+-       {
+-         text: "13:10"
+-       },
+-       {
+-         text: "David Chen"
+-       },
+-       {
+-         text: "19 March 1981"
+-       }
+-     ],
+-     [
+-       {
+-         text: "13:40"
+-       },
+-       {
+-         text: "Michael Thompson"
+-       },
+-       {
+-         text: "6 December 1964"
+-       }
+-     ],
+-     [
+-       {
+-         text: "14:20"
+-       },
+-       {
+-         text: "Juan Martinez"
+-       },
+-       {
+-         text: "18 April 1975"
+-       }
+-     ]
+-   ]
++   rows: [
++     ["11:00", "Laura Stone", "4 January 1986"],
++     ["11:30", "Emma Katie-Brown", "7 February 1976"],
++     ["13:10", "David Chen", "19 March 1981"],
++     ["13:40", "Michael Thompson", "6 December 1964"],
++     ["14:20", "Juan Martinez", "18 April 1975"]
++   ]
+  }) }}
+```
+
+With card and summary list `actions` also supporting arrays of actions items:
+
+```patch
+  {{ summaryList({
+    rows: [
+-     {
+-       key: {
+-         text: "Name"
+-       },
+-       value: {
+-         text: "Karen Francis"
+-       },
+-       actions: {
+-         items: [
+-           {
+-             href: "#/change",
+-             text: "Change",
+-             visuallyHiddenText: "name"
+-           }
+-         ]
+-       }
+-     },
+-     {
+-       key: {
+-         text: "Date of birth"
+-       },
+-       value: {
+-         text: "15 March 1984"
+-       },
+-       actions: {
+-         items: [
+-           {
+-             href: "#/change",
+-             text: "Change",
+-             visuallyHiddenText: "date of birth"
+-           }
+-         ]
+-       }
+-     }
++     {
++       key: "Name",
++       value: "Karen Francis",
++       actions: [
++         {
++           href: "#/change",
++           text: "Change",
++           visuallyHiddenText: "name"
++         }
++       ]
++     },
++     {
++       key: "Date of birth",
++       value: "15 March 1984",
++       actions: [
++         {
++           href: "#/change",
++           text: "Change",
++           visuallyHiddenText: "date of birth"
++         }
++       ]
++     }
+    ]
+  }) }}
+```
+
+This change was introduced in [pull request #1670: Add label and legend `caption`, `headingLevel` and other options](https://github.com/nhsuk/nhsuk-frontend/pull/1670).
 
 ## 10.6.0 - 13 August 2026
 
