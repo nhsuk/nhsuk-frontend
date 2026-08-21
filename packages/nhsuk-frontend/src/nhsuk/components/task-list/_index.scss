@@ -78,19 +78,18 @@ $nhsuk-task-list-hover-color: $nhsuk-task-list-hover-colour;
     vertical-align: top;
   }
 
-  // This replicates some of the styling and spacing of tags so that these non-tag
-  // statuses don’t look out of place with them. Longer term we may want to look to
-  // adjusting the tag styles to be closer to body text.
+  // Deprecated, to be removed in v11.0
   .nhsuk-task-list__status--completed,
   .nhsuk-task-list__status--cannot-start-yet {
-    padding-top: nhsuk-spacing(1, $adjustment: 2px); // to match the spacing on tags
+    padding-top: nhsuk-spacing(1, $adjustment: 2px);
+    padding-right: nhsuk-spacing(2, $adjustment: 1px);
     padding-bottom: nhsuk-spacing(1);
-    padding-left: nhsuk-spacing(2);
     text-decoration: none;
 
     @include nhsuk-font($size: 16, $weight: normal, $line-height: 1);
   }
 
+  // Deprecated, to be removed in v11.0
   .nhsuk-task-list__status--cannot-start-yet {
     color: $nhsuk-secondary-text-colour;
   }
