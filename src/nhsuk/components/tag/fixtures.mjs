@@ -135,6 +135,15 @@ const fixtures = {
     screenshot: {
       viewports: ["mobile"]
     }
+  },
+  "without colour": {
+    context: {
+      text: "Completed",
+      colour: false
+    },
+    screenshot: {
+      viewports: ["mobile"]
+    }
   }
 }
 
