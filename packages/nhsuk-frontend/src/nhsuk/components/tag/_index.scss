@@ -1,3 +1,5 @@
+@use "sass:map";
+@use "sass:math";
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
 @use "../../core/helpers" as *;
@@ -9,8 +11,17 @@
 ////
 
 @include nhsuk-exports("nhsuk/components/tag") {
+  $nhsuk-tag-max-width: nhsuk-px-to-rem(math.div(map.get($nhsuk-breakpoints, "mobile") or 320px, 2));
+  $nhsuk-tag-max-width-tablet: nhsuk-px-to-rem(map.get($nhsuk-breakpoints, "mobile") or 320px);
+
   .nhsuk-tag {
     display: inline-block;
+
+    // Set a max-width along with overflow-wrap: break-word below for instances
+    // where a tag has a single long word and could overflow its boundaries.
+    // The max-width is necessary as break-word requires a bounding box to base
+    // where to break off of.
+    max-width: $nhsuk-tag-max-width;
 
     padding-top: nhsuk-spacing(1);
     padding-right: nhsuk-spacing(2);
@@ -26,7 +37,12 @@
 
     text-decoration: none;
 
+    @include nhsuk-text-break-word;
     @include nhsuk-font($size: 16, $weight: bold, $line-height: 1);
+
+    @media #{nhsuk-from-breakpoint(tablet)} {
+      max-width: $nhsuk-tag-max-width-tablet;
+    }
   }
 
   // Colour variants

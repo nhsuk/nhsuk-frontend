@@ -362,6 +362,68 @@ const fixtures = {
       ]
     }
   },
+  "with tags": {
+    context: {
+      caption: "Tags",
+      firstCellIsHeader: true,
+      head: ["Name", "Colour", "Tag"],
+      rows: [
+        [
+          "Default",
+          "None",
+          {
+            html: components.render("tag", {
+              context: {
+                text: "Default"
+              }
+            })
+          }
+        ],
+        [
+          "Red",
+          {
+            html: '<var class="nhsuk-body-s">red</var>'
+          },
+          {
+            html: components.render("tag", {
+              context: {
+                text: "Rejected",
+                colour: "red"
+              }
+            })
+          }
+        ],
+        [
+          "Blue",
+          {
+            html: '<var class="nhsuk-body-s">blue</var>'
+          },
+          {
+            html: components.render("tag", {
+              context: {
+                text: "Pending",
+                colour: "blue"
+              }
+            })
+          }
+        ],
+        [
+          "Green",
+          {
+            html: '<var class="nhsuk-body-s">green</var>'
+          },
+          {
+            html: components.render("tag", {
+              context: {
+                text: "New",
+                colour: "green"
+              }
+            })
+          }
+        ]
+      ]
+    }
+  },
   "with first cell as header": {
     context: {
       firstCellIsHeader: true,
@@ -935,6 +997,24 @@ const fixtures = {
               context: {
                 text: "Inactive",
                 colour: "grey"
+              }
+            })
+          }
+        ],
+        [
+          {
+            text: "Karen Francis",
+            classes: "nhsuk-u-text-break-word"
+          },
+          {
+            text: "karen.francis@example.com",
+            classes: "nhsuk-u-text-break-word"
+          },
+          {
+            html: components.render("tag", {
+              context: {
+                text: "Thisisaverylongwaytosaythatsomethingisincomplete",
+                colour: "blue"
               }
             })
           }
