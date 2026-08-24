@@ -34,11 +34,10 @@
   {% set classNames = classNames ~ " " ~ params.classes %}
 {% endif %}
 
-{%- set headingLevel = params.level if params.level else 1 -%}
 {%- set headingCaption = params.caption if params.caption is mapping and params.caption is not escaped else {
   text: params.caption if params.caption is string else undefined,
   html: params.caption if params.caption is escaped else undefined
-} -%}
+} %}
 
 {%- set caption = {
   id: headingCaption.id,
@@ -77,7 +76,7 @@
 {% endif -%}
 
 {#- Determine type of element to use, if not explicitly set #}
-{%- set element = (params.element | default("h" ~ headingLevel)) | lower -%}
+{%- set element = (params.element | default("h" ~ params.level | default("1", true))) | lower -%}
 
 <{{ element }}
   {{- nhsukAttributes({
