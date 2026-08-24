@@ -14,8 +14,7 @@ const fixtures = {
   "default": {
     context: {
       heading: {
-        text: "If you need help now, but it's not an emergency",
-        level: 3
+        text: "If you need help now, but it's not an emergency"
       }
     },
     callBlock: outdent`
@@ -28,8 +27,7 @@ const fixtures = {
   "heading": {
     context: {
       heading: {
-        text: "If you need help now, but it's not an emergency",
-        level: 3
+        text: "If you need help now, but it's not an emergency"
       }
     },
     callBlock: outdent`
@@ -83,9 +81,8 @@ const fixtures = {
   },
   "basic without heading": {
     context: {
-      description: {
-        text: "A quick guide for people who have care and support needs and their carers"
-      }
+      description:
+        "A quick guide for people who have care and support needs and their carers"
     }
   },
   "basic with heading link": {
@@ -96,9 +93,8 @@ const fixtures = {
         size: "m",
         level: 3
       },
-      description: {
-        text: "A quick guide for people who have care and support needs and their carers"
-      }
+      description:
+        "A quick guide for people who have care and support needs and their carers"
     }
   },
   "basic with custom HTML": {
@@ -116,6 +112,16 @@ const fixtures = {
     screenshot: {
       viewports: ["mobile", "tablet", "desktop"]
     }
+  },
+  "basic with custom HTML and heading as string": {
+    context: {
+      heading: "Help from NHS 111"
+    },
+    callBlock: outdent`
+      <p class="nhsuk-body">If you're worried about a symptom and not sure what help you need, NHS 111 can tell you what to do next.</p>
+      <p class="nhsuk-body">Go to <a href="#">111.nhs.uk</a> or <a href="#">call 111</a>.</p>
+      <p class="nhsuk-body">For a life-threatening emergency call 999.</p>
+    `
   },
   "basic with summary list": {
     context: {
@@ -574,10 +580,7 @@ const fixtures = {
   },
   "urgent (red)": {
     context: {
-      heading: {
-        text: "Ask for an urgent GP appointment if:",
-        level: 3
-      },
+      heading: "Ask for an urgent GP appointment if:",
       variant: "urgent"
     },
     callBlock: outdent`
@@ -595,10 +598,7 @@ const fixtures = {
   },
   "emergency (red and black)": {
     context: {
-      heading: {
-        text: "Call 999 if you have sudden chest pain that:",
-        level: 3
-      },
+      heading: "Call 999 if you have sudden chest pain that:",
       variant: "emergency"
     },
     callBlock: outdent`
@@ -615,10 +615,7 @@ const fixtures = {
   },
   "emergency (red and black) with action link": {
     context: {
-      heading: {
-        text: "Call 999 or go to A&E now if:",
-        level: 3
-      },
+      heading: "Call 999 or go to A&E now if:",
       variant: "emergency"
     },
     callBlock: outdent`
@@ -639,12 +636,12 @@ const fixtures = {
   "primary (with chevron)": {
     context: {
       href: "#",
-      variant: "primary",
-      clickable: true,
       heading: {
         text: "Breast screening",
         size: "m"
-      }
+      },
+      variant: "primary",
+      clickable: true
     },
     screenshot: {
       viewports: ["mobile", "tablet", "desktop"]
@@ -653,15 +650,14 @@ const fixtures = {
   "primary (with chevron and description)": {
     context: {
       href: "#",
-      variant: "primary",
-      clickable: true,
       heading: {
         text: "Introduction to care and support",
         size: "m"
       },
-      description: {
-        text: "A quick guide for people who have care and support needs and their carers"
-      }
+      description:
+        "A quick guide for people who have care and support needs and their carers",
+      clickable: true,
+      variant: "primary"
     },
     screenshot: {
       viewports: ["mobile", "tablet", "desktop"]
@@ -670,14 +666,13 @@ const fixtures = {
   "clickable": {
     context: {
       href: "#",
-      clickable: true,
       heading: {
         text: "Introduction to care and support",
         size: "m"
       },
-      description: {
-        text: "A quick guide for people who have care and support needs and their carers"
-      }
+      description:
+        "A quick guide for people who have care and support needs and their carers",
+      clickable: true
     },
     screenshot: {
       viewports: ["mobile", "tablet", "desktop"]
@@ -686,15 +681,14 @@ const fixtures = {
   "secondary": {
     context: {
       href: "#",
-      clickable: true,
-      variant: "secondary",
       heading: {
         text: "Urgent and emergency care services",
         size: "m"
       },
-      description: {
-        text: "Services the NHS provides if you need urgent or emergency medical help"
-      }
+      description:
+        "Services the NHS provides if you need urgent or emergency medical help",
+      clickable: true,
+      variant: "secondary"
     },
     screenshot: {
       viewports: ["mobile", "tablet", "desktop"]
@@ -722,12 +716,8 @@ const fixtures = {
   "feature": {
     context: {
       variant: "feature",
-      heading: {
-        text: "Feature card heading"
-      },
-      description: {
-        text: "Feature card description."
-      }
+      heading: "Feature card heading",
+      description: "Feature card description."
     },
     screenshot: {
       viewports: ["mobile", "tablet", "desktop"]
@@ -735,12 +725,12 @@ const fixtures = {
   },
   "feature with A to Z content": {
     context: {
-      variant: "feature",
       heading: {
         text: "A",
         id: "a",
         size: "m"
       },
+      variant: "feature",
       description: {
         html: outdent`
           <ul class="nhsuk-list nhsuk-list--border">
@@ -754,10 +744,8 @@ const fixtures = {
   },
   "feature with summary list": {
     context: {
-      variant: "feature",
-      heading: {
-        text: "Feature card heading"
-      }
+      heading: "Feature card heading",
+      variant: "feature"
     },
     callBlock: outdent`
       ${components.render(
@@ -768,10 +756,8 @@ const fixtures = {
   },
   "feature with nested card and summary list": {
     context: {
-      variant: "feature",
-      heading: {
-        text: "Flu: Follow-up requested"
-      }
+      heading: "Flu: Follow-up requested",
+      variant: "feature"
     },
     callBlock: outdent`
       <p>Sarah Philips (Mum) would like to speak to a member of the team about other options for their child's vaccination.</p>
@@ -833,24 +819,18 @@ const fixtures = {
   },
   "warning": {
     context: {
-      variant: "warning",
-      heading: {
-        text: "School, nursery or work"
-      },
-      description: {
-        text: "Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared."
-      }
+      heading: "School, nursery or work",
+      description:
+        "Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.",
+      variant: "warning"
     }
   },
   "warning with actions": {
     context: {
+      heading: "School, nursery or work",
+      description:
+        "Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.",
       variant: "warning",
-      heading: {
-        text: "School, nursery or work"
-      },
-      description: {
-        text: "Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared."
-      },
       actions: {
         items: [
           {
@@ -867,14 +847,13 @@ const fixtures = {
         src: "/nhsuk-frontend/assets/example-image-exercise.jpg"
       },
       href: "#",
-      clickable: true,
       heading: {
         text: "Exercise",
         size: "m"
       },
-      description: {
-        text: "Programmes, workouts and tips to get you moving and improve your fitness and wellbeing"
-      }
+      description:
+        "Programmes, workouts and tips to get you moving and improve your fitness and wellbeing",
+      clickable: true
     },
     screenshot: {
       viewports: ["mobile", "tablet", "desktop"]
@@ -886,14 +865,13 @@ const fixtures = {
         html: components.render("images", imageExamples["default"])
       },
       href: "#",
-      clickable: true,
       heading: {
         text: "Exercise",
         size: "m"
       },
-      description: {
-        text: "Programmes, workouts and tips to get you moving and improve your fitness and wellbeing"
-      }
+      description:
+        "Programmes, workouts and tips to get you moving and improve your fitness and wellbeing",
+      clickable: true
     }
   },
   "with image and custom HTML": {
@@ -911,9 +889,8 @@ const fixtures = {
         `,
         size: "m"
       },
-      description: {
-        text: "Frankie Roberto and Mike Gallagher explain why we revived the NHS prototype kit, the benefits of prototyping in code and how digital teams in the NHS can get started using it."
-      }
+      description:
+        "Frankie Roberto and Mike Gallagher explain why we revived the NHS prototype kit, the benefits of prototyping in code and how digital teams in the NHS can get started using it."
     },
     options: {
       width: "one-half"

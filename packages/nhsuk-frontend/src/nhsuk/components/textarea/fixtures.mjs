@@ -7,9 +7,8 @@ const fixtures = {
   "default": {
     context: {
       label: {
-        text: "Can you provide more detail?",
-        size: "l",
-        isPageHeading: true
+        heading: "Can you provide more detail?",
+        size: "l"
       },
       hint: {
         text: "Do not include personal information like your name, date of birth or NHS number"
@@ -21,9 +20,8 @@ const fixtures = {
   "disabled": {
     context: {
       label: {
-        text: "Can you provide more detail?",
-        size: "l",
-        isPageHeading: true
+        heading: "Can you provide more detail?",
+        size: "l"
       },
       hint: {
         text: "Do not include personal information like your name, date of birth or NHS number"
@@ -36,9 +34,8 @@ const fixtures = {
   "with hint": {
     context: {
       label: {
-        text: "Can you provide more detail?",
-        size: "l",
-        isPageHeading: true
+        heading: "Can you provide more detail?",
+        size: "l"
       },
       hint: {
         text: "Do not include personal information like your name, date of birth or NHS number"
@@ -50,9 +47,8 @@ const fixtures = {
   "label": {
     context: {
       label: {
-        text: "Can you provide more detail?",
-        size: "l",
-        isPageHeading: true
+        heading: "Can you provide more detail?",
+        size: "l"
       },
       hint: {
         text: "Do not include personal information like your name, date of birth or NHS number"
@@ -106,7 +102,7 @@ const fixtures = {
       }
     ]
   },
-  "without page heading": {
+  "without heading": {
     context: {
       label: "Can you provide more detail?",
       hint: "Do not include personal information like your name, date of birth or NHS number",
@@ -117,9 +113,8 @@ const fixtures = {
   "with error only": {
     context: {
       label: {
-        text: "Can you provide more detail?",
-        size: "l",
-        isPageHeading: true
+        heading: "Can you provide more detail?",
+        size: "l"
       },
       errorMessage: true,
       id: "with-error-only",
@@ -129,9 +124,8 @@ const fixtures = {
   "with error message": {
     context: {
       label: {
-        text: "Can you provide more detail?",
-        size: "l",
-        isPageHeading: true
+        heading: "Can you provide more detail?",
+        size: "l"
       },
       errorMessage: {
         text: "You must provide an explanation"
@@ -147,9 +141,8 @@ const fixtures = {
   "with error message and hint": {
     context: {
       label: {
-        text: "Can you provide more detail?",
-        size: "l",
-        isPageHeading: true
+        heading: "Can you provide more detail?",
+        size: "l"
       },
       hint: {
         text: "Do not include personal information like your name, date of birth or NHS number"
@@ -161,7 +154,19 @@ const fixtures = {
       name: "example"
     }
   },
-  "with error message, without page heading": {
+  "with error message and hint as strings": {
+    context: {
+      label: {
+        heading: "Can you provide more detail?",
+        size: "l"
+      },
+      hint: "Do not include personal information like your name, date of birth or NHS number",
+      errorMessage: "You must provide an explanation",
+      id: "with-hint-error",
+      name: "example"
+    }
+  },
+  "with error message, without heading": {
     context: {
       label: {
         text: "Can you provide more detail?"
@@ -173,7 +178,7 @@ const fixtures = {
       name: "example"
     }
   },
-  "with error message and hint, without page heading": {
+  "with error message and hint, without heading": {
     context: {
       label: {
         text: "Can you provide more detail?"
@@ -191,9 +196,8 @@ const fixtures = {
   "with autocomplete attribute": {
     context: {
       label: {
-        text: "Full address",
-        size: "l",
-        isPageHeading: true
+        heading: "Full address",
+        size: "l"
       },
       id: "with-autocomplete-attribute",
       name: "example",
