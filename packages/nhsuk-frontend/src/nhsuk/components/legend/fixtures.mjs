@@ -38,17 +38,15 @@ const variants = [
 const fixtures = {
   "default": {
     context: {
-      text: "What is your address?",
-      size: "l",
-      isPageHeading: true
+      heading: "What is your address?",
+      size: "l"
     },
     screenshot: true
   },
   "text": {
     context: {
-      text: "What is your address?",
-      size: "l",
-      isPageHeading: true
+      heading: "What is your address?",
+      size: "l"
     },
     variants,
     screenshot: {
@@ -83,36 +81,109 @@ const fixtures = {
   },
   "size class": {
     context: {
-      text: "What is your address?",
-      classes: "nhsuk-fieldset__legend--l",
-      isPageHeading: true
+      heading: "What is your address?",
+      classes: "nhsuk-fieldset__legend--l"
     }
   },
-  "size class overriding size param": {
+  "size class overriding size option": {
     context: {
-      text: "What is your address?",
+      heading: "What is your address?",
       classes: "nhsuk-fieldset__legend--l",
-      size: "s",
-      isPageHeading: true
+      size: "s"
     }
   },
   "with HTML": {
     context: {
-      text: "What is your address?",
-      size: "l",
-      isPageHeading: true
+      html: "What is your address?",
+      heading: true,
+      size: "l"
     }
   },
   "with HTML via call block": {
     context: {
-      size: "l",
-      isPageHeading: true
+      heading: true,
+      size: "l"
     },
     callBlock: "What is your address?"
   },
-  "without page heading": {
+  "with HTML via call block, without heading": {
+    context: {
+      size: "l"
+    },
+    callBlock: "What is your address?"
+  },
+  "with heading level 1": {
+    context: {
+      text: "What is your address?",
+      size: "l",
+      heading: {
+        level: 1
+      }
+    }
+  },
+  "with heading level 2": {
+    context: {
+      text: "What is your address?",
+      size: "m",
+      heading: {
+        level: 2
+      }
+    }
+  },
+  "with heading level 3": {
+    context: {
+      text: "What is your address?",
+      size: "s",
+      heading: {
+        level: 3
+      }
+    }
+  },
+  "with heading options only": {
+    context: {
+      heading: {
+        text: "What is your address?",
+        level: 3,
+        size: "s"
+      }
+    }
+  },
+  "without heading": {
     context: {
       text: "What is your address?"
+    }
+  },
+  "with deprecated page heading": {
+    context: {
+      text: "What is your address?",
+      size: "m",
+      isPageHeading: true
+    }
+  },
+  "with deprecated page heading overriding heading": {
+    context: {
+      heading: {
+        text: "What is your address?",
+        level: 3,
+        size: "s"
+      },
+      isPageHeading: false
+    }
+  },
+  "with id attribute": {
+    context: {
+      id: "custom-id",
+      heading: "What is your address?",
+      size: "l"
+    }
+  },
+  "with id attribute on heading": {
+    context: {
+      heading: {
+        text: "What is your address?",
+        id: "custom-id"
+      },
+      size: "l"
     }
   }
 }
