@@ -452,7 +452,76 @@ const fixtures = {
       width: false
     }
   },
-  "with multiple titled navigation groups": {
+  "with multiple navigation groups and headings": {
+    context: {
+      navigation: [
+        {
+          heading: {
+            text: "Legal"
+          },
+          items: [
+            {
+              href: "#",
+              text: "Looking after your data"
+            },
+            {
+              href: "#",
+              text: "Freedom of information"
+            },
+            {
+              href: "#",
+              text: "Modern Slavery and human trafficking statement"
+            }
+          ]
+        },
+        {
+          heading: {
+            text: "Get in touch"
+          },
+          items: [
+            {
+              href: "#",
+              text: "Contact us"
+            },
+            {
+              href: "#",
+              text: "Press office"
+            },
+            {
+              href: "#",
+              text: "Tell us what you think of our website"
+            },
+            {
+              href: "#",
+              text: "RSS feeds"
+            }
+          ]
+        },
+        {
+          heading: {
+            text: "Follow us"
+          },
+          items: [
+            {
+              href: "#",
+              text: "LinkedIn"
+            },
+            {
+              href: "#",
+              text: "YouTube"
+            }
+          ]
+        }
+      ]
+    },
+    options: {
+      width: false
+    },
+    screenshot: {
+      viewports: ["mobile", "tablet", "desktop", "large-desktop"]
+    }
+  },
+  "with multiple navigation groups and headings as strings": {
     context: {
       navigation: [
         {
@@ -510,9 +579,6 @@ const fixtures = {
     },
     options: {
       width: false
-    },
-    screenshot: {
-      viewports: ["mobile", "tablet", "desktop", "large-desktop"]
     }
   },
   "with meta and navigation": {

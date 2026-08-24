@@ -7,9 +7,8 @@ const fixtures = {
   "default": {
     context: {
       label: {
-        text: "Can you provide more detail?",
-        size: "l",
-        isPageHeading: true
+        heading: "Can you provide more detail?",
+        size: "l"
       },
       hint: {
         text: "Do not include personal information like your name, date of birth or NHS number"
@@ -25,9 +24,8 @@ const fixtures = {
   "disabled": {
     context: {
       label: {
-        text: "Can you provide more detail?",
-        size: "l",
-        isPageHeading: true
+        heading: "Can you provide more detail?",
+        size: "l"
       },
       hint: {
         text: "Do not include personal information like your name, date of birth or NHS number"
@@ -41,9 +39,8 @@ const fixtures = {
   "with hint": {
     context: {
       label: {
-        text: "Enter a job description",
-        size: "l",
-        isPageHeading: true
+        heading: "Enter a job description",
+        size: "l"
       },
       hint: {
         text: "Do not include personal information like your name, date of birth or NHS number"
@@ -56,9 +53,8 @@ const fixtures = {
   "with error only": {
     context: {
       label: {
-        text: "Enter a job description",
-        size: "l",
-        isPageHeading: true
+        heading: "Enter a job description",
+        size: "l"
       },
       errorMessage: true,
       id: "with-error-only",
@@ -71,9 +67,8 @@ const fixtures = {
   "with error message": {
     context: {
       label: {
-        text: "Enter a job description",
-        size: "l",
-        isPageHeading: true
+        heading: "Enter a job description",
+        size: "l"
       },
       errorMessage: {
         text: "Job description must be 350 characters or less"
@@ -88,9 +83,8 @@ const fixtures = {
   "with error message and hint": {
     context: {
       label: {
-        text: "Enter a job description",
-        size: "l",
-        isPageHeading: true
+        heading: "Enter a job description",
+        size: "l"
       },
       hint: {
         text: "Do not include personal information like your name, date of birth or NHS number"
@@ -109,7 +103,22 @@ const fixtures = {
       selector: ".nhsuk-textarea"
     }
   },
-  "with error message, without page heading": {
+  "with error message and hint as strings": {
+    context: {
+      label: {
+        heading: "Enter a job description",
+        size: "l"
+      },
+      hint: "Do not include personal information like your name, date of birth or NHS number",
+      errorMessage: "Job description must be 350 characters or less",
+      id: "with-error-message",
+      name: "example",
+      maxlength: 350,
+      value:
+        "👩🏻‍🚀 A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels. They make sure appropriate content is shown to a user in the right place and in the best format."
+    }
+  },
+  "with error message, without heading": {
     context: {
       label: {
         text: "Enter a job description"
@@ -124,7 +133,7 @@ const fixtures = {
         "👩🏻‍🚀 A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels. They make sure appropriate content is shown to a user in the right place and in the best format."
     }
   },
-  "with error message and hint, without page heading": {
+  "with error message and hint, without heading": {
     context: {
       label: {
         text: "Enter a job description"
@@ -145,9 +154,8 @@ const fixtures = {
   "with value": {
     context: {
       label: {
-        text: "Enter a job description",
-        size: "l",
-        isPageHeading: true
+        heading: "Enter a job description",
+        size: "l"
       },
       id: "with-value",
       name: "example",
@@ -159,9 +167,8 @@ const fixtures = {
   "with custom rows": {
     context: {
       label: {
-        text: "Can you provide more detail?",
-        size: "l",
-        isPageHeading: true
+        heading: "Can you provide more detail?",
+        size: "l"
       },
       id: "custom-rows",
       name: "example",
@@ -172,9 +179,8 @@ const fixtures = {
   "label": {
     context: {
       label: {
-        text: "Can you provide more detail?",
-        size: "l",
-        isPageHeading: true
+        heading: "Can you provide more detail?",
+        size: "l"
       },
       id: "custom-size",
       name: "example",
@@ -226,7 +232,7 @@ const fixtures = {
       }
     ]
   },
-  "without page heading": {
+  "without heading": {
     context: {
       label: "Tell us more about what happened",
       id: "without-heading",
@@ -253,9 +259,8 @@ const fixtures = {
   "with maxwords": {
     context: {
       label: {
-        text: "Enter a job description",
-        size: "l",
-        isPageHeading: true
+        heading: "Enter a job description",
+        size: "l"
       },
       id: "with-word-count",
       name: "example",
@@ -265,9 +270,8 @@ const fixtures = {
   "with count type 'length'": {
     context: {
       label: {
-        text: "Enter a job description",
-        size: "l",
-        isPageHeading: true
+        heading: "Enter a job description",
+        size: "l"
       },
       id: "with-length-count-type",
       name: "example",
@@ -278,9 +282,8 @@ const fixtures = {
   "with count type 'characters'": {
     context: {
       label: {
-        text: "Enter a job description",
-        size: "l",
-        isPageHeading: true
+        heading: "Enter a job description",
+        size: "l"
       },
       id: "with-characters-count-type",
       name: "example",
@@ -291,9 +294,8 @@ const fixtures = {
   "with count type 'characters' and error message": {
     context: {
       label: {
-        text: "Enter a job description",
-        size: "l",
-        isPageHeading: true
+        heading: "Enter a job description",
+        size: "l"
       },
       errorMessage: {
         text: "Job description must be 200 characters or less"
@@ -309,9 +311,8 @@ const fixtures = {
   "with count type 'characters' and value": {
     context: {
       label: {
-        text: "Enter a job description",
-        size: "l",
-        isPageHeading: true
+        heading: "Enter a job description",
+        size: "l"
       },
       id: "with-characters-count-type-value",
       name: "example",
@@ -324,9 +325,8 @@ const fixtures = {
   "with count type 'characters' and threshold": {
     context: {
       label: {
-        text: "Enter a job description",
-        size: "l",
-        isPageHeading: true
+        heading: "Enter a job description",
+        size: "l"
       },
       id: "with-characters-count-type-threshold",
       name: "example",
@@ -340,9 +340,8 @@ const fixtures = {
   "with count type 'words'": {
     context: {
       label: {
-        text: "Enter a job description",
-        size: "l",
-        isPageHeading: true
+        heading: "Enter a job description",
+        size: "l"
       },
       id: "with-words-count-type",
       name: "example",
@@ -356,9 +355,8 @@ const fixtures = {
   "with count type 'words' and error message": {
     context: {
       label: {
-        text: "Enter a job description",
-        size: "l",
-        isPageHeading: true
+        heading: "Enter a job description",
+        size: "l"
       },
       errorMessage: {
         text: "Job description must be 40 words or less"
@@ -374,9 +372,8 @@ const fixtures = {
   "with count type 'words' and threshold": {
     context: {
       label: {
-        text: "Enter a job description",
-        size: "l",
-        isPageHeading: true
+        heading: "Enter a job description",
+        size: "l"
       },
       id: "with-words-count-type-threshold",
       name: "example",
@@ -390,9 +387,8 @@ const fixtures = {
   "with count type 'words' and value": {
     context: {
       label: {
-        text: "Enter a job description",
-        size: "l",
-        isPageHeading: true
+        heading: "Enter a job description",
+        size: "l"
       },
       id: "with-words-count-type-value",
       name: "example",
@@ -405,9 +401,8 @@ const fixtures = {
   "with threshold": {
     context: {
       label: {
-        text: "Can you provide more detail?",
-        size: "l",
-        isPageHeading: true
+        heading: "Can you provide more detail?",
+        size: "l"
       },
       id: "with-threshold",
       name: "example",
@@ -423,9 +418,8 @@ const fixtures = {
   "with neither maxlength nor maxwords set": {
     context: {
       label: {
-        text: "Can you provide more detail?",
-        size: "l",
-        isPageHeading: true
+        heading: "Can you provide more detail?",
+        size: "l"
       },
       textareaDescriptionText: "No more than %{count} characters",
       id: "no-maximum-description",
@@ -441,9 +435,8 @@ const fixtures = {
   "with neither maxlength, maxwords nor textarea description set": {
     context: {
       label: {
-        text: "Can you provide more detail?",
-        size: "l",
-        isPageHeading: true
+        heading: "Can you provide more detail?",
+        size: "l"
       },
       id: "no-maximum",
       name: "example",
@@ -458,9 +451,8 @@ const fixtures = {
   "with translations": {
     context: {
       label: {
-        text: "Allwch chi roi mwy o fanylion?",
-        size: "l",
-        isPageHeading: true
+        heading: "Allwch chi roi mwy o fanylion?",
+        size: "l"
       },
       hint: {
         text: "Peidiwch â chynnwys gwybodaeth bersonol, fel eich enw, dyddiad geni na rhif y GIG"
@@ -489,9 +481,8 @@ const fixtures = {
   "to configure in JavaScript": {
     context: {
       label: {
-        text: "Can you provide more detail?",
-        size: "l",
-        isPageHeading: true
+        heading: "Can you provide more detail?",
+        size: "l"
       },
       id: "to-configure-in-javascript",
       name: "example"

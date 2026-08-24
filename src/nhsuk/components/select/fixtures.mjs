@@ -11,9 +11,8 @@ const fixtures = {
   "default": {
     context: {
       label: {
-        text: "Sort by",
-        size: "l",
-        isPageHeading: true
+        heading: "Sort by",
+        size: "l"
       },
       name: "example",
       items: [
@@ -40,9 +39,8 @@ const fixtures = {
   "disabled": {
     context: {
       label: {
-        text: "Sort by",
-        size: "l",
-        isPageHeading: true
+        heading: "Sort by",
+        size: "l"
       },
       name: "example",
       disabled: true,
@@ -70,9 +68,8 @@ const fixtures = {
   "disabled option": {
     context: {
       label: {
-        text: "Sort by",
-        size: "l",
-        isPageHeading: true
+        heading: "Sort by",
+        size: "l"
       },
       name: "example",
       items: [
@@ -99,9 +96,8 @@ const fixtures = {
   "with divider": {
     context: {
       label: {
-        text: "Sort by",
-        size: "l",
-        isPageHeading: true
+        heading: "Sort by",
+        size: "l"
       },
       name: "example",
       items: [
@@ -130,9 +126,8 @@ const fixtures = {
   "with hint": {
     context: {
       label: {
-        text: "Choose location",
-        size: "l",
-        isPageHeading: true
+        heading: "Choose location",
+        size: "l"
       },
       hint: {
         text: "This can be different to where you went before"
@@ -187,9 +182,8 @@ const fixtures = {
   "with button": {
     context: {
       label: {
-        text: "Choose location",
-        size: "l",
-        isPageHeading: true
+        heading: "Choose location",
+        size: "l"
       },
       hint: {
         text: "This can be different to where you went before"
@@ -254,9 +248,8 @@ const fixtures = {
   "with button and error message": {
     context: {
       label: {
-        text: "Choose location",
-        size: "l",
-        isPageHeading: true
+        heading: "Choose location",
+        size: "l"
       },
       hint: {
         text: "This can be different to where you went before"
@@ -324,9 +317,8 @@ const fixtures = {
   "label": {
     context: {
       label: {
-        text: "Sort by",
-        size: "l",
-        isPageHeading: true
+        heading: "Sort by",
+        size: "l"
       },
       id: "custom-size",
       name: "example",
@@ -395,7 +387,7 @@ const fixtures = {
       }
     ]
   },
-  "without page heading": {
+  "without heading": {
     context: {
       label: "Sort by",
       id: "without-heading",
@@ -423,9 +415,8 @@ const fixtures = {
   "with error only": {
     context: {
       label: {
-        text: "Choose location",
-        size: "l",
-        isPageHeading: true
+        heading: "Choose location",
+        size: "l"
       },
       errorMessage: true,
       id: "with-error-only",
@@ -477,9 +468,8 @@ const fixtures = {
   "with error message": {
     context: {
       label: {
-        text: "Choose location",
-        size: "l",
-        isPageHeading: true
+        heading: "Choose location",
+        size: "l"
       },
       errorMessage: {
         text: "Select a location"
@@ -533,9 +523,8 @@ const fixtures = {
   "with error message and hint": {
     context: {
       label: {
-        text: "Choose location",
-        size: "l",
-        isPageHeading: true
+        heading: "Choose location",
+        size: "l"
       },
       hint: {
         text: "This can be different to where you went before"
@@ -593,7 +582,61 @@ const fixtures = {
       selector: "#with-hint-error"
     }
   },
-  "with error message, without page heading": {
+  "with error message and hint as strings": {
+    context: {
+      label: {
+        heading: "Choose location",
+        size: "l"
+      },
+      hint: "This can be different to where you went before",
+      errorMessage: "Select a location",
+      id: "with-hint-error",
+      name: "example",
+      items: [
+        {
+          value: "choose",
+          text: "Choose location"
+        },
+        {
+          value: "eastmidlands",
+          text: "East Midlands"
+        },
+        {
+          value: "eastofengland",
+          text: "East of England"
+        },
+        {
+          value: "london",
+          text: "London"
+        },
+        {
+          value: "northeast",
+          text: "North East"
+        },
+        {
+          value: "northwest",
+          text: "North West"
+        },
+        {
+          value: "southeast",
+          text: "South East"
+        },
+        {
+          value: "southwest",
+          text: "South West"
+        },
+        {
+          value: "westmidlands",
+          text: "West Midlands"
+        },
+        {
+          value: "yorkshire",
+          text: "Yorkshire and the Humber"
+        }
+      ]
+    }
+  },
+  "with error message, without heading": {
     context: {
       label: {
         text: "Choose location"
@@ -647,7 +690,7 @@ const fixtures = {
       ]
     }
   },
-  "with error message and hint, without page heading": {
+  "with error message and hint, without heading": {
     context: {
       label: {
         text: "Choose location"
@@ -707,9 +750,8 @@ const fixtures = {
   "with selected value": {
     context: {
       label: {
-        text: "Sort by",
-        size: "l",
-        isPageHeading: true
+        heading: "Sort by",
+        size: "l"
       },
       id: "with-value",
       name: "example",

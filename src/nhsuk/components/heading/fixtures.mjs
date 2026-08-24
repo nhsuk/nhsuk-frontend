@@ -147,7 +147,7 @@ const fixtures = {
       classes: "nhsuk-heading-l"
     }
   },
-  "size class overriding size param": {
+  "size class overriding size option": {
     context: {
       text: "What is your full name?",
       classes: "nhsuk-heading-l",

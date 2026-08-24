@@ -8,9 +8,8 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: "What is your date of birth?",
-          size: "l",
-          isPageHeading: true
+          heading: "What is your date of birth?",
+          size: "l"
         }
       },
       hint: {
@@ -24,9 +23,8 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: "What is your date of birth?",
-          size: "l",
-          isPageHeading: true
+          heading: "What is your date of birth?",
+          size: "l"
         }
       },
       hint: {
@@ -41,9 +39,8 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: "What is your date of birth?",
-          size: "l",
-          isPageHeading: true
+          heading: "What is your date of birth?",
+          size: "l"
         }
       },
       hint: {
@@ -60,9 +57,8 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: "What is your date of birth?",
-          size: "l",
-          isPageHeading: true
+          heading: "What is your date of birth?",
+          size: "l"
         }
       },
       hint: {
@@ -78,9 +74,8 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: "What is your date of birth?",
-          size: "l",
-          isPageHeading: true
+          heading: "What is your date of birth?",
+          size: "l"
         }
       },
       hint: {
@@ -108,9 +103,8 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: "Beth yw eich dyddiad geni?",
-          size: "l",
-          isPageHeading: true
+          heading: "Beth yw eich dyddiad geni?",
+          size: "l"
         }
       },
       hint: {
@@ -132,9 +126,8 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: "What is your date of birth?",
-          size: "l",
-          isPageHeading: true
+          heading: "What is your date of birth?",
+          size: "l"
         }
       },
       hint: {
@@ -152,9 +145,8 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: "What is your birthday?",
-          size: "l",
-          isPageHeading: true
+          heading: "What is your birthday?",
+          size: "l"
         }
       },
       hint: {
@@ -168,9 +160,8 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: "What is your birthday?",
-          size: "l",
-          isPageHeading: true
+          heading: "What is your birthday?",
+          size: "l"
         }
       },
       hint: {
@@ -193,9 +184,8 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: "What is your birthday?",
-          size: "l",
-          isPageHeading: true
+          heading: "What is your birthday?",
+          size: "l"
         }
       },
       hint: {
@@ -219,9 +209,8 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: "When did you start your job?",
-          size: "l",
-          isPageHeading: true
+          heading: "When did you start your job?",
+          size: "l"
         }
       },
       hint: {
@@ -235,9 +224,8 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: "When did you start your job?",
-          size: "l",
-          isPageHeading: true
+          heading: "When did you start your job?",
+          size: "l"
         }
       },
       hint: {
@@ -260,9 +248,8 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: "When did you start your job?",
-          size: "l",
-          isPageHeading: true
+          heading: "When did you start your job?",
+          size: "l"
         }
       },
       hint: {
@@ -286,9 +273,8 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: "When did you start your job?",
-          size: "l",
-          isPageHeading: true
+          heading: "When did you start your job?",
+          size: "l"
         }
       },
       hint: {
@@ -308,9 +294,8 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: "When did you start your job?",
-          size: "l",
-          isPageHeading: true
+          heading: "When did you start your job?",
+          size: "l"
         }
       },
       hint: {
@@ -334,9 +319,8 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: "When did you start your job?",
-          size: "l",
-          isPageHeading: true
+          heading: "When did you start your job?",
+          size: "l"
         }
       },
       hint: {
@@ -354,9 +338,8 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: "What is your date of birth?",
-          size: "l",
-          isPageHeading: true
+          heading: "What is your date of birth?",
+          size: "l"
         }
       },
       hint: {
@@ -420,7 +403,7 @@ const fixtures = {
       }
     ]
   },
-  "without page heading": {
+  "without heading": {
     context: {
       fieldset: {
         legend: "What is your date of birth?"
@@ -432,9 +415,8 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: "What is your date of birth?",
-          size: "l",
-          isPageHeading: true
+          heading: "What is your date of birth?",
+          size: "l"
         }
       },
       hint: {
@@ -456,9 +438,8 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: "What is your date of birth?",
-          size: "l",
-          isPageHeading: true
+          heading: "What is your date of birth?",
+          size: "l"
         }
       },
       hint: {
@@ -488,9 +469,8 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: "What is your date of birth?",
-          size: "l",
-          isPageHeading: true
+          heading: "What is your date of birth?",
+          size: "l"
         }
       },
       hint: {
@@ -504,9 +484,8 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: "What is your date of birth?",
-          size: "l",
-          isPageHeading: true
+          heading: "What is your date of birth?",
+          size: "l"
         }
       },
       errorMessage: true,
@@ -517,9 +496,8 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: "What is your date of birth?",
-          size: "l",
-          isPageHeading: true
+          heading: "What is your date of birth?",
+          size: "l"
         }
       },
       errorMessage: {
@@ -532,9 +510,8 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: "What is your date of birth?",
-          size: "l",
-          isPageHeading: true
+          heading: "What is your date of birth?",
+          size: "l"
         }
       },
       hint: {
@@ -547,7 +524,20 @@ const fixtures = {
     },
     screenshot: true
   },
-  "with error message, without page heading": {
+  "with error message and hint as strings": {
+    context: {
+      fieldset: {
+        legend: {
+          heading: "What is your date of birth?",
+          size: "l"
+        }
+      },
+      hint: "For example, 31 3 1980",
+      errorMessage: "Enter your date of birth",
+      id: "example"
+    }
+  },
+  "with error message, without heading": {
     context: {
       fieldset: {
         legend: "What is your date of birth?"
@@ -558,7 +548,7 @@ const fixtures = {
       id: "example"
     }
   },
-  "with error message and hint, without page heading": {
+  "with error message and hint, without heading": {
     context: {
       fieldset: {
         legend: "What is your date of birth?"
@@ -576,9 +566,8 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: "What is your date of birth?",
-          size: "l",
-          isPageHeading: true
+          heading: "What is your date of birth?",
+          size: "l"
         }
       },
       id: "example",
@@ -597,9 +586,8 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: "What is your date of birth?",
-          size: "l",
-          isPageHeading: true
+          heading: "What is your date of birth?",
+          size: "l"
         }
       },
       id: "example",
@@ -626,9 +614,8 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: "What is your date of birth?",
-          size: "l",
-          isPageHeading: true
+          heading: "What is your date of birth?",
+          size: "l"
         }
       },
       hint: {
@@ -653,9 +640,8 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: "What is your date of birth?",
-          size: "l",
-          isPageHeading: true
+          heading: "What is your date of birth?",
+          size: "l"
         }
       },
       hint: {
@@ -688,9 +674,8 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: "What is your date of birth?",
-          size: "l",
-          isPageHeading: true
+          heading: "What is your date of birth?",
+          size: "l"
         }
       },
       hint: {
@@ -723,9 +708,8 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: "What is your date of birth?",
-          size: "l",
-          isPageHeading: true
+          heading: "What is your date of birth?",
+          size: "l"
         }
       },
       hint: {
@@ -750,9 +734,8 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: "What is your date of birth?",
-          size: "l",
-          isPageHeading: true
+          heading: "What is your date of birth?",
+          size: "l"
         }
       },
       hint: {
@@ -777,9 +760,8 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: "What is your date of birth?",
-          size: "l",
-          isPageHeading: true
+          heading: "What is your date of birth?",
+          size: "l"
         }
       },
       hint: {
