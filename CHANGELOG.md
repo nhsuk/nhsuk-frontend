@@ -1515,6 +1515,10 @@ This change was introduced in [pull request #2002: Add image component `backgrou
 - [#2048: Fix margin and line height issues for labels and legends as page headings](https://github.com/nhsuk/nhsuk-frontend/pull/2048)
 - [#2049: Fix radio button and check mark alignment on Windows 125% scaling](https://github.com/nhsuk/nhsuk-frontend/pull/2049)
 
+### :wrench: **Fixes**
+
+- [Remove redundant HTML landmark roles from HTML5 elements](https://github.com/olitreadwell/nhsuk-frontend/pull/7)
+
 ## 10.5.2 - 8 June 2026
 
 Note: This release was created from the `support/10.x` branch.

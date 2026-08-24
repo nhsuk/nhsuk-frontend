@@ -32,7 +32,7 @@
 </ol>
 {% endmacro -%}
 
-<nav class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %} role="navigation" aria-label="{{ ariaLabel }}"
+<nav class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %} aria-label="{{ ariaLabel }}"
   {{- nhsukAttributes(params.attributes) }}>
   <h2 class="nhsuk-u-visually-hidden">
     {{- params.visuallyHiddenText | default("Contents", true) -}}
