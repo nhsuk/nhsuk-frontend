@@ -10,7 +10,7 @@
 
 {#- Set icon or (deprecated) type for this component #}
 {%- set icon = "cross" if (params.icon or params.type) == "cross" else "tick" %}
-{%- set items = params.items | select("mapping") if params.items | length else [] %}
+{%- set items = params.items | select("mapping") | list if params.items else [] %}
 
 {%- macro _listItem(params, data, icon) %}
   {% set item = {

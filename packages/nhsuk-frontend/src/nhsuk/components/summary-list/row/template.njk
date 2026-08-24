@@ -20,8 +20,8 @@
 } %}
 
 {#- Support actions as array #}
-{%- set actions = params.actions | select("mapping") if params.actions and params.actions is iterable else [] %}
-{%- set actions = params.actions.items | select("mapping") if params.actions.items and not actions | length else actions %}
+{%- set actions = params.actions | select("mapping") | list if params.actions and params.actions is iterable else [] %}
+{%- set actions = params.actions.items | select("mapping") | list if params.actions.items and not actions | length else actions %}
 
 {%- if parent.hasActions and not actions | length %}
   {% set classNames = classNames ~ " nhsuk-summary-list__row--no-actions" %}

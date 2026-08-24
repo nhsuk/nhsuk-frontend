@@ -15,7 +15,7 @@
   {% set classNames = classNames ~ " " ~ params.classes %}
 {% endif %}
 
-{%- set rows = params.rows | select("mapping") if params.rows | length else [] %}
+{%- set rows = params.rows | select("mapping") | list if params.rows else [] %}
 
 {#- Determine if we need 2 or 3 columns #}
 {%- set hasActions = false %}
