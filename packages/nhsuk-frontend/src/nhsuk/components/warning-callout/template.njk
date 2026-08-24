@@ -30,8 +30,9 @@
 } -%}
 
 {% if caller %}
+  {%- set outerCaller = caller %}
   {%- call nhsukCard(card) %}
-    {{- caller() }}
+    {{- outerCaller() }}
   {%- endcall %}
 {% else %}
   {{- nhsukCard(card) | trim }}

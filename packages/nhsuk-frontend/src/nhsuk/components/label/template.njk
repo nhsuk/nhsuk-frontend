@@ -65,9 +65,10 @@
 
 {%- if caller or label.html or label.text %}
 {%- set innerHtml %}
+{%- set outerCaller = caller %}
 {% if caller %}
   {%- call nhsukHeading(label) %}
-    {{- caller() }}
+    {{- outerCaller() }}
   {%- endcall %}
 {% else %}
   {{- nhsukHeading(label) | trim }}
