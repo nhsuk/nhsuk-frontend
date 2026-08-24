@@ -82,7 +82,8 @@
 {%- set element = "h" ~ heading.level | default("1", true) -%}
 
 {% if hasHeading %}
-<{{ element }} class="{{ classNamesHeading }}">
+<{{ element }} class="{{ classNamesHeading }}" {%- if heading.id %} id="{{ heading.id }}"{% endif %}
+  {{- nhsukAttributes(heading.attributes) }}>
   {{ innerHtml | safe | trim | indent(2) }}
 </{{ element }}>
 {% else %}

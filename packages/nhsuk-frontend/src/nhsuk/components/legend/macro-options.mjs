@@ -59,6 +59,12 @@ const options = {
     released: '10.6.1',
     isComponent: true,
     params: {
+      id: {
+        type: 'string',
+        required: false,
+        description: 'The ID of the legend heading.',
+        released: '10.6.1'
+      },
       text: {
         type: 'string',
         required: false,
@@ -98,6 +104,13 @@ const options = {
         type: 'integer',
         required: false,
         description: 'Optional legend heading level. Defaults to `1`.',
+        released: '10.6.1'
+      },
+      attributes: {
+        type: 'object',
+        required: false,
+        description:
+          'HTML attributes (for example data attributes) to add to the legend heading.',
         released: '10.6.1'
       }
     }

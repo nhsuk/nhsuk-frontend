@@ -86,11 +86,13 @@
 <legend class="{{ classNames }}" {%- if legend.id %} id="{{ legend.id }}"{% endif %}
   {{- nhsukAttributes(legend.attributes) }}>
   {{ nhsukHeading({
+    id: heading.id,
     html: innerHtml,
     visuallyHiddenText: legend.visuallyHiddenText,
     caption: legend.caption,
     level: heading.level,
-    className: classNamesHeading
+    className: classNamesHeading,
+    attributes: heading.attributes
   }) | trim | indent(2) }}
 </legend>
 {% else %}
