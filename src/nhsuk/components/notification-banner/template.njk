@@ -58,7 +58,7 @@
       text: title.text | default("Success" if variant == "success" else "Important"),
       html: title.html,
       visuallyHiddenText: title.visuallyHiddenText,
-      level: title.level | default(2),
+      level: title.level | default(title.headingLevel) | default(2),
       className: "nhsuk-notification-banner__title",
       classes: title.classes,
       attributes: title.attributes

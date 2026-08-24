@@ -53,6 +53,12 @@ const options = {
         description: 'A visually hidden suffix added to the title.',
         released: '10.6.0'
       },
+      headingLevel: {
+        type: 'integer',
+        required: false,
+        description: 'Optional alias for the title heading `level` option.',
+        released: '10.6.1'
+      },
       level: {
         type: 'integer',
         required: false,
