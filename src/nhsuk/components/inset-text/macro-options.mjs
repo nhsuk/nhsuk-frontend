@@ -16,14 +16,14 @@ const options = {
     type: 'string',
     required: true,
     description:
-      'Text content to be used within the inset text component. If `html` is provided, the `text` argument will be ignored.',
+      'Text content to be used within the inset text component. If `html` is provided, the `text` option will be ignored.',
     released: '9.2.0'
   },
   html: {
     type: 'string',
     required: true,
     description:
-      'HTML content to be used within the inset text component. If `html` is provided, the `text` argument will be ignored.',
+      'HTML content to be used within the inset text component. If `html` is provided, the `text` option will be ignored.',
     released: '8.2.0'
   },
   caller: {

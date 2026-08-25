@@ -206,7 +206,7 @@ const options = {
         type: 'string',
         required: false,
         description:
-          'HTML to use for the image content. If `html` is provided, the `src` and `alt` arguments will be ignored.',
+          'HTML to use for the image content. If `html` is provided, the `src` and `alt` options will be ignored.',
         released: '10.3.0'
       }
     }
@@ -215,7 +215,7 @@ const options = {
     type: 'object',
     required: false,
     description:
-      'Description to use within the card content. If `descriptionHtml` is provided, the `description` argument will be ignored.',
+      'Description to use within the card content. If `descriptionHtml` is provided, the `description` option will be ignored.',
     released: '10.6.0',
     params: {
       text: {

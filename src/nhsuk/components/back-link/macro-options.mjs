@@ -16,14 +16,14 @@ const options = {
     type: 'string',
     required: false,
     description:
-      'Text to use within the back link component. If `html` is provided, the `text` argument will be ignored. Defaults to `"Back"`.',
+      'Text to use within the back link component. If `html` is provided, the `text` option will be ignored. Defaults to `"Back"`.',
     released: '1.0.0'
   },
   html: {
     type: 'string',
     required: false,
     description:
-      'HTML to use within the back link component. If `html` is provided, the `text` argument will be ignored. Defaults to `"Back"`.',
+      'HTML to use within the back link component. If `html` is provided, the `text` option will be ignored. Defaults to `"Back"`.',
     released: '1.0.0'
   },
   caller: {

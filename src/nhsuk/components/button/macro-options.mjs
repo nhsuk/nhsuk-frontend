@@ -24,14 +24,14 @@ const options = {
     type: 'string',
     required: true,
     description:
-      'If `html` or `ariaLabel` is set, this is not required. Text for the button or link. If `html` is provided, the `text` argument will be ignored and `element` will be automatically set to `"button"` unless `href` is also set, or it has already been defined. This argument has no effect if `element` is set to `"input"`.',
+      'If `html` or `ariaLabel` is set, this is not required. Text for the button or link. If `html` is provided, the `text` option will be ignored and `element` will be automatically set to `"button"` unless `href` is also set, or it has already been defined. This option has no effect if `element` is set to `"input"`.',
     released: '1.0.0'
   },
   html: {
     type: 'string',
     required: true,
     description:
-      'If `text` or `ariaLabel` is set, this is not required. HTML for the button or link. If `html` is provided, the `text` argument will be ignored and `element` will be automatically set to `"button"` unless `href` is also set, or it has already been defined. This argument has no effect if `element` is set to `"input"`.',
+      'If `text` or `ariaLabel` is set, this is not required. HTML for the button or link. If `html` is provided, the `text` option will be ignored and `element` will be automatically set to `"button"` unless `href` is also set, or it has already been defined. This option has no effect if `element` is set to `"input"`.',
     released: '1.0.0'
   },
   caller: {
