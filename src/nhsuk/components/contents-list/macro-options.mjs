@@ -15,14 +15,14 @@ const options = {
   items: {
     type: 'array',
     required: true,
-    description: 'Array of content list items objects.',
+    description: 'Array of contents list items objects.',
     released: '1.0.0',
     params: {
       href: {
         type: 'string',
         required: true,
         description:
-          'The `href` attribute for the content list item label. Required unless `item.current` is set.',
+          'The contents list item `href` attribute. Required unless `item.current` is set.',
         released: '1.0.0'
       },
       current: {
@@ -36,27 +36,27 @@ const options = {
         type: 'string',
         required: true,
         description:
-          'If `html` is set, this is not required. Text to use within each content list item label. If `html` is provided, the `text` option will be ignored.',
+          'If `html` is set, this is not required. Text to use within each contents list item. If `html` is provided, the `text` option will be ignored.',
         released: '1.0.0'
       },
       html: {
         type: 'string',
         required: true,
         description:
-          'If `text` is set, this is not required. HTML to use within each content list item label. If `html` is provided, the `text` option will be ignored.',
+          'If `text` is set, this is not required. HTML to use within each contents list item. If `html` is provided, the `text` option will be ignored.',
         released: '10.2.0'
       },
       classes: {
         type: 'string',
         required: false,
-        description: 'Classes to add to the content list item label.',
+        description: 'Classes to add to the contents list item.',
         released: '10.2.0'
       },
       attributes: {
         type: 'object',
         required: false,
         description:
-          'HTML attributes (for example data attributes) to add to the content list item label.',
+          'HTML attributes (for example data attributes) to add to the contents list item.',
         released: '10.2.0'
       }
     }
@@ -64,14 +64,14 @@ const options = {
   classes: {
     type: 'string',
     required: false,
-    description: 'Classes to add to the content list container.',
+    description: 'Classes to add to the contents list container.',
     released: '1.0.0'
   },
   attributes: {
     type: 'object',
     required: false,
     description:
-      'HTML attributes (for example data attributes) to add to the content list container.',
+      'HTML attributes (for example data attributes) to add to the contents list container.',
     released: '1.0.0'
   },
   landmarkLabel: {

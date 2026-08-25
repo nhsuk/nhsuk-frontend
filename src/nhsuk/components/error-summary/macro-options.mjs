@@ -134,7 +134,7 @@ const options = {
         type: 'string',
         required: false,
         description:
-          'The `href` attribute for the error link item. If provided item will be an anchor.',
+          'The error `href` attribute. If set, the error will become a link.',
         released: '1.0.0'
       },
       text: {
@@ -155,7 +155,7 @@ const options = {
         type: 'object',
         required: false,
         description:
-          'HTML attributes (for example data attributes) to add to the error link anchor.',
+          'HTML attributes (for example data attributes) to add to the error link.',
         released: '1.0.0'
       }
     }

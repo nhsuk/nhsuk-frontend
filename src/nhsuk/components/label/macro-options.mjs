@@ -50,7 +50,7 @@ const options = {
     type: 'string',
     required: false,
     description:
-      'The value of the `for` attribute, the ID of the input the label is associated with.',
+      'The label `for` attribute, the ID of the input the label is associated with.',
     released: '1.0.0'
   },
   heading: {

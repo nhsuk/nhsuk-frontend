@@ -34,7 +34,7 @@ const options = {
       href: {
         type: 'string',
         required: false,
-        description: 'The value of the breadcrumb item link `href` attribute.',
+        description: 'The breadcrumb item `href` attribute.',
         released: '1.0.0'
       },
       attributes: {
