@@ -1,0 +1,146 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/icon.njk" import nhsukIcon %}
+
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-pagination" -%}
+
+{%- if params.items | length %}
+  {% set classNames = classNames ~ " nhsuk-pagination--numbered" %}
+{% endif %}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif %}
+
+{%- set previous = {
+  href: params.previousUrl,
+  labelText: params.previousPage
+} if (params.previousUrl or params.previousPage) else params.previous -%}
+
+{#- Support previous label as string (with deprecated options) #}
+{%- set previousLabel = previous.label if previous.label is mapping and previous.label is not escaped else {
+  text: previous.label if previous.label is string else previous.labelText,
+  html: previous.label if previous.label is escaped else undefined
+} -%}
+
+{%- set next = {
+  href: params.nextUrl,
+  labelText: params.nextPage
+} if (params.nextUrl or params.nextPage) else params.next -%}
+
+{#- Support next label as string (with deprecated options) #}
+{%- set nextLabel = next.label if next.label is mapping and next.label is not escaped else {
+  text: next.label if next.label is string else next.labelText,
+  html: next.label if next.label is escaped else undefined
+} -%}
+
+{%- set ariaLabel = params.ariaLabel | default(params.landmarkLabel, true) | default("Pagination", true) -%}
+
+{# Numbered page - included as a link within a list item. #}
+{%- macro _pageItem(item) -%}
+  <li class="nhsuk-pagination__item {%- if item.current %} nhsuk-pagination__item--current{% endif %} {%- if item.ellipsis %} nhsuk-pagination__item--ellipsis{% endif %} {%- if item.classes %} {{ item.classes }}{% endif %}">
+  {% if item.ellipsis %}
+    &ctdot;
+  {% else %}
+    {%- set itemAriaLabel = item.ariaLabel | default(item.visuallyHiddenText) | default("Page " ~ item.number) %}
+    <a class="nhsuk-pagination__link" href="{{ item.href }}" aria-label="{{ itemAriaLabel }}"
+      {%- if item.current %} aria-current="page"{% endif %}
+      {{- nhsukAttributes(item.attributes) }}>
+      {{ item.number }}
+    </a>
+  {% endif %}
+  </li>
+{%- endmacro -%}
+
+<nav class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %} role="navigation" aria-label="{{ ariaLabel }}"
+  {{- nhsukAttributes(params.attributes) }}>
+{% if previous.href and params.items | length %}
+  <a href="{{ previous.href }}" class="nhsuk-pagination__previous" rel="prev">
+    {{ nhsukIcon("arrow-left") | trim | indent(4) }}
+    <span class="nhsuk-pagination__title">
+    {% if previous.html %}
+      {{ previous.html | safe | trim | indent(6) }}
+    {% elif previous.text %}
+      {{ previous.text | trim | indent(6) }}
+    {% else %}
+      Previous<span class="nhsuk-u-visually-hidden"> page</span>
+    {% endif %}
+    </span>
+  </a>
+{% endif %}
+
+{%- if params.items | length %}
+  <ul class="nhsuk-pagination__list">
+  {% for item in params.items %}
+    {{ _pageItem(item) | indent(2) if item }}
+  {% endfor %}
+  </ul>
+{% endif %}
+
+{%- if next.href and params.items | length %}
+  <a href="{{ next.href }}" class="nhsuk-pagination__next" rel="next">
+    <span class="nhsuk-pagination__title">
+    {% if next.html %}
+      {{ next.html | safe | trim | indent(6) }}
+    {% elif next.text %}
+      {{ next.text | trim | indent(6) }}
+    {% else %}
+      Next<span class="nhsuk-u-visually-hidden"> page</span>
+    {% endif %}
+    </span>
+    {{ nhsukIcon("arrow-right") | trim | indent(4) }}
+  </a>
+{% endif %}
+
+{%- if not params.items | length %}
+  <ul class="nhsuk-list nhsuk-pagination__list">
+  {% if previous.href %}
+    <li class="nhsuk-pagination-item--previous">
+      <a class="nhsuk-pagination__link nhsuk-pagination__link--prev" href="{{ previous.href }}" rel="prev"
+        {{- nhsukAttributes(previous.attributes) }}>
+        <span class="nhsuk-pagination__title">
+        {% if previous.html %}
+          {{ previous.html | safe | trim | indent(10) }}
+        {% elif previous.text %}
+          {{ previous.text | trim | indent(10) }}
+        {% else %}
+          Previous<span class="nhsuk-u-visually-hidden"> page</span>
+        {% endif %}
+        </span>
+        {% if previousLabel.text or previousLabel.html %}
+        <span class="nhsuk-u-visually-hidden">:</span>
+        <span class="nhsuk-pagination__page">
+          {{- previousLabel.html | safe | trim if previousLabel.html else previousLabel.text | trim -}}
+        </span>
+        {% endif %}
+        {{ nhsukIcon("arrow-left") | trim | indent(8) }}
+      </a>
+    </li>
+  {% endif %}
+
+  {%- if next.href %}
+    <li class="nhsuk-pagination-item--next">
+      <a class="nhsuk-pagination__link nhsuk-pagination__link--next" href="{{ next.href }}" rel="next"
+        {{- nhsukAttributes(next.attributes) }}>
+        <span class="nhsuk-pagination__title">
+        {% if next.html %}
+          {{ next.html | safe | trim | indent(10) }}
+        {% elif next.text %}
+          {{ next.text | trim | indent(10) }}
+        {% else %}
+          Next<span class="nhsuk-u-visually-hidden"> page</span>
+        {% endif %}
+        </span>
+        {% if nextLabel.text or nextLabel.html %}
+        <span class="nhsuk-u-visually-hidden">:</span>
+        <span class="nhsuk-pagination__page">
+          {{- nextLabel.html | safe | trim if nextLabel.html else nextLabel.text | trim -}}
+        </span>
+        {% endif %}
+        {{ nhsukIcon("arrow-right") | trim | indent(8) }}
+      </a>
+    </li>
+  {% endif %}
+  </ul>
+{% endif %}
+</nav>

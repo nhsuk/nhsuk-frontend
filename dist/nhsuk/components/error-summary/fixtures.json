@@ -1,0 +1,267 @@
+{
+  "name": "Error summary",
+  "component": "error-summary",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "heading": {
+          "text": "There is a problem"
+        },
+        "errorList": [
+          {
+            "text": "Date of birth must be in the past",
+            "href": "#example-day"
+          }
+        ]
+      },
+      "screenshot": {
+        "states": [
+          "focus",
+          "hover",
+          "active"
+        ],
+        "selector": ".nhsuk-error-summary a"
+      },
+      "options": {},
+      "html": "<div class=\"nhsuk-error-summary\" data-module=\"nhsuk-error-summary\">\n  <div role=\"alert\">\n    <h2 class=\"nhsuk-error-summary__heading\">\n      There is a problem\n    </h2>\n    <div class=\"nhsuk-error-summary__body\">\n      <ul class=\"nhsuk-list nhsuk-error-summary__list\">\n        <li>\n          <a href=\"#example-day\">\n            Date of birth must be in the past\n          </a>\n        </li>\n      </ul>\n    </div>\n  </div>\n</div>"
+    },
+    {
+      "name": "auto-focus disabled",
+      "context": {
+        "heading": {
+          "text": "There is a problem"
+        },
+        "errorList": [
+          {
+            "text": "Date of birth must be in the past",
+            "href": "#example-day"
+          }
+        ],
+        "disableAutoFocus": true
+      },
+      "screenshot": false,
+      "options": {
+        "hidden": true
+      },
+      "html": "<div class=\"nhsuk-error-summary\" data-module=\"nhsuk-error-summary\" data-disable-auto-focus=\"true\">\n  <div role=\"alert\">\n    <h2 class=\"nhsuk-error-summary__heading\">\n      There is a problem\n    </h2>\n    <div class=\"nhsuk-error-summary__body\">\n      <ul class=\"nhsuk-list nhsuk-error-summary__list\">\n        <li>\n          <a href=\"#example-day\">\n            Date of birth must be in the past\n          </a>\n        </li>\n      </ul>\n    </div>\n  </div>\n</div>"
+    },
+    {
+      "name": "auto-focus explicitly enabled",
+      "context": {
+        "heading": {
+          "text": "There is a problem"
+        },
+        "errorList": [
+          {
+            "text": "Date of birth must be in the past",
+            "href": "#example-day"
+          }
+        ],
+        "disableAutoFocus": false
+      },
+      "screenshot": false,
+      "options": {
+        "hidden": true
+      },
+      "html": "<div class=\"nhsuk-error-summary\" data-module=\"nhsuk-error-summary\" data-disable-auto-focus=\"false\">\n  <div role=\"alert\">\n    <h2 class=\"nhsuk-error-summary__heading\">\n      There is a problem\n    </h2>\n    <div class=\"nhsuk-error-summary__body\">\n      <ul class=\"nhsuk-list nhsuk-error-summary__list\">\n        <li>\n          <a href=\"#example-day\">\n            Date of birth must be in the past\n          </a>\n        </li>\n      </ul>\n    </div>\n  </div>\n</div>"
+    },
+    {
+      "name": "with description",
+      "context": {
+        "heading": {
+          "text": "There is a problem"
+        },
+        "description": {
+          "text": "Describe the errors and how to correct them"
+        },
+        "errorList": [
+          {
+            "text": "Date of birth must be in the past",
+            "href": "#example-day"
+          }
+        ]
+      },
+      "screenshot": true,
+      "options": {},
+      "html": "<div class=\"nhsuk-error-summary\" data-module=\"nhsuk-error-summary\">\n  <div role=\"alert\">\n    <h2 class=\"nhsuk-error-summary__heading\">\n      There is a problem\n    </h2>\n    <div class=\"nhsuk-error-summary__body\">\n      <p>\n        Describe the errors and how to correct them\n      </p>\n      <ul class=\"nhsuk-list nhsuk-error-summary__list\">\n        <li>\n          <a href=\"#example-day\">\n            Date of birth must be in the past\n          </a>\n        </li>\n      </ul>\n    </div>\n  </div>\n</div>"
+    },
+    {
+      "name": "with description as string",
+      "context": {
+        "heading": {
+          "text": "There is a problem"
+        },
+        "description": "Describe the errors and how to correct them",
+        "errorList": [
+          {
+            "text": "Date of birth must be in the past",
+            "href": "#example-day"
+          }
+        ]
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-error-summary\" data-module=\"nhsuk-error-summary\">\n  <div role=\"alert\">\n    <h2 class=\"nhsuk-error-summary__heading\">\n      There is a problem\n    </h2>\n    <div class=\"nhsuk-error-summary__body\">\n      <p>\n        Describe the errors and how to correct them\n      </p>\n      <ul class=\"nhsuk-list nhsuk-error-summary__list\">\n        <li>\n          <a href=\"#example-day\">\n            Date of birth must be in the past\n          </a>\n        </li>\n      </ul>\n    </div>\n  </div>\n</div>"
+    },
+    {
+      "name": "with description HTML",
+      "context": {
+        "heading": {
+          "text": "There is a problem"
+        },
+        "description": {
+          "html": "Describe the errors and <span>how to correct them</span>"
+        },
+        "errorList": [
+          {
+            "text": "Date of birth must be in the past",
+            "href": "#example-day"
+          }
+        ]
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-error-summary\" data-module=\"nhsuk-error-summary\">\n  <div role=\"alert\">\n    <h2 class=\"nhsuk-error-summary__heading\">\n      There is a problem\n    </h2>\n    <div class=\"nhsuk-error-summary__body\">\n      <p>\n        Describe the errors and <span>how to correct them</span>\n      </p>\n      <ul class=\"nhsuk-list nhsuk-error-summary__list\">\n        <li>\n          <a href=\"#example-day\">\n            Date of birth must be in the past\n          </a>\n        </li>\n      </ul>\n    </div>\n  </div>\n</div>"
+    },
+    {
+      "name": "with description only",
+      "context": {
+        "heading": {
+          "text": "There is a problem"
+        },
+        "description": {
+          "text": "Describe the errors and how to correct them"
+        }
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-error-summary\" data-module=\"nhsuk-error-summary\">\n  <div role=\"alert\">\n    <h2 class=\"nhsuk-error-summary__heading\">\n      There is a problem\n    </h2>\n    <div class=\"nhsuk-error-summary__body\">\n      <p>\n        Describe the errors and how to correct them\n      </p>\n    </div>\n  </div>\n</div>"
+    },
+    {
+      "name": "with description via call block",
+      "context": {
+        "heading": {
+          "text": "There is a problem"
+        },
+        "errorList": [
+          {
+            "text": "Date of birth must be in the past",
+            "href": "#example-day"
+          }
+        ]
+      },
+      "callBlock": "Describe the errors and <span>how to correct them</span>",
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-error-summary\" data-module=\"nhsuk-error-summary\">\n  <div role=\"alert\">\n    <h2 class=\"nhsuk-error-summary__heading\">\n      There is a problem\n    </h2>\n    <div class=\"nhsuk-error-summary__body\">\n      <p>\nDescribe the errors and <span>how to correct them</span>\n      </p>\n      <ul class=\"nhsuk-list nhsuk-error-summary__list\">\n        <li>\n          <a href=\"#example-day\">\n            Date of birth must be in the past\n          </a>\n        </li>\n      </ul>\n    </div>\n  </div>\n</div>"
+    },
+    {
+      "name": "with heading as string",
+      "context": {
+        "heading": "There is a problem",
+        "errorList": [
+          {
+            "text": "Date of birth must be in the past",
+            "href": "#example-day"
+          }
+        ]
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-error-summary\" data-module=\"nhsuk-error-summary\">\n  <div role=\"alert\">\n    <h2 class=\"nhsuk-error-summary__heading\">\n      There is a problem\n    </h2>\n    <div class=\"nhsuk-error-summary__body\">\n      <ul class=\"nhsuk-list nhsuk-error-summary__list\">\n        <li>\n          <a href=\"#example-day\">\n            Date of birth must be in the past\n          </a>\n        </li>\n      </ul>\n    </div>\n  </div>\n</div>"
+    },
+    {
+      "name": "with heading HTML",
+      "context": {
+        "heading": {
+          "html": "There is a <span>problem</span>"
+        },
+        "errorList": [
+          {
+            "text": "Date of birth must be in the past",
+            "href": "#example-day"
+          }
+        ]
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-error-summary\" data-module=\"nhsuk-error-summary\">\n  <div role=\"alert\">\n    <h2 class=\"nhsuk-error-summary__heading\">\n      There is a <span>problem</span>\n    </h2>\n    <div class=\"nhsuk-error-summary__body\">\n      <ul class=\"nhsuk-list nhsuk-error-summary__list\">\n        <li>\n          <a href=\"#example-day\">\n            Date of birth must be in the past\n          </a>\n        </li>\n      </ul>\n    </div>\n  </div>\n</div>"
+    },
+    {
+      "name": "with multiple errors",
+      "context": {
+        "heading": {
+          "text": "There is a problem"
+        },
+        "errorList": [
+          {
+            "text": "Enter your first name",
+            "href": "#example-first-name"
+          },
+          {
+            "text": "Enter your last name",
+            "href": "#example-last-name"
+          }
+        ]
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-error-summary\" data-module=\"nhsuk-error-summary\">\n  <div role=\"alert\">\n    <h2 class=\"nhsuk-error-summary__heading\">\n      There is a problem\n    </h2>\n    <div class=\"nhsuk-error-summary__body\">\n      <ul class=\"nhsuk-list nhsuk-error-summary__list\">\n        <li>\n          <a href=\"#example-first-name\">\n            Enter your first name\n          </a>\n        </li>\n        <li>\n          <a href=\"#example-last-name\">\n            Enter your last name\n          </a>\n        </li>\n      </ul>\n    </div>\n  </div>\n</div>"
+    },
+    {
+      "name": "with multiple errors (empty items)",
+      "context": {
+        "heading": {
+          "text": "There is a problem"
+        },
+        "errorList": [
+          {
+            "text": "Enter your first name",
+            "href": "#example-first-name"
+          },
+          false
+        ]
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-error-summary\" data-module=\"nhsuk-error-summary\">\n  <div role=\"alert\">\n    <h2 class=\"nhsuk-error-summary__heading\">\n      There is a problem\n    </h2>\n    <div class=\"nhsuk-error-summary__body\">\n      <ul class=\"nhsuk-list nhsuk-error-summary__list\">\n        <li>\n          <a href=\"#example-first-name\">\n            Enter your first name\n          </a>\n        </li>\n      </ul>\n    </div>\n  </div>\n</div>"
+    },
+    {
+      "name": "without error link",
+      "context": {
+        "heading": {
+          "text": "There is a problem"
+        },
+        "errorList": [
+          {
+            "text": "Invalid username or password"
+          }
+        ]
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-error-summary\" data-module=\"nhsuk-error-summary\">\n  <div role=\"alert\">\n    <h2 class=\"nhsuk-error-summary__heading\">\n      There is a problem\n    </h2>\n    <div class=\"nhsuk-error-summary__body\">\n      <ul class=\"nhsuk-list nhsuk-error-summary__list\">\n        <li>\n          Invalid username or password\n        </li>\n      </ul>\n    </div>\n  </div>\n</div>"
+    },
+    {
+      "name": "without error link (mixed)",
+      "context": {
+        "heading": {
+          "text": "There is a problem"
+        },
+        "errorList": [
+          {
+            "text": "Invalid username or password"
+          },
+          {
+            "text": "Agree to the terms of service to log in",
+            "href": "#example-terms-of-service"
+          }
+        ]
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<div class=\"nhsuk-error-summary\" data-module=\"nhsuk-error-summary\">\n  <div role=\"alert\">\n    <h2 class=\"nhsuk-error-summary__heading\">\n      There is a problem\n    </h2>\n    <div class=\"nhsuk-error-summary__body\">\n      <ul class=\"nhsuk-list nhsuk-error-summary__list\">\n        <li>\n          Invalid username or password\n        </li>\n        <li>\n          <a href=\"#example-terms-of-service\">\n            Agree to the terms of service to log in\n          </a>\n        </li>\n      </ul>\n    </div>\n  </div>\n</div>"
+    }
+  ]
+}

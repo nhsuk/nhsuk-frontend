@@ -1,0 +1,228 @@
+// stylelint-disable declaration-no-important
+
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+@use "../../core/helpers" as *;
+
+////
+/// Scroll component
+///
+/// @group components/scroll
+////
+
+$nhsuk-scroll-shadow-width: nhsuk-spacing(4);
+$nhsuk-scroll-bar-height: nhsuk-spacing(4);
+
+@include nhsuk-exports("nhsuk/components/scroll") {
+  .nhsuk-scroll {
+    position: relative;
+    container: scroll / inline-size;
+    margin: -$nhsuk-gutter-half;
+    padding-bottom: $nhsuk-focus-width * 2;
+    overflow: hidden;
+
+    // Use table bottom margin but remove space for scroll bars
+    @include nhsuk-responsive-margin(7, "bottom", $adjustment: - ($nhsuk-scroll-bar-height + $nhsuk-focus-width * 2));
+
+    @media #{nhsuk-from-breakpoint(desktop)} {
+      margin-right: 0;
+      margin-left: 0;
+      overflow: visible;
+    }
+  }
+
+  .nhsuk-card__content .nhsuk-scroll {
+    padding-bottom: 0;
+    overflow: visible;
+
+    @include nhsuk-responsive-margin(-5, ("left", "right"));
+
+    &:first-child {
+      margin-top: -$nhsuk-gutter-half;
+    }
+
+    &:last-child {
+      @include nhsuk-responsive-margin(-5, "bottom");
+    }
+  }
+
+  .nhsuk-scroll__content,
+  // Deprecated, to be removed in v11.0
+  .nhsuk-table-container {
+    box-sizing: content-box;
+    display: block;
+    padding: $nhsuk-gutter-half;
+
+    // Add space for scroll bars
+    padding-bottom: $nhsuk-scroll-bar-height;
+    overflow-x: auto;
+
+    @include nhsuk-top-and-bottom;
+
+    @media #{nhsuk-from-breakpoint(desktop)} {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+
+  .nhsuk-scroll__content {
+    container: scroll-content / inline-size scroll-state;
+
+    &:focus-visible {
+      outline: $nhsuk-focus-width solid transparent;
+    }
+
+    &:focus-visible::before,
+    &:focus-visible::after {
+      display: none;
+      width: auto;
+      height: auto;
+      opacity: 1 !important;
+      background: none !important;
+    }
+
+    &:focus-visible::after {
+      content: "";
+
+      display: block;
+
+      position: absolute;
+      top: $nhsuk-focus-width * 2;
+      right: $nhsuk-focus-width * 2;
+      bottom: $nhsuk-focus-width * 2;
+      left: $nhsuk-focus-width * 2;
+
+      @include nhsuk-focused-box;
+
+      @media #{nhsuk-from-breakpoint(desktop)} {
+        right: 0;
+        left: 0;
+      }
+    }
+  }
+
+  // Left and right shadows
+  .nhsuk-scroll__content::before,
+  .nhsuk-scroll__content::after {
+    content: "";
+
+    display: none;
+
+    position: absolute;
+    z-index: 1;
+    top: nhsuk-spacing(2);
+
+    width: $nhsuk-scroll-shadow-width;
+    height: calc(100% - nhsuk-spacing(2));
+
+    pointer-events: none;
+
+    transition: opacity 0.2s ease-out;
+
+    opacity: 1;
+
+    background: no-repeat right / $nhsuk-scroll-shadow-width 100%;
+
+    @include nhsuk-frontend-not-supported {
+      display: block;
+
+      @container scroll-state(scrollable: inline) {
+        opacity: 0;
+      }
+    }
+
+    .nhsuk-scroll--scrollable & {
+      display: block;
+      opacity: 0;
+    }
+  }
+
+  $_shadow-colour: nhsuk-shade($nhsuk-brand-colour, 70%);
+  $_shadow-colour-reverse: nhsuk-tint($nhsuk-brand-colour, 70%);
+
+  $_shadow-colours: (
+    rgba($_shadow-colour, 0.2),
+    rgba($_shadow-colour, 0.2) $nhsuk-border-width,
+    rgba($_shadow-colour, 0.05) $nhsuk-border-width,
+    rgba($_shadow-colour, 0.05) 100%
+  );
+
+  $_shadow-colours-card: (
+    rgba($_shadow-colour, 0.15),
+    rgba($_shadow-colour, 0.15) $nhsuk-border-width - 1px,
+    rgba($_shadow-colour, 0.05) $nhsuk-border-width - 1px,
+    rgba($_shadow-colour, 0.05) 100%
+  );
+
+  $_shadow-colours-reverse: (
+    rgba($_shadow-colour-reverse, 0.4),
+    rgba($_shadow-colour-reverse, 0.4) $nhsuk-border-width,
+    rgba($_shadow-colour-reverse, 0.1) $nhsuk-border-width,
+    rgba($_shadow-colour-reverse, 0.1) 100%
+  );
+
+  // Left shadow
+  .nhsuk-scroll__content::before {
+    left: 0;
+    background-image: linear-gradient(to right, $_shadow-colours...);
+
+    .nhsuk-card__content .nhsuk-scroll & {
+      background-image: linear-gradient(to right, $_shadow-colours-card...);
+    }
+
+    .nhsuk-scroll--reverse & {
+      background-image: linear-gradient(to right, $_shadow-colours-reverse...);
+    }
+
+    @include nhsuk-frontend-not-supported {
+      @container scroll-state(scrollable: left) {
+        transition-duration: 0.05s;
+        opacity: 1;
+      }
+    }
+
+    .nhsuk-scroll--scrollable-left & {
+      transition-duration: 0.05s;
+      opacity: 1;
+    }
+  }
+
+  // Right shadow
+  .nhsuk-scroll__content::after {
+    right: 0;
+    background-image: linear-gradient(to left, $_shadow-colours...);
+
+    .nhsuk-card__content .nhsuk-scroll & {
+      background-image: linear-gradient(to left, $_shadow-colours-card...);
+    }
+
+    .nhsuk-scroll--reverse & {
+      background-image: linear-gradient(to left, $_shadow-colours-reverse...);
+    }
+
+    @include nhsuk-frontend-not-supported {
+      @container scroll-state(scrollable: right) {
+        transition-duration: 0.05s;
+        opacity: 1;
+      }
+    }
+
+    .nhsuk-scroll--scrollable-right & {
+      transition-duration: 0.05s;
+      opacity: 1;
+    }
+  }
+
+  .nhsuk-card__content .nhsuk-scroll__content {
+    padding-right: 0;
+    padding-left: 0;
+
+    @include nhsuk-responsive-padding(5, "bottom");
+
+    &:focus-visible::after {
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+  }
+}

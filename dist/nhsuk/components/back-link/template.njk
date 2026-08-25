@@ -1,0 +1,68 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+
+{#- Set variant for this component #}
+{%- set variant = params.variant -%}
+
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-back-link" -%}
+
+{%- if variant == "reverse" and (not params.classes or not "nhsuk-back-link--reverse" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-back-link--" ~ variant %}
+{% endif %}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif %}
+
+{#- Determine type of element to use, if not explicitly set #}
+{%- if params.element %}
+  {% set element = params.element | lower %}
+{% else %}
+  {% if params.href and not params.type %}
+    {% set element = "a" %}
+  {% else %}
+    {% set element = "button" %}
+  {% endif %}
+{% endif %}
+
+{#- Define attributes that we can use across all element types #}
+{%- set attributesHtml %}
+  {{- nhsukAttributes({
+    class: classNames,
+    id: {
+      value: params.id,
+      optional: true
+    }
+  }) -}}
+
+  {% if element == "button" %}
+    {{- nhsukAttributes({
+      type: params.type | default("submit")
+    }) -}}
+  {% elif element == "a" %}
+    {{- nhsukAttributes({
+      href: params.href | default("#")
+    }) -}}
+  {% endif %}
+
+  {{- nhsukAttributes(params.attributes) -}}
+{% endset %}
+
+{%- set innerHtml %}
+{% if caller %}
+  {{- caller() }}
+{% elif params.html %}
+  {{- params.html | safe }}
+{% else %}
+  {{- params.text | default("Back", true) }}
+{% endif %}
+{% endset -%}
+
+<{{ element }} {{- attributesHtml | safe }}>
+  {% if params.visuallyHiddenText %}
+  <span class="nhsuk-u-visually-hidden">{{ params.visuallyHiddenText }} </span>
+  {{- innerHtml | safe | trim | indent(2) }}
+  {% else %}
+  {{ innerHtml | safe | trim | indent(2) }}
+  {% endif %}
+</{{ element }}>

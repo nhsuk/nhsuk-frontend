@@ -1,0 +1,73 @@
+@use "../settings" as *;
+@use "../tools" as *;
+
+////
+/// Tables
+///
+/// 1. Force `<table>`s to be full-width by default.
+/// 2. Allow word breaks anywhere to prevent table fit-to-content.
+/// 3. Allow word breaks when necessary (deprecated but works, unlike overflow-wrap).
+///
+/// @group elements
+////
+
+table {
+  box-sizing: border-box;
+
+  width: calc(100% + $nhsuk-border-table-header-width * 2); // [1]
+  margin-right: -$nhsuk-border-table-header-width;
+  margin-left: -$nhsuk-border-table-header-width;
+
+  border-spacing: 0;
+  border-collapse: collapse;
+
+  vertical-align: top;
+
+  @include nhsuk-font($size: 19);
+  @include nhsuk-responsive-margin(7, "bottom");
+
+  .nhsuk-u-text-break-word {
+    word-break: break-all; // [2]
+    word-break: break-word; // [3]
+  }
+
+  @media print {
+    page-break-inside: avoid;
+  }
+}
+
+thead {
+  th {
+    border-bottom-width: $nhsuk-border-table-header-width;
+    vertical-align: bottom;
+  }
+}
+
+th,
+td {
+  padding-left: $nhsuk-border-table-header-width;
+  border: solid $nhsuk-border-colour;
+  border-width: 0 0 $nhsuk-border-table-cell-width;
+  text-align: left;
+  vertical-align: top;
+
+  @include nhsuk-top-and-bottom;
+  @include nhsuk-responsive-padding(3, ("top", "bottom"));
+  @include nhsuk-responsive-padding(4, "right", $adjustment: - $nhsuk-border-table-header-width);
+
+  &:last-child {
+    padding-right: $nhsuk-border-table-header-width;
+  }
+}
+
+th {
+  @include nhsuk-font-weight-bold;
+}
+
+caption {
+  padding-right: $nhsuk-border-table-header-width;
+  padding-left: $nhsuk-border-table-header-width;
+  text-align: left;
+
+  @include nhsuk-font($size: 22, $weight: bold);
+}
