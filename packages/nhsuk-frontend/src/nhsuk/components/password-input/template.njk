@@ -1,5 +1,5 @@
-{% from "nhsuk/components/button/macro.njk" import button %}
-{% from "nhsuk/components/input/macro.njk" import input %}
+{% from "nhsuk/components/button/macro.njk" import button as nhsukButton %}
+{% from "nhsuk/components/input/macro.njk" import input as nhsukInput %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/i18n.njk" import nhsukI18nAttributes %}
 
@@ -56,7 +56,7 @@
 {%- endset -%}
 
 {%- set buttonHtml %}
-{{ button({
+{{ nhsukButton({
   text: params.showPasswordText | default(params.button.text) | default("Show"),
   ariaLabel: params.showPasswordAriaLabel | default(params.showPasswordAriaLabelText) | default(params.button.ariaLabel) | default("Show password"),
   id: params.button.id,
@@ -83,7 +83,7 @@
 {% endif -%}
 {% endset -%}
 
-{{ input({
+{{ nhsukInput({
   label: params.label,
   hint: params.hint,
   errorMessage: params.errorMessage,
