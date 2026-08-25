@@ -6,9 +6,12 @@ Note: This release was created from the `support/10.x` branch.
 
 ### :wrench: **Fixes**
 
+We've made fixes to NHS.UK frontend in the following pull requests:
+
 - [#2055: Guard against Nunjucks filter errors on `undefined` text](https://github.com/nhsuk/nhsuk-frontend/pull/2055)
 - [#2056: Remove negative margin top from caption when heading has margin override](https://github.com/nhsuk/nhsuk-frontend/pull/2056)
 - [#2061: Fix margin and line height issues for all form field combinations](https://github.com/nhsuk/nhsuk-frontend/pull/2061)
+- [#2069: Support Vite Sass imports with nested paths](https://github.com/nhsuk/nhsuk-frontend/pull/2069)
 
 ### :recycle: **Changes**
 

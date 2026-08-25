@@ -19,12 +19,19 @@ jobs:
       RULE_1: '@import "nhsuk";'
       RULE_2: '@use "nhsuk" as *;'
       RULE_3: '@forward "nhsuk";'
-      RULE_4: '@forward "node_modules/nhsuk-frontend/dist/nhsuk";'
-      RULE_5: '@forward "node_modules/nhsuk-frontend/dist/nhsuk/core";'
-      RULE_6: '@forward "node_modules/nhsuk-frontend/dist/nhsuk/core/all";'
-      RULE_7: '@forward "pkg:nhsuk-frontend";'
-      RULE_8: '@forward "pkg:nhsuk-frontend/components/code";'
-      RULE_9: '@forward "pkg:nhsuk-frontend/lib/highlighter/styles";'
+      RULE_4: '@forward "nhsuk-frontend/dist/nhsuk";'
+      RULE_5: '@forward "nhsuk-frontend/dist/nhsuk/core";'
+      RULE_6: '@forward "nhsuk-frontend/dist/nhsuk/core/all";'
+      RULE_7: '@forward "node_modules/nhsuk-frontend/dist/nhsuk";'
+      RULE_8: '@forward "node_modules/nhsuk-frontend/dist/nhsuk/core";'
+      RULE_9: '@forward "node_modules/nhsuk-frontend/dist/nhsuk/core/all";'
+      RULE_10: '@forward "pkg:nhsuk-frontend";'
+      RULE_11: '@forward "pkg:nhsuk-frontend/dist/nhsuk";'
+      RULE_12: '@forward "pkg:nhsuk-frontend/dist/nhsuk/core";'
+      RULE_13: '@forward "pkg:nhsuk-frontend/dist/nhsuk/core/all";'
+      RULE_14: '@forward "pkg:nhsuk-frontend/components/code";'
+      RULE_15: '@forward "pkg:nhsuk-frontend/lib/highlighter/styles";'
+      RULE_16: '@use "nhsuk-frontend/dist/nhsuk/core/settings/colours-applied" as *;'
 
     strategy:
       fail-fast: false
@@ -55,6 +62,9 @@ jobs:
           # Release with `function-name` deprecated
           - version: 1.98.0
 
+          # Release with `adjacent-compounds` deprecated
+          - version: 1.100.0
+
           # Dart Sass latest major version
           - tag: latest
 
@@ -82,6 +92,13 @@ jobs:
           echo '${{ env.RULE_7 }}' > .tmp/input7.scss
           echo '${{ env.RULE_8 }}' > .tmp/input8.scss
           echo '${{ env.RULE_9 }}' > .tmp/input9.scss
+          echo '${{ env.RULE_10 }}' > .tmp/input10.scss
+          echo '${{ env.RULE_11 }}' > .tmp/input11.scss
+          echo '${{ env.RULE_12 }}' > .tmp/input12.scss
+          echo '${{ env.RULE_13 }}' > .tmp/input13.scss
+          echo '${{ env.RULE_14 }}' > .tmp/input14.scss
+          echo '${{ env.RULE_15 }}' > .tmp/input15.scss
+          echo '${{ env.RULE_16 }}' > .tmp/input16.scss
 
       - name: Check compilation
         run: |
@@ -92,15 +109,22 @@ jobs:
           time sass .tmp/input1.scss --load-path packages/nhsuk-frontend/dist .tmp/check1.css
           time sass .tmp/input2.scss --load-path packages/nhsuk-frontend/dist .tmp/check2.css
           time sass .tmp/input3.scss --load-path packages/nhsuk-frontend/dist .tmp/check3.css
-          time sass .tmp/input4.scss --load-path . .tmp/check4.css
-          time sass .tmp/input5.scss --load-path . .tmp/check5.css
-          time sass .tmp/input6.scss --load-path . .tmp/check6.css
+          time sass .tmp/input4.scss --load-path node_modules .tmp/check4.css
+          time sass .tmp/input5.scss --load-path node_modules .tmp/check5.css
+          time sass .tmp/input6.scss --load-path node_modules .tmp/check6.css
+          time sass .tmp/input7.scss --load-path . .tmp/check7.css
+          time sass .tmp/input8.scss --load-path . .tmp/check8.css
+          time sass .tmp/input9.scss --load-path . .tmp/check9.css
 
       - name: Check package importer
         run: |
-          time sass .tmp/input7.scss --pkg-importer node .tmp/check7.css
-          time sass .tmp/input8.scss --pkg-importer node .tmp/check8.css
-          time sass .tmp/input9.scss --pkg-importer node .tmp/check9.css
+          time sass .tmp/input10.scss --pkg-importer node .tmp/check10.css
+          time sass .tmp/input11.scss --pkg-importer node .tmp/check11.css
+          time sass .tmp/input12.scss --pkg-importer node .tmp/check12.css
+          time sass .tmp/input13.scss --pkg-importer node .tmp/check13.css
+          time sass .tmp/input14.scss --pkg-importer node .tmp/check14.css
+          time sass .tmp/input15.scss --pkg-importer node .tmp/check15.css
+          time sass .tmp/input16.scss --pkg-importer node --load-path node_modules .tmp/check16.css
 
       # Check output for uncompiled Sass
       - name: Check output
@@ -134,3 +158,24 @@ jobs:
 
           ! grep "\$nhsuk-" .tmp/check9.css
           ! grep ": nhsuk-" .tmp/check9.css
+
+          ! grep "\$nhsuk-" .tmp/check10.css
+          ! grep ": nhsuk-" .tmp/check10.css
+
+          ! grep "\$nhsuk-" .tmp/check11.css
+          ! grep ": nhsuk-" .tmp/check11.css
+
+          ! grep "\$nhsuk-" .tmp/check12.css
+          ! grep ": nhsuk-" .tmp/check12.css
+
+          ! grep "\$nhsuk-" .tmp/check13.css
+          ! grep ": nhsuk-" .tmp/check13.css
+
+          ! grep "\$nhsuk-" .tmp/check14.css
+          ! grep ": nhsuk-" .tmp/check14.css
+
+          ! grep "\$nhsuk-" .tmp/check15.css
+          ! grep ": nhsuk-" .tmp/check15.css
+
+          ! grep "\$nhsuk-" .tmp/check16.css
+          ! grep ": nhsuk-" .tmp/check16.css
