@@ -61,6 +61,9 @@ jobs:
           # Release with `function-name` deprecated
           - version: 1.98.0
 
+          # Release with `adjacent-compounds` deprecated
+          - version: 1.100.0
+
           # Dart Sass latest major version
           - tag: latest
 
