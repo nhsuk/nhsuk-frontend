@@ -67,9 +67,8 @@ const fixtures = {
       sizes: "(max-width: 768px) 100vw, 66vw",
       srcset:
         "/nhsuk-frontend/assets/example-image-stretch-marks-600w.jpg 600w, /nhsuk-frontend/assets/example-image-stretch-marks-1000w.jpg 1000w",
-      caption: {
-        text: "Stretch marks can be pink, red, brown, black, silver or purple. They usually start off darker and fade over time."
-      }
+      caption:
+        "Stretch marks can be pink, red, brown, black, silver or purple. They usually start off darker and fade over time."
     }
   },
   "with srcset and alt text": {
@@ -79,9 +78,8 @@ const fixtures = {
       srcset:
         "/nhsuk-frontend/assets/example-image-stretch-marks-600w.jpg 600w, /nhsuk-frontend/assets/example-image-stretch-marks-1000w.jpg 1000w",
       alt: "Close-up of a person's tummy showing a number of creases in the skin under their belly button. Shown on light brown skin.",
-      caption: {
-        text: "Stretch marks can be pink, red, brown, black, silver or purple. They usually start off darker and fade over time."
-      }
+      caption:
+        "Stretch marks can be pink, red, brown, black, silver or purple. They usually start off darker and fade over time."
     },
     screenshot: {
       viewports: ["mobile", "tablet", "desktop"]
@@ -97,18 +95,16 @@ const fixtures = {
     context: {
       background: false,
       src: "/nhsuk-frontend/assets/example-image-exercise.jpg",
-      caption: {
-        text: "No specific amount of time is recommended, but a typical training session could take less than 20 minutes."
-      }
+      caption:
+        "No specific amount of time is recommended, but a typical training session could take less than 20 minutes."
     }
   },
   "without border": {
     context: {
       border: false,
       src: "/nhsuk-frontend/assets/example-image-exercise.jpg",
-      caption: {
-        text: "No specific amount of time is recommended, but a typical training session could take less than 20 minutes."
-      }
+      caption:
+        "No specific amount of time is recommended, but a typical training session could take less than 20 minutes."
     },
     options: {
       layout: "background-blue"
@@ -130,9 +126,8 @@ const fixtures = {
   },
   "with custom HTML": {
     context: {
-      caption: {
-        text: "No specific amount of time is recommended, but a typical training session could take less than 20 minutes."
-      }
+      caption:
+        "No specific amount of time is recommended, but a typical training session could take less than 20 minutes."
     },
     callBlock: outdent`
       <img src="/nhsuk-frontend/assets/example-image-exercise.jpg" alt="">

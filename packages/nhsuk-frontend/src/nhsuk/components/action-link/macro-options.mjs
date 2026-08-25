@@ -30,27 +30,28 @@ const options = {
     type: 'nunjucks-block',
     required: false,
     description:
-      'Not strictly a parameter but [Nunjucks code convention](https://mozilla.github.io/nunjucks/templating.html#call). Using a `call` block enables you to call a macro with all the text inside the tag. This is helpful if you want to pass a lot of content into a macro. To use it, you will need to wrap the entire action link component in a `call` block.',
+      'Not strictly an option but supports the [`call` block](https://mozilla.github.io/nunjucks/templating.html#call) as an alternative to the `html` option. To use it, you will need to wrap the entire action link component in a `call` block.',
     released: '10.6.0'
   },
   type: {
     type: 'string',
     required: false,
     description:
-      'Type of `button` – `"button"` or `"submit"`. Defaults to `"submit"`. This has no effect on `a` elements.',
+      'Type of action link as a button – `"button"` or `"submit"`. Defaults to `"submit"` unless `href` is provided.',
     released: '10.5.0'
   },
   href: {
     type: 'string',
     required: true,
-    description: 'The value of the link `href` attribute.',
+    description:
+      'The action link `href` attribute. If set, the action link will use an `<a>` tag automatically unless `type` is provided.',
     released: '1.0.0'
   },
   openInNewWindow: {
     type: 'boolean',
     required: false,
     description:
-      'If set to `true`, then the link will open in a new window. This has no effect on `button` elements.',
+      'If set to `true`, then the action link will open in a new window. If `type` is set, this has no effect.',
     released: '1.0.0'
   },
   variant: {

@@ -4,46 +4,260 @@
 
 Note: This release was created from the `support/10.x` branch.
 
+### :wastebasket: **Deprecated features**
+
+#### Rename the label and legend `isPageHeading` option
+
+We've deprecated the `isPageHeading` Nunjucks option for labels and legends and added the `heading` option.
+
+If you're using any form component Nunjucks macro with the `isPageHeading` option, you should:
+
+- rename `text` to `heading`
+- remove `isPageHeading: true`
+
+```patch
+  {{ characterCount({
+    label: {
+-     text: "Can you provide more detail?",
++     heading: "Can you provide more detail?",
+-     isPageHeading: true,
+      size: "l"
+    },
+    name: "more-detail",
+    maxlength: 350,
+    countType: "characters"
+  }) }}
+```
+
+Other heading options can be configured if necessary. For example, using `heading.id` and `heading.level` when a label acts as an `<h2>` heading for a landmark:
+
+```patch
+- <aside>
++ <aside aria-labelledby="search-heading">
+    {{ searchInput({
+      label: {
+        text: "Search",
+-       size: "s"
++       size: "s",
++       heading: {
++         id: "search-heading",
++         level: 2
++       }
+      }
+    }) }}
+
+    <!-- // … -->
+  </aside>
+```
+
+For consistency with other components, legends now support the following Nunjucks options:
+
+- `id`
+- `caption`
+- `visuallyHiddenText`
+- `heading`
+- `attributes`
+
+Labels now also support:
+
+- `caption`
+- `visuallyHiddenText`
+- `heading`
+
+This change was introduced in [pull request #1670: Add label and legend `caption`, `headingLevel` and other options](https://github.com/nhsuk/nhsuk-frontend/pull/1670).
+
+#### Rename title and heading HTML classes
+
+HTML classes for the error summary, panel and tabs component headings have been renamed from `__title` to `__heading` to match their corresponding Nunjucks option.
+
+If you are not using Nunjucks macros, change the classes as follows:
+
+- Rename the `<h2 class="nhsuk-error-summary__title"` class attribute to match `<h2 class="nhsuk-error-summary__heading"`.
+- Rename the `<h1 class="nhsuk-panel__title"` class attribute to match `<h1 class="nhsuk-panel__heading"`.
+- Rename the `<h2 class="nhsuk-tabs__title"` class attribute to match `<h2 class="nhsuk-tabs__heading"`.
+
+The previous class names are deprecated and will be removed in a future release.
+
+This change was introduced in [pull request #2059: Rename title and heading HTML classes](https://github.com/nhsuk/nhsuk-frontend/pull/2059).
+
+### :recycle: **Changes**
+
+#### Use more Nunjucks options as strings
+
+We added support for alternative string values for labels, legends, hints and error messages in [version 10.6.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.6.0).
+
+The following component options now support alternative string values:
+
+- Component `heading` and `title` options
+- Card and error summary `description` options
+- Details `summary` option
+- Footer `meta` and `copyright` options
+- Image `caption` option
+- Input `prefix` and `suffix` options
+- Summary list `key` and `value` options
+- Task list `status` option
+- Table `head` and `rows` options items
+
+For example, using the table component:
+
+```patch
+  {{ table ({
+    caption: "Appointments",
+    firstCellIsHeader: true,
+-   head: [
+-     {
+-       text: "Time"
+-     },
+-     {
+-       text: "Name"
+-     },
+-     {
+-       text: "Date of birth"
+-     }
+-   ],
++   head: ["Time", "Name", "Date of birth"],
+-   rows: [
+-     [
+-       {
+-         text: "11:00"
+-       },
+-       {
+-         text: "Laura Stone"
+-       },
+-       {
+-         text: "4 January 1986"
+-       }
+-     ],
+-     [
+-       {
+-         text: "11:30"
+-       },
+-       {
+-         text: "Emma Katie-Brown"
+-       },
+-       {
+-         text: "7 February 1976"
+-       }
+-     ],
+-     [
+-       {
+-         text: "13:10"
+-       },
+-       {
+-         text: "David Chen"
+-       },
+-       {
+-         text: "19 March 1981"
+-       }
+-     ],
+-     [
+-       {
+-         text: "13:40"
+-       },
+-       {
+-         text: "Michael Thompson"
+-       },
+-       {
+-         text: "6 December 1964"
+-       }
+-     ],
+-     [
+-       {
+-         text: "14:20"
+-       },
+-       {
+-         text: "Juan Martinez"
+-       },
+-       {
+-         text: "18 April 1975"
+-       }
+-     ]
+-   ]
++   rows: [
++     ["11:00", "Laura Stone", "4 January 1986"],
++     ["11:30", "Emma Katie-Brown", "7 February 1976"],
++     ["13:10", "David Chen", "19 March 1981"],
++     ["13:40", "Michael Thompson", "6 December 1964"],
++     ["14:20", "Juan Martinez", "18 April 1975"]
++   ]
+  }) }}
+```
+
+With card and summary list `actions` also supporting arrays of actions items:
+
+```patch
+  {{ summaryList({
+    rows: [
+-     {
+-       key: {
+-         text: "Name"
+-       },
+-       value: {
+-         text: "Karen Francis"
+-       },
+-       actions: {
+-         items: [
+-           {
+-             href: "#/change",
+-             text: "Change",
+-             visuallyHiddenText: "name"
+-           }
+-         ]
+-       }
+-     },
+-     {
+-       key: {
+-         text: "Date of birth"
+-       },
+-       value: {
+-         text: "15 March 1984"
+-       },
+-       actions: {
+-         items: [
+-           {
+-             href: "#/change",
+-             text: "Change",
+-             visuallyHiddenText: "date of birth"
+-           }
+-         ]
+-       }
+-     }
++     {
++       key: "Name",
++       value: "Karen Francis",
++       actions: [
++         {
++           href: "#/change",
++           text: "Change",
++           visuallyHiddenText: "name"
++         }
++       ]
++     },
++     {
++       key: "Date of birth",
++       value: "15 March 1984",
++       actions: [
++         {
++           href: "#/change",
++           text: "Change",
++           visuallyHiddenText: "date of birth"
++         }
++       ]
++     }
+    ]
+  }) }}
+```
+
+This change was introduced in [pull request #1670: Add label and legend `caption`, `headingLevel` and other options](https://github.com/nhsuk/nhsuk-frontend/pull/1670).
+
 ### :wrench: **Fixes**
 
 We've made fixes to NHS.UK frontend in the following pull requests:
 
-- [#2055: Guard against Nunjucks filter errors on `undefined` text](https://github.com/nhsuk/nhsuk-frontend/pull/2055)
-- [#2056: Remove negative margin top from caption when heading has margin override](https://github.com/nhsuk/nhsuk-frontend/pull/2056)
+- [#2056: Guard against Nunjucks filter errors on `undefined` text](https://github.com/nhsuk/nhsuk-frontend/pull/2056)
+- [#2057: Remove negative margin top from caption when heading has margin override](https://github.com/nhsuk/nhsuk-frontend/pull/2057)
 - [#2061: Fix margin and line height issues for all form field combinations](https://github.com/nhsuk/nhsuk-frontend/pull/2061)
 - [#2069: Support Vite Sass imports with nested paths](https://github.com/nhsuk/nhsuk-frontend/pull/2069)
-
-### :recycle: **Changes**
-
-#### Rename title and heading HTML classes
-
-HTML classes for the error summary, panel and tabs component headings have been renamed from `__title` to `__heading` to match their corresponding Nunjucks option.
-
-If you are not using Nunjucks macros, change the classes as follows:
-
-- Rename the `<h2 class="nhsuk-error-summary__title"` class attribute to match `<h2 class="nhsuk-error-summary__heading"`.
-- Rename the `<h1 class="nhsuk-panel__title"` class attribute to match `<h1 class="nhsuk-panel__heading"`.
-- Rename the `<h2 class="nhsuk-tabs__title"` class attribute to match `<h2 class="nhsuk-tabs__heading"`.
-
-The previous class names are deprecated and will be removed in a future release.
-
-This change was introduced in [pull request #2057: Rename title and heading HTML classes](https://github.com/nhsuk/nhsuk-frontend/pull/2057).
-
-### :recycle: **Changes**
-
-#### Rename title and heading HTML classes
-
-HTML classes for the error summary, panel and tabs component headings have been renamed from `__title` to `__heading` to match their corresponding Nunjucks option.
-
-If you are not using Nunjucks macros, change the classes as follows:
-
-- Rename the `<h2 class="nhsuk-error-summary__title"` class attribute to match `<h2 class="nhsuk-error-summary__heading"`.
-- Rename the `<h1 class="nhsuk-panel__title"` class attribute to match `<h1 class="nhsuk-panel__heading"`.
-- Rename the `<h2 class="nhsuk-tabs__title"` class attribute to match `<h2 class="nhsuk-tabs__heading"`.
-
-The previous class names are deprecated and will be removed in a future release.
-
-This change was introduced in [pull request #2057: Rename title and heading HTML classes](https://github.com/nhsuk/nhsuk-frontend/pull/2057).
 
 ## 10.6.0 - 13 August 2026
 
@@ -948,7 +1162,7 @@ This change was introduced in pull requests [#1998: Add `compact` option for tab
 
 We’ve deprecated the `element` Nunjucks option for action links, back links and button components.
 
-In a future release, if the `href` parameter is set the component will automatically use the `<a>` element. If the `href` parameter is not set the component will automatically use the `<button>` element. It will not be possible to override this change.
+In a future release, if the `href` option is set the component will automatically use the `<a>` element. If the `href` option is not set the component will automatically use the `<button>` element. It will not be possible to override this change.
 
 ```patch
   {{ actionLink({

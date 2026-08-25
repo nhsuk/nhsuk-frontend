@@ -49,7 +49,7 @@ export const compile = gulp.series(
         external: [
           '#lib',
           '@prettier/sync',
-          /highlight\.js(\/lib\/languages\/)?/,
+          /highlight\.js(\/(es|lib)\/languages\/)?/,
           'nunjucks',
           'outdent',
           'slug'

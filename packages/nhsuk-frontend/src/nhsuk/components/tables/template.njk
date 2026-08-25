@@ -1,6 +1,6 @@
-{% from "nhsuk/components/card/macro.njk" import card %}
-{% from "nhsuk/components/heading/macro.njk" import heading %}
-{% from "nhsuk/components/scroll/macro.njk" import scroll %}
+{% from "nhsuk/components/card/macro.njk" import card as nhsukCard %}
+{% from "nhsuk/components/heading/macro.njk" import heading as nhsukHeading %}
+{% from "nhsuk/components/scroll/macro.njk" import scroll as nhsukScroll %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/i18n.njk" import nhsukI18nAttributes %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
@@ -13,12 +13,17 @@
 {%- set classNamesCaption = "nhsuk-table__caption" -%}
 
 {#- Support caption as string (with deprecated options) #}
-{%- set captionOptions = params.caption if params.caption is mapping and params.caption is not escaped else {
-  id: params.captionId,
+{%- set caption = params.caption if params.caption is mapping and params.caption is not escaped else {
   text: params.caption if params.caption is string else undefined,
   html: params.caption if params.caption is escaped else undefined,
   size: params.captionSize,
   classes: params.captionClasses
+} -%}
+
+{#- Support heading caption as string #}
+{%- set headingCaption = caption.caption if caption.caption is mapping and caption.caption is not escaped else {
+  text: caption.caption if caption.caption is string else undefined,
+  html: caption.caption if caption.caption is escaped else undefined
 } -%}
 
 {%- if variant == "reverse" and (
@@ -44,7 +49,7 @@
   {% set classNames = classNames ~ " nhsuk-table--no-last-row-border" %}
 {% endif %}
 
-{%- set head = params.head | select("mapping") if params.head | length else [] %}
+{%- set head = params.head if params.head | length else [] %}
 {%- set rows = params.rows | select("iterable") if params.rows | length else [] %}
 
 {%- set isSortable = false %}
@@ -68,7 +73,7 @@
   {% set classNames = classNames ~ " " ~ (params.classes or params.tableClasses) %}
 {% endif %}
 
-{%- set captionId = captionOptions.id | default(params.id ~ "-caption" if params.scroll and params.id else undefined) | default(("table-" ~ captionOptions.text | replace(" ", "-") | lower | truncate(40, true, "") ~ "-caption") if params.scroll and captionOptions.text else undefined) -%}
+{%- set captionId = caption.id | default(params.id ~ "-caption" if params.scroll and params.id else undefined) | default(("table-" ~ caption.text | replace(" ", "-") | lower | truncate(40, true, "") ~ "-caption") if params.scroll and caption.text else undefined) -%}
 {%- set captionVisuallyHiddenText = params.caption.visuallyHiddenText | default("Column headers are sortable" if "nhsuk-table--sortable" in classNames else undefined) %}
 
 {%- set attributesHtml %}
@@ -180,8 +185,6 @@
   }) -}}
 
   {{- nhsukAttributes(item.attributes) }}>
-{% set header = head[parent.loop.index0] -%}
-
 {% set isHeader = parent.items is sameas(head) -%}
 {% set isResponsive = true if parent.params.responsive else false -%}
 
@@ -195,12 +198,12 @@
   {% endif %}
 {% endset -%}
 
-{% if isResponsive and not isHeader and (header or item.header) %}
+{% if isResponsive and not isHeader and (parent.header or item.header) %}
   <span class="nhsuk-table__heading" aria-hidden="true">
     {{- _tableValue({
-      text: header.text | default(item.header),
-      html: header.html,
-      visuallyHiddenText: header.visuallyHiddenText
+      text: parent.header.text | default(item.header),
+      html: parent.header.html,
+      visuallyHiddenText: parent.header.visuallyHiddenText
     }) | safe | trim | indent(2) }} </span>
 
   {%- if item.html -%}
@@ -216,19 +219,28 @@
 
 {%- set tableHtml -%}
 <table {{- attributesHtml | safe }}>
-{% if captionOptions.text or captionOptions.html %}
-  {{ heading({
+{% if caption.text or caption.html %}
+  {{ nhsukHeading({
     id: captionId,
-    text: captionOptions.text,
-    html: captionOptions.html,
+    text: caption.text,
+    html: caption.html,
     visuallyHiddenText: "(" ~ captionVisuallyHiddenText ~ ")" if captionVisuallyHiddenText else undefined,
-    caption: captionOptions.caption,
-    size: captionOptions.size,
+    caption: {
+      id: headingCaption.id,
+      text: headingCaption.text,
+      html: headingCaption.html,
+      placement: headingCaption.placement if not headingCaption.placement or
+        headingCaption.placement in ["start", "end"] else undefined,
+      size: headingCaption.size | default(caption.size),
+      classes: headingCaption.classes,
+      attributes: headingCaption.attributes
+    },
+    size: caption.size,
     sizes: ["s", "m", "l", "xl"],
     className: classNamesCaption,
     classPrefix: classNamesCaption ~ "--",
-    classes: captionOptions.classes,
-    attributes: captionOptions.attributes,
+    classes: caption.classes,
+    attributes: caption.attributes,
     element: "caption"
   }) | trim | indent(2) }}
 {% endif %}
@@ -236,24 +248,32 @@
   <thead class="nhsuk-table__head" {%- if params.responsive %} role="rowgroup"{% endif %}>
     <tr class="nhsuk-table__row" {%- if params.responsive %} role="row"{% endif %}>
     {% for item in head %}
-      {%- set sort = item.sort if item.sort is string else
-        ("none" if item.sort == true else undefined) %}
+      {% if item is string or item is mapping %}
 
-      {%- set sortNext = item.sortNext if item.sortNext is string else undefined %}
+      {#- Support table header as string #}
+      {%- set header = item if item is mapping and item is not escaped else {
+        text: item if item is string else undefined,
+        html: item if item is escaped else undefined
+      } -%}
+
+      {%- set sort = header.sort if header.sort is string else
+        ("none" if header.sort == true else undefined) %}
+
+      {%- set sortNext = header.sortNext if header.sortNext is string else undefined %}
 
       {{- _tableCell({
-        text: item.text,
-        html: item.html,
-        visuallyHiddenText: item.visuallyHiddenText,
-        format: item.format,
-        href: item.href,
+        text: header.text,
+        html: header.html,
+        visuallyHiddenText: header.visuallyHiddenText,
+        format: header.format,
+        href: header.href,
         scope: "col",
         role: "columnheader" if params.responsive else undefined,
-        colspan: item.colspan if not params.responsive else undefined,
-        rowspan: item.rowspan,
-        align: item.align,
-        width: item.width,
-        classes: item.classes,
+        colspan: header.colspan if not params.responsive else undefined,
+        rowspan: header.rowspan,
+        align: header.align,
+        width: header.width,
+        classes: header.classes,
         attributes: nhsukAttributes({
           "data-sort": {
             value: true if sort and isSortable else false,
@@ -267,13 +287,14 @@
             value: sort if sort and sort != "none" and isSortable else false,
             optional: true
           }
-        }) ~ nhsukAttributes(item.attributes),
+        }) ~ nhsukAttributes(header.attributes),
         element: "th"
       }, {
         params: params,
         loop: loop,
         row: head
       }) | trim | indent(6, true) }}
+    {% endif %}
     {% endfor %}
     </tr>
   </thead>
@@ -281,35 +302,49 @@
   <tbody class="nhsuk-table__body">
   {% for row in rows %}
     <tr class="nhsuk-table__row" {%- if params.responsive %} role="row"{% endif %}>
-    {% set items = row | select("mapping") if row | length else [] %}
-    {% for item in items %}
-      {%- set header = head[loop.index0] -%}
+    {% for item in row %}
+      {% if item is string or item is mapping %}
+      {%- set itemHead = head[loop.index0] -%}
+
+      {#- Support table header as string #}
+      {%- set header = itemHead if itemHead is mapping and itemHead is not escaped else {
+        text: itemHead if itemHead is string else undefined,
+        html: itemHead if itemHead is escaped else undefined
+      } -%}
+
+      {#- Support table data as string #}
+      {%- set data = item if item is mapping and item is not escaped else {
+        text: item if item is string else undefined,
+        html: item if item is escaped else undefined
+      } -%}
 
       {{- _tableCell({
-        text: item.text,
-        html: item.html,
-        visuallyHiddenText: item.visuallyHiddenText,
-        format: item.format | default(header.format),
-        href: item.href,
+        text: data.text,
+        html: data.html,
+        visuallyHiddenText: data.visuallyHiddenText,
+        format: data.format | default(header.format),
+        href: data.href,
         scope: "row" if loop.first and params.firstCellIsHeader else undefined,
         role: ("rowheader" if loop.first and params.firstCellIsHeader else "cell") if params.responsive else undefined,
-        colspan: item.colspan if not params.responsive else undefined,
-        rowspan: item.rowspan,
-        align: item.align | default("right" if item.format == "string" and header.format == "numeric" else header.align),
-        width: item.width,
-        classes: item.classes,
+        colspan: data.colspan if not params.responsive else undefined,
+        rowspan: data.rowspan,
+        align: data.align | default("right" if data.format == "string" and header.format == "numeric" else header.align),
+        width: data.width,
+        classes: data.classes,
         attributes: nhsukAttributes({
           "data-sort-value": {
-            value: item.sortValue if item.sortValue else false,
+            value: data.sortValue if data.sortValue else false,
             optional: true
           }
-        }) ~ nhsukAttributes(item.attributes),
+        }) ~ nhsukAttributes(data.attributes),
         element: "th" if loop.first and params.firstCellIsHeader else "td"
       }, {
         params: params,
         loop: loop,
-        row: items
+        row: row,
+        header: header
       }) | trim | indent(6, true) }}
+    {% endif %}
     {% endfor %}
     </tr>
   {% endfor %}
@@ -318,7 +353,7 @@
 {%- endset %}
 
 {%- if params.scroll %}
-  {% set tableHtml = scroll({
+  {% set tableHtml = nhsukScroll({
     html: tableHtml,
     labelledBy: captionId,
     variant: variant
@@ -326,15 +361,15 @@
 {% endif %}
 
 {%- if params.card or params.panel %}
-  {%- set headingOptions = params.card.heading if params.card.heading is mapping and params.card.heading is not escaped else {
+  {%- set cardHeading = params.card.heading if params.card.heading is mapping and params.card.heading is not escaped else {
     text: params.card.heading if params.card.heading is string else params.heading,
     html: params.card.heading if params.card.heading is escaped else undefined,
     level: params.headingLevel
   } -%}
 
-  {%- call card({
+  {%- call nhsukCard({
     id: params.card.id,
-    heading: headingOptions,
+    heading: cardHeading,
     href: params.card.href,
     actions: params.card.actions,
     classes: params.panelClasses | default(params.card.classes),

@@ -1,5 +1,5 @@
-{% from "nhsuk/components/textarea/macro.njk" import textarea %}
-{% from "nhsuk/components/hint/macro.njk" import hint %}
+{% from "nhsuk/components/textarea/macro.njk" import textarea as nhsukTextarea %}
+{% from "nhsuk/components/hint/macro.njk" import hint as nhsukHint %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/i18n.njk" import nhsukI18nAttributes %}
 
@@ -8,7 +8,7 @@
 {%- set classNamesFormGroup = "nhsuk-character-count" -%}
 
 {#- Support label as string #}
-{%- set labelOptions = params.label if params.label is mapping and params.label is not escaped else {
+{%- set label = params.label if params.label is mapping and params.label is not escaped else {
   text: params.label if params.label is string else undefined,
   html: params.label if params.label is escaped else undefined
 } -%}
@@ -36,7 +36,7 @@
 {%- set id = params.id if params.id else params.name -%}
 
 {%- set countMessageHtml %}
-{{ hint({
+{{ nhsukHint({
   text: textareaDescriptionTextNoLimit,
   id: id ~ "-info",
   classes: "nhsuk-character-count__message" ~ (" " ~ params.countMessage.classes if params.countMessage.classes),
@@ -119,7 +119,7 @@
   {{- nhsukAttributes(params.formGroup.attributes) -}}
 {% endset -%}
 
-{{ textarea({
+{{ nhsukTextarea({
   id: id,
   name: params.name,
   describedBy: id ~ "-info",
@@ -136,14 +136,17 @@
   },
   classes: classNames,
   label: {
-    html: labelOptions.html,
-    text: labelOptions.text,
-    id: labelOptions.id,
-    for: labelOptions.for | default(id),
-    size: labelOptions.size,
-    isPageHeading: labelOptions.isPageHeading,
-    classes: labelOptions.classes,
-    attributes: labelOptions.attributes
+    html: label.html,
+    text: label.text,
+    visuallyHiddenText: label.visuallyHiddenText,
+    caption: label.caption,
+    id: label.id,
+    for: label.for | default(id),
+    size: label.size,
+    heading: label.heading,
+    isPageHeading: label.isPageHeading,
+    classes: label.classes,
+    attributes: label.attributes
   },
   hint: params.hint,
   errorMessage: params.errorMessage,

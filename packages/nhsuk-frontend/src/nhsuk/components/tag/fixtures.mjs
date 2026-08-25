@@ -99,7 +99,7 @@ const fixtures = {
       classes: "nhsuk-tag--green"
     }
   },
-  "colour class overriding colour param": {
+  "colour class overriding colour option": {
     context: {
       text: "Not green",
       colour: "green",
@@ -131,6 +131,15 @@ const fixtures = {
     variants,
     options: {
       layout: "background-blue"
+    },
+    screenshot: {
+      viewports: ["mobile"]
+    }
+  },
+  "without colour": {
+    context: {
+      text: "Completed",
+      colour: false
     },
     screenshot: {
       viewports: ["mobile"]

@@ -1,5 +1,5 @@
-{% from "nhsuk/components/heading/macro.njk" import heading %}
-{% from "nhsuk/components/images/macro.njk" import image %}
+{% from "nhsuk/components/heading/macro.njk" import heading as nhsukHeading %}
+{% from "nhsuk/components/images/macro.njk" import image as nhsukImage %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set classes for this component #}
@@ -14,7 +14,7 @@
 {%- if background.src %}
   {% set classNames = classNames ~ " nhsuk-hero--image" ~
     (" nhsuk-hero--image-description" if params.heading else "") %}
-{% elif params.border != false  %}
+{% elif params.border != false %}
   {% set classNames = classNames ~ " nhsuk-hero--border" %}
 {% endif %}
 
@@ -55,7 +55,7 @@
     html: caller() if caller else params.html,
     width: params.width | default("two-thirds")
   }), rows) %}
-{% endif %}
+{% endif -%}
 
 <section {{- attributesHtml | safe }}>
 {% if rows | length %}
@@ -63,23 +63,28 @@
   {% for row in rows | batch(2) %}
     <div class="nhsuk-grid-row">
     {% for content in row %}
+      {#- Support heading as string #}
+      {%- set heading = content.heading if content.heading is mapping and content.heading is not escaped else {
+        text: content.heading if content.heading is string else undefined,
+        html: content.heading if content.heading is escaped else undefined
+      } %}
       <div class="nhsuk-grid-column-{{ content.width | default("one-half", true) }}">
         <div class="{{ "nhsuk-hero__content" ~ (" " ~ content.classes if content.classes) }}">
         {% if background.src and rows | length == 1 %}
           <span class="nhsuk-hero__arrow" aria-hidden="true"></span>
         {% endif %}
-        {% if content.heading.text or content.heading.html %}
-          {{ heading({
-            id: content.heading.id,
-            text: content.heading.text,
-            html: content.heading.html,
-            visuallyHiddenText: content.heading.visuallyHiddenText,
-            caption: content.heading.caption,
-            href: content.heading.href,
-            size: content.heading.size | default("xl"),
-            level: content.heading.level,
-            classes: classNamesHeading ~ (" " ~ content.heading.classes if content.heading.classes),
-            attributes: content.heading.attributes
+        {% if heading.text or heading.html %}
+          {{ nhsukHeading({
+            id: heading.id,
+            text: heading.text,
+            html: heading.html,
+            visuallyHiddenText: heading.visuallyHiddenText,
+            caption: heading.caption,
+            href: heading.href,
+            size: heading.size | default("xl"),
+            level: heading.level,
+            classes: classNamesHeading ~ (" " ~ heading.classes if heading.classes),
+            attributes: heading.attributes
           }) | trim | indent(10) }}
         {% endif %}
         {% if content.html %}
@@ -90,7 +95,7 @@
           </p>
         {% endif %}
         {% if content.image %}
-          {{ image(content.image) | trim | indent(10) }}
+          {{ nhsukImage(content.image) | trim | indent(10) }}
         {% endif %}
         </div>
       </div>

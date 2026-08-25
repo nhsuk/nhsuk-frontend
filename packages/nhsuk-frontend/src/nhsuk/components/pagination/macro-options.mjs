@@ -42,8 +42,9 @@ const options = {
       },
       href: {
         type: 'string',
-        required: false,
-        description: "The link's URL. Required unless the item is an ellipsis.",
+        required: true,
+        description:
+          'The pagination item `href` attribute. Required unless the item is an ellipsis.',
         released: '10.1.0'
       },
       current: {
@@ -64,7 +65,7 @@ const options = {
         type: 'object',
         required: false,
         description:
-          'The HTML attributes (for example, data attributes) you want to add to the anchor.',
+          'The HTML attributes (for example, data attributes) you want to add to the link.',
         released: '10.1.0'
       }
     }
@@ -129,7 +130,7 @@ const options = {
         type: 'object',
         required: false,
         description:
-          'The HTML attributes (for example, data attributes) you want to add to the anchor.',
+          'The HTML attributes (for example, data attributes) you want to add to the link.',
         released: '10.1.0'
       }
     }
@@ -208,7 +209,7 @@ const options = {
         type: 'object',
         required: false,
         description:
-          'The HTML attributes (for example, data attributes) you want to add to the anchor.',
+          'The HTML attributes (for example, data attributes) you want to add to the link.',
         released: '10.1.0'
       }
     }

@@ -7,13 +7,12 @@ const fixtures = {
   "default": {
     context: {
       label: {
-        text: "Search by NHS number",
-        size: "m",
-        isPageHeading: true
+        heading: "Search by NHS number",
+        size: "m"
       },
       placeholder: "NHS number",
       hint: {
-        text: "This is a 10 digit number (like 999 123 4567) that you can find on an NHS letter, prescription or in the NHS App"
+        html: 'This is a 10 digit number (like <span class="nhsuk-u-nowrap">999 123 4567</span>) that you can find on an NHS letter, prescription or in the NHS App'
       },
       name: "example",
       width: 20
@@ -22,9 +21,8 @@ const fixtures = {
   "disabled": {
     context: {
       label: {
-        text: "Search by NHS number",
-        size: "m",
-        isPageHeading: true
+        heading: "Search by NHS number",
+        size: "m"
       },
       placeholder: "NHS number",
       name: "example",
@@ -35,9 +33,8 @@ const fixtures = {
   "disabled with enabled button": {
     context: {
       label: {
-        text: "Search by NHS number",
-        size: "m",
-        isPageHeading: true
+        heading: "Search by NHS number",
+        size: "m"
       },
       placeholder: "NHS number",
       name: "example",
@@ -50,9 +47,8 @@ const fixtures = {
   "disabled button": {
     context: {
       label: {
-        text: "Search by NHS number",
-        size: "m",
-        isPageHeading: true
+        heading: "Search by NHS number",
+        size: "m"
       },
       placeholder: "NHS number",
       name: "example",
@@ -64,9 +60,8 @@ const fixtures = {
   "large": {
     context: {
       label: {
-        text: "Search by NHS number",
-        size: "l",
-        isPageHeading: true
+        heading: "Search by NHS number",
+        size: "l"
       },
       name: "example",
       large: true,
@@ -77,9 +72,8 @@ const fixtures = {
   "large with brand button": {
     context: {
       label: {
-        text: "Search by NHS number",
-        size: "l",
-        isPageHeading: true
+        heading: "Search by NHS number",
+        size: "l"
       },
       button: {
         variant: "brand"
@@ -92,9 +86,8 @@ const fixtures = {
   "with alternative icon": {
     context: {
       label: {
-        text: "Search by postcode",
-        size: "m",
-        isPageHeading: true
+        heading: "Search by postcode",
+        size: "m"
       },
       button: {
         icon: "arrow-right"
@@ -106,12 +99,11 @@ const fixtures = {
   "with hint": {
     context: {
       label: {
-        text: "Search by NHS number",
-        size: "m",
-        isPageHeading: true
+        heading: "Search by NHS number",
+        size: "m"
       },
       hint: {
-        text: "This is a 10 digit number (like 999 123 4567) that you can find on an NHS letter, prescription or in the NHS App"
+        html: 'This is a 10 digit number (like <span class="nhsuk-u-nowrap">999 123 4567</span>) that you can find on an NHS letter, prescription or in the NHS App'
       },
       id: "with-hint",
       name: "example",
@@ -122,12 +114,11 @@ const fixtures = {
   "with hint and value": {
     context: {
       label: {
-        text: "Search by NHS number",
-        size: "m",
-        isPageHeading: true
+        heading: "Search by NHS number",
+        size: "m"
       },
       hint: {
-        text: "This is a 10 digit number (like 999 123 4567) that you can find on an NHS letter, prescription or in the NHS App"
+        html: 'This is a 10 digit number (like <span class="nhsuk-u-nowrap">999 123 4567</span>) that you can find on an NHS letter, prescription or in the NHS App'
       },
       name: "example",
       value: "999 123 4567",
@@ -138,9 +129,8 @@ const fixtures = {
   "with error only": {
     context: {
       label: {
-        text: "Search by NHS number",
-        size: "m",
-        isPageHeading: true
+        heading: "Search by NHS number",
+        size: "m"
       },
       errorMessage: true,
       name: "example",
@@ -151,9 +141,8 @@ const fixtures = {
   "with error message": {
     context: {
       label: {
-        text: "Search by NHS number",
-        size: "m",
-        isPageHeading: true
+        heading: "Search by NHS number",
+        size: "m"
       },
       errorMessage: {
         text: "Enter NHS number"
@@ -163,15 +152,27 @@ const fixtures = {
       width: 20
     }
   },
+  "with error message and hint as strings": {
+    context: {
+      label: {
+        heading: "Search by NHS number",
+        size: "m"
+      },
+      hint: "This is a 10 digit number (like 999 123 4567) that you can find on an NHS letter, prescription or in the NHS App",
+      errorMessage: "Enter NHS number",
+      name: "example",
+      value: "999 123 4567",
+      width: 20
+    }
+  },
   "with error message and hint": {
     context: {
       label: {
-        text: "Search by NHS number",
-        size: "m",
-        isPageHeading: true
+        heading: "Search by NHS number",
+        size: "m"
       },
       hint: {
-        text: "This is a 10 digit number (like 999 123 4567) that you can find on an NHS letter, prescription or in the NHS App"
+        html: 'This is a 10 digit number (like <span class="nhsuk-u-nowrap">999 123 4567</span>) that you can find on an NHS letter, prescription or in the NHS App'
       },
       errorMessage: {
         text: "Enter NHS number"
@@ -182,7 +183,7 @@ const fixtures = {
     },
     screenshot: true
   },
-  "with error message, without page heading": {
+  "with error message, without heading": {
     context: {
       label: {
         text: "Search by NHS number"
@@ -195,13 +196,13 @@ const fixtures = {
       width: 20
     }
   },
-  "with error message and hint, without page heading": {
+  "with error message and hint, without heading": {
     context: {
       label: {
         text: "Search by NHS number"
       },
       hint: {
-        text: "This is a 10 digit number (like 999 123 4567) that you can find on an NHS letter, prescription or in the NHS App"
+        html: 'This is a 10 digit number (like <span class="nhsuk-u-nowrap">999 123 4567</span>) that you can find on an NHS letter, prescription or in the NHS App'
       },
       errorMessage: {
         text: "Enter NHS number"
@@ -214,9 +215,8 @@ const fixtures = {
   "with prefix": {
     context: {
       label: {
-        text: "Code lookup",
-        size: "m",
-        isPageHeading: true
+        heading: "Code lookup",
+        size: "m"
       },
       prefix: {
         text: "SNOMED"
@@ -235,9 +235,8 @@ const fixtures = {
   "with prefix and error message": {
     context: {
       label: {
-        text: "Code lookup",
-        size: "m",
-        isPageHeading: true
+        heading: "Code lookup",
+        size: "m"
       },
       prefix: {
         text: "SNOMED"
@@ -268,9 +267,8 @@ const fixtures = {
   "with brand button": {
     context: {
       label: {
-        text: "Search by NHS number",
-        size: "m",
-        isPageHeading: true
+        heading: "Search by NHS number",
+        size: "m"
       },
       button: {
         variant: "brand"
@@ -282,9 +280,8 @@ const fixtures = {
   "with brand button text": {
     context: {
       label: {
-        text: "Search by NHS number",
-        size: "m",
-        isPageHeading: true
+        heading: "Search by NHS number",
+        size: "m"
       },
       button: {
         text: "Search",
@@ -297,9 +294,8 @@ const fixtures = {
   "with brand button text only": {
     context: {
       label: {
-        text: "Product order number",
-        size: "m",
-        isPageHeading: true
+        heading: "Product order number",
+        size: "m"
       },
       button: {
         icon: false,
@@ -313,9 +309,8 @@ const fixtures = {
   "with secondary button": {
     context: {
       label: {
-        text: "Search by NHS number",
-        size: "m",
-        isPageHeading: true
+        heading: "Search by NHS number",
+        size: "m"
       },
       button: {
         variant: "secondary"
@@ -328,9 +323,8 @@ const fixtures = {
   "with secondary button text": {
     context: {
       label: {
-        text: "Search by NHS number",
-        size: "m",
-        isPageHeading: true
+        heading: "Search by NHS number",
+        size: "m"
       },
       button: {
         text: "Search",
@@ -343,9 +337,8 @@ const fixtures = {
   "with secondary button text only": {
     context: {
       label: {
-        text: "Product order number",
-        size: "m",
-        isPageHeading: true
+        heading: "Product order number",
+        size: "m"
       },
       button: {
         icon: false,
@@ -359,16 +352,15 @@ const fixtures = {
   "without button": {
     context: {
       label: {
-        text: "Search by NHS number",
-        size: "m",
-        isPageHeading: true
+        heading: "Search by NHS number",
+        size: "m"
       },
       button: false,
       name: "example",
       width: 20
     }
   },
-  "without page heading": {
+  "without heading": {
     context: {
       label: "Search by NHS number",
       name: "example",
