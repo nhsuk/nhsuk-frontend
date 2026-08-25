@@ -24,6 +24,7 @@
       "require": "./dist/nhsuk/index.js",
       "default": "./dist/nhsuk/index.js"
     },
+    "./dist/*": "./dist/*",
     "./lib": {
       "types": "./dist/nhsuk/lib/index.d.mts",
       "import": "./dist/nhsuk/lib/index.mjs",
