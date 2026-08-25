@@ -69,6 +69,45 @@
     @include nhsuk-font-weight-bold;
   }
 
+  p,
+  .nhsuk-body-m,
+  .nhsuk-body-s,
+  .nhsuk-body,
+  ol,
+  ul,
+  .nhsuk-list {
+    &:has(+ .nhsuk-fieldset > .nhsuk-fieldset__legend:first-child),
+    &:has(+ .nhsuk-form-group > .nhsuk-fieldset:first-child > .nhsuk-fieldset__legend:first-child) {
+      margin-bottom: nhsuk-spacing(3) + nhsuk-spacing(1);
+
+      @media #{nhsuk-from-breakpoint(tablet)} {
+        margin-bottom: nhsuk-spacing(4) + nhsuk-spacing(2);
+      }
+    }
+  }
+
+  .nhsuk-body-l {
+    &:has(+ .nhsuk-fieldset > .nhsuk-fieldset__legend:first-child),
+    &:has(+ .nhsuk-form-group > .nhsuk-fieldset:first-child > .nhsuk-fieldset__legend:first-child) {
+      margin-bottom: nhsuk-spacing(4);
+
+      @media #{nhsuk-from-breakpoint(tablet)} {
+        margin-bottom: nhsuk-spacing(5);
+      }
+    }
+
+    &:has(+ .nhsuk-fieldset > .nhsuk-fieldset__legend--m:first-child),
+    &:has(+ .nhsuk-fieldset > .nhsuk-fieldset__legend--l:first-child),
+    &:has(+ .nhsuk-form-group > .nhsuk-fieldset:first-child > .nhsuk-fieldset__legend--m:first-child),
+    &:has(+ .nhsuk-form-group > .nhsuk-fieldset:first-child > .nhsuk-fieldset__legend--l:first-child) {
+      margin-bottom: nhsuk-spacing(4) + nhsuk-spacing(1);
+
+      @media #{nhsuk-from-breakpoint(tablet)} {
+        margin-bottom: nhsuk-spacing(5) + nhsuk-spacing(2);
+      }
+    }
+  }
+
   // When the legend contains an H1, we want the H1 to inherit all styles from
   // the legend. Effectively treat the heading as if it is not there.
   .nhsuk-fieldset__heading {

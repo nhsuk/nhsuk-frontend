@@ -16,34 +16,35 @@ const options = {
     type: 'string',
     required: false,
     description:
-      'Text to use within the back link component. If `html` is provided, the `text` argument will be ignored. Defaults to `"Back"`.',
+      'Text to use within the back link component. If `html` is provided, the `text` option will be ignored. Defaults to `"Back"`.',
     released: '1.0.0'
   },
   html: {
     type: 'string',
     required: false,
     description:
-      'HTML to use within the back link component. If `html` is provided, the `text` argument will be ignored. Defaults to `"Back"`.',
+      'HTML to use within the back link component. If `html` is provided, the `text` option will be ignored. Defaults to `"Back"`.',
     released: '1.0.0'
   },
   caller: {
     type: 'nunjucks-block',
     required: false,
     description:
-      'Not strictly a parameter but [Nunjucks code convention](https://mozilla.github.io/nunjucks/templating.html#call). Using a `call` block enables you to call a macro with all the text inside the tag. This is helpful if you want to pass a lot of content into a macro. To use it, you will need to wrap the entire back link component in a `call` block.',
+      'Not strictly an option but supports the [`call` block](https://mozilla.github.io/nunjucks/templating.html#call) as an alternative to the `html` option. To use it, you will need to wrap the entire back link component in a `call` block.',
     released: '10.6.0'
   },
   type: {
     type: 'string',
     required: false,
     description:
-      'Type of `button` – `"button"` or `"submit"`. Defaults to `"submit"`.',
+      'Type of back link as a button – `"button"` or `"submit"`. Defaults to `"submit"` unless `href` is provided.',
     released: '10.5.0'
   },
   href: {
     type: 'string',
     required: false,
-    description: 'The value of the link `href` attribute.',
+    description:
+      'The back link `href` attribute. If set, the back link will use an `<a>` tag automatically unless `type` is provided.',
     released: '1.0.0'
   },
   variant: {

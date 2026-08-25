@@ -89,10 +89,10 @@
 
     // Adjust for scroll offset removed from tablet
     @media #{nhsuk-from-breakpoint(tablet)} {
-      max-width: calc(100vw);
+      max-width: 100vw;
 
       @supports (container-type: inline-size) {
-        max-width: calc(100cqw);
+        max-width: 100cqw;
       }
     }
 
@@ -100,7 +100,7 @@
     // when container scroll-state queries are supported in the browser
     @supports (container-type: inline-size scroll-state) {
       @container scroll-content {
-        max-width: calc(100cqw);
+        max-width: 100cqw;
       }
     }
   }

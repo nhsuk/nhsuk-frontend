@@ -52,6 +52,7 @@ td {
   text-align: left;
   vertical-align: top;
 
+  @include nhsuk-top-and-bottom;
   @include nhsuk-responsive-padding(3, ("top", "bottom"));
   @include nhsuk-responsive-padding(4, "right", $adjustment: - $nhsuk-border-table-header-width);
 

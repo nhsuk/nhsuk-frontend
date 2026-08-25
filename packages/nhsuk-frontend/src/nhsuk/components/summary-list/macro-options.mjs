@@ -199,27 +199,29 @@ const options = {
               name: {
                 type: 'string',
                 required: false,
-                description: 'Name for the `button`.',
+                description:
+                  'Name for the action as a button. If `type` is set, this has no effect.',
                 released: '10.6.0'
               },
               type: {
                 type: 'string',
                 required: false,
                 description:
-                  'Type of `button` – `"button"`, `"submit"` or `"reset"`. Defaults to `"submit"`.',
+                  'Type of action as a button – `"button"`, `"submit"` or `"reset"`. Defaults to `"submit"` unless `href` is provided.',
                 released: '10.6.0'
               },
               value: {
                 type: 'string',
                 required: false,
-                description: 'The `value` attribute for the `button`.',
+                description:
+                  'The `value` attribute for the action as a button. If `type` is set, this has no effect.',
                 released: '10.6.0'
               },
               href: {
                 type: 'string',
                 required: true,
                 description:
-                  'The URL that the action item should link to. This has no effect when `type` is set.',
+                  'The action `href` attribute. If set, the action will use an `<a>` tag automatically unless `type` is provided.',
                 released: '2.0.0'
               },
               classes: {
@@ -260,6 +262,19 @@ const options = {
         }
       }
     }
+  },
+  html: {
+    type: 'string',
+    required: false,
+    description: 'HTML to use within the summary list.',
+    released: '10.6.0'
+  },
+  caller: {
+    type: 'nunjucks-block',
+    required: false,
+    description:
+      'Not strictly an option but supports the [`call` block](https://mozilla.github.io/nunjucks/templating.html#call) as an alternative to the `html` option. To use it, you will need to wrap the entire summary list component in a `call` block.',
+    released: '10.6.0'
   },
   card: {
     type: 'object',

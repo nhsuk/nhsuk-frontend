@@ -36,9 +36,8 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: "How do you want to be contacted about this?",
-          size: "l",
-          isPageHeading: true
+          heading: "How do you want to be contacted about this?",
+          size: "l"
         }
       },
       name: "example",
@@ -66,9 +65,8 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: "How do you want to be contacted about this?",
-          size: "l",
-          isPageHeading: true
+          heading: "How do you want to be contacted about this?",
+          size: "l"
         }
       },
       idPrefix: "disabled",
@@ -98,9 +96,8 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: "How do you want to be contacted about this?",
-          size: "l",
-          isPageHeading: true
+          heading: "How do you want to be contacted about this?",
+          size: "l"
         }
       },
       idPrefix: "disabled-input",
@@ -127,9 +124,8 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: "How do you want to be contacted about this?",
-          size: "l",
-          isPageHeading: true
+          heading: "How do you want to be contacted about this?",
+          size: "l"
         }
       },
       idPrefix: "disabled-enabled-input",
@@ -157,9 +153,8 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: "How do you want to be contacted about this?",
-          size: "l",
-          isPageHeading: true
+          heading: "How do you want to be contacted about this?",
+          size: "l"
         }
       },
       hint: {
@@ -188,9 +183,8 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: "Are you 18 or over?",
-          size: "l",
-          isPageHeading: true
+          heading: "Are you 18 or over?",
+          size: "l"
         }
       },
       idPrefix: "inline",
@@ -277,10 +271,23 @@ const fixtures = {
             }
           }
         }
+      },
+      {
+        description: "with id attribute on",
+        context: {
+          fieldset: {
+            legend: {
+              id: "custom-id"
+            }
+          }
+        },
+        options: {
+          hidden: true
+        }
       }
     ]
   },
-  "without page heading": {
+  "without heading": {
     context: {
       fieldset: {
         legend: "How do you want to be contacted about this?"
@@ -307,9 +314,8 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: "How do you want to be contacted about this?",
-          size: "l",
-          isPageHeading: true
+          heading: "How do you want to be contacted about this?",
+          size: "l"
         }
       },
       hint: {
@@ -326,9 +332,8 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: "Do you know your NHS number?",
-          size: "l",
-          isPageHeading: true
+          heading: "Do you know your NHS number?",
+          size: "l"
         }
       },
       hint: {
@@ -363,9 +368,8 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: "Do you have a mobile phone with signal?",
-          size: "l",
-          isPageHeading: true
+          heading: "Do you have a mobile phone with signal?",
+          size: "l"
         }
       },
       idPrefix: "with-hint-item",
@@ -421,9 +425,8 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: "How do you want to be contacted about this?",
-          size: "l",
-          isPageHeading: true
+          heading: "How do you want to be contacted about this?",
+          size: "l"
         }
       },
       errorMessage: true,
@@ -449,9 +452,8 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: "How do you want to be contacted about this?",
-          size: "l",
-          isPageHeading: true
+          heading: "How do you want to be contacted about this?",
+          size: "l"
         }
       },
       errorMessage: {
@@ -480,9 +482,8 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: "How do you want to be contacted about this?",
-          size: "l",
-          isPageHeading: true
+          heading: "How do you want to be contacted about this?",
+          size: "l"
         }
       },
       hint: {
@@ -515,13 +516,104 @@ const fixtures = {
       viewports: ["mobile", "tablet", "desktop"]
     }
   },
+  "with error message and hint as strings": {
+    context: {
+      fieldset: {
+        legend: {
+          heading: "How do you want to be contacted about this?",
+          size: "l"
+        }
+      },
+      hint: "Select 1 option",
+      errorMessage: "Select how you want to be contacted",
+      idPrefix: "with-hint-error",
+      name: "example",
+      items: [
+        {
+          value: "email",
+          text: "Email"
+        },
+        {
+          value: "phone",
+          text: "Phone"
+        },
+        {
+          value: "text",
+          text: "Text message"
+        }
+      ]
+    },
+    variants
+  },
+  "with error message, without heading": {
+    context: {
+      fieldset: {
+        legend: {
+          text: "How do you want to be contacted about this?",
+          size: null
+        }
+      },
+      errorMessage: {
+        text: "Select how you want to be contacted"
+      },
+      idPrefix: "with-error-message",
+      name: "example",
+      items: [
+        {
+          value: "email",
+          text: "Email"
+        },
+        {
+          value: "phone",
+          text: "Phone"
+        },
+        {
+          value: "text",
+          text: "Text message"
+        }
+      ]
+    },
+    variants
+  },
+  "with error message and hint, without heading": {
+    context: {
+      fieldset: {
+        legend: {
+          text: "How do you want to be contacted about this?",
+          size: null
+        }
+      },
+      hint: {
+        text: "Select 1 option"
+      },
+      errorMessage: {
+        text: "Select how you want to be contacted"
+      },
+      idPrefix: "with-hint-error",
+      name: "example",
+      items: [
+        {
+          value: "email",
+          text: "Email"
+        },
+        {
+          value: "phone",
+          text: "Phone"
+        },
+        {
+          value: "text",
+          text: "Text message"
+        }
+      ]
+    },
+    variants
+  },
   "with long text": {
     context: {
       fieldset: {
         legend: {
-          text: "Venenatis Condimentum",
-          size: "l",
-          isPageHeading: true
+          heading: "Venenatis Condimentum",
+          size: "l"
         }
       },
       idPrefix: "with-long-text",
@@ -567,9 +659,8 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: "How do you want to be contacted about this?",
-          size: "l",
-          isPageHeading: true
+          heading: "How do you want to be contacted about this?",
+          size: "l"
         }
       },
       hint: {
@@ -585,9 +676,8 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: "How do you want to be contacted about this?",
-          size: "l",
-          isPageHeading: true
+          heading: "How do you want to be contacted about this?",
+          size: "l"
         }
       },
       hint: {
@@ -606,9 +696,8 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: "How do you want to be contacted about this?",
-          size: "l",
-          isPageHeading: true
+          heading: "How do you want to be contacted about this?",
+          size: "l"
         }
       },
       hint: {
@@ -627,9 +716,8 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: "How do you want to be contacted about this?",
-          size: "l",
-          isPageHeading: true
+          heading: "How do you want to be contacted about this?",
+          size: "l"
         }
       },
       hint: {
@@ -651,9 +739,8 @@ const fixtures = {
     context: {
       fieldset: {
         legend: {
-          text: "How do you want to be contacted about this?",
-          size: "l",
-          isPageHeading: true
+          heading: "How do you want to be contacted about this?",
+          size: "l"
         }
       },
       hint: {

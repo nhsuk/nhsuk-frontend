@@ -144,7 +144,7 @@ describe('Tabs', () => {
         // Click the DOM element inside the second tab
         await $secondTab?.$('span').then(($el) => $el?.click())
 
-        expect(await getAttribute($secondPanel, 'id')).toBe('past-week')
+        expect(await getAttribute($secondPanel, 'id')).toBe('example-2')
         expect(await getAttribute($secondPanel, 'class')).not.toContain(
           'nhsuk-tabs__panel--hidden'
         )
@@ -195,7 +195,7 @@ describe('Tabs', () => {
       await $firstTab?.focus()
       await page.keyboard.down('ArrowRight')
 
-      expect(await getAttribute($secondPanel, 'id')).toBe('past-week')
+      expect(await getAttribute($secondPanel, 'id')).toBe('example-2')
       expect(await getAttribute($secondPanel, 'class')).not.toContain(
         'nhsuk-tabs__panel--hidden'
       )
@@ -207,14 +207,14 @@ describe('Tabs', () => {
       await initExample('default')
 
       await page.evaluate(() => {
-        window.location.hash = '#past-week'
+        window.location.hash = '#example-2'
       })
 
       const $currentTab = await $component.$(
-        '.nhsuk-tabs__tab[href="#past-week"]'
+        '.nhsuk-tabs__tab[href="#example-2"]'
       )
       const $currentItem = await $component.$(
-        '.nhsuk-tabs__list-item:has(.nhsuk-tabs__tab[href="#past-week"])'
+        '.nhsuk-tabs__list-item:has(.nhsuk-tabs__tab[href="#example-2"])'
       )
 
       const currentPanelId = await getAttribute($currentTab, 'aria-controls')
@@ -225,7 +225,7 @@ describe('Tabs', () => {
         'nhsuk-tabs__list-item--selected'
       )
 
-      expect(await getAttribute($currentPanel, 'id')).toBe('past-week')
+      expect(await getAttribute($currentPanel, 'id')).toBe('example-2')
       expect(await getAttribute($currentPanel, 'class')).not.toContain(
         'nhsuk-tabs__panel--hidden'
       )

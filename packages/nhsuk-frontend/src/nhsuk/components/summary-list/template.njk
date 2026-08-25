@@ -1,5 +1,5 @@
-{% from "nhsuk/components/card/macro.njk" import card %}
-{% from "nhsuk/components/summary-list/row/macro.njk" import summaryListRow %}
+{% from "nhsuk/components/card/macro.njk" import card as nhsukCard %}
+{% from "nhsuk/components/summary-list/row/macro.njk" import summaryListRow as nhsukSummaryListRow %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set classes for this component #}
@@ -15,7 +15,7 @@
   {% set classNames = classNames ~ " " ~ params.classes %}
 {% endif %}
 
-{%- set rows = params.rows | select("mapping") if params.rows | length else [] %}
+{%- set rows = params.rows | select("mapping") | list if params.rows else [] %}
 
 {#- Determine if we need 2 or 3 columns #}
 {%- set hasActions = false %}
@@ -31,7 +31,7 @@
   {{ params.html | safe | trim | indent(2) }}
 {% else %}
   {% for row in rows %}
-    {{- summaryListRow(row, {
+    {{- nhsukSummaryListRow(row, {
       params: params,
       loop: loop,
       rows: rows,
@@ -44,7 +44,7 @@
 {%- endset %}
 
 {%- if params.card %}
-  {%- call card(params.card) %}
+  {%- call nhsukCard(params.card) %}
     {{ summaryListHtml | safe | trim | indent(4) }}
   {%- endcall %}
 {% else %}

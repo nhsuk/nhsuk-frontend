@@ -16,9 +16,13 @@
 %nhsuk-heading-xl {
   display: block;
   margin-top: 0;
+  margin-bottom: nhsuk-spacing(6);
 
   @include nhsuk-font(48, $weight: bold);
-  @include nhsuk-responsive-margin(7, "bottom");
+
+  @media #{nhsuk-from-breakpoint(tablet)} {
+    margin-bottom: nhsuk-spacing(7);
+  }
 }
 
 h1,
@@ -29,9 +33,13 @@ h1,
 %nhsuk-heading-l {
   display: block;
   margin-top: 0;
+  margin-bottom: nhsuk-spacing(3);
 
   @include nhsuk-font(36, $weight: bold);
-  @include nhsuk-responsive-margin(4, "bottom");
+
+  @media #{nhsuk-from-breakpoint(tablet)} {
+    margin-bottom: nhsuk-spacing(4);
+  }
 }
 
 h2,
@@ -42,9 +50,13 @@ h2,
 %nhsuk-heading-m {
   display: block;
   margin-top: 0;
+  margin-bottom: nhsuk-spacing(3);
 
   @include nhsuk-font(26, $weight: bold);
-  @include nhsuk-responsive-margin(4, "bottom");
+
+  @media #{nhsuk-from-breakpoint(tablet)} {
+    margin-bottom: nhsuk-spacing(4);
+  }
 }
 
 h3,
@@ -55,9 +67,13 @@ h3,
 %nhsuk-heading-s {
   display: block;
   margin-top: 0;
+  margin-bottom: nhsuk-spacing(3);
 
   @include nhsuk-font(22, $weight: bold);
-  @include nhsuk-responsive-margin(4, "bottom");
+
+  @media #{nhsuk-from-breakpoint(tablet)} {
+    margin-bottom: nhsuk-spacing(4);
+  }
 }
 
 h4,
@@ -68,9 +84,13 @@ h4,
 %nhsuk-heading-xs {
   display: block;
   margin-top: 0;
+  margin-bottom: nhsuk-spacing(3);
 
   @include nhsuk-font(19, $weight: bold);
-  @include nhsuk-responsive-margin(4, "bottom");
+
+  @media #{nhsuk-from-breakpoint(tablet)} {
+    margin-bottom: nhsuk-spacing(4);
+  }
 }
 
 h5,
@@ -81,9 +101,13 @@ h5,
 %nhsuk-heading-xxs {
   display: block;
   margin-top: 0;
+  margin-bottom: nhsuk-spacing(3);
 
   @include nhsuk-font(19, $weight: bold);
-  @include nhsuk-responsive-margin(4, "bottom");
+
+  @media #{nhsuk-from-breakpoint(tablet)} {
+    margin-bottom: nhsuk-spacing(4);
+  }
 }
 
 h6,
@@ -127,8 +151,13 @@ h1 + .nhsuk-caption-xl,
 h1 + .nhsuk-caption-xxl,
 .nhsuk-heading-xl + .nhsuk-caption-xl,
 .nhsuk-heading-xl + .nhsuk-caption-xxl {
-  @include nhsuk-responsive-margin(-7, "top", $adjustment: nhsuk-spacing(1));
-  @include nhsuk-responsive-margin(7, "bottom");
+  margin-top: nhsuk-spacing(-6, $adjustment: nhsuk-spacing(1));
+  margin-bottom: nhsuk-spacing(6);
+
+  @media #{nhsuk-from-breakpoint(tablet)} {
+    margin-top: nhsuk-spacing(-7, $adjustment: nhsuk-spacing(1));
+    margin-bottom: nhsuk-spacing(7);
+  }
 }
 
 h2 + .nhsuk-caption-l,
@@ -141,8 +170,13 @@ h6 + .nhsuk-caption,
 .nhsuk-heading-s + .nhsuk-caption,
 .nhsuk-heading-xs + .nhsuk-caption,
 .nhsuk-heading-xxs + .nhsuk-caption {
-  @include nhsuk-responsive-margin(-4, "top", $adjustment: nhsuk-spacing(1));
-  @include nhsuk-responsive-margin(4, "bottom");
+  margin-top: nhsuk-spacing(-3, $adjustment: nhsuk-spacing(1));
+  margin-bottom: nhsuk-spacing(3);
+
+  @media #{nhsuk-from-breakpoint(tablet)} {
+    margin-top: nhsuk-spacing(-4, $adjustment: nhsuk-spacing(1));
+    margin-bottom: nhsuk-spacing(4, $adjustment: nhsuk-spacing(1));
+  }
 }
 
 .nhsuk-caption--bottom {
@@ -155,8 +189,13 @@ h6 + .nhsuk-caption,
 
 h1 + .nhsuk-caption--bottom,
 .nhsuk-heading-xl + .nhsuk-caption--bottom {
-  @include nhsuk-responsive-margin(-7, "top", $adjustment: nhsuk-spacing(1));
-  @include nhsuk-responsive-margin(7, "bottom");
+  margin-top: nhsuk-spacing(-6, $adjustment: nhsuk-spacing(1));
+  margin-bottom: nhsuk-spacing(6);
+
+  @media #{nhsuk-from-breakpoint(tablet)} {
+    margin-top: nhsuk-spacing(-7, $adjustment: nhsuk-spacing(1));
+    margin-bottom: nhsuk-spacing(7);
+  }
 }
 
 h2 + .nhsuk-caption--bottom,
@@ -169,8 +208,61 @@ h6 + .nhsuk-caption--bottom,
 .nhsuk-heading-s + .nhsuk-caption--bottom,
 .nhsuk-heading-xs + .nhsuk-caption--bottom,
 .nhsuk-heading-xxs + .nhsuk-caption--bottom {
-  @include nhsuk-responsive-margin(-4, "top", $adjustment: nhsuk-spacing(1));
-  @include nhsuk-responsive-margin(4, "bottom");
+  margin-top: nhsuk-spacing(-3, $adjustment: nhsuk-spacing(1));
+  margin-bottom: nhsuk-spacing(3);
+
+  @media #{nhsuk-from-breakpoint(tablet)} {
+    margin-top: nhsuk-spacing(-4, $adjustment: nhsuk-spacing(1));
+    margin-bottom: nhsuk-spacing(4, $adjustment: nhsuk-spacing(1));
+  }
+}
+
+.nhsuk-fieldset__legend + .nhsuk-caption--bottom {
+  margin-top: nhsuk-spacing(-2, $adjustment: nhsuk-spacing(1));
+  margin-bottom: nhsuk-spacing(2);
+}
+
+.nhsuk-fieldset__legend--xl + .nhsuk-caption--bottom,
+.nhsuk-fieldset__legend--l + .nhsuk-caption--bottom,
+.nhsuk-fieldset__legend--m + .nhsuk-caption--bottom {
+  margin-top: nhsuk-spacing(-3, $adjustment: nhsuk-spacing(1));
+  margin-bottom: nhsuk-spacing(3);
+}
+
+.nhsuk-label + .nhsuk-caption--bottom,
+.nhsuk-label-wrapper + .nhsuk-caption--bottom {
+  margin-top: nhsuk-spacing(-3, $adjustment: nhsuk-spacing(1));
+  margin-bottom: nhsuk-spacing(3);
+}
+
+.nhsuk-label:not(.nhsuk-label--m):not(.nhsuk-label--l):not(.nhsuk-label--xl) + .nhsuk-caption--bottom {
+  margin-top: 0;
+  margin-bottom: nhsuk-spacing(1);
+}
+
+.nhsuk-label-wrapper:has(.nhsuk-label:not(.nhsuk-label--m):not(.nhsuk-label--l):not(.nhsuk-label--xl))
+  + .nhsuk-caption--bottom {
+  margin-top: 0;
+  margin-bottom: nhsuk-spacing(1);
+}
+
+h1,
+.nhsuk-heading-xl,
+h2,
+.nhsuk-heading-l,
+h3,
+.nhsuk-heading-m,
+h4,
+.nhsuk-heading-s,
+h5,
+.nhsuk-heading-xs,
+h6,
+.nhsuk-heading-xxs,
+.nhsuk-fieldset__legend {
+  // Remove negative top margin from caption when heading has manual bottom margin
+  &[class*="nhsuk-u-margin-bottom-"] + [class^="nhsuk-caption"] {
+    margin-top: 0;
+  }
 }
 
 // Body (paragraphs)
@@ -178,9 +270,13 @@ h6 + .nhsuk-caption--bottom,
 %nhsuk-body-l {
   display: block;
   margin-top: 0;
+  margin-bottom: nhsuk-spacing(4);
 
   @include nhsuk-font(26);
-  @include nhsuk-responsive-margin(5, "bottom");
+
+  @media #{nhsuk-from-breakpoint(tablet)} {
+    margin-bottom: nhsuk-spacing(5);
+  }
 }
 
 .nhsuk-body-l {
@@ -190,9 +286,13 @@ h6 + .nhsuk-caption--bottom,
 %nhsuk-body-m {
   display: block;
   margin-top: 0;
+  margin-bottom: nhsuk-spacing(3);
 
   @include nhsuk-font(19);
-  @include nhsuk-responsive-margin(4, "bottom");
+
+  @media #{nhsuk-from-breakpoint(tablet)} {
+    margin-bottom: nhsuk-spacing(4);
+  }
 }
 
 p,
@@ -205,9 +305,13 @@ p,
 %nhsuk-body-s {
   display: block;
   margin-top: 0;
+  margin-bottom: nhsuk-spacing(3);
 
   @include nhsuk-font(16);
-  @include nhsuk-responsive-margin(4, "bottom");
+
+  @media #{nhsuk-from-breakpoint(tablet)} {
+    margin-bottom: nhsuk-spacing(4);
+  }
 }
 
 .nhsuk-body-s {
@@ -215,9 +319,16 @@ p,
 }
 
 address {
-  @extend %nhsuk-body-m;
-
+  display: block;
+  margin-top: 0;
+  margin-bottom: nhsuk-spacing(3);
   font-style: normal;
+
+  @include nhsuk-font(19);
+
+  @media #{nhsuk-from-breakpoint(tablet)} {
+    margin-bottom: nhsuk-spacing(4);
+  }
 }
 
 // Lede text
@@ -226,8 +337,13 @@ address {
 // 2. Reduces the spacing between the page heading and the lede text
 
 .nhsuk-lede-text {
+  margin-bottom: nhsuk-spacing(6);
+
   @include nhsuk-font(26);
-  @include nhsuk-responsive-margin(7, "bottom");
+
+  @media #{nhsuk-from-breakpoint(tablet)} {
+    margin-bottom: nhsuk-spacing(7);
+  }
 
   // [1]
   p,
@@ -237,8 +353,13 @@ address {
 }
 
 .nhsuk-lede-text--small {
+  margin-bottom: nhsuk-spacing(4);
+
   @include nhsuk-font(19);
-  @include nhsuk-responsive-margin(5, "bottom");
+
+  @media #{nhsuk-from-breakpoint(tablet)} {
+    margin-bottom: nhsuk-spacing(5);
+  }
 }
 
 // [2]
@@ -253,13 +374,14 @@ h1 + .nhsuk-lede-text--small {
 //
 // 1. Removes the padding-top because of the lede-text's increased margin-bottom
 
-%nhsuk-body-l + %nhsuk-heading-l,
-%nhsuk-body-m + .nhsuk-form-group > .nhsuk-label-wrapper:first-child .nhsuk-label,
-%nhsuk-body-s + .nhsuk-form-group > .nhsuk-label-wrapper:first-child .nhsuk-label,
-%nhsuk-body-l + .nhsuk-form-group > .nhsuk-label-wrapper:first-child .nhsuk-label--l,
-%nhsuk-body-m + .nhsuk-form-group > .nhsuk-fieldset:first-child > .nhsuk-fieldset__legend:first-child,
-%nhsuk-body-s + .nhsuk-form-group > .nhsuk-fieldset:first-child > .nhsuk-fieldset__legend:first-child,
-%nhsuk-body-l + .nhsuk-form-group > .nhsuk-fieldset:first-child > .nhsuk-fieldset__legend--l:first-child {
+%nhsuk-body-m + h3:not([class^="nhsuk-heading"]),
+%nhsuk-body-s + h3:not([class^="nhsuk-heading"]),
+%nhsuk-body-m + h4:not([class^="nhsuk-heading"]),
+%nhsuk-body-s + h4:not([class^="nhsuk-heading"]),
+%nhsuk-body-m + .nhsuk-heading-m,
+%nhsuk-body-s + .nhsuk-heading-m,
+%nhsuk-body-m + .nhsuk-heading-s,
+%nhsuk-body-s + .nhsuk-heading-s {
   padding-top: nhsuk-spacing(1);
 
   @media #{nhsuk-from-breakpoint(tablet)} {
@@ -267,27 +389,32 @@ h1 + .nhsuk-lede-text--small {
   }
 }
 
-%nhsuk-body-m + %nhsuk-heading-l,
-%nhsuk-body-s + %nhsuk-heading-l,
-%nhsuk-body-m + .nhsuk-form-group > .nhsuk-label-wrapper:first-child .nhsuk-label--l,
-%nhsuk-body-s + .nhsuk-form-group > .nhsuk-label-wrapper:first-child .nhsuk-label--l,
-%nhsuk-body-m + .nhsuk-form-group > .nhsuk-fieldset:first-child > .nhsuk-fieldset__legend--l:first-child,
-%nhsuk-body-s + .nhsuk-form-group > .nhsuk-fieldset:first-child > .nhsuk-fieldset__legend--l:first-child {
-  @include nhsuk-responsive-padding(4, "top");
-}
-
-%nhsuk-body-m + %nhsuk-heading-m,
-%nhsuk-body-s + %nhsuk-heading-m,
-%nhsuk-body-m + %nhsuk-heading-s,
-%nhsuk-body-s + %nhsuk-heading-s,
-%nhsuk-body-m + .nhsuk-form-group > .nhsuk-label-wrapper:first-child .nhsuk-label--s,
-%nhsuk-body-s + .nhsuk-form-group > .nhsuk-label-wrapper:first-child .nhsuk-label--s,
-%nhsuk-body-m + .nhsuk-form-group > .nhsuk-fieldset:first-child > .nhsuk-fieldset__legend--s:first-child,
-%nhsuk-body-s + .nhsuk-form-group > .nhsuk-fieldset:first-child > .nhsuk-fieldset__legend--s:first-child {
+%nhsuk-body-m + h2:not([class^="nhsuk-heading"]),
+%nhsuk-body-s + h2:not([class^="nhsuk-heading"]),
+%nhsuk-body-m + .nhsuk-heading-l,
+%nhsuk-body-s + .nhsuk-heading-l {
   padding-top: nhsuk-spacing(1);
 
   @media #{nhsuk-from-breakpoint(tablet)} {
     padding-top: nhsuk-spacing(2);
+  }
+}
+
+%nhsuk-body-l + h2:not([class^="nhsuk-heading"]),
+%nhsuk-body-l + .nhsuk-heading-l {
+  padding-top: nhsuk-spacing(1);
+
+  @media #{nhsuk-from-breakpoint(tablet)} {
+    padding-top: nhsuk-spacing(2);
+  }
+}
+
+.nhsuk-form-group + h2:not([class^="nhsuk-heading"]),
+.nhsuk-form-group + .nhsuk-heading-l {
+  padding-top: nhsuk-spacing(3, $adjustment: nhsuk-spacing(-2));
+
+  @media #{nhsuk-from-breakpoint(tablet)} {
+    padding-top: nhsuk-spacing(4, $adjustment: nhsuk-spacing(-2));
   }
 }
 
@@ -298,7 +425,8 @@ h1 + .nhsuk-lede-text--small {
 }
 
 // [1]
-.nhsuk-lede-text + %nhsuk-heading-l {
+.nhsuk-lede-text + h2:not([class^="nhsuk-heading"]),
+.nhsuk-lede-text + .nhsuk-heading-l {
   padding-top: 0;
 }
 
@@ -345,13 +473,20 @@ b {
     margin-bottom: 15pt !important;
   }
 
-  %nhsuk-body-l + %nhsuk-heading-l,
-  %nhsuk-body-m + %nhsuk-heading-l,
-  %nhsuk-body-s + %nhsuk-heading-l,
-  %nhsuk-body-m + %nhsuk-heading-m,
-  %nhsuk-body-s + %nhsuk-heading-m,
-  %nhsuk-body-m + %nhsuk-heading-s,
-  %nhsuk-body-s + %nhsuk-heading-s {
+  %nhsuk-body-l + h2:not([class^="nhsuk-heading"]),
+  %nhsuk-body-m + h2:not([class^="nhsuk-heading"]),
+  %nhsuk-body-s + h2:not([class^="nhsuk-heading"]),
+  %nhsuk-body-m + h3:not([class^="nhsuk-heading"]),
+  %nhsuk-body-s + h3:not([class^="nhsuk-heading"]),
+  %nhsuk-body-m + h4:not([class^="nhsuk-heading"]),
+  %nhsuk-body-s + h4:not([class^="nhsuk-heading"]),
+  %nhsuk-body-l + .nhsuk-heading-l,
+  %nhsuk-body-m + .nhsuk-heading-l,
+  %nhsuk-body-s + .nhsuk-heading-l,
+  %nhsuk-body-m + .nhsuk-heading-m,
+  %nhsuk-body-s + .nhsuk-heading-m,
+  %nhsuk-body-m + .nhsuk-heading-s,
+  %nhsuk-body-s + .nhsuk-heading-s {
     padding-top: 0.45em;
   }
 }

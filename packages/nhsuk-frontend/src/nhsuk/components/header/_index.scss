@@ -530,10 +530,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
 
     white-space: nowrap;
 
-    cursor: pointer;
-
     @include nhsuk-font(16);
-    @include nhsuk-link-decoration;
 
     // Visual indicator for navigation item uses a border on bottom edge
     &::before {
@@ -561,11 +558,15 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
   }
 
   .nhsuk-header__navigation-link {
+    cursor: pointer;
+
     @include _header-link-style(
       $link-colour: $nhsuk-header-reverse-item-colour,
       $link-hover-colour: $nhsuk-header-reverse-item-hover-colour,
       $link-active-colour: $nhsuk-header-reverse-item-active-colour
     );
+
+    @include nhsuk-link-decoration;
   }
 
   // Menu (shown when screen can’t fit all navigation items)

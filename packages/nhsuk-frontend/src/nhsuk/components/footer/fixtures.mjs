@@ -45,6 +45,14 @@ const fixtures = {
       width: false
     }
   },
+  "with copyright text string": {
+    context: {
+      copyright: "© East London NHS Foundation Trust"
+    },
+    options: {
+      width: false
+    }
+  },
   "with custom copyright text": {
     context: {
       copyright: {
@@ -63,6 +71,14 @@ const fixtures = {
       meta: {
         text: "NHS prototype kit v8.0.0"
       }
+    },
+    options: {
+      width: false
+    }
+  },
+  "with meta text string": {
+    context: {
+      meta: "NHS prototype kit v8.0.0"
     },
     options: {
       width: false
@@ -436,7 +452,7 @@ const fixtures = {
       width: false
     }
   },
-  "with multiple titled navigation groups": {
+  "with multiple navigation groups and headings": {
     context: {
       navigation: [
         {
@@ -503,6 +519,66 @@ const fixtures = {
     },
     screenshot: {
       viewports: ["mobile", "tablet", "desktop", "large-desktop"]
+    }
+  },
+  "with multiple navigation groups and headings as strings": {
+    context: {
+      navigation: [
+        {
+          heading: "Legal",
+          items: [
+            {
+              href: "#",
+              text: "Looking after your data"
+            },
+            {
+              href: "#",
+              text: "Freedom of information"
+            },
+            {
+              href: "#",
+              text: "Modern Slavery and human trafficking statement"
+            }
+          ]
+        },
+        {
+          heading: "Get in touch",
+          items: [
+            {
+              href: "#",
+              text: "Contact us"
+            },
+            {
+              href: "#",
+              text: "Press office"
+            },
+            {
+              href: "#",
+              text: "Tell us what you think of our website"
+            },
+            {
+              href: "#",
+              text: "RSS feeds"
+            }
+          ]
+        },
+        {
+          heading: "Follow us",
+          items: [
+            {
+              href: "#",
+              text: "LinkedIn"
+            },
+            {
+              href: "#",
+              text: "YouTube"
+            }
+          ]
+        }
+      ]
+    },
+    options: {
+      width: false
     }
   },
   "with meta and navigation": {

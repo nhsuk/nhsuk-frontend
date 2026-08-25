@@ -1,4 +1,4 @@
-{% from "nhsuk/components/heading/macro.njk" import heading %}
+{% from "nhsuk/components/heading/macro.njk" import heading as nhsukHeading %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set variant for this component #}
@@ -8,11 +8,17 @@
 {%- set classNames = "nhsuk-notification-banner" -%}
 
 {#- Support title as string (with deprecated options) #}
-{%- set titleOptions = params.title if params.title is mapping and params.title is not escaped else {
+{%- set title = params.title if params.title is mapping and params.title is not escaped else {
   id: params.titleId,
   text: params.title if params.title is string else params.titleText,
   html: params.title if params.title is escaped else params.titleHtml,
   level: params.titleHeadingLevel
+} -%}
+
+{#- Support heading as string #}
+{%- set heading = params.heading if params.heading is mapping and params.heading is not escaped else {
+  text: params.heading if params.heading is string else undefined,
+  html: params.heading if params.heading is escaped else undefined
 } -%}
 
 {%- if params.classes %}
@@ -31,7 +37,7 @@
 {% else %}
   {#- Otherwise add `role="region"` to make the notification banner a landmark to help users of assistive technologies to navigate to the banner -#}
   {% set role = "region" %}
-{% endif %}
+{% endif -%}
 
 <div
   {{- nhsukAttributes({
@@ -48,43 +54,43 @@
       optional: true
     },
     role: role,
-    "aria-labelledby": titleOptions.id | default("nhsuk-notification-banner-title", true)
+    "aria-labelledby": title.id | default("nhsuk-notification-banner-title", true)
   }) -}}
 
   {{- nhsukAttributes(params.attributes) -}}>
   <div class="nhsuk-notification-banner__header">
-    {{ heading({
-      id: titleOptions.id | default("nhsuk-notification-banner-title", true),
-      text: titleOptions.text | default("Success" if variant == "success" else "Important"),
-      html: titleOptions.html,
-      visuallyHiddenText: titleOptions.visuallyHiddenText,
-      level: titleOptions.level | default(2),
+    {{ nhsukHeading({
+      id: title.id | default("nhsuk-notification-banner-title", true),
+      text: title.text | default("Success" if variant == "success" else "Important"),
+      html: title.html,
+      visuallyHiddenText: title.visuallyHiddenText,
+      level: title.level | default(title.headingLevel) | default(2),
       className: "nhsuk-notification-banner__title",
-      classes: titleOptions.classes,
-      attributes: titleOptions.attributes
+      classes: title.classes,
+      attributes: title.attributes
     }) | trim | indent(4) }}
   </div>
   <div class="nhsuk-notification-banner__content">
-  {% if params.heading %}
-    {{ heading({
-      id: params.heading.id,
-      text: params.heading.text,
-      html: params.heading.html,
-      visuallyHiddenText: params.heading.visuallyHiddenText,
-      caption: params.heading.caption,
-      href: params.heading.href,
-      level: params.heading.level | default(3),
+  {% if heading.text or heading.html %}
+    {{ nhsukHeading({
+      id: heading.id,
+      text: heading.text,
+      html: heading.html,
+      visuallyHiddenText: heading.visuallyHiddenText,
+      caption: heading.caption,
+      href: heading.href,
+      level: heading.level | default(3),
       className: "nhsuk-notification-banner__heading",
-      classes: params.heading.classes,
-      attributes: params.heading.attributes,
-      element: params.heading.element
+      classes: heading.classes,
+      attributes: heading.attributes,
+      element: heading.element
     }) | trim | indent(4) }}
   {% endif %}
   {% if caller %}
     {{- caller() }}
   {% elif params.html %}
     {{ params.html | safe | trim | indent(4) }}
-  {% elif params.text and not params.heading %}
+  {% elif params.text and not (heading.text or heading.html) %}
     <p class="nhsuk-notification-banner__heading">
       {{ params.text | trim | indent(6) }}
     </p>

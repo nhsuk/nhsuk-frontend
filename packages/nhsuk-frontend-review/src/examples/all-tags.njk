@@ -6,6 +6,10 @@
   "Default": {
     text: "Default"
   },
+  "Transparent": {
+    text: "Completed",
+    colour: false
+  },
   "White": {
     text: "In progress",
     colour: "white"
@@ -79,8 +83,8 @@
 
           {% for name, params in examples %}
             {% set colourHtml %}
-              {% if params.colour %}
-                <var class="nhsuk-body-s">{{ params.colour }}</var>
+              {% if params.colour is not undefined %}
+                <var class="nhsuk-body-s">{{ '"' ~ params.colour ~ '"' if params.colour else "false" }}</var>
               {% else %}
                 None
               {% endif %}
@@ -140,8 +144,8 @@
 
           {% for name, params in examples %}
             {% set colourHtml %}
-              {% if params.colour %}
-                <var class="nhsuk-body-s">{{ params.colour }}</var>
+              {% if params.colour is not undefined %}
+                <var class="nhsuk-body-s">{{ '"' ~ params.colour ~ '"' if params.colour else "false" }}</var>
               {% else %}
                 None
               {% endif %}

@@ -43,9 +43,18 @@ const fixtures = {
       viewports: ["mobile", "tablet", "desktop"]
     }
   },
+  "with custom heading as string": {
+    context: {
+      heading: "School, nursery or work",
+      text: "Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared."
+    }
+  },
   "without heading": {
     context: {
       text: "Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared."
+    },
+    options: {
+      hidden: true
     }
   }
 }

@@ -1,4 +1,4 @@
-{% from "nhsuk/components/heading/macro.njk" import heading %}
+{% from "nhsuk/components/heading/macro.njk" import heading as nhsukHeading %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set variant for this component #}
@@ -6,10 +6,10 @@
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-panel" -%}
-{%- set classNamesTitle = "nhsuk-panel__title" -%}
+{%- set classNamesHeading = "nhsuk-panel__heading" -%}
 
 {#- Support heading as string (with deprecated options) #}
-{%- set headingOptions = params.heading if params.heading is mapping and params.heading is not escaped else {
+{%- set heading = params.heading if params.heading is mapping and params.heading is not escaped else {
   text: params.heading if params.heading is string else params.titleText,
   html: params.heading if params.heading is escaped else params.titleHtml,
   level: params.headingLevel,
@@ -23,23 +23,23 @@
 
 {%- if params.classes %}
   {% set classNames = classNames ~ " " ~ params.classes %}
-{% endif %}
+{% endif -%}
 
 <div class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %} {{- nhsukAttributes(params.attributes) }}>
-  {{ heading({
-    id: headingOptions.id,
-    text: headingOptions.text,
-    html: headingOptions.html,
-    visuallyHiddenText: headingOptions.visuallyHiddenText,
-    caption: headingOptions.caption,
-    href: headingOptions.href,
-    level: headingOptions.level,
-    size: headingOptions.size,
+  {{ nhsukHeading({
+    id: heading.id,
+    text: heading.text,
+    html: heading.html,
+    visuallyHiddenText: heading.visuallyHiddenText,
+    caption: heading.caption,
+    href: heading.href,
+    level: heading.level,
+    size: heading.size,
     sizes: ["m", "l", "xl"],
-    className: classNamesTitle,
-    classPrefix: classNamesTitle ~ "--",
-    classes: headingOptions.classes,
-    attributes: headingOptions.attributes
+    className: classNamesHeading,
+    classPrefix: classNamesHeading ~ "--",
+    classes: heading.classes,
+    attributes: heading.attributes
   }) | trim | indent(2) }}
   {% if caller or params.html or params.text %}
   <div class="nhsuk-panel__body">
