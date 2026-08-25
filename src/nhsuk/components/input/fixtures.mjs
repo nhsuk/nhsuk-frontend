@@ -11,9 +11,8 @@ const fixtures = {
   "default": {
     context: {
       label: {
-        text: "What is your full name?",
-        size: "l",
-        isPageHeading: true
+        heading: "What is your full name?",
+        size: "l"
       },
       name: "example"
     },
@@ -22,9 +21,8 @@ const fixtures = {
   "disabled": {
     context: {
       label: {
-        text: "What is your full name?",
-        size: "l",
-        isPageHeading: true
+        heading: "What is your full name?",
+        size: "l"
       },
       name: "example",
       disabled: true
@@ -34,9 +32,8 @@ const fixtures = {
   "with hint": {
     context: {
       label: {
-        text: "What is your NHS number?",
-        size: "l",
-        isPageHeading: true
+        heading: "What is your NHS number?",
+        size: "l"
       },
       hint: {
         html: 'This is a 10 digit number (like <span class="nhsuk-u-nowrap">999 123 4567</span>) that you can find on an NHS letter, prescription or in the NHS App'
@@ -53,9 +50,8 @@ const fixtures = {
   "with button": {
     context: {
       label: {
-        text: "What is your NHS number?",
-        size: "l",
-        isPageHeading: true
+        heading: "What is your NHS number?",
+        size: "l"
       },
       id: "with-button",
       name: "example",
@@ -79,9 +75,8 @@ const fixtures = {
   "with button and error message": {
     context: {
       label: {
-        text: "What is your NHS number?",
-        size: "l",
-        isPageHeading: true
+        heading: "What is your NHS number?",
+        size: "l"
       },
       errorMessage: {
         text: "Enter NHS number"
@@ -108,9 +103,8 @@ const fixtures = {
   "with error only": {
     context: {
       label: {
-        text: "What is your NHS number?",
-        size: "l",
-        isPageHeading: true
+        heading: "What is your NHS number?",
+        size: "l"
       },
       errorMessage: true,
       id: "with-error-only",
@@ -124,9 +118,8 @@ const fixtures = {
   "with error message": {
     context: {
       label: {
-        text: "What is your NHS number?",
-        size: "l",
-        isPageHeading: true
+        heading: "What is your NHS number?",
+        size: "l"
       },
       errorMessage: {
         text: "Enter NHS number"
@@ -142,9 +135,8 @@ const fixtures = {
   "with error message and hint": {
     context: {
       label: {
-        text: "What is your NHS number?",
-        size: "l",
-        isPageHeading: true
+        heading: "What is your NHS number?",
+        size: "l"
       },
       hint: {
         html: 'This is a 10 digit number (like <span class="nhsuk-u-nowrap">999 123 4567</span>) that you can find on an NHS letter, prescription or in the NHS App'
@@ -162,6 +154,57 @@ const fixtures = {
     screenshot: {
       states: ["focus"],
       selector: "#with-hint-error"
+    }
+  },
+  "with error message and hint as strings": {
+    context: {
+      label: {
+        heading: "What is your NHS number?",
+        size: "l"
+      },
+      hint: "This is a 10 digit number (like 999 123 4567) that you can find on an NHS letter, prescription or in the NHS App",
+      errorMessage: "Enter NHS number",
+      id: "with-hint-error",
+      name: "example",
+      width: 10,
+      code: true,
+      inputmode: "numeric",
+      spellcheck: false
+    }
+  },
+  "with error message, without heading": {
+    context: {
+      label: {
+        text: "What is your NHS number?"
+      },
+      errorMessage: {
+        text: "Enter NHS number"
+      },
+      id: "with-error-message",
+      name: "example",
+      width: 10,
+      code: true,
+      inputmode: "numeric",
+      spellcheck: false
+    }
+  },
+  "with error message and hint, without heading": {
+    context: {
+      label: {
+        text: "What is your NHS number?"
+      },
+      hint: {
+        html: 'This is a 10 digit number (like <span class="nhsuk-u-nowrap">999 123 4567</span>) that you can find on an NHS letter, prescription or in the NHS App'
+      },
+      errorMessage: {
+        text: "Enter NHS number"
+      },
+      id: "with-hint-error",
+      name: "example",
+      width: 10,
+      code: true,
+      inputmode: "numeric",
+      spellcheck: false
     }
   },
   "width": {
@@ -238,21 +281,19 @@ const fixtures = {
   "width class": {
     context: {
       label: {
-        text: "What is your NHS number?",
-        size: "l",
-        isPageHeading: true
+        heading: "What is your NHS number?",
+        size: "l"
       },
       id: "input-width",
       name: "example",
       classes: "nhsuk-input--width-10"
     }
   },
-  "width class overriding width param": {
+  "width class overriding width option": {
     context: {
       label: {
-        text: "What is your NHS number?",
-        size: "l",
-        isPageHeading: true
+        heading: "What is your NHS number?",
+        size: "l"
       },
       id: "input-width",
       name: "example",
@@ -263,9 +304,8 @@ const fixtures = {
   "label": {
     context: {
       label: {
-        text: "What is your NHS number?",
-        size: "l",
-        isPageHeading: true
+        heading: "What is your NHS number?",
+        size: "l"
       },
       id: "custom-size",
       name: "example",
@@ -320,7 +360,7 @@ const fixtures = {
       }
     ]
   },
-  "without page heading": {
+  "without heading": {
     context: {
       label: "What is your NHS number?",
       id: "without-heading",
@@ -334,9 +374,8 @@ const fixtures = {
   "with code input styling": {
     context: {
       label: {
-        text: "What is your NHS number?",
-        size: "l",
-        isPageHeading: true
+        heading: "What is your NHS number?",
+        size: "l"
       },
       hint: {
         html: 'This is a 10 digit number (like <span class="nhsuk-u-nowrap">999 123 4567</span>) that you can find on an NHS letter, prescription or in the NHS App'
@@ -354,8 +393,7 @@ const fixtures = {
   "with prefix": {
     context: {
       label: {
-        text: "Cost in pounds",
-        isPageHeading: true
+        heading: "Cost in pounds"
       },
       id: "with-prefix",
       name: "example",
@@ -369,8 +407,7 @@ const fixtures = {
   "with prefix HTML": {
     context: {
       label: {
-        text: "Cost in pounds",
-        isPageHeading: true
+        heading: "Cost in pounds"
       },
       id: "with-prefix",
       name: "example",
@@ -380,11 +417,21 @@ const fixtures = {
       width: 5
     }
   },
+  "with prefix as string": {
+    context: {
+      label: {
+        heading: "Cost in pounds"
+      },
+      id: "with-prefix",
+      name: "example",
+      prefix: "£",
+      width: 5
+    }
+  },
   "with suffix": {
     context: {
       label: {
-        text: "Weight in kilograms",
-        isPageHeading: true
+        heading: "Weight in kilograms"
       },
       id: "with-suffix",
       name: "example",
@@ -398,8 +445,7 @@ const fixtures = {
   "with suffix HTML": {
     context: {
       label: {
-        text: "Weight in kilograms",
-        isPageHeading: true
+        heading: "Weight in kilograms"
       },
       id: "with-suffix",
       name: "example",
@@ -409,11 +455,21 @@ const fixtures = {
       width: 5
     }
   },
+  "with suffix as string": {
+    context: {
+      label: {
+        heading: "Weight in kilograms"
+      },
+      id: "with-suffix",
+      name: "example",
+      suffix: "kg",
+      width: 5
+    }
+  },
   "with prefix and suffix": {
     context: {
       label: {
-        text: "Cost per item, in pounds",
-        isPageHeading: true
+        heading: "Cost per item, in pounds"
       },
       id: "with-prefix-suffix",
       name: "example",
@@ -430,8 +486,7 @@ const fixtures = {
   "with prefix and suffix and error message": {
     context: {
       label: {
-        text: "Cost per item, in pounds",
-        isPageHeading: true
+        heading: "Cost per item, in pounds"
       },
       errorMessage: {
         text: "Enter a cost per item, in pounds"
@@ -454,8 +509,7 @@ const fixtures = {
   "with autocomplete attribute": {
     context: {
       label: {
-        text: "Enter a full postcode in England",
-        isPageHeading: true
+        heading: "Enter a full postcode in England"
       },
       hint: {
         text: "For example, LS1 1AB"

@@ -24,6 +24,7 @@
       "require": "./dist/nhsuk/index.js",
       "default": "./dist/nhsuk/index.js"
     },
+    "./dist/*": "./dist/*",
     "./lib": {
       "types": "./dist/nhsuk/lib/index.d.mts",
       "import": "./dist/nhsuk/lib/index.mjs",
@@ -68,7 +69,7 @@
     "jsdom-testing-mocks": "^1.16.0",
     "nunjucks": "^3.2.4",
     "outdent": "^0.8.0",
-    "sass-embedded": "^1.100.0",
+    "sass-embedded": "^1.103.1",
     "slug": "^12.0.1"
   },
   "peerDependencies": {

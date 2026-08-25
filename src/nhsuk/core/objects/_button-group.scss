@@ -47,9 +47,11 @@
     //
     // Because we want the focus state to be tight around the link text, we use
     // margins where the buttons would use padding.
-    .nhsuk-body,
-    .nhsuk-body-m,
+
     p,
+    .nhsuk-body-m,
+    .nhsuk-body-s,
+    .nhsuk-body,
     > .nhsuk-link,
     /* stylelint-disable-next-line selector-no-qualifying-type */
     > a:not(.nhsuk-button) {
@@ -88,9 +90,10 @@
         margin-right: ($horizontal-gap-small * -1);
       }
 
-      .nhsuk-body,
-      .nhsuk-body-m,
       p,
+      .nhsuk-body-m,
+      .nhsuk-body-s,
+      .nhsuk-body,
       > .nhsuk-link,
       /* stylelint-disable-next-line selector-no-qualifying-type */
       > a:not(.nhsuk-button) {
@@ -111,9 +114,10 @@
   }
 
   .nhsuk-button-group--small {
-    .nhsuk-body,
-    .nhsuk-body-m,
     p,
+    .nhsuk-body-m,
+    .nhsuk-body-s,
+    .nhsuk-body,
     > .nhsuk-link,
     /* stylelint-disable-next-line selector-no-qualifying-type */
     > a:not(.nhsuk-button) {
@@ -124,9 +128,10 @@
     // On tablet and above, we also introduce a 'column gap' between the
     // buttons and links in each row and left align links
     @include nhsuk-media-query($from: tablet) {
-      .nhsuk-body,
-      .nhsuk-body-m,
       p,
+      .nhsuk-body-m,
+      .nhsuk-body-s,
+      .nhsuk-body,
       > .nhsuk-link,
       /* stylelint-disable-next-line selector-no-qualifying-type */
       > a:not(.nhsuk-button) {

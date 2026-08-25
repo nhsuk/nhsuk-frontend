@@ -9,15 +9,14 @@ const options = {
   id: {
     type: 'string',
     required: false,
-    description:
-      'This is used for the main component and to compose the `id` attribute for each item.',
+    description: 'The ID of the tabs component.',
     released: '7.0.0'
   },
   idPrefix: {
     type: 'string',
     required: false,
     description:
-      'String to prefix the `id` for each tab item if no `id` is specified on each item.',
+      'Optional prefix. This is used to prefix the `id` attribute for each tab item and panel, separated by `-`. Defaults to the `id` option value.',
     released: '7.0.0'
   },
   title: {
@@ -63,31 +62,46 @@ const options = {
       panel: {
         type: 'object',
         required: true,
-        description: 'Content for the panel.',
+        description: 'Content for the tab panel.',
         released: '7.0.0',
         params: {
           text: {
             type: 'string',
             required: true,
             description:
-              'Specific `id` attribute for the tab item. If omitted, then `idPrefix` string is required instead.',
+              'If `html` is set, this is not required. Text for the tab panel. If `html` is provided, the `text` option will be ignored.',
             released: '7.0.0'
           },
           html: {
             type: 'string',
             required: true,
-            description: 'The title of the panel.',
+            description:
+              'If `text` is set, this is not required. HTML for the tab panel. If `html` is provided, the `text` option will be ignored.',
             released: '7.0.0'
           },
           attributes: {
             type: 'object',
             required: false,
-            description: 'The body of the panel.',
+            description:
+              'HTML attributes (for example data attributes) to add to the tab panel.',
             released: '7.0.0'
           }
         }
       }
     }
+  },
+  classes: {
+    type: 'string',
+    required: false,
+    description: 'Classes to add to the tabs component.',
+    released: '7.0.0'
+  },
+  attributes: {
+    type: 'object',
+    required: false,
+    description:
+      'HTML attributes (for example data attributes) to add to the tabs components.',
+    released: '7.0.0'
   }
 }
 

@@ -7,9 +7,8 @@ const fixtures = {
   "default": {
     context: {
       label: {
-        text: "Password",
-        size: "l",
-        isPageHeading: true
+        heading: "Password",
+        size: "l"
       },
       name: "example"
     }
@@ -17,9 +16,8 @@ const fixtures = {
   "disabled": {
     context: {
       label: {
-        text: "Password",
-        size: "l",
-        isPageHeading: true
+        heading: "Password",
+        size: "l"
       },
       name: "example",
       disabled: true
@@ -29,9 +27,8 @@ const fixtures = {
   "disabled with enabled button": {
     context: {
       label: {
-        text: "Password",
-        size: "l",
-        isPageHeading: true
+        heading: "Password",
+        size: "l"
       },
       name: "example",
       disabled: true,
@@ -43,9 +40,8 @@ const fixtures = {
   "disabled button": {
     context: {
       label: {
-        text: "Password",
-        size: "l",
-        isPageHeading: true
+        heading: "Password",
+        size: "l"
       },
       name: "example",
       button: {
@@ -56,9 +52,8 @@ const fixtures = {
   "with button double click prevented": {
     context: {
       label: {
-        text: "Password",
-        size: "l",
-        isPageHeading: true
+        heading: "Password",
+        size: "l"
       },
       name: "example",
       button: {
@@ -69,9 +64,8 @@ const fixtures = {
   "with button double click not prevented": {
     context: {
       label: {
-        text: "Password",
-        size: "l",
-        isPageHeading: true
+        heading: "Password",
+        size: "l"
       },
       name: "example",
       button: {
@@ -82,9 +76,8 @@ const fixtures = {
   "with hint": {
     context: {
       label: {
-        text: "Password",
-        size: "l",
-        isPageHeading: true
+        heading: "Password",
+        size: "l"
       },
       hint: {
         text: "It probably has some letters, numbers and maybe even some symbols in it"
@@ -99,9 +92,8 @@ const fixtures = {
   "with error only": {
     context: {
       label: {
-        text: "Password",
-        size: "l",
-        isPageHeading: true
+        heading: "Password",
+        size: "l"
       },
       errorMessage: true,
       id: "with-error-only",
@@ -111,9 +103,8 @@ const fixtures = {
   "with error message": {
     context: {
       label: {
-        text: "Password",
-        size: "l",
-        isPageHeading: true
+        heading: "Password",
+        size: "l"
       },
       errorMessage: {
         text: "Enter a password"
@@ -125,9 +116,8 @@ const fixtures = {
   "with error message and hint": {
     context: {
       label: {
-        text: "Password",
-        size: "l",
-        isPageHeading: true
+        heading: "Password",
+        size: "l"
       },
       hint: {
         text: "It probably has some letters, numbers and maybe even some symbols in it"
@@ -142,12 +132,52 @@ const fixtures = {
       viewports: ["watch", "mobile", "tablet", "desktop"]
     }
   },
+  "with error message and hint as strings": {
+    context: {
+      label: {
+        heading: "Password",
+        size: "l"
+      },
+      hint: "It probably has some letters, numbers and maybe even some symbols in it",
+      errorMessage: "Enter a password",
+      id: "with-error-message",
+      name: "example"
+    }
+  },
+  "with error message, without heading": {
+    context: {
+      label: {
+        heading: "Password",
+        size: "l"
+      },
+      errorMessage: {
+        text: "Enter a password"
+      },
+      id: "with-error-message",
+      name: "example"
+    }
+  },
+  "with error message and hint, without heading": {
+    context: {
+      label: {
+        heading: "Password",
+        size: "l"
+      },
+      hint: {
+        text: "It probably has some letters, numbers and maybe even some symbols in it"
+      },
+      errorMessage: {
+        text: "Enter a password"
+      },
+      id: "with-error-message",
+      name: "example"
+    }
+  },
   "with prefix": {
     context: {
       label: {
-        text: "Secret code",
-        size: "m",
-        isPageHeading: true
+        heading: "Secret code",
+        size: "m"
       },
       prefix: {
         text: "PIN"
@@ -165,9 +195,8 @@ const fixtures = {
   "with prefix and error message": {
     context: {
       label: {
-        text: "Secret code",
-        size: "m",
-        isPageHeading: true
+        heading: "Secret code",
+        size: "m"
       },
       prefix: {
         text: "PIN"
@@ -184,7 +213,7 @@ const fixtures = {
       }
     }
   },
-  "without page heading": {
+  "without heading": {
     context: {
       label: "Password",
       id: "without-heading",
@@ -194,9 +223,8 @@ const fixtures = {
   "with width": {
     context: {
       label: {
-        text: "Password",
-        size: "l",
-        isPageHeading: true
+        heading: "Password",
+        size: "l"
       },
       id: "width-class",
       name: "example",
@@ -206,9 +234,8 @@ const fixtures = {
   "with autocomplete attribute": {
     context: {
       label: {
-        text: "Password",
-        size: "l",
-        isPageHeading: true
+        heading: "Password",
+        size: "l"
       },
       id: "new-password",
       name: "example",
@@ -218,9 +245,8 @@ const fixtures = {
   "with translations": {
     context: {
       label: {
-        text: "Cyfrinair",
-        size: "l",
-        isPageHeading: true
+        heading: "Cyfrinair",
+        size: "l"
       },
       id: "password-translated",
       name: "example",

@@ -118,7 +118,7 @@ const options = {
   href: {
     type: 'string',
     required: false,
-    description: 'The value of the card link `href` attribute.',
+    description: 'The card link `href` attribute.',
     released: '4.0.0'
   },
   clickable: {
@@ -185,7 +185,7 @@ const options = {
         type: 'string',
         required: false,
         description:
-          'HTML to use for the image content. If `html` is provided, the `src` and `alt` arguments will be ignored.',
+          'HTML to use for the image content. If `html` is provided, the `src` and `alt` options will be ignored.',
         released: '10.3.0'
       }
     }
@@ -194,7 +194,7 @@ const options = {
     type: 'object',
     required: false,
     description:
-      'Description to use within the card content. If `descriptionHtml` is provided, the `description` argument will be ignored.',
+      'Description to use within the card content. If `descriptionHtml` is provided, the `description` option will be ignored.',
     released: '10.6.0',
     params: {
       text: {
@@ -275,27 +275,29 @@ const options = {
           name: {
             type: 'string',
             required: false,
-            description: 'Name for the `button`.',
+            description:
+              'Name for the action as a button. If `href` is provided, this has no effect.',
             released: '10.6.0'
           },
           type: {
             type: 'string',
             required: false,
             description:
-              'Type of `button` – `"button"`, `"submit"` or `"reset"`. Defaults to `"submit"`.',
+              'Type of action as a button – `"button"`, `"submit"` or `"reset"`. Defaults to `"submit"` unless `href` is provided.',
             released: '10.6.0'
           },
           value: {
             type: 'string',
             required: false,
-            description: 'The `value` attribute for the `button`.',
+            description:
+              'The `value` attribute for the action as a button. If `href` is provided, this has no effect.',
             released: '10.6.0'
           },
           href: {
             type: 'string',
             required: true,
             description:
-              'The URL that the action item should link to. This has no effect when `type` is set.',
+              'The action `href` attribute. If set, the action will use an `<a>` tag automatically unless `type` is provided.',
             released: '10.3.0'
           },
           classes: {
@@ -325,7 +327,7 @@ const options = {
     type: 'nunjucks-block',
     required: false,
     description:
-      'Not strictly a parameter but a Nunjucks code convention. Using a `call` block enables you to call a macro with all the text inside the tag. This is helpful if you want to pass a lot of content into a macro. To use it, you will need to wrap the entire card component in a `call` block.',
+      'Not strictly an option but supports the [`call` block](https://mozilla.github.io/nunjucks/templating.html#call) as an alternative to the `html` option. To use it, you will need to wrap the entire card component in a `call` block.',
     released: '9.5.0'
   },
   classes: {

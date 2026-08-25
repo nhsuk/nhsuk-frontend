@@ -8,9 +8,8 @@ describe('Nunjucks global: uniqueHTML', () => {
   const options = /** @type {MacroRenderOptions} */ ({
     context: {
       label: {
-        text: 'What is your NHS number?',
-        size: 'l',
-        isPageHeading: true
+        heading: 'What is your NHS number?',
+        size: 'l'
       },
       hint: {
         html: 'This is a 10 digit number (like <span class="nhsuk-u-nowrap">999 123 4567</span>) that you can find on an NHS letter, prescription or in the NHS App'

@@ -3,6 +3,12 @@
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-image" -%}
 
+{#- Support image caption as string #}
+{%- set caption = params.caption if params.caption is mapping and params.caption is not escaped else {
+  text: params.caption if params.caption is string else undefined,
+  html: params.caption if params.caption is escaped else undefined
+} -%}
+
 {%- if params.border === false and (not params.classes or not "nhsuk-image--no-border" in params.classes) %}
   {% set classNames = classNames ~ " nhsuk-image--no-border" %}
 {% endif -%}
@@ -17,12 +23,6 @@
 
 {%- if params.classes %}
   {% set classNames = classNames ~ " " ~ params.classes %}
-{% endif -%}
-
-{%- set caption = params.caption -%}
-
-{%- if caption and caption is string %}
-  {% set caption = { text: caption } %}
 {% endif -%}
 
 <figure class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
@@ -46,7 +46,7 @@
       }
     }) }}>
 {% endif %}
-{% if caption %}
+{% if caption.text or caption.html %}
   <figcaption class="nhsuk-image__caption {%- if caption.classes %} {{ caption.classes }}{% endif %}">
   {% if caption.html %}
     {{ caption.html | safe | trim | indent(4) }}
