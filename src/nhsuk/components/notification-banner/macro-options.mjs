@@ -68,7 +68,7 @@ const options = {
       classes: {
         type: 'string',
         required: false,
-        description: 'Classes to add to the title`.',
+        description: 'Classes to add to the title.',
         released: '10.6.0'
       },
       attributes: {
