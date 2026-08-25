@@ -9,7 +9,7 @@ const options = {
   id: {
     type: 'string',
     required: false,
-    description: 'The ID of the button.',
+    description: 'The ID of the task list.',
     released: '10.0.0'
   },
   classes: {
