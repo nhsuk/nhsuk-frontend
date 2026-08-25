@@ -28,6 +28,10 @@
   {% set classNames = classNames ~ " nhsuk-checkboxes--inline" %}
 {% endif %}
 
+{%- if params.outline and (not params.classes or not "nhsuk-checkboxes--outline" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-checkboxes--outline" %}
+{% endif %}
+
 {%- if errorMessageOptions.text or errorMessageOptions.html or params.errorMessage == true %}
   {% set classNamesFormGroup = classNamesFormGroup ~ " nhsuk-form-group--error" %}
 {% endif %}

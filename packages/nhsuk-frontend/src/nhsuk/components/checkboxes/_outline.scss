@@ -1,0 +1,177 @@
+@use "../../core" as *;
+
+////
+/// Checkboxes outline modifier
+///
+/// Styles standard nhsuk-checkboxes as inline button-style controls,
+/// matching NHS button interaction patterns.
+////
+
+$nhsuk-checkboxes-outline-shadow-depth: nhsuk-px-to-rem(2px);
+
+.nhsuk-checkboxes.nhsuk-checkboxes--outline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: nhsuk-spacing(2);
+  margin: 0 0 nhsuk-spacing(4);
+
+  // Override .nhsuk-checkboxes--inline.nhsuk-checkboxes--small 0 row gap
+  &.nhsuk-checkboxes--inline.nhsuk-checkboxes--small {
+    row-gap: nhsuk-spacing(2);
+  }
+
+  .nhsuk-checkboxes__item {
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .nhsuk-checkboxes__input {
+    position: absolute;
+    z-index: 1;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+    margin: 0;
+
+    opacity: 0;
+
+    cursor: pointer;
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  .nhsuk-checkboxes__label {
+    box-sizing: border-box;
+    display: flex;
+
+    position: relative;
+
+    align-items: center;
+
+    gap: nhsuk-spacing(2);
+
+    max-width: none;
+    min-height: nhsuk-px-to-rem(44px);
+    padding: nhsuk-px-to-rem(6px) nhsuk-px-to-rem(12px);
+
+    pointer-events: none;
+
+    border: $nhsuk-border-width-form-element solid nhsuk-colour("blue");
+    border-radius: nhsuk-px-to-rem($nhsuk-button-border-radius);
+
+    color: nhsuk-colour("blue");
+    box-shadow: 0 $nhsuk-checkboxes-outline-shadow-depth 0 nhsuk-colour("blue");
+
+    font-weight: $nhsuk-font-weight-bold;
+    @include nhsuk-font-size(16);
+    line-height: 1.25;
+    user-select: none;
+
+    cursor: pointer;
+
+    &::before {
+      content: "";
+      // Override nhsuk absolute positioning
+      position: static;
+
+      flex: 0 0 nhsuk-px-to-rem(18px);
+
+      height: nhsuk-px-to-rem(18px);
+
+      border: $nhsuk-border-width-form-element solid currentcolor;
+      border-radius: calc(nhsuk-px-to-rem($nhsuk-button-border-radius) / 2);
+
+      background: transparent;
+    }
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      left: nhsuk-px-to-rem(16px);
+
+      width: nhsuk-px-to-rem(10px);
+      height: nhsuk-px-to-rem(5px);
+
+      transform: translateY(-75%) rotate(-45deg);
+
+      border-width: 0 0 $nhsuk-border-width-form-element $nhsuk-border-width-form-element;
+      border-color: currentcolor;
+
+      opacity: 0;
+    }
+  }
+
+  .nhsuk-checkboxes__input:checked + .nhsuk-checkboxes__label {
+    $checked-shadow-colour: nhsuk-shade(nhsuk-colour("blue"), 50%);
+
+    border-color: transparent;
+    border-bottom-color: $checked-shadow-colour;
+    color: nhsuk-colour("white");
+    background-color: nhsuk-colour("blue");
+    box-shadow: 0 $nhsuk-checkboxes-outline-shadow-depth 0 $checked-shadow-colour;
+
+    &::after {
+      opacity: 1;
+    }
+  }
+
+  .nhsuk-checkboxes__input:not(:disabled):not(:checked):not(:focus):hover + .nhsuk-checkboxes__label,
+  .nhsuk-checkboxes__input:not(:disabled):not(:checked):not(:focus) + .nhsuk-checkboxes__label:hover {
+    border-color: nhsuk-colour("dark-blue");
+    color: nhsuk-colour("dark-blue");
+    background-color: $nhsuk-secondary-button-hover-colour;
+    box-shadow: 0 $nhsuk-checkboxes-outline-shadow-depth 0 nhsuk-colour("dark-blue");
+
+    &::before {
+      box-shadow: none;
+    }
+  }
+
+  .nhsuk-checkboxes__input:not(:disabled):checked:not(:focus):hover + .nhsuk-checkboxes__label,
+  .nhsuk-checkboxes__input:not(:disabled):checked:not(:focus) + .nhsuk-checkboxes__label:hover {
+    background-color: nhsuk-shade(nhsuk-colour("blue"), 20%);
+  }
+
+  .nhsuk-checkboxes__input:focus:not(:active) + .nhsuk-checkboxes__label {
+    @include nhsuk-focused-button;
+
+    border-color: transparent;
+
+    &::before {
+      border: $nhsuk-border-width-form-element solid currentcolor;
+      outline: none;
+      box-shadow: none;
+    }
+  }
+
+  .nhsuk-checkboxes__input:not(:disabled):active + .nhsuk-checkboxes__label {
+    top: $nhsuk-checkboxes-outline-shadow-depth;
+    box-shadow: none;
+  }
+
+  // Hide the checkbox outline as the label handles focus
+  .nhsuk-checkboxes__input:focus + .nhsuk-checkboxes__label::before,
+  .nhsuk-checkboxes__input:not(:disabled):hover + .nhsuk-checkboxes__label::before,
+  .nhsuk-checkboxes__input:not(:disabled) + .nhsuk-checkboxes__label:hover::before {
+    border: $nhsuk-border-width-form-element solid currentcolor;
+    outline: none;
+    box-shadow: none;
+  }
+
+  .nhsuk-checkboxes__input:disabled + .nhsuk-checkboxes__label {
+    opacity: 0.5;
+  }
+
+  .nhsuk-checkboxes__conditional {
+    flex-basis: 100%;
+    margin: nhsuk-spacing(1) nhsuk-spacing(1) nhsuk-px-to-rem(8px);
+    padding: 0 nhsuk-spacing(2) 0 nhsuk-px-to-rem(20px);
+  }
+}

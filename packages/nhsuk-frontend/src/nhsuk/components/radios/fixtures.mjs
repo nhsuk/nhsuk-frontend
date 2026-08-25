@@ -689,6 +689,227 @@ const fixtures = {
         }
       ]
     }
+  },
+
+  "outline": {
+    context: {
+      idPrefix: "abnormality",
+      name: "abnormality",
+      outline: true,
+      inline: true,
+      small: true,
+      fieldset: {
+        legend: {
+          text: "Abnormality type",
+          size: "s"
+        }
+      },
+      items: [
+        { value: "calc", text: "Calcification" },
+        { value: "asym", text: "Asymmetric density" },
+        { value: "dist", text: "Architectural distortion" },
+        { value: "lymph", text: "Lymph node" },
+        { value: "other", text: "Other" }
+      ]
+    }
+  },
+
+  "outline checked": {
+    context: {
+      idPrefix: "abnormality-checked",
+      name: "abnormality-checked",
+      outline: true,
+      inline: true,
+      small: true,
+      value: "asym",
+      fieldset: {
+        legend: {
+          text: "Abnormality type (with selection)",
+          size: "s"
+        }
+      },
+      items: [
+        { value: "calc", text: "Calcification" },
+        { value: "asym", text: "Asymmetric density" },
+        { value: "dist", text: "Architectural distortion" },
+        { value: "lymph", text: "Lymph node" },
+        { value: "other", text: "Other" }
+      ]
+    }
+  },
+
+  "outline disabled": {
+    context: {
+      idPrefix: "abnormality-disabled",
+      name: "abnormality-disabled",
+      outline: true,
+      inline: true,
+      small: true,
+      fieldset: {
+        legend: {
+          text: "Abnormality type (with disabled items)",
+          size: "s"
+        }
+      },
+      items: [
+        { value: "ill", text: "Ill-defined mass", disabled: true },
+        { value: "well", text: "Well-defined mass", disabled: true },
+        { value: "calc", text: "Calcification" },
+        { value: "asym", text: "Asymmetric density" },
+        { value: "dist", text: "Architectural distortion" },
+        { value: "lymph", text: "Lymph node" },
+        { value: "other", text: "Other" }
+      ]
+    }
+  },
+
+  "outline with conditional content": {
+    context: {
+      idPrefix: "abnormality-conditional",
+      name: "abnormality-conditional",
+      outline: true,
+      inline: true,
+      small: true,
+      fieldset: {
+        legend: {
+          text: "Abnormality type",
+          size: "s"
+        }
+      },
+      items: [
+        { value: "calc", text: "Calcification" },
+        { value: "asym", text: "Asymmetric density" },
+        { value: "dist", text: "Architectural distortion" },
+        { value: "lymph", text: "Lymph node" },
+        {
+          value: "other",
+          text: "Other",
+          conditional: {
+            html: '<div class="nhsuk-form-group"><label class="nhsuk-label" for="other-details">Provide details</label><input class="nhsuk-input nhsuk-u-width-two-thirds" id="other-details" name="other-details" type="text"></div>'
+          }
+        }
+      ]
+    }
+  },
+
+  "outline with error message and hint": {
+    context: {
+      outline: true,
+      inline: true,
+      small: true,
+      fieldset: {
+        legend: {
+          text: "Abnormality type",
+          size: "s"
+        }
+      },
+      hint: {
+        text: "Select 1 option"
+      },
+      errorMessage: {
+        text: "Select an abnormality type"
+      },
+      idPrefix: "outline-abnormality-error",
+      name: "outline-abnormality-error",
+      items: [
+        { value: "calc", text: "Calcification" },
+        { value: "asym", text: "Asymmetric density" },
+        { value: "dist", text: "Architectural distortion" },
+        { value: "lymph", text: "Lymph node" },
+        {
+          value: "other",
+          text: "Other",
+          conditional: {
+            html: '<div class="nhsuk-form-group"><label class="nhsuk-label" for="outline-abnormality-error-other-details">Provide details</label><input class="nhsuk-input nhsuk-u-width-two-thirds" id="outline-abnormality-error-other-details" name="outline-abnormality-error-other-details" type="text"></div>'
+          }
+        }
+      ]
+    }
+  },
+
+  "outline with conditional content, error message": {
+    context: {
+      outline: true,
+      inline: true,
+      small: true,
+      fieldset: {
+        legend: {
+          text: "Abnormality type",
+          size: "s"
+        }
+      },
+      errorMessage: {
+        text: "Select an abnormality type"
+      },
+      idPrefix: "outline-abnormality-nested",
+      name: "outline-abnormality-nested",
+      value: "other",
+      items: [
+        { value: "calc", text: "Calcification" },
+        { value: "asym", text: "Asymmetric density" },
+        { value: "dist", text: "Architectural distortion" },
+        { value: "lymph", text: "Lymph node" },
+        {
+          value: "other",
+          text: "Other",
+          conditional: {
+            html: '<div class="nhsuk-form-group"><label class="nhsuk-label" for="outline-abnormality-nested-other-details">Provide details</label><input class="nhsuk-input nhsuk-u-width-two-thirds" id="outline-abnormality-nested-other-details" name="outline-abnormality-nested-other-details" type="text"></div>'
+          }
+        }
+      ]
+    },
+    screenshot: {
+      states: ["focus"],
+      selector: "#outline-abnormality-nested-5",
+      viewports: ["mobile", "tablet", "desktop"]
+    }
+  },
+
+  "outline with conditional content, error message (nested)": {
+    context: {
+      outline: true,
+      inline: true,
+      small: true,
+      fieldset: {
+        legend: {
+          text: "Abnormality type",
+          size: "s"
+        }
+      },
+      idPrefix: "outline-abnormality-nested-error",
+      name: "outline-abnormality-nested-error",
+      value: "other",
+      items: [
+        { value: "calc", text: "Calcification" },
+        { value: "asym", text: "Asymmetric density" },
+        { value: "dist", text: "Architectural distortion" },
+        { value: "lymph", text: "Lymph node" },
+        {
+          value: "other",
+          text: "Other",
+          conditional: {
+            html: components.render("input", {
+              context: {
+                id: "outline-abnormality-nested-error-other-details",
+                name: "outline-abnormality-nested-error-other-details",
+                label: {
+                  text: "Provide details"
+                },
+                classes: "nhsuk-u-width-two-thirds",
+                errorMessage: {
+                  text: "Enter details of the abnormality"
+                }
+              }
+            })
+          }
+        }
+      ]
+    },
+    screenshot: {
+      states: ["focus"],
+      selector: "#outline-abnormality-nested-error-5",
+      viewports: ["mobile", "tablet", "desktop"]
+    }
   }
 }
 
