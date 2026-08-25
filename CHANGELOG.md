@@ -1,6 +1,6 @@
 # NHS.UK frontend Changelog
 
-## Unreleased
+## 10.6.1 - 25 August 2026
 
 Note: This release was created from the `support/10.x` branch.
 
