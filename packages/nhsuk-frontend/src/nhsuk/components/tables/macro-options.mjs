@@ -35,14 +35,14 @@ const options = {
         type: 'string',
         required: true,
         description:
-          'If `html` is set, this is not required. Text for cells in table rows. If `html` is provided, the `text` argument will be ignored.',
+          'If `html` is set, this is not required. Text for cells in table rows. If `html` is provided, the `text` option will be ignored.',
         released: '1.0.0'
       },
       html: {
         type: 'string',
         required: true,
         description:
-          'If `text` is set, this is not required. HTML for cells in table rows. If `html` is provided, the `text` argument will be ignored.',
+          'If `text` is set, this is not required. HTML for cells in table rows. If `html` is provided, the `text` option will be ignored.',
         released: '1.0.0'
       },
       visuallyHiddenText: {
@@ -129,14 +129,14 @@ const options = {
         type: 'string',
         required: false,
         description:
-          'If `html` is set, this is not required. Text for table head cells. If `html` is provided, the `text` argument will be ignored.',
+          'If `html` is set, this is not required. Text for table head cells. If `html` is provided, the `text` option will be ignored.',
         released: '1.0.0'
       },
       html: {
         type: 'string',
         required: false,
         description:
-          'If `text` is set, this is not required. HTML for table head cells. If `html` is provided, the `text` argument will be ignored.',
+          'If `text` is set, this is not required. HTML for table head cells. If `html` is provided, the `text` option will be ignored.',
         released: '1.0.0'
       },
       visuallyHiddenText: {

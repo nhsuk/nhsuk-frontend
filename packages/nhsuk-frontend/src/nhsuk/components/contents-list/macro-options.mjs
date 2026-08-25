@@ -36,14 +36,14 @@ const options = {
         type: 'string',
         required: true,
         description:
-          'If `html` is set, this is not required. Text to use within each content list item label. If `html` is provided, the `text` argument will be ignored.',
+          'If `html` is set, this is not required. Text to use within each content list item label. If `html` is provided, the `text` option will be ignored.',
         released: '1.0.0'
       },
       html: {
         type: 'string',
         required: true,
         description:
-          'If `text` is set, this is not required. HTML to use within each content list item label. If `html` is provided, the `text` argument will be ignored.',
+          'If `text` is set, this is not required. HTML to use within each content list item label. If `html` is provided, the `text` option will be ignored.',
         released: '10.2.0'
       },
       classes: {

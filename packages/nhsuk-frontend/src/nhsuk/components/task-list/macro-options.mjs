@@ -107,14 +107,14 @@ const options = {
             type: 'string',
             required: true,
             description:
-              'Text to use within the hint. If `html` is provided, the `text` argument will be ignored.',
+              'Text to use within the hint. If `html` is provided, the `text` option will be ignored.',
             released: '9.1.0'
           },
           html: {
             type: 'string',
             required: true,
             description:
-              'HTML to use within the hint. If `html` is provided, the `text` argument will be ignored.',
+              'HTML to use within the hint. If `html` is provided, the `text` option will be ignored.',
             released: '9.1.0'
           }
         }
@@ -137,14 +137,14 @@ const options = {
             type: 'string',
             required: false,
             description:
-              'Text to use for the status, as an alternative to using a tag. If `html` or `tag` is provided, the `text` argument will be ignored.',
+              'Text to use for the status, as an alternative to using a tag. If `html` or `tag` is provided, the `text` option will be ignored.',
             released: '9.1.0'
           },
           html: {
             type: 'string',
             required: false,
             description:
-              'HTML to use for the status, as an alternative to using a tag. If `html` or `tag` is provided, the `text` argument will be ignored.',
+              'HTML to use for the status, as an alternative to using a tag. If `html` or `tag` is provided, the `text` option will be ignored.',
             released: '9.1.0'
           },
           classes: {
