@@ -15,8 +15,7 @@ const options = {
   items: {
     type: 'array',
     required: true,
-    description:
-      'Array of breadcrumbs item objects. This should contain all pages in the breadcrumb except for the parent page.',
+    description: 'Array of breadcrumbs items.',
     released: '1.0.0',
     params: {
       text: {
