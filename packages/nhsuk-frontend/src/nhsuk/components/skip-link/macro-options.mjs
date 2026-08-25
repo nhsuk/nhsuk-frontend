@@ -37,7 +37,7 @@ const options = {
     type: 'string',
     required: false,
     description:
-      'The value of the skip link\'s `href` attribute. Defaults to `"#maincontent"`.',
+      'The skip link `href` attribute. Defaults to `"#maincontent"`.',
     released: '1.0.0'
   },
   classes: {

@@ -37,20 +37,21 @@ const options = {
     type: 'string',
     required: false,
     description:
-      'Type of `button` – `"button"` or `"submit"`. Defaults to `"submit"`. This has no effect on `a` elements.',
+      'Type of action link as a button – `"button"` or `"submit"`. Defaults to `"submit"` unless `href` is provided.',
     released: '10.5.0'
   },
   href: {
     type: 'string',
     required: true,
-    description: 'The value of the link `href` attribute.',
+    description:
+      'The action link `href` attribute. If set, the action link will use an `<a>` tag automatically unless `type` is provided.',
     released: '1.0.0'
   },
   openInNewWindow: {
     type: 'boolean',
     required: false,
     description:
-      'If set to `true`, then the link will open in a new window. This has no effect on `button` elements.',
+      'If set to `true`, then the action link will open in a new window. If `type` is set, this has no effect.',
     released: '1.0.0'
   },
   variant: {

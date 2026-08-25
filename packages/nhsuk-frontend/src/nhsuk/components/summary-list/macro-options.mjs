@@ -200,28 +200,28 @@ const options = {
                 type: 'string',
                 required: false,
                 description:
-                  'Name for the `button`. This has no effect on `a` elements.',
+                  'Name for the action as a button. If `type` is set, this has no effect.',
                 released: '10.6.0'
               },
               type: {
                 type: 'string',
                 required: false,
                 description:
-                  'Type of `button` – `"button"`, `"submit"` or `"reset"`. Defaults to `"submit"`. This has no effect on `a` elements.',
+                  'Type of action as a button – `"button"`, `"submit"` or `"reset"`. Defaults to `"submit"` unless `href` is provided.',
                 released: '10.6.0'
               },
               value: {
                 type: 'string',
                 required: false,
                 description:
-                  'The `value` attribute for the `button`. This has no effect on `a` elements.',
+                  'The `value` attribute for the action as a button. If `type` is set, this has no effect.',
                 released: '10.6.0'
               },
               href: {
                 type: 'string',
                 required: true,
                 description:
-                  'The URL that the action item should link to. If this is set, `element` will be automatically set to `"a"` if it has not already been defined.',
+                  'The action `href` attribute. If set, the action will use an `<a>` tag automatically unless `type` is provided.',
                 released: '2.0.0'
               },
               classes: {

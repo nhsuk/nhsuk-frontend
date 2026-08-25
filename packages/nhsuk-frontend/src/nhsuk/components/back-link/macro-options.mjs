@@ -37,13 +37,14 @@ const options = {
     type: 'string',
     required: false,
     description:
-      'Type of `button` – `"button"` or `"submit"`. Defaults to `"submit"`. This has no effect on `a` elements.',
+      'Type of back link as a button – `"button"` or `"submit"`. Defaults to `"submit"` unless `href` is provided.',
     released: '10.5.0'
   },
   href: {
     type: 'string',
     required: false,
-    description: 'The value of the link `href` attribute.',
+    description:
+      'The back link `href` attribute. If set, the back link will use an `<a>` tag automatically unless `type` is provided.',
     released: '1.0.0'
   },
   variant: {

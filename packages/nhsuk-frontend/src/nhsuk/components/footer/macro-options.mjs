@@ -146,7 +146,7 @@ const options = {
             type: 'object',
             required: false,
             description:
-              'HTML attributes (for example data attributes) to add to the anchor in the footer meta section.',
+              'HTML attributes (for example data attributes) to add to the footer navigation link.',
             released: '10.0.0'
           }
         }
