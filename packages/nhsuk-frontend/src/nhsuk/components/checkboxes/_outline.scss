@@ -70,8 +70,8 @@ $nhsuk-checkboxes-outline-shadow-depth: nhsuk-px-to-rem(2px);
     box-shadow: 0 $nhsuk-checkboxes-outline-shadow-depth 0 nhsuk-colour("blue");
 
     font-weight: $nhsuk-font-weight-bold;
-    @include nhsuk-font-size(16);
     line-height: 1.25;
+    @include nhsuk-font-size(16);
     user-select: none;
 
     cursor: pointer;
