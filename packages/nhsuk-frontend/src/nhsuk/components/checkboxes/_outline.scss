@@ -71,8 +71,8 @@ $nhsuk-checkboxes-outline-shadow-depth: nhsuk-px-to-rem(2px);
 
     font-weight: $nhsuk-font-weight-bold;
     line-height: 1.25;
-    @include nhsuk-font-size(16);
     user-select: none;
+    @include nhsuk-font-size(16);
 
     &::before {
       content: "";
