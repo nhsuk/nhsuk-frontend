@@ -101,7 +101,7 @@
     "jest": "^30.3.0",
     "nhsuk-frontend": "*",
     "playwright-core": "^1.62.1",
-    "postcss": "^8.5.25",
+    "postcss": "^8.5.26",
     "postcss-load-config": "^6.0.1",
     "postcss-markdown": "^2.0.0",
     "postcss-scss": "^4.0.9",
