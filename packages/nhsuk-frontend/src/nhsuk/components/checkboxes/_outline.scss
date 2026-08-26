@@ -140,9 +140,9 @@ $nhsuk-checkboxes-outline-shadow-depth: nhsuk-px-to-rem(2px);
   }
 
   .nhsuk-checkboxes__input:focus:not(:active) + .nhsuk-checkboxes__label {
-    @include nhsuk-focused-button;
-
     border-color: transparent;
+
+    @include nhsuk-focused-button;
 
     &::before {
       border: $nhsuk-border-width-form-element solid currentcolor;

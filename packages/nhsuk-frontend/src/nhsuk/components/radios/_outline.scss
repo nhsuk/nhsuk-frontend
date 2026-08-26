@@ -141,9 +141,9 @@ $nhsuk-radios-outline-shadow-depth: nhsuk-px-to-rem(2px);
   }
 
   .nhsuk-radios__input:focus:not(:active) + .nhsuk-radios__label {
-    @include nhsuk-focused-button;
-
     border-color: transparent;
+
+    @include nhsuk-focused-button;
 
     &::before {
       border: $nhsuk-border-width-form-element solid currentcolor;
