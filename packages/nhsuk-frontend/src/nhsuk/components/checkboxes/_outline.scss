@@ -74,8 +74,6 @@ $nhsuk-checkboxes-outline-shadow-depth: nhsuk-px-to-rem(2px);
     @include nhsuk-font-size(16);
     user-select: none;
 
-    cursor: pointer;
-
     &::before {
       content: "";
       // Override nhsuk absolute positioning
@@ -128,10 +126,6 @@ $nhsuk-checkboxes-outline-shadow-depth: nhsuk-px-to-rem(2px);
     color: nhsuk-colour("dark-blue");
     background-color: $nhsuk-secondary-button-hover-colour;
     box-shadow: 0 $nhsuk-checkboxes-outline-shadow-depth 0 nhsuk-colour("dark-blue");
-
-    &::before {
-      box-shadow: none;
-    }
   }
 
   .nhsuk-checkboxes__input:not(:disabled):checked:not(:focus):hover + .nhsuk-checkboxes__label,
@@ -143,12 +137,6 @@ $nhsuk-checkboxes-outline-shadow-depth: nhsuk-px-to-rem(2px);
     border-color: transparent;
 
     @include nhsuk-focused-button;
-
-    &::before {
-      border: $nhsuk-border-width-form-element solid currentcolor;
-      outline: none;
-      box-shadow: none;
-    }
   }
 
   .nhsuk-checkboxes__input:not(:disabled):active + .nhsuk-checkboxes__label {

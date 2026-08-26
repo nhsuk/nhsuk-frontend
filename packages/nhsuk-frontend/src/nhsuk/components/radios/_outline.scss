@@ -74,8 +74,6 @@ $nhsuk-radios-outline-shadow-depth: nhsuk-px-to-rem(2px);
     @include nhsuk-font-size(16);
     user-select: none;
 
-    cursor: pointer;
-
     &::before {
       content: "";
       // Override nhsuk absolute positioning
@@ -129,10 +127,6 @@ $nhsuk-radios-outline-shadow-depth: nhsuk-px-to-rem(2px);
     color: nhsuk-colour("dark-blue");
     background-color: $nhsuk-secondary-button-hover-colour;
     box-shadow: 0 $nhsuk-radios-outline-shadow-depth 0 nhsuk-colour("dark-blue");
-
-    &::before {
-      box-shadow: none;
-    }
   }
 
   .nhsuk-radios__input:not(:disabled):checked:not(:focus):hover + .nhsuk-radios__label,
@@ -144,12 +138,6 @@ $nhsuk-radios-outline-shadow-depth: nhsuk-px-to-rem(2px);
     border-color: transparent;
 
     @include nhsuk-focused-button;
-
-    &::before {
-      border: $nhsuk-border-width-form-element solid currentcolor;
-      outline: none;
-      box-shadow: none;
-    }
   }
 
   .nhsuk-radios__input:not(:disabled):active + .nhsuk-radios__label {
