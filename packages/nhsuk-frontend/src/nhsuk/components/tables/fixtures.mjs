@@ -362,6 +362,68 @@ const fixtures = {
       ]
     }
   },
+  "with tags": {
+    context: {
+      caption: "Tags",
+      firstCellIsHeader: true,
+      head: ["Name", "Colour", "Tag"],
+      rows: [
+        [
+          "Default",
+          "None",
+          {
+            html: components.render("tag", {
+              context: {
+                text: "Default"
+              }
+            })
+          }
+        ],
+        [
+          "Red",
+          {
+            html: '<var class="nhsuk-body-s">red</var>'
+          },
+          {
+            html: components.render("tag", {
+              context: {
+                text: "Rejected",
+                colour: "red"
+              }
+            })
+          }
+        ],
+        [
+          "Blue",
+          {
+            html: '<var class="nhsuk-body-s">blue</var>'
+          },
+          {
+            html: components.render("tag", {
+              context: {
+                text: "Pending",
+                colour: "blue"
+              }
+            })
+          }
+        ],
+        [
+          "Green",
+          {
+            html: '<var class="nhsuk-body-s">green</var>'
+          },
+          {
+            html: components.render("tag", {
+              context: {
+                text: "New",
+                colour: "green"
+              }
+            })
+          }
+        ]
+      ]
+    }
+  },
   "with first cell as header": {
     context: {
       firstCellIsHeader: true,
@@ -462,6 +524,32 @@ const fixtures = {
         ],
         false
       ]
+    }
+  },
+  "with string items": {
+    context: {
+      caption: {
+        text: "Impetigo can look similar to other skin conditions",
+        size: "m"
+      },
+      firstCellIsHeader: true,
+      head: ["Skin symptoms", "Possible cause"],
+      rows: [
+        ["Blisters on lips or around the mouth", "Cold sores"],
+        ["Itchy, dry, cracked, sore", "Eczema"],
+        ["Itchy blisters", "Shingles, chickenpox"]
+      ]
+    }
+  },
+  "with empty items and string items": {
+    context: {
+      caption: {
+        text: "Vaccinations given",
+        size: "m"
+      },
+      firstCellIsHeader: true,
+      head: ["Date", "Vaccine", false],
+      rows: [["10 July 2024", "RSV", false], false]
     }
   },
   "with missing data": {
@@ -909,6 +997,24 @@ const fixtures = {
               context: {
                 text: "Inactive",
                 colour: "grey"
+              }
+            })
+          }
+        ],
+        [
+          {
+            text: "Karen Francis",
+            classes: "nhsuk-u-text-break-word"
+          },
+          {
+            text: "karen.francis@example.com",
+            classes: "nhsuk-u-text-break-word"
+          },
+          {
+            html: components.render("tag", {
+              context: {
+                text: "Thisisaverylongwaytosaythatsomethingisincomplete",
+                colour: "blue"
               }
             })
           }
@@ -2891,6 +2997,33 @@ const fixtures = {
             sortValue: "1975-04-18"
           }
         ]
+      ]
+    }
+  },
+  "sortable with string items": {
+    context: {
+      caption: "Appointments",
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: "Time",
+          sort: "ascending"
+        },
+        {
+          text: "Name",
+          sort: true
+        },
+        {
+          text: "Date of birth",
+          classes: "nhsuk-u-nowrap"
+        }
+      ],
+      rows: [
+        ["11:00", "Laura Stone", "4 January 1986"],
+        ["11:30", "Emma Katie-Brown", "7 February 1976"],
+        ["13:10", "David Chen", "19 March 1981"],
+        ["13:40", "Michael Thompson", "6 December 1964"],
+        ["14:20", "Juan Martinez", "18 April 1975"]
       ]
     }
   }

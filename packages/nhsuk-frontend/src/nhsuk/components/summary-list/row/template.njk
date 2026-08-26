@@ -1,4 +1,4 @@
-{% from "nhsuk/components/card/action/macro.njk" import cardAction %}
+{% from "nhsuk/components/card/action/macro.njk" import cardAction as nhsukCardAction %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set classes for this component #}
@@ -7,7 +7,21 @@
 {%- set classNamesValue = "nhsuk-summary-list__value" -%}
 {%- set classNamesActions = "nhsuk-summary-list__actions" -%}
 
-{%- set actions = params.actions.items | select("mapping") if params.actions.items | length else [] %}
+{#- Support row key as string #}
+{%- set key = params.key if params.key is mapping and params.key is not escaped else {
+  text: params.key if params.key is string else undefined,
+  html: params.key if params.key is escaped else undefined
+} %}
+
+{#- Support row value as string #}
+{%- set value = params.value if params.value is mapping and params.value is not escaped else {
+  text: params.value if params.value is string else undefined,
+  html: params.value if params.value is escaped else undefined
+} %}
+
+{#- Support actions as array #}
+{%- set actions = params.actions | select("mapping") | list if params.actions and params.actions is iterable else [] %}
+{%- set actions = params.actions.items | select("mapping") | list if params.actions.items and not actions | length else actions %}
 
 {%- if parent.hasActions and not actions | length %}
   {% set classNames = classNames ~ " nhsuk-summary-list__row--no-actions" %}
@@ -26,20 +40,20 @@
   {% set classNames = classNames ~ " " ~ params.classes %}
 {% endif %}
 
-{%- if params.key.width and (not params.key.classes or not "nhsuk-u-width-" ~ params.key.width in params.key.classes) %}
-  {% set classNamesKey = classNamesKey ~ " nhsuk-u-width-" ~ params.key.width %}
+{%- if key.width and (not key.classes or not "nhsuk-u-width-" ~ key.width in key.classes) %}
+  {% set classNamesKey = classNamesKey ~ " nhsuk-u-width-" ~ key.width %}
 {% endif %}
 
-{%- if params.key.classes %}
-  {% set classNamesKey = classNamesKey ~ " " ~ params.key.classes %}
+{%- if key.classes %}
+  {% set classNamesKey = classNamesKey ~ " " ~ key.classes %}
 {% endif %}
 
-{%- if params.value.width and (not params.value.classes or not "nhsuk-u-width-" ~ params.value.width in params.value.classes) %}
-  {% set classNamesValue = classNamesValue ~ " nhsuk-u-width-" ~ params.value.width %}
+{%- if value.width and (not value.classes or not "nhsuk-u-width-" ~ value.width in value.classes) %}
+  {% set classNamesValue = classNamesValue ~ " nhsuk-u-width-" ~ value.width %}
 {% endif %}
 
-{%- if params.value.classes %}
-  {% set classNamesValue = classNamesValue ~ " " ~ params.value.classes %}
+{%- if value.classes %}
+  {% set classNamesValue = classNamesValue ~ " " ~ value.classes %}
 {% endif %}
 
 {%- if params.actions.width and (not params.actions.classes or not "nhsuk-u-width-" ~ params.actions.width in params.actions.classes) %}
@@ -48,34 +62,34 @@
 
 {%- if params.actions.classes %}
   {% set classNamesActions = classNamesActions ~ " " ~ params.actions.classes %}
-{% endif %}
+{% endif -%}
 
 <div class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %} {{- nhsukAttributes(params.attributes) }}>
-  <dt class="{{ classNamesKey }}" {%- if params.key.id %} id="{{ params.key.id }}"{% endif %} {{- nhsukAttributes(params.key.attributes) }}>
-  {% if params.key.html %}
-    {{ params.key.html | safe | trim | indent(4) }}
-  {% elif params.key.text %}
-    {{ params.key.text | trim | indent(4) }}
+  <dt class="{{ classNamesKey }}" {%- if key.id %} id="{{ key.id }}"{% endif %} {{- nhsukAttributes(key.attributes) }}>
+  {% if key.html %}
+    {{ key.html | safe | trim | indent(4) }}
+  {% elif key.text %}
+    {{ key.text | trim | indent(4) }}
   {% endif %}
   </dt>
-  <dd class="{{ classNamesValue }}" {%- if params.value.id %} id="{{ params.value.id }}"{% endif %} {{- nhsukAttributes(params.value.attributes) }}>
-  {% if params.value.html %}
-    {{ params.value.html | safe | trim | indent(4) }}
-  {% elif params.value.text %}
-    {{ params.value.text | trim | indent(4) }}
+  <dd class="{{ classNamesValue }}" {%- if value.id %} id="{{ value.id }}"{% endif %} {{- nhsukAttributes(value.attributes) }}>
+  {% if value.html %}
+    {{ value.html | safe | trim | indent(4) }}
+  {% elif value.text %}
+    {{ value.text | trim | indent(4) }}
   {% endif %}
   </dd>
   {% if actions | length %}
   <dd class="{{ classNamesActions }}" {%- if params.actions.id %} id="{{ params.actions.id }}"{% endif %} {{- nhsukAttributes(params.actions.attributes) }}>
     {% if actions | length == 1 %}
-      {{- cardAction(actions[0], {
+      {{- nhsukCardAction(actions[0], {
         params: parent.params.card
       }) | trim | indent(4, true) }}
     {% else %}
     <ul class="nhsuk-summary-list__actions-list">
     {% for action in actions %}
       <li class="nhsuk-summary-list__actions-list-item">
-        {{ cardAction(action, {
+        {{ nhsukCardAction(action, {
           params: parent.params.card
         }) | trim | indent(8) }}
       </li>

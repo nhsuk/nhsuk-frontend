@@ -71,26 +71,37 @@ $nhsuk-panel-border-width: nhsuk-spacing(1);
     }
   }
 
+  .nhsuk-panel__heading,
+  // Deprecated, to be removed in a future release
   .nhsuk-panel__title {
     margin-top: 0;
   }
 
+  .nhsuk-panel__heading,
+  .nhsuk-panel__heading--xl,
+  // Deprecated, to be removed in a future release
   .nhsuk-panel__title,
   .nhsuk-panel__title--xl {
     @include nhsuk-font-size(48);
     @include nhsuk-responsive-margin(5, "bottom");
   }
 
+  .nhsuk-panel__heading--l,
+  // Deprecated, to be removed in a future release
   .nhsuk-panel__title--l {
     @include nhsuk-font-size(36);
     @include nhsuk-responsive-margin(3, "bottom");
   }
 
+  .nhsuk-panel__heading--m,
+  // Deprecated, to be removed in a future release
   .nhsuk-panel__title--m {
     @include nhsuk-font-size(26);
     @include nhsuk-responsive-margin(3, "bottom");
   }
 
+  .nhsuk-panel__heading:last-child,
+  // Deprecated, to be removed in a future release
   .nhsuk-panel__title:last-child {
     margin-bottom: 0;
   }

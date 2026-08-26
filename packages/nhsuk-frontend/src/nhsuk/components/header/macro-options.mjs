@@ -123,14 +123,14 @@ const options = {
             type: 'string',
             required: true,
             description:
-              'If `html` is set, this is not required. Text for the navigation item. If `html` is provided, the `text` argument will be ignored.',
+              'If `html` is set, this is not required. Text for the navigation item. If `html` is provided, the `text` option will be ignored.',
             released: '10.0.0'
           },
           html: {
             type: 'string',
             required: true,
             description:
-              'If `text` is set, this is not required. HTML for the navigation item. If `html` is provided, the `text` argument will be ignored.',
+              'If `text` is set, this is not required. HTML for the navigation item. If `html` is provided, the `text` option will be ignored.',
             released: '10.0.0'
           },
           current: {
@@ -348,14 +348,14 @@ const options = {
             type: 'string',
             required: true,
             description:
-              'If `html` is set, this is not required. Text for the account item. If `html` is provided, the `text` argument will be ignored.',
+              'If `html` is set, this is not required. Text for the account item. If `html` is provided, the `text` option will be ignored.',
             released: '10.0.0'
           },
           html: {
             type: 'string',
             required: true,
             description:
-              'If `text` is set, this is not required. HTML for the account item. If `html` is provided, the `text` argument will be ignored.',
+              'If `text` is set, this is not required. HTML for the account item. If `html` is provided, the `text` option will be ignored.',
             released: '10.0.0'
           },
           icon: {
@@ -409,12 +409,6 @@ const options = {
         released: '10.0.0'
       }
     }
-  },
-  baseUrl: {
-    type: 'string',
-    required: false,
-    description: 'Base URL to prepend to the `logo.src` path.',
-    released: '10.0.0'
   },
   containerClasses: {
     type: 'string',

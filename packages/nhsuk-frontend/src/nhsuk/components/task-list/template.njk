@@ -1,5 +1,5 @@
-{% from "nhsuk/components/heading/macro.njk" import heading %}
-{% from "nhsuk/components/tag/macro.njk" import tag %}
+{% from "nhsuk/components/heading/macro.njk" import heading as nhsukHeading %}
+{% from "nhsuk/components/tag/macro.njk" import tag as nhsukTag %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set classes for this component #}
@@ -35,7 +35,7 @@
   } %}
   <li class="nhsuk-task-list__item {%- if item.href %} nhsuk-task-list__item--with-link{% endif %}{%- if item.classes %} {{ item.classes }}{% endif %}">
     <div class="nhsuk-task-list__name-and-hint">
-      {{ heading({
+      {{ nhsukHeading({
         id: itemHeading.id,
         text: itemHeading.text,
         html: itemHeading.html,
@@ -66,7 +66,7 @@
     </div>
     <div class="nhsuk-task-list__status {%- if itemStatus.classes %} {{ itemStatus.classes }}{% endif %}" id="{{ statusId }}">
     {% if itemStatus.tag %}
-      {{ tag(itemStatus.tag) | trim | indent(6) }}
+      {{ nhsukTag(itemStatus.tag) | trim | indent(6) }}
     {% elif itemStatus.html %}
       {{ itemStatus.html | safe | trim | indent(6) }}
     {% elif itemStatus.text %}

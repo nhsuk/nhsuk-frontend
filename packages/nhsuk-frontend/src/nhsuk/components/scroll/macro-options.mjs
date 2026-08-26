@@ -6,6 +6,19 @@ export const name = 'Scroll'
  * @satisfies {{ [param: string]: MacroParam }}
  */
 const options = {
+  id: {
+    type: 'string',
+    required: false,
+    description: 'The `id` to add to the scroll component.',
+    released: '10.6.0'
+  },
+  labelledBy: {
+    type: 'string',
+    required: false,
+    description:
+      'One or more element IDs to add to the scrolling content `aria-labelledby` attribute, used to provide accessible names for screenreader users.',
+    released: '10.6.0'
+  },
   text: {
     type: 'string',
     required: true,
@@ -20,17 +33,11 @@ const options = {
       'If `text` is set, this is not required. HTML to use within the scrolling content. If `html` is provided, the `text` option will be ignored.',
     released: '10.6.0'
   },
-  id: {
-    type: 'string',
-    required: false,
-    description: 'The `id` to add to the scroll component.',
-    released: '10.6.0'
-  },
   caller: {
     type: 'nunjucks-block',
     required: false,
     description:
-      'Not strictly a parameter but a Nunjucks code convention. Using a `call` block enables you to call a macro with all the text inside the tag. This is helpful if you want to pass a lot of content into a macro. To use it, you will need to wrap the entire scroll component in a `call` block.',
+      'Not strictly an option but supports the [`call` block](https://mozilla.github.io/nunjucks/templating.html#call) as an alternative to the `html` option. To use it, you will need to wrap the entire scroll component in a `call` block.',
     released: '10.6.0'
   },
   variant: {

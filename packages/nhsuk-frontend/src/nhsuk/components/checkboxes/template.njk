@@ -1,7 +1,7 @@
-{% from "nhsuk/components/error-message/macro.njk" import errorMessage %}
-{% from "nhsuk/components/fieldset/macro.njk" import fieldset %}
-{% from "nhsuk/components/hint/macro.njk" import hint %}
-{% from "nhsuk/components/label/macro.njk" import label %}
+{% from "nhsuk/components/error-message/macro.njk" import errorMessage as nhsukErrorMessage %}
+{% from "nhsuk/components/fieldset/macro.njk" import fieldset as nhsukFieldset %}
+{% from "nhsuk/components/hint/macro.njk" import hint as nhsukHint %}
+{% from "nhsuk/components/label/macro.njk" import label as nhsukLabel %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set classes for this component #}
@@ -9,13 +9,13 @@
 {%- set classNamesFormGroup = "nhsuk-form-group" -%}
 
 {#- Support hint as string #}
-{%- set hintOptions = params.hint if params.hint is mapping and params.hint is not escaped else {
+{%- set hint = params.hint if params.hint is mapping and params.hint is not escaped else {
   text: params.hint if params.hint is string else undefined,
   html: params.hint if params.hint is escaped else undefined
 } -%}
 
 {#- Support error message as string #}
-{%- set errorMessageOptions = params.errorMessage if params.errorMessage is mapping and params.errorMessage is not escaped else {
+{%- set errorMessage = params.errorMessage if params.errorMessage is mapping and params.errorMessage is not escaped else {
   text: params.errorMessage if params.errorMessage is string else undefined,
   html: params.errorMessage if params.errorMessage is escaped else undefined
 } -%}
@@ -32,7 +32,7 @@
   {% set classNames = classNames ~ " nhsuk-checkboxes--outline" %}
 {% endif %}
 
-{%- if errorMessageOptions.text or errorMessageOptions.html or params.errorMessage == true %}
+{%- if errorMessage.text or errorMessage.html or params.errorMessage == true %}
   {% set classNamesFormGroup = classNamesFormGroup ~ " nhsuk-form-group--error" %}
 {% endif %}
 
@@ -100,16 +100,17 @@
         {%- if item.conditional.html %} data-aria-controls="{{ conditionalId }}"{% endif -%}
         {%- if itemDescribedBy %} aria-describedby="{{ itemDescribedBy }}"{% endif -%}
         {{- nhsukAttributes(item.attributes) }}>
-      {{ label({
+      {{ nhsukLabel({
         html: itemLabel.html | default(item.html),
         text: itemLabel.text | default(item.text),
+        visuallyHiddenText: itemLabel.visuallyHiddenText,
         id: itemLabel.id,
         for: itemId,
         classes: "nhsuk-checkboxes__label" ~ (" " ~ itemLabel.classes if itemLabel.classes),
         attributes: itemLabel.attributes
       }) | trim | indent(6) }}
       {% if hasHint %}
-      {{ hint({
+      {{ nhsukHint({
         html: itemHint.html,
         text: itemHint.text,
         id: itemHint.id | default(itemHintId),
@@ -128,27 +129,27 @@
 
 {#- Capture the HTML so we can optionally nest it in a fieldset -#}
 {% set innerHtml %}
-{% if hintOptions.text or hintOptions.html %}
-  {% set hintId = hintOptions.id | default(idPrefix ~ "-hint") %}
+{% if hint.text or hint.html %}
+  {% set hintId = hint.id | default(idPrefix ~ "-hint") %}
   {% set describedBy = (describedBy ~ " " ~ hintId) | trim %}
-  {{ hint({
-    html: hintOptions.html,
-    text: hintOptions.text,
-    id: hintOptions.id | default(hintId),
-    classes: hintOptions.classes,
-    attributes: hintOptions.attributes
+  {{ nhsukHint({
+    html: hint.html,
+    text: hint.text,
+    id: hint.id | default(hintId),
+    classes: hint.classes,
+    attributes: hint.attributes
   }) | trim | indent(2) }}
 {% endif %}
-{% if errorMessageOptions.text or errorMessageOptions.html %}
-  {% set errorId = errorMessageOptions.id | default(idPrefix ~ "-error") %}
+{% if errorMessage.text or errorMessage.html %}
+  {% set errorId = errorMessage.id | default(idPrefix ~ "-error") %}
   {% set describedBy = (describedBy ~ " " ~ errorId) | trim %}
-  {{ errorMessage({
-    html: errorMessageOptions.html,
-    text: errorMessageOptions.text,
-    visuallyHiddenText: errorMessageOptions.visuallyHiddenText,
-    id: errorMessageOptions.id | default(errorId),
-    classes: errorMessageOptions.classes,
-    attributes: errorMessageOptions.attributes
+  {{ nhsukErrorMessage({
+    html: errorMessage.html,
+    text: errorMessage.text,
+    visuallyHiddenText: errorMessage.visuallyHiddenText,
+    id: errorMessage.id | default(errorId),
+    classes: errorMessage.classes,
+    attributes: errorMessage.attributes
   }) | trim | indent(2) }}
 {% endif %}
   <div
@@ -178,7 +179,7 @@
 
 <div class="{{ classNamesFormGroup }}" {{- nhsukAttributes(params.formGroup.attributes) }}>
 {% if hasFieldset %}
-  {{ fieldset({
+  {{ nhsukFieldset({
     legend: params.fieldset.legend,
     html: innerHtml | trim,
     id: params.fieldset.id,

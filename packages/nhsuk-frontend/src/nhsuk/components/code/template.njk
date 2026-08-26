@@ -81,7 +81,7 @@
   {%- if caller %}
     {{- caller() -}}
   {% elif params.html %}
-    {{- params.html if params.html is escaped else params.html | escape -}}
+    {{- params.html if params.html is escaped else params.html | safe -}}
   {% elif params.text %}
     {{- params.text -}}
   {% endif -%}

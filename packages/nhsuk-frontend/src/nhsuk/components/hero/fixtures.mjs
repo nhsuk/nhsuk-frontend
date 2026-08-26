@@ -50,8 +50,29 @@ const fixtures = {
             size: "xl"
           }
         }
+      },
+      {
+        description: "with id attribute on",
+        context: {
+          heading: {
+            id: "custom-id"
+          }
+        },
+        options: {
+          hidden: true
+        }
       }
     ]
+  },
+  "with heading as string": {
+    context: {
+      heading: "Prototyping",
+      text: "Helping you take control of your health and wellbeing.",
+      border: false
+    },
+    options: {
+      width: false
+    }
   },
   "with heading and caption": {
     context: {
@@ -157,6 +178,36 @@ const fixtures = {
     },
     screenshot: {
       viewports: ["mobile", "tablet", "desktop", "large-desktop"]
+    }
+  },
+  "product page with heading as string": {
+    context: {
+      content: [
+        {
+          heading: "Product or service",
+          html: outdent`
+            <p class="nhsuk-body-l">This is some more content which explains the product or service.</p>
+            ${components.render("button", {
+              context: {
+                text: "Sign up",
+                variant: "reverse",
+                href: "#"
+              }
+            })}
+          `
+        },
+        {
+          image: {
+            src: "/nhsuk-frontend/assets/example-hero-image.svg",
+            background: false,
+            border: false
+          }
+        }
+      ],
+      border: false
+    },
+    options: {
+      width: false
     }
   }
 }

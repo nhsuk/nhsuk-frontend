@@ -246,6 +246,8 @@ jobs:
           node --eval "console.log(require.resolve('nhsuk-frontend/dist/nhsuk/index.mjs'))" --conditions ${{ matrix.conditions }}
           node --eval "console.log(require.resolve('nhsuk-frontend/dist/nhsuk/components/button/button.js'))" --conditions ${{ matrix.conditions }}
           node --eval "console.log(require.resolve('nhsuk-frontend/dist/nhsuk/components/button/button.mjs'))" --conditions ${{ matrix.conditions }}
+          node --eval "console.log(require.resolve('nhsuk-frontend/dist/nhsuk/core/settings/_colours-applied.scss'))" --conditions ${{ matrix.conditions }}
+          node --eval "console.log(require.resolve('nhsuk-frontend/core/settings/_colours-applied.scss'))" --conditions sass
 
   sass:
     name: Sass import

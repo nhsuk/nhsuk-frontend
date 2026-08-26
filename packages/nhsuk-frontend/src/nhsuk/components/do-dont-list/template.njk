@@ -1,8 +1,8 @@
-{% from "nhsuk/components/card/macro.njk" import card %}
+{% from "nhsuk/components/card/macro.njk" import card as nhsukCard %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
 
 {#- Support heading as string (with deprecated options) #}
-{%- set headingOptions = params.heading if params.heading is mapping and params.heading is not escaped else {
+{%- set heading = params.heading if params.heading is mapping and params.heading is not escaped else {
   text: params.heading if params.heading is string else params.title,
   html: params.heading if params.heading is escaped else undefined,
   level: params.headingLevel
@@ -10,9 +10,14 @@
 
 {#- Set icon for this component #}
 {%- set icon = "cross" if params.icon == "cross" else "tick" %}
-{%- set items = params.items | select("mapping") if params.items | length else [] %}
+{%- set items = params.items | select("mapping") | list if params.items else [] %}
 
-{%- macro _listItem(params, item, icon) %}
+{%- macro _listItem(params, data, icon) %}
+  {% set item = {
+    text: data.item if data.item is string,
+    html: data.item if data.item is escaped
+  } if data.item else data -%}
+
   {{ nhsukIcon(icon) | trim }}
   {% if not params.hidePrefix and (params.prefixText or icon == "cross") %}
     {{- (params.prefixText if params.prefixText else "do not") ~ " " -}}
@@ -34,16 +39,16 @@
 </ul>
 {% endset -%}
 
-{{ card({
+{{ nhsukCard({
   id: params.id,
   heading: {
-    id: headingOptions.id,
-    text: headingOptions.text,
-    html: headingOptions.html,
-    visuallyHiddenText: headingOptions.visuallyHiddenText,
-    level: headingOptions.level | default(3),
-    classes: headingOptions.classes,
-    attributes: headingOptions.attributes
+    id: heading.id,
+    text: heading.text,
+    html: heading.html,
+    visuallyHiddenText: heading.visuallyHiddenText,
+    level: heading.level | default(3),
+    classes: heading.classes,
+    attributes: heading.attributes
   },
   description: {
     html: listHtml
