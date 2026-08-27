@@ -4,21 +4,21 @@
  * @satisfies {{ [example: string]: MacroExample }}
  */
 export const examples = {
-  'default': {
+  "default": {
     context: {
-      text: '12',
-      visuallyHiddenText: 'Count:'
+      text: "12",
+      visuallyHiddenText: "Count:"
     }
   },
-  'text label': {
+  "text label": {
     context: {
-      text: 'New'
+      text: "New"
     }
   },
-  'zero count': {
+  "zero count": {
     context: {
-      text: '0',
-      visuallyHiddenText: 'Count:'
+      text: "0",
+      visuallyHiddenText: "Count:"
     }
   }
 }
