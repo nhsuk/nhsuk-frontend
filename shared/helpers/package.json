@@ -10,8 +10,8 @@
     }
   },
   "dependencies": {
-    "@axe-core/puppeteer": "^4.12.1",
-    "@happy-dom/jest-environment": "^20.11.2",
+    "@axe-core/puppeteer": "^4.13.0",
+    "@happy-dom/jest-environment": "^20.11.6",
     "@testing-library/jest-dom": "^7.0.0",
     "jest-axe": "^11.0.0",
     "jest-environment-node": "^30.3.0",
