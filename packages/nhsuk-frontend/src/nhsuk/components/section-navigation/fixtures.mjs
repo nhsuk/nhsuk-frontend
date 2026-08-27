@@ -4,290 +4,290 @@
  * @satisfies {{ [example: string]: MacroExample }}
  */
 const fixtures = {
-  'default': {
+  "default": {
     context: {
       items: [
         {
-          href: '#',
-          text: 'All clinics'
+          href: "#",
+          text: "All clinics"
         },
         {
-          href: '#',
-          text: 'Today',
+          href: "#",
+          text: "Today",
           current: true
         },
         {
-          href: '#',
-          text: 'Upcoming'
+          href: "#",
+          text: "Upcoming"
         },
         {
-          href: '#',
-          text: 'Completed'
+          href: "#",
+          text: "Completed"
         }
       ]
     },
     options: {
-      width: 'full'
+      width: "full"
     }
   },
-  'with badge': {
+  "with badge": {
     context: {
       items: [
         {
-          href: '#',
-          text: 'All',
-          badge: { text: '12', visuallyHiddenText: 'Count:' }
+          href: "#",
+          text: "All",
+          badge: { text: "12", visuallyHiddenText: "Count:" }
         },
         {
-          href: '#',
-          text: 'Today',
-          badge: { text: '3', visuallyHiddenText: 'Count:' },
+          href: "#",
+          text: "Today",
+          badge: { text: "3", visuallyHiddenText: "Count:" },
           current: true
         },
         {
-          href: '#',
-          text: 'Upcoming',
-          badge: { text: 'New' }
+          href: "#",
+          text: "Upcoming",
+          badge: { text: "New" }
         },
         {
-          href: '#',
-          text: 'Completed',
-          badge: { text: '0', visuallyHiddenText: 'Count:' }
+          href: "#",
+          text: "Completed",
+          badge: { text: "0", visuallyHiddenText: "Count:" }
         }
       ]
     },
     options: {
-      width: 'full'
+      width: "full"
     },
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
+      viewports: ["mobile", "tablet", "desktop"]
     }
   },
-  'with html': {
+  "with html": {
     context: {
       items: [
         {
-          href: '#',
-          html: 'Overview'
+          href: "#",
+          html: "Overview"
         },
         {
-          href: '#',
+          href: "#",
           html: 'Vaccinations<span class="nhsuk-section-navigation__suffix"><strong class="nhsuk-tag nhsuk-tag--green">New</strong></span>',
           current: true
         },
         {
-          href: '#',
-          html: 'Consent'
+          href: "#",
+          html: "Consent"
         }
       ]
     },
     options: {
-      width: 'full'
+      width: "full"
     }
   },
-  'reverse': {
+  "reverse": {
     context: {
-      classes: 'nhsuk-section-navigation--reverse',
+      classes: "nhsuk-section-navigation--reverse",
       items: [
         {
-          href: '#',
-          text: 'All clinics'
+          href: "#",
+          text: "All clinics"
         },
         {
-          href: '#',
-          text: 'Today',
+          href: "#",
+          text: "Today",
           current: true
         },
         {
-          href: '#',
-          text: 'Upcoming'
+          href: "#",
+          text: "Upcoming"
         },
         {
-          href: '#',
-          text: 'Completed'
+          href: "#",
+          text: "Completed"
         }
       ]
     },
     options: {
-      layout: 'background-blue',
-      width: 'full'
+      layout: "background-blue",
+      width: "full"
     },
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
+      viewports: ["mobile", "tablet", "desktop"]
     }
   },
-  'reverse with badge': {
+  "reverse with badge": {
     context: {
-      classes: 'nhsuk-section-navigation--reverse',
+      classes: "nhsuk-section-navigation--reverse",
       items: [
         {
-          href: '#',
-          text: 'All',
-          badge: { text: '12', visuallyHiddenText: 'Count:' }
+          href: "#",
+          text: "All",
+          badge: { text: "12", visuallyHiddenText: "Count:" }
         },
         {
-          href: '#',
-          text: 'Today',
-          badge: { text: '3', visuallyHiddenText: 'Count:' },
+          href: "#",
+          text: "Today",
+          badge: { text: "3", visuallyHiddenText: "Count:" },
           current: true
         },
         {
-          href: '#',
-          text: 'Upcoming',
-          badge: { text: '9', visuallyHiddenText: 'Count:' }
+          href: "#",
+          text: "Upcoming",
+          badge: { text: "9", visuallyHiddenText: "Count:" }
         },
         {
-          href: '#',
-          text: 'Completed',
-          badge: { text: '0', visuallyHiddenText: 'Count:' }
+          href: "#",
+          text: "Completed",
+          badge: { text: "0", visuallyHiddenText: "Count:" }
         }
       ]
     },
     options: {
-      layout: 'background-blue',
-      width: 'full'
+      layout: "background-blue",
+      width: "full"
     },
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
+      viewports: ["mobile", "tablet", "desktop"]
     }
   },
-  'with custom label': {
+  "with custom label": {
     context: {
-      label: 'Section navigation',
+      label: "Section navigation",
       items: [
         {
-          href: '#',
-          text: 'Summary',
+          href: "#",
+          text: "Summary",
           current: true
         },
         {
-          href: '#',
-          text: 'History'
+          href: "#",
+          text: "History"
         },
         {
-          href: '#',
-          text: 'Documents'
+          href: "#",
+          text: "Documents"
         }
       ]
     },
     options: {
-      width: 'full'
+      width: "full"
     }
   },
-  'vertical': {
+  "vertical": {
     context: {
       vertical: true,
       items: [
         {
-          href: '#',
-          text: 'All clinics'
+          href: "#",
+          text: "All clinics"
         },
         {
-          href: '#',
-          text: 'Today',
+          href: "#",
+          text: "Today",
           current: true
         },
         {
-          href: '#',
-          text: 'Upcoming'
+          href: "#",
+          text: "Upcoming"
         },
         {
-          href: '#',
-          text: 'Completed'
+          href: "#",
+          text: "Completed"
         }
       ]
     },
     options: {
-      width: 'full'
+      width: "full"
     },
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
+      viewports: ["mobile", "tablet", "desktop"]
     }
   },
-  'with unlinked current item': {
+  "with unlinked current item": {
     context: {
       items: [
         {
-          href: '#',
-          text: 'All clinics'
+          href: "#",
+          text: "All clinics"
         },
         {
-          text: 'Today',
+          text: "Today",
           current: true
         },
         {
-          href: '#',
-          text: 'Upcoming'
+          href: "#",
+          text: "Upcoming"
         },
         {
-          href: '#',
-          text: 'Completed'
+          href: "#",
+          text: "Completed"
         }
       ]
     },
     options: {
-      width: 'full'
+      width: "full"
     }
   },
-  'small': {
+  "small": {
     context: {
       small: true,
       items: [
         {
-          href: '#',
-          text: 'All clinics'
+          href: "#",
+          text: "All clinics"
         },
         {
-          href: '#',
-          text: 'Today',
+          href: "#",
+          text: "Today",
           current: true
         },
         {
-          href: '#',
-          text: 'Upcoming'
+          href: "#",
+          text: "Upcoming"
         },
         {
-          href: '#',
-          text: 'Completed'
+          href: "#",
+          text: "Completed"
         }
       ]
     },
     options: {
-      width: 'full'
+      width: "full"
     },
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
+      viewports: ["mobile", "tablet", "desktop"]
     }
   },
-  'small vertical': {
+  "small vertical": {
     context: {
       small: true,
       vertical: true,
       items: [
         {
-          href: '#',
-          text: 'All clinics'
+          href: "#",
+          text: "All clinics"
         },
         {
-          href: '#',
-          text: 'Today',
+          href: "#",
+          text: "Today",
           current: true
         },
         {
-          href: '#',
-          text: 'Upcoming'
+          href: "#",
+          text: "Upcoming"
         },
         {
-          href: '#',
-          text: 'Completed'
+          href: "#",
+          text: "Completed"
         }
       ]
     },
     options: {
-      width: 'full'
+      width: "full"
     },
     screenshot: {
-      viewports: ['mobile', 'tablet', 'desktop']
+      viewports: ["mobile", "tablet", "desktop"]
     }
   }
 }
