@@ -17,13 +17,10 @@
 {% endif %}
 
 {%- set items = params.items | select("mapping") | list if params.items else [] -%}
+{%- set ariaLabel = params.label | default("Section navigation", true) -%}
 
-<nav class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
-  data-module="nhsuk-section-navigation"
-  {%- if params.labelledBy %} aria-labelledby="{{ params.labelledBy }}"
-  {%- else %} aria-label="{{ params.label | default("Section navigation") }}"
-  {%- endif %}
-  {{- nhsukAttributes(params.attributes) }}>
+<nav class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %} aria-label="{{ ariaLabel }}"
+  {{- nhsukAttributes(params.attributes) }} data-module="nhsuk-section-navigation">
   <ul class="nhsuk-section-navigation__list">
   {% for item in items -%}
     {%- set itemInnerAttributesHtml %}
