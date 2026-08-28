@@ -26,6 +26,11 @@ const options = {
       'If `text` is set, this is not required. HTML to use within the tag component. If `html` is provided, the `text` option will be ignored.',
     released: '4.0.0'
   },
+  visuallyHiddenText: {
+    type: 'string',
+    required: false,
+    description: 'A visually hidden prefix used before the tag content.'
+  },
   caller: {
     type: 'nunjucks-block',
     required: false,
