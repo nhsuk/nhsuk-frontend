@@ -17,7 +17,7 @@
 {% endif %}
 
 {%- set items = params.items | select("mapping") | list if params.items else [] -%}
-{%- set ariaLabel = params.label | default("Section information", true) -%}
+{%- set ariaLabel = params.ariaLabel | default("Section information", true) -%}
 
 <nav class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %} aria-label="{{ ariaLabel }}"
   {{- nhsukAttributes(params.attributes) }} data-module="nhsuk-section-navigation">
