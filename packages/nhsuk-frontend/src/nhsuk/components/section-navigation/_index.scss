@@ -99,29 +99,21 @@
     // styles overriding it.
     &[aria-current] {
       color: $nhsuk-text-colour;
+    }
 
-      // Stacked layout: absolutely-positioned pseudo-element sits in the item's
-      // gutter, outdented from the link text.
-      &::before {
-        content: "";
+    // Stacked layout: absolutely-positioned pseudo-element sits in the item's
+    // gutter, outdented from the link text.
+    &[aria-current]::before {
+      content: "";
 
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: -$nhsuk-gutter-half;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: -$nhsuk-gutter-half;
 
-        width: 0;
+      width: 0;
 
-        border-left: $nhsuk-border-width solid nhsuk-colour("blue");
-      }
-
-      @include nhsuk-media-query($from: tablet) {
-        box-shadow: $active-indicator-bottom;
-
-        &::before {
-          content: none;
-        }
-      }
+      border-left: $nhsuk-border-width solid nhsuk-colour("blue");
     }
 
     // nhsuk-link-style-default focus uses an outset box-shadow which bleeds
@@ -136,6 +128,16 @@
     &[aria-current]:focus {
       @include nhsuk-media-query($from: tablet) {
         box-shadow: $focus-indicator;
+      }
+    }
+
+    @include nhsuk-media-query($from: tablet) {
+      &[aria-current] {
+        box-shadow: $active-indicator-bottom;
+      }
+
+      &[aria-current]::before {
+        content: none;
       }
     }
   }
@@ -155,27 +157,27 @@
     }
   }
 
-  // Non-link (span) current item: same active indicator as the link variant.
   .nhsuk-section-navigation__text[aria-current] {
-    &::before {
-      content: "";
-
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: -$nhsuk-gutter-half;
-
-      width: 0;
-
-      border-left: $nhsuk-border-width solid nhsuk-colour("blue");
-    }
-
     @include nhsuk-media-query($from: tablet) {
       box-shadow: $active-indicator-bottom;
+    }
+  }
 
-      &::before {
-        content: none;
-      }
+  // Non-link (span) current item: same active indicator as the link variant.
+  .nhsuk-section-navigation__text[aria-current]::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -$nhsuk-gutter-half;
+
+    width: 0;
+
+    border-left: $nhsuk-border-width solid nhsuk-colour("blue");
+
+    @include nhsuk-media-query($from: tablet) {
+      content: none;
     }
   }
 
@@ -209,10 +211,13 @@
     .nhsuk-section-navigation__text[aria-current] {
       @include nhsuk-media-query($from: tablet) {
         box-shadow: none;
+      }
+    }
 
-        &::before {
-          content: "";
-        }
+    .nhsuk-section-navigation__link[aria-current]::before,
+    .nhsuk-section-navigation__text[aria-current]::before {
+      @include nhsuk-media-query($from: tablet) {
+        content: "";
       }
     }
 
@@ -245,13 +250,13 @@
     }
 
     .nhsuk-section-navigation__text[aria-current] {
-      &::before {
-        border-left-color: $nhsuk-reverse-text-colour;
-      }
-
       @include nhsuk-media-query($from: tablet) {
         box-shadow: $reverse-active-indicator-bottom;
       }
+    }
+
+    .nhsuk-section-navigation__text[aria-current]::before {
+      border-left-color: $nhsuk-reverse-text-colour;
     }
 
     .nhsuk-section-navigation__link {
@@ -267,13 +272,13 @@
     .nhsuk-section-navigation__link[aria-current] {
       color: $nhsuk-reverse-text-colour;
 
-      &::before {
-        border-left-color: $nhsuk-reverse-text-colour;
-      }
-
       @include nhsuk-media-query($from: tablet) {
         box-shadow: $reverse-active-indicator-bottom;
       }
+    }
+
+    .nhsuk-section-navigation__link[aria-current]::before {
+      border-left-color: $nhsuk-reverse-text-colour;
     }
 
     // When focused, explicitly set the focus text colour.
@@ -321,10 +326,11 @@
       .nhsuk-section-navigation__link[aria-current],
       .nhsuk-section-navigation__text[aria-current] {
         box-shadow: $active-indicator-bottom;
+      }
 
-        &::before {
-          content: none;
-        }
+      .nhsuk-section-navigation__link[aria-current]::before,
+      .nhsuk-section-navigation__text[aria-current]::before {
+        content: none;
       }
 
       // No left indicator in horizontal mode; bottom focus indicator only
@@ -344,10 +350,11 @@
       .nhsuk-section-navigation__link[aria-current],
       .nhsuk-section-navigation__text[aria-current] {
         box-shadow: $reverse-active-indicator-bottom;
+      }
 
-        &::before {
-          content: none;
-        }
+      .nhsuk-section-navigation__link[aria-current]::before,
+      .nhsuk-section-navigation__text[aria-current]::before {
+        content: none;
       }
 
       .nhsuk-section-navigation__link[aria-current]:focus {
