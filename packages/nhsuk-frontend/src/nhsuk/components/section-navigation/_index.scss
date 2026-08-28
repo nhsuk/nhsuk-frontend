@@ -177,14 +177,6 @@
     }
   }
 
-  // When the link is focused the item has a yellow background;
-  // show the badge as an outlined pill with black text so it remains visually distinct.
-  .nhsuk-section-navigation__link:focus .nhsuk-badge {
-    color: $nhsuk-focus-text-colour;
-    background-color: transparent;
-    box-shadow: inset 0 0 0 1px currentcolor;
-  }
-
   // Vertical variant: forces the list to remain stacked at all breakpoints.
   // Overrides the tablet/desktop flex-flow and gap, and keeps the active/focus
   // indicator as a left pseudo-element (same as the default mobile behaviour).

@@ -30,4 +30,12 @@
 
     @include nhsuk-font(16);
   }
+
+  // When the link is focused the item has a yellow background;
+  // show the badge as an outlined pill with black text so it remains visually distinct.
+  *:focus .nhsuk-badge {
+    color: $nhsuk-focus-text-colour;
+    background-color: transparent;
+    box-shadow: inset 0 0 0 1px currentcolor;
+  }
 }
