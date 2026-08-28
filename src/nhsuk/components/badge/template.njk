@@ -19,9 +19,23 @@
   {{- nhsukAttributes(params.attributes) -}}
 {% endset -%}
 
+{%- if caller or params.html or params.text %}
+{%- set innerHtml %}
+{% if caller %}
+  {{- caller() }}
+{% elif params.html %}
+  {{- params.html | safe }}
+{% else %}
+  {{- params.text }}
+{% endif %}
+{% endset -%}
+
 <strong {{- attributesHtml | safe }}>
-  {%- if params.visuallyHiddenText -%}
-    <span class="nhsuk-u-visually-hidden">{{ params.visuallyHiddenText }} </span>
-  {%- endif -%}
-  {{- params.html | safe | trim if params.html else params.text -}}
+  {% if params.visuallyHiddenText %}
+  <span class="nhsuk-u-visually-hidden">{{ params.visuallyHiddenText }} </span>
+  {{- innerHtml | safe | trim | indent(2) }}
+  {% else %}
+  {{ innerHtml | safe | trim | indent(2) }}
+  {% endif %}
 </strong>
+{% endif %}
