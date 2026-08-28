@@ -7,7 +7,7 @@ export const examples = {
   "default": {
     context: {
       text: "2",
-      visuallyHiddenText: "Count:"
+      visuallyHiddenText: "Count"
     },
     screenshot: {
       viewports: ["mobile"]
@@ -16,7 +16,7 @@ export const examples = {
   "count": {
     context: {
       text: "2",
-      visuallyHiddenText: "Count:"
+      visuallyHiddenText: "Count"
     },
     variants: [
       {
