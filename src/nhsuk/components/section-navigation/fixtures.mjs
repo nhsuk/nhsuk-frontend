@@ -1,6 +1,76 @@
 import { components } from "#lib"
 
 /**
+ * Nunjucks macro option variants
+ *
+ * @satisfies {MacroExample[]}
+ */
+export const variants = [
+  {
+    // Regular variant
+  },
+  {
+    description: "small",
+    context: {
+      small: true
+    }
+  },
+  {
+    description: "vertical",
+    context: {
+      vertical: true
+    }
+  },
+  {
+    description: "small vertical",
+    context: {
+      small: true,
+      vertical: true
+    }
+  },
+  {
+    description: "reverse",
+    context: {
+      variant: "reverse"
+    },
+    options: {
+      layout: "background-blue"
+    }
+  },
+  {
+    description: "small reverse",
+    context: {
+      small: true,
+      variant: "reverse"
+    },
+    options: {
+      layout: "background-blue"
+    }
+  },
+  {
+    description: "reverse vertical",
+    context: {
+      vertical: true,
+      variant: "reverse"
+    },
+    options: {
+      layout: "background-blue"
+    }
+  },
+  {
+    description: "small reverse vertical",
+    context: {
+      small: true,
+      vertical: true,
+      variant: "reverse"
+    },
+    options: {
+      layout: "background-blue"
+    }
+  }
+]
+
+/**
  * Nunjucks macro option examples
  *
  * @satisfies {{ [example: string]: MacroExample }}
@@ -11,10 +81,33 @@ const fixtures = {
       items: [
         {
           href: "#",
-          text: "All clinics"
+          text: "Summary"
+        },
+        {
+          text: "Observations",
+          current: true
         },
         {
           href: "#",
+          text: "Medicines"
+        },
+        {
+          href: "#",
+          text: "Referrals"
+        }
+      ]
+    },
+    options: {
+      width: "full"
+    },
+    variants,
+    screenshot: true
+  },
+  "with ARIA label": {
+    context: {
+      ariaLabel: "Items in this section",
+      items: [
+        {
           text: "Today",
           current: true
         },
@@ -25,29 +118,6 @@ const fixtures = {
         {
           href: "#",
           text: "Completed"
-        }
-      ]
-    },
-    options: {
-      width: "full"
-    }
-  },
-  "with ARIA label": {
-    context: {
-      ariaLabel: "Items in this section",
-      items: [
-        {
-          href: "#",
-          text: "Summary",
-          current: true
-        },
-        {
-          href: "#",
-          text: "History"
-        },
-        {
-          href: "#",
-          text: "Documents"
         }
       ]
     },
@@ -67,107 +137,6 @@ const fixtures = {
           }
         },
         {
-          href: "#",
-          text: "Today",
-          badge: {
-            text: "3",
-            visuallyHiddenText: "Count"
-          },
-          current: true
-        },
-        {
-          href: "#",
-          text: "Upcoming",
-          badge: {
-            text: "New"
-          }
-        },
-        {
-          href: "#",
-          text: "Completed",
-          badge: {
-            text: "0",
-            visuallyHiddenText: "Count"
-          }
-        }
-      ]
-    },
-    options: {
-      width: "full"
-    },
-    screenshot: true
-  },
-  "with html": {
-    context: {
-      items: [
-        {
-          href: "#",
-          html: "Overview"
-        },
-        {
-          href: "#",
-          html: `Vaccinations${components.render("tag", {
-            context: {
-              text: "New",
-              visuallyHiddenText: ", ",
-              colour: "green"
-            }
-          })}`,
-          current: true
-        },
-        {
-          href: "#",
-          html: "Consent"
-        }
-      ]
-    },
-    options: {
-      width: "full"
-    }
-  },
-  "reverse": {
-    context: {
-      classes: "nhsuk-section-navigation--reverse",
-      items: [
-        {
-          href: "#",
-          text: "All clinics"
-        },
-        {
-          href: "#",
-          text: "Today",
-          current: true
-        },
-        {
-          href: "#",
-          text: "Upcoming"
-        },
-        {
-          href: "#",
-          text: "Completed"
-        }
-      ]
-    },
-    options: {
-      layout: "background-blue",
-      width: "full"
-    },
-    screenshot: true
-  },
-  "reverse with badge": {
-    context: {
-      classes: "nhsuk-section-navigation--reverse",
-      items: [
-        {
-          href: "#",
-          text: "All",
-          badge: {
-            text: "12",
-            visuallyHiddenText: "Count"
-          }
-        },
-        {
-          href: "#",
           text: "Today",
           badge: {
             text: "3",
@@ -194,27 +163,33 @@ const fixtures = {
       ]
     },
     options: {
-      layout: "background-blue",
       width: "full"
     },
+    variants: [
+      variants[0], // Regular variant
+      variants[2], // Vertical variant
+      variants[4], // Reverse variant
+      variants[6] // Reverse vertical variant
+    ],
     screenshot: true
   },
-  "vertical": {
+  "with badge text": {
     context: {
-      vertical: true,
       items: [
         {
           href: "#",
-          text: "All clinics"
+          text: "All"
         },
         {
-          href: "#",
           text: "Today",
           current: true
         },
         {
           href: "#",
-          text: "Upcoming"
+          text: "Upcoming",
+          badge: {
+            text: "New"
+          }
         },
         {
           href: "#",
@@ -225,88 +200,96 @@ const fixtures = {
     options: {
       width: "full"
     },
-    screenshot: true
+    variants: [
+      variants[0], // Regular variant
+      variants[2], // Vertical variant
+      variants[4], // Reverse variant
+      variants[6] // Reverse vertical variant
+    ]
   },
-  "with unlinked current item": {
+  "with custom html": {
     context: {
       items: [
         {
           href: "#",
-          text: "All clinics"
+          html: "Overview"
         },
         {
-          text: "Today",
+          html: `Vaccinations${components.render("tag", {
+            context: {
+              text: "New",
+              visuallyHiddenText: ", ",
+              colour: "green"
+            }
+          })}`,
           current: true
         },
         {
           href: "#",
-          text: "Upcoming"
-        },
-        {
-          href: "#",
-          text: "Completed"
+          html: "Consent"
         }
       ]
     },
     options: {
       width: "full"
-    }
+    },
+    variants: [
+      variants[0], // Regular variant
+      variants[2] // Vertical variant
+    ]
   },
-  "small": {
+  "with current item": {
     context: {
-      small: true,
       items: [
         {
           href: "#",
-          text: "All clinics"
+          text: "Summary"
         },
         {
-          href: "#",
-          text: "Today",
+          text: "Observations",
           current: true
         },
         {
           href: "#",
-          text: "Upcoming"
+          text: "Medicines"
         },
         {
           href: "#",
-          text: "Completed"
+          text: "Referrals"
         }
       ]
     },
     options: {
       width: "full"
     },
-    screenshot: true
+    variants
   },
-  "small vertical": {
+  "with current (linked) item": {
     context: {
-      small: true,
-      vertical: true,
       items: [
         {
           href: "#",
-          text: "All clinics"
+          text: "Summary"
         },
         {
           href: "#",
-          text: "Today",
+          text: "Observations",
           current: true
         },
         {
           href: "#",
-          text: "Upcoming"
+          text: "Medicines"
         },
         {
           href: "#",
-          text: "Completed"
+          text: "Referrals"
         }
       ]
     },
     options: {
       width: "full"
     },
+    variants,
     screenshot: true
   }
 }

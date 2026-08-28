@@ -16,7 +16,6 @@
   $active-indicator-bottom: inset 0 ($nhsuk-border-width * -1) nhsuk-colour("blue");
   $focus-indicator: inset 0 ($nhsuk-focus-width * -1) $nhsuk-focus-text-colour;
   $reverse-active-indicator-bottom: inset 0 ($nhsuk-border-width * -1) $nhsuk-reverse-text-colour;
-  $reverse-badge-background: rgb(nhsuk-shade(nhsuk-colour("blue"), 50%), 0.4);
 
   .nhsuk-section-navigation {
     // Bleed to full width on mobile by negating the page gutter
@@ -280,12 +279,6 @@
       @include nhsuk-media-query($from: tablet) {
         box-shadow: $focus-indicator;
       }
-    }
-
-    // Custom colours for badges on reverse
-    .nhsuk-badge {
-      color: nhsuk-colour("white");
-      background-color: $reverse-badge-background;
     }
   }
 
