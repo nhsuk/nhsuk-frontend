@@ -15,7 +15,7 @@ const options = {
     type: 'string',
     required: false,
     description:
-      'The `aria-label` for the navigation landmark. Defaults to `"Section navigation"`. Use this to provide a meaningful label if multiple navigation landmarks are present on the page.'
+      'The `aria-label` for the navigation landmark. Defaults to `"Section information"`. Use this to provide a meaningful label if multiple navigation landmarks are present on the page.'
   },
   items: {
     type: 'array',
