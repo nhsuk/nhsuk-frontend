@@ -1,5 +1,11 @@
 # NHS.UK frontend Changelog
 
+## Unreleased
+
+### :wrench: **Fixes**
+
+- Improved check mark alignment for small checkboxes at higher display scale factors.
+
 ## 10.6.1 - 25 August 2026
 
 Note: This release was created from the `support/10.x` branch.
