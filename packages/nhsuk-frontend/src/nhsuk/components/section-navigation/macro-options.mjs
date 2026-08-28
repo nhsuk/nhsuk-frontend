@@ -6,6 +6,11 @@ export const name = 'Section navigation'
  * @satisfies {{ [param: string]: MacroParam }}
  */
 const options = {
+  id: {
+    type: 'string',
+    required: false,
+    description: 'The ID of the section navigation.'
+  },
   label: {
     type: 'string',
     required: false,
@@ -67,12 +72,6 @@ const options = {
       }
     }
   },
-  classes: {
-    type: 'string',
-    required: false,
-    description:
-      'Classes to add to the navigation element. Use `"nhsuk-section-navigation--reverse"` for use on coloured backgrounds.'
-  },
   vertical: {
     type: 'boolean',
     required: false,
@@ -85,16 +84,16 @@ const options = {
     description:
       'If `true`, uses a smaller text size that does not change responsively. Suitable for compact layouts or secondary navigation.'
   },
-  id: {
+  classes: {
     type: 'string',
     required: false,
-    description: 'The `id` of the navigation element.'
+    description: 'Classes to add to the section navigation. Use `"nhsuk-section-navigation--reverse"` for use on coloured backgrounds.'
   },
   attributes: {
     type: 'object',
     required: false,
     description:
-      'HTML attributes (for example data attributes) to add to the navigation element.'
+      'HTML attributes (for example data attributes) to add to the section navigation.'
   }
 }
 

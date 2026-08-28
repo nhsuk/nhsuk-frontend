@@ -1,20 +1,22 @@
-{%- from "nhsuk/macros/attributes.njk" import nhsukAttributes -%}
-{%- from "nhsuk/components/badge/macro.njk" import badge -%}
+{% from "nhsuk/components/badge/macro.njk" import badge as nhsukBadge %}
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-section-navigation" -%}
 
 {%- if params.vertical and (not params.classes or not "nhsuk-section-navigation--vertical" in params.classes) %}
-  {%- set classNames = classNames ~ " nhsuk-section-navigation--vertical" -%}
-{%- endif -%}
+  {% set classNames = classNames ~ " nhsuk-section-navigation--vertical" %}
+{% endif %}
 
 {%- if params.small and (not params.classes or not "nhsuk-section-navigation--small" in params.classes) %}
-  {%- set classNames = classNames ~ " nhsuk-section-navigation--small" -%}
-{%- endif -%}
+  {% set classNames = classNames ~ " nhsuk-section-navigation--small" %}
+{% endif %}
 
 {%- if params.classes %}
-  {%- set classNames = classNames ~ " " ~ params.classes -%}
-{%- endif -%}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif %}
+
+{%- set items = params.items | select("mapping") | list if params.items else [] -%}
 
 <nav class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
   data-module="nhsuk-section-navigation"
@@ -23,8 +25,7 @@
   {%- endif %}
   {{- nhsukAttributes(params.attributes) }}>
   <ul class="nhsuk-section-navigation__list">
-  {% for item in params.items -%}
-    {%- if item -%}
+  {% for item in items -%}
     {%- set itemInnerAttributesHtml %}
       {{- nhsukAttributes({
         href: {
@@ -40,7 +41,7 @@
 
     {%- set itemBadgeHtml -%}
       {%- if item.badge is defined -%}
-        <span class="nhsuk-section-navigation__suffix">{{ badge(item.badge) }}</span>
+        <span class="nhsuk-section-navigation__suffix">{{ nhsukBadge(item.badge) }}</span>
       {%- endif -%}
     {%- endset -%}
 
@@ -57,8 +58,7 @@
         {{- itemBadgeHtml | safe -}}
       {%- endif -%}
     {%- endset %}
-
-    <li class="nhsuk-section-navigation__item{%- if item.current %} nhsuk-section-navigation__item--current{%- endif -%}{%- if item.classes %} {{ item.classes }}{%- endif -%}"
+    <li class="nhsuk-section-navigation__item {%- if item.current %} nhsuk-section-navigation__item--current{% endif %} {%- if item.classes %} {{ item.classes }}{% endif %}"
       {{- nhsukAttributes(item.attributes) }}>
       {% if item.href %}
       <a class="nhsuk-section-navigation__link" {{- itemInnerAttributesHtml | safe }}>
@@ -70,7 +70,6 @@
       </span>
       {% endif %}
     </li>
-    {% endif %}
-  {%- endfor %}
+  {% endfor %}
   </ul>
 </nav>
