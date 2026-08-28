@@ -1,13 +1,26 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
+{#- Set classes for this component #}
 {%- set classNames = "nhsuk-badge" -%}
 
 {%- if params.classes %}
   {% set classNames = classNames ~ " " ~ params.classes %}
 {% endif -%}
 
-<strong class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
-  {{- nhsukAttributes(params.attributes) }}>{%- if params.visuallyHiddenText -%}
+{%- set attributesHtml %}
+  {{- nhsukAttributes({
+    class: classNames,
+    id: {
+      value: params.id,
+      optional: true
+    }
+  }) -}}
+
+  {{- nhsukAttributes(params.attributes) -}}
+{% endset -%}
+
+<strong {{- attributesHtml | safe }}>
+  {%- if params.visuallyHiddenText -%}
     <span class="nhsuk-u-visually-hidden">{{ params.visuallyHiddenText }} </span>
   {%- endif -%}
   {{- params.html | safe | trim if params.html else params.text -}}
