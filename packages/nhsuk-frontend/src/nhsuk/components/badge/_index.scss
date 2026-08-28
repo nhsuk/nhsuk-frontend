@@ -31,6 +31,11 @@
     @include nhsuk-font(16);
   }
 
+  .nhsuk-badge--reverse {
+    color: nhsuk-colour("white");
+    background-color: rgb(nhsuk-shade(nhsuk-colour("blue"), 50%), 0.4);
+  }
+
   // When the link is focused the item has a yellow background;
   // show the badge as an outlined pill with black text so it remains visually distinct.
   *:focus .nhsuk-badge {

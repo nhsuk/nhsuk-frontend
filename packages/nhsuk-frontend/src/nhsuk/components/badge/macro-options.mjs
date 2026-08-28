@@ -30,16 +30,22 @@ const options = {
     description:
       'A visually hidden prefix used before the badge content. Use this to provide context when the badge content alone may be ambiguous — for example, `"Count"` so that `12` is read as `"Count: 12"`. Badge content like `"New"` or `"Updated"` is typically self-explanatory and does not need visually hidden text.'
   },
+  variant: {
+    type: 'string',
+    required: false,
+    description:
+      'Optional variant of badge. You can use only `"reverse"` or empty values with this option.'
+  },
   classes: {
     type: 'string',
     required: false,
-    description: 'Classes to add to the badge element.'
+    description: 'Classes to add to the badge.'
   },
   attributes: {
     type: 'object',
     required: false,
     description:
-      'HTML attributes (for example data attributes) to add to the badge element.'
+      'HTML attributes (for example data attributes) to add to the badge.'
   }
 }
 
