@@ -30,6 +30,29 @@ const fixtures = {
       width: "full"
     }
   },
+  "with ARIA label": {
+    context: {
+      ariaLabel: "Items in this section",
+      items: [
+        {
+          href: "#",
+          text: "Summary",
+          current: true
+        },
+        {
+          href: "#",
+          text: "History"
+        },
+        {
+          href: "#",
+          text: "Documents"
+        }
+      ]
+    },
+    options: {
+      width: "full"
+    }
+  },
   "with badge": {
     context: {
       items: [
@@ -172,29 +195,6 @@ const fixtures = {
     },
     screenshot: {
       viewports: ["mobile", "tablet", "desktop"]
-    }
-  },
-  "with custom label": {
-    context: {
-      label: "Section navigation",
-      items: [
-        {
-          href: "#",
-          text: "Summary",
-          current: true
-        },
-        {
-          href: "#",
-          text: "History"
-        },
-        {
-          href: "#",
-          text: "Documents"
-        }
-      ]
-    },
-    options: {
-      width: "full"
     }
   },
   "vertical": {
