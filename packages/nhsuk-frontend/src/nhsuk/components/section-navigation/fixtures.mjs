@@ -61,7 +61,7 @@ const fixtures = {
           text: "All",
           badge: {
             text: "12",
-            visuallyHiddenText: "Count:"
+            visuallyHiddenText: "Count"
           }
         },
         {
@@ -69,7 +69,7 @@ const fixtures = {
           text: "Today",
           badge: {
             text: "3",
-            visuallyHiddenText: "Count:"
+            visuallyHiddenText: "Count"
           },
           current: true
         },
@@ -85,7 +85,7 @@ const fixtures = {
           text: "Completed",
           badge: {
             text: "0",
-            visuallyHiddenText: "Count:"
+            visuallyHiddenText: "Count"
           }
         }
       ]
@@ -159,7 +159,7 @@ const fixtures = {
           text: "All",
           badge: {
             text: "12",
-            visuallyHiddenText: "Count:"
+            visuallyHiddenText: "Count"
           }
         },
         {
@@ -167,7 +167,7 @@ const fixtures = {
           text: "Today",
           badge: {
             text: "3",
-            visuallyHiddenText: "Count:"
+            visuallyHiddenText: "Count"
           },
           current: true
         },
@@ -176,7 +176,7 @@ const fixtures = {
           text: "Upcoming",
           badge: {
             text: "9",
-            visuallyHiddenText: "Count:"
+            visuallyHiddenText: "Count"
           }
         },
         {
@@ -184,7 +184,7 @@ const fixtures = {
           text: "Completed",
           badge: {
             text: "0",
-            visuallyHiddenText: "Count:"
+            visuallyHiddenText: "Count"
           }
         }
       ]

@@ -28,7 +28,7 @@ const options = {
     type: 'string',
     required: false,
     description:
-      'Visually hidden text prepended to the badge content for assistive technology. Use this to provide context when the badge value alone may be ambiguous — for example, `"Count:"` so that `12` is read as `"Count: 12"`. Text values like `"New"` or `"Updated"` are typically self-explanatory and do not need this.'
+      'A visually hidden prefix used before the badge content. Use this to provide context when the badge content alone may be ambiguous — for example, `"Count"` so that `12` is read as `"Count: 12"`. Badge content like `"New"` or `"Updated"` is typically self-explanatory and does not need visually hidden text.'
   },
   classes: {
     type: 'string',
