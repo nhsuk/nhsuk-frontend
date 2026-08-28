@@ -1,15 +1,22 @@
 {% from "nhsuk/components/badge/macro.njk" import badge as nhsukBadge %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
+{#- Set variant for this component #}
+{%- set variant = params.variant -%}
+
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-section-navigation" -%}
 
-{%- if params.vertical and (not params.classes or not "nhsuk-section-navigation--vertical" in params.classes) %}
-  {% set classNames = classNames ~ " nhsuk-section-navigation--vertical" %}
+{%- if variant == "reverse" and (not params.classes or not "nhsuk-section-navigation--reverse" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-section-navigation--" ~ variant %}
 {% endif %}
 
 {%- if params.small and (not params.classes or not "nhsuk-section-navigation--small" in params.classes) %}
   {% set classNames = classNames ~ " nhsuk-section-navigation--small" %}
+{% endif %}
+
+{%- if params.vertical and (not params.classes or not "nhsuk-section-navigation--vertical" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-section-navigation--vertical" %}
 {% endif %}
 
 {%- if params.classes %}
@@ -32,12 +39,12 @@
   {{- nhsukAttributes(params.attributes) -}}
 {% endset %}
 
-{%- macro _listItemBadge(item) %}
+{%- macro _listItemBadge(item, parent) %}
   {{- nhsukBadge({
     text: item.badge.text,
     html: item.badge.html,
     visuallyHiddenText: ", " ~ item.badge.visuallyHiddenText | default(""),
-    variant: item.badge.variant,
+    variant: item.badge.variant | default(parent.params.variant),
     classes: item.badge.classes,
     attributes: item.badge.attributes
   }) | trim }}
@@ -65,11 +72,11 @@
           or styles still have some indicator of the current nav item. -#}
         <strong class="nhsuk-section-navigation__current">
           {{- item.html | safe if item.html else item.text -}}
-          {{- _listItemBadge(item) | indent(6) if item.badge -}}
+          {{- _listItemBadge(item, { params: params }) | indent(6) if item.badge -}}
         </strong>
       {%- else -%}
         {{- item.html | safe if item.html else item.text -}}
-        {{- _listItemBadge(item) | indent(6) if item.badge -}}
+        {{- _listItemBadge(item, { params: params }) | indent(6) if item.badge -}}
       {%- endif -%}
     {%- endset %}
     <li class="nhsuk-section-navigation__item {%- if item.current %} nhsuk-section-navigation__item--current{% endif %} {%- if item.classes %} {{ item.classes }}{% endif %}"
