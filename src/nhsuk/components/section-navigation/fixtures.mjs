@@ -36,23 +36,34 @@ const fixtures = {
         {
           href: "#",
           text: "All",
-          badge: { text: "12", visuallyHiddenText: "Count:" }
+          badge: {
+            text: "12",
+            visuallyHiddenText: "Count:"
+          }
         },
         {
           href: "#",
           text: "Today",
-          badge: { text: "3", visuallyHiddenText: "Count:" },
+          badge: {
+            text: "3",
+            visuallyHiddenText: "Count:"
+          },
           current: true
         },
         {
           href: "#",
           text: "Upcoming",
-          badge: { text: "New" }
+          badge: {
+            text: "New"
+          }
         },
         {
           href: "#",
           text: "Completed",
-          badge: { text: "0", visuallyHiddenText: "Count:" }
+          badge: {
+            text: "0",
+            visuallyHiddenText: "Count:"
+          }
         }
       ]
     },
@@ -123,23 +134,35 @@ const fixtures = {
         {
           href: "#",
           text: "All",
-          badge: { text: "12", visuallyHiddenText: "Count:" }
+          badge: {
+            text: "12",
+            visuallyHiddenText: "Count:"
+          }
         },
         {
           href: "#",
           text: "Today",
-          badge: { text: "3", visuallyHiddenText: "Count:" },
+          badge: {
+            text: "3",
+            visuallyHiddenText: "Count:"
+          },
           current: true
         },
         {
           href: "#",
           text: "Upcoming",
-          badge: { text: "9", visuallyHiddenText: "Count:" }
+          badge: {
+            text: "9",
+            visuallyHiddenText: "Count:"
+          }
         },
         {
           href: "#",
           text: "Completed",
-          badge: { text: "0", visuallyHiddenText: "Count:" }
+          badge: {
+            text: "0",
+            visuallyHiddenText: "Count:"
+          }
         }
       ]
     },
