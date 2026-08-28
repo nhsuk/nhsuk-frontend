@@ -6,20 +6,64 @@
 export const examples = {
   "default": {
     context: {
-      text: "12",
+      text: "2",
       visuallyHiddenText: "Count:"
+    },
+    screenshot: {
+      viewports: ["mobile"]
     }
   },
-  "text label": {
+  "count": {
+    context: {
+      text: "2",
+      visuallyHiddenText: "Count:"
+    },
+    variants: [
+      {
+        description: "with zero",
+        context: {
+          text: "0"
+        }
+      },
+      {
+        description: "with single digit",
+        context: {
+          text: "1"
+        }
+      },
+      {
+        description: "with double digit",
+        context: {
+          text: "12"
+        }
+      },
+      {
+        description: "with triple digit",
+        context: {
+          text: "123"
+        }
+      }
+    ],
+    screenshot: {
+      viewports: ["mobile"]
+    }
+  },
+  "with text": {
     context: {
       text: "New"
+    },
+    variants,
+    screenshot: {
+      viewports: ["mobile"]
     }
   },
-  "zero count": {
+  "with HTML": {
     context: {
-      text: "0",
-      visuallyHiddenText: "Count:"
+      html: "A&amp;E"
     }
+  },
+  "with HTML via call block": {
+    callBlock: "A&amp;E"
   }
 }
 
