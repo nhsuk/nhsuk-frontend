@@ -11,12 +11,6 @@ const options = {
     required: false,
     description: 'The ID of the section navigation.'
   },
-  label: {
-    type: 'string',
-    required: false,
-    description:
-      'The `aria-label` for the navigation landmark. Defaults to `"Section information"`. Use this to provide a meaningful label if multiple navigation landmarks are present on the page.'
-  },
   items: {
     type: 'array',
     required: true,
@@ -77,6 +71,12 @@ const options = {
     required: false,
     description:
       'If `true`, uses a smaller text size that does not change responsively. Suitable for compact layouts or secondary navigation.'
+  },
+  ariaLabel: {
+    type: 'string',
+    required: false,
+    description:
+      'The accessible name for the navigation landmark that wraps the section navigation list. Defaults to `"Section information"`.'
   },
   classes: {
     type: 'string',
