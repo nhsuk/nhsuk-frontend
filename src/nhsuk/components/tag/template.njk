@@ -58,6 +58,11 @@
 {% endset -%}
 
 <strong {{- attributesHtml | safe }}>
+  {% if params.visuallyHiddenText %}
+  <span class="nhsuk-u-visually-hidden">{{ params.visuallyHiddenText }}: </span>
+  {{- innerHtml | safe | trim | indent(2) }}
+  {% else %}
   {{ innerHtml | safe | trim | indent(2) }}
+  {% endif %}
 </strong>
 {% endif %}
