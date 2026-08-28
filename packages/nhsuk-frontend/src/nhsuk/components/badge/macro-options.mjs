@@ -18,6 +18,12 @@ const options = {
     description:
       'If `text` is set, this is not required. HTML to use within the badge. If `html` is provided, the `text` argument will be ignored.'
   },
+  caller: {
+    type: 'nunjucks-block',
+    required: false,
+    description:
+      'Not strictly an option but supports the [`call` block](https://mozilla.github.io/nunjucks/templating.html#call) as an alternative to the `html` option. To use it, you will need to wrap the entire badge component in a `call` block.'
+  },
   visuallyHiddenText: {
     type: 'string',
     required: false,
