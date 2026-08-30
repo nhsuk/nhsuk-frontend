@@ -92,6 +92,15 @@ const fixtures = {
       button: true
     }
   },
+  "with icon only": {
+    context: {
+      html: "<p>This is an HTML code block.</p>",
+      button: {
+        text: false,
+        icon: "copy"
+      }
+    }
+  },
   "with translations": {
     context: {
       html: "&lt;p&gt;Bloc cod HTML yw hwn.&lt;/p&gt;",
