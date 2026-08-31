@@ -15,8 +15,15 @@
   {% set classNames = classNames ~ " nhsuk-section-navigation--small" %}
 {% endif %}
 
-{%- if params.vertical and (not params.classes or not "nhsuk-section-navigation--vertical" in params.classes) %}
-  {% set classNames = classNames ~ " nhsuk-section-navigation--vertical" %}
+{%- if params.direction and
+  params.direction in ["horizontal", "vertical"] and (
+    not params.classes or (
+      not "nhsuk-section-navigation--horizontal" in params.classes and
+      not "nhsuk-section-navigation--vertical" in params.classes
+    )
+  )
+%}
+  {% set classNames = classNames ~ " nhsuk-section-navigation--" ~ params.direction %}
 {% endif %}
 
 {%- if params.classes %}
