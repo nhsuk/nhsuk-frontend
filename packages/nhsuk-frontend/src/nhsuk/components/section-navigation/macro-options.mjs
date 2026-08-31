@@ -66,11 +66,11 @@ const options = {
       }
     }
   },
-  vertical: {
-    type: 'boolean',
+  direction: {
+    type: 'string',
     required: false,
     description:
-      'If `true`, forces the navigation to remain stacked vertically at all breakpoints, rather than switching to a horizontal layout at tablet width.'
+      'Optional direction for the section navigation – `"horizontal"` or `"vertical"`. Defaults to `"vertical"` (stacked) on small screens or `"horizontal"` on tablet and above if there\'s enough space.'
   },
   small: {
     type: 'boolean',
