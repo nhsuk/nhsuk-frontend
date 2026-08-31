@@ -16,19 +16,6 @@ export const variants = [
     }
   },
   {
-    description: "vertical",
-    context: {
-      vertical: true
-    }
-  },
-  {
-    description: "small vertical",
-    context: {
-      small: true,
-      vertical: true
-    }
-  },
-  {
     description: "reverse",
     context: {
       variant: "reverse"
@@ -41,27 +28,6 @@ export const variants = [
     description: "small reverse",
     context: {
       small: true,
-      variant: "reverse"
-    },
-    options: {
-      layout: "background-blue"
-    }
-  },
-  {
-    description: "reverse vertical",
-    context: {
-      vertical: true,
-      variant: "reverse"
-    },
-    options: {
-      layout: "background-blue"
-    }
-  },
-  {
-    description: "small reverse vertical",
-    context: {
-      small: true,
-      vertical: true,
       variant: "reverse"
     },
     options: {
@@ -103,30 +69,36 @@ const fixtures = {
     variants,
     screenshot: true
   },
-  "with ARIA label": {
+  "horizontal": {
     context: {
-      ariaLabel: "Items in this section",
+      direction: "horizontal",
       items: [
         {
-          text: "Today",
+          href: "#",
+          text: "Summary"
+        },
+        {
+          text: "Observations",
           current: true
         },
         {
           href: "#",
-          text: "Upcoming"
+          text: "Medicines"
         },
         {
           href: "#",
-          text: "Completed"
+          text: "Referrals"
         }
       ]
     },
     options: {
       width: "full"
-    }
+    },
+    variants
   },
-  "with badge": {
+  "horizontal with badge": {
     context: {
+      direction: "horizontal",
       items: [
         {
           href: "#",
@@ -165,31 +137,93 @@ const fixtures = {
     options: {
       width: "full"
     },
-    variants: [
-      variants[0], // Regular variant
-      variants[2], // Vertical variant
-      variants[4], // Reverse variant
-      variants[6] // Reverse vertical variant
-    ],
+    variants,
     screenshot: true
   },
-  "with badge text": {
+  "vertical": {
     context: {
+      direction: "vertical",
       items: [
         {
           href: "#",
-          text: "All"
+          text: "Summary"
         },
+        {
+          text: "Observations",
+          current: true
+        },
+        {
+          href: "#",
+          text: "Medicines"
+        },
+        {
+          href: "#",
+          text: "Allergies"
+        },
+        {
+          href: "#",
+          text: "Vaccinations"
+        },
+        {
+          href: "#",
+          text: "Referrals"
+        }
+      ]
+    },
+    options: {
+      width: "full"
+    },
+    variants
+  },
+  "vertical with badge": {
+    context: {
+      direction: "vertical",
+      items: [
+        {
+          href: "#",
+          text: "Summary"
+        },
+        {
+          text: "Observations",
+          current: true
+        },
+        {
+          href: "#",
+          text: "Medicines"
+        },
+        {
+          href: "#",
+          text: "Allergies"
+        },
+        {
+          href: "#",
+          text: "Vaccinations"
+        },
+        {
+          href: "#",
+          text: "Referrals",
+          badge: {
+            text: "New"
+          }
+        }
+      ]
+    },
+    options: {
+      width: "full"
+    },
+    variants
+  },
+  "with ARIA label": {
+    context: {
+      ariaLabel: "Items in this section",
+      items: [
         {
           text: "Today",
           current: true
         },
         {
           href: "#",
-          text: "Upcoming",
-          badge: {
-            text: "New"
-          }
+          text: "Upcoming"
         },
         {
           href: "#",
@@ -199,13 +233,7 @@ const fixtures = {
     },
     options: {
       width: "full"
-    },
-    variants: [
-      variants[0], // Regular variant
-      variants[2], // Vertical variant
-      variants[4], // Reverse variant
-      variants[6] // Reverse vertical variant
-    ]
+    }
   },
   "with custom html": {
     context: {
@@ -234,8 +262,18 @@ const fixtures = {
       width: "full"
     },
     variants: [
-      variants[0], // Regular variant
-      variants[2] // Vertical variant
+      {
+        description: "horizontal",
+        context: {
+          direction: "horizontal"
+        }
+      },
+      {
+        description: "vertical",
+        context: {
+          direction: "vertical"
+        }
+      }
     ]
   },
   "with active item": {
