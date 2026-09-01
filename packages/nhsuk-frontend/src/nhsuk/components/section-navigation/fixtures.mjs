@@ -238,6 +238,33 @@ const fixtures = {
       variants[2] // Vertical variant
     ]
   },
+  "with active item": {
+    context: {
+      items: [
+        {
+          href: "#",
+          text: "Summary"
+        },
+        {
+          href: "#",
+          text: "Observations",
+          active: true
+        },
+        {
+          href: "#",
+          text: "Medicines"
+        },
+        {
+          href: "#",
+          text: "Referrals"
+        }
+      ]
+    },
+    options: {
+      width: "full"
+    },
+    variants
+  },
   "with current item": {
     context: {
       items: [
