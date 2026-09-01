@@ -2,18 +2,6 @@ import { Component } from '../../component.mjs'
 
 /**
  * Section navigation component
- *
- * Without JS, CSS defaults to a vertically stacked layout on mobile and a
- * horizontal wrapping layout from tablet upwards.
- * When JS is available, this component measures whether all navigation items
- * fit side-by-side. If they do, it preserves the horizontal layout; if not,
- * it adds the `--vertical` modifier class so CSS can keep the list stacked at
- * any breakpoint.
- *
- * The `--vertical` modifier opts out of this behaviour: the list stays
- * stacked at all breakpoints regardless.
- *
- * @augments {Component}
  */
 export class SectionNavigation extends Component {
   /** @type {HTMLElement | null} */
@@ -35,6 +23,9 @@ export class SectionNavigation extends Component {
   handleResize = this.onResize.bind(this)
 
   /**
+   * Automatically toggles the `--horizontal` or `--vertical` modifier classes
+   * based on the horizontal space available, unless already set.
+   *
    * @param {Element | null} $root - HTML element to use for component
    */
   constructor($root) {
