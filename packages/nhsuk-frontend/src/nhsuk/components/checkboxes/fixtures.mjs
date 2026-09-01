@@ -1132,9 +1132,7 @@ const fixtures = {
       items: [
         { value: "calc", text: "Calcification" },
         { value: "asym", text: "Asymmetric density" },
-        { value: "dist", text: "Architectural distortion" },
-        { value: "lymph", text: "Lymph node" },
-        { value: "other", text: "Other" }
+        { value: "lymph", text: "Lymph node" }
       ]
     }
   },
@@ -1155,9 +1153,7 @@ const fixtures = {
       items: [
         { value: "calc", text: "Calcification", checked: true },
         { value: "asym", text: "Asymmetric density", checked: true },
-        { value: "dist", text: "Architectural distortion" },
-        { value: "lymph", text: "Lymph node" },
-        { value: "other", text: "Other" }
+        { value: "lymph", text: "Lymph node" }
       ]
     }
   },
@@ -1176,13 +1172,9 @@ const fixtures = {
         }
       },
       items: [
-        { value: "ill", text: "Ill-defined mass", disabled: true },
-        { value: "well", text: "Well-defined mass", disabled: true },
-        { value: "calc", text: "Calcification" },
+        { value: "calc", text: "Calcification", disabled: true },
         { value: "asym", text: "Asymmetric density" },
-        { value: "dist", text: "Architectural distortion" },
-        { value: "lymph", text: "Lymph node" },
-        { value: "other", text: "Other" }
+        { value: "lymph", text: "Lymph node" }
       ]
     }
   },
@@ -1203,8 +1195,6 @@ const fixtures = {
       items: [
         { value: "calc", text: "Calcification" },
         { value: "asym", text: "Asymmetric density" },
-        { value: "dist", text: "Architectural distortion" },
-        { value: "lymph", text: "Lymph node" },
         {
           value: "other",
           text: "Other",
@@ -1238,8 +1228,6 @@ const fixtures = {
       items: [
         { value: "calc", text: "Calcification" },
         { value: "asym", text: "Asymmetric density" },
-        { value: "dist", text: "Architectural distortion" },
-        { value: "lymph", text: "Lymph node" },
         {
           value: "other",
           text: "Other",
@@ -1271,8 +1259,6 @@ const fixtures = {
       items: [
         { value: "calc", text: "Calcification" },
         { value: "asym", text: "Asymmetric density" },
-        { value: "dist", text: "Architectural distortion" },
-        { value: "lymph", text: "Lymph node" },
         {
           value: "other",
           text: "Other",
@@ -1284,7 +1270,7 @@ const fixtures = {
     },
     screenshot: {
       states: ["focus"],
-      selector: "#outline-abnormality-nested-5",
+      selector: "#outline-abnormality-nested-3",
       viewports: ["mobile", "tablet", "desktop"]
     }
   },
@@ -1306,8 +1292,6 @@ const fixtures = {
       items: [
         { value: "calc", text: "Calcification" },
         { value: "asym", text: "Asymmetric density" },
-        { value: "dist", text: "Architectural distortion" },
-        { value: "lymph", text: "Lymph node" },
         {
           value: "other",
           text: "Other",
@@ -1331,7 +1315,7 @@ const fixtures = {
     },
     screenshot: {
       states: ["focus"],
-      selector: "#outline-abnormality-nested-error-5",
+      selector: "#outline-abnormality-nested-error-3",
       viewports: ["mobile", "tablet", "desktop"]
     }
   }

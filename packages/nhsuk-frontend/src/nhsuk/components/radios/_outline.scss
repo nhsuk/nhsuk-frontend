@@ -21,9 +21,14 @@
 
   .nhsuk-radios__item {
     display: block;
+
     position: relative;
+
+    max-width: none;
+
     margin: 0;
     padding: 0;
+
     overflow: visible;
   }
 
