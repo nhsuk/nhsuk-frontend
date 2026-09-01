@@ -95,9 +95,7 @@ const fixtures = {
     options: {
       width: "full"
     },
-    screenshot: {
-      viewports: ["mobile", "tablet", "desktop"]
-    }
+    screenshot: true
   },
   "with html": {
     context: {
@@ -154,9 +152,7 @@ const fixtures = {
       layout: "background-blue",
       width: "full"
     },
-    screenshot: {
-      viewports: ["mobile", "tablet", "desktop"]
-    }
+    screenshot: true
   },
   "reverse with badge": {
     context: {
@@ -201,9 +197,7 @@ const fixtures = {
       layout: "background-blue",
       width: "full"
     },
-    screenshot: {
-      viewports: ["mobile", "tablet", "desktop"]
-    }
+    screenshot: true
   },
   "vertical": {
     context: {
@@ -231,9 +225,7 @@ const fixtures = {
     options: {
       width: "full"
     },
-    screenshot: {
-      viewports: ["mobile", "tablet", "desktop"]
-    }
+    screenshot: true
   },
   "with unlinked current item": {
     context: {
@@ -286,9 +278,7 @@ const fixtures = {
     options: {
       width: "full"
     },
-    screenshot: {
-      viewports: ["mobile", "tablet", "desktop"]
-    }
+    screenshot: true
   },
   "small vertical": {
     context: {
@@ -317,9 +307,7 @@ const fixtures = {
     options: {
       width: "full"
     },
-    screenshot: {
-      viewports: ["mobile", "tablet", "desktop"]
-    }
+    screenshot: true
   }
 }
 
