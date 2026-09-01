@@ -1,0 +1,142 @@
+[
+  {
+    "name": "id",
+    "type": "string",
+    "required": false,
+    "description": "The ID of the do and don't list component.",
+    "released": "10.0.0"
+  },
+  {
+    "name": "title",
+    "type": "string",
+    "required": true,
+    "description": "Replaced by the `heading.text` option.",
+    "released": "1.0.0",
+    "deprecated": "10.6.0"
+  },
+  {
+    "name": "heading",
+    "type": "object",
+    "required": true,
+    "description": "Heading to be displayed on the do and don't list component.",
+    "released": "10.6.0",
+    "isComponent": true,
+    "params": [
+      {
+        "name": "id",
+        "type": "string",
+        "required": false,
+        "description": "The ID of the heading.",
+        "released": "10.6.0"
+      },
+      {
+        "name": "text",
+        "type": "string",
+        "required": true,
+        "description": "If `html` is set, this is not required. Text for the heading. If `html` is provided, the `text` option will be ignored.",
+        "released": "10.6.0"
+      },
+      {
+        "name": "html",
+        "type": "string",
+        "required": true,
+        "description": "If `text` is set, this is not required. HTML for the heading. If `html` is provided, the `text` option will be ignored.",
+        "released": "10.6.0"
+      },
+      {
+        "name": "visuallyHiddenText",
+        "type": "string",
+        "required": false,
+        "description": "A visually hidden suffix added to the heading.",
+        "released": "10.6.0"
+      },
+      {
+        "name": "level",
+        "type": "integer",
+        "required": false,
+        "description": "Optional heading level. Defaults to `3`.",
+        "released": "10.6.0"
+      },
+      {
+        "name": "classes",
+        "type": "string",
+        "required": false,
+        "description": "Classes to add to the heading.",
+        "released": "10.6.0"
+      },
+      {
+        "name": "attributes",
+        "type": "object",
+        "required": false,
+        "description": "HTML attributes (for example data attributes) to add to the heading.",
+        "released": "10.6.0"
+      }
+    ]
+  },
+  {
+    "name": "headingLevel",
+    "type": "integer",
+    "required": false,
+    "description": "Replaced by the `heading.level` option.",
+    "released": "1.0.0",
+    "deprecated": "10.6.0"
+  },
+  {
+    "name": "icon",
+    "type": "string",
+    "required": false,
+    "description": "Optional icon modifier for the do and don't list items – `\"cross\"` or `\"tick\"`. Defaults to `\"tick\"`.",
+    "released": "10.4.0"
+  },
+  {
+    "name": "items",
+    "type": "array",
+    "required": true,
+    "description": "Array of do and don't items objects.",
+    "released": "1.0.0",
+    "params": [
+      {
+        "name": "text",
+        "type": "string",
+        "required": true,
+        "description": "If `html` is set, this is not required. Text to use within each do and don't item. If `html` is provided, the `text` option will be ignored.",
+        "released": "10.1.0"
+      },
+      {
+        "name": "html",
+        "type": "string",
+        "required": true,
+        "description": "If `text` is set, this is not required. HTML to use within each do and don't item. If `html` is provided, the `text` option will be ignored.",
+        "released": "10.1.0"
+      }
+    ]
+  },
+  {
+    "name": "prefixText",
+    "type": "string",
+    "required": false,
+    "description": "Optional prefix text used before each do and don't item. Defaults to `\"do not\"` when `type` is `\"cross\"`.",
+    "released": "10.1.0"
+  },
+  {
+    "name": "hidePrefix",
+    "type": "boolean",
+    "required": false,
+    "description": "If set to `true`, the optional `prefixText` will be removed from each do and don't item.",
+    "released": "5.0.0"
+  },
+  {
+    "name": "classes",
+    "type": "string",
+    "required": false,
+    "description": "Classes to add to the do and don't list container.",
+    "released": "1.0.0"
+  },
+  {
+    "name": "attributes",
+    "type": "object",
+    "required": false,
+    "description": "HTML attributes (for example data attributes) to add to the do and don't list container.",
+    "released": "1.0.0"
+  }
+]

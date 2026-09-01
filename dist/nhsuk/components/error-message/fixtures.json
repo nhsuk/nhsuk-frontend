@@ -1,0 +1,65 @@
+{
+  "name": "Error message",
+  "component": "error-message",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "text": "Enter your full name"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<p class=\"nhsuk-error-message\">\n  <span class=\"nhsuk-u-visually-hidden\">Error: </span>Enter your full name\n</p>"
+    },
+    {
+      "name": "with HTML",
+      "context": {
+        "html": "Postcode must not include &amp; and &lt;"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<p class=\"nhsuk-error-message\">\n  <span class=\"nhsuk-u-visually-hidden\">Error: </span>Postcode must not include &amp; and &lt;\n</p>"
+    },
+    {
+      "name": "with HTML via call block",
+      "context": {},
+      "callBlock": "Postcode must not include &amp; and &lt;",
+      "screenshot": false,
+      "options": {},
+      "html": "<p class=\"nhsuk-error-message\">\n  <span class=\"nhsuk-u-visually-hidden\">Error: </span>Postcode must not include &amp; and &lt;\n</p>"
+    },
+    {
+      "name": "without visually hidden text",
+      "context": {
+        "text": "There is an error on line 42",
+        "visuallyHiddenText": ""
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<p class=\"nhsuk-error-message\">\n  There is an error on line 42\n</p>"
+    },
+    {
+      "name": "with text escaping",
+      "context": {
+        "text": "Postcode must not include & and <"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<p class=\"nhsuk-error-message\">\n  <span class=\"nhsuk-u-visually-hidden\">Error: </span>Postcode must not include &amp; and &lt;\n</p>"
+    },
+    {
+      "name": "with translations",
+      "context": {
+        "text": "Rhowch eich enw llawn",
+        "visuallyHiddenText": "Gwall"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<p class=\"nhsuk-error-message\">\n  <span class=\"nhsuk-u-visually-hidden\">Gwall: </span>Rhowch eich enw llawn\n</p>"
+    }
+  ]
+}

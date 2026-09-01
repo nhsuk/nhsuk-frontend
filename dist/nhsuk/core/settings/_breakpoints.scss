@@ -1,0 +1,18 @@
+@use "sass:map";
+@use "sass:meta";
+@use "warnings" as *;
+
+////
+/// @group settings/layout
+////
+
+/// Breakpoint definitions
+///
+/// @type Map
+
+$nhsuk-breakpoints: (
+  mobile: 320px,
+  tablet: 641px,
+  desktop: 769px,
+  large-desktop: 990px
+) !default;

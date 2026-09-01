@@ -1,0 +1,155 @@
+/**
+ * Nunjucks macro option examples
+ * (with typed keys)
+ *
+ * @type {Record<keyof typeof fixtures, MacroExample>}
+ */
+export const examples: Record<keyof typeof fixtures, MacroExample>;
+/**
+ * Nunjucks macro option examples
+ *
+ * @satisfies {{ [example: string]: MacroExample }}
+ */
+declare const fixtures: {
+    default: {
+        context: {
+            text: string;
+        };
+        screenshot: true;
+    };
+    "paragraph with heading class": {
+        context: {
+            heading: {
+                text: string;
+                element: string;
+            };
+        };
+    };
+    "with HTML": {
+        context: {
+            heading: {
+                text: string;
+            };
+            html: string;
+        };
+    };
+    "with HTML and heading as string": {
+        context: {
+            heading: string;
+            html: string;
+        };
+    };
+    "with HTML via call block": {
+        context: {
+            heading: {
+                text: string;
+            };
+        };
+        callBlock: string;
+    };
+    "with custom title": {
+        context: {
+            title: {
+                text: string;
+            };
+            text: string;
+        };
+    };
+    "with custom title as string": {
+        context: {
+            title: string;
+            text: string;
+        };
+    };
+    "with success variant": {
+        context: {
+            variant: string;
+            text: string;
+        };
+        screenshot: true;
+    };
+    "success with HTML": {
+        context: {
+            variant: string;
+            heading: {
+                text: string;
+            };
+            html: string;
+        };
+    };
+    "success with HTML via call block": {
+        context: {
+            variant: string;
+            heading: {
+                text: string;
+            };
+        };
+        callBlock: string;
+    };
+    "with a list": {
+        context: {
+            heading: {
+                text: string;
+            };
+            html: string;
+        };
+    };
+    "with long heading": {
+        context: {
+            text: string;
+        };
+    };
+    "with lots of content": {
+        context: {
+            heading: {
+                text: string;
+            };
+            html: string;
+        };
+    };
+    "auto-focus disabled, with success variant": {
+        context: {
+            variant: string;
+            disableAutoFocus: boolean;
+            text: string;
+        };
+        options: {
+            hidden: true;
+        };
+    };
+    "auto-focus explicitly enabled, with success variant": {
+        context: {
+            variant: string;
+            disableAutoFocus: boolean;
+            text: string;
+        };
+        options: {
+            hidden: true;
+        };
+    };
+    "role=alert overridden to role=region, with success variant": {
+        context: {
+            variant: string;
+            role: string;
+            text: string;
+        };
+        options: {
+            hidden: true;
+        };
+    };
+    "custom tabindex": {
+        context: {
+            variant: string;
+            text: string;
+            attributes: {
+                tabindex: number;
+            };
+        };
+        options: {
+            hidden: true;
+        };
+    };
+};
+import type { MacroExample } from '#lib';
+export {};
+//# sourceMappingURL=fixtures.d.mts.map

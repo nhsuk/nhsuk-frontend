@@ -1,0 +1,68 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-tag" -%}
+
+{%- if params.colour and
+  params.colour in ["white", "grey", "green", "aqua-green", "blue", "purple", "pink", "red", "orange", "yellow"] and (
+    not params.classes or (
+      not "nhsuk-tag--white" in params.classes and
+      not "nhsuk-tag--grey" in params.classes and
+      not "nhsuk-tag--green" in params.classes and
+      not "nhsuk-tag--aqua-green" in params.classes and
+      not "nhsuk-tag--blue" in params.classes and
+      not "nhsuk-tag--purple" in params.classes and
+      not "nhsuk-tag--pink" in params.classes and
+      not "nhsuk-tag--red" in params.classes and
+      not "nhsuk-tag--orange" in params.classes and
+      not "nhsuk-tag--yellow" in params.classes
+    )
+  )
+%}
+  {% set classNames = classNames ~ " nhsuk-tag--" ~ params.colour %}
+{% endif %}
+
+{%- if params.colour === false and (not params.classes or not "nhsuk-tag--no-colour" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-tag--no-colour" %}
+{% endif %}
+
+{%- if params.border === false and (not params.classes or not "nhsuk-tag--no-border" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-tag--no-border" %}
+{% endif %}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif -%}
+
+{%- set attributesHtml %}
+  {{- nhsukAttributes({
+    class: classNames,
+    id: {
+      value: params.id,
+      optional: true
+    }
+  }) -}}
+
+  {{- nhsukAttributes(params.attributes) -}}
+{% endset -%}
+
+{%- if caller or params.html or params.text %}
+{%- set innerHtml %}
+{% if caller %}
+  {{- caller() }}
+{% elif params.html %}
+  {{- params.html | safe }}
+{% else %}
+  {{- params.text }}
+{% endif %}
+{% endset -%}
+
+<strong {{- attributesHtml | safe }}>
+  {% if params.visuallyHiddenText %}
+  <span class="nhsuk-u-visually-hidden">{{ params.visuallyHiddenText }}: </span>
+  {{- innerHtml | safe | trim | indent(2) }}
+  {% else %}
+  {{ innerHtml | safe | trim | indent(2) }}
+  {% endif %}
+</strong>
+{% endif %}

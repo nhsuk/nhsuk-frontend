@@ -1,0 +1,48 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+
+{#- Set variant for this component #}
+{%- set variant = params.variant -%}
+
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-badge" -%}
+
+{%- if variant == "reverse" and (not params.classes or not "nhsuk-badge--reverse" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-badge--" ~ variant %}
+{% endif %}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif -%}
+
+{%- set attributesHtml %}
+  {{- nhsukAttributes({
+    class: classNames,
+    id: {
+      value: params.id,
+      optional: true
+    }
+  }) -}}
+
+  {{- nhsukAttributes(params.attributes) -}}
+{% endset -%}
+
+{%- if caller or params.html or params.text %}
+{%- set innerHtml %}
+{% if caller %}
+  {{- caller() }}
+{% elif params.html %}
+  {{- params.html | safe }}
+{% else %}
+  {{- params.text }}
+{% endif %}
+{% endset -%}
+
+<strong {{- attributesHtml | safe }}>
+  {% if params.visuallyHiddenText %}
+  <span class="nhsuk-u-visually-hidden">{{ params.visuallyHiddenText }}: </span>
+  {{- innerHtml | safe | trim | indent(2) }}
+  {% else %}
+  {{ innerHtml | safe | trim | indent(2) }}
+  {% endif %}
+</strong>
+{% endif %}
