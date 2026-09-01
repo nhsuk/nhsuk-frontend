@@ -68,6 +68,11 @@
     @include nhsuk-media-query($from: tablet) {
       padding-inline: 0;
     }
+
+    .nhsuk-badge,
+    .nhsuk-tag {
+      margin-left: nhsuk-spacing(2);
+    }
   }
 
   // <strong> is used as a fallback to visually indicate the current page in
@@ -135,21 +140,6 @@
       &[aria-current]::before {
         content: none;
       }
-    }
-  }
-
-  // Suffix – generic wrapper for content appended after a nav item's label
-  // (for example, a badge). Provides left margin and a visually-hidden word
-  // separator so screen readers don't run the item text into the suffix content.
-  .nhsuk-section-navigation__suffix {
-    position: relative;
-    margin-left: nhsuk-spacing(2);
-
-    &::before {
-      // Non-breaking space
-      content: "\00a0";
-
-      @include nhsuk-visually-hidden;
     }
   }
 

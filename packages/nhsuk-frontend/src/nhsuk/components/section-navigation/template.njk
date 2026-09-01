@@ -30,7 +30,18 @@
   }) -}}
 
   {{- nhsukAttributes(params.attributes) -}}
-{% endset -%}
+{% endset %}
+
+{%- macro _listItemBadge(item) %}
+  {{- nhsukBadge({
+    text: item.badge.text,
+    html: item.badge.html,
+    visuallyHiddenText: ", " ~ item.badge.visuallyHiddenText | default(""),
+    variant: item.badge.variant,
+    classes: item.badge.classes,
+    attributes: item.badge.attributes
+  }) | trim }}
+{%- endmacro -%}
 
 <nav {{- attributesHtml | safe }}>
   <ul class="nhsuk-section-navigation__list">
@@ -48,23 +59,17 @@
       }) -}}
     {%- endset -%}
 
-    {%- set itemBadgeHtml -%}
-      {%- if item.badge is defined -%}
-        <span class="nhsuk-section-navigation__suffix">{{ nhsukBadge(item.badge) }}</span>
-      {%- endif -%}
-    {%- endset -%}
-
     {%- set itemInnerContent %}
       {% if item.current -%}
         {#- Wrap active item in strong element so users who override colours
           or styles still have some indicator of the current nav item. -#}
         <strong class="nhsuk-section-navigation__current">
           {{- item.html | safe if item.html else item.text -}}
-          {{- itemBadgeHtml | safe -}}
+          {{- _listItemBadge(item) | indent(6) if item.badge -}}
         </strong>
       {%- else -%}
         {{- item.html | safe if item.html else item.text -}}
-        {{- itemBadgeHtml | safe -}}
+        {{- _listItemBadge(item) | indent(6) if item.badge -}}
       {%- endif -%}
     {%- endset %}
     <li class="nhsuk-section-navigation__item {%- if item.current %} nhsuk-section-navigation__item--current{% endif %} {%- if item.classes %} {{ item.classes }}{% endif %}"

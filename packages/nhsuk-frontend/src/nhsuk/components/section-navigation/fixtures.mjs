@@ -1,3 +1,5 @@
+import { components } from "#lib"
+
 /**
  * Nunjucks macro option examples
  *
@@ -106,7 +108,13 @@ const fixtures = {
         },
         {
           href: "#",
-          html: 'Vaccinations<span class="nhsuk-section-navigation__suffix"><strong class="nhsuk-tag nhsuk-tag--green">New</strong></span>',
+          html: `Vaccinations${components.render("tag", {
+            context: {
+              text: "New",
+              visuallyHiddenText: ", ",
+              colour: "green"
+            }
+          })}`,
           current: true
         },
         {
