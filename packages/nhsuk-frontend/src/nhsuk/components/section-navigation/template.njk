@@ -58,25 +58,28 @@
 
 <nav {{- attributesHtml | safe }}>
   <ul class="nhsuk-section-navigation__list">
-  {% for item in items -%}
-    {%- set itemInnerAttributesHtml %}
+  {% for item in items %}
+    {% set itemInnerAttributesHtml %}
       {{- nhsukAttributes({
+        class: "nhsuk-section-navigation__link" if item.href
+          else "nhsuk-section-navigation__text",
         href: {
           value: item.href,
           optional: true
         },
         "aria-current": {
-          value: "page" if item.current else false,
+          value: ("page" if item.current else "true")
+            if item.active or item.current
+            else false,
           optional: true
         }
       }) -}}
     {% endset %}
-
     {%- set itemInnerHtml %}
-      {%- if item.current -%}
-        {#- Wrap active item in strong element so users who override colours
+      {#- Wrap active links in strong element so users who override colours
           or styles still have some indicator of the current nav item. -#}
-        <strong class="nhsuk-section-navigation__current">
+      {%- if item.active or item.current -%}
+        <strong class="nhsuk-section-navigation__item-current-fallback">
           {{- item.html | safe if item.html else item.text -}}
         </strong>
         {{- _listItemBadge(item.badge, {
@@ -91,23 +94,22 @@
         }) | trim -}}
       {% endif %}
     {%- endset %}
-    <li class="nhsuk-section-navigation__item {%- if item.current %} nhsuk-section-navigation__item--current{% endif %} {%- if item.classes %} {{ item.classes }}{% endif %}"
-      {{- nhsukAttributes(item.attributes) }}>
-      {% if item.href %}
-      <a class="nhsuk-section-navigation__link" {{- itemInnerAttributesHtml | safe }}>
+    <li class="nhsuk-section-navigation__item {%- if item.active or item.current %} nhsuk-section-navigation__item--current{% endif %} {%- if item.classes %} {{ item.classes }}{% endif %}" {{- nhsukAttributes(item.attributes) }}>
+    {% if item.href %}
+      <a {{- itemInnerAttributesHtml | safe }}>
         {{ nhsukContent({
           html: itemInnerHtml,
           slots: item.slots
         }) | trim | indent(8) }}
       </a>
-      {% else %}
-      <span class="nhsuk-section-navigation__text" {{- itemInnerAttributesHtml | safe }}>
+    {% else %}
+      <span {{- itemInnerAttributesHtml | safe }}>
         {{ nhsukContent({
           html: itemInnerHtml,
           slots: item.slots
         }) | trim | indent(8) }}
       </span>
-      {% endif %}
+    {% endif %}
     </li>
   {% endfor %}
   </ul>
