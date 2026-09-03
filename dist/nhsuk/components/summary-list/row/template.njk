@@ -1,0 +1,101 @@
+{% from "nhsuk/components/card/action/macro.njk" import cardAction as nhsukCardAction %}
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-summary-list__row" -%}
+{%- set classNamesKey = "nhsuk-summary-list__key" -%}
+{%- set classNamesValue = "nhsuk-summary-list__value" -%}
+{%- set classNamesActions = "nhsuk-summary-list__actions" -%}
+
+{#- Support row key as string #}
+{%- set key = params.key if params.key is mapping and params.key is not escaped else {
+  text: params.key if params.key is string else undefined,
+  html: params.key if params.key is escaped else undefined
+} %}
+
+{#- Support row value as string #}
+{%- set value = params.value if params.value is mapping and params.value is not escaped else {
+  text: params.value if params.value is string else undefined,
+  html: params.value if params.value is escaped else undefined
+} %}
+
+{#- Support actions as array #}
+{%- set actions = params.actions | select("mapping") | list if params.actions and params.actions is iterable else [] %}
+{%- set actions = params.actions.items | select("mapping") | list if params.actions.items and not actions | length else actions %}
+
+{%- if parent.hasActions and not actions | length %}
+  {% set classNames = classNames ~ " nhsuk-summary-list__row--no-actions" %}
+{% endif %}
+
+{%- if params.border === false and
+  not (params.classes and "nhsuk-summary-list__row--no-border" in params.classes) and
+  not (parent.params.classes and (
+    "nhsuk-summary-list--no-border" in parent.params.classes or
+    "nhsuk-summary-list--no-last-row-border" in parent.params.classes)) and
+  not (parent.params.lastRowBorder === false and parent.loop.last) %}
+  {% set classNames = classNames ~ " nhsuk-summary-list__row--no-border" %}
+{% endif %}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif %}
+
+{%- if key.width and (not key.classes or not "nhsuk-u-width-" ~ key.width in key.classes) %}
+  {% set classNamesKey = classNamesKey ~ " nhsuk-u-width-" ~ key.width %}
+{% endif %}
+
+{%- if key.classes %}
+  {% set classNamesKey = classNamesKey ~ " " ~ key.classes %}
+{% endif %}
+
+{%- if value.width and (not value.classes or not "nhsuk-u-width-" ~ value.width in value.classes) %}
+  {% set classNamesValue = classNamesValue ~ " nhsuk-u-width-" ~ value.width %}
+{% endif %}
+
+{%- if value.classes %}
+  {% set classNamesValue = classNamesValue ~ " " ~ value.classes %}
+{% endif %}
+
+{%- if params.actions.width and (not params.actions.classes or not "nhsuk-u-width-" ~ params.actions.width in params.actions.classes) %}
+  {% set classNamesActions = classNamesActions ~ " nhsuk-u-width-" ~ params.actions.width %}
+{% endif %}
+
+{%- if params.actions.classes %}
+  {% set classNamesActions = classNamesActions ~ " " ~ params.actions.classes %}
+{% endif -%}
+
+<div class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %} {{- nhsukAttributes(params.attributes) }}>
+  <dt class="{{ classNamesKey }}" {%- if key.id %} id="{{ key.id }}"{% endif %} {{- nhsukAttributes(key.attributes) }}>
+  {% if key.html %}
+    {{ key.html | safe | trim | indent(4) }}
+  {% elif key.text %}
+    {{ key.text | trim | indent(4) }}
+  {% endif %}
+  </dt>
+  <dd class="{{ classNamesValue }}" {%- if value.id %} id="{{ value.id }}"{% endif %} {{- nhsukAttributes(value.attributes) }}>
+  {% if value.html %}
+    {{ value.html | safe | trim | indent(4) }}
+  {% elif value.text %}
+    {{ value.text | trim | indent(4) }}
+  {% endif %}
+  </dd>
+  {% if actions | length %}
+  <dd class="{{ classNamesActions }}" {%- if params.actions.id %} id="{{ params.actions.id }}"{% endif %} {{- nhsukAttributes(params.actions.attributes) }}>
+    {% if actions | length == 1 %}
+      {{- nhsukCardAction(actions[0], {
+        params: parent.params.card
+      }) | trim | indent(4, true) }}
+    {% else %}
+    <ul class="nhsuk-summary-list__actions-list">
+    {% for action in actions %}
+      <li class="nhsuk-summary-list__actions-list-item">
+        {{ nhsukCardAction(action, {
+          params: parent.params.card
+        }) | trim | indent(8) }}
+      </li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+  </dd>
+  {% endif %}
+</div>
