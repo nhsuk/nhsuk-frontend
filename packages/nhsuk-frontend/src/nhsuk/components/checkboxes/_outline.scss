@@ -93,6 +93,11 @@
       outline: none;
     }
 
+    // Prevent the default/checked box-shadow colour showing
+    &:focus:not(:active) {
+      box-shadow: none;
+    }
+
     &:active,
     &:active:focus {
       top: $nhsuk-button-shadow-size;
