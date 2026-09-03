@@ -1,0 +1,237 @@
+@use "../../core" as *;
+
+////
+/// Radios outline modifier
+///
+/// Styles standard nhsuk-radios as inline button-style controls,
+/// matching NHS button patterns.
+////
+
+.nhsuk-radios.nhsuk-radios--outline {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: nhsuk-spacing(2);
+  row-gap: nhsuk-spacing(2) + $nhsuk-border-width-form-element;
+  margin: 0 0 nhsuk-spacing(4);
+
+  // Override .nhsuk-checkboxes--inline.nhsuk-checkboxes--small 0 row gap
+  &.nhsuk-radios--inline.nhsuk-radios--small {
+    row-gap: nhsuk-spacing(2) + $nhsuk-border-width-form-element;
+  }
+
+  .nhsuk-radios__item {
+    display: block;
+
+    position: relative;
+
+    max-width: none;
+
+    margin: 0;
+    padding: 0;
+
+    overflow: visible;
+  }
+
+  .nhsuk-radios__input {
+    box-sizing: border-box;
+
+    position: absolute;
+    z-index: 1;
+
+    width: 100%;
+    height: 100%;
+    margin: 0;
+
+    border: $nhsuk-border-width-form-element solid transparent;
+    border-radius: nhsuk-px-to-rem($nhsuk-button-border-radius);
+
+    opacity: 1;
+
+    background-color: transparent;
+
+    cursor: pointer;
+
+    appearance: none;
+
+    inset: 0;
+
+    // Only the border/shadow pseudo elements are used here
+    @include nhsuk-button-style(
+      $button-colour: transparent,
+      $button-border-colour: $nhsuk-secondary-button-border-colour,
+      $button-shadow-colour: $nhsuk-secondary-button-shadow-colour
+    );
+
+    // Default pseudo element styles, mirroring .nhsuk-button
+    &::before,
+    &::after {
+      content: "";
+
+      display: block;
+
+      position: absolute;
+      top: -$nhsuk-border-width-form-element;
+      right: -$nhsuk-border-width-form-element;
+      bottom: -$nhsuk-border-width-form-element;
+      left: -$nhsuk-border-width-form-element;
+
+      border-radius: nhsuk-px-to-rem($nhsuk-button-border-radius);
+    }
+
+    &::before {
+      bottom: -($nhsuk-border-width-form-element + $nhsuk-button-shadow-size);
+      border: $nhsuk-border-width-form-element solid transparent;
+      background-color: transparent;
+    }
+
+    &:active::before {
+      top: -($nhsuk-border-width-form-element + $nhsuk-button-shadow-size);
+      bottom: -$nhsuk-border-width-form-element;
+    }
+
+    // Reset native focus styles - the label shows the focus
+    &:focus {
+      outline: none;
+    }
+
+    // Prevent the default/checked box-shadow colour showing through
+    &:focus:not(:active) {
+      box-shadow: none;
+    }
+
+    &:active,
+    &:active:focus {
+      top: $nhsuk-button-shadow-size;
+      box-shadow: none;
+    }
+
+    &:checked {
+      $checked-shadow-colour: nhsuk-shade(nhsuk-colour("blue"), 50%);
+
+      box-shadow: 0 $nhsuk-button-shadow-size 0 $checked-shadow-colour;
+
+      &::after {
+        box-shadow: none;
+      }
+
+      &:active,
+      &:active:focus {
+        border-color: transparent;
+        box-shadow: none;
+      }
+
+      &:not(:focus):not(:active)::before {
+        border-color: transparent;
+      }
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  .nhsuk-radios__label {
+    box-sizing: border-box;
+    display: flex;
+
+    position: relative;
+
+    align-items: center;
+
+    max-width: none;
+    min-height: nhsuk-px-to-rem(44px);
+    padding: nhsuk-px-to-rem(6px) nhsuk-px-to-rem(12px);
+
+    pointer-events: none;
+
+    border-radius: nhsuk-px-to-rem($nhsuk-button-border-radius);
+
+    color: $nhsuk-secondary-button-text-colour;
+
+    font-weight: $nhsuk-font-weight-bold;
+    line-height: 1.25;
+    user-select: none;
+
+    gap: nhsuk-spacing(2);
+    @include nhsuk-font-size(16);
+
+    &::before {
+      content: "";
+
+      position: static;
+
+      flex: 0 0 nhsuk-px-to-rem(18px);
+
+      height: nhsuk-px-to-rem(18px);
+
+      border: $nhsuk-border-width-form-element solid currentcolor;
+      border-radius: 50%;
+
+      background: transparent;
+    }
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      left: nhsuk-px-to-rem(17px);
+
+      width: nhsuk-px-to-rem(8px);
+      height: nhsuk-px-to-rem(8px);
+
+      transform: translateY(-50%);
+
+      border: 0;
+      border-radius: 50%;
+
+      opacity: 0;
+      background-color: currentcolor;
+    }
+  }
+
+  .nhsuk-radios__input:checked + .nhsuk-radios__label {
+    color: nhsuk-colour("white");
+    background-color: nhsuk-colour("blue");
+
+    &::after {
+      opacity: 1;
+    }
+  }
+
+  .nhsuk-radios__input:not(:disabled):not(:checked):not(:focus):hover + .nhsuk-radios__label,
+  .nhsuk-radios__input:not(:disabled):not(:checked):not(:focus) + .nhsuk-radios__label:hover {
+    background-color: $nhsuk-secondary-button-hover-colour;
+  }
+
+  .nhsuk-radios__input:not(:disabled):checked:not(:focus):hover + .nhsuk-radios__label,
+  .nhsuk-radios__input:not(:disabled):checked:not(:focus) + .nhsuk-radios__label:hover {
+    background-color: nhsuk-shade(nhsuk-colour("blue"), 20%);
+  }
+
+  .nhsuk-radios__input:focus:not(:active) + .nhsuk-radios__label {
+    @include nhsuk-focused-button;
+  }
+
+  .nhsuk-radios__input:not(:disabled):active + .nhsuk-radios__label {
+    top: $nhsuk-button-shadow-size;
+  }
+
+  // Hide the radio outline as the label handles focus
+  .nhsuk-radios__input:focus + .nhsuk-radios__label::before,
+  .nhsuk-radios__input:not(:disabled):hover + .nhsuk-radios__label::before,
+  .nhsuk-radios__input:not(:disabled) + .nhsuk-radios__label:hover::before {
+    border: $nhsuk-border-width-form-element solid currentcolor;
+    outline: none;
+    box-shadow: none;
+  }
+
+  .nhsuk-radios__input:disabled + .nhsuk-radios__label {
+    opacity: 0.5;
+  }
+
+  .nhsuk-radios__conditional {
+    flex-basis: 100%;
+    margin: nhsuk-spacing(1) nhsuk-spacing(1) nhsuk-px-to-rem(8px);
+    padding: 0 nhsuk-spacing(2) 0 nhsuk-px-to-rem(20px);
+  }
+}
