@@ -306,7 +306,7 @@ const options = {
         type: 'string',
         required: false,
         description:
-          'Optional variant of search button – `"brand"`, `"login"`, `"reverse"`, `"secondary"`, `"secondary-solid"` or `"warning"`.',
+          'Optional variant of search button – `"brand"`, `"brand-reverse"`, `"login"`, `"reverse"`, `"secondary"`, `"secondary-solid"` or `"warning"`.',
         released: '10.5.0'
       },
       classes: {
