@@ -17,7 +17,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.5.4",
-    "cssnano": "^8.0.6",
+    "cssnano": "^9.0.0",
     "del-cli": "^7.0.0",
     "html-validate": "^11.10.0",
     "plugin-error": "^2.0.1",
