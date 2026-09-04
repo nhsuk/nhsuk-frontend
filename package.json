@@ -122,6 +122,9 @@
   },
   "overrides": {
     "axe-core": "$axe-core",
+    "backstopjs": {
+      "playwright": "$playwright-core"
+    },
     "chokidar@^2": {
       "glob-parent": "^5"
     },
@@ -132,7 +135,6 @@
     "latest-version@^5": {
       "package-json": "^7"
     },
-    "playwright": "$playwright-core",
     "puppeteer": "$puppeteer",
     "sass-convert": {
       "semver-regex": "^3"
