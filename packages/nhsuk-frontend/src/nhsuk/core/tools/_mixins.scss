@@ -297,6 +297,8 @@
 /// Panel with label mixin, inherits panel styling
 /// and removes padding top for the label positioning
 ///
+/// 1. Top margin set to account for heading that sits just outside the box.
+///
 /// @param {Colour} $panel-background-colour - Panel background colour
 /// @param {Colour} $panel-text-colour - Panel text colour
 /// @param {Colour} $panel-border-colour - Panel border colour
@@ -306,12 +308,16 @@
 ///
 
 @mixin nhsuk-panel-with-label($panel-background-colour, $panel-text-colour, $panel-border-colour) {
+  margin-top: nhsuk-spacing(2); // [1]
   padding-top: 0 !important;
   border: 1px solid $panel-border-colour;
 
   @include nhsuk-panel($panel-background-colour, $panel-text-colour, $panel-border-colour);
-  @include nhsuk-responsive-margin(7, "top");
   @include nhsuk-responsive-padding(5, ("bottom", "left", "right"));
+
+  @media #{nhsuk-from-breakpoint(tablet)} {
+    margin-top: nhsuk-spacing(3); // [1]
+  }
 }
 
 /// Panel with label mixin, inherits panel styling
