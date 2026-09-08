@@ -376,7 +376,6 @@ $card-border-hover-colour: $nhsuk-card-border-hover-colour;
 
   .nhsuk-card--care {
     @include nhsuk-care-card($nhsuk-brand-colour, $nhsuk-reverse-text-colour, 4px); // [8]
-    @include nhsuk-responsive-margin(7, "top");
   }
 
   .nhsuk-card--care > .nhsuk-card__heading-container,
