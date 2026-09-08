@@ -1,4 +1,3 @@
-import { normaliseOptions } from '../../common/configuration/index.mjs'
 import { ConfigurableComponent } from '../../configurable-component.mjs'
 import { ElementError } from '../../errors/index.mjs'
 
@@ -8,10 +7,13 @@ import { ElementError } from '../../errors/index.mjs'
  * @augments {ConfigurableComponent<StepperInputConfig>}
  */
 export class StepperInput extends ConfigurableComponent {
-  /**
-   * @type {number | null}
-   */
-  value = null
+  valueAsNumber = NaN
+
+  /** @type {Element | null} */
+  $prefix = null
+
+  /** @type {Element | null} */
+  $suffix = null
 
   /**
    * @param {Element | null} $root - HTML element to use for component
@@ -19,6 +21,9 @@ export class StepperInput extends ConfigurableComponent {
    */
   constructor($root, config) {
     super($root, config)
+
+    const { prefixClass, suffixClass, screenReaderCountMessageClass } =
+      this.config
 
     const $input = this.$root.querySelector('.nhsuk-js-stepper-input-input')
     if (!($input instanceof HTMLInputElement)) {
@@ -66,6 +71,8 @@ export class StepperInput extends ConfigurableComponent {
     }
 
     this.$input = $input
+    this.$prefix = this.$root.querySelector(`.${prefixClass}`)
+    this.$suffix = this.$root.querySelector(`.${suffixClass}`)
     this.$buttonStepDown = $buttonStepDown
     this.$buttonStepUp = $buttonStepUp
 
@@ -89,6 +96,7 @@ export class StepperInput extends ConfigurableComponent {
 
     // Check for input changes to (optionally) disable step buttons
     $input.addEventListener('input', (event) => this.handleInput(event))
+    $input.addEventListener('keydown', (event) => this.handleKeyDown(event))
 
     $buttonStepDown.addEventListener('click', (event) =>
       this.handleStepDown(event)
@@ -107,7 +115,7 @@ export class StepperInput extends ConfigurableComponent {
     this.$screenReaderStatusMessage = document.createElement('div')
     this.$screenReaderStatusMessage.setAttribute('aria-live', 'polite')
     this.$screenReaderStatusMessage.classList.add(
-      'nhsuk-stepper-input__sr-status',
+      screenReaderCountMessageClass,
       'nhsuk-u-visually-hidden'
     )
 
@@ -118,85 +126,171 @@ export class StepperInput extends ConfigurableComponent {
   }
 
   /**
+   * Get stepper input value
+   */
+  get value() {
+    return this.valueAsNumber
+  }
+
+  /**
+   * Set stepper input value
+   */
+  set value(value) {
+    const { $input } = this
+
+    this.valueAsNumber = value
+
+    if (!Number.isFinite(value)) {
+      $input.value = ''
+
+      return
+    }
+
+    $input.valueAsNumber = value
+
+    this.format()
+  }
+
+  /**
    * Step up number input value
    *
-   * @param {MouseEvent} [event] - Click event
+   * @param {MouseEvent | KeyboardEvent} [event] - Click or keyboard event
    */
   handleStepUp(event) {
-    this.$input.stepUp()
+    const { $input } = this
+
+    if ($input.hasAttribute('disabled')) {
+      return
+    }
+
+    $input.stepUp()
     this.handleInput(event)
   }
 
   /**
    * Step down number input value
    *
-   * @param {MouseEvent} [event] - Click event
+   * @param {MouseEvent | KeyboardEvent} [event] - Click or keyboard event
    */
   handleStepDown(event) {
-    this.$input.stepDown()
+    const { $input } = this
+
+    if ($input.hasAttribute('disabled')) {
+      return
+    }
+
+    $input.stepDown()
     this.handleInput(event)
   }
 
   /**
    * Handle number input value change
    *
-   * @param {Event | MouseEvent} [event] - Input or click event (optional)
+   * @param {Event | MouseEvent | KeyboardEvent} [event] - Input, click or keyboard event (optional)
    */
   handleInput(event) {
-    const { $input, config, value } = this
-    const min = config.min ?? 0
+    const { config, $input, $buttonStepDown, $buttonStepUp } = this
 
-    // Browsers automatically populate the min or max value using arrow keys
-    // but we must handle this manually when clicking step buttons
-    const isEmpty = Number.isNaN($input.valueAsNumber)
-    const isButton = event?.type === 'click'
-
-    // Polyfill default value on step down
-    if (isEmpty && event?.currentTarget === this.$buttonStepDown) {
-      $input.valueAsNumber = min
+    // Skip unless number input value changes
+    if (event && this.value === $input.valueAsNumber) {
+      return
     }
 
-    // Polyfill default value on step up
-    if (isEmpty && event?.currentTarget === this.$buttonStepUp) {
-      $input.valueAsNumber = min === 0 ? 1 : min
-    }
+    const isStepper = event?.type === 'click' || event?.type === 'keydown'
 
-    // Polyfill event dispatch when clicking step buttons
-    if (isButton && value !== $input.valueAsNumber) {
-      $input.dispatchEvent(new Event('input', { bubbles: true }))
-      $input.dispatchEvent(new Event('change', { bubbles: true }))
-    }
+    const min = config.min ?? -Infinity
+    const max = config.max ?? Infinity
 
     // Handle input number min value
-    if (typeof config.min === 'number') {
-      this.$buttonStepDown.disabled = $input.valueAsNumber <= config.min
+    if (!$buttonStepDown.hasAttribute('aria-disabled')) {
+      $buttonStepDown.disabled = Number.isFinite($input.valueAsNumber)
+        ? $input.valueAsNumber <= min
+        : min > 0
     }
 
     // Handle input number max value
-    if (typeof config.max === 'number') {
-      this.$buttonStepUp.disabled = $input.valueAsNumber >= config.max
+    if (!$buttonStepUp.hasAttribute('aria-disabled')) {
+      $buttonStepUp.disabled = Number.isFinite($input.valueAsNumber)
+        ? $input.valueAsNumber >= max
+        : max < 0
     }
 
-    // Announce value when clicking step buttons
-    if (isButton) {
-      this.announceInput($input.valueAsNumber)
+    // Save initial or updated value
+    if (!event || isStepper) {
+      this.value = $input.valueAsNumber
     }
 
-    // Update saved value
-    this.value = $input.valueAsNumber
+    if (!isStepper) {
+      return
+    }
+
+    // Announce updated value
+    this.announce()
+
+    // Polyfill event dispatch when clicking step buttons
+    if (event.type === 'click') {
+      $input.dispatchEvent(new Event('input', { bubbles: true }))
+      $input.dispatchEvent(new Event('change', { bubbles: true }))
+    }
+  }
+
+  /**
+   * Prevent excluded characters and apply formatting on key down
+   *
+   * @param {KeyboardEvent} event - Keydown event
+   */
+  handleKeyDown(event) {
+    const { config } = this
+
+    if (config.exclude.includes(event.key)) {
+      event.preventDefault()
+    }
+
+    switch (event.key) {
+      // 'Up' and 'Down' required for Edge 16 support.
+      case 'ArrowUp':
+      case 'Up':
+        this.handleStepUp(event)
+        event.preventDefault()
+        break
+      case 'ArrowDown':
+      case 'Down':
+        this.handleStepDown(event)
+        event.preventDefault()
+        break
+    }
+  }
+
+  /**
+   * Format number input value
+   * (with optional decimal places)
+   */
+  format() {
+    const { config, $input } = this
+
+    // Split step into integer and decimal parts
+    const parts = `${config.step}`.split('.')
+
+    // Add or remove decimal places
+    const value =
+      parts.length > 1
+        ? this.value.toFixed(parts[1].length)
+        : this.value.toFixed(0)
+
+    $input.value = value
   }
 
   /**
    * Announce number input value
-   *
-   * @param {number} value - Number input value
    */
-  announceInput(value) {
-    if (this.value === null) {
-      return
-    }
+  announce() {
+    const { $input, $prefix, $suffix, $screenReaderStatusMessage } = this
 
-    this.$screenReaderStatusMessage.innerText = `${value}`
+    const prefix = $prefix?.textContent ?? ''
+    const suffix = $suffix?.textContent ?? ''
+    const message = `${prefix} ${$input.value} ${suffix}`.trim()
+
+    $screenReaderStatusMessage.innerText = message
   }
 
   /**
@@ -212,6 +306,10 @@ export class StepperInput extends ConfigurableComponent {
    * @type {StepperInputConfig}
    */
   static defaults = Object.freeze({
+    prefixClass: 'nhsuk-input-wrapper__prefix',
+    suffixClass: 'nhsuk-input-wrapper__suffix',
+    screenReaderCountMessageClass: 'nhsuk-stepper-input__sr-status',
+    exclude: ['+', 'e'],
     step: 1
   })
 
@@ -223,6 +321,10 @@ export class StepperInput extends ConfigurableComponent {
    */
   static schema = Object.freeze({
     properties: {
+      prefixClass: { type: 'string' },
+      suffixClass: { type: 'string' },
+      screenReaderCountMessageClass: { type: 'string' },
+      exclude: { type: 'array' },
       min: { type: 'number' },
       max: { type: 'number' },
       step: { type: 'number' }
@@ -231,34 +333,19 @@ export class StepperInput extends ConfigurableComponent {
 }
 
 /**
- * Initialise number input component
- *
- * @deprecated Use {@link createAll | `createAll(StepperInput, options)`} instead.
- * @param {InitOptions & Partial<StepperInputConfig>} [options]
- */
-export function initStepperInputs(options) {
-  const { scope: $scope } = normaliseOptions(options)
-
-  const $stepperInputs = $scope?.querySelectorAll(
-    `[data-module="${StepperInput.moduleName}"]`
-  )
-
-  $stepperInputs?.forEach(($root) => {
-    new StepperInput($root, options)
-  })
-}
-
-/**
  * Stepper input config
  *
  * @see {@link StepperInput.defaults}
  * @typedef {object} StepperInputConfig
+ * @property {string} prefixClass - Input prefix class
+ * @property {string} suffixClass - Input suffix class
+ * @property {string} screenReaderCountMessageClass - Announcements class
  * @property {number} [min] - The minimum value
  * @property {number} [max] - The maximum value
- * @property {number} [step=1] - The stepping interval when changing the value
+ * @property {number} step - The stepping interval when changing the value
+ * @property {string[]} exclude - Excluded number input characters
  */
 
 /**
- * @import { createAll, InitOptions } from '../../index.mjs'
  * @import { Schema } from '../../common/configuration/index.mjs'
  */

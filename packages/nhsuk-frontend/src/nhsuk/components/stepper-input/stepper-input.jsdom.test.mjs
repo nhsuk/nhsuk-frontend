@@ -4,7 +4,7 @@ import { userEvent } from '@testing-library/user-event'
 import { components } from '#lib'
 
 import { examples } from './fixtures.mjs'
-import { StepperInput, initStepperInputs } from './stepper-input.mjs'
+import { StepperInput } from './stepper-input.mjs'
 
 const user = userEvent.setup()
 
@@ -12,14 +12,17 @@ describe('Stepper input', () => {
   /** @type {HTMLElement} */
   let $root
 
+  /** @type {HTMLInputElement} */
+  let $input
+
   /** @type {HTMLElement} */
   let $stepUpButton
 
   /** @type {HTMLElement} */
   let $stepDownButton
 
-  /** @type {HTMLInputElement} */
-  let $input
+  /** @type {HTMLElement | null} */
+  let $screenReaderCountMessage
 
   /**
    * @param {keyof typeof examples} example
@@ -38,24 +41,56 @@ describe('Stepper input', () => {
       hidden: true
     })
 
+    $input = within($root).getByRole('textbox')
     $stepDownButton = $buttons[0]
     $stepUpButton = $buttons[1]
 
-    $input = within($root).getByRole('textbox', {
-      name: 'How many images were taken?'
-    })
-
+    jest.spyOn($input, 'addEventListener')
     jest.spyOn($stepDownButton, 'addEventListener')
     jest.spyOn($stepUpButton, 'addEventListener')
   }
 
-  beforeEach(() => {
-    initExample('with button text')
-  })
+  /**
+   * @param {keyof typeof examples} example
+   */
+  function createExample(example) {
+    initExample(example)
 
-  describe('Initialisation via init function', () => {
+    new StepperInput($root)
+
+    $screenReaderCountMessage = /** @type {HTMLElement} */ (
+      document.querySelector("[aria-live='polite']")
+    )
+  }
+
+  describe('Initialisation via class', () => {
+    beforeEach(() => {
+      initExample('default')
+    })
+
     it('should add event listeners', () => {
-      initStepperInputs()
+      new StepperInput($root)
+
+      // Adds listener for step input mouse wheel
+      expect($input.addEventListener).toHaveBeenNthCalledWith(
+        1,
+        'wheel',
+        expect.any(Function)
+      )
+
+      // Adds listener for step input changes
+      expect($input.addEventListener).toHaveBeenNthCalledWith(
+        2,
+        'input',
+        expect.any(Function)
+      )
+
+      // Adds listener for step input arrow keys
+      expect($input.addEventListener).toHaveBeenNthCalledWith(
+        3,
+        'keydown',
+        expect.any(Function)
+      )
 
       // Adds listener for step down button click
       expect($stepDownButton.addEventListener).toHaveBeenNthCalledWith(
@@ -72,47 +107,6 @@ describe('Stepper input', () => {
       )
     })
 
-    it('should throw with missing text input', () => {
-      $input.remove()
-
-      expect(() => initStepperInputs()).toThrow(
-        `${StepperInput.moduleName}: Form field (\`.nhsuk-js-stepper-input-input\`) not found`
-      )
-    })
-
-    it('should throw with missing step down button', () => {
-      $stepDownButton.remove()
-
-      expect(() => initStepperInputs()).toThrow(
-        `${StepperInput.moduleName}: Step down button (\`.nhsuk-js-stepper-input-step-down\`) not found`
-      )
-    })
-
-    it('should throw with missing step up button', () => {
-      $stepUpButton.remove()
-
-      expect(() => initStepperInputs()).toThrow(
-        `${StepperInput.moduleName}: Step up button (\`.nhsuk-js-stepper-input-step-up\`) not found`
-      )
-    })
-
-    it('should not throw with missing component', () => {
-      $root.remove()
-      expect(() => initStepperInputs()).not.toThrow()
-    })
-
-    it('should not throw with empty body', () => {
-      document.body.innerHTML = ''
-      expect(() => initStepperInputs()).not.toThrow()
-    })
-
-    it('should not throw with empty scope', () => {
-      const scope = document.createElement('div')
-      expect(() => initStepperInputs({ scope })).not.toThrow()
-    })
-  })
-
-  describe('Initialisation via class', () => {
     it('should not throw with $root element', () => {
       expect(() => new StepperInput($root)).not.toThrow()
     })
@@ -156,6 +150,22 @@ describe('Stepper input', () => {
       )
     })
 
+    it('should throw with missing step down button', () => {
+      $stepDownButton.remove()
+
+      expect(() => new StepperInput($root)).toThrow(
+        `${StepperInput.moduleName}: Step down button (\`.nhsuk-js-stepper-input-step-down\`) not found`
+      )
+    })
+
+    it('should throw with missing step up button', () => {
+      $stepUpButton.remove()
+
+      expect(() => new StepperInput($root)).toThrow(
+        `${StepperInput.moduleName}: Step up button (\`.nhsuk-js-stepper-input-step-up\`) not found`
+      )
+    })
+
     it('should throw when initialised twice', () => {
       expect(() => {
         new StepperInput($root)
@@ -166,8 +176,55 @@ describe('Stepper input', () => {
     })
   })
 
+  describe('Accessibility', () => {
+    beforeEach(() => {
+      initExample('default')
+      new StepperInput($root)
+    })
+
+    it('should have accessible name and role', async () => {
+      expect($stepUpButton).toHaveRole('button')
+      expect($stepUpButton).toHaveAccessibleName('Increase')
+
+      expect($stepDownButton).toHaveRole('button')
+      expect($stepDownButton).toHaveAccessibleName('Decrease')
+    })
+  })
+
+  describe('Input', () => {
+    it('should use text type by default', () => {
+      initExample('default')
+
+      expect($input).toHaveAttribute('type', 'text')
+      expect($input).toHaveAttribute('inputmode', 'numeric')
+    })
+
+    it('should use number type when initialised', () => {
+      initExample('default')
+
+      new StepperInput($root)
+
+      expect($input).toHaveAttribute('type', 'number')
+      expect($input).toHaveAttribute('inputmode', 'numeric')
+    })
+
+    it('should prevent excluded characters', async () => {
+      initExample('default')
+
+      new StepperInput($root)
+
+      await user.click($input)
+      await user.keyboard('+2.4e3')
+
+      expect($input).toHaveValue(2.43)
+      expect($input).toHaveDisplayValue('2.43')
+    })
+  })
+
   describe('Buttons', () => {
     it('should be hidden by default', () => {
+      initExample('default')
+
       expect($stepUpButton).toHaveRole('button')
       expect($stepUpButton).toHaveAttribute('hidden')
 
@@ -175,66 +232,186 @@ describe('Stepper input', () => {
       expect($stepDownButton).toHaveAttribute('hidden')
     })
 
-    it('should be visible when JavaScript is enabled', () => {
+    it('should be visible when initialised', () => {
+      initExample('default')
+
       new StepperInput($root)
 
       expect($stepUpButton).not.toHaveAttribute('hidden')
       expect($stepDownButton).not.toHaveAttribute('hidden')
     })
 
-    it('should announce changes when clicked', async () => {
+    it('should be enabled when initialised', () => {
+      initExample('default')
+
       new StepperInput($root)
 
-      const $liveRegion = /** @type {HTMLElement} */ (
-        document.querySelector("[aria-live='polite']")
-      )
-
-      await user.click($stepUpButton)
-      expect($liveRegion.innerText).toBe('3')
-
-      await user.click($stepDownButton)
-      expect($liveRegion.innerText).toBe('2')
+      expect($stepUpButton).not.toBeDisabled()
+      expect($stepDownButton).not.toBeDisabled()
     })
 
-    describe('Increase', () => {
-      beforeEach(() => {
-        new StepperInput($root)
+    describe('Step up button', () => {
+      it('increments empty input', async () => {
+        createExample('default')
+
+        expect($input).toHaveValue(null)
+        expect($input).toHaveDisplayValue('')
+        expect($screenReaderCountMessage).toBeEmptyDOMElement()
+
+        await user.click($stepUpButton)
+
+        expect($input).toHaveValue(1)
+        expect($input).toHaveDisplayValue('1')
+        expect($screenReaderCountMessage).toHaveTextContent('1')
       })
 
-      it('steps up when clicked', async () => {
+      it('increments empty input with step', async () => {
+        createExample('step')
+
+        await user.click($stepUpButton)
+
+        expect($input).toHaveValue(0.1)
+        expect($input).toHaveDisplayValue('0.1')
+        expect($screenReaderCountMessage).toHaveTextContent('0.1')
+      })
+
+      it('increments input with value', async () => {
+        createExample('with value')
+
         expect($input).toHaveValue(2)
+        expect($input).toHaveDisplayValue('2')
+        expect($screenReaderCountMessage).toBeEmptyDOMElement()
 
         await user.click($stepUpButton)
 
         expect($input).toHaveValue(3)
+        expect($input).toHaveDisplayValue('3')
+        expect($screenReaderCountMessage).toHaveTextContent('3')
       })
 
-      it('steps up from 1 if the input is empty and min is 0', async () => {
-        await user.clear($input)
+      it('increments input with step and value', async () => {
+        createExample('step and value')
+
+        expect($input).toHaveValue(1.6)
+        expect($input).toHaveDisplayValue('1.60')
+        expect($screenReaderCountMessage).toBeEmptyDOMElement()
+
         await user.click($stepUpButton)
 
-        expect($input).toHaveValue(1)
+        expect($input).toHaveValue(1.61)
+        expect($input).toHaveDisplayValue('1.61')
+        expect($screenReaderCountMessage).toHaveTextContent('1.61')
+      })
+
+      it('is disabled when max value is reached', async () => {
+        createExample('max')
+
+        await user.click($stepUpButton)
+        await user.click($stepUpButton)
+        await user.click($stepUpButton)
+        await user.click($stepUpButton)
+        await user.click($stepUpButton)
+
+        expect($input).toHaveValue(5)
+        expect($input).toHaveDisplayValue('5')
+        expect($screenReaderCountMessage).toHaveTextContent('5')
+
+        expect($stepDownButton).not.toBeDisabled()
+        expect($stepUpButton).toBeDisabled()
+      })
+
+      it('is disabled at max value', async () => {
+        createExample('max and value')
+
+        expect($input).toHaveValue(5)
+        expect($input).toHaveDisplayValue('5')
+        expect($screenReaderCountMessage).toBeEmptyDOMElement()
+
+        expect($stepDownButton).not.toBeDisabled()
+        expect($stepUpButton).toBeDisabled()
       })
     })
 
-    describe('Decrease', () => {
-      beforeEach(() => {
-        new StepperInput($root)
+    describe('Step down button', () => {
+      it('decrements empty input', async () => {
+        createExample('default')
+
+        expect($input).toHaveValue(null)
+        expect($input).toHaveDisplayValue('')
+        expect($screenReaderCountMessage).toBeEmptyDOMElement()
+
+        await user.click($stepDownButton)
+
+        expect($input).toHaveValue(-1)
+        expect($input).toHaveDisplayValue('-1')
+        expect($screenReaderCountMessage).toHaveTextContent('-1')
       })
 
-      it('steps down when clicked', async () => {
+      it('decrements empty input with step', async () => {
+        createExample('step')
+
+        await user.click($stepDownButton)
+
+        expect($input).toHaveValue(-0.1)
+        expect($input).toHaveDisplayValue('-0.1')
+        expect($screenReaderCountMessage).toHaveTextContent('-0.1')
+      })
+
+      it('decrements input with value', async () => {
+        createExample('with value')
+
         expect($input).toHaveValue(2)
+        expect($input).toHaveDisplayValue('2')
+        expect($screenReaderCountMessage).toBeEmptyDOMElement()
 
         await user.click($stepDownButton)
 
         expect($input).toHaveValue(1)
+        expect($input).toHaveDisplayValue('1')
+        expect($screenReaderCountMessage).toHaveTextContent('1')
       })
 
-      it('steps down to min value if the input is empty', async () => {
-        await user.clear($input)
+      it('decrements input with step and value', async () => {
+        createExample('step and value')
+
+        expect($input).toHaveValue(1.6)
+        expect($input).toHaveDisplayValue('1.60')
+        expect($screenReaderCountMessage).toBeEmptyDOMElement()
+
+        await user.click($stepDownButton)
+
+        expect($input).toHaveValue(1.59)
+        expect($input).toHaveDisplayValue('1.59')
+        expect($screenReaderCountMessage).toHaveTextContent('1.59')
+      })
+
+      it('is disabled when min value is reached', async () => {
+        createExample('min')
+
+        await user.keyboard('5')
+        await user.click($stepDownButton)
+        await user.click($stepDownButton)
+        await user.click($stepDownButton)
+        await user.click($stepDownButton)
         await user.click($stepDownButton)
 
         expect($input).toHaveValue(0)
+        expect($input).toHaveDisplayValue('0')
+        expect($screenReaderCountMessage).toHaveTextContent('0')
+
+        expect($stepDownButton).toBeDisabled()
+        expect($stepUpButton).not.toBeDisabled()
+      })
+
+      it('is disabled at min value', async () => {
+        createExample('min and value')
+
+        expect($input).toHaveValue(0)
+        expect($input).toHaveDisplayValue('0')
+        expect($screenReaderCountMessage).toBeEmptyDOMElement()
+
+        expect($stepDownButton).toBeDisabled()
+        expect($stepUpButton).not.toBeDisabled()
       })
     })
   })
