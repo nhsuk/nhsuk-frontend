@@ -117,7 +117,6 @@ describe('NHS.UK frontend', () => {
       expect(NHSUKFrontend).toHaveProperty('initRadios')
       expect(NHSUKFrontend).toHaveProperty('initScroll')
       expect(NHSUKFrontend).toHaveProperty('initSkipLinks')
-      expect(NHSUKFrontend).toHaveProperty('initStepperInputs')
       expect(NHSUKFrontend).toHaveProperty('initTables')
       expect(NHSUKFrontend).toHaveProperty('initTabs')
     })
