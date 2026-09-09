@@ -34,13 +34,35 @@
   {% set classNames = classNames ~ " " ~ params.classes %}
 {% endif -%}
 
-<strong class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
-  {{- nhsukAttributes(params.attributes) }}>
+{%- set attributesHtml %}
+  {{- nhsukAttributes({
+    class: classNames,
+    id: {
+      value: params.id,
+      optional: true
+    }
+  }) -}}
+
+  {{- nhsukAttributes(params.attributes) -}}
+{% endset -%}
+
+{%- if caller or params.html or params.text %}
+{%- set innerHtml %}
 {% if caller %}
   {{- caller() }}
 {% elif params.html %}
-  {{ params.html | safe | trim | indent(2) }}
-{% elif params.text %}
-  {{ params.text | trim | indent(2) }}
+  {{- params.html | safe }}
+{% else %}
+  {{- params.text }}
 {% endif %}
+{% endset -%}
+
+<strong {{- attributesHtml | safe }}>
+  {% if params.visuallyHiddenText %}
+  <span class="nhsuk-u-visually-hidden">{{ params.visuallyHiddenText }}: </span>
+  {{- innerHtml | safe | trim | indent(2) }}
+  {% else %}
+  {{ innerHtml | safe | trim | indent(2) }}
+  {% endif %}
 </strong>
+{% endif %}
