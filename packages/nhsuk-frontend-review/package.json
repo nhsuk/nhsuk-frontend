@@ -19,7 +19,7 @@
     "autoprefixer": "^10.5.4",
     "cssnano": "^9.0.0",
     "del-cli": "^7.0.0",
-    "html-validate": "^11.10.0",
+    "html-validate": "^11.12.0",
     "plugin-error": "^2.0.1",
     "postcss-pseudo-classes": "^0.4.0",
     "sassdoc": "^2.7.4"
