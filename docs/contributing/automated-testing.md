@@ -12,7 +12,7 @@ For full documentation on the BackstopJS framework, read the [BackstopJS documen
 
 BackstopJS tests configuration and files can be found within the `backstop` folder in the [tests directory](https://github.com/nhsuk/nhsuk-frontend/tree/master/tests).
 
-`backstop.js` contains all the test configuration and tests scenarios.
+`backstop.config.js` contains all the test configuration and tests scenarios.
 
 **`id`** – Used for screenshot naming. Set this property when sharing reference files with teammates -- otherwise omit and BackstopJS will auto-generate one for you to avoid naming collisions with BackstopJS resources.
 
@@ -41,11 +41,11 @@ npm run test:visual
 
 This will start the application and run the tests concurrently.
 
-Each time that a test is run locally a new set of bitmaps will be created in `tests/backstop/<timestamp>/`.
+Each time that a test is run locally a new set of bitmaps will be created in `tests/backstop/bitmaps_test/`.
 
 Once the test bitmaps are generated, a report comparing the most recent test bitmaps against the current reference bitmaps will display.
 
-If you run tests frequently, your `tests/backstop/<timestamp>/` folder may have a lot of historic tests bitmaps, you can delete the contents of this folder with `npm run test:visual:clean`.
+If you run tests frequently, your `tests/backstop/bitmaps_test/` folder may have a lot of historic tests bitmaps, you can delete the contents of this folder with `npm run test:visual:clean`.
 
 #### Run an individual test
 
@@ -69,7 +69,7 @@ npm run test:visual:approve
 
 #### Add new tests scenarios
 
-If you want to add new tests you will need to add the test scenarios to the `backstop.js` file following the [scenario configuration guidelines](#tests-configuration). Once you have added the new tests you will need to update the reference bitmaps to include a reference for the new tests.
+If you want to add new tests you will need to add the test scenarios to the `backstop.config.js` file following the [scenario configuration guidelines](#tests-configuration). Once you have added the new tests you will need to update the reference bitmaps to include a reference for the new tests.
 
 ```sh
 npm run test:visual:ref
