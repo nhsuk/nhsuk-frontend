@@ -10,7 +10,6 @@
 .nhsuk-checkboxes.nhsuk-checkboxes--outline {
   display: flex;
   flex-wrap: wrap;
-  column-gap: nhsuk-spacing(2);
   row-gap: nhsuk-spacing(2) + $nhsuk-border-width-form-element;
   margin: 0 0 nhsuk-spacing(4);
 
@@ -27,6 +26,7 @@
     max-width: none;
 
     margin: 0;
+    margin-right: nhsuk-spacing(2);
     padding: 0;
 
     overflow: visible;
