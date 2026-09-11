@@ -438,7 +438,8 @@ const fixtures = {
       suffix: {
         text: "kg"
       },
-      width: 5
+      width: 5,
+      inputmode: "decimal"
     },
     screenshot: true
   },
@@ -452,7 +453,8 @@ const fixtures = {
       suffix: {
         html: "<span>kg</span>"
       },
-      width: 5
+      width: 5,
+      inputmode: "decimal"
     }
   },
   "with suffix as string": {
@@ -463,7 +465,8 @@ const fixtures = {
       id: "with-suffix",
       name: "example",
       suffix: "kg",
-      width: 5
+      width: 5,
+      inputmode: "decimal"
     }
   },
   "with prefix and suffix": {
