@@ -72,7 +72,7 @@ const options = {
     type: 'string',
     required: false,
     description:
-      'Optional variant of button – `"brand"`, `"login"`, `"reverse"`, `"secondary"`, `"secondary-solid"` or `"warning"`.',
+      'Optional variant of button – `"brand"`, `"brand-reverse"`, `"login"`, `"reverse"`, `"secondary"`, `"secondary-solid"` or `"warning"`.',
     released: '10.4.0'
   },
   small: {
