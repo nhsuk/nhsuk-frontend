@@ -1,0 +1,70 @@
+{% extends "layouts/page.njk" %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+{% set pageHeading = "Your details" %}
+
+{% block beforeContent %}
+  {{ backLink({
+    href: baseUrl
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhsuk-heading-l">{{ pageHeading }}</h1>
+      <p>You've told us you are the carer. We need your details.</p>
+
+      <form action="/form-handler" method="post" novalidate>
+
+        {{ input({
+          label: {
+            text: "First name",
+            size: "s"
+          },
+          id: "first-name",
+          name: "firstName"
+        }) }}
+
+        {{ input({
+          label: {
+            text: "Last name",
+            size: "s"
+          },
+          id: "last-name",
+          name: "lastName"
+        }) }}
+
+        {{ input({
+          label: {
+            text: "Relationship to the person being registered",
+            size: "s"
+          },
+          hint: {
+            text: "For example, a family member or friend"
+          },
+          id: "relationship",
+          name: "relationship"
+        }) }}
+
+        {{ input({
+          label: {
+            text: "Contact phone number",
+            size: "s"
+          },
+          id: "phone",
+          name: "phone",
+          width: 20,
+          type: "tel",
+          autocomplete: "tel"
+        }) }}
+
+        {{ button({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
