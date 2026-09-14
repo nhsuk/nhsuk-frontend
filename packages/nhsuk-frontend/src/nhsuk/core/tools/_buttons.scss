@@ -125,3 +125,25 @@
     }
   }
 }
+
+/// Default button high-contrast styles
+/// Shared high-contrast border/text colour overrides for button-style
+
+@mixin nhsuk-button-style-default {
+  // Override high-contrast link colours to match buttons
+  @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+    color: ButtonText;
+
+    &,
+    &::before {
+      border-color: ButtonBorder;
+    }
+
+    &:not(:focus):not(:active):hover,
+    &:not(:focus):not(:active):hover::before,
+    &:not(:focus):not(:active):hover::after {
+      border-color: Highlight;
+      color: Highlight;
+    }
+  }
+}
