@@ -2,16 +2,10 @@
 
 {% block header %}
   {% include "partials/banner.njk" %}
+  {% include "partials/deployment.njk" %}
 {% endblock %}
 
 {% block content %}
-  <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-two-thirds-from-desktop">
-      <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-4">{{ serviceName }}</h1>
-      <p class="nhsuk-body nhsuk-u-margin-bottom-8">Deployed automatically from <a href="https://github.com/nhsuk/nhsuk-frontend/commits/{{ branchName }}" rel="noreferrer noopener" target="_blank"><code>{{ branchName }}</code> branch (opens in new tab).</a></p>
-    </div>
-  </div>
-
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-one-third-from-desktop">
       <h2 class="nhsuk-heading-l" id="components">Components</h2>

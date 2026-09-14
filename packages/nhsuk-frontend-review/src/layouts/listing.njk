@@ -3,7 +3,8 @@
 {% set mainClasses = "nhsuk-u-padding-top-4" %}
 
 {% block header %}
-  {% include "partials/banner.njk" %}
+  {% include "partials/banner-small.njk" %}
+  {% include "partials/deployment.njk" %}
 {% endblock %}
 
 {% block beforeContent %}
@@ -28,7 +29,7 @@
       <div class="nhsuk-grid-row">
         <div class="nhsuk-grid-column-two-thirds">
           <h1 class="nhsuk-heading-xl">{{ pageHeading }}</h1>
-          <p class="nhsuk-body">These examples are used for automated tests and may not follow service manual best practice.</p>
+          <p class="nhsuk-body">These examples are used for automated tests and may not follow <a href="https://service-manual.nhs.uk">service manual</a> best practice.</p>
         </div>
       </div>
 
