@@ -2,7 +2,7 @@
 
 {% block pageTitle -%}
   {%- if errors === true or (errors | length) %}Error: {% endif -%}
-  {%- if pageName %}{{ pageName }} – {% endif -%}
+  {%- if pageHeading %}{{ pageHeading }} – {% endif -%}
   {{ serviceName }} – NHS
 {%- endblock %}
 
@@ -12,10 +12,6 @@
   <link href="{{ baseUrl }}stylesheets/nhsuk-frontend.min.css" rel="stylesheet">
   <link href="{{ baseUrl }}stylesheets/application.min.css" rel="stylesheet">
 {% endblock %}
-
-{# Turn the header and footer off #}
-{% block header %}{% endblock %}
-{% block footer %}{% endblock %}
 
 {% block bodyEnd %}
   <script type="module" src="{{ baseUrl }}javascripts/nhsuk-frontend.min.js"></script>

@@ -1,0 +1,14 @@
+{% call hero({
+  classes: "app-banner app-banner--small",
+  width: "full"
+}) %}
+  <p class="nhsuk-body-s">
+    {{ tag({
+      text: "Preview",
+      classes: "nhsuk-u-margin-right-2",
+      colour: "red",
+      border: false
+    }) }}
+    <a href="https://service-manual.nhs.uk/design-system">Use design system guidance and examples</a> to build consistent, accessible NHS services.
+  </p>
+{% endcall %}
