@@ -783,8 +783,6 @@ const fixtures = {
       idPrefix: "abnormality",
       name: "abnormality",
       outline: true,
-      inline: true,
-      small: true,
       fieldset: {
         legend: {
           text: "Abnormality type",
@@ -804,8 +802,6 @@ const fixtures = {
       idPrefix: "abnormality-checked",
       name: "abnormality-checked",
       outline: true,
-      inline: true,
-      small: true,
       value: "asym",
       fieldset: {
         legend: {
@@ -826,8 +822,6 @@ const fixtures = {
       idPrefix: "abnormality-disabled",
       name: "abnormality-disabled",
       outline: true,
-      inline: true,
-      small: true,
       fieldset: {
         legend: {
           text: "Abnormality type (with disabled items)",
@@ -847,8 +841,6 @@ const fixtures = {
       idPrefix: "abnormality-conditional",
       name: "abnormality-conditional",
       outline: true,
-      inline: true,
-      small: true,
       fieldset: {
         legend: {
           text: "Abnormality type",
@@ -872,8 +864,6 @@ const fixtures = {
   "outline with error message and hint": {
     context: {
       outline: true,
-      inline: true,
-      small: true,
       fieldset: {
         legend: {
           text: "Abnormality type",
@@ -905,8 +895,6 @@ const fixtures = {
   "outline with conditional content, error message": {
     context: {
       outline: true,
-      inline: true,
-      small: true,
       fieldset: {
         legend: {
           text: "Abnormality type",
@@ -941,8 +929,6 @@ const fixtures = {
   "outline with conditional content, error message (nested)": {
     context: {
       outline: true,
-      inline: true,
-      small: true,
       fieldset: {
         legend: {
           text: "Abnormality type",
