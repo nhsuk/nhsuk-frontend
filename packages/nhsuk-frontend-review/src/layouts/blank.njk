@@ -1,5 +1,9 @@
 {% extends "layouts/layout.njk" %}
 
-{# Turn the header and footer off #}
-{% block header %}{% endblock %}
+{% block header %}
+  {% include "partials/banner-small.njk" %}
+  {% include "partials/deployment.njk" %}
+{% endblock %}
+
+{# Turn the footer off #}
 {% block footer %}{% endblock %}
