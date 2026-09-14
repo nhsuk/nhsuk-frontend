@@ -2,7 +2,7 @@
 
 {% block pageTitle -%}
   {%- if errors === true or (errors | length) %}Error: {% endif -%}
-  {%- if pageName %}{{ pageName }} – {% endif -%}
+  {%- if pageHeading %}{{ pageHeading }} – {% endif -%}
   {{ serviceName }} – NHS
 {%- endblock %}
 
