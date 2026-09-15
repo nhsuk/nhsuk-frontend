@@ -834,6 +834,7 @@ We've made fixes to NHS.UK frontend in the following pull requests:
 - [#2057: Remove negative margin top from caption when heading has margin override](https://github.com/nhsuk/nhsuk-frontend/pull/2057)
 - [#2061: Fix margin and line height issues for all form field combinations](https://github.com/nhsuk/nhsuk-frontend/pull/2061)
 - [#2069: Support Vite Sass imports with nested paths](https://github.com/nhsuk/nhsuk-frontend/pull/2069)
+- [#2097: Fix link-styled button text alignment](https://github.com/nhsuk/nhsuk-frontend/pull/2097)
 
 ## 10.6.0 - 13 August 2026
 
