@@ -86,6 +86,14 @@ $nhsuk-section-navigation-indicator-reverse: inset 0 ($nhsuk-border-width * -1) 
 }
 
 @include nhsuk-exports("nhsuk/components/section-navigation") {
+  .nhsuk-section-navigation {
+    // Bleed to full width on mobile by negating the page gutter
+    margin-right: #{$nhsuk-gutter-half * -1};
+    margin-left: #{$nhsuk-gutter-half * -1};
+
+    @include nhsuk-responsive-margin(5, "bottom");
+  }
+
   .nhsuk-section-navigation__list {
     display: flex;
 
@@ -145,36 +153,8 @@ $nhsuk-section-navigation-indicator-reverse: inset 0 ($nhsuk-border-width * -1) 
   }
 
   // =========================================================
-  // Horizontal section navigation
-  // =========================================================
-
-  .nhsuk-section-navigation:not(.nhsuk-section-navigation--vertical) {
-    @media #{nhsuk-from-breakpoint(tablet)} {
-      @include _section-navigation-horizontal;
-    }
-
-    @media #{nhsuk-from-breakpoint(desktop)} {
-      @include _section-navigation-horizontal-desktop;
-    }
-  }
-
-  .nhsuk-section-navigation--horizontal {
-    @media #{nhsuk-until-breakpoint(tablet)} {
-      @include _section-navigation-horizontal;
-    }
-  }
-
-  // =========================================================
   // Vertical section navigation
   // =========================================================
-
-  // Bleed to full width on mobile by negating the page gutter
-  .nhsuk-section-navigation {
-    margin-right: #{$nhsuk-gutter-half * -1};
-    margin-left: #{$nhsuk-gutter-half * -1};
-
-    @include nhsuk-responsive-margin(5, "bottom");
-  }
 
   // Adjust padding for links and text when vertical
   .nhsuk-section-navigation--vertical {
@@ -198,6 +178,26 @@ $nhsuk-section-navigation-indicator-reverse: inset 0 ($nhsuk-border-width * -1) 
     width: 0;
 
     border-left: $nhsuk-border-width solid nhsuk-colour("blue");
+  }
+
+  // =========================================================
+  // Horizontal section navigation
+  // =========================================================
+
+  .nhsuk-section-navigation:not(.nhsuk-section-navigation--vertical) {
+    @media #{nhsuk-from-breakpoint(tablet)} {
+      @include _section-navigation-horizontal;
+    }
+
+    @media #{nhsuk-from-breakpoint(desktop)} {
+      @include _section-navigation-horizontal-desktop;
+    }
+  }
+
+  .nhsuk-section-navigation--horizontal {
+    @media #{nhsuk-until-breakpoint(tablet)} {
+      @include _section-navigation-horizontal;
+    }
   }
 
   // =========================================================
