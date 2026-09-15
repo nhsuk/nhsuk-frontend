@@ -86,14 +86,6 @@ $nhsuk-section-navigation-indicator-reverse: inset 0 ($nhsuk-border-width * -1) 
 }
 
 @include nhsuk-exports("nhsuk/components/section-navigation") {
-  .nhsuk-section-navigation {
-    // Bleed to full width on mobile by negating the page gutter
-    margin-right: #{$nhsuk-gutter-half * -1};
-    margin-left: #{$nhsuk-gutter-half * -1};
-
-    @include nhsuk-responsive-margin(5, "bottom");
-  }
-
   .nhsuk-section-navigation__list {
     display: flex;
 
@@ -135,34 +127,11 @@ $nhsuk-section-navigation-indicator-reverse: inset 0 ($nhsuk-border-width * -1) 
     @include nhsuk-font(19);
   }
 
-  .nhsuk-section-navigation--vertical {
-    .nhsuk-section-navigation__link,
-    .nhsuk-section-navigation__text {
-      padding: nhsuk-spacing(2) 0;
-    }
-  }
-
   // Text colour is explicitly set to prevent link styles overriding it.
   .nhsuk-section-navigation__link[aria-current]:not(:focus),
   .nhsuk-section-navigation__link[aria-current]:not(:focus):visited,
   .nhsuk-section-navigation__text[aria-current] {
     color: $nhsuk-text-colour;
-  }
-
-  // Stacked layout: absolutely-positioned pseudo-element sits in the item's
-  // gutter, outdented from the link text.
-  .nhsuk-section-navigation__link[aria-current]::before,
-  .nhsuk-section-navigation__text[aria-current]::before {
-    content: "";
-
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: -$nhsuk-gutter-half;
-
-    width: 0;
-
-    border-left: $nhsuk-border-width solid nhsuk-colour("blue");
   }
 
   .nhsuk-section-navigation__link:not(:focus) {
@@ -193,6 +162,42 @@ $nhsuk-section-navigation-indicator-reverse: inset 0 ($nhsuk-border-width * -1) 
     @media #{nhsuk-until-breakpoint(tablet)} {
       @include _section-navigation-horizontal;
     }
+  }
+
+  // =========================================================
+  // Vertical section navigation
+  // =========================================================
+
+  // Bleed to full width on mobile by negating the page gutter
+  .nhsuk-section-navigation {
+    margin-right: #{$nhsuk-gutter-half * -1};
+    margin-left: #{$nhsuk-gutter-half * -1};
+
+    @include nhsuk-responsive-margin(5, "bottom");
+  }
+
+  // Adjust padding for links and text when vertical
+  .nhsuk-section-navigation--vertical {
+    .nhsuk-section-navigation__link,
+    .nhsuk-section-navigation__text {
+      padding: nhsuk-spacing(2) 0;
+    }
+  }
+
+  // Current indicator sits in the item's gutter,
+  // outdented from the link text.
+  .nhsuk-section-navigation__link[aria-current]::before,
+  .nhsuk-section-navigation__text[aria-current]::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -$nhsuk-gutter-half;
+
+    width: 0;
+
+    border-left: $nhsuk-border-width solid nhsuk-colour("blue");
   }
 
   // =========================================================
