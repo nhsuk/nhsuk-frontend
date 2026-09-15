@@ -130,9 +130,16 @@ $nhsuk-section-navigation-indicator-reverse: inset 0 ($nhsuk-border-width * -1) 
   .nhsuk-section-navigation__link,
   .nhsuk-section-navigation__text {
     position: relative;
-    padding: nhsuk-spacing(2) 0;
+    padding: nhsuk-spacing(3) 0;
 
     @include nhsuk-font(19);
+  }
+
+  .nhsuk-section-navigation--vertical {
+    .nhsuk-section-navigation__link,
+    .nhsuk-section-navigation__text {
+      padding: nhsuk-spacing(2) 0;
+    }
   }
 
   // Text colour is explicitly set to prevent link styles overriding it.
