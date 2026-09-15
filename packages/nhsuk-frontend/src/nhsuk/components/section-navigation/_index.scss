@@ -135,13 +135,6 @@ $nhsuk-section-navigation-indicator-reverse: inset 0 ($nhsuk-border-width * -1) 
     @include nhsuk-font(19);
   }
 
-  .nhsuk-section-navigation--vertical {
-    .nhsuk-section-navigation__link,
-    .nhsuk-section-navigation__text {
-      padding: nhsuk-spacing(2) 0;
-    }
-  }
-
   // Text colour is explicitly set to prevent link styles overriding it.
   .nhsuk-section-navigation__link[aria-current]:not(:focus),
   .nhsuk-section-navigation__link[aria-current]:not(:focus):visited,
@@ -149,8 +142,30 @@ $nhsuk-section-navigation-indicator-reverse: inset 0 ($nhsuk-border-width * -1) 
     color: $nhsuk-text-colour;
   }
 
-  // Stacked layout: absolutely-positioned pseudo-element sits in the item's
-  // gutter, outdented from the link text.
+  .nhsuk-section-navigation__link:not(:focus) {
+    @include nhsuk-link-style-default;
+    @include nhsuk-link-style-no-visited-state;
+  }
+
+  // Use custom focus styles to keep focus and active indicators aligned
+  .nhsuk-section-navigation__link:focus {
+    box-shadow: inset 0 ($nhsuk-focus-width * -1) $nhsuk-focus-text-colour;
+  }
+
+  // =========================================================
+  // Vertical section navigation
+  // =========================================================
+
+  // Adjust padding for links and text when vertical
+  .nhsuk-section-navigation--vertical {
+    .nhsuk-section-navigation__link,
+    .nhsuk-section-navigation__text {
+      padding: nhsuk-spacing(2) 0;
+    }
+  }
+
+  // Current indicator sits in the item's gutter,
+  // outdented from the link text.
   .nhsuk-section-navigation__link[aria-current]::before,
   .nhsuk-section-navigation__text[aria-current]::before {
     content: "";
@@ -163,16 +178,6 @@ $nhsuk-section-navigation-indicator-reverse: inset 0 ($nhsuk-border-width * -1) 
     width: 0;
 
     border-left: $nhsuk-border-width solid nhsuk-colour("blue");
-  }
-
-  .nhsuk-section-navigation__link:not(:focus) {
-    @include nhsuk-link-style-default;
-    @include nhsuk-link-style-no-visited-state;
-  }
-
-  // Use custom focus styles to keep focus and active indicators aligned
-  .nhsuk-section-navigation__link:focus {
-    box-shadow: inset 0 ($nhsuk-focus-width * -1) $nhsuk-focus-text-colour;
   }
 
   // =========================================================
