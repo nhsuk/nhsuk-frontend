@@ -12,6 +12,7 @@ import {
   PasswordInput,
   Radios,
   Scroll,
+  SectionNavigation,
   SkipLink,
   Table,
   Tabs
@@ -82,6 +83,7 @@ export function initAll(scopeOrConfig = {}) {
     [PasswordInput, config.passwordInput],
     [Radios, config.radios],
     [Scroll, config.scroll],
+    [SectionNavigation, config.sectionNavigation],
     [SkipLink, config.skipLink],
     [Table, config.table],
     [Tabs, config.tabs]
@@ -220,6 +222,7 @@ export * from './errors/index.mjs'
  * @property {ComponentConfig<typeof PasswordInput>} [passwordInput] - Password Input config
  * @property {ComponentConfig<typeof Radios>} [radios] - Radios config
  * @property {ComponentConfig<typeof Scroll>} [scroll] - Scroll config
+ * @property {ComponentConfig<typeof SectionNavigation>} [sectionNavigation] - Section navigation config
  * @property {ComponentConfig<typeof SkipLink>} [skipLink] - Skip Link config
  * @property {ComponentConfig<typeof Table>} [table] - Table config
  * @property {ComponentConfig<typeof Tabs>} [tabs] - Tabs config
