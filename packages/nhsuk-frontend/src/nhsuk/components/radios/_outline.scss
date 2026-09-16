@@ -17,8 +17,11 @@ $nhsuk-radios-outline-row-gap: nhsuk-spacing(2) + $nhsuk-border-width-form-eleme
     margin: 0;
     margin-bottom: $nhsuk-button-shadow-size;
 
-    &.nhsuk-radios {
-      margin: 0;
+    .nhsuk-form-group--error &:has(> .nhsuk-radios__conditional) {
+      margin-bottom: 0;
+    }
+
+    .nhsuk-frontend-supported .nhsuk-form-group--error &:not(:has(> .nhsuk-radios__conditional:not(.nhsuk-radios__conditional--hidden))) {
       margin-bottom: $nhsuk-button-shadow-size;
     }
 
@@ -52,6 +55,11 @@ $nhsuk-radios-outline-row-gap: nhsuk-spacing(2) + $nhsuk-border-width-form-eleme
       position: absolute;
       z-index: 1;
 
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
       width: 100%;
       height: 100%;
       margin: 0;
@@ -66,11 +74,6 @@ $nhsuk-radios-outline-row-gap: nhsuk-spacing(2) + $nhsuk-border-width-form-eleme
       cursor: pointer;
 
       appearance: none;
-
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
 
       // Only the border/shadow pseudo elements are used here
       @include nhsuk-button-style(
@@ -158,8 +161,6 @@ $nhsuk-radios-outline-row-gap: nhsuk-spacing(2) + $nhsuk-border-width-form-eleme
 
       align-items: center;
 
-      column-gap: nhsuk-spacing(2);
-
       max-width: none;
       min-height: nhsuk-px-to-rem(44px);
       padding: nhsuk-px-to-rem(6px) nhsuk-px-to-rem(12px);
@@ -183,6 +184,7 @@ $nhsuk-radios-outline-row-gap: nhsuk-spacing(2) + $nhsuk-border-width-form-eleme
         flex: 0 0 nhsuk-px-to-rem(18px);
 
         height: nhsuk-px-to-rem(18px);
+        margin-right: nhsuk-spacing(2);
 
         border: $nhsuk-border-width-form-element solid currentcolor;
         border-radius: 50%;
@@ -253,42 +255,6 @@ $nhsuk-radios-outline-row-gap: nhsuk-spacing(2) + $nhsuk-border-width-form-eleme
       margin-bottom: 0;
       margin-left: nhsuk-spacing(1);
       padding: 0 nhsuk-spacing(2) 0 nhsuk-px-to-rem(20px);
-    }
-
-    // .nhsuk-radios--small overrides several rules below
-    &.nhsuk-radios--small {
-      .nhsuk-radios__input {
-        margin-left: 0;
-      }
-
-      .nhsuk-radios__label {
-        max-width: none;
-        padding: nhsuk-px-to-rem(6px) nhsuk-px-to-rem(12px);
-      }
-
-      .nhsuk-radios__label::before {
-        width: nhsuk-px-to-rem(18px);
-        height: nhsuk-px-to-rem(18px);
-      }
-
-      .nhsuk-radios__label::after {
-        top: 50%;
-        left: nhsuk-px-to-rem(17px);
-        border-width: 0;
-      }
-
-      .nhsuk-radios__conditional {
-        margin-left: nhsuk-spacing(1);
-        padding-left: nhsuk-px-to-rem(20px);
-      }
-
-      .nhsuk-radios__input:focus + .nhsuk-radios__label::before,
-      .nhsuk-radios__input:not(:disabled):hover + .nhsuk-radios__label::before,
-      .nhsuk-radios__input:not(:disabled) + .nhsuk-radios__label:hover::before {
-        border: $nhsuk-border-width-form-element solid currentcolor;
-        outline: none;
-        box-shadow: none;
-      }
     }
   }
 }

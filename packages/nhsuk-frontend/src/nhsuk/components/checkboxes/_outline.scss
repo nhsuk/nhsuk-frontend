@@ -17,8 +17,11 @@ $nhsuk-checkboxes-outline-row-gap: nhsuk-spacing(2) + $nhsuk-border-width-form-e
     margin: 0;
     margin-bottom: $nhsuk-button-shadow-size;
 
-    &.nhsuk-checkboxes {
-      margin: 0;
+    .nhsuk-form-group--error &:has(> .nhsuk-checkboxes__conditional) {
+      margin-bottom: 0;
+    }
+
+    .nhsuk-frontend-supported .nhsuk-form-group--error &:not(:has(> .nhsuk-checkboxes__conditional:not(.nhsuk-checkboxes__conditional--hidden))) {
       margin-bottom: $nhsuk-button-shadow-size;
     }
 
@@ -52,6 +55,11 @@ $nhsuk-checkboxes-outline-row-gap: nhsuk-spacing(2) + $nhsuk-border-width-form-e
       position: absolute;
       z-index: 1;
 
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
       width: 100%;
       height: 100%;
       margin: 0;
@@ -66,11 +74,6 @@ $nhsuk-checkboxes-outline-row-gap: nhsuk-spacing(2) + $nhsuk-border-width-form-e
       cursor: pointer;
 
       appearance: none;
-
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
 
       // Only the border/shadow pseudo elements are used here
       @include nhsuk-button-style(
@@ -158,8 +161,6 @@ $nhsuk-checkboxes-outline-row-gap: nhsuk-spacing(2) + $nhsuk-border-width-form-e
 
       align-items: center;
 
-      column-gap: nhsuk-spacing(2);
-
       max-width: none;
       min-height: nhsuk-px-to-rem(44px);
       padding: nhsuk-px-to-rem(6px) nhsuk-px-to-rem(12px) nhsuk-px-to-rem(4px);
@@ -183,6 +184,7 @@ $nhsuk-checkboxes-outline-row-gap: nhsuk-spacing(2) + $nhsuk-border-width-form-e
         flex: 0 0 nhsuk-px-to-rem(18px);
 
         height: nhsuk-px-to-rem(18px);
+        margin-right: nhsuk-spacing(2);
 
         border: $nhsuk-border-width-form-element solid currentcolor;
         border-radius: calc(nhsuk-px-to-rem($nhsuk-button-border-radius) / 2);
@@ -252,44 +254,6 @@ $nhsuk-checkboxes-outline-row-gap: nhsuk-spacing(2) + $nhsuk-border-width-form-e
       margin-bottom: 0;
       margin-left: nhsuk-spacing(1);
       padding: 0 nhsuk-spacing(2) 0 nhsuk-px-to-rem(20px);
-    }
-
-    // .nhsuk-checkboxes--small overrides several rules below
-    &.nhsuk-checkboxes--small {
-      .nhsuk-checkboxes__input {
-        margin-left: 0;
-      }
-
-      .nhsuk-checkboxes__label {
-        max-width: none;
-        padding: nhsuk-px-to-rem(6px) nhsuk-px-to-rem(12px) nhsuk-px-to-rem(4px);
-      }
-
-      .nhsuk-checkboxes__label::before {
-        width: nhsuk-px-to-rem(18px);
-        height: nhsuk-px-to-rem(18px);
-      }
-
-      .nhsuk-checkboxes__label::after {
-        top: calc(50% + #{nhsuk-px-to-rem(1px)});
-        left: nhsuk-px-to-rem(16px);
-        width: nhsuk-px-to-rem(10px);
-        height: nhsuk-px-to-rem(5px);
-        border-width: 0 0 $nhsuk-border-width-form-element $nhsuk-border-width-form-element;
-      }
-
-      .nhsuk-checkboxes__conditional {
-        margin-left: nhsuk-spacing(1);
-        padding-left: nhsuk-px-to-rem(20px);
-      }
-
-      .nhsuk-checkboxes__input:focus + .nhsuk-checkboxes__label::before,
-      .nhsuk-checkboxes__input:not(:disabled):hover + .nhsuk-checkboxes__label::before,
-      .nhsuk-checkboxes__input:not(:disabled) + .nhsuk-checkboxes__label:hover::before {
-        border: $nhsuk-border-width-form-element solid currentcolor;
-        outline: none;
-        box-shadow: none;
-      }
     }
   }
 }
