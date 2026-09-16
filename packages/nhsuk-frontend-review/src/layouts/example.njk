@@ -9,7 +9,8 @@
   {% set classNamesColumn = (classNamesColumn ~ " nhsuk-grid-column-" ~ width) | trim %}
 {% endfor -%}
 
-{# Turn the skip link off #}
+{# Turn the header and skip link off #}
+{% block header %}{% endblock %}
 {% block skipLink %}{% endblock %}
 
 {% block content %}

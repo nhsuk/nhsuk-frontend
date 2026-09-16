@@ -1,5 +1,6 @@
 {% extends "layouts/page.njk" %}
 
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
 {% set pageHeading = "Update your account details" %}
 
 {% block header %}
@@ -94,33 +95,4 @@
       </form>
     </div>
   </div>
-{% endblock %}
-
-{% block footer %}
-  {{ footer({
-    meta: {
-      items: [
-        {
-          href: "#",
-          text: "Accessibility statement"
-        },
-        {
-          href: "#",
-          text: "Contact us"
-        },
-        {
-          href: "#",
-          text: "Cookies"
-        },
-        {
-          href: "#",
-          text: "Privacy policy"
-        },
-        {
-          href: "#",
-          text: "Terms and conditions"
-        }
-      ]
-    }
-  }) }}
 {% endblock %}
