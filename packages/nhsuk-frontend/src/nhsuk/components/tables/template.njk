@@ -250,9 +250,9 @@
     {% for item in head %}
       {% if item is string or item is mapping %}
 
-      {#- Support table header as string #}
+      {#- Support table header as string or number #}
       {%- set header = item if item is mapping and item is not escaped else {
-        text: item if item is string else undefined,
+        text: item if item is string or item is number else undefined,
         html: item if item is escaped else undefined
       } -%}
 
@@ -306,15 +306,15 @@
       {% if item is string or item is mapping %}
       {%- set itemHead = head[loop.index0] -%}
 
-      {#- Support table header as string #}
+      {#- Support table header as string or number #}
       {%- set header = itemHead if itemHead is mapping and itemHead is not escaped else {
-        text: itemHead if itemHead is string else undefined,
+        text: itemHead if itemHead is string or itemHead is number else undefined,
         html: itemHead if itemHead is escaped else undefined
       } -%}
 
-      {#- Support table data as string #}
+      {#- Support table data as string or number #}
       {%- set data = item if item is mapping and item is not escaped else {
-        text: item if item is string else undefined,
+        text: item if item is string or item is number else undefined,
         html: item if item is escaped else undefined
       } -%}
 
