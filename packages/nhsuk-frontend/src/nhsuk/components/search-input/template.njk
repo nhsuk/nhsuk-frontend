@@ -8,6 +8,12 @@
 {%- set classNamesInputWrapper = "nhsuk-search-input__wrapper" -%}
 {%- set classNamesButton = "nhsuk-search-input__button" -%}
 
+{#- Support content after input as string #}
+{%- set afterInput = params.formGroup.afterInput if params.formGroup.afterInput is mapping and params.formGroup.afterInput is not escaped else {
+  text: params.formGroup.afterInput if params.formGroup.afterInput is string else undefined,
+  html: params.formGroup.afterInput if params.formGroup.afterInput is escaped else undefined
+} -%}
+
 {%- if params.large and (not params.classes or not "nhsuk-search-input--large" in params.classes) %}
   {% set classNames = classNames ~ " nhsuk-search-input--large" %}
 {% endif %}
@@ -50,8 +56,8 @@
   variant: params.button.variant
 }) | trim }}
 {% endif %}
-{% if params.formGroup.afterInput %}
-  {{- params.formGroup.afterInput.html | safe | trim if params.formGroup.afterInput.html else params.formGroup.afterInput.text }}
+{% if afterInput.text or afterInput.html %}
+  {{- afterInput.html | safe | trim if afterInput.html else afterInput.text }}
 {% endif -%}
 {% endset -%}
 

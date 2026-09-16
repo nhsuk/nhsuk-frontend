@@ -25,6 +25,18 @@
   html: params.errorMessage if params.errorMessage is escaped else undefined
 } -%}
 
+{#- Support content before input as string #}
+{%- set beforeInput = params.formGroup.beforeInput if params.formGroup.beforeInput is mapping and params.formGroup.beforeInput is not escaped else {
+  text: params.formGroup.beforeInput if params.formGroup.beforeInput is string else undefined,
+  html: params.formGroup.beforeInput if params.formGroup.beforeInput is escaped else undefined
+} -%}
+
+{#- Support content after input as string #}
+{%- set afterInput = params.formGroup.afterInput if params.formGroup.afterInput is mapping and params.formGroup.afterInput is not escaped else {
+  text: params.formGroup.afterInput if params.formGroup.afterInput is string else undefined,
+  html: params.formGroup.afterInput if params.formGroup.afterInput is escaped else undefined
+} -%}
+
 {%- if errorMessage.text or errorMessage.html or params.errorMessage == true %}
   {% set classNames = classNames ~ " nhsuk-select--error" %}
   {% set classNamesFormGroup = classNamesFormGroup ~ " nhsuk-form-group--error" %}
@@ -43,8 +55,8 @@
 {% set describedBy = params.describedBy if params.describedBy else "" %}
 {%- set id = params.id if params.id else params.name -%}
 
-{%- set hasBeforeInput = true if params.formGroup.beforeInput and (params.formGroup.beforeInput.text or params.formGroup.beforeInput.html) else false %}
-{%- set hasAfterInput = true if params.formGroup.afterInput and (params.formGroup.afterInput.text or params.formGroup.afterInput.html) else false %}
+{%- set hasBeforeInput = true if beforeInput.text or beforeInput.html else false %}
+{%- set hasAfterInput = true if afterInput.text or afterInput.html else false %}
 
 {%- macro _selectElement(params) -%}
   <select class="{{ classNames }}" id="{{ id }}" name="{{ params.name }}"
@@ -110,11 +122,11 @@
   <div class="nhsuk-input-wrapper {%- if params.inputWrapper.classes %} {{ params.inputWrapper.classes }}{% endif %}"
     {{- nhsukAttributes(params.inputWrapper.attributes) }}>
     {% if hasBeforeInput %}
-      {{- params.formGroup.beforeInput.html | safe | trim | indent(4, true) if params.formGroup.beforeInput.html else params.formGroup.beforeInput.text }}
+      {{- beforeInput.html | safe | trim | indent(4, true) if beforeInput.html else beforeInput.text }}
     {% endif %}
     {{ _selectElement(params) }}
     {% if hasAfterInput %}
-      {{- params.formGroup.afterInput.html | safe | trim | indent(4, true) if params.formGroup.afterInput.html else params.formGroup.afterInput.text }}
+      {{- afterInput.html | safe | trim | indent(4, true) if afterInput.html else afterInput.text }}
     {% endif %}
   </div>
 {% else %}

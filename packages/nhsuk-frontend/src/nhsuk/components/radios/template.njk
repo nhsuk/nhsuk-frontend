@@ -20,6 +20,18 @@
   html: params.errorMessage if params.errorMessage is escaped else undefined
 } -%}
 
+{#- Support content before inputs as string #}
+{%- set beforeInputs = params.formGroup.beforeInputs if params.formGroup.beforeInputs is mapping and params.formGroup.beforeInputs is not escaped else {
+  text: params.formGroup.beforeInputs if params.formGroup.beforeInputs is string else undefined,
+  html: params.formGroup.beforeInputs if params.formGroup.beforeInputs is escaped else undefined
+} -%}
+
+{#- Support content after inputs as string #}
+{%- set afterInputs = params.formGroup.afterInputs if params.formGroup.afterInputs is mapping and params.formGroup.afterInputs is not escaped else {
+  text: params.formGroup.afterInputs if params.formGroup.afterInputs is string else undefined,
+  html: params.formGroup.afterInputs if params.formGroup.afterInputs is escaped else undefined
+} -%}
+
 {%- if params.small and (not params.classes or not "nhsuk-radios--small" in params.classes) %}
   {% set classNames = classNames ~ " nhsuk-radios--small" %}
 {% endif %}
@@ -145,16 +157,16 @@
     }) -}}
 
     {{- nhsukAttributes(params.attributes) -}}>
-    {% if params.formGroup.beforeInputs %}
-    {{ params.formGroup.beforeInputs.html | safe | trim | indent(4) if params.formGroup.beforeInputs.html else params.formGroup.beforeInputs.text }}
+    {% if beforeInputs.text or beforeInputs.html %}
+    {{ beforeInputs.html | safe | trim | indent(4) if beforeInputs.html else beforeInputs.text }}
     {% endif %}
     {% for item in params.items %}
       {% if item %}
         {{- _radioItem(params, item, loop.index) -}}
       {% endif %}
     {% endfor %}
-    {% if params.formGroup.afterInputs %}
-    {{ params.formGroup.afterInputs.html | safe | trim | indent(4) if params.formGroup.afterInputs.html else params.formGroup.afterInputs.text }}
+    {% if afterInputs.text or afterInputs.html %}
+    {{ afterInputs.html | safe | trim | indent(4) if afterInputs.html else afterInputs.text }}
     {% endif %}
   </div>
 {% endset -%}
