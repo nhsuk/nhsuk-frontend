@@ -21,7 +21,9 @@ $nhsuk-radios-outline-row-gap: nhsuk-spacing(2) + $nhsuk-border-width-form-eleme
       margin-bottom: 0;
     }
 
-    .nhsuk-frontend-supported .nhsuk-form-group--error &:not(:has(> .nhsuk-radios__conditional:not(.nhsuk-radios__conditional--hidden))) {
+    .nhsuk-frontend-supported
+      .nhsuk-form-group--error
+      &:not(:has(> .nhsuk-radios__conditional:not(.nhsuk-radios__conditional--hidden))) {
       margin-bottom: $nhsuk-button-shadow-size;
     }
 

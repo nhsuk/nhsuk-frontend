@@ -21,7 +21,9 @@ $nhsuk-checkboxes-outline-row-gap: nhsuk-spacing(2) + $nhsuk-border-width-form-e
       margin-bottom: 0;
     }
 
-    .nhsuk-frontend-supported .nhsuk-form-group--error &:not(:has(> .nhsuk-checkboxes__conditional:not(.nhsuk-checkboxes__conditional--hidden))) {
+    .nhsuk-frontend-supported
+      .nhsuk-form-group--error
+      &:not(:has(> .nhsuk-checkboxes__conditional:not(.nhsuk-checkboxes__conditional--hidden))) {
       margin-bottom: $nhsuk-button-shadow-size;
     }
 
