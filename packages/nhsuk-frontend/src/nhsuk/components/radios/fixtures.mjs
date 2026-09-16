@@ -854,7 +854,16 @@ const fixtures = {
           value: "other",
           text: "Other",
           conditional: {
-            html: '<div class="nhsuk-form-group"><label class="nhsuk-label" for="other-details">Provide details</label><input class="nhsuk-input nhsuk-u-width-two-thirds" id="other-details" name="other-details" type="text"></div>'
+            html: components.render("input", {
+              context: {
+                id: "other-details",
+                name: "other-details",
+                label: {
+                  text: "Provide details"
+                },
+                classes: "nhsuk-u-width-two-thirds"
+              }
+            })
           }
         }
       ]
@@ -885,7 +894,16 @@ const fixtures = {
           value: "other",
           text: "Other",
           conditional: {
-            html: '<div class="nhsuk-form-group"><label class="nhsuk-label" for="outline-abnormality-error-other-details">Provide details</label><input class="nhsuk-input nhsuk-u-width-two-thirds" id="outline-abnormality-error-other-details" name="outline-abnormality-error-other-details" type="text"></div>'
+            html: components.render("input", {
+              context: {
+                id: "outline-abnormality-error-other-details",
+                name: "outline-abnormality-error-other-details",
+                label: {
+                  text: "Provide details"
+                },
+                classes: "nhsuk-u-width-two-thirds"
+              }
+            })
           }
         }
       ]
@@ -914,7 +932,16 @@ const fixtures = {
           value: "other",
           text: "Other",
           conditional: {
-            html: '<div class="nhsuk-form-group"><label class="nhsuk-label" for="outline-abnormality-nested-other-details">Provide details</label><input class="nhsuk-input nhsuk-u-width-two-thirds" id="outline-abnormality-nested-other-details" name="outline-abnormality-nested-other-details" type="text"></div>'
+            html: components.render("input", {
+              context: {
+                id: "outline-abnormality-nested-other-details",
+                name: "outline-abnormality-nested-other-details",
+                label: {
+                  text: "Provide details"
+                },
+                classes: "nhsuk-u-width-two-thirds"
+              }
+            })
           }
         }
       ]

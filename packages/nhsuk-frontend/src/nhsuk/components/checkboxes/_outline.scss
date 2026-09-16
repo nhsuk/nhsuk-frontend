@@ -67,7 +67,10 @@ $nhsuk-checkboxes-outline-row-gap: nhsuk-spacing(2) + $nhsuk-border-width-form-e
 
       appearance: none;
 
-      inset: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
 
       // Only the border/shadow pseudo elements are used here
       @include nhsuk-button-style(
