@@ -116,6 +116,95 @@ const options = {
     description:
       'Optional HTML element to wrap around the content – for example, `"span"`.',
     released: '10.7.0'
+  },
+  slots: {
+    type: 'object',
+    required: true,
+    description:
+      'Specified points for injecting custom text or HTML into the content component.',
+    released: '10.7.0',
+    params: {
+      before: {
+        type: 'object',
+        required: true,
+        description: 'Content injected before the content component.',
+        released: '10.7.0',
+        params: {
+          text: {
+            type: 'string',
+            required: true,
+            description: 'Text injected before the content component.',
+            released: '10.7.0'
+          },
+          html: {
+            type: 'string',
+            required: true,
+            description: 'HTML injected before the content component.',
+            released: '10.7.0'
+          }
+        }
+      },
+      start: {
+        type: 'object',
+        required: true,
+        description: 'Content injected at the start of the content component.',
+        released: '10.7.0',
+        params: {
+          text: {
+            type: 'string',
+            required: true,
+            description: 'Text injected at the start of the content component.',
+            released: '10.7.0'
+          },
+          html: {
+            type: 'string',
+            required: true,
+            description: 'HTML injected at the start of the content component.',
+            released: '10.7.0'
+          }
+        }
+      },
+      end: {
+        type: 'object',
+        required: true,
+        description: 'Content injected at the end of the content component.',
+        released: '10.7.0',
+        params: {
+          text: {
+            type: 'string',
+            required: true,
+            description: 'Text injected at the end of the content component.',
+            released: '10.7.0'
+          },
+          html: {
+            type: 'string',
+            required: true,
+            description: 'HTML injected at the end of the content component.',
+            released: '10.7.0'
+          }
+        }
+      },
+      after: {
+        type: 'object',
+        required: true,
+        description: 'Content injected after the content component.',
+        released: '10.7.0',
+        params: {
+          text: {
+            type: 'string',
+            required: true,
+            description: 'Text injected after the content component.',
+            released: '10.7.0'
+          },
+          html: {
+            type: 'string',
+            required: true,
+            description: 'HTML injected after the content component.',
+            released: '10.7.0'
+          }
+        }
+      }
+    }
   }
 }
 
