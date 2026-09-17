@@ -775,6 +775,68 @@ const fixtures = {
         }
       ]
     }
+  },
+  "content": {
+    context: {
+      label: {
+        heading: "Sort by",
+        size: "l"
+      },
+      name: "example",
+      items: [
+        {
+          value: "published",
+          text: "Recently published"
+        },
+        {
+          value: "updated",
+          text: "Recently updated"
+        },
+        {
+          value: "views",
+          text: "Most views"
+        },
+        {
+          value: "comments",
+          text: "Most comments"
+        }
+      ]
+    },
+    variants: [
+      {
+        description: 'with "before input"',
+        context: {
+          formGroup: {
+            beforeInput: {
+              html: "<samp>Before</samp>"
+            }
+          }
+        }
+      },
+      {
+        description: 'with "before input" and "after input"',
+        context: {
+          formGroup: {
+            beforeInput: {
+              html: "<samp>Before</samp>"
+            },
+            afterInput: {
+              html: "<samp>After</samp>"
+            }
+          }
+        }
+      },
+      {
+        description: 'with "after input"',
+        context: {
+          formGroup: {
+            afterInput: {
+              html: "<samp>After</samp>"
+            }
+          }
+        }
+      }
+    ]
   }
 }
 
