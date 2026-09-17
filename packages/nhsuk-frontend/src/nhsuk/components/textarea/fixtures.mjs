@@ -203,6 +203,53 @@ const fixtures = {
       name: "example",
       autocomplete: "street-address"
     }
+  },
+  "content": {
+    context: {
+      label: {
+        heading: "Can you provide more detail?",
+        size: "l"
+      },
+      hint: {
+        text: "Do not include personal information like your name, date of birth or NHS number"
+      },
+      name: "example"
+    },
+    variants: [
+      {
+        description: 'with "before input"',
+        context: {
+          formGroup: {
+            beforeInput: {
+              html: "<samp>Before</samp>"
+            }
+          }
+        }
+      },
+      {
+        description: 'with "before input" and "after input"',
+        context: {
+          formGroup: {
+            beforeInput: {
+              html: "<samp>Before</samp>"
+            },
+            afterInput: {
+              html: "<samp>After</samp>"
+            }
+          }
+        }
+      },
+      {
+        description: 'with "after input"',
+        context: {
+          formGroup: {
+            afterInput: {
+              html: "<samp>After</samp>"
+            }
+          }
+        }
+      }
+    ]
   }
 }
 

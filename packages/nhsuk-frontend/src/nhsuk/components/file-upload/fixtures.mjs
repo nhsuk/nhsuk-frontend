@@ -255,6 +255,51 @@ const fixtures = {
       leftDropZoneText: "Parth gollwng i'r chwith"
     }
   },
+  "content": {
+    context: {
+      label: {
+        heading: "Upload a file",
+        size: "l"
+      },
+      id: "file-upload",
+      name: "file-upload"
+    },
+    variants: [
+      {
+        description: 'with "before input"',
+        context: {
+          formGroup: {
+            beforeInput: {
+              html: "<samp>Before</samp>"
+            }
+          }
+        }
+      },
+      {
+        description: 'with "before input" and "after input"',
+        context: {
+          formGroup: {
+            beforeInput: {
+              html: "<samp>Before</samp>"
+            },
+            afterInput: {
+              html: "<samp>After</samp>"
+            }
+          }
+        }
+      },
+      {
+        description: 'with "after input"',
+        context: {
+          formGroup: {
+            afterInput: {
+              html: "<samp>After</samp>"
+            }
+          }
+        }
+      }
+    ]
+  },
   "to configure in JavaScript": {
     context: {
       label: {

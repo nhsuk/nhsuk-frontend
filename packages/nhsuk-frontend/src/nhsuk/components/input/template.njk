@@ -1,3 +1,4 @@
+{% from "nhsuk/components/content/macro.njk" import content as nhsukContent %}
 {% from "nhsuk/components/error-message/macro.njk" import errorMessage as nhsukErrorMessage %}
 {% from "nhsuk/components/hint/macro.njk" import hint as nhsukHint %}
 {% from "nhsuk/components/label/macro.njk" import label as nhsukLabel %}
@@ -102,54 +103,54 @@
 {%- set hasBeforeInput = true if beforeInput.text or beforeInput.html else false %}
 {%- set hasAfterInput = true if afterInput.text or afterInput.html else false %}
 
-{%- macro _inputElement(params) -%}
-  <input
-    {{- nhsukAttributes({
-      class: classNames,
-      id: id,
-      name: params.name,
-      type: params.type | default("text", true),
-      spellcheck: {
-        value: params.spellcheck | string
-          if params.spellcheck in [true, false]
-          else false,
-        optional: true
-      },
-      value: {
-        value: params.value,
-        optional: true
-      },
-      disabled: {
-        value: params.disabled,
-        optional: true
-      },
-      "aria-describedby": {
-        value: describedBy if describedBy else false,
-        optional: true
-      },
-      autocomplete: {
-        value: params.autocomplete,
-        optional: true
-      },
-      autocapitalize: {
-        value: params.autocapitalize,
-        optional: true
-      },
-      pattern: {
-        value: params.pattern,
-        optional: true
-      },
-      placeholder: {
-        value: params.placeholder,
-        optional: true
-      },
-      inputmode: {
-        value: params.inputmode,
-        optional: true
-      }
-    }) -}}
+{%- macro _inputElement(params, parent) -%}
+<input
+  {{- nhsukAttributes({
+    class: parent.classNames,
+    id: parent.id,
+    name: params.name,
+    type: params.type | default("text", true),
+    spellcheck: {
+      value: params.spellcheck | string
+        if params.spellcheck in [true, false]
+        else false,
+      optional: true
+    },
+    value: {
+      value: params.value,
+      optional: true
+    },
+    disabled: {
+      value: params.disabled,
+      optional: true
+    },
+    "aria-describedby": {
+      value: parent.describedBy if parent.describedBy else false,
+      optional: true
+    },
+    autocomplete: {
+      value: params.autocomplete,
+      optional: true
+    },
+    autocapitalize: {
+      value: params.autocapitalize,
+      optional: true
+    },
+    pattern: {
+      value: params.pattern,
+      optional: true
+    },
+    placeholder: {
+      value: params.placeholder,
+      optional: true
+    },
+    inputmode: {
+      value: params.inputmode,
+      optional: true
+    }
+  }) -}}
 
-    {{- nhsukAttributes(params.attributes) }}>
+  {{- nhsukAttributes(params.attributes) }}>
 {%- endmacro -%}
 
 {%- macro _affixItem(affix, type) %}
@@ -196,23 +197,31 @@
   }) | trim | indent(2) }}
 {% endif %}
 
+{%- set innerHtml %}
+  {% if hasPrefix %}
+    {{- _affixItem(prefix, "prefix") | indent(2, true) }}
+  {% endif %}
+  {{- _inputElement(params, {
+    id: id,
+    describedBy: describedBy,
+    classNames: classNames
+  }) | trim | indent(2, true) }}
+  {% if hasSuffix %}
+    {{- _affixItem(suffix, "suffix") | indent(2, true) }}
+  {% endif %}
+{% endset -%}
+
 {%- if hasPrefix or hasSuffix or hasBeforeInput or hasAfterInput or params.inputWrapper.classes or params.inputWrapper.attributes %}
   <div class="{{ classNamesInputWrapper }}" {{- nhsukAttributes(params.inputWrapper.attributes) }}>
-    {% if hasBeforeInput %}
-      {{- beforeInput.html | safe | trim | indent(4, true) if beforeInput.html else beforeInput.text }}
-    {% endif %}
-    {% if hasPrefix %}
-      {{- _affixItem(prefix, "prefix") | indent(2, true) }}
-    {% endif %}
-    {{ _inputElement(params) }}
-    {% if hasSuffix %}
-      {{- _affixItem(suffix, "suffix") | indent(2, true) }}
-    {% endif %}
-    {% if hasAfterInput %}
-      {{- afterInput.html | safe | trim | indent(4, true) if afterInput.html else afterInput.text }}
-    {% endif %}
+    {{ nhsukContent({
+      html: innerHtml,
+      slots: {
+        before: beforeInput,
+        after: afterInput
+      }
+    }) | trim | indent(4) }}
   </div>
 {% else %}
-  {{ _inputElement(params) }}
+  {{ innerHtml | safe | trim | indent(2) }}
 {% endif %}
 </div>

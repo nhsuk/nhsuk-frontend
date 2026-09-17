@@ -776,6 +776,66 @@ const fixtures = {
         }
       ]
     }
+  },
+  "content": {
+    context: {
+      fieldset: {
+        legend: {
+          heading: "How do you want to be contacted about this?",
+          size: "l"
+        }
+      },
+      name: "example",
+      items: [
+        {
+          value: "email",
+          text: "Email"
+        },
+        {
+          value: "phone",
+          text: "Phone"
+        },
+        {
+          value: "text",
+          text: "Text message"
+        }
+      ]
+    },
+    variants: [
+      {
+        description: 'with "before input"',
+        context: {
+          formGroup: {
+            beforeInput: {
+              html: "<samp>Before</samp>"
+            }
+          }
+        }
+      },
+      {
+        description: 'with "before input" and "after input"',
+        context: {
+          formGroup: {
+            beforeInput: {
+              html: "<samp>Before</samp>"
+            },
+            afterInput: {
+              html: "<samp>After</samp>"
+            }
+          }
+        }
+      },
+      {
+        description: 'with "after input"',
+        context: {
+          formGroup: {
+            afterInput: {
+              html: "<samp>After</samp>"
+            }
+          }
+        }
+      }
+    ]
   }
 }
 

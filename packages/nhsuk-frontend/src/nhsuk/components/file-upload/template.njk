@@ -1,3 +1,4 @@
+{% from "nhsuk/components/content/macro.njk" import content as nhsukContent %}
 {% from "nhsuk/components/error-message/macro.njk" import errorMessage as nhsukErrorMessage %}
 {% from "nhsuk/components/hint/macro.njk" import hint as nhsukHint %}
 {% from "nhsuk/components/label/macro.njk" import label as nhsukLabel %}
@@ -26,18 +27,6 @@
   html: params.errorMessage if params.errorMessage is escaped else undefined
 } -%}
 
-{#- Support content before input as string #}
-{%- set beforeInput = params.formGroup.beforeInput if params.formGroup.beforeInput is mapping and params.formGroup.beforeInput is not escaped else {
-  text: params.formGroup.beforeInput if params.formGroup.beforeInput is string else undefined,
-  html: params.formGroup.beforeInput if params.formGroup.beforeInput is escaped else undefined
-} -%}
-
-{#- Support content after input as string #}
-{%- set afterInput = params.formGroup.afterInput if params.formGroup.afterInput is mapping and params.formGroup.afterInput is not escaped else {
-  text: params.formGroup.afterInput if params.formGroup.afterInput is string else undefined,
-  html: params.formGroup.afterInput if params.formGroup.afterInput is escaped else undefined
-} -%}
-
 {%- if errorMessage.text or errorMessage.html or params.errorMessage == true %}
   {% set classNamesFormGroup = classNamesFormGroup ~ " nhsuk-form-group--error" %}
 {% endif %}
@@ -54,6 +43,14 @@
   aria-describedby – for example hints or error messages -#}
 {% set describedBy = params.describedBy if params.describedBy else "" %}
 {%- set id = params.id if params.id else params.name -%}
+
+{%- macro _inputElement(params, parent) -%}
+<input class="{{ parent.classNames }}" id="{{ parent.id }}" name="{{ params.name }}" type="file"
+  {%- if params.disabled %} disabled{% endif %}
+  {%- if params.multiple %} multiple{% endif %}
+  {%- if parent.describedBy %} aria-describedby="{{ parent.describedBy }}"{% endif %}
+  {{- nhsukAttributes(params.attributes) }}>
+{%- endmacro -%}
 
 <div
   {{- nhsukAttributes({
@@ -133,15 +130,15 @@
     attributes: errorMessage.attributes
   }) | trim | indent(2) }}
 {% endif %}
-{% if beforeInput.text or beforeInput.html %}
-  {{ beforeInput.html | safe | trim | indent(2) if beforeInput.html else beforeInput.text }}
-{% endif %}
-  <input class="{{ classNames }}" id="{{ id }}" name="{{ params.name }}" type="file"
-    {%- if params.disabled %} disabled{% endif %}
-    {%- if params.multiple %} multiple{% endif %}
-    {%- if describedBy %} aria-describedby="{{ describedBy }}"{% endif %}
-    {{- nhsukAttributes(params.attributes) }}>
-{% if afterInput.text or afterInput.html %}
-  {{ afterInput.html | safe | trim | indent(2) if afterInput.html else afterInput.text }}
-{% endif %}
+  {{ nhsukContent({
+    html: _inputElement(params, {
+      id: id,
+      describedBy: describedBy,
+      classNames: classNames
+    }) | trim | indent(2, true),
+    slots: {
+      before: params.formGroup.beforeInput,
+      after: params.formGroup.afterInput
+    }
+  }) | trim | indent(2) }}
 </div>

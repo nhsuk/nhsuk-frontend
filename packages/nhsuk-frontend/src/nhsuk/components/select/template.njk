@@ -1,3 +1,4 @@
+{% from "nhsuk/components/content/macro.njk" import content as nhsukContent %}
 {% from "nhsuk/components/error-message/macro.njk" import errorMessage as nhsukErrorMessage %}
 {% from "nhsuk/components/hint/macro.njk" import hint as nhsukHint %}
 {% from "nhsuk/components/label/macro.njk" import label as nhsukLabel %}
@@ -58,27 +59,27 @@
 {%- set hasBeforeInput = true if beforeInput.text or beforeInput.html else false %}
 {%- set hasAfterInput = true if afterInput.text or afterInput.html else false %}
 
-{%- macro _selectElement(params) -%}
-  <select class="{{ classNames }}" id="{{ id }}" name="{{ params.name }}"
-    {%- if params.disabled %} disabled{% endif %}
-    {%- if describedBy %} aria-describedby="{{ describedBy }}"{% endif %}
-    {{- nhsukAttributes(params.attributes) }}>
-  {% for item in params.items %}
-  {%- if item.divider %}
-    <hr>
-  {% elif item %}
-    {#- Allow selecting by text content (the value for an option when no value attribute is specified) #}
-    {%- set effectiveValue = item.value | default(item.text) %}
-    <option {%- if item.value is not undefined %} value="{{ item.value }}"{% endif %}
-      {{- " selected" if item.selected | default((effectiveValue == params.value and item.selected != false) if params.value else false, true) }}
-      {{- " disabled" if item.disabled }}
-      {{- nhsukAttributes(item.attributes) }}>
-      {{- item.text -}}
-    </option>
-    {% endif %}
-  {% endfor %}
-  </select>
-{%- endmacro -%}
+{%- macro _selectElement(params, parent) %}
+<select class="{{ parent.classNames }}" id="{{ parent.id }}" name="{{ params.name }}"
+  {%- if params.disabled %} disabled{% endif %}
+  {%- if parent.describedBy %} aria-describedby="{{ parent.describedBy }}"{% endif %}
+  {{- nhsukAttributes(params.attributes) }}>
+{% for item in params.items %}
+{%- if item.divider %}
+  <hr>
+{% elif item %}
+  {#- Allow selecting by text content (the value for an option when no value attribute is specified) #}
+  {%- set effectiveValue = item.value | default(item.text) %}
+  <option {%- if item.value is not undefined %} value="{{ item.value }}"{% endif %}
+    {{- " selected" if item.selected | default((effectiveValue == params.value and item.selected != false) if params.value else false, true) }}
+    {{- " disabled" if item.disabled }}
+    {{- nhsukAttributes(item.attributes) }}>
+    {{- item.text -}}
+  </option>
+  {% endif %}
+{% endfor %}
+</select>
+{% endmacro -%}
 
 <div class="{{ classNamesFormGroup }}" {{- nhsukAttributes(params.formGroup.attributes) }}>
   {{ nhsukLabel({
@@ -118,18 +119,26 @@
   }) | trim | indent(2) }}
 {% endif %}
 
+{%- set innerHtml %}
+  {{- _selectElement(params, {
+    id: id,
+    describedBy: describedBy,
+    classNames: classNames
+  }) | trim }}
+{% endset %}
+
 {%- if hasBeforeInput or hasAfterInput or params.inputWrapper.classes or params.inputWrapper.attributes %}
   <div class="nhsuk-input-wrapper {%- if params.inputWrapper.classes %} {{ params.inputWrapper.classes }}{% endif %}"
     {{- nhsukAttributes(params.inputWrapper.attributes) }}>
-    {% if hasBeforeInput %}
-      {{- beforeInput.html | safe | trim | indent(4, true) if beforeInput.html else beforeInput.text }}
-    {% endif %}
-    {{ _selectElement(params) }}
-    {% if hasAfterInput %}
-      {{- afterInput.html | safe | trim | indent(4, true) if afterInput.html else afterInput.text }}
-    {% endif %}
+    {{ nhsukContent({
+      html: innerHtml,
+      slots: {
+        before: beforeInput,
+        after: afterInput
+      }
+    }) | trim | indent(4) }}
   </div>
 {% else %}
-  {{ _selectElement(params) }}
+  {{ innerHtml | safe | trim | indent(2) }}
 {% endif %}
 </div>
