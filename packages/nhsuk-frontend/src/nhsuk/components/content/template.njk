@@ -1,11 +1,29 @@
+{% from "nhsuk/components/content/visually-hidden/macro.njk" import contentVisuallyHidden as nhsukContentVisuallyHidden %}
+
 {#- Support params as string or number #}
 {%- set content = params if params is mapping and params is not escaped else {
   text: params if params is string or params is number else undefined,
   html: params if params is escaped else undefined
 } -%}
 
-{%- if caller or content.html or content.text %}
+{#- Support visually hidden content as string #}
+{%- set visuallyHidden = params.visuallyHidden if params.visuallyHidden is mapping and params.visuallyHidden is not escaped else {
+  text: params.visuallyHidden if params.visuallyHidden is string else undefined,
+  html: params.visuallyHidden if params.visuallyHidden is escaped else undefined
+} -%}
+
+{%- set hasContent = true if caller or content.html or content.text else false -%}
+{%- set hasVisuallyHidden = true if visuallyHidden.html or visuallyHidden.text else false -%}
+
+{%- if hasContent or hasVisuallyHidden %}
 {%- set innerHtml %}
+  {%- if visuallyHidden.placement == "start" -%}
+    {{- nhsukContentVisuallyHidden(visuallyHidden, {
+      params: params,
+      hasContent: hasContent
+    }) | trim }}
+  {%- endif %}
+
   {%- if caller %}
     {{- caller() -}}
   {% elif content.html %}
@@ -13,6 +31,13 @@
   {% elif content.text %}
     {{- content.text | trim -}}
   {% endif %}
+
+  {%- if visuallyHidden.placement == "end" or (hasVisuallyHidden and not visuallyHidden.placement) -%}
+    {{- nhsukContentVisuallyHidden(visuallyHidden, {
+      params: params,
+      hasContent: hasContent
+    }) | trim }}
+  {%- endif %}
 {% endset %}
 
 {%- if params.href -%}

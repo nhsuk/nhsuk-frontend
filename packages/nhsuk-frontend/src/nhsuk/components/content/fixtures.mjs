@@ -27,6 +27,65 @@ const fixtures = {
       href: "#/result",
       text: "Change"
     }
+  },
+  "with link and visually hidden text": {
+    context: {
+      href: "#/change",
+      text: "Change",
+      visuallyHidden: {
+        text: "date of birth"
+      }
+    }
+  },
+  "with visually hidden text": {
+    context: {
+      text: "Change",
+      visuallyHidden: {
+        text: "date of birth"
+      }
+    }
+  },
+  "with visually hidden text only": {
+    context: {
+      visuallyHidden: "Action"
+    }
+  },
+  'with visually hidden text "start"': {
+    context: {
+      text: "Enter your date of birth",
+      visuallyHidden: {
+        text: "Error",
+        suffix: ":",
+        placement: "start"
+      }
+    }
+  },
+  'with visually hidden text "end"': {
+    context: {
+      text: "Enter your date of birth",
+      visuallyHidden: {
+        text: "Karen Francis",
+        prefix: "(",
+        suffix: ")",
+        placement: "end"
+      }
+    }
+  },
+  "with visually hidden text escaping": {
+    context: {
+      text: "Visit",
+      visuallyHidden: {
+        text: "A&E"
+      }
+    }
+  },
+  "with visually hidden HTML": {
+    context: {
+      text: "Visit",
+      visuallyHidden: {
+        html: "A&amp;E"
+      }
+    }
   }
 }
 

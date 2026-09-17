@@ -32,6 +32,35 @@ const options = {
     required: false,
     description: 'The HTML element `href` attribute.',
     released: '10.7.0'
+  },
+  visuallyHidden: {
+    type: 'object',
+    required: true,
+    description: 'Optional visually hidden content.',
+    released: '10.7.0',
+    params: {
+      text: {
+        type: 'string',
+        required: true,
+        description:
+          'If `html` is set, this is not required. Text for the visually hidden content.',
+        released: '10.7.0'
+      },
+      html: {
+        type: 'string',
+        required: true,
+        description:
+          'If `text` is set, this is not required. HTML for the visually hidden content.',
+        released: '10.7.0'
+      },
+      placement: {
+        type: 'string',
+        required: true,
+        description:
+          'Placement of the visually hidden content – `"start"` or `"end"`.',
+        released: '10.7.0'
+      }
+    }
   }
 }
 
