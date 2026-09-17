@@ -9,6 +9,144 @@ const fixtures = {
       text: "Change"
     }
   },
+  "slot": {
+    context: {
+      text: "A&E waiting times",
+      classes: "nhsuk-heading-s nhsuk-u-margin-0",
+      element: "h1"
+    },
+    variants: [
+      {
+        description: 'with "before"',
+        context: {
+          slots: {
+            before: {
+              html: "<samp>Before</samp>"
+            }
+          }
+        }
+      },
+      {
+        description: 'with "before" and "start"',
+        context: {
+          slots: {
+            before: {
+              html: "<samp>Before</samp>"
+            },
+            start: {
+              html: "<samp>Start–</samp>"
+            }
+          }
+        }
+      },
+      {
+        description: 'with "before", "start", "end" and "after"',
+        context: {
+          slots: {
+            before: {
+              html: "<samp>Before</samp>"
+            },
+            start: {
+              html: "<samp>Start–</samp>"
+            },
+            end: {
+              html: "<samp>–End</samp>"
+            },
+            after: {
+              html: "<samp>After</samp>"
+            }
+          }
+        }
+      },
+      {
+        description: 'with "start"',
+        context: {
+          slots: {
+            start: {
+              html: "<samp>Start–</samp>"
+            }
+          }
+        }
+      },
+      {
+        description: 'with "end"',
+        context: {
+          slots: {
+            end: {
+              html: "<samp>–End</samp>"
+            }
+          }
+        }
+      },
+      {
+        description: 'with "end" and "after"',
+        context: {
+          slots: {
+            end: {
+              html: "<samp>–End</samp>"
+            },
+            after: {
+              html: "<samp>After</samp>"
+            }
+          }
+        }
+      },
+      {
+        description: 'with "after"',
+        context: {
+          slots: {
+            after: {
+              html: "<samp>After</samp>"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "slot only": {
+    variants: [
+      {
+        description: 'with "before"',
+        context: {
+          slots: {
+            before: {
+              html: "<samp>Before</samp>"
+            }
+          }
+        }
+      },
+      {
+        description: 'with "start"',
+        context: {
+          slots: {
+            start: {
+              html: "<samp>Start</samp>"
+            }
+          }
+        }
+      },
+      {
+        description: 'with "end"',
+        context: {
+          slots: {
+            end: {
+              html: "<samp>End</samp>"
+            }
+          }
+        }
+      },
+      {
+        description: 'with "after"',
+        context: {
+          slots: {
+            after: {
+              html: "<samp>After</samp>"
+            }
+          }
+        }
+      }
+    ]
+  },
   "with text escaping": {
     context: {
       text: "A&E waiting times"

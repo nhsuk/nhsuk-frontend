@@ -1,5 +1,6 @@
 {% from "nhsuk/components/content/visually-hidden/macro.njk" import contentVisuallyHidden as nhsukContentVisuallyHidden %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/slot.njk" import nhsukSlot %}
 
 {#- Support params as string or number #}
 {%- set content = params if params is mapping and params is not escaped else {
@@ -13,7 +14,12 @@
   html: params.visuallyHidden if params.visuallyHidden is escaped else undefined
 } -%}
 
-{%- set hasContent = true if caller or content.html or content.text else false -%}
+{%- set slotBefore = nhsukSlot("before", params) %}
+{%- set slotStart = nhsukSlot("start", params) %}
+{%- set slotEnd = nhsukSlot("end", params) %}
+{%- set slotAfter = nhsukSlot("after", params) %}
+
+{%- set hasContent = true if caller or content.html or content.text or slotStart | length or slotEnd | length else false -%}
 {%- set hasVisuallyHidden = true if visuallyHidden.html or visuallyHidden.text else false -%}
 
 {#- Determine type of element to use, if not explicitly set #}
@@ -59,8 +65,12 @@
   {{- nhsukAttributes(params.attributes) -}}
 {% endset -%}
 
+{{- slotBefore -}}
+
 {%- if hasContent or hasVisuallyHidden %}
 {%- set innerHtml %}
+  {{- slotStart -}}
+
   {%- if visuallyHidden.placement == "start" -%}
     {{- nhsukContentVisuallyHidden(visuallyHidden, {
       params: params,
@@ -82,31 +92,38 @@
       hasContent: hasContent
     }) | trim }}
   {%- endif %}
+
+  {{- slotEnd -}}
 {% endset %}
+
+{%- set hasInnerHtml = innerHtml | trim | length > 0 %}
+{%- set hasElement = true if element and hasInnerHtml %}
 
 {%- if visuallyHidden.placement == "before" -%}
   {{- nhsukContentVisuallyHidden(visuallyHidden, {
     params: params,
-    hasContent: false if element else hasContent
+    hasContent: false if hasElement else hasContent
   }) | trim }}
 
-  {{- "\n" | safe if element -}}
+  {{- "\n" | safe if hasElement -}}
 {%- endif %}
 
-{%- if element -%}
+{%- if hasElement -%}
 <{{ element }} {{- attributesHtml | safe }}>
   {{ innerHtml | safe | trim | indent(2) }}
 </{{ element }}>
 {%- else %}
-  {{- innerHtml | safe | trim }}
-{% endif -%}
+  {{- innerHtml | safe | trim -}}
+{% endif %}
 
 {%- if visuallyHidden.placement == "after" -%}
-  {{- "\n" | safe if element -}}
+  {{- "\n" | safe if hasElement -}}
 
   {{- nhsukContentVisuallyHidden(visuallyHidden, {
     params: params,
-    hasContent: false if element else hasContent
+    hasContent: false if hasElement else hasContent
   }) | trim }}
 {%- endif %}
 {% endif %}
+
+{{- slotAfter -}}
