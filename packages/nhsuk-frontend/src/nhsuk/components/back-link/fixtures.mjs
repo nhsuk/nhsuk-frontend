@@ -58,6 +58,12 @@ const fixtures = {
   },
   "with HTML via call block": {
     callBlock: "What to expect at A&amp;E"
+  },
+  "with visually hidden text": {
+    context: {
+      text: "A&E",
+      visuallyHiddenText: "Back to"
+    }
   }
 }
 

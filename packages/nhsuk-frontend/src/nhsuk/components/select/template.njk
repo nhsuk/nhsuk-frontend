@@ -1,3 +1,4 @@
+{% from "nhsuk/components/content/macro.njk" import content as nhsukContent %}
 {% from "nhsuk/components/error-message/macro.njk" import errorMessage as nhsukErrorMessage %}
 {% from "nhsuk/components/hint/macro.njk" import hint as nhsukHint %}
 {% from "nhsuk/components/label/macro.njk" import label as nhsukLabel %}
@@ -25,6 +26,18 @@
   html: params.errorMessage if params.errorMessage is escaped else undefined
 } -%}
 
+{#- Support content before input as string #}
+{%- set beforeInput = params.formGroup.beforeInput if params.formGroup.beforeInput is mapping and params.formGroup.beforeInput is not escaped else {
+  text: params.formGroup.beforeInput if params.formGroup.beforeInput is string else undefined,
+  html: params.formGroup.beforeInput if params.formGroup.beforeInput is escaped else undefined
+} -%}
+
+{#- Support content after input as string #}
+{%- set afterInput = params.formGroup.afterInput if params.formGroup.afterInput is mapping and params.formGroup.afterInput is not escaped else {
+  text: params.formGroup.afterInput if params.formGroup.afterInput is string else undefined,
+  html: params.formGroup.afterInput if params.formGroup.afterInput is escaped else undefined
+} -%}
+
 {%- if errorMessage.text or errorMessage.html or params.errorMessage == true %}
   {% set classNames = classNames ~ " nhsuk-select--error" %}
   {% set classNamesFormGroup = classNamesFormGroup ~ " nhsuk-form-group--error" %}
@@ -43,30 +56,30 @@
 {% set describedBy = params.describedBy if params.describedBy else "" %}
 {%- set id = params.id if params.id else params.name -%}
 
-{%- set hasBeforeInput = true if params.formGroup.beforeInput and (params.formGroup.beforeInput.text or params.formGroup.beforeInput.html) else false %}
-{%- set hasAfterInput = true if params.formGroup.afterInput and (params.formGroup.afterInput.text or params.formGroup.afterInput.html) else false %}
+{%- set hasBeforeInput = true if beforeInput.text or beforeInput.html else false %}
+{%- set hasAfterInput = true if afterInput.text or afterInput.html else false %}
 
-{%- macro _selectElement(params) -%}
-  <select class="{{ classNames }}" id="{{ id }}" name="{{ params.name }}"
-    {%- if params.disabled %} disabled{% endif %}
-    {%- if describedBy %} aria-describedby="{{ describedBy }}"{% endif %}
-    {{- nhsukAttributes(params.attributes) }}>
-  {% for item in params.items %}
-  {%- if item.divider %}
-    <hr>
-  {% elif item %}
-    {#- Allow selecting by text content (the value for an option when no value attribute is specified) #}
-    {%- set effectiveValue = item.value | default(item.text) %}
-    <option {%- if item.value is not undefined %} value="{{ item.value }}"{% endif %}
-      {{- " selected" if item.selected | default((effectiveValue == params.value and item.selected != false) if params.value else false, true) }}
-      {{- " disabled" if item.disabled }}
-      {{- nhsukAttributes(item.attributes) }}>
-      {{- item.text -}}
-    </option>
-    {% endif %}
-  {% endfor %}
-  </select>
-{%- endmacro -%}
+{%- macro _selectElement(params, parent) %}
+<select class="{{ parent.classNames }}" id="{{ parent.id }}" name="{{ params.name }}"
+  {%- if params.disabled %} disabled{% endif %}
+  {%- if parent.describedBy %} aria-describedby="{{ parent.describedBy }}"{% endif %}
+  {{- nhsukAttributes(params.attributes) }}>
+{% for item in params.items %}
+{%- if item.divider %}
+  <hr>
+{% elif item %}
+  {#- Allow selecting by text content (the value for an option when no value attribute is specified) #}
+  {%- set effectiveValue = item.value | default(item.text) %}
+  <option {%- if item.value is not undefined %} value="{{ item.value }}"{% endif %}
+    {{- " selected" if item.selected | default((effectiveValue == params.value and item.selected != false) if params.value else false, true) }}
+    {{- " disabled" if item.disabled }}
+    {{- nhsukAttributes(item.attributes) }}>
+    {{- item.text -}}
+  </option>
+  {% endif %}
+{% endfor %}
+</select>
+{% endmacro -%}
 
 <div class="{{ classNamesFormGroup }}" {{- nhsukAttributes(params.formGroup.attributes) }}>
   {{ nhsukLabel({
@@ -106,18 +119,26 @@
   }) | trim | indent(2) }}
 {% endif %}
 
+{%- set innerHtml %}
+  {{- _selectElement(params, {
+    id: id,
+    describedBy: describedBy,
+    classNames: classNames
+  }) | trim }}
+{% endset %}
+
 {%- if hasBeforeInput or hasAfterInput or params.inputWrapper.classes or params.inputWrapper.attributes %}
   <div class="nhsuk-input-wrapper {%- if params.inputWrapper.classes %} {{ params.inputWrapper.classes }}{% endif %}"
     {{- nhsukAttributes(params.inputWrapper.attributes) }}>
-    {% if hasBeforeInput %}
-      {{- params.formGroup.beforeInput.html | safe | trim | indent(4, true) if params.formGroup.beforeInput.html else params.formGroup.beforeInput.text }}
-    {% endif %}
-    {{ _selectElement(params) }}
-    {% if hasAfterInput %}
-      {{- params.formGroup.afterInput.html | safe | trim | indent(4, true) if params.formGroup.afterInput.html else params.formGroup.afterInput.text }}
-    {% endif %}
+    {{ nhsukContent({
+      html: innerHtml,
+      slots: {
+        before: beforeInput,
+        after: afterInput
+      }
+    }) | trim | indent(4) }}
   </div>
 {% else %}
-  {{ _selectElement(params) }}
+  {{ innerHtml | safe | trim | indent(2) }}
 {% endif %}
 </div>

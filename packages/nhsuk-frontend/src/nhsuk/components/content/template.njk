@@ -1,0 +1,157 @@
+{% from "nhsuk/components/content/visually-hidden/macro.njk" import contentVisuallyHidden as nhsukContentVisuallyHidden %}
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+
+{#- Support params as string or number #}
+{%- set content = params if params is mapping and params is not escaped else {
+  text: params if params is string or params is number else undefined,
+  html: params if params is escaped else undefined
+} -%}
+
+{#- Support visually hidden content as string #}
+{%- set visuallyHidden = params.visuallyHidden if params.visuallyHidden is mapping and params.visuallyHidden is not escaped else {
+  text: params.visuallyHidden if params.visuallyHidden is string else undefined,
+  html: params.visuallyHidden if params.visuallyHidden is escaped else undefined
+} -%}
+
+{#- Support individual slots as strings #}
+{%- set slots = {
+  before: params.slots.before if params.slots.before is mapping and params.slots.before is not escaped else {
+    text: params.slots.before if params.slots.before is string else undefined,
+    html: params.slots.before if params.slots.before is escaped else undefined
+  },
+  start: params.slots.start if params.slots.start is mapping and params.slots.start is not escaped else {
+    text: params.slots.start if params.slots.start is string else undefined,
+    html: params.slots.start if params.slots.start is escaped else undefined
+  },
+  end: params.slots.end if params.slots.end is mapping and params.slots.end is not escaped else {
+    text: params.slots.end if params.slots.end is string else undefined,
+    html: params.slots.end if params.slots.end is escaped else undefined
+  },
+  after: params.slots.after if params.slots.after is mapping and params.slots.after is not escaped else {
+    text: params.slots.after if params.slots.after is string else undefined,
+    html: params.slots.after if params.slots.after is escaped else undefined
+  }
+} -%}
+
+{%- set hasContent = true if caller or content.html or content.text or slots.start.text or slots.start.html or slots.end.text or slots.end.html else false -%}
+{%- set hasVisuallyHidden = true if visuallyHidden.html or visuallyHidden.text else false -%}
+
+{#- Determine type of element to use, if not explicitly set #}
+{%- if params.element %}
+  {% set element = params.element | lower %}
+{% elif params.type %}
+  {% set element = "button" %}
+{% elif params.href %}
+  {% set element = "a" %}
+{% endif %}
+
+{#- Define attributes that we can use across all element types #}
+{%- set attributesHtml %}
+  {{- nhsukAttributes({
+    class: {
+      value: params.classes,
+      optional: true
+    },
+    id: {
+      value: params.id,
+      optional: true
+    }
+  }) -}}
+
+  {% if element == "button" %}
+    {{- nhsukAttributes({
+      name: {
+        value: params.name,
+        optional: true
+      },
+      type: params.type | default("submit"),
+      value: {
+        value: params.value,
+        optional: true
+      }
+    }) -}}
+  {% elif element == "a" %}
+    {{- nhsukAttributes({
+      href: params.href | default("#")
+    }) -}}
+  {% endif %}
+
+  {{- nhsukAttributes(params.attributes) -}}
+{% endset -%}
+
+{%- if slots.before.text or slots.before.html %}
+  {{- slots.before.html | safe | trim if slots.before.html else slots.before.text | trim }}
+
+  {{- "\n" | safe if hasContent or hasVisuallyHidden -}}
+{% endif %}
+
+{%- if hasContent or hasVisuallyHidden %}
+{%- set innerHtml %}
+  {%- if slots.start.text or slots.start.html %}
+    {{- slots.start.html | safe | trim if slots.start.html else slots.start.text | trim }}
+  {%- endif %}
+
+  {%- if visuallyHidden.placement == "start" -%}
+    {{- nhsukContentVisuallyHidden(visuallyHidden, {
+      params: params,
+      hasContent: hasContent
+    }) | trim }}
+  {%- endif %}
+
+  {%- if caller %}
+    {{- caller() -}}
+  {% elif content.html %}
+    {{- content.html | trim | safe -}}
+  {% elif content.text %}
+    {{- content.text | trim -}}
+  {% endif %}
+
+  {%- if visuallyHidden.placement == "end" or (hasVisuallyHidden and not visuallyHidden.placement) -%}
+    {{- nhsukContentVisuallyHidden(visuallyHidden, {
+      params: params,
+      hasContent: hasContent
+    }) | trim }}
+  {%- endif %}
+
+  {%- if slots.end.text or slots.end.html %}
+    {{- slots.end.html | safe | trim if slots.end.html else slots.end.text | trim }}
+  {%- endif %}
+
+  {{- "\n" | safe -}}
+{% endset %}
+
+{%- set hasInnerHtml = innerHtml | trim | length > 0 %}
+{%- set hasElement = true if element and hasInnerHtml %}
+
+{%- if visuallyHidden.placement == "before" -%}
+  {{- nhsukContentVisuallyHidden(visuallyHidden, {
+    params: params,
+    hasContent: false if hasElement else hasContent
+  }) | trim }}
+
+  {{- "\n" | safe if hasElement -}}
+{%- endif %}
+
+{%- if hasElement -%}
+<{{ element }} {{- attributesHtml | safe }}>
+  {{ innerHtml | safe | trim | indent(2) }}
+</{{ element }}>
+{%- else %}
+  {{- innerHtml | safe | trim -}}
+{% endif %}
+
+{%- if visuallyHidden.placement == "after" -%}
+  {{- "\n" | safe if hasElement -}}
+
+  {{- nhsukContentVisuallyHidden(visuallyHidden, {
+    params: params,
+    hasContent: false if hasElement else hasContent
+  }) | trim }}
+{%- endif %}
+{% endif %}
+
+{%- if slots.after.text or slots.after.html %}
+  {{- "\n" | safe if hasContent or hasVisuallyHidden -}}
+
+  {{- slots.after.html | safe | trim if slots.after.html else slots.after.text | trim }}
+{% endif -%}

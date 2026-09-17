@@ -789,6 +789,55 @@ const fixtures = {
         }
       ]
     }
+  },
+  "content": {
+    context: {
+      fieldset: {
+        legend: {
+          heading: "What is your date of birth?",
+          size: "l"
+        }
+      },
+      hint: {
+        text: "For example, 31 3 1980"
+      },
+      id: "example"
+    },
+    variants: [
+      {
+        description: 'with "before input"',
+        context: {
+          formGroup: {
+            beforeInput: {
+              html: "<samp>Before</samp>"
+            }
+          }
+        }
+      },
+      {
+        description: 'with "before input" and "after input"',
+        context: {
+          formGroup: {
+            beforeInput: {
+              html: "<samp>Before</samp>"
+            },
+            afterInput: {
+              html: "<samp>After</samp>"
+            }
+          }
+        }
+      },
+      {
+        description: 'with "after input"',
+        context: {
+          formGroup: {
+            afterInput: {
+              html: "<samp>After</samp>"
+            }
+          }
+        }
+      }
+    ]
   }
 }
 

@@ -1,4 +1,5 @@
 {% from "nhsuk/components/caption/macro.njk" import caption as nhsukCaption %}
+{% from "nhsuk/components/content/macro.njk" import content as nhsukContent %}
 {% from "nhsuk/components/heading/macro.njk" import heading as nhsukHeading %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
@@ -83,10 +84,13 @@
 {%- set element = "h" ~ heading.level | default("1", true) -%}
 
 {% if hasHeading %}
-<{{ element }} class="{{ classNamesHeading }}" {%- if heading.id %} id="{{ heading.id }}"{% endif %}
-  {{- nhsukAttributes(heading.attributes) }}>
-  {{ innerHtml | safe | trim | indent(2) }}
-</{{ element }}>
+  {{- nhsukContent({
+    id: heading.id,
+    html: innerHtml,
+    classes: classNamesHeading,
+    attributes: heading.attributes,
+    element: element
+  }) | trim }}
 {% else %}
   {{- innerHtml | safe | trim }}
 {% endif %}

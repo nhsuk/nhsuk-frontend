@@ -20,7 +20,9 @@
 {#- Determine if we need 2 or 3 columns #}
 {%- set hasActions = false %}
 {% for row in rows %}
-  {% set hasActions = true if row.actions.items | length else hasActions %}
+  {%- set actions = row.actions | select("mapping") | list if row.actions and row.actions is iterable else [] %}
+  {%- set actions = row.actions.items | select("mapping") | list if row.actions.items and not actions | length else actions %}
+  {%- set hasActions = true if actions | length else hasActions %}
 {% endfor -%}
 
 {%- set summaryListHtml %}

@@ -1,0 +1,57 @@
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-u-visually-hidden" -%}
+
+{#- Support params as string or number #}
+{%- set content = params if params is mapping and params is not escaped else {
+  text: params if params is string or params is number else undefined,
+  html: params if params is escaped else undefined
+} -%}
+
+{#- Support prefix as string #}
+{%- set prefix = content.prefix if content.prefix is mapping and content.prefix is not escaped else {
+  text: content.prefix if content.prefix is string else undefined,
+  html: content.prefix if content.prefix is escaped else undefined
+} -%}
+
+{#- Support suffix as string #}
+{%- set suffix = content.suffix if content.suffix is mapping and content.suffix is not escaped else {
+  text: content.suffix if content.suffix is string else undefined,
+  html: content.suffix if content.suffix is escaped else undefined
+} -%}
+
+{#- Determine type of element to use, if not explicitly set #}
+{%- if params.element %}
+  {% set element = params.element | lower %}
+{% else %}
+  {% set element = "span" %}
+{% endif %}
+
+{%- if caller or content.html or content.text %}
+{% set innerHtml %}
+  {% if caller %}
+    {{- caller() -}}
+  {% elif content.html %}
+    {{- content.html | safe -}}
+  {% elif content.text %}
+    {{- content.text -}}
+  {% endif %}
+{% endset -%}
+
+{%- if prefix.text or prefix.html %}
+  {%- set innerHtml = (prefix.html | safe if prefix.html else prefix.text) ~ innerHtml | safe -%}
+{% endif -%}
+
+{%- if suffix.text or suffix.html %}
+  {%- set innerHtml = innerHtml | safe ~ (suffix.html | safe if suffix.html else suffix.text) -%}
+{% endif -%}
+
+<{{ element }} class="{{ classNames }}">
+  {%- if parent.hasContent and (content.placement == "before" or content.placement == "start") %}
+    {{- innerHtml | safe ~ " " -}}
+  {% elif parent.hasContent %}
+    {{- " " ~ innerHtml | safe -}}
+  {% else %}
+    {{- innerHtml | safe -}}
+  {% endif -%}
+</{{ element }}>
+{% endif %}

@@ -1,3 +1,4 @@
+{% from "nhsuk/components/content/macro.njk" import content as nhsukContent %}
 {% from "nhsuk/components/error-message/macro.njk" import errorMessage as nhsukErrorMessage %}
 {% from "nhsuk/components/hint/macro.njk" import hint as nhsukHint %}
 {% from "nhsuk/components/label/macro.njk" import label as nhsukLabel %}
@@ -43,6 +44,15 @@
 {% set describedBy = params.describedBy if params.describedBy else "" %}
 {%- set id = params.id if params.id else params.name -%}
 
+{%- macro _textareaElement(params, parent) %}
+<textarea class="{{ parent.classNames }}" id="{{ parent.id }}" name="{{ params.name }}" rows="{{ params.rows | default(5, true) }}"
+  {%- if params.spellcheck in [true, false] %} spellcheck="{{ params.spellcheck }}"{% endif %}
+  {%- if params.disabled %} disabled{% endif %}
+  {%- if parent.describedBy %} aria-describedby="{{ parent.describedBy }}"{% endif %}
+  {%- if params.autocomplete %} autocomplete="{{ params.autocomplete }}"{% endif %}
+  {{- nhsukAttributes(params.attributes) }}>{{ params.value }}</textarea>
+{% endmacro -%}
+
 <div class="{{ classNamesFormGroup }}" {{- nhsukAttributes(params.formGroup.attributes) }}>
   {{ nhsukLabel({
     html: label.html,
@@ -80,16 +90,15 @@
     attributes: errorMessage.attributes
   }) | trim | indent(2) }}
 {% endif %}
-{% if params.formGroup.beforeInput %}
-  {{ params.formGroup.beforeInput.html | safe | trim | indent(2) if params.formGroup.beforeInput.html else params.formGroup.beforeInput.text }}
-{% endif %}
-  <textarea class="{{ classNames }}" id="{{ id }}" name="{{ params.name }}" rows="{{ params.rows | default(5, true) }}"
-  {%- if params.spellcheck in [true, false] %} spellcheck="{{ params.spellcheck }}"{% endif %}
-  {%- if params.disabled %} disabled{% endif %}
-  {%- if describedBy %} aria-describedby="{{ describedBy }}"{% endif %}
-  {%- if params.autocomplete %} autocomplete="{{ params.autocomplete }}"{% endif %}
-  {{- nhsukAttributes(params.attributes) }}>{{ params.value }}</textarea>
-{% if params.formGroup.afterInput %}
-  {{ params.formGroup.afterInput.html | safe | trim | indent(2) if params.formGroup.afterInput.html else params.formGroup.afterInput.text }}
-{% endif %}
+  {{ nhsukContent({
+    html: _textareaElement(params, {
+      id: id,
+      describedBy: describedBy,
+      classNames: classNames
+    }),
+    slots: {
+      before: params.formGroup.beforeInput,
+      after: params.formGroup.afterInput
+    }
+  }) | trim | indent(2) }}
 </div>
