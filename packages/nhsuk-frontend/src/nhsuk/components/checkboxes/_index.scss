@@ -133,12 +133,13 @@ $nhsuk-checkboxes-offset: $nhsuk-border-width-form-element;
     // Use "magic numbers" to define shape and position of check mark because
     // the complexity of the shape makes it difficult to calculate dynamically.
     top: $check-mark-height;
-    left: $check-mark-width + nhsuk-px-to-rem(1px);
+    left: $check-mark-width;
 
     width: $check-mark-width;
     height: $check-mark-height;
 
-    transform: rotate(-45deg) translate(-50%, -50%);
+    // Translate check mark to visually centre
+    transform: rotate(-45deg) translate(-52%, -43%);
 
     border: solid;
     border-width: 0 0 nhsuk-px-to-rem(4px) nhsuk-px-to-rem(4px);
