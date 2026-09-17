@@ -1,0 +1,25 @@
+{#- Support params as string or number #}
+{%- set content = params if params is mapping and params is not escaped else {
+  text: params if params is string or params is number else undefined,
+  html: params if params is escaped else undefined
+} -%}
+
+{%- if caller or content.html or content.text %}
+{%- set innerHtml %}
+  {%- if caller %}
+    {{- caller() -}}
+  {% elif content.html %}
+    {{- content.html | trim | safe -}}
+  {% elif content.text %}
+    {{- content.text | trim -}}
+  {% endif %}
+{% endset %}
+
+{%- if params.href -%}
+<a class="nhsuk-link" href="{{ params.href }}">
+  {{ innerHtml | safe | trim | indent(2) }}
+</a>
+{%- else %}
+  {{- innerHtml | safe | trim }}
+{% endif -%}
+{% endif %}
