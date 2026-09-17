@@ -50,6 +50,17 @@ const fixtures = {
       visuallyHidden: "Action"
     }
   },
+  'with visually hidden text "before"': {
+    context: {
+      text: "Enter your date of birth",
+      visuallyHidden: {
+        text: "Error",
+        suffix: ":",
+        placement: "before"
+      },
+      element: "p"
+    }
+  },
   'with visually hidden text "start"': {
     context: {
       text: "Enter your date of birth",
@@ -57,7 +68,8 @@ const fixtures = {
         text: "Error",
         suffix: ":",
         placement: "start"
-      }
+      },
+      element: "p"
     }
   },
   'with visually hidden text "end"': {
@@ -68,7 +80,20 @@ const fixtures = {
         prefix: "(",
         suffix: ")",
         placement: "end"
-      }
+      },
+      element: "p"
+    }
+  },
+  'with visually hidden text "after"': {
+    context: {
+      text: "Enter your date of birth",
+      visuallyHidden: {
+        text: "Karen Francis",
+        prefix: "(",
+        suffix: ")",
+        placement: "after"
+      },
+      element: "p"
     }
   },
   "with visually hidden text escaping": {
@@ -85,6 +110,12 @@ const fixtures = {
       visuallyHidden: {
         html: "A&amp;E"
       }
+    }
+  },
+  "as a paragraph": {
+    context: {
+      text: "Change",
+      element: "p"
     }
   }
 }

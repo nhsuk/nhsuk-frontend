@@ -1,4 +1,5 @@
 {% from "nhsuk/components/content/visually-hidden/macro.njk" import contentVisuallyHidden as nhsukContentVisuallyHidden %}
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Support params as string or number #}
 {%- set content = params if params is mapping and params is not escaped else {
@@ -14,6 +15,49 @@
 
 {%- set hasContent = true if caller or content.html or content.text else false -%}
 {%- set hasVisuallyHidden = true if visuallyHidden.html or visuallyHidden.text else false -%}
+
+{#- Determine type of element to use, if not explicitly set #}
+{%- if params.element %}
+  {% set element = params.element | lower %}
+{% elif params.type %}
+  {% set element = "button" %}
+{% elif params.href %}
+  {% set element = "a" %}
+{% endif %}
+
+{#- Define attributes that we can use across all element types #}
+{%- set attributesHtml %}
+  {{- nhsukAttributes({
+    class: {
+      value: params.classes,
+      optional: true
+    },
+    id: {
+      value: params.id,
+      optional: true
+    }
+  }) -}}
+
+  {% if element == "button" %}
+    {{- nhsukAttributes({
+      name: {
+        value: params.name,
+        optional: true
+      },
+      type: params.type | default("submit"),
+      value: {
+        value: params.value,
+        optional: true
+      }
+    }) -}}
+  {% elif element == "a" %}
+    {{- nhsukAttributes({
+      href: params.href | default("#")
+    }) -}}
+  {% endif %}
+
+  {{- nhsukAttributes(params.attributes) -}}
+{% endset -%}
 
 {%- if hasContent or hasVisuallyHidden %}
 {%- set innerHtml %}
@@ -40,11 +84,29 @@
   {%- endif %}
 {% endset %}
 
-{%- if params.href -%}
-<a class="nhsuk-link" href="{{ params.href }}">
+{%- if visuallyHidden.placement == "before" -%}
+  {{- nhsukContentVisuallyHidden(visuallyHidden, {
+    params: params,
+    hasContent: false if element else hasContent
+  }) | trim }}
+
+  {{- "\n" | safe if element -}}
+{%- endif %}
+
+{%- if element -%}
+<{{ element }} {{- attributesHtml | safe }}>
   {{ innerHtml | safe | trim | indent(2) }}
-</a>
+</{{ element }}>
 {%- else %}
   {{- innerHtml | safe | trim }}
 {% endif -%}
+
+{%- if visuallyHidden.placement == "after" -%}
+  {{- "\n" | safe if element -}}
+
+  {{- nhsukContentVisuallyHidden(visuallyHidden, {
+    params: params,
+    hasContent: false if element else hasContent
+  }) | trim }}
+{%- endif %}
 {% endif %}

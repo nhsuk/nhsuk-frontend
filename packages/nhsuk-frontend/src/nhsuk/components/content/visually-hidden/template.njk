@@ -19,6 +19,13 @@
   html: content.suffix if content.suffix is escaped else undefined
 } -%}
 
+{#- Determine type of element to use, if not explicitly set #}
+{%- if params.element %}
+  {% set element = params.element | lower %}
+{% else %}
+  {% set element = "span" %}
+{% endif %}
+
 {%- if caller or content.html or content.text %}
 {% set innerHtml %}
   {% if caller %}
@@ -38,13 +45,13 @@
   {%- set innerHtml = innerHtml | safe ~ (suffix.html | safe if suffix.html else suffix.text) -%}
 {% endif -%}
 
-<span class="{{ classNames }}">
-  {%- if parent.hasContent and content.placement == "before" %}
+<{{ element }} class="{{ classNames }}">
+  {%- if parent.hasContent and (content.placement == "before" or content.placement == "start") %}
     {{- innerHtml | safe ~ " " -}}
   {% elif parent.hasContent %}
     {{- " " ~ innerHtml | safe -}}
   {% else %}
     {{- innerHtml | safe -}}
   {% endif -%}
-</span>
+</{{ element }}>
 {% endif %}
