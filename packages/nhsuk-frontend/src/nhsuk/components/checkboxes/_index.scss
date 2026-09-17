@@ -311,7 +311,8 @@ $nhsuk-checkboxes-offset: $nhsuk-border-width-form-element;
       width: $check-mark-width;
       height: $check-mark-height;
 
-      transform: translateX(nhsuk-px-to-rem(0.5px)) rotate(-45deg) translate(-50%, -50%);
+      // Translate check mark to visually centre
+      transform: rotate(-45deg) translate(-47%, -44%);
 
       border-width: 0 0 nhsuk-px-to-rem(3px) nhsuk-px-to-rem(3px);
     }
