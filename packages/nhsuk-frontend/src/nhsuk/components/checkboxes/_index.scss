@@ -123,6 +123,8 @@ $nhsuk-checkboxes-offset: $nhsuk-border-width-form-element;
   .nhsuk-checkboxes__label::after {
     $check-mark-width: nhsuk-px-to-rem(22px);
     $check-mark-height: nhsuk-px-to-rem(10px);
+    $check-mark-offset-x: math.percentage(math.div(nhsuk-px-to-rem(-0.44px), $check-mark-width));
+    $check-mark-offset-y: math.percentage(math.div(nhsuk-px-to-rem(0.7px), $check-mark-height));
 
     content: "";
 
@@ -139,7 +141,7 @@ $nhsuk-checkboxes-offset: $nhsuk-border-width-form-element;
     height: $check-mark-height;
 
     // Translate check mark to visually centre
-    transform: rotate(-45deg) translate(-52%, -43%);
+    transform: rotate(-45deg) translate(-50% + $check-mark-offset-x, -50% + $check-mark-offset-y);
 
     border: solid;
     border-width: 0 0 nhsuk-px-to-rem(4px) nhsuk-px-to-rem(4px);
@@ -305,6 +307,8 @@ $nhsuk-checkboxes-offset: $nhsuk-border-width-form-element;
     .nhsuk-checkboxes__label::after {
       $check-mark-width: nhsuk-px-to-rem(12px);
       $check-mark-height: nhsuk-px-to-rem(6px);
+      $check-mark-offset-x: math.percentage(math.div(nhsuk-px-to-rem(0.36px), $check-mark-width));
+      $check-mark-offset-y: math.percentage(math.div(nhsuk-px-to-rem(0.36px), $check-mark-height));
 
       top: $check-mark-height + $input-offset;
       left: $check-mark-width + nhsuk-px-to-rem($nhsuk-checkboxes-offset);
@@ -313,7 +317,7 @@ $nhsuk-checkboxes-offset: $nhsuk-border-width-form-element;
       height: $check-mark-height;
 
       // Translate check mark to visually centre
-      transform: rotate(-45deg) translate(-47%, -44%);
+      transform: rotate(-45deg) translate(-50% + $check-mark-offset-x, -50% + $check-mark-offset-y);
 
       border-width: 0 0 nhsuk-px-to-rem(3px) nhsuk-px-to-rem(3px);
     }
