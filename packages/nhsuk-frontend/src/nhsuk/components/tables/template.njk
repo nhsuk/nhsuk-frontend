@@ -1,4 +1,5 @@
 {% from "nhsuk/components/card/macro.njk" import card as nhsukCard %}
+{% from "nhsuk/components/content/macro.njk" import content as nhsukContent %}
 {% from "nhsuk/components/heading/macro.njk" import heading as nhsukHeading %}
 {% from "nhsuk/components/scroll/macro.njk" import scroll as nhsukScroll %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
@@ -114,26 +115,6 @@
   {{- nhsukAttributes(params.attributes) -}}
 {% endset %}
 
-{%- macro _tableValue(item) %}
-  {%- set visuallyHiddenText = item.visuallyHiddenText -%}
-
-  {%- if item.html or item.text %}
-    {%- if visuallyHiddenText %}
-      {% set visuallyHiddenText = " " ~ visuallyHiddenText %}
-    {% endif %}
-
-    {%- if item.html %}
-      {{- item.html | safe -}}
-    {% elif item.text %}
-      {{- item.text -}}
-    {% endif -%}
-  {% endif %}
-
-  {%- if visuallyHiddenText -%}
-    <span class="nhsuk-u-visually-hidden">{{ visuallyHiddenText }}</span>
-  {%- endif %}
-{% endmacro -%}
-
 {%- macro _tableCell(item, parent) %}
 {%- set element = item.element | lower if item.element else "td" -%}
 {%- set classNameCell = "nhsuk-table__header" if element == "th" else "nhsuk-table__cell" -%}
@@ -189,22 +170,27 @@
 {% set isResponsive = true if parent.params.responsive else false -%}
 
 {% set innerHtml %}
-  {% if item.href %}
-    <a class="nhsuk-link" href="{{ item.href }}">
-      {{- _tableValue(item) | safe | trim -}}
-    </a>
-  {% else %}
-    {{- _tableValue(item) | safe | trim -}}
-  {% endif %}
+  {{- nhsukContent({
+    text: item.text,
+    html: item.html,
+    visuallyHidden: {
+      text: item.visuallyHiddenText,
+      placement: "end"
+    },
+    href: item.href
+  }) | trim }}
 {% endset -%}
 
 {% if isResponsive and not isHeader and (parent.header or item.header) %}
   <span class="nhsuk-table__heading" aria-hidden="true">
-    {{- _tableValue({
+    {{- nhsukContent({
       text: parent.header.text | default(item.header),
       html: parent.header.html,
-      visuallyHiddenText: parent.header.visuallyHiddenText
-    }) | safe | trim | indent(2) }} </span>
+      visuallyHidden: {
+        text: parent.header.visuallyHiddenText,
+        placement: "end"
+      }
+    }) | trim | indent(2) }} </span>
 
   {%- if item.html -%}
     <span>{{ innerHtml | safe | trim | indent(2) }}</span>

@@ -1,5 +1,6 @@
-{% from "nhsuk/components/input/macro.njk" import input as nhsukInput %}
 {% from "nhsuk/components/button/macro.njk" import button as nhsukButton %}
+{% from "nhsuk/components/content/macro.njk" import content as nhsukContent %}
+{% from "nhsuk/components/input/macro.njk" import input as nhsukInput %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
 
@@ -250,7 +251,13 @@
       {% endfor %}
         <li class="nhsuk-header__menu" hidden>
           <button class="nhsuk-header__menu-toggle nhsuk-header__navigation-link" id="toggle-menu" aria-expanded="false">
-            <span class="nhsuk-u-visually-hidden">{{ params.navigation.toggleMenuVisuallyHiddenText | default("Browse") }} </span>{{ params.navigation.toggleMenuText | default("More") }}
+            {{ nhsukContent({
+              text: params.navigation.toggleMenuText | default("More"),
+              visuallyHidden: {
+                text: params.navigation.toggleMenuVisuallyHiddenText | default("Browse"),
+                placement: "start"
+              }
+            }) | trim | indent(12) }}
           </button>
         </li>
       </ul>
