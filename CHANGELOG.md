@@ -576,6 +576,12 @@ We've changed the hover and active icon colour for the action link component so 
 
 This change was introduced in [pull request #1802: Change action link icon colour on hover and active](https://github.com/nhsuk/nhsuk-frontend/pull/1802).
 
+### :wrench: **Fixes**
+
+We've made fixes to NHS.UK frontend in the following pull requests:
+
+- [#2095: Fix small checkbox tick position](https://github.com/nhsuk/nhsuk-frontend/pull/2095)
+
 ## 10.6.1 - 25 August 2026
 
 Note: This release was created from the `support/10.x` branch.

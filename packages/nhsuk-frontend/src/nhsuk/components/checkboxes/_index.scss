@@ -123,6 +123,8 @@ $nhsuk-checkboxes-offset: $nhsuk-border-width-form-element;
   .nhsuk-checkboxes__label::after {
     $check-mark-width: nhsuk-px-to-rem(22px);
     $check-mark-height: nhsuk-px-to-rem(10px);
+    $check-mark-offset-x: math.percentage(math.div(nhsuk-px-to-rem(-0.44px), $check-mark-width));
+    $check-mark-offset-y: math.percentage(math.div(nhsuk-px-to-rem(0.7px), $check-mark-height));
 
     content: "";
 
@@ -133,12 +135,13 @@ $nhsuk-checkboxes-offset: $nhsuk-border-width-form-element;
     // Use "magic numbers" to define shape and position of check mark because
     // the complexity of the shape makes it difficult to calculate dynamically.
     top: $check-mark-height;
-    left: $check-mark-width + nhsuk-px-to-rem(1px);
+    left: $check-mark-width;
 
     width: $check-mark-width;
     height: $check-mark-height;
 
-    transform: rotate(-45deg) translate(-50%, -50%);
+    // Translate check mark to visually centre
+    transform: rotate(-45deg) translate(-50% + $check-mark-offset-x, -50% + $check-mark-offset-y);
 
     border: solid;
     border-width: 0 0 nhsuk-px-to-rem(4px) nhsuk-px-to-rem(4px);
@@ -304,11 +307,18 @@ $nhsuk-checkboxes-offset: $nhsuk-border-width-form-element;
     .nhsuk-checkboxes__label::after {
       $check-mark-width: nhsuk-px-to-rem(12px);
       $check-mark-height: nhsuk-px-to-rem(6px);
+      $check-mark-offset-x: math.percentage(math.div(nhsuk-px-to-rem(0.36px), $check-mark-width));
+      $check-mark-offset-y: math.percentage(math.div(nhsuk-px-to-rem(0.36px), $check-mark-height));
 
-      top: $check-mark-height + $input-offset - nhsuk-px-to-rem(0.5px);
-      left: $check-mark-width + nhsuk-px-to-rem($nhsuk-checkboxes-offset + 1px);
+      top: $check-mark-height + $input-offset;
+      left: $check-mark-width + nhsuk-px-to-rem($nhsuk-checkboxes-offset);
+
       width: $check-mark-width;
       height: $check-mark-height;
+
+      // Translate check mark to visually centre
+      transform: rotate(-45deg) translate(-50% + $check-mark-offset-x, -50% + $check-mark-offset-y);
+
       border-width: 0 0 nhsuk-px-to-rem(3px) nhsuk-px-to-rem(3px);
     }
 
