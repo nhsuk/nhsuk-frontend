@@ -1,4 +1,5 @@
 {% from "nhsuk/components/caption/macro.njk" import caption as nhsukCaption %}
+{% from "nhsuk/components/content/macro.njk" import content as nhsukContent %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set classes for this component #}
@@ -53,26 +54,18 @@
 {%- set hasCaption = caption.text or caption.html -%}
 
 {%- if caller or params.html or params.text %}
-{%- set innerHtml %}
-  {%- if params.html %}
-    {{- params.html | safe -}}
-  {% elif params.text %}
-    {{- params.text -}}
-  {% endif -%}
-{% endset %}
-
-{%- set innerHtml %}
-  {%- if params.href -%}
-    <a class="nhsuk-link" href="{{ params.href }}">
-      {{- innerHtml | safe | trim -}}
-    </a>
-  {%- else %}
-    {{- innerHtml | safe | trim -}}
-  {% endif -%}
-{% endset %}
+{%- set content = {
+  text: params.text,
+  html: params.html,
+  visuallyHidden: {
+    text: params.visuallyHiddenText,
+    placement: "end"
+  },
+  href: params.href
+} -%}
 
 {% if caption.placement == "before" %}
-{{ nhsukCaption(caption) | safe | trim }}
+  {{- nhsukCaption(caption) | safe | trim }}
 {% endif -%}
 
 {#- Determine type of element to use, if not explicitly set #}
@@ -94,25 +87,20 @@
 {% if caption.placement == "start" or (hasCaption and not caption.placement) %}
   {{ nhsukCaption(caption) | safe | trim | indent(2) }}
 {% endif %}
-{% if params.visuallyHiddenText %}
-  {% if caller %}
-    {{- caller() }}
-  {% else %}
-    {{- innerHtml | safe | trim | indent(2, true) -}}
-  {% endif -%}
-  <span class="nhsuk-u-visually-hidden"> {{ params.visuallyHiddenText }}</span>
+{% if caller %}
+  {%- set outerCaller = caller %}
+  {%- call nhsukContent(content) %}
+    {{- outerCaller() }}
+  {%- endcall %}
+
 {% else %}
-  {% if caller %}
-    {{- caller() }}
-  {% else %}
-    {{- innerHtml | safe | trim | indent(2, true) }}
-  {% endif %}
+  {{ nhsukContent(content) | trim | indent(2) }}
 {% endif %}
 {% if caption.placement == "end" %}
   {{ nhsukCaption(caption) | safe | trim | indent(2) }}
 {% endif %}
 </{{ element }}>
 {% if caption.placement == "after" %}
-{{ nhsukCaption(caption) | safe | trim }}
+  {{- nhsukCaption(caption) | safe | trim }}
 {% endif %}
 {% endif %}

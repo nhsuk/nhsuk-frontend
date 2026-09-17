@@ -1,3 +1,4 @@
+{% from "nhsuk/components/content/macro.njk" import content as nhsukContent %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set classes for this component #}
@@ -29,14 +30,20 @@
 {#- Determine type of element to use, if not explicitly set #}
 {%- set element = (params.element | default("span")) | lower -%}
 
-<{{ element }} class="{{ classNames }}"
-  {%- if params.id %} id="{{ params.id }}"{% endif %}
-  {{- nhsukAttributes(params.attributes) }}>
+{%- set content = {
+  id: params.id,
+  text: params.text,
+  html: params.html,
+  classes: classNames,
+  attributes: params.attributes,
+  element: element
+} -%}
+
 {% if caller %}
-  {{- caller() }}
-{% elif params.html %}
-  {{ params.html | safe | trim | indent(2) }}
-{% elif params.text %}
-  {{ params.text | trim | indent(2) }}
+  {%- set outerCaller = caller %}
+  {%- call nhsukContent(content) %}
+    {{- outerCaller() }}
+  {%- endcall %}
+{% else %}
+  {{- nhsukContent(content) | trim }}
 {% endif %}
-</{{ element }}>

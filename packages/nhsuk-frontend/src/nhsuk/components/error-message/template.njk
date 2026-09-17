@@ -1,3 +1,4 @@
+{% from "nhsuk/components/content/macro.njk" import content as nhsukContent %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set classes for this component #}
@@ -7,24 +8,25 @@
   {% set classNames = classNames ~ " " ~ params.classes %}
 {% endif -%}
 
-{% set visuallyHiddenText = params.visuallyHiddenText | default("Error") -%}
+{%- set content = {
+  id: params.id,
+  text: params.text,
+  html: params.html,
+  visuallyHidden: {
+    html: params.visuallyHiddenText | default("Error") ,
+    placement: "start",
+    suffix: ":"
+  },
+  classes: classNames,
+  attributes: params.attributes,
+  element: "span"
+} %}
 
-{%- set innerHtml %}
-{% if caller %}
-  {{- caller() }}
-{% elif params.html %}
-  {{- params.html | safe }}
-{% elif params.text %}
-  {{- params.text }}
+{%- if caller %}
+  {%- set outerCaller = caller %}
+  {%- call nhsukContent(content) %}
+    {{- outerCaller() }}
+  {%- endcall %}
+{% else %}
+  {{- nhsukContent(content) | trim }}
 {% endif %}
-{% endset -%}
-
-<span class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
-  {{- nhsukAttributes(params.attributes) }}>
-  {% if visuallyHiddenText %}
-  <span class="nhsuk-u-visually-hidden">{{ visuallyHiddenText }}: </span>
-  {{- innerHtml | safe | trim | indent(2) }}
-  {% else %}
-  {{ innerHtml | safe | trim | indent(2) }}
-  {% endif %}
-</span>

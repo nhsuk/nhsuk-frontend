@@ -1,5 +1,6 @@
 {% from "nhsuk/components/heading/macro.njk" import heading as nhsukHeading %}
 {% from "nhsuk/components/card/action/macro.njk" import cardAction as nhsukCardAction %}
+{% from "nhsuk/components/content/macro.njk" import content as nhsukContent %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
 
@@ -119,9 +120,18 @@
 {% endmacro -%}
 
 {%- macro _cardHeading(params, parent, classNamesHeading) %}
-{% if params.text %}
-{% call nhsukHeading({
+{% if params.text or params.visuallyHiddenText %}
+{{ nhsukHeading({
   id: params.id,
+  html: nhsukContent({
+    text: params.text,
+    visuallyHidden: {
+      text: params.visuallyHiddenText,
+      placement: "start"
+    },
+    href: parent.params.href if not "nhsuk-card--feature" in classNames,
+    classes: "nhsuk-card__link" if not "nhsuk-card--feature" in classNames
+  }) | trim,
   caption: params.caption,
   size: params.size,
   level: params.level | default(2),
@@ -129,20 +139,7 @@
   className: classNamesHeading,
   classPrefix: "nhsuk-heading-",
   attributes: params.attributes
-}) %}
-{% if params.text and parent.params.href and not "nhsuk-card--feature" in classNames %}
-  <a class="nhsuk-card__link" href="{{ parent.params.href }}">
-    {{- params.text | trim | indent(2) -}}
-  </a>
-{%- elif params.text and params.visuallyHiddenText %}
-  <span role="text">
-    <span class="nhsuk-u-visually-hidden">{{ params.visuallyHiddenText }}: </span>
-    {{- params.text | trim | indent(4) }}
-  </span>
-{%- elif params.text %}
-  {{ params.text | trim | indent(2) }}
-{%- endif %}
-{%- endcall %}
+}) | trim }}
 {% endif %}
 {% if params.html %}
   {{- params.html | safe | trim }}
@@ -151,6 +148,13 @@
   <span class="nhsuk-card--care__arrow" aria-hidden="true"></span>
 {% endif %}
 {% endmacro -%}
+
+{%- set content = {
+  text: description.text,
+  html: description.html,
+  classes: "nhsuk-card__description" if not description.html and description.text,
+  element: "p" if not description.html and description.text
+} -%}
 
 <div class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
   {{- nhsukAttributes(params.attributes) }}>
@@ -204,13 +208,12 @@
     }, classNamesHeading) | trim | indent(4) }}
   {% endif %}
   {% if caller %}
-    {{- caller() }}
-  {% elif description.html %}
-    {{ description.html | safe | trim | indent(4) }}
-  {% elif description.text %}
-    <p class="nhsuk-card__description">
-      {{- description.text | trim | indent(4) -}}
-    </p>
+    {%- set outerCaller = caller %}
+    {%- call nhsukContent(content) %}
+      {{- outerCaller() }}
+    {%- endcall %}
+  {% else %}
+    {{ nhsukContent(content) | trim | indent(4) }}
   {% endif %}
   {% if "nhsuk-card--primary" in classNames %}
     {{ nhsukIcon("chevron-right-circle") | trim | indent(4) }}

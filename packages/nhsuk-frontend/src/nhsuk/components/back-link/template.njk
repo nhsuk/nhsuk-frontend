@@ -1,3 +1,4 @@
+{% from "nhsuk/components/content/macro.njk" import content as nhsukContent %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set variant for this component #}
@@ -14,55 +15,26 @@
   {% set classNames = classNames ~ " " ~ params.classes %}
 {% endif %}
 
-{#- Determine type of element to use, if not explicitly set #}
-{%- if params.element %}
-  {% set element = params.element | lower %}
+{%- set content = {
+  id: params.id,
+  text: params.text | default("Back", true),
+  html: params.html,
+  visuallyHidden: {
+    html: params.visuallyHiddenText,
+    placement: "start"
+  },
+  href: params.href,
+  type: params.type,
+  classes: classNames,
+  attributes: params.attributes,
+  element: params.element | default("a") if not (params.href or params.type)
+} %}
+
+{%- if caller %}
+  {%- set outerCaller = caller %}
+  {%- call nhsukContent(content) %}
+    {{- outerCaller() }}
+  {%- endcall %}
 {% else %}
-  {% if params.href and not params.type %}
-    {% set element = "a" %}
-  {% else %}
-    {% set element = "button" %}
-  {% endif %}
+  {{- nhsukContent(content) | trim }}
 {% endif %}
-
-{#- Define attributes that we can use across all element types #}
-{%- set attributesHtml %}
-  {{- nhsukAttributes({
-    class: classNames,
-    id: {
-      value: params.id,
-      optional: true
-    }
-  }) -}}
-
-  {% if element == "button" %}
-    {{- nhsukAttributes({
-      type: params.type | default("submit")
-    }) -}}
-  {% elif element == "a" %}
-    {{- nhsukAttributes({
-      href: params.href | default("#")
-    }) -}}
-  {% endif %}
-
-  {{- nhsukAttributes(params.attributes) -}}
-{% endset %}
-
-{%- set innerHtml %}
-{% if caller %}
-  {{- caller() }}
-{% elif params.html %}
-  {{- params.html | safe }}
-{% else %}
-  {{- params.text | default("Back", true) }}
-{% endif %}
-{% endset -%}
-
-<{{ element }} {{- attributesHtml | safe }}>
-  {% if params.visuallyHiddenText %}
-  <span class="nhsuk-u-visually-hidden">{{ params.visuallyHiddenText }} </span>
-  {{- innerHtml | safe | trim | indent(2) }}
-  {% else %}
-  {{ innerHtml | safe | trim | indent(2) }}
-  {% endif %}
-</{{ element }}>

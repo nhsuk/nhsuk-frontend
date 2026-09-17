@@ -1,3 +1,4 @@
+{% from "nhsuk/components/content/visually-hidden/macro.njk" import contentVisuallyHidden as nhsukContentVisuallyHidden %}
 {% from "nhsuk/components/heading/macro.njk" import heading as nhsukHeading %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
@@ -94,9 +95,10 @@
     <div class="nhsuk-footer__meta">
 {% if caller or meta.items | length or meta.text or meta.html %}
     {% if meta.items %}
-      <h2 class="nhsuk-u-visually-hidden">
-        {{- meta.visuallyHiddenText | default(meta.visuallyHiddenTitle) | default("Support links") -}}
-      </h2>
+      {{ nhsukContentVisuallyHidden({
+        text: meta.visuallyHiddenText | default(meta.visuallyHiddenTitle) | default("Support links"),
+        element: "h2"
+      }) | trim | indent(6) }}
       {{ _footerList(meta.items) | trim | indent(6) }}
     {% endif %}
     {% if caller %}

@@ -1,3 +1,4 @@
+{% from "nhsuk/components/content/macro.njk" import content as nhsukContent %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
 
@@ -53,15 +54,21 @@
   {{- nhsukAttributes(params.attributes) -}}
 {% endset -%}
 
+{%- set content = {
+  text: params.text,
+  html: params.html
+} -%}
+
 <{{ element }} {{- attributesHtml | safe }}>
   {{ nhsukIcon("arrow-right-circle") | trim | indent(2) }}
   <span class="nhsuk-action-link__text">
-  {% if caller %}
-    {{- caller() }}
-  {% elif params.html %}
-    {{ params.html | safe | trim | indent(4) }}
-  {% elif params.text %}
-    {{ params.text | trim | indent(4) }}
-  {% endif %}
+{% if caller %}
+  {%- set outerCaller = caller %}
+  {%- call nhsukContent(content) %}
+    {{- outerCaller() }}
+  {%- endcall %}
+{% else %}
+  {{- nhsukContent(content) | trim | indent(4, true) }}
+{% endif %}
   </span>
 </{{ element }}>
