@@ -1,6 +1,7 @@
 {% from "nhsuk/components/content/macro.njk" import content as nhsukContent %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
+{% from "nhsuk/macros/slot.njk" import nhsukSlot %}
 
 {#- Set variant for this component #}
 {%- set variant = params.variant -%}
@@ -56,8 +57,14 @@
 
 {%- set content = {
   text: params.text,
-  html: params.html
+  html: params.html,
+  slots: {
+    start: params.slots.start,
+    end: params.slots.end
+  }
 } -%}
+
+{{- nhsukSlot("before", params) -}}
 
 <{{ element }} {{- attributesHtml | safe }}>
   {{ nhsukIcon("arrow-right-circle") | trim | indent(2) }}
@@ -72,3 +79,5 @@
 {% endif %}
   </span>
 </{{ element }}>
+
+{{- nhsukSlot("after", params) -}}
