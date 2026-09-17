@@ -1,0 +1,30 @@
+{#-
+  Renders HTML at named slot
+
+  @example
+  Output "before" slot from params.slots:
+
+  ```njk
+  nhsukSlot("before", params)
+  ```
+
+  @private
+  @param {string} name - Slot name
+  @param {object} [params] - Component params
+  @param {string} params.slots - Specified points for injecting custom text or HTML
+#}
+{% macro nhsukSlot(name, params) -%}
+  {%- set slots = params.slots %}
+
+  {#- Support slot as string #}
+  {%- set slot = slots[name] if slots[name] is mapping and slots[name] is not escaped else {
+    text: slots[name] if slots[name] is string else undefined,
+    html: slots[name] if slots[name] is escaped else undefined
+  } -%}
+
+  {%- if slot.text or slot.html %}
+    {{- "\n" | safe if name in ["after"] -}}
+    {{- slot.html | safe | trim if slot.html else slot.text | trim -}}
+    {{- "\n" | safe if name in ["before"] -}}
+  {%- endif %}
+{%- endmacro %}
