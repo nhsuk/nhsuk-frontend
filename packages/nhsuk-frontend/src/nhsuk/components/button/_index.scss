@@ -143,7 +143,21 @@ $nhsuk-button-search-icon-size-large: 38px;
     }
 
     // Override high-contrast link colours to match buttons
-    @include nhsuk-button-style-default;
+    @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+      color: ButtonText;
+
+      &,
+      &::before {
+        border-color: ButtonBorder;
+      }
+
+      &:not(:focus):not(:active):hover,
+      &:not(:focus):not(:active):hover::before,
+      &:not(:focus):not(:active):hover::after {
+        border-color: Highlight;
+        color: Highlight;
+      }
+    }
   }
 
   // Button variations

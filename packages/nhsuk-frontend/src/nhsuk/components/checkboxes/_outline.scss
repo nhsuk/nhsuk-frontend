@@ -111,7 +111,30 @@ $nhsuk-checkboxes-outline-row-gap: nhsuk-spacing(2) + $nhsuk-border-width-form-e
       }
 
       // Override high-contrast link colours to match buttons
-      @include nhsuk-button-style-default;
+      @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+        border-color: ButtonBorder;
+        color: ButtonText;
+        background-color: transparent;
+      }
+
+      @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+        &:hover,
+        &:active,
+        &:active:focus {
+          background-color: transparent;
+        }
+
+        &::before {
+          border-color: ButtonBorder;
+        }
+
+        &:not(:focus):not(:active):hover,
+        &:not(:focus):not(:active):hover::before,
+        &:not(:focus):not(:active):hover::after {
+          border-color: Highlight;
+          color: Highlight;
+        }
+      }
 
       // Reset native focus styles - the label shows the focus
       &:focus {
@@ -146,6 +169,12 @@ $nhsuk-checkboxes-outline-row-gap: nhsuk-spacing(2) + $nhsuk-border-width-form-e
 
         &:not(:focus):not(:active)::before {
           border-color: transparent;
+        }
+
+        &:not(:focus):not(:active):hover::before {
+          @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+            border-color: Highlight;
+          }
         }
       }
 
