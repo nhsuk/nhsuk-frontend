@@ -25,7 +25,7 @@
 {%- if params.element %}
   {% set element = params.element | lower %}
 {% else %}
-  {% if params.href and not params.type %}
+  {% if not params.type %}
     {% set element = "a" %}
   {% else %}
     {% set element = "button" %}
