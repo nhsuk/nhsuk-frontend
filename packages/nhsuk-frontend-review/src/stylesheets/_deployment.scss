@@ -2,7 +2,7 @@
 
 .app-deployment {
   color: $nhsuk-reverse-text-colour;
-  background-color: nhsuk-colour("black");
+  background-color: nhsuk-shade(nhsuk-colour("blue"), 20%);
 
   // Override (blue) reverse code background
   .nhsuk-code--reverse {
