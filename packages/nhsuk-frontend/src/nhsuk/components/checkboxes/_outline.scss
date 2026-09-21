@@ -112,8 +112,6 @@ $nhsuk-checkboxes-outline-row-gap: nhsuk-spacing(2) + $nhsuk-border-width-form-e
 
       // Override high-contrast link colours to match buttons
       @media screen and (forced-colors: active), (-ms-high-contrast: active) {
-        border-color: ButtonBorder;
-        color: ButtonText;
         background-color: transparent;
       }
 
@@ -156,6 +154,10 @@ $nhsuk-checkboxes-outline-row-gap: nhsuk-spacing(2) + $nhsuk-border-width-form-e
         $checked-shadow-colour: nhsuk-shade(nhsuk-colour("blue"), 50%);
 
         box-shadow: 0 $nhsuk-button-shadow-size 0 $checked-shadow-colour;
+
+        @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+          box-shadow: 0 $nhsuk-button-shadow-size 0 SelectedItem;
+        }
 
         &::after {
           box-shadow: none;
@@ -212,7 +214,7 @@ $nhsuk-checkboxes-outline-row-gap: nhsuk-spacing(2) + $nhsuk-border-width-form-e
 
         position: static;
 
-        flex: 0 0 nhsuk-px-to-rem(18px);
+        width: nhsuk-px-to-rem(18px);
 
         height: nhsuk-px-to-rem(18px);
         margin-right: nhsuk-spacing(2);
@@ -243,6 +245,12 @@ $nhsuk-checkboxes-outline-row-gap: nhsuk-spacing(2) + $nhsuk-border-width-form-e
     .nhsuk-checkboxes__input:checked + .nhsuk-checkboxes__label {
       color: nhsuk-colour("white");
       background-color: nhsuk-colour("blue");
+
+      @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+        color: CanvasText;
+        background-color: HighlightText;
+        forced-color-adjust: none;
+      }
 
       &::after {
         opacity: 1;
