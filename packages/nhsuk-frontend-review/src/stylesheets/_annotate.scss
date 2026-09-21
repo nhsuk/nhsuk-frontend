@@ -59,3 +59,14 @@ $app-annotate-outline-width: nhsuk-px-to-rem($nhsuk-border-width-form-element);
   margin-left: nhsuk-spacing(2, $adjustment: $app-annotate-outline-width);
   border-right-width: nhsuk-spacing(1, $unit: "rem");
 }
+
+section > .app-annotate {
+  margin-left: nhsuk-spacing(3);
+}
+
+p + .app-annotate--end,
+pre + .app-annotate--end,
+div + .app-annotate--end,
+table + .app-annotate--end {
+  margin-left: 0;
+}
