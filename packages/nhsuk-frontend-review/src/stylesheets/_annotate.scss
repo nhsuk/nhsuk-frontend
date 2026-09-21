@@ -24,19 +24,49 @@ $app-annotate-outline-width: nhsuk-px-to-rem($nhsuk-border-width-form-element);
   @include nhsuk-font(16, $weight: normal);
 }
 
+.app-annotate--start,
+.app-annotate--end,
 .nhsuk-input-wrapper > .app-annotate {
   display: inline-flex;
   align-items: center;
-  height: nhsuk-px-to-rem(40px) - nhsuk-spacing(1, $unit: "rem") - ($app-annotate-outline-width * 2);
   margin: nhsuk-spacing(1, $unit: "rem") 0;
+}
+
+.nhsuk-input-wrapper > .app-annotate {
+  height: nhsuk-px-to-rem(40px) - nhsuk-spacing(1, $unit: "rem") - ($app-annotate-outline-width * 2);
+}
+
+.app-annotate--start,
+.app-annotate--end {
+  margin-top: 0;
+  margin-bottom: 0;
+  border-color: rgba($app-annotate-red, 0.5);
+  background-color: rgba($app-annotate-red, 0.1);
+}
+
+.app-annotate--start,
+.nhsuk-input-wrapper > .app-annotate:first-child {
+  margin-right: nhsuk-spacing(2, $adjustment: $app-annotate-outline-width);
+  border-left-width: nhsuk-spacing(1, $unit: "rem");
 }
 
 .nhsuk-input-wrapper > .app-annotate:first-child {
   margin-right: $app-annotate-outline-width;
-  border-left-width: nhsuk-spacing(1, $unit: "rem");
 }
 
+.app-annotate--end,
 .nhsuk-input-wrapper > .app-annotate:last-child {
   margin-left: nhsuk-spacing(2, $adjustment: $app-annotate-outline-width);
   border-right-width: nhsuk-spacing(1, $unit: "rem");
+}
+
+section > .app-annotate {
+  margin-left: nhsuk-spacing(3);
+}
+
+p + .app-annotate--end,
+pre + .app-annotate--end,
+div + .app-annotate--end,
+table + .app-annotate--end {
+  margin-left: 0;
 }
