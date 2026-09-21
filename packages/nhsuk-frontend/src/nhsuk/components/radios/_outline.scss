@@ -142,6 +142,10 @@ $nhsuk-radios-outline-row-gap: nhsuk-spacing(2) + $nhsuk-border-width-form-eleme
       // Prevent the default/checked box-shadow colour showing
       &:focus:not(:active) {
         box-shadow: none;
+
+        @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+          border-bottom-color: ButtonBorder;
+        }
       }
 
       &:active,
@@ -156,7 +160,7 @@ $nhsuk-radios-outline-row-gap: nhsuk-spacing(2) + $nhsuk-border-width-form-eleme
         box-shadow: 0 $nhsuk-button-shadow-size 0 $checked-shadow-colour;
 
         @media screen and (forced-colors: active), (-ms-high-contrast: active) {
-          box-shadow: 0 $nhsuk-button-shadow-size 0 SelectedItem;
+          box-shadow: none;
         }
 
         &::after {
