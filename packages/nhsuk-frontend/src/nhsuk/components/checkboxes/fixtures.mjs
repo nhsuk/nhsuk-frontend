@@ -1114,6 +1114,42 @@ const fixtures = {
     options: {
       hidden: true
     }
+  },
+  "with before and after inputs content": {
+    context: {
+      fieldset: {
+        legend: {
+          heading: "How do you want to be contacted about this?",
+          size: "l"
+        }
+      },
+      hint: {
+        text: "Select all options that are relevant to you"
+      },
+      name: "example",
+      items: [
+        {
+          value: "email",
+          text: "Email"
+        },
+        {
+          value: "phone",
+          text: "Phone"
+        },
+        {
+          value: "text",
+          text: "Text message"
+        }
+      ],
+      formGroup: {
+        beforeInputs: {
+          html: '<samp class="app-annotate">Before</samp>'
+        },
+        afterInputs: {
+          html: '<samp class="app-annotate">After</samp>'
+        }
+      }
+    }
   }
 }
 
