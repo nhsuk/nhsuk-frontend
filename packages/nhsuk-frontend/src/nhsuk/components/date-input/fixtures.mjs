@@ -789,6 +789,28 @@ const fixtures = {
         }
       ]
     }
+  },
+  "with before and after inputs content": {
+    context: {
+      fieldset: {
+        legend: {
+          heading: "What is your date of birth?",
+          size: "l"
+        }
+      },
+      hint: {
+        text: "For example, 31 3 1980"
+      },
+      id: "example",
+      formGroup: {
+        beforeInputs: {
+          html: '<samp class="app-annotate">Before</samp>'
+        },
+        afterInputs: {
+          html: '<samp class="app-annotate">After</samp>'
+        }
+      }
+    }
   }
 }
 

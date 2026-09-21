@@ -203,6 +203,26 @@ const fixtures = {
       name: "example",
       autocomplete: "street-address"
     }
+  },
+  "with before and after input content": {
+    context: {
+      label: {
+        heading: "Can you provide more detail?",
+        size: "l"
+      },
+      hint: {
+        text: "Do not include personal information like your name, date of birth or NHS number"
+      },
+      name: "example",
+      formGroup: {
+        beforeInput: {
+          html: '<samp class="app-annotate">Before</samp>'
+        },
+        afterInput: {
+          html: '<samp class="app-annotate">After</samp>'
+        }
+      }
+    }
   }
 }
 
