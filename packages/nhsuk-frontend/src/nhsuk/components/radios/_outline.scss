@@ -218,7 +218,7 @@ $nhsuk-radios-outline-row-gap: nhsuk-spacing(2) + $nhsuk-border-width-form-eleme
 
         position: static;
 
-        flex: 0 0 nhsuk-px-to-rem(18px);
+        width: nhsuk-px-to-rem(18px);
 
         height: nhsuk-px-to-rem(18px);
         margin-right: nhsuk-spacing(2);
@@ -276,6 +276,10 @@ $nhsuk-radios-outline-row-gap: nhsuk-spacing(2) + $nhsuk-border-width-form-eleme
     .nhsuk-radios__input:not(:disabled):checked:not(:focus):hover + .nhsuk-radios__label,
     .nhsuk-radios__input:not(:disabled):checked:not(:focus) + .nhsuk-radios__label:hover {
       background-color: nhsuk-shade(nhsuk-colour("blue"), 20%);
+
+      @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+        background-color: HighlightText;
+      }
     }
 
     .nhsuk-radios__input:focus:not(:active) + .nhsuk-radios__label {

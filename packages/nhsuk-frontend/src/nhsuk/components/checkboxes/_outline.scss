@@ -269,6 +269,10 @@ $nhsuk-checkboxes-outline-row-gap: nhsuk-spacing(2) + $nhsuk-border-width-form-e
     .nhsuk-checkboxes__input:not(:disabled):checked:not(:focus):hover + .nhsuk-checkboxes__label,
     .nhsuk-checkboxes__input:not(:disabled):checked:not(:focus) + .nhsuk-checkboxes__label:hover {
       background-color: nhsuk-shade(nhsuk-colour("blue"), 20%);
+
+      @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+        background-color: HighlightText;
+      }
     }
 
     .nhsuk-checkboxes__input:focus:not(:active) + .nhsuk-checkboxes__label {
