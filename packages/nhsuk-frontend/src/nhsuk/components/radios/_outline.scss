@@ -200,7 +200,7 @@ $nhsuk-radios-outline-row-gap: nhsuk-spacing(2) + $nhsuk-border-width-form-eleme
 
       max-width: none;
       min-height: nhsuk-px-to-rem(44px);
-      padding: nhsuk-px-to-rem(6px) nhsuk-px-to-rem(12px);
+      padding: nhsuk-px-to-rem(6px) nhsuk-px-to-rem(12px) nhsuk-px-to-rem(4px);
 
       pointer-events: none;
 
@@ -231,7 +231,7 @@ $nhsuk-radios-outline-row-gap: nhsuk-spacing(2) + $nhsuk-border-width-form-eleme
 
       &::after {
         position: absolute;
-        top: 50%;
+        top: nhsuk-px-to-rem(23px);
         left: nhsuk-px-to-rem(17px);
 
         width: nhsuk-px-to-rem(8px);
