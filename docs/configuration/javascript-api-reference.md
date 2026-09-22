@@ -7,6 +7,7 @@ Some of our components can be passed JavaScript configuration objects. You can d
 
 This page lists the options available for the following components:
 
+- [Accordion](#accordion)
 - [Button](#button)
 - [CharacterCount](#charactercount)
 - [Checkboxes](#checkboxes)
@@ -18,6 +19,99 @@ This page lists the options available for the following components:
 - [Radios](#radios)
 - [SkipLink](#skiplink)
 - [Tabs](#tabs)
+
+## Accordion
+
+### i18n
+
+Type: object
+
+Messages the component uses for the labels of its buttons. This includes the
+visible text shown on screen, and text to help assistive technology users for
+the buttons toggling each section.
+
+Default: see properties
+
+#### Properties
+
+##### hideAllSections
+
+Type: string
+
+The text content for the 'Hide all sections' button, used when at least one
+section is expanded.
+
+Default:
+
+```json5
+'Hide all sections'
+```
+
+##### hideSection
+
+Type: string
+
+The text content for the 'Hide' button, used when a section is expanded.
+
+Default:
+
+```json5
+'Hide'
+```
+
+##### hideSectionAriaLabel
+
+Type: string
+
+The text content appended to the 'Hide' button's accessible name when a section is expanded.
+
+Default:
+
+```json5
+'Hide this section'
+```
+
+##### showAllSections
+
+Type: string
+
+The text content for the 'Show all sections' button, used when all sections are collapsed.
+
+Default:
+
+```json5
+'Show all sections'
+```
+
+##### showSection
+
+Type: string
+
+The text content for the 'Show' button, used when a section is collapsed.
+
+Default:
+
+```json5
+'Show'
+```
+
+##### showSectionAriaLabel
+
+Type: string
+
+The text content appended to the 'Show' button's accessible name when a section is expanded.
+
+Default:
+
+```json5
+'Show this section'
+```
+
+### rememberExpanded
+
+Type: boolean
+
+Whether the expanded and collapsed state of each section is remembered and restored when navigating
 
 ## Button
 
