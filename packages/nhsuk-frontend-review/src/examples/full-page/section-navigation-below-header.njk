@@ -1,0 +1,126 @@
+{% extends "layouts/page.njk" %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+{% set pageHeading = "Focus state" %}
+
+{% block header %}
+{% include "partials/banner-header.njk" %}
+
+  {{ header({
+    service: {
+      href: baseUrl,
+      text: "Digital service manual"
+    },
+    navigation: {
+      items: [
+        {
+          text: "NHS service standard",
+          href: "#"
+        },
+        {
+          text: "Design system",
+          href: "#",
+          active: true
+        },
+        {
+          text: "Content guide",
+          href: "#"
+        },
+        {
+          text: "Accessibility",
+          href: "#"
+        },
+        {
+          text: "Community and contribution",
+          href: "#"
+        }
+      ]
+    }
+  }) }}
+
+  <div class="nhsuk-width-container">
+    {{ sectionNavigation({
+      ariaLabel: "Design system navigation",
+      direction: "horizontal",
+      small: true,
+      items: [
+        {
+          text: "Setup",
+          href: "#"
+        },
+        {
+          text: "Styles",
+          href: "#",
+          current: true
+        },
+        {
+          text: "Components",
+          href: "#"
+        },
+        {
+          text: "Patterns",
+          href: "#"
+        }
+      ]
+    }) }}
+  </div>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-one-quarter">
+      {{ sectionNavigation({
+        ariaLabel: "Styles navigation",
+        direction: "vertical",
+        small: true,
+        items: [
+          {
+            text: "Colour",
+            href: "#"
+          },
+          {
+            text: "Focus state",
+            href: "#",
+            current: true
+          },
+          {
+            text: "Icons",
+            href: "#"
+          },
+          {
+            text: "Layout",
+            href: "#"
+          },
+          {
+            text: "Page template",
+            href: "#"
+          },
+          {
+            text: "Spacing",
+            href: "#"
+          },
+          {
+            text: "Typography",
+            href: "#"
+          },
+          {
+            text: "Use the NHS Frutiger font",
+            href: "#"
+          }
+        ]
+      }) }}
+    </div>
+    <div class="nhsuk-grid-column-three-quarters">
+      <div class="nhsuk-caption-xl">Styles</div>
+      <h1 class="nhsuk-heading-xl">{{ pageHeading }}</h1>
+
+      <p class="nhsuk-lede-text">Use these focus state styles to let users know which element they're on and that they can interact with it.</p>
+
+      <h2 class="nhsuk-heading-m">What is a focus state?</h2>
+
+      <p>Some people use keyboards or other devices to navigate through a page by jumping from 1 interactive element to the next. The focus state lets users know which element they're currently on and that it's ready for them to interact with.</p>
+
+      <p>Do not let user interface elements hide or obscure any content which has a focus applied, for example: sticky headers or overlaid cookie banners. This relates to <a href="#">WCAG 2.2 success criterion 2.4.11 Focus Not Obscured (W3C)</a>.</p>
+    </div>
+  </div>
+{% endblock %}
