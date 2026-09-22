@@ -2,11 +2,13 @@
 
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
 {% set pageHeading = "Focus state" %}
+{% set containerClasses = "app-width-container--wide" %}
 
 {% block header %}
 {% include "partials/banner-header.njk" %}
 
   {{ header({
+    containerClasses: containerClasses,
     service: {
       href: baseUrl,
       text: "Digital service manual"
@@ -38,7 +40,7 @@
     }
   }) }}
 
-  <div class="nhsuk-width-container">
+  <div class="nhsuk-width-container {{ containerClasses }}">
     {{ sectionNavigation({
       ariaLabel: "Design system navigation",
       direction: "horizontal",
