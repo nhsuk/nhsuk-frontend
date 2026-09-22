@@ -1,7 +1,7 @@
-{% set previewLayoutName = ("example-" ~ options.layout) if options.layout %}
+{% set layoutName = ("example-" ~ options.layout) if options.layout %}
 
-{% if not previewLayoutName and options.width === false %}
-  {% set previewLayoutName = "example-full-width" %}
+{% if not layoutName and options.width === false %}
+  {% set layoutName = "example-full-width" %}
 {% endif %}
 
-{% extends "layouts/" ~ previewLayoutName | default("example", true) ~ ".njk" %}
+{% extends "layouts/" ~ layoutName | default("example", true) ~ ".njk" %}
