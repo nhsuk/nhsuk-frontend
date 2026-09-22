@@ -1,0 +1,163 @@
+{% extends "layouts/page.njk" %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+{% set pageHeading = "BROWN, Jane" %}
+
+{% block header %}
+{% include "partials/banner-header.njk" %}
+
+  {{ header({
+    service: {
+      href: baseUrl,
+      text: "Manage vaccinations in schools"
+    },
+    navigation: {
+      items: [
+        {
+          text: "Schools",
+          href: "#"
+        },
+        {
+          text: "Children",
+          href: "#",
+          active: true
+        },
+        {
+          text: "Sessions",
+          href: "#"
+        },
+        {
+          text: "Review",
+          href: "#"
+        },
+        {
+          text: "Reports",
+          href: "#"
+        }
+      ]
+    }
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+  items: [
+    {
+      href: "#",
+      text: "Home"
+    },
+    {
+      href: "#",
+      text: "Children"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+  <h1 class="nhsuk-heading-l">{{ pageHeading }}</h1>
+  {{ sectionNavigation({
+    ariaLabel: "Styles navigation",
+    direction: "horizontal",
+    items: [
+      {
+        text: "Child record",
+        href: "#",
+        current: true
+      },
+      {
+        text: "Contacts",
+        href: "#"
+      },
+      {
+        text: "Flu",
+        href: "#"
+      },
+      {
+        text: "HPV",
+        href: "#"
+      },
+      {
+        text: "MenACWY",
+        href: "#"
+      }
+    ]
+  }) }}
+
+  {% set cardDescriptionHtml %}
+    <p><strong>SenderID</strong>: NHS Blood Test</p>
+    <p>((firstName)) ((lastName)), you are due for your NHS blood test. Book your appointment or find out more at <a href="#">http://www.nhs.uk/service-name-invite</a></p>
+  {% endset %}
+
+  {{ summaryList({
+    card: {
+      heading: {
+        text: "Child record",
+        size: "m"
+      },
+      actions: {
+        items: [
+          {
+            text: "Edit record",
+            href: "#"
+          },
+          {
+            text: "Archive record",
+            href: "#"
+          }
+        ]
+      }
+    },
+    rows: [
+      {
+        key: {
+          text: "NHS number"
+        },
+        value: {
+          text: "9123 456 789"
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "PDS history"
+            }
+          ]
+        }
+      },
+      {
+        key: {
+          text: "Full name"
+        },
+        value: {
+          text: pageHeading
+        }
+      },
+      {
+        key: {
+          text: "Date of birth"
+        },
+        value: {
+          text: "18 June 2019 (aged 7)"
+        }
+      },
+      {
+        key: {
+          text: "Year group"
+        },
+        value: {
+          text: "Year 3"
+        }
+      },
+      {
+        key: {
+          text: "Reasonable adjustments"
+        },
+        value: {
+          text: "None"
+        }
+      }
+    ]
+  }) }}
+{% endblock %}
