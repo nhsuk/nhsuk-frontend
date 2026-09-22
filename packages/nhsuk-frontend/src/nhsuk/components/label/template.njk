@@ -1,6 +1,7 @@
 {% from "nhsuk/components/caption/macro.njk" import caption as nhsukCaption %}
 {% from "nhsuk/components/heading/macro.njk" import heading as nhsukHeading %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/slot.njk" import nhsukSlot %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-label" -%}
@@ -40,7 +41,8 @@
   size: headingCaption.size | default(size),
   classes: headingCaption.classes,
   attributes: headingCaption.attributes,
-  element: headingCaption.element
+  element: headingCaption.element,
+  slots: headingCaption.slots
 } -%}
 
 {%- set label = {
@@ -60,8 +62,14 @@
       optional: true
     }
   }) ~ nhsukAttributes(params.attributes),
-  element: "label"
-} -%}
+  element: "label",
+  slots: {
+    start: params.slots.start,
+    end: params.slots.end
+  }
+} %}
+
+{{- nhsukSlot("before", params) -}}
 
 {%- if caller or label.html or label.text %}
 {%- set innerHtml %}
@@ -94,3 +102,5 @@
 {{ nhsukCaption(caption) | safe | trim }}
 {% endif %}
 {% endif %}
+
+{{- nhsukSlot("after", params) -}}

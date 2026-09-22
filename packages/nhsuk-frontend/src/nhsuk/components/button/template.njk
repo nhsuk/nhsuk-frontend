@@ -1,5 +1,6 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
+{% from "nhsuk/macros/slot.njk" import nhsukSlot %}
 
 {#- Set variant for this component #}
 {%- set variant = params.variant -%}
@@ -122,18 +123,26 @@
   {{ buttonIcon | trim | indent(2) }}
 {% endif %}
 {% if caller %}
+  {{- nhsukSlot("start", params) -}}
   {{- caller() }}
+  {{- nhsukSlot("end", params) -}}
 {% elif (params.text or params.html) and buttonIcon %}
   <span class="nhsuk-button__content">
+    {{- nhsukSlot("start", params) -}}
     {{- buttonText | trim | indent(2) -}}
+    {{- nhsukSlot("end", params) -}}
   </span>
 {% elif params.text or params.html %}
+  {{- nhsukSlot("start", params) -}}
   {{ buttonText | trim | indent(2) }}
+  {{- nhsukSlot("end", params) -}}
 {% endif %}
 {% if buttonIcon and icon.placement == "end" %}
   {{ buttonIcon | trim | indent(2) }}
 {% endif %}
 {% endset %}
+
+{{- nhsukSlot("before", params) -}}
 
 {%- if element == "a" %}
 <a {{- attributesHtml | safe }}>
@@ -146,3 +155,5 @@
 {% elif element == "input" %}
 <input {{- attributesHtml | safe }}>
 {% endif %}
+
+{{- nhsukSlot("after", params) -}}

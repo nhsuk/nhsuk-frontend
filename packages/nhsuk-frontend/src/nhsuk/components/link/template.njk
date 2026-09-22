@@ -1,5 +1,6 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/content.njk" import nhsukContent %}
+{% from "nhsuk/macros/slot.njk" import nhsukSlot %}
 
 {#- Set variant for this component #}
 {%- set variant = params.variant -%}
@@ -74,8 +75,14 @@
 {%- set content = {
   text: params.text,
   html: params.html,
-  visuallyHidden: params.visuallyHidden | default(params.visuallyHiddenText)
+  visuallyHidden: params.visuallyHidden | default(params.visuallyHiddenText),
+  slots: {
+    start: params.slots.start,
+    end: params.slots.end
+  }
 } -%}
+
+{{- nhsukSlot("before", params) -}}
 
 <{{ element }} {{- attributesHtml | safe }}>
 {% if caller %}
@@ -87,3 +94,5 @@
   {{ nhsukContent(content) | trim | indent(2) }}
 {% endif %}
 </{{ element }}>
+
+{{- nhsukSlot("after", params) -}}

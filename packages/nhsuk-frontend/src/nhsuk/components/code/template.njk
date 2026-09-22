@@ -1,6 +1,7 @@
 {% from "nhsuk/components/button/macro.njk" import button %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/i18n.njk" import nhsukI18nAttributes %}
+{% from "nhsuk/macros/slot.njk" import nhsukSlot %}
 
 {#- Set variant for this component #}
 {%- set variant = params.variant -%}
@@ -38,6 +39,8 @@
 
 {%- set buttonText = params.copyButtonText | default(params.button.text) | default("Copy code") -%}
 {%- set buttonAriaLabel = params.button.ariaLabel | default("Copy code" if not buttonText else undefined) -%}
+
+{{- nhsukSlot("before", params) -}}
 
 <div {%- if params.id %} id="{{ params.id }}"{% endif %} class="{{ classNames }}"
   {{- nhsukI18nAttributes({
@@ -77,6 +80,8 @@
     }
   }) | trim | indent(2) }}
 {% endif %}
+  {{ nhsukSlot("start", params) -}}
+
   <pre class="nhsuk-code__container"><code class="nhsuk-code__content">
   {%- if caller %}
     {{- caller() -}}
@@ -86,4 +91,8 @@
     {{- params.text -}}
   {% endif -%}
   </code></pre>
+
+  {{- nhsukSlot("end", params) }}
 </div>
+
+{{- nhsukSlot("after", params) -}}

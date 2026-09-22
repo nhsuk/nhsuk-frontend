@@ -1,6 +1,7 @@
 {% from "nhsuk/components/heading/macro.njk" import heading as nhsukHeading %}
 {% from "nhsuk/components/link/macro.njk" import link as nhsukLink %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/slot.njk" import nhsukSlot %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-tabs" -%}
@@ -16,7 +17,8 @@
     href: "#" ~ tabPanelId,
     text: item.label,
     className: "nhsuk-tabs__tab",
-    attributes: item.attributes
+    attributes: item.attributes,
+    slots: item.slots
   }) | trim | indent(2) }}
 </li>
 {% endmacro -%}
@@ -25,17 +27,23 @@
 {% set tabPanelId = item.id if item.id else idPrefix ~ "-" ~ index -%}
 <div class="nhsuk-tabs__panel {%- if index > 1 %} nhsuk-tabs__panel--hidden{% endif %}" id="{{ tabPanelId }}"
   {{- nhsukAttributes(item.panel.attributes) }}>
+  {{- nhsukSlot("start", item.panel) -}}
+
 {% if item.panel.html %}
   {{ item.panel.html | safe | trim | indent(2) }}
 {% elif item.panel.text %}
   <p>{{ item.panel.text | trim | indent(2) }}</p>
 {% endif %}
+
+  {{- nhsukSlot("end", item.panel) -}}
 </div>
 {% endmacro -%}
 
 {#- If an id 'prefix' is not passed, fall back to using the id attribute
   instead. We need this for tab items and panels as well -#}
 {% set idPrefix = params.idPrefix if params.idPrefix else params.id -%}
+
+{{- nhsukSlot("before", params) -}}
 
 <div
   {{- nhsukAttributes({
@@ -68,3 +76,5 @@
   {% endfor %}
 {% endif %}
 </div>
+
+{{- nhsukSlot("after", params) -}}

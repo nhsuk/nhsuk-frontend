@@ -84,7 +84,8 @@
             size: heading.size | default("xl"),
             level: heading.level,
             classes: classNamesHeading ~ (" " ~ heading.classes if heading.classes),
-            attributes: heading.attributes
+            attributes: heading.attributes,
+            slots: heading.slots
           }) | trim | indent(10) }}
         {% endif %}
         {% if content.html %}

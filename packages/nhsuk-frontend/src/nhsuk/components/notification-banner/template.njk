@@ -1,6 +1,7 @@
 {% from "nhsuk/components/heading/macro.njk" import heading as nhsukHeading %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/content.njk" import nhsukContent %}
+{% from "nhsuk/macros/slot.njk" import nhsukSlot %}
 
 {#- Set variant or (deprecated) type for this component #}
 {%- set variant = params.variant or params.type -%}
@@ -42,8 +43,14 @@
 
 {%- set content = {
   text: params.text,
-  html: params.html
-} -%}
+  html: params.html,
+  slots: {
+    start: params.slots.start,
+    end: params.slots.end
+  }
+} %}
+
+{{- nhsukSlot("before", params) -}}
 
 <div
   {{- nhsukAttributes({
@@ -73,7 +80,8 @@
       level: title.level | default(title.headingLevel) | default(2),
       className: "nhsuk-notification-banner__title",
       classes: title.classes,
-      attributes: title.attributes
+      attributes: title.attributes,
+      slots: title.slots
     }) | trim | indent(4) }}
   </div>
   <div class="nhsuk-notification-banner__content">
@@ -89,7 +97,8 @@
       className: "nhsuk-notification-banner__heading",
       classes: heading.classes,
       attributes: heading.attributes,
-      element: heading.element
+      element: heading.element,
+      slots: heading.slots
     }) | trim | indent(4) }}
   {% endif %}
   {% if caller %}
@@ -110,3 +119,5 @@
   {% endif %}
   </div>
 </div>
+
+{{- nhsukSlot("after", params) -}}

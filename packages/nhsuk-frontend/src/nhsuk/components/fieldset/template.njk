@@ -1,6 +1,7 @@
 {% from "nhsuk/components/legend/macro.njk" import legend as nhsukLegend %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/content.njk" import nhsukContent %}
+{% from "nhsuk/macros/slot.njk" import nhsukSlot %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-fieldset" -%}
@@ -16,8 +17,14 @@
 {% endif %}
 
 {%- set content = {
-  html: params.html
-} -%}
+  html: params.html,
+  slots: {
+    start: params.slots.start,
+    end: params.slots.end
+  }
+} %}
+
+{{- nhsukSlot("before", params) -}}
 
 <fieldset
   {{- nhsukAttributes({
@@ -47,7 +54,8 @@
     heading: legend.heading,
     isPageHeading: legend.isPageHeading,
     classes: legend.classes,
-    attributes: legend.attributes
+    attributes: legend.attributes,
+    slots: legend.slots
   }) | trim | indent(2) }}
 {% if caller %}
   {%- set outerCaller = caller %}
@@ -58,3 +66,5 @@
   {{- nhsukContent(content) | trim }}
 {% endif %}
 </fieldset>
+
+{{- nhsukSlot("after", params) -}}

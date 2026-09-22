@@ -1,5 +1,6 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/content.njk" import nhsukContent %}
+{% from "nhsuk/macros/slot.njk" import nhsukSlot %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-hint" -%}
@@ -10,8 +11,14 @@
 
 {%- set content = {
   text: params.text,
-  html: params.html
-} -%}
+  html: params.html,
+  slots: {
+    start: params.slots.start,
+    end: params.slots.end
+  }
+} %}
+
+{{- nhsukSlot("before", params) -}}
 
 <div class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
   {{- nhsukAttributes(params.attributes) }}>
@@ -24,3 +31,5 @@
   {{ nhsukContent(content) | trim | indent(2) }}
 {% endif %}
 </div>
+
+{{- nhsukSlot("after", params) -}}

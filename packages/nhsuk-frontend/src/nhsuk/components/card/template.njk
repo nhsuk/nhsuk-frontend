@@ -4,6 +4,7 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/content.njk" import nhsukContent %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
+{% from "nhsuk/macros/slot.njk" import nhsukSlot %}
 
 {#- Set variant or (deprecated) type for this component #}
 {%- set variant = params.variant or params.type -%}
@@ -113,7 +114,8 @@
   size: heading.size,
   level: heading.level,
   classes: heading.classes,
-  attributes: heading.attributes
+  attributes: heading.attributes,
+  slots: heading.slots
 }, {
   params: params,
   isCareCard: isCareCard
@@ -149,7 +151,8 @@
     classes: params.classes,
     className: classNamesHeading,
     classPrefix: "nhsuk-heading-",
-    attributes: params.attributes
+    attributes: params.attributes,
+    slots: params.slots
   }) | trim }}
 {% endif %}
 {% if params.html %}
@@ -158,7 +161,9 @@
 {% if parent.isCareCard -%}
   <span class="nhsuk-card--care__arrow" aria-hidden="true"></span>
 {% endif %}
-{% endmacro -%}
+{% endmacro %}
+
+{{- nhsukSlot("before", params) -}}
 
 <div class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
   {{- nhsukAttributes(params.attributes) }}>
@@ -211,6 +216,8 @@
       isCareCard: isCareCard
     }, classNamesHeading) | trim | indent(4) }}
   {% endif %}
+    {{ nhsukSlot("start", params) -}}
+
   {% if caller %}
     {{- caller() }}
   {% elif description.html %}
@@ -220,8 +227,12 @@
       {{- description.text | trim | indent(4) -}}
     </p>
   {% endif %}
+
+    {{- nhsukSlot("end", params) }}
   {% if "nhsuk-card--primary" in classNames %}
     {{ nhsukIcon("chevron-right-circle") | trim | indent(4) }}
   {% endif %}
   </div>
 </div>
+
+{{- nhsukSlot("after", params) -}}
