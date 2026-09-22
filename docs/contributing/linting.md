@@ -169,13 +169,17 @@ Good:
 Bad:
 
 ```scss
-margin: 1px 2px 3px 2px;
+.selector {
+  margin: 1px 2px 3px 2px;
+}
 ```
 
 Good:
 
 ```scss
-margin: 1px 2px 3px;
+.selector {
+  margin: 1px 2px 3px;
+}
 ```
 
 ### Files should always have a final newline

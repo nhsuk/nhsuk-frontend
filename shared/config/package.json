@@ -8,9 +8,6 @@
     "./*": "./*"
   },
   "main": "index.mjs",
-  "dependencies": {
-    "nhsuk-frontend": "*"
-  },
   "engines": {
     "node": "^24.11.0",
     "npm": "^11.6.1 <11.6.3 || ^11.6.4"

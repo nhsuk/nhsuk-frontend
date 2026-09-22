@@ -47,9 +47,7 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
   $link-hover-colour: $nhsuk-header-item-hover-colour,
   $link-active-colour: $nhsuk-header-item-active-colour
 ) {
-  & {
-    color: $link-colour;
-  }
+  color: $link-colour;
 
   @include nhsuk-link-style-visited($link-colour);
   @include nhsuk-link-style-hover($link-hover-colour);
@@ -114,13 +112,14 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
 
   .nhsuk-header__logo {
     min-width: nhsuk-px-to-rem(100px);
+    // stylelint-disable-next-line declaration-property-value-keyword-no-deprecated
     height: intrinsic;
   }
 
   .nhsuk-header__service,
   .nhsuk-header__service-logo {
-    margin-right: auto;
     gap: nhsuk-spacing(2) nhsuk-spacing(3);
+    margin-right: auto;
   }
 
   .nhsuk-header__service {
@@ -295,10 +294,10 @@ $nhsuk-header-reverse-item-active-colour: $nhsuk-reverse-text-colour;
   .nhsuk-header__account-button,
   .nhsuk-header__account-link {
     display: flex;
+    gap: nhsuk-spacing(2);
     margin: nhsuk-spacing(-2) ($_header-item-padding * -1);
     padding: nhsuk-spacing(2) $_header-item-padding;
     overflow-wrap: anywhere;
-    gap: nhsuk-spacing(2);
   }
 
   .nhsuk-header__account-button {

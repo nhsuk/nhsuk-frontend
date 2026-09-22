@@ -7,6 +7,7 @@ import {
   MockConfigurableComponent
 } from '#lib/fixtures/configuration/mock-component.mjs'
 
+import * as NHSUKFrontend from './index.mjs'
 import {
   Button,
   CharacterCount,
@@ -24,7 +25,6 @@ import {
   createAll,
   initAll
 } from './index.mjs'
-import * as NHSUKFrontend from './index.mjs'
 
 jest.mock('./components/button/button.mjs')
 jest.mock('./components/character-count/character-count.mjs')

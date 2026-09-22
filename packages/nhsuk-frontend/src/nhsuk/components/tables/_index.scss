@@ -406,6 +406,7 @@
   .nhsuk-table--reverse {
     .nhsuk-link,
     .nhsuk-table__header[data-sort] .nhsuk-link,
+    /* stylelint-disable-next-line selector-no-qualifying-type */
     a:not(.nhsuk-button) {
       @include nhsuk-link-style-reverse;
     }

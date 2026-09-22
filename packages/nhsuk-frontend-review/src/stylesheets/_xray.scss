@@ -31,6 +31,7 @@ $app-xray-blue: color.adjust(nhsuk-colour("blue"), $saturation: 50%);
 .app-xray input,
 .app-xray select,
 .app-xray textarea,
+/* stylelint-disable-next-line selector-no-qualifying-type */
 .app-xray button:not(.nhsuk-button),
 .app-xray[type="checkbox"],
 .app-xray[type="radio"] {
