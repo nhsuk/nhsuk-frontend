@@ -1,3 +1,6 @@
+// stylelint-disable declaration-no-important
+// stylelint-disable selector-no-qualifying-type
+
 @use "sass:math";
 @use "../tools" as *;
 
@@ -14,8 +17,6 @@
 ////
 
 // Utility classes are allowed to use `!important` and qualifying types
-// stylelint-disable declaration-no-important
-// stylelint-disable selector-no-qualifying-type
 
 .nhsuk-u-width-full {
   width: 100% !important;
