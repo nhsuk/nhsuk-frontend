@@ -28,11 +28,12 @@ table {
 
   .nhsuk-u-text-break-word {
     word-break: break-all; // [2]
+    // stylelint-disable-next-line declaration-property-value-keyword-no-deprecated
     word-break: break-word; // [3]
   }
 
   @media print {
-    page-break-inside: avoid;
+    break-inside: avoid;
   }
 }
 

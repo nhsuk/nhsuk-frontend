@@ -1,0 +1,16 @@
+@use "vendor/nhsuk-frontend/base" as *;
+
+.app-deployment {
+  color: $nhsuk-reverse-text-colour;
+  background-color: nhsuk-shade($nhsuk-brand-colour, 20%);
+
+  // Override (blue) reverse code background
+  .nhsuk-code--reverse {
+    background-color: nhsuk-shade($nhsuk-brand-colour, 50%);
+  }
+
+  a:focus .nhsuk-code--reverse {
+    color: currentcolor;
+    background-color: transparent;
+  }
+}

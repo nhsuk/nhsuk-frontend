@@ -1,7 +1,12 @@
 {% call hero({
-  border: false,
+  heading: {
+    text: serviceName,
+    caption: "Internal review app",
+    classes: "nhsuk-u-margin-bottom-5",
+    size: "xl"
+  },
+  width: "three-quarters",
   classes: "app-banner"
 }) %}
-  <p class="nhsuk-body-l nhsuk-u-margin-bottom-3">This is an internal development app.</p>
-  <p>To learn how to design and build digital services, visit the <a href="https://service-manual.nhs.uk/design-system">design system in the NHS digital service manual</a> for guidance and examples.</p>
+  <p class="nhsuk-lede-text"><a href="https://service-manual.nhs.uk/design-system">Use design system guidance and examples</a> to build consistent, accessible NHS services for the public and staff.</p>
 {% endcall %}

@@ -64,7 +64,7 @@ export const compile = task.name('html:render', async () => {
 
     // Render component listing
     const templateHtml = renderTemplate('layouts/listing.njk', {
-      context: { ...context, ...data, pageName: name },
+      context: { ...context, ...data, pageHeading: name },
       env
     })
 
@@ -84,7 +84,7 @@ export const compile = task.name('html:render', async () => {
       // Render component example into layout
       const templateHtml = renderTemplate('layouts/preview.njk', {
         blocks: { example: html },
-        context: { ...context, pageName: `${name} ${exampleName}`, options },
+        context: { ...context, pageHeading: `${name} ${exampleName}`, options },
         env
       })
 

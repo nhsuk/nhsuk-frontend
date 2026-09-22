@@ -25,7 +25,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7.0.1
 
       - name: Install dependencies
         uses: ./.github/workflows/actions/install
@@ -37,7 +37,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7.0.1
         with:
           fetch-depth: 0
 
@@ -81,10 +81,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7.0.1
 
       - name: Restore dependencies (from cache)
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           fail-on-cache-miss: true
           key: npm-install-${{ hashFiles('package-lock.json') }}
@@ -95,13 +95,13 @@ jobs:
 
       - name: Cache lint task
         if: ${{ matrix.task.cache }}
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           key: ${{ matrix.task.name }}
           path: ${{ matrix.task.cache }}
 
       - name: Setup Node
-        uses: actions/setup-node@v6.4.0
+        uses: actions/setup-node@v7.0.0
         with:
           node-version-file: .nvmrc
           package-manager-cache: false
@@ -146,10 +146,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7.0.1
 
       - name: Restore dependencies (from cache)
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           fail-on-cache-miss: true
           key: npm-install-${{ hashFiles('package-lock.json') }}
@@ -159,7 +159,7 @@ jobs:
             shared/*/node_modules
 
       - name: Restore build with code coverage (from cache)
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           fail-on-cache-miss: true
           key: build-test-${{ github.sha }}
@@ -167,13 +167,13 @@ jobs:
 
       - name: Cache task
         if: ${{ matrix.task.cache }}
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           key: ${{ matrix.task.name }}
           path: ${{ matrix.task.cache }}
 
       - name: Setup Node
-        uses: actions/setup-node@v6.4.0
+        uses: actions/setup-node@v7.0.0
         with:
           node-version-file: .nvmrc
           package-manager-cache: false
@@ -211,10 +211,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7.0.1
 
       - name: Restore dependencies (from cache)
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           fail-on-cache-miss: true
           key: npm-install-${{ hashFiles('package-lock.json') }}
@@ -224,14 +224,14 @@ jobs:
             shared/*/node_modules
 
       - name: Restore build (from cache)
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           fail-on-cache-miss: true
           key: build-production-${{ github.sha }}
           path: packages/*/dist/
 
       - name: Setup Node
-        uses: actions/setup-node@v6.4.0
+        uses: actions/setup-node@v7.0.0
         with:
           node-version-file: .nvmrc
           package-manager-cache: false
@@ -275,7 +275,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7.0.1
         with:
           fetch-depth: 0
 
@@ -314,7 +314,7 @@ jobs:
     steps:
       - name: Checkout
         if: ${{ env.SONAR_TOKEN }}
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7.0.1
         with:
           fetch-depth: 0
 
@@ -328,4 +328,4 @@ jobs:
 
       - name: Sonar analysis
         if: ${{ env.SONAR_TOKEN }}
-        uses: SonarSource/sonarqube-scan-action@v8.1.0
+        uses: SonarSource/sonarqube-scan-action@v8.2.1
