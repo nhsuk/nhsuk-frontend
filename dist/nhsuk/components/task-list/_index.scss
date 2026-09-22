@@ -1,0 +1,113 @@
+@use "sass:color";
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+@use "../../core/helpers" as *;
+
+////
+/// Task list component
+///
+/// @group components/task-list
+/// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
+////
+
+$nhsuk-task-list-hover-colour: $nhsuk-target-hover-colour;
+$nhsuk-task-list-hover-border-colour: $nhsuk-secondary-border-colour;
+
+@include nhsuk-exports("nhsuk/components/task-list") {
+  .nhsuk-task-list {
+    margin-top: 0;
+    margin-right: -$nhsuk-border-table-header-width;
+    margin-left: -$nhsuk-border-table-header-width;
+    padding: 0;
+    list-style-type: none;
+
+    @include nhsuk-font($size: 19);
+    @include nhsuk-responsive-margin(5, "bottom");
+  }
+
+  // This uses table layout so that the task name and status always appear side-by-side, with the width of
+  // each 'column' being flexible depending upon the length of the task names and statuses.
+  //
+  // The position is set to 'relative' so than an absolutely-positioned transparent element box
+  // can be added within the link so that the whole row can be clickable.
+  .nhsuk-task-list__item {
+    display: table;
+
+    position: relative;
+
+    width: 100%;
+    margin-bottom: 0;
+    padding: nhsuk-spacing(2, $adjustment: 4px) $nhsuk-border-table-header-width;
+
+    border: 1px solid $nhsuk-border-colour;
+    border-width: 0 0 1px;
+  }
+
+  .nhsuk-task-list__item:first-child {
+    border-top-width: 1px;
+  }
+
+  // This class is added to the <li> elements where the task name is a link.
+  // The background hover colour is added to help indicate that the whole row is clickable, rather
+  // than just the visible link text.
+  .nhsuk-task-list__item--with-link:hover {
+    margin-top: -1px;
+    border-width: 1px 0;
+    border-color: $nhsuk-task-list-hover-border-colour;
+    background: $nhsuk-task-list-hover-colour;
+  }
+
+  .nhsuk-task-list__item--with-link:first-child:hover {
+    margin-top: 0;
+  }
+
+  .nhsuk-task-list__name-and-hint {
+    display: table-cell;
+    color: $nhsuk-text-colour;
+    vertical-align: top;
+  }
+
+  .nhsuk-task-list__status {
+    display: table-cell;
+    padding-left: nhsuk-spacing(2);
+    color: $nhsuk-text-colour;
+    text-align: right;
+    vertical-align: top;
+  }
+
+  // Deprecated, to be removed in v11.0
+  .nhsuk-task-list__status--completed,
+  .nhsuk-task-list__status--cannot-start-yet {
+    padding-top: nhsuk-spacing(1, $adjustment: 2px);
+    padding-right: nhsuk-spacing(2, $adjustment: 1px);
+    padding-bottom: nhsuk-spacing(1);
+    text-decoration: none;
+
+    @include nhsuk-font($size: 16, $weight: normal, $line-height: 1);
+  }
+
+  // Deprecated, to be removed in v11.0
+  .nhsuk-task-list__status--cannot-start-yet {
+    color: $nhsuk-secondary-text-colour;
+  }
+
+  // This adds an empty transparent box covering the whole row, including the task status and
+  // any hint text. Because this is generated within the link element, this allows the whole area
+  // to be clickable.
+  .nhsuk-task-list__link::after {
+    content: "";
+
+    display: block;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  .nhsuk-task-list__hint {
+    margin-top: nhsuk-spacing(1);
+    color: $nhsuk-secondary-text-colour;
+  }
+}

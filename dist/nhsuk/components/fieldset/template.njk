@@ -1,0 +1,52 @@
+{% from "nhsuk/components/legend/macro.njk" import legend as nhsukLegend %}
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-fieldset" -%}
+
+{#- Support legend as string #}
+{%- set legend = params.legend if params.legend is mapping and params.legend is not escaped else {
+  text: params.legend if params.legend is string else undefined,
+  html: params.legend if params.legend is escaped else undefined
+} -%}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif -%}
+
+<fieldset
+  {{- nhsukAttributes({
+    class: classNames,
+    id: {
+      value: params.id,
+      optional: true
+    },
+    role: {
+      value: params.role,
+      optional: true
+    },
+    "aria-describedby": {
+      value: params.describedBy if params.describedBy else false,
+      optional: true
+    }
+  }) -}}
+
+  {{- nhsukAttributes(params.attributes) }}>
+  {{ nhsukLegend({
+    id: legend.id,
+    text: legend.text,
+    html: legend.html,
+    visuallyHiddenText: legend.visuallyHiddenText,
+    caption: legend.caption,
+    size: legend.size,
+    heading: legend.heading,
+    isPageHeading: legend.isPageHeading,
+    classes: legend.classes,
+    attributes: legend.attributes
+  }) | trim | indent(2) }}
+{% if caller %}
+  {{- caller() }}
+{% elif params.html %}
+  {{ params.html | safe | trim }}
+{% endif %}
+</fieldset>

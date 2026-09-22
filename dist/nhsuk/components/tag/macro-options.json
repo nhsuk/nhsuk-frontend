@@ -1,0 +1,64 @@
+[
+  {
+    "name": "id",
+    "type": "string",
+    "required": false,
+    "description": "The ID of the tag.",
+    "released": "10.0.0"
+  },
+  {
+    "name": "text",
+    "type": "string",
+    "required": true,
+    "description": "If `html` is set, this is not required. Text to use within the tag component. If `html` is provided, the `text` option will be ignored.",
+    "released": "4.0.0"
+  },
+  {
+    "name": "html",
+    "type": "string",
+    "required": true,
+    "description": "If `text` is set, this is not required. HTML to use within the tag component. If `html` is provided, the `text` option will be ignored.",
+    "released": "4.0.0"
+  },
+  {
+    "name": "visuallyHiddenText",
+    "type": "string",
+    "required": false,
+    "description": "A visually hidden prefix used before the tag content."
+  },
+  {
+    "name": "caller",
+    "type": "nunjucks-block",
+    "required": false,
+    "description": "Not strictly an option but supports the [`call` block](https://mozilla.github.io/nunjucks/templating.html#call) as an alternative to the `html` option. To use it, you will need to wrap the entire tag component in a `call` block.",
+    "released": "10.6.0"
+  },
+  {
+    "name": "classes",
+    "type": "string",
+    "required": false,
+    "description": "Classes to add to the tag.",
+    "released": "4.0.0"
+  },
+  {
+    "name": "attributes",
+    "type": "object",
+    "required": false,
+    "description": "HTML attributes (for example data attributes) to add to the tag.",
+    "released": "4.0.0"
+  },
+  {
+    "name": "colour",
+    "type": "string",
+    "required": false,
+    "description": "Optional colour modifier for the tag – `\"white\"`, `\"grey\"`, `\"green\"`, `\"aqua-green\"`, `\"blue\"`, `\"purple\"`, `\"pink\"`, `\"red\"`, `\"orange\"` or `\"yellow\"`. If set to `false`, remove colour from the tag.",
+    "released": "10.4.0"
+  },
+  {
+    "name": "border",
+    "type": "boolean",
+    "required": false,
+    "description": "If set to `false`, remove border from the tag.",
+    "released": "10.4.0"
+  }
+]

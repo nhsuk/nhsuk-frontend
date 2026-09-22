@@ -1,0 +1,114 @@
+const name = 'Breadcrumb';
+
+/**
+ * Nunjucks macro option params
+ *
+ * @satisfies {{ [param: string]: MacroParam }}
+ */
+const options = {
+  id: {
+    type: 'string',
+    required: false,
+    description: 'The ID of the breadcrumb.',
+    released: '10.0.0'
+  },
+  items: {
+    type: 'array',
+    required: true,
+    description: 'Array of breadcrumbs items.',
+    released: '1.0.0',
+    params: {
+      text: {
+        type: 'string',
+        required: true,
+        description: 'Text to use within the breadcrumbs item.',
+        released: '1.0.0'
+      },
+      html: {
+        type: 'string',
+        required: true,
+        description: 'HTML to use within the breadcrumbs item.',
+        released: '10.6.0'
+      },
+      href: {
+        type: 'string',
+        required: false,
+        description: 'The breadcrumb item `href` attribute.',
+        released: '1.0.0'
+      },
+      attributes: {
+        type: 'object',
+        required: false,
+        description: 'HTML attributes (for example data attributes) to add to the individual crumb.',
+        released: '1.0.0'
+      }
+    }
+  },
+  text: {
+    type: 'string',
+    required: true,
+    description: 'Replaced by `item.text` in the `items` option.',
+    released: '1.0.0',
+    deprecated: '7.1.0'
+  },
+  href: {
+    type: 'string',
+    required: true,
+    description: 'Replaced by `item.href` in the `items` option.',
+    released: '1.0.0',
+    deprecated: '7.1.0'
+  },
+  variant: {
+    type: 'string',
+    required: false,
+    description: 'Optional variant of breadcrumb. You can use only `"reverse"` or empty values with this option.',
+    released: '10.4.0'
+  },
+  classes: {
+    type: 'string',
+    required: false,
+    description: 'Classes to add to the container.',
+    released: '1.0.0'
+  },
+  attributes: {
+    type: 'object',
+    required: false,
+    description: 'HTML attributes (for example data attributes) to add to the container.',
+    released: '1.0.0'
+  },
+  labelText: {
+    type: 'string',
+    required: false,
+    description: 'Replaced by the `ariaLabel` option.',
+    released: '9.6.2',
+    deprecated: '10.6.0'
+  },
+  ariaLabel: {
+    type: 'string',
+    required: false,
+    description: 'Accessible name identifying the landmark to screen readers. Defaults to "Breadcrumb".',
+    released: '10.6.0'
+  },
+  backLink: {
+    type: 'object',
+    required: false,
+    description: 'The back link used by the breadcrumbs component on mobile.',
+    released: '10.1.0',
+    isComponent: true
+  }
+};
+
+/**
+ * Nunjucks macro option params
+ * (with typed keys)
+ *
+ * @type {Record<keyof typeof options, MacroParam>}
+ */
+const params = options;
+
+/**
+ * @import { MacroParam } from '#lib'
+ */
+
+export { name, params };
+//# sourceMappingURL=macro-options.mjs.map

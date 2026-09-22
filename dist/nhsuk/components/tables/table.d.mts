@@ -1,0 +1,166 @@
+/**
+ * Table component
+ *
+ * @augments {ConfigurableComponent<TableConfig>}
+ */
+export class Table extends ConfigurableComponent<TableConfig, HTMLElement> {
+    /**
+     * Sortable table config
+     *
+     * @see {@link TableConfig}
+     * @constant
+     * @type {TableConfig}
+     */
+    static defaults: TableConfig;
+    /**
+     * Sortable table config schema
+     *
+     * @constant
+     * @satisfies {Schema<TableConfig>}
+     */
+    static schema: Readonly<{
+        properties: {
+            bodyClass: {
+                type: "string";
+            };
+            cellClass: {
+                type: "string";
+            };
+            headClass: {
+                type: "string";
+            };
+            headerClass: {
+                type: "string";
+            };
+            rowClass: {
+                type: "string";
+            };
+            i18n: {
+                type: "object";
+            };
+        };
+    }>;
+    /**
+     * @param {Element | null} $root - HTML element to use for component
+     * @param {Partial<TableConfig>} [config] - Sortable table config
+     */
+    constructor($root: Element | null, config?: Partial<TableConfig>);
+    /**
+     * @type {HTMLTableCellElement[]}
+     */
+    $headers: HTMLTableCellElement[];
+    /**
+     * @type {HTMLElement[]}
+     */
+    $rows: HTMLElement[];
+    $head: HTMLTableSectionElement | null;
+    $body: HTMLTableSectionElement | null;
+    i18n: I18n | undefined;
+    collators: Readonly<{
+        string: Intl.Collator;
+        number: Intl.Collator;
+    }> | undefined;
+    $screenReaderStatusMessage: HTMLDivElement | undefined;
+    setup(): void;
+    setupButtons(): void;
+    /**
+     * @param {number} index
+     * @param {TableSortDirection} [direction]
+     */
+    sort(index: number, direction?: TableSortDirection): void;
+    /**
+     * @param {MouseEvent} event - Click event
+     */
+    handleSort(event: MouseEvent): void;
+    /**
+     * @param {number} index
+     * @param {TableSortDirection} [direction]
+     */
+    update(index: number, direction?: TableSortDirection): void;
+    /**
+     * @param {number} index
+     * @param {TableSortDirection} [direction]
+     */
+    formatStatusMessage(index: number, direction?: TableSortDirection): string;
+    /**
+     * @param {number} index
+     */
+    getHeader(index: number): HTMLTableCellElement;
+    /**
+     * @param {HTMLTableCellElement | null} [$header]
+     */
+    getIndex($header?: HTMLTableCellElement | null): number;
+    /**
+     * @param {HTMLElement | null} [$header]
+     * @returns {TableSortDirection}
+     */
+    getDirection($header?: HTMLElement | null): TableSortDirection;
+    /**
+     * @param {HTMLElement | null} [$header]
+     * @returns {TableSortDirection}
+     */
+    getDirectionNext($header?: HTMLElement | null): TableSortDirection;
+    /**
+     * @param {number} index
+     * @param {HTMLElement} [$row]
+     * @returns {{ sort: string | undefined, text: string, format: 'numeric' | 'string' }}
+     */
+    getValue(index: number, $row?: HTMLElement): {
+        sort: string | undefined;
+        text: string;
+        format: "numeric" | "string";
+    };
+}
+/**
+ * Table config
+ */
+export type TableConfig = {
+    /**
+     * - Table body class for `<tbody>` element
+     */
+    bodyClass: string;
+    /**
+     * - Table cell class for `<td>` elements
+     */
+    cellClass: string;
+    /**
+     * - Table head class for `<thead>` element
+     */
+    headClass: string;
+    /**
+     * - Table header class for `<th>` elements
+     */
+    headerClass: string;
+    /**
+     * - Table row class for `<tr>` elements
+     */
+    rowClass: string;
+    /**
+     * - Table translations
+     */
+    i18n?: TableTranslations | undefined;
+};
+/**
+ * Table sort direction
+ */
+export type TableSortDirection = "ascending" | "descending" | "none";
+/**
+ * Table translations
+ */
+export type TableTranslations = {
+    /**
+     * - Status message
+     */
+    sortAnnouncement?: string | undefined;
+    /**
+     * - Ascending text
+     */
+    ascending?: string | undefined;
+    /**
+     * - Descending text
+     */
+    descending?: string | undefined;
+};
+import { ConfigurableComponent } from '../../configurable-component.mjs';
+import { I18n } from '../../i18n.mjs';
+//# sourceMappingURL=table.d.mts.map

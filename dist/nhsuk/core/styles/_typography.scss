@@ -1,0 +1,546 @@
+@use "../settings" as *;
+@use "../tools" as *;
+@use "../helpers" as *;
+
+////
+/// Typography
+///
+/// @group styles
+////
+
+// Headings
+//
+// The % (silent class) allows code to be extended (@extend) to other elements
+// without bloating the code.
+
+%nhsuk-heading-xl {
+  display: block;
+  margin-top: 0;
+  margin-bottom: nhsuk-spacing(6);
+
+  @include nhsuk-font(48, $weight: bold);
+
+  @media #{nhsuk-from-breakpoint(tablet)} {
+    margin-bottom: nhsuk-spacing(7);
+  }
+}
+
+h1,
+.nhsuk-heading-xl {
+  @extend %nhsuk-heading-xl;
+}
+
+%nhsuk-heading-l {
+  display: block;
+  margin-top: 0;
+  margin-bottom: nhsuk-spacing(3);
+
+  @include nhsuk-font(36, $weight: bold);
+
+  @media #{nhsuk-from-breakpoint(tablet)} {
+    margin-bottom: nhsuk-spacing(4);
+  }
+}
+
+h2,
+.nhsuk-heading-l {
+  @extend %nhsuk-heading-l;
+}
+
+%nhsuk-heading-m {
+  display: block;
+  margin-top: 0;
+  margin-bottom: nhsuk-spacing(3);
+
+  @include nhsuk-font(26, $weight: bold);
+
+  @media #{nhsuk-from-breakpoint(tablet)} {
+    margin-bottom: nhsuk-spacing(4);
+  }
+}
+
+h3,
+.nhsuk-heading-m {
+  @extend %nhsuk-heading-m;
+}
+
+%nhsuk-heading-s {
+  display: block;
+  margin-top: 0;
+  margin-bottom: nhsuk-spacing(3);
+
+  @include nhsuk-font(22, $weight: bold);
+
+  @media #{nhsuk-from-breakpoint(tablet)} {
+    margin-bottom: nhsuk-spacing(4);
+  }
+}
+
+h4,
+.nhsuk-heading-s {
+  @extend %nhsuk-heading-s;
+}
+
+%nhsuk-heading-xs {
+  display: block;
+  margin-top: 0;
+  margin-bottom: nhsuk-spacing(3);
+
+  @include nhsuk-font(19, $weight: bold);
+
+  @media #{nhsuk-from-breakpoint(tablet)} {
+    margin-bottom: nhsuk-spacing(4);
+  }
+}
+
+h5,
+.nhsuk-heading-xs {
+  @extend %nhsuk-heading-xs;
+}
+
+%nhsuk-heading-xxs {
+  display: block;
+  margin-top: 0;
+  margin-bottom: nhsuk-spacing(3);
+
+  @include nhsuk-font(19, $weight: bold);
+
+  @media #{nhsuk-from-breakpoint(tablet)} {
+    margin-bottom: nhsuk-spacing(4);
+  }
+}
+
+h6,
+.nhsuk-heading-xxs {
+  @extend %nhsuk-heading-xxs;
+}
+
+// Captions to be used inside, before or after headings
+
+.nhsuk-caption-xxl,
+.nhsuk-caption-xl,
+.nhsuk-caption-l,
+.nhsuk-caption-m,
+.nhsuk-caption {
+  display: block;
+  margin: 0 0 nhsuk-spacing(1);
+  padding: 0;
+  color: $nhsuk-secondary-text-colour;
+  @include nhsuk-font(19);
+}
+
+.nhsuk-caption-xxl {
+  margin-bottom: nhsuk-spacing(2);
+  @include nhsuk-font-size(36);
+}
+
+.nhsuk-caption-xl {
+  @include nhsuk-font-size(26);
+}
+
+.nhsuk-caption-l {
+  @include nhsuk-font-size(22);
+}
+
+.nhsuk-caption-m,
+.nhsuk-caption {
+  margin-bottom: 0;
+}
+
+h1 + .nhsuk-caption-xl,
+h1 + .nhsuk-caption-xxl,
+.nhsuk-heading-xl + .nhsuk-caption-xl,
+.nhsuk-heading-xl + .nhsuk-caption-xxl {
+  margin-top: nhsuk-spacing(-6, $adjustment: nhsuk-spacing(1));
+  margin-bottom: nhsuk-spacing(6);
+
+  @media #{nhsuk-from-breakpoint(tablet)} {
+    margin-top: nhsuk-spacing(-7, $adjustment: nhsuk-spacing(1));
+    margin-bottom: nhsuk-spacing(7);
+  }
+}
+
+h2 + .nhsuk-caption-l,
+h3 + .nhsuk-caption-m,
+h4 + .nhsuk-caption,
+h5 + .nhsuk-caption,
+h6 + .nhsuk-caption,
+.nhsuk-heading-l + .nhsuk-caption-l,
+.nhsuk-heading-m + .nhsuk-caption-m,
+.nhsuk-heading-s + .nhsuk-caption,
+.nhsuk-heading-xs + .nhsuk-caption,
+.nhsuk-heading-xxs + .nhsuk-caption {
+  margin-top: nhsuk-spacing(-3, $adjustment: nhsuk-spacing(1));
+  margin-bottom: nhsuk-spacing(3);
+
+  @media #{nhsuk-from-breakpoint(tablet)} {
+    margin-top: nhsuk-spacing(-4, $adjustment: nhsuk-spacing(1));
+    margin-bottom: nhsuk-spacing(4, $adjustment: nhsuk-spacing(1));
+  }
+}
+
+.nhsuk-caption--bottom {
+  margin: nhsuk-spacing(1) 0 0;
+}
+
+.nhsuk-caption-xxl.nhsuk-caption--bottom {
+  margin-top: nhsuk-spacing(2);
+}
+
+h1 + .nhsuk-caption--bottom,
+.nhsuk-heading-xl + .nhsuk-caption--bottom {
+  margin-top: nhsuk-spacing(-6, $adjustment: nhsuk-spacing(1));
+  margin-bottom: nhsuk-spacing(6);
+
+  @media #{nhsuk-from-breakpoint(tablet)} {
+    margin-top: nhsuk-spacing(-7, $adjustment: nhsuk-spacing(1));
+    margin-bottom: nhsuk-spacing(7);
+  }
+}
+
+h2 + .nhsuk-caption--bottom,
+h3 + .nhsuk-caption--bottom,
+h4 + .nhsuk-caption--bottom,
+h5 + .nhsuk-caption--bottom,
+h6 + .nhsuk-caption--bottom,
+.nhsuk-heading-l + .nhsuk-caption--bottom,
+.nhsuk-heading-m + .nhsuk-caption--bottom,
+.nhsuk-heading-s + .nhsuk-caption--bottom,
+.nhsuk-heading-xs + .nhsuk-caption--bottom,
+.nhsuk-heading-xxs + .nhsuk-caption--bottom {
+  margin-top: nhsuk-spacing(-3, $adjustment: nhsuk-spacing(1));
+  margin-bottom: nhsuk-spacing(3);
+
+  @media #{nhsuk-from-breakpoint(tablet)} {
+    margin-top: nhsuk-spacing(-4, $adjustment: nhsuk-spacing(1));
+    margin-bottom: nhsuk-spacing(4, $adjustment: nhsuk-spacing(1));
+  }
+}
+
+.nhsuk-fieldset__legend + .nhsuk-caption--bottom {
+  margin-top: nhsuk-spacing(-2, $adjustment: nhsuk-spacing(1));
+  margin-bottom: nhsuk-spacing(2);
+}
+
+.nhsuk-fieldset__legend--xl + .nhsuk-caption--bottom,
+.nhsuk-fieldset__legend--l + .nhsuk-caption--bottom,
+.nhsuk-fieldset__legend--m + .nhsuk-caption--bottom {
+  margin-top: nhsuk-spacing(-3, $adjustment: nhsuk-spacing(1));
+  margin-bottom: nhsuk-spacing(3);
+}
+
+.nhsuk-label + .nhsuk-caption--bottom,
+.nhsuk-label-wrapper + .nhsuk-caption--bottom {
+  margin-top: nhsuk-spacing(-3, $adjustment: nhsuk-spacing(1));
+  margin-bottom: nhsuk-spacing(3);
+}
+
+.nhsuk-label:not(.nhsuk-label--m):not(.nhsuk-label--l):not(.nhsuk-label--xl) + .nhsuk-caption--bottom {
+  margin-top: 0;
+  margin-bottom: nhsuk-spacing(1);
+}
+
+.nhsuk-label-wrapper:has(.nhsuk-label:not(.nhsuk-label--m):not(.nhsuk-label--l):not(.nhsuk-label--xl))
+  + .nhsuk-caption--bottom {
+  margin-top: 0;
+  margin-bottom: nhsuk-spacing(1);
+}
+
+h1,
+.nhsuk-heading-xl,
+h2,
+.nhsuk-heading-l,
+h3,
+.nhsuk-heading-m,
+h4,
+.nhsuk-heading-s,
+h5,
+.nhsuk-heading-xs,
+h6,
+.nhsuk-heading-xxs,
+.nhsuk-fieldset__legend {
+  // Remove negative top margin from caption when heading has manual bottom margin
+  &[class*="nhsuk-u-margin-bottom-"] + [class^="nhsuk-caption"] {
+    margin-top: 0;
+  }
+}
+
+// Body (paragraphs)
+
+%nhsuk-body-l {
+  display: block;
+  margin-top: 0;
+  margin-bottom: nhsuk-spacing(4);
+
+  @include nhsuk-font(26);
+
+  @media #{nhsuk-from-breakpoint(tablet)} {
+    margin-bottom: nhsuk-spacing(5);
+  }
+}
+
+.nhsuk-body-l {
+  @extend %nhsuk-body-l;
+}
+
+%nhsuk-body-m {
+  display: block;
+  margin-top: 0;
+  margin-bottom: nhsuk-spacing(3);
+
+  @include nhsuk-font(19);
+
+  @media #{nhsuk-from-breakpoint(tablet)} {
+    margin-bottom: nhsuk-spacing(4);
+  }
+}
+
+p,
+.nhsuk-body,
+.nhsuk-body-m {
+  @extend %nhsuk-body-m;
+  color: inherit;
+}
+
+%nhsuk-body-s {
+  display: block;
+  margin-top: 0;
+  margin-bottom: nhsuk-spacing(3);
+
+  @include nhsuk-font(16);
+
+  @media #{nhsuk-from-breakpoint(tablet)} {
+    margin-bottom: nhsuk-spacing(4);
+  }
+}
+
+.nhsuk-body-s {
+  @extend %nhsuk-body-s;
+}
+
+address {
+  display: block;
+  margin-top: 0;
+  margin-bottom: nhsuk-spacing(3);
+  font-style: normal;
+
+  @include nhsuk-font(19);
+
+  @media #{nhsuk-from-breakpoint(tablet)} {
+    margin-bottom: nhsuk-spacing(4);
+  }
+}
+
+// Lede text
+//
+// 1. Apply lede text styling to p and ul within the lede element
+// 2. Reduces the spacing between the page heading and the lede text
+
+.nhsuk-lede-text {
+  margin-bottom: nhsuk-spacing(6);
+
+  @include nhsuk-font(26);
+
+  @media #{nhsuk-from-breakpoint(tablet)} {
+    margin-bottom: nhsuk-spacing(7);
+  }
+
+  // [1]
+  p,
+  ul {
+    @include nhsuk-font(26);
+  }
+}
+
+.nhsuk-lede-text--small {
+  margin-bottom: nhsuk-spacing(4);
+
+  @include nhsuk-font(19);
+
+  @media #{nhsuk-from-breakpoint(tablet)} {
+    margin-bottom: nhsuk-spacing(5);
+  }
+}
+
+// [2]
+h1 + .nhsuk-lede-text,
+h1 + .nhsuk-lede-text--small {
+  margin-top: -(nhsuk-spacing(2));
+}
+
+// Contextual adjustments
+//
+// Add top padding to headings that appear directly after paragraphs.
+//
+// 1. Removes the padding-top because of the lede-text's increased margin-bottom
+
+%nhsuk-body-m + h3:not([class^="nhsuk-heading"]),
+%nhsuk-body-s + h3:not([class^="nhsuk-heading"]),
+%nhsuk-body-m + h4:not([class^="nhsuk-heading"]),
+%nhsuk-body-s + h4:not([class^="nhsuk-heading"]),
+%nhsuk-body-m + .nhsuk-heading-m,
+%nhsuk-body-s + .nhsuk-heading-m,
+%nhsuk-body-m + .nhsuk-heading-s,
+%nhsuk-body-s + .nhsuk-heading-s {
+  padding-top: nhsuk-spacing(1);
+
+  @media #{nhsuk-from-breakpoint(tablet)} {
+    padding-top: nhsuk-spacing(2);
+  }
+}
+
+%nhsuk-body-m + h2:not([class^="nhsuk-heading"]),
+%nhsuk-body-s + h2:not([class^="nhsuk-heading"]),
+%nhsuk-body-m + .nhsuk-heading-l,
+%nhsuk-body-s + .nhsuk-heading-l {
+  padding-top: nhsuk-spacing(1);
+
+  @media #{nhsuk-from-breakpoint(tablet)} {
+    padding-top: nhsuk-spacing(2);
+  }
+}
+
+%nhsuk-body-l + h2:not([class^="nhsuk-heading"]),
+%nhsuk-body-l + .nhsuk-heading-l {
+  padding-top: nhsuk-spacing(1);
+
+  @media #{nhsuk-from-breakpoint(tablet)} {
+    padding-top: nhsuk-spacing(2);
+  }
+}
+
+.nhsuk-form-group + h2:not([class^="nhsuk-heading"]),
+.nhsuk-form-group + .nhsuk-heading-l {
+  padding-top: nhsuk-spacing(3, $adjustment: nhsuk-spacing(-2));
+
+  @media #{nhsuk-from-breakpoint(tablet)} {
+    padding-top: nhsuk-spacing(4, $adjustment: nhsuk-spacing(-2));
+  }
+}
+
+%nhsuk-body-l + [class^="nhsuk-caption"],
+%nhsuk-body-m + [class^="nhsuk-caption"],
+%nhsuk-body-s + [class^="nhsuk-caption"] {
+  padding-top: 0;
+}
+
+// [1]
+.nhsuk-lede-text + h2:not([class^="nhsuk-heading"]),
+.nhsuk-lede-text + .nhsuk-heading-l {
+  padding-top: 0;
+}
+
+// Font weight for <strong> and <b>
+
+strong,
+b {
+  @include nhsuk-font-weight-bold;
+}
+
+@media print {
+  .nhsuk-main-wrapper {
+    padding-top: 1em;
+    padding-bottom: 1em;
+  }
+
+  h1,
+  .nhsuk-heading-xl,
+  h2,
+  .nhsuk-heading-l,
+  h3,
+  .nhsuk-heading-m,
+  h4,
+  .nhsuk-heading-s,
+  h5,
+  .nhsuk-heading-xs,
+  h6,
+  .nhsuk-heading-xxs,
+  .nhsuk-lede-text,
+  .nhsuk-body-l,
+  p,
+  .nhsuk-body-m,
+  .nhsuk-body-s,
+  .nhsuk-body,
+  address,
+  ol,
+  ul,
+  .nhsuk-list {
+    margin-bottom: 7.5pt;
+  }
+
+  h1 {
+    // stylelint-disable-next-line declaration-no-important
+    margin-bottom: 15pt !important;
+  }
+
+  %nhsuk-body-l + h2:not([class^="nhsuk-heading"]),
+  %nhsuk-body-m + h2:not([class^="nhsuk-heading"]),
+  %nhsuk-body-s + h2:not([class^="nhsuk-heading"]),
+  %nhsuk-body-m + h3:not([class^="nhsuk-heading"]),
+  %nhsuk-body-s + h3:not([class^="nhsuk-heading"]),
+  %nhsuk-body-m + h4:not([class^="nhsuk-heading"]),
+  %nhsuk-body-s + h4:not([class^="nhsuk-heading"]),
+  %nhsuk-body-l + .nhsuk-heading-l,
+  %nhsuk-body-m + .nhsuk-heading-l,
+  %nhsuk-body-s + .nhsuk-heading-l,
+  %nhsuk-body-m + .nhsuk-heading-m,
+  %nhsuk-body-s + .nhsuk-heading-m,
+  %nhsuk-body-m + .nhsuk-heading-s,
+  %nhsuk-body-s + .nhsuk-heading-s {
+    padding-top: 0.45em;
+  }
+}
+
+// Code
+
+li code,
+caption code,
+td code,
+th code,
+dt code,
+dd code,
+p code {
+  width: -webkit-fit-content;
+  width: fit-content;
+  padding: 2px nhsuk-spacing(1);
+  color: $nhsuk-code-colour;
+  background-color: nhsuk-colour("white");
+}
+
+code,
+samp,
+kbd,
+var {
+  @include nhsuk-font-monospace;
+  font-size: inherit;
+}
+
+samp,
+kbd,
+var {
+  font-style: normal;
+}
+
+kbd > kbd {
+  display: inline-block;
+  margin: 0 nhsuk-em(4px, 19);
+  padding: 0 nhsuk-spacing(1);
+  border: $nhsuk-border-width-form-element solid currentcolor;
+  border-radius: $nhsuk-border-radius;
+
+  &:first-child {
+    margin-left: nhsuk-em(1px, 19);
+  }
+
+  &:last-child {
+    margin-right: nhsuk-em(1px, 19);
+  }
+}
+
+a code {
+  color: currentcolor;
+}
+
+a:focus code {
+  background-color: transparent;
+}

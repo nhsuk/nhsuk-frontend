@@ -1,0 +1,139 @@
+@forward "../../core/nhsuk-frontend-properties";
+@use "../../core/settings" as *;
+@use "../../core/tools" as *;
+@use "../../core/helpers" as *;
+
+////
+/// Tabs component
+///
+/// @group components/tabs
+////
+
+@include nhsuk-exports("nhsuk/components/tabs") {
+  .nhsuk-tabs {
+    @include nhsuk-responsive-margin(1, "top");
+    @include nhsuk-responsive-margin(6, "bottom");
+    @include nhsuk-font($size: 19);
+  }
+
+  .nhsuk-tabs__heading,
+  // Deprecated, to be removed in a future release
+  .nhsuk-tabs__title {
+    margin-bottom: nhsuk-spacing(2);
+
+    // Set the size and weight again because this element is a heading and the
+    // user agent font size overrides the inherited font size
+    @include nhsuk-text-colour;
+    @include nhsuk-font($size: 19);
+  }
+
+  .nhsuk-tabs__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    @include nhsuk-responsive-margin(6, "bottom");
+  }
+
+  .nhsuk-tabs__list-item {
+    @include nhsuk-shape-dash;
+  }
+
+  .nhsuk-tabs__tab {
+    display: inline-block;
+  }
+
+  .nhsuk-tabs__panel {
+    @include nhsuk-responsive-margin(8, "bottom");
+  }
+
+  @include nhsuk-frontend-supported {
+    @media #{nhsuk-from-breakpoint(tablet)} {
+      .nhsuk-tabs__list {
+        margin-bottom: 0;
+        border-bottom: 1px solid $nhsuk-border-colour;
+        @include nhsuk-clearfix;
+      }
+
+      .nhsuk-tabs__heading,
+      // Deprecated, to be removed in a future release
+      .nhsuk-tabs__title {
+        display: none;
+      }
+
+      .nhsuk-tabs__list-item {
+        position: relative;
+
+        margin-right: nhsuk-spacing(1);
+        margin-bottom: 0;
+        margin-left: 0;
+
+        float: left;
+
+        background-color: nhsuk-colour("grey-4");
+
+        text-align: center;
+
+        @include nhsuk-responsive-padding(2, ("top", "bottom"));
+        @include nhsuk-responsive-padding(4, ("left", "right"));
+
+        &::before {
+          content: none;
+        }
+      }
+
+      .nhsuk-tabs__list-item--selected {
+        $border-width: 1px;
+
+        position: relative;
+
+        margin-top: nhsuk-spacing(-1);
+
+        // Compensation for border (otherwise we get a shift)
+        margin-bottom: -$border-width;
+
+        border: $border-width solid $nhsuk-border-colour;
+        border-bottom: 0;
+
+        background-color: $nhsuk-card-background-colour;
+
+        @include nhsuk-responsive-padding(2, "top", $adjustment: nhsuk-spacing(1) - $border-width);
+        @include nhsuk-responsive-padding(2, "bottom", $adjustment: nhsuk-spacing(1) + $border-width);
+        @include nhsuk-responsive-padding(4, ("left", "right"), $adjustment: - $border-width);
+
+        .nhsuk-tabs__tab {
+          text-decoration: none;
+        }
+      }
+
+      .nhsuk-tabs__tab {
+        margin-bottom: 0;
+
+        @include nhsuk-link-style-text;
+
+        &::after {
+          content: "";
+
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+        }
+      }
+
+      .nhsuk-tabs__panel {
+        margin-bottom: 0;
+        padding: nhsuk-spacing(6) nhsuk-spacing(4);
+        border: 1px solid $nhsuk-border-colour;
+        border-top: 0;
+        background-color: $nhsuk-card-background-colour;
+
+        @include nhsuk-top-and-bottom;
+      }
+
+      .nhsuk-tabs__panel--hidden {
+        display: none;
+      }
+    }
+  }
+}

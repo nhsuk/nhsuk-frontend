@@ -1,0 +1,42 @@
+{
+  "name": "Skip link",
+  "component": "skip-link",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "href": "#maincontent",
+        "text": "Skip to main content"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<a class=\"nhsuk-skip-link\" data-module=\"nhsuk-skip-link\" href=\"#maincontent\">\n  Skip to main content\n</a>"
+    },
+    {
+      "name": "without hash fragment",
+      "context": {
+        "href": "/nhsuk-frontend/components/boilerplate/",
+        "text": "Skip to main content"
+      },
+      "screenshot": false,
+      "options": {
+        "hidden": true,
+        "throwOnError": false
+      },
+      "html": "<a class=\"nhsuk-skip-link\" data-module=\"nhsuk-skip-link\" href=\"/nhsuk-frontend/components/boilerplate/\">\n  Skip to main content\n</a>"
+    },
+    {
+      "name": "without link target",
+      "context": {
+        "href": "#this-element-does-not-exist",
+        "text": "Skip to main content"
+      },
+      "screenshot": false,
+      "options": {
+        "hidden": true,
+        "throwOnError": false
+      },
+      "html": "<a class=\"nhsuk-skip-link\" data-module=\"nhsuk-skip-link\" href=\"#this-element-does-not-exist\">\n  Skip to main content\n</a>"
+    }
+  ]
+}

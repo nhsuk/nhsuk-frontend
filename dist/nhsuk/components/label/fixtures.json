@@ -1,0 +1,469 @@
+{
+  "name": "Label",
+  "component": "label",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "heading": "What is your full name?",
+        "size": "l"
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile",
+          "tablet",
+          "desktop"
+        ]
+      },
+      "options": {},
+      "html": "<h1 class=\"nhsuk-label-wrapper\">\n  <label class=\"nhsuk-label nhsuk-label--l\">\n    What is your full name?\n  </label>\n</h1>"
+    },
+    {
+      "name": "size class",
+      "context": {
+        "heading": "What is your full name?",
+        "classes": "nhsuk-label--l"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<h1 class=\"nhsuk-label-wrapper\">\n  <label class=\"nhsuk-label nhsuk-label--l\">\n    What is your full name?\n  </label>\n</h1>"
+    },
+    {
+      "name": "size class overriding size option",
+      "context": {
+        "heading": "What is your full name?",
+        "classes": "nhsuk-label--l",
+        "size": "s"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<h1 class=\"nhsuk-label-wrapper\">\n  <label class=\"nhsuk-label nhsuk-label--l\">\n    What is your full name?\n  </label>\n</h1>"
+    },
+    {
+      "name": "text",
+      "description": "with size S",
+      "context": {
+        "heading": "What is your full name?",
+        "size": "s"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<h1 class=\"nhsuk-label-wrapper\">\n  <label class=\"nhsuk-label nhsuk-label--s\">\n    What is your full name?\n  </label>\n</h1>"
+    },
+    {
+      "name": "text",
+      "description": "with size M",
+      "context": {
+        "heading": "What is your full name?",
+        "size": "m"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<h1 class=\"nhsuk-label-wrapper\">\n  <label class=\"nhsuk-label nhsuk-label--m\">\n    What is your full name?\n  </label>\n</h1>"
+    },
+    {
+      "name": "text",
+      "description": "with size L",
+      "context": {
+        "heading": "What is your full name?",
+        "size": "l"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<h1 class=\"nhsuk-label-wrapper\">\n  <label class=\"nhsuk-label nhsuk-label--l\">\n    What is your full name?\n  </label>\n</h1>"
+    },
+    {
+      "name": "text",
+      "description": "with size XL",
+      "context": {
+        "heading": "What is your full name?",
+        "size": "xl"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<h1 class=\"nhsuk-label-wrapper\">\n  <label class=\"nhsuk-label nhsuk-label--xl\">\n    What is your full name?\n  </label>\n</h1>"
+    },
+    {
+      "name": "text and caption",
+      "description": "with size S",
+      "context": {
+        "text": "What is your full name?",
+        "caption": "About you",
+        "size": "s"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<label class=\"nhsuk-label nhsuk-label--s\">\n  <span class=\"nhsuk-caption\">\n    About you\n  </span>\n  What is your full name?\n</label>"
+    },
+    {
+      "name": "text and caption",
+      "description": "with size M",
+      "context": {
+        "text": "What is your full name?",
+        "caption": "About you",
+        "size": "m"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<label class=\"nhsuk-label nhsuk-label--m\">\n  <span class=\"nhsuk-caption-m\">\n    About you\n  </span>\n  What is your full name?\n</label>"
+    },
+    {
+      "name": "text and caption",
+      "description": "with size L",
+      "context": {
+        "text": "What is your full name?",
+        "caption": "About you",
+        "size": "l"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<label class=\"nhsuk-label nhsuk-label--l\">\n  <span class=\"nhsuk-caption-l\">\n    About you\n  </span>\n  What is your full name?\n</label>"
+    },
+    {
+      "name": "text and caption",
+      "description": "with size XL",
+      "context": {
+        "text": "What is your full name?",
+        "caption": "About you",
+        "size": "xl"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<label class=\"nhsuk-label nhsuk-label--xl\">\n  <span class=\"nhsuk-caption-xl\">\n    About you\n  </span>\n  What is your full name?\n</label>"
+    },
+    {
+      "name": "text and caption \"after\" as a paragraph",
+      "description": "with size S",
+      "context": {
+        "text": "What is your full name?",
+        "caption": {
+          "text": "About you",
+          "placement": "after",
+          "element": "p"
+        },
+        "size": "s"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<label class=\"nhsuk-label nhsuk-label--s\">\n  What is your full name?\n</label>\n<p class=\"nhsuk-caption nhsuk-caption--bottom\">\n  About you\n</p>"
+    },
+    {
+      "name": "text and caption \"after\" as a paragraph",
+      "description": "with size M",
+      "context": {
+        "text": "What is your full name?",
+        "caption": {
+          "text": "About you",
+          "placement": "after",
+          "element": "p"
+        },
+        "size": "m"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<label class=\"nhsuk-label nhsuk-label--m\">\n  What is your full name?\n</label>\n<p class=\"nhsuk-caption-m nhsuk-caption--bottom\">\n  About you\n</p>"
+    },
+    {
+      "name": "text and caption \"after\" as a paragraph",
+      "description": "with size L",
+      "context": {
+        "text": "What is your full name?",
+        "caption": {
+          "text": "About you",
+          "placement": "after",
+          "element": "p"
+        },
+        "size": "l"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<label class=\"nhsuk-label nhsuk-label--l\">\n  What is your full name?\n</label>\n<p class=\"nhsuk-caption-l nhsuk-caption--bottom\">\n  About you\n</p>"
+    },
+    {
+      "name": "text and caption \"after\" as a paragraph",
+      "description": "with size XL",
+      "context": {
+        "text": "What is your full name?",
+        "caption": {
+          "text": "About you",
+          "placement": "after",
+          "element": "p"
+        },
+        "size": "xl"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<label class=\"nhsuk-label nhsuk-label--xl\">\n  What is your full name?\n</label>\n<p class=\"nhsuk-caption-xl nhsuk-caption--bottom\">\n  About you\n</p>"
+    },
+    {
+      "name": "text and caption \"before\" as a paragraph",
+      "description": "with size S",
+      "context": {
+        "text": "What is your full name?",
+        "caption": {
+          "text": "About you",
+          "placement": "before",
+          "element": "p"
+        },
+        "size": "s"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<p class=\"nhsuk-caption\">\n  About you\n</p>\n<label class=\"nhsuk-label nhsuk-label--s\">\n  What is your full name?\n</label>"
+    },
+    {
+      "name": "text and caption \"before\" as a paragraph",
+      "description": "with size M",
+      "context": {
+        "text": "What is your full name?",
+        "caption": {
+          "text": "About you",
+          "placement": "before",
+          "element": "p"
+        },
+        "size": "m"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<p class=\"nhsuk-caption-m\">\n  About you\n</p>\n<label class=\"nhsuk-label nhsuk-label--m\">\n  What is your full name?\n</label>"
+    },
+    {
+      "name": "text and caption \"before\" as a paragraph",
+      "description": "with size L",
+      "context": {
+        "text": "What is your full name?",
+        "caption": {
+          "text": "About you",
+          "placement": "before",
+          "element": "p"
+        },
+        "size": "l"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<p class=\"nhsuk-caption-l\">\n  About you\n</p>\n<label class=\"nhsuk-label nhsuk-label--l\">\n  What is your full name?\n</label>"
+    },
+    {
+      "name": "text and caption \"before\" as a paragraph",
+      "description": "with size XL",
+      "context": {
+        "text": "What is your full name?",
+        "caption": {
+          "text": "About you",
+          "placement": "before",
+          "element": "p"
+        },
+        "size": "xl"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<p class=\"nhsuk-caption-xl\">\n  About you\n</p>\n<label class=\"nhsuk-label nhsuk-label--xl\">\n  What is your full name?\n</label>"
+    },
+    {
+      "name": "with deprecated page heading",
+      "context": {
+        "text": "What is your full name?",
+        "size": "m",
+        "isPageHeading": true
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<h1 class=\"nhsuk-label-wrapper\">\n  <label class=\"nhsuk-label nhsuk-label--m\">\n    What is your full name?\n  </label>\n</h1>"
+    },
+    {
+      "name": "with deprecated page heading overriding heading",
+      "context": {
+        "heading": {
+          "text": "What is your full name?",
+          "level": 3,
+          "size": "s"
+        },
+        "isPageHeading": false
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<label class=\"nhsuk-label\">\n  What is your full name?\n</label>"
+    },
+    {
+      "name": "with heading level 1",
+      "context": {
+        "text": "What is your full name?",
+        "size": "l",
+        "heading": {
+          "level": 1
+        }
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<h1 class=\"nhsuk-label-wrapper\">\n  <label class=\"nhsuk-label nhsuk-label--l\">\n    What is your full name?\n  </label>\n</h1>"
+    },
+    {
+      "name": "with heading level 2",
+      "context": {
+        "text": "What is your full name?",
+        "size": "m",
+        "heading": {
+          "level": 2
+        }
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<h2 class=\"nhsuk-label-wrapper\">\n  <label class=\"nhsuk-label nhsuk-label--m\">\n    What is your full name?\n  </label>\n</h2>"
+    },
+    {
+      "name": "with heading level 3",
+      "context": {
+        "text": "What is your full name?",
+        "size": "s",
+        "heading": {
+          "level": 3
+        }
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<h3 class=\"nhsuk-label-wrapper\">\n  <label class=\"nhsuk-label nhsuk-label--s\">\n    What is your full name?\n  </label>\n</h3>"
+    },
+    {
+      "name": "with heading options only",
+      "context": {
+        "heading": {
+          "text": "What is your full name?",
+          "level": 3,
+          "size": "s"
+        }
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<h3 class=\"nhsuk-label-wrapper\">\n  <label class=\"nhsuk-label nhsuk-label--s\">\n    What is your full name?\n  </label>\n</h3>"
+    },
+    {
+      "name": "with HTML",
+      "context": {
+        "html": "What is your full name?",
+        "heading": true,
+        "size": "l"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<h1 class=\"nhsuk-label-wrapper\">\n  <label class=\"nhsuk-label nhsuk-label--l\">\n    What is your full name?\n  </label>\n</h1>"
+    },
+    {
+      "name": "with HTML via call block",
+      "context": {
+        "heading": true,
+        "size": "l"
+      },
+      "callBlock": "What is your full name?",
+      "screenshot": false,
+      "options": {},
+      "html": "<h1 class=\"nhsuk-label-wrapper\">\n  <label class=\"nhsuk-label nhsuk-label--l\">\n  What is your full name?\n  </label>\n</h1>"
+    },
+    {
+      "name": "with HTML via call block, without heading",
+      "context": {
+        "size": "l"
+      },
+      "callBlock": "What is your full name?",
+      "screenshot": false,
+      "options": {},
+      "html": "<label class=\"nhsuk-label nhsuk-label--l\">\nWhat is your full name?\n</label>"
+    },
+    {
+      "name": "with id attribute",
+      "context": {
+        "id": "custom-id",
+        "heading": "What is your full name?",
+        "size": "l"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<h1 class=\"nhsuk-label-wrapper\">\n  <label class=\"nhsuk-label nhsuk-label--l\" id=\"custom-id\">\n    What is your full name?\n  </label>\n</h1>"
+    },
+    {
+      "name": "with id attribute on heading",
+      "context": {
+        "heading": {
+          "text": "What is your full name?",
+          "id": "custom-id"
+        },
+        "size": "l"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<h1 class=\"nhsuk-label-wrapper\" id=\"custom-id\">\n  <label class=\"nhsuk-label nhsuk-label--l\">\n    What is your full name?\n  </label>\n</h1>"
+    },
+    {
+      "name": "without heading",
+      "context": {
+        "text": "What is your full name?"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<label class=\"nhsuk-label\">\n  What is your full name?\n</label>"
+    }
+  ]
+}

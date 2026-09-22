@@ -1,0 +1,58 @@
+{% comment %}This is a comment{% endcomment %}
+{# This is a single line comment #}
+{{ variable }}
+{{ variable | filter }}
+{{ variable | filter("string") }}
+{{ macro("string") | filter | indent(2) }}
+{{ super() }}
+{{ component({
+  thing1: "value1",
+  thing2: "value2"
+})}}
+{{ "hello world" }}
+
+{#
+  This is a multi line comment, line 1
+  This is a multi line comment, line 2
+#}
+
+{% if happy and hungry %}
+  I am happy *and* hungry; both are true.
+{% elif happy or hungry %}
+  I am either happy *or* hungry; one or the other is true.
+{% endif %}
+
+{% for item in items %}
+  <li>{{ item.title }}</li>
+{% else %}
+  <li>This would display if the 'item' collection were empty</li>
+{% endfor %}
+
+{% block content %}
+Content
+{% endblock %}
+
+{% extends "base.html" %}
+
+{% include 'standardModalData.html' %}
+
+{% set username = "joe" %}
+
+{% set standardModal %}
+  <!-- This is an HTML comment -->
+  <p>Set</p>
+{% endset %}
+
+{% macro field(name, value='', type='text') %}
+  <!-- This is an HTML comment -->
+  <div>Content</div>
+{% endmacro %}
+
+{{ input({
+  label: {
+    text: "Address line 2 (optional)"
+  },
+  id: "address-line-2",
+  name: "addressLine2",
+  autocomplete: "address-line2"
+}) }}

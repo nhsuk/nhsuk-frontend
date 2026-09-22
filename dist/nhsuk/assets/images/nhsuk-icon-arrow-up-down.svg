@@ -1,0 +1,5 @@
+<svg class="nhsuk-icon nhsuk-icon--arrow-up-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true" fill="#212b32">
+
+  <path d="M1.5 9.3l5-5c.2-.2.4-.3.7-.3.3 0 .5.1.7.3l5 5a1 1 0 0 1-1.4 1.4l-3.3-3.3L8.2 19a1 1 0 0 1-2 0L6.2 7.4l-3.3 3.3a1 1 0 1 1-1.4-1.4Z"/>
+  <path d="M22.5 14.7l-5 5c-.2.2-.4.3-.7.3-.3 0-.5-.1-.7-.3l-5-5a1 1 0 0 1 1.4-1.4l3.3 3.3L15.8 5a1 1 0 0 1 2 0L17.8 16.6l3.3-3.3a1 1 0 1 1 1.4 1.4Z"/>
+</svg>

@@ -1,0 +1,41 @@
+{
+  "name": "Scroll",
+  "component": "scroll",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "text": "Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit."
+      },
+      "screenshot": false,
+      "options": {
+        "width": "full"
+      },
+      "html": "<div class=\"nhsuk-scroll\" data-module=\"nhsuk-scroll\">\n  <div class=\"nhsuk-scroll__content\" role=\"region\">\n    <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>\n  </div>\n</div>"
+    },
+    {
+      "name": "with HTML",
+      "context": {
+        "html": "<h1 class=\"nhsuk-heading-m\" id=\"example-heading\">Example heading</h1>\n<p class=\"nhsuk-body\">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>\n<p class=\"nhsuk-body\">Aenean lacinia bibendum nulla sed consectetur. Vestibulum id ligula porta felis euismod semper. Donec id elit non mi porta gravida at eget metus.</p>\n<p class=\"nhsuk-body\">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Maecenas sed diam eget risus varius blandit sit amet non magna. Bibendum commodo ullamcorper vulputate. Cras mattis consectetur purus sit amet fermentum. Curabitur blandit tempus porttitor.</p>",
+        "labelledBy": "example-heading"
+      },
+      "screenshot": false,
+      "options": {
+        "width": "full"
+      },
+      "html": "<div class=\"nhsuk-scroll\" data-module=\"nhsuk-scroll\">\n  <div class=\"nhsuk-scroll__content\" role=\"region\" aria-labelledby=\"example-heading\">\n    <h1 class=\"nhsuk-heading-m\" id=\"example-heading\">Example heading</h1>\n    <p class=\"nhsuk-body\">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>\n    <p class=\"nhsuk-body\">Aenean lacinia bibendum nulla sed consectetur. Vestibulum id ligula porta felis euismod semper. Donec id elit non mi porta gravida at eget metus.</p>\n    <p class=\"nhsuk-body\">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Maecenas sed diam eget risus varius blandit sit amet non magna. Bibendum commodo ullamcorper vulputate. Cras mattis consectetur purus sit amet fermentum. Curabitur blandit tempus porttitor.</p>\n  </div>\n</div>"
+    },
+    {
+      "name": "with HTML via call block",
+      "context": {
+        "labelledBy": "example-heading"
+      },
+      "callBlock": "<h1 class=\"nhsuk-heading-m\" id=\"example-heading\">Example heading</h1>\n  <p class=\"nhsuk-body\">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>\n  <p class=\"nhsuk-body\">Aenean lacinia bibendum nulla sed consectetur. Vestibulum id ligula porta felis euismod semper. Donec id elit non mi porta gravida at eget metus.</p>\n  <p class=\"nhsuk-body\">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Maecenas sed diam eget risus varius blandit sit amet non magna. Bibendum commodo ullamcorper vulputate. Cras mattis consectetur purus sit amet fermentum. Curabitur blandit tempus porttitor.</p>",
+      "screenshot": false,
+      "options": {
+        "width": "full"
+      },
+      "html": "<div class=\"nhsuk-scroll\" data-module=\"nhsuk-scroll\">\n  <div class=\"nhsuk-scroll__content\" role=\"region\" aria-labelledby=\"example-heading\">\n<h1 class=\"nhsuk-heading-m\" id=\"example-heading\">Example heading</h1>\n  <p class=\"nhsuk-body\">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>\n  <p class=\"nhsuk-body\">Aenean lacinia bibendum nulla sed consectetur. Vestibulum id ligula porta felis euismod semper. Donec id elit non mi porta gravida at eget metus.</p>\n  <p class=\"nhsuk-body\">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Maecenas sed diam eget risus varius blandit sit amet non magna. Bibendum commodo ullamcorper vulputate. Cras mattis consectetur purus sit amet fermentum. Curabitur blandit tempus porttitor.</p>\n  </div>\n</div>"
+    }
+  ]
+}

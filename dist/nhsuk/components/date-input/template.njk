@@ -1,0 +1,196 @@
+{% from "nhsuk/components/error-message/macro.njk" import errorMessage as nhsukErrorMessage %}
+{% from "nhsuk/components/fieldset/macro.njk" import fieldset as nhsukFieldset %}
+{% from "nhsuk/components/hint/macro.njk" import hint as nhsukHint %}
+{% from "nhsuk/components/input/macro.njk" import input as nhsukInput %}
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-date-input" -%}
+{%- set classNamesFormGroup = "nhsuk-form-group" -%}
+
+{#- Support hint as string #}
+{%- set hint = params.hint if params.hint is mapping and params.hint is not escaped else {
+  text: params.hint if params.hint is string else undefined,
+  html: params.hint if params.hint is escaped else undefined
+} -%}
+
+{#- Support error message as string #}
+{%- set errorMessage = params.errorMessage if params.errorMessage is mapping and params.errorMessage is not escaped else {
+  text: params.errorMessage if params.errorMessage is string else undefined,
+  html: params.errorMessage if params.errorMessage is escaped else undefined
+} -%}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif %}
+
+{#- a record of other elements that we need to associate with the input using
+  aria-describedby – for example hints or error messages -#}
+{% set describedBy = params.fieldset.describedBy if params.fieldset.describedBy else "" %}
+
+{#- fieldset is false by default -#}
+{% set hasFieldset = true if params.fieldset else false %}
+
+{%- set dateInputDay = params.day | default({
+  name: "day",
+  value: params.values.day,
+  width: 2
+}) -%}
+
+{%- set dateInputMonth = params.month | default({
+  name: "month",
+  value: params.values.month,
+  width: 2
+}) -%}
+
+{%- set dateInputYear = params.year | default({
+  name: "year",
+  value: params.values.year,
+  width: 4
+}) -%}
+
+{%- if params.items | length %}
+  {% set dateInputItems = params.items %}
+{% else %}
+  {% set dateInputItems = [
+    dateInputDay,
+    dateInputMonth,
+    dateInputYear
+  ] %}
+{% endif %}
+
+{%- macro _dateInputItem(params, item, anyItemHasError) %}
+{#- Support item label as string #}
+{%- set itemLabel = item.label if item.label is mapping and item.label is not escaped else {
+  text: item.label if item.label is string else undefined,
+  html: item.label if item.label is escaped else undefined
+} -%}
+
+{% set itemName = item.name %}
+{% set itemValue = item.value %}
+{% set itemWidth = item.width | default(2) %}
+{% set itemClasses = "" %}
+{% set itemHasError = true if item.error or (item.classes and "nhsuk-input--error" in item.classes) else false %}
+
+{%- if item is sameas(dateInputDay) or (item.name and item.name in ["day", dateInputDay.name]) %}
+  {% set itemName = item.name | default("day") %}
+  {% set itemValue = item.value | default(dateInputDay.value) %}
+{% elif item is sameas(dateInputMonth) or (item.name and item.name in ["month", dateInputMonth.name]) %}
+  {% set itemName = item.name | default("month") %}
+  {% set itemValue = item.value | default(dateInputMonth.value) %}
+{% elif item is sameas(dateInputYear) or (item.name and item.name in ["year", dateInputYear.name]) %}
+  {% set itemName = item.name | default("year") %}
+  {% set itemValue = item.value | default(dateInputYear.value) %}
+  {% set itemWidth = item.width | default(4) %}
+{% endif -%}
+
+{%- if item.classes %}
+  {% set itemClasses = (itemClasses ~ " " ~ item.classes) | trim %}
+{% endif -%}
+
+<div class="nhsuk-date-input__item">
+  {{ nhsukInput({
+    label: {
+      html: itemLabel.html,
+      text: itemLabel.text | default(itemName | capitalize),
+      visuallyHiddenText: itemLabel.visuallyHiddenText,
+      id: itemLabel.id,
+      for: itemLabel.for,
+      classes: "nhsuk-date-input__label" ~ (" " ~ itemLabel.classes if itemLabel.classes),
+      attributes: itemLabel.attributes
+    },
+    errorMessage: (not item.classes or not "nhsuk-input--error" in itemClasses) and
+      (itemHasError or (item.error != false and (errorMessage.text or errorMessage.html or params.errorMessage == true) and not anyItemHasError)),
+    id: item.id if item.id else (params.id ~ "-" ~ itemName),
+    name: (params.namePrefix ~ "[" ~ itemName ~ "]") if params.namePrefix else itemName,
+    value: itemValue | default(params.values[itemName]),
+    type: item.type | default("text", true),
+    prefix: item.prefix,
+    suffix: item.suffix,
+    width: itemWidth,
+    inputmode: item.inputmode if item.inputmode else "numeric",
+    spellcheck: item.spellcheck,
+    autocomplete: item.autocomplete,
+    autocapitalize: item.autocapitalize,
+    pattern: item.pattern,
+    disabled: item.disabled | default(params.disabled),
+    describedBy: item.describedBy,
+    classes: ("nhsuk-date-input__input" ~ " " ~ itemClasses) | trim,
+    attributes: item.attributes
+  }) | trim | indent(2) }}
+</div>
+{%- endmacro -%}
+
+{#- Determine if any date input item has an error #}
+{%- set anyItemHasError = false %}
+{% for item in dateInputItems %}
+  {% set anyItemHasError = true if item.error or (item.classes and "nhsuk-input--error" in item.classes) else anyItemHasError %}
+{% endfor -%}
+
+{#- Capture the HTML so we can optionally nest it in a fieldset -#}
+{% set innerHtml %}
+{% if hint.text or hint.html %}
+  {% set hintId = hint.id | default(params.id ~ "-hint") %}
+  {% set describedBy = (describedBy ~ " " ~ hintId) | trim %}
+  {{ nhsukHint({
+    html: hint.html,
+    text: hint.text,
+    id: hint.id | default(hintId),
+    classes: hint.classes,
+    attributes: hint.attributes
+  }) | trim | indent(2) }}
+{% endif %}
+{% if errorMessage.text or errorMessage.html %}
+  {% set errorId = errorMessage.id | default(params.id ~ "-error") %}
+  {% set describedBy = (describedBy ~ " " ~ errorId) | trim %}
+  {{ nhsukErrorMessage({
+    html: errorMessage.html,
+    text: errorMessage.text,
+    visuallyHiddenText: errorMessage.visuallyHiddenText,
+    id: errorMessage.id | default(errorId),
+    classes: errorMessage.classes,
+    attributes: errorMessage.attributes
+  }) | trim | indent(2) }}
+{% endif %}
+  <div class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %} {{- nhsukAttributes(params.attributes) -}}>
+    {% if params.formGroup.beforeInputs %}
+    {{ params.formGroup.beforeInputs.html | safe | trim | indent(4) if params.formGroup.beforeInputs.html else params.formGroup.beforeInputs.text }}
+    {% endif %}
+    {% for item in dateInputItems %}
+      {% if item %}
+        {{- _dateInputItem(params, item, anyItemHasError) | trim | indent(4, true) }}
+      {% endif %}
+    {% endfor %}
+    {% if params.formGroup.afterInputs %}
+    {{ params.formGroup.afterInputs.html | safe | trim | indent(4) if params.formGroup.afterInputs.html else params.formGroup.afterInputs.text }}
+    {% endif %}
+  </div>
+{% endset -%}
+
+{%- if errorMessage.text or errorMessage.html or params.errorMessage == true or anyItemHasError %}
+  {% set classNamesFormGroup = classNamesFormGroup ~ " nhsuk-form-group--error" %}
+{% endif %}
+
+{%- if params.formGroup.classes %}
+  {% set classNamesFormGroup = classNamesFormGroup ~ " " ~ params.formGroup.classes %}
+{% endif -%}
+
+<div class="{{ classNamesFormGroup }}" {{- nhsukAttributes(params.formGroup.attributes) }}>
+{% if hasFieldset %}
+  {# We override the fieldset's role to 'group' because otherwise JAWS does not
+    announce the description for a fieldset comprised of text inputs, but
+    adding the role to the fieldset always makes the output overly verbose for
+    radio buttons or checkboxes. -#}
+  {{ nhsukFieldset({
+    legend: params.fieldset.legend,
+    html: innerHtml | trim,
+    id: params.fieldset.id,
+    role: params.fieldset.role | default("group"),
+    describedBy: describedBy,
+    classes: params.fieldset.classes,
+    attributes: params.fieldset.attributes
+  }) | trim | indent(2) }}
+{% else %}
+  {{ innerHtml | safe | trim }}
+{% endif %}
+</div>

@@ -1,0 +1,145 @@
+{
+  "name": "Badge",
+  "component": "badge",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "text": "2",
+        "visuallyHiddenText": "Count"
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile"
+        ]
+      },
+      "options": {},
+      "html": "<strong class=\"nhsuk-badge\">\n  <span class=\"nhsuk-u-visually-hidden\">Count: </span>2\n</strong>"
+    },
+    {
+      "name": "default",
+      "description": "reverse",
+      "context": {
+        "text": "2",
+        "visuallyHiddenText": "Count",
+        "variant": "reverse"
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile"
+        ]
+      },
+      "options": {
+        "layout": "background-blue"
+      },
+      "html": "<strong class=\"nhsuk-badge nhsuk-badge--reverse\">\n  <span class=\"nhsuk-u-visually-hidden\">Count: </span>2\n</strong>"
+    },
+    {
+      "name": "count",
+      "description": "with zero",
+      "context": {
+        "text": "0",
+        "visuallyHiddenText": "Count"
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile"
+        ]
+      },
+      "options": {},
+      "html": "<strong class=\"nhsuk-badge\">\n  <span class=\"nhsuk-u-visually-hidden\">Count: </span>0\n</strong>"
+    },
+    {
+      "name": "count",
+      "description": "with single digit",
+      "context": {
+        "text": "1",
+        "visuallyHiddenText": "Count"
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile"
+        ]
+      },
+      "options": {},
+      "html": "<strong class=\"nhsuk-badge\">\n  <span class=\"nhsuk-u-visually-hidden\">Count: </span>1\n</strong>"
+    },
+    {
+      "name": "count",
+      "description": "with double digit",
+      "context": {
+        "text": "12",
+        "visuallyHiddenText": "Count"
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile"
+        ]
+      },
+      "options": {},
+      "html": "<strong class=\"nhsuk-badge\">\n  <span class=\"nhsuk-u-visually-hidden\">Count: </span>12\n</strong>"
+    },
+    {
+      "name": "count",
+      "description": "with triple digit",
+      "context": {
+        "text": "123",
+        "visuallyHiddenText": "Count"
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile"
+        ]
+      },
+      "options": {},
+      "html": "<strong class=\"nhsuk-badge\">\n  <span class=\"nhsuk-u-visually-hidden\">Count: </span>123\n</strong>"
+    },
+    {
+      "name": "with HTML",
+      "context": {
+        "html": "A&amp;E"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<strong class=\"nhsuk-badge\">\n  A&amp;E\n</strong>"
+    },
+    {
+      "name": "with HTML via call block",
+      "context": {},
+      "callBlock": "A&amp;E",
+      "screenshot": false,
+      "options": {},
+      "html": "<strong class=\"nhsuk-badge\">\n  A&amp;E\n</strong>"
+    },
+    {
+      "name": "with text",
+      "context": {
+        "text": "New"
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile"
+        ]
+      },
+      "options": {},
+      "html": "<strong class=\"nhsuk-badge\">\n  New\n</strong>"
+    },
+    {
+      "name": "with text",
+      "description": "reverse",
+      "context": {
+        "text": "New",
+        "variant": "reverse"
+      },
+      "screenshot": {
+        "viewports": [
+          "mobile"
+        ]
+      },
+      "options": {
+        "layout": "background-blue"
+      },
+      "html": "<strong class=\"nhsuk-badge nhsuk-badge--reverse\">\n  New\n</strong>"
+    }
+  ]
+}

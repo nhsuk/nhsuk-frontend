@@ -1,0 +1,383 @@
+{
+  "name": "Legend",
+  "component": "legend",
+  "fixtures": [
+    {
+      "name": "default",
+      "context": {
+        "heading": "What is your address?",
+        "size": "l"
+      },
+      "screenshot": true,
+      "options": {},
+      "html": "<legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--l\">\n  <h1 class=\"nhsuk-fieldset__heading\">\n    What is your address?\n  </h1>\n</legend>"
+    },
+    {
+      "name": "size class",
+      "context": {
+        "heading": "What is your address?",
+        "classes": "nhsuk-fieldset__legend--l"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--l\">\n  <h1 class=\"nhsuk-fieldset__heading\">\n    What is your address?\n  </h1>\n</legend>"
+    },
+    {
+      "name": "size class overriding size option",
+      "context": {
+        "heading": "What is your address?",
+        "classes": "nhsuk-fieldset__legend--l",
+        "size": "s"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--l\">\n  <h1 class=\"nhsuk-fieldset__heading\">\n    What is your address?\n  </h1>\n</legend>"
+    },
+    {
+      "name": "text",
+      "description": "with size S",
+      "context": {
+        "heading": "What is your address?",
+        "size": "s"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--s\">\n  <h1 class=\"nhsuk-fieldset__heading\">\n    What is your address?\n  </h1>\n</legend>"
+    },
+    {
+      "name": "text",
+      "description": "with size M",
+      "context": {
+        "heading": "What is your address?",
+        "size": "m"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--m\">\n  <h1 class=\"nhsuk-fieldset__heading\">\n    What is your address?\n  </h1>\n</legend>"
+    },
+    {
+      "name": "text",
+      "description": "with size L",
+      "context": {
+        "heading": "What is your address?",
+        "size": "l"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--l\">\n  <h1 class=\"nhsuk-fieldset__heading\">\n    What is your address?\n  </h1>\n</legend>"
+    },
+    {
+      "name": "text",
+      "description": "with size XL",
+      "context": {
+        "heading": "What is your address?",
+        "size": "xl"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--xl\">\n  <h1 class=\"nhsuk-fieldset__heading\">\n    What is your address?\n  </h1>\n</legend>"
+    },
+    {
+      "name": "text and caption",
+      "description": "with size S",
+      "context": {
+        "text": "What is your home address?",
+        "caption": "About you",
+        "size": "s"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--s\">\n  <span class=\"nhsuk-caption\">\n    About you\n  </span>\n  What is your home address?\n</legend>"
+    },
+    {
+      "name": "text and caption",
+      "description": "with size M",
+      "context": {
+        "text": "What is your home address?",
+        "caption": "About you",
+        "size": "m"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--m\">\n  <span class=\"nhsuk-caption-m\">\n    About you\n  </span>\n  What is your home address?\n</legend>"
+    },
+    {
+      "name": "text and caption",
+      "description": "with size L",
+      "context": {
+        "text": "What is your home address?",
+        "caption": "About you",
+        "size": "l"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--l\">\n  <span class=\"nhsuk-caption-l\">\n    About you\n  </span>\n  What is your home address?\n</legend>"
+    },
+    {
+      "name": "text and caption",
+      "description": "with size XL",
+      "context": {
+        "text": "What is your home address?",
+        "caption": "About you",
+        "size": "xl"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--xl\">\n  <span class=\"nhsuk-caption-xl\">\n    About you\n  </span>\n  What is your home address?\n</legend>"
+    },
+    {
+      "name": "text and caption \"after\" as a paragraph",
+      "description": "with size S",
+      "context": {
+        "text": "What is your home address?",
+        "caption": {
+          "text": "About you",
+          "placement": "after",
+          "element": "p"
+        },
+        "size": "s"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--s\">\n  What is your home address?\n</legend>\n<p class=\"nhsuk-caption nhsuk-caption--bottom\">\n  About you\n</p>"
+    },
+    {
+      "name": "text and caption \"after\" as a paragraph",
+      "description": "with size M",
+      "context": {
+        "text": "What is your home address?",
+        "caption": {
+          "text": "About you",
+          "placement": "after",
+          "element": "p"
+        },
+        "size": "m"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--m\">\n  What is your home address?\n</legend>\n<p class=\"nhsuk-caption-m nhsuk-caption--bottom\">\n  About you\n</p>"
+    },
+    {
+      "name": "text and caption \"after\" as a paragraph",
+      "description": "with size L",
+      "context": {
+        "text": "What is your home address?",
+        "caption": {
+          "text": "About you",
+          "placement": "after",
+          "element": "p"
+        },
+        "size": "l"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--l\">\n  What is your home address?\n</legend>\n<p class=\"nhsuk-caption-l nhsuk-caption--bottom\">\n  About you\n</p>"
+    },
+    {
+      "name": "text and caption \"after\" as a paragraph",
+      "description": "with size XL",
+      "context": {
+        "text": "What is your home address?",
+        "caption": {
+          "text": "About you",
+          "placement": "after",
+          "element": "p"
+        },
+        "size": "xl"
+      },
+      "screenshot": {
+        "viewports": [
+          "tablet"
+        ]
+      },
+      "options": {},
+      "html": "<legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--xl\">\n  What is your home address?\n</legend>\n<p class=\"nhsuk-caption-xl nhsuk-caption--bottom\">\n  About you\n</p>"
+    },
+    {
+      "name": "with deprecated page heading",
+      "context": {
+        "text": "What is your address?",
+        "size": "m",
+        "isPageHeading": true
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--m\">\n  <h1 class=\"nhsuk-fieldset__heading\">\n    What is your address?\n  </h1>\n</legend>"
+    },
+    {
+      "name": "with deprecated page heading overriding heading",
+      "context": {
+        "heading": {
+          "text": "What is your address?",
+          "level": 3,
+          "size": "s"
+        },
+        "isPageHeading": false
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<legend class=\"nhsuk-fieldset__legend\">\n  What is your address?\n</legend>"
+    },
+    {
+      "name": "with heading level 1",
+      "context": {
+        "text": "What is your address?",
+        "size": "l",
+        "heading": {
+          "level": 1
+        }
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--l\">\n  <h1 class=\"nhsuk-fieldset__heading\">\n    What is your address?\n  </h1>\n</legend>"
+    },
+    {
+      "name": "with heading level 2",
+      "context": {
+        "text": "What is your address?",
+        "size": "m",
+        "heading": {
+          "level": 2
+        }
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--m\">\n  <h2 class=\"nhsuk-fieldset__heading\">\n    What is your address?\n  </h2>\n</legend>"
+    },
+    {
+      "name": "with heading level 3",
+      "context": {
+        "text": "What is your address?",
+        "size": "s",
+        "heading": {
+          "level": 3
+        }
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--s\">\n  <h3 class=\"nhsuk-fieldset__heading\">\n    What is your address?\n  </h3>\n</legend>"
+    },
+    {
+      "name": "with heading options only",
+      "context": {
+        "heading": {
+          "text": "What is your address?",
+          "level": 3,
+          "size": "s"
+        }
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--s\">\n  <h3 class=\"nhsuk-fieldset__heading\">\n    What is your address?\n  </h3>\n</legend>"
+    },
+    {
+      "name": "with HTML",
+      "context": {
+        "html": "What is your address?",
+        "heading": true,
+        "size": "l"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--l\">\n  <h1 class=\"nhsuk-fieldset__heading\">\n    What is your address?\n  </h1>\n</legend>"
+    },
+    {
+      "name": "with HTML via call block",
+      "context": {
+        "heading": true,
+        "size": "l"
+      },
+      "callBlock": "What is your address?",
+      "screenshot": false,
+      "options": {},
+      "html": "<legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--l\">\n  <h1 class=\"nhsuk-fieldset__heading\">\n    What is your address?\n  </h1>\n</legend>"
+    },
+    {
+      "name": "with HTML via call block, without heading",
+      "context": {
+        "size": "l"
+      },
+      "callBlock": "What is your address?",
+      "screenshot": false,
+      "options": {},
+      "html": "<legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--l\">\n  What is your address?\n</legend>"
+    },
+    {
+      "name": "with id attribute",
+      "context": {
+        "id": "custom-id",
+        "heading": "What is your address?",
+        "size": "l"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--l\" id=\"custom-id\">\n  <h1 class=\"nhsuk-fieldset__heading\">\n    What is your address?\n  </h1>\n</legend>"
+    },
+    {
+      "name": "with id attribute on heading",
+      "context": {
+        "heading": {
+          "text": "What is your address?",
+          "id": "custom-id"
+        },
+        "size": "l"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<legend class=\"nhsuk-fieldset__legend nhsuk-fieldset__legend--l\">\n  <h1 class=\"nhsuk-fieldset__heading\" id=\"custom-id\">\n    What is your address?\n  </h1>\n</legend>"
+    },
+    {
+      "name": "without heading",
+      "context": {
+        "text": "What is your address?"
+      },
+      "screenshot": false,
+      "options": {},
+      "html": "<legend class=\"nhsuk-fieldset__legend\">\n  What is your address?\n</legend>"
+    }
+  ]
+}
