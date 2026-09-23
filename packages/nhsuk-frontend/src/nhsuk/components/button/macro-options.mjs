@@ -89,6 +89,13 @@ const options = {
     description: 'If set to `true`, smaller button size will be used.',
     released: '10.4.0'
   },
+  className: {
+    type: 'string',
+    required: false,
+    description:
+      'Optional class to use for the button. Defaults to `"nhsuk-button"`.',
+    released: '10.7.0'
+  },
   classes: {
     type: 'string',
     required: false,

@@ -5,33 +5,34 @@
 {%- set variant = params.variant -%}
 
 {#- Set classes for this component #}
-{%- set classNames = "nhsuk-button" -%}
+{%- set className = params.className | default("nhsuk-button", true) -%}
+{%- set classNames = className if params.className not in ["", null, false] else "" -%}
 
 {%- if variant and
   variant in ["brand", "login", "reverse", "secondary", "secondary-solid", "warning"] and (
     not params.classes or (
-      not "nhsuk-button--brand" in params.classes and
-      not "nhsuk-button--login" in params.classes and
-      not "nhsuk-button--reverse" in params.classes and
-      not "nhsuk-button--secondary" in params.classes and
-      not "nhsuk-button--secondary-solid" in params.classes and
-      not "nhsuk-button--warning" in params.classes
+      not " " ~ className ~ "--brand" in params.classes and
+      not " " ~ className ~ "--login" in params.classes and
+      not " " ~ className ~ "--reverse" in params.classes and
+      not " " ~ className ~ "--secondary" in params.classes and
+      not " " ~ className ~ "--secondary-solid" in params.classes and
+      not " " ~ className ~ "--warning" in params.classes
     )
   )
 %}
-  {% set classNames = classNames ~ " nhsuk-button--" ~ variant %}
+  {% set classNames = (classNames ~ " " ~ className ~ "--" ~ variant) | trim %}
 {% endif %}
 
-{%- if params.icon and (not params.classes or not "nhsuk-button--icon" in params.classes) %}
-  {% set classNames = classNames ~ " nhsuk-button--icon" %}
+{%- if params.icon and (not params.classes or not className ~ "--icon" in params.classes) %}
+  {% set classNames = (classNames ~ " " ~ className ~ "--icon") | trim %}
 {% endif %}
 
-{%- if params.small and (not params.classes or not "nhsuk-button--small" in params.classes) %}
-  {% set classNames = classNames ~ " nhsuk-button--small" %}
+{%- if params.small and (not params.classes or not className ~ "--small" in params.classes) %}
+  {% set classNames = (classNames ~ " " ~ className ~ "--small") | trim %}
 {% endif %}
 
 {%- if params.classes %}
-  {% set classNames = classNames ~ " " ~ params.classes %}
+  {% set classNames = (classNames ~ " " ~ params.classes) | trim %}
 {% endif %}
 
 {#- Determine type of element to use, if not explicitly set #}
@@ -57,7 +58,10 @@
 {#- Define attributes that we can use across all element types #}
 {%- set attributesHtml %}
   {{- nhsukAttributes({
-    class: classNames,
+    class: {
+      value: classNames if classNames else false,
+      optional: true
+    },
     id: {
       value: params.id,
       optional: true
