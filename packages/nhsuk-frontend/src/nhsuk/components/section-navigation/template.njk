@@ -63,6 +63,7 @@
   }) | trim }}
 {%- endmacro -%}
 
+{% set sectionNavigationHtml %}
 <nav {{- attributesHtml | safe }}>
   <ul class="nhsuk-section-navigation__list">
   {% for item in items %}
@@ -121,3 +122,12 @@
   {% endfor %}
   </ul>
 </nav>
+{% endset %}
+
+{% if params.containerClasses %}
+<div class="nhsuk-width-container {%- if params.containerClasses is string %} {{ params.containerClasses }}{% endif %}">
+  {{ sectionNavigationHtml | safe | trim | indent(2) }}
+</div>
+{% else %}
+  {{- sectionNavigationHtml | safe | trim }}
+{% endif %}
