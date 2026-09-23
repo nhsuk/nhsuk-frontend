@@ -552,6 +552,21 @@ const fixtures = {
       rows: [["10 July 2024", "RSV", false], false]
     }
   },
+  "with number items": {
+    context: {
+      caption: {
+        text: "Vaccination count",
+        size: "m"
+      },
+      firstCellIsHeader: true,
+      head: ["Date", "Vaccine", "Count"],
+      rows: [
+        ["10 July 2024", "RSV", 0],
+        ["6 September 2023", "Flu", 89],
+        ["15 October 2023", "MMR", 44]
+      ]
+    }
+  },
   "with missing data": {
     context: {
       caption: {
