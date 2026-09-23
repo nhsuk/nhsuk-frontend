@@ -141,6 +141,7 @@ $nhsuk-radios-outline-row-gap: nhsuk-spacing(2) + $nhsuk-border-width-form-eleme
 
       // Prevent the default/checked box-shadow colour showing
       &:focus:not(:active) {
+        background-color: transparent;
         box-shadow: none;
 
         @media screen and (forced-colors: active), (-ms-high-contrast: active) {
@@ -172,7 +173,6 @@ $nhsuk-radios-outline-row-gap: nhsuk-spacing(2) + $nhsuk-border-width-form-eleme
 
         &:active,
         &:active:focus {
-          border-color: transparent;
           box-shadow: none;
         }
 
