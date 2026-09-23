@@ -162,6 +162,7 @@ $nhsuk-checkboxes-outline-row-gap: nhsuk-spacing(2) + $nhsuk-border-width-form-e
         box-shadow: 0 $nhsuk-button-shadow-size 0 $checked-shadow-colour;
 
         @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+          background-color: transparent;
           box-shadow: none;
         }
 
@@ -206,6 +207,10 @@ $nhsuk-checkboxes-outline-row-gap: nhsuk-spacing(2) + $nhsuk-border-width-form-e
       padding: nhsuk-px-to-rem(6px) nhsuk-px-to-rem(12px) nhsuk-px-to-rem(4px);
 
       pointer-events: none;
+
+      @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+        z-index: auto;
+      }
 
       border-radius: nhsuk-px-to-rem($nhsuk-button-border-radius);
 
@@ -268,6 +273,10 @@ $nhsuk-checkboxes-outline-row-gap: nhsuk-spacing(2) + $nhsuk-border-width-form-e
     .nhsuk-checkboxes__input:not(:disabled):not(:checked):not(:focus) + .nhsuk-checkboxes__label:hover {
       z-index: 0;
       background-color: $nhsuk-secondary-button-hover-colour;
+
+      @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+        z-index: auto;
+      }
     }
 
     .nhsuk-checkboxes__input:not(:disabled):checked:not(:focus):hover + .nhsuk-checkboxes__label,
