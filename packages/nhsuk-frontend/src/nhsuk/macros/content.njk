@@ -30,6 +30,12 @@
   end: " " if hasContent and visuallyHidden.placement == "start" else undefined
 } -%}
 
+{#- Set visually hidden slots based on placement #}
+{%- set visuallyHiddenSlots = visuallyHidden.slots if visuallyHidden.slots is mapping and visuallyHidden.slots is not escaped else {
+  start: " " if hasContent and (visuallyHidden.placement == "end" or not visuallyHidden.placement) else undefined,
+  end: " " if hasContent and visuallyHidden.placement == "start" else undefined
+} -%}
+
 {%- if hasContent or hasVisuallyHidden %}
 {%- set visuallyHiddenHtml %}
   {{- nhsukVisuallyHidden({
