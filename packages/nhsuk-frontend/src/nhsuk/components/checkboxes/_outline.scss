@@ -1,0 +1,319 @@
+@use "../../core" as *;
+
+////
+/// Checkboxes outline modifier
+///
+/// Styles standard nhsuk-checkboxes as inline button-style controls,
+/// matching NHS button interaction patterns.
+////
+
+$nhsuk-checkboxes-outline-row-gap: nhsuk-spacing(2) + $nhsuk-border-width-form-element + $nhsuk-button-shadow-size;
+
+@include nhsuk-exports("nhsuk/components/checkboxes/outline") {
+  .nhsuk-checkboxes--outline {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: $nhsuk-checkboxes-outline-row-gap;
+    margin: 0;
+    margin-bottom: $nhsuk-button-shadow-size;
+
+    .nhsuk-form-group--error &:has(> .nhsuk-checkboxes__conditional) {
+      margin-bottom: 0;
+    }
+
+    .nhsuk-frontend-supported
+      .nhsuk-form-group--error
+      &:not(:has(> .nhsuk-checkboxes__conditional:not(.nhsuk-checkboxes__conditional--hidden))) {
+      margin-bottom: $nhsuk-button-shadow-size;
+    }
+
+    &.nhsuk-checkboxes--inline,
+    &.nhsuk-checkboxes--inline.nhsuk-checkboxes--small {
+      row-gap: $nhsuk-checkboxes-outline-row-gap;
+    }
+
+    .nhsuk-checkboxes__item {
+      display: block;
+
+      position: relative;
+
+      max-width: none;
+
+      margin: 0;
+      margin-right: nhsuk-spacing(2);
+      padding: 0;
+
+      overflow: visible;
+    }
+
+    &.nhsuk-checkboxes--inline .nhsuk-checkboxes__item {
+      max-width: none;
+      margin-top: 0;
+    }
+
+    .nhsuk-checkboxes__input {
+      box-sizing: border-box;
+
+      position: absolute;
+      z-index: 1;
+
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      width: 100%;
+      height: 100%;
+      margin: 0;
+
+      border: $nhsuk-border-width-form-element solid transparent;
+      border-radius: nhsuk-px-to-rem($nhsuk-button-border-radius);
+
+      opacity: 1;
+
+      background-color: transparent;
+
+      cursor: pointer;
+
+      appearance: none;
+
+      // Only the border/shadow pseudo elements are used here
+      @include nhsuk-button-style(
+        $button-colour: transparent,
+        $button-border-colour: $nhsuk-secondary-button-border-colour,
+        $button-shadow-colour: $nhsuk-secondary-button-shadow-colour
+      );
+
+      &::before,
+      &::after {
+        content: "";
+
+        display: block;
+
+        position: absolute;
+        top: -$nhsuk-border-width-form-element;
+        right: -$nhsuk-border-width-form-element;
+        bottom: -$nhsuk-border-width-form-element;
+        left: -$nhsuk-border-width-form-element;
+
+        border-radius: nhsuk-px-to-rem($nhsuk-button-border-radius);
+      }
+
+      &::before {
+        bottom: -($nhsuk-border-width-form-element + $nhsuk-button-shadow-size);
+        border: $nhsuk-border-width-form-element solid transparent;
+        background-color: transparent;
+      }
+
+      &:active::before {
+        top: -($nhsuk-border-width-form-element + $nhsuk-button-shadow-size);
+        bottom: -$nhsuk-border-width-form-element;
+      }
+
+      // Override high-contrast link colours to match buttons
+      @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+        background-color: transparent;
+      }
+
+      @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+        &:hover,
+        &:active,
+        &:active:focus {
+          background-color: transparent;
+        }
+
+        &::before {
+          border-color: ButtonBorder;
+        }
+
+        &:not(:focus):not(:active):hover,
+        &:not(:focus):not(:active):hover::before,
+        &:not(:focus):not(:active):hover::after {
+          border-color: Highlight;
+          color: Highlight;
+        }
+      }
+
+      // Reset native focus styles - the label shows the focus
+      &:focus {
+        outline: none;
+      }
+
+      // Prevent the default/checked box-shadow colour showing
+      &:focus:not(:active) {
+        background-color: transparent;
+        box-shadow: none;
+
+        @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+          border-bottom-color: ButtonBorder;
+        }
+      }
+
+      &:active,
+      &:active:focus {
+        top: $nhsuk-button-shadow-size;
+        box-shadow: none;
+      }
+
+      &:checked {
+        $checked-shadow-colour: nhsuk-shade(nhsuk-colour("blue"), 50%);
+
+        background-color: nhsuk-colour("blue");
+
+        box-shadow: 0 $nhsuk-button-shadow-size 0 $checked-shadow-colour;
+
+        @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+          background-color: transparent;
+          box-shadow: none;
+        }
+
+        &::after {
+          box-shadow: none;
+        }
+
+        &:active,
+        &:active:focus {
+          box-shadow: none;
+        }
+
+        &:not(:focus):not(:active)::before {
+          border-color: transparent;
+        }
+
+        &:not(:focus):not(:active):hover::before {
+          @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+            border-color: Highlight;
+          }
+        }
+      }
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    }
+
+    .nhsuk-checkboxes__label {
+      box-sizing: border-box;
+      display: flex;
+
+      position: relative;
+      z-index: 1;
+
+      align-items: center;
+
+      max-width: none;
+      min-height: nhsuk-px-to-rem(44px);
+      padding: nhsuk-px-to-rem(6px) nhsuk-px-to-rem(12px) nhsuk-px-to-rem(4px);
+
+      pointer-events: none;
+
+      @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+        z-index: auto;
+      }
+
+      border-radius: nhsuk-px-to-rem($nhsuk-button-border-radius);
+
+      color: $nhsuk-secondary-button-text-colour;
+
+      font-weight: $nhsuk-font-weight-bold;
+      line-height: 1.25;
+      user-select: none;
+      @include nhsuk-font-size(16);
+
+      &::before {
+        content: "";
+
+        position: static;
+
+        width: nhsuk-px-to-rem(18px);
+
+        height: nhsuk-px-to-rem(18px);
+        margin-right: nhsuk-spacing(2);
+
+        border: $nhsuk-border-width-form-element solid currentcolor;
+        border-radius: calc(nhsuk-px-to-rem($nhsuk-button-border-radius) / 2);
+
+        background: transparent;
+      }
+
+      &::after {
+        position: absolute;
+        top: calc(50% + #{nhsuk-px-to-rem(1px)});
+        left: nhsuk-px-to-rem(16px);
+
+        width: nhsuk-px-to-rem(10px);
+        height: nhsuk-px-to-rem(5px);
+
+        transform: translateY(-75%) rotate(-45deg);
+
+        border-width: 0 0 $nhsuk-border-width-form-element $nhsuk-border-width-form-element;
+        border-color: currentcolor;
+
+        opacity: 0;
+      }
+    }
+
+    .nhsuk-checkboxes__input:checked + .nhsuk-checkboxes__label {
+      color: nhsuk-colour("white");
+      background-color: nhsuk-colour("blue");
+
+      @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+        color: CanvasText;
+        background-color: HighlightText;
+        forced-color-adjust: none;
+      }
+
+      &::after {
+        opacity: 1;
+      }
+    }
+
+    .nhsuk-checkboxes__input:not(:disabled):not(:checked):not(:focus):hover + .nhsuk-checkboxes__label,
+    .nhsuk-checkboxes__input:not(:disabled):not(:checked):not(:focus) + .nhsuk-checkboxes__label:hover {
+      z-index: 0;
+      background-color: $nhsuk-secondary-button-hover-colour;
+
+      @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+        z-index: auto;
+      }
+    }
+
+    .nhsuk-checkboxes__input:not(:disabled):checked:not(:focus):hover + .nhsuk-checkboxes__label,
+    .nhsuk-checkboxes__input:not(:disabled):checked:not(:focus) + .nhsuk-checkboxes__label:hover {
+      background-color: nhsuk-shade(nhsuk-colour("blue"), 20%);
+
+      @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+        background-color: HighlightText;
+      }
+    }
+
+    .nhsuk-checkboxes__input:focus:not(:active) + .nhsuk-checkboxes__label {
+      @include nhsuk-focused-button;
+    }
+
+    .nhsuk-checkboxes__input:not(:disabled):active + .nhsuk-checkboxes__label {
+      top: $nhsuk-button-shadow-size;
+    }
+
+    // Hide the checkbox outline as the label handles focus
+    .nhsuk-checkboxes__input:focus + .nhsuk-checkboxes__label::before,
+    .nhsuk-checkboxes__input:not(:disabled):hover + .nhsuk-checkboxes__label::before,
+    .nhsuk-checkboxes__input:not(:disabled) + .nhsuk-checkboxes__label:hover::before {
+      border: $nhsuk-border-width-form-element solid currentcolor;
+      outline: none;
+      box-shadow: none;
+    }
+
+    .nhsuk-checkboxes__input:disabled + .nhsuk-checkboxes__label {
+      opacity: 0.5;
+    }
+
+    .nhsuk-checkboxes__conditional {
+      flex-basis: 100%;
+      margin-bottom: 0;
+      margin-left: nhsuk-spacing(1);
+      padding: 0 nhsuk-spacing(2) 0 nhsuk-px-to-rem(20px);
+    }
+  }
+}
