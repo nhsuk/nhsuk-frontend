@@ -117,14 +117,14 @@
 {%- macro _tableValue(item) %}
   {%- set visuallyHiddenText = item.visuallyHiddenText -%}
 
-  {%- if item.html or item.text %}
+  {%- if item.html or item.text is defined %}
     {%- if visuallyHiddenText %}
       {% set visuallyHiddenText = " " ~ visuallyHiddenText %}
     {% endif %}
 
     {%- if item.html %}
       {{- item.html | safe -}}
-    {% elif item.text %}
+    {% elif item.text is defined %}
       {{- item.text -}}
     {% endif -%}
   {% endif %}
@@ -248,11 +248,11 @@
   <thead class="nhsuk-table__head" {%- if params.responsive %} role="rowgroup"{% endif %}>
     <tr class="nhsuk-table__row" {%- if params.responsive %} role="row"{% endif %}>
     {% for item in head %}
-      {% if item is string or item is mapping %}
+      {% if item is string or item is number or item is mapping %}
 
-      {#- Support table header as string #}
+      {#- Support table header as string or number #}
       {%- set header = item if item is mapping and item is not escaped else {
-        text: item if item is string else undefined,
+        text: item if item is string or item is number else undefined,
         html: item if item is escaped else undefined
       } -%}
 
@@ -303,18 +303,18 @@
   {% for row in rows %}
     <tr class="nhsuk-table__row" {%- if params.responsive %} role="row"{% endif %}>
     {% for item in row %}
-      {% if item is string or item is mapping %}
+      {% if item is string or item is number or item is mapping %}
       {%- set itemHead = head[loop.index0] -%}
 
-      {#- Support table header as string #}
+      {#- Support table header as string or number #}
       {%- set header = itemHead if itemHead is mapping and itemHead is not escaped else {
-        text: itemHead if itemHead is string else undefined,
+        text: itemHead if itemHead is string or itemHead is number else undefined,
         html: itemHead if itemHead is escaped else undefined
       } -%}
 
-      {#- Support table data as string #}
+      {#- Support table data as string or number #}
       {%- set data = item if item is mapping and item is not escaped else {
-        text: item if item is string else undefined,
+        text: item if item is string or item is number else undefined,
         html: item if item is escaped else undefined
       } -%}
 
