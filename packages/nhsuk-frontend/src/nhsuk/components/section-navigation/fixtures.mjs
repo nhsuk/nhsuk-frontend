@@ -96,6 +96,34 @@ const fixtures = {
     },
     variants
   },
+  "horizontal in a width container": {
+    context: {
+      direction: "horizontal",
+      containerClasses: true,
+      items: [
+        {
+          href: "#",
+          text: "Summary"
+        },
+        {
+          text: "Observations",
+          current: true
+        },
+        {
+          href: "#",
+          text: "Medicines"
+        },
+        {
+          href: "#",
+          text: "Referrals"
+        }
+      ]
+    },
+    options: {
+      width: "full"
+    },
+    variants
+  },
   "horizontal with badge": {
     context: {
       direction: "horizontal",

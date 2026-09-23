@@ -40,33 +40,32 @@
     }
   }) }}
 
-  <div class="nhsuk-width-container {{ containerClasses }}">
-    {{ sectionNavigation({
-      ariaLabel: "Design system navigation",
-      direction: "horizontal",
-      small: true,
-      border: false,
-      items: [
-        {
-          text: "Setup",
-          href: "#"
-        },
-        {
-          text: "Styles",
-          href: "#",
-          current: true
-        },
-        {
-          text: "Components",
-          href: "#"
-        },
-        {
-          text: "Patterns",
-          href: "#"
-        }
-      ]
-    }) }}
-  </div>
+  {{ sectionNavigation({
+    ariaLabel: "Design system navigation",
+    containerClasses: containerClasses,
+    direction: "horizontal",
+    small: true,
+    border: false,
+    items: [
+      {
+        text: "Setup",
+        href: "#"
+      },
+      {
+        text: "Styles",
+        href: "#",
+        current: true
+      },
+      {
+        text: "Components",
+        href: "#"
+      },
+      {
+        text: "Patterns",
+        href: "#"
+      }
+    ]
+  }) }}
 {% endblock %}
 
 {% block content %}

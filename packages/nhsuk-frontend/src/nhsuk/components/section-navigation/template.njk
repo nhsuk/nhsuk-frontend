@@ -57,49 +57,59 @@
   }) | trim }}
 {%- endmacro -%}
 
-<nav {{- attributesHtml | safe }}>
-  <ul class="nhsuk-section-navigation__list">
-  {% for item in items %}
-    {% set itemInnerAttributesHtml %}
-      {{- nhsukAttributes({
-        class: "nhsuk-section-navigation__link" if item.href
-          else "nhsuk-section-navigation__text",
-        href: {
-          value: item.href,
-          optional: true
-        },
-        "aria-current": {
-          value: ("page" if item.current else "true")
-            if item.active or item.current
-            else false,
-          optional: true
-        }
-      }) -}}
-    {% endset %}
-    {% set itemInnerContent %}
-      {#- Wrap active links in strong element so users who override colours
-          or styles still have some indicator of the current nav item. -#}
-      {%- if item.active or item.current -%}
-        <strong class="nhsuk-section-navigation__item-current-fallback">
+{% set sectionNavigationHtml %}
+  <nav {{- attributesHtml | safe }}>
+    <ul class="nhsuk-section-navigation__list">
+    {% for item in items %}
+      {% set itemInnerAttributesHtml %}
+        {{- nhsukAttributes({
+          class: "nhsuk-section-navigation__link" if item.href
+            else "nhsuk-section-navigation__text",
+          href: {
+            value: item.href,
+            optional: true
+          },
+          "aria-current": {
+            value: ("page" if item.current else "true")
+              if item.active or item.current
+              else false,
+            optional: true
+          }
+        }) -}}
+      {% endset %}
+      {% set itemInnerContent %}
+        {#- Wrap active links in strong element so users who override colours
+            or styles still have some indicator of the current nav item. -#}
+        {%- if item.active or item.current -%}
+          <strong class="nhsuk-section-navigation__item-current-fallback">
+            {{- item.html | safe if item.html else item.text -}}
+            {{- _listItemBadge(item, { params: params }) | indent(6) if item.badge -}}
+          </strong>
+        {%- else -%}
           {{- item.html | safe if item.html else item.text -}}
           {{- _listItemBadge(item, { params: params }) | indent(6) if item.badge -}}
-        </strong>
-      {%- else -%}
-        {{- item.html | safe if item.html else item.text -}}
-        {{- _listItemBadge(item, { params: params }) | indent(6) if item.badge -}}
-      {%- endif -%}
-    {% endset %}
-    <li class="nhsuk-section-navigation__item {%- if item.active or item.current %} nhsuk-section-navigation__item--current{% endif %} {%- if item.classes %} {{ item.classes }}{% endif %}" {{- nhsukAttributes(item.attributes) }}>
-    {% if item.href %}
-      <a {{- itemInnerAttributesHtml | safe }}>
-        {{- itemInnerContent | safe -}}
-      </a>
-    {% else %}
-      <span {{- itemInnerAttributesHtml | safe }}>
-        {{- itemInnerContent | safe -}}
-      </span>
-    {% endif %}
-    </li>
-  {% endfor %}
-  </ul>
-</nav>
+        {%- endif -%}
+      {% endset %}
+      <li class="nhsuk-section-navigation__item {%- if item.active or item.current %} nhsuk-section-navigation__item--current{% endif %} {%- if item.classes %} {{ item.classes }}{% endif %}" {{- nhsukAttributes(item.attributes) }}>
+      {% if item.href %}
+        <a {{- itemInnerAttributesHtml | safe }}>
+          {{- itemInnerContent | safe -}}
+        </a>
+      {% else %}
+        <span {{- itemInnerAttributesHtml | safe }}>
+          {{- itemInnerContent | safe -}}
+        </span>
+      {% endif %}
+      </li>
+    {% endfor %}
+    </ul>
+  </nav>
+{% endset %}
+
+{% if params.containerClasses %}
+  <div class="nhsuk-width-container {%- if params.containerClasses is string %} {{ params.containerClasses }}{% endif %}">
+    {{ sectionNavigationHtml | safe }}
+  </div>
+{% else %}
+  {{ sectionNavigationHtml | safe }}
+{% endif %}
