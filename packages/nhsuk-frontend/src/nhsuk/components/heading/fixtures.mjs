@@ -219,6 +219,27 @@ const fixtures = {
       },
       size: "l"
     }
+  },
+  "with custom class and size": {
+    context: {
+      text: "What is your full name?",
+      className: "app-heading",
+      size: "s"
+    }
+  },
+  "with custom class and size as modifier": {
+    context: {
+      text: "What is your full name?",
+      className: "app-heading",
+      classPrefix: "app-heading--",
+      size: "s"
+    }
+  },
+  "without class": {
+    context: {
+      text: "What is your full name?",
+      className: false
+    }
   }
 }
 

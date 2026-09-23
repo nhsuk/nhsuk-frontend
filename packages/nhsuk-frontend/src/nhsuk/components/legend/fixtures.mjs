@@ -79,13 +79,13 @@ const fixtures = {
       viewports: ["tablet"]
     }
   },
-  "size class": {
+  "with size class": {
     context: {
       heading: "What is your address?",
       classes: "nhsuk-fieldset__legend--l"
     }
   },
-  "size class overriding size option": {
+  "with size class overriding size option": {
     context: {
       heading: "What is your address?",
       classes: "nhsuk-fieldset__legend--l",

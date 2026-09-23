@@ -3,9 +3,9 @@
 {% from "nhsuk/macros/content.njk" import nhsukContent %}
 
 {#- Set classes for this component #}
-{%- set className = params.className | default("nhsuk-heading") -%}
+{%- set className = params.className | default("nhsuk-heading", true) -%}
 {%- set classPrefix = params.classPrefix | default(className ~ "-") -%}
-{%- set classNames = className | default("") -%}
+{%- set classNames = className if params.className not in ["", null, false] else "" -%}
 
 {#- Allow permitted sizes only #}
 {%- set size = undefined -%}
@@ -27,12 +27,12 @@
   {% if classPrefix | replace(className, "") == "-" %}
     {% set classNames = classPrefix ~ size %}
   {% else %}
-    {% set classNames = classNames ~ " " ~ classPrefix ~ size %}
+    {% set classNames = (classNames ~ " " ~ classPrefix ~ size) | trim %}
   {% endif %}
 {% endif %}
 
 {%- if params.classes %}
-  {% set classNames = classNames ~ " " ~ params.classes %}
+  {% set classNames = (classNames ~ " " ~ params.classes) | trim %}
 {% endif %}
 
 {#- Support heading caption as string #}
