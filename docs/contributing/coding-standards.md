@@ -79,7 +79,7 @@ For example:
 
 #### BEM further reading:
 
-- [Get BEM](http://getbem.com/introduction/)
+- [Get BEM](https://bem.info/en/methodology/)
 - [BEM Resources](https://github.com/sturobson/BEM-resources)
 - [Harry Roberts - BEMIT: Taking the BEM Naming Convention a Step Further](https://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/)
 

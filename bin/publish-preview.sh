@@ -13,7 +13,7 @@ npm install --no-save --silent
 npm run build --workspace nhsuk-frontend
 echo
 
-# Check if there are files that need to be commited
+# Check if there are files that need to be committed
 if [[ -n $(git status --porcelain) ]]; then
   echo "⚠️ You have unstaged files, please commit these and then try again."
   exit 1

@@ -10,7 +10,7 @@ To run NHS.UK frontend locally you'll need to:
 
 > Type `git --version` to check if git is installed. This should print a version number like "git version 2.18.0".
 
-> Type `node -v` to check if Node is installed. This should print a version number like "v8.11.3".
+> Type `node -v` to check if Node is installed. This should print a version number like "v24.11.0".
 
 ## 1. Fork the repository
 
