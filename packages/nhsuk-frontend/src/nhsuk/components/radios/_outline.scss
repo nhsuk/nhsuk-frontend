@@ -157,6 +157,8 @@ $nhsuk-radios-outline-row-gap: nhsuk-spacing(2) + $nhsuk-border-width-form-eleme
       &:checked {
         $checked-shadow-colour: nhsuk-shade(nhsuk-colour("blue"), 50%);
 
+        background-color: nhsuk-colour("blue");
+
         box-shadow: 0 $nhsuk-button-shadow-size 0 $checked-shadow-colour;
 
         @media screen and (forced-colors: active), (-ms-high-contrast: active) {
@@ -195,6 +197,7 @@ $nhsuk-radios-outline-row-gap: nhsuk-spacing(2) + $nhsuk-border-width-form-eleme
       display: flex;
 
       position: relative;
+      z-index: 1;
 
       align-items: center;
 
@@ -270,6 +273,7 @@ $nhsuk-radios-outline-row-gap: nhsuk-spacing(2) + $nhsuk-border-width-form-eleme
 
     .nhsuk-radios__input:not(:disabled):not(:checked):not(:focus):hover + .nhsuk-radios__label,
     .nhsuk-radios__input:not(:disabled):not(:checked):not(:focus) + .nhsuk-radios__label:hover {
+      z-index: 0;
       background-color: $nhsuk-secondary-button-hover-colour;
     }
 
