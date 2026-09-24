@@ -111,10 +111,11 @@ export function macro(component, options) {
  * Nunjucks macro example fixture
  * (used by the Design System website)
  *
- * @typedef {Omit<Required<MacroExample>, 'callBlock' | 'description' | 'prefix' | 'variants'> & {
+ * @typedef {Omit<Required<MacroExample>, 'context' | 'callBlock' | 'description' | 'prefix' | 'variants'> & {
  *   name: string,
  *   description: string | undefined,
- *   callBlock: string | undefined
+ *   context: MacroRenderContext | undefined,
+ *   callBlock: string | undefined,
  *   html: string,
  * }} MacroExampleFixture
  */
