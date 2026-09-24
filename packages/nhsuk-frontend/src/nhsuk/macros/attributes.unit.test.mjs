@@ -36,6 +36,24 @@ describe('Macro: Attributes', () => {
       expect(attributes).toBe(' data-attribute="value"')
     })
 
+    it('renders a number attribute', () => {
+      const attributes = renderMacro({
+        'data-attribute': 123
+      })
+
+      // Note the starting space so we ensure it doesn't stick to possible other previous attributes
+      expect(attributes).toBe(' data-attribute="123"')
+    })
+
+    it('renders a number attribute when zero', () => {
+      const attributes = renderMacro({
+        'data-attribute': 0
+      })
+
+      // Note the starting space so we ensure it doesn't stick to possible other previous attributes
+      expect(attributes).toBe(' data-attribute="0"')
+    })
+
     it('renders an array attribute with item options', () => {
       const attributes = renderMacro({
         'data-attributes': {
@@ -294,8 +312,11 @@ describe('Macro: Attributes', () => {
     })
 
     it('outputs nothing if there are no attributes', () => {
-      const attributes = renderMacro({})
-      expect(attributes).toBe('')
+      expect(renderMacro()).toBe('')
+      expect(renderMacro({})).toBe('')
+      expect(renderMacro(undefined)).toBe('')
+      expect(renderMacro(true)).toBe('')
+      expect(renderMacro(false)).toBe('')
     })
 
     it('outputs values that are passed from the `safe` filter', () => {
