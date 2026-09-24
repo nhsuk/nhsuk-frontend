@@ -2,6 +2,7 @@
 {% from "nhsuk/components/link/macro.njk" import link as nhsukLink %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/content.njk" import nhsukContent %}
+{% from "nhsuk/macros/slot.njk" import nhsukSlot %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-tabs" %}
@@ -47,17 +48,23 @@
 
 <div class="nhsuk-tabs__panel {%- if index > 1 %} nhsuk-tabs__panel--hidden{% endif %}" id="{{ tabPanelId }}"
   {{- nhsukAttributes(tabPanel.attributes) }}>
+  {{- nhsukSlot("start", item.panel) -}}
+
 {% if tabPanel.html %}
   {{ tabPanel.html | safe | trim | indent(2) }}
 {% elif tabPanel.text %}
   <p>{{ tabPanel.text | trim | indent(2) }}</p>
 {% endif %}
+
+  {{- nhsukSlot("end", item.panel) -}}
 </div>
 {%- endmacro %}
 
 {#- If an id 'prefix' is not passed, fall back to using the id attribute
   instead. We need this for tab items and panels as well #}
 {%- set idPrefix = params.idPrefix if params.idPrefix else params.id -%}
+
+{{- nhsukSlot("before", params) -}}
 
 <div
   {{- nhsukAttributes({
@@ -86,3 +93,5 @@
   {% endfor %}
 {% endif %}
 </div>
+
+{{- nhsukSlot("after", params) -}}

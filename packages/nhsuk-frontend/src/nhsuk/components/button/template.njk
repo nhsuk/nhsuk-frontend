@@ -1,6 +1,7 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
 {% from "nhsuk/macros/content.njk" import nhsukContent %}
+{% from "nhsuk/macros/slot.njk" import nhsukSlot %}
 
 {#- Set variant for this component #}
 {%- set variant = params.variant %}
@@ -120,7 +121,11 @@
 
 {%- set content = {
   text: params.text,
-  html: caller() if caller else params.html
+  html: caller() if caller else params.html,
+  slots: {
+    start: params.slots.start,
+    end: params.slots.end
+  }
 } %}
 
 {%- set slots = {
@@ -137,6 +142,8 @@
   {{- nhsukContent(content) | trim -}}
 {% endif %}
 {%- endset %}
+
+{{- nhsukSlot("before", params) -}}
 
 {%- if element == "a" %}
 <a {{- attributesHtml | safe }}>
@@ -155,3 +162,5 @@
 {% elif element == "input" %}
 <input {{- attributesHtml | safe }}>
 {% endif %}
+
+{{- nhsukSlot("after", params) -}}
