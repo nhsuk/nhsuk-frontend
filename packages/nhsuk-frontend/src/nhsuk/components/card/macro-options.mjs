@@ -121,6 +121,12 @@ const options = {
     description: 'The card link `href` attribute.',
     released: '4.0.0'
   },
+  openInNewTab: {
+    type: 'boolean',
+    required: false,
+    description: 'If set to `true`, then the card link will open in a new tab.',
+    released: '10.7.0'
+  },
   clickable: {
     type: 'boolean',
     required: false,

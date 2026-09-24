@@ -96,6 +96,13 @@ const options = {
         description: 'If set, the table cell will become a link.',
         released: '10.6.0'
       },
+      openInNewTab: {
+        type: 'boolean',
+        required: false,
+        description:
+          'If set to `true`, then the table cell link will open in a new tab.',
+        released: '10.7.0'
+      },
       format: {
         type: 'string',
         required: false,
@@ -213,6 +220,13 @@ const options = {
         description:
           'If set, the table header will become a link for server-side table sorting. Use `sort` to set the column sort direction.',
         released: '10.6.0'
+      },
+      openInNewTab: {
+        type: 'boolean',
+        required: false,
+        description:
+          'If set to `true`, then the table header link will open in a new tab.',
+        released: '10.7.0'
       },
       format: {
         type: 'string',

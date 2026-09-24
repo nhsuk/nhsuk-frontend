@@ -163,9 +163,17 @@ const fixtures = {
   },
   "with link and caption": {
     context: {
+      href: "#/result/1",
       text: "Skin colour changes",
       caption: "A to Z of NHS health writing",
+      size: "l"
+    }
+  },
+  "with link opens in a new tab": {
+    context: {
       href: "#/result/1",
+      text: "Skin colour changes",
+      openInNewTab: true,
       size: "l"
     }
   },
@@ -188,9 +196,22 @@ const fixtures = {
     },
     callBlock: "What to expect at A&amp;E"
   },
-  "with HTML via call block and caption": {
+  'with HTML via call block and caption "start"': {
     context: {
-      caption: "Urgent and emergency care services",
+      caption: {
+        text: "Urgent and emergency care services",
+        placement: "start"
+      },
+      size: "l"
+    },
+    callBlock: "What to expect at A&amp;E"
+  },
+  'with HTML via call block and caption "end"': {
+    context: {
+      caption: {
+        text: "Urgent and emergency care services",
+        placement: "end"
+      },
       size: "l"
     },
     callBlock: "What to expect at A&amp;E"

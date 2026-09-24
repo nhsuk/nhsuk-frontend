@@ -232,6 +232,29 @@ const fixtures = {
       )}
     `
   },
+  "basic with summary list and action opens in a new tab": {
+    context: {
+      heading: {
+        text: "Regional Manager",
+        level: 3
+      },
+      actions: {
+        items: [
+          {
+            text: "Delete",
+            href: "#/delete",
+            openInNewTab: true
+          }
+        ]
+      }
+    },
+    callBlock: outdent`
+      ${components.render(
+        "summary-list",
+        summaryListExamples["example person: Karen Francis (no border)"]
+      )}
+    `
+  },
   "basic with summary list and actions": {
     context: {
       heading: {

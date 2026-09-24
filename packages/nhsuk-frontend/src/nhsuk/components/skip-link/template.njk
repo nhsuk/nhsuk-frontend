@@ -1,29 +1,21 @@
-{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/components/link/macro.njk" import link as nhsukLink %}
 
-{#- Set classes for this component #}
-{%- set classNames = "nhsuk-skip-link" -%}
+{%- set link = {
+  id: params.id,
+  href: params.href | default("#maincontent", true),
+  text: params.text | default("Skip to main content", true),
+  html: params.html,
+  moduleName: "nhsuk-skip-link",
+  className: "nhsuk-skip-link",
+  classes: params.classes,
+  attributes: params.attributes
+} %}
 
-{%- if params.classes %}
-  {% set classNames = classNames ~ " " ~ params.classes %}
-{% endif -%}
-
-<a
-  {{- nhsukAttributes({
-    class: classNames,
-    id: {
-      value: params.id,
-      optional: true
-    },
-    "data-module": "nhsuk-skip-link",
-    href: params.href | default("#maincontent", true)
-  }) -}}
-
-  {{- nhsukAttributes(params.attributes) -}}>
-{% if caller %}
-  {{- caller() }}
-{% elif params.html %}
-  {{ params.html | safe | trim | indent(2) }}
+{%- if caller %}
+  {%- set outerCaller = caller %}
+  {%- call nhsukLink(link) %}
+    {{- outerCaller() }}
+  {%- endcall %}
 {% else %}
-  {{ (params.text | default("Skip to main content", true)) | trim | indent(2) }}
+  {{- nhsukLink(link) | trim }}
 {% endif %}
-</a>

@@ -10,7 +10,7 @@ const fixtures = {
       href: "#/change"
     }
   },
-  "open in a new tab": {
+  "opens in a new tab": {
     context: {
       text: "Change",
       href: "#/change",

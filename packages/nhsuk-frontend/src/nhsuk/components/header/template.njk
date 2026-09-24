@@ -1,5 +1,6 @@
-{% from "nhsuk/components/input/macro.njk" import input as nhsukInput %}
 {% from "nhsuk/components/button/macro.njk" import button as nhsukButton %}
+{% from "nhsuk/components/input/macro.njk" import input as nhsukInput %}
+{% from "nhsuk/components/link/macro.njk" import link as nhsukLink %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
 {% from "nhsuk/macros/visually-hidden.njk" import nhsukVisuallyHidden %}
@@ -70,9 +71,11 @@
 
 {%- macro _serviceName(text, href) %}
 {% if text and href -%}
-<a class="nhsuk-header__service-name" href="{{ href }}">
-  {{- text | trim -}}
-</a>
+{{ nhsukLink({
+  href: href,
+  text: text | trim,
+  className: "nhsuk-header__service-name"
+}) | trim }}
 {% elif text -%}
 <span class="nhsuk-header__service-name">
   {{- text | trim -}}
@@ -178,9 +181,11 @@
         {% if item %}
         <li class="nhsuk-header__account-item {%- if item.classes %} {{ item.classes }}{% endif %}">
         {% if item.href %}
-          <a class="nhsuk-header__account-link" href="{{ item.href }}">
-            {{ _accountItem(item) | indent(12) }}
-          </a>
+          {{ nhsukLink({
+            href: item.href,
+            html: _accountItem(item),
+            className: "nhsuk-header__account-link"
+          }) | trim | indent(10) }}
         {% elif item.action %}
           <form
             {{- nhsukAttributes({
@@ -211,12 +216,6 @@
         {% if item %}
         {% set itemInnerAttributesHtml %}
           {{- nhsukAttributes({
-            class: "nhsuk-header__navigation-link" if item.href
-              else "nhsuk-header__navigation-text",
-            href: {
-              value: item.href,
-              optional: true
-            },
             "aria-current": {
               value: ("page" if item.current else "true")
                 if item.active or item.current
@@ -225,7 +224,7 @@
             }
           }) -}}
         {% endset %}
-        {% set itemInnerContent %}
+        {% set itemInnerHtml %}
           {#- Wrap active links in strong element so users who override colours
               or styles still have some indicator of the current nav item. -#}
           {%- if item.active or item.current -%}
@@ -238,12 +237,15 @@
         {% endset %}
         <li class="nhsuk-header__navigation-item {%- if item.active or item.current %} nhsuk-header__navigation-item--current{% endif %} {%- if item.classes %} {{ item.classes }}{% endif %}" {{- nhsukAttributes(item.attributes) }}>
         {% if item.href %}
-          <a {{- itemInnerAttributesHtml | safe }}>
-            {{- itemInnerContent | safe -}}
-          </a>
+          {{ nhsukLink({
+            href: item.href,
+            html: itemInnerHtml,
+            className: "nhsuk-header__navigation-link",
+            attributes: itemInnerAttributesHtml
+          }) | trim | indent(10) }}
         {% else %}
-          <span {{- itemInnerAttributesHtml | safe }}>
-            {{- itemInnerContent | safe -}}
+          <span class="nhsuk-header__navigation-text" {{- itemInnerAttributesHtml | safe }}>
+            {{ itemInnerHtml | safe }}
           </span>
         {% endif %}
         </li>

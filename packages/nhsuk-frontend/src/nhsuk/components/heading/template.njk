@@ -1,4 +1,5 @@
 {% from "nhsuk/components/caption/macro.njk" import caption as nhsukCaption %}
+{% from "nhsuk/components/link/macro.njk" import link as nhsukLink %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/content.njk" import nhsukContent %}
 
@@ -81,7 +82,7 @@
 {% endset %}
 
 {%- if caption.placement == "before" %}
-{{ nhsukCaption(caption) | safe | trim }}
+  {{- nhsukCaption(caption) | safe | trim }}
 {% endif %}
 
 {#- Determine type of element to use, if not explicitly set #}
@@ -104,9 +105,11 @@
   {{ nhsukCaption(caption) | safe | trim | indent(2) }}
 {% endif %}
 {% if params.href %}
-  <a class="nhsuk-link" href="{{ params.href }}">
-    {{ innerHtml | safe | trim | indent(4) }}
-  </a>
+  {{ nhsukLink({
+    href: params.href,
+    html: innerHtml | trim,
+    openInNewTab: params.openInNewTab
+  }) | trim | indent(2) }}
 {% else %}
   {{ innerHtml | safe | trim | indent(2) }}
 {% endif %}
@@ -115,6 +118,6 @@
 {% endif %}
 </{{ element }}>
 {% if caption.placement == "after" %}
-{{ nhsukCaption(caption) | safe | trim }}
+  {{- nhsukCaption(caption) | safe | trim }}
 {% endif %}
 {% endif %}

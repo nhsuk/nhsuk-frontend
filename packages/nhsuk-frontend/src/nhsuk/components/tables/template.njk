@@ -1,5 +1,6 @@
 {% from "nhsuk/components/card/macro.njk" import card as nhsukCard %}
 {% from "nhsuk/components/heading/macro.njk" import heading as nhsukHeading %}
+{% from "nhsuk/components/link/macro.njk" import link as nhsukLink %}
 {% from "nhsuk/components/scroll/macro.njk" import scroll as nhsukScroll %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/content.njk" import nhsukContent %}
@@ -180,9 +181,11 @@
 
 {% set innerHtml %}
   {% if item.href %}
-    <a class="nhsuk-link" href="{{ item.href }}">
-      {{- nhsukContent(item) | trim -}}
-    </a>
+    {{- nhsukLink({
+      href: item.href,
+      html: nhsukContent(item),
+      openInNewTab: item.openInNewTab
+    }) | trim -}}
   {% else %}
     {{- nhsukContent(item) | trim -}}
   {% endif %}
@@ -260,6 +263,7 @@
         visuallyHidden: header.visuallyHidden | default(header.visuallyHiddenText),
         format: header.format,
         href: header.href,
+        openInNewTab: header.openInNewTab,
         scope: "col",
         role: "columnheader" if params.responsive else undefined,
         colspan: header.colspan if not params.responsive else undefined,
@@ -317,6 +321,7 @@
         visuallyHidden: data.visuallyHidden | default(data.visuallyHiddenText),
         format: data.format | default(header.format),
         href: data.href,
+        openInNewTab: data.openInNewTab,
         scope: "row" if loop.first and params.firstCellIsHeader else undefined,
         role: ("rowheader" if loop.first and params.firstCellIsHeader else "cell") if params.responsive else undefined,
         colspan: data.colspan if not params.responsive else undefined,
@@ -364,6 +369,7 @@
     id: params.card.id,
     heading: cardHeading,
     href: params.card.href,
+    openInNewTab: params.card.openInNewTab,
     actions: params.card.actions,
     classes: params.panelClasses | default(params.card.classes),
     attributes: params.card.attributes,

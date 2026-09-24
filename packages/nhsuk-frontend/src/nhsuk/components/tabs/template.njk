@@ -1,4 +1,5 @@
 {% from "nhsuk/components/heading/macro.njk" import heading as nhsukHeading %}
+{% from "nhsuk/components/link/macro.njk" import link as nhsukLink %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set classes for this component #}
@@ -11,10 +12,12 @@
 {%- macro _tabListItem(params, item, index) %}
 {% set tabPanelId = item.id if item.id else idPrefix ~ "-" ~ index -%}
 <li class="nhsuk-tabs__list-item {%- if index == 1 %} nhsuk-tabs__list-item--selected{% endif %}">
-  <a class="nhsuk-tabs__tab" href="#{{ tabPanelId }}"
-    {{- nhsukAttributes(item.attributes) }}>
-    {{ item.label }}
-  </a>
+  {{ nhsukLink({
+    href: "#" ~ tabPanelId,
+    text: item.label,
+    className: "nhsuk-tabs__tab",
+    attributes: item.attributes
+  }) | trim | indent(2) }}
 </li>
 {% endmacro -%}
 

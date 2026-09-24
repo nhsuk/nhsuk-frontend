@@ -1,3 +1,4 @@
+{% from "nhsuk/components/link/macro.njk" import link as nhsukLink %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
 {% from "nhsuk/macros/visually-hidden.njk" import nhsukVisuallyHidden %}
@@ -44,11 +45,18 @@
     &ctdot;
   {% else %}
     {%- set itemAriaLabel = item.ariaLabel | default(item.visuallyHiddenText) | default("Page " ~ item.number) %}
-    <a class="nhsuk-pagination__link" href="{{ item.href }}" aria-label="{{ itemAriaLabel }}"
-      {%- if item.current %} aria-current="page"{% endif %}
-      {{- nhsukAttributes(item.attributes) }}>
-      {{ item.number }}
-    </a>
+    {{ nhsukLink({
+      href: item.href,
+      text: item.number,
+      className: "nhsuk-pagination__link",
+      attributes: nhsukAttributes({
+        "aria-label": itemAriaLabel,
+        "aria-current": {
+          value: "page" if item.current else false,
+          optional: true
+        }
+      }) ~ nhsukAttributes(item.attributes)
+    }) | trim | indent(4) }}
   {% endif %}
   </li>
 {%- endmacro -%}
