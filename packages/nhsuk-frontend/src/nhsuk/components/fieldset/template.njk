@@ -1,5 +1,6 @@
 {% from "nhsuk/components/legend/macro.njk" import legend as nhsukLegend %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/content.njk" import nhsukContent %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-fieldset" -%}
@@ -12,7 +13,11 @@
 
 {%- if params.classes %}
   {% set classNames = classNames ~ " " ~ params.classes %}
-{% endif -%}
+{% endif %}
+
+{%- set content = {
+  html: params.html
+} -%}
 
 <fieldset
   {{- nhsukAttributes({
@@ -45,8 +50,11 @@
     attributes: legend.attributes
   }) | trim | indent(2) }}
 {% if caller %}
-  {{- caller() }}
-{% elif params.html %}
-  {{ params.html | safe | trim }}
+  {%- set outerCaller = caller %}
+  {%- call nhsukContent(content) %}
+    {{- outerCaller() }}
+  {%- endcall %}
+{% else %}
+  {{- nhsukContent(content) | trim }}
 {% endif %}
 </fieldset>
