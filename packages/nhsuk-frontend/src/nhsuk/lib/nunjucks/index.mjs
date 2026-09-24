@@ -24,10 +24,14 @@ export function renderMacro(macroName, macroPath, options) {
  * @returns Params rendered to pass to the macro
  */
 export function renderParams(context) {
-  const params = context ? [context].flat() : []
+  const params = [context].flat()
 
   const paramsFormatted = params
-    .map((param) => JSON.stringify(param, undefined, 2))
+    .map((param) => {
+      return param !== undefined
+        ? JSON.stringify(param, undefined, 2)
+        : 'undefined'
+    })
     .join(', ')
 
   return paramsFormatted
@@ -46,7 +50,7 @@ export function macro(macroName, macroPath, options) {
   let macroCall = `${macroName}()`
 
   // Format Nunjucks options without quoted keys
-  if (options?.context && Object.keys(options.context).length) {
+  if (options && 'context' in options) {
     const paramsFormatted = renderParams(options.context)
 
     macroCall = prettier
@@ -126,7 +130,7 @@ export * from './environment.mjs'
  * Nunjucks macro render options
  *
  * @typedef {object} MacroRenderOptions
- * @property {string | MacroRenderContext | (string | MacroRenderContext)[]} [context] - Nunjucks mixed context (optional)
+ * @property {string | number | boolean | MacroRenderContext | (string | number | boolean | MacroRenderContext)[]} [context] - Nunjucks mixed context (optional)
  * @property {string} [callBlock] - Nunjucks macro `caller()` content (optional)
  * @property {string} [prefix] - Component name prefix (optional)
  * @property {Environment} [env] - Nunjucks environment (optional)
