@@ -1,4 +1,5 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/content.njk" import nhsukContent %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-image" -%}
@@ -48,11 +49,7 @@
 {% endif %}
 {% if caption.text or caption.html %}
   <figcaption class="nhsuk-image__caption {%- if caption.classes %} {{ caption.classes }}{% endif %}">
-  {% if caption.html %}
-    {{ caption.html | safe | trim | indent(4) }}
-  {% elif caption.text %}
-    {{ caption.text | trim | indent(4) }}
-  {% endif %}
+    {{ nhsukContent(caption) | trim | indent(4) }}
   </figcaption>
 {% endif %}
 </figure>

@@ -38,7 +38,7 @@
   {% endif %}
 
   {{- nhsukAttributes(params.attributes) -}}
-{% endset -%}
+{% endset %}
 
 {%- set rows = ([params.content] if params.content is mapping else params.content) | default([]) %}
 

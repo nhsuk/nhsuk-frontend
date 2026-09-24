@@ -1,6 +1,7 @@
 {% from "nhsuk/components/caption/macro.njk" import caption as nhsukCaption %}
 {% from "nhsuk/components/heading/macro.njk" import heading as nhsukHeading %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/content.njk" import nhsukContent %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-fieldset__legend" -%}
@@ -15,7 +16,7 @@
     text: heading if heading is string else undefined,
     html: heading if heading is escaped else undefined
   } %}
-{% endif -%}
+{% endif %}
 
 {%- set hasHeading = true if (params.isPageHeading and heading != false) or
   (params.isPageHeading != false and heading) else false -%}
@@ -74,15 +75,16 @@
 {%- if caller or legend.html or legend.text %}
 {% set innerHtml %}
 {% if caller %}
-  {{- caller() }}
-{% elif legend.html %}
-  {{- legend.html | safe }}
-{% elif legend.text %}
-  {{- legend.text }}
+  {%- set outerCaller = caller %}
+  {%- call nhsukContent(legend) %}
+    {{- outerCaller() }}
+  {%- endcall %}
+{% else %}
+  {{- nhsukContent(legend) | trim }}
 {% endif %}
-{% endset -%}
+{% endset %}
 
-{% if hasHeading %}
+{%- if hasHeading %}
 <legend class="{{ classNames }}" {%- if legend.id %} id="{{ legend.id }}"{% endif %}
   {{- nhsukAttributes(legend.attributes) }}>
   {{ nhsukHeading({
