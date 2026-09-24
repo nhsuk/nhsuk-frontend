@@ -55,8 +55,14 @@
   {% elif element == "a" %}
     {{- nhsukAttributes({
       href: params.href | default("#"),
+      rel: {
+        value: "noopener noreferrer" if params.openInNewTab and
+          (not params.attributes or not "rel" in params.attributes) else false,
+        optional: true
+      },
       target: {
-        value: "_blank" if element == "a" and params.openInNewTab else false,
+        value: "_blank" if params.openInNewTab and
+          (not params.attributes or not "target" in params.attributes) else false,
         optional: true
       }
     }) -}}
