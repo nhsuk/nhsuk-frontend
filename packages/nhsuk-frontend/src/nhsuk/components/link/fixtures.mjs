@@ -1,3 +1,5 @@
+import { components } from "#lib"
+
 /**
  * Nunjucks macro option examples
  *
@@ -15,6 +17,62 @@ const fixtures = {
       text: "Change",
       href: "#/change",
       openInNewTab: true
+    }
+  },
+  "with badge": {
+    context: {
+      text: "Referrals",
+      slots: {
+        end: {
+          html: components.render("badge", {
+            context: {
+              text: "New",
+              visuallyHidden: {
+                text: "feature",
+                placement: "end"
+              },
+              small: true,
+              classes: "nhsuk-u-margin-left-2"
+            }
+          })
+        }
+      }
+    }
+  },
+  "with badge notification": {
+    context: {
+      text: "Messages",
+      slots: {
+        end: {
+          html: components.render("badge", {
+            context: {
+              text: "9+",
+              small: true,
+              notification: true,
+              classes: "nhsuk-u-margin-left-2"
+            }
+          })
+        }
+      }
+    }
+  },
+  "with content slots": {
+    context: {
+      text: "A&E waiting times",
+      slots: {
+        before: {
+          html: '<samp class="app-annotate">Before</samp>'
+        },
+        start: {
+          html: '<samp class="app-annotate app-annotate--start">Start</samp>'
+        },
+        end: {
+          html: '<samp class="app-annotate app-annotate--end">End</samp>'
+        },
+        after: {
+          html: '<samp class="app-annotate">After</samp>'
+        }
+      }
     }
   },
   "with text escaping": {
@@ -164,6 +222,53 @@ const fixtures = {
       text: "Change",
       href: "#/change",
       variant: "reverse"
+    },
+    options: {
+      layout: "background-blue"
+    }
+  },
+  "reverse with badge": {
+    context: {
+      text: "Referrals",
+      slots: {
+        end: {
+          html: components.render("badge", {
+            context: {
+              text: "New",
+              visuallyHidden: {
+                text: "feature",
+                placement: "end"
+              },
+              variant: "reverse",
+              small: true,
+              classes: "nhsuk-u-margin-left-2"
+            }
+          })
+        }
+      },
+      variant: "reverse"
+    },
+    options: {
+      layout: "background-blue"
+    }
+  },
+  "reverse with badge notification": {
+    context: {
+      text: "Messages",
+      variant: "reverse",
+      slots: {
+        end: {
+          html: components.render("badge", {
+            context: {
+              text: "9+",
+              variant: "reverse",
+              small: true,
+              notification: true,
+              classes: "nhsuk-u-margin-left-2"
+            }
+          })
+        }
+      }
     },
     options: {
       layout: "background-blue"
