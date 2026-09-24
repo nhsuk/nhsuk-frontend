@@ -1,7 +1,7 @@
 @use "vendor/nhsuk-frontend/base" as *;
 
 .app-banner--small .nhsuk-hero__content {
-  @include nhsuk-responsive-padding(4, ("top", "bottom"));
+  @include nhsuk-responsive-padding(3, ("top", "bottom"));
 
   .nhsuk-body-s {
     @media #{nhsuk-until-breakpoint(tablet)} {
@@ -12,4 +12,8 @@
   .nhsuk-header + & {
     @include nhsuk-responsive-padding(3, ("top", "bottom"));
   }
+}
+
+.app-banner--header {
+  background-color: nhsuk-shade($nhsuk-brand-colour, 20%);
 }
