@@ -50,6 +50,44 @@ const fixtures = {
       href: "#"
     }
   },
+  "as a link opens in a new tab": {
+    context: {
+      text: "Link button",
+      href: "#",
+      openInNewTab: true
+    }
+  },
+  'as a link opens in a new tab (with "target" attribute)': {
+    context: {
+      text: "Link button",
+      href: "#",
+      openInNewTab: true,
+      attributes: {
+        target: "_blank"
+      }
+    }
+  },
+  'as a link opens in a new tab (with "rel" attribute)': {
+    context: {
+      text: "Link button",
+      href: "#",
+      openInNewTab: true,
+      attributes: {
+        rel: "noopener"
+      }
+    }
+  },
+  'as a link opens in a new tab (with "target" and "rel" attributes)': {
+    context: {
+      text: "Link button",
+      href: "#",
+      openInNewTab: true,
+      attributes: {
+        target: "_blank",
+        rel: "noopener"
+      }
+    }
+  },
   "with custom class": {
     context: {
       text: "Link as a button",
