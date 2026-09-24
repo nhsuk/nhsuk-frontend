@@ -28,6 +28,9 @@
   {%- endif %}
 {%- endif %}
 
+{%- set attributes = params.attributes if params.attributes is mapping and params.attributes is not escaped else {} %}
+{%- set openInNewTab = params.openInNewTab or attributes.target == "_blank" %}
+
 {#- Define attributes that we can use across all element types #}
 {%- set attributesHtml %}
   {{- nhsukAttributes({
@@ -60,8 +63,14 @@
   {% elif element == "a" %}
     {{- nhsukAttributes({
       href: params.href | default("#"),
+      rel: {
+        value: "noopener noreferrer" if openInNewTab and
+          not "rel" in attributes else false,
+        optional: true
+      },
       target: {
-        value: "_blank" if element == "a" and params.openInNewTab else false,
+        value: "_blank" if openInNewTab and
+          not "target" in attributes else false,
         optional: true
       }
     }) -}}

@@ -31,6 +31,37 @@ const fixtures = {
       openInNewTab: true
     }
   },
+  'opens in a new tab (with "target" attribute)': {
+    context: {
+      text: "Change",
+      href: "#/change",
+      openInNewTab: true,
+      attributes: {
+        target: "_blank"
+      }
+    }
+  },
+  'opens in a new tab (with "rel" attribute)': {
+    context: {
+      text: "Change",
+      href: "#/change",
+      openInNewTab: true,
+      attributes: {
+        rel: "noopener"
+      }
+    }
+  },
+  'opens in a new tab (with "target" and "rel" attributes)': {
+    context: {
+      text: "Change",
+      href: "#/change",
+      openInNewTab: true,
+      attributes: {
+        target: "_blank",
+        rel: "noopener"
+      }
+    }
+  },
   "with ARIA label": {
     context: {
       text: "Read more",
