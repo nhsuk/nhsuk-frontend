@@ -1,0 +1,1604 @@
+{% extends "layouts/page.njk" %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+{% set pageHeading = "Conditions A to Z" %}
+
+{% block header %}
+  {{ header({
+    logo: {
+      href: baseUrl
+    },
+    search: true,
+    account: {
+      items: [
+        {
+          action: "#",
+          text: "My account"
+        }
+      ]
+    },
+    navigation: {
+      items: [
+        {
+          text: "Health A to Z",
+          href: baseUrl ~ "examples/full-page/health-a-to-z/",
+          active: true
+        },
+        {
+          text: "NHS services",
+          href: "#"
+        },
+        {
+          text: "Healthy living",
+          href: "#"
+        },
+        {
+          text: "Mental health",
+          href: "#"
+        },
+        {
+          text: "Care and support",
+          href: "#"
+        }
+      ]
+    }
+  }) }}
+  {% include "partials/banner-header.njk" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ breadcrumb({
+    items: [
+      {
+        text: "Home",
+        href: baseUrl
+      },
+      {
+        text: "Health A to Z",
+        href: baseUrl ~ "examples/full-page/health-a-to-z/"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhsuk-heading-xl">{{ pageHeading }}</h1>
+      <p class="nhsuk-lede-text">Find out about health conditions, including their symptoms and how they're treated.</p>
+
+    </div>
+  </div>
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <nav class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4" id="nhsuk-nav-a-z" role="navigation" aria-label="A to Z Navigation">
+        <ol class="nhsuk-list nhsuk-u-clear nhsuk-u-margin-0">
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#a">A</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#b">B</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#c">C</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#d">D</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#e">E</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#f">F</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#g">G</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#h">H</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#i">I</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#j">J</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#k">K</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#l">L</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#m">M</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#n">N</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#o">O</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#p">P</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#q">Q</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#r">R</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#s">S</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#t">T</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#u">U</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#v">V</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#w">W</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#x">X</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#y">Y</a>
+          </li>
+          <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">
+            <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#z">Z</a>
+          </li>
+        </ol>
+      </nav>
+
+      {% call card({
+        heading: {
+          text: "A",
+          id: "a",
+          size: "m"
+        },
+        classes: "nhsuk-u-margin-bottom-4",
+        variant: "feature"
+      }) %}
+        <ul class="nhsuk-list nhsuk-list--border">
+          <li>
+            <a href="#/conditions/abdominal-aortic-aneurysm/">
+              Abdominal aortic aneurysm
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/acanthosis-nigricans/">
+              Acanthosis nigricans
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/achalasia/">
+              Achalasia
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/acid-and-chemical-burns/">
+              Acid and chemical burns
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/reflux-in-babies/">
+              Acid reflux in babies, see Reflux in babies
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/heartburn-and-acid-reflux/">
+              Acid reflux, see Heartburn and acid reflux
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/acne/">
+              Acne
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/acoustic-neuroma/">
+              Acoustic neuroma (vestibular schwannoma)
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/acromegaly/">
+              Acromegaly
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/actinic-keratoses/">
+              Actinic keratoses (solar keratoses)
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/actinomycosis/">
+              Actinomycosis
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/acute-cholecystitis/">
+              Acute cholecystitis
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/acute-kidney-injury/">
+              Acute kidney injury (AKI)
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/acute-lymphoblastic-leukaemia/">
+              Acute lymphoblastic leukaemia
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/acute-myeloid-leukaemia/">
+              Acute myeloid leukaemia
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/acute-pancreatitis/">
+              Acute pancreatitis
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/acute-respiratory-distress-syndrome/">
+              Acute respiratory distress syndrome (ARDS)
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/addisons-disease/">
+              Addison's disease
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/adenomyosis/">
+              Adenomyosis
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/adhd-adults/">
+              ADHD in adults
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/adhd-children-teenagers/">
+              ADHD in children and young people
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/age-related-macular-degeneration-amd/">
+              Age-related macular degeneration (AMD)
+            </a>
+          </li>
+          <li>
+            <a href="#/mental-health/conditions/agoraphobia/">
+              Agoraphobia
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/acute-kidney-injury/">
+              AKI, see Acute kidney injury (AKI)
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/albinism/">
+              Albinism
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/alcohol-poisoning/">
+              Alcohol poisoning
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/alcohol-related-liver-disease-arld/">
+              Alcohol-related liver disease (ARLD)
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/alcohol-use-disorder/">
+              Alcohol-use disorder
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/allergic-rhinitis/">
+              Allergic rhinitis
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/allergies/">
+              Allergies
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/altitude-sickness/">
+              Altitude sickness
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/alzheimers-disease/">
+              Alzheimer's disease
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/lazy-eye/">
+              Amblyopia, see Lazy eye
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/amyloidosis/">
+              Amyloidosis
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/anabolic-steroid-misuse/">
+              Anabolic steroid misuse
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/iron-deficiency-anaemia/">
+              Anaemia (iron deficiency), see Iron deficiency anaemia
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/vitamin-b12-or-folate-deficiency-anaemia/">
+              Anaemia (vitamin B12 or folate deficiency), see Vitamin B12 or folate deficiency anaemia
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/anal-cancer/">
+              Anal cancer
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/anal-fissure/">
+              Anal fissure
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/anal-fistula/">
+              Anal fistula
+            </a>
+          </li>
+          <li>
+            <a href="{{ baseUrl ~ "examples/full-page/conditions/anaphylaxis/" }}">
+              Anaphylaxis
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/androgen-insensitivity-syndrome/">
+              Androgen insensitivity syndrome
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/abdominal-aortic-aneurysm/">
+              Aneurysm (abdominal aortic), see Abdominal aortic aneurysm
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/brain-aneurysm/">
+              Aneurysm (brain), see Brain aneurysm
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/angelman-syndrome/">
+              Angelman syndrome
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/angina/">
+              Angina
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/angioedema/">
+              Angioedema
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/animal-and-human-bites/">
+              Animal and human bites
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/oedema/">
+              Ankles (swollen), see Swollen ankles, feet and legs (oedema)
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/ankylosing-spondylitis/">
+              Ankylosing spondylitis
+            </a>
+          </li>
+          <li>
+            <a href="#/mental-health/conditions/anorexia/">
+              Anorexia nervosa
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/antiphospholipid-syndrome/">
+              Antiphospholipid syndrome (APS)
+            </a>
+          </li>
+          <li>
+            <a href="#/mental-health/children-and-young-adults/advice-for-parents/anxiety-disorders-in-children/">
+              Anxiety disorders in children
+            </a>
+          </li>
+          <li>
+            <a href="#/pregnancy/mental-health-in-pregnancy-and-after-the-birth/anxiety-in-pregnancy/">
+              Anxiety in pregnancy
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/aphasia/">
+              Aphasia
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/appendicitis/">
+              Appendicitis
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/arrhythmia/">
+              Arrhythmia, see Heart rhythm problems (arrhythmia)
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/arthritis/">
+              Arthritis
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/asbestosis/">
+              Asbestosis
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/aspergillosis/">
+              Aspergillosis
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/asthma/">
+              Asthma
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/astigmatism/">
+              Astigmatism
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/ataxia/">
+              Ataxia
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/atherosclerosis/">
+              Atherosclerosis
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/athletes-foot/">
+              Athlete's foot
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/atopic-eczema/">
+              Atopic eczema
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/atrial-fibrillation/">
+              Atrial fibrillation
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/auditory-processing-disorder/">
+              Auditory processing disorder (APD)
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/autism/">
+              Autism
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/autosomal-dominant-polycystic-kidney-disease-adpkd/">
+              Autosomal dominant polycystic kidney disease
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/autosomal-recessive-polycystic-kidney-disease-arpkd/">
+              Autosomal recessive polycystic kidney disease
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/bird-flu/">
+              Avian flu, see Bird flu
+            </a>
+          </li>
+
+        </ul>
+      {% endcall %}
+
+      <div class="nhsuk-back-to-top">
+        <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+          {{ nhsukIcon("arrow-up") | trim | indent(10) -}}
+          Back to top
+        </a>
+      </div>
+
+      {% call card({
+        heading: {
+          text: "B",
+          id: "b",
+          size: "m"
+        },
+        classes: "nhsuk-u-margin-bottom-4",
+        variant: "feature"
+      }) %}
+        <ul class="nhsuk-list nhsuk-list--border">
+          <li>
+            <a href="#/conditions/back-pain/">
+              Back pain
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/bacterial-vaginosis/">
+              Bacterial vaginosis
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/bakers-cyst/">
+              Baker's cyst
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/balanitis/">
+              Balanitis
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/bartholins-cyst/">
+              Bartholin's cyst
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/bedbugs/">
+              Bedbugs
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/behcets-disease/">
+              Behçet's disease
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/bells-palsy/">
+              Bell's palsy
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/non-cancerous-benign-brain-tumours/">
+              Benign brain tumours, see Non-cancerous (benign) brain tumours
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/enlarged-prostate/">
+              Benign prostate enlargement, see Enlarged prostate
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/bile-duct-cancer/">
+              Bile duct cancer (cholangiocarcinoma)
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/schistosomiasis/">
+              Bilharzia, see Schistosomiasis (bilharzia)
+            </a>
+          </li>
+          <li>
+            <a href="#/mental-health/conditions/binge-eating/">
+              Binge eating disorder
+            </a>
+          </li>
+          <li>
+            <a href="#/mental-health/conditions/bipolar-disorder/">
+              Bipolar disorder
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/bird-flu/">
+              Bird flu
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/birthmarks/">
+              Birthmarks
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/animal-and-human-bites/">
+              Bite (animal or human), see Animal and human bites
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/black-eye/">
+              Black eye
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/bladder-cancer/">
+              Bladder cancer
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/bladder-pain-syndrome/">
+              Bladder pain syndrome (BPS)
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/bladder-stones/">
+              Bladder stones
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/blepharitis/">
+              Blepharitis
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/blisters/">
+              Blisters
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/high-blood-pressure/">
+              Blood pressure (high), see High blood pressure
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/low-blood-pressure-hypotension/">
+              Blood pressure (low), see Low blood pressure (hypotension)
+            </a>
+          </li>
+          <li>
+            <a href="#/mental-health/conditions/body-dysmorphia/">
+              Body dysmorphic disorder (BDD)
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/boils/">
+              Boils
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/bone-cancer/">
+              Bone cancer
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/bone-cyst/">
+              Bone cyst
+            </a>
+          </li>
+          <li>
+            <a href="#/mental-health/conditions/borderline-personality-disorder/">
+              Borderline personality disorder
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/botulism/">
+              Botulism
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/bowel-cancer/">
+              Bowel cancer
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/bowel-incontinence/">
+              Bowel incontinence
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/bowel-polyps/">
+              Bowel polyps
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/bowens-disease/">
+              Bowen's disease
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/flat-head-syndrome-plagiocephaly-brachycephaly/">
+              Brachycephaly and plagiocephaly, see Flat head syndrome (plagiocephaly and brachycephaly)
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/brain-abscess/">
+              Brain abscess
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/brain-aneurysm/">
+              Brain aneurysm
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/subarachnoid-haemorrhage/">
+              Brain haemorrhage, see Subarachnoid haemorrhage
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/brain-tumours/">
+              Brain tumours
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/non-cancerous-benign-brain-tumours/">
+              Brain tumours (benign), see Non-cancerous (benign) brain tumours
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/breast-abscess/">
+              Breast abscess
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/breast-cancer-in-men/">
+              Breast cancer in men
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/breast-cancer-in-women/">
+              Breast cancer in women
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/broken-ankle/">
+              Broken ankle
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/broken-arm-or-wrist/">
+              Broken arm or wrist
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/broken-collarbone/">
+              Broken collarbone
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/broken-finger/">
+              Broken finger or thumb
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/broken-hip/">
+              Broken hip
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/broken-leg/">
+              Broken leg
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/broken-nose/">
+              Broken nose
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/broken-or-bruised-ribs/">
+              Broken or bruised ribs
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/broken-toe/">
+              Broken toe
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/bronchiectasis/">
+              Bronchiectasis
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/bronchiolitis/">
+              Bronchiolitis
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/bronchitis/">
+              Bronchitis
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/brucellosis/">
+              Brucellosis
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/brugada-syndrome/">
+              Brugada syndrome
+            </a>
+          </li>
+          <li>
+            <a href="#/mental-health/conditions/bulimia/">
+              Bulimia
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/bullous-pemphigoid/">
+              Bullous pemphigoid
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/bunions/">
+              Bunions
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/burns-and-scalds/">
+              Burns and scalds
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/bursitis/">
+              Bursitis
+            </a>
+          </li>
+        </ul>
+      {% endcall %}
+
+      <div class="nhsuk-back-to-top">
+        <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+          {{ nhsukIcon("arrow-up") | trim | indent(10) -}}
+          Back to top
+        </a>
+      </div>
+
+      {% call card({
+        heading: {
+          text: "C",
+          id: "c",
+          size: "m"
+        },
+        classes: "nhsuk-u-margin-bottom-4",
+        variant: "feature"
+      }) %}
+        <ul class="nhsuk-list nhsuk-list--border">
+          <li>
+            <a href="#/conditions/cancer/">
+              Cancer
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/carbon-monoxide-poisoning/">
+              Carbon monoxide poisoning
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/cardiomyopathy/">
+              Cardiomyopathy
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/cardiovascular-disease/">
+              Cardiovascular disease
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/carpal-tunnel-syndrome/">
+              Carpal tunnel syndrome
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/animal-and-human-bites/">
+              Cat bites, see Animal and human bites
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/childhood-cataracts/">
+              Cataracts (children), see Childhood cataracts
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/cataracts/">
+              Cataracts in adults
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/catarrh/">
+              Catarrh
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/cavernoma/">
+              Cavernoma
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/cellulitis/">
+              Cellulitis
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/cerebral-palsy/">
+              Cerebral palsy
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/cervical-cancer/">
+              Cervical cancer
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/cervical-spondylosis/">
+              Cervical spondylosis
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/charcot-marie-tooth-disease/">
+              Charcot-Marie-Tooth disease
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/charles-bonnet-syndrome/">
+              Charles Bonnet syndrome
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/chest-infection/">
+              Chest infection
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/chiari-malformation/">
+              Chiari malformation
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/chickenpox/">
+              Chickenpox
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/chilblains/">
+              Chilblains
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/childhood-cataracts/">
+              Childhood cataracts
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/chipped-broken-or-cracked-tooth/">
+              Chipped, broken or cracked tooth
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/chlamydia/">
+              Chlamydia
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/acute-cholecystitis/">
+              Cholecystitis (acute), see Acute cholecystitis
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/cholera/">
+              Cholera
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/cholesteatoma/">
+              Cholesteatoma
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/high-cholesterol/">
+              Cholesterol (high), see High cholesterol
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/chronic-fatigue-syndrome-cfs/">
+              Chronic fatigue syndrome (ME/CFS), see Myalgic encephalomyelitis or chronic fatigue syndrome (ME/CFS)
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/kidney-disease/">
+              Chronic kidney disease
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/chronic-lymphocytic-leukaemia/">
+              Chronic lymphocytic leukaemia
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/chronic-myeloid-leukaemia/">
+              Chronic myeloid leukaemia
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/chronic-obstructive-pulmonary-disease-copd/">
+              Chronic obstructive pulmonary disease (COPD)
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/chronic-pancreatitis/">
+              Chronic pancreatitis
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/chronic-traumatic-encephalopathy/">
+              Chronic traumatic encephalopathy
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/cirrhosis/">
+              Cirrhosis
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/creutzfeldt-jakob-disease-cjd/">
+              CJD, see Creutzfeldt-Jakob disease
+            </a>
+          </li>
+          <li>
+            <a href="#/mental-health/conditions/claustrophobia/">
+              Claustrophobia
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/cleft-lip-and-palate/">
+              Cleft lip and palate
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/c-difficile/">
+              Clostridioides difficile (C. diff) infection
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/club-foot/">
+              Clubfoot
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/cluster-headaches/">
+              Cluster headaches
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/tailbone-coccyx-pain/">
+              Coccyx pain, see Tailbone (coccyx) pain
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/coeliac-disease/">
+              Coeliac disease
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/cold-sores/">
+              Cold sores
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/colic/">
+              Colic
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/bowel-cancer/">
+              Colon cancer, see Bowel cancer
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/colour-vision-deficiency/">
+              Colour vision deficiency (colour blindness)
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/common-cold/">
+              Common cold
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/compartment-syndrome/">
+              Compartment syndrome
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/complex-regional-pain-syndrome/">
+              Complex regional pain syndrome
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/head-injury-and-concussion/">
+              Concussion, see Head injury and concussion
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/congenital-heart-disease/">
+              Congenital heart disease
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/developmental-dysplasia-of-the-hip/">
+              Congenital hip dislocation, see Developmental dysplasia of the hip
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/conjunctivitis/">
+              Conjunctivitis
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/constipation/">
+              Constipation
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/contact-dermatitis/">
+              Contact dermatitis
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/corns-and-calluses/">
+              Corns and calluses
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/coronary-heart-disease/">
+              Coronary heart disease
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/covid-19/">
+              Coronavirus, see COVID-19
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/corticobasal-degeneration/">
+              Corticobasal degeneration
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/costochondritis/">
+              Costochondritis
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/covid-19/">
+              COVID-19
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/cradle-cap/">
+              Cradle cap
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/craniosynostosis/">
+              Craniosynostosis
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/creutzfeldt-jakob-disease-cjd/">
+              Creutzfeldt-Jakob disease
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/crohns-disease/">
+              Crohn's disease
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/croup/">
+              Croup
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/cushings-syndrome/">
+              Cushing's syndrome
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/cuts-and-grazes/">
+              Cuts and grazes
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/cyclical-vomiting-syndrome/">
+              Cyclical vomiting syndrome
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/cyclospora/">
+              Cyclospora
+            </a>
+          </li>
+          <li>
+            <a href="#/mental-health/conditions/cyclothymia/">
+              Cyclothymia
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/cystic-fibrosis/">
+              Cystic fibrosis
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/urinary-tract-infections-utis/">
+              Cystitis, see Urinary tract infections (UTIs)
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/cytomegalovirus-cmv/">
+              Cytomegalovirus (CMV)
+            </a>
+          </li>
+        </ul>
+      {% endcall %}
+
+      <div class="nhsuk-back-to-top">
+        <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+          {{ nhsukIcon("arrow-up") | trim | indent(10) -}}
+          Back to top
+        </a>
+      </div>
+
+      {% call card({
+        heading: {
+          text: "D",
+          id: "d",
+          size: "m"
+        },
+        classes: "nhsuk-u-margin-bottom-4",
+        variant: "feature"
+      }) %}
+        <ul class="nhsuk-list nhsuk-list--border">
+          <li>
+            <a href="#/conditions/dandruff/">
+              Dandruff
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/hearing-loss/">
+              Deafness, see Hearing loss
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/dehydration/">
+              Dehydration
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/dementia/">
+              Dementia
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/frontotemporal-dementia/">
+              Dementia (frontotemporal), see Frontotemporal dementia
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/vascular-dementia/">
+              Dementia (vascular), see Vascular dementia
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/dementia-with-lewy-bodies/">
+              Dementia with Lewy bodies
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/dengue/">
+              Dengue
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/dental-abscess/">
+              Dental abscess
+            </a>
+          </li>
+          <li>
+            <a href="#/mental-health/conditions/depression/">
+              Depression
+            </a>
+          </li>
+          <li>
+            <a href="#/mental-health/conditions/depression-in-adults/">
+              Depression in adults
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/detached-retina-retinal-detachment/">
+              Detached retina (retinal detachment)
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/developmental-coordination-disorder-dyspraxia-in-adults/">
+              Developmental co-ordination disorder (dyspraxia) in adults, see Dyspraxia in adults
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/developmental-coordination-disorder-dyspraxia/">
+              Developmental co-ordination disorder (dyspraxia) in children
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/developmental-dysplasia-of-the-hip/">
+              Developmental dysplasia of the hip
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/diabetes/">
+              Diabetes
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/type-1-diabetes/">
+              Diabetes (type 1), see Type 1 diabetes
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/type-2-diabetes/">
+              Diabetes (type 2), see Type 2 diabetes
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/gestational-diabetes/">
+              Diabetes in pregnancy, see Gestational diabetes
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/diabetes-insipidus/">
+              Diabetes insipidus
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/diabetic-ketoacidosis/">
+              Diabetic ketoacidosis
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/diabetic-retinopathy/">
+              Diabetic retinopathy
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/differences-in-sex-development/">
+              Differences in sex development
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/digeorge-syndrome/">
+              DiGeorge syndrome (22q11 deletion)
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/diphtheria/">
+              Diphtheria
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/discoid-eczema/">
+              Discoid eczema
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/dislocated-kneecap/">
+              Dislocated kneecap
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/dislocated-shoulder/">
+              Dislocated shoulder
+            </a>
+          </li>
+          <li>
+            <a href="#/mental-health/conditions/dissociative-disorders/">
+              Dissociative disorders
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/diverticular-disease-and-diverticulitis/">
+              Diverticular disease and diverticulitis
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/animal-and-human-bites/">
+              Dog bites, see Animal and human bites
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/downs-syndrome/">
+              Down's syndrome
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/dupuytrens-contracture/">
+              Dupuytren's contracture
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/deep-vein-thrombosis-dvt/">
+              DVT (deep vein thrombosis)
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/restricted-growth/">
+              Dwarfism, see Restricted growth (dwarfism)
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/dysarthria/">
+              Dysarthria (difficulty speaking)
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/dysentery/">
+              Dysentery
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/dyslexia-in-adults/">
+              Dyslexia in adults
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/dyslexia-in-children/">
+              Dyslexia in children
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/developmental-coordination-disorder-dyspraxia-in-adults/">
+              Dyspraxia in adults
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/developmental-coordination-disorder-dyspraxia/">
+              Dyspraxia in children, see Developmental co-ordination disorder (dyspraxia) in children
+            </a>
+          </li>
+          <li>
+            <a href="#/conditions/dystonia/">
+              Dystonia
+            </a>
+          </li>
+        </ul>
+      {% endcall %}
+
+      <div class="nhsuk-back-to-top">
+        <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+          {{ nhsukIcon("arrow-up") | trim | indent(10) -}}
+          Back to top
+        </a>
+      </div>
+
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+  {{ footer({
+    copyright: {
+      text: "© Crown copyright"
+    },
+    navigation: [
+      {
+        items: [
+          {
+            href: "#",
+            text: "Home"
+          },
+          {
+            href: baseUrl ~ "examples/full-page/health-a-to-z/",
+            text: "Health A to Z"
+          },
+          {
+            href: "#",
+            text: "NHS services"
+          },
+          {
+            href: "#",
+            text: "Healthy living"
+          },
+          {
+            href: "#",
+            text: "Mental health"
+          },
+          {
+            href: "#",
+            text: "Care and support"
+          },
+          {
+            href: "#",
+            text: "COVID-19"
+          }
+        ]
+      },
+      {
+        items: [
+          {
+            href: "#",
+            text: "NHS App"
+          },
+          {
+            href: "#",
+            text: "Find my NHS number"
+          },
+          {
+            href: "#",
+            text: "View your test results"
+          },
+          {
+            href: "#",
+            text: "About the NHS"
+          },
+          {
+            href: "#",
+            text: "Healthcare abroad"
+          }
+        ]
+      },
+      {
+        items: [
+          {
+            href: "#",
+            text: "Manage NHS profiles"
+          },
+          {
+            href: "#",
+            text: "Other NHS websites"
+          }
+        ]
+      },
+      {
+        items: [
+          {
+            href: "#",
+            text: "About us"
+          },
+          {
+            href: "#",
+            text: "Report an issue with the NHS website"
+          },
+          {
+            href: "#",
+            text: "Accessibility statement"
+          },
+          {
+            href: "#",
+            text: "Our policies"
+          },
+          {
+            href: "#",
+            text: "Cookies"
+          }
+        ]
+      }
+    ]
+  }) }}
+{% endblock %}
