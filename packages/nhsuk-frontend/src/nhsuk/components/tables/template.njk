@@ -76,7 +76,15 @@
 {% endif %}
 
 {%- set captionId = caption.id | default(params.id ~ "-caption" if params.scroll and params.id else undefined) | default(("table-" ~ caption.text | replace(" ", "-") | lower | truncate(40, true, "") ~ "-caption") if params.scroll and caption.text else undefined) -%}
-{%- set captionVisuallyHiddenText = params.caption.visuallyHiddenText | default("Column headers are sortable" if "nhsuk-table--sortable" in classNames else undefined) %}
+
+{#- Support caption visually hidden content as string #}
+{%- set captionVisuallyHidden = params.caption.visuallyHidden if params.caption.visuallyHidden is mapping and params.caption.visuallyHidden is not escaped else {
+  text: params.caption.visuallyHidden if params.caption.visuallyHidden is string else params.caption.visuallyHiddenText,
+  html: params.caption.visuallyHidden if params.caption.visuallyHidden is escaped else undefined
+} %}
+
+{%- set captionVisuallyHiddenText = captionVisuallyHidden.text | default("Column headers are sortable" if "nhsuk-table--sortable" in classNames else undefined) %}
+{%- set captionVisuallyHiddenHtml = captionVisuallyHidden.html %}
 
 {%- set attributesHtml %}
   {{- nhsukAttributes({
@@ -201,12 +209,15 @@
 
 {%- set tableHtml -%}
 <table {{- attributesHtml | safe }}>
-{% if caption.text or caption.html %}
+{% if caption.text or caption.html or captionVisuallyHiddenText or captionVisuallyHiddenHtml %}
   {{ nhsukHeading({
     id: captionId,
     text: caption.text,
     html: caption.html,
-    visuallyHiddenText: "(" ~ captionVisuallyHiddenText ~ ")" if captionVisuallyHiddenText else undefined,
+    visuallyHidden: {
+      text: "(" ~ captionVisuallyHiddenText ~ ")" if (caption.text or caption.html) and captionVisuallyHiddenText else captionVisuallyHiddenText,
+      html: "(" ~ (captionVisuallyHiddenHtml | safe) ~ ")" if (caption.text or caption.html) and captionVisuallyHiddenHtml else captionVisuallyHiddenHtml
+    },
     caption: {
       id: headingCaption.id,
       text: headingCaption.text,

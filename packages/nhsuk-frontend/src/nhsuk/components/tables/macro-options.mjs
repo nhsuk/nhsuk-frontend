@@ -309,8 +309,31 @@ const options = {
         type: 'string',
         required: false,
         description:
-          'Message made available to assistive technologies to describe that the table is sortable. Defaults to `"Column headers are sortable"`.',
+          'Optional alias for the table caption `visuallyHidden` option.',
         released: '10.6.0'
+      },
+      visuallyHidden: {
+        type: 'string',
+        required: false,
+        description:
+          'Visually hidden content made available to assistive technologies to describe that the table is sortable. Defaults to `"Column headers are sortable"`.',
+        released: '10.7.0',
+        params: {
+          text: {
+            type: 'string',
+            required: false,
+            description:
+              'Visually hidden text to use within the table caption. If `html` is provided, the `text` option will be ignored.',
+            released: '10.7.0'
+          },
+          html: {
+            type: 'string',
+            required: false,
+            description:
+              'Visually hidden HTML to use within the table caption. If `html` is provided, the `text` option will be ignored.',
+            released: '10.7.0'
+          }
+        }
       },
       caption: {
         type: 'object',
