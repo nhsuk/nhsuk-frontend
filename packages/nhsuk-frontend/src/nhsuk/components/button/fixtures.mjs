@@ -50,6 +50,74 @@ const fixtures = {
       href: "#"
     }
   },
+  "with content slots": {
+    context: {
+      text: "Save and continue",
+      variant: "secondary",
+      slots: {
+        before: {
+          html: '<samp class="app-annotate">Before</samp>'
+        },
+        start: {
+          html: '<samp class="app-annotate app-annotate--start">Start</samp>'
+        },
+        end: {
+          html: '<samp class="app-annotate app-annotate--end">End</samp>'
+        },
+        after: {
+          html: '<samp class="app-annotate">After</samp>'
+        }
+      }
+    }
+  },
+  "with content slots and icon at start": {
+    context: {
+      text: "Previous",
+      icon: {
+        name: "arrow-left",
+        placement: "start"
+      },
+      variant: "secondary",
+      slots: {
+        before: {
+          html: '<samp class="app-annotate">Before</samp>'
+        },
+        start: {
+          html: '<samp class="app-annotate app-annotate--start">Start</samp>'
+        },
+        end: {
+          html: '<samp class="app-annotate app-annotate--end">End</samp>'
+        },
+        after: {
+          html: '<samp class="app-annotate">After</samp>'
+        }
+      }
+    }
+  },
+  "with content slots and icon at end": {
+    context: {
+      text: "Next",
+      icon: {
+        name: "arrow-right",
+        placement: "end"
+      },
+      variant: "secondary",
+      slots: {
+        before: {
+          html: '<samp class="app-annotate">Before</samp>'
+        },
+        start: {
+          html: '<samp class="app-annotate app-annotate--start">Start</samp>'
+        },
+        end: {
+          html: '<samp class="app-annotate app-annotate--end">End</samp>'
+        },
+        after: {
+          html: '<samp class="app-annotate">After</samp>'
+        }
+      }
+    }
+  },
   "with custom class": {
     context: {
       text: "Link as a button",

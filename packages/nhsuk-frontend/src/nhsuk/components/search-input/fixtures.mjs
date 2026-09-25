@@ -83,6 +83,28 @@ const fixtures = {
       width: 30
     }
   },
+  "with before and after input content": {
+    context: {
+      label: {
+        heading: "Search by NHS number",
+        size: "m"
+      },
+      placeholder: "NHS number",
+      hint: {
+        html: 'This is a 10 digit number (like <span class="nhsuk-u-nowrap">999 123 4567</span>) that you can find on an NHS letter, prescription or in the NHS App'
+      },
+      name: "example",
+      width: 20,
+      formGroup: {
+        beforeInput: {
+          html: '<samp class="app-annotate">Before</samp>'
+        },
+        afterInput: {
+          html: '<samp class="app-annotate">After</samp>'
+        }
+      }
+    }
+  },
   "with alternative icon": {
     context: {
       label: {

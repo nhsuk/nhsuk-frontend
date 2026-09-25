@@ -776,6 +776,39 @@ const fixtures = {
         }
       ]
     }
+  },
+  "with before and after inputs content": {
+    context: {
+      fieldset: {
+        legend: {
+          heading: "How do you want to be contacted about this?",
+          size: "l"
+        }
+      },
+      name: "example",
+      items: [
+        {
+          value: "email",
+          text: "Email"
+        },
+        {
+          value: "phone",
+          text: "Phone"
+        },
+        {
+          value: "text",
+          text: "Text message"
+        }
+      ],
+      formGroup: {
+        beforeInputs: {
+          html: '<samp class="app-annotate">Before</samp>'
+        },
+        afterInputs: {
+          html: '<samp class="app-annotate">After</samp>'
+        }
+      }
+    }
   }
 }
 

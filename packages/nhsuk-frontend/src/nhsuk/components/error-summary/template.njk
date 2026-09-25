@@ -1,6 +1,7 @@
 {% from "nhsuk/components/heading/macro.njk" import heading as nhsukHeading %}
 {% from "nhsuk/components/link/macro.njk" import link as nhsukLink %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/content.njk" import nhsukContent %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-error-summary" -%}
@@ -19,7 +20,12 @@
 
 {%- if params.classes %}
   {% set classNames = classNames ~ " " ~ params.classes %}
-{% endif -%}
+{% endif %}
+
+{%- set content = {
+  text: description.text,
+  html: description.html
+} -%}
 
 <div
   {{- nhsukAttributes({
@@ -50,14 +56,15 @@
       attributes: heading.attributes
     }) | trim | indent(4) }}
     <div class="nhsuk-error-summary__body">
-    {% if caller or description.text or description.html %}
+    {% if caller or content.text or content.html %}
       <p>
       {% if caller %}
-        {{- caller() }}
-      {% elif description.html %}
-        {{ description.html | safe | trim | indent(8) }}
+        {%- set outerCaller = caller %}
+        {%- call nhsukContent(content) %}
+          {{- outerCaller() }}
+        {%- endcall %}
       {% else %}
-        {{ description.text | trim | indent(8) }}
+        {{ nhsukContent(content) | trim | indent(8) }}
       {% endif %}
       </p>
     {% endif %}
@@ -68,10 +75,8 @@
         <li>
         {% if item.href %}
           {{ nhsukLink(item) | trim | indent(10) }}
-        {% elif item.html %}
-          {{ item.html | safe | trim | indent(10) }}
-        {% elif item.text %}
-          {{ item.text | trim | indent(10) }}
+        {% else %}
+          {{ nhsukContent(item) | trim | indent(10) }}
         {% endif %}
         </li>
         {% endif %}

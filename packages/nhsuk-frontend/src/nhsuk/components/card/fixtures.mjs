@@ -864,6 +864,29 @@ const fixtures = {
       }
     }
   },
+  "with content slots": {
+    context: {
+      heading: {
+        text: "If you need help now, but it's not an emergency"
+      },
+      description:
+        "A quick guide for people who have care and support needs and their carers",
+      slots: {
+        before: {
+          html: '<samp class="app-annotate">Before</samp>'
+        },
+        start: {
+          html: '<samp class="app-annotate app-annotate--start">Start</samp>'
+        },
+        end: {
+          html: '<samp class="app-annotate app-annotate--end">End</samp>'
+        },
+        after: {
+          html: '<samp class="app-annotate">After</samp>'
+        }
+      }
+    }
+  },
   "with image": {
     context: {
       image: {

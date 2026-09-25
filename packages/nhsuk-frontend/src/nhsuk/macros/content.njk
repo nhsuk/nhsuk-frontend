@@ -1,4 +1,5 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/slot.njk" import nhsukSlot %}
 {% from "nhsuk/macros/visually-hidden.njk" import nhsukVisuallyHidden %}
 
 {#-
@@ -18,8 +19,11 @@
   html: params.visuallyHidden if params.visuallyHidden is escaped else undefined
 } -%}
 
+{%- set slotStart = nhsukSlot("start", params) %}
+{%- set slotEnd = nhsukSlot("end", params) %}
+
 {%- set hasContent = true if caller or params.html or params.text not in [undefined, null, false] and
-  (params.text is string or params.text is number) else false %}
+  (params.text is string or params.text is number) or slotStart | length or slotEnd | length else false %}
 
 {%- set hasVisuallyHidden = true if visuallyHidden.html or visuallyHidden.text not in [undefined, null, false] and
   (visuallyHidden.text is string or visuallyHidden.text is number) else false %}
@@ -29,6 +33,14 @@
   start: " " if hasContent and (visuallyHidden.placement == "end" or not visuallyHidden.placement) else undefined,
   end: " " if hasContent and visuallyHidden.placement == "start" else undefined
 } -%}
+
+{#- Set visually hidden slots based on placement #}
+{%- set visuallyHiddenSlots = visuallyHidden.slots if visuallyHidden.slots is mapping and visuallyHidden.slots is not escaped else {
+  start: " " if hasContent and (visuallyHidden.placement == "end" or not visuallyHidden.placement) else undefined,
+  end: " " if hasContent and visuallyHidden.placement == "start" else undefined
+} -%}
+
+{{- nhsukSlot("before", params) -}}
 
 {%- if hasContent or hasVisuallyHidden %}
 {%- set visuallyHiddenHtml %}
@@ -45,6 +57,8 @@
 {% endset %}
 
 {%- set innerHtml %}
+  {{- slotStart -}}
+
   {%- if visuallyHidden.placement == "start" %}
     {{- visuallyHiddenHtml | safe | trim -}}
   {% endif %}
@@ -60,6 +74,8 @@
   {%- if visuallyHidden.placement == "end" or (hasVisuallyHidden and not visuallyHidden.placement) %}
     {{- visuallyHiddenHtml | safe | trim -}}
   {% endif -%}
+
+  {{- slotEnd -}}
 {% endset %}
 
 {%- if visuallyHidden.placement == "before" %}
@@ -76,4 +92,7 @@
   {{- visuallyHiddenHtml | safe | trim -}}
 {% endif %}
 {% endif %}
+
+{{- nhsukSlot("after", params) -}}
+
 {%- endmacro %}

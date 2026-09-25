@@ -1,5 +1,6 @@
 {% from "nhsuk/components/link/macro.njk" import link as nhsukLink %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/content.njk" import nhsukContent %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
 {% from "nhsuk/macros/visually-hidden.njk" import nhsukVisuallyHidden %}
 
@@ -67,13 +68,11 @@
   <a href="{{ previous.href }}" class="nhsuk-pagination__previous" rel="prev">
     {{ nhsukIcon("arrow-left") | trim | indent(4) }}
     <span class="nhsuk-pagination__title">
-    {% if previous.html %}
-      {{ previous.html | safe | trim | indent(6) }}
-    {% elif previous.text %}
-      {{ previous.text | trim | indent(6) }}
-    {% else %}
-      Previous{{ nhsukVisuallyHidden(" page") | trim }}
-    {% endif %}
+      {{ nhsukContent({
+        text: previous.text | default("Previous"),
+        html: previous.html,
+        visuallyHidden: " page" if not (previous.html or previous.text)
+      }) | trim | indent(6) }}
     </span>
   </a>
 {% endif %}
@@ -89,13 +88,11 @@
 {%- if next.href and params.items | length %}
   <a href="{{ next.href }}" class="nhsuk-pagination__next" rel="next">
     <span class="nhsuk-pagination__title">
-    {% if next.html %}
-      {{ next.html | safe | trim | indent(6) }}
-    {% elif next.text %}
-      {{ next.text | trim | indent(6) }}
-    {% else %}
-      Next{{ nhsukVisuallyHidden(" page") | trim }}
-    {% endif %}
+      {{ nhsukContent({
+        text: next.text | default("Next"),
+        html: next.html,
+        visuallyHidden: " page" if not (next.html or next.text)
+      }) | trim | indent(6) }}
     </span>
     {{ nhsukIcon("arrow-right") | trim | indent(4) }}
   </a>
@@ -108,18 +105,16 @@
       <a class="nhsuk-pagination__link nhsuk-pagination__link--prev" href="{{ previous.href }}" rel="prev"
         {{- nhsukAttributes(previous.attributes) }}>
         <span class="nhsuk-pagination__title">
-        {% if previous.html %}
-          {{ previous.html | safe | trim | indent(10) }}
-        {% elif previous.text %}
-          {{ previous.text | trim | indent(10) }}
-        {% else %}
-          Previous{{ nhsukVisuallyHidden(" page") | trim }}
-        {% endif %}
+          {{ nhsukContent({
+            text: previous.text | default("Previous"),
+            html: previous.html,
+            visuallyHidden: " page" if not (previous.html or previous.text)
+          }) | trim | indent(10) }}
         </span>
         {% if previousLabel.text or previousLabel.html %}
         {{ nhsukVisuallyHidden(":") | trim }}
         <span class="nhsuk-pagination__page">
-          {{- previousLabel.html | safe | trim if previousLabel.html else previousLabel.text | trim -}}
+          {{ nhsukContent(previousLabel) | trim | indent(10) }}
         </span>
         {% endif %}
         {{ nhsukIcon("arrow-left") | trim | indent(8) }}
@@ -132,18 +127,16 @@
       <a class="nhsuk-pagination__link nhsuk-pagination__link--next" href="{{ next.href }}" rel="next"
         {{- nhsukAttributes(next.attributes) }}>
         <span class="nhsuk-pagination__title">
-        {% if next.html %}
-          {{ next.html | safe | trim | indent(10) }}
-        {% elif next.text %}
-          {{ next.text | trim | indent(10) }}
-        {% else %}
-          Next{{ nhsukVisuallyHidden(" page") | trim }}
-        {% endif %}
+          {{ nhsukContent({
+            text: next.text | default("Next"),
+            html: next.html,
+            visuallyHidden: " page" if not (next.html or next.text)
+          }) | trim | indent(10) }}
         </span>
         {% if nextLabel.text or nextLabel.html %}
         {{ nhsukVisuallyHidden(":") | trim }}
         <span class="nhsuk-pagination__page">
-          {{- nextLabel.html | safe | trim if nextLabel.html else nextLabel.text | trim -}}
+          {{ nhsukContent(nextLabel) | trim | indent(10) }}
         </span>
         {% endif %}
         {{ nhsukIcon("arrow-right") | trim | indent(8) }}

@@ -1,0 +1,72 @@
+@use "sass:color";
+@use "vendor/nhsuk-frontend/base" as *;
+
+$app-annotate-blue: color.adjust(nhsuk-colour("blue"), $saturation: 50%);
+$app-annotate-red: color.adjust(nhsuk-colour("red"), $saturation: 50%);
+$app-annotate-outline-width: nhsuk-px-to-rem($nhsuk-border-width-form-element);
+
+.app-annotate {
+  display: block;
+
+  width: fit-content;
+  margin: nhsuk-spacing(3, $unit: "rem") 0;
+  padding: 0 nhsuk-spacing(2, $unit: "rem");
+
+  border: 0 solid rgba($app-annotate-blue, 0.5);
+
+  outline: $app-annotate-outline-width dashed $nhsuk-secondary-text-colour;
+  outline-offset: $app-annotate-outline-width;
+
+  color: $nhsuk-text-colour;
+  background-color: rgba($app-annotate-blue, 0.1);
+
+  @include nhsuk-font-monospace;
+  @include nhsuk-font(16, $weight: normal);
+}
+
+.app-annotate--start,
+.app-annotate--end,
+.nhsuk-input-wrapper > .app-annotate {
+  display: inline-flex;
+  align-items: center;
+  margin: nhsuk-spacing(1, $unit: "rem") 0;
+}
+
+.nhsuk-input-wrapper > .app-annotate {
+  height: nhsuk-px-to-rem(40px) - nhsuk-spacing(1, $unit: "rem") - ($app-annotate-outline-width * 2);
+}
+
+.app-annotate--start,
+.app-annotate--end {
+  margin-top: 0;
+  margin-bottom: 0;
+  border-color: rgba($app-annotate-red, 0.5);
+  background-color: rgba($app-annotate-red, 0.1);
+}
+
+.app-annotate--start,
+.nhsuk-input-wrapper > .app-annotate:first-child {
+  margin-right: nhsuk-spacing(2, $adjustment: $app-annotate-outline-width);
+  border-left-width: nhsuk-spacing(1, $unit: "rem");
+}
+
+.nhsuk-input-wrapper > .app-annotate:first-child {
+  margin-right: $app-annotate-outline-width;
+}
+
+.app-annotate--end,
+.nhsuk-input-wrapper > .app-annotate:last-child {
+  margin-left: nhsuk-spacing(2, $adjustment: $app-annotate-outline-width);
+  border-right-width: nhsuk-spacing(1, $unit: "rem");
+}
+
+section > .app-annotate {
+  margin-left: nhsuk-spacing(3);
+}
+
+p + .app-annotate--end,
+pre + .app-annotate--end,
+div + .app-annotate--end,
+table + .app-annotate--end {
+  margin-left: 0;
+}

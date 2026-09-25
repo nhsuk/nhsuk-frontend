@@ -40,6 +40,59 @@ const fixtures = {
       viewports: ["mobile", "tablet", "desktop", "large-desktop"]
     }
   },
+  "with content slots": {
+    context: {
+      meta: {
+        items: [
+          {
+            href: "#",
+            text: "Accessibility statement"
+          },
+          {
+            href: "#",
+            text: "Contact us"
+          },
+          {
+            href: "#",
+            text: "Cookies",
+            slots: {
+              start: {
+                html: '<samp class="app-annotate app-annotate--start">Start</samp>'
+              },
+              end: {
+                html: '<samp class="app-annotate app-annotate--end">End</samp>'
+              }
+            }
+          },
+          {
+            href: "#",
+            text: "Privacy policy"
+          },
+          {
+            href: "#",
+            text: "Terms and conditions"
+          }
+        ]
+      },
+      slots: {
+        before: {
+          html: '<samp class="app-annotate">Before</samp>'
+        },
+        start: {
+          html: '<samp class="app-annotate app-annotate--start">Start</samp>'
+        },
+        end: {
+          html: '<samp class="app-annotate app-annotate--end">End</samp>'
+        },
+        after: {
+          html: '<samp class="app-annotate">After</samp>'
+        }
+      }
+    },
+    options: {
+      width: false
+    }
+  },
   "with copyright text only": {
     options: {
       width: false

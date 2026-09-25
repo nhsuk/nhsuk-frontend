@@ -1,13 +1,15 @@
 {% from "nhsuk/components/link/macro.njk" import link as nhsukLink %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/content.njk" import nhsukContent %}
 {% from "nhsuk/macros/visually-hidden.njk" import nhsukVisuallyHidden %}
+{% from "nhsuk/macros/slot.njk" import nhsukSlot %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-contents-list" -%}
 
 {%- if params.classes %}
   {% set classNames = classNames ~ " " ~ params.classes %}
-{% endif -%}
+{% endif %}
 
 {%- set ariaLabel = params.ariaLabel | default(params.landmarkLabel, true) | default("Pages in this guide", true) -%}
 
@@ -18,7 +20,7 @@
   <li class="nhsuk-contents-list__item" {%- if item.current %} aria-current="page" {%- endif %}>
   {% if item.current %}
     <span class="nhsuk-contents-list__current {%- if item.classes %} {{ item.classes }}{% endif %}" {{- nhsukAttributes(item.attributes) }}>
-      {{ item.html | safe | trim | indent(4) if item.html else item.text }}
+      {{ nhsukContent(item) | trim | indent(6) }}
     </span>
   {% else %}
     {{ nhsukLink({
@@ -27,7 +29,8 @@
       html: item.html,
       className: "nhsuk-contents-list__link",
       classes: item.classes,
-      attributes: item.attributes
+      attributes: item.attributes,
+      slots: item.slots
     }) | trim | indent(4) }}
   {% endif %}
   {% if item.items %}
@@ -37,13 +40,24 @@
   {% endif %}
 {% endfor %}
 </ol>
-{% endmacro -%}
+{% endmacro %}
+
+{{- nhsukSlot("before", params) -}}
 
 <nav class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %} role="navigation" aria-label="{{ ariaLabel }}"
   {{- nhsukAttributes(params.attributes) }}>
-  {{ nhsukVisuallyHidden({
-    text: params.visuallyHiddenText | default("Contents", true),
-    element: "h2"
+  {{ nhsukSlot("start", params) -}}
+
+  {{ nhsukContent({
+    html: _contentsList(params.items) | trim,
+    visuallyHidden: {
+      text: params.visuallyHiddenText | default("Contents", true),
+      placement: "before",
+      element: "h2"
+    }
   }) | trim | indent(2) }}
-  {{ _contentsList(params.items) | trim | indent(2) }}
+
+  {{- nhsukSlot("end", params) }}
 </nav>
+
+{{- nhsukSlot("after", params) -}}

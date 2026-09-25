@@ -21,16 +21,40 @@ const fixtures = {
   },
   "with badge": {
     context: {
-      html: `Referrals${components.render("badge", {
-        context: {
-          text: "New",
-          visuallyHidden: {
-            text: "feature",
-            placement: "end"
-          },
-          classes: "nhsuk-u-margin-left-2"
+      text: "Referrals",
+      slots: {
+        end: {
+          html: components.render("badge", {
+            context: {
+              text: "New",
+              visuallyHidden: {
+                text: "feature",
+                placement: "end"
+              },
+              classes: "nhsuk-u-margin-left-2"
+            }
+          })
         }
-      })}`
+      }
+    }
+  },
+  "with content slots": {
+    context: {
+      text: "A&E waiting times",
+      slots: {
+        before: {
+          html: '<samp class="app-annotate">Before</samp>'
+        },
+        start: {
+          html: '<samp class="app-annotate app-annotate--start">Start</samp>'
+        },
+        end: {
+          html: '<samp class="app-annotate app-annotate--end">End</samp>'
+        },
+        after: {
+          html: '<samp class="app-annotate">After</samp>'
+        }
+      }
     }
   },
   "with text escaping": {

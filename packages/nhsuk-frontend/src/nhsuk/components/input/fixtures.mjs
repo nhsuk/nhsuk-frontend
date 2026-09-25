@@ -520,6 +520,23 @@ const fixtures = {
     },
     screenshot: true
   },
+  "with before and after input content": {
+    context: {
+      label: {
+        heading: "What is your full name?",
+        size: "l"
+      },
+      name: "example",
+      formGroup: {
+        beforeInput: {
+          html: '<samp class="app-annotate">Before</samp>'
+        },
+        afterInput: {
+          html: '<samp class="app-annotate">After</samp>'
+        }
+      }
+    }
+  },
   "example email address": {
     context: {
       label: {

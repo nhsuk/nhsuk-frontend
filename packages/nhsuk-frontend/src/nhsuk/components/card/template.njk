@@ -2,8 +2,9 @@
 {% from "nhsuk/components/card/action/macro.njk" import cardAction as nhsukCardAction %}
 {% from "nhsuk/components/link/macro.njk" import link as nhsukLink %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/content.njk" import nhsukContent %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
-{% from "nhsuk/macros/visually-hidden.njk" import nhsukVisuallyHidden %}
+{% from "nhsuk/macros/slot.njk" import nhsukSlot %}
 
 {#- Set variant or (deprecated) type for this component #}
 {%- set variant = params.variant or params.type -%}
@@ -113,7 +114,8 @@
   size: heading.size,
   level: heading.level,
   classes: heading.classes,
-  attributes: heading.attributes
+  attributes: heading.attributes,
+  slots: heading.slots
 }, {
   params: params,
   isCareCard: isCareCard
@@ -122,32 +124,36 @@
 
 {%- macro _cardHeading(params, parent, classNamesHeading) %}
 {% if params.text %}
-{% call nhsukHeading({
-  id: params.id,
-  caption: params.caption,
-  size: params.size,
-  level: params.level | default(2),
-  classes: params.classes,
-  className: classNamesHeading,
-  classPrefix: "nhsuk-heading-",
-  attributes: params.attributes
-}) %}
-{% if params.text and parent.params.href and not "nhsuk-card--feature" in classNames %}
-  {{ nhsukLink({
-    href: parent.params.href,
-    text: params.text,
-    openInNewTab: parent.params.openInNewTab,
-    className: "nhsuk-card__link"
-  }) | trim | indent(2) }}
-{%- elif params.text and params.visuallyHiddenText %}
-  <span role="text">
-    {{ nhsukVisuallyHidden(params.visuallyHiddenText ~ ": ") | trim }}
-    {{- params.text | trim | indent(4) }}
-  </span>
-{%- elif params.text %}
-  {{ params.text | trim | indent(2) }}
-{%- endif %}
-{%- endcall %}
+  {%- set innerHtml %}
+    {%- if parent.params.href and not "nhsuk-card--feature" in classNames %}
+      {{- nhsukLink({
+        href: parent.params.href,
+        text: params.text,
+        className: "nhsuk-card__link"
+      }) | trim }}
+    {%- else %}
+      {{- nhsukContent({
+        text: params.text,
+        visuallyHidden: {
+          text: params.visuallyHiddenText,
+          placement: "start",
+          slots: { end: ": " }
+        }
+      }) | trim }}
+    {%- endif %}
+  {% endset %}
+  {{- nhsukHeading({
+    id: params.id,
+    html: innerHtml,
+    caption: params.caption,
+    size: params.size,
+    level: params.level | default(2),
+    classes: params.classes,
+    className: classNamesHeading,
+    classPrefix: "nhsuk-heading-",
+    attributes: params.attributes,
+    slots: params.slots
+  }) | trim }}
 {% endif %}
 {% if params.html %}
   {{- params.html | safe | trim }}
@@ -155,7 +161,9 @@
 {% if parent.isCareCard -%}
   <span class="nhsuk-card--care__arrow" aria-hidden="true"></span>
 {% endif %}
-{% endmacro -%}
+{% endmacro %}
+
+{{- nhsukSlot("before", params) -}}
 
 <div class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
   {{- nhsukAttributes(params.attributes) }}>
@@ -208,6 +216,8 @@
       isCareCard: isCareCard
     }, classNamesHeading) | trim | indent(4) }}
   {% endif %}
+    {{ nhsukSlot("start", params) -}}
+
   {% if caller %}
     {{- caller() }}
   {% elif description.html %}
@@ -217,8 +227,12 @@
       {{- description.text | trim | indent(4) -}}
     </p>
   {% endif %}
+
+    {{- nhsukSlot("end", params) }}
   {% if "nhsuk-card--primary" in classNames %}
     {{ nhsukIcon("chevron-right-circle") | trim | indent(4) }}
   {% endif %}
   </div>
 </div>
+
+{{- nhsukSlot("after", params) -}}

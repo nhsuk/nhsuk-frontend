@@ -1,4 +1,6 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/content.njk" import nhsukContent %}
+{% from "nhsuk/macros/slot.njk" import nhsukSlot %}
 
 {#- Set variant for this component #}
 {%- set variant = params.variant -%}
@@ -18,27 +20,50 @@
 
 {%- if params.classes %}
   {% set classNames = classNames ~ " " ~ params.classes %}
-{% endif -%}
+{% endif %}
+
+{%- set content = {
+  text: params.text,
+  html: params.html
+} %}
+
+{{- nhsukSlot("before", params) -}}
 
 <details class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
   {{- nhsukAttributes(params.attributes) }} {{- " open" if params.open }}>
   <summary class="nhsuk-details__summary {%- if summary.classes %} {{ summary.classes }}{% endif %}"
     {{- nhsukAttributes(summary.attributes) }}>
+    {{ nhsukSlot("before", summary) -}}
+
     <span class="nhsuk-details__summary-text">
-    {% if summary.html %}
-      {{ summary.html | safe | trim | indent(6) }}
-    {% elif summary.text %}
-      {{ summary.text | trim | indent(6) }}
-    {% endif %}
+      {{ nhsukContent({
+        text: summary.text,
+        html: summary.html,
+        classes: summary.classes,
+        attributes: summary.attributes,
+        slots: {
+          start: summary.slots.start,
+          end: summary.slots.end
+        }
+      }) | trim | indent(6) }}
     </span>
+
+    {{- nhsukSlot("after", summary) }}
   </summary>
   <div class="nhsuk-details__text">
+    {{ nhsukSlot("start", params) -}}
+
   {% if caller %}
-    {{- caller() }}
-  {% elif params.html %}
-    {{ params.html | safe | trim | indent(4) }}
-  {% elif params.text %}
-    {{ params.text | trim | indent(4) }}
+    {%- set outerCaller = caller %}
+    {%- call nhsukContent(content) %}
+      {{- outerCaller() }}
+    {%- endcall %}
+  {% else %}
+    {{ nhsukContent(content) | trim | indent(4) }}
   {% endif %}
+
+    {{- nhsukSlot("end", params) }}
   </div>
 </details>
+
+{{- nhsukSlot("after", params) -}}

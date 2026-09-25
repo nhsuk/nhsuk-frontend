@@ -1,5 +1,7 @@
 {% from "nhsuk/components/heading/macro.njk" import heading as nhsukHeading %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/content.njk" import nhsukContent %}
+{% from "nhsuk/macros/slot.njk" import nhsukSlot %}
 
 {#- Set variant or (deprecated) type for this component #}
 {%- set variant = params.variant or params.type -%}
@@ -37,7 +39,18 @@
 {% else %}
   {#- Otherwise add `role="region"` to make the notification banner a landmark to help users of assistive technologies to navigate to the banner -#}
   {% set role = "region" %}
-{% endif -%}
+{% endif %}
+
+{%- set content = {
+  text: params.text,
+  html: params.html,
+  slots: {
+    start: params.slots.start,
+    end: params.slots.end
+  }
+} %}
+
+{{- nhsukSlot("before", params) -}}
 
 <div
   {{- nhsukAttributes({
@@ -67,7 +80,8 @@
       level: title.level | default(title.headingLevel) | default(2),
       className: "nhsuk-notification-banner__title",
       classes: title.classes,
-      attributes: title.attributes
+      attributes: title.attributes,
+      slots: title.slots
     }) | trim | indent(4) }}
   </div>
   <div class="nhsuk-notification-banner__content">
@@ -83,21 +97,27 @@
       className: "nhsuk-notification-banner__heading",
       classes: heading.classes,
       attributes: heading.attributes,
-      element: heading.element
+      element: heading.element,
+      slots: heading.slots
     }) | trim | indent(4) }}
   {% endif %}
   {% if caller %}
-    {{- caller() }}
+    {%- set outerCaller = caller %}
+    {%- call nhsukContent(content) %}
+      {{- outerCaller() }}
+    {%- endcall %}
   {% elif params.html %}
-    {{ params.html | safe | trim | indent(4) }}
+    {{ nhsukContent(content) | trim | indent(4) }}
   {% elif params.text and not (heading.text or heading.html) %}
     <p class="nhsuk-notification-banner__heading">
-      {{ params.text | trim | indent(6) }}
+      {{ nhsukContent(content) | trim | indent(6) }}
     </p>
   {% elif params.text %}
     <p class="nhsuk-body">
-      {{ params.text | trim | indent(6) }}
+      {{ nhsukContent(content) | trim | indent(6) }}
     </p>
   {% endif %}
   </div>
 </div>
+
+{{- nhsukSlot("after", params) -}}

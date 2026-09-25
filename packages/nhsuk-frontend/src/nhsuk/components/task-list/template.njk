@@ -1,5 +1,6 @@
 {% from "nhsuk/components/heading/macro.njk" import heading as nhsukHeading %}
 {% from "nhsuk/components/tag/macro.njk" import tag as nhsukTag %}
+{% from "nhsuk/macros/content.njk" import nhsukContent %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set classes for this component #}
@@ -7,7 +8,7 @@
 
 {%- if params.classes %}
   {% set classNames = classNames ~ " " ~ params.classes %}
-{% endif -%}
+{% endif %}
 
 {%- set idPrefix = params.idPrefix if params.idPrefix else "task-list" -%}
 
@@ -56,21 +57,15 @@
       }) | trim | indent(6) }}
     {% if itemHint.text or itemHint.html %}
       <div class="nhsuk-task-list__hint" id="{{ hintId }}">
-      {% if itemHint.html %}
-        {{ itemHint.html | safe | trim | indent(8) }}
-      {% elif itemHint.text %}
-        {{ itemHint.text | trim | indent(8) }}
-      {% endif %}
+        {{ nhsukContent(itemHint) | trim | indent(8) }}
       </div>
     {% endif %}
     </div>
     <div class="nhsuk-task-list__status {%- if itemStatus.classes %} {{ itemStatus.classes }}{% endif %}" id="{{ statusId }}">
     {% if itemStatus.tag %}
       {{ nhsukTag(itemStatus.tag) | trim | indent(6) }}
-    {% elif itemStatus.html %}
-      {{ itemStatus.html | safe | trim | indent(6) }}
-    {% elif itemStatus.text %}
-      {{ itemStatus.text | trim | indent(6) }}
+    {% else %}
+      {{ nhsukContent(itemStatus) | trim | indent(6) }}
     {% endif %}
     </div>
   </li>

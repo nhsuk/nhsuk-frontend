@@ -2,7 +2,9 @@
 {% from "nhsuk/components/input/macro.njk" import input as nhsukInput %}
 {% from "nhsuk/components/link/macro.njk" import link as nhsukLink %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/content.njk" import nhsukContent %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
+{% from "nhsuk/macros/slot.njk" import nhsukSlot %}
 {% from "nhsuk/macros/visually-hidden.njk" import nhsukVisuallyHidden %}
 
 {#- Set classes for this component #}
@@ -84,13 +86,16 @@
 {% endmacro %}
 
 {%- macro _accountItem(item) %}
-{{- nhsukIcon("user") if item.icon -}}
-{% if item.html %}
-  {{- item.html | safe | trim -}}
-{% elif item.text %}
-  {{- item.text | trim -}}
-{% endif -%}
-{% endmacro -%}
+{{- nhsukContent({
+  text: item.text,
+  html: item.html,
+  slots: {
+    before: nhsukIcon("user") | safe | trim
+  } if item.icon else undefined
+}) | trim -}}
+{% endmacro %}
+
+{{- nhsukSlot("before", params) -}}
 
 <header
   {{- nhsukAttributes({
@@ -184,7 +189,8 @@
           {{ nhsukLink({
             href: item.href,
             html: _accountItem(item),
-            className: "nhsuk-header__account-link"
+            className: "nhsuk-header__account-link",
+            slots: item.slots
           }) | trim | indent(10) }}
         {% elif item.action %}
           <form
@@ -229,10 +235,10 @@
               or styles still have some indicator of the current nav item. -#}
           {%- if item.active or item.current -%}
             <strong class="nhsuk-header__navigation-item-current-fallback">
-              {{- item.html | safe if item.html else item.text -}}
+              {{- nhsukContent(item) | trim -}}
             </strong>
           {%- else -%}
-            {{- item.html | safe if item.html else item.text -}}
+            {{- nhsukContent(item) | trim -}}
           {%- endif -%}
         {% endset %}
         <li class="nhsuk-header__navigation-item {%- if item.active or item.current %} nhsuk-header__navigation-item--current{% endif %} {%- if item.classes %} {{ item.classes }}{% endif %}" {{- nhsukAttributes(item.attributes) }}>
@@ -253,11 +259,14 @@
       {% endfor %}
         <li class="nhsuk-header__menu" hidden>
           <button class="nhsuk-header__menu-toggle nhsuk-header__navigation-link" id="toggle-menu" aria-expanded="false">
-            {{ nhsukVisuallyHidden({
-              text: params.navigation.toggleMenuVisuallyHiddenText | default("Browse"),
-              slots: { end: " " }
-            }) | trim }}
-            {{- params.navigation.toggleMenuText | default("More") }}
+            {{ nhsukContent({
+              text: params.navigation.toggleMenuText | default("More"),
+              visuallyHidden: {
+                text: params.navigation.toggleMenuVisuallyHiddenText | default("Browse"),
+                placement: "start",
+                slots: { end: " " }
+              }
+            }) | trim | indent(12) }}
           </button>
         </li>
       </ul>
@@ -265,3 +274,5 @@
   </nav>
 {% endif %}
 </header>
+
+{{- nhsukSlot("after", params) -}}

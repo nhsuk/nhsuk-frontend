@@ -1,4 +1,6 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/content.njk" import nhsukContent %}
+{% from "nhsuk/macros/slot.njk" import nhsukSlot %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-tag" -%}
@@ -32,15 +34,29 @@
 
 {%- if params.classes %}
   {% set classNames = classNames ~ " " ~ params.classes %}
-{% endif -%}
+{% endif %}
+
+{%- set content = {
+  text: params.text,
+  html: params.html,
+  slots: {
+    start: params.slots.start,
+    end: params.slots.end
+  }
+} %}
+
+{{- nhsukSlot("before", params) -}}
 
 <strong class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
   {{- nhsukAttributes(params.attributes) }}>
 {% if caller %}
-  {{- caller() }}
-{% elif params.html %}
-  {{ params.html | safe | trim | indent(2) }}
-{% elif params.text %}
-  {{ params.text | trim | indent(2) }}
+  {%- set outerCaller = caller %}
+  {%- call nhsukContent(content) %}
+    {{- outerCaller() }}
+  {%- endcall %}
+{% else %}
+  {{ nhsukContent(content) | trim | indent(2) }}
 {% endif %}
 </strong>
+
+{{- nhsukSlot("after", params) -}}
