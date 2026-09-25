@@ -1,5 +1,6 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
+{% from "nhsuk/macros/visually-hidden.njk" import nhsukVisuallyHidden %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-pagination" -%}
@@ -63,7 +64,7 @@
     {% elif previous.text %}
       {{ previous.text | trim | indent(6) }}
     {% else %}
-      Previous<span class="nhsuk-u-visually-hidden"> page</span>
+      Previous{{ nhsukVisuallyHidden(" page") | trim }}
     {% endif %}
     </span>
   </a>
@@ -85,7 +86,7 @@
     {% elif next.text %}
       {{ next.text | trim | indent(6) }}
     {% else %}
-      Next<span class="nhsuk-u-visually-hidden"> page</span>
+      Next{{ nhsukVisuallyHidden(" page") | trim }}
     {% endif %}
     </span>
     {{ nhsukIcon("arrow-right") | trim | indent(4) }}
@@ -104,11 +105,11 @@
         {% elif previous.text %}
           {{ previous.text | trim | indent(10) }}
         {% else %}
-          Previous<span class="nhsuk-u-visually-hidden"> page</span>
+          Previous{{ nhsukVisuallyHidden(" page") | trim }}
         {% endif %}
         </span>
         {% if previousLabel.text or previousLabel.html %}
-        <span class="nhsuk-u-visually-hidden">:</span>
+        {{ nhsukVisuallyHidden(":") | trim }}
         <span class="nhsuk-pagination__page">
           {{- previousLabel.html | safe | trim if previousLabel.html else previousLabel.text | trim -}}
         </span>
@@ -128,11 +129,11 @@
         {% elif next.text %}
           {{ next.text | trim | indent(10) }}
         {% else %}
-          Next<span class="nhsuk-u-visually-hidden"> page</span>
+          Next{{ nhsukVisuallyHidden(" page") | trim }}
         {% endif %}
         </span>
         {% if nextLabel.text or nextLabel.html %}
-        <span class="nhsuk-u-visually-hidden">:</span>
+        {{ nhsukVisuallyHidden(":") | trim }}
         <span class="nhsuk-pagination__page">
           {{- nextLabel.html | safe | trim if nextLabel.html else nextLabel.text | trim -}}
         </span>

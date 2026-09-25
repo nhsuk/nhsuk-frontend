@@ -20,6 +20,18 @@
   html: params.errorMessage if params.errorMessage is escaped else undefined
 } -%}
 
+{#- Support content before inputs as string #}
+{%- set beforeInputs = params.formGroup.beforeInputs if params.formGroup.beforeInputs is mapping and params.formGroup.beforeInputs is not escaped else {
+  text: params.formGroup.beforeInputs if params.formGroup.beforeInputs is string else undefined,
+  html: params.formGroup.beforeInputs if params.formGroup.beforeInputs is escaped else undefined
+} -%}
+
+{#- Support content after inputs as string #}
+{%- set afterInputs = params.formGroup.afterInputs if params.formGroup.afterInputs is mapping and params.formGroup.afterInputs is not escaped else {
+  text: params.formGroup.afterInputs if params.formGroup.afterInputs is string else undefined,
+  html: params.formGroup.afterInputs if params.formGroup.afterInputs is escaped else undefined
+} -%}
+
 {%- if params.small and (not params.classes or not "nhsuk-radios--small" in params.classes) %}
   {% set classNames = classNames ~ " nhsuk-radios--small" %}
 {% endif %}
@@ -64,6 +76,12 @@
     html: item.hint if item.hint is escaped else undefined
   } -%}
 
+  {#- Support item conditional content as string #}
+  {%- set itemConditional = item.conditional if item.conditional is mapping and item.conditional is not escaped else {
+    text: item.conditional if item.conditional is string else undefined,
+    html: item.conditional if item.conditional is escaped else undefined
+  } -%}
+
   {#- If the user explicitly sets an id, use this instead of the regular idPrefix -#}
   {#- The first id should not have a number suffix so it's easy to link to from the error summary component -#}
   {% set itemId = item.id if item.id else idPrefix ~ ("-" ~ index if index > 1 else "") %}
@@ -79,7 +97,7 @@
       <input class="{{ itemClasses }}" id="{{ itemId }}" name="{{ params.name }}" type="radio" value="{{ item.value }}"
         {{- " checked" if isChecked }}
         {{- " disabled" if item.disabled or (item.disabled != false and params.disabled) }}
-        {%- if item.conditional.html %} data-aria-controls="{{ conditionalId }}"{% endif -%}
+        {%- if itemConditional.html %} data-aria-controls="{{ conditionalId }}"{% endif -%}
         {%- if hasHint %} aria-describedby="{{ itemHintId }}"{% endif -%}
         {{- nhsukAttributes(item.attributes) }}>
       {{ nhsukLabel({
@@ -101,9 +119,9 @@
       }) | trim | indent(6) }}
       {% endif %}
     </div>
-    {% if item.conditional.html %}
+    {% if itemConditional.html %}
     <div class="nhsuk-radios__conditional {%- if not isChecked %} nhsuk-radios__conditional--hidden{% endif %}" id="{{ conditionalId }}">
-      {{ item.conditional.html | safe | trim }}
+      {{ itemConditional.html | safe | trim }}
     </div>
     {% endif %}
   {% endif %}
@@ -145,16 +163,16 @@
     }) -}}
 
     {{- nhsukAttributes(params.attributes) -}}>
-    {% if params.formGroup.beforeInputs %}
-    {{ params.formGroup.beforeInputs.html | safe | trim | indent(4) if params.formGroup.beforeInputs.html else params.formGroup.beforeInputs.text }}
+    {% if beforeInputs.text or beforeInputs.html %}
+    {{ beforeInputs.html | safe | trim | indent(4) if beforeInputs.html else beforeInputs.text }}
     {% endif %}
     {% for item in params.items %}
       {% if item %}
         {{- _radioItem(params, item, loop.index) -}}
       {% endif %}
     {% endfor %}
-    {% if params.formGroup.afterInputs %}
-    {{ params.formGroup.afterInputs.html | safe | trim | indent(4) if params.formGroup.afterInputs.html else params.formGroup.afterInputs.text }}
+    {% if afterInputs.text or afterInputs.html %}
+    {{ afterInputs.html | safe | trim | indent(4) if afterInputs.html else afterInputs.text }}
     {% endif %}
   </div>
 {% endset -%}

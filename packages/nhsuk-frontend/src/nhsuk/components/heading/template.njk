@@ -1,5 +1,6 @@
 {% from "nhsuk/components/caption/macro.njk" import caption as nhsukCaption %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/content.njk" import nhsukContent %}
 
 {#- Set classes for this component #}
 {%- set className = params.className | default("nhsuk-heading") -%}
@@ -34,9 +35,16 @@
   {% set classNames = classNames ~ " " ~ params.classes %}
 {% endif %}
 
+{#- Support heading caption as string #}
 {%- set headingCaption = params.caption if params.caption is mapping and params.caption is not escaped else {
   text: params.caption if params.caption is string else undefined,
   html: params.caption if params.caption is escaped else undefined
+} %}
+
+{#- Support visually hidden content as string #}
+{%- set visuallyHidden = params.visuallyHidden if params.visuallyHidden is mapping and params.visuallyHidden is not escaped else {
+  text: params.visuallyHidden if params.visuallyHidden is string else params.visuallyHiddenText,
+  html: params.visuallyHidden if params.visuallyHidden is escaped else undefined
 } %}
 
 {%- set caption = {
@@ -50,30 +58,31 @@
   attributes: headingCaption.attributes
 } %}
 
-{%- set hasCaption = caption.text or caption.html -%}
+{%- set hasCaption = true if caption.text or caption.html else false %}
+{%- set hasContent = true if caller or params.html or params.text else false %}
+{%- set hasVisuallyHidden = true if visuallyHidden.html or visuallyHidden.text else false %}
 
-{%- if caller or params.html or params.text %}
+{%- if hasCaption or hasContent or hasVisuallyHidden %}
+{%- set content = {
+  text: params.text,
+  html: params.html,
+  visuallyHidden: visuallyHidden
+} %}
+
 {%- set innerHtml %}
-  {%- if params.html %}
-    {{- params.html | safe -}}
-  {% elif params.text %}
-    {{- params.text -}}
-  {% endif -%}
+{% if caller %}
+  {%- set outerCaller = caller %}
+  {%- call nhsukContent(content) %}
+    {{- outerCaller() }}
+  {%- endcall %}
+{% else %}
+  {{ nhsukContent(content) | trim | indent(2) }}
+{% endif %}
 {% endset %}
 
-{%- set innerHtml %}
-  {%- if params.href -%}
-    <a class="nhsuk-link" href="{{ params.href }}">
-      {{- innerHtml | safe | trim -}}
-    </a>
-  {%- else %}
-    {{- innerHtml | safe | trim -}}
-  {% endif -%}
-{% endset %}
-
-{% if caption.placement == "before" %}
+{%- if caption.placement == "before" %}
 {{ nhsukCaption(caption) | safe | trim }}
-{% endif -%}
+{% endif %}
 
 {#- Determine type of element to use, if not explicitly set #}
 {%- set element = (params.element | default("h" ~ params.level | default("1", true))) | lower -%}
@@ -94,19 +103,12 @@
 {% if caption.placement == "start" or (hasCaption and not caption.placement) %}
   {{ nhsukCaption(caption) | safe | trim | indent(2) }}
 {% endif %}
-{% if params.visuallyHiddenText %}
-  {% if caller %}
-    {{- caller() }}
-  {% else %}
-    {{- innerHtml | safe | trim | indent(2, true) -}}
-  {% endif -%}
-  <span class="nhsuk-u-visually-hidden"> {{ params.visuallyHiddenText }}</span>
+{% if params.href %}
+  <a class="nhsuk-link" href="{{ params.href }}">
+    {{ innerHtml | safe | trim | indent(4) }}
+  </a>
 {% else %}
-  {% if caller %}
-    {{- caller() }}
-  {% else %}
-    {{- innerHtml | safe | trim | indent(2, true) }}
-  {% endif %}
+  {{ innerHtml | safe | trim | indent(2) }}
 {% endif %}
 {% if caption.placement == "end" %}
   {{ nhsukCaption(caption) | safe | trim | indent(2) }}

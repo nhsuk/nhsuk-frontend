@@ -1,0 +1,48 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/slot.njk" import nhsukSlot %}
+
+{#-
+  Renders visually hidden content
+#}
+{% macro nhsukVisuallyHidden(params = {}) -%}
+{% set classNames = "nhsuk-u-visually-hidden" %}
+
+{#- Support params as string or number #}
+{%- set params = params if params is mapping and params is not escaped else {
+  text: params if params is string or params is number else undefined,
+  html: params if params is escaped else undefined
+} -%}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif %}
+
+{#- Determine type of element to use, if not explicitly set #}
+{%- if params.element %}
+  {% set element = params.element | lower %}
+{% else %}
+  {% set element = "span" %}
+{% endif %}
+
+{{- nhsukSlot("before", params) -}}
+
+{%- if caller or params.html or (params.text is defined and params.text not in ["", null, false]) %}
+<{{ element }} class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
+  {{- nhsukAttributes(params.attributes) }}>
+  {{- nhsukSlot("start", params) -}}
+
+  {% if caller %}
+    {{- caller() -}}
+  {% elif params.html %}
+    {{- params.html | safe -}}
+  {% elif params.text is defined %}
+    {{- params.text | string -}}
+  {% endif %}
+
+  {{- nhsukSlot("end", params) -}}
+</{{ element }}>
+{% endif %}
+
+{{- nhsukSlot("after", params) -}}
+
+{%- endmacro %}

@@ -2,6 +2,7 @@
 {% from "nhsuk/components/card/action/macro.njk" import cardAction as nhsukCardAction %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
+{% from "nhsuk/macros/visually-hidden.njk" import nhsukVisuallyHidden %}
 
 {#- Set variant or (deprecated) type for this component #}
 {%- set variant = params.variant or params.type -%}
@@ -136,7 +137,7 @@
   </a>
 {%- elif params.text and params.visuallyHiddenText %}
   <span role="text">
-    <span class="nhsuk-u-visually-hidden">{{ params.visuallyHiddenText }}: </span>
+    {{ nhsukVisuallyHidden(params.visuallyHiddenText ~ ": ") | trim }}
     {{- params.text | trim | indent(4) }}
   </span>
 {%- elif params.text %}

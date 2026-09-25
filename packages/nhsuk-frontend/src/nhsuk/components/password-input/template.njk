@@ -7,6 +7,12 @@
 {%- set classNames = "nhsuk-password-input__input nhsuk-js-password-input-input" -%}
 {%- set classNamesFormGroup = "nhsuk-password-input" -%}
 
+{#- Support content after input as string #}
+{%- set afterInput = params.formGroup.afterInput if params.formGroup.afterInput is mapping and params.formGroup.afterInput is not escaped else {
+  text: params.formGroup.afterInput if params.formGroup.afterInput is string else undefined,
+  html: params.formGroup.afterInput if params.formGroup.afterInput is escaped else undefined
+} -%}
+
 {%- if params.classes %}
   {% set classNames = classNames ~ " " ~ params.classes %}
 {% endif %}
@@ -78,8 +84,8 @@
   },
   variant: params.button.variant | default("secondary")
 }) | trim }}
-{% if params.formGroup.afterInput %}
-  {{- params.formGroup.afterInput.html | safe | trim if params.formGroup.afterInput.html else params.formGroup.afterInput.text }}
+{% if afterInput.text or afterInput.html %}
+  {{- afterInput.html | safe | trim if afterInput.html else afterInput.text }}
 {% endif -%}
 {% endset -%}
 

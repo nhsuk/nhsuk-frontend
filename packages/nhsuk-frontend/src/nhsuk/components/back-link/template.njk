@@ -1,10 +1,17 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/content.njk" import nhsukContent %}
 
 {#- Set variant for this component #}
 {%- set variant = params.variant -%}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-back-link" -%}
+
+{#- Support visually hidden content as string #}
+{%- set visuallyHidden = params.visuallyHidden if params.visuallyHidden is mapping and params.visuallyHidden is not escaped else {
+  text: params.visuallyHidden if params.visuallyHidden is string else params.visuallyHiddenText,
+  html: params.visuallyHidden if params.visuallyHidden is escaped else undefined
+} -%}
 
 {%- if variant == "reverse" and (not params.classes or not "nhsuk-back-link--reverse" in params.classes) %}
   {% set classNames = classNames ~ " nhsuk-back-link--" ~ variant %}
@@ -48,21 +55,23 @@
   {{- nhsukAttributes(params.attributes) -}}
 {% endset %}
 
-{%- set innerHtml %}
-{% if caller %}
-  {{- caller() }}
-{% elif params.html %}
-  {{- params.html | safe }}
-{% else %}
-  {{- params.text | default("Back", true) }}
-{% endif %}
-{% endset -%}
+{%- set content = {
+  text: params.text | default("Back", true),
+  html: params.html,
+  visuallyHidden: {
+    text: visuallyHidden.text,
+    html: visuallyHidden.html,
+    placement: visuallyHidden.placement | default("start")
+  }
+} -%}
 
 <{{ element }} {{- attributesHtml | safe }}>
-  {% if params.visuallyHiddenText %}
-  <span class="nhsuk-u-visually-hidden">{{ params.visuallyHiddenText }} </span>
-  {{- innerHtml | safe | trim | indent(2) }}
-  {% else %}
-  {{ innerHtml | safe | trim | indent(2) }}
-  {% endif %}
+{% if caller %}
+  {%- set outerCaller = caller %}
+  {%- call nhsukContent(content) %}
+    {{- outerCaller() }}
+  {%- endcall %}
+{% else %}
+  {{ nhsukContent(content) | trim | indent(2) }}
+{% endif %}
 </{{ element }}>

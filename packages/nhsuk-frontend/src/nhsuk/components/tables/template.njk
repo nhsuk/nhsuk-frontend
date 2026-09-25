@@ -2,8 +2,10 @@
 {% from "nhsuk/components/heading/macro.njk" import heading as nhsukHeading %}
 {% from "nhsuk/components/scroll/macro.njk" import scroll as nhsukScroll %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/content.njk" import nhsukContent %}
 {% from "nhsuk/macros/i18n.njk" import nhsukI18nAttributes %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
+{% from "nhsuk/macros/visually-hidden.njk" import nhsukVisuallyHidden %}
 
 {#- Set variant for this component #}
 {%- set variant = params.variant -%}
@@ -74,7 +76,15 @@
 {% endif %}
 
 {%- set captionId = caption.id | default(params.id ~ "-caption" if params.scroll and params.id else undefined) | default(("table-" ~ caption.text | replace(" ", "-") | lower | truncate(40, true, "") ~ "-caption") if params.scroll and caption.text else undefined) -%}
-{%- set captionVisuallyHiddenText = params.caption.visuallyHiddenText | default("Column headers are sortable" if "nhsuk-table--sortable" in classNames else undefined) %}
+
+{#- Support caption visually hidden content as string #}
+{%- set captionVisuallyHidden = params.caption.visuallyHidden if params.caption.visuallyHidden is mapping and params.caption.visuallyHidden is not escaped else {
+  text: params.caption.visuallyHidden if params.caption.visuallyHidden is string else params.caption.visuallyHiddenText,
+  html: params.caption.visuallyHidden if params.caption.visuallyHidden is escaped else undefined
+} %}
+
+{%- set captionVisuallyHiddenText = captionVisuallyHidden.text | default("Column headers are sortable" if "nhsuk-table--sortable" in classNames else undefined) %}
+{%- set captionVisuallyHiddenHtml = captionVisuallyHidden.html %}
 
 {%- set attributesHtml %}
   {{- nhsukAttributes({
@@ -113,26 +123,6 @@
 
   {{- nhsukAttributes(params.attributes) -}}
 {% endset %}
-
-{%- macro _tableValue(item) %}
-  {%- set visuallyHiddenText = item.visuallyHiddenText -%}
-
-  {%- if item.html or ((item.text is string or item.text is number) and item.text | string | length) %}
-    {%- if visuallyHiddenText %}
-      {% set visuallyHiddenText = " " ~ visuallyHiddenText %}
-    {% endif %}
-
-    {%- if item.html %}
-      {{- item.html | safe -}}
-    {% else %}
-      {{- item.text | string -}}
-    {% endif -%}
-  {% endif %}
-
-  {%- if visuallyHiddenText -%}
-    <span class="nhsuk-u-visually-hidden">{{ visuallyHiddenText }}</span>
-  {%- endif %}
-{% endmacro -%}
 
 {%- macro _tableCell(item, parent) %}
 {%- set element = item.element | lower if item.element else "td" -%}
@@ -191,19 +181,19 @@
 {% set innerHtml %}
   {% if item.href %}
     <a class="nhsuk-link" href="{{ item.href }}">
-      {{- _tableValue(item) | safe | trim -}}
+      {{- nhsukContent(item) | trim -}}
     </a>
   {% else %}
-    {{- _tableValue(item) | safe | trim -}}
+    {{- nhsukContent(item) | trim -}}
   {% endif %}
 {% endset -%}
 
 {% if isResponsive and not isHeader and (parent.header or item.header) %}
   <span class="nhsuk-table__heading" aria-hidden="true">
-    {{- _tableValue({
+    {{- nhsukContent({
       text: parent.header.text | default(item.header),
       html: parent.header.html,
-      visuallyHiddenText: parent.header.visuallyHiddenText
+      visuallyHidden: parent.header.visuallyHidden | default(parent.header.visuallyHiddenText)
     }) | safe | trim | indent(2) }} </span>
 
   {%- if item.html -%}
@@ -219,12 +209,15 @@
 
 {%- set tableHtml -%}
 <table {{- attributesHtml | safe }}>
-{% if caption.text or caption.html %}
+{% if caption.text or caption.html or captionVisuallyHiddenText or captionVisuallyHiddenHtml %}
   {{ nhsukHeading({
     id: captionId,
     text: caption.text,
     html: caption.html,
-    visuallyHiddenText: "(" ~ captionVisuallyHiddenText ~ ")" if captionVisuallyHiddenText else undefined,
+    visuallyHidden: {
+      text: "(" ~ captionVisuallyHiddenText ~ ")" if (caption.text or caption.html) and captionVisuallyHiddenText else captionVisuallyHiddenText,
+      html: "(" ~ (captionVisuallyHiddenHtml | safe) ~ ")" if (caption.text or caption.html) and captionVisuallyHiddenHtml else captionVisuallyHiddenHtml
+    },
     caption: {
       id: headingCaption.id,
       text: headingCaption.text,
@@ -264,7 +257,7 @@
       {{- _tableCell({
         text: header.text,
         html: header.html,
-        visuallyHiddenText: header.visuallyHiddenText,
+        visuallyHidden: header.visuallyHidden | default(header.visuallyHiddenText),
         format: header.format,
         href: header.href,
         scope: "col",
@@ -321,7 +314,7 @@
       {{- _tableCell({
         text: data.text,
         html: data.html,
-        visuallyHiddenText: data.visuallyHiddenText,
+        visuallyHidden: data.visuallyHidden | default(data.visuallyHiddenText),
         format: data.format | default(header.format),
         href: data.href,
         scope: "row" if loop.first and params.firstCellIsHeader else undefined,

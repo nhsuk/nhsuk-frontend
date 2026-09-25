@@ -2,6 +2,7 @@
 {% from "nhsuk/components/button/macro.njk" import button as nhsukButton %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
+{% from "nhsuk/macros/visually-hidden.njk" import nhsukVisuallyHidden %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-header" -%}
@@ -250,7 +251,11 @@
       {% endfor %}
         <li class="nhsuk-header__menu" hidden>
           <button class="nhsuk-header__menu-toggle nhsuk-header__navigation-link" id="toggle-menu" aria-expanded="false">
-            <span class="nhsuk-u-visually-hidden">{{ params.navigation.toggleMenuVisuallyHiddenText | default("Browse") }} </span>{{ params.navigation.toggleMenuText | default("More") }}
+            {{ nhsukVisuallyHidden({
+              text: params.navigation.toggleMenuVisuallyHiddenText | default("Browse"),
+              slots: { end: " " }
+            }) | trim }}
+            {{- params.navigation.toggleMenuText | default("More") }}
           </button>
         </li>
       </ul>

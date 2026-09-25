@@ -48,8 +48,39 @@ const options = {
       visuallyHiddenText: {
         type: 'string',
         required: false,
-        description: 'A visually hidden suffix added to the table cell.',
+        description:
+          'Optional alias for the table cell `visuallyHidden` option. Defaults to `"end"` placement when set to a string.',
         released: '10.6.0'
+      },
+      visuallyHidden: {
+        type: 'string',
+        required: false,
+        description:
+          'Optional visually hidden content used within the table cell.',
+        released: '10.7.0',
+        params: {
+          text: {
+            type: 'string',
+            required: false,
+            description:
+              'Visually hidden text to use within the table cell. If `html` is provided, the `text` option will be ignored.',
+            released: '10.7.0'
+          },
+          html: {
+            type: 'string',
+            required: false,
+            description:
+              'Visually hidden HTML to use within the table cell. If `html` is provided, the `text` option will be ignored.',
+            released: '10.7.0'
+          },
+          placement: {
+            type: 'string',
+            required: false,
+            description:
+              'Placement of the visually hidden content within the table cell – `"start"` or `"end"`. Defaults to `"end"`.',
+            released: '10.7.0'
+          }
+        }
       },
       header: {
         type: 'string',
@@ -142,8 +173,39 @@ const options = {
       visuallyHiddenText: {
         type: 'string',
         required: false,
-        description: 'A visually hidden suffix added to the table head cell.',
+        description:
+          'Optional alias for the table head cell `visuallyHidden` option. Defaults to `"end"` placement when set to a string.',
         released: '10.6.0'
+      },
+      visuallyHidden: {
+        type: 'string',
+        required: false,
+        description:
+          'Optional visually hidden content used within the table head cell.',
+        released: '10.7.0',
+        params: {
+          text: {
+            type: 'string',
+            required: false,
+            description:
+              'Visually hidden text to use within the table head cell. If `html` is provided, the `text` option will be ignored.',
+            released: '10.7.0'
+          },
+          html: {
+            type: 'string',
+            required: false,
+            description:
+              'Visually hidden HTML to use within the table head cell. If `html` is provided, the `text` option will be ignored.',
+            released: '10.7.0'
+          },
+          placement: {
+            type: 'string',
+            required: false,
+            description:
+              'Placement of the visually hidden content within the table head cell – `"start"` or `"end"`. Defaults to `"end"`.',
+            released: '10.7.0'
+          }
+        }
       },
       href: {
         type: 'string',
@@ -247,8 +309,31 @@ const options = {
         type: 'string',
         required: false,
         description:
-          'Message made available to assistive technologies to describe that the table is sortable. Defaults to `"Column headers are sortable"`.',
+          'Optional alias for the table caption `visuallyHidden` option.',
         released: '10.6.0'
+      },
+      visuallyHidden: {
+        type: 'string',
+        required: false,
+        description:
+          'Visually hidden content made available to assistive technologies to describe that the table is sortable. Defaults to `"Column headers are sortable"`.',
+        released: '10.7.0',
+        params: {
+          text: {
+            type: 'string',
+            required: false,
+            description:
+              'Visually hidden text to use within the table caption. If `html` is provided, the `text` option will be ignored.',
+            released: '10.7.0'
+          },
+          html: {
+            type: 'string',
+            required: false,
+            description:
+              'Visually hidden HTML to use within the table caption. If `html` is provided, the `text` option will be ignored.',
+            released: '10.7.0'
+          }
+        }
       },
       caption: {
         type: 'object',
