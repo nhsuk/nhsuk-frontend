@@ -1049,8 +1049,7 @@ const fixtures = {
   "without border": {
     context: {
       caption: {
-        text: "Cases per manager",
-        classes: "nhsuk-u-visually-hidden"
+        visuallyHiddenText: "Cases per manager"
       },
       border: false,
       head: [
@@ -1094,8 +1093,7 @@ const fixtures = {
   "without last row border": {
     context: {
       caption: {
-        text: "Cases per manager",
-        classes: "nhsuk-u-visually-hidden"
+        visuallyHiddenText: "Cases per manager"
       },
       lastRowBorder: false,
       head: [
