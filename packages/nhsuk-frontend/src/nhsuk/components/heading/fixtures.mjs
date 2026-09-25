@@ -209,6 +209,16 @@ const fixtures = {
       caption: "About you",
       size: "l"
     }
+  },
+  "with visually hidden options": {
+    context: {
+      text: "Home address",
+      visuallyHidden: {
+        text: "Important:",
+        placement: "start"
+      },
+      size: "l"
+    }
   }
 }
 

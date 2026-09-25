@@ -36,8 +36,38 @@ const options = {
   visuallyHiddenText: {
     type: 'string',
     required: false,
-    description: 'A visually hidden suffix added to the heading.',
+    description:
+      'Optional alias for the heading `visuallyHidden` option. Defaults to `"end"` placement when set to a string.',
     released: '10.6.0'
+  },
+  visuallyHidden: {
+    type: 'string',
+    required: false,
+    description: 'Optional visually hidden content used within the heading.',
+    released: '10.7.0',
+    params: {
+      text: {
+        type: 'string',
+        required: false,
+        description:
+          'Visually hidden text to use within the heading. If `html` is provided, the `text` option will be ignored.',
+        released: '10.7.0'
+      },
+      html: {
+        type: 'string',
+        required: false,
+        description:
+          'Visually hidden HTML to use within the heading. If `html` is provided, the `text` option will be ignored.',
+        released: '10.7.0'
+      },
+      placement: {
+        type: 'string',
+        required: false,
+        description:
+          'Placement of the visually hidden content within the heading – `"start"` or `"end"`. Defaults to `"end"`.',
+        released: '10.7.0'
+      }
+    }
   },
   href: {
     type: 'string',
