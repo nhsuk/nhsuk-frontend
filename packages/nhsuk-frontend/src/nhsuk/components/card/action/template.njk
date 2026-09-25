@@ -58,9 +58,10 @@
     {{- params.text | trim | indent(2) -}}
   {%- endif -%}
   {%- if params.visuallyHiddenText or heading.text or heading.html %}
-    {{- nhsukVisuallyHidden((" " ~ params.visuallyHiddenText) | trim if not (heading.text or heading.html) else {
-      text: (" " ~ params.visuallyHiddenText | default("") ~ " (" ~ heading.text ~ ")") | trim if heading.text,
-      html: (" " ~ params.visuallyHiddenText | default("") ~ " (" ~ heading.html | safe ~ ")") | trim if heading.html
+    {{- nhsukVisuallyHidden(params.visuallyHiddenText if not (heading.text or heading.html) else {
+      text: (params.visuallyHiddenText | default("") ~ " (" ~ heading.text ~ ")") | trim if heading.text,
+      html: (params.visuallyHiddenText | default("") ~ " (" ~ heading.html | safe ~ ")") | trim if heading.html,
+      slots: { start: " " }
     }) | trim -}}
   {% endif -%}
 </{{ element }}>
