@@ -251,7 +251,10 @@
       {% endfor %}
         <li class="nhsuk-header__menu" hidden>
           <button class="nhsuk-header__menu-toggle nhsuk-header__navigation-link" id="toggle-menu" aria-expanded="false">
-            {{ nhsukVisuallyHidden(params.navigation.toggleMenuVisuallyHiddenText | default("Browse") ~ " ") | trim }}
+            {{ nhsukVisuallyHidden({
+              text: params.navigation.toggleMenuVisuallyHiddenText | default("Browse"),
+              slots: { end: " " }
+            }) | trim }}
             {{- params.navigation.toggleMenuText | default("More") }}
           </button>
         </li>
