@@ -104,7 +104,7 @@ describe('Macro: Content', () => {
     it('renders text and visually hidden text', () => {
       const input = {
         text: 'Change',
-        visuallyHidden: ' details for Zadie Munroe'
+        visuallyHidden: 'details for Zadie Munroe'
       }
 
       const expected = [
@@ -121,7 +121,7 @@ describe('Macro: Content', () => {
     it('renders text and visually hidden text (alias)', () => {
       const input = {
         text: 'Change',
-        visuallyHiddenText: ' details for Zadie Munroe'
+        visuallyHiddenText: 'details for Zadie Munroe'
       }
 
       const expected = [
@@ -174,7 +174,7 @@ describe('Macro: Content', () => {
       const input = {
         text: 'Enter your date of birth',
         visuallyHidden: {
-          text: 'Error: ',
+          text: 'Error:',
           placement: 'start'
         }
       }
@@ -194,7 +194,7 @@ describe('Macro: Content', () => {
       const input = {
         text: 'Enter your date of birth',
         visuallyHidden: {
-          text: ' (Karen Francis)',
+          text: '(Karen Francis)',
           placement: 'end'
         }
       }
