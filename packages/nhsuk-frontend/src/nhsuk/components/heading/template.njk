@@ -1,5 +1,6 @@
 {% from "nhsuk/components/caption/macro.njk" import caption as nhsukCaption %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/visually-hidden.njk" import nhsukVisuallyHidden %}
 
 {#- Set classes for this component #}
 {%- set className = params.className | default("nhsuk-heading") -%}
@@ -100,7 +101,7 @@
   {% else %}
     {{- innerHtml | safe | trim | indent(2, true) -}}
   {% endif -%}
-  <span class="nhsuk-u-visually-hidden"> {{ params.visuallyHiddenText }}</span>
+  {{ nhsukVisuallyHidden(" " ~ params.visuallyHiddenText) | trim }}
 {% else %}
   {% if caller %}
     {{- caller() }}

@@ -1,4 +1,5 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/visually-hidden.njk" import nhsukVisuallyHidden %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-contents-list" -%}
@@ -34,8 +35,9 @@
 
 <nav class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %} role="navigation" aria-label="{{ ariaLabel }}"
   {{- nhsukAttributes(params.attributes) }}>
-  <h2 class="nhsuk-u-visually-hidden">
-    {{- params.visuallyHiddenText | default("Contents", true) -}}
-  </h2>
+  {{ nhsukVisuallyHidden({
+    text: params.visuallyHiddenText | default("Contents", true),
+    element: "h2"
+  }) | trim | indent(2) }}
   {{ _contentsList(params.items) | trim | indent(2) }}
 </nav>

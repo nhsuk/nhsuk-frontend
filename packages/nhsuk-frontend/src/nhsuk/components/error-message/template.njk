@@ -1,4 +1,5 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/visually-hidden.njk" import nhsukVisuallyHidden %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-error-message" -%}
@@ -22,7 +23,7 @@
 <span class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
   {{- nhsukAttributes(params.attributes) }}>
   {% if visuallyHiddenText %}
-  <span class="nhsuk-u-visually-hidden">{{ visuallyHiddenText }}: </span>
+  {{ nhsukVisuallyHidden(visuallyHiddenText ~ ": ") | trim }}
   {{- innerHtml | safe | trim | indent(2) }}
   {% else %}
   {{ innerHtml | safe | trim | indent(2) }}

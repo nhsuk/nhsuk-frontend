@@ -1,4 +1,5 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/visually-hidden.njk" import nhsukVisuallyHidden %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-inset-text" -%}
@@ -9,7 +10,7 @@
 
 <div class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
   {{- nhsukAttributes(params.attributes) }}>
-  <span class="nhsuk-u-visually-hidden">{{ params.visuallyHiddenText | default("Information", true) }}: </span>
+  {{ nhsukVisuallyHidden(params.visuallyHiddenText | default("Information", true) ~ ": ") | trim }}
 {% if caller %}
   {{- caller() }}
 {% elif params.html %}

@@ -1,4 +1,5 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/visually-hidden.njk" import nhsukVisuallyHidden %}
 
 {#- Set variant for this component #}
 {%- set variant = params.variant -%}
@@ -60,7 +61,7 @@
 
 <{{ element }} {{- attributesHtml | safe }}>
   {% if params.visuallyHiddenText %}
-  <span class="nhsuk-u-visually-hidden">{{ params.visuallyHiddenText }} </span>
+  {{ nhsukVisuallyHidden(params.visuallyHiddenText ~ " ") | trim }}
   {{- innerHtml | safe | trim | indent(2) }}
   {% else %}
   {{ innerHtml | safe | trim | indent(2) }}
