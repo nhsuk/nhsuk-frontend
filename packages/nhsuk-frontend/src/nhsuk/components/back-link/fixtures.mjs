@@ -64,6 +64,31 @@ const fixtures = {
       text: "A&E",
       visuallyHiddenText: "Back to"
     }
+  },
+  "with visually hidden text escaping": {
+    context: {
+      text: "Waiting times",
+      visuallyHidden: {
+        text: "A&E:"
+      }
+    }
+  },
+  "with visually hidden HTML": {
+    context: {
+      text: "A&E",
+      visuallyHidden: {
+        html: "Back&nbsp;to"
+      }
+    }
+  },
+  "with visually hidden options": {
+    context: {
+      text: "Back",
+      visuallyHidden: {
+        text: "to A&E",
+        placement: "end"
+      }
+    }
   }
 }
 
