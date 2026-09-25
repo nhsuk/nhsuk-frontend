@@ -1,0 +1,32 @@
+@use "../settings" as *;
+@use "../tools" as *;
+
+.nhsuk-back-to-top {
+  box-sizing: border-box;
+  display: inline-block;
+  position: relative;
+  @include nhsuk-responsive-margin(5, "bottom");
+
+  @media print {
+    display: none;
+  }
+}
+
+.nhsuk-back-to-top__link {
+  display: inline-block;
+  @include nhsuk-font(16, $line-height: 1.5);
+
+  @media #{nhsuk-until-breakpoint(tablet)} {
+    font-size: inherit;
+  }
+
+  .nhsuk-icon {
+    position: relative;
+    top: nhsuk-px-to-rem(-1px);
+
+    width: nhsuk-px-to-rem($nhsuk-icon-size-small);
+    height: nhsuk-px-to-rem($nhsuk-icon-size-small);
+    margin-right: nhsuk-px-to-rem(4px);
+    margin-left: nhsuk-px-to-rem(-4px);
+  }
+}
