@@ -1,4 +1,5 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/slot.njk" import nhsukSlot %}
 
 {#- Set classes for this component #}
 {% set classNames = "nhsuk-u-visually-hidden" %}
@@ -22,19 +23,28 @@
 
 {%- set content = {
   text: params.text,
-  html: caller() if caller else params.html
+  html: caller() if caller else params.html,
+  slots: params.slots
 } %}
 
 {%- set hasContent = true if content.html or content.text not in [undefined, null, false] and
   ((content.text is string or content.text is number) and content.text | string | length) else false %}
 
+{{- nhsukSlot("before", content) -}}
+
 {%- if hasContent %}
 <{{ element }} class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
   {{- nhsukAttributes(params.attributes) }}>
-  {%- if content.html %}
+  {{- nhsukSlot("start", content) -}}
+
+  {% if content.html %}
     {{- content.html | safe -}}
   {% elif content.text is string or content.text is number %}
     {{- content.text | string -}}
-  {% endif -%}
+  {% endif %}
+
+  {{- nhsukSlot("end", content) -}}
 </{{ element }}>
 {% endif %}
+
+{{- nhsukSlot("after", content) -}}

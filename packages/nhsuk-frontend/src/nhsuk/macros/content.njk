@@ -30,10 +30,29 @@
 {%- set hasVisuallyHidden = true if content.visuallyHidden.html or content.visuallyHidden.text not in [undefined, null, false] and
   ((content.visuallyHidden.text is string or content.visuallyHidden.text is number) and content.visuallyHidden.text | string | length) else false %}
 
+{#- Set visually hidden slots based on placement #}
+{%- set visuallyHiddenSlots = content.visuallyHidden.slots if content.visuallyHidden.slots is mapping and content.visuallyHidden.slots is not escaped else {
+  start: " " if hasContent and (content.visuallyHidden.placement == "end" or not content.visuallyHidden.placement) else undefined,
+  end: " " if hasContent and content.visuallyHidden.placement == "start" else undefined
+} %}
+
 {%- if hasContent or hasVisuallyHidden %}
+{%- set visuallyHiddenHtml %}
+  {{- nhsukVisuallyHidden({
+    id: content.visuallyHidden.id,
+    text: content.visuallyHidden.text,
+    html: content.visuallyHidden.html,
+    classes: content.visuallyHidden.classes,
+    attributes: content.visuallyHidden.attributes,
+    placement: content.visuallyHidden.placement,
+    element: content.visuallyHidden.element,
+    slots: visuallyHiddenSlots
+  }) | trim -}}
+{% endset %}
+
 {%- set innerHtml %}
   {%- if content.visuallyHidden.placement == "start" %}
-    {{- nhsukVisuallyHidden(content.visuallyHidden) | trim -}}
+    {{- visuallyHiddenHtml | safe | trim -}}
   {% endif %}
 
   {%- if content.html %}
@@ -43,12 +62,12 @@
   {% endif %}
 
   {%- if content.visuallyHidden.placement == "end" or (hasVisuallyHidden and not content.visuallyHidden.placement) %}
-    {{- nhsukVisuallyHidden(content.visuallyHidden) | trim -}}
+    {{- visuallyHiddenHtml | safe | trim -}}
   {% endif -%}
 {% endset %}
 
 {%- if content.visuallyHidden.placement == "before" %}
-  {{- nhsukVisuallyHidden(content.visuallyHidden) | trim -}}
+  {{- visuallyHiddenHtml | safe | trim -}}
 
   {{- "\n" | safe if hasContent -}}
 {% endif %}
@@ -58,7 +77,7 @@
 {%- if content.visuallyHidden.placement == "after" %}
   {{- "\n" | safe if hasContent -}}
 
-  {{- nhsukVisuallyHidden(content.visuallyHidden) | trim -}}
+  {{- visuallyHiddenHtml | safe | trim -}}
 {% endif %}
 {% endif %}
 {%- endmacro %}

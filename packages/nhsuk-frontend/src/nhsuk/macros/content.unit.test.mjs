@@ -120,7 +120,7 @@ describe('Macro: Content', () => {
         description: 'visually hidden text',
         context: {
           text: 'Change',
-          visuallyHidden: ' details for Zadie Munroe'
+          visuallyHidden: 'details for Zadie Munroe'
         },
         expected: outdent`
           Change<span class="nhsuk-u-visually-hidden"> details for Zadie Munroe</span>
@@ -130,7 +130,7 @@ describe('Macro: Content', () => {
         description: 'visually hidden text (alias)',
         context: {
           text: 'Change',
-          visuallyHiddenText: ' details for Zadie Munroe'
+          visuallyHiddenText: 'details for Zadie Munroe'
         },
         expected: outdent`
           Change<span class="nhsuk-u-visually-hidden"> details for Zadie Munroe</span>
@@ -164,7 +164,7 @@ describe('Macro: Content', () => {
         context: {
           text: 'Enter your date of birth',
           visuallyHidden: {
-            text: 'Error: ',
+            text: 'Error:',
             placement: 'start'
           }
         },
@@ -177,7 +177,7 @@ describe('Macro: Content', () => {
         context: {
           text: 'Enter your date of birth',
           visuallyHidden: {
-            text: ' (Karen Francis)',
+            text: '(Karen Francis)',
             placement: 'end'
           }
         },
