@@ -1,4 +1,5 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/visually-hidden.njk" import nhsukVisuallyHidden %}
 
 {#-
   Renders text, HTML or visually hidden content
@@ -11,21 +12,49 @@
   html: params if params is escaped else undefined
 } -%}
 
+{#- Support visually hidden content as string or number #}
+{%- set visuallyHidden = params.visuallyHidden if params.visuallyHidden is mapping and params.visuallyHidden is not escaped else {
+  text: params.visuallyHidden if params.visuallyHidden is string or params.visuallyHidden is number else params.visuallyHiddenText,
+  html: params.visuallyHidden if params.visuallyHidden is escaped else undefined
+} -%}
+
 {%- set hasContent = true if caller or params.html or params.text not in [undefined, null, false] and
   (params.text is string or params.text is number) else false %}
 
-{%- if hasContent %}
+{%- set hasVisuallyHidden = true if visuallyHidden.html or visuallyHidden.text not in [undefined, null, false] and
+  (visuallyHidden.text is string or visuallyHidden.text is number) else false %}
+
+{%- if hasContent or hasVisuallyHidden %}
 {%- set innerHtml %}
+  {%- if visuallyHidden.placement == "start" %}
+    {{- nhsukVisuallyHidden(visuallyHidden) | trim -}}
+  {% endif %}
+
   {%- if caller %}
     {{- caller() -}}
   {% elif params.html %}
     {{- params.html | safe -}}
-  {% else %}
+  {% elif params.text is string or params.text is number %}
     {{- params.text | string -}}
+  {% endif %}
+
+  {%- if visuallyHidden.placement == "end" or (hasVisuallyHidden and not visuallyHidden.placement) %}
+    {{- nhsukVisuallyHidden(visuallyHidden) | trim -}}
   {% endif -%}
 {% endset %}
 
+{%- if visuallyHidden.placement == "before" %}
+  {{- nhsukVisuallyHidden(visuallyHidden) | trim -}}
+
+  {{- "\n" | safe if hasContent -}}
+{% endif %}
+
 {{- innerHtml | safe -}}
 
+{%- if visuallyHidden.placement == "after" %}
+  {{- "\n" | safe if hasContent -}}
+
+  {{- nhsukVisuallyHidden(visuallyHidden) | trim -}}
+{% endif %}
 {% endif %}
 {%- endmacro %}

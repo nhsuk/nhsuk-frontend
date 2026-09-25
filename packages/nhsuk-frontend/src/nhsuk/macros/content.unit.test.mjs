@@ -100,6 +100,135 @@ describe('Macro: Content', () => {
       const output = renderMacro(input)
       expect(output).toBe(expected)
     })
+
+    it('renders text and visually hidden text', () => {
+      const input = {
+        text: 'Change',
+        visuallyHidden: ' details for Zadie Munroe'
+      }
+
+      const expected = [
+        'Change',
+        '<span class="nhsuk-u-visually-hidden">',
+        ' details for Zadie Munroe',
+        '</span>'
+      ].join('')
+
+      const output = renderMacro(input)
+      expect(output).toBe(expected)
+    })
+
+    it('renders text and visually hidden text (alias)', () => {
+      const input = {
+        text: 'Change',
+        visuallyHiddenText: ' details for Zadie Munroe'
+      }
+
+      const expected = [
+        'Change',
+        '<span class="nhsuk-u-visually-hidden">',
+        ' details for Zadie Munroe',
+        '</span>'
+      ].join('')
+
+      const output = renderMacro(input)
+      expect(output).toBe(expected)
+    })
+
+    it('renders visually hidden text only', () => {
+      const input = {
+        visuallyHidden: 'details for Zadie Munroe'
+      }
+
+      const expected = [
+        '<span class="nhsuk-u-visually-hidden">',
+        'details for Zadie Munroe',
+        '</span>'
+      ].join('')
+
+      const output = renderMacro(input)
+      expect(output).toBe(expected)
+    })
+
+    it('renders text and visually hidden text "before"', () => {
+      const input = {
+        text: 'Enter your date of birth',
+        visuallyHidden: {
+          text: 'Error:',
+          placement: 'before'
+        }
+      }
+
+      const expected = [
+        '<span class="nhsuk-u-visually-hidden">',
+        'Error:',
+        '</span>\n',
+        'Enter your date of birth'
+      ].join('')
+
+      const output = renderMacro(input)
+      expect(output).toBe(expected)
+    })
+
+    it('renders text and visually hidden text "start"', () => {
+      const input = {
+        text: 'Enter your date of birth',
+        visuallyHidden: {
+          text: 'Error: ',
+          placement: 'start'
+        }
+      }
+
+      const expected = [
+        '<span class="nhsuk-u-visually-hidden">',
+        'Error: ',
+        '</span>',
+        'Enter your date of birth'
+      ].join('')
+
+      const output = renderMacro(input)
+      expect(output).toBe(expected)
+    })
+
+    it('renders text and visually hidden text "end"', () => {
+      const input = {
+        text: 'Enter your date of birth',
+        visuallyHidden: {
+          text: ' (Karen Francis)',
+          placement: 'end'
+        }
+      }
+
+      const expected = [
+        'Enter your date of birth',
+        '<span class="nhsuk-u-visually-hidden">',
+        ' (Karen Francis)',
+        '</span>'
+      ].join('')
+
+      const output = renderMacro(input)
+      expect(output).toBe(expected)
+    })
+
+    it('renders text and visually hidden text "after"', () => {
+      const input = {
+        text: 'Enter your date of birth',
+        visuallyHidden: {
+          text: '(Karen Francis)',
+          placement: 'after'
+        }
+      }
+
+      const expected = [
+        'Enter your date of birth\n',
+        '<span class="nhsuk-u-visually-hidden">',
+        '(Karen Francis)',
+        '</span>'
+      ].join('')
+
+      const output = renderMacro(input)
+      expect(output).toBe(expected)
+    })
   })
 })
 
