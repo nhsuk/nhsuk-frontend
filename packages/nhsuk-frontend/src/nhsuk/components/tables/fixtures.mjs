@@ -510,6 +510,10 @@ const fixtures = {
         {
           text: "Vaccine"
         },
+        {
+          text: "",
+          visuallyHiddenText: "Action"
+        },
         false
       ],
       rows: [
@@ -519,6 +523,11 @@ const fixtures = {
           },
           {
             text: "RSV"
+          },
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: false
           },
           false
         ],
@@ -549,7 +558,22 @@ const fixtures = {
       },
       firstCellIsHeader: true,
       head: ["Date", "Vaccine", false],
-      rows: [["10 July 2024", "RSV", false], false]
+      rows: [["10 July 2024", "RSV", false], true]
+    }
+  },
+  "with number items": {
+    context: {
+      caption: {
+        text: "Vaccination count",
+        size: "m"
+      },
+      firstCellIsHeader: true,
+      head: ["Date", "Vaccine", "Count"],
+      rows: [
+        ["10 July 2024", "RSV", 0],
+        ["6 September 2023", "Flu", 89],
+        ["15 October 2023", "MMR", 44]
+      ]
     }
   },
   "with missing data": {
