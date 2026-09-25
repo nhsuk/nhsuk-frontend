@@ -1,3 +1,4 @@
+{% from "nhsuk/components/link/macro.njk" import link as nhsukLink %}
 {% from "nhsuk/components/heading/macro.njk" import heading as nhsukHeading %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/visually-hidden.njk" import nhsukVisuallyHidden %}
@@ -39,10 +40,13 @@
 {% for item in items %}
   {% if item %}
   <li class="nhsuk-footer__list-item">
-    <a class="nhsuk-footer__list-item-link" href="{{ item.href }}"
-      {{- nhsukAttributes(item.attributes) }}>
-      {{- item.html | safe | trim | indent(6) if item.html else item.text -}}
-    </a>
+    {{ nhsukLink({
+      href: item.href,
+      text: item.text,
+      html: item.html,
+      className: "nhsuk-footer__list-item-link",
+      attributes: item.attributes
+    }) | trim | indent(4) }}
   </li>
   {% endif %}
 {% endfor %}

@@ -75,6 +75,13 @@ const options = {
     description: 'If set, the heading will become a link.',
     released: '10.6.0'
   },
+  openInNewTab: {
+    type: 'boolean',
+    required: false,
+    description:
+      'If set to `true`, then the heading link will open in a new tab.',
+    released: '10.7.0'
+  },
   caption: {
     type: 'object',
     required: false,

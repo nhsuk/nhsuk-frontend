@@ -35,17 +35,6 @@ const fixtures = {
       selector: ".nhsuk-back-link"
     }
   },
-  "as a button": {
-    context: {
-      text: "Back",
-      type: "submit"
-    },
-    variants,
-    screenshot: {
-      states: ["focus", "hover", "active"],
-      selector: ".nhsuk-back-link"
-    }
-  },
   "with text escaping": {
     context: {
       text: "What to expect at A&E"
@@ -88,6 +77,17 @@ const fixtures = {
         text: "to A&E",
         placement: "end"
       }
+    }
+  },
+  "as a button": {
+    context: {
+      text: "Back",
+      type: "submit"
+    },
+    variants,
+    screenshot: {
+      states: ["focus", "hover", "active"],
+      selector: ".nhsuk-back-link"
     }
   }
 }
