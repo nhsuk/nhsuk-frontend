@@ -126,9 +126,10 @@
   {{- nhsukContent({
     text: params.text,
     visuallyHidden: {
-      text: params.visuallyHiddenText ~ ": ",
-      placement: "start"
-    } if params.visuallyHiddenText else undefined
+      text: params.visuallyHiddenText,
+      placement: "start",
+      slots: { end: ": " }
+    }
   }) | trim }}
 {%- endset %}
 
