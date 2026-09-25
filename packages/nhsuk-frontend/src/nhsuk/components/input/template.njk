@@ -41,7 +41,7 @@
 {% endif %}
 
 {%- if params.width and
-  params.width | string in ["2", "3", "4", "4", "5", "10", "20", "30"] and (
+  params.width | string in ["2", "3", "4", "5", "10", "20", "30"] and (
     not params.classes or (
       not "nhsuk-input--width-2" in params.classes and
       not "nhsuk-input--width-3" in params.classes and
