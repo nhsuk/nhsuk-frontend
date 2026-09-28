@@ -188,7 +188,7 @@
     {{- nhsukContent({
       text: parent.header.text | default(item.header),
       html: parent.header.html,
-      visuallyHiddenText: parent.header.visuallyHiddenText
+      visuallyHidden: parent.header.visuallyHidden | default(parent.header.visuallyHiddenText)
     }) | safe | trim | indent(2) }} </span>
 
   {%- if item.html -%}
@@ -254,7 +254,7 @@
       {{- _tableCell({
         text: header.text,
         html: header.html,
-        visuallyHiddenText: header.visuallyHiddenText,
+        visuallyHidden: header.visuallyHidden | default(header.visuallyHiddenText),
         format: header.format,
         href: header.href,
         openInNewTab: header.openInNewTab,
@@ -312,7 +312,7 @@
       {{- _tableCell({
         text: data.text,
         html: data.html,
-        visuallyHiddenText: data.visuallyHiddenText,
+        visuallyHidden: data.visuallyHidden | default(data.visuallyHiddenText),
         format: data.format | default(header.format),
         href: data.href,
         openInNewTab: data.openInNewTab,
