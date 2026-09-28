@@ -17,6 +17,7 @@
 
   @each $width in map.keys($nhsuk-grid-widths) {
     .nhsuk-grid-column-#{$width} {
+      container-type: inline-size;
       @include nhsuk-grid-column($width);
     }
   }
