@@ -60,7 +60,7 @@
 {%- set content = {
   text: params.text,
   html: params.html,
-  visuallyHiddenText: params.visuallyHiddenText
+  visuallyHidden: params.visuallyHidden | default(params.visuallyHiddenText)
 } %}
 
 {%- set innerHtml %}
