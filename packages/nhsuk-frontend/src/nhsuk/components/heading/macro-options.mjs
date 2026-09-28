@@ -36,8 +36,16 @@ const options = {
   visuallyHiddenText: {
     type: 'string',
     required: false,
-    description: 'A visually hidden suffix added to the heading.',
+    description:
+      'Optional alias for the heading `visuallyHidden` option. Defaults to `"end"` placement when set to a string.',
     released: '10.6.0'
+  },
+  visuallyHidden: {
+    type: 'object',
+    required: false,
+    description: 'Optional visually hidden content used within the heading.',
+    released: '10.7.0',
+    isComponent: true
   },
   href: {
     type: 'string',
