@@ -237,6 +237,16 @@ const fixtures = {
       size: "l"
     }
   },
+  "with visually hidden options": {
+    context: {
+      text: "Home address",
+      visuallyHidden: {
+        text: "Important:",
+        placement: "start"
+      },
+      size: "l"
+    }
+  },
   "with custom class and size": {
     context: {
       text: "What is your full name?",
