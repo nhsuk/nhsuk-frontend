@@ -256,7 +256,7 @@
       {{- _tableCell({
         text: header.text,
         html: header.html,
-        visuallyHiddenText: header.visuallyHiddenText,
+        visuallyHidden: header.visuallyHidden | default(header.visuallyHiddenText),
         format: header.format,
         href: header.href,
         openInNewTab: header.openInNewTab,
@@ -315,7 +315,7 @@
       {{- _tableCell({
         text: data.text,
         html: data.html,
-        visuallyHiddenText: data.visuallyHiddenText,
+        visuallyHidden: data.visuallyHidden | default(data.visuallyHiddenText),
         format: data.format | default(header.format),
         href: data.href,
         openInNewTab: data.openInNewTab,

@@ -48,8 +48,17 @@ const options = {
       visuallyHiddenText: {
         type: 'string',
         required: false,
-        description: 'A visually hidden suffix added to the table cell.',
+        description:
+          'Optional alias for the table cell `visuallyHidden` option. Defaults to `"end"` placement when set to a string.',
         released: '10.6.0'
+      },
+      visuallyHidden: {
+        type: 'object',
+        required: false,
+        description:
+          'Optional visually hidden content used within the table cell.',
+        released: '10.7.0',
+        isComponent: true
       },
       header: {
         type: 'string',
@@ -149,8 +158,17 @@ const options = {
       visuallyHiddenText: {
         type: 'string',
         required: false,
-        description: 'A visually hidden suffix added to the table head cell.',
+        description:
+          'Optional alias for the table head cell `visuallyHidden` option. Defaults to `"end"` placement when set to a string.',
         released: '10.6.0'
+      },
+      visuallyHidden: {
+        type: 'object',
+        required: false,
+        description:
+          'Optional visually hidden content used within the table head cell.',
+        released: '10.7.0',
+        isComponent: true
       },
       href: {
         type: 'string',
