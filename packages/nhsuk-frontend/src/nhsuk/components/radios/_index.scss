@@ -129,6 +129,7 @@ $nhsuk-radios-offset: $nhsuk-border-width-form-element;
     width: 0;
     height: 0;
 
+    // Align radio button to centre
     transform: translate(-50%, -50%);
 
     border: nhsuk-px-to-rem(10px) solid currentcolor;
