@@ -1,0 +1,290 @@
+{% extends "layouts/page.njk" %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+{% set pageHeading = "Health A to Z" %}
+
+{% block header %}
+  {{ header({
+    logo: {
+      href: baseUrl
+    },
+    search: true,
+    account: {
+      items: [
+        {
+          action: "#",
+          text: "My account"
+        }
+      ]
+    },
+    navigation: {
+      items: [
+        {
+          text: "Health A to Z",
+          href: baseUrl ~ "examples/full-page/health-a-to-z/",
+          current: true
+        },
+        {
+          text: "NHS services",
+          href: "#"
+        },
+        {
+          text: "Healthy living",
+          href: "#"
+        },
+        {
+          text: "Mental health",
+          href: "#"
+        },
+        {
+          text: "Care and support",
+          href: "#"
+        }
+      ]
+    }
+  }) }}
+  {% include "partials/banner-header.njk" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ breadcrumb({
+    items: [
+      {
+        text: "Home",
+        href: baseUrl
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhsuk-heading-xl">{{ pageHeading }}</h1>
+      <p class="nhsuk-lede-text">Find out about conditions, symptoms, medicines, tests and treatments, including what to do and when to get help.</p>
+
+    </div>
+  </div>
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <ul class="nhsuk-grid-row nhsuk-card-group">
+        <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+          {{ card({
+            href: baseUrl ~ "examples/full-page/conditions/",
+            heading: {
+              text: "Conditions A to Z",
+              size: "m"
+            },
+            description: "Find health conditions, including the symptoms and how they're treated",
+            variant: "primary",
+            clickable: true
+          }) }}
+        </li>
+        <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+          {{ card({
+            href: "#",
+            heading: {
+              text: "Symptoms A to Z",
+              size: "m"
+            },
+            description: "Find symptoms such as types of pain, stomach problems or skin symptoms, and what to do",
+            variant: "primary",
+            clickable: true
+          }) }}
+        </li>
+        <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+          {{ card({
+            href: "#",
+            heading: {
+              text: "Tests and treatments A to Z",
+              size: "m"
+            },
+            description: "Find out about surgery and procedures, tests, screening and other treatments",
+            variant: "primary",
+            clickable: true
+          }) }}
+        </li>
+        <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+          {{ card({
+            href: baseUrl ~ "examples/full-page/medicines/",
+            heading: {
+              text: "Medicines A to Z",
+              size: "m"
+            },
+            description: "Find out how your medicine works, how to take it and possible side effects",
+            variant: "primary",
+            clickable: true
+          }) }}
+        </li>
+      </ul>
+
+      <ul class="nhsuk-grid-row nhsuk-card-group">
+        <li class="nhsuk-grid-column-one-third nhsuk-card-group__item nhsuk-u-margin-bottom-4">
+          {{ card({
+            href: "#",
+            heading: {
+              text: "Baby",
+              size: "m"
+            },
+            description: "Find out about caring for a baby",
+            variant: "secondary",
+            clickable: true
+          }) }}
+        </li>
+        <li class="nhsuk-grid-column-one-third nhsuk-card-group__item nhsuk-u-margin-bottom-4">
+          {{ card({
+            href: "#",
+            heading: {
+              text: "Contraception",
+              size: "m"
+            },
+            description: "Find out about types of contraception, and where to get them",
+            variant: "secondary",
+            clickable: true
+          }) }}
+        </li>
+        <li class="nhsuk-grid-column-one-third nhsuk-card-group__item nhsuk-u-margin-bottom-4">
+          {{ card({
+            href: "#",
+            heading: {
+              text: "Mental health",
+              size: "m"
+            },
+            description: "Find information and support for your mental health",
+            variant: "secondary",
+            clickable: true
+          }) }}
+        </li>
+        <li class="nhsuk-grid-column-one-third nhsuk-card-group__item nhsuk-u-margin-bottom-4">
+          {{ card({
+            href: "#",
+            heading: {
+              text: "Pregnancy",
+              size: "m"
+            },
+            description: "Find out about trying for a baby, pregnancy, labour and birth",
+            variant: "secondary",
+            clickable: true
+          }) }}
+        </li>
+        <li class="nhsuk-grid-column-one-third nhsuk-card-group__item nhsuk-u-margin-bottom-4">
+          {{ card({
+            href: "#",
+            heading: {
+              text: "Vaccinations",
+              size: "m"
+            },
+            description: "Find out about vaccinations for babies, children and adults",
+            variant: "secondary",
+            clickable: true
+          }) }}
+        </li>
+      </ul>
+
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+  {{ footer({
+    copyright: {
+      text: "© Crown copyright"
+    },
+    navigation: [
+      {
+        items: [
+          {
+            href: "#",
+            text: "Home"
+          },
+          {
+            href: baseUrl ~ "examples/full-page/health-a-to-z/",
+            text: "Health A to Z"
+          },
+          {
+            href: "#",
+            text: "NHS services"
+          },
+          {
+            href: "#",
+            text: "Healthy living"
+          },
+          {
+            href: "#",
+            text: "Mental health"
+          },
+          {
+            href: "#",
+            text: "Care and support"
+          },
+          {
+            href: "#",
+            text: "COVID-19"
+          }
+        ]
+      },
+      {
+        items: [
+          {
+            href: "#",
+            text: "NHS App"
+          },
+          {
+            href: "#",
+            text: "Find my NHS number"
+          },
+          {
+            href: "#",
+            text: "View your test results"
+          },
+          {
+            href: "#",
+            text: "About the NHS"
+          },
+          {
+            href: "#",
+            text: "Healthcare abroad"
+          }
+        ]
+      },
+      {
+        items: [
+          {
+            href: "#",
+            text: "Manage NHS profiles"
+          },
+          {
+            href: "#",
+            text: "Other NHS websites"
+          }
+        ]
+      },
+      {
+        items: [
+          {
+            href: "#",
+            text: "About us"
+          },
+          {
+            href: "#",
+            text: "Report an issue with the NHS website"
+          },
+          {
+            href: "#",
+            text: "Accessibility statement"
+          },
+          {
+            href: "#",
+            text: "Our policies"
+          },
+          {
+            href: "#",
+            text: "Cookies"
+          }
+        ]
+      }
+    ]
+  }) }}
+{% endblock %}

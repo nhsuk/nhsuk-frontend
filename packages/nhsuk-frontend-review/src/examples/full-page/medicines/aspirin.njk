@@ -1,0 +1,363 @@
+{% extends "layouts/page.njk" %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+{% set pageHeading = "Aspirin" %}
+
+{% block header %}
+  {{ header({
+    logo: {
+      href: baseUrl
+    },
+    search: true,
+    account: {
+      items: [
+        {
+          action: "#",
+          text: "My account"
+        }
+      ]
+    },
+    navigation: {
+      items: [
+        {
+          text: "Health A to Z",
+          href: baseUrl ~ "examples/full-page/health-a-to-z/",
+          active: true
+        },
+        {
+          text: "NHS services",
+          href: "#"
+        },
+        {
+          text: "Healthy living",
+          href: "#"
+        },
+        {
+          text: "Mental health",
+          href: "#"
+        },
+        {
+          text: "Care and support",
+          href: "#"
+        }
+      ]
+    }
+  }) }}
+  {% include "partials/banner-header.njk" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ breadcrumb({
+    items: [
+      {
+        text: "Home",
+        href: baseUrl
+      },
+      {
+        text: "Health A to Z",
+        href: baseUrl ~ "examples/full-page/health-a-to-z/"
+      },
+      {
+        text: "Medicines A to Z",
+        href: baseUrl ~ "examples/full-page/medicines/"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhsuk-heading-xl">{{ pageHeading }}</h1>
+      <p class="nhsuk-lede-text">Aspirin is a medicine used to reduce the chance of a blood clot or to relieve pain. You can buy it from shops and pharmacies, and for some conditions it's available with a prescription.</p>
+
+    </div>
+  </div>
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h2 class="nhsuk-heading-l" id="what-its-for">What aspirin is for</h2>
+      <p class="nhsuk-body">Aspirin is a type of medicine called a <a href="#/medicines/nsaids/">non-steroidal anti-inflammatory drug (NSAID)</a>.</p>
+      <p class="nhsuk-body">Aspirin can be:</p>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>taken at a low, regular dose (sometimes called baby aspirin) to prevent blood clots, lower your chance of a heart attack or stroke, and prevent high blood pressure in pregnancy (<a href="#">pre-eclampsia</a>)</li>
+        <li>taken at a higher dose, only when you need it, to ease pain</li>
+      </ul>
+
+      <h2 class="nhsuk-heading-l" id="how-its-used-previously-dosage-and-administration">How to take aspirin</h2>
+      <p class="nhsuk-body">Aspirin usually comes as tablets you swallow. There's also a type of tablet you dissolve in water and drink (dispersible tablets).</p>
+      <p class="nhsuk-body">How much you need to take and for how long depends on why you're taking it.</p>
+      <p class="nhsuk-body">Always check the packet or leaflet that comes with your medicine. Ask a pharmacist or doctor for advice if you're not sure how to take it or you have any problems taking it.</p>
+      <p class="nhsuk-body">If a doctor prescribes aspirin for you, follow the advice they give you about how to take it and how much to take.</p>
+
+      <h3 class="nhsuk-heading-m">How to take aspirin for pain</h3>
+      <p class="nhsuk-body">Aspirin for pain relief usually comes as 300mg tablets.</p>
+      <p class="nhsuk-body">When taking aspirin for pain:</p>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>take 1 to 3 tablets at a time (ideally with or after food)</li>
+        <li>wait at least 4 hours between each dose</li>
+        <li>do not take more than 4 doses in a day</li>
+        <li>swallow tablets whole with a glass of water – if you're taking dispersible tablets, let the tablet dissolve in a glass of water before swallowing it</li>
+      </ul>
+      <p class="nhsuk-body">Always follow the instructions on the medicine packet.</p>
+
+      <h3 class="nhsuk-heading-m">How to take low-dose aspirin</h3>
+      <p class="nhsuk-body">Low-dose aspirin comes as 75mg tablets.</p>
+      <p class="nhsuk-body">When taking low-dose aspirin:</p>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>you usually take 1 tablet, once a day</li>
+        <li>swallow tablets whole with a glass of water – if you're taking dispersible tablets, let the tablet dissolve in a glass of water before swallowing it</li>
+      </ul>
+      <p class="nhsuk-body">If you're taking low-dose aspirin to prevent a heart attack or stroke, you'll usually need to take it for a long time, sometimes for life.</p>
+
+      <h4 class="nhsuk-heading-s">If you miss a dose of low-dose aspirin</h4>
+      <p class="nhsuk-body">If you forget to take a dose of aspirin, take it as soon you remember, unless it's nearly time for your next dose.</p>
+      <p class="nhsuk-body">If it's nearly time for your next dose, skip the missed dose and take your next dose at the usual time.</p>
+      <p class="nhsuk-body">Do not take 2 doses to make up for a forgotten dose.</p>
+
+      <h3 class="nhsuk-heading-m">If you take too much aspirin</h3>
+      <p class="nhsuk-body">Taking an extra dose of aspirin is unlikely to cause problems, but it's important to get medical advice if you take too much as it can sometimes be dangerous.</p>
+
+      {% call card({
+        heading: {
+          text: "Speak to a pharmacist as soon as possible if:",
+          level: 4
+        },
+        variant: "urgent"
+      }) %}
+        <ul class="nhsuk-list nhsuk-list--bullet">
+          <li>you've taken more aspirin than it says on the packet, leaflet or prescription</li>
+        </ul>
+        <p class="nhsuk-body">If you're unable to speak to a pharmacist, or you took too much of your medicine on purpose, call NHS 111 for advice.</p>
+
+        {{ actionLink({
+          text: "Find a pharmacy",
+          href: "#"
+        }) }}
+      {% endcall %}
+
+      {% call insetText() %}
+        <p class="nhsuk-body">If you're told to go to A&amp;E, do not drive. Ask someone to drive you or call 999 and ask for an ambulance.</p>
+        <p class="nhsuk-body">Bring the aspirin packet or leaflet inside it, any remaining medicine, and any other medicines you take.</p>
+      {% endcall %}
+
+      <h2 class="nhsuk-heading-l" id="side-effects">Side effects of aspirin</h2>
+      <p class="nhsuk-body">Like all medicines, aspirin can cause side effects, but not everyone gets them.</p>
+
+      <h3 class="nhsuk-heading-m">Common side effects</h3>
+      <p class="nhsuk-body">Common side effects of aspirin include:</p>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>indigestion and stomach aches</li>
+        <li>bleeding more easily than usual (for example, if you cut yourself it may take longer than usual to stop bleeding)</li>
+      </ul>
+
+      {% call card({
+        heading: {
+          text: "Speak to a pharmacist or doctor if:",
+          level: 4
+        },
+        variant: "non-urgent"
+      }) %}
+        <ul class="nhsuk-list nhsuk-list--bullet">
+          <li>you have any side effects that bother you or do not go away</li>
+        </ul>
+        <p class="nhsuk-body">They may be able to give you advice about how to reduce any side effects. If you're regularly taking low-dose aspirin, keep taking your medicine unless you're advised to stop.</p>
+
+        {{ actionLink({
+          text: "Find a pharmacy",
+          href: "#"
+        }) }}
+      {% endcall %}
+
+      <h3 class="nhsuk-heading-m">Serious side effects</h3>
+      <p class="nhsuk-body">Aspirin can sometimes cause serious side effects, although most of them are rare.</p>
+      <p class="nhsuk-body">Possible serious side effects of aspirin include:</p>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li><a href="#/conditions/stomach-ulcer/">stomach ulcers</a> or bleeding inside your stomach – causing symptoms such as tummy pain, pale skin, vomiting blood, having poo that's black, sticky and tar-like</li>
+        <li>shortness of breath or wheezing</li>
+        <li>allergic reactions (including <a href="#/conditions/anaphylaxis/">anaphylaxis</a>) – causing symptoms such as a swollen throat or tongue, a raised, itchy rash or difficulty breathing</li>
+      </ul>
+
+      {% call card({
+        heading: {
+          text: "Call NHS 111 if:",
+          level: 4
+        },
+        variant: "urgent"
+      }) %}
+        <ul class="nhsuk-list nhsuk-list--bullet">
+          <li>you're taking aspirin and you think you might be having serious side effects</li>
+        </ul>
+      {% endcall %}
+
+      <h3 class="nhsuk-heading-m">More about side effects</h3>
+      <p class="nhsuk-body">These are not all the side effects of aspirin.</p>
+      <p class="nhsuk-body">For a full list, see the leaflet that came with your medicine or <a href="https://www.medicines.org.uk/emc/browse-medicines">search for your medicine leaflet on the electronic medicines compendium website</a>.</p>
+      <p class="nhsuk-body"><a href="https://yellowcard.mhra.gov.uk/">You can report any side effects you get on the Yellow Card Scheme website</a></p>
+
+      <h2 class="nhsuk-heading-l" id="who-its-for">Who can and cannot take aspirin</h2>
+      <p class="nhsuk-body">Most adults and children aged 16 years or over can take aspirin.</p>
+      <p class="nhsuk-body">Do not give aspirin to children aged 15 years or under because it can cause a serious condition called <a href="#/conditions/reyes-syndrome/">Reye's syndrome</a> in rare cases.</p>
+      <p class="nhsuk-body">Aspirin is not suitable for some people. For example, it may not be suitable if:</p>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>you've had an allergic reaction or serious side effect from aspirin, <a href="#/medicines/ibuprofen-for-adults/">ibuprofen</a> or another <a href="#/medicines/nsaids/">non-steroidal anti-inflammatory drug (NSAID)</a></li>
+        <li>you have a stomach ulcer or you've had them before</li>
+        <li>you have asthma</li>
+        <li>you have heart failure</li>
+        <li>you have a liver or kidney condition</li>
+        <li>you have problems with blood clotting</li>
+      </ul>
+      <p class="nhsuk-body">Check the packet or leaflet that comes with your medicine to see if it's suitable for you. Speak to a pharmacist or doctor if you're not sure if you can use it.</p>
+
+      <h3 class="nhsuk-heading-m">Breastfeeding and aspirin</h3>
+      <p class="nhsuk-body">If you're breastfeeding, check with your doctor before taking aspirin at a low dose for blood clots. They may recommend it if the benefits outweigh the risks to your baby.</p>
+      <p class="nhsuk-body">Taking a higher dose of aspirin for pain is not usually recommended while you're breastfeeding because there's a risk it could cause side effects in your baby. <a href="#/medicines/paracetamol-for-adults/">Paracetamol</a> is usually the best painkiller to take if you're breastfeeding.</p>
+      <p class="nhsuk-body">If you are advised to take aspirin while breastfeeding, speak to a healthcare professional or call NHS 111 if you have any concerns about your baby.</p>
+
+      <h3 class="nhsuk-heading-m">Pregnancy and aspirin</h3>
+      <p class="nhsuk-body">Tell your doctor if you're pregnant or get pregnant while taking aspirin at a low dose for blood clots. You can usually keep taking it up to week 20 of pregnancy, and sometimes later, if your doctor recommends it.</p>
+      <p class="nhsuk-body">Your doctor may recommend that you take low-dose aspirin from 12 weeks of pregnancy to prevent <a href="#/conditions/pre-eclampsia/">pre-eclampsia</a>.</p>
+      <p class="nhsuk-body">Taking aspirin at a higher dose for pain relief is not recommended during any stage of pregnancy. <a href="#/medicines/paracetamol-for-adults/">Paracetamol</a> is usually the best painkiller to take if you're pregnant.</p>
+
+      <p class="nhsuk-body">Find out more about taking aspirin during pregnancy on the Bumps (Best Use of Medicines in Pregnancy) website:</p>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li><a href="https://www.medicinesinpregnancy.org/leaflets-a-z/aspirin/">Low-dose aspirin during pregnancy (Bumps)</a></li>
+        <li><a href="https://www.medicinesinpregnancy.org/leaflets-a-z/aspirin-for-pain/">Aspirin for pain relief during pregnancy (Bumps)</a></li>
+      </ul>
+
+      <h2 class="nhsuk-heading-l" id="interactions">Taking aspirin with other medicines, food and drink</h2>
+      <p class="nhsuk-body">There are some medicines, remedies and supplements that may not mix well with aspirin.</p>
+      <p class="nhsuk-body">These include:</p>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li><a href="#/medicines/anticoagulants/">anticoagulants</a> (such as <a href="#/medicines/warfarin/">warfarin</a> or <a href="#/medicines/rivaroxaban/">rivaroxaban</a>)</li>
+        <li>some <a href="#/medicines/steroids/">steroid medicines</a></li>
+        <li>some <a href="#/medicines/antidepressants/">antidepressants</a></li>
+        <li>some medicines to lower blood pressure</li>
+        <li><a href="#/medicines/methotrexate/">methotrexate</a>, a medicine for rheumatoid arthritis, psoriasis or cancer</li>
+        <li>other non-steroidal anti-inflammatory drugs (NSAIDs), such as <a href="#/medicines/naproxen/">naproxen</a> or <a href="#/medicines/ibuprofen-for-adults/">ibuprofen</a></li>
+      </ul>
+      <p class="nhsuk-body">Before taking aspirin, tell your doctor if you're taking any other medicines, herbal remedies, vitamins or supplements.</p>
+
+      <h3 class="nhsuk-heading-m">Taking aspirin with other painkillers</h3>
+      <p class="nhsuk-body">You can take aspirin at the same time as paracetamol if needed. But if you only need the medicine for pain relief, it's a good idea to try either aspirin or paracetamol on their own first to see if they relieve your pain.</p>
+
+      <h3 class="nhsuk-heading-m">Food, drink and alcohol with aspirin</h3>
+      <p class="nhsuk-body">You can eat and drink normally while taking aspirin, but try to limit the amount of alcohol you drink because alcohol can increase the risk of side effects.</p>
+
+      {% call insetText() %}
+        <h2 class="nhsuk-heading-l">Find out more about your medicine</h2>
+        <p class="nhsuk-body">To find out more about your medicine, you can:</p>
+        <ul class="nhsuk-list nhsuk-list--bullet">
+          <li>check the leaflet that comes with it</li>
+          <li><a href="https://www.medicines.org.uk/emc/browse-medicines">search for your medicine leaflet on the electronic medicines compendium website</a></li>
+          <li>speak to a pharmacist or doctor for advice – if you recently started taking it, you can <a href="#/nhs-services/pharmacies/get-help-with-newly-prescribed-medicines/">get help with newly prescribed medicines from a pharmacist as part of the New Medicine Service</a></li>
+        </ul>
+      {% endcall %}
+
+      <p class="nhsuk-body-s nhsuk-u-margin-top-7 nhsuk-u-secondary-text-color">Page last reviewed: 3 July 2026<br>Next review due: 3 July 2029</p>
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+  {{ footer({
+    copyright: {
+      text: "© Crown copyright"
+    },
+    navigation: [
+      {
+        items: [
+          {
+            href: "#",
+            text: "Home"
+          },
+          {
+            href: baseUrl ~ "examples/full-page/health-a-to-z/",
+            text: "Health A to Z"
+          },
+          {
+            href: "#",
+            text: "NHS services"
+          },
+          {
+            href: "#",
+            text: "Healthy living"
+          },
+          {
+            href: "#",
+            text: "Mental health"
+          },
+          {
+            href: "#",
+            text: "Care and support"
+          },
+          {
+            href: "#",
+            text: "COVID-19"
+          }
+        ]
+      },
+      {
+        items: [
+          {
+            href: "#",
+            text: "NHS App"
+          },
+          {
+            href: "#",
+            text: "Find my NHS number"
+          },
+          {
+            href: "#",
+            text: "View your test results"
+          },
+          {
+            href: "#",
+            text: "About the NHS"
+          },
+          {
+            href: "#",
+            text: "Healthcare abroad"
+          }
+        ]
+      },
+      {
+        items: [
+          {
+            href: "#",
+            text: "Manage NHS profiles"
+          },
+          {
+            href: "#",
+            text: "Other NHS websites"
+          }
+        ]
+      },
+      {
+        items: [
+          {
+            href: "#",
+            text: "About us"
+          },
+          {
+            href: "#",
+            text: "Report an issue with the NHS website"
+          },
+          {
+            href: "#",
+            text: "Accessibility statement"
+          },
+          {
+            href: "#",
+            text: "Our policies"
+          },
+          {
+            href: "#",
+            text: "Cookies"
+          }
+        ]
+      }
+    ]
+  }) }}
+{% endblock %}
