@@ -87,7 +87,7 @@
   @private
   @param {{ [attribute: string]: string | { value: unknown, type?: 'string' | 'array', optional?: boolean } } | string} attributes - Component attributes param
 #}
-{% macro nhsukAttributes(attributes) -%}
+{% macro nhsukAttributes(attributes = {}) -%}
   {#- Default attributes output as string -#}
   {% set attributesHtml = attributes if attributes is string else "" %}
 
