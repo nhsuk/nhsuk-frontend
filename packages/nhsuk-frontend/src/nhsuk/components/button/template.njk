@@ -117,7 +117,7 @@
   text: params.text,
   html: params.html,
   visuallyHidden: {
-    text: params.visuallyHiddenText,
+    text: "Warning" if "nhsuk-button--warning" in classNames else params.visuallyHiddenText,
     placement: "start",
     slots: { end: ": " }
   }
