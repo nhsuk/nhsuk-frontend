@@ -8,6 +8,7 @@ We've made fixes to NHS.UK frontend in the following pull requests:
 
 - [#2104: Fix links as buttons not inheriting `text-align`](https://github.com/nhsuk/nhsuk-frontend/pull/2104)
 - [#2105: Render table cell values from numbers including `0`](https://github.com/nhsuk/nhsuk-frontend/pull/2105)
+- [#2117: Restore missing `.nhsuk-back-to-top` styles](https://github.com/nhsuk/nhsuk-frontend/pull/2117)
 
 ## 10.6.1 - 25 August 2026
 
