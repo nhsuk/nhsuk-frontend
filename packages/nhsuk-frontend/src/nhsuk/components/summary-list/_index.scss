@@ -1,3 +1,5 @@
+// stylelint-disable container-name-pattern
+
 @use "../../core/settings" as *;
 @use "../../core/tools" as *;
 @use "../../core/helpers" as *;
@@ -230,7 +232,15 @@
     }
   }
 
-  @media #{nhsuk-from-breakpoint(tablet)} {
+  // Enable summary list columns on tablet sized containers (minus gutters)
+  @container #{nhsuk-from-breakpoint(nhsuk-breakpoint-value(tablet) - ($nhsuk-gutter-half * 2))} {
     @include _summary-list-columns;
+  }
+
+  // Enable summary list columns on tablet sized screens
+  @supports not (container-type: inline-size) {
+    @media #{nhsuk-from-breakpoint(tablet)} {
+      @include _summary-list-columns;
+    }
   }
 }
