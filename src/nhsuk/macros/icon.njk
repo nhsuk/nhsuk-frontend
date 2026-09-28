@@ -26,7 +26,7 @@
   @param {string} params.classes - Classes to add to the icon
   @param {number} params.size - Icon size adjustment in percent (25, 50, 75, 100)
 #}
-{% macro nhsukIcon(name, params) -%}
+{% macro nhsukIcon(name, params = {}) -%}
   {%- set classNames = "nhsuk-icon nhsuk-icon--" ~ name -%}
 
   {%- if params.size and
