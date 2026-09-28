@@ -9,6 +9,113 @@
 /// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
 ////
 
+/// Summary list column styles
+
+@mixin _summary-list-columns {
+  .nhsuk-summary-list {
+    display: table;
+    width: calc(100% + $nhsuk-border-table-header-width * 2);
+    table-layout: fixed; // Required to allow us to wrap words that overflow.
+    border-collapse: collapse;
+  }
+
+  // Increase padding by 1px to compensate for 'missing' border
+  .nhsuk-summary-list--no-border {
+    .nhsuk-summary-list__key,
+    .nhsuk-summary-list__value,
+    .nhsuk-summary-list__actions {
+      padding-bottom: nhsuk-spacing(2, $adjustment: 1px);
+    }
+  }
+
+  .nhsuk-summary-list__row {
+    display: table-row;
+    margin-bottom: 0;
+  }
+
+  // Increase padding by 1px to compensate for 'missing' border
+  .nhsuk-summary-list__row--no-border,
+  .nhsuk-summary-list--no-last-row-border .nhsuk-summary-list__row:last-child {
+    .nhsuk-summary-list__key,
+    .nhsuk-summary-list__value,
+    .nhsuk-summary-list__actions {
+      padding-bottom: nhsuk-spacing(2, $adjustment: 1px);
+    }
+  }
+
+  // Provide an empty 'cell' for rows that don't have actions – otherwise the
+  // bottom border is not drawn for that part of the row in some browsers.
+  .nhsuk-summary-list__row--no-actions {
+    &::after {
+      content: "";
+      display: table-cell;
+      width: 20%;
+    }
+  }
+
+  // Provide an empty 'cell' for rows that don't have actions automatically,
+  // using the `:has()` selector not the modifier class in modern browsers.
+  .nhsuk-summary-list:has(.nhsuk-summary-list__actions)
+    .nhsuk-summary-list__row:not(:has(.nhsuk-summary-list__actions)) {
+    &::after {
+      content: "";
+      display: table-cell;
+      width: 20%;
+    }
+
+    // Restore right padding for the last column in the row (removed above)
+    // because the empty 'cell' is now visually the last column
+    > :last-child {
+      padding-right: nhsuk-spacing(4, $adjustment: - $nhsuk-border-table-header-width);
+    }
+  }
+
+  .nhsuk-summary-list__key,
+  .nhsuk-summary-list__value,
+  .nhsuk-summary-list__actions {
+    display: table-cell;
+    padding-top: nhsuk-spacing(2);
+    padding-right: nhsuk-spacing(4, $adjustment: - $nhsuk-border-table-header-width);
+    padding-bottom: nhsuk-spacing(2);
+
+    // Make sure that any multi-line inline-blocks inside of the summary
+    // list (e.g. Tag components) don't cause the text baseline to shift,
+    // causing other cells in the row to be misaligned.
+    vertical-align: top;
+  }
+
+  .nhsuk-summary-list__key {
+    width: 30%;
+  }
+
+  .nhsuk-summary-list__value {
+    margin-bottom: 0;
+  }
+
+  .nhsuk-summary-list__actions {
+    width: 20%;
+    text-align: right;
+  }
+
+  .nhsuk-summary-list__actions-list {
+    justify-content: right;
+    text-align: right;
+  }
+
+  .nhsuk-summary-list__actions-list-item,
+  .nhsuk-summary-list__actions-list-item:last-child {
+    margin: 0 0 0 nhsuk-spacing(2);
+    padding: 0 0 0 nhsuk-spacing(2);
+    border-width: 0 0 0 1px;
+  }
+
+  .nhsuk-summary-list__actions-list-item:first-child {
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+}
+
 @include nhsuk-exports("nhsuk/components/summary-list") {
   .nhsuk-summary-list {
     margin: 0; // Reset default user agent styles
@@ -124,107 +231,6 @@
   }
 
   @media #{nhsuk-from-breakpoint(tablet)} {
-    .nhsuk-summary-list {
-      display: table;
-      width: calc(100% + $nhsuk-border-table-header-width * 2);
-      table-layout: fixed; // Required to allow us to wrap words that overflow.
-      border-collapse: collapse;
-    }
-
-    // Increase padding by 1px to compensate for 'missing' border
-    .nhsuk-summary-list--no-border {
-      .nhsuk-summary-list__key,
-      .nhsuk-summary-list__value,
-      .nhsuk-summary-list__actions {
-        padding-bottom: nhsuk-spacing(2, $adjustment: 1px);
-      }
-    }
-
-    .nhsuk-summary-list__row {
-      display: table-row;
-      margin-bottom: 0;
-    }
-
-    // Increase padding by 1px to compensate for 'missing' border
-    .nhsuk-summary-list__row--no-border,
-    .nhsuk-summary-list--no-last-row-border .nhsuk-summary-list__row:last-child {
-      .nhsuk-summary-list__key,
-      .nhsuk-summary-list__value,
-      .nhsuk-summary-list__actions {
-        padding-bottom: nhsuk-spacing(2, $adjustment: 1px);
-      }
-    }
-
-    // Provide an empty 'cell' for rows that don't have actions – otherwise the
-    // bottom border is not drawn for that part of the row in some browsers.
-    .nhsuk-summary-list__row--no-actions {
-      &::after {
-        content: "";
-        display: table-cell;
-        width: 20%;
-      }
-    }
-
-    // Provide an empty 'cell' for rows that don't have actions automatically,
-    // using the `:has()` selector not the modifier class in modern browsers.
-    .nhsuk-summary-list:has(.nhsuk-summary-list__actions)
-      .nhsuk-summary-list__row:not(:has(.nhsuk-summary-list__actions)) {
-      &::after {
-        content: "";
-        display: table-cell;
-        width: 20%;
-      }
-
-      // Restore right padding for the last column in the row (removed above)
-      // because the empty 'cell' is now visually the last column
-      > :last-child {
-        padding-right: nhsuk-spacing(4, $adjustment: - $nhsuk-border-table-header-width);
-      }
-    }
-
-    .nhsuk-summary-list__key,
-    .nhsuk-summary-list__value,
-    .nhsuk-summary-list__actions {
-      display: table-cell;
-      padding-top: nhsuk-spacing(2);
-      padding-right: nhsuk-spacing(4, $adjustment: - $nhsuk-border-table-header-width);
-      padding-bottom: nhsuk-spacing(2);
-
-      // Make sure that any multi-line inline-blocks inside of the summary
-      // list (e.g. Tag components) don't cause the text baseline to shift,
-      // causing other cells in the row to be misaligned.
-      vertical-align: top;
-    }
-
-    .nhsuk-summary-list__key {
-      width: 30%;
-    }
-
-    .nhsuk-summary-list__value {
-      margin-bottom: 0;
-    }
-
-    .nhsuk-summary-list__actions {
-      width: 20%;
-      text-align: right;
-    }
-
-    .nhsuk-summary-list__actions-list {
-      justify-content: right;
-      text-align: right;
-    }
-
-    .nhsuk-summary-list__actions-list-item,
-    .nhsuk-summary-list__actions-list-item:last-child {
-      margin: 0 0 0 nhsuk-spacing(2);
-      padding: 0 0 0 nhsuk-spacing(2);
-      border-width: 0 0 0 1px;
-    }
-
-    .nhsuk-summary-list__actions-list-item:first-child {
-      margin: 0;
-      padding: 0;
-      border: 0;
-    }
+    @include _summary-list-columns;
   }
 }
