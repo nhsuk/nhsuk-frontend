@@ -1,0 +1,322 @@
+{% extends "layouts/page.njk" %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+{% set pageHeading = "Anaphylaxis" %}
+
+{% block header %}
+  {{ header({
+    logo: {
+      href: baseUrl
+    },
+    search: true,
+    account: {
+      items: [
+        {
+          action: "#",
+          text: "My account"
+        }
+      ]
+    },
+    navigation: {
+      items: [
+        {
+          text: "Health A to Z",
+          href: baseUrl ~ "examples/full-page/health-a-to-z/",
+          active: true
+        },
+        {
+          text: "NHS services",
+          href: "#"
+        },
+        {
+          text: "Healthy living",
+          href: "#"
+        },
+        {
+          text: "Mental health",
+          href: "#"
+        },
+        {
+          text: "Care and support",
+          href: "#"
+        }
+      ]
+    }
+  }) }}
+  {% include "partials/banner-header.njk" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ breadcrumb({
+    items: [
+      {
+        text: "Home",
+        href: baseUrl
+      },
+      {
+        text: "Health A to Z",
+        href: baseUrl ~ "examples/full-page/health-a-to-z/"
+      },
+      {
+        text: "Conditions A to Z",
+        href: baseUrl ~ "examples/full-page/conditions/"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhsuk-heading-xl">{{ pageHeading }}</h1>
+      <p class="nhsuk-body"><strong>Anaphylaxis is a life-threatening allergic reaction that happens very quickly. It can be caused by food, medicine or insect stings. Call 999 if you think you or someone else is having an anaphylactic reaction.</strong></p>
+
+    </div>
+  </div>
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h2 class="nhsuk-heading-l nhsuk-u-margin-top-3" id="symptoms">Symptoms of anaphylaxis</h2>
+      <p class="nhsuk-body">Symptoms of anaphylaxis happen very quickly.</p>
+      <p class="nhsuk-body">They usually start within minutes of coming into contact with something you're allergic to, such as a food, medicine or insect sting.</p>
+      <p class="nhsuk-body">Symptoms include:</p>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>swelling of your throat and tongue</li>
+        <li>difficulty breathing or breathing very fast</li>
+        <li>difficulty swallowing, tightness in your throat or a hoarse voice</li>
+        <li>wheezing, coughing or noisy breathing</li>
+        <li>feeling tired or confused</li>
+        <li>feeling faint, dizzy or fainting</li>
+        <li>skin that feels cold to the touch</li>
+        <li>blue, grey or pale skin, lips or tongue – if you have brown or black skin, this may be easier to see on the palms of your hands or soles of your feet</li>
+      </ul>
+      <p class="nhsuk-body">You may also have a rash that's swollen, raised or itchy.</p>
+
+      {% call card({
+        heading: {
+          text: "Call 999 if:",
+          level: 2
+        },
+        variant: "emergency"
+      }) %}
+        <ul class="nhsuk-list nhsuk-list--bullet">
+          <li>your lips, mouth, throat or tongue suddenly become swollen</li>
+          <li>you're breathing very fast or struggling to breathe (you may become very wheezy or feel like you're choking or gasping for air)</li>
+          <li>your throat feels tight or you're struggling to swallow</li>
+          <li>your skin, tongue or lips turn blue, grey or pale (if you have black or brown skin, this may be easier to see on the palms of your hands or soles of your feet)</li>
+          <li>you suddenly become very confused, drowsy or dizzy</li>
+          <li>someone faints and cannot be woken up</li>
+          <li>a child is limp, floppy or not responding like they normally do (their head may fall to the side, backwards or forwards, or they may find it difficult to lift their head or focus on your face)</li>
+        </ul>
+        <p class="nhsuk-body">You or the person who's unwell may also have a rash that's swollen, raised or itchy.</p>
+        <p class="nhsuk-body">These can be signs of a serious allergic reaction and may need immediate treatment in hospital.</p>
+      {% endcall %}
+
+      <h2 class="nhsuk-heading-l" id="self-care">What to do if you have anaphylaxis</h2>
+      <p class="nhsuk-body">Follow these steps if you think you or someone you're with is having an anaphylactic reaction:</p>
+      <ol class="nhsuk-list nhsuk-list--number">
+        <li>Use an adrenaline auto-injector (such as an EpiPen) if you have one <i>–</i> instructions are included on the side of the injector.</li>
+        <li>Call 999 for an ambulance and say that you think you're having an anaphylactic reaction.</li>
+        <li>Lie down – you can raise your legs, and if you're struggling to breathe, raise your shoulders or sit up slowly (if you're pregnant, lie on your left side).</li>
+        <li>If you have been stung by an insect, try to remove the sting if it's still in the skin.</li>
+        <li>If your symptoms have not improved after 5 minutes, use a 2nd adrenaline auto-injector.</li>
+      </ol>
+      <p class="nhsuk-body">Do not stand or walk at any time, even if you feel better.</p>
+
+      {% call insetText() %}
+        <h3 class="nhsuk-heading-m">How to use an adrenaline auto-injector</h3>
+        <p class="nhsuk-body">There are different types of adrenaline auto-injectors and each one is given differently.</p>
+        <ul class="nhsuk-list nhsuk-list--bullet">
+          <li><a href="https://www.epipen.co.uk/en-gb/patients/your-epipen/how-to-use-your-epipen">EpiPen instructions (EpiPen website)</a></li>
+          <li><a href="http://patients.jext.co.uk/">Jext instructions (Jext website)</a></li>
+        </ul>
+      {% endcall %}
+
+      <h2 class="nhsuk-heading-l" id="medical-treatments">Treatment for anaphylaxis</h2>
+      <p class="nhsuk-body">Anaphylaxis needs to be treated in hospital immediately.</p>
+      <p class="nhsuk-body">Treatments can include:</p>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>adrenaline given by an injection or drip in your vein</li>
+        <li>oxygen</li>
+        <li>fluids given by a drip in your vein</li>
+      </ul>
+
+      <p class="nhsuk-body">You'll usually stay in hospital for around 2 to 12 hours, but you may need to stay longer.</p>
+      <p class="nhsuk-body">Before you leave hospital, you should be given 2 adrenaline auto-injectors, or a prescription for them, to keep in case you have another anaphylactic reaction.</p>
+      <p class="nhsuk-body">An adrenaline auto-injector is a special device for injecting adrenaline yourself. You'll be told how and when to use it.</p>
+      <p class="nhsuk-body">You should be shown how to use your adrenaline auto-injector each time you're prescribed it.</p>
+      <p class="nhsuk-body">You may also be referred to an allergy specialist for tests and advice.</p>
+
+      <h2 class="nhsuk-heading-l" id="prevention">Things you can do to help prevent anaphylaxis</h2>
+      <p class="nhsuk-body">There are some things you can do to help prevent anaphylaxis or prepare for if it happens.</p>
+
+      {{ list({
+        title: "Do",
+        icon: "tick",
+        items: [
+          {
+            text: "avoid the food, medicine or thing that you're allergic to – for example, if you have a food allergy, check food labels carefully and tell staff at restaurants and cafes about your allergy"
+          },
+          {
+            text: "carry 2 adrenaline auto-injectors with you at all times"
+          },
+          {
+            text: "check your adrenaline auto-injector expiry dates regularly and get new ones before they expire"
+          },
+          {
+            text: "practise how to use your adrenaline auto-injector by using a trainer injector (an injector that has no needle or medicine in it) – you can order one online from the company that makes your injector"
+          },
+          {
+            text: "teach friends, family, colleagues or carers how and when to use your adrenaline auto-injector"
+          },
+          {
+            text: "use your adrenaline auto-injector if you think you may have anaphylaxis, even if your symptoms are mild"
+          },
+          {
+            text: "wear medical alert jewellery such as a bracelet with information about your allergy – this tells other people about your allergy in case of an emergency"
+          }
+        ]
+      }) }}
+
+      {{ list({
+        title: "Don't",
+        icon: "cross",
+        items: [
+          {
+            text: "do not leave your adrenaline auto-injectors anywhere too hot or cold such as in the fridge or outside in the sun"
+          }
+        ]
+      }) }}
+
+      {% call insetText() %}
+        <h3 class="nhsuk-heading-m">More information</h3>
+        <p class="nhsuk-body">There's more advice about what you can do to avoid common allergies. Find out more about:</p>
+        <ul class="nhsuk-list nhsuk-list--bullet">
+          <li><a href="#/conditions/food-allergy/">food allergy</a></li>
+          <li><a href="#/conditions/insect-bites-and-stings/">insect bites and stings</a></li>
+          <li><a href="https://www.allergyuk.org/types-of-allergies/drug-allergy/">medicine allergy (Allergy UK website)</a></li>
+          <li><a href="https://www.allergyuk.org/resources/rubber-latex-allergy/">latex allergy (Allergy UK website)</a></li>
+        </ul>
+      {% endcall %}
+
+
+      <h2 class="nhsuk-heading-l" id="causes">Causes of anaphylaxis</h2>
+      <p>Anaphylaxis happens when your body has a serious reaction to something you're allergic to.</p>
+      <p>Allergies that can sometimes cause anaphylaxis include:</p>
+      <ul>
+        <li>foods such as nuts, cows' milk, eggs, fish or sesame seeds</li>
+        <li>medicines such as antibiotics or <a href="#/medicines/nsaids/">non-steroidal anti-inflammatory drugs (NSAIDs)</a></li>
+        <li>insect stings, such as wasp and bee stings</li>
+        <li>anaesthetics</li>
+        <li>latex (a type of rubber found in some rubber gloves and condoms)</li>
+      </ul>
+
+      <p>Sometimes it's not known what caused an anaphylactic reaction.</p>
+
+      <p class="nhsuk-body-s nhsuk-u-margin-top-7 nhsuk-u-secondary-text-color">Page last reviewed: 21 June 2023<br>Next review due: 21 June 2026</p>
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+  {{ footer({
+    copyright: {
+      text: "© Crown copyright"
+    },
+    navigation: [
+      {
+        items: [
+          {
+            href: "#",
+            text: "Home"
+          },
+          {
+            href: baseUrl ~ "examples/full-page/health-a-to-z/",
+            text: "Health A to Z"
+          },
+          {
+            href: "#",
+            text: "NHS services"
+          },
+          {
+            href: "#",
+            text: "Healthy living"
+          },
+          {
+            href: "#",
+            text: "Mental health"
+          },
+          {
+            href: "#",
+            text: "Care and support"
+          },
+          {
+            href: "#",
+            text: "COVID-19"
+          }
+        ]
+      },
+      {
+        items: [
+          {
+            href: "#",
+            text: "NHS App"
+          },
+          {
+            href: "#",
+            text: "Find my NHS number"
+          },
+          {
+            href: "#",
+            text: "View your test results"
+          },
+          {
+            href: "#",
+            text: "About the NHS"
+          },
+          {
+            href: "#",
+            text: "Healthcare abroad"
+          }
+        ]
+      },
+      {
+        items: [
+          {
+            href: "#",
+            text: "Manage NHS profiles"
+          },
+          {
+            href: "#",
+            text: "Other NHS websites"
+          }
+        ]
+      },
+      {
+        items: [
+          {
+            href: "#",
+            text: "About us"
+          },
+          {
+            href: "#",
+            text: "Report an issue with the NHS website"
+          },
+          {
+            href: "#",
+            text: "Accessibility statement"
+          },
+          {
+            href: "#",
+            text: "Our policies"
+          },
+          {
+            href: "#",
+            text: "Cookies"
+          }
+        ]
+      }
+    ]
+  }) }}
+{% endblock %}
