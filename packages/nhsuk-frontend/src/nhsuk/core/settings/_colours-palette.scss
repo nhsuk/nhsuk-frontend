@@ -1,4 +1,5 @@
 @use "sass:color";
+@use "sass:map";
 
 ////
 /// @group settings/colours
@@ -37,3 +38,9 @@ $nhsuk-colours: (
   "grey-4": #d8dde0,
   "grey-5": #f0f4f5
 ) !default;
+
+$nhsuk-colours-deprecated: () !default;
+
+@each $name, $alias in $nhsuk-colours-deprecated {
+  $nhsuk-colours: map.set($nhsuk-colours, $name, map.get($nhsuk-colours, $alias));
+}
