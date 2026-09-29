@@ -1,10 +1,19 @@
 import { outdent } from 'outdent'
-import { compileStringAsync } from 'sass-embedded'
+import { compileStringAsync, sassNull } from 'sass-embedded'
 
 describe('Colour helpers', () => {
   const sassModules = outdent`
     @use "core/helpers" as *;
   `
+
+  /** @type {Logger} */
+  let logger = {}
+
+  beforeEach(() => {
+    // Create a mock warn function that we can use to override the native @warn
+    // function, that we can make assertions about post-render.
+    logger.warn = jest.fn().mockReturnValue(sassNull)
+  })
 
   describe('@function nhsuk-colour', () => {
     let sassBootstrap = ''
@@ -33,7 +42,8 @@ describe('Colour helpers', () => {
       `
 
       const results = compileStringAsync(sass, {
-        loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
+        logger
       })
 
       await expect(results).resolves.toMatchObject({
@@ -55,7 +65,8 @@ describe('Colour helpers', () => {
       `
 
       const results = compileStringAsync(sass, {
-        loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
+        logger
       })
 
       await expect(results).resolves.toMatchObject({
@@ -77,7 +88,8 @@ describe('Colour helpers', () => {
       `
 
       const results = compileStringAsync(sass, {
-        loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
+        logger
       })
 
       await expect(results).rejects.toThrow('Unknown colour `hooloovoo`')
@@ -124,7 +136,8 @@ describe('Colour helpers', () => {
       `
 
       const results = compileStringAsync(sass, {
-        loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
+        logger
       })
 
       await expect(results).resolves.toMatchObject({
@@ -148,7 +161,8 @@ describe('Colour helpers', () => {
       `
 
       const results = compileStringAsync(sass, {
-        loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
+        logger
       })
 
       await expect(results).resolves.toMatchObject({
@@ -170,7 +184,8 @@ describe('Colour helpers', () => {
       `
 
       const results = compileStringAsync(sass, {
-        loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
+        logger
       })
 
       await expect(results).resolves.toMatchObject({
@@ -194,7 +209,8 @@ describe('Colour helpers', () => {
       `
 
       const results = compileStringAsync(sass, {
-        loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
+        logger
       })
 
       await expect(results).resolves.toMatchObject({
@@ -216,7 +232,8 @@ describe('Colour helpers', () => {
       `
 
       const results = compileStringAsync(sass, {
-        loadPaths: ['packages/nhsuk-frontend/src/nhsuk']
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
+        logger
       })
 
       await expect(results).resolves.toMatchObject({
@@ -229,3 +246,7 @@ describe('Colour helpers', () => {
     })
   })
 })
+
+/**
+ * @import { Logger } from 'sass-embedded'
+ */
