@@ -23,22 +23,20 @@
     // where to break off of.
     max-width: $nhsuk-tag-max-width;
 
-    padding-top: nhsuk-spacing(1);
-    padding-right: nhsuk-spacing(2);
-    padding-bottom: nhsuk-spacing(1);
-    padding-left: nhsuk-spacing(2);
+    padding: nhsuk-spacing(1, $adjustment: -1px) nhsuk-spacing(2, $adjustment: -1px);
 
-    border: 1px solid nhsuk-shade(nhsuk-colour("blue"), 10%);
+    border: 1px solid nhsuk-colour("dark-blue");
+    border-radius: 2px;
     outline: 2px solid transparent;
     outline-offset: -2px;
 
-    color: nhsuk-colour("white");
-    background-color: nhsuk-shade(nhsuk-colour("blue"), 10%);
+    color: nhsuk-colour("dark-blue");
+    background-color: nhsuk-colour("pale-blue");
 
     text-decoration: none;
 
     @include nhsuk-text-break-word;
-    @include nhsuk-font($size: 16, $weight: bold, $line-height: 1);
+    @include nhsuk-font($size: 16, $weight: normal, $line-height: 1.5);
 
     @media #{nhsuk-from-breakpoint(tablet)} {
       max-width: $nhsuk-tag-max-width-tablet;
