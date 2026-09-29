@@ -3,6 +3,33 @@
 {% from "nhsuk/components/footer/macro.njk" import footer %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
+{%- set themeColors = themeColors | default({
+  "white": "#d8dde0",
+  "blue": "#ccdff1",
+  "purple": "#d6cce3",
+  "red": "#f7d4d1",
+  "orange": "#ffdc8e",
+  "yellow": "#fff59d"
+}) %}
+
+{%- if environmentName and not themeColor and not themeName %}
+  {%- if environmentName | lower == "development" -%}
+    {%- set themeName = "white" -%}
+  {%- elif environmentName | lower == "review" -%}
+    {%- set themeName = "purple" -%}
+  {%- elif environmentName | lower == "test" -%}
+    {%- set themeName = "red" -%}
+  {%- elif environmentName | lower == "qa" -%}
+    {%- set themeName = "orange" -%}
+  {%- elif environmentName | lower == "preview" -%}
+    {%- set themeName = "yellow" -%}
+  {%- endif -%}
+{% endif %}
+
+{%- if themeName and not themeColor %}
+  {%- set themeColor = themeColors[themeName | lower] %}
+{%- endif %}
+
 {%- set assetPath = assetPath | default("/assets", true) -%}
 {%- set themeColor = themeColor | default("#005eb8", true) -%}
 
