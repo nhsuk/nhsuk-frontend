@@ -284,6 +284,13 @@ const options = {
     description: 'If set to `true`, inline checkboxes will be used.',
     released: '10.5.0'
   },
+  outline: {
+    type: 'boolean',
+    required: false,
+    description:
+      'If set to `true`, checkboxes will be styled as outline buttons.',
+    released: '10.5.2'
+  },
   classes: {
     type: 'string',
     required: false,
