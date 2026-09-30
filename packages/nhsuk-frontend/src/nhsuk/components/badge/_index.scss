@@ -13,7 +13,7 @@
 ////
 
 $nhsuk-tag-colour: rgb(nhsuk-colour("grey-2"), 0.2) !default;
-$nhsuk-tag-colour-reverse: rgb(nhsuk-shade(nhsuk-colour("dark-blue"), 90%), 0.2) !default;
+$nhsuk-tag-colour-reverse: rgb(nhsuk-shade(nhsuk-colour("dark-blue"), 90%), 0.25) !default;
 
 @include nhsuk-exports("nhsuk/components/badge") {
   .nhsuk-badge {
