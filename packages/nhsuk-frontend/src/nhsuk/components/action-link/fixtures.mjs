@@ -37,17 +37,6 @@ const fixtures = {
       selector: ".nhsuk-action-link"
     }
   },
-  "as a button": {
-    context: {
-      text: "Find your nearest A&E",
-      type: "submit"
-    },
-    variants,
-    screenshot: {
-      states: ["focus", "hover", "active"],
-      selector: ".nhsuk-action-link"
-    }
-  },
   "with HTML": {
     context: {
       html: outdent`
@@ -66,6 +55,17 @@ const fixtures = {
       Start session<br>
       <span class="nhsuk-u-secondary-text-colour nhsuk-u-font-weight-normal nhsuk-u-font-size-19">(11 cases)</span>
     `
+  },
+  "as a button": {
+    context: {
+      text: "Find your nearest A&E",
+      type: "submit"
+    },
+    variants,
+    screenshot: {
+      states: ["focus", "hover", "active"],
+      selector: ".nhsuk-action-link"
+    }
   }
 }
 
