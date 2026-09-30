@@ -25,6 +25,12 @@ $nhsuk-button-padding-left-right-small: nhsuk-px-to-rem(12px);
 $nhsuk-button-search-icon-size: 28px;
 $nhsuk-button-search-icon-size-large: 38px;
 
+$nhsuk-button-min-height-mobile: 40px !default;
+$nhsuk-button-min-height-desktop: 52px !default;
+$nhsuk-button-min-height-small: 32px !default;
+$nhsuk-button-min-width-desktop: 66px !default;
+$nhsuk-button-icon-min-width: 44px !default;
+
 @include nhsuk-exports("nhsuk/components/button") {
   .nhsuk-button {
     box-sizing: border-box;
@@ -34,7 +40,7 @@ $nhsuk-button-search-icon-size-large: 38px;
     position: relative;
 
     width: 100%;
-    min-height: nhsuk-px-to-rem(40px + $nhsuk-button-shadow-size);
+    min-height: nhsuk-px-to-rem($nhsuk-button-min-height-mobile + $nhsuk-button-shadow-size);
     margin-top: 0;
     padding: $nhsuk-button-padding-top-bottom-mobile $nhsuk-button-padding-left-right; // [5]
 
@@ -63,7 +69,7 @@ $nhsuk-button-search-icon-size-large: 38px;
 
     @media #{nhsuk-from-breakpoint(tablet)} {
       width: auto;
-      min-height: nhsuk-px-to-rem(52px + $nhsuk-button-shadow-size);
+      min-height: nhsuk-px-to-rem($nhsuk-button-min-height-desktop + $nhsuk-button-shadow-size);
       padding: $nhsuk-button-padding-top-bottom-desktop $nhsuk-button-padding-left-right; // [5]
       line-height: nhsuk-line-height(24px, $font-size: 19px);
     }
@@ -214,7 +220,7 @@ $nhsuk-button-search-icon-size-large: 38px;
   // =========================================================
 
   .nhsuk-button--small {
-    min-height: nhsuk-px-to-rem(32px + $nhsuk-button-shadow-size);
+    min-height: nhsuk-px-to-rem($nhsuk-button-min-height-small + $nhsuk-button-shadow-size);
     padding: $nhsuk-button-padding-top-bottom-small $nhsuk-button-padding-left-right-small; // [5]
 
     @include nhsuk-responsive-margin(4, "bottom", $adjustment: $nhsuk-button-shadow-size); // [5]
@@ -234,7 +240,7 @@ $nhsuk-button-search-icon-size-large: 38px;
     align-items: center;
 
     // Add minimum width for icon-only buttons
-    min-width: nhsuk-px-to-rem(44px);
+    min-width: nhsuk-px-to-rem($nhsuk-button-icon-min-width);
 
     // Prevent users from selecting icon button text
     // e.g. When double clicking the button
@@ -252,7 +258,7 @@ $nhsuk-button-search-icon-size-large: 38px;
 
   .nhsuk-button:not(.nhsuk-button--small) {
     @media #{nhsuk-from-breakpoint(tablet)} {
-      min-width: nhsuk-px-to-rem(66px);
+      min-width: nhsuk-px-to-rem($nhsuk-button-min-width-desktop);
     }
   }
 

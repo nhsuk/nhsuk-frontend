@@ -22,7 +22,7 @@
 }
 
 // Temporary: mirrors the compact button override.
-.nhsuk-button:not(.nhsuk-button--small) {
+.nhsuk-button:not(.nhsuk-button--small):not(.nhsuk-search-input__button) {
   @media #{nhsuk-from-breakpoint(tablet)} {
     min-height: nhsuk-px-to-rem(46px);
     padding: nhsuk-px-to-rem(10px) nhsuk-px-to-rem(14px);
