@@ -208,9 +208,17 @@ const fixtures = {
   },
   "with link and caption": {
     context: {
+      href: "#/result/1",
       text: "Skin colour changes",
       caption: "A to Z of NHS health writing",
+      size: "l"
+    }
+  },
+  "with link opens in a new tab": {
+    context: {
       href: "#/result/1",
+      text: "Skin colour changes",
+      openInNewTab: true,
       size: "l"
     }
   },
