@@ -84,6 +84,33 @@ export const examples = {
       viewports: ["mobile"]
     }
   },
+  "notification": {
+    context: {
+      text: "1",
+      visuallyHiddenText: "notification",
+      notification: true
+    },
+    variants,
+    screenshot: {
+      viewports: ["mobile"]
+    }
+  },
+  "notifications": {
+    context: {
+      text: "2",
+      visuallyHiddenText: "notifications",
+      notification: true
+    },
+    variants
+  },
+  "notifications 9+": {
+    context: {
+      text: "9+",
+      visuallyHiddenText: "notifications",
+      notification: true
+    },
+    variants
+  },
   "with number": {
     context: {
       text: 0
