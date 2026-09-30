@@ -115,6 +115,101 @@ const options = {
     description:
       'HTML attributes (for example data attributes) to add to the link. If `type`, `href` or `element` are not not provided, this has no effect.',
     released: '10.6.2'
+  },
+  slots: {
+    type: 'object',
+    required: false,
+    description:
+      'Specified points for injecting custom content relative to the link component.',
+    released: '10.6.2',
+    params: {
+      before: {
+        type: 'object',
+        required: false,
+        description: 'Custom content injected before the link component.',
+        released: '10.6.2',
+        params: {
+          text: {
+            type: 'string',
+            required: true,
+            description: 'Custom text injected before the link component.',
+            released: '10.6.2'
+          },
+          html: {
+            type: 'string',
+            required: true,
+            description: 'Custom HTML injected before the link component.',
+            released: '10.6.2'
+          }
+        }
+      },
+      start: {
+        type: 'object',
+        required: false,
+        description:
+          'Custom content injected at the start, within the link component.',
+        released: '10.6.2',
+        params: {
+          text: {
+            type: 'string',
+            required: true,
+            description:
+              'Custom text injected at the start, within the link component.',
+            released: '10.6.2'
+          },
+          html: {
+            type: 'string',
+            required: true,
+            description:
+              'Custom HTML injected at the start, within the link component.',
+            released: '10.6.2'
+          }
+        }
+      },
+      end: {
+        type: 'object',
+        required: false,
+        description:
+          'Custom content injected at the end, within the link component.',
+        released: '10.6.2',
+        params: {
+          text: {
+            type: 'string',
+            required: true,
+            description:
+              'Custom text injected at the end, within the link component.',
+            released: '10.6.2'
+          },
+          html: {
+            type: 'string',
+            required: true,
+            description:
+              'Custom HTML injected at the end, within the link component.',
+            released: '10.6.2'
+          }
+        }
+      },
+      after: {
+        type: 'object',
+        required: false,
+        description: 'Custom content injected after the link component.',
+        released: '10.6.2',
+        params: {
+          text: {
+            type: 'string',
+            required: true,
+            description: 'Custom text injected after the link component.',
+            released: '10.6.2'
+          },
+          html: {
+            type: 'string',
+            required: true,
+            description: 'Custom HTML injected after the link component.',
+            released: '10.6.2'
+          }
+        }
+      }
+    }
   }
 }
 
