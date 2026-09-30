@@ -1,5 +1,6 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
+{% from "nhsuk/macros/content.njk" import nhsukContent %}
 
 {#- Set variant for this component #}
 {%- set variant = params.variant -%}
@@ -110,34 +111,45 @@
   {{- nhsukAttributes(params.attributes) -}}
 {% endset %}
 
-{%- set buttonText = params.html | safe if params.html else params.text %}
-{%- set buttonIcon = icon.html if icon.html else (nhsukIcon(icon.name) if icon.name) %}
+{%- set iconHtml = icon.html if icon.html else (nhsukIcon(icon.name) | trim if icon.name) %}
+
+{%- set content = {
+  text: params.text,
+  html: params.html
+} %}
 
 {%- set innerHtml %}
-{% if buttonIcon and icon.placement == "start" %}
-  {{ buttonIcon | trim | indent(2) }}
-{% endif %}
 {% if caller %}
-  {{- caller() }}
-{% elif (params.text or params.html) and buttonIcon %}
+  {%- set outerCaller = caller %}
+  {%- call nhsukContent(content) %}
+    {{- outerCaller() }}
+  {%- endcall %}
+{% elif (content.text or content.html) and iconHtml -%}
   <span class="nhsuk-button__content">
-    {{- buttonText | trim | indent(2) -}}
+    {{- nhsukContent(content) | trim -}}
   </span>
-{% elif params.text or params.html %}
-  {{ buttonText | trim | indent(2) }}
+{%- else %}
+  {{- nhsukContent(content) | trim }}
 {% endif %}
-{% if buttonIcon and icon.placement == "end" %}
-  {{ buttonIcon | trim | indent(2) }}
-{% endif %}
+{% endset %}
+
+{%- set innerHtml %}
+  {{- nhsukContent({
+    html: innerHtml,
+    slots: {
+      before: iconHtml if icon.placement == "start",
+      after: iconHtml if icon.placement == "end"
+    }
+  }) | safe | trim }}
 {% endset %}
 
 {%- if element == "a" %}
 <a {{- attributesHtml | safe }}>
-  {{ innerHtml | safe | trim }}
+  {{ innerHtml | safe | trim | indent(2) }}
 </a>
 {% elif element == "button" %}
 <button {{- attributesHtml | safe }}>
-  {{ innerHtml | safe | trim }}
+  {{ innerHtml | safe | trim | indent(2) }}
 </button>
 {% elif element == "input" %}
 <input {{- attributesHtml | safe }}>
