@@ -1,4 +1,5 @@
 {% from "nhsuk/components/heading/macro.njk" import heading as nhsukHeading %}
+{% from "nhsuk/components/link/macro.njk" import link as nhsukLink %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set classes for this component #}
@@ -66,13 +67,7 @@
         {% if item %}
         <li>
         {% if item.href %}
-          <a href="{{ item.href }}" {{- nhsukAttributes(item.attributes) }}>
-          {% if item.html %}
-            {{ item.html | safe | trim | indent(12) }}
-          {% elif item.text %}
-            {{ item.text | trim | indent(12) }}
-          {% endif %}
-          </a>
+          {{ nhsukLink(item) | trim | indent(10) }}
         {% elif item.html %}
           {{ item.html | safe | trim | indent(10) }}
         {% elif item.text %}

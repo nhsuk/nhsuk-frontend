@@ -1,6 +1,8 @@
 {% from "nhsuk/components/caption/macro.njk" import caption as nhsukCaption %}
+{% from "nhsuk/components/link/macro.njk" import link as nhsukLink %}
 {% from "nhsuk/components/visually-hidden/macro.njk" import visuallyHidden as nhsukVisuallyHidden %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/content.njk" import nhsukContent %}
 
 {#- Set classes for this component #}
 {%- set className = params.className | default("nhsuk-heading", true) -%}
@@ -55,22 +57,21 @@
 {%- set hasCaption = true if caption.text or caption.html else false %}
 
 {%- if caller or params.html or params.text %}
-{%- set innerHtml %}
-  {%- if params.html %}
-    {{- params.html | safe -}}
-  {% elif params.text %}
-    {{- params.text -}}
-  {% endif -%}
-{% endset %}
+{%- set content = {
+  text: params.text,
+  html: params.html,
+  visuallyHiddenText: params.visuallyHiddenText
+} %}
 
 {%- set innerHtml %}
-  {%- if params.href -%}
-    <a class="nhsuk-link" href="{{ params.href }}">
-      {{- innerHtml | safe | trim -}}
-    </a>
-  {%- else %}
-    {{- innerHtml | safe | trim -}}
-  {% endif -%}
+{% if caller %}
+  {%- set outerCaller = caller %}
+  {%- call nhsukContent(content) %}
+    {{- outerCaller() }}
+  {%- endcall %}
+{% else %}
+  {{- nhsukContent(content) | trim }}
+{% endif %}
 {% endset %}
 
 {%- if caption.placement == "before" %}
@@ -96,19 +97,14 @@
 {% if caption.placement == "start" or (hasCaption and not caption.placement) %}
   {{ nhsukCaption(caption) | safe | trim | indent(2) }}
 {% endif %}
-{% if params.visuallyHiddenText %}
-  {% if caller %}
-    {{- caller() }}
-  {% else %}
-    {{- innerHtml | safe | trim | indent(2, true) -}}
-  {% endif -%}
-  {{ nhsukVisuallyHidden(" " ~ params.visuallyHiddenText) | trim }}
+{% if params.href %}
+  {{ nhsukLink({
+    href: params.href,
+    html: innerHtml | trim,
+    openInNewTab: params.openInNewTab
+  }) | trim | indent(2) }}
 {% else %}
-  {% if caller %}
-    {{- caller() }}
-  {% else %}
-    {{- innerHtml | safe | trim | indent(2, true) }}
-  {% endif %}
+  {{ innerHtml | safe | trim | indent(2) }}
 {% endif %}
 {% if caption.placement == "end" %}
   {{ nhsukCaption(caption) | safe | trim | indent(2) }}
