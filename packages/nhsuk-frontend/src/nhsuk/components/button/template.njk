@@ -115,7 +115,12 @@
 
 {%- set content = {
   text: params.text,
-  html: params.html
+  html: params.html,
+  visuallyHidden: {
+    text: params.visuallyHiddenText,
+    placement: "start",
+    slots: { end: ": " }
+  }
 } %}
 
 {%- set innerHtml %}

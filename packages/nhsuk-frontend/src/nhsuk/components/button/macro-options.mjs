@@ -41,6 +41,13 @@ const options = {
       'Not strictly an option but supports the [`call` block](https://mozilla.github.io/nunjucks/templating.html#call) as an alternative to the `html` option. To use it, you will need to wrap the entire button component in a `call` block.',
     released: '10.4.0'
   },
+  visuallyHiddenText: {
+    type: 'string',
+    required: false,
+    description:
+      'A visually hidden prefix used before the button text. Defaults to `"Warning"` for warning buttons.',
+    released: '10.6.2'
+  },
   name: {
     type: 'string',
     required: false,
