@@ -2,6 +2,7 @@
 {% from "nhsuk/components/heading/macro.njk" import heading as nhsukHeading %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/content.njk" import nhsukContent %}
+{% from "nhsuk/macros/slot.njk" import nhsukSlot %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-fieldset__legend" -%}
@@ -41,7 +42,8 @@
   size: headingCaption.size | default(size),
   classes: headingCaption.classes,
   attributes: headingCaption.attributes,
-  element: headingCaption.element
+  element: headingCaption.element,
+  slots: headingCaption.slots
 } -%}
 
 {%- set legend = {
@@ -52,7 +54,11 @@
   caption: caption if not caption.placement or caption.placement in ["start", "end"] else undefined,
   size: size,
   classes: params.classes,
-  attributes: params.attributes
+  attributes: params.attributes,
+  slots: {
+    start: params.slots.start,
+    end: params.slots.end
+  }
 } -%}
 
 {%- if legend.size and
@@ -108,6 +114,9 @@
     element: "legend"
   }) | trim }}
 {% endif %}
+
+{{- nhsukSlot("after", params) -}}
+
 {% if caption.placement == "after" %}
 {{ nhsukCaption(caption) | safe | trim }}
 {% endif %}

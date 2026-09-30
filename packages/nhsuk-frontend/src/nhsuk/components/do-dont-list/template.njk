@@ -28,11 +28,13 @@
     visuallyHiddenText: heading.visuallyHiddenText,
     level: heading.level | default(3),
     classes: heading.classes,
-    attributes: heading.attributes
+    attributes: heading.attributes,
+    slots: heading.slots
   },
   classes: params.classes,
   attributes: params.attributes,
-  variant: "feature"
+  variant: "feature",
+  slots: params.slots
 }) %}
   <ul class="nhsuk-list nhsuk-list--{{ icon }}" role="list">
   {% for data in items %}

@@ -17,7 +17,8 @@
       else undefined,
     level: heading.level | default(params.headingLevel) | default(3),
     classes: heading.classes | default(params.headingClasses),
-    attributes: heading.attributes
+    attributes: heading.attributes,
+    slots: heading.slots
   },
   description: {
     text: params.text,
@@ -26,7 +27,8 @@
   actions: params.actions,
   classes: params.classes,
   attributes: params.attributes,
-  variant: "warning"
+  variant: "warning",
+  slots: params.slots
 } -%}
 
 {% if caller %}
