@@ -279,8 +279,16 @@ const options = {
         type: 'string',
         required: false,
         description:
-          'Message made available to assistive technologies to describe that the table is sortable. Defaults to `"Column headers are sortable"`.',
+          'Optional alias for the table caption `visuallyHidden` option. Defaults to `"Column headers are sortable"` in `"end"` placement when set to a string.',
         released: '10.6.0'
+      },
+      visuallyHidden: {
+        type: 'object',
+        required: false,
+        description:
+          'Optional visually hidden content made available to assistive technologies to describe the table as sortable. The `visuallyHidden.placement` option is not supported.',
+        released: '10.7.0',
+        isComponent: true
       },
       caption: {
         type: 'object',
