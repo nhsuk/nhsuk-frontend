@@ -1,3 +1,4 @@
+{% from "nhsuk/components/visually-hidden/macro.njk" import visuallyHidden as nhsukVisuallyHidden %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/content.njk" import nhsukContent %}
 
@@ -9,6 +10,10 @@
 
 {%- if variant == "reverse" and (not params.classes or not "nhsuk-badge--reverse" in params.classes) %}
   {% set classNames = classNames ~ " nhsuk-badge--" ~ variant %}
+{% endif %}
+
+{%- if params.notification and (not params.classes or not "nhsuk-badge--notification" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-badge--notification" %}
 {% endif %}
 
 {%- if params.small and (not params.classes or not "nhsuk-badge--small" in params.classes) %}
@@ -40,7 +45,7 @@
 {%- set content = {
   text: params.text,
   html: params.html,
-  visuallyHidden: params.visuallyHidden | default({
+  visuallyHidden: params.visuallyHidden | default(params.visuallyHiddenText if params.notification else {
     text: params.visuallyHiddenText,
     placement: "start",
     slots: { end: ": " }
