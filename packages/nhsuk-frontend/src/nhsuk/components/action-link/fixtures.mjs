@@ -37,6 +37,13 @@ const fixtures = {
       selector: ".nhsuk-action-link"
     }
   },
+  "opens in a new tab": {
+    context: {
+      text: "Find your nearest A&E",
+      href: "#/find",
+      openInNewTab: true
+    }
+  },
   "with HTML": {
     context: {
       html: outdent`
