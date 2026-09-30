@@ -79,24 +79,28 @@
       {{- htmlCode | safe | indent(4, true) }}
     {% endif %}
     <div class="nhsuk-width-container">
-      {% call details({
-        summary: "Code",
-        classes: "nhsuk-u-margin-top-4 nhsuk-u-margin-bottom-0",
-        variant: "reverse" if isReverse
-      }) %}
-        <h3 class="nhsuk-heading-s">Markup</h3>
-        {{ code({
-          html: fixture.html | highlight("html"),
-          variant: "reverse" if isReverse
-        }) | trim }}
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-full">
+          {% call details({
+            summary: "Code",
+            classes: "nhsuk-u-margin-top-4 nhsuk-u-margin-bottom-0",
+            variant: "reverse" if isReverse
+          }) %}
+            <h3 class="nhsuk-heading-s">Markup</h3>
+            {{ code({
+              html: fixture.html | highlight("html"),
+              variant: "reverse" if isReverse
+            }) | trim }}
 
-        <h3 class="nhsuk-heading-s">Macro</h3>
-        {{ code({
-          html: macroCode | highlight(["html", "njk"]),
-          variant: "reverse" if isReverse,
-          button: true
-        }) | trim }}
-      {% endcall %}
+            <h3 class="nhsuk-heading-s">Macro</h3>
+            {{ code({
+              html: macroCode | highlight(["html", "njk"]),
+              variant: "reverse" if isReverse,
+              button: true
+            }) | trim }}
+          {% endcall %}
+        </div>
+      </div>
     </div>
   </section>
   {% endif %}
