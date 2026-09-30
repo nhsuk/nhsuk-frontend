@@ -49,6 +49,18 @@ $nhsuk-tag-colour-reverse: rgb(nhsuk-shade(nhsuk-colour("dark-blue"), 90%), 0.25
     background-color: $nhsuk-tag-colour-reverse;
   }
 
+  .nhsuk-badge--notification {
+    border-radius: nhsuk-px-to-rem(nhsuk-spacing(1));
+    color: $nhsuk-reverse-text-colour;
+    background-color: $nhsuk-error-colour;
+
+    @include nhsuk-font-weight-bold;
+  }
+
+  .nhsuk-badge--notification.nhsuk-badge--reverse {
+    outline: $nhsuk-border-width-form-element solid $nhsuk-reverse-text-colour;
+  }
+
   // When the link is focused the item has a yellow background;
   // show the badge as an outlined pill with black text so it remains visually distinct.
   *:focus .nhsuk-badge {
