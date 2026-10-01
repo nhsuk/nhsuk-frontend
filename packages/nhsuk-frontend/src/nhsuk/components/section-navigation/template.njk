@@ -1,4 +1,5 @@
 {% from "nhsuk/components/badge/macro.njk" import badge as nhsukBadge %}
+{% from "nhsuk/components/link/macro.njk" import link as nhsukLink %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/content.njk" import nhsukContent %}
 
@@ -69,12 +70,6 @@
   {% for item in items %}
     {% set itemInnerAttributesHtml %}
       {{- nhsukAttributes({
-        class: "nhsuk-section-navigation__link" if item.href
-          else "nhsuk-section-navigation__text",
-        href: {
-          value: item.href,
-          optional: true
-        },
         "aria-current": {
           value: ("page" if item.current else "true")
             if item.active or item.current
@@ -104,14 +99,15 @@
     {% endset %}
     <li class="nhsuk-section-navigation__item {%- if item.active or item.current %} nhsuk-section-navigation__item--current{% endif %} {%- if item.classes %} {{ item.classes }}{% endif %}" {{- nhsukAttributes(item.attributes) }}>
     {% if item.href %}
-      <a {{- itemInnerAttributesHtml | safe }}>
-        {{ nhsukContent({
-          html: itemInnerHtml,
-          slots: item.slots
-        }) | trim | indent(8) }}
-      </a>
+      {{ nhsukLink({
+        href: item.href,
+        html: itemInnerHtml,
+        className: "nhsuk-section-navigation__link",
+        attributes: itemInnerAttributesHtml,
+        slots: item.slots
+      }) | trim | indent(6) }}
     {% else %}
-      <span {{- itemInnerAttributesHtml | safe }}>
+      <span class="nhsuk-section-navigation__text" {{- itemInnerAttributesHtml | safe }}>
         {{ nhsukContent({
           html: itemInnerHtml,
           slots: item.slots
