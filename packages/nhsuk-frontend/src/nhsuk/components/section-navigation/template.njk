@@ -1,0 +1,69 @@
+{% from "nhsuk/components/badge/macro.njk" import badge as nhsukBadge %}
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-section-navigation" -%}
+
+{%- if params.vertical and (not params.classes or not "nhsuk-section-navigation--vertical" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-section-navigation--vertical" %}
+{% endif %}
+
+{%- if params.small and (not params.classes or not "nhsuk-section-navigation--small" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-section-navigation--small" %}
+{% endif %}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif %}
+
+{%- set items = params.items | select("mapping") | list if params.items else [] -%}
+
+<nav class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
+  data-module="nhsuk-section-navigation"
+  {%- if params.labelledBy %} aria-labelledby="{{ params.labelledBy }}"
+  {%- else %} aria-label="{{ params.label | default("Section navigation") }}"
+  {%- endif %}
+  {{- nhsukAttributes(params.attributes) }}>
+  <ul class="nhsuk-section-navigation__list">
+  {% for item in items -%}
+    {%- set itemInnerAttributesHtml %}
+      {{- nhsukAttributes({
+        href: {
+          value: item.href,
+          optional: true
+        },
+        "aria-current": {
+          value: "page" if item.current else false,
+          optional: true
+        }
+      }) -}}
+    {%- endset -%}
+
+    {%- set itemInnerContent %}
+      {% if item.current -%}
+        {#- Wrap active item in strong element so users who override colours
+          or styles still have some indicator of the current nav item. -#}
+        <strong class="nhsuk-section-navigation__current">
+          {{- item.html | safe if item.html else item.text -}}
+        </strong>
+        {{- nhsukBadge(item.badge) | trim -}}
+      {%- else -%}
+        {{- item.html | safe if item.html else item.text -}}
+        {{- nhsukBadge(item.badge) | trim -}}
+      {%- endif -%}
+    {%- endset %}
+    <li class="nhsuk-section-navigation__item {%- if item.current %} nhsuk-section-navigation__item--current{% endif %} {%- if item.classes %} {{ item.classes }}{% endif %}"
+      {{- nhsukAttributes(item.attributes) }}>
+      {% if item.href %}
+      <a class="nhsuk-section-navigation__link" {{- itemInnerAttributesHtml | safe }}>
+        {{ itemInnerContent | safe | trim | indent(8) }}
+      </a>
+      {% else %}
+      <span class="nhsuk-section-navigation__text" {{- itemInnerAttributesHtml | safe }}>
+        {{ itemInnerContent | safe | trim | indent(8) }}
+      </span>
+      {% endif %}
+    </li>
+  {% endfor %}
+  </ul>
+</nav>
