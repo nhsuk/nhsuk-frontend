@@ -1,5 +1,6 @@
 {% from "nhsuk/components/badge/macro.njk" import badge as nhsukBadge %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/content.njk" import nhsukContent %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-section-navigation" -%}
@@ -48,7 +49,7 @@
       }) -}}
     {%- endset -%}
 
-    {%- set itemInnerContent %}
+    {%- set itemInnerHtml %}
       {% if item.current -%}
         {#- Wrap active item in strong element so users who override colours
           or styles still have some indicator of the current nav item. -#}
@@ -65,11 +66,17 @@
       {{- nhsukAttributes(item.attributes) }}>
       {% if item.href %}
       <a class="nhsuk-section-navigation__link" {{- itemInnerAttributesHtml | safe }}>
-        {{ itemInnerContent | safe | trim | indent(8) }}
+        {{ nhsukContent({
+          html: itemInnerHtml,
+          slots: item.slots
+        }) | trim | indent(8) }}
       </a>
       {% else %}
       <span class="nhsuk-section-navigation__text" {{- itemInnerAttributesHtml | safe }}>
-        {{ itemInnerContent | safe | trim | indent(8) }}
+        {{ nhsukContent({
+          html: itemInnerHtml,
+          slots: item.slots
+        }) | trim | indent(8) }}
       </span>
       {% endif %}
     </li>
