@@ -55,6 +55,12 @@ const fixtures = {
       viewports: ["tablet"]
     }
   },
+  "text escaping": {
+    context: {
+      text: "What to expect at A&E",
+      size: "l"
+    }
+  },
   "text and caption": {
     context: {
       text: "What is your home address?",
@@ -153,6 +159,18 @@ const fixtures = {
       classes: "nhsuk-heading-l",
       size: "s"
     }
+  },
+  "with HTML": {
+    context: {
+      html: "What to expect at A&amp;E",
+      size: "l"
+    }
+  },
+  "with HTML via call block": {
+    context: {
+      size: "l"
+    },
+    callBlock: "What to expect at A&amp;E"
   },
   "with link": {
     context: {
