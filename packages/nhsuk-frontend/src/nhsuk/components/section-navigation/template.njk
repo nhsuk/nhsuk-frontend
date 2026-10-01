@@ -31,7 +31,22 @@
   }) -}}
 
   {{- nhsukAttributes(params.attributes) -}}
-{% endset -%}
+{% endset %}
+
+{%- macro _listItemBadge(params) %}
+  {{- nhsukBadge({
+    text: params.text,
+    html: params.html,
+    visuallyHidden: params.visuallyHidden | default({
+      text: params.visuallyHiddenText,
+      placement: "start",
+      slots: { start: ", ", end: ": " }
+    }),
+    variant: params.variant,
+    classes: params.classes,
+    attributes: params.attributes
+  }) | trim -}}
+{% endmacro -%}
 
 <nav {{- attributesHtml | safe }}>
   <ul class="nhsuk-section-navigation__list">
@@ -56,10 +71,10 @@
         <strong class="nhsuk-section-navigation__current">
           {{- item.html | safe if item.html else item.text -}}
         </strong>
-        {{- nhsukBadge(item.badge) | trim -}}
+        {{- _listItemBadge(item.badge) | trim -}}
       {% else %}
         {{- item.html | safe if item.html else item.text -}}
-        {{- nhsukBadge(item.badge) | trim -}}
+        {{- _listItemBadge(item.badge) | trim -}}
       {% endif %}
     {%- endset %}
     <li class="nhsuk-section-navigation__item {%- if item.current %} nhsuk-section-navigation__item--current{% endif %} {%- if item.classes %} {{ item.classes }}{% endif %}"
