@@ -26,6 +26,20 @@ const options = {
       'If `text` is set, this is not required. HTML to use within the tag component. If `html` is provided, the `text` option will be ignored.',
     released: '4.0.0'
   },
+  visuallyHiddenText: {
+    type: 'string',
+    required: false,
+    description:
+      'Optional alias for the tag component `visuallyHidden` option. Defaults to `"end"` placement when set to a string.',
+    released: '10.7.0'
+  },
+  visuallyHidden: {
+    type: 'object',
+    required: true,
+    description: 'Optional visually hidden content used within the tag.',
+    released: '10.7.0',
+    isComponent: true
+  },
   caller: {
     type: 'nunjucks-block',
     required: false,
