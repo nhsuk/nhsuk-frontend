@@ -124,6 +124,21 @@ const fixtures = {
     },
     callBlock: "A&amp;E"
   },
+  "with visually hidden text": {
+    context: {
+      text: "A&E",
+      visuallyHiddenText: "waiting times"
+    }
+  },
+  "with visually hidden options": {
+    context: {
+      text: "A&E",
+      visuallyHidden: {
+        text: "Updated:",
+        placement: "start"
+      }
+    }
+  },
   "without border": {
     context: {
       border: false
