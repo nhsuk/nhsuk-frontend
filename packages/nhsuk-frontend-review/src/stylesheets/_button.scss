@@ -22,11 +22,6 @@
 }
 
 // Temporary: mirrors the compact button override.
-//
-// Excludes:
-// - .nhsuk-search-input__button, which defines its own explicit heights
-// - any button nested in a large input wrapper (e.g. a custom suffix button),
-//   which should keep its own sizing rather than inherit the compact min-height
 // stylelint-disable-next-line selector-not-notation
 .nhsuk-button:not(.nhsuk-button--small):not(.nhsuk-search-input__button):not(
     .nhsuk-input-wrapper--large .nhsuk-button
