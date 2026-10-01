@@ -115,6 +115,10 @@ const fixtures = {
               html: components.render("tag", {
                 context: {
                   text: "New",
+                  visuallyHidden: {
+                    text: ",",
+                    placement: "start"
+                  },
                   colour: "green"
                 }
               })
