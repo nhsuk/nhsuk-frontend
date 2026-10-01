@@ -299,6 +299,7 @@
     </tr>
   </thead>
 {% endif %}
+{% if rows | length %}
   <tbody class="nhsuk-table__body">
   {% for row in rows %}
     <tr class="nhsuk-table__row" {%- if params.responsive %} role="row"{% endif %}>
@@ -349,6 +350,7 @@
     </tr>
   {% endfor %}
   </tbody>
+{% endif %}
 </table>
 {%- endset %}
 
