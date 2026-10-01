@@ -58,7 +58,7 @@
       slots: { start: ", ", end: ": " }
     }),
     variant: params.variant | default(parent.params.variant),
-    small: params.small | default("nhsuk-section-navigation--small" in parent.classNames),
+    small: params.small | default(true),
     classes: params.classes,
     attributes: params.attributes
   }) | trim }}
