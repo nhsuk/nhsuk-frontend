@@ -1,3 +1,4 @@
+{% from "nhsuk/components/visually-hidden/macro.njk" import visuallyHidden as nhsukVisuallyHidden %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set classes for this component #}
@@ -56,10 +57,11 @@
   {%- elif params.text -%}
     {{- params.text | trim | indent(2) -}}
   {%- endif -%}
-  {%- if params.visuallyHiddenText or heading.text or heading.html -%}
-  <span class="nhsuk-u-visually-hidden">
-    {%- if params.visuallyHiddenText %} {{ params.visuallyHiddenText }}{% endif -%}
-    {%- if heading.text or heading.html %} ({{ heading.html | safe if heading.html else heading.text }}){% endif -%}
-  </span>
-  {%- endif -%}
+  {%- if params.visuallyHiddenText or heading.text or heading.html %}
+    {{- nhsukVisuallyHidden(params.visuallyHiddenText if not (heading.text or heading.html) else {
+      text: (params.visuallyHiddenText | default("") ~ " (" ~ heading.text ~ ")") | trim if heading.text,
+      html: (params.visuallyHiddenText | default("") ~ " (" ~ heading.html | safe ~ ")") | trim if heading.html,
+      slots: { start: " " }
+    }) | trim -}}
+  {% endif -%}
 </{{ element }}>

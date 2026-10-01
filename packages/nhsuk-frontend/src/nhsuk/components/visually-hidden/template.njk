@@ -1,0 +1,46 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/slot.njk" import nhsukSlot %}
+
+{#- Set classes for this component #}
+{% set classNames = "nhsuk-u-visually-hidden" %}
+
+{#- Support params as string or number #}
+{%- set params = params if params is mapping and params is not escaped else {
+  text: params if params is string or params is number else undefined,
+  html: params if params is escaped else undefined
+} %}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif %}
+
+{#- Determine type of element to use, if not explicitly set #}
+{%- if params.element %}
+  {% set element = params.element | lower %}
+{% else %}
+  {% set element = "span" %}
+{% endif %}
+
+{%- set hasContent = true if caller or params.html or params.text not in [undefined, null, false] and
+  (params.text is string or params.text is number) else false %}
+
+{{- nhsukSlot("before", params) -}}
+
+{%- if hasContent %}
+<{{ element }} class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
+  {{- nhsukAttributes(params.attributes) }}>
+  {{- nhsukSlot("start", params) -}}
+
+  {% if caller %}
+    {{- caller() -}}
+  {% elif params.html %}
+    {{- params.html | safe -}}
+  {% elif params.text is string or params.text is number %}
+    {{- params.text | string -}}
+  {% endif %}
+
+  {{- nhsukSlot("end", params) -}}
+</{{ element }}>
+{% endif %}
+
+{{- nhsukSlot("after", params) -}}
