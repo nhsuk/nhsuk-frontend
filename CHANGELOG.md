@@ -13,7 +13,7 @@ The text can be overriden with `visuallyHiddenText`:
 ```patch
 {{ button({
   text: "Delete record",
-+ visuallyHiddenText: "Caution:",
++ visuallyHiddenText: "Caution",
   variant: "warning"
 }) }}
 ```
