@@ -8,8 +8,11 @@
   {% set classNames = classNames ~ " " ~ params.classes %}
 {% endif -%}
 
+{%- set items = params.items | select("mapping") | list if params.items else [] %}
+
 {%- macro _tabListItem(params, item, index) %}
-{% set tabPanelId = item.id if item.id else idPrefix ~ "-" ~ index -%}
+{%- set tabPanelId = item.id if item.id else idPrefix ~ "-" ~ index -%}
+
 <li class="nhsuk-tabs__list-item {%- if index == 1 %} nhsuk-tabs__list-item--selected{% endif %}">
   <a class="nhsuk-tabs__tab" href="#{{ tabPanelId }}"
     {{- nhsukAttributes(item.attributes) }}>
@@ -19,13 +22,20 @@
 {% endmacro -%}
 
 {%- macro _tabPanel(params, item, index) %}
-{% set tabPanelId = item.id if item.id else idPrefix ~ "-" ~ index -%}
+{%- set tabPanelId = item.id if item.id else idPrefix ~ "-" ~ index %}
+
+{#- Support tab panel as string #}
+{%- set tabPanel = item.panel if item.panel is mapping and item.panel is not escaped else {
+  text: item.panel if item.panel is string else undefined,
+  html: item.panel if item.panel is escaped else undefined
+} -%}
+
 <div class="nhsuk-tabs__panel {%- if index > 1 %} nhsuk-tabs__panel--hidden{% endif %}" id="{{ tabPanelId }}"
-  {{- nhsukAttributes(item.panel.attributes) }}>
-{% if item.panel.html %}
-  {{ item.panel.html | safe | trim | indent(2) }}
-{% elif item.panel.text %}
-  <p>{{ item.panel.text | trim | indent(2) }}</p>
+  {{- nhsukAttributes(tabPanel.attributes) }}>
+{% if tabPanel.html %}
+  {{ tabPanel.html | safe | trim | indent(2) }}
+{% elif tabPanel.text %}
+  <p>{{ tabPanel.text | trim | indent(2) }}</p>
 {% endif %}
 </div>
 {% endmacro -%}
@@ -50,18 +60,14 @@
     level: 2,
     className: "nhsuk-tabs__heading"
   }) | trim | indent(2) }}
-{% if params.items | length %}
+{% if items | length %}
   <ul class="nhsuk-tabs__list">
-    {% for item in params.items %}
-      {% if item %}
-        {{- _tabListItem(params, item, loop.index) | trim | indent(4, true) }}
-      {% endif %}
+    {% for item in items %}
+      {{- _tabListItem(params, item, loop.index) | trim | indent(4, true) }}
     {% endfor %}
   </ul>
-  {% for item in params.items %}
-    {% if item %}
-      {{- _tabPanel(params, item, loop.index) | trim | indent(2, true) }}
-    {% endif %}
+  {% for item in items %}
+    {{- _tabPanel(params, item, loop.index) | trim | indent(2, true) }}
   {% endfor %}
 {% endif %}
 </div>

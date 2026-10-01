@@ -193,6 +193,25 @@ const fixtures = {
       width: "full"
     }
   },
+  "with panels as strings": {
+    context: {
+      idPrefix: "with-panels-strings",
+      items: [
+        {
+          label: "Tab 1",
+          panel: "Tab 1 content"
+        },
+        {
+          label: "Tab 2",
+          panel: "Tab 2 content"
+        },
+        {
+          label: "Tab 3",
+          panel: "Tab 3 content"
+        }
+      ]
+    }
+  },
   "with visually hidden text": {
     context: {
       idPrefix: "visually-hidden",
