@@ -38,6 +38,7 @@ describe('Core', () => {
         --nhsuk-aqua-green-colour: #00a499;
         --nhsuk-dark-aqua-green-colour: #1e403d;
         --nhsuk-purple-colour: #330072;
+        --nhsuk-bright-purple-colour: #6a3ca5;
         --nhsuk-pale-purple-colour: #ded6e8;
         --nhsuk-dark-pink-colour: #7c2855;
         --nhsuk-pink-colour: #ae2573;
