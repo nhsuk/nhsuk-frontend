@@ -12,8 +12,12 @@
 ///   friendly name for the colour (e.g. "red": #ff0000);
 
 $nhsuk-colours: (
-  // Primary
+  // NHS blues
+  "dark-blue": #003087,
   "blue": #005eb8,
+  "bright-blue": #0072ce,
+  "light-blue": #41b6e6,
+  "aqua-blue": #00a9ce,
 
   // NHS neutrals
   "black": #231f20,
@@ -37,9 +41,6 @@ $nhsuk-colours: (
   "orange": #ed8b00,
   "warm-yellow": #ffb81c,
   "yellow": #fae100,
-
-  // Secondary
-  "dark-blue": #003087,
   "pale-yellow": #fff9c4,
 
   // Greyscale
