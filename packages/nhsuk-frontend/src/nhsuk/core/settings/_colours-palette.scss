@@ -14,10 +14,6 @@
 $nhsuk-colours: (
   // Primary
   "blue": #005eb8,
-  "purple": #330072,
-  "dark-pink": #7c2855,
-  "red": #d5281b,
-  "yellow": #ffeb3b,
 
   // NHS neutrals
   "black": #231f20,
@@ -32,12 +28,19 @@ $nhsuk-colours: (
   "light-green": #78be20,
   "aqua-green": #00a499,
 
+  // NHS highlights
+  "purple": #330072,
+  "dark-pink": #7c2855,
+  "pink": #ae2573,
+  "dark-red": #8a1538,
+  "red": #da291c,
+  "orange": #ed8b00,
+  "warm-yellow": #ffb81c,
+  "yellow": #fae100,
+
   // Secondary
   "dark-blue": #003087,
   "pale-yellow": #fff9c4,
-  "warm-yellow": #ffb81c,
-  "orange": #ed8b00,
-  "pink": #ae2573,
 
   // Greyscale
   "grey-1": #4c6272,
@@ -47,6 +50,8 @@ $nhsuk-colours: (
   "grey-5": #f0f4f5
 ) !default;
 
-$nhsuk-colours-aliases: () !default;
+$nhsuk-colours-aliases: (
+  "emergency-services-red": "red"
+) !default;
 
 $nhsuk-colours-deprecated: () !default;
