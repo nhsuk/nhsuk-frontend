@@ -131,6 +131,19 @@
     }
   }
 
+  .nhsuk-environment-banner--warm-yellow {
+    $text-colour: nhsuk-colour("dark-warm-yellow");
+    $background-color: nhsuk-colour("pale-warm-yellow");
+
+    color: $text-colour;
+    background-color: $background-color;
+
+    .nhsuk-link,
+    a:not(.nhsuk-button) {
+      @include nhsuk-link-style-text($text-colour);
+    }
+  }
+
   .nhsuk-environment-banner--yellow {
     $text-colour: nhsuk-colour("dark-yellow");
     $background-color: nhsuk-colour("pale-yellow");
