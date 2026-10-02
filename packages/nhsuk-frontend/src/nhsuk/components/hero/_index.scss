@@ -75,7 +75,7 @@
     @include nhsuk-top-and-bottom;
 
     [class^="nhsuk-caption"] {
-      color: nhsuk-tint($nhsuk-brand-colour, 80%);
+      color: nhsuk-colour("pale-blue");
       @include nhsuk-font-weight-bold;
     }
   }
