@@ -20,7 +20,7 @@ $nhsuk-brand-colour: nhsuk-colour("blue") !default;
 ///
 /// @type Colour
 
-$nhsuk-text-colour: nhsuk-colour("black") !default;
+$nhsuk-text-colour: #212b32 !default;
 
 /// Text colour (reverse)
 ///
@@ -89,7 +89,7 @@ $nhsuk-focus-colour: nhsuk-colour("yellow") !default;
 ///
 /// @type Colour
 
-$nhsuk-focus-text-colour: nhsuk-colour("black") !default;
+$nhsuk-focus-text-colour: $nhsuk-text-colour !default;
 
 /// Error colour
 ///
@@ -302,7 +302,7 @@ $nhsuk-reverse-button-colour: nhsuk-colour("white") !default;
 ///
 /// @type Colour
 
-$nhsuk-reverse-button-text-colour: nhsuk-colour("black") !default;
+$nhsuk-reverse-button-text-colour: $nhsuk-text-colour !default;
 
 /// Reverse button background colour (hover)
 ///
