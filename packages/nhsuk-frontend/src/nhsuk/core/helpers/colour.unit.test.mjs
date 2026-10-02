@@ -38,10 +38,10 @@ describe('Colour helpers', () => {
 
       await expect(results).resolves.toMatchObject({
         css: outdent`
-        .foo {
-          color: #ff0000;
-        }
-      `
+          .foo {
+            color: #ff0000;
+          }
+        `
       })
     })
 
