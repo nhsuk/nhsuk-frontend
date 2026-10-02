@@ -29,6 +29,10 @@ describe('Colour helpers', () => {
 
           $nhsuk-colours-aliases: (
             "rouge": "red"
+          ),
+
+          $nhsuk-colours-deprecated: (
+            "bleu": "blue"
           )
         );
 
@@ -120,6 +124,34 @@ describe('Colour helpers', () => {
       })
 
       await expect(results).rejects.toThrow('Unknown colour `hooloovoo`')
+    })
+
+    it('outputs a warning if a deprecated colour is requested', async () => {
+      const sass = outdent`
+        ${sassBootstrap}
+
+        .foo {
+          color: nhsuk-colour('bleu');
+        }
+      `
+
+      const results = compileStringAsync(sass, {
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
+        logger
+      })
+
+      await expect(results).resolves.toMatchObject({
+        css: outdent`
+          .foo {
+            color: #0000ff;
+          }
+        `
+      })
+
+      expect(logger.warn).toHaveBeenCalledWith(
+        `nhsuk-colour("bleu") is deprecated. Use nhsuk-colour("blue") instead. To silence this warning, update $nhsuk-suppressed-warnings with key: "nhsuk-colour-deprecated"`,
+        expect.anything()
+      )
     })
   })
 
