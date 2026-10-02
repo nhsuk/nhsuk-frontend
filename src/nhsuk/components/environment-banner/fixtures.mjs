@@ -23,6 +23,27 @@ const fixtures = {
         }
       },
       {
+        description: "grey",
+        context: {
+          tag: "Prototype",
+          colour: "grey"
+        }
+      },
+      {
+        description: "green",
+        context: {
+          tag: "Staging",
+          colour: "green"
+        }
+      },
+      {
+        description: "aqua green",
+        context: {
+          tag: "Sandbox",
+          colour: "aqua-green"
+        }
+      },
+      {
         description: "blue",
         context: {
           tag: "Production",
@@ -34,6 +55,13 @@ const fixtures = {
         context: {
           tag: "Review",
           colour: "purple"
+        }
+      },
+      {
+        description: "pink",
+        context: {
+          tag: "Demo",
+          colour: "pink"
         }
       },
       {

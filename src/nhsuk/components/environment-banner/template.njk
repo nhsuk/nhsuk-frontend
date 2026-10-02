@@ -17,11 +17,15 @@
 } -%}
 
 {%- if params.colour and
-  params.colour in ["white", "blue", "purple", "red", "orange", "yellow"] and (
+  params.colour in ["white", "grey", "green", "aqua-green", "blue", "purple", "pink", "red", "orange", "yellow"] and (
     not params.classes or (
       not "nhsuk-environment-banner--white" in params.classes and
+      not "nhsuk-environment-banner--grey" in params.classes and
+      not "nhsuk-environment-banner--green" in params.classes and
+      not "nhsuk-environment-banner--aqua-green" in params.classes and
       not "nhsuk-environment-banner--blue" in params.classes and
       not "nhsuk-environment-banner--purple" in params.classes and
+      not "nhsuk-environment-banner--pink" in params.classes and
       not "nhsuk-environment-banner--red" in params.classes and
       not "nhsuk-environment-banner--orange" in params.classes and
       not "nhsuk-environment-banner--yellow" in params.classes
