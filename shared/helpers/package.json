@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@axe-core/puppeteer": "^4.13.0",
-    "@happy-dom/jest-environment": "^20.14.0",
+    "@happy-dom/jest-environment": "^20.14.5",
     "@testing-library/jest-dom": "^7.0.1",
     "jest-axe": "^11.0.0",
     "jest-environment-node": "^30.5.1",
