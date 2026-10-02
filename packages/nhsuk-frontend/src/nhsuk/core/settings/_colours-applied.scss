@@ -107,6 +107,15 @@ $nhsuk-error-colour: nhsuk-colour("red") !default;
 
 $nhsuk-success-colour: nhsuk-colour("green") !default;
 
+/// Success text colour
+///
+/// Ensure that the contrast between the text and background colour passes
+/// WCAG Level AA contrast requirements.
+///
+/// @type Colour
+
+$nhsuk-success-text-colour: nhsuk-shade(nhsuk-colour("green"), 15%) !default;
+
 /// Border colour
 ///
 /// Used in for example borders, separators, rules and keylines.
@@ -224,7 +233,7 @@ $nhsuk-link-active-colour: nhsuk-shade($nhsuk-link-colour, 50%) !default;
 ///
 /// @type Colour
 
-$nhsuk-button-colour: nhsuk-colour("green") !default;
+$nhsuk-button-colour: $nhsuk-success-text-colour !default;
 
 /// Button text colour
 ///
