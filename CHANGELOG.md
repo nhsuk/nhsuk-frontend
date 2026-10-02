@@ -2,6 +2,38 @@
 
 ## Unreleased
 
+Note: This release was created from the `support/10.x` branch.
+
+### :new: **New features**
+
+#### Environment banner
+
+We've added an environment banner component to help identify development, review or other non-production environments.
+
+To use the `environmentBanner` Nunjucks macro in your service, add it above the header:
+
+```patch
+  {% block header %}
++   {{ environmentBanner({
++     tag: environmentName,
++     colour: themeName
++   }) }}
++
+    {{ header() }}
+  {% endblock %}
+```
+
+Use the Nunjucks global values `environmentName` and `themeName` to update the banner, matching the [toolbar colour on some devices](https://developer.chrome.com/blog/support-for-theme-color-in-chrome-39-for-android). All tag colours are supported.
+
+```mjs
+nunjucks.render('example.njk', {
+  environmentName: 'Review',
+  themeName: 'purple'
+})
+```
+
+This change was introduced in [pull request #2115: Add environment banner component](https://github.com/nhsuk/nhsuk-frontend/pull/2115).
+
 ### :wrench: **Fixes**
 
 We've made fixes to NHS.UK frontend in the following pull requests:
