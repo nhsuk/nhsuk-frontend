@@ -4,6 +4,25 @@
 /// @group settings/colours
 ////
 
+$nhsapp-colours: (
+  "pale-aqua-green": #c9e3e0,
+  "dark-aqua-green": #1e403d,
+  "pale-blue": #ccdff1,
+  "dark-blue": #00386e,
+  "pale-green": #cce5d8,
+  "dark-green": #004c23,
+  "pale-purple": #ded6e8,
+  "dark-purple": #402463,
+  "pale-orange": #fbe8cc,
+  "dark-orange": #5f3800,
+  "pale-pink": #efd3e3,
+  "dark-pink": #681645,
+  "pale-red": #f7d4d1,
+  "dark-red": #801810,
+  "pale-yellow": #fff7b1,
+  "dark-yellow": #4c4612
+) !default;
+
 /// NHS colour palette
 ///
 /// @type Map
@@ -30,15 +49,25 @@ $nhsuk-colours: (
   "dark-green": #006747,
   "green": #009639,
   "light-green": #78be20,
+  "pale-green": #cce5d8,
+  "pale-aqua-green": #c9e3e0,
   "aqua-green": #00a499,
+  "dark-aqua-green": #1e403d,
 
   // NHS highlights
+  "dark-purple": #402463,
   "purple": #330072,
+  "pale-purple": #ded6e8,
   "dark-pink": #7c2855,
   "pink": #ae2573,
+  "pale-pink": #efd3e3,
   "dark-red": #8a1538,
   "red": #da291c,
+  "pale-red": #f7d4d1,
+  "dark-orange": #5f3800,
   "orange": #ed8b00,
+  "pale-orange": #fbe8cc,
+  "dark-yellow": #4c4612,
   "warm-yellow": #ffb81c,
   "yellow": #fae100,
   "pale-yellow": #fff9c4,
