@@ -61,7 +61,7 @@
 
   .nhsuk-tag--green {
     border-color: nhsuk-colour("dark-green");
-    color: nhsuk-colour("dark-green");
+    color: nhsuk-shade(nhsuk-colour("green"), 45%);
     background-color: nhsuk-colour("pale-green");
   }
 
@@ -85,13 +85,13 @@
 
   .nhsuk-tag--pink {
     border-color: nhsuk-colour("dark-pink");
-    color: nhsuk-colour("dark-pink");
+    color: nhsuk-shade(nhsuk-colour("pink"), 40%);
     background-color: nhsuk-colour("pale-pink");
   }
 
   .nhsuk-tag--red {
     border-color: nhsuk-colour("dark-red");
-    color: nhsuk-colour("dark-red");
+    color: nhsuk-shade(nhsuk-colour("red"), 40%);
     background-color: nhsuk-colour("pale-red");
   }
 
