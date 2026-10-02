@@ -21,6 +21,7 @@ describe('Core', () => {
         --nhsuk-breakpoint-large-desktop: 61.875rem;
         --nhsuk-dark-blue-colour: #003087;
         --nhsuk-blue-colour: #005eb8;
+        --nhsuk-pale-blue-colour: #ccdff1;
         --nhsuk-bright-blue-colour: #0072ce;
         --nhsuk-light-blue-colour: #41b6e6;
         --nhsuk-aqua-blue-colour: #00a9ce;
