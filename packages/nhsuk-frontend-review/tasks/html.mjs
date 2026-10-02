@@ -12,7 +12,7 @@ import PluginError from 'plugin-error'
 import validatorConfig from '../.htmlvalidate.mjs'
 
 const { configure, renderTemplate } = nunjucks
-const { HEROKU_BRANCH = 'main' } = process.env
+const { HEROKU_BRANCH = 'main', HEROKU_PR_NUMBER } = process.env
 
 // Configure HTML validator
 const validator = new HtmlValidate(validatorConfig)
@@ -50,7 +50,18 @@ export const compile = task.name('html:render', async () => {
   const context = {
     assetPath: `/nhsuk-frontend/assets`,
     baseUrl: '/nhsuk-frontend/',
-    branchName: HEROKU_BRANCH,
+
+    // Link to GitHub pull request when available
+    gitHub: HEROKU_PR_NUMBER
+      ? {
+          text: `pull request #${HEROKU_PR_NUMBER}`,
+          href: `https://github.com/nhsuk/nhsuk-frontend/pull/${HEROKU_PR_NUMBER}`
+        }
+      : {
+          html: `<code class="nhsuk-code--inline">${HEROKU_BRANCH}</code> branch`,
+          href: `https://github.com/nhsuk/nhsuk-frontend/commits/${HEROKU_BRANCH}`
+        },
+
     serviceName: 'NHS.UK frontend',
     version: config.version,
     components: components.getAllFixtures()

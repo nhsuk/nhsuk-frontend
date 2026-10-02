@@ -1,0 +1,6 @@
+{% call environmentBanner({
+  tag: "Preview",
+  colour: "white"
+}) %}
+  This is a <a class="nhsuk-link nhsuk-link--no-visited-state" href="https://service-manual.nhs.uk/design-system">design system</a> %{name} environment for <a class="nhsuk-link nhsuk-link--no-visited-state" href="{{ gitHub.href | escape }}">{{ gitHub.html | safe if gitHub.html else gitHub.text }}</a>
+{%- endcall %}
