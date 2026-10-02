@@ -25,6 +25,10 @@ describe('Colour helpers', () => {
             "red": #ff0000,
             "green": #00ff00,
             "blue": #0000ff
+          ),
+
+          $nhsuk-colours-aliases: (
+            "rouge": "red"
           )
         );
 
@@ -38,6 +42,29 @@ describe('Colour helpers', () => {
 
         .foo {
           color: nhsuk-colour('red');
+        }
+      `
+
+      const results = compileStringAsync(sass, {
+        loadPaths: ['packages/nhsuk-frontend/src/nhsuk'],
+        logger
+      })
+
+      await expect(results).resolves.toMatchObject({
+        css: outdent`
+          .foo {
+            color: #ff0000;
+          }
+        `
+      })
+    })
+
+    it('returns a colour from the colour palette via alias', async () => {
+      const sass = outdent`
+        ${sassBootstrap}
+
+        .foo {
+          color: nhsuk-colour('rouge');
         }
       `
 
