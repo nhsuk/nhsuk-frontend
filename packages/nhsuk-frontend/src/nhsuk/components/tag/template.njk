@@ -4,7 +4,7 @@
 {%- set classNames = "nhsuk-tag" -%}
 
 {%- if params.colour and
-  params.colour in ["white", "grey", "green", "aqua-green", "blue", "purple", "pink", "red", "orange", "yellow"] and (
+  params.colour in ["white", "grey", "green", "aqua-green", "blue", "purple", "pink", "red", "orange", "warm-yellow", "yellow"] and (
     not params.classes or (
       not "nhsuk-tag--white" in params.classes and
       not "nhsuk-tag--grey" in params.classes and
@@ -15,6 +15,7 @@
       not "nhsuk-tag--pink" in params.classes and
       not "nhsuk-tag--red" in params.classes and
       not "nhsuk-tag--orange" in params.classes and
+      not "nhsuk-tag--warm-yellow" in params.classes and
       not "nhsuk-tag--yellow" in params.classes
     )
   )
