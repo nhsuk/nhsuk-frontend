@@ -99,6 +99,15 @@ $nhsuk-focus-text-colour: $nhsuk-text-colour !default;
 
 $nhsuk-error-colour: nhsuk-colour("red") !default;
 
+/// Error text colour
+///
+/// Ensure that the contrast between the text and background colour passes
+/// WCAG Level AA contrast requirements.
+///
+/// @type Colour
+
+$nhsuk-error-text-colour: nhsuk-shade(nhsuk-colour("red"), 2.5%) !default;
+
 /// Success colour
 ///
 /// Used to highlight success messages and banners
@@ -335,7 +344,7 @@ $nhsuk-reverse-button-shadow-colour: nhsuk-shade($nhsuk-reverse-button-colour, 3
 ///
 /// @type Colour
 
-$nhsuk-warning-button-colour: nhsuk-colour("red") !default;
+$nhsuk-warning-button-colour: $nhsuk-error-text-colour !default;
 
 /// Warning button background colour (hover)
 ///
