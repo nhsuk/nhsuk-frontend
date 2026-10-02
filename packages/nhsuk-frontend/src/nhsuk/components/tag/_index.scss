@@ -49,7 +49,7 @@
 
   .nhsuk-tag--white {
     border-color: nhsuk-colour("black");
-    color: nhsuk-colour("black");
+    color: $nhsuk-text-colour;
     background-color: nhsuk-colour("white");
   }
 

@@ -20,13 +20,16 @@ describe('Core', () => {
         --nhsuk-breakpoint-desktop: 48.0625rem;
         --nhsuk-breakpoint-large-desktop: 61.875rem;
         --nhsuk-blue-colour: #005eb8;
-        --nhsuk-white-colour: white;
-        --nhsuk-black-colour: #212b32;
         --nhsuk-green-colour: #007f3b;
         --nhsuk-purple-colour: #330072;
         --nhsuk-dark-pink-colour: #7c2855;
         --nhsuk-red-colour: #d5281b;
         --nhsuk-yellow-colour: #ffeb3b;
+        --nhsuk-black-colour: #231f20;
+        --nhsuk-dark-grey-colour: #425563;
+        --nhsuk-mid-grey-colour: #768692;
+        --nhsuk-pale-grey-colour: #e8edee;
+        --nhsuk-white-colour: white;
         --nhsuk-dark-blue-colour: #003087;
         --nhsuk-pale-yellow-colour: #fff9c4;
         --nhsuk-warm-yellow-colour: #ffb81c;
