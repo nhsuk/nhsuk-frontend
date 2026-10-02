@@ -4,6 +4,7 @@
 @use "sass:meta";
 @use "sass:string";
 @use "../settings/colours-palette" as *;
+@use "../settings/warnings" as *;
 
 ////
 /// @group helpers/colour
@@ -25,6 +26,17 @@
 
   @if meta.type-of($colour) == "string" and map.has-key($nhsuk-colours-aliases, $colour) {
     $colour: map.get($nhsuk-colours-aliases, $colour);
+  }
+
+  @if meta.type-of($colour) == "string" and map.has-key($nhsuk-colours-deprecated, $colour) {
+    $name: map.get($nhsuk-colours-deprecated, $colour);
+
+    @if nhsuk-should-warn("nhsuk-colour-deprecated") {
+      @warn nhsuk-warning-text("nhsuk-colour-deprecated",
+      'nhsuk-colour("#{$colour}") is deprecated. Use nhsuk-colour("#{$name}") instead.');
+    }
+
+    $colour: $name;
   }
 
   @if not map.has-key($nhsuk-colours, $colour) {
