@@ -195,8 +195,8 @@
     }
 
     .nhsuk-code--inline {
-      color: nhsuk-tint(nhsuk-colour("dark-blue"), 85%);
-      background-color: nhsuk-shade($nhsuk-brand-colour, 50%);
+      color: nhsuk-colour("pale-blue");
+      background-color: nhsuk-colour("dark-blue");
     }
 
     .nhsuk-link,
