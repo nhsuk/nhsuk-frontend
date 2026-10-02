@@ -159,31 +159,31 @@ describe('Colour helpers', () => {
     it.each([
       {
         input: '"green"',
-        output: '#007f3b'
+        output: '#009639'
       },
       {
-        input: 'rgb(0, 127, 59)',
-        output: '#007f3b'
+        input: 'rgb(0, 150, 57)',
+        output: '#009639'
       },
       {
-        input: 'rgba(0, 127, 59, 1)',
-        output: '#007f3b'
+        input: 'rgba(0, 150, 57, 1)',
+        output: '#009639'
       },
       {
-        input: 'rgba(0, 127, 59, 0.99)',
-        output: 'rgba(0, 127, 59, 0.99)'
+        input: 'rgba(0, 150, 57, 0.99)',
+        output: 'rgba(0, 150, 57, 0.99)'
       },
       {
-        input: 'rgb(0.1, 127.2, 59.3)',
-        output: '#007f3b'
+        input: 'rgb(0.1, 150.2, 57.3)',
+        output: '#009639'
       },
       {
-        input: 'rgba(0.1, 127.2, 59.3, 1)',
-        output: '#007f3b'
+        input: 'rgba(0.1, 150.2, 57.3, 1)',
+        output: '#009639'
       },
       {
-        input: 'rgba(0.1, 127.2, 59.3, 0.99)',
-        output: 'rgba(0, 127, 59, 0.99)'
+        input: 'rgba(0.1, 150.2, 57.3, 0.99)',
+        output: 'rgba(0, 150, 57, 0.99)'
       }
     ])("outputs '$input' as value '$output'", async ({ input, output }) => {
       const sass = outdent`

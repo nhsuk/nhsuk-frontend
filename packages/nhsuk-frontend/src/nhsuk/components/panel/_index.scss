@@ -34,7 +34,7 @@ $nhsuk-border-width-panel: $nhsuk-panel-border-width;
     padding: nhsuk-spacing(5) - $nhsuk-panel-border-width; /* [2] */
     border: $nhsuk-panel-border-width solid transparent; /* [1] */
     color: $nhsuk-reverse-text-colour;
-    background: $nhsuk-success-colour;
+    background: $nhsuk-success-text-colour;
 
     @include nhsuk-font-size(26);
     @include nhsuk-responsive-margin(4, "bottom");
