@@ -23,6 +23,10 @@
     $colour: string.quote("#{$colour}");
   }
 
+  @if meta.type-of($colour) == "string" and map.has-key($nhsuk-colours-aliases, $colour) {
+    $colour: map.get($nhsuk-colours-aliases, $colour);
+  }
+
   @if not map.has-key($nhsuk-colours, $colour) {
     @error "Unknown colour `#{$colour}`";
   }
