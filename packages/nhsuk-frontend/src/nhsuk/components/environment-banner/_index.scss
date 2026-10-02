@@ -26,6 +26,48 @@
     background-color: nhsuk-colour("white");
   }
 
+  .nhsuk-environment-banner--grey {
+    $colour: nhsuk-colour("grey-1");
+    $text-colour: nhsuk-shade($colour, 30%);
+    $background-color: nhsuk-tint($colour, 80%);
+
+    color: $text-colour;
+    background-color: $background-color;
+
+    .nhsuk-link,
+    a:not(.nhsuk-button) {
+      @include nhsuk-link-style-text($text-colour);
+    }
+  }
+
+  .nhsuk-environment-banner--green {
+    $colour: nhsuk-colour("green");
+    $text-colour: nhsuk-shade($colour, 40%);
+    $background-color: nhsuk-tint($colour, 80%);
+
+    color: $text-colour;
+    background-color: $background-color;
+
+    .nhsuk-link,
+    a:not(.nhsuk-button) {
+      @include nhsuk-link-style-text($text-colour);
+    }
+  }
+
+  .nhsuk-environment-banner--aqua-green {
+    $colour: nhsuk-colour("aqua-green");
+    $text-colour: nhsuk-shade($colour, 50%);
+    $background-color: nhsuk-tint($colour, 80%);
+
+    color: $text-colour;
+    background-color: $background-color;
+
+    .nhsuk-link,
+    a:not(.nhsuk-button) {
+      @include nhsuk-link-style-text($text-colour);
+    }
+  }
+
   .nhsuk-environment-banner--blue {
     $colour: nhsuk-colour("blue");
     $text-colour: nhsuk-shade($colour, 30%);
@@ -44,6 +86,20 @@
   .nhsuk-environment-banner--purple {
     $colour: nhsuk-colour("purple");
     $text-colour: nhsuk-shade($colour, 30%);
+    $background-color: nhsuk-tint($colour, 80%);
+
+    color: $text-colour;
+    background-color: $background-color;
+
+    .nhsuk-link,
+    a:not(.nhsuk-button) {
+      @include nhsuk-link-style-text($text-colour);
+    }
+  }
+
+  .nhsuk-environment-banner--pink {
+    $colour: nhsuk-colour("pink");
+    $text-colour: nhsuk-shade($colour, 50%);
     $background-color: nhsuk-tint($colour, 80%);
 
     color: $text-colour;
