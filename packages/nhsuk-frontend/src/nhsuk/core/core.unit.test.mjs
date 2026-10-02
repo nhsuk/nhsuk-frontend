@@ -19,7 +19,11 @@ describe('Core', () => {
         --nhsuk-breakpoint-tablet: 40.0625rem;
         --nhsuk-breakpoint-desktop: 48.0625rem;
         --nhsuk-breakpoint-large-desktop: 61.875rem;
+        --nhsuk-dark-blue-colour: #003087;
         --nhsuk-blue-colour: #005eb8;
+        --nhsuk-bright-blue-colour: #0072ce;
+        --nhsuk-light-blue-colour: #41b6e6;
+        --nhsuk-aqua-blue-colour: #00a9ce;
         --nhsuk-black-colour: #231f20;
         --nhsuk-dark-grey-colour: #425563;
         --nhsuk-mid-grey-colour: #768692;
@@ -37,7 +41,6 @@ describe('Core', () => {
         --nhsuk-orange-colour: #ed8b00;
         --nhsuk-warm-yellow-colour: #ffb81c;
         --nhsuk-yellow-colour: #fae100;
-        --nhsuk-dark-blue-colour: #003087;
         --nhsuk-pale-yellow-colour: #fff9c4;
         --nhsuk-grey-1-colour: #4c6272;
         --nhsuk-grey-2-colour: #768692;
