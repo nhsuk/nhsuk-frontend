@@ -49,8 +49,10 @@ describe('Core', () => {
         --nhsuk-dark-orange-colour: #5f3800;
         --nhsuk-orange-colour: #ed8b00;
         --nhsuk-pale-orange-colour: #fbe8cc;
-        --nhsuk-dark-yellow-colour: #4b4400;
+        --nhsuk-dark-warm-yellow-colour: #59400a;
         --nhsuk-warm-yellow-colour: #ffb81c;
+        --nhsuk-pale-warm-yellow-colour: #ffe6b0;
+        --nhsuk-dark-yellow-colour: #4b4400;
         --nhsuk-yellow-colour: #fae100;
         --nhsuk-pale-yellow-colour: #fef6b3;
         --nhsuk-grey-1-colour: #4c6272;
