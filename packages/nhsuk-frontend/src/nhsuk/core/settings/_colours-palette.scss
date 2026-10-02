@@ -55,7 +55,6 @@ $nhsuk-colours: (
   "dark-aqua-green": #1e403d,
 
   // NHS highlights
-  "dark-purple": #402463,
   "purple": #330072,
   "pale-purple": #ded6e8,
   "dark-pink": #7c2855,
@@ -84,4 +83,6 @@ $nhsuk-colours-aliases: (
   "emergency-services-red": "red"
 ) !default;
 
-$nhsuk-colours-deprecated: () !default;
+$nhsuk-colours-deprecated: (
+  "dark-purple": "purple"
+) !default;
