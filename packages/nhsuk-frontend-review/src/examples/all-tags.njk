@@ -139,6 +139,68 @@
     </div>
   </section>
 
+  <section class="nhsuk-main-wrapper app-wrapper app-wrapper--background-white">
+    <div class="nhsuk-width-container">
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          {% set rows = [] %}
+
+          {% for name, params in examples %}
+            {% set colourHtml %}
+              {% if params.colour is not undefined %}
+                <var class="nhsuk-body-s">{{ '"' ~ params.colour ~ '"' if params.colour else "false" }}</var>
+              {% else %}
+                None
+              {% endif %}
+            {% endset %}
+
+            {% set tagHtml %}
+              {{ tag({
+                text: params.text,
+                colour: params.colour,
+                border: false
+              }) }}
+            {% endset %}
+
+            {% set rows = (rows.push([
+              { text: name },
+              { html: colourHtml },
+              { html: tagHtml }
+            ]), rows) %}
+          {% endfor %}
+
+          {{ table({
+            caption: {
+              text: "White background",
+              classes: "nhsuk-u-margin-bottom-4",
+              size: "l"
+            },
+            firstCellIsHeader: true,
+            responsive: true,
+            head: [
+              {
+                text: "Name",
+                width: "one-third"
+              },
+              {
+                text: "Colour",
+                width: "one-third"
+              },
+              {
+                text: "Tag",
+                width: "one-third"
+              }
+            ],
+            rows: rows
+          }) }}
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
   <section class="nhsuk-main-wrapper app-wrapper app-wrapper--background-blue">
     <div class="nhsuk-width-container">
 
