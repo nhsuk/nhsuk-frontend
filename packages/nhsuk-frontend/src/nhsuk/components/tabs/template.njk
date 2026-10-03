@@ -1,5 +1,6 @@
 {% from "nhsuk/components/heading/macro.njk" import heading as nhsukHeading %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/content.njk" import nhsukContent %}
 
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-tabs" %}
@@ -13,10 +14,16 @@
 {%- macro _tabListItem(params, item, index) %}
 {%- set tabPanelId = item.id if item.id else idPrefix ~ "-" ~ index -%}
 
+{#- Support tab label as string #}
+{%- set tabLabel = item.label if item.label is mapping and item.label is not escaped else {
+  text: item.label if item.label is string else undefined,
+  html: item.label if item.label is escaped else undefined
+} -%}
+
 <li class="nhsuk-tabs__list-item {%- if index == 1 %} nhsuk-tabs__list-item--selected{% endif %}">
   <a class="nhsuk-tabs__tab" href="#{{ tabPanelId }}"
     {{- nhsukAttributes(item.attributes) }}>
-    {{ item.label }}
+    {{ nhsukContent(tabLabel) | trim }}
   </a>
 </li>
 {%- endmacro %}
