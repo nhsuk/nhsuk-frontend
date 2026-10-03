@@ -424,6 +424,75 @@ const fixtures = {
       ]
     }
   },
+  "with tags, white background": {
+    context: {
+      caption: "Tags",
+      firstCellIsHeader: true,
+      head: ["Name", "Colour", "Tag"],
+      rows: [
+        [
+          "Default",
+          "None",
+          {
+            html: components.render("tag", {
+              context: {
+                text: "Default",
+                border: false
+              }
+            })
+          }
+        ],
+        [
+          "Red",
+          {
+            html: '<var class="nhsuk-body-s">red</var>'
+          },
+          {
+            html: components.render("tag", {
+              context: {
+                text: "Rejected",
+                colour: "red",
+                border: false
+              }
+            })
+          }
+        ],
+        [
+          "Blue",
+          {
+            html: '<var class="nhsuk-body-s">blue</var>'
+          },
+          {
+            html: components.render("tag", {
+              context: {
+                text: "Pending",
+                colour: "blue",
+                border: false
+              }
+            })
+          }
+        ],
+        [
+          "Green",
+          {
+            html: '<var class="nhsuk-body-s">green</var>'
+          },
+          {
+            html: components.render("tag", {
+              context: {
+                text: "New",
+                colour: "green",
+                border: false
+              }
+            })
+          }
+        ]
+      ]
+    },
+    options: {
+      layout: "background-white"
+    }
+  },
   "with first cell as header": {
     context: {
       firstCellIsHeader: true,
@@ -1044,6 +1113,91 @@ const fixtures = {
           }
         ]
       ]
+    }
+  },
+  "with word breaks, white background": {
+    context: {
+      caption: {
+        text: "Users",
+        size: "m"
+      },
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: "Name"
+        },
+        {
+          text: "Email address"
+        },
+        {
+          text: "Status"
+        },
+        {
+          visuallyHiddenText: "Actions"
+        }
+      ],
+      rows: [
+        [
+          {
+            text: "Stephanie Meyer",
+            classes: "nhsuk-u-text-break-word"
+          },
+          {
+            text: "stephanie.meyer9@test.com",
+            classes: "nhsuk-u-text-break-word"
+          },
+          {
+            html: components.render("tag", {
+              context: {
+                text: "Active",
+                colour: "green",
+                border: false
+              }
+            })
+          }
+        ],
+        [
+          {
+            text: "Aleksandrina Featherstonehaugh-Whitehead",
+            classes: "nhsuk-u-text-break-word"
+          },
+          {
+            text: "aleksandrina.featherstonehaughwhitehead23@folkestonepharmacy.test.com",
+            classes: "nhsuk-u-text-break-word"
+          },
+          {
+            html: components.render("tag", {
+              context: {
+                text: "Inactive",
+                colour: "grey",
+                border: false
+              }
+            })
+          }
+        ],
+        [
+          {
+            text: "Karen Francis",
+            classes: "nhsuk-u-text-break-word"
+          },
+          {
+            text: "karen.francis@example.com",
+            classes: "nhsuk-u-text-break-word"
+          },
+          {
+            html: components.render("tag", {
+              context: {
+                text: "Thisisaverylongwaytosaythatsomethingisincomplete",
+                colour: "blue",
+                border: false
+              }
+            })
+          }
+        ]
+      ]
+    },
+    options: {
+      layout: "background-white"
     }
   },
   "without border": {
