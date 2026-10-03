@@ -27,9 +27,8 @@
   }
 
   .nhsuk-environment-banner--grey {
-    $colour: nhsuk-colour("grey-1");
-    $text-colour: nhsuk-shade($colour, 30%);
-    $background-color: nhsuk-tint($colour, 80%);
+    $text-colour: $nhsuk-text-colour;
+    $background-color: nhsuk-colour("grey-4");
 
     color: $text-colour;
     background-color: $background-color;
@@ -41,9 +40,8 @@
   }
 
   .nhsuk-environment-banner--green {
-    $colour: nhsuk-colour("green");
-    $text-colour: nhsuk-shade($colour, 40%);
-    $background-color: nhsuk-tint($colour, 80%);
+    $text-colour: nhsuk-shade(nhsuk-colour("green"), 45%);
+    $background-color: nhsuk-colour("pale-green");
 
     color: $text-colour;
     background-color: $background-color;
@@ -55,9 +53,8 @@
   }
 
   .nhsuk-environment-banner--aqua-green {
-    $colour: nhsuk-colour("aqua-green");
-    $text-colour: nhsuk-shade($colour, 50%);
-    $background-color: nhsuk-tint($colour, 80%);
+    $text-colour: nhsuk-colour("dark-aqua-green");
+    $background-color: nhsuk-colour("pale-aqua-green");
 
     color: $text-colour;
     background-color: $background-color;
@@ -69,9 +66,8 @@
   }
 
   .nhsuk-environment-banner--blue {
-    $colour: nhsuk-colour("blue");
-    $text-colour: nhsuk-shade($colour, 30%);
-    $background-color: nhsuk-tint($colour, 80%);
+    $text-colour: nhsuk-colour("dark-blue");
+    $background-color: nhsuk-colour("pale-blue");
 
     border-color: $text-colour;
     color: $text-colour;
@@ -84,9 +80,8 @@
   }
 
   .nhsuk-environment-banner--purple {
-    $colour: nhsuk-colour("purple");
-    $text-colour: nhsuk-shade($colour, 30%);
-    $background-color: nhsuk-tint($colour, 80%);
+    $text-colour: nhsuk-colour("purple");
+    $background-color: nhsuk-colour("pale-purple");
 
     color: $text-colour;
     background-color: $background-color;
@@ -98,9 +93,8 @@
   }
 
   .nhsuk-environment-banner--pink {
-    $colour: nhsuk-colour("pink");
-    $text-colour: nhsuk-shade($colour, 50%);
-    $background-color: nhsuk-tint($colour, 80%);
+    $text-colour: nhsuk-shade(nhsuk-colour("pink"), 40%);
+    $background-color: nhsuk-colour("pale-pink");
 
     color: $text-colour;
     background-color: $background-color;
@@ -112,9 +106,8 @@
   }
 
   .nhsuk-environment-banner--red {
-    $colour: nhsuk-colour("red");
-    $text-colour: nhsuk-shade($colour, 50%);
-    $background-color: nhsuk-tint($colour, 80%);
+    $text-colour: nhsuk-shade(nhsuk-colour("red"), 40%);
+    $background-color: nhsuk-colour("pale-red");
 
     color: $text-colour;
     background-color: $background-color;
@@ -126,9 +119,21 @@
   }
 
   .nhsuk-environment-banner--orange {
-    $colour: nhsuk-colour("warm-yellow");
-    $text-colour: nhsuk-shade($colour, 70%);
-    $background-color: nhsuk-tint($colour, 50%);
+    $text-colour: nhsuk-colour("dark-orange");
+    $background-color: nhsuk-colour("pale-orange");
+
+    color: $text-colour;
+    background-color: $background-color;
+
+    .nhsuk-link,
+    a:not(.nhsuk-button) {
+      @include nhsuk-link-style-text($text-colour);
+    }
+  }
+
+  .nhsuk-environment-banner--warm-yellow {
+    $text-colour: nhsuk-colour("dark-warm-yellow");
+    $background-color: nhsuk-colour("pale-warm-yellow");
 
     color: $text-colour;
     background-color: $background-color;
@@ -140,9 +145,8 @@
   }
 
   .nhsuk-environment-banner--yellow {
-    $colour: nhsuk-colour("yellow");
-    $text-colour: nhsuk-shade($colour, 70%);
-    $background-color: nhsuk-tint($colour, 50%);
+    $text-colour: nhsuk-colour("dark-yellow");
+    $background-color: nhsuk-colour("pale-yellow");
 
     color: $text-colour;
     background-color: $background-color;
@@ -191,8 +195,8 @@
     }
 
     .nhsuk-code--inline {
-      color: nhsuk-tint(nhsuk-colour("dark-blue"), 85%);
-      background-color: nhsuk-shade($nhsuk-brand-colour, 50%);
+      color: nhsuk-colour("pale-blue");
+      background-color: nhsuk-colour("dark-blue");
     }
 
     .nhsuk-link,

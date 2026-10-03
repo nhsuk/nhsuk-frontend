@@ -51,8 +51,8 @@ $nhsuk-suppressed-warnings: () !default;
 /// @link https://github.com/alphagov/govuk-frontend Original code taken from GDS (Government Digital Service)
 
 @mixin nhsuk-warning($key, $message, $silence-further-warnings: true) {
-  @if _should-warn($key) {
-    @warn _warning-text($key, $message);
+  @if nhsuk-should-warn($key) {
+    @warn nhsuk-warning-text($key, $message);
 
     @if $silence-further-warnings {
       $nhsuk-suppressed-warnings: list.append($nhsuk-suppressed-warnings, $key) !global;
@@ -68,7 +68,7 @@ $nhsuk-suppressed-warnings: () !default;
 ///
 /// @access private
 
-@function _should-warn($key) {
+@function nhsuk-should-warn($key) {
   @return list.index($nhsuk-suppressed-warnings, $key) == null;
 }
 
@@ -81,6 +81,6 @@ $nhsuk-suppressed-warnings: () !default;
 ///
 /// @access private
 
-@function _warning-text($key, $message) {
+@function nhsuk-warning-text($key, $message) {
   @return $message + " To silence this warning, update $nhsuk-suppressed-warnings " + 'with key: "#{$key}"';
 }
