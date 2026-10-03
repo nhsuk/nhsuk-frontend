@@ -169,6 +169,45 @@ const fixtures = {
       size: "l"
     }
   },
+  "with HTML": {
+    context: {
+      html: "What to expect at A&amp;E",
+      size: "l"
+    }
+  },
+  "with HTML and caption": {
+    context: {
+      html: "What to expect at A&amp;E",
+      caption: "Urgent and emergency care services",
+      size: "l"
+    }
+  },
+  "with HTML via call block": {
+    context: {
+      size: "l"
+    },
+    callBlock: "What to expect at A&amp;E"
+  },
+  'with HTML via call block and caption "start"': {
+    context: {
+      caption: {
+        text: "Urgent and emergency care services",
+        placement: "start"
+      },
+      size: "l"
+    },
+    callBlock: "What to expect at A&amp;E"
+  },
+  'with HTML via call block and caption "end"': {
+    context: {
+      caption: {
+        text: "Urgent and emergency care services",
+        placement: "end"
+      },
+      size: "l"
+    },
+    callBlock: "What to expect at A&amp;E"
+  },
   "with visually hidden text": {
     context: {
       text: "Home address",

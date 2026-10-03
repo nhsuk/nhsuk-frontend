@@ -255,6 +255,24 @@ const fixtures = {
       leftDropZoneText: "Parth gollwng i'r chwith"
     }
   },
+  "with before and after input content": {
+    context: {
+      label: {
+        heading: "Upload a file",
+        size: "l"
+      },
+      id: "file-upload",
+      name: "file-upload",
+      formGroup: {
+        beforeInput: {
+          html: '<samp class="app-annotate">Before</samp>'
+        },
+        afterInput: {
+          html: '<samp class="app-annotate">After</samp>'
+        }
+      }
+    }
+  },
   "to configure in JavaScript": {
     context: {
       label: {
