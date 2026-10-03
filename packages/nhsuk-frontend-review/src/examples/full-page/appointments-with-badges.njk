@@ -1,0 +1,213 @@
+{% extends "layouts/page.njk" %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+{% set pageHeading = "Today's appointments" %}
+
+{% block header %}
+  {{ header({
+    service: {
+      href: baseUrl,
+      text: "Manage patients"
+    },
+    account: {
+      items: [
+        {
+          href: "#",
+          text: "Florence Nightingale",
+          icon: true
+        },
+        {
+          action: "#",
+          text: "Log out"
+        }
+      ]
+    },
+    navigation: {
+      items: [
+        {
+          href: "#",
+          text: "Home"
+        },
+        {
+          href: "#",
+          html: "Appointments" ~ badge({
+            text: "13",
+            variant: "reverse",
+            small: true,
+            classes: "nhsuk-u-margin-left-2"
+          })
+        },
+        {
+          href: "#",
+          text: "Patients"
+        },
+        {
+          href: "#",
+          html: "Review" ~ badge({
+            text: "4",
+            variant: "reverse",
+            small: true,
+            classes: "nhsuk-u-margin-left-2"
+          })
+        },
+        {
+          href: "#",
+          text: "Settings"
+        }
+      ]
+    }
+  }) }}
+  {% include "partials/banner-header.njk" %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-three-quarters">
+      <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-6">{{ pageHeading }}</h1>
+
+      {% set scheduledHtml %}
+      {{ table({
+        caption: {
+          visuallyHiddenText: "Scheduled appointments"
+        },
+        firstCellIsHeader: true,
+        head: [
+          {
+            text: "Time",
+            sort: "ascending"
+          },
+          {
+            text: "Patient",
+            sort: true
+          },
+          {
+            text: "Date of birth",
+            classes: "nhsuk-u-nowrap"
+          },
+          {
+            text: "Action"
+          }
+        ],
+        rows: [
+          [
+            { text: "10:20am", sortValue: "10:20" },
+            { text: "Juan Martinez", sortValue: "Martinez, Juan" },
+            { text: "18 April 1975" },
+            { href: "#", text: "Add notes", visuallyHiddenText: "for Juan Martinez" }
+          ],
+          [
+            { text: "10:40am", sortValue: "10:40" },
+            { text: "Priya Sharma", sortValue: "Sharma, Priya" },
+            { text: "23 August 1992" },
+            { href: "#", text: "Add notes", visuallyHiddenText: "for Priya Sharma" }
+          ],
+          [
+            { text: "11:20am", sortValue: "11:20" },
+            { text: "Aisha Okafor", sortValue: "Okafor, Aisha" },
+            { text: "2 November 1958" },
+            { href: "#", text: "Add notes", visuallyHiddenText: "for Aisha Okafor" }
+          ],
+          [
+            { text: "11:40am", sortValue: "11:40" },
+            { text: "George Wilson", sortValue: "Wilson, George" },
+            { text: "14 May 1947" },
+            { href: "#", text: "Add notes", visuallyHiddenText: "for George Wilson" }
+          ],
+          [
+            { text: "12pm", sortValue: "12:00" },
+            { text: "Hannah Lewis", sortValue: "Lewis, Hannah" },
+            { text: "30 September 2001" },
+            { href: "#", text: "Add notes", visuallyHiddenText: "for Hannah Lewis" }
+          ],
+          [
+            { text: "2pm", sortValue: "14:00" },
+            { text: "Tomasz Nowak", sortValue: "Nowak, Tomasz" },
+            { text: "11 June 1983" },
+            { href: "#", text: "Add notes", visuallyHiddenText: "for Tomasz Nowak" }
+          ],
+          [
+            { text: "2:20pm", sortValue: "14:20" },
+            { text: "Grace O'Brien", sortValue: "O'Brien, Grace" },
+            { text: "27 January 1969" },
+            { href: "#", text: "Add notes", visuallyHiddenText: "for Grace O'Brien" }
+          ],
+          [
+            { text: "2:40pm", sortValue: "14:40" },
+            { text: "Mohammed Rahman", sortValue: "Rahman, Mohammed" },
+            { text: "8 October 1990" },
+            { href: "#", text: "Add notes", visuallyHiddenText: "for Mohammed Rahman" }
+          ],
+          [
+            { text: "3pm", sortValue: "15:00" },
+            { text: "Sophie Barker", sortValue: "Barker, Sophie" },
+            { text: "16 July 1972" },
+            { href: "#", text: "Add notes", visuallyHiddenText: "for Sophie Barker" }
+          ],
+          [
+            { text: "3:40pm", sortValue: "15:40" },
+            { text: "Kwame Mensah", sortValue: "Mensah, Kwame" },
+            { text: "3 March 1955" },
+            { href: "#", text: "Add notes", visuallyHiddenText: "for Kwame Mensah" }
+          ],
+          [
+            { text: "4pm", sortValue: "16:00" },
+            { text: "Eleanor Hughes", sortValue: "Hughes, Eleanor" },
+            { text: "21 December 1940" },
+            { href: "#", text: "Add notes", visuallyHiddenText: "for Eleanor Hughes" }
+          ],
+          [
+            { text: "4:20pm", sortValue: "16:20" },
+            { text: "Daniel Fraser", sortValue: "Fraser, Daniel" },
+            { text: "9 April 1998" },
+            { href: "#", text: "Add notes", visuallyHiddenText: "for Daniel Fraser" }
+          ],
+          [
+            { text: "4:40pm", sortValue: "16:40" },
+            { text: "Mei Lin Wong", sortValue: "Wong, Mei Lin" },
+            { text: "12 February 1979" },
+            { href: "#", text: "Add notes", visuallyHiddenText: "for Mei Lin Wong" }
+          ]
+        ]
+      }) }}
+      {% endset %}
+
+      {{ tabs({
+        idPrefix: "appointments",
+        items: [
+          {
+            label: {
+              html: "Scheduled" ~ badge({
+                text: "13",
+                small: true,
+                classes: "nhsuk-u-margin-left-2"
+              })
+            },
+            panel: {
+              html: scheduledHtml
+            }
+          },
+          {
+            label: {
+              html: "Completed" ~ badge({
+                text: "6",
+                small: true,
+                classes: "nhsuk-u-margin-left-2"
+              })
+            },
+            panel: {}
+          },
+          {
+            label: {
+              html: "Cancelled" ~ badge({
+                text: "2",
+                small: true,
+                classes: "nhsuk-u-margin-left-2"
+              })
+            },
+            panel: {}
+          }
+        ]
+      }) }}
+    </div>
+  </div>
+{% endblock %}
