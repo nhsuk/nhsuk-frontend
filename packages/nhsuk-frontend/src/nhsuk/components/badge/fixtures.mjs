@@ -85,6 +85,12 @@ export const examples = {
       viewports: ["mobile"]
     }
   },
+  "with no visible text": {
+    context: {
+      visuallyHiddenText: "unread"
+    },
+    variants
+  },
   "notification": {
     context: {
       text: "1",
@@ -108,6 +114,13 @@ export const examples = {
     context: {
       text: "9+",
       visuallyHiddenText: "notifications",
+      notification: true
+    },
+    variants
+  },
+  "notification with no visible text": {
+    context: {
+      visuallyHiddenText: "unread",
       notification: true
     },
     variants

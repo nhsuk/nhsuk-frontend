@@ -5,6 +5,15 @@
 {#- Set variant for this component #}
 {%- set variant = params.variant -%}
 
+{%- set hasVisibleText = true if params.text is number or
+  (params.text is string and params.text | length) else false %}
+
+{%- set hasVisibleHtml = true if params.html else false %}
+
+{%- set hasVisibleContent = true if caller or hasVisibleHtml or hasVisibleText else false %}
+
+{%- set hasContent = true if hasVisibleContent or params.visuallyHiddenText else false %}
+
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-badge" -%}
 
@@ -20,12 +29,13 @@
   {% set classNames = classNames ~ " nhsuk-badge--small" %}
 {% endif %}
 
+{%- if not hasVisibleContent and (not params.classes or not "nhsuk-badge--dot" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-badge--dot" %}
+{% endif %}
+
 {%- if params.classes %}
   {% set classNames = classNames ~ " " ~ params.classes %}
 {% endif %}
-
-{%- set hasContent = true if caller or params.html or params.text not in [undefined, null, false] and
-  (params.text is string or params.text is number) else false %}
 
 {%- set attributesHtml %}
   {{- nhsukAttributes({
@@ -43,12 +53,12 @@
 {% endset %}
 
 {%- set content = {
-  text: params.text,
-  html: params.html,
+  text: params.text if hasVisibleText else undefined,
+  html: params.html if hasVisibleHtml else undefined,
   visuallyHidden: params.visuallyHidden | default(params.visuallyHiddenText if params.notification else {
     text: params.visuallyHiddenText,
     placement: "start",
-    slots: { end: ": " }
+    slots: { end: ": " } if hasVisibleContent else undefined
   }),
   slots: params.slots
 } %}
