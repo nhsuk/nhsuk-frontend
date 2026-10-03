@@ -1,4 +1,5 @@
 {% from "nhsuk/components/back-link/macro.njk" import backLink as nhsukBackLink %}
+{% from "nhsuk/components/link/macro.njk" import link as nhsukLink %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
 {#- Set variant for this component #}
@@ -23,21 +24,23 @@
 {% for item in params.items %}
   {% if item.href %}
     <li class="nhsuk-breadcrumb__list-item">
-      <a class="nhsuk-breadcrumb__link" href="{{ item.href }}" {{- nhsukAttributes(item.attributes) }}>
-      {% if item.html %}
-        {{ item.html | safe | trim | indent(8) }}
-      {% elif item.text %}
-        {{ item.text | trim | indent(8) }}
-      {% endif %}
-      </a>
+      {{ nhsukLink({
+        href: item.href,
+        text: item.text,
+        html: item.html,
+        className: "nhsuk-breadcrumb__link",
+        attributes: item.attributes
+      }) | trim | indent(6) }}
     </li>
   {% endif %}
 {% endfor %}
 {% if params.text and params.href %}
     <li class="nhsuk-breadcrumb__list-item">
-      <a class="nhsuk-breadcrumb__link" href="{{ params.href }}">
-        {{ params.text | trim | indent(8) }}
-      </a>
+      {{ nhsukLink({
+        href: params.href,
+        text: params.text,
+        className: "nhsuk-breadcrumb__link"
+      }) | trim | indent(6) }}
     </li>
   {% set lastHref = params.href %}
   {% set lastText = params.text %}

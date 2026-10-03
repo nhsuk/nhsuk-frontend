@@ -42,7 +42,7 @@ const options = {
       visuallyHiddenText: {
         type: 'string',
         required: false,
-        description: 'Optional visually hidden prefix used before the heading.',
+        description: 'A visually hidden prefix used before the heading.',
         released: '10.6.0'
       },
       size: {
@@ -120,6 +120,12 @@ const options = {
     required: false,
     description: 'The card link `href` attribute.',
     released: '4.0.0'
+  },
+  openInNewTab: {
+    type: 'boolean',
+    required: false,
+    description: 'If set to `true`, then the card link will open in a new tab.',
+    released: '10.6.2'
   },
   clickable: {
     type: 'boolean',
@@ -232,6 +238,25 @@ const options = {
           'If `text` is set, this is not required. HTML to use within the card content. If `html` is provided, the `text` option will be ignored.',
         released: '10.6.0'
       },
+      visuallyHiddenText: {
+        type: 'string',
+        required: false,
+        description: 'A visually hidden suffix added to the description.',
+        released: '10.6.2'
+      },
+      href: {
+        type: 'string',
+        required: false,
+        description: 'The card description link `href` attribute.',
+        released: '10.6.2'
+      },
+      openInNewTab: {
+        type: 'boolean',
+        required: false,
+        description:
+          'If set to `true`, then the card description link will open in a new tab.',
+        released: '10.6.2'
+      },
       classes: {
         type: 'string',
         required: false,
@@ -264,77 +289,9 @@ const options = {
         type: 'array',
         required: false,
         description: 'Array of actions as links for use in the card component.',
+        alias: 'link',
         released: '10.3.0',
-        params: {
-          id: {
-            type: 'string',
-            required: false,
-            description: 'The ID of the action item.',
-            released: '10.6.0'
-          },
-          text: {
-            type: 'string',
-            required: true,
-            description:
-              'If `html` is set, this is not required. Text to use within each action item. If `html` is provided, the `text` option will be ignored.',
-            released: '10.3.0'
-          },
-          html: {
-            type: 'string',
-            required: true,
-            description:
-              'If `text` is set, this is not required. HTML to use within each action item. If `html` is provided, the `text` option will be ignored.',
-            released: '10.3.0'
-          },
-          visuallyHiddenText: {
-            type: 'string',
-            required: false,
-            description:
-              'Actions rely on context from the surrounding content so may require additional accessible text. Text supplied to this option is appended to the end. Use `html` for more complicated scenarios.',
-            released: '10.3.0'
-          },
-          name: {
-            type: 'string',
-            required: false,
-            description:
-              'Name for the action as a button. If `href` is provided, this has no effect.',
-            released: '10.6.0'
-          },
-          type: {
-            type: 'string',
-            required: false,
-            description:
-              'Type of action as a button – `"button"`, `"submit"` or `"reset"`. Defaults to `"submit"` unless `href` is provided.',
-            released: '10.6.0'
-          },
-          value: {
-            type: 'string',
-            required: false,
-            description:
-              'The `value` attribute for the action as a button. If `href` is provided, this has no effect.',
-            released: '10.6.0'
-          },
-          href: {
-            type: 'string',
-            required: true,
-            description:
-              'The action `href` attribute. If set, the action will use an `<a>` tag automatically unless `type` is provided.',
-            released: '10.3.0'
-          },
-          classes: {
-            type: 'string',
-            required: false,
-            description: 'Classes to add to the action item.',
-            released: '10.3.0'
-          },
-          attributes: {
-            type: 'object',
-            required: false,
-            description:
-              'HTML attributes (for example data attributes) to add to the action item.',
-            released: '10.3.0'
-          }
-        }
+        isComponent: true
       },
       classes: {
         type: 'string',

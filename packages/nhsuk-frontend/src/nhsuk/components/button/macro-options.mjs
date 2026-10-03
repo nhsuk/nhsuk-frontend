@@ -76,6 +76,13 @@ const options = {
       'The button `href` attribute. If set, the button will use an `<a>` tag automatically unless `type` is provided.',
     released: '1.0.0'
   },
+  openInNewTab: {
+    type: 'boolean',
+    required: false,
+    description:
+      'If set to `true`, then the button link will open in a new tab unless `type` is provided.',
+    released: '10.6.2'
+  },
   variant: {
     type: 'string',
     required: false,
@@ -88,6 +95,13 @@ const options = {
     required: false,
     description: 'If set to `true`, smaller button size will be used.',
     released: '10.4.0'
+  },
+  className: {
+    type: 'string',
+    required: false,
+    description:
+      'Optional class to use for the button. Defaults to `"nhsuk-button"`.',
+    released: '10.6.2'
   },
   classes: {
     type: 'string',

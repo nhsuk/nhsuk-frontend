@@ -1,8 +1,10 @@
 {% from "nhsuk/components/card/macro.njk" import card as nhsukCard %}
 {% from "nhsuk/components/heading/macro.njk" import heading as nhsukHeading %}
+{% from "nhsuk/components/link/macro.njk" import link as nhsukLink %}
 {% from "nhsuk/components/scroll/macro.njk" import scroll as nhsukScroll %}
 {% from "nhsuk/components/visually-hidden/macro.njk" import visuallyHidden as nhsukVisuallyHidden %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+{% from "nhsuk/macros/content.njk" import nhsukContent %}
 {% from "nhsuk/macros/i18n.njk" import nhsukI18nAttributes %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
 
@@ -115,26 +117,6 @@
   {{- nhsukAttributes(params.attributes) -}}
 {% endset %}
 
-{%- macro _tableValue(item) %}
-  {%- set visuallyHiddenText = item.visuallyHiddenText -%}
-
-  {%- if item.html or ((item.text is string or item.text is number) and item.text | string | length) %}
-    {%- if visuallyHiddenText %}
-      {% set visuallyHiddenText = " " ~ visuallyHiddenText %}
-    {% endif %}
-
-    {%- if item.html %}
-      {{- item.html | safe -}}
-    {% else %}
-      {{- item.text | string -}}
-    {% endif -%}
-  {% endif %}
-
-  {%- if visuallyHiddenText -%}
-    {{ nhsukVisuallyHidden(visuallyHiddenText) | trim }}
-  {%- endif %}
-{% endmacro -%}
-
 {%- macro _tableCell(item, parent) %}
 {%- set element = item.element | lower if item.element else "td" -%}
 {%- set classNameCell = "nhsuk-table__header" if element == "th" else "nhsuk-table__cell" -%}
@@ -191,17 +173,19 @@
 
 {% set innerHtml %}
   {% if item.href %}
-    <a class="nhsuk-link" href="{{ item.href }}">
-      {{- _tableValue(item) | safe | trim -}}
-    </a>
+    {{- nhsukLink({
+      href: item.href,
+      html: nhsukContent(item),
+      openInNewTab: item.openInNewTab
+    }) | trim -}}
   {% else %}
-    {{- _tableValue(item) | safe | trim -}}
+    {{- nhsukContent(item) | trim -}}
   {% endif %}
 {% endset -%}
 
 {% if isResponsive and not isHeader and (parent.header or item.header) %}
   <span class="nhsuk-table__heading" aria-hidden="true">
-    {{- _tableValue({
+    {{- nhsukContent({
       text: parent.header.text | default(item.header),
       html: parent.header.html,
       visuallyHiddenText: parent.header.visuallyHiddenText
@@ -273,6 +257,7 @@
         visuallyHiddenText: header.visuallyHiddenText,
         format: header.format,
         href: header.href,
+        openInNewTab: header.openInNewTab,
         scope: "col",
         role: "columnheader" if params.responsive else undefined,
         colspan: header.colspan if not params.responsive else undefined,
@@ -330,6 +315,7 @@
         visuallyHiddenText: data.visuallyHiddenText,
         format: data.format | default(header.format),
         href: data.href,
+        openInNewTab: data.openInNewTab,
         scope: "row" if loop.first and params.firstCellIsHeader else undefined,
         role: ("rowheader" if loop.first and params.firstCellIsHeader else "cell") if params.responsive else undefined,
         colspan: data.colspan if not params.responsive else undefined,
@@ -377,6 +363,7 @@
     id: params.card.id,
     heading: cardHeading,
     href: params.card.href,
+    openInNewTab: params.card.openInNewTab,
     actions: params.card.actions,
     classes: params.panelClasses | default(params.card.classes),
     attributes: params.card.attributes,

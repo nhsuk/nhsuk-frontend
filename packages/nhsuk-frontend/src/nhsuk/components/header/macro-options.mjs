@@ -22,7 +22,7 @@ const options = {
         type: 'string',
         required: false,
         description:
-          'The `href` of the link for the logo. If not set, and a `service.href` is set, or both are set to same value, then the logo and service name will be combined into a single link.',
+          'The logo link `href` attribute. If not set, and a `service.href` is set, or both are set to same value, then the logo and service name will be combined into a single link.',
         released: '10.0.0'
       },
       src: {
@@ -62,7 +62,7 @@ const options = {
       href: {
         type: 'string',
         required: false,
-        description: 'The `href` of the link for the service name.',
+        description: 'The service name link `href` attribute.',
         released: '10.0.0'
       }
     }
@@ -113,12 +113,6 @@ const options = {
         description: 'Array of navigation links for use in the header.',
         released: '10.0.0',
         params: {
-          href: {
-            type: 'string',
-            required: false,
-            description: 'The href of a navigation item in the header.',
-            released: '10.0.0'
-          },
           text: {
             type: 'string',
             required: true,
@@ -132,6 +126,19 @@ const options = {
             description:
               'If `text` is set, this is not required. HTML for the navigation item. If `html` is provided, the `text` option will be ignored.',
             released: '10.0.0'
+          },
+          href: {
+            type: 'string',
+            required: false,
+            description: 'The navigation item `href` attribute.',
+            released: '10.0.0'
+          },
+          openInNewTab: {
+            type: 'boolean',
+            required: false,
+            description:
+              'If set to `true`, then the navigation item link will open in a new tab.',
+            released: '10.6.2'
           },
           current: {
             type: 'boolean',
@@ -338,12 +345,6 @@ const options = {
         description: 'Array of account items for use in the header.',
         released: '10.0.0',
         params: {
-          href: {
-            type: 'string',
-            required: false,
-            description: 'The href of an account item in the header.',
-            released: '10.0.0'
-          },
           text: {
             type: 'string',
             required: true,
@@ -364,6 +365,19 @@ const options = {
             description:
               'Whether to include the account icon for the account item. Defaults to `false`.',
             released: '10.0.0'
+          },
+          href: {
+            type: 'string',
+            required: false,
+            description: 'The account item `href` attribute.',
+            released: '10.0.0'
+          },
+          openInNewTab: {
+            type: 'boolean',
+            required: false,
+            description:
+              'If set to `true`, then the account item link will open in a new tab.',
+            released: '10.6.2'
           },
           action: {
             type: 'string',
