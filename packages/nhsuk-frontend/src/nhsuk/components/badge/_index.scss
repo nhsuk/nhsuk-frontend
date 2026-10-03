@@ -50,7 +50,6 @@ $nhsuk-tag-colour-reverse: rgb(nhsuk-shade(nhsuk-colour("dark-blue"), 90%), 0.25
   }
 
   .nhsuk-badge--notification {
-    border-radius: nhsuk-px-to-rem(nhsuk-spacing(1));
     color: $nhsuk-reverse-text-colour;
     background-color: $nhsuk-error-colour;
 
