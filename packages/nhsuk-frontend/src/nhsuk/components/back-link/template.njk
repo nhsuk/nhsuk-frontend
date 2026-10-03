@@ -1,12 +1,19 @@
 {% from "nhsuk/components/link/macro.njk" import link as nhsukLink %}
 
+{#- Support visually hidden content as string #}
+{%- set visuallyHidden = params.visuallyHidden if params.visuallyHidden is mapping and params.visuallyHidden is not escaped else {
+  text: params.visuallyHidden if params.visuallyHidden is string else params.visuallyHiddenText,
+  html: params.visuallyHidden if params.visuallyHidden is escaped else undefined
+} -%}
+
 {{ nhsukLink({
   id: params.id,
   text: params.text | default("Back", true),
   html: params.html,
   visuallyHidden: {
-    text: params.visuallyHiddenText,
-    placement: "start"
+    text: visuallyHidden.text,
+    html: visuallyHidden.html,
+    placement: visuallyHidden.placement | default("start")
   },
   href: params.href,
   type: params.type,
@@ -14,5 +21,6 @@
   classes: params.classes,
   attributes: params.attributes,
   variant: params.variant,
-  element: params.element
+  element: params.element,
+  slots: params.slots
 }) | trim }}

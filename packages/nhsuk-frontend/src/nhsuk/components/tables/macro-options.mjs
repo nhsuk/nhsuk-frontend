@@ -48,8 +48,17 @@ const options = {
       visuallyHiddenText: {
         type: 'string',
         required: false,
-        description: 'A visually hidden suffix added to the table cell.',
+        description:
+          'Optional alias for the table cell `visuallyHidden` option. Defaults to `"end"` placement when set to a string.',
         released: '10.6.0'
+      },
+      visuallyHidden: {
+        type: 'object',
+        required: false,
+        description:
+          'Optional visually hidden content used within the table cell.',
+        released: '10.7.0',
+        isComponent: true
       },
       header: {
         type: 'string',
@@ -149,8 +158,17 @@ const options = {
       visuallyHiddenText: {
         type: 'string',
         required: false,
-        description: 'A visually hidden suffix added to the table head cell.',
+        description:
+          'Optional alias for the table head cell `visuallyHidden` option. Defaults to `"end"` placement when set to a string.',
         released: '10.6.0'
+      },
+      visuallyHidden: {
+        type: 'object',
+        required: false,
+        description:
+          'Optional visually hidden content used within the table head cell.',
+        released: '10.7.0',
+        isComponent: true
       },
       href: {
         type: 'string',
@@ -261,8 +279,16 @@ const options = {
         type: 'string',
         required: false,
         description:
-          'Message made available to assistive technologies to describe that the table is sortable. Defaults to `"Column headers are sortable"`.',
+          'Optional alias for the table caption `visuallyHidden` option. Defaults to `"Column headers are sortable"` in `"end"` placement when set to a string.',
         released: '10.6.0'
+      },
+      visuallyHidden: {
+        type: 'object',
+        required: false,
+        description:
+          'Optional visually hidden content made available to assistive technologies to describe the table as sortable. The `visuallyHidden.placement` option is not supported.',
+        released: '10.7.0',
+        isComponent: true
       },
       caption: {
         type: 'object',

@@ -98,6 +98,82 @@ const fixtures = {
       ]
     }
   },
+  "with content slots": {
+    context: {
+      idPrefix: "example",
+      items: [
+        {
+          label: "Past day",
+          panel: {
+            html: components.render(
+              "tables",
+              tableExamples["with numeric format (full width, past day)"]
+            ),
+            slots: {
+              start: {
+                html: '<samp class="app-annotate app-annotate--start">Start</samp>'
+              },
+              end: {
+                html: '<samp class="app-annotate app-annotate--end">End</samp>'
+              }
+            }
+          }
+        },
+        {
+          label: "Past week",
+          panel: {
+            html: components.render(
+              "tables",
+              tableExamples["with numeric format (full width, past week)"]
+            )
+          },
+          slots: {
+            start: {
+              html: '<samp class="app-annotate app-annotate--start">Start</samp>'
+            },
+            end: {
+              html: '<samp class="app-annotate app-annotate--end">End</samp>'
+            }
+          }
+        },
+        {
+          label: "Past month",
+          panel: {
+            html: components.render(
+              "tables",
+              tableExamples["with numeric format (full width, past month)"]
+            )
+          }
+        },
+        {
+          label: "Past year",
+          panel: {
+            html: components.render(
+              "tables",
+              tableExamples["with numeric format (full width, past year)"]
+            )
+          }
+        }
+      ],
+      slots: {
+        before: {
+          html: '<samp class="app-annotate">Before</samp>'
+        },
+        start: {
+          html: '<samp class="app-annotate app-annotate--start">Start</samp>'
+        },
+        end: {
+          html: '<samp class="app-annotate app-annotate--end">End</samp>'
+        },
+        after: {
+          html: '<samp class="app-annotate">After</samp>'
+        }
+      }
+    },
+    options: {
+      width: "full"
+    }
+  },
   "with id attribute": {
     context: {
       id: "tab-id-attribute",

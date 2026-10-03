@@ -71,8 +71,16 @@ const options = {
     type: 'string',
     required: false,
     description:
-      'An optional visually hidden prefix used before the back link text, for example `"Back to"` used by the breadcrumbs component.',
+      'Optional alias for the `visuallyHidden` option. Defaults to `"start"` placement when set to a string.',
     released: '10.1.0'
+  },
+  visuallyHidden: {
+    type: 'object',
+    required: false,
+    description:
+      'Optional visually hidden content used within the back link component.',
+    released: '10.7.0',
+    isComponent: true
   },
   element: {
     type: 'string',
