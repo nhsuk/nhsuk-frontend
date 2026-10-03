@@ -9,11 +9,20 @@
 /// A small inline pill for displaying a short numeric or text label
 /// alongside other content, such as a count or status indicator.
 ///
+/// Badges with only visually hidden text are shown as a dot.
+///
 /// @group components/badge
 ////
 
 $nhsuk-tag-colour: rgb(nhsuk-colour("grey-2"), 0.2) !default;
 $nhsuk-tag-colour-reverse: rgb(nhsuk-shade(nhsuk-colour("dark-blue"), 90%), 0.25) !default;
+
+$nhsuk-badge-dot-size: 20px !default;
+$nhsuk-badge-dot-size-small: 12px !default;
+
+// Colours for dot badges
+$nhsuk-badge-dot-colour: nhsuk-colour("grey-2") !default;
+$nhsuk-badge-dot-colour-reverse: nhsuk-colour("white") !default;
 
 @include nhsuk-exports("nhsuk/components/badge") {
   .nhsuk-badge {
@@ -33,7 +42,7 @@ $nhsuk-tag-colour-reverse: rgb(nhsuk-shade(nhsuk-colour("dark-blue"), 90%), 0.25
     @include nhsuk-font(19);
   }
 
-  .nhsuk-badge:not(.nhsuk-badge--small) {
+  .nhsuk-badge:not(.nhsuk-badge--small):not(.nhsuk-badge--dot) {
     @media #{nhsuk-from-breakpoint(tablet)} {
       min-width: nhsuk-px-to-rem(nhsuk-spacing(2, $adjustment: 2px));
       padding: 0 nhsuk-px-to-rem(nhsuk-spacing(2, $adjustment: 2px));
@@ -44,9 +53,31 @@ $nhsuk-tag-colour-reverse: rgb(nhsuk-shade(nhsuk-colour("dark-blue"), 90%), 0.25
     @include nhsuk-font(16);
   }
 
+  // Dot badges have no visible text, so are sized explicitly instead of by their content
+  .nhsuk-badge--dot {
+    width: nhsuk-px-to-rem($nhsuk-badge-dot-size);
+    height: nhsuk-px-to-rem($nhsuk-badge-dot-size);
+    padding: 0;
+
+    border-radius: 50%;
+
+    background-color: $nhsuk-badge-dot-colour;
+
+    vertical-align: middle;
+  }
+
+  .nhsuk-badge--dot.nhsuk-badge--small {
+    width: nhsuk-px-to-rem($nhsuk-badge-dot-size-small);
+    height: nhsuk-px-to-rem($nhsuk-badge-dot-size-small);
+  }
+
   .nhsuk-badge--reverse {
     color: $nhsuk-reverse-text-colour;
     background-color: $nhsuk-tag-colour-reverse;
+  }
+
+  .nhsuk-badge--reverse.nhsuk-badge--dot {
+    background-color: $nhsuk-badge-dot-colour-reverse;
   }
 
   .nhsuk-badge--notification {
@@ -58,6 +89,8 @@ $nhsuk-tag-colour-reverse: rgb(nhsuk-shade(nhsuk-colour("dark-blue"), 90%), 0.25
 
   .nhsuk-badge--notification.nhsuk-badge--reverse {
     outline: $nhsuk-border-width-form-element solid $nhsuk-reverse-text-colour;
+    // Restore over the reverse dot colour
+    background-color: $nhsuk-error-colour;
   }
 
   // When the link is focused the item has a yellow background;
