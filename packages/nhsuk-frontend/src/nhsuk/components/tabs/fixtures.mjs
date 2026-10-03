@@ -212,6 +212,35 @@ const fixtures = {
       ]
     }
   },
+  "with labels as objects": {
+    context: {
+      idPrefix: "with-labels-objects",
+      items: [
+        {
+          label: {
+            html: `Scheduled${components.render("badge", {
+              context: {
+                text: "17",
+                small: true,
+                classes: "nhsuk-u-margin-left-2"
+              }
+            })}`
+          },
+          panel: "Scheduled appointments"
+        },
+        {
+          label: {
+            text: "Completed"
+          },
+          panel: "Completed appointments"
+        },
+        {
+          label: "Cancelled",
+          panel: "Cancelled appointments"
+        }
+      ]
+    }
+  },
   "with visually hidden text": {
     context: {
       idPrefix: "visually-hidden",
