@@ -301,7 +301,9 @@ const fixtures = {
           panel: "Completed appointments"
         },
         {
-          label: "Cancelled",
+          label: {
+            text: "Cancelled"
+          },
           panel: "Cancelled appointments"
         }
       ]
