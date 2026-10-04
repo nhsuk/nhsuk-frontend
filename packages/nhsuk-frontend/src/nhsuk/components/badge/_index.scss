@@ -9,20 +9,20 @@
 /// A small inline pill for displaying a short numeric or text label
 /// alongside other content, such as a count or status indicator.
 ///
-/// Badges with only visually hidden text are shown as a dot.
+/// Badges with only visually hidden text are shown as a indicator.
 ///
 /// @group components/badge
 ////
 
-$nhsuk-tag-colour: rgb(nhsuk-colour("grey-2"), 0.2) !default;
-$nhsuk-tag-colour-reverse: rgb(nhsuk-shade(nhsuk-colour("dark-blue"), 90%), 0.25) !default;
+$nhsuk-badge-colour: rgb(nhsuk-colour("grey-2"), 0.2) !default;
+$nhsuk-badge-colour-reverse: rgb(nhsuk-shade(nhsuk-colour("dark-blue"), 90%), 0.25) !default;
 
-$nhsuk-badge-dot-size: 20px !default;
-$nhsuk-badge-dot-size-small: 12px !default;
+$nhsuk-badge-indicator-size: 20px !default;
+$nhsuk-badge-indicator-size-small: 12px !default;
 
-// Colours for dot badges
-$nhsuk-badge-dot-colour: nhsuk-colour("grey-2") !default;
-$nhsuk-badge-dot-colour-reverse: nhsuk-colour("white") !default;
+// Colours for indicator badges
+$nhsuk-badge-indicator-colour: nhsuk-colour("grey-2") !default;
+$nhsuk-badge-indicator-colour-reverse: nhsuk-colour("white") !default;
 
 @include nhsuk-exports("nhsuk/components/badge") {
   .nhsuk-badge {
@@ -35,14 +35,14 @@ $nhsuk-badge-dot-colour-reverse: nhsuk-colour("white") !default;
     border-radius: nhsuk-px-to-rem(nhsuk-spacing(3));
 
     color: $nhsuk-text-colour;
-    background-color: $nhsuk-tag-colour;
+    background-color: $nhsuk-badge-colour;
 
     text-align: center;
 
     @include nhsuk-font(19);
   }
 
-  .nhsuk-badge:not(.nhsuk-badge--small):not(.nhsuk-badge--dot) {
+  .nhsuk-badge:not(.nhsuk-badge--small):not(.nhsuk-badge--indicator) {
     @media #{nhsuk-from-breakpoint(tablet)} {
       min-width: nhsuk-px-to-rem(nhsuk-spacing(2, $adjustment: 2px));
       padding: 0 nhsuk-px-to-rem(nhsuk-spacing(2, $adjustment: 2px));
@@ -53,31 +53,31 @@ $nhsuk-badge-dot-colour-reverse: nhsuk-colour("white") !default;
     @include nhsuk-font(16);
   }
 
-  // Dot badges have no visible text, so are sized explicitly instead of by their content
-  .nhsuk-badge--dot {
-    width: nhsuk-px-to-rem($nhsuk-badge-dot-size);
-    height: nhsuk-px-to-rem($nhsuk-badge-dot-size);
+  // Indicator badges have no visible text, so are sized explicitly instead of by their content
+  .nhsuk-badge--indicator {
+    width: nhsuk-px-to-rem($nhsuk-badge-indicator-size);
+    height: nhsuk-px-to-rem($nhsuk-badge-indicator-size);
     padding: 0;
 
     border-radius: 50%;
 
-    background-color: $nhsuk-badge-dot-colour;
+    background-color: $nhsuk-badge-indicator-colour;
 
     vertical-align: middle;
   }
 
-  .nhsuk-badge--dot.nhsuk-badge--small {
-    width: nhsuk-px-to-rem($nhsuk-badge-dot-size-small);
-    height: nhsuk-px-to-rem($nhsuk-badge-dot-size-small);
+  .nhsuk-badge--indicator.nhsuk-badge--small {
+    width: nhsuk-px-to-rem($nhsuk-badge-indicator-size-small);
+    height: nhsuk-px-to-rem($nhsuk-badge-indicator-size-small);
   }
 
   .nhsuk-badge--reverse {
     color: $nhsuk-reverse-text-colour;
-    background-color: $nhsuk-tag-colour-reverse;
+    background-color: $nhsuk-badge-colour-reverse;
   }
 
-  .nhsuk-badge--reverse.nhsuk-badge--dot {
-    background-color: $nhsuk-badge-dot-colour-reverse;
+  .nhsuk-badge--reverse.nhsuk-badge--indicator {
+    background-color: $nhsuk-badge-indicator-colour-reverse;
   }
 
   .nhsuk-badge--notification {
@@ -89,7 +89,7 @@ $nhsuk-badge-dot-colour-reverse: nhsuk-colour("white") !default;
 
   .nhsuk-badge--notification.nhsuk-badge--reverse {
     outline: $nhsuk-border-width-form-element solid $nhsuk-reverse-text-colour;
-    // Restore over the reverse dot colour
+    // Restore over the reverse indicator colour
     background-color: $nhsuk-error-colour;
   }
 
