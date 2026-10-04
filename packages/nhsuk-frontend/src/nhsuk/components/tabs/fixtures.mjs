@@ -285,6 +285,10 @@ const fixtures = {
                 html: components.render("badge", {
                   context: {
                     text: "17",
+                    visuallyHidden: {
+                      text: ",",
+                      placement: "start"
+                    },
                     classes: "nhsuk-u-margin-left-2",
                     small: true
                   }
