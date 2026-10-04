@@ -27,7 +27,11 @@
     text: tabLabel.text,
     html: tabLabel.html,
     className: "nhsuk-tabs__tab",
-    attributes: item.attributes
+    attributes: item.attributes,
+    slots: {
+      start: tabLabel.slots.start,
+      end: tabLabel.slots.end
+    }
   }) | trim | indent(2) }}
 </li>
 {%- endmacro %}
