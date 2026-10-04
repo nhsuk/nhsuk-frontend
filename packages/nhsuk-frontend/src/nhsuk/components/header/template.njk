@@ -85,13 +85,14 @@
 {%- endmacro %}
 
 {%- macro _accountItem(item) %}
-{{- nhsukIcon("user") if item.icon -}}
-{% if item.html %}
-  {{- item.html | safe | trim -}}
-{% elif item.text %}
-  {{- item.text | trim -}}
-{% endif %}
-{%- endmacro -%}
+{{- nhsukContent({
+  text: item.text,
+  html: item.html,
+  slots: {
+    before: nhsukIcon("user") | safe | trim
+  } if item.icon else undefined
+}) | trim -}}
+{% endmacro -%}
 
 <header
   {{- nhsukAttributes({
@@ -231,10 +232,10 @@
               or styles still have some indicator of the current nav item #}
           {%- if item.active or item.current -%}
             <strong class="nhsuk-header__navigation-item-current-fallback">
-              {{- item.html | safe if item.html else item.text -}}
+              {{- nhsukContent(item) | trim -}}
             </strong>
           {%- else %}
-            {{- item.html | safe if item.html else item.text -}}
+            {{- nhsukContent(item) | trim -}}
           {% endif -%}
         {% endset %}
         <li class="nhsuk-header__navigation-item {%- if item.active or item.current %} nhsuk-header__navigation-item--current{% endif %} {%- if item.classes %} {{ item.classes }}{% endif %}" {{- nhsukAttributes(item.attributes) }}>

@@ -31,13 +31,18 @@
         },
         {
           href: "#",
-          html: "Appointments" ~ badge({
-            text: "13",
-            variant: "reverse",
-            small: true,
-            classes: "nhsuk-u-margin-left-2"
-          }),
-          current: true
+          text: "Appointments",
+          current: true,
+          slots: {
+            end: {
+              html: badge({
+                text: "13",
+                classes: "nhsuk-u-margin-left-2",
+                variant: "reverse",
+                small: true
+              })
+            }
+          }
         },
         {
           href: "#",
@@ -45,12 +50,17 @@
         },
         {
           href: "#",
-          html: "Review" ~ badge({
-            text: "4",
-            variant: "reverse",
-            small: true,
-            classes: "nhsuk-u-margin-left-2"
-          })
+          text: "Review",
+          slots: {
+            end: {
+              html: badge({
+                text: "4",
+                classes: "nhsuk-u-margin-left-2",
+                variant: "reverse",
+                small: true
+              })
+            }
+          }
         },
         {
           href: "#",
