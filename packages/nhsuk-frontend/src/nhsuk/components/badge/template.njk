@@ -31,8 +31,8 @@
   {%- set classNames = classNames ~ " nhsuk-badge--notification" %}
 {%- endif %}
 
-{%- if not hasContent and hasVisuallyHidden and (not params.classes or not "nhsuk-badge--dot" in params.classes) %}
-  {%- set classNames = classNames ~ " nhsuk-badge--dot" %}
+{%- if not hasContent and hasVisuallyHidden and (not params.classes or not "nhsuk-badge--indicator" in params.classes) %}
+  {%- set classNames = classNames ~ " nhsuk-badge--indicator" %}
 {%- endif %}
 
 {%- if params.small and (not params.classes or not "nhsuk-badge--small" in params.classes) %}
