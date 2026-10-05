@@ -1,6 +1,7 @@
 {% from "nhsuk/components/card/macro.njk" import card as nhsukCard %}
 {% from "nhsuk/components/heading/macro.njk" import heading as nhsukHeading %}
 {% from "nhsuk/components/scroll/macro.njk" import scroll as nhsukScroll %}
+{% from "nhsuk/components/visually-hidden/macro.njk" import visuallyHidden as nhsukVisuallyHidden %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/i18n.njk" import nhsukI18nAttributes %}
 {% from "nhsuk/macros/icon.njk" import nhsukIcon %}
@@ -74,7 +75,7 @@
 {% endif %}
 
 {%- set captionId = caption.id | default(params.id ~ "-caption" if params.scroll and params.id else undefined) | default(("table-" ~ caption.text | replace(" ", "-") | lower | truncate(40, true, "") ~ "-caption") if params.scroll and caption.text else undefined) -%}
-{%- set captionVisuallyHiddenText = params.caption.visuallyHiddenText | default("Column headers are sortable" if "nhsuk-table--sortable" in classNames else undefined) %}
+{%- set captionVisuallyHiddenText = caption.visuallyHiddenText | default("Column headers are sortable" if "nhsuk-table--sortable" in classNames else undefined) %}
 
 {%- set attributesHtml %}
   {{- nhsukAttributes({
@@ -130,7 +131,7 @@
   {% endif %}
 
   {%- if visuallyHiddenText -%}
-    <span class="nhsuk-u-visually-hidden">{{ visuallyHiddenText }}</span>
+    {{ nhsukVisuallyHidden(visuallyHiddenText) | trim }}
   {%- endif %}
 {% endmacro -%}
 
@@ -219,7 +220,15 @@
 
 {%- set tableHtml -%}
 <table {{- attributesHtml | safe }}>
-{% if caption.text or caption.html %}
+{% if not (caption.text or caption.html) and captionVisuallyHiddenText %}
+  {{ nhsukVisuallyHidden({
+    id: captionId,
+    text: captionVisuallyHiddenText,
+    classes: caption.classes,
+    attributes: caption.attributes,
+    element: "caption"
+  }) | trim | indent(2) }}
+{% elif caption.text or caption.html %}
   {{ nhsukHeading({
     id: captionId,
     text: caption.text,
