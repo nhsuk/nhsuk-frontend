@@ -108,8 +108,11 @@
     right: nhsuk-spacing(3);
 
     width: auto;
-    min-width: nhsuk-px-to-rem(125px);
     margin-bottom: $nhsuk-button-shadow-size;
+
+    &:not(.nhsuk-button--icon):not([aria-label]) {
+      min-width: nhsuk-px-to-rem(125px);
+    }
 
     &:active,
     &:active:focus {
