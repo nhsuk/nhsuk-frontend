@@ -1,4 +1,24 @@
 /**
+ * Nunjucks macro option variants
+ *
+ * @satisfies {MacroExample[]}
+ */
+export const variants = [
+  {
+    // Regular variant
+  },
+  {
+    description: "reverse",
+    context: {
+      variant: "reverse"
+    },
+    options: {
+      layout: "background-blue"
+    }
+  }
+]
+
+/**
  * Nunjucks macro option examples
  *
  * @satisfies {{ [example: string]: MacroExample }}
@@ -16,6 +36,7 @@ const fixtures = {
       name: "example",
       maxlength: 200
     },
+    variants,
     screenshot: {
       states: ["focus"],
       selector: ".nhsuk-textarea"
@@ -34,6 +55,7 @@ const fixtures = {
       maxlength: 200,
       disabled: true
     },
+    variants,
     screenshot: true
   },
   "with hint": {
@@ -48,7 +70,8 @@ const fixtures = {
       id: "with-hint",
       name: "example",
       maxlength: 200
-    }
+    },
+    variants
   },
   "with error only": {
     context: {
@@ -77,7 +100,8 @@ const fixtures = {
       name: "example",
       maxlength: 350,
       value:
-        "👩🏻‍🚀 A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels. They make sure appropriate content is shown to a user in the right place and in the best format."
+        "👩🏻‍🚀 A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels. They make sure appropriate content is shown to a user in the right place and in the best format.",
+      variants
     }
   },
   "with error message and hint": {
@@ -98,6 +122,7 @@ const fixtures = {
       value:
         "👩🏻‍🚀 A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels. They make sure appropriate content is shown to a user in the right place and in the best format."
     },
+    variants,
     screenshot: {
       states: ["focus"],
       selector: ".nhsuk-textarea"
@@ -162,7 +187,8 @@ const fixtures = {
       maxlength: 350,
       value:
         "👩🏻‍🚀 A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels."
-    }
+    },
+    variants
   },
   "with custom rows": {
     context: {
@@ -238,7 +264,8 @@ const fixtures = {
       id: "without-heading",
       name: "example",
       maxlength: 150
-    }
+    },
+    variants
   },
   "with maxlength attribute": {
     context: {
@@ -265,7 +292,8 @@ const fixtures = {
       id: "with-word-count",
       name: "example",
       maxwords: 150
-    }
+    },
+    variants
   },
   "with count type 'length'": {
     context: {
@@ -277,7 +305,8 @@ const fixtures = {
       name: "example",
       countType: "length",
       maxlength: 200
-    }
+    },
+    variants
   },
   "with count type 'characters'": {
     context: {
@@ -289,7 +318,8 @@ const fixtures = {
       name: "example",
       countType: "characters",
       maxlength: 200
-    }
+    },
+    variants
   },
   "with count type 'characters' and error message": {
     context: {
@@ -306,7 +336,8 @@ const fixtures = {
       maxlength: 350,
       value:
         "👩🏻‍🚀 A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels. They make sure appropriate content is shown to a user in the right place and in the best format."
-    }
+    },
+    variants
   },
   "with count type 'characters' and value": {
     context: {
@@ -320,7 +351,8 @@ const fixtures = {
       maxlength: 350,
       value:
         "👩🏻‍🚀 A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels."
-    }
+    },
+    variants
   },
   "with count type 'characters' and threshold": {
     context: {
@@ -335,7 +367,8 @@ const fixtures = {
         "Type another letter into this field after this message to see the threshold feature",
       maxlength: 112,
       threshold: 75
-    }
+    },
+    variants
   },
   "with count type 'words'": {
     context: {
@@ -348,6 +381,7 @@ const fixtures = {
       countType: "words",
       maxlength: 50
     },
+    variants,
     screenshot: {
       viewports: ["tablet"]
     }
@@ -367,7 +401,8 @@ const fixtures = {
       maxlength: 51,
       value:
         "👩🏻‍🚀 A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels. They make sure appropriate content is shown to a user in the right place and in the best format."
-    }
+    },
+    variants
   },
   "with count type 'words' and threshold": {
     context: {
@@ -382,7 +417,8 @@ const fixtures = {
         "Type another word into this field after this message to see the threshold feature",
       maxlength: 51,
       threshold: 30
-    }
+    },
+    variants
   },
   "with count type 'words' and value": {
     context: {
@@ -396,7 +432,8 @@ const fixtures = {
       maxlength: 51,
       value:
         "👩🏻‍🚀 A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels."
-    }
+    },
+    variants
   },
   "with threshold": {
     context: {
@@ -411,6 +448,7 @@ const fixtures = {
       maxlength: 112,
       threshold: 75
     },
+    variants,
     screenshot: {
       viewports: ["tablet"]
     }
@@ -476,7 +514,8 @@ const fixtures = {
         many: "Mae gennych %{count} nod yn ormod",
         other: "Mae gennych chi %{count} nod yn ormod"
       }
-    }
+    },
+    variants
   },
   "to configure in JavaScript": {
     context: {

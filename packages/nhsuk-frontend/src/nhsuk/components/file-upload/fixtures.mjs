@@ -1,4 +1,24 @@
 /**
+ * Nunjucks macro option variants
+ *
+ * @satisfies {MacroExample[]}
+ */
+export const variants = [
+  {
+    // Regular variant
+  },
+  {
+    description: "reverse",
+    context: {
+      variant: "reverse"
+    },
+    options: {
+      layout: "background-blue"
+    }
+  }
+]
+
+/**
  * Nunjucks macro option examples
  *
  * @satisfies {{ [example: string]: MacroExample }}
@@ -13,6 +33,7 @@ const fixtures = {
       id: "file-upload",
       name: "file-upload"
     },
+    variants,
     screenshot: {
       viewports: ["watch", "mobile", "tablet", "desktop"]
     }
@@ -27,6 +48,7 @@ const fixtures = {
       name: "file-upload",
       disabled: true
     },
+    variants,
     screenshot: {
       viewports: ["watch", "mobile", "tablet", "desktop"]
     }
@@ -42,7 +64,8 @@ const fixtures = {
       },
       id: "file-upload",
       name: "file-upload"
-    }
+    },
+    variants
   },
   "with error only": {
     context: {
@@ -66,7 +89,8 @@ const fixtures = {
       },
       id: "file-upload",
       name: "file-upload"
-    }
+    },
+    variants
   },
   "with error message and hint": {
     context: {
@@ -83,6 +107,7 @@ const fixtures = {
         text: "The selected file must be a JPG, BMP or TIF"
       }
     },
+    variants,
     screenshot: {
       viewports: ["watch", "mobile", "tablet", "desktop"]
     }
@@ -204,6 +229,19 @@ const fixtures = {
         }
       },
       {
+        description: "with small reverse",
+        context: {
+          variant: "reverse",
+          chooseFilesButtonClassList: [
+            "nhsuk-button--reverse",
+            "nhsuk-button--small"
+          ]
+        },
+        options: {
+          layout: "background-blue"
+        }
+      },
+      {
         description: "with small secondary",
         context: {
           chooseFilesButtonClassList: [
@@ -219,7 +257,8 @@ const fixtures = {
       label: "Upload a file",
       id: "file-upload",
       name: "file-upload"
-    }
+    },
+    variants
   },
   "with multiple": {
     context: {
@@ -233,7 +272,8 @@ const fixtures = {
       chooseFilesButtonText: "Choose files",
       dropInstructionText: "or drop files",
       noFileChosenText: "No files chosen"
-    }
+    },
+    variants
   },
   "with translations": {
     context: {
@@ -253,7 +293,8 @@ const fixtures = {
       },
       enteredDropZoneText: "Wedi mynd i mewn i'r parth gollwng",
       leftDropZoneText: "Parth gollwng i'r chwith"
-    }
+    },
+    variants
   },
   "to configure in JavaScript": {
     context: {

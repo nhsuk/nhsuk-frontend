@@ -3,7 +3,27 @@
  *
  * @satisfies {MacroExample[]}
  */
-const variants = [
+export const variants = [
+  {
+    // Regular variant
+  },
+  {
+    description: "reverse",
+    context: {
+      variant: "reverse"
+    },
+    options: {
+      layout: "background-blue"
+    }
+  }
+]
+
+/**
+ * Nunjucks macro option sizes
+ *
+ * @satisfies {MacroExample[]}
+ */
+export const sizes = [
   {
     description: "with size S",
     context: {
@@ -41,6 +61,7 @@ const fixtures = {
       heading: "What is your full name?",
       size: "l"
     },
+    variants,
     screenshot: {
       viewports: ["mobile", "tablet", "desktop"]
     }
@@ -50,7 +71,7 @@ const fixtures = {
       heading: "What is your full name?",
       size: "l"
     },
-    variants,
+    variants: sizes,
     screenshot: {
       viewports: ["tablet"]
     }
@@ -61,7 +82,7 @@ const fixtures = {
       caption: "About you",
       size: "l"
     },
-    variants,
+    variants: sizes,
     screenshot: {
       viewports: ["tablet"]
     }
@@ -76,7 +97,7 @@ const fixtures = {
       },
       size: "l"
     },
-    variants,
+    variants: sizes,
     screenshot: {
       viewports: ["tablet"]
     }
@@ -91,7 +112,7 @@ const fixtures = {
       },
       size: "l"
     },
-    variants,
+    variants: sizes,
     screenshot: {
       viewports: ["tablet"]
     }
@@ -168,7 +189,8 @@ const fixtures = {
   "without heading": {
     context: {
       text: "What is your full name?"
-    }
+    },
+    variants
   },
   "with deprecated page heading": {
     context: {

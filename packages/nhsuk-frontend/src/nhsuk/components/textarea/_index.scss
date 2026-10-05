@@ -45,4 +45,14 @@
   .nhsuk-textarea--error {
     border-color: $nhsuk-error-colour;
   }
+
+  .nhsuk-textarea--reverse {
+    border-color: $nhsuk-reverse-input-border-colour;
+    color: $nhsuk-reverse-text-colour;
+    background-color: $nhsuk-reverse-input-background-colour;
+  }
+
+  .nhsuk-textarea--reverse.nhsuk-textarea--error:not(:focus) {
+    border-color: $nhsuk-reverse-error-border-colour;
+  }
 }

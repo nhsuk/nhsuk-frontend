@@ -3,6 +3,9 @@
 {% from "nhsuk/components/label/macro.njk" import label as nhsukLabel %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
+{#- Set variant for this component #}
+{%- set variant = params.variant -%}
+
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-input" -%}
 {%- set classNamesInputWrapper = "nhsuk-input-wrapper" -%}
@@ -12,6 +15,12 @@
 {%- set label = params.label if params.label is mapping and params.label is not escaped else {
   text: params.label if params.label is string else undefined,
   html: params.label if params.label is escaped else undefined
+} -%}
+
+{#- Support caption as string #}
+{%- set caption = label.caption if label.caption is mapping and label.caption is not escaped else {
+  text: label.caption if label.caption is string else undefined,
+  html: label.caption if label.caption is escaped else undefined
 } -%}
 
 {#- Support hint as string #}
@@ -26,6 +35,11 @@
   html: params.errorMessage if params.errorMessage is escaped else undefined
 } -%}
 
+{%- if variant == "reverse" and (not params.classes or not "nhsuk-input--reverse" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-input--" ~ variant %}
+  {% set classNamesInputWrapper = classNamesInputWrapper ~ " nhsuk-input-wrapper--reverse" %}
+{% endif %}
+
 {%- if params.large and (not params.classes or not "nhsuk-input--large" in params.classes) %}
   {% set classNames = classNames ~ " nhsuk-input--large" %}
   {% set classNamesInputWrapper = classNamesInputWrapper ~ " nhsuk-input-wrapper--large" %}
@@ -37,7 +51,7 @@
 
 {%- if errorMessage.text or errorMessage.html or params.errorMessage == true %}
   {% set classNames = classNames ~ " nhsuk-input--error" %}
-  {% set classNamesFormGroup = classNamesFormGroup ~ " nhsuk-form-group--error" %}
+  {% set classNamesFormGroup = classNamesFormGroup ~ (" nhsuk-form-group--reverse" if variant == "reverse") ~ " nhsuk-form-group--error" %}
 {% endif %}
 
 {%- if params.width and
@@ -151,14 +165,23 @@
     html: label.html,
     text: label.text,
     visuallyHiddenText: label.visuallyHiddenText,
-    caption: label.caption,
+    caption: {
+      id: caption.id,
+      text: caption.text,
+      html: caption.html,
+      placement: caption.placement,
+      size: caption.size | default(label.size),
+      classes: caption.classes,
+      attributes: caption.attributes
+    },
     id: label.id,
     for: label.for | default(id),
     size: label.size,
     heading: label.heading,
     isPageHeading: label.isPageHeading,
     classes: label.classes,
-    attributes: label.attributes
+    attributes: label.attributes,
+    variant: label.variant | default(variant)
   }) | trim | indent(2) }}
 {% if hint.text or hint.html %}
   {% set hintId = hint.id | default(id ~ "-hint") %}
@@ -168,7 +191,8 @@
     text: hint.text,
     id: hint.id | default(hintId),
     classes: hint.classes,
-    attributes: hint.attributes
+    attributes: hint.attributes,
+    variant: hint.variant | default(variant)
   }) | trim | indent(2) }}
 {% endif %}
 {% if errorMessage.text or errorMessage.html %}
@@ -180,7 +204,8 @@
     visuallyHiddenText: errorMessage.visuallyHiddenText,
     id: errorMessage.id | default(errorId),
     classes: errorMessage.classes,
-    attributes: errorMessage.attributes
+    attributes: errorMessage.attributes,
+    variant: errorMessage.variant | default(variant)
   }) | trim | indent(2) }}
 {% endif %}
 

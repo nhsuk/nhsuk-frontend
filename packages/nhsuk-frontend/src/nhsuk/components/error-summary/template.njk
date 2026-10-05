@@ -1,6 +1,9 @@
 {% from "nhsuk/components/heading/macro.njk" import heading as nhsukHeading %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
+{#- Set variant for this component #}
+{%- set variant = params.variant -%}
+
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-error-summary" -%}
 
@@ -15,6 +18,10 @@
   text: params.description if params.description is string else params.descriptionText,
   html: params.description if params.description is escaped else params.descriptionHtml
 } -%}
+
+{%- if variant == "reverse" and (not params.classes or not "nhsuk-error-summary--reverse" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-error-summary--" ~ variant %}
+{% endif %}
 
 {%- if params.classes %}
   {% set classNames = classNames ~ " " ~ params.classes %}
