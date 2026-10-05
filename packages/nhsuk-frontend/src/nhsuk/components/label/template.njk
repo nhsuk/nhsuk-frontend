@@ -2,8 +2,12 @@
 {% from "nhsuk/components/heading/macro.njk" import heading as nhsukHeading %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
+{#- Set variant for this component #}
+{%- set variant = params.variant -%}
+
 {#- Set classes for this component #}
-{%- set classNames = "nhsuk-label" -%}
+{%- set className = "nhsuk-label" -%}
+{%- set classNames = "" -%}
 {%- set classNamesHeading = "nhsuk-label-wrapper" -%}
 
 {#- Set heading default (optional) #}
@@ -15,6 +19,14 @@
     text: heading if heading is string else undefined,
     html: heading if heading is escaped else undefined
   } %}
+{% endif -%}
+
+{%- if variant == "reverse" and (not params.classes or not "nhsuk-label--reverse" in params.classes) %}
+  {% set classNames = (classNames ~ " nhsuk-label--" ~ variant) | trim %}
+{% endif %}
+
+{%- if params.classes %}
+  {% set classNames = (classNames ~ " " ~ params.classes) | trim %}
 {% endif -%}
 
 {%- set hasHeading = true if (params.isPageHeading and heading != false) or
@@ -40,7 +52,8 @@
   size: headingCaption.size | default(size),
   classes: headingCaption.classes,
   attributes: headingCaption.attributes,
-  element: headingCaption.element
+  element: headingCaption.element,
+  variant: headingCaption.variant | default(variant)
 } -%}
 
 {%- set label = {
@@ -51,9 +64,9 @@
   caption: caption if not caption.placement or caption.placement in ["start", "end"] else undefined,
   size: size,
   sizes: ["s", "m", "l", "xl"],
-  className: classNames,
-  classPrefix: classNames ~ "--",
-  classes: params.classes,
+  className: className,
+  classPrefix: className ~ "--",
+  classes: classNames,
   attributes: nhsukAttributes({
     for: {
       value: params.for,

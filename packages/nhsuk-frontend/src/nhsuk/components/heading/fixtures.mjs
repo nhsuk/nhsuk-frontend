@@ -5,6 +5,26 @@
  */
 export const variants = [
   {
+    // Regular variant
+  },
+  {
+    description: "reverse",
+    context: {
+      variant: "reverse"
+    },
+    options: {
+      layout: "background-blue"
+    }
+  }
+]
+
+/**
+ * Nunjucks macro option sizes
+ *
+ * @satisfies {MacroExample[]}
+ */
+export const sizes = [
+  {
     description: "with size S",
     context: {
       size: "s"
@@ -50,7 +70,7 @@ const fixtures = {
       text: "What is your full name?",
       size: "l"
     },
-    variants,
+    variants: sizes,
     screenshot: {
       viewports: ["tablet"]
     }
@@ -61,7 +81,7 @@ const fixtures = {
       caption: "About you",
       size: "l"
     },
-    variants
+    variants: sizes
   },
   'text and caption "before"': {
     context: {
@@ -72,7 +92,7 @@ const fixtures = {
       },
       size: "l"
     },
-    variants,
+    variants: sizes,
     screenshot: {
       viewports: ["tablet"]
     }
@@ -97,7 +117,7 @@ const fixtures = {
       },
       size: "l"
     },
-    variants,
+    variants: sizes,
     screenshot: {
       viewports: ["tablet"]
     }
@@ -122,7 +142,7 @@ const fixtures = {
       },
       size: "l"
     },
-    variants,
+    variants: sizes,
     screenshot: {
       viewports: ["tablet"]
     }
@@ -136,7 +156,7 @@ const fixtures = {
       },
       size: "l"
     },
-    variants,
+    variants: sizes,
     screenshot: {
       viewports: ["tablet"]
     }

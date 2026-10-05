@@ -3,6 +3,9 @@
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 {% from "nhsuk/macros/i18n.njk" import nhsukI18nAttributes %}
 
+{#- Set variant for this component #}
+{%- set variant = params.variant -%}
+
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-js-character-count" -%}
 {%- set classNamesFormGroup = "nhsuk-character-count" -%}
@@ -11,6 +14,12 @@
 {%- set label = params.label if params.label is mapping and params.label is not escaped else {
   text: params.label if params.label is string else undefined,
   html: params.label if params.label is escaped else undefined
+} -%}
+
+{#- Support caption as string #}
+{%- set caption = label.caption if label.caption is mapping and label.caption is not escaped else {
+  text: label.caption if label.caption is string else undefined,
+  html: label.caption if label.caption is escaped else undefined
 } -%}
 
 {%- if params.classes %}
@@ -45,7 +54,8 @@
       value: false if textareaDescriptionTextNoLimit | length else true,
       optional: true
     }
-  }
+  },
+  variant: params.countMessage.variant | default(variant)
 }) | trim }}
 {% if params.formGroup.afterInput %}
   {{- params.formGroup.afterInput.html | safe | trim if params.formGroup.afterInput.html else params.formGroup.afterInput.text }}
@@ -139,7 +149,15 @@
     html: label.html,
     text: label.text,
     visuallyHiddenText: label.visuallyHiddenText,
-    caption: label.caption,
+    caption: {
+      id: caption.id,
+      text: caption.text,
+      html: caption.html,
+      placement: caption.placement,
+      size: caption.size | default(label.size),
+      classes: caption.classes,
+      attributes: caption.attributes
+    },
     id: label.id,
     for: label.for | default(id),
     size: label.size,
@@ -152,5 +170,6 @@
   errorMessage: params.errorMessage,
   disabled: params.disabled,
   autocomplete: params.autocomplete,
-  attributes: params.attributes
+  attributes: params.attributes,
+  variant: variant
 }) | trim }}

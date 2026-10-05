@@ -4,6 +4,9 @@
 {% from "nhsuk/components/label/macro.njk" import label as nhsukLabel %}
 {% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
 
+{#- Set variant for this component #}
+{%- set variant = params.variant -%}
+
 {#- Set classes for this component #}
 {%- set classNames = "nhsuk-checkboxes" -%}
 {%- set classNamesFormGroup = "nhsuk-form-group" -%}
@@ -20,6 +23,10 @@
   html: params.errorMessage if params.errorMessage is escaped else undefined
 } -%}
 
+{%- if variant == "reverse" and (not params.classes or not "nhsuk-checkboxes--reverse" in params.classes) %}
+  {% set classNames = classNames ~ " nhsuk-checkboxes--" ~ variant %}
+{% endif %}
+
 {%- if params.small and (not params.classes or not "nhsuk-checkboxes--small" in params.classes) %}
   {% set classNames = classNames ~ " nhsuk-checkboxes--small" %}
 {% endif %}
@@ -29,7 +36,7 @@
 {% endif %}
 
 {%- if errorMessage.text or errorMessage.html or params.errorMessage == true %}
-  {% set classNamesFormGroup = classNamesFormGroup ~ " nhsuk-form-group--error" %}
+  {% set classNamesFormGroup = classNamesFormGroup ~ (" nhsuk-form-group--reverse" if variant == "reverse") ~ " nhsuk-form-group--error" %}
 {% endif %}
 
 {%- if params.classes %}
@@ -103,7 +110,8 @@
         id: itemLabel.id,
         for: itemId,
         classes: "nhsuk-checkboxes__label" ~ (" " ~ itemLabel.classes if itemLabel.classes),
-        attributes: itemLabel.attributes
+        attributes: itemLabel.attributes,
+        variant: itemLabel.variant | default(variant)
       }) | trim | indent(6) }}
       {% if hasHint %}
       {{ nhsukHint({
@@ -111,7 +119,8 @@
         text: itemHint.text,
         id: itemHint.id | default(itemHintId),
         classes: "nhsuk-checkboxes__hint" ~ (" " ~ itemHint.classes if itemHint.classes),
-        attributes: itemHint.attributes
+        attributes: itemHint.attributes,
+        variant: itemHint.variant | default(variant)
       }) | trim | indent(6) }}
       {% endif %}
     </div>
@@ -133,7 +142,8 @@
     text: hint.text,
     id: hint.id | default(hintId),
     classes: hint.classes,
-    attributes: hint.attributes
+    attributes: hint.attributes,
+    variant: hint.variant | default(variant)
   }) | trim | indent(2) }}
 {% endif %}
 {% if errorMessage.text or errorMessage.html %}
@@ -145,7 +155,8 @@
     visuallyHiddenText: errorMessage.visuallyHiddenText,
     id: errorMessage.id | default(errorId),
     classes: errorMessage.classes,
-    attributes: errorMessage.attributes
+    attributes: errorMessage.attributes,
+    variant: errorMessage.variant | default(variant)
   }) | trim | indent(2) }}
 {% endif %}
   <div
@@ -182,7 +193,8 @@
     role: params.fieldset.role,
     describedBy: describedBy,
     classes: params.fieldset.classes,
-    attributes: params.fieldset.attributes
+    attributes: params.fieldset.attributes,
+    variant: params.fieldset.variant | default(variant)
   }) | trim }}
 {% else %}
   {{ innerHtml | safe | trim }}
