@@ -99,6 +99,12 @@ $nhsuk-focus-text-colour: nhsuk-colour("black") !default;
 
 $nhsuk-error-colour: nhsuk-colour("red") !default;
 
+/// Reverse error colour
+///
+/// @type Colour
+
+$nhsuk-reverse-error-colour: nhsuk-tint($nhsuk-error-colour, 58%) !default;
+
 /// Error text colour
 ///
 /// Ensure that the contrast between the text and background colour passes
@@ -107,6 +113,15 @@ $nhsuk-error-colour: nhsuk-colour("red") !default;
 /// @type Colour
 
 $nhsuk-error-text-colour: nhsuk-colour("red") !default;
+
+/// Reverse error text colour
+///
+/// Ensure that the contrast between the text and background colour passes
+/// WCAG Level AA contrast requirements.
+///
+/// @type Colour
+
+$nhsuk-reverse-error-text-colour: nhsuk-tint($nhsuk-error-text-colour, 78%) !default;
 
 /// Success colour
 ///
@@ -161,6 +176,14 @@ $nhsuk-reverse-border-colour: nhsuk-tint($nhsuk-brand-colour, 20%) !default;
 
 $nhsuk-input-border-colour: nhsuk-colour("grey-1") !default;
 
+/// Reverse form border colour
+///
+/// Used for form inputs and controls
+///
+/// @type Colour
+
+$nhsuk-reverse-input-border-colour: nhsuk-tint($nhsuk-brand-colour, 30%) !default;
+
 /// Input hover colour
 ///
 /// Used for hover states on form controls
@@ -199,6 +222,12 @@ $nhsuk-reverse-target-hover-colour: nhsuk-shade($nhsuk-brand-colour, 10%) !defau
 /// @type Colour
 
 $nhsuk-input-background-colour: nhsuk-colour("white") !default;
+
+/// Reverse form element background colour
+///
+/// @type Colour
+
+$nhsuk-reverse-input-background-colour: nhsuk-shade($nhsuk-brand-colour, 10%) !default;
 
 /// Code text colour
 ///
