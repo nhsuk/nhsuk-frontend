@@ -16,19 +16,27 @@
 /// @group components/button
 ////
 
-$nhsuk-button-padding-top-bottom-mobile: nhsuk-px-to-rem(10px);
-$nhsuk-button-padding-top-bottom-desktop: nhsuk-px-to-rem(14px);
-$nhsuk-button-padding-top-bottom-small: nhsuk-px-to-rem(6px);
-$nhsuk-button-padding-left-right: nhsuk-px-to-rem(16px);
-$nhsuk-button-padding-left-right-small: nhsuk-px-to-rem(12px);
+$nhsuk-button-padding-top-bottom-mobile: 10px !default;
+$nhsuk-button-padding-top-bottom-desktop: 14px !default;
+$nhsuk-button-padding-top-bottom-small: 6px !default;
+$nhsuk-button-padding-left-right: 16px !default;
+$nhsuk-button-padding-left-right-tablet: 16px !default;
+$nhsuk-button-padding-left-right-small: 12px !default;
 
 $nhsuk-button-search-icon-size: 28px;
 $nhsuk-button-search-icon-size-large: 38px;
 
+$nhsuk-button-search-min-height: 32px !default;
+$nhsuk-button-search-min-height-large: 40px !default;
+$nhsuk-button-search-min-height-active: 36px !default;
+$nhsuk-button-search-min-height-large-active: 48px !default;
+$nhsuk-button-search-min-height-large-active-desktop: 60px !default;
+
 $nhsuk-button-min-height-mobile: 40px !default;
-$nhsuk-button-min-height-desktop: 52px !default;
+$nhsuk-button-min-height-tablet: 52px !default;
+$nhsuk-button-min-height-large-input-wrapper-tablet: 52px !default;
 $nhsuk-button-min-height-small: 32px !default;
-$nhsuk-button-min-width-desktop: 66px !default;
+$nhsuk-button-min-width-tablet: 66px !default;
 $nhsuk-button-icon-min-width: 44px !default;
 
 @include nhsuk-exports("nhsuk/components/button") {
@@ -42,7 +50,7 @@ $nhsuk-button-icon-min-width: 44px !default;
     width: 100%;
     min-height: nhsuk-px-to-rem($nhsuk-button-min-height-mobile + $nhsuk-button-shadow-size);
     margin-top: 0;
-    padding: $nhsuk-button-padding-top-bottom-mobile $nhsuk-button-padding-left-right; // [5]
+    padding: nhsuk-px-to-rem($nhsuk-button-padding-top-bottom-mobile) nhsuk-px-to-rem($nhsuk-button-padding-left-right); // [5]
 
     overflow: visible;
 
@@ -69,9 +77,14 @@ $nhsuk-button-icon-min-width: 44px !default;
 
     @media #{nhsuk-from-breakpoint(tablet)} {
       width: auto;
-      min-height: nhsuk-px-to-rem($nhsuk-button-min-height-desktop + $nhsuk-button-shadow-size);
-      padding: $nhsuk-button-padding-top-bottom-desktop $nhsuk-button-padding-left-right; // [5]
+      min-height: nhsuk-px-to-rem($nhsuk-button-min-height-tablet + $nhsuk-button-shadow-size);
+      padding: nhsuk-px-to-rem($nhsuk-button-padding-top-bottom-desktop)
+        nhsuk-px-to-rem($nhsuk-button-padding-left-right-tablet); // [5]
       line-height: nhsuk-line-height(24px, $font-size: 19px);
+
+      .nhsuk-input-wrapper--large & {
+        min-height: nhsuk-px-to-rem($nhsuk-button-min-height-large-input-wrapper-tablet + $nhsuk-button-shadow-size);
+      }
     }
 
     // [1]
@@ -221,7 +234,8 @@ $nhsuk-button-icon-min-width: 44px !default;
 
   .nhsuk-button--small {
     min-height: nhsuk-px-to-rem($nhsuk-button-min-height-small + $nhsuk-button-shadow-size);
-    padding: $nhsuk-button-padding-top-bottom-small $nhsuk-button-padding-left-right-small; // [5]
+    padding: nhsuk-px-to-rem($nhsuk-button-padding-top-bottom-small)
+      nhsuk-px-to-rem($nhsuk-button-padding-left-right-small); // [5]
 
     @include nhsuk-responsive-margin(4, "bottom", $adjustment: $nhsuk-button-shadow-size); // [5]
 
@@ -258,7 +272,7 @@ $nhsuk-button-icon-min-width: 44px !default;
 
   .nhsuk-button:not(.nhsuk-button--small) {
     @media #{nhsuk-from-breakpoint(tablet)} {
-      min-width: nhsuk-px-to-rem($nhsuk-button-min-width-desktop);
+      min-width: nhsuk-px-to-rem($nhsuk-button-min-width-tablet);
     }
   }
 
@@ -285,14 +299,14 @@ $nhsuk-button-icon-min-width: 44px !default;
     @media #{nhsuk-from-breakpoint(tablet)} {
       position: absolute;
       top: 50%;
-      left: $nhsuk-button-padding-left-right;
+      left: nhsuk-px-to-rem($nhsuk-button-padding-left-right-tablet);
 
       // Offset icon vertically (from top: 50%) into the centre
       margin-top: nhsuk-px-to-rem(math.div($nhsuk-icon-size, -2));
 
       // Offset icon to the left when at the end, towards text
       &:not(:only-child):last-child {
-        right: $nhsuk-button-padding-left-right;
+        right: nhsuk-px-to-rem($nhsuk-button-padding-left-right-tablet);
         left: auto;
         margin-right: nhsuk-px-to-rem(-6px);
         margin-left: 0;
@@ -300,7 +314,7 @@ $nhsuk-button-icon-min-width: 44px !default;
 
       // Offset icon to the right when at the start, towards text
       &:not(:only-child):first-child {
-        left: $nhsuk-button-padding-left-right;
+        left: nhsuk-px-to-rem($nhsuk-button-padding-left-right-tablet);
         margin-right: 0;
         margin-left: nhsuk-px-to-rem(-6px);
       }
@@ -360,11 +374,11 @@ $nhsuk-button-icon-min-width: 44px !default;
       height: nhsuk-px-to-rem($nhsuk-icon-size);
 
       &:not(:only-child):last-child {
-        right: $nhsuk-button-padding-left-right-small;
+        right: nhsuk-px-to-rem($nhsuk-button-padding-left-right-small);
       }
 
       &:not(:only-child):first-child {
-        left: $nhsuk-button-padding-left-right-small;
+        left: nhsuk-px-to-rem($nhsuk-button-padding-left-right-small);
       }
     }
   }
@@ -400,12 +414,12 @@ $nhsuk-button-icon-min-width: 44px !default;
 
     // Move padding to content to better fit icon
     @media #{nhsuk-until-breakpoint(tablet)} {
-      padding-top: $nhsuk-button-padding-top-bottom-mobile;
-      padding-bottom: $nhsuk-button-padding-top-bottom-mobile;
+      padding-top: nhsuk-px-to-rem($nhsuk-button-padding-top-bottom-mobile);
+      padding-bottom: nhsuk-px-to-rem($nhsuk-button-padding-top-bottom-mobile);
 
       .nhsuk-button.nhsuk-button--small & {
-        padding-top: $nhsuk-button-padding-top-bottom-small;
-        padding-bottom: $nhsuk-button-padding-top-bottom-small;
+        padding-top: nhsuk-px-to-rem($nhsuk-button-padding-top-bottom-small);
+        padding-bottom: nhsuk-px-to-rem($nhsuk-button-padding-top-bottom-small);
       }
     }
 

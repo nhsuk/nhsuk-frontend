@@ -1,3 +1,9 @@
 @use "settings";
 
-@forward "nhsuk-frontend/dist/nhsuk";
+// Temporary: compact button
+@forward "nhsuk-frontend/dist/nhsuk" with (
+  $nhsuk-button-min-height-tablet: 42px,
+  $nhsuk-button-search-min-height-large: 52px,
+  $nhsuk-button-padding-top-bottom-desktop: 10px,
+  $nhsuk-button-padding-left-right-tablet: 14px
+);
