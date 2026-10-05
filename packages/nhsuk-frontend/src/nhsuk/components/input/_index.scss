@@ -55,7 +55,7 @@
 
     &::placeholder {
       opacity: 1; // Fixes low contrast of placeholder text in firefox
-      color: nhsuk-colour("grey-1");
+      color: $nhsuk-secondary-text-colour;
     }
 
     // Hide input clear button (IE)
@@ -160,6 +160,20 @@
     }
   }
 
+  .nhsuk-input--reverse {
+    border-color: $nhsuk-reverse-input-border-colour;
+    color: $nhsuk-reverse-text-colour;
+    background-color: $nhsuk-reverse-input-background-colour;
+
+    &::placeholder {
+      color: $nhsuk-reverse-secondary-text-colour;
+    }
+  }
+
+  .nhsuk-input--reverse.nhsuk-input--error:not(:focus) {
+    border-color: $nhsuk-reverse-error-border-colour;
+  }
+
   // Codes and sequences
 
   .nhsuk-input--code {
@@ -249,6 +263,13 @@
     @media #{nhsuk-from-breakpoint(tablet)} {
       height: nhsuk-px-to-rem(56px + $nhsuk-button-shadow-size);
     }
+  }
+
+  .nhsuk-input-wrapper--reverse .nhsuk-input-wrapper__prefix,
+  .nhsuk-input-wrapper--reverse .nhsuk-input-wrapper__suffix {
+    border-color: $nhsuk-reverse-input-border-colour;
+    color: $nhsuk-reverse-text-colour;
+    background-color: nhsuk-tint($nhsuk-brand-colour, 10%);
   }
 
   .nhsuk-input-wrapper__prefix,
