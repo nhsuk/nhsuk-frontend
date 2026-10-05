@@ -643,7 +643,7 @@ const fixtures = {
       ]
     }
   },
-  "with item strings": {
+  "with item values as strings": {
     context: {
       rows: [
         {
@@ -653,6 +653,20 @@ const fixtures = {
         {
           key: "Date of birth",
           value: "15 March 1984"
+        }
+      ]
+    }
+  },
+  "with item values as numbers": {
+    context: {
+      rows: [
+        {
+          key: "Name",
+          value: "Karen Francis"
+        },
+        {
+          key: "Age",
+          value: 42
         }
       ]
     }
