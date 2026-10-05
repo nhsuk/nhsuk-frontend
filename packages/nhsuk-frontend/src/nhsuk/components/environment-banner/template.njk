@@ -1,0 +1,64 @@
+{% from "nhsuk/components/tag/macro.njk" import tag as nhsukTag %}
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+
+{#- Set classes for this component #}
+{%- set classNames = "nhsuk-environment-banner" -%}
+
+{#- Support tag as string #}
+{%- set tag = params.tag if params.tag is mapping and params.tag is not escaped else {
+  text: params.tag if params.tag is string else "Development",
+  html: params.tag if params.tag is escaped else undefined
+} -%}
+
+{#- Support environment name as string #}
+{%- set name = params.name if params.name is mapping and params.name is not escaped else {
+  text: params.name if params.name is string else tag.text | lower,
+  html: params.name if params.name is escaped else tag.html | lower
+} -%}
+
+{%- if params.colour and
+  params.colour in ["white", "blue", "purple", "red", "orange", "yellow"] and (
+    not params.classes or (
+      not "nhsuk-environment-banner--white" in params.classes and
+      not "nhsuk-environment-banner--blue" in params.classes and
+      not "nhsuk-environment-banner--purple" in params.classes and
+      not "nhsuk-environment-banner--red" in params.classes and
+      not "nhsuk-environment-banner--orange" in params.classes and
+      not "nhsuk-environment-banner--yellow" in params.classes
+    )
+  )
+%}
+  {% set classNames = classNames ~ " nhsuk-environment-banner--" ~ params.colour %}
+{% endif %}
+
+{%- if params.classes %}
+  {% set classNames = classNames ~ " " ~ params.classes %}
+{% endif %}
+
+{%- set environment = name.html | safe if name.html else name.text %}
+{%- set description = "This is a %{name} environment. Do not use it to make clinical decisions" %}
+
+{%- set innerHtml %}
+{% if caller %}
+  {{- caller() }}
+{% elif params.html %}
+  {{- params.html | safe }}
+{% else %}
+  {{- params.text | default(description) }}
+{% endif %}
+{% endset -%}
+
+<div class="{{ classNames }}" {%- if params.id %} id="{{ params.id }}"{% endif %}
+  {{- nhsukAttributes(params.attributes) }}>
+  <div class="nhsuk-environment-banner__container nhsuk-width-container {%- if params.containerClasses %} {{ params.containerClasses }}{% endif %}">
+  {% if params.tag not in ["", null, false] %}
+    {{ nhsukTag({
+      text: tag.text | default(name.text),
+      html: tag.html | default(name.html),
+      colour: tag.colour | default(params.colour) | default("white"),
+      border: tag.border | default(true if params.colour else false)
+    }) | trim | indent(4) }}
+  {% endif %}
+    {{ innerHtml | replace("%{name}", environment) | safe | trim | indent(4) }}
+  </div>
+</div>
