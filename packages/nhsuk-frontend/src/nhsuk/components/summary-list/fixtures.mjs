@@ -299,7 +299,219 @@ const fixtures = {
       viewports: ["mobile", "tablet", "desktop"]
     }
   },
-  "with multiple actions": {
+  "with multiple actions (one half)": {
+    context: {
+      rows: [
+        {
+          key: {
+            text: "Name"
+          },
+          value: {
+            text: "Karen Francis"
+          }
+        },
+        {
+          key: {
+            text: "Date of birth"
+          },
+          value: {
+            text: "15 March 1984"
+          },
+          actions: {
+            items: [
+              {
+                href: "#/change",
+                text: "Change",
+                visuallyHiddenText: "date of birth"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Contact information"
+          },
+          value: {
+            html: outdent`
+              73 Roman Rd<br>
+              Leeds<br>
+              LS2 5ZN
+            `
+          },
+          actions: {
+            items: [
+              {
+                href: "#/change",
+                text: "Change",
+                visuallyHiddenText: "contact information"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Contact details"
+          },
+          value: {
+            html: outdent`
+              <p>07700 900362</p>
+              <p>karen.francis@example.com</p>
+            `
+          },
+          actions: {
+            items: [
+              {
+                href: "#/add",
+                text: "Add",
+                visuallyHiddenText: "new contact details"
+              },
+              {
+                href: "#/change",
+                text: "Change",
+                visuallyHiddenText: "contact details"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Medicines"
+          },
+          value: {
+            html: outdent`
+              <p>Isotretinoin capsules (Roaccutane)</p>
+              <p>Isotretinoin gel (Isotrex)</p>
+              <p>Pepto-Bismol (bismuth subsalicylate)</p>
+            `
+          },
+          actions: {
+            items: [
+              {
+                href: "#/add",
+                text: "Add",
+                visuallyHiddenText: "new medicine"
+              },
+              {
+                href: "#/change",
+                text: "Change",
+                visuallyHiddenText: "medicines"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    options: {
+      width: "one-half"
+    }
+  },
+  "with multiple actions (two thirds)": {
+    context: {
+      rows: [
+        {
+          key: {
+            text: "Name"
+          },
+          value: {
+            text: "Karen Francis"
+          }
+        },
+        {
+          key: {
+            text: "Date of birth"
+          },
+          value: {
+            text: "15 March 1984"
+          },
+          actions: {
+            items: [
+              {
+                href: "#/change",
+                text: "Change",
+                visuallyHiddenText: "date of birth"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Contact information"
+          },
+          value: {
+            html: outdent`
+              73 Roman Rd<br>
+              Leeds<br>
+              LS2 5ZN
+            `
+          },
+          actions: {
+            items: [
+              {
+                href: "#/change",
+                text: "Change",
+                visuallyHiddenText: "contact information"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Contact details"
+          },
+          value: {
+            html: outdent`
+              <p>07700 900362</p>
+              <p>karen.francis@example.com</p>
+            `
+          },
+          actions: {
+            items: [
+              {
+                href: "#/add",
+                text: "Add",
+                visuallyHiddenText: "new contact details"
+              },
+              {
+                href: "#/change",
+                text: "Change",
+                visuallyHiddenText: "contact details"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Medicines"
+          },
+          value: {
+            html: outdent`
+              <p>Isotretinoin capsules (Roaccutane)</p>
+              <p>Isotretinoin gel (Isotrex)</p>
+              <p>Pepto-Bismol (bismuth subsalicylate)</p>
+            `
+          },
+          actions: {
+            items: [
+              {
+                href: "#/add",
+                text: "Add",
+                visuallyHiddenText: "new medicine"
+              },
+              {
+                href: "#/change",
+                text: "Change",
+                visuallyHiddenText: "medicines"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    options: {
+      width: "two-thirds"
+    }
+  },
+  "with multiple actions (full width)": {
     context: {
       rows: [
         {
@@ -405,7 +617,7 @@ const fixtures = {
       width: "full"
     }
   },
-  "with multiple actions as buttons": {
+  "with multiple actions as buttons (full width)": {
     context: {
       rows: [
         {
@@ -511,7 +723,7 @@ const fixtures = {
       width: "full"
     }
   },
-  "with multiple actions (empty items)": {
+  "with multiple actions (full width, empty items)": {
     context: {
       rows: [
         {
@@ -833,7 +1045,257 @@ const fixtures = {
       ]
     }
   },
-  "as a card with multiple actions": {
+  "as a card with multiple actions (one half)": {
+    context: {
+      card: {
+        heading: {
+          text: "Regional Manager",
+          size: "l"
+        },
+        actions: {
+          items: [
+            {
+              text: "Delete",
+              href: "#/delete"
+            },
+            {
+              text: "Withdraw",
+              href: "#/withdraw"
+            }
+          ]
+        }
+      },
+      lastRowBorder: false,
+      rows: [
+        {
+          key: {
+            text: "Name"
+          },
+          value: {
+            text: "Karen Francis"
+          }
+        },
+        {
+          key: {
+            text: "Date of birth"
+          },
+          value: {
+            text: "15 March 1984"
+          },
+          actions: {
+            items: [
+              {
+                href: "#/change",
+                text: "Change",
+                visuallyHiddenText: "date of birth"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Contact information"
+          },
+          value: {
+            html: outdent`
+              73 Roman Rd<br>
+              Leeds<br>
+              LS2 5ZN
+            `
+          },
+          actions: {
+            items: [
+              {
+                href: "#/change",
+                text: "Change",
+                visuallyHiddenText: "contact information"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Contact details"
+          },
+          value: {
+            html: outdent`
+              <p>07700 900362</p>
+              <p>karen.francis@example.com</p>
+            `
+          },
+          actions: {
+            items: [
+              {
+                href: "#/add",
+                text: "Add",
+                visuallyHiddenText: "new contact details"
+              },
+              {
+                href: "#/change",
+                text: "Change",
+                visuallyHiddenText: "contact details"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Medicines"
+          },
+          value: {
+            html: outdent`
+              <p>Isotretinoin capsules (Roaccutane)</p>
+              <p>Isotretinoin gel (Isotrex)</p>
+              <p>Pepto-Bismol (bismuth subsalicylate)</p>
+            `
+          },
+          actions: {
+            items: [
+              {
+                href: "#/add",
+                text: "Add",
+                visuallyHiddenText: "new medicine"
+              },
+              {
+                href: "#/change",
+                text: "Change",
+                visuallyHiddenText: "medicines"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    options: {
+      width: "one-half"
+    }
+  },
+  "as a card with multiple actions (two thirds)": {
+    context: {
+      card: {
+        heading: {
+          text: "Regional Manager",
+          size: "l"
+        },
+        actions: {
+          items: [
+            {
+              text: "Delete",
+              href: "#/delete"
+            },
+            {
+              text: "Withdraw",
+              href: "#/withdraw"
+            }
+          ]
+        }
+      },
+      lastRowBorder: false,
+      rows: [
+        {
+          key: {
+            text: "Name"
+          },
+          value: {
+            text: "Karen Francis"
+          }
+        },
+        {
+          key: {
+            text: "Date of birth"
+          },
+          value: {
+            text: "15 March 1984"
+          },
+          actions: {
+            items: [
+              {
+                href: "#/change",
+                text: "Change",
+                visuallyHiddenText: "date of birth"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Contact information"
+          },
+          value: {
+            html: outdent`
+              73 Roman Rd<br>
+              Leeds<br>
+              LS2 5ZN
+            `
+          },
+          actions: {
+            items: [
+              {
+                href: "#/change",
+                text: "Change",
+                visuallyHiddenText: "contact information"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Contact details"
+          },
+          value: {
+            html: outdent`
+              <p>07700 900362</p>
+              <p>karen.francis@example.com</p>
+            `
+          },
+          actions: {
+            items: [
+              {
+                href: "#/add",
+                text: "Add",
+                visuallyHiddenText: "new contact details"
+              },
+              {
+                href: "#/change",
+                text: "Change",
+                visuallyHiddenText: "contact details"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Medicines"
+          },
+          value: {
+            html: outdent`
+              <p>Isotretinoin capsules (Roaccutane)</p>
+              <p>Isotretinoin gel (Isotrex)</p>
+              <p>Pepto-Bismol (bismuth subsalicylate)</p>
+            `
+          },
+          actions: {
+            items: [
+              {
+                href: "#/add",
+                text: "Add",
+                visuallyHiddenText: "new medicine"
+              },
+              {
+                href: "#/change",
+                text: "Change",
+                visuallyHiddenText: "medicines"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    options: {
+      width: "two-thirds"
+    }
+  },
+  "as a card with multiple actions (full width)": {
     context: {
       card: {
         heading: {
@@ -1199,6 +1661,224 @@ const fixtures = {
     }
   },
   "as a card (feature) with custom HTML": {
+    context: {
+      card: {
+        heading: {
+          text: "Your read",
+          size: "m"
+        },
+        variant: "feature"
+      },
+      lastRowBorder: false,
+      rows: [
+        {
+          key: {
+            text: "Opinion"
+          },
+          value: {
+            html: outdent`
+              <p class="nhsuk-u-margin-bottom-3">
+                ${components.render("tag", {
+                  context: {
+                    text: "Recall for assessment",
+                    colour: "red"
+                  }
+                })}
+              </p>
+            `
+          },
+          actions: {
+            items: [
+              {
+                href: "#/change",
+                text: "Change",
+                visuallyHiddenText: "opinion"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Detailed opinion"
+          },
+          value: {
+            html: outdent`
+              <div class="nhsuk-grid-row">
+                <div class="nhsuk-grid-column-one-half">
+                  <p class="nhsuk-u-margin-bottom-1 nhsuk-u-font-weight-bold">
+                    Right breast
+                  </p>
+                  <p class="nhsuk-u-margin-bottom-3">
+                    ${components.render("tag", {
+                      context: {
+                        text: "Abnormal",
+                        colour: "red"
+                      }
+                    })}
+                  </p>
+                </div>
+
+                <div class="nhsuk-grid-column-one-half">
+                  <p class="nhsuk-u-margin-bottom-1 nhsuk-u-font-weight-bold">
+                    Left breast
+                  </p>
+                  <p class="nhsuk-u-margin-bottom-3 nhsuk-u-secondary-text-colour">
+                    Not recorded
+                  </p>
+                </div>
+              </div>
+            `
+          },
+          actions: {
+            items: [
+              {
+                href: "#/change",
+                text: "Change",
+                visuallyHiddenText: "detailed opinion"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Annotations"
+          },
+          value: {
+            html: outdent`
+              <p class="nhsuk-u-margin-bottom-1 nhsuk-u-font-weight-bold">
+                Right breast
+              </p>
+              <p class="nhsuk-u-margin-bottom-0">
+                Microcalcification outside a mass, Clinical abnormality – Level 2 (benign)
+              </p>
+            `
+          },
+          actions: {
+            items: [
+              {
+                href: "#/change",
+                text: "Change",
+                visuallyHiddenText: "annotations"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    options: {
+      width: "one-half"
+    }
+  },
+  "as a card (feature) with custom HTML (two thirds)": {
+    context: {
+      card: {
+        heading: {
+          text: "Your read",
+          size: "m"
+        },
+        variant: "feature"
+      },
+      lastRowBorder: false,
+      rows: [
+        {
+          key: {
+            text: "Opinion"
+          },
+          value: {
+            html: outdent`
+              <p class="nhsuk-u-margin-bottom-3">
+                ${components.render("tag", {
+                  context: {
+                    text: "Recall for assessment",
+                    colour: "red"
+                  }
+                })}
+              </p>
+            `
+          },
+          actions: {
+            items: [
+              {
+                href: "#/change",
+                text: "Change",
+                visuallyHiddenText: "opinion"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Detailed opinion"
+          },
+          value: {
+            html: outdent`
+              <div class="nhsuk-grid-row">
+                <div class="nhsuk-grid-column-one-half">
+                  <p class="nhsuk-u-margin-bottom-1 nhsuk-u-font-weight-bold">
+                    Right breast
+                  </p>
+                  <p class="nhsuk-u-margin-bottom-3">
+                    ${components.render("tag", {
+                      context: {
+                        text: "Abnormal",
+                        colour: "red"
+                      }
+                    })}
+                  </p>
+                </div>
+
+                <div class="nhsuk-grid-column-one-half">
+                  <p class="nhsuk-u-margin-bottom-1 nhsuk-u-font-weight-bold">
+                    Left breast
+                  </p>
+                  <p class="nhsuk-u-margin-bottom-3 nhsuk-u-secondary-text-colour">
+                    Not recorded
+                  </p>
+                </div>
+              </div>
+            `
+          },
+          actions: {
+            items: [
+              {
+                href: "#/change",
+                text: "Change",
+                visuallyHiddenText: "detailed opinion"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Annotations"
+          },
+          value: {
+            html: outdent`
+              <p class="nhsuk-u-margin-bottom-1 nhsuk-u-font-weight-bold">
+                Right breast
+              </p>
+              <p class="nhsuk-u-margin-bottom-0">
+                Microcalcification outside a mass, Clinical abnormality – Level 2 (benign)
+              </p>
+            `
+          },
+          actions: {
+            items: [
+              {
+                href: "#/change",
+                text: "Change",
+                visuallyHiddenText: "annotations"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    options: {
+      width: "two-thirds"
+    }
+  },
+  "as a card (feature) with custom HTML (full width)": {
     context: {
       card: {
         heading: {
