@@ -28,7 +28,7 @@
 {% if caller %}
   {{- caller() }}
 {% elif params.html %}
-  {{ params.html | safe | trim | indent(2) }}
+  {{ nhsukContent({ html: params.html }) | trim | indent(2) }}
 {% else %}
   {% for row in rows %}
     {{- nhsukSummaryListRow(row, {
