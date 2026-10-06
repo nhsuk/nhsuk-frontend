@@ -28,7 +28,7 @@
 } %}
 
 {%- set hasContent = true if content.html or content.text not in [undefined, null, false] and
-  ((content.text is string or content.text is number) and content.text | string | length) else false %}
+  ((content.text is escaped or content.text is string or content.text is number) and content.text | string | length) else false %}
 
 {{- nhsukSlot("before", content) -}}
 
@@ -39,6 +39,8 @@
 
   {% if content.html %}
     {{- content.html | safe -}}
+  {% elif content.text is escaped %}
+    {{- content.text | safe -}}
   {% elif content.text is string or content.text is number %}
     {{- content.text | string -}}
   {% endif %}

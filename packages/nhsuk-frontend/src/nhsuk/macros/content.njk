@@ -13,9 +13,9 @@
   html: params if params is escaped else undefined
 } %}
 
-{#- Support visually hidden content as string or number #}
+{#- Support visually hidden content as defined value #}
 {%- set visuallyHidden = params.visuallyHidden if params.visuallyHidden is mapping and params.visuallyHidden is not escaped else {
-  text: params.visuallyHidden if params.visuallyHidden is string or params.visuallyHidden is number else params.visuallyHiddenText,
+  text: params.visuallyHidden if params.visuallyHidden is defined and params.visuallyHidden is not escaped else params.visuallyHiddenText,
   html: params.visuallyHidden if params.visuallyHidden is escaped else undefined
 } %}
 
@@ -32,12 +32,12 @@
 {%- set slotAfter = nhsukSlot("after", content) %}
 
 {%- set hasContent = true if content.html or content.text not in [undefined, null, false] and
-  ((content.text is string or content.text is number) and content.text | string | length) else false %}
+  ((content.text is escaped or content.text is string or content.text is number) and content.text | string | length) else false %}
 
 {%- set hasContentSlots = true if slotStart | length or slotEnd | length else false %}
 
 {%- set hasVisuallyHidden = true if content.visuallyHidden.html or content.visuallyHidden.text not in [undefined, null, false] and
-  ((content.visuallyHidden.text is string or content.visuallyHidden.text is number) and content.visuallyHidden.text | string | length) else false %}
+  ((content.visuallyHidden.text is escaped or content.visuallyHidden.text is string or content.visuallyHidden.text is number) and content.visuallyHidden.text | string | length) else false %}
 
 {#- Set visually hidden slots based on placement #}
 {%- set visuallyHiddenSlots = content.visuallyHidden.slots if content.visuallyHidden.slots is mapping and content.visuallyHidden.slots is not escaped else {
@@ -70,6 +70,8 @@
 
   {%- if content.html %}
     {{- content.html | safe -}}
+  {% elif content.text is escaped %}
+    {{- content.text | safe -}}
   {% elif content.text is string or content.text is number %}
     {{- content.text | string -}}
   {% endif %}

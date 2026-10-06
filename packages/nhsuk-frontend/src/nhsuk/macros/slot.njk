@@ -26,6 +26,8 @@
     {{- "\n" | safe if name == "after" -}}
     {% if slot.html %}
       {{- slot.html | safe -}}
+    {% elif slot.text is escaped %}
+      {{- slot.text | safe -}}
     {% elif slot.text is string or slot.text is number %}
       {{- slot.text | string -}}
     {% endif %}

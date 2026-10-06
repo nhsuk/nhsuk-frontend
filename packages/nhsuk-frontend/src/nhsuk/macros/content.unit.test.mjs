@@ -49,6 +49,22 @@ describe('Macro: Content', () => {
       expect(output).toBe(expected)
     })
 
+    it('renders text option without escaping when already escaped', () => {
+      const input = '<strong>abc</strong>'
+      const expected = '<strong>abc</strong>'
+
+      // Render directly otherwise nunjucks `renderMacro()` will stringify
+      // safe `is escaped` instances into plain `is mapping` objects
+      const output = nunjucks.renderString(outdent`
+        {%- from "nhsuk/macros/content.njk" import nhsukContent %}
+        {{- nhsukContent({
+          text: "${input}" | safe
+        }) -}}
+      `)
+
+      expect(output).toBe(expected)
+    })
+
     it('renders text option as number', () => {
       const input = {
         text: 123
