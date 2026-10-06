@@ -1,0 +1,34 @@
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes %}
+
+{#-
+  Renders text, HTML or visually hidden content
+#}
+{% macro nhsukContent(params = {}) -%}
+
+{#- Support params as string or number #}
+{%- set params = params if params is mapping and params is not escaped else {
+  text: params if params is string or params is number else undefined,
+  html: params if params is escaped else undefined
+} %}
+
+{%- set content = {
+  text: params.text,
+  html: caller() if caller else params.html
+} %}
+
+{%- set hasContent = true if content.html or content.text not in [undefined, null, false] and
+  ((content.text is string or content.text is number) and content.text | string | length) else false %}
+
+{%- if hasContent %}
+{%- set innerHtml %}
+  {%- if content.html %}
+    {{- content.html | safe -}}
+  {% else %}
+    {{- content.text | string -}}
+  {% endif -%}
+{% endset %}
+
+{{- innerHtml | safe -}}
+
+{% endif %}
+{%- endmacro %}
