@@ -4,9 +4,9 @@
 {#- Set classes for this component #}
 {% set classNames = "nhsuk-u-visually-hidden" %}
 
-{#- Support params as string or number #}
+{#- Support params as defined value #}
 {%- set params = params if params is mapping and params is not escaped else {
-  text: params if params is string or params is number else undefined,
+  text: params if params is defined and params is not escaped else undefined,
   html: params if params is escaped else undefined
 } %}
 
@@ -27,8 +27,10 @@
   slots: params.slots
 } %}
 
-{%- set hasContent = true if content.html or content.text not in [undefined, null, false] and
-  ((content.text is escaped or content.text is string or content.text is number) and content.text | string | length) else false %}
+{%- set hasContent = true if content.html or content.text not in [undefined, null, false] and (
+  (content.text is escaped or content.text is string or content.text is number) or
+  (content.text is defined and content.text is iterable)
+) and content.text | string | length else false %}
 
 {{- nhsukSlot("before", content) -}}
 
@@ -43,6 +45,8 @@
     {{- content.text | safe -}}
   {% elif content.text is string or content.text is number %}
     {{- content.text | string -}}
+  {% elif content.text is defined and content.text is iterable %}
+    {{- content.text | select("string") | list | join(", ") -}}
   {% endif %}
 
   {{- nhsukSlot("end", content) -}}

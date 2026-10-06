@@ -7,9 +7,9 @@
 #}
 {% macro nhsukContent(params = {}) -%}
 
-{#- Support params as string or number #}
+{#- Support params as defined value #}
 {%- set params = params if params is mapping and params is not escaped else {
-  text: params if params is string or params is number else undefined,
+  text: params if params is defined and params is not escaped else undefined,
   html: params if params is escaped else undefined
 } %}
 
@@ -31,13 +31,17 @@
 {%- set slotEnd = nhsukSlot("end", content) %}
 {%- set slotAfter = nhsukSlot("after", content) %}
 
-{%- set hasContent = true if content.html or content.text not in [undefined, null, false] and
-  ((content.text is escaped or content.text is string or content.text is number) and content.text | string | length) else false %}
+{%- set hasContent = true if content.html or content.text not in [undefined, null, false] and (
+  (content.text is escaped or content.text is string or content.text is number) or
+  (content.text is defined and content.text is iterable)
+) and content.text | string | length else false %}
 
 {%- set hasContentSlots = true if slotStart | length or slotEnd | length else false %}
 
-{%- set hasVisuallyHidden = true if content.visuallyHidden.html or content.visuallyHidden.text not in [undefined, null, false] and
-  ((content.visuallyHidden.text is escaped or content.visuallyHidden.text is string or content.visuallyHidden.text is number) and content.visuallyHidden.text | string | length) else false %}
+{%- set hasVisuallyHidden = true if content.visuallyHidden.html or content.visuallyHidden.text not in [undefined, null, false] and (
+  (content.visuallyHidden.text is escaped or content.visuallyHidden.text is string or content.visuallyHidden.text is number) or
+  (content.visuallyHidden.text is defined and content.visuallyHidden.text is iterable)
+) and content.visuallyHidden.text | string | length else false %}
 
 {#- Set visually hidden slots based on placement #}
 {%- set visuallyHiddenSlots = content.visuallyHidden.slots if content.visuallyHidden.slots is mapping and content.visuallyHidden.slots is not escaped else {
@@ -74,6 +78,8 @@
     {{- content.text | safe -}}
   {% elif content.text is string or content.text is number %}
     {{- content.text | string -}}
+  {% elif content.text is defined and content.text is iterable %}
+    {{- content.text | select("string") | list | join(", ") -}}
   {% endif %}
 
   {%- if content.visuallyHidden.placement == "end" or (hasVisuallyHidden and not content.visuallyHidden.placement) %}

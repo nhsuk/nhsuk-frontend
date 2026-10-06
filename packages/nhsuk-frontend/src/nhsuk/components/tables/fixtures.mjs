@@ -535,6 +535,21 @@ const fixtures = {
       ]
     }
   },
+  "with array items": {
+    context: {
+      caption: {
+        text: "Impetigo can look similar to other skin conditions",
+        size: "m"
+      },
+      firstCellIsHeader: true,
+      head: ["Skin symptoms", "Possible cause"],
+      rows: [
+        ["Blisters on lips or around the mouth", "Cold sores"],
+        [["Itchy", "dry", "cracked", "sore"], "Eczema"],
+        ["Itchy blisters", ["Shingles", "chickenpox"]]
+      ]
+    }
+  },
   "with string items": {
     context: {
       caption: {

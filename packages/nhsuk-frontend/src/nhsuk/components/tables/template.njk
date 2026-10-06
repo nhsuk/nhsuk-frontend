@@ -238,11 +238,11 @@
   <thead class="nhsuk-table__head" {%- if params.responsive %} role="rowgroup"{% endif %}>
     <tr class="nhsuk-table__row" {%- if params.responsive %} role="row"{% endif %}>
     {% for item in head %}
-      {% if item not in [undefined, null, false] and (item is string or item is number or item is mapping) %}
+      {% if item is defined and item not in [undefined, null, false] %}
 
-      {#- Support table header as string or number #}
+      {#- Support table header as defined value #}
       {%- set header = item if item is mapping and item is not escaped else {
-        text: item if item is string or item is number else undefined,
+        text: item if item is defined and item is not escaped else undefined,
         html: item if item is escaped else undefined
       } -%}
 
@@ -293,18 +293,18 @@
   {% for row in rows %}
     <tr class="nhsuk-table__row" {%- if params.responsive %} role="row"{% endif %}>
     {% for item in row %}
-      {% if item not in [undefined, null, false] and (item is string or item is number or item is mapping) %}
+      {% if item is defined and item not in [undefined, null, false] %}
       {%- set itemHead = head[loop.index0] -%}
 
-      {#- Support table header as string or number #}
+      {#- Support table header as defined value #}
       {%- set header = itemHead if itemHead is mapping and itemHead is not escaped else {
-        text: itemHead if itemHead is string or itemHead is number else undefined,
+        text: itemHead if itemHead is defined and itemHead is not escaped else undefined,
         html: itemHead if itemHead is escaped else undefined
       } -%}
 
-      {#- Support table data as string or number #}
+      {#- Support table data as defined value #}
       {%- set data = item if item is mapping and item is not escaped else {
-        text: item if item is string or item is number else undefined,
+        text: item if item is defined and item is not escaped else undefined,
         html: item if item is escaped else undefined
       } -%}
 
