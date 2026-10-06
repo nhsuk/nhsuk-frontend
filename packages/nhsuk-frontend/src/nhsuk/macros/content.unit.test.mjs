@@ -117,6 +117,96 @@ describe('Macro: Content', () => {
 
     it.each([
       {
+        description: 'content slot "before"',
+        context: {
+          text: 'What is your date of birth?',
+          slots: {
+            before: {
+              html: '<em>Before</em>'
+            }
+          }
+        },
+        expected: outdent`
+          <em>Before</em>
+          What is your date of birth?
+        `
+      },
+      {
+        description: 'content slot "before" only',
+        context: {
+          slots: {
+            before: {
+              html: '<em>Before</em>'
+            }
+          }
+        },
+        expected: outdent`
+          <em>Before</em>
+        `
+      },
+      {
+        description: 'content slot "start"',
+        context: {
+          text: 'What is your date of birth?',
+          slots: {
+            start: {
+              html: '<em>Start</em>'
+            }
+          }
+        },
+        expected: outdent`
+          <em>Start</em>What is your date of birth?
+        `
+      },
+      {
+        description: 'content slot "end"',
+        context: {
+          text: 'What is your date of birth?',
+          slots: {
+            end: {
+              html: '<em>End</em>'
+            }
+          }
+        },
+        expected: outdent`
+          What is your date of birth?<em>End</em>
+        `
+      },
+      {
+        description: 'content slot "after"',
+        context: {
+          text: 'What is your date of birth?',
+          slots: {
+            after: {
+              html: '<em>After</em>'
+            }
+          }
+        },
+        expected: outdent`
+          What is your date of birth?
+          <em>After</em>
+        `
+      },
+      {
+        description: 'content slot "after" only',
+        context: {
+          slots: {
+            after: {
+              html: '<em>After</em>'
+            }
+          }
+        },
+        expected: outdent`
+
+          <em>After</em>
+        `
+      }
+    ])('renders $description', ({ context, expected }) => {
+      expect(renderMacro(context)).toBe(expected)
+    })
+
+    it.each([
+      {
         description: 'visually hidden text',
         context: {
           text: 'Change',
@@ -146,6 +236,23 @@ describe('Macro: Content', () => {
         `
       },
       {
+        description: 'visually hidden text only with content slots',
+        context: {
+          visuallyHidden: 'details for Zadie Munroe',
+          slots: {
+            before: '[Before]',
+            start: 'Start–',
+            end: '–End',
+            after: '[After]'
+          }
+        },
+        expected: outdent`
+          [Before]
+          Start–<span class="nhsuk-u-visually-hidden">details for Zadie Munroe</span>–End
+          [After]
+        `
+      },
+      {
         description: 'visually hidden text "before"',
         context: {
           text: 'Enter your date of birth',
@@ -157,6 +264,61 @@ describe('Macro: Content', () => {
         expected: outdent`
           <span class="nhsuk-u-visually-hidden">Error:</span>
           Enter your date of birth
+        `
+      },
+      {
+        description: 'visually hidden text "before" only',
+        context: {
+          visuallyHidden: {
+            text: 'Error:',
+            placement: 'before'
+          }
+        },
+        expected: outdent`
+          <span class="nhsuk-u-visually-hidden">Error:</span>
+        `
+      },
+      {
+        description: 'visually hidden text "before" with content slots',
+        context: {
+          text: 'Enter your date of birth',
+          visuallyHidden: {
+            text: 'Error:',
+            placement: 'before'
+          },
+          slots: {
+            before: '[Before]',
+            start: 'Start–',
+            end: '–End',
+            after: '[After]'
+          }
+        },
+        expected: outdent`
+          [Before]
+          <span class="nhsuk-u-visually-hidden">Error:</span>
+          Start–Enter your date of birth–End
+          [After]
+        `
+      },
+      {
+        description: 'visually hidden text "before" only with content slots',
+        context: {
+          visuallyHidden: {
+            text: 'Error:',
+            placement: 'before'
+          },
+          slots: {
+            before: '[Before]',
+            start: 'Start–',
+            end: '–End',
+            after: '[After]'
+          }
+        },
+        expected: outdent`
+          [Before]
+          <span class="nhsuk-u-visually-hidden">Error:</span>
+          Start––End
+          [After]
         `
       },
       {
@@ -173,6 +335,59 @@ describe('Macro: Content', () => {
         `
       },
       {
+        description: 'visually hidden text "start" with content slots',
+        context: {
+          text: 'Enter your date of birth',
+          visuallyHidden: {
+            text: 'Error:',
+            placement: 'start'
+          },
+          slots: {
+            before: '[Before]',
+            start: 'Start–',
+            end: '–End',
+            after: '[After]'
+          }
+        },
+        expected: outdent`
+          [Before]
+          Start–<span class="nhsuk-u-visually-hidden">Error: </span>Enter your date of birth–End
+          [After]
+        `
+      },
+      {
+        description: 'visually hidden text "start" only',
+        context: {
+          visuallyHidden: {
+            text: 'details for Zadie Munroe',
+            placement: 'start'
+          }
+        },
+        expected: outdent`
+          <span class="nhsuk-u-visually-hidden">details for Zadie Munroe</span>
+        `
+      },
+      {
+        description: 'visually hidden text "start" only with content slots',
+        context: {
+          visuallyHidden: {
+            text: 'details for Zadie Munroe',
+            placement: 'start'
+          },
+          slots: {
+            before: '[Before]',
+            start: 'Start–',
+            end: '–End',
+            after: '[After]'
+          }
+        },
+        expected: outdent`
+          [Before]
+          Start–<span class="nhsuk-u-visually-hidden">details for Zadie Munroe</span>–End
+          [After]
+        `
+      },
+      {
         description: 'visually hidden text "end"',
         context: {
           text: 'Enter your date of birth',
@@ -183,6 +398,59 @@ describe('Macro: Content', () => {
         },
         expected: outdent`
           Enter your date of birth<span class="nhsuk-u-visually-hidden"> (Karen Francis)</span>
+        `
+      },
+      {
+        description: 'visually hidden text "end" only',
+        context: {
+          visuallyHidden: {
+            text: '(Karen Francis)',
+            placement: 'end'
+          }
+        },
+        expected: outdent`
+          <span class="nhsuk-u-visually-hidden">(Karen Francis)</span>
+        `
+      },
+      {
+        description: 'visually hidden text "end" with content slots',
+        context: {
+          text: 'Enter your date of birth',
+          visuallyHidden: {
+            text: '(Karen Francis)',
+            placement: 'end'
+          },
+          slots: {
+            before: '[Before]',
+            start: 'Start–',
+            end: '–End',
+            after: '[After]'
+          }
+        },
+        expected: outdent`
+          [Before]
+          Start–Enter your date of birth<span class="nhsuk-u-visually-hidden"> (Karen Francis)</span>–End
+          [After]
+        `
+      },
+      {
+        description: 'visually hidden text "end" only with content slots',
+        context: {
+          visuallyHidden: {
+            text: '(Karen Francis)',
+            placement: 'end'
+          },
+          slots: {
+            before: '[Before]',
+            start: 'Start–',
+            end: '–End',
+            after: '[After]'
+          }
+        },
+        expected: outdent`
+          [Before]
+          Start–<span class="nhsuk-u-visually-hidden">(Karen Francis)</span>–End
+          [After]
         `
       },
       {
@@ -198,9 +466,170 @@ describe('Macro: Content', () => {
           Enter your date of birth
           <span class="nhsuk-u-visually-hidden">(Karen Francis)</span>
         `
+      },
+      {
+        description: 'visually hidden text "after" only',
+        context: {
+          visuallyHidden: {
+            text: '(Karen Francis)',
+            placement: 'after'
+          }
+        },
+        expected: outdent`
+          <span class="nhsuk-u-visually-hidden">(Karen Francis)</span>
+        `
+      },
+      {
+        description: 'visually hidden text "after" with content slots',
+        context: {
+          text: 'Enter your date of birth',
+          visuallyHidden: {
+            text: '(Karen Francis)',
+            placement: 'after'
+          },
+          slots: {
+            before: '[Before]',
+            start: 'Start–',
+            end: '–End',
+            after: '[After]'
+          }
+        },
+        expected: outdent`
+          [Before]
+          Start–Enter your date of birth–End
+          <span class="nhsuk-u-visually-hidden">(Karen Francis)</span>
+          [After]
+        `
+      },
+      {
+        description: 'visually hidden text "after" only with content slots',
+        context: {
+          visuallyHidden: {
+            text: '(Karen Francis)',
+            placement: 'after'
+          },
+          slots: {
+            before: '[Before]',
+            start: 'Start–',
+            end: '–End',
+            after: '[After]'
+          }
+        },
+        expected: outdent`
+          [Before]
+          Start––End
+          <span class="nhsuk-u-visually-hidden">(Karen Francis)</span>
+          [After]
+        `
       }
     ])('renders $description', ({ context, expected }) => {
       expect(renderMacro(context)).toBe(expected)
+    })
+
+    it.each([
+      {
+        description: 'visually hidden text slot "start" only',
+        context: {
+          visuallyHidden: {
+            slots: {
+              start: {
+                html: '<em>Start</em>'
+              }
+            }
+          }
+        }
+      },
+      {
+        description: 'visually hidden text slot "end" only',
+        context: {
+          visuallyHidden: {
+            slots: {
+              end: {
+                html: '<em>End</em>'
+              }
+            }
+          }
+        }
+      },
+      {
+        description: 'content slot "start" only',
+        context: {
+          slots: {
+            start: {
+              html: '<em>Start</em>'
+            }
+          }
+        }
+      },
+      {
+        description: 'content slot "end" only',
+        context: {
+          slots: {
+            end: {
+              html: '<em>End</em>'
+            }
+          }
+        }
+      },
+      {
+        description: 'content or visually hidden text slot "start"',
+        context: {
+          visuallyHidden: {
+            slots: {
+              start: {
+                html: '<em>Start</em>'
+              }
+            }
+          },
+          slots: {
+            start: {
+              html: '<em>Start</em>'
+            }
+          }
+        }
+      },
+      {
+        description: 'content or visually hidden text slot "end"',
+        context: {
+          visuallyHidden: {
+            slots: {
+              end: {
+                html: '<em>End</em>'
+              }
+            }
+          },
+          slots: {
+            end: {
+              html: '<em>End</em>'
+            }
+          }
+        }
+      },
+      {
+        description: 'content or visually hidden text slots "start" and "end"',
+        context: {
+          visuallyHidden: {
+            slots: {
+              start: {
+                html: '<em>Start</em>'
+              },
+              end: {
+                html: '<em>End</em>'
+              }
+            }
+          },
+          slots: {
+            start: {
+              html: '<em>Start</em>'
+            },
+            end: {
+              html: '<em>End</em>'
+            }
+          }
+        }
+      }
+    ])('does not render $description', ({ context }) => {
+      expect(renderMacro(context)).toBe('')
     })
   })
 })
