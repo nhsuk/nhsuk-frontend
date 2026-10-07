@@ -31,23 +31,26 @@
 {#- fieldset is false by default #}
 {%- set hasFieldset = true if params.fieldset else false %}
 
-{%- set dateInputDay = params.day | default({
+{#- Support date input as string or number #}
+{%- set dateInputDay = params.day if params.day is mapping and params.day is not escaped else {
   name: "day",
-  value: params.values.day,
+  value: params.day | default(params.values.day),
   width: 2
-}) %}
+} %}
 
-{%- set dateInputMonth = params.month | default({
+{#- Support month input as string or number #}
+{%- set dateInputMonth = params.month if params.month is mapping and params.month is not escaped else {
   name: "month",
-  value: params.values.month,
+  value: params.month | default(params.values.month),
   width: 2
-}) %}
+} %}
 
-{%- set dateInputYear = params.year | default({
+{#- Support year input as string or number #}
+{%- set dateInputYear = params.year if params.year is mapping and params.year is not escaped else {
   name: "year",
-  value: params.values.year,
+  value: params.year | default(params.values.year),
   width: 4
-}) %}
+} %}
 
 {%- if params.items | length %}
   {%- set dateInputItems = params.items %}
@@ -164,7 +167,7 @@
     {{ params.formGroup.beforeInputs.html | safe | trim | indent(4) if params.formGroup.beforeInputs.html else params.formGroup.beforeInputs.text }}
     {% endif %}
     {% for item in dateInputItems %}
-      {% if item %}
+      {% if item and item.value is not sameas(false) %}
         {{- _dateInputItem(params, item, anyItemHasError) | trim | indent(4, true) }}
       {% endif %}
     {% endfor %}
